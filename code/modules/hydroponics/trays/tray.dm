@@ -19,7 +19,7 @@
 	var/maxWaterLevel = 100
 	var/maxNutriLevel = 10
 	var/maxPestLevel = 10
-	var/maxWeedLevel = 10
+	var/maxWeedLevel = 0 // Hydroponics systems don't grow weeds irl. Pests are still an issue.
 
 	// Tray state vars.
 	var/dead = 0               // Is it dead?
@@ -33,7 +33,7 @@
 	var/mutation_mod = 0       // Modifier to mutation chance
 	var/toxins = 0             // Toxicity in the tray?
 	var/mutation_level = 0     // When it hits 100, the plant mutates.
-	var/tray_light = 1         // Supplied lighting.
+	var/tray_light = 5         // Supplied lighting.
 
 	// Mechanical concerns.
 	var/health = 0             // Plant health.
@@ -137,7 +137,7 @@
 			return
 		var/mob/living/carbon/alien/diona/nymph = usr
 		if(nymph.nutrition > 100 && nutrilevel < 10)
-			nymph.nutrition -= ((10-nutrilevel)*5)
+			nymph.adjustNutritionLoss((10-nutrilevel)*5)
 			nutrilevel = 10
 			nymph.visible_message("<font color='blue'><b>[nymph]</b> secretes a trickle of green liquid, refilling [src].</font>","<font color='blue'>You secrete a trickle of green liquid, refilling [src].</font>")
 		return//Nymphs cant open and close lids

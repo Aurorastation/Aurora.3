@@ -279,8 +279,7 @@
 /obj/machinery/cryopod/proc/despawn_occupant()
 	//Drop all items into the pod.
 	for(var/obj/item/W in occupant)
-		occupant.drop_from_inventory(W)
-		W.forceMove(src)
+		occupant.drop_from_inventory(W,src)
 
 		if(W.contents.len) //Make sure we catch anything not handled by qdel() on the items.
 			for(var/obj/item/O in W.contents)
@@ -313,7 +312,7 @@
 		else
 			if(control_computer && control_computer.allow_items)
 				control_computer.frozen_items += W
-				W.loc = null
+				W.forceMove(null)
 			else
 				W.forceMove(src.loc)
 
@@ -417,7 +416,7 @@
 		if(do_after(user, 20))
 			if(!L) return
 
-			L.loc = src
+			L.forceMove(src)
 
 			if(L.client)
 				L.client.perspective = EYE_PERSPECTIVE

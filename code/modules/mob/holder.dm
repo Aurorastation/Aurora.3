@@ -102,19 +102,12 @@ var/list/holder_mob_icon_cache = list()
 		M.Released()
 
 	contained = null
-	var/mob/L = get_holding_mob()
-	if (L)
-		L.drop_from_inventory(src)
-
 	qdel(src)
 
 //Similar to above function, but will not deposit things in any container, only directly on a turf.
 //Can be called safely anywhere. Notably on holders held or worn on a mob
 /obj/item/weapon/holder/proc/release_to_floor()
 	var/turf/T = get_turf(src)
-	var/mob/L = get_holding_mob()
-	if (L)
-		L.drop_from_inventory(src)
 
 	for(var/mob/M in contents)
 		M.forceMove(T) //if the holder was placed into a disposal, this should place the animal in the disposal
@@ -597,5 +590,12 @@ var/list/holder_mob_icon_cache = list()
 	name = "corgi"
 	icon_state = "corgi"
 	item_state = "corgi"
+	contained_sprite = 1
+	w_class = 3
+
+/obj/item/weapon/holder/fox
+	name = "fox"
+	icon_state = "fox"
+	item_state = "fox"
 	contained_sprite = 1
 	w_class = 3

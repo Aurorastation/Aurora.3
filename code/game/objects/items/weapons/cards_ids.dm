@@ -83,9 +83,9 @@ var/const/NO_EMAG_ACT = -50
 
 	if(uses<1)
 		user.visible_message("<span class='warning'>\The [src] fizzles and sparks - it seems it's been used once too often, and is now spent.</span>")
-		user.drop_item()
 		var/obj/item/weapon/card/emag_broken/junk = new(user.loc)
 		junk.add_fingerprint(user)
+		user.drop_from_inventory(src,get_turf(junk))
 		qdel(src)
 
 	return 1
@@ -363,6 +363,12 @@ obj/item/weapon/card/id/ert/New()
 	access = get_all_station_access() + get_centcom_access("Emergency Response Team")
 	..()
 
+/obj/item/weapon/card/id/legion
+	name = "\improper Tau Ceti Foreign Legion ID"
+	icon_state = "centcom"
+	assignment = "Tau Ceti Foreign Legion Volunteer"
+	access = list(access_legion, access_maint_tunnels, access_external_airlocks, access_security, access_engine, access_medical, access_research)
+
 /obj/item/weapon/card/id/all_access
 	name = "\improper Administrator's spare ID"
 	desc = "The spare ID of the Lord of Lords himself."
@@ -370,6 +376,7 @@ obj/item/weapon/card/id/ert/New()
 	item_state = "tdgreen"
 	registered_name = "Administrator"
 	assignment = "Administrator"
+
 /obj/item/weapon/card/id/all_access/New()
 	access = get_access_ids()
 	..()

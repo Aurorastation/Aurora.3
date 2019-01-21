@@ -109,7 +109,7 @@
 
 		src.host = M
 		src.host.status_flags |= PASSEMOTES
-		src.loc = M
+		src.forceMove(M)
 
 		//Update their traitor status.
 		if(host.mind)

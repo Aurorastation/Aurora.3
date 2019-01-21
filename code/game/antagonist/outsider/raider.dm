@@ -42,7 +42,8 @@ var/datum/antagonist/raider/raiders
 	var/list/raider_glasses = list(
 		/obj/item/clothing/glasses/thermal,
 		/obj/item/clothing/glasses/eyepatch/hud/thermal,
-		/obj/item/clothing/glasses/thermal/plain/monocle
+		/obj/item/clothing/glasses/thermal/plain/monocle,
+		/obj/item/clothing/glasses/thermal/aviator
 		)
 
 	var/list/raider_helmets = list(
@@ -62,7 +63,7 @@ var/datum/antagonist/raider/raiders
 		/obj/item/clothing/suit/storage/toggle/hoodie,
 		/obj/item/clothing/suit/storage/toggle/hoodie/black,
 		/obj/item/clothing/suit/unathi/mantle,
-		/obj/item/clothing/suit/poncho
+		/obj/item/clothing/accessory/poncho
 		)
 
 	var/list/raider_guns = list(
@@ -74,7 +75,7 @@ var/datum/antagonist/raider/raiders
 		/obj/item/weapon/gun/energy/mindflayer,
 		/obj/item/weapon/gun/energy/toxgun,
 		/obj/item/weapon/gun/energy/stunrevolver,
-		/obj/item/weapon/gun/energy/ionrifle,
+		/obj/item/weapon/gun/energy/rifle/ionrifle,
 		/obj/item/weapon/gun/energy/taser,
 		/obj/item/weapon/gun/energy/crossbow/largecrossbow,
 		/obj/item/weapon/gun/launcher/crossbow,
@@ -195,8 +196,8 @@ var/datum/antagonist/raider/raiders
 		else
 			win_msg += "<B>The Raiders were repelled!</B>"
 
-	world << "<span class='danger'><font size = 3>[win_type] [win_group] victory!</font></span>"
-	world << "[win_msg]"
+	to_world("<span class='danger'><font size = 3>[win_type] [win_group] victory!</font></span>")
+	to_world("[win_msg]")
 	feedback_set_details("round_end_result","heist - [win_type] [win_group]")
 
 /datum/antagonist/raider/proc/is_raider_crew_safe()
@@ -267,14 +268,14 @@ var/datum/antagonist/raider/raiders
 		if(!(primary.slot_flags & SLOT_HOLSTER))
 			holster = new new_holster(T)
 			holster.holstered = secondary
-			secondary.loc = holster
+			secondary.forceMove(holster)
 		else
 			player.equip_to_slot_or_del(secondary, slot_belt)
 
 	if(primary.slot_flags & SLOT_HOLSTER)
 		holster = new new_holster(T)
 		holster.holstered = primary
-		primary.loc = holster
+		primary.forceMove(holster)
 	else if(!player.belt && (primary.slot_flags & SLOT_BELT))
 		player.equip_to_slot_or_del(primary, slot_belt)
 	else if(!player.back && (primary.slot_flags & SLOT_BACK))

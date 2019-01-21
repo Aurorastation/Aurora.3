@@ -1,31 +1,52 @@
-/obj/item/weapon/gun/energy/ionrifle
+/obj/item/weapon/gun/energy/rifle/ionrifle
 	name = "ion rifle"
-	desc = "The NT Mk60 EW Halicon is a man portable anti-armor weapon designed to disable mechanical threats, produced by NT."
-	icon_state = "ionrifle"
-	item_state = "ionrifle"
+	desc = "The NT Mk70 EW Halicon is a man portable anti-armor weapon designed to disable mechanical threats, produced by NT. Has two settings: stun and kill"
+	icon_state = "ionriflestun100"
+	item_state = "ionriflestun100" // so the human update icon uses the icon_state instead.
+	modifystate = "ionriflestun"
+	projectile_type = /obj/item/projectile/ion/stun
 	fire_sound = 'sound/weapons/Laser.ogg'
 	origin_tech = list(TECH_COMBAT = 2, TECH_MAGNET = 4)
 	w_class = 4
+	accuracy = 1
 	force = 10
 	flags =  CONDUCT
 	slot_flags = SLOT_BACK
 	charge_cost = 300
 	max_shots = 10
-	projectile_type = /obj/item/projectile/ion
+	secondary_projectile_type =  /obj/item/projectile/ion
+	secondary_fire_sound = 'sound/weapons/Laser.ogg'
 	can_turret = 1
+	can_switch_modes = 1
 	turret_sprite_set = "ion"
 
-/obj/item/weapon/gun/energy/ionrifle/emp_act(severity)
+	firemodes = list(
+		list(mode_name="stun", projectile_type=/obj/item/projectile/ion/stun, modifystate="ionriflestun", fire_sound='sound/weapons/Laser.ogg', charge_cost = 300),
+		list(mode_name="lethal", projectile_type=/obj/item/projectile/ion, modifystate="ionriflekill", fire_sound='sound/weapons/Laser.ogg', charge_cost = 450)
+		)
+
+/obj/item/weapon/gun/energy/rifle/ionrifle/emp_act(severity)
 	..(max(severity, 2)) //so it doesn't EMP itself, I guess
 
-/obj/item/weapon/gun/energy/ionrifle/update_icon()
-	..()
-	if(power_supply.charge < charge_cost)
-		item_state = "ionrifle-empty"
-	else
-		item_state = initial(item_state)
+/obj/item/weapon/gun/energy/rifle/ionrifle/update_icon()
+	if(charge_meter && power_supply && power_supply.maxcharge)
+		var/ratio = power_supply.charge / power_supply.maxcharge
 
-/obj/item/weapon/gun/energy/ionrifle/mounted
+		//make sure that rounding down will not give us the empty state even if we have charge for a shot left.
+		if(power_supply.charge < charge_cost)
+			ratio = 0
+		else
+			ratio = max(round(ratio, 0.25) * 100, 25)
+
+		if(modifystate)
+			icon_state = "[modifystate][ratio]"
+			item_state = "[modifystate][ratio]"
+		else
+			icon_state = "[initial(icon_state)][ratio]"
+			item_state = "[initial(icon_state)][ratio]"
+	update_held_icon()
+
+/obj/item/weapon/gun/energy/rifle/ionrifle/mounted
 	name = "mounted ion rifle"
 	self_recharge = 1
 	use_external_power = 1
@@ -281,8 +302,9 @@
 	fire_sound = 'sound/weapons/Laser.ogg'
 	slot_flags = SLOT_BACK | SLOT_HOLSTER | SLOT_BELT
 	w_class = 3
+	accuracy = 1
 	force = 10
-	projectile_type = /obj/item/projectile/energy/blaster
+	projectile_type = /obj/item/projectile/energy/blaster/incendiary
 	max_shots = 6
 	sel_mode = 1
 	burst = 1
@@ -310,6 +332,7 @@
 	attack_verb = list("sundered", "annihilated", "sliced", "cleaved", "slashed", "pulverized")
 	slot_flags = SLOT_BACK
 	w_class = 5
+	accuracy = 3 // It's a massive beam, okay.
 	force = 60
 	projectile_type = /obj/item/projectile/beam/megaglaive
 	max_shots = 36
@@ -408,6 +431,7 @@
 	fire_sound = 'sound/magic/lightningbolt.ogg'
 	slot_flags = SLOT_BACK
 	w_class = 4
+	accuracy = 0 // Overwrite just in case.
 	force = 15
 	projectile_type = /obj/item/projectile/beam/thermaldrill
 	max_shots = 90
@@ -519,6 +543,7 @@
 	projectile_type = /obj/item/projectile/beam/tachyon
 	origin_tech = list(TECH_COMBAT = 5, TECH_MATERIAL = 3, TECH_MAGNET = 2, TECH_ILLEGAL = 2)
 	max_shots = 10
+	accuracy = 1
 	fire_delay = 1
 	can_turret = 0
 

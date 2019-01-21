@@ -67,6 +67,7 @@
 	var/distance = 0
 	var/port = 0
 	var/view = 0
+	prize = /obj/random/arcade/orion
 
 /obj/machinery/computer/arcade/orion_trail/proc/newgame(var/emag = 0)
 	name = "orion trail[emag ? ": Realism Edition" : ""]"

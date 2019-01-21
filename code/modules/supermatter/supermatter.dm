@@ -91,6 +91,7 @@
 	var/obj/item/device/radio/radio
 
 	var/debug = 0
+	var/last_message_time = -100 //for message
 
 /obj/machinery/power/supermatter/Initialize()
 	. = ..()
@@ -158,6 +159,10 @@
 		if((damage > emergency_point) && !public_alert)
 			radio.autosay("WARNING: SUPERMATTER CRYSTAL DELAMINATION IMMINENT!", "Supermatter Monitor")
 			public_alert = 1
+			for(var/mob/M in player_list)
+				var/turf/T = get_turf(M)
+				if(T && !istype(M, /mob/abstract/new_player) && !isdeaf(M))
+					sound_to(M, 'sound/effects/nuclearsiren.ogg')
 		else if(safe_warned && public_alert)
 			radio.autosay(alert_msg, "Supermatter Monitor")
 			public_alert = 0
@@ -278,6 +283,11 @@
 		if (!(l in oview(rad_range, src)) && !(l in range(src, round(rad_range * 2/3))))
 			continue
 		l.apply_effect(rads, IRRADIATE, blocked = l.getarmor(null, "rad"))
+		if(l.is_diona())
+			l.adjustToxLoss(-rads)
+			if(last_message_time + 800 < world.time) // Not to spam message
+				to_chat(l, "<span class='notice'>You can feel an extreme level of energy which flows throught your body and makes you regenerate very fast.</span>")
+	last_message_time = world.time
 
 	power -= (power/DECAY_FACTOR)**3		//energy losses due to radiation
 

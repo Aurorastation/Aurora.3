@@ -251,7 +251,7 @@
 	P.add_overlay(stampoverlay)
 	P.stamps += "<HR><i>This paper has been stamped by the Central Command Quantum Relay.</i>"
 
-	if(fax.recievefax(P))
+	if(fax.receivefax(P))
 		if(announce == 1)
 			command_announcement.Announce("A fax has been sent to the [department] fax machine.", "Fax Sent")
 		usr << "<span class='notice'>Message transmitted successfully.</span>"

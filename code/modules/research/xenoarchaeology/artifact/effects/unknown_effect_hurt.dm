@@ -15,7 +15,8 @@
 			C.adjustFireLoss(rand(5,25) * weakness)
 			C.adjustBrainLoss(rand(5,25) * weakness)
 			C.apply_effect(25 * weakness, IRRADIATE, blocked = C.getarmor(null, "rad"))
-			C.nutrition -= min(50 * weakness, C.nutrition)
+			C.adjustNutritionLoss(50 * weakness)
+			C.adjustHydrationLoss(50 * weakness)
 			C.make_dizzy(6 * weakness)
 			C.weakened += 6 * weakness
 

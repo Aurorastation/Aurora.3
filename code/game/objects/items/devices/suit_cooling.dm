@@ -127,7 +127,7 @@
 		if(ishuman(user))
 			user.put_in_hands(cell)
 		else
-			cell.loc = get_turf(loc)
+			cell.forceMove(get_turf(loc))
 
 		cell.add_fingerprint(user)
 		cell.update_icon()
@@ -161,8 +161,7 @@
 			if(cell)
 				user << "There is a [cell] already installed here."
 			else
-				user.drop_item()
-				W.loc = src
+				user.drop_from_inventory(W,src)
 				cell = W
 				user << "You insert the [cell]."
 		update_icon()

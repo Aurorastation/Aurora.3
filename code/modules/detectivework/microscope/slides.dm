@@ -25,7 +25,7 @@
 	if(has_swab || has_sample)
 		user << "<span class='notice'>You remove \the sample from \the [src].</span>"
 		if(has_swab)
-			has_swab.loc = get_turf(src)
+			has_swab.forceMove(get_turf(src))
 			has_swab = null
 		if(has_sample)
 			has_sample.forceMove(get_turf(src))

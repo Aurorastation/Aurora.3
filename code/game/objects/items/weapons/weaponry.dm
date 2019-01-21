@@ -229,7 +229,7 @@
 	affecting.visible_message("[affecting] vanishes in a flare of light!")
 
 	if(holdingfacility.len)
-		affecting.loc = pick(holdingfacility)
+		affecting.forceMove(pick(holdingfacility))
 
 	affecting << "You appear in a strange place!"
 
@@ -244,7 +244,7 @@
 	healthcheck()
 	return 0
 
-/obj/effect/energy_net/ex_act()
+/obj/effect/energy_net/ex_act(var/severity = 2.0)
 	health = 0
 	healthcheck()
 

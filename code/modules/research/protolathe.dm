@@ -199,7 +199,7 @@
 
 	if(D.build_path)
 		var/obj/new_item = D.Fabricate(src, src)
-		new_item.loc = loc
+		new_item.forceMove(loc)
 		if(mat_efficiency != 1) // No matter out of nowhere
 			if(new_item.matter && new_item.matter.len > 0)
 				for(var/i in new_item.matter)

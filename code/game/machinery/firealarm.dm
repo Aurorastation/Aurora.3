@@ -123,7 +123,7 @@
 					playsound(src.loc, 'sound/items/Crowbar.ogg', 50, 1)
 					spawn(20)
 						var/obj/item/weapon/firealarm_electronics/circuit = new /obj/item/weapon/firealarm_electronics()
-						circuit.loc = user.loc
+						circuit.forceMove(user.loc)
 						buildstage = 0
 						update_icon()
 			if(0)

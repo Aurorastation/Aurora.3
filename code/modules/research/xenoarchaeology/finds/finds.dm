@@ -51,7 +51,7 @@
 		if(w.isOn())
 			if(w.get_fuel() >= 4 && !src.method)
 				if(inside)
-					inside.loc = get_turf(src)
+					inside.forceMove(get_turf(src))
 					for(var/mob/M in viewers(world.view, user))
 						M.show_message("<span class='info'>[src] burns away revealing [inside].</span>",1)
 				else
@@ -88,7 +88,7 @@
 	if(new_item_type)
 		find_type = new_item_type
 	else
-		find_type = rand(1,35)	//update this when you add new find types
+		find_type = rand(1,36)	//update this when you add new find types
 
 	var/item_type = "object"
 	icon_state = "unknown[rand(1,4)]"
@@ -191,7 +191,7 @@
 		if(9)
 			item_type = "[pick("wicked","evil","byzantine","dangerous")] looking [pick("device","contraption","thing","trap")]"
 			apply_prefix = 0
-			new_item = new /obj/item/weapon/beartrap(src.loc)
+			new_item = new /obj/item/weapon/trap(src.loc)
 			additional_desc = "[pick("It looks like it could take a limb off",\
 			"Could be some kind of animal trap",\
 			"There appear to be [pick("dark red","dark purple","dark green","dark blue")] stains along part of it")]."
@@ -392,14 +392,14 @@
 						if(new_gun.loaded.len > num_bullets)
 							if(I in new_gun.loaded)
 								new_gun.loaded.Remove(I)
-								I.loc = null
+								I.forceMove(null)
 						else
 							break
 			else
 				for(var/obj/item/I in new_gun)
 					if(I in new_gun.loaded)
 						new_gun.loaded.Remove(I)
-						I.loc = null
+						I.forceMove(null)
 
 			item_type = "gun"
 		if(28)
@@ -489,6 +489,9 @@
 				new_item = new /obj/item/clothing/mask/gas/poltergeist(src.loc)
 			else
 				new_item = new /obj/item/clothing/mask/gas(src.loc)
+		if(36)
+			new_item = new /obj/item/sarcophagus_key(src.loc)
+
 	var/decorations = ""
 	if(apply_material_decorations)
 		source_material = pick("cordite","quadrinium",DEFAULT_WALL_MATERIAL,"titanium","aluminium","ferritic-alloy","plasteel","duranium")
@@ -531,7 +534,7 @@
 		desc += engravings
 
 	if(apply_prefix)
-		name = "[pick("Strange","Ancient","Alien","")] [item_type]"
+		name = "[pick("strange","ancient","alien")] [item_type]"
 	else
 		name = item_type
 

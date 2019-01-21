@@ -85,7 +85,7 @@
 
 	QDEL_IN(src, duration)
 
-/obj/effect/overlay/temp/ex_act()
+/obj/effect/overlay/temp/ex_act(var/severity = 2.0)
 	return
 
 /obj/effect/overlay/temp/dir_setting

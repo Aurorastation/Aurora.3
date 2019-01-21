@@ -196,10 +196,6 @@
 		name = "Bedhead 2"
 		icon_state = "hair_bedheadv2"
 
-	bedhead3
-		name = "Bedhead 3"
-		icon_state = "hair_bedheadv3"
-
 	beehive
 		name = "Beehive"
 		icon_state = "hair_beehive"
@@ -246,11 +242,6 @@
 	combover
 		name = "Combover"
 		icon_state = "hair_combover"
-		gender = MALE
-
-	father
-		name = "Father"
-		icon_state = "hair_father"
 		gender = MALE
 
 	reversemohawk
@@ -334,11 +325,6 @@
 		icon_state = "hair_hitop"
 		gender = MALE
 
-	mohawk
-		name = "Mohawk"
-		icon_state = "hair_d"
-		species_allowed = list("Human","Unathi")
-
 	jensen
 		name = "Adam Jensen Hair"
 		icon_state = "hair_jensen"
@@ -401,6 +387,11 @@
 	braid2
 		name = "Long Braid"
 		icon_state = "hair_hbraid"
+		gender = FEMALE
+
+	braidalt
+		name = "Long Braid 2"
+		icon_state = "hair_hbraidalt"
 		gender = FEMALE
 
 	odango
@@ -693,6 +684,59 @@
 		name = "Right Sidecut"
 		icon_state = "hair_rightside"
 
+	gentle2
+		name = "Gentle 2"
+		icon_state = "hair_gentle2"
+
+	gentle2long
+		name = "Gentle 2 (Long)"
+		icon_state = "hair_gentle2long"
+
+	donutbun
+		name = "Donut Bun"
+		icon_state = "hair_donutbun"
+
+	gentle2alt
+		name = "Gentle 2, Alternative"
+		icon_state = "hair_gentle2alt"
+
+	gentle2longalt
+		name = "Gentle 2, Alternative (Long)"
+		icon_state = "hair_gentle2longalt"
+
+	neat
+		name = "Neat"
+		icon_state = "hair_neat"
+		gender = FEMALE
+
+	neatlong
+		name = "Neat (Long)"
+		icon_state = "hair_neatlong"
+		gender = FEMALE
+
+	bobcuteven
+		name = "Shoulder Bob"
+		icon_state = "hair_bobcuteven"
+		gender = FEMALE
+
+	shortmess
+		name = "Messy"
+		icon_state = "hair_shortmess"
+
+	remohawk
+		name = "Mohawk"
+		icon_state = "hair_mohawk"
+
+	celes
+		name = "Drills, Side"
+		icon_state = "hair_celes"
+
+	lowbun
+		name = "Low Bun"
+		icon_state = "hair_bun3"
+
+
+
 	// TG-format hair - uses ICON_MULTIPLY instead of ICON_ADD
 	uniter
 		icon = 'icons/mob/human_face/hair_multiply.dmi'
@@ -968,19 +1012,30 @@
 			name = "Unathi Side Frills"
 			icon_state = "unathi_sidefrills"
 
+		una_mohawk
+			name = "Unathi Mohawk"
+			icon_state = "unathi_mohawk"
+
 //skrell tentacles
 
 	skr_tentacle_m
 		icon = 'icons/mob/human_face/skrell_hair.dmi'
-		name = "Skrell Male Tentacles"
+		name = "Skrell Short Tentacles"
 		icon_state = "skrell_hair_m"
 		species_allowed = list("Skrell")
-		gender = MALE
 
 		skr_tentacle_f
-			name = "Skrell Female Tentacles"
+			name = "Skrell Average Tentacles"
 			icon_state = "skrell_hair_f"
-			gender = FEMALE
+
+		skr_tentacle_short
+			name = "Skrell Very Short Tentacles"
+			icon_state = "veryshort_s"
+
+		skr_tentacle_long
+			name = "Skrell Very Long Tentacles"
+			icon_state = "verylong_s"
+
 
 //tajaran hair
 
@@ -1054,6 +1109,10 @@
 			name = "Tajara Finger Curls"
 			icon_state = "hair_fingerwave"
 
+		taj_ears_pompadour
+			name = "Tajara Greaser"
+			icon_state = "hair_greaser"
+
 //vox hair
 
 	vox_quills_short
@@ -1069,6 +1128,35 @@
 		vox_quills_mohawk
 			name = "Quill Mohawk"
 			icon_state = "vox_mohawk"
+
+//vaurca antennae
+
+	vaurca_classic
+		icon = 'icons/mob/human_face/vaurca_hair.dmi'
+		name = "Classic Antennae"
+		icon_state = "vaurca_classic"
+		species_allowed = list("Vaurca")
+		gender = NEUTER
+
+		vaurca_mid
+			name = "Mid Length Antennae"
+			icon_state = "vaurca_mid"
+
+		vaurca_fla
+			name = "Floor Length Antennae"
+			icon_state = "vaurca_fla"
+
+		vaurca_droop
+			name = "Droopy Antennae"
+			icon_state = "vaurca_droop"
+
+		vaurca_zappy
+			name = "Zappy Antennae"
+			icon_state = "vaurca_zappy"
+
+		vaurca_braided
+			name = "Braided Antennae"
+			icon_state = "vaurca_braided"
 
 /datum/sprite_accessory/facial_hair
 	taj_sideburns
@@ -1306,7 +1394,6 @@
 		icon_state = "una_scutes"
 		body_parts = list("chest")
 		species_allowed = list("Unathi")
-
 
 // Branded IPC markings - disabled for now, some layering issues.
 /*

@@ -86,7 +86,7 @@
 				var/transaction_amount = order_details["price_customer"];
 				var/transaction_purpose = "Cargo Order #[order_details["order_id"]]";
 				
-				var/datum/money_account/D = get_account(id_card.associated_account_number)
+				var/datum/money_account/D = SSeconomy.get_account(id_card.associated_account_number)
 				if(!D)
 					status_message = "Unable to access account. Check security settings and try again."
 					return 1
@@ -94,7 +94,7 @@
 				if(D.security_level)
 					attempt_pin = input("Enter pin code", "EFTPOS transaction") as num
 					D = null
-				D = attempt_account_access(id_card.associated_account_number, attempt_pin, 2)
+				D = SSeconomy.attempt_account_access(id_card.associated_account_number, attempt_pin, 2)
 				if(D)
 					if(!D.suspended)
 						if(transaction_amount <= D.money)
@@ -113,18 +113,18 @@
 							else
 								T.amount = "[transaction_amount]"
 							T.source_terminal = "Modular Computer #[program.computer.network_card.identification_id]"
-							T.date = current_date_string
+							T.date = worlddate2text()
 							T.time = worldtime2text()
-							D.transaction_log.Add(T)
+							SSeconomy.add_transaction_log(D,T)
 							//
 							T = new()
 							T.target_name = D.owner_name
 							T.purpose = transaction_purpose
 							T.amount = "[transaction_amount]"
 							T.source_terminal = "Modular Computer #[program.computer.network_card.identification_id]"
-							T.date = current_date_string
+							T.date = worlddate2text()
 							T.time = worldtime2text()
-							SScargo.supply_account.transaction_log.Add(T)
+							SSeconomy.add_transaction_log(SScargo.supply_account,T)
 
 							//Check if we have delivered it aswell or only paid
 							if(order_details["status"] == "shipped")

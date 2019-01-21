@@ -251,7 +251,7 @@
 		stance = HOSTILE_STANCE_IDLE
 		audible_emote("[pick(sad_emote)].",0)
 
-mob/living/simple_animal/hostile/commanded/hitby(atom/movable/AM as mob|obj,var/speed = THROWFORCE_SPEED_DIVISOR)//Standardization and logging -Sieve
+/mob/living/simple_animal/hostile/commanded/hitby(atom/movable/AM as mob|obj,var/speed = THROWFORCE_SPEED_DIVISOR)//Standardization and logging -Sieve
 	..()
 
 	if(istype(AM,/obj/))

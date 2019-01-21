@@ -51,7 +51,6 @@
 	force_unwielded = round(force_wielded*unwielded_force_divisor)
 	force = force_unwielded
 	throwforce = round(force*thrown_force_divisor)
-	//world << "[src] has unwielded force [force_unwielded], wielded force [force_wielded] and throwforce [throwforce] when made from default material [material.name]"
 
 /obj/item/weapon/material/twohanded/New()
 	..()
@@ -188,8 +187,9 @@
 	force_wielded = 30
 	attack_verb = list("attacked", "chopped", "cleaved", "torn", "cut")
 	applies_material_colour = 0
+	can_embed = 0
 
-/obj/item/weapon/material/twohanded/fireaxe/afterattack(atom/A as mob|obj|turf|area, mob/user as mob, proximity)
+/obj/item/weapon/material/twohanded/fireaxe/afterattack(atom/A, mob/user, proximity)
 	if(!proximity) return
 	..()
 	if(A && wielded)
@@ -203,6 +203,7 @@
 			P.die_off()
 
 /obj/item/weapon/material/twohanded/fireaxe/pre_attack(var/mob/living/target, var/mob/living/user)
+	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN * 2.5)
 	if(istype(target))
 		cleave(user, target)
 	..()
@@ -243,8 +244,7 @@
 		var/obj/structure/headspear/HS = new /obj/structure/headspear(user.loc)
 		var/matrix/M = matrix()
 		I.transform = M
-		usr.drop_item()
-		I.forceMove(HS)
+		usr.drop_from_inventory(I,HS)
 		var/mutable_appearance/MA = new(I)
 		MA.layer = FLOAT_LAYER
 		HS.add_overlay(MA)
@@ -310,7 +310,7 @@
 	user.visible_message("<span class='warning'>[user] kicks over \the [src]!</span>", "<span class='danger'>You kick down \the [src]!</span>")
 	new /obj/item/weapon/material/twohanded/spear(user.loc, material)
 	for(var/obj/item/organ/external/head/H in src)
-		H.loc = user.loc
+		H.forceMove(user.loc)
 	qdel(src)
 
 // Chainsaws!

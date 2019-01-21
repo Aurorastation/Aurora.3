@@ -740,8 +740,7 @@
 						user << "<span class='notice'>\the [I] is stuck to your hand, you cannot put it in \the [src]</span>"
 						return
 					user << "<span class='notice'>You install [I] into the turret.</span>"
-					user.drop_item()
-					E.loc = src
+					user.drop_from_inventory(E,src)
 					target_type = /obj/machinery/porta_turret
 					installation = I.type //installation becomes I.type
 					build_step = 4
@@ -879,7 +878,7 @@
 			if(!installation)
 				return
 			build_step = 3
-			E.loc = src.loc
+			E.forceMove(src.loc)
 			installation = null
 			cut_overlays()
 			icon_state = "turret_frame_3_[case_sprite_set]"
@@ -910,13 +909,15 @@
 	eshot_sound	= 'sound/weapons/laser3.ogg'
 
 /obj/machinery/porta_turret/ion
-	installation = /obj/item/weapon/gun/energy/ionrifle
-	lethal = 1
-	lethal_icon = 1
-	egun = 0
+	installation = /obj/item/weapon/gun/energy/rifle/ionrifle
+	lethal = 0
+	lethal_icon = 0
+	egun = 1
 	sprite_set = "ion"
 
+	projectile = /obj/item/projectile/ion/stun
 	eprojectile = /obj/item/projectile/ion
+	shot_sound = 'sound/weapons/Laser.ogg'
 	eshot_sound	= 'sound/weapons/Laser.ogg'
 
 /obj/machinery/porta_turret/crossbow

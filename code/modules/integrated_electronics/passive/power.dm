@@ -88,7 +88,7 @@
 
 			if(test_validity(host))
 				assembly.give_power(10)
-				host.nutrition = max(host.nutrition - HUNGER_FACTOR, 0)
+				host.adjustNutritionLoss(HUNGER_FACTOR)
 
 /obj/item/integrated_circuit/passive/power/metabolic_siphon/synthetic
 	name = "internal energy siphon"

@@ -20,6 +20,7 @@
 	var/rotation = 0
 	var/angle = 45
 	var/power = 5
+	var/potency = 0
 
 	// Based on the power used
 	var/teleport_cooldown = 0 // every index requires a bluespace crystal
@@ -33,7 +34,7 @@
 /obj/machinery/computer/telescience/Destroy()
 	eject()
 	if(inserted_gps)
-		inserted_gps.loc = loc
+		inserted_gps.forceMove(loc)
 		inserted_gps = null
 	return ..()
 
@@ -54,14 +55,14 @@
 			return
 		user.drop_item(src)
 		crystals += W
-		W.loc = null
+		W.forceMove(null)
 		user.visible_message("[user] inserts [W] into \the [src]'s crystal slot.", "<span class='notice'>You insert [W] into \the [src]'s crystal slot.</span>")
 		updateDialog()
 	else if(istype(W, /obj/item/device/gps))
 		if(!inserted_gps)
 			inserted_gps = W
 			user.unEquip(W)
-			W.loc = src
+			W.forceMove(src)
 			user.visible_message("[user] inserts [W] into \the [src]'s GPS device slot.", "<span class='notice'>You insert [W] into \the [src]'s GPS device slot.</span>")
 	else if(ismultitool(W))
 		var/obj/item/device/multitool/M = W
@@ -101,7 +102,7 @@
 		t += "<div class='statusDisplay'>"
 
 		for(var/i = 1; i <= power_options.len; i++)
-			if(crystals.len + telepad.efficiency  < i)
+			if(crystals.len + telepad.efficiency - potency  < i)
 				t += "<span class='linkOff'>[power_options[i]]</span>"
 				continue
 			if(power == power_options[i])
@@ -112,6 +113,9 @@
 
 		t += "<A href='?src=\ref[src];setz=1'>Set Sector</A>"
 		t += "<div class='statusDisplay'>[z_co ? z_co : "NULL"]</div>"
+
+		t += " <A href='?src=\ref[src];scalar=1'>Recalibrate Warp-Funnel</A>"
+		t += "<div class='statusDisplay'>[potency]</div>"
 
 		t += "<BR><A href='?src=\ref[src];send=1'>Send</A>"
 		t += " <A href='?src=\ref[src];receive=1'>Receive</A>"
@@ -171,7 +175,7 @@
 		var/area/A = get_area(target)
 		flick("pad-beam", telepad)
 
-		if(spawn_time > 15) // 1.5 seconds
+		if(spawn_time > (15 * (potency + 1))) // 1.5 seconds
 			playsound(telepad.loc, 'sound/weapons/flash.ogg', 25, 1)
 			// Wait depending on the time the projectile took to get there
 			teleporting = 1
@@ -184,11 +188,11 @@
 			if(telepad.stat & NOPOWER)
 				return
 			teleporting = 0
-			teleport_cooldown = world.time + (power * 2)
+			teleport_cooldown = world.time + (power * 2 * (potency + 1))
 			teles_left -= 1
 
 			// use a lot of power
-			use_power(power * 10)
+			use_power(power * 10 * (potency + 1))
 
 			spark(telepad, 5, alldirs)
 
@@ -211,7 +215,7 @@
 
 			flick("pad-beam", telepad)
 			playsound(telepad.loc, 'sound/weapons/emitter2.ogg', 25, 1, extrarange = 3, falloff = 5)
-			for(var/atom/movable/ROI in source)
+			for(var/atom/movable/ROI in range(potency,source))
 				// if is anchored, don't let through
 				if(ROI.anchored)
 					if(isliving(ROI))
@@ -245,7 +249,10 @@
 							log_msg = dd_limittext(log_msg, length(log_msg) - 2)
 							log_msg += ")"
 					log_msg += ", "
-				do_teleport(ROI, dest)
+				var/x_offset = ROI.x - source.x
+				var/y_offset = ROI.y - source.y
+
+				do_teleport(ROI, locate(dest.x + x_offset, dest.y + y_offset, dest.z))
 
 			if (dd_hassuffix(log_msg, ", "))
 				log_msg = dd_limittext(log_msg, length(log_msg) - 2)
@@ -281,7 +288,7 @@
 
 /obj/machinery/computer/telescience/proc/eject()
 	for(var/obj/item/I in crystals)
-		I.loc = src.loc
+		I.forceMove(src.loc)
 		crystals -= I
 	power = 0
 
@@ -311,7 +318,7 @@
 		var/index = href_list["setpower"]
 		index = text2num(index)
 		if(index != null && power_options[index])
-			if(crystals.len + telepad.efficiency >= index)
+			if(crystals.len + telepad.efficiency - potency >= index)
 				power = power_options[index]
 
 	if(href_list["setz"])
@@ -322,7 +329,7 @@
 
 	if(href_list["ejectGPS"])
 		if(inserted_gps)
-			inserted_gps.loc = loc
+			inserted_gps.forceMove(loc)
 			inserted_gps = null
 
 	if(href_list["setMemory"])
@@ -339,6 +346,16 @@
 	if(href_list["receive"])
 		sending = 0
 		teleport(usr)
+
+	if(href_list["scalar"])
+		if(potency < max(0, crystals.len - 2))
+			potency++
+		else
+			potency = 0
+		if(crystals.len + telepad.efficiency - potency <= 0)
+			power = power_options[1]
+		else if(power_options[crystals.len + telepad.efficiency - potency] < power)
+			power = power_options[crystals.len + telepad.efficiency - potency]
 
 	if(href_list["recal"])
 		recalibrate()

@@ -17,9 +17,7 @@
 
 /obj/item/weapon/grenade/chem_grenade/Initialize()
 	. = ..()
-	var/datum/reagents/R = new/datum/reagents(1000)
-	reagents = R
-	R.my_atom = src
+	create_reagents(1000)
 
 /obj/item/weapon/grenade/chem_grenade/attack_self(mob/user as mob)
 	if(!stage || stage==1)
@@ -61,7 +59,7 @@
 		user << "<span class='notice'>You add [W] to the metal casing.</span>"
 		playsound(src.loc, 'sound/items/Screwdriver2.ogg', 25, -3)
 		user.remove_from_mob(det)
-		det.loc = src
+		det.forceMove(src)
 		detonator = det
 		if(istimer(detonator.a_left))
 			var/obj/item/device/assembly/timer/T = detonator.a_left
@@ -104,8 +102,7 @@
 		else
 			if(W.reagents.total_volume)
 				user << "<span class='notice'>You add \the [W] to the assembly.</span>"
-				user.drop_item()
-				W.forceMove(src)
+				user.drop_from_inventory(W,src)
 				beakers += W
 				stage = 1
 				name = "unsecured grenade with [beakers.len] containers[detonator?" and detonator":""]"
@@ -144,7 +141,8 @@
 
 	var/has_reagents = 0
 	for(var/obj/item/weapon/reagent_containers/glass/G in beakers)
-		if(G.reagents.total_volume) has_reagents = 1
+		if(G.reagents.total_volume)
+			has_reagents = 1
 
 	active = 0
 	if(!has_reagents)
@@ -160,7 +158,6 @@
 		return
 
 	playsound(src.loc, 'sound/effects/bamf.ogg', 50, 1)
-
 	for(var/obj/item/weapon/reagent_containers/glass/G in beakers)
 		G.reagents.trans_to_obj(src, G.reagents.total_volume)
 
@@ -305,7 +302,7 @@
 
 /obj/item/weapon/grenade/chem_grenade/large/phoroncleaner
 	name = "large cardox grenade"
-	desc = "A large smoke grenade containing a heavy amount of cardox. Use in case of phoron leaks. Warning: Harmful to Vaurca health."
+	desc = "A large chemical grenade containing a heavy amount of cardox. Use in case of phoron leaks. Warning: Harmful to Vaurca health."
 	stage = 2
 	path = 1
 
@@ -324,6 +321,7 @@
 	beakers += B1
 	beakers += B2
 	icon_state = initial(icon_state) +"_locked"
+
 
 /obj/item/weapon/grenade/chem_grenade/teargas
 	name = "tear gas grenade"
@@ -348,3 +346,24 @@
 	beakers += B2
 	icon_state = initial(icon_state) +"_locked"
 
+/obj/item/weapon/grenade/chem_grenade/monoammoniumphosphate
+	name = "extinguisher grenade"
+	desc = "BLAM!-brand foaming extinguisher. Incredibly useful for taking out large chemical fires at a distance."
+	stage = 2
+	path = 1
+
+	Initialize()
+		. = ..()
+		var/obj/item/weapon/reagent_containers/glass/beaker/B1 = new(src)
+		var/obj/item/weapon/reagent_containers/glass/beaker/B2 = new(src)
+
+		B1.reagents.add_reagent("surfactant", 40)
+		B1.reagents.add_reagent("monoammoniumphosphate", 20)
+		B2.reagents.add_reagent("water", 40)
+		B2.reagents.add_reagent("monoammoniumphosphate", 20)
+
+		detonator = new/obj/item/device/assembly_holder/timer_igniter(src)
+
+		beakers += B1
+		beakers += B2
+		icon_state = initial(icon_state) +"_locked"

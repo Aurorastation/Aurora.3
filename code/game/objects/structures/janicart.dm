@@ -50,7 +50,7 @@
 
 /obj/structure/janitorialcart/MouseDrop_T(atom/movable/O as mob|obj, mob/living/user as mob)
 	if (istype(O, /obj/structure/mopbucket) && !mybucket)
-		O.loc = src
+		O.forceMove(src)
 		mybucket = O
 		user << "You mount the [O] on the janicart."
 		update_icon()
@@ -65,9 +65,8 @@
 	var/obj/I = usr.get_active_hand()
 	if(istype(I, /obj/item/weapon/mop))
 		if(!mymop)
-			usr.drop_item()
+			usr.drop_from_inventory(I,src)
 			mymop = I
-			I.forceMove(src)
 			update_icon()
 			updateUsrDialog()
 			usr << "<span class='notice'>You put [I] into [src].</span>"
@@ -100,25 +99,23 @@
 		return 1
 
 	else if(istype(I, /obj/item/weapon/reagent_containers/spray) && !myspray)
-		user.drop_item()
+		user.drop_from_inventory(I,src)
 		myspray = I
-		I.forceMove(src)
 		update_icon()
 		updateUsrDialog()
 		user << "<span class='notice'>You put [I] into [src].</span>"
 		return 1
 
 	else if(istype(I, /obj/item/device/lightreplacer) && !myreplacer)
-		user.drop_item()
+		user.drop_from_inventory(I,src)
 		myreplacer = I
-		I.forceMove(src)
 		update_icon()
 		updateUsrDialog()
 		user << "<span class='notice'>You put [I] into [src].</span>"
 		return 1
 
 	else if(istype(I, /obj/item/weapon/storage/bag/trash) && !mybag)
-		user.drop_item()
+		user.drop_from_inventory(I,src)
 		mybag = I
 		I.forceMove(src)
 		update_icon()
@@ -128,8 +125,7 @@
 
 	else if(istype(I, /obj/item/weapon/caution))
 		if(signs < 4)
-			user.drop_item()
-			I.forceMove(src)
+			user.drop_from_inventory(I,src)
 			signs++
 			update_icon()
 			updateUsrDialog()

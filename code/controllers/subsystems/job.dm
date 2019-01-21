@@ -36,7 +36,7 @@
 	occupations = list()
 	var/list/all_jobs = current_map.allowed_jobs
 	if(!all_jobs.len)
-		world << "<span class='warning'>Error setting up jobs, no job datums found!</span>"
+		to_world("<span class='warning'>Error setting up jobs, no job datums found!</span>")
 		return FALSE
 
 	for(var/J in all_jobs)
@@ -332,8 +332,13 @@
 		job.equip(H)
 		job.apply_fingerprints(H)
 
-		// Randomize nutrition. Defines are in __defines/mobs.dm
-		H.nutrition = (rand(CREW_MINIMUM_NUTRITION, CREW_MAXIMUM_NUTRITION) * 0.01) * H.max_nutrition
+		// Randomize nutrition and hydration. Defines are in __defines/mobs.dm
+
+		if(H.max_nutrition > 0)
+			H.nutrition = rand(CREW_MINIMUM_NUTRITION*100, CREW_MAXIMUM_NUTRITION*100) * H.max_nutrition * 0.01
+
+		if(H.max_hydration > 0)
+			H.hydration = rand(CREW_MINIMUM_HYDRATION*100, CREW_MAXIMUM_HYDRATION*100) * H.max_hydration * 0.01
 
 		if (!megavend)
 			spawn_in_storage += EquipCustomDeferred(H, H.client.prefs, custom_equip_leftovers, custom_equip_slots)
@@ -345,19 +350,20 @@
 	if(!joined_late || job.latejoin_at_spawnpoints)
 		var/obj/S = get_roundstart_spawnpoint(rank)
 		if(istype(S, /obj/effect/landmark/start) && istype(S.loc, /turf))
-			H.loc = S.loc
+			H.forceMove(S.loc)
+			H.lastarea = get_area(H.loc)
 		else
 			LateSpawn(H, rank)
 
 		// Moving wheelchair if they have one
 		if(H.buckled && istype(H.buckled, /obj/structure/bed/chair/wheelchair))
-			H.buckled.loc = H.loc
+			H.buckled.forceMove(H.loc)
 			H.buckled.set_dir(H.dir)
 
 	// If they're head, give them the account info for their department
 	if(H.mind && job.head_position)
 		var/remembered_info = ""
-		var/datum/money_account/department_account = department_accounts[job.department]
+		var/datum/money_account/department_account = SSeconomy.get_department_account(job.department)
 
 		if(department_account)
 			remembered_info += "<b>Your department's account number is:</b> #[department_account.account_number]<br>"
@@ -694,14 +700,14 @@
 
 	if(spawnpos && istype(spawnpos))
 		if(spawnpos.check_job_spawning(rank))
-			H.loc = pick(spawnpos.turfs)
+			H.forceMove(pick(spawnpos.turfs))
 			. = spawnpos.msg
 		else
 			H << "Your chosen spawnpoint ([spawnpos.display_name]) is unavailable for your chosen job. Spawning you at the Arrivals shuttle instead."
-			H.loc = pick(latejoin)
+			H.forceMove(pick(latejoin))
 			. = "is inbound from the [current_map.dock_name]"
 	else
-		H.loc = pick(latejoin)
+		H.forceMove(pick(latejoin))
 		. = "is inbound from the [current_map.dock_name]"
 
 	Debug("LS/([H]): Completed, spawning at area [H.loc.loc].")

@@ -126,7 +126,7 @@
 	if(!user.IsAdvancedToolUser())
 		return 0
 
-	if(user.disabilities & PACIFIST)
+	if(user.is_pacified())
 		to_chat(user, "<span class='notice'>You don't want to risk harming anyone!</span>")
 		return 0
 
@@ -708,10 +708,15 @@ obj/item/weapon/gun/Destroy()
 			to_chat(user, "<span class='danger'>There is a bayonet attached to \the [src] already.</span>")
 			return
 
-		user.drop_from_inventory(I)
+		user.drop_from_inventory(I,src)
 		bayonet = I
-		I.forceMove(src)
 		to_chat(user, "<span class='notice'>You attach \the [I] to the front of \the [src].</span>")
+		update_icon()
+
+	if(iscrowbar(I) && bayonet)
+		to_chat(user, "<span class='notice'>You detach \the [bayonet] from \the [src].</span>")
+		bayonet.forceMove(get_turf(src))
+		bayonet = null
 		update_icon()
 
 	if(!pin)
@@ -720,7 +725,7 @@ obj/item/weapon/gun/Destroy()
 	if(isscrewdriver(I))
 		visible_message("<span class = 'warning'>[user] begins to try and pry out [src]'s firing pin!</span>")
 		if(do_after(user,45 SECONDS,act_target = src))
-			if(pin.durable)
+			if(pin.durable || prob(50))
 				visible_message("<span class = 'notice'>[user] pops the [pin] out of [src]!</span>")
 				pin.forceMove(get_turf(src))
 				pin = null//clear it out.

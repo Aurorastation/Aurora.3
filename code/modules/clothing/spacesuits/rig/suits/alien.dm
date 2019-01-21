@@ -61,9 +61,13 @@
 		/obj/item/rig_module/device/flash,
 		/obj/item/rig_module/chem_dispenser/vaurca,
 		/obj/item/rig_module/boring,
-		/obj/item/rig_module/lattice
+		/obj/item/rig_module/lattice,
+		/obj/item/rig_module/maneuvering_jets
 
 		)
+
+/obj/item/weapon/rig/vaurca/minimal
+	initial_modules = list(/obj/item/rig_module/chem_dispenser/vaurca)
 
 /obj/item/clothing/head/helmet/space/rig/vaurca
 	species_restricted = list("Vaurca")

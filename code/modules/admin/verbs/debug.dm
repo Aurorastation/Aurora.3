@@ -346,33 +346,33 @@
 	var/list/areas_without_intercom = areas_all - areas_with_intercom
 	var/list/areas_without_camera = areas_all - areas_with_camera
 
-	world << "<b>AREAS WITHOUT AN APC:</b>"
+	to_world("<b>AREAS WITHOUT AN APC:</b>")
 	for(var/areatype in areas_without_APC)
-		world << "* [areatype]"
+		to_world("* [areatype]")
 
-	world << "<b>AREAS WITHOUT AN AIR ALARM:</b>"
+	to_world("<b>AREAS WITHOUT AN AIR ALARM:</b>")
 	for(var/areatype in areas_without_air_alarm)
-		world << "* [areatype]"
+		to_world("* [areatype]")
 
-	world << "<b>AREAS WITHOUT A REQUEST CONSOLE:</b>"
+	to_world("<b>AREAS WITHOUT A REQUEST CONSOLE:</b>")
 	for(var/areatype in areas_without_RC)
-		world << "* [areatype]"
+		to_world("* [areatype]")
 
-	world << "<b>AREAS WITHOUT ANY LIGHTS:</b>"
+	to_world("<b>AREAS WITHOUT ANY LIGHTS:</b>")
 	for(var/areatype in areas_without_light)
-		world << "* [areatype]"
+		to_world("* [areatype]")
 
-	world << "<b>AREAS WITHOUT A LIGHT SWITCH:</b>"
+	to_world("<b>AREAS WITHOUT A LIGHT SWITCH:</b>")
 	for(var/areatype in areas_without_LS)
-		world << "* [areatype]"
+		to_world("* [areatype]")
 
-	world << "<b>AREAS WITHOUT ANY INTERCOMS:</b>"
+	to_world("<b>AREAS WITHOUT ANY INTERCOMS:</b>")
 	for(var/areatype in areas_without_intercom)
-		world << "* [areatype]"
+		to_world("* [areatype]")
 
-	world << "<b>AREAS WITHOUT ANY CAMERAS:</b>"
+	to_world("<b>AREAS WITHOUT ANY CAMERAS:</b>")
 	for(var/areatype in areas_without_camera)
-		world << "* [areatype]"
+		to_world("* [areatype]")
 
 /client/proc/cmd_admin_dress()
 	set category = "Fun"
@@ -910,7 +910,7 @@
 				Phoron.air_contents.gas["phoron"] = 70
 				Rad.drainratio = 0
 				Rad.P = Phoron
-				Phoron.loc = Rad
+				Phoron.forceMove(Rad)
 
 			if(!Rad.active)
 				Rad.toggle_power()

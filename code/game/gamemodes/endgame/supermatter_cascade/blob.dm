@@ -98,7 +98,7 @@
 
 	playsound(src, 'sound/effects/supermatter.ogg', 50, 1)
 
-	user.drop_from_inventory(W)
+	user.drop_from_inventory(W,src)
 	Consume(W)
 
 

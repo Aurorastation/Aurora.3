@@ -67,7 +67,7 @@
 /obj/structure/alien/egg/proc/givefacehugger(var/kill = 1)
 	var/obj/item/clothing/mask/facehugger/child = GetFacehugger()
 	status = BURST
-	child.loc = get_turf(src)
+	child.forceMove(get_turf(src))
 
 	if(kill && istype(child))
 		child.Die()

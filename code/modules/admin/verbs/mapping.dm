@@ -75,12 +75,15 @@ var/intercom_range_display_status = 0
 	var/list/obj/machinery/camera/CL = list()
 
 	for(var/obj/machinery/camera/C in cameranet.cameras)
-		CL += C
+		if (isturf(C.loc))
+			CL += C
 
 	var/output = {"<B>CAMERA ANNOMALITIES REPORT</B><HR>
 <B>The following annomalities have been detected. The ones in red need immediate attention: Some of those in black may be intentional.</B><BR><ul>"}
 
 	for(var/obj/machinery/camera/C1 in CL)
+		if(C1.c_tag == null)
+			output += "<li><font color='red'>null c_tag for sec camera at \[[C1.x], [C1.y], [C1.z]\] ([C1.loc.loc])</font></li>"
 		for(var/obj/machinery/camera/C2 in CL)
 			if(C1 != C2)
 				if(C1.c_tag == C2.c_tag)
@@ -99,7 +102,6 @@ var/intercom_range_display_status = 0
 						break
 				if(!window_check)
 					output += "<li><font color='red'>Camera not connected to wall at \[[C1.x], [C1.y], [C1.z]\] ([C1.loc.loc]) Network: [C1.network]</color></li>"
-
 	output += "</ul>"
 	usr << browse(output,"window=airreport;size=1000x500")
 	feedback_add_details("admin_verb","mCRP") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
@@ -309,17 +311,8 @@ var/list/debug_verbs = list (
 				if(B.z == num_level)
 					count++
 					atom_list += A
-	/*
-	var/atom/temp_atom
-	for(var/i = 0; i <= (atom_list.len/10); i++)
-		var/line = ""
-		for(var/j = 1; j <= 10; j++)
-			if(i*10+j <= atom_list.len)
-				temp_atom = atom_list[i*10+j]
-				line += " no.[i+10+j]@\[[temp_atom.x], [temp_atom.y], [temp_atom.z]\]; "
-		world << line*/
 
-	world << "There are [count] objects of type [type_path] on z-level [num_level]"
+	to_world("There are [count] objects of type [type_path] on z-level [num_level]")
 	feedback_add_details("admin_verb","mOBJZ") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /client/proc/count_objects_all()
@@ -336,17 +329,8 @@ var/list/debug_verbs = list (
 	for(var/atom/A in world)
 		if(istype(A,type_path))
 			count++
-	/*
-	var/atom/temp_atom
-	for(var/i = 0; i <= (atom_list.len/10); i++)
-		var/line = ""
-		for(var/j = 1; j <= 10; j++)
-			if(i*10+j <= atom_list.len)
-				temp_atom = atom_list[i*10+j]
-				line += " no.[i+10+j]@\[[temp_atom.x], [temp_atom.y], [temp_atom.z]\]; "
-		world << line*/
 
-	world << "There are [count] objects of type [type_path] in the game world"
+	to_world("There are [count] objects of type [type_path] in the game world")
 	feedback_add_details("admin_verb","mOBJ") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 

@@ -497,7 +497,7 @@
 	name = "libertycap"
 	seed_name = "liberty cap"
 	display_name = "liberty cap mushrooms"
-	mutants = null
+	mutants = list("ghostmushroom")
 	chems = list("nutriment" = list(1), "stoxin" = list(3,3), "space_drugs" = list(1,25))
 
 /datum/seed/mushroom/hallucinogenic/strong/setup_traits()
@@ -614,6 +614,26 @@
 	set_trait(TRAIT_PLANT_COLOUR,"#E6E6E6")
 	set_trait(TRAIT_PLANT_ICON,"mushroom10")
 
+/datum/seed/mushroom/ghost
+	name = "ghostmushroom"
+	seed_name = "ghost mushroom"
+	display_name = "ghost mushroom"
+	mutants = null
+	chems = list("spectrocybin" = list(5,15))
+
+/datum/seed/mushroom/ghost/setup_traits()
+	..()
+	set_trait(TRAIT_MATURATION,5)
+	set_trait(TRAIT_PRODUCTION,4)
+	set_trait(TRAIT_YIELD,2)
+	set_trait(TRAIT_POTENCY,8)
+	set_trait(TRAIT_BIOLUM,1)
+	set_trait(TRAIT_BIOLUM_COLOUR,"#64B8C9")
+	set_trait(TRAIT_PRODUCT_ICON,"mushroom8")
+	set_trait(TRAIT_PRODUCT_COLOUR,"#64B8C9")
+	set_trait(TRAIT_PLANT_COLOUR,"#64B8C9")
+	set_trait(TRAIT_PLANT_ICON,"mushroom3")
+
 //Flowers/varieties
 /datum/seed/flower
 	name = "harebells"
@@ -698,7 +718,7 @@
 
 /datum/seed/grapes/green/setup_traits()
 	..()
-	set_trait(TRAIT_PRODUCT_COLOUR,"42ed2f")
+	set_trait(TRAIT_PRODUCT_COLOUR,"#42ED2F")
 
 //Everything else
 /datum/seed/peanuts
@@ -963,7 +983,7 @@
 	name = "pumpkin"
 	seed_name = "pumpkin"
 	display_name = "pumpkin vine"
-	chems = list("nutriment" = list(1,6))
+	chems = list("pumpkinpulp" = list(5,6))
 	kitchen_tag = "pumpkin"
 
 /datum/seed/pumpkin/setup_traits()
@@ -1046,7 +1066,7 @@
 	set_trait(TRAIT_NUTRIENT_CONSUMPTION, 0.15)
 
 /datum/seed/cocoa
-	name = "cocoa"
+	name = "cacao"
 	seed_name = "cacao"
 	display_name = "cacao tree"
 	chems = list("nutriment" = list(1,10), "coco" = list(4,5))
@@ -1107,8 +1127,8 @@
 /datum/seed/diona
 	name = "diona"
 	seed_name = "diona"
-	seed_noun = "nodes"
-	display_name = "replicant pods"
+	seed_noun = "node"
+	display_name = "diona pod"
 	can_self_harvest = 1
 	has_mob_product = /mob/living/carbon/alien/diona
 
@@ -1129,7 +1149,7 @@
 	name = "shand"
 	seed_name = "S'Rendarr's hand"
 	display_name = "S'Rendarr's hand leaves"
-	chems = list("tobaccorich" = list(1,10), "nicotine" = list(3,5))
+	chems = list("tobacco" = list(1,5), "bicaridine" = list(3,5), "nicotine" = list(1,3))
 	kitchen_tag = "shand"
 
 /datum/seed/shand/setup_traits()
@@ -1164,111 +1184,6 @@
 	set_trait(TRAIT_PLANT_ICON,"bush7")
 	set_trait(TRAIT_IDEAL_HEAT, 283)
 	set_trait(TRAIT_NUTRIENT_CONSUMPTION, 0.15)
-
-/datum/seed/telriis
-	name = "telriis"
-	seed_name = "telriis"
-	display_name = "telriis grass"
-	chems = list("pwine" = list(1,5), "nutriment" = list(1,6))
-
-/datum/seed/telriis/setup_traits()
-	..()
-	set_trait(TRAIT_PLANT_ICON,"telriis")
-	set_trait(TRAIT_ENDURANCE,50)
-	set_trait(TRAIT_MATURATION,5)
-	set_trait(TRAIT_PRODUCTION,5)
-	set_trait(TRAIT_YIELD,4)
-	set_trait(TRAIT_POTENCY,5)
-
-/datum/seed/thaadra
-	name = "thaadra"
-	seed_name = "thaa'dra"
-	display_name = "thaa'dra lichen"
-	chems = list("frostoil" = list(1,5),"nutriment" = list(1,5))
-
-/datum/seed/thaadra/setup_traits()
-	..()
-	set_trait(TRAIT_PLANT_ICON,"thaadra")
-	set_trait(TRAIT_ENDURANCE,10)
-	set_trait(TRAIT_MATURATION,5)
-	set_trait(TRAIT_PRODUCTION,9)
-	set_trait(TRAIT_YIELD,2)
-	set_trait(TRAIT_POTENCY,5)
-
-/datum/seed/jurlmah
-	name = "jurlmah"
-	seed_name = "jurl'mah"
-	display_name = "jurl'mah reeds"
-	chems = list("serotrotium" = list(1,5),"nutriment" = list(1,5))
-
-/datum/seed/jurlmah/setup_traits()
-	..()
-	set_trait(TRAIT_PLANT_ICON,"jurlmah")
-	set_trait(TRAIT_ENDURANCE,12)
-	set_trait(TRAIT_MATURATION,8)
-	set_trait(TRAIT_PRODUCTION,9)
-	set_trait(TRAIT_YIELD,3)
-	set_trait(TRAIT_POTENCY,10)
-
-/datum/seed/amauri
-	name = "amauri"
-	seed_name = "amauri"
-	display_name = "amauri plant"
-	chems = list("zombiepowder" = list(1,10),"condensedcapsaicin" = list(1,5),"nutriment" = list(1,5))
-
-/datum/seed/amauri/setup_traits()
-	..()
-	set_trait(TRAIT_PLANT_ICON,"amauri")
-	set_trait(TRAIT_ENDURANCE,10)
-	set_trait(TRAIT_MATURATION,8)
-	set_trait(TRAIT_PRODUCTION,9)
-	set_trait(TRAIT_YIELD,4)
-	set_trait(TRAIT_POTENCY,10)
-
-/datum/seed/gelthi
-	name = "gelthi"
-	seed_name = "gelthi"
-	display_name = "gelthi plant"
-	chems = list("stoxin" = list(1,5),"capsaicin" = list(1,5),"nutriment" = list(1,5))
-
-/datum/seed/gelthi/setup_traits()
-	..()
-	set_trait(TRAIT_PLANT_ICON,"gelthi")
-	set_trait(TRAIT_ENDURANCE,15)
-	set_trait(TRAIT_MATURATION,6)
-	set_trait(TRAIT_PRODUCTION,6)
-	set_trait(TRAIT_YIELD,2)
-	set_trait(TRAIT_POTENCY,1)
-
-/datum/seed/vale
-	name = "vale"
-	seed_name = "vale"
-	display_name = "vale bush"
-	chems = list("paracetamol" = list(1,5),"dexalin" = list(1,2),"nutriment"= list(1,5))
-
-/datum/seed/vale/setup_traits()
-	..()
-	set_trait(TRAIT_PLANT_ICON,"vale")
-	set_trait(TRAIT_ENDURANCE,15)
-	set_trait(TRAIT_MATURATION,8)
-	set_trait(TRAIT_PRODUCTION,10)
-	set_trait(TRAIT_YIELD,3)
-	set_trait(TRAIT_POTENCY,3)
-
-/datum/seed/surik
-	name = "surik"
-	seed_name = "surik"
-	display_name = "surik vine"
-	chems = list("impedrezene" = list(1,3),"synaptizine" = list(1,2),"nutriment" = list(1,5))
-
-/datum/seed/surik/setup_traits()
-	..()
-	set_trait(TRAIT_PLANT_ICON,"surik")
-	set_trait(TRAIT_ENDURANCE,18)
-	set_trait(TRAIT_MATURATION,7)
-	set_trait(TRAIT_PRODUCTION,7)
-	set_trait(TRAIT_YIELD,3)
-	set_trait(TRAIT_POTENCY,3)
 
 // Alien weeds.
 /datum/seed/xenomorph
@@ -1330,3 +1245,91 @@
 	set_trait(TRAIT_PLANT_ICON,"bush4")
 	set_trait(TRAIT_WATER_CONSUMPTION, 6)
 	set_trait(TRAIT_NUTRIENT_CONSUMPTION, 0.15)
+
+/datum/seed/tobacco
+	name = "tobacco"
+	seed_name = "tobacco"
+	display_name = "tobacco leaves"
+	mutants = list("finetobacco")
+	chems = list("tobacco" = list(1,10), "nicotine" = list(1,3))
+
+/datum/seed/tobacco/setup_traits()
+	..()
+	set_trait(TRAIT_MATURATION,6)
+	set_trait(TRAIT_PRODUCTION,6)
+	set_trait(TRAIT_YIELD,5)
+	set_trait(TRAIT_PRODUCT_ICON,"tobacco")
+	set_trait(TRAIT_PRODUCT_COLOUR,"#749733")
+	set_trait(TRAIT_PLANT_COLOUR,"#749733")
+	set_trait(TRAIT_PLANT_ICON,"vine2")
+	set_trait(TRAIT_IDEAL_HEAT, 299)
+	set_trait(TRAIT_IDEAL_LIGHT, 7)
+	set_trait(TRAIT_WATER_CONSUMPTION, 6)
+	set_trait(TRAIT_NUTRIENT_CONSUMPTION, 0.15)
+
+/datum/seed/tobacco/finetobacco
+	name = "finetobacco"
+	seed_name = "fine tobacco"
+	display_name = "fine tobacco leaves"
+	chems = list("tobaccorich" = list(1,10), "nicotine" = list(3,5))
+
+/datum/seed/tobacco/finetobacco/setup_traits()
+	..()
+	set_trait(TRAIT_YIELD,4)
+	set_trait(TRAIT_PRODUCT_COLOUR,"#33571b")
+	set_trait(TRAIT_PLANT_COLOUR,"#33571b")
+	set_trait(TRAIT_NUTRIENT_CONSUMPTION, 0.20)
+
+/datum/seed/peppercorn
+	name = "peppercorn"
+	seed_name = "peppercorn"
+	display_name = "black pepper"
+	chems = list("blackpepper" = list(10,10))
+
+/datum/seed/peppercorn/setup_traits()
+	..()
+	set_trait(TRAIT_HARVEST_REPEAT,1)
+	set_trait(TRAIT_MATURATION,4)
+	set_trait(TRAIT_PRODUCTION,4)
+	set_trait(TRAIT_YIELD,3)
+	set_trait(TRAIT_POTENCY,5)
+	set_trait(TRAIT_PRODUCT_ICON,"nuts")
+	set_trait(TRAIT_PRODUCT_COLOUR,"#4d4d4d")
+	set_trait(TRAIT_PLANT_ICON,"vine2")
+	set_trait(TRAIT_IDEAL_LIGHT, 6)
+
+/datum/seed/garlic
+	name = "garlic"
+	seed_name = "garlic"
+	display_name = "garlic"
+	chems = list("garlicjuice" = list(1,5))
+	kitchen_tag = "garlic"
+
+/datum/seed/garlic/setup_traits()
+	..()
+	set_trait(TRAIT_MATURATION,10)
+	set_trait(TRAIT_PRODUCTION,1)
+	set_trait(TRAIT_YIELD,5)
+	set_trait(TRAIT_POTENCY,12)
+	set_trait(TRAIT_PRODUCT_ICON,"bulb")
+	set_trait(TRAIT_PRODUCT_COLOUR,"#fff8dd")
+	set_trait(TRAIT_PLANT_ICON,"stalk")
+	set_trait(TRAIT_WATER_CONSUMPTION, 7)
+
+/datum/seed/onion
+	name = "onion"
+	seed_name = "onion"
+	display_name = "onions"
+	chems = list("onionjuice" = list(1,5))
+	kitchen_tag = "onion"
+
+/datum/seed/onion/setup_traits()
+	..()
+	set_trait(TRAIT_MATURATION,10)
+	set_trait(TRAIT_PRODUCTION,1)
+	set_trait(TRAIT_YIELD,4)
+	set_trait(TRAIT_POTENCY,10)
+	set_trait(TRAIT_PRODUCT_ICON,"bulb")
+	set_trait(TRAIT_PRODUCT_COLOUR,"#ffeedd")
+	set_trait(TRAIT_PLANT_ICON,"stalk")
+	set_trait(TRAIT_WATER_CONSUMPTION, 5)

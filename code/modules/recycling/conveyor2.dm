@@ -13,10 +13,11 @@
 	var/forwards		// this is the default (forward) direction, set by the map dir
 	var/backwards		// hopefully self-explanatory
 	var/movedir			// the actual direction to move stuff in
+	var/reversed		// se to 1 if the belt is reversed
 
 	var/list/affecting	// the list of all items that will be moved this ptick
 	var/id = ""			// the control ID	- must match controller ID
-	
+
 	var/listener/antenna
 
 /obj/machinery/conveyor/centcom_auto
@@ -36,7 +37,7 @@
 		backwards = turn(dir, 180)
 
 	if(on)
-		operating = 1
+		operating = reversed ? -1 : 1
 		setmove()
 
 	if (id)
@@ -240,7 +241,7 @@
 		var/listener/L = thing
 		var/obj/machinery/conveyor/C = L.target
 		if (istype(C))
-			C.operating = position
+			C.operating = C.reversed ? position * - 1 : position
 			C.setmove()
 		else
 			var/obj/machinery/conveyor_switch/S = L.target
@@ -274,7 +275,7 @@
 		var/listener/L = thing
 		var/obj/machinery/conveyor/C = L.target
 		if (istype(C))
-			C.operating = position
+			C.operating = C.reversed ? position * - 1 : position
 			C.setmove()
 		else
 			var/obj/machinery/conveyor_switch/S = L.target

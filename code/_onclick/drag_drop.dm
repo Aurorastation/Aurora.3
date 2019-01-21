@@ -13,6 +13,6 @@
 		over.MouseDrop_T(src,usr)
 	return
 
-// recieve a mousedrop
+// receive a mousedrop
 /atom/proc/MouseDrop_T(atom/dropping, mob/user)
 	return

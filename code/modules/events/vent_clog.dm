@@ -49,7 +49,7 @@
 	if(activeFor % interval == 0)
 		var/obj/machinery/atmospherics/unary/vent_scrubber/vent = pick_n_take(vents)
 
-		if(vent && vent.loc)
+		if(vent && vent.loc && !vent.is_welded())
 
 			var/datum/reagents/R = new/datum/reagents(35)
 			R.my_atom = vent

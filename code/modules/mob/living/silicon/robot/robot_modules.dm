@@ -3,7 +3,7 @@ var/global/list/robot_modules = list(
 	"Service" 		= /obj/item/weapon/robot_module/clerical/butler,
 	"Clerical" 		= /obj/item/weapon/robot_module/clerical/general,
 	"Research" 		= /obj/item/weapon/robot_module/research,
-	"Miner" 		= /obj/item/weapon/robot_module/miner,
+	"Mining" 		= /obj/item/weapon/robot_module/miner,
 	"Rescue" 		= /obj/item/weapon/robot_module/medical/rescue,
 	"Medical" 		= /obj/item/weapon/robot_module/medical/general,
 	"Security" 		= /obj/item/weapon/robot_module/security/general,
@@ -226,6 +226,7 @@ var/global/list/robot_modules = list(
 	..()
 	src.modules += new /obj/item/weapon/crowbar(src)
 	src.modules += new /obj/item/device/flash(src)
+	src.modules += new /obj/item/borg/sight/hud/med(src)
 	src.modules += new /obj/item/device/healthanalyzer(src)
 	src.modules += new /obj/item/weapon/reagent_containers/borghypo/medical(src)
 	src.modules += new /obj/item/weapon/scalpel(src)
@@ -242,6 +243,7 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/weapon/reagent_containers/syringe(src)
 	src.modules += new /obj/item/device/reagent_scanner/adv(src)
 	src.modules += new /obj/item/weapon/autopsy_scanner(src) // an autopsy scanner
+	src.modules += new /obj/item/device/breath_analyzer(src)
 	src.emag = new /obj/item/weapon/reagent_containers/spray(src)
 	src.emag.reagents.add_reagent("pacid", 250)
 	src.emag.name = "Polyacid spray"
@@ -295,6 +297,7 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/borg/sight/hud/med(src)
 	src.modules += new /obj/item/device/healthanalyzer(src)
 	src.modules += new /obj/item/device/reagent_scanner/adv(src)
+	src.modules += new /obj/item/device/breath_analyzer(src)
 	src.modules += new /obj/item/weapon/crowbar(src)
 	src.modules += new /obj/item/roller_holder(src)
 	src.modules += new /obj/item/weapon/reagent_containers/borghypo/rescue(src)
@@ -748,7 +751,6 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/weapon/gripper/chemistry(src)
 	src.modules += new /obj/item/weapon/reagent_containers/dropper/industrial(src)
 	src.modules += new /obj/item/device/reagent_scanner/adv(src)
-	src.modules += new /obj/item/weapon/extinguisher(src)
 	src.modules += new /obj/item/weapon/storage/bag/plants(src)
 	src.modules += new /obj/item/weapon/pen/robopen(src)
 	src.emag = new /obj/item/weapon/hand_tele(src)
@@ -974,3 +976,39 @@ var/global/list/robot_modules = list(
 	src.emag = new /obj/item/weapon/gun/energy/plasmacutter/mounted(src)
 	src.emag.name = "Mounted Plasma Cutter"
 	..()
+
+/obj/item/weapon/robot_module/hunter_seeker
+	name = "hunter seeker robot module"
+	languages = list(
+					LANGUAGE_SOL_COMMON = 1,
+					LANGUAGE_TRADEBAND = 1,
+					LANGUAGE_UNATHI = 1,
+					LANGUAGE_SIIK_MAAS = 1,
+					LANGUAGE_SKRELLIAN = 1,
+					LANGUAGE_GUTTER = 1,
+					LANGUAGE_ROOTSONG = 1,
+					LANGUAGE_TERMINATOR = 1
+					)
+
+	sprites = list(
+					"Hunter Seeker" = "hunter_seeker"
+					)
+
+/obj/item/weapon/robot_module/hunter_seeker/New(var/mob/living/silicon/robot/R)
+	..()
+	loc = R
+	src.modules += new /obj/item/device/flash(src)
+	src.modules += new /obj/item/weapon/pickaxe/borgdrill(src)
+	src.modules += new /obj/item/borg/sight/thermal(src)
+	src.modules += new /obj/item/weapon/gun/energy/net/mounted(src)
+	src.modules += new /obj/item/weapon/gun/energy/mountedcannon(src)
+	src.modules += new /obj/item/weapon/melee/energy/glaive(src)
+	src.modules += new /obj/item/weapon/crowbar/robotic(src)
+	src.modules += new /obj/item/weapon/wrench/robotic(src)
+	src.modules += new /obj/item/weapon/screwdriver/robotic(src)
+	src.modules += new /obj/item/device/multitool/robotic(src)
+	src.modules += new /obj/item/weapon/wirecutters/robotic(src)
+	src.modules += new /obj/item/weapon/weldingtool/robotic(src)
+	supported_upgrades = list(/obj/item/robot_parts/robot_component/jetpack)
+
+	return

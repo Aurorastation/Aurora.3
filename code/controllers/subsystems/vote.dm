@@ -34,7 +34,7 @@ var/datum/controller/subsystem/vote/SSvote
 	if (mode)
 		// No more change mode votes after the game has started.
 		if(mode == "gamemode" && ROUND_IS_STARTED)
-			world << "<b>Voting aborted due to game start.</b>"
+			to_world("<b>Voting aborted due to game start.</b>")
 			src.reset()
 			return
 
@@ -64,7 +64,7 @@ var/datum/controller/subsystem/vote/SSvote
 
 			voting.Cut()
 
-	if (world.time >= next_transfer_time - 600)
+	if (get_round_duration() >= next_transfer_time - 600)
 		autotransfer()
 		next_transfer_time += config.vote_autotransfer_interval
 
@@ -111,7 +111,7 @@ var/datum/controller/subsystem/vote/SSvote
 						greatest_votes = choices[master_mode]
 			else if(mode == "crew_transfer")
 				var/factor = 0.5
-				switch(world.time / (10 * 60)) // minutes
+				switch(get_round_duration() / (10 * 60)) // minutes
 					if(0 to 60)
 						factor = 0.5
 					if(61 to 120)
@@ -123,13 +123,13 @@ var/datum/controller/subsystem/vote/SSvote
 					else
 						factor = 1.4
 				choices["Initiate Crew Transfer"] = round(choices["Initiate Crew Transfer"] * factor)
-				world << "<font color='purple'>Crew Transfer Factor: [factor]</font>"
+				to_world("<font color='purple'>Crew Transfer Factor: [factor]</font>")
 				greatest_votes = max(choices["Initiate Crew Transfer"], choices["Continue The Round"])
 
 	if(mode == "crew_transfer")
-		if(round(world.time / 36000)+12 <= 14)
+		if(round(get_round_duration() / 36000)+12 <= 14)
 			// Credit to Scopes @ oldcode.
-			world << "<font color='purple'><b>Majority voting rule in effect. 2/3rds majority needed to initiate transfer.</b></font>"
+			to_world("<font color='purple'><b>Majority voting rule in effect. 2/3rds majority needed to initiate transfer.</b></font>")
 			choices["Initiate Crew Transfer"] = round(choices["Initiate Crew Transfer"] - round(total_votes / 3))
 			greatest_votes = max(choices["Initiate Crew Transfer"], choices["Continue The Round"])
 
@@ -167,7 +167,7 @@ var/datum/controller/subsystem/vote/SSvote
 		if(mode == "add_antagonist")
 			antag_add_failed = 1
 	log_vote(text)
-	world << "<font color='purple'>[text]</font>"
+	to_world("<font color='purple'>[text]</font>")
 
 /datum/controller/subsystem/vote/proc/result()
 	. = announce_result()
@@ -179,7 +179,7 @@ var/datum/controller/subsystem/vote/SSvote
 					restart = 1
 			if("gamemode")
 				if(master_mode != .)
-					world.save_mode(.)
+					SSpersist_config.last_gamemode = .
 					if(SSticker.mode)
 						restart = 1
 					else
@@ -187,7 +187,7 @@ var/datum/controller/subsystem/vote/SSvote
 			if("crew_transfer")
 				if(. == "Initiate Crew Transfer")
 					init_shift_change(null, 1)
-				last_transfer_vote = world.time
+				last_transfer_vote = get_round_duration()
 			if("add_antagonist")
 				if(isnull(.) || . == "None")
 					antag_add_failed = 1
@@ -197,10 +197,10 @@ var/datum/controller/subsystem/vote/SSvote
 	if(mode == "gamemode") //fire this even if the vote fails.
 		if(!round_progressing)
 			round_progressing = 1
-			world << "<font color='red'><b>The round will start soon.</b></font>"
+			to_world("<font color='red'><b>The round will start soon.</b></font>")
 
 	if(restart)
-		world << "World restarting due to vote..."
+		to_world("World restarting due to vote...")
 		feedback_set_details("end_error","restart vote")
 		sleep(50)
 		log_game("Rebooting due to restart vote")
@@ -251,7 +251,7 @@ var/datum/controller/subsystem/vote/SSvote
 			else
 				next_allowed_time = (started_time + config.vote_delay)
 
-			if(next_allowed_time > world.time)
+			if(next_allowed_time > get_round_duration())
 				return 0
 
 		reset()
@@ -309,7 +309,7 @@ var/datum/controller/subsystem/vote/SSvote
 			text += "\n[question]"
 
 		log_vote(text)
-		world << "<font color='purple'><b>[text]</b>\nType <b>vote</b> or click <a href='?src=\ref[src]'>here</a> to place your votes.\nYou have [config.vote_period/10] seconds to vote.</font>"
+		to_world("<font color='purple'><b>[text]</b>\nType <b>vote</b> or click <a href='?src=\ref[src]'>here</a> to place your votes.\nYou have [config.vote_period/10] seconds to vote.</font>")
 		for(var/cc in clients)
 			var/client/C = cc
 			if(C.prefs.asfx_togs & ASFX_VOTE) //Personal mute
@@ -322,7 +322,7 @@ var/datum/controller/subsystem/vote/SSvote
 						C << sound('sound/ambience/alarm4.ogg', repeat = 0, wait = 0, volume = 50, channel = 3)
 		if(mode == "gamemode" && round_progressing)
 			round_progressing = 0
-			world << "<font color='red'><b>Round start has been delayed.</b></font>"
+			to_world("<font color='red'><b>Round start has been delayed.</b></font>")
 
 		time_remaining = round(config.vote_period/10)
 		return 1

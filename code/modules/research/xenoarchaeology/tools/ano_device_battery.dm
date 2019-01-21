@@ -41,8 +41,7 @@
 	if(istype(I, /obj/item/weapon/anobattery))
 		if(!inserted_battery)
 			user << "<span class='notice'>You insert the battery.</span>"
-			user.drop_item()
-			I.loc = src
+			user.drop_from_inventory(I,src)
 			inserted_battery = I
 			UpdateSprite()
 	else
@@ -172,7 +171,7 @@
 		activated = 0
 	if(href_list["ejectbattery"])
 		shutdown_emission()
-		inserted_battery.loc = get_turf(src)
+		inserted_battery.forceMove(get_turf(src))
 		inserted_battery = null
 		UpdateSprite()
 	if(href_list["close"])

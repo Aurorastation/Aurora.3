@@ -30,6 +30,12 @@ var/list/sacrificed = list()
 		if (istype(user, /mob/living))
 			user.take_overall_damage(5, 0)
 		qdel(src)
+
+	var/turf/T = get_turf(user)
+	if (T.z in current_map.admin_levels)
+		to_chat(user, "<span class='warning'>You are too far from the station, Nar'sie is unable to reach you here.</span>")
+		return fizzle(user)
+
 	if(allrunesloc && index != 0)
 		if(istype(src,/obj/effect/rune))
 			user.say("Sas[pick("'","`")]so c'arta forbici!")//Only you can stop auto-muting
@@ -38,7 +44,7 @@ var/list/sacrificed = list()
 		user.visible_message("<span class='danger'>[user] disappears in a flash of red light!</span>", \
 		"<span class='danger'>You feel as your body gets dragged through the dimension of Nar-Sie!</span>", \
 		"<span class='danger'>You hear a sickening crunch and sloshing of viscera.</span>")
-		user.loc = allrunesloc[rand(1,index)]
+		user.forceMove(allrunesloc[rand(1,index)])
 		return
 	if(istype(src,/obj/effect/rune))
 		return	fizzle(user) //Use friggin manuals, Dorf, your list was of zero length.
@@ -76,9 +82,9 @@ var/list/sacrificed = list()
 		"<span class='warning'>You smell ozone.</span>")
 		for(var/obj/O in src.loc)
 			if(!O.anchored)
-				O.loc = IP.loc
+				O.forceMove(IP.loc)
 		for(var/mob/M in src.loc)
-			M.loc = IP.loc
+			M.forceMove(IP.loc)
 		return
 
 	return fizzle(user)
@@ -175,51 +181,10 @@ var/list/sacrificed = list()
 				var/choice = alert(target,"Do you want to join the cult?","Submit to Nar'Sie","Resist","Submit")
 				waiting_for_input[target] = 0
 				if(choice == "Submit") //choosing 'Resist' does nothing of course.
-					if(!target.is_mechanical())
-						cult.add_antagonist(target.mind)
-						converting -= target
-						target.hallucination = 0 //sudden clarity
-						sound_to(target, 'sound/effects/bloodcult.ogg')
-					else
-						converting -= target
-						//If we are dealing with a IPC then ask the caster what construct they want
-						var/construct_class = alert(attacker, "Please choose which type of construct you wish to create.",,"Juggernaut","Wraith","Artificer")
-
-						sound_to(target, 'sound/effects/bloodcult.ogg')
-
-						//Spawn some remains
-						new target.species.remains_type(target.loc) //spawns a skeleton based on the species remain type
-						target.invisibility = 101
-						var/atom/movable/overlay/animation = new /atom/movable/overlay( target.loc )
-						animation.icon_state = "blank"
-						animation.icon = 'icons/mob/mob.dmi'
-						animation.master = target
-						flick("dust-h", animation)
-						qdel(animation)
-
-						//Spawn the selected construct
-						switch(construct_class)
-							if("Juggernaut")
-								var/mob/living/simple_animal/construct/armoured/Z = new /mob/living/simple_animal/construct/armoured (get_turf(target.loc))
-								Z.key = target.key
-								qdel(target)
-								cult.add_antagonist(Z.mind)
-								Z << "<B>You are playing a Juggernaut. Though slow, you can withstand extreme punishment, and rip apart enemies and walls alike.</B>"
-								Z << "<B>You are still bound to serve your creator, follow their orders and help them complete their goals at all costs.</B>"
-							if("Wraith")
-								var/mob/living/simple_animal/construct/wraith/Z = new /mob/living/simple_animal/construct/wraith (get_turf(target.loc))
-								Z.key = target.key
-								qdel(target)
-								cult.add_antagonist(Z.mind)
-								Z << "<B>You are playing a Wraith. Though relatively fragile, you are fast, deadly, and even able to phase through walls.</B>"
-								Z << "<B>You are still bound to serve your creator, follow their orders and help them complete their goals at all costs.</B>"
-							if("Artificer")
-								var/mob/living/simple_animal/construct/builder/Z = new /mob/living/simple_animal/construct/builder (get_turf(target.loc))
-								Z.key = target.key
-								qdel(target)
-								cult.add_antagonist(Z.mind)
-								Z << "<B>You are playing an Artificer. You are incredibly weak and fragile, but you are able to construct fortifications, repair allied constructs (by clicking on them), and even create new constructs</B>"
-								Z << "<B>You are still bound to serve your creator, follow their orders and help them complete their goals at all costs.</B>"
+					cult.add_antagonist(target.mind)
+					converting -= target
+					target.hallucination = 0 //sudden clarity
+					sound_to(target, 'sound/effects/bloodcult.ogg')
 		sleep(100) //proc once every 10 seconds
 	return 1
 
@@ -227,6 +192,11 @@ var/list/sacrificed = list()
 
 /obj/effect/rune/proc/tearreality(var/mob/living/user)
 	if(!cult.allow_narsie)
+		return fizzle(user)
+
+	var/turf/T = get_turf(src)
+	if (!T.z in current_map.station_levels)
+		to_chat(user, "<span class='warning'>You are too far from the station, Nar'sie can not be summoned here.</span>")
 		return fizzle(user)
 
 	var/list/cultists = new()
@@ -880,7 +850,7 @@ var/list/sacrificed = list()
 		if(cultist.buckled || cultist.handcuffed || (!isturf(cultist.loc) && !istype(cultist.loc, /obj/structure/closet)))
 			user << "<span class='warning'>You cannot summon \the [cultist], for \his shackles of blood are strong.</span>"
 			return fizzle(user)
-		cultist.loc = src.loc
+		cultist.forceMove(src.loc)
 		cultist.lying = 1
 		cultist.regenerate_icons()
 

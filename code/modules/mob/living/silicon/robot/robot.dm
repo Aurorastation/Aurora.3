@@ -71,7 +71,7 @@
 	var/obj/item/device/mmi/mmi = null
 
 	var/obj/item/device/pda/ai/rbPDA = null
-
+	var/no_pda = FALSE
 	var/obj/item/weapon/stock_parts/matter_bin/storage = null
 
 	var/opened = 0
@@ -150,7 +150,7 @@
 	initialize_components()
 	//if(!unfinished)
 	// Create all the robot parts.
-	for(var/V in components) if(V != "power cell" && V != "jetpack")//We don't install the jetpack onstart
+	for(var/V in components) if(V != "power cell" && V != "jetpack" && V != "surge")//We don't install the jetpack onstart
 		var/datum/robot_component/C = components[V]
 		C.installed = 1
 		C.wrapped = new C.external_type
@@ -234,6 +234,8 @@
 
 // setup the PDA and its name
 /mob/living/silicon/robot/proc/setup_PDA()
+	if (no_pda)
+		return
 	if (!rbPDA)
 		rbPDA = new/obj/item/device/pda/ai(src)
 	rbPDA.set_name_and_job(custom_name,"[modtype] [braintype]")
@@ -243,7 +245,8 @@
 /mob/living/silicon/robot/Destroy()
 	if(mmi && mind)//Safety for when a cyborg gets dust()ed. Or there is no MMI inside.
 		var/turf/T = get_turf(loc)//To hopefully prevent run time errors.
-		if(T)	mmi.loc = T
+		if(T)	
+			mmi.forceMove(T)
 		if(mmi.brainmob)
 			mind.transfer_to(mmi.brainmob)
 		else
@@ -665,7 +668,7 @@
 					I.brute = C.brute_damage
 					I.burn = C.electronics_damage
 
-				I.loc = src.loc
+				I.forceMove(src.loc)
 
 				if(C.installed == 1)
 					C.uninstall()
@@ -687,9 +690,9 @@
 			storage = null
 		else
 			user << "You install \the [W]"
-		user.drop_item()
+		
 		storage = W
-		W.forceMove(src)
+		user.drop_from_inventory(W,src)
 		recalculate_synth_capacities()
 
 	else if (istype(W, /obj/item/weapon/cell) && opened)	// trying to put a cell inside
@@ -701,8 +704,7 @@
 		else if(W.w_class != 3)
 			user << "\The [W] is too [W.w_class < 3? "small" : "large"] to fit here."
 		else
-			user.drop_item()
-			W.loc = src
+			user.drop_from_inventory(W,src)
 			cell = W
 			user << "You insert the power cell."
 
@@ -762,8 +764,7 @@
 		else
 			if(U.action(src))
 				usr << "You apply the upgrade to [src]!"
-				usr.drop_item()
-				U.loc = src
+				user.drop_from_inventory(U,src)
 			else
 				usr << "Upgrade error!"
 

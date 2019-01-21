@@ -42,7 +42,7 @@
 		var/move_dir = get_dir(loc, AM.loc)
 		var/mob/living/carbon/human/H = AM
 		if((transform_standing || H.lying) && move_dir == EAST)
-			AM.loc = src.loc
+			AM.forceMove(src.loc)
 			make_robot(AM)
 
 /obj/machinery/transformer/proc/make_robot(var/mob/living/carbon/human/H)

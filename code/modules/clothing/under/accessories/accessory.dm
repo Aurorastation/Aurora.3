@@ -131,6 +131,11 @@
 	name = "white tie"
 	icon_state = "whitetie"
 
+/obj/item/clothing/accessory/tie/bowtie
+	name = "bowtie"
+	desc = "Snazzy!"
+	icon_state = "bowtie"
+
 /obj/item/clothing/accessory/stethoscope
 	name = "stethoscope"
 	desc = "An outdated medical apparatus for listening to the sounds of the human body. It also makes you look like you know what you're doing."
@@ -248,16 +253,8 @@
 
 /obj/item/clothing/accessory/medal/gold/heroism
 	name = "medal of exceptional heroism"
-	desc = "An extremely rare golden medal awarded only by company officials. To recieve such a medal is the highest honor and as such, very few exist. This medal is almost never awarded to anybody but commanders."
+	desc = "An extremely rare golden medal awarded only by company officials. To receive such a medal is the highest honor and as such, very few exist. This medal is almost never awarded to anybody but commanders."
 	icon_state = "gold_crest"
-
-//clothing-like acessories
-
-/obj/item/clothing/accessory/wcoat
-	name = "waistcoat"
-	desc = "For some classy, murderous fun."
-	icon_state = "wcoat"
-	item_state = "wcoat"
 
 /obj/item/clothing/accessory/suspenders
 	name = "suspenders"
@@ -265,17 +262,12 @@
 	icon_state = "suspenders"
 	item_state = "suspenders"
 
-/obj/item/clothing/accessory/sweater
-	name = "sweater"
-	desc = "A warm knit sweater."
-	icon_state = "sweater"
-	item_state = "sweater"
-
 /obj/item/clothing/accessory/scarf
-	name = "white scarf"
+	name = "scarf"
 	desc = "A simple scarf, to protect your neck from the cold of space."
 	icon_state = "whitescarf"
 	item_state = "whitescarf"
+	slot = "over"
 
 /obj/item/clothing/accessory/scarf/yellow
 	name = "yellow scarf"
@@ -321,3 +313,206 @@
 	name = "zebra scarf"
 	icon_state = "zebrascarf"
 	item_state = "zebrascarf"
+
+/obj/item/clothing/accessory/chaps
+	name = "brown chaps"
+	desc = "A pair of loose, brown leather chaps."
+	icon_state = "chaps"
+	item_state = "chaps"
+
+/obj/item/clothing/accessory/chaps/black
+	name = "black chaps"
+	desc = "A pair of loose, black leather chaps."
+	icon_state = "chaps_black"
+	item_state = "chaps_black"
+
+/*
+* Poncho
+*/
+
+/obj/item/clothing/accessory/poncho
+	name = "poncho"
+	desc = "A simple, comfortable poncho."
+	icon_state = "classicponcho"
+	item_state = "classicponcho"
+	icon_override = 'icons/mob/ties.dmi'
+	allowed = list(/obj/item/weapon/tank/emergency_oxygen)
+	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 0, rad = 0)
+	slot_flags = SLOT_OCLOTHING | SLOT_TIE
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS|LEGS
+	siemens_coefficient = 0.9
+	w_class = 3
+	slot = "over"
+	var/allow_tail_hiding = TRUE //in case if you want to allow someone to switch the HIDETAIL var or not
+
+/obj/item/clothing/accessory/poncho/verb/toggle_hide_tail()
+	set name = "Toggle Tail Coverage"
+	set category = "Object"
+
+	if(allow_tail_hiding)
+		flags_inv ^= HIDETAIL
+		usr << "<span class='notice'>[src] will now [flags_inv & HIDETAIL ? "hide" : "show"] your tail.</span>"
+	..()
+
+/obj/item/clothing/accessory/poncho/green
+	name = "green poncho"
+	desc = "A simple, comfortable cloak without sleeves. This one is green."
+	icon_state = "greenponcho"
+	item_state = "greenponcho"
+
+/obj/item/clothing/accessory/poncho/red
+	name = "red poncho"
+	desc = "A simple, comfortable cloak without sleeves. This one is red."
+	icon_state = "redponcho"
+	item_state = "redponcho"
+
+/obj/item/clothing/accessory/poncho/purple
+	name = "purple poncho"
+	desc = "A simple, comfortable cloak without sleeves. This one is purple."
+	icon_state = "purpleponcho"
+	item_state = "purpleponcho"
+
+/obj/item/clothing/accessory/poncho/blue
+	name = "blue poncho"
+	desc = "A simple, comfortable cloak without sleeves. This one is blue."
+	icon_state = "blueponcho"
+	item_state = "blueponcho"
+
+/obj/item/clothing/accessory/poncho/roles/medical
+	name = "medical poncho"
+	desc = "A simple, comfortable cloak without sleeves. This one is white with green and blue tint, standard Medical colors."
+	icon_state = "medponcho"
+	item_state = "medponcho"
+
+/obj/item/clothing/accessory/poncho/roles/engineering
+	name = "engineering poncho"
+	desc = "A simple, comfortable cloak without sleeves. This one is yellow and orange, standard Engineering colors."
+	icon_state = "engiponcho"
+	item_state = "engiponcho"
+
+/obj/item/clothing/accessory/poncho/roles/science
+	name = "science poncho"
+	desc = "A simple, comfortable cloak without sleeves. This one is white with purple trim, standard NanoTrasen Science colors."
+	icon_state = "sciponcho"
+	item_state = "sciponcho"
+
+/obj/item/clothing/accessory/poncho/roles/cargo
+	name = "cargo poncho"
+	desc = "A simple, comfortable cloak without sleeves. This one is tan and grey, the colors of Cargo."
+	icon_state = "cargoponcho"
+	item_state = "cargoponcho"
+
+/*
+ * Cloak
+ */
+/obj/item/clothing/accessory/poncho/roles/cloak
+	name = "quartermaster's cloak"
+	desc = "An elaborate brown and gold cloak."
+	icon_state = "qmcloak"
+	item_state = "qmcloak"
+	body_parts_covered = null
+
+/obj/item/clothing/accessory/poncho/roles/cloak/ce
+	name = "chief engineer's cloak"
+	desc = "An elaborate cloak worn by the chief engineer."
+	icon_state = "cecloak"
+	item_state = "cecloak"
+
+/obj/item/clothing/accessory/poncho/roles/cloak/cmo
+	name = "chief medical officer's cloak"
+	desc = "An elaborate cloak meant to be worn by the chief medical officer."
+	icon_state = "cmocloak"
+	item_state = "cmocloak"
+
+/obj/item/clothing/accessory/poncho/roles/cloak/hop
+	name = "head of personnel's cloak"
+	desc = "An elaborate cloak meant to be worn by the head of personnel."
+	icon_state = "hopcloak"
+	item_state = "hopcloak"
+
+/obj/item/clothing/accessory/poncho/roles/cloak/rd
+	name = "research director's cloak"
+	desc = "An elaborate cloak meant to be worn by the research director."
+	icon_state = "rdcloak"
+	item_state = "rdcloak"
+
+/obj/item/clothing/accessory/poncho/roles/cloak/qm
+	name = "quartermaster's cloak"
+	desc = "An elaborate cloak meant to be worn by the quartermaster."
+	icon_state = "qmcloak"
+	item_state = "qmcloak"
+
+/obj/item/clothing/accessory/poncho/roles/cloak/captain
+	name = "captain's cloak"
+	desc = "An elaborate cloak meant to be worn by the Captain."
+	icon_state = "capcloak"
+	item_state = "capcloak"
+
+/obj/item/clothing/accessory/poncho/roles/cloak/hos
+	name = "head of security's cloak"
+	desc = "An elaborate cloak meant to be worn by the Head of Security."
+	icon_state = "hoscloak"
+	item_state = "hoscloak"
+
+/obj/item/clothing/accessory/poncho/roles/cloak/cargo
+	name = "brown cloak"
+	desc = "A simple brown and black cloak worn by crate jockeys."
+	icon_state = "cargocloak"
+	item_state = "cargocloak"
+
+/obj/item/clothing/accessory/poncho/roles/cloak/mining
+	name = "trimmed purple cloak"
+	desc = "A trimmed purple and brown cloak worn by dwarves."
+	icon_state = "miningcloak"
+	item_state = "miningcloak"
+
+/obj/item/clothing/accessory/poncho/roles/cloak/service
+	name = "green cloak"
+	desc = "A simple green and blue cloak worn by.. Who?"
+	icon_state = "servicecloak"
+	item_state = "servicecloak"
+
+/obj/item/clothing/accessory/poncho/roles/cloak/engineer
+	name = "gold cloak"
+	desc = "A simple gold and brown cloak worn by grease monkeys."
+	icon_state = "engicloak"
+	item_state = "engicloak"
+
+/obj/item/clothing/accessory/poncho/roles/cloak/atmos
+	name = "yellow cloak"
+	desc = "A trimmed yellow and blue cloak worn by airbenders."
+	icon_state = "atmoscloak"
+	item_state = "atmoscloak"
+
+/obj/item/clothing/accessory/poncho/roles/cloak/research
+	name = "purple cloak"
+	desc = "A simple purple and white cloak worn by nerds."
+	icon_state = "scicloak"
+	item_state = "scicloak"
+
+/obj/item/clothing/accessory/poncho/roles/cloak/medical
+	name = "blue cloak"
+	desc = "A simple blue and white cloak worn by suit sensor activists."
+	icon_state = "medcloak"
+	item_state = "medcloak"
+
+/obj/item/clothing/accessory/poncho/roles/cloak/security
+	name = "dark blue cloak"
+	desc = "A simple dark blue cloak awarded by NanoTrasen for failing the introductory literacy test."
+	icon_state = "seccloak"
+	item_state = "seccloak"
+
+//tau ceti legion ribbons
+
+/obj/item/clothing/accessory/legion
+	name = "seniority ribbons"
+	desc = "A ribbon meant to attach to the chest and sling around the shoulder accompanied by two medallions, marking seniority in a Tau Ceti Foreign Legion."
+	icon_state = "senior_ribbon"
+	item_state = "senior_ribbon"
+	slot = "over"
+
+/obj/item/clothing/accessory/legion/specialist
+	name = "specialist medallion"
+	desc = "Two small medallions, one worn on the shoulder and the other worn on the chest. Meant to display the rank of specialist troops in a Tau Ceti Foreign Legion."
+	icon_state = "specialist_medallion"
+	item_state = "specialist_medallion"

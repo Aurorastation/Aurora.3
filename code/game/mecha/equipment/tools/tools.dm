@@ -34,6 +34,7 @@
 
 		occupant_message("You lift [target] and start to load it into cargo compartment.")
 		chassis.visible_message("[chassis] lifts [target] and starts to load it into cargo compartment.")
+		playsound(src.loc, 'sound/mecha/hydraulic.ogg', 50, 1, -1)
 		set_ready_state(0)
 		chassis.use_power(energy_drain)
 		O.anchored = 1
@@ -41,7 +42,7 @@
 		if(do_after_cooldown(target))
 			if(T == chassis.loc && src == chassis.selected)
 				cargo_holder.cargo += O
-				O.loc = chassis
+				O.forceMove(chassis)
 				O.anchored = 0
 				occupant_message("<span class='notice'>[target] succesfully loaded.</span>")
 				log_message("Loaded [O]. Cargo compartment capacity: [cargo_holder.cargo_capacity - cargo_holder.cargo.len]")
@@ -87,6 +88,7 @@
 	chassis.use_power(energy_drain)
 	chassis.visible_message("<span class='danger'>\The [chassis] starts to drill \the [target]</span>", "<span class='warning'>You hear a large drill.</span>")
 	occupant_message("<span class='danger'>You start to drill \the [target]</span>")
+	playsound(src.loc, 'sound/mecha/mechdrill.ogg', 50, 1, -1)
 	var/T = chassis.loc
 	var/C = target.loc	//why are these backwards? we may never know -Pete
 	if(do_after_cooldown(target))
@@ -141,6 +143,7 @@
 	chassis.use_power(energy_drain)
 	chassis.visible_message("<span class='danger'>\The [chassis] starts to drill \the [target]</span>", "<span class='warning'>You hear a large drill.</span>")
 	occupant_message("<span class='danger'>You start to drill \the [target]</span>")
+	playsound(src.loc, 'sound/mecha/mechdrill.ogg', 50, 1, -1)
 	var/T = chassis.loc
 	var/C = target.loc	//why are these backwards? we may never know -Pete
 	if(do_after_cooldown(target))
@@ -190,7 +193,7 @@
 /obj/item/mecha_parts/mecha_equipment/tool/extinguisher/New()
 	reagents = new/datum/reagents(max_water)
 	reagents.my_atom = src
-	reagents.add_reagent("water", max_water)
+	reagents.add_reagent("monoammoniumphosphate", max_water)
 	..()
 	return
 
@@ -199,7 +202,7 @@
 	if(get_dist(chassis, target)>2) return
 	set_ready_state(0)
 	if(do_after_cooldown(target))
-		if( istype(target, /obj/structure/reagent_dispensers/watertank) && get_dist(chassis,target) <= 1)
+		if( istype(target, /obj/structure/reagent_dispensers) && get_dist(chassis,target) <= 1)
 			var/obj/o = target
 			var/amount = o.reagents.trans_to_obj(src, 200)
 			occupant_message("<span class='notice'>[amount] units transferred into internal tank.</span>")

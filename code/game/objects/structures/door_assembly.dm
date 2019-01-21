@@ -232,8 +232,7 @@
 			if(do_after(user, 40))
 				EL.inuse = 0
 				if(!src) return
-				user.drop_item()
-				EL.forceMove(src)
+				user.drop_from_inventory(EL,src)
 				user << "<span class='notice'>You installed the airlock electronics!</span>"
 				src.state = 2
 				src.name = "Near finished Airlock Assembly"
@@ -256,7 +255,7 @@
 			user << "<span class='notice'>You removed the airlock electronics!</span>"
 			src.state = 1
 			src.name = "Wired Airlock Assembly"
-			electronics.loc = src.loc
+			electronics.forceMove(src.loc)
 			electronics = null
 
 	else if(istype(W, /obj/item/stack/material) && !glass)

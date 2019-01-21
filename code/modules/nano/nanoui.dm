@@ -140,7 +140,7 @@ nanoui is used to open and update nano browser uis
   * @return nothing
   */
 /datum/nanoui/proc/update_status(var/push_update = 0)
-	var/obj/host = src_object.nano_host()
+	var/obj/host = src_object.ui_host()
 	var/new_status = host.CanUseTopic(user, state)
 	if(master_ui)
 		new_status = min(new_status, master_ui.status)
@@ -365,7 +365,7 @@ nanoui is used to open and update nano browser uis
 		<script type='text/javascript'>
 			function receiveUpdateData(jsonString)
 			{
-				// We need both jQuery and NanoStateManager to be able to recieve data
+				// We need both jQuery and NanoStateManager to be able to receive data
 				// At the moment any data received before those libraries are loaded will be lost
 				if (typeof NanoStateManager != 'undefined' && typeof jQuery != 'undefined')
 				{

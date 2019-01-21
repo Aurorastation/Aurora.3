@@ -183,8 +183,7 @@
 			if (istype(I, /obj/item/weapon/cell))
 				if (!powercell)
 					user << span("notice","You place the [I] inside \the [src].")
-					user.drop_item()
-					I.loc = src
+					user.drop_from_inventory(I,src)
 					powercell = I
 					setconstructionstate(1)
 				return
@@ -302,7 +301,7 @@
 						break
 
 		user.visible_message("<span class='notice'>[user] attached [src] onto [newtarget] and flicks it on. The magnetic lock now seals [newtarget].</span>", "<span class='notice'>You attached [src] onto [newtarget] and switched on the magnetic lock.</span>")
-		user.drop_item()
+		user.drop_item() //TODO: Look into this
 
 		forceMove(get_step(newtarget.loc, reverse_direction(direction)))
 		set_dir(reverse_direction(direction))

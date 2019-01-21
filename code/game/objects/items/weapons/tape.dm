@@ -79,6 +79,7 @@
 	if(!istype(W, /obj/item/weapon/paper))
 		return
 	user.drop_from_inventory(W)
+	//TODO: Possible animation? No clue
 	var/obj/item/weapon/ducttape/tape = new(get_turf(src))
 	tape.attach(W)
 	user.put_in_hands(tape)
@@ -113,7 +114,7 @@
 		return
 
 	user << "You remove \the [initial(name)] from [stuck]."
-
+	//TODO: Find out what the fuck is going on here
 	user.drop_from_inventory(src)
 	stuck.forceMove(get_turf(src))
 	user.put_in_hands(stuck)
@@ -136,20 +137,19 @@
 			user << "You cannot reach that from here."		// can only place stuck papers in cardinal directions, to
 			return											// reduce papers around corners issue.
 
-	user.drop_from_inventory(src)
+	user.drop_from_inventory(src,source_turf)
 	playsound(src, 'sound/items/tape.ogg',25)
-	forceMove(source_turf)
 
 	if(params)
-		var/list/mouse_control = params2list(params)
+		var/list/mouse_control = mouse_safe_xy(params)
 		if(mouse_control["icon-x"])
-			pixel_x = text2num(mouse_control["icon-x"]) - 16
+			pixel_x = mouse_control["icon-x"] - 16
 			if(dir_offset & EAST)
 				pixel_x += 32
 			else if(dir_offset & WEST)
 				pixel_x -= 32
 		if(mouse_control["icon-y"])
-			pixel_y = text2num(mouse_control["icon-y"]) - 16
+			pixel_y = mouse_control["icon-y"] - 16
 			if(dir_offset & NORTH)
 				pixel_y += 32
 			else if(dir_offset & SOUTH)

@@ -55,7 +55,6 @@
 		return 0
 
 	user << "<font color='blue'><b>You slot \the [input_device] into the suit module.</b></font>"
-	user.drop_from_inventory(input_device)
 	qdel(input_device)
 	accepted_item.charges++
 	return 1
@@ -217,7 +216,7 @@
 	interface_name = "mounted ion rifle"
 	interface_desc = "A shoulder-mounted cell-powered ion rifle."
 
-	gun_type = /obj/item/weapon/gun/energy/ionrifle/mounted
+	gun_type = /obj/item/weapon/gun/energy/rifle/ionrifle/mounted
 
 /obj/item/rig_module/mounted/plasmacutter
 	name = "hardsuit plasma cutter"
@@ -297,7 +296,6 @@
 		return
 
 	for(var/obj/item/weapon/melee/energy/blade/blade in M.contents)
-		M.drop_from_inventory(blade)
 		qdel(blade)
 
 /obj/item/rig_module/fabricator

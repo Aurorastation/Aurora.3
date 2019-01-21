@@ -94,8 +94,9 @@
 		if(!do_after(H,50))
 			if(H && H.wear_suit == src)
 				H.wear_suit = null
-				H.drop_from_inventory(src)
-			src.forceMove(get_turf(H))
+				H.drop_from_inventory(src,get_turf(H))
+			else
+				src.forceMove(get_turf(H))
 			return
 
 		wearer = user

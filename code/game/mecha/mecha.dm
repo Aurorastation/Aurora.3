@@ -108,6 +108,9 @@
 	// Process() iterator count.
 	var/process_ticks = 0
 
+	var/stepsound = 'sound/mecha/mechstep.ogg'
+	var/turnsound = 'sound/mecha/mechturn.ogg'
+
 /obj/mecha/drain_power(var/drain_check)
 
 	if(drain_check)
@@ -118,8 +121,11 @@
 
 	return cell.drain_power(drain_check)
 
-/obj/mecha/New()
-	..()
+/obj/mecha/Initialize()
+	.= ..()
+
+	START_PROCESSING(SSfast_process, src)
+
 	events = new
 
 	icon_state += "-open"
@@ -135,10 +141,6 @@
 
 	spark_system = bind_spark(src, 2)
 
-/obj/mecha/Initialize()
-	. = ..()
-
-	START_PROCESSING(SSfast_process, src)
 
 /obj/mecha/Destroy()
 	STOP_PROCESSING(SSfast_process, src)
@@ -446,20 +448,21 @@
 
 /obj/mecha/proc/mechturn(direction)
 	set_dir(direction)
-	playsound(src,'sound/mecha/mechturn.ogg',40,1)
+	if(turnsound)
+		playsound(src,turnsound,40,1)
 	return 1
 
 /obj/mecha/proc/mechstep(direction)
 	var/result = step(src,direction)
-	if(result)
-		playsound(src,'sound/mecha/mechstep.ogg',40,1)
+	if(result && stepsound)
+		playsound(src,stepsound,40,1)
 	return result
 
 
 /obj/mecha/proc/mechsteprand()
 	var/result = step_rand(src)
-	if(result)
-		playsound(src,'sound/mecha/mechstep.ogg',40,1)
+	if(result && stepsound)
+		playsound(src,stepsound,40,1)
 	return result
 
 /obj/mecha/Collide(var/atom/obstacle)
@@ -754,7 +757,7 @@
 		var/obj/item/mecha_parts/mecha_equipment/E = W
 		spawn()
 			if(E.can_attach(src))
-				user.drop_item()
+				user.drop_item() //TODO: Look into attach
 				E.attach(src)
 				user.visible_message("[user] attaches [W] to [src]", "You attach [W] to [src]")
 			else
@@ -830,8 +833,7 @@
 		if(state==3)
 			if(!src.cell)
 				user << "You install the powercell"
-				user.drop_item()
-				W.forceMove(src)
+				user.drop_from_inventory(W,src)
 				src.cell = W
 				src.log_message("Powercell installed")
 			else
@@ -1000,7 +1002,7 @@
 		mechstep(dir)
 		sleep(2)
 		mechstep(dir)
-		src.visible_message("<span class='danger'>[src.name] lunges forward clumsily!</span>")
+		src.visible_message("<span class='danger'>\The [src] lunges forward clumsily!</span>")
 		done = 1
 		return
 
@@ -1278,7 +1280,7 @@
 		if(istype(mob_container, /obj/item/device/mmi))
 			var/obj/item/device/mmi/mmi = mob_container
 			if(mmi.brainmob)
-				occupant.loc = mmi
+				occupant.forceMove(mmi)
 			mmi.mecha = null
 			src.occupant.canmove = 0
 			src.verbs += /obj/mecha/verb/eject
@@ -1852,8 +1854,6 @@
 		internal_tank_valve = rand(0,10000) // Screw up the cabin air pressure.
 		//This will probably kill the pilot if they dont check it before climbing in
 	if (prob(probability))
-		state = 1 // Enable maintenance mode. It won't move.
-	if (prob(probability))
 		use_internal_tank = !use_internal_tank // Flip internal tank mode on or off
 	if (prob(probability))
 		toggle_lights() // toggle the lights
@@ -1865,6 +1865,9 @@
 		radio.set_frequency(rand(1200,1600))
 	if (prob(probability))
 		maint_access = 0 // Disallow maintenance mode
+	else
+		maint_access = 1 // Explicitly allow maint_access -> Othwerwise we have a stuck mech, as you cant change the state back, if maint_access is 0
+		state = 1 // Enable maintenance mode. It won't move.
 
 /////////////////////////////////////////
 //////// Mecha process() helpers ////////
@@ -2108,7 +2111,8 @@
 	return
 
 
-
+/obj/mecha/proc/trample(var/mob/living/H)
+	return
 
 /////////////
 

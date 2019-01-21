@@ -31,7 +31,7 @@
 	ammo_magazine = new magazine_type(src)
 	gun.magazine_type = ammo_magazine
 	gun.ammo_magazine = ammo_magazine
-	gun.loc = src
+	gun.forceMove(src)
 
 /obj/item/minigunpack/proc/make_gun()
 	return new /obj/item/weapon/gun/projectile/automatic/rifle/minigun()
@@ -133,11 +133,6 @@
 
 
 	var/obj/item/minigunpack/source
-
-/obj/item/weapon/gun/projectile/automatic/rifle/minigun/Initialize()
-	. = ..()
-	if(!source)
-		QDEL_IN(src, 1)
 
 /obj/item/weapon/gun/projectile/automatic/rifle/minigun/special_check(var/mob/user)
 	if(!wielded)

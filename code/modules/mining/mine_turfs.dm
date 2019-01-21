@@ -342,9 +342,6 @@ var/list/mineral_can_smooth_with = list(
 		new /obj/structure/sculpting_block(src)
 		GetDrilled(1)
 
-	else
-		return attack_hand(user)
-
 /turf/simulated/mineral/proc/clear_ore_effects()
 	if (my_mineral)
 		qdel(my_mineral)
@@ -517,7 +514,7 @@ var/list/mineral_can_smooth_with = list(
 	add_fingerprint(user)
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 
-	if(ishuman(user))
+	if(ishuman(user) && user.a_intent == I_GRAB)
 		var/mob/living/carbon/human/H = user
 		var/turf/destination = GetAbove(H)
 

@@ -84,10 +84,10 @@
 	src.go_out()
 	for(var/obj/O in src)
 		if((!istype(O,/obj/item/weapon/reagent_containers)) && (!istype(O,/obj/item/weapon/circuitboard/clonescanner)) && (!istype(O,/obj/item/weapon/stock_parts)) && (!iscoil(O)))
-			O.loc = get_turf(src)//Ejects items that manage to get in there (exluding the components)
+			O.forceMove(get_turf(src))//Ejects items that manage to get in there (exluding the components)
 	if(!occupant)
 		for(var/mob/M in src)//Failsafe so you can get mobs out
-			M.loc = get_turf(src)
+			M.forceMove(get_turf(src))
 
 /obj/machinery/dna_scannernew/verb/move_inside()
 	set src in oview(1)
@@ -108,7 +108,7 @@
 	usr.stop_pulling()
 	usr.client.perspective = EYE_PERSPECTIVE
 	usr.client.eye = src
-	usr.loc = src
+	usr.forceMove(src)
 	src.occupant = usr
 	src.icon_state = "scanner_1"
 	src.add_fingerprint(usr)
@@ -121,8 +121,7 @@
 			return
 
 		beaker = item
-		user.drop_item()
-		item.loc = src
+		user.drop_from_inventory(item,src)
 		user.visible_message("\The [user] adds \a [item] to \the [src]!", "You add \a [item] to \the [src]!")
 		return
 	else if (!istype(item, /obj/item/weapon/grab))
@@ -145,7 +144,7 @@
 	if(M.client)
 		M.client.perspective = EYE_PERSPECTIVE
 		M.client.eye = src
-	M.loc = src
+	M.forceMove(src)
 	src.occupant = M
 	src.icon_state = "scanner_1"
 
@@ -168,7 +167,7 @@
 	if (src.occupant.client)
 		src.occupant.client.eye = src.occupant.client.mob
 		src.occupant.client.perspective = MOB_PERSPECTIVE
-	src.occupant.loc = src.loc
+	src.occupant.forceMove(src.loc)
 	src.occupant = null
 	src.icon_state = "scanner_0"
 	return
@@ -177,7 +176,7 @@
 	switch(severity)
 		if(1.0)
 			for(var/atom/movable/A as mob|obj in src)
-				A.loc = src.loc
+				A.forceMove(src.loc)
 				ex_act(severity)
 				//Foreach goto(35)
 			//SN src = null
@@ -186,7 +185,7 @@
 		if(2.0)
 			if (prob(50))
 				for(var/atom/movable/A as mob|obj in src)
-					A.loc = src.loc
+					A.forceMove(src.loc)
 					ex_act(severity)
 					//Foreach goto(108)
 				//SN src = null
@@ -195,7 +194,7 @@
 		if(3.0)
 			if (prob(25))
 				for(var/atom/movable/A as mob|obj in src)
-					A.loc = src.loc
+					A.forceMove(src.loc)
 					ex_act(severity)
 					//Foreach goto(181)
 				//SN src = null
@@ -234,8 +233,7 @@
 /obj/machinery/computer/scan_consolenew/attackby(obj/item/I as obj, mob/user as mob)
 	if (istype(I, /obj/item/weapon/disk/data)) //INSERT SOME diskS
 		if (!src.disk)
-			user.drop_item()
-			I.loc = src
+			user.drop_from_inventory(I,src)
 			src.disk = I
 			user << "You insert [I]."
 			SSnanoui.update_uis(src) // update all UIs attached to src
@@ -632,7 +630,7 @@
 	if(href_list["ejectBeaker"])
 		if(connected.beaker)
 			var/obj/item/weapon/reagent_containers/glass/B = connected.beaker
-			B.loc = connected.loc
+			B.forceMove(connected.loc)
 			connected.beaker = null
 		return 1
 
@@ -657,7 +655,7 @@
 		if (bufferOption == "ejectDisk")
 			if (!src.disk)
 				return
-			src.disk.loc = get_turf(src)
+			src.disk.forceMove(get_turf(src))
 			src.disk = null
 			return 1
 
@@ -761,7 +759,7 @@
 					I.buf = buf
 				waiting_for_user_input=0
 				if(success)
-					I.loc = src.loc
+					I.forceMove(src.loc)
 					I.name += " ([buf.name])"
 					//src.temphtml = "Injector created."
 					src.injector_ready = 0

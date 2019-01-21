@@ -178,7 +178,7 @@
 			var/obj/structure/sign/poster/P = O
 			P.roll_and_drop(src)
 		else
-			O.loc = src
+			O.forceMove(src)
 
 	clear_plants()
 	material = get_material_by_name("placeholder")

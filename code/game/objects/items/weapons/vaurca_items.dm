@@ -13,6 +13,18 @@
 	user << "This mask is too tight to adjust."
 	return
 
+/obj/item/clothing/mask/breath/vaurca/expression
+	name = "human expression mask"
+	desc = "A mask that allows emotively challenged aliens to convey facial expressions. This one depicts a human."
+	icon_state = "human_mask"
+	item_state = "human_mask"
+
+/obj/item/clothing/mask/breath/vaurca/expression/skrell
+	name = "skrell expression mask"
+	desc = "A mask that allows emotively challenged aliens to convey facial expressions. This one depicts a skrell."
+	icon_state = "skrell_mask"
+	item_state = "skrell_mask"
+
 /obj/item/weapon/melee/energy/vaurca
 	name = "thermal knife"
 	desc = "A Vaurcae-designed combat knife with a thermal energy blade designed for close-quarter encounters."

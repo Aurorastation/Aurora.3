@@ -95,8 +95,7 @@
 		if(scanned_item)
 			user << "<span class=warning>\The [src] already has \a [scanned_item] inside!</span>"
 			return
-		user.drop_item()
-		I.loc = src
+		user.drop_from_inventory(I,src)
 		scanned_item = I
 		user << "<span class=notice>You put \the [I] into \the [src].</span>"
 
@@ -320,9 +319,9 @@
 		P.info = "<b>[src] analysis report #[report_num]</b><br>"
 		P.info += "<b>Scanned item:</b> [scanned_item.name]<br><br>" + data
 		last_scan_data = P.info
-		P.loc = src.loc
+		P.forceMove(src.loc)
 
-		scanned_item.loc = src.loc
+		scanned_item.forceMove(src.loc)
 		scanned_item = null
 
 /obj/machinery/radiocarbon_spectrometer/Topic(href, href_list)
@@ -358,7 +357,7 @@
 
 	if(href_list["ejectItem"])
 		if(scanned_item)
-			scanned_item.loc = src.loc
+			scanned_item.forceMove(src.loc)
 			scanned_item = null
 
 	add_fingerprint(usr)

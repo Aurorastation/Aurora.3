@@ -312,6 +312,7 @@
 // called when something steps onto a human
 // this handles mulebots and vehicles
 /mob/living/carbon/human/Crossed(var/atom/movable/AM)
+	..()
 	if(istype(AM, /obj/machinery/bot/mulebot))
 		var/obj/machinery/bot/mulebot/MB = AM
 		MB.RunOver(src)
@@ -827,14 +828,22 @@
 	return 1
 
 /mob/living/carbon/human/IsAdvancedToolUser(var/silent)
+
+	if(is_berserk())
+		if(!silent)
+			src << "<span class='warning'>You are in no state to use that!</span>"
+		return 0
+
 	if(!species.has_fine_manipulation)
 		if(!silent)
 			src << "<span class='warning'>You don't have the dexterity to use that!</span>"
 		return 0
+
 	if(disabilities & MONKEYLIKE)
 		if(!silent)
 			src << "<span class='warning'>You don't have the dexterity to use that!</span>"
 		return 0
+
 	return 1
 
 /mob/living/carbon/human/abiotic(var/full_body = 0)
@@ -1079,6 +1088,11 @@
 	losebreath = 0
 	shock_stage = 0
 
+	//Fix husks
+	mutations.Remove(HUSK)
+	status_flags &= ~DISFIGURED	//Fixes the unknown status
+	update_body(1)
+
 	..()
 
 /mob/living/carbon/human/proc/is_lung_ruptured()
@@ -1092,38 +1106,7 @@
 		src.custom_pain("You feel a stabbing pain in your chest!", 1)
 		L.bruise()
 
-/*
-/mob/living/carbon/human/verb/simulate()
-	set name = "sim"
-	set background = 1
-
-	var/damage = input("Wound damage","Wound damage") as num
-
-	var/germs = 0
-	var/tdamage = 0
-	var/ticks = 0
-	while (germs < 2501 && ticks < 100000 && round(damage/10)*20)
-		log_misc("VIRUS TESTING: [ticks] : germs [germs] tdamage [tdamage] prob [round(damage/10)*20]")
-		ticks++
-		if (prob(round(damage/10)*20))
-			germs++
-		if (germs == 100)
-			world << "Reached stage 1 in [ticks] ticks"
-		if (germs > 100)
-			if (prob(10))
-				damage++
-				germs++
-		if (germs == 1000)
-			world << "Reached stage 2 in [ticks] ticks"
-		if (germs > 1000)
-			damage++
-			germs++
-		if (germs == 2500)
-			world << "Reached stage 3 in [ticks] ticks"
-	world << "Mob took [tdamage] tox damage"
-*/
 //returns 1 if made bloody, returns 0 otherwise
-
 /mob/living/carbon/human/add_blood(mob/living/carbon/human/M as mob)
 	if (!..())
 		return 0
@@ -1307,8 +1290,13 @@
 
 	exhaust_threshold = species.exhaust_threshold
 	max_nutrition = BASE_MAX_NUTRITION * species.max_nutrition_factor
+	max_hydration = BASE_MAX_HYDRATION * species.max_hydration_factor
 
 	nutrition_loss = HUNGER_FACTOR * species.nutrition_loss_factor
+	hydration_loss = THIRST_FACTOR * species.hydration_loss_factor
+
+	species.set_default_hair(src)
+
 	if(species)
 		return 1
 	else
@@ -1524,7 +1512,7 @@
 		"<span class='danger'>You pop [S]'s [current_limb.joint] back in!</span>")
 	current_limb.undislocate()
 
-/mob/living/carbon/human/drop_from_inventory(var/obj/item/W, var/atom/Target = null)
+/mob/living/carbon/human/drop_from_inventory(var/obj/item/W, var/atom/target = null)
 	if(W in organs)
 		return
 	..()

@@ -56,7 +56,7 @@
 			var/obj/item/stack/tile/E = input("Choose remove tile type.", "Tiles") as null|anything in contents
 			if(E)
 				user <<  "<span class='notice'>You remove the [E] from /the [src].</span>"
-				E.loc = src.loc
+				E.forceMove(src.loc)
 				T = null
 		return
 
@@ -114,7 +114,7 @@
 
 /obj/machinery/floorlayer/proc/TakeTile(var/obj/item/stack/tile/tile)
 	if(!T)	T = tile
-	tile.loc = src
+	tile.forceMove(src)
 
 	SortStacks()
 

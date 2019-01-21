@@ -10,7 +10,7 @@
 	flags = CONDUCT
 	slot_flags = SLOT_BELT
 	var/active = 0
-	var/det_time = 50
+	var/det_time = 30
 	var/fake = FALSE
 
 /obj/item/weapon/grenade/proc/clown_check(var/mob/living/user)
@@ -67,26 +67,6 @@
 	var/turf/T = get_turf(src)
 	if(T)
 		T.hotspot_expose(700,125)
-
-
-/obj/item/weapon/grenade/attackby(obj/item/weapon/W as obj, mob/user as mob)
-	if(isscrewdriver(W))
-		switch(det_time)
-			if (1)
-				det_time = 10
-				user << "<span class='notice'>You set the [name] for 1 second detonation time.</span>"
-			if (10)
-				det_time = 30
-				user << "<span class='notice'>You set the [name] for 3 second detonation time.</span>"
-			if (30)
-				det_time = 50
-				user << "<span class='notice'>You set the [name] for 5 second detonation time.</span>"
-			if (50)
-				det_time = 1
-				user << "<span class='notice'>You set the [name] for instant detonation.</span>"
-		add_fingerprint(user)
-	..()
-	return
 
 /obj/item/weapon/grenade/attack_hand()
 	walk(src, null, null)

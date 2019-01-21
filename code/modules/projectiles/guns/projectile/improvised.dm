@@ -11,7 +11,7 @@
 	w_class = 4.0
 	force = 5
 	recoil = 2
-	accuracy = -2
+	accuracy = -1
 	slot_flags = SLOT_BACK
 	caliber = "shotgun"
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
@@ -101,7 +101,6 @@
 /obj/item/weapon/receivergun/attackby(obj/item/W as obj, mob/user as mob)
 	if(istype(W,/obj/item/pipe))
 		if(buildstate == 0)
-			user.drop_from_inventory(W)
 			qdel(W)
 			user << "<span class='notice'>You place the pipe and the receiver together.</span>"
 			buildstate++
@@ -109,7 +108,6 @@
 			return
 	else if(istype(W,/obj/item/weapon/stock))
 		if(buildstate == 1)
-			user.drop_from_inventory(W)
 			qdel(W)
 			user << "<span class='notice'>You add the stock to the assembly.</span>"
 			buildstate++
@@ -117,7 +115,6 @@
 			return
 	else if(istype(W,/obj/item/weapon/tape_roll))
 		if(buildstate == 2)
-			user.drop_from_inventory(W)
 			qdel(W)
 			user << "<span class='notice'>You strap the pieces together with tape.</span>"
 			buildstate++
@@ -144,7 +141,7 @@
 	desc = "A common sight in an amateur's workshop, a simple yet effective assembly made to chamber and fire .45 Rounds."
 	max_shells = 7
 	recoil = 2
-	accuracy = -2
+	accuracy = -1
 	fire_delay = 9
 	icon = 'icons/obj/improvised.dmi'
 	icon_state = "ipistol"
@@ -185,7 +182,6 @@
 			return
 	else if(istype(W,/obj/item/weapon/receivergun))
 		if(buildstate == 1)
-			user.drop_from_inventory(W)
 			qdel(W)
 			user << "<span class='notice'>You add the receiver to the assembly.</span>"
 			buildstate++
@@ -193,7 +189,6 @@
 			return
 	else if(istype(W,/obj/item/pipe))
 		if(buildstate == 2)
-			user.drop_from_inventory(W)
 			qdel(W)
 			user << "<span class='notice'>You strap the pipe to the assembly.</span>"
 			buildstate++
@@ -222,7 +217,7 @@
 	max_shells = 16
 	caliber = ".45"
 	sel_mode = 1
-	accuracy = -5
+	accuracy = -1
 	fire_delay = 5
 	burst = 3
 	burst_delay = 3

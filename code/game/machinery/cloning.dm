@@ -235,7 +235,7 @@
 	else if(istype(W, /obj/item/weapon/reagent_containers/food/snacks/meat))
 		user << "<span class='notice'>\The [src] processes \the [W].</span>"
 		biomass += 50
-		user.drop_item()
+		user.drop_from_inventory(W,src)
 		qdel(W)
 		return
 	else if(iswrench(W))
@@ -313,7 +313,7 @@
 	if(occupant.client)
 		occupant.client.eye = occupant.client.mob
 		occupant.client.perspective = MOB_PERSPECTIVE
-	occupant.loc = loc
+	occupant.forceMove(loc)
 	eject_wait = 0 //If it's still set somehow.
 	domutcheck(occupant) //Waiting until they're out before possible transforming.
 	occupant = null
@@ -347,21 +347,21 @@
 	switch(severity)
 		if(1.0)
 			for(var/atom/movable/A as mob|obj in src)
-				A.loc = loc
+				A.forceMove(loc)
 				ex_act(severity)
 			qdel(src)
 			return
 		if(2.0)
 			if(prob(50))
 				for(var/atom/movable/A as mob|obj in src)
-					A.loc = loc
+					A.forceMove(loc)
 					ex_act(severity)
 				qdel(src)
 				return
 		if(3.0)
 			if(prob(25))
 				for(var/atom/movable/A as mob|obj in src)
-					A.loc = loc
+					A.forceMove(loc)
 					ex_act(severity)
 				qdel(src)
 				return

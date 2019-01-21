@@ -62,7 +62,7 @@
 			"<span class='warning'>[user.name] drenches you in a foul-smelling resin, trapping you in the [src]!</span>",\
 			"<span class='notice'>You hear squelching...</span>")
 	M.buckled = src
-	M.loc = src.loc
+	M.forceMove(src.loc)
 	M.set_dir(src.dir)
 	M.update_canmove()
 	M.pixel_y = 6

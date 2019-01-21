@@ -256,9 +256,10 @@
 			return
 		if(!dropsafety(W))
 			return
-		usr.drop_item()
 		if(W)
-			W.forceMove(loc)
+			user.drop_from_inventory(W,loc)
+		else
+			user.drop_item()
 	else if(istype(W, /obj/item/weapon/packageWrap))
 		return
 	else if(iswelder(W))

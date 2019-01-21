@@ -121,6 +121,26 @@
 	item_state = "trackpants"
 	contained_sprite = 1
 
+/obj/item/clothing/under/pants/track/blue
+	name = "blue track pants"
+	icon_state = "trackpantsblue"
+	item_state = "trackpantsblue"
+
+/obj/item/clothing/under/pants/track/green
+	name = "green track pants"
+	icon_state = "trackpantsgreen"
+	item_state = "trackpantsgreen"
+
+/obj/item/clothing/under/pants/track/white
+	name = "white track pants"
+	icon_state = "trackpantswhite"
+	item_state = "trackpantswhite"
+
+/obj/item/clothing/under/pants/track/red
+	name = "red track pants"
+	icon_state = "trackpantsred"
+	item_state = "trackpantsred"
+
 /obj/item/clothing/under/pants/classic
 	name = "classic jeans"
 	desc = "A  pair of classic jeans."

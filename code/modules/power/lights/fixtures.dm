@@ -306,7 +306,7 @@
 
 				update()
 
-				user.drop_item()	//drop the item to update overlays and such
+				user.drop_from_inventory(L,get_turf(src))
 				qdel(L)
 
 				if(!stat && rigged)
@@ -500,7 +500,7 @@
 
 	L.update()
 	L.add_fingerprint(user)
-	L.loc = loc
+	L.forceMove(loc)
 
 	inserted_light = null
 

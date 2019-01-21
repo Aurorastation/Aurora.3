@@ -54,15 +54,20 @@
 	qdel(src)
 
 /obj/item/weapon/landmine/Crossed(AM as mob|obj)
-	if(deployed && isliving(AM))
-		var/mob/living/L = AM
-		if(L.mob_size >= 5)
-			L.visible_message(
-				"<span class='danger'>[L] steps on \the [src].</span>",
-				"<span class='danger'>You step on \the [src]!</span>",
-				"<span class='danger'>You hear a mechanical click!</span>"
-				)
-			trigger(L)
+	if(deployed)
+		if(isliving(AM))
+			var/mob/living/L = AM
+			if(L.mob_size >= 5)
+				L.visible_message(
+					"<span class='danger'>[L] steps on \the [src].</span>",
+					"<span class='danger'>You step on \the [src]!</span>",
+					"<span class='danger'>You hear a mechanical click!</span>"
+					)
+				trigger(L)
+
+		if(istype(AM, /obj/mecha) || istype(AM, /obj/vehicle))
+			visible_message("<span class='danger'>\The [AM] triggers \the [src].</span>")
+			trigger()
 	..()
 
 /obj/item/weapon/landmine/attack_hand(mob/user as mob)
@@ -85,14 +90,13 @@
 	if(deployed)
 		trigger()
 
-/obj/item/weapon/landmine/ex_act()
+/obj/item/weapon/landmine/ex_act(var/severity = 2.0)
 	if(deployed)
 		trigger()
 
 //landmines that do more than explode
 
 /obj/item/weapon/landmine/frag
-	name = "fragmentation land mine"
 	var/num_fragments = 15
 	var/fragment_damage = 10
 	var/damage_step = 2
@@ -111,7 +115,8 @@
 	spark(src, 3, alldirs)
 	if(L)
 		if(ishuman(L))
-			L.apply_radiation(50)
+			var/mob/living/carbon/human/H = L
+			H.apply_radiation(50)
 	qdel(src)
 
 /obj/item/weapon/landmine/phoron

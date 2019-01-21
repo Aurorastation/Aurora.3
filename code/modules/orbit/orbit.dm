@@ -49,7 +49,7 @@
 	if (!targetloc || (!lock && orbiter.loc != lastloc && orbiter.loc != targetloc))
 		orbiter.stop_orbit()
 		return
-	orbiter.loc = targetloc
+	orbiter.forceMove(targetloc)
 	lastloc = orbiter.loc
 
 /atom/movable/var/datum/orbit/orbiting = null

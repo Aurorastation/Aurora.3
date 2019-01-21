@@ -282,9 +282,9 @@
 			if("observer")			M.change_mob_type( /mob/abstract/observer , null, null, delmob )
 			if("larva")				M.change_mob_type( /mob/living/carbon/alien/larva , null, null, delmob )
 			if("nymph")				M.change_mob_type( /mob/living/carbon/alien/diona , null, null, delmob )
-			if("human")				M.change_mob_type( /mob/living/carbon/human , null, null, delmob, href_list["species"])
+			if("human")				spawn_humanoid_species_admin(usr, M, delmob)
 			if("slime")				M.change_mob_type( /mob/living/carbon/slime , null, null, delmob )
-			if("monkey")			M.change_mob_type( /mob/living/carbon/human/monkey , null, null, delmob )
+			if("ai")				M.change_mob_type( /mob/living/silicon/ai , null, null, delmob )
 			if("robot")				M.change_mob_type( /mob/living/silicon/robot , null, null, delmob )
 			if("cat")				M.change_mob_type( /mob/living/simple_animal/cat , null, null, delmob )
 			if("runtime")			M.change_mob_type( /mob/living/simple_animal/cat/fluff/Runtime , null, null, delmob )
@@ -552,9 +552,9 @@
 		master_mode = href_list["c_mode2"]
 		log_admin("[key_name(usr)] set the mode as [master_mode].",admin_key=key_name(usr))
 		message_admins("<span class='notice'>[key_name_admin(usr)] set the mode as [master_mode].</span>", 1)
-		world << "<span class='notice'><b>The mode is now: [master_mode]</b></span>"
+		to_world("<span class='notice'><b>The mode is now: [master_mode]</b></span>")
 		Game() // updates the main game menu
-		world.save_mode(master_mode)
+		SSpersist_config.last_gamemode = master_mode
 		.(href, list("c_mode"=1))
 
 	else if(href_list["f_secret2"])
@@ -639,7 +639,7 @@
 		sleep(5)
 		if(!M)	return
 
-		M.loc = prison_cell
+		M.forceMove(prison_cell)
 		if(istype(M, /mob/living/carbon/human))
 			var/mob/living/carbon/human/prisoner = M
 			prisoner.equip_to_slot_or_del(new /obj/item/clothing/under/color/orange(prisoner), slot_w_uniform)
@@ -668,7 +668,7 @@
 
 		M.Paralyse(5)
 		sleep(5)
-		M.loc = pick(tdome1)
+		M.forceMove(pick(tdome1))
 		spawn(50)
 			M << "<span class='notice'>You have been sent to the Thunderdome.</span>"
 		log_admin("[key_name(usr)] has sent [key_name(M)] to the thunderdome. (Team 1)",admin_key=key_name(usr),ckey=key_name(M))
@@ -693,7 +693,7 @@
 
 		M.Paralyse(5)
 		sleep(5)
-		M.loc = pick(tdome2)
+		M.forceMove(pick(tdome2))
 		spawn(50)
 			M << "<span class='notice'>You have been sent to the Thunderdome.</span>"
 		log_admin("[key_name(usr)] has sent [key_name(M)] to the thunderdome. (Team 2)",admin_key=key_name(usr),ckey=key_name(M))
@@ -715,7 +715,7 @@
 
 		M.Paralyse(5)
 		sleep(5)
-		M.loc = pick(tdomeadmin)
+		M.forceMove(pick(tdomeadmin))
 		spawn(50)
 			M << "<span class='notice'>You have been sent to the Thunderdome.</span>"
 		log_admin("[key_name(usr)] has sent [key_name(M)] to the thunderdome. (Admin.)",admin_key=key_name(usr),ckey=key_name(M))
@@ -744,7 +744,7 @@
 			observer.equip_to_slot_or_del(new /obj/item/clothing/shoes/black(observer), slot_shoes)
 		M.Paralyse(5)
 		sleep(5)
-		M.loc = pick(tdomeobserve)
+		M.forceMove(pick(tdomeobserve))
 		spawn(50)
 			M << "<span class='notice'>You have been sent to the Thunderdome.</span>"
 		log_admin("[key_name(usr)] has sent [key_name(M)] to the thunderdome. (Observer.)",admin_key=key_name(usr),ckey=key_name(M))
@@ -1165,10 +1165,6 @@
 		if(!check_rights(R_SPAWN))	return
 		return create_object(usr)
 
-	else if(href_list["quick_create_object"])
-		if(!check_rights(R_SPAWN))	return
-		return quick_create_object(usr)
-
 	else if(href_list["create_turf"])
 		if(!check_rights(R_SPAWN))	return
 		return create_turf(usr)
@@ -1491,7 +1487,7 @@
 	else if(href_list["ac_set_signature"])
 		src.admincaster_signature = sanitize(input(usr, "Provide your desired signature", "Network Identity Handler", ""))
 		src.access_news_network()
-	
+
 	else if(href_list["ac_add_comment"])
 		var/com_msg = sanitize(input(usr, "Write your Comment", "Network Comment Handler", "") as message, encode = 0, trim = 0, extra = 0)
 		var/datum/feed_message/viewing_story = locate(href_list["ac_story"])
@@ -1505,7 +1501,7 @@
 		to_chat(usr, "Comment successfully added!")
 		src.admincaster_screen = 20
 		src.access_news_network()
-		
+
 	else if(href_list["ac_view_comments"])
 		var/datum/feed_message/viewing_story = locate(href_list["ac_story"])
 		if(!istype(viewing_story))
@@ -1513,7 +1509,7 @@
 		src.admincaster_screen = 20
 		src.admincaster_viewing_message = viewing_story
 		src.access_news_network()
-		
+
 	else if(href_list["ac_like"])
 		var/datum/feed_message/viewing_story = locate(href_list["ac_story"])
 		if((src.admincaster_signature in viewing_story.interacted) || !istype(viewing_story))
@@ -1521,7 +1517,7 @@
 		viewing_story.interacted += src.admincaster_signature
 		viewing_story.likes += 1
 		src.access_news_network()
-		
+
 	else if(href_list["ac_dislike"])
 		var/datum/feed_message/viewing_story = locate(href_list["ac_story"])
 		if((src.admincaster_signature in viewing_story.interacted) || !istype(viewing_story))
@@ -1529,7 +1525,7 @@
 		viewing_story.interacted += src.admincaster_signature
 		viewing_story.dislikes += 1
 		src.access_news_network()
-	
+
 	else if(href_list["ac_setlikes"])
 		var/datum/feed_message/viewing_story = locate(href_list["ac_story"])
 		if(!istype(viewing_story))
@@ -1695,3 +1691,9 @@ mob/living/silicon/ai/can_centcom_reply()
 
 	. = "<A HREF='?[source];adminplayerobservejump=\ref[target]'>JMP</A>"
 	. += target.extra_admin_link(source)
+
+/proc/spawn_humanoid_species_admin(var/mob/user, var/mob/M, var/delmob)
+	var/input = input(user, "Select a species:") as null|anything in all_species
+	if(!input)
+		return
+	M.change_mob_type( /mob/living/carbon/human , null, null, delmob, input)

@@ -172,41 +172,104 @@
 		if(M.stat == 2)
 			M.gib()
 
+
+// Simple mobs cannot use Skrellepathy
+/mob/proc/can_commune()
+	return 0
+
+/mob/living/carbon/human/can_commune()
+	if(/mob/living/carbon/human/proc/commune in verbs)
+		return 1
+	return ..()
+
 /mob/living/carbon/human/proc/commune()
 	set category = "Abilities"
 	set name = "Commune with creature"
-	set desc = "Send a telepathic message to an unlucky recipient."
+	set desc = "Send a telepathic message to a recipient."
+
+	var/obj/item/organ/external/rhand = src.get_organ("r_hand")
+	var/obj/item/organ/external/lhand = src.get_organ("l_hand")
+	if((!rhand || !rhand.is_usable()) && (!lhand || !lhand.is_usable()))
+		to_chat(src,"<span class='warning'>You can't communicate without the ability to use your hands!</span>")
+		return
+	if((lhand.is_stump()) && (rhand.is_stump()))
+		to_chat(src,"<span class='warning'>You can't communicate without functioning hands!</span>")
+		return
+	if(src.r_hand != null && src.l_hand != null)
+		to_chat(src,"<span class='warning'>You can't communicate while your hands are full!</span>")
+		return
+	if(stat || paralysis || stunned || weakened ||  restrained())
+		to_chat(src,"<span class='warning'>You can't communicate while unable to move your hands to your head!</span>")
+		return
+	if(last_special > world.time)
+		to_chat(src,"<span class='notice'>Your mind requires rest!</span>")
+		return
+
+	last_special = world.time + 100
+
+	visible_message("<span class='notice'>[src] touches their fingers to their temple.</span>")
 
 	var/list/targets = list()
-	var/target = null
+	for(var/mob/living/M in view(client.view, client.eye))
+		targets += M
+	var/mob/living/target = null
 	var/text = null
 
-	targets += getmobs() //Fill list, prompt user with list
 	target = input("Select a creature!", "Speak to creature", null, null) as null|anything in targets
 
-	if(!target) return
+	if(!target)
+		return
 
 	text = input("What would you like to say?", "Speak to creature", null, null)
 
 	text = sanitize(text)
 
-	if(!text) return
-
-	var/mob/M = targets[target]
-
-	if(istype(M, /mob/abstract/observer) || M.stat == DEAD)
-		src << "Not even a [src.species.name] can speak to the dead."
+	if(!text)
 		return
 
-	log_say("[key_name(src)] communed to [key_name(M)]: [text]",ckey=key_name(src))
+	if(target.stat == DEAD)
+		to_chat(src,"<span class='cult'>Not even a [src.species.name] can speak to the dead.</span>")
+		return
 
-	M << "<span class='notice'>Like lead slabs crashing into the ocean, alien thoughts drop into your mind: [text]</span>"
-	if(istype(M,/mob/living/carbon/human))
-		var/mob/living/carbon/human/H = M
-		if(H.species.name == src.species.name)
-			return
-		H << "<span class='warning'>Your nose begins to bleed...</span>"
-		H.drip(1)
+	if (target.isSynthetic())
+		to_chat(src,"<span class='warning'>This can only be used on living organisms.</span>")
+		return
+
+
+	if (target.is_diona())
+		to_chat(src,"<span class='alium'>The creature's mind is not solid enough and slips through like sand.</span>")
+		return
+
+	if(!(target in view(client.view, client.eye)))
+		to_chat(src,"<span class='warning'>[target] is too far for your mind to grasp!</span>")
+		return
+
+	log_say("[key_name(src)] communed to [key_name(target)]: [text]",ckey=key_name(src))
+
+	for (var/mob/M in player_list)
+		if (istype(M, /mob/abstract/new_player))
+			continue
+		else if(M.stat == DEAD &&  M.client.prefs.toggles & CHAT_GHOSTEARS)
+			to_chat(M,"<span class='notice'>[src] telepathically says to [target]:</span> [text]")
+
+	var/mob/living/carbon/human/H = target
+	if (target.can_commune())
+		to_chat(H,"<span class='psychic'>You instinctively sense [src] sending their thoughts into your mind, hearing:</span> [text]")
+	else if(prob(25) && (target.mind && target.mind.assigned_role=="Chaplain"))
+		to_chat(H,"<span class='changeling'>You sense [src]'s thoughts enter your mind, whispering quietly:</span> [text]")
+	else
+		to_chat(H,"<span class='alium'>You feel pressure behind your eyes as alien thoughts enter your mind:</span> [text]")
+		if(istype(H))
+			if (target.can_commune())
+				return
+			if(prob(10) && !(H.species.flags & NO_BLOOD))
+				to_chat(H,"<span class='warning'>Your nose begins to bleed...</span>")
+				H.drip(3)
+			else if(prob(25) && !(H.species.flags & NO_PAIN))
+				to_chat(H,"<span class='warning'>Your head hurts...</span>")
+			else if(prob(50))
+				to_chat(H,"<span class='warning'>Your mind buzzes...</span>")
+
 
 /mob/living/carbon/human/proc/regurgitate()
 	set name = "Regurgitate"
@@ -580,7 +643,7 @@
 		to_chat(src, "<span class='danger'>You cannot charge in your current state!</span>")
 		return
 
-	last_special = world.time + 200
+	last_special = world.time + 100
 
 	src.visible_message("<span class='warning'>\The [src] takes a step backwards and rears up.</span>",
 			"<span class='notice'>You take a step backwards and then...</span>")
@@ -673,7 +736,7 @@
 		to_chat(src, "<span class='danger'>You cannot screech in your current state!</span>")
 		return
 
-	last_special = world.time + 200
+	last_special = world.time + 100
 
 	visible_message("<span class='danger'>[src.name] lets out an ear piercing shriek!</span>",
 			"<span class='danger'>You let out an ear-shattering shriek!</span>",
@@ -720,7 +783,7 @@
 		to_chat(src,"<span class='notice'>You cannot spray napalm in your current state.</span>")
 		return
 
-	last_special = world.time + 200
+	last_special = world.time + 100
 	playsound(loc, 'sound/species/shadow/grue_screech.ogg', 100, 1)
 	visible_message("<span class='danger'>\The [src] unleashes a torrent of raging flame!</span>",
 			"<span class='danger'>You unleash a gust of fire!</span>",
@@ -749,3 +812,81 @@
 			D.set_color()
 			D.set_up(my_target, rand(6,8), 1, 50)
 	return
+
+/mob/living/carbon/human/proc/thunder()
+	set category = "Abilities"
+	set name = "Thunderbolt"
+	set desc = "Release your inner electricity, creating a powerful discharge of lightning."
+
+	if(last_special > world.time)
+		return
+
+	if(stat || paralysis || stunned || weakened || lying)
+		to_chat(src,"<span class='warning'>You cannot do that in your current state!</span>")
+		return
+
+	visible_message("<span class='danger'>\The [src] crackles with energy!</span>")
+
+	playsound(src, 'sound/magic/LightningShock.ogg', 75, 1)
+
+	tesla_zap(src, 7, 1500)
+
+	last_special = world.time + 50
+
+/mob/living/carbon/human/proc/consume_material()
+	set category = "Abilities"
+	set name = "Incorporate Matter"
+	set desc = "Repair your damage body by using the same materials you were made from."
+
+	if(last_special > world.time)
+		return
+
+	if(stat || paralysis || stunned || weakened || lying)
+		to_chat(src,"<span class='warning'>You cannot do that in your current state!</span>")
+		return
+
+	var/obj/item/stack/material/O = src.get_active_hand()
+
+	if(istype(O, /obj/item/stack/material))
+		if(O.material.golem == src.species.name)
+			to_chat(src,"<span class='danger'>You incorporate \the [O] into your mass, repairing damage to your structure.</span>")
+			adjustBruteLoss(-10*O.amount)
+			adjustFireLoss(-10*O.amount)
+			if(!(species.flags & NO_BLOOD))
+				vessel.add_reagent("blood",20*O.amount)
+			qdel(O)
+			last_special = world.time + 50
+
+/mob/living/carbon/human/proc/breath_of_life()
+	set category = "Abilities"
+	set name = "Breath of Life"
+	set desc = "Bring back a fallen golem back into this world using their chelm."
+
+	if(last_special > world.time)
+		return
+
+	if(stat || paralysis || stunned || weakened || lying)
+		to_chat(src,"<span class='warning'>You cannot do that in your current state!</span>")
+		return
+
+	var/obj/item/organ/brain/golem/O = src.get_active_hand()
+
+	if(istype(O))
+
+		if(O.health <= 0)
+			to_chat(src,"<span class='warning'>The spark of life already left \the [O]!</span>")
+			return
+
+		if(!O.brainmob)
+			to_chat(src,"<span class='warning'>\The [O] remains silent.</span>")
+			return
+
+		if(!O.dna)
+			to_chat(src,"<span class='warning'>\The [O] is blank, you can not bring it back to life.</span>")
+
+		var/mob/living/carbon/human/G = new(src.loc)
+		G.key = O.brainmob.key
+		addtimer(CALLBACK(G, /mob/living/carbon/human.proc/set_species, O.dna.species), 0)
+		to_chat(src,"<span class='notice'>You blow life back in \the [O], returning its past owner to life!</span>")
+		qdel(O)
+		last_special = world.time + 200

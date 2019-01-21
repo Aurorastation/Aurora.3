@@ -73,13 +73,13 @@
 	..()
 	implant.icon_state = icon_state
 
-/obj/item/device/electronic_assembly/implant/nano_host()
+/obj/item/device/electronic_assembly/implant/ui_host()
 	return implant
 
-/obj/item/device/electronic_assembly/proc/resolve_nano_host()
+/obj/item/device/electronic_assembly/proc/resolve_ui_host()
 	return src
 
-/obj/item/device/electronic_assembly/implant/resolve_nano_host()
+/obj/item/device/electronic_assembly/implant/resolve_ui_host()
 	return implant
 
 /obj/item/device/electronic_assembly/proc/check_interactivity(mob/user)
@@ -278,8 +278,7 @@
 			return FALSE
 
 		var/obj/item/weapon/cell/device/cell = I
-		user.drop_item(cell)
-		cell.forceMove(src)
+		user.drop_from_inventory(cell,src)
 		battery = cell
 		playsound(get_turf(src), 'sound/items/Deconstruct.ogg', 50, 1)
 		to_chat(user, "<span class='notice'>You slot \the [cell] inside \the [src]'s power supply.</span>")

@@ -29,8 +29,7 @@
 
 /obj/machinery/computer/sentencing/attackby(obj/item/O as obj, user as mob)
 	if( istype( O, /obj/item/weapon/paper/incident ) && menu_screen == "import_incident" )
-		usr.drop_item()
-		O.loc = src
+		usr.drop_from_inventory(O,src)
 
 		if( import( O ))
 			ping( "\The [src] pings, \"Successfully imported incident report!\"" )
@@ -488,14 +487,14 @@
 			return
 
 	//Try to resole the security account first
-	var/datum/money_account/security_account = department_accounts["Security"]
+	var/datum/money_account/security_account = SSeconomy.get_department_account("Security")
 	if(!security_account)
 		buzz("\The [src] buzzes, \"Could not get security account!\"")
 		return
 
 	var/obj/item/weapon/card/id/card = incident.card.resolve()
 	//Let´s get the account of the suspect and verify they have enough money
-	var/datum/money_account/suspect_account = get_account(card.associated_account_number)
+	var/datum/money_account/suspect_account = SSeconomy.get_account(card.associated_account_number)
 	if(!suspect_account)
 		buzz("\The [src] buzzes, \"Could not get suspect account!\"")
 		return
@@ -504,8 +503,8 @@
 		buzz("\The [src] buzzes, \"There is not enough money in the account to pay the fine!\"")
 		return
 
-	charge_to_account(suspect_account.account_number,security_account.owner_name,"Incident: [incident.UID]","Sentencing Console",-incident.fine)
-	charge_to_account(security_account.account_number,suspect_account.owner_name,"Incident: [incident.UID]Fine","Sentencing Console",incident.fine)
+	SSeconomy.charge_to_account(suspect_account.account_number,security_account.owner_name,"Incident: [incident.UID]","Sentencing Console",-incident.fine)
+	SSeconomy.charge_to_account(security_account.account_number,suspect_account.owner_name,"Incident: [incident.UID]Fine","Sentencing Console",incident.fine)
 	print_incident_overview(incident.renderGuilty(user,1))
 
 	ping("\The [src] pings, \"[card.registered_name] has been fined for their crimes!\"")

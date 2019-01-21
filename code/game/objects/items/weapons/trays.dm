@@ -257,7 +257,7 @@
 		var/turf/dropspot = loc
 
 		for(var/obj/item/I in carrying)
-			I.loc = dropspot
+			I.forceMove(dropspot)
 			carrying -= I
 
 		cut_overlays()
@@ -273,7 +273,7 @@
 			dropspot = loc
 
 		for(var/obj/item/I in carrying)
-			I.loc = dropspot
+			I.forceMove(dropspot)
 			carrying -= I
 
 		cut_overlays()
@@ -297,7 +297,7 @@
 
 
 		for(var/obj/item/I in carrying)
-			I.loc = dropspot
+			I.forceMove(dropspot)
 			carrying.Remove(I)
 			spawn()
 				for(var/i = 1, i <= rand(1,2), i++)

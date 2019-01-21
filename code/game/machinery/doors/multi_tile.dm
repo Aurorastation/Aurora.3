@@ -1,6 +1,7 @@
 //Terribly sorry for the code doubling, but things go derpy otherwise.
 /obj/machinery/door/airlock/multi_tile
 	width = 2
+	dir = EAST
 	hatch_offset_x = 16
 	hatch_colour = "#d2d2d2"
 
@@ -15,7 +16,6 @@
 	SetBounds()
 	setup_hatch()
 	update_icon()
-
 
 /obj/machinery/door/airlock/multi_tile/proc/SetBounds()
 	if(dir in list(EAST, WEST))

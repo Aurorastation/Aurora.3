@@ -1,6 +1,7 @@
 #define HOLD_CASINGS	0 //do not do anything after firing. Manual action, like pump shotguns, or guns that want to define custom behaviour
 #define EJECT_CASINGS	1 //drop spent casings on the ground after firing
 #define CYCLE_CASINGS 	2 //experimental: cycle casings, like a revolver. Also works for multibarrelled guns
+#define DELETE_CASINGS	3 //deletes the casing, used in caseless ammunition guns or something
 
 /obj/item/weapon/gun/projectile
 	name = "gun"
@@ -95,8 +96,10 @@
 				G.gunshot_residue = chambered.caliber
 
 	switch(handle_casings)
+		if(DELETE_CASINGS)
+			qdel(chambered)
 		if(EJECT_CASINGS) //eject casing onto ground.
-			chambered.loc = get_turf(src)
+			chambered.forceMove(get_turf(src))
 		if(CYCLE_CASINGS) //cycle the casing back to the end.
 			if(ammo_magazine)
 				ammo_magazine.stored_ammo += chambered
@@ -113,28 +116,28 @@
 	if(istype(A, /obj/item/ammo_magazine))
 		var/obj/item/ammo_magazine/AM = A
 		if(!(load_method & AM.mag_type) || caliber != AM.caliber || (allowed_magazines && !is_type_in_list(A, allowed_magazines)))
-			user << "<span class='warning'>[AM] won't load into [src]!</span>"
+			to_chat(user,"<span class='warning'>[AM] won't load into [src]!</span>")
 			return
 		switch(AM.mag_type)
 			if(MAGAZINE)
 				if(ammo_magazine)
-					user << "<span class='warning'>[src] already has a magazine loaded.</span>" //already a magazine here
+					to_chat(user,"<span class='warning'>[src] already has a magazine loaded.</span>") //already a magazine here
 					return
 				user.remove_from_mob(AM)
-				AM.loc = src
+				AM.forceMove(src)
 				ammo_magazine = AM
 				user.visible_message("[user] inserts [AM] into [src].", "<span class='notice'>You insert [AM] into [src].</span>")
 				playsound(src.loc, 'sound/weapons/flipblade.ogg', 50, 1)
 			if(SPEEDLOADER)
 				if(loaded.len >= max_shells)
-					user << "<span class='warning'>[src] is full!</span>"
+					to_chat(user,"<span class='warning'>[src] is full!</span>")
 					return
 				var/count = 0
 				for(var/obj/item/ammo_casing/C in AM.stored_ammo)
 					if(loaded.len >= max_shells)
 						break
 					if(C.caliber == caliber)
-						C.loc = src
+						C.forceMove(src)
 						loaded += C
 						AM.stored_ammo -= C //should probably go inside an ammo_magazine proc, but I guess less proc calls this way...
 						count++
@@ -144,14 +147,18 @@
 		AM.update_icon()
 	else if(istype(A, /obj/item/ammo_casing))
 		var/obj/item/ammo_casing/C = A
-		if(!(load_method & SINGLE_CASING) || caliber != C.caliber)
+		if(!(load_method & SINGLE_CASING))
+			to_chat(user,"<span class='warning'>[src] can not be loaded with single casings.</span>")
+			return //incompatible
+		if(caliber != C.caliber)
+			to_chat(user,"<span class='warning'>\The [C] does not fit.</span>")
 			return //incompatible
 		if(loaded.len >= max_shells)
-			user << "<span class='warning'>[src] is full.</span>"
+			to_chat(user,"<span class='warning'>[src] is full.</span>")
 			return
 
 		user.remove_from_mob(C)
-		C.loc = src
+		C.forceMove(src)
 		loaded.Insert(1, C) //add to the head of the list
 		user.visible_message("[user] inserts \a [C] into [src].", "<span class='notice'>You insert \a [C] into [src].</span>")
 		playsound(src.loc, 'sound/weapons/empty.ogg', 50, 1)
@@ -173,7 +180,7 @@
 			var/turf/T = get_turf(user)
 			if(T)
 				for(var/obj/item/ammo_casing/C in loaded)
-					C.loc = T
+					C.forceMove(T)
 					count++
 				loaded.Cut()
 			if(count)
@@ -212,7 +219,7 @@
 /obj/item/weapon/gun/projectile/afterattack(atom/A, mob/living/user)
 	..()
 	if(auto_eject && ammo_magazine && ammo_magazine.stored_ammo && !ammo_magazine.stored_ammo.len)
-		ammo_magazine.loc = get_turf(src.loc)
+		ammo_magazine.forceMove(get_turf(src.loc))
 		user.visible_message(
 			"[ammo_magazine] falls out and clatters on the floor!",
 			"<span class='notice'>[ammo_magazine] falls out and clatters on the floor!</span>"

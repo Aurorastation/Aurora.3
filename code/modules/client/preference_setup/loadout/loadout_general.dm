@@ -38,13 +38,33 @@
 	..()
 	gear_tweaks += new/datum/gear_tweak/reagents(lunchables_alcohol_reagents())
 
-/datum/gear/vacflask
-	display_name = "vacuum-flask"
+/datum/gear/vacflask_cold
+	display_name = "cold vacuum-flask"
 	path = /obj/item/weapon/reagent_containers/food/drinks/flask/vacuumflask
 
-/datum/gear/vacflask/New()
+/datum/gear/vacflask_cold/New()
 	..()
 	gear_tweaks += new/datum/gear_tweak/reagents(lunchables_drink_reagents())
+
+/datum/gear/vacflask_cold/spawn_item(var/location, var/metadata)
+	. = ..()
+	var/obj/item/weapon/reagent_containers/food/drinks/flask/vacuumflask/spawned_flask = .
+	if(istype(spawned_flask) && spawned_flask.reagents)
+		spawned_flask.reagents.set_temperature(T0C + 5)
+
+/datum/gear/vacflask_hot
+	display_name = "hot vacuum-flask"
+	path = /obj/item/weapon/reagent_containers/food/drinks/flask/vacuumflask
+
+/datum/gear/vacflask_hot/New()
+	..()
+	gear_tweaks += new/datum/gear_tweak/reagents(lunchables_drink_reagents())
+
+/datum/gear/vacflask_hot/spawn_item(var/location, var/metadata)
+	. = ..()
+	var/obj/item/weapon/reagent_containers/food/drinks/flask/vacuumflask/spawned_flask = .
+	if(istype(spawned_flask) && spawned_flask.reagents)
+		spawned_flask.reagents.set_temperature(T0C + 45)
 
 /datum/gear/lunchbox
 	display_name = "lunchbox"
@@ -78,6 +98,8 @@
 	banners["banner, NanoTrasen"] = /obj/item/weapon/flag/nanotrasen
 	banners["banner, Eridani Fed"] = /obj/item/weapon/flag/eridani
 	banners["banner, Sedantis"] = /obj/item/weapon/flag/vaurca
+	banners["banner, People's Republic of Adhomai"] = /obj/item/weapon/flag/pra
+	banners["banner, Democratic People's Republic of Adhomai"] = /obj/item/weapon/flag/dpra
 	gear_tweaks += new/datum/gear_tweak/path(banners)
 
 /datum/gear/flag
@@ -96,8 +118,9 @@
 	flags["flag, NanoTrasen"] = /obj/item/weapon/flag/nanotrasen/l
 	flags["flag, Eridani Fed"] = /obj/item/weapon/flag/eridani/l
 	flags["flag, Sedantis"] = /obj/item/weapon/flag/vaurca/l
+	flags["flag, People's Republic of Adhomai"] = /obj/item/weapon/flag/pra/l
+	flags["flag, Democratic People's Republic of Adhomai"] = /obj/item/weapon/flag/dpra/l
 	gear_tweaks += new/datum/gear_tweak/path(flags)
-
 
 /datum/gear/towel
 	display_name = "towel"
@@ -106,3 +129,15 @@
 /datum/gear/towel/New()
 	..()
 	gear_tweaks = list(gear_tweak_free_color_choice)
+
+/datum/gear/checkers
+	display_name = "checkers game kit"
+	path = /obj/item/weapon/storage/box/checkers_kit
+
+/datum/gear/chess
+	display_name = "chess game kit"
+	path = /obj/item/weapon/storage/box/chess_kit
+
+/datum/gear/battlemonsters
+	display_name = "battlemonsters starter deck"
+	path = /obj/item/battle_monsters/wrapped

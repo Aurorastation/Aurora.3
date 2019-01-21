@@ -332,6 +332,12 @@
 	item_state = "p_suit"
 	worn_state = "dress_saloon"
 
+/obj/item/clothing/under/dress/dress_evening
+	name = "evening gown"
+	desc = "A silky gown, leaves much to the imagination"
+	icon_state = "red_evening_gown"
+	item_state = "red_evening_gown"
+
 /obj/item/clothing/under/dress/dress_cap
 	name = "captain's dress uniform"
 	desc = "Feminine fashion for the style concious captain."
@@ -416,6 +422,40 @@
 	item_state = "sundress_white"
 	worn_state = "sundress_white"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO
+
+/obj/item/clothing/under/dress/stripeddress
+	name = "striped dress"
+	desc = "Fashion in space."
+	icon_state = "striped_dress"
+
+/obj/item/clothing/under/dress/sailordress
+	name = "sailor dress"
+	desc = "Formal wear for a leading lady."
+	icon_state = "sailor_dress"
+
+/obj/item/clothing/under/dress/white
+	name = "white dress"
+	desc = "A fancy white dress with a blue underdress."
+	icon_state = "whitedress"
+	flags_inv = HIDESHOES
+
+/obj/item/clothing/under/dress/red_swept_dress
+	name = "red swept dress"
+	desc = "A red dress that sweeps to the side."
+	icon_state = "red_swept_dress"
+
+/obj/item/clothing/under/dress/westernbustle
+	name = "western bustle"
+	desc = "A western bustle dress from somewhere in the ancient history of Earth."
+	icon_state = "westernbustle"
+
+/obj/item/clothing/under/dress/blacktango
+	name = "black tango dress"
+	desc = "An earthen black tango dress."
+	icon_state = "black_tango"
+
+/obj/item/clothing/under/dress/blacktango/alt
+	icon_state = "black_tango_alt"
 
 /obj/item/clothing/under/captainformal
 	name = "captain's formal uniform"
@@ -620,3 +660,48 @@
 	desc = "An oldfashioned red swimsuit."
 	icon_state = "swim_red"
 	siemens_coefficient = 1
+
+/obj/item/clothing/under/kimono
+	name = "kimono"
+	desc = "A traditional Japanese kimono."
+	icon_state = "kimono"
+	item_state = "kimono"
+
+/obj/item/clothing/under/kimono/ronin
+	name = "ronin kimono"
+	desc = "A non-traditional Japanese kimono, it appears to be very gothic. Like, totally gothic."
+	icon_state = "ronin_kimono"
+	item_state = "ronin_kimono"
+
+/obj/item/clothing/under/kimono/fancy
+	name = "fancy kimono"
+	desc = "A Japanese kimono, this one is very luxurious. It brings to mine iced tea cans."
+	icon_state = "fancy_kimono"
+	item_state = "fancy_kimono"
+
+/obj/item/clothing/under/gov
+	name = "green formal uniform"
+	desc = "A neat proper uniform of someone on offical business. Plain, professional attire. The collar is <i>immaculately</i> starched."
+	icon_state = "greensuit"
+	item_state = "greensuit"
+	worn_state = "greensuit"
+
+/obj/item/clothing/under/medical_gown
+	name = "medical gown"
+	desc = "A loose pieces of clothing, commonly worn by medical patients."
+	icon_state = "medicalgown"
+	item_state = "medicalgown"
+	has_sensor = 2
+	sensor_mode = 3
+
+/obj/item/clothing/under/medical_gown/white
+	icon_state = "whitemedicalgown"
+	worn_state = "whitemedicalgown"
+
+/obj/item/clothing/under/legion
+	name = "Tau Ceti Foreign Legion uniform"
+	desc = "A blue field uniform used by the force of the Tau Ceti Foreign Legion forces."
+	icon_state = "taucetilegion"
+	item_state = "bl_suit"
+	worn_state = "taucetilegion"
+	siemens_coefficient = 0.7

@@ -49,7 +49,7 @@
 	user.do_attack_animation(target)
 
 	if(do_after(user, 50) && in_range(user, target))
-		user.drop_item()
+		user.drop_item() //TODO: Look into this
 		src.target = target
 		loc = null
 

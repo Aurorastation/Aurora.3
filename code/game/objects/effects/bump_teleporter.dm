@@ -21,11 +21,11 @@ var/list/obj/effect/bump_teleporter/BUMP_TELEPORTERS = list()
 
 /obj/effect/bump_teleporter/CollidedWith(atom/user)
 	if(!ismob(user))
-		//user.loc = src.loc	//Stop at teleporter location
+		//user.forceMove(src.loc)	//Stop at teleporter location
 		return
 
 	if(!id_target)
-		//user.loc = src.loc	//Stop at teleporter location, there is nowhere to teleport to.
+		//user.forceMove(src.loc)	//Stop at teleporter location, there is nowhere to teleport to.
 		return
 
 	for(var/obj/effect/bump_teleporter/BT in BUMP_TELEPORTERS)

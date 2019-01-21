@@ -870,7 +870,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 						if("2")		// Eject pAI device
 							var/turf/T = get_turf_or_move(src.loc)
 							if(T)
-								pai.loc = T
+								pai.forceMove(T)
 								pai = null
 
 		else
@@ -1197,14 +1197,14 @@ var/global/list/obj/item/device/pda/PDAs = list()
 		else
 			var/obj/item/I = user.get_active_hand()
 			if (istype(I, /obj/item/weapon/card/id) && user.unEquip(I))
-				I.loc = src
+				I.forceMove(src)
 				id = I
 			return 1
 	else
 		var/obj/item/weapon/card/I = user.get_active_hand()
 		if (istype(I, /obj/item/weapon/card/id) && I:registered_name && user.unEquip(I))
 			var/obj/old_id = id
-			I.loc = src
+			I.forceMove(src)
 			id = I
 			user.put_in_hands(old_id)
 			return 1
@@ -1215,8 +1215,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 	..()
 	if(istype(C, /obj/item/weapon/cartridge) && !cartridge)
 		cartridge = C
-		user.drop_item()
-		cartridge.loc = src
+		user.drop_from_inventory(cartridge,src)
 		user << "<span class='notice'>You insert [cartridge] into [src].</span>"
 		SSnanoui.update_uis(src) // update all UIs attached to src
 		if(cartridge.radio)
@@ -1243,8 +1242,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 			return	//Return in case of failed check or when successful.
 		updateSelfDialog()//For the non-input related code.
 	else if(istype(C, /obj/item/device/paicard) && !src.pai)
-		user.drop_item()
-		C.loc = src
+		user.drop_from_inventory(C,src)
 		pai = C
 		pai.update_location()//This notifies the pAI that they've been slotted into a PDA
 		user << "<span class='notice'>You slot \the [C] into [src].</span>"
@@ -1253,8 +1251,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 		if(pen)
 			user << "<span class='notice'>There is already a pen in \the [src].</span>"
 		else
-			user.drop_item()
-			C.forceMove(src)
+			user.drop_from_inventory(C,src)
 			pen = C
 			user << "<span class='notice'>You slide \the [C] into \the [src].</span>"
 	return
@@ -1402,7 +1399,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 /obj/item/device/pda/Destroy()
 	PDAs -= src
 	if (src.id && prob(90)) //IDs are kept in 90% of the cases
-		src.id.loc = get_turf(src.loc)
+		src.id.forceMove(get_turf(src.loc))
 	QDEL_NULL(pen)
 	if (LAZYLEN(linked_consoles))
 		for(var/A in linked_consoles)

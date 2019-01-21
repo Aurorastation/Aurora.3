@@ -45,7 +45,6 @@
 		if(W.autodrobe_no_remove)
 			continue
 		H.drop_from_inventory(W,gearbox)
-		W.forceMove(gearbox)
 	H.put_in_any_hand_if_possible(gearbox)
 
 	H << "<span class='notice'>You feel a pleasant breeze as the autolocker whisks away all of your clothes, packing them neatly in a box.</span>"

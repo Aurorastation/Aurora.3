@@ -15,6 +15,7 @@
 	var/light_power_on = 1
 	var/overlay_layer
 	var/is_holographic = TRUE
+	clicksound = "keyboard"
 
 /obj/machinery/computer/Initialize()
 	. = ..()
@@ -101,7 +102,7 @@
 			A.circuit = M
 			A.anchored = 1
 			for (var/obj/C in src)
-				C.loc = src.loc
+				C.forceMove(src.loc)
 			if (src.stat & BROKEN)
 				user << "<span class='notice'>The broken glass falls out.</span>"
 				new /obj/item/weapon/material/shard( src.loc )

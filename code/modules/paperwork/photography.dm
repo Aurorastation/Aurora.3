@@ -158,7 +158,7 @@ var/global/photo_count = 0
 			user << "<span class='notice'>[src] still has some film in it!</span>"
 			return
 		user << "<span class='notice'>You insert [I] into [src].</span>"
-		user.drop_item()
+		user.drop_from_inventory(I,get_turf(src))
 		qdel(I)
 		pictures_left = pictures_max
 		return
@@ -250,7 +250,7 @@ var/global/photo_count = 0
 	return p
 
 /obj/item/device/camera/proc/printpicture(mob/user, obj/item/weapon/photo/p)
-	p.loc = user.loc
+	p.forceMove(user.loc)
 	if(!user.get_inactive_hand())
 		user.put_in_inactive_hand(p)
 

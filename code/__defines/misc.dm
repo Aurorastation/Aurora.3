@@ -457,3 +457,5 @@ Define for getting a bitfield of adjacent turfs that meet a condition.
 
 #define GET_ABOVE(A) (HAS_ABOVE(A:z) ? get_step(A, UP) : null)
 #define GET_BELOW(A) (HAS_BELOW(A:z) ? get_step(A, DOWN) : null)
+
+#define NULL_OR_EQUAL(self,other) (!(self) || (self) == (other))

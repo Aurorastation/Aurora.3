@@ -145,7 +145,6 @@
 		for(var/datum/playingcard/P in cards)
 			H.cards += P
 		H.concealed = src.concealed
-		user.drop_from_inventory(src,user.loc)
 		qdel(src)
 		H.update_icon()
 		return
@@ -190,11 +189,10 @@
 
 	H.cards += cards
 	cards.Cut();
-	user.drop_item()
-	qdel(src)
-
+	user.drop_from_inventory(src,get_turf(src))
 	H.update_icon()
 	user.put_in_active_hand(H)
+	qdel(src)
 
 /obj/item/weapon/hand
 	name = "hand of cards"
@@ -229,7 +227,7 @@
 	H.update_icon()
 	src.update_icon()
 	usr.visible_message("\The [usr] plays \the [discarding].")
-	H.loc = get_step(usr,usr.dir)
+	H.forceMove(get_step(usr,usr.dir))
 
 	if(!cards.len)
 		qdel(src)

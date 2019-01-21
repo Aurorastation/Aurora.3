@@ -27,7 +27,7 @@
 	dock_name = "NTCC Odin"
 	dock_short = "Odin"
 	boss_name = "Central Command"
-	boss_short = "Centcom"
+	boss_short = "CentCom"
 	company_name = "NanoTrasen"
 	company_short = "NT"
 	system_name = "Tau Ceti"
@@ -54,12 +54,12 @@
 		NETWORK_SUPPLY
 	)
 
-	shuttle_docked_message = "The scheduled Crew Transfer Shuttle to %dock% has docked with the station. It will depart in approximately %ETA% minutes."
-	shuttle_leaving_dock = "The Crew Transfer Shuttle has left the station. Estimate %ETA% minutes until the shuttle docks at %dock%."
+	shuttle_docked_message = "The scheduled crew transfer shuttle to %dock% has docked with the station. It will depart in approximately %ETA% minutes."
+	shuttle_leaving_dock = "The crew transfer shuttle has left the station. Estimate %ETA% minutes until the shuttle docks at %dock%."
 	shuttle_called_message = "A crew transfer to %dock% has been scheduled. The shuttle has been called. It will arrive in approximately %ETA% minutes."
 	shuttle_recall_message = "The scheduled crew transfer has been cancelled."
-	emergency_shuttle_docked_message = "The Emergency Shuttle has docked with the station. You have approximately %ETD% minutes to board the Emergency Shuttle."
-	emergency_shuttle_leaving_dock = "The Emergency Shuttle has left the station. Estimate %ETA% minutes until the shuttle docks at %dock%."
+	emergency_shuttle_docked_message = "The emergency shuttle has docked with the station. You have approximately %ETD% minutes to board the emergency shuttle."
+	emergency_shuttle_leaving_dock = "The emergency shuttle has left the station. Estimate %ETA% minutes until the shuttle docks at %dock%."
 	emergency_shuttle_recall_message = "The emergency shuttle has been recalled."
 	emergency_shuttle_called_message = "An emergency evacuation shuttle has been called. It will arrive in approximately %ETA% minutes."
 
@@ -72,7 +72,7 @@
 	new /datum/random_map/automata/cave_system/chasms(null,0,0,5,255,255)
 	new /datum/random_map/automata/cave_system/high_yield(null,0,0,5,255,255)
 	new /datum/random_map/automata/cave_system/chasms/surface(null,0,0,6,255,255)
-	
+
 	// Create the deep mining ore distribution map.
 	new /datum/random_map/noise/ore(null, 0, 0, 5, 64, 64)
 	new /datum/random_map/noise/ore(null, 0, 0, 4, 64, 64)

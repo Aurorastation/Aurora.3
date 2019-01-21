@@ -247,5 +247,5 @@
 	if(M.equip_to_storage(newitem))
 		return newitem
 
-	newitem.loc = get_turf(M.loc)
+	newitem.forceMove(get_turf(M.loc))
 	return newitem

@@ -408,7 +408,6 @@ This saves us from having to call add_fingerprint() any time something is put in
 /mob/living/carbon/human/put_in_l_hand(var/obj/item/W)
 	if(!..() || l_hand)
 		return 0
-
 	W.forceMove(src)
 	l_hand = W
 	W.equipped(src,slot_l_hand)
@@ -419,7 +418,6 @@ This saves us from having to call add_fingerprint() any time something is put in
 /mob/living/carbon/human/put_in_r_hand(var/obj/item/W)
 	if(!..() || r_hand)
 		return 0
-
 	W.forceMove(src)
 	r_hand = W
 	W.equipped(src,slot_r_hand)

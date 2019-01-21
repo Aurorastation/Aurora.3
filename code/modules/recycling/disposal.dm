@@ -143,9 +143,7 @@
 	if(!I)
 		return
 
-	user.drop_item()
-	if(I)
-		I.forceMove(src)
+	user.drop_from_inventory(I,src)
 
 	user << "You place \the [I] into the [src]."
 	for(var/mob/M in viewers(src))
@@ -1160,6 +1158,7 @@
 
 /obj/structure/disposalpipe/tagger/partial //needs two passes to tag
 	name = "partial package tagger"
+	desc = "A unique desitnation tagger that requires an object to pass 2 times to tag."
 	icon_state = "pipe-tagger-partial"
 	partial = 1
 
@@ -1258,7 +1257,7 @@
 
 //a three-way junction that filters all wrapped and tagged items
 /obj/structure/disposalpipe/sortjunction/wildcard
-	name = "wildcard sorting junction"
+	name = "tagged sorting junction"
 	desc = "An underfloor disposal pipe which filters all wrapped and tagged items."
 	subtype = 1
 	divert_check(var/checkTag)
@@ -1413,7 +1412,7 @@
 	var/mode = 0
 
 	var/spread = 0
-	var/spread_point = 10
+	var/spread_point = 3
 
 
 /obj/structure/disposaloutlet/Initialize()
@@ -1443,9 +1442,9 @@
 				spawn(5)
 					if(spread)
 						var/turf/new_turf_target = get_step(target,turn(src.dir, rand(-spread,spread)))
-						AM.throw_at(new_turf_target, 3, 1)
+						AM.throw_at(new_turf_target, spread_point, 1)
 					else
-						AM.throw_at(target, 3, 1)
+						AM.throw_at(target, spread_point, 1)
 
 		H.vent_gas(src.loc)
 		qdel(H)

@@ -6,6 +6,11 @@
 	flags = RAD_SHIELDED
 	station_area = 1
 
+/area/sconference_room
+	name = "\improper Surface - Conference Room"
+	icon_state = "Sleep"
+	station_area = 1
+
 /area/crew_quarters/toilet
 	name = "\improper Dormitory Toilets"
 	icon_state = "toilet"
@@ -101,7 +106,13 @@
 	name = "\improper Bar"
 	icon_state = "bar"
 	sound_env = LARGE_SOFTFLOOR
-	allow_nightmode = 1
+	allow_nightmode = 0
+
+/area/crew_quarters/bar/below
+	name = "\improper Bar - Sublevel"
+	icon_state = "red"
+	sound_env = TUNNEL_ENCLOSED
+	flags = HIDE_FROM_HOLOMAP
 
 /area/crew_quarters/theatre
 	name = "\improper Theatre"
@@ -132,7 +143,6 @@
 	icon_state = "law"
 	station_area = 1
 
-
 /area/quartermaster
 	name = "\improper Quartermasters"
 	icon_state = "quart"
@@ -142,6 +152,18 @@
 /area/quartermaster/office
 	name = "\improper Cargo Office"
 	icon_state = "quartoffice"
+
+/area/quartermaster/lobby
+	name = "\improper Cargo Lobby"
+	icon_state = "green"
+
+/area/quartermaster/break_room
+	name = "\improper Cargo Break Room"
+	icon_state = "blue"
+
+/area/quartermaster/mail_room
+	name = "\improper Cargo Mail Room"
+	icon_state = "red"
 
 /area/quartermaster/storage
 	name = "\improper Cargo Warehouse"

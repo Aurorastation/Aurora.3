@@ -84,11 +84,10 @@
 
 	//Set species_restricted list
 	switch(target_species)
-		if("Human", "Skrell", "Machine", "Zeng-Hu Mobility Frame", "Bishop Accessory Frame")	//humanoid bodytypes
+		if("Human", "Skrell", "Zeng-Hu Mobility Frame", "Bishop Accessory Frame")	//humanoid bodytypes
 			species_restricted = list(
 				"Human",
 				"Skrell",
-				"Machine",
 				"Zeng-Hu Mobility Frame",
 				"Bishop Accessory Frame"
 			) //skrell/humans like to share with IPCs
@@ -178,12 +177,11 @@
 	T.visible_message("<span class='danger'>\The [src] [material.destruction_desc]!</span>")
 	if(istype(loc, /mob/living))
 		var/mob/living/M = loc
-		M.drop_from_inventory(src)
 		if(material.shard_type == SHARD_SHARD) // Wearing glass armor is a bad idea.
 			var/obj/item/weapon/material/shard/S = material.place_shard(T)
 			M.embed(S)
 
-	playsound(src, "shatter", 70, 1)
+	playsound(src.loc, "shatter", 70, 1)
 	qdel(src)
 
 /obj/item/clothing/suit/armor/handle_shield(mob/user, var/damage, atom/damage_source = null, mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
@@ -316,6 +314,33 @@
 	item_state = "earmuffs"
 	slot_flags = SLOT_EARS | SLOT_TWOEARS
 
+/obj/item/clothing/ears/earmuffs/headphones
+	name = "headphones"
+	desc = "Unce unce unce unce."
+	var/headphones_on = 0
+	icon_state = "headphones_off"
+	item_state = "headphones"
+	slot_flags = SLOT_EARS | SLOT_TWOEARS
+
+/obj/item/clothing/ears/earmuffs/headphones/verb/togglemusic()
+	set name = "Toggle Headphone Music"
+	set category = "Object"
+	set src in usr
+	if(!istype(usr, /mob/living)) return
+	if(usr.stat) return
+
+	if(headphones_on)
+		icon_state = "headphones_off"
+		headphones_on = 0
+		usr << "<span class='notice'>You turn the music off.</span>"
+	else
+		icon_state = "headphones_on"
+		headphones_on = 1
+		usr << "<span class='notice'>You turn the music on.</span>"
+
+	update_clothing_icon()
+
+
 ///////////////////////////////////////////////////////////////////////
 //Gloves
 /obj/item/clothing/gloves
@@ -361,6 +386,7 @@
 	return 0 // return 1 to cancel attack_hand()
 
 /obj/item/clothing/gloves/attackby(obj/item/weapon/W, mob/user)
+	..()
 	if(iswirecutter(W) || istype(W, /obj/item/weapon/scalpel))
 		if (clipped)
 			user << "<span class='notice'>\The [src] have already been clipped!</span>"
@@ -371,6 +397,7 @@
 		user.visible_message("<span class='warning'>[user] cuts the fingertips off of \the [src].</span>","<span class='warning'>You cut the fingertips off of \the [src].</span>")
 
 		clipped = 1
+		siemens_coefficient += 0.25
 		name = "modified [name]"
 		desc = "[desc]<br>They have had the fingertips cut off of them."
 		if("exclude" in species_restricted)
@@ -388,8 +415,7 @@
 				to_chat(user, "You are unable to wear \the [src] as \the [H.gloves] are in the way.")
 				ring = null
 				return 0
-			H.drop_from_inventory(ring)	//Remove the ring (or other under-glove item in the hand slot?) so you can put on the gloves.
-			ring.forceMove(src)
+			H.drop_from_inventory(ring,src)
 
 	if(!..())
 		if(ring) //Put the ring back on if the check fails.
@@ -535,7 +561,6 @@
 /obj/item/clothing/mask
 	name = "mask"
 	icon = 'icons/obj/clothing/masks.dmi'
-	body_parts_covered = HEAD
 	slot_flags = SLOT_MASK
 	body_parts_covered = FACE|EYES
 	sprite_sheets = list(
@@ -548,6 +573,18 @@
 	var/voicechange = 0
 	var/list/say_messages
 	var/list/say_verbs
+	var/down_gas_transfer_coefficient = 0
+	var/down_body_parts_covered = 0
+	var/down_item_flags = 0
+	var/down_flags_inv = 0
+	var/adjustable = FALSE
+	var/hanging = 0
+
+/obj/item/clothing/mask/Initialize()
+	. = ..()
+	if(adjustable)
+		action_button_name = "Adjust Mask"
+		verbs += /obj/item/clothing/mask/proc/adjust_mask
 
 /obj/item/clothing/mask/update_clothing_icon()
 	if (ismob(src.loc))
@@ -556,6 +593,38 @@
 
 /obj/item/clothing/mask/proc/filter_air(datum/gas_mixture/air)
 	return
+
+/obj/item/clothing/mask/proc/adjust_mask(mob/user)
+	if(!adjustable)
+		return
+	if(use_check(user))
+		return
+
+	hanging = !hanging
+
+	if(hanging)
+		gas_transfer_coefficient = down_gas_transfer_coefficient
+		body_parts_covered = down_body_parts_covered
+		icon_state = "[icon_state]down"
+		item_flags = down_item_flags
+		flags_inv = down_flags_inv
+		user.visible_message("<span class='notice'>[user] adjust \his [src] to hang around \his neck.</span>", "<span class='notice'>Your [src] is now hanging around your neck.</span>")
+
+	else
+		gas_transfer_coefficient = initial(gas_transfer_coefficient)
+		body_parts_covered = initial(body_parts_covered)
+		icon_state = initial(icon_state)
+		item_state = initial(icon_state)
+		item_flags = initial(item_flags)
+		flags_inv = initial(flags_inv)
+		to_chat(user, "You pull [src] up to cover your face.")
+		user.visible_message("<span class='notice'>[user] puts \his [src] back up, to cover \his face.</span>", "<span class='notice'>Your put your [src] back on.</span>")
+
+	update_clothing_icon()
+
+/obj/item/clothing/mask/attack_self(mob/user)
+	if(adjustable)
+		adjust_mask(user)
 
 ///////////////////////////////////////////////////////////////////////
 //Shoes
@@ -610,7 +679,7 @@
 
 
 /obj/item/clothing/shoes/attackby(var/obj/item/I, var/mob/user)
-	if(can_hold_knife && is_type_in_list(I, list(/obj/item/weapon/material/shard, /obj/item/weapon/material/butterfly, /obj/item/weapon/material/kitchen/utensil, /obj/item/weapon/material/hatchet/tacknife, /obj/item/weapon/material/sword/trench)))
+	if(can_hold_knife && is_type_in_list(I, list(/obj/item/weapon/material/shard, /obj/item/weapon/material/kitchen/utensil, /obj/item/weapon/material/knife)))
 		if(holding)
 			user << "<span class='warning'>\The [src] is already holding \a [holding].</span>"
 			return
@@ -657,6 +726,8 @@
 		"Resomi" = 'icons/mob/species/resomi/suit.dmi'
 		)
 
+	valid_accessory_slots = list("over")
+
 /obj/item/clothing/suit/update_clothing_icon()
 	if (ismob(src.loc))
 		var/mob/M = src.loc
@@ -695,7 +766,7 @@
 	//convenience var for defining the icon state for the overlay used when the clothing is worn.
 	//Also used by rolling/unrolling.
 	var/worn_state = null
-	valid_accessory_slots = list("utility","armband","decor")
+	valid_accessory_slots = list("utility","armband","decor", "over")
 	restricted_accessory_slots = list("utility", "armband")
 
 

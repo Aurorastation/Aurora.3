@@ -34,11 +34,14 @@
 
 /mob/living/carbon/Move(NewLoc, direct)
 	. = ..()
+
 	if(.)
-		if(src.nutrition && src.stat != 2)
-			src.nutrition -= nutrition_loss*0.1//Multiplication is faster than division
-			if(src.m_intent == "run")
-				src.nutrition -= nutrition_loss*0.1
+		if(src.stat != 2)
+			if(src.nutrition)
+				adjustNutritionLoss(nutrition_loss*0.1)
+			if(src.hydration)
+				adjustHydrationLoss(hydration_loss*0.1)
+
 		if((FAT in src.mutations) && src.m_intent == "run" && src.bodytemperature <= 360)
 			src.bodytemperature += 2
 
@@ -68,7 +71,7 @@
 
 				if(prob(src.getBruteLoss() - 50))
 					for(var/atom/movable/A in stomach_contents)
-						A.loc = loc
+						A.forceMove(loc)
 						LAZYREMOVE(stomach_contents, A)
 					src.gib()
 
@@ -76,7 +79,7 @@
 	for(var/mob/M in src)
 		if(M in src.stomach_contents)
 			LAZYREMOVE(src.stomach_contents, M)
-		M.loc = src.loc
+		M.forceMove(src.loc)
 		for(var/mob/N in viewers(src, null))
 			if(N.client)
 				N.show_message(text("<span class='danger'>[M] bursts out of [src]!</span>"), 2)
@@ -101,7 +104,7 @@
 
 	return
 
-/mob/living/carbon/electrocute_act(var/shock_damage, var/obj/source, var/siemens_coeff = 1.0, var/def_zone = null, var/tesla_shock = 0)
+/mob/living/carbon/electrocute_act(var/shock_damage, var/obj/source, var/siemens_coeff = 1.0, var/def_zone = null, var/tesla_shock = 0, var/ground_zero)
 	if(status_flags & GODMODE)	return 0	//godmode
 	if (!tesla_shock)
 		shock_damage *= siemens_coeff
@@ -377,6 +380,7 @@
 		usr << "<span class='warning'>You are already sleeping</span>"
 		return
 	if(alert(src,"You sure you want to sleep for a while?","Sleep","Yes","No") == "Yes")
+		willfully_sleeping = 1
 		usr.sleeping = 20 //Short nap
 
 /mob/living/carbon/Collide(atom/A)
@@ -412,3 +416,12 @@
 	if(!species)
 		return null
 	return species.default_language ? all_languages[species.default_language] : null
+
+/mob/living/carbon/is_berserk()
+	return (CE_BERSERK in chem_effects)
+
+/mob/living/carbon/is_pacified()
+	if(disabilities & PACIFIST)
+		return TRUE
+	if(CE_PACIFIED in chem_effects)
+		return TRUE

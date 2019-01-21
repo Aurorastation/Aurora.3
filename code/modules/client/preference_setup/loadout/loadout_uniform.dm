@@ -9,6 +9,11 @@
 	display_name = "kilt"
 	path = /obj/item/clothing/under/kilt
 
+/datum/gear/uniform/iacjumpsuit
+	display_name = "IAC Jumpsuit"
+	path = /obj/item/clothing/under/rank/iacjumpsuit
+	allowed_roles = list("Chief Medical Officer", "Medical Doctor", "Chemist", "Paramedic", "Medical Resident")
+
 /datum/gear/uniform/jumpsuit
 	display_name = "generic jumpsuits"
 	path = /obj/item/clothing/under/color/grey
@@ -45,19 +50,12 @@
 /datum/gear/uniform/skirt/New()
 	..()
 	var/skirts = list()
-	skirts["plaid skirt, blue"] = /obj/item/clothing/under/skirt/plaid_blue
-	skirts["plaid skirt, purple"] = /obj/item/clothing/under/skirt/plaid_purple
-	skirts["plaid skirt, red"] = /obj/item/clothing/under/skirt/plaid_red
-	skirts["jumpskirt, black"] = /obj/item/clothing/under/skirt/blackjumpskirt
-	skirts["skirt, black"] = /obj/item/clothing/under/skirt/
-	skirts["skirt, khaki"] = /obj/item/clothing/under/skirt/khaki
-	skirts["short skirt, black"] = /obj/item/clothing/under/skirt/short_black
-	skirts["short skirt, blue"] = /obj/item/clothing/under/skirt/blue
-	skirts["short skirt, red"] = /obj/item/clothing/under/skirt/red
-	skirts["skirt, swept"] = /obj/item/clothing/under/skirt/swept
-
-
+	skirts["casual skirt"] = /obj/item/clothing/under/skirt/casual
+	skirts["long skirt"] = /obj/item/clothing/under/skirt/long
+	skirts["pencil skirt"] = /obj/item/clothing/under/skirt/pencil
+	skirts["swept skirt"] = /obj/item/clothing/under/skirt/swept
 	gear_tweaks += new/datum/gear_tweak/path(skirts)
+	gear_tweaks += list(gear_tweak_free_color_choice)
 
 /datum/gear/uniform/suit
 	display_name = "suit selection"
@@ -114,6 +112,13 @@
 	dress["dress, orange"] = /obj/item/clothing/under/dress/dress_orange
 	dress["dress, pink"] = /obj/item/clothing/under/dress/dress_pink
 	dress["dress, yellow"] = /obj/item/clothing/under/dress/dress_yellow
+	dress["dress, white"] = /obj/item/clothing/under/dress/white
+	dress["dress, stripped"] = /obj/item/clothing/under/dress/stripeddress
+	dress["dress, sailor"] = /obj/item/clothing/under/dress/sailordress
+	dress["dress, red swept"] = /obj/item/clothing/under/dress/red_swept_dress
+	dress["dress, western bustle"] = /obj/item/clothing/under/dress/westernbustle
+	dress["dress, black tango"] = /obj/item/clothing/under/dress/blacktango
+	dress["dress, black tango alternative"] = /obj/item/clothing/under/dress/blacktango/alt
 	dress["cheongsam, white"] = /obj/item/clothing/under/cheongsam
 	dress["cheongsam, red"] = /obj/item/clothing/under/cheongsam/red
 	dress["cheongsam, blue"] = /obj/item/clothing/under/cheongsam/blue
@@ -125,6 +130,14 @@
 	display_name = "uniform, captain dress"
 	path = /obj/item/clothing/under/dress/dress_cap
 	allowed_roles = list("Captain")
+
+/datum/gear/uniform/customdress
+	display_name = "Evening gown"
+	path = /obj/item/clothing/under/dress/dress_evening
+
+/datum/gear/uniform/customdress/New()
+	..()
+	gear_tweaks = list(gear_tweak_free_color_choice)
 
 /datum/gear/uniform/corpsecsuit
 	display_name = "uniform, corporate (Security)"
@@ -174,6 +187,10 @@
 	pants["tan pants"] = /obj/item/clothing/under/pants/tan
 	pants["khaki pants"] = /obj/item/clothing/under/pants/khaki
 	pants["track pants"] = /obj/item/clothing/under/pants/track
+	pants["blue track pants"] = /obj/item/clothing/under/pants/track/blue
+	pants["green track pants"] = /obj/item/clothing/under/pants/track/green
+	pants["white track pants"] = /obj/item/clothing/under/pants/track/white
+	pants["red track pants"] = /obj/item/clothing/under/pants/track/red
 	pants["camo pants"] = /obj/item/clothing/under/pants/camo
 	pants["athletic shorts, black"] = /obj/item/clothing/under/shorts
 	pants["athletic shorts, red"] = /obj/item/clothing/under/shorts/red
@@ -211,3 +228,15 @@
 	suit["dominia suit, black"] = /obj/item/clothing/under/dominia/black
 	suit["lyodsuit"] = /obj/item/clothing/under/dom_thermal
 	gear_tweaks += new/datum/gear_tweak/path(suit)
+
+/datum/gear/uniform/miscellaneous/kimono
+	display_name = "kimono"
+	path = /obj/item/clothing/under/kimono
+
+/datum/gear/uniform/miscellaneous/kimono/New()
+	..()
+	gear_tweaks = list(gear_tweak_free_color_choice)
+
+/datum/gear/uniform/miscellaneous/greensuit
+	display_name = "green formal uniform"
+	path = /obj/item/clothing/under/gov

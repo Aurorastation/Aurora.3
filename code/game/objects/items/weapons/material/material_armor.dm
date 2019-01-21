@@ -73,9 +73,10 @@ Protectiveness | Armor %
 		if(second_plate.material != src.material)
 			to_chat(user, "<span class='warning'>Both plates need to be the same type of material.</span>")
 			return
-		user.drop_from_inventory(src)
-		user.drop_from_inventory(second_plate)
-		var/obj/item/clothing/suit/armor/material/makeshift/new_armor = new(null, src.material.name)
+		//TODO: Possible better animations
+		var/obj/item/clothing/suit/armor/material/makeshift/new_armor = new(src.loc, src.material.name)
+		user.drop_from_inventory(src,new_armor)
+		user.drop_from_inventory(second_plate,new_armor)
 		user.put_in_hands(new_armor)
 		qdel(second_plate)
 		qdel(src)

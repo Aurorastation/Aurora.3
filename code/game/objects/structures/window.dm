@@ -184,7 +184,7 @@
 
 		if (istype(usr,/mob/living/carbon/human))
 			var/mob/living/carbon/human/H = usr
-			if(H.species.can_shred(H))
+			if(H.species.can_shred(H) || (H.is_berserk()))
 				attack_generic(H,25)
 				return
 
@@ -525,7 +525,7 @@
 /obj/structure/window/reinforced/crescent/attackby()
 	return
 
-/obj/structure/window/reinforced/crescent/ex_act()
+/obj/structure/window/reinforced/crescent/ex_act(var/severity = 2.0)
 	return
 
 /obj/structure/window/reinforced/crescent/hitby()

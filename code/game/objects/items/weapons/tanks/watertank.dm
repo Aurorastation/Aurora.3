@@ -18,7 +18,7 @@
 	noz = make_noz()
 	noz.tank = src
 	noz.reagents = reagents
-	noz.loc = src
+	noz.forceMove(src)
 
 /obj/item/watertank/ui_action_click()
 	toggle_mister()
@@ -44,14 +44,14 @@
 			noz = make_noz()
 			noz.tank = src
 			noz.reagents = reagents
-			noz.loc = src
+			noz.forceMove(src)
 
 		//Detach the nozzle into the user's hands
 		if(!user.put_in_hands(noz))
 			on = FALSE
 			to_chat(user, "<span class='warning'>You need a free hand to hold the mister!</span>")
 			return
-		noz.loc = user
+		noz.forceMove(user)
 	else
 		//Remove from their hands and put back "into" the tank
 		remove_noz()
@@ -70,11 +70,10 @@
 		noz = make_noz()
 		noz.tank = src
 		noz.reagents = reagents
-		noz.loc = src
+		noz.forceMove(src)
 	if(ismob(noz.loc))
 		var/mob/M = noz.loc
-		M.drop_from_inventory(noz)
-		noz.loc = src
+		M.drop_from_inventory(noz,src)
 	return
 
 /obj/item/watertank/Destroy()

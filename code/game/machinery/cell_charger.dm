@@ -18,7 +18,6 @@
 	if(charging && !(stat & (BROKEN|NOPOWER)) )
 
 		var/newlevel = 	round(charging.percent() * 4.0 / 99)
-		//world << "nl: [newlevel]"
 
 		if(chargelevel != newlevel)
 
@@ -53,8 +52,7 @@
 				user << "<span class='warning'>The [name] blinks red as you try to insert the cell!</span>"
 				return
 
-			user.drop_item()
-			W.loc = src
+			user.drop_from_inventory(W,src)
 			charging = W
 			user.visible_message("[user] inserts a cell into the charger.", "You insert a cell into the charger.")
 			chargelevel = -1
@@ -99,7 +97,6 @@
 
 
 /obj/machinery/cell_charger/machinery_process()
-	//world << "ccpt [charging] [stat]"
 	if((stat & (BROKEN|NOPOWER)) || !anchored)
 		update_use_power(0)
 		return

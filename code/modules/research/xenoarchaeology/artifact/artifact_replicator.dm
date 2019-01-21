@@ -44,7 +44,7 @@
 	/obj/item/weapon/autopsy_scanner,\
 	/obj/item/weapon/bikehorn,\
 	/obj/item/weapon/bonesetter,\
-	/obj/item/weapon/material/knife/butch,\
+	/obj/item/weapon/material/hatchet/butch,\
 	/obj/item/weapon/caution,\
 	/obj/item/weapon/caution/cone,\
 	/obj/item/weapon/crowbar,\
@@ -128,8 +128,7 @@
 	user << browse(dat, "window=alien_replicator")
 
 /obj/machinery/replicator/attackby(obj/item/weapon/W as obj, mob/living/user as mob)
-	user.drop_item()
-	W.loc = src
+	user.drop_from_inventory(W,src)
 	stored_materials.Add(W)
 	src.visible_message("<span class='notice'>[user] inserts [W] into [src].</span>")
 

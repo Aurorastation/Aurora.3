@@ -222,36 +222,6 @@
 	flags_inv = HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT
 	siemens_coefficient = 2.0
 
-/obj/item/clothing/suit/poncho
-	name = "poncho"
-	desc = "A simple, comfortable poncho."
-	icon_state = "classicponcho"
-	item_state = "classicponcho"
-
-/obj/item/clothing/suit/poncho/green
-	name = "green poncho"
-	desc = "A simple, comfortable cloak without sleeves. This one is green."
-	icon_state = "greenponcho"
-	item_state = "greenponcho"
-
-/obj/item/clothing/suit/poncho/red
-	name = "red poncho"
-	desc = "A simple, comfortable cloak without sleeves. This one is red."
-	icon_state = "redponcho"
-	item_state = "redponcho"
-
-/obj/item/clothing/suit/poncho/purple
-	name = "purple poncho"
-	desc = "A simple, comfortable cloak without sleeves. This one is purple."
-	icon_state = "purpleponcho"
-	item_state = "purpleponcho"
-
-/obj/item/clothing/suit/poncho/blue
-	name = "blue poncho"
-	desc = "A simple, comfortable cloak without sleeves. This one is blue."
-	icon_state = "blueponcho"
-	item_state = "blueponcho"
-
 /obj/item/clothing/suit/storage/toggle/bomber
 	name = "bomber jacket"
 	desc = "A thick, well-worn WW2 leather bomber jacket."
@@ -326,16 +296,6 @@
 	item_state = "black_hoodie"
 	icon_open = "black_hoodie_open"
 	icon_closed = "black_hoodie"
-
-/obj/item/clothing/suit/storage/toggle/tracksuit
-	name = "track jacket"
-	desc = "An athletic black and white track jacket."
-	icon = 'icons/obj/tracksuit.dmi'
-	icon_state = "trackjacket"
-	item_state = "trackjacket"
-	icon_open = "trackjacket_open"
-	icon_closed = "trackjacket"
-	contained_sprite = 1
 
 /obj/item/clothing/suit/storage/toggle/flannel
 	name = "green flannel shirt"
@@ -430,3 +390,180 @@
 	item_state = "dominian_noble5"
 	icon_open = "dominian_noble5_open"
 	icon_closed = "dominian_noble5"
+
+/obj/item/clothing/suit/storage/toggle/greengov
+	name = "green formal jacket"
+	desc = "A sleek proper formal jacket with gold buttons."
+	icon_state = "suitjacket_green_open"
+	item_state = "suitjacket_green"
+	icon_open = "suitjacket_green_open"
+	icon_closed = "suitjacket_green"
+	body_parts_covered = UPPER_TORSO|ARMS
+
+/obj/item/clothing/suit/storage/toggle/track
+	name = "track jacket"
+	desc = "a track jacket, for the athletic."
+	icon = 'icons/obj/tracksuit.dmi'
+	icon_state = "trackjacket"
+	item_state = "trackjacket"
+	icon_open = "trackjacket_open"
+	icon_closed = "trackjacket"
+	allowed = list (/obj/item/weapon/pen, /obj/item/weapon/paper, /obj/item/device/flashlight, /obj/item/weapon/tank/emergency_oxygen, /obj/item/weapon/storage/fancy/cigarettes, /obj/item/weapon/storage/box/matches, /obj/item/weapon/reagent_containers/food/drinks/flask)
+	contained_sprite = 1
+
+/obj/item/clothing/suit/storage/toggle/track/blue
+	name = "blue track jacket"
+	icon = 'icons/obj/tracksuit.dmi'
+	icon_state = "trackjacketblue"
+	item_state = "trackjacketblue"
+	icon_open = "trackjacketblue_open"
+	icon_closed = "trackjacketblue"
+	contained_sprite = 1
+
+/obj/item/clothing/suit/storage/toggle/track/green
+	name = "green track jacket"
+	icon = 'icons/obj/tracksuit.dmi'
+	icon_state = "trackjacketgreen"
+	item_state = "trackjacketgreen"
+	icon_open = "trackjacketgreen_open"
+	icon_closed = "trackjacketgreen"
+	contained_sprite = 1
+
+/obj/item/clothing/suit/storage/toggle/track/red
+	name = "red track jacket"
+	icon = 'icons/obj/tracksuit.dmi'
+	icon_state = "trackjacketred"
+	item_state = "trackjacketred"
+	icon_open = "trackjacketred_open"
+	icon_closed = "trackjacketred"
+	contained_sprite = 1
+
+/obj/item/clothing/suit/storage/toggle/track/white
+	name = "white track jacket"
+	icon = 'icons/obj/tracksuit.dmi'
+	icon_state = "trackjacketwhite"
+	item_state = "trackjacketwhite"
+	icon_open = "trackjacketwhite_open"
+	icon_closed = "trackjacketwhite"
+	contained_sprite = 1
+
+/obj/item/clothing/suit/varsity
+	name = "black varsity jacket"
+	desc = "A favorite of jocks everywhere from Sol to the Frontier."
+	icon_state = "varsity"
+	item_state = "varsity"
+	allowed = list (/obj/item/weapon/pen, /obj/item/weapon/paper, /obj/item/device/flashlight, /obj/item/weapon/tank/emergency_oxygen, /obj/item/weapon/storage/box/matches, /obj/item/weapon/reagent_containers/food/drinks/flask)
+
+/obj/item/clothing/suit/varsity/red
+	name = "red varsity jacket"
+	icon_state = "varsity_red"
+	item_state = "varsity_red"
+
+/obj/item/clothing/suit/varsity/purple
+	name = "purple varsity jacket"
+	icon_state = "varsity_purple"
+	item_state = "varsity_purple"
+
+/obj/item/clothing/suit/varsity/green
+	name = "green varsity jacket"
+	icon_state = "varsity_green"
+	item_state = "varsity_green"
+
+/obj/item/clothing/suit/varsity/blue
+	name = "blue varsity jacket"
+	icon_state = "varsity_blue"
+	item_state = "varsity_blue"
+
+/obj/item/clothing/suit/varsity/brown
+	name = "brown varsity jacket"
+	icon_state = "varsity_brown"
+	item_state = "varsity_brown"
+
+/obj/item/clothing/suit/storage/miljacket
+	name = "military jacket"
+	desc = "A canvas jacket styled after classical American military garb. Feels sturdy, yet comfortable."
+	icon_state = "militaryjacket_nobadge"
+	item_state = "militaryjacket_nobadge"
+	allowed = list (/obj/item/weapon/pen, /obj/item/weapon/paper, /obj/item/device/flashlight, /obj/item/weapon/tank/emergency_oxygen, /obj/item/weapon/storage/box/matches, /obj/item/weapon/reagent_containers/food/drinks/flask)
+
+/obj/item/clothing/suit/storage/miljacket/alt
+	name = "military jacket"
+	desc = "A canvas jacket styled after classical American military garb. Feels sturdy, yet comfortable."
+	icon_state = "militaryjacket_badge"
+	item_state = "militaryjacket_badge"
+
+/obj/item/clothing/suit/storage/miljacket/green
+	name = "military jacket"
+	desc = "A dark green canvas jacket. Feels sturdy, yet comfortable."
+	icon_state = "militaryjacket_green"
+	item_state = "militaryjacket_green"
+
+/obj/item/clothing/suit/jacket/puffer
+	name = "puffer jacket"
+	desc = "A thick jacket with a rubbery, water-resistant shell. Oddly enough, you don't feel any heat."
+	icon_state = "pufferjacket"
+	item_state = "pufferjacket"
+
+/obj/item/clothing/suit/jacket/puffer/vest
+	name = "puffer vest"
+	desc = "A thick vest with a rubbery, water-resistant shell."
+	icon_state = "puffervest"
+	item_state = "puffervest"
+
+/obj/item/clothing/suit/storage/toggle/peacoat
+	name = "peacoat"
+	desc = "A well-tailored, stylish peacoat."
+	icon_state = "peacoat"
+	item_state = "peacoat"
+	icon_open = "peacoat_open"
+	icon_closed = "peacoat"
+
+/*
+ * Department Jackets
+ */
+/obj/item/clothing/suit/storage/toggle/engi_dep_jacket
+	name = "engineering department jacket"
+	desc = "A cozy jacket in engineering's colors. Show your department pride!"
+	icon_state = "engi_dep_jacket"
+	item_state = "engi_dep_jacket"
+	icon_open = "engi_dep_jacket_open"
+	icon_closed = "engi_dep_jacket"
+
+/obj/item/clothing/suit/storage/toggle/supply_dep_jacket
+	name = "supply department jacket"
+	desc = "A cozy jacket in supply's colors. Show your department pride!"
+	icon_state = "supply_dep_jacket"
+	item_state = "supply_dep_jacket"
+	icon_open = "supply_dep_jacket_open"
+	icon_closed = "supply_dep_jacket"
+
+/obj/item/clothing/suit/storage/toggle/sci_dep_jacket
+	name = "science department jacket"
+	desc = "A cozy jacket in science's colors. Show your department pride!"
+	icon_state = "sci_dep_jacket"
+	item_state = "sci_dep_jacket"
+	icon_open = "sci_dep_jacket_open"
+	icon_closed = "sci_dep_jacket"
+
+/obj/item/clothing/suit/storage/toggle/med_dep_jacket
+	name = "medical department jacket"
+	desc = "A cozy jacket in medical's colors. Show your department pride!"
+	icon_state = "med_dep_jacket"
+	item_state = "med_dep_jacket"
+	icon_open = "med_dep_jacket_open"
+	icon_closed = "med_dep_jacket"
+
+/obj/item/clothing/suit/storage/toggle/sec_dep_jacket
+	name = "security department jacket"
+	desc = "A cozy jacket in security's colors. Show your department pride!"
+	icon_state = "sec_dep_jacket"
+	item_state = "sec_dep_jacket"
+	icon_open = "sec_dep_jacket_open"
+	icon_closed = "sec_dep_jacket"
+
+/obj/item/clothing/suit/cardigan
+	name = "cardigan"
+	desc = "A cozy, warm knit cardigan. Only slightly worse than a blanket."
+	icon_state = "cardigan"
+	item_state = "cardigan"
+

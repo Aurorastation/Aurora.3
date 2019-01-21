@@ -24,7 +24,7 @@
 		icon_state = "[base_icon]_open"
 		if(held)
 			user << "\The [held] falls out!"
-			held.loc = get_turf(user)
+			held.forceMove(get_turf(user))
 			src.held = null
 	else
 		icon_state = "[base_icon]"
@@ -39,8 +39,7 @@
 			usr << "\The [src] already has something inside it."
 		else
 			usr << "You slip [O] into [src]."
-			user.drop_item()
-			O.loc = src
+			user.drop_from_inventory(O,src)
 			src.held = O
 		return
 	..()

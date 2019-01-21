@@ -9,7 +9,6 @@
 	emergency_shuttle.shuttle_arrived()
 
 /datum/shuttle/ferry/emergency/long_jump(var/area/departing, var/area/destination, var/area/interim, var/travel_time, var/direction)
-	//world << "shuttle/ferry/emergency/long_jump: departing=[departing], destination=[destination], interim=[interim], travel_time=[travel_time]"
 	if (!location)
 		travel_time = SHUTTLE_TRANSIT_DURATION_RETURN
 	else
@@ -66,7 +65,7 @@
 	if (istype(user, /obj/machinery/computer/shuttle_control/emergency))	//if we were given a command by an emergency shuttle console
 		if (emergency_shuttle.autopilot)
 			emergency_shuttle.autopilot = 0
-			world << "<span class='notice'><b>Alert: The shuttle autopilot has been overridden. Launch sequence initiated!</b></span>"
+			to_world("<span class='notice'><b>Alert: The shuttle autopilot has been overridden. Launch sequence initiated!</b></span>")
 
 	if(usr)
 		log_admin("[key_name(usr)] has overridden the shuttle autopilot and activated launch sequence",ckey=key_name(usr))
@@ -80,7 +79,7 @@
 	if (istype(user, /obj/machinery/computer/shuttle_control/emergency))	//if we were given a command by an emergency shuttle console
 		if (emergency_shuttle.autopilot)
 			emergency_shuttle.autopilot = 0
-			world << "<span class='notice'><b>Alert: The shuttle autopilot has been overridden. Bluespace drive engaged!</b></span>"
+			to_world("<span class='notice'><b>Alert: The shuttle autopilot has been overridden. Bluespace drive engaged!</b></span>")
 
 	if(usr)
 		log_admin("[key_name(usr)] has overridden the shuttle autopilot and forced immediate launch",ckey=key_name(usr))
@@ -94,7 +93,7 @@
 	if (istype(user, /obj/machinery/computer/shuttle_control/emergency))	//if we were given a command by an emergency shuttle console
 		if (emergency_shuttle.autopilot)
 			emergency_shuttle.autopilot = 0
-			world << "<span class='notice'><b>Alert: The shuttle autopilot has been overridden. Launch sequence aborted!</b></span>"
+			to_world("<span class='notice'><b>Alert: The shuttle autopilot has been overridden. Launch sequence aborted!</b></span>")
 
 	if(usr)
 		log_admin("[key_name(usr)] has overridden the shuttle autopilot and cancelled launch sequence",ckey=key_name(usr))
@@ -151,7 +150,7 @@
 	src.visible_message("\The [src] beeps as it scans [ident].")
 	authorized[dna_hash] = auth_name
 	if (req_authorizations - authorized.len)
-		world << "<span class='notice'><b>Alert: [req_authorizations - authorized.len] authorization\s needed to override the shuttle autopilot.</b></span>"
+		to_world("<span class='notice'><b>Alert: [req_authorizations - authorized.len] authorization\s needed to override the shuttle autopilot.</b></span>")
 
 	if(usr)
 		log_admin("[key_name(usr)] has inserted [ID] into the shuttle control computer - [req_authorizations - authorized.len] authorisation\s needed",ckey=key_name(usr))
@@ -191,7 +190,7 @@
 			else
 				shuttle_status = "Standing-by at [current_map.dock_name]."
 		if(WAIT_LAUNCH, FORCE_LAUNCH)
-			shuttle_status = "Shuttle has recieved command and will depart shortly."
+			shuttle_status = "Shuttle has received command and will depart shortly."
 		if(WAIT_ARRIVE)
 			shuttle_status = "Proceeding to destination."
 		if(WAIT_FINISH)

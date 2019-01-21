@@ -22,9 +22,10 @@
 			return 0
 		if(!dropsafety(W))
 			return
-		user.drop_item()
 		if(W)
-			W.forceMove(loc)
+			user.drop_from_inventory(W,loc)
+		else
+			user.drop_item()
 	else if(istype(W, /obj/item/weapon/packageWrap))
 		return
 	else

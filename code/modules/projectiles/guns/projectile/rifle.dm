@@ -72,7 +72,7 @@
 
 /obj/item/weapon/gun/projectile/contender/attack_self(mob/user as mob)
 	if(chambered)
-		chambered.loc = get_turf(src)
+		chambered.forceMove(get_turf(src))
 		chambered = null
 		var/obj/item/ammo_casing/C = loaded[1]
 		loaded -= C
@@ -96,6 +96,12 @@
 /obj/item/weapon/gun/projectile/contender/load_ammo(var/obj/item/A, mob/user)
 	if(!retracted_bolt)
 		to_chat(user, "<span class='notice'>You can't load \the [src] without cycling the bolt.</span>")
+		return
+	..()
+
+/obj/item/weapon/gun/projectile/contender/unload_ammo(mob/user, var/allow_dump=1)
+	if(!retracted_bolt)
+		to_chat(user, "<span class='notice'>You can't unload \the [src] without cycling the bolt.</span>")
 		return
 	..()
 
@@ -159,7 +165,7 @@
 
 
 	if(chambered)//We have a shell in the chamber
-		chambered.loc = get_turf(src)//Eject casing
+		chambered.forceMove(get_turf(src))//Eject casing
 		chambered = null
 
 	if(loaded.len)
@@ -175,8 +181,7 @@
 			user << "<span class='notice'>You need to open the bolt of \the [src] first.</span>"
 			return
 		if(!has_clip)
-			user.drop_from_inventory(A)
-			A.forceMove(src)
+			user.drop_from_inventory(A,src)
 			has_clip = A
 			user << "<span class='notice'>You load the clip into \the [src].</span>"
 			if(!has_clip.stored_ammo.len)
@@ -202,3 +207,53 @@
 		user << "<span class='warning'>The bolt is open on \the [src]!</span>"
 		return
 	..()
+
+/obj/item/weapon/gun/projectile/gauss
+	name = "gauss thumper"
+	desc = "An outdated gauss weapon which sees sparing use in modern times. It's covered in the colors of the Tau Ceti Foreign Legion."
+	w_class = 3
+	slot_flags = 0
+	magazine_type = /obj/item/ammo_magazine/gauss
+	allowed_magazines = list(/obj/item/ammo_magazine/gauss)
+	icon_state = "gauss_thumper"
+	caliber = "gauss"
+	accuracy = 1
+	origin_tech = list(TECH_COMBAT = 3, TECH_MATERIAL = 2)
+	fire_sound = 'sound/weapons/railgun.ogg'
+	load_method = MAGAZINE
+	handle_casings = DELETE_CASINGS
+
+	fire_delay = 25
+	accuracy = -1
+
+	fire_delay_wielded = 10
+	accuracy_wielded = 2
+
+	action_button_name = "Wield rifle"
+
+/obj/item/weapon/gun/projectile/gauss/update_icon()
+	..()
+	icon_state = (ammo_magazine)? "gauss_thumper" : "gauss_thumper-e"
+
+	if(wielded)
+		item_state = "gauss_thumper-wielded"
+	else
+		item_state = "gauss_thumper"
+
+	update_held_icon()
+	return
+
+/obj/item/weapon/gun/projectile/gauss/can_wield()
+	return 1
+
+/obj/item/weapon/gun/projectile/gauss/ui_action_click()
+	if(src in usr)
+		toggle_wield(usr)
+
+/obj/item/weapon/gun/projectile/gauss/verb/wield_rifle()
+	set name = "Wield rifle"
+	set category = "Object"
+	set src in usr
+
+	toggle_wield(usr)
+	usr.update_icon()

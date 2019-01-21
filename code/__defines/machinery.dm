@@ -71,7 +71,7 @@ var/list/restricted_camera_networks = list(NETWORK_ERT,NETWORK_MERCENARY,"Secret
 #define STAGE_FIVE	9
 #define STAGE_SUPER	11
 
-// NanoUI flags
+// Interaction flags 
 #define STATUS_INTERACTIVE 2 // GREEN Visability
 #define STATUS_UPDATE 1 // ORANGE Visability
 #define STATUS_DISABLED 0 // RED Visability

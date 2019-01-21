@@ -50,7 +50,7 @@
 		S = new /obj/item/solar_assembly(src)
 		S.glass_type = /obj/item/stack/material/glass
 		S.anchored = 1
-	S.loc = src
+	S.forceMove(src)
 	if(S.glass_type == /obj/item/stack/material/glass/reinforced) //if the panel is in reinforced glass
 		health *= 2 								 //this need to be placed here, because panels already on the map don't have an assembly linked to
 	update_icon()
@@ -65,7 +65,7 @@
 		if(do_after(user, 50))
 			var/obj/item/solar_assembly/S = locate() in src
 			if(S)
-				S.loc = src.loc
+				S.forceMove(src.loc)
 				S.give_glass()
 			playsound(src.loc, 'sound/items/Deconstruct.ogg', 50, 1)
 			user.visible_message("<span class='notice'>[user] takes the glass off the solar panel.</span>")
@@ -100,7 +100,7 @@
 		src.set_dir(angle2dir(adir))
 	return
 
-//calculates the fraction of the sunlight that the panel recieves
+//calculates the fraction of the sunlight that the panel receives
 /obj/machinery/power/solar/proc/update_solar_exposure()
 	if(!sun)
 		return
@@ -116,7 +116,7 @@
 		return
 
 	sunfrac = cos(p_angle) ** 2
-	//isn't the power recieved from the incoming light proportionnal to cos(p_angle) (Lambert's cosine law) rather than cos(p_angle)^2 ?
+	//isn't the power received from the incoming light proportionnal to cos(p_angle) (Lambert's cosine law) rather than cos(p_angle)^2 ?
 
 /obj/machinery/power/solar/machinery_process()//TODO: remove/add this from machines to save on processing as needed ~Carn PRIORITY
 	if(stat & BROKEN)
@@ -254,7 +254,7 @@
 	if(!tracker)
 		if(istype(W, /obj/item/weapon/tracker_electronics))
 			tracker = 1
-			user.drop_item()
+			user.drop_from_inventory(W,get_turf(src))
 			qdel(W)
 			user.visible_message("<span class='notice'>[user] inserts the electronics into the solar assembly.</span>")
 			return 1
@@ -407,7 +407,7 @@
 				new /obj/item/weapon/material/shard( src.loc )
 				var/obj/item/weapon/circuitboard/solar_control/M = new /obj/item/weapon/circuitboard/solar_control( A )
 				for (var/obj/C in src)
-					C.loc = src.loc
+					C.forceMove(src.loc)
 				A.circuit = M
 				A.state = 3
 				A.icon_state = "3"
@@ -418,7 +418,7 @@
 				var/obj/structure/computerframe/A = new /obj/structure/computerframe( src.loc )
 				var/obj/item/weapon/circuitboard/solar_control/M = new /obj/item/weapon/circuitboard/solar_control( A )
 				for (var/obj/C in src)
-					C.loc = src.loc
+					C.forceMove(src.loc)
 				A.circuit = M
 				A.state = 4
 				A.icon_state = "4"

@@ -56,7 +56,7 @@
 	proc/generate(copy_data) // copy_data will be non-null if this is a copy; it should be used to initialise the data for this effect if present
 
 /datum/disease2/effect/invisible
-	name = "Waiting Syndrome"
+	name = "Incubation Period"
 	stage = 1
 	activate(var/mob/living/carbon/mob,var/multiplier)
 		return
@@ -64,13 +64,13 @@
 ////////////////////////STAGE 4/////////////////////////////////
 
 /datum/disease2/effect/nothing
-	name = "Nil Syndrome"
+	name = "Carrier Syndrome"
 	stage = 4
 	badness = 1
 	chance_maxm = 0
 
 /datum/disease2/effect/gibbingtons
-	name = "Gibbingtons Syndrome"
+	name = "Rapid Limb Necrosis"
 	stage = 4
 	badness = 3
 	activate(var/mob/living/carbon/mob,var/multiplier)
@@ -100,8 +100,8 @@
 	activate(var/mob/living/carbon/mob,var/multiplier)
 		mob.apply_effect(2*multiplier, IRRADIATE, blocked = 0)
 
-/datum/disease2/effect/deaf
-	name = "Dead Ear Syndrome"
+/datum/disease2/effect/deaf_major
+	name = "Deafness"
 	stage = 4
 	badness = 2
 	activate(var/mob/living/carbon/mob,var/multiplier)
@@ -117,14 +117,14 @@
 			h.monkeyize()
 
 /datum/disease2/effect/killertoxins
-	name = "Toxification Syndrome"
+	name = "Sepsis"
 	stage = 4
 	badness = 2
 	activate(var/mob/living/carbon/mob,var/multiplier)
 		mob.adjustToxLoss(15*multiplier)
 
 /datum/disease2/effect/dna
-	name = "Reverse Pattern Syndrome"
+	name = "DNA Shift"
 	stage = 4
 	badness = 2
 	activate(var/mob/living/carbon/mob,var/multiplier)
@@ -133,7 +133,7 @@
 		mob.apply_damage(10, CLONE)
 
 /datum/disease2/effect/organs
-	name = "Shutdown Syndrome"
+	name = "Peripheral Neuropathy"
 	stage = 4
 	badness = 2
 	activate(var/mob/living/carbon/mob,var/multiplier)
@@ -182,7 +182,7 @@
 		mob.apply_damages(backlash_amt,backlash_amt,backlash_amt,backlash_amt)
 
 /datum/disease2/effect/bones
-	name = "Fragile Bones Syndrome"
+	name = "Osteoporosis"
 	stage = 4
 	badness = 2
 	activate(var/mob/living/carbon/mob,var/multiplier)
@@ -200,14 +200,14 @@
 ////////////////////////STAGE 3/////////////////////////////////
 
 /datum/disease2/effect/toxins
-	name = "Hyperacidity"
+	name = "Blood Toxicity"
 	stage = 3
 	maxm = 3
 	activate(var/mob/living/carbon/mob,var/multiplier)
 		mob.adjustToxLoss((2*multiplier))
 
 /datum/disease2/effect/shakey
-	name = "World Shaking Syndrome"
+	name = "Vertigo"
 	stage = 3
 	maxm = 3
 	activate(var/mob/living/carbon/mob,var/multiplier)
@@ -221,7 +221,7 @@
 		domutcheck(mob, null, MUTCHK_FORCED)
 
 /datum/disease2/effect/mind
-	name = "Lazy Mind Syndrome"
+	name = "Meningitis"
 	stage = 3
 	activate(var/mob/living/carbon/mob,var/multiplier)
 		if(istype(mob, /mob/living/carbon/human))
@@ -233,25 +233,25 @@
 			mob.setBrainLoss(50)
 
 /datum/disease2/effect/hallucinations
-	name = "Hallucinational Syndrome"
+	name = "Hallucinations"
 	stage = 3
 	activate(var/mob/living/carbon/mob,var/multiplier)
 		mob.hallucination += 25
 
 /datum/disease2/effect/deaf
-	name = "Hard of Hearing Syndrome"
+	name = "Hearing Impairment"
 	stage = 3
 	activate(var/mob/living/carbon/mob,var/multiplier)
 		mob.ear_deaf = 5
 
 /datum/disease2/effect/giggle
-	name = "Uncontrolled Laughter Effect"
+	name = "Pseudobulbar Affect"
 	stage = 3
 	activate(var/mob/living/carbon/mob,var/multiplier)
 		mob.say("*giggle")
 
 /datum/disease2/effect/confusion
-	name = "Topographical Cretinism"
+	name = "Left-Right Disorientation"
 	stage = 3
 	activate(var/mob/living/carbon/mob,var/multiplier)
 		mob << "<span class='notice'>You have trouble telling right and left apart all of a sudden.</span>"
@@ -292,33 +292,33 @@
 ////////////////////////STAGE 2/////////////////////////////////
 
 /datum/disease2/effect/scream
-	name = "Loudness Syndrome"
+	name = "Vocal Outbursts"
 	stage = 2
 	chance_maxm = 25
 	activate(var/mob/living/carbon/mob,var/multiplier)
 		mob.say("*scream")
 
 /datum/disease2/effect/drowsness
-	name = "Automated Sleeping Syndrome"
+	name = "Narcolepsy"
 	stage = 2
 	activate(var/mob/living/carbon/mob,var/multiplier)
 		mob.drowsyness += 10
 
 /datum/disease2/effect/sleepy
-	name = "Resting Syndrome"
+	name = "Syncope"
 	stage = 2
 	chance_maxm = 15
 	activate(var/mob/living/carbon/mob,var/multiplier)
 		mob.say("*collapse")
 
 /datum/disease2/effect/blind
-	name = "Blackout Syndrome"
+	name = "Blindness"
 	stage = 2
 	activate(var/mob/living/carbon/mob,var/multiplier)
 		mob.eye_blind = max(mob.eye_blind, 4)
 
 /datum/disease2/effect/cough
-	name = "Anima Syndrome"
+	name = "Coughing"
 	stage = 2
 	activate(var/mob/living/carbon/mob,var/multiplier)
 		mob.say("*cough")
@@ -326,20 +326,20 @@
 			mob.spread_disease_to(M)
 
 /datum/disease2/effect/hungry
-	name = "Appetiser Effect"
+	name = "Cachexia"
 	stage = 2
 	activate(var/mob/living/carbon/mob,var/multiplier)
-		mob.nutrition = max(0, mob.nutrition - 200)
+		mob.adjustNutritionLoss(200)
 
 /datum/disease2/effect/fridge
-	name = "Refridgerator Syndrome"
+	name = "Chills"
 	stage = 2
 	chance_maxm = 25
 	activate(var/mob/living/carbon/mob,var/multiplier)
 		mob.say("*shiver")
 
 /datum/disease2/effect/hair
-	name = "Hair Loss"
+	name = "Alopecia"
 	stage = 2
 	activate(var/mob/living/carbon/mob,var/multiplier)
 		if(istype(mob, /mob/living/carbon/human))
@@ -351,7 +351,7 @@
 					H.update_hair()
 
 /datum/disease2/effect/stimulant
-	name = "Adrenaline Extra"
+	name = "Hyperactivity"
 	stage = 2
 	activate(var/mob/living/carbon/mob,var/multiplier)
 		mob << "<span class='notice'>You feel a rush of energy inside you!</span>"
@@ -363,13 +363,12 @@
 ////////////////////////STAGE 1/////////////////////////////////
 
 /datum/disease2/effect/sneeze
-	name = "Coldingtons Effect"
+	name = "Sneezing"
 	stage = 1
 	activate(var/mob/living/carbon/mob, var/multiplier)
 		if (prob(30))
 			mob << "<span class='warning'>You feel like you are about to sneeze!</span>"
 		addtimer(CALLBACK(src, .proc/do_sneeze, mob, multiplier), 5)
-
 
 	proc/do_sneeze(mob/living/carbon/mob, multiplier)
 		if (QDELETED(mob))
@@ -383,20 +382,20 @@
 			M.virus2 = virus_copylist(mob.virus2)
 
 /datum/disease2/effect/gunck
-	name = "Flemmingtons"
+	name = "Congestion"
 	stage = 1
 	activate(var/mob/living/carbon/mob,var/multiplier)
 		mob << "<span class='warning'>Mucous runs down the back of your throat.</span>"
 
 /datum/disease2/effect/drool
-	name = "Saliva Effect"
+	name = "Salivary Incontinence"
 	stage = 1
 	chance_maxm = 25
 	activate(var/mob/living/carbon/mob,var/multiplier)
 		mob.say("*drool")
 
 /datum/disease2/effect/twitch
-	name = "Twitcher"
+	name = "Convulsions"
 	stage = 1
 	chance_maxm = 25
 	activate(var/mob/living/carbon/mob,var/multiplier)

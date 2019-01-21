@@ -71,10 +71,9 @@
 	// Apply cuffs.
 	var/obj/item/weapon/handcuffs/cuffs = src
 	if(dispenser)
-		cuffs = new(get_turf(user))
+		cuffs = new(target)
 	else
-		user.drop_from_inventory(cuffs)
-	cuffs.loc = target
+		user.drop_from_inventory(cuffs,target)
 	target.handcuffed = cuffs
 	target.update_inv_handcuffed()
 	return 1
