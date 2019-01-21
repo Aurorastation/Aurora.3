@@ -652,20 +652,17 @@ proc/api_update_command_database()
 	s["admins"] = 0
 	s["stationtime"] = worldtime2text()
 	s["roundduration"] = round_duration()
-	s["gameid"] = game_id
+	s["gameid"] = ""
 
 	var/n = 0
-	var/admins = 0
 
 	for(var/client/C in clients)
 		if(C.holder)
 			if(C.holder.fakekey)
 				continue	//so stealthmins aren't revealed by the hub
-			admins++
 		n++
 
 	s["players"] = n
-	s["admins"] = admins
 
 	statuscode = 200
 	response = "Server Status fetched"
