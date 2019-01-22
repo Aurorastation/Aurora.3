@@ -22,6 +22,7 @@
 
 	if(stage_ticker >= stage*stage_interval)
 		stage = min(stage+1,max_stage)
+		stage_effect()
 
 /obj/item/organ/parasite/handle_rejection()
 	if(subtle)
@@ -30,6 +31,9 @@
 		if(rejecting)
 			rejecting = 0
 		return
+
+/obj/item/organ/parasite/proc/stage_effect()
+	return
 
 ///////////////////
 ///K'ois Mycosis///
@@ -139,7 +143,8 @@
 
 		if(prob(5))
 			owner << "<span class='warning'>You feel something squirming inside of you!</span>"
-			owner.reagents.add_reagent("phoron", 4)
+			owner.reagents.add_reagent("phoron", 6)
+			owner.reagents.add_reagent("blackkois", 4)
 
 		else if(prob(10))
 			owner << "<span class='warning'>You feel disorientated!</span>"
@@ -251,9 +256,11 @@
 		if(prob(10))
 			if(!isundead(owner))
 				if(ishuman_species(owner))
+					for(var/datum/language/L in owner.languages)
+						owner.remove_language(L.name)
 					owner << "<span class='warning'>You feel life leaving your husk, but death rejects you...</span>"
 					playsound(src.loc, 'sound/hallucinations/far_noise.ogg', 50, 1)
-					owner << "<font size='3'> <span class='cult'>All that is left is a cruel hunger for the flesh of the living, and the desire to spread this infection. You must consume all the living!</font></span>"
+					owner << "<font size='3'><span class='cult'>All that is left is a cruel hunger for the flesh of the living, and the desire to spread this infection. You must consume all the living!</font></span>"
 					owner.set_species("Zombie")
 				else
 					owner.adjustToxLoss(50)

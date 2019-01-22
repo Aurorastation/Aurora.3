@@ -80,7 +80,8 @@
 #define ui_alien_oxygen "EAST-1:28,NORTH-4:25"
 
 //Middle right (status indicators)
-#define ui_nutrition "EAST-1:28,CENTER-2:11"
+#define ui_nutrition "EAST-0:4,CENTER-2:11"
+#define ui_hydration "EAST-1:20,CENTER-2:11"
 #define ui_temp "EAST-1:28,CENTER-1:13"
 #define ui_health "EAST-1:28,CENTER:15"
 #define ui_internal "EAST-1:28,CENTER+1:17"

@@ -1,7 +1,0 @@
-author: Alberyk
-
-delete-after: True
-
-changes: 
-  - tweak: "Cult teleporting runes do not work on the central command z-level anymore."
-  - tweak: "You can not write runes on space or open spaces anymore."

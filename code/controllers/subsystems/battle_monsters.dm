@@ -240,6 +240,8 @@ var/datum/controller/subsystem/battle_monsters/SSbattlemonsters
 			return "colossus"
 		if(BATTLE_MONSTERS_DEFENSETYPE_FLYING)
 			return "winged monster"
+		else
+			return GetSpecies(card_defense_type," mixed with ")
 
 	return "unknown"
 
@@ -338,19 +340,22 @@ var/datum/controller/subsystem/battle_monsters/SSbattlemonsters
 
 	return english_list(included_elements, nothing_text = "Neutral", and_text = and_text)
 
-/datum/controller/subsystem/battle_monsters/proc/GetStarLevel(var/power_rating)
-	if(power_rating <= BATTLE_MONSTERS_POWER_PETTY)
+/datum/controller/subsystem/battle_monsters/proc/GetStarLevel(var/power_rating,var/attack_points,var/defense_points)
+
+	var/power_mod = (power_rating / 2) + (max(attack_points,defense_points)/2)
+
+	if(power_mod <= BATTLE_MONSTERS_POWER_PETTY)
 		return 1
-	if(power_rating <= BATTLE_MONSTERS_POWER_LESSER)
+	if(power_mod <= BATTLE_MONSTERS_POWER_LESSER)
 		return 2
-	if(power_rating <= BATTLE_MONSTERS_POWER_COMMON)
+	if(power_mod <= BATTLE_MONSTERS_POWER_COMMON)
 		return 3
-	if(power_rating <= BATTLE_MONSTERS_POWER_GREATER)
+	if(power_mod <= BATTLE_MONSTERS_POWER_GREATER)
 		return 4
-	if(power_rating <= BATTLE_MONSTERS_POWER_GRAND)
+	if(power_mod <= BATTLE_MONSTERS_POWER_GRAND)
 		return 5
 	else
-		return 5 + (power_rating - BATTLE_MONSTERS_POWER_GRAND)/BATTLE_MONSTERS_POWER_UPGRADE
+		return 5 + round((power_mod - BATTLE_MONSTERS_POWER_GRAND)/BATTLE_MONSTERS_POWER_UPGRADE)
 
 /datum/controller/subsystem/battle_monsters/proc/GetSummonRequirements(var/starlevel)
 	if(starlevel <= 2)
@@ -498,7 +503,7 @@ var/datum/controller/subsystem/battle_monsters/SSbattlemonsters
 
 	returning_list["attack_points"] = round(returning_list["power"] * returning_list["attack_points"],100)
 	returning_list["defense_points"] = round(returning_list["power"] * returning_list["defense_points"],100)
-	returning_list["star_level"] = GetStarLevel(returning_list["power"])
+	returning_list["star_level"] = GetStarLevel(returning_list["power"],returning_list["attack_points"],returning_list["defense_points"])
 
 	return returning_list
 

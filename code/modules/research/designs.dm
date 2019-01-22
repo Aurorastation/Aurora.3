@@ -177,7 +177,7 @@ other types of metals and chemistry for reagents).
 	req_tech = list(TECH_ENGINEERING = 4, TECH_MATERIAL = 4)
 	materials = list(DEFAULT_WALL_MATERIAL = 500)
 	build_path =/obj/item/weapon/weldingtool/experimental
-	sort_string = "VABAJ" 
+	sort_string = "VABAJ"
 
 /datum/design/item/posibrain
 	name = "Positronic brain"
@@ -434,3 +434,11 @@ other types of metals and chemistry for reagents).
 	materials = list(DEFAULT_WALL_MATERIAL = 2000)
 	build_path = /obj/item/weapon/disk/integrated_circuit/upgrade/advanced
 	sort_string = "VCAAH"
+
+/datum/design/item/pin_extractor
+	name = "Pin extraction device"
+	id = "pin_extractor"
+	req_tech = list(TECH_MATERIAL = 3, TECH_ENGINEERING = 3, TECH_MAGNET = 4, TECH_ILLEGAL = 4)
+	materials = list(DEFAULT_WALL_MATERIAL = 5000, "glass" = 2500)
+	build_path = /obj/item/device/pin_extractor
+	sort_string = "VCBAA"

@@ -103,7 +103,7 @@
 	else if(ishuman(occupant))
 		var/mob/living/carbon/human/H = occupant
 		if(!isnull(H.internal_organs_by_name["cell"]) && H.nutrition < H.max_nutrition)
-			H.nutrition = min(H.nutrition+10, H.max_nutrition)
+			H.adjustNutritionLoss(-10)
 			cell.use(7000/H.max_nutrition*10)
 
 

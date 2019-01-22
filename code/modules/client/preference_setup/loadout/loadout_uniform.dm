@@ -9,6 +9,11 @@
 	display_name = "kilt"
 	path = /obj/item/clothing/under/kilt
 
+/datum/gear/uniform/iacjumpsuit
+	display_name = "IAC Jumpsuit"
+	path = /obj/item/clothing/under/rank/iacjumpsuit
+	allowed_roles = list("Chief Medical Officer", "Medical Doctor", "Chemist", "Paramedic", "Medical Resident")
+
 /datum/gear/uniform/jumpsuit
 	display_name = "generic jumpsuits"
 	path = /obj/item/clothing/under/color/grey
@@ -45,19 +50,12 @@
 /datum/gear/uniform/skirt/New()
 	..()
 	var/skirts = list()
-	skirts["plaid skirt, blue"] = /obj/item/clothing/under/skirt/plaid_blue
-	skirts["plaid skirt, purple"] = /obj/item/clothing/under/skirt/plaid_purple
-	skirts["plaid skirt, red"] = /obj/item/clothing/under/skirt/plaid_red
-	skirts["jumpskirt, black"] = /obj/item/clothing/under/skirt/blackjumpskirt
-	skirts["skirt, black"] = /obj/item/clothing/under/skirt/
-	skirts["skirt, khaki"] = /obj/item/clothing/under/skirt/khaki
-	skirts["short skirt, black"] = /obj/item/clothing/under/skirt/short_black
-	skirts["short skirt, blue"] = /obj/item/clothing/under/skirt/blue
-	skirts["short skirt, red"] = /obj/item/clothing/under/skirt/red
-	skirts["skirt, swept"] = /obj/item/clothing/under/skirt/swept
-
-
+	skirts["casual skirt"] = /obj/item/clothing/under/skirt/casual
+	skirts["long skirt"] = /obj/item/clothing/under/skirt/long
+	skirts["pencil skirt"] = /obj/item/clothing/under/skirt/pencil
+	skirts["swept skirt"] = /obj/item/clothing/under/skirt/swept
 	gear_tweaks += new/datum/gear_tweak/path(skirts)
+	gear_tweaks += list(gear_tweak_free_color_choice)
 
 /datum/gear/uniform/suit
 	display_name = "suit selection"
@@ -192,7 +190,7 @@
 	pants["blue track pants"] = /obj/item/clothing/under/pants/track/blue
 	pants["green track pants"] = /obj/item/clothing/under/pants/track/green
 	pants["white track pants"] = /obj/item/clothing/under/pants/track/white
-	pants["red track pants"] = /obj/item/clothing/under/pants/track/blue
+	pants["red track pants"] = /obj/item/clothing/under/pants/track/red
 	pants["camo pants"] = /obj/item/clothing/under/pants/camo
 	pants["athletic shorts, black"] = /obj/item/clothing/under/shorts
 	pants["athletic shorts, red"] = /obj/item/clothing/under/shorts/red

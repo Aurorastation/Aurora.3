@@ -129,7 +129,6 @@
 	icon_vend = "coffee-vend"
 	vend_delay = 34
 	idle_power_usage = 211 //refrigerator - believe it or not, this is actually the average power consumption of a refrigerated vending machine according to NRCan.
-	vend_power_usage = 85000 //85 kJ to heat a 250 mL cup of coffee
 	vend_id = "coffee"
 	products = list(
 		/obj/item/weapon/reagent_containers/food/drinks/coffee = 25,
@@ -146,6 +145,9 @@
 		/obj/item/weapon/reagent_containers/food/drinks/h_chocolate = 22,
 		/obj/item/weapon/reagent_containers/food/snacks/donut/normal = 6
 	)
+	cooling_temperature = T0C + 57 //Optimal coffee temperature
+	heating_temperature = T0C + 100 //ULTRA HOT COFFEE
+	temperature_setting = -1
 
 /obj/machinery/vending/snack
 	name = "Getmore Chocolate Corp"
@@ -225,6 +227,7 @@
 		/obj/item/weapon/reagent_containers/food/drinks/cans/koispunch = 50
 	)
 	idle_power_usage = 211 //refrigerator - believe it or not, this is actually the average power consumption of a refrigerated vending machine according to NRCan.
+	temperature_setting = -1
 
 //This one's from bay12
 /obj/machinery/vending/cart
@@ -306,6 +309,7 @@
 	)
 	idle_power_usage = 211 //refrigerator - believe it or not, this is actually the average power consumption of a refrigerated vending machine according to NRCan.
 	random_itemcount = 0
+	temperature_setting = -1
 
 //This one's from bay12
 /obj/machinery/vending/phoronresearch
@@ -337,7 +341,7 @@
 	products = list(
 		/obj/item/stack/medical/bruise_pack = 2,
 		/obj/item/stack/medical/ointment = 2,
-		/obj/item/weapon/reagent_containers/hypospray/autoinjector = 4,
+		/obj/item/weapon/reagent_containers/hypospray/autoinjector/inaprovaline = 4,
 		/obj/item/device/healthanalyzer = 1,
 		/obj/item/device/breath_analyzer  = 1
 	)
@@ -347,6 +351,7 @@
 		/obj/item/weapon/reagent_containers/pill/tox = 1
 	)
 	random_itemcount = 0
+	temperature_setting = -1
 
 /obj/machinery/vending/wallmed2
 	name = "NanoMed"
@@ -357,7 +362,7 @@
 	density = 0 //It is wall-mounted, and thus, not dense. --Superxpdude
 	vend_id = "meds"
 	products = list(
-		/obj/item/weapon/reagent_containers/hypospray/autoinjector = 5,
+		/obj/item/weapon/reagent_containers/hypospray/autoinjector/inaprovaline = 5,
 		/obj/item/weapon/reagent_containers/syringe/antitoxin = 3,
 		/obj/item/stack/medical/bruise_pack = 3,
 		/obj/item/stack/medical/ointment = 3,
@@ -367,6 +372,7 @@
 		/obj/item/weapon/reagent_containers/pill/tox = 3
 	)
 	random_itemcount = 0
+	temperature_setting = -1
 
 /obj/machinery/vending/security
 	name = "SecTech"
@@ -446,6 +452,7 @@
 		/obj/item/seeds/chiliseed = 3,
 		/obj/item/seeds/cocoapodseed = 3,
 		/obj/item/seeds/cornseed = 3,
+		/obj/item/seeds/replicapod = 3,
 		/obj/item/seeds/earthenroot = 2,
 		/obj/item/seeds/eggplantseed = 3,
 		/obj/item/seeds/garlicseed = 3,
@@ -465,7 +472,6 @@
 		/obj/item/seeds/poppyseed = 3,
 		/obj/item/seeds/potatoseed = 3,
 		/obj/item/seeds/pumpkinseed = 3,
-		/obj/item/seeds/replicapod = 3,
 		/obj/item/seeds/riceseed = 3,
 		/obj/item/seeds/shandseed = 3,
 		/obj/item/seeds/soyaseed = 3,
@@ -479,9 +485,9 @@
 		/obj/item/seeds/whitebeetseed = 3
 	)
 	contraband = list(
+		/obj/item/seeds/ambrosiavulgarisseed = 3,
 		/obj/item/seeds/amanitamycelium = 3,
 		/obj/item/seeds/ambrosiadeusseed = 3,
-		/obj/item/seeds/ambrosiavulgarisseed = 3,
 		/obj/item/seeds/glowshroom = 3,
 		/obj/item/seeds/libertymycelium = 3,
 		/obj/item/seeds/nettleseed = 3,
@@ -500,6 +506,7 @@
 		/obj/item/seeds/chiliseed = 50,
 		/obj/item/seeds/cocoapodseed = 50,
 		/obj/item/seeds/cornseed = 30,
+		/obj/item/seeds/replicapod = 200,
 		/obj/item/seeds/earthenroot = 70,
 		/obj/item/seeds/eggplantseed = 30,
 		/obj/item/seeds/garlicseed = 30,
@@ -519,7 +526,7 @@
 		/obj/item/seeds/poppyseed = 10,
 		/obj/item/seeds/potatoseed = 30,
 		/obj/item/seeds/pumpkinseed = 40,
-		/obj/item/seeds/replicapod = 200,
+		/obj/item/seeds/reishimycelium = 30,
 		/obj/item/seeds/riceseed = 20,
 		/obj/item/seeds/shandseed = 60,
 		/obj/item/seeds/soyaseed = 40,
@@ -593,7 +600,7 @@
 		/obj/item/weapon/material/kitchen/utensil/knife = 6,
 		/obj/item/weapon/material/kitchen/utensil/spoon = 6,
 		/obj/item/weapon/material/knife = 2,
-		/obj/item/weapon/material/knife/butch = 2,
+		/obj/item/weapon/material/hatchet/butch = 2,
 		/obj/item/weapon/reagent_containers/food/drinks/drinkingglass = 8,
 		/obj/item/clothing/suit/chef/classic = 2,
 		/obj/item/weapon/material/kitchen/rollingpin = 2,
@@ -607,6 +614,7 @@
 		/obj/item/weapon/storage/toolbox/lunchbox/syndicate = 2
 	)
 	restock_items = 1
+	random_itemcount = 0
 
 /obj/machinery/vending/sovietsoda
 	name = "BODA"
@@ -626,6 +634,7 @@
 	)
 	idle_power_usage = 211 //refrigerator - believe it or not, this is actually the average power consumption of a refrigerated vending machine according to NRCan.
 	random_itemcount = 0
+	temperature_setting = -1
 
 /obj/machinery/vending/tool
 	name = "YouTool"
@@ -663,7 +672,7 @@
 	desc = "Spare tool vending. What? Did you expect some witty description?"
 	icon_state = "engivend"
 	icon_deny = "engivend-deny"
-	req_access = list(access_engine_equip)
+	req_access = list(access_engine)
 	vend_id = "tools"
 	products = list(
 		/obj/item/clothing/glasses/meson = 2,
@@ -681,6 +690,7 @@
 		/obj/item/weapon/storage/belt/utility = 3
 	)
 	restock_items = 1
+	random_itemcount = 0
 
 /obj/machinery/vending/tacticool //Tried not to go overboard with the amount of fun security has access to.
 	name = "Tactical Express"
@@ -723,7 +733,7 @@
 		/obj/item/ammo_magazine/c45x = 6,
 		/obj/item/ammo_magazine/a556 = 12,
 		/obj/item/ammo_magazine/a556/ap = 4,
-		/obj/item/weapon/material/hatchet/tacknife = 4,
+		/obj/item/weapon/material/knife/tacknife = 4,
 		/obj/item/device/firing_pin = 12
 	)
 	random_itemcount = 0
@@ -837,6 +847,7 @@
 		/obj/item/weapon/reagent_containers/food/drinks/cans/zoradrone = 30,
 	)
 	idle_power_usage = 211 //refrigerator - believe it or not, this is actually the average power consumption of a refrigerated vending machine according to NRCan.
+	temperature_setting = -1
 
 /obj/machinery/vending/battlemonsters
 	name = "\improper Battlemonsters vendor"
@@ -855,16 +866,16 @@
 	)
 	prices = list(
 		/obj/item/weapon/book/manual/battlemonsters = 12,
-		/obj/item/battle_monsters/wrapped = 150,
-		/obj/item/battle_monsters/wrapped/pro = 100,
-		/obj/item/battle_monsters/wrapped/species = 150,
-		/obj/item/battle_monsters/wrapped/species/lizard = 150,
-		/obj/item/battle_monsters/wrapped/species/cat = 150,
-		/obj/item/battle_monsters/wrapped/species/ant = 150,
+		/obj/item/battle_monsters/wrapped = 100,
+		/obj/item/battle_monsters/wrapped/pro = 75,
+		/obj/item/battle_monsters/wrapped/species = 100,
+		/obj/item/battle_monsters/wrapped/species/lizard = 125,
+		/obj/item/battle_monsters/wrapped/species/cat = 125,
+		/obj/item/battle_monsters/wrapped/species/ant = 125,
 		/obj/item/battle_monsters/wrapped/rare = 200
 	)
 	contraband = list(
-		/obj/item/battle_monsters/wrapped/legendary = 2
+		/obj/item/battle_monsters/wrapped/legendary = 4
 	)
 	premium = list(
 		/obj/item/weapon/coin/battlemonsters = 10

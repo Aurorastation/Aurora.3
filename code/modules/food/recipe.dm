@@ -54,6 +54,8 @@
 
 	var/reagent_mix = RECIPE_REAGENT_MAX	//How to handle reagent differences between the ingredients and the results
 
+	var/finished_temperature = T0C + 40 //The temperature of the reagents of the final product.Only affects nutrient type.
+
 	var/appliance = MICROWAVE//Which apppliances this recipe can be made in.
 	//List of defines is in _defines/misc.dm. But for reference they are:
 	/*
@@ -163,6 +165,10 @@
 		O.reagents.trans_to_obj(result_obj, O.reagents.total_volume)
 		qdel(O)
 	container.reagents.clear_reagents()
+	for(var/datum/reagent/R in result_obj.reagents)
+		if(istype(R,/datum/reagent/nutriment/) && R.get_temperature() < finished_temperature)
+			R.set_temperature(finished_temperature)
+
 	return result_obj
 
 // food-related

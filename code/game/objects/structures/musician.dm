@@ -17,9 +17,11 @@
 	var/help = 0
 	var/edit = 1
 	var/repeat = 0
+	var/force_piano = FALSE
+	var/broken = 0 //Whether or not the piano can actually be played.
 
 /obj/structure/device/piano/New()
-	if(prob(50))
+	if(prob(50) && !force_piano)
 		name = "space minimoog"
 		desc = "This is a minimoog, like a space piano, but more spacey!"
 		icon_state = "minimoog"
@@ -29,7 +31,6 @@
 		icon_state = "piano"
 
 /obj/structure/device/piano/proc/playnote(var/note as text)
-	//world << "Note: [note]"
 	var/soundfile
 	/*BYOND loads resource files at compile time if they are ''. This means you can't really manipulate them dynamically.
 	Tried doing it dynamically at first but its more trouble than its worth. Would have saved many lines tho.*/
@@ -220,18 +221,14 @@
 			cur_acc[i] = "n"
 
 		for(var/line in song.lines)
-			//world << line
 			for(var/beat in text2list(lowertext(line), ","))
-				//world << "beat: [beat]"
 				var/list/notes = text2list(beat, "/")
 				for(var/note in text2list(notes[1], "-"))
-					//world << "note: [note]"
 					if(!playing || !anchored)//If the piano is playing, or is loose
 						playing = 0
 						return
 					if(lentext(note) == 0)
 						continue
-					//world << "Parse: [copytext(note,1,2)]"
 					var/cur_note = text2ascii(note) - 96
 					if(cur_note < 1 || cur_note > 7)
 						continue
@@ -257,6 +254,10 @@
 
 /obj/structure/device/piano/attack_hand(var/mob/user as mob)
 	if(!anchored)
+		return
+
+	if(broken)
+		to_chat(user,span("notice","\The [src] seems to be broken after so many years of misuse, perhaps due to reckless hooligans breaking into the display case and carelessly bashing keys."))
 		return
 
 	usr.machine = src

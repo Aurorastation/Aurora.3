@@ -11,10 +11,11 @@
 	flags =  CONDUCT
 	slot_flags = SLOT_BACK
 	w_class = 4.0
-	max_shots = 5
+	max_shots = 1
 	projectile_type = /obj/item/projectile/change
 	origin_tech = list(TECH_COMBAT = 7, TECH_MAGNET = 5, TECH_BLUESPACE = 7)
 	self_recharge = 1
+	recharge_time = 15
 	charge_meter = 0
 	pin = /obj/item/device/firing_pin/magic
 

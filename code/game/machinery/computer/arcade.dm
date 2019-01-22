@@ -178,10 +178,6 @@
 				log_game("[key_name_admin(usr)] has outbombed Cuban Pete and been awarded a bomb.",ckey=key_name(usr))
 				src.New()
 				emagged = 0
-			else if(!contents.len)
-				feedback_inc("arcade_win_normal")
-				src.prizevend()
-
 			else
 				feedback_inc("arcade_win_normal")
 				src.prizevend()

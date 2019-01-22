@@ -68,7 +68,7 @@
 	air1.volume = ATMOS_DEFAULT_VOLUME_MIXER
 	air2.volume = ATMOS_DEFAULT_VOLUME_MIXER
 	air3.volume = ATMOS_DEFAULT_VOLUME_MIXER * 1.5
-	
+
 	if (!mixing_inputs)
 		mixing_inputs = list(src.air1 = node1_concentration, src.air2 = node2_concentration)
 
@@ -180,6 +180,14 @@ obj/machinery/atmospherics/trinary/mixer/t_mixer
 
 	dir = SOUTH
 	initialize_directions = SOUTH|EAST|WEST
+
+	//node 3 is the outlet, nodes 1 & 2 are intakes
+
+obj/machinery/atmospherics/trinary/mixer/t_mixer/north
+	icon_state = "tmap"
+
+	dir = NORTH
+	initialize_directions = NORTH|EAST|WEST
 
 	//node 3 is the outlet, nodes 1 & 2 are intakes
 

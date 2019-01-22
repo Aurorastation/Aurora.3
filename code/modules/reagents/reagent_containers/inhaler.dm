@@ -5,7 +5,8 @@
 	desc = "A rapid and safe way to administer small amounts of drugs into the lungs by untrained or trained personnel."
 	icon = 'icons/obj/syringe.dmi'
 	item_state = "autoinjector"
-	icon_state = "inhaler"
+	icon_state = "inhaler1"
+	var/empty_state = "inhaler0"
 	unacidable = 1
 	amount_per_transfer_from_this = 5
 	volume = 5
@@ -14,6 +15,12 @@
 	flags = OPENCONTAINER
 	slot_flags = SLOT_BELT
 	center_of_mass = null
+	var/used = FALSE
+
+/obj/item/weapon/reagent_containers/inhaler/Initialize()
+	. =..()
+	icon_state = empty_state
+	update_icon()
 
 /obj/item/weapon/reagent_containers/inhaler/afterattack(var/mob/living/carbon/human/H, var/mob/user, var/proximity)
 
@@ -33,10 +40,12 @@
 		if(H.reagents)
 			var/contained = reagentlist()
 			var/trans = reagents.trans_to_mob(H, amount_per_transfer_from_this, CHEM_TOUCH)
-			admin_inject_log(user, H, src, contained, trans)
+			admin_inject_log(user, H, src, contained, reagents.get_temperature(), trans)
 			playsound(src.loc, 'sound/items/stimpack.ogg', 50, 1)
 			user.visible_message("<span class='notice'>[user] accidentally sticks the [src] in [H]'s eyes!</span>","<span class='notice'>You accidentally stick the [src] in [H]'s eyes!</span>")
 			to_chat(user,"<span class='notice'>[trans] units injected. [reagents.total_volume] units remaining in \the [src].</span>")
+			used = TRUE
+			update_icon()
 		return
 
 	if (!user.IsAdvancedToolUser())
@@ -54,36 +63,51 @@
 	user.do_attack_animation(H)
 
 	if(user == H)
-		user.visible_message("<span class='notice'>[user] injects themselves with the [src]</span>","<span class='notice'>You stick the [src] in your mouth and press the injection button.</span>")
+		user.visible_message("<span class='notice'>\The [user] injects themselves with \the [src]</span>","<span class='notice'>You stick the \the [src] in your mouth and press the injection button.</span>")
 	else
-		user.visible_message("<span class='warning'>[user] attempts to administer \the [src] to [H]...</span>","<span class='notice'>You attempt to administer \the [src] to [H]...</span>")
+		user.visible_message("<span class='warning'>\The [user] attempts to administer \the [src] to \the [H]...</span>","<span class='notice'>You attempt to administer \the [src] to \the [H]...</span>")
 		if (!do_after(user, 1 SECONDS, act_target = H))
 			to_chat(user,"<span class='notice'>You and the target need to be standing still in order to inject \the [src].</span>")
 			return
 
-		user.visible_message("<span class='notice'>[user] injects [H] with the [src].</span>","<span class='notice'>You stick \the [src] in [H]'s mouth and press the injection button.</span>")
+		user.visible_message("<span class='notice'>\The [user] injects \the [H] with \the [src].</span>","<span class='notice'>You stick \the [src] in \the [H]'s mouth and press the injection button.</span>")
 
 	if(H.reagents)
 		var/contained = reagentlist()
+		var/temp = reagents.get_temperature()
 		var/trans = reagents.trans_to_mob(H, amount_per_transfer_from_this, CHEM_BREATHE, bypass_checks = TRUE)
-		admin_inject_log(user, H, src, contained, trans)
+		admin_inject_log(user, H, src, contained, temp, trans)
 		playsound(src.loc, 'sound/items/stimpack.ogg', 50, 1)
 		to_chat(user,"<span class='notice'>[trans] units injected. [reagents.total_volume] units remaining in \the [src].</span>")
+		used = TRUE
 
 	update_icon()
 
-	return
+	return TRUE
 
 /obj/item/weapon/reagent_containers/inhaler/attack(mob/M as mob, mob/user as mob)
+	if(is_open_container())
+		to_chat(user,"<span class='notice'>You must secure the reagents inside \the [src] before using it!</span>")
+		return FALSE
 	. = ..()
-	update_icon()
+
+/obj/item/weapon/reagent_containers/inhaler/attack_self(mob/user as mob)
+	if(is_open_container())
+		if(reagents && reagents.reagent_list.len)
+			to_chat(user,"<span class='notice'>With a quick twist of \the [src]'s lid, you secure the reagents inside.</span>")
+			flags &= ~OPENCONTAINER
+			update_icon()
+		else
+			to_chat(user,"<span class='notice'>You can't secure \the [src] without putting reagents in!</span>")
+	else
+		to_chat(user,"<span class='notice'>The reagents inside \the [src] are already secured.</span>")
+	return
 
 /obj/item/weapon/reagent_containers/inhaler/update_icon()
-	if(reagents.total_volume > 0)
-		icon_state = "[initial(icon_state)]1"
-		flags &= ~OPENCONTAINER
+	if(reagents.total_volume > 0 && !is_open_container())
+		icon_state = initial(icon_state)
 	else
-		icon_state = "[initial(icon_state)]0"
+		icon_state = empty_state
 
 /obj/item/weapon/reagent_containers/inhaler/examine(mob/user)
 	..(user)
@@ -135,7 +159,8 @@
 /obj/item/weapon/reagent_containers/inhaler/phoron_special
 	name = "vaurca autoinhaler (phoron)"
 	desc = "A strange device that contains some sort of heavy-duty bag and mouthpiece combo."
-	icon_state = "anthaler"
+	icon_state = "anthaler1"
+	empty_state = "anthaler0"
 	volume = 10
 	Initialize()
 		. =..()
@@ -146,7 +171,8 @@
 /obj/item/weapon/reagent_containers/inhaler/soporific
 	name = "autoinhaler (soporific)"
 	desc = "A rapid and safe way to administer small amounts of drugs into the lungs by untrained or trained personnel. This one contains soporific."
-	icon_state = "so_inhaler"
+	icon_state = "so_inhaler1"
+	empty_state = "so_inhaler0"
 	volume = 10
 
 	Initialize()

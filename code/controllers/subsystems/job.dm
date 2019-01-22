@@ -36,7 +36,7 @@
 	occupations = list()
 	var/list/all_jobs = current_map.allowed_jobs
 	if(!all_jobs.len)
-		world << "<span class='warning'>Error setting up jobs, no job datums found!</span>"
+		to_world("<span class='warning'>Error setting up jobs, no job datums found!</span>")
 		return FALSE
 
 	for(var/J in all_jobs)
@@ -332,8 +332,13 @@
 		job.equip(H)
 		job.apply_fingerprints(H)
 
-		// Randomize nutrition. Defines are in __defines/mobs.dm
-		H.nutrition = (rand(CREW_MINIMUM_NUTRITION, CREW_MAXIMUM_NUTRITION) * 0.01) * H.max_nutrition
+		// Randomize nutrition and hydration. Defines are in __defines/mobs.dm
+
+		if(H.max_nutrition > 0)
+			H.nutrition = rand(CREW_MINIMUM_NUTRITION*100, CREW_MAXIMUM_NUTRITION*100) * H.max_nutrition * 0.01
+
+		if(H.max_hydration > 0)
+			H.hydration = rand(CREW_MINIMUM_HYDRATION*100, CREW_MAXIMUM_HYDRATION*100) * H.max_hydration * 0.01
 
 		if (!megavend)
 			spawn_in_storage += EquipCustomDeferred(H, H.client.prefs, custom_equip_leftovers, custom_equip_slots)
@@ -346,6 +351,7 @@
 		var/obj/S = get_roundstart_spawnpoint(rank)
 		if(istype(S, /obj/effect/landmark/start) && istype(S.loc, /turf))
 			H.forceMove(S.loc)
+			H.lastarea = get_area(H.loc)
 		else
 			LateSpawn(H, rank)
 
@@ -357,7 +363,7 @@
 	// If they're head, give them the account info for their department
 	if(H.mind && job.head_position)
 		var/remembered_info = ""
-		var/datum/money_account/department_account = department_accounts[job.department]
+		var/datum/money_account/department_account = SSeconomy.get_department_account(job.department)
 
 		if(department_account)
 			remembered_info += "<b>Your department's account number is:</b> #[department_account.account_number]<br>"

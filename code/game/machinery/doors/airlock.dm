@@ -38,12 +38,12 @@
 	var/panel_visible_while_open = FALSE
 
 	var/open_sound_powered = 'sound/machines/airlock.ogg'
-	var/close_sound_powered = 'sound/machines/AirlockClose.ogg'
-	var/open_sound_unpowered = 'sound/machines/airlock_creaking.ogg'
-	var/close_sound_unpowered = 'sound/machines/airlock_creaking.ogg'
+	var/close_sound_powered = 'sound/machines/airlockclose.ogg'
+	var/open_sound_unpowered = 'sound/machines/airlock_open_force.ogg'
+	var/close_sound_unpowered = 'sound/machines/airlock_close_force.ogg'
 
-	var/bolts_dropping = 'sound/machines/BoltsDown.ogg'
-	var/bolts_rising = 'sound/machines/BoltsUp.ogg'
+	var/bolts_dropping = 'sound/machines/boltsdown.ogg'
+	var/bolts_rising = 'sound/machines/boltsup.ogg'
 
 	hashatch = 1
 
@@ -86,7 +86,7 @@
 	aiControlDisabled = 1
 	hackProof = 1
 	electrified_until = -1
-	open_sound_powered = 'sound/machines/airlock_creaking.ogg'
+	open_sound_powered = 'sound/machines/airlock_open_force.ogg'
 
 /obj/machinery/door/airlock/security
 	name = "Airlock"
@@ -149,6 +149,13 @@
 /obj/machinery/door/airlock/centcom
 	name = "Airlock"
 	icon = 'icons/obj/doors/Doorele.dmi'
+	opacity = 0
+	hatch_colour = "#606061"
+	hashatch = FALSE
+
+/obj/machinery/door/airlock/vaurca
+	name = "Alien Biomass Airlock"
+	icon = 'icons/obj/doors/Doorvaurca.dmi'
 	opacity = 0
 	hatch_colour = "#606061"
 	hashatch = FALSE
@@ -798,7 +805,7 @@ About the new airlock wires panel:
 			src.do_animate("spark")
 			src.stat |= BROKEN
 			var/check = src.open(1)
-			src.visible_message("\The [H] slices \the [src]'s controls[check ? ", ripping it open!" : ", breaking it!"]", "You slice \the [src]'s controls[check ? ", ripping it open!" : ", breaking it!"]", "You hear something sparking.")
+			H.visible_message("\The [H] slices \the [src]'s controls[check ? ", ripping it open!" : ", breaking it!"]", "You slice \the [src]'s controls[check ? ", ripping it open!" : ", breaking it!"]", "You hear something sparking.")
 			return
 	if(src.p_open)
 		user.set_machine(src)
@@ -926,13 +933,23 @@ About the new airlock wires panel:
 		newbracer.attachto(src, user)
 		return
 	if(!repairing && (iswelder(C) && !( src.operating > 0 ) && src.density))
-		var/obj/item/weapon/weldingtool/W = C
-		if(W.remove_fuel(0,user))
+		var/obj/item/weapon/weldingtool/WT = C
+		if(WT.isOn())
+			user.visible_message(
+				"<span class='warning'>[user] begins welding [src] [welded ? "open" : "shut"].</span>",
+				"<span class='notice'>You begin welding [src] [welded ? "open" : "shut"].</span>",
+				"You hear a welding torch on metal."
+			)
+			playsound(loc, 'sound/items/Welder.ogg', 50, 1)
+			if (!do_after(user, 2 SECONDS, act_target = src, extra_checks = CALLBACK(src, .proc/is_open, src.density)))
+				return
+			if(!WT.remove_fuel(0,user))
+				user << "<span class='notice'>You need more welding fuel to complete this task.</span>"
+				return
 			if(!src.welded)
 				src.welded = 1
 			else
 				src.welded = null
-			playsound(src, 'sound/items/Welder.ogg', 100, 1)
 			src.update_icon()
 			return
 		else

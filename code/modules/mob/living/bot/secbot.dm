@@ -80,6 +80,7 @@
 
 /mob/living/bot/secbot/turn_off()
 	..()
+	walk_to(src, src, 0, move_to_delay)
 	target = null
 	frustration = 0
 	mode = SECBOT_IDLE
@@ -359,7 +360,8 @@
 
 /mob/living/bot/secbot/proc/calc_path(var/turf/avoid = null)
 	path = AStar(loc, patrol_target, /turf/proc/CardinalTurfsWithAccess, /turf/proc/Distance, 0, 120, id=botcard, exclude=avoid)
-	if(!path.len)
+	if(isnull(path) || !path.len)
+		path = list()
 		return
 	var/list/path_new = list()
 	var/turf/last = path[path.len]

@@ -1130,17 +1130,23 @@ var/list/total_extraction_beacons = list()
 	force = 15
 	throwforce = 5
 	origin_tech = list(TECH_BLUESPACE = 4, TECH_ENGINEERING = 3)
+	var/last_oresummon_time = 0
 
 /obj/item/weapon/oreportal/attack_self(mob/user)
-	user << "<span class='info'>You pulse the ore summoner.</span>"
-	var/limit = 10
-	for(var/obj/item/weapon/ore/O in orange(7,user))
-		if(limit <= 0)
-			break
-		single_spark(O.loc)
-		do_teleport(O, user, 0)
-		limit -= 1
-		CHECK_TICK
+	if(world.time - last_oresummon_time >= 25)
+		to_chat(user, "<span class='notice'>You pulse the ore summoner.</span>")
+		last_oresummon_time = world.time
+		var/limit = 50
+		for(var/obj/item/weapon/ore/O in orange(7,user))
+			if(limit <= 0)
+				break
+			single_spark(O.loc)
+			do_teleport(O, user, 0)
+			limit -= 1
+			CHECK_TICK
+	else
+		to_chat(user, "The ore summoner is in the middle of some calibrations.")
+		return 0
 
 /******************************Sculpting*******************************/
 /obj/item/weapon/autochisel
@@ -1316,7 +1322,8 @@ var/list/total_extraction_beacons = list()
 		icon_state = "fitnessweight"
 		cut_overlay(W)
 		user << "[finishmessage]"
-		user.nutrition = user.nutrition - 10
+		user.adjustNutritionLoss(5)
+		user.adjustHydrationLoss(5)
 
 /******************************Seismic Charge*******************************/
 
@@ -1350,8 +1357,8 @@ var/list/total_extraction_beacons = list()
 				if(iscarbon(LI))
 					var/mob/living/carbon/L = A
 					L.Weaken(3)
-					if(ishuman(L))
-						shake_camera(L, 20, 1)
+					shake_camera(L, 20, 1)
+					if(!isipc(L))
 						addtimer(CALLBACK(L, /mob/living/carbon/.proc/vomit), 20)
 
 		spawn(2)

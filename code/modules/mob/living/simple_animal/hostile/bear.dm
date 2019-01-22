@@ -489,7 +489,7 @@
 //Used to move to a new part of the station when it sees another bear, or it hasnt found any prey
 /mob/living/simple_animal/hostile/bear/spatial/proc/teleport()
 	if (stat == CONSCIOUS)
-		var/area/A = random_station_area()
+		var/area/A = random_station_area(TRUE) //Don't teleport to areas with players in them.
 		var/turf/target = A.random_space()
 
 		teleport_to(target)

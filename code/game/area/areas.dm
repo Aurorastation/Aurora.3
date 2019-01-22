@@ -406,7 +406,7 @@ var/list/mob/living/forced_ambiance_list = new
 
 //A useful proc for events.
 //This returns a random area of the station which is meaningful. Ie, a room somewhere
-/proc/random_station_area()
+/proc/random_station_area(var/filter_players = FALSE)
 	var/list/possible = list()
 	for(var/Y in the_station_areas)
 		if(!Y)
@@ -420,11 +420,27 @@ var/list/mob/living/forced_ambiance_list = new
 			continue
 		if (istype(A, /area/constructionsite))
 			continue
+		if (istype(A, /area/turbolift))
+			continue
+		if (istype(A, /area/mine))
+			continue
 
 		//Although hostile mobs instadying to turrets is fun
 		//If there's no AI they'll just be hit with stunbeams all day and spam the attack logs.
 		if (istype(A, /area/turret_protected) || LAZYLEN(A.turret_controls))
 			continue
+
+		if(filter_players)
+			var/should_continue = FALSE
+			for(var/mob/living/carbon/human/H in human_mob_list)
+				if(!H.client)
+					continue
+				if(A == get_area(H))
+					should_continue = TRUE
+					break
+
+			if(should_continue)
+				continue
 
 		possible += A
 

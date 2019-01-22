@@ -8,6 +8,7 @@
 	fire_sound='sound/weapons/Laser.ogg'
 	projectile_type = /obj/item/projectile/beam
 	sel_mode = 2
+	accuracy = 1
 	max_shots = 10
 	can_turret = 1
 	secondary_projectile_type = /obj/item/projectile/beam/pulse

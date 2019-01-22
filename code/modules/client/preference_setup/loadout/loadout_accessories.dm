@@ -6,7 +6,12 @@
 
 /datum/gear/accessory/waistcoat
 	display_name = "waistcoat"
-	path = /obj/item/clothing/accessory/wcoat
+	path = /obj/item/clothing/accessory/wcoat_rec
+
+/datum/gear/accessory/waistcoat/New()
+	..()
+	gear_tweaks = list(gear_tweak_free_color_choice)
+
 
 /datum/gear/accessory/armband
 	display_name = "armband selection"
@@ -61,6 +66,14 @@
 	ties["navy tie"] = /obj/item/clothing/accessory/tie/navy
 	ties["white tie"] = /obj/item/clothing/accessory/tie/white
 	gear_tweaks += new/datum/gear_tweak/path(ties)
+
+/datum/gear/accessory/bowtie
+	display_name = "bowtie"
+	path = /obj/item/clothing/accessory/tie/bowtie
+
+/datum/gear/accessory/bowtie/New()
+	..()
+	gear_tweaks = list(gear_tweak_free_color_choice)
 
 /datum/gear/accessory/brown_vest
 	display_name = "webbing, engineering"
@@ -118,6 +131,49 @@
 	..()
 	gear_tweaks = list(gear_tweak_free_color_choice)
 
+/datum/gear/accessory/dressshirt
+	display_name = "dress shirt"
+	path = /obj/item/clothing/accessory/dressshirt
+
+/datum/gear/accessory/dressshirt/New()
+	..()
+	gear_tweaks = list(gear_tweak_free_color_choice)
+
+/datum/gear/accessory/dressshirt_r
+	display_name = "dress shirt, rolled up"
+	path = /obj/item/clothing/accessory/dressshirt_r
+
+/datum/gear/accessory/dressshirt_r/New()
+	..()
+	gear_tweaks = list(gear_tweak_free_color_choice)
+
+/datum/gear/accessory/longsleeve
+	display_name = "long-sleeved shirt"
+	path = /obj/item/clothing/accessory/longsleeve
+
+/datum/gear/accessory/longsleeve/New()
+	..()
+	gear_tweaks = list(gear_tweak_free_color_choice)
+
+/datum/gear/accessory/longsleeve_s
+	display_name = "long-sleeved shirt, striped"
+	path = /obj/item/clothing/accessory/longsleeve_s
+
+/datum/gear/accessory/longsleeve_s/New()
+	..()
+	var/lshirt = list()
+	lshirt["black-striped"] = /obj/item/clothing/accessory/longsleeve_s
+	lshirt["blue-striped"] = /obj/item/clothing/accessory/longsleeve_sb
+	gear_tweaks += new/datum/gear_tweak/path(lshirt)
+
+/datum/gear/accessory/tshirt
+	display_name = "t-shirt"
+	path = /obj/item/clothing/accessory/tshirt
+
+/datum/gear/accessory/tshirt/New()
+	..()
+	gear_tweaks = list(gear_tweak_free_color_choice)
+
 /datum/gear/accessory/scarf
 	display_name = "scarf selection"
 	path = /obj/item/clothing/accessory/scarf
@@ -125,17 +181,10 @@
 /datum/gear/accessory/scarf/New()
 	..()
 	var/scarfs = list()
-	scarfs["white scarf"] = /obj/item/clothing/accessory/scarf
-	scarfs["yellow scarf"] = /obj/item/clothing/accessory/scarf/yellow
-	scarfs["green scarf"] = /obj/item/clothing/accessory/scarf/green
-	scarfs["purple scarf"] = /obj/item/clothing/accessory/scarf/purple
-	scarfs["black scarf"] = /obj/item/clothing/accessory/scarf/black
-	scarfs["red scarf"] = /obj/item/clothing/accessory/scarf/red
-	scarfs["orange scarf"] = /obj/item/clothing/accessory/scarf/orange
-	scarfs["light blue scarf"] = /obj/item/clothing/accessory/scarf/light_blue
-	scarfs["dark blue scarf"] = /obj/item/clothing/accessory/scarf/dark_blue
+	scarfs["plain scarf"] = /obj/item/clothing/accessory/scarf
 	scarfs["zebra scarf"] = /obj/item/clothing/accessory/scarf/zebra
 	gear_tweaks += new/datum/gear_tweak/path(scarfs)
+	gear_tweaks += list(gear_tweak_free_color_choice)
 
 /datum/gear/accessory/chaps
 	display_name = "chaps, brown"

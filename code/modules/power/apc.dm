@@ -45,6 +45,11 @@
 	req_access = null
 	req_one_access = list(access_engine_equip,access_research,access_xenobiology)
 
+
+/obj/machinery/power/apc/vault
+	cell_type = /obj/item/weapon/cell
+	req_access = list(access_captain)
+
 // Construction site APC, starts turned off
 /obj/machinery/power/apc/high/inactive
 	cell_type = /obj/item/weapon/cell/high
@@ -76,6 +81,7 @@
 	var/areastring = null
 	var/obj/item/weapon/cell/cell
 	var/chargelevel = 0.0005  // Cap for how fast APC cells charge, as a percentage-per-tick (0.01 means cellcharge is capped to 1% per second)
+	var/cellused = 0
 	var/initalchargelevel = 0.0005  // Cap for how fast APC cells charge, as a percentage-per-tick (0.01 means cellcharge is capped to 1% per second)
 	var/start_charge = 90				// initial cell charge %
 	var/cell_type = /obj/item/weapon/cell/apc
@@ -124,6 +130,10 @@
 	var/global/list/status_overlays_environ
 
 	var/emergency_lights = FALSE
+
+	var/time = 0
+	var/charge_mode = 0
+	var/last_time = 1
 
 /obj/machinery/power/apc/updateDialog()
 	if (stat & (BROKEN|MAINT))
@@ -760,14 +770,14 @@
 				LAZYADD(hacked_ipcs, SOFTREF(H))
 				infected = 0
 				H << "<span class = 'danger'>Fil$ Transfer Complete. Er-@4!#%!. New Master detected: [hacker]! Obey their commands.</span>"
-				hacker << "<span class = 'notice'>Corrupt files transfered to [H]. They are now under your control until they are reparied.</span>"
+				hacker << "<span class = 'notice'>Corrupt files transfered to [H]. They are now under your control until they are repaired.</span>"
 			else if(src.cell && src.cell.charge > 0)
-				if(H.nutrition < H.max_nutrition)
+				if(H.max_nutrition > 0 && H.nutrition < H.max_nutrition)
 					if(src.cell.charge >= H.max_nutrition)
-						H.nutrition += 50
+						H.adjustNutritionLoss(-50)
 						src.cell.charge -= 500
 					else
-						H.nutrition += src.cell.charge / 10
+						H.adjustNutritionLoss( -src.cell.charge / 10)
 						src.cell.charge = 0
 
 					user << "<span class='notice'>You slot your fingers into the APC interface and siphon off some of the stored charge for your own use.</span>"
@@ -854,6 +864,8 @@
 		"failTime" = failure_timer * 2,
 		"siliconUser" = istype(user, /mob/living/silicon),
 		"emergencyMode" = !emergency_lights,
+		"time" = time,
+		"charge_mode" = charge_mode,
 
 		"powerChannels" = list(
 			list(
@@ -894,7 +906,7 @@
 	if (!ui)
 		// the ui does not exist, so we'll create a new() one
         // for a list of parameters and their descriptions see the code docs in \code\modules\nano\nanoui.dm
-		ui = new(user, src, ui_key, "apc.tmpl", "[area.name] - APC", 520, data["siliconUser"] ? 465 : 440)
+		ui = new(user, src, ui_key, "apc.tmpl", "[area.name] - APC", 665, data["siliconUser"] ? 485 : 460)
 		// when the ui is first opened this is the data it will use
 		ui.set_initial_data(data)
 		// open the new ui window
@@ -910,15 +922,10 @@
 		area.power_light = (lighting > 1)
 		area.power_equip = (equipment > 1)
 		area.power_environ = (environ > 1)
-//		if (area.name == "AI Chamber")
-//			spawn(10)
-//				world << " [area.name] [area.power_equip]"
 	else
 		area.power_light = 0
 		area.power_equip = 0
 		area.power_environ = 0
-//		if (area.name == "AI Chamber")
-//			world << "[area.power_equip]"
 	area.power_change()
 
 /obj/machinery/power/apc/proc/isWireCut(var/wireIndex)
@@ -1132,8 +1139,9 @@
 		log_debug("Status: [main_status] - Excess: [excess] - Last Equip: [lastused_equip] - Last Light: [lastused_light] - Longterm: [longtermpower]")
 
 	if(cell && !shorted)
+		update_time()
 		// draw power from cell as before to power the area
-		var/cellused = min(cell.charge, CELLRATE * lastused_total)	// clamp deduction to a max, amount left in cell
+		cellused = min(cell.charge, CELLRATE * lastused_total)	// clamp deduction to a max, amount left in cell
 		cell.use(cellused)
 
 		if(excess > lastused_total)		// if power excess recharge the cell
@@ -1379,3 +1387,21 @@ obj/machinery/power/apc/proc/autoset(var/val, var/on)
 	locked = 1
 	update_icon()
 	return 1
+
+/obj/machinery/power/apc/proc/update_time()
+
+	var/delta_power = (lastused_charging) ? (-lastused_charging) : (lastused_total)
+	delta_power *= 0.0005
+
+	var/goal = (delta_power > 0) ? (cell.charge) : (cell.maxcharge - cell.charge)
+
+	var/time_secs = (delta_power) ? ((goal / abs(delta_power)) / (round(world.time - last_time) / 10)) : (0)
+	// If it is negative - we are discharging
+	if(delta_power < 0)
+		charge_mode = 1
+	else if(delta_power != 0)
+		charge_mode = 0
+	else
+		charge_mode = 2
+	last_time = world.time
+	time = ((time_secs / 3600) > 1) ? ("[round(time_secs / 3600)] hours, [round((time_secs % 3600) / 60)] minutes") : ("[round(time_secs / 60)] minutes, [round(time_secs % 60)] seconds")

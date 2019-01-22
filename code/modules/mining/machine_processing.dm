@@ -39,6 +39,16 @@
 	add_fingerprint(user)
 	interact(user)
 
+/obj/machinery/mineralconsole/processing_unit/attackby(obj/item/I, mob/user)
+	if(istype(I,/obj/item/weapon/card/id))
+		var/obj/item/weapon/card/id/C = user.get_active_hand()
+		if(istype(C) && !istype(inserted_id))
+			user.drop_from_inventory(C,src)
+			inserted_id = C
+			interact(user)
+	else
+		..()
+
 /obj/machinery/mineralconsole/processing_unit/interact(mob/user)
 
 	if(..())

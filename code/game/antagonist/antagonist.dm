@@ -50,6 +50,7 @@
 	var/bantype = "Syndicate"               // Ban to check when spawning this antag.
 	var/suspicion_chance = 50               // Prob of being on the initial Command report
 	var/flags = 0                           // Various runtime options.
+	var/db_log_id = null                    // ID of the db entry used to track that antagonist
 
 	// Used for setting appearance.
 	var/list/valid_species =       list("Unathi","Tajara","Skrell","Human")

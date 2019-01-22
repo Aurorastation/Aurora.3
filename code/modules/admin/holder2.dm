@@ -33,6 +33,9 @@ var/list/admin_datums = list()
 	rights = initial_rights
 	admin_datums[ckey] = src
 
+	if (rights & R_DEBUG)
+		world.SetConfig("APP/admin", ckey, "role=admin")
+
 /datum/admins/proc/associate(client/C)
 	if(istype(C))
 		owner = C
@@ -66,7 +69,7 @@ generally it would be used like so:
 
 proc/admin_proc()
 	if(!check_rights(R_ADMIN)) return
-	world << "you have enough rights!"
+	to_world("you have enough rights!")
 
 NOTE: It checks usr by default. Supply the "user" argument if you wish to check for a specific mob.
 */

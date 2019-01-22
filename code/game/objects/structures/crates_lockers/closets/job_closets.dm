@@ -19,7 +19,12 @@
 	new /obj/item/clothing/head/that(src)
 	new /obj/item/device/radio/headset/headset_service(src)
 	new /obj/item/device/radio/headset/headset_service(src)
-	new /obj/item/clothing/head/hairflower
+	new /obj/item/clothing/head/pin/flower(src)
+	new /obj/item/clothing/head/pin/flower/pink(src)
+	new /obj/item/clothing/head/pin/flower/yellow(src)
+	new /obj/item/clothing/head/pin/flower/blue(src)
+	new /obj/item/clothing/head/pin/pink(src)
+	new /obj/item/clothing/head/pin/magnetic(src)
 	new /obj/item/clothing/under/sl_suit(src)
 	new /obj/item/clothing/under/sl_suit(src)
 	new /obj/item/clothing/under/rank/bartender(src)

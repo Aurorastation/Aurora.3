@@ -1,5 +1,5 @@
 /obj/structure/reagent_dispensers
-	name = "Strange dispenser"
+	name = "strange dispenser"
 	desc = "What the fuck is this?"
 	icon = 'icons/obj/objects.dmi'
 	icon_state = "watertank"
@@ -49,7 +49,7 @@
 			atype = alert(user, "Do you want to fill \the [RG] at \the [src]?", "Fill", "Fill", "Cancel")
 
 		if(!user.Adjacent(src)) return
-		if(RG.loc != user) return
+		if(RG.loc != user && !isrobot(user)) return
 
 		switch(atype)
 			if ("Fill")
@@ -110,6 +110,17 @@
 	. = ..()
 	reagents.add_reagent("monoammoniumphosphate",capacity)
 
+/obj/structure/reagent_dispensers/lube
+	name = "lube tank"
+	desc = "A tank filled with a silly amount of lube."
+	icon = 'icons/obj/objects.dmi'
+	icon_state = "lubetank"
+	amount_per_transfer_from_this = 10
+
+/obj/structure/reagent_dispensers/lube/Initialize()
+	. = ..()
+	reagents.add_reagent("lube",capacity)
+
 /obj/structure/reagent_dispensers/fueltank
 	name = "fuel tank"
 	desc = "A tank filled with welding fuel."
@@ -117,7 +128,6 @@
 	icon_state = "weldtank"
 	accept_any_reagent = FALSE
 	amount_per_transfer_from_this = 10
-	var/modded = 0
 	var/defuse = 0
 	var/armed = 0
 	var/obj/item/device/assembly_holder/rig = null
@@ -129,7 +139,7 @@
 /obj/structure/reagent_dispensers/fueltank/examine(mob/user)
 	if(!..(user, 2))
 		return
-	if (modded)
+	if (is_leaking)
 		user << "<span class='warning'>Fuel faucet is wrenched open, leaking the fuel!</span>"
 	if(rig)
 		user << "<span class='notice'>There is some kind of device rigged to the tank.</span>"
@@ -204,7 +214,7 @@
 	..()
 
 /obj/structure/reagent_dispensers/fueltank/fire_act(datum/gas_mixture/air, temperature, volume)
-	if (modded)
+	if (is_leaking)
 		ex_act(2.0)
 	else if (temperature > T0C+500)
 		ex_act(2.0)
@@ -215,7 +225,7 @@
 	ex_act(2.0)
 
 /obj/structure/reagent_dispensers/peppertank
-	name = "Pepper Spray Refiller"
+	name = "pepper spray refiller"
 	desc = "Refill pepper spray canisters."
 	icon = 'icons/obj/objects.dmi'
 	icon_state = "peppertank"
@@ -229,7 +239,7 @@
 	reagents.add_reagent("condensedcapsaicin",capacity)
 
 /obj/structure/reagent_dispensers/water_cooler
-	name = "Water-Cooler"
+	name = "water-cooler"
 	desc = "A machine that dispenses water to drink."
 	amount_per_transfer_from_this = 5
 	icon = 'icons/obj/vending.dmi'
@@ -257,6 +267,8 @@
 					user.visible_message("\The [user] unfastens the screws securing \the [src] to the floor.", "You unfasten the screws securing \the [src] to the floor.")
 					anchored = 0
 		return
+	else
+		..()
 
 /obj/structure/reagent_dispensers/beerkeg
 	name = "beer keg"
@@ -281,7 +293,7 @@
 	reagents.add_reagent("xuizijuice",capacity)
 
 /obj/structure/reagent_dispensers/virusfood
-	name = "Virus Food Dispenser"
+	name = "virus food dispenser"
 	desc = "A dispenser of virus food."
 	icon = 'icons/obj/objects.dmi'
 	icon_state = "virusfoodtank"
@@ -295,7 +307,7 @@
 	reagents.add_reagent("virusfood", capacity)
 
 /obj/structure/reagent_dispensers/acid
-	name = "Sulphuric Acid Dispenser"
+	name = "sulphuric acid dispenser"
 	desc = "A dispenser of acid for industrial processes."
 	icon = 'icons/obj/objects.dmi'
 	icon_state = "acidtank"

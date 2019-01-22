@@ -74,7 +74,7 @@
 
 		user.visible_message(\
 			span("notice","\The [user] combines two decks together."),\
-			span("notice","You combine too decks together.")\
+			span("notice","You combine two decks together.")\
 		)
 
 		qdel(C)
@@ -150,12 +150,12 @@
 	if(icon_state != "hand")
 		user.visible_message(\
 			span("notice","\The [usr] begins searching through \the [src]..."),\
-			span("notice","You begin searching through your deck..")\
+			span("notice","You begin searching through your deck...")\
 		)
-		if(!do_after(user, 40, act_target = src))
+		if(!do_after(user, 5 + stored_card_names.len, act_target = src))
 			user.visible_message(\
 				span("notice","\The [usr] stops and thinks better of it."),\
-				span("notice","You top and think better of it.")\
+				span("notice","You stop and think better of it.")\
 			)
 			return
 
@@ -187,4 +187,3 @@
 	if(href_list["selection"])
 		take_specific_card(usr, href_list["selection"])
 		BrowseDeck(usr)
-

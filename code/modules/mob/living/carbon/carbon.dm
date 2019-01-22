@@ -34,11 +34,14 @@
 
 /mob/living/carbon/Move(NewLoc, direct)
 	. = ..()
+
 	if(.)
-		if(src.nutrition && src.stat != 2)
-			src.nutrition -= nutrition_loss*0.1//Multiplication is faster than division
-			if(src.m_intent == "run")
-				src.nutrition -= nutrition_loss*0.1
+		if(src.stat != 2)
+			if(src.nutrition)
+				adjustNutritionLoss(nutrition_loss*0.1)
+			if(src.hydration)
+				adjustHydrationLoss(hydration_loss*0.1)
+
 		if((FAT in src.mutations) && src.m_intent == "run" && src.bodytemperature <= 360)
 			src.bodytemperature += 2
 
@@ -101,7 +104,7 @@
 
 	return
 
-/mob/living/carbon/electrocute_act(var/shock_damage, var/obj/source, var/siemens_coeff = 1.0, var/def_zone = null, var/tesla_shock = 0)
+/mob/living/carbon/electrocute_act(var/shock_damage, var/obj/source, var/siemens_coeff = 1.0, var/def_zone = null, var/tesla_shock = 0, var/ground_zero)
 	if(status_flags & GODMODE)	return 0	//godmode
 	if (!tesla_shock)
 		shock_damage *= siemens_coeff
@@ -377,6 +380,7 @@
 		usr << "<span class='warning'>You are already sleeping</span>"
 		return
 	if(alert(src,"You sure you want to sleep for a while?","Sleep","Yes","No") == "Yes")
+		willfully_sleeping = 1
 		usr.sleeping = 20 //Short nap
 
 /mob/living/carbon/Collide(atom/A)

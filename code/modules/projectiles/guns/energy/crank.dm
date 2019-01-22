@@ -5,6 +5,8 @@
 	item_state = "icelance"
 	fire_sound = 'sound/weapons/Laser.ogg'
 	max_shots = 3
+	accuracy = -1
+	accuracy_wielded = 2
 	fire_delay = 10
 	fire_delay_wielded = 8
 	origin_tech = list(TECH_COMBAT = 1, TECH_MAGNET = 1)
@@ -16,6 +18,10 @@
 
 	firemodes = list()
 	modifystate = null
+
+	can_bayonet = TRUE
+	knife_x_offset = 23
+	knife_y_offset = 13
 
 /obj/item/weapon/gun/energy/rifle/icelance/attack_self(mob/living/user as mob)
 	if(is_charging)

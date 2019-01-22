@@ -113,7 +113,11 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 9
 	},
-/obj/machinery/power/smes/buildable,
+/obj/machinery/power/smes/buildable{
+	charge = 1e+006;
+	input_attempt = 1;
+	output_attempt = 1
+	},
 /turf/simulated/floor/tiled,
 /area/engineering/gravity_gen)
 "ar" = (
@@ -228,13 +232,10 @@
 	icon_state = "1-2"
 	},
 /obj/structure/cable{
-	d1 = 2;
+	d1 = 4;
 	d2 = 8;
-	icon_state = "2-8"
+	icon_state = "4-8"
 	},
-/turf/simulated/floor/plating,
-/area/engineering)
-"aE" = (
 /turf/simulated/floor/plating,
 /area/engineering)
 "aF" = (
@@ -246,6 +247,10 @@
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
+	},
+/obj/structure/cable{
+	icon_state = "0-8";
+	d2 = 8
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/gravity_gen)
@@ -752,6 +757,11 @@
 	d2 = 4;
 	icon_state = "2-4"
 	},
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
 "bX" = (
@@ -1140,13 +1150,18 @@
 	pixel_x = -24
 	},
 /obj/effect/floor_decal/industrial/warning/corner,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	icon_state = "intact-supply";
+	dir = 6
+	},
 /turf/simulated/floor/tiled,
 /area/construction)
 "cU" = (
-/obj/machinery/atmospherics/unary/vent_pump{
-	dir = 1
-	},
 /obj/effect/floor_decal/industrial/warning,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	icon_state = "intact-supply";
+	dir = 9
+	},
 /turf/simulated/floor/tiled,
 /area/construction)
 "cV" = (
@@ -1356,6 +1371,93 @@
 /obj/structure/table/standard,
 /turf/simulated/floor/tiled,
 /area/storage/primary)
+"fO" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/maintcentral)
+"hX" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/maintcentral)
+"my" = (
+/obj/effect/wingrille_spawn/reinforced,
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/plating,
+/area/hallway/primary/central_one)
+"rF" = (
+/obj/structure/cable{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/maintcentral)
+"yG" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/wall/r_wall,
+/area/construction)
+"Ai" = (
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/wall/r_wall,
+/area/engineering/gravity_gen)
+"Al" = (
+/obj/structure/cable{
+	d1 = 16;
+	d2 = 0;
+	icon_state = "12-0"
+	},
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/zpipe/up/supply,
+/turf/simulated/floor/plating,
+/area/maintenance/maintcentral)
+"MB" = (
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/maintcentral)
+"Ql" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/obj/machinery/atmospherics/unary/vent_pump{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/construction)
+"RL" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/construction)
 
 (1,1,1) = {"
 aa
@@ -1972,15 +2074,15 @@ ae
 ae
 ae
 bw
-ae
-ae
-ae
-ae
-ae
-bw
-ae
-ae
-ae
+rF
+MB
+MB
+MB
+MB
+fO
+MB
+Al
+hX
 ae
 ae
 ae
@@ -2026,7 +2128,7 @@ af
 af
 af
 bx
-bV
+my
 bV
 bV
 bV
@@ -2034,7 +2136,7 @@ bV
 bx
 cK
 cK
-cK
+yG
 cK
 cK
 cK
@@ -2088,8 +2190,8 @@ bK
 bK
 cL
 cT
-dd
-di
+RL
+Ql
 di
 di
 di
@@ -2938,7 +3040,7 @@ ac
 ae
 ah
 ap
-aE
+aC
 aC
 bc
 bm
@@ -2992,7 +3094,7 @@ ac
 ae
 ai
 ai
-ai
+Ai
 aQ
 ai
 ai

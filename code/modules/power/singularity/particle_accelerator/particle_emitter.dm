@@ -38,6 +38,9 @@
 				A = new/obj/effect/accelerated_particle(T, dir)
 			if(2)
 				A = new/obj/effect/accelerated_particle/strong(T, dir)
+			if(3)
+			// Level 3 is extra strong, only obtained by hacking
+				A = new/obj/effect/accelerated_particle/powerful(T, dir)
 		if(A)
 			A.set_dir(src.dir)
 			return 1

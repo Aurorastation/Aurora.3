@@ -7,6 +7,7 @@
 	var/temperature = T20C
 	var/current_temperature = T20C
 	charge_cost = 100
+	accuracy = 1
 	origin_tech = list(TECH_COMBAT = 3, TECH_MATERIAL = 4, TECH_POWER = 3, TECH_MAGNET = 2)
 	slot_flags = SLOT_BELT|SLOT_BACK
 

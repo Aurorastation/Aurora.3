@@ -1,6 +1,0 @@
-author: Alberyk
-
-delete-after: True
-
-changes: 
-  - rscadd: "Ported the holodeck locking feature from baystation, heads of staff and the chaplain can lock and unlock the holodeck."

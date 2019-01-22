@@ -139,6 +139,7 @@ var/list/admin_verbs_fun = list(
 	)
 
 var/list/admin_verbs_spawn = list(
+	/client/proc/game_panel,
 	/datum/admins/proc/spawn_fruit,
 	/datum/admins/proc/spawn_custom_item,
 	/datum/admins/proc/check_custom_items,
@@ -341,7 +342,6 @@ var/list/admin_verbs_mod = list(
 
 var/list/admin_verbs_dev = list( //will need to be altered - Ryan784
 	///datum/admins/proc/restart,
-	/datum/admins/proc/spawn_atom,		//allows us to spawn instances,
 	/client/proc/Jump,
 	/client/proc/jumptokey,				/*allows us to jump to the location of a mob with a certain ckey*/
 	/client/proc/jumptomob,				/*allows us to jump to a specific mob*/
@@ -431,6 +431,7 @@ var/list/admin_verbs_cciaa = list(
 		admin_verbs_spawn,
 		debug_verbs
 		)
+	add_aooc_if_necessary()
 
 /client/proc/hide_most_verbs()//Allows you to keep some functionality while hiding some verbs
 	set name = "Adminverbs - Hide Most"
@@ -477,8 +478,9 @@ var/list/admin_verbs_cciaa = list(
 		var/mob/abstract/observer/ghost = mob
 		if(ghost.can_reenter_corpse)
 			ghost.reenter_corpse()
+			log_admin("[src] reentered their corpose using aghost.",admin_key=key_name(src))
 		else
-			ghost << "<font color='red'>Error:  Aghost:  Can't reenter corpse, mentors that use adminHUD while aghosting are not permitted to enter their corpse again</font>"
+			ghost << "<font color='red'>Error: Aghost: Can't reenter corpse.</font>"
 			return
 
 		feedback_add_details("admin_verb","P") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
@@ -495,7 +497,7 @@ var/list/admin_verbs_cciaa = list(
 			if(!body.key)
 				body.key = "@[key]"	//Haaaaaaaack. But the people have spoken. If it breaks; blame adminbus
 		feedback_add_details("admin_verb","O") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
-
+		log_admin("[src] aghosted.",admin_key=key_name(src))
 
 /client/proc/invisimin()
 	set name = "Invisimin"
@@ -659,6 +661,7 @@ var/list/admin_verbs_cciaa = list(
 
 	var/list/traumas = subtypesof(/datum/brain_trauma)
 	var/result = input(usr, "Choose the brain trauma to apply","Traumatize") as null|anything in traumas
+	if(!result) return
 	var/permanent = alert("Do you want to make the trauma unhealable?", "Permanently Traumatize", "Yes", "No")
 	if(permanent == "Yes")
 		permanent = TRUE
@@ -762,10 +765,12 @@ var/list/admin_verbs_cciaa = list(
 	set desc = "Toggle Air Processing"
 	if(!SSair.can_fire)
 		SSair.enable()
-		usr << "<b>Enabled air processing.</b>"
+		to_chat(usr, "<b>Enabled air processing.</b>")
 	else
+		if(alert("Confirm disabling air processing?",,"Yes","No") == "No")
+			return
 		SSair.disable()
-		usr << "<b>Disabled air processing.</b>"
+		to_chat(usr, "<b>Disabled air processing.</b>")
 	feedback_add_details("admin_verb","KA") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 	log_admin("[key_name(usr)] used 'kill air'.",admin_key=key_name(usr))
 	message_admins("<span class='notice'>[key_name_admin(usr)] used 'kill air'.</span>", 1)

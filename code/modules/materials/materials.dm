@@ -114,10 +114,15 @@ var/list/name_to_material
 	var/tableslam_noise = 'sound/weapons/tablehit1.ogg'
 	// Noise made when a simple door made of this material opens or closes.
 	var/dooropen_noise = 'sound/effects/stonedoor_openclose.ogg'
+	// Noise made when you hit structure made of this material.
+	var/hitsound = 'sound/weapons/genhit.ogg'
 	// Path to resulting stacktype. Todo remove need for this.
 	var/stack_type
 	// Wallrot crumble message.
 	var/rotting_touch_message = "crumbles under your touch"
+
+	//What golem species is created with this material
+	var/golem = null
 
 // Placeholders for light tiles and rglass.
 /material/proc/build_rod_product(var/mob/user, var/obj/item/stack/used_stack, var/obj/item/stack/target_stack)
@@ -175,6 +180,9 @@ var/list/name_to_material
 			skip_blend = TRUE
 		if ("biomass")
 			wall_icon = 'icons/turf/smooth/diona_wall.dmi'
+			skip_blend = TRUE
+		if ("vaurca")
+			wall_icon = 'icons/turf/smooth/vaurca_wall.dmi'
 			skip_blend = TRUE
 		else
 			world.log << "materials: [src] has unknown icon_base [icon_base]."
@@ -261,6 +269,7 @@ var/list/name_to_material
 	weight = 22
 	stack_origin_tech = list(TECH_MATERIAL = 5)
 	door_icon_base = "stone"
+	golem = "Uranium Golem"
 
 /material/diamond
 	name = "diamond"
@@ -273,8 +282,10 @@ var/list/name_to_material
 	conductivity = 1
 	shard_type = SHARD_SHARD
 	tableslam_noise = 'sound/effects/Glasshit.ogg'
+	hitsound = 'sound/effects/Glasshit.ogg'
 	hardness = 100
 	stack_origin_tech = list(TECH_MATERIAL = 6)
+	golem = "Diamond Golem"
 
 /material/gold
 	name = "gold"
@@ -286,6 +297,7 @@ var/list/name_to_material
 	stack_origin_tech = list(TECH_MATERIAL = 4)
 	sheet_singular_name = "ingot"
 	sheet_plural_name = "ingots"
+	golem = "Gold Golem"
 
 /material/bronze
 	name = "bronze"
@@ -295,6 +307,7 @@ var/list/name_to_material
 	conductivity = 11
 	icon_colour = "#EDD12F"
 	stack_origin_tech = list(TECH_MATERIAL = 2)
+	golem = "Bronze Golem"
 
 /material/silver
 	name = "silver"
@@ -306,6 +319,7 @@ var/list/name_to_material
 	stack_origin_tech = list(TECH_MATERIAL = 3)
 	sheet_singular_name = "ingot"
 	sheet_plural_name = "ingots"
+	golem = "Bronze Golem"
 
 /material/phoron
 	name = "phoron"
@@ -319,6 +333,7 @@ var/list/name_to_material
 	door_icon_base = "stone"
 	sheet_singular_name = "crystal"
 	sheet_plural_name = "crystals"
+	golem = "Phoron Golem"
 
 /*
 // Commenting this out while fires are so spectacularly lethal, as I can't seem to get this balanced appropriately.
@@ -351,6 +366,7 @@ var/list/name_to_material
 	door_icon_base = "stone"
 	sheet_singular_name = "brick"
 	sheet_plural_name = "bricks"
+	golem = "Sand Golem"
 
 /material/stone/marble
 	name = "marble"
@@ -359,6 +375,7 @@ var/list/name_to_material
 	hardness = 70
 	integrity = 201 //hack to stop kitchen benches being flippable, todo: refactor into weight system
 	stack_type = /obj/item/stack/material/marble
+	golem = "Marble Golem"
 
 /material/steel
 	name = DEFAULT_WALL_MATERIAL
@@ -369,6 +386,8 @@ var/list/name_to_material
 	icon_base = "solid"
 	icon_reinf = "reinf_over"
 	icon_colour = "#666666"
+	golem = "Steel Golem"
+	hitsound = 'sound/weapons/smash.ogg'
 
 /material/diona
 	name = "biomass"
@@ -404,6 +423,8 @@ var/list/name_to_material
 	conductivity = 10
 	stack_origin_tech = list(TECH_MATERIAL = 2)
 	composite_material = list(DEFAULT_WALL_MATERIAL = 3750, "platinum" = 3750) //todo
+	golem = "Plasteel Golem"
+	hitsound = 'sound/weapons/smash.ogg'
 
 /material/plasteel/titanium
 	name = "titanium"
@@ -417,6 +438,7 @@ var/list/name_to_material
 	door_icon_base = "metal"
 	icon_colour = "#D1E6E3"
 	icon_reinf = "reinf_metal"
+	golem = "Titanium Golem"
 
 /material/glass
 	name = "glass"
@@ -436,6 +458,7 @@ var/list/name_to_material
 	window_options = list("One Direction" = 1, "Full Window" = 4)
 	created_window = /obj/structure/window/basic
 	rod_product = /obj/item/stack/material/glass/reinforced
+	golem = "Glass Golem"
 
 /material/glass/build_windows(var/mob/living/user, var/obj/item/stack/used_stack)
 
@@ -539,6 +562,7 @@ var/list/name_to_material
 	created_window = /obj/structure/window/phoronbasic
 	wire_product = null
 	rod_product = /obj/item/stack/material/glass/phoronrglass
+	golem = "Phoron Golem"
 
 /material/glass/phoron/reinforced
 	name = "reinforced borosilicate glass"
@@ -565,6 +589,7 @@ var/list/name_to_material
 	protectiveness = 5 // 20%
 	melting_point = T0C+371 //assuming heat resistant plastic
 	stack_origin_tech = list(TECH_MATERIAL = 3)
+	golem = "Plastic Golem"
 
 /material/plastic/holographic
 	name = "holoplastic"
@@ -595,6 +620,7 @@ var/list/name_to_material
 	icon_colour = "#E6C5DE"
 	stack_origin_tech = list(TECH_MATERIAL = 6, TECH_POWER = 6, TECH_MAGNET = 5)
 	conductivity = 100
+	golem = "Metallic Hydrogen Golem"
 
 /material/platinum
 	name = "platinum"
@@ -614,6 +640,8 @@ var/list/name_to_material
 	conductivity = 10
 	sheet_singular_name = "ingot"
 	sheet_plural_name = "ingots"
+	golem = "Iron Golem"
+	hitsound = 'sound/weapons/smash.ogg'
 
 // Adminspawn only, do not let anyone get this.
 /material/voxalloy
@@ -654,6 +682,8 @@ var/list/name_to_material
 	destruction_desc = "splinters"
 	sheet_singular_name = "plank"
 	sheet_plural_name = "planks"
+	golem = "Wood Golem"
+	hitsound = 'sound/effects/woodhit.ogg'
 
 /material/rust
 	name = "rust"
@@ -689,6 +719,7 @@ var/list/name_to_material
 	stack_origin_tech = list(TECH_MATERIAL = 1)
 	door_icon_base = "wood"
 	destruction_desc = "crumples"
+	golem = "Cardboard Golem"
 
 /material/cloth //todo
 	name = "cloth"
@@ -699,6 +730,7 @@ var/list/name_to_material
 	protectiveness = 1 // 4%
 	flags = MATERIAL_PADDING
 	hardness = 1
+	golem = "Cloth Golem"
 
 /material/cult
 	name = "cult"
@@ -747,6 +779,7 @@ var/list/name_to_material
 	ignition_point = T0C+300
 	melting_point = T0C+300
 	protectiveness = 3 // 13%
+	golem = "Homunculus"
 
 /material/carpet
 	name = "carpet"
@@ -759,6 +792,7 @@ var/list/name_to_material
 	sheet_singular_name = "tile"
 	sheet_plural_name = "tiles"
 	protectiveness = 1 // 4%
+	golem = "Cloth Golem"
 
 /material/cotton
 	name = "cotton"
@@ -768,6 +802,7 @@ var/list/name_to_material
 	ignition_point = T0C+232
 	melting_point = T0C+300
 	protectiveness = 1 // 4%
+	golem = "Cloth Golem"
 
 /material/cloth_teal
 	name = "teal"
@@ -778,6 +813,7 @@ var/list/name_to_material
 	ignition_point = T0C+232
 	melting_point = T0C+300
 	protectiveness = 1 // 4%
+	golem = "Cloth Golem"
 
 /material/cloth_black
 	name = "black"
@@ -788,6 +824,7 @@ var/list/name_to_material
 	ignition_point = T0C+232
 	melting_point = T0C+300
 	protectiveness = 1 // 4%
+	golem = "Cloth Golem"
 
 /material/cloth_green
 	name = "green"
@@ -798,6 +835,7 @@ var/list/name_to_material
 	ignition_point = T0C+232
 	melting_point = T0C+300
 	protectiveness = 1 // 4%
+	golem = "Cloth Golem"
 
 /material/cloth_puple
 	name = "purple"
@@ -808,6 +846,7 @@ var/list/name_to_material
 	ignition_point = T0C+232
 	melting_point = T0C+300
 	protectiveness = 1 // 4%
+	golem = "Cloth Golem"
 
 /material/cloth_blue
 	name = "blue"
@@ -818,6 +857,7 @@ var/list/name_to_material
 	ignition_point = T0C+232
 	melting_point = T0C+300
 	protectiveness = 1 // 4%
+	golem = "Cloth Golem"
 
 /material/cloth_beige
 	name = "beige"
@@ -828,6 +868,7 @@ var/list/name_to_material
 	ignition_point = T0C+232
 	melting_point = T0C+300
 	protectiveness = 1 // 4%
+	golem = "Cloth Golem"
 
 /material/cloth_lime
 	name = "lime"
@@ -838,6 +879,7 @@ var/list/name_to_material
 	ignition_point = T0C+232
 	melting_point = T0C+300
 	protectiveness = 1 // 4%
+	golem = "Cloth Golem"
 
 /material/hide //TODO make different hides somewhat different among them
 	name = "hide"
@@ -851,6 +893,7 @@ var/list/name_to_material
 	hardness = 1
 	weight = 1
 	protectiveness = 3 // 13%
+	golem = "Homunculus"
 
 /material/hide/corgi
 	name = "corgi hide"
@@ -896,6 +939,7 @@ var/list/name_to_material
 	stack_origin_tech = list(TECH_MATERIAL = 2)
 	door_icon_base = "stone"
 	protectiveness = 10 // 33%
+	golem = "Homunculus"
 
 /material/bone/necromancer
 	name = "cursed bone"
@@ -903,3 +947,17 @@ var/list/name_to_material
 	integrity = 150
 	hardness = 60
 	protectiveness = 20 // 50%
+
+/material/vaurca
+	name = "alien biomass"
+	display_name = "alien biomass"
+	stack_type = null
+	icon_colour = "#1C7400"
+	icon_base = "vaurca"
+	integrity = 400
+	melting_point = 6000
+	explosion_resistance = 25
+	hardness = 80
+	weight = 23
+	protectiveness = 20 // 50%
+	conductivity = 10

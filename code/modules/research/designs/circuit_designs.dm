@@ -198,6 +198,13 @@
 	build_path = /obj/item/weapon/circuitboard/autolathe
 	sort_string = "HABAD"
 
+/datum/design/circuit/chem_heater
+	name = "chemistry heater"
+	id = "chem_heater"
+	req_tech = list(TECH_BIO = 2)
+	build_path = /obj/item/weapon/circuitboard/chem_heater
+	sort_string = "HABAF"
+
 /datum/design/circuit/rdservercontrol
 	name = "R&D server control console"
 	id = "rdservercontrol"
@@ -503,6 +510,13 @@
 	req_tech = list(TECH_ENGINEERING = 3, TECH_DATA = 3, TECH_POWER = 3, TECH_MATERIAL = 4, TECH_PHORON = 2)
 	build_path = /obj/item/weapon/circuitboard/rtg/advanced
 	sort_string = "WAAAD"
+
+/datum/design/circuit/slot_machine
+	name = "slot machine"
+	id = "slot_machine"
+	req_tech = list(TECH_DATA = 2)
+	build_path = /obj/item/weapon/circuitboard/slot_machine
+	sort_string = "WAAAE"
 
 /datum/design/circuit/refiner
 	name = "industrial smelter"

@@ -50,9 +50,9 @@
 
 	to_chat(T, "<span class='warning'>You are unable to resist or even move. Your mind blanks as you're being fed upon.</span>")
 
-	playsound(src.loc, 'sound/effects/drain_blood.ogg', 50, 1)
+	playsound(src.loc, 'sound/effects/drain_blood_new.ogg', 50, 1)
 
-	T.Stun(20)
+	T.paralysis = 3400
 
 	while (do_mob(src, T, 50))
 		if (!mind.vampire)
@@ -73,7 +73,7 @@
 
 		// Alive and not of empty mind.
 		if (T.stat < 2 && T.client)
-			blood = min(10, T.vessel.get_reagent_amount("blood"))
+			blood = min(15, T.vessel.get_reagent_amount("blood"))
 			vampire.blood_total += blood
 			vampire.blood_usable += blood
 
@@ -112,6 +112,7 @@
 	visible_message("<span class='danger'>[src.name] stops biting [T.name]'s neck!</span>", "<span class='notice'>You extract your fangs from [T.name]'s neck and stop draining them of blood. They will remember nothing of this occurance. Provided they survived.</span>")
 	if (T.stat != 2)
 		to_chat(T, "<span class='warning'>You remember nothing about being fed upon. Instead, you simply remember having a pleasant encounter with [src.name].</span>")
+		T.paralysis = 0
 
 // Small area of effect stun.
 /mob/living/carbon/human/proc/vampire_glare()
