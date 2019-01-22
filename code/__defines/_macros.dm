@@ -50,6 +50,8 @@
 
 #define iscoil(A) istype(A, /obj/item/stack/cable_coil)
 
+#define ispen(A) istype(A, /obj/item/weapon/pen)
+
 #define iswirecutter(A) istype(A, /obj/item/weapon/wirecutters)
 
 #define ismultitool(A) istype(A, /obj/item/device/multitool)
