@@ -10260,6 +10260,19 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/fore)
+"sG" = (
+/obj/machinery/alarm{
+	dir = 4;
+	icon_state = "alarm0";
+	pixel_x = -22
+	},
+/obj/structure/cable{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/arrivals)
 "sH" = (
 /obj/machinery/atm{
 	pixel_x = 32
@@ -12200,6 +12213,17 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/hydroponics/garden)
+"wA" = (
+/obj/structure/disposalpipe/segment,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/arrivals)
 "wB" = (
 /obj/machinery/door/firedoor,
 /obj/structure/disposalpipe/segment{
@@ -12832,6 +12856,26 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hydroponics/garden)
+"xC" = (
+/obj/structure/disposalpipe/down{
+	icon_state = "pipe-d";
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/zpipe/down/supply{
+	icon_state = "down-supply";
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/zpipe/down/scrubbers{
+	icon_state = "down-scrubbers";
+	dir = 4
+	},
+/obj/structure/lattice/catwalk,
+/obj/structure/cable{
+	d1 = 32;
+	icon_state = "11-1"
+	},
+/turf/simulated/open,
+/area/maintenance/arrivals)
 "xD" = (
 /obj/machinery/light{
 	icon_state = "tube1";
@@ -13215,6 +13259,21 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/crew_quarters/locker)
+"yq" = (
+/obj/machinery/light/small/emergency,
+/obj/structure/disposalpipe/segment{
+	dir = 8;
+	icon_state = "pipe-c"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9;
+	pixel_y = 0
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/arrivals)
 "yr" = (
 /obj/structure/flora/grass/green,
 /obj/machinery/light,
@@ -18332,55 +18391,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/aft)
-"IX" = (
-/obj/machinery/alarm{
-	dir = 4;
-	icon_state = "alarm0";
-	pixel_x = -22
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/arrivals)
-"IZ" = (
-/obj/structure/cable{
-	d2 = 4;
-	dir = 2;
-	icon_state = "11-4"
-	},
-/obj/structure/disposalpipe/down{
-	icon_state = "pipe-d";
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/zpipe/down/supply{
-	icon_state = "down-supply";
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/zpipe/down/scrubbers{
-	icon_state = "down-scrubbers";
-	dir = 4
-	},
-/obj/structure/lattice/catwalk,
-/turf/simulated/open,
-/area/maintenance/arrivals)
-"Ja" = (
-/obj/machinery/light/small/emergency,
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 8;
-	icon_state = "1-8"
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 8;
-	icon_state = "pipe-c"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 9
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9;
-	pixel_y = 0
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/arrivals)
 "Jb" = (
 /obj/item/stack/cable_coil/yellow{
 	pixel_x = 4;
@@ -52233,8 +52243,8 @@ sU
 AV
 sU
 IU
-IX
-IZ
+sG
+xC
 sU
 ag
 ag
@@ -52490,8 +52500,8 @@ sU
 Bd
 XN
 Df
-HM
-Ja
+wA
+yq
 sU
 ag
 ag
