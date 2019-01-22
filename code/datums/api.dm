@@ -651,7 +651,7 @@ proc/api_update_command_database()
 	s["players"] = 0
 	s["admins"] = 0
 	s["stationtime"] = worldtime2text()
-	s["roundduration"] = round_duration()
+	s["roundduration"] = get_round_duration_formatted()
 	s["gameid"] = ""
 	s["map"] = current_map.full_name
 
