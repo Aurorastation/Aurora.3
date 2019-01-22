@@ -309,6 +309,7 @@
 	},
 /obj/structure/lattice/catwalk,
 /obj/structure/cable/blue{
+	d1 = 32;
 	dir = 2;
 	icon_state = "11-1"
 	},
@@ -2100,6 +2101,7 @@
 /area/maintenance/solarmaint)
 "eo" = (
 /obj/structure/cable{
+	d1 = 32;
 	d2 = 2;
 	icon_state = "11-2"
 	},
