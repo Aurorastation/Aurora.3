@@ -151,6 +151,8 @@
 		id_tag = "\ref[src]"
 
 	//wireless connection
+	if(!_wifi_id & electronics.wifi_id)
+		_wifi_id = electronics.wifi_id
 	if(_wifi_id)
 		wifi_receiver = new(_wifi_id, src)
 
@@ -237,6 +239,12 @@
 		SSradio.remove_object(src,frequency)
 	return ..()
 
+/obj/machinery/airlock_sensor/attackby(obj/item/W, mob/user)
+	if(istype(W,/obj/item/device/debugger))
+		var/newtag = input(user, "Enter a new sensor ID tag.", "Sensor Tag Control") as null|text
+		id_tag = newtag
+		return
+
 /obj/machinery/airlock_sensor/airlock_interior
 	command = "cycle_interior"
 
@@ -270,6 +278,10 @@
 	//Swiping ID on the access button
 	if (istype(I, /obj/item/weapon/card/id) || istype(I, /obj/item/device/pda))
 		attack_hand(user)
+		return
+	else if(istype(I,/obj/item/device/debugger))
+		var/newtag = input(user, "Enter the button's master ID tag.", "Access Button Tag Control") as null|text
+		master_tag = newtag
 		return
 	..()
 

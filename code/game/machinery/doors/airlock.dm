@@ -717,50 +717,57 @@ About the new airlock wires panel:
 /obj/machinery/door/airlock/proc/hack(mob/user as mob)
 	if(src.aiHacking==0)
 		src.aiHacking=1
-		spawn(20)
-			//TODO: Make this take a minute
-			user << "Airlock AI control has been blocked. Beginning fault-detection."
-			sleep(50)
-			if(src.canAIControl())
-				user << "Alert cancelled. Airlock control has been restored without our assistance."
-				src.aiHacking=0
-				return
-			else if(!src.canAIHack(user))
-				user << "We've lost our connection! Unable to hack airlock."
-				src.aiHacking=0
-				return
-			user << "Fault confirmed: airlock control wire disabled or cut."
-			sleep(20)
-			user << "Attempting to hack into airlock. This may take some time."
-			sleep(200)
-			if(src.canAIControl())
-				user << "Alert cancelled. Airlock control has been restored without our assistance."
-				src.aiHacking=0
-				return
-			else if(!src.canAIHack(user))
-				user << "We've lost our connection! Unable to hack airlock."
-				src.aiHacking=0
-				return
-			user << "Upload access confirmed. Loading control program into airlock software."
-			sleep(170)
-			if(src.canAIControl())
-				user << "Alert cancelled. Airlock control has been restored without our assistance."
-				src.aiHacking=0
-				return
-			else if(!src.canAIHack(user))
-				user << "We've lost our connection! Unable to hack airlock."
-				src.aiHacking=0
-				return
-			user << "Transfer complete. Forcing airlock to execute program."
-			sleep(50)
-			//disable blocked control
-			src.aiControlDisabled = 2
-			user << "Receiving control information from airlock."
-			sleep(10)
-			//bring up airlock dialog
-			src.aiHacking = 0
-			if (user)
-				src.attack_ai(user)
+		if(!do_after(user, 20, 0, act_target = src))
+			return
+		//TODO: Make this take a minute
+		to_chat(user, "Airlock AI control has been blocked. Beginning fault-detection.")
+		if(!do_after(user, 50, 0, act_target = src))
+			return
+		if(src.canAIControl())
+			to_chat(user, "Alert cancelled. Airlock control has been restored without our assistance.")
+			src.aiHacking=0
+			return
+		else if(!src.canAIHack(user))
+			to_chat(user, "We've lost our connection! Unable to hack airlock.")
+			src.aiHacking=0
+			return
+		to_chat(user, "Fault confirmed: airlock control wire disabled or cut.")
+		if(!do_after(user, 20, 0, act_target = src))
+			return
+		to_chat(user, "Attempting to hack into airlock. This may take some time.")
+		if(!do_after(user, 200, 0, act_target = src))
+			return
+		if(src.canAIControl())
+			to_chat(user, "Alert cancelled. Airlock control has been restored without our assistance.")
+			src.aiHacking=0
+			return
+		else if(!src.canAIHack(user))
+			to_chat(user, "We've lost our connection! Unable to hack airlock.")
+			src.aiHacking=0
+			return
+		to_chat(user, "Upload access confirmed. Loading control program into airlock software.")
+		if(!do_after(user, 170, 0, act_target = src))
+			return
+		if(src.canAIControl())
+			to_chat(user, "Alert cancelled. Airlock control has been restored without our assistance.")
+			src.aiHacking=0
+			return
+		else if(!src.canAIHack(user))
+			to_chat(user, "We've lost our connection! Unable to hack airlock.")
+			src.aiHacking=0
+			return
+		to_chat(user, "Transfer complete. Forcing airlock to execute program.")
+		if(!do_after(user, 50, 0, act_target = src))
+			return
+		//disable blocked control
+		src.aiControlDisabled = 2
+		to_chat(user, "Receiving control information from airlock.")
+		if(!do_after(user, 10, 0, act_target = src))
+			return
+		//bring up airlock dialog
+		src.aiHacking = 0
+		if (user)
+			src.attack_ai(user)
 
 /obj/machinery/door/airlock/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
 	if (src.isElectrified())
@@ -967,13 +974,6 @@ About the new airlock wires panel:
 		return src.attack_hand(user)
 	else if(ismultitool(C))
 		return src.attack_hand(user)
-	else if(istype(C,/obj/item/device/debugger) & src.p_open)
-		var/newid = input(user, "Enter a new wireless ID.", "Door Wireless Control") as null|text
-		if(wifi_receiver)
-			QDEL_NULL(wifi_receiver)
-		_wifi_id = newid
-		wifi_receiver = new(newid, src)
-		return
 	else if(istype(C, /obj/item/device/assembly/signaler))
 		return src.attack_hand(user)
 	else if(istype(C, /obj/item/weapon/pai_cable))	// -- TLE
@@ -1047,8 +1047,7 @@ About the new airlock wires panel:
 					"<span class='notice'>You hear a metal clank and some sparks.</span>"\
 				)
 				set_broken()
-				sleep(1 SECONDS)
-				CreateAssembly()
+				addtimer(CALLBACK(src, .proc/CreateAssembly, 1 SECONDS))
 			ChainSawVar.cutting = 0
 			take_damage(50)
 		else if(locked)

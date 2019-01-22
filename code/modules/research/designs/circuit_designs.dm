@@ -107,6 +107,13 @@
 	build_path = /obj/item/weapon/circuitboard/crew
 	sort_string = "FAGAI"
 
+/datum/design/circuit/sleeperpod
+	name = "sleeper"
+	id = "sleeper"
+	req_tech = list(TECH_MAGNET = 2, TECH_ENGINEERING = 3)
+	build_path = /obj/item/weapon/circuitboard/sleeper
+	sort_string = "FAGAJ"
+
 /datum/design/circuit/teleconsole
 	name = "teleporter control console"
 	id = "teleconsole"

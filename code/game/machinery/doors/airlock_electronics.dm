@@ -17,6 +17,8 @@
 	var/last_configurator = null
 	var/locked = 1
 	var/inuse = 0 // no double-spending
+	var/wifi_id = ""
+	var/id_tag = ""
 
 /obj/item/weapon/airlock_electronics/attack_self(mob/user as mob)
 	if (!ishuman(user) && !istype(user,/mob/living/silicon/robot))
@@ -60,6 +62,22 @@
 	user << browse(t1, "window=airlock_electronics")
 	onclose(user, "airlock")
 
+/obj/item/weapon/airlock_electronics/attackby(obj/item/C, mob/user)
+	if(istype(C,/obj/item/device/debugger))
+		switch(input(user, "Would you like to change the wireless ID or the ID tag?", "Airlock Selection") as null|anything in list("Wireless ID","ID Tag"))
+			if("Wireless ID")
+				var/newid = input(user, "Enter a new wireless ID.", "Airlock Wireless Control") as null|text
+				wifi_id = newid
+			if("ID Tag")
+				var/newtag = input(user, "Enter a new airlock ID tag.", "Airlock Tag Control") as null|text
+				id_tag = newtag
+		return
+	else
+		var/obj/item/weapon/card/id/I = C.GetID()
+		if(istype(I) && src.check_access(I))
+			last_configurator = I.registered_name ? I.registered_name : "Unknown"
+			locked = !locked
+
 /obj/item/weapon/airlock_electronics/Topic(href, href_list)
 	..()
 	if (usr.stat || usr.restrained() || (!ishuman(usr) && !istype(usr,/mob/living/silicon)))
@@ -73,13 +91,13 @@
 			src.locked = 0
 			src.last_configurator = usr.name
 		else
-			var/obj/item/I = usr.get_active_hand()
+			var/obj/item/weapon/card/id/I = usr.get_active_hand()
 			if (istype(I, /obj/item/device/pda))
 				var/obj/item/device/pda/pda = I
 				I = pda.id
-			if (I && src.check_access(I))
-				src.locked = 0
-				src.last_configurator = I:registered_name
+			if (istype(I) && src.check_access(I))
+				locked = 0
+				last_configurator = I.registered_name ? I.registered_name : "Unknown"
 
 	if (locked)
 		return

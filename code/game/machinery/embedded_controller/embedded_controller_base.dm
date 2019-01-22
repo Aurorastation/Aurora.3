@@ -82,3 +82,20 @@ obj/machinery/embedded_controller/radio/Destroy()
 	SSradio.remove_object(src, frequency)
 	frequency = new_frequency
 	radio_connection = SSradio.add_object(src, frequency, radio_filter)
+
+/obj/machinery/embedded_controller/radio/attackby(obj/item/C, mob/user)
+	if(istype(C, /obj/item/weapon/screwdriver))
+		to_chat(user, span("notice", "You unscrew \the [src] from the wall."))
+		dismantle()
+	else if(istype(C,/obj/item/device/debugger))
+		var/newtag = input(user, "Enter a new controller ID tag.", "Controller Tag Control") as null|text
+		id_tag = newtag
+		return
+
+/obj/machinery/embedded_controller/radio/dismantle()
+	playsound(loc, 'sound/items/Screwdriver.ogg', 50, 1)
+	var/obj/item/frame/controller/controller = new/obj/item/frame/controller(loc)
+	controller.build_machine_type = src.type
+	controller.id_tag = src.id_tag
+	qdel(src)
+	return 1
