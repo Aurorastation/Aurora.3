@@ -148,7 +148,7 @@
 		set_frequency(frequency)
 
 	if(!id_tag)
-		id_tag = "\ref[src]"
+		id_tag = (electronics && electronics.id_tag) ? electronics.id_tag : "\ref[src]"
 
 	//wireless connection
 	if(!_wifi_id & electronics & electronics.wifi_id)
