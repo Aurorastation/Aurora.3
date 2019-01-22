@@ -173,7 +173,7 @@ var/datum/controller/subsystem/docs/SSdocs
 	if(istext(tags))
 		tags = splittext(tags, ";")
 	dd.tags = tags
-	
+
 	//Adds the document to the docs, sorted by tags
 	for(var/t in tags)
 		if(!(docs_by_tags[t]))
@@ -213,6 +213,7 @@ var/datum/controller/subsystem/docs/SSdocs
 		doc = SSdocs.pick_document_by_tag(total_tags[1])
 		if(!istype(doc))
 			log_ss("docs","pick_document_by_tag returned null paper!")
+			return
 	else
 		doc = SSdocs.pick_document_by_tags(total_tags)
 		if(!istype(doc))
