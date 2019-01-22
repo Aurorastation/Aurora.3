@@ -50447,7 +50447,7 @@
 	icon_state = "loadingarea";
 	dir = 8
 	},
-/obj/machinery/mineral/stacking_unit_console{
+/obj/machinery/mineralconsole/stacking_unit{
 	pixel_y = 32
 	},
 /obj/machinery/light{
@@ -50614,7 +50614,7 @@
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/refinery)
 "cey" = (
-/obj/machinery/mineral/input,
+/obj/machinery/hopper/input,
 /obj/machinery/conveyor{
 	dir = 1;
 	id = "mining_internal"
@@ -50699,7 +50699,7 @@
 	icon_state = "corner_white";
 	dir = 5
 	},
-/obj/machinery/mineral/equipment_vendor,
+/obj/machinery/mining_equipment_vendor,
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/refinery)
 "ceL" = (
@@ -50707,7 +50707,7 @@
 	icon_state = "corner_white_full";
 	dir = 1
 	},
-/obj/machinery/mineral/equipment_vendor,
+/obj/machinery/mining_equipment_vendor,
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/refinery)
 "ceM" = (
@@ -51281,7 +51281,7 @@
 	dir = 4
 	},
 /obj/machinery/firealarm/west,
-/obj/machinery/mineral/rigpress,
+/obj/machinery/rigpress,
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/eva)
 "cfZ" = (
@@ -52435,7 +52435,7 @@
 	dir = 8;
 	id = "mining_internal"
 	},
-/obj/machinery/mineral/output,
+/obj/machinery/hopper/output,
 /obj/machinery/door/firedoor,
 /obj/structure/plasticflaps,
 /turf/simulated/floor/plating,
@@ -52445,7 +52445,7 @@
 	dir = 8;
 	id = "mining_internal"
 	},
-/obj/machinery/mineral/input,
+/obj/machinery/hopper/input,
 /turf/simulated/floor/plating,
 /area/outpost/mining_main/refinery)
 "cjh" = (
@@ -52491,7 +52491,7 @@
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/eva)
 "cjx" = (
-/obj/machinery/mineral/stacking_unit_console{
+/obj/machinery/mineralconsole/stacking_unit{
 	pixel_y = -32
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -52584,7 +52584,7 @@
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/eva)
 "cke" = (
-/obj/machinery/mineral/input,
+/obj/machinery/hopper/input,
 /obj/effect/floor_decal/industrial/loading{
 	icon_state = "loadingarea";
 	dir = 1
@@ -59097,7 +59097,7 @@
 	dir = 1;
 	id = "mining_internal"
 	},
-/obj/machinery/mineral/output,
+/obj/machinery/hopper/output,
 /turf/simulated/floor/plating,
 /area/outpost/mining_main/refinery)
 "iBo" = (
@@ -59963,7 +59963,7 @@
 /turf/simulated/floor/plating,
 /area/library)
 "klD" = (
-/obj/machinery/mineral/output,
+/obj/machinery/hopper/output,
 /obj/machinery/conveyor{
 	dir = 9;
 	icon_state = "conveyor0";
@@ -59973,9 +59973,6 @@
 /turf/simulated/floor/plating,
 /area/outpost/mining_main/refinery)
 "kmF" = (
-/obj/machinery/mineral/processing_unit_console{
-	pixel_y = 32
-	},
 /obj/machinery/conveyor_switch/oneway{
 	id = "mining_internal";
 	name = "mining conveyor"
@@ -59984,6 +59981,7 @@
 	icon_state = "corner_white_full";
 	dir = 1
 	},
+/obj/machinery/mineralconsole/processing_unit,
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/refinery)
 "kmR" = (
@@ -60527,7 +60525,7 @@
 	dir = 1;
 	id = "mining_internal"
 	},
-/obj/machinery/mineral/output,
+/obj/machinery/hopper/output,
 /obj/machinery/door/firedoor,
 /obj/structure/plasticflaps,
 /turf/simulated/floor/plating,
@@ -62088,9 +62086,6 @@
 /turf/simulated/floor/tiled,
 /area/medical/reception)
 "oYt" = (
-/obj/machinery/mineral/processing_unit_console{
-	pixel_y = 32
-	},
 /obj/effect/floor_decal/corner/brown{
 	icon_state = "corner_white";
 	dir = 9
@@ -62099,6 +62094,7 @@
 	icon_state = "corner_white";
 	dir = 6
 	},
+/obj/machinery/mineralconsole/processing_unit,
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/refinery)
 "oZw" = (

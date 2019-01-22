@@ -100,6 +100,11 @@
 		new/datum/stack_recipe("input hopper", /obj/machinery/hopper/input, 5, time = 25, one_per_turf = 1, on_floor = 1), \
 		new/datum/stack_recipe("output hopper", /obj/machinery/hopper/output, 5, time = 25, one_per_turf = 1, on_floor = 1)
 		))
+	recipes += new/datum/stack_recipe_list("button frames", list( \
+		new/datum/stack_recipe("button frame", /obj/item/frame/button, 2)
+		new/datum/stack_recipe("mass driver button frame", /obj/item/frame/button/mass_driver, 2)
+		new/datum/stack_recipe("airlock button frame", /obj/item/frame/button/door, 2)
+		))
 
 /material/plasteel/generate_recipes()
 	..()
