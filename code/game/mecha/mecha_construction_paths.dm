@@ -1610,7 +1610,7 @@
 		qdel(used_atom)
 		return 1
 
-	action(atom/used_atom,mob/user as mob)
+/datum/construction/mecha/hermes_chassis/action(atom/used_atom,mob/user as mob)
 		return check_all_steps(used_atom,user)
 
 	spawn_result()
