@@ -2,89 +2,84 @@
 	var/datum/shuttle/ferry/shuttle
 	var/list/shuttles = shuttle_controller.shuttles
 
-	shuttle = new/datum/shuttle/ferry/escape_pod()
-	shuttle.location = 0
-	shuttle.warmup_time = 0
-	shuttle.area_station = locate(/area/shuttle/escape_pod1/station)
-	shuttle.area_offsite = locate(/area/shuttle/escape_pod1/centcom)
-	shuttle.area_transition = locate(/area/shuttle/escape_pod1/transit)
-	shuttle.docking_controller_tag = "escape_pod_1"
-	shuttle.dock_target_station = "escape_pod_1_berth"
-	//shuttle.dock_target_offsite = "escape_pod_1_recovery"
-	shuttle.transit_direction = NORTH
-	shuttle.move_time = SHUTTLE_TRANSIT_DURATION_RETURN + rand(-30, 60)	//randomize this so it seems like the pods are being picked up one by one
-	shuttles["Escape Pod 1"] = shuttle
-	START_PROCESSING(shuttle_controller, shuttle)
+	var/datum/shuttle/ferry/escape_pod/pod
+	pod = new/datum/shuttle/ferry/escape_pod()
+	pod.area_station = locate(/area/shuttle/escape_pod1/station)
+	pod.area_offsite = locate(/area/shuttle/escape_pod1/centcom)
+	pod.area_transition = locate(/area/shuttle/escape_pod1/transit)
+	pod.crashed_area = /area/shuttle/escape_pod1/crashed
+	pod.docking_controller_tag = "escape_pod_1"
+	pod.dock_target_station = "escape_pod_1_berth"
+	//pod.dock_target_offsite = "escape_pod_1_recovery"
+	pod.transit_direction = NORTH
+	pod.move_time = SHUTTLE_TRANSIT_DURATION_RETURN + rand(-30, 60)	//randomize this so it seems like the pods are being picked up one by one
+	shuttles["Escape Pod 1"] = pod
+	START_PROCESSING(shuttle_controller, pod)
 
-	shuttle = new/datum/shuttle/ferry/escape_pod()
-	shuttle.location = 0
-	shuttle.warmup_time = 0
-	shuttle.area_station = locate(/area/shuttle/escape_pod2/station)
-	shuttle.area_offsite = locate(/area/shuttle/escape_pod2/centcom)
-	shuttle.area_transition = locate(/area/shuttle/escape_pod2/transit)
-	shuttle.docking_controller_tag = "escape_pod_2"
-	shuttle.dock_target_station = "escape_pod_2_berth"
-	//shuttle.dock_target_offsite = "escape_pod_2_recovery"
-	shuttle.transit_direction = NORTH
-	shuttle.move_time = SHUTTLE_TRANSIT_DURATION_RETURN + rand(-30, 60)	//randomize this so it seems like the pods are being picked up one by one
-	shuttles["Escape Pod 2"] = shuttle
-	START_PROCESSING(shuttle_controller, shuttle)
+	pod = new/datum/shuttle/ferry/escape_pod()
+	pod.area_station = locate(/area/shuttle/escape_pod2/station)
+	pod.area_offsite = locate(/area/shuttle/escape_pod2/centcom)
+	pod.area_transition = locate(/area/shuttle/escape_pod2/transit)
+	pod.crashed_area = /area/shuttle/escape_pod2/crashed
+	pod.docking_controller_tag = "escape_pod_2"
+	pod.dock_target_station = "escape_pod_2_berth"
+	//pod.dock_target_offsite = "escape_pod_2_recovery"
+	pod.transit_direction = NORTH
+	pod.move_time = SHUTTLE_TRANSIT_DURATION_RETURN + rand(-30, 60)	//randomize this so it seems like the pods are being picked up one by one
+	shuttles["Escape Pod 2"] = pod
+	START_PROCESSING(shuttle_controller, pod)
 
-	shuttle = new/datum/shuttle/ferry/escape_pod()
-	shuttle.location = 0
-	shuttle.warmup_time = 0
-	shuttle.area_station = locate(/area/shuttle/escape_pod3/station)
-	shuttle.area_offsite = locate(/area/shuttle/escape_pod3/centcom)
-	shuttle.area_transition = locate(/area/shuttle/escape_pod3/transit)
-	shuttle.docking_controller_tag = "escape_pod_3"
-	shuttle.dock_target_station = "escape_pod_3_berth"
-	//shuttle.dock_target_offsite = "escape_pod_3_recovery"
-	shuttle.transit_direction = NORTH
-	shuttle.move_time = SHUTTLE_TRANSIT_DURATION_RETURN + rand(-30, 60)	//randomize this so it seems like the pods are being picked up one by one
-	shuttles["Escape Pod 3"] = shuttle
-	START_PROCESSING(shuttle_controller, shuttle)
+	pod = new/datum/shuttle/ferry/escape_pod()
+	pod.area_station = locate(/area/shuttle/escape_pod3/station)
+	pod.area_offsite = locate(/area/shuttle/escape_pod3/centcom)
+	pod.area_transition = locate(/area/shuttle/escape_pod3/transit)
+	pod.crashed_area = /area/shuttle/escape_pod3/crashed
+	pod.docking_controller_tag = "escape_pod_3"
+	pod.dock_target_station = "escape_pod_3_berth"
+	//pod.dock_target_offsite = "escape_pod_3_recovery"
+	pod.transit_direction = NORTH
+	pod.move_time = SHUTTLE_TRANSIT_DURATION_RETURN + rand(-30, 60)	//randomize this so it seems like the pods are being picked up one by one
+	shuttles["Escape Pod 3"] = pod
+	START_PROCESSING(shuttle_controller, pod)
 
-	shuttle = new/datum/shuttle/ferry/escape_pod()
-	shuttle.location = 0
-	shuttle.warmup_time = 0
-	shuttle.area_station = locate(/area/shuttle/escape_pod4/station)
-	shuttle.area_offsite = locate(/area/shuttle/escape_pod4/centcom)
-	shuttle.area_transition = locate(/area/shuttle/escape_pod4/transit)
-	shuttle.docking_controller_tag = "escape_pod_4"
-	shuttle.dock_target_station = "escape_pod_4_berth"
-	//shuttle.dock_target_offsite = "escape_pod_4_recovery"
-	shuttle.transit_direction = NORTH
-	shuttle.move_time = SHUTTLE_TRANSIT_DURATION_RETURN + rand(-30, 60)	//randomize this so it seems like the pods are being picked up one by one
-	shuttles["Escape Pod 4"] = shuttle
-	START_PROCESSING(shuttle_controller, shuttle)
+	pod = new/datum/shuttle/ferry/escape_pod()
+	pod.area_station = locate(/area/shuttle/escape_pod4/station)
+	pod.area_offsite = locate(/area/shuttle/escape_pod4/centcom)
+	pod.area_transition = locate(/area/shuttle/escape_pod4/transit)
+	pod.crashed_area = /area/shuttle/escape_pod4/crashed
+	pod.docking_controller_tag = "escape_pod_4"
+	pod.dock_target_station = "escape_pod_4_berth"
+	//pod.dock_target_offsite = "escape_pod_4_recovery"
+	pod.transit_direction = NORTH
+	pod.move_time = SHUTTLE_TRANSIT_DURATION_RETURN + rand(-30, 60)	//randomize this so it seems like the pods are being picked up one by one
+	shuttles["Escape Pod 4"] = pod
+	START_PROCESSING(shuttle_controller, pod)
 
-	shuttle = new/datum/shuttle/ferry/escape_pod()
-	shuttle.location = 0
-	shuttle.warmup_time = 0
-	shuttle.area_station = locate(/area/shuttle/escape_pod5/station)
-	shuttle.area_offsite = locate(/area/shuttle/escape_pod5/centcom)
-	shuttle.area_transition = locate(/area/shuttle/escape_pod5/transit)
-	shuttle.docking_controller_tag = "escape_pod_5"
-	shuttle.dock_target_station = "escape_pod_5_berth"
-	//shuttle.dock_target_offsite = "escape_pod_5_recovery"
-	shuttle.transit_direction = NORTH
-	shuttle.move_time = SHUTTLE_TRANSIT_DURATION_RETURN + rand(-30, 60)	//randomize this so it seems like the pods are being picked up one by one
-	shuttles["Escape Pod 5"] = shuttle
-	START_PROCESSING(shuttle_controller, shuttle)
+	pod = new/datum/shuttle/ferry/escape_pod()
+	pod.area_station = locate(/area/shuttle/escape_pod5/station)
+	pod.area_offsite = locate(/area/shuttle/escape_pod5/centcom)
+	pod.area_transition = locate(/area/shuttle/escape_pod5/transit)
+	pod.crashed_area = /area/shuttle/escape_pod5/crashed
+	pod.docking_controller_tag = "escape_pod_5"
+	pod.dock_target_station = "escape_pod_5_berth"
+	//pod.dock_target_offsite = "escape_pod_5_recovery"
+	pod.transit_direction = NORTH
+	pod.move_time = SHUTTLE_TRANSIT_DURATION_RETURN + rand(-30, 60)	//randomize this so it seems like the pods are being picked up one by one
+	shuttles["Escape Pod 5"] = pod
+	START_PROCESSING(shuttle_controller, pod)
 
-	shuttle = new/datum/shuttle/ferry/escape_pod()
-	shuttle.location = 0
-	shuttle.warmup_time = 0
-	shuttle.area_station = locate(/area/shuttle/escape_pod6/station)
-	shuttle.area_offsite = locate(/area/shuttle/escape_pod6/centcom)
-	shuttle.area_transition = locate(/area/shuttle/escape_pod6/transit)
-	shuttle.docking_controller_tag = "escape_pod_6"
-	shuttle.dock_target_station = "escape_pod_6_berth"
-	//shuttle.dock_target_offsite = "escape_pod_6_recovery"
-	shuttle.transit_direction = NORTH
-	shuttle.move_time = SHUTTLE_TRANSIT_DURATION_RETURN + rand(-30, 60)	//randomize this so it seems like the pods are being picked up one by one
-	shuttles["Escape Pod 6"] = shuttle
-	START_PROCESSING(shuttle_controller, shuttle)
+	pod = new/datum/shuttle/ferry/escape_pod()
+	pod.area_station = locate(/area/shuttle/escape_pod6/station)
+	pod.area_offsite = locate(/area/shuttle/escape_pod6/centcom)
+	pod.area_transition = locate(/area/shuttle/escape_pod6/transit)
+	pod.crashed_area = /area/shuttle/escape_pod6/crashed
+	pod.docking_controller_tag = "escape_pod_6"
+	pod.dock_target_station = "escape_pod_6_berth"
+	//pod.dock_target_offsite = "escape_pod_6_recovery"
+	pod.transit_direction = NORTH
+	pod.move_time = SHUTTLE_TRANSIT_DURATION_RETURN + rand(-30, 60)	//randomize this so it seems like the pods are being picked up one by one
+	shuttles["Escape Pod 6"] = pod
+	START_PROCESSING(shuttle_controller, pod)
 
 	//give the emergency shuttle controller it's shuttles
 	emergency_shuttle.escape_pods = list(

@@ -1,7 +1,10 @@
 /datum/shuttle/ferry/escape_pod
 	var/capacity = 2
 	var/first_try = TRUE
+	location = 0
+	warmup_time = 0
 	var/datum/computer/file/embedded_program/docking/simple/escape_pod/arming_controller
+	var/area/crashed_area = null
 
 /datum/shuttle/ferry/escape_pod/init_docking_controllers()
 	..()
@@ -39,15 +42,23 @@
 	if(A)
 		for(var/mob/living/carbon in A.contents)
 			num_mobs++
-		if((num_mobs > capacity) && prob(50) && first_try)
+		if((num_mobs > capacity) && prob((num_mobs - capacity) * 35) && first_try) // Each passenger over capacity increases chances to crash by 35%
 			first_try = FALSE
 			docking_controller.master.visible_message("\bold [docking_controller.master]\ states \"<span class='warning'>Warning, escape pod is over capacity! The designated capacity is [capacity]. Forcing to launch may result into crashing of the pod!\"</span>")
+			return
+		else if(!first_try)
+			crash_pod()
 			return
 
 	in_use = user	//obtain an exclusive lock on the shuttle
 
 	process_state = WAIT_LAUNCH
 	undock()
+
+/datum/shuttle/ferry/escape_pod/proc/crash_pod()
+	process_state = CRASH_SHUTTLE
+	undock()
+	var/original_area = get_location_area(location)
 
 //This controller goes on the escape pod itself
 /obj/machinery/embedded_controller/radio/simple_docking_controller/escape_pod

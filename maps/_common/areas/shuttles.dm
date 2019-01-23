@@ -74,6 +74,11 @@
 	base_turf = /turf/simulated/floor/asteroid/ash
 	station_area = 1
 
+/area/shuttle/escape_pod1/crashed
+	icon_state = "shuttle2"
+	base_turf = /turf/simulated/floor/asteroid/ash
+	station_area = 1
+
 /area/shuttle/escape_pod1/centcom
 	icon_state = "shuttle"
 	base_turf = /turf/unsimulated/floor
@@ -88,6 +93,11 @@
 	flags = RAD_SHIELDED | SPAWN_ROOF
 
 /area/shuttle/escape_pod2/station
+	icon_state = "shuttle2"
+	base_turf = /turf/simulated/floor/asteroid/ash
+	station_area = 1
+
+/area/shuttle/escape_pod2/crashed
 	icon_state = "shuttle2"
 	base_turf = /turf/simulated/floor/asteroid/ash
 	station_area = 1
@@ -110,6 +120,11 @@
 	base_turf = /turf/simulated/floor/asteroid/ash
 	station_area = 1
 
+/area/shuttle/escape_pod3/crashed
+	icon_state = "shuttle2"
+	base_turf = /turf/simulated/floor/asteroid/ash
+	station_area = 1
+
 /area/shuttle/escape_pod3/centcom
 	icon_state = "shuttle"
 	base_turf = /turf/unsimulated/floor
@@ -124,6 +139,11 @@
 	flags = RAD_SHIELDED | SPAWN_ROOF
 
 /area/shuttle/escape_pod4/station
+	icon_state = "shuttle2"
+	base_turf = /turf/simulated/floor/asteroid/ash
+	station_area = 1
+
+/area/shuttle/escape_pod4/crashed
 	icon_state = "shuttle2"
 	base_turf = /turf/simulated/floor/asteroid/ash
 	station_area = 1
@@ -146,6 +166,11 @@
 	base_turf = /turf/simulated/floor/asteroid/ash
 	station_area = 1
 
+/area/shuttle/escape_pod5/crashed
+	icon_state = "shuttle2"
+	base_turf = /turf/simulated/floor/asteroid/ash
+	station_area = 1
+
 /area/shuttle/escape_pod5/centcom
 	icon_state = "shuttle"
 	base_turf = /turf/space
@@ -160,6 +185,11 @@
 	flags = RAD_SHIELDED | SPAWN_ROOF
 
 /area/shuttle/escape_pod6/station
+	icon_state = "shuttle2"
+	base_turf = /turf/simulated/floor/asteroid/ash
+	station_area = 1
+
+/area/shuttle/escape_pod6/crashed
 	icon_state = "shuttle2"
 	base_turf = /turf/simulated/floor/asteroid/ash
 	station_area = 1
