@@ -6,6 +6,17 @@
 	icon_state = "eftpos"
 	var/machine_id = ""
 	var/list/items = list()
+	var/sum = 0
+	var/obj/item/weapon/card/id/held_card
+
+
+	proc/get_access_level()
+		if (!held_card)
+			return 0
+		if((access_bar in held_card.access) || (access_kitchen in held_card.access))
+			return 1
+		else if((access_hop in held_card.access) || (access_captain in held_card.access))
+			return 2
 
 
 
@@ -13,13 +24,19 @@
 	..()
 	machine_id = "[station_name()] Quik-Pay #[SSeconomy.num_financial_terminals++]"
 
-/*
+
 
 /obj/item/device/nanoquikpay/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	var/obj/item/weapon/card/id/I = W.GetID()
 	var/datum/money_account/quickpay_account = SSeconomy.get_department_account("Civilian") //Now money will automaticly goto the civilian get_department_account
 
+	if(!istype(O, /obj/item/weapon/card/id))
+		return ..()
 
+	if(!held_card)
+		user.drop_from_inventory(O,src)
+		held_card = O
+/*
 	if (quickpay_account && !quickpay_account.suspended)
 		var/paid = 0
 
@@ -140,12 +157,15 @@
 		. = TRUE
 	if(href_list["confirm"])
 		to_world("Payment selection: [json_encode(href_list["confirm"])]")
-		ui.activeui = "quikpay-confirmation"
-		. = TRUE
-	if(href_list["test"])
 		var/selection = ui.data["selection"]
-		var/sum = 0
+		var/items = ui.data["items"]
 		for(var/name in selection)
 			if(items[name])
 				sum += items[name] * selection[name]
+		ui.activeui = "quikpay-confirmation"	
+		. = TRUE
+	if(href_list["return"])
+		sum= 0
+		ui.activeui = "quikpay-main"	
+		. = TRUE
 	// DM code to go over selection list and sum it up

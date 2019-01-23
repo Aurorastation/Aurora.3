@@ -5,7 +5,7 @@
         {{ name }} ({{price}}x{{selection[name] }}): {{ price * selection[name] }}
       </span>
     </div>
-    <vui-button :params="{ test: 1 }">testing</vui-button>
+    <vui-button :params="{ return: 1 }" width="3em">Return to order menu</vui-button>
     <h2> Total: {{ priceSum }}</h2>
 
     <h3>Please swipe your ID to pay.</h3>
