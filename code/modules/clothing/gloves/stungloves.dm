@@ -9,7 +9,7 @@
 		return
 
 	//add wires
-	if(iscoil(W))
+	if(W.iscoil())
 		var/obj/item/stack/cable_coil/C = W
 		if (clipped)
 			user << "<span class='notice'>The [src] are too badly mangled for wiring.</span>"
@@ -44,7 +44,7 @@
 			user << "<span class='notice'>A [cell] is already attached to the [src].</span>"
 		return
 
-	else if(iswirecutter(W) || istype(W, /obj/item/weapon/scalpel))
+	else if(W.iswirecutter() || istype(W, /obj/item/weapon/scalpel))
 
 		//stunglove stuff
 		if(cell)

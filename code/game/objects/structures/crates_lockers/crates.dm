@@ -93,7 +93,7 @@
 		return ..()
 	else if(istype(W, /obj/item/weapon/packageWrap))
 		return
-	else if(iscoil(W))
+	else if(W.iscoil())
 		var/obj/item/stack/cable_coil/C = W
 		if(rigged)
 			user << "<span class='notice'>[src] is already rigged!</span>"
@@ -107,7 +107,7 @@
 			user  << "<span class='notice'>You attach [W] to [src].</span>"
 			user.drop_from_inventory(W,src)
 			return
-	else if(iswirecutter(W))
+	else if(W.iswirecutter())
 		if(rigged)
 			user  << "<span class='notice'>You cut away the wiring.</span>"
 			playsound(loc, 'sound/items/Wirecutter.ogg', 100, 1)
