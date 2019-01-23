@@ -1604,7 +1604,7 @@
 					 list("key"=/obj/item/mecha_parts/part/hermes_right_leg)//6
 					)
 
-	custom_action(step, atom/used_atom, mob/user)
+/datum/construction/mecha/hermes_chassis/custom_action(step, atom/used_atom, mob/user)
 		user.visible_message("[user] has connected [used_atom] to [holder].", "You connect [used_atom] to [holder]")
 		holder.add_overlay("[used_atom.icon_state]+o")
 		qdel(used_atom)
