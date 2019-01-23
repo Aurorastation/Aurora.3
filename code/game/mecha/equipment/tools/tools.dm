@@ -1,5 +1,3 @@
-
-
 /obj/item/mecha_parts/mecha_equipment/tool/hydraulic_clamp
 	name = "hydraulic clamp"
 	desc = "Equipment for engineering exosuits. Lifts objects and loads them into cargo."
