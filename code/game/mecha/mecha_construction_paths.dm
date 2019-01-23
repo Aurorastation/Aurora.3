@@ -1613,7 +1613,7 @@
 /datum/construction/mecha/hermes_chassis/action(atom/used_atom,mob/user as mob)
 		return check_all_steps(used_atom,user)
 
-	spawn_result()
+/datum/construction/mecha/hermes_chassis/spawn_result()
 		var/obj/item/mecha_parts/chassis/const_holder = holder
 		const_holder.construct = new /datum/construction/reversible/mecha/hermes(const_holder)
 		const_holder.icon = 'icons/mecha/mech_construction.dmi'
