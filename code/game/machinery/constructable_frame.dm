@@ -60,7 +60,7 @@
 						playsound(src.loc, 'sound/items/poster_being_created.ogg', 75, 1)
 						state = 2
 				else
-					if(ismultitool(P))
+					if(P.ismultitool())
 						playsound(src.loc, 'sound/items/poster_ripped.ogg', 75, 1)
 						to_chat(user, span("notice", "You decide to scrap the blueprint</span>")
 						qdel(src)

@@ -1182,7 +1182,6 @@ var/list/wall_items = typecacheof(list(
 
 /obj/proc/ispen()
 	return FALSE
-
 #undef NOT_FLAG
 #undef HAS_FLAG
 
