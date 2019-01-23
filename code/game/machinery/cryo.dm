@@ -1,13 +1,19 @@
 #define HEAT_CAPACITY_HUMAN 100 //249840 J/K, for a 72 kg person.
 
 /obj/machinery/atmospherics/unary/cryo_cell
-	name = "cryo cell"
+	name = "cryo cella"
 	icon = 'icons/obj/cryogenics.dmi' // map only
 	icon_state = "pod_preview"
 	density = 1
 	anchored = 1.0
 	layer = 2.8
 	interact_offline = 1
+	component_types = list(
+			/obj/item/weapon/circuitboard/cryotube,
+			/obj/item/weapon/stock_parts/scanning_module = 2,
+			/obj/item/weapon/stock_parts/console_screen,
+			/obj/item/weapon/reagent_containers/glass/beaker/large
+		)
 
 	var/on = 0
 	use_power = 1

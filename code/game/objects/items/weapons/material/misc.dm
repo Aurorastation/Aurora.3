@@ -70,3 +70,13 @@
 	slot_flags = SLOT_BACK
 	origin_tech = list(TECH_MATERIAL = 2, TECH_COMBAT = 2)
 	attack_verb = list("chopped", "sliced", "cut", "reaped")
+
+/obj/item/weapon/material/scythe/sickle
+	icon_state = "sickle0"
+	name = "sickle"
+	desc = "A short sharp and curved blade on a wood handle, this tool makes it easy to cut grass."
+	force_divisor = 0.175 // 16 with hardness 60 (steel)
+	thrown_force_divisor = 0.04 // 5 with weight 20 (steel)
+	throw_speed = 2
+	throw_range = 3
+	w_class = 2

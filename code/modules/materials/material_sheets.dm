@@ -177,6 +177,17 @@
 	icon_state = "sheet-wood"
 	default_type = "wood"
 
+/obj/item/stack/material/woodlog
+	name = "log"
+	icon_state = "sheet-woodlog"
+	default_type = "log"
+
+/obj/item/stack/material/woodbranch
+	name = "branch"
+	icon_state = "sheet-branch"
+	default_type = "branch"
+
+
 /obj/item/stack/material/cloth
 	name = "cloth"
 	icon_state = "sheet-cloth"

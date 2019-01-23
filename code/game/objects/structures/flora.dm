@@ -163,6 +163,21 @@
 	..()
 	icon_state = "firstbush_[rand(1, 4)]"
 
+/obj/structure/flora/ausbushes/attackby(var/obj/item/weapon/W as obj, var/mob/user as mob)
+	if(istype(W,/obj/item/weapon/material/scythe/sickle))
+		if(prob(50))
+			new /obj/item/stack/material/wood(get_turf(src), 2)
+		if(prob(40))
+			new /obj/item/stack/material/wood(get_turf(src), 4)
+		if(prob(10))
+			var/pickberry = pick(list(/obj/item/seeds/berryseed,/obj/item/seeds/blueberryseed))
+			new /obj/item/stack/material/wood(get_turf(src), 4)
+			new pickberry(get_turf(src), 4)
+			to_chat(usr, "<span class='notice'>You find some seeds as you hack the bush away!</span>")
+		to_chat(usr, "<span class='notice'>You slice at the bush!</span>")
+		qdel(src)
+		playsound(src.loc, 'sound/effects/woodcutting.ogg', 50, 1)
+
 /obj/structure/flora/ausbushes/reedbush
 	icon_state = "reedbush_1"
 

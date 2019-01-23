@@ -16,9 +16,10 @@
 	var/list/req_component_names = null
 	var/state = 1
 	var/pitch_toggle = 1
-	verb/rotate_clockwise()
+
+/obj/machinery/constructable_frame/verb/rotate_clockwise()
 		set category = "Object"
-		set name = "Rotate Circulator (Clockwise)"
+		set name = "Rotate (Clockwise)"
 		set src in view(1)
 
 		if (usr.stat || usr.restrained() || anchored)
@@ -27,9 +28,9 @@
 		src.set_dir(turn(src.dir, -90))
 
 
-	verb/rotate_anticlockwise()
+/obj/machinery/constructable_frame/verb/rotate_counterclockwise()
 		set category = "Object"
-		set name = "Rotate Circulator (Counterclockwise)"
+		set name = "Rotate (Counterclockwise)"
 		set src in view(1)
 
 		if (usr.stat || usr.restrained() || anchored)
@@ -51,28 +52,29 @@
 	attackby(obj/item/P as obj, mob/user as mob)
 		switch(state)
 			if(1)
-				if(ispen(P))
-					to_chat(usr, "<span class='notice'>You begin to finalize the blueprint.</span>")
+				if(P.ispen())
+					var/obj/item/weapon/pen = P
+					to_chat(user, span("notice", "You begin to finalize the blueprint.</span>")
 					if(do_after(user, 20) && state == 1)
-						to_chat(usr, "<span class='notice'>You finalize the blueprint.</span>")
+						to_chat(user, span("notice", "You finalize the blueprint.</span>")
 						playsound(src.loc, 'sound/items/poster_being_created.ogg', 75, 1)
 						state = 2
 				else
 					if(ismultitool(P))
 						playsound(src.loc, 'sound/items/poster_ripped.ogg', 75, 1)
-						to_chat(usr, "<span class='notice'>You decide to scrap the blueprint</span>")
+						to_chat(user, span("notice", "You decide to scrap the blueprint</span>")
 						qdel(src)
 			if(2)
-				if(iscoil(P))
+				if(P.iscoil())
 					var/obj/item/stack/cable_coil/C = P
 					if (C.get_amount() < 5)
-						to_chat(usr, "<span class='notice'>You need five lengths of cable to add them to the blueprint.</span>")
+						to_chat(user, span("notice", "You need five lengths of cable to add them to the blueprint.</span>")
 						return
 					playsound(src.loc, 'sound/items/Deconstruct.ogg', 50, 1)
-					to_chat(usr, "<span class='notice'>You start to add cables to the blueprint.</span>")
+					to_chat(user, span("notice", "You start to add cables to the blueprint.</span>")
 					if(do_after(user, 20) && state == 2)
 						if(C.use(5))
-							to_chat(usr, "<span class='notice'>You add cables to the blueprint.</span>")
+							to_chat(user, span("notice", "You add cables to the blueprint.</span>")
 							state = 3
 							icon_state = "blueprint_2"
 			if(3)
@@ -80,7 +82,7 @@
 					var/obj/item/weapon/circuitboard/B = P
 					if(B.board_type == "machine")
 						playsound(src.loc, 'sound/items/Deconstruct.ogg', 50, 1)
-						to_chat(usr, "<span class='notice'>You add the circuit board to the blueprint.</span>")
+						to_chat(user, span("notice", "You add the circuit board to the blueprint.</span>")
 						circuit = P
 						user.drop_from_inventory(P,src)
 						icon_state = "blueprint_3"
@@ -95,20 +97,20 @@
 							var/obj/ct = new cp() // have to quickly instantiate it get name
 							req_component_names[A] = ct.name
 						update_desc()
-						user << desc
+						to_chat(user, desc)
 					else
-						user << "<span class='warning'>This blueprint does not accept circuit boards of this type!</span>"
+						to_chat(user, span("warning", "This blueprint does not accept circuit boards of this type!"))
 				else
-					if(iswirecutter(P))
+					if(P.iswirecutter())
 						playsound(src.loc, 'sound/items/Wirecutter.ogg', 50, 1, pitch_toggle)
-						user << "<span class='notice'>You remove the cables.</span>"
+						to_chat(user, span("notice", "You remove the cables."))
 						state = 1
 						icon_state = "blueprint_0"
 						var/obj/item/stack/cable_coil/A = new /obj/item/stack/cable_coil( src.loc )
 						A.amount = 5
 
 			if(4)
-				if(iscrowbar(P))
+				if(P.iscrowbar())
 					playsound(src.loc, 'sound/items/Crowbar.ogg', 50, 1)
 					state = 3
 					circuit.forceMove(src.loc)
@@ -124,7 +126,7 @@
 					components = null
 					icon_state = "blueprint_2"
 				else
-					if(isscrewdriver(P))
+					if(P.isscrewdriver())
 						var/component_check = 1
 						for(var/R in req_components)
 							if(req_components[R] > 0)
