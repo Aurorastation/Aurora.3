@@ -82,7 +82,6 @@
 
 	chest_type = /obj/item/clothing/suit/space/rig/light/ninja
 	glove_type = /obj/item/clothing/gloves/rig/light/ninja
-	helm_type =  /obj/item/clothing/head/helmet/space/rig/light/ninja
 	boot_type = /obj/item/clothing/shoes/rig/light/ninja
 
 	req_access = list(access_syndicate)
@@ -118,15 +117,10 @@
 	siemens_coefficient = 0
 
 /obj/item/clothing/shoes/rig/light/ninja
-	species_restricted = list("exclude","Diona","Xenomorph", "Golem")
 	silent = 1
 
 /obj/item/clothing/suit/space/rig/light/ninja
-	species_restricted = list("exclude","Diona","Xenomorph", "Golem")
 	breach_threshold = 38 //comparable to regular hardsuits
-
-/obj/item/clothing/head/helmet/space/rig/light/ninja
-	species_restricted = list("exclude","Diona","Xenomorph", "Golem")
 
 /obj/item/weapon/rig/light/stealth
 	name = "stealth suit control module"

@@ -18,7 +18,7 @@
 		"Vaurca" = 'icons/mob/species/vaurca/helmet.dmi',
 		"Machine" = 'icons/mob/species/machine/helmet.dmi'
 	)
-	species_restricted = list("exclude","Diona","Xenomorph","Vaurca","Golem", "Vox")
+	species_restricted = list("exclude","Diona","Xenomorph","Golem", "Vox")
 
 /obj/item/clothing/gloves/rig
 	name = "gauntlets"
@@ -70,7 +70,7 @@
 		"Vaurca" = 'icons/mob/species/vaurca/suit.dmi',
 		"Machine" = 'icons/mob/species/machine/suit.dmi'
 		)
-	species_restricted = list("exclude","Diona","Xenomorph","Golem","Vaurca","Vox")
+	species_restricted = list("exclude","Diona","Xenomorph","Golem","Vox")
 
 	supporting_limbs = list()
 

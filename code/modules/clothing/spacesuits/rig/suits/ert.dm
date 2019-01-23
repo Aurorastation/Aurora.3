@@ -1,6 +1,10 @@
 /obj/item/clothing/head/helmet/space/rig/ert
 	light_overlay = "helmet_light_dual"
 	camera_networks = list(NETWORK_ERT)
+	species_restricted = list("exclude","Diona","Xenomorph","Vaurca","Golem","Vox")
+
+/obj/item/clothing/suit/space/rig/ert
+	species_restricted = list("exclude","Diona","Xenomorph","Vaurca","Golem","Vox")
 
 /obj/item/weapon/rig/ert
 	name = "ERT-C hardsuit control module"
@@ -9,6 +13,7 @@
 	icon_state = "ert_commander_rig"
 	emp_protection = 35
 
+	chest_type = /obj/item/clothing/suit/space/rig/ert
 	helm_type = /obj/item/clothing/head/helmet/space/rig/ert
 
 	req_access = list(access_cent_specops)
