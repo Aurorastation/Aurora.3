@@ -3,40 +3,18 @@
 //Circuit boards are in /code/game/objects/items/weapons/circuitboards/machinery/
 
 /obj/machinery/constructable_frame //Made into a seperate type to make future revisions easier.
-	name = "machine blueprint"
-	desc = "A holo blueprint for a machine."
+	name = "machine frame"
+	desc = "An empty frame for some kind of machine."
 	icon = 'icons/obj/stock_parts.dmi'
-	icon_state = "blueprint_0"
-	density = 0
-	anchored = 0
+	icon_state = "box_0"
+	density = 1
+	anchored = 1
 	use_power = 0
 	var/obj/item/weapon/circuitboard/circuit = null
 	var/list/components = null
 	var/list/req_components = null
 	var/list/req_component_names = null
 	var/state = 1
-	var/pitch_toggle = 1
-
-/obj/machinery/constructable_frame/verb/rotate_clockwise()
-		set category = "Object"
-		set name = "Rotate (Clockwise)"
-		set src in view(1)
-
-		if (usr.stat || usr.restrained() || anchored)
-			return
-
-		src.set_dir(turn(src.dir, -90))
-
-
-/obj/machinery/constructable_frame/verb/rotate_counterclockwise()
-		set category = "Object"
-		set name = "Rotate (Counterclockwise)"
-		set src in view(1)
-
-		if (usr.stat || usr.restrained() || anchored)
-			return
-
-		src.set_dir(turn(src.dir, 90))
 
 	proc/update_desc()
 		var/D
@@ -52,41 +30,34 @@
 	attackby(obj/item/P as obj, mob/user as mob)
 		switch(state)
 			if(1)
-				if(P.ispen())
-					var/obj/item/weapon/pen = P
-					to_chat(user, span("notice", "You begin to finalize the blueprint.</span>")
-					if(do_after(user, 20) && state == 1)
-						to_chat(user, span("notice", "You finalize the blueprint.</span>")
-						playsound(src.loc, 'sound/items/poster_being_created.ogg', 75, 1)
-						state = 2
-				else
-					if(P.ismultitool())
-						playsound(src.loc, 'sound/items/poster_ripped.ogg', 75, 1)
-						to_chat(user, span("notice", "You decide to scrap the blueprint</span>")
-						qdel(src)
-			if(2)
 				if(P.iscoil())
 					var/obj/item/stack/cable_coil/C = P
 					if (C.get_amount() < 5)
-						to_chat(user, span("notice", "You need five lengths of cable to add them to the blueprint.</span>")
+						user << "<span class='warning'>You need five lengths of cable to add them to the frame.</span>"
 						return
 					playsound(src.loc, 'sound/items/Deconstruct.ogg', 50, 1)
-					to_chat(user, span("notice", "You start to add cables to the blueprint.</span>")
-					if(do_after(user, 20) && state == 2)
+					user << "<span class='notice'>You start to add cables to the frame.</span>"
+					if(do_after(user, 20) && state == 1)
 						if(C.use(5))
-							to_chat(user, span("notice", "You add cables to the blueprint.</span>")
-							state = 3
-							icon_state = "blueprint_2"
-			if(3)
+							user << "<span class='notice'>You add cables to the frame.</span>"
+							state = 2
+							icon_state = "box_1"
+				else
+					if(P.iswrench())
+						playsound(src.loc, 'sound/items/Ratchet.ogg', 75, 1)
+						user << "<span class='notice'>You dismantle the frame</span>"
+						new /obj/item/stack/material/steel(src.loc, 5)
+						qdel(src)
+			if(2)
 				if(istype(P, /obj/item/weapon/circuitboard))
 					var/obj/item/weapon/circuitboard/B = P
 					if(B.board_type == "machine")
 						playsound(src.loc, 'sound/items/Deconstruct.ogg', 50, 1)
-						to_chat(user, span("notice", "You add the circuit board to the blueprint.</span>")
+						user << "<span class='notice'>You add the circuit board to the frame.</span>"
 						circuit = P
 						user.drop_from_inventory(P,src)
-						icon_state = "blueprint_3"
-						state = 4
+						icon_state = "box_2"
+						state = 3
 						components = list()
 						req_components = circuit.req_components.Copy()
 						for(var/A in circuit.req_components)
@@ -97,22 +68,22 @@
 							var/obj/ct = new cp() // have to quickly instantiate it get name
 							req_component_names[A] = ct.name
 						update_desc()
-						to_chat(user, desc)
+						user << desc
 					else
-						to_chat(user, span("warning", "This blueprint does not accept circuit boards of this type!"))
+						user << "<span class='warning'>This frame does not accept circuit boards of this type!</span>"
 				else
 					if(P.iswirecutter())
-						playsound(src.loc, 'sound/items/Wirecutter.ogg', 50, 1, pitch_toggle)
-						to_chat(user, span("notice", "You remove the cables."))
+						playsound(src.loc, 'sound/items/Wirecutter.ogg', 50, 1)
+						user << "<span class='notice'>You remove the cables.</span>"
 						state = 1
-						icon_state = "blueprint_0"
+						icon_state = "box_0"
 						var/obj/item/stack/cable_coil/A = new /obj/item/stack/cable_coil( src.loc )
 						A.amount = 5
 
-			if(4)
+			if(3)
 				if(P.iscrowbar())
 					playsound(src.loc, 'sound/items/Crowbar.ogg', 50, 1)
-					state = 3
+					state = 2
 					circuit.forceMove(src.loc)
 					circuit = null
 					if(components.len == 0)
@@ -124,7 +95,7 @@
 					desc = initial(desc)
 					req_components = null
 					components = null
-					icon_state = "blueprint_2"
+					icon_state = "box_1"
 				else
 					if(P.isscrewdriver())
 						var/component_check = 1
@@ -156,8 +127,6 @@
 								circuit.forceMove(null)
 
 							new_machine.RefreshParts()
-							playsound(src.loc, 'sound/AI/blueprintfinished.ogg', 50, 1)
-							anchored = 1
 							qdel(src)
 					else
 						if(istype(P, /obj/item))
@@ -198,5 +167,3 @@
 //Animals can run under them, lots of empty space
 		return 1
 	return ..()
-
-

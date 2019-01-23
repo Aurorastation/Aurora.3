@@ -38,4 +38,6 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
-  - rscadd: "Makes plastic flaps and holopads constructable."
+  - rscadd: "Makes most medical machinery,holopads,plastic flaps, request consoles, mining machinery constructable."
+  - rscadd: "Adds logging mechanics."
+  - rscadd: "Cutting down bush's has a chance to drop branch's or seeds."

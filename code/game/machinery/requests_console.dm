@@ -29,6 +29,11 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 	anchored = 1
 	icon = 'icons/obj/terminals.dmi'
 	icon_state = "req_comp0"
+	component_types = list(
+			/obj/item/weapon/circuitboard/requestconsole,
+			/obj/item/weapon/stock_parts/capacitor
+			/obj/item/weapon/stock_parts/console_screen,
+		)
 	var/department = "Unknown" //The list of all departments on the station (Determined from this variable on each unit) Set this to the same thing if you want several consoles in one department
 	var/list/message_log = list() //List of all messages
 	var/departmentType = 0 		//Bitflag. Zero is reply-only. Map currently uses raw numbers instead of defines.
@@ -80,6 +85,8 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 				set_light(0)
 
 /obj/machinery/requests_console/Initialize()
+	pixel_x = -DIR2PIXEL_X(dir)
+	pixel_y = -DIR2PIXEL_Y(dir)
 	. = ..()
 
 	announcement.title = "[department] announcement"

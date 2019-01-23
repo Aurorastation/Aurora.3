@@ -42,17 +42,26 @@
 	req_components = list(
 							"/obj/item/weapon/stock_parts/capacitor" = 1,
 							"/obj/item/weapon/stock_parts/scanning_module" = 1,
-							"/obj/item/weapon/stock_parts/console_screen" = 1,
 							"/obj/item/device/healthanalyzer" = 1)
 
 /obj/item/weapon/circuitboard/bodyscannerconsole
 	name = T_BOARD("Body Scanner Console")
 	desc = "The circuitboard for a body scanner console."
 	build_path = "/obj/machinery/body_scanconsole"
-	origin_tech = list(TECH_MAGNET = 2, TECH_ENGINEERING = 2)
+	origin_tech = list(TECH_DATA = 2, TECH_ENGINEERING = 2)
 	board_type = "machine"
 	req_components = list(
 							"/obj/item/weapon/stock_parts/scanning_module" = 2,
+							"/obj/item/weapon/stock_parts/console_screen" = 1)
+
+/obj/item/weapon/circuitboard/requestconsole
+	name = T_BOARD("Request Console")
+	desc = "The circuitboard for a body scanner console."
+	build_path = "/obj/machinery/requests_console"
+	origin_tech = list(TECH_DATA = 3, TECH_ENGINEERING = 2)
+	board_type = "machine"
+	req_components = list(
+							"/obj/item/weapon/stock_parts/capacitor" = 1,
 							"/obj/item/weapon/stock_parts/console_screen" = 1)
 
 /obj/item/weapon/circuitboard/optable
