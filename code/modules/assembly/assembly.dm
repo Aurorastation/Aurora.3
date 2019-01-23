@@ -100,7 +100,7 @@
 			if((!A.secured) && (!secured))
 				attach_assembly(A,user)
 				return
-		if(isscrewdriver(W))
+		if(W.isscrewdriver())
 			if(toggle_secure())
 				user << "<span class='notice'>\The [src] is ready!</span>"
 			else
