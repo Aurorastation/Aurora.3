@@ -1684,7 +1684,7 @@
 					 		"desc"="The hydraulic systems are disconnected.")
 					)
 
-	action(atom/used_atom,mob/user as mob)
+/datum/construction/reversible/mecha/hermes/action(atom/used_atom,mob/user as mob)
 		return check_step(used_atom,user)
 
 	custom_action(index, diff, atom/used_atom, mob/user)
