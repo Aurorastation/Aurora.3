@@ -1800,7 +1800,7 @@
 					holder.icon_state = "hermes12"
 		return 1
 
-	spawn_result()
+/datum/construction/reversible/mecha/hermes/spawn_result()
 		..()
 		feedback_inc("mecha_hermes_created",1)
 		return
