@@ -1687,7 +1687,7 @@
 /datum/construction/reversible/mecha/hermes/action(atom/used_atom,mob/user as mob)
 		return check_step(used_atom,user)
 
-	custom_action(index, diff, atom/used_atom, mob/user)
+/datum/construction/reversible/mecha/hermes/custom_action(index, diff, atom/used_atom, mob/user)
 		if(!..())
 			return 0
 
