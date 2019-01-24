@@ -34,7 +34,7 @@ var/global/list/navbeacons			// no I don't like putting this in, but it will do 
 		// add beacon to MULE bot beacon list
 		if(freq == 1400)
 			LAZYADD(navbeacons, src)
-		
+
 		if(SSradio)
 			SSradio.add_object(src, freq, RADIO_NAVBEACONS)
 
@@ -109,7 +109,7 @@ var/global/list/navbeacons			// no I don't like putting this in, but it will do 
 		if(!T.is_plating())
 			return		// prevent intraction when T-scanner revealed
 
-		if(isscrewdriver(I))
+		if(I.isscrewdriver())
 			open = !open
 
 			user.visible_message("[user] [open ? "opens" : "closes"] the beacon's cover.", "You [open ? "open" : "close"] the beacon's cover.")
