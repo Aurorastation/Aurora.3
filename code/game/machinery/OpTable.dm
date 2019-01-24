@@ -4,10 +4,15 @@
 	icon = 'icons/obj/surgery.dmi'
 	icon_state = "table2-idle"
 	density = 1
-	anchored = 1.0
+	anchored = 1
 	use_power = 1
 	idle_power_usage = 1
 	active_power_usage = 5
+	component_types = list(
+			/obj/item/weapon/circuitboard/optable,
+			/obj/item/weapon/stock_parts/scanning_module = 1
+		)
+	
 	var/mob/living/carbon/human/victim = null
 	var/strapped = 0.0
 
@@ -45,6 +50,8 @@
 		src.density = 0
 		qdel(src)
 	return
+
+
 
 /obj/machinery/optable/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
 	if(air_group || (height==0)) return 1

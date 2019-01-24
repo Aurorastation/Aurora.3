@@ -685,6 +685,37 @@ var/list/name_to_material
 	golem = "Wood Golem"
 	hitsound = 'sound/effects/woodhit.ogg'
 
+/material/wood/log //This is gonna replace wood planks in a  way for NBT, leaving it here for now
+	name = "log"
+	stack_type = /obj/item/stack/material/woodlog 
+	icon_colour = "#824B28"
+	integrity = 50
+	icon_base = "solid"
+	explosion_resistance = 4
+	hardness = 30
+	weight = 30 //Logs are heavier then normal pieces of wood
+	conductivity = 0.8
+	melting_point = T0C+380
+	ignition_point = T0C+328
+	destruction_desc = "splinters"
+	sheet_singular_name = "log"
+	sheet_plural_name = "logs"
+
+/material/wood/branch
+	name = "branch"
+	stack_type = /obj/item/stack/material/woodbranch
+	icon_colour = "#824B28"
+	integrity = 50
+	icon_base = "solid"
+	explosion_resistance = 0
+	hardness = 0.1
+	weight = 7
+	melting_point = T0C+220 
+	ignition_point = T0C+218
+	sheet_singular_name = "branch"
+	sheet_plural_name = "branch"
+
+
 /material/rust
 	name = "rust"
 	display_name = "rusty steel"

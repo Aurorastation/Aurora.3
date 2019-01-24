@@ -74,7 +74,7 @@
 		..()
 
 /obj/item/stack/material/attackby(var/obj/item/W, var/mob/user)
-	if(W.iscoil())
+	if(iscoil(W))
 		material.build_wired_product(user, W, src)
 		return
 	else if(istype(W, /obj/item/stack/rods))
@@ -176,6 +176,17 @@
 	name = "wooden plank"
 	icon_state = "sheet-wood"
 	default_type = "wood"
+
+/obj/item/stack/material/woodlog
+	name = "log"
+	icon_state = "sheet-woodlog"
+	default_type = "log"
+
+/obj/item/stack/material/woodbranch
+	name = "branch"
+	icon_state = "sheet-branch"
+	default_type = "branch"
+
 
 /obj/item/stack/material/cloth
 	name = "cloth"

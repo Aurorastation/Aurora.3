@@ -23,6 +23,12 @@
 	icon_state = "body_scanner_0"
 	density = 1
 	anchored = 1
+	component_types = list(
+			/obj/item/weapon/circuitboard/bodyscanner,
+			/obj/item/weapon/stock_parts/capacitor = 2,
+			/obj/item/weapon/stock_parts/scanning_module = 2,
+			/obj/item/device/healthanalyzer
+		)
 
 	use_power = 1
 	idle_power_usage = 60
@@ -33,6 +39,8 @@
 	if (connected)
 		connected.connected = null
 	return ..()
+
+
 
 /obj/machinery/bodyscanner/relaymove(mob/user as mob)
 	if (user.stat)
@@ -238,11 +246,19 @@
 	icon_state = "body_scannerconsole"
 	density = 0
 	anchored = 1
+	component_types = list(
+			/obj/item/weapon/circuitboard/bodyscannerconsole,
+			/obj/item/weapon/stock_parts/scanning_module = 2,
+			/obj/item/weapon/stock_parts/console_screen
+		)
+
 
 /obj/machinery/body_scanconsole/Destroy()
 	if (connected)
 		connected.connected = null
 	return ..()
+
+
 
 /obj/machinery/body_scanconsole/power_change()
 	..()
@@ -277,6 +293,7 @@
 	return src.attack_hand(user)
 
 /obj/machinery/body_scanconsole/attack_hand(user as mob)
+
 	if(..())
 		return
 

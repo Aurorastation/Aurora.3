@@ -60,6 +60,7 @@
 
 	active_power_usage = 200 - (cap_rating + scan_rating)*2
 
+
 /obj/machinery/sleeper/attack_hand(var/mob/user)
 	if(..())
 		return 1
@@ -180,7 +181,7 @@
 			update_icon()
 			qdel(G)
 			return
-	else if(I.isscrewdriver())
+	else if(isscrewdriver(I))
 		user << "You [panel_open ? "open" : "close"] the maintenance panel."
 		panel_open = !panel_open
 
