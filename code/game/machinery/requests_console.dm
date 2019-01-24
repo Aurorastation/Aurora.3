@@ -31,7 +31,7 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 	icon_state = "req_comp0"
 	component_types = list(
 			/obj/item/weapon/circuitboard/requestconsole,
-			/obj/item/weapon/stock_parts/capacitor
+			/obj/item/weapon/stock_parts/capacitor,
 			/obj/item/weapon/stock_parts/console_screen,
 		)
 	var/department = "Unknown" //The list of all departments on the station (Determined from this variable on each unit) Set this to the same thing if you want several consoles in one department
