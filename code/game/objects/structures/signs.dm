@@ -21,7 +21,7 @@
 	return
 
 /obj/structure/sign/attackby(obj/item/tool as obj, mob/user as mob)	//deconstruction
-	if(tool.isscrewdriver() && !istype(src, /obj/structure/sign/double))
+	if(isscrewdriver(tool) && !istype(src, /obj/structure/sign/double))
 		user << "You unfasten the sign with your [tool]."
 		unfasten()
 	else ..()
@@ -44,7 +44,7 @@
 	var/sign_state = ""
 
 /obj/item/sign/attackby(obj/item/tool as obj, mob/user as mob)	//construction
-	if(tool.isscrewdriver() && isturf(user.loc))
+	if(isscrewdriver(tool) && isturf(user.loc))
 		var/direction = input("In which direction?", "Select direction.") in list("North", "East", "South", "West", "Cancel")
 		if(direction == "Cancel") return
 		var/obj/structure/sign/S = new(user.loc)

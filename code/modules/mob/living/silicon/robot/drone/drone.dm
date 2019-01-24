@@ -182,7 +182,7 @@
 		user << "<span class='danger'>\The [src] is not compatible with \the [W].</span>"
 		return
 
-	else if (W.iscrowbar())
+	else if (iscrowbar(W))
 		user << "<span class='danger'>\The [src] is hermetically sealed. You can't open the case.</span>"
 		return
 

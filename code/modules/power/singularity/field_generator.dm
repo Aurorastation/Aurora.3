@@ -93,7 +93,7 @@ field_generator power level display
 	if(active)
 		user << "The [src] needs to be off."
 		return
-	else if(W.iswrench())
+	else if(iswrench(W))
 		switch(state)
 			if(0)
 				state = 1
@@ -112,7 +112,7 @@ field_generator power level display
 			if(2)
 				user << "<span class='warning'>The [src.name] needs to be unwelded from the floor.</span>"
 				return
-	else if(W.iswelder())
+	else if(iswelder(W))
 		var/obj/item/weapon/weldingtool/WT = W
 		switch(state)
 			if(0)

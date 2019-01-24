@@ -144,7 +144,7 @@
 
 
 	attackby(obj/item/weapon/W as obj, mob/user as mob)
-		if(W.isscrewdriver())
+		if(isscrewdriver(W))
 			if(!a_left || !a_right)
 				user << "<span class='danger'>BUG:Assembly part missing, please report this!</span>"
 				return
@@ -217,7 +217,7 @@
 /obj/item/device/assembly_holder/Destroy()
 	listening_objects -= src
 	return ..()
-
+	
 
 /obj/item/device/assembly_holder/hear_talk(mob/living/M as mob, msg, verb, datum/language/speaking)
 	if(a_right)

@@ -48,7 +48,7 @@
 
 //Don't want to render prison breaks impossible
 /obj/machinery/flasher/attackby(obj/item/weapon/W as obj, mob/user as mob)
-	if (W.iswirecutter())
+	if (iswirecutter(W))
 		add_fingerprint(user)
 		src.disable = !src.disable
 		if (src.disable)
@@ -88,9 +88,6 @@
 			var/obj/item/organ/eyes/E = H.get_eyes()
 			if(!E)
 				return
-
-			E.flash_act()
-
 			if(E.is_bruised() && prob(E.damage + 50))
 				flick("e_flash", O:flash)
 				E.damage += rand(1, 5)
@@ -115,7 +112,7 @@
 		src.flash()
 
 /obj/machinery/flasher/portable/attackby(obj/item/weapon/W as obj, mob/user as mob)
-	if (W.iswrench())
+	if (iswrench(W))
 		add_fingerprint(user)
 		src.anchored = !src.anchored
 

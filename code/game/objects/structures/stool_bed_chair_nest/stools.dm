@@ -112,7 +112,7 @@
 	qdel(src)
 
 /obj/item/weapon/stool/attackby(obj/item/weapon/W as obj, mob/user as mob)
-	if(W.iswrench())
+	if(iswrench(W))
 		playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
 		dismantle()
 		qdel(src)
@@ -141,7 +141,7 @@
 		user << "You add padding to \the [src]."
 		add_padding(padding_type)
 		return
-	else if (W.iswirecutter())
+	else if (iswirecutter(W))
 		if(!padding_material)
 			user << "\The [src] has no padding to remove."
 			return

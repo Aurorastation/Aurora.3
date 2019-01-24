@@ -42,7 +42,7 @@
 	storage_capacity = 30
 	var/contains_body = 0
 
-/obj/structure/closet/body_bag/attackby(var/obj/item/W, mob/user as mob)
+/obj/structure/closet/body_bag/attackby(W as obj, mob/user as mob)
 	if (istype(W, /obj/item/weapon/pen))
 		var/t = input(user, "What would you like the label to be?", text("[]", src.name), null)  as text
 		if (user.get_active_hand() != W)
@@ -58,7 +58,7 @@
 			src.name = "body bag"
 	//..() //Doesn't need to run the parent. Since when can fucking bodybags be welded shut? -Agouri
 		return
-	else if(W.iswirecutter())
+	else if(iswirecutter(W))
 		user << "You cut the tag off the bodybag"
 		src.name = "body bag"
 		cut_overlays()

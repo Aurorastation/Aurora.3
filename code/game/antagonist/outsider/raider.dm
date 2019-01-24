@@ -58,7 +58,7 @@ var/datum/antagonist/raider/raiders
 		/obj/item/clothing/suit/pirate,
 		/obj/item/clothing/suit/hgpirate,
 		/obj/item/clothing/suit/storage/toggle/bomber,
-		/obj/item/clothing/suit/storage/toggle/leather_jacket,
+		/obj/item/clothing/suit/storage/leather_jacket,
 		/obj/item/clothing/suit/storage/toggle/brown_jacket,
 		/obj/item/clothing/suit/storage/toggle/hoodie,
 		/obj/item/clothing/suit/storage/toggle/hoodie/black,

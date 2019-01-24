@@ -139,7 +139,7 @@
 		//This return will prevent afterattack from executing if the object goes into the trashbag,
 		//This prevents dumb stuff like splashing the cart with the contents of a container, after putting said container into trash
 
-	else if (!has_items && (I.iswrench() || I.iswelder() || istype(I, /obj/item/weapon/gun/energy/plasmacutter)))
+	else if (!has_items && (iswrench(I) || iswelder(I) || istype(I, /obj/item/weapon/gun/energy/plasmacutter)))
 		dismantle(user)
 		return
 	..()

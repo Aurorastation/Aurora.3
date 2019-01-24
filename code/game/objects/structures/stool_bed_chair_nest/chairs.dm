@@ -128,7 +128,7 @@
 	return
 
 /obj/structure/bed/chair/office/attackby(obj/item/weapon/W as obj, mob/user as mob)
-	if(istype(W,/obj/item/stack) || W.iswirecutter())
+	if(istype(W,/obj/item/stack) || iswirecutter(W))
 		return
 	..()
 
@@ -201,7 +201,7 @@
 	return
 
 /obj/structure/bed/chair/wood/attackby(obj/item/weapon/W as obj, mob/user as mob)
-	if(istype(W,/obj/item/stack) || W.iswirecutter())
+	if(istype(W,/obj/item/stack) || iswirecutter(W))
 		return
 	..()
 

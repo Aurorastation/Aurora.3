@@ -139,14 +139,14 @@
 /obj/machinery/power/am_control_unit/update_icon()
 	if(active)
 		icon_state = "control_[icon_mod]"
-	else
+	else 
 		icon_state = "control"
 	//No other icons for it atm
 
 /obj/machinery/power/am_control_unit/attackby(obj/item/W, mob/user)
 	if(!istype(W) || !user)
 		return
-	if(W.iswrench())
+	if(iswrench(W))
 		if(!anchored)
 			playsound(get_turf(src), 'sound/items/Ratchet.ogg', 75, 1)
 			user.visible_message("[user.name] secures the [src.name] to the floor.", \

@@ -141,14 +141,14 @@
 			user << "<span class='notice'>You replace \the [src]'s reagent reservoir.</span>"
 			return
 
-	if(W.iswrench() && open)
+	if(iswrench(W) && open)
 		if(bucket)
 			bucket.forceMove(user.loc)
 			bucket = null
 			user << "<span class='notice'>You remove \the [src]'s reagent reservoir.</span>"
 			return
 
-	if(W.iscrowbar() && !open)
+	if(iscrowbar(W) && !open)
 		if(bucket)
 			for(var/obj/item/I in hoovered)
 				I.forceMove(user.loc)

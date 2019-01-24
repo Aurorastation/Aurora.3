@@ -31,7 +31,7 @@
 		var/mob/living/carbon/human/H = M
 		var/obj/item/organ/external/S = H.get_organ(target_zone)
 
-		if (S && (S.status & ORGAN_ASSISTED))
+		if (S && (S.status & ORGAN_ROBOT))
 			if(S.get_damage())
 				user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 

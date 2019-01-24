@@ -33,7 +33,7 @@
 	. = ..()
 	START_PROCESSING(SSprocessing, src)
 	cell = new celltype(src)
-
+	
 /obj/item/device/suit_cooling_unit/Destroy()
 	STOP_PROCESSING(SSprocessing, src)
 	QDEL_NULL(cell)
@@ -72,7 +72,7 @@
 
 	if(cell.charge <= 0)
 		turn_off()
-
+		
 	update_icon()
 
 /obj/item/device/suit_cooling_unit/proc/get_environment_temperature()
@@ -146,7 +146,7 @@
 			user << "You switch on the [src]."
 
 /obj/item/device/suit_cooling_unit/attackby(obj/item/weapon/W as obj, mob/user as mob)
-	if (W.isscrewdriver())
+	if (isscrewdriver(W))
 		if(cover_open)
 			cover_open = 0
 			user << "You screw the panel into place."

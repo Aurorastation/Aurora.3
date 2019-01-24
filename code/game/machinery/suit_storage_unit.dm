@@ -478,7 +478,7 @@
 /obj/machinery/suit_storage_unit/attackby(obj/item/I as obj, mob/user as mob)
 	if(!src.ispowered)
 		return
-	if(I.isscrewdriver())
+	if(isscrewdriver(I))
 		src.panelopen = !src.panelopen
 		playsound(src.loc, 'sound/items/Screwdriver.ogg', 100, 1)
 		user << text("<font color='blue'>You [] the unit's maintenance panel.</font>",(src.panelopen ? "open up" : "close") )
@@ -681,7 +681,7 @@
 			return
 
 	//Hacking init.
-	if(I.ismultitool() || I.iswirecutter())
+	if(ismultitool(I) || iswirecutter(I))
 		if(panel_open)
 			attack_hand(user)
 		return
@@ -717,7 +717,7 @@
 			src.updateUsrDialog()
 
 			return
-	else if(I.isscrewdriver())
+	else if(isscrewdriver(I))
 
 		panel_open = !panel_open
 		user << "You [panel_open ?  "open" : "close"] the maintenance panel."

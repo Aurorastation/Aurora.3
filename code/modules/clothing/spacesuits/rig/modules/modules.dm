@@ -87,7 +87,7 @@
 		paste.use(1)
 		return
 
-	else if(W.iscoil())
+	else if(iscoil(W))
 
 		switch(damage)
 			if(0)

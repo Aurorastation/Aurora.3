@@ -156,7 +156,7 @@
 				return
 	if(active) return ..()
 
-	if(O.iscrowbar())
+	if(iscrowbar(O))
 		if (panel_open && cell)
 			user << "You wrench out \the [cell]."
 			cell.forceMove(get_turf(user))
@@ -370,7 +370,7 @@
 	if(default_deconstruction_crowbar(user, W))
 		return
 
-	if(W.iswrench())
+	if(iswrench(W))
 
 		if(istype(get_turf(src), /turf/space))
 			user << "<span class='notice'>You send the [src] careening into space. Idiot.</span>"

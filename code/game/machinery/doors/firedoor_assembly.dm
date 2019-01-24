@@ -14,8 +14,8 @@ obj/structure/firedoor_assembly/update_icon()
 	else
 		icon_state = "door_construction"
 
-obj/structure/firedoor_assembly/attackby(var/obj/item/C as obj, mob/user as mob)
-	if(C.iscoil() && !wired && anchored)
+obj/structure/firedoor_assembly/attackby(C as obj, mob/user as mob)
+	if(iscoil(C) && !wired && anchored)
 		var/obj/item/stack/cable_coil/cable = C
 		if (cable.get_amount() < 1)
 			user << "<span class='warning'>You need one length of coil to wire \the [src].</span>"
@@ -26,7 +26,7 @@ obj/structure/firedoor_assembly/attackby(var/obj/item/C as obj, mob/user as mob)
 				wired = 1
 				user << "<span class='notice'>You wire \the [src].</span>"
 
-	else if(C.iswirecutter() && wired )
+	else if(iswirecutter(C) && wired )
 		playsound(src.loc, 'sound/items/Wirecutter.ogg', 100, 1)
 		user.visible_message("[user] cuts the wires from \the [src].", "You start to cut the wires from \the [src].")
 
@@ -46,13 +46,13 @@ obj/structure/firedoor_assembly/attackby(var/obj/item/C as obj, mob/user as mob)
 			qdel(src)
 		else
 			user << "<span class='warning'>You must secure \the [src] first!</span>"
-	else if(C.iswrench())
+	else if(iswrench(C))
 		anchored = !anchored
 		playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
 		user.visible_message("<span class='warning'>[user] has [anchored ? "" : "un" ]secured \the [src]!</span>",
 							  "You have [anchored ? "" : "un" ]secured \the [src]!")
 		update_icon()
-	else if(!anchored && C.iswelder())
+	else if(!anchored && iswelder(C))
 		var/obj/item/weapon/weldingtool/WT = C
 		if(WT.remove_fuel(0, user))
 			user.visible_message("<span class='warning'>[user] dissassembles \the [src].</span>",

@@ -1349,16 +1349,6 @@
 			var/mob/living/carbon/human/H = M
 			H.delayed_vomit()
 
-/datum/reagent/coagulant
-	name = "Coagulant"
-	id = "coagulant"
-	description = "A chemical that can temporarily stop the blood loss caused by internal wounds."
-	reagent_state = LIQUID
-	color = "#8b0000"
-	overdose = REAGENTS_OVERDOSE
-	taste_description = "bitterness"
-	fallback_specific_heat = 1
-
 //Secret Chems
 /datum/reagent/elixir
 	name = "Elixir of Life"

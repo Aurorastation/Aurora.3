@@ -311,7 +311,7 @@
 	if (..())
 
 		// Multitool - change RCON tag
-		if(W.ismultitool())
+		if(ismultitool(W))
 			var/newtag = input(user, "Enter new RCON tag. Use \"NO_TAG\" to disable RCON or leave empty to cancel.", "SMES RCON system") as text
 			if(newtag)
 				RCon_tag = newtag
@@ -335,7 +335,7 @@
 			failure_probability = 0
 
 		// Crowbar - Disassemble the SMES.
-		if(W.iscrowbar())
+		if(iscrowbar(W))
 			if (terminal)
 				user << "<span class='warning'>You have to disassemble the terminal first!</span>"
 				return

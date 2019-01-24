@@ -79,13 +79,42 @@
 		var/safety = M:eyecheck(TRUE)
 		if(safety <= 0)
 			flick("e_flash", M.flash)
+				//Vaurca damage 15/01/16
 			var/mob/living/carbon/human/H = M
-			var/obj/item/organ/eyes/E = H.get_eyes()
-			if(!E)
-				return
+			if(isvaurca(H))
+				var/obj/item/organ/eyes/E = H.get_eyes()
+				if(!E)
+					return
+				user << span("alert", "Your eyes burn with the intense light of the flash!")
+				M.Weaken(10)
+				E.damage += rand(10, 11)
+				if(E.damage > 12)
+					M.eye_blurry += rand(3,6)
+				if (E.damage >= E.min_broken_damage)
+					M.sdisabilities |= BLIND
+				else if (E.damage >= E.min_bruised_damage)
+					M.eye_blind = 5
+					M.eye_blurry = 5
+					M.disabilities |= NEARSIGHTED
+					addtimer(CALLBACK(M, /mob/.proc/reset_nearsighted), 100)
 
-			E.flash_act()
-
+/*			if(ishuman(M) && ishuman(user) && M.stat!=DEAD)	//why is this even a thing
+				if(user.mind && user.mind in revs.current_antagonists)
+					var/revsafe = 0
+					for(var/obj/item/weapon/implant/loyalty/L in M)
+						if(L && L.implanted)
+							revsafe = 1
+							break
+					M.mind_initialize()		//give them a mind datum if they don't have one.
+					if(M.mind.has_been_rev)
+						revsafe = 2
+					if(!revsafe)
+						M.mind.has_been_rev = 1
+						revs.add_antagonist(M.mind)
+					else if(revsafe == 1)
+						user << "<span class='warning'>Something seems to be blocking the flash!</span>"
+					else
+						user << "<span class='warning'>This mind seems resistant to the flash!</span>"	*/
 		else
 			flashfail = 1
 

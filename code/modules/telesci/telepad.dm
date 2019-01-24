@@ -29,12 +29,12 @@
 		return
 
 	if(panel_open)
-		if(I.ismultitool())
+		if(ismultitool(I))
 			var/obj/item/device/multitool/M = I
 			M.buffer = src
 			user << "<span class='caution'>You save the data in the [I.name]'s buffer.</span>"
 	else
-		if(I.ismultitool())
+		if(ismultitool(I))
 			user << "<span class='caution'>You should open [src]'s maintenance panel first.</span>"
 
 	default_deconstruction_crowbar(user, I)
@@ -59,7 +59,7 @@
 	var/stage = 0
 
 /obj/machinery/telepad_cargo/attackby(obj/item/weapon/W, mob/user, params)
-	if(W.iswrench())
+	if(iswrench(W))
 		anchored = 0
 		playsound(src, 'sound/items/Ratchet.ogg', 50, 1)
 		if(anchored)
@@ -68,7 +68,7 @@
 		else if(!anchored)
 			anchored = 1
 			user << "<span class='caution'>\The [src] is now secured.</span>"
-	if(W.isscrewdriver())
+	if(isscrewdriver(W))
 		if(stage == 0)
 			playsound(src, 'sound/items/Screwdriver.ogg', 50, 1)
 			user << "<span class='caution'>You unscrew the telepad's tracking beacon.</span>"
@@ -77,7 +77,7 @@
 			playsound(src, 'sound/items/Screwdriver.ogg', 50, 1)
 			user << "<span class='caution'>You screw in the telepad's tracking beacon.</span>"
 			stage = 0
-	if(W.iswelder() && stage == 1)
+	if(iswelder(W) && stage == 1)
 		playsound(src, 'sound/items/Welder.ogg', 50, 1)
 		user << "<span class='caution'>You disassemble the telepad.</span>"
 		new /obj/item/stack/material/steel(get_turf(src))

@@ -120,7 +120,7 @@
 			buildstate++
 			update_icon()
 			return
-	else if(W.iscoil())
+	else if(iscoil(W))
 		var/obj/item/stack/cable_coil/C = W
 		if(buildstate == 3)
 			if(C.use(10))
@@ -194,7 +194,7 @@
 			buildstate++
 			update_icon()
 			return
-	else if(W.iswelder())
+	else if(iswelder(W))
 		if(buildstate == 3)
 			var/obj/item/weapon/weldingtool/T = W
 			if(T.remove_fuel(0,user))

@@ -917,7 +917,7 @@ About the new airlock wires panel:
 /obj/machinery/door/airlock/proc/CanChainsaw(var/obj/item/weapon/material/twohanded/chainsaw/ChainSawVar)
 	return (ChainSawVar.powered && density && hashatch)
 
-/obj/machinery/door/airlock/attackby(var/obj/item/C, mob/user as mob)
+/obj/machinery/door/airlock/attackby(C as obj, mob/user as mob)
 	if(!istype(usr, /mob/living/silicon))
 		if(src.isElectrified())
 			if(src.shock(user, 75))
@@ -932,7 +932,7 @@ About the new airlock wires panel:
 		var/obj/item/device/magnetic_lock/newbracer = C
 		newbracer.attachto(src, user)
 		return
-	if(!repairing && (C.iswelder() && !( src.operating > 0 ) && src.density))
+	if(!repairing && (iswelder(C) && !( src.operating > 0 ) && src.density))
 		var/obj/item/weapon/weldingtool/WT = C
 		if(WT.isOn())
 			user.visible_message(
@@ -954,7 +954,7 @@ About the new airlock wires panel:
 			return
 		else
 			return
-	else if(C.isscrewdriver())
+	else if(isscrewdriver(C))
 		if (src.p_open)
 			if (stat & BROKEN)
 				usr << "<span class='warning'>The panel is broken and cannot be closed.</span>"
@@ -963,16 +963,16 @@ About the new airlock wires panel:
 		else
 			src.p_open = 1
 		src.update_icon()
-	else if(C.iswirecutter())
+	else if(iswirecutter(C))
 		return src.attack_hand(user)
-	else if(C.ismultitool())
+	else if(ismultitool(C))
 		return src.attack_hand(user)
 	else if(istype(C, /obj/item/device/assembly/signaler))
 		return src.attack_hand(user)
 	else if(istype(C, /obj/item/weapon/pai_cable))	// -- TLE
 		var/obj/item/weapon/pai_cable/cable = C
 		cable.plugin(src, user)
-	else if(!repairing && C.iscrowbar())
+	else if(!repairing && iscrowbar(C))
 		if(src.p_open && (operating < 0 || (!operating && welded && !src.arePowerSystemsOn() && density && (!src.locked || (stat & BROKEN)))) )
 			playsound(src.loc, 'sound/items/Crowbar.ogg', 100, 1)
 			user.visible_message("[user] removes the electronics from the airlock assembly.", "You start to remove electronics from the airlock assembly.")

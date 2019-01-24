@@ -181,7 +181,7 @@ for reference:
 					visible_message("<span class='warning'>BZZzZZzZZzZT</span>")
 					return
 			return
-		else if (W.iswrench())
+		else if (iswrench(W))
 			if (src.health < src.maxhealth)
 				user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 				src.health = src.maxhealth

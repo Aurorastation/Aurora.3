@@ -224,7 +224,7 @@
 	if (I || istype(W, /obj/item/weapon/spacecash))
 		attack_hand(user)
 		return
-	else if(W.isscrewdriver())
+	else if(isscrewdriver(W))
 		src.panel_open = !src.panel_open
 		user << "You [src.panel_open ? "open" : "close"] the maintenance panel."
 		cut_overlays()
@@ -233,7 +233,7 @@
 
 		SSnanoui.update_uis(src)  // Speaker switch is on the main UI, not wires UI
 		return
-	else if(W.ismultitool()||W.iswirecutter())
+	else if(ismultitool(W)||iswirecutter(W))
 		if(src.panel_open)
 			attack_hand(user)
 		return
@@ -244,7 +244,7 @@
 		user << "<span class='notice'>You insert \the [W] into \the [src].</span>"
 		SSnanoui.update_uis(src)
 		return
-	else if(W.iswrench())
+	else if(iswrench(W))
 		if(!can_move)
 			return
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)

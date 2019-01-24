@@ -103,7 +103,7 @@
 
 	//Stuff you can do if the maint hatch is open
 	if(panel_open)
-		if(O.iswrench())
+		if(iswrench(O))
 			user << "<span class='notice'>You start [valve_open ? "closing" : "opening"] the pressure relief valve of [src].</span>"
 			if(do_after(user,50))
 				valve_open = !valve_open

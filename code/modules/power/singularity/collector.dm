@@ -66,11 +66,11 @@ var/global/list/rad_collectors = list()
 		src.P = W
 		update_icons()
 		return 1
-	else if(W.iscrowbar())
+	else if(iscrowbar(W))
 		if(P && !src.locked)
 			eject()
 			return 1
-	else if(W.iswrench())
+	else if(iswrench(W))
 		if(P)
 			user << "<span class='notice'>Remove the phoron tank first.</span>"
 			return 1

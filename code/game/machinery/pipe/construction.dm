@@ -432,7 +432,7 @@ Buildable meters
 /obj/item/pipe/attackby(var/obj/item/weapon/W as obj, var/mob/user as mob)
 	..()
 	//*
-	if (!W.iswrench() && !istype(W, /obj/item/weapon/pipewrench))
+	if (!iswrench(W) && !istype(W, /obj/item/weapon/pipewrench))
 		return ..()
 	if(istype(W, /obj/item/weapon/pipewrench))
 		var/action = alert(user, "Change pipe?", "Change pipe", "Yes", "No")
@@ -1205,7 +1205,7 @@ Buildable meters
 /obj/item/pipe_meter/attackby(var/obj/item/weapon/W as obj, var/mob/user as mob)
 	..()
 
-	if (!W.iswrench())
+	if (!iswrench(W))
 		return ..()
 	if(!locate(/obj/machinery/atmospherics/pipe, src.loc))
 		user << "<span class='warning'>You need to fasten it to a pipe</span>"

@@ -236,7 +236,7 @@ proc/cardinalrange(var/center)
 	throw_range = 2
 
 /obj/item/device/am_shielding_container/attackby(var/obj/item/I, var/mob/user)
-	if(I.ismultitool() && isturf(loc))
+	if(ismultitool(I) && isturf(loc))
 		if(locate(/obj/machinery/am_shielding/) in loc)
 			to_chat(user, "<span class='warning'>\icon[src]There is already an antimatter reactor section there.</span>")
 			return

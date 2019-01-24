@@ -11,11 +11,11 @@
 /obj/item/assembly/shock_kit/Destroy()
 	qdel(part1)
 	qdel(part2)
-
+	
 	return ..()
 
 /obj/item/assembly/shock_kit/attackby(obj/item/weapon/W as obj, mob/user as mob)
-	if(W.iswrench() && !status)
+	if(iswrench(W) && !status)
 		var/turf/T = loc
 		if(ismob(T))
 			T = T.loc
@@ -27,7 +27,7 @@
 		part2 = null
 		qdel(src)
 		return
-	if(W.isscrewdriver())
+	if(isscrewdriver(W))
 		status = !status
 		user << "<span class='notice'>[src] is now [status ? "secured" : "unsecured"]!</span>"
 	add_fingerprint(user)

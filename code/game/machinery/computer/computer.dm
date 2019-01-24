@@ -93,8 +93,8 @@
 	text = replacetext(text, "\n", "<BR>")
 	return text
 
-/obj/machinery/computer/attackby(var/obj/I, user as mob)
-	if(I.isscrewdriver() && circuit)
+/obj/machinery/computer/attackby(I as obj, user as mob)
+	if(isscrewdriver(I) && circuit)
 		playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, 1)
 		if(do_after(user, 20))
 			var/obj/structure/computerframe/A = new /obj/structure/computerframe( src.loc )

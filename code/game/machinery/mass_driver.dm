@@ -54,7 +54,7 @@
 
 /obj/machinery/mass_driver/attackby(obj/item/W, mob/user)
 
-	if(W.iswrench())
+	if(iswrench(W))
 		if(!anchored)
 			playsound(src.loc, 'sound/items/Ratchet.ogg', 75, 1)
 			user.visible_message("[user.name] secures [src] to the floor.", \

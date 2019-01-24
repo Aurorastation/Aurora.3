@@ -77,17 +77,17 @@
 /obj/vehicle/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	if(istype(W, /obj/item/weapon/hand_labeler))
 		return
-	if(W.isscrewdriver())
+	if(isscrewdriver(W))
 		if(!locked)
 			open = !open
 			update_icon()
 			user << "<span class='notice'>Maintenance panel is now [open ? "opened" : "closed"].</span>"
-	else if(W.iscrowbar() && cell && open)
+	else if(iscrowbar(W) && cell && open)
 		remove_cell(user)
 
 	else if(istype(W, /obj/item/weapon/cell) && !cell && open)
 		insert_cell(W, user)
-	else if(W.iswelder())
+	else if(iswelder(W))
 		var/obj/item/weapon/weldingtool/T = W
 		if(T.welding)
 			if(health < maxhealth)

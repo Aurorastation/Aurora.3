@@ -198,6 +198,3 @@ INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy/mannequin)
 
 /mob/living/carbon/human/adamantine_golem/Initialize(mapload)
 	. = ..(mapload, "Adamantine Golem")
-
-/mob/living/carbon/human/autakh/Initialize(mapload)
-	. = ..(mapload, "Aut'akh Unathi")

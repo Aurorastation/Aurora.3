@@ -51,6 +51,64 @@
 		return
 	return
 
+/*
+/obj/machinery/computer/pod/attackby(I as obj, user as mob)
+	if(isscrewdriver(I))
+		playsound(loc, 'sound/items/Screwdriver.ogg', 50, 1)
+		if(do_after(user, 20))
+			if(stat & BROKEN)
+				user << "<span class='notice'>The broken glass falls out.</span>"
+				var/obj/structure/computerframe/A = new /obj/structure/computerframe( loc )
+				new /obj/item/weapon/material/shard( loc )
+
+				//generate appropriate circuitboard. Accounts for /pod/old computer types
+				var/obj/item/weapon/circuitboard/pod/M = null
+				if(istype(src, /obj/machinery/computer/pod/old))
+					M = new /obj/item/weapon/circuitboard/olddoor( A )
+					if(istype(src, /obj/machinery/computer/pod/old/syndicate))
+						M = new /obj/item/weapon/circuitboard/syndicatedoor( A )
+					if(istype(src, /obj/machinery/computer/pod/old/swf))
+						M = new /obj/item/weapon/circuitboard/swfdoor( A )
+				else //it's not an old computer. Generate standard pod circuitboard.
+					M = new /obj/item/weapon/circuitboard/pod( A )
+
+				for (var/obj/C in src)
+					C.forceMove(loc)
+				M.id = id
+				A.circuit = M
+				A.state = 3
+				A.icon_state = "3"
+				A.anchored = 1
+				qdel(src)
+			else
+				user << "<span class='notice'>You disconnect the monitor.</span>"
+				var/obj/structure/computerframe/A = new /obj/structure/computerframe( loc )
+
+				//generate appropriate circuitboard. Accounts for /pod/old computer types
+				var/obj/item/weapon/circuitboard/pod/M = null
+				if(istype(src, /obj/machinery/computer/pod/old))
+					M = new /obj/item/weapon/circuitboard/olddoor( A )
+					if(istype(src, /obj/machinery/computer/pod/old/syndicate))
+						M = new /obj/item/weapon/circuitboard/syndicatedoor( A )
+					if(istype(src, /obj/machinery/computer/pod/old/swf))
+						M = new /obj/item/weapon/circuitboard/swfdoor( A )
+				else //it's not an old computer. Generate standard pod circuitboard.
+					M = new /obj/item/weapon/circuitboard/pod( A )
+
+				for (var/obj/C in src)
+					C.forceMove(loc)
+				M.id = id
+				A.circuit = M
+				A.state = 4
+				A.icon_state = "4"
+				A.anchored = 1
+				qdel(src)
+	else
+		attack_hand(user)
+	return
+*/
+
+
 /obj/machinery/computer/pod/attack_ai(var/mob/user as mob)
 	return attack_hand(user)
 

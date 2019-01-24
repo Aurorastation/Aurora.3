@@ -253,20 +253,7 @@
 	return src.attack_hand(user)
 
 /obj/machinery/door/attack_hand(mob/user as mob)
-	if(src.operating > 0 || isrobot(user))	return //borgs can't attack doors open because it conflicts with their AI-like interaction with them.
-
-	if(src.operating) return
-
-	if(src.allowed(user) && operable())
-		if(src.density)
-			open()
-		else
-			close()
-		return
-
-	if(src.density)
-		do_animate("deny")
-		return
+	return src.attackby(user, user)
 
 /obj/machinery/door/attack_tk(mob/user as mob)
 	if(requiresID() && !allowed(null))
@@ -308,7 +295,7 @@
 
 		return
 
-	if(repairing && I.iswelder())
+	if(repairing && iswelder(I))
 		if(!density)
 			user << "<span class='warning'>\The [src] must be closed before you can repair it.</span>"
 			return
@@ -325,7 +312,7 @@
 				repairing = null
 		return
 
-	if(repairing && I.iscrowbar())
+	if(repairing && iscrowbar(I))
 		user << "<span class='notice'>You remove \the [repairing].</span>"
 		playsound(src.loc, 'sound/items/Crowbar.ogg', 100, 1)
 		repairing.forceMove(user.loc)

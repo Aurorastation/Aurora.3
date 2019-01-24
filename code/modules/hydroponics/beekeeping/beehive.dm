@@ -38,12 +38,12 @@
 		user << "The lid is open. The bees can't grow and produce honey until it's closed!"
 
 /obj/machinery/beehive/attackby(var/obj/item/I, var/mob/user)
-	if(I.iscrowbar())
+	if(iscrowbar(I))
 		closed = !closed
 		user.visible_message("<span class='notice'>[user] [closed ? "closes" : "opens"] \the [src].</span>", "<span class='notice'>You [closed ? "close" : "open"] \the [src].</span>")
 		update_icon()
 		return
-	else if(I.iswrench())
+	else if(iswrench(I))
 		anchored = !anchored
 		user.visible_message("<span class='notice'>[user] [anchored ? "wrenches" : "unwrenches"] \the [src].</span>", "<span class='notice'>You [anchored ? "wrench" : "unwrench"] \the [src].</span>")
 		if (!smoked && !anchored && (bee_count > 10))
@@ -102,7 +102,7 @@
 		if(smoked)
 			user << "The hive is smoked."
 		return 1
-	else if(I.isscrewdriver())
+	else if(isscrewdriver(I))
 		if(bee_count)
 			visible_message("<span class='danger'>The bees are furious you're trying to destroy their home!</span>")
 			release_bees(1, 30)

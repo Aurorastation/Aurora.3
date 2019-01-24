@@ -103,7 +103,7 @@
 
 /obj/structure/table/attackby(obj/item/weapon/W, mob/user)
 
-	if(reinforced && W.isscrewdriver())
+	if(reinforced && isscrewdriver(W))
 		remove_reinforced(W, user)
 		if(!reinforced)
 			update_desc()
@@ -111,7 +111,7 @@
 			update_material()
 		return 1
 
-	if(carpeted && W.iscrowbar())
+	if(carpeted && iscrowbar(W))
 		user.visible_message("<span class='notice'>\The [user] removes the carpet from \the [src].</span>",
 		                              "<span class='notice'>You remove the carpet from \the [src].</span>")
 		new /obj/item/stack/tile/carpet(loc)
@@ -130,7 +130,7 @@
 		else
 			user << "<span class='warning'>You don't have enough carpet!</span>"
 
-	if(!reinforced && !carpeted && material && W.iswrench())
+	if(!reinforced && !carpeted && material && iswrench(W))
 		remove_material(W, user)
 		if(!material)
 			update_connections(1)
@@ -141,11 +141,11 @@
 			update_material()
 		return 1
 
-	if(!carpeted && !reinforced && !material && W.iswrench())
+	if(!carpeted && !reinforced && !material && iswrench(W))
 		dismantle(W, user)
 		return 1
 
-	if(health < maxhealth && W.iswelder())
+	if(health < maxhealth && iswelder(W))
 		var/obj/item/weapon/weldingtool/F = W
 		if(F.welding)
 			user << "<span class='notice'>You begin reparing damage to \the [src].</span>"

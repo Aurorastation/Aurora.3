@@ -266,7 +266,7 @@
 			flick("flash", H.flash)
 			H.eye_blurry = 5
 
-		if(W.iscoil())
+		if(iscoil(W))
 			to_chat(H, "<span class='warning'>You strangle \the [src] with \the [W]!</span>")
 			H.silent += 10
 			playsound(get_turf(H), 'sound/effects/noosed.ogg', 50, 1, -1)

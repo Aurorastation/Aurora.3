@@ -14,13 +14,13 @@
 
 	switch(state)
 		if(0)
-			if(P.iswrench())
+			if(iswrench(P))
 				playsound(loc, 'sound/items/Ratchet.ogg', 50, 1)
 				if(do_after(user, 20))
 					user << "<span class='notice'>You wrench the frame into place.</span>"
 					anchored = 1
 					state = 1
-			if(P.iswelder())
+			if(iswelder(P))
 				var/obj/item/weapon/weldingtool/WT = P
 				if(!WT.isOn())
 					user << "The welder must be on for this task."
@@ -32,7 +32,7 @@
 					new /obj/item/stack/material/plasteel( loc, 4)
 					qdel(src)
 		if(1)
-			if(P.iswrench())
+			if(iswrench(P))
 				playsound(loc, 'sound/items/Ratchet.ogg', 50, 1)
 				if(do_after(user, 20))
 					user << "<span class='notice'>You unfasten the frame.</span>"
@@ -44,12 +44,12 @@
 				icon_state = "1"
 				circuit = P
 				user.drop_from_inventory(P,src)
-			if(P.isscrewdriver() && circuit)
+			if(isscrewdriver(P) && circuit)
 				playsound(loc, 'sound/items/Screwdriver.ogg', 50, 1)
 				user << "<span class='notice'>You screw the circuit board into place.</span>"
 				state = 2
 				icon_state = "2"
-			if(P.iscrowbar() && circuit)
+			if(iscrowbar(P) && circuit)
 				playsound(loc, 'sound/items/Crowbar.ogg', 50, 1)
 				user << "<span class='notice'>You remove the circuit board.</span>"
 				state = 1
@@ -57,12 +57,12 @@
 				circuit.forceMove(loc)
 				circuit = null
 		if(2)
-			if(P.isscrewdriver() && circuit)
+			if(isscrewdriver(P) && circuit)
 				playsound(loc, 'sound/items/Screwdriver.ogg', 50, 1)
 				user << "<span class='notice'>You unfasten the circuit board.</span>"
 				state = 1
 				icon_state = "1"
-			if(P.iscoil())
+			if(iscoil(P))
 				var/obj/item/stack/cable_coil/C = P
 				if (C.get_amount() < 5)
 					user << "<span class='warning'>You need five coils of wire to add them to the frame.</span>"
@@ -76,7 +76,7 @@
 						user << "<span class='notice'>You add cables to the frame.</span>"
 				return
 		if(3)
-			if(P.iswirecutter())
+			if(iswirecutter(P))
 				if (brain)
 					user << "Get that brain out of there first"
 				else
@@ -143,7 +143,7 @@
 				usr << "Added [P]."
 				icon_state = "3b"
 
-			if(P.iscrowbar() && brain)
+			if(iscrowbar(P) && brain)
 				playsound(loc, 'sound/items/Crowbar.ogg', 50, 1)
 				user << "<span class='notice'>You remove the brain.</span>"
 				brain.forceMove(loc)
@@ -151,7 +151,7 @@
 				icon_state = "3"
 
 		if(4)
-			if(P.iscrowbar())
+			if(iscrowbar(P))
 				playsound(loc, 'sound/items/Crowbar.ogg', 50, 1)
 				user << "<span class='notice'>You remove the glass panel.</span>"
 				state = 3
@@ -162,7 +162,7 @@
 				new /obj/item/stack/material/glass/reinforced( loc, 2 )
 				return
 
-			if(P.isscrewdriver())
+			if(isscrewdriver(P))
 				playsound(loc, 'sound/items/Screwdriver.ogg', 50, 1)
 				user << "<span class='notice'>You connect the monitor.</span>"
 				if(!brain)
@@ -225,7 +225,7 @@
 		else
 			user << "<span class='danger'>ERROR:</span> Unable to locate artificial intelligence."
 		return
-	else if(W.iswrench())
+	else if(iswrench(W))
 		if(anchored)
 			user.visible_message("<span class='notice'>\The [user] starts to unbolt \the [src] from the plating...</span>")
 			if(!do_after(user,40))

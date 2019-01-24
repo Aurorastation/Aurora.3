@@ -42,7 +42,7 @@
 		var/turf/T = get_turf(src)
 		T.attackby(C, user) //BubbleWrap - hand this off to the underlying turf instead
 		return
-	if (C.iswelder())
+	if (iswelder(C))
 		var/obj/item/weapon/weldingtool/WT = C
 		if(WT.remove_fuel(0, user))
 			user << "<span class='notice'>Slicing lattice joints ...</span>"
@@ -73,7 +73,7 @@
 	layer = 2.7	// Above wires.
 
 /obj/structure/lattice/catwalk/attackby(obj/item/C, mob/user)
-	if (C.iswelder())
+	if (iswelder(C))
 		var/obj/item/weapon/weldingtool/WT = C
 		if (do_after(user, 5, act_target = src) && WT.remove_fuel(1, user))
 			user << "<span class='notice'>You slice apart [src].</span>"
@@ -82,7 +82,7 @@
 			qdel(src)
 
 /obj/structure/lattice/catwalk/indoor/attackby(obj/item/C, mob/user)
-	if (C.isscrewdriver())
+	if (isscrewdriver(C))
 		anchored = !anchored
 		user << "<span class='notice'>You [anchored ? "" : "un"]anchor [src].</span>"
 		playsound(src, 'sound/items/Screwdriver.ogg', 50, 1)

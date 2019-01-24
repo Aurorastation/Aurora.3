@@ -157,7 +157,7 @@
 
 
 /obj/machinery/shieldwallgen/attackby(obj/item/W, mob/user)
-	if(W.iswrench())
+	if(iswrench(W))
 		if(active)
 			user << "Turn off the field generator first."
 			return

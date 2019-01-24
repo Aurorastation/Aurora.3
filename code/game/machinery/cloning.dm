@@ -238,7 +238,7 @@
 		user.drop_from_inventory(W,src)
 		qdel(W)
 		return
-	else if(W.iswrench())
+	else if(iswrench(W))
 		if(locked && (anchored || occupant))
 			user << "<span class='warning'>Can not do that while [src] is in use.</span>"
 		else

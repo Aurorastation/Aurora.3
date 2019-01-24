@@ -44,7 +44,7 @@
 
 /obj/machinery/light_construct/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	add_fingerprint(user)
-	if (W.iswrench())
+	if (iswrench(W))
 		if (src.stage == 1)
 			playsound(src.loc, 'sound/items/Ratchet.ogg', 75, 1)
 			usr << "You begin deconstructing [src]."
@@ -68,7 +68,7 @@
 			usr << "You have to unscrew the case first."
 			return
 
-	if(W.iswirecutter())
+	if(iswirecutter(W))
 		if (src.stage != 2) return
 		src.stage = 1
 		switch(fixture_type)
@@ -79,13 +79,13 @@
 		new /obj/item/stack/cable_coil(get_turf(src.loc), 1, "red")
 		user.visible_message(
 			"[user] removes the wiring from [src].",
-			"You remove the wiring from [src].",
+			"You remove the wiring from [src].", 
 			"You hear something being cut."
 		)
 		playsound(src.loc, 'sound/items/Wirecutter.ogg', 100, 1)
 		return
 
-	if(W.iscoil())
+	if(iscoil(W))
 		if (src.stage != 1) return
 		var/obj/item/stack/cable_coil/coil = W
 		if (coil.use(1))
@@ -101,7 +101,7 @@
 			)
 		return
 
-	if(W.isscrewdriver())
+	if(isscrewdriver(W))
 		if (stage == 2)
 			switch(fixture_type)
 				if("tube")
@@ -156,7 +156,7 @@
 			add_fingerprint(user)
 			return
 
-	if (W.iscrowbar())
+	if (iscrowbar(W))
 		if (!cell_connectors)
 			to_chat(user, "<span class='notice'>[src] does not have a power cell connector.</span>")
 			return

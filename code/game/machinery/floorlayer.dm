@@ -36,7 +36,7 @@
 
 /obj/machinery/floorlayer/attackby(var/obj/item/W as obj, var/mob/user as mob)
 
-	if (W.iswrench())
+	if (iswrench(W))
 		var/m = input("Choose work mode", "Mode") as null|anything in mode
 		mode[m] = !mode[m]
 		var/O = mode[m]
@@ -49,7 +49,7 @@
 		TakeTile(T)
 		return
 
-	if(W.iscrowbar())
+	if(iscrowbar(W))
 		if(!length(contents))
 			user << "<span class='notice'>\The [src] is empty.</span>"
 		else
@@ -60,7 +60,7 @@
 				T = null
 		return
 
-	if(W.isscrewdriver())
+	if(isscrewdriver(W))
 		T = input("Choose tile type.", "Tiles") as null|anything in contents
 		return
 	..()

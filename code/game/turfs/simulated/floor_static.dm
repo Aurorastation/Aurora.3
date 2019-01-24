@@ -8,7 +8,7 @@
 	initial_flooring = null
 
 /turf/simulated/floor/fixed/attackby(var/obj/item/C, var/mob/user)
-	if(istype(C, /obj/item/stack) && !C.iscoil())
+	if(istype(C, /obj/item/stack) && !iscoil(C))
 		return
 	return ..()
 

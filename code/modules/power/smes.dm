@@ -293,7 +293,7 @@
 
 
 /obj/machinery/power/smes/attackby(var/obj/item/weapon/W as obj, var/mob/user as mob)
-	if(W.isscrewdriver())
+	if(isscrewdriver(W))
 		if(!open_hatch)
 			open_hatch = 1
 			user << "<span class='notice'>You open the maintenance hatch of [src].</span>"
@@ -307,7 +307,7 @@
 		user << "<span class='warning'>You need to open access hatch on [src] first!</span>"
 		return 0
 
-	if(W.iscoil() && !terminal && !building_terminal)
+	if(iscoil(W) && !terminal && !building_terminal)
 		building_terminal = 1
 		var/obj/item/stack/cable_coil/CC = W
 		if (CC.get_amount() <= 10)
@@ -326,7 +326,7 @@
 		stat = 0
 		return 0
 
-	else if(W.iswirecutter() && terminal && !building_terminal)
+	else if(iswirecutter(W) && terminal && !building_terminal)
 		building_terminal = 1
 		var/turf/tempTDir = terminal.loc
 		if (istype(tempTDir))

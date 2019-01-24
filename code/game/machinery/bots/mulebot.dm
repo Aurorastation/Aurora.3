@@ -93,7 +93,7 @@
 		user.drop_from_inventory(C,src)
 		cell = C
 		updateDialog()
-	else if(I.isscrewdriver())
+	else if(isscrewdriver(I))
 		if(locked)
 			user << "<span class='notice'>The maintenance hatch cannot be opened or closed while the controls are locked.</span>"
 			return
@@ -108,7 +108,7 @@
 			icon_state = "mulebot0"
 
 		updateDialog()
-	else if (I.iswrench())
+	else if (iswrench(I))
 		if (src.health < maxhealth)
 			src.health = min(maxhealth, src.health+25)
 			user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)

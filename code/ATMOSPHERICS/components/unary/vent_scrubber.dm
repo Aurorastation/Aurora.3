@@ -113,7 +113,7 @@
 		"filter_n2o" = ("sleeping_agent" in scrubbing_gas),
 		"sigtype" = "status"
 	)
-
+	
 	var/area/A = get_area(src)
 	if(!A.air_scrub_names[id_tag])
 		var/new_name = "[A.name] Air Scrubber #[A.air_scrub_names.len+1]"
@@ -253,7 +253,7 @@
 		update_icon()
 
 /obj/machinery/atmospherics/unary/vent_scrubber/attackby(var/obj/item/weapon/W as obj, var/mob/user as mob)
-	if (W.iswrench())
+	if (iswrench(W))
 		if (!(stat & NOPOWER) && use_power)
 			user << "<span class='warning'>You cannot unwrench \the [src], turn it off first.</span>"
 			return 1
@@ -278,7 +278,7 @@
 			qdel(src)
 		return 1
 
-	if(W.iswelder())
+	if(iswelder(W))
 		var/obj/item/weapon/weldingtool/WT = W
 		if (!WT.welding)
 			user << "<span class='danger'>\The [WT] must be turned on!</span>"
@@ -314,5 +314,5 @@
 	if(initial_loc)
 		initial_loc.air_scrub_info -= id_tag
 		initial_loc.air_scrub_names -= id_tag
-
+	
 	return ..()

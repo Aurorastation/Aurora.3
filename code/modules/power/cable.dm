@@ -132,7 +132,7 @@ var/list/possible_cable_coil_colours = list(
 	if(!T.can_have_cabling())
 		return
 
-	if(W.iswirecutter())
+	if(iswirecutter(W))
 		if(d1 == 12 || d2 == 12)
 			user << "<span class='warning'>You must cut this cable from above.</span>"
 			return
@@ -165,14 +165,14 @@ var/list/possible_cable_coil_colours = list(
 		return
 
 
-	else if(W.iscoil())
+	else if(iscoil(W))
 		var/obj/item/stack/cable_coil/coil = W
 		if (coil.get_amount() < 1)
 			user << "Not enough cable"
 			return
 		coil.cable_join(src, user)
 
-	else if(W.ismultitool())
+	else if(ismultitool(W))
 
 		if(powernet && (powernet.avail > 0))		// is it powered?
 			user << "<span class='warning'>[powernet.avail]W in power network.</span>"
@@ -475,9 +475,6 @@ obj/structure/cable/proc/cableColor(var/colorC)
 	attack_verb = list("whipped", "lashed", "disciplined", "flogged")
 	stacktype = /obj/item/stack/cable_coil
 
-/obj/item/stack/cable_coil/iscoil()
-	return TRUE
-
 /obj/item/stack/cable_coil/cyborg
 	name = "cable coil synthesizer"
 	desc = "A device that makes cable."
@@ -509,7 +506,7 @@ obj/structure/cable/proc/cableColor(var/colorC)
 		var/obj/item/organ/external/S = H.organs_by_name[user.zone_sel.selecting]
 
 		if (!S) return
-		if(!(S.status & ORGAN_ASSISTED) || user.a_intent != I_HELP)
+		if(!(S.status & ORGAN_ROBOT) || user.a_intent != I_HELP)
 			return ..()
 
 		if(M.isSynthetic() && M == user)
@@ -921,7 +918,7 @@ obj/structure/cable/proc/cableColor(var/colorC)
 	var/ticks = 0
 
 /obj/structure/noose/attackby(obj/item/W, mob/user, params)
-	if(W.iswirecutter())
+	if(iswirecutter(W))
 		user.visible_message("[user] cuts the noose.", "<span class='notice'>You cut the noose.</span>")
 		if(buckled_mob)
 			buckled_mob.visible_message("<span class='danger'>[buckled_mob] falls over and hits the ground!</span>",\

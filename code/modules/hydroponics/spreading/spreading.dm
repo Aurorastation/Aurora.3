@@ -242,7 +242,7 @@
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 	SSplants.add_plant(src)
 
-	if(W.iswirecutter() || istype(W, /obj/item/weapon/scalpel))
+	if(iswirecutter(W) || istype(W, /obj/item/weapon/scalpel))
 		if(sampled)
 			user << "<span class='warning'>\The [src] has already been sampled recently.</span>"
 			return

@@ -56,8 +56,8 @@
 			return ..()
 	if(istype(W, /obj/item/weapon/pen) || istype(W, /obj/item/device/flashlight/pen))
 		var/tmp_label = sanitizeSafe(input(user, "Enter a label for [name]", "Label", label_text), MAX_NAME_LEN)
-		if(length(tmp_label) > 15)
-			user << "<span class='notice'>The label can be at most 15 characters long.</span>"
+		if(length(tmp_label) > 10)
+			user << "<span class='notice'>The label can be at most 10 characters long.</span>"
 		else
 			user << "<span class='notice'>You set the label to \"[tmp_label]\".</span>"
 			label_text = tmp_label
@@ -80,9 +80,6 @@
 /obj/item/weapon/reagent_containers/glass/beaker/Initialize()
 	. = ..()
 	desc += " Can hold up to [volume] units."
-
-/obj/item/weapon/reagent_containers/glass/beaker/self_feed_message(var/mob/user)
-	to_chat(user, "<span class='notice'>You drink from \the [src].</span>")
 
 /obj/item/weapon/reagent_containers/glass/beaker/on_reagent_change()
 	update_icon()
@@ -226,9 +223,6 @@
 	cut_overlays()
 	if (!is_open_container())
 		add_overlay("lid_[initial(icon_state)]")
-
-/obj/item/weapon/reagent_containers/glass/bucket/self_feed_message(var/mob/user)
-	to_chat(user, "<span class='notice'>You drink heavily from \the [src].</span>")
 
 
 obj/item/weapon/reagent_containers/glass/bucket/wood

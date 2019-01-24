@@ -132,7 +132,7 @@
 					update_icon()
 				return
 
-			if (I.iswelder())
+			if (iswelder(I))
 				var/obj/item/weapon/weldingtool/WT = I
 				if (WT.remove_fuel(2, user))
 					user.visible_message(span("notice", "[user] starts welding the metal shell of [src]."), span("notice", "You start [hacked ? "repairing" : "welding open"] the metal covering of [src]."))
@@ -149,7 +149,7 @@
 					update_icon()
 					return
 
-			if (I.iscrowbar())
+			if (iscrowbar(I))
 				if (!locked)
 					user << span("notice", "You pry the cover off [src].")
 					setconstructionstate(1)
@@ -163,19 +163,19 @@
 					user << span("notice","There's already a powercell in \the [src].")
 				return
 
-			if (I.iscrowbar())
+			if (iscrowbar(I))
 				user << span("notice", "You wedge the cover back in place.")
 				setconstructionstate(0)
 				return
 
 		if (2)
-			if (I.isscrewdriver())
+			if (isscrewdriver(I))
 				user << span("notice", "You unscrew and remove the wiring cover from \the [src].")
 				playsound(loc, 'sound/items/Screwdriver.ogg', 50, 1)
 				setconstructionstate(3)
 				return
 
-			if (I.iscrowbar())
+			if (iscrowbar(I))
 				user << span("notice", "You wedge the cover back in place.")
 				setconstructionstate(0)
 				return
@@ -189,20 +189,20 @@
 				return
 
 		if (3)
-			if (I.iswirecutter())
+			if (iswirecutter(I))
 				user << span("notice", "You cut the wires connecting the [src]'s magnets to their internal powersupply, [target ? "making the device fall off [target] and rendering it unusable." : "rendering the device unusable."]")
 				playsound(loc, 'sound/items/Wirecutter.ogg', 50, 1)
 				setconstructionstate(4)
 				return
 
-			if (I.isscrewdriver())
+			if (isscrewdriver(I))
 				user << span("notice", "You replace and screw tight the wiring cover from \the [src].")
 				playsound(loc, 'sound/items/Screwdriver.ogg', 50, 1)
 				setconstructionstate(2)
 				return
 
 		if (4)
-			if (I.iswirecutter())
+			if (iswirecutter(I))
 				user << span("notice", "You repair the wires connecting the [src]'s magnets to their internal powersupply")
 				setconstructionstate(3)
 				return

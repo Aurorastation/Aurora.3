@@ -66,7 +66,7 @@
 		return 1
 
 	attackby(var/obj/item/weapon/W as obj, var/mob/user as mob)
-		if (!W.iswrench())
+		if (!iswrench(W))
 			return ..()
 		var/turf/T = src.loc
 		if (level==1 && isturf(T) && !T.is_plating())

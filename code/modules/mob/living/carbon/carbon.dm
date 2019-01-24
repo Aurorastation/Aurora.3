@@ -425,6 +425,3 @@
 		return TRUE
 	if(CE_PACIFIED in chem_effects)
 		return TRUE
-
-/mob/living/carbon/proc/get_metabolism(metabolism)
-	return metabolism

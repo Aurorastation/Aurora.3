@@ -27,7 +27,7 @@
 	return
 
 /obj/machinery/cablelayer/attackby(var/obj/item/O as obj, var/mob/user as mob)
-	if(O.iscoil())
+	if(iscoil(O))
 
 		var/result = load_cable(O)
 		if(!result)
@@ -36,7 +36,7 @@
 			user << "You load [result] lengths of cable into [src]."
 		return
 
-	if(O.iswirecutter())
+	if(iswirecutter(O))
 		if(cable && cable.amount)
 			var/m = round(input(usr,"Please specify the length of cable to cut","Cut cable",min(cable.amount,30)) as num, 1)
 			m = min(m, cable.amount)
@@ -74,7 +74,7 @@
 		visible_message("A red light flashes on \the [src].")
 		return
 	cable.use(amount)
-	if(QDELETED(cable))
+	if(QDELETED(cable)) 
 		cable = null
 	return 1
 

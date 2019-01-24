@@ -373,7 +373,7 @@
 	if(istype(W, /obj/item/weapon/reagent_containers) && contents.len)
 		var/mob/living/L = pick(contents)
 		W.afterattack(L, user, TRUE)
-	else if(W.iswelder())
+	else if(iswelder(W))
 		var/obj/item/weapon/weldingtool/WT = W
 		user.visible_message("<span class='notice'>[user] is trying to slice \the [src]!</span>",
 							 "You are trying to slice \the [src]!")
@@ -388,7 +388,7 @@
 				new /obj/item/stack/material/steel(src.loc, resources["metal"])
 			qdel(src)
 
-	else if(W.isscrewdriver())
+	else if(istype(W, /obj/item/weapon/screwdriver))
 		var/turf/T = get_turf(src)
 		if(!T)
 			to_chat(user, "<span class='warning'>There is nothing to secure [src] to!</span>")

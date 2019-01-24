@@ -78,7 +78,7 @@
 
 /obj/structure/fireaxecabinet/attackby(var/obj/item/O, var/mob/user)
 
-	if(O.ismultitool())
+	if(ismultitool(O))
 		toggle_lock(user)
 		return
 

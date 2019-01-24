@@ -85,7 +85,7 @@
 /obj/machinery/firealarm/attackby(obj/item/W as obj, mob/user as mob)
 	src.add_fingerprint(user)
 
-	if (W.isscrewdriver() && buildstage == 2)
+	if (isscrewdriver(W) && buildstage == 2)
 		if(!wiresexposed)
 			set_light(0)
 		wiresexposed = !wiresexposed
@@ -96,20 +96,20 @@
 		set_light(0)
 		switch(buildstage)
 			if(2)
-				if (W.ismultitool())
+				if (ismultitool(W))
 					src.detecting = !( src.detecting )
 					if (src.detecting)
 						user.visible_message("<span class='notice'>\The [user] has reconnected [src]'s detecting unit!</span>", "<span class='notice'>You have reconnected [src]'s detecting unit.</span>")
 					else
 						user.visible_message("<span class='notice'>\The [user] has disconnected [src]'s detecting unit!</span>", "<span class='notice'>You have disconnected [src]'s detecting unit.</span>")
-				else if (W.iswirecutter())
+				else if (iswirecutter(W))
 					user.visible_message("<span class='notice'>\The [user] has cut the wires inside \the [src]!</span>", "<span class='notice'>You have cut the wires inside \the [src].</span>")
 					new/obj/item/stack/cable_coil(get_turf(src), 5)
 					playsound(src.loc, 'sound/items/Wirecutter.ogg', 50, 1)
 					buildstage = 1
 					update_icon()
 			if(1)
-				if(W.iscoil())
+				if(iscoil(W))
 					var/obj/item/stack/cable_coil/C = W
 					if (C.use(5))
 						user << "<span class='notice'>You wire \the [src].</span>"
@@ -118,7 +118,7 @@
 					else
 						user << "<span class='warning'>You need 5 pieces of cable to wire \the [src].</span>"
 						return
-				else if(W.iscrowbar())
+				else if(iscrowbar(W))
 					user << "You pry out the circuit!"
 					playsound(src.loc, 'sound/items/Crowbar.ogg', 50, 1)
 					spawn(20)
@@ -133,7 +133,7 @@
 					buildstage = 1
 					update_icon()
 
-				else if(W.iswrench())
+				else if(iswrench(W))
 					user << "You remove the fire alarm assembly from the wall!"
 					new /obj/item/frame/fire_alarm(get_turf(user))
 					playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)

@@ -181,7 +181,7 @@
 			update_icon()
 			qdel(G)
 			return
-	else if(I.isscrewdriver())
+	else if(isscrewdriver(I))
 		user << "You [panel_open ? "open" : "close"] the maintenance panel."
 		panel_open = !panel_open
 

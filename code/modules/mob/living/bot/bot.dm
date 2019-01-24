@@ -87,14 +87,14 @@
 			else
 				user << "<span class='warning'>Access denied.</span>"
 		return
-	else if(O.isscrewdriver())
+	else if(isscrewdriver(O))
 		if(!locked)
 			open = !open
 			user << "<span class='notice'>Maintenance panel is now [open ? "opened" : "closed"].</span>"
 		else
 			user << "<span class='notice'>You need to unlock the controls first.</span>"
 		return
-	else if(O.iswelder())
+	else if(iswelder(O))
 		if(health < maxHealth)
 			if(open)
 				health = min(maxHealth, health + 10)

@@ -74,7 +74,7 @@
 	if(breathe_met && (location == CHEM_BREATHE))
 		removed = breathe_met
 
-	removed = M.get_metabolism(removed)
+	removed = min(removed, volume)
 	max_dose = max(volume, max_dose)
 
 	if(overdose && (dose > overdose) && (location != CHEM_TOUCH))

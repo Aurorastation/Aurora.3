@@ -33,7 +33,7 @@
 	pockets.hear_talk(M, msg, verb, speaking)
 	..()
 
-//Jackets with buttons
+//Jackets with buttons, used for labcoats, IA jackets, First Responder jackets, and brown jackets.
 /obj/item/clothing/suit/storage/toggle
 	var/icon_open
 	var/icon_closed

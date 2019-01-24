@@ -198,12 +198,12 @@
 	var/old_broken_state = broken_state
 	switch(broken_state)
 		if(GRAV_NEEDS_SCREWDRIVER)
-			if(I.isscrewdriver())
+			if(isscrewdriver(I))
 				user << "<span class='notice'>You secure the screws of the framework.</span>"
 				playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, 1)
 				broken_state++
 		if(GRAV_NEEDS_WELDING)
-			if(I.iswelder())
+			if(iswelder(I))
 				var/obj/item/weapon/weldingtool/WT = I
 				if(WT.remove_fuel(1, user))
 					user << "<span class='notice'>You mend the damaged framework.</span>"
@@ -220,13 +220,13 @@
 				else
 					user << "<span class='notice'>You need 10 sheets of plasteel.</span>"
 		if(GRAV_NEEDS_WRENCH)
-			if(I.iswrench())
+			if(iswrench(I))
 				user << "<span class='notice'>You secure the plating to the framework.</span>"
 				playsound(src.loc, 'sound/items/Ratchet.ogg', 75, 1)
 				set_fix()
 		else
 			..()
-	if(I.iscrowbar())
+	if(iscrowbar(I))
 		if(backpanelopen)
 			playsound(src.loc, 'sound/items/Crowbar.ogg', 50, 1)
 			user << "<span class='notice'>You replace the back panel.</span>"

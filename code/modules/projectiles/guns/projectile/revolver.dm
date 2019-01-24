@@ -105,7 +105,7 @@
 	desc = "A small pocket pistol, easily concealed. Uses .357 rounds."
 	icon_state = "derringer"
 	item_state = "concealed"
-	accuracy = -1
+	accuracy = -1 
 	w_class = 2
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2, TECH_ILLEGAL = 3)
 	handle_casings = CYCLE_CASINGS
@@ -126,7 +126,7 @@
 	needspin = FALSE
 
 /obj/item/weapon/gun/projectile/revolver/capgun/attackby(obj/item/W, mob/user)
-	if(!W.iswirecutter() || icon_state == "revolver")
+	if(!iswirecutter(W) || icon_state == "revolver")
 		return ..()
 	to_chat(user, "<span class='notice'>You snip off the toy markings off the [src].</span>")
 	name = "revolver"
