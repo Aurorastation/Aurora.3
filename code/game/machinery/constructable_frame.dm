@@ -18,27 +18,27 @@
 	var/pitch_toggle = 1
 
 /obj/machinery/constructable_frame/verb/rotate_clockwise()
-		set category = "Object"
-		set name = "Rotate (Clockwise)"
-		set src in view(1)
+	set category = "Object"
+	set name = "Rotate (Clockwise)"
+	set src in view(1)
 
-		if (usr.stat || usr.restrained() || anchored)
+	if (usr.stat || usr.restrained() || anchored)
 		return
 
-		src.set_dir(turn(src.dir, -90))
+	src.set_dir(turn(src.dir, -90))
 
 
 /obj/machinery/constructable_frame/verb/rotate_counterclockwise()
-		set category = "Object"
-		set name = "Rotate (Counterclockwise)"
-		set src in view(1)
+	set category = "Object"
+	set name = "Rotate (Counterclockwise)"
+	set src in view(1)
 
-		if (usr.stat || usr.restrained() || anchored)
+	if (usr.stat || usr.restrained() || anchored)
 		return
 
-		src.set_dir(turn(src.dir, 90))
+	src.set_dir(turn(src.dir, 90))
 
-proc/update_desc()
+/obj/machinery/constructable_frame/proc/update_desc()
 	var/D
 	if(req_components)
 		var/list/component_list = new
@@ -53,7 +53,6 @@ proc/update_desc()
 		switch(state)
 			if(1)
 				if(P.ispen())
-					var/obj/item/weapon/pen = P
 					to_chat(user, span("notice", "You begin to finalize the blueprint.</span>"))
 					if(do_after(user, 20) && state == 1)
 						to_chat(user, span("notice", "You finalize the blueprint.</span>"))
@@ -156,7 +155,6 @@ proc/update_desc()
 								circuit.forceMove(null)
 
 							new_machine.RefreshParts()
-							playsound(src.loc, 'sound/AI/blueprintfinished.ogg', 50, 1)
 							anchored = 1
 							qdel(src)
 					else

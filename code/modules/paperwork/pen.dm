@@ -24,6 +24,10 @@
 	var/colour = "black"	//what colour the ink is!
 
 
+/obj/item/weapon/pen/ispen()
+	return TRUE
+
+
 /obj/item/weapon/pen/blue
 	desc = "It's a normal blue ink pen."
 	icon_state = "pen_blue"
