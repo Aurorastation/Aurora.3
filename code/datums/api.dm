@@ -640,7 +640,7 @@ proc/api_update_command_database()
 	no_auth = 1
 
 /datum/topic_command/get_serverstatus/run_command(queryparams)
-	var/list/s[] = list()
+	var/s[]
 	s["version"] = game_version
 	s["mode"] = master_mode
 	s["respawn"] = config.abandon_allowed
@@ -649,21 +649,38 @@ proc/api_update_command_database()
 	s["ai"] = config.allow_ai
 	s["host"] = host ? host : null
 	s["players"] = 0
-	s["admins"] = 0
 	s["stationtime"] = worldtime2text()
 	s["roundduration"] = get_round_duration_formatted()
-	s["gameid"] = ""
 	s["map"] = current_map.full_name
 
-	var/n = 0
+	if(queryparams["status"] == "2")
+		var/list/players = list()
+		var/list/admins = list()
 
-	for(var/client/C in clients)
-		if(C.holder)
-			if(C.holder.fakekey)
-				continue	//so stealthmins aren't revealed by the hub
-		n++
+		for(var/client/C in clients)
+			if(C.holder)
+				if(C.holder.fakekey)
+					continue
+				admins[C.key] = C.holder.rank
+			players += C.key
 
-	s["players"] = n
+		s["players"] = players.len
+		s["playerlist"] = players
+		s["admins"] = admins.len
+		s["adminlist"] = admins
+	else
+		var/n = 0
+		var/admins = 0
+
+		for(var/client/C in clients)
+			if(C.holder)
+				if(C.holder.fakekey)
+					continue	//so stealthmins aren't revealed by the hub
+				admins++
+			n++
+
+		s["players"] = n
+		s["admins"] = admins
 
 	statuscode = 200
 	response = "Server Status fetched"
@@ -676,7 +693,7 @@ proc/api_update_command_database()
 	description = "Gets the serverstatus"
 
 /datum/topic_command/get_serverstatus/run_command(queryparams)
-	var/list/s[] = list()
+	var/s[]
 	s["version"] = game_version
 	s["mode"] = master_mode
 	s["respawn"] = config.abandon_allowed
