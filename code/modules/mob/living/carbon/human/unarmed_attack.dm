@@ -106,7 +106,7 @@ var/global/list/sparring_attack_cache = list()
 	eyes.take_damage(rand(3,4), 1)
 
 	user.visible_message("<span class='danger'>[user] presses \his [eye_attack_text] into [target]'s [eyes.name]!</span>")
-	target << "<span class='danger'>You experience[(target.species.flags & NO_PAIN)? "" : " immense pain as you feel" ] [eye_attack_text_victim] being pressed into your [eyes.name][(target.species.flags & NO_PAIN)? "." : "!"]</span>"
+	target << "<span class='danger'>You experience[(target.can_feel_pain())? "" : " immense pain as you feel" ] [eye_attack_text_victim] being pressed into your [eyes.name][(target.can_feel_pain())? "." : "!"]</span>"
 
 /datum/unarmed_attack/bite
 	attack_verb = list("bit")

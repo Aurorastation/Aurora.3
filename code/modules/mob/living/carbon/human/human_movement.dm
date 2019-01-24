@@ -16,7 +16,7 @@
 	var/health_deficiency = (100 - health)
 	if(health_deficiency >= 40) tally += (health_deficiency / 25)
 
-	if (!(species && (species.flags & NO_PAIN)))
+	if (!can_feel_pain())
 		if(halloss >= 10) tally += (halloss / 10) //halloss shouldn't slow you down if you can't even feel it
 
 	if(wear_suit)
@@ -44,7 +44,7 @@
 			else if(E.status & ORGAN_BROKEN)
 				tally += 1.5
 
-	if (!(species && (species.flags & NO_PAIN)))
+	if (can_feel_pain())
 		if(shock_stage >= 10) tally += 3
 
 	if(aiming && aiming.aiming_at) tally += 5 // Iron sights make you slower, it's a well-known fact.

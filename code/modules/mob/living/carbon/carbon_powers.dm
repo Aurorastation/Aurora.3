@@ -33,7 +33,7 @@
 	if(B.host_brain.ckey)
 		src << "<span class='warning'>You send a punishing spike of psychic agony lancing into your host's brain.</span>"
 
-		if (species && (species.flags & NO_PAIN))
+		if (can_feel_pain())
 			B.host_brain << "<span class='warning'>You feel a strange sensation as a foreign influence prods your mind.</span>"
 			src << "<span class='warning'>It doesn't seem to be as effective as you hoped.</span>"
 		else

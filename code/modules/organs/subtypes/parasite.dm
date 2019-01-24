@@ -56,7 +56,7 @@
 	if (!owner)
 		return
 
-	if(prob(10) && !(owner.species.flags & NO_PAIN))
+	if(prob(10) && (owner.can_feel_pain()))
 		owner << "<span class='warning'>You feel a stinging pain in your abdomen!</span>"
 		owner.emote("me",1,"winces slightly.")
 		owner.adjustHalLoss(5)
@@ -96,7 +96,7 @@
 			S.set_up(R, 20, 0, T, 40)
 			S.start()
 
-			if(!(owner.species.flags & NO_PAIN))
+			if(owner.can_feel_pain())
 				owner.emote("scream")
 				owner.adjustHalLoss(15)
 				owner.drip(15)
@@ -122,7 +122,7 @@
 /obj/item/organ/parasite/blackkois/process()
 	..()
 
-	if(prob(10) && !(owner.species.flags & NO_PAIN))
+	if(prob(10) && (owner.can_feel_pain()))
 		if(stage < 3)
 			owner << "<span class='warning'>You feel a stinging pain in your abdomen!</span>"
 		else
@@ -175,7 +175,7 @@
 			removed_langs = 1
 
 		if(prob(10))
-			if(!(owner.species.flags & NO_PAIN))
+			if(owner.can_feel_pain())
 				owner << "<span class='warning'>You feel an unbearable pain in your mind!</span>"
 				owner.emote("scream")
 			owner.adjustBrainLoss(1)
@@ -194,7 +194,7 @@
 			S.set_up(R, 20, 0, T, 40)
 			S.start()
 
-			if(!(owner.species.flags & NO_PAIN))
+			if(owner.can_feel_pain())
 				owner.emote("scream")
 				owner.adjustHalLoss(15)
 				owner.drip(15)
@@ -224,7 +224,7 @@
 	if (!owner)
 		return
 
-	if(prob(10) && !(owner.species.flags & NO_PAIN))
+	if(prob(10) && (owner.can_feel_pain()))
 		owner << "<span class='warning'>You feel a burning sensation on your skin!</span>"
 		owner.make_jittery(10)
 
