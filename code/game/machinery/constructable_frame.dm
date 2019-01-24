@@ -53,27 +53,27 @@
 		switch(state)
 			if(1)
 				if(P.ispen())
-					to_chat(user, span("notice", "You begin to finalize the blueprint.</span>"))
+					to_chat(user, span("notice", "You begin to finalize the blueprint."))
 					if(do_after(user, 20) && state == 1)
-						to_chat(user, span("notice", "You finalize the blueprint.</span>"))
+						to_chat(user, span("notice", "You finalize the blueprint."))
 						playsound(src.loc, 'sound/items/poster_being_created.ogg', 75, 1)
 						state = 2
 				else
 					if(P.ismultitool())
 						playsound(src.loc, 'sound/items/poster_ripped.ogg', 75, 1)
-						to_chat(user, span("notice", "You decide to scrap the blueprint</span>"))
+						to_chat(user, span("notice", "You decide to scrap the blueprint"))
 						qdel(src)
 			if(2)
 				if(P.iscoil())
 					var/obj/item/stack/cable_coil/C = P
 					if (C.get_amount() < 5)
-						to_chat(user, span("notice", "You need five lengths of cable to add them to the blueprint.</span>"))
+						to_chat(user, span("notice", "You need five lengths of cable to add them to the blueprint."))
 						return
 					playsound(src.loc, 'sound/items/Deconstruct.ogg', 50, 1)
-					to_chat(user, span("notice", "You start to add cables to the blueprint.</span>"))
+					to_chat(user, span("notice", "You start to add cables to the blueprint."))
 					if(do_after(user, 20) && state == 2)
 						if(C.use(5))
-							to_chat(user, span("notice", "You add cables to the blueprint.</span>"))
+							to_chat(user, span("notice", "You add cables to the blueprint."))
 							state = 3
 							icon_state = "blueprint_2"
 			if(3)
@@ -81,7 +81,7 @@
 					var/obj/item/weapon/circuitboard/B = P
 					if(B.board_type == "machine")
 						playsound(src.loc, 'sound/items/Deconstruct.ogg', 50, 1)
-						to_chat(user, span("notice", "You add the circuit board to the blueprint.</span>"))
+						to_chat(user, span("notice", "You add the circuit board to the blueprint."))
 						circuit = P
 						user.drop_from_inventory(P,src)
 						icon_state = "blueprint_3"
@@ -115,9 +115,9 @@
 					circuit.forceMove(src.loc)
 					circuit = null
 					if(components.len == 0)
-						user << "<span class='notice'>You remove the circuit board.</span>"
+						to_chat(user, span("notice", "You remove the circuit board."))
 					else
-						user << "<span class='notice'>You remove the circuit board and other components.</span>"
+						to_chat(user, span("notice", "You remove the circuit board and other components."))
 						for(var/obj/item/weapon/W in components)
 							W.forceMove(src.loc)
 					desc = initial(desc)
@@ -181,7 +181,7 @@
 									break
 							user << desc
 							if(P && P.loc != src && !istype(P, /obj/item/stack))
-								user << "<span class='warning'>You cannot add that component to the machine!</span>"
+								to_chat(user, span("notice", "You cannot add that component to the machine!."))
 
 
 /obj/machinery/constructable_frame/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
