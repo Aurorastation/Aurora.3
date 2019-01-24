@@ -1,0 +1,7 @@
+author: Alberyk, Kyres1
+
+delete-after: True
+
+changes: 
+  - rscadd: "Vaurca can now wear most hardsuits."
+  - imageadd: "Added vaurca hardsuit sprites."
