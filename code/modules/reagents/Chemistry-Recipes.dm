@@ -2777,6 +2777,13 @@
 	required_reagents = list("ice" = 1, "victorygin" = 1)
 	result_amount = 2
 
+/datum/chemical_reaction/mars_coffee
+	name = "Martian Special"
+	id = "mars_coffee"
+	result = "mars_coffee"
+	required_reagents = list("coffee" = 4, "blackpepper" = 1)
+	result_amount = 5
+
 //Kaed's Unathi cocktails
 //========
 

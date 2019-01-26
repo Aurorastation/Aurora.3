@@ -1214,6 +1214,16 @@
 	glass_name = "cup of cheap pumpkin latte"
 	glass_desc = "Maybe you should just go ask the barista for something more authentic..."
 
+/datum/reagent/drink/coffee/mars
+	name = "Martian Special"
+	id = "mars_coffee"
+	description = "Black coffee, heavily peppered."
+	taste_description = "bitter coffee, pungent black pepper and just a hint of shaky politics"
+
+	glass_icon_state = "hot_coffee"
+	glass_name = "cup of Martian Special"
+	glass_desc = "Just by the pungent, sharp smell, you figure you probably don't want to drink that..."
+
 /datum/reagent/drink/hot_coco
 	name = "Hot Chocolate"
 	id = "hot_coco"
@@ -3466,6 +3476,7 @@
 	glass_icon_state = "winter_offensive"
 	glass_name = "glass of Winter Offensive"
 	glass_desc = "Proven to be more successful than the campaign."
+
 
 // Butanol-based alcoholic drinks
 //=====================================
