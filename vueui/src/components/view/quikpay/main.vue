@@ -14,7 +14,7 @@
       <vui-button :params="{ add: {name: tmp_name, price: tmp_price }}">Add</vui-button>
     </div>
   </div>
-    <vui-button :params="{ confirm: selection }">Confirm payment</vui-button>
+    <vui-button :params="{ confirm: selection }">Confirm Selection</vui-button>
     <vui-button :params="{ unlock: 1 }" width="3em">Toggle Menu Lock</vui-button>
   </div>
 </template>
