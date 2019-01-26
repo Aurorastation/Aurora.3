@@ -222,6 +222,7 @@
 	var/mob/living/closest_mob
 	var/obj/machinery/closest_machine
 	var/obj/structure/closest_structure
+	var/obj/machinery/power/emitter/closest_emitter // Use only if Tesla is too grown with 10 ore more balls. Will escape.
 	var/static/list/blacklisted_types = typecacheof(list(
 		/obj/machinery/atmospherics,
 		/obj/machinery/power/emitter,
@@ -251,8 +252,9 @@
 	var/melt = FALSE
 	if(istype(source, /obj/singularity/energy_ball))
 		var/obj/singularity/energy_ball/E = source
-		if(E.orbiting_balls.len >= 9)
-			melt = TRUE
+		melt = (E.orbiting_balls.len >= 9)
+		if(E.orbiting_balls.len >= 10)
+			blacklisted_types -= /obj/machinery/power/emitter
 
 	for(var/A in typecache_filter_multi_list_exclusion(oview(source, zap_range+2), things_to_shock, blacklisted_types))
 		
@@ -278,6 +280,13 @@
 				closest_dist = dist
 
 		else if(closest_grounding_rod)
+			continue
+
+		else if(melt && istype(A, /obj/machinery/power/emitter))
+			var/obj/machinery/power/emitter/e = A
+			closest_emitter = e
+		
+		else if(closest_emitter)
 			continue
 
 		else if(isliving(A))
@@ -324,6 +333,17 @@
 
 	else if(closest_grounding_rod)
 		closest_grounding_rod.tesla_act(power, melt)
+	
+	else if(closest_emitter)
+		closest_emitter.tesla_act(power, melt)
+
+		// Sacraficing three balls to escape the containment.
+
+		energy_to_raise = energy_to_raise / 1.25
+		energy_to_lower = (energy_to_raise / 1.25) - 20
+
+		var/Orchiectomy_target = pick(orbiting_balls)
+		qdel(Orchiectomy_target)
 
 	else if(closest_mob)
 		var/shock_damage = Clamp(round(power/400), 10, 90) + rand(-5, 5)
