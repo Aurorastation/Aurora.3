@@ -94,7 +94,7 @@
 		const_holder.icon_state = "ripley0"
 		const_holder.density = 1
 		const_holder.cut_overlays()
-		qdel(src)
+		QDEL_IN(src, 0))
 
 /datum/construction/reversible/mecha/ripley
 	result = "/obj/mecha/working/ripley"
@@ -301,8 +301,7 @@
 		const_holder.icon = 'icons/mecha/mech_construction.dmi'
 		const_holder.icon_state = "gygax0"
 		const_holder.density = 1
-		spawn()
-			qdel(src)
+		QDEL_IN(src, 0))
 		return
 
 
@@ -582,8 +581,7 @@
 		const_holder.icon = 'icons/mecha/mech_construction.dmi'
 		const_holder.icon_state = "fireripley0"
 		const_holder.density = 1
-		spawn()
-			qdel(src)
+		QDEL_IN(src, 0))
 		return
 
 
@@ -805,8 +803,7 @@
 		const_holder.icon = 'icons/mecha/mech_construction.dmi'
 		const_holder.icon_state = "durand0"
 		const_holder.density = 1
-		spawn()
-			qdel(src)
+		QDEL_IN(src, 0))
 		return
 
 /datum/construction/reversible/mecha/durand
@@ -1409,8 +1406,7 @@
 		const_holder.icon = 'icons/mecha/mech_construction.dmi'
 		const_holder.icon_state = "odysseus0"
 		const_holder.density = 1
-		spawn()
-			qdel(src)
+		QDEL_IN(src, 0))
 		return
 
 
@@ -1622,8 +1618,7 @@
 		const_holder.icon = 'icons/mecha/mech_construction.dmi'
 		const_holder.icon_state = "hermes0"
 		const_holder.density = 1
-		spawn()
-			qdel(src)
+		QDEL_IN(src, 0))
 		return
 
 
@@ -1803,7 +1798,7 @@
 					holder.icon_state = "hermes12"
 		return 1
 
-	spawn_result()
+	/datum/construction/reversible/mecha/hermes/spawn_result()
 		..()
 		feedback_inc("mecha_hermes_created",1)
 		return

@@ -306,7 +306,7 @@
 /obj/item/mecha_parts/chassis/hermes
 	name = "Hermes Chassis"
 
-	New()
+	Initialize()
 		..()
 		construct = new /datum/construction/mecha/hermes_chassis(src)
 
