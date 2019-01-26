@@ -40,10 +40,3 @@
 
 /turf/unsimulated/chasm_mask/New()
 	return
-
-/turf/unsimulated/marker
-	name = "marker"
-	icon = 'maps/colony_general/code/codersprites.dmi'
-	icon_state = "blank"
-
-	var/value

@@ -58,7 +58,9 @@
 	emergency_shuttle_called_message = "An emergency evacuation shuttle has been called. It will arrive in approximately %ETA% minutes."
 
 /datum/map/colony_general/generate_asteroid()
-	var/seed = text2num("[rand(0,9)][rand(0,9)][rand(0,9)]")//world.timeofday
+	var/seed = text2num("[rand(0,9)][rand(0,9)][rand(0,9)][rand(0,9)]")//world.timeofday
+	var/floralseed = text2num("[rand(0,9)][rand(0,9)][rand(0,9)][rand(0,9)]")
+
 	PerlinPermutate()
 	//zpos, xpos1, xpos2, ypos1, ypos2, seed, scale, octaves, persistence)
 	new /datum/terrain_map/surface(3, 1, 255, 1, 255, seed, 60, 10, 0.5)
@@ -66,4 +68,12 @@
 
 	new /datum/terrain_map/deep(1, 1, 255, 1, 255, seed, 30, 10, 0.5)
 	new /datum/terrain_map/shallow(2, 1, 255, 1, 255, seed, 30, 10, 0.5)
+
+	//zpos, xpos1, xpos2, ypos1, ypos2, seed, scale, octaves, persistence, second seed, second scale, second octave, second persistence)
+	new /datum/terrain_map/flora/mushrooms(3, 1, 255, 1, 255, floralseed, 25, 10, 0.5, seed, 60, 10, 0.5)
+
+	new /datum/dungeon_spawner/lavaland(3, 1, 255, 1, 255, 10)
+	new /datum/dungeon_spawner/lavaland(2, 1, 255, 1, 255, 15)
+	new /datum/dungeon_spawner/lavaland(1, 1, 255, 1, 255, 20)
+
 	return
