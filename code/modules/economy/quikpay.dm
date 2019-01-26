@@ -164,7 +164,7 @@
 		ui.activeui = "quikpay-confirmation"	
 		. = TRUE
 	if(href_list["return"])
-		sum= 0
+		sum = 0
 		ui.activeui = "quikpay-main"	
 		. = TRUE
 
