@@ -1,7 +1,7 @@
 
 /obj/item/device/nanoquikpay
 	name = "\improper NT Quik-Pay"
-	desc = "Swipe you're ID to make direct company purcheses"
+	desc = "Swipe your ID to make direct company purchases."
 	icon = 'icons/obj/device.dmi'
 	icon_state = "quikpay"
 	var/machine_id = ""
