@@ -31,6 +31,7 @@
 	var/last_dam = -1
 	var/icon/mob_icon
 	var/gendered_icon = 0
+	var/gendered_robot = 0
 	var/limb_name
 	var/disfigured = 0
 	var/cannot_amputate
@@ -964,6 +965,9 @@ Note that amputating the affected organ does in fact remove the infection from t
 
 /obj/item/organ/external/robotize(var/company)
 	..()
+
+	if(!gendered_robot)
+		gendered_icon = FALSE
 
 	if(company)
 		model = company
