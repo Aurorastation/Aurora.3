@@ -302,7 +302,7 @@
 			var/obj/item/weapon/flame/F = P
 			if (!F.lit)
 				return
-		else if (iswelder(P))
+		else if (P.iswelder())
 			var/obj/item/weapon/weldingtool/F = P
 			if (!F.welding)//welding tools are 0 when off
 				return
@@ -504,7 +504,7 @@
 
 	else if(istype(P, /obj/item/weapon/flame))
 		burnpaper(P, user)
-	else if(iswelder(P))
+	else if(P.iswelder())
 		burnpaper(P, user)
 
 	add_fingerprint(user)

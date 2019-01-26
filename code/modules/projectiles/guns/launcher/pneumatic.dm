@@ -184,7 +184,7 @@
 			buildstate++
 			update_icon()
 			return
-	else if(iswelder(W))
+	else if(W.iswelder())
 		if(buildstate == 1)
 			var/obj/item/weapon/weldingtool/T = W
 			if(T.remove_fuel(0,user))

@@ -234,16 +234,20 @@
 	min_cold_protection_temperature = T0C - 20
 	siemens_coefficient = 0.7
 
-/obj/item/clothing/suit/storage/leather_jacket
+/obj/item/clothing/suit/storage/toggle/leather_jacket
 	name = "leather jacket"
 	desc = "A black leather coat."
 	icon_state = "leather_jacket"
 	item_state = "leather_jacket"
+	icon_open = "leather_jacket_open"
+	icon_closed = "leather_jacket"
 	body_parts_covered = UPPER_TORSO|ARMS
 
-/obj/item/clothing/suit/storage/leather_jacket/nanotrasen
+/obj/item/clothing/suit/storage/toggle/leather_jacket/nanotrasen
 	desc = "A black leather coat. A corporate logo is proudly displayed on the back."
 	icon_state = "leather_jacket_nt"
+	icon_open = "leather_jacket_nt_open"
+	icon_closed = "leather_jacket_nt"
 
 /obj/item/clothing/suit/storage/toggle/leather_vest
 	name = "leather vest"

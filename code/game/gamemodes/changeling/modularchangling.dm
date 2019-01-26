@@ -16,9 +16,15 @@ var/list/datum/power/changeling/powerinstances = list()
 
 /datum/power/changeling/absorb_dna
 	name = "Absorb DNA"
-	desc = "Permits us to syphon the DNA from a human. They become one with us, and we become stronger."
+	desc = "Permits us to syphon some of the DNA from a another sentient creature. They will take some genetic damage as a result of our extraction. Does not work on other changelings."
 	genomecost = 0
 	verbpath = /mob/proc/changeling_absorb_dna
+
+/datum/power/changeling/extract_dna
+	name = "Full DNA Extraction"
+	desc = "Permits us to forcibly absorb a massive quantity DNA from another sentient creature. They will perish during the process, and we become stronger, especially if they were another changeling."
+	genomecost = 0
+	verbpath = /mob/proc/changeling_extract_dna
 
 /datum/power/changeling/transform
 	name = "Transform"
@@ -84,14 +90,6 @@ var/list/datum/power/changeling/powerinstances = list()
 	helptext = "Will turn your voice into the name that you enter. We must constantly expend chemicals to maintain our form like this"
 	genomecost = 1
 	verbpath = /mob/proc/changeling_mimicvoice
-
-/datum/power/changeling/extractdna
-	name = "Extract DNA"
-	desc = "We stealthily sting a target and extract the DNA from them."
-	helptext = "Will give you the DNA of your target, allowing you to transform into them. Does not count towards absorb objectives."
-	genomecost = 2
-	allowduringlesserform = 1
-	verbpath = /mob/proc/changeling_extract_dna_sting
 
 /datum/power/changeling/transformation_sting
 	name = "Transformation Sting"
