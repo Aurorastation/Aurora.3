@@ -172,13 +172,11 @@
 	if(href_list["unlock"])
 		if(editmode == 1)
 			editmode = 0
-			to_chat(user, span("notice", "Menu Locked."))
 			SSvueui.check_uis_for_change(src)
 			return 0
 	if(editmode == 0)
 		var/attempt_code = input("Enter the edit code", "Confirm edit access code") as num //Copied the eftpos method, dont judge
 		if(attempt_code == access_code)
 			editmode = 1
-			to_chat(user, span("notice", "Menu Unlocked."))
 			SSvueui.check_uis_for_change(src)
 
