@@ -159,6 +159,9 @@
 
 	else if(orbiting_balls.len)
 		dissipate() //sing code has a much better system.
+	else // that is when we have no balls but our energy is less
+		energy_to_raise = energy_to_raise / 1.25
+		energy_to_lower = (energy_to_raise / 1.25) - 20
 
 /obj/singularity/energy_ball/proc/new_mini_ball()
 	if(!loc)
@@ -245,8 +248,14 @@
 		/mob/living,
 		/obj/structure
 	))
+	var/melt = FALSE
+	if(istype(source, /obj/singularity/energy_ball))
+		var/obj/singularity/energy_ball/E = source
+		if(E.orbiting_balls.len >= 9)
+			melt = TRUE
 
 	for(var/A in typecache_filter_multi_list_exclusion(oview(source, zap_range+2), things_to_shock, blacklisted_types))
+		
 		if(istype(A, /obj/machinery/power/tesla_coil))
 			var/dist = get_dist(source, A)
 			var/obj/machinery/power/tesla_coil/C = A
@@ -311,10 +320,10 @@
 
 	//per type stuff:
 	if(closest_tesla_coil)
-		closest_tesla_coil.tesla_act(power)
+		closest_tesla_coil.tesla_act(power, melt)
 
 	else if(closest_grounding_rod)
-		closest_grounding_rod.tesla_act(power)
+		closest_grounding_rod.tesla_act(power, melt)
 
 	else if(closest_mob)
 		var/shock_damage = Clamp(round(power/400), 10, 90) + rand(-5, 5)
