@@ -1607,16 +1607,16 @@
 					 list("key"=/obj/item/mecha_parts/part/hermes_right_leg)//6
 					)
 
-/datum/construction/mecha/hermes_chassis/custom_action(step, atom/used_atom, mob/user)
+	custom_action(step, atom/used_atom, mob/user)
 		user.visible_message("[user] has connected [used_atom] to [holder].", "You connect [used_atom] to [holder]")
 		holder.add_overlay("[used_atom.icon_state]+o")
 		qdel(used_atom)
 		return 1
 
-/datum/construction/mecha/hermes_chassis/action(atom/used_atom,mob/user as mob)
+	action(atom/used_atom,mob/user as mob)
 		return check_all_steps(used_atom,user)
 
-/datum/construction/mecha/hermes_chassis/spawn_result()
+	spawn_result()
 		var/obj/item/mecha_parts/chassis/const_holder = holder
 		const_holder.construct = new /datum/construction/reversible/mecha/hermes(const_holder)
 		const_holder.icon = 'icons/mecha/mech_construction.dmi'
@@ -1687,10 +1687,10 @@
 					 		"desc"="The hydraulic systems are disconnected.")
 					)
 
-/datum/construction/reversible/mecha/hermes/action(atom/used_atom,mob/user as mob)
+	/datum/construction/reversible/mecha/hermes/action(atom/used_atom,mob/user as mob)
 		return check_step(used_atom,user)
 
-/datum/construction/reversible/mecha/hermes/custom_action(index, diff, atom/used_atom, mob/user)
+	/datum/construction/reversible/mecha/hermes/custom_action(index, diff, atom/used_atom, mob/user)
 		if(!..())
 			return 0
 
@@ -1803,7 +1803,7 @@
 					holder.icon_state = "hermes12"
 		return 1
 
-/datum/construction/reversible/mecha/hermes/spawn_result()
+	spawn_result()
 		..()
 		feedback_inc("mecha_hermes_created",1)
 		return
