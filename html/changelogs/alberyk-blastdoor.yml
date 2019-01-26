@@ -1,0 +1,6 @@
+author: Alberyk
+
+delete-after: True
+
+changes: 
+  - bugfix: "Fixed being able to open blastdoors by clicking them with an empty hand."
