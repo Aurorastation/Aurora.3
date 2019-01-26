@@ -1,6 +1,4 @@
 //print an error message to world.log
-#define RUST_G "rust_g" // Using Rust g dll to log faster with less CPU usage.
-#define WRITE_LOG(log, text) call(RUST_G, "log_write")(log, text)
 
 // On Linux/Unix systems the line endings are LF, on windows it's CRLF, admins that don't use notepad++
 // will get logs that are one big line if the system is Linux and they are using notepad.  This solves it by adding CR to every line ending
