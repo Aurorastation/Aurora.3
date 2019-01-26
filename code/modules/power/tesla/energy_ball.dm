@@ -163,7 +163,7 @@
 /obj/singularity/energy_ball/proc/new_mini_ball()
 	if(!loc)
 		return
-	var/obj/singularity/energy_ball/EB = new(loc)
+	var/obj/singularity/energy_ball/EB = new(loc, 0)
 
 	EB.transform *= pick(0.3, 0.4, 0.5, 0.6, 0.7)
 	var/icon/I = icon(icon,icon_state,dir)
@@ -188,15 +188,15 @@
 		target.dissipate_strength = target.orbiting_balls.len
 
 	. = ..()
+
 /obj/singularity/energy_ball/stop_orbit()
 	if (orbiting && istype(orbiting.orbiting, /obj/singularity/energy_ball))
 		var/obj/singularity/energy_ball/orbitingball = orbiting.orbiting
 		orbitingball.orbiting_balls -= src
 		orbitingball.dissipate_strength = orbitingball.orbiting_balls.len
-	..()
+	. = ..()
 	if (!loc && !QDELETED(src))
 		qdel(src)
-
 
 /obj/singularity/energy_ball/proc/dust_mobs(atom/A)
 	if(!iscarbon(A))
