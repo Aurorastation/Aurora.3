@@ -32,7 +32,7 @@
 		R.info += "1.Have the customer enter the amount of the item they want.<br>"
 		R.info += "2. Press confirm payment.<br>"
 		R.info += "3. Allow them to review the sum.<br>"
-		R.info += "4. Have them swipe there card to pay for the items, press return to reset the sum.<br>"
+		R.info += "4. Have them swipe their card to pay for the items, press return to reset the sum..<br>"
 
 
 		//stamp the paper
@@ -45,7 +45,7 @@
 		R.ico += "paper_stamp-cent"
 		R.stamped += /obj/item/weapon/stamp
 		R.add_overlay(stampoverlay)
-		R.stamps += "<HR><i>This paper has been stamped by the Head Of Personal's desk.</i>"
+		R.stamps += "<HR><i>This paper has been stamped by the Head of Personnel's desk.</i>"
 
 
 /obj/item/device/nanoquikpay/proc/print_reference()
@@ -63,7 +63,7 @@
 		R.stamped = new
 	R.stamped += /obj/item/weapon/stamp
 	R.add_overlay(stampoverlay)
-	R.stamps += "<HR><i>This paper has been stamped by the Head Of Personal's desk.</i>"
+	R.stamps += "<HR><i>This paper has been stamped by the Head of Personnel's desk.</i>"
 	var/obj/item/smallDelivery/D = new(R.loc)
 	R.forceMove(D)
 	D.wrapped = R
@@ -80,11 +80,11 @@
 		var/datum/money_account/quickpay_account = SSeconomy.get_department_account("Civilian")
 		var/datum/money_account/customer_account = SSeconomy.get_account(I.associated_account_number)
 		if (!customer_account)
-			src << "<span class='warning'>\icon[src] The [src] beeps: Error: Unable to access account. Please contact technical support if problem persists</span>"
+			to_chat(user, span("notice", "Unable to access account, please contact the Head of Personnel."))
 			return 0
 
 		if(customer_account.suspended)
-			src << "<span class='warning'>\icon[src] The [src] beeps: Error: Account Suspended</span>"
+			to_chat(user, span("notice", "Account Suspended, please contact the Head of Personnel."))
 			return 0
 
 		if(customer_account.security_level != 0) //If card requires pin authentication (ie seclevel 1 or 2)
@@ -92,11 +92,11 @@
 			customer_account = SSeconomy.attempt_account_access(I.associated_account_number, attempt_pin, 2)
 
 			if(!customer_account)
-				src << "<span class='warning'>\icon[src] The [src] beeps: Error: Card Missing Account Number</span>"
+				to_chat(user, span("notice", "Unable to access account, please contact the Head of Personnel."))
 				return 0
 
 		if(sum > customer_account.money)
-			src << "<span class='warning'>\icon[src] The [src] beeps: Error: Missing funds for transaction</span>"
+			to_chat(user, span("notice", "Your account lack's the funds to process this payment."))
 			return 0
 		else
 
@@ -172,13 +172,13 @@
 	if(href_list["unlock"])
 		if(editmode == 1)
 			editmode = 0
-			usr << "\icon[src]<span class='warning'>Menu Locked.</span>"
+			to_chat(user, span("notice", "Menu Locked."))
 			SSvueui.check_uis_for_change(src)
 			return 0
 	if(editmode == 0)
 		var/attempt_code = input("Enter the edit code", "Confirm edit access code") as num //Copied the eftpos method, dont judge
 		if(attempt_code == access_code)
 			editmode = 1
-			usr << "\icon[src]<span class='warning'>Menu Unlocked.</span>"
+			to_chat(user, span("notice", "Menu Unlocked."))
 			SSvueui.check_uis_for_change(src)
 
