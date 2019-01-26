@@ -634,63 +634,10 @@ proc/api_update_command_database()
 		return 1
 
 //Get Server Status
-/datum/topic_command/get_serverstatus_public
-	name = "get_serverstatus_public"
-	description = "Gets the serverstatus"
-	no_auth = 1
-
-/datum/topic_command/get_serverstatus/run_command(queryparams)
-	var/s[]
-	s["version"] = game_version
-	s["mode"] = master_mode
-	s["respawn"] = config.abandon_allowed
-	s["enter"] = config.enter_allowed
-	s["vote"] = config.allow_vote_mode
-	s["ai"] = config.allow_ai
-	s["host"] = host ? host : null
-	s["players"] = 0
-	s["stationtime"] = worldtime2text()
-	s["roundduration"] = get_round_duration_formatted()
-	s["map"] = current_map.full_name
-
-	if(queryparams["status"] == "2")
-		var/list/players = list()
-		var/list/admins = list()
-
-		for(var/client/C in clients)
-			if(C.holder)
-				if(C.holder.fakekey)
-					continue
-				admins[C.key] = C.holder.rank
-			players += C.key
-
-		s["players"] = players.len
-		s["playerlist"] = players
-		s["admins"] = admins.len
-		s["adminlist"] = admins
-	else
-		var/n = 0
-		var/admins = 0
-
-		for(var/client/C in clients)
-			if(C.holder)
-				if(C.holder.fakekey)
-					continue	//so stealthmins aren't revealed by the hub
-				admins++
-			n++
-
-		s["players"] = n
-		s["admins"] = admins
-
-	statuscode = 200
-	response = "Server Status fetched"
-	data = s
-	return 1
-
-//Get Server Status
 /datum/topic_command/get_serverstatus
 	name = "get_serverstatus"
 	description = "Gets the serverstatus"
+	no_auth = 1
 
 /datum/topic_command/get_serverstatus/run_command(queryparams)
 	var/s[]
