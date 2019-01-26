@@ -156,7 +156,6 @@
 		ui.data["items"] -= href_list["remove"]
 		. = TRUE
 	if(href_list["confirm"])
-		to_world("Payment selection: [json_encode(href_list["confirm"])]")
 		var/selection = ui.data["selection"]
 		var/items = ui.data["items"]
 		for(var/name in selection)
