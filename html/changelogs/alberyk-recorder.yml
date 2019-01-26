@@ -1,6 +1,0 @@
-author: Alberyk
-
-delete-after: True
-
-changes: 
-  - tweak: "Recorders are no longer able to translate unknown languages, such as cult."
