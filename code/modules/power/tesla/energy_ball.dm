@@ -337,14 +337,6 @@
 	else if(closest_emitter)
 		closest_emitter.tesla_act(power, melt)
 
-		// Sacraficing three balls to escape the containment.
-
-		energy_to_raise = energy_to_raise / 1.25
-		energy_to_lower = (energy_to_raise / 1.25) - 20
-
-		var/Orchiectomy_target = pick(orbiting_balls)
-		qdel(Orchiectomy_target)
-
 	else if(closest_mob)
 		var/shock_damage = Clamp(round(power/400), 10, 90) + rand(-5, 5)
 		closest_mob.electrocute_act(shock_damage, source, 1, tesla_shock = 1)
