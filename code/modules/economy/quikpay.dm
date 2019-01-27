@@ -1,11 +1,7 @@
 
 /obj/item/device/nanoquikpay
 	name = "\improper NT Quik-Pay"
-<<<<<<< Updated upstream
 	desc = "Swipe your ID to make direct company purchases."
-=======
-	desc = "Swipe your ID to make direct company purchases"
->>>>>>> Stashed changes
 	icon = 'icons/obj/device.dmi'
 	icon_state = "quikpay"
 	var/machine_id = ""
@@ -202,12 +198,8 @@
 		ui.activeui = "quikpay-confirmation"	
 		. = TRUE
 	if(href_list["return"])
-<<<<<<< Updated upstream
-		sum = 0
-=======
 		sum= 0
 		receipt = ""
->>>>>>> Stashed changes
 		ui.activeui = "quikpay-main"	
 		. = TRUE
 
