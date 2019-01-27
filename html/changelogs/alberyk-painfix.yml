@@ -1,0 +1,6 @@
+author: Alberyk
+
+delete-after: True
+
+changes: 
+  - tweak: "Pain related effects, such as stun batons and pepperspray, will now properly take in consideration other factors, like painkillers."
