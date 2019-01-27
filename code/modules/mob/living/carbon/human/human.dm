@@ -1551,3 +1551,6 @@
 	var/obj/item/organ/brain/B = internal_organs_by_name["brain"]
 	if(B && species && species.has_organ["brain"] && !isipc(src))
 		. = B.cure_all_traumas(cure_permanent, cure_type)
+
+/mob/living/carbon/human/get_metabolism(metabolism)
+	return ..() * (species ? species.metabolism_mod : 1)

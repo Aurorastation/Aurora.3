@@ -333,7 +333,7 @@
 				return 1
 
 		if(3)
-			if(iswelder(W))
+			if(W.iswelder())
 				var/obj/item/weapon/weldingtool/WT = W
 				if(WT.remove_fuel(0, user))
 					build_step++
@@ -363,7 +363,7 @@
 				return 1
 
 		if(6)
-			if(iscoil(W))
+			if(W.iscoil())
 				var/obj/item/stack/cable_coil/C = W
 				if (C.get_amount() < 1)
 					user << "<span class='warning'>You need one coil of wire to wire [src].</span>"
@@ -388,7 +388,7 @@
 				return 1
 
 		if(8)
-			if(isscrewdriver(W))
+			if(W.isscrewdriver())
 				playsound(src.loc, 'sound/items/Screwdriver.ogg', 100, 1)
 				var/turf/T = get_turf(user)
 				user << "<span class='notice'>Now attaching the gun to the frame...</span>"
