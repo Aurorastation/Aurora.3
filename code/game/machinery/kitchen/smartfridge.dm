@@ -21,11 +21,19 @@
 	var/locked = 0
 	var/scan_id = 1
 	var/is_secure = 0
+	var/machineselect = 0
 
 	var/cooling = 0 //Whether or not to vend products at the cooling temperature
 	var/heating = 0 //Whether or not to vend products at the heating temperature
 	var/cooling_temperature = T0C + 5 //Best temp for soda.
 	var/heating_temperature = T0C + 57 //Best temp for coffee.
+
+	component_types = list(
+		/obj/item/weapon/circuitboard/smartfridge,
+		/obj/item/weapon/stock_parts/manipulator,
+		/obj/item/weapon/stock_parts/manipulator,
+		/obj/item/weapon/stock_parts/manipulator
+	)
 
 	var/datum/wires/smartfridge/wires = null
 	atmos_canpass = CANPASS_NEVER
@@ -90,11 +98,11 @@
 	return 0
 
 /obj/machinery/smartfridge/secure/medbay
-	name = "\improper Refrigerated Medicine Storage"
+	name = "\improper Refrigerated Chemical Storage"
 	desc = "A refrigerated storage unit for storing medicine and chemicals."
 	icon_state = "smartfridge" //To fix the icon in the map editor.
 	icon_on = "smartfridge_chem"
-	req_one_access = list(access_medical,access_chemistry)
+	req_one_access = list(access_medical,access_chemistry, access_research)
 
 /obj/machinery/smartfridge/secure/medbay/accept_check(var/obj/item/O as obj)
 	if(istype(O,/obj/item/weapon/reagent_containers/glass/))
@@ -250,8 +258,40 @@
 
 	if(O.ismultitool()||O.iswirecutter())
 		if(panel_open)
+			switch(input(user, "What would you like to select?", "Machine Debug Software") as null|anything in list("SmartHeater", "MegaSeed Storage", "Slime Extract Storage", "Refrigerated Chemical Storage", "Refrigerated Virus Storage", "Drink Showcase", "Drying Rack"))
+				if("SmartHeater.")
+					new /obj/machinery/smartfridge/foodheater(loc, make_from=src)
+					qdel(src)
+
+				if("MegaSeed Storage.")
+					new /obj/machinery/smartfridge/seeds(loc, make_from=src)
+					qdel(src)
+
+				if("Slime Extract Storage.")
+					new /obj/machinery/smartfridge/secure/extract(loc, make_from=src)
+					qdel(src)
+
+				if("Refrigerated Chemical Storage.")
+					new /obj/machinery/smartfridge/secure/medbay(loc, make_from=src)
+					qdel(src)
+
+				if("Refrigerated Virus Storage.")
+					new /obj/machinery/smartfridge/secure/virology(loc, make_from=src)
+					qdel(src)
+
+				if("Drink Showcase.")
+					new /obj/machinery/smartfridge/drinks(loc, make_from=src)
+					qdel(src)
+
+				if("Drying Rack.")
+					new /obj/machinery/smartfridge/drying_rack(loc, make_from=src)
+					qdel(src)
+
+
 			attack_hand(user)
 		return
+
+
 
 	if(stat & NOPOWER)
 		user << "<span class='notice'>\The [src] is unpowered and useless.</span>"

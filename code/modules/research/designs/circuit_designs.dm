@@ -275,6 +275,22 @@
 	build_path = /obj/item/weapon/circuitboard/optable
 	sort_string = "HACAH"
 
+
+/datum/design/circuit/optable
+	name = "advanced operation table scanning board"
+	id = "advoptable_board"
+	req_tech = list(TECH_BIO = 4, TECH_ENGINEERING = 5)
+	build_path = /obj/item/weapon/circuitboard/optableadv
+	sort_string = "HACAI"
+
+
+/datum/design/circuit/smartfridge
+	name = "smart fridge board"
+	id = "fridge_board"
+	req_tech = list(TECH_DATA = 2, TECH_ENGINEERING = 2)
+	build_path = /obj/item/weapon/circuitboard/optable
+	sort_string = "HACAJ"
+
 /datum/design/circuit/requestconsole
 	name = "request console board"
 	id = "requestconsole_board"

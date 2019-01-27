@@ -73,6 +73,28 @@
 	req_components = list(
 							"/obj/item/weapon/stock_parts/scanning_module" = 1)
 
+/obj/item/weapon/circuitboard/optableadv
+	name = T_BOARD("Advanced Operation Table")
+	desc = "The circuitboard for a advanced operating table."
+	build_path = "/obj/machinery/optable/lifesupport"
+	origin_tech = list(TECH_BIO = 4, TECH_ENGINEERING = 5)
+	board_type = "machine"
+	req_components = list(
+							"/obj/item/weapon/stock_parts/scanning_module" = 1,
+							"/obj/item/weapon/stock_parts/capacitor" = 1,
+							"/obj/item/device/healthanalyzer" = 1,
+							"/obj/item/weapon/stock_parts/scanning_module/adv" = 1,
+							"/obj/item/clothing/mask/breath/medical" = 1)
+
+/obj/item/weapon/circuitboard/smartfridge
+	name = T_BOARD("Smart Fridge")
+	desc = "The circuitboard for a smart fridge."
+	build_path = "/obj/machinery/smartfridge"
+	origin_tech = list(TECH_MAGNET = 1, TECH_ENGINEERING = 3)
+	board_type = "machine"
+	req_components = list(
+							"/obj/item/weapon/stock_parts/manipulator" = 3)
+
 
 /obj/item/weapon/circuitboard/refiner
 	name = T_BOARD("ore processor")
