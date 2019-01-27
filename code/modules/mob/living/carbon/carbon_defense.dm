@@ -25,7 +25,7 @@
 				sleeping = 0
 				willfully_sleeping = 0
 			else if(H.bg)
-				to_chat(H, span("danger", "You sense great disturbance to your actual physical body!"))
+				to_chat(H, span("danger", "You sense great disturbance to your physical body!"))
 		else
 			visible_message(span("danger","[src] was hit by [AM], but they do not respond... Maybe they have S.S.D?"))
 	else if(client && willfully_sleeping)
@@ -53,7 +53,7 @@
 				sleeping = 0
 				willfully_sleeping = 0
 			else if(H.bg)
-				to_chat(H, span("danger", "You sense great disturbance to your actual physical body!"))
+				to_chat(H, span("danger", "You sense great disturbance to your physical body!"))
 		else
 			visible_message("<span class='danger'>[P] hit [src], but they do not respond... Maybe they have S.S.D?</span>")
 	else if(client && willfully_sleeping)
@@ -81,7 +81,7 @@
 				sleeping = 0
 				willfully_sleeping = 0
 			else if(H.bg)
-				to_chat(H, span("danger", "You sense great disturbance to your actual physical body!"))
+				to_chat(H, span("danger", "You sense great disturbance to your physical body!"))
 		else
 			user.visible_message("<span class='danger'>[user] attacked [src] with [I] waking [t_him] up!</span>", \
 								"<span class='danger'>You attacked [src] with [I], but they do not respond... Maybe they have S.S.D?</span>")
