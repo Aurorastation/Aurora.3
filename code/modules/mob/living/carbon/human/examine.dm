@@ -255,7 +255,7 @@
 	if(species.show_ssd && (!species.has_organ["brain"] || has_brain()) && stat != DEAD)
 		if(!key)
 			msg += "<span class='deadsay'>[T.He] [T.is] [species.show_ssd]. It doesn't look like [T.he] [T.is] waking up anytime soon.</span>\n"
-		else if(!client && !H.bg)
+		else if(!client && !bg)
 			msg += "<span class='deadsay'>[T.He] [T.is] [species.show_ssd].</span>\n"
 		if(client && ((client.inactivity / 600) > 10)) // inactivity/10/60 > 10 MINUTES
 			msg += "<span class='deadsay'>\[Inactive for [round(client.inactivity / 600)] minutes.\]\n</span>"
