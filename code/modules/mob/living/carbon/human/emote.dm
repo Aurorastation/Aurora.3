@@ -322,10 +322,8 @@
 						H = src
 						show_ssd = H.species.show_ssd
 					if(H && show_ssd && !H.client && !H.teleop)
-						if(isskrell(H) && H.shared_dream)
-							message = "<span class='danger'>slaps [M] across the face, waking them up. Ouch!</span>"
-							if(H.bg)
-								to_chat(H, span("danger", "You sense some disturbance to your physical body!"))
+						if(H.bg)
+							to_chat(H, span("danger", "You sense some disturbance to your physical body!"))
 						else
 							message = "<span class='danger'>slaps [M] across the face, but they do not respond... Maybe they have S.S.D?</span>"
 					else if(H.client && H.willfully_sleeping)

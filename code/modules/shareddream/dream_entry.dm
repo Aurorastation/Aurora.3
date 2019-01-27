@@ -1,7 +1,6 @@
 var/list/dream_entries = list()
 
 /mob/living/carbon/human
-	var/shared_dream = FALSE
 	var/mob/living/brain_ghost/bg = null
 
 /mob/living/carbon/human/proc/handle_shared_dreaming(var/force_wakeup = FALSE)
@@ -13,7 +12,6 @@ var/list/dream_entries = list()
 			bg.ckey = ckey
 			bg.client = client
 			ckey = "@[bg.ckey]"
-			shared_dream = TRUE
 			bg << "<span class='notice'>As you lose consiousness, you feel yourself entering Srom.</span>"
 			bg << "<span class='warning'>Whilst in shared dreaming, you find it difficult to hide your secrets.</span>"
 			if(willfully_sleeping)
@@ -30,7 +28,6 @@ var/list/dream_entries = list()
 			var/mob/living/brain_ghost/old_bg = bg
 			bg = null
 			ckey = old_bg.ckey
-			shared_dream = FALSE
 			old_bg.show_message("<span class='notice'>[bg] fades as their connection is severed.</span>")
 			animate(old_bg, alpha=0, time = 200)
 			QDEL_IN(old_bg, 20)

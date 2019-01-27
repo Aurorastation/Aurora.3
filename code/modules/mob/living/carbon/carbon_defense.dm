@@ -18,13 +18,13 @@
 		H = src
 		show_ssd = H.species.show_ssd
 	if(H && show_ssd && !client && !teleop)
-		if(isskrell(src) && H.shared_dream)
+		if(H.bg)
 			visible_message(span("danger", "[src] was hit by [AM] waking [t_him] up!"))
-			if(H.bg && (H.health / H.maxHealth < 0.5))
+			if(H.health / H.maxHealth < 0.5)
 				H.bg.awaken_impl(TRUE)
 				sleeping = 0
 				willfully_sleeping = 0
-			else if(H.bg)
+			else
 				to_chat(H, span("danger", "You sense great disturbance to your physical body!"))
 		else
 			visible_message(span("danger","[src] was hit by [AM], but they do not respond... Maybe they have S.S.D?"))
@@ -46,13 +46,13 @@
 		H = src
 		show_ssd = H.species.show_ssd
 	if(H && show_ssd && !client && !teleop)
-		if(isskrell(src) && H.shared_dream)
+		if(H.bg)
 			visible_message("<span class='danger'>[P] hit [src] waking [t_him] up!</span>")
-			if(H.bg && (H.health / H.maxHealth < 0.5))
+			ifH.health / H.maxHealth < 0.5)
 				H.bg.awaken_impl(TRUE)
 				sleeping = 0
 				willfully_sleeping = 0
-			else if(H.bg)
+			else
 				to_chat(H, span("danger", "You sense great disturbance to your physical body!"))
 		else
 			visible_message("<span class='danger'>[P] hit [src], but they do not respond... Maybe they have S.S.D?</span>")
@@ -73,14 +73,12 @@
 		H = src
 		show_ssd = H.species.show_ssd
 	if(H && show_ssd && !client && !teleop)
-		if(isskrell(src) && H.shared_dream)
-			user.visible_message("<span class='danger'>[user] attacked [src] with [I] waking [t_him] up!</span>", \
-								"<span class='danger'>You attacked [src] with [I] waking [t_him] up!</span>")
-			if(H.bg && (H.health / H.maxHealth < 0.5))
+		if(H.bg)
+			if(H.health / H.maxHealth < 0.5)
 				H.bg.awaken_impl(TRUE)
 				sleeping = 0
 				willfully_sleeping = 0
-			else if(H.bg)
+			else
 				to_chat(H, span("danger", "You sense great disturbance to your physical body!"))
 		else
 			user.visible_message("<span class='danger'>[user] attacked [src] with [I] waking [t_him] up!</span>", \
