@@ -1,4 +1,4 @@
-#define UIDEBUG
+
 /obj/item/device/nanoquikpay
 	name = "\improper NT Quik-Pay"
 <<<<<<< Updated upstream
