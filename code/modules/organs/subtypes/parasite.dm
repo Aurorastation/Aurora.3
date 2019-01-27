@@ -117,7 +117,7 @@
 
 	parent_organ = "head"
 	var/removed_langs = 0
-	stage_interval = 200
+	stage_interval = 150
 
 /obj/item/organ/parasite/blackkois/process()
 	..()
@@ -143,7 +143,6 @@
 
 		if(prob(5))
 			owner << "<span class='warning'>You feel something squirming inside of you!</span>"
-			owner.reagents.add_reagent("phoron", 6)
 			owner.reagents.add_reagent("blackkois", 4)
 
 		else if(prob(10))
@@ -187,7 +186,7 @@
 
 			var/datum/reagents/R = new/datum/reagents(100)
 			R.add_reagent("blackkois",10)
-			R.add_reagent("phoron",10)
+			R.add_reagent("phoron",5)
 			var/datum/effect/effect/system/smoke_spread/chem/spores/S = new("blackkois")
 
 			S.attach(T)
