@@ -48,7 +48,7 @@
 	if(H && show_ssd && !client && !teleop)
 		if(H.bg)
 			visible_message("<span class='danger'>[P] hit [src] waking [t_him] up!</span>")
-			ifH.health / H.maxHealth < 0.5)
+			if(H.health / H.maxHealth < 0.5)
 				H.bg.awaken_impl(TRUE)
 				sleeping = 0
 				willfully_sleeping = 0
