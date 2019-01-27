@@ -18,8 +18,8 @@ export default {
     return this.$root.$data.state;
   },
   computed: {
-    priceSum() {
-      return Object.keys(this.selection).reduce((sum, name) => {
+  priceSum() {
+    return Object.keys(this.selection).reduce((sum, name) => {
   if(isNaN(sum)){
     return (this.items[name] * this.selection[name])
 }

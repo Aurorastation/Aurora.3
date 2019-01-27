@@ -15,7 +15,6 @@
       </div>
     </div>
     <vui-button :params="{ confirm: selection }">Confirm Selection</vui-button>
-    <vui-button :params="{ unlock: 1 }" width="3em">Toggle Menu Lock</vui-button>
   </div>
 </template>
 
