@@ -30,6 +30,17 @@
 	var/metabolism_min = 0.01 //How much for the medicine to be present in the system to actually have an effect.
 	var/conflicting_reagent //Reagents that conflict with this medicine, and cause adverse effects when in the blood.
 
+	var/default_temperature = T0C + 20 //This is it's default spawning temperature, if none is provided.
+	var/thermal_energy = 0 //Internal value, should never change.
+	var/specific_heat = -1 //The higher, the more difficult it is to change its difficult. 0 or lower values indicate that the specific heat has yet to be assigned.
+	var/fallback_specific_heat = -1 //Setting this value above 0 will set the specific heat to this value only if the system could not find an appropriate specific heat to assign using the recipe system.
+	//Never ever ever ever change this value for datum/reagent. This should only be used for massive, yet specific things like drinks or food where it is infeasible to assign a specific heat value.
+
+/datum/reagent/proc/initialize_data(var/newdata) // Called when the reagent is created.
+	if(!isnull(newdata))
+		data = newdata
+	metabolism = round(metabolism,0.001)
+
 /datum/reagent/proc/remove_self(var/amount) // Shortcut
 	if (!holder)
 		//PROCLOG_WEIRD("Null holder found. Name: [name], id: [id]")
@@ -38,7 +49,7 @@
 	holder.remove_reagent(id, amount)
 
 // This doesn't apply to skin contact - this is for, e.g. extinguishers and sprays. The difference is that reagent is not directly on the mob's skin - it might just be on their clothing.
-/datum/reagent/proc/touch_mob(var/mob/M, var/amount)
+/datum/reagent/proc/touch_mob(var/mob/living/M, var/amount)
 	return
 
 /datum/reagent/proc/touch_obj(var/obj/O, var/amount) // Acid melting, cleaner cleaning, etc
@@ -55,9 +66,6 @@
 	if(alien & unaffected_species && location != CHEM_TOUCH)
 		return
 
-	if(!dose && volume)//If dose is currently zero, we do the first effect
-		initial_effect(M, alien)
-
 	var/removed = metabolism
 	if(ingest_met && (location == CHEM_INGEST))
 		removed = ingest_met
@@ -66,13 +74,20 @@
 	if(breathe_met && (location == CHEM_BREATHE))
 		removed = breathe_met
 
-	removed = min(removed, volume)
+	removed = M.get_metabolism(removed)
 	max_dose = max(volume, max_dose)
 
 	if(overdose && (dose > overdose) && (location != CHEM_TOUCH))
 		overdose(M, alien, removed, dose/overdose)
 
+	if(dose == 0)
+		initial_effect(M,alien)
+
 	dose = min(dose + removed, max_dose)
+
+	var/bodytempchange = Clamp((get_temperature() - M.bodytemperature) * removed * REAGENTS_BODYTEMP,-REAGENTS_BODYTEMP_MAX * removed, REAGENTS_BODYTEMP_MAX * removed)
+	if(abs(bodytempchange) >= REAGENTS_BODYTEMP_MIN)
+		M.bodytemperature += round(bodytempchange,REAGENTS_BODYTEMP_MIN)
 
 	for(var/datum/reagent/R in M.bloodstr.reagent_list)
 		if(istype(R, conflicting_reagent))
@@ -87,10 +102,15 @@
 				affect_touch(M, alien, removed)
 			if(CHEM_BREATHE)
 				affect_breathe(M, alien, removed)
+
 	remove_self(removed)
 
 //Initial effect is called once when the reagent first starts affecting a mob.
 /datum/reagent/proc/initial_effect(var/mob/living/carbon/M, var/alien)
+	return
+
+//Final effect is called once when the reagent finishes affecting a mob.
+/datum/reagent/proc/final_effect(var/mob/living/carbon/M)
 	return
 
 /datum/reagent/proc/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
@@ -113,10 +133,6 @@
 
 /datum/reagent/proc/overdose(var/mob/living/carbon/M, var/alien, var/removed = 0, var/scale = 1) // Overdose effect. Doesn't happen instantly.
 	M.adjustToxLoss(REM)
-
-/datum/reagent/proc/initialize_data(var/newdata) // Called when the reagent is created.
-	if(!isnull(newdata))
-		data = newdata
 
 /datum/reagent/proc/mix_data(var/newdata, var/newamount) // You have a reagent with data, and new reagent with its own data get added, how do you deal with that?
 	return
@@ -141,3 +157,7 @@
 
 /datum/reagent/proc/reaction_mob(var/mob/target)
 	touch_mob(target)
+
+
+
+

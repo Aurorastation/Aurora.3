@@ -24,6 +24,71 @@
 	QDEL_NULL(modifier)
 	return ..()
 
+/datum/reagent/epinephrine
+	name = "Epinephrine"
+	id = "epinephrine"
+	description = "Epinephrine, also known as adrenaline, is a super strength stimulant and painkiller intended to keep a patient alive while in critical condition. Overdose causes heart damage and an energy boost equivelent to hyperzine."
+	reagent_state = LIQUID
+	color = "#FFFFFF"
+	overdose = 20
+	metabolism = 2
+	metabolism_min = 0.25
+	breathe_mul = 0.25
+	ingest_mul = 0.25
+	scannable = 1
+	taste_description = "salty sugar"
+	var/datum/modifier/modifier1
+	var/datum/modifier/modifier2
+
+/datum/reagent/epinephrine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+
+	var/reagent_strength = round(max(0,1 - (M.health/100)),0.1)
+
+	if(reagent_strength == 0)
+		return
+
+	var/list/damage_stats = list(BRUTE = M.getBruteLoss(), BURN = M.getFireLoss(), TOX = M.getToxLoss(), OXY = M.getOxyLoss())
+
+	var/best_stat = "None"
+	var/best_value = 0
+
+	for(var/key in damage_stats)
+		var/value = damage_stats[key]
+		if(value > best_value)
+			best_stat = key
+			best_value = value
+
+	switch(best_stat)
+		if(BRUTE)
+			M.adjustBruteLoss(-removed*5*reagent_strength)
+		if(BURN)
+			M.adjustFireLoss(-removed*5*reagent_strength)
+		if(TOX)
+			M.adjustToxLoss(-removed*5*reagent_strength)
+		if(OXY)
+			M.adjustOxyLoss(-removed*5*reagent_strength)
+
+	M.make_jittery(removed*10)
+	M.add_chemical_effect(CE_STABLE)
+	M.add_chemical_effect(CE_PAINKILLER, 25)
+	if (!modifier1)
+		modifier1 = M.add_modifier(/datum/modifier/adrenaline, MODIFIER_REAGENT, src, _strength = 1, override = MODIFIER_OVERRIDE_STRENGTHEN)
+
+/datum/reagent/epinephrine/overdose(var/mob/living/carbon/human/H, var/alien, removed )
+	if(istype(H))
+		var/obj/item/organ/F = H.internal_organs_by_name["heart"]
+		if(istype(F))
+			F.take_damage(-removed*0.1)
+			H.make_jittery(removed*10)
+			H.add_chemical_effect(CE_SPEEDBOOST, 1)
+			if (!modifier2)
+				modifier2 = H.add_modifier(/datum/modifier/stimulant, MODIFIER_REAGENT, src, _strength = 1, override = MODIFIER_OVERRIDE_STRENGTHEN)
+
+/datum/reagent/epinephrine/Destroy()
+	QDEL_NULL(modifier1)
+	QDEL_NULL(modifier2)
+	return ..()
+
 /datum/reagent/bicaridine
 	name = "Bicaridine"
 	id = "bicaridine"
@@ -142,7 +207,7 @@
 /datum/reagent/tricordrazine
 	name = "Tricordrazine"
 	id = "tricordrazine"
-	description = "Tricordrazine is a highly potent stimulant, originally derived from cordrazine. Can be used to treat a wide range of injuries, however it does not work when inhaled."
+	description = "Tricordrazine is a highly potent stimulant, originally derived from cordrazine. Can be used to treat a wide range of injuries, however it does not work when inhaled. Has different healing properties depending on the chemical's temperature."
 	reagent_state = LIQUID
 	color = "#8040FF"
 	scannable = 1
@@ -150,9 +215,49 @@
 	breathe_mul = 0
 
 /datum/reagent/tricordrazine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+	var/power = 1 + Clamp((get_temperature() - (T0C + 20))*0.1,-0.5,0.5)
+	//Heals 10% more brute and less burn for every 1 celcius above 20 celcius, up 50% more/less.
+	//Heals 10% more burn and less brute for every 1 celcius below 20 celcius, up to 50% more/less.
 	M.adjustOxyLoss(-6 * removed)
-	M.heal_organ_damage(3 * removed, 3 * removed)
+	M.heal_organ_damage(3 * removed * power,3 * removed * power)
 	M.adjustToxLoss(-3 * removed)
+
+/datum/reagent/omnizine
+	name = "Omnizine"
+	id = "omnizine"
+	description = "Omnizine is a low strength over-the-counter stimulant designed and marketed as a 'treat all' pill. Ingesting or inhaling the substance has the same strength as directly injecting it."
+	reagent_state = SOLID
+	color = "#BBBBBB"
+	metabolism = REM
+	ingest_mul = 1
+	breathe_mul = 1
+	scannable = 1
+	taste_description = "bittersweet chalk"
+
+/datum/reagent/omnizine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+	M.adjustOxyLoss(-1 * removed)
+	M.adjustBruteLoss(-1 * removed)
+	M.adjustFireLoss(-1 * removed)
+	M.adjustToxLoss(-1 * removed)
+
+/datum/reagent/atropine
+	name = "Atropine"
+	id = "atropine"
+	description = "Atropine is an emergency stabilizing reagent designed to heal suffocation, blunt trauma, and burns in critical condition. Side effects include toxins increase."
+	reagent_state = LIQUID
+	metabolism = 1
+	color = "#FF40FF"
+	scannable = 1
+	taste_description = "bitterness"
+	breathe_mul = 0
+
+/datum/reagent/atropine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+	var/reagent_strength = max(0.25,1 - (M.health/100))
+	M.adjustOxyLoss(-5 * removed * reagent_strength)
+	M.adjustBruteLoss(-5 * removed * reagent_strength)
+	M.adjustFireLoss(-5 * removed * reagent_strength)
+
+	M.adjustToxLoss(1 * removed)
 
 /datum/reagent/cryoxadone
 	name = "Cryoxadone"
@@ -174,7 +279,7 @@
 /datum/reagent/clonexadone
 	name = "Clonexadone"
 	id = "clonexadone"
-	description = "A liquid compound similar to that used in the cloning process. Can be used to 'finish' the cloning process when used in conjunction with a cryo tube."
+	description = "A liquid compound similar to that used in the cloning process. Can be used to 'finish' the cloning process when used in conjunction with a cryo tube. Its main limitation is that the targets body temperature must be under 170K for it to metabolise correctly."
 	reagent_state = LIQUID
 	color = "#80BFFF"
 	metabolism = REM * 0.5
@@ -455,7 +560,7 @@
 	var/last_taste_time = -10000
 
 /datum/reagent/hyronalin/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	if(alien == IS_DIONA)
+	if(M.is_diona())
 		if(last_taste_time + 950 < world.time) // Not to spam message
 			to_chat(M, "<span class='danger'>Your body withers as you feel a searing pain throughout.</span>")
 			last_taste_time = world.time
@@ -478,7 +583,7 @@
 	var/last_taste_time = -10000
 
 /datum/reagent/arithrazine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	if(alien == IS_DIONA)
+	if(M.is_diona())
 		if(last_taste_time + 450 < world.time) // Not to spam message
 			to_chat(M, "<span class='danger'>Your body withers as you feel a searing pain throughout.</span>")
 			last_taste_time = world.time
@@ -577,6 +682,8 @@
 	var/list/dosage_traumas //List of brain traumas that the medication permanently adds at these dosages, with the key being the brain trauma and the value being base percent chance to add.
 	var/list/withdrawal_traumas //List of withdrawl effects that the medication permanently adds during withdrawl, with the key being the brain trauma, and the value being the base percent chance to add.
 	var/list/suppressing_reagents = list() // List of reagents that suppress the withdrawal effects, with the key being the reagent and the vlue being the minimum dosage required to suppress.
+
+	fallback_specific_heat = 1.5
 
 /datum/reagent/mental/affect_blood(var/mob/living/carbon/human/H, var/alien, var/removed)
 
@@ -1005,17 +1112,47 @@
 	if (prob(dose))
 		M.vomit()
 
+/datum/reagent/mannitol
+	name = "Mannitol"
+	id = "mannitol"
+	description = "Mannitol is a super strength chemical that heals brain tissue damage and cures dumbness, cerebral blindness, cerebral paralysis, colorblindness, and aphasia. More effective when the patient's body temperature is less than 170K."
+	reagent_state = LIQUID
+	color = "#FFFF00"
+	metabolism = REM * 2 //0.4
+	overdose = REAGENTS_OVERDOSE
+	scannable = 1
+	taste_description = "bitterness"
+	metabolism_min = REM * 0.25
+	var/list/curable_traumas = list(
+		/datum/brain_trauma/mild/dumbness/,
+		/datum/brain_trauma/severe/blindness/,
+		/datum/brain_trauma/severe/paralysis/,
+		/datum/brain_trauma/severe/total_colorblind/,
+		/datum/brain_trauma/severe/aphasia/
+	)
 
-//Things that are not cured by medication:
-//Dumbness
+/datum/reagent/mannitol/affect_blood(var/mob/living/carbon/human/M, var/alien, var/removed)
+
+	M.add_chemical_effect(CE_PAINKILLER, 10)
+	var/chance = dose*removed
+	if(M.bodytemperature < 170)
+		chance = (chance*4) + 5
+		M.adjustBrainLoss(-30 * removed)
+	else
+		M.adjustBrainLoss(-10 * removed)
+
+	if(prob(chance))
+		M.cure_trauma_type(pick(curable_traumas))
+
+
+
+//Things that are not cured/treated by medication:
 //Gerstmann Syndrome
 //Cerebral Near-Blindness
 //Mutism
 //Cerebral Blindness
-//Paralysis
 //Narcolepsy
 //Discoordination
-//Aphasia
 
 /datum/reagent/calomel
 	name = "Calomel"
@@ -1133,6 +1270,7 @@
 	color = "#BF0000"
 	taste_description = "bitter metal"
 	overdose = 5
+	fallback_specific_heat = 1.2
 
 /datum/reagent/azoth/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	..()
@@ -1211,6 +1349,16 @@
 			var/mob/living/carbon/human/H = M
 			H.delayed_vomit()
 
+/datum/reagent/coagulant
+	name = "Coagulant"
+	id = "coagulant"
+	description = "A chemical that can temporarily stop the blood loss caused by internal wounds."
+	reagent_state = LIQUID
+	color = "#8b0000"
+	overdose = REAGENTS_OVERDOSE
+	taste_description = "bitterness"
+	fallback_specific_heat = 1
+
 //Secret Chems
 /datum/reagent/elixir
 	name = "Elixir of Life"
@@ -1219,6 +1367,7 @@
 	color = "#ffd700"
 	affects_dead = 1
 	taste_description = "eternal blissfulness"
+	fallback_specific_heat = 2
 
 /datum/reagent/elixir/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(ishuman(M))

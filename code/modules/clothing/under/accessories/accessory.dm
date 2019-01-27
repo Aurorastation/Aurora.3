@@ -131,6 +131,11 @@
 	name = "white tie"
 	icon_state = "whitetie"
 
+/obj/item/clothing/accessory/tie/bowtie
+	name = "bowtie"
+	desc = "Snazzy!"
+	icon_state = "bowtie"
+
 /obj/item/clothing/accessory/stethoscope
 	name = "stethoscope"
 	desc = "An outdated medical apparatus for listening to the sounds of the human body. It also makes you look like you know what you're doing."
@@ -251,31 +256,18 @@
 	desc = "An extremely rare golden medal awarded only by company officials. To receive such a medal is the highest honor and as such, very few exist. This medal is almost never awarded to anybody but commanders."
 	icon_state = "gold_crest"
 
-//clothing-like acessories
-
-/obj/item/clothing/accessory/wcoat
-	name = "waistcoat"
-	desc = "For some classy, murderous fun."
-	icon_state = "wcoat"
-	item_state = "wcoat"
-
 /obj/item/clothing/accessory/suspenders
 	name = "suspenders"
 	desc = "They suspend the illusion of the mime's play."
 	icon_state = "suspenders"
 	item_state = "suspenders"
 
-/obj/item/clothing/accessory/sweater
-	name = "sweater"
-	desc = "A warm knit sweater."
-	icon_state = "sweater"
-	item_state = "sweater"
-
 /obj/item/clothing/accessory/scarf
-	name = "white scarf"
+	name = "scarf"
 	desc = "A simple scarf, to protect your neck from the cold of space."
 	icon_state = "whitescarf"
 	item_state = "whitescarf"
+	slot = "over"
 
 /obj/item/clothing/accessory/scarf/yellow
 	name = "yellow scarf"
@@ -344,7 +336,6 @@
 	icon_state = "classicponcho"
 	item_state = "classicponcho"
 	icon_override = 'icons/mob/ties.dmi'
-	var/fire_resist = T0C+100
 	allowed = list(/obj/item/weapon/tank/emergency_oxygen)
 	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 0, rad = 0)
 	slot_flags = SLOT_OCLOTHING | SLOT_TIE
@@ -453,9 +444,15 @@
 
 /obj/item/clothing/accessory/poncho/roles/cloak/captain
 	name = "captain's cloak"
-	desc = "An elaborate cloak meant to be worn by the colony director."
+	desc = "An elaborate cloak meant to be worn by the Captain."
 	icon_state = "capcloak"
 	item_state = "capcloak"
+
+/obj/item/clothing/accessory/poncho/roles/cloak/hos
+	name = "head of security's cloak"
+	desc = "An elaborate cloak meant to be worn by the Head of Security."
+	icon_state = "hoscloak"
+	item_state = "hoscloak"
 
 /obj/item/clothing/accessory/poncho/roles/cloak/cargo
 	name = "brown cloak"
@@ -498,3 +495,24 @@
 	desc = "A simple blue and white cloak worn by suit sensor activists."
 	icon_state = "medcloak"
 	item_state = "medcloak"
+
+/obj/item/clothing/accessory/poncho/roles/cloak/security
+	name = "dark blue cloak"
+	desc = "A simple dark blue cloak awarded by NanoTrasen for failing the introductory literacy test."
+	icon_state = "seccloak"
+	item_state = "seccloak"
+
+//tau ceti legion ribbons
+
+/obj/item/clothing/accessory/legion
+	name = "seniority ribbons"
+	desc = "A ribbon meant to attach to the chest and sling around the shoulder accompanied by two medallions, marking seniority in a Tau Ceti Foreign Legion."
+	icon_state = "senior_ribbon"
+	item_state = "senior_ribbon"
+	slot = "over"
+
+/obj/item/clothing/accessory/legion/specialist
+	name = "specialist medallion"
+	desc = "Two small medallions, one worn on the shoulder and the other worn on the chest. Meant to display the rank of specialist troops in a Tau Ceti Foreign Legion."
+	icon_state = "specialist_medallion"
+	item_state = "specialist_medallion"

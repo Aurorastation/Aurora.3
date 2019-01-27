@@ -478,7 +478,7 @@
 /obj/machinery/suit_storage_unit/attackby(obj/item/I as obj, mob/user as mob)
 	if(!src.ispowered)
 		return
-	if(isscrewdriver(I))
+	if(I.isscrewdriver())
 		src.panelopen = !src.panelopen
 		playsound(src.loc, 'sound/items/Screwdriver.ogg', 100, 1)
 		user << text("<font color='blue'>You [] the unit's maintenance panel.</font>",(src.panelopen ? "open up" : "close") )
@@ -592,7 +592,7 @@
 	//Departments that the cycler can paint suits to look like.
 	var/list/departments = list("Engineering","Mining","Medical","Security","Atmos")
 	//Species that the suits can be configured to fit.
-	var/list/species = list("Human","Skrell","Unathi","Tajara", "Vaurca")
+	var/list/species = list("Human","Skrell","Unathi","Tajara", "Vaurca", "Machine")
 
 	var/target_department
 	var/target_species
@@ -652,7 +652,15 @@
 	model_text = "Wizardry"
 	req_access = null
 	departments = list("Wizardry")
-	species = list("Human","Tajara","Skrell","Unathi")
+	species = list("Human","Tajara","Skrell","Unathi", "Machine")
+	can_repair = 1
+
+/obj/machinery/suit_cycler/hos
+	name = "Head of Security suit cycler"
+	model_text = "Head of Security"
+	req_access = list(access_hos)
+	departments = list("Head of Security")
+	species = list("Human","Tajara","Skrell","Unathi", "Machine")
 	can_repair = 1
 
 /obj/machinery/suit_cycler/captain
@@ -660,7 +668,7 @@
 	model_text = "Captain"
 	req_access = list(access_captain)
 	departments = list("Captain")
-	species = list("Human","Tajara","Skrell","Unathi")
+	species = list("Human","Tajara","Skrell","Unathi", "Machine")
 	can_repair = 1
 
 /obj/machinery/suit_cycler/attack_ai(mob/user as mob)
@@ -673,7 +681,7 @@
 			return
 
 	//Hacking init.
-	if(ismultitool(I) || iswirecutter(I))
+	if(I.ismultitool() || I.iswirecutter())
 		if(panel_open)
 			attack_hand(user)
 		return
@@ -709,7 +717,7 @@
 			src.updateUsrDialog()
 
 			return
-	else if(isscrewdriver(I))
+	else if(I.isscrewdriver())
 
 		panel_open = !panel_open
 		user << "You [panel_open ?  "open" : "close"] the maintenance panel."

@@ -49,6 +49,7 @@
 
 /obj/item/weapon/storage/box/donut/empty
 	startswith = 0
+	max_storage_space = 12
 
 /obj/item/weapon/storage/box/pineapple
 	icon = 'icons/obj/storage.dmi'

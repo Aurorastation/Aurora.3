@@ -7,9 +7,71 @@ var/datum/controller/subsystem/chemistry/SSchemistry
 
 	var/list/active_holders = list()
 	var/list/chemical_reactions
+	var/list/chemical_reactions_clean = list()
 	var/list/chemical_reagents
 
 	var/tmp/list/processing_holders = list()
+
+/datum/controller/subsystem/chemistry/proc/has_valid_specific_heat(var/datum/reagent/R) //Used for unit tests. Same as check_specific_heat but returns a boolean instead.
+
+	if(R.specific_heat > 0)
+		return TRUE
+
+	if(chemical_reagents[R.id].specific_heat > 0) //Don't think this will happen but you never know.
+		return TRUE
+
+	var/datum/chemical_reaction/recipe = find_recipe_by_result(R.id)
+	if(recipe)
+		for(var/chem in recipe.required_reagents)
+			if(!has_valid_specific_heat(chemical_reagents[chem]))
+				log_ss("chemistry", "ERROR: [recipe.type] has an improper recipe!")
+				return R.fallback_specific_heat > 0
+
+		return TRUE
+	else
+		if(R.fallback_specific_heat > 0)
+			return TRUE
+		else
+			log_ss("chemistry", "ERROR: [R.type] does not have a valid specific heat ([R.specific_heat]) or a valid fallback specific heat ([R.fallback_specific_heat]) assigned!")
+			return FALSE
+
+/datum/controller/subsystem/chemistry/proc/check_specific_heat(var/datum/reagent/R)
+
+	if(R.specific_heat > 0)
+		return R.specific_heat
+
+	if(chemical_reagents[R.id].specific_heat > 0) //Don't think this will happen but you never know.
+		return chemical_reagents[R.id].specific_heat
+
+	var/datum/chemical_reaction/recipe = find_recipe_by_result(R.id)
+	if(recipe)
+		var/final_heat = 0
+		var/result_amount = recipe.result_amount
+		for(var/chem in recipe.required_reagents)
+			var/chem_specific_heat = check_specific_heat(chemical_reagents[chem])
+			if(chem_specific_heat <= 0)
+				log_ss("chemistry", "ERROR: [R.type] does not have a specific heat value set, and there is no associated recipe for it! Please fix this by giving it a specific_heat value!")
+				final_heat = 0
+				break
+			final_heat += chem_specific_heat * (recipe.required_reagents[chem]/result_amount)
+
+		if(final_heat > 0)
+			chemical_reagents[R.id].specific_heat = final_heat
+			return final_heat
+
+	if(R.fallback_specific_heat > 0)
+		chemical_reagents[R.id].specific_heat = R.fallback_specific_heat
+		return R.fallback_specific_heat
+
+	log_ss("chemistry", "ERROR: [R.type] does not have a specific heat value set, and there is no associated recipe for it! Please fix this by giving it a specific_heat value!")
+	chemical_reagents[R.id].specific_heat = 1
+	return 1
+
+/datum/controller/subsystem/chemistry/proc/find_recipe_by_result(var/result_id)
+	for(var/key in chemical_reactions_clean)
+		var/datum/chemical_reaction/CR = chemical_reactions_clean[key]
+		if(CR.result == result_id && CR.result_amount > 0)
+			return CR
 
 /datum/controller/subsystem/chemistry/stat_entry()
 	..("AH:[active_holders.len]")
@@ -46,7 +108,7 @@ var/datum/controller/subsystem/chemistry/SSchemistry
 
 		if (MC_TICK_CHECK)
 			return
-		
+
 /datum/controller/subsystem/chemistry/proc/mark_for_update(var/datum/reagents/holder)
 	if (holder in active_holders)
 		return
@@ -122,3 +184,5 @@ var/datum/controller/subsystem/chemistry/SSchemistry
 			if(!chemical_reactions[reagent_id])
 				chemical_reactions[reagent_id] = list()
 			chemical_reactions[reagent_id] += D
+		if(D.id)
+			chemical_reactions_clean[D.id] = D

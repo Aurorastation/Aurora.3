@@ -254,7 +254,7 @@
 
 /mob/living/carbon/human/bst/proc/bss()
 	if(set_species("Skrell"))
-		h_style = "Skrell Male Tentacles"
+		h_style = "Skrell Average Tentacles"
 		name = "Bluespace Squid"
 		voice_name = "Bluespace Squid"
 		real_name = "Bluespace Squid"

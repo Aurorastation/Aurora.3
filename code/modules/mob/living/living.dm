@@ -20,6 +20,11 @@
 	src.visible_message("<b>[src]</b> points to [A]")
 	return 1
 
+/mob/living/Crossed(var/atom/movable/AM)
+	if(istype(AM, /obj/mecha))
+		var/obj/mecha/MB = AM
+		MB.trample(src)
+
 /*one proc, four uses
 swapping: if it's 1, the mobs are trying to switch, if 0, non-passive is pushing passive
 default behaviour is:
@@ -203,7 +208,6 @@ default behaviour is:
 //sort of a legacy burn method for /electrocute, /shock, and the e_chair
 /mob/living/proc/burn_skin(burn_amount)
 	if(istype(src, /mob/living/carbon/human))
-		//world << "DEBUG: burn_skin(), mutations=[mutations]"
 		if(mShock in src.mutations) //shockproof
 			return 0
 		if (COLD_RESISTANCE in src.mutations) //fireproof
@@ -236,8 +240,6 @@ default behaviour is:
 		temperature -= change
 		if(actual < desired)
 			temperature = desired
-//	if(istype(src, /mob/living/carbon/human))
-//		world << "[src] ~ [src.bodytemperature] ~ [temperature]"
 	return temperature
 
 
@@ -307,7 +309,7 @@ default behaviour is:
 	return halloss
 
 /mob/living/proc/adjustHalLoss(var/amount)
-	if(status_flags & GODMODE)	
+	if(status_flags & GODMODE)
 		return 0
 
 	if(amount > 0)
@@ -656,9 +658,12 @@ default behaviour is:
 		spawn() escape_buckle()
 
 	//Breaking out of a locker?
-	if( src.loc && (istype(src.loc, /obj/structure/closet)) )
+	if( src.loc && istype(src.loc, /obj/structure/closet) )
 		var/obj/structure/closet/C = loc
 		spawn() C.mob_breakout(src)
+	else if(src.loc && istype(src.loc, /obj/item/weapon/trap/animal))
+		var/obj/item/weapon/trap/animal/A = loc
+		spawn() A.mob_breakout(src)
 
 /mob/living/proc/escape_inventory(obj/item/weapon/holder/H)
 	if(H != src.loc) return

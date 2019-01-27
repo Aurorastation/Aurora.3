@@ -10,18 +10,20 @@
 	siemens_coefficient = 0.4
 
 	//Species-specific stuff.
-	species_restricted = list("Human", "Machine", "Bishop Accessory Frame")
+	species_restricted = list("Human", "Bishop Accessory Frame")
 	sprite_sheets_refit = list(
 		"Unathi" = 'icons/mob/species/unathi/helmet.dmi',
 		"Tajara" = 'icons/mob/species/tajaran/helmet.dmi',
 		"Skrell" = 'icons/mob/species/skrell/helmet.dmi',
-		"Vaurca" = 'icons/mob/species/vaurca/helmet.dmi'
+		"Vaurca" = 'icons/mob/species/vaurca/helmet.dmi',
+		"Machine" = 'icons/mob/species/machine/helmet.dmi'
 		)
 	sprite_sheets_obj = list(
 		"Unathi" = 'icons/obj/clothing/species/unathi/hats.dmi',
 		"Tajara" = 'icons/obj/clothing/species/tajaran/hats.dmi',
 		"Skrell" = 'icons/obj/clothing/species/skrell/hats.dmi',
-		"Vaurca" = 'icons/obj/clothing/species/vaurca/hats.dmi'
+		"Vaurca" = 'icons/obj/clothing/species/vaurca/hats.dmi',
+		"Machine" = 'icons/obj/clothing/species/machine/hats.dmi'
 		)
 
 	light_overlay = "helmet_light"
@@ -38,18 +40,20 @@
 	max_heat_protection_temperature = SPACE_SUIT_MAX_HEAT_PROTECTION_TEMPERATURE
 	siemens_coefficient = 0.4
 
-	species_restricted = list("Human", "Skrell", "Machine", "Bishop Accessory Frame")
+	species_restricted = list("Human", "Skrell", "Bishop Accessory Frame")
 	sprite_sheets_refit = list(
 		"Unathi" = 'icons/mob/species/unathi/suit.dmi',
 		"Tajara" = 'icons/mob/species/tajaran/suit.dmi',
 		"Skrell" = 'icons/mob/species/skrell/suit.dmi',
-		"Vaurca" = 'icons/mob/species/vaurca/suit.dmi'
+		"Vaurca" = 'icons/mob/species/vaurca/suit.dmi',
+		"Machine" = 'icons/mob/species/machine/suit.dmi'
 		)
 	sprite_sheets_obj = list(
 		"Unathi" = 'icons/obj/clothing/species/unathi/suits.dmi',
 		"Tajara" = 'icons/obj/clothing/species/tajaran/suits.dmi',
 		"Skrell" = 'icons/obj/clothing/species/skrell/suits.dmi',
-		"Vaurca" = 'icons/obj/clothing/species/vaurca/suits.dmi'
+		"Vaurca" = 'icons/obj/clothing/species/vaurca/suits.dmi',
+		"Machine" = 'icons/obj/clothing/species/machine/suits.dmi'
 		)
 
 	//Breach thresholds, should ideally be inherited by most (if not all) voidsuits.
@@ -201,7 +205,7 @@
 		user << "<span class='warning'>You cannot modify \the [src] while it is being worn.</span>"
 		return
 
-	if(isscrewdriver(W))
+	if(W.isscrewdriver())
 		if(helmet || boots || tank)
 			var/choice = input("What component would you like to remove?") as null|anything in list(helmet,boots,tank)
 			if(!choice) return

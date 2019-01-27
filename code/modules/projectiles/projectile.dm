@@ -106,30 +106,11 @@
 	if(isanimal(target))
 		return FALSE
 	var/mob/living/L = target
-
-	var/splatter_color = "#A10808"
-
-
-	if (ishuman(target))
-		var/mob/living/carbon/human/H = target
-		var/obj/item/organ/external/organ = H.get_organ(def_zone)
-		var/armor = H.getarmor_organ(organ, check_armour)
-		if(agony)
-			agony = max(0, agony - armor)
-
-		if (H.species)
-			splatter_color = H.species.blood_color || "#A10808"
-
-		/*
-		Maim / Maiming check. Disembody a limb depending on several factors.
-
-		can_be_maimed and maim_bonus are defined on 'obj/item/organ/external'.
-		*/
-		if(organ.can_be_maimed && maiming)
-			if(prob((maim_rate * (organ.get_damage() * organ.maim_bonus) - (armor/2))))
-				organ.droplimb(clean_cut,maim_type)
-
 	if (damage_type == BRUTE)
+		var/splatter_color = "#A10808"
+		var/mob/living/carbon/human/H = target
+		if (istype(H)&& H.species && H.species.blood_color)
+			splatter_color = H.species.blood_color
 		var/splatter_dir = starting ? get_dir(starting, target.loc) : dir
 		new /obj/effect/temp_visual/dir_setting/bloodsplatter(target.loc, splatter_dir, splatter_color)
 
@@ -182,7 +163,7 @@
 		return
 
 	//roll to-hit
-	miss_modifier = max(15*(distance-2) - round(15*accuracy) + miss_modifier, 0)
+	miss_modifier = max(15*(distance-1) - round(25*accuracy) + miss_modifier, 0)
 	var/hit_zone = get_zone_with_miss_chance(def_zone, target_mob, miss_modifier, ranged_attack=(distance > 1 || original != target_mob)) //if the projectile hits a target we weren't originally aiming at then retain the chance to miss
 
 	var/result = PROJECTILE_FORCE_MISS

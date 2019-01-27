@@ -186,8 +186,12 @@
 			if ("github")
 				if (!config.githuburl)
 					src << "<span class='danger'>Github URL not set in the config. Unable to open the site.</span>"
-				else if (alert("This will open the issue tracker in your browser. Are you sure?",, "Yes", "No") == "Yes")
-					src << link(config.githuburl)
+				else if (alert("This will open the Github page in your browser. Are you sure?",, "Yes", "No") == "Yes")
+					if (href_list["pr"])
+						var/pr_link = "[config.githuburl]pull/[href_list["pr"]]"
+						src << link(pr_link)
+					else
+						src << link(config.githuburl)
 
 			// Forum link from various panels.
 			if ("forums")
@@ -347,7 +351,6 @@
 			del(src)
 			return 0
 
-#if DM_VERSION > 511
 	if (LAZYLEN(config.client_blacklist_version))
 		var/client_version = "[byond_version].[byond_build]"
 		if (client_version in config.client_blacklist_version)
@@ -357,7 +360,6 @@
 			log_access("Failed Login: [key] [computer_id] [address] - Blacklisted BYOND version: [client_version].")
 			del(src)
 			return 0
-#endif
 
 	//preferences datum - also holds some persistant data for the client (because we may as well keep these datums to a minimum)
 	prefs = preferences_datums[ckey]
@@ -417,10 +419,8 @@
 	if(!dbcon.IsConnected())
 		return null
 
-	var/sql_ckey = sql_sanitize_text(ckey(key))
-
-	var/DBQuery/query = dbcon.NewQuery("SELECT datediff(Now(),firstseen) as age FROM ss13_player WHERE ckey = '[sql_ckey]'")
-	query.Execute()
+	var/DBQuery/query = dbcon.NewQuery("SELECT datediff(Now(),firstseen) as age FROM ss13_player WHERE ckey = :ckey:")
+	query.Execute(list("ckey"=ckey(key)))
 
 	if(query.NextRow())
 		return text2num(query.item[1])
@@ -434,11 +434,9 @@
 	if(!establish_db_connection(dbcon))
 		return
 
-	var/sql_ckey = sql_sanitize_text(src.ckey)
+	var/DBQuery/query = dbcon.NewQuery("SELECT datediff(Now(),firstseen) as age, whitelist_status, account_join_date, DATEDIFF(NOW(), account_join_date) FROM ss13_player WHERE ckey = :ckey:")
 
-	var/DBQuery/query = dbcon.NewQuery("SELECT datediff(Now(),firstseen) as age, whitelist_status, account_join_date, DATEDIFF(NOW(), account_join_date) FROM ss13_player WHERE ckey = '[sql_ckey]'")
-
-	if(!query.Execute())
+	if(!query.Execute(list("ckey"=ckey(key))))
 		return
 
 	var/found = 0
@@ -479,25 +477,14 @@
 	if(src.holder)
 		admin_rank = src.holder.rank
 
-	var/sql_ip = sql_sanitize_text(src.address)
-	var/sql_computerid = sql_sanitize_text(src.computer_id)
-	var/sql_admin_rank = sql_sanitize_text(admin_rank)
-	var/sql_byond_version = text2num(byond_version)
-	#if DM_VERSION >= 512
-	var/sql_byond_build = text2num(byond_build)
-	#else
-	var/sql_byond_build = 0
-	#endif
-
-
 	if(found)
 		//Player already identified previously, we need to just update the 'lastseen', 'ip', 'computer_id', 'byond_version' and 'byond_build' variables
-		var/DBQuery/query_update = dbcon.NewQuery("UPDATE ss13_player SET lastseen = Now(), ip = '[sql_ip]', computerid = '[sql_computerid]', lastadminrank = '[sql_admin_rank]', account_join_date = [account_join_date ? "'[account_join_date]'" : "NULL"], byond_version = [sql_byond_version], byond_build = [sql_byond_build] WHERE ckey = '[sql_ckey]'")
-		query_update.Execute()
+		var/DBQuery/query_update = dbcon.NewQuery("UPDATE ss13_player SET lastseen = Now(), ip = :ip:, computerid = :computerid:, lastadminrank = :lastadminrank:, account_join_date = :account_join_date:, byond_version = :byond_version:, byond_build = :byond_build: WHERE ckey = :ckey:")
+		query_update.Execute(list("ckey"=ckey(key),"ip"=src.address,"computerid"=src.computer_id,"lastadminrank"=admin_rank,"account_join_date"=account_join_date,"byond_version"=byond_version,"byond_build"=byond_build))
 	else if (!config.access_deny_new_players)
 		//New player!! Need to insert all the stuff
-		var/DBQuery/query_insert = dbcon.NewQuery("INSERT INTO ss13_player (ckey, firstseen, lastseen, ip, computerid, lastadminrank, account_join_date, byond_version, byond_build) VALUES ('[sql_ckey]', Now(), Now(), '[sql_ip]', '[sql_computerid]', '[sql_admin_rank]', [account_join_date ? "'[account_join_date]'" : "NULL"], [sql_byond_version], [sql_byond_build])")
-		query_insert.Execute()
+		var/DBQuery/query_insert = dbcon.NewQuery("INSERT INTO ss13_player (ckey, firstseen, lastseen, ip, computerid, lastadminrank, account_join_date, byond_version, byond_build) VALUES (:ckey:, Now(), Now(), :ip:, :computerid:, :lastadminrank:, :account_join_date:, :byond_version:, :byond_build:)")
+		query_insert.Execute(list("ckey"=ckey(key),"ip"=src.address,"computerid"=src.computer_id,"lastadminrank"=admin_rank,"account_join_date"=account_join_date,"byond_version"=byond_version,"byond_build"=byond_build))
 	else
 		// Flag as -1 to know we have to kiiick them.
 		player_age = -1
@@ -506,9 +493,8 @@
 		account_join_date = "Error"
 
 	//Logging player access
-	var/serverip = "[world.internet_address]:[world.port]"
-	var/DBQuery/query_accesslog = dbcon.NewQuery("INSERT INTO `ss13_connection_log`(`id`,`datetime`,`serverip`,`ckey`,`ip`,`computerid`,`byond_version`,`byond_build`) VALUES(null,Now(),'[serverip]','[sql_ckey]','[sql_ip]','[sql_computerid]','[sql_byond_version]','[sql_byond_build]');")
-	query_accesslog.Execute()
+	var/DBQuery/query_accesslog = dbcon.NewQuery("INSERT INTO `ss13_connection_log`(`datetime`,`serverip`,`ckey`,`ip`,`computerid`,`byond_version`,`byond_build`,`game_id`) VALUES(Now(), :serverip:, :ckey:, :ip:, :computerid:, :byond_version:, :byond_build:, :game_id:);")
+	query_accesslog.Execute(list("serverip"="[world.internet_address]:[world.port]","ckey"=ckey(key),"ip"=src.address,"computerid"=src.computer_id,"byond_version"=byond_version,"byond_build"=byond_build,"game_id"=game_id))
 
 
 #undef UPLOAD_LIMIT

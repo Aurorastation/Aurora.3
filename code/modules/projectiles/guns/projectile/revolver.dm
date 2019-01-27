@@ -3,6 +3,7 @@
 	desc = "The classic Necropolis Industries .357 revolver, for when you only want to shoot once."
 	icon_state = "revolver"
 	item_state = "revolver"
+	accuracy = 1
 	caliber = "357"
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
 	handle_casings = CYCLE_CASINGS
@@ -38,6 +39,7 @@
 	desc = "The Mateba .454 Autorevolver, a very rare weapon typical of special ops teams and mercenary teams. It packs quite the punch."
 	icon_state = "mateba"
 	max_shells = 7
+	accuracy = 2
 	caliber = "454"
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
 	fire_sound = 'sound/weapons/mateba_fire.ogg'
@@ -48,6 +50,7 @@
 	desc = "A cheap Martian knock-off of a Smith & Wesson Model 10. Uses .38-Special rounds."
 	icon_state = "detective"
 	max_shells = 6
+	accuracy = 1
 	caliber = "38"
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
 	fire_sound = 'sound/weapons/gunshot_strong.ogg'
@@ -76,6 +79,7 @@
 	name = "\improper Deckard .44"
 	desc = "A custom-built revolver, based off the semi-popular Detective Special model."
 	max_shells = 6
+	accuracy = 2
 	icon_state = "deckard-empty"
 	caliber = "38"
 	ammo_type = /obj/item/ammo_casing/c38
@@ -101,6 +105,7 @@
 	desc = "A small pocket pistol, easily concealed. Uses .357 rounds."
 	icon_state = "derringer"
 	item_state = "concealed"
+	accuracy = -1
 	w_class = 2
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2, TECH_ILLEGAL = 3)
 	handle_casings = CYCLE_CASINGS
@@ -121,7 +126,7 @@
 	needspin = FALSE
 
 /obj/item/weapon/gun/projectile/revolver/capgun/attackby(obj/item/W, mob/user)
-	if(!iswirecutter(W) || icon_state == "revolver")
+	if(!W.iswirecutter() || icon_state == "revolver")
 		return ..()
 	to_chat(user, "<span class='notice'>You snip off the toy markings off the [src].</span>")
 	name = "revolver"

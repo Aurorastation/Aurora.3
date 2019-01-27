@@ -93,7 +93,7 @@
 		user.drop_from_inventory(C,src)
 		cell = C
 		updateDialog()
-	else if(isscrewdriver(I))
+	else if(I.isscrewdriver())
 		if(locked)
 			user << "<span class='notice'>The maintenance hatch cannot be opened or closed while the controls are locked.</span>"
 			return
@@ -108,7 +108,7 @@
 			icon_state = "mulebot0"
 
 		updateDialog()
-	else if (iswrench(I))
+	else if (I.iswrench())
 		if (src.health < maxhealth)
 			src.health = min(maxhealth, src.health+25)
 			user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
@@ -478,7 +478,6 @@
 		return
 	if(on)
 		var/speed = (wires.Motor1() ? 1:0) + (wires.Motor2() ? 2:0)
-		//world << "speed: [speed]"
 		switch(speed)
 			if(0)
 				// do nothing
@@ -502,7 +501,6 @@
 	if(refresh) updateDialog()
 
 /obj/machinery/bot/mulebot/proc/process_bot()
-	//if(mode) world << "Mode: [mode]"
 	switch(mode)
 		if(0)		// idle
 			icon_state = "mulebot0"
@@ -525,9 +523,6 @@
 
 
 				if(istype( next, /turf/simulated))
-					//world << "at ([x],[y]) moving to ([next.x],[next.y])"
-
-
 					if(bloodiness)
 						var/obj/effect/decal/cleanable/blood/tracks/B = new(loc)
 						var/newdir = get_dir(next, loc)
@@ -547,7 +542,6 @@
 					var/moved = step_towards(src, next)	// attempt to move
 					if(cell) cell.use(1)
 					if(moved)	// successful move
-						//world << "Successful move."
 						blockcount = 0
 						path -= loc
 
@@ -562,11 +556,6 @@
 							mode = 2
 
 					else		// failed to move
-
-						//world << "Unable to move."
-
-
-
 						blockcount++
 						mode = 4
 						if(blockcount == 3)
@@ -590,16 +579,13 @@
 				else
 					src.visible_message("[src] makes an annoyed buzzing sound", "You hear an electronic buzzing sound.")
 					playsound(src.loc, 'sound/machines/buzz-two.ogg', 50, 0)
-					//world << "Bad turf."
 					mode = 5
 					return
 			else
-				//world << "No path."
 				mode = 5
 				return
 
 		if(5)		// calculate new path
-			//world << "Calc new path."
 			mode = 6
 			spawn(0)
 
@@ -616,10 +602,6 @@
 					playsound(src.loc, 'sound/machines/buzz-sigh.ogg', 50, 0)
 
 					mode = 7
-		//if(6)
-			//world << "Pending path calc."
-		//if(7)
-			//world << "No dest / no route."
 	return
 
 
@@ -821,12 +803,11 @@
 
 
 	var/datum/signal/signal = new()
+
 	signal.source = src
 	signal.transmission_method = 1
-	//for(var/key in keyval)
-	//	signal.data[key] = keyval[key]
 	signal.data = keyval
-		//world << "sent [key],[keyval[key]] on [freq]"
+
 	if (signal.data["findbeacon"])
 		frequency.post_signal(src, signal, filter = RADIO_NAVBEACONS)
 	else if (signal.data["type"] == "mulebot")

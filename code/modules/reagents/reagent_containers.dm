@@ -67,12 +67,12 @@
 
 	if(proximity && params && istype(target, /obj/structure/table) && center_of_mass && center_of_mass.len)
 		//Places the item on a grid
-		var/list/mouse_control = params2list(params)
+		var/list/mouse_control = mouse_safe_xy(params)
 
-		var/mouse_x = text2num(mouse_control["icon-x"])
-		var/mouse_y = text2num(mouse_control["icon-y"])
+		var/mouse_x = mouse_control["icon-x"]
+		var/mouse_y = mouse_control["icon-y"]
 
-		if(isnum(mouse_x) || isnum(mouse_y))
+		if(isnum(mouse_x) && isnum(mouse_y))
 			var/cell_x = max(0, min(CELLS-1, round(mouse_x/CELLSIZE)))
 			var/cell_y = max(0, min(CELLS-1, round(mouse_y/CELLSIZE)))
 
@@ -92,6 +92,11 @@
 	if(standard_splash_obj(user, target))
 		return
 
+
+/obj/item/weapon/reagent_containers/proc/get_temperature()
+	if(reagents)
+		return reagents.get_temperature()
+	return T0C + 20
 
 /obj/item/weapon/reagent_containers/proc/reagentlist() // For attack logs
 	if(reagents)
@@ -143,8 +148,10 @@
 		return 1
 
 	var/contained = reagentlist()
-	target.attack_log += text("\[[time_stamp()]\] <font color='orange'>Has been splashed with [name] by [user.name] ([user.ckey]). Reagents: [contained]</font>")
-	user.attack_log += text("\[[time_stamp()]\] <font color='red'>Used the [name] to splash [target.name] ([target.key]). Reagents: [contained]</font>")
+	var/temperature = reagents.get_temperature()
+	var/temperature_text = "Temperature: ([temperature]K/[temperature]C)"
+	target.attack_log += text("\[[time_stamp()]\] <font color='orange'>Has been splashed with [name] by [user.name] ([user.ckey]). Reagents: [contained] [temperature_text].</font>")
+	user.attack_log += text("\[[time_stamp()]\] <font color='red'>Used the [name] to splash [target.name] ([target.key]). Reagents: [contained] [temperature_text].</font>")
 	msg_admin_attack("[user.name] ([user.ckey]) splashed [target.name] ([target.key]) with [name]. Reagents: [contained] (INTENT: [uppertext(user.a_intent)]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(target))
 
 	user.visible_message("<span class='danger'>\The [target] has been splashed with something by \the [user]!</span>", "<span class = 'warning'>You splash the solution onto \the [target].</span>")

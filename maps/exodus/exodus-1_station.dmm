@@ -58768,7 +58768,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
-/area/medical/ward)
+/area/medical/patient_wing_hallway)
 "cbc" = (
 /obj/effect/floor_decal/corner/pink{
 	icon_state = "corner_white";
@@ -58776,7 +58776,7 @@
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/tiled/white,
-/area/medical/ward)
+/area/medical/patient_wing_hallway)
 "cbd" = (
 /obj/effect/floor_decal/corner/pink{
 	icon_state = "corner_white";
@@ -58788,7 +58788,7 @@
 	icon_state = "1-4"
 	},
 /turf/simulated/floor/tiled/white,
-/area/medical/ward)
+/area/medical/patient_wing_hallway)
 "cbe" = (
 /obj/machinery/iv_drip,
 /obj/machinery/light_switch{
@@ -58810,10 +58810,10 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
-/area/medical/ward)
+/area/medical/patient_wing_hallway)
 "cbf" = (
 /turf/simulated/wall,
-/area/medical/ward)
+/area/medical/patient_wing_hallway)
 "cbg" = (
 /obj/machinery/power/apc{
 	dir = 8;
@@ -59487,14 +59487,14 @@
 	},
 /obj/structure/curtain/open/privacy,
 /turf/simulated/floor/tiled/white,
-/area/medical/ward)
+/area/medical/patient_wing_hallway)
 "ccr" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/white,
-/area/medical/ward)
+/area/medical/patient_wing_hallway)
 "ccs" = (
 /turf/simulated/floor/tiled/white,
-/area/medical/ward)
+/area/medical/patient_wing_hallway)
 "cct" = (
 /obj/structure/bed/padded,
 /obj/item/weapon/bedsheet/medical,
@@ -59509,7 +59509,7 @@
 	},
 /obj/structure/curtain/open/privacy,
 /turf/simulated/floor/tiled/white,
-/area/medical/ward)
+/area/medical/patient_wing_hallway)
 "ccu" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
@@ -60571,7 +60571,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
-/area/medical/ward)
+/area/medical/patient_wing_hallway)
 "cec" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
@@ -60580,14 +60580,14 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
-/area/medical/ward)
+/area/medical/patient_wing_hallway)
 "ced" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},
 /obj/machinery/hologram/holopad,
 /turf/simulated/floor/tiled/white,
-/area/medical/ward)
+/area/medical/patient_wing_hallway)
 "cee" = (
 /obj/machinery/light{
 	icon_state = "tube1";
@@ -60602,7 +60602,7 @@
 	pixel_y = 4
 	},
 /turf/simulated/floor/tiled/white,
-/area/medical/ward)
+/area/medical/patient_wing_hallway)
 "cef" = (
 /obj/machinery/light{
 	icon_state = "tube1";
@@ -61430,14 +61430,14 @@
 "cft" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/white,
-/area/medical/ward)
+/area/medical/patient_wing_hallway)
 "cfu" = (
 /obj/effect/floor_decal/corner/pink{
 	icon_state = "corner_white";
 	dir = 6
 	},
 /turf/simulated/floor/tiled/white,
-/area/medical/ward)
+/area/medical/patient_wing_hallway)
 "cfv" = (
 /obj/structure/closet/secure_closet{
 	name = "Psychiatrist's Locker";
@@ -62049,7 +62049,7 @@
 /obj/structure/closet/secure_closet/personal/patient,
 /obj/effect/floor_decal/corner/pink/full,
 /turf/simulated/floor/tiled/white,
-/area/medical/ward)
+/area/medical/patient_wing_hallway)
 "cgG" = (
 /obj/structure/closet/secure_closet/personal/patient,
 /obj/machinery/alarm{
@@ -62062,7 +62062,7 @@
 	dir = 10
 	},
 /turf/simulated/floor/tiled/white,
-/area/medical/ward)
+/area/medical/patient_wing_hallway)
 "cgH" = (
 /obj/structure/closet/secure_closet/personal/patient,
 /obj/machinery/atmospherics/unary/vent_pump/on{
@@ -62074,7 +62074,7 @@
 	},
 /obj/machinery/firealarm/south,
 /turf/simulated/floor/tiled/white,
-/area/medical/ward)
+/area/medical/patient_wing_hallway)
 "cgI" = (
 /obj/structure/closet/secure_closet/personal/patient,
 /obj/machinery/camera/network/medbay{
@@ -62086,7 +62086,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
-/area/medical/ward)
+/area/medical/patient_wing_hallway)
 "cgJ" = (
 /obj/structure/table/wood,
 /obj/item/weapon/paper_bin,
@@ -79067,7 +79067,7 @@
 	name = "Weaponry (Ion Rifle)";
 	req_access = list(3)
 	},
-/obj/item/weapon/gun/energy/ionrifle,
+/obj/item/weapon/gun/energy/rifle/ionrifle,
 /turf/simulated/floor/tiled/dark,
 /area/security/tactical)
 "cLT" = (
