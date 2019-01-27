@@ -30,7 +30,7 @@
 	attackby(obj/item/P as obj, mob/user as mob)
 		switch(state)
 			if(1)
-				if(iscoil(P))
+				if(P.iscoil())
 					var/obj/item/stack/cable_coil/C = P
 					if (C.get_amount() < 5)
 						user << "<span class='warning'>You need five lengths of cable to add them to the frame.</span>"
@@ -43,7 +43,7 @@
 							state = 2
 							icon_state = "box_1"
 				else
-					if(iswrench(P))
+					if(P.iswrench())
 						playsound(src.loc, 'sound/items/Ratchet.ogg', 75, 1)
 						user << "<span class='notice'>You dismantle the frame</span>"
 						new /obj/item/stack/material/steel(src.loc, 5)
@@ -72,7 +72,7 @@
 					else
 						user << "<span class='warning'>This frame does not accept circuit boards of this type!</span>"
 				else
-					if(iswirecutter(P))
+					if(P.iswirecutter())
 						playsound(src.loc, 'sound/items/Wirecutter.ogg', 50, 1)
 						user << "<span class='notice'>You remove the cables.</span>"
 						state = 1
@@ -81,7 +81,7 @@
 						A.amount = 5
 
 			if(3)
-				if(iscrowbar(P))
+				if(P.iscrowbar())
 					playsound(src.loc, 'sound/items/Crowbar.ogg', 50, 1)
 					state = 2
 					circuit.forceMove(src.loc)
@@ -97,7 +97,7 @@
 					components = null
 					icon_state = "box_1"
 				else
-					if(isscrewdriver(P))
+					if(P.isscrewdriver())
 						var/component_check = 1
 						for(var/R in req_components)
 							if(req_components[R] > 0)

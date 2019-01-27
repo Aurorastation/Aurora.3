@@ -282,7 +282,7 @@
 		if(temp)
 			if(skipbody & temp.body_part)
 				continue
-			if(temp.status & ORGAN_ROBOT)
+			if(temp.status & ORGAN_ASSISTED)
 				if(!(temp.brute_dam + temp.burn_dam))
 					//wound_flavor_text["[temp.name]"] = "<span class='warning'>[T.He] [T.has] a robot [temp.name]!</span>\n"
 					// No need to notify about robotic limbs if they're not damaged, really.
