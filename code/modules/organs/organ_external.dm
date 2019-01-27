@@ -214,13 +214,6 @@
 				break
 			parent.update_damages()
 
-
-/obj/item/organ/external/robotize()
-	..()
-	//robit limbs take reduced brute damage, but melt easier
-	brute_mod = 0.9
-	burn_mod = 1.1
-
 /****************************************************
 			   DAMAGE PROCS
 ****************************************************/
@@ -244,7 +237,7 @@
 			brute -= brute / 2
 
 	if(status & ORGAN_BROKEN && prob(40) && brute)
-		if (owner && !(owner.species && (owner.species.flags & NO_PAIN)))
+		if (owner && (owner.can_feel_pain()))
 			owner.emote("scream")	//getting hit on broken hand hurts
 	if(used_weapon)
 		add_autopsy_data("[used_weapon]", brute + burn)
@@ -625,10 +618,10 @@ Note that amputating the affected organ does in fact remove the infection from t
 			if(!(W.can_autoheal() || (bicardose && inaprovaline)))	//bicaridine and inaprovaline stop internal wounds from growing bigger with time, unless it is so small that it is already healing
 				W.open_wound(0.09 * wound_update_accuracy)
 
-
-			owner.vessel.remove_reagent("blood", wound_update_accuracy * W.damage/40) //line should possibly be moved to handle_blood, so all the bleeding stuff is in one place.
-			if(prob(1 * wound_update_accuracy))
-				owner.custom_pain("You feel a stabbing pain in your [name]!",1)
+			if(!owner.reagents.has_reagent("coagulant", 2))
+				owner.vessel.remove_reagent("blood", wound_update_accuracy * W.damage/40) //line should possibly be moved to handle_blood, so all the bleeding stuff is in one place.
+				if(prob(1 * wound_update_accuracy))
+					owner.custom_pain("You feel a stabbing pain in your [name]!",1)
 
 		// slow healing
 		var/heal_amt = 0
@@ -923,7 +916,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 			"<span class='warning'>You hear a loud cracking sound coming from \the [owner].</span>",\
 			"<span class='danger'>Something feels like it shattered in your [name]!</span>",\
 			"You hear a sickening crack.")
-		if(owner.species && !(owner.species.flags & NO_PAIN))
+		if(owner.species && (owner.can_feel_pain()))
 			owner.emote("scream")
 
 	playsound(src.loc, "fracture", 100, 1, -2)
@@ -979,6 +972,9 @@ Note that amputating the affected organ does in fact remove the infection from t
 			if(R.paintable)
 				painted = 1
 
+			brute_mod = R.brute_mod
+			burn_mod = R.burn_mod
+
 	dislocated = -1 //TODO, make robotic limbs a separate type, remove snowflake
 	cannot_break = 1
 	get_icon()
@@ -986,6 +982,10 @@ Note that amputating the affected organ does in fact remove the infection from t
 	for (var/obj/item/organ/external/T in children)
 		if(T)
 			T.robotize()
+
+/obj/item/organ/external/mechassist()
+	..()
+	cannot_break = 0
 
 /obj/item/organ/external/proc/robotize_advanced()
 	status |= ORGAN_ADV_ROBOT
@@ -1109,7 +1109,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 	if(status & ORGAN_DESTROYED && !is_stump())
 		. += "tear at [amputation_point] so severe that it hangs by a scrap of flesh"
 
-	if(status & ORGAN_ROBOT)
+	if(status & ORGAN_ASSISTED)
 		if(brute_dam)
 			switch(brute_dam)
 				if(0 to 20)

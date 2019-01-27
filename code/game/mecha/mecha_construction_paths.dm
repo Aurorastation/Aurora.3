@@ -3,30 +3,32 @@
 ////////////////////////////////
 
 /datum/construction/mecha/custom_action(step, atom/used_atom, mob/user)
-	if(iswelder(used_atom))
-		var/obj/item/weapon/weldingtool/W = used_atom
+	var/obj/item/I = used_atom
+	if(I.iswelder())
+		var/obj/item/weapon/weldingtool/W = I
 		if (W.remove_fuel(0, user))
 			playsound(holder, 'sound/items/Welder2.ogg', 50, 1)
 		else
 			return 0
-	else if(iswrench(used_atom))
+
+	else if(I.iswrench())
 		playsound(holder, 'sound/items/Ratchet.ogg', 50, 1)
 
-	else if(isscrewdriver(used_atom))
+	else if(I.isscrewdriver())
 		playsound(holder, 'sound/items/Screwdriver.ogg', 50, 1)
 
-	else if(iswirecutter(used_atom))
+	else if(I.iswirecutter())
 		playsound(holder, 'sound/items/Wirecutter.ogg', 50, 1)
 
-	else if(iscoil(used_atom))
-		var/obj/item/stack/cable_coil/C = used_atom
+	else if(I.iscoil())
+		var/obj/item/stack/cable_coil/C = I
 		if(C.use(4))
 			playsound(holder, 'sound/items/Deconstruct.ogg', 50, 1)
 		else
 			user << ("There's not enough cable to finish the task.")
 			return 0
-	else if(istype(used_atom, /obj/item/stack))
-		var/obj/item/stack/S = used_atom
+	else if(istype(I, /obj/item/stack))
+		var/obj/item/stack/S = I
 		if(S.get_amount() < 5)
 			user << ("There's not enough material in this stack.")
 			return 0
@@ -35,30 +37,31 @@
 	return 1
 
 /datum/construction/reversible/mecha/custom_action(index as num, diff as num, atom/used_atom, mob/user as mob)
-	if(iswelder(used_atom))
-		var/obj/item/weapon/weldingtool/W = used_atom
+	var/obj/item/I = used_atom
+	if(I.iswelder())
+		var/obj/item/weapon/weldingtool/W = I
 		if (W.remove_fuel(0, user))
 			playsound(holder, 'sound/items/Welder2.ogg', 50, 1)
 		else
 			return 0
-	else if(iswrench(used_atom))
+	else if(I.iswrench())
 		playsound(holder, 'sound/items/Ratchet.ogg', 50, 1)
 
-	else if(isscrewdriver(used_atom))
+	else if(I.isscrewdriver())
 		playsound(holder, 'sound/items/Screwdriver.ogg', 50, 1)
 
-	else if(iswirecutter(used_atom))
+	else if(I.iswirecutter())
 		playsound(holder, 'sound/items/Wirecutter.ogg', 50, 1)
 
-	else if(iscoil(used_atom))
+	else if(I.iscoil())
 		var/obj/item/stack/cable_coil/C = used_atom
 		if(C.use(4))
 			playsound(holder, 'sound/items/Deconstruct.ogg', 50, 1)
 		else
 			user << ("There's not enough cable to finish the task.")
 			return 0
-	else if(istype(used_atom, /obj/item/stack))
-		var/obj/item/stack/S = used_atom
+	else if(istype(I, /obj/item/stack))
+		var/obj/item/stack/S = I
 		if(S.get_amount() < 5)
 			user << ("There's not enough material in this stack.")
 			return 0

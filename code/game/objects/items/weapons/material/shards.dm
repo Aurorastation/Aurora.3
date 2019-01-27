@@ -47,7 +47,7 @@
 		alpha = 255
 
 /obj/item/weapon/material/shard/attackby(obj/item/weapon/W as obj, mob/user as mob)
-	if(iswelder(W) && material.shard_can_repair)
+	if(W.iswelder() && material.shard_can_repair)
 		var/obj/item/weapon/weldingtool/WT = W
 		if(WT.remove_fuel(0, user))
 			material.place_sheet(user.loc)
@@ -84,7 +84,7 @@
 					if(affecting.take_damage(5, 0))
 						H.UpdateDamageIcon()
 					H.updatehealth()
-					if(!(H.species.flags & NO_PAIN))
+					if(H.can_feel_pain())
 						H.Weaken(3)
 					return
 				check -= picked

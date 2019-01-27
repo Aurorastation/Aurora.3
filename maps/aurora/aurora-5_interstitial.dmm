@@ -19,6 +19,7 @@
 /obj/machinery/atmospherics/pipe/zpipe/down/scrubbers,
 /obj/machinery/atmospherics/pipe/zpipe/down/supply,
 /obj/structure/cable{
+	d1 = 32;
 	d2 = 2;
 	icon_state = "11-2"
 	},
@@ -34,6 +35,8 @@
 /area/maintenance/research_port)
 "ah" = (
 /obj/structure/cable{
+	d1 = 16;
+	d2 = 0;
 	icon_state = "12-0"
 	},
 /obj/structure/cable{
@@ -1184,66 +1187,40 @@
 	},
 /area/maintenance/maintcentral)
 "cg" = (
-/obj/machinery/atmospherics/pipe/zpipe/up/scrubbers{
-	icon_state = "up-scrubbers";
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/zpipe/up/supply{
-	icon_state = "up-supply";
-	dir = 4
-	},
-/obj/structure/cable/green{
-	icon_state = "12-0"
-	},
-/obj/structure/cable/green{
-	d2 = 4;
-	icon_state = "0-4"
-	},
-/obj/machinery/alarm{
-	dir = 4;
-	icon_state = "alarm0";
-	pixel_x = -22;
-	pixel_y = 0
-	},
 /turf/simulated/floor/plating{
 	roof_type = null
 	},
 /area/maintenance/maintcentral)
 "ch" = (
 /obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/structure/cable/green{
 	d1 = 2;
 	d2 = 4;
 	icon_state = "2-4"
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 1
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	icon_state = "map-supply";
-	dir = 1
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/maintcentral)
-"ci" = (
-/obj/machinery/atmospherics/pipe/zpipe/down/supply{
-	icon_state = "down-supply";
-	dir = 8
-	},
-/obj/machinery/atmospherics/pipe/zpipe/down/scrubbers{
-	icon_state = "down-scrubbers";
-	dir = 8
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 10
 	},
 /obj/structure/cable/green{
+	d1 = 2;
 	d2 = 8;
-	icon_state = "11-8"
+	icon_state = "2-8"
 	},
-/obj/structure/lattice,
-/turf/simulated/open,
+/turf/simulated/floor/plating{
+	roof_type = null
+	},
+/area/maintenance/maintcentral)
+"ci" = (
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
+	},
+/turf/simulated/floor/plating{
+	roof_type = null
+	},
 /area/maintenance/maintcentral)
 "cj" = (
 /obj/machinery/door/airlock/maintenance{
@@ -3799,7 +3776,9 @@
 	dir = 8
 	},
 /obj/structure/cable/green{
-	d2 = 8;
+	d1 = 8;
+	d2 = 1;
+	dir = 2;
 	icon_state = "11-8"
 	},
 /obj/structure/disposalpipe/down{
@@ -6796,10 +6775,6 @@
 	icon_state = "down-supply";
 	dir = 8
 	},
-/obj/structure/cable/green{
-	d2 = 8;
-	icon_state = "11-8"
-	},
 /obj/structure/disposalpipe/down{
 	icon_state = "pipe-d";
 	dir = 8
@@ -6807,6 +6782,11 @@
 /obj/structure/lattice/catwalk,
 /obj/structure/sign/drop{
 	pixel_y = 32
+	},
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
 	},
 /turf/simulated/open,
 /area/maintenance/medbay)
@@ -7119,6 +7099,34 @@
 /obj/machinery/door/window/eastright,
 /turf/simulated/floor/tiled,
 /area/maintenance/interstitial_main)
+"re" = (
+/obj/machinery/atmospherics/pipe/zpipe/up/scrubbers{
+	icon_state = "up-scrubbers";
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/zpipe/up/supply{
+	icon_state = "up-supply";
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 16;
+	d2 = 0;
+	icon_state = "12-0"
+	},
+/obj/structure/cable/green{
+	d2 = 4;
+	icon_state = "0-4"
+	},
+/obj/machinery/alarm{
+	dir = 4;
+	icon_state = "alarm0";
+	pixel_x = -22;
+	pixel_y = 0
+	},
+/turf/simulated/floor/plating{
+	roof_type = null
+	},
+/area/maintenance/maintcentral)
 "rA" = (
 /obj/structure/table/rack,
 /obj/item/weapon/storage/toolbox/mechanical,
@@ -7239,6 +7247,21 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/airless,
 /area/maintenance/interstitial_construction_site)
+"yb" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	icon_state = "map-scrubbers";
+	dir = 8
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/maintcentral)
 "yI" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -8237,9 +8260,20 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8";
+	pixel_x = 0
+	},
 /turf/simulated/floor/plating,
 /area/maintenance/interstitial_cargo)
 "Lw" = (
+/obj/structure/cable{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
+	},
 /turf/simulated/floor/plating{
 	roof_type = null
 	},
@@ -8258,6 +8292,8 @@
 	dir = 4
 	},
 /obj/structure/cable{
+	d1 = 16;
+	d2 = 0;
 	icon_state = "12-0"
 	},
 /obj/structure/cable{
@@ -8273,28 +8309,17 @@
 	dir = 4
 	},
 /obj/machinery/light/small/emergency,
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 4;
-	icon_state = "1-4"
-	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
+/obj/structure/cable{
+	icon_state = "1-8"
+	},
 /turf/simulated/floor/plating,
 /area/maintenance/interstitial_cargo)
 "Lz" = (
 /obj/structure/disposalpipe/down{
 	icon_state = "pipe-d";
 	dir = 8
-	},
-/obj/structure/cable{
-	d2 = 8;
-	icon_state = "11-8"
 	},
 /obj/machinery/atmospherics/pipe/zpipe/down/supply{
 	icon_state = "down-supply";
@@ -8305,8 +8330,29 @@
 	dir = 8
 	},
 /obj/structure/lattice/catwalk,
+/obj/structure/cable{
+	d1 = 32;
+	icon_state = "11-1"
+	},
 /turf/simulated/open,
 /area/maintenance/interstitial_cargo)
+"MS" = (
+/obj/machinery/atmospherics/pipe/zpipe/down/supply{
+	icon_state = "down-supply";
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/zpipe/down/scrubbers{
+	icon_state = "down-scrubbers";
+	dir = 8
+	},
+/obj/structure/cable/green{
+	d1 = 32;
+	d2 = 1;
+	icon_state = "11-1"
+	},
+/obj/structure/lattice,
+/turf/simulated/open,
+/area/maintenance/maintcentral)
 "NQ" = (
 /obj/structure/table/rack,
 /obj/item/weapon/pickaxe,
@@ -8346,6 +8392,15 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/airless,
 /area/maintenance/interstitial_construction_site)
+"Sf" = (
+/obj/structure/cable/green{
+	d1 = 32;
+	d2 = 1;
+	icon_state = "11-1"
+	},
+/obj/structure/lattice/catwalk,
+/turf/simulated/open,
+/area/maintenance/medbay)
 "Sg" = (
 /obj/structure/table/rack,
 /obj/item/weapon/shovel,
@@ -50275,7 +50330,7 @@ aa
 jK
 vD
 jK
-aa
+jK
 aa
 aa
 aa
@@ -50531,8 +50586,8 @@ aa
 aa
 jK
 ma
+Sf
 jK
-aa
 aa
 aa
 aa
@@ -50789,7 +50844,7 @@ aa
 jK
 jK
 jK
-aa
+jK
 aa
 aa
 aa
@@ -53372,7 +53427,7 @@ bc
 bc
 bc
 bc
-aa
+bc
 aa
 aa
 aa
@@ -53627,11 +53682,11 @@ aa
 aa
 bc
 cd
+re
 cg
 bc
 bc
 bc
-aa
 aa
 aa
 aa
@@ -53885,10 +53940,10 @@ aa
 bc
 ce
 ch
+yb
 cj
 ck
 bc
-aa
 aa
 aa
 aa
@@ -54142,10 +54197,10 @@ aa
 bc
 cf
 ci
+MS
 bc
 Kd
 bc
-aa
 aa
 aa
 aa
@@ -54400,9 +54455,9 @@ bc
 bc
 bc
 bc
+bc
 Kd
 bc
-aa
 aa
 aa
 aa
@@ -54657,9 +54712,9 @@ bM
 bM
 bM
 bM
+bM
 cc
 bc
-aa
 aa
 aa
 aa
@@ -54916,7 +54971,7 @@ bc
 bc
 bc
 bc
-aa
+bc
 aa
 aa
 aa

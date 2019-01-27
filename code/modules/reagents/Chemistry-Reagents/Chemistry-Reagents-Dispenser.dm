@@ -459,7 +459,7 @@
 				if(affecting.take_damage(0, removed * power * 0.1))
 					H.UpdateDamageIcon()
 				if(prob(100 * removed / meltdose)) // Applies disfigurement
-					if (!(H.species && (H.species.flags & NO_PAIN)))
+					if (H.can_feel_pain())
 						H.emote("scream")
 					H.status_flags |= DISFIGURED
 		else

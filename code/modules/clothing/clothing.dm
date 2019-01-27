@@ -387,7 +387,7 @@
 
 /obj/item/clothing/gloves/attackby(obj/item/weapon/W, mob/user)
 	..()
-	if(iswirecutter(W) || istype(W, /obj/item/weapon/scalpel))
+	if(W.iswirecutter() || istype(W, /obj/item/weapon/scalpel))
 		if (clipped)
 			user << "<span class='notice'>\The [src] have already been clipped!</span>"
 			update_icon()

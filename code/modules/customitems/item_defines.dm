@@ -1962,7 +1962,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 		return
 
 	if(broken)
-		if(isscrewdriver(I))
+		if(I.isscrewdriver())
 			if(!open)
 				open = TRUE
 				to_chat(user, "<span class='notice'>You unfasten the back panel.</span>")
@@ -1972,7 +1972,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 				to_chat(user, "<span class='notice'>You secure the back panel.</span>")
 			playsound(user.loc, 'sound/items/Screwdriver.ogg', 50, 1)
 
-		if(ismultitool(I) && open)
+		if(I.ismultitool() && open)
 			to_chat(user, "<span class='notice'>You quickly pulse a few fires, and reset the screen and device.</span>")
 			broken = FALSE
 			update_icon()
@@ -2499,7 +2499,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_state = "aavs_mask"
 	item_state = "aavs_mask"
 	contained_sprite = TRUE
-	flags_inv = HIDEEARS|HIDEFACE
+	flags_inv = HIDEEARS|HIDEFACE|BLOCKHEADHAIR
 	body_parts_covered = HEAD|FACE|EYES
 
 
@@ -2509,6 +2509,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon = 'icons/obj/custom_items/krin_clothing.dmi'
 	icon_state = "krin_shirt"
 	item_state = "krin_shirt"
+	contained_sprite = TRUE
 
 /obj/item/clothing/suit/storage/fluff/krin_jacket //Polychromatic Jacket - Krin Volqux - paradoxspace
 	name = "polychromatic jacket"
@@ -2536,16 +2537,25 @@ All custom items with worn sprites must follow the contained sprite system: http
 	contained_sprite = TRUE
 
 
-/obj/item/clothing/under/fluff/rollsuit()
+/obj/item/clothing/under/fluff/mira_uniform //Mira's Cloth Undersuit - Mira Akhandi - queenofyugoslavia
+	name = "dark clothes"
+	desc = "A set of dark under clothing, loosely fitting. The initials /M.A./ are stitched into the collar."
+	icon = 'icons/obj/custom_items/mira_clothing.dmi'
+	icon_state = "mira_uniform"
+	item_state = "mira_uniform"
+	contained_sprite = TRUE
+
+/obj/item/clothing/under/fluff/mira_uniform/Initialize()
+	. = ..()
+	rolled_sleeves = 0
+	rolled_down = 0
+
+/obj/item/clothing/under/fluff/mira_uniform/rollsuit()
 	set name = "Roll Down Jumpsuit"
 	set category = "Object"
 
 	set src in usr
 	if (use_check(usr, USE_DISALLOW_SILICONS))
-		return
-
-	if(("[item_state]_d") in icon_states(src))
-		to_chat(usr, "<span class='notice'>You cannot roll down \the [src]!</span>")
 		return
 
 	if(rolled_sleeves)
@@ -2561,16 +2571,12 @@ All custom items with worn sprites must follow the contained sprite system: http
 		item_state = initial(item_state)
 	update_clothing_icon()
 
-/obj/item/clothing/under/fluff/rollsleeves()
+/obj/item/clothing/under/fluff/mira_uniform/rollsleeves()
 	set name = "Roll Up Sleeves"
 	set category = "Object"
 	set src in usr
 
 	if (use_check(usr, USE_DISALLOW_SILICONS))
-		return
-
-	if(("[item_state]_r") in icon_states(src))
-		to_chat(usr, "<span class='notice'>You cannot roll up your [src]'s sleeves!</span>")
 		return
 
 	if(rolled_down)
@@ -2585,15 +2591,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 		body_parts_covered = initial(body_parts_covered)
 		item_state = initial(item_state)
 	update_clothing_icon()
-
-
-/obj/item/clothing/under/fluff/mira_uniform //Mira's Cloth Undersuit - Mira Akhandi - queenofyugoslavia
-	name = "dark clothes"
-	desc = "A set of dark under clothing, loosely fitting. The initials /M.A./ are stitched into the collar."
-	icon = 'icons/obj/custom_items/mira_clothing.dmi'
-	icon_state = "mira_uniform"
-	item_state = "mira_uniform"
-	contained_sprite = TRUE
 
 /obj/item/clothing/suit/storage/toggle/labcoat/fluff/mira_robes //Junior Alchemist Robes - Mira Akhandi - queenofyugoslavia
 	name = "junior alchemist robes"

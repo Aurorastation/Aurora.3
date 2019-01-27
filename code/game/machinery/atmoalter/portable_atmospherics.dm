@@ -108,7 +108,7 @@
 		update_icon()
 		return
 
-	else if (iswrench(W))
+	else if (W.iswrench())
 		if(connected_port)
 			disconnect()
 			user << "<span class='notice'>You disconnect \the [src] from the port.</span>"
@@ -166,7 +166,7 @@
 		power_change()
 		return
 
-	if(isscrewdriver(I))
+	if(I.isscrewdriver())
 		if(!cell)
 			user << "<span class='warning'>There is no power cell installed.</span>"
 			return
