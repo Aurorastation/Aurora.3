@@ -317,15 +317,15 @@
 
 					playsound(loc, 'sound/effects/snap.ogg', 50, 1)
 					var/show_ssd
-					var/mob/living/carbon/human/H = M
-					if(istype(H)) show_ssd = H.species.show_ssd
-					if(show_ssd && !H.client && !H.teleop)
+					var/mob/living/carbon/human/H
+					if(ishuman(src)) 
+						H = src
+						show_ssd = H.species.show_ssd
+					if(H && show_ssd && !H.client && !H.teleop)
 						if(isskrell(H) && H.shared_dream)
 							message = "<span class='danger'>slaps [M] across the face, waking them up. Ouch!</span>"
 							if(H.bg)
-								H.bg.awaken_impl(TRUE)
-								H.sleeping = 0
-								H.willfully_sleeping = 0
+								to_chat(H, span("danger", "You sense some disturbance to your actual physical body!"))
 						else
 							message = "<span class='danger'>slaps [M] across the face, but they do not respond... Maybe they have S.S.D?</span>"
 					else if(H.client && H.willfully_sleeping)

@@ -105,15 +105,15 @@
 		else if (src.gender == FEMALE)
 			t_him = "her"
 		var/show_ssd
-		var/mob/living/carbon/human/H = src
-		if(istype(H)) show_ssd = H.species.show_ssd
-		if(show_ssd && !client && !teleop)
+		var/mob/living/carbon/human/H
+		if(ishuman(src)) 
+			H = src
+			show_ssd = H.species.show_ssd
+		if(H && show_ssd && !client && !teleop)
 			if(isskrell(src) && H.shared_dream)
 				visible_message("<span class='notice'>[M] [action] [src] waking [t_him] up!</span>")
 				if(H.bg)
-					H.bg.awaken_impl(TRUE)
-					sleeping = 0
-					willfully_sleeping = 0
+					to_chat(H, span("danger", "You sense some disturbance to your actual physical body!"))
 			else
 				visible_message("<span class='notice'>[M] [action] [src], but they do not respond... Maybe they have S.S.D?</span>")
 		else if(client && willfully_sleeping)
@@ -287,14 +287,16 @@
 				H.w_uniform.add_fingerprint(M)
 
 			var/show_ssd
-			var/mob/living/carbon/human/H = src
-			if(istype(H)) show_ssd = H.species.show_ssd
-			if(show_ssd && !client && !teleop)
+			var/mob/living/carbon/human/H
+			if(ishuman(src)) 
+				H = src
+				show_ssd = H.species.show_ssd
+			if(H && show_ssd && !client && !teleop)
 				if(isskrell(src) && H.shared_dream)
 					M.visible_message("<span class='notice'>[M] shakes [src] trying to wake [t_him] up!</span>", \
 										"<span class='notice'>You shake [src] trying to wake [t_him] up!</span>")
 					if(H.bg)
-						H.bg.awaken_impl(TRUE)
+						to_chat(H, span("warning", "You sense some disturbance to your actual physical body, like someone is trying to wake you up."))
 				else
 					M.visible_message("<span class='notice'>[M] shakes [src] trying to wake [t_him] up!</span>", \
 										"<span class='notice'>You shake [src], but they do not respond... Maybe they have S.S.D?</span>")

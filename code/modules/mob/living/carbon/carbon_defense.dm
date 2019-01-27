@@ -13,19 +13,23 @@
 	else if (src.gender == FEMALE)
 		t_him = "her"
 	var/show_ssd
-	var/mob/living/carbon/human/H = src
-	if(istype(H)) show_ssd = H.species.show_ssd
-	if(show_ssd && !client && !teleop)
+	var/mob/living/carbon/human/H
+	if(ishuman(src)) 
+		H = src
+		show_ssd = H.species.show_ssd
+	if(H && show_ssd && !client && !teleop)
 		if(isskrell(src) && H.shared_dream)
-			visible_message("<span class='danger'>[src] was hit by [AM] waking [t_him] up!</span>")
-			if(H.bg)
+			visible_message(span("danger", "[src] was hit by [AM] waking [t_him] up!"))
+			if(H.bg && (H.health / H.maxHealth < 0.5))
 				H.bg.awaken_impl(TRUE)
 				sleeping = 0
 				willfully_sleeping = 0
+			else if(H.bg)
+				to_chat(H, span("danger", "You sense great disturbance to your actual physical body!"))
 		else
-			visible_message("<span class='danger'>[src] was hit by [AM], but they do not respond... Maybe they have S.S.D?</span>")
+			visible_message(span("danger","[src] was hit by [AM], but they do not respond... Maybe they have S.S.D?"))
 	else if(client && willfully_sleeping)
-		visible_message("<span class='danger'>[src] was hit by [AM] waking [t_him] up!</span>")
+		visible_message(span("danger", "[src] was hit by [AM] waking [t_him] up!"))
 		sleeping = 0
 		willfully_sleeping = 0
 
@@ -37,15 +41,19 @@
 	else if (src.gender == FEMALE)
 		t_him = "her"
 	var/show_ssd
-	var/mob/living/carbon/human/H = src
-	if(istype(H)) show_ssd = H.species.show_ssd
-	if(show_ssd && !client && !teleop)
+	var/mob/living/carbon/human/H
+	if(ishuman(src)) 
+		H = src
+		show_ssd = H.species.show_ssd
+	if(H && show_ssd && !client && !teleop)
 		if(isskrell(src) && H.shared_dream)
 			visible_message("<span class='danger'>[P] hit [src] waking [t_him] up!</span>")
-			if(H.bg)
+			if(H.bg && (H.health / H.maxHealth < 0.5))
 				H.bg.awaken_impl(TRUE)
 				sleeping = 0
 				willfully_sleeping = 0
+			else if(H.bg)
+				to_chat(H, span("danger", "You sense great disturbance to your actual physical body!"))
 		else
 			visible_message("<span class='danger'>[P] hit [src], but they do not respond... Maybe they have S.S.D?</span>")
 	else if(client && willfully_sleeping)
@@ -60,16 +68,20 @@
 	else if (src.gender == FEMALE)
 		t_him = "her"
 	var/show_ssd
-	var/mob/living/carbon/human/H = src
-	if(istype(H)) show_ssd = H.species.show_ssd
-	if(show_ssd && !client && !teleop)
+	var/mob/living/carbon/human/H
+	if(ishuman(src)) 
+		H = src
+		show_ssd = H.species.show_ssd
+	if(H && show_ssd && !client && !teleop)
 		if(isskrell(src) && H.shared_dream)
 			user.visible_message("<span class='danger'>[user] attacked [src] with [I] waking [t_him] up!</span>", \
 								"<span class='danger'>You attacked [src] with [I] waking [t_him] up!</span>")
-			if(H.bg)
+			if(H.bg && (H.health / H.maxHealth < 0.5))
 				H.bg.awaken_impl(TRUE)
 				sleeping = 0
 				willfully_sleeping = 0
+			else if(H.bg)
+				to_chat(H, span("danger", "You sense great disturbance to your actual physical body!"))
 		else
 			user.visible_message("<span class='danger'>[user] attacked [src] with [I] waking [t_him] up!</span>", \
 								"<span class='danger'>You attacked [src] with [I], but they do not respond... Maybe they have S.S.D?</span>")
