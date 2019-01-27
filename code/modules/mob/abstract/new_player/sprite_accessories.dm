@@ -1440,6 +1440,18 @@
 		body_parts = list("chest")
 		species_allowed = list("Unathi")
 
+	spelunker
+		name = "Spelunker"
+		icon_state = "spelunker"
+		body_parts = list("l_leg","r_leg","l_arm","r_arm","chest","groin","head")
+		species_allowed = list("Vaurca")
+
+	delver
+		name = "Delver"
+		icon_state = "delver"
+		body_parts = list("l_leg","r_leg","l_arm","r_arm","chest","groin","head")
+		species_allowed = list("Vaurca")
+
 // Branded IPC markings - disabled for now, some layering issues.
 /*
 	bishop
