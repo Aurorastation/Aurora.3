@@ -183,8 +183,10 @@
 		SSvueui.check_uis_for_change(src)
 	if(href_list["editrecord"])
 		var/list/key = href_list["editrecord"]["key"]
-		var/value = sanitize(href_list["editrecord"]["value"])
+		var/value = sanitize(href_list["editrecord"]["value"], encode = 0, extra = 0)
 		if(key.len >= 2 && canEdit(key))
+			if(isnum(obj_query_get(null, src, null, key)))
+				value = text2num(value)
 			obj_query_set(null, src, value, null, key)
 			obj_query_set(null, ui.data, value, null, key)
 			. = TRUE
@@ -208,14 +210,14 @@
 			SSvueui.check_uis_for_change(src)
 	if(href_list["addtorecord"])
 		var/list/key = href_list["addtorecord"]["key"]
-		var/value = sanitize(href_list["addtorecord"]["value"])
+		var/value = sanitize(href_list["addtorecord"]["value"], encode = 0, extra = 0)
 		if(key.len >= 2 && canEdit(key))
 			obj_query_set(null, src, obj_query_get(null, src, null, key) + value, null, key)
 			obj_query_set(null, ui.data, obj_query_get(null, ui.data, null, key) + value, null, key)
 			. = TRUE
 	if(href_list["removefromrecord"])
 		var/list/key = href_list["removefromrecord"]["key"]
-		var/value = sanitize(href_list["removefromrecord"]["value"])
+		var/value = sanitize(href_list["removefromrecord"]["value"], encode = 0, extra = 0)
 		if(key.len >= 2 && canEdit(key))
 			obj_query_set(null, src, obj_query_get(null, src, null, key) - value, null, key)
 			obj_query_set(null, ui.data, obj_query_get(null, ui.data, null, key) - value, null, key)
