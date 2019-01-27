@@ -3497,12 +3497,12 @@
 	name = "Upside-Down Cup"
 	id = "upsidedowncup"
 	color = "#B2110A"
-	description = "The classic Skrell meme."
+	description = "An age-old part of Skrell culture. Even children know of the humor."
 	taste_description = "esoteric humor"
 
 	glass_icon_state = "upsidedowncup"
 	glass_name = "glass of Upside-Down Cup"
-	glass_desc = "The classic Skrell meme. It's not actually upside down."
+	glass_desc = "An age-old part of Skrell culture. Even children know of the humor. It's not actually upside down."
 
 /datum/reagent/drink/smokinglizard
 	name = "Cigarette Lizard"
