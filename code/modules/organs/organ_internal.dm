@@ -15,6 +15,11 @@
 	robotic_name = "circulatory pump"
 	robotic_sprite = "heart-prosthetic"
 
+/obj/item/organ/heart/process()
+	if (owner.isonlifesupport())
+		return 1
+
+
 /obj/item/organ/lungs
 	name = "lungs"
 	icon_state = "lungs"

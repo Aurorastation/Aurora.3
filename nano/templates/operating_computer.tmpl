@@ -1,0 +1,260 @@
+<!--
+Title: Operating Computer UI
+Used In File(s): \code\game\machinery\computer\Operating.dm
+ -->
+{{if !data.table}}
+    <div class="wholeScreen">
+        <br><br><br><br><br><br><br>No connected table detected!
+    </div>
+{{else}}
+    {{if data.screen == 1}}
+        <div style="min-width: 60px">
+            <h3>Patient Information:</h3>
+
+            {{if data.patientgeneral && data.patienthealth}}
+
+                <div class="item">
+                    <div class="itemLabel">
+                        Name:
+                    </div>
+                    <div class="itemContent">
+                        {{:data.patientgeneral.Name}}
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="itemLabel">
+                        Age:
+                    </div>
+                    <div class="itemContent">
+                        {{:data.patientgeneral.Age}}
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="itemLabel">
+                        Blood Type:
+                    </div>
+                    <div class="itemContent">
+                        {{:data.patientgeneral.BloodType}}
+                    </div>
+                </div>
+
+                <div class="item">
+                    <div class="itemLabel">
+                        Health:
+                    </div>
+                    <div class="itemContent">
+                        {{:data.patienthealth.Health}}
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="itemLabel">
+                        Brute Damage:
+                    </div>
+                    <div class="itemContent">
+                        {{:data.patienthealth.Brute}}
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="itemLabel">
+                        Toxins Damage:
+                    </div>
+                    <div class="itemContent">
+                        {{:data.patienthealth.Toxins}}
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="itemLabel">
+                        Burn Damage:
+                    </div>
+                    <div class="itemContent">
+                        {{:data.patienthealth.Burn}}
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="itemLabel">
+                        Suffocation Damage:
+                    </div>
+                    <div class="itemContent">
+                        {{:data.patienthealth.Suffocation}}
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="itemLabel">
+                        Status:
+                    </div>
+                    <div class="itemContent">
+                        {{:data.patienthealth.Status}}
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="itemLabel">
+                        Heartbeat Rate:
+                    </div>
+                    <div class="itemContent">
+                        {{:data.patienthealth.Heartrate}} bpm
+                    </div>
+                </div>
+                {{if data.table == 2}}
+                    <div class="item">
+                        <div class="itemLabel">
+                            Blood Level:
+                        </div>
+                        <div class="itemContent">
+                            {{:data.patienthealth.BloodLevel}} cl
+                        </div>
+                    </div>
+                {{/if}}
+            {{else}}
+                <div class="item">
+                    <span class="bad">No Patient Detected!</span>
+                </div>
+            {{/if}}
+        </div>
+
+        {{if data.table == 2}}
+            <div style="min-width: 60px">
+                <h3>Life Support Systems Detected</h3>
+                <h3>Machine Information:</h3>
+
+                <div class="item">
+                    <div class="itemLabel">
+                        Restraints:
+                    </div>
+                    <div class="itemContent">
+                        {{:data.buckled ? '<span class="good">Active</span>' : '<span class="bad">Inactive</span>'}}
+                    </div>
+                </div>
+
+                <div class="item">
+                    <div class="itemLabel">
+                        Life Support Systems:
+                    </div>
+                    <div class="itemContent">
+                        {{:data.lifesupport ? '<span class="good">Enabled</span>' : '<span class="bad">Disabled</span>'}}
+                    </div>
+                    <div class="itemContentFull">
+                        {{:helper.link(data.lifesupport ? 'Disable Life Support' : 'Enable Life Support', data.lifesupport ? 'close' : 'check', {'toggle_lifesupport' : 1}, null)}}
+                    </div>
+                </div>
+
+                <div class="item">
+                    <div class="itemLabel">
+                        Stored Chemicals
+                    </div>
+                    <div class="itemContent">
+                        {{:helper.link('Flush Chemicals', 'eject', {'eject_advanced' : 'chems'}, data.hasreagents ? null : 'disabled', 'floatRight')}}
+                    </div>
+                </div>
+
+                {{if data.hasreagents}}
+                    <div class="statusDisplay">
+                        <div class="item">
+                            <div class="itemContent">
+                            {{for data.loadedreagents}}
+                                <span class="highlight">{{:value.volume}} units of {{:value.name}}</span><br>
+                            {{/for}}
+                            </div>
+                        </div>
+                    </div>
+                {{else}}
+                    <div class="notice">
+                        No chemicals stored!
+                    </div>
+                {{/if}}
+
+                <div class="item">
+                    <div class="itemLabel">
+                        Internal Air Tank
+                    </div>
+                    <div class="itemContent">
+                        {{:helper.link('Eject Air Tank', 'eject', {'eject_advanced' : 'airsupply'}, data.hasair ? null : 'disabled', 'floatRight')}}
+                    </div>
+                </div>
+
+                {{if data.hasair}}
+                    <div class="statusDisplay">
+                        <div class="item">
+                            <div class="itemContent">
+                                <span class="highlight">Tank Internal Pressure: {{:data.air.internalpressure}} kPa</span><br>
+                                <span class="highlight">Tank Release Pressure: {{:data.air.releasepressure}} kPa</span>
+                            </div>
+                        </div>
+                    </div>
+                {{else}}
+                    <div class="notice">
+                        No air tank detected!
+                    </div>
+                {{/if}}
+
+                <div class="item">
+                    <div class="itemLabel">
+                        Internal Blood Supply
+                    </div>
+                    <div class="itemContent">
+                        {{:helper.link('Eject Blood Bag', 'eject', {'eject_advanced' : 'bloodbag'}, data.hasblood ? null : 'disabled', 'floatRight')}}
+                    </div>
+                </div>
+
+                {{if data.hasblood}}
+                    <div class="statusDisplay">
+                        <div class="item">
+                            <div class="itemContent">
+                                <span class="highlight">Stored Volume: {{:data.blood.volume}}</span><br>
+                                <span class="highlight">Blood Type: {{:data.blood.type}}</span>
+                            </div>
+                        </div>
+                    </div>
+                {{else}}
+                    <div class="notice">
+                        No blood bag detected!
+                    </div>
+                {{/if}}
+
+                <h3>Programming Information:</h3>
+
+                <div class="statusDisplay">
+                    <div class="line">
+                        <div class="statusLabel">Transfusion Control:</div>
+                        <div class="statusValue">{{:helper.link(data.program.autotransfuse ? 'Automated' : 'Manually Controlled', 'refresh', {'toggle_program' : 'AUTO_TRANSFUSE'}, null)}}</div>
+                    </div>
+                    <div class="line">
+                        <div class="statusLabel">Transfusion:</div>
+                        <div class="statusValue">{{:helper.link(data.program.transfuseactive ? 'Activated' : 'Deactivated', 'refresh', {'toggle_program' : 'TRANSFUSE_ACTIVE'}, data.program.autotransfuse ? 'disabled' : null)}}</div>
+                    </div>
+                    <div class="line">
+                        <div class="statusLabel">Air Control:</div>
+                        <div class="statusValue">{{:helper.link(data.program.autoair ? 'Automated' : 'Manually Controlled', 'refresh', {'toggle_program' : 'AUTO_AIR'}, null)}}</div>
+                    </div>
+                    <div class="line">
+                        <div class="statusLabel">Air Status:</div>
+                        <div class="statusValue">{{:helper.link(data.program.airactive ? 'Activated' : 'Deactivated', 'refresh', {'toggle_program' : 'AIR_ACTIVE'}, data.program.autoair ? 'disabled' : null)}}</div>
+                    </div>
+                    {{if data.program.emagged}}
+                        <div class="line">
+                            <div class="statusLabel">Blood Syphons:</div>
+                            <div class="statusValue">{{:helper.link(data.program.vampire ? 'Activated' : 'Deactivated', 'refresh', {'toggle_program' : 'VAMPIRE'})}}</div>
+                        </div>
+                    {{/if}}
+                </div>
+
+                {{:helper.link('Show Logs', 'gear', {'select_screen' : '2'})}}
+            </div>
+        {{/if}}
+    {{else data.screen == 2}}
+        {{:helper.link('Main Menu', 'gear', {'select_screen' : '1'})}}
+        {{:helper.link('Clear Log', 'gear', {'clear_log' : '1'})}}
+
+        {{if data.log}}
+            <table width="100%">
+                <thead>
+                    <tr><td><b>Timestamp:</b></td><td><b>Message:</b></td></tr>
+                </thead>
+                <tbody>
+                {{for data.log}}
+                    <tr><td>{{:value.time}}</td><td>{{:value.message}}</td></tr>
+                {{/for}}
+                </tbody>
+            </table>
+        {{/if}}
+    {{/if}}
+{{/if}}

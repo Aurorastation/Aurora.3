@@ -983,7 +983,7 @@
 	else				//ALIVE. LIGHTS ARE ON
 		updatehealth()	//TODO
 
-		if(health <= config.health_threshold_dead || (species.has_organ["brain"] && !has_brain()))
+		if(health <= config.health_threshold_dead || (species.has_organ["brain"] && !isonlifesupport()))
 			death()
 			blinded = 1
 			silent = 0

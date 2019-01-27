@@ -45,12 +45,6 @@
 
 /obj/machinery/optable/lifesupport/Initialize()
 	..()
-	component_parts = list()
-	component_parts += new /obj/item/weapon/circuitboard/optableadv(src)
-	component_parts += new /obj/item/device/healthanalyzer(src)
-	component_parts += new /obj/item/weapon/reagent_containers/glass/beaker(src)
-	component_parts += new /obj/item/weapon/stock_parts/scanning_module/adv(src)
-	component_parts += new /obj/item/clothing/mask/breath/medical(src)
 	RefreshParts()
 
 /obj/machinery/optable/lifesupport/attackby(obj/item/weapon/W as obj, mob/living/carbon/user as mob)
