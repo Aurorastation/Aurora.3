@@ -1003,6 +1003,7 @@
 "acm" = (
 /obj/machinery/power/smes/buildable{
 	charge = 2e+006;
+	is_critical = 1;
 	RCon_tag = "Tesla - Containment"
 	},
 /obj/structure/cable{
