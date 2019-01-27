@@ -17,7 +17,7 @@ export default {
   computed: {
     sourceBuster() {
       if(this.failsToLoad && this.failsToLoad < this.maxTries) {
-        return "?t=" + failsToLoad
+        return "?t=" + this.failsToLoad
       } else {
         return ""
       }
