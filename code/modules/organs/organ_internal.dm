@@ -17,10 +17,10 @@
 
 /obj/item/organ/heart/process()
 	//Check if we're on lifesupport, and whether or not organs should be processing.
-	if (owner.buckled && istype(owner.buckled, /obj/machinery/optable/lifesupport))
-		var/obj/machinery/optable/lifesupport/A = owner.buckled
-		if (A.onlifesupport())
-			return 1
+	if(owner && owner.isonlifesupport())
+		return 1
+	else
+		return 0
 
 
 /obj/item/organ/lungs

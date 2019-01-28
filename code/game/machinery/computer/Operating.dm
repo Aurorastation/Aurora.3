@@ -196,7 +196,7 @@
 				program["transfuseactive"] = A.checkprogram("TRANSFUSE_ACTIVE")
 				program["autoair"] = A.checkprogram("AUTO_AIR")
 				program["airactive"] = A.checkprogram("AIR_ACTIVE")
-				program["vampire"] = A.checkprogram("VAMPIRE")
+				program["purge"] = A.checkprogram("PURGE")
 				program["emagged"] = A.emagged
 				data["program"] = program;
 

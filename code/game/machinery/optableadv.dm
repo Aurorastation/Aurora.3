@@ -2,7 +2,7 @@
 #define AUTO_AIR 2
 #define TRANSFUSE_ACTIVE 4
 #define AIR_ACTIVE 8
-#define VAMPIRE 16
+#define PURGE 16
 
 /*
  * The more advanced life support table
@@ -31,10 +31,8 @@
 
 	component_types = list(
 			/obj/item/weapon/circuitboard/optableadv,
-			/obj/item/weapon/stock_parts/capacitor,
-			/obj/item/device/healthanalyzer,
-			/obj/item/weapon/stock_parts/scanning_module/adv,
-			/obj/item/clothing/mask/breath/medical
+			/obj/item/clothing/mask/breath/medical,
+			/obj/item/weapon/reagent_containers/glass/beaker = 2
 
 		)
 
@@ -45,7 +43,6 @@
 
 /obj/machinery/optable/lifesupport/Initialize()
 	..()
-	RefreshParts()
 
 /obj/machinery/optable/lifesupport/attackby(obj/item/weapon/W as obj, mob/living/carbon/user as mob)
 	. = ..()
@@ -86,7 +83,7 @@
 			user << "<span class='notice'>[src] is already emagged!</span>"
 			return
 
-/obj/machinery/optable/lifesupport/process()
+/obj/machinery/optable/lifesupport/process(mob/living/carbon/patient as mob)
 	..()
 
 	if (active)
@@ -136,8 +133,13 @@
 		if ((program & AIR_ACTIVE) && (!airsupply || airsupply.air_contents.return_pressure() < 10))
 			toggleprogram(AIR_ACTIVE)
 
-		if (program & VAMPIRE)
-			victim.vessel.remove_reagent("blood", 5)
+		if (program & PURGE)
+			var/T = get_turf(src)
+			new /obj/effect/gibspawner/human(T)
+			spark(T, 5)
+			playsound(T, "sparks", 50, 1)
+			to_chat(victim, "<span class='warning'>You feel the machine wrestle away at your flesh with its claws! Leaving you as a husk of your former self.</span>")
+			victim.set_species("Skeleton")
 
 /obj/machinery/optable/lifesupport/update_icon()
 	if (panel_open)
@@ -160,14 +162,14 @@
 	return active
 
 /obj/machinery/optable/lifesupport/RefreshParts()
+	// Adjust reagent container volume to match combined volume of the inserted beakers
 	var/T = 0
-	for (var/obj/item/weapon/reagent_containers/glass/G in component_parts)
+	for(var/obj/item/weapon/reagent_containers/glass/G in component_parts)
 		T += G.reagents.maximum_volume
-	var/datum/reagents/R = new/datum/reagents(T)		//Holder for the reagents used as materials.
-	reagents = R
-	R.my_atom = src
-	for (var/obj/item/clothing/mask/breath/medical/E in component_parts)
-		airmask = E
+	create_reagents(T)
+	// Transfer all reagents from the beakers to internal reagent container
+	for(var/obj/item/weapon/reagent_containers/glass/G in component_parts)
+		G.reagents.trans_to_obj(src, G.reagents.total_volume)
 
 /obj/machinery/optable/lifesupport/proc/broadcastalert(var/message as text)
 	playsound(loc, 'sound/machines/chime.ogg', 75, 1)
@@ -349,8 +351,8 @@
 				setting = TRANSFUSE_ACTIVE
 			if ("AIR_ACTIVE")
 				setting = AIR_ACTIVE
-			if ("VAMPIRE")
-				setting = VAMPIRE
+			if ("PURGE")
+				setting = PURGE
 
 	if (program & setting)
 		switch (setting)
@@ -368,7 +370,7 @@
 				addtolog("Internal air supply deactivated.")
 				program &= ~setting
 				return
-			if (VAMPIRE)
+			if (PURGE)
 				if (!emagged)
 					return
 				else
@@ -408,7 +410,7 @@
 				else
 					broadcastalert("Air supply empty or not connected!")
 					return
-			if (VAMPIRE)
+			if (PURGE)
 				if (!emagged)
 					return
 				else
@@ -435,8 +437,8 @@
 			setting = TRANSFUSE_ACTIVE
 		if ("AIR_ACTIVE")
 			setting = AIR_ACTIVE
-		if ("VAMPIRE")
-			setting = VAMPIRE
+		if ("PURGE")
+			setting = PURGE
 
 	if (program & setting)
 		return 1
@@ -447,4 +449,4 @@
 #undef AUTO_AIR
 #undef TRANSFUSE_ACTIVE
 #undef AIR_ACTIVE
-#undef VAMPIRE
+#undef PURGE

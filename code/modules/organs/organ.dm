@@ -349,8 +349,8 @@
 
 	owner = null
 
-	if(!target.isonlifesupport())
-		target.death()
+	if(!owner.isonlifesupport())
+		owner.death()
 
 /obj/item/organ/proc/replaced(var/mob/living/carbon/human/target,var/obj/item/organ/external/affected)
 
