@@ -30755,6 +30755,7 @@
 /obj/machinery/light,
 /obj/machinery/power/apc{
 	dir = 2;
+	is_critical = 1;
 	name = "south bump";
 	pixel_y = -24
 	},
