@@ -582,7 +582,7 @@
 /datum/reagent/capsaicin/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
 	if(ishuman(M))
 		var/mob/living/carbon/human/H = M
-		if(H.species && (H.species.flags & (NO_PAIN)))
+		if(!H.can_feel_pain())
 			return
 	if(dose < agony_dose)
 		if(prob(5) || dose == metabolism) //dose == metabolism is a very hacky way of forcing the message the first time this procs
@@ -626,8 +626,8 @@
 			return
 		var/mob/living/carbon/human/H = M
 		protection = list(H.head, H.glasses, H.wear_mask)
-		if(H.species && (H.species.flags & NO_PAIN))
-			no_pain = 1 //TODO: living-level can_feel_pain() proc
+		if(!H.can_feel_pain())
+			no_pain = 1
 
 		// Robo-eyes are immune to pepperspray now. Wee.
 		var/obj/item/organ/eyes/E = H.get_eyes()
@@ -672,7 +672,7 @@
 /datum/reagent/capsaicin/condensed/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
 	if(ishuman(M))
 		var/mob/living/carbon/human/H = M
-		if(H.species && (H.species.flags & NO_PAIN))
+		if(!H.can_feel_pain())
 			return
 	if(dose == metabolism)
 		M << "<span class='danger'>You feel like your insides are burning!</span>"
@@ -1213,6 +1213,16 @@
 	glass_icon_state = "psl_cheap"
 	glass_name = "cup of cheap pumpkin latte"
 	glass_desc = "Maybe you should just go ask the barista for something more authentic..."
+
+/datum/reagent/drink/coffee/mars
+	name = "Martian Special"
+	id = "mars_coffee"
+	description = "Black coffee, heavily peppered."
+	taste_description = "bitter coffee, pungent black pepper and just a hint of shaky politics"
+
+	glass_icon_state = "hot_coffee"
+	glass_name = "cup of Martian Special"
+	glass_desc = "Just by the pungent, sharp smell, you figure you probably don't want to drink that..."
 
 /datum/reagent/drink/hot_coco
 	name = "Hot Chocolate"
@@ -3227,7 +3237,7 @@
 	if(alien != IS_DIONA)
 		if(ishuman(M))
 			var/mob/living/carbon/human/H = M
-			if(H.species && (H.species.flags & (NO_PAIN)))
+			if(!H.can_feel_pain())
 				return
 		if(dose < agony_dose)
 			if(prob(5) || dose == metabolism)
@@ -3466,6 +3476,7 @@
 	glass_icon_state = "winter_offensive"
 	glass_name = "glass of Winter Offensive"
 	glass_desc = "Proven to be more successful than the campaign."
+
 
 // Butanol-based alcoholic drinks
 //=====================================

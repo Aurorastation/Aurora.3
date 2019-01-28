@@ -27,7 +27,7 @@
 		user.drop_from_inventory(W,src)
 		stored_card = W
 		update_power_usage()
-	if(isscrewdriver(W))
+	if(W.isscrewdriver())
 		user << "You manually remove \the [stored_card] from \the [src]."
 		stored_card.forceMove(get_turf(src))
 		stored_card = null
