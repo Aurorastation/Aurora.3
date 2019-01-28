@@ -10,16 +10,16 @@
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.2.0",
-    "vue": "^2.5.17",
-    "webpack": "^4.16.5"
+    "vue": "^2.5.21",
+    "webpack": "^4.28.3"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "^3.0.0-rc.12",
-    "@vue/cli-plugin-eslint": "^3.0.0-rc.12",
-    "@vue/cli-service": "^3.0.0-rc.12",
-    "node-sass": "^4.9.3",
+    "@vue/cli-plugin-babel": "^3.2.2",
+    "@vue/cli-plugin-eslint": "^3.2.2",
+    "@vue/cli-service": "^3.2.2",
+    "node-sass": "^4.11.0",
     "sass-loader": "^7.1.0",
-    "vue-template-compiler": "^2.5.17",
+    "vue-template-compiler": "^2.5.21",
     "webpack-command": "^0.4.1"
   },
   "browserslist": [

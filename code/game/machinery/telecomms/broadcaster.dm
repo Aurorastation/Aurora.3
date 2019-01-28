@@ -666,8 +666,6 @@ var/message_delay = 0 // To make sure restarting the recentmessages list is kept
 	for(var/obj/machinery/telecomms/receiver/R in telecomms_list)
 		R.receive_signal(signal)
 
-	//world<< "Done: [signal.data["done"]]"
-
 	return signal
 
 

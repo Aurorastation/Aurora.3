@@ -128,10 +128,11 @@
 /datum/reagent/toxin/phoron_salt //Remember to exclude in RNG chems.
 	name = "Phoron Salts"
 	id = "phoron_salt"
-	description = "A mysterious molten mixture with strange chemical properties."
+	description = "A mysterious molten mixture with strange chemical properties. Incredibly deadly to all lifeforms, especially Vaurca."
 	reagent_state = SOLID
 	color = "#7C4876"
 	strength = 30
+	default_temperature = 130 //Kelvin
 
 /datum/reagent/toxin/cardox
 	name = "Cardox"
@@ -508,6 +509,8 @@
 	glass_name = "glass of beer"
 	glass_desc = "A freezing pint of beer"
 	glass_center_of_mass = list("x"=16, "y"=8)
+	
+	fallback_specific_heat = 1.2
 
 /* Drugs */
 
@@ -543,6 +546,7 @@
 	metabolism = REM * 0.25
 	overdose = REAGENTS_OVERDOSE
 	taste_description = "bitterness"
+	fallback_specific_heat = 1.2
 
 /datum/reagent/serotrotium/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	var/mob/living/carbon/human/H = M
@@ -610,6 +614,7 @@
 	overdose = REAGENTS_OVERDOSE
 	metabolism = REM * 0.5
 	taste_description = "mushroom"
+	fallback_specific_heat = 1.2
 
 /datum/reagent/psilocybin/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	var/mob/living/carbon/human/H = M
@@ -695,6 +700,7 @@
 	reagent_state = LIQUID
 	color = "#535E66"
 	taste_description = "slimey metal"
+	fallback_specific_heat = 3
 
 /datum/reagent/nanites/affect_touch(var/mob/living/carbon/M, var/alien, var/removed)
 	if(prob(10))
@@ -703,6 +709,23 @@
 /datum/reagent/nanites/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.contract_disease(new /datum/disease/robotic_transformation(0), 1)
 
+
+
+/datum/reagent/rattoxin
+	name = "Toxins"
+	id = "rattoxin"
+	description = "Toxins, yuck!."
+	reagent_state = LIQUID
+	color = "#535E66"
+	taste_description = "eugh!"
+	fallback_specific_heat = 3
+
+/datum/reagent/rattoxin/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+	if(prob(50))
+		M.drowsyness = max(M.drowsyness, 3)
+	if(prob(10))
+		M.emote("vomit")
+
 /datum/reagent/xenomicrobes
 	name = "Xenomicrobes"
 	id = "xenomicrobes"
@@ -710,6 +733,7 @@
 	reagent_state = LIQUID
 	color = "#535E66"
 	taste_description = "sludge"
+	fallback_specific_heat = 2
 
 /datum/reagent/xenomicrobes/affect_touch(var/mob/living/carbon/M, var/alien, var/removed)
 	if(prob(10))

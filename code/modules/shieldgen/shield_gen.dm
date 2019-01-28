@@ -62,7 +62,7 @@
 			updateDialog()
 		else
 			user << span("alert", "Access denied.")
-	else if(iswrench(W))
+	else if(W.iswrench())
 		src.anchored = !src.anchored
 		src.visible_message(span("notice", "\The [src] has been [anchored ? "bolted to the floor":"unbolted from the floor"] by \the [user]."))
 

@@ -718,7 +718,7 @@
 
 /datum/seed/grapes/green/setup_traits()
 	..()
-	set_trait(TRAIT_PRODUCT_COLOUR,"42ed2f")
+	set_trait(TRAIT_PRODUCT_COLOUR,"#42ED2F")
 
 //Everything else
 /datum/seed/peanuts

@@ -156,8 +156,12 @@
 	update_icon()
 
 /obj/effect/blob/proc/expand(var/turf/T)
-	if(istype(T, /turf/unsimulated/) || istype(T, /turf/space) || (istype(T, /turf/simulated/mineral) && T.density))
+	if(istype(T, /turf/unsimulated/) || (istype(T, /turf/simulated/mineral) && T.density))
 		return
+
+	if((istype(T, /turf/simulated/open) || istype(T, /turf/space)) && !(locate(/obj/structure/lattice) in T))
+		return
+
 	if(istype(T, /turf/simulated/wall))
 		var/turf/simulated/wall/SW = T
 		SW.ex_act(2)
@@ -231,7 +235,7 @@
 	switch(W.damtype)
 		if("fire")
 			damage = (W.force / fire_resist)
-			if(iswelder(W))
+			if(W.iswelder())
 				playsound(loc, 'sound/items/Welder.ogg', 100, 1)
 		if("brute")
 			if(prob(30) && !issilicon(user))

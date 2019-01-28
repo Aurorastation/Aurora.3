@@ -19,7 +19,7 @@
 	var/maxWaterLevel = 100
 	var/maxNutriLevel = 10
 	var/maxPestLevel = 10
-	var/maxWeedLevel = 10
+	var/maxWeedLevel = 0 // Hydroponics systems don't grow weeds irl. Pests are still an issue.
 
 	// Tray state vars.
 	var/dead = 0               // Is it dead?
@@ -33,7 +33,7 @@
 	var/mutation_mod = 0       // Modifier to mutation chance
 	var/toxins = 0             // Toxicity in the tray?
 	var/mutation_level = 0     // When it hits 100, the plant mutates.
-	var/tray_light = 1         // Supplied lighting.
+	var/tray_light = 5         // Supplied lighting.
 
 	// Mechanical concerns.
 	var/health = 0             // Plant health.
@@ -460,7 +460,7 @@
 	if (O.is_open_container())
 		return 0
 
-	if(iswirecutter(O) || istype(O, /obj/item/weapon/scalpel))
+	if(O.iswirecutter() || istype(O, /obj/item/weapon/scalpel))
 
 		if(!seed)
 			user << "There is nothing to take a sample from in \the [src]."
@@ -565,7 +565,7 @@
 		qdel(O)
 		check_health()
 
-	else if(mechanical && iswrench(O))
+	else if(mechanical && O.iswrench())
 
 		//If there's a connector here, the portable_atmospherics setup can handle it.
 		if(locate(/obj/machinery/atmospherics/portables_connector/) in loc)

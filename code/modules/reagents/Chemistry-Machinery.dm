@@ -68,7 +68,7 @@
 		user.drop_from_inventory(B,src)
 		user << "You add the pill bottle into the dispenser slot!"
 		src.updateUsrDialog()
-	else if(iswrench(B))
+	else if(B.iswrench())
 		anchored = !anchored
 		user << "You [anchored ? "attach" : "detach"] the [src] [anchored ? "to" : "from"] the ground"
 		playsound(src.loc, 'sound/items/Ratchet.ogg', 75, 1)
@@ -227,7 +227,7 @@
 	if(inoperable())
 		return
 	user.set_machine(src)
-	
+
 	var/datum/asset/pill_icons = get_asset_datum(/datum/asset/chem_master)
 	pill_icons.send(user.client)
 
@@ -592,9 +592,9 @@
 	if(!istype(O))
 		return
 
-	if(istype(O,/obj/item/weapon/storage/bag/plants))
+	if(istype(O,/obj/item/weapon/storage/bag/plants) || istype(O,/obj/item/weapon/storage/pill_bottle))
 		var/failed = 1
-		var/obj/item/weapon/storage/bag/P = O
+		var/obj/item/weapon/storage/P = O
 		for(var/obj/item/G in P.contents)
 			if(!G.reagents || !G.reagents.total_volume)
 				continue

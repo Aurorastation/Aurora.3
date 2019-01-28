@@ -79,6 +79,10 @@
 			asteroid_spawn += loc
 			delete_me = 1
 			return
+		if("skrell_entry")
+			dream_entries += loc
+			delete_me = 1
+			return
 
 	landmarks_list += src
 	return 1

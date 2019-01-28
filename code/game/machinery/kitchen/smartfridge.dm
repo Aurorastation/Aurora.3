@@ -103,6 +103,17 @@
 		return 1
 	if(istype(O,/obj/item/weapon/reagent_containers/pill/))
 		return 1
+	if(istype(O,/obj/item/weapon/reagent_containers/inhaler))
+		return 1
+	if(istype(O,/obj/item/weapon/reagent_containers/personal_inhaler_cartridge	))
+		return 1
+	if(istype(O,/obj/item/weapon/reagent_containers/inhaler))
+		return 1
+	if(istype(O,/obj/item/weapon/reagent_containers/hypospray/autoinjector))
+		return 1
+	if(istype(O,/obj/item/weapon/personal_inhaler))
+		return 1
+
 	return 0
 
 /obj/machinery/smartfridge/secure/virology
@@ -228,7 +239,7 @@
 ********************/
 
 /obj/machinery/smartfridge/attackby(var/obj/item/O as obj, var/mob/user as mob)
-	if(isscrewdriver(O))
+	if(O.isscrewdriver())
 		panel_open = !panel_open
 		user.visible_message("[user] [panel_open ? "opens" : "closes"] the maintenance panel of \the [src].", "You [panel_open ? "open" : "close"] the maintenance panel of \the [src].")
 		cut_overlays()
@@ -237,7 +248,7 @@
 		SSnanoui.update_uis(src)
 		return
 
-	if(ismultitool(O)||iswirecutter(O))
+	if(O.ismultitool()||O.iswirecutter())
 		if(panel_open)
 			attack_hand(user)
 		return
@@ -260,9 +271,10 @@
 			user.visible_message("<span class='notice'>[user] has added \the [O] to \the [src].</span>", "<span class='notice'>You add \the [O] to \the [src].</span>")
 
 			SSnanoui.update_uis(src)
+			return
 
-	else if(istype(O, /obj/item/weapon/storage/bag))
-		var/obj/item/weapon/storage/bag/P = O
+	if(istype(O, /obj/item/weapon/storage/bag) || istype(O, /obj/item/weapon/storage/box/produce))
+		var/obj/item/weapon/storage/P = O
 		var/plants_loaded = 0
 		for(var/obj/G in P.contents)
 			if(accept_check(G))

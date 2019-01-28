@@ -387,7 +387,7 @@
 
 /obj/item/clothing/gloves/attackby(obj/item/weapon/W, mob/user)
 	..()
-	if(iswirecutter(W) || istype(W, /obj/item/weapon/scalpel))
+	if(W.iswirecutter() || istype(W, /obj/item/weapon/scalpel))
 		if (clipped)
 			user << "<span class='notice'>\The [src] have already been clipped!</span>"
 			update_icon()
@@ -561,7 +561,6 @@
 /obj/item/clothing/mask
 	name = "mask"
 	icon = 'icons/obj/clothing/masks.dmi'
-	body_parts_covered = HEAD
 	slot_flags = SLOT_MASK
 	body_parts_covered = FACE|EYES
 	sprite_sheets = list(
@@ -680,7 +679,7 @@
 
 
 /obj/item/clothing/shoes/attackby(var/obj/item/I, var/mob/user)
-	if(can_hold_knife && is_type_in_list(I, list(/obj/item/weapon/material/shard, /obj/item/weapon/material/butterfly, /obj/item/weapon/material/kitchen/utensil, /obj/item/weapon/material/hatchet/tacknife, /obj/item/weapon/material/sword/trench)))
+	if(can_hold_knife && is_type_in_list(I, list(/obj/item/weapon/material/shard, /obj/item/weapon/material/kitchen/utensil, /obj/item/weapon/material/knife)))
 		if(holding)
 			user << "<span class='warning'>\The [src] is already holding \a [holding].</span>"
 			return

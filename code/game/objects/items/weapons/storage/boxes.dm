@@ -385,6 +385,21 @@
 	new /obj/item/device/firing_pin/implant/loyalty(src)
 	new /obj/item/device/firing_pin/implant/loyalty(src)
 
+/obj/item/weapon/storage/box/firingpinsRD
+	name = "box of assorted firing pins"
+	desc = "A box of varied assortment of firing pins. Appears to have R&D stickers on all sides of the box. Also seems to have a smiley face sticker on the top of it."
+
+/obj/item/weapon/storage/box/firingpinsRD/fill()
+	..()
+	new /obj/item/device/firing_pin(src)
+	new /obj/item/device/firing_pin(src)
+	new /obj/item/device/firing_pin/access(src)
+	new /obj/item/device/firing_pin/access(src)
+	new /obj/item/device/firing_pin/implant/loyalty(src)
+	new /obj/item/device/firing_pin/implant/loyalty(src)
+	new /obj/item/device/firing_pin/clown(src)
+	new /obj/item/device/firing_pin/dna(src)
+
 /obj/item/weapon/storage/box/teargas
 	name = "box of pepperspray grenades"
 	desc = "A box containing 7 tear gas grenades. A gas mask is printed on the label.<br> WARNING: Exposure carries risk of serious injury or death. Keep away from persons with lung conditions."
@@ -721,6 +736,7 @@
 /obj/item/weapon/storage/box/pillbottles
 	name = "box of pill bottles"
 	desc = "It has pictures of pill bottles on its front."
+	icon_state = "pillbox"
 
 /obj/item/weapon/storage/box/pillbottles/fill()
 	..()
@@ -785,8 +801,8 @@
 	return
 
 /obj/item/weapon/storage/box/autoinjectors
-	name = "box of injectors"
-	desc = "Contains autoinjectors."
+	name = "box of empty injectors"
+	desc = "Contains empty autoinjectors."
 	icon_state = "syringe"
 
 /obj/item/weapon/storage/box/autoinjectors/fill()
@@ -984,7 +1000,8 @@
 			/obj/item/weapon/reagent_containers/food/snacks/meatsnack,
 			/obj/item/weapon/reagent_containers/food/snacks/maps,
 			/obj/item/weapon/reagent_containers/food/snacks/nathisnack,
-			/obj/item/weapon/reagent_containers/food/snacks/adhomian_can
+			/obj/item/weapon/reagent_containers/food/snacks/adhomian_can,
+			/obj/item/weapon/reagent_containers/food/snacks/tuna
 	)
 	for (var/i = 0,i<7,i++)
 		var/type = pick(snacks)
@@ -1022,6 +1039,15 @@
 
 	for(var/i in 1 to 6)
 		new /obj/item/weapon/reagent_containers/personal_inhaler_cartridge/large(src)
+
+/obj/item/weapon/storage/box/inhalers_auto
+	name = "autoinhaler kit"
+	desc = "A box filled with a combat inhaler and several large empty inhaler cartridges."
+	icon_state = "box_inhalers"
+
+/obj/item/weapon/storage/box/inhalers_auto/fill()
+	for(var/i in 1 to 8)
+		new /obj/item/weapon/reagent_containers/inhaler(src)
 
 /obj/item/weapon/storage/box/clams
 	name = "box of Ras'val clam"
@@ -1070,3 +1096,16 @@
 		new chosen_candy(src)
 
 	make_exact_fit()
+
+
+/obj/item/weapon/storage/box/crabmeat
+	name = "box of crab legs"
+	desc = "A box filled with high-quality crab legs. Shipped to Aurora by popular demand!"
+
+/obj/item/weapon/storage/box/crabmeat/fill()
+	..()
+	new /obj/item/weapon/reagent_containers/food/snacks/crabmeat(src)
+	new /obj/item/weapon/reagent_containers/food/snacks/crabmeat(src)
+	new /obj/item/weapon/reagent_containers/food/snacks/crabmeat(src)
+	new /obj/item/weapon/reagent_containers/food/snacks/crabmeat(src)
+	new /obj/item/weapon/reagent_containers/food/snacks/crabmeat(src)

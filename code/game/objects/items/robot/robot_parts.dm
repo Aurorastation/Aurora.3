@@ -201,7 +201,7 @@
 					return
 
 				var/mob/living/carbon/human/new_shell = new(get_turf(loc), src.chest.linked_frame)
-				src.forceMove(null) //so people won't mess around with the chassis until it is deleted
+				src.forceMove(new_shell) //so people won't mess around with the chassis until it is deleted
 				M.brainmob.mind.transfer_to(new_shell)
 				qdel(M)
 				var/newname = sanitizeSafe(input(new_shell,"Enter a name, or leave blank for the default name.", "Name change","") as text, MAX_NAME_LEN)
@@ -276,7 +276,7 @@
 			user.drop_from_inventory(W,src)
 			src.cell = W
 			user << "<span class='notice'>You insert the cell!</span>"
-	if(iscoil(W))
+	if(W.iscoil())
 		if(src.wires)
 			user << "<span class='warning'>You have already inserted wire!</span>"
 			return
@@ -289,7 +289,7 @@
 
 /obj/item/robot_parts/head/attackby(obj/item/W as obj, mob/user as mob)
 	..()
-	if(ismultitool(W))
+	if(W.ismultitool())
 		if(law_manager)
 			user << "<span class='notice'>You disable the lawing circuits on \the [src].</span>"
 			law_manager = FALSE

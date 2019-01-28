@@ -40,6 +40,7 @@
 	name = "Garden seed storage"
 	scanner = list("stats")
 	starting_seeds = list(
+		/obj/item/seeds/ambrosiavulgarisseed = 3,
 		/obj/item/seeds/appleseed = 3,
 		/obj/item/seeds/bananaseed = 3,
 		/obj/item/seeds/berryseed = 3,
@@ -64,6 +65,7 @@
 		/obj/item/seeds/poppyseed = 3,
 		/obj/item/seeds/potatoseed = 3,
 		/obj/item/seeds/pumpkinseed = 3,
+		/obj/item/seeds/reishimycelium = 2,
 		/obj/item/seeds/riceseed = 3,
 		/obj/item/seeds/soyaseed = 3,
 		/obj/item/seeds/sugarcaneseed = 3,
@@ -303,7 +305,7 @@
 		else
 			user << "<span class='notice'>There are no seeds in \the [O.name].</span>"
 		return
-	else if(iswrench(O))
+	else if(O.iswrench())
 		playsound(loc, 'sound/items/Ratchet.ogg', 50, 1)
 		anchored = !anchored
 		user << "You [anchored ? "wrench" : "unwrench"] \the [src]."

@@ -16,6 +16,8 @@
 	var/time_of_birth
 	var/language
 	var/death_msg = "lets out a waning guttural screech, green blood bubbling from its maw."
+	var/meat_amount = 0
+	var/meat_type
 
 /mob/living/carbon/alien/Initialize()
 	. = ..()
@@ -49,3 +51,5 @@
 
 /mob/living/carbon/alien/cannot_use_vents()
 	return
+
+

@@ -130,6 +130,7 @@
 		info = stars(info,85)
 		user.visible_message("\The [user] crumples \the [src] into a ball!", "You crumple \the [src] into a ball.", "You hear crinkling.")
 		icon_state = "scrap"
+		throw_range = 8
 		return
 
 	if (user.a_intent == I_GRAB && icon_state != "scrap" && !istype(src, /obj/item/weapon/paper/carbon))
@@ -301,7 +302,7 @@
 			var/obj/item/weapon/flame/F = P
 			if (!F.lit)
 				return
-		else if (iswelder(P))
+		else if (P.iswelder())
 			var/obj/item/weapon/weldingtool/F = P
 			if (!F.welding)//welding tools are 0 when off
 				return
@@ -503,7 +504,7 @@
 
 	else if(istype(P, /obj/item/weapon/flame))
 		burnpaper(P, user)
-	else if(iswelder(P))
+	else if(P.iswelder())
 		burnpaper(P, user)
 
 	add_fingerprint(user)

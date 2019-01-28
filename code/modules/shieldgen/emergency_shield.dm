@@ -262,7 +262,7 @@
 		else
 			user << "The device must first be secured to the floor."
 	return
-	
+
 /obj/machinery/shieldgen/emag_act(var/remaining_charges, var/mob/user)
 	if(!malfunction)
 		malfunction = 1
@@ -270,7 +270,7 @@
 		return 1
 
 /obj/machinery/shieldgen/attackby(obj/item/weapon/W as obj, mob/user as mob)
-	if(isscrewdriver(W))
+	if(W.isscrewdriver())
 		playsound(src.loc, 'sound/items/Screwdriver.ogg', 100, 1)
 		if(is_open)
 			user << "<span class='notice'>You close the panel.</span>"
@@ -279,7 +279,7 @@
 			user << "<span class='notice'>You open the panel and expose the wiring.</span>"
 			is_open = 1
 
-	else if(iscoil(W) && malfunction && is_open)
+	else if(W.iscoil() && malfunction && is_open)
 		var/obj/item/stack/cable_coil/coil = W
 		user << "<span class='notice'>You begin to replace the wires.</span>"
 		//if(do_after(user, min(60, round( ((maxhealth/health)*10)+(malfunction*10) ))) //Take longer to repair heavier damage
@@ -290,7 +290,7 @@
 				user << "<span class='notice'>You repair the [src]!</span>"
 				update_icon()
 
-	else if(iswrench(W))
+	else if(W.iswrench())
 		if(locked)
 			user << "The bolts are covered, unlocking this would retract the covers."
 			return
