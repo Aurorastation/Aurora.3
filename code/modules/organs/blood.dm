@@ -71,7 +71,14 @@ var/const/BLOOD_VOLUME_SURVIVE = 122
 		//The heartfix to end all heartfixes
 		if(species && species.has_organ["heart"])
 			var/obj/item/organ/heart/heart = internal_organs_by_name["heart"]
-			if (!isonlifesupport())
+			// Before we do that, we check for lifesupport.
+			var/onlifesupport = 0
+			if (buckled && istype(buckled, /obj/machinery/optable/lifesupport))
+				var/obj/machinery/optable/lifesupport/A = buckled
+				onlifesupport = A.onlifesupport()
+
+
+			if (!onlifesupport)
 				if(!heart)
 					blood_volume = 0
 				else if (heart.is_damaged())

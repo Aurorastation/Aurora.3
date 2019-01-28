@@ -16,8 +16,11 @@
 	robotic_sprite = "heart-prosthetic"
 
 /obj/item/organ/heart/process()
-	if (owner.isonlifesupport())
-		return 1
+	//Check if we're on lifesupport, and whether or not organs should be processing.
+	if (owner.buckled && istype(owner.buckled, /obj/machinery/optable/lifesupport))
+		var/obj/machinery/optable/lifesupport/A = owner.buckled
+		if (A.onlifesupport())
+			return 1
 
 
 /obj/item/organ/lungs
