@@ -152,13 +152,13 @@
 		sum = 0
 		receipt = ""
 
-// UI Shit Below
+// VUEUI Below <3
 
 
 /obj/item/device/nanoquikpay/attack_self(mob/user as mob)
 	var/datum/vueui/ui = SSvueui.get_open_ui(usr, src)
 	if (!ui)
-		ui = new(usr, src, "quikpay-main", 500, 500, "NT Quik-Pay")
+		ui = new(usr, src, "quikpay-main", 200, 200, "NT Quik-Pay")
 	ui.open()
 
 /obj/item/device/nanoquikpay/vueui_data_change(var/list/data, var/mob/user, var/datum/vueui/ui)
@@ -198,7 +198,7 @@
 		ui.activeui = "quikpay-confirmation"	
 		. = TRUE
 	if(href_list["return"])
-		sum= 0
+		sum = 0
 		receipt = ""
 		ui.activeui = "quikpay-main"	
 		. = TRUE
