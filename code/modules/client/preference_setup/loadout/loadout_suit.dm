@@ -8,15 +8,15 @@
 
 /datum/gear/suit/leather
 	display_name = "jacket selection"
-	path = /obj/item/clothing/suit/storage/leather_jacket
+	path = /obj/item/clothing/suit/storage/toggle/leather_jacket
 
 /datum/gear/suit/leather/New()
 	..()
 	var/jackets = list()
 	jackets["bomber jacket"] = /obj/item/clothing/suit/storage/toggle/bomber
-	jackets["corporate black jacket"] = /obj/item/clothing/suit/storage/leather_jacket/nanotrasen
+	jackets["corporate black jacket"] = /obj/item/clothing/suit/storage/toggle/leather_jacket/nanotrasen
 	jackets["corporate brown jacket"] = /obj/item/clothing/suit/storage/toggle/brown_jacket/nanotrasen
-	jackets["black jacket"] = /obj/item/clothing/suit/storage/leather_jacket
+	jackets["black jacket"] = /obj/item/clothing/suit/storage/toggle/leather_jacket
 	jackets["brown jacket"] = /obj/item/clothing/suit/storage/toggle/brown_jacket
 	jackets["flannel jacket, green"] = /obj/item/clothing/suit/storage/toggle/flannel
 	jackets["flannel jacket, red"] = /obj/item/clothing/suit/storage/toggle/flannel/red

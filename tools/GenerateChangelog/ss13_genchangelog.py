@@ -62,7 +62,10 @@ validPrefixes = [
     'maptweak',
     'spellcheck',
     'experiment',
-    'balance'
+    'balance',
+    'admin',
+    'backend',
+    'security'
 ]
 
 
@@ -149,6 +152,10 @@ for fileName in glob.glob(os.path.join(args.ymlDir, "*.yml")):
     with open(fileName, 'r') as f:
         cl = yaml.load(f)
         f.close()
+    if cl['author'] == 'ChangeMe':
+        print('  {0}: Invalid author {1}'.format(fileName, cl['author']), file=sys.stderr)
+        errors = True
+        continue
     if today not in all_changelog_entries:
         all_changelog_entries[today] = {}
     author_entries = all_changelog_entries[today].get(cl['author'], [])

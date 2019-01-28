@@ -9,13 +9,13 @@
 	if(isfile(dmifile) && (copytext("[dmifile]",-4) == ".dmi"))
 		SliceNDice(dmifile)
 	else
-		world << "\red Bad DMI file '[dmifile]'"
+		to_world("\red Bad DMI file '[dmifile]'")
 
 
 /proc/SliceNDice(dmifile as file)
 	var/icon/sourceIcon = icon(dmifile)
 	var/list/states = sourceIcon.IconStates()
-	world << "<B>[dmifile] - states: [states.len]</B>"
+	to_world("<B>[dmifile] - states: [states.len]</B>")
 
 	switch(states.len)
 		if(0 to (STATE_COUNT_NORMAL - 1))
@@ -23,9 +23,9 @@
 			if(cont == "No")
 				return
 		if(STATE_COUNT_NORMAL)
-			world << "4 States, running in Non-Diagonal mode"
+			to_world("4 States, running in Non-Diagonal mode")
 		if(STATE_COUNT_DIAGONAL)
-			world << "5 States, running in Diagonal mode"
+			to_world("5 States, running in Diagonal mode")
 		if((STATE_COUNT_DIAGONAL + 1) to A_BIG_NUMBER)
 			var/cont = alert(usr, "Too many states: [states.len],  expected [STATE_COUNT_NORMAL] (Non-Diagonal) or [STATE_COUNT_DIAGONAL] (Diagonal), Continue?", "Unexpected Amount of States", "Yes", "No")
 			if(cont == "No")
@@ -65,7 +65,7 @@
 				corner4i.DrawBox(null, 17, 17, 32, 32)
 				outputIcon.Insert(corner4i, "4-i")
 
-				world << "Box: \icon[box] -> \icon[corner1i] \icon[corner2i] \icon[corner3i] \icon[corner4i]"
+				to_world("Box: \icon[box] -> \icon[corner1i] \icon[corner2i] \icon[corner3i] \icon[corner4i]")
 
 			if("line")
 				var/icon/line = icon(sourceIcon, state)
@@ -108,7 +108,7 @@
 				line4e.Turn(90)
 				outputIcon.Insert(line4e, "4-e")
 
-				world << "Line: \icon[line] -> \icon[line1n] \icon[line2n] \icon[line3s] \icon[line4s] \icon[line1w] \icon[line2e] \icon[line3w] \icon[line4e]"
+				to_world("Line: \icon[line] -> \icon[line1n] \icon[line2n] \icon[line3s] \icon[line4s] \icon[line1w] \icon[line2e] \icon[line3w] \icon[line4e]")
 
 			if("center_4")
 				var/icon/center4 = icon(sourceIcon, state)
@@ -133,7 +133,7 @@
 				corner4se.DrawBox(null, 17, 17, 32, 32)
 				outputIcon.Insert(corner4se, "4-se")
 
-				world << "Center4: \icon[center4] -> \icon[corner1nw] \icon[corner2ne] \icon[corner3sw] \icon[corner4se]"
+				to_world("Center4: \icon[center4] -> \icon[corner1nw] \icon[corner2ne] \icon[corner3sw] \icon[corner4se]")
 
 			if("center_8")
 				var/icon/center8 = icon(sourceIcon, state)
@@ -158,7 +158,7 @@
 				corner4f.DrawBox(null, 17, 17, 32, 32)
 				outputIcon.Insert(corner4f, "4-f")
 
-				world << "Center8: \icon[center8] -> \icon[corner1f] \icon[corner2f] \icon[corner3f] \icon[corner4f]"
+				to_world("Center8: \icon[center8] -> \icon[corner1f] \icon[corner2f] \icon[corner3f] \icon[corner4f]")
 
 			if("diag")
 				var/icon/diag = icon(sourceIcon, state)
@@ -178,7 +178,7 @@
 				diagnw.Turn(180)
 				outputIcon.Insert(diagnw, "d-nw")
 
-				world << "Diag: \icon[diag] -> \icon[diagse] \icon[diagsw] \icon[diagne] \icon[diagnw]"
+				to_world("Diag: \icon[diag] -> \icon[diagse] \icon[diagsw] \icon[diagne] \icon[diagnw]")
 
 			if("diag_corner_a")
 				var/icon/diag_corner_a = icon(sourceIcon, state)
@@ -198,7 +198,7 @@
 				diagnw0.Turn(180)
 				outputIcon.Insert(diagnw0, "d-nw-0")
 
-				world << "Diag_Corner_A: \icon[diag_corner_a] -> \icon[diagse0] \icon[diagsw0] \icon[diagne0] \icon[diagnw0]"
+				to_world("Diag_Corner_A: \icon[diag_corner_a] -> \icon[diagse0] \icon[diagsw0] \icon[diagne0] \icon[diagnw0]")
 
 			if("diag_corner_b")
 				var/icon/diag_corner_b = icon(sourceIcon, state)
@@ -218,9 +218,9 @@
 				diagnw1.Turn(180)
 				outputIcon.Insert(diagnw1, "d-nw-0")
 
-				world << "Diag_Corner_B: \icon[diag_corner_b] -> \icon[diagse1] \icon[diagsw1] \icon[diagne1] \icon[diagnw1]"
+				to_world("Diag_Corner_B: \icon[diag_corner_b] -> \icon[diagse1] \icon[diagsw1] \icon[diagne1] \icon[diagnw1]")
 
 
 
 		fcopy(outputIcon, filename)	//Update output icon each iteration
-	world << "Finished [filename]!"
+	to_world("Finished [filename]!")

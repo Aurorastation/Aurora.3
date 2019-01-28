@@ -114,7 +114,7 @@
 	dir = 9
 	},
 /obj/machinery/power/smes/buildable{
-	charge = 1000000;
+	charge = 1e+006;
 	input_attempt = 1;
 	output_attempt = 1
 	},
@@ -757,6 +757,11 @@
 	d2 = 4;
 	icon_state = "2-4"
 	},
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
 "bX" = (
@@ -1145,13 +1150,18 @@
 	pixel_x = -24
 	},
 /obj/effect/floor_decal/industrial/warning/corner,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	icon_state = "intact-supply";
+	dir = 6
+	},
 /turf/simulated/floor/tiled,
 /area/construction)
 "cU" = (
-/obj/machinery/atmospherics/unary/vent_pump{
-	dir = 1
-	},
 /obj/effect/floor_decal/industrial/warning,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	icon_state = "intact-supply";
+	dir = 9
+	},
 /turf/simulated/floor/tiled,
 /area/construction)
 "cV" = (
@@ -1361,6 +1371,15 @@
 /obj/structure/table/standard,
 /turf/simulated/floor/tiled,
 /area/storage/primary)
+"ie" = (
+/obj/effect/wingrille_spawn/reinforced,
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/plating,
+/area/hallway/primary/central_one)
 "jf" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -1369,6 +1388,76 @@
 	},
 /turf/simulated/wall/r_wall,
 /area/engineering/gravity_gen)
+"ob" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/maintcentral)
+"pX" = (
+/obj/structure/cable{
+	d1 = 16;
+	d2 = 0;
+	icon_state = "12-0"
+	},
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/zpipe/up/supply,
+/turf/simulated/floor/plating,
+/area/maintenance/maintcentral)
+"Bd" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/wall/r_wall,
+/area/construction)
+"Go" = (
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/maintcentral)
+"HB" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/maintcentral)
+"HJ" = (
+/obj/structure/cable{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/maintcentral)
+"HK" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/construction)
+"TP" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/obj/machinery/atmospherics/unary/vent_pump{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/construction)
 
 (1,1,1) = {"
 aa
@@ -1985,15 +2074,15 @@ ae
 ae
 ae
 bw
-ae
-ae
-ae
-ae
-ae
-bw
-ae
-ae
-ae
+HJ
+Go
+Go
+Go
+Go
+ob
+Go
+pX
+HB
 ae
 ae
 ae
@@ -2039,7 +2128,7 @@ af
 af
 af
 bx
-bV
+ie
 bV
 bV
 bV
@@ -2047,7 +2136,7 @@ bV
 bx
 cK
 cK
-cK
+Bd
 cK
 cK
 cK
@@ -2101,8 +2190,8 @@ bK
 bK
 cL
 cT
-dd
-di
+HK
+TP
 di
 di
 di

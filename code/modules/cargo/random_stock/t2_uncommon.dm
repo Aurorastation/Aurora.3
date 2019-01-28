@@ -90,7 +90,7 @@ STOCK_ITEM_UNCOMMON(chempack, 5)
 
 STOCK_ITEM_UNCOMMON(robolimbs, 3)
 	for (var/i in 1 to rand(2, 5))
-		var/manuf = pick(all_robolimbs)
+		var/manuf = pick(chargen_robolimbs)
 		var/type = pick( \
 			/obj/item/robot_parts/l_arm, \
 			/obj/item/robot_parts/r_arm, \
@@ -288,14 +288,14 @@ STOCK_ITEM_UNCOMMON(briefcase, 2)
 
 STOCK_ITEM_UNCOMMON(blade, 1.2)
 	var/list/blades = list(
-		/obj/item/weapon/material/butterfly = 1,
-		/obj/item/weapon/material/butterfly/switchblade = 1,
-		/obj/item/weapon/material/knife/hook = 1.5,
+		/obj/item/weapon/material/knife/butterfly = 1,
+		/obj/item/weapon/material/knife/butterfly/switchblade = 1,
+		/obj/item/weapon/material/hook = 1.5,
 		/obj/item/weapon/material/knife/ritual = 1.5,
-		/obj/item/weapon/material/knife/butch = 1,
+		/obj/item/weapon/material/hatchet/butch = 1,
 		/obj/item/weapon/material/hatchet = 1.5,
 		/obj/item/weapon/material/hatchet/unathiknife = 0.75,
-		/obj/item/weapon/material/hatchet/tacknife = 1
+		/obj/item/weapon/material/knife/tacknife = 1
 	)
 
 	var/type = pickweight(blades)

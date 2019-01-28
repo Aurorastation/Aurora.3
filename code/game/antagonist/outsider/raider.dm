@@ -58,7 +58,7 @@ var/datum/antagonist/raider/raiders
 		/obj/item/clothing/suit/pirate,
 		/obj/item/clothing/suit/hgpirate,
 		/obj/item/clothing/suit/storage/toggle/bomber,
-		/obj/item/clothing/suit/storage/leather_jacket,
+		/obj/item/clothing/suit/storage/toggle/leather_jacket,
 		/obj/item/clothing/suit/storage/toggle/brown_jacket,
 		/obj/item/clothing/suit/storage/toggle/hoodie,
 		/obj/item/clothing/suit/storage/toggle/hoodie/black,
@@ -196,8 +196,8 @@ var/datum/antagonist/raider/raiders
 		else
 			win_msg += "<B>The Raiders were repelled!</B>"
 
-	world << "<span class='danger'><font size = 3>[win_type] [win_group] victory!</font></span>"
-	world << "[win_msg]"
+	to_world("<span class='danger'><font size = 3>[win_type] [win_group] victory!</font></span>")
+	to_world("[win_msg]")
 	feedback_set_details("round_end_result","heist - [win_type] [win_group]")
 
 /datum/antagonist/raider/proc/is_raider_crew_safe()

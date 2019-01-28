@@ -266,7 +266,7 @@
 			flick("flash", H.flash)
 			H.eye_blurry = 5
 
-		if(iscoil(W))
+		if(W.iscoil())
 			to_chat(H, "<span class='warning'>You strangle \the [src] with \the [W]!</span>")
 			H.silent += 10
 			playsound(get_turf(H), 'sound/effects/noosed.ogg', 50, 1, -1)
@@ -281,7 +281,7 @@
 			to_chat(H, "<span class='warning'>You stab \the [src] with \the [W]!</span>")
 			H.apply_damage(2, BRUTE, target_zone, edge = TRUE)
 			playsound(get_turf(H), 'sound/weapons/bladeslice.ogg', 50, 1, -1)
-			if(!(H.species.flags & NO_PAIN))
+			if(H.can_feel_pain())
 				var/obj/item/organ/external/organ = H.get_organ(target_zone)
 				to_chat(H, "<span class='danger'>You feel a stabbing pain in your [organ.name]!</span>")
 

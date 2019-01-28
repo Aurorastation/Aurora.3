@@ -63,7 +63,7 @@ client/verb/JoinResponseTeam()
 		switch(ert_type)
 
 			if("Tau Ceti Foreign Legion")
-				if(ert.current_antagonists.len >= ert.hard_cap)
+				if(legion.current_antagonists.len >= legion.hard_cap)
 					usr << "The emergency response team is already full!"
 					return
 

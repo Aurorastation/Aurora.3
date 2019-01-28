@@ -6,18 +6,23 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<!-- Bootstrap -->
 		<link href="bootstrap.min.css" rel="stylesheet" media="screen">
-        <style media="screen">
-            .nav-tabs>li.updated>a, .nav-tabs>li.updated>a:hover, .nav-tabs>li.updated>a:focus {
-                background-color: #fcf8e3;
-            }
-        </style>
+		<style media="screen">
+			.nav-tabs>li.updated>a, .nav-tabs>li.updated>a:hover, .nav-tabs>li.updated>a:focus {
+				background-color: #fcf8e3;
+			}
+
+			.hiddenRow {
+				padding: 0 !important;
+			}
+		</style>
 	</head>
 	<body>
 		<div class="container-fluid">
 			<nav>
-				<ul class="nav nav-tabs" id="myTab" role="tablist">
+				<ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
 					<li role="presentation" class="active" id="home-tab"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Home</a></li>
 					<li role="presentation" id="motd-tab"><a href="#motd" aria-controls="motd" role="tab" data-toggle="tab">Announcements</a></li>
+					<li role="presentation" id="testmerges-tab"><a href="#testmerges" aria-controls="testmerges" role="tab" data-toggle="tab">Test Merges</a></li>
 					<li role="presentation" id="memo-tab"><a href="#memo" aria-controls="memo" role="tab" data-toggle="tab">Staff Memos</a></li>
 					<li role="presentation" id="note-tab"><a href="#note" aria-controls="note" role="tab" data-toggle="tab">Notifications</a></li>
 					<li role="presentation"><a href="#webint">My Profile</a></li>
@@ -47,6 +52,7 @@
 						</p>
 					</div>
 					<div role="tabpanel" class="tab-pane" id="motd"><div class="row"></div></div>
+					<div role="tabpanel" class="tab-pane" id="testmerges"></div>
 					<div role="tabpanel" class="tab-pane" id="memo"></div>
 					<div role="tabpanel" class="tab-pane" id="note"><div class="alert alert-info" id="note-placeholder">You do not have any notifications to show.</div></div>
 				</div>

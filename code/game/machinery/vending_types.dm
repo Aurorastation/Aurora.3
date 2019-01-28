@@ -69,6 +69,7 @@
 		/obj/item/weapon/reagent_containers/food/drinks/bottle/tomatojuice = 4,
 		/obj/item/weapon/reagent_containers/food/drinks/bottle/limejuice = 4,
 		/obj/item/weapon/reagent_containers/food/drinks/bottle/lemonjuice = 4,
+		/obj/item/weapon/reagent_containers/food/drinks/cans/grape_juice = 6,
 		/obj/item/weapon/reagent_containers/food/drinks/bottle/cream = 4,
 		/obj/item/weapon/reagent_containers/food/drinks/cans/tonic = 8,
 		/obj/item/weapon/reagent_containers/food/drinks/bottle/cola = 5,
@@ -600,7 +601,7 @@
 		/obj/item/weapon/material/kitchen/utensil/knife = 6,
 		/obj/item/weapon/material/kitchen/utensil/spoon = 6,
 		/obj/item/weapon/material/knife = 2,
-		/obj/item/weapon/material/knife/butch = 2,
+		/obj/item/weapon/material/hatchet/butch = 2,
 		/obj/item/weapon/reagent_containers/food/drinks/drinkingglass = 8,
 		/obj/item/clothing/suit/chef/classic = 2,
 		/obj/item/weapon/material/kitchen/rollingpin = 2,
@@ -733,7 +734,7 @@
 		/obj/item/ammo_magazine/c45x = 6,
 		/obj/item/ammo_magazine/a556 = 12,
 		/obj/item/ammo_magazine/a556/ap = 4,
-		/obj/item/weapon/material/hatchet/tacknife = 4,
+		/obj/item/weapon/material/knife/tacknife = 4,
 		/obj/item/device/firing_pin = 12
 	)
 	random_itemcount = 0

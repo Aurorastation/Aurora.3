@@ -440,7 +440,7 @@
 	if (istype(user, /mob/living/silicon) && get_dist(src,user)>1)
 		return src.attack_hand(user)
 	src.add_fingerprint(user)
-	if (iscrowbar(W) && opened)
+	if (W.iscrowbar() && opened)
 		if (has_electronics==1)
 			if (terminal)
 				user << "<span class='warning'>Disconnect wires first.</span>"
@@ -465,7 +465,7 @@
 			panel_open = 0
 			opened = 0
 			update_icon()
-	else if (iscrowbar(W) && !((stat & BROKEN) || hacker) )
+	else if (W.iscrowbar() && !((stat & BROKEN) || hacker) )
 		if(coverlocked && !(stat & MAINT))
 			user << "<span class='warning'>The cover is locked and cannot be opened.</span>"
 			return
@@ -504,7 +504,7 @@
 			"<span class='notice'>You insert \the [cell].</span>")
 		chargecount = 0
 		update_icon()
-	else if	(isscrewdriver(W))	// haxing
+	else if	(W.isscrewdriver())	// haxing
 		if(opened)
 			if (cell)
 				user << "<span class='warning'>Close the APC first.</span>" //Less hints more mystery!
@@ -547,7 +547,7 @@
 				update_icon()
 			else
 				user << "<span class='warning'>Access denied.</span>"
-	else if (iscoil(W) && !terminal && opened && has_electronics!=2)
+	else if (W.iscoil() && !terminal && opened && has_electronics!=2)
 		var/turf/T = loc
 		if(istype(T) && !T.is_plating())
 			user << "<span class='warning'>You must remove the floor plating in front of the APC first.</span>"
@@ -572,7 +572,7 @@
 					"You add cables to the APC frame.")
 				make_terminal()
 				terminal.connect_to_network()
-	else if (iswirecutter(W) && terminal && opened && has_electronics!=2)
+	else if (W.iswirecutter() && terminal && opened && has_electronics!=2)
 		var/turf/T = loc
 		if(istype(T) && !T.is_plating())
 			user << "<span class='warning'>You must remove the floor plating in front of the APC first.</span>"
@@ -601,7 +601,7 @@
 	else if (istype(W, /obj/item/weapon/module/power_control) && opened && has_electronics==0 && ((stat & BROKEN)))
 		user << "<span class='warning'>You cannot put the board inside, the frame is damaged.</span>"
 		return
-	else if (iswelder(W) && opened && has_electronics==0 && !terminal)
+	else if (W.iswelder() && opened && has_electronics==0 && !terminal)
 		var/obj/item/weapon/weldingtool/WT = W
 		if (!WT.isOn()) return
 		if (WT.get_fuel() < 3)
@@ -687,7 +687,7 @@
 	else
 		if ((stat & BROKEN) \
 				&& !opened \
-				&& iswelder(W) )
+				&& W.iswelder() )
 			var/obj/item/weapon/weldingtool/WT = W
 			if (!WT.isOn()) return
 			if (WT.get_fuel() <1)
@@ -719,8 +719,8 @@
 			if (istype(user, /mob/living/silicon))
 				return src.attack_hand(user)
 			if (!opened && wiresexposed && \
-				(ismultitool(W) || \
-				iswirecutter(W) || istype(W, /obj/item/device/assembly/signaler)))
+				W.ismultitool() || \
+				W.iswirecutter() || istype(W, /obj/item/device/assembly/signaler))
 				return src.attack_hand(user)
 			user.visible_message("<span class='danger'>The [src.name] has been hit with the [W.name] by [user.name]!</span>", \
 				"<span class='danger'>You hit the [src.name] with your [W.name]!</span>", \
@@ -922,15 +922,10 @@
 		area.power_light = (lighting > 1)
 		area.power_equip = (equipment > 1)
 		area.power_environ = (environ > 1)
-//		if (area.name == "AI Chamber")
-//			spawn(10)
-//				world << " [area.name] [area.power_equip]"
 	else
 		area.power_light = 0
 		area.power_equip = 0
 		area.power_environ = 0
-//		if (area.name == "AI Chamber")
-//			world << "[area.power_equip]"
 	area.power_change()
 
 /obj/machinery/power/apc/proc/isWireCut(var/wireIndex)

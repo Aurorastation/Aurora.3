@@ -181,17 +181,10 @@
 /datum/gear/accessory/scarf/New()
 	..()
 	var/scarfs = list()
-	scarfs["white scarf"] = /obj/item/clothing/accessory/scarf
-	scarfs["yellow scarf"] = /obj/item/clothing/accessory/scarf/yellow
-	scarfs["green scarf"] = /obj/item/clothing/accessory/scarf/green
-	scarfs["purple scarf"] = /obj/item/clothing/accessory/scarf/purple
-	scarfs["black scarf"] = /obj/item/clothing/accessory/scarf/black
-	scarfs["red scarf"] = /obj/item/clothing/accessory/scarf/red
-	scarfs["orange scarf"] = /obj/item/clothing/accessory/scarf/orange
-	scarfs["light blue scarf"] = /obj/item/clothing/accessory/scarf/light_blue
-	scarfs["dark blue scarf"] = /obj/item/clothing/accessory/scarf/dark_blue
+	scarfs["plain scarf"] = /obj/item/clothing/accessory/scarf
 	scarfs["zebra scarf"] = /obj/item/clothing/accessory/scarf/zebra
 	gear_tweaks += new/datum/gear_tweak/path(scarfs)
+	gear_tweaks += list(gear_tweak_free_color_choice)
 
 /datum/gear/accessory/chaps
 	display_name = "chaps, brown"
