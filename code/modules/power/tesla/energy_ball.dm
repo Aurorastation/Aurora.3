@@ -50,7 +50,7 @@
 		pixel_x = 0
 		pixel_y = 0
 
-		dir = tesla_zap(src, 7, TESLA_DEFAULT_POWER, TRUE)
+		dir = tesla_zap(src, 12, TESLA_DEFAULT_POWER, TRUE)
 
 		pixel_x = -32
 		pixel_y = -32
@@ -65,7 +65,7 @@
 /obj/singularity/energy_ball/examine(mob/user)
 	..()
 	if(orbiting_balls.len)
-		user << "There are [orbiting_balls.len] energy balls orbiting \the [src]."
+		to_chat(user, "There are [orbiting_balls.len] energy balls orbiting \the [src].")
 
 
 /obj/singularity/energy_ball/proc/move_the_basket_ball(var/move_amount)
@@ -222,10 +222,9 @@
 	var/mob/living/closest_mob
 	var/obj/machinery/closest_machine
 	var/obj/structure/closest_structure
-	var/obj/machinery/power/emitter/closest_emitter // Use only if Tesla is too grown with 10 ore more balls. Will escape.
+	var/obj/machinery/power/emitter/closest_emitter // Use only if Tesla is too grown. Will escape.
 	var/static/list/blacklisted_types = typecacheof(list(
 		/obj/machinery/atmospherics,
-		/obj/machinery/power/emitter,
 		/obj/machinery/field_generator,
 		/mob/living/simple_animal,
 		/obj/machinery/particle_accelerator/control_box,
@@ -249,12 +248,8 @@
 		/mob/living,
 		/obj/structure
 	))
-	var/melt = FALSE
-	if(istype(source, /obj/singularity/energy_ball))
-		var/obj/singularity/energy_ball/E = source
-		melt = (E.orbiting_balls.len >= 9)
-		if(E.orbiting_balls.len >= 10)
-			blacklisted_types -= /obj/machinery/power/emitter
+
+	var/rods_count = 0
 
 	for(var/A in typecache_filter_multi_list_exclusion(oview(source, zap_range+2), things_to_shock, blacklisted_types))
 		
@@ -270,9 +265,12 @@
 				closest_atom = C
 
 		else if(closest_tesla_coil)
+			if(istype(A, /obj/machinery/power/grounding_rod)) // to count number of rods
+				rods_count += 1
 			continue //no need checking these other things
 
 		else if(istype(A, /obj/machinery/power/grounding_rod))
+			rods_count += 1
 			var/dist = get_dist(source, A)-2
 			if(dist <= zap_range && (dist < closest_dist || !closest_grounding_rod))
 				closest_grounding_rod = A
@@ -282,7 +280,7 @@
 		else if(closest_grounding_rod)
 			continue
 
-		else if(melt && istype(A, /obj/machinery/power/emitter))
+		else if(istype(A, /obj/machinery/power/emitter))
 			var/obj/machinery/power/emitter/e = A
 			closest_emitter = e
 		
@@ -319,10 +317,25 @@
 				closest_atom = A
 				closest_dist = dist
 
+	var/melt = FALSE
+	if(istype(source, /obj/singularity/energy_ball))
+		var/obj/singularity/energy_ball/E = source
+		if(E.energy && (E.orbiting_balls.len > rods_count * 4)) // so that miniballs don't fry stuff.
+			melt =  TRUE// 1 grounding rod can handle max 4 balls
+			E.visible_message(span("danger", "All [E.orbiting_balls.len] energize for a second, sending their energy to the main ball, which redirects it at the nearest object!"))
+			for(var/obj/singularity/energy_ball/mini in E.orbiting_balls)
+				mini.Beam(source, icon_state="lightning[rand(1,12)]", icon = 'icons/effects/effects.dmi', time=2)
+			playsound(source.loc, 'sound/magic/lightning_chargeup.ogg', 100, 1, extrarange = 30)
+			E.energy_to_raise = E.energy_to_raise / 1.25
+			E.energy_to_lower = (E.energy_to_raise / 1.25) - 20
+
+			var/Orchiectomy_target = pick(E.orbiting_balls)
+			qdel(Orchiectomy_target)
+
 	//Alright, we've done our loop, now lets see if was anything interesting in range
 	if(closest_atom)
 		//common stuff
-		source.Beam(closest_atom, icon_state="lightning[rand(1,12)]", icon = 'icons/effects/effects.dmi', time=5)
+		source.Beam(closest_atom, icon_state="lightning[rand(1,12)]", icon = 'icons/effects/effects.dmi', time= 5)
 		var/zapdir = get_dir(source, closest_atom)
 		if(zapdir)
 			. = zapdir
