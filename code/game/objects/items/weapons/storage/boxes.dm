@@ -1000,7 +1000,8 @@
 			/obj/item/weapon/reagent_containers/food/snacks/meatsnack,
 			/obj/item/weapon/reagent_containers/food/snacks/maps,
 			/obj/item/weapon/reagent_containers/food/snacks/nathisnack,
-			/obj/item/weapon/reagent_containers/food/snacks/adhomian_can
+			/obj/item/weapon/reagent_containers/food/snacks/adhomian_can,
+			/obj/item/weapon/reagent_containers/food/snacks/tuna
 	)
 	for (var/i = 0,i<7,i++)
 		var/type = pick(snacks)
@@ -1108,3 +1109,13 @@
 	new /obj/item/weapon/reagent_containers/food/snacks/crabmeat(src)
 	new /obj/item/weapon/reagent_containers/food/snacks/crabmeat(src)
 	new /obj/item/weapon/reagent_containers/food/snacks/crabmeat(src)
+
+/obj/item/weapon/storage/box/tranquilizer
+	name = "box of tranquilizer darts"
+	desc = "It has a picture of a tranquilizer dart and several warning symbols on the front.<br>WARNING: Live ammunition. Misuse may result in serious injury or death."
+	icon_state = "incendiaryshot_box"
+
+/obj/item/weapon/storage/box/tranquilizer/fill()
+	..()
+	for(var/i in 1 to 8)
+		new /obj/item/ammo_casing/tranq(src)

@@ -21,7 +21,7 @@
 		empty_bin(user, W)
 		return
 
-	else if (iswrench(W))
+	else if (W.iswrench())
 		playsound(loc, 'sound/items/Ratchet.ogg', 50, 1)
 		anchored = !anchored
 		user.visible_message(
@@ -30,7 +30,7 @@
 			"You hear a ratchet."
 		)
 		return
-		
+
 	else
 		var/paper_result
 		for(var/shred_type in shred_amounts)
