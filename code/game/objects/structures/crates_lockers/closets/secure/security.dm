@@ -139,7 +139,7 @@
 		//Tools
 		new /obj/item/weapon/cartridge/hos(src)
 		new /obj/item/device/radio/headset/heads/hos(src)
-		new /obj/item/ammo_magazine/tranq(src)
+		new /obj/item/weapon/storage/box/tranquilizer(src)
 		new /obj/item/clothing/glasses/sunglasses/sechud(src)
 		new /obj/item/clothing/glasses/sunglasses/sechud/head(src)
 		new /obj/item/weapon/shield/riot/tact(src)
