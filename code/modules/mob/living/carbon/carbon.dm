@@ -428,3 +428,13 @@
 
 /mob/living/carbon/proc/get_metabolism(metabolism)
 	return metabolism
+
+/mob/living/carbon/proc/can_feel_pain()
+	if (species && (species.flags & NO_PAIN))
+		return FALSE
+	if (is_berserk())
+		return FALSE
+	if (analgesic > 100)
+		return FALSE
+
+	return TRUE

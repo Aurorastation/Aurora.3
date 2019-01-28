@@ -1197,7 +1197,7 @@ About the new airlock wires panel:
 
 /mob/living/carbon/airlock_crush(var/crush_damage)
 	. = ..()
-	if (!(species && (species.flags & NO_PAIN)))
+	if (can_feel_pain())
 		emote("scream")
 
 /mob/living/silicon/robot/airlock_crush(var/crush_damage)
