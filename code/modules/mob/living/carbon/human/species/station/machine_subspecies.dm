@@ -5,8 +5,6 @@
 	name_plural = "Shells"
 	bodytype = "Human"
 
-	burn_mod = 1.2
-
 	blurb = "IPCs with humanlike properties. Their focus is on service, civilian, and medical, but there are no \
 	job restrictions. Created in the late days of 2457, the Shell is a controversial IPC model equipped with a synthskin weave applied over its metal chassis \
 	to create an uncannily close approximation of the organic form. Early models of Shell had the advantage of being able to compose themselves of a wide \
@@ -75,8 +73,6 @@
 	bald = 1
 	bodytype = "Heavy Machine"
 
-	brute_mod = 0.8
-	burn_mod = 1.1
 	slowdown = 4
 
 	blurb = "The first commercialized attempt Hephaestus Industries made at an industrial-type IPC. Designed for extra durability and increased weight loads, the first generation Industrial was considered a success, though it possessed some issues. A limited power cell and actuators designed for heavy lifting and not locomotion resulted in a slow and frequently charging machine. A special addition to the chassis makes up for these drawbacks - the ability to simply slot a suit cooling unit onto the model's back and make use of its built-in heat transferal conduits, allowing the Industrial to perform EVA without any extra peripherals such as a voidsuit."
@@ -147,8 +143,6 @@
 	eyes = "eyes_terminator"
 	has_floating_eyes = 1
 
-	brute_mod = 0.3
-	burn_mod = 0.5
 	flash_mod = 0
 	siemens_coefficient = 0
 	breakcuffs = list(MALE,FEMALE,NEUTER)
@@ -236,7 +230,6 @@
 
 	eyes = "heph_eyes"
 	slowdown = 6
-	brute_mod = 0.7
 
 	examine_color = "#688359"
 
@@ -303,7 +296,6 @@
 	deform = 'icons/mob/human_races/r_ind_zenghu.dmi'
 
 	eyes = "zenghu_eyes"
-	brute_mod = 1.5
 	sprint_speed_factor = 1.5
 
 	appearance_flags = HAS_EYE_COLOR
@@ -342,8 +334,6 @@
 	eyes_icon_blend = ICON_MULTIPLY
 	sprint_charge_factor = 0.25
 	max_nutrition_factor = 1.75
-
-	brute_mod = 1.2
 
 	appearance_flags = HAS_EYE_COLOR
 

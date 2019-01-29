@@ -446,8 +446,6 @@
 
 	hud_type = /datum/hud_data/ipc
 
-	brute_mod = 1.0
-	burn_mod = 1.2
 	show_ssd = "flashing a 'system offline' glyph on their monitor"
 	death_message = "gives one shrill beep before falling lifeless."
 	knockout_message = "encounters a hardware fault and suddenly reboots!"

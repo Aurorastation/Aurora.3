@@ -18,6 +18,7 @@
 	var/burn_mod = 1
 
 	var/robotize_type		// If set, this organ type will automatically be roboticized with this manufacturer.
+	var/augment_capacity = 0// Number of augments this organ can hold.
 
 	var/icon_name = null
 	var/body_part = null
@@ -120,11 +121,40 @@
 				user.visible_message("<span class='danger'><b>[user]</b> cuts [src] open with [W]!</span>")
 				stage++
 				return
+
+			if(W.isscrewdriver() && (status & ORGAN_ROBOT))
+				user.visible_message("<span class='danger'><b>[user]</b> unscrews [src]'s maintenance hatch open with [W]!</span>")
+				stage++
+				return
 		if(1)
 			if(istype(W,/obj/item/weapon/retractor))
 				user.visible_message("<span class='danger'><b>[user]</b> cracks [src] open like an egg with [W]!</span>")
 				stage++
 				return
+
+			if(W.isscrewdriver() && (status & ORGAN_ROBOT))
+				user.visible_message("<span class='danger'><b>[user]</b> screws [src]'s maintenance hatch closed with [W]!</span>")
+				stage--
+				return
+
+			if(istype(W, /obj/item/organ/augment) && (status & ORGAN_ROBOT) && augment_capacity)
+				var/obj/item/organ/augment/AUG = W
+				if(body_part in AUG.install_locations)
+					user.visible_message("<span class='danger'><b>[user]</b> installs [W] into [src]!</span>")
+					AUG.online = 1
+					augment_capacity--
+					AUG.forceMove(src)
+					return
+
+			if(W.iswirecutter() && (status & ORGAN_ROBOT))
+				for(var/obj/item/organ/augment/AUG in contents)
+					user.visible_message("<span class='danger'><b>[user]</b> uninstalls [W] from [src]!</span>")
+					AUG.online = 0
+					augment_capacity++
+					AUG.forceMove(get_turf(src))
+					return
+
+
 		if(2)
 			if(istype(W,/obj/item/weapon/hemostat))
 				if(contents.len)
@@ -962,8 +992,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 	if(company)
 		model = company
 		var/datum/robolimb/R = all_robolimbs[company]
-		/*if(species && !(species.name in R.species_can_use && species.get_bodytype() != "Machine"))
-			R = basic_robolimb*/
+
 		if(R)
 			if (!force_skintone)
 				force_icon = R.icon
@@ -974,6 +1003,13 @@ Note that amputating the affected organ does in fact remove the infection from t
 
 			brute_mod = R.brute_mod
 			burn_mod = R.burn_mod
+
+			if(R.augmentable)
+				switch(body_part)
+					if(UPPER_TORSO)
+						augment_capacity = 2
+					if(ARM_RIGHT || ARM_LEFT || LEG_RIGHT || LEG_LEFT)
+						augment_capacity = 1
 
 	dislocated = -1 //TODO, make robotic limbs a separate type, remove snowflake
 	cannot_break = 1
