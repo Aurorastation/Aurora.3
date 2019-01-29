@@ -9007,6 +9007,8 @@
 /area/turret_protected/ai)
 "apY" = (
 /obj/structure/cable{
+	d1 = 16;
+	d2 = 0;
 	icon_state = "12-0"
 	},
 /obj/structure/cable{
@@ -10291,6 +10293,7 @@
 "asn" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/cable{
+	d1 = 32;
 	icon_state = "11-1"
 	},
 /obj/machinery/atmospherics/pipe/zpipe/down/green{
@@ -23047,6 +23050,7 @@
 	dir = 6
 	},
 /obj/effect/floor_decal/industrial/warning,
+/obj/item/weapon/trap/animal/medium,
 /turf/simulated/floor/plating,
 /area/rnd/xenobiology)
 "aPk" = (
@@ -23055,6 +23059,7 @@
 	},
 /obj/machinery/meter,
 /obj/effect/floor_decal/industrial/warning,
+/obj/item/weapon/trap/animal/medium,
 /turf/simulated/floor/plating,
 /area/rnd/xenobiology)
 "aPl" = (
@@ -23064,6 +23069,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
 	},
+/obj/item/weapon/trap/animal/large,
 /turf/simulated/floor/plating,
 /area/rnd/xenobiology)
 "aPm" = (
@@ -24502,10 +24508,6 @@
 	pixel_x = 0;
 	pixel_y = -30
 	},
-/obj/structure/disposalpipe/trunk{
-	dir = 1
-	},
-/obj/machinery/disposal,
 /turf/simulated/floor/tiled/white,
 /area/outpost/research/hallway)
 "aTb" = (
@@ -27694,7 +27696,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/research_xenobiology)
 "bgc" = (
-/obj/item/weapon/beartrap,
+/obj/item/weapon/trap,
 /turf/simulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
 "bgd" = (
@@ -29814,7 +29816,7 @@
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
-/area/medical/patient_wing_post1)
+/area/maintenance/sublevel)
 "hSZ" = (
 /obj/random/junk,
 /obj/machinery/light/small/emergency{
@@ -30009,9 +30011,6 @@
 /obj/structure/bed/chair/comfy/brown,
 /turf/simulated/floor/wood,
 /area/medical/patient_a)
-"lSi" = (
-/turf/simulated/wall/r_wall,
-/area/medical/patient_wing_post1)
 "lZJ" = (
 /obj/machinery/door/firedoor,
 /obj/structure/grille,
@@ -30650,10 +30649,10 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/patient_wing_post1)
 "vkY" = (
-/obj/structure/disposalpipe/segment{
-	dir = 2;
-	icon_state = "pipe-c"
+/obj/structure/disposalpipe/trunk{
+	dir = 8
 	},
+/obj/machinery/disposal,
 /turf/simulated/floor/tiled/white,
 /area/outpost/research/hallway)
 "vlf" = (
@@ -71595,7 +71594,7 @@ akx
 azh
 akx
 azh
-lSi
+akx
 vPb
 bbn
 lbE

@@ -709,6 +709,23 @@
 /datum/reagent/nanites/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.contract_disease(new /datum/disease/robotic_transformation(0), 1)
 
+
+
+/datum/reagent/rattoxin
+	name = "Toxins"
+	id = "rattoxin"
+	description = "Toxins, yuck!."
+	reagent_state = LIQUID
+	color = "#535E66"
+	taste_description = "eugh!"
+	fallback_specific_heat = 3
+
+/datum/reagent/rattoxin/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+	if(prob(50))
+		M.drowsyness = max(M.drowsyness, 3)
+	if(prob(10))
+		M.emote("vomit")
+
 /datum/reagent/xenomicrobes
 	name = "Xenomicrobes"
 	id = "xenomicrobes"

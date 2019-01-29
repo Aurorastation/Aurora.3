@@ -61,9 +61,9 @@ var/global/datum/global_init/init = new ()
 #define RECOMMENDED_VERSION 510
 /world/New()
 	//logs
-	diary_date_string = time2text(world.realtime, "YYYY/MM-Month/DD-Day")
+	diary_date_string = time2text(world.realtime, "YYYY/MM/DD")
 	href_logfile = file("data/logs/[diary_date_string] hrefs.htm")
-	diary = "data/logs/[diary_date_string].log"
+	diary = "data/logs/[diary_date_string]_[game_id].log"
 	log_startup()
 	changelog_hash = md5('html/changelog.html')					//used for telling if the changelog has changed recently
 

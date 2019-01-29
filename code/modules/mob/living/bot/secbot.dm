@@ -673,7 +673,7 @@
 
 /obj/item/weapon/secbot_assembly/attackby(var/obj/item/O, var/mob/user)
 	..()
-	if(iswelder(O) && !build_step)
+	if(O.iswelder() && !build_step)
 		var/obj/item/weapon/weldingtool/WT = O
 		if(WT.remove_fuel(0, user))
 			build_step = 1

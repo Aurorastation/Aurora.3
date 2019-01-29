@@ -59,7 +59,7 @@
 			tesla_zap(ball, range, TESLA_MINI_POWER/7*range, TRUE)
 	else
 		energy = 0 // ensure we dont have miniballs of miniballs
-	if(energy == 0)
+	if(energy < 0)
 		qdel(src)
 
 /obj/singularity/energy_ball/examine(mob/user)
@@ -159,11 +159,14 @@
 
 	else if(orbiting_balls.len)
 		dissipate() //sing code has a much better system.
+	else // that is when we have no balls but our energy is less
+		energy_to_raise = energy_to_raise / 1.25
+		energy_to_lower = (energy_to_raise / 1.25) - 20
 
 /obj/singularity/energy_ball/proc/new_mini_ball()
 	if(!loc)
 		return
-	var/obj/singularity/energy_ball/EB = new(loc)
+	var/obj/singularity/energy_ball/EB = new(loc, 0)
 
 	EB.transform *= pick(0.3, 0.4, 0.5, 0.6, 0.7)
 	var/icon/I = icon(icon,icon_state,dir)
@@ -188,15 +191,15 @@
 		target.dissipate_strength = target.orbiting_balls.len
 
 	. = ..()
+
 /obj/singularity/energy_ball/stop_orbit()
 	if (orbiting && istype(orbiting.orbiting, /obj/singularity/energy_ball))
 		var/obj/singularity/energy_ball/orbitingball = orbiting.orbiting
 		orbitingball.orbiting_balls -= src
 		orbitingball.dissipate_strength = orbitingball.orbiting_balls.len
-	..()
+	. = ..()
 	if (!loc && !QDELETED(src))
 		qdel(src)
-
 
 /obj/singularity/energy_ball/proc/dust_mobs(atom/A)
 	if(!iscarbon(A))
@@ -219,6 +222,7 @@
 	var/mob/living/closest_mob
 	var/obj/machinery/closest_machine
 	var/obj/structure/closest_structure
+	var/obj/machinery/power/emitter/closest_emitter // Use only if Tesla is too grown with 10 ore more balls. Will escape.
 	var/static/list/blacklisted_types = typecacheof(list(
 		/obj/machinery/atmospherics,
 		/obj/machinery/power/emitter,
@@ -245,8 +249,15 @@
 		/mob/living,
 		/obj/structure
 	))
+	var/melt = FALSE
+	if(istype(source, /obj/singularity/energy_ball))
+		var/obj/singularity/energy_ball/E = source
+		melt = (E.orbiting_balls.len >= 9)
+		if(E.orbiting_balls.len >= 10)
+			blacklisted_types -= /obj/machinery/power/emitter
 
 	for(var/A in typecache_filter_multi_list_exclusion(oview(source, zap_range+2), things_to_shock, blacklisted_types))
+		
 		if(istype(A, /obj/machinery/power/tesla_coil))
 			var/dist = get_dist(source, A)
 			var/obj/machinery/power/tesla_coil/C = A
@@ -269,6 +280,13 @@
 				closest_dist = dist
 
 		else if(closest_grounding_rod)
+			continue
+
+		else if(melt && istype(A, /obj/machinery/power/emitter))
+			var/obj/machinery/power/emitter/e = A
+			closest_emitter = e
+		
+		else if(closest_emitter)
 			continue
 
 		else if(isliving(A))
@@ -311,10 +329,13 @@
 
 	//per type stuff:
 	if(closest_tesla_coil)
-		closest_tesla_coil.tesla_act(power)
+		closest_tesla_coil.tesla_act(power, melt)
 
 	else if(closest_grounding_rod)
-		closest_grounding_rod.tesla_act(power)
+		closest_grounding_rod.tesla_act(power, melt)
+	
+	else if(closest_emitter)
+		closest_emitter.tesla_act(power, melt)
 
 	else if(closest_mob)
 		var/shock_damage = Clamp(round(power/400), 10, 90) + rand(-5, 5)
