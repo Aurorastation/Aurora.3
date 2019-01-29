@@ -1682,123 +1682,123 @@
 					 		"desc"="The hydraulic systems are disconnected.")
 					)
 
-	/datum/construction/reversible/mecha/hermes/action(atom/used_atom,mob/user as mob)
-		return check_step(used_atom,user)
+/datum/construction/reversible/mecha/hermes/action(atom/used_atom,mob/user as mob)
+	return check_step(used_atom,user)
 
-	/datum/construction/reversible/mecha/hermes/custom_action(index, diff, atom/used_atom, mob/user)
-		if(!..())
-			return 0
+/datum/construction/reversible/mecha/hermes/custom_action(index, diff, atom/used_atom, mob/user)
+	if(!..())
+		return 0
 
-		//TODO: better messages.
-		switch(index)
-			if(14)
-				user.visible_message("[user] connects [holder] hydraulic systems", "You connect [holder] hydraulic systems.")
+	//TODO: better messages.
+	switch(index)
+		if(14)
+			user.visible_message("[user] connects [holder] hydraulic systems", "You connect [holder] hydraulic systems.")
+			holder.icon_state = "hermes1"
+		if(13)
+			if(diff==FORWARD)
+				user.visible_message("[user] activates [holder] hydraulic systems.", "You activate [holder] hydraulic systems.")
+				holder.icon_state = "hermes2"
+			else
+				user.visible_message("[user] disconnects [holder] hydraulic systems", "You disconnect [holder] hydraulic systems.")
+				holder.icon_state = "hermes0"
+		if(12)
+			if(diff==FORWARD)
+				user.visible_message("[user] adds the wiring to [holder].", "You add the wiring to [holder].")
+				holder.icon_state = "hermes3"
+			else
+				user.visible_message("[user] deactivates [holder] hydraulic systems.", "You deactivate [holder] hydraulic systems.")
 				holder.icon_state = "hermes1"
-			if(13)
-				if(diff==FORWARD)
-					user.visible_message("[user] activates [holder] hydraulic systems.", "You activate [holder] hydraulic systems.")
-					holder.icon_state = "hermes2"
-				else
-					user.visible_message("[user] disconnects [holder] hydraulic systems", "You disconnect [holder] hydraulic systems.")
-					holder.icon_state = "hermes0"
-			if(12)
-				if(diff==FORWARD)
-					user.visible_message("[user] adds the wiring to [holder].", "You add the wiring to [holder].")
-					holder.icon_state = "hermes3"
-				else
-					user.visible_message("[user] deactivates [holder] hydraulic systems.", "You deactivate [holder] hydraulic systems.")
-					holder.icon_state = "hermes1"
-			if(11)
-				if(diff==FORWARD)
-					user.visible_message("[user] adjusts the wiring of [holder].", "You adjust the wiring of [holder].")
-					holder.icon_state = "hermes4"
-				else
-					user.visible_message("[user] removes the wiring from [holder].", "You remove the wiring from [holder].")
-					var/obj/item/stack/cable_coil/coil = new /obj/item/stack/cable_coil(get_turf(holder))
-					coil.amount = 4
-					holder.icon_state = "hermes2"
-			if(10)
-				if(diff==FORWARD)
-					user.visible_message("[user] installs the central control module into [holder].", "You install the central computer mainboard into [holder].")
-					qdel(used_atom)
-					holder.icon_state = "hermes5"
-				else
-					user.visible_message("[user] disconnects the wiring of [holder].", "You disconnect the wiring of [holder].")
-					holder.icon_state = "hermes3"
-			if(9)
-				if(diff==FORWARD)
-					user.visible_message("[user] secures the mainboard.", "You secure the mainboard.")
-					holder.icon_state = "hermes6"
-				else
-					user.visible_message("[user] removes the central control module from [holder].", "You remove the central computer mainboard from [holder].")
-					new /obj/item/weapon/circuitboard/mecha/hermes/main(get_turf(holder))
-					holder.icon_state = "hermes4"
-			if(8)
-				if(diff==FORWARD)
-					user.visible_message("[user] installs the peripherals control module into [holder].", "You install the peripherals control module into [holder].")
-					qdel(used_atom)
-					holder.icon_state = "hermes7"
-				else
-					user.visible_message("[user] unfastens the mainboard.", "You unfasten the mainboard.")
-					holder.icon_state = "hermes5"
-			if(7)
-				if(diff==FORWARD)
-					user.visible_message("[user] secures the peripherals control module.", "You secure the peripherals control module.")
-					holder.icon_state = "hermes8"
-				else
-					user.visible_message("[user] removes the peripherals control module from [holder].", "You remove the peripherals control module from [holder].")
-					new /obj/item/weapon/circuitboard/mecha/hermes/peripherals(get_turf(holder))
-					holder.icon_state = "hermes6"
-			if(6)
-				if(diff==FORWARD)
-					user.visible_message("[user] installs internal armor layer to [holder].", "You install internal armor layer to [holder].")
-					holder.icon_state = "hermes9"
-				else
-					user.visible_message("[user] unfastens the peripherals control module.", "You unfasten the peripherals control module.")
-					holder.icon_state = "hermes7"
-			if(5)
-				if(diff==FORWARD)
-					user.visible_message("[user] secures internal armor layer.", "You secure internal armor layer.")
-					holder.icon_state = "hermes10"
-				else
-					user.visible_message("[user] pries internal armor layer from [holder].", "You prie internal armor layer from [holder].")
-					var/obj/item/stack/material/steel/MS = new /obj/item/stack/material/steel(get_turf(holder))
-					MS.amount = 5
-					holder.icon_state = "hermes8"
-			if(4)
-				if(diff==FORWARD)
-					user.visible_message("[user] welds internal armor layer to [holder].", "You weld the internal armor layer to [holder].")
-					holder.icon_state = "hermes11"
-				else
-					user.visible_message("[user] unfastens the internal armor layer.", "You unfasten the internal armor layer.")
-					holder.icon_state = "hermes9"
-			if(3)
-				if(diff==FORWARD)
-					user.visible_message("[user] installs [used_atom] layer to [holder].", "You install external reinforced armor layer to [holder].")
+		if(11)
+			if(diff==FORWARD)
+				user.visible_message("[user] adjusts the wiring of [holder].", "You adjust the wiring of [holder].")
+				holder.icon_state = "hermes4"
+			else
+				user.visible_message("[user] removes the wiring from [holder].", "You remove the wiring from [holder].")
+				var/obj/item/stack/cable_coil/coil = new /obj/item/stack/cable_coil(get_turf(holder))
+				coil.amount = 4
+				holder.icon_state = "hermes2"
+		if(10)
+			if(diff==FORWARD)
+				user.visible_message("[user] installs the central control module into [holder].", "You install the central computer mainboard into [holder].")
+				qdel(used_atom)
+				holder.icon_state = "hermes5"
+			else
+				user.visible_message("[user] disconnects the wiring of [holder].", "You disconnect the wiring of [holder].")
+				holder.icon_state = "hermes3"
+		if(9)
+			if(diff==FORWARD)
+				user.visible_message("[user] secures the mainboard.", "You secure the mainboard.")
+				holder.icon_state = "hermes6"
+			else
+				user.visible_message("[user] removes the central control module from [holder].", "You remove the central computer mainboard from [holder].")
+				new /obj/item/weapon/circuitboard/mecha/hermes/main(get_turf(holder))
+				holder.icon_state = "hermes4"
+		if(8)
+			if(diff==FORWARD)
+				user.visible_message("[user] installs the peripherals control module into [holder].", "You install the peripherals control module into [holder].")
+				qdel(used_atom)
+				holder.icon_state = "hermes7"
+			else
+				user.visible_message("[user] unfastens the mainboard.", "You unfasten the mainboard.")
+				holder.icon_state = "hermes5"
+		if(7)
+			if(diff==FORWARD)
+				user.visible_message("[user] secures the peripherals control module.", "You secure the peripherals control module.")
+				holder.icon_state = "hermes8"
+			else
+				user.visible_message("[user] removes the peripherals control module from [holder].", "You remove the peripherals control module from [holder].")
+				new /obj/item/weapon/circuitboard/mecha/hermes/peripherals(get_turf(holder))
+				holder.icon_state = "hermes6"
+		if(6)
+			if(diff==FORWARD)
+				user.visible_message("[user] installs internal armor layer to [holder].", "You install internal armor layer to [holder].")
+				holder.icon_state = "hermes9"
+			else
+				user.visible_message("[user] unfastens the peripherals control module.", "You unfasten the peripherals control module.")
+				holder.icon_state = "hermes7"
+		if(5)
+			if(diff==FORWARD)
+				user.visible_message("[user] secures internal armor layer.", "You secure internal armor layer.")
+				holder.icon_state = "hermes10"
+			else
+				user.visible_message("[user] pries internal armor layer from [holder].", "You prie internal armor layer from [holder].")
+				var/obj/item/stack/material/steel/MS = new /obj/item/stack/material/steel(get_turf(holder))
+				MS.amount = 5
+				holder.icon_state = "hermes8"
+		if(4)
+			if(diff==FORWARD)
+				user.visible_message("[user] welds internal armor layer to [holder].", "You weld the internal armor layer to [holder].")
+				holder.icon_state = "hermes11"
+			else
+				user.visible_message("[user] unfastens the internal armor layer.", "You unfasten the internal armor layer.")
+				holder.icon_state = "hermes9"
+		if(3)
+			if(diff==FORWARD)
+				user.visible_message("[user] installs [used_atom] layer to [holder].", "You install external reinforced armor layer to [holder].")
 
-					holder.icon_state = "hermes12"
-				else
-					user.visible_message("[user] cuts internal armor layer from [holder].", "You cut the internal armor layer from [holder].")
-					holder.icon_state = "hermes10"
-			if(2)
-				if(diff==FORWARD)
-					user.visible_message("[user] secures external armor layer.", "You secure external reinforced armor layer.")
-					holder.icon_state = "hermes13"
-				else
-					var/obj/item/stack/material/plasteel/MS = new /obj/item/stack/material/plasteel(get_turf(holder))
-					MS.amount = 5
-					user.visible_message("[user] pries [MS] from [holder].", "You prie [MS] from [holder].")
-					holder.icon_state = "hermes11"
-			if(1)
-				if(diff==FORWARD)
-					user.visible_message("[user] welds external armor layer to [holder].", "You weld external armor layer to [holder].")
-					holder.icon_state = "hermes14"
-				else
-					user.visible_message("[user] unfastens the external armor layer.", "You unfasten the external armor layer.")
-					holder.icon_state = "hermes12"
-		return 1
+				holder.icon_state = "hermes12"
+			else
+				user.visible_message("[user] cuts internal armor layer from [holder].", "You cut the internal armor layer from [holder].")
+				holder.icon_state = "hermes10"
+		if(2)
+			if(diff==FORWARD)
+				user.visible_message("[user] secures external armor layer.", "You secure external reinforced armor layer.")
+				holder.icon_state = "hermes13"
+			else
+				var/obj/item/stack/material/plasteel/MS = new /obj/item/stack/material/plasteel(get_turf(holder))
+				MS.amount = 5
+				user.visible_message("[user] pries [MS] from [holder].", "You prie [MS] from [holder].")
+				holder.icon_state = "hermes11"
+		if(1)
+			if(diff==FORWARD)
+				user.visible_message("[user] welds external armor layer to [holder].", "You weld external armor layer to [holder].")
+				holder.icon_state = "hermes14"
+			else
+				user.visible_message("[user] unfastens the external armor layer.", "You unfasten the external armor layer.")
+				holder.icon_state = "hermes12"
+	return 1
 
-	/datum/construction/reversible/mecha/hermes/spawn_result()
-		..()
-		feedback_inc("mecha_hermes_created",1)
-		return
+/datum/construction/reversible/mecha/hermes/spawn_result()
+	..()
+	feedback_inc("mecha_hermes_created",1)
+	return
