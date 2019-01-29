@@ -23203,8 +23203,13 @@
 /turf/simulated/floor/tiled/dark,
 /area/centcom/legion)
 "aZE" = (
-/obj/item/weapon/storage/fancy/cigarettes,
-/obj/structure/table/reinforced,
+/obj/structure/table/rack,
+/obj/item/weapon/storage/backpack/legion,
+/obj/item/weapon/storage/backpack/legion,
+/obj/item/weapon/storage/backpack/legion,
+/obj/item/weapon/storage/backpack/legion,
+/obj/item/weapon/storage/backpack/legion,
+/obj/item/weapon/storage/backpack/legion,
 /turf/simulated/floor/tiled/dark,
 /area/centcom/legion)
 "aZF" = (
@@ -23240,6 +23245,9 @@
 /area/centcom/legion)
 "aZK" = (
 /obj/effect/floor_decal/industrial/loading,
+/obj/machinery/door/blast/regular{
+	id = "tcfl"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/centcom/legion)
 "aZL" = (
@@ -24444,6 +24452,10 @@
 	icon_state = "wood_siding1"
 	},
 /area/centcom/spawning)
+"haj" = (
+/obj/machinery/chem_master,
+/turf/simulated/floor/tiled/dark,
+/area/centcom/legion)
 
 (1,1,1) = {"
 aaa
@@ -27625,7 +27637,7 @@ bah
 asU
 asU
 asU
-baQ
+haj
 asK
 asK
 aZD
@@ -28652,7 +28664,7 @@ asK
 baj
 bas
 baE
-asU
+baQ
 baU
 asK
 baP
