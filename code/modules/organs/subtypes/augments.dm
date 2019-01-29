@@ -9,6 +9,9 @@
 	var/online = 0
 	var/list/install_locations = list()
 
+/obj/item/organ/augment/proc/installation_instructions(var/obj/item/organ/external/E)
+	return 1
+
 /obj/item/organ/augment/refresh_action_button()
 	. = ..()
 	if(.)

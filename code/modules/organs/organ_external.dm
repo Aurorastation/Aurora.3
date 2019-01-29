@@ -122,7 +122,7 @@
 				stage++
 				return
 
-			if(W.isscrewdriver() && (status & ORGAN_ROBOT))
+			if(W.isscrewdriver() && augment_capacity)
 				user.visible_message("<span class='danger'><b>[user]</b> unscrews [src]'s maintenance hatch open with [W]!</span>")
 				stage++
 				return
@@ -132,27 +132,28 @@
 				stage++
 				return
 
-			if(W.isscrewdriver() && (status & ORGAN_ROBOT))
+			if(W.isscrewdriver() && augment_capacity)
 				user.visible_message("<span class='danger'><b>[user]</b> screws [src]'s maintenance hatch closed with [W]!</span>")
 				stage--
 				return
 
-			if(istype(W, /obj/item/organ/augment) && (status & ORGAN_ROBOT) && augment_capacity)
+			if(istype(W, /obj/item/organ/augment) && augment_capacity)
 				var/obj/item/organ/augment/AUG = W
-				if(body_part in AUG.install_locations)
+				if((body_part in AUG.install_locations) && AUG.installation_instructions(src))
 					user.visible_message("<span class='danger'><b>[user]</b> installs [W] into [src]!</span>")
 					AUG.online = 1
 					augment_capacity--
 					AUG.forceMove(src)
 					return
 
-			if(W.iswirecutter() && (status & ORGAN_ROBOT))
+			if(W.iswirecutter())
 				for(var/obj/item/organ/augment/AUG in contents)
-					user.visible_message("<span class='danger'><b>[user]</b> uninstalls [W] from [src]!</span>")
-					AUG.online = 0
-					augment_capacity++
-					AUG.forceMove(get_turf(src))
-					return
+					if(AUG.online)
+						user.visible_message("<span class='danger'><b>[user]</b> uninstalls [W] from [src]!</span>")
+						AUG.online = 0
+						augment_capacity++
+						AUG.forceMove(get_turf(src))
+						return
 
 
 		if(2)

@@ -366,3 +366,24 @@ obj/item/organ/vaurca/neuralsocket/process()
 				return
 			var/datum/gas_mixture/leaked_gas = air_contents.remove_ratio(0.25)
 			T.assume_air(leaked_gas)
+
+
+
+
+
+
+/obj/item/organ/external/chest/vaurca
+
+/obj/item/organ/external/groin/vaurca
+
+/obj/item/organ/external/arm/vaurca
+
+/obj/item/organ/external/leg/vaurca
+
+/obj/item/organ/external/leg/right/vaurca
+
+/obj/item/organ/external/foot/vaurca
+
+/obj/item/organ/external/hand/vaurca
+
+/obj/item/organ/external/head/vaurca
