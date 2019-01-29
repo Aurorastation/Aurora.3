@@ -151,7 +151,7 @@
 		id_tag = (electronics && electronics.id_tag) ? electronics.id_tag : "\ref[src]"
 
 	//wireless connection
-	if(!_wifi_id & electronics & electronics.wifi_id)
+	if(!_wifi_id && electronics && electronics.wifi_id)
 		_wifi_id = electronics.wifi_id
 	if(_wifi_id)
 		wifi_receiver = new(_wifi_id, src)

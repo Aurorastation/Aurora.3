@@ -28,12 +28,6 @@
 	idle_power_usage = 60
 	active_power_usage = 10000	//10 kW. It's a big all-body scanner.
 
-	component_types = list(
-			/obj/item/weapon/circuitboard/advscanner,
-			/obj/item/weapon/stock_parts/capacitor = 1,
-			/obj/item/weapon/stock_parts/scanning_module = 2
-		)
-
 /obj/machinery/bodyscanner/Destroy()
 	// So the GC can qdel this.
 	if (connected)
@@ -64,13 +58,11 @@
 
 	if (usr.stat != 0)
 		return
-	if(!connected)
-		to_chat(usr, span("warning", "The scanner is not connected to a console!"))
 	if (src.occupant)
-		to_chat(usr, span("warning", "The scanner is already occupied!"))
+		usr << "<span class='warning'>The scanner is already occupied!</span>"
 		return
 	if (usr.abiotic())
-		to_chat(usr, span("warning", "The subject cannot have abiotic items on."))
+		usr << "<span class='warning'>The subject cannot have abiotic items on.</span>"
 		return
 	usr.pulling = null
 	usr.client.perspective = EYE_PERSPECTIVE
@@ -107,10 +99,10 @@
 	if ((!( istype(G, /obj/item/weapon/grab) ) || !( isliving(G.affecting) )))
 		return
 	if (src.occupant)
-		to_chat(user, span("warning", "The scanner is already occupied!"))
+		user << "<span class='warning'>The scanner is already occupied!</span>"
 		return
 	if (G.affecting.abiotic())
-		to_chat(user, span("warning", "Subject cannot have abiotic items on."))
+		user << "<span class='warning'>Subject cannot have abiotic items on.</span>"
 		return
 
 	var/mob/living/M = G.affecting
@@ -246,10 +238,6 @@
 	icon_state = "body_scannerconsole"
 	density = 0
 	anchored = 1
-
-	component_types = list(
-							/obj/item/weapon/circuitboard/advscanner_console,
-							/obj/item/weapon/stock_parts/console_screen = 1)
 
 /obj/machinery/body_scanconsole/Destroy()
 	if (connected)
