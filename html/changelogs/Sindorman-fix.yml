@@ -39,4 +39,6 @@ delete-after: True
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes:
   - tweak: "SMES can no be marked on map as critical, which will exclude them in power grid check event. Tesla and SM engine SMES are now marked as critical."
+  - tweak: "Blast doors can now be mapped as critical, which will prevent them from being affected if area lost power, they will remain in same state as they were."
+  - maptweak: "SM emergency ventilation blast door is labeled as critical. Same goes for reactor blast doors. They are no longer affected by power loss."
   - maptweak: "Tesla Engine APC was remapped and is no connected to the Tesla Engine SMES instead of main SMES. Tesla Engine SMES max default input/output was increased by 150kW to account for the new APC connected, since PA eats lots of power."

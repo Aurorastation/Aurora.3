@@ -10797,6 +10797,7 @@
 	dir = 4;
 	icon_state = "pdoor0";
 	id = "SupermatterPort";
+	is_critical = 1;
 	layer = 2.7;
 	name = "Reactor Blast Door";
 	opacity = 0
@@ -10815,6 +10816,7 @@
 	dir = 4;
 	icon_state = "pdoor0";
 	id = "SupermatterPort";
+	is_critical = 1;
 	layer = 2.7;
 	name = "Reactor Blast Door";
 	opacity = 0
@@ -10837,6 +10839,7 @@
 	dir = 4;
 	icon_state = "pdoor0";
 	id = "SupermatterPort";
+	is_critical = 1;
 	layer = 2.7;
 	name = "Reactor Blast Door";
 	opacity = 0
@@ -12637,6 +12640,7 @@
 	dir = 4;
 	icon_state = "pdoor1";
 	id = "EngineVent";
+	is_critical = 1;
 	name = "Reactor Vent";
 	p_open = 0
 	},
@@ -12687,6 +12691,7 @@
 	dir = 1;
 	icon_state = "pdoor0";
 	id = "SupermatterPort";
+	is_critical = 1;
 	layer = 2.7;
 	name = "Reactor Blast Door";
 	opacity = 0
