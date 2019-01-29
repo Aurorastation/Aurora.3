@@ -4,7 +4,7 @@
 	icon_state = "blaster_pistol"
 	item_state = "blaster_pistol"
 	fire_sound = 'sound/weapons/Laser.ogg'
-	slot_flags = SLOT_BELT
+	slot_flags = SLOT_BELT|SLOT_HOLSTER
 	w_class = 3
 	force = 5
 	origin_tech = list(TECH_COMBAT = 2, TECH_MAGNET = 2)
