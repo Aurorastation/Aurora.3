@@ -28,6 +28,7 @@
 	max_shots = 12
 	origin_tech = list(TECH_COMBAT = 3, TECH_MAGNET = 2)
 	projectile_type = /obj/item/projectile/energy/blaster
+	slot_flags = SLOT_BELT
 
 /obj/item/weapon/gun/energy/blaster/rifle
 	name = "bolt slinger"
