@@ -118,7 +118,8 @@
 
 /obj/effect/decal/mecha_wreckage/hermes/New()
 	..()
-	var/list/parts = list(/obj/item/mecha_parts/part/hermes_torso,
+	var/list/parts = list(
+						  /obj/item/mecha_parts/part/hermes_torso,
 						  /obj/item/mecha_parts/part/hermes_left_arm,
 						  /obj/item/mecha_parts/part/hermes_right_arm,
 						  /obj/item/mecha_parts/part/hermes_left_leg,
