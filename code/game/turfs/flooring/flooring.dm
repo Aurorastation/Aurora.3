@@ -192,6 +192,7 @@ var/list/flooring_types
 	icon = 'icons/turf/flooring/tiles.dmi'
 	icon_base = "ramptop"
 	build_type = null
+	has_damage_range = 1
 	flags = TURF_ACID_IMMUNE | TURF_CAN_BREAK
 	can_paint = 1
 

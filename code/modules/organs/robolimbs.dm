@@ -28,6 +28,8 @@ var/global/datum/robolimb/basic_robolimb
 	)
 	var/paintable = 0 //tired of istype exceptions. bullshirt to find, and by god do i know it after this project.
 	var/linked_frame = "Unbranded Frame" //which machine species this limb will create
+	var/brute_mod = 0.9 //how resistant is this mode to brute damage
+	var/burn_mod = 1.1 //how resistant is this mode to burn damage
 
 /datum/robolimb/bishop
 	company = PROSTHETIC_BC
@@ -80,3 +82,14 @@ var/global/datum/robolimb/basic_robolimb
 	icon = 'icons/mob/human_races/r_human.dmi'
 	species_can_use = list("Human")
 	linked_frame = "Shell Frame"
+
+/datum/robolimb/autakh
+	company = PROSTHETIC_AUTAKH
+	desc = "This limb has been designed by the Aut'akh sect, it was created to interact exclusively with their bodies and implants."
+	icon = 'icons/mob/human_races/r_autakh.dmi'
+	species_can_use = list("Aut'akh Unathi")
+	linked_frame = "Aut'akh Unathi"
+	unavailable_at_chargen = 1
+	paintable = 1
+	brute_mod = 1
+	burn_mod = 1
