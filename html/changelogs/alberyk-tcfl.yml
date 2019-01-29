@@ -1,7 +1,0 @@
-author: Alberyk
-
-delete-after: True
-
-changes: 
-  - bugfix: "The tau ceti foreign legion should now have access to air alarms and most medical vending machines."
-  - bugfix: "The tau ceti foreign legion base should now have a ChemMaster."
