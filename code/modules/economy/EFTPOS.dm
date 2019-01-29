@@ -237,23 +237,14 @@
 			usr.visible_message("<span class='info'>\The [usr] swipes \the [ID_container] through \the [src].</span>")
 		if(transaction_locked && !transaction_paid)
 			if(linked_account)
-				if(!linked_account.suspended)
-					var/attempt_pin = ""
-					var/datum/money_account/D = SSeconomy.get_account(C.associated_account_number)
-					if(D.security_level >= 2)
-						attempt_pin = input("Enter pin code", "EFTPOS transaction") as num
+				var/message = SSeconomy.transfer_money(C.associated_account_number, linked_account.account_number, transaction_purpose, machine_id, transaction_amount, null, usr)
 
-					var/message = SSeconomy.transfer_money(C.associated_account_number, linked_account.account_number, transaction_purpose, machine_id, transaction_amount, attempt_pin)
-
-					if(message)
-						to_chat(usr,"\icon[src]<span class='warning'>[message].</span>")
-					else
-						playsound(src, 'sound/machines/chime.ogg', 50, 1)
-						src.visible_message("\icon[src] \The [src] chimes.")
-						transaction_paid = 1
-
+				if(message)
+					to_chat(usr,"\icon[src]<span class='warning'>[message].</span>")
 				else
-					usr << "\icon[src]<span class='warning'>Connected account has been suspended.</span>"
+					playsound(src, 'sound/machines/chime.ogg', 50, 1)
+					src.visible_message("\icon[src] \The [src] chimes.")
+					transaction_paid = 1
 			else
 				usr << "\icon[src]<span class='warning'>EFTPOS is not connected to an account.</span>"
 	else if (istype(I, /obj/item/weapon/card/emag))
@@ -269,5 +260,3 @@
 				transaction_paid = 1
 	else
 		..()
-
-	//emag?

@@ -179,7 +179,7 @@ var/datum/controller/subsystem/economy/SSeconomy
 //Transfer money from one account to another
 //Returns a string with a error message if it fails
 //Returns a null if it succeeeds
-/datum/controller/subsystem/economy/proc/transfer_money(var/source_number, var/dest_number, var/purpose, var/terminal_id, var/amount, var/source_pin=null)
+/datum/controller/subsystem/economy/proc/transfer_money(var/source_number, var/dest_number, var/purpose, var/terminal_id, var/amount, var/source_pin=null, var/mob/user=null)
 	if(amount <= 0)
 		return "Invalid charge amount. Must be greater than 0."
 
@@ -199,7 +199,9 @@ var/datum/controller/subsystem/economy/SSeconomy
 
 	//Check if we need a pin for the source account and if the pin has been supplied
 	if(source.security_level == 2)
-		if(!source_pin)
+		if(user != null && !source_pin)
+			source_pin = input(user,"Enter Account PIN") as num
+		else
 			return "No PIN specified."
 		if(source_pin != source.remote_access_pin)
 			return "Invalid PIN specified."

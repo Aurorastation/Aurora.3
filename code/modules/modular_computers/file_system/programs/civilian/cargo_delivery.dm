@@ -87,15 +87,7 @@
 				var/transaction_purpose = "Cargo Order #[order_details["order_id"]]"
 				var/transaction_terminal = "Modular Computer #[program.computer.network_card.identification_id]"
 
-				var/datum/money_account/source = SSeconomy.get_account(id_card.associated_account_number)
-				if(!source)
-					status_message = "Unable to access account. Check security settings and try again."
-					return 1
-				var/attempt_pin
-				if(source.security_level == 2)
-					attempt_pin = input("Enter pin code", "EFTPOS transaction") as num
-
-				var/status = SSeconomy.transfer_money(source.account_number, SScargo.supply_account.account_number,transaction_purpose,transaction_terminal,transaction_amount,attempt_pin)
+				var/status = SSeconomy.transfer_money(id_card.associated_account_number, SScargo.supply_account.account_number,transaction_purpose,transaction_terminal,transaction_amount,null,usr)
 				
 				if(status)
 					status_message = status
