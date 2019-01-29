@@ -251,15 +251,22 @@
 
 	if(getBrainLoss() >= 60)
 		msg += "[T.He] [T.has] a stupid expression on [T.his] face.\n"
+	
+	var/inactivity = client.inactivity
+	var/have_client = client
+	if(bg)
+		disconnect_time = bg.disconnect_time
+		inactivity = bg.client.inactivity
+		have_client = bg.client
 
 	if(species.show_ssd && (!species.has_organ["brain"] || has_brain()) && stat != DEAD)
 		if(!key)
 			msg += "<span class='deadsay'>[T.He] [T.is] [species.show_ssd]. It doesn't look like [T.he] [T.is] waking up anytime soon.</span>\n"
 		else if(!client && !bg)
 			msg += "<span class='deadsay'>[T.He] [T.is] [species.show_ssd].</span>\n"
-		if(client && ((client.inactivity / 600) > 10)) // inactivity/10/60 > 10 MINUTES
-			msg += "<span class='deadsay'>\[Inactive for [round(client.inactivity / 600)] minutes.\]\n</span>"
-		else if((!client && (world.realtime - disconnect_time) >= 5 MINUTES))
+		if(have_client && ((inactivity / 600) > 10)) // inactivity/10/60 > 10 MINUTES
+			msg += "<span class='deadsay'>\[Inactive for [round(inactivity / 600)] minutes.\]\n</span>"
+		else if(have_client && (world.realtime - disconnect_time) >= 5 MINUTES)
 			msg += "<span class='deadsay'>\[Disconnected/ghosted [(world.realtime - disconnect_time)/600] minutes ago.\]\n</span>"
 
 	var/list/wound_flavor_text = list()
