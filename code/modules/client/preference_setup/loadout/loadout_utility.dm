@@ -34,18 +34,6 @@
 	display_name = "wallet"
 	path = 	/obj/item/weapon/storage/wallet
 
-/*
-/datum/gear/utility/cheaptablet
-	display_name = "cheap tablet computer"
-	path = /obj/item/modular_computer/tablet/preset/custom_loadout/cheap
-	cost = 3
-
-/datum/gear/utility/normaltablet
-	display_name = "tablet computer"
-	path = /obj/item/modular_computer/tablet/preset/custom_loadout/advanced
-	cost = 4
-*/
-
 /datum/gear/utility/recorder
 	display_name = "universal recorder"
 	path = 	/obj/item/device/taperecorder

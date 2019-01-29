@@ -1,9 +1,3 @@
-/datum/gear/head
-	display_name = "ushanka"
-	path = /obj/item/clothing/head/ushanka
-	slot = slot_head
-	sort_category = "Hats and Headwear"
-
 /datum/gear/head/bandana
 	display_name = "bandana selection"
 	path = /obj/item/clothing/head/bandana
@@ -123,10 +117,8 @@
 	hats["hat, black fedora"] = /obj/item/clothing/head/fedora
 	hats["hat, brown fedora"] = /obj/item/clothing/head/fedora/brown
 	hats["hat, grey fedora"] = /obj/item/clothing/head/fedora/grey
-	hats["hat, beaver"] = /obj/item/clothing/head/beaverhat
 	hats["hat, cowboy"] = /obj/item/clothing/head/cowboy
 	hats["hat, wide-brimmed cowboy"] = /obj/item/clothing/head/cowboy/wide
-	hats["hat, sombrero"] = /obj/item/clothing/head/sombrero
 	gear_tweaks += new/datum/gear_tweak/path(hats)
 
 /datum/gear/head/hijab

@@ -5,10 +5,6 @@
 	slot = slot_w_uniform
 	sort_category = "Uniforms and Casual Dress"
 
-/datum/gear/uniform/kilt
-	display_name = "kilt"
-	path = /obj/item/clothing/under/kilt
-
 /datum/gear/uniform/iacjumpsuit
 	display_name = "IAC Jumpsuit"
 	path = /obj/item/clothing/under/rank/iacjumpsuit
@@ -131,14 +127,6 @@
 	path = /obj/item/clothing/under/dress/dress_cap
 	allowed_roles = list("Captain")
 
-/datum/gear/uniform/customdress
-	display_name = "Evening gown"
-	path = /obj/item/clothing/under/dress/dress_evening
-
-/datum/gear/uniform/customdress/New()
-	..()
-	gear_tweaks = list(gear_tweak_free_color_choice)
-
 /datum/gear/uniform/corpsecsuit
 	display_name = "uniform, corporate (Security)"
 	path = /obj/item/clothing/under/rank/security/corp
@@ -228,14 +216,6 @@
 	suit["dominia suit, black"] = /obj/item/clothing/under/dominia/black
 	suit["lyodsuit"] = /obj/item/clothing/under/dom_thermal
 	gear_tweaks += new/datum/gear_tweak/path(suit)
-
-/datum/gear/uniform/miscellaneous/kimono
-	display_name = "kimono"
-	path = /obj/item/clothing/under/kimono
-
-/datum/gear/uniform/miscellaneous/kimono/New()
-	..()
-	gear_tweaks = list(gear_tweak_free_color_choice)
 
 /datum/gear/uniform/miscellaneous/greensuit
 	display_name = "green formal uniform"

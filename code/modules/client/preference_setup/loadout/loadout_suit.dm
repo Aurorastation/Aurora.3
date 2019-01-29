@@ -75,26 +75,6 @@
 	path = /obj/item/clothing/suit/iacvest
 	allowed_roles = list("Chief Medical Officer", "Medical Doctor", "Chemist", "Paramedic", "Medical Resident")
 
-/datum/gear/suit/poncho
-	display_name = "poncho selection"
-	path = /obj/item/clothing/accessory/poncho
-	cost = 1
-
-/datum/gear/suit/poncho/New()
-	..()
-	var/poncho = list()
-	poncho["poncho, tan"] = /obj/item/clothing/accessory/poncho
-	poncho["poncho, blue"] = /obj/item/clothing/accessory/poncho/blue
-	poncho["poncho, green"] = /obj/item/clothing/accessory/poncho/green
-	poncho["poncho, purple"] = /obj/item/clothing/accessory/poncho/purple
-	poncho["poncho, red"] = /obj/item/clothing/accessory/poncho/red
-	poncho["poncho, medical"] = /obj/item/clothing/accessory/poncho/roles/medical
-	poncho["poncho, engineering"] = /obj/item/clothing/accessory/poncho/roles/engineering
-	poncho["poncho, science"] = /obj/item/clothing/accessory/poncho/roles/science
-	poncho["poncho, cargo"] = /obj/item/clothing/accessory/poncho/roles/cargo
-	gear_tweaks += new/datum/gear_tweak/path(poncho)
-
-
 /datum/gear/suit/suitjacket
 	display_name = "suit jacket"
 	path = /obj/item/clothing/suit/storage/toggle/suitjacket
@@ -133,55 +113,6 @@
 	display_name = "worn shirt"
 	description = "A worn out, curiously comfortable t-shirt with a picture of Ian."
 	path = /obj/item/clothing/suit/ianshirt
-
-/datum/gear/suit/winter
-	display_name = "winter coat"
-	path = /obj/item/clothing/suit/storage/hooded/wintercoat
-
-/datum/gear/suit/winter/captain
-	display_name = "winter coat, captain"
-	path = /obj/item/clothing/suit/storage/hooded/wintercoat/captain
-	allowed_roles = list("Captain")
-
-/datum/gear/suit/winter/security
-	display_name = "winter coat, security"
-	path = /obj/item/clothing/suit/storage/hooded/wintercoat/security
-	allowed_roles = list("Security Officer", "Head of Security", "Warden", "Security Cadet", "Detective", "Forensic Technician")
-
-/datum/gear/suit/winter/science
-	display_name = "winter coat, science"
-	path = /obj/item/clothing/suit/storage/hooded/wintercoat/science
-	allowed_roles = list("Research Director", "Scientist", "Xenobiologist", "Roboticist", "Lab Assistant", "Geneticist")
-
-/datum/gear/suit/winter/medical
-	display_name = "winter coat, medical"
-	path = /obj/item/clothing/suit/storage/hooded/wintercoat/medical
-	allowed_roles = list("Chief Medical Officer", "Medical Doctor", "Paramedic", "Medical Resident", "Psychiatrist", "Chemist")
-
-/datum/gear/suit/winter/engineering
-	display_name = "winter coat, engineering"
-	path = /obj/item/clothing/suit/storage/hooded/wintercoat/engineering
-	allowed_roles = list("Station Engineer", "Chief Engineer", "Engineering Apprentice")
-
-/datum/gear/suit/winter/atmos
-	display_name = "winter coat, atmospherics"
-	path = /obj/item/clothing/suit/storage/hooded/wintercoat/engineering/atmos
-	allowed_roles = list("Atmospheric Technician", "Chief Engineer")
-
-/datum/gear/suit/winter/hydro
-	display_name = "winter coat, hydroponics"
-	path = /obj/item/clothing/suit/storage/hooded/wintercoat/hydro
-	allowed_roles = list("Head of Personnel", "Gardener")
-
-/datum/gear/suit/winter/cargo
-	display_name = "winter coat, cargo"
-	path = /obj/item/clothing/suit/storage/hooded/wintercoat/cargo
-	allowed_roles = list("Cargo Technician", "Quartermaster", "Head of Personnel")
-
-/datum/gear/suit/winter/mining
-	display_name = "winter coat, mining"
-	path = /obj/item/clothing/suit/storage/hooded/wintercoat/miner
-	allowed_roles = list("Quartermaster", "Head of Personnel", "Shaft Miner")
 
 /datum/gear/suit/secjacket
 	display_name = "navy security jacket (Security Officer)"
