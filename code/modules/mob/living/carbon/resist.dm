@@ -228,3 +228,7 @@
 	if(species.can_shred(src,1))
 		return 1
 	return ..()
+
+/mob/living/carbon/human/escape_buckle()
+	if(!restrained())
+		..()
