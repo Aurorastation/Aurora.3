@@ -90,25 +90,45 @@
 		breakouttime /= 2
 		displaytime /= 2
 
-	visible_message(
-		"<span class='danger'>\The [src] attempts to remove \the [HC]!</span>",
-		"<span class='warning'>You attempt to remove \the [HC]. (This will take around [displaytime] minutes and you need to stand still)</span>"
-		)
+	//Check if the user is trying to violently remove the handcuffs
+	var/violent_removal = 0
+	if(a_intent == I_HURT)
+		violent_removal = 1
+		breakouttime = rand(450,600)
+		visible_message(
+			"<span class='danger'>\The [src] attempts to break out of \the [HC]!</span>",
+			"<span class='warning'>You attempt to break out of \the [HC]. (This will take around 1 minute and you need to stand still)</span>"
+			)
+	else
+		visible_message(
+			"<span class='danger'>\The [src] attempts to slip out of \the [HC]!</span>",
+			"<span class='warning'>You attempt to slip out of \the [HC]. (This will take around [displaytime] minutes and you need to stand still)</span>"
+			)
 
 	if(do_after(src, breakouttime))
 		if(!handcuffed)
 			return
-		visible_message(
-			"<span class='danger'>\The [src] manages to remove \the [handcuffed]!</span>",
-			"<span class='notice'>You successfully remove \the [handcuffed].</span>"
-			)
-		drop_from_inventory(handcuffed)
+
+		var/buckle_message_user = ""
+		var/buckle_message_other = ""
 		if(buckled) //If the person is buckled, also unbuckle the person
-			visible_message(
-				"<span class='danger'>[usr] manages to unbuckle themself!</span>",
-				"<span class='notice'>You successfully unbuckle yourself.</span>"
-				)
+			buckle_message_user = " and unbuckle yourself"
+			buckle_message_other = " and to unbuckle themself"
 			buckled.user_unbuckle_mob(src)
+
+		if(violent_removal)
+			var/obj/item/organ/external/E = H.get_organ(pick("l_arm","r_arm"))
+			E.dislocate(1)
+			visible_message(
+				"<span class='danger'>\The [src] manages to remove \the [handcuffed][buckle_message_other]!</span>",
+				"<span class='notice'>You successfully remove \the [handcuffed][buckle_message_user], but dislocate your [E] in the process.</span>"
+				)
+		else
+			visible_message(
+				"<span class='notice'>\The [src] manages to slip out of \the [handcuffed][buckle_message_other]!</span>",
+				"<span class='notice'>You successfully slip out of \the [handcuffed][buckle_message_user].</span>"
+				)
+		drop_from_inventory(handcuffed)
 
 
 /mob/living/carbon/proc/escape_legcuffs()

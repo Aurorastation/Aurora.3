@@ -39,3 +39,4 @@ delete-after: True
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
   - tweak: "If you resist while handcuffed and buckled to a chair you unbuckle and uncuff yourself at the same time."
+  - tweak: "If you are on harm intent while removing your handcuffs, it only takes a minute to remove them but you dislocate your arm in the process."
