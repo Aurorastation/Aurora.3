@@ -79,7 +79,11 @@
 	//If you are handcuffed with actual handcuffs... Well what do I know, maybe someone will want to handcuff you with toilet paper in the future...
 	if(istype(HC))
 		breakouttime = HC.breakouttime
-		displaytime = breakouttime / 600 //Minutes
+	
+	if(buckled)
+		breakouttime += 600 //If you are buckled, it takes a minute longer, but you are unbuckled and uncuffed instantly
+	
+	displaytime = breakouttime / 600 //Minutes
 
 	var/mob/living/carbon/human/H = src
 	if(istype(H) && H.gloves && istype(H.gloves,/obj/item/clothing/gloves/rig))
@@ -92,13 +96,20 @@
 		)
 
 	if(do_after(src, breakouttime))
-		if(!handcuffed || buckled)
+		if(!handcuffed)
 			return
 		visible_message(
 			"<span class='danger'>\The [src] manages to remove \the [handcuffed]!</span>",
 			"<span class='notice'>You successfully remove \the [handcuffed].</span>"
 			)
 		drop_from_inventory(handcuffed)
+		if(buckled) //If the person is buckled, also unbuckle the person
+			visible_message(
+				"<span class='danger'>[usr] manages to unbuckle themself!</span>",
+				"<span class='notice'>You successfully unbuckle yourself.</span>"
+				)
+			buckled.user_unbuckle_mob(src)
+
 
 /mob/living/carbon/proc/escape_legcuffs()
 	if(!canClick())
@@ -197,24 +208,3 @@
 	if(species.can_shred(src,1))
 		return 1
 	return ..()
-
-/mob/living/carbon/escape_buckle()
-
-	if(!buckled) return
-
-	if(!restrained())
-		..()
-	else
-		setClickCooldown(100)
-		visible_message(
-			"<span class='danger'>[usr] attempts to unbuckle themself!</span>",
-			"<span class='warning'>You attempt to unbuckle yourself. (This will take around 2 minutes and you need to stand still)</span>"
-			)
-
-		if(do_after(usr, 1200))
-			if(!buckled)
-				return
-			visible_message("<span class='danger'>[usr] manages to unbuckle themself!</span>",
-							"<span class='notice'>You successfully unbuckle yourself.</span>")
-			buckled.user_unbuckle_mob(src)
-

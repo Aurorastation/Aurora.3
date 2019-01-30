@@ -692,7 +692,7 @@ default behaviour is:
 		H.forceMove(get_turf(H))
 
 /mob/living/proc/escape_buckle()
-	if(buckled)
+	if(buckled && !restrained())
 		buckled.user_unbuckle_mob(src)
 
 /mob/living/var/last_resist
