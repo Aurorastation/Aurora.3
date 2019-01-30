@@ -1,4 +1,5 @@
 
+
 /obj/item/device/nanoquikpay
 	name = "\improper NT Quik-Pay"
 	desc = "Swipe your ID to make direct company purchases."
@@ -10,6 +11,7 @@
 	var/access_code = 0
 	var/editmode = 0
 	var/receipt = ""
+	var/destinationact = "Civilian"
 
 
 
@@ -48,17 +50,11 @@
 	R.stamps += "<HR><i>This paper has been stamped by the Head of Personnel's desk.</i>"
 
 /obj/item/device/nanoquikpay/AltClick(var/mob/user)
-	if(editmode == 1)
-		editmode = 0
-		to_chat(user, span("notice", "Device Locked."))
+	var/obj/item/weapon/card/id/I = user.GetIdCard()
+	if(istype(I) || (access_heads in I.access))
+		editmode = 1
+		to_chat(user, span("notice", "Command access granted."))
 		SSvueui.check_uis_for_change(src)
-		return 0
-	if(editmode == 0)
-		var/attempt_code = input("Enter the edit code", "Confirm edit access code") as num //Copied the eftpos method, dont judge
-		if(attempt_code == access_code)
-			editmode = 1
-			to_chat(user, span("notice", "Device Unlocked."))
-			SSvueui.check_uis_for_change(src)
 
 
 /obj/item/device/nanoquikpay/proc/print_reference()
@@ -106,17 +102,21 @@
 	if (!istype(O))
 		return
 
-	var/datum/money_account/quickpay_account = SSeconomy.get_department_account("Civilian")
 	var/datum/money_account/customer_account = SSeconomy.get_account(I.associated_account_number)
+	var/datum/money_account/quickpay_account = SSeconomy.get_department_account(destinationact)
 	if (!customer_account)
 		to_chat(user, span("notice", "Unable to access account, please contact the Head of Personnel."))
+		return 0
+
+	if(sum == 0)
+		to_chat(user, span("notice", "You need to select something and switch to the confirmation screen before you can pay."))
 		return 0
 
 	if(customer_account.suspended)
 		to_chat(user, span("notice", "Account Suspended, please contact the Head of Personnel."))
 		return 0
 
-	if(customer_account.security_level != 0) //If card requires pin authentication (ie seclevel 1 or 2)
+	if(customer_account.security_level > 1) //If card requires pin authentication (ie seclevel 1 or 2)
 		var/attempt_pin = input("Enter pin code", "Quik-Pay transaction") as num
 		customer_account = SSeconomy.attempt_account_access(I.associated_account_number, attempt_pin, 2)
 
@@ -137,7 +137,7 @@
 
 
 
-		// create entry in the purchaser's account log
+		// create account log in the customers
 		var/datum/transaction/T = new()
 		T.target_name = machine_id
 		T.purpose = "Quik Pay Transaction"
@@ -147,7 +147,10 @@
 		T.time = worldtime2text()
 		SSeconomy.add_transaction_log(customer_account,T)
 
+
 		print_receipt()
+		playsound(loc, 'sound/items/polaroid1.ogg', 50, 1)
+		to_chat(user, span("notice", "Transaction to [destinationact] account approved for a total of [sum] credits."))
 
 		sum = 0
 		receipt = ""
@@ -175,16 +178,26 @@
 		. = data
 	VUEUI_SET_CHECK_IFNOTSET(data["selection"], list("_" = 0), ., data)
 	VUEUI_SET_CHECK(data["editmode"], editmode, ., data)
+	VUEUI_SET_CHECK(data["destinationact"], destinationact, ., data)
 
 /obj/item/device/nanoquikpay/Topic(href, href_list)
 	var/datum/vueui/ui = href_list["vueui"]
 	if(!istype(ui))
 		return
 	if(href_list["add"])
+
+		if(editmode == 0)
+			to_chat(src, span("notice", "You don't have access to use this option."))
+			return 0
+
 		items[href_list["add"]["name"]] = href_list["add"]["price"]
 		ui.data["items"][href_list["add"]["name"]] = href_list["add"]["price"]
 		. = TRUE
 	if(href_list["remove"])
+
+		if(editmode == 0)
+			to_chat(src, span("notice", "You don't have access to use this option."))
+			return 0
 		items -= href_list["remove"]
 		ui.data["items"] -= href_list["remove"]
 		. = TRUE
@@ -202,5 +215,47 @@
 		receipt = ""
 		ui.activeui = "quikpay-main"	
 		. = TRUE
+
+
+	if(href_list["locking"])
+		if(editmode == 1)
+			editmode = 0
+			to_chat(src, span("notice", "Device Locked."))
+			SSvueui.check_uis_for_change(src)
+			return 0
+		if(editmode == 0)
+			var/attempt_code = input("Enter the edit code", "Confirm edit access code") as num //Copied the eftpos method, dont judge
+			if(attempt_code == access_code)
+				editmode = 1
+				to_chat(src, span("notice", "Device Unlocked."))
+				SSvueui.check_uis_for_change(src)
+		. = TRUE
+		
+
+	if(href_list["accountselect"])
+
+		if(editmode == 0)
+			to_chat(src, span("notice", "You don't have access to use this option."))
+			return 0
+		switch(input("What account would you like to select?", "Destination Account") as null|anything in list("Civilian", "Cargo", "Command", "Medical", "Security", "Engineering", "Science"))
+		
+			if("Civilian")
+				destinationact = "Civilian"
+			if("Cargo")
+				destinationact = "Cargo"
+			if("Command")
+				destinationact = "Command"
+			if("Medical")
+				destinationact = "Medical"
+			if("Security")
+				destinationact = "Security"
+			if("Engineering")
+				destinationact = "Engineering"
+			if("Science")
+				destinationact = "Science"
+	. = TRUE
+	playsound(src, 'sound/machines/chime.ogg', 50, 1)
+	SSvueui.check_uis_for_change(src)
+	
 
 
