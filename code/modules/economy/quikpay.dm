@@ -51,7 +51,7 @@
 
 /obj/item/device/nanoquikpay/AltClick(var/mob/user)
 	var/obj/item/weapon/card/id/I = user.GetIdCard()
-	if(istype(I) || (access_heads in I.access))
+	if(istype(I) && (access_heads in I.access))
 		editmode = 1
 		to_chat(user, span("notice", "Command access granted."))
 		SSvueui.check_uis_for_change(src)
