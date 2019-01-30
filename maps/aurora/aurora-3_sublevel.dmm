@@ -1003,8 +1003,10 @@
 "acm" = (
 /obj/machinery/power/smes/buildable{
 	charge = 2e+006;
+	input_attempt = 1;
 	input_level_max = 350000;
 	is_critical = 1;
+	output_attempt = 1;
 	output_level_max = 350000;
 	RCon_tag = "Tesla - Containment"
 	},
