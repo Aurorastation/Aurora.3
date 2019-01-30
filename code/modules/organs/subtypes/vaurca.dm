@@ -373,17 +373,34 @@ obj/item/organ/vaurca/neuralsocket/process()
 
 
 /obj/item/organ/external/chest/vaurca
+	augment_capacity = 1
 
 /obj/item/organ/external/groin/vaurca
+	augment_capacity = 1
 
 /obj/item/organ/external/arm/vaurca
+	augment_capacity = 1
+
+/obj/item/organ/external/arm/right/vaurca
+	augment_capacity = 1
 
 /obj/item/organ/external/leg/vaurca
+	augment_capacity = 1
 
 /obj/item/organ/external/leg/right/vaurca
+	augment_capacity = 1
 
 /obj/item/organ/external/foot/vaurca
+	augment_capacity = 1
+
+/obj/item/organ/external/foot/right/vaurca
+	augment_capacity = 1
 
 /obj/item/organ/external/hand/vaurca
+	augment_capacity = 1
+
+/obj/item/organ/external/hand/right/vaurca
+	augment_capacity = 1
 
 /obj/item/organ/external/head/vaurca
+	augment_capacity = 1
