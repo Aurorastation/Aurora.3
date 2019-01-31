@@ -12,17 +12,28 @@
       <input v-model="tmp_name">
       <vui-input-numeric v-model="tmp_price" width="3em" :button-count="2"/>
       <vui-button :params="{ add: {name: tmp_name, price: tmp_price }}">Add</vui-button>
-      <vui-button :params="{ accountselect: 1 }" width="3em">Select Destination Account</vui-button>
     </div>
     <vui-button :params="{ locking: 1 }" width="3em">Toggle Lock</vui-button>
     <vui-button :params="{ confirm: selection }">Confirm Selection</vui-button>
+
+    <vui-item label="Current Department:">
+      <select :value="account" @input="accountChange($event.target.value)" class="button">
+        <option v-for="acc in _accounts" :key="acc" :value="acc" >{{ acc }}</option>
+      </select>
+    </vui-item>
   </div>
 </template>
 
 <script>
+import Utils from '../../../utils.js'
 export default {
   data() {
     return this.$root.$data.state;
+  },
+  methods: {
+    accountChange(newAccount) {
+      Utils.sendToTopic({ changeaccount: newAccount })
+    }
   }
-};
+}
 </script>

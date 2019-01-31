@@ -1,4 +1,4 @@
-
+#define UIDEBUG
 
 /obj/item/device/nanoquikpay
 	name = "\improper NT Quik-Pay"
@@ -11,7 +11,8 @@
 	var/access_code = 0
 	var/editmode = 0
 	var/receipt = ""
-	var/destinationact = "Civilian"
+	var/account = "Civilian"
+	var/list/station_accounts = list("Command", "Medical", "Engineering", "Science", "Security", "Cargo", "Civilian")
 
 
 
@@ -103,7 +104,7 @@
 		return
 
 	var/datum/money_account/customer_account = SSeconomy.get_account(I.associated_account_number)
-	var/datum/money_account/quickpay_account = SSeconomy.get_department_account(destinationact)
+	var/datum/money_account/quickpay_account = SSeconomy.get_department_account(account)
 	if (!customer_account)
 		to_chat(user, span("notice", "Unable to access account, please contact the Head of Personnel."))
 		return 0
@@ -150,7 +151,7 @@
 
 		print_receipt()
 		playsound(loc, 'sound/items/polaroid1.ogg', 50, 1)
-		to_chat(user, span("notice", "Transaction to [destinationact] account approved for a total of [sum] credits."))
+		to_chat(user, span("notice", "Transaction to [account] account approved for a total of [sum] credits."))
 
 		sum = 0
 		receipt = ""
@@ -164,7 +165,7 @@
 		ui = new(usr, src, "quikpay-main", 400, 400, "NT Quik-Pay")
 	ui.open()
 
-/obj/item/device/nanoquikpay/vueui_data_change(var/list/data, var/mob/user, var/datum/vueui/ui)
+/obj/item/device/nanoquikpay/vueui_data_change(var/list/data, var/mob/user, var/datum/vueui/ui, var/list/newdata)
 	if(!data)
 		. = data = list()
 
@@ -172,13 +173,14 @@
 	VUEUI_SET_CHECK_IFNOTSET(data["price"], items, ., data)
 	VUEUI_SET_CHECK_IFNOTSET(data["tmp_name"], "", ., data)
 	VUEUI_SET_CHECK_IFNOTSET(data["tmp_price"], 0, ., data)
+	VUEUI_SET_CHECK_IFNOTSET(data["_accounts"], station_accounts, ., data)
+	VUEUI_SET_CHECK_IFNOTSET(data["account"], account, ., data)
 	VUEUI_SET_CHECK(data["tmp_price"], max(0, data["tmp_price"]), ., data)
 	if(data["tmp_price"] < 0)
 		data["tmp_price"] = 0
 		. = data
 	VUEUI_SET_CHECK_IFNOTSET(data["selection"], list("_" = 0), ., data)
 	VUEUI_SET_CHECK(data["editmode"], editmode, ., data)
-	VUEUI_SET_CHECK(data["destinationact"], destinationact, ., data)
 
 /obj/item/device/nanoquikpay/Topic(href, href_list)
 	var/datum/vueui/ui = href_list["vueui"]
@@ -230,32 +232,14 @@
 				to_chat(src, span("notice", "Device Unlocked."))
 				SSvueui.check_uis_for_change(src)
 		. = TRUE
-		
 
-	if(href_list["accountselect"])
-
-		if(editmode == 0)
-			to_chat(src, span("notice", "You don't have access to use this option."))
-			return 0
-		switch(input("What account would you like to select?", "Destination Account") as null|anything in list("Civilian", "Cargo", "Command", "Medical", "Security", "Engineering", "Science"))
+	if(href_list["changeaccount"])
+		if(editmode != 1)
+			return TRUE
+		if(href_list["changeaccount"] in station_accounts)
+			account = href_list["changeaccount"]
+		else
+			return TRUE
 		
-			if("Civilian")
-				destinationact = "Civilian"
-			if("Cargo")
-				destinationact = "Cargo"
-			if("Command")
-				destinationact = "Command"
-			if("Medical")
-				destinationact = "Medical"
-			if("Security")
-				destinationact = "Security"
-			if("Engineering")
-				destinationact = "Engineering"
-			if("Science")
-				destinationact = "Science"
-	. = TRUE
-	playsound(src, 'sound/machines/chime.ogg', 50, 1)
-	SSvueui.check_uis_for_change(src)
-	
 
 
