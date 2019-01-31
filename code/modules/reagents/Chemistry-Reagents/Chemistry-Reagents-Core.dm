@@ -55,14 +55,19 @@
 			data["viruses"] = preserve
 
 /datum/reagent/blood/touch_turf(var/turf/simulated/T)
+
 	if(!istype(T) || volume < 3)
 		return
+
 	var/datum/weakref/W = data["donor"]
 	if (!W)
 		blood_splatter(T, src, 1)
+		return
+
 	W = W.resolve()
 	if(istype(W, /mob/living/carbon/human))
 		blood_splatter(T, src, 1)
+
 	else if(istype(W, /mob/living/carbon/alien))
 		var/obj/effect/decal/cleanable/blood/B = blood_splatter(T, src, 1)
 		if(B)

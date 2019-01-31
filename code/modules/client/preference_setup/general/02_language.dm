@@ -38,6 +38,10 @@
 	)
 
 /datum/category_item/player_setup_item/general/language/sanitize_character(var/sql_load = 0)
+
+	if(!pref.client)
+		return
+
 	if (sql_load)
 		pref.alternate_languages = params2list(pref.alternate_languages)
 
