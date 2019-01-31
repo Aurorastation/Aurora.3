@@ -1,0 +1,6 @@
+author: Alberyk
+
+delete-after: True
+
+changes: 
+  - bugfix: "Red nightshade should bess less lethal now."
