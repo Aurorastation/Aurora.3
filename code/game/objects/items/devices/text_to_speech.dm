@@ -16,7 +16,7 @@
 		desc = "[initial(desc)] This one is assigned to [user.real_name]."
 		named = 1
 
-	var/message = sanitize(input(user,"Choose a message to relay to those around you.") as text|null, var/datum/language/language = LANGUAGE_TCB)
+	var/message = sanitize(input(user,"Choose a message to relay to those around you.") as text|null)
 	if(message)
 		var/obj/item/device/text_to_speech/O = src
 		audible_message("\icon[O] \The [O.name] states, \"[message]\"")
