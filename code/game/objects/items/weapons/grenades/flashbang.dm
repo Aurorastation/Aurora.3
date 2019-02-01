@@ -59,18 +59,8 @@
 			var/obj/item/organ/eyes/E = H.get_eyes()
 			if(!E)
 				return
-			H << span("alert", "Your eyes burn with the intense light of the flash!.")
-			E.damage += rand(10, 11)
-			if(E.damage > 12)
-				M.eye_blurry += rand(3,6)
-			if (E.damage >= E.min_broken_damage)
-				M.sdisabilities |= BLIND
-			else if (E.damage >= E.min_bruised_damage)
-				M.eye_blind = 5
-				M.eye_blurry = 5
-				M.disabilities |= NEARSIGHTED
-				spawn(100)
-					M.disabilities &= ~NEARSIGHTED
+
+			E.flash_act()
 
 //Now applying sound
 	if((get_dist(M, T) <= 2 || src.loc == M.loc || src.loc == M))

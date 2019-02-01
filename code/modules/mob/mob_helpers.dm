@@ -37,8 +37,20 @@
 	return 0
 
 /proc/isunathi(A)
-	if(istype(A, /mob/living/carbon/human) && (A:get_species() == "Unathi"))
-		return 1
+	if(ishuman(A))
+		var/mob/living/carbon/human/H = A
+		switch(H.get_species())
+			if ("Unathi")
+				return 1
+			if("Aut'akh Unathi")
+				return 1
+	return 0
+
+/proc/isautakh(A)
+	if(ishuman(A))
+		var/mob/living/carbon/human/H = A
+		if(H.get_species() == "Aut'akh Unathi")
+			return 1
 	return 0
 
 /proc/istajara(A)
@@ -516,7 +528,7 @@ proc/is_blind(A)
 	var/turf/sourceturf = get_turf(broadcast_source)
 	for(var/mob/M in targets)
 		var/turf/targetturf = get_turf(M)
-		if((targetturf.z == sourceturf.z))
+		if(targetturf && (targetturf.z == sourceturf.z))
 			M.show_message("<span class='info'>\icon[icon] [message]</span>", 1)
 
 /proc/mobs_in_area(var/area/A)

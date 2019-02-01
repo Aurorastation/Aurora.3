@@ -153,6 +153,13 @@
 	hatch_colour = "#606061"
 	hashatch = FALSE
 
+/obj/machinery/door/airlock/vaurca
+	name = "Alien Biomass Airlock"
+	icon = 'icons/obj/doors/Doorvaurca.dmi'
+	opacity = 0
+	hatch_colour = "#606061"
+	hashatch = FALSE
+
 /obj/machinery/door/airlock/centcom/attackby(obj/item/I, mob/user)
 	if (operating)
 		return
@@ -910,7 +917,7 @@ About the new airlock wires panel:
 /obj/machinery/door/airlock/proc/CanChainsaw(var/obj/item/weapon/material/twohanded/chainsaw/ChainSawVar)
 	return (ChainSawVar.powered && density && hashatch)
 
-/obj/machinery/door/airlock/attackby(C as obj, mob/user as mob)
+/obj/machinery/door/airlock/attackby(var/obj/item/C, mob/user as mob)
 	if(!istype(usr, /mob/living/silicon))
 		if(src.isElectrified())
 			if(src.shock(user, 75))
@@ -925,7 +932,7 @@ About the new airlock wires panel:
 		var/obj/item/device/magnetic_lock/newbracer = C
 		newbracer.attachto(src, user)
 		return
-	if(!repairing && (iswelder(C) && !( src.operating > 0 ) && src.density))
+	if(!repairing && (C.iswelder() && !( src.operating > 0 ) && src.density))
 		var/obj/item/weapon/weldingtool/WT = C
 		if(WT.isOn())
 			user.visible_message(
@@ -947,7 +954,7 @@ About the new airlock wires panel:
 			return
 		else
 			return
-	else if(isscrewdriver(C))
+	else if(C.isscrewdriver())
 		if (src.p_open)
 			if (stat & BROKEN)
 				usr << "<span class='warning'>The panel is broken and cannot be closed.</span>"
@@ -956,16 +963,16 @@ About the new airlock wires panel:
 		else
 			src.p_open = 1
 		src.update_icon()
-	else if(iswirecutter(C))
+	else if(C.iswirecutter())
 		return src.attack_hand(user)
-	else if(ismultitool(C))
+	else if(C.ismultitool())
 		return src.attack_hand(user)
 	else if(istype(C, /obj/item/device/assembly/signaler))
 		return src.attack_hand(user)
 	else if(istype(C, /obj/item/weapon/pai_cable))	// -- TLE
 		var/obj/item/weapon/pai_cable/cable = C
 		cable.plugin(src, user)
-	else if(!repairing && iscrowbar(C))
+	else if(!repairing && C.iscrowbar())
 		if(src.p_open && (operating < 0 || (!operating && welded && !src.arePowerSystemsOn() && density && (!src.locked || (stat & BROKEN)))) )
 			playsound(src.loc, 'sound/items/Crowbar.ogg', 100, 1)
 			user.visible_message("[user] removes the electronics from the airlock assembly.", "You start to remove electronics from the airlock assembly.")
@@ -1190,7 +1197,7 @@ About the new airlock wires panel:
 
 /mob/living/carbon/airlock_crush(var/crush_damage)
 	. = ..()
-	if (!(species && (species.flags & NO_PAIN)))
+	if (can_feel_pain())
 		emote("scream")
 
 /mob/living/silicon/robot/airlock_crush(var/crush_damage)

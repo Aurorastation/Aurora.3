@@ -69,6 +69,7 @@
 		/obj/item/weapon/reagent_containers/food/drinks/bottle/tomatojuice = 4,
 		/obj/item/weapon/reagent_containers/food/drinks/bottle/limejuice = 4,
 		/obj/item/weapon/reagent_containers/food/drinks/bottle/lemonjuice = 4,
+		/obj/item/weapon/reagent_containers/food/drinks/cans/grape_juice = 6,
 		/obj/item/weapon/reagent_containers/food/drinks/bottle/cream = 4,
 		/obj/item/weapon/reagent_containers/food/drinks/cans/tonic = 8,
 		/obj/item/weapon/reagent_containers/food/drinks/bottle/cola = 5,
@@ -132,11 +133,9 @@
 	vend_id = "coffee"
 	products = list(
 		/obj/item/weapon/reagent_containers/food/drinks/coffee = 25,
-		/obj/item/weapon/reagent_containers/food/drinks/coffee/pslatte = 15,
 		/obj/item/weapon/reagent_containers/food/drinks/tea = 25,
 		/obj/item/weapon/reagent_containers/food/drinks/h_chocolate = 25,
-		/obj/item/weapon/reagent_containers/food/snacks/donut/normal = 20,
-		/obj/item/weapon/reagent_containers/food/snacks/donut/psdonut = 10
+		/obj/item/weapon/reagent_containers/food/snacks/donut/normal = 20
 	)
 	contraband = list(
 		/obj/item/weapon/reagent_containers/food/drinks/ice = 10
@@ -171,17 +170,7 @@
 		/obj/item/weapon/reagent_containers/food/snacks/meatsnack = 2,
 		/obj/item/weapon/reagent_containers/food/snacks/maps = 2,
 		/obj/item/weapon/reagent_containers/food/snacks/nathisnack = 2,
-		/obj/item/weapon/reagent_containers/food/snacks/koisbar_clean = 4,
-		/obj/item/weapon/reagent_containers/food/snacks/cb01 = 4,
-		/obj/item/weapon/reagent_containers/food/snacks/cb02 = 4,
-		/obj/item/weapon/reagent_containers/food/snacks/cb03 = 4,
-		/obj/item/weapon/reagent_containers/food/snacks/cb04 = 4,
-		/obj/item/weapon/reagent_containers/food/snacks/cb05 = 4,
-		/obj/item/weapon/reagent_containers/food/snacks/cb06 = 4,
-		/obj/item/weapon/reagent_containers/food/snacks/cb07 = 4,
-		/obj/item/weapon/reagent_containers/food/snacks/cb08 = 4,
-		/obj/item/weapon/reagent_containers/food/snacks/cb09 = 4,
-		/obj/item/weapon/reagent_containers/food/snacks/cb10 = 4
+		/obj/item/weapon/reagent_containers/food/snacks/koisbar_clean = 4
 	)
 	contraband = list(
 		/obj/item/weapon/reagent_containers/food/snacks/syndicake = 6,
@@ -191,26 +180,16 @@
 		/obj/item/weapon/reagent_containers/food/snacks/candy = 15,
 		/obj/item/weapon/reagent_containers/food/drinks/dry_ramen = 20,
 		/obj/item/weapon/reagent_containers/food/snacks/chips = 17,
-		/obj/item/weapon/reagent_containers/food/snacks/sosjerky = 20,
-		/obj/item/weapon/reagent_containers/food/snacks/no_raisin = 12,
+		/obj/item/weapon/reagent_containers/food/snacks/sosjerky = 120,
+		/obj/item/weapon/reagent_containers/food/snacks/no_raisin = 112,
 		/obj/item/weapon/reagent_containers/food/snacks/spacetwinkie = 15,
 		/obj/item/weapon/reagent_containers/food/snacks/cheesiehonkers = 15,
 		/obj/item/weapon/reagent_containers/food/snacks/tastybread = 18,
 		/obj/item/weapon/reagent_containers/food/snacks/skrellsnacks = 40,
 		/obj/item/weapon/reagent_containers/food/snacks/meatsnack = 22,
 		/obj/item/weapon/reagent_containers/food/snacks/maps = 23,
-		/obj/item/weapon/reagent_containers/food/snacks/nathisnack = 24,
-		/obj/item/weapon/reagent_containers/food/snacks/koisbar_clean = 60,
-		/obj/item/weapon/reagent_containers/food/snacks/cb01 = 10,
-		/obj/item/weapon/reagent_containers/food/snacks/cb02 = 12,
-		/obj/item/weapon/reagent_containers/food/snacks/cb03 = 14,
-		/obj/item/weapon/reagent_containers/food/snacks/cb04 = 12,
-		/obj/item/weapon/reagent_containers/food/snacks/cb05 = 13,
-		/obj/item/weapon/reagent_containers/food/snacks/cb06 = 14,
-		/obj/item/weapon/reagent_containers/food/snacks/cb07 = 12,
-		/obj/item/weapon/reagent_containers/food/snacks/cb08 = 14,
-		/obj/item/weapon/reagent_containers/food/snacks/cb09 = 12,
-		/obj/item/weapon/reagent_containers/food/snacks/cb10 = 11
+		/obj/item/weapon/reagent_containers/food/snacks/nathisnack = 124,
+		/obj/item/weapon/reagent_containers/food/snacks/koisbar_clean = 60
 	)
 
 /obj/machinery/vending/cola
@@ -240,11 +219,11 @@
 		/obj/item/weapon/reagent_containers/food/drinks/cans/cola = 15,
 		/obj/item/weapon/reagent_containers/food/drinks/cans/space_mountain_wind = 11,
 		/obj/item/weapon/reagent_containers/food/drinks/cans/dr_gibb = 16,
-		/obj/item/weapon/reagent_containers/food/drinks/cans/root_beer = 13,
+		/obj/item/weapon/reagent_containers/food/drinks/cans/root_beer = 113,
 		/obj/item/weapon/reagent_containers/food/drinks/cans/starkist = 15,
 		/obj/item/weapon/reagent_containers/food/drinks/cans/waterbottle = 12,
 		/obj/item/weapon/reagent_containers/food/drinks/cans/space_up = 15,
-		/obj/item/weapon/reagent_containers/food/drinks/cans/iced_tea = 13,
+		/obj/item/weapon/reagent_containers/food/drinks/cans/iced_tea = 113,
 		/obj/item/weapon/reagent_containers/food/drinks/cans/grape_juice = 16,
 		/obj/item/weapon/reagent_containers/food/drinks/cans/koispunch = 50
 	)
@@ -363,7 +342,7 @@
 	products = list(
 		/obj/item/stack/medical/bruise_pack = 2,
 		/obj/item/stack/medical/ointment = 2,
-		/obj/item/weapon/reagent_containers/hypospray/autoinjector = 4,
+		/obj/item/weapon/reagent_containers/hypospray/autoinjector/inaprovaline = 4,
 		/obj/item/device/healthanalyzer = 1,
 		/obj/item/device/breath_analyzer  = 1
 	)
@@ -384,7 +363,7 @@
 	density = 0 //It is wall-mounted, and thus, not dense. --Superxpdude
 	vend_id = "meds"
 	products = list(
-		/obj/item/weapon/reagent_containers/hypospray/autoinjector = 5,
+		/obj/item/weapon/reagent_containers/hypospray/autoinjector/inaprovaline = 5,
 		/obj/item/weapon/reagent_containers/syringe/antitoxin = 3,
 		/obj/item/stack/medical/bruise_pack = 3,
 		/obj/item/stack/medical/ointment = 3,
@@ -474,6 +453,7 @@
 		/obj/item/seeds/chiliseed = 3,
 		/obj/item/seeds/cocoapodseed = 3,
 		/obj/item/seeds/cornseed = 3,
+		/obj/item/seeds/replicapod = 3,
 		/obj/item/seeds/earthenroot = 2,
 		/obj/item/seeds/eggplantseed = 3,
 		/obj/item/seeds/garlicseed = 3,
@@ -493,7 +473,6 @@
 		/obj/item/seeds/poppyseed = 3,
 		/obj/item/seeds/potatoseed = 3,
 		/obj/item/seeds/pumpkinseed = 3,
-		/obj/item/seeds/replicapod = 3,
 		/obj/item/seeds/riceseed = 3,
 		/obj/item/seeds/shandseed = 3,
 		/obj/item/seeds/soyaseed = 3,
@@ -507,9 +486,9 @@
 		/obj/item/seeds/whitebeetseed = 3
 	)
 	contraband = list(
+		/obj/item/seeds/ambrosiavulgarisseed = 3,
 		/obj/item/seeds/amanitamycelium = 3,
 		/obj/item/seeds/ambrosiadeusseed = 3,
-		/obj/item/seeds/ambrosiavulgarisseed = 3,
 		/obj/item/seeds/glowshroom = 3,
 		/obj/item/seeds/libertymycelium = 3,
 		/obj/item/seeds/nettleseed = 3,
@@ -528,6 +507,7 @@
 		/obj/item/seeds/chiliseed = 50,
 		/obj/item/seeds/cocoapodseed = 50,
 		/obj/item/seeds/cornseed = 30,
+		/obj/item/seeds/replicapod = 200,
 		/obj/item/seeds/earthenroot = 70,
 		/obj/item/seeds/eggplantseed = 30,
 		/obj/item/seeds/garlicseed = 30,
@@ -547,7 +527,7 @@
 		/obj/item/seeds/poppyseed = 10,
 		/obj/item/seeds/potatoseed = 30,
 		/obj/item/seeds/pumpkinseed = 40,
-		/obj/item/seeds/replicapod = 200,
+		/obj/item/seeds/reishimycelium = 30,
 		/obj/item/seeds/riceseed = 20,
 		/obj/item/seeds/shandseed = 60,
 		/obj/item/seeds/soyaseed = 40,
@@ -621,7 +601,7 @@
 		/obj/item/weapon/material/kitchen/utensil/knife = 6,
 		/obj/item/weapon/material/kitchen/utensil/spoon = 6,
 		/obj/item/weapon/material/knife = 2,
-		/obj/item/weapon/material/knife/butch = 2,
+		/obj/item/weapon/material/hatchet/butch = 2,
 		/obj/item/weapon/reagent_containers/food/drinks/drinkingglass = 8,
 		/obj/item/clothing/suit/chef/classic = 2,
 		/obj/item/weapon/material/kitchen/rollingpin = 2,
@@ -693,7 +673,7 @@
 	desc = "Spare tool vending. What? Did you expect some witty description?"
 	icon_state = "engivend"
 	icon_deny = "engivend-deny"
-	req_access = list(access_engine_equip)
+	req_access = list(access_engine)
 	vend_id = "tools"
 	products = list(
 		/obj/item/clothing/glasses/meson = 2,
@@ -754,7 +734,7 @@
 		/obj/item/ammo_magazine/c45x = 6,
 		/obj/item/ammo_magazine/a556 = 12,
 		/obj/item/ammo_magazine/a556/ap = 4,
-		/obj/item/weapon/material/hatchet/tacknife = 4,
+		/obj/item/weapon/material/knife/tacknife = 4,
 		/obj/item/device/firing_pin = 12
 	)
 	random_itemcount = 0

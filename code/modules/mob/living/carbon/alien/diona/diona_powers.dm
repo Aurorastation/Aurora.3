@@ -159,6 +159,10 @@
 	if(stat == DEAD || paralysis || weakened || stunned || restrained())
 		return
 
+	if(echo)
+		src << "<span class='notice'>Your host is still storing you as a nymphatic husk and preventing your departure.</span>"
+		return
+
 	if(!(istype(src.loc,/mob/living/carbon)))
 		src.verbs -= /mob/living/carbon/alien/diona/proc/split
 		return
@@ -310,3 +314,44 @@
 			break
 		return 1
 	..()
+
+/mob/living/carbon/proc/echo_eject()
+	set category = "Abilities"
+	set name = "Eject Echo"
+	set desc = "Eject any nymphatic husks."
+
+	if(stat == DEAD || paralysis || weakened || stunned || restrained())
+		return
+
+	var/energy
+
+	var/r = alert(src,"Do you choose to eject echoes as nymphs or energy?", "Identify Waste", "Energy", "Nymphs")
+	if (r == "Nymphs")
+		energy = 0
+	else if (r == "Energy")
+		energy = 1
+	else
+		return
+
+	for(var/mob/living/carbon/alien/diona/D in src)
+		if(D.mind && D.echo)
+			if(energy)
+				var/mob/living/simple_animal/shade/bluespace/BS = new /mob/living/simple_animal/shade/bluespace(get_turf(D))
+				to_chat(D, "<span class='danger'>You feel your nymphatic husk split as you are released again as pure energy!</span>")
+				D.mind.transfer_to(BS)
+				to_chat(BS, "<b>You are now a bluespace echo - consciousness imprinted upon wavelengths of bluespace energy. You currently retain no memories of your previous life, but do express a strong desire to return to corporeality. You will die soon, fading away forever. Good luck!</b>")
+				qdel(D)
+
+			else
+				src << span("warning", "You feel a pang of loss as [src] splits away from your biomass.")
+				D << "<span class='notice'>You wiggle out of the depths of [src.loc]'s biomass and plop to the ground.</span>"
+
+				if (D.gestalt.is_diona() == DIONA_NYMPH)
+					D.gestalt.adjustNutritionLoss(NYMPH_ABSORB_NUTRITION)
+
+				D.split_languages(D.gestalt)
+				D.forceMove(get_turf(src))
+				D.gestalt = null
+				D.update_verbs()
+
+	verbs.Remove(/mob/living/carbon/proc/echo_eject)

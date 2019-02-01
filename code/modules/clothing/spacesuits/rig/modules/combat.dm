@@ -216,7 +216,7 @@
 	interface_name = "mounted ion rifle"
 	interface_desc = "A shoulder-mounted cell-powered ion rifle."
 
-	gun_type = /obj/item/weapon/gun/energy/ionrifle/mounted
+	gun_type = /obj/item/weapon/gun/energy/rifle/ionrifle/mounted
 
 /obj/item/rig_module/mounted/plasmacutter
 	name = "hardsuit plasma cutter"

@@ -5,14 +5,14 @@
 	icon_state = "medium"
 	w_class = 3
 	size = CHASSIS_MEDIUM
-	modifier_cap = 2
+	modifier_cap = 4
 
 /obj/item/device/laser_assembly/large
 	name = "laser assembly (large)"
 	icon_state = "large"
 	w_class = 4
 	size = CHASSIS_LARGE
-	modifier_cap = 3
+	modifier_cap = 5
 
 /obj/item/device/laser_assembly/admin
 	name = "laser assembly (obscene)"
@@ -395,7 +395,7 @@
 /obj/item/laser_components/modulator/blaster
 	name = "blaster-bolt modulator"
 	desc = "Modulates the beam into firing disparate energy bolts."
-	projectile = /obj/item/projectile/energy/blaster
+	projectile = /obj/item/projectile/energy/blaster/incendiary
 	icon_state = "lensatic"
 
 /obj/item/laser_components/modulator/bfg

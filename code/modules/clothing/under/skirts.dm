@@ -15,6 +15,24 @@
 	icon_state = "skirt_khaki"
 	worn_state = "skirt_khaki"
 
+/obj/item/clothing/under/skirt/casual
+	name = "casual skirt"
+	desc = "A short, colorful skirt."
+	icon_state = "skirt_casual"
+	worn_state = "skirt_casual"
+
+/obj/item/clothing/under/skirt/long
+	name = "long skirt"
+	desc = "A long, modest skirt."
+	icon_state = "skirt_long"
+	worn_state = "skirt_long"
+
+/obj/item/clothing/under/skirt/pencil
+	name = "pencil skirt"
+	desc = "A professional-looking pencil skirt."
+	icon_state = "skirt_pencil"
+	worn_state = "skirt_pencil"
+
 /obj/item/clothing/under/skirt/short_black
 	name = "short black skirt"
 	desc = "A skirt that is a shiny black."

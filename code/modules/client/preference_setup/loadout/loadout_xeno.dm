@@ -1,31 +1,33 @@
+//Catagories; Xenowear - Unathi / Xenowear - Tajara  / Xenowear - Skrell / Xenowear - Vaurca / Xenowear - IPC / Xeno wear
+
 //unathi items
 
 /datum/gear/suit/unathi_mantle
 	display_name = "hide mantle (Unathi)"
 	path = /obj/item/clothing/suit/unathi/mantle
 	cost = 1
-	whitelisted = list("Unathi")
-	sort_category = "Xenowear"
+	whitelisted = list("Unathi", "Aut'akh Unathi")
+	sort_category = "Xenowear - Unathi"
 
 /datum/gear/suit/unathi_robe
 	display_name = "roughspun robe (Unathi)"
 	path = /obj/item/clothing/suit/unathi/robe
 	cost = 1
-	whitelisted = list("Unathi")
-	sort_category = "Xenowear"
+	whitelisted = list("Unathi", "Aut'akh Unathi")
+	sort_category = "Xenowear - Unathi"
 
 /datum/gear/suit/robe_coat
 	display_name = "tzirzi robe (Unathi)"
 	path = /obj/item/clothing/suit/unathi/robe/robe_coat
 	cost = 1
-	whitelisted = list("Unathi")
-	sort_category = "Xenowear"
+	whitelisted = list("Unathi", "Aut'akh Unathi")
+	sort_category = "Xenowear - Unathi"
 
 /datum/gear/gloves/unathi
 	display_name = "gloves selection (Unathi)"
 	path = /obj/item/clothing/gloves/black/unathi
-	whitelisted = list("Unathi")
-	sort_category = "Xenowear"
+	whitelisted = list("Unathi", "Aut'akh Unathi")
+	sort_category = "Xenowear - Unathi"
 
 /datum/gear/gloves/unathi/New()
 	..()
@@ -43,51 +45,121 @@
 /datum/gear/uniform/unathi
 	display_name = "sinta tunic (Unathi)"
 	path = /obj/item/clothing/under/unathi
-	whitelisted = list("Unathi")
-	sort_category = "Xenowear"
+	whitelisted = list("Unathi", "Aut'akh Unathi")
+	sort_category = "Xenowear - Unathi"
 
 /datum/gear/uniform/unathi/New()
 	..()
 	gear_tweaks = list(gear_tweak_free_color_choice)
 
-//skrell items
+/datum/gear/autakh_engineering
+	display_name = "engineering grasper (Aut'akh Unathi)"
+	description = "An Aut'akh augment limb, this one is outfitted with a limited toolkit."
+	path = /obj/item/organ/external/hand/right/autakh/tool
+	whitelisted = list("Aut'akh Unathi")
+	sort_category = "Xenowear - Unathi"
+	cost = 3
+	allowed_roles = list("Station Engineer", "Chief Engineer", "Atmospheric Technician", "Engineering Apprentice", "Roboticist")
 
-/datum/gear/ears/f_skrell
-	display_name = "headtail-wear, female (Skrell)"
+/datum/gear/autakh_engineering
+	display_name = "mining grasper (Aut'akh Unathi)"
+	description = "An Aut'akh augment limb, this one is outfitted with a mining drill."
+	path = /obj/item/organ/external/hand/right/autakh/tool/mining
+	whitelisted = list("Aut'akh Unathi")
+	sort_category = "Xenowear - Unathi"
+	cost = 3
+	allowed_roles = list("Shaft Miner")
+
+/datum/gear/autakh_medical
+	display_name = "medical grasper (Aut'akh Unathi)"
+	description = "An Aut'akh augment limb, this one is outfitted with a health scanner."
+	path = /obj/item/organ/external/hand/right/autakh/medical
+	whitelisted = list("Aut'akh Unathi")
+	sort_category = "Xenowear - Unathi"
+	cost = 3
+	allowed_roles = list("Chief Medical Officer", "Medical Doctor", "Paramedic", "Medical Resident", "Psychiatrist", "Chemist")
+
+/datum/gear/autakh_security
+	display_name = "security grasper (Aut'akh Unathi)"
+	description = "An Aut'akh augment limb, this one is outfitted with an electroshock weapon."
+	path = /obj/item/organ/external/hand/right/autakh/security
+	whitelisted = list("Aut'akh Unathi")
+	sort_category = "Xenowear - Unathi"
+	cost = 3
+	allowed_roles = list("Security Officer", "Head of Security", "Warden")
+
+//skrell
+
+/datum/gear/ears/skrell/chains	//Chains
+	display_name = "headtail chain selection (Skrell)"
 	path = /obj/item/clothing/ears/skrell/chain
-	sort_category = "Xenowear"
+	sort_category = "Xenowear - Skrell"
 	whitelisted = list("Skrell")
 
-/datum/gear/ears/f_skrell/New()
+/datum/gear/ears/skrell/chains/New()
 	..()
-	var/f_chains = list()
-	f_chains["headtail chains"] = /obj/item/clothing/ears/skrell/chain
-	f_chains["headtail cloth"] = /obj/item/clothing/ears/skrell/cloth_female
-	f_chains["red-jeweled chain"] = /obj/item/clothing/ears/skrell/redjewel_chain
-	f_chains["ebony chain"] = /obj/item/clothing/ears/skrell/ebony_chain
-	f_chains["blue-jeweled chain"] = /obj/item/clothing/ears/skrell/bluejeweled_chain
-	f_chains["silver chain"] = /obj/item/clothing/ears/skrell/silver_chain
-	f_chains["blue cloth"] = /obj/item/clothing/ears/skrell/blue_skrell_cloth_band_female
-	gear_tweaks += new/datum/gear_tweak/path(f_chains)
+	var/list/chaintypes = list()
+	for(var/chain_style in typesof(/obj/item/clothing/ears/skrell/chain))
+		var/obj/item/clothing/ears/skrell/chain/chain = chain_style
+		chaintypes[initial(chain.name)] = chain
+	gear_tweaks += new/datum/gear_tweak/path(sortAssoc(chaintypes))
 
-/datum/gear/ears/m_skrell
-	display_name = "headtail-wear, male (Skrell)"
+/datum/gear/ears/skrell/bands
+	display_name = "headtail band selection (Skrell)"
 	path = /obj/item/clothing/ears/skrell/band
-	sort_category = "Xenowear"
+	sort_category = "Xenowear - Skrell"
 	whitelisted = list("Skrell")
 
-/datum/gear/ears/m_skrell/New()
+/datum/gear/ears/skrell/bands/New()
 	..()
-	var/m_chains = list()
-	m_chains["headtail bands"] = /obj/item/clothing/ears/skrell/band
-	m_chains["headtail cloth"] = /obj/item/clothing/ears/skrell/cloth_male
-	m_chains["red-jeweled bands"] = /obj/item/clothing/ears/skrell/redjeweled_band
-	m_chains["ebony bands"] = /obj/item/clothing/ears/skrell/ebony_band
-	m_chains["blue-jeweled bands"] = /obj/item/clothing/ears/skrell/bluejeweled_band
-	m_chains["silver bands"] = /obj/item/clothing/ears/skrell/silver_band
-	m_chains["blue cloth"] = /obj/item/clothing/ears/skrell/blue_skrell_cloth_band_male
-	m_chains["purple cloth"] = /obj/item/clothing/ears/skrell/purple_skrell_cloth_male
-	gear_tweaks += new/datum/gear_tweak/path(m_chains)
+	var/list/bandtypes = list()
+	for(var/band_style in typesof(/obj/item/clothing/ears/skrell/band))
+		var/obj/item/clothing/ears/skrell/band/band = band_style
+		bandtypes[initial(band.name)] = band
+	gear_tweaks += new/datum/gear_tweak/path(sortAssoc(bandtypes))
+
+/datum/gear/ears/skrell/cloth/short
+	display_name = "short headtail cloth (Skrell)"
+	path = /obj/item/clothing/ears/skrell/cloth_short/black
+	sort_category = "Xenowear - Skrell"
+	whitelisted = list("Skrell")
+
+/datum/gear/ears/skrell/cloth/short/New()
+	..()
+	var/list/shorttypes = list()
+	for(var/short_style in typesof(/obj/item/clothing/ears/skrell/cloth_short))
+		var/obj/item/clothing/ears/skrell/cloth_short/short = short_style
+		shorttypes[initial(short.name)] = short
+	gear_tweaks += new/datum/gear_tweak/path(sortAssoc(shorttypes))
+
+/datum/gear/ears/skrell/cloth/average
+	display_name = "average headtail cloth (Skrell)"
+	path = /obj/item/clothing/ears/skrell/cloth_average/black
+	sort_category = "Xenowear - Skrell"
+	whitelisted = list("Skrell")
+
+/datum/gear/ears/skrell/cloth/average/New()
+	..()
+	var/list/averagetypes = list()
+	for(var/average_style in typesof(/obj/item/clothing/ears/skrell/cloth_average))
+		var/obj/item/clothing/ears/skrell/cloth_average/average = average_style
+		averagetypes[initial(average.name)] = average
+	gear_tweaks += new/datum/gear_tweak/path(sortAssoc(averagetypes))
+
+/datum/gear/accessory/capes
+	display_name = "shoulder capes (Skrell)"
+	path = /obj/item/clothing/accessory/poncho/shouldercape
+	whitelisted = list("Skrell")
+	sort_category = "Xenowear - Skrell"
+
+/datum/gear/accessory/capes/New()
+	..()
+	var/capes = list()
+	capes["star cape"] = /obj/item/clothing/accessory/poncho/shouldercape/star
+	capes["nebula cape"] = /obj/item/clothing/accessory/poncho/shouldercape/nebula
+	capes["nova cape"] = /obj/item/clothing/accessory/poncho/shouldercape/nova
+	capes["galaxy cape"] = /obj/item/clothing/accessory/poncho/shouldercape/galaxy
+	gear_tweaks += new/datum/gear_tweak/path(capes)
 
 //vaurca items
 
@@ -96,21 +168,21 @@
 	path = /obj/item/clothing/glasses/sunglasses/blinders
 	cost = 2
 	whitelisted = list("Vaurca Worker", "Vaurca Warrior")
-	sort_category = "Xenowear"
+	sort_category = "Xenowear - Vaurca"
 
 /datum/gear/mask/vaurca
 	display_name = "mandible garment (Vaurca)"
 	path = /obj/item/clothing/mask/breath/vaurca
 	cost = 1
 	whitelisted = list("Vaurca Worker", "Vaurca Warrior",)
-	sort_category = "Xenowear"
+	sort_category = "Xenowear - Vaurca"
 
 /datum/gear/mask/vaurca_expression
 	display_name = "human expression mask (Vaurca)"
 	path = /obj/item/clothing/mask/breath/vaurca/expression
 	cost = 1
 	whitelisted = list("Vaurca Worker", "Vaurca Warrior",)
-	sort_category = "Xenowear"
+	sort_category = "Xenowear - Vaurca"
 
 /datum/gear/mask/vaurca_expression/New()
 	..()
@@ -125,14 +197,14 @@
 	path = /obj/item/weapon/storage/backpack/cloak
 	cost = 1
 	whitelisted = list("Vaurca Worker", "Vaurca Warrior",)
-	sort_category = "Xenowear"
+	sort_category = "Xenowear - Vaurca"
 
 /datum/gear/vaurca_robe
 	display_name = "hive cloak (Vaurca)"
 	path = /obj/item/clothing/suit/vaurca
 	cost = 1
 	whitelisted = list("Vaurca Worker", "Vaurca Warrior",)
-	sort_category = "Xenowear"
+	sort_category = "Xenowear - Vaurca"
 
 /datum/gear/vaurca_robe/New()
 	..()
@@ -149,7 +221,7 @@
 	display_name = "gloves selection (Tajara)"
 	path = /obj/item/clothing/gloves/black/tajara
 	whitelisted = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
-	sort_category = "Xenowear"
+	sort_category = "Xenowear - Tajara"
 
 /datum/gear/gloves/tajara/New()
 	..()
@@ -168,7 +240,7 @@
 	display_name = "tajara coat selection (Tajara)"
 	path = /obj/item/clothing/suit/storage/tajaran
 	whitelisted = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
-	sort_category = "Xenowear"
+	sort_category = "Xenowear - Tajara"
 
 /datum/gear/suit/tajara_coat/New()
 	..()
@@ -184,7 +256,7 @@
 	display_name = "tajara priest robe selection (Tajara)"
 	path = /obj/item/clothing/suit/storage/hooded/tajaran/priest
 	whitelisted = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
-	sort_category = "Xenowear"
+	sort_category = "Xenowear - Tajara"
 
 /datum/gear/suit/tajara_priest/New()
 	..()
@@ -198,13 +270,13 @@
 	path = /obj/item/clothing/suit/storage/toggle/labcoat/tajaran
 	whitelisted = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
 	allowed_roles = list("Chief Medical Officer", "Medical Doctor", "Chemist", "Geneticist", "Paramedic", "Medical Resident")
-	sort_category = "Xenowear"
+	sort_category = "Xenowear - Tajara"
 
 /datum/gear/uniform/tajara
 	display_name = "tajaran uniform selection (Tajara)"
 	path = /obj/item/clothing/under/tajaran
 	whitelisted = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
-	sort_category = "Xenowear"
+	sort_category = "Xenowear - Tajara"
 
 /datum/gear/uniform/tajara/New()
 	..()
@@ -218,7 +290,7 @@
 	display_name = "tajaran dress selection (Tajara)"
 	path = /obj/item/clothing/under/dress/tajaran
 	whitelisted = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
-	sort_category = "Xenowear"
+	sort_category = "Xenowear - Tajara"
 
 /datum/gear/uniform/tajara_dress/New()
 	..()
@@ -235,7 +307,7 @@
 	display_name = "fur scarf (Tajara)"
 	path = /obj/item/clothing/accessory/tajaran
 	whitelisted = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
-	sort_category = "Xenowear"
+	sort_category = "Xenowear - Tajara"
 
 /datum/gear/accessory/tajara/New()
 	..()
@@ -255,7 +327,7 @@
 	display_name = "adhomian headgear selection (Tajara)"
 	path = /obj/item/clothing/head/tajaran/circlet
 	whitelisted = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
-	sort_category = "Xenowear"
+	sort_category = "Xenowear - Tajara"
 
 /datum/gear/head/tajara/New()
 	..()
@@ -269,7 +341,7 @@
 	display_name = "marriage wrap (Tajara)"
 	path = /obj/item/clothing/accessory/tajaran_wrap
 	whitelisted = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
-	sort_category = "Xenowear"
+	sort_category = "Xenowear - Tajara"
 
 /datum/gear/accessory/tajara_wrap/New()
 	..()
@@ -282,19 +354,19 @@
 	display_name = "ceremonial pelt (Tajara)"
 	path = /obj/item/clothing/accessory/tajaran_pelt
 	whitelisted = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
-	sort_category = "Xenowear"
+	sort_category = "Xenowear - Tajara"
 
 /datum/gear/mask/tajara
 	display_name = "sun sister veil (Tajara)"
 	path = /obj/item/clothing/mask/tajara
 	cost = 1
 	whitelisted = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
-	sort_category = "Xenowear"
+	sort_category = "Xenowear - Tajara"
 
 /datum/gear/shoes/tajara
 	display_name = "native tajaran foot-wear"
 	path = /obj/item/clothing/shoes/tajara
-	sort_category = "Xenowear"
+	sort_category = "Xenowear - Tajara"
 	whitelisted = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
 
 //other things
@@ -322,3 +394,104 @@
 	path = /obj/item/clothing/shoes/workboots/toeless
 	sort_category = "Xenowear"
 	whitelisted = list("Vaurca Worker", "Vaurca Warrior", "Unathi", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
+
+/datum/gear/shoes/caligae
+	display_name = "caligae"
+	path = /obj/item/clothing/shoes/caligae
+	whitelisted = list("Unathi", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
+	sort_category = "Xenowear"
+
+/datum/gear/shoes/caligae/New()
+	..()
+	var/caligae = list()
+	caligae["no sock"] = /obj/item/clothing/shoes/caligae
+	caligae["black sock"] = /obj/item/clothing/shoes/caligae/black
+	caligae["grey sock"] = /obj/item/clothing/shoes/caligae/grey
+	caligae["white sock"] = /obj/item/clothing/shoes/caligae/white
+	gear_tweaks += new/datum/gear_tweak/path(caligae)
+
+//ipc stuff
+
+/datum/gear/head/goldenchains
+	display_name = "golden deep headchains (Machine)"
+	path = /obj/item/clothing/head/headchain
+	cost = 1
+	whitelisted = list("Baseline Frame", "Hephaestus G1 Industrial Frame", "Hephaestus G2 Industrial Frame", "Xion Industrial Frame", "Zeng-Hu Mobility Frame", "Bishop Accessory Frame", "Shell Frame")
+	sort_category = "Xenowear - IPC"
+
+/datum/gear/head/goldenchains/New()
+	..()
+	var/headchains = list()
+	headchains["head chains, cobalt"] = /obj/item/clothing/head/headchain
+	headchains["head chains, emerald"] = /obj/item/clothing/head/headchain/emerald
+	headchains["head chains, ruby"] = /obj/item/clothing/head/headchain/ruby
+	gear_tweaks += new/datum/gear_tweak/path(headchains)
+
+/datum/gear/head/goldencrests
+	display_name = "golden deep crests (Machine)"
+	path = /obj/item/clothing/head/crest
+	cost = 1
+	whitelisted = list("Baseline Frame", "Hephaestus G1 Industrial Frame", "Hephaestus G2 Industrial Frame", "Xion Industrial Frame", "Zeng-Hu Mobility Frame", "Bishop Accessory Frame", "Shell Frame")
+	sort_category = "Xenowear - IPC"
+
+/datum/gear/head/goldencrests/New()
+	..()
+	var/crest = list()
+	crest["crest, cobalt"] = /obj/item/clothing/head/crest
+	crest["crest, emerald"] = /obj/item/clothing/head/crest/emerald
+	crest["crest, ruby"] = /obj/item/clothing/head/crest/ruby
+	gear_tweaks += new/datum/gear_tweak/path(crest)
+
+/datum/gear/gloves/armchains
+	display_name = "golden deep armchains (Machine)"
+	path = /obj/item/clothing/gloves/armchain
+	cost = 1
+	whitelisted = list("Baseline Frame", "Hephaestus G1 Industrial Frame", "Hephaestus G2 Industrial Frame", "Xion Industrial Frame", "Zeng-Hu Mobility Frame", "Bishop Accessory Frame", "Shell Frame")
+	sort_category = "Xenowear - IPC"
+
+/datum/gear/gloves/armchains/New()
+	..()
+	var/armchains = list()
+	armchains["arm chains, cobalt"] = /obj/item/clothing/gloves/armchain
+	armchains["arm chains, emerald"] = /obj/item/clothing/gloves/armchain/emerald
+	armchains["arm chains, ruby"] = /obj/item/clothing/gloves/armchain/ruby
+	gear_tweaks += new/datum/gear_tweak/path(armchains)
+
+/datum/gear/gloves/bracers
+	display_name = "golden deep bracers (Machine)"
+	path = /obj/item/clothing/gloves/goldbracer
+	cost = 1
+	whitelisted = list("Baseline Frame", "Hephaestus G1 Industrial Frame", "Hephaestus G2 Industrial Frame", "Xion Industrial Frame", "Zeng-Hu Mobility Frame", "Bishop Accessory Frame", "Shell Frame")
+	sort_category = "Xenowear - IPC"
+
+/datum/gear/gloves/bracers/New()
+	..()
+	var/bracers = list()
+	bracers["arm chains, cobalt"] = /obj/item/clothing/gloves/goldbracer
+	bracers["arm chains, emerald"] = /obj/item/clothing/gloves/goldbracer/emerald
+	bracers["arm chains, ruby"] = /obj/item/clothing/gloves/goldbracer/ruby
+	gear_tweaks += new/datum/gear_tweak/path(bracers)
+
+/datum/gear/ears/antennae
+	display_name = "antennae (Machine)"
+	path = /obj/item/clothing/head/antenna
+	cost = 1
+	whitelisted = list("Baseline Frame", "Hephaestus G1 Industrial Frame", "Hephaestus G2 Industrial Frame", "Xion Industrial Frame", "Zeng-Hu Mobility Frame", "Bishop Accessory Frame", "Shell Frame")
+	sort_category = "Xenowear - IPC"
+
+/datum/gear/ears/antennae/New()
+	..()
+	var/antenna = list()
+	antenna["antenna, curved"] = /obj/item/clothing/head/antenna
+	antenna["antenna, straight"] = /obj/item/clothing/head/antenna/straight
+	antenna["antenna, spiked"] = /obj/item/clothing/head/antenna/spiked
+	antenna["antenna, side"] = /obj/item/clothing/head/antenna/side
+	antenna["antenna, dish"] = /obj/item/clothing/head/antenna/dish
+	gear_tweaks += new/datum/gear_tweak/path(antenna)
+
+/datum/gear/ears/headlights
+	display_name = "headlights (Machine)"
+	path = /obj/item/device/flashlight/headlights
+	cost = 2
+	whitelisted = list("Baseline Frame", "Hephaestus G1 Industrial Frame", "Hephaestus G2 Industrial Frame", "Xion Industrial Frame", "Zeng-Hu Mobility Frame", "Bishop Accessory Frame", "Shell Frame")
+	sort_category = "Xenowear - IPC"

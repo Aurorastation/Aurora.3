@@ -11,7 +11,7 @@
 
 	fire_dam_coeff = 0.6
 	brute_dam_coeff = 0.5
-	var/list/validfirelocations = list(7) // 7 Is above the station.
+	var/list/validfirelocations = list(1, 7) // above the station and at the centcomm z-level.
 
 	var/used = 0
 
@@ -39,7 +39,7 @@
 /obj/vehicle/droppod/load(var/mob/C) // this won't call the parent proc due to the differences and the fact it doesn't use load. Also only mobs can be loaded.
 	if(!ismob(C))
 		return 0
-	if(!isturf(C.loc)) 
+	if(!isturf(C.loc))
 		return 0
 	if((humanload && passenger) || C.anchored)
 		return 0

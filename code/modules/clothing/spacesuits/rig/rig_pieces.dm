@@ -15,8 +15,10 @@
 		"Tajara" = 'icons/mob/species/tajaran/helmet.dmi',
 		"Skrell" = 'icons/mob/species/skrell/helmet.dmi',
 		"Unathi" = 'icons/mob/species/unathi/helmet.dmi',
-		"Machine" = 'icons/mob/species/machine/helmet.dmi'
-		)
+		"Vaurca" = 'icons/mob/species/vaurca/helmet.dmi',
+		"Machine" = 'icons/mob/species/machine/helmet.dmi',
+		"Vox" = 'icons/mob/species/vox/head.dmi'
+	)
 	species_restricted = list("exclude","Diona","Xenomorph","Vaurca","Golem", "Vox")
 
 /obj/item/clothing/gloves/rig
@@ -28,6 +30,13 @@
 	species_restricted = null
 	gender = PLURAL
 	punch_force = 5
+	sprite_sheets = list(
+		"Tajara" = 'icons/mob/species/tajaran/gloves.dmi',
+		"Unathi" = 'icons/mob/species/unathi/gloves.dmi',
+		"Vaurca" = 'icons/mob/species/vaurca/gloves.dmi',
+		"Machine" = 'icons/mob/species/machine/gloves.dmi',
+		"Vox" = 'icons/mob/species/vox/gloves.dmi'
+	)
 
 /obj/item/clothing/shoes/magboots/rig
 	name = "boots"
@@ -37,6 +46,13 @@
 	species_restricted = null
 	gender = PLURAL
 	icon_base = null
+	sprite_sheets = list(
+		"Tajara" = 'icons/mob/species/tajaran/shoes.dmi',
+		"Unathi" = 'icons/mob/species/unathi/shoes.dmi',
+		"Vaurca" = 'icons/mob/species/vaurca/shoes.dmi',
+		"Machine" = 'icons/mob/species/machine/shoes.dmi',
+		"Vox" = 'icons/mob/species/vox/shoes.dmi'
+	)
 
 /obj/item/clothing/suit/space/rig
 	name = "chestpiece"
@@ -54,7 +70,9 @@
 	sprite_sheets = list(
 		"Tajara" = 'icons/mob/species/tajaran/suit.dmi',
 		"Unathi" = 'icons/mob/species/unathi/suit.dmi',
-		"Machine" = 'icons/mob/species/machine/suit.dmi'
+		"Vaurca" = 'icons/mob/species/vaurca/suit.dmi',
+		"Machine" = 'icons/mob/species/machine/suit.dmi',
+		"Vox" = 'icons/mob/species/vox/suit.dmi'
 		)
 	species_restricted = list("exclude","Diona","Xenomorph","Golem","Vaurca","Vox")
 

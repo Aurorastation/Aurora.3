@@ -49,7 +49,7 @@
 			atype = alert(user, "Do you want to fill \the [RG] at \the [src]?", "Fill", "Fill", "Cancel")
 
 		if(!user.Adjacent(src)) return
-		if(RG.loc != user) return
+		if(RG.loc != user && !isrobot(user)) return
 
 		switch(atype)
 			if ("Fill")
@@ -61,7 +61,7 @@
 					to_chat(user,"<span class='notice'>The top cap is wrenched on tight!</span>")
 		return
 
-	if (iswrench(O))
+	if (O.iswrench())
 		if(can_tamper && user.a_intent == I_HURT)
 			user.visible_message("<span class='warning'>\The [user] wrenches \the [src]'s faucet [is_leaking ? "closed" : "open"].</span>","<span class='warning'>You wrench \the [src]'s faucet [is_leaking ? "closed" : "open"]</span>")
 			is_leaking = !is_leaking
@@ -254,7 +254,7 @@
 	reagents.add_reagent("water",capacity)
 
 /obj/structure/reagent_dispensers/water_cooler/attackby(obj/item/weapon/W as obj, mob/user as mob)
-	if (isscrewdriver(W))
+	if (W.isscrewdriver())
 		src.add_fingerprint(user)
 		playsound(src.loc, 'sound/items/Ratchet.ogg', 100, 1)
 		if(do_after(user, 20))
