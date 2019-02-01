@@ -195,7 +195,6 @@
 	set src in usr
 	if(!use_check(usr))
 		return 0
-
 	if(icon_state == icon_open)
 		icon_state = icon_closed
 		item_state = icon_closed
