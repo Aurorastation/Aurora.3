@@ -468,9 +468,9 @@ other types of metals and chemistry for reagents).
 	sort_string = "VABAC"
 
 /datum/design/item/ear_translator_all
-  name = "earpiece omni-translator"
-  id = "ear_translator_all"
-  req_tech = list(TECH_DATA = 5, TECH_ENGINEERING = 6)
-  materials = list(DEFAULT_WALL_MATERIAL = 2000, "glass" = 2000, "gold" = 2000, "silver" = 2000, "diamond" = 1000)
-  build_path = /obj/item/device/universal_translator/ear/all
-  sort_string = "VABAA"
+	name = "earpiece omni-translator"
+	id = "ear_translator_all"
+	req_tech = list(TECH_DATA = 5, TECH_ENGINEERING = 6)
+	materials = list(DEFAULT_WALL_MATERIAL = 2000, "glass" = 2000, "gold" = 2000, "silver" = 2000, "diamond" = 1000)
+	build_path = /obj/item/device/universal_translator/ear/all
+	sort_string = "VABAA"
