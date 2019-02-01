@@ -51,7 +51,7 @@
 	set category = "Object"
 	set src in usr
 
-	if(!usr.canmove || usr.stat || usr.restrained())
+	if(!can_use(usr))
 		return 0
 
 	if(!suittoggled)
