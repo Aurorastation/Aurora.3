@@ -58,10 +58,10 @@
 		if(ishuman(loc))
 			var/mob/living/carbon/human/H = src.loc
 			if(H.wear_suit != src)
-				H << "<span class='warning'>You must be wearing [src] to put up the hood!</span>"
+				to_chat(H, "<span class='warning'>You must be wearing [src] to put up the hood!</span>")
 				return
 			if(H.head)
-				H << "<span class='warning'>You're already wearing something on your head!</span>"
+				to_chat(H, "<span class='warning'>You're already wearing something on your head!</span>")
 				return
 			else
 				H.equip_to_slot_if_possible(hood,slot_head,0,0,1)
@@ -191,7 +191,7 @@
 	set name = "Toggle Coat Buttons"
 	set category = "Object"
 	set src in usr
-	if(!usr.canmove || usr.stat || usr.restrained())
+	if(!can_use(usr))
 		return 0
 
 	if(icon_state == icon_open)
@@ -211,17 +211,17 @@
 	set category = "Object"
 	set src in usr
 
-	if(!usr.canmove || usr.stat || usr.restrained())
+	if(!can_use(usr))
 		return 0
 
 	if(!suittoggled)
 		if(ishuman(loc))
 			var/mob/living/carbon/human/H = src.loc
 			if(H.wear_suit != src)
-				H << "<span class='warning'>You must be wearing [src] to put up the hood!</span>"
+				to_chat(H, "<span class='warning'>You must be wearing [src] to put up the hood!</span>")
 				return
 			if(H.head)
-				H << "<span class='warning'>You're already wearing something on your head!</span>"
+				to_chat(H, "<span class='warning'>You're already wearing something on your head!</span>")
 				return
 			else
 				H.equip_to_slot_if_possible(hood,slot_head,0,0,1)
