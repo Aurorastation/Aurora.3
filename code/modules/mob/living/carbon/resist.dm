@@ -115,13 +115,16 @@
 			buckle_message_user = " and unbuckle yourself"
 			buckle_message_other = " and to unbuckle themself"
 			buckled.user_unbuckle_mob(src)
-
+		
 		if(violent_removal)
 			var/obj/item/organ/external/E = H.get_organ(pick("l_arm","r_arm"))
-			E.dislocate(1)
+			var/dislocate_message = ""
+			if(E && !E.is_dislocated())
+				E.dislocate(1)
+				dislocate_message = ", but dislocate your [E] in the process"
 			visible_message(
 				"<span class='danger'>\The [src] manages to remove \the [handcuffed][buckle_message_other]!</span>",
-				"<span class='notice'>You successfully remove \the [handcuffed][buckle_message_user], but dislocate your [E] in the process.</span>"
+				"<span class='notice'>You successfully remove \the [handcuffed][buckle_message_user][dislocate_message].</span>"
 				)
 		else
 			visible_message(
