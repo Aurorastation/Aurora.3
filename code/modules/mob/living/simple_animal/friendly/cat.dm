@@ -8,7 +8,7 @@
 	icon_dead = "cat2_dead"
 	icon_rest = "cat2_rest"
 	can_nap = 1
-	has_langs = list("Cat")
+	has_langs = list(LANGUAGE_CAT)
 	speak = list("Meow!","Esp!","Purr!","HSSSSS")
 	speak_emote = list("purrs", "meows")
 	emote_hear = list("meows","mews")

@@ -34,7 +34,7 @@
 	max_n2 = 0
 	minbodytemp = 0
 
-	has_langs = list("Mouse")
+	has_langs = list(LANGUAGE_MOUSE)
 
 	environment_smash = 1
 

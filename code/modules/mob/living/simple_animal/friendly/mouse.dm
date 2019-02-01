@@ -10,7 +10,7 @@
 	icon_dead = "mouse_gray_dead"
 	icon_rest = "mouse_gray_sleep"
 	can_nap = 1
-	has_langs = list("Mouse")
+	has_langs = list(LANGUAGE_MOUSE)
 	speak = list("Squeek!","SQUEEK!","Squeek?")
 	speak_emote = list("squeeks","squeeks","squiks")
 	emote_hear = list("squeeks","squeaks","squiks")

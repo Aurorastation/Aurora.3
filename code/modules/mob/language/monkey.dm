@@ -38,7 +38,7 @@
 	machine_understands = FALSE
 
 /datum/language/corgi
-	name = "Dog"
+	name = LANGUAGE_DOG
 	desc = "Woof woof woof."
 	speech_verb = "barks"
 	ask_verb = "woofs"
@@ -50,7 +50,7 @@
 	machine_understands = FALSE
 
 /datum/language/cat
-	name = "Cat"
+	name = LANGUAGE_CAT
 	desc = "Meow meow meow."
 	speech_verb = "meows"
 	ask_verb = "mrowls"
@@ -62,7 +62,7 @@
 	machine_understands = FALSE
 
 /datum/language/mouse
-	name = "Mouse"
+	name = LANGUAGE_MOUSE
 	desc = "Squeak squeak. *Nibbles on cheese*"
 	speech_verb = "squeaks"
 	ask_verb = "squeaks"
@@ -74,7 +74,7 @@
 	machine_understands = FALSE
 
 /datum/language/bird
-	name = "Bird"
+	name = LANGUAGE_BIRD
 	desc = "Chirp chirp, give me food"
 	speech_verb = "chirps"
 	ask_verb = "tweets"

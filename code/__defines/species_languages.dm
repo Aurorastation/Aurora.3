@@ -68,6 +68,10 @@
 #define LANGUAGE_STOK "Stok"				// unathi
 #define LANGUAGE_FARWA "Farwa"				// tajara
 #define LANGUAGE_BUG "V'krexi"				// vaurca
+#define LANGUAGE_CAT "Cat"					// cat
+#define LANGUAGE_BIRD "Bird"				// bird
+#define LANGUAGE_MOUSE "Mouse"				// squeak
+#define LANGUAGE_DOG "Dog"					// dog
 
 // Synth Languages
 #define LANGUAGE_ROBOT "Robot Talk"
