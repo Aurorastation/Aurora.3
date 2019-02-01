@@ -35,7 +35,8 @@
 	var/_wifi_id
 	var/datum/wifi/receiver/button/door/wifi_receiver
 
-	var/securitylock = 0
+	var/securitylock = FALSE
+	var/is_critical = FALSE
 
 /obj/machinery/door/blast/Initialize()
 	. = ..()
@@ -182,15 +183,17 @@
 
 /obj/machinery/door/blast/power_change()
 	..()
-	if(src.operating || (stat & BROKEN))
+	if(src.operating || (stat & BROKEN) || is_critical)
 		return
 	if(stat & NOPOWER)
 		INVOKE_ASYNC(src, /obj/machinery/door/blast/.proc/force_close)
-		securitylock = 1
+		securitylock = TRUE
 	else if(securitylock)
 		INVOKE_ASYNC(src, /obj/machinery/door/blast/.proc/force_open)
-		securitylock = 0
+		securitylock = FALSE
 
+/obj/machinery/door/blast/attack_hand(mob/user as mob)
+	return
 
 // SUBTYPE: Regular
 // Your classical blast door, found almost everywhere.

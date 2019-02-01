@@ -111,10 +111,6 @@
 	recoil = 1
 	silenced = 1
 	fire_sound = 'sound/weapons/Gunshot_light.ogg'
-	handle_casings = HOLD_CASINGS
-	load_method = SINGLE_CASING
-	magazine_type = null
-	allowed_magazines = list(/obj/item/ammo_magazine/tranq)
 	max_shells = 4
 	ammo_type = null
 	accuracy = -3
