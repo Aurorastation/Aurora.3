@@ -19,6 +19,7 @@
 	colour = "alien"
 	key = "a"
 	flags = RESTRICTED | HIVEMIND
+	machine_understands = FALSE
 
 /datum/language/xenos/check_special_condition(var/mob/other)
 
@@ -37,6 +38,7 @@
 	colour = "changeling"
 	key = "g"
 	flags = RESTRICTED | HIVEMIND
+	machine_understands = FALSE
 
 /datum/language/ling/broadcast(var/mob/living/speaker,var/message,var/speaker_mask)
 
@@ -54,6 +56,7 @@
 	colour = "alien"
 	key = "x"
 	flags = RESTRICTED | HIVEMIND
+	machine_understands = FALSE
 
 /datum/language/corticalborer/broadcast(var/mob/living/speaker,var/message,var/speaker_mask)
 
@@ -119,6 +122,7 @@
 	colour = "cult"
 	key = "y"
 	flags = RESTRICTED | HIVEMIND
+	machine_understands = FALSE
 
 /datum/language/terminator
 	name = LANGUAGE_TERMINATOR
@@ -131,6 +135,7 @@
 	flags = RESTRICTED | HIVEMIND
 	syllables = list("beep","beep","beep","beep","beep","boop","boop","boop","bop","bop","dee","dee","doo","doo","hiss","hss","buzz","buzz","bzz","ksssh","keey","wurr","wahh","tzzz")
 	space_chance = 10
+	machine_understands = FALSE
 
 /datum/language/terminator/get_random_name()
 	return "HK [pick(list("Hera","Zeus","Artemis","Athena","Ares","Hades","Poseidon","Demeter","Apollo","Aphrodite","Hermes","Hestia","Dionysus","Persephone","Kronos","Odysseus","Ajax","Agamemnon","Chiron","Charon"))]-[rand(100, 999)]"

@@ -34,6 +34,8 @@
 	max_n2 = 0
 	minbodytemp = 0
 
+	has_langs = list("Mouse")
+
 	environment_smash = 1
 
 	faction = "scarybat"

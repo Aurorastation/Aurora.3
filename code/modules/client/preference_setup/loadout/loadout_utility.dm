@@ -66,3 +66,13 @@
 		var/obj/item/weapon/storage/belt/fannypack/fanny_type = fanny
 		fannys[initial(fanny_type.name)] = fanny_type
 	gear_tweaks += new/datum/gear_tweak/path(sortAssoc(fannys))
+
+/datum/gear/utility/translator //riskiest PR I've ever made.
+	display_name = "universal translator"
+	path = /obj/item/device/universal_translator
+	cost = 5
+
+/datum/gear/utility/tts_device
+	display_name = "text to speech device"
+	path = /obj/item/device/text_to_speech
+	cost = 2 //Not extremely expensive, but it's useful for mute characters.

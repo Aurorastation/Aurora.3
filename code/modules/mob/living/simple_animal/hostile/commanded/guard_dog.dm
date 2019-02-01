@@ -18,6 +18,7 @@
 	turns_per_move = 7
 	see_in_dark = 6
 
+	has_langs = list("Dog")
 	speak = list("Woof!", "Bark!", "AUUUUUU!","AwooOOOoo!")
 	speak_emote = list("barks", "woofs")
 	emote_hear = list("barks", "woofs")

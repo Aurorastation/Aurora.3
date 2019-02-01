@@ -10,6 +10,7 @@
 	icon_dead = "mouse_gray_dead"
 	icon_rest = "mouse_gray_sleep"
 	can_nap = 1
+	has_langs = list("Mouse")
 	speak = list("Squeek!","SQUEEK!","Squeek?")
 	speak_emote = list("squeeks","squeeks","squiks")
 	emote_hear = list("squeeks","squeaks","squiks")
@@ -186,7 +187,7 @@
 	if (stat == CONSCIOUS)
 		if (squeakcooldown > world.time) return
 		squeakcooldown = world.time + 4 SECONDS
-	
+
 		if (squeals > 0 || !manual)
 			playsound(src, 'sound/effects/creatures/mouse_squeak_loud.ogg', 50, 1)
 			squeals --

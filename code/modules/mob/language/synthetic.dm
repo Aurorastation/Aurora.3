@@ -8,6 +8,7 @@
 	key = "b"
 	flags = RESTRICTED | HIVEMIND
 	var/drone_only
+	machine_understands = FALSE
 
 /datum/language/binary/broadcast(var/mob/living/speaker,var/message,var/speaker_mask)
 
@@ -61,3 +62,4 @@
 	key = "d"
 	flags = RESTRICTED | HIVEMIND
 	drone_only = 1
+	machine_understands = FALSE

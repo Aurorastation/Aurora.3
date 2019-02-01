@@ -29,6 +29,7 @@
 	var/stop_automated_movement_when_pulled = 1 //When set to 1 this stops the animal from moving when someone is pulling it.
 	var/atom/movement_target = null//Thing we're moving towards
 	var/turns_since_scan = 0
+	var/has_langs = list(LANGUAGE_TCB)// Text name of their language if they speak something other than galcom. They speak the first one.
 
 	//Interaction
 	var/response_help   = "tries to help"
@@ -122,6 +123,11 @@
 	else
 		reagents = new/datum/reagents(20, src)
 	nutrition = max_nutrition
+
+	for(var/L in has_langs)
+		languages |= all_languages[L]
+	if(languages.len)
+		default_language = languages[1]
 
 	if (can_nap)
 		verbs += /mob/living/simple_animal/lay_down

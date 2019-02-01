@@ -35,12 +35,13 @@
 	pass_flags = PASSTABLE
 	mob_size = MOB_TINY
 
-	speak = list("Hi","Hello!","Cracker?","BAWWWWK george mellons griffing me")
+	speak = list("Hi","Hello!","Cracker?","Bawk!")
 	speak_emote = list("squawks","says","yells")
 	emote_hear = list("squawks","bawks")
 	emote_see = list("flutters its wings")
 
-	speak_chance = 1//1% (1 in 100) chance every tick; So about once per 150 seconds, assuming an average tick is 1.5s
+	has_langs = list("Bird", "Galactic Common")
+	speak_chance = 2
 	turns_per_move = 5
 	meat_type = /obj/item/weapon/reagent_containers/food/snacks/cracker/
 

@@ -6,6 +6,7 @@
 	icon_state = "corgi"
 	icon_living = "corgi"
 	icon_dead = "corgi_dead"
+	has_langs = list("Dog")
 	speak = list("YAP!", "Woof!", "Bark!", "AUUUUUU!")
 	speak_emote = list("barks", "woofs")
 	emote_hear = list("barks", "woofs", "yaps","pants")

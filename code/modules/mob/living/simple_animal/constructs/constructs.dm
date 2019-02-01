@@ -30,6 +30,8 @@
 	see_in_dark = 8
 	see_invisible = SEE_INVISIBLE_NOLIGHTING
 
+	has_langs = list(LANGUAGE_TCB, LANGUAGE_CULT, LANGUAGE_OCCULT)
+
 	tameable = FALSE
 
 	var/nullblock = 0

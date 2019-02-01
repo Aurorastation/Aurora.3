@@ -36,3 +36,47 @@
 	"uhk","zir","sc'orth","sc'er","thc'yek","th'zirk","th'esk","k'ayek","ka'mil","sc'","ik'yir","yol","kig","k'zit","'","'","zrk","krg","isk'yet","na'k",
 	"sc'azz","th'sc","nil","n'ahk","sc'yeth","aur'sk","iy'it","azzg","a'","i'","o'","u'","a","i","o","u","zz","kr","ak","nrk")
 	machine_understands = FALSE
+
+/datum/language/corgi
+	name = "Dog"
+	desc = "Woof woof woof."
+	speech_verb = "barks"
+	ask_verb = "woofs"
+	exclaim_verb = "howls"
+	key = "n"
+	space_chance = 100
+	syllables = list("bark", "woof", "bowwow", "yap", "arf")
+	machine_understands = FALSE
+
+/datum/language/cat
+	name = "Cat"
+	desc = "Meow meow meow."
+	speech_verb = "meows"
+	ask_verb = "mrowls"
+	exclaim_verb = "yowls"
+	key = "c"
+	space_chance = 100
+	syllables = list("meow", "mrowl", "purr", "meow", "meow", "meow")
+	machine_understands = FALSE
+
+/datum/language/mouse
+	name = "Mouse"
+	desc = "Squeak squeak. *Nibbles on cheese*"
+	speech_verb = "squeaks"
+	ask_verb = "squeaks"
+	exclaim_verb = "squeaks"
+	key = "m"
+	space_chance = 100
+	syllables = list("squeak")	// , "gripes", "oi", "meow")
+	machine_understands = FALSE
+
+/datum/language/bird
+	name = "Bird"
+	desc = "Chirp chirp, give me food"
+	speech_verb = "chirps"
+	ask_verb = "tweets"
+	exclaim_verb = "squawks"
+	key = "m"
+	space_chance = 100
+	syllables = list("chirp", "squawk", "tweet")
+	machine_understands = FALSE
