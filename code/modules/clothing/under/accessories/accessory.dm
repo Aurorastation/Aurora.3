@@ -332,74 +332,18 @@
 /obj/item/clothing/accessory/poncho
 	name = "poncho"
 	desc = "A simple, comfortable poncho."
-	icon_state = "classicponcho"
-	item_state = "classicponcho"
+	icon_state = "poncho"
+	item_state = "poncho"
 	icon_override = 'icons/mob/ties.dmi'
 	allowed = list(/obj/item/weapon/tank/emergency_oxygen)
 	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 0, rad = 0)
 	slot_flags = SLOT_OCLOTHING | SLOT_TIE
-	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS|LEGS
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO
 	siemens_coefficient = 0.9
 	w_class = 3
 	slot = "over"
+	min_cold_protection_temperature = SPACE_SUIT_MIN_COLD_PROTECTION_TEMPERATURE
 	var/allow_tail_hiding = TRUE //in case if you want to allow someone to switch the HIDETAIL var or not
-
-/obj/item/clothing/accessory/poncho/verb/toggle_hide_tail()
-	set name = "Toggle Tail Coverage"
-	set category = "Object"
-
-	if(allow_tail_hiding)
-		flags_inv ^= HIDETAIL
-		usr << "<span class='notice'>[src] will now [flags_inv & HIDETAIL ? "hide" : "show"] your tail.</span>"
-	..()
-
-/obj/item/clothing/accessory/poncho/green
-	name = "green poncho"
-	desc = "A simple, comfortable cloak without sleeves. This one is green."
-	icon_state = "greenponcho"
-	item_state = "greenponcho"
-
-/obj/item/clothing/accessory/poncho/red
-	name = "red poncho"
-	desc = "A simple, comfortable cloak without sleeves. This one is red."
-	icon_state = "redponcho"
-	item_state = "redponcho"
-
-/obj/item/clothing/accessory/poncho/purple
-	name = "purple poncho"
-	desc = "A simple, comfortable cloak without sleeves. This one is purple."
-	icon_state = "purpleponcho"
-	item_state = "purpleponcho"
-
-/obj/item/clothing/accessory/poncho/blue
-	name = "blue poncho"
-	desc = "A simple, comfortable cloak without sleeves. This one is blue."
-	icon_state = "blueponcho"
-	item_state = "blueponcho"
-
-/obj/item/clothing/accessory/poncho/roles/medical
-	name = "medical poncho"
-	desc = "A simple, comfortable cloak without sleeves. This one is white with green and blue tint, standard Medical colors."
-	icon_state = "medponcho"
-	item_state = "medponcho"
-
-/obj/item/clothing/accessory/poncho/roles/engineering
-	name = "engineering poncho"
-	desc = "A simple, comfortable cloak without sleeves. This one is yellow and orange, standard Engineering colors."
-	icon_state = "engiponcho"
-	item_state = "engiponcho"
-
-/obj/item/clothing/accessory/poncho/roles/science
-	name = "science poncho"
-	desc = "A simple, comfortable cloak without sleeves. This one is white with purple trim, standard NanoTrasen Science colors."
-	icon_state = "sciponcho"
-	item_state = "sciponcho"
-
-/obj/item/clothing/accessory/poncho/roles/cargo
-	name = "cargo poncho"
-	desc = "A simple, comfortable cloak without sleeves. This one is tan and grey, the colors of Cargo."
-	icon_state = "cargoponcho"
-	item_state = "cargoponcho"
 
 /*
  * Cloak
@@ -410,6 +354,7 @@
 	icon_state = "qmcloak"
 	item_state = "qmcloak"
 	body_parts_covered = null
+	min_cold_protection_temperature = null
 
 /obj/item/clothing/accessory/poncho/roles/cloak/ce
 	name = "chief engineer's cloak"

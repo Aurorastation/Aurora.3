@@ -76,23 +76,13 @@
 	allowed_roles = list("Chief Medical Officer", "Medical Doctor", "Chemist", "Paramedic", "Medical Resident")
 
 /datum/gear/suit/poncho
-	display_name = "poncho selection"
+	display_name = "poncho"
 	path = /obj/item/clothing/accessory/poncho
 	cost = 1
 
 /datum/gear/suit/poncho/New()
 	..()
-	var/poncho = list()
-	poncho["poncho, tan"] = /obj/item/clothing/accessory/poncho
-	poncho["poncho, blue"] = /obj/item/clothing/accessory/poncho/blue
-	poncho["poncho, green"] = /obj/item/clothing/accessory/poncho/green
-	poncho["poncho, purple"] = /obj/item/clothing/accessory/poncho/purple
-	poncho["poncho, red"] = /obj/item/clothing/accessory/poncho/red
-	poncho["poncho, medical"] = /obj/item/clothing/accessory/poncho/roles/medical
-	poncho["poncho, engineering"] = /obj/item/clothing/accessory/poncho/roles/engineering
-	poncho["poncho, science"] = /obj/item/clothing/accessory/poncho/roles/science
-	poncho["poncho, cargo"] = /obj/item/clothing/accessory/poncho/roles/cargo
-	gear_tweaks += new/datum/gear_tweak/path(poncho)
+	gear_tweaks = list(gear_tweak_free_color_choice)
 
 
 /datum/gear/suit/suitjacket
