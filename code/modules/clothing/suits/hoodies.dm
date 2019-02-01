@@ -183,10 +183,12 @@
 	var/icon_closed = "hoodie"
 	item_state = "hoodie"
 	hoodtype = /obj/item/clothing/head/winterhood/hoodie
-	/obj/item/clothing/suit/storage/hooded/wintercoat/hoodie/RemoveHood()
-		..()
-		icon_open = "[initial(icon_open)]"
-		icon_closed = "[initial(icon_closed)]"
+
+/obj/item/clothing/suit/storage/hooded/wintercoat/hoodie/RemoveHood()
+	..()
+	icon_open = "[initial(icon_open)]"
+	icon_closed = "[initial(icon_closed)]"
+
 /obj/item/clothing/suit/storage/hooded/wintercoat/hoodie/verb/Toggle() //copied from storage toggle
 	set name = "Toggle Coat Buttons"
 	set category = "Object"
@@ -206,6 +208,7 @@
 		to_chat(usr, "You attempt to zip the velcro on your [src], before promptly realising how silly you are.")
 		return
 	update_clothing_icon()
+
 /obj/item/clothing/suit/storage/hooded/wintercoat/hoodie/verb/ToggleHoodie()
 	set name ="Toggle Coat Hood"
 	set category = "Object"
@@ -233,6 +236,7 @@
 				H.update_inv_wear_suit()
 	else
 		RemoveHood()
+
 /obj/item/clothing/head/winterhood/hoodie
 	name = "hood"
 	desc = "A hood attached to a warm hoodie."
