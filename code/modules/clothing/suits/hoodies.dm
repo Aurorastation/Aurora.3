@@ -51,7 +51,7 @@
 	set category = "Object"
 	set src in usr
 
-	if(!can_use(usr))
+	if(!use_check(usr))
 		return 0
 
 	if(!suittoggled)
@@ -191,7 +191,7 @@
 	set name = "Toggle Coat Buttons"
 	set category = "Object"
 	set src in usr
-	if(!can_use(usr))
+	if(!use_check(usr))
 		return 0
 
 	if(icon_state == icon_open)
@@ -211,7 +211,7 @@
 	set category = "Object"
 	set src in usr
 
-	if(!can_use(usr))
+	if(!use_check(usr))
 		return 0
 
 	if(!suittoggled)
