@@ -196,6 +196,7 @@
 				L1.brightness_color = target.brightness_color
 				L1.switchcount = target.switchcount
 				target.switchcount = 0
+				target.inserted_light = L1.type
 				L1.update()
 
 				target.status = LIGHT_EMPTY
@@ -216,6 +217,7 @@
 			target.brightness_range = L2.brightness_range
 			target.brightness_power = L2.brightness_power
 			target.brightness_color = L2.brightness_color
+			target.inserted_light = L2.type
 			target.update()
 			qdel(L2)
 
