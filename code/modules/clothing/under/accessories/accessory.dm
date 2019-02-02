@@ -354,7 +354,7 @@
 	item_state = "qmcloak"
 	body_parts_covered = null
 	min_cold_protection_temperature = null
-	var/allow_tail_hiding = true
+	var/allow_tail_hiding = TRUE
 
 /obj/item/clothing/accessory/poncho/roles/cloak/verb/toggle_hide_tail()
 	set name = "Toggle Tail Coverage"
