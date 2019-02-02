@@ -15,6 +15,8 @@ var/datum/controller/subsystem/economy/SSeconomy
 	NEW_SS_GLOBAL(SSeconomy)
 
 /datum/controller/subsystem/economy/Initialize(timeofday)
+	next_account_number = rand(111111, 999999)
+
 	for(var/loc_type in typesof(/datum/trade_destination) - /datum/trade_destination)
 		var/datum/trade_destination/D = new loc_type
 		weighted_randomevent_locations[D] = D.viable_random_events.len
@@ -44,11 +46,10 @@ var/datum/controller/subsystem/economy/SSeconomy
 	if(station_account)
 		return FALSE
 
-	next_account_number = rand(111111, 999999)
-
 	station_account = new()
 	station_account.owner_name = "[station_name()] Station Account"
-	station_account.account_number = rand(111111, 999999)
+	station_account.account_number = next_account_number
+	next_account_number += rand(1,500)
 	station_account.remote_access_pin = rand(1111, 111111)
 	station_account.money = 75000
 
@@ -63,7 +64,7 @@ var/datum/controller/subsystem/economy/SSeconomy
 
 	//add the account
 	add_transaction_log(station_account,T)
-	all_money_accounts.Add(station_account)
+	all_money_accounts["[station_account.account_number]"] = station_account
 	return TRUE
 
 //Create a departmental account
@@ -71,11 +72,10 @@ var/datum/controller/subsystem/economy/SSeconomy
 	if(department_accounts[department])
 		return FALSE
 
-	next_account_number = rand(111111, 999999)
-
 	var/datum/money_account/department_account = new()
 	department_account.owner_name = "[department] Account"
-	department_account.account_number = rand(111111, 999999)
+	department_account.account_number = next_account_number
+	next_account_number += rand(1,500)
 	department_account.remote_access_pin = rand(1111, 111111)
 	department_account.money = 5000
 
@@ -90,7 +90,7 @@ var/datum/controller/subsystem/economy/SSeconomy
 
 	//add the account
 	add_transaction_log(department_account,T)
-	all_money_accounts.Add(department_account)
+	all_money_accounts["[department_account.account_number]"] = department_account
 
 	department_accounts[department] = department_account
 	return TRUE
@@ -102,26 +102,24 @@ var/datum/controller/subsystem/economy/SSeconomy
 	M.owner_name = new_owner_name
 	M.remote_access_pin = rand(1111, 111111)
 	M.money = starting_funds
+	M.account_number = next_account_number
+	next_account_number += rand(1,25)
 
 	//create an entry in the account transaction log for when it was created
 	var/datum/transaction/T = new()
 	T.target_name = new_owner_name
 	T.purpose = "Account creation"
 	T.amount = starting_funds
+
 	if(!source_db)
 		//set a random date, time and location some time over the past few decades
 		T.date = "[num2text(rand(1,31))] [pick("January","February","March","April","May","June","July","August","September","October","November","December")], 24[rand(10,48)]"
 		T.time = "[rand(0,24)]:[rand(11,59)]"
 		T.source_terminal = "NTGalaxyNet Terminal #[rand(111,1111)]"
-
-		M.account_number = rand(111111, 999999)
 	else
 		T.date = worlddate2text()
 		T.time = worldtime2text()
 		T.source_terminal = source_db.machine_id
-
-		M.account_number = next_account_number
-		next_account_number += rand(1,25)
 
 		//create a sealed package containing the account details
 		var/obj/item/smallDelivery/P = new /obj/item/smallDelivery(source_db.loc)
@@ -151,50 +149,98 @@ var/datum/controller/subsystem/economy/SSeconomy
 
 	//add the account
 	add_transaction_log(M,T)
-	all_money_accounts.Add(M)
+	all_money_accounts["[M.account_number]"] = M
 
 	return M
 
 
 //Charge a account
 /datum/controller/subsystem/economy/proc/charge_to_account(var/attempt_account_number, var/source_name, var/purpose, var/terminal_id, var/amount)
-	for(var/datum/money_account/D in all_money_accounts)
-		if(D.account_number == attempt_account_number && !D.suspended)
-			D.money += amount
+	var/datum/money_account/D = get_account(attempt_account_number)
+	if(D && !D.suspended)
+		D.money += amount
 
-			//create a transaction log entry
-			var/datum/transaction/T = new()
-			T.target_name = source_name
-			T.purpose = purpose
-			if(amount < 0)
-				T.amount = "([amount])"
-			else
-				T.amount = "[amount]"
-			T.date = worlddate2text()
-			T.time = worldtime2text()
-			T.source_terminal = terminal_id
-			add_transaction_log(D,T)
-			return 1
+		//create a transaction log entry
+		var/datum/transaction/T = new()
+		T.target_name = source_name
+		T.purpose = purpose
+		if(amount < 0)
+			T.amount = "([amount])"
+		else
+			T.amount = "[amount]"
+		T.date = worlddate2text()
+		T.time = worldtime2text()
+		T.source_terminal = terminal_id
+		add_transaction_log(D,T)
+		return 1
 
 	return 0
+
+//Transfer money from one account to another
+//Returns a string with a error message if it fails
+//Returns a null if it succeeeds
+/datum/controller/subsystem/economy/proc/transfer_money(var/source_number, var/dest_number, var/purpose, var/terminal_id, var/amount, var/source_pin=null, var/mob/user=null)
+	if(amount <= 0)
+		return "Invalid charge amount. Must be greater than 0."
+
+	//Check if the accounts exist
+	var/datum/money_account/source = get_account(source_number)
+	if(!source)
+		return "A account with the account number [source_number] does not exist"
+	var/datum/money_account/dest = get_account(dest_number)
+	if(!dest)
+		return "A account with the account number [dest_number] does not exist"
+
+	//Check if the accounts are suspended
+	if(source.suspended)
+		return "Customer Account is suspended. - Transaction aborted."
+	if(dest.suspended)
+		return "Destination Account is suspended. - Transaction aborted."
+
+	//Check if we need a pin for the source account and if the pin has been supplied
+	if(source.security_level == 2)
+		if(user != null && !source_pin)
+			source_pin = input(user,"Enter Account PIN") as num
+		else
+			return "No PIN specified."
+		if(source_pin != source.remote_access_pin)
+			return "Invalid PIN specified."
+
+	//Check if there is enough money on the source account
+	if(source.money < amount)
+		return "Insufficient money on customer account"
+
+	//Make the transfers
+	charge_to_account(source.account_number, dest.owner_name, purpose, terminal_id, -amount)
+	charge_to_account(dest.account_number, source.owner_name, purpose, terminal_id, amount)
+	return null
 
 /**
  * Various Getters (Account, Department-Account, ...)
  */
 //attempts to access a account by supplying a account number / pin number and passed securilty level check
 /datum/controller/subsystem/economy/proc/attempt_account_access(var/attempt_account_number, var/attempt_pin_number, var/security_level_passed = 0)
-	for(var/datum/money_account/D in all_money_accounts)
-		if(D.account_number == attempt_account_number)
-			if( D.security_level <= security_level_passed && (!D.security_level || D.remote_access_pin == attempt_pin_number) )
-				return D
-			break
+	var/datum/money_account/D = get_account(attempt_account_number)
+	if(D && D.security_level <= security_level_passed && (!D.security_level || D.remote_access_pin == attempt_pin_number) )
+		return D
+
+//get the security level of a account
+/datum/controller/subsystem/economy/proc/get_account_security_level(var/account_number)
+	var/datum/money_account/D = get_account(account_number)
+	if(D)
+		return D.security_level
+
+//Check if a account is suspended
+/datum/controller/subsystem/economy/proc/get_account_suspended(var/account_number)
+	var/datum/money_account/D = get_account(account_number)
+	if(D)
+		return D.suspended
 
 //gets a account by account number
 /datum/controller/subsystem/economy/proc/get_account(var/account_number)
-	for(var/datum/money_account/D in all_money_accounts)
-		if(D.account_number == account_number)
-			return D
-	return 0
+	if(all_money_accounts["[account_number]"])
+		return all_money_accounts["[account_number]"]
+	return
 
 //gets a departmental account by name
 /datum/controller/subsystem/economy/proc/get_department_account(var/department)
