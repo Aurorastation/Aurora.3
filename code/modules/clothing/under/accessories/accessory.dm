@@ -343,7 +343,7 @@
 	w_class = 3
 	slot = "over"
 	min_cold_protection_temperature = SPACE_SUIT_MIN_COLD_PROTECTION_TEMPERATURE
-	var/allow_tail_hiding = TRUE //in case if you want to allow someone to switch the HIDETAIL var or not
+	var/allow_tail_hiding = FALSE //in case if you want to allow someone to switch the HIDETAIL var or not
 
 /*
  * Cloak
@@ -355,6 +355,7 @@
 	item_state = "qmcloak"
 	body_parts_covered = null
 	min_cold_protection_temperature = null
+	allow_tail_hiding = true
 
 /obj/item/clothing/accessory/poncho/roles/cloak/ce
 	name = "chief engineer's cloak"
