@@ -52974,7 +52974,7 @@
 	pixel_y = 0
 	},
 /obj/machinery/camera/network/civilian_main{
-	c_tag = "Aft Corridor - Camera 3";
+	c_tag = "Aft Corridor - Camera 4";
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
@@ -59520,6 +59520,11 @@
 /area/quartermaster/lobby)
 "bYL" = (
 /obj/machinery/firealarm/east,
+/obj/machinery/camera/network/civilian_main{
+	c_tag = "Aft Corridor - Camera 2";
+	dir = 8;
+	network = list("Service")
+	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/aft)
 "bYM" = (
@@ -60083,7 +60088,10 @@
 /area/hallway/primary/aft)
 "bZS" = (
 /obj/structure/curtain/black,
-/turf/simulated/wall/wood,
+/turf/simulated/floor/tiled/ramp/bottom{
+	icon_state = "rampbot";
+	dir = 1
+	},
 /area/crew_quarters/bar)
 "bZT" = (
 /obj/structure/table/wood,
@@ -60976,7 +60984,8 @@
 	},
 /obj/machinery/door/airlock/maintenance{
 	name = "Cargo Maintenance";
-	req_access = list(31)
+	req_access = null;
+	req_one_access = list(31,48)
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/cargo)
@@ -65543,6 +65552,16 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
 /area/maintenance/engineering)
+"miw" = (
+/obj/machinery/computer/guestpass{
+	pixel_x = -32
+	},
+/obj/machinery/camera/network/civilian_main{
+	c_tag = "Aft Corridor - Camera 3";
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/hallway/primary/aft)
 "mnI" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/red{
 	icon_state = "map";
@@ -65963,6 +65982,13 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/engineering)
+"xgs" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/machinery/light_switch{
+	pixel_y = 28
+	},
+/turf/simulated/floor/tiled/white,
+/area/crew_quarters/kitchen)
 "xhC" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -93933,7 +93959,7 @@ bLw
 bLw
 bQs
 bQU
-bRu
+miw
 bLw
 bSj
 bLw
@@ -98560,7 +98586,7 @@ bQc
 bQy
 bRe
 bOt
-bOR
+xgs
 bSv
 blc
 bTy
