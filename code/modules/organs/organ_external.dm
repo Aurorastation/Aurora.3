@@ -139,7 +139,7 @@
 
 			if(istype(W, /obj/item/organ/augment) && augment_capacity)
 				var/obj/item/organ/augment/AUG = W
-				if((body_part in AUG.install_locations) && AUG.installation_instructions(src))
+				if(((body_part in AUG.install_locations) || !AUG.install_locations) && AUG.installation_instructions(src))
 					user.visible_message("<span class='danger'><b>[user]</b> installs [W] into [src]!</span>")
 					AUG.online = 1
 					augment_capacity--
@@ -1006,11 +1006,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 			burn_mod = R.burn_mod
 
 			if(R.augmentable)
-				switch(body_part)
-					if(UPPER_TORSO)
-						augment_capacity = 2
-					if(ARM_RIGHT || ARM_LEFT || LEG_RIGHT || LEG_LEFT)
-						augment_capacity = 1
+				augment_capacity = 1
 
 	dislocated = -1 //TODO, make robotic limbs a separate type, remove snowflake
 	cannot_break = 1
