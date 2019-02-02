@@ -24,8 +24,8 @@
 	..()
 
 /obj/item/clothing/suit/storage/hooded/proc/RemoveHood()
-	icon_state = "[initial(icon_state)]"
-	item_state = "[initial(item_state)]"
+	icon_state = [initial(icon_state)]
+	item_state = [initial(item_state)]
 	suittoggled = 0
 
 	// Hood got nuked. Probably because of RIGs or the like.
@@ -186,8 +186,8 @@
 
 /obj/item/clothing/suit/storage/hooded/wintercoat/hoodie/RemoveHood()
 	..()
-	icon_open = "[initial(icon_open)]"
-	icon_closed = "[initial(icon_closed)]"
+	icon_open = [initial(icon_open)]
+	icon_closed = [initial(icon_closed)]
 
 /obj/item/clothing/suit/storage/hooded/wintercoat/hoodie/verb/Toggle() //copied from storage toggle
 	set name = "Toggle Coat Buttons"
