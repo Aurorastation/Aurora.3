@@ -42,12 +42,14 @@
 	if(A)
 		for(var/mob/living/carbon in A.contents)
 			num_mobs++
-		if((num_mobs > capacity) && prob((num_mobs - capacity) * 35) && first_try) // Each passenger over capacity increases chances to crash by 35%
+		if((num_mobs > capacity) && first_try) // Each passenger over capacity increases chances to crash by 50%
 			first_try = FALSE
 			docking_controller.master.visible_message("\bold [docking_controller.master]\ states \"<span class='warning'>Warning, escape pod is over capacity! The designated capacity is [capacity]. Forcing to launch may result into crashing of the pod!\"</span>")
 			return
-		else if(!first_try)
-			crash_pod()
+		else if(!first_try && prob((num_mobs - capacity) * 50))
+			process_state = CRASH_SHUTTLE
+			undock()
+			docking_controller.master.visible_message("\bold [docking_controller.master]\ states \"<span class='warning'>Warning, loosing altitude. Brace for impact!\"</span>")
 			return
 
 	in_use = user	//obtain an exclusive lock on the shuttle
@@ -55,10 +57,18 @@
 	process_state = WAIT_LAUNCH
 	undock()
 
-/datum/shuttle/ferry/escape_pod/proc/crash_pod()
-	process_state = CRASH_SHUTTLE
-	undock()
-	var/original_area = get_location_area(location)
+/datum/shuttle/ferry/escape_pod/crash_shuttle()
+	var/distance = pick(list(10, 15, 18, 20, 22, 25, 35))
+	crashed_area = new crashed_area()
+	for(var/turf/T in area_station)
+		var/turf/T_n = get_turf(locate(T.x, T.y + distance, T.z))
+		
+		T_n = get_turf(locate(T.x, T.y + distance, T.z))
+		if(T_n)
+			crashed_area.contents += T_n
+	move(area_station, crashed_area)
+	explosion(pick(crashed_area.contents), 1, 0, 1, 1, 0) // explosion inside of the shuttle, as in we damaged it
+	process_state = IDLE_STATE
 
 //This controller goes on the escape pod itself
 /obj/machinery/embedded_controller/radio/simple_docking_controller/escape_pod

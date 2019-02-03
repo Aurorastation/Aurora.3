@@ -96,6 +96,8 @@
 			if (skip_docking_checks() || docking_controller.docked() || world.time > last_dock_attempt_time + DOCK_ATTEMPT_TIMEOUT)
 				process_state = IDLE_STATE
 				arrived()
+		if (CRASH_SHUTTLE)
+			crash_shuttle() // crash the shuttle
 
 /datum/shuttle/ferry/current_dock_target()
 	var/dock_target
@@ -105,6 +107,8 @@
 		dock_target = dock_target_offsite
 	return dock_target
 
+/datum/shuttle/ferry/proc/crash_shuttle() // Currently only pods can crash
+	return
 
 /datum/shuttle/ferry/proc/launch(var/user)
 	if (!can_launch()) return
