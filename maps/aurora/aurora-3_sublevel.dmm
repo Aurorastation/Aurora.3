@@ -1003,6 +1003,11 @@
 "acm" = (
 /obj/machinery/power/smes/buildable{
 	charge = 2e+006;
+	input_attempt = 1;
+	input_level_max = 350000;
+	is_critical = 1;
+	output_attempt = 1;
+	output_level_max = 350000;
 	RCon_tag = "Tesla - Containment"
 	},
 /obj/structure/cable{
@@ -3024,18 +3029,6 @@
 	pixel_x = 0;
 	pixel_y = 36
 	},
-/obj/machinery/power/apc{
-	cell_type = /obj/item/weapon/cell/super;
-	dir = 1;
-	is_critical = 1;
-	name = "north bump";
-	pixel_x = 0;
-	pixel_y = 24
-	},
-/obj/structure/cable{
-	icon_state = "0-4";
-	d2 = 4
-	},
 /turf/simulated/floor/plating,
 /area/outpost/engineering/power)
 "agF" = (
@@ -4132,6 +4125,11 @@
 	d1 = 2;
 	d2 = 8;
 	icon_state = "2-8"
+	},
+/obj/structure/cable/yellow{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
 	},
 /turf/simulated/floor/plating,
 /area/outpost/engineering/power)
@@ -30755,6 +30753,20 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/patient_wing_post1)
+"wzY" = (
+/obj/machinery/light,
+/obj/machinery/power/apc{
+	dir = 2;
+	is_critical = 1;
+	name = "south bump";
+	pixel_y = -24
+	},
+/obj/structure/cable/yellow{
+	d2 = 8;
+	icon_state = "0-8"
+	},
+/turf/simulated/floor/plating,
+/area/outpost/engineering/power)
 "wLc" = (
 /turf/simulated/floor/tiled/white,
 /area/medical/patient_wing_gym)
@@ -43016,7 +43028,7 @@ agE
 ace
 aiu
 ace
-afR
+wzY
 abJ
 ajQ
 afM

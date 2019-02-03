@@ -55,6 +55,7 @@
 	var/input_pulsed = 0
 	var/output_cut = 0
 	var/output_pulsed = 0
+	var/is_critical = FALSE			// Use by gridcheck event, if set to true we do not disable it
 	var/failure_timer = 0			// Set by gridcheck event, temporarily disables the SMES.
 	var/target_load = 0
 	var/open_hatch = 0
