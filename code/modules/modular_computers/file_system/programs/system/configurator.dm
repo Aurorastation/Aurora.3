@@ -18,11 +18,11 @@
 	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
 	if (!ui)
 		ui = new /datum/vueui/modularcomputer(user, src, "mcomputer-system-config", 575, 700, "NTOS Configuration Utility")
-		ui.header = "modular-computer"
 	ui.open()
 
 /datum/computer_file/program/computerconfig/vueui_transfer(oldobj)
 	SSvueui.transfer_uis(oldobj, src, "mcomputer-system-config", 575, 700, "NTOS Configuration Utility")
+	return TRUE
 
 // Gaters data for ui
 /datum/computer_file/program/computerconfig/vueui_data_change(var/list/data, var/mob/user, var/datum/vueui/ui)

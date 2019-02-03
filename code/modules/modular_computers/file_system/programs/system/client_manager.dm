@@ -13,11 +13,21 @@
 	size = 4
 	available_on_ntnet = 0
 	requires_ntnet = 0
-	nanomodule_path = /datum/nano_module/program/clientmanager/
 	var/_dev_type = 1 //1 - Company Device ,2 - Private device
 	var/_dev_preset = "civilian"
 	var/_error_message = null
 
+/datum/computer_file/program/clientmanager/ui_interact(mob/user)
+	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
+	if (!ui)
+		ui = new /datum/vueui/modularcomputer(user, src, "mcomputer-system-manager", 575, 700, "NTOS Client Manager")
+	ui.open()
+
+/datum/computer_file/program/clientmanager/vueui_transfer(oldobj)
+	SSvueui.transfer_uis(oldobj, src, "mcomputer-system-manager", 575, 700, "NTOS Client Manager")
+	return TRUE
+
+/*
 /datum/nano_module/program/clientmanager
 	name = "NTOS Client Manager"
 	var/obj/item/modular_computer/movable = null
@@ -112,3 +122,4 @@
 		ui.auto_update_layout = 1
 		ui.set_initial_data(data)
 		ui.open()
+*/

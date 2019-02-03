@@ -34,6 +34,6 @@
  * @return 0 if failed, 1 if success
  */
 /datum/proc/vueui_transfer(var/srcObject)
-	return 0
+	return FALSE
 
 /mob/var/list/open_vueui_uis
