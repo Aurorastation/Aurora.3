@@ -484,8 +484,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 				data["convo_job"] = sanitize(c["job"])
 				break
 	if(mode==41)
-		data_core.get_manifest_json()
-
+		SSrecords.get_manifest_json()
 
 	if(mode==3)
 		var/turf/T = get_turf(user.loc)
@@ -550,7 +549,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 
 		data["feed"] = feed
 
-	data["manifest"] = PDA_Manifest
+	data["manifest"] = SSrecords.manifest
 
 	nanoUI = data
 	// update the ui if it exists, returns null if no ui is passed/found

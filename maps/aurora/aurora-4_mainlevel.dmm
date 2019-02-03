@@ -8897,7 +8897,7 @@
 	icon_state = "corner_white";
 	dir = 9
 	},
-/obj/machinery/computer/med_data/laptop,
+/obj/machinery/computer/records/medical/laptop,
 /turf/simulated/floor/tiled,
 /area/bridge)
 "aqW" = (
@@ -9759,7 +9759,7 @@
 /turf/simulated/floor/tiled,
 /area/bridge)
 "aso" = (
-/obj/machinery/computer/med_data,
+/obj/machinery/computer/records/medical,
 /obj/effect/floor_decal/corner/lime{
 	dir = 6
 	},
@@ -13621,7 +13621,7 @@
 /area/lawoffice)
 "ayp" = (
 /obj/structure/table/wood,
-/obj/machinery/computer/skills,
+/obj/machinery/computer/records/employment,
 /obj/structure/window/reinforced,
 /turf/simulated/floor/carpet,
 /area/lawoffice)
@@ -13760,7 +13760,7 @@
 /turf/simulated/floor/plating,
 /area/bridge)
 "ayD" = (
-/obj/machinery/computer/secure_data,
+/obj/machinery/computer/records/security,
 /obj/effect/floor_decal/corner/blue{
 	icon_state = "corner_white";
 	dir = 9
@@ -14472,7 +14472,7 @@
 /area/lawoffice)
 "azR" = (
 /obj/structure/table/wood,
-/obj/machinery/computer/skills,
+/obj/machinery/computer/records/employment,
 /obj/structure/window/reinforced{
 	dir = 1
 	},
@@ -15198,7 +15198,7 @@
 	icon_state = "corner_white";
 	dir = 6
 	},
-/obj/machinery/computer/secure_data,
+/obj/machinery/computer/records/security,
 /turf/simulated/floor/tiled,
 /area/security/brig)
 "aBb" = (
@@ -16652,7 +16652,7 @@
 /area/crew_quarters/captain)
 "aDw" = (
 /obj/structure/table/wood,
-/obj/machinery/computer/skills{
+/obj/machinery/computer/records/employment{
 	icon_state = "medlaptop"
 	},
 /obj/structure/cable/green{
@@ -17308,7 +17308,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/security/warden)
 "aEx" = (
-/obj/machinery/computer/secure_data,
+/obj/machinery/computer/records/security,
 /turf/simulated/floor/tiled/dark,
 /area/security/warden)
 "aEy" = (
@@ -20693,7 +20693,7 @@
 /turf/simulated/floor/plating,
 /area/security/brig)
 "aJF" = (
-/obj/machinery/computer/secure_data,
+/obj/machinery/computer/records/security,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
@@ -22805,7 +22805,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ai_monitored/storage/eva)
 "aNe" = (
-/obj/machinery/computer/secure_data,
+/obj/machinery/computer/records/security,
 /obj/structure/sign/goldenplaque{
 	pixel_x = -32
 	},
@@ -23779,7 +23779,7 @@
 /area/crew_quarters/heads/hos)
 "aOS" = (
 /obj/structure/table/wood,
-/obj/machinery/computer/skills,
+/obj/machinery/computer/records/employment,
 /turf/simulated/floor/carpet,
 /area/crew_quarters/heads/hos)
 "aOT" = (
@@ -24587,7 +24587,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/computer/skills,
+/obj/machinery/computer/records/employment,
 /turf/simulated/floor/carpet,
 /area/crew_quarters/heads/chief)
 "aQi" = (
@@ -27271,7 +27271,7 @@
 /turf/simulated/floor/plating,
 /area/crew_quarters/heads/hop)
 "aUy" = (
-/obj/machinery/computer/secure_data,
+/obj/machinery/computer/records/security,
 /turf/simulated/floor/wood,
 /area/crew_quarters/heads/hop)
 "aUz" = (
@@ -28000,7 +28000,7 @@
 /area/hallway/primary/starboard)
 "aVG" = (
 /obj/structure/table/reinforced,
-/obj/machinery/computer/skills,
+/obj/machinery/computer/records/employment,
 /turf/simulated/floor/wood,
 /area/crew_quarters/heads/hop)
 "aVH" = (
@@ -31070,7 +31070,7 @@
 /area/crew_quarters/heads/hop)
 "bba" = (
 /obj/structure/table/wood,
-/obj/machinery/computer/skills,
+/obj/machinery/computer/records/employment,
 /turf/simulated/floor/carpet,
 /area/crew_quarters/heads/hop)
 "bbb" = (
@@ -33449,7 +33449,7 @@
 /area/medical/icu)
 "bff" = (
 /obj/structure/table/standard,
-/obj/machinery/computer/med_data/laptop,
+/obj/machinery/computer/records/medical/laptop,
 /turf/simulated/floor/carpet/blue,
 /area/medical/biostorage{
 	name = "\improper Medical - Exam Room 2"
@@ -34954,7 +34954,7 @@
 	},
 /obj/effect/floor_decal/corner/white/diagonal,
 /obj/structure/table/standard,
-/obj/machinery/computer/med_data/laptop,
+/obj/machinery/computer/records/medical/laptop,
 /obj/structure/sign/nosmoking_1{
 	pixel_y = 32
 	},
@@ -35000,7 +35000,7 @@
 	pixel_y = -30
 	},
 /obj/structure/table/standard,
-/obj/machinery/computer/med_data/laptop,
+/obj/machinery/computer/records/medical/laptop,
 /obj/effect/floor_decal/corner/mauve{
 	icon_state = "corner_white";
 	dir = 10
@@ -35997,7 +35997,7 @@
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/heads/cmo)
 "bjr" = (
-/obj/machinery/computer/med_data,
+/obj/machinery/computer/records/medical,
 /obj/effect/floor_decal/corner/paleblue{
 	icon_state = "corner_white";
 	dir = 5
@@ -37412,7 +37412,7 @@
 /area/crew_quarters/heads/cmo)
 "blH" = (
 /obj/structure/table/glass,
-/obj/machinery/computer/skills,
+/obj/machinery/computer/records/employment,
 /obj/effect/floor_decal/corner/paleblue{
 	icon_state = "corner_white";
 	dir = 6
@@ -40067,7 +40067,7 @@
 	name = "\improper Medical - Exam Room 1"
 	})
 "bpH" = (
-/obj/machinery/computer/med_data/laptop,
+/obj/machinery/computer/records/medical/laptop,
 /obj/structure/table/standard,
 /turf/simulated/floor/carpet/blue,
 /area/medical/exam_room{
@@ -40621,7 +40621,7 @@
 	},
 /obj/effect/floor_decal/corner/white/diagonal,
 /obj/structure/table/standard,
-/obj/machinery/computer/med_data/laptop,
+/obj/machinery/computer/records/medical/laptop,
 /turf/simulated/floor/tiled,
 /area/medical/reception)
 "bqC" = (
@@ -40650,7 +40650,7 @@
 /obj/structure/window/reinforced,
 /obj/effect/floor_decal/corner/white/diagonal,
 /obj/structure/table/standard,
-/obj/machinery/computer/med_data/laptop,
+/obj/machinery/computer/records/medical/laptop,
 /obj/machinery/light{
 	dir = 4;
 	icon_state = "tube1";
@@ -45513,7 +45513,7 @@
 	icon_state = "corner_white";
 	dir = 6
 	},
-/obj/machinery/computer/med_data,
+/obj/machinery/computer/records/medical,
 /turf/simulated/floor/tiled/white,
 /area/medical/genetics_cloning)
 "byb" = (
@@ -47479,7 +47479,7 @@
 /area/rnd/rdoffice)
 "bBz" = (
 /obj/structure/table/standard,
-/obj/machinery/computer/skills{
+/obj/machinery/computer/records/employment{
 	icon_state = "medlaptop"
 	},
 /turf/simulated/floor/carpet/blue,

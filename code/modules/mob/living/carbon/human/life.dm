@@ -1476,7 +1476,7 @@
 			if(!D.hidden[SCANNER])
 				foundVirus++
 		for (var/ID in virus2)
-			if (ID in virusDB)
+			if (SSrecords.find_record("id", "[ID]", RECORD_VIRUS))
 				foundVirus = 1
 				break
 
@@ -1527,23 +1527,18 @@
 			if(I)
 				perpname = I.registered_name
 
-		for(var/datum/data/record/E in data_core.general)
-			if(E.fields["name"] == perpname)
-				for (var/datum/data/record/R in data_core.security)
-					if((R.fields["id"] == E.fields["id"]) && (R.fields["criminal"] == "*Arrest*"))
-						holder.icon_state = "hudwanted"
-						break
-					else if((R.fields["id"] == E.fields["id"]) && (R.fields["criminal"] == "Search"))
-						holder.icon_state = "hudsearch"
-						break
-					else if((R.fields["id"] == E.fields["id"]) && (R.fields["criminal"] == "Incarcerated"))
-						holder.icon_state = "hudprisoner"
-						break
-					else if((R.fields["id"] == E.fields["id"]) && (R.fields["criminal"] == "Parolled"))
-						holder.icon_state = "hudparolled"
-						break
-					else if((R.fields["id"] == E.fields["id"]) && (R.fields["criminal"] == "Released"))
-						holder.icon_state = "hudreleased"
+		var/datum/record/general/R = SSrecords.find_record("name", perpname)
+		if(istype(R) && istype(R.security))
+			if(R.security.criminal == "*Arrest*")
+				holder.icon_state = "hudwanted"
+			else if(R.security.criminal == "Search")
+				holder.icon_state = "hudsearch"
+			else if(R.security.criminal == "Incarcerated")
+				holder.icon_state = "hudprisoner"
+			else if(R.security.criminal == "Parolled")
+				holder.icon_state = "hudparolled"
+			else if(R.security.criminal == "Released")
+				holder.icon_state = "hudreleased"
 		hud_list[WANTED_HUD] = holder
 
 	if (  BITTEST(hud_updateflag, IMPLOYAL_HUD) \

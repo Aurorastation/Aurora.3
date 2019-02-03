@@ -151,9 +151,9 @@
 			if(id)
 				perpname = id.registered_name
 
-			var/datum/data/record/R = find_security_record("name", perpname)
-			if(R)
-				R.fields["criminal"] = "*Arrest*"
+			var/datum/record/general/R = SSrecords.find_record("name", perpname)
+			if(R && R.security)
+				R.security.criminal = "*Arrest*"
 			else
 				custom_emote(2, "[emote_hear], \"Warning, [target] does not have Security records! Enabling security records check mode!\"")
 				check_records = TRUE
@@ -221,8 +221,8 @@
 		if(id)
 			perpname = id.registered_name
 
-		var/datum/data/record/R = find_security_record("name", perpname)
-		if(R && R.fields["criminal"] == "*Arrest*")
+		var/datum/record/general/R = SSrecords.find_record("name", perpname)
+		if(R && R.security && R.security.criminal == "*Arrest*")
 			to_chat(usr, "<span class='warning'>Warning, you do not have access!</span>")
 
 	// Check if they have access to the bot

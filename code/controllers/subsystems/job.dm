@@ -61,9 +61,10 @@
 		if (J.title == rank)
 			return J
 
-/datum/controller/subsystem/jobs/proc/ShouldCreateRecords(var/rank)
-	if(!rank) return 0
-	var/datum/job/job = GetJob(rank)
+/datum/controller/subsystem/jobs/proc/ShouldCreateRecords(var/datum/mind/mind)
+	if(player_is_antag(mind, only_offstation_roles = 1)) return 0
+	if(!mind.assigned_role) return 0
+	var/datum/job/job = GetJob(mind.assigned_role)
 	if(!job) return 0
 	return job.create_record
 
@@ -734,17 +735,8 @@
 
 	// Delete them from datacore.
 
-	if(PDA_Manifest.len)
-		PDA_Manifest.Cut()
-	for(var/datum/data/record/R in data_core.medical)
-		if ((R.fields["name"] == H.real_name))
-			qdel(R)
-	for(var/datum/data/record/T in data_core.security)
-		if ((T.fields["name"] == H.real_name))
-			qdel(T)
-	for(var/datum/data/record/G in data_core.general)
-		if ((G.fields["name"] == H.real_name))
-			qdel(G)
+	SSrecords.remove_record_by_field("name", H.real_name)
+	SSrecords.reset_manifest()
 
 	log_and_message_admins("([H.mind.role_alt_title]) entered cryostorage.", user = H)
 

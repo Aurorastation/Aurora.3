@@ -12,7 +12,7 @@
 	var/isolating = 0
 	var/state = HOME
 	var/datum/disease2/disease/virus2 = null
-	var/datum/data/record/entry = null
+	var/datum/record/virus/entry = null
 	var/obj/item/weapon/reagent_containers/syringe/sample = null
 
 /obj/machinery/disease2/isolator/update_icon()
@@ -56,7 +56,7 @@
 	data["isolating"] = isolating
 	data["pathogen_pool"] = null
 	data["state"] = state
-	data["entry"] = entry
+	data["entry"] = null
 	data["can_print"] = (state != HOME || sample) && !isolating
 
 	switch (state)
@@ -67,9 +67,7 @@
 					var/list/virus = B.data["virus2"]
 					for (var/ID in virus)
 						var/datum/disease2/disease/V = virus[ID]
-						var/datum/data/record/R = null
-						if (ID in virusDB)
-							R = virusDB[ID]
+						var/datum/record/virus/R = SSrecords.find_record("id", "[ID]", RECORD_VIRUS)
 		
 						var/datum/weakref/A = B.data["donor"]
 						var/mob/living/carbon/human/D = A.resolve()
@@ -86,18 +84,17 @@
 
 		if (LIST)
 			var/list/db[0]
-			for (var/ID in virusDB)
-				var/datum/data/record/r = virusDB[ID]
-				db.Add(list(list("name" = r.fields["name"], "record" = "\ref[r]")))
+			for (var/datum/record/virus/r in SSrecords.viruses)
+				db.Add(list(list("name" = r.name, "record" = "\ref[r]")))
 
 			if (db.len > 0)
 				data["database"] = db
 
 		if (ENTRY)
 			if (entry)
-				var/desc = entry.fields["description"]
+				var/desc = entry.description
 				data["entry"] = list(\
-					"name" = entry.fields["name"], \
+					"name" = entry.name, \
 					"description" = replacetext(desc, "\n", ""))
 
 	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
@@ -141,7 +138,7 @@
 		return 1
 
 	if (href_list[ENTRY])
-		if (istype(locate(href_list["view"]), /datum/data/record))
+		if (istype(locate(href_list["view"]), /datum/record/virus))
 			entry = locate(href_list["view"])
 
 		state = ENTRY
@@ -213,10 +210,9 @@
 "}
 
 			var/i = 0
-			for (var/ID in virusDB)
+			for (var/datum/record/virus/r in SSrecords.viruses)
 				i++
-				var/datum/data/record/r = virusDB[ID]
-				info += "[i]. " + r.fields["name"]
+				info += "[i]. " + r.name
 				info += "<br>"
 
 			info += {"
@@ -228,7 +224,7 @@
 			pname = "paper - Viral Profile"
 			info = {"
 				[virology_letterhead("Viral Profile")]
-				[entry.fields["description"]]
+				[entry.description]
 				<hr>
 				<u>Additional Notes:</u>&nbsp;
 "}

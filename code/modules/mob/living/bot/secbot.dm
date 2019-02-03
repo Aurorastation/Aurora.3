@@ -532,9 +532,9 @@
 		if(id)
 			perpname = id.registered_name
 
-		var/datum/data/record/R = find_security_record("name", perpname)
-		if(R)
-			R.fields["criminal"] = "*Arrest*"
+		var/datum/record/general/R = SSrecords.find_record("name", perpname)
+		if(R && R.security)
+			R.security.criminal = "*Arrest*"
 		else
 			check_records = TRUE
 		broadcast_security_hud_message("[src] is under attack by <b>[target]</b>, [arrest_type ? "detaining" : "arresting"] a level [check_threat(target)] suspect in <b>[get_area(src)]</b>. Requesting backup", src)
@@ -552,9 +552,9 @@
 		if(id)
 			perpname = id.registered_name
 
-		var/datum/data/record/R = find_security_record("name", perpname)
-		if(R)
-			R.fields["criminal"] = "*Arrest*"
+		var/datum/record/general/R = SSrecords.find_record("name", perpname)
+		if(R && R.security)
+			R.security.criminal = "*Arrest*"
 		else
 			check_records = TRUE
 		broadcast_security_hud_message("[src] is under attack by <b>[target]</b>, [arrest_type ? "detaining" : "arresting"] a level [check_threat(target)] suspect in <b>[get_area(src)]</b>. Requesting backup", src)
@@ -588,9 +588,9 @@
 			if(id)
 				perpname = id.registered_name
 
-			var/datum/data/record/R = find_security_record("name", perpname)
-			if(R)
-				R.fields["criminal"] = "*Arrest*"
+			var/datum/record/general/R = SSrecords.find_record("name", perpname)
+			if(R && R.security)
+				R.security.criminal = "*Arrest*"
 			else
 				check_records = TRUE
 			broadcast_security_hud_message("[src] was shot with <b>[P]</b>, projectile came from <b>[target]</b>, [arrest_type ? "detaining" : "arresting"] a level [check_threat(target)] suspect in <b>[get_area(src)]</b>. Requesting backup", src)
@@ -610,9 +610,9 @@
 		if(id)
 			perpname = id.registered_name
 
-		var/datum/data/record/R = find_security_record("name", perpname)
-		if(R)
-			R.fields["criminal"] = "*Arrest*"
+		var/datum/record/general/R = SSrecords.find_record("name", perpname)
+		if(R && R.security)
+			R.security.criminal = "*Arrest*"
 		else
 			check_records = TRUE
 		broadcast_security_hud_message("[src] is under attack by <b>[target]</b> with <b>[O]</b>, [arrest_type ? "detaining" : "arresting"] a level [check_threat(target)] suspect in <b>[get_area(src)]</b>. Requesting backup", src)
@@ -633,9 +633,9 @@
 				if(id)
 					perpname = id.registered_name
 
-				var/datum/data/record/R = find_security_record("name", perpname)
-				if(R)
-					R.fields["criminal"] = "*Arrest*"
+				var/datum/record/general/R = SSrecords.find_record("name", perpname)
+				if(R && R.security)
+					R.security.criminal = "*Arrest*"
 				else
 					check_records = TRUE
 				broadcast_security_hud_message("[src] is under attack by <b>[target]</b> with <b>[O]</b>, [arrest_type ? "detaining" : "arresting"] a level [check_threat(target)] suspect in <b>[get_area(src)]</b>. Requesting backup", src)

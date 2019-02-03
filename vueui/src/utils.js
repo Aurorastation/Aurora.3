@@ -8,5 +8,8 @@ export default {
     }
     r.open("GET", sendUrl, true);
     r.send()
+  },
+  dotNotationRead(object, key) {
+    return key.split('.').reduce((a, b) => a[b], object);
   }
 }
