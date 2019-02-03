@@ -28,10 +28,10 @@
 		log_debug("API: Throttling bypassed - Command [command.name] set to no_throttle")
 	else
 		if(world_api_rate_limit[addr] != null && config.api_rate_limit_whitelist[addr] == null) //Check if the ip is in the rate limiting list and not in the whitelist
-			if(abs(world_api_rate_limit[addr] - world.realtime) < config.api_rate_limit) //Check the last request time of the ip
-				world_api_rate_limit[addr] = world.realtime // Set the time of the last request
+			if(abs(world_api_rate_limit[addr] - REALTIMEOFDAY) < config.api_rate_limit) //Check the last request time of the ip
+				world_api_rate_limit[addr] = REALTIMEOFDAY // Set the time of the last request
 				return 2 //Throttled
-		world_api_rate_limit[addr] = world.realtime // Set the time of the last request
+		world_api_rate_limit[addr] = REALTIMEOFDAY // Set the time of the last request
 
 
 	//Check if the command is on the auth whitelist
