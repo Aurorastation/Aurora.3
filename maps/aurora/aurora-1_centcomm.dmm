@@ -23470,8 +23470,13 @@
 /turf/simulated/floor/tiled/dark,
 /area/centcom/legion)
 "fgV" = (
-/obj/item/weapon/storage/fancy/cigarettes,
-/obj/structure/table/reinforced,
+/obj/structure/table/rack,
+/obj/item/weapon/storage/backpack/legion,
+/obj/item/weapon/storage/backpack/legion,
+/obj/item/weapon/storage/backpack/legion,
+/obj/item/weapon/storage/backpack/legion,
+/obj/item/weapon/storage/backpack/legion,
+/obj/item/weapon/storage/backpack/legion,
 /turf/simulated/floor/tiled/dark,
 /area/centcom/legion)
 "fhb" = (
@@ -23850,6 +23855,9 @@
 /area/merchant_ship/start)
 "hTn" = (
 /obj/effect/floor_decal/industrial/loading,
+/obj/machinery/door/blast/regular{
+	id = "tcfl"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/centcom/legion)
 "hUk" = (
@@ -23873,7 +23881,7 @@
 	},
 /area/centcom/extraction_shuttle)
 "hZH" = (
-/obj/machinery/iv_drip,
+/obj/machinery/chem_master,
 /turf/simulated/floor/tiled/dark,
 /area/centcom/legion)
 "ifE" = (
