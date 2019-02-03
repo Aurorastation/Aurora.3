@@ -44,12 +44,12 @@
 	gear_tweaks += new/datum/gear_tweak/path(hazard)
 
 /datum/gear/suit/hoodie
-	display_name = "hoodie, grey"
-	path = /obj/item/clothing/suit/storage/toggle/hoodie
+	display_name = "hoodie"
+	path = /obj/item/clothing/suit/storage/hooded/wintercoat/hoodie
 
-/datum/gear/suit/hoodie/black
-	display_name = "hoodie, black"
-	path = /obj/item/clothing/suit/storage/toggle/hoodie/black
+/datum/gear/suit/hoodie/New()
+	..()
+	gear_tweaks = list(gear_tweak_free_color_choice)
 
 /datum/gear/suit/labcoat
 	display_name = "labcoat"
