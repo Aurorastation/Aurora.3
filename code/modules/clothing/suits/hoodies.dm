@@ -24,8 +24,8 @@
 	..()
 
 /obj/item/clothing/suit/storage/hooded/proc/RemoveHood()
-	icon_state = [initial(icon_state)]
-	item_state = [initial(item_state)]
+	icon_state = initial(icon_state)
+	item_state = initial(item_state)
 	suittoggled = 0
 
 	// Hood got nuked. Probably because of RIGs or the like.
