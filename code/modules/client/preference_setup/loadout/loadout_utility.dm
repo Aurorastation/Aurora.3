@@ -71,8 +71,3 @@
 	display_name = "universal translator"
 	path = /obj/item/device/universal_translator
 	cost = 5
-
-/datum/gear/utility/tts_device
-	display_name = "text to speech device"
-	path = /obj/item/device/text_to_speech
-	cost = 2 //Not extremely expensive, but it's useful for mute characters.

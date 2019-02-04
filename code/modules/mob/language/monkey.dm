@@ -37,7 +37,7 @@
 	"sc'azz","th'sc","nil","n'ahk","sc'yeth","aur'sk","iy'it","azzg","a'","i'","o'","u'","a","i","o","u","zz","kr","ak","nrk")
 	machine_understands = FALSE
 
-/datum/language/corgi
+/datum/language/dog
 	name = LANGUAGE_DOG
 	desc = "Woof woof woof."
 	speech_verb = "barks"

@@ -775,7 +775,6 @@
 #include "code\game\objects\items\devices\suit_cooling.dm"
 #include "code\game\objects\items\devices\t_scanner.dm"
 #include "code\game\objects\items\devices\taperecorder.dm"
-#include "code\game\objects\items\devices\text_to_speech.dm"
 #include "code\game\objects\items\devices\traitordevices.dm"
 #include "code\game\objects\items\devices\transfer_valve.dm"
 #include "code\game\objects\items\devices\translator.dm"
