@@ -82,12 +82,12 @@
 		"r_foot" = list("path" = /obj/item/organ/external/foot/right/autakh)
 		)
 
-
 	spawn_flags = IS_RESTRICTED
 	appearance_flags = HAS_HAIR_COLOR | HAS_UNDERWEAR | HAS_SKIN_COLOR | HAS_EYE_COLOR
 	flags = NO_CHUBBY | NO_SCAN
 
 	flesh_color = "#575757"
+	base_color = "#575757"
 
 	heat_discomfort_level = 290
 	heat_discomfort_strings = list(
