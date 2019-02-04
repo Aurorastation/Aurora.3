@@ -84,6 +84,12 @@
 	base_turf = /turf/unsimulated/floor
 	centcomm_area = 1
 
+/area/shuttle/escape_pod1/centcom/space
+	base_turf = /turf/space
+
+/area/shuttle/escape_pod1/centcom/antag
+	base_turf = /turf/space
+
 /area/shuttle/escape_pod1/transit
 	icon_state = "shuttle"
 	centcomm_area = 1
@@ -106,6 +112,12 @@
 	icon_state = "shuttle"
 	base_turf = /turf/unsimulated/floor
 	centcomm_area = 1
+
+/area/shuttle/escape_pod2/centcom/antag
+	base_turf = /turf/space
+
+/area/shuttle/escape_pod2/centcom/space
+	base_turf = /turf/space
 
 /area/shuttle/escape_pod2/transit
 	icon_state = "shuttle"
@@ -130,6 +142,12 @@
 	base_turf = /turf/unsimulated/floor
 	centcomm_area = 1
 
+/area/shuttle/escape_pod3/centcom/antag
+	base_turf = /turf/space
+
+/area/shuttle/escape_pod3/centcom/space
+	base_turf = /turf/space
+
 /area/shuttle/escape_pod3/transit
 	icon_state = "shuttle"
 	centcomm_area = 1
@@ -150,8 +168,14 @@
 
 /area/shuttle/escape_pod4/centcom
 	icon_state = "shuttle"
-	base_turf = /turf/space
+	base_turf = /turf/unsimulated/floor
 	centcomm_area = 1
+
+/area/shuttle/escape_pod4/centcom/antag
+	base_turf = /turf/space
+
+/area/shuttle/escape_pod4/centcom/space
+	base_turf = /turf/space
 
 /area/shuttle/escape_pod4/transit
 	icon_state = "shuttle"
@@ -173,8 +197,14 @@
 
 /area/shuttle/escape_pod5/centcom
 	icon_state = "shuttle"
-	base_turf = /turf/space
+	base_turf = /turf/unsimulated/floor
 	centcomm_area = 1
+
+/area/shuttle/escape_pod5/centcom/antag
+	base_turf = /turf/space
+
+/area/shuttle/escape_pod5/centcom/space
+	base_turf = /turf/space
 
 /area/shuttle/escape_pod5/transit
 	icon_state = "shuttle"
@@ -196,8 +226,14 @@
 
 /area/shuttle/escape_pod6/centcom
 	icon_state = "shuttle"
-	base_turf = /turf/space
+	base_turf = /turf/unsimulated/floor
 	centcomm_area = 1
+
+/area/shuttle/escape_pod6/centcom/antag
+	base_turf = /turf/space
+
+/area/shuttle/escape_pod6/centcom/space
+	base_turf = /turf/space
 
 /area/shuttle/escape_pod6/transit
 	icon_state = "shuttle"
