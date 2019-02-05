@@ -8,6 +8,7 @@
 	suit_type = "ERT commander"
 	icon_state = "ert_commander_rig"
 	emp_protection = 35
+	slowdown = 1
 
 	helm_type = /obj/item/clothing/head/helmet/space/rig/ert
 
@@ -34,6 +35,7 @@
 	icon_state = "ert_engineer_rig"
 	armor = list(melee = 60, bullet = 50, laser = 30,energy = 15, bomb = 30, bio = 100, rad = 100)
 	emp_protection = 30
+	slowdown = 1
 
 	glove_type = /obj/item/clothing/gloves/rig/eva
 
@@ -52,6 +54,7 @@
 	suit_type = "ERT medic"
 	icon_state = "ert_medical_rig"
 	emp_protection = 30
+	slowdown = 1
 
 	initial_modules = list(
 		/obj/item/rig_module/ai_container,
@@ -68,6 +71,7 @@
 	suit_type = "ERT security"
 	icon_state = "ert_security_rig"
 	emp_protection = 30
+	slowdown = 1
 
 	initial_modules = list(
 		/obj/item/rig_module/ai_container,
