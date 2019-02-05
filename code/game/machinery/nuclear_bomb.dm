@@ -44,7 +44,7 @@ var/bomb_set
 	return
 
 /obj/machinery/nuclearbomb/attackby(obj/item/weapon/O as obj, mob/user as mob, params)
-	if (isscrewdriver(O))
+	if (O.isscrewdriver())
 		src.add_fingerprint(user)
 		if (src.auth)
 			if (panel_open == 0)
@@ -68,7 +68,7 @@ var/bomb_set
 			flick("lock", src)
 		return
 
-	if (panel_open && (ismultitool(O) || iswirecutter(O)))
+	if (panel_open && (O.ismultitool() || O.iswirecutter()))
 		return attack_hand(user)
 
 	if (src.extended)
@@ -81,7 +81,7 @@ var/bomb_set
 	if (src.anchored)
 		switch(removal_stage)
 			if(0)
-				if(iswelder(O))
+				if(O.iswelder())
 					var/obj/item/weapon/weldingtool/WT = O
 					if(!WT.isOn()) return
 					if (WT.get_fuel() < 5) // uses up 5 fuel.
@@ -97,7 +97,7 @@ var/bomb_set
 				return
 
 			if(1)
-				if(iscrowbar(O))
+				if(O.iscrowbar())
 					user.visible_message("[user] starts forcing open the bolt covers on [src].", "You start forcing open the anchoring bolt covers with [O]...")
 
 					if(do_after(user,15))
@@ -107,7 +107,7 @@ var/bomb_set
 				return
 
 			if(2)
-				if(iswelder(O))
+				if(O.iswelder())
 
 					var/obj/item/weapon/weldingtool/WT = O
 					if(!WT.isOn()) return
@@ -124,7 +124,7 @@ var/bomb_set
 				return
 
 			if(3)
-				if(iswrench(O))
+				if(O.iswrench())
 
 					user.visible_message("[user] begins unwrenching the anchoring bolts on [src].", "You begin unwrenching the anchoring bolts...")
 
@@ -135,7 +135,7 @@ var/bomb_set
 				return
 
 			if(4)
-				if(iscrowbar(O))
+				if(O.iscrowbar())
 
 					user.visible_message("[user] begins lifting [src] off of the anchors.", "You begin lifting the device off the anchors...")
 

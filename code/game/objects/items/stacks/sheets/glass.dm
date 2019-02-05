@@ -26,7 +26,7 @@
 /obj/item/stack/material/glass/attackby(obj/item/W, mob/user)
 	..()
 	if(!is_reinforced)
-		if(iscoil(W))
+		if(W.iscoil())
 			var/obj/item/stack/cable_coil/CC = W
 			if (get_amount() < 1 || CC.get_amount() < 5)
 				user << "<span class='warning'>You need five lengths of coil and one sheet of glass to make wired glass.</span>"
