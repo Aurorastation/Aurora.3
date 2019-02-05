@@ -35,7 +35,6 @@
 	icon_state = "ert_engineer_rig"
 	armor = list(melee = 60, bullet = 50, laser = 30,energy = 15, bomb = 30, bio = 100, rad = 100)
 	emp_protection = 30
-	slowdown = 1
 
 	glove_type = /obj/item/clothing/gloves/rig/eva
 
@@ -54,7 +53,6 @@
 	suit_type = "ERT medic"
 	icon_state = "ert_medical_rig"
 	emp_protection = 30
-	slowdown = 1
 
 	initial_modules = list(
 		/obj/item/rig_module/ai_container,
@@ -71,7 +69,6 @@
 	suit_type = "ERT security"
 	icon_state = "ert_security_rig"
 	emp_protection = 30
-	slowdown = 1
 
 	initial_modules = list(
 		/obj/item/rig_module/ai_container,
@@ -105,6 +102,7 @@
 	armor = list(melee = 60, bullet = 60, laser = 60,energy = 40, bomb = 50, bio = 100, rad = 100)
 	siemens_coefficient = 0
 	emp_protection = 50
+	slowdown = 0
 
 	initial_modules = list(
 		/obj/item/rig_module/ai_container,
