@@ -72,7 +72,7 @@
 		P = new /obj/item/device/pda (src)
 		P.canremove = 0
 
-/obj/item/organ/augment/pda/timepiece/attack_self(var/mob/user)
+/obj/item/organ/augment/pda/attack_self(var/mob/user)
 	. = ..()
 	if(P)
 		if(!P.owner)
@@ -105,6 +105,8 @@
 	var/deployed = 0
 	var/cooldown = 100
 	install_locations = list(ARM_LEFT, ARM_RIGHT, HAND_LEFT, HAND_RIGHT)
+	var/deployment_location
+	var/deployment_string
 
 /obj/item/organ/augment/tool/Initialize()
 	. = ..()
@@ -125,18 +127,29 @@
 	if(.)
 
 		if(!deployed)
-			if(owner.get_active_hand())
-				to_chat(owner, "<span class='danger'>You must empty your active hand before enabling your [src]!</span>")
-				return
+			if(!deployment_location)
+				if(owner.get_active_hand())
+					to_chat(owner, "<span class='danger'>You must empty your active hand before enabling your [src]!</span>")
+					return
 
-			owner.last_special = world.time + cooldown
-			owner.put_in_active_hand(augment)
-			owner.visible_message("<span class='notice'>\The [augment] slides out of \the [owner]'s [src].</span>","<span class='notice'>You deploy \the [augment]!</span>")
-			deployed = 1
+				owner.last_special = world.time + cooldown
+				owner.put_in_active_hand(augment)
+				owner.visible_message("<span class='notice'>\The [augment] slides out of \the [owner]'s [src.loc].</span>","<span class='notice'>You deploy \the [augment]!</span>")
+				deployed = 1
+
+			else
+				if(!owner.equip_to_slot_if_possible(augment, deployment_location))
+					to_chat(owner, "<span class='danger'>You must remove your [deployment_string] before enabling your [src]!</span>")
+					return
+
+				owner.last_special = world.time + cooldown
+				owner.visible_message("<span class='notice'>\The [augment] slides out of \the [owner]'s [src.loc].</span>","<span class='notice'>You deploy \the [augment]!</span>")
+				deployed = 1
+
 		else
 			owner.last_special = world.time + cooldown
 			augment.forceMove(src)
-			owner.visible_message("<span class='notice'>\The [augment] slides into \the [owner]'s [src].</span>","<span class='notice'>You retract \the [augment]!</span>")
+			owner.visible_message("<span class='notice'>\The [augment] slides into \the [owner]'s [src.loc].</span>","<span class='notice'>You retract \the [augment]!</span>")
 			deployed = 0
 
 /obj/item/organ/augment/tool/combitool
@@ -157,3 +170,30 @@
 	action_icon = "health"
 	augment_type = /obj/item/device/healthanalyzer
 	cooldown = 50
+
+/obj/item/organ/augment/tool/magfeet
+	name = "magnetic soles"
+	action_button_name = "Deploy Magnetic Soles"
+	action_icon = "magboots"
+	augment_type = /obj/item/clothing/shoes/magnetic
+	deployment_location = slot_shoes
+	deployment_string = "shoes"
+	install_locations = list(FOOT_LEFT, FOOT_RIGHT)
+
+/obj/item/clothing/shoes/magnetic
+	name = "magnetic soles"
+	magnetic = 1
+	item_flags = NOSLIP
+
+/obj/item/organ/augment/tool/maghands
+	name = "magnetic palms"
+	action_button_name = "Deploy Magnetic Palms"
+	action_icon = "magboots"
+	augment_type = /obj/item/clothing/gloves/magnetic
+	deployment_location = slot_gloves
+	deployment_string = "gloves"
+	install_locations = list(HAND_LEFT, HAND_RIGHT)
+
+/obj/item/clothing/gloves/magnetic
+	name = "magnetic palms"
+	magnetic = 1

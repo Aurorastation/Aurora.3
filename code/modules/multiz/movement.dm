@@ -163,7 +163,7 @@
 	if(direction == DOWN)
 		stack_turf = destination
 
-	if(species && !species.natural_climbing)
+	if((species && !species.natural_climbing) || gloves.magnetic)
 		for(var/obj/O in stack_turf)
 			if(O.w_class >= 4.0 || O.anchored) //if an object is anchored it's stable footing
 				climb_chance = min(100, climb_chance + O.w_class) //large items increase your reach
@@ -178,6 +178,9 @@
 
 	if(species && species.climb_coeff)
 		climb_speed = round(max(1, (species.climb_coeff * climb_speed) - speed_bonus), 1)
+
+	if(gloves.magnetic)
+		climb_speed *= 0.5
 
 	if(prob(climb_chance))
 		will_succeed = TRUE
