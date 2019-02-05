@@ -363,43 +363,14 @@
 	energy_drain = 1000
 	range = RANGED
 
-/obj/item/mecha_parts/mecha_equipment/teleporter/action(atom/target, mob/user)
+/obj/item/mecha_parts/mecha_equipment/teleporter/action(atom/target)
 
 	if(!action_checks(target) || src.loc.z == 2) return
 	var/turf/T = get_turf(target)
-	var/blocked = 0
-	var/mob/living/carbon/human/H = chassis.occupant
 	if(T)
-		if(T.density == 1)
-			blocked = 1
-	if(blocked == 1)
-		explosion(get_turf(T), 0.8,0.8,0.8)
-		var/list/turfs = new/list()
-		for(var/turf/D in orange(9, chassis))
-			if(istype(D,/turf/space)) 
-				continue
-			if(D.density) 
-				continue
-			if(D.x>world.maxx-9 || D.x<9)
-				continue
-			if(D.y>world.maxy-9 || D.y<9)
-				continue
-			turfs += D
-		if(!turfs.len) turfs += pick(/turf in orange(9))
-		var/turf/newloc = pick(turfs)
-		if(!isturf(newloc))
-			return
-		to_chat(user, "<span class='warning'>The \icon[chassis] [chassis] phases into the [T.name], violently tossing the [chassis] to \the [newloc].</span>")
-		chassis.forceMove(newloc)
-		spark(newloc, 5, alldirs)
-		H.halloss += rand(30,40) // Getting tossed around like a ball through bluespace hurts
-		to_chat(H, "<span class='warning'>[H]'s insides as they are tossed around inside the [chassis]</span>")
-		do_after_cooldown()
-
-	if(blocked == 0)
 		set_ready_state(0)
 		chassis.use_power(energy_drain)
-		chassis.forceMove(T)
+		do_teleport(chassis, T)
 		spark(T, 5, alldirs)
 		do_after_cooldown()
 	return
