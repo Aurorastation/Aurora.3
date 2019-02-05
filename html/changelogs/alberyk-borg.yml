@@ -1,0 +1,6 @@
+author: Alberyk
+
+delete-after: True
+
+changes: 
+  - rscdel: "The station is no longer able to deploy combat cyborgs."
