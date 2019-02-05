@@ -29,6 +29,9 @@
 	unregister_buffer(buffer_object)
 	return ..()
 
+/obj/item/device/multitool/ismultitool()
+	return TRUE
+
 /obj/item/device/multitool/proc/get_buffer(var/typepath)
 	// Only allow clearing the buffer name when someone fetches the buffer.
 	// Means you cannot be sure the source hasn't been destroyed until the very moment it's needed.

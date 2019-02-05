@@ -263,11 +263,10 @@
 	item_state = "suspenders"
 
 /obj/item/clothing/accessory/scarf
-	name = "scarf"
+	name = "white scarf"
 	desc = "A simple scarf, to protect your neck from the cold of space."
 	icon_state = "whitescarf"
 	item_state = "whitescarf"
-	slot = "over"
 
 /obj/item/clothing/accessory/scarf/yellow
 	name = "yellow scarf"
@@ -502,8 +501,38 @@
 	icon_state = "seccloak"
 	item_state = "seccloak"
 
-//tau ceti legion ribbons
+/obj/item/clothing/accessory/poncho/shouldercape
+	name = "shoulder cape"
+	desc = "A simple shoulder cape."
+	description_fluff = "In Skrellian tradition, the length of cape typically signifies experience in various fields."
+	icon_state = "starcape"
+	item_state = "starcape"
 
+/obj/item/clothing/accessory/poncho/shouldercape/star
+	name = "star cape"
+	desc = "A simple looking cape with a couple of runes woven into the fabric."
+	icon_state = "starcape"
+	item_state = "starcape"
+
+/obj/item/clothing/accessory/poncho/shouldercape/nebula
+	name = "nebula cape"
+	desc = "A decorated cape. Starry patterns have been woven into the fabric."
+	icon_state = "nebulacape"
+	item_state = "nebulacape"
+
+/obj/item/clothing/accessory/poncho/shouldercape/nova
+	name = "nova cape"
+	desc = "A heavily decorated cape with emblems on the shoulders. An ornate starry design has been woven into the fabric of it"
+	icon_state = "novacape"
+	item_state = "novacape"
+
+/obj/item/clothing/accessory/poncho/shouldercape/galaxy
+	name = "galaxy cape"
+	desc = "An extremely decorated cape with an intricately made design has been woven into the fabric of this cape with great care."
+	icon_state = "galaxycape"
+	item_state = "galaxycape"
+
+//tau ceti legion ribbons
 /obj/item/clothing/accessory/legion
 	name = "seniority ribbons"
 	desc = "A ribbon meant to attach to the chest and sling around the shoulder accompanied by two medallions, marking seniority in a Tau Ceti Foreign Legion."
