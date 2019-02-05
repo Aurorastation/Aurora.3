@@ -1,9 +1,8 @@
 /obj/item/projectile/bullet
 	name = "bullet"
 	icon_state = "bullet"
-	damage = 45
+	damage = 60
 	damage_type = BRUTE
-	armor_penetration = 15
 	nodamage = 0
 	check_armour = "bullet"
 	embed = 1
@@ -131,7 +130,8 @@
 	damage = 25
 
 /obj/item/projectile/bullet/pistol/strong //revolvers and matebas
-	damage = 60
+	damage = 45
+	armor_penetration = 15
 
 /obj/item/projectile/bullet/pistol/rubber //"rubber" bullets
 	name = "rubber bullet"
