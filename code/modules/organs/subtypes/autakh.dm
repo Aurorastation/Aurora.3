@@ -4,8 +4,8 @@
 	robotize_type = PROSTHETIC_AUTAKH
 
 /obj/item/organ/external/head/autakh/Initialize()
-	mechassist()
 	. = ..()
+	mechassist()
 
 /obj/item/organ/external/chest/autakh
 	dislocated = -1
@@ -13,8 +13,8 @@
 	robotize_type = PROSTHETIC_AUTAKH
 
 /obj/item/organ/external/chest/autakh/Initialize()
-	mechassist()
 	. = ..()
+	mechassist()
 
 /obj/item/organ/external/groin/autakh
 	dislocated = -1
@@ -22,8 +22,8 @@
 	robotize_type = PROSTHETIC_AUTAKH
 
 /obj/item/organ/external/groin/autakh/Initialize()
-	mechassist()
 	. = ..()
+	mechassist()
 
 /obj/item/organ/external/arm/autakh
 	dislocated = -1

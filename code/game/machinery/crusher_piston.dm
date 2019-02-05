@@ -501,7 +501,7 @@
 	return ..()
 
 /mob/living/carbon/piston_move()
-	if(!(species && (species.flags & NO_PAIN)))
+	if(can_feel_pain())
 		emote("scream")
 	return ..()
 
