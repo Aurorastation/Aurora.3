@@ -74,7 +74,7 @@
 
 			if(!installed_modules) installed_modules = list()
 
-			if(!(module.category in allowed_module_types))
+			if(!(module.category & allowed_module_types))
 				to_chat(user, span("warning", "\The [src] does not support [module.category] modules!"))
 				return 1
 

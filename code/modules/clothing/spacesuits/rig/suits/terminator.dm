@@ -41,7 +41,7 @@
 		/obj/item/rig_module/actuators/combat
 	)
 
-	allowed_module_types = list("general", "combat", "special", "medical", "mining", "engineering", "janitor", "vaurca")
+	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT | MODULE_SPECIAL | MODULE_MEDICAL | MODULE_UTILITY | MODULE_VAURCA
 
 /obj/item/clothing/head/helmet/space/rig/terminator
 	species_restricted = list("Heavy Machine")

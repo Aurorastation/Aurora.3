@@ -27,7 +27,7 @@
 		/obj/item/rig_module/actuators/combat
 		)
 	
-	allowed_module_types = list("general", "combat", "special", "medical", "mining", "engineering", "janitor", "vaurca")
+	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT | MODULE_SPECIAL | MODULE_MEDICAL | MODULE_UTILITY | MODULE_VAURCA
 
 /obj/item/weapon/rig/ert/engineer
 	name = "ERT-E suit control module"
@@ -47,7 +47,7 @@
 		/obj/item/rig_module/device/rcd,
 		/obj/item/rig_module/actuators
 		)
-	allowed_module_types = list("general", "combat", "special", "mining", "engineering")
+	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT | MODULE_SPECIAL | MODULE_UTILITY 
 
 /obj/item/weapon/rig/ert/medical
 	name = "ERT-M suit control module"
@@ -65,7 +65,7 @@
 		/obj/item/rig_module/actuators
 		)
 	
-	allowed_module_types = list("general", "combat", "special", "medical")
+	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT | MODULE_SPECIAL | MODULE_MEDICAL
 
 /obj/item/weapon/rig/ert/security
 	name = "ERT-S suit control module"
@@ -82,7 +82,7 @@
 		/obj/item/rig_module/mounted/egun,
 		/obj/item/rig_module/actuators
 		)
-	allowed_module_types = list("general", "combat", "special")
+	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT | MODULE_SPECIAL
 
 /obj/item/weapon/rig/ert/janitor
 	name = "ERT-J suit control module"
@@ -99,7 +99,7 @@
 		/obj/item/rig_module/actuators
 		)
 	
-	allowed_module_types = list("general", "combat", "special", "janitor")
+	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT | MODULE_SPECIAL
 
 /obj/item/weapon/rig/ert/assetprotection
 	name = "heavy asset protection suit control module"
@@ -124,7 +124,7 @@
 		/obj/item/rig_module/actuators/combat
 		)
 	
-	allowed_module_types = list("general", "combat", "special", "medical", "mining", "engineering", "janitor", "vaurca") // all modules
+	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT | MODULE_SPECIAL | MODULE_MEDICAL | MODULE_UTILITY | MODULE_VAURCA // all modules
 
 /obj/item/weapon/rig/ert/assetprotection/empty
 	initial_modules = list()

@@ -34,7 +34,7 @@
 	suit_overlay_active =   "stealth_active"
 	suit_overlay_inactive = "stealth_inactive"
 
-	category = "special"
+	category = MODULE_SPECIAL
 
 /obj/item/rig_module/stealth_field/activate()
 
@@ -83,7 +83,7 @@
 	interface_name = "VOID-shift bluespace phase projector"
 	interface_desc = "An advanced teleportation system. It is capable of pinpoint precision or random leaps forward."
 
-	category = "special"
+	category = MODULE_SPECIAL
 
 /obj/item/rig_module/teleporter/proc/phase_in(var/mob/M,var/turf/T)
 
@@ -164,7 +164,7 @@
 	fabrication_type = /obj/item/weapon/energy_net
 	use_power_cost = 60
 
-	category = "special"
+	category = MODULE_SPECIAL
 
 /obj/item/rig_module/fabricator/energy_net/engage(atom/target)
 
@@ -189,7 +189,7 @@
 	interface_desc = "An integrated self-destruct module. When the wearer dies, so does the surrounding area. Do not press this button."
 	var/list/explosion_values = list(3,4,5,6)
 
-	category = "special"
+	category = MODULE_SPECIAL
 
 /obj/item/rig_module/self_destruct/small
 	explosion_values = list(1,2,3,4)
@@ -236,7 +236,7 @@
 	interface_desc = "A highly experimental system that augments the hardsuit's existing EM shielding."
 	var/protection_amount = 30
 
-	category = "special"
+	category = MODULE_SPECIAL
 
 /obj/item/rig_module/emp_shielding/activate()
 	if(!..())
@@ -265,7 +265,7 @@
 	interface_desc = "A high yield power generating device that takes a long time to recharge."
 	var/generation_ammount = 1500
 
-	category = "special"
+	category = MODULE_SPECIAL
 
 /obj/item/rig_module/emergency_powergenerator/engage()
 	if(!..())
@@ -295,4 +295,4 @@
 
 	device_type = /obj/item/weapon/robot_emag
 
-	category = "special"
+	category = MODULE_SPECIAL

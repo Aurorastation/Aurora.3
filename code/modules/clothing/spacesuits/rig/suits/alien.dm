@@ -16,7 +16,7 @@
 
 	allowed = list(/obj/item/weapon/gun,/obj/item/device/flashlight,/obj/item/weapon/tank,/obj/item/device/suit_cooling_unit,/obj/item/weapon/melee/baton,/obj/item/weapon/melee/energy)
 
-	allowed_module_types = list("general", "combat")
+	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT
 
 /obj/item/weapon/rig/unathi/fancy
 	name = "breacher chassis control module"
@@ -28,7 +28,7 @@
 	slowdown = 4
 	vision_restriction = TINT_NONE
 
-	allowed_module_types = list("general", "combat", "special")
+	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT | MODULE_SPECIAL
 
 /obj/item/clothing/head/helmet/space/rig/unathi
 	species_restricted = list("Unathi")
@@ -69,7 +69,7 @@
 
 		)
 	
-	allowed_module_types = list("general", "combat", "vaurca")
+	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT | MODULE_VAURCA
 
 /obj/item/weapon/rig/vaurca/minimal
 	initial_modules = list(/obj/item/rig_module/chem_dispenser/vaurca)

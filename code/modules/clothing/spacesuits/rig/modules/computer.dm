@@ -50,7 +50,7 @@
 	var/obj/item/ai_card  // Reference to the MMI, posibrain, intellicard or pAI card previously holding the AI.
 	var/obj/item/ai_verbs/verb_holder
 
-	category = "special"
+	category = MODULE_GENERAL
 
 /mob
 	var/get_rig_stats = 0
@@ -247,7 +247,7 @@
 	interface_desc = "An induction-powered high-throughput datalink suitable for hacking encrypted networks."
 	var/list/stored_research
 
-	category = "special"
+	category = MODULE_SPECIAL
 
 /obj/item/rig_module/datajack/New()
 	..()
@@ -339,7 +339,7 @@
 	interface_name = "electrowarfare system"
 	interface_desc = "An active counter-electronic warfare suite that disrupts AI tracking."
 
-	category = "special"
+	category = MODULE_SPECIAL
 
 /obj/item/rig_module/electrowarfare_suite/activate()
 
@@ -380,7 +380,7 @@
 	var/total_power_drained = 0
 	var/drain_loc
 
-	category = "special"
+	category = MODULE_SPECIAL
 
 /obj/item/rig_module/power_sink/deactivate()
 

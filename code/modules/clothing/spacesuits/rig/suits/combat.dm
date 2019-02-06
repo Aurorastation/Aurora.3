@@ -14,7 +14,7 @@
 	helm_type = /obj/item/clothing/head/helmet/space/rig/combat
 	allowed = list(/obj/item/weapon/gun,/obj/item/device/flashlight,/obj/item/weapon/tank,/obj/item/device/suit_cooling_unit,/obj/item/weapon/melee/baton)
 
-	allowed_module_types = list("general", "combat")
+	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT
 
 
 /obj/item/weapon/rig/combat/equipped
@@ -46,7 +46,7 @@
 	boot_type = /obj/item/clothing/shoes/magboots/rig/military
 	glove_type = /obj/item/clothing/gloves/rig/military
 
-	allowed_module_types = list("general", "combat", "special", "medical", "mining", "engineering")
+	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT | MODULE_SPECIAL | MODULE_MEDICAL | MODULE_UTILITY
 
 /obj/item/clothing/head/helmet/space/rig/military
 	light_overlay = "helmet_light_dual_green"
@@ -101,7 +101,7 @@
 	chest_type = /obj/item/clothing/suit/space/rig/retro
 	helm_type = /obj/item/clothing/head/helmet/space/rig/retro
 
-	allowed_module_types = list("general", "combat", "special", "medical", "mining")
+	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT | MODULE_SPECIAL | MODULE_MEDICAL | MODULE_UTILITY
 
 /obj/item/weapon/rig/retro/equipped
 	req_access = list(access_legion)

@@ -41,7 +41,7 @@
 
 	device_type = /obj/item/device/healthanalyzer
 
-	category = "medical"
+	category = MODULE_MEDICAL
 
 /obj/item/rig_module/device/drill
 	name = "hardsuit diamond drill mount"
@@ -57,7 +57,7 @@
 
 	device_type = /obj/item/weapon/pickaxe/diamonddrill
 
-	category = "mining"
+	category = MODULE_UTILITY
 
 /obj/item/rig_module/device/basicdrill
 	name = "hardsuit drill mount"
@@ -71,7 +71,7 @@
 
 	device_type = /obj/item/weapon/pickaxe/drill
 
-	category = "mining"
+	category = MODULE_UTILITY
 
 /obj/item/rig_module/device/anomaly_scanner
 	name = "hardsuit anomaly scanner"
@@ -84,7 +84,7 @@
 	selectable = 0
 	device_type = /obj/item/device/ano_scanner
 
-	category = "mining"
+	category = MODULE_UTILITY
 
 /obj/item/rig_module/device/orescanner
 	name = "ore scanner module"
@@ -97,7 +97,7 @@
 	selectable = 0
 	device_type = /obj/item/weapon/mining_scanner
 
-	category = "mining"
+	category = MODULE_UTILITY
 
 /obj/item/rig_module/device/rcd
 	name = "RCD mount"
@@ -112,7 +112,7 @@
 
 	device_type = /obj/item/weapon/rcd/mounted
 
-	category = "engineering"
+	category = MODULE_UTILITY
 
 /obj/item/rig_module/device/New()
 	..()
@@ -172,7 +172,7 @@
 
 	var/max_reagent_volume = 80 //Used when refilling.
 
-	category = "combat"
+	category = MODULE_HEAVY_COMBAT
 
 /obj/item/rig_module/chem_dispenser/ninja
 	interface_desc = "Dispenses loaded chemicals directly into the wearer's bloodstream. This variant is made to be extremely light and flexible."
@@ -190,7 +190,7 @@
 		list("radium",        "radium",        0, 20)
 		)
 	
-	category = "special"
+	category = MODULE_UTILITY
 
 /obj/item/rig_module/chem_dispenser/accepts_item(var/obj/item/input_item, var/mob/living/user)
 
@@ -291,6 +291,7 @@
 	interface_name = "combat chem dispenser"
 	interface_desc = "Dispenses loaded chemicals directly into the bloodstream."
 
+	category = MODULE_LIGHT_COMBAT
 
 /obj/item/rig_module/chem_dispenser/vaurca
 
@@ -309,7 +310,7 @@
 	interface_name = "vaurca combat chem dispenser"
 	interface_desc = "Dispenses loaded chemicals directly into the bloodstream."
 
-	category = "vaurca"
+	category = MODULE_VAURCA
 
 /obj/item/rig_module/chem_dispenser/injector
 
@@ -324,7 +325,7 @@
 	interface_name = "mounted chem injector"
 	interface_desc = "Dispenses loaded chemicals via an arm-mounted injector."
 
-	category = "medical"
+	category = MODULE_MEDICAL
 
 /obj/item/rig_module/chem_dispenser/injector/paramedic //downgraded version
 
@@ -353,7 +354,7 @@
 
 	var/obj/item/voice_changer/voice_holder
 
-	category = "special"
+	category = MODULE_SPECIAL
 
 /obj/item/rig_module/voice/New()
 	..()
@@ -415,7 +416,7 @@
 
 	var/obj/item/weapon/tank/jetpack/rig/jets
 
-	category = "general"
+	category = MODULE_GENERAL
 
 /obj/item/rig_module/maneuvering_jets/engage()
 	if(!..())
@@ -475,7 +476,7 @@
 	selectable = 0
 	device_type = /obj/item/weapon/paper_bin
 
-	category = "general"
+	category = MODULE_GENERAL
 
 /obj/item/rig_module/device/paperdispenser/engage(atom/target)
 
@@ -496,7 +497,7 @@
 	usable = 1
 	device_type = /obj/item/weapon/pen/multi
 
-	category = "general"
+	category = MODULE_GENERAL
 
 /obj/item/rig_module/device/stamp
 	name = "mounted internal affairs stamp"
@@ -509,7 +510,7 @@
 	var/iastamp
 	var/deniedstamp
 
-	category = "general"
+	category = MODULE_GENERAL
 
 /obj/item/rig_module/device/stamp/New()
 	..()
@@ -539,7 +540,7 @@
 
 	device_type = /obj/item/weapon/matter_decompiler
 
-	category = "janitor"
+	category = MODULE_GENERAL
 
 /obj/item/rig_module/actuators
 	name = "leg actuators"
@@ -572,7 +573,7 @@
 							// Such as leaping faster, or grappling targets.
 	var/leapDistance = 4	// Determines how far the actuators allow you to leap (radius, inclusive).
 
-	category = "general"
+	category = MODULE_GENERAL
 
 /obj/item/rig_module/actuators/combat
 	name = "military grade leg actuators"
@@ -584,7 +585,7 @@
 
 	use_power_cost = 10
 
-	category = "combat"
+	category = MODULE_LIGHT_COMBAT
 
 /obj/item/rig_module/actuators/engage(var/atom/target)
 	if (!..())
@@ -704,7 +705,7 @@
 	var/max_cooling = 12
 	var/thermostat = T20C
 
-	category = "general"
+	category = MODULE_GENERAL
 
 /obj/item/rig_module/cooling_unit/process()
 	if(!active)
@@ -735,7 +736,7 @@
 
 	usable = 1
 
-	category = "vaurca"
+	category = MODULE_VAURCA
 
 /obj/item/rig_module/boring/engage()
 	if (!..())
@@ -765,7 +766,7 @@ var/global/list/lattice_users = list()
 	toggleable = 1
 	confined_use = 1
 
-	category = "vaurca"
+	category = MODULE_VAURCA
 
 /obj/item/rig_module/lattice/activate()
 	if (!..())

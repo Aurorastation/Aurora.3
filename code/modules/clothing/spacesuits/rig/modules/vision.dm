@@ -76,7 +76,7 @@
 
 	var/vision_index
 
-	category = "general"
+	category = MODULE_GENERAL
 
 /obj/item/rig_module/vision/multi
 
@@ -93,7 +93,8 @@
 						/datum/rig_vision/thermal,
 						/datum/rig_vision/sechud,
 						/datum/rig_vision/medhud)
-	category = "special"
+	
+	category = MODULE_SPECIAL
 
 /obj/item/rig_module/vision/meson
 
@@ -112,8 +113,6 @@
 	vision_modes = list(/datum/rig_vision/meson,
 						/datum/rig_vision/material)
 	
-	category = "general"
-
 /obj/item/rig_module/vision/thermal
 
 	name = "hardsuit thermal scanner"
@@ -127,7 +126,7 @@
 
 	vision_modes = list(/datum/rig_vision/thermal)
 
-	category = "combat"
+	category = MODULE_LIGHT_COMBAT
 
 /obj/item/rig_module/vision/nvg
 
@@ -145,7 +144,7 @@
 
 	vision_modes = list(/datum/rig_vision/nvg)
 
-	category = "combat"
+	category = MODULE_LIGHT_COMBAT
 
 /obj/item/rig_module/vision/sechud
 
@@ -163,7 +162,7 @@
 
 	vision_modes = list(/datum/rig_vision/sechud)
 
-	category = "combat"
+	category = MODULE_LIGHT_COMBAT
 
 /obj/item/rig_module/vision/medhud
 
@@ -181,7 +180,7 @@
 
 	vision_modes = list(/datum/rig_vision/medhud)
 
-	category = "medical"
+	category = MODULE_MEDICAL
 
 // There should only ever be one vision module installed in a suit.
 /obj/item/rig_module/vision/installed()
