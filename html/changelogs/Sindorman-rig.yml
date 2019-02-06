@@ -38,5 +38,6 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
-  - tweak: "Rigs by default now have slowdown. Does not affect any rigs, only ERT."
+  - tweak: "Rigs by default now have slowdown. Only affects ERT rigs."
   - balance: "ERT rigs now use default slowdown value, so they are slower for balance reasons."
+  - balance: "HAPT rig armor values were bumped to military rig, plus it has 35 extra energy armor. HAPT rig is removed from rare loot spawn chance."
