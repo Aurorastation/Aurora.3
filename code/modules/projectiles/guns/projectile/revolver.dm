@@ -1,13 +1,13 @@
 /obj/item/weapon/gun/projectile/revolver
 	name = "revolver"
-	desc = "The classic Necropolis Industries .357 revolver, for when you only want to shoot once."
+	desc = "The revised Mark II Necropolis Industries revolver, chambering .357 rounds and utilizing a robust firing mechanism to deliver deadly rounds downrange. This is a monster of a hand cannon with a beautiful cedar grip and a transparent plastic cover so as to not splinter your hands while firing."
 	icon_state = "revolver"
 	item_state = "revolver"
 	accuracy = 1
 	caliber = "357"
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
 	handle_casings = CYCLE_CASINGS
-	max_shells = 7
+	max_shells = 8
 	ammo_type = /obj/item/ammo_casing/a357
 	fire_sound = 'sound/weapons/revolver_shoot.ogg'
 	var/chamber_offset = 0 //how many empty chambers in the cylinder until you hit a round
