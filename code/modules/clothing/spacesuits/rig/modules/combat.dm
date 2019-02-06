@@ -15,6 +15,7 @@
 	interface_name = "mounted flash"
 	interface_desc = "Stuns your target by blinding them with a bright light."
 	device_type = /obj/item/device/flash
+	category = "combat"
 
 /obj/item/rig_module/grenade_launcher
 
@@ -28,6 +29,8 @@
 
 	var/fire_force = 30
 	var/fire_distance = 10
+
+	category = "combat"
 
 	charges = list(
 		list("flashbang",   "flashbang",   /obj/item/weapon/grenade/flashbang,  3),
@@ -106,6 +109,8 @@
 	name = "mounted cleaning grenade launcher"
 	desc = "A specialty shoulder-mounted micro-explosive dispenser."
 
+	category = "janitor"
+
 	charges = list(
 		list("cleaning grenade",   "cleaning grenade",   /obj/item/weapon/grenade/chem_grenade/cleaner,  9)
 		)
@@ -120,6 +125,8 @@
 	icon_state = "lcannon"
 
 	engage_string = "Configure"
+
+	category = "combat"
 
 	interface_name = "mounted laser cannon"
 	interface_desc = "A shoulder-mounted cell-powered laser cannon."
@@ -229,6 +236,8 @@
 	construction_cost = list("glass" = 5250, DEFAULT_WALL_MATERIAL = 30000, "silver" = 5250, "phoron" = 7250)
 	construction_time = 300
 
+	category = "mining"
+
 	gun_type = /obj/item/weapon/gun/energy/plasmacutter/mounted
 
 /obj/item/rig_module/mounted/thermalldrill
@@ -240,6 +249,7 @@
 
 	gun_type = /obj/item/weapon/gun/energy/vaurca/mountedthermaldrill
 
+	category = "mining"
 
 /obj/item/rig_module/mounted/energy_blade
 
@@ -316,6 +326,8 @@
 	var/fire_force = 30
 	var/fire_distance = 10
 
+	category = "combat"
+
 /obj/item/rig_module/fabricator/engage(atom/target)
 
 	if(!..())
@@ -347,3 +359,5 @@
 	interface_desc = "An integrated microfactory that produces wet floor signs from thin air and electricity."
 
 	fabrication_type = /obj/item/weapon/caution
+
+	category = "janitor"

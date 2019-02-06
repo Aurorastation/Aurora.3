@@ -57,6 +57,7 @@
 	var/deactivate_string = "Deactivate"
 
 	var/list/stat_rig_module/stat_modules = new()
+	var/category	// Use for restricting modules for specific suits, to specialize
 
 /obj/item/rig_module/examine()
 	..()

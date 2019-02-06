@@ -65,6 +65,7 @@
 		// Check if this is a hardsuit upgrade or a modification.
 		else if(istype(W,/obj/item/rig_module))
 
+			var/obj/item/rig_module/module = W
 			if(istype(src.loc,/mob/living/carbon/human))
 				var/mob/living/carbon/human/H = src.loc
 				if(H.back == src)
@@ -72,6 +73,11 @@
 					return 1
 
 			if(!installed_modules) installed_modules = list()
+
+			if(!(module.category in allowed_module_types))
+				to_chat(user, span("warning", "\The [src] does not support [module.category] modules!"))
+				return 1
+
 			if(installed_modules.len)
 				for(var/obj/item/rig_module/installed_mod in installed_modules)
 					if(!installed_mod.redundant && istype(installed_mod,W))

@@ -41,6 +41,8 @@
 
 	device_type = /obj/item/device/healthanalyzer
 
+	category = "medical"
+
 /obj/item/rig_module/device/drill
 	name = "hardsuit diamond drill mount"
 	desc = "A very heavy diamond-tipped drill."
@@ -55,6 +57,8 @@
 
 	device_type = /obj/item/weapon/pickaxe/diamonddrill
 
+	category = "mining"
+
 /obj/item/rig_module/device/basicdrill
 	name = "hardsuit drill mount"
 	desc = "A very heavy basic drill."
@@ -67,6 +71,8 @@
 
 	device_type = /obj/item/weapon/pickaxe/drill
 
+	category = "mining"
+
 /obj/item/rig_module/device/anomaly_scanner
 	name = "hardsuit anomaly scanner"
 	desc = "You think it's called an Elder Sarsparilla or something."
@@ -78,6 +84,8 @@
 	selectable = 0
 	device_type = /obj/item/device/ano_scanner
 
+	category = "mining"
+
 /obj/item/rig_module/device/orescanner
 	name = "ore scanner module"
 	desc = "A clunky old ore scanner."
@@ -88,6 +96,8 @@
 	usable = 1
 	selectable = 0
 	device_type = /obj/item/weapon/mining_scanner
+
+	category = "mining"
 
 /obj/item/rig_module/device/rcd
 	name = "RCD mount"
@@ -101,6 +111,8 @@
 	construction_time = 1000
 
 	device_type = /obj/item/weapon/rcd/mounted
+
+	category = "engineering"
 
 /obj/item/rig_module/device/New()
 	..()
@@ -160,6 +172,8 @@
 
 	var/max_reagent_volume = 80 //Used when refilling.
 
+	category = "combat"
+
 /obj/item/rig_module/chem_dispenser/ninja
 	interface_desc = "Dispenses loaded chemicals directly into the wearer's bloodstream. This variant is made to be extremely light and flexible."
 
@@ -175,6 +189,8 @@
 		list("hyronalin",     "hyronalin",     0, 20),
 		list("radium",        "radium",        0, 20)
 		)
+	
+	category = "special"
 
 /obj/item/rig_module/chem_dispenser/accepts_item(var/obj/item/input_item, var/mob/living/user)
 
@@ -275,6 +291,7 @@
 	interface_name = "combat chem dispenser"
 	interface_desc = "Dispenses loaded chemicals directly into the bloodstream."
 
+
 /obj/item/rig_module/chem_dispenser/vaurca
 
 	name = "vaurca combat chemical injector"
@@ -292,6 +309,8 @@
 	interface_name = "vaurca combat chem dispenser"
 	interface_desc = "Dispenses loaded chemicals directly into the bloodstream."
 
+	category = "vaurca"
+
 /obj/item/rig_module/chem_dispenser/injector
 
 	name = "mounted chemical injector"
@@ -304,6 +323,8 @@
 
 	interface_name = "mounted chem injector"
 	interface_desc = "Dispenses loaded chemicals via an arm-mounted injector."
+
+	category = "medical"
 
 /obj/item/rig_module/chem_dispenser/injector/paramedic //downgraded version
 
@@ -331,6 +352,8 @@
 	interface_desc = "A flexible and powerful voice modulator system."
 
 	var/obj/item/voice_changer/voice_holder
+
+	category = "special"
 
 /obj/item/rig_module/voice/New()
 	..()
@@ -392,6 +415,8 @@
 
 	var/obj/item/weapon/tank/jetpack/rig/jets
 
+	category = "general"
+
 /obj/item/rig_module/maneuvering_jets/engage()
 	if(!..())
 		return 0
@@ -450,6 +475,8 @@
 	selectable = 0
 	device_type = /obj/item/weapon/paper_bin
 
+	category = "general"
+
 /obj/item/rig_module/device/paperdispenser/engage(atom/target)
 
 	if(!..() || !device)
@@ -469,6 +496,8 @@
 	usable = 1
 	device_type = /obj/item/weapon/pen/multi
 
+	category = "general"
+
 /obj/item/rig_module/device/stamp
 	name = "mounted internal affairs stamp"
 	desc = "DENIED."
@@ -479,6 +508,8 @@
 	usable = 1
 	var/iastamp
 	var/deniedstamp
+
+	category = "general"
 
 /obj/item/rig_module/device/stamp/New()
 	..()
@@ -507,6 +538,8 @@
 	interface_desc = "Eats trash like no one's business."
 
 	device_type = /obj/item/weapon/matter_decompiler
+
+	category = "janitor"
 
 /obj/item/rig_module/actuators
 	name = "leg actuators"
@@ -539,6 +572,8 @@
 							// Such as leaping faster, or grappling targets.
 	var/leapDistance = 4	// Determines how far the actuators allow you to leap (radius, inclusive).
 
+	category = "general"
+
 /obj/item/rig_module/actuators/combat
 	name = "military grade leg actuators"
 	desc = "A set of high-powered hydraulic actuators, for improved traversal of multilevelled areas."
@@ -548,6 +583,8 @@
 	leapDistance = 7
 
 	use_power_cost = 10
+
+	category = "combat"
 
 /obj/item/rig_module/actuators/engage(var/atom/target)
 	if (!..())
@@ -667,6 +704,8 @@
 	var/max_cooling = 12
 	var/thermostat = T20C
 
+	category = "general"
+
 /obj/item/rig_module/cooling_unit/process()
 	if(!active)
 		return passive_power_cost
@@ -696,6 +735,8 @@
 
 	usable = 1
 
+	category = "vaurca"
+
 /obj/item/rig_module/boring/engage()
 	if (!..())
 		return 0
@@ -724,6 +765,7 @@ var/global/list/lattice_users = list()
 	toggleable = 1
 	confined_use = 1
 
+	category = "vaurca"
 
 /obj/item/rig_module/lattice/activate()
 	if (!..())

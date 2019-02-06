@@ -26,6 +26,8 @@
 		/obj/item/rig_module/datajack,
 		/obj/item/rig_module/actuators/combat
 		)
+	
+	allowed_module_types = list("general", "combat", "special", "medical", "mining", "engineering", "janitor")
 
 /obj/item/weapon/rig/ert/engineer
 	name = "ERT-E suit control module"
@@ -45,6 +47,7 @@
 		/obj/item/rig_module/device/rcd,
 		/obj/item/rig_module/actuators
 		)
+	allowed_module_types = list("general", "combat", "special", "mining", "engineering")
 
 /obj/item/weapon/rig/ert/medical
 	name = "ERT-M suit control module"
@@ -61,6 +64,8 @@
 		/obj/item/rig_module/chem_dispenser/injector,
 		/obj/item/rig_module/actuators
 		)
+	
+	allowed_module_types = list("general", "combat", "special", "medical")
 
 /obj/item/weapon/rig/ert/security
 	name = "ERT-S suit control module"
@@ -77,6 +82,7 @@
 		/obj/item/rig_module/mounted/egun,
 		/obj/item/rig_module/actuators
 		)
+	allowed_module_types = list("general", "combat", "special")
 
 /obj/item/weapon/rig/ert/janitor
 	name = "ERT-J suit control module"
@@ -92,6 +98,8 @@
 		/obj/item/rig_module/device/decompiler,
 		/obj/item/rig_module/actuators
 		)
+	
+	allowed_module_types = list("general", "combat", "special", "janitor")
 
 /obj/item/weapon/rig/ert/assetprotection
 	name = "heavy asset protection suit control module"
@@ -115,6 +123,8 @@
 		/obj/item/rig_module/datajack,
 		/obj/item/rig_module/actuators/combat
 		)
+	
+	allowed_module_types = list("general", "combat", "special", "medical", "mining", "engineering", "janitor") // all modules
 
 /obj/item/weapon/rig/ert/assetprotection/empty
 	initial_modules = list()

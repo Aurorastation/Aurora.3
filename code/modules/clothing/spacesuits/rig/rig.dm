@@ -83,6 +83,8 @@
 	var/datum/wires/rig/wires
 	var/datum/effect_system/sparks/spark_system
 
+	var/list/allowed_module_types = list("general") // All rigs by default should have access to general
+
 /obj/item/weapon/rig/examine()
 	usr << "This is \icon[src][src.name]."
 	usr << "[src.desc]"

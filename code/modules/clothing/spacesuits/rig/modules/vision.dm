@@ -15,31 +15,37 @@
 
 /datum/rig_vision/nvg
 	mode = "night vision"
+
 /datum/rig_vision/nvg/New()
 	glasses = new /obj/item/clothing/glasses/night
 
 /datum/rig_vision/thermal
 	mode = "thermal scanner"
+
 /datum/rig_vision/thermal/New()
 	glasses = new /obj/item/clothing/glasses/thermal
 
 /datum/rig_vision/meson
 	mode = "meson scanner"
+
 /datum/rig_vision/meson/New()
 	glasses = new /obj/item/clothing/glasses/meson
 
 /datum/rig_vision/material
 	mode = "meson scanner"
+
 /datum/rig_vision/material/New()
 	glasses = new /obj/item/clothing/glasses/material
 
 /datum/rig_vision/sechud
 	mode = "security HUD"
+
 /datum/rig_vision/sechud/New()
 	glasses = new /obj/item/clothing/glasses/hud/security
 
 /datum/rig_vision/medhud
 	mode = "medical HUD"
+
 /datum/rig_vision/medhud/New()
 	glasses = new /obj/item/clothing/glasses/hud/health
 
@@ -70,6 +76,8 @@
 
 	var/vision_index
 
+	category = "general"
+
 /obj/item/rig_module/vision/multi
 
 	name = "hardsuit optical package"
@@ -85,6 +93,7 @@
 						/datum/rig_vision/thermal,
 						/datum/rig_vision/sechud,
 						/datum/rig_vision/medhud)
+	category = "special"
 
 /obj/item/rig_module/vision/meson
 
@@ -102,6 +111,8 @@
 
 	vision_modes = list(/datum/rig_vision/meson,
 						/datum/rig_vision/material)
+	
+	category = "general"
 
 /obj/item/rig_module/vision/thermal
 
@@ -115,6 +126,8 @@
 	interface_desc = "An integrated thermal scanner."
 
 	vision_modes = list(/datum/rig_vision/thermal)
+
+	category = "combat"
 
 /obj/item/rig_module/vision/nvg
 
@@ -132,6 +145,8 @@
 
 	vision_modes = list(/datum/rig_vision/nvg)
 
+	category = "combat"
+
 /obj/item/rig_module/vision/sechud
 
 	name = "hardsuit security hud"
@@ -147,6 +162,8 @@
 	interface_desc = "An integrated security heads up display."
 
 	vision_modes = list(/datum/rig_vision/sechud)
+
+	category = "combat"
 
 /obj/item/rig_module/vision/medhud
 
@@ -164,6 +181,7 @@
 
 	vision_modes = list(/datum/rig_vision/medhud)
 
+	category = "medical"
 
 // There should only ever be one vision module installed in a suit.
 /obj/item/rig_module/vision/installed()

@@ -65,6 +65,8 @@
 		/obj/item/rig_module/maneuvering_jets
 
 		)
+	
+	allowed_module_types = list("general", "combat", "vaurca")
 
 /obj/item/weapon/rig/vaurca/minimal
 	initial_modules = list(/obj/item/rig_module/chem_dispenser/vaurca)
