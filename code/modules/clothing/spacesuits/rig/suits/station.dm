@@ -39,6 +39,8 @@
 	helm_type = null
 	boot_type = null
 
+	allowed_module_types = list("general", "combat", "special", "medical", "mining", "engineering", "janitor", "vaurca")
+
 /obj/item/weapon/rig/internalaffairs/equipped
 
 	req_access = list(access_lawyer)
@@ -73,6 +75,7 @@
 	req_access = list()
 	req_one_access = list()
 
+	allowed_module_types = list("general", "mining", "engineering")
 
 /obj/item/weapon/rig/industrial/equipped
 
@@ -106,6 +109,8 @@
 
 	req_access = list()
 	req_one_access = list()
+
+	allowed_module_types = list("general", "mining", "engineering")
 
 /obj/item/weapon/rig/eva/equipped
 
@@ -141,6 +146,8 @@
 	req_access = list()
 	req_one_access = list()
 
+	allowed_module_types = list("general", "mining", "engineering")
+
 /obj/item/weapon/rig/ce/equipped
 
 	req_access = list(access_ce)
@@ -175,6 +182,8 @@
 	req_access = list()
 	req_one_access = list()
 
+	allowed_module_types = list("general", "mining", "engineering")
+
 /obj/item/weapon/rig/hazmat/equipped
 
 	req_access = list(access_rd)
@@ -201,6 +210,8 @@
 
 	req_access = list()
 	req_one_access = list()
+
+	allowed_module_types = list("general", "medical")
 
 /obj/item/weapon/rig/medical/equipped
 
@@ -231,6 +242,7 @@
 	req_access = list()
 	req_one_access = list()
 
+	allowed_module_types = list("general", "combat")
 
 /obj/item/weapon/rig/hazard/equipped
 

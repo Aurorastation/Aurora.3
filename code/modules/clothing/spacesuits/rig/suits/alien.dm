@@ -16,6 +16,8 @@
 
 	allowed = list(/obj/item/weapon/gun,/obj/item/device/flashlight,/obj/item/weapon/tank,/obj/item/device/suit_cooling_unit,/obj/item/weapon/melee/baton,/obj/item/weapon/melee/energy)
 
+	allowed_module_types = list("general", "combat")
+
 /obj/item/weapon/rig/unathi/fancy
 	name = "breacher chassis control module"
 	desc = "An authentic Unathi breacher chassis. Huge, bulky and absurdly heavy. It must be like wearing a tank."
@@ -26,6 +28,7 @@
 	slowdown = 4
 	vision_restriction = TINT_NONE
 
+	allowed_module_types = list("general", "combat", "special")
 
 /obj/item/clothing/head/helmet/space/rig/unathi
 	species_restricted = list("Unathi")

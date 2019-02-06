@@ -27,7 +27,7 @@
 		/obj/item/rig_module/actuators/combat
 		)
 	
-	allowed_module_types = list("general", "combat", "special", "medical", "mining", "engineering", "janitor")
+	allowed_module_types = list("general", "combat", "special", "medical", "mining", "engineering", "janitor", "vaurca")
 
 /obj/item/weapon/rig/ert/engineer
 	name = "ERT-E suit control module"
@@ -124,7 +124,7 @@
 		/obj/item/rig_module/actuators/combat
 		)
 	
-	allowed_module_types = list("general", "combat", "special", "medical", "mining", "engineering", "janitor") // all modules
+	allowed_module_types = list("general", "combat", "special", "medical", "mining", "engineering", "janitor", "vaurca") // all modules
 
 /obj/item/weapon/rig/ert/assetprotection/empty
 	initial_modules = list()

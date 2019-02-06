@@ -31,6 +31,8 @@
 		/obj/item/rig_module/actuators/combat
 		)
 
+	allowed_module_types = list("general", "combat", "special", "medical", "mining", "engineering", "janitor", "vaurca")
+
 //Has most of the modules removed
 /obj/item/weapon/rig/merc/empty
 	initial_modules = list(

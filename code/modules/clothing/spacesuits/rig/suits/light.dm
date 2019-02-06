@@ -54,6 +54,8 @@
 		/obj/item/rig_module/voice,
 		/obj/item/rig_module/vision
 		)
+	
+	allowed_module_types = list("general", "combat", "special")
 
 //The cybersuit is not space-proof. It does however, have good siemens_coefficient values
 /obj/item/clothing/head/lightrig/hacker
@@ -95,6 +97,8 @@
 		/obj/item/rig_module/self_destruct,
 		/obj/item/rig_module/actuators
 	)
+
+	allowed_module_types = list("general", "combat", "special", "medical", "mining", "engineering", "janitor", "vaurca")
 
 /obj/item/weapon/rig/light/ninja/equipped
 	initial_modules = list(
@@ -140,3 +144,4 @@
 		/obj/item/rig_module/stealth_field,
 		/obj/item/rig_module/vision
 		)
+	allowed_module_types = list("general", "combat", "special")

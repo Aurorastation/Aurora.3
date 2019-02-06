@@ -41,6 +41,8 @@
 		/obj/item/rig_module/actuators/combat
 	)
 
+	allowed_module_types = list("general", "combat", "special", "medical", "mining", "engineering", "janitor", "vaurca")
+
 /obj/item/clothing/head/helmet/space/rig/terminator
 	species_restricted = list("Heavy Machine")
 	light_overlay = "helmet_light_terminator"
