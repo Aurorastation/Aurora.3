@@ -326,7 +326,7 @@
 	var/fire_force = 30
 	var/fire_distance = 10
 
-	category = "combat"
+	category = "special"
 
 /obj/item/rig_module/fabricator/engage(atom/target)
 
