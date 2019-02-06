@@ -2,7 +2,7 @@
 	name = "\improper IV drip"
 	icon = 'icons/obj/iv_drip.dmi'
 	anchored = 0
-	density = 1
+	density = 0
 
 
 /obj/machinery/iv_drip/var/mob/living/carbon/human/attached = null
@@ -84,21 +84,21 @@
 			return
 
 	if(src.attached && src.beaker)
-	
+
 		var/mob/living/carbon/human/T = attached
 
 		if(!istype(T))
 			return
-		
+
 		if(!T.dna)
 			return
-			
+
 		if(NOCLONE in T.mutations)
 			return
 
 		if(T.species.flags & NO_BLOOD)
 			return
-	
+
 		// Give blood
 		if(mode)
 			if(src.beaker.volume > 0)
