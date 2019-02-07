@@ -39,9 +39,6 @@
 
 /datum/category_item/player_setup_item/general/language/sanitize_character(var/sql_load = 0)
 
-	if(!pref.client)
-		return
-
 	if (sql_load)
 		pref.alternate_languages = params2list(pref.alternate_languages)
 
@@ -52,7 +49,7 @@
 
 	var/datum/species/S = all_species[pref.species] || all_species["Human"]
 
-	if (pref.alternate_languages.len > S.num_alternate_languages)
+	if (pref.client && pref.alternate_languages.len > S.num_alternate_languages)
 		to_chat(pref.client, "<span class='warning'>You have too many languages saved for [pref.species].<br><b>The list has been reset. Please check your languages in character creation!</b></span>")
 		pref.alternate_languages.Cut()
 		return
@@ -60,11 +57,11 @@
 	var/list/langs = S.secondary_langs.Copy()
 	for (var/L in all_languages)
 		var/datum/language/lang = all_languages[L]
-		if (!(lang.flags & RESTRICTED) && (!config.usealienwhitelist || is_alien_whitelisted(pref.client.mob, L) || !(lang.flags & WHITELISTED)))
+		if (pref.client && !(lang.flags & RESTRICTED) && (!config.usealienwhitelist || is_alien_whitelisted(pref.client.mob, L) || !(lang.flags & WHITELISTED)))
 			langs |= L
 
 	var/list/bad_langs = pref.alternate_languages - langs
-	if (bad_langs.len)
+	if (pref.client && bad_langs.len)
 		to_chat(pref.client, "<span class='warning'>[bad_langs.len] invalid language\s were found in your character setup! Please save your character again to stop this error from repeating!</span>")
 
 		for (var/L in bad_langs)

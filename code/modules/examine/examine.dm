@@ -41,8 +41,6 @@
 /client/var/description_holders[0]
 
 /client/proc/update_description_holders(atom/A, update_antag_info=0)
-	if(!A)
-		return
 	description_holders["info"] = A.get_description_info()
 	description_holders["fluff"] = A.get_description_fluff()
 	description_holders["antag"] = (update_antag_info)? A.get_description_antag() : ""
@@ -67,6 +65,9 @@
 /mob/examinate(atom/A as mob|obj|turf in view())
 	if(..())
 		return 1
+	
+	if(!A)
+		return 0
 
 	var/is_antag = ((mind && mind.special_role) || isobserver(src)) //ghosts don't have minds
 	if(client)
