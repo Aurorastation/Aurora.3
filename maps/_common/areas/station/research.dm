@@ -29,6 +29,10 @@
 /area/rnd/telesci
 	name = "\improper Research - Telescience Laboratory"
 	icon_state = "research"
+	
+/area/rnd/chemistry
+	name = "\improper Research - Exploratory Chemistry"
+	icon_state = "chem"
 
 /area/rnd/docking
 	name = "\improper Research Dock"
@@ -112,6 +116,30 @@
 /area/rnd/misc_lab
 	name = "\improper Research - Miscellaneous Research"
 	icon_state = "toxmisc"
+	
+/area/rnd/eva
+	name = "\improper Research - EVA Preparation"
+	icon_state = "blue"
+	
+/area/rnd/xenoarch_atrium
+	name = "\improper Research - Xenoarcheology Atrium"
+	icon_state = "research"
+	
+/area/rnd/xenoarch_storage
+	name = "\improper Research - Xenoarcheology Storage"
+	icon_state = "purple"
+	
+/area/rnd/isolation_a
+	name = "\improper Research - Anomaly Isolation A"
+	icon_state = "blue"
+	
+/area/rnd/isolation_b
+	name = "\improper Research - Anomaly Isolation B"
+	icon_state = "red"
+	
+/area/rnd/isolation_c
+	name = "\improper Research - Anomaly Isolation C"
+	icon_state = "green"
 
 /area/rnd/test_range
 	name = "\improper Research - Weapons Testing Range"
