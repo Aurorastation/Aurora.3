@@ -469,6 +469,7 @@
 		/obj/item/seeds/orangeseed = 3,
 		/obj/item/seeds/peanutseed = 3,
 		/obj/item/seeds/peppercornseed = 3,
+		/obj/item/seeds/plastiseed = 3,
 		/obj/item/seeds/plumpmycelium = 3,
 		/obj/item/seeds/poppyseed = 3,
 		/obj/item/seeds/potatoseed = 3,
@@ -492,7 +493,6 @@
 		/obj/item/seeds/glowshroom = 3,
 		/obj/item/seeds/libertymycelium = 3,
 		/obj/item/seeds/nettleseed = 3,
-		/obj/item/seeds/plastiseed = 3,
 		/obj/item/seeds/reishimycelium = 3
 	)
 	prices = list(
@@ -523,6 +523,7 @@
 		/obj/item/seeds/orangeseed = 40,
 		/obj/item/seeds/peanutseed = 30,
 		/obj/item/seeds/peppercornseed = 30,
+		/obj/item/seeds/plastiseed = 40,
 		/obj/item/seeds/plumpmycelium = 20,
 		/obj/item/seeds/poppyseed = 10,
 		/obj/item/seeds/potatoseed = 30,
