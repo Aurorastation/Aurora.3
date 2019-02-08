@@ -63,6 +63,11 @@
 	name = "\improper Research - Xenoflora Lab"
 	icon_state = "xeno_f_lab"
 	no_light_control = TRUE
+	
+/area/rnd/xenobiology/xenoflora_hazard
+	name = "\improper Research - Xenoflora Hazardous Specimens"
+	icon_state = "red"
+	no_light_control = TRUE
 
 /area/rnd/xenobiology/cells
 	name = "\improper Research - Xenobiology Cell"
