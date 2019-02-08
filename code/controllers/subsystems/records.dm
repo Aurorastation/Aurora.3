@@ -54,6 +54,7 @@
 			records_locked |= record
 		if(/datum/record/general)
 			records |= record
+			reset_manifest()
 		if(/datum/record/warrant)
 			warrants |= record
 		if(/datum/record/virus)
@@ -67,6 +68,7 @@
 		if(/datum/record/general)
 			records -= record
 			qdel(record)
+			reset_manifest()
 		if(/datum/record/warrant)
 			warrants -= record
 			qdel(record)
