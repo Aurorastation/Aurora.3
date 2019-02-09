@@ -49,8 +49,9 @@
 
 	var/datum/species/S = all_species[pref.species] || all_species["Human"]
 
-	if (pref.client && pref.alternate_languages.len > S.num_alternate_languages)
-		to_chat(pref.client, "<span class='warning'>You have too many languages saved for [pref.species].<br><b>The list has been reset. Please check your languages in character creation!</b></span>")
+	if (pref.alternate_languages.len > S.num_alternate_languages)
+		if(pref.client)
+			to_chat(pref.client, "<span class='warning'>You have too many languages saved for [pref.species].<br><b>The list has been reset. Please check your languages in character creation!</b></span>")
 		pref.alternate_languages.Cut()
 		return
 
@@ -61,11 +62,13 @@
 			langs |= L
 
 	var/list/bad_langs = pref.alternate_languages - langs
-	if (pref.client && bad_langs.len)
-		to_chat(pref.client, "<span class='warning'>[bad_langs.len] invalid language\s were found in your character setup! Please save your character again to stop this error from repeating!</span>")
+	if (bad_langs.len)
+		if(pref.client)
+			to_chat(pref.client, "<span class='warning'>[bad_langs.len] invalid language\s were found in your character setup! Please save your character again to stop this error from repeating!</span>")
 
 		for (var/L in bad_langs)
-			to_chat(pref.client, "<span class='notice'>Removing the language \"[L]\" from your character.</span>")
+			if(pref.client)
+				to_chat(pref.client, "<span class='notice'>Removing the language \"[L]\" from your character.</span>")
 			pref.alternate_languages -= L
 
 		var/datum/category_group/player_setup_category/cat = category
