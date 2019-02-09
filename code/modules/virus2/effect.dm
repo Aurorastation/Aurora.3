@@ -380,7 +380,7 @@
 	stage = 2
 
 /datum/disease2/effect/stimulant/activate(var/mob/living/carbon/mob,var/multiplier)
-	mob << "<span class='notice'>You feel a rush of energy inside you!</span>"
+	to_chat(mob, "<span class='notice'>You feel a rush of energy inside you!</span>")
 	if (mob.reagents.get_reagent_amount("hyperzine") < 10)
 		mob.reagents.add_reagent("hyperzine", 4)
 	if (prob(30))
