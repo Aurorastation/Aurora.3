@@ -13230,10 +13230,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenobiology/xenoflora)
-"azk" = (
-/obj/machinery/light/small,
-/turf/simulated/floor/asteroid/ash/rocky,
-/area/rnd/xenobiology/xenoflora)
 "azm" = (
 /turf/simulated/wall/r_wall,
 /area/outpost/research/hallway)
@@ -28945,13 +28941,6 @@
 	},
 /turf/simulated/floor/wood,
 /area/medical/patient_wing_library)
-"esC" = (
-/obj/machinery/light/small{
-	dir = 4;
-	pixel_y = 0
-	},
-/turf/simulated/floor/asteroid/ash/rocky,
-/area/rnd/xenobiology/xenoflora_hazard)
 "exv" = (
 /turf/simulated/wall,
 /area/medical/patient_c)
@@ -30661,12 +30650,6 @@
 /obj/effect/floor_decal/corner/white/diagonal,
 /turf/simulated/floor/tiled,
 /area/medical/patient_wing_post2)
-"nTZ" = (
-/obj/machinery/light/small{
-	dir = 4
-	},
-/turf/simulated/floor/asteroid/ash/rocky,
-/area/rnd/eva)
 "nWD" = (
 /obj/machinery/suspension_gen,
 /turf/simulated/floor/plating,
@@ -47735,14 +47718,14 @@ aaa
 aaa
 aaa
 aba
-esC
+aba
 iOl
 gjl
 nDL
 nDL
 tkm
 iOl
-esC
+aba
 aba
 aba
 ale
@@ -52102,7 +52085,7 @@ aba
 aba
 aba
 aba
-azk
+aba
 kJR
 aAr
 aAZ
@@ -53126,7 +53109,7 @@ ebn
 ebn
 ebn
 ayi
-nTZ
+aba
 aba
 aba
 aba
