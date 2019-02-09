@@ -58,6 +58,7 @@
 /datum/disease2/effect/invisible
 	name = "Incubation Period"
 	stage = 1
+
 /datum/disease2/effect/invisible/activate(var/mob/living/carbon/mob,var/multiplier)
 	return
 
