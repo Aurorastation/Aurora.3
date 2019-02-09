@@ -436,4 +436,4 @@
 	stage = 1
 
 /datum/disease2/effect/headache/activate(var/mob/living/carbon/mob,var/multiplier)
-	mob << "<span class='warning'>Your head hurts a bit.</span>"
+	to_chat(mob, "<span class='warning'>Your head hurts a bit.</span>")
