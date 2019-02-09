@@ -352,6 +352,7 @@
 /datum/disease2/effect/hungry
 	name = "Cachexia"
 	stage = 2
+
 /datum/disease2/effect/hungry/activate(var/mob/living/carbon/mob,var/multiplier)
 	mob.adjustNutritionLoss(200)
 
