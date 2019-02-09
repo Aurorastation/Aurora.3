@@ -413,7 +413,7 @@
 	stage = 1
 
 /datum/disease2/effect/gunck/activate(var/mob/living/carbon/mob,var/multiplier)
-	mob << "<span class='warning'>Mucous runs down the back of your throat.</span>"
+	to_chat(mob, "<span class='warning'>Mucous runs down the back of your throat.</span>")
 
 /datum/disease2/effect/drool
 	name = "Salivary Incontinence"
