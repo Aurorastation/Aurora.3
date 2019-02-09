@@ -83,7 +83,7 @@
 		var/mob/living/carbon/human/H = mob
 		var/obj/item/organ/external/O = pick(H.organs)
 		if(prob(25))
-			mob << "<span class='warning'>Your [O.name] feels as if it might burst!</span>"
+			to_chat(mob, "<span class='warning'>Your [O.name] feels as if it might burst!</span>")
 		if(prob(10))
 			spawn(50)
 				if(O)
