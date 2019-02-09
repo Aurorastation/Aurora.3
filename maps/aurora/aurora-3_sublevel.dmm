@@ -12118,12 +12118,6 @@
 /obj/item/clothing/gloves/latex,
 /obj/item/clothing/glasses/science,
 /obj/item/clothing/mask/breath,
-/obj/machinery/alarm{
-	dir = 4;
-	icon_state = "alarm0";
-	pixel_x = -22;
-	pixel_y = 0
-	},
 /turf/simulated/floor/plating,
 /area/rnd/xenoarch_storage)
 "axa" = (
@@ -28957,7 +28951,7 @@
 	pixel_y = 0
 	},
 /turf/simulated/floor/asteroid/ash/rocky,
-/area/mine/unexplored)
+/area/rnd/xenobiology/xenoflora_hazard)
 "exv" = (
 /turf/simulated/wall,
 /area/medical/patient_c)
@@ -31912,9 +31906,6 @@
 /obj/effect/floor_decal/industrial/outline/red,
 /turf/simulated/floor/wood,
 /area/medical/patient_a)
-"vnd" = (
-/turf/simulated/floor/asteroid/ash/rocky,
-/area/rnd/xenobiology/xenoflora_hazard)
 "vou" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled,
@@ -47488,12 +47479,12 @@ aaa
 aaa
 aba
 aba
-vnd
 aba
 aba
 aba
 aba
-vnd
+aba
+aba
 aba
 aba
 aba
