@@ -17,7 +17,7 @@
 	if(!jetpack)
 		jetpack = new /obj/item/weapon/tank/jetpack/carbondioxide/synthetic(src)
 
-/mob/living/silicon/robot/combat/scrambled //should not stand linked to the station or the ai
+/mob/living/silicon/robot/scrambled //should not stand linked to the station or the ai
 	scrambledcodes = 1
 	lawupdate = 0
 
