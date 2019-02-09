@@ -367,6 +367,7 @@
 /datum/disease2/effect/hair
 	name = "Alopecia"
 	stage = 2
+
 /datum/disease2/effect/hair/activate(var/mob/living/carbon/mob,var/multiplier)
 	if(istype(mob, /mob/living/carbon/human))
 		var/mob/living/carbon/human/H = mob
