@@ -18,7 +18,6 @@
 	if(charging && !(stat & (BROKEN|NOPOWER)) )
 
 		var/newlevel = 	round(charging.percent() * 4.0 / 99)
-		//world << "nl: [newlevel]"
 
 		if(chargelevel != newlevel)
 
@@ -58,7 +57,7 @@
 			user.visible_message("[user] inserts a cell into the charger.", "You insert a cell into the charger.")
 			chargelevel = -1
 		update_icon()
-	else if(iswrench(W))
+	else if(W.iswrench())
 		if(charging)
 			user << "<span class='warning'>Remove the cell first!</span>"
 			return
@@ -98,7 +97,6 @@
 
 
 /obj/machinery/cell_charger/machinery_process()
-	//world << "ccpt [charging] [stat]"
 	if((stat & (BROKEN|NOPOWER)) || !anchored)
 		update_use_power(0)
 		return

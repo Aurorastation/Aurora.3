@@ -132,7 +132,7 @@
 		else
 			user << "<span class='notice'>[src] already has a cell.</span>"
 
-	else if(isscrewdriver(W))
+	else if(W.isscrewdriver())
 		if(cell)
 			cell.update_icon()
 			cell.forceMove(get_turf(src.loc))

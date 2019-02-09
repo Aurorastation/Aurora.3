@@ -1858,6 +1858,8 @@
 	icon_state = "0-8"
 	},
 /obj/structure/cable/blue{
+	d1 = 16;
+	d2 = 0;
 	icon_state = "12-0"
 	},
 /obj/structure/lattice/catwalk,
@@ -7267,6 +7269,7 @@
 /obj/machinery/atmospherics/pipe/zpipe/down/scrubbers,
 /obj/machinery/atmospherics/pipe/zpipe/down/supply,
 /obj/structure/cable{
+	d1 = 32;
 	d2 = 2;
 	icon_state = "11-2"
 	},
@@ -15533,7 +15536,7 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/item/modular_computer/console/preset/engineering,
 /turf/simulated/floor/plating,
-/area/space)
+/area/storage/shields)
 "CK" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/power/smes/buildable{
@@ -15605,11 +15608,15 @@
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/aft)
 "CR" = (
-/obj/structure/curtain/open/shower,
-/obj/machinery/shower{
-	icon_state = "shower";
+/obj/structure/table/rack{
+	dir = 8;
+	layer = 2.9
+	},
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
 	dir = 4
 	},
+/obj/item/weapon/towel,
 /turf/simulated/floor/tiled/freezer,
 /area/crew_quarters/toilet)
 "CS" = (
@@ -15770,6 +15777,7 @@
 /area/bridge/levela)
 "Dl" = (
 /obj/machinery/door/airlock{
+	id_tag = "surf_unit_1";
 	name = "Unit 2"
 	},
 /obj/machinery/door/firedoor{
@@ -15798,13 +15806,13 @@
 "Dq" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
 	},
 /turf/simulated/floor/plating,
 /area/bridge/levela)
@@ -15860,18 +15868,15 @@
 	icon_state = "down-scrubbers";
 	dir = 4
 	},
-/obj/structure/cable/green{
-	icon_state = "11-4"
-	},
 /obj/structure/lattice/catwalk,
+/obj/structure/cable/green{
+	d1 = 32;
+	d2 = 1;
+	icon_state = "11-1"
+	},
 /turf/simulated/open,
 /area/bridge/levela)
 "Dw" = (
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 8;
-	icon_state = "1-8"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9;
 	pixel_y = 0
@@ -18275,6 +18280,20 @@
 	},
 /turf/simulated/floor/tiled,
 /area/quartermaster/loading)
+"II" = (
+/obj/structure/disposalpipe/segment,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/arrivals)
+"IJ" = (
+/turf/simulated/floor/asteroid/ash,
+/area/shuttle/legion/station)
 "IU" = (
 /obj/effect/decal/warning_stripes,
 /obj/structure/ladder{
@@ -18308,14 +18327,14 @@
 	icon_state = "alarm0";
 	pixel_x = -22
 	},
+/obj/structure/cable{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
 /turf/simulated/floor/plating,
 /area/maintenance/arrivals)
 "IZ" = (
-/obj/structure/cable{
-	d2 = 4;
-	dir = 2;
-	icon_state = "11-4"
-	},
 /obj/structure/disposalpipe/down{
 	icon_state = "pipe-d";
 	dir = 4
@@ -18329,15 +18348,14 @@
 	dir = 4
 	},
 /obj/structure/lattice/catwalk,
+/obj/structure/cable{
+	d1 = 32;
+	icon_state = "11-1"
+	},
 /turf/simulated/open,
 /area/maintenance/arrivals)
 "Ja" = (
 /obj/machinery/light/small/emergency,
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 8;
-	icon_state = "1-8"
-	},
 /obj/structure/disposalpipe/segment{
 	dir = 8;
 	icon_state = "pipe-c"
@@ -19490,6 +19508,8 @@
 /area/hallway/secondary/entry/fore)
 "NJ" = (
 /obj/structure/cable{
+	d1 = 16;
+	d2 = 0;
 	icon_state = "12-0"
 	},
 /obj/structure/cable{
@@ -19630,6 +19650,46 @@
 /obj/machinery/atmospherics/pipe/manifold/visible,
 /turf/simulated/floor/plating,
 /area/bridge/levela)
+"PU" = (
+/obj/structure/toilet{
+	icon_state = "toilet00";
+	dir = 1
+	},
+/obj/machinery/light/small,
+/obj/machinery/button/remote/airlock{
+	id = "surf_unit_2";
+	name = "Door Bolt Control";
+	pixel_x = 25;
+	pixel_y = 0;
+	req_access = null;
+	specialfunctions = 4
+	},
+/turf/simulated/floor/tiled/freezer,
+/area/crew_quarters/toilet)
+"Qc" = (
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/turf/simulated/floor/plating,
+/area/bridge/levela)
+"QL" = (
+/obj/structure/table/rack{
+	dir = 8;
+	layer = 2.9
+	},
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 1
+	},
+/obj/item/weapon/towel,
+/turf/simulated/floor/tiled/freezer,
+/area/crew_quarters/toilet)
 "Rn" = (
 /obj/machinery/embedded_controller/radio/airlock/docking_port{
 	frequency = 1380;
@@ -19654,6 +19714,18 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/universal,
 /turf/simulated/floor/plating,
 /area/bridge/levela)
+"Us" = (
+/obj/structure/curtain/open/shower,
+/obj/machinery/shower{
+	icon_state = "shower";
+	dir = 4
+	},
+/obj/item/weapon/soap,
+/obj/machinery/door/window/westleft{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/freezer,
+/area/crew_quarters/toilet)
 "Vk" = (
 /obj/machinery/firealarm/south,
 /turf/simulated/floor/tiled,
@@ -20409,6 +20481,7 @@
 /area/crew_quarters/toilet)
 "WY" = (
 /obj/machinery/door/airlock{
+	id_tag = "surf_unit_2";
 	name = "Unit 1"
 	},
 /obj/machinery/door/firedoor{
@@ -20439,6 +20512,14 @@
 	dir = 1
 	},
 /obj/machinery/light/small,
+/obj/machinery/button/remote/airlock{
+	id = "surf_unit_1";
+	name = "Door Bolt Control";
+	pixel_x = 25;
+	pixel_y = 0;
+	req_access = null;
+	specialfunctions = 4
+	},
 /turf/simulated/floor/tiled/freezer,
 /area/crew_quarters/toilet)
 "Xd" = (
@@ -46723,9 +46804,9 @@ Ci
 Cw
 AS
 CR
-CR
-CR
-CR
+Us
+QL
+Us
 AU
 NQ
 sU
@@ -48782,7 +48863,7 @@ WK
 WN
 Cz
 WY
-Xc
+PU
 AU
 tu
 sU
@@ -51898,7 +51979,7 @@ sU
 Bd
 XN
 Df
-HM
+II
 Ja
 sU
 ag
@@ -59820,17 +59901,17 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+IJ
+IJ
+IJ
+IJ
+IJ
+IJ
+IJ
+IJ
+IJ
+IJ
+IJ
 aa
 aa
 aa
@@ -60077,17 +60158,17 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+IJ
+IJ
+IJ
+IJ
+IJ
+IJ
+IJ
+IJ
+IJ
+IJ
+IJ
 aa
 aa
 aa
@@ -60334,17 +60415,17 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+IJ
+IJ
+IJ
+IJ
+IJ
+IJ
+IJ
+IJ
+IJ
+IJ
+IJ
 aa
 aa
 aa
@@ -60591,17 +60672,17 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+IJ
+IJ
+IJ
+IJ
+IJ
+IJ
+IJ
+IJ
+IJ
+IJ
+IJ
 aa
 aa
 aa
@@ -60848,17 +60929,17 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+IJ
+IJ
+IJ
+IJ
+IJ
+IJ
+IJ
+IJ
+IJ
+IJ
+IJ
 aa
 aa
 aa
@@ -61105,17 +61186,17 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+IJ
+IJ
+IJ
+IJ
+IJ
+IJ
+IJ
+IJ
+IJ
+IJ
+IJ
 aa
 aa
 aa
@@ -61362,17 +61443,17 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+IJ
+IJ
+IJ
+IJ
+IJ
+IJ
+IJ
+IJ
+IJ
+IJ
+IJ
 aa
 aa
 aa
@@ -65743,7 +65824,7 @@ rV
 rV
 rV
 rV
-sN
+Qc
 Dv
 rV
 DA

@@ -329,6 +329,10 @@
 	item_state = "gift"
 	w_class = 4.0
 
+/obj/item/weapon/gift/random_pixel/Initialize()
+	pixel_x = rand(-16,16)
+	pixel_y = rand(-16,16)
+
 /obj/item/weapon/legcuffs
 	name = "legcuffs"
 	desc = "Use this to keep prisoners in line."
@@ -492,7 +496,7 @@
 	matter = list(DEFAULT_WALL_MATERIAL = 50, "glass" = 50)
 
 /obj/item/weapon/module/power_control/attackby(var/obj/item/weapon/W as obj, var/mob/user as mob)
-	if (ismultitool(W))
+	if (W.ismultitool())
 		var/obj/item/weapon/circuitboard/ghettosmes/newcircuit = new/obj/item/weapon/circuitboard/ghettosmes(user.loc)
 		qdel(src)
 		user.put_in_hands(newcircuit)
@@ -575,7 +579,7 @@
 	icon_state = "neuralbroke"
 
 /obj/item/weapon/neuralbroke/attackby(obj/item/weapon/W as obj, mob/user as mob)
-	if(isscrewdriver(W))
+	if(W.isscrewdriver())
 		new /obj/item/device/encryptionkey/hivenet(user.loc)
 		playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, 1)
 		user << "You bypass the fried security chip and extract the encryption key."

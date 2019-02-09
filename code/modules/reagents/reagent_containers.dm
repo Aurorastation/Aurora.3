@@ -67,12 +67,12 @@
 
 	if(proximity && params && istype(target, /obj/structure/table) && center_of_mass && center_of_mass.len)
 		//Places the item on a grid
-		var/list/mouse_control = params2list(params)
+		var/list/mouse_control = mouse_safe_xy(params)
 
-		var/mouse_x = text2num(mouse_control["icon-x"])
-		var/mouse_y = text2num(mouse_control["icon-y"])
+		var/mouse_x = mouse_control["icon-x"]
+		var/mouse_y = mouse_control["icon-y"]
 
-		if(isnum(mouse_x) || isnum(mouse_y))
+		if(isnum(mouse_x) && isnum(mouse_y))
 			var/cell_x = max(0, min(CELLS-1, round(mouse_x/CELLSIZE)))
 			var/cell_y = max(0, min(CELLS-1, round(mouse_y/CELLSIZE)))
 

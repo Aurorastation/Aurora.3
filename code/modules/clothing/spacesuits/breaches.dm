@@ -203,7 +203,7 @@ var/global/list/breach_burn_descriptors = list(
 			repair_breaches(BURN, use_amt * repair_power, user)
 		return
 
-	else if(iswelder(W))
+	else if(W.iswelder())
 
 		if(istype(src.loc,/mob/living))
 			user << "<span class='warning'>How do you intend to patch a voidsuit while someone is wearing it?</span>"

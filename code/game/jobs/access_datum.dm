@@ -476,6 +476,12 @@ var/const/access_journalist = 70//journalist's office access
 	desc = "Merchant Access"
 	access_type = ACCESS_TYPE_CENTCOM
 
+/var/const/access_legion = 111//tau ceti foreign legion access
+/datum/access/legion
+	id = access_legion
+	desc = "Tau Ceti Foreign Legion Access"
+	access_type = ACCESS_TYPE_CENTCOM
+
 /***************
 * Antag access *
 ***************/

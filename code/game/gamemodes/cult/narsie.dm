@@ -43,8 +43,8 @@ var/global/list/narsie_list = list()
 /obj/singularity/narsie/large/New()
 	..()
 	if(announce)
-		world << "<font size='15' color='red'><b>[uppertext(name)] HAS RISEN</b></font>"
-		world << sound('sound/effects/narsie.ogg')
+		to_world("<font size='15' color='red'><b>[uppertext(name)] HAS RISEN</b></font>")
+		to_world(sound('sound/effects/narsie.ogg'))
 
 	narsie_spawn_animation()
 

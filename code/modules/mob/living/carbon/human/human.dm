@@ -1088,6 +1088,11 @@
 	losebreath = 0
 	shock_stage = 0
 
+	//Fix husks
+	mutations.Remove(HUSK)
+	status_flags &= ~DISFIGURED	//Fixes the unknown status
+	update_body(1)
+
 	..()
 
 /mob/living/carbon/human/proc/is_lung_ruptured()
@@ -1101,38 +1106,7 @@
 		src.custom_pain("You feel a stabbing pain in your chest!", 1)
 		L.bruise()
 
-/*
-/mob/living/carbon/human/verb/simulate()
-	set name = "sim"
-	set background = 1
-
-	var/damage = input("Wound damage","Wound damage") as num
-
-	var/germs = 0
-	var/tdamage = 0
-	var/ticks = 0
-	while (germs < 2501 && ticks < 100000 && round(damage/10)*20)
-		log_misc("VIRUS TESTING: [ticks] : germs [germs] tdamage [tdamage] prob [round(damage/10)*20]")
-		ticks++
-		if (prob(round(damage/10)*20))
-			germs++
-		if (germs == 100)
-			world << "Reached stage 1 in [ticks] ticks"
-		if (germs > 100)
-			if (prob(10))
-				damage++
-				germs++
-		if (germs == 1000)
-			world << "Reached stage 2 in [ticks] ticks"
-		if (germs > 1000)
-			damage++
-			germs++
-		if (germs == 2500)
-			world << "Reached stage 3 in [ticks] ticks"
-	world << "Mob took [tdamage] tox damage"
-*/
 //returns 1 if made bloody, returns 0 otherwise
-
 /mob/living/carbon/human/add_blood(mob/living/carbon/human/M as mob)
 	if (!..())
 		return 0
@@ -1184,7 +1158,7 @@
 		for(var/obj/item/O in organ.implants)
 			if(!istype(O,/obj/item/weapon/implant) && prob(5)) //Moving with things stuck in you could be bad.
 				// All kinds of embedded objects cause bleeding.
-				if(species.flags & NO_PAIN)
+				if(!can_feel_pain())
 					src << "<span class='warning'>You feel [O] moving inside your [organ.name].</span>"
 				else
 					var/msg = pick( \
@@ -1617,3 +1591,6 @@
 	var/obj/item/organ/brain/B = internal_organs_by_name["brain"]
 	if(B && species && species.has_organ["brain"] && !isipc(src))
 		. = B.cure_all_traumas(cure_permanent, cure_type)
+
+/mob/living/carbon/human/get_metabolism(metabolism)
+	return ..() * (species ? species.metabolism_mod : 1)

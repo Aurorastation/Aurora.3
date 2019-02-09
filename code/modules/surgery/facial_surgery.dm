@@ -21,7 +21,7 @@
 /datum/surgery_step/generic/prepare_face
 	allowed_tools = list(
 	/obj/item/weapon/retractor = 100,
-	/obj/item/weapon/material/hatchet/tacknife = 75
+	/obj/item/weapon/material/knife/tacknife = 75
 	)
 
 	min_duration = 90
@@ -167,7 +167,7 @@
 /datum/surgery_step/robotics/face/prepare_face
 	allowed_tools = list(
 	/obj/item/weapon/retractor = 100,
-	/obj/item/weapon/material/hatchet/tacknife = 75
+	/obj/item/weapon/material/knife/tacknife = 75
 	)
 
 	min_duration = 90

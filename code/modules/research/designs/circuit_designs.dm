@@ -198,6 +198,13 @@
 	build_path = /obj/item/weapon/circuitboard/autolathe
 	sort_string = "HABAD"
 
+/datum/design/circuit/chem_heater
+	name = "chemistry heater"
+	id = "chem_heater"
+	req_tech = list(TECH_BIO = 2)
+	build_path = /obj/item/weapon/circuitboard/chem_heater
+	sort_string = "HABAF"
+
 /datum/design/circuit/rdservercontrol
 	name = "R&D server control console"
 	id = "rdservercontrol"
@@ -349,6 +356,19 @@
 	name = "Exosuit module circuit design ([name])"
 /datum/design/circuit/mecha/AssembleDesignDesc()
 	desc = "Allows for the construction of \a [name] module."
+
+
+/datum/design/circuit/mecha/hermes_main
+	name = "Hermes central control"
+	id = "hermes_main"
+	build_path = /obj/item/weapon/circuitboard/mecha/hermes/main
+	sort_string = "MAAAB"
+
+/datum/design/circuit/mecha/hermes_peri
+	name = "Hermes peripherals control"
+	id = "hermes_peri"
+	build_path = /obj/item/weapon/circuitboard/mecha/hermes/peripherals
+	sort_string = "MAAAC"
 
 /datum/design/circuit/mecha/ripley_main
 	name = "APLU 'Ripley' central control"

@@ -229,7 +229,7 @@ var/const/enterloopsanity = 100
 	return can_have_cabling()
 
 /turf/attackby(obj/item/C, mob/user)
-	if (can_lay_cable() && iscoil(C))
+	if (can_lay_cable() && C.iscoil())
 		var/obj/item/stack/cable_coil/coil = C
 		coil.turf_place(src, user)
 	else

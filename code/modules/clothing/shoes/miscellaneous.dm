@@ -24,6 +24,9 @@
 	siemens_coefficient = 0.5
 	can_hold_knife = 1
 
+/obj/item/clothing/shoes/swat/ert
+	species_restricted = null
+
 /obj/item/clothing/shoes/combat //Basically SWAT shoes combined with galoshes.
 	name = "combat boots"
 	desc = "When you REALLY want to turn up the heat."
@@ -177,3 +180,32 @@
 	armor = list(melee = 10, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 10, rad = 0)
 	siemens_coefficient = 0.9
 	can_hold_knife = 1
+
+/obj/item/clothing/shoes/caligae
+	name = "caligae"
+	desc = "The standard Unathi marching footwear loosly resembles the Roman Caligae. Made of leather and rubber, with heavy hob-nailed soles, their unique design allows for improved traction and protection."
+	description_fluff = "These traditional Unathi footwear have remained relatively unchanged in principle, with improved materials and construction being the only notable change. Originally used for warriors, they became widespread for their comfort and durability. Some are worn with socks, for warmth. Although made for the Unathi anatomy, they have picked up popularity among other species."
+	icon_state = "caligae"
+	item_state = "caligae"
+	force = 5
+	armor = list(melee = 10, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0, rad = 0)
+	body_parts_covered = FEET|LEGS
+	species_restricted = null
+
+/obj/item/clothing/shoes/caligae/white
+	name = "white caligae"
+	desc = "The standard Unathi marching footwear loosly resembles the Roman caligae. Made of leather and rubber, their unique design allows for improved traction and protection. /This one has a white covering."
+	icon_state = "whitecaligae"
+	item_state = "whitecaligae"
+
+/obj/item/clothing/shoes/caligae/grey
+	name = "grey caligae"
+	desc = "The standard Unathi marching footwear loosly resembles the Roman caligae. Made of leather and rubber, their unique design allows for improved traction and protection. /This one has a grey covering."
+	icon_state = "greycaligae"
+	item_state = "greycaligae"
+
+/obj/item/clothing/shoes/caligae/black
+	name = "black caligae"
+	desc = "The standard Unathi marching footwear loosly resembles the Roman caligae. Made of leather and rubber, their unique design allows for improved traction and protection. /This one has a black covering."
+	icon_state = "blackcaligae"
+	item_state = "blackcaligae"

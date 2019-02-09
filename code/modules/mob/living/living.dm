@@ -208,7 +208,6 @@ default behaviour is:
 //sort of a legacy burn method for /electrocute, /shock, and the e_chair
 /mob/living/proc/burn_skin(burn_amount)
 	if(istype(src, /mob/living/carbon/human))
-		//world << "DEBUG: burn_skin(), mutations=[mutations]"
 		if(mShock in src.mutations) //shockproof
 			return 0
 		if (COLD_RESISTANCE in src.mutations) //fireproof
@@ -241,8 +240,6 @@ default behaviour is:
 		temperature -= change
 		if(actual < desired)
 			temperature = desired
-//	if(istype(src, /mob/living/carbon/human))
-//		world << "[src] ~ [src.bodytemperature] ~ [temperature]"
 	return temperature
 
 
@@ -323,7 +320,7 @@ default behaviour is:
 /mob/living/carbon/adjustHalLoss(var/amount, var/ignoreImmunity = 0)//An inherited version so this doesnt affect cyborgs
 	if(status_flags & GODMODE)	return 0	//godmode
 	if(!ignoreImmunity)//Adjusting how hallloss works. Species with the NO_PAIN flag will suffer most of the effects of halloss, but will be immune to most conventional sources of accumulating it
-		if (species && species.flags & NO_PAIN)//Species with this flag will only gather halloss through species-specific mechanics, which apply it with the ignoreImmunity flag
+		if (!can_feel_pain())//Species with the NO_PAIN flag will only gather halloss through species-specific mechanics, which apply it with the ignoreImmunity flag
 			return 0
 
 	if(amount > 0)
@@ -661,9 +658,12 @@ default behaviour is:
 		spawn() escape_buckle()
 
 	//Breaking out of a locker?
-	if( src.loc && (istype(src.loc, /obj/structure/closet)) )
+	if( src.loc && istype(src.loc, /obj/structure/closet) )
 		var/obj/structure/closet/C = loc
 		spawn() C.mob_breakout(src)
+	else if(src.loc && istype(src.loc, /obj/item/weapon/trap/animal))
+		var/obj/item/weapon/trap/animal/A = loc
+		spawn() A.mob_breakout(src)
 
 /mob/living/proc/escape_inventory(obj/item/weapon/holder/H)
 	if(H != src.loc) return

@@ -8,7 +8,7 @@
 /obj/mecha/combat/tank
 	name = "light adhomian tank"
 	desc = "The Ha'rron MK.IV light tank is an armored vehicle commonly used by tajaran military forces."
-	icon = 'icons/mecha/mecha_large.dmi'
+	icon = 'icons/mecha/mecha_64x64.dmi'
 	icon_state = "tank"
 	initial_icon = "tank"
 	pixel_x = -16
@@ -126,6 +126,36 @@
 
 	playsound(src.loc, file, 100, 0, -6.6, environment=1)
 
+
+/obj/mecha/combat/tank/jotun
+	name = "Jotun"
+	desc = "A heavy armored vehicle. Commonly produced by the Sol Alliance and fielded by the forces of the Tau Ceti Foreign Legion."
+	icon = 'icons/mecha/mecha_114x59.dmi'
+	icon_state = "jotun"
+	initial_icon = "jotun"
+	pixel_x = -41
+	health = 950
+	w_class = 45
+	wreckage = /obj/effect/decal/mecha_wreckage/tank/jotun
+
+/obj/mecha/combat/tank/jotun/Initialize()
+	.= ..()
+
+	var/obj/item/mecha_parts/mecha_equipment/ME
+	if(equipment.len)//Now to remove it and equip anew.
+		for(ME in equipment)
+			ME.detach(src)
+			qdel(ME)
+
+	ME = new /obj/item/mecha_parts/mecha_equipment/weapon/energy/pulse
+	ME.attach(src)
+	ME = new /obj/item/mecha_parts/mecha_equipment/weapon/ballistic/cannon
+	ME.attach(src)
+	ME = new /obj/item/mecha_parts/mecha_equipment/tool/passenger
+	ME.attach(src)
+	ME = new /obj/item/mecha_parts/mecha_equipment/armor_booster/antiproj_armor_booster
+	ME.attach(src)
+	return
 
 #undef NOMINAL
 #undef FIRSTRUN

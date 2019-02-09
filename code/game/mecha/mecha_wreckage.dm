@@ -31,7 +31,7 @@
 
 
 /obj/effect/decal/mecha_wreckage/attackby(obj/item/weapon/W as obj, mob/user as mob)
-	if(iswelder(W))
+	if(W.iswelder())
 		var/obj/item/weapon/weldingtool/WT = W
 		if(salvage_num <= 0)
 			user << "You don't see anything that can be cut with [W]."
@@ -49,7 +49,7 @@
 		else
 			user << "<span class='notice'>You need more welding fuel to complete this task.</span>"
 			return
-	if(iswirecutter(W))
+	if(W.iswirecutter())
 		if(salvage_num <= 0)
 			user << "You don't see anything that can be cut with [W]."
 			return
@@ -61,7 +61,7 @@
 				salvage_num--
 			else
 				user << "You failed to salvage anything valuable from [src]."
-	if(iscrowbar(W))
+	if(W.iscrowbar())
 		if(!isemptylist(crowbar_salvage))
 			var/obj/S = pick(crowbar_salvage)
 			if(S)
@@ -112,6 +112,27 @@
 	name = "Seraph wreckage"
 	icon_state = "seraph-broken"
 
+/obj/effect/decal/mecha_wreckage/hermes
+	name = "Hermes wreckage"
+	icon_state = "hermes-broken"
+
+/obj/effect/decal/mecha_wreckage/hermes/New()
+	..()
+	var/list/parts = list(
+						  /obj/item/mecha_parts/part/hermes_torso,
+						  /obj/item/mecha_parts/part/hermes_left_arm,
+						  /obj/item/mecha_parts/part/hermes_right_arm,
+						  /obj/item/mecha_parts/part/hermes_left_leg,
+						  /obj/item/mecha_parts/part/hermes_right_leg
+						  )
+	for(var/i=0;i<2;i++)
+		if(!isemptylist(parts) && prob(40))
+			var/part = pick(parts)
+			welder_salvage += part
+			parts -= part
+	return
+
+
 /obj/effect/decal/mecha_wreckage/ripley
 	name = "Ripley wreckage"
 	icon_state = "ripley-broken"
@@ -129,6 +150,9 @@
 			welder_salvage += part
 			parts -= part
 	return
+
+
+
 
 /obj/effect/decal/mecha_wreckage/ripley/firefighter
 	name = "Firefighter wreckage"
@@ -205,8 +229,14 @@
 /obj/effect/decal/mecha_wreckage/tank
 	name = "adhomian light tank wreckage"
 	desc = "Remains of some unfortunate armored vehicle. Completely unrepairable."
-	icon = 'icons/mecha/mecha_large.dmi'
+	icon = 'icons/mecha/mecha_64x64.dmi'
 	icon_state = "tank-broken"
 	anchored = TRUE
 	pixel_x = -16
 	layer = ABOVE_MOB_LAYER
+
+/obj/effect/decal/mecha_wreckage/tank/jotun
+	name = "Jotun wreckage"
+	icon = 'icons/mecha/mecha_114x59.dmi'
+	icon_state = "jotun-broken"
+	pixel_x = -41

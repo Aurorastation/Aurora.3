@@ -104,7 +104,7 @@
 
 /obj/item/weapon/storage/box/survival/fill()
 	..()
-	new /obj/item/clothing/mask/gas/alt( src )
+	new /obj/item/clothing/mask/breath( src )
 	new /obj/item/weapon/tank/emergency_oxygen(src)
 	for(var/obj/item/thing in contents)
 		thing.autodrobe_no_remove = 1
@@ -119,7 +119,7 @@
 
 /obj/item/weapon/storage/box/engineer/fill()
 	..()
-	new /obj/item/clothing/mask/gas/alt( src )
+	new /obj/item/clothing/mask/breath( src )
 	new /obj/item/weapon/tank/emergency_oxygen/engi( src )
 	for(var/obj/item/thing in contents)
 		thing.autodrobe_no_remove = 1
@@ -1000,7 +1000,8 @@
 			/obj/item/weapon/reagent_containers/food/snacks/meatsnack,
 			/obj/item/weapon/reagent_containers/food/snacks/maps,
 			/obj/item/weapon/reagent_containers/food/snacks/nathisnack,
-			/obj/item/weapon/reagent_containers/food/snacks/adhomian_can
+			/obj/item/weapon/reagent_containers/food/snacks/adhomian_can,
+			/obj/item/weapon/reagent_containers/food/snacks/tuna
 	)
 	for (var/i = 0,i<7,i++)
 		var/type = pick(snacks)
@@ -1095,3 +1096,26 @@
 		new chosen_candy(src)
 
 	make_exact_fit()
+
+
+/obj/item/weapon/storage/box/crabmeat
+	name = "box of crab legs"
+	desc = "A box filled with high-quality crab legs. Shipped to Aurora by popular demand!"
+
+/obj/item/weapon/storage/box/crabmeat/fill()
+	..()
+	new /obj/item/weapon/reagent_containers/food/snacks/crabmeat(src)
+	new /obj/item/weapon/reagent_containers/food/snacks/crabmeat(src)
+	new /obj/item/weapon/reagent_containers/food/snacks/crabmeat(src)
+	new /obj/item/weapon/reagent_containers/food/snacks/crabmeat(src)
+	new /obj/item/weapon/reagent_containers/food/snacks/crabmeat(src)
+
+/obj/item/weapon/storage/box/tranquilizer
+	name = "box of tranquilizer darts"
+	desc = "It has a picture of a tranquilizer dart and several warning symbols on the front.<br>WARNING: Live ammunition. Misuse may result in serious injury or death."
+	icon_state = "incendiaryshot_box"
+
+/obj/item/weapon/storage/box/tranquilizer/fill()
+	..()
+	for(var/i in 1 to 8)
+		new /obj/item/ammo_casing/tranq(src)
