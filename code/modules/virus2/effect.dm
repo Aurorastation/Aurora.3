@@ -185,7 +185,7 @@
 /datum/disease2/effect/immortal/deactivate(var/mob/living/carbon/mob,var/multiplier)
 	if(istype(mob, /mob/living/carbon/human))
 		var/mob/living/carbon/human/H = mob
-		H << "<span class='notice'>You suddenly feel hurt and old...</span>"
+		to_chat(H, "<span class='notice'>You suddenly feel hurt and old...</span>")
 		H.age += 8
 	var/backlash_amt = 5*multiplier
 	mob.apply_damages(backlash_amt,backlash_amt,backlash_amt,backlash_amt)
