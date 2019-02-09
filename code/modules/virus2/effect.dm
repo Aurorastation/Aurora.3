@@ -90,7 +90,7 @@
 					O.droplimb(0,DROPLIMB_BLUNT)
 	else
 		if(prob(75))
-			mob << "<span class='warning'>Your whole body feels like it might fall apart!</span>"
+			to_chat(mob, "<span class='warning'>Your whole body feels like it might fall apart!</span>")
 		if(prob(10))
 			mob.adjustBruteLoss(25*multiplier)
 
