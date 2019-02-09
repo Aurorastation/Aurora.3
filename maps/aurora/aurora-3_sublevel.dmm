@@ -31928,6 +31928,9 @@
 /obj/structure/sign/biohazard{
 	pixel_x = -32
 	},
+/obj/machinery/light{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology/xenoflora_hazard)
 "vDn" = (
@@ -47745,11 +47748,11 @@ aba
 aba
 aba
 ale
-aGy
-aGy
-aGy
-aGy
-aGy
+ale
+ale
+ale
+ale
+ale
 ale
 ale
 bgF
@@ -48003,9 +48006,9 @@ aba
 aba
 ale
 aGy
-aMB
-dNz
-aPL
+aGy
+aGy
+aGy
 aGy
 ale
 aba
@@ -48260,9 +48263,9 @@ aba
 aba
 aba
 aGy
-hVM
-eIS
 aMB
+dNz
+aPL
 aGy
 ale
 aba
@@ -48517,7 +48520,7 @@ aba
 aba
 aba
 aGy
-bsd
+hVM
 eIS
 aMB
 aGy
@@ -48774,7 +48777,7 @@ aba
 aba
 aba
 aGy
-aMB
+bsd
 eIS
 jXV
 aGy
