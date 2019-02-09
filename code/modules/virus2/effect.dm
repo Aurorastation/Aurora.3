@@ -394,7 +394,7 @@
 
 /datum/disease2/effect/sneeze/activate(var/mob/living/carbon/mob, var/multiplier)
 	if (prob(30))
-		mob << "<span class='warning'>You feel like you are about to sneeze!</span>"
+		to_chat(mob, "<span class='warning'>You feel like you are about to sneeze!</span>")
 	addtimer(CALLBACK(src, .proc/do_sneeze, mob, multiplier), 5)
 
 /datum/disease2/effect/sneeze/proc/do_sneeze(mob/living/carbon/mob, multiplier)
