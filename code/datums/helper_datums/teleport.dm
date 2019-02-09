@@ -195,18 +195,17 @@
 			if(istype(teleatom, /obj/mecha))
 				valid = 1
 				var/obj/mecha/M = teleatom
-				if(istype(M, /obj/mecha))
-					var/obj/mecha/T = M
-					if(newdest)
-						M.ex_act(3)
-						T.occupant.adjustHalLoss(25)
-						to_chat(T.occupant, "<span class='danger'>You feel a sharp abdominal pain inside yourself as the [teleatom] phases into \the [impediment]</span>")
+				var/obj/mecha/T = M
+				if(newdest)
+					M.ex_act(3)
+					M.occupant.adjustHalLoss(25)
+					to_chat(T.occupant, "<span class='danger'>You feel a sharp abdominal pain inside yourself as the [teleatom] phases into \the [impediment]</span>")
 
-					boominess += max(0, M.w_class - 1)
-					if(M.density)
-						boominess += 5
-					if(M.opacity)
-						boominess += 10
+				boominess += max(0, M.w_class - 1)
+				if(M.density)
+					boominess += 5
+				if(M.opacity)
+					boominess += 10
 
 			if(istype(teleatom, /mob/living))
 				valid = 1
