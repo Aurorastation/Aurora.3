@@ -377,6 +377,7 @@
 /datum/disease2/effect/stimulant
 	name = "Hyperactivity"
 	stage = 2
+
 /datum/disease2/effect/stimulant/activate(var/mob/living/carbon/mob,var/multiplier)
 	mob << "<span class='notice'>You feel a rush of energy inside you!</span>"
 	if (mob.reagents.get_reagent_amount("hyperzine") < 10)
