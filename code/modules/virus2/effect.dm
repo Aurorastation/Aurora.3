@@ -360,6 +360,7 @@
 	name = "Chills"
 	stage = 2
 	chance_maxm = 25
+
 /datum/disease2/effect/fridge/activate(var/mob/living/carbon/mob,var/multiplier)
 	mob.say("*shiver")
 
