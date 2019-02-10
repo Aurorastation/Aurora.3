@@ -292,7 +292,8 @@
 /mob/verb/examinate(atom/A as mob|obj|turf in view())
 	set name = "Examine"
 	set category = "IC"
-
+	if(!A)
+		return
 	if((is_blind(src) || usr.stat) && !isobserver(src))
 		src << "<span class='notice'>Something is there but you can't see it.</span>"
 		return 1
