@@ -1,0 +1,6 @@
+author: Alberyk
+
+delete-after: True
+
+changes: 
+  - rscadd: "Plastellium seeds have been added to the botany and the surface garden vending machine."
