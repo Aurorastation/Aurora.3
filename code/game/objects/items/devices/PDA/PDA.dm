@@ -319,7 +319,8 @@ var/global/list/obj/item/device/pda/PDAs = list()
 
 /obj/item/device/pda/Initialize(mapload)
 	. = ..()
-	PDAs += src
+	if(!(src in PDAs))
+		PDAs += src
 	if (!mapload)
 		try_sort_pda_list()
 	if(default_cartridge)
@@ -1402,8 +1403,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 
 /obj/item/device/pda/Destroy()
 	PDAs -= src
-	if (src.id && prob(90)) //IDs are kept in 90% of the cases
-		src.id.forceMove(get_turf(src.loc))
+	QDEL_NULL(id)
 	QDEL_NULL(pen)
 	if (LAZYLEN(linked_consoles))
 		for(var/A in linked_consoles)
