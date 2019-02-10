@@ -3,7 +3,7 @@ var/list/dream_entries = list()
 /mob/living/carbon/human
 	var/mob/living/brain_ghost/bg = null
 
-/mob/living/carbon/human/proc/handle_shared_dreaming()
+/mob/living/carbon/human/proc/handle_shared_dreaming(var/force_wakeup = FALSE)
 	// If they're an Unconsious person with the abillity to do Skrellepathy.
 	// If either changes, they should be nocked back to the real world.
 	if(can_commune() && stat == UNCONSCIOUS && sleeping > 1)
@@ -19,7 +19,7 @@ var/list/dream_entries = list()
 			log_and_message_admins("has entered the shared dream", bg)
 	// Does NOT
 	else
-		if(istype(bg))
+		if(istype(bg) || force_wakeup)
 			// If we choose to be asleep, keep sleeping.
 			if(willfully_sleeping && sleeping && stat == UNCONSCIOUS)
 				sleeping = 5
