@@ -64,6 +64,10 @@
 	path = /obj/item/clothing/suit/apron/overalls
 	cost = 1
 
+/datum/gear/suit/overalls/New()
+	..()
+	gear_tweaks = list(gear_tweak_free_color_choice)
+
 /datum/gear/suit/surgeryapron
 	display_name = "surgical apron"
 	path = /obj/item/clothing/suit/apron/surgery
