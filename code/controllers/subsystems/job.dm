@@ -322,14 +322,19 @@
 	Debug("ER/([H]): Entry, joined_late=[joined_late],megavend=[megavend].")
 
 	var/datum/job/job = GetJob(rank)
+	var/list/spawn_in_storage = list()
 
 	H.job = rank
 
 	if(job)
+		var/list/custom_equip_slots = list() //If more than one item takes the same slot, all after the first one spawn in storage.
+		var/list/custom_equip_leftovers = list()
 		//Equip job items.
 		if(!megavend)	//Equip custom gear loadout.
 			Debug("ER/([H]): Equipping custom loadout.")
 			job.setup_account(H)
+
+			EquipCustom(H, job, H.client.prefs, custom_equip_leftovers, spawn_in_storage, custom_equip_slots)
 
 		job.equip(H)
 
@@ -340,8 +345,11 @@
 
 		if(H.max_hydration > 0)
 			H.hydration = rand(CREW_MINIMUM_HYDRATION*100, CREW_MAXIMUM_HYDRATION*100) * H.max_hydration * 0.01
+
+		if (!megavend)
+			spawn_in_storage += EquipCustomDeferred(H, H.client.prefs, custom_equip_leftovers, custom_equip_slots)
 	else
-		H << "Your job is [rank] and the game just can't handle it! Please report this bug to an administrator."
+		to_chat(H,"Your job is [rank] and the game just can't handle it! Please report this bug to an administrator.")
 
 	if(!joined_late || job.latejoin_at_spawnpoints)
 		var/obj/S = get_roundstart_spawnpoint(rank)
@@ -380,6 +388,10 @@
 			if("AI")
 				Debug("ER/([H]): Job is AI, returning early.")
 				return H
+
+		//Deferred item spawning.
+		if(!megavend && LAZYLEN(spawn_in_storage))
+			EquipItemsStorage(H, H.client.prefs, spawn_in_storage)
 
 	if(istype(H) && !megavend) //give humans wheelchairs, if they need them.
 		var/obj/item/organ/external/l_foot = H.get_organ("l_foot")
@@ -501,15 +513,26 @@
 	if(spawning_at != "Arrivals Shuttle" || job.latejoin_at_spawnpoints)
 		return EquipRank(H, rank, 1)
 
-	H <<"<span class='notice'>You have ten minutes to reach the station before you will be forced there.</span>"
+	var/list/spawn_in_storage = list()
+	to_chat(H,"<span class='notice'>You have ten minutes to reach the station before you will be forced there.</span>")
 
 	if(job)
+		//Equip custom gear loadout.
+		var/list/custom_equip_slots = list() //If more than one item takes the same slot, all after the first one spawn in storage.
+		var/list/custom_equip_leftovers = list()
+
+		EquipCustom(H, job, H.client.prefs, custom_equip_leftovers, spawn_in_storage, custom_equip_slots)
+
 		//Equip job items.
 		job.late_equip(H)
 		job.setup_account(H)
-	else
-		H << "Your job is [rank] and the game just can't handle it! Please report this bug to an administrator."
 
+		spawn_in_storage += EquipCustomDeferred(H, H.client.prefs, custom_equip_leftovers, custom_equip_slots)
+	else
+		to_chat(H,"Your job is [rank] and the game just can't handle it! Please report this bug to an administrator.")
+
+	if(LAZYLEN(spawn_in_storage))
+		EquipItemsStorage(H, H.client.prefs, spawn_in_storage)
 
 	if(istype(H)) //give humans wheelchairs, if they need them.
 		var/obj/item/organ/external/l_foot = H.get_organ("l_foot")
@@ -681,6 +704,90 @@
 
 	// Delete the mob.
 	qdel(H)
+
+// Equips a human-type with their custom loadout crap.
+// Returns TRUE on success, FALSE otherwise.
+// H, job, and prefs MUST be supplied and not null.
+// leftovers, storage, custom_equip_slots can be passed if their return values are required (proc mutates passed list), or ignored if not required.
+/datum/controller/subsystem/jobs/proc/EquipCustom(mob/living/carbon/human/H, datum/job/job, datum/preferences/prefs, list/leftovers = null, list/storage = null, list/custom_equip_slots = list())
+	Debug("EC/([H]): Entry.")
+	if (!istype(H) || !job)
+		Debug("EC/([H]): Abort: invalid arguments.")
+		return FALSE
+
+	switch (job.title)
+		if ("AI", "Cyborg")
+			Debug("EC/([H]): Abort: synthetic.")
+			return FALSE
+
+	for(var/thing in prefs.gear)
+		var/datum/gear/G = gear_datums[thing]
+		if(G)
+			var/permitted
+			if(G.allowed_roles)
+				for(var/job_name in G.allowed_roles)
+					if(job.title == job_name)
+						permitted = TRUE
+						break
+			else
+				permitted = TRUE
+
+			if(G.whitelisted && (!(H.species.name in G.whitelisted)))
+				permitted = 0
+
+			if(!permitted)
+				H << "<span class='warning'>Your current job or whitelist status does not permit you to spawn with [thing]!</span>"
+				continue
+
+			if(G.slot && !(G.slot in custom_equip_slots))
+				// This is a miserable way to fix the loadout overwrite bug, but the alternative requires
+				// adding an arg to a bunch of different procs. Will look into it after this merge. ~ Z
+				var/metadata = prefs.gear[G.display_name]
+				var/obj/item/CI = G.spawn_item(H,metadata)
+				if (G.slot == slot_wear_mask || G.slot == slot_wear_suit || G.slot == slot_head)
+					if (leftovers)
+						leftovers += thing
+					Debug("EC/([H]): [thing] failed mask/suit/head check; leftovers=[!!leftovers]")
+				else if (H.equip_to_slot_or_del(CI, G.slot))
+					CI.autodrobe_no_remove = TRUE
+					H << "<span class='notice'>Equipping you with \a [thing]!</span>"
+					custom_equip_slots += G.slot
+					Debug("EC/([H]): Equipped [CI] successfully.")
+				else if (leftovers)
+					leftovers += thing
+					Debug("EC/([H]): Unable to equip [thing]; sending to overflow.")
+			else if (storage)
+				storage += thing
+				Debug("EC/([H]): Unable to equip [thing]; sending to storage.")
+
+	Debug("EC/([H]): Complete.")
+	return TRUE
+
+// Attempts to equip custom items that failed to equip in EquipCustom.
+// Returns a list of items that failed to equip & should be put in storage if possible.
+// H and prefs must not be null.
+/datum/controller/subsystem/jobs/proc/EquipCustomDeferred(mob/living/carbon/human/H, datum/preferences/prefs, list/items, list/used_slots)
+	. = list()
+	Debug("ECD/([H]): Entry.")
+	for (var/thing in items)
+		var/datum/gear/G = gear_datums[thing]
+
+		if (G.slot in used_slots)
+			. += thing
+		else
+			var/metadata = prefs.gear[G.display_name]
+			var/obj/item/CI = G.spawn_item(H, metadata)
+			if (H.equip_to_slot_or_del(CI, G.slot))
+				to_chat(H, "<span class='notice'>Equipping you with \a [thing]!</span>")
+				used_slots += G.slot
+				CI.autodrobe_no_remove = TRUE
+				Debug("ECD/([H]): Equipped [thing] successfully.")
+
+			else
+				. += thing
+				Debug("ECD/([H]): Unable to equip [thing]; dumping into overflow.")
+
+	Debug("ECD/([H]): Complete.")
 
 // Attempts to place everything in items into a storage object located on H, deleting them if they're unable to be inserted.
 // H and prefs must not be null.
