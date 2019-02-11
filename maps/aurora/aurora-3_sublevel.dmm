@@ -11104,6 +11104,10 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
+/obj/machinery/light_switch{
+	pixel_x = 12;
+	pixel_y = -24
+	},
 /turf/simulated/floor/tiled,
 /area/outpost/research/anomaly_storage)
 "auJ" = (
@@ -11411,7 +11415,6 @@
 	icon_state = "rwindow";
 	dir = 4
 	},
-/obj/machinery/door/firedoor,
 /obj/machinery/door/blast/regular{
 	density = 0;
 	icon_state = "pdoor0";
@@ -11420,7 +11423,7 @@
 	opacity = 0
 	},
 /turf/simulated/floor/plating,
-/area/rnd/xenoarch_atrium)
+/area/rnd/isolation_c)
 "avs" = (
 /obj/effect/floor_decal/industrial/warning/dust,
 /obj/structure/cable{
@@ -11661,6 +11664,10 @@
 /obj/structure/cable/green{
 	d2 = 4;
 	icon_state = "0-4"
+	},
+/obj/machinery/light_switch{
+	pixel_x = 12;
+	pixel_y = -24
 	},
 /turf/simulated/floor/tiled/dark,
 /area/outpost/research/analysis)
@@ -12027,12 +12034,12 @@
 	req_access = null;
 	req_one_access = list(7,47)
 	},
-/turf/simulated/floor/plating,
-/area/rnd/xenoarch_storage)
-"awL" = (
 /obj/machinery/camera/network/research_outpost{
 	c_tag = "Research Sublevel - Atrium 4"
 	},
+/turf/simulated/floor/plating,
+/area/rnd/xenoarch_storage)
+"awL" = (
 /obj/machinery/atmospherics/portables_connector,
 /turf/simulated/floor/tiled,
 /area/rnd/xenoarch_atrium)
@@ -12356,11 +12363,19 @@
 /area/outpost/research/hallway)
 "axw" = (
 /obj/machinery/power/emitter,
+/obj/machinery/light_switch{
+	pixel_x = 12;
+	pixel_y = -24
+	},
 /turf/simulated/floor/plating,
 /area/rnd/xenoarch_storage)
 "axx" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
+	},
+/obj/machinery/camera/network/research_outpost{
+	c_tag = "Research Sublevel - Supply Closet";
+	dir = 1
 	},
 /turf/simulated/floor/plating,
 /area/rnd/xenoarch_storage)
@@ -12369,6 +12384,7 @@
 /obj/machinery/atmospherics/portables_connector{
 	dir = 1
 	},
+/obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/tiled,
 /area/rnd/xenoarch_atrium)
 "axA" = (
@@ -12376,6 +12392,7 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/sign/c,
+/obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/tiled,
 /area/rnd/xenoarch_atrium)
 "axE" = (
@@ -12544,11 +12561,7 @@
 /turf/simulated/floor/tiled/white,
 /area/outpost/research/hallway)
 "axY" = (
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/effect/floor_decal/industrial/warning/cee{
-	icon_state = "warningcee";
-	dir = 4
-	},
+/obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor/plating,
 /area/rnd/xenoarch_atrium)
 "axZ" = (
@@ -12762,6 +12775,10 @@
 	d2 = 2;
 	icon_state = "0-2"
 	},
+/obj/machinery/light_switch{
+	pixel_x = 12;
+	pixel_y = 28
+	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenoarch_atrium)
 "ayu" = (
@@ -12770,6 +12787,9 @@
 	},
 /obj/effect/floor_decal/corner/mauve/full{
 	icon_state = "corner_white_full";
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
@@ -12783,9 +12803,6 @@
 /area/rnd/isolation_b)
 "ayx" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
-/obj/machinery/light/small{
-	dir = 4
-	},
 /turf/simulated/floor/reinforced,
 /area/rnd/isolation_b)
 "ayy" = (
@@ -15772,7 +15789,8 @@
 	},
 /obj/machinery/camera{
 	c_tag = "Research Sublevel - Xenobotany";
-	dir = 1
+	dir = 1;
+	network = list("Research Outpost")
 	},
 /obj/structure/closet/crate/hydroponics/prespawned,
 /turf/simulated/floor/tiled/dark,
@@ -17727,6 +17745,12 @@
 	},
 /obj/structure/table/reinforced,
 /obj/item/device/flashlight/lamp,
+/obj/machinery/alarm{
+	dir = 4;
+	icon_state = "alarm0";
+	pixel_x = -22;
+	pixel_y = 0
+	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/test_range)
 "aHv" = (
@@ -17735,7 +17759,6 @@
 	dir = 5
 	},
 /obj/structure/table/reinforced,
-/obj/item/weapon/folder/purple,
 /obj/machinery/requests_console{
 	department = "Science";
 	departmentType = 2;
@@ -17743,6 +17766,7 @@
 	pixel_x = 0;
 	pixel_y = 32
 	},
+/obj/item/weapon/storage/box/testpins,
 /turf/simulated/floor/tiled/white,
 /area/rnd/test_range)
 "aHw" = (
@@ -17753,6 +17777,10 @@
 /obj/structure/table/reinforced,
 /obj/item/weapon/paper_bin,
 /obj/item/weapon/pen,
+/obj/machinery/light_switch{
+	pixel_x = 10;
+	pixel_y = 28
+	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/test_range)
 "aHx" = (
@@ -18284,7 +18312,7 @@
 	dir = 9
 	},
 /obj/structure/table/reinforced,
-/obj/item/weapon/storage/box/testpins,
+/obj/item/device/healthanalyzer,
 /turf/simulated/floor/tiled/white,
 /area/rnd/test_range)
 "aIA" = (
@@ -28397,6 +28425,15 @@
 	dir = 4;
 	icon_state = "pipe-c"
 	},
+/obj/machinery/embedded_controller/radio/airlock/access_controller{
+	id_tag = "hazardous_airlock_control";
+	name = "Hazardous Specimens Access Controller";
+	pixel_x = -18;
+	pixel_y = 27;
+	req_access = null;
+	tag_exterior_door = "xenobotany_airlock_exterior";
+	tag_interior_door = "xenobotany_airlock_interior"
+	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology/xenoflora_hazard)
 "cdr" = (
@@ -28660,6 +28697,11 @@
 	icon_state = "corner_white";
 	dir = 9
 	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/test_range)
 "deJ" = (
@@ -28684,16 +28726,12 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/atmospherics/pipe/simple/visible/yellow,
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1
-	},
-/obj/effect/floor_decal/industrial/warning,
 /obj/structure/cable/green{
 	d1 = 2;
 	d2 = 8;
 	icon_state = "2-8"
 	},
+/obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor/plating,
 /area/rnd/xenoarch_atrium)
 "dpL" = (
@@ -28780,7 +28818,7 @@
 	req_access = list(65)
 	},
 /turf/simulated/floor/tiled/white,
-/area/rnd/xenoarch_atrium)
+/area/rnd/isolation_c)
 "dGd" = (
 /obj/structure/flora/ausbushes/brflowers,
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -28863,14 +28901,6 @@
 	dir = 1;
 	icon_state = "pipe-c"
 	},
-/obj/machinery/embedded_controller/radio/airlock/access_controller{
-	id_tag = "hazardous_airlock_control";
-	name = "Hazardous Specimens Access Controller";
-	pixel_x = -28;
-	pixel_y = -5;
-	tag_exterior_door = "xenobotany_airlock_exterior";
-	tag_interior_door = "xenobotany_airlock_interior"
-	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology/xenoflora)
 "dWP" = (
@@ -28897,19 +28927,6 @@
 /obj/machinery/door/firedoor{
 	dir = 2
 	},
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 8
-	},
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 1
-	},
 /obj/structure/grille,
 /obj/machinery/atmospherics/pipe/simple/visible{
 	icon_state = "intact";
@@ -28921,6 +28938,19 @@
 	id = "xenoflora";
 	name = "Xenoflora Blast Door";
 	opacity = 0
+	},
+/obj/structure/window/phoronreinforced,
+/obj/structure/window/phoronreinforced{
+	icon_state = "phoronrwindow";
+	dir = 1
+	},
+/obj/structure/window/phoronreinforced{
+	icon_state = "phoronrwindow";
+	dir = 4
+	},
+/obj/structure/window/phoronreinforced{
+	icon_state = "phoronrwindow";
+	dir = 8
 	},
 /turf/simulated/floor/plating,
 /area/rnd/xenobiology/xenoflora_hazard)
@@ -28998,7 +29028,12 @@
 	c_tag = "Research Sublevel - Test Range";
 	dir = 1
 	},
-/obj/machinery/firealarm/south,
+/obj/machinery/power/apc{
+	dir = 2;
+	name = "south bump";
+	pixel_y = -24
+	},
+/obj/structure/cable/green,
 /turf/simulated/floor/tiled/white,
 /area/rnd/test_range)
 "eSu" = (
@@ -29082,7 +29117,7 @@
 	req_access = list(65)
 	},
 /turf/simulated/floor/tiled/white,
-/area/rnd/xenoarch_atrium)
+/area/rnd/isolation_a)
 "frR" = (
 /obj/machinery/portable_atmospherics/hydroponics,
 /obj/effect/floor_decal/corner/red/full,
@@ -29151,6 +29186,10 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/patient_wing_gym)
+"fZS" = (
+/obj/effect/floor_decal/industrial/warning,
+/turf/simulated/floor/tiled,
+/area/rnd/xenoarch_atrium)
 "gaJ" = (
 /obj/structure/closet/secure_closet/hydroponics{
 	req_access = list(47)
@@ -29227,18 +29266,6 @@
 /obj/machinery/door/firedoor{
 	dir = 2
 	},
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 1
-	},
 /obj/structure/grille,
 /obj/machinery/door/blast/regular{
 	density = 0;
@@ -29246,6 +29273,18 @@
 	id = "Biohazard";
 	name = "Biohazard Shutter";
 	opacity = 0
+	},
+/obj/structure/window/phoronreinforced{
+	icon_state = "phoronrwindow";
+	dir = 8
+	},
+/obj/structure/window/phoronreinforced{
+	icon_state = "phoronrwindow";
+	dir = 1
+	},
+/obj/structure/window/phoronreinforced{
+	icon_state = "phoronrwindow";
+	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/rnd/xenobiology/xenoflora_hazard)
@@ -29290,15 +29329,18 @@
 	icon_state = "corner_white_full";
 	dir = 8
 	},
-/obj/machinery/power/apc{
-	dir = 1;
-	name = "north bump";
-	pixel_x = 0;
-	pixel_y = 24
+/obj/machinery/recharger/wallcharger{
+	pixel_x = 4;
+	pixel_y = 30
 	},
 /obj/structure/cable/green{
+	d1 = 2;
 	d2 = 4;
-	icon_state = "0-4"
+	icon_state = "2-4"
+	},
+/obj/machinery/recharger/wallcharger{
+	pixel_x = 4;
+	pixel_y = 20
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/test_range)
@@ -29630,10 +29672,14 @@
 	icon_state = "intact-scrubbers";
 	dir = 1
 	},
+/obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/tiled,
 /area/rnd/xenoarch_atrium)
 "jbg" = (
 /obj/structure/table/rack,
+/obj/item/stack/rods{
+	amount = 50
+	},
 /obj/item/stack/rods{
 	amount = 50
 	},
@@ -29650,6 +29696,7 @@
 	dir = 4;
 	icon_state = "body_scannerconsole"
 	},
+/obj/machinery/firealarm/south,
 /turf/simulated/floor/tiled/white,
 /area/rnd/test_range)
 "jew" = (
@@ -29794,7 +29841,6 @@
 	icon_state = "rwindow";
 	dir = 4
 	},
-/obj/machinery/door/firedoor,
 /obj/structure/window/reinforced,
 /obj/machinery/door/blast/regular{
 	density = 0;
@@ -29804,7 +29850,7 @@
 	opacity = 0
 	},
 /turf/simulated/floor/plating,
-/area/rnd/xenoarch_atrium)
+/area/rnd/isolation_a)
 "jBb" = (
 /obj/machinery/firealarm/north,
 /turf/simulated/floor/carpet,
@@ -30037,16 +30083,12 @@
 /turf/simulated/floor/tiled/white,
 /area/outpost/research/hallway)
 "lrI" = (
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1
-	},
-/obj/effect/floor_decal/industrial/warning,
 /obj/structure/cable/green{
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8"
 	},
+/obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor/plating,
 /area/rnd/xenoarch_atrium)
 "ltb" = (
@@ -30077,11 +30119,6 @@
 /obj/machinery/door/firedoor{
 	dir = 2
 	},
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 1
-	},
 /obj/structure/grille,
 /obj/machinery/door/blast/regular{
 	density = 0;
@@ -30091,6 +30128,11 @@
 	name = "Biohazard Shutter";
 	opacity = 0
 	},
+/obj/structure/window/phoronreinforced{
+	icon_state = "phoronrwindow";
+	dir = 1
+	},
+/obj/structure/window/phoronreinforced,
 /turf/simulated/floor/plating,
 /area/rnd/xenobiology/xenoflora_hazard)
 "lLx" = (
@@ -30166,6 +30208,13 @@
 	icon_state = "warningcorner";
 	dir = 8
 	},
+/obj/machinery/hologram/holopad,
+/obj/machinery/camera{
+	c_tag = "Research Sublevel - Xenobotany Lab";
+	dir = 4;
+	network = list("Research Outpost");
+	pixel_y = 24
+	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology/xenoflora)
 "mio" = (
@@ -30228,15 +30277,6 @@
 /obj/machinery/door/firedoor{
 	dir = 2
 	},
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 1
-	},
 /obj/structure/grille,
 /obj/machinery/door/blast/regular{
 	density = 0;
@@ -30246,6 +30286,15 @@
 	name = "Biohazard Shutter";
 	opacity = 0
 	},
+/obj/structure/window/phoronreinforced{
+	icon_state = "phoronrwindow";
+	dir = 1
+	},
+/obj/structure/window/phoronreinforced{
+	icon_state = "phoronrwindow";
+	dir = 4
+	},
+/obj/structure/window/phoronreinforced,
 /turf/simulated/floor/plating,
 /area/rnd/xenobiology/xenoflora_hazard)
 "mrR" = (
@@ -30338,9 +30387,6 @@
 /area/medical/patient_c)
 "mQS" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
-/obj/machinery/light/small{
-	dir = 4
-	},
 /turf/simulated/floor/reinforced,
 /area/rnd/isolation_a)
 "mUk" = (
@@ -30446,6 +30492,7 @@
 	name = "Xenoflora Blast Door";
 	opacity = 0
 	},
+/obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology/xenoflora_hazard)
 "nhr" = (
@@ -30475,6 +30522,30 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/patient_wing_gym)
+"nkj" = (
+/obj/machinery/door/firedoor{
+	dir = 2
+	},
+/obj/structure/grille,
+/obj/machinery/door/blast/regular{
+	density = 0;
+	dir = 4;
+	icon_state = "pdoor0";
+	id = "Biohazard";
+	name = "Biohazard Shutter";
+	opacity = 0
+	},
+/obj/structure/window/phoronreinforced{
+	icon_state = "phoronrwindow";
+	dir = 1
+	},
+/obj/structure/window/phoronreinforced,
+/obj/structure/window/phoronreinforced{
+	icon_state = "phoronrwindow";
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/rnd/xenobiology/xenoflora_hazard)
 "nkZ" = (
 /obj/structure/closet/secure_closet/hydroponics{
 	req_access = list(47)
@@ -30593,14 +30664,6 @@
 /obj/machinery/door/firedoor{
 	dir = 2
 	},
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 4
-	},
 /obj/structure/grille,
 /obj/machinery/door/blast/regular{
 	density = 0;
@@ -30608,6 +30671,14 @@
 	id = "Biohazard";
 	name = "Biohazard Shutter";
 	opacity = 0
+	},
+/obj/structure/window/phoronreinforced{
+	icon_state = "phoronrwindow";
+	dir = 8
+	},
+/obj/structure/window/phoronreinforced{
+	icon_state = "phoronrwindow";
+	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/rnd/xenobiology/xenoflora_hazard)
@@ -30821,10 +30892,6 @@
 	icon_state = "corner_white";
 	dir = 10
 	},
-/obj/machinery/alarm{
-	dir = 1;
-	pixel_y = -25
-	},
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
@@ -30883,7 +30950,6 @@
 	icon_state = "rwindow";
 	dir = 4
 	},
-/obj/machinery/door/firedoor,
 /obj/structure/window/reinforced,
 /obj/machinery/door/blast/regular{
 	density = 0;
@@ -30893,7 +30959,7 @@
 	opacity = 0
 	},
 /turf/simulated/floor/plating,
-/area/rnd/xenoarch_atrium)
+/area/rnd/isolation_b)
 "pIa" = (
 /obj/structure/cable/green{
 	d1 = 4;
@@ -31024,6 +31090,9 @@
 	icon_state = "corner_white";
 	dir = 5
 	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenoarch_atrium)
 "qDA" = (
@@ -31108,7 +31177,7 @@
 	req_access = list(65)
 	},
 /turf/simulated/floor/tiled/white,
-/area/rnd/xenoarch_atrium)
+/area/rnd/isolation_b)
 "qSH" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced/polarized{
@@ -31151,7 +31220,6 @@
 "rmW" = (
 /obj/structure/barricade,
 /obj/structure/grille,
-/obj/item/stack/rods,
 /turf/simulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
 "rwo" = (
@@ -31367,9 +31435,6 @@
 /area/rnd/xenobiology/xenoflora)
 "sEn" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
-/obj/machinery/light/small{
-	dir = 4
-	},
 /turf/simulated/floor/tiled/dark,
 /area/rnd/isolation_c)
 "sFw" = (
@@ -31429,6 +31494,9 @@
 	icon_state = "corner_white";
 	dir = 5
 	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenoarch_atrium)
 "ted" = (
@@ -31445,15 +31513,6 @@
 /obj/machinery/door/firedoor{
 	dir = 2
 	},
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 4
-	},
 /obj/structure/grille,
 /obj/machinery/door/blast/regular{
 	density = 0;
@@ -31462,6 +31521,15 @@
 	name = "Biohazard Shutter";
 	opacity = 0
 	},
+/obj/structure/window/phoronreinforced{
+	icon_state = "phoronrwindow";
+	dir = 8
+	},
+/obj/structure/window/phoronreinforced{
+	icon_state = "phoronrwindow";
+	dir = 4
+	},
+/obj/structure/window/phoronreinforced,
 /turf/simulated/floor/plating,
 /area/rnd/xenobiology/xenoflora_hazard)
 "tnK" = (
@@ -31522,11 +31590,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/rnd/test_range)
 "ttF" = (
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/effect/floor_decal/industrial/warning/cee{
-	icon_state = "warningcee";
-	dir = 8
-	},
 /obj/machinery/power/emitter{
 	anchored = 1;
 	dir = 4;
@@ -31536,6 +31599,7 @@
 	d2 = 4;
 	icon_state = "0-4"
 	},
+/obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor/plating,
 /area/rnd/xenoarch_atrium)
 "tCp" = (
@@ -31677,19 +31741,6 @@
 /obj/machinery/door/firedoor{
 	dir = 2
 	},
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 8
-	},
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 1
-	},
 /obj/structure/grille,
 /obj/machinery/atmospherics/pipe/simple/visible{
 	icon_state = "intact";
@@ -31701,6 +31752,19 @@
 	id = "xenoflora";
 	name = "Xenoflora Blast Door";
 	opacity = 0
+	},
+/obj/structure/window/phoronreinforced,
+/obj/structure/window/phoronreinforced{
+	icon_state = "phoronrwindow";
+	dir = 1
+	},
+/obj/structure/window/phoronreinforced{
+	icon_state = "phoronrwindow";
+	dir = 4
+	},
+/obj/structure/window/phoronreinforced{
+	icon_state = "phoronrwindow";
+	dir = 8
 	},
 /turf/simulated/floor/plating,
 /area/rnd/xenobiology/xenoflora_hazard)
@@ -32028,11 +32092,6 @@
 	icon_state = "warningcorner";
 	dir = 1
 	},
-/obj/machinery/camera{
-	c_tag = "Research Sublevel - Xenobotany Lab";
-	dir = 4;
-	pixel_y = 24
-	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology/xenoflora)
 "vYg" = (
@@ -32061,7 +32120,6 @@
 	icon_state = "rwindow";
 	dir = 4
 	},
-/obj/machinery/door/firedoor,
 /obj/machinery/door/blast/regular{
 	density = 0;
 	icon_state = "pdoor0";
@@ -32070,7 +32128,7 @@
 	opacity = 0
 	},
 /turf/simulated/floor/plating,
-/area/rnd/xenoarch_atrium)
+/area/rnd/isolation_a)
 "waa" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -32124,7 +32182,6 @@
 /area/rnd/xenobiology/xenoflora)
 "wcX" = (
 /obj/structure/grille/broken,
-/obj/item/stack/rods,
 /obj/structure/girder/displaced,
 /obj/effect/decal/cleanable/generic,
 /turf/simulated/floor/asteroid/ash/rocky,
@@ -32229,7 +32286,6 @@
 	icon_state = "rwindow";
 	dir = 4
 	},
-/obj/machinery/door/firedoor,
 /obj/structure/window/reinforced,
 /obj/machinery/door/blast/regular{
 	density = 0;
@@ -32239,7 +32295,7 @@
 	opacity = 0
 	},
 /turf/simulated/floor/plating,
-/area/rnd/xenoarch_atrium)
+/area/rnd/isolation_c)
 "wKw" = (
 /obj/structure/table/rack,
 /obj/item/weapon/storage/box/monkeycubes{
@@ -32279,7 +32335,8 @@
 /obj/structure/disposalpipe/segment,
 /obj/machinery/camera{
 	c_tag = "Research Sublevel - Xenobotany Hazardous Specimens";
-	dir = 8
+	dir = 8;
+	network = list("Research Outpost")
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology/xenoflora_hazard)
@@ -32309,14 +32366,6 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/disposalpipe/segment,
-/obj/machinery/embedded_controller/radio/airlock/access_controller{
-	id_tag = "hazardous_airlock_control";
-	name = "Hazardous Specimens Access Controller";
-	pixel_x = 28;
-	pixel_y = 5;
-	tag_exterior_door = "xenobotany_airlock_exterior";
-	tag_interior_door = "xenobotany_airlock_interior"
-	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology/xenoflora_hazard)
 "wWo" = (
@@ -32357,7 +32406,6 @@
 	icon_state = "rwindow";
 	dir = 4
 	},
-/obj/machinery/door/firedoor,
 /obj/machinery/door/blast/regular{
 	density = 0;
 	icon_state = "pdoor0";
@@ -32366,7 +32414,7 @@
 	opacity = 0
 	},
 /turf/simulated/floor/plating,
-/area/rnd/xenoarch_atrium)
+/area/rnd/isolation_b)
 "xnI" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/effect/floor_decal/industrial/warning{
@@ -32524,6 +32572,9 @@
 	name = "Xenoflora Blast Door";
 	opacity = 0
 	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology/xenoflora_hazard)
 "xIB" = (
@@ -32580,7 +32631,6 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/machinery/recharger,
 /turf/simulated/floor/tiled/dark,
 /area/rnd/test_range)
 "xVZ" = (
@@ -32637,15 +32687,6 @@
 /obj/machinery/door/firedoor{
 	dir = 2
 	},
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 1
-	},
 /obj/structure/grille,
 /obj/machinery/door/blast/regular{
 	density = 0;
@@ -32655,6 +32696,15 @@
 	name = "Biohazard Shutter";
 	opacity = 0
 	},
+/obj/structure/window/phoronreinforced{
+	icon_state = "phoronrwindow";
+	dir = 8
+	},
+/obj/structure/window/phoronreinforced{
+	icon_state = "phoronrwindow";
+	dir = 1
+	},
+/obj/structure/window/phoronreinforced,
 /turf/simulated/floor/plating,
 /area/rnd/xenobiology/xenoflora_hazard)
 "ykp" = (
@@ -48258,7 +48308,7 @@ vPT
 vPT
 cVf
 vBC
-yiP
+nkj
 aba
 aba
 aba
@@ -56726,7 +56776,7 @@ avU
 awv
 awM
 axc
-awN
+fZS
 lrI
 qDr
 ayU
@@ -57493,19 +57543,19 @@ atC
 lRQ
 kbs
 awO
-avX
+avY
 avo
 wIF
 dFG
-avX
+avY
 xjM
 pHJ
 qSo
-avX
+ayb
 vYk
 jvE
 fea
-avX
+jDy
 kyt
 oSB
 avX
