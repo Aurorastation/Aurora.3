@@ -398,7 +398,7 @@
 /datum/gear/shoes/caligae
 	display_name = "caligae"
 	path = /obj/item/clothing/shoes/caligae
-	whitelisted = list("Unathi", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
+	whitelisted = list("Unathi", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Aut'akh Unathi")
 	sort_category = "Xenowear"
 
 /datum/gear/shoes/caligae/New()
@@ -408,6 +408,7 @@
 	caligae["black sock"] = /obj/item/clothing/shoes/caligae/black
 	caligae["grey sock"] = /obj/item/clothing/shoes/caligae/grey
 	caligae["white sock"] = /obj/item/clothing/shoes/caligae/white
+	caligae["leather"] = /obj/item/clothing/shoes/caligae/armor
 	gear_tweaks += new/datum/gear_tweak/path(caligae)
 
 //ipc stuff
