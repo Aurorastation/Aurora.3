@@ -93,3 +93,8 @@ var/global/datum/robolimb/basic_robolimb
 	paintable = 1
 	brute_mod = 1
 	burn_mod = 1
+
+/datum/robolimb/morgan
+	company = PROSTHETIC_WOOD
+	desc = "Most authenic faux-wood on the market. The actuators underneath are still metal though."
+	icon = 'icons/mob/human_races/r_ind_morganblack.dmi'
