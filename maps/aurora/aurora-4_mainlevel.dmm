@@ -65005,6 +65005,13 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/maintenance/engineering)
+"fmj" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/machinery/light_switch{
+	pixel_y = 28
+	},
+/turf/simulated/floor/tiled/white,
+/area/crew_quarters/kitchen)
 "fpD" = (
 /obj/effect/floor_decal/corner/mauve{
 	icon_state = "corner_white";
@@ -65477,16 +65484,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
 /area/maintenance/engineering)
-"miw" = (
-/obj/machinery/computer/guestpass{
-	pixel_x = -32
-	},
-/obj/machinery/camera/network/civilian_main{
-	c_tag = "Aft Corridor - Camera 3";
-	dir = 4
-	},
-/turf/simulated/floor/tiled,
-/area/hallway/primary/aft)
 "mnI" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/red{
 	icon_state = "map";
@@ -65926,6 +65923,16 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/medbay)
+"sez" = (
+/obj/machinery/computer/guestpass{
+	pixel_x = -32
+	},
+/obj/machinery/camera/network/civilian_main{
+	c_tag = "Aft Corridor - Camera 3";
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/hallway/primary/aft)
 "soq" = (
 /obj/machinery/door/firedoor,
 /obj/structure/window/reinforced{
@@ -66139,13 +66146,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/engineering)
-"xgs" = (
-/obj/effect/floor_decal/corner/grey/diagonal,
-/obj/machinery/light_switch{
-	pixel_y = 28
-	},
-/turf/simulated/floor/tiled/white,
-/area/crew_quarters/kitchen)
 "xhC" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -94141,7 +94141,7 @@ bLw
 bLw
 bQs
 bQU
-miw
+sez
 bLw
 bSj
 bLw
@@ -98768,7 +98768,7 @@ bQc
 bQy
 bRe
 bOt
-xgs
+fmj
 bSv
 blc
 bTy
