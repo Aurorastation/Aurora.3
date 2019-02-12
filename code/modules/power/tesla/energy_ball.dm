@@ -50,13 +50,15 @@
 		pixel_x = 0
 		pixel_y = 0
 
-		dir = tesla_zap(src, 12, TESLA_DEFAULT_POWER, TRUE)
+		// Instead of miniballs shooting stuff, decided to make it just count the power produced.
+		dir = tesla_zap(src, 12, TESLA_DEFAULT_POWER + orbiting_balls.len * TESLA_MINI_POWER, TRUE)
 
 		pixel_x = -32
 		pixel_y = -32
-		for (var/ball in orbiting_balls)
-			var/range = rand(1, Clamp(orbiting_balls.len, 3, 7))
-			tesla_zap(ball, range, TESLA_MINI_POWER/7*range, TRUE)
+
+		// This now does just the animation of all balls shooting main ball
+		for (var/obj/singularity/energy_ball/ball in orbiting_balls)
+			ball.Beam(src, icon_state="lightning[rand(1,12)]", icon = 'icons/effects/effects.dmi', time=2)
 	else
 		energy = 0 // ensure we dont have miniballs of miniballs
 	if(energy < 0)
