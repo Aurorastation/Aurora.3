@@ -15,7 +15,7 @@
 	density = 1
 	energy = 0
 	dissipate = 1
-	dissipate_delay = 5
+	dissipate_delay = 10
 	dissipate_strength = 1
 	layer = LIGHTING_LAYER + 0.1
 	blend_mode = BLEND_ADD
@@ -43,7 +43,7 @@
 	if(!orbiting)
 		handle_energy()
 
-		move_the_basket_ball(rand(1,4 + orbiting_balls.len * 1.5))
+		move_the_basket_ball(rand(1, 6) -  orbiting_balls.len * 0.25)
 
 		playsound(src.loc, 'sound/magic/lightningbolt.ogg', 100, 1, extrarange = 30)
 
@@ -83,7 +83,7 @@
 
 	var/move_dir = 0
 	if(target && prob(75))
-		move_dir = get_dir(src,target)
+		move_dir = get_dir(src, target)
 	else
 		valid_directions.Remove(dir)
 		move_dir = (prob(50) && (dir != failed_direction)) ? dir : pick(valid_directions)
@@ -92,9 +92,9 @@
 		move_amount = 0
 
 	for(var/i in 0 to move_amount)
-		do_single_move(move_dir)
+		do_single_move(move_dir, move_amount)
 
-/obj/singularity/energy_ball/proc/do_single_move(var/move_dir)
+/obj/singularity/energy_ball/proc/do_single_move(var/move_dir, var/speed)
 	var/z_move = 0
 	var/turf/T
 	switch(move_dir)
@@ -111,13 +111,13 @@
 		switch(z_move)
 			if(1)
 				visible_message(span("danger","\The [src] gravitates upwards!"))
-				forceMove(T)
+				zMove(UP)
 				visible_message(span("danger","\The [src] gravitates from below!"))
 			if(0)
-				forceMove(T)
+				walk_to(src, T, 0, speed)
 			if(-1)
 				visible_message(span("danger","\The [src] gravitates downwards!"))
-				forceMove(T)
+				zMove(DOWN)
 				visible_message(span("danger","\The [src] gravitates from above!"))
 
 		if(dir in alldirs)
