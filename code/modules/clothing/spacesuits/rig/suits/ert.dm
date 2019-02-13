@@ -113,7 +113,8 @@
 	desc = "A heavy suit worn by the highest level of Asset Protection, don't mess with the person wearing this. Armoured and space ready."
 	suit_type = "heavy asset protection"
 	icon_state = "asset_protection_rig"
-	armor = list(melee = 60, bullet = 60, laser = 60, energy = 40, bomb = 50, bio = 100, rad = 100)
+	armor = list(melee = 80, bullet = 75, laser = 60, energy = 40, bomb = 80, bio = 100, rad =100)
+	slowdown = 0
 	siemens_coefficient = 0
 	emp_protection = 50
 

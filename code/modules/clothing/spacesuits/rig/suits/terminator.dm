@@ -4,7 +4,6 @@
 	icon_state = "terminator_rig"
 	suit_type = "synthetic exoskeleton"
 	armor = list(melee = 80, bullet = 75, laser = 60, energy = 15, bomb = 80, bio = 100, rad = 30)
-	slowdown = 1
 	offline_slowdown = 3
 	offline_vision_restriction = TINT_HEAVY
 	has_sealed_state = TRUE

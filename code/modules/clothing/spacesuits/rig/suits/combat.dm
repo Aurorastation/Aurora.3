@@ -7,7 +7,6 @@
 	icon_state = "security_rig"
 	suit_type = "combat hardsuit"
 	armor = list(melee = 80, bullet = 65, laser = 50, energy = 15, bomb = 80, bio = 100, rad = 60)
-	slowdown = 1
 	offline_slowdown = 3
 	offline_vision_restriction = TINT_HEAVY
 
@@ -36,7 +35,6 @@
 	icon_state = "military_rig"
 	suit_type = "military hardsuit"
 	armor = list(melee = 80, bullet = 75, laser = 60, energy = 15, bomb = 80, bio = 100, rad = 30)
-	slowdown = 1
 	offline_slowdown = 3
 	offline_vision_restriction = TINT_HEAVY
 	allowed = list(/obj/item/device/flashlight,/obj/item/weapon/tank,/obj/item/device/suit_cooling_unit,/obj/item/weapon/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/weapon/melee/baton,/obj/item/weapon/melee/energy/sword,/obj/item/weapon/handcuffs)

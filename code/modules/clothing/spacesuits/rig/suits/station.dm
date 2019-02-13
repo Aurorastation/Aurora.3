@@ -171,7 +171,6 @@
 	desc = "An Anomalous Material Interaction hardsuit that protects against the strangest energies the universe can throw at it."
 	icon_state = "science_rig"
 	armor = list(melee = 45, bullet = 5, laser = 40, energy = 65, bomb = 60, bio = 100, rad = 100)
-	slowdown = 1
 	offline_vision_restriction = TINT_HEAVY
 	emp_protection = 40
 
@@ -232,7 +231,6 @@
 	desc = "A Security hardsuit designed for prolonged EVA in dangerous environments."
 	icon_state = "hazard_rig"
 	armor = list(melee = 60, bullet = 40, laser = 30, energy = 15, bomb = 60, bio = 100, rad = 30)
-	slowdown = 1
 	offline_slowdown = 3
 	offline_vision_restriction = TINT_HEAVY
 
