@@ -218,11 +218,11 @@
 		var/obj/item/weapon/storage/backpack/B = H.back
 		B.autodrobe_no_remove = TRUE
 
-/datum/outfit/job/get_id_access(mob/living/carbon/human/H, var/alttitle)
+/datum/outfit/job/get_id_access(mob/living/carbon/human/H)
 	var/datum/job/J = SSjobs.GetJobType(jobtype)
 	if(!J)
 		J = SSjobs.GetJob(H.job)
-	return J.get_access(alttitle)
+	return J.get_access(get_id_assignment(H))
 
 /datum/outfit/job/get_id_rank(mob/living/carbon/human/H)
 	var/datum/job/J = SSjobs.GetJobType(jobtype)
