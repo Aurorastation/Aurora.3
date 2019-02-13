@@ -23,6 +23,7 @@
 	siemens_coefficient = 0.2
 	permeability_coefficient = 0.1
 	unacidable = 1
+	slowdown = 1 // All rigs by default should have slowdown.
 
 	var/has_sealed_state = FALSE
 
