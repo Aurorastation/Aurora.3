@@ -83,6 +83,8 @@
 		"override_enabled" = docking_program.override_enabled,
 		"door_state" = 	docking_program.memory["door_status"]["state"],
 		"door_lock" = 	docking_program.memory["door_status"]["lock"],
+		"destination" = docking_program.destination
+		"emagged" = emagged
 		"can_force" = pod.can_force() || (emergency_shuttle.departed && pod.can_launch()),	//allow players to manually launch ahead of time if the shuttle leaves
 		"is_armed" = pod.arming_controller.armed
 	)
