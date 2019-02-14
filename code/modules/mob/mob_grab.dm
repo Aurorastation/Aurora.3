@@ -228,7 +228,7 @@
 		if(EAST)
 			animate(affecting, pixel_x =-shift, pixel_y = 0, 5, 1, LINEAR_EASING)
 
-/obj/item/weapon/grab/proc/s_click(obj/screen/S, var/target_zone, mob/M, mob/living/user)
+/obj/item/weapon/grab/proc/s_click(obj/screen/S)
 	if(!affecting)
 		return
 	if(state == GRAB_UPGRADING)

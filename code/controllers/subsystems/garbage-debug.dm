@@ -222,6 +222,7 @@
 	SearchVar(tachycardics)
 	SearchVar(bradycardics)
 	SearchVar(heartstopper)
+	SearchVar(cheartstopper)
 	SearchVar(hairnone)
 	SearchVar(hairsemisafe)
 	SearchVar(hairsortasafe)
