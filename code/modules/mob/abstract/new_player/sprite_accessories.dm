@@ -40,6 +40,11 @@
 /  == Hair Definitions ==  /
 /  =--------------------=  /
 ////////////////////////////
+
+Before you add any new hairstyles, make sure to define them in dna.dm in defines.
+Follow by example and make good judgement based on length which list to include it in - Drago
+
+
 */
 
 /datum/sprite_accessory/hair
