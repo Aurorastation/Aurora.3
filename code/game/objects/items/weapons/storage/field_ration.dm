@@ -8,11 +8,6 @@
 	var/list/ration_options = list("Worker's Meal", "NanoTrasen Sponsored")
 	var/selected_ration
 
-/obj/item/weapon/storage/field_ration/Initialize()
-	. = ..()
-	if(!preset_ration)
-		selected_ration = pick(ration_options)
-
 /obj/item/weapon/storage/field_ration/examine(mob/user)
 	. = ..()
 	if(ration_desc)
@@ -20,6 +15,8 @@
 
 /obj/item/weapon/storage/field_ration/fill()
 	..()
+	if(!preset_ration)
+		selected_ration = pick(ration_options)
 	new /obj/item/weapon/material/kitchen/utensil/spoon(src)
 	create_ration()
 	make_exact_fit()
@@ -35,13 +32,18 @@
 
 		if("NanoTrasen Sponsored")
 			new /obj/item/weapon/reagent_containers/food/snacks/liquidfood(src)
-			new /obj/item/weapon/reagent_containers/food/snacks/sosjerky(src)
-			new /obj/item/weapon/reagent_containers/food/drinks/cans/space_mountain_wind(src)
+			new /obj/item/weapon/reagent_containers/food/snacks/liquidfood(src)
+			new /obj/item/weapon/reagent_containers/food/drinks/cans/sodawater(src)
 			ration_desc = "This one has the NanoTrasen logo."
 
+/obj/item/weapon/storage/field_ration/army
+	preset_ration = "Worker's Meal"
+
+/obj/item/weapon/storage/field_ration/nanotrasen
+	preset_ration = "NanoTrasen Sponsored"
 
 /obj/item/weapon/storage/field_ration/nka
-	icon_state = "largebox"
+	icon_state = "bigbox"
 	ration_options = list("Imperial Army", "Royal Navy")
 
 /obj/item/weapon/storage/field_ration/nka/create_ration()
@@ -49,7 +51,7 @@
 
 		if("Imperial Army")
 			new /obj/item/weapon/reagent_containers/food/snacks/hardbread(src)
-			new /obj/item/weapon/reagent_containers/food/drinks/bottle/victorygin(src)
+			new /obj/item/weapon/reagent_containers/food/drinks/cans/adhomai_milk(src)
 			ration_desc = "This one has the stamp of the Imperial Adhomian Army."
 
 		if("Royal Navy")
@@ -57,3 +59,9 @@
 			new /obj/item/weapon/reagent_containers/food/snacks/adhomian_can(src)
 			new /obj/item/weapon/reagent_containers/food/drinks/bottle/messa_mead(src)
 			ration_desc = "This one has the stamp of the Royal Navy."
+
+/obj/item/weapon/storage/field_ration/nka/army
+	preset_ration = "Imperial Army"
+
+/obj/item/weapon/storage/field_ration/nka/navy
+	preset_ration = "Royal Navy"
