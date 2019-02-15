@@ -212,10 +212,3 @@
 /datum/gear/head/tcflberet
 	display_name = "Tau Ceti Foreign Legion dress beret"
 	path = /obj/item/clothing/head/legion_beret
-	allowed_roles = list(
-					"Security Officer", "Warden", "Detective", "Forensic Technician", "Security Cadet",
-					"Station Engineer", "Atmospheric Technician", "Engineering Apprentice",
-					"Quartermaster", "Cargo Technician", "Shaft Miner",
-					"Medical Doctor", "Paramedic", "Chemist", "Psychologist", "Virologist", "Medical Resident",
-					"Roboticist", "Scientist", "Xenobiologist", "Lab Assistant",
-					"Assistant", "Bartender", "Chef", "Botanist", "Chaplain", "Janitor", "Librarian", "Corporate Reporter") //Everyone except Command. Including security because having *once* served in TCFL doesnt mean you are currently in it.
