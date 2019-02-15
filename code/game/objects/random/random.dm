@@ -1119,7 +1119,7 @@
 		/obj/item/weapon/rig/eva= 1,
 		/obj/item/weapon/rig/hazard = 1,
 		/obj/item/weapon/rig/hazmat = 1,
-		/obj/item/weapon/rig/medical = 1,
+		/obj/item/weapon/rig/medical = 1
 	)
 
 /obj/random/telecrystals
