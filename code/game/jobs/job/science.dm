@@ -91,8 +91,11 @@
 
 	minimal_player_age = 14
 
-	outfit = /datum/outfit/job/scientist
+	outfit = /datum/outfit/job/scientist/xenobiologist
 
+/datum/outfit/job/scientist/xenobiologist
+	name = "Xenobiologist"
+	jobtype = /datum/job/xenobiologist
 
 /datum/job/roboticist
 	title = "Roboticist"

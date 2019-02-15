@@ -332,6 +332,7 @@
 		//Equip job items.
 		if(!megavend)	//Equip custom gear loadout.
 			Debug("ER/([H]): Equipping custom loadout.")
+			job.pre_equip(H)
 			job.setup_account(H)
 
 			EquipCustom(H, job, H.client.prefs, custom_equip_leftovers, spawn_in_storage, custom_equip_slots)
@@ -523,7 +524,10 @@
 
 		EquipCustom(H, job, H.client.prefs, custom_equip_leftovers, spawn_in_storage, custom_equip_slots)
 
+		Debug("EP/([H]): EC Complated, running pre_equip and late_equip.")
+
 		//Equip job items.
+		job.pre_equip(H) // Spawn in the backpack
 		job.late_equip(H)
 		job.setup_account(H)
 
@@ -743,14 +747,14 @@
 				// This is a miserable way to fix the loadout overwrite bug, but the alternative requires
 				// adding an arg to a bunch of different procs. Will look into it after this merge. ~ Z
 				var/metadata = prefs.gear[G.display_name]
-				var/obj/item/CI = G.spawn_item(H,metadata)
+				var/obj/item/CI = G.spawn_item(null,metadata)
 				if (G.slot == slot_wear_mask || G.slot == slot_wear_suit || G.slot == slot_head)
 					if (leftovers)
 						leftovers += thing
 					Debug("EC/([H]): [thing] failed mask/suit/head check; leftovers=[!!leftovers]")
 				else if (H.equip_to_slot_or_del(CI, G.slot))
 					CI.autodrobe_no_remove = TRUE
-					H << "<span class='notice'>Equipping you with \a [thing]!</span>"
+					to_chat(H, "<span class='notice'>Equipping you with [thing]!</span>") 
 					custom_equip_slots += G.slot
 					Debug("EC/([H]): Equipped [CI] successfully.")
 				else if (leftovers)
@@ -778,7 +782,7 @@
 			var/metadata = prefs.gear[G.display_name]
 			var/obj/item/CI = G.spawn_item(H, metadata)
 			if (H.equip_to_slot_or_del(CI, G.slot))
-				to_chat(H, "<span class='notice'>Equipping you with \a [thing]!</span>")
+				to_chat(H, "<span class='notice'>Equipping you with [thing]!</span>")
 				used_slots += G.slot
 				CI.autodrobe_no_remove = TRUE
 				Debug("ECD/([H]): Equipped [thing] successfully.")

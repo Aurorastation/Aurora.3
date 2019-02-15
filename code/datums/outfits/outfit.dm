@@ -58,8 +58,6 @@
 	//to be overriden for changing items post equip (such as toggeling internals, ...)
 
 /datum/outfit/proc/equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	pre_equip(H, visualsOnly)
-
 	//Start with uniform,suit,backpack for additional slots
 	if(back)
 		equip_item(H, back, slot_back)

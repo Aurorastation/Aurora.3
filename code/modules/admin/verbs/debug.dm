@@ -437,6 +437,7 @@
 		else
 			var/datum/outfit/O = choices[dresscode]
 			if(O)
+				M.preEquipOutfit(O,FALSE)
 				M.equipOutfit(O,FALSE)
 
 	M.regenerate_icons()

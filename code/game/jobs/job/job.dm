@@ -35,22 +35,33 @@
 /datum/job/proc/after_spawn(mob/living/carbon/human/H)
 
 /datum/job/proc/announce(mob/living/carbon/human/H)
+
+/datum/job/proc/get_outfit(mob/living/carbon/human/H, alt_title=null)
+	//Check if we have a speical outfit for that alt title
+	if (alt_outfits && alt_title)
+		return alt_outfits[alt_title]
+	else if(alt_outfits && H.mind && H.mind.role_alt_title in alt_outfits)
+		return alt_outfits[H.mind.role_alt_title]
+	else if (!H.mind && H.job in alt_outfits)
+		return alt_outfits[H.job]
+	else if(outfit)
+		return outfit
  
-/datum/job/proc/equip(mob/living/carbon/human/H, visualsOnly = FALSE, announce = TRUE, alt_title = null)
+/datum/job/proc/pre_equip(mob/living/carbon/human/H, visualsOnly = FALSE, alt_title = null)
+	log_debug("Running pre_equip for [H.real_name]")
 	if(!H)
+		log_debug("pre_equip - H is null")
 		return 0
 
 	H.species.before_equip(H, visualsOnly, src)
+	H.preEquipOutfit(get_outfit(H, alt_title), visualsOnly)
 
-	//Check if we have a speical outfit for that alt title
-	if (alt_outfits && alt_title)
-		H.equipOutfit(alt_outfits[alt_title], visualsOnly)
-	else if(alt_outfits && H.mind && H.mind.role_alt_title in alt_outfits)
-		H.equipOutfit(alt_outfits[H.mind.role_alt_title], visualsOnly)
-	else if (!H.mind && H.job in alt_outfits)
-		H.equipOutfit(alt_outfits[H.job], visualsOnly)
-	else if(outfit)
-		H.equipOutfit(outfit, visualsOnly)
+/datum/job/proc/equip(mob/living/carbon/human/H, visualsOnly = FALSE, announce = TRUE, alt_title = null)
+	log_debug("Running equip for [H.real_name]")
+	if(!H)
+		log_debug("equip - H is null")
+		return 0
+	H.equipOutfit(get_outfit(H, alt_title), visualsOnly)
 
 	H.species.after_equip(H, visualsOnly, src)
 
@@ -168,7 +179,7 @@
 /datum/outfit/job
 	name = "Standard Gear"
 	var/base_name = null
-	collect_not_del = FALSE // we don't want anyone to lose their job shit
+	collect_not_del = FALSE
 
 	var/allow_loadout = TRUE
 	var/allow_backbag_choice = TRUE
@@ -205,18 +216,21 @@
 				back = use_job_specific ? messengerbag : /obj/item/weapon/storage/backpack/messenger
 			else
 				back = backpack //Department backpack
-	if(box)
-		var/spawnbox = box
-		backpack_contents.Insert(1, spawnbox) // Box always takes a first slot in backpack
-		backpack_contents[spawnbox] = 1
-
-
-/datum/outfit/job/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	. = ..()
+	equip_item(H, back, slot_back)
 
 	if(istype(H.back,/obj/item/weapon/storage/backpack))
 		var/obj/item/weapon/storage/backpack/B = H.back
 		B.autodrobe_no_remove = TRUE
+
+/datum/outfit/job/equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+	if(box)
+		var/spawnbox = box
+		backpack_contents.Insert(1, spawnbox) // Box always takes a first slot in backpack
+		backpack_contents[spawnbox] = 1
+	. = ..()
+
+/datum/outfit/job/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+	. = ..()
 
 /datum/outfit/job/get_id_access(mob/living/carbon/human/H)
 	var/datum/job/J = SSjobs.GetJobType(jobtype)

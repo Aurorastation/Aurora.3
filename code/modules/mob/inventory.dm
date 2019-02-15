@@ -29,7 +29,7 @@
 			qdel(W)
 		else
 			if(!disable_warning)
-				src << "<span class='warning'>You are unable to equip that.</span>" //Only print if del_on_fail is false
+				to_chat(src, "<span class='warning'>You are unable to equip [W].</span>")  //Only print if del_on_fail is false
 		return 0
 
 	equip_to_slot(W, slot, redraw_mob) //This proc should not ever fail.
@@ -43,7 +43,7 @@
 
 //This is just a commonly used configuration for the equip_to_slot_if_possible() proc, used to equip people when the rounds tarts and when events happen and such.
 /mob/proc/equip_to_slot_or_del(obj/item/W as obj, slot)
-	. = equip_to_slot_if_possible(W, slot, TRUE, TRUE, FALSE, ignore_blocked = TRUE)
+	. = equip_to_slot_if_possible(W, slot, TRUE, TRUE, FALSE, TRUE)
 
 // Convinience proc.  Collects crap that fails to equip either onto the mob's back, or drops it.
 // Used in job equipping so shit doesn't pile up at the start loc.
@@ -380,3 +380,17 @@ var/list/slot_equipment_priority = list( \
 		return FALSE
 
 	return O.equip(src, visualsOnly)
+
+/mob/living/carbon/human/proc/preEquipOutfit(outfit, visualsOnly = FALSE)
+	var/datum/outfit/O = null
+
+	if(ispath(outfit))
+		O = new outfit
+	else
+		O = outfit
+		if(!istype(O))
+			return FALSE
+	if(!O)
+		return FALSE
+
+	return O.pre_equip(src, visualsOnly)
