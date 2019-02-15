@@ -47,6 +47,8 @@
 				paperamount += paper_result
 			qdel(W)
 			playsound(src.loc, 'sound/items/pshred.ogg', 75, 1)
+			to_chat(user, span("notice", "You shred the paper."))
+			flick("papershredder_on", src)
 			if(paperamount > max_paper)
 				user <<"<span class='danger'>\The [src] was too full, and shredded paper goes everywhere!</span>"
 				for(var/i=(paperamount-max_paper);i>0;i--)
