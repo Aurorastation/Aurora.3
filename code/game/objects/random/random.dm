@@ -1120,7 +1120,6 @@
 		/obj/item/weapon/rig/hazard = 1,
 		/obj/item/weapon/rig/hazmat = 1,
 		/obj/item/weapon/rig/medical = 1,
-		/obj/item/weapon/rig/industrial = 1
 	)
 
 /obj/random/telecrystals
