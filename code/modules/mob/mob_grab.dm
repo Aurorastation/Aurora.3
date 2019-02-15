@@ -336,82 +336,8 @@
 				if(I_DISARM)
 					if(hit_zone == "chest")
 						pin_down(affecting, assailant)
-					var/mob/living/carbon/human/H = affecting
-					var/hairstyle = H.h_style
-					var/obj/item/weapon/grab/G = assailant.get_active_hand()
-					if(hit_zone == "head" && G)
-						if(H.h_style == "Bald")
-							visible_message("<span class='notice'>[assailant] tried to grab [H] but they have no hair!.</span>")
-							G.state = GRAB_PASSIVE
-
-						if(H.h_style in hairnone)
-							if(prob(65))
-								visible_message("<span class='danger'>[assailant] has [H] grasped by their [hairstyle], their fingers however slipping out of the short hair</span>")
-								G.state = GRAB_PASSIVE
-							if(prob(15))
-								visible_message("<span class='danger'>[assailant] has [H] grasped by their [hairstyle], tugging on it roughly!</span>")
-								H.apply_damage(9, HALLOSS)
-								G.state = GRAB_AGGRESSIVE
-							if(prob(3))
-								visible_message("<span class='danger'>[assailant] has [H] grasped by their [hairstyle], tugging their hair out violently</span>")
-								H.apply_damage(15, HALLOSS)
-								H.h_style = H.species.default_h_style
-								H.update_hair()
-								G.state = GRAB_AGGRESSIVE
-
-						if(H.h_style in hairsemisafe)
-							if(prob(55))
-								visible_message("<span class='danger'>[assailant] has [H] grasped by their [hairstyle], tugging on it tightly!</span>")
-								H.apply_damage(5, HALLOSS)
-								G.state = GRAB_PASSIVE
-							if(prob(10))
-								visible_message("<span class='danger'>[assailant] has [H] grasped by their [hairstyle], tugging on it roughly!</span>")
-								H.apply_damage(7, HALLOSS)
-								G.state = GRAB_PASSIVE
-							if(prob(5))
-								visible_message("<span class='danger'>[assailant] has [H] grasped by their [hairstyle], tugging a clump of hair out violently</span>")
-								H.apply_damage(15, HALLOSS)
-								G.state = GRAB_AGGRESSIVE
-
-						if(H.h_style in hairsortasafe || cathair)
-							if(prob(40))
-								visible_message("<span class='danger'>[assailant] has [H] grasped by their [hairstyle], tugging on it tightly!</span>")
-								H.apply_damage(5, HALLOSS)
-								G.state = GRAB_PASSIVE
-							if(prob(15))
-								visible_message("<span class='danger'>[assailant] has [H] grasped by their [hairstyle], tugging on it roughly!</span>")
-								H.apply_damage(3, HALLOSS)
-								G.state = GRAB_AGGRESSIVE
-							if(prob(15))
-								visible_message("<span class='danger'>[assailant] has [H] grasped by their [hairstyle], tugging a clump of hair out violently</span>")
-								H.apply_damage(15, HALLOSS)
-								G.state = GRAB_AGGRESSIVE
-
-						if(H.h_style in hairunsafe)
-							if(prob(80))
-								visible_message("<span class='danger'>[assailant] has [H] grasped by their [hairstyle], tugging on it tightly!</span>")
-								H.apply_damage(10, HALLOSS)
-								G.state = GRAB_PASSIVE
-							if(prob(30))
-								visible_message("<span class='danger'>[assailant] attempted to grasp [H] by their [hairstyle], however they lose there grip!</span>")
-								G.state = GRAB_PASSIVE
-							if(prob(5))
-								visible_message("<span class='danger'>[assailant] has [H] grasped by their [hairstyle], tugging their hair out violently</span>")
-								H.apply_damage(15, HALLOSS)
-								H.h_style = H.species.default_h_style
-								H.update_hair()
-								G.state = GRAB_AGGRESSIVE
-
-						if(H.h_style in skrelltentacles)
-							if(prob(95))
-								visible_message("<span class='danger'>[assailant] has [H] grasped by their [hairstyle], however suddenly it slips from  [assailant]'s hand!</span>")
-								G.state = GRAB_PASSIVE
-								assailant.Weaken(2)
-								playsound(H.loc, 'sound/misc/slip.ogg', 50, 1, -3)
-							if(prob(5))
-								visible_message("<span class='danger'>[assailant] has [H] grasped by their [hairstyle], tugging their tentacles violently</span>")
-								H.apply_damage(10, HALLOSS)
-								G.state = GRAB_AGGRESSIVE
+					if(hit_zone == "head")
+						hair_pull(affecting, assailant)
 
 	//clicking on yourself while grabbing them
 	if(M == assailant && state >= GRAB_AGGRESSIVE)

@@ -147,3 +147,47 @@
 
 	if(can_eat)
 		H.attempt_devour(target, H.eat_types, H.mouth_size)
+
+
+/obj/item/weapon/grab/proc/hair_pull(mob/living/carbon/human/target, mob/attacker, var/target_zone)
+
+
+	var/mob/living/carbon/human/H = target
+	var/obj/item/weapon/grab/G = attacker.get_active_hand()
+	var/datum/sprite_accessory/hair/hair_style = hair_styles_list[H.h_style]
+	var/hairchatname = hair_style.chatname
+	for(var/obj/item/protection in list(H.head, H.wear_mask))
+		if(protection && (protection.body_parts_covered & HEAD))
+			assailant << "<span class='danger'>You can't grab their hair while they wear a head cover.</span>"
+			return
+	switch(hair_style.length)
+		if(0)
+			visible_message("<span class='notice'>[assailant] tried to grab [H] but they have no hair!.</span>")
+		if(1)
+			visible_message("<span class='danger'>[assailant] has [H] grasped by their [hairchatname], tugging their hair quickly before losing their grasp</span>")
+			H.apply_damage(5, HALLOSS)
+		if(2)
+			visible_message("<span class='danger'>[assailant] has [H] grasped by their [hairchatname], tugging on it tightly!</span>")
+			H.apply_damage(10, HALLOSS)
+			G.state = GRAB_PASSIVE
+
+		if(3)
+			visible_message("<span class='danger'>[assailant] has [H] grasped by their [hairchatname], tugging on it roughly!</span>")
+			H.apply_damage(15, HALLOSS)
+			G.state = GRAB_PASSIVE
+
+		if(4)
+			visible_message("<span class='danger'>[assailant] has [H] grasped by their [hairchatname], tugging a clump of hair out violently</span>")
+			H.apply_damage(20, HALLOSS)
+			G.state = GRAB_PASSIVE
+
+		if(5)
+			if(prob(50))
+				visible_message("<span class='danger'>[assailant] has [H] grasped by their [hairchatname], however suddenly it slips from  [assailant]'s hand!</span>")
+				G.state = GRAB_PASSIVE
+				assailant.Weaken(2)
+				playsound(H.loc, 'sound/misc/slip.ogg', 50, 1, -3)
+			if(prob(50))
+				visible_message("<span class='danger'>[assailant] has [H] grasped by their [hairchatname], tugging them violently</span>")
+				H.apply_damage(10, HALLOSS)
+				G.state = GRAB_AGGRESSIVE
