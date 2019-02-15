@@ -91,6 +91,57 @@
 		P.attack_self(user)
 	return
 
+/obj/item/organ/augment/multihair
+	name = "synthetic multicolored hair"
+	action_icon = "haircolor"
+
+/obj/item/organ/augment/multihair/attack_self(var/mob/user)
+	. = ..()
+	if(ishuman(user))
+		var/new_hair = input("Please select hair color.", "Hair Color", rgb(owner.r_hair, owner.g_hair, owner.b_hair)) as color|null
+		if(new_hair)
+			var/r_hair = hex2num(copytext(new_hair, 2, 4))
+			var/g_hair = hex2num(copytext(new_hair, 4, 6))
+			var/b_hair = hex2num(copytext(new_hair, 6, 8))
+			if(owner.change_hair_color(r_hair, g_hair, b_hair))
+				owner.update_dna()
+				owner.visible_message("<span class='notice'>\The [owner]'s hair rapidly shifts color.</span>")
+				return 1
+
+/obj/item/organ/augment/multihairstyles
+	name = "synthetic hair extensions"
+	desc = "The AMPHORA Co. Synthetic Hair Extension Mk II. Originally manufactured for elderly Eridanian suits with a smaller variety of colors and hairstyles, it eventually found its way onto a broader market after lifting up artificial restrictions on styles and colors."
+	action_icon = "hairstyle"
+
+/obj/item/organ/augment/multihair/attack_self(var/mob/user)
+	. = ..()
+	if(ishuman(user))
+		var/list/hair_styles = list()
+		for(var/hair_style in owner.generate_valid_hairstyles(check_gender = 0))
+			hair_styles[++hair_styles.len] = list("hairstyle" = hair_style)
+
+		var/new_hair = input("Please select hairstyle.", "Hair Style") as null|anything in hair_styles
+		if(new_hair && owner.change_hair(new_hair))
+			owner.update_dna()
+			owner.visible_message("<span class='notice'>\The [owner]'s hair rapidly shifts shape and length.</span>")
+			return 1
+
+/obj/item/organ/augment/multieye
+	name = "synthetic multicolored hair"
+	action_icon = "eyecolor"
+
+/obj/item/organ/augment/multieye/attack_self(var/mob/user)
+	. = ..()
+	if(ishuman(user))
+		var/new_eyes = input("Please select eye color.", "Eye Color", rgb(owner.r_eyes, owner.g_eyes, owner.b_eyes)) as color|null
+		if(new_eyes)
+			var/r_eyes = hex2num(copytext(new_eyes, 2, 4))
+			var/g_eyes = hex2num(copytext(new_eyes, 4, 6))
+			var/b_eyes = hex2num(copytext(new_eyes, 6, 8))
+			if(owner.change_eye_color(r_eyes, g_eyes, b_eyes))
+				owner.update_dna()
+				owner.visible_message("<span class='notice'>\The [owner]'s eyes rapidly shifts color.</span>")
+				return 1
 
 /////////////////
 //TOOL AUGMENTS// - they spawn a tool when they operate
@@ -170,6 +221,22 @@
 	action_icon = "health"
 	augment_type = /obj/item/device/healthanalyzer
 	cooldown = 50
+
+/obj/item/organ/augment/tool/zippo
+	name = "integrated lighter"
+	action_button_name = "Deploy lighter"
+	action_icon = "zippo"
+	augment_type = /obj/item/weapon/flame/lighter/zippo/integrated
+	install_locations = list(HAND_LEFT, HAND_RIGHT)
+	cooldown = 10
+
+/obj/item/weapon/flame/lighter/zippo/integrated
+	name = "integrated lighter"
+	desc = "A small, cube-shaped device inserted into a mechanized finger."
+	icon_state = "zippo"
+	item_state = "zippo"
+	activation_sound = 'sound/items/zippo_on.ogg'
+	desactivation_sound = 'sound/items/zippo_off.ogg'
 
 /obj/item/organ/augment/tool/magfeet
 	name = "magnetic soles"
