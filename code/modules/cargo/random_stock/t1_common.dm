@@ -470,7 +470,7 @@ STOCK_ITEM_COMMON(snacks, 4)
 		/obj/item/weapon/storage/field_ration/nka = 1
 	)
 
-	var/type = pickweight(snack)
+	var/type = pickweight(snacks)
 	new type(L)
 
 STOCK_ITEM_COMMON(oxytank, 2.5)
