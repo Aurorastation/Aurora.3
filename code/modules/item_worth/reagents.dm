@@ -525,10 +525,10 @@
 /datum/reagent/paracetamol
 	value = 3.3
 
-/datum/reagent/tramadol
+/datum/reagent/mental/tramadol
 	value = 3.1
 
-/datum/reagent/oxycodone
+/datum/reagent/mental/oxycodone
 	value = 3.3
 
 /datum/reagent/synaptizine
