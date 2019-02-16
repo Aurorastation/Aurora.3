@@ -48,18 +48,14 @@
 		return outfit
  
 /datum/job/proc/pre_equip(mob/living/carbon/human/H, visualsOnly = FALSE, alt_title = null)
-	log_debug("Running pre_equip for [H.real_name]")
 	if(!H)
-		log_debug("pre_equip - H is null")
 		return 0
 
 	H.species.before_equip(H, visualsOnly, src)
 	H.preEquipOutfit(get_outfit(H, alt_title), visualsOnly)
 
 /datum/job/proc/equip(mob/living/carbon/human/H, visualsOnly = FALSE, announce = TRUE, alt_title = null)
-	log_debug("Running equip for [H.real_name]")
 	if(!H)
-		log_debug("equip - H is null")
 		return 0
 	H.equipOutfit(get_outfit(H, alt_title), visualsOnly)
 
