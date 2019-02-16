@@ -193,7 +193,7 @@
 	var/satchel = /obj/item/weapon/storage/backpack/satchel_norm
 	var/satchel_alt = /obj/item/weapon/storage/backpack/satchel
 	var/dufflebag = /obj/item/weapon/storage/backpack/duffel
-	var/messengerbag = /obj/item/weapon/storage/backpack/duffel
+	var/messengerbag = /obj/item/weapon/storage/backpack/messenger
 	var/box = /obj/item/weapon/storage/box/survival
 
 /datum/outfit/job/pre_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
