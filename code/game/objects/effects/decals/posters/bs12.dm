@@ -328,3 +328,8 @@
 	icon_state = "bsposter66"
 	name = "BFG 9000"
 	desc = "A picture of a big freakin' gun."
+
+/datum/poster/bay_67
+	icon_state = "bsopoid"
+	name = "Only Losers Do Drugs"
+	desc = "A poster discussing the dangers of Tramdol and Oxycodone abuse."

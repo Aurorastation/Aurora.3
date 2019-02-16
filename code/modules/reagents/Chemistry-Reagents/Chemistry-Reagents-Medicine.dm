@@ -105,6 +105,7 @@
 
 /datum/reagent/bicaridine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.heal_organ_damage(5 * removed, 0)
+	M.disabilities |= MONKEYLIKE
 
 /datum/reagent/bicaridine/overdose(var/mob/living/carbon/M, var/alien)
 	..()//Bicard overdose heals internal wounds
@@ -119,6 +120,9 @@
 					healpower = W.heal_damage(healpower,1)
 					if (healpower <= 0)
 						return
+
+/datum/reagent/bicaridine/final_effect(var/mob/living/carbon/M)
+	M.disabilities &= ~MONKEYLIKE
 
 /datum/reagent/kelotane
 	name = "Kelotane"
@@ -146,6 +150,11 @@
 
 /datum/reagent/dermaline/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.heal_organ_damage(0, 12 * removed)
+	M.brute_mod = M.species.brute_mod += 2.3
+
+/datum/reagent/dermaline/final_effect(var/mob/living/carbon/M)
+	M.brute_mod = M.species.brute_mod
+
 
 /datum/reagent/dylovene
 	name = "Dylovene"
@@ -201,8 +210,18 @@
 		M.adjustToxLoss(removed * 9)
 	else
 		M.adjustOxyLoss(-300 * removed)
+		
+		if(prob(10))
+			M.disabilities |= NEARSIGHTED
+		if(prob(75))
+			var/mob/living/carbon/human/H = M
+			var/obj/item/organ/eyes/E = H.get_eyes(no_synthetic = TRUE)
+			E.damage = max(E.damage += 2 * removed, 0)
 
 	holder.remove_reagent("lexorin", 3 * removed)
+
+/datum/reagent/dexalinp/final_effect(var/mob/living/carbon/M, var/alien, var/removed)
+	M.disabilities &= ~NEARSIGHTED
 
 /datum/reagent/tricordrazine
 	name = "Tricordrazine"
@@ -315,53 +334,6 @@
 	..()
 	M.hallucination = max(M.hallucination, 25)
 
-/datum/reagent/tramadol
-	name = "Tramadol"
-	id = "tramadol"
-	description = "Tramadol is a very effective painkiller designed for victims of heavy physical trauma. Does not work when inhaled."
-	reagent_state = LIQUID
-	color = "#CB68FC"
-	overdose = 30
-	scannable = 1
-	metabolism = 0.02
-	taste_description = "sourness"
-	metabolism_min = 0.005
-	breathe_mul = 0
-
-/datum/reagent/tramadol/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	M.add_chemical_effect(CE_PAINKILLER, 80)
-
-/datum/reagent/tramadol/overdose(var/mob/living/carbon/M, var/alien)
-	..()
-	M.hallucination = max(M.hallucination, 40)
-
-/datum/reagent/oxycodone
-	name = "Oxycodone"
-	id = "oxycodone"
-	description = "Oxycodone is incredibly potent and very addictive painkiller. Do not mix with alcohol. Does not work when inhaled."
-	reagent_state = LIQUID
-	color = "#800080"
-	overdose = 20
-	metabolism = 0.02
-	taste_description = "bitterness"
-	metabolism_min = 0.005
-	breathe_mul = 0
-
-/datum/reagent/oxycodone/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	M.add_chemical_effect(CE_PAINKILLER, 200)
-	var/mob/living/carbon/human/H = M
-	if(!istype(H))
-		return
-	var/bac = H.get_blood_alcohol()
-	if(bac >= 0.02)
-		M.hallucination = max(M.hallucination, bac * 300)
-		M.druggy = max(M.druggy, bac * 100)
-
-/datum/reagent/oxycodone/overdose(var/mob/living/carbon/M, var/alien)
-	..()
-	M.druggy = max(M.druggy, 20)
-	M.hallucination = max(M.hallucination, 60)
-
 /* Other medicine */
 
 /datum/reagent/synaptizine
@@ -447,6 +419,7 @@
 		for(var/obj/item/organ/I in H.internal_organs)
 			if((I.damage > 0) && (I.robotic != 2)) //Peridaxon heals only non-robotic organs
 				I.damage = max(I.damage - removed, 0)
+				M.adjustHalLoss(85) // Organs moving around hurts
 
 /datum/reagent/ryetalyn
 	name = "Ryetalyn"
@@ -772,6 +745,112 @@
 	. = ..()
 	M.adjustOxyLoss(10 * removed * scale)
 	M.Weaken(10 * removed * scale)
+
+/datum/reagent/mental/tramadol
+	name = "Tramadol"
+	id = "tramadol"
+	description = "Tramadol is a very effective and addictive painkiller designed for victims of heavy physical trauma. Does not work when inhaled."
+	reagent_state = LIQUID
+	color = "#CB68FC"
+	overdose = 30
+	scannable = 1
+	metabolism = 0.02
+	goodmessage = list("You feel bulletproof.","You feel strong!.","You feel alert and focused.")
+	badmessage = list("You start to feel weak...")
+	worstmessage = list("You desire to be bulletproof again")
+	taste_description = "sourness"
+	metabolism_min = 0.005
+	breathe_mul = 0
+
+	suppress_traumas  = list(
+		/datum/brain_trauma/mild/muscle_spasms = 60,
+		/datum/brain_trauma/mild/hallucinations = 20
+	)
+
+	withdrawal_traumas = list(
+		/datum/brain_trauma/mild/muscle_spasms = 30,
+		/datum/brain_trauma/mild/hallucinations = 2
+	)
+
+/datum/reagent/tramadol/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+	M.add_chemical_effect(CE_PAINKILLER, 80)
+	M.brute_mod = M.species.brute_mod -= 0.3
+	var/mob/living/carbon/human/H = M
+	if(!istype(H))
+		return
+	var/obj/item/organ/L = H.internal_organs_by_name["liver"]
+	var/bac = H.get_blood_alcohol()
+	if(bac >= 0.02)
+		M.hallucination = max(M.hallucination, bac * 300)
+		M.druggy = max(M.druggy, bac * 100)
+		if(prob(45)) 
+			L.take_damage(1.3*removed) 
+
+
+
+/datum/reagent/tramadol/overdose(var/mob/living/carbon/M, var/alien)
+	..()
+	M.hallucination = max(M.hallucination, 60)
+	M.brute_mod = M.species.brute_mod += 1.4
+	M.adjustOxyLoss(10 * removed * scale)
+	M.Weaken(20 * removed * scale)
+	var/bac = H.get_blood_alcohol()
+	if(bac >= 0.02)
+		M.hallucination = max(M.hallucination, bac * 500)
+		M.druggy = max(M.druggy, bac * 100)
+
+/datum/reagent/tramadol/final_effect(var/mob/living/carbon/M)
+	M.brute_mod = M.species.brute_mod
+	M.vomit()
+
+/datum/reagent/mental/oxycodone
+	name = "Oxycodone"
+	id = "oxycodone"
+	description = "Oxycodone is incredibly potent and very addictive painkiller. Do not mix with alcohol. Does not work when inhaled."
+	reagent_state = LIQUID
+	color = "#800080"
+	overdose = 20
+	metabolism = 0.02
+	goodmessage = list("You feel god like.","You feel strong!.","You feel alert and focused.")
+	badmessage = list("You start to feel weak...")
+	worstmessage = list("You desire to be bulletproof again")
+	taste_description = "bitterness"
+	metabolism_min = 0.005
+	breathe_mul = 0
+
+	suppress_traumas  = list(
+		/datum/brain_trauma/mild/muscle_spasms = 40,
+		/datum/brain_trauma/mild/hallucinations = 20
+	)
+
+	withdrawal_traumas = list(
+		/datum/brain_trauma/mild/muscle_spasms = 70,
+		/datum/brain_trauma/mild/hallucinations = 15
+	)
+
+/datum/reagent/oxycodone/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+	M.add_chemical_effect(CE_PAINKILLER, 200)
+	M.brute_mod = M.species.brute_mod -= 0.4
+	var/mob/living/carbon/human/H = M
+	if(!istype(H))
+		return
+	var/obj/item/organ/L = H.internal_organs_by_name["liver"]
+	var/bac = H.get_blood_alcohol()
+	if(bac >= 0.02)
+		M.hallucination = max(M.hallucination, bac * 600)
+		M.druggy = max(M.druggy, bac * 250)
+		if(prob(45)) 
+			L.take_damage(2.3*removed) 
+
+/datum/reagent/oxycodone/overdose(var/mob/living/carbon/M, var/alien)
+	..()
+	M.druggy = max(M.druggy, 20)
+	M.hallucination = max(M.hallucination, 60)
+	M.brute_mod = M.species.brute_mod += 3.4
+
+/datum/reagent/oxycodone/final_effect(var/mob/living/carbon/M)
+	M.brute_mod = M.species.brute_mod
+	M.vomit()
 
 /datum/reagent/mental/methylphenidate
 	name = "Methylphenidate"
