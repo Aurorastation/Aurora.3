@@ -772,7 +772,7 @@
 		/datum/brain_trauma/mild/hallucinations = 2
 	)
 
-/datum/reagent/tramadol/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+/datum/reagent/mental/tramadol/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/scale)
 	M.add_chemical_effect(CE_PAINKILLER, 80)
 	M.brute_mod = M.species.brute_mod -= 0.3
 	var/mob/living/carbon/human/H = M
@@ -788,8 +788,9 @@
 
 
 
-/datum/reagent/tramadol/overdose(var/mob/living/carbon/M, var/alien)
+/datum/reagent/mental/tramadol/overdose(var/mob/living/carbon/M, var/alien, var/removed, var/scale)
 	..()
+	var/mob/living/carbon/human/H = M
 	M.hallucination = max(M.hallucination, 60)
 	M.brute_mod = M.species.brute_mod += 1.4
 	M.adjustOxyLoss(10 * removed * scale)
@@ -799,7 +800,7 @@
 		M.hallucination = max(M.hallucination, bac * 500)
 		M.druggy = max(M.druggy, bac * 100)
 
-/datum/reagent/tramadol/final_effect(var/mob/living/carbon/M)
+/datum/reagent/mental/tramadol/final_effect(var/mob/living/carbon/M)
 	M.brute_mod = M.species.brute_mod
 	M.vomit()
 
@@ -828,7 +829,7 @@
 		/datum/brain_trauma/mild/hallucinations = 15
 	)
 
-/datum/reagent/oxycodone/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+/datum/reagent/mental/oxycodone/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/scale)
 	M.add_chemical_effect(CE_PAINKILLER, 200)
 	M.brute_mod = M.species.brute_mod -= 0.4
 	var/mob/living/carbon/human/H = M
@@ -842,13 +843,13 @@
 		if(prob(45)) 
 			L.take_damage(2.3*removed) 
 
-/datum/reagent/oxycodone/overdose(var/mob/living/carbon/M, var/alien)
+/datum/reagent/mental/oxycodone/overdose(var/mob/living/carbon/M, var/alien, var/removed, var/scale)
 	..()
 	M.druggy = max(M.druggy, 20)
 	M.hallucination = max(M.hallucination, 60)
 	M.brute_mod = M.species.brute_mod += 3.4
 
-/datum/reagent/oxycodone/final_effect(var/mob/living/carbon/M)
+/datum/reagent/mental/oxycodone/final_effect(var/mob/living/carbon/M)
 	M.brute_mod = M.species.brute_mod
 	M.vomit()
 
