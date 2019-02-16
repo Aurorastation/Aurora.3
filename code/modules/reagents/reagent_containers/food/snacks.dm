@@ -5487,7 +5487,7 @@
 
 /obj/item/weapon/reagent_containers/food/snacks/hardbread
 	name = "adhomian hard bread"
-	desc = "A long-lasting tajaran bread. It is usually prepared for long journeys, hard winters or military campaings."
+	desc = "A long-lasting tajaran bread. It is usually prepared for long journeys, hard winters or military campaigns."
 	icon_state = "loaf"
 	bitesize = 1
 	nutriment_desc = list("crusty bread" = 2)
