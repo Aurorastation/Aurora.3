@@ -332,4 +332,4 @@
 /datum/poster/bay_67
 	icon_state = "bsopoid"
 	name = "Only Losers Do Drugs"
-	desc = "A poster discussing the dangers of Tramdol and Oxycodone abuse."
+	desc = "A poster discussing the dangers of Tramadol and Oxycodone abuse."

@@ -105,7 +105,7 @@
 
 /datum/reagent/bicaridine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.heal_organ_damage(5 * removed, 0)
-	M.disabilities |= MONKEYLIKE
+	M.confused += 25
 
 /datum/reagent/bicaridine/overdose(var/mob/living/carbon/M, var/alien)
 	..()//Bicard overdose heals internal wounds
@@ -122,7 +122,7 @@
 						return
 
 /datum/reagent/bicaridine/final_effect(var/mob/living/carbon/M)
-	M.disabilities &= ~MONKEYLIKE
+	M.confused = 0
 
 /datum/reagent/kelotane
 	name = "Kelotane"
@@ -150,7 +150,7 @@
 
 /datum/reagent/dermaline/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.heal_organ_damage(0, 12 * removed)
-	M.brute_mod = M.species.brute_mod += 2.3
+	M.brute_mod = M.species.brute_mod + 1.3
 
 /datum/reagent/dermaline/final_effect(var/mob/living/carbon/M)
 	M.brute_mod = M.species.brute_mod
@@ -212,16 +212,14 @@
 		M.adjustOxyLoss(-300 * removed)
 		
 		if(prob(10))
-			M.disabilities |= NEARSIGHTED
+			M.apply_effect(10,EYE_BLUR)
 		if(prob(75))
 			var/mob/living/carbon/human/H = M
 			var/obj/item/organ/eyes/E = H.get_eyes(no_synthetic = TRUE)
-			E.damage = max(E.damage += 2 * removed, 0)
+			E.damage = max(E.damage += 1.2 * removed, 0)
 
 	holder.remove_reagent("lexorin", 3 * removed)
 
-/datum/reagent/dexalinp/final_effect(var/mob/living/carbon/M, var/alien, var/removed)
-	M.disabilities &= ~NEARSIGHTED
 
 /datum/reagent/tricordrazine
 	name = "Tricordrazine"
@@ -755,8 +753,8 @@
 	overdose = 30
 	scannable = 1
 	metabolism = 0.02
-	goodmessage = list("You feel bulletproof.","You feel strong!.","You feel alert and focused.")
-	badmessage = list("You start to feel weak...")
+	goodmessage = list("You feel amazing!","You feel very relaxed.","You feel like taking it slow. What's the rush?")
+	badmessage = list("You feel terrible.","You feel like the world is speeding ahead of you, and you're trying to process catching up to it, to no avail.","You feel like you need something to make the day better, but you can't recall what it is.")
 	worstmessage = list("You desire to be bulletproof again")
 	taste_description = "sourness"
 	metabolism_min = 0.005
@@ -768,13 +766,13 @@
 	)
 
 	withdrawal_traumas = list(
-		/datum/brain_trauma/mild/muscle_spasms = 30,
-		/datum/brain_trauma/mild/hallucinations = 2
+		/datum/brain_trauma/mild/muscle_spasms = 2,
+		/datum/brain_trauma/mild/hallucinations = 5
 	)
 
 /datum/reagent/mental/tramadol/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/scale)
-	M.add_chemical_effect(CE_PAINKILLER, 80)
-	M.brute_mod = M.species.brute_mod -= 0.3
+	M.add_chemical_effect(CE_PAINKILLER, 70)
+	M.brute_mod = M.species.brute_mod - 0.2
 	var/mob/living/carbon/human/H = M
 	if(!istype(H))
 		return
@@ -792,17 +790,17 @@
 	..()
 	var/mob/living/carbon/human/H = M
 	M.hallucination = max(M.hallucination, 60)
-	M.brute_mod = M.species.brute_mod += 1.4
+	M.brute_mod = M.species.brute_mod + 1.4
 	M.adjustOxyLoss(10 * removed * scale)
 	M.Weaken(20 * removed * scale)
 	var/bac = H.get_blood_alcohol()
-	if(bac >= 0.02)
+	if(bac >= 0.03)
 		M.hallucination = max(M.hallucination, bac * 500)
 		M.druggy = max(M.druggy, bac * 100)
+		M.vomit()
 
 /datum/reagent/mental/tramadol/final_effect(var/mob/living/carbon/M)
 	M.brute_mod = M.species.brute_mod
-	M.vomit()
 
 /datum/reagent/mental/oxycodone
 	name = "Oxycodone"
@@ -810,10 +808,10 @@
 	description = "Oxycodone is incredibly potent and very addictive painkiller. Do not mix with alcohol. Does not work when inhaled."
 	reagent_state = LIQUID
 	color = "#800080"
-	overdose = 20
+	overdose = 15
 	metabolism = 0.02
-	goodmessage = list("You feel god like.","You feel strong!.","You feel alert and focused.")
-	badmessage = list("You start to feel weak...")
+	goodmessage = list("You feel amazing!","You feel very relaxed.","You feel like taking it slow. What's the rush?")
+	badmessage = list("You feel terrible.","You feel like the world is speeding ahead of you, and you're trying to process catching up to it, to no avail.","You feel like you need something to make the day better, but you can't recall what it is.")
 	worstmessage = list("You desire to be bulletproof again")
 	taste_description = "bitterness"
 	metabolism_min = 0.005
@@ -825,8 +823,8 @@
 	)
 
 	withdrawal_traumas = list(
-		/datum/brain_trauma/mild/muscle_spasms = 70,
-		/datum/brain_trauma/mild/hallucinations = 15
+		/datum/brain_trauma/mild/muscle_spasms = 6,
+		/datum/brain_trauma/mild/hallucinations = 10
 	)
 
 /datum/reagent/mental/oxycodone/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/scale)
