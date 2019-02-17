@@ -1,5 +1,5 @@
 #define TESLA_DEFAULT_POWER 1738260
-#define TESLA_MINI_POWER 869130
+#define TESLA_MINI_POWER 156250
 
 /obj/singularity/energy_ball
 	name = "energy ball"
@@ -51,7 +51,7 @@
 		pixel_y = 0
 
 		// Instead of miniballs shooting stuff, decided to make it just count the power produced.
-		dir = tesla_zap(src, 12, TESLA_DEFAULT_POWER + orbiting_balls.len * TESLA_MINI_POWER, TRUE)
+		dir = tesla_zap(src, 10, TESLA_DEFAULT_POWER + orbiting_balls.len * TESLA_MINI_POWER, TRUE)
 
 		pixel_x = -32
 		pixel_y = -32
@@ -160,6 +160,18 @@
 		qdel(Orchiectomy_target)
 
 	else if(orbiting_balls.len)
+
+		// Basically the more balls we have the faster Tesla looses energy.
+		if(orbiting_balls.len > 16)
+			dissipate_delay = 3
+			dissipate_strength = 5
+		if(orbiting_balls.len > 12)
+			dissipate_delay = 5
+			dissipate_strength = 2
+		if(orbiting_balls.len <= 12)
+			dissipate_delay = 10
+			dissipate_strength = 1
+
 		dissipate() //sing code has a much better system.
 	else // that is when we have no balls but our energy is less
 		energy_to_raise = energy_to_raise / 1.25
