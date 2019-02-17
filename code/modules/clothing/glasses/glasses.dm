@@ -714,3 +714,19 @@ BLIND     // can't see anything
 			usr << "You push \the [src] up off your eyes."
 		update_clothing_icon()
 		usr.update_action_buttons()
+
+/obj/item/clothing/glasses/spiffygogs/offworlder
+	name = "starshades"
+	desc = "Thick, durable eye protection meant to filter light to an acceptable degree in the long-term."
+	icon_state = "starshades"
+	item_state = "starshades"
+
+/obj/item/clothing/glasses/spiffygogs/offworlder/toggle()
+	..()
+	if(!up)
+		flash_protection = FLASH_PROTECTION_MAJOR
+		tint = TINT_MODERATE
+
+	else
+		flash_protection = initial(flash_protection)
+		tint = initial(tint)

@@ -313,6 +313,12 @@
 	icon_state = "zebrascarf"
 	item_state = "zebrascarf"
 
+/obj/item/clothing/accessory/scarf/offworlder
+	name = "pioneer's scarf"
+	desc = "Usually a treasured item, these spider-silk scarves are seen passed down by generations of expeditionaries."
+	icon_state = "pioneer_scarf"
+	item_state = "pioneer_scarf"
+
 /obj/item/clothing/accessory/chaps
 	name = "brown chaps"
 	desc = "A pair of loose, brown leather chaps."
@@ -545,3 +551,22 @@
 	desc = "Two small medallions, one worn on the shoulder and the other worn on the chest. Meant to display the rank of specialist troops in a Tau Ceti Foreign Legion."
 	icon_state = "specialist_medallion"
 	item_state = "specialist_medallion"
+
+/obj/item/clothing/accessory/offworlder
+	name = "legbrace"
+	desc = "A lightweight polymer frame meant to brace and hold someone’s legs upright comfortably."
+	icon_state = "legbrace"
+	item_state = "legbrace"
+	slot = "over"
+
+/obj/item/clothing/accessory/offworlder/venter
+	name = "venter assembly"
+	desc = "A series of complex tubing meant to dissipate heat from the skin passively."
+	icon_state = "venter"
+	item_state = "venter"
+
+/obj/item/clothing/accessory/offworlder/neckbrace
+	name = "neckbrace"
+	desc = "A lightweight polymer frame meant to brace and hold someone’s neck upright comfortably."
+	icon_state = "neckbrace"
+	item_state = "neckbrace"

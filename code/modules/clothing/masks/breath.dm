@@ -19,3 +19,15 @@
 	icon_state = "medical"
 	item_state = "medical"
 	permeability_coefficient = 0.01
+
+/obj/item/clothing/mask/breath/offworlder
+	name = "overmask"
+	desc = "A large breath mask with cushioning."
+	icon_state = "breathcover"
+	item_state = "breathcover"
+
+/obj/item/clothing/mask/breath/offworlder/jagmask
+	name = "jagmask"
+	desc = "A two-piece, jagged filtering mask meant to conform to one’s face comfortably."
+	icon_state = "jagmask"
+	item_state = "jagmask"

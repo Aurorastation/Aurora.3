@@ -44,6 +44,8 @@
 			continue
 		if(W.autodrobe_no_remove)
 			continue
+		if(!W.canremove)
+			continue
 		H.drop_from_inventory(W,gearbox)
 	H.put_in_any_hand_if_possible(gearbox)
 
