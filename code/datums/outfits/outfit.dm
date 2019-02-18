@@ -90,7 +90,7 @@
 	if(r_hand)
 		H.put_in_r_hand(new r_hand(H))
 
-	if(pda)
+	if(pda && !visualsOnly) //Dont equip and imprint the PDA in visuals only (preview) to avoid duplicates
 		var/obj/item/I = new pda(H)
 		imprint_pda(H,I)
 		H.equip_or_collect(I, slot_wear_id)
