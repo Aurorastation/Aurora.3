@@ -54,16 +54,16 @@
 /obj/machinery/iv_drip/attackby(obj/item/weapon/W as obj, mob/user as mob)
 
 	if (istype(W, /obj/item/weapon/reagent_containers/blood/ripped))
-		user << "You can't use a ripped bloodpack."
+		to_chat(user, "You can't use a ripped bloodpack.")
 		return
 	if (istype(W, /obj/item/weapon/reagent_containers))
 		if(!isnull(src.beaker))
-			user << "There is already a reagent container loaded!"
+			to_chat(user, "There is already a reagent container loaded!")
 			return
 
 		user.drop_from_inventory(W,src)
 		src.beaker = W
-		user << "You attach \the [W] to \the [src]."
+		to_chat(user, "You attach \the [W] to \the [src].")
 		src.update_icon()
 		return
 	else
@@ -84,21 +84,21 @@
 			return
 
 	if(src.attached && src.beaker)
-	
+
 		var/mob/living/carbon/human/T = attached
 
 		if(!istype(T))
 			return
-		
+
 		if(!T.dna)
 			return
-			
+
 		if(NOCLONE in T.mutations)
 			return
 
 		if(T.species.flags & NO_BLOOD)
 			return
-	
+
 		// Give blood
 		if(mode)
 			if(src.beaker.volume > 0)
@@ -157,8 +157,8 @@
 	..(user)
 	if (!(user in view(2)) && user!=src.loc) return
 
-	user << "The IV drip is [mode ? "injecting" : "taking blood"]."
-	user << "<span class='notice'>The transfer rate is set to [src.transfer_amount] u/sec</span>"
+	to_chat(user, "The IV drip is [mode ? "injecting" : "taking blood"].")
+	to_chat(user, "<span class='notice'>The transfer rate is set to [src.transfer_amount] u/sec</span>")
 
 	if(beaker)
 		if(beaker.reagents && beaker.reagents.reagent_list.len)

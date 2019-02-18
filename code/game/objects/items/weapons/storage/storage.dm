@@ -503,7 +503,7 @@
 					remove_from_storage(L, T)
 					qdel(L)
 		if(amt_inserted)
-			user << "You inserted [amt_inserted] light\s into \the [LP.name]. You have [LP.uses] light\s remaining."
+			to_chat(user, "You inserted [amt_inserted] light\s into \the [LP.name]. You have [LP.uses] light\s remaining.")
 			return
 
 	if(!can_be_inserted(W))
@@ -513,7 +513,7 @@
 		var/obj/item/weapon/tray/T = W
 		if(T.current_weight > 0)
 			T.spill(user)
-			user << "<span class='warning'>Trying to place a loaded tray into [src] was a bad idea.</span>"
+			to_chat(user, "<span class='warning'>Trying to place a loaded tray into [src] was a bad idea.</span>")
 			return
 
 	W.add_fingerprint(user)

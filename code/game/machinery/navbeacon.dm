@@ -120,12 +120,12 @@ var/global/list/navbeacons			// no I don't like putting this in, but it will do 
 			if(open)
 				if (src.allowed(user))
 					src.locked = !src.locked
-					user << "Controls are now [src.locked ? "locked." : "unlocked."]"
+					to_chat(user, "Controls are now [src.locked ? "locked." : "unlocked."]")
 				else
-					user << "<span class='warning'>Access denied.</span>"
+					to_chat(user, "<span class='warning'>Access denied.</span>")
 				updateDialog()
 			else
-				user << "You must open the cover first!"
+				to_chat(user, "You must open the cover first!")
 		return
 
 	attack_ai(var/mob/user)
@@ -144,7 +144,7 @@ var/global/list/navbeacons			// no I don't like putting this in, but it will do 
 			return		// prevent intraction when T-scanner revealed
 
 		if(!open && !ai)	// can't alter controls if not open, unless you're an AI
-			user << "The beacon's control cover is closed."
+			to_chat(user, "The beacon's control cover is closed.")
 			return
 
 
@@ -182,7 +182,7 @@ Transponder Codes:<UL>"}
 			t += "<small><A href='byond://?src=\ref[src];add=1;'>(add new)</A></small><BR>"
 			t+= "<UL></TT>"
 
-		user << browse(t, "window=navbeacon")
+		to_chat(user, browse(t, "window=navbeacon"))
 		onclose(user, "navbeacon")
 		return
 

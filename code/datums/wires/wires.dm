@@ -80,7 +80,7 @@ var/list/wireColours = list("red", "blue", "green", "darkred", "orange", "brown"
 	else
 		user.unset_machine()
 		// No content means no window.
-		user << browse(null, "window=wires")
+		to_chat(user, browse(null, "window=wires"))
 		return
 
 	var/datum/browser/popup = new(user, "wires", holder.name, window_x, window_y)

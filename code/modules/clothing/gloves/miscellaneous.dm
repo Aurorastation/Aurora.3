@@ -136,20 +136,20 @@
 	if(W.iscoil())
 		var/obj/item/stack/cable_coil/C = W
 		if (!clipped)
-			user << "<span class='notice'>The [src] is not open.</span>"
+			to_chat(user, "<span class='notice'>The [src] is not open.</span>")
 			return
 
 		if(wired)
-			user << "<span class='notice'>The [src] are already wired.</span>"
+			to_chat(user, "<span class='notice'>The [src] are already wired.</span>")
 			return
 
 		if(C.amount < 2)
-			user << "<span class='notice'>There is not enough wire to cover the [src].</span>"
+			to_chat(user, "<span class='notice'>There is not enough wire to cover the [src].</span>")
 			return
 
 		C.use(2)
 		wired = 1
-		user << "<span class='notice'>You repair some wires in the [src].</span>"
+		to_chat(user, "<span class='notice'>You repair some wires in the [src].</span>")
 		return
 
 /obj/item/clothing/gloves/watch/emp_act(severity)

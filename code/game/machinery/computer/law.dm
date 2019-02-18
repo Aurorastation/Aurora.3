@@ -28,7 +28,7 @@
 
 /obj/machinery/computer/aiupload/attackby(obj/item/weapon/O as obj, mob/user as mob)
 	if (!src.z in current_map.station_levels)
-		user << "<span class='danger'>Unable to establish a connection:</span>"
+		to_chat(user, "<span class='danger'>Unable to establish a connection:</span>")
 		return
 	if(istype(O, /obj/item/weapon/aiModule))
 		var/obj/item/weapon/aiModule/M = O
@@ -39,18 +39,18 @@
 
 /obj/machinery/computer/aiupload/attack_hand(var/mob/user as mob)
 	if(src.stat & NOPOWER)
-		user << "The upload computer has no power!"
+		to_chat(user, "The upload computer has no power!")
 		return
 	if(src.stat & BROKEN)
-		user << "The upload computer is broken!"
+		to_chat(user, "The upload computer is broken!")
 		return
 
 	src.current = select_active_ai(user)
 
 	if (!src.current)
-		user << "No active AIs detected."
+		to_chat(user, "No active AIs detected.")
 	else
-		user << "[src.current.name] selected for law changes."
+		to_chat(user, "[src.current.name] selected for law changes.")
 	return
 
 /obj/machinery/computer/aiupload/attack_ghost(user as mob)
@@ -69,7 +69,7 @@
 
 /obj/machinery/computer/borgupload/attackby(obj/item/weapon/aiModule/module as obj, mob/user as mob)
 	if (!src.z in current_map.station_levels)
-		user << "<span class='danger'>Unable to establish a connection:</span>"
+		to_chat(user, "<span class='danger'>Unable to establish a connection:</span>")
 		return
 	if(istype(module, /obj/item/weapon/aiModule))
 		module.install(src)
@@ -79,18 +79,18 @@
 
 /obj/machinery/computer/borgupload/attack_hand(var/mob/user as mob)
 	if(src.stat & NOPOWER)
-		user << "The upload computer has no power!"
+		to_chat(user, "The upload computer has no power!")
 		return
 	if(src.stat & BROKEN)
-		user << "The upload computer is broken!"
+		to_chat(user, "The upload computer is broken!")
 		return
 
 	src.current = freeborg()
 
 	if (!src.current)
-		user << "No free cyborgs detected."
+		to_chat(user, "No free cyborgs detected.")
 	else
-		user << "[src.current.name] selected for law changes."
+		to_chat(user, "[src.current.name] selected for law changes.")
 	return
 
 /obj/machinery/computer/borgupload/attack_ghost(user as mob)

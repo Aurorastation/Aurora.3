@@ -148,17 +148,17 @@
 
 	if (hunger_enabled)
 		if (!nutrition)
-			user << "<span class='danger'>It looks starving!</span>"
+			to_chat(user, "<span class='danger'>It looks starving!</span>")
 		else if (nutrition < max_nutrition *0.5)
-			user << "<span class='notice'>It looks hungry.</span>"
+			to_chat(user, "<span class='notice'>It looks hungry.</span>")
 		else if ((reagents.total_volume > 0 && nutrition > max_nutrition *0.75) || nutrition > max_nutrition *0.9)
-			user << "It looks full and contented."
+			to_chat(user, "It looks full and contented.")
 	if (stat == DEAD)
-		user << "<span class='danger'>It looks dead.</span>"
+		to_chat(user, "<span class='danger'>It looks dead.</span>")
 	if (health < maxHealth * 0.5)
-		user << "<span class='danger'>It looks badly wounded.</span>"
+		to_chat(user, "<span class='danger'>It looks badly wounded.</span>")
 	else if (health < maxHealth)
-		user << "<span class='warning'>It looks wounded.</span>"
+		to_chat(user, "<span class='warning'>It looks wounded.</span>")
 
 
 /mob/living/simple_animal/Life()

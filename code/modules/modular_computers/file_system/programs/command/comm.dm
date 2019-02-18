@@ -365,31 +365,31 @@ Command action procs
 		return 0
 
 	if(!universe.OnShuttleCall(usr))
-		user << "<span class='notice'>Cannot establish a bluespace connection.</span>"
+		to_chat(user, "<span class='notice'>Cannot establish a bluespace connection.</span>")
 		return 0
 
 	if(deathsquad.deployed)
-		user << "[current_map.boss_short] will not allow the shuttle to be called. Consider all contracts terminated."
+		to_chat(user, "[current_map.boss_short] will not allow the shuttle to be called. Consider all contracts terminated.")
 		return 0
 
 	if(emergency_shuttle.deny_shuttle)
-		user << "The emergency shuttle may not be sent at this time. Please try again later."
+		to_chat(user, "The emergency shuttle may not be sent at this time. Please try again later.")
 		return 0
 
 	if(world.time < 6000) // Ten minute grace period to let the game get going without lolmetagaming. -- TLE
-		user << "The emergency shuttle is refueling. Please wait another [round((6000-world.time)/600)] minute\s before trying again."
+		to_chat(user, "The emergency shuttle is refueling. Please wait another [round((6000-world.time)/600)] minute\s before trying again.")
 		return 0
 
 	if(emergency_shuttle.going_to_centcom())
-		user << "The emergency shuttle may not be called while returning to [current_map.boss_short]."
+		to_chat(user, "The emergency shuttle may not be called while returning to [current_map.boss_short].")
 		return 0
 
 	if(emergency_shuttle.online())
-		user << "The emergency shuttle is already on its way."
+		to_chat(user, "The emergency shuttle is already on its way.")
 		return 0
 
 	if(SSticker.mode.name == "blob")
-		user << "Under directive 7-10, [station_name()] is quarantined until further notice."
+		to_chat(user, "Under directive 7-10, [station_name()] is quarantined until further notice.")
 		return 0
 
 	emergency_shuttle.call_evac()
@@ -403,25 +403,25 @@ Command action procs
 		return
 
 	if(emergency_shuttle.going_to_centcom())
-		user << "The shuttle may not be called while returning to [current_map.boss_short]."
+		to_chat(user, "The shuttle may not be called while returning to [current_map.boss_short].")
 		return
 
 	if(emergency_shuttle.online())
-		user << "The shuttle is already on its way."
+		to_chat(user, "The shuttle is already on its way.")
 		return
 
 	// if force is 0, some things may stop the shuttle call
 	if(!force)
 		if(emergency_shuttle.deny_shuttle)
-			user << "[current_map.boss_short] does not currently have a shuttle available in your sector. Please try again later."
+			to_chat(user, "[current_map.boss_short] does not currently have a shuttle available in your sector. Please try again later.")
 			return
 
 		if(deathsquad.deployed == 1)
-			user << "[current_map.boss_short] will not allow the shuttle to be called. Consider all contracts terminated."
+			to_chat(user, "[current_map.boss_short] will not allow the shuttle to be called. Consider all contracts terminated.")
 			return
 
 		if(world.time < 54000) // 30 minute grace period to let the game get going
-			user << "The shuttle is refueling. Please wait another [round((54000-world.time)/60)] minutes before trying again."
+			to_chat(user, "The shuttle is refueling. Please wait another [round((54000-world.time)/60)] minutes before trying again.")
 			return
 
 		if(SSticker.mode.auto_recall_shuttle)
@@ -429,7 +429,7 @@ Command action procs
 			emergency_shuttle.auto_recall = 1
 
 		if(SSticker.mode.name == "blob" || SSticker.mode.name == "epidemic")
-			user << "Under directive 7-10, [station_name()] is quarantined until further notice."
+			to_chat(user, "Under directive 7-10, [station_name()] is quarantined until further notice.")
 			return
 
 	emergency_shuttle.call_transfer()

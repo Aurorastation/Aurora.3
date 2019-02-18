@@ -50,20 +50,20 @@ var/bomb_set
 			if (panel_open == 0)
 				panel_open = 1
 				add_overlay("panel_open")
-				user << "You unscrew the control panel of [src]."
+				to_chat(user, "You unscrew the control panel of [src].")
 				playsound(src, 'sound/items/Screwdriver.ogg', 50, 1)
 			else
 				panel_open = 0
 				cut_overlay("panel_open")
-				user << "You screw the control panel of [src] back on."
+				to_chat(user, "You screw the control panel of [src] back on.")
 				playsound(src, 'sound/items/Screwdriver.ogg', 50, 1)
 		else
 			if (panel_open == 0)
-				user << "\The [src] emits a buzzing noise, the panel staying locked in."
+				to_chat(user, "\The [src] emits a buzzing noise, the panel staying locked in.")
 			if (panel_open == 1)
 				panel_open = 0
 				cut_overlay("panel_open")
-				user << "You screw the control panel of \the [src] back on."
+				to_chat(user, "You screw the control panel of \the [src] back on.")
 				playsound(src, 'sound/items/Screwdriver.ogg', 50, 1)
 			flick("lock", src)
 		return
@@ -85,7 +85,7 @@ var/bomb_set
 					var/obj/item/weapon/weldingtool/WT = O
 					if(!WT.isOn()) return
 					if (WT.get_fuel() < 5) // uses up 5 fuel.
-						user << "<span class='warning'>You need more fuel to complete this task.</span>"
+						to_chat(user, "<span class='warning'>You need more fuel to complete this task.</span>")
 						return
 
 					user.visible_message("[user] starts cutting loose the anchoring bolt covers on [src].", "You start cutting loose the anchoring bolt covers with [O]...")
@@ -112,7 +112,7 @@ var/bomb_set
 					var/obj/item/weapon/weldingtool/WT = O
 					if(!WT.isOn()) return
 					if (WT.get_fuel() < 5) // uses up 5 fuel.
-						user << "<span class='warning'>You need more fuel to complete this task.</span>"
+						to_chat(user, "<span class='warning'>You need more fuel to complete this task.</span>")
 						return
 
 					user.visible_message("[user] starts cutting apart the anchoring system sealant on [src].", "You start cutting apart the anchoring system's sealant with [O]...")

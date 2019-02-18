@@ -9,4 +9,4 @@
 	var/dat = "<B>Bombing List</B>"
 	for(var/l in bombers)
 		dat += text("[l]<BR>")
-	user << browse(dat, "window=bombers")
+	to_chat(user, browse(dat, "window=bombers"))

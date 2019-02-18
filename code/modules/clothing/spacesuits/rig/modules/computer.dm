@@ -170,9 +170,9 @@
 		if(istype(ai_card, /obj/item/weapon/aicard))
 			if(integrated_ai && !integrated_ai.stat)
 				if(user)
-					user << "<span class='danger'>You cannot eject your currently stored AI. Purge it manually.</span>"
+					to_chat(user, "<span class='danger'>You cannot eject your currently stored AI. Purge it manually.</span>")
 				return 0
-			user << "<span class='danger'>You purge the remaining scraps of data from your previous AI, freeing it for use.</span>"
+			to_chat(user, "<span class='danger'>You purge the remaining scraps of data from your previous AI, freeing it for use.</span>")
 			if(integrated_ai)
 				integrated_ai.ghostize()
 				qdel(integrated_ai)
@@ -215,7 +215,7 @@
 				user.drop_from_inventory(ai,src)
 				ai_card = ai
 				ai_mob << "<font color='blue'>You have been transferred to \the [holder]'s [src].</font>"
-				user << "<font color='blue'>You load [ai_mob] into \the [holder]'s [src].</font>"
+				to_chat(user, "<font color='blue'>You load [ai_mob] into \the [holder]'s [src].</font>")
 
 			integrated_ai = ai_mob
 
@@ -223,9 +223,9 @@
 				integrated_ai = null
 				eject_ai()
 		else
-			user << "<span class='warning'>There is no active AI within \the [ai].</span>"
+			to_chat(user, "<span class='warning'>There is no active AI within \the [ai].</span>")
 	else
-		user << "<span class='warning'>There is no active AI within \the [ai].</span>"
+		to_chat(user, "<span class='warning'>There is no active AI within \the [ai].</span>")
 	update_verb_holder()
 	return
 
@@ -263,16 +263,16 @@
 /obj/item/rig_module/datajack/accepts_item(var/obj/item/input_device, var/mob/living/user)
 
 	if(istype(input_device,/obj/item/weapon/disk/tech_disk))
-		user << "You slot the disk into [src]."
+		to_chat(user, "You slot the disk into [src].")
 		var/obj/item/weapon/disk/tech_disk/disk = input_device
 		if(disk.stored)
 			if(load_data(disk.stored))
-				user << "<font color='blue'>Download successful; disk erased.</font>"
+				to_chat(user, "<font color='blue'>Download successful; disk erased.</font>")
 				disk.stored = null
 			else
-				user << "<span class='warning'>The disk is corrupt. It is useless to you.</span>"
+				to_chat(user, "<span class='warning'>The disk is corrupt. It is useless to you.</span>")
 		else
-			user << "<span class='warning'>The disk is blank. It is useless to you.</span>"
+			to_chat(user, "<span class='warning'>The disk is blank. It is useless to you.</span>")
 		return 1
 
 	// I fucking hate R&D code. This typecheck spam would be totally unnecessary in a sane setup.
@@ -289,13 +289,13 @@
 			incoming_files = input_machine.files
 
 		if(!incoming_files || !incoming_files.known_tech || !incoming_files.known_tech.len)
-			user << "<span class='warning'>Memory failure. There is nothing accessible stored on this terminal.</span>"
+			to_chat(user, "<span class='warning'>Memory failure. There is nothing accessible stored on this terminal.</span>")
 		else
 			// Maybe consider a way to drop all your data into a target repo in the future.
 			if(load_data(incoming_files.known_tech))
-				user << "<font color='blue'>Download successful; local and remote repositories synchronized.</font>"
+				to_chat(user, "<font color='blue'>Download successful; local and remote repositories synchronized.</font>")
 			else
-				user << "<span class='warning'>Scan complete. There is nothing useful stored on this terminal.</span>"
+				to_chat(user, "<span class='warning'>Scan complete. There is nothing useful stored on this terminal.</span>")
 		return 1
 	return 0
 

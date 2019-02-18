@@ -88,14 +88,14 @@
 /obj/item/weapon/paper/examine(mob/user)
 	..()
 	if (old_name && icon_state == "paper_plane")
-		user << span("notice", "You're going to have to unfold it before you can read it.")
+		to_chat(user, span("notice", "You're going to have to unfold it before you can read it."))
 		return
 	if(name != "sheet of paper")
-		user << "It's titled '[name]'."
+		to_chat(user, "It's titled '[name]'.")
 	if(in_range(user, src) || isobserver(user))
 		show_content(usr)
 	else
-		user << "<span class='notice'>You have to go closer if you want to read it.</span>"
+		to_chat(user, "<span class='notice'>You have to go closer if you want to read it.</span>")
 
 
 /obj/item/weapon/paper/proc/show_content(mob/user, forceshow)
@@ -103,7 +103,7 @@
 	if(!forceshow && istype(user,/mob/living/silicon/ai))
 		var/mob/living/silicon/ai/AI
 		can_read = get_dist(src, AI.camera) < 2
-	user << browse("<HTML><HEAD><TITLE>[name]</TITLE></HEAD><BODY bgcolor='[color]'>[can_read ? info : stars(info)][stamps]</BODY></HTML>", "window=[name]")
+	to_chat(user, browse("<HTML><HEAD><TITLE>[name]</TITLE></HEAD><BODY bgcolor='[color]'>[can_read ? info : stars(info)][stamps]</BODY></HTML>", "window=[name]"))
 	onclose(user, "[name]")
 
 /obj/item/weapon/paper/verb/rename()
@@ -175,7 +175,7 @@
 		if(ishuman(M))
 			var/mob/living/carbon/human/H = M
 			if(H == user)
-				user << "<span class='notice'>You wipe off the lipstick with [src].</span>"
+				to_chat(user, "<span class='notice'>You wipe off the lipstick with [src].</span>")
 				H.lip_style = null
 				H.update_body()
 			else
@@ -327,7 +327,7 @@
 				qdel(src)
 
 			else
-				user << "<span class='warning'>You must hold \the [P] steady to burn \the [src].</span>"
+				to_chat(user, "<span class='warning'>You must hold \the [P] steady to burn \the [src].</span>")
 
 
 /obj/item/weapon/paper/Topic(href, href_list)
@@ -408,7 +408,7 @@
 		if (istype(P, /obj/item/weapon/paper/carbon))
 			var/obj/item/weapon/paper/carbon/C = P
 			if (!C.iscopy && !C.copied)
-				user << "<span class='notice'>Take off the carbon copy first.</span>"
+				to_chat(user, "<span class='notice'>Take off the carbon copy first.</span>")
 				add_fingerprint(user)
 				return
 		var/obj/item/weapon/paper_bundle/B = new(src.loc)
@@ -445,7 +445,7 @@
 				src.forceMove(get_turf(h_user))
 				if(h_user.client)	h_user.client.screen -= src
 				h_user.put_in_hands(B)
-		user << "<span class='notice'>You clip the [P.name] to [(src.name == "paper") ? "the paper" : src.name].</span>"
+		to_chat(user, "<span class='notice'>You clip the [P.name] to [(src.name == "paper") ? "the paper" : src.name].</span>")
 		src.forceMove(B)
 
 		B.pages.Add(src)
@@ -462,7 +462,7 @@
 		if ( istype(RP) && RP.mode == 2 )
 			RP.RenamePaper(user,src)
 		else
-			user << browse("<HTML><HEAD><TITLE>[name]</TITLE></HEAD><BODY bgcolor='[color]'>[info_links][stamps]</BODY></HTML>", "window=[name]")
+			to_chat(user, browse("<HTML><HEAD><TITLE>[name]</TITLE></HEAD><BODY bgcolor='[color]'>[info_links][stamps]</BODY></HTML>", "window=[name]"))
 		return
 
 	else if(istype(P, /obj/item/weapon/stamp) || istype(P, /obj/item/clothing/ring/seal))
@@ -486,7 +486,7 @@
 
 		if(istype(P, /obj/item/weapon/stamp/clown))
 			if(!clown)
-				user << "<span class='notice'>You are totally unable to use the stamp. HONK!</span>"
+				to_chat(user, "<span class='notice'>You are totally unable to use the stamp. HONK!</span>")
 				return
 
 		if(!ico)
@@ -500,7 +500,7 @@
 		add_overlay(stampoverlay)
 
 		playsound(src, 'sound/items/stamp.ogg', 50, 1)
-		user << "<span class='notice'>You stamp the paper with \the [P].</span>"
+		to_chat(user, "<span class='notice'>You stamp the paper with \the [P].</span>")
 
 	else if(istype(P, /obj/item/weapon/flame))
 		burnpaper(P, user)

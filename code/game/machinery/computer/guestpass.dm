@@ -19,9 +19,9 @@
 /obj/item/weapon/card/id/guest/examine(mob/user)
 	..(user)
 	if (world.time < expiration_time)
-		user << "<span class='notice'>This pass expires at [worldtime2text(expiration_time)].</span>"
+		to_chat(user, "<span class='notice'>This pass expires at [worldtime2text(expiration_time)].</span>")
 	else
-		user << "<span class='warning'>It expired at [worldtime2text(expiration_time)].</span>"
+		to_chat(user, "<span class='warning'>It expired at [worldtime2text(expiration_time)].</span>")
 
 /obj/item/weapon/card/id/guest/read()
 	if (world.time > expiration_time)
@@ -77,7 +77,7 @@
 			giver = O
 			updateUsrDialog()
 		else if(giver)
-			user << "<span class='warning'>There is already ID card inside.</span>"
+			to_chat(user, "<span class='warning'>There is already ID card inside.</span>")
 		return
 	..()
 
@@ -113,7 +113,7 @@
 				dat += "<a href='?src=\ref[src];choice=access;access=[A]'>[area]</a><br>"
 		dat += "<br><a href='?src=\ref[src];action=issue'>Issue pass</a><br>"
 
-	user << browse(dat, "window=guestpass;size=400x520")
+	to_chat(user, browse(dat, "window=guestpass;size=400x520"))
 	onclose(user, "guestpass")
 
 

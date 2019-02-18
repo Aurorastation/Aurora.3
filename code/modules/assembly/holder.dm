@@ -88,9 +88,9 @@
 		..(user)
 		if ((in_range(src, user) || src.loc == user))
 			if (src.secured)
-				user << "\The [src] is ready!"
+				to_chat(user, "\The [src] is ready!")
 			else
-				user << "\The [src] can be attached!"
+				to_chat(user, "\The [src] can be attached!")
 		return
 
 
@@ -146,15 +146,15 @@
 	attackby(obj/item/weapon/W as obj, mob/user as mob)
 		if(W.isscrewdriver())
 			if(!a_left || !a_right)
-				user << "<span class='danger'>BUG:Assembly part missing, please report this!</span>"
+				to_chat(user, "<span class='danger'>BUG:Assembly part missing, please report this!</span>")
 				return
 			a_left.toggle_secure()
 			a_right.toggle_secure()
 			secured = !secured
 			if(secured)
-				user << "<span class='notice'>\The [src] is ready!</span>"
+				to_chat(user, "<span class='notice'>\The [src] is ready!</span>")
 			else
-				user << "<span class='notice'>\The [src] can now be taken apart!</span>"
+				to_chat(user, "<span class='notice'>\The [src] can now be taken apart!</span>")
 			update_icon()
 			return
 		else if(W.IsSpecialAssembly())
@@ -168,7 +168,7 @@
 		src.add_fingerprint(user)
 		if(src.secured)
 			if(!a_left || !a_right)
-				user << "<span class='warning'>Assembly part missing!</span>"
+				to_chat(user, "<span class='warning'>Assembly part missing!</span>")
 				return
 			if(istype(a_left,a_right.type))//If they are the same type it causes issues due to window code
 				switch(alert("Which side would you like to use?",,"Left","Right"))

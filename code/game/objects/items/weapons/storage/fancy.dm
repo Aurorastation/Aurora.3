@@ -29,11 +29,11 @@
 		return
 
 	if(contents.len <= 0)
-		user << "There are no [src.icon_type]s left in the box."
+		to_chat(user, "There are no [src.icon_type]s left in the box.")
 	else if(contents.len == 1)
-		user << "There is one [src.icon_type] left in the box."
+		to_chat(user, "There is one [src.icon_type] left in the box.")
 	else
-		user << "There are [src.contents.len] [src.icon_type]s in the box."
+		to_chat(user, "There are [src.contents.len] [src.icon_type]s in the box.")
 
 	return
 
@@ -159,7 +159,7 @@
 	if(M == user && target_zone == "mouth" && contents.len > 0 && !user.wear_mask)
 		var/obj/item/clothing/mask/smokable/cigarette/W = new cigarette_to_spawn(user)
 		if(!istype(W))
-			user <<"<span class ='notice'>The [W] is blocking the cigarettes.</span>"
+			to_chat(user, "<span class ='notice'>The [W] is blocking the cigarettes.</span>")
 			return
 		//Checking contents of packet so lighters won't be cigarettes.
 		for (var/i = contents.len; i > 0; i--)
@@ -173,7 +173,7 @@
 		reagents.trans_to_obj(W, (reagents.total_volume/contents.len))
 		user.equip_to_slot_if_possible(W, slot_wear_mask)
 		reagents.maximum_volume = 15 * contents.len
-		user << "<span class='notice'>You take a cigarette out of the pack.</span>"
+		to_chat(user, "<span class='notice'>You take a cigarette out of the pack.</span>")
 		update_icon()
 	else
 		..()
@@ -242,7 +242,7 @@
 		user.equip_to_slot_if_possible(W, slot_wear_mask)
 		reagents.maximum_volume = 15 * contents.len
 		contents.len--
-		user << "<span class='notice'>You take a cigar out of the case.</span>"
+		to_chat(user, "<span class='notice'>You take a cigar out of the case.</span>")
 		update_icon()
 	else
 		..()

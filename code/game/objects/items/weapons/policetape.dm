@@ -118,7 +118,7 @@ var/list/tape_roll_applications = list()
 		P.forceMove(locate(T.x,T.y,T.z))
 		P.icon_state = "[src.icon_base]_door"
 		P.layer = 3.2
-		user << span("notice", "You finish placing the [src].")
+		to_chat(user, span("notice", "You finish placing the [src]."))
 
 	if (istype(A, /turf/simulated/floor) ||istype(A, /turf/unsimulated/floor))
 		var/turf/F = A
@@ -169,7 +169,7 @@ var/list/tape_roll_applications = list()
 
 /obj/item/tape/proc/breaktape(obj/item/weapon/W as obj, mob/user as mob)
 	if(user.a_intent == I_HELP && ((!can_puncture(W) && src.allowed(user))))
-		user << "You can't break the [src] with that!"
+		to_chat(user, "You can't break the [src] with that!")
 		return
 	user.show_viewers(span("notice", "[user] breaks the [src]!"))
 

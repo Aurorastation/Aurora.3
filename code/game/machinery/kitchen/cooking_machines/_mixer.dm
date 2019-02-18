@@ -18,7 +18,7 @@ fundamental differences
 
 /obj/machinery/appliance/mixer/examine(var/mob/user)
 	..()
-	user << span("notice", "It is currently set to make a [selected_option]")
+	to_chat(user, span("notice", "It is currently set to make a [selected_option]"))
 
 /obj/machinery/appliance/mixer/Initialize()
 	. = ..()
@@ -65,7 +65,7 @@ fundamental differences
 	if (stat)
 		return 1
 	else
-		user << span("warning", "You can't remove ingredients while its turned on! Turn it off first or wait for it to finish.")
+		to_chat(user, span("warning", "You can't remove ingredients while its turned on! Turn it off first or wait for it to finish."))
 
 //Container is not removable
 /obj/machinery/appliance/mixer/removal_menu(var/mob/user)
@@ -75,7 +75,7 @@ fundamental differences
 			var/datum/cooking_item/CI = a
 			if (CI.container)
 				if (!CI.container.check_contents())
-					user << "There's nothing in the [src] you can remove!"
+					to_chat(user, "There's nothing in the [src] you can remove!")
 					return
 
 				for (var/obj/item/I in CI.container)
@@ -117,7 +117,7 @@ fundamental differences
 
 /obj/machinery/appliance/mixer/can_insert(var/obj/item/I, var/mob/user)
 	if (!stat)
-		user << span("warning","You can't add items while \the [src] is running. Wait for it to finish or turn the power off to abort")
+		to_chat(user, span("warning","You can't add items while \the [src] is running. Wait for it to finish or turn the power off to abort"))
 		return 0
 	else
 		return ..()

@@ -358,7 +358,7 @@ var/global/list/rnwords = list("ire","ego","nahlizet","certum","veri","jatkaa","
 				if("Read it")
 					if(user.get_active_hand() != src)
 						return
-					user << browse("[tomedat]", "window=Arcane Tome")
+					to_chat(user, browse("[tomedat]", "window=Arcane Tome"))
 					return
 		if(isipc(user))
 			to_chat(user, "<span class='notice'>You cannot draw runes, as you have no blood.</span>")

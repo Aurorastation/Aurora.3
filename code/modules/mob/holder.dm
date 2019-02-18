@@ -204,7 +204,7 @@ var/list/holder_mob_icon_cache = list()
 
 	if (user == src)
 		if (grabber.r_hand && grabber.l_hand)
-			user << "<span class='warning'>They have no free hands!</span>"
+			to_chat(user, "<span class='warning'>They have no free hands!</span>")
 			return
 	else if ((grabber.hand == 0 && grabber.r_hand) || (grabber.hand == 1 && grabber.l_hand))//Checking if the hand is full
 		grabber << "<span class='warning'>Your hand is full!</span>"
@@ -250,7 +250,7 @@ var/list/holder_mob_icon_cache = list()
 			H.sync(src)
 
 		else
-			user << "Failed, try again!"
+			to_chat(user, "Failed, try again!")
 			//If the scooping up failed something must have gone wrong
 			H.release_mob()
 

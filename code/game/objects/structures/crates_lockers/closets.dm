@@ -57,15 +57,15 @@
 			if(!I.anchored)
 				content_size += Ceiling(I.w_class/2)
 		if(!content_size)
-			user << "It is empty."
+			to_chat(user, "It is empty.")
 		else if(storage_capacity > content_size*4)
-			user << "It is barely filled."
+			to_chat(user, "It is barely filled.")
 		else if(storage_capacity > content_size*2)
-			user << "It is less than half full."
+			to_chat(user, "It is less than half full.")
 		else if(storage_capacity > content_size)
-			user << "There is still some free space."
+			to_chat(user, "There is still some free space.")
 		else
-			user << "It is full."
+			to_chat(user, "It is full.")
 
 /obj/structure/closet/proc/stored_weight()
 	var/content_size = 0
@@ -177,7 +177,7 @@
 
 /obj/structure/closet/proc/toggle(mob/user as mob)
 	if(!(opened ? close() : open()))
-		user << "<span class='notice'>It won't budge!</span>"
+		to_chat(user, "<span class='notice'>It won't budge!</span>")
 		return
 	update_icon()
 	return 1
@@ -233,7 +233,7 @@
 				if (!do_after(user, 2 SECONDS, act_target = src, extra_checks = CALLBACK(src, .proc/is_open)))
 					return
 				if(!WT.remove_fuel(0,user))
-					user << "<span class='notice'>You need more welding fuel to complete this task.</span>"
+					to_chat(user, "<span class='notice'>You need more welding fuel to complete this task.</span>")
 					return
 				else
 					new /obj/item/stack/material/steel(loc)
@@ -274,7 +274,7 @@
 			if (!do_after(user, 2 SECONDS, act_target = src, extra_checks = CALLBACK(src, .proc/is_closed)))
 				return
 			if(!WT.remove_fuel(0,user))
-				user << "<span class='notice'>You need more welding fuel to complete this task.</span>"
+				to_chat(user, "<span class='notice'>You need more welding fuel to complete this task.</span>")
 				return
 			welded = !welded
 			update_icon()
@@ -326,7 +326,7 @@
 		return
 
 	if(!open())
-		user << "<span class='notice'>It won't budge!</span>"
+		to_chat(user, "<span class='notice'>It won't budge!</span>")
 
 /obj/structure/closet/attack_hand(mob/user as mob)
 	add_fingerprint(user)

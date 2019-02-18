@@ -328,7 +328,7 @@ This saves us from having to call add_fingerprint() any time something is put in
 			covering = src.wear_suit
 
 	if(covering && (covering.body_parts_covered & (I.body_parts_covered|check_flags)))
-		user << "<span class='warning'>\The [covering] is in the way.</span>"
+		to_chat(user, "<span class='warning'>\The [covering] is in the way.</span>")
 		return 0
 	return 1
 

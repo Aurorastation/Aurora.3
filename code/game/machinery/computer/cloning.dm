@@ -94,7 +94,7 @@
 		if (!src.diskette)
 			user.drop_from_inventory(W,src)
 			src.diskette = W
-			user << "You insert [W]."
+			to_chat(user, "You insert [W].")
 			src.updateUsrDialog()
 			return
 	else
@@ -213,7 +213,7 @@
 			dat += "<b><a href='byond://?src=\ref[src];menu=3'>No</a></b>"
 
 
-	user << browse(dat, "window=cloning")
+	to_chat(user, browse(dat, "window=cloning"))
 	onclose(user, "cloning")
 	return
 

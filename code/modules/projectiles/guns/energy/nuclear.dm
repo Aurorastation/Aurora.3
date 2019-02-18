@@ -70,7 +70,7 @@
 	return
 
 /obj/item/weapon/gun/energy/gun/nuclear/critical_fail(var/mob/user)
-	user << "<span class='danger'>Your gun's reactor overloads!</span>"
+	to_chat(user, "<span class='danger'>Your gun's reactor overloads!</span>")
 	for (var/mob/living/M in range(rand(1,4),src))
 		M << "<span class='warning'>You feel a wave of heat wash over you.</span>"
 		M.apply_effect(300, IRRADIATE)

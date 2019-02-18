@@ -57,7 +57,7 @@
 
 /obj/item/clothing/head/helmet/space/examine(var/mob/user)
 	if(..(user, 1) && camera_networks && camera_networks.len)
-		user << "This helmet has a built-in camera. It's [camera && camera.status ? "" : "in"]active."
+		to_chat(user, "This helmet has a built-in camera. It's [camera && camera.status ? "" : "in"]active.")
 
 /obj/item/clothing/suit/space
 	name = "space suit"
@@ -108,5 +108,5 @@
 	// Otherwise, remove the splints.
 	for(var/obj/item/organ/external/E in supporting_limbs)
 		E.status &= ~ ORGAN_SPLINTED
-		user << "The suit stops supporting your [E.name]."
+		to_chat(user, "The suit stops supporting your [E.name].")
 	supporting_limbs = list()

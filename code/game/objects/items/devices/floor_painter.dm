@@ -46,11 +46,11 @@
 
 	var/turf/simulated/floor/F = A
 	if(!istype(F))
-		user << "<span class='warning'>\The [src] can only be used on station flooring.</span>"
+		to_chat(user, "<span class='warning'>\The [src] can only be used on station flooring.</span>")
 		return
 
 	if(!F.flooring || !F.flooring.can_paint || F.broken || F.burnt)
-		user << "<span class='warning'>\The [src] cannot paint broken or missing tiles.</span>"
+		to_chat(user, "<span class='warning'>\The [src] cannot paint broken or missing tiles.</span>")
 		return
 
 	var/list/decal_data = decals[decal]
@@ -64,11 +64,11 @@
 			config_error = 1
 
 	if(config_error)
-		user << "<span class='warning'>\The [src] flashes an error light. You might need to reconfigure it.</span>"
+		to_chat(user, "<span class='warning'>\The [src] flashes an error light. You might need to reconfigure it.</span>")
 		return
 
 	if(F.decals && F.decals.len > 5 && painting_decal != /obj/effect/floor_decal/reset)
-		user << "<span class='warning'>\The [F] has been painted too much; you need to clear it off.</span>"
+		to_chat(user, "<span class='warning'>\The [F] has been painted too much; you need to clear it off.</span>")
 		return
 
 	var/painting_dir = 0
@@ -112,7 +112,7 @@
 
 /obj/item/device/floor_painter/examine(mob/user)
 	..(user)
-	user << "It is configured to produce the '[decal]' decal with a direction of '[paint_dir]' using [paint_colour] paint."
+	to_chat(user, "It is configured to produce the '[decal]' decal with a direction of '[paint_dir]' using [paint_colour] paint.")
 
 /obj/item/device/floor_painter/verb/choose_colour()
 	set name = "Choose Colour"

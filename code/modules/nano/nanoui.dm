@@ -410,7 +410,7 @@ nanoui is used to open and update nano browser uis
 	if(status == STATUS_CLOSE)
 		return
 
-	user << browse(get_html(), "window=[window_id];[window_size][window_options]")
+	to_chat(user, browse(get_html(), "window=[window_id];[window_size][window_options]"))
 	winset(user, "mapwindow.map", "focus=true") // return keyboard focus to map
 	on_close_winset()
 	//onclose(user, window_id)
@@ -436,7 +436,7 @@ nanoui is used to open and update nano browser uis
 /datum/nanoui/proc/close()
 	is_auto_updating = 0
 	SSnanoui.ui_closed(src)
-	user << browse(null, "window=[window_id]")
+	to_chat(user, browse(null, "window=[window_id]"))
 	for(var/datum/nanoui/child in children)
 		child.close()
 	children.Cut()
@@ -468,8 +468,8 @@ nanoui is used to open and update nano browser uis
 
 	var/list/send_data = get_send_data(data)
 
-	//user << list2json(data) // used for debugging
-	user << output(list2params(list(json_encode(send_data))),"[window_id].browser:receiveUpdateData")
+	//to_chat(user, list2json(data) // used for debugging)
+	to_chat(user, output(list2params(list(json_encode(send_data))),"[window_id].browser:receiveUpdateData"))
 
  /**
   * This Topic() proc is called whenever a user clicks on a link within a Nano UI

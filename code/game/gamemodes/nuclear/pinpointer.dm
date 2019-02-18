@@ -51,7 +51,7 @@
 	..(user)
 	for(var/obj/machinery/nuclearbomb/bomb in SSmachinery.all_machines)
 		if(bomb.timing)
-			user << "Extreme danger.  Arming signal detected.   Time remaining: [bomb.timeleft]"
+			to_chat(user, "Extreme danger.  Arming signal detected.   Time remaining: [bomb.timeleft]")
 
 /obj/item/weapon/pinpointer/Destroy()
 	active = 0
@@ -204,15 +204,15 @@
 		START_PROCESSING(SSfast_process, src)
 		if(!mode)
 			workdisk()
-			user << "<span class='notice'>Authentication Disk Locator active.</span>"
+			to_chat(user, "<span class='notice'>Authentication Disk Locator active.</span>")
 		else
 			worklocation()
-			user << "<span class='notice'>Shuttle Locator active.</span>"
+			to_chat(user, "<span class='notice'>Shuttle Locator active.</span>")
 	else
 		active = 0
 		STOP_PROCESSING(SSfast_process, src)
 		icon_state = "pinoff"
-		user << "<span class='notice'>You deactivate the pinpointer.</span>"
+		to_chat(user, "<span class='notice'>You deactivate the pinpointer.</span>")
 
 /obj/item/weapon/pinpointer/nukeop/process()
 	if (mode)

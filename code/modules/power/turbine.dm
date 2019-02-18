@@ -152,7 +152,7 @@
 
 	if ( (get_dist(src, user) > 1 ) || (stat & (NOPOWER|BROKEN)) && (!istype(user, /mob/living/silicon/ai)) )
 		user.machine = null
-		user << browse(null, "window=turbine")
+		to_chat(user, browse(null, "window=turbine"))
 		return
 
 	user.machine = src
@@ -168,7 +168,7 @@
 	t += "</PRE><HR><A href='?src=\ref[src];close=1'>Close</A>"
 
 	t += "</TT>"
-	user << browse(t, "window=turbine")
+	to_chat(user, browse(t, "window=turbine"))
 	onclose(user, "turbine")
 
 	return
@@ -244,7 +244,7 @@
 	else
 		dat += "<span class='danger'>No compatible attached compressor found.</span>"
 
-	user << browse(dat, "window=computer;size=400x500")
+	to_chat(user, browse(dat, "window=computer;size=400x500"))
 	onclose(user, "computer")
 	return
 

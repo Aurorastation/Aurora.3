@@ -81,13 +81,13 @@ NOTE: It checks usr by default. Supply the "user" argument if you wish to check 
 					return 1
 				else
 					if(show_msg)
-						user << "<font color='red'>Error: You do not have sufficient rights to do that. You require one of the following flags:[rights2text(rights_required," ")].</font>"
+						to_chat(user, "<font color='red'>Error: You do not have sufficient rights to do that. You require one of the following flags:[rights2text(rights_required," ")].</font>")
 		else
 			if(user.client.holder)
 				return 1
 			else
 				if(show_msg)
-					user << "<font color='red'>Error: You are not an admin.</font>"
+					to_chat(user, "<font color='red'>Error: You are not an admin.</font>")
 	return 0
 
 //probably a bit iffy - will hopefully figure out a better solution

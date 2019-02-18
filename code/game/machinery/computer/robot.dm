@@ -37,7 +37,7 @@
 		return
 	var/mob/user = usr
 	if(!src.allowed(user))
-		user << "Access Denied"
+		to_chat(user, "Access Denied")
 		return
 
 	// Destroys the cyborg
@@ -46,11 +46,11 @@
 		if(!target || !istype(target))
 			return
 		if(isAI(user) && (target.connected_ai != user))
-			user << "Access Denied. This robot is not linked to you."
+			to_chat(user, "Access Denied. This robot is not linked to you.")
 			return
 		// Cyborgs may blow up themselves via the console
 		if(isrobot(user) && user != target)
-			user << "Access Denied."
+			to_chat(user, "Access Denied.")
 			return
 		var/choice = input("Really detonate [target.name]?") in list ("Yes", "No")
 		if(choice != "Yes")
@@ -64,7 +64,7 @@
 			target.ResetSecurityCodes()
 
 		if(target.emagged)
-			user << "Access Denied. Safety protocols are disabled."
+			to_chat(user, "Access Denied. Safety protocols are disabled.")
 			return
 
 		else
@@ -83,11 +83,11 @@
 			return
 
 		if(isAI(user) && (target.connected_ai != user))
-			user << "Access Denied. This robot is not linked to you."
+			to_chat(user, "Access Denied. This robot is not linked to you.")
 			return
 
 		if(isrobot(user))
-			user << "Access Denied."
+			to_chat(user, "Access Denied.")
 			return
 
 		if(target.emagged)
@@ -113,11 +113,11 @@
 
 		// Antag AI checks
 		if(!istype(user, /mob/living/silicon/ai) || !(user.mind.special_role && user.mind.original == user))
-			user << "Access Denied"
+			to_chat(user, "Access Denied")
 			return
 
 		if(target.emagged)
-			user << "Robot is already hacked."
+			to_chat(user, "Robot is already hacked.")
 			return
 
 		var/choice = input("Really hack [target.name]? This cannot be undone.") in list("Yes", "No")
@@ -135,19 +135,19 @@
 	// Arms the emergency self-destruct system
 	else if(href_list["arm"])
 		if(istype(user, /mob/living/silicon))
-			user << "Access Denied"
+			to_chat(user, "Access Denied")
 			return
 
 		safety = !safety
-		user << "You [safety ? "disarm" : "arm"] the emergency self destruct"
+		to_chat(user, "You [safety ? "disarm" : "arm"] the emergency self destruct")
 
 	// Destroys all accessible cyborgs if safety is disabled
 	else if(href_list["nuke"])
 		if(istype(user, /mob/living/silicon))
-			user << "Access Denied"
+			to_chat(user, "Access Denied")
 			return
 		if(safety)
-			user << "Self-destruct aborted - safety active"
+			to_chat(user, "Self-destruct aborted - safety active")
 			return
 
 		message_admins("[key_name_admin(usr)] detonated all cyborgs!")

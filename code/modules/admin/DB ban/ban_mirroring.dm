@@ -153,11 +153,11 @@
 	var/list/mirrors = get_ban_mirrors(ban_id)
 
 	if (!mirrors)
-		user << "<span class='warning'>Something went horribly wrong.</span>"
+		to_chat(user, "<span class='warning'>Something went horribly wrong.</span>")
 		return
 
 	if (!mirrors.len)
-		user << "<span class='warning'>No mirrors for this ban found.</span>"
+		to_chat(user, "<span class='warning'>No mirrors for this ban found.</span>")
 		return
 
 	var/output = "<b><center>Ban mirrors for ban #[ban_id]</center></b><br>"
@@ -194,7 +194,7 @@
 		i = (++i % 2)
 
 	output += "</table>"
-	user << browse(output, "window=banmirrors;size=600x400")
+	to_chat(user, browse(output, "window=banmirrors;size=600x400"))
 
 /proc/display_mirrors_ckeys(mob/user, mirror_id)
 	if (!user || !check_rights(R_MOD|R_ADMIN) || !mirror_id)
@@ -229,7 +229,7 @@
 		return
 
 	output += "<br><br><a href='?_src_=holder;dbbanmirrors=[query.item[2]];'>Back</a>"
-	user << browse(output, "window=banmirrors")
+	to_chat(user, browse(output, "window=banmirrors"))
 
 /proc/toggle_mirror_status(mob/user, mirror_id, inactive = FALSE)
 	if (!user || !check_rights(R_MOD|R_ADMIN) || !mirror_id)

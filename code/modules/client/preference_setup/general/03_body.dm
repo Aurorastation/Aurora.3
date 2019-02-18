@@ -185,7 +185,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 	pref.update_preview_icon()
 	if(!pref.preview_icon)
 		pref.update_preview_icon()
-	user << browse_rsc(pref.preview_icon, "previewicon.png")
+	to_chat(user, browse_rsc(pref.preview_icon, "previewicon.png"))
 
 	var/datum/species/mob_species = all_species[pref.species]
 	out += "<table><tr style='vertical-align:top'><td><b>Body</b> "
@@ -333,7 +333,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 		return TOPIC_HANDLED
 
 	else if(href_list["set_species"])
-		user << browse(null, "window=species")
+		to_chat(user, browse(null, "window=species"))
 		if(!pref.species_preview || !(pref.species_preview in all_species))
 			return TOPIC_NOACTION
 
@@ -713,7 +713,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 		dat += "\[<a href='?src=\ref[src];set_species=[html_encode(pref.species_preview)]'>select</a>\]"
 	dat += "</center></body>"
 
-	user << browse(dat.Join(), "window=species;size=700x400")
+	to_chat(user, browse(dat.Join(), "window=species;size=700x400"))
 
 /*/datum/category_item/player_setup_item/general/body/proc/reset_limbs()
 

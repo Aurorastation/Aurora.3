@@ -105,9 +105,9 @@
 		pref.toggles ^= toggle_flag
 		if(toggle_flag == SOUND_LOBBY && isnewplayer(user))
 			if(pref.toggles & SOUND_LOBBY)
-				user << sound(SSticker.login_music, repeat = 0, wait = 0, volume = 85, channel = 1)
+				to_chat(user, sound(SSticker.login_music, repeat = 0, wait = 0, volume = 85, channel = 1))
 			else
-				user << sound(null, repeat = 0, wait = 0, volume = 85, channel = 1)
+				to_chat(user, sound(null, repeat = 0, wait = 0, volume = 85, channel = 1))
 		return TOPIC_REFRESH
 
 	if(href_list["paratoggle"])

@@ -15,15 +15,15 @@
 		base_icon = icon_state
 
 	if(!("[base_icon]_open" in icon_states(icon)))
-		user << "\The [src] doesn't seem to open."
+		to_chat(user, "\The [src] doesn't seem to open.")
 		return
 
 	open = !open
-	user << "You flip \the [src] [open?"open":"closed"]."
+	to_chat(user, "You flip \the [src] [open?"open":"closed"].")
 	if(open)
 		icon_state = "[base_icon]_open"
 		if(held)
-			user << "\The [held] falls out!"
+			to_chat(user, "\The [held] falls out!")
 			held.forceMove(get_turf(user))
 			src.held = null
 	else
@@ -31,7 +31,7 @@
 
 /obj/item/clothing/accessory/locket/attackby(var/obj/item/O as obj, mob/user as mob)
 	if(!open)
-		user << "You have to open it first."
+		to_chat(user, "You have to open it first.")
 		return
 
 	if(istype(O,/obj/item/weapon/paper) || istype(O, /obj/item/weapon/photo))

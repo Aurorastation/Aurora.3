@@ -45,10 +45,10 @@
 			if(!user in assignedUsers)
 				assignedUsers += user
 			else
-				user << "<span class='notice'>The device beeps and flashes \"Already Registered\".</span>"
+				to_chat(user, "<span class='notice'>The device beeps and flashes \"Already Registered\".</span>")
 			return
 		else
-			user << "<span class='notice'>The device beeps and appears to shutdown.</span>"
+			to_chat(user, "<span class='notice'>The device beeps and appears to shutdown.</span>")
 			return
 	if(istype(W, /obj/item/weapon/paper))
 		var/obj/item/weapon/paper/P = W

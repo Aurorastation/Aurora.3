@@ -66,11 +66,11 @@
 	if(emagged == 0)
 		emagged = 1
 		recording = 0
-		user << "<span class='warning'>PZZTTPFFFT</span>"
+		to_chat(user, "<span class='warning'>PZZTTPFFFT</span>")
 		icon_state = "taperecorderidle"
 		return 1
 	else
-		user << "<span class='warning'>It is already emagged!</span>"
+		to_chat(user, "<span class='warning'>It is already emagged!</span>")
 
 /obj/item/device/taperecorder/proc/explode()
 	var/turf/T = get_turf(loc)

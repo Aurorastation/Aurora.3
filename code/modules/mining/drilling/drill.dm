@@ -158,7 +158,7 @@
 
 	if(O.iscrowbar())
 		if (panel_open && cell)
-			user << "You wrench out \the [cell]."
+			to_chat(user, "You wrench out \the [cell].")
 			cell.forceMove(get_turf(user))
 			component_parts -= cell
 			cell = null
@@ -166,12 +166,12 @@
 
 	if(istype(O, /obj/item/weapon/cell))
 		if(cell)
-			user << "The drill already has a cell installed."
+			to_chat(user, "The drill already has a cell installed.")
 		else
 			user.drop_from_inventory(O,src)
 			cell = O
 			component_parts += O
-			user << "You install \the [O]."
+			to_chat(user, "You install \the [O].")
 		return
 	..()
 
@@ -179,7 +179,7 @@
 	check_supports()
 
 	if(need_player_check)
-		user << "You hit the manual override and reset the drill's error checking."
+		to_chat(user, "You hit the manual override and reset the drill's error checking.")
 		need_player_check = 0
 		if(anchored)
 			get_resource_field()
@@ -194,7 +194,7 @@
 			else
 				visible_message("<span class='notice'>\The [src] shudders to a grinding halt.</span>")
 		else
-			user << "<span class='notice'>The drill is unpowered.</span>"
+			to_chat(user, "<span class='notice'>The drill is unpowered.</span>")
 	else
 		if(use_cell_power())
 			if(!supported && !panel_open)
@@ -231,7 +231,7 @@
 					else
 						visible_message("<span class='notice'>\icon[src] [src.name] beeps, \"Unsealed cell fitting error manually resolved. Operations may resume normally.\"</span>")
 		else
-			user << "<span class='notice'>The drill is unpowered.</span>"
+			to_chat(user, "<span class='notice'>The drill is unpowered.</span>")
 	update_icon()
 
 /obj/machinery/mining/drill/update_icon()
@@ -342,7 +342,7 @@
 
 /obj/machinery/mining/brace/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	if(connected && connected.active)
-		user << "<span class='notice'>You know you ought not work with the brace of a <i>running</i> drill, but you do anyways.</span>"
+		to_chat(user, "<span class='notice'>You know you ought not work with the brace of a <i>running</i> drill, but you do anyways.</span>")
 		sleep(5)
 		if(istype(user, /mob/living/carbon/human))
 			//Save the users active hand
@@ -373,7 +373,7 @@
 	if(W.iswrench())
 
 		if(istype(get_turf(src), /turf/space))
-			user << "<span class='notice'>You send the [src] careening into space. Idiot.</span>"
+			to_chat(user, "<span class='notice'>You send the [src] careening into space. Idiot.</span>")
 			var/inertia = rand(10,30)
 			for(var/i in 1 to inertia)
 				step_away(src,user,15,8)
@@ -400,7 +400,7 @@
 				return
 
 		playsound(src.loc, 'sound/items/Ratchet.ogg', 100, 1)
-		user << "<span class='notice'>You [anchored ? "un" : ""]anchor the brace.</span>"
+		to_chat(user, "<span class='notice'>You [anchored ? "un" : ""]anchor the brace.</span>")
 
 		anchored = !anchored
 		if(anchored)

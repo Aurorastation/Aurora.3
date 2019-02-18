@@ -71,9 +71,9 @@ var/global/list/obj/item/device/pda/PDAs = list()
 
 /obj/item/device/pda/examine(mob/user)
 	if(..(user, 1))
-		user << "The time [worldtime2text()] is displayed in the corner of the screen."
+		to_chat(user, "The time [worldtime2text()] is displayed in the corner of the screen.")
 		if (pen)
-			user << "There is \a [pen] in the pen slot."
+			to_chat(user, "There is \a [pen] in the pen slot.")
 
 /obj/item/device/pda/medical
 	default_cartridge = /obj/item/weapon/cartridge/medical
@@ -969,39 +969,39 @@ var/global/list/obj/item/device/pda/PDAs = list()
 		PROCLOG_WEIRD("user variable was insane, aborting!")
 		return
 	if (!has_pen)
-		user << "<span class='notice'>[src] does not have a pen slot.</span>"
+		to_chat(user, "<span class='notice'>[src] does not have a pen slot.</span>")
 		return
 
 	switch (use_check(user, USE_DISALLOW_SILICONS, show_messages = FALSE))
 		if (USE_FAIL_NON_ADJACENT)
-			user << "<span class='notice'>You are too far away from [src].</span>"
+			to_chat(user, "<span class='notice'>You are too far away from [src].</span>")
 
 		if (USE_FAIL_NON_ADV_TOOL_USR)
 			if (!pen)
-				user << "<span class='notice'>[src] does not have a pen in it.</span>"
+				to_chat(user, "<span class='notice'>[src] does not have a pen in it.</span>")
 			else
-				user << "<span class='notice'>You are unable to figure out the mechanism holding [pen] in-place.</span>"
+				to_chat(user, "<span class='notice'>You are unable to figure out the mechanism holding [pen] in-place.</span>")
 
 		if (USE_FAIL_IS_SILICON)
 			if (pen)
-				user << "<span class='notice'>You do not have hands, how do you propose to remove [pen]?</span>"
+				to_chat(user, "<span class='notice'>You do not have hands, how do you propose to remove [pen]?</span>")
 			else
-				user << "<span class='notice'>You do not have hands.</span>"
+				to_chat(user, "<span class='notice'>You do not have hands.</span>")
 
 		if (USE_FAIL_DEAD,USE_FAIL_INCAPACITATED)
-			user << "<span class='notice'>You cannot do this in your current state.</span>"
+			to_chat(user, "<span class='notice'>You cannot do this in your current state.</span>")
 
 		if (USE_SUCCESS)
 			if (!pen)
-				user << "<span class='notice'>[src] does not have a pen in it.</span>"
+				to_chat(user, "<span class='notice'>[src] does not have a pen in it.</span>")
 				return
 
 			if (loc == user && !user.get_active_hand())
-				user << "<span class='notice'>You remove [pen] from [src].</span>"
+				to_chat(user, "<span class='notice'>You remove [pen] from [src].</span>")
 				user.put_in_hands(pen)
 				pen = null
 			else
-				user << "<span class='notice'>You remove [pen] from [src], dropping it on the ground. Whoops.</span>"
+				to_chat(user, "<span class='notice'>You remove [pen] from [src], dropping it on the ground. Whoops.</span>")
 				pen.forceMove(get_turf(src))
 				pen = null
 
@@ -1216,7 +1216,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 	if(istype(C, /obj/item/weapon/cartridge) && !cartridge)
 		cartridge = C
 		user.drop_from_inventory(cartridge,src)
-		user << "<span class='notice'>You insert [cartridge] into [src].</span>"
+		to_chat(user, "<span class='notice'>You insert [cartridge] into [src].</span>")
 		SSnanoui.update_uis(src) // update all UIs attached to src
 		if(cartridge.radio)
 			cartridge.radio.hostpda = src
@@ -1224,20 +1224,20 @@ var/global/list/obj/item/device/pda/PDAs = list()
 	else if(istype(C, /obj/item/weapon/card/id))
 		var/obj/item/weapon/card/id/idcard = C
 		if(!idcard.registered_name)
-			user << "<span class='notice'>\The [src] rejects the ID.</span>"
+			to_chat(user, "<span class='notice'>\The [src] rejects the ID.</span>")
 			return
 		if(!owner)
 			owner = idcard.registered_name
 			ownjob = idcard.assignment
 			ownrank = idcard.rank
 			name = "PDA-[owner] ([ownjob])"
-			user << "<span class='notice'>Card scanned.</span>"
+			to_chat(user, "<span class='notice'>Card scanned.</span>")
 			try_sort_pda_list()
 		else
 			//Basic safety check. If either both objects are held by user or PDA is on ground and card is in hand.
 			if(((src in user.contents) && (C in user.contents)) || (istype(loc, /turf) && in_range(src, user) && (C in user.contents)) )
 				if(id_check(user, 2))
-					user << "<span class='notice'>You put the ID into \the [src]'s slot.</span>"
+					to_chat(user, "<span class='notice'>You put the ID into \the [src]'s slot.</span>")
 					updateSelfDialog()//Update self dialog on success.
 			return	//Return in case of failed check or when successful.
 		updateSelfDialog()//For the non-input related code.
@@ -1245,15 +1245,15 @@ var/global/list/obj/item/device/pda/PDAs = list()
 		user.drop_from_inventory(C,src)
 		pai = C
 		pai.update_location()//This notifies the pAI that they've been slotted into a PDA
-		user << "<span class='notice'>You slot \the [C] into [src].</span>"
+		to_chat(user, "<span class='notice'>You slot \the [C] into [src].</span>")
 		SSnanoui.update_uis(src) // update all UIs attached to src
 	else if(istype(C, /obj/item/weapon/pen))
 		if(pen)
-			user << "<span class='notice'>There is already a pen in \the [src].</span>"
+			to_chat(user, "<span class='notice'>There is already a pen in \the [src].</span>")
 		else
 			user.drop_from_inventory(C,src)
 			pen = C
-			user << "<span class='notice'>You slide \the [C] into \the [src].</span>"
+			to_chat(user, "<span class='notice'>You slide \the [C] into \the [src].</span>")
 	return
 
 /obj/item/device/pda/attack(mob/living/C as mob, mob/living/user as mob)
@@ -1293,18 +1293,18 @@ var/global/list/obj/item/device/pda/PDAs = list()
 
 			if(2)
 				if (!istype(C:dna, /datum/dna))
-					user << "<span class='notice'>No fingerprints found on [C]</span>"
+					to_chat(user, "<span class='notice'>No fingerprints found on [C]</span>")
 				else
-					user << text("<span class='notice'>\The [C]'s Fingerprints: [md5(C:dna.uni_identity)]</span>")
+					to_chat(user, text("<span class='notice'>\The [C]'s Fingerprints: [md5(C:dna.uni_identity)]</span>"))
 				if ( !(C:blood_DNA) )
-					user << "<span class='notice'>No blood found on [C]</span>"
+					to_chat(user, "<span class='notice'>No blood found on [C]</span>")
 					if(C:blood_DNA)
 						qdel(C:blood_DNA)
 				else
-					user << "<span class='notice'>Blood found on [C]. Analysing...</span>"
+					to_chat(user, "<span class='notice'>Blood found on [C]. Analysing...</span>")
 					spawn(15)
 						for(var/blood in C:blood_DNA)
-							user << "<span class='notice'>Blood type: [C:blood_DNA[blood]]\nDNA: [blood]</span>"
+							to_chat(user, "<span class='notice'>Blood type: [C:blood_DNA[blood]]\nDNA: [blood]</span>")
 
 			if(4)
 				for (var/mob/O in viewers(C, null))
@@ -1326,13 +1326,13 @@ var/global/list/obj/item/device/pda/PDAs = list()
 			if(!isnull(A.reagents))
 				if(A.reagents.reagent_list.len > 0)
 					var/reagents_length = A.reagents.reagent_list.len
-					user << "<span class='notice'>[reagents_length] chemical agent[reagents_length > 1 ? "s" : ""] found.</span>"
+					to_chat(user, "<span class='notice'>[reagents_length] chemical agent[reagents_length > 1 ? "s" : ""] found.</span>")
 					for (var/re in A.reagents.reagent_list)
-						user << "<span class='notice'>    [re]</span>"
+						to_chat(user, "<span class='notice'>    [re]</span>")
 				else
-					user << "<span class='notice'>No active chemical agents found in [A].</span>"
+					to_chat(user, "<span class='notice'>No active chemical agents found in [A].</span>")
 			else
-				user << "<span class='notice'>No significant chemical agents found in [A].</span>"
+				to_chat(user, "<span class='notice'>No significant chemical agents found in [A].</span>")
 
 		if(5)
 			analyze_gases(A, user)
@@ -1384,7 +1384,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 		// feature to the PDA, which would better convey the availability of the feature, but this will work for now.
 
 		// Inform the user
-		user << "<span class='notice'>Paper scanned and OCRed to notekeeper.</span>" //concept of scanning paper copyright brainoblivion 2009
+		to_chat(user, "<span class='notice'>Paper scanned and OCRed to notekeeper.</span>") //concept of scanning paper copyright brainoblivion 2009)
 
 
 

@@ -208,7 +208,7 @@
 		else if ( addedSomething )
 			usr.visible_message("<span class='notice'>[user] loads [addedSomething] items onto their service tray.</span>")
 		else
-			user << "The tray is full or there's nothing valid here"
+			to_chat(user, "The tray is full or there's nothing valid here")
 			return 1
 		return 0//This prevents the alt-click from doing any farther actions
 	return 1
@@ -226,12 +226,12 @@
 				var/remaining = max_carry - current_weight
 				if (remaining >= I.w_class)
 					load_item(I,user)
-					if (messages)user << "You place [I] on the tray"
+					if (messages)to_chat(user, "You place [I] on the tray")
 					return 1
 				else
 					if (messages)
-						user << "The tray can't take that much weight"
-		if (!match && messages)user << "That item isn't suitable for a tray"
+						to_chat(user, "The tray can't take that much weight")
+		if (!match && messages)to_chat(user, "That item isn't suitable for a tray")
 	return 0
 
 
@@ -266,7 +266,7 @@
 
 /obj/item/weapon/tray/proc/unload_at_loc(var/turf/dropspot = null, var/mob/user)
 	if (!istype(loc,/turf) && !dropspot)//check that we're not being held by a mob
-		user << "Place the tray down first!"
+		to_chat(user, "Place the tray down first!")
 		return
 	else
 		if (!dropspot)

@@ -24,12 +24,12 @@
 /obj/machinery/artifact_harvester/attackby(var/obj/I as obj, var/mob/user as mob)
 	if(istype(I,/obj/item/weapon/anobattery))
 		if(!inserted_battery)
-			user << "<span class='notice'>You insert [I] into [src].</span>"
+			to_chat(user, "<span class='notice'>You insert [I] into [src].</span>")
 			user.drop_from_inventory(I,src)
 			src.inserted_battery = I
 			updateDialog()
 		else
-			user << "<span class='warning'>There is already a battery in [src].</span>"
+			to_chat(user, "<span class='warning'>There is already a battery in [src].</span>")
 	else
 		return..()
 
@@ -66,7 +66,7 @@
 	//
 	dat += "<HR>"
 	dat += "<A href='?src=\ref[src];refresh=1'>Refresh</A> <A href='?src=\ref[src];close=1'>Close<BR>"
-	user << browse(dat, "window=artharvester;size=450x500")
+	to_chat(user, browse(dat, "window=artharvester;size=450x500"))
 	onclose(user, "artharvester")
 
 /obj/machinery/artifact_harvester/machinery_process()

@@ -39,12 +39,12 @@
 
 	if(!active)
 		src.visible_message("<span class='warning'>[user] switches \the [src] on.</span>")
-		user << "<span class='warning'>The world beyond opens to your eyes.</span>"
+		to_chat(user, "<span class='warning'>The world beyond opens to your eyes.</span>")
 		active = TRUE
 
 	else
 		src.visible_message("<span class='warning'>[user] switches \the [src] off.</span>")
-		user << "<span class='warning'>The world beyond vanishes before your eyes.</span>"
+		to_chat(user, "<span class='warning'>The world beyond vanishes before your eyes.</span>")
 		active = FALSE
 
 	update_icon()

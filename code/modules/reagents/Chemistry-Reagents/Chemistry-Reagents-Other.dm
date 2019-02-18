@@ -746,7 +746,7 @@
 	return 1
 
 /obj/item/shapesand/afterattack(atom/A, mob/living/user)
-	user << "<span class='warning'>As you attempt to use the [src], it crumbles into inert sand!</span>"
+	to_chat(user, "<span class='warning'>As you attempt to use the [src], it crumbles into inert sand!</span>")
 	new /obj/item/weapon/ore/glass(get_turf(src))
 	qdel(src)
 	return

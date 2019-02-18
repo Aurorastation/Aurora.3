@@ -55,10 +55,10 @@
 /spell/targeted/life_steal/cast(list/targets, mob/living/user)
 	for(var/mob/living/M in targets)
 		if(M.stat == DEAD)
-			user << "There is no left life to steal."
+			to_chat(user, "There is no left life to steal.")
 			return 0
 		if(isipc(M))
-			user << "There is no life to steal."
+			to_chat(user, "There is no life to steal.")
 			return 0
 		M.visible_message("<span class='danger'>Blood flows from \the [M] into \the [user]!</span>")
 		gibs(M.loc)
@@ -88,19 +88,19 @@
 
 	for(var/mob/living/target in targets)
 		if(!(target.stat == DEAD))
-			user << "This spell can't affect the living."
+			to_chat(user, "This spell can't affect the living.")
 			return 0
 
 		if(isundead(target))
-			user << "This spell can't affect the undead."
+			to_chat(user, "This spell can't affect the undead.")
 			return 0
 
 		if(islesserform(target))
-			user << "This spell can't affect this lesser creature."
+			to_chat(user, "This spell can't affect this lesser creature.")
 			return 0
 
 		if(isipc(target))
-			user << "This spell can't affect non-organics."
+			to_chat(user, "This spell can't affect non-organics.")
 			return 0
 
 		var/mob/living/carbon/human/skeleton/F = new(get_turf(target))
@@ -147,7 +147,7 @@
 /spell/targeted/lichdom/cast(mob/target,var/mob/living/carbon/human/user as mob)
 	..()
 	if(isundead(user))
-		user << "You have no soul or life to offer."
+		to_chat(user, "You have no soul or life to offer.")
 		return 0
 
 	user.visible_message("<span class='cult'>\The [user]'s skin sloughs off bone, their blood boils and guts turn to dust!</span>")
@@ -158,7 +158,7 @@
 	user.unEquip(user.head)
 	user.equip_to_slot_or_del(new /obj/item/clothing/suit/wizrobe/black(user), slot_wear_suit)
 	user.equip_to_slot_or_del(new /obj/item/clothing/head/wizard/black(user), slot_head)
-	user << "<span class='notice'>Your soul flee to the remains of your heart, turning it into your phylactery. Do not allow anyone to destroy it!</span>"
+	to_chat(user, "<span class='notice'>Your soul flee to the remains of your heart, turning it into your phylactery. Do not allow anyone to destroy it!</span>")
 	var/obj/item/phylactery/G = new(get_turf(user))
 	G.lich = user
 	G.icon_state = "cursedheart-on"

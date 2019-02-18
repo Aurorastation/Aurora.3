@@ -72,7 +72,7 @@
 		else
 			t += "<A href='?src=\ref[src];auth=1'>*Authenticate*</A> (Requires an appropriate access ID)<BR>"
 		t += "<A href='?src=\ref[src];close=1'>Close</A><BR>"
-		user << browse(t, "window=camcircuit;size=500x400")
+		to_chat(user, browse(t, "window=camcircuit;size=500x400"))
 		onclose(user, "camcircuit")
 
 	Topic(href, href_list)
@@ -108,8 +108,8 @@
 /obj/item/weapon/circuitboard/camera/emag_act(var/remaining_charges, var/mob/user)
 	if(network)
 		authorised = 1
-		user << "<span class='notice'>You authorised the circuit network!</span>"
+		to_chat(user, "<span class='notice'>You authorised the circuit network!</span>")
 		updateDialog()
 		return 1
 	else
-		user << "<span class='warning'>You must select a camera network circuit!</span>"
+		to_chat(user, "<span class='warning'>You must select a camera network circuit!</span>")

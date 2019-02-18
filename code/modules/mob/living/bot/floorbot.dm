@@ -27,7 +27,7 @@
 
 /mob/living/bot/floorbot/attack_hand(var/mob/user)
 	if (!has_ui_access(user))
-		user << "<span class='warning'>The unit's interface refuses to unlock!</span>"
+		to_chat(user, "<span class='warning'>The unit's interface refuses to unlock!</span>")
 		return
 
 	user.set_machine(src)
@@ -48,7 +48,7 @@
 			bmode = "Disabled"
 		dat += "<BR><BR>Bridge Mode : <A href='?src=\ref[src];operation=bridgemode'>[bmode]</A><BR>"
 
-	user << browse("<HEAD><TITLE>Repairbot v1.1 controls</TITLE></HEAD>[dat]", "window=autorepair")
+	to_chat(user, browse("<HEAD><TITLE>Repairbot v1.1 controls</TITLE></HEAD>[dat]", "window=autorepair"))
 	onclose(user, "autorepair")
 	return
 
@@ -57,7 +57,7 @@
 	if(!emagged)
 		emagged = 1
 		if(user)
-			user << "<span class='notice'>The [src] buzzes and beeps.</span>"
+			to_chat(user, "<span class='notice'>The [src] buzzes and beeps.</span>")
 		return 1
 
 /mob/living/bot/floorbot/Topic(href, href_list)
@@ -306,17 +306,17 @@
 		..()
 		return
 	if(contents.len >= 1)
-		user << "<span class='notice'>They wont fit in as there is already stuff inside.</span>"
+		to_chat(user, "<span class='notice'>They wont fit in as there is already stuff inside.</span>")
 		return
 	if(user.s_active)
 		user.s_active.close(user)
 	if(T.use(10))
 		var/obj/item/weapon/toolbox_tiles/B = new /obj/item/weapon/toolbox_tiles
 		user.put_in_hands(B)
-		user << "<span class='notice'>You add the tiles into the empty toolbox. They protrude from the top.</span>"
+		to_chat(user, "<span class='notice'>You add the tiles into the empty toolbox. They protrude from the top.</span>")
 		qdel(src)
 	else
-		user << "<span class='warning'>You need 10 floor tiles for a floorbot.</span>"
+		to_chat(user, "<span class='warning'>You need 10 floor tiles for a floorbot.</span>")
 	return
 
 /obj/item/weapon/toolbox_tiles
@@ -338,7 +338,7 @@
 		var/obj/item/weapon/toolbox_tiles_sensor/B = new /obj/item/weapon/toolbox_tiles_sensor()
 		B.created_name = created_name
 		user.put_in_hands(B)
-		user << "<span class='notice'>You add the sensor to the toolbox and tiles!</span>"
+		to_chat(user, "<span class='notice'>You add the sensor to the toolbox and tiles!</span>")
 		qdel(src)
 		return 1
 	else if (istype(W, /obj/item/weapon/pen))
@@ -368,7 +368,7 @@
 		var/turf/T = get_turf(user.loc)
 		var/mob/living/bot/floorbot/A = new /mob/living/bot/floorbot(T)
 		A.name = created_name
-		user << "<span class='notice'>You add the robot arm to the odd looking toolbox assembly! Boop beep!</span>"
+		to_chat(user, "<span class='notice'>You add the robot arm to the odd looking toolbox assembly! Boop beep!</span>")
 		qdel(src)
 		return 1
 	else if(istype(W, /obj/item/weapon/pen))

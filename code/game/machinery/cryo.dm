@@ -173,7 +173,7 @@
 /obj/machinery/atmospherics/unary/cryo_cell/attackby(var/obj/item/weapon/G as obj, var/mob/user as mob)
 	if(istype(G, /obj/item/weapon/reagent_containers/glass))
 		if(beaker)
-			user << "<span class='warning'>A beaker is already loaded into the machine.</span>"
+			to_chat(user, "<span class='warning'>A beaker is already loaded into the machine.</span>")
 			return
 
 		beaker =  G
@@ -197,7 +197,7 @@
 				LB.user_unbuckle_mob(user)
 			for(var/mob/living/carbon/slime/M in range(1, L))
 				if(M.Victim == L)
-					user << "[L] will not fit into the cryo because they have a slime latched onto their head."
+					to_chat(user, "[L] will not fit into the cryo because they have a slime latched onto their head.")
 					return
 			if(put_mob(L))
 				user.visible_message("<span class='notice'>[user] puts [L] into [src].</span>", "<span class='notice'>You put [L] into [src].</span>", range = 3)

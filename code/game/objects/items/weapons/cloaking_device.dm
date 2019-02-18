@@ -127,17 +127,17 @@
 		if(!cell)
 			user.drop_from_inventory(W,src)
 			cell = W
-			user << "<span class='notice'>You install a cell in [src].</span>"
+			to_chat(user, "<span class='notice'>You install a cell in [src].</span>")
 			update_icon()
 		else
-			user << "<span class='notice'>[src] already has a cell.</span>"
+			to_chat(user, "<span class='notice'>[src] already has a cell.</span>")
 
 	else if(W.isscrewdriver())
 		if(cell)
 			cell.update_icon()
 			cell.forceMove(get_turf(src.loc))
 			cell = null
-			user << "<span class='notice'>You remove the cell from the [src].</span>"
+			to_chat(user, "<span class='notice'>You remove the cell from the [src].</span>")
 			deactivate()
 			return
 	..()
@@ -146,9 +146,9 @@
 /obj/item/weapon/cloaking_device/examine(mob/user)
 	..()
 	if (!cell)
-		user << "It needs a power cell to function."
+		to_chat(user, "It needs a power cell to function.")
 	else
-		user << "It has [cell.percent()]% power remaining"
+		to_chat(user, "It has [cell.percent()]% power remaining")
 
 /obj/item/weapon/cloaking_device/process()
 	if (!cell || !cell.checked_use(power_usage*CELLRATE))

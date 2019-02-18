@@ -108,7 +108,7 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 			req_console_supplies -= department
 		if (departmentType & RC_INFO)
 			req_console_information -= department
-	
+
 	if (LAZYLEN(alert_pdas))
 		for (var/pp in alert_pdas)
 			var/obj/item/device/pda/P = pp
@@ -345,7 +345,7 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 				announcement.announcer = ID.assignment ? "[ID.assignment] [ID.registered_name]" : ID.registered_name
 			else
 				reset_message()
-				user << "<span class='warning'>You are not authorized to send announcements.</span>"
+				to_chat(user, "<span class='warning'>You are not authorized to send announcements.</span>")
 			updateUsrDialog()
 	else if (istype(O, /obj/item/weapon/stamp))
 		if(inoperable(MAINT)) return
@@ -362,7 +362,7 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 			for (var/mob/U in hearers(4, src.loc))
 				U.show_message(text("\icon[src] *The Requests Console beeps: 'Paper added.'"))
 		else
-			user << "<span class='notice'>I should open the lid to add more paper, or try faxing one paper at a time.</span>"
+			to_chat(user, "<span class='notice'>I should open the lid to add more paper, or try faxing one paper at a time.</span>")
 	else if (istype(O, /obj/item/weapon/paper))
 		if(lid)					//Stocking them papers
 			var/obj/item/weapon/paper/C = O

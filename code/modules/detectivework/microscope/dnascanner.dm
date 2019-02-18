@@ -18,11 +18,11 @@
 /obj/machinery/dnaforensics/attackby(var/obj/item/W, mob/user as mob)
 
 	if(bloodsamp)
-		user << "<span class='warning'>There is already a sample in the machine.</span>"
+		to_chat(user, "<span class='warning'>There is already a sample in the machine.</span>")
 		return
 
 	if(closed)
-		user << "<span class='warning'>Open the cover before inserting the sample.</span>"
+		to_chat(user, "<span class='warning'>Open the cover before inserting the sample.</span>")
 		return
 
 	var/obj/item/weapon/forensics/swab/swab = W
@@ -30,9 +30,9 @@
 		user.unEquip(W)
 		src.bloodsamp = swab
 		swab.forceMove(src)
-		user << "<span class='notice'>You insert \the [W] into \the [src].</span>"
+		to_chat(user, "<span class='notice'>You insert \the [W] into \the [src].</span>")
 	else
-		user << "<span class='warning'>\The [src] only accepts used swabs.</span>"
+		to_chat(user, "<span class='warning'>\The [src] only accepts used swabs.</span>")
 		return
 
 /obj/machinery/dnaforensics/ui_interact(mob/user, ui_key = "main",var/datum/nanoui/ui = null)

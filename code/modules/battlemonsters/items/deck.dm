@@ -178,7 +178,7 @@
 
 		browse_data = "[formatted_data]<br><a href='?src=\ref[src];selection=[cardname]'>Draw Card</a><br><hr>[browse_data]"
 
-	user << browse(browse_data, "window=battlemonsters_hand")
+	to_chat(user, browse(browse_data, "window=battlemonsters_hand"))
 
 /obj/item/battle_monsters/deck/Topic(href,href_list)
 	if(..())

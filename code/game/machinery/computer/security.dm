@@ -49,7 +49,7 @@
 	if(istype(O, /obj/item/weapon/card/id) && !scan)
 		usr.drop_from_inventory(O,src)
 		scan = O
-		user << "You insert [O]."
+		to_chat(user, "You insert [O].")
 	else
 		..()
 
@@ -64,7 +64,7 @@
 
 /obj/machinery/computer/secure_data/ui_interact(user)
 	if (src.z > 6)
-		user << "<span class='warning'>Unable to establish a connection:</span> You're too far away from the station!"
+		to_chat(user, "<span class='warning'>Unable to establish a connection:</span> You're too far away from the station!")
 		return
 	var/dat
 
@@ -131,8 +131,8 @@
 				if(3.0)
 					dat += "<CENTER><B>Security Record</B></CENTER><BR>"
 					if ((istype(active1, /datum/data/record) && data_core.general.Find(active1)))
-						user << browse_rsc(active1.fields["photo_front"], "front.png")
-						user << browse_rsc(active1.fields["photo_side"], "side.png")
+						to_chat(user, browse_rsc(active1.fields["photo_front"], "front.png"))
+						to_chat(user, browse_rsc(active1.fields["photo_side"], "side.png"))
 						dat += text("<table><tr><td>	\
 						Name: <A href='?src=\ref[src];choice=Edit Field;field=name'>[active1.fields["name"]]</A><BR> \
 						ID: <A href='?src=\ref[src];choice=Edit Field;field=id'>[active1.fields["id"]]</A><BR>\n \
@@ -229,7 +229,7 @@
 				else
 		else
 			dat += text("<A href='?src=\ref[];choice=Log In'>{Log In}</A>", src)
-	user << browse(text("<HEAD><TITLE>Security Records</TITLE></HEAD><TT>[]</TT>", dat), "window=secure_rec;size=600x400")
+	to_chat(user, browse(text("<HEAD><TITLE>Security Records</TITLE></HEAD><TT>[]</TT>", dat), "window=secure_rec;size=600x400"))
 	onclose(user, "secure_rec")
 	return
 

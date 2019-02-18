@@ -81,7 +81,7 @@
 		if(!locked)
 			open = !open
 			update_icon()
-			user << "<span class='notice'>Maintenance panel is now [open ? "opened" : "closed"].</span>"
+			to_chat(user, "<span class='notice'>Maintenance panel is now [open ? "opened" : "closed"].</span>")
 	else if(W.iscrowbar() && cell && open)
 		remove_cell(user)
 
@@ -96,11 +96,11 @@
 					user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 					user.visible_message("<span class='warning'>[user] repairs [src]!</span>","<span class='notice'>You repair [src]!</span>")
 				else
-					user << "<span class='notice'>Unable to repair with the maintenance panel closed.</span>"
+					to_chat(user, "<span class='notice'>Unable to repair with the maintenance panel closed.</span>")
 			else
-				user << "<span class='notice'>[src] does not need a repair.</span>"
+				to_chat(user, "<span class='notice'>[src] does not need a repair.</span>")
 		else
-			user << "<span class='notice'>Unable to repair while [src] is off.</span>"
+			to_chat(user, "<span class='notice'>Unable to repair while [src] is off.</span>")
 	else if(hasvar(W,"force") && hasvar(W,"damtype"))
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 		switch(W.damtype)
@@ -191,7 +191,7 @@
 		emagged = 1
 		if(locked)
 			locked = 0
-			user << "<span class='warning'>You bypass [src]'s controls.</span>"
+			to_chat(user, "<span class='warning'>You bypass [src]'s controls.</span>")
 		return 1
 
 /obj/vehicle/proc/explode()

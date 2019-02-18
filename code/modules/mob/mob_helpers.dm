@@ -717,7 +717,7 @@ proc/is_blind(A)
 		if (istype(user,/mob/living/silicon/robot))
 			return 2
 		else
-			user << "You must unbuckle the subject first"
+			to_chat(user, "You must unbuckle the subject first")
 			return 0
 	return 1
 

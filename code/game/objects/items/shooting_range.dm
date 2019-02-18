@@ -59,10 +59,10 @@
 				if(ishuman(user))
 					if(!user.get_active_hand())
 						user.put_in_hands(src)
-						user << "You take the target out of the stake."
+						to_chat(user, "You take the target out of the stake.")
 				else
 					src.forceMove(get_turf(user))
-					user << "You take the target out of the stake."
+					to_chat(user, "You take the target out of the stake.")
 
 				stake.pinned_target = null
 				return

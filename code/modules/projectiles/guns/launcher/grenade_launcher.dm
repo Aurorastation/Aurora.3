@@ -44,15 +44,15 @@
 /obj/item/weapon/gun/launcher/grenade/examine(mob/user)
 	if(..(user, 2))
 		var/grenade_count = grenades.len + (chambered? 1 : 0)
-		user << "Has [grenade_count] grenade\s remaining."
+		to_chat(user, "Has [grenade_count] grenade\s remaining.")
 		if(chambered)
-			user << "\A [chambered] is chambered."
+			to_chat(user, "\A [chambered] is chambered.")
 
 /obj/item/weapon/gun/launcher/grenade/proc/load(obj/item/weapon/grenade/G, mob/user)
 	if(!can_load_grenade_type(G, user))
 		return
 	if(grenades.len >= max_grenades)
-		user << "<span class='warning'>[src] is full.</span>"
+		to_chat(user, "<span class='warning'>[src] is full.</span>")
 		return
 	user.remove_from_mob(G)
 	G.forceMove(src)
@@ -66,11 +66,11 @@
 		user.put_in_hands(G)
 		user.visible_message("[user] removes \a [G] from [src].", "<span class='notice'>You remove \a [G] from [src].</span>")
 	else
-		user << "<span class='warning'>[src] is empty.</span>"
+		to_chat(user, "<span class='warning'>[src] is empty.</span>")
 
 /obj/item/weapon/gun/launcher/grenade/proc/can_load_grenade_type(obj/item/weapon/grenade/G, mob/user)
 	if(is_type_in_list(G, blacklisted_grenades))
-		user << "<span class='warning'>\The [G] doesn't seem to fit in \the [src]!</span>"
+		to_chat(user, "<span class='warning'>\The [G] doesn't seem to fit in \the [src]!</span>")
 		return FALSE
 	return TRUE
 
@@ -114,7 +114,7 @@
 //load and unload directly into chambered
 /obj/item/weapon/gun/launcher/grenade/underslung/load(obj/item/weapon/grenade/G, mob/user)
 	if(chambered)
-		user << "<span class='warning'>[src] is already loaded.</span>"
+		to_chat(user, "<span class='warning'>[src] is already loaded.</span>")
 		return
 	user.remove_from_mob(G)
 	G.forceMove(src)
@@ -127,4 +127,4 @@
 		user.visible_message("[user] removes \a [chambered] from [src].", "<span class='notice'>You remove \a [chambered] from [src].</span>")
 		chambered = null
 	else
-		user << "<span class='warning'>[src] is empty.</span>"
+		to_chat(user, "<span class='warning'>[src] is empty.</span>")

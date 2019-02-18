@@ -41,17 +41,17 @@
 //Possible TODO in future, allow emagging a paicard to let it work like an agent ID, accumulating access from any ID
 /obj/item/device/paicard/proc/scan_ID(var/obj/item/weapon/card/id/card, var/mob/user)
 	if (!pai)
-		user << "<span class='warning'>Error: ID Registration failed. No pAI personality installed.</span>"
+		to_chat(user, "<span class='warning'>Error: ID Registration failed. No pAI personality installed.</span>")
 		playsound(src.loc, 'sound/machines/buzz-two.ogg', 20, 0)
 		return 0
 
 	if (!pai.master_dna)
-		user << "<span class='warning'>Error: ID Registration failed. User not registered as owner. Please complete imprinting process first.</span>"
+		to_chat(user, "<span class='warning'>Error: ID Registration failed. User not registered as owner. Please complete imprinting process first.</span>")
 		playsound(src.loc, 'sound/machines/buzz-two.ogg', 20, 0)
 		return 0
 
 	if (pai.master_dna != card.dna_hash)
-		user << "<span class='warning'>Error: ID Registration failed. Biometric data on ID card does not match DNA sample of registered owner.</span>"
+		to_chat(user, "<span class='warning'>Error: ID Registration failed. Biometric data on ID card does not match DNA sample of registered owner.</span>")
 		playsound(src.loc, 'sound/machines/buzz-two.ogg', 20, 0)
 		return 0
 
@@ -59,7 +59,7 @@
 	pai.idcard.access = card.access.Copy()
 	pai.idcard.registered_name = card.registered_name
 	playsound(src.loc, 'sound/machines/ping.ogg', 50, 0)
-	user << "<span class='notice'>ID Registration for [pai.idcard.registered_name] is a success. PAI access updated!</span>"
+	to_chat(user, "<span class='notice'>ID Registration for [pai.idcard.registered_name] is a success. PAI access updated!</span>")
 	return 1
 
 /obj/item/device/paicard/proc/ID_readout()
@@ -264,7 +264,7 @@
 				<br>
 				<p>Each time this button is pressed, a request will be sent out to any available personalities. Check back often give plenty of time for personalities to respond. This process could take anywhere from 15 seconds to several minutes, depending on the available personalities' timelines.</p>
 			"}
-	user << browse(dat, "window=paicard")
+	to_chat(user, browse(dat, "window=paicard"))
 	onclose(user, "paicard")
 	return
 

@@ -63,7 +63,7 @@
 		dat += "<a href='?src=\ref[src];item=1'>Recover object</a>.<br>"
 		dat += "<a href='?src=\ref[src];allitems=1'>Recover all objects</a>.<br>"
 
-	user << browse(dat, "window=cryopod_console")
+	to_chat(user, browse(dat, "window=cryopod_console"))
 	onclose(user, "cryopod_console")
 
 /obj/machinery/computer/cryopod/Topic(href, href_list)
@@ -82,7 +82,7 @@
 			dat += "[person]<br/>"
 		dat += "<hr/>"
 
-		user << browse(dat, "window=cryolog")
+		to_chat(user, browse(dat, "window=cryolog"))
 
 	if(href_list["view"])
 		if(!allow_items) return
@@ -92,13 +92,13 @@
 			dat += "[I.name]<br/>"
 		dat += "<hr/>"
 
-		user << browse(dat, "window=cryoitems")
+		to_chat(user, browse(dat, "window=cryoitems"))
 
 	else if(href_list["item"])
 		if(!allow_items) return
 
 		if(frozen_items.len == 0)
-			user << "<span class='notice'>There is nothing to recover from storage.</span>"
+			to_chat(user, "<span class='notice'>There is nothing to recover from storage.</span>")
 			return
 
 		var/obj/item/I = input(usr, "Please choose which object to retrieve.","Object recovery",null) as null|anything in frozen_items
@@ -106,7 +106,7 @@
 			return
 
 		if(!(I in frozen_items))
-			user << "<span class='notice'>\The [I] is no longer in storage.</span>"
+			to_chat(user, "<span class='notice'>\The [I] is no longer in storage.</span>")
 			return
 
 		visible_message("<span class='notice'>The console beeps happily as it disgorges \the [I].</span>", range = 3)
@@ -118,7 +118,7 @@
 		if(!allow_items) return
 
 		if(frozen_items.len == 0)
-			user << "<span class='notice'>There is nothing to recover from storage.</span>"
+			to_chat(user, "<span class='notice'>There is nothing to recover from storage.</span>")
 			return
 
 		visible_message("<span class='notice'>The console beeps happily as it disgorges the desired objects.</span>", range = 3)
@@ -331,7 +331,7 @@
 	if(istype(G))
 
 		if(occupant)
-			user << "<span class='notice'>\The [src] is in use.</span>"
+			to_chat(user, "<span class='notice'>\The [src] is in use.</span>")
 			return
 
 		if(!ismob(G.affecting))
@@ -385,12 +385,12 @@
 	if(!check_occupant_allowed(O))
 		return
 	if(occupant)
-		user << "<span class='notice'>\The [src] is in use.</span>"
+		to_chat(user, "<span class='notice'>\The [src] is in use.</span>")
 		return
 	var/mob/living/L = O
 
 	if(L.stat == DEAD)
-		user << "<span class='notice'>Dead people can not be put into stasis.</span>"
+		to_chat(user, "<span class='notice'>Dead people can not be put into stasis.</span>")
 		return
 	for(var/mob/living/carbon/slime/M in range(1,L))
 		if(M.Victim == L)
@@ -422,7 +422,7 @@
 				L.client.perspective = EYE_PERSPECTIVE
 				L.client.eye = src
 		else
-			user << "<span class='notice'>You stop [L == user ? "climbing into" : "putting [L] into"] \the [name].</span>"
+			to_chat(user, "<span class='notice'>You stop [L == user ? "climbing into" : "putting [L] into"] \the [name].</span>")
 			return
 
 		icon_state = occupied_icon_state

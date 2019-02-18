@@ -66,7 +66,7 @@
 
 /obj/machinery/radiocarbon_spectrometer/attackby(var/obj/I as obj, var/mob/user as mob)
 	if(scanning)
-		user << "<span class='warning'>You can't do that while [src] is scanning!</span>"
+		to_chat(user, "<span class='warning'>You can't do that while [src] is scanning!</span>")
 	else
 		if(istype(I, /obj/item/stack/nanopaste))
 			var/choice = alert("What do you want to do with the nanopaste?","Radiometric Scanner","Scan nanopaste","Fix seal integrity")
@@ -82,22 +82,22 @@
 				var/obj/item/weapon/reagent_containers/glass/G = I
 				var/amount_transferred = min(src.reagents.maximum_volume - src.reagents.total_volume, G.reagents.total_volume)
 				G.reagents.trans_to(src, amount_transferred)
-				user << "<span class='info'>You empty [amount_transferred]u of coolant into [src].</span>"
+				to_chat(user, "<span class='info'>You empty [amount_transferred]u of coolant into [src].</span>")
 				update_coolant()
 				return
 			else if(choice == "Empty coolant")
 				var/obj/item/weapon/reagent_containers/glass/G = I
 				var/amount_transferred = min(G.reagents.maximum_volume - G.reagents.total_volume, src.reagents.total_volume)
 				src.reagents.trans_to(G, amount_transferred)
-				user << "<span class='info'>You remove [amount_transferred]u of coolant from [src].</span>"
+				to_chat(user, "<span class='info'>You remove [amount_transferred]u of coolant from [src].</span>")
 				update_coolant()
 				return
 		if(scanned_item)
-			user << "<span class=warning>\The [src] already has \a [scanned_item] inside!</span>"
+			to_chat(user, "<span class=warning>\The [src] already has \a [scanned_item] inside!</span>")
 			return
 		user.drop_from_inventory(I,src)
 		scanned_item = I
-		user << "<span class=notice>You put \the [I] into \the [src].</span>"
+		to_chat(user, "<span class=notice>You put \the [I] into \the [src].</span>")
 
 /obj/machinery/radiocarbon_spectrometer/proc/update_coolant()
 	var/total_purity = 0

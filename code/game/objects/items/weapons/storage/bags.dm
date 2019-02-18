@@ -70,9 +70,9 @@
 				handle_storage_deferred(user)
 
 			if (count)
-				user << "<span class='notice'>You empty [count] broken bulbs into the trashbag.</span>"
+				to_chat(user, "<span class='notice'>You empty [count] broken bulbs into the trashbag.</span>")
 			else if (!bagfull)
-				user << "<span class='notice'>There are no broken bulbs to empty out.</span>"
+				to_chat(user, "<span class='notice'>There are no broken bulbs to empty out.</span>")
 			return 1
 	..()
 

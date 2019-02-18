@@ -77,7 +77,7 @@
 
 	dat += "</body><html>"
 
-	user << browse(dat, "window=chem_heater")
+	to_chat(user, browse(dat, "window=chem_heater"))
 	onclose(user, "chem_heater")
 
 /obj/machinery/chem_heater/Topic(href, href_list)

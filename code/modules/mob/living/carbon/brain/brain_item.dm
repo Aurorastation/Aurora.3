@@ -35,7 +35,7 @@
 
 /obj/item/organ/brain/xeno/gain_trauma()
 	return
-	
+
 /obj/item/organ/brain/Initialize(mapload)
 	. = ..()
 	health = config.default_brain_health
@@ -67,9 +67,9 @@
 /obj/item/organ/brain/examine(mob/user) // -- TLE
 	..(user)
 	if(brainmob && brainmob.client)//if thar be a brain inside... the brain.
-		user << "You can feel the small spark of life still left in this one."
+		to_chat(user, "You can feel the small spark of life still left in this one.")
 	else
-		user << "This one seems particularly lifeless. Perhaps it will regain some of its luster later.."
+		to_chat(user, "This one seems particularly lifeless. Perhaps it will regain some of its luster later..")
 
 /obj/item/organ/brain/removed(var/mob/living/user)
 
@@ -126,7 +126,7 @@
 			user.visible_message("<span class='danger'>[user] drills [src] deftly with [W] into the brain!</span>")
 			lobotomize(user)
 		else
-			user << "<span class='notice'>The brain has already been operated on!</span>"
+			to_chat(user, "<span class='notice'>The brain has already been operated on!</span>")
 	..()
 
 /obj/item/organ/brain/process()

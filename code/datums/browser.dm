@@ -109,7 +109,7 @@
 		send_asset_list(user, stylesheets, verify = FALSE)
 	if (scripts.len)
 		send_asset_list(user, scripts, verify = FALSE)
-	user << browse(get_content(), "window=[window_id];[window_size][window_options]")
+	to_chat(user, browse(get_content(), "window=[window_id];[window_size][window_options]"))
 	if (use_onclose)
 		setup_onclose()
 
@@ -128,7 +128,7 @@
 		send_output(user, get_content(), "[window_id].browser")
 
 /datum/browser/proc/close()
-	user << browse(null, "window=[window_id]")
+	to_chat(user, browse(null, "window=[window_id]"))
 
 // This will allow you to show an icon in the browse window
 // This is added to mob so that it can be used without a reference to the browser object
@@ -155,7 +155,7 @@
 // e.g. canisters, timers, etc.
 //
 // windowid should be the specified window name
-// e.g. code is	: user << browse(text, "window=fred")
+// e.g. code is	: to_chat(user, browse(text, "window=fred"))
 // then use 	: onclose(user, "fred")
 //
 // Optionally, specify the "ref" parameter as the controlled atom (usually src)

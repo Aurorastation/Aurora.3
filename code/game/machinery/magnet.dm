@@ -270,7 +270,7 @@
 		dat += "Moving: <a href='?src=\ref[src];operation=togglemoving'>[moving ? "Enabled":"Disabled"]</a>"
 
 
-		user << browse(dat, "window=magnet;size=400x500")
+		to_chat(user, browse(dat, "window=magnet;size=400x500"))
 		onclose(user, "magnet")
 
 	Topic(href, href_list)

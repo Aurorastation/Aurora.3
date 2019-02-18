@@ -128,7 +128,7 @@
 	else
 		src.dna = user.dna.unique_enzymes
 		src.owner_name = user.real_name
-		user << "<span class='notice'>You feel your palm heat up as the gun reads your DNA profile.</span>"
+		to_chat(user, "<span class='notice'>You feel your palm heat up as the gun reads your DNA profile.</span>")
 		desc += "<br>Linked to: [user.real_name]"
 		return
 
@@ -141,8 +141,8 @@
 			var/obj/item/organ/external/RA = H.get_organ("r_arm")
 			var/active_hand = H.hand
 			playsound(user, 'sound/weapons/lawgiver_idfail.ogg', 40, 1)
-			user << "<span class='danger'>You hear a soft beep from the gun and 'ID FAIL' flashes across the screen.</span>"
-			user << "<span class='danger'>You feel a tiny prick in your hand!</span>"
+			to_chat(user, "<span class='danger'>You hear a soft beep from the gun and 'ID FAIL' flashes across the screen.</span>")
+			to_chat(user, "<span class='danger'>You feel a tiny prick in your hand!</span>")
 			user.drop_item()
 			//Blow up Unauthorized Users Hand//todo, delet this, as it's duplicate behaviour from Firing pins.
 			sleep(60)

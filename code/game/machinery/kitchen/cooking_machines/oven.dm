@@ -82,7 +82,7 @@
 
 /obj/machinery/appliance/cooker/oven/can_insert(var/obj/item/I, var/mob/user)
 	if (!open)
-		user << "<span class='warning'>You can't put anything in while the door is closed!</span>"
+		to_chat(user, "<span class='warning'>You can't put anything in while the door is closed!</span>")
 		return 0
 
 	else
@@ -100,7 +100,7 @@
 
 /obj/machinery/appliance/cooker/oven/can_remove_items(var/mob/user)
 	if (!open)
-		user << "<span class='warning'>You can't take anything out while the door is closed!</span>"
+		to_chat(user, "<span class='warning'>You can't take anything out while the door is closed!</span>")
 		return 0
 
 	else

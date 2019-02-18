@@ -119,13 +119,13 @@
 	if (damagetaken)
 		switch (damagetaken)
 			if (1 to 8)
-				user << "It has very faint hairline fractures."
+				to_chat(user, "It has very faint hairline fractures.")
 			if (8 to 20)
-				user << "It has several cracks across its surface."
+				to_chat(user, "It has several cracks across its surface.")
 			if (20 to 30)
-				user << "It is chipped and deeply cracked, it may shatter with much more pressure."
+				to_chat(user, "It is chipped and deeply cracked, it may shatter with much more pressure.")
 			if (30 to INFINITY)
-				user << "It is almost cleaved in two, the pylon looks like it will fall to shards under its own weight."
+				to_chat(user, "It is almost cleaved in two, the pylon looks like it will fall to shards under its own weight.")
 
 
 /obj/structure/cult/pylon/Move()
@@ -209,9 +209,9 @@
 //If user is not cultist, then speaks cult-y gibberish
 /obj/structure/cult/pylon/proc/speak_to(var/mob/user, var/message)
 	if (iscult(user) || (/datum/language/cultcommon in user.languages))
-		user << "A voice speaks into your mind, [span("cult","\"<I>[message]</I>\"")]"
+		to_chat(user, "A voice speaks into your mind, <span class='cult'><i>[message]</i></span>")
 	else
-		user << "A voice speaks into your mind, [span("cult","\"<I>[lang.scramble(message)]</I>\"")]"
+		to_chat(user, "A voice speaks into your mind, <span class='cult'><i>[lang.scramble(message)]</i></span>")
 
 
 //Todo: Replace the messages here with better ones. Should display a proper message to cultists
@@ -221,7 +221,7 @@
 		return 0
 
 	if (isbroken)
-		user << "The pylon lies silent."
+		to_chat(user, "The pylon lies silent.")
 		return 0
 
 	if (pylonmode != 0)
@@ -453,7 +453,7 @@
 			shatter()
 			return
 		if (I.damtype != BRUTE)
-			user << "You swing at the pylon to no effect."
+			to_chat(user, "You swing at the pylon to no effect.")
 			return
 
 	if (istype(source, /obj/item/projectile))
@@ -489,15 +489,15 @@
 			shatter()
 		else
 			if (user && !ranged)
-				user << "You hit the pylon!"
+				to_chat(user, "You hit the pylon!")
 			playsound(get_turf(src), 'sound/effects/Glasshit.ogg', 75, 1)
 	else
 		if(prob(damagetaken))
 			if (user)
-				user << "You pulverize what was left of the pylon!"
+				to_chat(user, "You pulverize what was left of the pylon!")
 			qdel(src)
 		else if (user && !ranged)
-			user << "You hit the pylon!"
+			to_chat(user, "You hit the pylon!")
 		playsound(get_turf(src), 'sound/effects/Glasshit.ogg', 75, 1)
 
 	start_process()
@@ -537,14 +537,14 @@
 /obj/structure/cult/pylon/proc/repair(mob/user as mob)
 	if(isbroken)
 		if(user)
-			user << span("notice","You weave forgotten magic, summoning the shards of the crystal and knitting them anew, until it hovers flawless once more.")
+			to_chat(user, span("notice","You weave forgotten magic, summoning the shards of the crystal and knitting them anew, until it hovers flawless once more."))
 		isbroken = 0
 		density = 1
 	else if (damagetaken > 0)
-		user << span("notice","You meld the crystal lattice back into integrity, sealing over the cracks until they never were.")
+		to_chat(user, span("notice","You meld the crystal lattice back into integrity, sealing over the cracks until they never were."))
 
 	else
-		user << span("notice","The crystal lights up at your touch.")
+		to_chat(user, span("notice","The crystal lights up at your touch."))
 
 	process_interval = 1 //Wake up the crystal
 	notarget = 0

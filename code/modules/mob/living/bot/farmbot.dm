@@ -45,7 +45,7 @@
 		return
 
 	if (!has_ui_access(user))
-		user << "<span class='warning'>The unit's interface refuses to unlock!</span>"
+		to_chat(user, "<span class='warning'>The unit's interface refuses to unlock!</span>")
 		return
 
 	var/dat = ""
@@ -71,7 +71,7 @@
 		dat += "Remove dead plants: <A href='?src=\ref[src];removedead=1'>[removes_dead ? "Yes" : "No"]</A><BR>"
 		dat += "</TT>"
 
-	user << browse("<HEAD><TITLE>Farmbot v1.1 controls</TITLE></HEAD>[dat]", "window=autofarm")
+	to_chat(user, browse("<HEAD><TITLE>Farmbot v1.1 controls</TITLE></HEAD>[dat]", "window=autofarm"))
 	onclose(user, "autofarm")
 	return
 
@@ -79,7 +79,7 @@
 	. = ..()
 	if(!emagged)
 		if(user)
-			user << "<span class='notice'>You short out [src]'s plant identifier circuits.</span>"
+			to_chat(user, "<span class='notice'>You short out [src]'s plant identifier circuits.</span>")
 		spawn(rand(30, 50))
 			visible_message("<span class='warning'>[src] buzzes oddly.</span>")
 			emagged = 1
@@ -338,7 +338,7 @@
 
 	var/obj/item/weapon/farmbot_arm_assembly/A = new /obj/item/weapon/farmbot_arm_assembly(loc)
 
-	user << "You add the robot arm to [src]."
+	to_chat(user, "You add the robot arm to [src].")
 	loc = A //Place the water tank into the assembly, it will be needed for the finished bot
 	qdel(S)
 
@@ -346,21 +346,21 @@
 	..()
 	if((istype(W, /obj/item/device/analyzer/plant_analyzer)) && (build_step == 0))
 		build_step++
-		user << "You add the plant analyzer to [src]."
+		to_chat(user, "You add the plant analyzer to [src].")
 		name = "farmbot assembly"
 		qdel(W)
 		return 1
 
 	else if((istype(W, /obj/item/weapon/reagent_containers/glass/bucket)) && (build_step == 1))
 		build_step++
-		user << "You add a bucket to [src]."
+		to_chat(user, "You add a bucket to [src].")
 		name = "farmbot assembly with bucket"
 		qdel(W)
 		return 1//Prevents the object's afterattack from executing and causing runtime errors
 
 	else if((istype(W, /obj/item/weapon/material/minihoe)) && (build_step == 2))
 		build_step++
-		user << "You add a minihoe to [src]."
+		to_chat(user, "You add a minihoe to [src].")
 		name = "farmbot assembly with bucket and minihoe"
 		user.remove_from_mob(W)
 		qdel(W)
@@ -368,7 +368,7 @@
 
 	else if((isprox(W)) && (build_step == 3))
 		build_step++
-		user << "You complete the Farmbot! Beep boop."
+		to_chat(user, "You complete the Farmbot! Beep boop.")
 		var/mob/living/bot/farmbot/S = new /mob/living/bot/farmbot(get_turf(src))
 		for(var/obj/structure/reagent_dispensers/watertank/wTank in contents)
 			qdel(S.tank)

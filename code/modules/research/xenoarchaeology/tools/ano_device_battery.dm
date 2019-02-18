@@ -40,7 +40,7 @@
 /obj/item/weapon/anodevice/attackby(var/obj/I as obj, var/mob/user as mob)
 	if(istype(I, /obj/item/weapon/anobattery))
 		if(!inserted_battery)
-			user << "<span class='notice'>You insert the battery.</span>"
+			to_chat(user, "<span class='notice'>You insert the battery.</span>")
 			user.drop_from_inventory(I,src)
 			inserted_battery = I
 			UpdateSprite()
@@ -75,7 +75,7 @@
 	dat += "<hr>"
 	dat += "<a href='?src=\ref[src];refresh=1'>Refresh</a> <a href='?src=\ref[src];close=1'>Close</a>"
 
-	user << browse(dat, "window=anodevice;size=400x500")
+	to_chat(user, browse(dat, "window=anodevice;size=400x500"))
 	onclose(user, "anodevice")
 
 /obj/item/weapon/anodevice/process()

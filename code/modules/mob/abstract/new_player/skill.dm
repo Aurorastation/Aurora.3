@@ -171,7 +171,7 @@ proc/show_skill_window(var/mob/user, var/mob/living/carbon/human/M)
 		setup_skills()
 
 	if(!M.skills || M.skills.len == 0)
-		user << "There are no skills to display."
+		to_chat(user, "There are no skills to display.")
 		return
 
 	var/HTML = "<body>"
@@ -196,8 +196,8 @@ proc/show_skill_window(var/mob/user, var/mob/living/carbon/human/M)
 			HTML += "</tr>"
 	HTML += "</table>"
 
-	user << browse(null, "window=preferences")
-	user << browse(HTML, "window=show_skills;size=600x800")
+	to_chat(user, browse(null, "window=preferences"))
+	to_chat(user, browse(HTML, "window=show_skills;size=600x800"))
 	return
 
 mob/living/carbon/human/verb/show_skills()

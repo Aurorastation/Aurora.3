@@ -45,13 +45,13 @@
 
 	if(!linkedholodeck)
 		dat += "<span class='danger'>Warning: Unable to locate holodeck.<br></span>"
-		user << browse(dat, "window=computer;size=400x500")
+		to_chat(user, browse(dat, "window=computer;size=400x500"))
 		onclose(user, "computer")
 		return
 
 	if(!current_map.holodeck_supported_programs.len)
 		dat += "<span class='danger'>Warning: No supported holo-programs loaded.<br></span>"
-		user << browse(dat, "window=computer;size=400x500")
+		to_chat(user, browse(dat, "window=computer;size=400x500"))
 		onclose(user, "computer")
 		return
 
@@ -96,7 +96,7 @@
 		dat = "<B>Holodeck Control System</B><BR>"
 		dat += "Holodeck is <A href='?src=\ref[src];togglehololock=1'><font color=red>(LOCKED)</font></A><BR>"
 
-	user << browse(dat, "window=computer;size=400x500")
+	to_chat(user, browse(dat, "window=computer;size=400x500"))
 	onclose(user, "computer")
 	return
 
@@ -150,8 +150,8 @@
 		safety_disabled = 1
 		req_one_access = list()
 		update_projections()
-		user << "<span class='notice'>You vastly increase projector power and override the safety and security protocols.</span>"
-		user << "Warning.  Automatic shutoff and derezing protocols have been corrupted.  Please call [current_map.company_name] maintenance and do not use the simulator."
+		to_chat(user, "<span class='notice'>You vastly increase projector power and override the safety and security protocols.</span>")
+		to_chat(user, "Warning.  Automatic shutoff and derezing protocols have been corrupted.  Please call [current_map.company_name] maintenance and do not use the simulator.")
 		log_game("[key_name(usr)] emagged the Holodeck Control Computer",ckey=key_name(usr))
 		return 1
 		src.updateUsrDialog()

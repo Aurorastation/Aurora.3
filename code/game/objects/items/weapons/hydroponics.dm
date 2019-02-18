@@ -42,10 +42,10 @@
 					else
 						S.item_quants[G.name] = 1
 				else
-					user << "<span class='warning'>The seed bag is full.</span>"
+					to_chat(user, "<span class='warning'>The seed bag is full.</span>")
 					S.updateUsrDialog()
 					return
-			user << "<span class='notice'>You pick up all the seeds.</span>"
+			to_chat(user, "<span class='notice'>You pick up all the seeds.</span>")
 		else
 			if (S.contents.len < S.capacity)
 				S.contents += src;
@@ -54,7 +54,7 @@
 				else
 					S.item_quants[name] = 1
 			else
-				user << "<span class='warning'>The seed bag is full.</span>"
+				to_chat(user, "<span class='warning'>The seed bag is full.</span>")
 		S.updateUsrDialog()
 	return
 
@@ -75,7 +75,7 @@
 
 		dat += "<br><a href='byond://?src=\ref[src];unload=1'>Unload All</A>"
 		dat += "</TT>"
-	user << browse("<HEAD><TITLE>Seedbag Supplies</TITLE></HEAD><TT>[dat]</TT>", "window=seedbag")
+	to_chat(user, browse("<HEAD><TITLE>Seedbag Supplies</TITLE></HEAD><TT>[dat]</TT>", "window=seedbag"))
 	onclose(user, "seedbag")
 	return
 

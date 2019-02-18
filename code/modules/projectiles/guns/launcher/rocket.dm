@@ -21,15 +21,15 @@
 /obj/item/weapon/gun/launcher/rocket/examine(mob/user)
 	if(!..(user, 2))
 		return
-	user << "<span class='notice'>[rockets.len] / [max_rockets] rockets.</span>"
+	to_chat(user, "<span class='notice'>[rockets.len] / [max_rockets] rockets.</span>")
 
 /obj/item/weapon/gun/launcher/rocket/attackby(obj/item/I as obj, mob/user as mob)
 	if(istype(I, /obj/item/ammo_casing/rocket))
 		if(rockets.len < max_rockets)
 			user.drop_from_inventory(I,src)
 			rockets += I
-			user << "<span class='notice'>You put the rocket in [src].</span>"
-			user << "<span class='notice'>[rockets.len] / [max_rockets] rockets.</span>"
+			to_chat(user, "<span class='notice'>You put the rocket in [src].</span>")
+			to_chat(user, "<span class='notice'>[rockets.len] / [max_rockets] rockets.</span>")
 		else
 			usr << "<span class='warning'>[src] cannot hold more rockets.</span>"
 

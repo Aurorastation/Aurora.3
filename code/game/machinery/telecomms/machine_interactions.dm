@@ -34,26 +34,26 @@
 	switch(construct_op)
 		if(0)
 			if(P.isscrewdriver())
-				user << "You unfasten the bolts."
+				to_chat(user, "You unfasten the bolts.")
 				playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, 1)
 				construct_op ++
 		if(1)
 			if(P.isscrewdriver())
-				user << "You fasten the bolts."
+				to_chat(user, "You fasten the bolts.")
 				playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, 1)
 				construct_op --
 			if(P.iswrench())
-				user << "You dislodge the external plating."
+				to_chat(user, "You dislodge the external plating.")
 				playsound(src.loc, 'sound/items/Ratchet.ogg', 75, 1)
 				construct_op ++
 		if(2)
 			if(P.iswrench())
-				user << "You secure the external plating."
+				to_chat(user, "You secure the external plating.")
 				playsound(src.loc, 'sound/items/Ratchet.ogg', 75, 1)
 				construct_op --
 			if(P.iswirecutter())
 				playsound(src.loc, 'sound/items/Wirecutter.ogg', 50, 1)
-				user << "You remove the cables."
+				to_chat(user, "You remove the cables.")
 				construct_op ++
 				var/obj/item/stack/cable_coil/A = new /obj/item/stack/cable_coil( user.loc )
 				A.amount = 5
@@ -62,16 +62,16 @@
 			if(P.iscoil())
 				var/obj/item/stack/cable_coil/A = P
 				if (A.use(5))
-					user << "<span class='notice'>You insert the cables.</span>"
+					to_chat(user, "<span class='notice'>You insert the cables.</span>")
 					construct_op--
 					stat &= ~BROKEN // the machine's not borked anymore!
 				else
-					user << "<span class='warning'>You need five coils of wire for this.</span>"
+					to_chat(user, "<span class='warning'>You need five coils of wire for this.</span>")
 			if(P.iscrowbar())
-				user << "You begin prying out the circuit board other components..."
+				to_chat(user, "You begin prying out the circuit board other components...")
 				playsound(src.loc, 'sound/items/Crowbar.ogg', 50, 1)
 				if(do_after(user,60))
-					user << "You finish prying out the components."
+					to_chat(user, "You finish prying out the components.")
 
 					// Drop all the component stuff
 					if(contents.len > 0)
@@ -170,7 +170,7 @@
 
 	dat += "</font>"
 	temp = ""
-	user << browse(dat, "window=tcommachine;size=520x500;can_resize=0")
+	to_chat(user, browse(dat, "window=tcommachine;size=520x500;can_resize=0"))
 	onclose(user, "dormitory")
 
 // Returns a multitool from a user depending on their mobtype.

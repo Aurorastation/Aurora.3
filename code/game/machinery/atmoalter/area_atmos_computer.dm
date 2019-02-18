@@ -88,7 +88,7 @@
 				<i>[zone]</i>
 			</body>
 		</html>"}
-		user << browse("[dat]", "window=miningshuttle;size=400x400")
+		to_chat(user, browse("[dat]", "window=miningshuttle;size=400x400"))
 		status = ""
 
 	Topic(href, href_list)

@@ -51,12 +51,12 @@
 			return
 
 	if(reagents.total_volume < amount_per_transfer_from_this)
-		user << "<span class='notice'>\The [src] is empty!</span>"
+		to_chat(user, "<span class='notice'>\The [src] is empty!</span>")
 		return
 
 	if(safety)
 		playsound(src.loc, 'sound/weapons/empty.ogg', 25, 1)
-		user << "<span class='notice'>The safety is on!</span>"
+		to_chat(user, "<span class='notice'>The safety is on!</span>")
 		return
 
 	Spray_at(A, user, proximity)
@@ -95,11 +95,11 @@
 		return
 	amount_per_transfer_from_this = next_in_list(amount_per_transfer_from_this, possible_transfer_amounts)
 	spray_size = next_in_list(spray_size, spray_sizes)
-	user << "<span class='notice'>You adjusted the pressure nozzle. You'll now use [amount_per_transfer_from_this] units per spray.</span>"
+	to_chat(user, "<span class='notice'>You adjusted the pressure nozzle. You'll now use [amount_per_transfer_from_this] units per spray.</span>")
 
 /obj/item/weapon/reagent_containers/spray/examine(mob/user)
 	if(..(user, 0) && loc == user)
-		user << "[round(reagents.total_volume)] units left."
+		to_chat(user, "[round(reagents.total_volume)] units left.")
 	return
 
 /obj/item/weapon/reagent_containers/spray/verb/empty()
@@ -153,19 +153,19 @@
 
 /obj/item/weapon/reagent_containers/spray/pepper/examine(mob/user)
 	if(..(user, 1))
-		user << "The safety is [safety ? "on" : "off"]."
+		to_chat(user, "The safety is [safety ? "on" : "off"].")
 
 /obj/item/weapon/reagent_containers/spray/pepper/AltClick()
 	return //No altclick functionality for pepper spray
 
 /obj/item/weapon/reagent_containers/spray/pepper/attack_self(var/mob/user)
 	safety = !safety
-	user << "<span class = 'notice'>You switch the safety [safety ? "on" : "off"].</span>"
+	to_chat(user, "<span class = 'notice'>You switch the safety [safety ? "on" : "off"].</span>")
 	playsound(src.loc, 'sound/weapons/empty.ogg', 50, 1)
 
 /obj/item/weapon/reagent_containers/spray/pepper/Spray_at(atom/A as mob|obj, mob/user)
 	if(safety)
-		user << "<span class = 'warning'>The safety is on!</span>"
+		to_chat(user, "<span class = 'warning'>The safety is on!</span>")
 		return
 	..()
 

@@ -251,7 +251,7 @@ var/list/cleanbot_types // Going to use this to generate a list of types once th
 
 /mob/living/bot/cleanbot/attack_hand(var/mob/user)
 	if (!has_ui_access(user) && !emagged)
-		user << "<span class='warning'>The unit's interface refuses to unlock!</span>"
+		to_chat(user, "<span class='warning'>The unit's interface refuses to unlock!</span>")
 		return
 
 	var/dat
@@ -266,7 +266,7 @@ var/list/cleanbot_types // Going to use this to generate a list of types once th
 		dat += "Odd looking screw twiddled: <A href='?src=\ref[src];operation=screw'>[screwloose ? "Yes" : "No"]</A><BR>"
 		dat += "Weird button pressed: <A href='?src=\ref[src];operation=oddbutton'>[oddbutton ? "Yes" : "No"]</A>"
 
-	user << browse("<HEAD><TITLE>Cleaner v1.1 controls</TITLE></HEAD>[dat]", "window=autocleaner")
+	to_chat(user, browse("<HEAD><TITLE>Cleaner v1.1 controls</TITLE></HEAD>[dat]", "window=autocleaner"))
 	onclose(user, "autocleaner")
 	return
 
@@ -308,7 +308,7 @@ var/list/cleanbot_types // Going to use this to generate a list of types once th
 	. = ..()
 	if(!screwloose || !oddbutton)
 		if(user)
-			user << "<span class='notice'>The [src] buzzes and beeps.</span>"
+			to_chat(user, "<span class='notice'>The [src] buzzes and beeps.</span>")
 		oddbutton = 1
 		screwloose = 1
 		return 1
@@ -384,7 +384,7 @@ var/list/cleanbot_types // Going to use this to generate a list of types once th
 		var/turf/T = get_turf(loc)
 		var/mob/living/bot/cleanbot/A = new /mob/living/bot/cleanbot(T)
 		A.name = created_name
-		user << "<span class='notice'>You add the robot arm to the bucket and sensor assembly. Beep boop!</span>"
+		to_chat(user, "<span class='notice'>You add the robot arm to the bucket and sensor assembly. Beep boop!</span>")
 		qdel(src)
 
 	else if(istype(O, /obj/item/weapon/pen))

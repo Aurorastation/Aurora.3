@@ -26,11 +26,11 @@
 	if(uses == 0)
 		usr << "This teleporter is out of uses."
 		return
-		
-	user << "<span class='notice'>The syndicate robot teleporter is attempting to locate an available cyborg.</span>"
+
+	to_chat(user, "<span class='notice'>The syndicate robot teleporter is attempting to locate an available cyborg.</span>")
 	var/datum/ghosttrap/ghost = get_ghost_trap("syndicate cyborg")
 	uses--
-	
+
 	var/mob/living/silicon/robot/syndicate/F = new(get_turf(usr))
 	spark(F, 4, alldirs)
 	ghost.request_player(F,"An operative is requesting a syndicate cyborg.", 60 SECONDS)

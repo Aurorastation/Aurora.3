@@ -44,7 +44,7 @@
 /obj/item/weapon/reagent_containers/blood/attack(mob/living/carbon/human/M as mob, mob/living/carbon/human/user as mob, var/target_zone)
 	if (user == M && (user.mind.vampire))
 		if (being_feed)
-			user << "<span class='notice'>You are already feeding on \the [src].</span>"
+			to_chat(user, "<span class='notice'>You are already feeding on \the [src].</span>")
 			return
 		if (reagents.get_reagent_amount("blood"))
 			user.visible_message("<span class='warning'>[user] raises \the [src] up to their mouth and bites into it.</span>", "<span class='notice'>You raise \the [src] up to your mouth and bite into it, starting to drain its contents.<br>You need to stand still.</span>")
@@ -62,7 +62,7 @@
 				user.mind.vampire.blood_usable += blood_taken
 
 				if (blood_taken)
-					user << "<span class='notice'>You have accumulated [user.mind.vampire.blood_usable] [user.mind.vampire.blood_usable > 1 ? "units" : "unit"] of usable blood. It tastes quite stale.</span>"
+					to_chat(user, "<span class='notice'>You have accumulated [user.mind.vampire.blood_usable] [user.mind.vampire.blood_usable > 1 ? "units" : "unit"] of usable blood. It tastes quite stale.</span>")
 
 				if (reagents.get_reagent_amount("blood") < 1)
 					break
@@ -73,7 +73,7 @@
 
 /obj/item/weapon/reagent_containers/blood/examine(mob/user, distance = 2)
 	if (..() && vampire_marks)
-		user << "<span class='warning'>There are teeth marks on it.</span>"
+		to_chat(user, "<span class='warning'>There are teeth marks on it.</span>")
 	return
 
 /obj/item/weapon/reagent_containers/blood/attackby(obj/item/weapon/P as obj, mob/user as mob)
@@ -186,5 +186,5 @@
 	volume = 0
 
 /obj/item/weapon/reagent_containers/blood/ripped/attackby(obj/item/weapon/P as obj, mob/user as mob)
-	user << "<span class='warning'>You can't do anything further with this.</span>"
+	to_chat(user, "<span class='warning'>You can't do anything further with this.</span>")
 	return

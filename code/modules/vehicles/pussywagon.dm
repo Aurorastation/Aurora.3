@@ -138,14 +138,14 @@
 		if(!bucket)
 			user.drop_from_inventory(W,src)
 			bucket = W
-			user << "<span class='notice'>You replace \the [src]'s reagent reservoir.</span>"
+			to_chat(user, "<span class='notice'>You replace \the [src]'s reagent reservoir.</span>")
 			return
 
 	if(W.iswrench() && open)
 		if(bucket)
 			bucket.forceMove(user.loc)
 			bucket = null
-			user << "<span class='notice'>You remove \the [src]'s reagent reservoir.</span>"
+			to_chat(user, "<span class='notice'>You remove \the [src]'s reagent reservoir.</span>")
 			return
 
 	if(W.iscrowbar() && !open)
@@ -154,7 +154,7 @@
 				I.forceMove(user.loc)
 				hoovered -= I
 			vacuum_capacity = 125
-			user << "<span class='notice'>You empty \the [src]'s vacuum cleaner.</span>"
+			to_chat(user, "<span class='notice'>You empty \the [src]'s vacuum cleaner.</span>")
 			return
 	..()
 

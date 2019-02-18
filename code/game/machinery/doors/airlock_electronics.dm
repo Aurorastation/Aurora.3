@@ -57,7 +57,7 @@
 
 	t1 += text("<p><a href='?src=\ref[];close=1'>Close</a></p>\n", src)
 
-	user << browse(t1, "window=airlock_electronics")
+	to_chat(user, browse(t1, "window=airlock_electronics"))
 	onclose(user, "airlock")
 
 /obj/item/weapon/airlock_electronics/Topic(href, href_list)

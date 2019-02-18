@@ -361,7 +361,7 @@
 		</html>
 	"}
 
-	user << browse(dat, "window=findPai")
+	to_chat(user, browse(dat, "window=findPai"))
 
 /datum/controller/subsystem/pai/proc/requestRecruits(mob/user)
 	inquirer = user

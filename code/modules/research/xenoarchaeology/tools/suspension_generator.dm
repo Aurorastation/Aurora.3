@@ -107,7 +107,7 @@
 		dat += "<br>"
 	dat += "<A href='?src=\ref[src];refresh=1'>Refresh console</A><br>"
 	dat += "<A href='?src=\ref[src];close=1'>Close console</A>"
-	user << browse(dat, "window=suspension;size=500x400")
+	to_chat(user, browse(dat, "window=suspension;size=500x400"))
 	onclose(user, "suspension")
 
 /obj/machinery/suspension_gen/Topic(href, href_list)
@@ -162,7 +162,7 @@
 
 		icon_state = "suspension0"
 		cell = null
-		user << "<span class='info'>You remove the power cell</span>"
+		to_chat(user, "<span class='info'>You remove the power cell</span>")
 
 /obj/machinery/suspension_gen/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	if (W.isscrewdriver())
@@ -171,7 +171,7 @@
 				screwed = 0
 			else
 				screwed = 1
-			user << "<span class='info'>You [screwed ? "screw" : "unscrew"] the battery panel.</span>"
+			to_chat(user, "<span class='info'>You [screwed ? "screw" : "unscrew"] the battery panel.</span>")
 	else if (W.iscrowbar())
 		if(!locked)
 			if(!screwed)
@@ -180,45 +180,45 @@
 						open = 0
 					else
 						open = 1
-					user << "<span class='info'>You crowbar the battery panel [open ? "open" : "in place"].</span>"
+					to_chat(user, "<span class='info'>You crowbar the battery panel [open ? "open" : "in place"].</span>")
 					icon_state = "suspension[open ? (cell ? "1" : "0") : "2"]"
 				else
-					user << "<span class='warning'>[src]'s safety locks are engaged, shut it down first.</span>"
+					to_chat(user, "<span class='warning'>[src]'s safety locks are engaged, shut it down first.</span>")
 			else
-				user << "<span class='warning'>Unscrew [src]'s battery panel first.</span>"
+				to_chat(user, "<span class='warning'>Unscrew [src]'s battery panel first.</span>")
 		else
-			user << "<span class='warning'>[src]'s security locks are engaged.</span>"
+			to_chat(user, "<span class='warning'>[src]'s security locks are engaged.</span>")
 	else if (W.iswrench())
 		if(!suspension_field)
 			if(anchored)
 				anchored = 0
 			else
 				anchored = 1
-			user << "<span class='info'>You wrench the stabilising legs [anchored ? "into place" : "up against the body"].</span>"
+			to_chat(user, "<span class='info'>You wrench the stabilising legs [anchored ? "into place" : "up against the body"].</span>")
 			if(anchored)
 				desc = "It is resting securely on four stubby legs."
 			else
 				desc = "It has stubby legs bolted up against it's body for stabilising."
 		else
-			user << "<span class='warning'>You are unable to secure [src] while it is active!</span>"
+			to_chat(user, "<span class='warning'>You are unable to secure [src] while it is active!</span>")
 	else if (istype(W, /obj/item/weapon/cell))
 		if(open)
 			if(cell)
-				user << "<span class='warning'>There is a power cell already installed.</span>"
+				to_chat(user, "<span class='warning'>There is a power cell already installed.</span>")
 			else
 				user.drop_from_inventory(W,src)
 				cell = W
-				user << "<span class='info'>You insert the power cell.</span>"
+				to_chat(user, "<span class='info'>You insert the power cell.</span>")
 				icon_state = "suspension1"
 	else if(istype(W, /obj/item/weapon/card))
 		var/obj/item/weapon/card/I = W
 		if(!auth_card)
 			if(attempt_unlock(I, user))
-				user << "<span class='info'>You swipe [I], the console flashes \'<i>Access granted.</i>\'</span>"
+				to_chat(user, "<span class='info'>You swipe [I], the console flashes \'<i>Access granted.</i>\'</span>")
 			else
-				user << "<span class='warning'>You swipe [I], console flashes \'<i>Access denied.</i>\'</span>"
+				to_chat(user, "<span class='warning'>You swipe [I], console flashes \'<i>Access denied.</i>\'</span>")
 		else
-			user << "<span class='warning'>Remove [auth_card] first.</span>"
+			to_chat(user, "<span class='warning'>Remove [auth_card] first.</span>")
 
 /obj/machinery/suspension_gen/proc/attempt_unlock(var/obj/item/weapon/card/C, var/mob/user)
 	if(!open)

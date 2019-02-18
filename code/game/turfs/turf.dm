@@ -312,9 +312,9 @@ var/const/enterloopsanity = 100
 				var/obj/effect/rune/R = O
 				// Only show message for visible runes
 				if (R.visibility)
-					user << "<span class='warning'>No matter how well you wash, the bloody symbols remain!</span>"
+					to_chat(user, "<span class='warning'>No matter how well you wash, the bloody symbols remain!</span>")
 	else
-		user << "<span class='warning'>\The [source] is too dry to wash that.</span>"
+		to_chat(user, "<span class='warning'>\The [source] is too dry to wash that.</span>")
 	source.reagents.trans_to_turf(src, 1, 10)	//10 is the multiplier for the reaction effect. probably needed to wet the floor properly.
 
 /turf/proc/update_blood_overlays()

@@ -85,7 +85,7 @@ main ui datum.
 	if(width && height)
 		params += "size=[width]x[height];"
 	send_resources_and_assets(user.client)
-	user << browse(generate_html(), params)
+	to_chat(user, browse(generate_html(), params))
 	winset(user, "mapwindow.map", "focus=true")
 	addtimer(CALLBACK(src, /datum/vueui/proc/setclose), 1)
 
@@ -99,7 +99,7 @@ main ui datum.
   */
 /datum/vueui/proc/close()
 	SSvueui.ui_closed(src)
-	user << browse(null, "window=[windowid]")
+	to_chat(user, browse(null, "window=[windowid]"))
 	status = null
 
 /**
@@ -268,7 +268,7 @@ main ui datum.
 /datum/vueui/proc/push_change(var/list/ndata)
 	if(ndata && status > STATUS_DISABLED)
 		src.data = ndata
-	user << output(list2params(list(generate_data_json())),"[windowid].browser:receiveUIState")
+	to_chat(user, output(list2params(list(generate_data_json())),"[windowid].browser:receiveUIState"))
 
 /**
   * Check for change and push that change of data

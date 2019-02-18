@@ -389,7 +389,7 @@
 	..()
 	if(W.iswirecutter() || istype(W, /obj/item/weapon/scalpel))
 		if (clipped)
-			user << "<span class='notice'>\The [src] have already been clipped!</span>"
+			to_chat(user, "<span class='notice'>\The [src] have already been clipped!</span>")
 			update_icon()
 			return
 
@@ -476,10 +476,10 @@
 /obj/item/clothing/head/attack_self(mob/user)
 	if(brightness_on)
 		if(!isturf(user.loc))
-			user << "You cannot turn the light on while in this [user.loc]"
+			to_chat(user, "You cannot turn the light on while in this [user.loc]")
 			return
 		on = !on
-		user << "You [on ? "enable" : "disable"] the helmet light."
+		to_chat(user, "You [on ? "enable" : "disable"] the helmet light.")
 		update_flashlight(user)
 	else
 		return ..(user)
@@ -524,9 +524,9 @@
 	if(!success)
 		return 0
 	else if(success == 2)
-		user << "<span class='warning'>You are already wearing a hat.</span>"
+		to_chat(user, "<span class='warning'>You are already wearing a hat.</span>")
 	else if(success == 1)
-		user << "<span class='notice'>You crawl under \the [src].</span>"
+		to_chat(user, "<span class='notice'>You crawl under \the [src].</span>")
 	return 1
 
 /obj/item/clothing/head/update_icon(var/mob/user)
@@ -681,7 +681,7 @@
 /obj/item/clothing/shoes/attackby(var/obj/item/I, var/mob/user)
 	if(can_hold_knife && is_type_in_list(I, list(/obj/item/weapon/material/shard, /obj/item/weapon/material/kitchen/utensil, /obj/item/weapon/material/knife)))
 		if(holding)
-			user << "<span class='warning'>\The [src] is already holding \a [holding].</span>"
+			to_chat(user, "<span class='warning'>\The [src] is already holding \a [holding].</span>")
 			return
 		user.unEquip(I)
 		I.forceMove(src)
@@ -849,13 +849,13 @@
 	..(user)
 	switch(src.sensor_mode)
 		if(0)
-			user << "Its sensors appear to be disabled."
+			to_chat(user, "Its sensors appear to be disabled.")
 		if(1)
-			user << "Its binary life sensors appear to be enabled."
+			to_chat(user, "Its binary life sensors appear to be enabled.")
 		if(2)
-			user << "Its vital tracker appears to be enabled."
+			to_chat(user, "Its vital tracker appears to be enabled.")
 		if(3)
-			user << "Its vital tracker and tracking beacon appear to be enabled."
+			to_chat(user, "Its vital tracker and tracking beacon appear to be enabled.")
 
 /obj/item/clothing/under/proc/set_sensors(mob/usr as mob)
 	var/mob/M = usr

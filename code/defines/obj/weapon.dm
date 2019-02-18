@@ -361,10 +361,10 @@
 /obj/item/weapon/caution/attack_self(mob/user as mob)
     if(src.icon_state == "caution")
         src.icon_state = "caution_blinking"
-        user << "You turn the sign on."
+        to_chat(user, "You turn the sign on.")
     else
         src.icon_state = "caution"
-        user << "You turn the sign off."
+        to_chat(user, "You turn the sign off.")
 
 /obj/item/weapon/caution/AltClick()
 	if(!usr || usr.stat || usr.lying || usr.restrained() || !Adjacent(usr))	return
@@ -582,8 +582,8 @@
 	if(W.isscrewdriver())
 		new /obj/item/device/encryptionkey/hivenet(user.loc)
 		playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, 1)
-		user << "You bypass the fried security chip and extract the encryption key."
-		user << "The fried neural socket crumbles away like dust."
+		to_chat(user, "You bypass the fried security chip and extract the encryption key.")
+		to_chat(user, "The fried neural socket crumbles away like dust.")
 		qdel(src)
 
 /obj/item/weapon/storage/part_replacer

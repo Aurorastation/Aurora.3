@@ -35,11 +35,11 @@
 			ping( "\The [src] pings, \"Successfully imported incident report!\"" )
 			menu_screen = "incident_report"
 		else
-			user << "<span class='alert'>Could not import incident report.</span>"
+			to_chat(user, "<span class='alert'>Could not import incident report.</span>")
 
 		qdel( O )
 	else if( istype( O, /obj/item/weapon/paper ) && menu_screen == "import_incident" )
-		user << "<span class='alert'>This console only accepts authentic incident reports. Copies are invalid.</span>"
+		to_chat(user, "<span class='alert'>This console only accepts authentic incident reports. Copies are invalid.</span>")
 
 	..()
 
@@ -444,7 +444,7 @@
 
 /obj/machinery/computer/sentencing/proc/render_guilty( var/mob/living/user )
 	if( !incident )
-		user << "<span class='alert'>There is no active case!</span>"
+		to_chat(user, "<span class='alert'>There is no active case!</span>")
 		return
 
 	if( !istype( user ))
@@ -453,7 +453,7 @@
 	var/error = print_incident_report()
 
 	if( error )
-		user << "<span class='alert'>[error]</span>"
+		to_chat(user, "<span class='alert'>[error]</span>")
 		return
 
 	print_incident_overview(incident.renderGuilty(user, 0))
@@ -468,7 +468,7 @@
 
 /obj/machinery/computer/sentencing/proc/render_guilty_fine( var/mob/living/user )
 	if(!incident)
-		user << "<span class='alert'>There is no active case!</span>"
+		to_chat(user, "<span class='alert'>There is no active case!</span>")
 		return
 
 	if(!istype(user))

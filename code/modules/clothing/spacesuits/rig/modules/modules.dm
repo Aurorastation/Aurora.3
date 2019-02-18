@@ -73,17 +73,17 @@
 	if(istype(W,/obj/item/stack/nanopaste))
 
 		if(damage == 0)
-			user << "There is no damage to mend."
+			to_chat(user, "There is no damage to mend.")
 			return
 
-		user << "You start mending the damaged portions of \the [src]..."
+		to_chat(user, "You start mending the damaged portions of \the [src]...")
 
 		if(!do_after(user,30) || !W || !src)
 			return
 
 		var/obj/item/stack/nanopaste/paste = W
 		damage = 0
-		user << "You mend the damage to [src] with [W]."
+		to_chat(user, "You mend the damage to [src] with [W].")
 		paste.use(1)
 		return
 
@@ -91,23 +91,23 @@
 
 		switch(damage)
 			if(0)
-				user << "There is no damage to mend."
+				to_chat(user, "There is no damage to mend.")
 				return
 			if(2)
-				user << "There is no damage that you are capable of mending with such crude tools."
+				to_chat(user, "There is no damage that you are capable of mending with such crude tools.")
 				return
 
 		var/obj/item/stack/cable_coil/cable = W
 		if(!cable.amount >= 5)
-			user << "You need five units of cable to repair \the [src]."
+			to_chat(user, "You need five units of cable to repair \the [src].")
 			return
 
-		user << "You start mending the damaged portions of \the [src]..."
+		to_chat(user, "You start mending the damaged portions of \the [src]...")
 		if(!do_after(user,30) || !W || !src)
 			return
 
 		damage = 1
-		user << "You mend some of damage to [src] with [W], but you will need more advanced tools to fix it completely."
+		to_chat(user, "You mend some of damage to [src] with [W], but you will need more advanced tools to fix it completely.")
 		cable.use(5)
 		return
 	..()

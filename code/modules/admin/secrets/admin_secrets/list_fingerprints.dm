@@ -16,4 +16,4 @@
 			else if(!H.dna)
 				dat += "<tr><td>[H]</td><td>H.dna = null</td></tr>"
 	dat += "</table>"
-	user << browse(dat, "window=fingerprints;size=440x410")
+	to_chat(user, browse(dat, "window=fingerprints;size=440x410"))

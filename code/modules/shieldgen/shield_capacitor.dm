@@ -32,7 +32,7 @@
 /obj/machinery/shield_capacitor/emag_act(var/remaining_charges, var/mob/user)
 	if(prob(75))
 		src.locked = !src.locked
-		user << "Controls are now [src.locked ? "locked." : "unlocked."]"
+		to_chat(user, "Controls are now [src.locked ? "locked." : "unlocked."]")
 		. = 1
 		updateDialog()
 	spark(src, 5, alldirs)
@@ -43,10 +43,10 @@
 		var/obj/item/weapon/card/id/C = W
 		if(access_captain in C.access || access_security in C.access || access_engine in C.access)
 			src.locked = !src.locked
-			user << "Controls are now [src.locked ? "locked." : "unlocked."]"
+			to_chat(user, "Controls are now [src.locked ? "locked." : "unlocked."]")
 			updateDialog()
 		else
-			user << span("alert", "Access denied.")
+			to_chat(user, span("alert", "Access denied."))
 	else if(W.iswrench())
 		src.anchored = !src.anchored
 		src.visible_message(span("notice", "\The [src] has been [anchored ? "bolted to the floor" : "unbolted from the floor"] by \the [user]."))
@@ -74,7 +74,7 @@
 	if ( (get_dist(src, user) > 1 ) || (stat & (BROKEN)) )
 		if (!istype(user, /mob/living/silicon))
 			user.unset_machine()
-			user << browse(null, "window=shield_capacitor")
+			to_chat(user, browse(null, "window=shield_capacitor"))
 			return
 	var/t = "<B>Shield Capacitor Control Console</B><br><br>"
 	if(locked)
@@ -96,7 +96,7 @@
 	t += "<A href='?src=\ref[src]'>Refresh</A> "
 	t += "<A href='?src=\ref[src];close=1'>Close</A><BR>"
 
-	user << browse(t, "window=shield_capacitor;size=500x400")
+	to_chat(user, browse(t, "window=shield_capacitor;size=500x400"))
 	user.set_machine(src)
 
 /obj/machinery/shield_capacitor/machinery_process()

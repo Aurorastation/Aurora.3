@@ -22,7 +22,7 @@
 		return..()
 
 	if(M.has_brain_worms()) //Borer stuff - RR
-		user << "<span class='warning'>This being is corrupted by an alien intelligence and cannot be soul trapped.</span>"
+		to_chat(user, "<span class='warning'>This being is corrupted by an alien intelligence and cannot be soul trapped.</span>")
 		return..()
 
 	M.attack_log += text("\[[time_stamp()]\] <font color='orange'>Has had their soul captured with [src.name] by [user.name] ([user.ckey])</font>")
@@ -45,7 +45,7 @@
 		dat += {"<A href='byond://?src=\ref[src];choice=Summon'>Summon Shade</A>"}
 		dat += "<br>"
 		dat += {"<a href='byond://?src=\ref[src];choice=Close'> Close</a>"}
-	user << browse(dat, "window=aicard")
+	to_chat(user, browse(dat, "window=aicard"))
 	onclose(user, "aicard")
 	return
 

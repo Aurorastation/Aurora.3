@@ -51,10 +51,10 @@
 		return 0
 
 	if(accepted_item.charges >= 5)
-		user << "<span class='danger'>Another grenade of that type will not fit into the module.</span>"
+		to_chat(user, "<span class='danger'>Another grenade of that type will not fit into the module.</span>")
 		return 0
 
-	user << "<font color='blue'><b>You slot \the [input_device] into the suit module.</b></font>"
+	to_chat(user, "<font color='blue'><b>You slot \the [input_device] into the suit module.</b></font>")
 	qdel(input_device)
 	accepted_item.charges++
 	return 1

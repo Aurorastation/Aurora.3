@@ -69,7 +69,7 @@
 
 /obj/item/weapon/gun/launcher/crossbow/consume_next_projectile(mob/user=null)
 	if(tension <= 0)
-		user << "<span class='warning'>\The [src] is not drawn back!</span>"
+		to_chat(user, "<span class='warning'>\The [src] is not drawn back!</span>")
 		return null
 	return bolt
 
@@ -97,7 +97,7 @@
 /obj/item/weapon/gun/launcher/crossbow/proc/draw(var/mob/user as mob)
 
 	if(!bolt)
-		user << "You don't have anything nocked to [src]."
+		to_chat(user, "You don't have anything nocked to [src].")
 		return
 
 	if(user.restrained())
@@ -157,19 +157,19 @@
 		if(!cell)
 			user.drop_from_inventory(cell,src)
 			cell = W
-			user << "<span class='notice'>You jam [cell] into [src] and wire it to the firing coil.</span>"
+			to_chat(user, "<span class='notice'>You jam [cell] into [src] and wire it to the firing coil.</span>")
 			superheat_rod(user)
 		else
-			user << "<span class='notice'>[src] already has a cell installed.</span>"
+			to_chat(user, "<span class='notice'>[src] already has a cell installed.</span>")
 
 	else if(W.isscrewdriver())
 		if(cell)
 			var/obj/item/C = cell
 			C.forceMove(get_turf(user))
-			user << "<span class='notice'>You jimmy [cell] out of [src] with [W].</span>"
+			to_chat(user, "<span class='notice'>You jimmy [cell] out of [src] with [W].</span>")
 			cell = null
 		else
-			user << "<span class='notice'>[src] doesn't have a cell installed.</span>"
+			to_chat(user, "<span class='notice'>[src] doesn't have a cell installed.</span>")
 
 	else
 		..()
@@ -180,7 +180,7 @@
 	if(bolt.throwforce >= 15) return
 	if(!istype(bolt,/obj/item/weapon/arrow/rod)) return
 
-	user << "<span class='notice'>[bolt] plinks and crackles as it begins to glow red-hot.</span>"
+	to_chat(user, "<span class='notice'>[bolt] plinks and crackles as it begins to glow red-hot.</span>")
 	bolt.throwforce = 15
 	bolt.icon_state = "metal-rod-superheated"
 	cell.use(500)
@@ -209,22 +209,22 @@
 /obj/item/weapon/crossbowframe/examine(mob/user)
 	..(user)
 	switch(buildstate)
-		if(1) user << "It has a loose rod frame in place."
-		if(2) user << "It has a steel backbone welded in place."
-		if(3) user << "It has a steel backbone and a cell mount installed."
-		if(4) user << "It has a steel backbone, plastic lath and a cell mount installed."
-		if(5) user << "It has a steel cable loosely strung across the lath."
+		if(1) to_chat(user, "It has a loose rod frame in place.")
+		if(2) to_chat(user, "It has a steel backbone welded in place.")
+		if(3) to_chat(user, "It has a steel backbone and a cell mount installed.")
+		if(4) to_chat(user, "It has a steel backbone, plastic lath and a cell mount installed.")
+		if(5) to_chat(user, "It has a steel cable loosely strung across the lath.")
 
 /obj/item/weapon/crossbowframe/attackby(obj/item/W as obj, mob/user as mob)
 	if(istype(W,/obj/item/stack/rods))
 		if(buildstate == 0)
 			var/obj/item/stack/rods/R = W
 			if(R.use(3))
-				user << "<span class='notice'>You assemble a backbone of rods around the wooden stock.</span>"
+				to_chat(user, "<span class='notice'>You assemble a backbone of rods around the wooden stock.</span>")
 				buildstate++
 				update_icon()
 			else
-				user << "<span class='notice'>You need at least three rods to complete this task.</span>"
+				to_chat(user, "<span class='notice'>You need at least three rods to complete this task.</span>")
 			return
 	else if(W.iswelder())
 		if(buildstate == 1)
@@ -232,7 +232,7 @@
 			if(T.remove_fuel(0,user))
 				if(!src || !T.isOn()) return
 				playsound(src.loc, 'sound/items/Welder2.ogg', 100, 1)
-				user << "<span class='notice'>You weld the rods into place.</span>"
+				to_chat(user, "<span class='notice'>You weld the rods into place.</span>")
 			buildstate++
 			update_icon()
 		return
@@ -240,33 +240,33 @@
 		var/obj/item/stack/cable_coil/C = W
 		if(buildstate == 2)
 			if(C.use(5))
-				user << "<span class='notice'>You wire a crude cell mount into the top of the crossbow.</span>"
+				to_chat(user, "<span class='notice'>You wire a crude cell mount into the top of the crossbow.</span>")
 				buildstate++
 				update_icon()
 			else
-				user << "<span class='notice'>You need at least five segments of cable coil to complete this task.</span>"
+				to_chat(user, "<span class='notice'>You need at least five segments of cable coil to complete this task.</span>")
 			return
 		else if(buildstate == 4)
 			if(C.use(5))
-				user << "<span class='notice'>You string a steel cable across the crossbow's lath.</span>"
+				to_chat(user, "<span class='notice'>You string a steel cable across the crossbow's lath.</span>")
 				buildstate++
 				update_icon()
 			else
-				user << "<span class='notice'>You need at least five segments of cable coil to complete this task.</span>"
+				to_chat(user, "<span class='notice'>You need at least five segments of cable coil to complete this task.</span>")
 			return
 	else if(istype(W,/obj/item/stack/material) && W.get_material_name() == "plastic")
 		if(buildstate == 3)
 			var/obj/item/stack/material/P = W
 			if(P.use(3))
-				user << "<span class='notice'>You assemble and install a heavy plastic lath onto the crossbow.</span>"
+				to_chat(user, "<span class='notice'>You assemble and install a heavy plastic lath onto the crossbow.</span>")
 				buildstate++
 				update_icon()
 			else
-				user << "<span class='notice'>You need at least three plastic sheets to complete this task.</span>"
+				to_chat(user, "<span class='notice'>You need at least three plastic sheets to complete this task.</span>")
 			return
 	else if(W.isscrewdriver())
 		if(buildstate == 5)
-			user << "<span class='notice'>You secure the crossbow's various parts.</span>"
+			to_chat(user, "<span class='notice'>You secure the crossbow's various parts.</span>")
 			new /obj/item/weapon/gun/launcher/crossbow(get_turf(src))
 			qdel(src)
 		return

@@ -106,9 +106,9 @@
 			dat += "<a href='?src=\ref[src];choice=change_code'>Change access code</a><br>"
 			dat += "<a href='?src=\ref[src];choice=change_id'>Change EFTPOS ID</a><br>"
 			dat += "Scan card to reset access code <a href='?src=\ref[src];choice=reset'>\[------\]</a>"
-		user << browse(dat,"window=eftpos")
+		to_chat(user, browse(dat,"window=eftpos"))
 	else
-		user << browse(null,"window=eftpos")
+		to_chat(user, browse(null,"window=eftpos"))
 
 /obj/item/device/eftpos/attackby(obj/item/O as obj, user as mob)
 

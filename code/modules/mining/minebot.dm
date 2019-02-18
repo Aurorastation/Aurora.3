@@ -69,7 +69,7 @@
 /mob/living/silicon/robot/drone/mining/attackby(var/obj/item/weapon/W, var/mob/user)
 
 	if(istype(W, /obj/item/borg/upgrade/))
-		user << "<span class='danger'>\The [src] is not compatible with \the [W].</span>"
+		to_chat(user, "<span class='danger'>\The [src] is not compatible with \the [W].</span>")
 		return
 
 	else if (istype(W, /obj/item/weapon/card/id)||istype(W, /obj/item/device/pda))
@@ -78,11 +78,11 @@
 		if(choice=="Reboot")
 
 			if(!config.allow_drone_spawn || emagged || health < -maxHealth) //It's dead, Dave.
-				user << "<span class='danger'>The interface is fried, and a distressing burned smell wafts from the robot's interior. You're not rebooting this one.</span>"
+				to_chat(user, "<span class='danger'>The interface is fried, and a distressing burned smell wafts from the robot's interior. You're not rebooting this one.</span>")
 				return
 
 			if(!allowed(usr))
-				user << "<span class='danger'>Access denied.</span>"
+				to_chat(user, "<span class='danger'>Access denied.</span>")
 				return
 
 			user.visible_message("<span class='danger'>\The [user] swipes \his ID card through \the [src], attempting to reboot it.</span>", "<span class='danger'>>You swipe your ID card through \the [src], attempting to reboot it.</span>")
@@ -92,7 +92,7 @@
 		else
 			var/obj/item/weapon/card/id/ID = W
 			if(!allowed(usr))
-				user << "<span class='danger'>Access denied.</span>"
+				to_chat(user, "<span class='danger'>Access denied.</span>")
 				return
 
 			user.visible_message("<span class='danger'>\The [user] swipes \his ID card through \the [src], recycling it into points.</span>", "<span class='danger'>>You swipe your ID card through \the [src], recycling it into points.</span>")
@@ -169,7 +169,7 @@
 
 /obj/item/device/mine_bot_ugprade/proc/upgrade_bot(var/mob/living/silicon/robot/drone/mining/M, mob/user)
 	if(M.melee_upgrade)
-		user << "[src] already has a drill upgrade installed!"
+		to_chat(user, "[src] already has a drill upgrade installed!")
 		return
 	M.modtype = initial(M.modtype)
 	M.uneq_all()
@@ -190,7 +190,7 @@
 
 /obj/item/device/mine_bot_ugprade/health/upgrade_bot(var/mob/living/silicon/robot/drone/mining/M, mob/user)
 	if(M.health_upgrade)
-		user << "[src] already has a reinforced chassis!"
+		to_chat(user, "[src] already has a reinforced chassis!")
 		return
 	M.maxHealth = 100
 	M.health += 55
@@ -205,7 +205,7 @@
 
 /obj/item/device/mine_bot_ugprade/ka/upgrade_bot(var/mob/living/silicon/robot/drone/mining/M, mob/user)
 	if(M.ranged_upgrade)
-		user << "[src] already has a KA upgrade installed!"
+		to_chat(user, "[src] already has a KA upgrade installed!")
 		return
 	M.modtype = initial(M.modtype)
 	M.uneq_all()

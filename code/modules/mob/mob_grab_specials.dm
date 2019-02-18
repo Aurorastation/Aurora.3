@@ -4,42 +4,42 @@
 	var/obj/item/organ/external/E = H.get_organ(target_zone)
 
 	if(!E || E.is_stump())
-		user << "<span class='notice'>[H] is missing that bodypart.</span>"
+		to_chat(user, "<span class='notice'>[H] is missing that bodypart.</span>")
 		return
 
 	user.visible_message("<span class='notice'>[user] starts inspecting [affecting]'s [E.name] carefully.</span>")
 	if(!do_mob(user,H, 10))
-		user << "<span class='notice'>You must stand still to inspect [E] for wounds.</span>"
+		to_chat(user, "<span class='notice'>You must stand still to inspect [E] for wounds.</span>")
 	else if(E.wounds.len)
-		user << "<span class='warning'>You find [E.get_wounds_desc()]</span>"
+		to_chat(user, "<span class='warning'>You find [E.get_wounds_desc()]</span>")
 	else
-		user << "<span class='notice'>You find no visible wounds.</span>"
+		to_chat(user, "<span class='notice'>You find no visible wounds.</span>")
 
-	user << "<span class='notice'>Checking bones now...</span>"
+	to_chat(user, "<span class='notice'>Checking bones now...</span>")
 	if(!do_mob(user, H, 20))
-		user << "<span class='notice'>You must stand still to feel [E] for fractures.</span>"
+		to_chat(user, "<span class='notice'>You must stand still to feel [E] for fractures.</span>")
 	else if(E.status & ORGAN_BROKEN)
-		user << "<span class='warning'>The [E.encased ? E.encased : "bone in the [E.name]"] moves slightly when you poke it!</span>"
+		to_chat(user, "<span class='warning'>The [E.encased ? E.encased : "bone in the [E.name]"] moves slightly when you poke it!</span>")
 		H.custom_pain("Your [E.name] hurts where it's poked.")
 	else
-		user << "<span class='notice'>The [E.encased ? E.encased : "bones in the [E.name]"] seem to be fine.</span>"
+		to_chat(user, "<span class='notice'>The [E.encased ? E.encased : "bones in the [E.name]"] seem to be fine.</span>")
 
-	user << "<span class='notice'>Checking skin now...</span>"
+	to_chat(user, "<span class='notice'>Checking skin now...</span>")
 	if(!do_mob(user, H, 10))
-		user << "<span class='notice'>You must stand still to check [H]'s skin for abnormalities.</span>"
+		to_chat(user, "<span class='notice'>You must stand still to check [H]'s skin for abnormalities.</span>")
 	else
 		var/bad = 0
 		if(H.getToxLoss() >= 40)
-			user << "<span class='warning'>[H] has an unhealthy skin discoloration.</span>"
+			to_chat(user, "<span class='warning'>[H] has an unhealthy skin discoloration.</span>")
 			bad = 1
 		if(H.getOxyLoss() >= 20)
-			user << "<span class='warning'>[H]'s skin is unusaly pale.</span>"
+			to_chat(user, "<span class='warning'>[H]'s skin is unusaly pale.</span>")
 			bad = 1
 		if(E.status & ORGAN_DEAD)
-			user << "<span class='warning'>[E] is decaying!</span>"
+			to_chat(user, "<span class='warning'>[E] is decaying!</span>")
 			bad = 1
 		if(!bad)
-			user << "<span class='notice'>[H]'s skin is normal.</span>"
+			to_chat(user, "<span class='notice'>[H]'s skin is normal.</span>")
 
 /obj/item/weapon/grab/proc/jointlock(mob/living/carbon/human/target, mob/attacker, var/target_zone)
 	if(state < GRAB_AGGRESSIVE)

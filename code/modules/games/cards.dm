@@ -62,7 +62,7 @@
 		for(var/datum/playingcard/P in H.cards)
 			cards += P
 		qdel(O)
-		user << "You place your cards on the bottom of \the [src]."
+		to_chat(user, "You place your cards on the bottom of \the [src].")
 		return
 	..()
 
@@ -100,7 +100,7 @@
 	cards -= P
 	H.update_icon()
 	user.visible_message("\The [user] draws a card.")
-	user << "It's the [P]."
+	to_chat(user, "It's the [P].")
 
 /obj/item/weapon/deck/verb/deal_card()
 
@@ -240,9 +240,9 @@
 /obj/item/weapon/hand/examine(mob/user)
 	..(user)
 	if((!concealed || src.loc == user) && cards.len)
-		user << "It contains: "
+		to_chat(user, "It contains: ")
 		for(var/datum/playingcard/P in cards)
-			user << "The [P.name]."
+			to_chat(user, "The [P.name].")
 
 /obj/item/weapon/hand/update_icon(var/direction = 0)
 

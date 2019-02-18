@@ -68,7 +68,7 @@
 				descriptive = "room temperature"
 			else
 				descriptive = "cold"
-		user << "<span class='notice'>\The [src] feels [descriptive].</span>"
+		to_chat(user, "<span class='notice'>\The [src] feels [descriptive].</span>")
 
 /obj/item/weapon/tank/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	..()

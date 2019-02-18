@@ -50,7 +50,7 @@ var/list/artefact_feedback = list(/obj/structure/closet/wizard/armor = 		"HS",
 			var/obj/item/organ/external/LA = H.get_organ("l_arm")
 			var/obj/item/organ/external/RA = H.get_organ("r_arm")
 			var/active_hand = H.hand
-			user <<"<span class='warning'>You feel unimaginable agony as your eyes pour over millenia of forbidden knowledge!</span>"
+			to_chat(user, "<span class='warning'>You feel unimaginable agony as your eyes pour over millenia of forbidden knowledge!</span>")
 			user.show_message("<b>[user]</b> screams in horror!",2)
 			H.adjust_fire_stacks(2)
 			H.IgniteMob()
@@ -111,8 +111,8 @@ var/list/artefact_feedback = list(/obj/structure/closet/wizard/armor = 		"HS",
 			dat += "<br><i>[desc]</i><br>"
 		dat += "<center><A href='byond://?src=\ref[src];reset=1'>Re-memorize your spellbook.</a></center>"
 		dat += "<center><A href='byond://?src=\ref[src];lock=1'>[spellbook.book_flags & LOCKED ? "Unlock" : "Lock"] the spellbook.</a></center>"
-	user << browse(dat,"window=spellbook")
-	
+	to_chat(user, browse(dat,"window=spellbook"))
+
 /obj/item/weapon/spellbook/Topic(href,href_list)
 	..()
 

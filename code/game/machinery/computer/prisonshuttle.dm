@@ -38,12 +38,12 @@ var/prison_shuttle_timeleft = 0
 				A.anchored = 1
 
 				if (src.stat & BROKEN)
-					user << "<span class='notice'>The broken glass falls out.</span>"
+					to_chat(user, "<span class='notice'>The broken glass falls out.</span>")
 					new /obj/item/weapon/material/shard( src.loc )
 					A.state = 3
 					A.icon_state = "3"
 				else
-					user << "<span class='notice'>You disconnect the monitor.</span>"
+					to_chat(user, "<span class='notice'>You disconnect the monitor.</span>")
 					A.state = 4
 					A.icon_state = "4"
 
@@ -54,10 +54,10 @@ var/prison_shuttle_timeleft = 0
 
 	attack_hand(var/mob/user as mob)
 		if(!src.allowed(user) && (!hacked))
-			user << "<span class='warning'>Access Denied.</span>"
+			to_chat(user, "<span class='warning'>Access Denied.</span>")
 			return
 		if(prison_break)
-			user << "<span class='warning'>Unable to locate shuttle.</span>"
+			to_chat(user, "<span class='warning'>Unable to locate shuttle.</span>")
 			return
 		if(..())
 			return
@@ -72,7 +72,7 @@ var/prison_shuttle_timeleft = 0
 			[prison_shuttle_moving_to_station || prison_shuttle_moving_to_prison ? "\n*Shuttle already called*<BR>\n<BR>":prison_shuttle_at_station ? "\n<A href='?src=\ref[src];sendtodock=1'>Send to Dock</A><BR>\n<BR>":"\n<A href='?src=\ref[src];sendtostation=1'>Send to station</A><BR>\n<BR>"]
 			\n<A href='?src=\ref[user];mach_close=computer'>Close</A>"}
 
-		user << browse(dat, "window=computer;size=575x450")
+		to_chat(user, browse(dat, "window=computer;size=575x450"))
 		onclose(user, "computer")
 		return
 
@@ -237,5 +237,5 @@ var/prison_shuttle_timeleft = 0
 /obj/machinery/computer/prison_shuttle/emag_act(var/charges, var/mob/user)
 	if(!hacked)
 		hacked = 1
-		user << "<span class='notice'>You disable the lock.</span>"
+		to_chat(user, "<span class='notice'>You disable the lock.</span>")
 		return 1

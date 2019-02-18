@@ -113,7 +113,7 @@
 		<a href="?src=\ref[src];what=go" style="color:#ff0000">RELEASE</a>
 		"}
 
-		user << browse(H, "window=virus2edit")
+		to_chat(user, browse(H, "window=virus2edit"))
 
 	Topic(href, href_list)
 		switch(href_list["what"])

@@ -107,7 +107,7 @@
 
 	dat += text("<br><br>In total this machine produced <font color='green'><b>[newCoins]</b></font> coins.")
 	dat += text("<br><A href='?src=\ref[src];makeCoins=[1]'>Make coins</A>")
-	user << browse("[dat]", "window=mint")
+	to_chat(user, browse("[dat]", "window=mint"))
 
 /obj/machinery/mineral/mint/Topic(href, href_list)
 	if(..())

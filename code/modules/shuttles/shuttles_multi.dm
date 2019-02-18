@@ -131,7 +131,7 @@
 				dat += "<b><A href='?src=\ref[src];undock_command=[1]'>Undock</A></b>"
 	dat += "</center>"
 
-	user << browse("[dat]", "window=[shuttle_tag]shuttlecontrol;size=300x600")
+	to_chat(user, browse("[dat]", "window=[shuttle_tag]shuttlecontrol;size=300x600"))
 
 //check if we're undocked, give option to force launch
 /obj/machinery/computer/shuttle_control/proc/check_docking(datum/shuttle/multi_shuttle/MS)

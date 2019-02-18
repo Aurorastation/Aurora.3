@@ -24,7 +24,7 @@
 
 		S.post_remove_from_storage_deferred(loc, user)
 
-		user << span("notice", "You empty the satchel into the box.")
+		to_chat(user, span("notice", "You empty the satchel into the box."))
 
 	update_ore_count()
 
@@ -42,8 +42,8 @@
 			stored_ore[O.name] = 1
 
 /obj/structure/ore_box/examine(mob/user)
-	user << "That's an [src]."
-	user << desc
+	to_chat(user, "That's an [src].")
+	to_chat(user, desc)
 
 	// Borgs can now check contents too.
 	if((!istype(user, /mob/living/carbon/human)) && (!istype(user, /mob/living/silicon/robot)))
@@ -55,16 +55,16 @@
 	add_fingerprint(user)
 
 	if(!contents.len)
-		user << "It is empty."
+		to_chat(user, "It is empty.")
 		return
 
 	if(world.time > last_update + 10)
 		update_ore_count()
 		last_update = world.time
 
-	user << "It holds:"
+	to_chat(user, "It holds:")
 	for(var/ore in stored_ore)
-		user << "- [stored_ore[ore]] [ore]"
+		to_chat(user, "- [stored_ore[ore]] [ore]")
 	return
 
 
