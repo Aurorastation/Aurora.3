@@ -12734,6 +12734,7 @@
 /obj/item/clothing/mask/breath,
 /obj/item/weapon/storage/belt/archaeology,
 /obj/item/clothing/shoes/magboots,
+/obj/item/clothing/gloves/latex,
 /turf/simulated/floor/tiled/dark,
 /area/rnd/eva)
 "ayr" = (
@@ -12934,6 +12935,7 @@
 /obj/item/clothing/mask/breath,
 /obj/item/weapon/storage/belt/archaeology,
 /obj/item/clothing/shoes/magboots,
+/obj/item/clothing/gloves/latex,
 /turf/simulated/floor/tiled/dark,
 /area/rnd/eva)
 "ayS" = (
@@ -13287,6 +13289,7 @@
 /obj/item/clothing/mask/breath,
 /obj/item/weapon/storage/belt/archaeology,
 /obj/item/clothing/shoes/magboots,
+/obj/item/clothing/gloves/latex,
 /turf/simulated/floor/tiled/dark,
 /area/rnd/eva)
 "azs" = (
@@ -28356,7 +28359,7 @@
 "bDz" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass_research{
-	name = "Xenoarcheology and Anomaly Labs";
+	name = "Xenoarcheology and Anomalous Materials";
 	req_access = list(7)
 	},
 /obj/effect/floor_decal/corner/mauve{
@@ -28795,6 +28798,7 @@
 /area/medical/patient_wing_post2)
 "dzN" = (
 /obj/machinery/vending/hydronutrients{
+	categories = 3;
 	pixel_x = 5
 	},
 /obj/effect/floor_decal/corner/green{
@@ -29916,7 +29920,7 @@
 "kbk" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass_research{
-	name = "Xenoarcheology and Anomaly Labs";
+	name = "Xenoarcheology and Anomalous Materials";
 	req_access = list(7)
 	},
 /obj/effect/floor_decal/corner/mauve{
