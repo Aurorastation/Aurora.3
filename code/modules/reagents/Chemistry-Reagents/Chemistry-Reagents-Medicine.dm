@@ -789,6 +789,8 @@
 /datum/reagent/mental/tramadol/overdose(var/mob/living/carbon/M, var/alien, var/removed, var/scale)
 	..()
 	var/mob/living/carbon/human/H = M
+	if(!istype(H))
+		return
 	M.hallucination = max(M.hallucination, 60)
 	M.brute_mod = M.species.brute_mod + 1.4
 	M.adjustOxyLoss(10 * removed * scale)
