@@ -25,7 +25,7 @@
 	var/list/target_type_validator_map = list()
 	var/attack_emote = "stares menacingly at"
 
-	var/smart = FALSE // This makes ranged mob check for friendly fire and obsticales
+	var/smart = FALSE // This makes ranged mob check for friendly fire and obstacles
 
 /mob/living/simple_animal/hostile/Initialize()
 	. = ..()
