@@ -39,3 +39,5 @@ delete-after: True
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes:
   - tweak: "Tesla grounding rods now are accounted for how many miniballs can main Tesla have to be contained. Ratio is 1 rod can contain 4 miniballs. Once Tesla has more miniballs then rods can contain it will start to melt things in this priorty: coils, grounding rods, emitters. Each time Tesla melts one of these it will loose energy level and single miniball."
+  - tweak: "Tesla miniballs no longer zap. Instead they shoot main Tesla ball which shoots one single beamn, which accounts how much power each miniball produces."
+  - tweak: "Tesla now looses more and faster energy with number of miniballs it has. Energy loss changes after 12 balls and after 16 miniballs."
