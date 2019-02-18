@@ -34,17 +34,15 @@
 	name = "Hivebot"
 	desc = "A smallish robot, this one is armed!"
 	ranged = 1
+	smart = TRUE
 
-/mob/living/simple_animal/hostile/hivebot/rapid
-	ranged = 1
+/mob/living/simple_animal/hostile/hivebot/range/rapid
 	rapid = 1
 
-/mob/living/simple_animal/hostile/hivebot/strong
+/mob/living/simple_animal/hostile/hivebot/range/strong
 	name = "Strong Hivebot"
 	desc = "A robot, this one is armed and looks tough!"
 	health = 80
-	ranged = 1
-
 
 /mob/living/simple_animal/hostile/hivebot/death()
 	..()
@@ -65,43 +63,48 @@
 	status_flags = 0
 	anchored = 1
 	stop_automated_movement = 1
-	var/bot_type = "norm"
+	var/bot_type = 1 // type of bot, 1 is normal, 2 is ranged, 3 is rapid rnaged.
 	var/bot_amt = 10
 	var/spawn_delay = 600
-	var/turn_on = 0
-	var/auto_spawn = 1
-	proc
-		warpbots()
+
+/mob/living/simple_animal/hostile/hivebot/tele/New()
+	..()
+	var/datum/effect/effect/system/smoke_spread/smoke = new /datum/effect/effect/system/smoke_spread()
+	smoke.set_up(5, 0, src.loc)
+	smoke.start()
+	visible_message("<span class='danger'>The [src] warps in!</span>")
+	playsound(src.loc, 'sound/effects/EMPulse.ogg', 25, 1)
+
+/mob/living/simple_animal/hostile/hivebot/tele/proc/warpbots()
+
+	if(!bot_amt)
+		qdel(src)
+
+	icon_state = "def_radar"
+	visible_message("<span class='warning'>The [src] turns on!</span>")
+
+	switch(bot_type)
+		if(1)
+			new /mob/living/simple_animal/hostile/hivebot(get_turf(src))
+		if(2)
+			new /mob/living/simple_animal/hostile/hivebot/range(get_turf(src))
+		if(3)
+			new /mob/living/simple_animal/hostile/hivebot/range/rapid(get_turf(src))
+
+	if(prob(30))
+		if(prob(20))
+			bot_type = 3
+		else
+			bot_type = 2
+	else
+		bot_type = 1
+	bot_amt--
+	addtimer(CALLBACK(src, .proc/warpbots, spawn_delay))
 
 
-	New()
-		..()
-		var/datum/effect/effect/system/smoke_spread/smoke = new /datum/effect/effect/system/smoke_spread()
-		smoke.set_up(5, 0, src.loc)
-		smoke.start()
-		visible_message("<span class='danger'>The [src] warps in!</span>")
-		playsound(src.loc, 'sound/effects/EMPulse.ogg', 25, 1)
-
-	warpbots()
-		icon_state = "def_radar"
-		visible_message("<span class='warning'>The [src] turns on!</span>")
-		while(bot_amt > 0)
-			bot_amt--
-			switch(bot_type)
-				if("norm")
-					new /mob/living/simple_animal/hostile/hivebot(get_turf(src))
-				if("range")
-					new /mob/living/simple_animal/hostile/hivebot/range(get_turf(src))
-				if("rapid")
-					new /mob/living/simple_animal/hostile/hivebot/rapid(get_turf(src))
-		spawn(100)
-			qdel(src)
-		return
-
-
-	Life()
-		..()
-		if(stat == 0)
-			if(prob(2))//Might be a bit low, will mess with it likely
-				warpbots()
+/mob/living/simple_animal/hostile/hivebot/tele/Life()
+	..()
+	if(stat == 0)
+		if(prob(2))//Might be a bit low, will mess with it likely
+			warpbots()
 
