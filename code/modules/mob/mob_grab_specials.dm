@@ -182,12 +182,11 @@
 			G.state = GRAB_PASSIVE
 
 		if(5)
-			if(prob(50))
+			if(prob(67))
 				visible_message("<span class='danger'>[assailant] has [H] grasped by their [hairchatname], however suddenly it slips from  [assailant]'s hand!</span>")
 				G.state = GRAB_PASSIVE
-				assailant.Weaken(2)
 				playsound(H.loc, 'sound/misc/slip.ogg', 50, 1, -3)
-			if(prob(50))
+			if(prob(33))
 				visible_message("<span class='danger'>[assailant] has [H] grasped by their [hairchatname], tugging them violently</span>")
 				H.apply_damage(10, HALLOSS)
 				G.state = GRAB_AGGRESSIVE
