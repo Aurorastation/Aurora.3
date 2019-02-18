@@ -6,6 +6,7 @@
 	throw_speed = 1
 	throw_range = 5
 	w_class = 2.0
+	matter = list(DEFAULT_WALL_MATERIAL = 320, "glass" = 800)
 	var/obj/item/weapon/implant/imp = null
 
 /obj/item/weapon/implanter/attack_self(var/mob/user)
@@ -179,7 +180,7 @@
 	user.show_message("<span class = 'warning'>You implanted the implant into [M].</span>")
 
 	ipc_tag.replaced(H, H.organs_by_name["head"])
-	
+
 	ipc_tag = null
 
 	update()
