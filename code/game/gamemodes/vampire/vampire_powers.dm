@@ -681,6 +681,7 @@
 	var/mob/living/carbon/human/T = G.affecting
 	if(isipc(T))
 		to_chat(src, "<span class='warning'>[T] is not a creature you can enthrall.</span>")
+		return
 
 	if (!istype(T))
 		to_chat(src, "<span class='warning'>[T] is not a creature you can enthrall.</span>")
