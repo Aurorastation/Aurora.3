@@ -205,16 +205,15 @@
 	breathe_met = REM * 0.5
 	breathe_mul = 2
 
-/datum/reagent/dexalinp/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+/datum/reagent/dexalinp/affect_blood(var/mob/living/carbon/human/H, var/alien, var/removed)
 	if(alien == IS_VOX)
-		M.adjustToxLoss(removed * 9)
+		H.adjustToxLoss(removed * 9)
 	else
-		M.adjustOxyLoss(-300 * removed)
+		H.adjustOxyLoss(-300 * removed)
 		
 		if(prob(10))
-			M.apply_effect(10,EYE_BLUR)
+			H.apply_effect(10,EYE_BLUR)
 		if(prob(75))
-			var/mob/living/carbon/human/H = M
 			var/obj/item/organ/eyes/E = H.get_eyes(no_synthetic = TRUE)
 			E.damage = max(E.damage += 1.2 * removed, 0)
 
@@ -410,14 +409,14 @@
 	scannable = 1
 	taste_description = "bitterness"
 
-/datum/reagent/peridaxon/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	if(ishuman(M))
-		var/mob/living/carbon/human/H = M
+/datum/reagent/peridaxon/affect_blood(var/mob/living/carbon/human/H, var/alien, var/removed)
+	if(!istype(H))
+		return
 
 		for(var/obj/item/organ/I in H.internal_organs)
 			if((I.damage > 0) && (I.robotic != 2)) //Peridaxon heals only non-robotic organs
 				I.damage = max(I.damage - removed, 0)
-				M.adjustHalLoss(85) // Organs moving around hurts
+				H.adjustHalLoss(85) // Organs moving around hurts
 
 /datum/reagent/ryetalyn
 	name = "Ryetalyn"
@@ -770,39 +769,37 @@
 		/datum/brain_trauma/mild/hallucinations = 5
 	)
 
-/datum/reagent/mental/tramadol/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/scale)
-	M.add_chemical_effect(CE_PAINKILLER, 70)
-	M.brute_mod = M.species.brute_mod - 0.2
-	var/mob/living/carbon/human/H = M
+/datum/reagent/mental/tramadol/affect_blood(var/mob/living/carbon/human/H, var/alien, var/removed, var/scale)
+	H.add_chemical_effect(CE_PAINKILLER, 70)
+	H.brute_mod = H.species.brute_mod - 0.2
 	if(!istype(H))
 		return
 	var/obj/item/organ/L = H.internal_organs_by_name["liver"]
 	var/bac = H.get_blood_alcohol()
 	if(bac >= 0.02)
-		M.hallucination = max(M.hallucination, bac * 300)
-		M.druggy = max(M.druggy, bac * 100)
+		H.hallucination = max(H.hallucination, bac * 300)
+		H.druggy = max(H.druggy, bac * 100)
 		if(prob(45)) 
 			L.take_damage(1.3*removed) 
 
 
 
-/datum/reagent/mental/tramadol/overdose(var/mob/living/carbon/M, var/alien, var/removed, var/scale)
+/datum/reagent/mental/tramadol/overdose(var/mob/living/carbon/human/H, var/alien, var/removed, var/scale)
 	..()
-	var/mob/living/carbon/human/H = M
 	if(!istype(H))
 		return
-	M.hallucination = max(M.hallucination, 60)
-	M.brute_mod = M.species.brute_mod + 1.4
-	M.adjustOxyLoss(10 * removed * scale)
-	M.Weaken(20 * removed * scale)
+	H.hallucination = max(H.hallucination, 60)
+	H.brute_mod = H.species.brute_mod + 1.4
+	H.adjustOxyLoss(10 * removed * scale)
+	H.Weaken(20 * removed * scale)
 	var/bac = H.get_blood_alcohol()
 	if(bac >= 0.03)
-		M.hallucination = max(M.hallucination, bac * 500)
-		M.druggy = max(M.druggy, bac * 100)
-		M.vomit()
+		H.hallucination = max(H.hallucination, bac * 500)
+		H.druggy = max(H.druggy, bac * 100)
+		H.vomit()
 
-/datum/reagent/mental/tramadol/final_effect(var/mob/living/carbon/M)
-	M.brute_mod = M.species.brute_mod
+/datum/reagent/mental/tramadol/final_effect(var/mob/living/carbon/human/H)
+	H.brute_mod = H.species.brute_mod
 
 /datum/reagent/mental/oxycodone
 	name = "Oxycodone"
@@ -829,29 +826,28 @@
 		/datum/brain_trauma/mild/hallucinations = 10
 	)
 
-/datum/reagent/mental/oxycodone/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/scale)
-	M.add_chemical_effect(CE_PAINKILLER, 200)
-	M.brute_mod = M.species.brute_mod -= 0.4
-	var/mob/living/carbon/human/H = M
+/datum/reagent/mental/oxycodone/affect_blood(var/mob/living/carbon/human/H, var/alien, var/removed, var/scale)
+	H.add_chemical_effect(CE_PAINKILLER, 200)
+	H.brute_mod = H.species.brute_mod -= 0.4
 	if(!istype(H))
 		return
 	var/obj/item/organ/L = H.internal_organs_by_name["liver"]
 	var/bac = H.get_blood_alcohol()
 	if(bac >= 0.02)
-		M.hallucination = max(M.hallucination, bac * 600)
-		M.druggy = max(M.druggy, bac * 250)
+		H.hallucination = max(H.hallucination, bac * 600)
+		H.druggy = max(H.druggy, bac * 250)
 		if(prob(45)) 
 			L.take_damage(2.3*removed) 
 
-/datum/reagent/mental/oxycodone/overdose(var/mob/living/carbon/M, var/alien, var/removed, var/scale)
+/datum/reagent/mental/oxycodone/overdose(var/mob/living/carbon/human/H, var/alien, var/removed, var/scale)
 	..()
-	M.druggy = max(M.druggy, 20)
-	M.hallucination = max(M.hallucination, 60)
-	M.brute_mod = M.species.brute_mod += 3.4
+	H.druggy = max(H.druggy, 20)
+	H.hallucination = max(H.hallucination, 60)
+	H.brute_mod = H.species.brute_mod += 3.4
 
-/datum/reagent/mental/oxycodone/final_effect(var/mob/living/carbon/M)
-	M.brute_mod = M.species.brute_mod
-	M.vomit()
+/datum/reagent/mental/oxycodone/final_effect(var/mob/living/carbon/human/H)
+	H.brute_mod = H.species.brute_mod
+	H.vomit()
 
 /datum/reagent/mental/methylphenidate
 	name = "Methylphenidate"
