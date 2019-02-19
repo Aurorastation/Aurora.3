@@ -41,3 +41,4 @@ changes:
   - tweak: "Ranged hostile mobs now have a var that shows if they are smart. Smart ranged mobs check if they can hit their target avoiding friendly fire or obstacles."
   - tweak: "Currently all ranged hostile mobs are designated as smart."
   - tweak: "Hivebot spawn beacon has now chance of spawning different kinds of bots each cycle, and has a spawn delay between each."
+  - bugfix: "Attacking clientless mob no longer causes a runtime."
