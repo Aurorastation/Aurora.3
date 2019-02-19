@@ -1258,7 +1258,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 	ownrank = idcard.rank
 	name = "PDA-[owner] ([ownjob])"
 	if(user)
-		user << "<span class='notice'>Card scanned.</span>"
+		to_chat(user, "<span class='notice'>Card scanned.</span>")
 	try_sort_pda_list()
 
 /obj/item/device/pda/attack(mob/living/C as mob, mob/living/user as mob)
