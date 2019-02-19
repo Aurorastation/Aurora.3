@@ -190,8 +190,8 @@
 
 	attackby(var/obj/item/weapon/D as obj, var/mob/user as mob)
 		if(D.isscrewdriver())
-			playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, 1)
-			if(do_after(user, 20))
+			playsound(src.loc, D.usesound, 50, 1)
+			if(do_after(user, 20/D.toolspeed))
 				if (src.stat & BROKEN)
 					user << "<span class='notice'>The broken glass falls out.</span>"
 					var/obj/structure/computerframe/A = new /obj/structure/computerframe( src.loc )

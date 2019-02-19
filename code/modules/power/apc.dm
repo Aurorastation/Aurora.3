@@ -447,7 +447,7 @@
 				return
 			playsound(src.loc, 'sound/items/Crowbar.ogg', 50, 1)
 			user << "You are trying to remove the power control board..." //lpeters - fixed grammar issues
-			if(do_after(user, 50))
+			if(do_after(user, 50/W.toolspeed))
 				if (has_electronics==1)
 					has_electronics = 0
 					if ((stat & BROKEN))
@@ -513,12 +513,12 @@
 				if (has_electronics==1 && terminal)
 					has_electronics = 2
 					stat &= ~MAINT
-					playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, 1)
+					playsound(src.loc, W.usesound, 50, 1)
 					user << "You screw the circuit electronics into place."
 				else if (has_electronics==2)
 					has_electronics = 1
 					stat |= MAINT
-					playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, 1)
+					playsound(src.loc, W.usesound, 50, 1)
 					user << "You unfasten the electronics."
 				else /* has_electronics==0 */
 					user << "<span class='warning'>There is nothing to secure.</span>"
@@ -559,7 +559,7 @@
 		user.visible_message("<span class='warning'>[user.name] adds cables to the APC frame.</span>", \
 							"You start adding cables to the APC frame...")
 		playsound(src.loc, 'sound/items/Deconstruct.ogg', 50, 1)
-		if(do_after(user, 20))
+		if(do_after(user, 20/W.toolspeed))
 			if (C.amount >= 10 && !terminal && opened && has_electronics != 2)
 				var/obj/structure/cable/N = T.get_cable_node()
 				if (prob(50) && electrocute_mob(usr, N, N))
@@ -580,7 +580,7 @@
 		user.visible_message("<span class='warning'>[user.name] dismantles the power terminal from [src].</span>", \
 							"You begin to cut the cables...")
 		playsound(src.loc, 'sound/items/Deconstruct.ogg', 50, 1)
-		if(do_after(user, 50))
+		if(do_after(user, 50/W.toolspeed))
 			if(terminal && opened && has_electronics!=2)
 				if (prob(50) && electrocute_mob(usr, terminal.powernet, terminal))
 					spark(src, 5, alldirs)
@@ -593,7 +593,7 @@
 		user.visible_message("<span class='warning'>[user.name] inserts the power control board into [src].</span>", \
 							"You start to insert the power control board into the frame...")
 		playsound(src.loc, 'sound/items/Deconstruct.ogg', 50, 1)
-		if(do_after(user, 10))
+		if(do_after(user, 10/W.toolspeed))
 			if(has_electronics==0)
 				has_electronics = 1
 				user << "<span class='notice'>You place the power control board inside the frame.</span>"
@@ -611,7 +611,7 @@
 							"You start welding the APC frame...", \
 							"You hear welding.")
 		playsound(src.loc, 'sound/items/Welder.ogg', 50, 1)
-		if(do_after(user, 50))
+		if(do_after(user, 50/W.toolspeed))
 			if(!src || !WT.remove_fuel(3, user)) return
 			if (emagged || (stat & BROKEN) || opened==2)
 				new /obj/item/stack/material/steel(loc)
@@ -642,7 +642,7 @@
 			return
 		user.visible_message("<span class='warning'>[user.name] replaces the damaged APC frame with a new one.</span>",\
 							"You begin to replace the damaged APC frame...")
-		if(do_after(user, 50))
+		if(do_after(user, 50/W.toolspeed))
 			user.visible_message(\
 				"<span class='notice'>[user.name] has replaced the damaged APC frame with new one.</span>",\
 				"You replace the damaged APC frame with new one.")
@@ -658,16 +658,16 @@
 	else if (istype(W, /obj/item/device/debugger))
 		if(emagged || hacker || infected)
 			user << "<span class='warning'>There is a software error with the device. Attempting to fix...</span>"
-			if(do_after(user, 10 SECONDS, act_target = src))
+			if(do_after(user, 10/W.toolspeed SECONDS, act_target = src))
 				user << "<span class='notice'>Problem diagnosed, searching for solution...</span>"
-				if(do_after(user, 30 SECONDS, act_target = src))
+				if(do_after(user, 30/W.toolspeed SECONDS, act_target = src))
 					user << "<span class='notice'>Solution found. Applying fixes...</span>"
-					if(do_after(user, 60 SECONDS, act_target = src))
+					if(do_after(user, 60/W.toolspeed SECONDS, act_target = src))
 						if(prob(15))
 							user << "<span class='warning'>Error while applying fixes. Please try again.</span>"
 							return
 					user << "<span class='notice'>Applied default software. Restarting APC...</span>"
-					if(do_after(user, 10 SECONDS, act_target = src))
+					if(do_after(user, 10/W.toolspeed SECONDS, act_target = src))
 						user << "<span class='notice'>APC Reset. Fixes applied.</span>"
 						if(hacker)
 							hacker.hacked_apcs -= src
@@ -694,7 +694,7 @@
 				user << "<span class='warning'>You need more welding fuel to complete this task.</span>"
 				return
 			playsound(src.loc, 'sound/items/Welder.ogg', 50, 1)
-			if(do_after(user, 10))
+			if(do_after(user, 10/W.toolspeed))
 				if(!src || !WT.remove_fuel(1, user)) return
 				if ((stat & BROKEN))
 					new /obj/item/stack/material/steel(loc)

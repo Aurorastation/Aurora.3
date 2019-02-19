@@ -166,7 +166,7 @@
 			playsound(src.loc, 'sound/items/Welder2.ogg', 50, 1)
 			if(istext(glass))
 				user.visible_message("[user] welds the [glass] plating off the airlock assembly.", "You start to weld the [glass] plating off the airlock assembly.")
-				if(do_after(user, 40))
+				if(do_after(user, 40/W.toolspeed))
 					if(!src || !WT.isOn()) return
 					user << "<span class='notice'>You welded the [glass] plating off!</span>"
 					var/M = text2path("/obj/item/stack/material/[glass]")
@@ -174,14 +174,14 @@
 					glass = 0
 			else if(glass == 1)
 				user.visible_message("[user] welds the glass panel out of the airlock assembly.", "You start to weld the glass panel out of the airlock assembly.")
-				if(do_after(user, 40))
+				if(do_after(user, 40/W.toolspeed))
 					if(!src || !WT.isOn()) return
 					user << "<span class='notice'>You welded the glass panel out!</span>"
 					new /obj/item/stack/material/glass/reinforced(src.loc)
 					glass = 0
 			else if(!anchored)
 				user.visible_message("[user] dissassembles the airlock assembly.", "You start to dissassemble the airlock assembly.")
-				if(do_after(user, 40))
+				if(do_after(user, 40/W.toolspeed))
 					if(!src || !WT.isOn()) return
 					user << "<span class='notice'>You dissasembled the airlock assembly!</span>"
 					new /obj/item/stack/material/steel(src.loc, 4)
@@ -191,13 +191,13 @@
 			return
 
 	else if(W.iswrench() && state == 0)
-		playsound(src.loc, 'sound/items/Ratchet.ogg', 100, 1)
+		playsound(src.loc, W.usesound, 100, 1)
 		if(anchored)
 			user.visible_message("[user] begins unsecuring the airlock assembly from the floor.", "You starts unsecuring the airlock assembly from the floor.")
 		else
 			user.visible_message("[user] begins securing the airlock assembly to the floor.", "You starts securing the airlock assembly to the floor.")
 
-		if(do_after(user, 40))
+		if(do_after(user, 40/W.toolspeed))
 			if(!src) return
 			user << "<span class='notice'>You [anchored? "un" : ""]secured the airlock assembly!</span>"
 			anchored = !anchored
@@ -217,7 +217,7 @@
 		playsound(src.loc, 'sound/items/Wirecutter.ogg', 100, 1)
 		user.visible_message("[user] cuts the wires from the airlock assembly.", "You start to cut the wires from airlock assembly.")
 
-		if(do_after(user, 40))
+		if(do_after(user, 40/W.toolspeed))
 			if(!src) return
 			user << "<span class='notice'>You cut the airlock wires.!</span>"
 			new/obj/item/stack/cable_coil(src.loc, 1)
@@ -229,7 +229,7 @@
 			playsound(src.loc, 'sound/items/Screwdriver.ogg', 100, 1)
 			user.visible_message("[user] installs the electronics into the airlock assembly.", "You start to install electronics into the airlock assembly.")
 			EL.inuse = 1
-			if(do_after(user, 40))
+			if(do_after(user, 40/W.toolspeed))
 				EL.inuse = 0
 				if(!src) return
 				user.drop_from_inventory(EL,src)
@@ -250,7 +250,7 @@
 		playsound(src.loc, 'sound/items/Crowbar.ogg', 100, 1)
 		user.visible_message("\The [user] starts removing the electronics from the airlock assembly.", "You start removing the electronics from the airlock assembly.")
 
-		if(do_after(user, 40))
+		if(do_after(user, 40/W.toolspeed))
 			if(!src) return
 			user << "<span class='notice'>You removed the airlock electronics!</span>"
 			src.state = 1
@@ -284,10 +284,10 @@
 								glass = material_name
 
 	else if(W.isscrewdriver() && state == 2 )
-		playsound(src.loc, 'sound/items/Screwdriver.ogg', 100, 1)
+		playsound(src.loc, W.usesound, 100, 1)
 		user << "<span class='notice'>Now finishing the airlock.</span>"
 
-		if(do_after(user, 40))
+		if(do_after(user, 40/W.toolspeed))
 			if(!src) return
 			user << "<span class='notice'>You finish the airlock!</span>"
 			var/path

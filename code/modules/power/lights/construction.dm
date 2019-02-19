@@ -46,7 +46,7 @@
 	add_fingerprint(user)
 	if (W.iswrench())
 		if (src.stage == 1)
-			playsound(src.loc, 'sound/items/Ratchet.ogg', 75, 1)
+			playsound(src.loc, W.usesound, 75, 1)
 			usr << "You begin deconstructing [src]."
 			if (!do_after(usr, 30, act_target = src))
 				return
@@ -114,7 +114,7 @@
 				"You close [src]'s casing.",
 				"You hear something being screwed in."
 			)
-			playsound(src.loc, 'sound/items/Screwdriver.ogg', 75, 1)
+			playsound(src.loc, W.usesound, 75, 1)
 
 			switch(fixture_type)
 				if("tube")

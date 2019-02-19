@@ -26,7 +26,7 @@
 	if(istype(O,/obj/item/weapon/tank))
 		return
 	if(istype(O,/obj/item/weapon/shovel))
-		if(do_after(user, 50))
+		if(do_after(user, 50/O.toolspeed))
 			new /obj/item/stack/material/sandstone{amount = 3}(loc)
 			user << "<span class='notice'>You remove the soil from the bed and dismantle the sandstone base.</span>"
 			playsound(src, 'sound/effects/stonedoor_openclose.ogg', 40, 1)

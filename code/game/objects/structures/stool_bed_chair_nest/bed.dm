@@ -92,7 +92,7 @@
 /obj/structure/bed/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	if(W.iswrench())
 		if(can_dismantle)
-			playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
+			playsound(src.loc, W.usesound, 50, 1)
 			dismantle()
 			qdel(src)
 	else if(istype(W,/obj/item/stack))

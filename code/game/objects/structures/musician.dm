@@ -416,18 +416,18 @@
 /obj/structure/device/piano/attackby(obj/item/O as obj, mob/user as mob)
 	if (O.iswrench())
 		if (anchored)
-			playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
+			playsound(src.loc, O.usesound, 50, 1)
 			user << "<span class='notice'>You begin to loosen \the [src]'s casters...</span>"
-			if (do_after(user, 40))
+			if (do_after(user, 40/O.toolspeed))
 				user.visible_message( \
 					"[user] loosens \the [src]'s casters.", \
 					"<span class='notice'>You have loosened \the [src]. Now it can be pulled somewhere else.</span>", \
 					"You hear ratchet.")
 				src.anchored = 0
 		else
-			playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
+			playsound(src.loc, O.usesound, 50, 1)
 			user << "<span class='notice'>You begin to tighten \the [src] to the floor...</span>"
-			if (do_after(user, 20))
+			if (do_after(user, 20/O.toolspeed))
 				user.visible_message( \
 					"[user] tightens \the [src]'s casters.", \
 					"<span class='notice'>You have tightened \the [src]'s casters. Now it can be played again</span>.", \

@@ -24,6 +24,8 @@
 	var/icon_species_in_hand = 0//If 1, we will use the species tag even for rendering this item in the left/right hand.
 
 	var/equip_slot = 0
+	var/usesound = null
+	var/toolspeed = 1
 
 /obj/Destroy()
 	STOP_PROCESSING(SSprocessing, src)

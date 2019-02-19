@@ -256,7 +256,7 @@
 /obj/structure/reagent_dispensers/water_cooler/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	if (W.isscrewdriver())
 		src.add_fingerprint(user)
-		playsound(src.loc, 'sound/items/Ratchet.ogg', 100, 1)
+		playsound(src.loc, W.usesound, 100, 1)
 		if(do_after(user, 20))
 			if(!src) return
 			switch (anchored)

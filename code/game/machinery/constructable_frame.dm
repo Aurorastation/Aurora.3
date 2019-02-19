@@ -44,7 +44,7 @@
 							icon_state = "box_1"
 				else
 					if(P.iswrench())
-						playsound(src.loc, 'sound/items/Ratchet.ogg', 75, 1)
+						playsound(src.loc, P.usesound, 75, 1)
 						user << "<span class='notice'>You dismantle the frame</span>"
 						new /obj/item/stack/material/steel(src.loc, 5)
 						qdel(src)
@@ -104,7 +104,7 @@
 								component_check = 0
 								break
 						if(component_check)
-							playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, 1)
+							playsound(src.loc,  P.usesound, 50, 1)
 							var/obj/machinery/new_machine = new src.circuit.build_path(loc, dir, FALSE)
 
 							if(new_machine.component_parts)

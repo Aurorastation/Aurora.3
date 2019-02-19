@@ -581,7 +581,7 @@
 /obj/item/weapon/neuralbroke/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	if(W.isscrewdriver())
 		new /obj/item/device/encryptionkey/hivenet(user.loc)
-		playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, 1)
+		playsound(src.loc, W.usesound, 50, 1)
 		user << "You bypass the fried security chip and extract the encryption key."
 		user << "The fried neural socket crumbles away like dust."
 		qdel(src)

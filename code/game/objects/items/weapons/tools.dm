@@ -28,6 +28,7 @@
 	origin_tech = list(TECH_MATERIAL = 1, TECH_ENGINEERING = 1)
 	matter = list(DEFAULT_WALL_MATERIAL = 150)
 	attack_verb = list("bashed", "battered", "bludgeoned", "whacked")
+	usesound = 'sound/items/Ratchet.ogg'
 
 /obj/item/weapon/wrench/iswrench()
 	return TRUE
@@ -51,6 +52,7 @@
 	attack_verb = list("stabbed")
 	lock_picking_level = 5
 	var/random_icon = TRUE
+	usesound = 'sound/items/Screwdriver.ogg'
 
 
 /obj/item/weapon/screwdriver/Initialize()
@@ -613,6 +615,65 @@
 		to_chat(user, "You can't seem to find any fittings in \the [src].")
 	else
 		to_chat(user, "You switch \the [src] to the [tool] fitting.")
+	update_tool()
+	return 1
+
+
+
+//combitool
+
+
+// PAPAPAPAPA POWEERRRR! -Drago
+
+// Icons and sounds ported from TG
+
+/obj/item/powerdrill
+	name = "impact wrench"
+	desc = " The screwdriver's big brother."
+	icon = 'icons/obj/items.dmi'
+	icon_state = "powerdrill"
+	force = 3
+	w_class = 2
+	toolspeed = 3
+	usesound = 'sound/items/drill_use.ogg'
+
+	var/list/tools = list(
+		"screwdriver",
+		"wrench"
+		)
+	var/current_tool = 1
+
+/obj/item/powerdrill/Initialize()
+	. = ..()
+
+/obj/item/powerdrill/examine(var/mob/user)
+	. = ..()
+	if(. && tools.len)
+		to_chat(user, "It has the following fittings:")
+		for(var/tool in tools)
+			to_chat(user, "- [tool][tools[current_tool] == tool ? " (selected)" : ""]")
+
+/obj/item/powerdrill/iswrench()
+	usesound = 'sound/items/air_wrench.ogg'
+	return tools[current_tool] == "wrench"
+
+/obj/item/powerdrill/isscrewdriver()
+	usesound = 'sound/items/drill_use.ogg'
+
+	return tools[current_tool] == "screwdriver"
+
+/obj/item/powerdrill/proc/update_tool()
+	icon_state = "[initial(icon_state)]-[tools[current_tool]]"
+
+/obj/item/powerdrill/attack_self(var/mob/user)
+	if(++current_tool > tools.len)
+		current_tool = 1
+	var/tool = tools[current_tool]
+	if(!tool)
+		to_chat(user, "You can't seem to find any fittings in \the [src].")
+	else
+		to_chat(user, "You switch \the [src] to the [tool] fitting.")
+		playsound(loc, 'sound/items/change_drill.ogg', 50, 1)
 	update_tool()
 	return 1
 

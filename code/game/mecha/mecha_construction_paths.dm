@@ -12,13 +12,13 @@
 			return 0
 
 	else if(I.iswrench())
-		playsound(holder, 'sound/items/Ratchet.ogg', 50, 1)
+		playsound(holder, I.usesound, 50, 1)
 
 	else if(I.isscrewdriver())
-		playsound(holder, 'sound/items/Screwdriver.ogg', 50, 1)
+		playsound(holder, I.usesound, 50, 1)
 
 	else if(I.iswirecutter())
-		playsound(holder, 'sound/items/Wirecutter.ogg', 50, 1)
+		playsound(holder, I.usesound, 50, 1)
 
 	else if(I.iscoil())
 		var/obj/item/stack/cable_coil/C = I
@@ -45,13 +45,13 @@
 		else
 			return 0
 	else if(I.iswrench())
-		playsound(holder, 'sound/items/Ratchet.ogg', 50, 1)
+		playsound(holder, I.usesound, 50, 1)
 
 	else if(I.isscrewdriver())
-		playsound(holder, 'sound/items/Screwdriver.ogg', 50, 1)
+		playsound(holder, I.usesound, 50, 1)
 
 	else if(I.iswirecutter())
-		playsound(holder, 'sound/items/Wirecutter.ogg', 50, 1)
+		playsound(holder, I.usesound, 50, 1)
 
 	else if(I.iscoil())
 		var/obj/item/stack/cable_coil/C = used_atom

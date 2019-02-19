@@ -30,7 +30,7 @@
 		if(0)
 			// State 0
 			if(W.iswrench() && isturf(src.loc))
-				playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
+				playsound(src.loc, W.usesound, 50, 1)
 				user << "You wrench the assembly into place."
 				anchored = 1
 				state = 1
@@ -48,7 +48,7 @@
 				return
 
 			else if(W.iswrench())
-				playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
+				playsound(src.loc, W.usesound, 50, 1)
 				user << "You unattach the assembly from its place."
 				anchored = 0
 				update_icon()
@@ -78,7 +78,7 @@
 		if(3)
 			// State 3
 			if(W.isscrewdriver())
-				playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, 1)
+				playsound(src.loc, W.usesound, 50, 1)
 
 				var/input = sanitize(input(usr, "Which networks would you like to connect this camera to? Separate networks with a comma. No Spaces!\nFor example: Station,Security,Secret", "Set Network", camera_network ? camera_network : NETWORK_STATION))
 				if(!input)
@@ -164,7 +164,7 @@
 	playsound(src.loc, 'sound/items/Welder.ogg', 50, 1)
 	WT.eyecheck(user)
 	busy = 1
-	if(do_after(user, 20))
+	if(do_after(user, 20/WT.toolspeed))
 		busy = 0
 		if(!WT.isOn())
 			return 0

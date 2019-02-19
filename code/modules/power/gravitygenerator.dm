@@ -200,7 +200,7 @@
 		if(GRAV_NEEDS_SCREWDRIVER)
 			if(I.isscrewdriver())
 				user << "<span class='notice'>You secure the screws of the framework.</span>"
-				playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, 1)
+				playsound(src.loc, I.usesound, 50, 1)
 				broken_state++
 		if(GRAV_NEEDS_WELDING)
 			if(I.iswelder())
@@ -222,7 +222,7 @@
 		if(GRAV_NEEDS_WRENCH)
 			if(I.iswrench())
 				user << "<span class='notice'>You secure the plating to the framework.</span>"
-				playsound(src.loc, 'sound/items/Ratchet.ogg', 75, 1)
+				playsound(src.loc, I.usesound, 75, 1)
 				set_fix()
 		else
 			..()

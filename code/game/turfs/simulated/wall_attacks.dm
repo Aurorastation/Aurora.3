@@ -228,7 +228,7 @@
 			if(cut_delay<0)
 				cut_delay = 0
 
-			if(!do_after(user,cut_delay))
+			if(!do_after(user,4/W.toolspeed))
 				return
 
 
@@ -255,8 +255,8 @@
 			if(5)
 				if (W.isscrewdriver())
 					user << "<span class='notice'>You begin removing the support lines.</span>"
-					playsound(src, 'sound/items/Screwdriver.ogg', 100, 1)
-					if(!do_after(user,40) || !istype(src, /turf/simulated/wall) || construction_stage != 5)
+					playsound(src, W.usesound, 100, 1)
+					if(!do_after(user,40/W.toolspeed) || !istype(src, /turf/simulated/wall) || construction_stage != 5)
 						return
 					construction_stage = 4
 					update_icon()
@@ -286,7 +286,7 @@
 				if(cut_cover)
 					user << "<span class='notice'>You begin slicing through the metal cover.</span>"
 					playsound(src, 'sound/items/Welder.ogg', 100, 1)
-					if(!do_after(user, 60) || !istype(src, /turf/simulated/wall) || construction_stage != 4)
+					if(!do_after(user, 60/W.toolspeed) || !istype(src, /turf/simulated/wall) || construction_stage != 4)
 						return
 					construction_stage = 3
 					update_icon()
@@ -296,7 +296,7 @@
 				if (W.iscrowbar())
 					user << "<span class='notice'>You struggle to pry off the cover.</span>"
 					playsound(src, 'sound/items/Crowbar.ogg', 100, 1)
-					if(!do_after(user,100) || !istype(src, /turf/simulated/wall) || construction_stage != 3)
+					if(!do_after(user,100/W.toolspeed) || !istype(src, /turf/simulated/wall) || construction_stage != 3)
 						return
 					construction_stage = 2
 					update_icon()
@@ -305,8 +305,8 @@
 			if(2)
 				if (W.iswrench())
 					user << "<span class='notice'>You start loosening the anchoring bolts which secure the support rods to their frame.</span>"
-					playsound(src, 'sound/items/Ratchet.ogg', 100, 1)
-					if(!do_after(user,40) || !istype(src, /turf/simulated/wall) || construction_stage != 2)
+					playsound(src, W.usesound, 100, 1)
+					if(!do_after(user,40/W.toolspeed) || !istype(src, /turf/simulated/wall) || construction_stage != 2)
 						return
 					construction_stage = 1
 					update_icon()
@@ -326,7 +326,7 @@
 				if(cut_cover)
 					user << "<span class='notice'>You begin slicing through the support rods.</span>"
 					playsound(src, 'sound/items/Welder.ogg', 100, 1)
-					if(!do_after(user,70) || !istype(src, /turf/simulated/wall) || construction_stage != 1)
+					if(!do_after(user,70/W.toolspeed) || !istype(src, /turf/simulated/wall) || construction_stage != 1)
 						return
 					construction_stage = 0
 					update_icon()

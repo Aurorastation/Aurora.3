@@ -1970,7 +1970,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 			else
 				open = FALSE
 				to_chat(user, "<span class='notice'>You secure the back panel.</span>")
-			playsound(user.loc, 'sound/items/Screwdriver.ogg', 50, 1)
+			playsound(user.loc, I.usesound, 50, 1)
 
 		if(I.ismultitool() && open)
 			to_chat(user, "<span class='notice'>You quickly pulse a few fires, and reset the screen and device.</span>")

@@ -57,7 +57,7 @@
 			return
 		path = 1
 		user << "<span class='notice'>You add [W] to the metal casing.</span>"
-		playsound(src.loc, 'sound/items/Screwdriver2.ogg', 25, -3)
+		playsound(src.loc, W.usesound, 25, -3)
 		user.remove_from_mob(det)
 		det.forceMove(src)
 		detonator = det
@@ -79,7 +79,7 @@
 			else
 				user << "<span class='notice'>You lock the empty assembly.</span>"
 				name = "fake grenade"
-			playsound(src.loc, 'sound/items/Screwdriver.ogg', 25, -3)
+			playsound(src.loc, W.usesound, 25, -3)
 			icon_state = initial(icon_state) +"_locked"
 			stage = 2
 		else if(stage == 2)
@@ -89,7 +89,7 @@
 				return
 			else
 				user << "<span class='notice'>You unlock the assembly.</span>"
-				playsound(src.loc, 'sound/items/Screwdriver.ogg', 25, -3)
+				playsound(src.loc, W.usesound, 25, -3)
 				name = "unsecured grenade with [beakers.len] containers[detonator?" and detonator":""]"
 				icon_state = initial(icon_state) + (detonator?"_ass":"")
 				stage = 1

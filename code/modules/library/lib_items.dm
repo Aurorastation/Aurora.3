@@ -37,11 +37,11 @@
 		else
 			name = ("bookcase ([newname])")
 	else if(O.iswrench())
-		playsound(src.loc, 'sound/items/Ratchet.ogg', 100, 1)
+		playsound(src.loc, O.usesound, 100, 1)
 		user << (anchored ? "<span class='notice'>You unfasten \the [src] from the floor.</span>" : "<span class='notice'>You secure \the [src] to the floor.</span>")
 		anchored = !anchored
 	else if(O.isscrewdriver())
-		playsound(loc, 'sound/items/Screwdriver.ogg', 75, 1)
+		playsound(loc, O.usesound, 75, 1)
 		user << "<span class='notice'>You begin dismantling \the [src].</span>"
 		if(do_after(user,25))
 			user << "<span class='notice'>You dismantle \the [src].</span>"
@@ -295,7 +295,7 @@
 	else if(istype(W, /obj/item/weapon/material/knife) || W.iswirecutter())
 		if(carved)	return
 		user << "<span class='notice'>You begin to carve out [title].</span>"
-		if(do_after(user, 30))
+		if(do_after(user, 30/W.toolspeed))
 			user << "<span class='notice'>You carve out the pages from [title]! You didn't want to read it anyway.</span>"
 			carved = 1
 			return

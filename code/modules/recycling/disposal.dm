@@ -60,12 +60,12 @@
 				return
 			if(mode==0) // It's off but still not unscrewed
 				mode=-1 // Set it to doubleoff l0l
-				playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, 1)
+				playsound(src.loc, I.usesound, 50, 1)
 				user << "You remove the screws around the power connection."
 				return
 			else if(mode==-1)
 				mode=0
-				playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, 1)
+				playsound(src.loc, I.usesound, 50, 1)
 				user << "You attach the screws around the power connection."
 				return
 		else if(I.iswelder() && mode==-1)
@@ -77,7 +77,7 @@
 				playsound(src.loc, 'sound/items/Welder2.ogg', 100, 1)
 				user << "You start slicing the floorweld off the disposal unit."
 
-				if(do_after(user,20))
+				if(do_after(user,20/W.toolspeed))
 					if(!src || !W.isOn()) return
 					user << "You sliced the floorweld off the disposal unit."
 					var/obj/structure/disposalconstruct/C = new (src.loc)
@@ -867,7 +867,7 @@
 			playsound(src.loc, 'sound/items/Welder2.ogg', 100, 1)
 			// check if anything changed over 3 seconds
 			user << "Slicing the disposal pipe..."
-			if (do_after(user, 3 SECONDS, act_target = src))
+			if (do_after(user, 3/W.toolspeed SECONDS, act_target = src))
 				if(!src || !W.isOn()) return
 				welded()
 			else
@@ -1339,7 +1339,7 @@
 			playsound(src.loc, 'sound/items/Welder2.ogg', 100, 1)
 			// check if anything changed over 3 seconds
 			user << "Slicing the disposal pipe."
-			if (do_after(user, 3 SECONDS, act_target = src))
+			if (do_after(user, 3/W.toolspeed SECONDS, act_target = src))
 				if(!src || !W.isOn()) return
 				welded()
 			else
@@ -1492,12 +1492,12 @@
 	if(I.isscrewdriver())
 		if(mode==0)
 			mode=1
-			playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, 1)
+			playsound(src.loc, I.usesound, 50, 1)
 			user << "You remove the screws around the power connection."
 			return
 		else if(mode==1)
 			mode=0
-			playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, 1)
+			playsound(src.loc, I.usesound, 50, 1)
 			user << "You attach the screws around the power connection."
 			return
 	else if(I.iswelder() && mode==1)
@@ -1505,7 +1505,7 @@
 		if(W.remove_fuel(0,user))
 			playsound(src.loc, 'sound/items/Welder2.ogg', 100, 1)
 			user << "You start slicing the floorweld off the disposal outlet."
-			if(do_after(user,20))
+			if(do_after(user,20/W.toolspeed))
 				if(!src || !W.isOn()) return
 				user << "You slice the floorweld off the disposal outlet."
 				var/obj/structure/disposalconstruct/C = new (src.loc)

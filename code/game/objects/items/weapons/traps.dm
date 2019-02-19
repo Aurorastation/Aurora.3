@@ -606,7 +606,7 @@
 
 		user.visible_message("<span class='notice'>[user] is trying to [anchored ? "un" : "" ]secure \the [src]!</span>",
 							  "You are trying to [anchored ? "un" : "" ]secure \the [src]!")
-		playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
+		playsound(src.loc, W.usesound, 50, 1)
 
 		if (!do_after(user, 3 SECONDS, act_target = src))
 			return

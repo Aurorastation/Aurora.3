@@ -351,7 +351,7 @@
 			user << "<span class='danger'>\The [WT] must be turned on!</span>"
 		else if (WT.remove_fuel(0,user))
 			user << "<span class='notice'>Now welding the vent.</span>"
-			if(do_after(user, 20))
+			if(do_after(user, 20/W.toolspeed))
 				if(!src || !WT.isOn()) return
 				playsound(src.loc, 'sound/items/Welder2.ogg', 50, 1)
 				if(!welded)
@@ -400,9 +400,9 @@
 		user << "<span class='warning'>You cannot unwrench \the [src], it is too exerted due to internal pressure.</span>"
 		add_fingerprint(user)
 		return 1
-	playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
+	playsound(src.loc, W.usesound, 50, 1)
 	user << "<span class='notice'>You begin to unfasten \the [src]...</span>"
-	if (do_after(user, 40))
+	if (do_after(user, 40)/W.toolspeed)
 		user.visible_message( \
 			"<span class='notice'>\The [user] unfastens \the [src].</span>", \
 			"<span class='notice'>You have unfastened \the [src].</span>", \
