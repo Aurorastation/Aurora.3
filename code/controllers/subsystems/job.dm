@@ -420,6 +420,9 @@
 			var/obj/item/clothing/glasses/G = H.glasses
 			G.prescription = TRUE
 
+	if(H.species)
+		H.species.equip_later_gear(H)
+
 	BITSET(H.hud_updateflag, ID_HUD)
 	BITSET(H.hud_updateflag, IMPLOYAL_HUD)
 	BITSET(H.hud_updateflag, SPECIALROLE_HUD)
@@ -556,6 +559,9 @@
 			var/obj/item/clothing/glasses/G = H.glasses
 			G.prescription = TRUE
 			G.autodrobe_no_remove = TRUE
+
+	if(H.species)
+		H.species.equip_later_gear(H)
 
 	// So shoes aren't silent if people never change 'em.
 	H.update_noise_level()
@@ -754,7 +760,7 @@
 					Debug("EC/([H]): [thing] failed mask/suit/head check; leftovers=[!!leftovers]")
 				else if (H.equip_to_slot_or_del(CI, G.slot))
 					CI.autodrobe_no_remove = TRUE
-					to_chat(H, "<span class='notice'>Equipping you with [thing]!</span>") 
+					to_chat(H, "<span class='notice'>Equipping you with [thing]!</span>")
 					custom_equip_slots += G.slot
 					Debug("EC/([H]): Equipped [CI] successfully.")
 				else if (leftovers)
