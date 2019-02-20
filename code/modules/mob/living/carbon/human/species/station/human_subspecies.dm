@@ -15,8 +15,9 @@
 	hazard_low_pressure = 10
 
 	spawn_flags = IS_RESTRICTED
-/*
-/datum/species/human/offworlder/equip_later_gear(var/mob/living/carbon/human/H)
+
+/datum/species/human/offworlder/equip_survival_gear(var/mob/living/carbon/human/H)
+	..()
 	if(H.back)
 		var/obj/item/I = H.back
 		H.unEquip(I)
@@ -25,8 +26,8 @@
 	var/obj/item/weapon/rig/light/offworlder/skeleton = new(get_turf(H))
 	skeleton.autodrobe_no_remove = TRUE
 	H.equip_to_slot_or_del(skeleton,slot_back)
+	to_chat(H, "<span class='notice'>You have access to \the [skeleton], deploy it to allow you to stand properly.</span>")
 
-*/
 /datum/species/human/offworlder/stance_check(var/mob/living/carbon/human/H)
 	if(H.back && istype(H.back, /obj/item/weapon/rig/light/offworlder))
 		var/obj/item/weapon/rig/light/offworlder/rig = H.back
