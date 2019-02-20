@@ -1253,6 +1253,8 @@
 #include "code\modules\client\preference_setup\loadout\loadout_xeno.dm"
 #include "code\modules\client\preference_setup\loadout\loadout_xeno\human.dm"
 #include "code\modules\client\preference_setup\loadout\loadout_xeno\machine.dm"
+#include "code\modules\client\preference_setup\loadout\loadout_xeno\skrell.dm"
+#include "code\modules\client\preference_setup\loadout\loadout_xeno\tajara.dm"
 #include "code\modules\client\preference_setup\loadout\loadout_xeno\unathi.dm"
 #include "code\modules\client\preference_setup\loadout\loadout_xeno\vaurca.dm"
 #include "code\modules\client\preference_setup\occupation\occupation.dm"
