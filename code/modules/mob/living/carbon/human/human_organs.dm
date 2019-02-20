@@ -74,7 +74,7 @@
 		return
 
 	if(species)
-		stance_damage -= (species.stance_check(src)) //reduces your chance of falling depending on species factors
+		stance_damage += (species.stance_check(src)) //reduces your chance of falling depending on species factors
 
 	for(var/limb_tag in list("l_leg","r_leg","l_foot","r_foot"))
 		var/obj/item/organ/external/E = organs_by_name[limb_tag]
