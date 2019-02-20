@@ -103,16 +103,16 @@
 
 /mob/living/carbon/human/adjustBruteLoss(var/amount)
 	if(amount > 0)
-		take_overall_damage(amount, 0)
 		amount *= brute_mod
+		take_overall_damage(amount, 0)
 	else
 		heal_overall_damage(-amount, 0)
 	BITSET(hud_updateflag, HEALTH_HUD)
 
 /mob/living/carbon/human/adjustFireLoss(var/amount)
 	if(amount > 0)
-		take_overall_damage(0, amount)
 		amount *= burn_mod
+		take_overall_damage(0, amount)
 	else
 		heal_overall_damage(0, -amount)
 	BITSET(hud_updateflag, HEALTH_HUD)
@@ -122,8 +122,8 @@
 		var/obj/item/organ/external/O = get_organ(organ_name)
 
 		if(amount > 0)
-			O.take_damage(amount, 0, sharp=is_sharp(damage_source), edge=has_edge(damage_source), used_weapon=damage_source)
 			amount *= brute_mod
+			O.take_damage(amount, 0, sharp=is_sharp(damage_source), edge=has_edge(damage_source), used_weapon=damage_source)
 		else
 			//if you don't want to heal robot organs, they you will have to check that yourself before using this proc.
 			O.heal_damage(-amount, 0, internal=0, robo_repair=(O.status & ORGAN_ROBOT))
@@ -135,8 +135,8 @@
 		var/obj/item/organ/external/O = get_organ(organ_name)
 
 		if(amount > 0)
-			O.take_damage(0, amount, sharp=is_sharp(damage_source), edge=has_edge(damage_source), used_weapon=damage_source)
 			amount *= burn_mod
+			O.take_damage(0, amount, sharp=is_sharp(damage_source), edge=has_edge(damage_source), used_weapon=damage_source)
 		else
 			//if you don't want to heal robot organs, they you will have to check that yourself before using this proc.
 			O.heal_damage(0, -amount, internal=0, robo_repair=(O.status & ORGAN_ROBOT))
