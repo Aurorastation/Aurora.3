@@ -29,6 +29,10 @@
 	to_chat(H, "<span class='notice'>You have access to \the [skeleton], deploy it to allow you to stand properly.</span>")
 
 /datum/species/human/offworlder/stance_check(var/mob/living/carbon/human/H)
+	var/area/A = get_area(H)
+	if(A && !A.has_gravity())
+		return 0
+
 	if(H.back && istype(H.back, /obj/item/weapon/rig/light/offworlder))
 		var/obj/item/weapon/rig/light/offworlder/rig = H.back
 		if(!rig.offline)
