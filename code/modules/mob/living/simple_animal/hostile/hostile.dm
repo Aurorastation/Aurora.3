@@ -239,17 +239,16 @@ mob/living/simple_animal/hostile/hitby(atom/movable/AM as mob|obj,var/speed = TH
 		return FALSE
 
 	var/target_hit = FALSE
-	var/friendly_hit = FALSE
 
-	for(var/atom/M in check_trajectory(target_mob, src, pass_flags=PASSTABLE))
+	for(var/M in check_trajectory(target_mob, src, pass_flags=PASSTABLE))
 		if(ismob(M))
 			var/mob/L = M
 			if(L == target_mob)
 				target_hit = TRUE
 			if((L.faction == faction) || (L in friends))
-				friendly_hit = TRUE
+				return FALSE
 
-	return target_hit && !friendly_hit
+	return target_hit
 
 /mob/living/simple_animal/hostile/proc/shoot_wrapper(target, location, user)
 	Shoot(target, location, user)

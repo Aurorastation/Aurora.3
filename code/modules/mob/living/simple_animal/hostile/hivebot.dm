@@ -1,3 +1,7 @@
+#define NORMAL 1
+#define RANGED 2
+#define RAPID  3
+
 /obj/item/projectile/hivebotbullet
 	damage = 10
 	damage_type = BRUTE
@@ -63,7 +67,7 @@
 	status_flags = 0
 	anchored = 1
 	stop_automated_movement = 1
-	var/bot_type = 1 // type of bot, 1 is normal, 2 is ranged, 3 is rapid rnaged.
+	var/bot_type = NORMAL // type of bot, 1 is normal, 2 is ranged, 3 is rapid rnaged.
 	var/bot_amt = 10
 	var/spawn_delay = 600
 
@@ -72,7 +76,7 @@
 	var/datum/effect/effect/system/smoke_spread/smoke = new /datum/effect/effect/system/smoke_spread()
 	smoke.set_up(5, 0, src.loc)
 	smoke.start()
-	visible_message("<span class='danger'>The [src] warps in!</span>")
+	visible_message("<span class='danger'>\The [src] warps in!</span>")
 	playsound(src.loc, 'sound/effects/EMPulse.ogg', 25, 1)
 
 /mob/living/simple_animal/hostile/hivebot/tele/proc/warpbots()
@@ -81,23 +85,23 @@
 		qdel(src)
 
 	icon_state = "def_radar"
-	visible_message("<span class='warning'>The [src] turns on!</span>")
+	visible_message("<span class='warning'>\The [src] turns on!</span>")
 
 	switch(bot_type)
-		if(1)
+		if(NORMAL)
 			new /mob/living/simple_animal/hostile/hivebot(get_turf(src))
-		if(2)
+		if(RANGED)
 			new /mob/living/simple_animal/hostile/hivebot/range(get_turf(src))
-		if(3)
+		if(RAPID)
 			new /mob/living/simple_animal/hostile/hivebot/range/rapid(get_turf(src))
 
 	if(prob(30))
 		if(prob(20))
-			bot_type = 3
+			bot_type = RAPID
 		else
-			bot_type = 2
+			bot_type = RANGED
 	else
-		bot_type = 1
+		bot_type = NORMAL
 	bot_amt--
 	addtimer(CALLBACK(src, .proc/warpbots, spawn_delay))
 
@@ -108,3 +112,6 @@
 		if(prob(2))//Might be a bit low, will mess with it likely
 			warpbots()
 
+#undef NORMAL
+#undef RANGED
+#undef RAPID
