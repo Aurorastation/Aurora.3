@@ -32,7 +32,7 @@
 
 /obj/item/weapon/rig/ert/engineer
 	name = "ERT-E suit control module"
-	desc = "A suit worn by the engineering division of an Emergency Response Team. Has orange highlights. Less armoured than security varient, but offers full radiation protection."
+	desc = "A suit worn by the engineering division of an Emergency Response Team. Has orange highlights. Less armoured than the security variant, but offers full radiation protection."
 	suit_type = "ERT engineer"
 	icon_state = "ert_engineer_rig"
 	emp_protection = 30
@@ -53,7 +53,7 @@
 
 /obj/item/weapon/rig/ert/medical
 	name = "ERT-M suit control module"
-	desc = "A suit worn by the medical division of an Emergency Response Team. Has white highlights. Less armoured than security varient, but offers full radiation protection."
+	desc = "A suit worn by the medical division of an Emergency Response Team. Has white highlights. Less armoured than the security variant, but offers full radiation protection."
 	suit_type = "ERT medic"
 	icon_state = "ert_medical_rig"
 	emp_protection = 30
@@ -92,7 +92,7 @@
 
 /obj/item/weapon/rig/ert/janitor
 	name = "ERT-J suit control module"
-	desc = "A suit worn by the janitoral division of an Emergency Response Team. Has purple highlights. Less armoured than security varient, but offers full radiation protection."
+	desc = "A suit worn by the janitoral division of an Emergency Response Team. Has purple highlights. Less armoured than security the variant, but offers full radiation protection."
 	suit_type = "ERT janitor"
 	icon_state = "ert_janitor_rig"
 
