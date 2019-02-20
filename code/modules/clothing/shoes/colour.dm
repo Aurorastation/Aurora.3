@@ -8,6 +8,9 @@
 	heat_protection = FEET
 	max_heat_protection_temperature = SHOE_MAX_HEAT_PROTECTION_TEMPERATURE
 
+/obj/item/clothing/shoes/black/noslip
+	item_flags = NOSLIP
+
 /obj/item/clothing/shoes/brown
 	name = "brown shoes"
 	desc = "A pair of brown shoes."

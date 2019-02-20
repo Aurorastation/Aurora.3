@@ -78,9 +78,6 @@
 		/mob/living/carbon/human/proc/hivenet
 		)
 
-/datum/species/bug/type_c/equip_survival_gear(var/mob/living/carbon/human/H)
-	return
-
 /datum/species/bug/type_c/handle_post_spawn(var/mob/living/carbon/human/H)
 	..()
 	H.gender = FEMALE
@@ -153,9 +150,6 @@
 		"eyes"                = /obj/item/organ/eyes/vaurca,
 		"filtration bit"      = /obj/item/organ/vaurca/filtrationbit
 	)
-
-/datum/species/bug/type_big/equip_survival_gear(var/mob/living/carbon/human/H)
-	return
 
 /datum/species/bug/type_big/handle_post_spawn(var/mob/living/carbon/human/H)
 	H.mutations.Add(HULK)
