@@ -15,7 +15,7 @@
 	hazard_low_pressure = 10
 
 	spawn_flags = IS_RESTRICTED
-
+/*
 /datum/species/human/offworlder/equip_later_gear(var/mob/living/carbon/human/H)
 	if(H.back)
 		var/obj/item/I = H.back
@@ -26,7 +26,7 @@
 	skeleton.autodrobe_no_remove = TRUE
 	H.equip_to_slot_or_del(skeleton,slot_back)
 
-
+*/
 /datum/species/human/offworlder/stance_check(var/mob/living/carbon/human/H)
 	if(H.back && istype(H.back, /obj/item/weapon/rig/light/offworlder))
 		var/obj/item/weapon/rig/light/offworlder/rig = H.back
