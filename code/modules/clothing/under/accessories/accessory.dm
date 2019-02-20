@@ -554,7 +554,7 @@
 
 /obj/item/clothing/accessory/offworlder
 	name = "legbrace"
-	desc = "A lightweight polymer frame meant to brace and hold someone’s legs upright comfortably."
+	desc = "A lightweight polymer frame meant to brace and hold someone's legs upright comfortably."
 	icon_state = "legbrace"
 	item_state = "legbrace"
 	slot = "over"
@@ -567,6 +567,6 @@
 
 /obj/item/clothing/accessory/offworlder/neckbrace
 	name = "neckbrace"
-	desc = "A lightweight polymer frame meant to brace and hold someone’s neck upright comfortably."
+	desc = "A lightweight polymer frame meant to brace and hold someone's neck upright comfortably."
 	icon_state = "neckbrace"
 	item_state = "neckbrace"
