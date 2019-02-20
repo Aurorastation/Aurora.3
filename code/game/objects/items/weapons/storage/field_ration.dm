@@ -4,14 +4,8 @@
 	icon = 'icons/obj/storage.dmi'
 	icon_state = "ration"
 	var/preset_ration	//if the package comes with one in particular, not a random
-	var/ration_desc
 	var/list/ration_options = list("Worker's Meal", "NanoTrasen Sponsored")
 	var/selected_ration
-
-/obj/item/weapon/storage/field_ration/examine(mob/user)
-	. = ..()
-	if(ration_desc)
-		to_chat(user, ration_desc)
 
 /obj/item/weapon/storage/field_ration/fill()
 	..()
@@ -28,13 +22,13 @@
 			new /obj/item/weapon/reagent_containers/food/snacks/tajaran_bread(src)
 			new /obj/item/weapon/reagent_containers/food/snacks/adhomian_can(src)
 			new /obj/item/weapon/reagent_containers/food/drinks/bottle/victorygin(src)
-			ration_desc = "This one has the stamp of the Republican Army."
+			desc += " This one has the stamp of the Republican Army."
 
 		if("NanoTrasen Sponsored")
 			new /obj/item/weapon/reagent_containers/food/snacks/liquidfood(src)
 			new /obj/item/weapon/reagent_containers/food/snacks/liquidfood(src)
 			new /obj/item/weapon/reagent_containers/food/drinks/cans/sodawater(src)
-			ration_desc = "This one has the NanoTrasen logo."
+			desc += " This one has the NanoTrasen logo."
 
 /obj/item/weapon/storage/field_ration/army
 	preset_ration = "Worker's Meal"
@@ -52,13 +46,13 @@
 		if("Imperial Army")
 			new /obj/item/weapon/reagent_containers/food/snacks/hardbread(src)
 			new /obj/item/weapon/reagent_containers/food/drinks/cans/adhomai_milk(src)
-			ration_desc = "This one has the stamp of the Imperial Adhomian Army."
+			desc += " This one has the stamp of the Imperial Adhomian Army."
 
 		if("Royal Navy")
 			new /obj/item/weapon/reagent_containers/food/snacks/liquidfood(src)
 			new /obj/item/weapon/reagent_containers/food/snacks/adhomian_can(src)
 			new /obj/item/weapon/reagent_containers/food/drinks/bottle/messa_mead(src)
-			ration_desc = "This one has the stamp of the Royal Navy."
+			desc += " This one has the stamp of the Royal Navy."
 
 /obj/item/weapon/storage/field_ration/nka/army
 	preset_ration = "Imperial Army"
