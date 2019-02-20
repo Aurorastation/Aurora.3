@@ -28,6 +28,6 @@
 
 /obj/item/clothing/mask/breath/offworlder/jagmask
 	name = "jagmask"
-	desc = "A two-piece, jagged filtering mask meant to conform to one’s face comfortably."
+	desc = "A two-piece, jagged filtering mask meant to conform to one's face comfortably."
 	icon_state = "jagmask"
 	item_state = "jagmask"
