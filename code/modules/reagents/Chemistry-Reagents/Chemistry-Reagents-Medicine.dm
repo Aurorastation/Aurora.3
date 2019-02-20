@@ -213,7 +213,7 @@
 		
 		if(prob(10))
 			H.apply_effect(10,EYE_BLUR)
-		if(prob(75))
+		if(prob(75) && ishuman(M))
 			var/obj/item/organ/eyes/E = H.get_eyes(no_synthetic = TRUE)
 			E.damage = max(E.damage += 1.2 * removed, 0)
 
