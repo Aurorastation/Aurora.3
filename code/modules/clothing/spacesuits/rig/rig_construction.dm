@@ -4,7 +4,11 @@
 	desc = "An assembly frame of back-mounted hardsuit deployment and control mechanism."
 	slot_flags = SLOT_BACK
 	w_class = 4
-	var/list/components_required = list()
+	var/obj/item/weapon/circuitboard/circuit = null
+	var/list/components = null
+	var/list/req_components = null
+	var/list/req_component_names = null
+	var/state = 1
 
 /obj/item/rig_assembly/ce
 	name = "advanced voidsuit control module assembly"
