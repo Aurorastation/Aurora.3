@@ -123,7 +123,7 @@
 
 		if(tension >= max_tension)
 			tension = max_tension
-			usr << "[src] clunks as you draw the string to its maximum tension!"
+			to_chat(usr, "[src] clunks as you draw the string to its maximum tension!")
 			return
 
 		user.visible_message("[usr] draws back the string of [src]!","<span class='notice'>You continue drawing back the string of [src]!</span>")

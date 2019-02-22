@@ -76,7 +76,7 @@
 	var/turf/T = get_turf(loc)
 	if(ismob(loc))
 		var/mob/M = loc
-		M << "<span class='danger'>\The [src] explodes!</span>"
+		to_chat(M, "<span class='danger'>\The [src] explodes!</span>")
 	if(T)
 		T.hotspot_expose(700,125)
 		explosion(T, -1, -1, 0, 4)
@@ -90,11 +90,11 @@
 	if(usr.stat)
 		return
 	if(emagged == 1)
-		usr << "<span class='warning'>The tape recorder makes a scratchy noise.</span>"
+		to_chat(usr, "<span class='warning'>The tape recorder makes a scratchy noise.</span>")
 		return
 	icon_state = "taperecorderrecording"
 	if(timerecorded < 3600 && playing == 0)
-		usr << "<span class='notice'>Recording started.</span>"
+		to_chat(usr, "<span class='notice'>Recording started.</span>")
 		recording = 1
 		timestamp+= timerecorded
 		storedinfo += "\[[time2text(timerecorded*10,"mm:ss")]\] Recording started."
@@ -107,7 +107,7 @@
 		icon_state = "taperecorderidle"
 		return
 	else
-		usr << "<span class='notice'>Either your tape recorder's memory is full, or it is currently playing back its memory.</span>"
+		to_chat(usr, "<span class='notice'>Either your tape recorder's memory is full, or it is currently playing back its memory.</span>")
 
 
 /obj/item/device/taperecorder/verb/stop()
@@ -117,13 +117,13 @@
 	if(usr.stat)
 		return
 	if(emagged == 1)
-		usr << "<span class='warning'>The tape recorder makes a scratchy noise.</span>"
+		to_chat(usr, "<span class='warning'>The tape recorder makes a scratchy noise.</span>")
 		return
 	if(recording == 1)
 		recording = 0
 		timestamp+= timerecorded
 		storedinfo += "\[[time2text(timerecorded*10,"mm:ss")]\] Recording stopped."
-		usr << "<span class='notice'>Recording stopped.</span>"
+		to_chat(usr, "<span class='notice'>Recording stopped.</span>")
 		icon_state = "taperecorderidle"
 		return
 	else if(playing == 1)
@@ -141,16 +141,16 @@
 	if(usr.stat)
 		return
 	if(emagged == 1)
-		usr << "<span class='warning'>The tape recorder makes a scratchy noise.</span>"
+		to_chat(usr, "<span class='warning'>The tape recorder makes a scratchy noise.</span>")
 		return
 	if(recording == 1 || playing == 1)
-		usr << "<span class='notice'>You can't clear the memory while playing or recording!</span>"
+		to_chat(usr, "<span class='notice'>You can't clear the memory while playing or recording!</span>")
 		return
 	else
 		if(storedinfo)	storedinfo.Cut()
 		if(timestamp)	timestamp.Cut()
 		timerecorded = 0
-		usr << "<span class='notice'>Memory cleared.</span>"
+		to_chat(usr, "<span class='notice'>Memory cleared.</span>")
 		return
 
 
@@ -161,17 +161,17 @@
 	if(usr.stat)
 		return
 	if(emagged == 1)
-		usr << "<span class='warning'>The tape recorder makes a scratchy noise.</span>"
+		to_chat(usr, "<span class='warning'>The tape recorder makes a scratchy noise.</span>")
 		return
 	if(recording == 1)
-		usr << "<span class='notice'>You can't playback when recording!</span>"
+		to_chat(usr, "<span class='notice'>You can't playback when recording!</span>")
 		return
 	if(playing == 1)
-		usr << "<span class='notice'>You're already playing!</span>"
+		to_chat(usr, "<span class='notice'>You're already playing!</span>")
 		return
 	playing = 1
 	icon_state = "taperecorderplaying"
-	usr << "<span class='notice'>Playing started.</span>"
+	to_chat(usr, "<span class='notice'>Playing started.</span>")
 	for(var/i=1,timerecorded<3600,sleep(10 * (playsleepseconds) ))
 		if(playing == 0)
 			break
@@ -223,15 +223,15 @@
 	if(usr.stat)
 		return
 	if(emagged == 1)
-		usr << "<span class='warning'>The tape recorder makes a scratchy noise.</span>"
+		to_chat(usr, "<span class='warning'>The tape recorder makes a scratchy noise.</span>")
 		return
 	if(!canprint)
-		usr << "<span class='notice'>The recorder can't print that fast!</span>"
+		to_chat(usr, "<span class='notice'>The recorder can't print that fast!</span>")
 		return
 	if(recording == 1 || playing == 1)
-		usr << "<span class='notice'>You can't print the transcript while playing or recording!</span>"
+		to_chat(usr, "<span class='notice'>You can't print the transcript while playing or recording!</span>")
 		return
-	usr << "<span class='notice'>Transcript printed.</span>"
+	to_chat(usr, "<span class='notice'>Transcript printed.</span>")
 	var/obj/item/weapon/paper/P = new /obj/item/weapon/paper(get_turf(src))
 	var/t1 = "<B>Transcript:</B><BR><BR>"
 	for(var/i=1,storedinfo.len >= i,i++)
@@ -252,11 +252,11 @@
 		if(usr.stat)
 			return
 		if(emagged == 1)
-			usr << "<span class='warning'>The tape recorder makes a scratchy noise.</span>"
+			to_chat(usr, "<span class='warning'>The tape recorder makes a scratchy noise.</span>")
 			return
 		icon_state = "taperecorderrecording"
 		if(timerecorded < 3600 && playing == 0)
-			usr << "<span class='notice'>Recording started.</span>"
+			to_chat(usr, "<span class='notice'>Recording started.</span>")
 			recording = 1
 			timestamp+= timerecorded
 			storedinfo += "\[[time2text(timerecorded*10,"mm:ss")]\] Recording started."
@@ -269,16 +269,16 @@
 			icon_state = "taperecorderidle"
 			return
 		else
-			usr << "<span class='warning'>Either your tape recorder's memory is full, or it is currently playing back its memory.</span>"
+			to_chat(usr, "<span class='warning'>Either your tape recorder's memory is full, or it is currently playing back its memory.</span>")
 	else
 		if(usr.stat)
-			usr << "Not when you're incapacitated."
+			to_chat(usr, "Not when you're incapacitated.")
 			return
 		if(recording == 1)
 			recording = 0
 			timestamp+= timerecorded
 			storedinfo += "\[[time2text(timerecorded*10,"mm:ss")]\] Recording stopped."
-			usr << "<span class='notice'>Recording stopped.</span>"
+			to_chat(usr, "<span class='notice'>Recording stopped.</span>")
 			icon_state = "taperecorderidle"
 			return
 		else if(playing == 1)
@@ -289,5 +289,5 @@
 			icon_state = "taperecorderidle"
 			return
 		else
-			usr << "<span class='warning'>Stop what?</span>"
+			to_chat(usr, "<span class='warning'>Stop what?</span>")
 			return

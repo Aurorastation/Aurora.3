@@ -28,7 +28,7 @@
 	H.equip_to_slot_or_del(new /obj/item/device/pda/merchant(H), slot_belt)
 	H.equip_to_slot_or_del(new /obj/item/device/price_scanner(H), slot_r_store)
 
-	H << "You are a merchant heading to the [station_name()] to make profit, your main objective is to sell and trade with the crew."
+	to_chat(H, "You are a merchant heading to the [station_name()] to make profit, your main objective is to sell and trade with the crew.")
 
 	return TRUE
 

@@ -93,12 +93,12 @@
 		if (!location)	//just arrived home
 			for(var/turf/T in get_area_turfs(destination))
 				var/mob/M = locate(/mob) in T
-				M << "<span class='danger'>You have arrived at [current_map.boss_name]. Operation has ended!</span>"
+				to_chat(M, "<span class='danger'>You have arrived at [current_map.boss_name]. Operation has ended!</span>")
 		else	//just left for the station
 			launch_mauraders()
 			for(var/turf/T in get_area_turfs(destination))
 				var/mob/M = locate(/mob) in T
-				M << "<span class='danger'>You have arrived at [current_map.station_name]. Commence operation!</span>"
+				to_chat(M, "<span class='danger'>You have arrived at [current_map.station_name]. Commence operation!</span>")
 
 				var/obj/machinery/light/small/readylight/light = locate() in T
 				if(light) light.set_state(1)

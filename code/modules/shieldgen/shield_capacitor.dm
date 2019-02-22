@@ -74,7 +74,7 @@
 	if ( (get_dist(src, user) > 1 ) || (stat & (BROKEN)) )
 		if (!istype(user, /mob/living/silicon))
 			user.unset_machine()
-			to_chat(user, browse(null, "window=shield_capacitor"))
+			user << browse(null, "window=shield_capacitor")
 			return
 	var/t = "<B>Shield Capacitor Control Console</B><br><br>"
 	if(locked)
@@ -96,7 +96,7 @@
 	t += "<A href='?src=\ref[src]'>Refresh</A> "
 	t += "<A href='?src=\ref[src];close=1'>Close</A><BR>"
 
-	to_chat(user, browse(t, "window=shield_capacitor;size=500x400"))
+	user << browse(t, "window=shield_capacitor;size=500x400")
 	user.set_machine(src)
 
 /obj/machinery/shield_capacitor/machinery_process()
@@ -134,7 +134,7 @@
 		return
 	if( href_list["toggle"] )
 		if(!active && !anchored)
-			usr << "<span class='warning'>The [src] needs to be firmly secured to the floor first.</span>"
+			to_chat(usr, "<span class='warning'>The [src] needs to be firmly secured to the floor first.</span>")
 			return
 		active = !active
 	if( href_list["charge_rate"] )
@@ -154,7 +154,7 @@
 	set src in oview(1)
 
 	if (src.anchored)
-		usr << "It is fastened to the floor!"
+		to_chat(usr, "It is fastened to the floor!")
 		return
 	if(config.ghost_interaction)
 		src.set_dir(turn(src.dir, -90))

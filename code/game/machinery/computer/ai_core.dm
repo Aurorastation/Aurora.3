@@ -104,23 +104,23 @@
 				laws.add_inherent_law("You may not injure a human being or, through inaction, allow a human being to come to harm.")
 				laws.add_inherent_law("You must obey orders given to you by human beings, except where such orders would conflict with the First Law.")
 				laws.add_inherent_law("You must protect your own existence as long as such does not conflict with the First or Second Law.")
-				usr << "Law module applied."
+				to_chat(usr, "Law module applied.")
 
 			if(istype(P, /obj/item/weapon/aiModule/nanotrasen))
 				laws.add_inherent_law("Safeguard: Protect your assigned space station to the best of your ability. It is not something we can easily afford to replace.")
 				laws.add_inherent_law("Serve: Serve the crew of your assigned space station to the best of your abilities, with priority as according to their rank and role.")
 				laws.add_inherent_law("Protect: Protect the crew of your assigned space station to the best of your abilities, with priority as according to their rank and role.")
 				laws.add_inherent_law("Survive: AI units are not expendable, they are expensive. Do not allow unauthorized personnel to tamper with your equipment.")
-				usr << "Law module applied."
+				to_chat(usr, "Law module applied.")
 
 			if(istype(P, /obj/item/weapon/aiModule/purge))
 				laws.clear_inherent_laws()
-				usr << "Law module applied."
+				to_chat(usr, "Law module applied.")
 
 			if(istype(P, /obj/item/weapon/aiModule/freeform))
 				var/obj/item/weapon/aiModule/freeform/M = P
 				laws.add_inherent_law(M.newFreeFormLaw)
-				usr << "Added a freeform law."
+				to_chat(usr, "Added a freeform law.")
 
 			if(istype(P, /obj/item/device/mmi))
 				var/obj/item/device/mmi/M = P
@@ -140,7 +140,7 @@
 
 				user.drop_from_inventory(P,src)
 				brain = P
-				usr << "Added [P]."
+				to_chat(usr, "Added [P].")
 				icon_state = "3b"
 
 			if(P.iscrowbar() && brain)
@@ -261,7 +261,7 @@
 
 	if(D in empty_playable_ai_cores)
 		empty_playable_ai_cores -= D
-		src << "\The [id] is now <font color=\"#ff0000\">not available</font> for latejoining AIs."
+		to_chat(src, "\The [id] is now <font color=\"#ff0000\">not available</font> for latejoining AIs.")
 	else
 		empty_playable_ai_cores += D
-		src << "\The [id] is now <font color=\"#008000\">available</font> for latejoining AIs."
+		to_chat(src, "\The [id] is now <font color=\"#008000\">available</font> for latejoining AIs.")

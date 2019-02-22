@@ -103,7 +103,7 @@
 				if(choice && CanUseTopic(user, state))
 					src.icon_state = choice.icon_state
 					src.item_state = choice.item_state
-					usr << "<span class='notice'>Appearance changed to [choice].</span>"
+					to_chat(usr, "<span class='notice'>Appearance changed to [choice].</span>")
 					. = 1
 			if("Assignment")
 				var/new_job = sanitize(input(user,"What assignment would you like to put on this card?\nChanging assignment will not grant or remove any access levels.","Agent Card Assignment", assignment) as null|text)

@@ -119,7 +119,7 @@
 		return 1
 
 	if(usr == occupant)
-		usr << "<span class='warning'>You can't reach the controls from the inside.</span>"
+		to_chat(usr, "<span class='warning'>You can't reach the controls from the inside.</span>")
 		return
 
 	add_fingerprint(usr)

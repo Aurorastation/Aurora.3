@@ -1177,19 +1177,19 @@
 		return
 
 	if (usr.buckled)
-		usr << "<span class='warning'>You can't climb into the exosuit while buckled!</span>"
+		to_chat(usr, "<span class='warning'>You can't climb into the exosuit while buckled!</span>")
 		return
 
 	src.log_message("[usr] tries to move in.")
 	if(iscarbon(usr))
 		var/mob/living/carbon/C = usr
 		if(C.handcuffed)
-			usr << "<span class='danger'>Kinda hard to climb in while handcuffed don't you think?</span>"
+			to_chat(usr, "<span class='danger'>Kinda hard to climb in while handcuffed don't you think?</span>")
 			return
 		if(!C.IsAdvancedToolUser())
 			return
 	if (src.occupant)
-		usr << "<span class='danger'>The [src.name] is already occupied!</span>"
+		to_chat(usr, "<span class='danger'>The [src.name] is already occupied!</span>")
 		src.log_append_to_last("Permission denied.")
 		return
 
@@ -1200,12 +1200,12 @@
 	else if(src.operation_allowed(usr))
 		passed = 1
 	if(!passed)
-		usr << "<span class='warning'>Access denied</span>"
+		to_chat(usr, "<span class='warning'>Access denied</span>")
 		src.log_append_to_last("Permission denied.")
 		return
 	for(var/mob/living/carbon/slime/M in range(1,usr))
 		if(M.Victim == usr)
-			usr << "You're too busy getting your life sucked out of you."
+			to_chat(usr, "You're too busy getting your life sucked out of you.")
 			return
 
 	visible_message("<span class='notice'>\The [usr] starts to climb into [src.name]</span>")
@@ -1214,9 +1214,9 @@
 		if(!src.occupant)
 			moved_inside(usr)
 		else if(src.occupant!=usr)
-			usr << "[src.occupant] was faster. Try better next time, loser."
+			to_chat(usr, "[src.occupant] was faster. Try better next time, loser.")
 	else
-		usr << "You stop entering the exosuit."
+		to_chat(usr, "You stop entering the exosuit.")
 	return
 
 /obj/mecha/proc/moved_inside(var/mob/living/carbon/human/H as mob)
@@ -1510,7 +1510,7 @@
 		output += "[a_name] - <a href='?src=\ref[src];add_req_access=[a];user=\ref[user];id_card=\ref[id_card]'>Add</a><br>"
 	output += "<hr><a href='?src=\ref[src];finish_req_access=1;user=\ref[user]'>Finish</a> <font color='red'>(Warning! The ID upload panel will be locked. It can be unlocked only through Exosuit Interface.)</font>"
 	output += "</body></html>"
-	to_chat(user, browse(output, "window=exosuit_add_access"))
+	user << browse(output, "window=exosuit_add_access")
 	onclose(user, "exosuit_add_access")
 	return
 
@@ -1534,7 +1534,7 @@
 						[(state>0) ? maint_options : ""]
 						</body>
 						</html>"}
-	to_chat(user, browse(output, "window=exosuit_maint_console"))
+	user << browse(output, "window=exosuit_maint_console")
 	onclose(user, "exosuit_maint_console")
 	return
 
@@ -1728,7 +1728,7 @@
 		if(!in_range(src, usr))	return
 		add_req_access = 0
 		var/mob/user = old_filter.getMob("user")
-		to_chat(user, browse(null,"window=exosuit_add_access"))
+		user << browse(null,"window=exosuit_add_access")
 		return
 	if(href_list["dna_lock"])
 		if(usr != src.occupant)	return

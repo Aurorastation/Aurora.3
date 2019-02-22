@@ -133,7 +133,7 @@
 	if (istype(usr, /mob/living/carbon/alien/diona))//A diona alt+clicking feeds the plant
 
 		if (closed_system)
-			usr << "The lid is closed, you don't have hands to open it and reach the plants inside!"
+			to_chat(usr, "The lid is closed, you don't have hands to open it and reach the plants inside!")
 			return
 		var/mob/living/carbon/alien/diona/nymph = usr
 		if(nymph.nutrition > 100 && nutrilevel < 10)
@@ -401,7 +401,7 @@
 		var/new_light = input("Specify a light level.") as null|anything in list(0,1,2,3,4,5,6,7,8,9,10)
 		if(new_light)
 			tray_light = new_light
-			usr << "You set the tray to a light level of [tray_light] lumens."
+			to_chat(usr, "You set the tray to a light level of [tray_light] lumens.")
 	return
 
 /obj/machinery/portable_atmospherics/hydroponics/proc/check_level_sanity()
@@ -607,26 +607,26 @@
 	..()
 
 	if(!seed)
-		usr << "[src] is empty."
+		to_chat(usr, "[src] is empty.")
 		return
 
-	usr << "<span class='notice'>[seed.display_name] are growing here.</span>"
+	to_chat(usr, "<span class='notice'>[seed.display_name] are growing here.</span>")
 
 	if(!Adjacent(usr))
 		return
 
-	usr << "Water: [round(waterlevel,0.1)]/100"
-	usr << "Nutrient: [round(nutrilevel,0.1)]/10"
+	to_chat(usr, "Water: [round(waterlevel,0.1)]/100")
+	to_chat(usr, "Nutrient: [round(nutrilevel,0.1)]/10")
 
 	if(weedlevel >= 5)
-		usr << "\The [src] is <span class='danger'>infested with weeds</span>!"
+		to_chat(usr, "\The [src] is <span class='danger'>infested with weeds</span>!")
 	if(pestlevel >= 5)
-		usr << "\The [src] is <span class='danger'>infested with tiny worms</span>!"
+		to_chat(usr, "\The [src] is <span class='danger'>infested with tiny worms</span>!")
 
 	if(dead)
-		usr << "<span class='danger'>The plant is dead.</span>"
+		to_chat(usr, "<span class='danger'>The plant is dead.</span>")
 	else if(health <= (seed.get_trait(TRAIT_ENDURANCE)/ 2))
-		usr << "The plant looks <span class='danger'>unhealthy</span>."
+		to_chat(usr, "The plant looks <span class='danger'>unhealthy</span>.")
 
 	if(mechanical)
 		var/turf/T = loc
@@ -654,7 +654,7 @@
 
 			light_string = "a light level of [light_available] lumens"
 
-		usr << "The tray's sensor suite is reporting [light_string] and a temperature of [environment.temperature]K."
+		to_chat(usr, "The tray's sensor suite is reporting [light_string] and a temperature of [environment.temperature]K.")
 
 /obj/machinery/portable_atmospherics/hydroponics/verb/close_lid_verb()
 	set name = "Toggle Tray Lid"

@@ -80,7 +80,7 @@ var/list/wireColours = list("red", "blue", "green", "darkred", "orange", "brown"
 	else
 		user.unset_machine()
 		// No content means no window.
-		to_chat(user, browse(null, "window=wires"))
+		user << browse(null, "window=wires")
 		return
 
 	var/datum/browser/popup = new(user, "wires", holder.name, window_x, window_y)
@@ -124,14 +124,14 @@ var/list/wireColours = list("red", "blue", "green", "darkred", "orange", "brown"
 					var/colour = href_list["cut"]
 					CutWireColour(colour)
 				else
-					L << "<span class='error'>You need wirecutters!</span>"
+					to_chat(L, "<span class='error'>You need wirecutters!</span>")
 
 			else if(href_list["pulse"])
 				if(I.ismultitool())
 					var/colour = href_list["pulse"]
 					PulseColour(colour)
 				else
-					L << "<span class='error'>You need a multitool!</span>"
+					to_chat(L, "<span class='error'>You need a multitool!</span>")
 
 			else if(href_list["attach"])
 				var/colour = href_list["attach"]
@@ -147,7 +147,7 @@ var/list/wireColours = list("red", "blue", "green", "darkred", "orange", "brown"
 						usr.drop_from_inventory(I)
 						Attach(colour, I)
 					else
-						L << "<span class='error'>You need a remote signaller!</span>"
+						to_chat(L, "<span class='error'>You need a remote signaller!</span>")
 
 
 

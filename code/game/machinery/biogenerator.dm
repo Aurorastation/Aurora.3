@@ -421,7 +421,7 @@
 				dat += "<A href='?src=\ref[src];action=menu'>Return to menu</A>"
 	dat += "</body><html>"
 
-	to_chat(user, browse(dat, "window=biogenerator"))
+	user << browse(dat, "window=biogenerator")
 	onclose(user, "biogenerator")
 	return
 
@@ -434,7 +434,7 @@
 	if (stat) //NOPOWER etc
 		return
 	if(processing)
-		usr << "<span class='notice'>The biogenerator is in the process of working.</span>"
+		to_chat(usr, "<span class='notice'>The biogenerator is in the process of working.</span>")
 		return
 	var/S = 0
 	for(var/obj/item/weapon/reagent_containers/food/snacks/grown/I in contents)

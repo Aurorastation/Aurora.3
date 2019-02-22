@@ -82,12 +82,12 @@
 
 				var/input = sanitize(input(usr, "Which networks would you like to connect this camera to? Separate networks with a comma. No Spaces!\nFor example: Station,Security,Secret", "Set Network", camera_network ? camera_network : NETWORK_STATION))
 				if(!input)
-					usr << "No input found please hang up and try your call again."
+					to_chat(usr, "No input found please hang up and try your call again.")
 					return
 
 				var/list/tempnetwork = text2list(input, ",")
 				if(tempnetwork.len < 1)
-					usr << "No network found please hang up and try your call again."
+					to_chat(usr, "No network found please hang up and try your call again.")
 					return
 
 				var/area/camera_area = get_area(src)

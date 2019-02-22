@@ -229,7 +229,7 @@
 	else
 		sLogFile << "Recorder resumed at: [get_time()]"
 		sLogFile << "--------------------------------"
-		usr << "<span class='notice'>The device beeps and flashes \"Recording paused\".</span>"
+		to_chat(usr, "<span class='notice'>The device beeps and flashes \"Recording paused\".</span>")
 		paused = 0
 	return
 

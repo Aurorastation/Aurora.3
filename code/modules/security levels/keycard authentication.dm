@@ -71,21 +71,21 @@
 		dat += "<li><A href='?src=\ref[src];triggerevent=Grant Emergency Maintenance Access'>Grant Emergency Maintenance Access</A></li>"
 		dat += "<li><A href='?src=\ref[src];triggerevent=Revoke Emergency Maintenance Access'>Revoke Emergency Maintenance Access</A></li>"
 		dat += "</ul>"
-		to_chat(user, browse(dat, "window=keycard_auth;size=500x250"))
+		user << browse(dat, "window=keycard_auth;size=500x250")
 	if(screen == 2)
 		dat += "Please swipe your card to authorize the following event: <b>[event]</b>"
 		dat += "<p><A href='?src=\ref[src];reset=1'>Back</A>"
-		to_chat(user, browse(dat, "window=keycard_auth;size=500x250"))
+		user << browse(dat, "window=keycard_auth;size=500x250")
 	return
 
 
 /obj/machinery/keycard_auth/Topic(href, href_list)
 	..()
 	if(busy)
-		usr << "This device is busy."
+		to_chat(usr, "This device is busy.")
 		return
 	if(usr.stat || stat & (BROKEN|NOPOWER))
-		usr << "This device is without power."
+		to_chat(usr, "This device is without power.")
 		return
 	if(href_list["triggerevent"])
 		event = href_list["triggerevent"]
@@ -151,7 +151,7 @@
 			feedback_inc("alert_keycard_auth_maintRevoke",1)
 		if("Emergency Response Team")
 			if(is_ert_blocked())
-				usr << "<span class='warning'>All emergency response teams are dispatched and can not be called at this time.</span>"
+				to_chat(usr, "<span class='warning'>All emergency response teams are dispatched and can not be called at this time.</span>")
 				return
 
 			trigger_armed_response_team(1)

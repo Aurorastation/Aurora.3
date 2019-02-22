@@ -262,7 +262,7 @@
 
 	dat += "</body>"
 	message = defaultmsg
-	to_chat(user, browse(dat, "window=message;size=700x700"))
+	user << browse(dat, "window=message;size=700x700")
 	onclose(user, "message")
 	return
 
@@ -484,7 +484,7 @@
 				if(auth)
 					src.screen = 4
 
-			//usr << href_list["select"]
+			//to_chat(usr, href_list["select"])
 
 		if(href_list["spam"])
 			if(src.linkedServer == null || (src.linkedServer.stat & (NOPOWER|BROKEN)))

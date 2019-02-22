@@ -104,7 +104,7 @@
 
 
 
-		to_chat(user, browse(dat, "window=comm_monitor;size=575x400"))
+		user << browse(dat, "window=comm_monitor;size=575x400")
 		onclose(user, "server_control")
 
 		temp = ""
@@ -155,7 +155,7 @@
 		if(href_list["delete"])
 
 			if(!src.allowed(usr) && !emagged)
-				usr << "<span class='warning'>ACCESS DENIED.</span>"
+				to_chat(usr, "<span class='warning'>ACCESS DENIED.</span>")
 				return
 
 			if(SelectedServer)

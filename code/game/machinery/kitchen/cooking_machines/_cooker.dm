@@ -32,9 +32,9 @@
 			var/datum/cooking_item/CI = a
 			if (CI && CI.container)
 				string += "- [CI.container.label(num)], [report_progress(CI)]</br>"
-		usr << string
+		to_chat(usr, string)
 	else
-		usr << span("notice","It is empty.")
+		to_chat(usr, span("notice","It is empty."))
 
 /obj/machinery/appliance/cooker/proc/get_efficiency()
 	RefreshParts()

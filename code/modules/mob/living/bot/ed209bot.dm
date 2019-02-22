@@ -270,7 +270,7 @@
 		walk_to(src, target, 6, move_to_delay)
 		return
 	if(last_shot + shot_delay > world.time)
-		src << "You are not ready to fire yet!"
+		to_chat(src, "You are not ready to fire yet!")
 		return
 
 	last_shot = world.time

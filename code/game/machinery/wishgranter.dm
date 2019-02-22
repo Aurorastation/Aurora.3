@@ -111,9 +111,9 @@
 
 	var/mob/living/carbon/C = usr
 	if(!C.stat)
-		C << "<span class='notice'>You're not dead yet!</span>"
+		to_chat(C, "<span class='notice'>You're not dead yet!</span>")
 		return
-	C << "<span class='notice'>Death is not your end!</span>"
+	to_chat(C, "<span class='notice'>Death is not your end!</span>")
 	C.verbs -= /mob/living/carbon/proc/immortality
 
 	spawn(rand(400,800))
@@ -123,7 +123,7 @@
 		C.stat = CONSCIOUS
 		C.revive()
 		C.reagents.clear_reagents()
-		C << "<span class='notice'>You have regenerated.</span>"
+		to_chat(C, "<span class='notice'>You have regenerated.</span>")
 		C.visible_message("<span class='warning'>[usr] appears to wake from the dead, having healed all wounds.</span>")
 		C.update_canmove()
 		C.verbs += /mob/living/carbon/proc/immortality

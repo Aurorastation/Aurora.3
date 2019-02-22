@@ -152,7 +152,7 @@
 
 	if ( (get_dist(src, user) > 1 ) || (stat & (NOPOWER|BROKEN)) && (!istype(user, /mob/living/silicon/ai)) )
 		user.machine = null
-		to_chat(user, browse(null, "window=turbine"))
+		user << browse(null, "window=turbine")
 		return
 
 	user.machine = src
@@ -168,7 +168,7 @@
 	t += "</PRE><HR><A href='?src=\ref[src];close=1'>Close</A>"
 
 	t += "</TT>"
-	to_chat(user, browse(t, "window=turbine"))
+	user << browse(t, "window=turbine")
 	onclose(user, "turbine")
 
 	return
@@ -181,7 +181,7 @@
 		return
 	if (usr.IsAdvancedToolUser())
 		if(!istype(usr, /mob/living/silicon/ai))
-			usr << "<span class='warning'>You don't have the dexterity to do this!</span>"
+			to_chat(usr, "<span class='warning'>You don't have the dexterity to do this!</span>")
 			return
 
 	if (( usr.machine==src && ((get_dist(src, usr) <= 1) && istype(src.loc, /turf))) || (istype(usr, /mob/living/silicon/ai)))
@@ -244,7 +244,7 @@
 	else
 		dat += "<span class='danger'>No compatible attached compressor found.</span>"
 
-	to_chat(user, browse(dat, "window=computer;size=400x500"))
+	user << browse(dat, "window=computer;size=400x500")
 	onclose(user, "computer")
 	return
 

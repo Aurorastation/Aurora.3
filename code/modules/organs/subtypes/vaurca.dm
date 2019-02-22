@@ -263,7 +263,7 @@ obj/item/organ/vaurca/neuralsocket/process()
 			if(location.internal == src)
 				location.internal = null
 				location.internals.icon_state = "internal0"
-				usr << "<span class='notice'>You close the tank release valve.</span>"
+				to_chat(usr, "<span class='notice'>You close the tank release valve.</span>")
 				if (location.internals)
 					location.internals.icon_state = "internal0"
 			else
@@ -278,11 +278,11 @@ obj/item/organ/vaurca/neuralsocket/process()
 
 				if(can_open_valve)
 					location.internal = src
-					usr << "<span class='notice'>You open \the [src] valve.</span>"
+					to_chat(usr, "<span class='notice'>You open \the [src] valve.</span>")
 					if (location.internals)
 						location.internals.icon_state = "internal1"
 				else
-					usr << "<span class='notice'>You need something to connect to \the [src].</span>"
+					to_chat(usr, "<span class='notice'>You need something to connect to \the [src].</span>")
 
 	src.add_fingerprint(usr)
 	return 1

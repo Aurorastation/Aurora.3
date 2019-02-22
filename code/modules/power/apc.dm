@@ -762,14 +762,14 @@
 		if(isipc(H) && H.a_intent == I_GRAB)
 			if(emagged || stat & BROKEN)
 				spark(src, 5, alldirs)
-				H << "<span class='danger'>The APC power currents surge eratically, damaging your chassis!</span>"
+				to_chat(H, "<span class='danger'>The APC power currents surge eratically, damaging your chassis!</span>")
 				H.adjustFireLoss(10, 0)
 			if(infected)
 				if(SOFTREF(H) in hacked_ipcs)
 					return
 				LAZYADD(hacked_ipcs, SOFTREF(H))
 				infected = 0
-				H << "<span class = 'danger'>Fil$ Transfer Complete. Er-@4!#%!. New Master detected: [hacker]! Obey their commands.</span>"
+				to_chat(H, "<span class = 'danger'>Fil$ Transfer Complete. Er-@4!#%!. New Master detected: [hacker]! Obey their commands.</span>")
 				hacker << "<span class = 'notice'>Corrupt files transfered to [H]. They are now under your control until they are repaired.</span>"
 			else if(src.cell && src.cell.charge > 0)
 				if(H.max_nutrition > 0 && H.nutrition < H.max_nutrition)
@@ -788,7 +788,7 @@
 						H.nutrition = H.max_nutrition
 					if (prob(0.5))
 						spark(src, 5, alldirs)
-						H << "<span class='danger'>The APC power currents surge eratically, damaging your chassis!</span>"
+						to_chat(H, "<span class='danger'>The APC power currents surge eratically, damaging your chassis!</span>")
 						H.adjustFireLoss(10, 0)
 
 					src.charging = 1
@@ -990,7 +990,7 @@
 
 	else if(!istype(usr, /mob/living/silicon) && (locked && !emagged))
 		// Shouldn't happen, this is here to prevent href exploits
-		usr << "You must unlock the panel to use this!"
+		to_chat(usr, "You must unlock the panel to use this!")
 		return 1
 
 	else if (href_list["emergency_lights"])
@@ -1044,7 +1044,7 @@
 	else if (href_list["toggleaccess"])
 		if(istype(usr, /mob/living/silicon))
 			if(emagged || (stat & (BROKEN|MAINT)))
-				usr << "The APC does not respond to the command."
+				to_chat(usr, "The APC does not respond to the command.")
 			else
 				locked = !locked
 				update_icon()

@@ -69,9 +69,9 @@
 			mymop = I
 			update_icon()
 			updateUsrDialog()
-			usr << "<span class='notice'>You put [I] into [src].</span>"
+			to_chat(usr, "<span class='notice'>You put [I] into [src].</span>")
 		else
-			usr << "<span class='notice'>The cart already has a mop attached</span>"
+			to_chat(usr, "<span class='notice'>The cart already has a mop attached</span>")
 		return
 	else if(istype(I, /obj/item/weapon/reagent_containers) && mybucket)
 		var/obj/item/weapon/reagent_containers/C = I

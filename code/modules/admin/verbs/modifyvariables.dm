@@ -61,7 +61,7 @@ var/list/VVdynamic_lock = list(
 			var/object = input("Enter typepath:","Typepath") as null|text
 			if(!object)
 				return
-			
+
 			var/list/types = typesof(/atom)
 			var/list/matches = new()
 
@@ -127,7 +127,7 @@ var/list/VVdynamic_lock = list(
 			var/object = input("Enter typepath:","Typepath") as null|text
 			if(!object)
 				return
-			
+
 			var/list/types = typesof(/atom)
 			var/list/matches = new()
 
@@ -172,7 +172,7 @@ var/list/VVdynamic_lock = list(
 
 /client/proc/mod_list(var/list/L, atom/O, original_name, objectvar)
 	if(!check_rights(R_VAREDIT|R_DEV))	return
-	if(!istype(L,/list)) src << "Not a List."
+	if(!istype(L,/list)) to_chat(src, "Not a List.")
 
 	if(L.len > 1000)
 		var/confirm = alert(src, "The list you're trying to edit is very long, continuing may crash the server.", "Warning", "Continue", "Abort")
@@ -184,7 +184,7 @@ var/list/VVdynamic_lock = list(
 		var/a = L[1]
 		if(istext(a) && L[a] != null)
 			assoc = 1 //This is pretty weak test but i can't think of anything else
-			usr << "List appears to be associative."
+			to_chat(usr, "List appears to be associative.")
 
 	var/list/names = null
 	if(!assoc)
@@ -222,43 +222,43 @@ var/list/VVdynamic_lock = list(
 		if(!check_rights(VVdynamic_lock[variable])) return
 
 	if(isnull(variable))
-		usr << "Unable to determine variable type."
+		to_chat(usr, "Unable to determine variable type.")
 
 	else if(isnum(variable))
-		usr << "Variable appears to be <b>NUM</b>."
+		to_chat(usr, "Variable appears to be <b>NUM</b>.")
 		default = "num"
 		dir = 1
 
 	else if(istext(variable))
-		usr << "Variable appears to be <b>TEXT</b>."
+		to_chat(usr, "Variable appears to be <b>TEXT</b>.")
 		default = "text"
 
 	else if(isloc(variable))
-		usr << "Variable appears to be <b>REFERENCE</b>."
+		to_chat(usr, "Variable appears to be <b>REFERENCE</b>.")
 		default = "reference"
 
 	else if(isicon(variable))
-		usr << "Variable appears to be <b>ICON</b>."
+		to_chat(usr, "Variable appears to be <b>ICON</b>.")
 		variable = "\icon[variable]"
 		default = "icon"
 
 	else if(istype(variable,/atom) || istype(variable,/datum))
-		usr << "Variable appears to be <b>TYPE</b>."
+		to_chat(usr, "Variable appears to be <b>TYPE</b>.")
 		default = "type"
 
 	else if(istype(variable,/list))
-		usr << "Variable appears to be <b>LIST</b>."
+		to_chat(usr, "Variable appears to be <b>LIST</b>.")
 		default = "list"
 
 	else if(istype(variable,/client))
-		usr << "Variable appears to be <b>CLIENT</b>."
+		to_chat(usr, "Variable appears to be <b>CLIENT</b>.")
 		default = "cancel"
 
 	else
-		usr << "Variable appears to be <b>FILE</b>."
+		to_chat(usr, "Variable appears to be <b>FILE</b>.")
 		default = "file"
 
-	usr << "Variable contains: [variable]"
+	to_chat(usr, "Variable contains: [variable]")
 	if(dir)
 		switch(variable)
 			if(1)
@@ -281,7 +281,7 @@ var/list/VVdynamic_lock = list(
 				dir = null
 
 		if(dir)
-			usr << "If a direction, direction is: [dir]"
+			to_chat(usr, "If a direction, direction is: [dir]")
 
 	var/class = "text"
 	if(src.holder && src.holder.marked_datum)
@@ -344,7 +344,7 @@ var/list/VVdynamic_lock = list(
 			var/object = input("Enter typepath:","Typepath") as null|text
 			if(!object)
 				return
-			
+
 			var/list/types = typesof(/atom)
 			var/list/matches = new()
 
@@ -409,11 +409,11 @@ var/list/VVdynamic_lock = list(
 
 	for(var/p in forbidden_varedit_object_types)
 		if( istype(O,p) )
-			usr << "<span class='danger'>It is forbidden to edit this object's variables.</span>"
+			to_chat(usr, "<span class='danger'>It is forbidden to edit this object's variables.</span>")
 			return
 
 	if(istype(O, /client) && (param_var_name == "ckey" || param_var_name == "key"))
-		usr << "<span class='danger'>You cannot edit ckeys on client objects.</span>"
+		to_chat(usr, "<span class='danger'>You cannot edit ckeys on client objects.</span>")
 		return
 
 	var/class
@@ -422,7 +422,7 @@ var/list/VVdynamic_lock = list(
 
 	if(param_var_name)
 		if(!param_var_name in O.vars)
-			src << "A variable with this name ([param_var_name]) doesn't exist in this atom ([O])"
+			to_chat(src, "A variable with this name ([param_var_name]) doesn't exist in this atom ([O])")
 			return
 
 		if(param_var_name in VVlocked)
@@ -440,41 +440,41 @@ var/list/VVdynamic_lock = list(
 
 		if(autodetect_class)
 			if(isnull(var_value))
-				usr << "Unable to determine variable type."
+				to_chat(usr, "Unable to determine variable type.")
 				class = null
 				autodetect_class = null
 			else if(isnum(var_value))
-				usr << "Variable appears to be <b>NUM</b>."
+				to_chat(usr, "Variable appears to be <b>NUM</b>.")
 				class = "num"
 				dir = 1
 
 			else if(istext(var_value))
-				usr << "Variable appears to be <b>TEXT</b>."
+				to_chat(usr, "Variable appears to be <b>TEXT</b>.")
 				class = "text"
 
 			else if(isloc(var_value))
-				usr << "Variable appears to be <b>REFERENCE</b>."
+				to_chat(usr, "Variable appears to be <b>REFERENCE</b>.")
 				class = "reference"
 
 			else if(isicon(var_value))
-				usr << "Variable appears to be <b>ICON</b>."
+				to_chat(usr, "Variable appears to be <b>ICON</b>.")
 				var_value = "\icon[var_value]"
 				class = "icon"
 
 			else if(istype(var_value,/atom) || istype(var_value,/datum))
-				usr << "Variable appears to be <b>TYPE</b>."
+				to_chat(usr, "Variable appears to be <b>TYPE</b>.")
 				class = "type"
 
 			else if(istype(var_value,/list))
-				usr << "Variable appears to be <b>LIST</b>."
+				to_chat(usr, "Variable appears to be <b>LIST</b>.")
 				class = "list"
 
 			else if(istype(var_value,/client))
-				usr << "Variable appears to be <b>CLIENT</b>."
+				to_chat(usr, "Variable appears to be <b>CLIENT</b>.")
 				class = "cancel"
 
 			else
-				usr << "Variable appears to be <b>FILE</b>."
+				to_chat(usr, "Variable appears to be <b>FILE</b>.")
 				class = "file"
 
 	else
@@ -503,43 +503,43 @@ var/list/VVdynamic_lock = list(
 		var/dir
 		var/default
 		if(isnull(var_value))
-			usr << "Unable to determine variable type."
+			to_chat(usr, "Unable to determine variable type.")
 
 		else if(isnum(var_value))
-			usr << "Variable appears to be <b>NUM</b>."
+			to_chat(usr, "Variable appears to be <b>NUM</b>.")
 			default = "num"
 			dir = 1
 
 		else if(istext(var_value))
-			usr << "Variable appears to be <b>TEXT</b>."
+			to_chat(usr, "Variable appears to be <b>TEXT</b>.")
 			default = "text"
 
 		else if(isloc(var_value))
-			usr << "Variable appears to be <b>REFERENCE</b>."
+			to_chat(usr, "Variable appears to be <b>REFERENCE</b>.")
 			default = "reference"
 
 		else if(isicon(var_value))
-			usr << "Variable appears to be <b>ICON</b>."
+			to_chat(usr, "Variable appears to be <b>ICON</b>.")
 			var_value = "\icon[var_value]"
 			default = "icon"
 
 		else if(istype(var_value,/atom) || istype(var_value,/datum))
-			usr << "Variable appears to be <b>TYPE</b>."
+			to_chat(usr, "Variable appears to be <b>TYPE</b>.")
 			default = "type"
 
 		else if(istype(var_value,/list))
-			usr << "Variable appears to be <b>LIST</b>."
+			to_chat(usr, "Variable appears to be <b>LIST</b>.")
 			default = "list"
 
 		else if(istype(var_value,/client))
-			usr << "Variable appears to be <b>CLIENT</b>."
+			to_chat(usr, "Variable appears to be <b>CLIENT</b>.")
 			default = "cancel"
 
 		else
-			usr << "Variable appears to be <b>FILE</b>."
+			to_chat(usr, "Variable appears to be <b>FILE</b>.")
 			default = "file"
 
-		usr << "Variable contains: [var_value]"
+		to_chat(usr, "Variable contains: [var_value]")
 		if(dir)
 			switch(var_value)
 				if(1)
@@ -561,7 +561,7 @@ var/list/VVdynamic_lock = list(
 				else
 					dir = null
 			if(dir)
-				usr << "If a direction, direction is: [dir]"
+				to_chat(usr, "If a direction, direction is: [dir]")
 
 		if(src.holder && src.holder.marked_datum)
 			class = input("What kind of variable?","Variable Type",default) as null|anything in list("text",
@@ -624,7 +624,7 @@ var/list/VVdynamic_lock = list(
 			var/object = input("Enter typepath:","Type",O.vars[variable]) as null|text
 			if(!object)
 				return
-			
+
 			var/list/types = typesof(/atom)
 			var/list/matches = new()
 
@@ -641,7 +641,7 @@ var/list/VVdynamic_lock = list(
 				var_new = matches[1]
 			else
 				var_new = input("Select an atom type", "Spawn Atom", matches[1]) as null|anything in matches
-			
+
 			if(var_new==null) return
 			O.vars[variable] = var_new
 

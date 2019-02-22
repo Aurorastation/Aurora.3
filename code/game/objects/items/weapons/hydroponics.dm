@@ -25,9 +25,9 @@
 	mode = !mode
 	switch (mode)
 		if(1)
-			usr << "The bag now picks up all seeds in a tile at once."
+			to_chat(usr, "The bag now picks up all seeds in a tile at once.")
 		if(0)
-			usr << "The bag now picks up one seed pouch at a time."
+			to_chat(usr, "The bag now picks up one seed pouch at a time.")
 
 /obj/item/seeds/attackby(var/obj/item/O as obj, var/mob/user as mob)
 	..()
@@ -75,7 +75,7 @@
 
 		dat += "<br><a href='byond://?src=\ref[src];unload=1'>Unload All</A>"
 		dat += "</TT>"
-	to_chat(user, browse("<HEAD><TITLE>Seedbag Supplies</TITLE></HEAD><TT>[dat]</TT>", "window=seedbag"))
+	user << browse("<HEAD><TITLE>Seedbag Supplies</TITLE></HEAD><TT>[dat]</TT>", "window=seedbag")
 	onclose(user, "seedbag")
 	return
 

@@ -182,7 +182,7 @@ Transponder Codes:<UL>"}
 			t += "<small><A href='byond://?src=\ref[src];add=1;'>(add new)</A></small><BR>"
 			t+= "<UL></TT>"
 
-		to_chat(user, browse(t, "window=navbeacon"))
+		user << browse(t, "window=navbeacon")
 		onclose(user, "navbeacon")
 		return
 

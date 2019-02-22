@@ -12,4 +12,4 @@
 	var/dat = "<B>Showing last [length(lastsignalers)] signalers.</B><HR>"
 	for(var/sig in lastsignalers)
 		dat += "[sig]<BR>"
-	to_chat(user, browse(dat, "window=lastsignalers;size=800x500"))
+	user << browse(dat, "window=lastsignalers;size=800x500")

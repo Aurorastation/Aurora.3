@@ -234,7 +234,7 @@
 		return
 
 	if(user && user.loc == src)
-		usr << "<span class='warning'>You cannot reach the controls from inside.</span>"
+		to_chat(usr, "<span class='warning'>You cannot reach the controls from inside.</span>")
 		return
 
 	// Clumsy folks can only flush it.
@@ -276,18 +276,18 @@
 
 
 	user.set_machine(src)
-	to_chat(user, browse(dat, "window=disposal;size=360x170"))
+	user << browse(dat, "window=disposal;size=360x170")
 	onclose(user, "disposal")
 
 // handle machine interaction
 
 /obj/machinery/disposal/Topic(href, href_list)
 	if(usr.loc == src)
-		usr << "<span class='warning'>You cannot reach the controls from inside.</span>"
+		to_chat(usr, "<span class='warning'>You cannot reach the controls from inside.</span>")
 		return
 
 	if(mode==-1 && !href_list["eject"]) // only allow ejecting if mode is -1
-		usr << "<span class='warning'>The disposal units power is disabled.</span>"
+		to_chat(usr, "<span class='warning'>The disposal units power is disabled.</span>")
 		return
 	if(..())
 		return
@@ -632,7 +632,7 @@
 
 	if (src.loc)
 		for (var/mob/M in hearers(src.loc.loc))
-			M << "<FONT size=[max(0, 5 - get_dist(src, M))]>CLONG, clong!</FONT>"
+			to_chat(M, "<FONT size=[max(0, 5 - get_dist(src, M))]>CLONG, clong!</FONT>")
 
 	playsound(src.loc, 'sound/effects/clang.ogg', 50, 0, 0)
 

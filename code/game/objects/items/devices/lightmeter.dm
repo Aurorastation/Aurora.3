@@ -30,7 +30,7 @@
 	reading += "Visible light: <b>[visible_reading]</b> lx<br>"
 	reading += "Ultraviolet light: <b>[uv_reading]</b> lx ([uv_reading * 5.5 - 1.5] adlx)"
 
-	usr << span("notice", reading)
+	to_chat(usr, span("notice", reading))
 
 /obj/item/device/light_meter/verb/set_low_bound()
 	set category = "Object"

@@ -62,7 +62,7 @@
 	set name = "Toggle Jetpack Stabilization"
 	set category = "Object"
 	src.stabilization_on = !( src.stabilization_on )
-	usr << "You toggle the stabilization [stabilization_on? "on":"off"]."
+	to_chat(usr, "You toggle the stabilization [stabilization_on? "on":"off"].")
 
 /obj/item/weapon/tank/jetpack/verb/toggle()
 	set name = "Toggle Jetpack"
@@ -81,7 +81,7 @@
 		M.update_inv_back()
 		M.update_action_buttons()
 
-	usr << "You toggle the thrusters [on? "on":"off"]."
+	to_chat(usr, "You toggle the thrusters [on? "on":"off"].")
 
 /obj/item/weapon/tank/jetpack/proc/allow_thrust(num, mob/living/user as mob)
 	if(!(src.on))
@@ -166,20 +166,20 @@
 		var/mob/M = usr
 		M.update_inv_back()
 
-	usr << "You toggle the thrusters [on? "on":"off"]."
+	to_chat(usr, "You toggle the thrusters [on? "on":"off"].")
 
 /obj/item/weapon/tank/jetpack/carbondioxide/synthetic/verb/toggle_stabilizer()
 	set name = "Toggle Jetpack Stabilization"
 	set category = "Robot Commands"
 	src.stabilization_on = !( src.stabilization_on )
-	usr << "You toggle the stabilization [stabilization_on? "on":"off"]."
+	to_chat(usr, "You toggle the stabilization [stabilization_on? "on":"off"].")
 
 /obj/item/weapon/tank/jetpack/rig
 	name = "jetpack"
 	var/obj/item/weapon/rig/holder
 
 /obj/item/weapon/tank/jetpack/rig/examine()
-	usr << "It's a jetpack. If you can see this, report it on the bug tracker."
+	to_chat(usr, "It's a jetpack. If you can see this, report it on the bug tracker.")
 	return 0
 
 /obj/item/weapon/tank/jetpack/rig/allow_thrust(num, mob/living/user as mob)

@@ -131,7 +131,7 @@
 				dat += "<b><A href='?src=\ref[src];undock_command=[1]'>Undock</A></b>"
 	dat += "</center>"
 
-	to_chat(user, browse("[dat]", "window=[shuttle_tag]shuttlecontrol;size=300x600"))
+	user << browse("[dat]", "window=[shuttle_tag]shuttlecontrol;size=300x600")
 
 //check if we're undocked, give option to force launch
 /obj/machinery/computer/shuttle_control/proc/check_docking(datum/shuttle/multi_shuttle/MS)
@@ -164,7 +164,7 @@
 		return
 
 	if (MS.moving_status != SHUTTLE_IDLE)
-		usr << "<span class='notice'>[shuttle_tag] vessel is moving.</span>"
+		to_chat(usr, "<span class='notice'>[shuttle_tag] vessel is moving.</span>")
 		return
 
 	if(href_list["dock_command"])
@@ -177,11 +177,11 @@
 
 	if(href_list["start"])
 		if(MS.at_origin)
-			usr << "<span class='warning'>You are already at your home base.</span>"
+			to_chat(usr, "<span class='warning'>You are already at your home base.</span>")
 			return
 
 		if((MS.last_move + MS.cooldown*10) > world.time)
-			usr << "<span class='warning'>The ship's drive is inoperable while the engines are charging.</span>"
+			to_chat(usr, "<span class='warning'>The ship's drive is inoperable while the engines are charging.</span>")
 			return
 
 		if(!check_docking(MS))
@@ -189,7 +189,7 @@
 			return
 
 		if(!MS.return_warning)
-			usr << "<span class='warning'>Returning to your home base will end your mission. If you are sure, press the button again.</span>"
+			to_chat(usr, "<span class='warning'>Returning to your home base will end your mission. If you are sure, press the button again.</span>")
 			//TODO: Actually end the mission.
 			MS.return_warning = 1
 			return
@@ -202,11 +202,11 @@
 	if(href_list["toggle_cloak"])
 
 		MS.cloaked = !MS.cloaked
-		usr << "<span class='warning'>Ship stealth systems have been [(MS.cloaked ? "activated. The station will not" : "deactivated. The station will")] be warned of our arrival.</span>"
+		to_chat(usr, "<span class='warning'>Ship stealth systems have been [(MS.cloaked ? "activated. The station will not" : "deactivated. The station will")] be warned of our arrival.</span>")
 
 	if(href_list["move_multi"])
 		if((MS.last_move + MS.cooldown*10) > world.time)
-			usr << "<span class='warning'>The ship's drive is inoperable while the engines are charging.</span>"
+			to_chat(usr, "<span class='warning'>The ship's drive is inoperable while the engines are charging.</span>")
 			return
 
 		if(!check_docking(MS))
@@ -216,7 +216,7 @@
 		var/choice = input("Select a destination.") as null|anything in MS.destinations
 		if(!choice) return
 
-		usr << "<span class='notice'>[shuttle_tag] main computer received message.</span>"
+		to_chat(usr, "<span class='notice'>[shuttle_tag] main computer received message.</span>")
 
 		if(MS.at_origin)
 			MS.announce_arrival()

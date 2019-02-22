@@ -245,9 +245,9 @@
 		if(wielded)
 			toggle_scope(2.0, usr)
 		else
-			usr << "<span class='warning'>You can't look through the scope without stabilizing the rifle!</span>"
+			to_chat(usr, "<span class='warning'>You can't look through the scope without stabilizing the rifle!</span>")
 	else
-		usr << "<span class='warning'>This device does not have a scope installed!</span>"
+		to_chat(usr, "<span class='warning'>This device does not have a scope installed!</span>")
 
 /obj/item/weapon/gun/energy/laser/prototype/special_check(var/mob/user)
 	if(is_charging && chargetime)
@@ -288,7 +288,7 @@
 
 	if(src && input && !M.stat && in_range(M,src))
 		name = input
-		M << "You name the gun [input]. Say hello to your new friend."
+		to_chat(M, "You name the gun [input]. Say hello to your new friend.")
 		named = 1
 		return 1
 
@@ -305,6 +305,6 @@
 
 	if(src && input && !M.stat && in_range(M,src))
 		desc = input
-		M << "You describe the gun as [input]. Say hello to your new friend."
+		to_chat(M, "You describe the gun as [input]. Say hello to your new friend.")
 		described = 1
 		return 1

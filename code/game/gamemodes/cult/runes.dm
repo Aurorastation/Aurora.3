@@ -978,7 +978,7 @@ var/list/sacrificed = list()
 			if(N)
 				continue
 			M.take_overall_damage(51,51)
-			M << "<span class='danger'>Your blood boils!</span>"
+			to_chat(M, "<span class='danger'>Your blood boils!</span>")
 			victims += M
 			if(prob(5))
 				spawn(5)
@@ -1010,16 +1010,16 @@ var/list/sacrificed = list()
 				for(var/mob/living/M in orange(2,R))
 					M.take_overall_damage(0,15)
 					if (R.invisibility>M.see_invisible)
-						M << "<span class='danger'>Aargh it burns!</span>"
+						to_chat(M, "<span class='danger'>Aargh it burns!</span>")
 					else
-						M << "<span class='danger'>Rune suddenly ignites, burning you!</span>"
+						to_chat(M, "<span class='danger'>Rune suddenly ignites, burning you!</span>")
 					var/turf/T = get_turf(R)
 					T.hotspot_expose(700,125)
 		for(var/obj/effect/decal/cleanable/blood/B in world)
 			if(B.blood_DNA == src.blood_DNA)
 				for(var/mob/living/M in orange(1,B))
 					M.take_overall_damage(0,5)
-					M << "<span class='danger'>Blood suddenly ignites, burning you!</span>"
+					to_chat(M, "<span class='danger'>Blood suddenly ignites, burning you!</span>")
 					var/turf/T = get_turf(B)
 					T.hotspot_expose(700,125)
 					qdel(B)
@@ -1094,8 +1094,8 @@ var/list/sacrificed = list()
 				if(iscultist(C))
 					cult.add_antagonist(Z.mind)
 				C.death()
-				Z << "<B>You are playing a Juggernaut. Though slow, you can withstand extreme punishment, and rip apart enemies and walls alike.</B>"
-				Z << "<B>You are still bound to serve your creator, follow their orders and help them complete their goals at all costs.</B>"
+				to_chat(Z, "<B>You are playing a Juggernaut. Though slow, you can withstand extreme punishment, and rip apart enemies and walls alike.</B>")
+				to_chat(Z, "<B>You are still bound to serve your creator, follow their orders and help them complete their goals at all costs.</B>")
 				Z.cancel_camera()
 			if("Wraith")
 				var/mob/living/simple_animal/construct/wraith/Z = new /mob/living/simple_animal/construct/wraith (get_turf(C.loc))
@@ -1103,8 +1103,8 @@ var/list/sacrificed = list()
 				if(iscultist(C))
 					cult.add_antagonist(Z.mind)
 				C.death()
-				Z << "<B>You are playing a Wraith. Though relatively fragile, you are fast, deadly, and even able to phase through walls.</B>"
-				Z << "<B>You are still bound to serve your creator, follow their orders and help them complete their goals at all costs.</B>"
+				to_chat(Z, "<B>You are playing a Wraith. Though relatively fragile, you are fast, deadly, and even able to phase through walls.</B>")
+				to_chat(Z, "<B>You are still bound to serve your creator, follow their orders and help them complete their goals at all costs.</B>")
 				Z.cancel_camera()
 			if("Artificer")
 				var/mob/living/simple_animal/construct/builder/Z = new /mob/living/simple_animal/construct/builder (get_turf(C.loc))
@@ -1112,8 +1112,8 @@ var/list/sacrificed = list()
 				if(iscultist(C))
 					cult.add_antagonist(Z.mind)
 				C.death()
-				Z << "<B>You are playing an Artificer. You are incredibly weak and fragile, but you are able to construct fortifications, repair allied constructs (by clicking on them), and even create new constructs</B>"
-				Z << "<B>You are still bound to serve your creator, follow their orders and help them complete their goals at all costs.</B>"
+				to_chat(Z, "<B>You are playing an Artificer. You are incredibly weak and fragile, but you are able to construct fortifications, repair allied constructs (by clicking on them), and even create new constructs</B>")
+				to_chat(Z, "<B>You are still bound to serve your creator, follow their orders and help them complete their goals at all costs.</B>")
 				Z.cancel_camera()
 			if("Harvester")
 				var/mob/living/simple_animal/construct/builder/Z = new /mob/living/simple_animal/construct/harvester (get_turf(C.loc))
@@ -1121,8 +1121,8 @@ var/list/sacrificed = list()
 				if(iscultist(C))
 					cult.add_antagonist(Z.mind)
 				C.death()
-				Z << "<B>You are playing a Harvester. You are gifted with the ability to open doors with your mind, to draw runes at will, and to teleport back to Nar'Sie. Seek out all non-believers and bring them to the Geometer.</B>"
-				Z << "<B>You are still bound to serve your creator, follow their orders and help them complete their goals at all costs.</B>"
+				to_chat(Z, "<B>You are playing a Harvester. You are gifted with the ability to open doors with your mind, to draw runes at will, and to teleport back to Nar'Sie. Seek out all non-believers and bring them to the Geometer.</B>")
+				to_chat(Z, "<B>You are still bound to serve your creator, follow their orders and help them complete their goals at all costs.</B>")
 				Z.cancel_camera()
 	else
 		user.equip_to_slot_or_del(new /obj/item/clothing/head/culthood/alt(user), slot_head)

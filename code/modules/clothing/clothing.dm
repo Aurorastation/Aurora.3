@@ -74,7 +74,7 @@
 					wearable = 1
 
 			if(!wearable && !(slot in list(slot_l_store, slot_r_store, slot_s_store)))
-				H << "<span class='danger'>Your species cannot wear [src].</span>"
+				to_chat(H, "<span class='danger'>Your species cannot wear [src].</span>")
 				return 0
 	return 1
 
@@ -332,11 +332,11 @@
 	if(headphones_on)
 		icon_state = "headphones_off"
 		headphones_on = 0
-		usr << "<span class='notice'>You turn the music off.</span>"
+		to_chat(usr, "<span class='notice'>You turn the music off.</span>")
 	else
 		icon_state = "headphones_on"
 		headphones_on = 1
-		usr << "<span class='notice'>You turn the music on.</span>"
+		to_chat(usr, "<span class='notice'>You turn the music on.</span>")
 
 	update_clothing_icon()
 
@@ -668,7 +668,7 @@
 		holding = null
 		playsound(get_turf(src), 'sound/items/holster/sheathout.ogg', 25)
 	else
-		usr << "<span class='warning'>Your need an empty, unbroken hand to do that.</span>"
+		to_chat(usr, "<span class='warning'>Your need an empty, unbroken hand to do that.</span>")
 		holding.forceMove(src)
 
 	if(!holding)
@@ -860,32 +860,32 @@
 /obj/item/clothing/under/proc/set_sensors(mob/usr as mob)
 	var/mob/M = usr
 	if(M.stat || M.paralysis || M.stunned || M.weakened || M.restrained())
-		usr << "You cannot reach your suit sensors like this..."
+		to_chat(usr, "You cannot reach your suit sensors like this...")
 		return
 	if(has_sensor >= 2)
-		usr << "The controls are locked."
+		to_chat(usr, "The controls are locked.")
 		return 0
 	if(has_sensor <= 0)
-		usr << "This suit does not have any sensors."
+		to_chat(usr, "This suit does not have any sensors.")
 		return 0
 
 	var/list/modes = list("Off", "Binary sensors", "Vitals tracker", "Tracking beacon")
 	var/switchMode = input("Select a sensor mode:", "Suit Sensor Mode", modes[sensor_mode + 1]) in modes
 	if(get_dist(usr, src) > 1)
-		usr << "You have moved too far away."
+		to_chat(usr, "You have moved too far away.")
 		return
 	sensor_mode = modes.Find(switchMode) - 1
 
 	if (src.loc == usr)
 		switch(sensor_mode)
 			if(0)
-				usr << "You disable your suit's remote sensing equipment."
+				to_chat(usr, "You disable your suit's remote sensing equipment.")
 			if(1)
-				usr << "Your suit will now report whether you are live or dead."
+				to_chat(usr, "Your suit will now report whether you are live or dead.")
 			if(2)
-				usr << "Your suit will now report your vital lifesigns."
+				to_chat(usr, "Your suit will now report your vital lifesigns.")
 			if(3)
-				usr << "Your suit will now report your vital lifesigns as well as your coordinate position."
+				to_chat(usr, "Your suit will now report your vital lifesigns as well as your coordinate position.")
 	else if (istype(src.loc, /mob))
 		switch(sensor_mode)
 			if(0)
@@ -917,7 +917,7 @@
 
 	update_rolldown_status()
 	if(rolled_down == -1)
-		usr << "<span class='notice'>You cannot roll down [src]!</span>"
+		to_chat(usr, "<span class='notice'>You cannot roll down [src]!</span>")
 	if((rolled_sleeves == 1) && !(rolled_down))
 		rolled_sleeves = 0
 		return
@@ -940,21 +940,21 @@
 
 	update_rollsleeves_status()
 	if(rolled_sleeves == -1)
-		usr << "<span class='notice'>You cannot roll up your [src]'s sleeves!</span>"
+		to_chat(usr, "<span class='notice'>You cannot roll up your [src]'s sleeves!</span>")
 		return
 	if(rolled_down == 1)
-		usr << "<span class='notice'>You must roll up your [src] first!</span>"
+		to_chat(usr, "<span class='notice'>You must roll up your [src] first!</span>")
 		return
 
 	rolled_sleeves = !rolled_sleeves
 	if(rolled_sleeves)
 		body_parts_covered &= ~(ARMS|HANDS)
 		item_state_slots[slot_w_uniform_str] = "[worn_state]_r"
-		usr << "<span class='notice'>You roll up your [src]'s sleeves.</span>"
+		to_chat(usr, "<span class='notice'>You roll up your [src]'s sleeves.</span>")
 	else
 		body_parts_covered = initial(body_parts_covered)
 		item_state_slots[slot_w_uniform_str] = "[worn_state]"
-		usr << "<span class='notice'>You roll down your [src]'s sleeves.</span>"
+		to_chat(usr, "<span class='notice'>You roll down your [src]'s sleeves.</span>")
 	update_clothing_icon()
 
 /obj/item/clothing/under/rank/Initialize()

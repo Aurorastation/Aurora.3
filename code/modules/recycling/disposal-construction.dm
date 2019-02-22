@@ -111,7 +111,7 @@
 			return
 
 		if(anchored)
-			usr << "You must unfasten the pipe before rotating it."
+			to_chat(usr, "You must unfasten the pipe before rotating it.")
 			return
 
 		set_dir(turn(dir, -90))
@@ -125,7 +125,7 @@
 			return
 
 		if(anchored)
-			usr << "You must unfasten the pipe before flipping it."
+			to_chat(usr, "You must unfasten the pipe before flipping it.")
 			return
 
 		set_dir(turn(dir, 180))

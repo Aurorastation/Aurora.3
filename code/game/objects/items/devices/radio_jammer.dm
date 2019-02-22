@@ -41,9 +41,9 @@ proc/within_jamming_range(var/atom/test) // tests if an object is near a radio j
 
 /obj/item/device/radiojammer/proc/toggle()
 	if (active)
-		usr << "<span class='notice'>You deactivate \the [src].</span>"
+		to_chat(usr, "<span class='notice'>You deactivate \the [src].</span>")
 	else
-		usr << "<span class='notice'>You activate \the [src].</span>"
+		to_chat(usr, "<span class='notice'>You activate \the [src].</span>")
 	set_active(!active)
 
 

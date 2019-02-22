@@ -160,7 +160,7 @@
 		if(!ability_pay(user, price))
 			return
 		user.hacking = 1
-		usr << "Beginning hack sequence. Estimated time until completed: 30 seconds."
+		to_chat(usr, "Beginning hack sequence. Estimated time until completed: 30 seconds.")
 		spawn(0)
 			target << "SYSTEM LOG: Remote Connection Estabilished (IP #UNKNOWN#)"
 			sleep(100)
@@ -221,7 +221,7 @@
 		if(!ability_pay(user, price))
 			return
 		user.hacking = 1
-		usr << "Beginning hack sequence. Estimated time until completed: 2 minutes"
+		to_chat(usr, "Beginning hack sequence. Estimated time until completed: 2 minutes")
 		spawn(0)
 			target << "SYSTEM LOG: Brute-Force login password hack attempt detected from IP #UNKNOWN#"
 			sleep(900) // 90s

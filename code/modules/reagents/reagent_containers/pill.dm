@@ -24,7 +24,7 @@
 			if(!M.can_eat(src))
 				return
 
-			M << "<span class='notice'>You swallow \the [src].</span>"
+			to_chat(M, "<span class='notice'>You swallow \the [src].</span>")
 			if(reagents.total_volume)
 				reagents.trans_to_mob(M, reagents.total_volume, CHEM_INGEST)
 			qdel(src)

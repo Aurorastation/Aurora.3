@@ -266,7 +266,7 @@ var/list/cleanbot_types // Going to use this to generate a list of types once th
 		dat += "Odd looking screw twiddled: <A href='?src=\ref[src];operation=screw'>[screwloose ? "Yes" : "No"]</A><BR>"
 		dat += "Weird button pressed: <A href='?src=\ref[src];operation=oddbutton'>[oddbutton ? "Yes" : "No"]</A>"
 
-	to_chat(user, browse("<HEAD><TITLE>Cleaner v1.1 controls</TITLE></HEAD>[dat]", "window=autocleaner"))
+	user << browse("<HEAD><TITLE>Cleaner v1.1 controls</TITLE></HEAD>[dat]", "window=autocleaner")
 	onclose(user, "autocleaner")
 	return
 
@@ -277,7 +277,7 @@ var/list/cleanbot_types // Going to use this to generate a list of types once th
 	add_fingerprint(usr)
 
 	if (!has_ui_access(usr) && !emagged)
-		usr << "<span class='warning'>Insufficient permissions.</span>"
+		to_chat(usr, "<span class='warning'>Insufficient permissions.</span>")
 		return
 
 	switch(href_list["operation"])
@@ -298,10 +298,10 @@ var/list/cleanbot_types // Going to use this to generate a list of types once th
 				beacon_freq = freq
 		if("screw")
 			screwloose = !screwloose
-			usr << "<span class='notice'>You twiddle the screw.</span>"
+			to_chat(usr, "<span class='notice'>You twiddle the screw.</span>")
 		if("oddbutton")
 			oddbutton = !oddbutton
-			usr << "<span class='notice'>You press the weird button.</span>"
+			to_chat(usr, "<span class='notice'>You press the weird button.</span>")
 	attack_hand(usr)
 
 /mob/living/bot/cleanbot/emag_act(var/remaining_uses, var/mob/user)

@@ -240,12 +240,12 @@
 /obj/structure/crematorium/attack_hand(mob/user as mob)
 //	if (cremating) AWW MAN! THIS WOULD BE SO MUCH MORE FUN ... TO WATCH
 //		user.show_message("<span class='warning'>Uh-oh, that was a bad idea.</span>", 1)
-//		//usr << "Uh-oh, that was a bad idea."
+//		//to_chat(usr, "Uh-oh, that was a bad idea.")
 //		src:loc:poison += 20000000
 //		src:loc:firelevel = src:loc:poison
 //		return
 	if (cremating)
-		usr << "<span class='warning'>It's locked.</span>"
+		to_chat(usr, "<span class='warning'>It's locked.</span>")
 		return
 	if ((src.connected) && (src.locked == 0))
 		for(var/atom/movable/A as mob|obj in src.connected.loc)
@@ -319,7 +319,7 @@
 
 	else
 		if(!isemptylist(src.search_contents_for(/obj/item/weapon/disk/nuclear)))
-			usr << "You get the feeling that you shouldn't cremate one of the items in the cremator."
+			to_chat(usr, "You get the feeling that you shouldn't cremate one of the items in the cremator.")
 			return
 
 		for (var/mob/M in viewers(src))
@@ -425,4 +425,4 @@
 				if (!C.cremating)
 					C.cremate(user)
 	else
-		usr << "<span class='warning'>Access denied.</span>"
+		to_chat(usr, "<span class='warning'>Access denied.</span>")

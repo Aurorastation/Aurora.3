@@ -217,7 +217,7 @@
 	var/mob/living/carbon/human/H = holder.wearer
 
 	if(!charge_selected)
-		H << "<span class='danger'>You have not selected a chemical type.</span>"
+		to_chat(H, "<span class='danger'>You have not selected a chemical type.</span>")
 		return 0
 
 	var/datum/rig_charge/charge = charges[charge_selected]
@@ -227,7 +227,7 @@
 
 	var/chems_to_use = 10
 	if(charge.charges <= 0)
-		H << "<span class='danger'>Insufficient chems!</span>"
+		to_chat(H, "<span class='danger'>Insufficient chems!</span>")
 		return 0
 	else if(charge.charges < chems_to_use)
 		chems_to_use = charge.charges
@@ -242,11 +242,11 @@
 		target_mob = H
 
 	if(!H.Adjacent(target_mob))
-		H << "<span class='danger'>You are not close enough to inject them!</span>"
+		to_chat(H, "<span class='danger'>You are not close enough to inject them!</span>")
 		return 0
 
 	if(target_mob != H)
-		H << "<span class='danger'>You inject [target_mob] with [chems_to_use] unit\s of [charge.display_name].</span>"
+		to_chat(H, "<span class='danger'>You inject [target_mob] with [chems_to_use] unit\s of [charge.display_name].</span>")
 
 	if(target_mob.is_physically_disabled())
 		target_mob.reagents.add_reagent(charge.display_name, chems_to_use)
@@ -355,17 +355,17 @@
 		if("Enable")
 			active = 1
 			voice_holder.active = 1
-			usr << "<font color='blue'>You enable the speech synthesiser.</font>"
+			to_chat(usr, "<font color='blue'>You enable the speech synthesiser.</font>")
 		if("Disable")
 			active = 0
 			voice_holder.active = 0
-			usr << "<font color='blue'>You disable the speech synthesiser.</font>"
+			to_chat(usr, "<font color='blue'>You disable the speech synthesiser.</font>")
 		if("Set Name")
 			var/raw_choice = sanitize(input(usr, "Please enter a new name.")  as text|null, MAX_NAME_LEN)
 			if(!raw_choice)
 				return 0
 			voice_holder.voice = raw_choice
-			usr << "<font color='blue'>You are now mimicking <B>[voice_holder.voice]</B>.</font>"
+			to_chat(usr, "<font color='blue'>You are now mimicking <B>[voice_holder.voice]</B>.</font>")
 	return 1
 
 /obj/item/rig_module/maneuvering_jets
@@ -730,7 +730,7 @@ var/global/list/lattice_users = list()
 		return 0
 
 	var/mob/living/carbon/human/H = holder.wearer
-	H << "<span class='notice'>Neural lattice engaged. Pain receptors altered.</span>"
+	to_chat(H, "<span class='notice'>Neural lattice engaged. Pain receptors altered.</span>")
 	lattice_users.Add(H)
 
 /obj/item/rig_module/lattice/deactivate()
@@ -738,6 +738,6 @@ var/global/list/lattice_users = list()
 		return 0
 
 	var/mob/living/carbon/human/H = holder.wearer
-	H << "<span class='notice'>Neural lattice disengaged. Pain receptors restored.</span>"
+	to_chat(H, "<span class='notice'>Neural lattice disengaged. Pain receptors restored.</span>")
 	lattice_users.Remove(H)
 

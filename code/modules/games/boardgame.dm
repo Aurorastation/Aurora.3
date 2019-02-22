@@ -87,7 +87,7 @@
 
 /obj/item/weapon/board/interact(mob/user as mob)
 	if(user.is_physically_disabled() || (!isAI(user) && !user.Adjacent(src))) //can't see if you arent conscious. If you are not an AI you can't see it unless you are next to it, either.
-		to_chat(user, browse(null, "window=boardgame"))
+		user << browse(null, "window=boardgame")
 		user.unset_machine()
 		return
 
@@ -123,7 +123,7 @@
 
 	if(selected >= 0 && !isobserver(user))
 		dat += "<br><A href='?src=\ref[src];remove=0'>Remove Selected Piece</A>"
-	to_chat(user, browse(jointext(dat, null),"window=boardgame;size=430x500")) // 50px * 8 squares + 30 margin)
+	user << browse(jointext(dat, null),"window=boardgame;size=430x500") // 50px * 8 squares + 30 margin)
 	onclose(usr, "boardgame")
 
 /obj/item/weapon/board/Topic(href, href_list)

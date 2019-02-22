@@ -626,10 +626,10 @@
 		if(isnum(input_temperature))
 			var/temp = Clamp(input_temperature, min_temperature,  max_temperature)
 			if(input_temperature > max_temperature || input_temperature < min_temperature)
-				usr << "Temperature must be between [min_temperature]C and [max_temperature]C. Target temperature clamped to [temp]C"
+				to_chat(usr, "Temperature must be between [min_temperature]C and [max_temperature]C. Target temperature clamped to [temp]C")
 			target_temperature = Clamp(input_temperature + T0C, selected[2],  selected[3])
 		else
-			usr << "Error, input not recognised. Temperature unchanged."
+			to_chat(usr, "Error, input not recognised. Temperature unchanged.")
 
 		return 1
 

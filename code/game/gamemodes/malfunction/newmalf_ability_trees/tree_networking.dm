@@ -99,7 +99,7 @@
 		if("Template")
 			establish_db_connection(dbcon)
 			if (!dbcon.IsConnected())
-				src << "<span class='notice'>Unable to connect to the database.</span>"
+				to_chat(src, "<span class='notice'>Unable to connect to the database.</span>")
 				return
 			var/DBQuery/query = dbcon.NewQuery("SELECT title, message FROM ss13_ccia_general_notice_list WHERE deleted_at IS NULL")
 			query.Execute()
@@ -113,7 +113,7 @@
 
 			// Catch empty list
 			if (!templates.len)
-				src << "<span class='notice'>There are no templates in the database.</span>"
+				to_chat(src, "<span class='notice'>There are no templates in the database.</span>")
 				return
 
 			reporttitle = input(usr, "Please select a command report template.", "Create Command Report") in template_names

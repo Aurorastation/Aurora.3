@@ -38,7 +38,7 @@
 			O_limit++
 			if(O_limit >= 20)
 				for(var/mob/M in hearers(src, null))
-					M << "<span class='notice'>The mass driver lets out a screech, it mustn't be able to handle any more items.</span>"
+					to_chat(M, "<span class='notice'>The mass driver lets out a screech, it mustn't be able to handle any more items.</span>")
 				break
 			use_power(500)
 			spawn( 0 )
@@ -74,7 +74,7 @@
 	set src in oview(1)
 
 	if (src.anchored || usr:stat)
-		usr << "It is fastened to the floor!"
+		to_chat(usr, "It is fastened to the floor!")
 		return 0
 	src.set_dir(turn(src.dir, 90))
 	return 1

@@ -248,13 +248,13 @@
 	H.drop_from_inventory(C,src)
 	cell = C
 	powercheck()
-	usr << "<span class='notice'>You install [C] in [src].</span>"
+	to_chat(usr, "<span class='notice'>You install [C] in [src].</span>")
 
 /obj/vehicle/proc/remove_cell(var/mob/living/carbon/human/H)
 	if(!cell)
 		return
 
-	usr << "<span class='notice'>You remove [cell] from [src].</span>"
+	to_chat(usr, "<span class='notice'>You remove [cell] from [src].</span>")
 	cell.forceMove(get_turf(H))
 	H.put_in_hands(cell)
 	cell = null

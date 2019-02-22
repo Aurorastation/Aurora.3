@@ -156,7 +156,7 @@
 			dat += "<font color='red'>The dart cartridge is empty!</font>"
 		dat += " \[<A href='?src=\ref[src];eject_cart=1'>Eject</A>\]"
 
-	to_chat(user, browse(dat, "window=dartgun"))
+	user << browse(dat, "window=dartgun")
 	onclose(user, "dartgun", src)
 
 /obj/item/weapon/gun/projectile/dartgun/proc/check_beaker_mixing(var/obj/item/B)
@@ -186,7 +186,7 @@
 		if(index <= beakers.len)
 			if(beakers[index])
 				var/obj/item/weapon/reagent_containers/glass/beaker/B = beakers[index]
-				usr << "You remove [B] from [src]."
+				to_chat(usr, "You remove [B] from [src].")
 				mixing -= B
 				beakers -= B
 				B.forceMove(get_turf(src))

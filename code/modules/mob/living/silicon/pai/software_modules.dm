@@ -56,7 +56,7 @@
 			while(!istype(M, /mob/living))
 				if(!M || !M.loc || count > 6)
 					//For a runtime where M ends up in nullspace (similar to bluespace but less colourful)
-					src << "You are not being carried by anyone!"
+					to_chat(src, "You are not being carried by anyone!")
 					return 0
 				M = M.loc
 				count++

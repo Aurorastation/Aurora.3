@@ -4,7 +4,7 @@
 		return 0
 
 	if(user.incapacitated()  || !user.Adjacent(src))
-		to_chat(user, browse(null, text("window=mob[src.name]")))
+		user << browse(null, text("window=mob[src.name]"))
 		return 0
 
 	var/obj/item/target_slot = get_equipped_item(text2num(slot_to_strip))

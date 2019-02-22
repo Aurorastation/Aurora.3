@@ -66,14 +66,14 @@
 					if(controlling)
 						host << "<span class='notice'>You feel the soporific flow of sugar in your host's blood, lulling you into docility.</span>"
 					else
-						src << "<span class='notice'>You feel the soporific flow of sugar in your host's blood, lulling you into docility.</span>"
+						to_chat(src, "<span class='notice'>You feel the soporific flow of sugar in your host's blood, lulling you into docility.</span>")
 					docile = 1
 			else
 				if(docile)
 					if(controlling)
 						host << "<span class='notice'>You shake off your lethargy as the sugar leaves your host's blood.</span>"
 					else
-						src << "<span class='notice'>You shake off your lethargy as the sugar leaves your host's blood.</span>"
+						to_chat(src, "<span class='notice'>You shake off your lethargy as the sugar leaves your host's blood.</span>")
 					docile = 0
 
 			if(chemicals < 250)

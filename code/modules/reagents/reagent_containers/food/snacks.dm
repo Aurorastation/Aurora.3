@@ -770,10 +770,10 @@
 		var/clr = C.colourName
 
 		if(!(clr in list("blue","green","mime","orange","purple","rainbow","red","yellow")))
-			usr << "<span class='notice'>The egg refuses to take on this color!</span>"
+			to_chat(usr, "<span class='notice'>The egg refuses to take on this color!</span>")
 			return
 
-		usr << "<span class='notice'>You color \the [src] [clr]</span>"
+		to_chat(usr, "<span class='notice'>You color \the [src] [clr]</span>")
 		icon_state = "egg-[clr]"
 	else
 		..()
@@ -1526,7 +1526,7 @@
 
 /obj/item/weapon/reagent_containers/food/snacks/popcorn/on_consume()
 	if(prob(unpopped))	//lol ...what's the point? // IMPLEMENT DENTISTRY WHEN?
-		usr << "<span class='warning'>You bite down on an un-popped kernel!</span>"
+		to_chat(usr, "<span class='warning'>You bite down on an un-popped kernel!</span>")
 		unpopped = max(0, unpopped-1)
 	..()
 

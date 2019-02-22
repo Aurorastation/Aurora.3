@@ -111,7 +111,7 @@ var/list/artefact_feedback = list(/obj/structure/closet/wizard/armor = 		"HS",
 			dat += "<br><i>[desc]</i><br>"
 		dat += "<center><A href='byond://?src=\ref[src];reset=1'>Re-memorize your spellbook.</a></center>"
 		dat += "<center><A href='byond://?src=\ref[src];lock=1'>[spellbook.book_flags & LOCKED ? "Unlock" : "Lock"] the spellbook.</a></center>"
-	to_chat(user, browse(dat,"window=spellbook"))
+	user << browse(dat,"window=spellbook")
 
 /obj/item/weapon/spellbook/Topic(href,href_list)
 	..()
@@ -143,7 +143,7 @@ var/list/artefact_feedback = list(/obj/structure/closet/wizard/armor = 		"HS",
 	if(href_list["path"])
 		var/path = text2path(href_list["path"])
 		if(uses < spellbook.spells[path])
-			usr << "<span class='notice'>You do not have enough spell slots to purchase this.</span>"
+			to_chat(usr, "<span class='notice'>You do not have enough spell slots to purchase this.</span>")
 			return
 		uses -= spellbook.spells[path]
 		send_feedback(path) //feedback stuff
@@ -174,7 +174,7 @@ var/list/artefact_feedback = list(/obj/structure/closet/wizard/armor = 		"HS",
 			temp = "All spells have been removed. You may now memorize a new set of spells."
 			feedback_add_details("wizard_spell_learned","UM") //please do not change the abbreviation to keep data processing consistent. Add a unique id to any new spells
 		else
-			usr << "<span class='warning'>You must be in the wizard academy to re-memorize your spells.</span>"
+			to_chat(usr, "<span class='warning'>You must be in the wizard academy to re-memorize your spells.</span>")
 
 	src.interact(usr)
 

@@ -292,7 +292,7 @@
 			adjustNutritionLoss(nutrition_step)//Bigger animals get hungry faster
 		else
 			if (prob(3))
-				src << "You feel hungry..."
+				to_chat(src, "You feel hungry...")
 
 
 		if (!reagents || !reagents.total_volume)
@@ -427,7 +427,7 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 		apply_damage(damage, O.damtype, used_weapon = "[O.name]")
 		poke(1)
 	else
-		usr << "<span class='danger'>This weapon is ineffective, it does no damage.</span>"
+		to_chat(usr, "<span class='danger'>This weapon is ineffective, it does no damage.</span>")
 		poke()
 
 	visible_message("<span class='danger'>\The [src] has been attacked with the [O] by [user].</span>")
@@ -658,7 +658,7 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 	else
 		fall_asleep()
 
-	src << span("notice","You are now [resting ? "resting" : "getting up"]")
+	to_chat(src, span("notice","You are now [resting ? "resting" : "getting up"]"))
 
 	update_icons()
 

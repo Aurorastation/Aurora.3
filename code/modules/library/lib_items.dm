@@ -213,7 +213,7 @@
 			to_chat(user, "<span class='notice'>The pages of [title] have been cut out!</span>")
 			return
 	if(src.dat)
-		to_chat(user, browse("<TT><I>Penned by [author].</I></TT> <BR>" + "[dat]", "window=book"))
+		user << browse("<TT><I>Penned by [author].</I></TT> <BR>" + "[dat]", "window=book")
 		user.visible_message("[user] opens a book titled \"[src.title]\" and begins reading intently.")
 		onclose(user, "book")
 	else
@@ -242,7 +242,7 @@
 			if("Title")
 				var/newtitle = reject_bad_text(sanitizeSafe(input("Write a new title:")))
 				if(!newtitle)
-					usr << "The title is invalid."
+					to_chat(usr, "The title is invalid.")
 					return
 				else
 					src.name = newtitle
@@ -250,14 +250,14 @@
 			if("Contents")
 				var/content = sanitize(input("Write your book's contents (HTML NOT allowed):") as message|null, MAX_BOOK_MESSAGE_LEN)
 				if(!content)
-					usr << "The content is invalid."
+					to_chat(usr, "The content is invalid.")
 					return
 				else
 					src.dat += content
 			if("Author")
 				var/newauthor = sanitize(input(usr, "Write the author's name:"))
 				if(!newauthor)
-					usr << "The name is invalid."
+					to_chat(usr, "The name is invalid.")
 					return
 				else
 					src.author = newauthor

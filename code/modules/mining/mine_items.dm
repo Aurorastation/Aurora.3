@@ -92,7 +92,7 @@
 /obj/item/weapon/pickaxe/mob_can_equip(M as mob, slot)
 	//Cannot equip wielded items.
 	if(wielded)
-		M << "<span class='warning'>Unwield the [initial(name)] first!</span>"
+		to_chat(M, "<span class='warning'>Unwield the [initial(name)] first!</span>")
 		return 0
 
 	return ..()
@@ -668,12 +668,12 @@
 /obj/item/weapon/ore_radar/attack_self(mob/user)
 	if(!active)
 		active = 1
-		usr << "<span class='notice'>You activate the pinpointer</span>"
+		to_chat(usr, "<span class='notice'>You activate the pinpointer</span>")
 		START_PROCESSING(SSfast_process, src)
 	else
 		active = 0
 		icon_state = "pinoff"
-		usr << "<span>You deactivate the pinpointer</span>"
+		to_chat(usr, "<span>You deactivate the pinpointer</span>")
 		STOP_PROCESSING(SSfast_process, src)
 
 /obj/item/weapon/ore_radar/process()
@@ -1072,7 +1072,7 @@ var/list/total_extraction_beacons = list()
 	for(var/mob/living/L in T)
 		if(creator)
 			add_logs(creator, L, "used a resonator field on", "resonator")
-		L << "<span class='danger'>The [src.name] ruptured with you in it!</span>"
+		to_chat(L, "<span class='danger'>The [src.name] ruptured with you in it!</span>")
 		L.apply_damage(resonance_damage, BRUTE)
 	qdel(src)
 
@@ -1176,7 +1176,7 @@ var/list/total_extraction_beacons = list()
 	set src in oview(1)
 
 	if (src.anchored || usr:stat)
-		usr << "It is fastened to the floor!"
+		to_chat(usr, "It is fastened to the floor!")
 		return 0
 	src.set_dir(turn(src.dir, 90))
 	return 1

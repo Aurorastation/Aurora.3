@@ -273,15 +273,15 @@ var/const/NO_EMAG_ACT = -50
 	set category = "Object"
 	set src in usr
 
-	usr << text("\icon[] []: The current assignment on the card is [].", src, src.name, src.assignment)
-	usr << "The age on the card is [age]."
-	usr << "The citizenship on the card is [citizenship]."
-	usr << "The religion on the card is [religion]."
-	usr << "The blood type on the card is [blood_type]."
-	usr << "The DNA hash on the card is [dna_hash]."
-	usr << "The fingerprint hash on the card is [fingerprint_hash]."
+	to_chat(usr, text("\icon[] []: The current assignment on the card is [].", src, src.name, src.assignment))
+	to_chat(usr, "The age on the card is [age].")
+	to_chat(usr, "The citizenship on the card is [citizenship].")
+	to_chat(usr, "The religion on the card is [religion].")
+	to_chat(usr, "The blood type on the card is [blood_type].")
+	to_chat(usr, "The DNA hash on the card is [dna_hash].")
+	to_chat(usr, "The fingerprint hash on the card is [fingerprint_hash].")
 	if(mining_points)
-		usr << "A ticker indicates the card has [mining_points] ore redemption points available."
+		to_chat(usr, "A ticker indicates the card has [mining_points] ore redemption points available.")
 	return
 
 /obj/item/weapon/card/id/silver

@@ -412,6 +412,6 @@
 	if(stat & (NOPOWER|BROKEN)) return 0
 	if(usr.contents.Find(src) || (in_range(src, usr) && istype(loc, /turf)))
 		if(!allowed(usr) && !emagged && locked != -1 && href_list["vendItem"])
-			usr << "<span class='warning'>Access denied.</span>"
+			to_chat(usr, "<span class='warning'>Access denied.</span>")
 			return 0
 	return ..()

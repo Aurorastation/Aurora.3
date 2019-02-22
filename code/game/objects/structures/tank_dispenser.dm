@@ -44,7 +44,7 @@
 	var/dat = "[src]<br><br>"
 	dat += "Oxygen tanks: [oxygentanks] - [oxygentanks ? "<A href='?src=\ref[src];oxygen=1'>Dispense</A>" : "empty"]<br>"
 	dat += "Phoron tanks: [phorontanks] - [phorontanks ? "<A href='?src=\ref[src];phoron=1'>Dispense</A>" : "empty"]"
-	to_chat(user, browse(dat, "window=dispenser"))
+	user << browse(dat, "window=dispenser")
 	onclose(user, "dispenser")
 	return
 
@@ -97,7 +97,7 @@
 				else
 					O = new /obj/item/weapon/tank/oxygen(loc)
 				O.forceMove(loc)
-				usr << "<span class='notice'>You take [O] out of [src].</span>"
+				to_chat(usr, "<span class='notice'>You take [O] out of [src].</span>")
 				oxygentanks--
 				update_icon()
 		if(href_list["phoron"])
@@ -109,7 +109,7 @@
 				else
 					P = new /obj/item/weapon/tank/phoron(loc)
 				P.forceMove(loc)
-				usr << "<span class='notice'>You take [P] out of [src].</span>"
+				to_chat(usr, "<span class='notice'>You take [P] out of [src].</span>")
 				phorontanks--
 				update_icon()
 		add_fingerprint(usr)

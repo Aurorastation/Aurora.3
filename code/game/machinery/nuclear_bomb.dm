@@ -210,10 +210,10 @@ var/bomb_set
 		return
 
 	if (src.deployable)
-		usr << "<span class='warning'>You close several panels to make [src] undeployable.</span>"
+		to_chat(usr, "<span class='warning'>You close several panels to make [src] undeployable.</span>")
 		src.deployable = 0
 	else
-		usr << "<span class='warning'>You adjust some panels to make [src] deployable.</span>"
+		to_chat(usr, "<span class='warning'>You adjust some panels to make [src] deployable.</span>")
 		src.deployable = 1
 	return
 
@@ -270,15 +270,15 @@ var/bomb_set
 					SSnanoui.update_uis(src)
 					return
 				if (!anchored)
-					usr << "<span class='warning'>\The [src] needs to be anchored.</span>"
+					to_chat(usr, "<span class='warning'>\The [src] needs to be anchored.</span>")
 					SSnanoui.update_uis(src)
 					return
 				if (safety)
-					usr << "<span class='warning'>The safety is still on.</span>"
+					to_chat(usr, "<span class='warning'>The safety is still on.</span>")
 					SSnanoui.update_uis(src)
 					return
 				if (wires.IsIndexCut(NUCLEARBOMB_WIRE_TIMING))
-					usr << "<span class='warning'>Nothing happens, something might be wrong with the wiring.</span>"
+					to_chat(usr, "<span class='warning'>Nothing happens, something might be wrong with the wiring.</span>")
 					SSnanoui.update_uis(src)
 					return
 
@@ -295,7 +295,7 @@ var/bomb_set
 					alerted = 1
 			if (href_list["safety"])
 				if (wires.IsIndexCut(NUCLEARBOMB_WIRE_SAFETY))
-					usr << "<span class='warning'>Nothing happens, something might be wrong with the wiring.</span>"
+					to_chat(usr, "<span class='warning'>Nothing happens, something might be wrong with the wiring.</span>")
 					SSnanoui.update_uis(src)
 					return
 				safety = !safety
@@ -317,7 +317,7 @@ var/bomb_set
 						secure_device()
 						visible_message("<span class='warning'>The anchoring bolts slide back into the depths of [src].</span>")
 				else
-					usr << "<span class='warning'>There is nothing to anchor to!</span>"
+					to_chat(usr, "<span class='warning'>There is nothing to anchor to!</span>")
 
 	SSnanoui.update_uis(src)
 

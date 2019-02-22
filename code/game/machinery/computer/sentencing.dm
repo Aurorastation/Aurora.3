@@ -568,9 +568,9 @@
 				return
 			var/number = input( usr, "Enter a number between [incident.getMinBrigSentence()] and [incident.getMaxBrigSentence()] minutes", "Brig Sentence", 0) as num
 			if( number < incident.getMinBrigSentence() )
-				usr << "<span class='alert'>The entered sentence was less than the minimum sentence!</span>"
+				to_chat(usr, "<span class='alert'>The entered sentence was less than the minimum sentence!</span>")
 			else if( number > incident.getMaxBrigSentence() )
-				usr << "<span class='alert'>The entered sentence was greater than the maximum sentence!</span>"
+				to_chat(usr, "<span class='alert'>The entered sentence was greater than the maximum sentence!</span>")
 			else
 				incident.brig_sentence = number
 
@@ -579,9 +579,9 @@
 				return
 			var/number = input( usr, "Enter a number between [incident.getMinFine()] and [incident.getMaxFine()] credits", "Fine", 0) as num
 			if( number < incident.getMinFine() )
-				usr << "<span class='alert'>The entered sentence was less than the minimum sentence!</span>"
+				to_chat(usr, "<span class='alert'>The entered sentence was less than the minimum sentence!</span>")
 			else if( number > incident.getMaxFine() )
-				usr << "<span class='alert'>The entered sentence was greater than the maximum sentence!</span>"
+				to_chat(usr, "<span class='alert'>The entered sentence was greater than the maximum sentence!</span>")
 			else
 				incident.fine = number
 
@@ -589,7 +589,7 @@
 			var/error = print_incident_report( 0 )
 
 			if( error )
-				usr << "<span class='alert'>[error]</span>"
+				to_chat(usr, "<span class='alert'>[error]</span>")
 			else
 				incident = null
 				menu_screen = "main_menu"
@@ -603,7 +603,7 @@
 					if( !error )
 						ping( "\The [src] pings, \"[title] [C.mob] verified.\"" )
 					else
-						usr << "<span class='alert'>\The [src] buzzes, \"[error]\"</span>"
+						to_chat(usr, "<span class='alert'>\The [src] buzzes, \"[error]\"</span>")
 			else
 				ping( "\The [src] pings, \"[title] cleared.\"" )
 				incident.arbiters[title] = null

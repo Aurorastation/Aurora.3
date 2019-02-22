@@ -36,7 +36,7 @@ fundamental differences
 		return
 
 	if (!usr.IsAdvancedToolUser())
-		usr << "<span class='notice'>You can't operate [src].</span>"
+		to_chat(usr, "<span class='notice'>You can't operate [src].</span>")
 		return
 
 	if(output_options.len)
@@ -45,7 +45,7 @@ fundamental differences
 			return
 		else
 			selected_option = choice
-			usr << "<span class='notice'>You prepare \the [src] to make \a [selected_option].</span>"
+			to_chat(usr, "<span class='notice'>You prepare \the [src] to make \a [selected_option].</span>")
 			var/datum/cooking_item/CI = cooking_objs[1]
 			CI.combine_target = selected_option
 
@@ -98,7 +98,7 @@ fundamental differences
 
 	var/datum/cooking_item/CI = cooking_objs[1]
 	if (!CI.container.check_contents())
-		usr << "There's nothing in it! Add ingredients before turning [src] on!"
+		to_chat(usr, "There's nothing in it! Add ingredients before turning [src] on!")
 		return
 
 	if (stat & POWEROFF)//Its turned off

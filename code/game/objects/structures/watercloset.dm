@@ -349,9 +349,9 @@
 	if(ishuman(M))
 		var/mob/living/carbon/human/H = M
 		if(temperature >= H.species.heat_level_1)
-			H << "<span class='danger'>The water is searing hot!</span>"
+			to_chat(H, "<span class='danger'>The water is searing hot!</span>")
 		else if(temperature <= H.species.cold_level_1)
-			H << "<span class='warning'>The water is freezing cold!</span>"
+			to_chat(H, "<span class='warning'>The water is freezing cold!</span>")
 
 /obj/item/weapon/bikehorn/rubberducky
 	name = "rubber ducky"
@@ -400,7 +400,7 @@
 		to_chat(user, "<span class='warning'>Someone's already washing here.</span>")
 		return
 
-	usr << "<span class='notice'>You start washing your hands.</span>"
+	to_chat(usr, "<span class='notice'>You start washing your hands.</span>")
 
 	busy = 1
 	sleep(40)
@@ -428,26 +428,26 @@
 		if(!usr.Adjacent(src)) return
 		if(RG.loc != usr && !isrobot(user)) return
 		if(busy)
-			usr << "<span class='warning'>Someone's already using \the [src].</span>"
+			to_chat(usr, "<span class='warning'>Someone's already using \the [src].</span>")
 			return
 
 		switch(atype)
 			if ("Fill")
 				if(RG.reagents.total_volume >= RG.volume)
-					usr << "<span class='warning'>\The [RG] is already full.</span>"
+					to_chat(usr, "<span class='warning'>\The [RG] is already full.</span>")
 					return
 
 				RG.reagents.add_reagent("water", min(RG.volume - RG.reagents.total_volume, amount_per_transfer_from_this))
 				oviewers(3, usr) << "<span class='notice'>[usr] fills \the [RG] using \the [src].</span>"
-				usr << "<span class='notice'>You fill \the [RG] using \the [src].</span>"
+				to_chat(usr, "<span class='notice'>You fill \the [RG] using \the [src].</span>")
 			if ("Empty")
 				if(!RG.reagents.total_volume)
-					usr << "<span class='warning'>\The [RG] is already empty.</span>"
+					to_chat(usr, "<span class='warning'>\The [RG] is already empty.</span>")
 					return
 
 				var/empty_amount = RG.reagents.trans_to(src, RG.amount_per_transfer_from_this)
 				oviewers(3, usr) << "<span class='notice'>[usr] empties [empty_amount]u of \the [RG] into \the [src].</span>"
-				usr << "<span class='notice'>You empty [empty_amount]u of \the [RG] into \the [src].</span>"
+				to_chat(usr, "<span class='notice'>You empty [empty_amount]u of \the [RG] into \the [src].</span>")
 		return
 
 	// Filling/empying Syringes
@@ -456,22 +456,22 @@
 		switch(S.mode)
 			if(0) // draw
 				if(S.reagents.total_volume >= S.volume)
-					usr << "<span class='warning'>\The [S] is already full.</span>"
+					to_chat(usr, "<span class='warning'>\The [S] is already full.</span>")
 					return
 
 				var/trans = min(S.volume - S.reagents.total_volume, S.amount_per_transfer_from_this)
 				S.reagents.add_reagent("water", trans)
 				oviewers(3, usr) << "<span class='notice'>[usr] uses \the [S] to draw water from \the [src].</span>"
-				usr << "<span class='notice'>You draw [trans] units of water from \the [src]. \The [S] now contains [S.reagents.total_volume] units.</span>"
+				to_chat(usr, "<span class='notice'>You draw [trans] units of water from \the [src]. \The [S] now contains [S.reagents.total_volume] units.</span>")
 			if(1) // inject
 				if(!S.reagents.total_volume)
-					usr << "<span class='warning'>\The [S] is already empty.</span>"
+					to_chat(usr, "<span class='warning'>\The [S] is already empty.</span>")
 					return
 
 				var/trans = min(S.amount_per_transfer_from_this, S.reagents.total_volume)
 				S.reagents.remove_any(trans)
 				oviewers(3, usr) << "<span class='notice'>[usr] empties \the [S] into \the [src].</span>"
-				usr << "<span class='notice'>You empty [trans] units of water into \the [src]. \The [S] now contains [S.reagents.total_volume] units.</span>"
+				to_chat(usr, "<span class='notice'>You empty [trans] units of water into \the [src]. \The [S] now contains [S.reagents.total_volume] units.</span>")
 
 		return
 
@@ -505,7 +505,7 @@
 	var/obj/item/I = O
 	if(!I || !istype(I,/obj/item)) return
 
-	usr << "<span class='notice'>You start washing \the [I].</span>"
+	to_chat(usr, "<span class='notice'>You start washing \the [I].</span>")
 
 	busy = 1
 	sleep(40)

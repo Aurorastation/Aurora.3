@@ -65,7 +65,7 @@
 	if (!recipes)
 		return
 	if (!src || get_amount() <= 0)
-		to_chat(user, browse(null, "window=stack"))
+		user << browse(null, "window=stack")
 	user.set_machine(src) //for correct work of onclose
 	var/list/recipe_list = recipes
 	if (recipes_sublist && recipe_list[recipes_sublist] && istype(recipe_list[recipes_sublist], /datum/stack_recipe_list))
@@ -112,7 +112,7 @@
 					t1 += " <A href='?src=\ref[src];make=[i];multiplier=[max_multiplier]'>[max_multiplier*R.res_amount]x</A>"
 
 	t1 += "</TT></body></HTML>"
-	to_chat(user, browse(t1, "window=stack"))
+	user << browse(t1, "window=stack")
 	onclose(user, "stack")
 	return
 

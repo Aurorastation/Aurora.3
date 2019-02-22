@@ -128,7 +128,7 @@
 			user.set_dir(get_dir(user, src))
 			to_chat(user, "You grip \the [name]'s handles.")
 		else
-			usr << "You let go of \the [name]'s handles."
+			to_chat(usr, "You let go of \the [name]'s handles.")
 			pulling.pulledby = null
 			pulling = null
 		return

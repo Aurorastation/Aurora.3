@@ -47,7 +47,7 @@
 				var/obj/item/stack/cable_coil/CC = new (get_turf(src))
 				CC.amount = m
 		else
-			usr << "<span class='warning'>There's no more cable on the reel.</span>"
+			to_chat(usr, "<span class='warning'>There's no more cable on the reel.</span>")
 
 /obj/machinery/cablelayer/examine(mob/user)
 	..()

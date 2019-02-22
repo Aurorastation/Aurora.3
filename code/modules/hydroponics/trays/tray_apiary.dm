@@ -235,5 +235,5 @@
 		if(toxic > 0)
 			H.reagents.add_reagent("toxin", toxic)
 
-	usr << "<span class='notice'>You harvest the honeycomb from the hive. There is a wild buzzing!</span>"
+	to_chat(usr, "<span class='notice'>You harvest the honeycomb from the hive. There is a wild buzzing!</span>")
 	angry_swarm(usr)

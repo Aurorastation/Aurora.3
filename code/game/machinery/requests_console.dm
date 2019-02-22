@@ -245,23 +245,23 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 	if(href_list["linkpda"])
 		var/obj/item/device/pda/pda = usr.get_active_hand()
 		if (!pda || !istype(pda))
-			usr << "<span class='warning'>You need to be holding a PDA to link it.</span>"
+			to_chat(usr, "<span class='warning'>You need to be holding a PDA to link it.</span>")
 		else if (pda in alert_pdas)
-			usr << "<span class='notice'>\The [pda] appears to be already linked.</span>"
+			to_chat(usr, "<span class='notice'>\The [pda] appears to be already linked.</span>")
 			//Update the name real quick.
 			alert_pdas[pda] = pda.name
 		else
 			LAZYADD(pda.linked_consoles, src)
 			alert_pdas += pda
 			alert_pdas[pda] = pda.name
-			usr << "<span class='notice'>You link \the [pda] to \the [src]. It will now ping upon the arrival of a fax to this machine.</span>"
+			to_chat(usr, "<span class='notice'>You link \the [pda] to \the [src]. It will now ping upon the arrival of a fax to this machine.</span>")
 
 	// Unlink a PDA.
 	if(href_list["unlink"])
 		var/obj/item/device/pda/pda = locate(href_list["unlink"])
 		if (pda && istype(pda))
 			if (pda in alert_pdas)
-				usr << "<span class='notice'>You unlink [alert_pdas[pda]] from \the [src]. It will no longer be notified of new faxes.</span>"
+				to_chat(usr, "<span class='notice'>You unlink [alert_pdas[pda]] from \the [src]. It will no longer be notified of new faxes.</span>")
 				alert_pdas -= pda
 
 	// Sort the forms.
@@ -325,7 +325,7 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 	// Toggle the paper bin lid.
 	if(href_list["setLid"])
 		lid = !lid
-		usr << "<span class='notice'>You [lid ? "open" : "close"] the lid.</span>"
+		to_chat(usr, "<span class='notice'>You [lid ? "open" : "close"] the lid.</span>")
 
 	updateUsrDialog()
 	return

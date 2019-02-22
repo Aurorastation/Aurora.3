@@ -40,12 +40,12 @@
 			if(!M.can_eat(loaded))
 				return
 			if (fullness > (550 * (1 + M.overeatduration / 2000)))
-				M <<"You cannot force anymore food down!"
+				to_chat(M, "You cannot force anymore food down!")
 				return
 			M.visible_message("<span class='notice'>\The [user] eats some [loaded] from \the [src].</span>")
 		else
 			if (fullness > (550 * (1 + M.overeatduration / 2000)))
-				M <<"You cannot force anymore food down their throat!"
+				to_chat(M, "You cannot force anymore food down their throat!")
 				return
 			user.visible_message("<span class='warning'>\The [user] begins to feed \the [M]!</span>")
 			if(!(M.can_force_feed(user, loaded) && do_mob(user, M, 5 SECONDS)))

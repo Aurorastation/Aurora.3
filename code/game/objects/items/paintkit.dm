@@ -9,7 +9,7 @@
 
 /obj/item/device/kit/examine()
 	..()
-	usr << "It has [uses] [uses>1?"uses":"use"] left."
+	to_chat(usr, "It has [uses] [uses>1?"uses":"use"] left.")
 
 /obj/item/device/kit/proc/use(var/amt, var/mob/user)
 	uses -= amt
@@ -75,10 +75,10 @@
 
 /obj/item/device/kit/paint/examine()
 	..()
-	usr << "This kit will convert an exosuit into: [new_name]."
-	usr << "This kit can be used on the following exosuit models:"
+	to_chat(usr, "This kit will convert an exosuit into: [new_name].")
+	to_chat(usr, "This kit can be used on the following exosuit models:")
 	for(var/exotype in allowed_types)
-		usr << "- [capitalize(exotype)]"
+		to_chat(usr, "- [capitalize(exotype)]")
 
 /obj/mecha/attackby(var/obj/item/weapon/W, var/mob/user)
 	if(istype(W, /obj/item/device/kit/paint))

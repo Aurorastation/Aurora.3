@@ -39,7 +39,7 @@ BREATH ANALYZER
 		user.show_message("<span class='notice'>Body Temperature: ???</span>", 1)
 		return
 	if (!usr.IsAdvancedToolUser())
-		usr << "<span class='warning'>You don't have the dexterity to do this!</span>"
+		to_chat(usr, "<span class='warning'>You don't have the dexterity to do this!</span>")
 		return
 	user.visible_message("<span class='notice'>[user] has analyzed [M]'s vitals.</span>","<span class='notice'>You have analyzed [M]'s vitals.</span>")
 
@@ -181,9 +181,9 @@ BREATH ANALYZER
 	mode = !mode
 
 	if(mode)
-		usr << "The scanner now shows specific limb damage."
+		to_chat(usr, "The scanner now shows specific limb damage.")
 	else
-		usr << "The scanner no longer shows limb damage."
+		to_chat(usr, "The scanner no longer shows limb damage.")
 
 
 /obj/item/device/analyzer
@@ -214,7 +214,7 @@ BREATH ANALYZER
 	if (user.stat)
 		return
 	if (!usr.IsAdvancedToolUser())
-		usr << "<span class='warning'>You don't have the dexterity to do this!</span>"
+		to_chat(usr, "<span class='warning'>You don't have the dexterity to do this!</span>")
 		return
 
 	analyze_gases(src, user)

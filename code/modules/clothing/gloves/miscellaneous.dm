@@ -96,13 +96,13 @@
 	set src in usr
 
 	if(wired && !clipped)
-		usr << "You check your watch, spotting a digital collection of numbers reading '[worldtime2text()]'. Today's date is '[time2text(world.time, "Month DD")]. [game_year]'."
+		to_chat(usr, "You check your watch, spotting a digital collection of numbers reading '[worldtime2text()]'. Today's date is '[time2text(world.time, "Month DD")]. [game_year]'.")
 		if (emergency_shuttle.get_status_panel_eta())
-			usr << "<span class='warning'>The shuttle's status is reported as: [emergency_shuttle.get_status_panel_eta()].</span>"
+			to_chat(usr, "<span class='warning'>The shuttle's status is reported as: [emergency_shuttle.get_status_panel_eta()].</span>")
 	else if(wired && clipped)
-		usr << "You check your watch realising it's still open"
+		to_chat(usr, "You check your watch realising it's still open")
 	else
-		usr << "You check your watch as it dawns on you that it's broken"
+		to_chat(usr, "You check your watch as it dawns on you that it's broken")
 
 /obj/item/clothing/gloves/watch/verb/pointatwatch()
 	set category = "Object"

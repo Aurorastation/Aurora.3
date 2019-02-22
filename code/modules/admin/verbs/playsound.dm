@@ -17,7 +17,7 @@ var/list/sounds_cache = list()
 	message_admins("[key_name_admin(src)] played sound [S]", 1)
 	for(var/mob/M in player_list)
 		if(M.client.prefs.toggles & SOUND_MIDI)
-			M << uploaded_sound
+			to_chat(M, uploaded_sound)
 
 	feedback_add_details("admin_verb","PGS") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 

@@ -98,16 +98,16 @@
 
 	if(helmet)
 		if(H.head)
-			M << "You are unable to deploy your suit's helmet as \the [H.head] is in the way."
+			to_chat(M, "You are unable to deploy your suit's helmet as \the [H.head] is in the way.")
 		else if (H.equip_to_slot_if_possible(helmet, slot_head))
-			M << "Your suit's helmet deploys with a hiss."
+			to_chat(M, "Your suit's helmet deploys with a hiss.")
 			helmet.canremove = 0
 
 	if(tank)
 		if(H.s_store) //In case someone finds a way.
-			M << "Alarmingly, the valve on your suit's installed tank fails to engage."
+			to_chat(M, "Alarmingly, the valve on your suit's installed tank fails to engage.")
 		else if (H.equip_to_slot_if_possible(tank, slot_s_store))
-			M << "The valve on your suit's installed tank safely engages."
+			to_chat(M, "The valve on your suit's installed tank safely engages.")
 			tank.canremove = 0
 
 /obj/item/clothing/suit/space/void/proc/cleanup_from_mob()
@@ -148,7 +148,7 @@
 	if(!istype(src.loc,/mob/living)) return
 
 	if(!helmet)
-		usr << "There is no helmet installed."
+		to_chat(usr, "There is no helmet installed.")
 		return
 
 	var/mob/living/carbon/human/H = usr
@@ -158,17 +158,17 @@
 	if(H.wear_suit != src) return
 
 	if(H.head == helmet)
-		H << "<span class='notice'>You retract your suit helmet.</span>"
+		to_chat(H, "<span class='notice'>You retract your suit helmet.</span>")
 		helmet.canremove = 1
 		H.drop_from_inventory(helmet,src)
 	else
 		if(H.head)
-			H << "<span class='danger'>You cannot deploy your helmet while wearing \the [H.head].</span>"
+			to_chat(H, "<span class='danger'>You cannot deploy your helmet while wearing \the [H.head].</span>")
 			return
 		if(H.equip_to_slot_if_possible(helmet, slot_head))
 			helmet.pickup(H)
 			helmet.canremove = 0
-			H << "<span class='info'>You deploy your suit helmet, sealing you off from the world.</span>"
+			to_chat(H, "<span class='info'>You deploy your suit helmet, sealing you off from the world.</span>")
 	helmet.update_light(H)
 
 /obj/item/clothing/suit/space/void/verb/eject_tank()
@@ -180,7 +180,7 @@
 	if(!istype(src.loc,/mob/living)) return
 
 	if(!tank)
-		usr << "There is no tank inserted."
+		to_chat(usr, "There is no tank inserted.")
 		return
 
 	var/mob/living/carbon/human/H = usr
@@ -189,7 +189,7 @@
 	if(H.stat) return
 	if(H.wear_suit != src) return
 
-	H << "<span class='info'>You press the emergency release, ejecting \the [tank] from your suit.</span>"
+	to_chat(H, "<span class='info'>You press the emergency release, ejecting \the [tank] from your suit.</span>")
 	tank.canremove = 1
 	H.drop_from_inventory(tank)
 	src.tank = null

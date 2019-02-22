@@ -42,7 +42,7 @@
 
 	dat += "<BR><BR><B>Drone fabricator</B>: "
 	dat += "[dronefab ? "<A href='?src=\ref[src];toggle_fab=1'>[(dronefab.produce_drones && !(dronefab.stat & NOPOWER)) ? "ACTIVE" : "INACTIVE"]</A>" : "<font color='red'><b>FABRICATOR NOT DETECTED.</b></font> (<A href='?src=\ref[src];search_fab=1'>search</a>)"]"
-	to_chat(user, browse(dat, "window=computer;size=400x500"))
+	user << browse(dat, "window=computer;size=400x500")
 	onclose(user, "computer")
 	return
 
@@ -52,7 +52,7 @@
 		return
 
 	if(!allowed(usr))
-		usr << "<span class='danger'>Access denied.</span>"
+		to_chat(usr, "<span class='danger'>Access denied.</span>")
 		return
 
 	if ((usr.contents.Find(src) || (in_range(src, usr) && istype(src.loc, /turf))) || (istype(usr, /mob/living/silicon)))
@@ -67,11 +67,11 @@
 			return
 
 		drone_call_area = t_area
-		usr << "<span class='notice'>You set the area selector to [drone_call_area].</span>"
+		to_chat(usr, "<span class='notice'>You set the area selector to [drone_call_area].</span>")
 
 	else if (href_list["ping"])
 
-		usr << "<span class='notice'>You issue a maintenance request for all active drones, highlighting [drone_call_area].</span>"
+		to_chat(usr, "<span class='notice'>You issue a maintenance request for all active drones, highlighting [drone_call_area].</span>")
 		for(var/mob/living/silicon/robot/drone/D in silicon_mob_list)
 			if(D.client && D.stat == 0)
 				D << "-- Maintenance drone presence requested in: [drone_call_area]."
@@ -81,7 +81,7 @@
 		var/mob/living/silicon/robot/drone/D = locate(href_list["resync"])
 
 		if(D.stat != 2)
-			usr << "<span class='danger'>You issue a law synchronization directive for the drone.</span>"
+			to_chat(usr, "<span class='danger'>You issue a law synchronization directive for the drone.</span>")
 			D.law_resync()
 
 	else if (href_list["shutdown"])
@@ -89,7 +89,7 @@
 		var/mob/living/silicon/robot/drone/D = locate(href_list["shutdown"])
 
 		if(D.stat != 2)
-			usr << "<span class='danger'>You issue a kill command for the unfortunate drone.</span>"
+			to_chat(usr, "<span class='danger'>You issue a kill command for the unfortunate drone.</span>")
 			message_admins("[key_name_admin(usr)] issued kill order for drone [key_name_admin(D)] from control console.")
 			log_game("[key_name(usr)] issued kill order for [key_name(src)] from control console.",ckey=key_name(usr),ckey_target=key_name(src))
 			D.shut_down()
@@ -104,10 +104,10 @@
 				continue
 
 			dronefab = fab
-			usr << "<span class='notice'>Drone fabricator located.</span>"
+			to_chat(usr, "<span class='notice'>Drone fabricator located.</span>")
 			return
 
-		usr << "<span class='danger'>Unable to locate drone fabricator.</span>"
+		to_chat(usr, "<span class='danger'>Unable to locate drone fabricator.</span>")
 
 	else if (href_list["toggle_fab"])
 
@@ -116,10 +116,10 @@
 
 		if(get_dist(src,dronefab) > 3)
 			dronefab = null
-			usr << "<span class='danger'>Unable to locate drone fabricator.</span>"
+			to_chat(usr, "<span class='danger'>Unable to locate drone fabricator.</span>")
 			return
 
 		dronefab.produce_drones = !dronefab.produce_drones
-		usr << "<span class='notice'>You [dronefab.produce_drones ? "enable" : "disable"] drone production in the nearby fabricator.</span>"
+		to_chat(usr, "<span class='notice'>You [dronefab.produce_drones ? "enable" : "disable"] drone production in the nearby fabricator.</span>")
 
 	src.updateUsrDialog()

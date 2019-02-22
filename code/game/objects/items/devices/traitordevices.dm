@@ -44,10 +44,10 @@ effective or pretty fucking useless.
 				M.Weaken(rand(10,20))
 				if(prob(25))
 					M.Stun(rand(5,10))
-				M << "<span class='danger'>You feel a tremendous, paralyzing wave flood your mind.</span>"
+				to_chat(M, "<span class='danger'>You feel a tremendous, paralyzing wave flood your mind.</span>")
 
 			else
-				M << "<span class='danger'>You feel a sudden, electric jolt travel through your head.</span>"
+				to_chat(M, "<span class='danger'>You feel a sudden, electric jolt travel through your head.</span>")
 
 	playsound(src.loc, 'sound/misc/interference.ogg', 50, 1)
 	to_chat(user, "<span class='notice'>You trigger [src].</span>")

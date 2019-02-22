@@ -242,7 +242,7 @@ datum/preferences
 	dat += player_setup.content(user)
 
 	dat += "</html></body>"
-	to_chat(user, browse(dat, "window=preferences;size=800x800"))
+	user << browse(dat, "window=preferences;size=800x800")
 
 /datum/preferences/proc/process_link(mob/user, list/href_list)
 	if(!user)	return
@@ -280,7 +280,7 @@ datum/preferences
 		close_load_dialog(usr)
 	else if(href_list["new_character_sql"])
 		new_setup(1)
-		usr << "<span class='notice'>Your setup has been refreshed.</span>"
+		to_chat(usr, "<span class='notice'>Your setup has been refreshed.</span>")
 		close_load_dialog(usr)
 	else if(href_list["close_load_dialog"])
 		close_load_dialog(usr)
@@ -427,7 +427,7 @@ datum/preferences
 	dat += "<hr>"
 	dat += "<a href='?src=\ref[src];close_load_dialog=1'>Close</a><br>"
 	dat += "</center></tt>"
-	to_chat(user, browse(dat, "window=saves;size=300x390"))
+	user << browse(dat, "window=saves;size=300x390")
 
 
 /datum/preferences/proc/open_load_dialog_file(mob/user)
@@ -448,10 +448,10 @@ datum/preferences
 
 	dat += "<hr>"
 	dat += "</center></tt>"
-	to_chat(user, browse(dat, "window=saves;size=300x390"))
+	user << browse(dat, "window=saves;size=300x390")
 
 /datum/preferences/proc/close_load_dialog(mob/user)
-	to_chat(user, browse(null, "window=saves"))
+	user << browse(null, "window=saves")
 
 // Logs a character to the database. For statistics.
 /datum/preferences/proc/log_character(var/mob/living/carbon/human/H)
@@ -554,11 +554,11 @@ datum/preferences
 		return
 
 	if (!current_character)
-		C << "<span class='notice'>You do not have a character loaded.</span>"
+		to_chat(C, "<span class='notice'>You do not have a character loaded.</span>")
 		return
 
 	if (!establish_db_connection(dbcon))
-		C << "<span class='notice'>Unable to establish database connection.</span>"
+		to_chat(C, "<span class='notice'>Unable to establish database connection.</span>")
 		return
 
 	var/DBQuery/query = dbcon.NewQuery("UPDATE ss13_characters SET deleted_at = NOW() WHERE id = :char_id:")
@@ -567,4 +567,4 @@ datum/preferences
 	// Create a new character.
 	new_setup(1)
 
-	C << "<span class='warning'>Character successfully deleted! Please make a new one or load an existing setup.</span>"
+	to_chat(C, "<span class='warning'>Character successfully deleted! Please make a new one or load an existing setup.</span>")

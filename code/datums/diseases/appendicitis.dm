@@ -43,7 +43,7 @@
 	if(stage > 3)
 		if(prob(1) && ishuman(affected_mob))
 			var/mob/living/carbon/human/H = affected_mob
-			H << "<span class='danger'>Your abdomen is a world of pain!</span>"
+			to_chat(H, "<span class='danger'>Your abdomen is a world of pain!</span>")
 			H.Weaken(10)
 
 			var/obj/item/organ/external/groin = H.get_organ("groin")

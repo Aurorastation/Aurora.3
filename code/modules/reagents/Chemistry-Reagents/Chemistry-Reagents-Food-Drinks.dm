@@ -149,7 +149,7 @@
 	//We'll assume that the batter isnt going to be regurgitated and eaten by someone else. Only show this once
 	if (data["cooked"] != 1)
 		if (!messaged)
-			M << "Ugh, this raw [name] tastes disgusting."
+			to_chat(M, "Ugh, this raw [name] tastes disgusting.")
 			nutriment_factor *= 0.5
 			messaged = 1
 
@@ -353,7 +353,7 @@
 		M.take_organ_damage(0, removed * 1.5 * dfactor)
 		data["temperature"] -= (6 * removed) / (1 + volume*0.1)//Cools off as it burns you
 		if (lastburnmessage+100 < world.time	)
-			M << span("danger", "Searing hot oil burns you, wash it off quick!")
+			to_chat(M, span("danger", "Searing hot oil burns you, wash it off quick!"))
 			lastburnmessage = world.time
 
 
@@ -586,12 +586,12 @@
 			return
 	if(dose < agony_dose)
 		if(prob(5) || dose == metabolism) //dose == metabolism is a very hacky way of forcing the message the first time this procs
-			M << discomfort_message
+			to_chat(M, discomfort_message)
 	else
 		M.apply_effect(agony_amount, AGONY, 0)
 		if(prob(5))
 			M.custom_emote(2, "[pick("dry heaves!","coughs!","splutters!")]")
-			M << "<span class='danger'>You feel like your insides are burning!</span>"
+			to_chat(M, "<span class='danger'>You feel like your insides are burning!</span>")
 	if(istype(M, /mob/living/carbon/slime))
 		M.bodytemperature += rand(0, 15) + slime_temp_adj
 	holder.remove_reagent("frostoil", 5)
@@ -675,7 +675,7 @@
 		if(!H.can_feel_pain())
 			return
 	if(dose == metabolism)
-		M << "<span class='danger'>You feel like your insides are burning!</span>"
+		to_chat(M, "<span class='danger'>You feel like your insides are burning!</span>")
 	else
 		M.apply_effect(4, AGONY, 0)
 		if(prob(5))
@@ -3241,12 +3241,12 @@
 				return
 		if(dose < agony_dose)
 			if(prob(5) || dose == metabolism)
-				M << discomfort_message
+				to_chat(M, discomfort_message)
 		else
 			M.apply_effect(agony_amount, AGONY, 0)
 			if(prob(5))
 				M.custom_emote(2, "[pick("dry heaves!","coughs!","splutters!")]")
-				M << "<span class='danger'>You feel like your insides are burning!</span>"
+				to_chat(M, "<span class='danger'>You feel like your insides are burning!</span>")
 		if(istype(M, /mob/living/carbon/slime))
 			M.bodytemperature += rand(0, 15) + slime_temp_adj
 		holder.remove_reagent("frostoil", 2)
@@ -3866,7 +3866,7 @@
 		M.make_jittery(5)
 	else if(alien != IS_DIONA)
 		if (prob(10+dose))
-			M << pick("You feel nauseous", "Ugghh....", "Your stomach churns uncomfortably", "You feel like you're about to throw up", "You feel queasy","You feel pressure in your abdomen")
+			to_chat(M, pick("You feel nauseous", "Ugghh....", "Your stomach churns uncomfortably", "You feel like you're about to throw up", "You feel queasy","You feel pressure in your abdomen"))
 
 		if (prob(dose))
 			M.vomit()

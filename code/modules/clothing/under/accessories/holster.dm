@@ -113,12 +113,12 @@
 		H = tacticool.holster
 
 	if (!H)
-		usr << "<span class='warning'>Something is very wrong.</span>"
+		to_chat(usr, "<span class='warning'>Something is very wrong.</span>")
 
 	if(!H.holstered)
 		var/obj/item/W = usr.get_active_hand()
 		if(!istype(W, /obj/item))
-			usr << "<span class='warning'>You need your gun equiped to holster it.</span>"
+			to_chat(usr, "<span class='warning'>You need your gun equiped to holster it.</span>")
 			return
 		H.holster(W, usr)
 	else

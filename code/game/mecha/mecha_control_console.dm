@@ -38,7 +38,7 @@
 	dat += "<A href='?src=\ref[src];refresh=1'>(Refresh)</A><BR>"
 	dat += "</body></html>"
 
-	to_chat(user, browse(dat, "window=computer;size=400x500"))
+	user << browse(dat, "window=computer;size=400x500")
 	onclose(user, "computer")
 	return
 

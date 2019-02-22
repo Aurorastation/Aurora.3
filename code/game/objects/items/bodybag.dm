@@ -131,5 +131,5 @@
 /obj/structure/closet/body_bag/cryobag/MouseDrop(over_object, src_location, over_location)
 	if((over_object == usr && (in_range(src, usr) || usr.contents.Find(src))))
 		if(!ishuman(usr))	return
-		usr << "<span class='warning'>You can't fold that up anymore..</span>"
+		to_chat(usr, "<span class='warning'>You can't fold that up anymore..</span>")
 	..()

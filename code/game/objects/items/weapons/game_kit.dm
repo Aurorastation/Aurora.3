@@ -63,7 +63,7 @@ THAT STUPID GAME KIT
 		user.machine = src
 		if (!( src.data ))
 			update()
-		to_chat(user, browse(src.data, "window=game_kit"))
+		user << browse(src.data, "window=game_kit")
 		onclose(user, "game_kit")
 		return
 	return

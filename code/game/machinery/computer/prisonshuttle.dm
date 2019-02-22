@@ -72,7 +72,7 @@ var/prison_shuttle_timeleft = 0
 			[prison_shuttle_moving_to_station || prison_shuttle_moving_to_prison ? "\n*Shuttle already called*<BR>\n<BR>":prison_shuttle_at_station ? "\n<A href='?src=\ref[src];sendtodock=1'>Send to Dock</A><BR>\n<BR>":"\n<A href='?src=\ref[src];sendtostation=1'>Send to station</A><BR>\n<BR>"]
 			\n<A href='?src=\ref[user];mach_close=computer'>Close</A>"}
 
-		to_chat(user, browse(dat, "window=computer;size=575x450"))
+		user << browse(dat, "window=computer;size=575x450")
 		onclose(user, "computer")
 		return
 
@@ -86,11 +86,11 @@ var/prison_shuttle_timeleft = 0
 
 		if (href_list["sendtodock"])
 			if (!prison_can_move())
-				usr << "<span class='warning'>The prison shuttle is unable to leave.</span>"
+				to_chat(usr, "<span class='warning'>The prison shuttle is unable to leave.</span>")
 				return
 			if(!prison_shuttle_at_station|| prison_shuttle_moving_to_station || prison_shuttle_moving_to_prison) return
 			post_signal("prison")
-			usr << "<span class='notice'>The prison shuttle has been called and will arrive in [(PRISON_MOVETIME/10)] seconds.</span>"
+			to_chat(usr, "<span class='notice'>The prison shuttle has been called and will arrive in [(PRISON_MOVETIME/10)] seconds.</span>")
 			src.temp += "Shuttle sent.<BR><BR><A href='?src=\ref[src];mainmenu=1'>OK</A>"
 			src.updateUsrDialog()
 			prison_shuttle_moving_to_prison = 1
@@ -100,11 +100,11 @@ var/prison_shuttle_timeleft = 0
 
 		else if (href_list["sendtostation"])
 			if (!prison_can_move())
-				usr << "<span class='warning'>The prison shuttle is unable to leave.</span>"
+				to_chat(usr, "<span class='warning'>The prison shuttle is unable to leave.</span>")
 				return
 			if(prison_shuttle_at_station || prison_shuttle_moving_to_station || prison_shuttle_moving_to_prison) return
 			post_signal("prison")
-			usr << "<span class='notice'>The prison shuttle has been called and will arrive in [(PRISON_MOVETIME/10)] seconds.</span>"
+			to_chat(usr, "<span class='notice'>The prison shuttle has been called and will arrive in [(PRISON_MOVETIME/10)] seconds.</span>")
 			src.temp += "Shuttle sent.<BR><BR><A href='?src=\ref[src];mainmenu=1'>OK</A>"
 			src.updateUsrDialog()
 			prison_shuttle_moving_to_station = 1
@@ -172,7 +172,7 @@ var/prison_shuttle_timeleft = 0
 				if (prison_shuttle_moving_to_station || prison_shuttle_moving_to_prison) return
 
 				if (!prison_can_move())
-					usr << "<span class='warning'>The prison shuttle is unable to leave.</span>"
+					to_chat(usr, "<span class='warning'>The prison shuttle is unable to leave.</span>")
 					return
 
 				var/area/start_location = locate(/area/shuttle/prison/prison)
@@ -201,7 +201,7 @@ var/prison_shuttle_timeleft = 0
 				if (prison_shuttle_moving_to_station || prison_shuttle_moving_to_prison) return
 
 				if (!prison_can_move())
-					usr << "<span class='warning'>The prison shuttle is unable to leave.</span>"
+					to_chat(usr, "<span class='warning'>The prison shuttle is unable to leave.</span>")
 					return
 
 				var/area/start_location = locate(/area/shuttle/prison/station)

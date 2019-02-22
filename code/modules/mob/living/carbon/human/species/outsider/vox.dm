@@ -144,7 +144,7 @@
 					continue
 				if(target.species.flags & NO_BREATHE)
 					continue
-			M << "<span class='danger'>A terrible stench emanates from \the [H].</span>"
+			to_chat(M, "<span class='danger'>A terrible stench emanates from \the [H].</span>")
 
 /datum/species/vox/pariah/get_bodytype()
 	return "Vox"

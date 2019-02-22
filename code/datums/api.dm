@@ -839,8 +839,8 @@ proc/api_update_command_database()
 	C.received_discord_pm = world.time
 	C.discord_admin = queryparams["senderkey"]
 
-	C << 'sound/effects/adminhelp.ogg'
-	C << message
+	to_chat(C, 'sound/effects/adminhelp.ogg')
+	to_chat(C, message)
 
 	for(var/client/A in admins)
 		if(A != C)

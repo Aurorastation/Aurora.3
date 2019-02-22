@@ -94,7 +94,7 @@
 	if(href_list["skillinfo"])
 		var/datum/skill/S = locate(href_list["skillinfo"])
 		var/HTML = "<b>[S.name]</b><br>[S.desc]"
-		to_chat(user, browse(HTML, "window=\ref[user]skillinfo"))
+		user << browse(HTML, "window=\ref[user]skillinfo")
 		return TOPIC_HANDLED
 
 	else if(href_list["setskill"])

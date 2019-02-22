@@ -96,7 +96,7 @@
 		if(ORION_VIEW_MAIN)
 			if(event == ORION_TRAIL_START) //new game? New game.
 				dat = "<center><h1>Orion Trail[emagged ? ": Realism Edition" : ""]</h1><br>Learn how our ancestors got to Orion, and have fun in the process!</center><br><P ALIGN=Right><a href='?src=\ref[src];continue=1'>Start New Game</a></P>"
-				to_chat(user, browse(dat, "window=arcade"))
+				user << browse(dat, "window=arcade")
 				return
 			else
 				event_title = event
@@ -174,7 +174,7 @@
 	dat += "[view==ORION_VIEW_MAIN ? "" : "<a href='?src=\ref[src];continue=1'>"]Main[view==ORION_VIEW_MAIN ? "" : "</a>"]<BR>"
 	dat += "[view==ORION_VIEW_SUPPLIES ? "" : "<a href='?src=\ref[src];supplies=1'>"]Supplies[view==ORION_VIEW_SUPPLIES ? "" : "</a>"]<BR>"
 	dat += "[view==ORION_VIEW_CREW ? "" : "<a href='?src=\ref[src];crew=1'>"]Crew[view==ORION_VIEW_CREW ? "" : "</a>"]</P>"
-	to_chat(user, browse(dat, "window=arcade"))
+	user << browse(dat, "window=arcade")
 
 /obj/machinery/computer/arcade/orion_trail/Topic(href,href_list)
 	if(href_list["continue"])
@@ -400,22 +400,22 @@
 			if(istype(usr,/mob/living/carbon))
 				var/mob/living/carbon/M = usr
 				if(prob(50))
-					usr << "<span class='warning'>You hear battle shouts. The tramping of boots on cold metal. Screams of agony. The rush of venting air. Are you going insane?</span>"
+					to_chat(usr, "<span class='warning'>You hear battle shouts. The tramping of boots on cold metal. Screams of agony. The rush of venting air. Are you going insane?</span>")
 					M.hallucination += 50
 				else
-					usr << "<span class='danger'>Something strikes you from behind! It hurts like hell and feel like a blunt weapon, but nothing is there...</span>"
+					to_chat(usr, "<span class='danger'>Something strikes you from behind! It hurts like hell and feel like a blunt weapon, but nothing is there...</span>")
 					M.take_organ_damage(10)
 			else
-				usr << "<span class='warning'>The sounds of battle fill your ears...</span>"
+				to_chat(usr, "<span class='warning'>The sounds of battle fill your ears...</span>")
 		if(ORION_TRAIL_ILLNESS)
 			if(istype(usr,/mob/living/carbon/human))
 				var/mob/living/carbon/human/M = usr
-				M << "<span class='warning'>An overpowering wave of nausea consumes over you. You hunch over, your stomach's contents preparing for a spectacular exit.</span>"
+				to_chat(M, "<span class='warning'>An overpowering wave of nausea consumes over you. You hunch over, your stomach's contents preparing for a spectacular exit.</span>")
 				M.vomit()
 			else
-				usr << "<span class='warning'>You feel ill.</span>"
+				to_chat(usr, "<span class='warning'>You feel ill.</span>")
 		if(ORION_TRAIL_CARP)
-			usr << "<span class='danger'>Something bit you!</span>"
+			to_chat(usr, "<span class='danger'>Something bit you!</span>")
 			var/mob/living/M = usr
 			M.adjustBruteLoss(10)
 		if(ORION_TRAIL_FLUX)
@@ -425,7 +425,7 @@
 				src.visible_message("A sudden gust of powerful wind slams \the [M] into the floor!", "You hear a large fwooshing sound, followed by a bang.")
 				M.take_organ_damage(10)
 			else
-				usr << "<span class='warning'>A violent gale blows past you, and you barely manage to stay standing!</span>"
+				to_chat(usr, "<span class='warning'>A violent gale blows past you, and you barely manage to stay standing!</span>")
 		if(ORION_TRAIL_MALFUNCTION)
 			if(supplies["3"])
 				return
@@ -440,10 +440,10 @@
 			else
 				src.visible_message("Something slams into the floor around \the [src] - luckily, it didn't get through!", "You hear something crack.")
 		if(ORION_TRAIL_GAMEOVER)
-			usr << "<span class='danger'><font size=3>You're never going to make it to Orion...</font></span>"
+			to_chat(usr, "<span class='danger'><font size=3>You're never going to make it to Orion...</font></span>")
 			var/mob/living/M = usr
 			M.visible_message("\The [M] starts rapidly deteriorating.")
-			M << browse (null,"window=arcade")
+			to_chat(M, browse (null,"window=arcade"))
 			for(var/i=0;i<10;i++)
 				sleep(10)
 				M.Stun(5)

@@ -63,7 +63,7 @@
 		dat += "<a href='?src=\ref[src];item=1'>Recover object</a>.<br>"
 		dat += "<a href='?src=\ref[src];allitems=1'>Recover all objects</a>.<br>"
 
-	to_chat(user, browse(dat, "window=cryopod_console"))
+	user << browse(dat, "window=cryopod_console")
 	onclose(user, "cryopod_console")
 
 /obj/machinery/computer/cryopod/Topic(href, href_list)
@@ -82,7 +82,7 @@
 			dat += "[person]<br/>"
 		dat += "<hr/>"
 
-		to_chat(user, browse(dat, "window=cryolog"))
+		user << browse(dat, "window=cryolog")
 
 	if(href_list["view"])
 		if(!allow_items) return
@@ -92,7 +92,7 @@
 			dat += "[I.name]<br/>"
 		dat += "<hr/>"
 
-		to_chat(user, browse(dat, "window=cryoitems"))
+		user << browse(dat, "window=cryoitems")
 
 	else if(href_list["item"])
 		if(!allow_items) return
@@ -366,8 +366,8 @@
 
 			icon_state = occupied_icon_state
 
-			M << "<span class='notice'>[on_enter_occupant_message]</span>"
-			M << "<span class='notice'><b>If you ghost, log out or close your client now, your character will shortly be permanently removed from the round.</b></span>"
+			to_chat(M, "<span class='notice'>[on_enter_occupant_message]</span>")
+			to_chat(M, "<span class='notice'><b>If you ghost, log out or close your client now, your character will shortly be permanently removed from the round.</b></span>")
 			set_occupant(M)
 			time_entered = world.time
 
@@ -394,7 +394,7 @@
 		return
 	for(var/mob/living/carbon/slime/M in range(1,L))
 		if(M.Victim == L)
-			usr << "[L.name] will not fit into the cryo pod because they have a slime latched onto their head."
+			to_chat(usr, "[L.name] will not fit into the cryo pod because they have a slime latched onto their head.")
 			return
 
 	var/willing = null //We don't want to allow people to be forced into despawning.
@@ -427,8 +427,8 @@
 
 		icon_state = occupied_icon_state
 
-		L << "<span class='notice'>You feel cool air surround you. You go numb as your senses turn inward.</span>"
-		L << "<span class='notice'><b>If you ghost, log out or close your client now, your character will shortly be permanently removed from the round.</b></span>"
+		to_chat(L, "<span class='notice'>You feel cool air surround you. You go numb as your senses turn inward.</span>")
+		to_chat(L, "<span class='notice'><b>If you ghost, log out or close your client now, your character will shortly be permanently removed from the round.</b></span>")
 		occupant = L
 		time_entered = world.time
 
@@ -474,12 +474,12 @@
 		return
 
 	if(src.occupant)
-		usr << "<span class='notice'><B>\The [src] is in use.</B></span>"
+		to_chat(usr, "<span class='notice'><B>\The [src] is in use.</B></span>")
 		return
 
 	for(var/mob/living/carbon/slime/M in range(1,usr))
 		if(M.Victim == usr)
-			usr << "You're too busy getting your life sucked out of you."
+			to_chat(usr, "You're too busy getting your life sucked out of you.")
 			return
 
 	usr.visible_message("<span class='notice'>[usr] starts climbing into [src].</span>", "<span class='notice'>You start climbing into [src].</span>", range = 3)
@@ -490,7 +490,7 @@
 			return
 
 		if(src.occupant)
-			usr << "<span class='notice'><B>\The [src] is in use.</B></span>"
+			to_chat(usr, "<span class='notice'><B>\The [src] is in use.</B></span>")
 			return
 
 		usr.stop_pulling()
@@ -501,8 +501,8 @@
 
 		icon_state = occupied_icon_state
 
-		usr << "<span class='notice'>[on_enter_occupant_message]</span>"
-		usr << "<span class='notice'><b>If you ghost, log out or close your client now, your character will shortly be permanently removed from the round.</b></span>"
+		to_chat(usr, "<span class='notice'>[on_enter_occupant_message]</span>")
+		to_chat(usr, "<span class='notice'><b>If you ghost, log out or close your client now, your character will shortly be permanently removed from the round.</b></span>")
 
 		time_entered = world.time
 

@@ -25,9 +25,9 @@
 		if (integrity < 100)               								//Damaged, let's repair!
 			if (T.use(1))
 				integrity = between(0, integrity + rand(10,20), 100)
-				usr << "You apply the Nanopaste to [src], repairing some of the damage."
+				to_chat(usr, "You apply the Nanopaste to [src], repairing some of the damage.")
 		else
-			usr << "This machine is already in perfect condition."
+			to_chat(usr, "This machine is already in perfect condition.")
 		return
 
 
@@ -170,7 +170,7 @@
 
 	dat += "</font>"
 	temp = ""
-	to_chat(user, browse(dat, "window=tcommachine;size=520x500;can_resize=0"))
+	user << browse(dat, "window=tcommachine;size=520x500;can_resize=0")
 	onclose(user, "dormitory")
 
 // Returns a multitool from a user depending on their mobtype.

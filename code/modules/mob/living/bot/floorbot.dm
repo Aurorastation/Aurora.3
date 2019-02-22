@@ -48,7 +48,7 @@
 			bmode = "Disabled"
 		dat += "<BR><BR>Bridge Mode : <A href='?src=\ref[src];operation=bridgemode'>[bmode]</A><BR>"
 
-	to_chat(user, browse("<HEAD><TITLE>Repairbot v1.1 controls</TITLE></HEAD>[dat]", "window=autorepair"))
+	user << browse("<HEAD><TITLE>Repairbot v1.1 controls</TITLE></HEAD>[dat]", "window=autorepair")
 	onclose(user, "autorepair")
 	return
 
@@ -67,7 +67,7 @@
 	add_fingerprint(usr)
 
 	if (!has_ui_access(usr))
-		usr << "<span class='warning'>Insufficient permissions.</span>"
+		to_chat(usr, "<span class='warning'>Insufficient permissions.</span>")
 		return
 
 	switch(href_list["operation"])

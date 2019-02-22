@@ -99,7 +99,7 @@
 	if(RCon)
 		..()
 	else // RCON wire cut
-		usr << "<span class='warning'>Connection error: Destination Unreachable.</span>"
+		to_chat(usr, "<span class='warning'>Connection error: Destination Unreachable.</span>")
 
 	// Cyborgs standing next to the SMES can play with the wiring.
 	if(istype(usr, /mob/living/silicon/robot) && Adjacent(usr) && open_hatch)
@@ -348,7 +348,7 @@
 					total_system_failure(failure_probability, user)
 					return
 
-				usr << "<span class='warning'>You have disassembled the SMES cell!</span>"
+				to_chat(usr, "<span class='warning'>You have disassembled the SMES cell!</span>")
 				var/obj/machinery/constructable_frame/machine_frame/M = new /obj/machinery/constructable_frame/machine_frame(src.loc)
 				M.state = 2
 				M.icon_state = "box_1"
@@ -366,13 +366,13 @@
 					total_system_failure(failure_probability, user)
 					return
 
-				usr << "You install the coil into the SMES unit!"
+				to_chat(usr, "You install the coil into the SMES unit!")
 				user.drop_from_inventory(W,src)
 				cur_coils ++
 				component_parts += W
 				recalc_coils()
 			else
-				usr << "<span class='warning'>You can't insert more coils to this SMES unit!</span>"
+				to_chat(usr, "<span class='warning'>You can't insert more coils to this SMES unit!</span>")
 
 // Proc: toggle_input()
 // Parameters: None

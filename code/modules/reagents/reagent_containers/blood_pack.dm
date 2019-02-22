@@ -80,7 +80,7 @@
 	..()
 	if (istype(P, /obj/item/weapon/pen))
 		if (reagents.get_reagent_amount("blood") && name != "empty blood pack") //Stops people mucking with bloodpacks that are filled
-			usr << "<span class='notice'>You can't relabel [name] until it is empty!</span>"
+			to_chat(usr, "<span class='notice'>You can't relabel [name] until it is empty!</span>")
 			return
 		var/blood_name = input(usr, "What blood type would you like to label it as?", "Blood Types") in list("A+", "A-", "B+", "B-", "O+", "O-", "AB+", "AB-", "Cancel")
 		if (blood_name == "Cancel") return
@@ -88,7 +88,7 @@
 		if (!istype(i, /obj/item/weapon/pen) || !in_range(user, src)) return //Checks to see if pen is still held or bloodback is in range
 		name = "blood pack [blood_name]"
 		desc = "Contains blood used for transfusion."
-		usr << "<span class='notice'>You label the blood pack as [blood_name].</span>"
+		to_chat(usr, "<span class='notice'>You label the blood pack as [blood_name].</span>")
 		return
 
 	if (istype(P, /obj/item/weapon/) && P.sharp == 1)

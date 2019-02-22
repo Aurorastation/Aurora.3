@@ -37,7 +37,7 @@
 	if ( (get_dist(src, user) > 1 ) || (stat & (BROKEN|NOPOWER)) )
 		if (!istype(user, /mob/living/silicon))
 			user.unset_machine()
-			to_chat(user, browse(null, "window=op"))
+			user << browse(null, "window=op")
 			return
 
 	user.set_machine(src)
@@ -67,7 +67,7 @@
 <BR>
 <B>No Patient Detected</B>
 "}
-	to_chat(user, browse(dat, "window=op"))
+	user << browse(dat, "window=op")
 	onclose(user, "op")
 
 

@@ -146,7 +146,7 @@
 						accepted = 1
 					if("No")
 						if(outoftime)
-							H << "Welp, out of time, buddy. You're stuck. Next time choose faster."
+							to_chat(H, "Welp, out of time, buddy. You're stuck. Next time choose faster.")
 							accepted = 1
 
 			SSticker.Bible_icon_state = B.icon_state

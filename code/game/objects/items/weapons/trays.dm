@@ -42,7 +42,7 @@
 
 	//Note: Added a robot check to all stun/weaken procs, beccause weakening a robot causes its active modules to bug out
 	if((CLUMSY in user.mutations) && prob(50))              //What if he's a clown?
-		M << "<span class='warning'>You accidentally slam yourself with the [src]!</span>"
+		to_chat(M, "<span class='warning'>You accidentally slam yourself with the [src]!</span>")
 		if (!issilicon(M))
 			M.Weaken(1)
 		user.take_organ_damage(2)
@@ -92,7 +92,7 @@
 			break
 
 	if(protected)
-		M << "<span class='warning'>You get slammed in the face with the tray, against your mask!</span>"
+		to_chat(M, "<span class='warning'>You get slammed in the face with the tray, against your mask!</span>")
 		if(prob(33) && !issilicon(M))
 			src.add_blood(H)
 			if (H.wear_mask)
@@ -122,7 +122,7 @@
 			return
 
 	else if (!issilicon(M))//No eye or head protection, tough luck!
-		M << "<span class='danger'>You get slammed in the face with the tray!</span>"
+		to_chat(M, "<span class='danger'>You get slammed in the face with the tray!</span>")
 		if(prob(33))
 			src.add_blood(M)
 			var/turf/location = H.loc
@@ -251,7 +251,7 @@
 	set src in view(1)
 
 	if (!istype(loc,/turf))//check that we're not being held by a mob
-		usr << "Place the tray down first!"
+		to_chat(usr, "Place the tray down first!")
 		return
 	else
 		var/turf/dropspot = loc

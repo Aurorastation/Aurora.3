@@ -28,13 +28,13 @@ mob/living/carbon/proc/handle_hallucinations()
 		switch(halpick)
 			if(0 to 15)
 				//Screwy HUD
-				//src << "Screwy HUD"
+				//to_chat(src, "Screwy HUD")
 				hal_screwyhud = pick(1,2,3,3,4,4)
 				spawn(rand(100,250))
 					hal_screwyhud = 0
 			if(16 to 25)
 				//Strange items
-				//src << "Traitor Items"
+				//to_chat(src, "Traitor Items")
 				if(!halitem)
 					halitem = new
 					var/list/slots_free = list(ui_lhand,ui_rhand)
@@ -82,7 +82,7 @@ mob/living/carbon/proc/handle_hallucinations()
 							halitem = null
 			if(26 to 40)
 				//Flashes of danger
-				//src << "Danger Flash"
+				//to_chat(src, "Danger Flash")
 				if(!halimage)
 					var/list/possible_points = list()
 					for(var/turf/simulated/floor/F in view(src,world.view))
@@ -92,13 +92,13 @@ mob/living/carbon/proc/handle_hallucinations()
 
 						switch(rand(1,3))
 							if(1)
-								//src << "Space"
+								//to_chat(src, "Space")
 								halimage = image('icons/turf/space.dmi',target,"[rand(1,25)]",TURF_LAYER)
 							if(2)
-								//src << "Fire"
+								//to_chat(src, "Fire")
 								halimage = image('icons/effects/fire.dmi',target,"1",TURF_LAYER)
 							if(3)
-								//src << "C4"
+								//to_chat(src, "C4")
 								halimage = image('icons/obj/assemblies.dmi',target,"plastic-explosive2",OBJ_LAYER+0.01)
 
 
@@ -110,29 +110,29 @@ mob/living/carbon/proc/handle_hallucinations()
 
 			if(41 to 65)
 				//Strange audio
-				//src << "Strange Audio"
+				//to_chat(src, "Strange Audio")
 				switch(rand(1,12))
-					if(1) src << 'sound/machines/airlock.ogg'
+					if(1) to_chat(src, 'sound/machines/airlock.ogg')
 					if(2)
-						if(prob(50))src << 'sound/effects/Explosion1.ogg'
-						else src << 'sound/effects/Explosion2.ogg'
-					if(3) src << 'sound/effects/explosionfar.ogg'
-					if(4) src << 'sound/effects/Glassbr1.ogg'
-					if(5) src << 'sound/effects/Glassbr2.ogg'
-					if(6) src << 'sound/effects/Glassbr3.ogg'
-					if(7) src << 'sound/machines/twobeep.ogg'
-					if(8) src << 'sound/machines/windowdoor.ogg'
+						if(prob(50))to_chat(src, 'sound/effects/Explosion1.ogg')
+						else to_chat(src, 'sound/effects/Explosion2.ogg')
+					if(3) to_chat(src, 'sound/effects/explosionfar.ogg')
+					if(4) to_chat(src, 'sound/effects/Glassbr1.ogg')
+					if(5) to_chat(src, 'sound/effects/Glassbr2.ogg')
+					if(6) to_chat(src, 'sound/effects/Glassbr3.ogg')
+					if(7) to_chat(src, 'sound/machines/twobeep.ogg')
+					if(8) to_chat(src, 'sound/machines/windowdoor.ogg')
 					if(9)
 						//To make it more realistic, I added two gunshots (enough to kill)
-						src << 'sound/weapons/Gunshot.ogg'
+						to_chat(src, 'sound/weapons/Gunshot.ogg')
 						spawn(rand(10,30))
-							src << 'sound/weapons/Gunshot.ogg'
-					if(10) src << 'sound/weapons/smash.ogg'
+							to_chat(src, 'sound/weapons/Gunshot.ogg')
+					if(10) to_chat(src, 'sound/weapons/smash.ogg')
 					if(11)
 						//Same as above, but with tasers.
-						src << 'sound/weapons/Taser.ogg'
+						to_chat(src, 'sound/weapons/Taser.ogg')
 						spawn(rand(10,30))
-							src << 'sound/weapons/Taser.ogg'
+							to_chat(src, 'sound/weapons/Taser.ogg')
 				//Rare audio
 					if(12)
 //These sounds are (mostly) taken from Hidden: Source
@@ -141,10 +141,10 @@ mob/living/carbon/proc/handle_hallucinations()
 							'sound/hallucinations/growl3.ogg', 'sound/hallucinations/im_here1.ogg', 'sound/hallucinations/im_here2.ogg', 'sound/hallucinations/i_see_you1.ogg', 'sound/hallucinations/i_see_you2.ogg',\
 							'sound/hallucinations/look_up1.ogg', 'sound/hallucinations/look_up2.ogg', 'sound/hallucinations/over_here1.ogg', 'sound/hallucinations/over_here2.ogg', 'sound/hallucinations/over_here3.ogg',\
 							'sound/hallucinations/turn_around1.ogg', 'sound/hallucinations/turn_around2.ogg', 'sound/hallucinations/veryfar_noise.ogg', 'sound/hallucinations/wail.ogg')
-						src << pick(creepyasssounds)
+						to_chat(src, pick(creepyasssounds))
 			if(66 to 70)
 				//Flashes of danger
-				//src << "Danger Flash"
+				//to_chat(src, "Danger Flash")
 				if(!halbody)
 					var/list/possible_points = list()
 					for(var/turf/simulated/floor/F in view(src,world.view))
@@ -244,7 +244,7 @@ proc/check_panel(mob/M)
 	attackby(var/obj/item/weapon/P as obj, mob/user as mob)
 		step_away(src,my_target,2)
 		for(var/mob/M in oviewers(world.view,my_target))
-			M << "<span class='danger'>[my_target] flails around wildly.</span>"
+			to_chat(M, "<span class='danger'>[my_target] flails around wildly.</span>")
 		my_target.show_message("<span class='danger'>[src] has been attacked by [my_target] </span>", 1) //Lazy.
 
 		src.health -= P.force

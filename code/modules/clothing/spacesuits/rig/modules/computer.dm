@@ -15,12 +15,12 @@
 	set src in usr
 
 	if(!usr.loc || !usr.loc.loc || !istype(usr.loc.loc, /obj/item/rig_module))
-		usr << "You are not loaded into a hardsuit."
+		to_chat(usr, "You are not loaded into a hardsuit.")
 		return
 
 	var/obj/item/rig_module/module = usr.loc.loc
 	if(!module.holder)
-		usr << "Your module is not installed in a hardsuit."
+		to_chat(usr, "Your module is not installed in a hardsuit.")
 		return
 
 	module.holder.ui_interact(usr, nano_state = contained_state)
@@ -410,7 +410,7 @@
 	if(target.drain_power(1) <= 0)
 		return 0
 
-	H << "<span class = 'danger'>You begin draining power from [target]!</span>"
+	to_chat(H, "<span class = 'danger'>You begin draining power from [target]!</span>")
 	interfaced_with = target
 	drain_loc = interfaced_with.loc
 
@@ -442,17 +442,17 @@
 	playsound(H.loc, 'sound/effects/sparks2.ogg', 50, 1)
 
 	if(!holder.cell)
-		H << "<span class = 'danger'>Your power sink flashes an error; there is no cell in your rig.</span>"
+		to_chat(H, "<span class = 'danger'>Your power sink flashes an error; there is no cell in your rig.</span>")
 		drain_complete(H)
 		return
 
 	if(!interfaced_with || !interfaced_with.Adjacent(H) || !(interfaced_with.loc == drain_loc))
-		H << "<span class = 'warning'>Your power sink retracts into its casing.</span>"
+		to_chat(H, "<span class = 'warning'>Your power sink retracts into its casing.</span>")
 		drain_complete(H)
 		return
 
 	if(holder.cell.fully_charged())
-		H << "<span class = 'warning'>Your power sink flashes an amber light; your rig cell is full.</span>"
+		to_chat(H, "<span class = 'warning'>Your power sink flashes an amber light; your rig cell is full.</span>")
 		drain_complete(H)
 		return
 
@@ -460,7 +460,7 @@
 	var/to_drain = min(40000, ((holder.cell.maxcharge - holder.cell.charge) / CELLRATE))
 	var/target_drained = interfaced_with.drain_power(0,0,to_drain)
 	if(target_drained <= 0)
-		H << "<span class = 'danger'>Your power sink flashes a red light; there is no power left in [interfaced_with].</span>"
+		to_chat(H, "<span class = 'danger'>Your power sink flashes a red light; there is no power left in [interfaced_with].</span>")
 		drain_complete(H)
 		return
 
@@ -472,9 +472,9 @@
 /obj/item/rig_module/power_sink/proc/drain_complete(var/mob/living/M)
 
 	if(!interfaced_with)
-		if(M) M << "<font color='blue'><b>Total power drained:</b> [round(total_power_drained/1000)]kJ.</font>"
+		if(M) to_chat(M, "<font color='blue'><b>Total power drained:</b> [round(total_power_drained/1000)]kJ.</font>")
 	else
-		if(M) M << "<font color='blue'><b>Total power drained from [interfaced_with]:</b> [round(total_power_drained/1000)]kJ.</font>"
+		if(M) to_chat(M, "<font color='blue'><b>Total power drained from [interfaced_with]:</b> [round(total_power_drained/1000)]kJ.</font>")
 		interfaced_with.drain_power(0,1,0) // Damage the victim.
 
 	drain_loc = null

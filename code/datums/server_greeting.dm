@@ -179,7 +179,7 @@
 	var/datum/asset/welcome = get_asset_datum(/datum/asset/simple/misc)
 	welcome.send(user)
 
-	to_chat(user, browse('html/templates/welcome_screen.html', "window=greeting;size=800x500"))
+	user << browse('html/templates/welcome_screen.html', "window=greeting;size=800x500")
 
 /*
  * A proc used to close the server greeting window for a user.
@@ -194,7 +194,7 @@
 	if (reason)
 		to_chat(user, span("notice", reason))
 
-	to_chat(user, browse(null, "window=greeting"))
+	user << browse(null, "window=greeting")
 
 /*
  * Sends data to the JS controllers used in the server greeting.

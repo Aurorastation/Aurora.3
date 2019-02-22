@@ -161,7 +161,7 @@
 				continue
 			if(R.emagged)
 				continue
-			R << "<span class='danger'>Self-destruct command received.</span>"
+			to_chat(R, "<span class='danger'>Self-destruct command received.</span>")
 			spawn(10)
 				R.self_destruct()
 

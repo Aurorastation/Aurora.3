@@ -47,7 +47,7 @@
 		H.drop_from_inventory(W,gearbox)
 	H.put_in_any_hand_if_possible(gearbox)
 
-	H << "<span class='notice'>You feel a pleasant breeze as the autolocker whisks away all of your clothes, packing them neatly in a box.</span>"
+	to_chat(H, "<span class='notice'>You feel a pleasant breeze as the autolocker whisks away all of your clothes, packing them neatly in a box.</span>")
 
 	SSjobs.EquipRank(H, H.job, 1, 1)
 	H.megavend = 1

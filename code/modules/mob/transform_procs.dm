@@ -34,7 +34,7 @@
 	if(!kpg)
 		dna.SetSEState(MONKEYBLOCK,1)
 
-	src << "<B>You are now [species.name]. </B>"
+	to_chat(src, "<B>You are now [species.name]. </B>")
 	qdel(animation)
 
 	return src
@@ -72,7 +72,7 @@
 	if(!kpg)
 		dna.SetSEState(MONKEYBLOCK,0)
 
-	src << "<B>You are now [species.name]. </B>"
+	to_chat(src, "<B>You are now [species.name]. </B>")
 	qdel(animation)
 
 	return src
@@ -105,7 +105,7 @@
 
 /mob/proc/AIize(move=1)
 	if(client)
-		src << sound(null, repeat = 0, wait = 0, volume = 85, channel = 1) // stop the jams for AIs
+		src << sound(null, repeat = 0, wait = 0, volume = 85, channel = 1) // stop the jams for AIs)
 	var/mob/living/silicon/ai/O = new (loc, base_law_type,,1)//No MMI but safety is in effect.
 	O.invisibility = 0
 	O.aiRestorePowerRoutine = 0
@@ -282,7 +282,7 @@
 	var/mobpath = input("Which type of mob should [src] turn into?", "Choose a type") in mobtypes
 
 	if(!safe_animal(mobpath))
-		usr << "<span class='warning'>Sorry but this mob type is currently unavailable.</span>"
+		to_chat(usr, "<span class='warning'>Sorry but this mob type is currently unavailable.</span>")
 		return
 
 	if(transforming)
@@ -316,7 +316,7 @@
 	var/mobpath = input("Which type of mob should [src] turn into?", "Choose a type") in mobtypes
 
 	if(!safe_animal(mobpath))
-		usr << "<span class='warning'>Sorry but this mob type is currently unavailable.</span>"
+		to_chat(usr, "<span class='warning'>Sorry but this mob type is currently unavailable.</span>")
 		return
 
 	var/mob/new_mob = new mobpath(src.loc)

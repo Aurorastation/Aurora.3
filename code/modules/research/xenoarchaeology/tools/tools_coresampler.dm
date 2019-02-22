@@ -82,7 +82,7 @@
 
 /obj/item/device/core_sampler/attack_self()
 	if(filled_bag)
-		usr << "<span class='notice'>You eject the full sample bag.</span>"
+		to_chat(usr, "<span class='notice'>You eject the full sample bag.</span>")
 		var/success = 0
 		if(istype(src.loc, /mob))
 			var/mob/M = src.loc
@@ -92,4 +92,4 @@
 		filled_bag = null
 		icon_state = "sampler0"
 	else
-		usr << "<span class='warning'>The core sampler is empty.</span>"
+		to_chat(usr, "<span class='warning'>The core sampler is empty.</span>")

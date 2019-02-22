@@ -67,7 +67,7 @@
 				dat += "The implant casing is empty."
 		else
 			dat += "Please insert an implant casing!"
-		to_chat(user, browse(dat, "window=implantpad"))
+		user << browse(dat, "window=implantpad")
 		onclose(user, "implantpad")
 		return
 

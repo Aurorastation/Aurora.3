@@ -63,7 +63,7 @@ datum/borrowbook // Datum used to keep track of who has borrowed what when and f
 					dat += "<tr><td>[author]</td><td>[title]</td><td>[category]</td><td>[id]</td></tr>"
 				dat += "</table><BR>"
 			dat += "<A href='?src=\ref[src];back=1'>\[Go Back\]</A><BR>"
-	to_chat(user, browse(dat, "window=publiclibrary"))
+	user << browse(dat, "window=publiclibrary")
 	onclose(user, "publiclibrary")
 
 /obj/machinery/librarypubliccomp/Topic(href, href_list)
@@ -234,7 +234,7 @@ datum/borrowbook // Datum used to keep track of who has borrowed what when and f
 			<A href='?src=\ref[src];switchscreen=0'>No.</A><BR>"}
 
 	//dat += "<A HREF='?src=\ref[user];mach_close=library'>Close</A><br><br>"
-	to_chat(user, browse(dat, "window=library"))
+	user << browse(dat, "window=library")
 	onclose(user, "library")
 
 /obj/machinery/librarycomp/emag_act(var/remaining_charges, var/mob/user)
@@ -352,7 +352,7 @@ datum/borrowbook // Datum used to keep track of who has borrowed what when and f
 							var/sqlckey = sanitizeSQL(ckey(usr.client.ckey))
 							var/DBQuery/query = dbcon.NewQuery("INSERT INTO ss13_library (author, title, content, category, uploadtime, uploader) VALUES ('[sqlauthor]', '[sqltitle]', '[sqlcontent]', '[sqlcategory]', NOW(), '[sqlckey]')")
 							if(!query.Execute())
-								usr << query.ErrorMsg()
+								to_chat(usr, query.ErrorMsg())
 							else
 								log_and_message_admins("has uploaded the book titled [scanner.cache.name], [length(scanner.cache.dat)] signs")
 								log_game("[usr.name]/[usr.key] has uploaded the book titled [scanner.cache.name], [length(scanner.cache.dat)] signs",ckey=key_name(usr))
@@ -424,7 +424,7 @@ datum/borrowbook // Datum used to keep track of who has borrowed what when and f
 		dat += "       <A href='?src=\ref[src];clear=1'>\[Clear Memory\]</A><BR><BR><A href='?src=\ref[src];eject=1'>\[Remove Book\]</A>"
 	else
 		dat += "<BR>"
-	to_chat(user, browse(dat, "window=scanner"))
+	user << browse(dat, "window=scanner")
 	onclose(user, "scanner")
 
 /obj/machinery/libraryscanner/Topic(href, href_list)

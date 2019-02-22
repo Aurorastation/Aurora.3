@@ -36,9 +36,9 @@
 
 	if(istype(O,/obj/item/weapon/paper) || istype(O, /obj/item/weapon/photo))
 		if(held)
-			usr << "\The [src] already has something inside it."
+			to_chat(usr, "\The [src] already has something inside it.")
 		else
-			usr << "You slip [O] into [src]."
+			to_chat(usr, "You slip [O] into [src].")
 			user.drop_from_inventory(O,src)
 			src.held = O
 		return

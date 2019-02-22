@@ -80,14 +80,14 @@
 /mob/living/silicon/ai/proc/start_apu(var/shutup = 0)
 	if(!hardware || !istype(hardware, /datum/malf_hardware/apu_gen))
 		if(!shutup)
-			src << "You do not have an APU generator and you shouldn't have this verb. Report this."
+			to_chat(src, "You do not have an APU generator and you shouldn't have this verb. Report this.")
 		return
 	if(hardware_integrity() < 50)
 		if(!shutup)
-			src << "<span class='notice'>Starting APU... <b>FAULT</b>(System Damaged)</span>"
+			to_chat(src, "<span class='notice'>Starting APU... <b>FAULT</b>(System Damaged)</span>")
 		return
 	if(!shutup)
-		src << "Starting APU... ONLINE"
+		to_chat(src, "Starting APU... ONLINE")
 	APU_power = 1
 
 // Stops AI's APU generator
@@ -98,7 +98,7 @@
 	if(APU_power)
 		APU_power = 0
 		if(!shutup)
-			src << "Shutting down APU... DONE"
+			to_chat(src, "Shutting down APU... DONE")
 
 // Returns percentage of AI's remaining backup capacitor charge (maxhealth - oxyloss).
 /mob/living/silicon/ai/proc/backup_capacitor()

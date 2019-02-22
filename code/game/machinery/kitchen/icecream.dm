@@ -160,7 +160,7 @@
 			I.desc = "Delicious [cone_name] cone, but no ice cream."
 			src.visible_message("<span class='info'>[usr] dispenses a crunchy [cone_name] cone from [src].</span>")
 		else
-			usr << "<span class='warning'>There are no [cone_name] cones left!</span>"
+			to_chat(usr, "<span class='warning'>There are no [cone_name] cones left!</span>")
 
 	if(href_list["make"])
 		var/amount = (text2num(href_list["amount"]))

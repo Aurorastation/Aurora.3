@@ -61,10 +61,10 @@
 	G.request_player(src, "Someone is attempting to reboot a mining drone.", 30 SECONDS)
 
 /mob/living/silicon/robot/drone/mining/welcome_drone()
-	src << "<b>You are a mining drone, a tiny-brained robotic industrial machine</b>."
-	src << "You have little individual will, some personality, and no drives or urges other than your laws and the art of mining."
-	src << "Remember, <b>you DO NOT take orders from the AI.</b>"
-	src << "Use <b>say ;Hello</b> to talk to other drones and <b>say Hello</b> to speak silently to your nearby fellows."
+	to_chat(src, "<b>You are a mining drone, a tiny-brained robotic industrial machine</b>.")
+	to_chat(src, "You have little individual will, some personality, and no drives or urges other than your laws and the art of mining.")
+	to_chat(src, "Remember, <b>you DO NOT take orders from the AI.</b>")
+	to_chat(src, "Use <b>say ;Hello</b> to talk to other drones and <b>say Hello</b> to speak silently to your nearby fellows.")
 
 /mob/living/silicon/robot/drone/mining/attackby(var/obj/item/weapon/W, var/mob/user)
 
@@ -120,12 +120,12 @@
 
 	var/input = sanitize(input(usr, "Please enter a message to print out. NOTE: BBCode does not work.", "Print readout", "") as message|null)
 	if (!input)
-		usr << "<span class='warning'>Cancelled.</span>"
+		to_chat(usr, "<span class='warning'>Cancelled.</span>")
 		return
 
 	var/customname = input(usr, "Pick a title for the report", "Title") as text|null
 	if (!customname)
-		usr << "<span class='warning'>Cancelled.</span>"
+		to_chat(usr, "<span class='warning'>Cancelled.</span>")
 		return
 
 	var/status_report
@@ -140,7 +140,7 @@
 			status_report = "System status unknown."
 
 	// Create the reply message
-	usr << "<span class='warning'>You begin printing the message.</span>"
+	to_chat(usr, "<span class='warning'>You begin printing the message.</span>")
 	if(do_after(src,20))
 		var/obj/item/weapon/paper/P = new /obj/item/weapon/paper(src.loc)
 		P.name = "mining report - [customname]"

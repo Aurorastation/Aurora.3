@@ -402,7 +402,7 @@
 
 /obj/structure/cult/pylon/attack_hand(mob/M as mob)
 	if (M.a_intent == "help")
-		M << "The pylon feels warm to the touch...."
+		to_chat(M, "The pylon feels warm to the touch....")
 	else
 		attackpylon(M, 4, M)
 

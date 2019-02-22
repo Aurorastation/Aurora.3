@@ -268,18 +268,18 @@
 			if(!istype(tmr,/obj/item/device/assembly/timer))
 				tmr = holder.a_right
 			if(!istype(tmr,/obj/item/device/assembly/timer))
-				usr << "<span class='notice'>This detonator has no timer.</span>"
+				to_chat(usr, "<span class='notice'>This detonator has no timer.</span>")
 				return
 
 			if(tmr.timing)
-				usr << "<span class='notice'>Clock is ticking already.</span>"
+				to_chat(usr, "<span class='notice'>Clock is ticking already.</span>")
 			else
 				var/ntime = input("Enter desired time in seconds", "Time", "5") as num
 				if (ntime>0 && ntime<1000)
 					tmr.time = ntime
 					name = initial(name) + "([tmr.time] secs)"
-					usr << "<span class='notice'>Timer set to [tmr.time] seconds.</span>"
+					to_chat(usr, "<span class='notice'>Timer set to [tmr.time] seconds.</span>")
 				else
-					usr << "<span class='notice'>Timer can't be [ntime<=0?"negative":"more than 1000 seconds"].</span>"
+					to_chat(usr, "<span class='notice'>Timer can't be [ntime<=0?"negative":"more than 1000 seconds"].</span>")
 		else
-			usr << "<span class='notice'>You cannot do this while [usr.stat?"unconscious/dead":"restrained"].</span>"
+			to_chat(usr, "<span class='notice'>You cannot do this while [usr.stat?"unconscious/dead":"restrained"].</span>")

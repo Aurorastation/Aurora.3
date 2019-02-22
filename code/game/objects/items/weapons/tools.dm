@@ -390,7 +390,7 @@
 		return 1
 	else
 		if(M)
-			M << span("notice", "You need more welding fuel to complete this task.")
+			to_chat(M, span("notice", "You need more welding fuel to complete this task."))
 		return 0
 
 //Returns whether or not the welding tool is currently on.
@@ -407,7 +407,7 @@
 	if(set_welding && !welding)
 		if (get_fuel() > 0)
 			if(M)
-				M << "<span class='notice'>You switch the [src] on.</span>"
+				to_chat(M, "<span class='notice'>You switch the [src] on.</span>")
 			else if(T)
 				T.visible_message("<span class='danger'>\The [src] turns on.</span>")
 			playsound(loc, 'sound/items/WelderActivate.ogg', 50, 1)
@@ -419,12 +419,12 @@
 			set_processing(1)
 		else
 			if(M)
-				M << "<span class='notice'>You need more welding fuel to complete this task.</span>"
+				to_chat(M, "<span class='notice'>You need more welding fuel to complete this task.</span>")
 			return
 	//Otherwise
 	else if(!set_welding && welding)
 		if(M)
-			M << "<span class='notice'>You switch \the [src] off.</span>"
+			to_chat(M, "<span class='notice'>You switch \the [src] off.</span>")
 		else if(T)
 			T.visible_message("<span class='warning'>\The [src] turns off.</span>")
 		playsound(loc, 'sound/items/WelderDeactivate.ogg', 50, 1)
@@ -456,17 +456,17 @@
 			return
 		switch(safety)
 			if(FLASH_PROTECTION_MODERATE)
-				usr << "<span class='warning'>Your eyes sting a little.</span>"
+				to_chat(usr, "<span class='warning'>Your eyes sting a little.</span>")
 				E.damage += rand(1, 2)
 				if(E.damage > 12)
 					user.eye_blurry += rand(3,6)
 			if(FLASH_PROTECTION_NONE)
-				usr << "<span class='warning'>Your eyes burn.</span>"
+				to_chat(usr, "<span class='warning'>Your eyes burn.</span>")
 				E.damage += rand(2, 4)
 				if(E.damage > 10)
 					E.damage += rand(4,10)
 			if(FLASH_PROTECTION_REDUCED)
-				usr << "<span class='danger'>Your equipment intensify the welder's glow. Your eyes itch and burn severely.</span>"
+				to_chat(usr, "<span class='danger'>Your equipment intensify the welder's glow. Your eyes itch and burn severely.</span>")
 				user.eye_blurry += rand(12,20)
 				E.damage += rand(12, 16)
 		if(safety<FLASH_PROTECTION_MAJOR)

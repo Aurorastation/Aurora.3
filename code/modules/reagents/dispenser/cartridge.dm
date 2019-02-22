@@ -48,7 +48,7 @@
 		return
 
 	if (usr.stat)
-		usr << "You cannot do that in your current state."
+		to_chat(usr, "You cannot do that in your current state.")
 		return
 
 	setLabel(L, usr)
@@ -69,10 +69,10 @@
 /obj/item/weapon/reagent_containers/chem_disp_cartridge/attack_self()
 	..()
 	if (is_open_container())
-		usr << "<span class = 'notice'>You put the cap on \the [src].</span>"
+		to_chat(usr, "<span class = 'notice'>You put the cap on \the [src].</span>")
 		flags ^= OPENCONTAINER
 	else
-		usr << "<span class = 'notice'>You take the cap off \the [src].</span>"
+		to_chat(usr, "<span class = 'notice'>You take the cap off \the [src].</span>")
 		flags |= OPENCONTAINER
 
 /obj/item/weapon/reagent_containers/chem_disp_cartridge/afterattack(obj/target, mob/user , flag)

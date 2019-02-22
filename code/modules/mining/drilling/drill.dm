@@ -323,11 +323,11 @@
 	if(B)
 		for(var/obj/item/weapon/ore/O in contents)
 			O.forceMove(B)
-		usr << "<span class='notice'>You unload the drill's storage cache into the ore box.</span>"
+		to_chat(usr, "<span class='notice'>You unload the drill's storage cache into the ore box.</span>")
 	else
 		for(var/obj/item/weapon/ore/O in contents)
 			O.forceMove(src.loc)
-		usr << "<span class='notice'>You spill the content's of the drill's storage box all over the ground. Idiot.</span>"
+		to_chat(usr, "<span class='notice'>You spill the content's of the drill's storage box all over the ground. Idiot.</span>")
 
 
 /obj/machinery/mining/brace
@@ -448,7 +448,7 @@
 	if(usr.stat) return
 
 	if (src.anchored)
-		usr << "It is anchored in place!"
+		to_chat(usr, "It is anchored in place!")
 		return 0
 
 	src.set_dir(turn(src.dir, 90))

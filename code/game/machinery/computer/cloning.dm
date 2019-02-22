@@ -213,7 +213,7 @@
 			dat += "<b><a href='byond://?src=\ref[src];menu=3'>No</a></b>"
 
 
-	to_chat(user, browse(dat, "window=cloning"))
+	user << browse(dat, "window=cloning")
 	onclose(user, "cloning")
 	return
 

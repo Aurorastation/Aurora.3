@@ -627,7 +627,7 @@ var/datum/controller/subsystem/ticker/SSticker
 	if(captainless)
 		for(var/mob/M in player_list)
 			if(!istype(M,/mob/abstract/new_player))
-				M << "Captainship not forced on anyone."
+				to_chat(M, "Captainship not forced on anyone.")
 
 // Registers a callback to run on round-start.
 /datum/controller/subsystem/ticker/proc/OnRoundstart(datum/callback/callback)

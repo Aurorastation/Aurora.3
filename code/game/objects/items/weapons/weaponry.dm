@@ -188,7 +188,7 @@
 		var/mob/living/carbon/M = affecting
 		M.anchored = initial(affecting.anchored)
 		M.captured = 0
-		M << "You are free of the net!"
+		to_chat(M, "You are free of the net!")
 
 	STOP_PROCESSING(SSprocessing, src)
 	return ..()
@@ -231,7 +231,7 @@
 	if(holdingfacility.len)
 		affecting.forceMove(pick(holdingfacility))
 
-	affecting << "You appear in a strange place!"
+	to_chat(affecting, "You appear in a strange place!")
 
 	playsound(affecting.loc, 'sound/effects/phasein.ogg', 25, 1)
 	playsound(affecting.loc, 'sound/effects/sparks2.ogg', 50, 1)
@@ -264,7 +264,7 @@
 	else
 		health -= rand(5,8)
 
-	H << "<span class='danger'>You claw at the energy net.</span>"
+	to_chat(H, "<span class='danger'>You claw at the energy net.</span>")
 
 	healthcheck()
 	return
@@ -316,6 +316,6 @@
 	attack_verb = list("banned")
 
 /obj/item/weapon/banhammer/attack(mob/M as mob, mob/user as mob)
-	M << "<font color='red'><b> You have been banned FOR NO REISIN by [user]</b></font>"
+	to_chat(M, "<font color='red'><b> You have been banned FOR NO REISIN by [user]</b></font>")
 	to_chat(user, "<font color='red'> You have <b>BANNED</b> [M]</font>")
 	playsound(loc, 'sound/effects/adminhelp.ogg', 15)

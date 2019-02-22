@@ -23,7 +23,7 @@
 
 /spell/contract/cast(mob/target,mob/user)
 	if(!subject)
-		usr << "This spell was not properly given a target. Contact a coder."
+		to_chat(usr, "This spell was not properly given a target. Contact a coder.")
 		return null
 
 	if(istype(target,/list))

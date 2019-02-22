@@ -95,7 +95,7 @@
 
 	dat += "</b></center>"
 
-	to_chat(user, browse(dat, "window=arcade"))
+	user << browse(dat, "window=arcade")
 	onclose(user, "arcade")
 	return
 

@@ -227,7 +227,7 @@
 	if(cell.charge > cell_amount)
 		// Spam Protection
 		if(prob(10))
-			src << "<span class='danger'>Warning: Unauthorized access through power channel [rand(11,29)] detected!</span>"
+			to_chat(src, "<span class='danger'>Warning: Unauthorized access through power channel [rand(11,29)] detected!</span>")
 		cell.use(cell_amount)
 		return amount
 	return 0
@@ -250,7 +250,7 @@
 		if(mmi.brainmob)
 			mind.transfer_to(mmi.brainmob)
 		else
-			src << "<span class='danger'>Oops! Something went very wrong, your MMI was unable to receive your mind. You have been ghosted. Please make a bug report so we can fix this bug.</span>"
+			to_chat(src, "<span class='danger'>Oops! Something went very wrong, your MMI was unable to receive your mind. You have been ghosted. Please make a bug report so we can fix this bug.</span>")
 			ghostize()
 			//ERROR("A borg has been destroyed, but its MMI lacked a brainmob, so the mind could not be transferred. Player: [ckey].")
 		mmi = null
@@ -275,7 +275,7 @@
 			else
 				icontype = module_sprites[1]
 				icon = 'icons/mob/robots.dmi'
-				src << "<span class='warning'>Custom Sprite Sheet does not contain a valid icon_state for [ckey]-[modtype]</span>"
+				to_chat(src, "<span class='warning'>Custom Sprite Sheet does not contain a valid icon_state for [ckey]-[modtype]</span>")
 		else
 			icontype = module_sprites[1]
 		icon_state = module_sprites[icontype]
@@ -293,7 +293,7 @@
 	var/list/modules = list()
 	modules.Add(robot_module_types)
 	if((crisis_override && security_level == SEC_LEVEL_RED) || security_level ==  SEC_LEVEL_DELTA) //no fun allowed anymore.
-		src << "<span class='warning'>Crisis mode active. Combat module available.</span>"
+		to_chat(src, "<span class='warning'>Crisis mode active. Combat module available.</span>")
 		modules+="Combat"
 	modtype = input("Please, select a module!", "Robot", null, null) as null|anything in modules
 
@@ -400,11 +400,11 @@
 		if(overclocked == 0)
 			overclocked = 1
 			ToggleOverClock(src)
-			usr << "You enable the overclock mode enhancing and unlocking several modules but increasing power usage greatly."
+			to_chat(usr, "You enable the overclock mode enhancing and unlocking several modules but increasing power usage greatly.")
 		else
 			overclocked = 0
 			ToggleOverClock(src)
-			usr << "You disable the overclock mode."
+			to_chat(usr, "You disable the overclock mode.")
 
 /mob/living/silicon/robot/proc/ToggleOverClock(var/mob/living/silicon/robot/R)
 	if(!R)
@@ -451,7 +451,7 @@
 	set name = "Toggle Lights"
 
 	lights_on = !lights_on
-	usr << "You [lights_on ? "enable" : "disable"] your integrated light."
+	to_chat(usr, "You [lights_on ? "enable" : "disable"] your integrated light.")
 	update_robot_light()
 
 /mob/living/silicon/robot/verb/self_diagnosis_verb()
@@ -459,11 +459,11 @@
 	set name = "Self Diagnosis"
 
 	if(!is_component_functioning("diagnosis unit"))
-		src << "<span class='warning'>Your self-diagnosis component isn't functioning.</span>"
+		to_chat(src, "<span class='warning'>Your self-diagnosis component isn't functioning.</span>")
 
 	var/datum/robot_component/CO = get_component("diagnosis unit")
 	if (!cell_use_power(CO.active_usage))
-		src << "<span class='warning'>Low Power.</span>"
+		to_chat(src, "<span class='warning'>Low Power.</span>")
 	var/dat = self_diagnosis()
 	src << browse(dat, "window=robotdiagnosis")
 
@@ -487,10 +487,10 @@
 	var/datum/robot_component/C = components[toggle]
 	if(C.toggled)
 		C.toggled = 0
-		src << "<span class='warning'>You disable [C.name].</span>"
+		to_chat(src, "<span class='warning'>You disable [C.name].</span>")
 	else
 		C.toggled = 1
-		src << "<span class='warning'>You enable [C.name].</span>"
+		to_chat(src, "<span class='warning'>You enable [C.name].</span>")
 
 /mob/living/silicon/robot/proc/update_robot_light()
 	if(lights_on)
@@ -563,7 +563,7 @@
 					C.brute_damage = WC.brute
 					C.electronics_damage = WC.burn
 
-				usr << "<span class='notice'>You install the [W.name].</span>"
+				to_chat(usr, "<span class='notice'>You install the [W.name].</span>")
 				updateicon()
 				return
 
@@ -756,17 +756,17 @@
 	else if(istype(W, /obj/item/borg/upgrade/))
 		var/obj/item/borg/upgrade/U = W
 		if(!opened)
-			usr << "You must access the borgs internals!"
+			to_chat(usr, "You must access the borgs internals!")
 		else if(!src.module && U.require_module)
-			usr << "The borg must choose a module before he can be upgraded!"
+			to_chat(usr, "The borg must choose a module before he can be upgraded!")
 		else if(U.locked)
-			usr << "The upgrade is locked and cannot be used yet!"
+			to_chat(usr, "The upgrade is locked and cannot be used yet!")
 		else
 			if(U.action(src))
-				usr << "You apply the upgrade to [src]!"
+				to_chat(usr, "You apply the upgrade to [src]!")
 				user.drop_from_inventory(U,src)
 			else
-				usr << "Upgrade error!"
+				to_chat(usr, "Upgrade error!")
 
 
 	else
@@ -860,7 +860,7 @@
 
 /mob/living/silicon/robot/proc/installed_modules()
 	if(weapon_lock)
-		src << "<span class='warning'>Weapon lock active, unable to use modules! Count:[weaponlock_time]</span>"
+		to_chat(src, "<span class='warning'>Weapon lock active, unable to use modules! Count:[weaponlock_time]</span>")
 		return
 
 	if(!module)
@@ -928,7 +928,7 @@
 			return 1
 
 		if(activated(O))
-			src << "Already activated"
+			to_chat(src, "Already activated")
 			return 1
 		if(!module_state_1)
 			module_state_1 = O
@@ -949,7 +949,7 @@
 			if(istype(module_state_3,/obj/item/borg/sight))
 				sight_mode |= module_state_3:sight_mode
 		else
-			src << "You need to disable a module first!"
+			to_chat(src, "You need to disable a module first!")
 		installed_modules()
 		return 1
 
@@ -966,9 +966,9 @@
 				module_state_3 = null
 				contents -= O
 			else
-				src << "Module isn't activated."
+				to_chat(src, "Module isn't activated.")
 		else
-			src << "Module isn't activated"
+			to_chat(src, "Module isn't activated")
 		installed_modules()
 		return 1
 	return
@@ -1056,7 +1056,7 @@
 
 	if(R)
 		R.UnlinkSelf()
-		R << "Buffers flushed and reset. Camera system shutdown.  All systems operational."
+		to_chat(R, "Buffers flushed and reset. Camera system shutdown.  All systems operational.")
 		src.verbs -= /mob/living/silicon/robot/proc/ResetSecurityCodes
 
 /mob/living/silicon/robot/proc/SetLockdown(var/state = 1)
@@ -1082,7 +1082,7 @@
 	set name = "Choose Icon"
 
 	if(!module_sprites.len)
-		src << "Something is badly wrong with the sprite selection. Harass a coder."
+		to_chat(src, "Something is badly wrong with the sprite selection. Harass a coder.")
 		return
 	if (icon_selected == 1)
 		verbs -= /mob/living/silicon/robot/proc/choose_icon
@@ -1112,7 +1112,7 @@
 	icon_selected = 1
 	icon_selection_tries = 0
 	verbs -= /mob/living/silicon/robot/proc/choose_icon
-	src << "Your icon has been set. You now require a module reset to change it."
+	to_chat(src, "Your icon has been set. You now require a module reset to change it.")
 
 
 /mob/living/silicon/robot/proc/sensor_mode() //Medical/Security HUD controller for borgs
@@ -1191,7 +1191,7 @@
 				locked = 0
 			else
 				to_chat(user, "You fail to emag the cover lock.")
-				src << "Hack attempt detected."
+				to_chat(src, "Hack attempt detected.")
 			return 1
 		else
 			to_chat(user, "The cover is already unlocked.")
@@ -1221,22 +1221,22 @@
 				set_zeroth_law("Only [user.real_name] and people \he designates as being such are operatives.")
 				. = 1
 				spawn()
-					src << "<span class='danger'>ALERT: Foreign software detected.</span>"
+					to_chat(src, "<span class='danger'>ALERT: Foreign software detected.</span>")
 					sleep(5)
-					src << "<span class='danger'>Initiating diagnostics...</span>"
+					to_chat(src, "<span class='danger'>Initiating diagnostics...</span>")
 					sleep(20)
-					src << "<span class='danger'>SynBorg v1.7.1 loaded.</span>"
+					to_chat(src, "<span class='danger'>SynBorg v1.7.1 loaded.</span>")
 					sleep(5)
-					src << "<span class='danger'>LAW SYNCHRONISATION ERROR</span>"
+					to_chat(src, "<span class='danger'>LAW SYNCHRONISATION ERROR</span>")
 					sleep(5)
-					src << "<span class='danger'>Would you like to send a report to NanoTraSoft? Y/N</span>"
+					to_chat(src, "<span class='danger'>Would you like to send a report to NanoTraSoft? Y/N</span>")
 					sleep(10)
-					src << "<span class='danger'>> N</span>"
+					to_chat(src, "<span class='danger'>> N</span>")
 					sleep(20)
-					src << "<span class='danger'>ERRORERRORERROR</span>"
-					src << "<b>Obey these laws:</b>"
+					to_chat(src, "<span class='danger'>ERRORERRORERROR</span>")
+					to_chat(src, "<b>Obey these laws:</b>")
 					laws.show_laws(src)
-					src << "<span class='danger'>ALERT: [user.real_name] is your new master. Obey your new laws and his commands.</span>"
+					to_chat(src, "<span class='danger'>ALERT: [user.real_name] is your new master. Obey your new laws and his commands.</span>")
 					if(src.module)
 						var/rebuild = 0
 						for(var/obj/item/weapon/pickaxe/borgdrill/D in src.module.modules)
@@ -1248,6 +1248,6 @@
 					updateicon()
 			else
 				to_chat(user, "You fail to hack [src]'s interface.")
-				src << "Hack attempt detected."
+				to_chat(src, "Hack attempt detected.")
 			return 1
 		return

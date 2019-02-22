@@ -112,7 +112,7 @@
 
 		dat += "<hr>"
 
-	to_chat(user, browse(dat, "window=autolathe"))
+	user << browse(dat, "window=autolathe")
 	onclose(user, "autolathe")
 
 /obj/machinery/autolathe/attackby(var/obj/item/O as obj, var/mob/user as mob)
@@ -212,7 +212,7 @@
 	add_fingerprint(usr)
 
 	if(busy)
-		usr << "<span class='notice'>The autolathe is busy. Please wait for completion of previous operation.</span>"
+		to_chat(usr, "<span class='notice'>The autolathe is busy. Please wait for completion of previous operation.</span>")
 		return
 
 	if(href_list["change_category"])

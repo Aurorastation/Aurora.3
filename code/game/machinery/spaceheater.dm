@@ -70,7 +70,7 @@
 		user.visible_message("<span class='notice'>[user] [panel_open ? "opens" : "closes"] the hatch on the [src].</span>", "<span class='notice'>You [panel_open ? "open" : "close"] the hatch on the [src].</span>")
 		update_icon()
 		if(!panel_open && user.machine == src)
-			to_chat(user, browse(null, "window=spaceheater"))
+			user << browse(null, "window=spaceheater")
 			user.unset_machine()
 	else
 		..()
@@ -101,7 +101,7 @@
 		dat += "<A href='?src=\ref[src];op=temp;val=5'>+</A><BR>"
 
 		user.set_machine(src)
-		to_chat(user, browse("<HEAD><TITLE>Space Heater Control Panel</TITLE></HEAD><TT>[dat]</TT>", "window=spaceheater"))
+		user << browse("<HEAD><TITLE>Space Heater Control Panel</TITLE></HEAD><TT>[dat]</TT>", "window=spaceheater")
 		onclose(user, "spaceheater")
 	else
 		on = !on

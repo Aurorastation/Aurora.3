@@ -158,7 +158,7 @@
 
 		dat += "The speaker switch is [vocal ? "on" : "off"]. <a href='?src=\ref[src];togglevoice=[1]'>Toggle</a><br>"
 
-	to_chat(user, browse("<HEAD><TITLE>Medibot v1.1 controls</TITLE></HEAD>[dat]", "window=automed"))
+	user << browse("<HEAD><TITLE>Medibot v1.1 controls</TITLE></HEAD>[dat]", "window=automed")
 	onclose(user, "automed")
 	return
 
@@ -185,7 +185,7 @@
 	add_fingerprint(usr)
 
 	if (!has_ui_access(usr))
-		usr << "<span class='warning'>Insufficient permissions.</span>"
+		to_chat(usr, "<span class='warning'>Insufficient permissions.</span>")
 		return
 
 	if (href_list["power"])
@@ -218,7 +218,7 @@
 			reagent_glass.forceMove(get_turf(src))
 			reagent_glass = null
 		else
-			usr << "<span class='notice'>You cannot eject the beaker because the panel is locked.</span>"
+			to_chat(usr, "<span class='notice'>You cannot eject the beaker because the panel is locked.</span>")
 
 	else if (href_list["togglevoice"] && (!locked || issilicon(usr)))
 		vocal = !vocal

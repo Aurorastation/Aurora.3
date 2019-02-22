@@ -280,7 +280,7 @@
 			warn = 1
 
 		if(warn)
-			M << "<b>You accidentally touch [src].</b>"
+			to_chat(M, "<b>You accidentally touch [src].</b>")
 	..()
 
 /obj/machinery/artifact/bullet_act(var/obj/item/projectile/P)

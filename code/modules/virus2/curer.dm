@@ -60,7 +60,7 @@
 	else
 		dat = "Please insert a container."
 
-	to_chat(user, browse(dat, "window=computer;size=400x500"))
+	user << browse(dat, "window=computer;size=400x500")
 	onclose(user, "computer")
 	return
 

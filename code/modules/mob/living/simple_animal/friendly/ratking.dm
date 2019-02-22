@@ -9,7 +9,7 @@
 
 /proc/announceToRodents(var/message)
 	for(var/R in SSmob.all_mice)
-		R << message
+		to_chat(R, message)
 
 /mob/living/simple_animal/mouse/king
 	attacktext = "bitten"
@@ -20,7 +20,7 @@
 	icon_living = "mouse_gray"
 	icon_dead = "mouse_gray_dead"
 	icon_rest = "mouse_gray_sleep"
-	
+
 	see_in_dark = 8
 	see_invisible = SEE_INVISIBLE_NOLIGHTING
 
@@ -162,7 +162,7 @@
 	set name = "Decree"
 
 	if( !health )
-		usr << "<span class='notice'>You are dead, you cannot use any abilities!</span>"
+		to_chat(usr, "<span class='notice'>You are dead, you cannot use any abilities!</span>")
 		return
 
 	var/input = sanitize(input(usr, "Please enter the [lowertext( announce_name )] for your whole kingdom.", "What?", "") as message|null, extra = 0)
@@ -180,15 +180,15 @@
 	set name = "Mighty Roar"
 
 	if(!health)
-		usr << "<span class='notice'>You are dead, you cannot use any abilities!</span>"
+		to_chat(usr, "<span class='notice'>You are dead, you cannot use any abilities!</span>")
 		return
 
 	if(last_special > world.time)
-		usr << "<span class='warning'>We must wait a little while before we can use this ability again!</span>"
+		to_chat(usr, "<span class='warning'>We must wait a little while before we can use this ability again!</span>")
 		return
 
 	if(!canRoar())
-		usr << "<span class='warning'>Our [swarm_name] must grow larger before we can use this ability!</span>"
+		to_chat(usr, "<span class='warning'>Our [swarm_name] must grow larger before we can use this ability!</span>")
 		return
 
 	src.visible_message("<span class='warning'>[src] lets loose a mighty roar!</span>")
@@ -207,19 +207,19 @@
 		return
 
 	if(!health)
-		usr << "<span class='notice'>You are dead, you cannot use any abilities!</span>"
+		to_chat(usr, "<span class='notice'>You are dead, you cannot use any abilities!</span>")
 		return
 
 	if(!canEatCorpse())
-		usr << "<span class='warning'>Our [swarm_name] must grow larger before we can use this ability!</span>"
+		to_chat(usr, "<span class='warning'>Our [swarm_name] must grow larger before we can use this ability!</span>")
 		return
 
 	if(last_special > world.time)
-		usr << "<span class='warning'>We must wait a little while before we can use this ability again!</span>"
+		to_chat(usr, "<span class='warning'>We must wait a little while before we can use this ability again!</span>")
 		return
 
 	if(target.stat != DEAD)
-		usr << "<span class='warning'>We can only devour the dead!</span>"
+		to_chat(usr, "<span class='warning'>We can only devour the dead!</span>")
 		return
 
 	usr.visible_message("<span class='danger'>\The [usr] swarms the body of \the [target], ripping flesh from bone!</span>" )
@@ -253,12 +253,12 @@
 
 /mob/living/simple_animal/mouse/king/proc/kingdomMessage(var/message, var/king_message)
 	for(var/R in rats)
-		R << message
+		to_chat(R, message)
 
 	if(king_message)
-		src << king_message
+		to_chat(src, king_message)
 	else
-		src << message
+		to_chat(src, message)
 
 /mob/living/simple_animal/mouse/king/proc/canNibbleWire()
 	if(rats.len >= RAT_MAYOR_LEVEL)

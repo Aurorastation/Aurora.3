@@ -236,7 +236,7 @@
 	if((get_dist(src, user) > 1) || (stat & (BROKEN|NOPOWER)))
 		if(!istype(user, /mob/living/silicon))
 			user.unset_machine()
-			to_chat(user, browse(null, "window=pacontrol"))
+			user << browse(null, "window=pacontrol")
 			return
 	user.set_machine(src)
 
@@ -258,6 +258,6 @@
 		dat += "Particle Strength: [src.strength] "
 		dat += "<A href='?src=\ref[src];strengthdown=1'>--</A>|<A href='?src=\ref[src];strengthup=1'>++</A><BR><BR>"
 
-	to_chat(user, browse(dat, "window=pacontrol;size=420x500"))
+	user << browse(dat, "window=pacontrol;size=420x500")
 	onclose(user, "pacontrol")
 	return

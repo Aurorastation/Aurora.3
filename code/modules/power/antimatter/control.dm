@@ -291,7 +291,7 @@
 	if((get_dist(src, user) > 1) || (stat & (BROKEN|NOPOWER)))
 		if(!istype(user, /mob/living/silicon/ai))
 			user.unset_machine()
-			to_chat(user, browse(null, "window=AMcontrol"))
+			user << browse(null, "window=AMcontrol")
 			return
 	return ui_interact(user)
 

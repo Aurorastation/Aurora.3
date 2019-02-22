@@ -581,14 +581,14 @@ obj/structure/cable/proc/cableColor(var/colorC)
 	if(ishuman(M) && !M.restrained() && !M.stat && !M.paralysis && ! M.stunned)
 		if(!istype(usr.loc,/turf)) return
 		if(src.amount <= 14)
-			usr << "<span class='warning'>You need at least 15 lengths to make restraints!</span>"
+			to_chat(usr, "<span class='warning'>You need at least 15 lengths to make restraints!</span>")
 			return
 		var/obj/item/weapon/handcuffs/cable/B = new /obj/item/weapon/handcuffs/cable(usr.loc)
 		B.color = color
-		usr << "<span class='notice'>You wind some cable together to make some restraints.</span>"
+		to_chat(usr, "<span class='notice'>You wind some cable together to make some restraints.</span>")
 		src.use(15)
 	else
-		usr << "<span class='notice'>You cannot do that.</span>"
+		to_chat(usr, "<span class='notice'>You cannot do that.</span>")
 	..()
 
 /obj/item/stack/cable_coil/cyborg/verb/set_colour()
@@ -896,16 +896,16 @@ obj/structure/cable/proc/cableColor(var/colorC)
 	if(ishuman(M) && !M.restrained() && !M.stat && !M.paralysis && ! M.stunned)
 		if(!istype(usr.loc,/turf)) return
 		if(!(locate(/obj/item/weapon/stool) in usr.loc) && !(locate(/obj/structure/bed) in usr.loc) && !(locate(/obj/structure/table) in usr.loc) && !(locate(/obj/structure/toilet) in usr.loc))
-			usr << "<span class='warning'>You have to be standing on top of a chair/table/bed to make a noose!</span>"
+			to_chat(usr, "<span class='warning'>You have to be standing on top of a chair/table/bed to make a noose!</span>")
 			return 0
 		if(src.amount <= 24)
-			usr << "<span class='warning'>You need at least 25 lengths to make a noose!</span>"
+			to_chat(usr, "<span class='warning'>You need at least 25 lengths to make a noose!</span>")
 			return
 		new /obj/structure/noose(usr.loc)
-		usr << "<span class='notice'>You wind some cable together to make a noose, tying it to the ceiling.</span>"
+		to_chat(usr, "<span class='notice'>You wind some cable together to make a noose, tying it to the ceiling.</span>")
 		src.use(25)
 	else
-		usr << "<span class='notice'>You cannot do that.</span>"
+		to_chat(usr, "<span class='notice'>You cannot do that.</span>")
 	..()
 
 /obj/structure/noose
@@ -979,7 +979,7 @@ obj/structure/cable/proc/cableColor(var/colorC)
 				"<span class='notice'>You struggle to untie the noose over your neck.</span>")
 			if(!do_after(M, 150))
 				if(M && M.buckled)
-					M << "<span class='warning'>You fail to untie yourself!</span>"
+					to_chat(M, "<span class='warning'>You fail to untie yourself!</span>")
 				return
 			if(!M.buckled)
 				return

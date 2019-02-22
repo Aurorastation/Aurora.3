@@ -28,7 +28,7 @@
 	return
 
 /datum/expansion/multitool/proc/close_window(var/mob/user)
-	to_chat(user, browse(null, "window=multitool"))
+	user << browse(null, "window=multitool")
 
 /datum/expansion/multitool/proc/buffer(var/obj/item/device/multitool/multitool)
 	. += "<b>Buffer Memory:</b><br>"

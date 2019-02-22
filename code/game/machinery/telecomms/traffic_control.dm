@@ -110,7 +110,7 @@
 					dat += "<a href='?src=\ref[src];operation=togglerun'>NEVER</a>"
 
 
-		to_chat(user, browse(dat, "window=traffic_control;size=575x400"))
+		user << browse(dat, "window=traffic_control;size=575x400")
 		onclose(user, "server_control")
 
 		temp = ""
@@ -125,7 +125,7 @@
 		add_fingerprint(usr)
 		usr.set_machine(src)
 		if(!src.allowed(usr) && !emagged)
-			usr << "<span class='warning'>ACCESS DENIED.</span>"
+			to_chat(usr, "<span class='warning'>ACCESS DENIED.</span>")
 			return
 
 		if(href_list["viewserver"])

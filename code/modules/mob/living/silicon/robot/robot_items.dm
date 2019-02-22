@@ -281,7 +281,7 @@
 
 /obj/item/weapon/inflatable_dispenser/attack_self()
 	mode = !mode
-	usr << "You set \the [src] to deploy [mode ? "doors" : "walls"]."
+	to_chat(usr, "You set \the [src] to deploy [mode ? "doors" : "walls"].")
 
 /obj/item/weapon/inflatable_dispenser/afterattack(var/atom/A, var/mob/user)
 	..(A, user)
@@ -354,7 +354,7 @@
 			qdel(A)
 		else
 			if(stored_doors >= max_doors)
-				usr << "\The [src] is full!"
+				to_chat(usr, "\The [src] is full!")
 				return
 			stored_doors++
 			qdel(A)

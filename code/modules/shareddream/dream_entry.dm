@@ -31,4 +31,4 @@ var/list/dream_entries = list()
 			old_bg.show_message("<span class='notice'>[bg] fades as their connection is severed.</span>")
 			animate(old_bg, alpha=0, time = 200)
 			QDEL_IN(old_bg, 20)
-			src << "<span class='warning'>You are ripped from the Srom as your body awakens.</span>"
+			to_chat(src, "<span class='warning'>You are ripped from the Srom as your body awakens.</span>")

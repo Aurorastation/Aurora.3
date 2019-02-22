@@ -244,7 +244,7 @@
 	HTML += "<br>"
 	HTML += "<hr />"
 	HTML += "<tt>"
-	to_chat(user, browse(HTML, "window=flavor_text;size=430x300"))
+	user << browse(HTML, "window=flavor_text;size=430x300")
 	return
 
 /datum/category_item/player_setup_item/general/flavor/proc/SetFlavourTextRobot(mob/user)
@@ -261,5 +261,5 @@
 		HTML += "<br>"
 	HTML += "<hr />"
 	HTML += "<tt>"
-	to_chat(user, browse(HTML, "window=flavour_text_robot;size=430x300"))
+	user << browse(HTML, "window=flavour_text_robot;size=430x300")
 	return

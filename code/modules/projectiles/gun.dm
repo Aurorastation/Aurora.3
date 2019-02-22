@@ -133,7 +133,7 @@
 	var/mob/living/M = user
 
 	if(HULK in M.mutations)
-		M << "<span class='danger'>Your fingers are much too large for the trigger guard!</span>"
+		to_chat(M, "<span class='danger'>Your fingers are much too large for the trigger guard!</span>")
 		return 0
 
 	if(ishuman(M))
@@ -610,7 +610,7 @@
 	//Cannot equip wielded items.
 	if(can_wield())
 		if(wielded)
-			M << "<span class='warning'>Lower the [initial(name)] first!</span>"
+			to_chat(M, "<span class='warning'>Lower the [initial(name)] first!</span>")
 			return 0
 
 	return ..()

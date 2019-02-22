@@ -62,11 +62,11 @@
 		return
 
 	if (!usr.IsAdvancedToolUser())
-		usr << "You lack the dexterity to do that."
+		to_chat(usr, "You lack the dexterity to do that.")
 		return
 
 	if (!Adjacent(usr))
-		usr << "You can't reach the [src] from there, get closer!"
+		to_chat(usr, "You can't reach the [src] from there, get closer!")
 		return
 
 	if (open)

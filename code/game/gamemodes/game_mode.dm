@@ -94,7 +94,7 @@ var/global/list/additional_antag_types = list()
 			message_admins("Admin [key_name_admin(usr)] is debugging the [antag.role_text] template.")
 	else if(href_list["remove_antag_type"])
 		if(antag_tags && (href_list["remove_antag_type"] in antag_tags))
-			usr << "Cannot remove core mode antag type."
+			to_chat(usr, "Cannot remove core mode antag type.")
 			return
 		var/datum/antagonist/antag = all_antag_types[href_list["remove_antag_type"]]
 		if(antag_templates && antag_templates.len && antag && (antag in antag_templates) && (antag.id in additional_antag_types))
@@ -677,7 +677,7 @@ proc/display_roundstart_logout_report()
 
 	for(var/mob/M in mob_list)
 		if(M.client && M.client.holder)
-			M << msg
+			to_chat(M, msg)
 
 proc/get_nt_opposed()
 	var/list/dudes = list()
@@ -720,17 +720,17 @@ proc/get_nt_opposed()
 	set category = "OOC"
 
 	if(!SSticker.mode)
-		usr << "Something is terribly wrong; there is no gametype."
+		to_chat(usr, "Something is terribly wrong; there is no gametype.")
 		return
 
 	if(!SSticker.hide_mode)
-		usr << "<b>The roundtype is [capitalize(SSticker.mode.name)]</b>"
+		to_chat(usr, "<b>The roundtype is [capitalize(SSticker.mode.name)]</b>")
 		if(SSticker.mode.round_description)
-			usr << "<i>[SSticker.mode.round_description]</i>"
+			to_chat(usr, "<i>[SSticker.mode.round_description]</i>")
 		if(SSticker.mode.extended_round_description)
-			usr << "[SSticker.mode.extended_round_description]"
+			to_chat(usr, "[SSticker.mode.extended_round_description]")
 	else
-		usr << "<i>Shhhh</i>. It's a secret."
+		to_chat(usr, "<i>Shhhh</i>. It's a secret.")
 	return
 
 /mob/verb/check_gamemode_probability()

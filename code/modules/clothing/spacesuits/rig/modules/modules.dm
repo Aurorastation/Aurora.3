@@ -62,11 +62,11 @@
 	..()
 	switch(damage)
 		if(0)
-			usr << "It is undamaged."
+			to_chat(usr, "It is undamaged.")
 		if(1)
-			usr << "It is badly damaged."
+			to_chat(usr, "It is badly damaged.")
 		if(2)
-			usr << "It is almost completely destroyed."
+			to_chat(usr, "It is almost completely destroyed.")
 
 /obj/item/rig_module/attackby(obj/item/W as obj, mob/user as mob)
 
@@ -147,34 +147,34 @@
 /obj/item/rig_module/proc/engage()
 
 	if(damage >= 2)
-		usr << "<span class='warning'>The [interface_name] is damaged beyond use!</span>"
+		to_chat(usr, "<span class='warning'>The [interface_name] is damaged beyond use!</span>")
 		return 0
 
 	if(world.time < next_use)
-		usr << "<span class='warning'>You cannot use the [interface_name] again so soon.</span>"
+		to_chat(usr, "<span class='warning'>You cannot use the [interface_name] again so soon.</span>")
 		return 0
 
 	if(!holder || holder.canremove)
-		usr << "<span class='warning'>The suit is not initialized.</span>"
+		to_chat(usr, "<span class='warning'>The suit is not initialized.</span>")
 		return 0
 
 	if(usr.lying || usr.stat || usr.stunned || usr.paralysis || usr.weakened)
-		usr << "<span class='warning'>You cannot use the suit in this state.</span>"
+		to_chat(usr, "<span class='warning'>You cannot use the suit in this state.</span>")
 		return 0
 
 	if(holder.wearer && holder.wearer.lying)
-		usr << "<span class='warning'>The suit cannot function while the wearer is prone.</span>"
+		to_chat(usr, "<span class='warning'>The suit cannot function while the wearer is prone.</span>")
 		return 0
 
 	if(holder.security_check_enabled && !holder.check_suit_access(usr))
-		usr << "<span class='danger'>Access denied.</span>"
+		to_chat(usr, "<span class='danger'>Access denied.</span>")
 		return 0
 
 	if(!holder.check_power_cost(usr, use_power_cost, 0, src, (istype(usr,/mob/living/silicon ? 1 : 0) ) ) )
 		return 0
 
 	if(!confined_use && istype(usr.loc, /obj/mecha))
-		usr << "<span class='danger'>You cannot use the suit in the confined space.</span>"
+		to_chat(usr, "<span class='danger'>You cannot use the suit in the confined space.</span>")
 		return 0
 
 	next_use = world.time + module_cooldown

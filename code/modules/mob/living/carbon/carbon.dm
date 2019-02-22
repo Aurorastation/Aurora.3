@@ -106,7 +106,7 @@
 			t_him = "her"
 		var/show_ssd
 		var/mob/living/carbon/human/H
-		if(ishuman(src)) 
+		if(ishuman(src))
 			H = src
 			show_ssd = H.species.show_ssd
 		if(H && show_ssd && !client && !teleop)
@@ -169,7 +169,7 @@
 	if(item_in_hand) //this segment checks if the item in your hand is twohanded.
 		if(istype(item_in_hand,/obj/item/weapon/material/twohanded) || istype(item_in_hand,/obj/item/weapon/gun) || istype(item_in_hand,/obj/item/weapon/pickaxe))
 			if(item_in_hand:wielded == 1)
-				usr << "<span class='warning'>Your other hand is too busy holding the [item_in_hand.name]</span>"
+				to_chat(usr, "<span class='warning'>Your other hand is too busy holding the [item_in_hand.name]</span>")
 				return
 	src.hand = !( src.hand )
 	if(hud_used.l_hand_hud_object && hud_used.r_hand_hud_object)
@@ -286,7 +286,7 @@
 
 			var/show_ssd
 			var/mob/living/carbon/human/H
-			if(ishuman(src)) 
+			if(ishuman(src))
 				H = src
 				show_ssd = H.species.show_ssd
 			if(H && show_ssd && !client && !teleop)
@@ -411,7 +411,7 @@
 	set category = "IC"
 
 	if(usr.sleeping)
-		usr << "<span class='warning'>You are already sleeping</span>"
+		to_chat(usr, "<span class='warning'>You are already sleeping</span>")
 		return
 	if(alert(src,"You sure you want to sleep for a while?","Sleep","Yes","No") == "Yes")
 		willfully_sleeping = 1
@@ -431,7 +431,7 @@
 	if(buckled)
 		return 0
 	stop_pulling()
-	src << "<span class='warning'>You slipped on [slipped_on]!</span>"
+	to_chat(src, "<span class='warning'>You slipped on [slipped_on]!</span>")
 	playsound(src.loc, 'sound/misc/slip.ogg', 50, 1, -3)
 	Stun(stun_duration)
 	Weaken(Floor(stun_duration/2))

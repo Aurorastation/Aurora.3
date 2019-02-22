@@ -44,12 +44,12 @@
 
 		for (var/obj/item/weapon/implant/loyalty/I in H)
 			if (I.implanted)
-				src << "<span class='warning'>[H]'s mind is shielded against your powers!</span>"
+				to_chat(src, "<span class='warning'>[H]'s mind is shielded against your powers!</span>")
 				return FALSE
 
 		user.visible_message("<span class='danger'>\The [user] seizes the head of \the [H] in both hands...</span>")
 		to_chat(user, "<span class='warning'>You invade the mind of \the [H]!</span>")
-		H << "<span class='danger'>Your mind is invaded by the presence of \the [user]! They are trying to make you a slave!</span>"
+		to_chat(H, "<span class='danger'>Your mind is invaded by the presence of \the [user]! They are trying to make you a slave!</span>")
 
 		if (!do_mob(user, H, 80))
 			to_chat(user, "<span class='warning'>Your concentration is broken!</span>")
@@ -60,7 +60,7 @@
 		if(wizards.add_antagonist_mind(target.mind,1,"Wizard Slave","<b>You are a slave to \the [user], obey them at all costs!</b>"))
 			to_chat(user, "<span class='danger'>You sear through \the [H]'s mind, reshaping as you see fit and leaving them subservient to your will!</span>")
 			H.mind.assigned_role = "Wizard Slave"
-			H << "<span class='danger'>Your defenses have eroded away and \the [user] has made you their mindslave.</span>"
+			to_chat(H, "<span class='danger'>Your defenses have eroded away and \the [user] has made you their mindslave.</span>")
 			H.faction = "Space Wizard"
 			wizards.add_antagonist_mind(H.mind,1)
 

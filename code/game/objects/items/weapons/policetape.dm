@@ -58,13 +58,13 @@ var/list/tape_roll_applications = list()
 /obj/item/taperoll/attack_self(mob/user as mob)
 	if(icon_state == "[icon_base]_start")
 		start = get_turf(src)
-		usr << span("notice", "You place the first end of the [src].")
+		to_chat(usr, span("notice", "You place the first end of the [src]."))
 		icon_state = "[icon_base]_stop"
 	else
 		icon_state = "[icon_base]_start"
 		end = get_turf(src)
 		if(start.y != end.y && start.x != end.x || start.z != end.z)
-			usr << span("notice", "[src] can only be laid horizontally or vertically.")
+			to_chat(usr, span("notice", "[src] can only be laid horizontally or vertically."))
 			return
 
 		var/turf/cur = start
@@ -93,7 +93,7 @@ var/list/tape_roll_applications = list()
 						break
 			cur = get_step_towards(cur,end)
 		if (!can_place)
-			usr << span("notice", "You can't run \the [src] through that!")
+			to_chat(usr, span("notice", "You can't run \the [src] through that!"))
 			return
 
 		cur = start
@@ -106,7 +106,7 @@ var/list/tape_roll_applications = list()
 				var/obj/item/tape/P = new tape_type(cur)
 				P.icon_state = "[P.icon_base]_[dir]"
 			cur = get_step_towards(cur,end)
-		usr << span("notice", "You finish placing the [src].")	//Git Test
+		to_chat(usr, span("notice", "You finish placing the [src]."))	//Git Test)
 
 /obj/item/taperoll/afterattack(var/atom/A, mob/user as mob, proximity)
 	if(!proximity)
@@ -148,7 +148,7 @@ var/list/tape_roll_applications = list()
 		var/mob/M = mover
 		add_fingerprint(M)
 		if (!allowed(M))	//only select few learn art of not crumpling the tape
-			M << "<span class='warning'>You are not supposed to go past [src]...</span>"
+			to_chat(M, "<span class='warning'>You are not supposed to go past [src]...</span>")
 			crumple()
 	return ..(mover)
 

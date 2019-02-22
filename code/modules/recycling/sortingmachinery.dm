@@ -47,7 +47,7 @@
 			if("Title")
 				var/str = sanitizeSafe(input(usr,"Label text?","Set label",""), MAX_NAME_LEN)
 				if(!str || !length(str))
-					usr << "<span class='warning'>Invalid text.</span>"
+					to_chat(usr, "<span class='warning'>Invalid text.</span>")
 					return
 				user.visible_message("\The [user] titles \the [src] with \a [W], marking down: \"[str]\"",\
 				"<span class='notice'>You title \the [src]: \"[str]\"</span>",\
@@ -61,7 +61,7 @@
 			if("Description")
 				var/str = sanitize(input(usr,"Label text?","Set label",""))
 				if(!str || !length(str))
-					usr << "<span class='warning'>Invalid text.</span>"
+					to_chat(usr, "<span class='warning'>Invalid text.</span>")
 					return
 				if(!examtext && !nameset)
 					examtext = str
@@ -154,7 +154,7 @@
 			if("Title")
 				var/str = sanitizeSafe(input(usr,"Label text?","Set label",""), MAX_NAME_LEN)
 				if(!str || !length(str))
-					usr << "<span class='warning'>Invalid text.</span>"
+					to_chat(usr, "<span class='warning'>Invalid text.</span>")
 					return
 				user.visible_message("\The [user] titles \the [src] with \a [W], marking down: \"[str]\"",\
 				"<span class='notice'>You title \the [src]: \"[str]\"</span>",\
@@ -169,7 +169,7 @@
 			if("Description")
 				var/str = sanitize(input(usr,"Label text?","Set label",""))
 				if(!str || !length(str))
-					usr << "<span class='warning'>Invalid text.</span>"
+					to_chat(usr, "<span class='warning'>Invalid text.</span>")
 					return
 				if(!examtext && !nameset)
 					examtext = str
@@ -347,7 +347,7 @@
 
 	dat += "</tr></table><br>Current Selection: [currTag ? currTag : "None"]</tt>"
 	dat += "<br><a href='?src=\ref[src];nextTag=CUSTOM'>Enter custom location.</a>"
-	to_chat(user, browse(dat, "window=destTagScreen;size=450x375"))
+	user << browse(dat, "window=destTagScreen;size=450x375")
 	onclose(user, "destTagScreen")
 
 /obj/item/device/destTagger/attack_self(mob/user as mob)

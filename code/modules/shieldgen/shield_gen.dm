@@ -97,7 +97,7 @@
 	if ( (get_dist(src, user) > 1 ) || (stat & (BROKEN)) )
 		if (!istype(user, /mob/living/silicon))
 			user.unset_machine()
-			to_chat(user, browse(null, "window=shield_generator"))
+			user << browse(null, "window=shield_generator")
 			return
 	var/t = "<B>Shield Generator Control Console</B><BR><br>"
 	if(locked)
@@ -131,7 +131,7 @@
 	t += "<hr>"
 	t += "<A href='?src=\ref[src]'>Refresh</A> "
 	t += "<A href='?src=\ref[src];close=1'>Close</A><BR>"
-	to_chat(user, browse(t, "window=shield_generator;size=500x400"))
+	user << browse(t, "window=shield_generator;size=500x400")
 	user.set_machine(src)
 
 /obj/machinery/shield_gen/machinery_process()
@@ -183,7 +183,7 @@
 		return
 	else if( href_list["toggle"] )
 		if (!active && !anchored)
-			usr << "<span class='warning'>The [src] needs to be firmly secured to the floor first.</span>"
+			to_chat(usr, "<span class='warning'>The [src] needs to be firmly secured to the floor first.</span>")
 			return
 		toggle()
 	else if( href_list["change_radius"] )
@@ -216,14 +216,14 @@
 		covered_turfs = null
 
 		for(var/mob/M in view(5,src))
-			M << "\icon[src] You hear heavy droning start up."
+			to_chat(M, "\icon[src] You hear heavy droning start up.")
 	else
 		for(var/obj/effect/energy_field/D in field)
 			field.Remove(D)
 			D.loc = null
 
 		for(var/mob/M in view(5,src))
-			M << "\icon[src] You hear heavy droning fade out."
+			to_chat(M, "\icon[src] You hear heavy droning fade out.")
 
 /obj/machinery/shield_gen/update_icon()
 	if(stat & BROKEN)

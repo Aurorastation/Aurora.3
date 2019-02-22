@@ -253,7 +253,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 	set name = "Send Message"
 	set src in usr
 	if(usr.stat == 2)
-		usr << "You can't send PDA messages because you are dead!"
+		to_chat(usr, "You can't send PDA messages because you are dead!")
 		return
 	var/list/plist = available_pdas()
 	if (plist)
@@ -269,10 +269,10 @@ var/global/list/obj/item/device/pda/PDAs = list()
 	set name = "Toggle Sender/Receiver"
 	set src in usr
 	if(usr.stat == 2)
-		usr << "You can't do that because you are dead!"
+		to_chat(usr, "You can't do that because you are dead!")
 		return
 	toff = !toff
-	usr << "<span class='notice'>PDA sender/receiver toggled [(toff ? "Off" : "On")]!</span>"
+	to_chat(usr, "<span class='notice'>PDA sender/receiver toggled [(toff ? "Off" : "On")]!</span>")
 
 
 /obj/item/device/pda/ai/verb/cmd_toggle_pda_silent()
@@ -280,10 +280,10 @@ var/global/list/obj/item/device/pda/PDAs = list()
 	set name = "Toggle Ringer"
 	set src in usr
 	if(usr.stat == 2)
-		usr << "You can't do that because you are dead!"
+		to_chat(usr, "You can't do that because you are dead!")
 		return
 	message_silent=!message_silent
-	usr << "<span class='notice'>PDA ringer toggled [(message_silent ? "Off" : "On")]!</span>"
+	to_chat(usr, "<span class='notice'>PDA ringer toggled [(message_silent ? "Off" : "On")]!</span>")
 
 
 /obj/item/device/pda/ai/verb/cmd_show_message_log()
@@ -291,7 +291,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 	set name = "Show Message Log"
 	set src in usr
 	if(usr.stat == 2)
-		usr << "You can't do that because you are dead!"
+		to_chat(usr, "You can't do that because you are dead!")
 		return
 	var/HTML = "<html><head><title>AI PDA Message Log</title></head><body>"
 	for(var/index in tnote)
@@ -542,7 +542,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 				for(var/datum/feed_message/FM in FC.messages)
 					index++
 					if(FM.img)
-						usr << browse_rsc(FM.img, "pda_news_tmp_photo_[feed["channel"]]_[index].png")
+						to_chat(usr, browse_rsc(FM.img, "pda_news_tmp_photo_[feed["channel"]]_[index].png"))
 					// News stories are HTML-stripped but require newline replacement to be properly displayed in NanoUI
 					var/body = replacetext(FM.body, "\n", "<br>")
 					messages[++messages.len] = list("author" = FM.author, "body" = body, "message_type" = FM.message_type, "time_stamp" = FM.time_stamp, "has_image" = (FM.img != null), "caption" = FM.caption, "index" = index, "likes" = FM.likes, "dislikes" = FM.dislikes)
@@ -730,7 +730,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 			if (in_range(src, U) && loc == U)
 				if (t)
 					if(src.hidden_uplink && hidden_uplink.check_trigger(U, lowertext(t), lowertext(lock_code)))
-						U << "The PDA softly beeps."
+						to_chat(U, "The PDA softly beeps.")
 						ui.close()
 					else
 						t = sanitize(t, 20)
@@ -778,7 +778,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 						U.show_message("<span class='notice'>Virus sent!</span>", 1)
 						P.honkamt = (rand(15,20))
 				else
-					U << "PDA not found."
+					to_chat(U, "PDA not found.")
 			else
 				ui.close()
 				return 0
@@ -794,7 +794,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 						P.ttone = "silence"
 						P.newstone = "silence"
 				else
-					U << "PDA not found."
+					to_chat(U, "PDA not found.")
 			else
 				ui.close()
 				return 0
@@ -850,9 +850,9 @@ var/global/list/obj/item/device/pda/PDAs = list()
 							message_admins("[key_name_admin(U)] just attempted to blow up [P] with the Detomatix cartridge and succeeded.", 1)
 							detonate_act(P)
 					else
-						U << "No charges left."
+						to_chat(U, "No charges left.")
 				else
-					U << "PDA not found."
+					to_chat(U, "PDA not found.")
 			else
 				U.unset_machine()
 				ui.close()
@@ -959,7 +959,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 		if (ismob(loc))
 			var/mob/M = loc
 			M.put_in_hands(id)
-			usr << "<span class='notice'>You remove the ID from the [name].</span>"
+			to_chat(usr, "<span class='notice'>You remove the ID from the [name].</span>")
 		else
 			id.forceMove(get_turf(src))
 		id = null
@@ -1032,11 +1032,11 @@ var/global/list/obj/item/device/pda/PDAs = list()
 
 	if(reception.message_server && (reception.telecomms_reception & TELECOMMS_RECEPTION_SENDER)) // only send the message if it's stable
 		if(!(reception.telecomms_reception & TELECOMMS_RECEPTION_RECEIVER)) // Does our recipient have a broadcaster on their level?
-			U << "ERROR: Cannot reach recipient."
+			to_chat(U, "ERROR: Cannot reach recipient.")
 			return
 		var/send_result = reception.message_server.send_pda_message("[P.owner]","[owner]","[t]")
 		if (send_result)
-			U << "ERROR: Messaging server rejected your message. Reason: contains '[send_result]'."
+			to_chat(U, "ERROR: Messaging server rejected your message. Reason: contains '[send_result]'.")
 			return
 
 		tnote.Add(list(list("sent" = 1, "owner" = "[P.owner]", "job" = "[P.ownjob]", "message" = "[t]", "target" = "\ref[P]")))
@@ -1068,7 +1068,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 		P.new_message_from_pda(src, t)
 		SSnanoui.update_user_uis(U, src) // Update the sending user's PDA UI so that they can see the new message
 	else
-		U << "<span class='notice'>ERROR: Messaging server is not responding.</span>"
+		to_chat(U, "<span class='notice'>ERROR: Messaging server is not responding.</span>")
 
 /obj/item/device/pda/proc/new_info(var/beep_silent, var/message_tone, var/reception_message)
 	if (!beep_silent)
@@ -1085,7 +1085,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 
 	if(L)
 		if(reception_message)
-			L << reception_message
+			to_chat(L, reception_message)
 		SSnanoui.update_user_uis(L, src) // Update the receiving user's PDA UI so that they can see the new message
 
 /obj/item/device/pda/proc/new_news(var/message)
@@ -1130,11 +1130,11 @@ var/global/list/obj/item/device/pda/PDAs = list()
 
 	switch (use_check(usr, USE_FORCE_SRC_IN_USER))
 		if (USE_ALLOW_DEAD,USE_ALLOW_INCAPACITATED)
-			usr << "<span class='notice'>You cannot do this in your current state.</span>"
+			to_chat(usr, "<span class='notice'>You cannot do this in your current state.</span>")
 		if (USE_SUCCESS)
 			mode = 0
 			SSnanoui.update_uis(src)
-			usr << "<span class='notice'>You press the reset button on \the [src].</span>"
+			to_chat(usr, "<span class='notice'>You press the reset button on \the [src].</span>")
 
 /obj/item/device/pda/verb/verb_remove_id()
 	set category = "Object"
@@ -1146,13 +1146,13 @@ var/global/list/obj/item/device/pda/PDAs = list()
 
 	switch (use_check(usr, USE_DISALLOW_SILICONS))
 		if (USE_FAIL_DEAD,USE_FAIL_INCAPACITATED)
-			usr << "<span class='notice'>You cannot do this in your current state.</span>"
+			to_chat(usr, "<span class='notice'>You cannot do this in your current state.</span>")
 
 		if (USE_SUCCESS)
 			if(id)
 				remove_id()
 			else
-				usr << "<span class='notice'>This PDA does not have an ID in it.</span>"
+				to_chat(usr, "<span class='notice'>This PDA does not have an ID in it.</span>")
 
 /obj/item/device/pda/verb/verb_remove_pen()
 	set category = "Object"
@@ -1171,10 +1171,10 @@ var/global/list/obj/item/device/pda/PDAs = list()
 
 	switch (use_check(usr, USE_DISALLOW_SILICONS))
 		if (USE_FAIL_DEAD,USE_FAIL_INCAPACITATED)
-			usr << "<span class='notice'>You cannot do this in your current state.</span>"
+			to_chat(usr, "<span class='notice'>You cannot do this in your current state.</span>")
 		if (USE_SUCCESS)
 			if (!cartridge)
-				usr << "<span class='notice'>There is no cartridge in the [name].</span>"
+				to_chat(usr, "<span class='notice'>There is no cartridge in the [name].</span>")
 			else
 				var/turf/T = get_turf(src)
 				cartridge.forceMove(T)
@@ -1186,7 +1186,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 				scanmode = 0
 				if (cartridge.radio)
 					cartridge.radio.hostpda = null
-				usr << "<span class='notice'>You remove \the [cartridge] from the [name].</span>"
+				to_chat(usr, "<span class='notice'>You remove \the [cartridge] from the [name].</span>")
 				cartridge = null
 
 /obj/item/device/pda/proc/id_check(mob/user as mob, choice as num)//To check for IDs; 1 for in-pda use, 2 for out of pda use.
@@ -1422,7 +1422,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 	var/list/namecounts = list()
 
 	if (toff)
-		usr << "Turn on your receiver in order to send messages."
+		to_chat(usr, "Turn on your receiver in order to send messages.")
 		return
 
 	for (var/obj/item/device/pda/P in PDAs)

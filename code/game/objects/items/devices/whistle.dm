@@ -16,7 +16,7 @@
 	set desc = "Alter the message shouted by your hailer."
 
 	if(!isnull(insults))
-		usr << "The hailer is fried. The tiny input screen just shows a waving ASCII penis."
+		to_chat(usr, "The hailer is fried. The tiny input screen just shows a waving ASCII penis.")
 		return
 
 	var/new_message = input(usr, "Please enter new message (leave blank to reset).") as text
@@ -25,7 +25,7 @@
 	else
 		use_message = capitalize(copytext(sanitize(new_message), 1, MAX_MESSAGE_LEN))
 
-	usr << "You configure the hailer to shout \"[use_message]\"."
+	to_chat(usr, "You configure the hailer to shout \"[use_message]\".")
 /
 obj/item/device/hailer/attack_self(mob/living/carbon/user as mob)
 	if (spamcheck)

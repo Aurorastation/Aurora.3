@@ -20,9 +20,9 @@
 
 	opened = !opened
 	if(opened)
-		usr << "<span class='notice'>The access panel is now open.</span>"
+		to_chat(usr, "<span class='notice'>The access panel is now open.</span>")
 	else
-		usr << "<span class='notice'>The access panel is now closed.</span>"
+		to_chat(usr, "<span class='notice'>The access panel is now closed.</span>")
 	return
 
 

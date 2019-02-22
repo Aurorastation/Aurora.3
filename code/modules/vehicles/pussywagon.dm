@@ -68,7 +68,7 @@
 		if(istype(tow,/obj/vehicle/train/cargo/trolley/pussywagon))
 			var/obj/vehicle/train/cargo/trolley/pussywagon/PW = tow
 			if(!PW.bucket)
-				usr << "<span class='warning'>You must insert a reagent container first!</span>"
+				to_chat(usr, "<span class='warning'>You must insert a reagent container first!</span>")
 				return
 			PW.mop_toggle()
 

@@ -194,7 +194,7 @@
 		i = (++i % 2)
 
 	output += "</table>"
-	to_chat(user, browse(output, "window=banmirrors;size=600x400"))
+	user << browse(output, "window=banmirrors;size=600x400")
 
 /proc/display_mirrors_ckeys(mob/user, mirror_id)
 	if (!user || !check_rights(R_MOD|R_ADMIN) || !mirror_id)
@@ -229,7 +229,7 @@
 		return
 
 	output += "<br><br><a href='?_src_=holder;dbbanmirrors=[query.item[2]];'>Back</a>"
-	to_chat(user, browse(output, "window=banmirrors"))
+	user << browse(output, "window=banmirrors")
 
 /proc/toggle_mirror_status(mob/user, mirror_id, inactive = FALSE)
 	if (!user || !check_rights(R_MOD|R_ADMIN) || !mirror_id)
@@ -342,7 +342,7 @@
 	data += list(list(C.ckey, C.address, C.computer_id))
 
 	var/data_str = json_encode(data)
-	C << output(list2params(list("E-DAT", data_str, 900)), "greeting.browser:setCookie")
+	to_chat(C, output(list2params(list("E-DAT", data_str, 900)), "greeting.browser:setCookie"))
 
 #undef BAD_CID
 #undef BAD_IP

@@ -410,7 +410,7 @@ nanoui is used to open and update nano browser uis
 	if(status == STATUS_CLOSE)
 		return
 
-	to_chat(user, browse(get_html(), "window=[window_id];[window_size][window_options]"))
+	user << browse(get_html(), "window=[window_id];[window_size][window_options]")
 	winset(user, "mapwindow.map", "focus=true") // return keyboard focus to map
 	on_close_winset()
 	//onclose(user, window_id)
@@ -436,7 +436,7 @@ nanoui is used to open and update nano browser uis
 /datum/nanoui/proc/close()
 	is_auto_updating = 0
 	SSnanoui.ui_closed(src)
-	to_chat(user, browse(null, "window=[window_id]"))
+	user << browse(null, "window=[window_id]")
 	for(var/datum/nanoui/child in children)
 		child.close()
 	children.Cut()

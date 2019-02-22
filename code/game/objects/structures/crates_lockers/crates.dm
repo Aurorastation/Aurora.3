@@ -324,7 +324,7 @@
 		add_fingerprint(usr)
 		togglelock(usr)
 	else
-		usr << "<span class='warning'>This mob type can't use this verb.</span>"
+		to_chat(usr, "<span class='warning'>This mob type can't use this verb.</span>")
 
 /obj/structure/closet/crate/secure/attack_hand(mob/user as mob)
 	add_fingerprint(user)

@@ -201,7 +201,7 @@ obj/structure/windoor_assembly/Destroy()
 			//Crowbar to complete the assembly, Step 7 complete.
 			else if(W.iscrowbar())
 				if(!src.electronics)
-					usr << "<span class='warning'>The assembly is missing electronics.</span>"
+					to_chat(usr, "<span class='warning'>The assembly is missing electronics.</span>")
 					return
 				usr << browse(null, "window=windoor_access")
 				playsound(src.loc, 'sound/items/Crowbar.ogg', 100, 1)
@@ -276,11 +276,11 @@ obj/structure/windoor_assembly/Destroy()
 			continue
 
 		if((obstacle.flags & ON_BORDER) && obstacle.dir == targetdir)
-			usr << span("danger", "You can't turn the windoor assembly that way, there's already something there!")
+			to_chat(usr, span("danger", "You can't turn the windoor assembly that way, there's already something there!"))
 			return
 
 	if (src.anchored)
-		usr << "It is fastened to the floor; therefore, you can't rotate it!"
+		to_chat(usr, "It is fastened to the floor; therefore, you can't rotate it!")
 		return 0
 	if(src.state != "01")
 		update_nearby_tiles(need_rebuild=1) //Compel updates before
@@ -307,11 +307,11 @@ obj/structure/windoor_assembly/Destroy()
 			continue
 
 		if((obstacle.flags & ON_BORDER) && obstacle.dir == targetdir)
-			usr << span("danger", "You can't turn the windoor assembly that way, there's already something there!")
+			to_chat(usr, span("danger", "You can't turn the windoor assembly that way, there's already something there!"))
 			return
 
 	if (src.anchored)
-		usr << "It is fastened to the floor; therefore, you can't rotate it!"
+		to_chat(usr, "It is fastened to the floor; therefore, you can't rotate it!")
 		return 0
 	if(src.state != "01")
 		update_nearby_tiles(need_rebuild=1) //Compel updates before
@@ -331,11 +331,11 @@ obj/structure/windoor_assembly/Destroy()
 	set src in oview(1)
 
 	if(src.facing == "l")
-		usr << "The windoor will now slide to the right."
+		to_chat(usr, "The windoor will now slide to the right.")
 		src.facing = "r"
 	else
 		src.facing = "l"
-		usr << "The windoor will now slide to the left."
+		to_chat(usr, "The windoor will now slide to the left.")
 
 	update_icon()
 	return

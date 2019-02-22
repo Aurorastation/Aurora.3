@@ -49,7 +49,7 @@
 		if(src.occupant)
 			dat += "[src.ready ? "<A href='?src=\ref[src];implant=1'>Implant</A>" : "Recharging"]<BR>"
 		user.set_machine(src)
-		to_chat(user, browse(dat, "window=implant"))
+		user << browse(dat, "window=implant")
 		onclose(user, "implant")
 
 
@@ -80,7 +80,7 @@
 				return
 			for(var/mob/living/carbon/slime/M in range(1,G:affecting))
 				if(M.Victim == G:affecting)
-					usr << "[G:affecting:name] will not fit into the [src.name] because they have a slime latched onto their head."
+					to_chat(usr, "[G:affecting:name] will not fit into the [src.name] because they have a slime latched onto their head.")
 					return
 			var/mob/M = G:affecting
 			if(put_mob(M))
@@ -108,10 +108,10 @@
 
 	put_mob(mob/living/carbon/M as mob)
 		if(!iscarbon(M))
-			usr << "<span class='warning'>\The [src] cannot hold this!</span>"
+			to_chat(usr, "<span class='warning'>\The [src] cannot hold this!</span>")
 			return
 		if(src.occupant)
-			usr << "<span class='warning'>\The [src] is already occupied!</span>"
+			to_chat(usr, "<span class='warning'>\The [src] is already occupied!</span>")
 			return
 		if(M.client)
 			M.client.perspective = EYE_PERSPECTIVE

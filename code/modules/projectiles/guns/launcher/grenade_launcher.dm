@@ -36,9 +36,9 @@
 	if(next)
 		grenades -= next //Remove grenade from loaded list.
 		chambered = next
-		M << "<span class='warning'>You pump [src], loading \a [next] into the chamber.</span>"
+		to_chat(M, "<span class='warning'>You pump [src], loading \a [next] into the chamber.</span>")
 	else
-		M << "<span class='warning'>You pump [src], but the magazine is empty.</span>"
+		to_chat(M, "<span class='warning'>You pump [src], but the magazine is empty.</span>")
 	update_icon()
 
 /obj/item/weapon/gun/launcher/grenade/examine(mob/user)

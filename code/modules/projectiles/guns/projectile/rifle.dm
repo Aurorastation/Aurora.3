@@ -147,7 +147,7 @@
 
 /obj/item/weapon/gun/projectile/shotgun/pump/rifle/vintage/pump(mob/M as mob)
 	if(!wielded)
-		M << "<span class='warning'>You cannot work \the [src]'s bolt without gripping it with both hands!</span>"
+		to_chat(M, "<span class='warning'>You cannot work \the [src]'s bolt without gripping it with both hands!</span>")
 		return
 	if(!open_bolt)
 		open_bolt = 1

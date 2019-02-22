@@ -22,7 +22,7 @@
 		for (var/mob/living/M in range(src.effectrange,T))
 			var/weakness = GetAnomalySusceptibility(M)
 			if(prob(100 * weakness))
-				M << span("alert", "You are displaced by a strange force!")
+				to_chat(M, span("alert", "You are displaced by a strange force!"))
 				if(M.buckled)
 					M.buckled.unbuckle_mob()
 
@@ -38,7 +38,7 @@
 		for (var/mob/living/M in range(src.effectrange, T))
 			var/weakness = GetAnomalySusceptibility(M)
 			if(prob(100 * weakness))
-				M << span("alert", "You are displaced by a strange force!")
+				to_chat(M, span("alert", "You are displaced by a strange force!"))
 				if(M.buckled)
 					M.buckled.unbuckle_mob()
 

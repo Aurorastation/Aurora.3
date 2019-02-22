@@ -52,7 +52,7 @@
 		on = 1
 		shock()
 		icon_state = "echair1"
-	usr << "<span class='notice'>You switch [on ? "on" : "off"] [src].</span>"
+	to_chat(usr, "<span class='notice'>You switch [on ? "on" : "off"] [src].</span>")
 
 /obj/structure/bed/chair/e_chair/proc/shock()
 	if(!on)
@@ -137,7 +137,7 @@
 
 		var/thrall_response = alert(H, "Do you believe in hypnosis?", "Willpower", "Yes", "No")
 		if(thrall_response == "Yes")
-			H << "<span class='notice'><i>... [text] ...</i></span>"
+			to_chat(H, "<span class='notice'><i>... [text] ...</i></span>")
 			H.cure_all_traumas(cure_type = CURE_HYPNOSIS)
 		else
 			thrall = null
@@ -218,8 +218,8 @@
 			ticktock = "Tock"
 		else
 			ticktock = "Tick"
-		H << "<span class='notice'><i>[ticktock]. . .</i></span>"
-		H << 'sound/effects/singlebeat.ogg'
+		to_chat(H, "<span class='notice'><i>[ticktock]. . .</i></span>")
+		to_chat(H, 'sound/effects/singlebeat.ogg')
 		if(prob(1))
 			H.cure_all_traumas(cure_type = CURE_SOLITUDE)
 
@@ -273,16 +273,16 @@
 	if (usr.stat != 0 || locked)
 		return
 	if (occupant.resolve())
-		usr << "<span class='warning'>The pod is already occupied!</span>"
+		to_chat(usr, "<span class='warning'>The pod is already occupied!</span>")
 		return
 	if (usr.abiotic())
-		usr << "<span class='warning'>The subject cannot have abiotic items on.</span>"
+		to_chat(usr, "<span class='warning'>The subject cannot have abiotic items on.</span>")
 		return
 	if(locked)
-		usr << "<span class='warning'>The pod is currently locked!</span>"
+		to_chat(usr, "<span class='warning'>The pod is currently locked!</span>")
 		return
 	if(!ishuman(usr))
-		usr << "<span class='warning'>The subject does not fit!</span>"
+		to_chat(usr, "<span class='warning'>The subject does not fit!</span>")
 		return
 	usr.pulling = null
 	usr.client.perspective = EYE_PERSPECTIVE
@@ -304,7 +304,7 @@
 	var/mob/living/carbon/human/H = occupant.resolve()
 
 	if(locked)
-		H << "<span class='notice'>You push against the pod door and attempt to escape. This process will take roughly two minutes.</span>"
+		to_chat(H, "<span class='notice'>You push against the pod door and attempt to escape. This process will take roughly two minutes.</span>")
 		if(!do_after(H, 1200))
 			return
 
@@ -579,12 +579,12 @@
 			var/response2 = input(user,"Input timeframe.","Memory Wipe") as null|anything in choices2
 			if(response2 != "Cancel")
 				to_chat(user, "<span class='notice'>Initiating memory wipe. Process will take approximately two minutes.</span>")
-				H << "<span class='danger'>You feel a sharp pain in your brain as the therapy pod begins to hum menacingly!!</span>"
+				to_chat(H, "<span class='danger'>You feel a sharp pain in your brain as the therapy pod begins to hum menacingly!!</span>")
 				sleep(1200-rand(0,150))
 				if(H && H == connected.occupant.resolve())
 					var/timespan = response2
-					H << "<span class='danger'>You feel a part of your past self, a portion of your memories, a piece of your very being slip away...</span>"
-					H << "<b>Your memory of the past [timespan] has been wiped. Your ability to recall these past [timespan] has been removed from your brain, and you remember nothing that ever ocurred within those [timespan].</b>"
+					to_chat(H, "<span class='danger'>You feel a part of your past self, a portion of your memories, a piece of your very being slip away...</span>")
+					to_chat(H, "<b>Your memory of the past [timespan] has been wiped. Your ability to recall these past [timespan] has been removed from your brain, and you remember nothing that ever ocurred within those [timespan].</b>")
 					crystal = 1
 					return
 			else
@@ -594,11 +594,11 @@
 			var/memory_implant = sanitize(new_memory)
 			if(memory_implant)
 				to_chat(user, "<span class='notice'>Initiating memory implantation. Process will take approximately two minutes. Subject's memory of this process will also be wiped.</span>")
-				H << "<span class='danger'>You feel a sharp pain in your brain as the therapy pod begins to hum menacingly!</span>"
+				to_chat(H, "<span class='danger'>You feel a sharp pain in your brain as the therapy pod begins to hum menacingly!</span>")
 				sleep(1200-rand(0,150))
 				if(H && H == connected.occupant.resolve())
-					H << "<span class='danger'>You blink, and somehow between the timespan of your eyes closing and your eyes opening your perception of the world has changed in some imperceptible way...</span>"
-					H << "<b>A new memory has been implanted in your mind as follows: [memory_implant] - you have no reason to suspect the memory to be fabricated, as your memory of the past two minutes has also been altered.</b>"
+					to_chat(H, "<span class='danger'>You blink, and somehow between the timespan of your eyes closing and your eyes opening your perception of the world has changed in some imperceptible way...</span>")
+					to_chat(H, "<b>A new memory has been implanted in your mind as follows: [memory_implant] - you have no reason to suspect the memory to be fabricated, as your memory of the past two minutes has also been altered.</b>")
 					crystal = 1
 					return
 	if(get_dist(user,src) <= 1)

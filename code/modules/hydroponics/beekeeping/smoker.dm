@@ -61,7 +61,7 @@
 		return 1
 	else
 		if(M)
-			M << "<span class='notice'>You need more welding fuel to complete this task.</span>"
+			to_chat(M, "<span class='notice'>You need more welding fuel to complete this task.</span>")
 		return 0
 
 /obj/item/weapon/bee_smoker/proc/smoke_at(var/atom/A)

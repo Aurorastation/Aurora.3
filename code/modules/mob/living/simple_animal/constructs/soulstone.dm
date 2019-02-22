@@ -45,7 +45,7 @@
 		dat += {"<A href='byond://?src=\ref[src];choice=Summon'>Summon Shade</A>"}
 		dat += "<br>"
 		dat += {"<a href='byond://?src=\ref[src];choice=Close'> Close</a>"}
-	to_chat(user, browse(dat, "window=aicard"))
+	user << browse(dat, "window=aicard")
 	onclose(user, "aicard")
 	return
 
@@ -104,16 +104,16 @@
 	if(!istype(T))
 		return;
 	if(src.imprinted != "empty")
-		U << "<span class='danger'>Capture failed!</span>: The soul stone has already been imprinted with [src.imprinted]'s mind!"
+		to_chat(U, "<span class='danger'>Capture failed!</span>: The soul stone has already been imprinted with [src.imprinted]'s mind!")
 		return
 	if ((T.health + T.halloss) > config.health_threshold_crit && T.stat != DEAD)
-		U << "<span class='danger'>Capture failed!</span>: Kill or maim the victim first!"
+		to_chat(U, "<span class='danger'>Capture failed!</span>: Kill or maim the victim first!")
 		return
 	if(T.client == null)
-		U << "<span class='danger'>Capture failed!</span>: The soul has already fled it's mortal frame."
+		to_chat(U, "<span class='danger'>Capture failed!</span>: The soul has already fled it's mortal frame.")
 		return
 	if(src.contents.len)
-		U << "<span class='danger'>Capture failed!</span>: The soul stone is full! Use or free an existing soul to make room."
+		to_chat(U, "<span class='danger'>Capture failed!</span>: The soul stone is full! Use or free an existing soul to make room.")
 		return
 
 	for(var/obj/item/W in T)
@@ -150,8 +150,8 @@
 	src.icon_state = "soulstone2"
 	src.name = "Soul Stone: [S.real_name]"
 	S << "Your soul has been captured! You are now bound to [U.name]'s will, help them suceed in their goals at all costs."
-	U << "<span class='notice'>Capture successful!</span> : [T.real_name]'s soul has been ripped from their body and stored within the soul stone."
-	U << "The soulstone has been imprinted with [S.real_name]'s mind, it will no longer react to other souls."
+	to_chat(U, "<span class='notice'>Capture successful!</span> : [T.real_name]'s soul has been ripped from their body and stored within the soul stone.")
+	to_chat(U, "The soulstone has been imprinted with [S.real_name]'s mind, it will no longer react to other souls.")
 	src.imprinted = "[S.name]"
 	qdel(T)
 
@@ -159,13 +159,13 @@
 	if(!istype(T))
 		return;
 	if (T.stat == DEAD)
-		U << "<span class='danger'>Capture failed!</span>: The shade has already been banished!"
+		to_chat(U, "<span class='danger'>Capture failed!</span>: The shade has already been banished!")
 		return
 	if(src.contents.len)
-		U << "<span class='danger'>Capture failed!</span>: The soul stone is full! Use or free an existing soul to make room."
+		to_chat(U, "<span class='danger'>Capture failed!</span>: The soul stone is full! Use or free an existing soul to make room.")
 		return
 	if(T.name != src.imprinted)
-		U << "<span class='danger'>Capture failed!</span>: The soul stone has already been imprinted with [src.imprinted]'s mind!"
+		to_chat(U, "<span class='danger'>Capture failed!</span>: The soul stone has already been imprinted with [src.imprinted]'s mind!")
 		return
 
 	T.forceMove(src) //put shade in stone
@@ -174,12 +174,12 @@
 	T.health = T.maxHealth
 	src.icon_state = "soulstone2"
 
-	T << "Your soul has been recaptured by the soul stone, its arcane energies are reknitting your ethereal form"
-	U << "<span class='notice'>Capture successful!</span> : [T.name]'s has been recaptured and stored within the soul stone."
+	to_chat(T, "Your soul has been recaptured by the soul stone, its arcane energies are reknitting your ethereal form")
+	to_chat(U, "<span class='notice'>Capture successful!</span> : [T.name]'s has been recaptured and stored within the soul stone.")
 /obj/item/device/soulstone/proc/transfer_construct(var/obj/structure/constructshell/T,var/mob/U)
 	var/mob/living/simple_animal/shade/A = locate() in src
 	if(!A)
-		U << "<span class='danger'>Capture failed!</span>: The soul stone is empty! Go kill someone!"
+		to_chat(U, "<span class='danger'>Capture failed!</span>: The soul stone is empty! Go kill someone!")
 		return;
 	var/construct_class = alert(U, "Please choose which type of construct you wish to create.",,"Juggernaut","Wraith","Artificer")
 	switch(construct_class)
@@ -189,8 +189,8 @@
 			if(iscultist(U))
 				cult.add_antagonist(Z.mind)
 			qdel(T)
-			Z << "<B>You are playing a Juggernaut. Though slow, you can withstand extreme punishment, and rip apart enemies and walls alike.</B>"
-			Z << "<B>You are still bound to serve your creator, follow their orders and help them complete their goals at all costs.</B>"
+			to_chat(Z, "<B>You are playing a Juggernaut. Though slow, you can withstand extreme punishment, and rip apart enemies and walls alike.</B>")
+			to_chat(Z, "<B>You are still bound to serve your creator, follow their orders and help them complete their goals at all costs.</B>")
 			Z.cancel_camera()
 			qdel(src)
 		if("Wraith")
@@ -199,8 +199,8 @@
 			if(iscultist(U))
 				cult.add_antagonist(Z.mind)
 			qdel(T)
-			Z << "<B>You are playing a Wraith. Though relatively fragile, you are fast, deadly, and even able to phase through walls.</B>"
-			Z << "<B>You are still bound to serve your creator, follow their orders and help them complete their goals at all costs.</B>"
+			to_chat(Z, "<B>You are playing a Wraith. Though relatively fragile, you are fast, deadly, and even able to phase through walls.</B>")
+			to_chat(Z, "<B>You are still bound to serve your creator, follow their orders and help them complete their goals at all costs.</B>")
 			Z.cancel_camera()
 			qdel(src)
 		if("Artificer")
@@ -209,8 +209,8 @@
 			if(iscultist(U))
 				cult.add_antagonist(Z.mind)
 			qdel(T)
-			Z << "<B>You are playing an Artificer. You are incredibly weak and fragile, but you are able to construct fortifications, repair allied constructs (by clicking on them), and even create new constructs</B>"
-			Z << "<B>You are still bound to serve your creator, follow their orders and help them complete their goals at all costs.</B>"
+			to_chat(Z, "<B>You are playing an Artificer. You are incredibly weak and fragile, but you are able to construct fortifications, repair allied constructs (by clicking on them), and even create new constructs</B>")
+			to_chat(Z, "<B>You are still bound to serve your creator, follow their orders and help them complete their goals at all costs.</B>")
 			Z.cancel_camera()
 			qdel(src)
 /obj/item/device/soulstone/proc/transfer_soul(var/choice as text, var/target, var/mob/U as mob)

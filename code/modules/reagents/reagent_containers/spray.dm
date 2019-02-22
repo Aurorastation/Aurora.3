@@ -26,7 +26,7 @@
 	if(!usr || usr.stat || usr.lying || usr.restrained() || !Adjacent(usr))	return
 	safety = !safety
 	playsound(src.loc, 'sound/weapons/empty.ogg', 50, 1)
-	usr << "<span class = 'notice'>You twist the locking cap on the end of the nozzle. \The [src] is now [safety ? "locked" : "unlocked"].</span>"
+	to_chat(usr, "<span class = 'notice'>You twist the locking cap on the end of the nozzle. \The [src] is now [safety ? "locked" : "unlocked"].</span>")
 
 
 /obj/item/weapon/reagent_containers/spray/afterattack(atom/A as mob|obj, mob/user as mob, proximity)
@@ -111,7 +111,7 @@
 	if (alert(usr, "Are you sure you want to empty that?", "Empty Bottle:", "Yes", "No") != "Yes")
 		return
 	if(isturf(usr.loc))
-		usr << "<span class='notice'>You empty \the [src] onto the floor.</span>"
+		to_chat(usr, "<span class='notice'>You empty \the [src] onto the floor.</span>")
 		reagents.splash(usr.loc, reagents.total_volume)
 
 //space cleaner

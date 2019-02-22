@@ -95,7 +95,7 @@
 /obj/machinery/power/generator_type2/interact(mob/user)
 	if ( (get_dist(src, user) > 1 ) && (!istype(user, /mob/living/silicon/ai)))
 		user.unset_machine()
-		to_chat(user, browse(null, "window=teg"))
+		user << browse(null, "window=teg")
 		return
 
 	user.set_machine(src)
@@ -115,7 +115,7 @@
 	t += "<BR><HR><A href='?src=\ref[src];close=1'>Close</A>"
 
 	t += "</PRE>"
-	to_chat(user, browse(t, "window=teg;size=460x300"))
+	user << browse(t, "window=teg;size=460x300")
 	onclose(user, "teg")
 	return 1
 

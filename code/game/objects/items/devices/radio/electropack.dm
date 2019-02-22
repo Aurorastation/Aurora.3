@@ -90,7 +90,7 @@
 				sleep(50)
 				if(M)
 					M.moved_recently = 0
-		M << "<span class='danger'>You feel a sharp shock!</span>"
+		to_chat(M, "<span class='danger'>You feel a sharp shock!</span>")
 		spark(M, 3)
 
 		M.Weaken(10)
@@ -119,6 +119,6 @@ Code:
 <A href='byond://?src=\ref[src];code=1'>+</A>
 <A href='byond://?src=\ref[src];code=5'>+</A><BR>
 </TT>"}
-	to_chat(user, browse(dat, "window=radio"))
+	user << browse(dat, "window=radio")
 	onclose(user, "radio")
 	return

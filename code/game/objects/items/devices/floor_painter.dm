@@ -125,7 +125,7 @@
 	var/new_colour = input(usr, "Choose a colour.", "Floor painter", paint_colour) as color|null
 	if(new_colour && new_colour != paint_colour)
 		paint_colour = new_colour
-		usr << "<span class='notice'>You set \the [src] to paint with <font color='[paint_colour]'>a new colour</font>.</span>"
+		to_chat(usr, "<span class='notice'>You set \the [src] to paint with <font color='[paint_colour]'>a new colour</font>.</span>")
 
 /obj/item/device/floor_painter/verb/choose_decal()
 	set name = "Choose Decal"
@@ -139,7 +139,7 @@
 	var/new_decal = input("Select a decal.") as null|anything in decals
 	if(new_decal && !isnull(decals[new_decal]))
 		decal = new_decal
-		usr << "<span class='notice'>You set \the [src] decal to '[decal]'.</span>"
+		to_chat(usr, "<span class='notice'>You set \the [src] decal to '[decal]'.</span>")
 
 /obj/item/device/floor_painter/verb/choose_direction()
 	set name = "Choose Direction"
@@ -153,4 +153,4 @@
 	var/new_dir = input("Select a direction.") as null|anything in paint_dirs
 	if(new_dir && !isnull(paint_dirs[new_dir]))
 		paint_dir = new_dir
-		usr << "<span class='notice'>You set \the [src] direction to '[paint_dir]'.</span>"
+		to_chat(usr, "<span class='notice'>You set \the [src] direction to '[paint_dir]'.</span>")

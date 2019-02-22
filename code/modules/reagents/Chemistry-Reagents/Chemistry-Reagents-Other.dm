@@ -663,7 +663,7 @@
 /datum/reagent/bluespace_dust/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(prob(25))
 		M.make_jittery(5)
-		M << "<span class='warning'>You feel unstable...</span>"
+		to_chat(M, "<span class='warning'>You feel unstable...</span>")
 
 	if(prob(10))
 		do_teleport(M, get_turf(M), 5, asoundin = 'sound/effects/phasein.ogg')

@@ -53,9 +53,9 @@
 	if(!..(user,1 ))
 		return
 	if(active)
-		usr << "<span class='notice'>The generator is on.</span>"
+		to_chat(usr, "<span class='notice'>The generator is on.</span>")
 	else
-		usr << "<span class='notice'>The generator is off.</span>"
+		to_chat(usr, "<span class='notice'>The generator is off.</span>")
 
 /obj/machinery/power/port_gen/emp_act(severity)
 	var/duration = 6000 //ten minutes
@@ -346,7 +346,7 @@
 	if (get_dist(src, user) > 1 )
 		if (!istype(user, /mob/living/silicon/ai))
 			user.unset_machine()
-			to_chat(user, browse(null, "window=port_gen"))
+			user << browse(null, "window=port_gen")
 			return
 
 	user.set_machine(src)
@@ -365,7 +365,7 @@
 	var/tempstr = "Temperature: [temperature]&deg;C<br>"
 	dat += (overheating)? "<span class='danger'>[tempstr]</span>" : tempstr
 	dat += "<br><A href='?src=\ref[src];action=close'>Close</A>"
-	to_chat(user, browse("[dat]", "window=port_gen"))
+	user << browse("[dat]", "window=port_gen")
 	onclose(user, "port_gen")
 */
 

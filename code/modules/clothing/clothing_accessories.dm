@@ -12,7 +12,7 @@
 	if(istype(I, /obj/item/clothing/accessory))
 
 		if(!valid_accessory_slots || !valid_accessory_slots.len)
-			usr << "<span class='warning'>You cannot attach accessories of any kind to \the [src].</span>"
+			to_chat(usr, "<span class='warning'>You cannot attach accessories of any kind to \the [src].</span>")
 			return
 
 		var/obj/item/clothing/accessory/A = I

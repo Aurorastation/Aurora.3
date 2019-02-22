@@ -196,8 +196,8 @@ proc/show_skill_window(var/mob/user, var/mob/living/carbon/human/M)
 			HTML += "</tr>"
 	HTML += "</table>"
 
-	to_chat(user, browse(null, "window=preferences"))
-	to_chat(user, browse(HTML, "window=show_skills;size=600x800"))
+	user << browse(null, "window=preferences")
+	user << browse(HTML, "window=show_skills;size=600x800")
 	return
 
 mob/living/carbon/human/verb/show_skills()

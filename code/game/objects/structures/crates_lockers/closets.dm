@@ -336,7 +336,7 @@
 /obj/structure/closet/attack_self_tk(mob/user as mob)
 	add_fingerprint(user)
 	if(!toggle())
-		usr << "<span class='notice'>It won't budge!</span>"
+		to_chat(usr, "<span class='notice'>It won't budge!</span>")
 
 /obj/structure/closet/verb/verb_toggleopen()
 	set src in oview(1)
@@ -350,7 +350,7 @@
 		add_fingerprint(usr)
 		toggle(usr)
 	else
-		usr << "<span class='warning'>This mob type can't use this verb.</span>"
+		to_chat(usr, "<span class='warning'>This mob type can't use this verb.</span>")
 
 /obj/structure/closet/update_icon()//Putting the welded stuff in updateicon() so it's easy to overwrite for special cases (Fridges, cabinets, and whatnot)
 	cut_overlays()

@@ -397,10 +397,10 @@
 	if(bolt)
 		if(tension < max_tension)
 			if(do_after(M, 5 * tension))
-				M << "<span class='warning'>You pump [src], charging the magnetic coils.</span>"
+				to_chat(M, "<span class='warning'>You pump [src], charging the magnetic coils.</span>")
 				tension++
 		else
-			M << "<span class='notice'>\The [src]'s magnetic coils are at maximum charge.</span>"
+			to_chat(M, "<span class='notice'>\The [src]'s magnetic coils are at maximum charge.</span>")
 		return
 	var/obj/item/next
 	if(belt.len)
@@ -409,9 +409,9 @@
 		if(next)
 			belt -= next //Remove grenade from loaded list.
 			bolt = next
-			M << "<span class='warning'>You pump [src], loading \a [next] into the chamber.</span>"
+			to_chat(M, "<span class='warning'>You pump [src], loading \a [next] into the chamber.</span>")
 		else
-			M << "<span class='warning'>You pump [src], but the magazine is empty.</span>"
+			to_chat(M, "<span class='warning'>You pump [src], but the magazine is empty.</span>")
 
 /obj/item/weapon/gun/launcher/crossbow/vaurca/proc/load(obj/item/W, mob/user)
 	if(belt.len >= belt_size)

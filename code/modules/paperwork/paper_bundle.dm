@@ -46,7 +46,7 @@
 		if(istype(W, /obj/item/weapon/tape_roll))
 			return 0
 		if(istype(W, /obj/item/weapon/pen))
-			usr << browse("", "window=[name]") //Closes the dialog
+			usr << browse("", "window=[name]") //Closes the dialog)
 		var/obj/P = pages[page]
 		P.attackby(W, user)
 
@@ -121,11 +121,11 @@
 			dat+= "<HTML><HEAD><TITLE>[P.name]</TITLE></HEAD><BODY>[stars(P.info)][P.stamps]</BODY></HTML>"
 		else
 			dat+= "<HTML><HEAD><TITLE>[P.name]</TITLE></HEAD><BODY>[P.info][P.stamps]</BODY></HTML>"
-		to_chat(user, browse(dat, "window=[name]"))
+		user << browse(dat, "window=[name]")
 	else if(istype(pages[page], /obj/item/weapon/photo))
 		var/obj/item/weapon/photo/P = W
 		to_chat(user, browse_rsc(P.img, "tmp_photo.png"))
-		to_chat(user, browse(dat + "<html><head><title>[P.name]</title></head>" + "<body style='overflow:hidden'>" + "<div> <img src='tmp_photo.png' width = '180'" + "[P.scribble ? "<div> Written on the back:<br><i>[P.scribble]</i>" : ]" + "</body></html>", "window=[name]"))
+		user << browse(dat + "<html><head><title>[P.name]</title></head>" + "<body style='overflow:hidden'>" + "<div> <img src='tmp_photo.png' width = '180'" + "[P.scribble ? "<div> Written on the back:<br><i>[P.scribble]</i>" : ]" + "</body></html>", "window=[name]")
 
 /obj/item/weapon/paper_bundle/attack_self(mob/user as mob)
 	src.show_content(user)
@@ -155,7 +155,7 @@
 			usr.put_in_hands(W)
 			pages.Remove(pages[page])
 
-			usr << "<span class='notice'>You remove the [W.name] from the bundle.</span>"
+			to_chat(usr, "<span class='notice'>You remove the [W.name] from the bundle.</span>")
 
 			if(pages.len <= 1)
 				var/obj/item/weapon/paper/P = src[1]
@@ -168,7 +168,7 @@
 
 			update_icon()
 	else
-		usr << "<span class='notice'>You need to hold it in hands!</span>"
+		to_chat(usr, "<span class='notice'>You need to hold it in hands!</span>")
 	if (istype(src.loc, /mob) ||istype(src.loc.loc, /mob))
 		src.attack_self(usr)
 		updateUsrDialog()
@@ -190,7 +190,7 @@
 	set category = "Object"
 	set src in usr
 
-	usr << "<span class='notice'>You loosen the bundle.</span>"
+	to_chat(usr, "<span class='notice'>You loosen the bundle.</span>")
 	for(var/obj/O in src)
 		O.forceMove(usr.loc)
 		O.layer = initial(O.layer)

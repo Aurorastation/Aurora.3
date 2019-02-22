@@ -165,7 +165,7 @@ var/list/holder_mob_icon_cache = list()
 					contained.adjustBruteLoss(3)
 					H.visible_message("<span class='alert'>[H] crushes [contained].</span>")
 	else
-		M << "[contained] is dead."
+		to_chat(M, "[contained] is dead.")
 
 
 /obj/item/weapon/holder/show_message(var/message, var/m_type)
@@ -242,10 +242,10 @@ var/list/holder_mob_icon_cache = list()
 		if (success)
 			if (user == src)
 				grabber << "<span class='notice'>[src.name] climbs up onto you.</span>"
-				src << "<span class='notice'>You climb up onto [grabber].</span>"
+				to_chat(src, "<span class='notice'>You climb up onto [grabber].</span>")
 			else
 				grabber << "<span class='notice'>You scoop up [src].</span>"
-				src << "<span class='notice'>[grabber] scoops you up.</span>"
+				to_chat(src, "<span class='notice'>[grabber] scoops you up.</span>")
 
 			H.sync(src)
 
@@ -263,7 +263,7 @@ var/list/holder_mob_icon_cache = list()
 	set desc = "Find out where on their person, someone is holding you."
 
 	if (!usr.get_holding_mob())
-		src << "Nobody is holding you!"
+		to_chat(src, "Nobody is holding you!")
 		return
 
 	if (istype(usr.loc, /obj/item/weapon/holder))

@@ -45,7 +45,7 @@
 			var/mob/M = monster[i]
 			var/name = capitalize(initial(M.name))
 			dat += "<BR><a href='byond://?src=\ref[src];path=[monster[i]]'>[name]</a> - [monster_info[i]]</BR>"
-	to_chat(user, browse(dat,"window=monstermanual"))
+	user << browse(dat,"window=monstermanual")
 	onclose(user,"monstermanual")
 
 /obj/item/weapon/monster_manual/Topic(href, href_list)
@@ -57,13 +57,13 @@
 		temp = null
 	if(href_list["path"])
 		if(uses == 0)
-			usr << "This book is out of uses."
+			to_chat(usr, "This book is out of uses.")
 			return
 
 		var/datum/ghosttrap/ghost = get_ghost_trap("wizard familiar")
 		var path = text2path(href_list["path"])
 		if(!ispath(path))
-			usr << "Invalid mob path in [src]. Contact a coder."
+			to_chat(usr, "Invalid mob path in [src]. Contact a coder.")
 			return
 
 		if(!(path in monster))
@@ -82,7 +82,7 @@
 				else
 					F.faction = usr.faction
 					F.add_spell(new /spell/contract/return_master(usr), "const_spell_ready")
-					F << "<B>You are [F], a familiar to [usr]. He is your master and your friend. Aid him in his wizarding duties to the best of your ability.</B>"
+					to_chat(F, "<B>You are [F], a familiar to [usr]. He is your master and your friend. Aid him in his wizarding duties to the best of your ability.</B>")
 
 		if(Adjacent(usr))
 			src.interact(usr)

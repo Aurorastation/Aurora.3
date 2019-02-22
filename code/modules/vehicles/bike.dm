@@ -57,7 +57,7 @@
 		if(isturf(loc))
 			var/turf/T = loc
 			if (T.is_hole)
-				usr << "<span class='warning'>You don't think kickstands work here.</span>"
+				to_chat(usr, "<span class='warning'>You don't think kickstands work here.</span>")
 				return
 		usr.visible_message("\The [usr] puts down \the [src]'s kickstand.", "You put down \the [src]'s kickstand.", "You hear a thunk.")
 		playsound(src, 'sound/misc/bike_stand_down.ogg', 50, 1)

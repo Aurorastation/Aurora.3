@@ -370,10 +370,10 @@
 	if(!usr || usr.stat || usr.lying || usr.restrained() || !Adjacent(usr))	return
 	if(src.icon_state == "caution")
 		src.icon_state = "caution_blinking"
-		usr << "You turn the sign on."
+		to_chat(usr, "You turn the sign on.")
 	else
 		src.icon_state = "caution"
-		usr << "You turn the sign off."
+		to_chat(usr, "You turn the sign off.")
 
 /obj/item/weapon/caution/cone
 	desc = "This cone is trying to warn you of something!"
@@ -532,7 +532,7 @@
 		if (C.bugged && C.status)
 			cameras.Add(C)
 	if (length(cameras) == 0)
-		usr << "<span class='warning'>No bugged functioning cameras found.</span>"
+		to_chat(usr, "<span class='warning'>No bugged functioning cameras found.</span>")
 		return
 
 	var/list/friendly_cameras = new/list()

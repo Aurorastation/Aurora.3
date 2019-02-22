@@ -60,7 +60,7 @@
 	<A href='byond://?src=\ref[src];code=5'>+</A><BR>
 	[t1]
 	</TT>"}
-	to_chat(user, browse(dat, "window=radio"))
+	user << browse(dat, "window=radio")
 	onclose(user, "radio")
 	return
 

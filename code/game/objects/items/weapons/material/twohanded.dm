@@ -59,7 +59,7 @@
 /obj/item/weapon/material/twohanded/mob_can_equip(M as mob, slot)
 	//Cannot equip wielded items.
 	if(wielded)
-		M << "<span class='warning'>Unwield the [base_name] first!</span>"
+		to_chat(M, "<span class='warning'>Unwield the [base_name] first!</span>")
 		return 0
 
 	return ..()
@@ -469,7 +469,7 @@
 	var/eye_damage = max(0, (2 - H.eyecheck())*multiplier )
 	E.damage += eye_damage
 	if(eye_damage > 0)
-		H << "<span class='danger'>Some stray sparks fly in your eyes!</span>"
+		to_chat(H, "<span class='danger'>Some stray sparks fly in your eyes!</span>")
 
 /obj/item/weapon/material/twohanded/chainsaw/AltClick(mob/user as mob)
 

@@ -24,7 +24,7 @@
 /obj/item/weapon/antag_spawner/borg_tele/attack_self(mob/user)
 
 	if(uses == 0)
-		usr << "This teleporter is out of uses."
+		to_chat(usr, "This teleporter is out of uses.")
 		return
 
 	to_chat(user, "<span class='notice'>The syndicate robot teleporter is attempting to locate an available cyborg.</span>")

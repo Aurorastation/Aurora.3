@@ -115,7 +115,7 @@
 					F.dust()
 
 			else
-				F << "<B>You are a skeleton minion to [usr], they are your master. Obey and protect your master at all costs, you have no free will.</B>"
+				to_chat(F, "<B>You are a skeleton minion to [usr], they are your master. Obey and protect your master at all costs, you have no free will.</B>")
 				F.faction = usr.faction
 
 		//equips the skeleton war gear

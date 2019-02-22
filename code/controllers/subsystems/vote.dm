@@ -211,12 +211,12 @@ var/datum/controller/subsystem/vote/SSvote
 		if (mode == "crew_transfer")
 			if(config.vote_no_dead && usr && !usr.client.holder)
 				if (isnewplayer(usr))
-					usr << "<span class='warning'>You must be playing or have been playing to start a vote.</span>"
+					to_chat(usr, "<span class='warning'>You must be playing or have been playing to start a vote.</span>")
 					return 0
 				else if (isobserver(usr))
 					var/mob/abstract/observer/O = usr
 					if (O.started_as_observer)
-						usr << "<span class='warning'>You must be playing or have been playing to start a vote.</span>"
+						to_chat(usr, "<span class='warning'>You must be playing or have been playing to start a vote.</span>")
 						return 0
 		if(vote && vote >= 1 && vote <= choices.len)
 			if(current_votes[ckey])
@@ -236,12 +236,12 @@ var/datum/controller/subsystem/vote/SSvote
 			if (vote_type == "crew_transfer")
 				if (config.vote_no_dead && !usr.client.holder)
 					if (isnewplayer(usr))
-						usr << "<span class='warning'>You must be playing or have been playing to start a vote.</span>"
+						to_chat(usr, "<span class='warning'>You must be playing or have been playing to start a vote.</span>")
 						return 0
 					else if (isobserver(usr))
 						var/mob/abstract/observer/O = usr
 						if (O.started_as_observer)
-							usr << "<span class='warning'>You must be playing or have been playing to start a vote.</span>"
+							to_chat(usr, "<span class='warning'>You must be playing or have been playing to start a vote.</span>")
 							return 0
 
 				if (last_transfer_vote)
@@ -438,7 +438,7 @@ var/datum/controller/subsystem/vote/SSvote
 						if (X.is_afk())
 							admin_number_afk++
 						if (X.prefs.toggles & SOUND_ADMINHELP)
-							X << 'sound/effects/adminhelp.ogg'
+							to_chat(X, 'sound/effects/adminhelp.ogg')
 
 				if ((admin_number_present - admin_number_afk) <= 0)
 					initiate_vote("restart", usr.key)

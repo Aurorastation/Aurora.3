@@ -46,7 +46,7 @@
 			if (locked)
 				if (user.machine==src)
 					user.unset_machine()
-					to_chat(user, browse(null, "window=ai_slipper"))
+					user << browse(null, "window=ai_slipper")
 			else
 				if (user.machine==src)
 					src.attack_hand(usr)
@@ -65,7 +65,7 @@
 		if (!istype(user, /mob/living/silicon))
 			to_chat(user, text("Too far away."))
 			user.unset_machine()
-			to_chat(user, browse(null, "window=ai_slipper"))
+			user << browse(null, "window=ai_slipper")
 			return
 
 	user.set_machine(src)
@@ -84,7 +84,7 @@
 		t += text("Dispenser [] - <A href='?src=\ref[];toggleOn=1'>[]?</a><br>\n", src.disabled?"deactivated":"activated", src, src.disabled?"Enable":"Disable")
 		t += text("Uses Left: [uses]. <A href='?src=\ref[src];toggleUse=1'>Activate the dispenser?</A><br>\n")
 
-	to_chat(user, browse(t, "window=computer;size=575x450"))
+	user << browse(t, "window=computer;size=575x450")
 	onclose(user, "computer")
 	return
 
@@ -92,7 +92,7 @@
 	..()
 	if (src.locked)
 		if (!istype(usr, /mob/living/silicon))
-			usr << "Control panel is locked!"
+			to_chat(usr, "Control panel is locked!")
 			return
 	if (href_list["toggleOn"])
 		src.disabled = !src.disabled

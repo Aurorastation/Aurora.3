@@ -41,7 +41,7 @@
 		var/dat = "<B>Noticeboard</B><BR>"
 		for(var/obj/item/weapon/paper/P in src)
 			dat += "<A href='?src=\ref[src];read=\ref[P]'>[P.name]</A> <A href='?src=\ref[src];write=\ref[P]'>Write</A> <A href='?src=\ref[src];remove=\ref[P]'>Remove</A><BR>"
-		to_chat(user, browse("<HEAD><TITLE>Notices</TITLE></HEAD>[dat]","window=noticeboard"))
+		user << browse("<HEAD><TITLE>Notices</TITLE></HEAD>[dat]","window=noticeboard")
 		onclose(user, "noticeboard")
 	else
 		..()
@@ -72,7 +72,7 @@
 					add_fingerprint(usr)
 					P.attackby(usr.l_hand, usr)
 				else
-					usr << "<span class='notice'>You'll need something to write with!</span>"
+					to_chat(usr, "<span class='notice'>You'll need something to write with!</span>")
 	if(href_list["read"])
 		var/obj/item/weapon/paper/P = locate(href_list["read"])
 		if((P && P.loc == src))
