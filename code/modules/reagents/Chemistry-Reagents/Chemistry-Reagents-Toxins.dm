@@ -509,7 +509,7 @@
 	glass_name = "glass of beer"
 	glass_desc = "A freezing pint of beer"
 	glass_center_of_mass = list("x"=16, "y"=8)
-	
+
 	fallback_specific_heat = 1.2
 
 /* Drugs */
@@ -809,7 +809,7 @@
 	if(M.a_intent != I_HURT)
 		M.a_intent_change(I_HURT)
 	if(prob(20))
-		M.adjustBrainLoss(5 * removed)
+		M.adjustBrainLoss(5)
 
 /datum/reagent/toxin/berserk/Destroy()
 	QDEL_NULL(modifier)

@@ -8,15 +8,15 @@
 
 /datum/gear/suit/leather
 	display_name = "jacket selection"
-	path = /obj/item/clothing/suit/storage/leather_jacket
+	path = /obj/item/clothing/suit/storage/toggle/leather_jacket
 
 /datum/gear/suit/leather/New()
 	..()
 	var/jackets = list()
 	jackets["bomber jacket"] = /obj/item/clothing/suit/storage/toggle/bomber
-	jackets["corporate black jacket"] = /obj/item/clothing/suit/storage/leather_jacket/nanotrasen
+	jackets["corporate black jacket"] = /obj/item/clothing/suit/storage/toggle/leather_jacket/nanotrasen
 	jackets["corporate brown jacket"] = /obj/item/clothing/suit/storage/toggle/brown_jacket/nanotrasen
-	jackets["black jacket"] = /obj/item/clothing/suit/storage/leather_jacket
+	jackets["black jacket"] = /obj/item/clothing/suit/storage/toggle/leather_jacket
 	jackets["brown jacket"] = /obj/item/clothing/suit/storage/toggle/brown_jacket
 	jackets["flannel jacket, green"] = /obj/item/clothing/suit/storage/toggle/flannel
 	jackets["flannel jacket, red"] = /obj/item/clothing/suit/storage/toggle/flannel/red
@@ -44,12 +44,12 @@
 	gear_tweaks += new/datum/gear_tweak/path(hazard)
 
 /datum/gear/suit/hoodie
-	display_name = "hoodie, grey"
-	path = /obj/item/clothing/suit/storage/toggle/hoodie
+	display_name = "hoodie"
+	path = /obj/item/clothing/suit/storage/hooded/wintercoat/hoodie
 
-/datum/gear/suit/hoodie/black
-	display_name = "hoodie, black"
-	path = /obj/item/clothing/suit/storage/toggle/hoodie/black
+/datum/gear/suit/hoodie/New()
+	..()
+	gear_tweaks = list(gear_tweak_free_color_choice)
 
 /datum/gear/suit/labcoat
 	display_name = "labcoat"
@@ -63,6 +63,10 @@
 	display_name = "overalls"
 	path = /obj/item/clothing/suit/apron/overalls
 	cost = 1
+
+/datum/gear/suit/overalls/New()
+	..()
+	gear_tweaks = list(gear_tweak_free_color_choice)
 
 /datum/gear/suit/surgeryapron
 	display_name = "surgical apron"
@@ -94,80 +98,6 @@
 	poncho["poncho, cargo"] = /obj/item/clothing/accessory/poncho/roles/cargo
 	gear_tweaks += new/datum/gear_tweak/path(poncho)
 
-/datum/gear/suit/roles/poncho/cloak/cmo
-	display_name = "cloak, chief medical officer"
-	path = /obj/item/clothing/accessory/poncho/roles/cloak/cmo
-	allowed_roles = list("Chief Medical Officer")
-
-/datum/gear/suit/roles/poncho/cloak/ce
-	display_name = "cloak, chief engineer"
-	path = /obj/item/clothing/accessory/poncho/roles/cloak/ce
-	allowed_roles = list("Chief Engineer")
-
-/datum/gear/suit/roles/poncho/cloak/rd
-	display_name = "cloak, research director"
-	path = /obj/item/clothing/accessory/poncho/roles/cloak/rd
-	allowed_roles = list("Research Director")
-
-/datum/gear/suit/roles/poncho/cloak/qm
-	display_name = "cloak, quartermaster"
-	path = /obj/item/clothing/accessory/poncho/roles/cloak/qm
-	allowed_roles = list("Quartermaster")
-
-/datum/gear/suit/roles/poncho/cloak/captain
-	display_name = "cloak, captain"
-	path = /obj/item/clothing/accessory/poncho/roles/cloak/captain
-	allowed_roles = list("Captain")
-
-/datum/gear/suit/roles/poncho/cloak/hop
-	display_name = "cloak, head of personnel"
-	path = /obj/item/clothing/accessory/poncho/roles/cloak/hop
-	allowed_roles = list("Head of Personnel")
-
-/datum/gear/suit/roles/poncho/cloak/hos
-	display_name = "cloak, head of security"
-	path = /obj/item/clothing/accessory/poncho/roles/cloak/hos
-	allowed_roles = list("Head of Security")
-
-/datum/gear/suit/roles/poncho/cloak/cargo
-	display_name = "cloak, cargo"
-	path = /obj/item/clothing/accessory/poncho/roles/cloak/cargo
-	allowed_roles = list("Cargo Technician","Quartermaster")
-
-/datum/gear/suit/roles/poncho/cloak/mining
-	display_name = "cloak, mining"
-	path = /obj/item/clothing/accessory/poncho/roles/cloak/mining
-	allowed_roles = list("Quartermaster","Shaft Miner")
-
-/datum/gear/suit/roles/poncho/cloak/service
-	display_name = "cloak, service"
-	path = /obj/item/clothing/accessory/poncho/roles/cloak/service
-	allowed_roles = list("Head of Personnel","Bartender","Gardener","Janitor","Chef","Librarian")
-
-/datum/gear/suit/roles/poncho/cloak/engineer
-	display_name = "cloak, engineer"
-	path = /obj/item/clothing/accessory/poncho/roles/cloak/engineer
-	allowed_roles = list("Station Engineer", "Chief Engineer", "Engineering Apprentice")
-
-/datum/gear/suit/roles/poncho/cloak/atmos
-	display_name = "cloak, atmos"
-	path = /obj/item/clothing/accessory/poncho/roles/cloak/atmos
-	allowed_roles = list("Chief Engineer","Atmospheric Technician")
-
-/datum/gear/suit/roles/poncho/cloak/research
-	display_name = "cloak, science"
-	path = /obj/item/clothing/accessory/poncho/roles/cloak/research
-	allowed_roles = list("Research Director","Scientist", "Roboticist", "Xenobiologist")
-
-/datum/gear/suit/roles/poncho/cloak/medical
-	display_name = "cloak, medical"
-	path = /obj/item/clothing/accessory/poncho/roles/cloak/medical
-	allowed_roles = list("Chief Medical Officer", "Medical Doctor", "Paramedic", "Medical Resident", "Psychiatrist", "Chemist")
-
-/datum/gear/suit/roles/poncho/cloak/security
-	display_name = "cloak, security"
-	path = /obj/item/clothing/accessory/poncho/roles/cloak/security
-	allowed_roles = list("Security Officer", "Warden", "Head of Security","Detective", "Forensic Technician", "Security Cadet")
 
 /datum/gear/suit/suitjacket
 	display_name = "suit jacket"

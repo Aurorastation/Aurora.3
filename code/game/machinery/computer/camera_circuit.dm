@@ -38,7 +38,7 @@
 
 	attackby(var/obj/item/I, var/mob/user)//if(health > 50)
 		..()
-		else if(isscrewdriver(I))
+		else if(I.isscrewdriver())
 			secured = !secured
 			user.visible_message("<span class='notice'>The [src] can [secured ? "no longer" : "now"] be modified.</span>")
 			updateBuildPath()
