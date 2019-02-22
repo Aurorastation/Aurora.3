@@ -6418,20 +6418,16 @@
 /area/medical/psych)
 "lu" = (
 /obj/structure/table/wood,
-/obj/item/weapon/paper_bin{
-	pixel_x = -1;
-	pixel_y = 7
-	},
 /obj/machinery/requests_console{
 	department = "Psychiatry";
 	pixel_x = 0;
 	pixel_y = 32
 	},
-/obj/item/weapon/book/manual/psych,
 /obj/machinery/camera/network/medbay{
 	c_tag = "Medical - Psychiatrist Office";
 	network = list("Medical")
 	},
+/obj/item/device/flashlight/lamp,
 /turf/simulated/floor/carpet,
 /area/medical/psych)
 "lv" = (
@@ -6507,6 +6503,11 @@
 /area/medical/psych)
 "lC" = (
 /obj/structure/table/wood,
+/obj/item/weapon/book/manual/psych,
+/obj/item/weapon/paper_bin{
+	pixel_x = 4;
+	pixel_y = 7
+	},
 /turf/simulated/floor/carpet,
 /area/medical/psych)
 "lD" = (
