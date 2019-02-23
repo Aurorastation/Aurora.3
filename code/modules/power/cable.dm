@@ -132,7 +132,15 @@ var/list/possible_cable_coil_colours = list(
 	if(!T.can_have_cabling())
 		return
 
-	if(W.iswirecutter())
+	if(W.iswirecutter() || (W.sharp || W.edge))
+
+		if(!W.iswirecutter())
+			if(user.a_intent != I_HELP)
+				return
+
+			if(W.flags & CONDUCT)
+				shock(user, 50, 0.7)
+
 		if(d1 == 12 || d2 == 12)
 			to_chat(user, "<span class='warning'>You must cut this cable from above.</span>")
 			return
@@ -181,10 +189,6 @@ var/list/possible_cable_coil_colours = list(
 			to_chat(user, "<span class='warning'>The cable is not powered.</span>")
 
 		shock(user, 5, 0.2)
-
-	else
-		if (W.flags & CONDUCT)
-			shock(user, 50, 0.7)
 
 	src.add_fingerprint(user)
 

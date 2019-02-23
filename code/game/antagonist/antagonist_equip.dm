@@ -9,7 +9,7 @@
 			player.drop_from_inventory(thing)
 			if(thing.loc != player)
 				qdel(thing)
-		player.species.equip_survival_gear(player)
+	player.species.before_equip(player)
 	return 1
 
 /datum/antagonist/proc/unequip(var/mob/living/carbon/human/player)
