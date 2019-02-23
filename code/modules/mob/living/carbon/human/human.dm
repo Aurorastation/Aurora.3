@@ -767,10 +767,14 @@
 
 	if (href_list["lookitem"])
 		var/obj/item/I = locate(href_list["lookitem"])
+		if(!I)
+			return
 		src.examinate(I)
 
 	if (href_list["lookmob"])
 		var/mob/M = locate(href_list["lookmob"])
+		if(!M)
+			return
 		src.examinate(M)
 
 	if (href_list["flavor_change"])
@@ -1158,7 +1162,7 @@
 		for(var/obj/item/O in organ.implants)
 			if(!istype(O,/obj/item/weapon/implant) && prob(5)) //Moving with things stuck in you could be bad.
 				// All kinds of embedded objects cause bleeding.
-				if(species.flags & NO_PAIN)
+				if(!can_feel_pain())
 					src << "<span class='warning'>You feel [O] moving inside your [organ.name].</span>"
 				else
 					var/msg = pick( \
@@ -1591,3 +1595,6 @@
 	var/obj/item/organ/brain/B = internal_organs_by_name["brain"]
 	if(B && species && species.has_organ["brain"] && !isipc(src))
 		. = B.cure_all_traumas(cure_permanent, cure_type)
+
+/mob/living/carbon/human/get_metabolism(metabolism)
+	return ..() * (species ? species.metabolism_mod : 1)

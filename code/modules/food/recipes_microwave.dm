@@ -114,7 +114,7 @@ I said no!
 /datum/recipe/mouseburger
 	items = list(
 		/obj/item/weapon/reagent_containers/food/snacks/bun,
-		/obj/item/weapon/holder/mouse
+		/obj/item/weapon/reagent_containers/food/snacks/meat/mice
 	)
 	result = /obj/item/weapon/reagent_containers/food/snacks/burger/mouse
 
@@ -128,7 +128,7 @@ I said no!
 /datum/recipe/classichotdog
 	items = list(
 		/obj/item/weapon/reagent_containers/food/snacks/bun,
-		/obj/item/weapon/holder/corgi
+		/obj/item/weapon/reagent_containers/food/snacks/meat/corgi
 	)
 	result = /obj/item/weapon/reagent_containers/food/snacks/classichotdog
 
@@ -1222,3 +1222,17 @@ I said no!
 		)
 	reagent_mix = RECIPE_REAGENT_REPLACE
 	result = /obj/item/weapon/reagent_containers/food/snacks/crab_legs
+
+/datum/recipe/bluespacetomatosoup
+	fruit = list("bluespacetomato" = 2)
+	reagents = list("water" = 10)
+	result = /obj/item/weapon/reagent_containers/food/snacks/soup/bluespace
+
+/datum/recipe/banana_split
+	fruit = list("banana" = 1)
+	reagents = list("milk" = 5, "ice" = 5)
+	reagent_mix = RECIPE_REAGENT_REPLACE
+	items = list(
+		/obj/item/weapon/reagent_containers/food/snacks/icecream
+	)
+	result = /obj/item/weapon/reagent_containers/food/snacks/banana_split

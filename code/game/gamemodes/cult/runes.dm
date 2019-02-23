@@ -164,7 +164,7 @@ var/list/sacrificed = list()
 					target.adjustBrainLoss(rand(1,5), 55)
 
 		initial_message = 1
-		if (target.species && (target.species.flags & NO_PAIN))
+		if (!target.can_feel_pain())
 			target.visible_message("<span class='warning'>The markings below [target] glow a bloody red.</span>")
 		else
 			target.visible_message("<span class='warning'>[target] writhes in pain as the markings below \him glow a bloody red.</span>", "<span class='danger'>AAAAAAHHHH!</span>", "<span class='warning'>You hear an anguished scream.</span>")

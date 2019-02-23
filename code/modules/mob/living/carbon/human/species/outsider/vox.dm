@@ -70,7 +70,7 @@
 
 	default_h_style = "Short Vox Quills"
 
-/datum/species/vox/equip_survival_gear(var/mob/living/carbon/human/H)
+/datum/species/vox/before_equip(mob/living/carbon/human/H, visualsOnly, datum/job/J)
 	H.equip_to_slot_or_del(new /obj/item/clothing/mask/breath(H), slot_wear_mask)
 	if(H.backbag == 1)
 		H.equip_to_slot_or_del(new /obj/item/weapon/tank/nitrogen(H), slot_back)

@@ -251,15 +251,24 @@
 
 	if(getBrainLoss() >= 60)
 		msg += "[T.He] [T.has] a stupid expression on [T.his] face.\n"
+	
+	var/have_client = client
+	var/inactivity = client ? client.inactivity : null
+	
+	if(bg)
+		disconnect_time = bg.disconnect_time
+		have_client = bg.client
+		inactivity =  have_client ? bg.client.inactivity : null
+		
 
 	if(species.show_ssd && (!species.has_organ["brain"] || has_brain()) && stat != DEAD)
 		if(!key)
 			msg += "<span class='deadsay'>[T.He] [T.is] [species.show_ssd]. It doesn't look like [T.he] [T.is] waking up anytime soon.</span>\n"
-		else if(!client)
+		else if(!client && !bg)
 			msg += "<span class='deadsay'>[T.He] [T.is] [species.show_ssd].</span>\n"
-		if(client && ((client.inactivity / 600) > 10)) // inactivity/10/60 > 10 MINUTES
-			msg += "<span class='deadsay'>\[Inactive for [round(client.inactivity / 600)] minutes.\]\n</span>"
-		else if((!client && (world.realtime - disconnect_time) >= 5 MINUTES))
+		if(have_client && ((inactivity / 600) > 10)) // inactivity/10/60 > 10 MINUTES
+			msg += "<span class='deadsay'>\[Inactive for [round(inactivity / 600)] minutes.\]\n</span>"
+		else if(!have_client && (world.realtime - disconnect_time) >= 5 MINUTES)
 			msg += "<span class='deadsay'>\[Disconnected/ghosted [(world.realtime - disconnect_time)/600] minutes ago.\]\n</span>"
 
 	var/list/wound_flavor_text = list()
@@ -282,7 +291,7 @@
 		if(temp)
 			if(skipbody & temp.body_part)
 				continue
-			if(temp.status & ORGAN_ROBOT)
+			if(temp.status & ORGAN_ASSISTED)
 				if(!(temp.brute_dam + temp.burn_dam))
 					//wound_flavor_text["[temp.name]"] = "<span class='warning'>[T.He] [T.has] a robot [temp.name]!</span>\n"
 					// No need to notify about robotic limbs if they're not damaged, really.
