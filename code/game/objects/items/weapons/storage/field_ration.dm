@@ -43,6 +43,7 @@
 	var/selected_ration = preset_ration
 	if(!selected_ration)
 		selected_ration = pick("Imperial Army", "Royal Navy")
+
 	switch(selected_ration)
 
 		if("Imperial Army")
