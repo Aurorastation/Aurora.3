@@ -41,7 +41,7 @@
 		if(!aimloc || aimloc == curloc)
 			break
 		projectiles--
-		var/datum/callback/shoot_cb = CALLBACK(src, .proc/Fire, curloc, target, user, params)
+		var/datum/callback/shoot_cb = CALLBACK(src, .proc/Fire_wrapper, curloc, target, user, params)
 		addtimer(shoot_cb, c + fire_cooldown)
 		c += fire_cooldown
 	if(equip_cooldown)
@@ -52,8 +52,12 @@
 	set_ready_state(0)
 	return
 
-/obj/item/mecha_parts/mecha_equipment/weapon/proc/Fire(var/turf/curloc, atom/target, mob/user, params)
+/obj/item/mecha_parts/mecha_equipment/weapon/proc/Fire_wrapper(var/turf/curloc, atom/target, mob/user, params)
 	var/obj/item/projectile/P = new projectile(curloc)
+	Fire(P, target, user, params)
+	return
+
+/obj/item/mecha_parts/mecha_equipment/weapon/proc/Fire(var/obj/item/projectile/P, atom/target, mob/user, params)
 	var/def_zone
 	if(chassis && istype(chassis.occupant,/mob/living/carbon/human))
 		var/mob/living/carbon/human/H = chassis.occupant
