@@ -207,12 +207,6 @@
 /obj/machinery/suit_storage_unit/standard_unit,
 /turf/simulated/floor/tiled,
 /area/tcommsat/lounge)
-"aI" = (
-/obj/structure/disposaloutlet{
-	dir = 1
-	},
-/turf/simulated/floor/reinforced/airless,
-/area/mine/explored)
 "aJ" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -15390,8 +15384,8 @@ ah
 ah
 ah
 ah
-an
-aI
+ah
+ah
 ap
 aY
 ba

@@ -19259,7 +19259,7 @@
 "KQ" = (
 /obj/structure/table/wood,
 /obj/machinery/chemical_dispenser/coffee/full{
-	spawn_cartridges = list(/obj/item/weapon/reagent_containers/chem_disp_cartridge/water)
+	spawn_cartridges = list(/obj/item/weapon/reagent_containers/chem_disp_cartridge/coffee,/obj/item/weapon/reagent_containers/chem_disp_cartridge/milk,/obj/item/weapon/reagent_containers/chem_disp_cartridge/cream,/obj/item/weapon/reagent_containers/chem_disp_cartridge/sugar)
 	},
 /obj/machinery/light,
 /turf/simulated/floor/wood,
@@ -19485,6 +19485,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/bridge/levela)
+"Ns" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/hallway/secondary/entry/aft)
 "NI" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -19704,6 +19710,16 @@
 /obj/item/weapon/towel,
 /turf/simulated/floor/tiled/freezer,
 /area/crew_quarters/toilet)
+"Rc" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/floor/tiled,
+/area/hallway/secondary/entry/aft)
 "Rn" = (
 /obj/machinery/embedded_controller/radio/airlock/docking_port{
 	frequency = 1380;
@@ -19718,6 +19734,18 @@
 	},
 /turf/simulated/floor/plating,
 /area/bridge/levela)
+"Rq" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/hallway/secondary/entry/aft)
 "Sm" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/bed/chair{
@@ -19765,6 +19793,18 @@
 	},
 /turf/simulated/floor/tiled/freezer,
 /area/crew_quarters/toilet)
+"Uz" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/hallway/secondary/entry/aft)
 "UW" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced,
@@ -20558,6 +20598,19 @@
 /obj/machinery/light/small,
 /turf/simulated/floor/tiled/freezer,
 /area/crew_quarters/toilet)
+"Xb" = (
+/obj/structure/disposalpipe/segment,
+/obj/machinery/alarm{
+	dir = 4;
+	icon_state = "alarm0";
+	pixel_x = -22;
+	pixel_y = 0
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/hallway/secondary/entry/aft)
 "Xc" = (
 /obj/structure/toilet{
 	icon_state = "toilet00";
@@ -49455,7 +49508,7 @@ DG
 DL
 DP
 DT
-Dt
+Xb
 Dz
 Dz
 Ac
@@ -49697,7 +49750,7 @@ Bm
 BD
 BV
 Co
-Co
+Uz
 Co
 CW
 CQ
@@ -49706,13 +49759,13 @@ Co
 IV
 Co
 Co
-Co
+Rc
 Co
 DH
 CW
 Co
 Co
-Co
+Rq
 Co
 CW
 Ff
@@ -49954,7 +50007,7 @@ Bn
 BE
 BW
 Cp
-Cp
+Ns
 Cp
 CX
 Du
