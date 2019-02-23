@@ -20,6 +20,46 @@
 	//loading
 	if(istype(target,/obj))
 		var/obj/O = target
+		var/T = chassis.loc
+		if(istype(target, /obj/item/weapon/ore))
+			var/obj/mecha/working/chass = chassis // Since hydraulic clamp can only be installed on working mechs, no need to check for type.
+			var/obj/structure/ore_box/ore_box = (chass) ? (locate(/obj/structure/ore_box) in chass.cargo) : (null)
+			if(ore_box)
+				var/list/stuff = range(chassis,1)
+				var/obj/item/weapon/ore/t = (locate(/obj/item/weapon/ore) in stuff)
+				if(t && do_after_cooldown(t))
+					if(T == chassis.loc && src == chassis.selected)
+						for(var/obj/item/weapon/ore/ore in stuff)
+							if(get_dir(chassis,ore)&chassis.dir)
+								ore.Move(ore_box)
+						chassis.visible_message("<span class='notice'>\The [chassis] picks up ore from the ground all around.</span>")
+						playsound(src.loc, 'sound/mecha/hydraulic.ogg', 50, 1, -1)
+						set_ready_state(0)
+						chassis.use_power(energy_drain)
+						return
+					else
+						occupant_message("<span class='warning'>You must hold still while handling objects.</span>")
+						return
+			else
+				occupant_message("You lift [target] and start to load it into cargo compartment.")
+				chassis.visible_message("[chassis] lifts [target] and starts to load it into cargo compartment.")
+				playsound(src.loc, 'sound/mecha/hydraulic.ogg', 50, 1, -1)
+				set_ready_state(0)
+				chassis.use_power(energy_drain)
+				O.anchored = 1
+				if(do_after_cooldown(target))
+					if(T == chassis.loc && src == chassis.selected)
+						cargo_holder.cargo += O
+						O.forceMove(chassis)
+						O.anchored = 0
+						occupant_message("<span class='notice'>[target] succesfully loaded.</span>")
+						log_message("Loaded [O]. Cargo compartment capacity: [cargo_holder.cargo_capacity - cargo_holder.cargo.len]")
+						return
+					else
+						occupant_message("<span class='warning'>You must hold still while handling objects.</span>")
+						O.anchored = initial(O.anchored)
+						return 
+
 		if(O.buckled_mob)
 			return
 		if(locate(/mob/living) in O)
@@ -38,7 +78,6 @@
 		set_ready_state(0)
 		chassis.use_power(energy_drain)
 		O.anchored = 1
-		var/T = chassis.loc
 		if(do_after_cooldown(target))
 			if(T == chassis.loc && src == chassis.selected)
 				cargo_holder.cargo += O
@@ -106,7 +145,8 @@
 						M.GetDrilled()
 				log_message("Drilled through \the [target]")
 				if(locate(/obj/item/mecha_parts/mecha_equipment/tool/hydraulic_clamp) in chassis.equipment)
-					var/obj/structure/ore_box/ore_box = locate(/obj/structure/ore_box) in chassis:cargo
+					var/obj/mecha/working/chass = chassis // Since hydraulic clamp can only be installed on working mechs, no need to check for type.
+					var/obj/structure/ore_box/ore_box = (chass) ? (locate(/obj/structure/ore_box) in chass.cargo) : (null)
 					if(ore_box)
 						for(var/obj/item/weapon/ore/ore in range(chassis,1))
 							if(get_dir(chassis,ore)&chassis.dir)
@@ -117,7 +157,8 @@
 						M.gets_dug()
 				log_message("Drilled through \the [target]")
 				if(locate(/obj/item/mecha_parts/mecha_equipment/tool/hydraulic_clamp) in chassis.equipment)
-					var/obj/structure/ore_box/ore_box = locate(/obj/structure/ore_box) in chassis:cargo
+					var/obj/mecha/working/chass = chassis // Since hydraulic clamp can only be installed on working mechs, no need to check for type.
+					var/obj/structure/ore_box/ore_box = (chass) ? (locate(/obj/structure/ore_box) in chass.cargo) : (null)
 					if(ore_box)
 						for(var/obj/item/weapon/ore/ore in range(chassis,1))
 							if(get_dir(chassis,ore)&chassis.dir)
