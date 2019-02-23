@@ -349,9 +349,9 @@ proc/ReadRGB(rgb)
 					++which
 				else if(!(digits & 1)) ++which
 			if(1)
-				g = (to_chat(g, 4) | ch)
+				g = (g << 4 | ch)
 				if(single)
-					g |= to_chat(g, 4)
+					g |= g << 4
 					++which
 				else if(!(digits & 1)) ++which
 			if(2)
