@@ -55473,10 +55473,6 @@
 /obj/random/junk,
 /turf/simulated/floor/reinforced,
 /area/maintenance/research_port)
-"bRr" = (
-/obj/machinery/atmospherics/pipe/simple/visible,
-/turf/simulated/floor/reinforced,
-/area/maintenance/research_port)
 "bRs" = (
 /obj/structure/barricade,
 /turf/simulated/floor/plating,
@@ -64721,13 +64717,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/engineering)
-"cwr" = (
-/obj/machinery/atmospherics/pipe/simple/visible{
-	icon_state = "intact";
-	dir = 10
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/research_port)
 "cyq" = (
 /obj/machinery/door/firedoor,
 /obj/structure/window/reinforced{
@@ -66052,14 +66041,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
 /area/maintenance/engineering)
-"mgm" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/unary/vent_pump{
-	icon_state = "map_vent";
-	dir = 1
-	},
-/turf/simulated/floor/reinforced,
-/area/maintenance/research_port)
 "mhb" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/item/weapon/paper,
@@ -67269,6 +67250,14 @@
 /obj/random/junk,
 /turf/simulated/floor/tiled,
 /area/maintenance/cargo)
+"vaK" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/item/pipe{
+	icon_state = "simple";
+	dir = 8
+	},
+/turf/simulated/floor/reinforced,
+/area/maintenance/research_port)
 "vgH" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced,
@@ -67395,8 +67384,8 @@
 /turf/simulated/floor/plating,
 /area/maintenance/medbay)
 "vVF" = (
-/obj/machinery/atmospherics/pipe/simple/visible,
 /obj/effect/decal/cleanable/dirt,
+/obj/item/pipe,
 /turf/simulated/floor/reinforced,
 /area/maintenance/research_port)
 "vYh" = (
@@ -89139,11 +89128,11 @@ bHd
 uwC
 bQl
 bQG
-bRr
+nIK
 vVF
-mgm
-gIs
 hlp
+gIs
+vaK
 aKT
 bcY
 cbQ
@@ -89652,9 +89641,9 @@ bNl
 bHd
 bcY
 bfQ
-cwr
-vVF
-vVF
+bcY
+hlp
+hlp
 nzx
 hlp
 nIK
