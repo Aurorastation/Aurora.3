@@ -43,3 +43,4 @@ changes:
   - soundadd: "Added flamethrower sound."
   - balance: "Hermes mech armour values has beeen rework. No longer it has bullet protection of millitary grade mech, and brute protection of a baby. Bomb protection increased, and fire protection decreased."
   - bugfix: "Fixed fire spam of burst mech weapons. Before if you click fast enough you were able to bypass cooldown x number of times in a row for burst mech weapons."
+  - tweak: "Hydraulic clamp now loads all of the ores from a tile in one click into the box of mech. Just like mining satchel."
