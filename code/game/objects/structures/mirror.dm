@@ -144,7 +144,7 @@
 			var/choice = input("Do you wish to become a Vox? This is not reversible.") as null|anything in list("No","Yes")
 			if(choice == "Yes")
 				user.set_species("Vox")
-				user.species.equip_survival_gear(user)
+				user.species.before_equip(user)
 
 				var/newname = sanitizeSafe(input(user,"Enter a name, or leave blank for the default name.", "Name change","") as text, MAX_NAME_LEN)
 				if(!newname || newname == "")
