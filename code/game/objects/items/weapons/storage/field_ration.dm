@@ -11,6 +11,8 @@
 	..()
 	if(!preset_ration)
 		selected_ration = pick(ration_options)
+	else
+		selected_ration = preset_ration
 	new /obj/item/weapon/material/kitchen/utensil/spoon(src)
 	create_ration()
 	make_exact_fit()
