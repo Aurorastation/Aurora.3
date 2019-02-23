@@ -52934,7 +52934,7 @@
 /obj/structure/disposalpipe/segment,
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/maintenance{
-	req_one_access = list(12)
+	req_one_access = null
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
@@ -54597,7 +54597,7 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/maintenance{
 	name = "Maintenance Access";
-	req_access = list(12)
+	req_access = list(12,7)
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
@@ -59009,7 +59009,7 @@
 /obj/structure/disposalpipe/segment,
 /obj/machinery/door/airlock/maintenance{
 	name = "Maintenance Access";
-	req_access = list(12)
+	req_access = null
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/bar)
@@ -65614,7 +65614,7 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/maintenance{
 	name = "Cargo Maintenance";
-	req_access = list(12)
+	req_access = null
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/cargo)
@@ -66175,7 +66175,7 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/maintenance{
 	name = "Research Maintenance";
-	req_access = list(12)
+	req_access = null
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/library)
@@ -66254,7 +66254,7 @@
 "nzG" = (
 /obj/machinery/door/airlock/maintenance{
 	name = "Maintenance Access";
-	req_access = list(12)
+	req_access = null
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
@@ -66703,7 +66703,7 @@
 "qLn" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/maintenance{
-	req_one_access = list(12)
+	req_one_access = null
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
@@ -67434,7 +67434,7 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/maintenance{
 	name = "Cargo Maintenance";
-	req_access = list(12)
+	req_access = null
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/cargo)
