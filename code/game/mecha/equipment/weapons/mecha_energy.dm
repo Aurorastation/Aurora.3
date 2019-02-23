@@ -122,7 +122,7 @@
 	Fire(P, target, user, params)
 	return
 
-/obj/item/mecha_parts/mecha_equipment/weapon/energy/kin_accelerator/heavy
+/obj/item/mecha_parts/mecha_equipment/weapon/energy/kin_accelerator/burst
 	name = "mounted burst kinetic accelerator"
 	desc = "A very robust mounted burst kinetic accelerator used by professional mining contractors intended for the use in mining soft metals such as gold on asteroids. This version shoots 3 projectiles at a time."
 	energy_drain = 70
