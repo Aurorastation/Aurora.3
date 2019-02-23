@@ -27,7 +27,7 @@
 #################################
 
 # Your name.  
-author: ChangeMe
+author: PoZe
 
 # Optional: Remove this file after generating master changelog.  Useful for PR changelogs that won't get used again.
 delete-after: True
@@ -41,6 +41,7 @@ changes:
   - rscadd: "Added Kinetic accelerator to mechs. RND can now research and make these Kinetc accelerators. There is a regular and a burst(3 shots) version. It will be better than average-decent man-held KA."
   - rscdel: "Added flamethrower for mechs. RND can now research and make this flamethrower. Works like man-held flamethrower."
   - soundadd: "Added flamethrower sound."
+  - tweak: "The LBX AC 10 \"Scattershot\" now uses shotgun sound effect."
   - balance: "Hermes mech armour values has beeen rework. No longer it has bullet protection of millitary grade mech, and brute protection of a baby. Bomb protection increased, and fire protection decreased."
   - bugfix: "Fixed fire spam of burst mech weapons. Before if you click fast enough you were able to bypass cooldown x number of times in a row for burst mech weapons."
   - tweak: "Hydraulic clamp now loads all of the ores from a tile in one click into the box of mech. Just like mining satchel."
