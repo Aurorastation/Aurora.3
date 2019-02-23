@@ -3140,3 +3140,10 @@
 	result = "venenum"
 	result_amount = 1
 	required_reagents = list("phoron_salt" = 1, "ryetalyn" = 1)
+
+/datum/chemical_reaction/rmt
+	name = "RMT"
+	id = "rmt"
+	result = "rmt"
+	result_amount = 1
+	required_reagents = list("potassium" = 1, "inaprovaline" = 1)

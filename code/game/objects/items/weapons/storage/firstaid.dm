@@ -319,3 +319,17 @@
 		new /obj/item/weapon/reagent_containers/pill/escitalopram( src )
 		new /obj/item/weapon/reagent_containers/pill/escitalopram( src )
 		new /obj/item/weapon/reagent_containers/pill/escitalopram( src )
+
+/obj/item/weapon/storage/pill_bottle/rtm
+	name = "bottle of RTM pills"
+	desc = "Contains pills used to remedy the effects of prolonged zero-gravity adaptations."
+
+/obj/item/weapon/storage/pill_bottle/rtm/fill()
+	..()
+	new /obj/item/weapon/reagent_containers/pill/rmt(src)
+	new /obj/item/weapon/reagent_containers/pill/rmt(src)
+	new /obj/item/weapon/reagent_containers/pill/rmt(src)
+	new /obj/item/weapon/reagent_containers/pill/rmt(src)
+	new /obj/item/weapon/reagent_containers/pill/rmt(src)
+	new /obj/item/weapon/reagent_containers/pill/rmt(src)
+	new /obj/item/weapon/reagent_containers/pill/rmt(src)

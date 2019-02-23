@@ -53,6 +53,10 @@
 		if(!H.can_feel_pain())
 			return
 
+		var/area/A = get_area(H)
+		if(A && !A.has_gravity())
+			return
+
 		if(H.back && istype(H.back, /obj/item/weapon/rig/light/offworlder))
 			var/obj/item/weapon/rig/light/offworlder/rig = H.back
 			if(!rig.offline)
@@ -60,7 +64,7 @@
 
 		if(H.w_uniform)
 			var/obj/item/clothing/under/uniform = H.w_uniform
-			if(locate(/obj/item/clothing/accessory/offworlder/bracer) in suit.uniform)
+			if(locate(/obj/item/clothing/accessory/offworlder/bracer) in uniform.accessories)
 				return
 
 
@@ -68,4 +72,8 @@
 			if(H.reagents.has_reagent("RMT", 1))
 				return
 
-		to_chat(H, "<span class='warning'>owww my bones hurt a lot oww oof my booones</span>")
+		var/pain_message = pick("You feel sluggish as if something is weighing you down.",
+								"Your legs feel harder to move.",
+								"You begin to have trouble standing upright.")
+
+		to_chat(H, "<span class='warning'>[pain_message]</span>")
