@@ -553,19 +553,19 @@
 	item_state = "specialist_medallion"
 
 /obj/item/clothing/accessory/offworlder
-	name = "legbrace"
-	desc = "A lightweight polymer frame meant to brace and hold someone's legs upright comfortably."
-	icon_state = "legbrace"
-	item_state = "legbrace"
-	slot = "over"
-
-/obj/item/clothing/accessory/offworlder/venter
 	name = "venter assembly"
 	desc = "A series of complex tubing meant to dissipate heat from the skin passively."
 	icon_state = "venter"
 	item_state = "venter"
+	slot = "over"
 
-/obj/item/clothing/accessory/offworlder/neckbrace
+/obj/item/clothing/accessory/offworlder/bracer
+	name = "legbrace"
+	desc = "A lightweight polymer frame meant to brace and hold someone's legs upright comfortably."
+	icon_state = "legbrace"
+	item_state = "legbrace"
+
+/obj/item/clothing/accessory/offworlder/bracer/neckbrace
 	name = "neckbrace"
 	desc = "A lightweight polymer frame meant to brace and hold someone's neck upright comfortably."
 	icon_state = "neckbrace"

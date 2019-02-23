@@ -28,7 +28,7 @@
 
 /datum/gear/accessory/offworlder
 	display_name = "legbrace"
-	path = /obj/item/clothing/accessory/offworlder
+	path = /obj/item/clothing/accessory/offworlder/bracer
 	whitelisted = list("Off-Worlder Human")
 	sort_category = "Xenowear - Human"
 
@@ -38,11 +38,11 @@
 
 /datum/gear/accessory/offworlder/venter
 	display_name = "venter assembly"
-	path = /obj/item/clothing/accessory/offworlder/venter
+	path = /obj/item/clothing/accessory/offworlder
 
 /datum/gear/accessory/offworlder/neckbrace
 	display_name = "neckbrace"
-	path = /obj/item/clothing/accessory/offworlder/neckbrace
+	path = /obj/item/clothing/accessory/offworlder/bracer/neckbrace
 
 /datum/gear/accessory/offworlder_armband
 	display_name = "exo-stellar ribbon selection"

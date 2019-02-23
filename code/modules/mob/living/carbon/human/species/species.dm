@@ -526,7 +526,7 @@
 	H.f_style = H.species.default_f_style
 	H.update_hair()
 
-/datum/species/proc/stance_check(var/mob/living/carbon/human/H)
+/datum/species/proc/get_species_tally(var/mob/living/carbon/human/H)
 	return 0
 
 /datum/species/proc/equip_later_gear(var/mob/living/carbon/human/H) //this handles anything not covered by survival gear, it is only called after everything else is equiped to the mob

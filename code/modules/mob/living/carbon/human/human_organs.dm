@@ -73,9 +73,6 @@
 	if (istype(buckled, /obj/structure/bed))
 		return
 
-	if(species)
-		stance_damage += (species.stance_check(src)) //reduces your chance of falling depending on species factors
-
 	for(var/limb_tag in list("l_leg","r_leg","l_foot","r_foot"))
 		var/obj/item/organ/external/E = organs_by_name[limb_tag]
 		if(!E || (E.status & (ORGAN_MUTATED|ORGAN_DEAD)) || E.is_stump()) //should just be !E.is_usable() here but dislocation screws that up.
