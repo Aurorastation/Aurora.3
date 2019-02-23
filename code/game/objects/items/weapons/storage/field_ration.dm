@@ -4,20 +4,18 @@
 	icon = 'icons/obj/storage.dmi'
 	icon_state = "ration"
 	var/preset_ration	//if the package comes with one in particular, not a random
-	var/list/ration_options = list("Worker's Meal", "NanoTrasen Sponsored")
-	var/selected_ration
 
 /obj/item/weapon/storage/field_ration/fill()
 	..()
-	if(!preset_ration)
-		selected_ration = pick(ration_options)
-	else
-		selected_ration = preset_ration
 	new /obj/item/weapon/material/kitchen/utensil/spoon(src)
 	create_ration()
 	make_exact_fit()
 
 /obj/item/weapon/storage/field_ration/proc/create_ration()
+	var/selected_ration = preset_ration
+	if(!selected_ration)
+		selected_ration = pick("Worker's Meal", "NanoTrasen Sponsored")
+
 	switch(selected_ration)
 
 		if("Worker's Meal")
@@ -40,9 +38,11 @@
 
 /obj/item/weapon/storage/field_ration/nka
 	icon_state = "bigbox"
-	ration_options = list("Imperial Army", "Royal Navy")
 
 /obj/item/weapon/storage/field_ration/nka/create_ration()
+	var/selected_ration = preset_ration
+	if(!selected_ration)
+		selected_ration = pick("Imperial Army", "Royal Navy")
 	switch(selected_ration)
 
 		if("Imperial Army")
