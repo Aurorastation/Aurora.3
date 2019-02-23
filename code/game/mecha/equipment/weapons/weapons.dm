@@ -69,3 +69,116 @@
 /obj/item/mecha_parts/mecha_equipment/weapon/proc/reset_fire()
 	set_ready_state(1)
 	reset_time = FALSE
+
+//////////////////////////
+////// FLAMETHROWER //////
+//////////////////////////
+
+/obj/item/mecha_parts/mecha_equipment/weapon/flamethrower
+	name = "mounted flamethrower"
+	desc = "Mounted flamethrower for engineering firefighting exosuits. Used to deal with infestations."
+	icon_state = "mecha_clamp"
+	equip_cooldown = 10
+	fire_sound = 'sound/weapons/flamethrower.ogg'
+	fire_volume = 100
+	required_type = list(/obj/mecha/working/ripley, /obj/mecha/combat)
+	var/turf/previousturf = null
+	var/obj/item/weapon/tank/phoron/ptank = null
+
+/obj/item/mecha_parts/mecha_equipment/weapon/flamethrower/examine(mob/user)
+	..()
+	if(ptank)
+		to_chat(user, "<span class='notice'>\The [src] has [ptank] attached, that displays [round(ptank.air_contents.return_pressure() ? ptank.air_contents.return_pressure() : 0)] KPa.</span>")
+	else
+		to_chat(user, "<span class='notice'>\The [src] has no tank attached.</span>")
+
+/obj/item/mecha_parts/mecha_equipment/weapon/flamethrower/attackby(obj/item/W as obj, mob/user as mob)
+	if(user.stat || user.restrained() || user.lying)	return
+	if(istype(W, /obj/item/weapon/tank/phoron))
+		if(ptank)
+			to_chat(user, "<span class='notice'>There appears to already be a phoron tank loaded in [src]!</span>")
+			return
+		to_chat(user, "<span class='notice'>You attach [W] to the [src].</span>")
+		user.drop_from_inventory(W, src)
+		ptank = W
+		update_icon()
+		return
+
+// Change valve on internal tank
+/obj/item/mecha_parts/mecha_equipment/weapon/flamethrower/verb/remove_tank()
+	set src in oview(1)
+	set category = "Object"
+	set name = "Remove tank"
+
+	if(!usr.canmove || usr.stat || usr.restrained())
+		return
+
+	if(!ishuman(usr))
+		to_chat(usr, "<span class='warning'>This mob type can't use this verb.</span>")
+		return
+
+	if(ptank)
+		usr.visible_message(
+		"<span class='warning'>[usr] is removing [src]'s [ptank].</span>",
+		"<span class='notice'>You are removing [src]'s [ptank].</span>"
+		)
+		if (!do_after(usr, 2 SECONDS, act_target = src))
+			return
+		usr.visible_message(
+		"<span class='warning'>[usr] has removed [src]'s [ptank].</span>" ,
+		"<span class='notice'>You removed [src]'s [ptank].</span>"
+		)
+		update_icon()
+	else
+		to_chat(usr, "<span class='notice'>[src] has no tank.</span>")
+
+/obj/item/mecha_parts/mecha_equipment/weapon/flamethrower/action(atom/target)
+	if(!action_checks(target)) return
+	if(!ptank)
+		occupant_message("<span class='warning'>[src] has no tank attached!</span>")
+		return
+	var/turf/target_turf = get_turf(target)
+	if(target_turf)
+		var/turflist = getline(chassis, target_turf)
+		playsound(chassis, fire_sound, fire_volume, 1)
+		flame_turf(turflist)
+		chassis.use_power(energy_drain)
+		chassis.visible_message("<span class='warning'>[chassis] fires wall of fire from [src]!</span>")
+		occupant_message("<span class='warning'>You fire wall of fire from [src]!</span>")
+		log_message("Fired from [src], targeting [target].")
+		if(equip_cooldown)
+			reset_time = TRUE
+			addtimer(CALLBACK(src, .proc/reset_fire), equip_cooldown)
+
+//Called from turf.dm turf/dblclick
+/obj/item/mecha_parts/mecha_equipment/weapon/flamethrower/proc/flame_turf(turflist)
+	for(var/turf/T in turflist)
+		if(T.density || istype(T, /turf/space))
+			break
+		if(!previousturf && length(turflist)>1)
+			previousturf = get_turf(src)
+			continue	//so we don't burn the tile we be standin on
+		if(previousturf && LinkBlocked(previousturf, T))
+			break
+		ignite_turf(T)
+		sleep(1)
+	previousturf = null
+	for(var/mob/M in viewers(1, loc))
+		if((M.client && M.machine == src))
+			attack_self(M)
+	return
+
+
+/obj/item/mecha_parts/mecha_equipment/weapon/flamethrower/proc/ignite_turf(turf/target)
+	//TODO: DEFERRED Consider checking to make sure tank pressure is high enough before doing this...
+	//Transfer 5% of current tank air contents to turf
+	var/datum/gas_mixture/air_transfer = ptank.air_contents.remove_ratio(0.02)
+	//air_transfer.toxins = air_transfer.toxins * 5 // This is me not comprehending the air system. I realize this is retarded and I could probably make it work without fucking it up like this, but there you have it. -- TLE
+	new/obj/effect/decal/cleanable/liquid_fuel/flamethrower_fuel(target, air_transfer.gas["phoron"]*15,get_dir(loc,target))
+	air_transfer.gas["phoron"] = 0
+	target.assume_air(air_transfer)
+	//Burn it based on transfered gas
+	//target.hotspot_expose(part4.air_contents.temperature*2,300)
+	target.hotspot_expose((ptank.air_contents.temperature*2) + 380,500) // -- More of my "how do I shot fire?" dickery. -- TLE
+	//location.hotspot_expose(1000,500,1)
+	return

@@ -4,6 +4,7 @@
 	icon = 'icons/obj/flamethrower.dmi'
 	icon_state = "flamethrowerbase"
 	item_state = "flamethrower_0"
+	var/fire_sound = 'sound/weapons/flamethrower.ogg'
 	flags = CONDUCT
 	force = 3.0
 	throwforce = 10.0
@@ -165,6 +166,7 @@
 /obj/item/weapon/flamethrower/proc/flame_turf(turflist)
 	if(!lit || operating)	return
 	operating = 1
+	playsound(src, fire_sound, 70, 1)
 	for(var/turf/T in turflist)
 		if(T.density || istype(T, /turf/space))
 			break
