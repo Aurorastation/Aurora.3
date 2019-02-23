@@ -68,7 +68,7 @@
 
 	if (!cell || !cell.checked_use(power_usage*5*CELLRATE))//Costs a small burst to enter cloak
 		if (owner)
-			owner << "The [src] clicks uselessly, it has no power left."
+			to_chat(owner, "The [src] clicks uselessly, it has no power left.")
 		playsound(get_turf(src), 'sound/weapons/empty.ogg', 25, 1)
 		return
 
@@ -78,7 +78,7 @@
 	stop_modifier()
 	playsound(src, 'sound/effects/phasein.ogg', 10, 1, -2)//Cloaking is quieter than uncloaking
 	if (owner)
-		owner << "<span class='notice'>\The [src] is now active.</span>"
+		to_chat(owner, "<span class='notice'>\The [src] is now active.</span>")
 		start_modifier()
 
 /obj/item/weapon/cloaking_device/proc/deactivate()
@@ -87,7 +87,7 @@
 	active = 0
 	src.icon_state = "shield0"
 	if (owner)
-		owner << "<span class='notice'>\The [src] is now inactive.</span>"
+		to_chat(owner, "<span class='notice'>\The [src] is now inactive.</span>")
 
 	playsound(src, 'sound/effects/phasein.ogg', 50, 1)
 	stop_modifier()

@@ -74,7 +74,7 @@
 		to_chat(usr, "<span class='notice'>You issue a maintenance request for all active drones, highlighting [drone_call_area].</span>")
 		for(var/mob/living/silicon/robot/drone/D in silicon_mob_list)
 			if(D.client && D.stat == 0)
-				D << "-- Maintenance drone presence requested in: [drone_call_area]."
+				to_chat(D, "-- Maintenance drone presence requested in: [drone_call_area].")
 
 	else if (href_list["resync"])
 

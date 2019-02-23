@@ -110,7 +110,7 @@
 				return
 
 	src.visible_message(span("warning", "[src] starts absorbing [D] into its body"), span("warning", "You start absorbing [D]. This will take 15 seconds and both of you must remain still"), span("warning", "You hear a strange, alien. sucking sound"))
-	D << "<span class='notice'>You feel yourself slowly becoming part of something greater, remain still to finish.</span>"
+	to_chat(D, "<span class='notice'>You feel yourself slowly becoming part of something greater, remain still to finish.</span>")
 	face_atom(D)
 	D.face_atom(get_turf(src))
 	if(do_mob(src, D, 150, needhand = 0))
@@ -133,7 +133,7 @@
 				src.adjustNutritionLoss(-D.nutrition)
 				D.nutrition = 0
 
-			D << "<span class='notice'>You feel your being twine with that of \the [src] as you merge with its biomass.</span>"
+			to_chat(D, "<span class='notice'>You feel your being twine with that of \the [src] as you merge with its biomass.</span>")
 			to_chat(src, "<span class='notice'>You feel your being twine with that of \the [D] as it merges with your biomass.</span>")
 			for(var/obj/O in D.contents)
 				D.drop_from_inventory(O)
@@ -171,7 +171,7 @@
 	if (r != "Time to leaf")
 		return
 
-	src.loc << span("warning", "You feel a pang of loss as [src] splits away from your biomass.")
+	to_chat(src.loc,  "<span class='warning'>You feel a pang of loss as [src] splits away from your biomass.</span>")
 	to_chat(src, "<span class='notice'>You wiggle out of the depths of [src.loc]'s biomass and plop to the ground.</span>")
 
 	if (gestalt.is_diona() == DIONA_NYMPH)
@@ -344,7 +344,7 @@
 
 			else
 				to_chat(src, span("warning", "You feel a pang of loss as [src] splits away from your biomass."))
-				D << "<span class='notice'>You wiggle out of the depths of [src.loc]'s biomass and plop to the ground.</span>"
+				to_chat(D, "<span class='notice'>You wiggle out of the depths of [src.loc]'s biomass and plop to the ground.</span>")
 
 				if (D.gestalt.is_diona() == DIONA_NYMPH)
 					D.gestalt.adjustNutritionLoss(NYMPH_ABSORB_NUTRITION)

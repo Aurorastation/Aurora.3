@@ -97,7 +97,7 @@
 	target.adjustBruteLoss(35)
 
 	if(!do_after(src,150))
-		src<< "<span class='warning'>You need to wait longer to devour \the [target]!</span>"
+		to_chat(src, "<span class='warning'>You need to wait longer to devour \the [target]!</span>")
 		src.is_devouring = FALSE
 		return 0
 
@@ -106,7 +106,7 @@
 	target.adjustBruteLoss(35)
 
 	if(!do_after(src,150))
-		src<< "<span class='warning'>You need to wait longer to devour \the [target]!</span>"
+		to_chat(src, "<span class='warning'>You need to wait longer to devour \the [target]!</span>")
 		src.is_devouring = FALSE
 		return 0
 

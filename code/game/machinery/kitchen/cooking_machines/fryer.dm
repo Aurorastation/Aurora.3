@@ -190,10 +190,12 @@
 
 
 		if(!nopain)
-			victim << "<span class='danger'>Agony consumes you as searing hot oil scorches your [E ? E.name : "flesh"] horribly!</span>"
+			var/your_lie_in_april = E ? E.name : "flesh"
+			to_chat(victim, "<span class='danger'>Agony consumes you as searing hot oil scorches your [your_lie_in_april] horribly!</span>")
 			victim.emote("scream")
 		else
-			victim << "<span class='danger'>Searing hot oil scorches your [E ? E.name : "flesh"]!</span>"
+			var/welcome_to_the_nhk = E ? E.name : "flesh"
+			to_chat(victim, "<span class='danger'>Searing hot oil scorches your [welcome_to_the_nhk]!</span>")
 
 
 		user.attack_log += text("\[[time_stamp()]\] <font color='red'>Has [cook_type] \the [victim] ([victim.ckey]) in \a [src]</font>")

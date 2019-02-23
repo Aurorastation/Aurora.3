@@ -438,7 +438,7 @@
 					return
 
 				RG.reagents.add_reagent("water", min(RG.volume - RG.reagents.total_volume, amount_per_transfer_from_this))
-				oviewers(3, usr) << "<span class='notice'>[usr] fills \the [RG] using \the [src].</span>"
+				to_chat(oviewers(3, usr), "<span class='notice'>[usr] fills \the [RG] using \the [src].</span>")
 				to_chat(usr, "<span class='notice'>You fill \the [RG] using \the [src].</span>")
 			if ("Empty")
 				if(!RG.reagents.total_volume)
@@ -446,7 +446,7 @@
 					return
 
 				var/empty_amount = RG.reagents.trans_to(src, RG.amount_per_transfer_from_this)
-				oviewers(3, usr) << "<span class='notice'>[usr] empties [empty_amount]u of \the [RG] into \the [src].</span>"
+				to_chat(oviewers(3, usr), "<span class='notice'>[usr] empties [empty_amount]u of \the [RG] into \the [src].</span>")
 				to_chat(usr, "<span class='notice'>You empty [empty_amount]u of \the [RG] into \the [src].</span>")
 		return
 
@@ -461,7 +461,7 @@
 
 				var/trans = min(S.volume - S.reagents.total_volume, S.amount_per_transfer_from_this)
 				S.reagents.add_reagent("water", trans)
-				oviewers(3, usr) << "<span class='notice'>[usr] uses \the [S] to draw water from \the [src].</span>"
+				to_chat(oviewers(3, usr), "<span class='notice'>[usr] uses \the [S] to draw water from \the [src].</span>")
 				to_chat(usr, "<span class='notice'>You draw [trans] units of water from \the [src]. \The [S] now contains [S.reagents.total_volume] units.</span>")
 			if(1) // inject
 				if(!S.reagents.total_volume)
@@ -470,7 +470,7 @@
 
 				var/trans = min(S.amount_per_transfer_from_this, S.reagents.total_volume)
 				S.reagents.remove_any(trans)
-				oviewers(3, usr) << "<span class='notice'>[usr] empties \the [S] into \the [src].</span>"
+				to_chat(oviewers(3, usr), "<span class='notice'>[usr] empties \the [S] into \the [src].</span>")
 				to_chat(usr, "<span class='notice'>You empty [trans] units of water into \the [src]. \The [S] now contains [S.reagents.total_volume] units.</span>")
 
 		return

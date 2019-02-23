@@ -73,7 +73,7 @@
 		to_chat(usr, text("<span class='warning'>You kick the display case.</span>"))
 		for(var/mob/O in oviewers())
 			if ((O.client && !( O.blinded )))
-				O << "<span class='warning'>[usr] kicks the display case.</span>"
+				to_chat(O, "<span class='warning'>[usr] kicks the display case.</span>")
 		src.health -= 2
 		healthcheck()
 		return

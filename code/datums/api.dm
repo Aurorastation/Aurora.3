@@ -844,7 +844,7 @@ proc/api_update_command_database()
 
 	for(var/client/A in admins)
 		if(A != C)
-			A << amessage
+			to_chat(A, amessage)
 
 
 	statuscode = 200

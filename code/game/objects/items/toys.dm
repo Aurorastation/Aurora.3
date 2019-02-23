@@ -392,7 +392,7 @@
 				for(var/atom/T in get_turf(D))
 					D.reagents.touch(T)
 					if(ismob(T) && T:client)
-						T:client << "<span class='warning'>\The [user] has sprayed you with water!</span>"
+						to_chat(T:client, "<span class='warning'>\The [user] has sprayed you with water!</span>")
 				sleep(4)
 			qdel(D)
 

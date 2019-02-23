@@ -92,7 +92,7 @@
 			else
 				new_mob.key = M.key
 
-			new_mob << "<span class='warning'>Your form morphs into that of \a [lowertext(randomize)].</span>"
+			to_chat(new_mob, "<span class='warning'>Your form morphs into that of \a [lowertext(randomize)].</span>")
 
 			qdel(M)
 			return

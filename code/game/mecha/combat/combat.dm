@@ -232,7 +232,7 @@
 							</body>
 							</html>
 						  "}
-		occupant << browse(window, "window=sam;size=800x600;")
+		to_chat(occupant, browse(window, "window=sam;size=800x600;"))
 		onclose(occupant, "sam", src)
 	return
 */

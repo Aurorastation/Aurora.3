@@ -34,10 +34,10 @@
 		to_chat(src, "<span class='warning'>You send a punishing spike of psychic agony lancing into your host's brain.</span>")
 
 		if (!can_feel_pain())
-			B.host_brain << "<span class='warning'>You feel a strange sensation as a foreign influence prods your mind.</span>"
+			to_chat(B.host_brain, "<span class='warning'>You feel a strange sensation as a foreign influence prods your mind.</span>")
 			to_chat(src, "<span class='warning'>It doesn't seem to be as effective as you hoped.</span>")
 		else
-			B.host_brain << "<span class='danger'><FONT size=3>Horrific, burning agony lances through you, ripping a soundless scream from your trapped mind!</FONT></span>"
+			to_chat(B.host_brain, "<span class='danger'><FONT size=3>Horrific, burning agony lances through you, ripping a soundless scream from your trapped mind!</FONT></span>")
 
 /mob/living/carbon/proc/spawn_larvae()
 	set category = "Abilities"

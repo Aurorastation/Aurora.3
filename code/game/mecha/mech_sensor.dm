@@ -44,11 +44,11 @@
 	if(istype(O, /obj/mecha))
 		var/obj/mecha/R = O
 		if(R && R.occupant)
-			R.occupant << block_message
+			R.to_chat(occupant, block_message)
 	else if(istype(O, /obj/vehicle/train/cargo/engine))
 		var/obj/vehicle/train/cargo/engine/E = O
 		if(E && E.load && E.is_train_head())
-			E.load << block_message
+			E.to_chat(load, block_message)
 
 	feedback_timer = 1
 	spawn(50) //Without this timer the feedback becomes horribly spamy

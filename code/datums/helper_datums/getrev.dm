@@ -33,10 +33,10 @@ var/global/datum/getrev/revdata = new()
 	else
 		test_merges = list()
 
-	world.log << "Running revision:"
-	world.log << branch
-	world.log << date
-	world.log << revision
+	world.log <<  "Running revision:"
+	world.log <<  branch
+	world.log <<  date
+	world.log <<  revision
 
 client/verb/showrevinfo()
 	set category = "OOC"

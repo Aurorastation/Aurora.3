@@ -67,7 +67,7 @@
 		to_chat(user, "<span class='warning'>You kick the lab cage.</span>")
 		for(var/mob/O in oviewers())
 			if ((O.client && !( O.blinded )))
-				O << "<span class='warning'>[user] kicks the lab cage.</span>"
+				to_chat(O, "<span class='warning'>[user] kicks the lab cage.</span>")
 
 		src.health -= 2
 		healthcheck()

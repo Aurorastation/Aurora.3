@@ -243,13 +243,13 @@ var/controlling
 	spawn
 		// backup the host incase we switch hosts after using the verb
 		//var/mob/host = src.host
-		host << "<span class='danger'>Your tongue feels numb.. You lose your ability to speak.</span>"
+		to_chat(host, "<span class='danger'>Your tongue feels numb.. You lose your ability to speak.</span>")
 		to_chat(usr, "<span class='notice'>Your host can't speak anymore.</span>")
 
 		host.silent += 60
 
 		sleep(1200)
-		host << "<span class='danger'>Your tongue has feeling again.</span>"
+		to_chat(host, "<span class='danger'>Your tongue has feeling again.</span>")
 		to_chat(usr, "<span class='notice'>[host] can speak again.</span>")
 
 // Makes the host unable to emote
@@ -268,13 +268,13 @@ var/controlling
 		// backup the host incase we switch hosts after using the verb
 		var/mob/host = src.host
 
-		host << "<span class='danger'>Your body feels numb. You lose your ability to use body language.</span>"
+		to_chat(host, "<span class='danger'>Your body feels numb. You lose your ability to use body language.</span>")
 		to_chat(usr, "<span class='notice'>Your host can't use body language anymore.</span>")
 
 		host.Weaken(60)
 
 		sleep(1200)
-		host << "<span class='warning'>Your body has feeling again.</span>"
+		to_chat(host, "<span class='warning'>Your body has feeling again.</span>")
 		to_chat(usr, "<span class='notice'>[host] can use body language again.</span>")
 
 
@@ -295,7 +295,7 @@ var/controlling
 		host.paralysis = max(host.paralysis, 2)
 
 		host.flash_weak_pain()
-		host << "<span class='danger'><font size=5>You feel excrutiating pain all over your body! It is so bad you can't think or articulate yourself properly.</font></span>"
+		to_chat(host, "<span class='danger'><font size=5>You feel excrutiating pain all over your body! It is so bad you can't think or articulate yourself properly.</font></span>")
 
 		to_chat(usr, "<span class='notice'>You send a jolt of agonizing pain through [host], they should be unable to concentrate on anything else for half a minute.</span>")
 
@@ -311,9 +311,9 @@ var/controlling
 			else if(prob(10)) host.emote("collapse")
 
 			if(i == 10)
-				host << "<span class='danger'>THE PAIN! AGHH, THE PAIN! MAKE IT STOP! ANYTHING TO MAKE IT STOP!</span>"
+				to_chat(host, "<span class='danger'>THE PAIN! AGHH, THE PAIN! MAKE IT STOP! ANYTHING TO MAKE IT STOP!</span>")
 
-		host << "<span class='warning'>The pain subsides.</span>"
+		to_chat(host, "<span class='warning'>The pain subsides.</span>")
 
 // Cause great joy with the host, used for conditioning the host
 /mob/living/parasite/meme/verb/Joy()
@@ -331,12 +331,12 @@ var/controlling
 
 		to_chat(usr, "<span class='notice'>You stimulate [host.name]'s brain, injecting waves of endorphines and dopamine into the tissue. They should now forget all their worries, particularly relating to you, for around a minute.</span>")
 
-		host << "<span class='notice'><font size=5>You are feeling wonderful! Your head is numb and drowsy, and you can't help forgetting all the worries in the world.</font></span>"
+		to_chat(host, "<span class='notice'><font size=5>You are feeling wonderful! Your head is numb and drowsy, and you can't help forgetting all the worries in the world.</font></span>")
 
 		while(host.druggy > 0)
 			sleep(10)
 
-		host << "<span class='warning'>You are feeling clear-headed again.</span>"
+		to_chat(host, "<span class='warning'>You are feeling clear-headed again.</span>")
 
 // Cause the target to hallucinate.
 /mob/living/parasite/meme/verb/Hallucinate(mob/living/carbon/human/target as mob in oview())
@@ -500,7 +500,7 @@ var/controlling
 	src.indoctrinated.Add(host)
 
 	to_chat(usr, "<span class='notice'>You successfully indoctrinated [host].</span>")
-	host << "<span class='danger'>Your head feels a bit roomier...</span>"
+	to_chat(host, "<span class='danger'>Your head feels a bit roomier...</span>")
 
 	log_admin("[src.key] has attuned [host]",ckey=key_name(src))
 	message_admins("[src.key] has attuned [host]")
@@ -518,11 +518,11 @@ var/controlling
 	if(!use_points(500)) return
 
 	to_chat(usr, "<span class='notice'>You inject drugs into [host].</span>")
-	host << "<span class='danger'>You feel your body strengthen and your pain subside.</span>"
+	to_chat(host, "<span class='danger'>You feel your body strengthen and your pain subside.</span>")
 	host.analgesic = 60
 	while(host.analgesic > 0)
 		sleep(60)
-	host << "<span class='notice'>The dizziness wears off, and you can feel pain again.</span>"
+	to_chat(host, "<span class='notice'>The dizziness wears off, and you can feel pain again.</span>")
 
 
 /mob/proc/clearHUD()
@@ -559,7 +559,7 @@ var/controlling
 		else
 
 			to_chat(src, "<span class='warning'>You shroud your hosts brain, assuming control!</span>")
-			host << "<span class='danger'>You can feel thoughts that arent your own begin to dictate your body's actions.</span>"
+			to_chat(host, "<span class='danger'>You can feel thoughts that arent your own begin to dictate your body's actions.</span>")
 
 			// host -> brain
 			var/h2b_id = host.computer_id

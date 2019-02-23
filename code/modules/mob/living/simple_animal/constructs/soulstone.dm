@@ -55,7 +55,7 @@
 /obj/item/device/soulstone/Topic(href, href_list)
 	var/mob/U = usr
 	if (!in_range(src, U)||U.machine!=src)
-		U << browse(null, "window=aicard")
+		to_chat(U, browse(null, "window=aicard"))
 		U.unset_machine()
 		return
 
@@ -64,7 +64,7 @@
 
 	switch(href_list["choice"])//Now we switch based on choice.
 		if ("Close")
-			U << browse(null, "window=aicard")
+			to_chat(U, browse(null, "window=aicard"))
 			U.unset_machine()
 			return
 
@@ -72,7 +72,7 @@
 			for(var/mob/living/simple_animal/shade/A in src)
 				A.status_flags &= ~GODMODE
 				A.canmove = 1
-				A << "<b>You have been released from your prison, but you are still bound to [U.name]'s will. Help them suceed in their goals at all costs.</b>"
+				to_chat(A, "<b>You have been released from your prison, but you are still bound to [U.name]'s will. Help them suceed in their goals at all costs.</b>")
 				A.forceMove(U.loc)
 				A.cancel_camera()
 				src.icon_state = "soulstone"
@@ -149,7 +149,7 @@
 
 	src.icon_state = "soulstone2"
 	src.name = "Soul Stone: [S.real_name]"
-	S << "Your soul has been captured! You are now bound to [U.name]'s will, help them suceed in their goals at all costs."
+	to_chat(S, "Your soul has been captured! You are now bound to [U.name]'s will, help them suceed in their goals at all costs.")
 	to_chat(U, "<span class='notice'>Capture successful!</span> : [T.real_name]'s soul has been ripped from their body and stored within the soul stone.")
 	to_chat(U, "The soulstone has been imprinted with [S.real_name]'s mind, it will no longer react to other souls.")
 	src.imprinted = "[S.name]"

@@ -166,7 +166,7 @@ var/list/VVdynamic_lock = list(
 			L[var_value] = mod_list_add_ass() //haha
 		if("No")
 			L += var_value
-	world.log << "### ListVarEdit by [src]: [O.type] [objectvar]: ADDED=[var_value]"
+	world.log <<  "### ListVarEdit by [src]: [O.type] [objectvar]: ADDED=[var_value]"
 	log_admin("[key_name(src)] modified [original_name]'s [objectvar]: ADDED=[var_value]",admin_key=key_name(src))
 	message_admins("[key_name_admin(src)] modified [original_name]'s [objectvar]: ADDED=[var_value]")
 
@@ -320,7 +320,7 @@ var/list/VVdynamic_lock = list(
 			modify_variables(variable)
 
 		if("DELETE FROM LIST")
-			world.log << "### ListVarEdit by [src]: [O.type] [objectvar]: REMOVED=[html_encode("[variable]")]"
+			world.log <<  "### ListVarEdit by [src]: [O.type] [objectvar]: REMOVED=[html_encode("[variable]")]"
 			log_admin("[key_name(src)] modified [original_name]'s [objectvar]: REMOVED=[variable]",admin_key=key_name(src))
 			message_admins("[key_name_admin(src)] modified [original_name]'s [objectvar]: REMOVED=[variable]")
 			L -= variable
@@ -400,7 +400,7 @@ var/list/VVdynamic_lock = list(
 			else
 				L[L.Find(variable)] = new_var
 
-	world.log << "### ListVarEdit by [src]: [O.type] [objectvar]: [original_var]=[new_var]"
+	world.log <<  "### ListVarEdit by [src]: [O.type] [objectvar]: [original_var]=[new_var]"
 	log_admin("[key_name(src)] modified [original_name]'s [objectvar]: [original_var]=[new_var]",admin_key=key_name(src))
 	message_admins("[key_name_admin(src)] modified [original_name]'s varlist [objectvar]: [original_var]=[new_var]")
 
@@ -668,6 +668,6 @@ var/list/VVdynamic_lock = list(
 		if("marked datum")
 			O.vars[variable] = holder.marked_datum
 
-	world.log << "### VarEdit by [src]: [O.type] [variable]=[html_encode("[O.vars[variable]]")]"
+	world.log <<  "### VarEdit by [src]: [O.type] [variable]=[html_encode("[O.vars[variable]]")]"
 	log_admin("[key_name(src)] modified [original_name]'s [variable] to [O.vars[variable]]",admin_key=key_name(src))
 	message_admins("[key_name_admin(src)] modified [original_name]'s [variable] to [O.vars[variable]]")

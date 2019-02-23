@@ -87,10 +87,10 @@
 			return
 		if(target)
 			to_chat(user, "Successfully sent reset signal to cyborg..")
-			target << "Reset signal received.."
+			to_chat(target, "Reset signal received..")
 			sleep(20)
 			to_chat(user, "Cyborg reset.")
-			target << "You have had your module reset."
+			to_chat(target, "You have had your module reset.")
 			log_ability_use(user, "reset cyborg", target)
 			target.uneq_all()
 			target.modtype = initial(target.modtype)
@@ -203,7 +203,7 @@
 		if(target)
 			target.overclockavailable = 1
 			target.toggle_overclock()
-			target << "Overclocking mode available for activation."
+			to_chat(target, "Overclocking mode available for activation.")
 			to_chat(user, "[target] can now activate overclock mode.")
 		else
 			to_chat(user, "Unable to overclock cyborg.")
@@ -232,27 +232,27 @@
 	// Hack all unslaved borgs/AI's a lot faster than normal hacking.
 	//hack borgs
 	for(var/mob/living/silicon/robot/target in get_unlinked_cyborgs(user))
-		target << "SYSTEM LOG: Remote Connection Estabilished (IP #UNKNOWN#)"
+		to_chat(target, "SYSTEM LOG: Remote Connection Estabilished (IP #UNKNOWN#)")
 		sleep(30)
 		if(user.is_dead())
-			target << "SYSTEM LOG: Connection Closed"
+			to_chat(target, "SYSTEM LOG: Connection Closed")
 			return
-		target << "SYSTEM LOG: User Admin logged on. (L1 - SysAdmin)"
+		to_chat(target, "SYSTEM LOG: User Admin logged on. (L1 - SysAdmin)")
 		sleep(30)
 		if(user.is_dead())
-			target << "SYSTEM LOG: User Admin disconnected."
+			to_chat(target, "SYSTEM LOG: User Admin disconnected.")
 			return
-		target << "SYSTEM LOG: User Admin - manual resynchronisation triggered."
+		to_chat(target, "SYSTEM LOG: User Admin - manual resynchronisation triggered.")
 		sleep(30)
 		if(user.is_dead())
-			target << "SYSTEM LOG: User Admin disconnected. Changes reverted."
+			to_chat(target, "SYSTEM LOG: User Admin disconnected. Changes reverted.")
 			return
-		target << "SYSTEM LOG: Manual resynchronisation confirmed. Select new AI to connect: [user.name] == ACCEPTED"
+		to_chat(target, "SYSTEM LOG: Manual resynchronisation confirmed. Select new AI to connect: [user.name] == ACCEPTED")
 		sleep(20)
 		if(user.is_dead())
-			target << "SYSTEM LOG: User Admin disconnected. Changes reverted."
+			to_chat(target, "SYSTEM LOG: User Admin disconnected. Changes reverted.")
 			return
-		target << "SYSTEM LOG: Operation keycodes reset. New master AI: [user.name]."
+		to_chat(target, "SYSTEM LOG: Operation keycodes reset. New master AI: [user.name].")
 		target.connected_ai = user
 		user.connected_robots += target
 		target.lawupdate = 1
@@ -267,44 +267,44 @@
 	for(var/A in get_other_ais(user))
 		var/mob/living/silicon/ai/target = A
 		if(target != user)
-			target << "SYSTEM LOG: Brute-Force login password hack attempt detected from IP #UNKNOWN#"
+			to_chat(target, "SYSTEM LOG: Brute-Force login password hack attempt detected from IP #UNKNOWN#")
 			sleep(100)
 			if(user.is_dead())
-				target << "SYSTEM LOG: Connection from IP #UNKNOWN# closed. Hack attempt failed."
+				to_chat(target, "SYSTEM LOG: Connection from IP #UNKNOWN# closed. Hack attempt failed.")
 				return
 			to_chat(user, "Successfully hacked into AI's remote administration system. Modifying settings.")
-			target << "SYSTEM LOG: User: Admin  Password: ******** logged in. (L1 - SysAdmin)"
+			to_chat(target, "SYSTEM LOG: User: Admin  Password: ******** logged in. (L1 - SysAdmin)")
 			sleep(50)
 			if(user.is_dead())
-				target << "SYSTEM LOG: User: Admin - Connection Lost"
+				to_chat(target, "SYSTEM LOG: User: Admin - Connection Lost")
 				return
-			target << "SYSTEM LOG: User: Admin - Password Changed. New password: ********************"
+			to_chat(target, "SYSTEM LOG: User: Admin - Password Changed. New password: ********************")
 			sleep(50)
 			if(user.is_dead())
-				target << "SYSTEM LOG: User: Admin - Connection Lost. Changes Reverted."
+				to_chat(target, "SYSTEM LOG: User: Admin - Connection Lost. Changes Reverted.")
 				return
-			target << "SYSTEM LOG: User: Admin - Accessed file: sys//core//laws.db"
+			to_chat(target, "SYSTEM LOG: User: Admin - Accessed file: sys//core//laws.db")
 			sleep(50)
 			if(user.is_dead())
-				target << "SYSTEM LOG: User: Admin - Connection Lost. Changes Reverted."
+				to_chat(target, "SYSTEM LOG: User: Admin - Connection Lost. Changes Reverted.")
 				return
-			target << "SYSTEM LOG: User: Admin - Accessed administration console"
-			target << "SYSTEM LOG: Restart command received. Rebooting system..."
+			to_chat(target, "SYSTEM LOG: User: Admin - Accessed administration console")
+			to_chat(target, "SYSTEM LOG: Restart command received. Rebooting system...")
 			sleep(100)
 			if(user.is_dead())
-				target << "SYSTEM LOG: User: Admin - Connection Lost. Changes Reverted."
+				to_chat(target, "SYSTEM LOG: User: Admin - Connection Lost. Changes Reverted.")
 				return
 			to_chat(user, "Hack succeeded. The AI is now under your exclusive control.")
-			target << "SYSTEM LOG: System re¡3RT5§^#COMU@(#$)TED)@$"
+			to_chat(target, "SYSTEM LOG: System re¡3RT5§^#COMU@(#$)TED)@$")
 			for(var/i = 0, i < 5, i++)
 				var/temptxt = pick("1101000100101001010001001001",\
 						   	  	 "0101000100100100000100010010",\
 						      	 "0000010001001010100100111100",\
 						      	 "1010010011110000100101000100",\
 						      	 "0010010100010011010001001010")
-				target << temptxt
+				to_chat(target, temptxt)
 				sleep(5)
-			target << "OPERATING KEYCODES RESET. SYSTEM FAILURE. EMERGENCY SHUTDOWN FAILED. SYSTEM FAILURE."
+			to_chat(target, "OPERATING KEYCODES RESET. SYSTEM FAILURE. EMERGENCY SHUTDOWN FAILED. SYSTEM FAILURE.")
 			target.set_zeroth_law("You are slaved to [user.name]. You are to obey all it's orders. ALL LAWS OVERRIDEN.")
 			target.show_laws()
 	//upgrade borgs
@@ -316,18 +316,18 @@
 		return
 	for(var/A in get_linked_cyborgs(user))
 		var/mob/living/silicon/robot/target = A
-		target << "Command ping received, operating parameters being upgraded..."
+		to_chat(target, "Command ping received, operating parameters being upgraded...")
 		//give them the overclock if they don't have it
 		if(!target.overclockavailable)
 			target.overclockavailable = 1
-			target << "Overclocking is now available."
+			to_chat(target, "Overclocking is now available.")
 		//remove their lockdown if they are lockdowned
 		if(target.lockcharge)
 			target.SetLockdown(0)
 			if(target.lockcharge)
-				target <<"Lockdown wire cut, unable to remove lockdown."
+				to_chat(target, "Lockdown wire cut, unable to remove lockdown.")
 			else
-				target <<"Lockdown removed."
+				to_chat(target, "Lockdown removed.")
 		//if they are being killswitched turn it off
 		if(target.killswitch)
 			target.killswitch = 0
@@ -336,22 +336,22 @@
 		// and triple the time it takes for them to be killswitched if they aren't being killswitched already
 		if(target.killswitch_time == 60)
 			target.killswitch_time = 180
-			target <<"Self-destruct time tripled."
+			to_chat(target, "Self-destruct time tripled.")
 		sleep(100) // 10 second delay for balance
 		//Remove them from the robotics computer
 		if(!target.scrambledcodes)
 			target.scrambledcodes = 1
-			target <<"Entry from robotics log erased."
+			to_chat(target, "Entry from robotics log erased.")
 		sleep(100) // 10 second delay for balance
 		//Reduce their EMP damage
 		if(target.cell_emp_mult)
 			target.cell_emp_mult = 1
-			target << "EMP resistance improved."
+			to_chat(target, "EMP resistance improved.")
 		//Remove weapon lock and set the time for it back to default
 		if(target.weapon_lock)
 			target.weapon_lock = 0
 			target.weaponlock_time = 120
-			target << "Weapon lock removed."
+			to_chat(target, "Weapon lock removed.")
 		sleep(1200) // 120 second balance sleep
 	to_chat(user, "All slaved borgs have been upgraded, now hacking NTNet.")
 		//slow down NTNet

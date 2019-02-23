@@ -146,7 +146,7 @@
 	reagents.add_reagent("undead_ichor", 120)
 
 /obj/item/phylactery/Destroy()
-	lich << "<span class='danger'>Your phylactery was destroyed, your soul is cast into the abyss as your immortality vanishes away!</span>"
+	to_chat(lich, "<span class='danger'>Your phylactery was destroyed, your soul is cast into the abyss as your immortality vanishes away!</span>")
 	world_phylactery -= src
 	lich = null
 	return ..()

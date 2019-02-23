@@ -183,7 +183,7 @@ proc/dmp2swapmap(filename)
 			to_chat(F, "\t\t[y]")
 			for(var/x in 1 to X)
 				to_chat(F, "\t\t\t[x]")
-				to_chat(F, codes[pick(codes)] */)
+				to_chat(F, codes[pick(codes)] */
 
 proc/d2sm_ParseCommaList(txt)
 	var/list/L=new

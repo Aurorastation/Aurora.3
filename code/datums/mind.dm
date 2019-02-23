@@ -85,7 +85,7 @@
 
 /datum/mind/proc/transfer_to(mob/living/new_character)
 	if(!istype(new_character))
-		world.log << "## DEBUG: transfer_to(): Some idiot has tried to transfer_to() a non mob/living mob. Please inform Carn"
+		world.log <<  "## DEBUG: transfer_to(): Some idiot has tried to transfer_to( a non mob/living mob. Please inform Carn"
 	if(current)					//remove ourself from our old body's mind variable
 		if(changeling)
 			current.remove_changeling_powers()
@@ -210,7 +210,7 @@
 		if(isnull(new_ambition))
 			return
 		src.ambitions = sanitize(new_ambition)
-		src.current << "<span class='warning'>Your ambitions have been changed by higher powers, they are now: [src.ambitions]</span>"
+		to_chat(src.current, "<span class='warning'>Your ambitions have been changed by higher powers, they are now: [src.ambitions]</span>")
 
 	else if (href_list["obj_edit"] || href_list["obj_add"])
 		var/datum/objective/objective
@@ -423,9 +423,9 @@
 
 	else if (href_list["obj_announce"])
 		var/obj_count = 1
-		current << "<span class='notice'>Your current objectives:</span>"
+		to_chat(current, "<span class='notice'>Your current objectives:</span>")
 		for(var/datum/objective/objective in objectives)
-			current << "<B>Objective #[obj_count]</B>: [objective.explanation_text]"
+			to_chat(current, "<B>Objective #[obj_count]</B>: [objective.explanation_text]")
 			obj_count++
 	edit_memory()
 

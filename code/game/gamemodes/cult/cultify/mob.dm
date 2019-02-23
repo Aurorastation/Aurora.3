@@ -26,7 +26,7 @@
 		G.icon_state = "ghost-narsie"
 		G.overlays = 0
 		G.invisibility = 0
-		G << "<span class='danger'>You feel relieved as what's left of your soul finally escapes its prison of flesh.</span>"
+		to_chat(G, "<span class='danger'>You feel relieved as what's left of your soul finally escapes its prison of flesh.</span>")
 
 		cult.harvested += G.mind
 	else

@@ -251,7 +251,7 @@
 	if(target_mob.is_physically_disabled())
 		target_mob.reagents.add_reagent(charge.display_name, chems_to_use)
 	else
-		target_mob << "<span class='danger'>You feel a rushing in your veins as [chems_to_use] unit\s of [charge.display_name] [chems_to_use == 1 ? "is" : "are"] injected.</span>"
+		to_chat(target_mob, "<span class='danger'>You feel a rushing in your veins as [chems_to_use] unit\s of [charge.display_name] [chems_to_use == 1 ? "is" : "are"] injected.</span>")
 		target_mob.reagents.add_reagent(charge.display_name, chems_to_use)
 
 	charge.charges -= chems_to_use
@@ -493,10 +493,10 @@
 	if(!target)
 		if(device == iastamp)
 			device = deniedstamp
-			holder.wearer << "<span class='notice'>Switched to denied stamp.</span>"
+			to_chat(holder.wearer, "<span class='notice'>Switched to denied stamp.</span>")
 		else if(device == deniedstamp)
 			device = iastamp
-			holder.wearer << "<span class='notice'>Switched to internal affairs stamp.</span>"
+			to_chat(holder.wearer, "<span class='notice'>Switched to internal affairs stamp.</span>")
 		return 1
 
 /obj/item/rig_module/device/decompiler

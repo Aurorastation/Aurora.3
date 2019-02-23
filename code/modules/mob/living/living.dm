@@ -796,10 +796,10 @@ default behaviour is:
 	if(!..())
 		return 0
 	if(!possession_candidate)
-		possessor << "<span class='warning'>That animal cannot be possessed.</span>"
+		to_chat(possessor, "<span class='warning'>That animal cannot be possessed.</span>")
 		return 0
 	if(jobban_isbanned(possessor, "Animal"))
-		possessor << "<span class='warning'>You are banned from animal roles.</span>"
+		to_chat(possessor, "<span class='warning'>You are banned from animal roles.</span>")
 		return 0
 	if(!possessor.MayRespawn(1,ANIMAL))
 		return 0
@@ -811,7 +811,7 @@ default behaviour is:
 		return 0
 
 	if(src.ckey || src.client)
-		possessor << "<span class='warning'>\The [src] already has a player.</span>"
+		to_chat(possessor, "<span class='warning'>\The [src] already has a player.</span>")
 		return 0
 
 	message_admins("<span class='adminnotice'>[key_name_admin(possessor)] has taken control of \the [src].</span>")

@@ -334,23 +334,23 @@ var/list/mob/living/forced_ambiance_list = new
 
 	// If we previously were in an area with force-played ambiance, stop it.
 	if(L in forced_ambiance_list)
-		L << sound(null, channel = 1)
+		to_chat(L, sound(null, channel = 1))
 		forced_ambiance_list -= L
 
 	if(!L.client.ambience_playing)
 		L.client.ambience_playing = 1
-		L << sound('sound/ambience/shipambience.ogg', repeat = loop_ambience, wait = 0, volume = 35, channel = 2)
+		to_chat(L, sound('sound/ambience/shipambience.ogg', repeat = loop_ambience, wait = 0, volume = 35, channel = 2))
 
 	if(forced_ambience)
 		if(forced_ambience.len)
 			forced_ambiance_list |= L
-			L << sound(pick(forced_ambience), repeat = loop_ambience, wait = 0, volume = 25, channel = 1)
+			to_chat(L, sound(pick(forced_ambience), repeat = loop_ambience, wait = 0, volume = 25, channel = 1))
 		else
-			L << sound(null, channel = 1)
+			to_chat(L, sound(null, channel = 1))
 	else if(src.ambience.len && prob(35))
 		if((world.time >= L.client.played + 600))
 			var/sound = pick(ambience)
-			L << sound(sound, repeat = 0, wait = 0, volume = 25, channel = 1)
+			to_chat(L, sound(sound, repeat = 0, wait = 0, volume = 25, channel = 1))
 			L.client.played = world.time
 
 /area/proc/gravitychange(var/gravitystate = 0)
@@ -376,7 +376,7 @@ var/list/mob/living/forced_ambiance_list = new
 		else
 			H.AdjustStunned(1)
 			H.AdjustWeakened(1)
-		mob << "<span class='notice'>The sudden appearance of gravity makes you fall to the floor!</span>"
+		to_chat(mob, "<span class='notice'>The sudden appearance of gravity makes you fall to the floor!</span>")
 
 /area/proc/prison_break()
 	for(var/obj/machinery/power/apc/temp_apc in src)

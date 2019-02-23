@@ -277,11 +277,11 @@ var/datum/controller/subsystem/vote/SSvote
 					choices.Add("Initiate Crew Transfer", "Continue The Round")
 				else
 					if (get_security_level() == "red" || get_security_level() == "delta")
-						initiator_key << "The current alert status is too high to call for a crew transfer!"
+						to_chat(initiator_key, "The current alert status is too high to call for a crew transfer!")
 						return 0
 					if(SSticker.current_state <= 2)
 						return 0
-						initiator_key << "The crew transfer button has been disabled!"
+						to_chat(initiator_key, "The crew transfer button has been disabled!")
 					question = "End the shift?"
 					choices.Add("Initiate Crew Transfer", "Continue The Round")
 			if("add_antagonist")

@@ -480,7 +480,7 @@ var/list/admin_verbs_cciaa = list(
 			ghost.reenter_corpse()
 			log_admin("[src] reentered their corpose using aghost.",admin_key=key_name(src))
 		else
-			ghost << "<font color='red'>Error: Aghost: Can't reenter corpse.</font>"
+			to_chat(ghost, "<font color='red'>Error: Aghost: Can't reenter corpse.</font>")
 			return
 
 		feedback_add_details("admin_verb","P") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
@@ -506,11 +506,11 @@ var/list/admin_verbs_cciaa = list(
 	if(holder && mob)
 		if(mob.invisibility == INVISIBILITY_OBSERVER)
 			mob.invisibility = initial(mob.invisibility)
-			mob << "<span class='danger'>Invisimin off. Invisibility reset.</span>"
+			to_chat(mob, "<span class='danger'>Invisimin off. Invisibility reset.</span>")
 			mob.alpha = max(mob.alpha + 100, 255)
 		else
 			mob.invisibility = INVISIBILITY_OBSERVER
-			mob << "<span class='notice'><b>Invisimin on. You are now as invisible as a ghost.</b></span>"
+			to_chat(mob, "<span class='notice'><b>Invisimin on. You are now as invisible as a ghost.</b></span>")
 			mob.alpha = max(mob.alpha - 100, 0)
 
 

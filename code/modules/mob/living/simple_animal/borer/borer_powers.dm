@@ -18,7 +18,7 @@
 	to_chat(src, "You begin disconnecting from [host]'s synapses and prodding at their internal ear canal.")
 
 	if(!host.stat)
-		host << "An odd, uncomfortable pressure begins to build inside your skull, behind your ear..."
+		to_chat(host, "An odd, uncomfortable pressure begins to build inside your skull, behind your ear...")
 
 	spawn(100)
 
@@ -31,8 +31,8 @@
 		to_chat(src, "You wiggle out of [host]'s ear and plop to the ground.")
 		if(host.mind)
 			if(!host.stat)
-				host << "<span class='danger'>Something slimy wiggles out of your ear and plops to the ground!</span>"
-			host << "<span class='danger'>As though waking from a dream, you shake off the insidious mind control of the brain worm. Your thoughts are your own again.</span>"
+				to_chat(host, "<span class='danger'>Something slimy wiggles out of your ear and plops to the ground!</span>")
+			to_chat(host, "<span class='danger'>As though waking from a dream, you shake off the insidious mind control of the brain worm. Your thoughts are your own again.</span>")
 
 		detatch()
 		leave_host()
@@ -302,7 +302,7 @@
 		else
 
 			to_chat(src, "<span class='danger'>You plunge your probosci deep into the cortex of the host brain, interfacing directly with their nervous system.</span>")
-			host << "<span class='danger'>You feel a strange shifting sensation behind your eyes as an alien consciousness displaces yours.</span>"
+			to_chat(host, "<span class='danger'>You feel a strange shifting sensation behind your eyes as an alien consciousness displaces yours.</span>")
 			host.add_language("Cortical Link")
 
 			// host -> brain

@@ -21,7 +21,7 @@
 
 		var/mob/living/simple_animal/borer/B = src.loc
 		to_chat(src, "You whisper silently, \"[message]\"")
-		B.host << "The captive mind of [src] whispers, \"[message]\""
+		to_chat(B.host, "The captive mind of [src] whispers, \"[message]\"")
 
 		for (var/mob/M in player_list)
 			if (istype(M, /mob/abstract/new_player))
@@ -39,14 +39,14 @@
 		var/mob/living/captive_brain/H = src
 
 		to_chat(H, "<span class='danger'>You begin doggedly resisting the parasite's control (this will take approximately sixty seconds).</span>")
-		B.host << "<span class='danger'>You feel the captive mind of [src] begin to resist your control.</span>"
+		to_chat(B.host, "<span class='danger'>You feel the captive mind of [src] begin to resist your control.</span>")
 
 		spawn(rand(200,250)+B.host.getBrainLoss())
 			if(!B || !B.controlling) return
 
 			B.host.adjustBrainLoss(rand(5,10), 55)
 			to_chat(H, "<span class='danger'>With an immense exertion of will, you regain control of your body!</span>")
-			B.host << "<span class='danger'>You feel control of the host brain ripped from your grasp, and retract your probosci before the wild neural impulses can damage you.</span>"
+			to_chat(B.host, "<span class='danger'>You feel control of the host brain ripped from your grasp, and retract your probosci before the wild neural impulses can damage you.</span>")
 			B.detatch()
 			verbs -= /mob/living/carbon/proc/release_control
 			verbs -= /mob/living/carbon/proc/punish_host

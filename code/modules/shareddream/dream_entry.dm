@@ -12,10 +12,10 @@ var/list/dream_entries = list()
 			bg.ckey = ckey
 			bg.client = client
 			ckey = "@[bg.ckey]"
-			bg << "<span class='notice'>As you lose consiousness, you feel yourself entering Srom.</span>"
-			bg << "<span class='warning'>Whilst in shared dreaming, you find it difficult to hide your secrets.</span>"
+			to_chat(bg, "<span class='notice'>As you lose consiousness, you feel yourself entering Srom.</span>")
+			to_chat(bg, "<span class='warning'>Whilst in shared dreaming, you find it difficult to hide your secrets.</span>")
 			if(willfully_sleeping)
-				bg << "To wake up, use the \"Awaken\" verb in the IC tab."
+				to_chat(bg, "To wake up, use the \"Awaken\" verb in the IC tab.")
 			log_and_message_admins("has entered the shared dream", bg)
 	// Does NOT
 	else

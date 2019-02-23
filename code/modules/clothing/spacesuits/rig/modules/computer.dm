@@ -214,7 +214,7 @@
 			else
 				user.drop_from_inventory(ai,src)
 				ai_card = ai
-				ai_mob << "<font color='blue'>You have been transferred to \the [holder]'s [src].</font>"
+				to_chat(ai_mob, "<font color='blue'>You have been transferred to \the [holder]'s [src].</font>")
 				to_chat(user, "<font color='blue'>You load [ai_mob] into \the [holder]'s [src].</font>")
 
 			integrated_ai = ai_mob
@@ -378,7 +378,7 @@
 
 	if(interfaced_with)
 		if(holder && holder.wearer)
-			holder.wearer << "<span class = 'warning'>Your power sink retracts as the module deactivates.</span>"
+			to_chat(holder.wearer, "<span class = 'warning'>Your power sink retracts as the module deactivates.</span>")
 		drain_complete()
 	interfaced_with = null
 	total_power_drained = 0

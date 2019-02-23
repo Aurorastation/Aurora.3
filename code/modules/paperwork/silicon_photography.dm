@@ -25,7 +25,7 @@
 	var/mob/living/silicon/robot/C = usr
 	if(C.connected_ai)
 		C.connected_ai.aiCamera.injectaialbum(p.copy(1), " (synced from [C.name])")
-		C.connected_ai << "<span class='unconscious'>Image uploaded by [C.name]</span>"
+		C.to_chat(connected_ai, "<span class='unconscious'>Image uploaded by [C.name]</span>")
 		to_chat(usr, "<span class='unconscious'>Image synced to remote database</span>")	//feedback to the Cyborg player that the picture was taken)
 	else
 		to_chat(usr, "<span class='unconscious'>Image recorded</span>")

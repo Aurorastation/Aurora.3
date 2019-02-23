@@ -202,7 +202,7 @@
 	transfer.create_eyeobj()
 	transfer.cancel_camera()
 	to_chat(user, "<span class='notice'>Transfer successful:</span> [transfer.name] ([rand(1000,9999)].exe) downloaded to host terminal. Local copy wiped.")
-	transfer << "You have been uploaded to a stationary terminal. Remote device connection restored."
+	to_chat(transfer, "You have been uploaded to a stationary terminal. Remote device connection restored.")
 
 	if(card)
 		card.clear()

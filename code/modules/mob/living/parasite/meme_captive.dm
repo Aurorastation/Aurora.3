@@ -21,7 +21,7 @@
 
 		var/mob/living/parasite/meme/ME = src.loc
 		to_chat(src, "You whisper silently, \"[message]\"")
-		ME.host << "The captive mind of [src] whispers, \"[message]\""
+		to_chat(ME.host, "The captive mind of [src] whispers, \"[message]\"")
 
 		for (var/mob/M in player_list)
 			if (istype(M, /mob/abstract/new_player))

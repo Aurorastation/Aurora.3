@@ -389,7 +389,7 @@
 		if(1)
 			var/turf/T = get_step(mob, direct)
 			if(mob.check_holy(T))
-				mob << "<span class='warning'>You cannot get past holy grounds while you are in this plane of existence!</span>"
+				to_chat(mob, "<span class='warning'>You cannot get past holy grounds while you are in this plane of existence!</span>")
 				return
 			else
 				mob.forceMove(get_step(mob, direct))
@@ -407,19 +407,19 @@
 			for(var/obj/structure/window/W in T)
 				if(istype(W, /obj/structure/window/phoronbasic) || istype(W, /obj/structure/window/phoronreinforced))
 					if(W.is_full_window())
-						mob << "<span class='warning'>\The [W] obstructs your movement!</span>"
+						to_chat(mob, "<span class='warning'>\The [W] obstructs your movement!</span>")
 						return
 
 					if((direct & W.dir) && W.density)
-						mob << "<span class='warning'>\The [W] obstructs your movement!</span>"
+						to_chat(mob, "<span class='warning'>\The [W] obstructs your movement!</span>")
 						return
 			if(istype(T, /turf/simulated/wall/phoron) || istype(T, /turf/simulated/wall/ironphoron))
-				mob << "<span class='warning'>\The [T] obstructs your movement!</span>"
+				to_chat(mob, "<span class='warning'>\The [T] obstructs your movement!</span>")
 				return
 
 			for(var/mob/living/L in T)
 				if(L.is_diona() == DIONA_WORKER)
-					mob << "<span class='danger'>You struggle briefly as you are photovored into \the [L], trapped within a nymphomatic husk!</span>"
+					to_chat(mob, "<span class='danger'>You struggle briefly as you are photovored into \the [L], trapped within a nymphomatic husk!</span>")
 					var/mob/living/carbon/alien/diona/D = new /mob/living/carbon/alien/diona(L)
 					var/mob/living/simple_animal/shade/bluespace/BS = mob
 					if (!(/mob/living/carbon/proc/echo_eject in L.verbs))

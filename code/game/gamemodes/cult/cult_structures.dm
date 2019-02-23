@@ -246,7 +246,7 @@
 	sacrificer = user
 	//Sacrifice accepted, display message here
 	speak_to(user, "Your sacrifice has been deemed worthy, and accepted. End its life now, and liberate its soul, to seal our contract...")
-	sacrifice << span("danger", "You feel an invisible force grip your soul, as you're drawn inexorably towards the pylon. Every part of you screams to flee from here!")
+	to_chat(sacrifice, span("danger", "You feel an invisible force grip your soul, as you're drawn inexorably towards the pylon. Every part of you screams to flee from here!"))
 
 	if (istype(sacrifice.loc,/obj/item/weapon/holder))
 		var/obj/item/weapon/holder/H = sacrifice.loc

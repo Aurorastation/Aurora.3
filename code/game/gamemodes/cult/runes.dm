@@ -144,21 +144,21 @@ var/list/sacrificed = list()
 			admin_attack_log(attacker, target, "Used a convert rune", "Was subjected to a convert rune", "used a convert rune on")
 			switch(target.getFireLoss())
 				if(0 to 25)
-					target << "<span class='cult'>Your blood boils as you force yourself to resist the corruption invading every corner of your mind.</span>"
+					to_chat(target, "<span class='cult'>Your blood boils as you force yourself to resist the corruption invading every corner of your mind.</span>")
 				if(25 to 45)
-					target << "<span class='cult'>Your blood boils and your body burns as the corruption further forces itself into your body and mind.</span>"
+					to_chat(target, "<span class='cult'>Your blood boils and your body burns as the corruption further forces itself into your body and mind.</span>")
 				if(45 to 75)
-					target << "<span class='cult'>You begin to hallucinate images of a dark and incomprehensible being and your entire body feels like its engulfed in flame as your mental defenses crumble.</span>"
+					to_chat(target, "<span class='cult'>You begin to hallucinate images of a dark and incomprehensible being and your entire body feels like its engulfed in flame as your mental defenses crumble.</span>")
 					target.apply_effect(rand(1,10), STUTTER)
 				if(75 to 100)
-					target << "<span class='cult'>Your mind turns to ash as the burning flames engulf your very soul and images of an unspeakable horror begin to bombard the last remnants of mental resistance.</span>"
+					to_chat(target, "<span class='cult'>Your mind turns to ash as the burning flames engulf your very soul and images of an unspeakable horror begin to bombard the last remnants of mental resistance.</span>")
 					//broken mind - 5000 may seem like a lot I wanted the effect to really stand out for maxiumum losing-your-mind-spooky
 					//hallucination is reduced when the step off as well, provided they haven't hit the last stage...
 					target.hallucination += 5000
 					target.apply_effect(10, STUTTER)
 					target.adjustBrainLoss(1, 55)
 				if(100 to INFINITY)
-					target << "<span class='cult'>Your entire broken soul and being is engulfed in corruption and flames as your mind shatters away into nothing.</span>"
+					to_chat(target, "<span class='cult'>Your entire broken soul and being is engulfed in corruption and flames as your mind shatters away into nothing.</span>")
 					target.hallucination += 5000
 					target.apply_effect(15, STUTTER)
 					target.adjustBrainLoss(rand(1,5), 55)
@@ -174,8 +174,8 @@ var/list/sacrificed = list()
 
 			if(!cult.can_become_antag(target.mind) || jobban_isbanned(target, "cultist"))//putting jobban check here because is_convertable uses mind as argument
 				//waiting_for_input ensures this is only shown once, so they basically auto-resist from here on out. They still need to find a way to get off the freaking rune if they don't want to burn to death, though.
-				target << "<span class='cult'>Your blood pulses. Your head throbs. The world goes red. All at once you are aware of a horrible, horrible truth. The veil of reality has been ripped away and in the festering wound left behind something sinister takes root.</span>"
-				target << "<span class='danger'>And you were able to force it out of your mind. You now know the truth, there's something horrible out there, stop it and its minions at all costs.</span>"
+				to_chat(target, "<span class='cult'>Your blood pulses. Your head throbs. The world goes red. All at once you are aware of a horrible, horrible truth. The veil of reality has been ripped away and in the festering wound left behind something sinister takes root.</span>")
+				to_chat(target, "<span class='danger'>And you were able to force it out of your mind. You now know the truth, there's something horrible out there, stop it and its minions at all costs.</span>")
 
 			else spawn()
 				var/choice = alert(target,"Do you want to join the cult?","Submit to Nar'Sie","Resist","Submit")
@@ -248,7 +248,7 @@ var/list/sacrificed = list()
 				if(D.stat!=2)
 					admin_attack_log(user, D, "Used a blood drain rune.", "Was victim of a blood drain rune.", "used a blood drain rune on")
 					var/bdrain = rand(1,25)
-					D << "<span class='warning'>You feel weakened.</span>"
+					to_chat(D, "<span class='warning'>You feel weakened.</span>")
 					D.take_overall_damage(bdrain, 0)
 					drain += bdrain
 	if(!drain)
@@ -372,8 +372,8 @@ var/list/sacrificed = list()
 //			else
 //				ticker.mode.cult |= corpse_to_raise.mind
 
-	corpse_to_raise << "<span class='cult'>Your blood pulses. Your head throbs. The world goes red. All at once you are aware of a horrible, horrible truth. The veil of reality has been ripped away and in the festering wound left behind something sinister takes root.</span>"
-	corpse_to_raise << "<span class='cult'>Assist your new compatriots in their dark dealings. Their goal is yours, and yours is theirs. You serve the Dark One above all else. Bring It back.</span>"
+	to_chat(corpse_to_raise, "<span class='cult'>Your blood pulses. Your head throbs. The world goes red. All at once you are aware of a horrible, horrible truth. The veil of reality has been ripped away and in the festering wound left behind something sinister takes root.</span>")
+	to_chat(corpse_to_raise, "<span class='cult'>Assist your new compatriots in their dark dealings. Their goal is yours, and yours is theirs. You serve the Dark One above all else. Bring It back.</span>")
 	return
 
 
@@ -609,7 +609,7 @@ var/list/sacrificed = list()
 	log_and_message_admins("used a communicate rune to say '[input]'")
 	for(var/datum/mind/H in cult.current_antagonists)
 		if (H.current)
-			H.current << "<span class='cult'>[input]</span>"
+			to_chat(H.current, "<span class='cult'>[input]</span>")
 	qdel(src)
 	return 1
 

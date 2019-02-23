@@ -43,7 +43,7 @@
 		to_chat(src, "<span class='notice'>\The [player.current] joins the [faction.faction_descriptor]!</span>")
 		return
 	if(choice == "No!")
-		player << "<span class='danger'>You reject this traitorous cause!</span>"
+		to_chat(player, "<span class='danger'>You reject this traitorous cause!</span>")
 	to_chat(src, "<span class='danger'>\The [player.current] does not support the [faction.faction_descriptor]!</span>")
 
 /mob/living/proc/convert_to_loyalist(mob/M as mob in oview(src))

@@ -312,7 +312,7 @@ proc/get_ghosts(var/notify = 0,var/what = 2, var/client/C = null)
 			if(g.antagHUD)
 				g.antagHUD = 0						// Disable it on those that have it enabled
 				g.has_enabled_antagHUD = 2				// We'll allow them to respawn
-				g << "<span class='warning'>The Administrator has disabled AntagHUD.</span> "
+				to_chat(g, "<span class='warning'>The Administrator has disabled AntagHUD.</span> ")
 		config.antag_hud_allowed = 0
 		to_chat(src, "<span class='danger'>AntagHUD usage has been disabled.</span>")
 		action = "disabled"
@@ -320,7 +320,7 @@ proc/get_ghosts(var/notify = 0,var/what = 2, var/client/C = null)
 		for(var/mob/abstract/observer/g in get_ghosts())
 			if(!g.client.holder)						// Add the verb back for all non-admin ghosts
 				g.verbs += /mob/abstract/observer/verb/toggle_antagHUD
-			g << "<span class='notice'><B>The Administrator has enabled AntagHUD.</B></span>"	// Notify all observers they can now use AntagHUD
+			to_chat(g, "<span class='notice'><B>The Administrator has enabled AntagHUD.</B></span>")	// Notify all observers they can now use AntagHUD)
 		config.antag_hud_allowed = 1
 		action = "enabled"
 		to_chat(src, "<span class='notice'><B>AntagHUD usage has been enabled.</B></span>")
@@ -340,14 +340,14 @@ proc/get_ghosts(var/notify = 0,var/what = 2, var/client/C = null)
 	var/action=""
 	if(config.antag_hud_restricted)
 		for(var/mob/abstract/observer/g in get_ghosts())
-			g << "<span class='notice'><B>The administrator has lifted restrictions on joining the round if you use AntagHUD</B></span>"
+			to_chat(g, "<span class='notice'><B>The administrator has lifted restrictions on joining the round if you use AntagHUD</B></span>")
 		action = "lifted restrictions"
 		config.antag_hud_restricted = 0
 		to_chat(src, "<span class='notice'><B>AntagHUD restrictions have been lifted</B></span>")
 	else
 		for(var/mob/abstract/observer/g in get_ghosts())
-			g << "<span class='danger'>The administrator has placed restrictions on joining the round if you use AntagHUD</span>"
-			g << "<span class='danger'>Your AntagHUD has been disabled, you may choose to re-enabled it but will be under restrictions </span>"
+			to_chat(g, "<span class='danger'>The administrator has placed restrictions on joining the round if you use AntagHUD</span>")
+			to_chat(g, "<span class='danger'>Your AntagHUD has been disabled, you may choose to re-enabled it but will be under restrictions </span>")
 			g.antagHUD = 0
 			g.has_enabled_antagHUD = 0
 		action = "placed restrictions"
@@ -488,7 +488,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 		else
 			M.add_ion_law(input)
 			for(var/mob/living/silicon/ai/O in mob_list)
-				O << "<span class='danger'>" + input + "...LAWS UPDATED</span>"
+				to_chat(O, "<span class='danger'>" + input + "...LAWS UPDATED</span>")
 				O.show_laws()
 
 	log_admin("Admin [key_name(usr)] has added a new AI law - [input]",admin_key=key_name(usr))

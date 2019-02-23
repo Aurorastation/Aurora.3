@@ -400,7 +400,7 @@
 	//okay, so the closet is either welded or locked... resist!!!
 	escapee.next_move = world.time + 100
 	escapee.last_special = world.time + 100
-	escapee << "<span class='warning'>You lean on the back of \the [src] and start pushing the door open. (this will take about [breakout_time] minutes)</span>"
+	to_chat(escapee, "<span class='warning'>You lean on the back of \the [src] and start pushing the door open. (this will take about [breakout_time] minutes)</span>")
 	visible_message("<span class='danger'>\The [src] begins to shake violently!</span>")
 
 	var/time = 6 * breakout_time * 2
@@ -435,7 +435,7 @@
 
 	//Well then break it!
 	breakout = 0
-	escapee << "<span class='warning'>You successfully break out!</span>"
+	to_chat(escapee, "<span class='warning'>You successfully break out!</span>")
 	visible_message("<span class='danger'>\the [escapee] successfully broke out of \the [src]!</span>")
 	playsound(loc, 'sound/effects/grillehit.ogg', 100, 1)
 	break_open()

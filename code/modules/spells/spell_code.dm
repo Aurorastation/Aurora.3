@@ -172,7 +172,7 @@ var/list/spells = typesof(/spell) //needed for the badmin verb for now
 	for(var/atom/target in targets)
 		var/location = get_turf(target)
 		if(istype(target,/mob/living) && message)
-			target << text("[message]")
+			to_chat(target, text("[message]"))
 		if(sparks_spread)
 			spark(location, sparks_amt)
 		if(smoke_spread)
@@ -215,7 +215,7 @@ var/list/spells = typesof(/spell) //needed for the badmin verb for now
 	if(istype(user, /mob/living/simple_animal) && holder == user)
 		var/mob/living/simple_animal/SA = user
 		if(SA.purge)
-			SA << "<span class='warning'>The nullrod's power interferes with your own!</span>"
+			to_chat(SA, "<span class='warning'>The nullrod's power interferes with your own!</span>")
 			return 0
 
 	if(!src.check_charge(skipcharge, user)) //sees if we can cast based on charges alone

@@ -167,7 +167,7 @@
 	if (user != O)
 		for(var/mob/B in viewers(user, 3))
 			if ((B.client && !( B.blinded )))
-				B << "<span class='warning'>\The [user] stuffs [O] into [src]!</span>"
+				to_chat(B, "<span class='warning'>\The [user] stuffs [O] into [src]!</span>")
 	return
 
 
@@ -401,7 +401,7 @@
 	if (user != O)
 		for(var/mob/B in viewers(user, 3))
 			if ((B.client && !( B.blinded )))
-				B << text("<span class='warning'>[] stuffs [] into []!</span>", user, O, src)
+				to_chat(B, text("<span class='warning'>[] stuffs [] into []!</span>", user, O, src))
 			//Foreach goto(99)
 	return
 

@@ -514,7 +514,7 @@
 	internal_damage |= int_dam_flag
 	start_process(MECHA_PROC_DAMAGE)
 	log_append_to_last("Internal damage of type [int_dam_flag].",1)
-	occupant << sound('sound/machines/warning-buzzer.ogg',wait=0)
+	to_chat(occupant, sound('sound/machines/warning-buzzer.ogg',wait=0))
 	return
 
 /obj/mecha/proc/clearInternalDamage(int_dam_flag)
@@ -977,13 +977,13 @@
 		return
 
 	if (!use_power(step_energy_drain*20)) // Forcefully crashing into something costs 20x the power of taking a normal step
-		occupant  << "<span class='warning'>[src] lacks the remaining power to do that!</span>"
+		to_chat(occupant, "<span class='warning'>[src] lacks the remaining power to do that!</span>")
 		return 0
 
 	//TODO: Add in a check for exosuit thrusters here after reworking them.
 	//Exosuits with thrusters should be able to use crash in space, and without the 0.5sec windup time
 	if (!check_for_support())
-		occupant  << "<span class='warning'>The [src] has no traction! There is nothing solid in reach to launch off.</span>"
+		to_chat(occupant, "<span class='warning'>The [src] has no traction! There is nothing solid in reach to launch off.</span>")
 		return 0
 
 	if(state)
@@ -992,7 +992,7 @@
 
 	lastcrash = world.time
 
-	occupant << "<span class='warning'>You take a step back, and then...</span>"
+	to_chat(occupant, "<span class='warning'>You take a step back, and then...</span>")
 	sleep(5)
 	//Crashing is done in five stages
 	//1. We check if we can move into the tile. If so, then we just lunge forward clumsily
@@ -1245,7 +1245,7 @@
 	set popup_menu = 0
 	if(usr!=src.occupant)
 		return
-	src.occupant << browse(src.get_stats_html(), "window=exosuit")
+	src.to_chat(occupant, browse(src.get_stats_html(), "window=exosuit"))
 	return
 
 /obj/mecha/verb/eject()
@@ -1276,7 +1276,7 @@
 		src.log_message("[mob_container] moved out.")
 		occupant.reset_view()
 
-		src.occupant << browse(null, "window=exosuit")
+		src.to_chat(occupant, browse(null, "window=exosuit"))
 		if(istype(mob_container, /obj/item/device/mmi))
 			var/obj/item/device/mmi/mmi = mob_container
 			if(mmi.brainmob)
@@ -1546,7 +1546,7 @@
 /obj/mecha/proc/occupant_message(message as text)
 	if(message)
 		if(src.occupant && src.occupant.client)
-			src.occupant << "\icon[src] [message]"
+			src.to_chat(occupant, "\icon[src] [message]")
 	return
 
 /obj/mecha/proc/log_message(message as text,red=null)
@@ -1641,7 +1641,7 @@
 		return
 	if (href_list["view_log"])
 		if(usr != src.occupant)	return
-		src.occupant << browse(src.get_log_html(), "window=exosuit_log")
+		src.to_chat(occupant, browse(src.get_log_html(), "window=exosuit_log"))
 		onclose(occupant, "exosuit_log")
 		return
 	if (href_list["change_name"])
@@ -1919,19 +1919,19 @@
 			power_alert_status = 0 // cancel the alert status
 			power_warning_delay = initial(power_warning_delay) // Reset the delay
 			stop_sound(1)
-			occupant << "<span class='notice'>[src] power levels have returned to within safe operating parameters. Power alert status cancelled.</span>"
+			to_chat(occupant, "<span class='notice'>[src] power levels have returned to within safe operating parameters. Power alert status cancelled.</span>")
 			log_append_to_last("Power alert cleared")
 			return
 
 		if (power_alert_status == 1) // If we're in alert 1, constant loop
 			if (!powerloop) // If the powerloop sound var is still null, it means we havent started playing it yet
-				occupant << "<span class='danger'>WARNING: [src] power levels below 30%. Please pilot to the nearest recharging station immediately.</span>"
+				to_chat(occupant, "<span class='danger'>WARNING: [src] power levels below 30%. Please pilot to the nearest recharging station immediately.</span>")
 				create_sound(1) // We create it
-				occupant << powerloop // and start playing it to the occupant
+				occupant << powerloop // and start playing it to the occupant)
 				last_power_warning = world.time // We set this var when we enter alert 1, to track how long we've been in it
 
 			if ((world.time - last_power_warning) >= looptime) //If we've been in looping mode for long enough
-				occupant << "<span class='danger'>Alert: [src] power levels have remained in critical state for an unacceptably long period. Now switching to low-frequency warning mode to conserve power.</span>"
+				to_chat(occupant, "<span class='danger'>Alert: [src] power levels have remained in critical state for an unacceptably long period. Now switching to low-frequency warning mode to conserve power.</span>")
 				stop_sound(1) // We stop the soundloop
 				power_alert_status = 2 // And switch to alert 2
 				last_power_warning = world.time
@@ -1958,19 +1958,19 @@
 			damage_alert_status = 0
 			damage_warning_delay = initial(damage_warning_delay) // Reset the delay
 			stop_sound(2)
-			occupant << "<span class='notice'>[src] hull integrity is now within safe operating parameters. Integrity alert status cancelled.</span>"
+			to_chat(occupant, "<span class='notice'>[src] hull integrity is now within safe operating parameters. Integrity alert status cancelled.</span>")
 			log_append_to_last("Hull integrity alert cleared.")
 			return
 
 		if (damage_alert_status == 1)
 			if (!damageloop)
-				occupant << "<span class='danger'>WARNING: [src] hull integrity below 30%. Please report to the nearest Nanotrasen Certified Robotics Laboratory for urgent repairs.</span>"
+				to_chat(occupant, "<span class='danger'>WARNING: [src] hull integrity below 30%. Please report to the nearest Nanotrasen Certified Robotics Laboratory for urgent repairs.</span>")
 				create_sound(2)
 				occupant << damageloop
 				last_damage_warning = world.time
 
 			if ((world.time - last_damage_warning) >= (looptime * 0.3)) //Looptime is shorter for the damage sound because its so horribly grating.
-				occupant << "<span class='danger'>Alert: [src] hull integrity has remained in critical state for a significant period of time. Now switching to low-frequency alert mode. Please seek repair as soon as possible.</span>"
+				to_chat(occupant, "<span class='danger'>Alert: [src] hull integrity has remained in critical state for a significant period of time. Now switching to low-frequency alert mode. Please seek repair as soon as possible.</span>")
 				stop_sound(2) // We stop the soundloop
 				damage_alert_status = 2 // And switch to alert 2
 				last_damage_warning = world.time
@@ -2004,11 +2004,11 @@
 
 /obj/mecha/proc/stop_sound(var/type)
 	if (type == 1 && powerloop)
-		occupant << sound(null, channel=powerloop.channel) // this stops the sound
+		occupant << sound(null, channel=powerloop.channel) // this stops the sound)
 		powerloop = null
 
 	else if (type == 2 && damageloop)
-		occupant << sound(null, channel=damageloop.channel) // this stops the sound
+		occupant << sound(null, channel=damageloop.channel) // this stops the sound)
 		damageloop = null
 
 //This function exists for if someone enters the exosuit while its at alert stage 1
@@ -2145,7 +2145,7 @@
  					   </body>
 						</html>"}
 
-	occupant << browse(output, "window=ex_debug")
+	to_chat(occupant, browse(output, "window=ex_debug"))
 	//src.health = initial(src.health)/2.2
 	//src.check_for_internal_damage(list(MECHA_INT_FIRE,MECHA_INT_TEMP_CONTROL,MECHA_INT_TANK_BREACH,MECHA_INT_CONTROL_LOST))
 	return

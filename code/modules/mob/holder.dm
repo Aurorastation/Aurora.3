@@ -207,7 +207,7 @@ var/list/holder_mob_icon_cache = list()
 			to_chat(user, "<span class='warning'>They have no free hands!</span>")
 			return
 	else if ((grabber.hand == 0 && grabber.r_hand) || (grabber.hand == 1 && grabber.l_hand))//Checking if the hand is full
-		grabber << "<span class='warning'>Your hand is full!</span>"
+		to_chat(grabber, "<span class='warning'>Your hand is full!</span>")
 		return
 
 	src.verbs += /mob/living/proc/get_holder_location//This has to be before we move the mob into the holder
@@ -241,10 +241,10 @@ var/list/holder_mob_icon_cache = list()
 
 		if (success)
 			if (user == src)
-				grabber << "<span class='notice'>[src.name] climbs up onto you.</span>"
+				to_chat(grabber, "<span class='notice'>[src.name] climbs up onto you.</span>")
 				to_chat(src, "<span class='notice'>You climb up onto [grabber].</span>")
 			else
-				grabber << "<span class='notice'>You scoop up [src].</span>"
+				to_chat(grabber, "<span class='notice'>You scoop up [src].</span>")
 				to_chat(src, "<span class='notice'>[grabber] scoops you up.</span>")
 
 			H.sync(src)

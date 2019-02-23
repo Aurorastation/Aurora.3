@@ -159,10 +159,10 @@
 			set popup_menu = 0//Will not appear when right clicking.
 
 			if(brainmob.stat)//Only the brainmob will trigger these so no further check is necessary.
-				brainmob << "Can't do that while incapacitated or dead."
+				to_chat(brainmob, "Can't do that while incapacitated or dead.")
 
 			radio.broadcasting = radio.broadcasting==1 ? 0 : 1
-			brainmob << "<span class='notice'>Radio is [radio.broadcasting==1 ? "now" : "no longer"] broadcasting.</span>"
+			to_chat(brainmob, "<span class='notice'>Radio is [radio.broadcasting==1 ? "now" : "no longer"] broadcasting.</span>")
 
 		Toggle_Listening()
 			set name = "Toggle Listening"
@@ -172,10 +172,10 @@
 			set popup_menu = 0
 
 			if(brainmob.stat)
-				brainmob << "Can't do that while incapacitated or dead."
+				to_chat(brainmob, "Can't do that while incapacitated or dead.")
 
 			radio.listening = radio.listening==1 ? 0 : 1
-			brainmob << "<span class='notice'>Radio is [radio.listening==1 ? "now" : "no longer"] receiving broadcast.</span>"
+			to_chat(brainmob, "<span class='notice'>Radio is [radio.listening==1 ? "now" : "no longer"] receiving broadcast.</span>")
 
 /obj/item/device/mmi/emp_act(severity)
 	if(!brainmob)

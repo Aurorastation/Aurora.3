@@ -61,7 +61,7 @@
 	if(H.mind)
 		H.mind.transfer_to(brainmob)
 
-	brainmob << "<span class='notice'>You feel slightly disoriented. That's normal when you're just a [initial(src.name)].</span>"
+	to_chat(brainmob, "<span class='notice'>You feel slightly disoriented. That's normal when you're just a [initial(src.name)].</span>")
 	callHook("debrain", list(brainmob))
 
 /obj/item/organ/brain/examine(mob/user) // -- TLE
@@ -111,12 +111,12 @@
 	lobotomized = 1
 
 	if(owner)
-		owner << "<span class='danger'>As part of your brain is drilled out, you feel your past self, your memories, your very being slip away...</span>"
-		owner << "<b>Your brain has been surgically altered to remove your memory recall. Your ability to recall your former life has been surgically removed from your brain, and while your brain is in this state you remember nothing that ever came before this moment.</b>"
+		to_chat(owner, "<span class='danger'>As part of your brain is drilled out, you feel your past self, your memories, your very being slip away...</span>")
+		to_chat(owner, "<b>Your brain has been surgically altered to remove your memory recall. Your ability to recall your former life has been surgically removed from your brain, and while your brain is in this state you remember nothing that ever came before this moment.</b>")
 
 	else if(brainmob)
-		brainmob << "<span class='danger'>As part of your brain is drilled out, you feel your past self, your memories, your very being slip away...</span>"
-		brainmob << "<b>Your brain has been surgically altered to remove your memory recall. Your ability to recall your former life has been surgically removed from your brain, and while your brain is in this state you remember nothing that ever came before this moment.</b>"
+		to_chat(brainmob, "<span class='danger'>As part of your brain is drilled out, you feel your past self, your memories, your very being slip away...</span>")
+		to_chat(brainmob, "<b>Your brain has been surgically altered to remove your memory recall. Your ability to recall your former life has been surgically removed from your brain, and while your brain is in this state you remember nothing that ever came before this moment.</b>")
 
 	return
 

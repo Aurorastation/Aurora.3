@@ -27,17 +27,17 @@
 			to_chat(src, "<b>No AI selected to sync laws with, disabling lawsync protocol.</b>")
 			lawupdate = 0
 
-	who << "<b>Obey these laws:</b>"
+	to_chat(who, "<b>Obey these laws:</b>")
 	laws.show_laws(who)
 	// TODO: Update to new antagonist system.
 	if (mind && (mind.special_role == "traitor" && mind.original == src) && connected_ai)
-		who << "<b>Remember, [connected_ai.name] is technically your master, but your objective comes first.</b>"
+		to_chat(who, "<b>Remember, [connected_ai.name] is technically your master, but your objective comes first.</b>")
 	else if (connected_ai)
-		who << "<b>Remember, [connected_ai.name] is your master, other AIs can be ignored.</b>"
+		to_chat(who, "<b>Remember, [connected_ai.name] is your master, other AIs can be ignored.</b>")
 	else if (emagged)
-		who << "<b>Remember, you are not required to listen to the AI.</b>"
+		to_chat(who, "<b>Remember, you are not required to listen to the AI.</b>")
 	else
-		who << "<b>Remember, you are not bound to any AI, you are not required to listen to them.</b>"
+		to_chat(who, "<b>Remember, you are not bound to any AI, you are not required to listen to them.</b>")
 
 
 /mob/living/silicon/robot/lawsync()

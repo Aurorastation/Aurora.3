@@ -159,7 +159,7 @@
 			return 0
 
 		user.visible_message("<span class='notice'>\The [user] rests a hand on \the [target]'s [E.name].</span>")
-		target << "<span class='notice'>A healing warmth suffuses you.</span>"
+		to_chat(target, "<span class='notice'>A healing warmth suffuses you.</span>")
 
 		for(var/datum/wound/W in E.wounds)
 			if(W.internal)
@@ -237,10 +237,10 @@
 
 		for(var/mob/abstract/observer/ghost in dead_mob_list)
 			if(ghost.mind && ghost.mind.current == target && ghost.client)
-				ghost << "<span class='notice'>Your body has been revived, <b>Re-Enter Corpse</b> to return to it.</span>"
+				to_chat(ghost, "<span class='notice'>Your body has been revived, <b>Re-Enter Corpse</b> to return to it.</span>")
 				break
 
-		target << "<span class='warning'>Eternal rest is stolen from you, you are cast back into the world of the living!</span>"
+		to_chat(target, "<span class='warning'>Eternal rest is stolen from you, you are cast back into the world of the living!</span>")
 		target.visible_message("<span class='notice'>\The [target] shudders violently!</span>")
 
 		if(target.status_flags & FAKEDEATH)

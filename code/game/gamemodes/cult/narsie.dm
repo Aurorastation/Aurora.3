@@ -339,13 +339,13 @@ var/global/list/narsie_list = list()
 /obj/singularity/narsie/proc/acquire(const/mob/food)
 	var/capname = uppertext(name)
 
-	target << "<span class='notice'><b>[capname] HAS LOST INTEREST IN YOU.</b></span>"
+	to_chat(target, "<span class='notice'><b>[capname] HAS LOST INTEREST IN YOU.</b></span>")
 	target = food
 
 	if (ishuman(target))
-		target << "<span class='danger'>[capname] HUNGERS FOR YOUR SOUL.</span>"
+		to_chat(target, "<span class='danger'>[capname] HUNGERS FOR YOUR SOUL.</span>")
 	else
-		target << "<span class='danger'>[capname] HAS CHOSEN YOU TO LEAD HIM TO HIS NEXT MEAL.</span>"
+		to_chat(target, "<span class='danger'>[capname] HAS CHOSEN YOU TO LEAD HIM TO HIS NEXT MEAL.</span>")
 
 /obj/singularity/narsie/on_capture()
 	chained = 1

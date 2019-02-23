@@ -17,7 +17,7 @@
 			H.eye_blurry = min(H.eye_blurry + rand(1,3) * weakness, 50 * weakness)
 			return 1
 		else if(isrobot(toucher))
-			toucher << "<span class='warning'>SYSTEM ALERT: CPU cycles slowing down.</span>"
+			to_chat(toucher, "<span class='warning'>SYSTEM ALERT: CPU cycles slowing down.</span>")
 			return 1
 
 /datum/artifact_effect/sleepy/DoEffectAura()

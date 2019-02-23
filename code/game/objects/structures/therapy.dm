@@ -64,7 +64,7 @@
 	spark(src, 12, alldirs)
 	if(buckled_mob && istype(C))
 		if(electrocute_mob(buckled_mob, C, src, 1.25, "head"))
-			buckled_mob << "<span class='danger'>You feel a deep shock course through your body!</span>"
+			to_chat(buckled_mob, "<span class='danger'>You feel a deep shock course through your body!</span>")
 			sleep(1)
 			if(electrocute_mob(buckled_mob, C, src, 1.25, "head"))
 				buckled_mob.Stun(PN.get_electrocute_damage()*10)

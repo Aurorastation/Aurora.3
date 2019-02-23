@@ -93,7 +93,7 @@
 	if(old_filter.get("eject"))
 		go_out()
 	if(old_filter.get("view_stats"))
-		chassis.occupant << browse(get_occupant_stats(),"window=msleeper")
+		chassis.to_chat(occupant, browse(get_occupant_stats(),"window=msleeper"))
 		onclose(chassis.occupant, "msleeper")
 		return
 	if(old_filter.get("inject"))
@@ -347,7 +347,7 @@
 			log_message("Reagent processing started.")
 		return
 	if(old_filter.get("show_reagents"))
-		chassis.occupant << browse(get_reagents_page(),"window=msyringegun")
+		chassis.to_chat(occupant, browse(get_reagents_page(),"window=msyringegun"))
 	if(old_filter.get("purge_reagent"))
 		var/reagent = old_filter.get("purge_reagent")
 		if(reagent)

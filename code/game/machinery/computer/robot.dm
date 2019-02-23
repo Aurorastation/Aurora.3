@@ -60,7 +60,7 @@
 
 		// Antagonistic cyborgs? Left here for downstream
 		if(target.mind && target.mind.special_role && target.emagged)
-			target << "Extreme danger.  Termination codes detected.  Scrambling security codes and automatic AI unlink triggered."
+			to_chat(target, "Extreme danger.  Termination codes detected.  Scrambling security codes and automatic AI unlink triggered.")
 			target.ResetSecurityCodes()
 
 		if(target.emagged)
@@ -70,7 +70,7 @@
 		else
 			message_admins("[key_name_admin(usr)] detonated [target.name]!")
 			log_game("[key_name(usr)] detonated [target.name]!",ckey=key_name(usr))
-			target << "<span class='danger'>Self-destruct command received.</span>"
+			to_chat(target, "<span class='danger'>Self-destruct command received.</span>")
 			spawn(10)
 				target.self_destruct()
 
@@ -103,7 +103,7 @@
 		target.SetLockdown(!target.lockcharge) // Toggle.
 		message_admins("[key_name_admin(usr)] [target.lockcharge ? "locked down" : "released"] [target.name]!")
 		log_game("[key_name(usr)] [target.lockcharge ? "locked down" : "released"] [target.name]!",ckey=key_name(usr))
-		target << (target.lockcharge ? "You have been locked down!" : "Your lockdown has been lifted!")
+		to_chat(target, (target.lockcharge ? "You have been locked down!" : "Your lockdown has been lifted!"))
 
 	// Remotely hacks the cyborg. Only antag AIs can do this and only to linked cyborgs.
 	else if (href_list["hack"])
@@ -130,7 +130,7 @@
 		message_admins("[key_name_admin(usr)] emagged [target.name] using robotic console!")
 		log_game("[key_name(usr)] emagged [target.name] using robotic console!",ckey=key_name(usr))
 		target.emagged = 1
-		target << "<span class='notice'>Failsafe protocols overriden. New tools available.</span>"
+		to_chat(target, "<span class='notice'>Failsafe protocols overriden. New tools available.</span>")
 
 	// Arms the emergency self-destruct system
 	else if(href_list["arm"])

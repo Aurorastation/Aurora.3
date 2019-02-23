@@ -964,7 +964,7 @@ proc/is_blind(A)
 	if (justmoved)
 		reportto.contained_visible_message(H,  "<span class='notice'>[H] [action3] [reportto] [preposition] their [newlocation]</span>", "<span class='notice'>You are [action] [preposition] [H]'s [newlocation]</span>", "", 1)
 	else
-		reportto << "<span class='notice'>You are [action] [preposition] [H]'s [newlocation]</span>"
+		to_chat(reportto, "<span class='notice'>You are [action] [preposition] [H]'s [newlocation]</span>")
 
 /atom/proc/get_holding_mob()
 	//This function will return the mob which is holding this holder, or null if it's not held

@@ -31,7 +31,7 @@
 		return //No host, no audible speech.
 
 	to_chat(src, "You drop words into [host]'s mind: \"[message]\"")
-	host << "Your own thoughts speak: \"[message]\""
+	to_chat(host, "Your own thoughts speak: \"[message]\"")
 
 	for (var/mob/M in player_list)
 		if (istype(M, /mob/abstract/new_player))

@@ -99,17 +99,17 @@
 			to_chat(user, "<span class='notice'>[src] is already rigged!</span>")
 			return
 		if (C.use(1))
-			user  << "<span class='notice'>You rig [src].</span>"
+			to_chat(user, "<span class='notice'>You rig [src].</span>")
 			rigged = 1
 			return
 	else if(istype(W, /obj/item/device/radio/electropack))
 		if(rigged)
-			user  << "<span class='notice'>You attach [W] to [src].</span>"
+			to_chat(user, "<span class='notice'>You attach [W] to [src].</span>")
 			user.drop_from_inventory(W,src)
 			return
 	else if(W.iswirecutter())
 		if(rigged)
-			user  << "<span class='notice'>You cut away the wiring.</span>"
+			to_chat(user, "<span class='notice'>You cut away the wiring.</span>")
 			playsound(loc, 'sound/items/Wirecutter.ogg', 100, 1)
 			rigged = 0
 			return

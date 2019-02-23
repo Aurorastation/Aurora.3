@@ -39,7 +39,7 @@
 	var/obj/item/organ/external/affecting = D.get_organ(hit_zone)
 
 	if(!affecting || affecting.is_stump())
-		A << "<span class='danger'>They are missing that limb!</span>"
+		to_chat(A, "<span class='danger'>They are missing that limb!</span>")
 		return 1
 
 	switch(D.a_intent)

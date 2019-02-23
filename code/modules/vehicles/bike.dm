@@ -88,7 +88,7 @@
 		if(do_after(user, 8 SECONDS, act_target = src))
 			unload(load)
 			to_chat(user, "You unbuckle [load] from \the [src]")
-			load <<"You were unbuckled from \the [src] by [user]"
+			to_chat(load, "You were unbuckled from \the [src] by [user]")
 
 /obj/vehicle/bike/relaymove(mob/user, direction)
 	if(user != load || !on || user.incapacitated())

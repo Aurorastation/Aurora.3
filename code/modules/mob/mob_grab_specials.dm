@@ -43,7 +43,7 @@
 
 /obj/item/weapon/grab/proc/jointlock(mob/living/carbon/human/target, mob/attacker, var/target_zone)
 	if(state < GRAB_AGGRESSIVE)
-		attacker << "<span class='warning'>You require a better grab to do this.</span>"
+		to_chat(attacker, "<span class='warning'>You require a better grab to do this.</span>")
 		return
 
 	var/obj/item/organ/external/organ = target.get_organ(check_zone(target_zone))
@@ -53,7 +53,7 @@
 	attacker.visible_message("<span class='danger'>[attacker] [pick("bent", "twisted")] [target]'s [organ.name] into a jointlock!</span>")
 	var/armor = target.run_armor_check(target, "melee")
 	if(armor < 100)
-		target << "<span class='danger'>You feel extreme pain!</span>"
+		to_chat(target, "<span class='danger'>You feel extreme pain!</span>")
 		affecting.adjustHalLoss(Clamp(0, 60-affecting.halloss, 30)) //up to 60 halloss
 
 /obj/item/weapon/grab/proc/attack_eye(mob/living/carbon/human/target, mob/living/carbon/human/attacker)
@@ -65,17 +65,17 @@
 	if(!attack)
 		return
 	if(state < GRAB_NECK)
-		attacker << "<span class='warning'>You require a better grab to do this.</span>"
+		to_chat(attacker, "<span class='warning'>You require a better grab to do this.</span>")
 		return
 	for(var/obj/item/protection in list(target.head, target.wear_mask, target.glasses))
 		if(protection && (protection.body_parts_covered & EYES))
-			attacker << "<span class='danger'>You're going to need to remove the eye covering first.</span>"
+			to_chat(attacker, "<span class='danger'>You're going to need to remove the eye covering first.</span>")
 			return
 	if(!target.has_eyes())
-		attacker << "<span class='danger'>You cannot locate any eyes on [target]!</span>"
+		to_chat(attacker, "<span class='danger'>You cannot locate any eyes on [target]!</span>")
 		return
 	if(isipc(target))
-		attacker << "<span class='danger'>You cannot damage [target]'s optics with your bare hands!</span>"
+		to_chat(attacker, "<span class='danger'>You cannot damage [target]'s optics with your bare hands!</span>")
 		return
 
 	admin_attack_log(attacker, target, "attacked [target.name]'s eyes using a grab.", "had eyes attacked by [attacker.name]'s grab.", "used a grab to attack eyes of")
@@ -112,7 +112,7 @@
 
 /obj/item/weapon/grab/proc/dislocate(mob/living/carbon/human/target, mob/living/attacker, var/target_zone)
 	if(state < GRAB_NECK)
-		attacker << "<span class='warning'>You require a better grab to do this.</span>"
+		to_chat(attacker, "<span class='warning'>You require a better grab to do this.</span>")
 		return
 	if(target.grab_joint(attacker, target_zone))
 		playsound(loc, 'sound/weapons/thudswoosh.ogg', 50, 1, -1)
@@ -120,10 +120,10 @@
 
 /obj/item/weapon/grab/proc/pin_down(mob/target, mob/attacker)
 	if(state < GRAB_AGGRESSIVE)
-		attacker << "<span class='warning'>You require a better grab to do this.</span>"
+		to_chat(attacker, "<span class='warning'>You require a better grab to do this.</span>")
 		return
 	if(force_down)
-		attacker << "<span class='warning'>You are already pinning [target] to the ground.</span>"
+		to_chat(attacker, "<span class='warning'>You are already pinning [target] to the ground.</span>")
 
 	attacker.visible_message("<span class='danger'>[attacker] starts forcing [target] to the ground!</span>")
 	if(do_after(attacker, 20) && target)

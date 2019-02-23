@@ -33,7 +33,7 @@
 		return
 
 	target.verbs |= /client/proc/getruntimelog
-	target << "<font color='red'>You have been granted access to runtime logs. Please use them responsibly or risk being banned.</font>"
+	to_chat(target, "<font color='red'>You have been granted access to runtime logs. Please use them responsibly or risk being banned.</font>")
 	return
 
 

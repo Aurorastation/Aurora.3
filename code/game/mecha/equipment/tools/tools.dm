@@ -1153,7 +1153,7 @@
 
 	if(usr != occupant)
 		return
-	occupant << "You climb out from \the [src]."
+	to_chat(occupant, "You climb out from \the [src].")
 	go_out()
 	occupant_message("[occupant] disembarked.")
 	log_message("[occupant] disembarked.")

@@ -134,7 +134,7 @@
 		return 1
 
 	if(href_list["notify_laws"])
-		owner << "<span class='danger'>Law Notice</span>"
+		to_chat(owner, "<span class='danger'>Law Notice</span>")
 		owner.laws.show_laws(owner)
 		if(isAI(owner))
 			var/mob/living/silicon/ai/AI = owner

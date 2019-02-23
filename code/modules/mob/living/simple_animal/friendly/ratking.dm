@@ -225,7 +225,7 @@
 	usr.visible_message("<span class='danger'>\The [usr] swarms the body of \the [target], ripping flesh from bone!</span>" )
 
 	if(!do_after(usr,200))
-		usr<< "<span class='warning'>You need to wait longer to consume the body of [target]!</span>"
+		to_chat(src, "<span class='warning'>You need to wait longer to consume the body of [target]!</span>")
 		return 0
 
 	src.visible_message("<span class='danger'>\The [usr] consumed the body of \the [target]!</span>")
