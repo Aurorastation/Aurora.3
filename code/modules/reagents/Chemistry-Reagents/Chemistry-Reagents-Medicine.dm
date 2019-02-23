@@ -1395,3 +1395,4 @@
 	color = "#AA8866"
 	metabolism = 0.5 * REM
 	taste_description = "sourness"
+	fallback_specific_heat = 1
