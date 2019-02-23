@@ -55,7 +55,7 @@
 /obj/item/device/soulstone/Topic(href, href_list)
 	var/mob/U = usr
 	if (!in_range(src, U)||U.machine!=src)
-		to_chat(U, browse(null, "window=aicard"))
+		U << browse(null, "window=aicard")
 		U.unset_machine()
 		return
 
@@ -64,7 +64,7 @@
 
 	switch(href_list["choice"])//Now we switch based on choice.
 		if ("Close")
-			to_chat(U, browse(null, "window=aicard"))
+			U << browse(null, "window=aicard")
 			U.unset_machine()
 			return
 

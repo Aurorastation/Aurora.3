@@ -157,4 +157,4 @@
 	if(!mob)
 		return
 
-	to_chat(mob, sound(null))
+	mob << sound(null)

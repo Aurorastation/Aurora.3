@@ -514,7 +514,7 @@
 	internal_damage |= int_dam_flag
 	start_process(MECHA_PROC_DAMAGE)
 	log_append_to_last("Internal damage of type [int_dam_flag].",1)
-	to_chat(occupant, sound('sound/machines/warning-buzzer.ogg',wait=0))
+	occupant << sound('sound/machines/warning-buzzer.ogg',wait=0)
 	return
 
 /obj/mecha/proc/clearInternalDamage(int_dam_flag)
@@ -1245,7 +1245,7 @@
 	set popup_menu = 0
 	if(usr!=src.occupant)
 		return
-	src.to_chat(occupant, browse(src.get_stats_html(), "window=exosuit"))
+	src.occupant << browse(src.get_stats_html(), "window=exosuit")
 	return
 
 /obj/mecha/verb/eject()
@@ -1276,7 +1276,7 @@
 		src.log_message("[mob_container] moved out.")
 		occupant.reset_view()
 
-		src.to_chat(occupant, browse(null, "window=exosuit"))
+		src.occupant << browse(null, "window=exosuit")
 		if(istype(mob_container, /obj/item/device/mmi))
 			var/obj/item/device/mmi/mmi = mob_container
 			if(mmi.brainmob)
@@ -1546,7 +1546,7 @@
 /obj/mecha/proc/occupant_message(message as text)
 	if(message)
 		if(src.occupant && src.occupant.client)
-			src.to_chat(occupant, "\icon[src] [message]")
+			to_chat(src.occupant, "\icon[src] [message]")
 	return
 
 /obj/mecha/proc/log_message(message as text,red=null)
@@ -1641,7 +1641,7 @@
 		return
 	if (href_list["view_log"])
 		if(usr != src.occupant)	return
-		src.to_chat(occupant, browse(src.get_log_html(), "window=exosuit_log"))
+		src.occupant << browse(src.get_log_html(), "window=exosuit_log")
 		onclose(occupant, "exosuit_log")
 		return
 	if (href_list["change_name"])
@@ -2113,43 +2113,6 @@
 
 /obj/mecha/proc/trample(var/mob/living/H)
 	return
-
-/////////////
-
-//debug
-/*
-/obj/mecha/verb/test_int_damage()
-	set name = "Test internal damage"
-	set category = "Exosuit Interface"
-	set src in view(0)
-	if(!occupant) return
-	if(usr!=occupant)
-		return
-	var/output = {"<html>
-						<head>
-						</head>
-						<body>
-						<h3>Set:</h3>
-						<a href='?src=\ref[src];debug=1;set_i_dam=[MECHA_INT_FIRE]'>MECHA_INT_FIRE</a><br />
-						<a href='?src=\ref[src];debug=1;set_i_dam=[MECHA_INT_TEMP_CONTROL]'>MECHA_INT_TEMP_CONTROL</a><br />
-						<a href='?src=\ref[src];debug=1;set_i_dam=[MECHA_INT_SHORT_CIRCUIT]'>MECHA_INT_SHORT_CIRCUIT</a><br />
-						<a href='?src=\ref[src];debug=1;set_i_dam=[MECHA_INT_TANK_BREACH]'>MECHA_INT_TANK_BREACH</a><br />
-						<a href='?src=\ref[src];debug=1;set_i_dam=[MECHA_INT_CONTROL_LOST]'>MECHA_INT_CONTROL_LOST</a><br />
-						<hr />
-						<h3>Clear:</h3>
-						<a href='?src=\ref[src];debug=1;clear_i_dam=[MECHA_INT_FIRE]'>MECHA_INT_FIRE</a><br />
-						<a href='?src=\ref[src];debug=1;clear_i_dam=[MECHA_INT_TEMP_CONTROL]'>MECHA_INT_TEMP_CONTROL</a><br />
-						<a href='?src=\ref[src];debug=1;clear_i_dam=[MECHA_INT_SHORT_CIRCUIT]'>MECHA_INT_SHORT_CIRCUIT</a><br />
-						<a href='?src=\ref[src];debug=1;clear_i_dam=[MECHA_INT_TANK_BREACH]'>MECHA_INT_TANK_BREACH</a><br />
-						<a href='?src=\ref[src];debug=1;clear_i_dam=[MECHA_INT_CONTROL_LOST]'>MECHA_INT_CONTROL_LOST</a><br />
- 					   </body>
-						</html>"}
-
-	to_chat(occupant, browse(output, "window=ex_debug"))
-	//src.health = initial(src.health)/2.2
-	//src.check_for_internal_damage(list(MECHA_INT_FIRE,MECHA_INT_TEMP_CONTROL,MECHA_INT_TANK_BREACH,MECHA_INT_CONTROL_LOST))
-	return
-*/
 
 #undef NOMINAL
 #undef FIRSTRUN

@@ -94,7 +94,7 @@ sd_alert
 		list/validation
 
 	Destroy()
-		to_chat(target, browse(null,"window=\ref[src]"))
+		target << browse(null,"window=\ref[src]")
 		return ..()
 
 	New(who, tag)
@@ -107,7 +107,7 @@ sd_alert
 		response = params["clk"]
 
 	proc/Display(message,title,list/buttons,default,unfocus,size,table,style,select,flags)
-		if(unfocus) spawn() to_chat(target, browse(null,null))
+		if(unfocus) spawn() target << browse(null,null)
 		if(istext(buttons)) buttons = list(buttons)
 		if(!default) default = buttons[1]
 		if(!(flags & SD_ALERT_NOVALIDATE)) validation = buttons.Copy()
@@ -148,7 +148,7 @@ sd_alert
 
 		html += "</th></tr></table></body>"
 
-		to_chat(target, browse(html,"window=\ref[src];size=[size];can_close=0"))
+		target << browse(html,"window=\ref[src];size=[size];can_close=0")
 
 	proc/Response()
 		var/validated
