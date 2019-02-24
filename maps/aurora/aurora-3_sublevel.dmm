@@ -30210,7 +30210,10 @@
 /area/rnd/isolation_c)
 "lFK" = (
 /obj/structure/table/standard,
-/obj/machinery/door/window/southleft,
+/obj/machinery/door/window/southleft{
+	name = "Processing Window";
+	req_access = list(66)
+	},
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/white,
