@@ -4,6 +4,18 @@
 	icon_state = "sweater"
 	item_state = "sweater"
 
+/obj/item/clothing/accessory/sweater/stripe
+	icon_state = "sweater_stripe"
+	item_state = "sweater_stripe"
+
+/obj/item/clothing/accessory/sweater/stripes
+	icon_state = "sweater_stripes"
+	item_state = "sweater_stripes"
+
+/obj/item/clothing/accessory/sweater/tricolor
+	icon_state = "sweater_tricolor"
+	item_state = "sweater_tricolot"
+
 /obj/item/clothing/accessory/dressshirt
 	name = "dress shirt"
 	desc = "A casual dress shirt."
@@ -15,6 +27,12 @@
 	desc = "A casual dress shirt. This one has its sleeves rolled up."
 	icon_state = "dressshirt_r"
 	item_state = "dressshirt_r"
+
+/obj/item/clothing/accessory/shirt_haw
+	name = "floral shirt"
+	desc = "A bright, floral shirt. Historically popular on Earth."
+	icon_state = "haw_shirt"
+	item_state = "haw_shirt"
 
 //Legacy
 /obj/item/clothing/accessory/wcoat

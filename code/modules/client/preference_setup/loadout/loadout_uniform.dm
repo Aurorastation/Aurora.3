@@ -176,42 +176,27 @@
 /datum/gear/uniform/pants/New()
 	..()
 	var/pants = list()
-	pants["jeans"] = /obj/item/clothing/under/pants
-	pants["classic jeans"] = /obj/item/clothing/under/pants/classic
-	pants["must hang jeans"] = /obj/item/clothing/under/pants/musthang
-	pants["black jeans"] = /obj/item/clothing/under/pants/jeansblack
-	pants["young folks jeans"] = /obj/item/clothing/under/pants/youngfolksjeans
-	pants["white pants"] = /obj/item/clothing/under/pants/white
-	pants["black pants"] = /obj/item/clothing/under/pants/black
-	pants["red pants"] = /obj/item/clothing/under/pants/red
-	pants["tan pants"] = /obj/item/clothing/under/pants/tan
-	pants["khaki pants"] = /obj/item/clothing/under/pants/khaki
-	pants["track pants"] = /obj/item/clothing/under/pants/track
-	pants["blue track pants"] = /obj/item/clothing/under/pants/track/blue
-	pants["green track pants"] = /obj/item/clothing/under/pants/track/green
-	pants["white track pants"] = /obj/item/clothing/under/pants/track/white
-	pants["red track pants"] = /obj/item/clothing/under/pants/track/red
-	pants["camo pants"] = /obj/item/clothing/under/pants/camo
-	pants["athletic shorts, black"] = /obj/item/clothing/under/shorts
-	pants["athletic shorts, red"] = /obj/item/clothing/under/shorts/red
-	pants["athletic shorts, green"] = /obj/item/clothing/under/shorts/green
-	pants["athletic shorts, black"] = /obj/item/clothing/under/shorts/black
-	pants["athletic shorts, grey"] = /obj/item/clothing/under/shorts/grey
-	pants["jean shorts"] = /obj/item/clothing/under/shorts/jeans
-	pants["jean short shorts"] = /obj/item/clothing/under/shorts/jeans/female
-	pants["classic jeans shorts"] = /obj/item/clothing/under/shorts/jeans/classic
-	pants["classic jeans shorts shorts"] = /obj/item/clothing/under/shorts/jeans/classic/female
-	pants["mustang jeans shorts"] = /obj/item/clothing/under/shorts/jeans/mustang
-	pants["mustang jeans shorts shorts"] = /obj/item/clothing/under/shorts/jeans/mustang/female
-	pants["young folks jeans shorts"] = /obj/item/clothing/under/shorts/jeans/youngfolks
-	pants["young folks jeans shorts shorts"] = /obj/item/clothing/under/shorts/jeans/youngfolks/female
-	pants["black jeans shorts"] = /obj/item/clothing/under/shorts/jeans/black
-	pants["black jeans shorts shorts"] = /obj/item/clothing/under/shorts/jeans/black/female
-	pants["grey jeans shorts"] = /obj/item/clothing/under/shorts/jeans/grey
-	pants["grey jeans shorts shorts"] = /obj/item/clothing/under/shorts/jeans
-	pants["khaki shorts"] = /obj/item/clothing/under/shorts/khaki
-	pants["khaki shorts shorts"] = /obj/item/clothing/under/shorts/khaki/female
+	pants["pants"] = /obj/item/clothing/under/pants
+	pants["shorts"] = /obj/item/clothing/under/pants/shorts
+	pants["sweatpants"] = /obj/item/clothing/under/pants/sweatpants
+	pants["jeans"] =/obj/item/clothing/under/pants/jeans
+	pants["camo pants"] =/obj/item/clothing/under/pants/camo
 	gear_tweaks += new/datum/gear_tweak/path(pants)
+	gear_tweaks += list(gear_tweak_free_color_choice)
+
+/datum/gear/uniform/trackpants
+	display_name = "track pants"
+	path = /obj/item/clothing/under/pants/track
+
+/datum/gear/uniform/trackpants/New()
+	..()
+	var/tpants = list()
+	tpants["track pants"] = /obj/item/clothing/under/pants/track
+	tpants["blue track pants"] = /obj/item/clothing/under/pants/track/blue
+	tpants["green track pants"] = /obj/item/clothing/under/pants/track/green
+	tpants["white track pants"] = /obj/item/clothing/under/pants/track/white
+	tpants["red track pants"] = /obj/item/clothing/under/pants/track/red
+	gear_tweaks += new/datum/gear_tweak/path(tpants)
 
 /datum/gear/uniform/turtleneck
 	display_name = "tacticool turtleneck"

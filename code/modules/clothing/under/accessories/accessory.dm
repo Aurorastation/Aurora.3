@@ -131,6 +131,14 @@
 	name = "white tie"
 	icon_state = "whitetie"
 
+/obj/item/clothing/accessory/tie/rec
+	name = "colorful tie"
+	icon_state = "rectie"
+
+/obj/item/clothing/accessory/tie/reclong
+	name = "colorful long tie"
+	icon_state = "reclongtie"
+
 /obj/item/clothing/accessory/tie/bowtie
 	name = "bowtie"
 	desc = "Snazzy!"

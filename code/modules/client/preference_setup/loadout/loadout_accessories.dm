@@ -75,6 +75,18 @@
 	ties["white tie"] = /obj/item/clothing/accessory/tie/white
 	gear_tweaks += new/datum/gear_tweak/path(ties)
 
+/datum/gear/accessory/tie_colorful
+	display_name = "colorful tie selection"
+	path = /obj/item/clothing/accessory/tie/rec
+
+/datum/gear/accessory/tie_colorful/New()
+	..()
+	var/tie = list()
+	tie["tie"] = /obj/item/clothing/accessory/tie/rec
+	tie["long tie"] = /obj/item/clothing/accessory/tie/reclong
+	gear_tweaks += new/datum/gear_tweak/path(tie)
+	gear_tweaks += list(gear_tweak_free_color_choice)
+
 /datum/gear/accessory/bowtie
 	display_name = "bowtie"
 	path = /obj/item/clothing/accessory/tie/bowtie
@@ -129,7 +141,13 @@
 
 /datum/gear/accessory/sweater/New()
 	..()
-	gear_tweaks = list(gear_tweak_free_color_choice)
+	var/sw = list()
+	sw["sweater"] = /obj/item/clothing/accessory/sweater
+	sw["sweater, striped"] = /obj/item/clothing/accessory/sweater/stripes
+	sw["sweater, single stripe"] = /obj/item/clothing/accessory/sweater/stripe
+	sw["sweater, tri-color"] = /obj/item/clothing/accessory/sweater/tricolor
+	gear_tweaks += new/datum/gear_tweak/path(sw)
+	gear_tweaks += list(gear_tweak_free_color_choice)
 
 /datum/gear/accessory/dressshirt
 	display_name = "dress shirt"
@@ -142,6 +160,10 @@
 /datum/gear/accessory/dressshirt_r
 	display_name = "dress shirt, rolled up"
 	path = /obj/item/clothing/accessory/dressshirt_r
+
+/datum/gear/accessory/haw_shirt
+	display_name = "floral shirt"
+	path = /obj/item/clothing/accessory/shirt_haw
 
 /datum/gear/accessory/dressshirt_r/New()
 	..()

@@ -135,7 +135,6 @@
 		/obj/item/clothing/under/lawyer                          = TRADER_BLACKLIST,
 		/obj/item/clothing/under/pj                              = TRADER_BLACKLIST,
 		/obj/item/clothing/under/rank                            = TRADER_BLACKLIST,
-		/obj/item/clothing/under/shorts                          = TRADER_BLACKLIST,
 		/obj/item/clothing/under/stripper                        = TRADER_BLACKLIST_ALL,
 		/obj/item/clothing/under/swimsuit                        = TRADER_BLACKLIST,
 		/obj/item/clothing/under/syndicate                       = TRADER_BLACKLIST_ALL,
