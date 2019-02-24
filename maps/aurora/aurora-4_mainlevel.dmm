@@ -18614,7 +18614,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/papershredder,
+/obj/structure/filingcabinet/chestdrawer,
 /turf/simulated/floor/tiled/dark,
 /area/security/warden)
 "aGs" = (
@@ -20812,7 +20812,7 @@
 	departmentType = 5;
 	pixel_y = -32
 	},
-/obj/structure/filingcabinet/chestdrawer,
+/obj/machinery/computer/area_atmos,
 /turf/simulated/floor/tiled/dark,
 /area/security/warden)
 "aJP" = (
@@ -20862,7 +20862,9 @@
 /turf/simulated/floor/plating,
 /area/security/warden)
 "aJR" = (
-/obj/machinery/portable_atmospherics/powered/scrubber/huge,
+/obj/machinery/portable_atmospherics/powered/scrubber/huge/stationary{
+	name = "Communal Air Scrubber"
+	},
 /turf/simulated/floor/tiled,
 /area/security/prison)
 "aJS" = (
@@ -22590,15 +22592,15 @@
 	icon_state = "tube1";
 	dir = 1
 	},
-/obj/machinery/photocopier,
 /obj/machinery/firealarm/north,
+/obj/structure/filingcabinet/chestdrawer,
 /turf/simulated/floor/wood,
 /area/crew_quarters/heads/chief)
 "aMN" = (
 /obj/machinery/alarm{
 	pixel_y = 22
 	},
-/obj/machinery/papershredder,
+/obj/machinery/photocopier,
 /turf/simulated/floor/wood,
 /area/crew_quarters/heads/chief)
 "aMO" = (
@@ -45770,7 +45772,7 @@
 /obj/structure/cable/green,
 /obj/structure/window/reinforced/polarized{
 	dir = 1;
-	id = "Psy"
+	id = "RDTint"
 	},
 /obj/structure/window/reinforced/polarized{
 	dir = 4;
@@ -48319,7 +48321,7 @@
 	},
 /obj/structure/window/reinforced/polarized{
 	dir = 1;
-	id = "Psy"
+	id = "RDTint"
 	},
 /turf/simulated/floor/plating,
 /area/rnd/rdoffice)
@@ -48348,7 +48350,7 @@
 	},
 /obj/structure/window/reinforced/polarized{
 	dir = 1;
-	id = "Psy"
+	id = "RDTint"
 	},
 /obj/structure/window/reinforced/polarized{
 	id = "RDTint"
@@ -65081,6 +65083,10 @@
 /obj/structure/table/standard,
 /turf/simulated/floor/plating,
 /area/maintenance/engineering)
+"fzd" = (
+/obj/machinery/papershredder,
+/turf/simulated/floor/wood,
+/area/crew_quarters/heads/chief)
 "fBZ" = (
 /obj/structure/closet/crate/trashcart,
 /obj/random/junk,
@@ -85231,7 +85237,7 @@ aMN
 aOA
 aQi
 aRW
-aOy
+fzd
 aVa
 aWh
 aXR
