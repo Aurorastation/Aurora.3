@@ -1,0 +1,7 @@
+author: Alberyk
+
+delete-after: True
+
+changes: 
+  - bugfix: "Aut'akh graspers can now be selected in the loadout."
+  - bugfix: "Aut'akh limbs should behave in a more sane way when removed or replaced."
