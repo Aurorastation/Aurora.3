@@ -77,7 +77,7 @@
 /obj/item/mecha_parts/mecha_equipment/weapon/flamethrower
 	name = "mounted flamethrower"
 	desc = "Mounted flamethrower for engineering firefighting exosuits. Used to deal with infestations."
-	icon_state = "mecha_clamp"
+	icon_state = "mecha_flamethrower"
 	equip_cooldown = 10
 	fire_sound = 'sound/weapons/flamethrower.ogg'
 	fire_volume = 100
