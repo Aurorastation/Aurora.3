@@ -14,7 +14,7 @@
 
 /obj/item/clothing/accessory/sweater/tricolor
 	icon_state = "sweater_tricolor"
-	item_state = "sweater_tricolot"
+	item_state = "sweater_tricolor"
 
 /obj/item/clothing/accessory/dressshirt
 	name = "dress shirt"
