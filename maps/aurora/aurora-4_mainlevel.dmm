@@ -20862,7 +20862,7 @@
 /turf/simulated/floor/plating,
 /area/security/warden)
 "aJR" = (
-/obj/machinery/portable_atmospherics/powered/scrubber/huge/stationary{
+/obj/machinery/portable_atmospherics/powered/scrubber/huge{
 	name = "Communal Air Scrubber"
 	},
 /turf/simulated/floor/tiled,

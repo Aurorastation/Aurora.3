@@ -30311,7 +30311,7 @@
 	req_access = list(66)
 	},
 /turf/simulated/floor/plating,
-/area/medical/patient_wing_post1)
+/area/maintenance/medsublevel)
 "mgV" = (
 /obj/structure/sign/biohazard{
 	pixel_x = -32
@@ -73999,7 +73999,7 @@ azh
 sXz
 vPb
 bbn
-sCY
+unQ
 jjp
 ark
 fTY
