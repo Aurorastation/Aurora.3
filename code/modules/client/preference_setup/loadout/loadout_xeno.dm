@@ -398,7 +398,7 @@
 /datum/gear/shoes/caligae
 	display_name = "caligae"
 	path = /obj/item/clothing/shoes/caligae
-	whitelisted = list("Unathi", "Aut'akh Unathi" , "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Aut'akh Unathi")
+	whitelisted = list("Unathi", "Aut'akh Unathi", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
 	sort_category = "Xenowear"
 
 /datum/gear/shoes/caligae/New()
