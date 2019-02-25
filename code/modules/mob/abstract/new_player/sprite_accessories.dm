@@ -1044,6 +1044,38 @@
 			name = "Unathi Long Ram Horns"
 			icon_state = "unathi_ramhorn2"
 
+		una_chinhorn
+			name = "Unathi Chin Horn"
+			icon_state = "unathi_chinhorns"
+
+		una_hornadorns
+			name = "Unathi Horn Adorns"
+			icon_state = "unathi_hornadorns"
+
+		una_dorsalfrill
+			name = "Unathi Dorsal Frill"
+			icon_state = "unathi_dorsalfrill"
+
+		una_aquaticfrill
+			name = "Unathi Aquatic Frills"
+			icon_state = "unathi_aquaticfrills"
+
+		una_longfrill
+			name = "Unathi Long Frills"
+			icon_state = "unathi_longfrills"
+
+		una_shortfrill
+			name = "Unathi Short Frills"
+			icon_state = "unathi_shortfrills"
+
+		una_longdorsal
+			name = "Unathi Long Dorsal Frill"
+			icon_state = "unathi_longdorsal"
+
+		una_dracfrills
+			name = "Unathi Draconic Frills"
+			icon_state = "unathi_dracfrills"
+
 //skrell tentacles
 
 	skr_tentacle_m
@@ -1249,6 +1281,70 @@
 		una_dracfrills
 			name = "Unathi Draconic Frills"
 			icon_state = "facial_dracfrills"
+
+		una_spines_short
+			name = "Short Unathi Spines"
+			icon_state = "facial_shortspines"
+
+		una_frills_long
+			name = "Long Unathi Frills"
+			icon_state = "facial_longfrills"
+
+		una_frills_short
+			name = "Short Unathi Frills"
+			icon_state = "facial_shortfrills"
+
+		una_horns
+			name = "Unathi Horns"
+			icon_state = "facial_simplehorn"
+
+		una_bighorns
+			name = "Unathi Big Horns"
+			icon_state = "facial_bighorn"
+
+		una_smallhorns
+			name = "Unathi Small Horns"
+			icon_state = "facial_smallhorn"
+
+		una_swepthorns
+			name = "Unathi Swept-Forward Horns"
+			icon_state = "facial_swepthorn"
+
+		una_sidefrills
+			name = "Unathi Side Frills"
+			icon_state = "facial_sidefrills"
+
+		una_mohawk
+			name = "Unathi Mohawk"
+			icon_state = "facial_mohawk"
+
+		una_drachorn
+			name = "Unathi Draconic Horns"
+			icon_state = "facial_drachorn"
+
+		una_lowerhorn
+			name = "Unathi Lower Horns"
+			icon_state = "facial_lowerhorn"
+
+		una_spikehorn
+			name = "Unathi Spike Horns"
+			icon_state = "facial_spikehorn"
+
+		una_shorthorn
+			name = "Unathi Short Horns"
+			icon_state = "facial_shorthorn"
+
+		una_curlhorn
+			name = "Unathi Curled Horns"
+			icon_state = "facial_curledhorn"
+
+		una_ramhornshort
+			name = "Unathi Short Ram Horns"
+			icon_state = "facial_ramhorn"
+
+		una_ramhornlong
+			name = "Unathi Long Ram Horns"
+			icon_state = "facial_ramhorn2"
 
 //ipc screens
 
