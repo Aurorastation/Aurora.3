@@ -80,21 +80,6 @@
 				qdel(G)
 	return 1
 
-/obj/item/vkutet_manual
-	name = "vk'utet data disk"
-	desc = "A data disk containing information about the vaurca fighting technice know as Vk'utet."
-	icon = 'icons/obj/vaurca_items.dmi'
-	icon_state = "harddisk"
-
-/obj/item/vkutet_manual/attack_self(mob/user as mob)
-	if(!ishuman(user))
-		return
-	var/mob/living/carbon/human/H = user
-	var/datum/martial_art/vkutet/F = new/datum/martial_art/vkutet(null)
-	F.teach(H)
-	to_chat(H, "<span class='notice'>You have learned the martial art of Vk'utet.</span>")
-	qdel(src)
-
 /datum/martial_art/vkutet/proc/vkutet_help()
 	set name = "Recall Teachings"
 	set desc = "Remember the martial techniques of the Vk'utet."
@@ -105,3 +90,9 @@
 	to_chat(usr, "<span class='notice'>Swift Bite</span>: Disarm Disarm Grab. Quickly grabs your victim and bites them with your mandibles.")
 	to_chat(usr, "<span class='notice'>Crushing Jaws</span>: Harm Harm Disarm Grab. Grabs your victim and violently crushes them with your mandibles, inflicting heavy damage.")
 
+/obj/item/martial_manual/vaurca
+	name = "vk'utet data disk"
+	desc = "A data disk containing information about the vaurca fighting technice know as Vk'utet."
+	icon = 'icons/obj/vaurca_items.dmi'
+	icon_state = "harddisk"
+	martial_art = /datum/martial_art/vkutet

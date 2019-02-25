@@ -12,15 +12,68 @@
 	attack_verb = list("attacked", "slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut")
 	hitsound = 'sound/weapons/bladeslice.ogg'
 	can_embed = 0
-	var/parry_chance = 50
+	var/parry_chance = 40
 
 /obj/item/weapon/material/sword/handle_shield(mob/user, var/damage, atom/damage_source = null, mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
+	var/parry_bonus = 1
 
-	if(default_parry_check(user, attacker, damage_source) && prob(parry_chance))
+	if(ishuman(user))
+		var/mob/living/carbon/human/H = user
+		if(H.martial_art && H.martial_art.weapon_affinity && istype(src, H.martial_art.weapon_affinity))
+			parry_bonus = H.martial_art.parry_multiplier
+
+	if(default_parry_check(user, attacker, damage_source) && prob(parry_chance * parry_bonus))
 		user.visible_message("<span class='danger'>\The [user] parries [attack_text] with \the [src]!</span>")
 		playsound(user.loc, 'sound/weapons/punchmiss.ogg', 50, 1)
 		return 1
 	return 0
+
+/obj/item/weapon/material/sword/apply_hit_effect(mob/target as mob, mob/living/user as mob, var/target_zone)
+	. = ..()
+	if(ishuman(user) && ishuman(target))
+		var/mob/living/carbon/human/H = user
+		if(H.martial_art && H.martial_art.weapon_affinity && istype(src, H.martial_art.weapon_affinity))
+			if(H.a_intent == I_DISARM) //attacking with anything except disarm just swings the sword at people
+				user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
+				if(perform_technique(target, H, target_zone))
+					return TRUE
+
+/obj/item/weapon/material/sword/proc/perform_technique(var/mob/living/carbon/human/target, var/mob/living/carbon/human/user, var/target_zone)
+	var/armor_reduction = target.run_armor_check(target_zone,"melee")
+	var/obj/item/organ/external/affecting = target.get_organ(target_zone)
+	if(!affecting)
+		return
+
+	user.do_attack_animation(target)
+
+	if(target_zone == "head" || target_zone == "eyes" || target_zone == "mouth")
+		if(prob(70 - armor_reduction))
+			user.visible_message("<span class='danger'>\The [user] slams \the [src] against \the [target]'s [affecting.name]!</span>")
+			target.eye_blurry += 5
+			target.confused += 10
+
+			if(prob(20 - armor_reduction))
+				visible_message("<span class='danger'>[target] [target.species.knockout_message]</span>")
+				target.apply_effect(10, PARALYZE, blocked)
+
+			return TRUE
+
+	if(target_zone == "r_arm" || target_zone == "l_arm" || target_zone == "r_hand" || target_zone == "l_hand")
+		if(prob(80 - armor_reduction))
+			if(target_zone == "r_arm" || target_zone == "r_hand")
+				target.drop_r_hand()
+			else
+				target.drop_l_hand()
+			user.visible_message("<span class='danger'>\The [user] strikes \the [target]'s [affecting.name] with \the [src]!</span>")
+			return TRUE
+
+	if(target_zone == "r_feet" || target_zone == "l_feet" || target_zone == "r_leg" || target_zone == "l_leg")
+		if(prob(60 - armor_reduction))
+			user.visible_message("<span class='danger'>\The [user] slams \the [src] against \the [target]'s [affecting.name]!</span>")
+			target.Weaken(5)
+			return TRUE
+
+	return FALSE
 
 /obj/item/weapon/material/sword/katana
 	name = "katana"
@@ -102,5 +155,14 @@
 	icon = 'icons/obj/sword.dmi'
 	icon_state = "gladius"
 	item_state = "gladius"
+	contained_sprite = 1
+	slot_flags = SLOT_BELT
+
+/obj/item/weapon/material/sword/amohdan_sword
+	name = "amohdan blade"
+	desc = "A tajara sword, commonly used by the swordsmen of the island of Amohda."
+	icon = 'icons/obj/sword.dmi'
+	icon_state = "amohdan_sword"
+	item_state = "amohdan_sword"
 	contained_sprite = 1
 	slot_flags = SLOT_BELT
