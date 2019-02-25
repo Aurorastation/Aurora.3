@@ -975,6 +975,22 @@
 	glass_name = "glass of soy milk"
 	glass_desc = "White and nutritious soy goodness!"
 
+/datum/reagent/drink/milk/adhomai
+	name = "Fermented Fatshouters Milk"
+	id = "adhomai_milk"
+	description = "A tajaran made fermented dairy product, traditionally consumed by nomadic population of Adhomai."
+	taste_description = "sour milk"
+
+	glass_name = "glass of fermented fatshouters milk"
+	glass_desc = "A tajaran made fermented dairy product, traditionally consumed by nomadic population of Adhomai."
+
+/datum/reagent/drink/milk/adhomai/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
+	..()
+	if(ishuman(M))
+		var/mob/living/carbon/human/H = M
+		if(alien != IS_TAJARA && prob(5))
+			H.delayed_vomit()
+
 /datum/reagent/drink/tea
 	name = "Tea"
 	id = "tea"
@@ -3467,7 +3483,7 @@
 /datum/reagent/alcohol/winter_offensive
 	name = "Winter Offensive"
 	id = "winter_offensive"
-	description = "An alcoholic tajaran cocktail, named after a less than successful military campaign."
+	description = "An alcoholic tajaran cocktail, named after the famous military campaign."
 	color = "#664300"
 	strength = 15
 	taste_description = "oily gin"
@@ -3475,7 +3491,26 @@
 
 	glass_icon_state = "winter_offensive"
 	glass_name = "glass of Winter Offensive"
-	glass_desc = "Proven to be more successful than the campaign."
+	glass_desc = "An alcoholic tajaran cocktail, named after the famous military campaign."
+
+/datum/reagent/alcohol/mountain_marauder
+	name = "Mountain Marauder"
+	id = "mountain_marauder"
+	description = "An adhomian beverage made from fermented fatshouters milk and victory gin."
+	color = "#DFDFDF"
+	strength = 15
+	taste_description = "alcoholic sour milk"
+
+	glass_icon_state = "mountain_marauder"
+	glass_name = "glass of Mountain Marauder"
+	glass_desc = "An adhomian beverage made from fermented fatshouters milk and victory gin."
+
+/datum/reagent/alcohol/mountain_marauder/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
+	..()
+	if(ishuman(M))
+		var/mob/living/carbon/human/H = M
+		if(alien != IS_TAJARA && prob(5))
+			H.delayed_vomit()
 
 // Skrellian drinks
 //====================
