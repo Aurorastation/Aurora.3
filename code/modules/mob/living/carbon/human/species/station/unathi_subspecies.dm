@@ -82,6 +82,7 @@
 		"r_foot" = list("path" = /obj/item/organ/external/foot/right/autakh)
 		)
 
+	spawn_flags = IS_RESTRICTED
 	appearance_flags = HAS_HAIR_COLOR | HAS_UNDERWEAR | HAS_SKIN_COLOR | HAS_EYE_COLOR
 	flags = NO_CHUBBY | NO_SCAN
 
