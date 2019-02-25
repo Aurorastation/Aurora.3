@@ -28,17 +28,7 @@
 		return 1
 	return 0
 
-/obj/item/weapon/material/sword/apply_hit_effect(mob/target as mob, mob/living/user as mob, var/target_zone)
-	. = ..()
-	if(ishuman(user) && ishuman(target))
-		var/mob/living/carbon/human/H = user
-		if(H.martial_art && H.martial_art.weapon_affinity && istype(src, H.martial_art.weapon_affinity))
-			if(H.a_intent == I_DISARM) //attacking with anything except disarm just swings the sword at people
-				user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-				if(perform_technique(target, H, target_zone))
-					return TRUE
-
-/obj/item/weapon/material/sword/proc/perform_technique(var/mob/living/carbon/human/target, var/mob/living/carbon/human/user, var/target_zone)
+/obj/item/weapon/material/sword/perform_technique(var/mob/living/carbon/human/target, var/mob/living/carbon/human/user, var/target_zone)
 	var/armor_reduction = target.run_armor_check(target_zone,"melee")
 	var/obj/item/organ/external/affecting = target.get_organ(target_zone)
 	if(!affecting)
@@ -48,14 +38,8 @@
 
 	if(target_zone == "head" || target_zone == "eyes" || target_zone == "mouth")
 		if(prob(70 - armor_reduction))
-			user.visible_message("<span class='danger'>\The [user] slams \the [src] against \the [target]'s [affecting.name]!</span>")
 			target.eye_blurry += 5
 			target.confused += 10
-
-			if(prob(20 - armor_reduction))
-				visible_message("<span class='danger'>[target] [target.species.knockout_message]</span>")
-				target.apply_effect(10, PARALYZE, blocked)
-
 			return TRUE
 
 	if(target_zone == "r_arm" || target_zone == "l_arm" || target_zone == "r_hand" || target_zone == "l_hand")
@@ -64,12 +48,10 @@
 				target.drop_r_hand()
 			else
 				target.drop_l_hand()
-			user.visible_message("<span class='danger'>\The [user] strikes \the [target]'s [affecting.name] with \the [src]!</span>")
 			return TRUE
 
 	if(target_zone == "r_feet" || target_zone == "l_feet" || target_zone == "r_leg" || target_zone == "l_leg")
 		if(prob(60 - armor_reduction))
-			user.visible_message("<span class='danger'>\The [user] slams \the [src] against \the [target]'s [affecting.name]!</span>")
 			target.Weaken(5)
 			return TRUE
 
