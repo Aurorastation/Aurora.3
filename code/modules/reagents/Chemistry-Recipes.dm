@@ -2784,6 +2784,13 @@
 	required_reagents = list("coffee" = 4, "blackpepper" = 1)
 	result_amount = 5
 
+/datum/chemical_reaction/mountain_marauder
+	name = "Mountain Marauder"
+	id = "mountain_marauder"
+	result = "mountain_marauder"
+	required_reagents = list("adhomai_milk" = 1, "victorygin" = 1)
+	result_amount = 2
+
 //Kaed's Unathi cocktails
 //========
 
