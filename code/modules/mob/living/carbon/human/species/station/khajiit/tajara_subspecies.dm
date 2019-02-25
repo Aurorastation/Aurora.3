@@ -1,3 +1,8 @@
+
+//////////
+///ZHAN///
+//////////
+
 /datum/species/tajaran/zhan_khazan
 	name = "Zhan-Khazan Tajara"
 	name_plural = "Zhan-Khazan Tajaran"
@@ -29,6 +34,10 @@
 	primitive_form = "Zhan-Khazan Farwa"
 
 	num_alternate_languages = 1 // Only one Extra Language
+
+//////////
+///MSAI///
+//////////
 
 /datum/species/tajaran/m_sai
 	name = "M'sai Tajara"

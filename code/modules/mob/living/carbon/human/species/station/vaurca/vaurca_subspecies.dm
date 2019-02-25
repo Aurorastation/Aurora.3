@@ -1,3 +1,7 @@
+//////////////
+///WARRIORS///
+//////////////
+
 /datum/species/bug/type_b
 	name = "Vaurca Warrior"
 	short_name = "vaw"
@@ -33,6 +37,10 @@
 	inherent_verbs = list(
 		/mob/living/carbon/human/proc/bugbite //weaker version of gut.
 		)
+
+//////////////
+///BREEDERS///
+//////////////
 
 /datum/species/bug/type_c
 	name = "Vaurca Breeder"
@@ -82,6 +90,10 @@
 	..()
 	H.gender = FEMALE
 	return
+
+////////////////
+///WARFORM BA///
+////////////////
 
 /datum/species/bug/type_big
 	name = "Vaurca Warform"
