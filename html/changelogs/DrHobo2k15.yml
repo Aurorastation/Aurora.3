@@ -38,4 +38,4 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
-  - rscadd: "Added cable coil, basic stock parts, engineering debugger, destination tagger, hand labeller to the autolathe, and also the implanter when hacked"
+  - rscadd: "Adds cable coil, destination taggers, hand labellers, engineering debuggers, and basic stock parts to autolathes. Also adds health, atmos and plant analyzers to the protolathe, and illegal implanters."

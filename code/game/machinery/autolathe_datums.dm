@@ -456,7 +456,7 @@
 	name = "miniature cell"
 	path = /obj/item/weapon/cell/device/emergency_light/empty
 	category = "Engineering"
-	
+
 /datum/autolathe/recipe/cable_coil
 	name = "cable coil"
 	path = /obj/item/stack/cable_coil
@@ -473,37 +473,32 @@
 	path = /obj/item/device/destTagger
 	category = "General"
 
-/datum/autolathe/recipe/implanter
-	name = "implanter"
-	path = /obj/item/weapon/implanter
-	hidden = 1
-	category = "Medical"
-	
 /datum/autolathe/recipe/debugger
 	name = "debugger"
 	path = /obj/item/device/debugger
 	category = "Engineering"
-	
+
+// Basic Stock Parts for Engineering
 /datum/autolathe/recipe/micromanip
 	name = "micro-manipulator"
 	path = /obj/item/weapon/stock_parts/manipulator
 	category = "Devices and Components"
-	
+
 /datum/autolathe/recipe/matterbin
 	name = "matter bin"
 	path = /obj/item/weapon/stock_parts/matter_bin
 	category = "Devices and Components"
-	
+
 /datum/autolathe/recipe/capacitor
 	name = "capacitor"
 	path = /obj/item/weapon/stock_parts/capacitor
 	category = "Devices and Components"
-	
+
 /datum/autolathe/recipe/scanningmod
 	name = "scanning module"
 	path = /obj/item/weapon/stock_parts/scanning_module
 	category = "Devices and Components"
-	
+
 /datum/autolathe/recipe/microlaser
 	name = "micro-laser"
 	path = /obj/item/weapon/stock_parts/micro_laser
