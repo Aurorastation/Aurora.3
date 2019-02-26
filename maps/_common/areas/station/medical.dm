@@ -124,8 +124,8 @@
 	icon_state = "morgue"
 	ambience = list('sound/ambience/ambimo1.ogg','sound/ambience/ambimo2.ogg','sound/music/main.ogg')
 
-/area/medical/chemistry
-	name = "\improper Medical - Chemistry"
+/area/medical/pharmacy
+	name = "\improper Medical - Pharmacy"
 	icon_state = "chem"
 
 /area/medical/surgery

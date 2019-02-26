@@ -284,12 +284,12 @@
 
 /obj/structure/closet/wardrobe/chemistry_white/fill()
 	..()
-	new /obj/item/clothing/under/rank/chemist(src)
-	new /obj/item/clothing/under/rank/chemist(src)
+	new /obj/item/clothing/under/rank/pharmacist(src)
+	new /obj/item/clothing/under/rank/pharmacist(src)
 	new /obj/item/clothing/shoes/white(src)
 	new /obj/item/clothing/shoes/white(src)
-	new /obj/item/clothing/suit/storage/toggle/labcoat/chemist(src)
-	new /obj/item/clothing/suit/storage/toggle/labcoat/chemist(src)
+	new /obj/item/clothing/suit/storage/toggle/labcoat/pharmacist(src)
+	new /obj/item/clothing/suit/storage/toggle/labcoat/pharmacist(src)
 	return
 
 
@@ -316,12 +316,12 @@
 
 /obj/structure/closet/wardrobe/virology_white/fill()
 	..()
-	new /obj/item/clothing/under/rank/virologist(src)
-	new /obj/item/clothing/under/rank/virologist(src)
+	new /obj/item/clothing/under/rank/biophysician(src)
+	new /obj/item/clothing/under/rank/biophysician(src)
 	new /obj/item/clothing/shoes/white(src)
 	new /obj/item/clothing/shoes/white(src)
-	new /obj/item/clothing/suit/storage/toggle/labcoat/virologist(src)
-	new /obj/item/clothing/suit/storage/toggle/labcoat/virologist(src)
+	new /obj/item/clothing/suit/storage/toggle/labcoat/biophysician(src)
+	new /obj/item/clothing/suit/storage/toggle/labcoat/biophysician(src)
 	new /obj/item/clothing/mask/surgical(src)
 	new /obj/item/clothing/mask/surgical(src)
 	return

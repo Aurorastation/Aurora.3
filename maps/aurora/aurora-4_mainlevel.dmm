@@ -30930,7 +30930,7 @@
 /area/hallway/primary/central_one)
 "baL" = (
 /turf/simulated/wall/r_wall,
-/area/medical/chemistry)
+/area/medical/pharmacy)
 "baM" = (
 /turf/simulated/wall,
 /area/medical/medbay)
@@ -31474,7 +31474,7 @@
 	dir = 8;
 	icon_state = "shutter0";
 	id = "CHE2shutters";
-	name = "Chemistry Window Shutters";
+	name = "Pharmacy Window Shutters";
 	opacity = 0
 	},
 /obj/structure/window/phoronreinforced{
@@ -31490,7 +31490,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/plating,
-/area/medical/chemistry)
+/area/medical/pharmacy)
 "bbN" = (
 /obj/structure/table/standard,
 /obj/item/weapon/reagent_containers/spray/cleaner,
@@ -31505,13 +31505,13 @@
 	pixel_y = 23
 	},
 /obj/machinery/camera/network/medbay{
-	c_tag = "Medical - Chemistry Lab Bravo";
+	c_tag = "Medical - Pharmacy Bravo";
 	dir = 4;
 	icon_state = "camera";
 	network = list("Medical")
 	},
 /turf/simulated/floor/tiled/white,
-/area/medical/chemistry)
+/area/medical/pharmacy)
 "bbO" = (
 /obj/structure/table/standard,
 /obj/item/clothing/glasses/goggles,
@@ -31523,7 +31523,7 @@
 	dir = 5
 	},
 /turf/simulated/floor/tiled/white,
-/area/medical/chemistry)
+/area/medical/pharmacy)
 "bbP" = (
 /obj/structure/table/standard,
 /obj/structure/extinguisher_cabinet{
@@ -31535,7 +31535,7 @@
 	dir = 5
 	},
 /turf/simulated/floor/tiled/white,
-/area/medical/chemistry)
+/area/medical/pharmacy)
 "bbQ" = (
 /obj/structure/table/standard,
 /obj/item/weapon/storage/fancy/vials,
@@ -31548,7 +31548,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
-/area/medical/chemistry)
+/area/medical/pharmacy)
 "bbR" = (
 /obj/structure/table/standard,
 /obj/item/weapon/storage/fancy/vials,
@@ -31558,7 +31558,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
-/area/medical/chemistry)
+/area/medical/pharmacy)
 "bbS" = (
 /obj/structure/table/standard,
 /obj/item/weapon/reagent_containers/spray/cleaner,
@@ -31573,12 +31573,12 @@
 	pixel_y = 23
 	},
 /obj/machinery/camera/network/medbay{
-	c_tag = "Medical - Chemistry Lab Alpha";
+	c_tag = "Medical - Pharmacy Alpha";
 	dir = 8;
 	icon_state = "camera"
 	},
 /turf/simulated/floor/tiled/white,
-/area/medical/chemistry)
+/area/medical/pharmacy)
 "bbT" = (
 /obj/machinery/disposal,
 /obj/effect/floor_decal/corner/mauve{
@@ -31589,7 +31589,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
-/area/medical/chemistry)
+/area/medical/pharmacy)
 "bbU" = (
 /obj/machinery/disposal{
 	name = "MediExpress - Surgery"
@@ -32356,7 +32356,7 @@
 	dir = 8;
 	icon_state = "shutter0";
 	id = "CHE2shutters";
-	name = "Chemistry Window Shutters";
+	name = "Pharmacy Window Shutters";
 	opacity = 0
 	},
 /obj/structure/window/phoronreinforced{
@@ -32369,7 +32369,7 @@
 	},
 /obj/structure/window/phoronreinforced,
 /turf/simulated/floor/plating,
-/area/medical/chemistry)
+/area/medical/pharmacy)
 "bdr" = (
 /obj/machinery/chemical_dispenser/full,
 /obj/effect/floor_decal/corner/mauve{
@@ -32377,7 +32377,7 @@
 	dir = 6
 	},
 /turf/simulated/floor/tiled/white,
-/area/medical/chemistry)
+/area/medical/pharmacy)
 "bds" = (
 /obj/machinery/chemical_dispenser/full{
 	icon_state = "dispenser";
@@ -32388,11 +32388,11 @@
 	dir = 9
 	},
 /turf/simulated/floor/tiled/white,
-/area/medical/chemistry)
+/area/medical/pharmacy)
 "bdt" = (
 /obj/structure/bed/chair/office/light,
 /turf/simulated/floor/tiled/white,
-/area/medical/chemistry)
+/area/medical/pharmacy)
 "bdu" = (
 /obj/machinery/disposal,
 /obj/effect/floor_decal/corner/mauve{
@@ -32401,7 +32401,7 @@
 	},
 /obj/structure/disposalpipe/trunk,
 /turf/simulated/floor/tiled/white,
-/area/medical/chemistry)
+/area/medical/pharmacy)
 "bdv" = (
 /obj/machinery/chem_master,
 /obj/effect/floor_decal/corner/mauve{
@@ -32409,7 +32409,7 @@
 	dir = 6
 	},
 /turf/simulated/floor/tiled/white,
-/area/medical/chemistry)
+/area/medical/pharmacy)
 "bdw" = (
 /obj/structure/closet/wardrobe/chemistry_white,
 /obj/machinery/firealarm/east,
@@ -32424,7 +32424,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
-/area/medical/chemistry)
+/area/medical/pharmacy)
 "bdx" = (
 /obj/structure/disposalpipe/segment,
 /obj/effect/floor_decal/corner/mauve{
@@ -33280,10 +33280,10 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
-/area/medical/chemistry)
+/area/medical/pharmacy)
 "beS" = (
 /turf/simulated/floor/tiled/white,
-/area/medical/chemistry)
+/area/medical/pharmacy)
 "beT" = (
 /obj/machinery/chem_master{
 	icon_state = "mixer0";
@@ -33294,7 +33294,7 @@
 	dir = 9
 	},
 /turf/simulated/floor/tiled/white,
-/area/medical/chemistry)
+/area/medical/pharmacy)
 "beV" = (
 /obj/effect/floor_decal/corner/mauve{
 	icon_state = "corner_white";
@@ -33302,7 +33302,7 @@
 	},
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled/white,
-/area/medical/chemistry)
+/area/medical/pharmacy)
 "beW" = (
 /obj/effect/floor_decal/corner/mauve{
 	icon_state = "corner_white";
@@ -33313,7 +33313,7 @@
 	req_one_access = list(33)
 	},
 /turf/simulated/floor/tiled/white,
-/area/medical/chemistry)
+/area/medical/pharmacy)
 "beX" = (
 /obj/machinery/door/firedoor,
 /obj/structure/table/reinforced,
@@ -33322,16 +33322,16 @@
 	dir = 4;
 	icon_state = "shutter0";
 	id = "CHE3shutters";
-	name = "Chemistry Desk Shutter";
+	name = "Pharmacy Desk Shutter";
 	opacity = 0
 	},
 /obj/machinery/door/window/brigdoor/northright{
 	dir = 8;
-	name = "Chemistry Desk";
+	name = "Pharmacy Desk";
 	req_access = list(33)
 	},
 /turf/simulated/floor/tiled/white,
-/area/medical/chemistry)
+/area/medical/pharmacy)
 "beY" = (
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled/white,
@@ -34060,7 +34060,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
-/area/medical/chemistry)
+/area/medical/pharmacy)
 "bgl" = (
 /obj/machinery/smartfridge/secure/medbay{
 	density = 1;
@@ -34068,7 +34068,7 @@
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
-/area/medical/chemistry)
+/area/medical/pharmacy)
 "bgm" = (
 /obj/structure/table/standard,
 /obj/machinery/button/remote/blast_door{
@@ -34087,7 +34087,7 @@
 	},
 /obj/effect/floor_decal/corner/mauve/full,
 /turf/simulated/floor/tiled/white,
-/area/medical/chemistry)
+/area/medical/pharmacy)
 "bgn" = (
 /obj/structure/disposalpipe/segment{
 	dir = 1;
@@ -34814,7 +34814,7 @@
 	dir = 8;
 	icon_state = "shutter0";
 	id = "CHE2shutters";
-	name = "Chemistry Window Shutters";
+	name = "Pharmacy Window Shutters";
 	opacity = 0
 	},
 /obj/structure/window/phoronreinforced{
@@ -34830,7 +34830,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/plating,
-/area/medical/chemistry)
+/area/medical/pharmacy)
 "bhx" = (
 /obj/structure/bed/chair/office/light,
 /obj/effect/floor_decal/corner/mauve{
@@ -34838,7 +34838,7 @@
 	dir = 10
 	},
 /turf/simulated/floor/tiled/white,
-/area/medical/chemistry)
+/area/medical/pharmacy)
 "bhy" = (
 /obj/structure/table/reinforced,
 /obj/machinery/door/firedoor,
@@ -34896,12 +34896,12 @@
 	dir = 2;
 	icon_state = "shutter0";
 	id = "CHE3shutters";
-	name = "Chemistry Desk Shutter";
+	name = "Pharmacy Desk Shutter";
 	opacity = 0
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/door/window/brigdoor/northright{
-	name = "Chemistry Desk";
+	name = "Pharmacy Desk";
 	req_access = list(33)
 	},
 /obj/machinery/ringer_button{
@@ -34923,7 +34923,7 @@
 	dir = 5
 	},
 /turf/simulated/floor/tiled/white,
-/area/medical/chemistry)
+/area/medical/pharmacy)
 "bhD" = (
 /obj/structure/window/reinforced{
 	dir = 8
@@ -34947,7 +34947,7 @@
 /area/medical/reception)
 "bhF" = (
 /obj/machinery/door/airlock/glass_medical{
-	name = "Chemistry Laboratory";
+	name = "Pharmacy";
 	req_access = list(33)
 	},
 /obj/machinery/door/firedoor,
@@ -34966,7 +34966,7 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/white,
-/area/medical/chemistry)
+/area/medical/pharmacy)
 "bhG" = (
 /obj/structure/table/standard,
 /obj/machinery/computer/med_data/laptop,
@@ -34976,7 +34976,7 @@
 	},
 /obj/machinery/firealarm/south,
 /turf/simulated/floor/tiled/white,
-/area/medical/chemistry)
+/area/medical/pharmacy)
 "bhH" = (
 /obj/structure/disposalpipe/segment{
 	dir = 2;
@@ -35654,7 +35654,7 @@
 	},
 /obj/machinery/light,
 /turf/simulated/floor/tiled/white,
-/area/medical/chemistry)
+/area/medical/pharmacy)
 "biP" = (
 /obj/structure/table/standard,
 /obj/machinery/reagentgrinder{
@@ -35665,14 +35665,14 @@
 	dir = 10
 	},
 /obj/machinery/requests_console{
-	department = "Chemistry";
+	department = "Pharmacy";
 	departmentType = 2;
-	name = "Chemistry Requests Console";
+	name = "Pharmacy Requests Console";
 	pixel_x = 0;
 	pixel_y = -30
 	},
 /turf/simulated/floor/tiled/white,
-/area/medical/chemistry)
+/area/medical/pharmacy)
 "biQ" = (
 /obj/structure/table/standard,
 /obj/item/stack/material/phoron,
@@ -35686,7 +35686,7 @@
 	dir = 10
 	},
 /turf/simulated/floor/tiled/white,
-/area/medical/chemistry)
+/area/medical/pharmacy)
 "biR" = (
 /obj/structure/closet/secure_closet/chemical,
 /obj/effect/floor_decal/corner/mauve{
@@ -35694,19 +35694,19 @@
 	dir = 10
 	},
 /turf/simulated/floor/tiled/white,
-/area/medical/chemistry)
+/area/medical/pharmacy)
 "biS" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/tiled/white,
-/area/medical/chemistry)
+/area/medical/pharmacy)
 "biT" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/tiled/white,
-/area/medical/chemistry)
+/area/medical/pharmacy)
 "biU" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/white,
-/area/medical/chemistry)
+/area/medical/pharmacy)
 "biV" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
@@ -35722,7 +35722,7 @@
 	icon_state = "pipe-c"
 	},
 /turf/simulated/floor/tiled/white,
-/area/medical/chemistry)
+/area/medical/pharmacy)
 "biW" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -35732,7 +35732,7 @@
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /turf/simulated/floor/tiled/white,
-/area/medical/chemistry)
+/area/medical/pharmacy)
 "biX" = (
 /obj/structure/disposalpipe/segment,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -36248,7 +36248,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
-/area/medical/chemistry)
+/area/medical/pharmacy)
 "bjS" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -36258,7 +36258,7 @@
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /turf/simulated/floor/tiled/white,
-/area/medical/chemistry)
+/area/medical/pharmacy)
 "bjT" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
@@ -36354,7 +36354,7 @@
 	dir = 2;
 	icon_state = "shutter0";
 	id = "CHE2shutters";
-	name = "Chemistry Window Shutters";
+	name = "Pharmacy Window Shutters";
 	opacity = 0
 	},
 /obj/structure/window/phoronreinforced{
@@ -36389,7 +36389,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
-/area/medical/chemistry)
+/area/medical/pharmacy)
 "bke" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/closet/secure_closet/medical_wall{
@@ -64909,7 +64909,7 @@
 "dGq" = (
 /obj/machinery/hologram/holopad,
 /turf/simulated/floor/tiled/white,
-/area/medical/chemistry)
+/area/medical/pharmacy)
 "dTN" = (
 /obj/machinery/door/firedoor,
 /obj/structure/window/reinforced{
@@ -66485,7 +66485,7 @@
 	icon_state = "pipe-c"
 	},
 /turf/simulated/floor/tiled/white,
-/area/medical/chemistry)
+/area/medical/pharmacy)
 "pdM" = (
 /obj/effect/floor_decal/corner/mauve{
 	icon_state = "corner_white";
@@ -66544,7 +66544,7 @@
 	pixel_y = -6
 	},
 /turf/simulated/floor/tiled/white,
-/area/medical/chemistry)
+/area/medical/pharmacy)
 "pkV" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/random/junk,
@@ -66916,7 +66916,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled/white,
-/area/medical/chemistry)
+/area/medical/pharmacy)
 "sby" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4

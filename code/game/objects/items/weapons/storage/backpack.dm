@@ -160,13 +160,13 @@
 	desc = "It's a backpack fitted with slots for diskettes and other workplace tools."
 	icon_state = "genpack"
 
-/obj/item/weapon/storage/backpack/virology
+/obj/item/weapon/storage/backpack/biophys
 	name = "sterile backpack"
 	desc = "It's a sterile backpack able to withstand different pathogens from entering its fabric."
 	icon_state = "viropack"
 
-/obj/item/weapon/storage/backpack/chemistry
-	name = "chemistry backpack"
+/obj/item/weapon/storage/backpack/pharmacy
+	name = "pharmacy backpack"
 	desc = "It's an orange backpack which was designed to hold beakers, pill bottles and bottles."
 	icon_state = "chempack"
 
@@ -228,14 +228,14 @@
 		slot_r_hand_str = "medicalpack"
 		)
 
-/obj/item/weapon/storage/backpack/satchel_vir
-	name = "virologist satchel"
-	desc = "A sterile satchel with virologist colours."
+/obj/item/weapon/storage/backpack/satchel_biophys
+	name = "bio-physician satchel"
+	desc = "A sterile satchel with bio-physician colours."
 	icon_state = "satchel-vir"
 
-/obj/item/weapon/storage/backpack/satchel_chem
-	name = "chemist satchel"
-	desc = "A sterile satchel with chemist colours."
+/obj/item/weapon/storage/backpack/satchel_pharm
+	name = "pharmacist satchel"
+	desc = "A sterile satchel with pharmacist colours."
 	icon_state = "satchel-chem"
 
 /obj/item/weapon/storage/backpack/satchel_gen
@@ -381,8 +381,8 @@
 	desc = "It sure won't hold your genes together, but it'll keep the denim ones safe."
 	icon_state = "duffel-genetics"
 
-/obj/item/weapon/storage/backpack/duffel/chem
-	name = "chemistry duffel bag"
+/obj/item/weapon/storage/backpack/duffel/pharm
+	name = "pharmacy duffel bag"
 	desc = "Spice up the love life a little."
 	icon_state = "duffel-chemistry"
 	item_state_slots = list(
@@ -423,9 +423,9 @@
 	desc = "A sterile backpack worn over one shoulder used in medical departments."
 	icon_state = "courierbagmed"
 
-/obj/item/weapon/storage/backpack/messenger/viro
-	name = "virology messenger bag"
-	desc = "A sterile backpack worn over one shoulder.  This one is in virology colors."
+/obj/item/weapon/storage/backpack/messenger/biophys
+	name = "bio-physician messenger bag"
+	desc = "A sterile backpack worn over one shoulder.  This one is in bio-physician colors."
 	icon_state = "courierbagviro"
 
 /obj/item/weapon/storage/backpack/messenger/tox

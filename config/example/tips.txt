@@ -21,7 +21,7 @@ As a Medical Doctor, you can attempt to drain blood from a husk with a syringe t
 As a Medical Doctor, you can surgically implant or extract things from people's chests. This can range from putting in a bomb to pulling out an alien larva.
 As a Medical Doctor, you must target the correct limb and be on help intent when trying to perform surgery on someone.
 As a Chemist, there are dozens of chemicals that can heal, and even more that can cause harm. Experiment!
-As the Virologist, you only require small amounts of vaccine to heal a sick patient. Work with the Chemist to distribute your cures more efficiently.
+As the Bio-Physician, you only require small amounts of vaccine to heal a sick patient. Use your chemistry access distribute your cures more efficiently.
 As the Research Director, you can take AIs out of their cores by loading them into an intelliCard, and then from there into an AI system integrity restorer computer to revive and/or repair them.
 As the Research Director, you can lock down cyborgs instead of blowing them up. Then you can have their laws reset or if that doesn't work, safely dismantled.
 As a Xenobiologist, you can inject yourself with the mutation toxin extracted from green slimes to become a slime person, who will never be attacked by slimes!
