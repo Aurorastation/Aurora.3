@@ -56,3 +56,11 @@
 /datum/gear/gloves/fingerless
 	display_name = "fingerless gloves"
 	path = /obj/item/clothing/gloves/fingerless
+
+/datum/gear/gloves/armwarmers
+	display_name = "arm warmers"
+	path = /obj/item/clothing/gloves/arm_warmers
+
+/datum/gear/gloves/armwarmers/New()
+	..()
+	gear_tweaks = list(gear_tweak_free_color_choice)

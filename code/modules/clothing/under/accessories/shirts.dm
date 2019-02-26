@@ -34,6 +34,10 @@
 	icon_state = "haw_shirt"
 	item_state = "haw_shirt"
 
+/obj/item/clothing/accessory/shirt_haw/teal
+	icon_state = "haw_shirt2"
+	item_state = "haw_shirt2"
+
 //Legacy
 /obj/item/clothing/accessory/wcoat
 	name = "waistcoat"

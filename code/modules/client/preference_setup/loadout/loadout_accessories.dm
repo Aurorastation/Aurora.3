@@ -161,13 +161,20 @@
 	display_name = "dress shirt, rolled up"
 	path = /obj/item/clothing/accessory/dressshirt_r
 
+/datum/gear/accessory/dressshirt_r/New()
+	..()
+	gear_tweaks = list(gear_tweak_free_color_choice)
+
 /datum/gear/accessory/haw_shirt
 	display_name = "floral shirt"
 	path = /obj/item/clothing/accessory/shirt_haw
 
-/datum/gear/accessory/dressshirt_r/New()
+/datum/gear/accessory/haw_shirt/New()
 	..()
-	gear_tweaks = list(gear_tweak_free_color_choice)
+	var/hs = list()
+	hs["floral shirt, maroon"] = /obj/item/clothing/accessory/shirt_haw
+	hs["floral shirt, teal"] = /obj/item/clothing/accessory/shirt_haw/teal
+	gear_tweaks += new/datum/gear_tweak/path(hs)
 
 /datum/gear/accessory/longsleeve
 	display_name = "long-sleeved shirt"

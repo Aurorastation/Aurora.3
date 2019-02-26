@@ -202,6 +202,16 @@
 	Has bits of code in item_attack.dm, stungloves.dm, human_attackhand, human_defense
 	*/
 
+/obj/item/clothing/gloves/arm_warmers
+	name = "arm warmers"
+	desc = "Snuggly and fashionable."
+	icon_state = "arm_warmers"
+	item_state = "arm_warmers"
+	species_restricted = null
+	body_parts_covered = ARMS
+	fingerprint_chance = 100
+	cold_protection = ARMS
+	min_cold_protection_temperature = GLOVES_MIN_COLD_PROTECTION_TEMPERATURE
 
 /obj/item/clothing/gloves/force // this pair should be put in r&d if you choose to do so.  and also the hos office locker.  do it okay
 	name = "force gloves"
