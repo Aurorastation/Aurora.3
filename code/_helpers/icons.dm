@@ -349,7 +349,7 @@ proc/ReadRGB(rgb)
 					++which
 				else if(!(digits & 1)) ++which
 			if(1)
-				g = (g << 4 | ch)
+				g = (g << 4) | ch
 				if(single)
 					g |= g << 4
 					++which
