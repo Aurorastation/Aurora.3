@@ -301,8 +301,8 @@ var/list/diona_banned_languages = list(
 				"<span class='warning'>You begin to shift and quiver, feeling a stirring within your trunk</span>")
 
 			DS.regening_organ = TRUE
-			to_chat(src, "<span class='notice'>You are trying to regrow a lost limb, this is a long and complicated process that will take 10 minutes!</span>")
-			addtimer(CALLBACK(src, .proc/diona_regen_callback, path), 10 MINUTES)
+			to_chat(src, "<span class='notice'>You are trying to regrow a lost limb, this is a long and complicated process that will take 5 minutes!</span>")
+			addtimer(CALLBACK(src, .proc/diona_regen_callback, path), 5 MINUTES)
 			return
 
 
