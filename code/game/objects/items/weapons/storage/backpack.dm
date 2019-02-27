@@ -160,7 +160,7 @@
 	desc = "It's a backpack fitted with slots for diskettes and other workplace tools."
 	icon_state = "genpack"
 
-/obj/item/weapon/storage/backpack/biochemist
+/obj/item/weapon/storage/backpack/virology
 	name = "sterile backpack"
 	desc = "It's a sterile backpack able to withstand different pathogens from entering its fabric."
 	icon_state = "viropack"
@@ -228,9 +228,9 @@
 		slot_r_hand_str = "medicalpack"
 		)
 
-/obj/item/weapon/storage/backpack/satchel_biochemist
-	name = "bio-chemist satchel"
-	desc = "A sterile satchel with bio-chemist colours."
+/obj/item/weapon/storage/backpack/satchel_vir
+	name = "virologist  satchel"
+	desc = "A sterile satchel with virologist colours."
 	icon_state = "satchel-vir"
 
 /obj/item/weapon/storage/backpack/satchel_pharm
