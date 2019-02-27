@@ -160,7 +160,7 @@
 	desc = "It's a backpack fitted with slots for diskettes and other workplace tools."
 	icon_state = "genpack"
 
-/obj/item/weapon/storage/backpack/biophys
+/obj/item/weapon/storage/backpack/biochemist
 	name = "sterile backpack"
 	desc = "It's a sterile backpack able to withstand different pathogens from entering its fabric."
 	icon_state = "viropack"
@@ -228,9 +228,9 @@
 		slot_r_hand_str = "medicalpack"
 		)
 
-/obj/item/weapon/storage/backpack/satchel_biophys
-	name = "bio-physician satchel"
-	desc = "A sterile satchel with bio-physician colours."
+/obj/item/weapon/storage/backpack/satchel_biochemist
+	name = "bio-chemist satchel"
+	desc = "A sterile satchel with bio-chemist colours."
 	icon_state = "satchel-vir"
 
 /obj/item/weapon/storage/backpack/satchel_pharm
@@ -413,9 +413,9 @@
 	desc = "A sturdy backpack worn over one shoulder."
 	icon_state = "courierbag"
 
-/obj/item/weapon/storage/backpack/messenger/chem
-	name = "chemistry messenger bag"
-	desc = "A serile backpack worn over one shoulder.  This one is in chemsitry colors."
+/obj/item/weapon/storage/backpack/messenger/pharm
+	name = "pharmacy messenger bag"
+	desc = "A serile backpack worn over one shoulder.  This one is in pharmacy colors."
 	icon_state = "courierbagchem"
 
 /obj/item/weapon/storage/backpack/messenger/med
@@ -423,9 +423,9 @@
 	desc = "A sterile backpack worn over one shoulder used in medical departments."
 	icon_state = "courierbagmed"
 
-/obj/item/weapon/storage/backpack/messenger/biophys
-	name = "bio-physician messenger bag"
-	desc = "A sterile backpack worn over one shoulder.  This one is in bio-physician colors."
+/obj/item/weapon/storage/backpack/messenger/viro
+	name = "virology messenger bag"
+	desc = "A sterile backpack worn over one shoulder.  This one is in virology colors."
 	icon_state = "courierbagviro"
 
 /obj/item/weapon/storage/backpack/messenger/tox

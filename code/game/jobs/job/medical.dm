@@ -118,11 +118,8 @@
 	economic_modifier = 5
 	access = list(access_medical, access_medical_equip, access_morgue, access_surgery, access_pharmacy, access_virology, access_genetics)
 	minimal_access = list(access_medical, access_medical_equip, access_pharmacy, access_virology)
-	alt_titles = list("Bio-Physician")
+	alt_titles = list("Bio-Chemist")
 	outfit = /datum/outfit/job/pharmacist
-	alt_outfits = list(
-		"Bio-Physician"=/datum/outfit/job/chemist/biophysician
-	)
 
 /datum/outfit/job/pharmacist
 	name = "Pharmacist"
@@ -137,20 +134,7 @@
 	backpack = /obj/item/weapon/storage/backpack/pharmacy
 	satchel = /obj/item/weapon/storage/backpack/satchel_pharm
 	dufflebag = /obj/item/weapon/storage/backpack/duffel/pharm
-	messengerbag = /obj/item/weapon/storage/backpack/messenger/chem
-
-/datum/outfit/job/chemist/biophysician
-	name = "Bio-Physician"
-	jobtype = /datum/job/pharmacist
-
-	uniform = /obj/item/clothing/under/rank/biophysician
-	suit = /obj/item/clothing/suit/storage/toggle/labcoat/biophysician
-	mask = /obj/item/clothing/mask/surgical
-	pda = /obj/item/device/pda/viro
-
-	backpack = /obj/item/weapon/storage/backpack/biophys
-	satchel = /obj/item/weapon/storage/backpack/satchel_biophys
-	messengerbag = /obj/item/weapon/storage/backpack/messenger/biophys
+	messengerbag = /obj/item/weapon/storage/backpack/messenger/pharm
 
 
 /datum/job/psychiatrist

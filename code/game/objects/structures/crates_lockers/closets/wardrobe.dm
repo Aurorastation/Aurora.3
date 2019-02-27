@@ -316,12 +316,12 @@
 
 /obj/structure/closet/wardrobe/virology_white/fill()
 	..()
-	new /obj/item/clothing/under/rank/biophysician(src)
-	new /obj/item/clothing/under/rank/biophysician(src)
+	new /obj/item/clothing/under/rank/virologist(src)
+	new /obj/item/clothing/under/rank/virologist(src)
 	new /obj/item/clothing/shoes/white(src)
 	new /obj/item/clothing/shoes/white(src)
-	new /obj/item/clothing/suit/storage/toggle/labcoat/biophysician(src)
-	new /obj/item/clothing/suit/storage/toggle/labcoat/biophysician(src)
+	new /obj/item/clothing/suit/storage/toggle/labcoat/virology(src)
+	new /obj/item/clothing/suit/storage/toggle/labcoat/virology(src)
 	new /obj/item/clothing/mask/surgical(src)
 	new /obj/item/clothing/mask/surgical(src)
 	return
