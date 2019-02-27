@@ -29,6 +29,7 @@
 	return
 
 /obj/singularity/energy_ball/Destroy()
+	walk(src, 0) // Stop walking
 	if(orbiting && istype(orbiting.orbiting, /obj/singularity/energy_ball))
 		var/obj/singularity/energy_ball/EB = orbiting.orbiting
 		EB.orbiting_balls -= src
