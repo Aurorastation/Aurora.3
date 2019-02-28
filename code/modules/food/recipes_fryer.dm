@@ -121,10 +121,6 @@
 	result = /obj/item/weapon/reagent_containers/food/snacks/donut/chaos
 	result_quantity = 2
 
-
-
-
-
 /datum/recipe/funnelcake
 	appliance = FRYER
 	reagents = list("sugar" = 5, "batter" = 10)
@@ -138,6 +134,7 @@
 	coating = /datum/reagent/nutriment/coating/batter
 
 /datum/recipe/corn_dog
+	appliance = FRYER
 	items = list(
 		/obj/item/weapon/reagent_containers/food/snacks/sausage
 	)

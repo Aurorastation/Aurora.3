@@ -37,8 +37,20 @@
 	return 0
 
 /proc/isunathi(A)
-	if(istype(A, /mob/living/carbon/human) && (A:get_species() == "Unathi"))
-		return 1
+	if(ishuman(A))
+		var/mob/living/carbon/human/H = A
+		switch(H.get_species())
+			if ("Unathi")
+				return 1
+			if("Aut'akh Unathi")
+				return 1
+	return 0
+
+/proc/isautakh(A)
+	if(ishuman(A))
+		var/mob/living/carbon/human/H = A
+		if(H.get_species() == "Aut'akh Unathi")
+			return 1
 	return 0
 
 /proc/istajara(A)
@@ -60,11 +72,13 @@
 /proc/isvaurca(A)
 	if(istype(A, /mob/living/carbon/human))
 		switch(A:get_species())
-			if ("Vaurca Worker")
+			if("Vaurca Worker")
 				return 1
 			if("Vaurca Warrior")
 				return 1
 			if("Vaurca Breeder")
+				return 1
+			if("Vaurca Warform")
 				return 1
 			if("V'krexi")
 				return 1
@@ -101,6 +115,17 @@
 /proc/isskeleton(A)
 	if(istype(A, /mob/living/carbon/human) && (A:get_species() == "Skeleton"))
 		return 1
+	return 0
+
+/proc/isundead(A)
+	if(istype(A, /mob/living/carbon/human))
+		switch(A:get_species())
+			if ("Skeleton")
+				return 1
+			if ("Zombie")
+				return 1
+			if ("Apparition")
+				return 1
 	return 0
 
 /proc/islesserform(A)
@@ -161,6 +186,12 @@ proc/getsensorlevel(A)
 		return mind && mind.assigned_role == "Space Wizard"
 	else
 		return mind && (mind.assigned_role == "Space Wizard" || mind.assigned_role == "Apprentice")
+
+/mob/proc/is_berserk()
+	return FALSE
+
+/mob/proc/is_pacified()
+	return FALSE
 
 /*
 	Miss Chance
@@ -288,7 +319,7 @@ var/list/global/organ_rel_size = list(
 		p++
 	return t
 
-proc/slur(phrase)
+proc/slur(phrase, strength = 100)
 	phrase = html_decode(phrase)
 	var/leng=lentext(phrase)
 	var/counter=lentext(phrase)
@@ -296,18 +327,16 @@ proc/slur(phrase)
 	var/newletter=""
 	while(counter>=1)
 		newletter=copytext(phrase,(leng-counter)+1,(leng-counter)+2)
-		if(rand(1,3)==3)
-			if(lowertext(newletter)=="o")	newletter="u"
-			if(lowertext(newletter)=="s")	newletter="ch"
-			if(lowertext(newletter)=="a")	newletter="ah"
-			if(lowertext(newletter)=="c")	newletter="k"
-		switch(rand(1,15))
-			if(1,3,5,8)	newletter="[lowertext(newletter)]"
-			if(2,4,6,15)	newletter="[uppertext(newletter)]"
-			if(7)	newletter+="'"
-			//if(9,10)	newletter="<b>[newletter]</b>"
-			//if(11,12)	newletter="<big>[newletter]</big>"
-			//if(13)	newletter="<small>[newletter]</small>"
+		if(prob(strength))
+			if(rand(1,3)==3)
+				if(lowertext(newletter)=="o")	newletter="u"
+				if(lowertext(newletter)=="s")	newletter="ch"
+				if(lowertext(newletter)=="a")	newletter="ah"
+				if(lowertext(newletter)=="c")	newletter="k"
+			switch(rand(1,15))
+				if(1,3,5,8)	newletter="[lowertext(newletter)]"
+				if(2,4,6,15)	newletter="[uppertext(newletter)]"
+				if(7)	newletter+="'"
 		newphrase+="[newletter]";counter-=1
 	return newphrase
 
@@ -397,6 +426,8 @@ It's fairly easy to fix if dealing with single letters but not so much with comp
 
 		var/x
 		for(x=0; x<duration, x++)
+			if(M.client)
+				return
 			if(aiEyeFlag)
 				M.client.eye = locate(dd_range(1,oldeye.loc.x+rand(-strength,strength),world.maxx),dd_range(1,oldeye.loc.y+rand(-strength,strength),world.maxy),oldeye.loc.z)
 			else
@@ -407,6 +438,8 @@ It's fairly easy to fix if dealing with single letters but not so much with comp
 		//Will make the strength falloff after the duration.
 		//This helps to reduce jarring effects of major screenshaking suddenly returning to stability
 		//Recommended taper values are 0.05-0.1
+		if(M.client)
+			return
 		if (taper > 0)
 			while (strength > 0)
 				strength -= taper
@@ -499,7 +532,7 @@ proc/is_blind(A)
 	var/turf/sourceturf = get_turf(broadcast_source)
 	for(var/mob/M in targets)
 		var/turf/targetturf = get_turf(M)
-		if((targetturf.z == sourceturf.z))
+		if(targetturf && (targetturf.z == sourceturf.z))
 			M.show_message("<span class='info'>\icon[icon] [message]</span>", 1)
 
 /proc/mobs_in_area(var/area/A)
@@ -707,10 +740,10 @@ proc/is_blind(A)
 		var/turf/location = loc
 		if (istype(location, /turf/simulated))
 			location.add_vomit_floor(src, 1)
-
-		nutrition -= 60
+		adjustNutritionLoss(60)
+		adjustHydrationLoss(30)
 		if (intoxication)//The pain and system shock of vomiting, sobers you up a little
-			intoxication *= 0.8
+			intoxication *= 0.9
 
 		if (istype(src, /mob/living/carbon/human))
 			ingested.trans_to_turf(location,30)//Vomiting empties the stomach, transferring 30u reagents to the floor where you vomited
@@ -1042,18 +1075,22 @@ proc/is_blind(A)
 // It's not worth adding a proc for every single one of these types.
 /mob/living/simple_animal/find_type()
 	. = ..()
-	if (is_type_in_typecache(src, global.mtl_synthetic))
+	if (is_type_in_typecache(src, SSmob.mtl_synthetic))
 		. |= TYPE_SYNTHETIC
 
-	if (is_type_in_typecache(src, global.mtl_weird))
+	if (is_type_in_typecache(src, SSmob.mtl_weird))
 		. |= TYPE_WEIRD
 
-	// If it's not TYPE_SYNTHETIC or TYPE_WEIRD, we can assume it's TYPE_ORGANIC.
-	if (!(. & (TYPE_SYNTHETIC|TYPE_WEIRD)))
+	if (is_type_in_typecache(src, SSmob.mtl_incorporeal))
+		. |= TYPE_INCORPOREAL
+
+	// If it's not TYPE_SYNTHETIC, TYPE_WEIRD or TYPE_INCORPOREAL, we can assume it's TYPE_ORGANIC.
+	if (!(. & (TYPE_SYNTHETIC|TYPE_WEIRD|TYPE_INCORPOREAL)))
 		. |= TYPE_ORGANIC
 
-	if (is_type_in_typecache(src, global.mtl_humanoid))
+	if (is_type_in_typecache(src, SSmob.mtl_humanoid))
 		. |= TYPE_HUMANOID
+
 
 /mob/living/proc/get_vessel(create = FALSE)
 	if (!create)
@@ -1157,3 +1194,68 @@ proc/is_blind(A)
 
 /mob/living/silicon/ai/get_multitool()
 	return ..(aiMulti)
+
+/mob/proc/get_hydration_mul(var/minscale = 0, var/maxscale = 1)
+
+	if(status_flags & GODMODE) //Godmode
+		return maxscale
+
+	if(max_hydration <= 0) //Has no hydration
+		return maxscale
+
+	var/hydration_mul = hydration/max_hydration
+
+	if(hydration_mul >= CREW_HYDRATION_OVERHYDRATED)
+		return minscale + ( (maxscale - minscale) * 0.66)
+
+	if(hydration_mul <= CREW_HYDRATION_DEHYDRATED)
+		return minscale
+
+	if(hydration_mul <= CREW_HYDRATION_VERYTHIRSTY)
+		return minscale + ( (maxscale - minscale) * 0.33)
+
+	if(hydration_mul <= CREW_HYDRATION_THIRSTY)
+		return minscale + ( (maxscale - minscale) * 0.66)
+
+	return minscale + ( (maxscale - minscale) * 1)
+
+/mob/proc/get_nutrition_mul(var/minscale = 0, var/maxscale = 1)
+
+	if(status_flags & GODMODE) //Godmode
+		return maxscale
+
+	if(max_nutrition <= 0) //Has no nutrition
+		return maxscale
+
+	var/nutrition_mul = nutrition/max_nutrition
+
+	if(nutrition_mul >= CREW_NUTRITION_OVEREATEN)
+		return minscale + ( (maxscale - minscale) * 0.66)
+
+	if(nutrition_mul <= CREW_NUTRITION_STARVING)
+		return minscale
+
+	if(nutrition_mul <= CREW_NUTRITION_VERYHUNGRY)
+		return minscale + ( (maxscale - minscale) * 0.33)
+
+	if(nutrition_mul <= CREW_NUTRITION_HUNGRY)
+		return minscale + ( (maxscale - minscale) * 0.66)
+
+	return minscale + ( (maxscale - minscale) * 1)
+
+
+/mob/proc/adjustNutritionLoss(var/amount)
+
+	if(max_nutrition <= 0)
+		return FALSE
+	nutrition = max(0,min(max_nutrition,nutrition - amount))
+
+	return TRUE
+
+/mob/proc/adjustHydrationLoss(var/amount)
+
+	if(max_hydration <= 0)
+		return FALSE
+	hydration = max(0,min(max_hydration,hydration - amount))
+
+	return TRUE

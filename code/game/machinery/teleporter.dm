@@ -52,7 +52,7 @@
 		if(istype(L, /obj/effect/landmark/) && istype(L.loc, /turf))
 			usr << "You insert the coordinates into the machine."
 			usr << "A message flashes across the screen reminding the traveller that the nuclear authentication disk is to remain on the station at all times."
-			user.drop_item()
+			user.drop_from_inventory(I,get_turf(src))
 			qdel(I)
 
 			if(C.data == "Clown Land")
@@ -293,7 +293,7 @@
 	if(tmploc==null)
 		return
 
-	M.loc = tmploc
+	M.forceMove(tmploc)
 	sleep(2)
 
 	var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread

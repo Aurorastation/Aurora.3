@@ -61,8 +61,7 @@
 			user << "There is already a reagent container loaded!"
 			return
 
-		user.drop_item()
-		W.loc = src
+		user.drop_from_inventory(W,src)
 		src.beaker = W
 		user << "You attach \the [W] to \the [src]."
 		src.update_icon()
@@ -132,7 +131,7 @@
 	if (isAI(user))
 		return
 	if(src.beaker)
-		src.beaker.loc = get_turf(src)
+		src.beaker.forceMove(get_turf(src))
 		src.beaker = null
 		update_icon()
 	else

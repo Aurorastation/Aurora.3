@@ -1,13 +1,15 @@
-#define SS_INIT_MISC_FIRST  22
-#define SS_INIT_SEEDS       21	// Plant controller setup.
-#define SS_INIT_MAPLOAD     20	// DMM parsing and load. Unless you know what you're doing, make sure this remains first.
-#define SS_INIT_JOBS        19
-#define SS_INIT_MAPFINALIZE 18	// Asteroid generation.
-#define SS_INIT_SHUTTLE     17	// Shuttle setup.
-#define SS_INIT_PARALLAX    16	// Parallax image cache generation. Must run before ghosts are able to join.
-#define SS_INIT_HOLOMAP     15
-#define SS_INIT_ATOMS       14	// World initialization. Will trigger lighting updates. Observers can join after this loads.
-#define SS_INIT_POWER       13	// Initial powernet build.
+#define SS_INIT_PERSISTENT_CONFIG 24
+#define SS_INIT_MISC_FIRST  23
+#define SS_INIT_SEEDS       22	// Plant controller setup.
+#define SS_INIT_MAPLOAD     21	// DMM parsing and load. Unless you know what you're doing, make sure this remains first.
+#define SS_INIT_JOBS        20
+#define SS_INIT_MAPFINALIZE 19	// Asteroid generation.
+#define SS_INIT_SHUTTLE     18	// Shuttle setup.
+#define SS_INIT_PARALLAX    17	// Parallax image cache generation. Must run before ghosts are able to join.
+#define SS_INIT_HOLOMAP     16
+#define SS_INIT_ATOMS       15	// World initialization. Will trigger lighting updates. Observers can join after this loads.
+#define SS_INIT_POWER       14	// Initial powernet build.
+#define SS_INIT_ECONOMY     13  // Cargo needs economy set up
 #define SS_INIT_CARGO       12	// Random warehouse generation. Runs after SSatoms because it assumes objects are initialized when it runs.
 #define SS_INIT_PIPENET     11	// Initial pipenet build.
 #define SS_INIT_MACHINERY   10	// Machinery prune and powernet build.
@@ -27,45 +29,47 @@
 // Each group has its own priority bracket.
 // SS_BACKGROUND handles high server load differently than Normal and SS_TICKER do.
 
+// Priorities are a weight that controls how much of the BYOND tick the subsystem will be allowed to use. 50 is the default, so a subsystem with a priority of 100 would
+//  be allocated twice the amount of runtime as normal, and 25 would get half the amount.
+
 // SS_TICKER
-#define SS_PRIORITY_OVERLAY        500	// Applies overlays. May cause overlay pop-in if it gets behind.
-//#define SS_PRIORITY_DEFAULT      50	// This is defined somewhere else.
-#define SS_PRIORITY_TIMER          45	// Timed event scheduling. This is important.
-#define SS_PRIORITY_SMOOTHING      35	// Smooth turf generation.
-#define SS_PRIORITY_ORBIT          30	// Orbit datum updates.
-#define SS_PRIORITY_ICON_UPDATE    20	// Queued icon updates. Mostly used by APCs and tables.
-#define SS_PRIORITY_PROJECTILES    10	// Projectile processing!
+#define SS_PRIORITY_OVERLAY   100	// Applies overlays. May cause overlay pop-in if it gets behind.
+//#define SS_PRIORITY_DEFAULT  50	// This is defined somewhere else.
+#define SS_PRIORITY_TIMER      20	// Timed event scheduling. This is important.
+#define SS_PRIORITY_SMOOTHING  10	// Smooth turf generation.
+#define SS_PRIORITY_ORBIT       5	// Orbit datum updates.
+#define SS_PRIORITY_ICON_UPDATE 5	// Queued icon updates. Mostly used by APCs and tables.
+#define SS_PRIORITY_PROJECTILES 5	// Projectile processing!
 
 // Normal
-#define SS_PRIORITY_TICKER        200	// Gameticker.
-#define SS_PRIORITY_MOB           150	// Mob Life().
-#define SS_PRIORITY_NANOUI        120	// UI updates.
-#define SS_PRIORITY_VOTE          110
-#define SS_PRIORITY_ELECTRONICS   100	// Integrated Electronics processing.
-#define SS_PRIORITY_MACHINERY      95	// Machinery + powernet ticks.
-#define SS_PRIORITY_CHEMISTRY      90	// Multi-tick chemical reactions.
-#define SS_PRIORITY_SHUTTLE        85	// Shuttle movement.
-#define SS_PRIORITY_CALAMITY       75	// Singularity, Tesla, Nar'sie, blob, etc.
-#define SS_PRIORITY_EVENT          70
-#define SS_PRIORITY_LIGHTING       65	// Queued lighting engine updates.
-#define SS_PRIORITY_DISEASE        60	// Disease ticks.
-#define SS_PRIORITY_AIR            55	// ZAS processing.
-//#define SS_PRIORITY_DEFAULT      50	// This is defined somewhere else.
-#define SS_PRIORITY_ALARMS         45
-#define SS_PRIORITY_PLANTS         40	// Spreading plant effects.
-#define SS_PRIORITY_EFFECTS        35	// New-style effects manager. Timing of effects may be off if this gets too far behind.
-#define SS_PRIORITY_AIRFLOW        15	// Handles object movement due to ZAS airflow.
-#define SS_PRIORITY_ZCOPY          10	// Z-mimic icon generation/updates.
+#define SS_PRIORITY_TICKER     100	// Gameticker.
+//#define SS_PRIORITY_DEFAULT   50	// This is defined somewhere else.
+#define SS_PRIORITY_LIGHTING    50	// Queued lighting engine updates.
+#define SS_PRIORITY_MOB         30	// Mob Life().
+#define SS_PRIORITY_AIR         30	// ZAS processing.
+#define SS_PRIORITY_NANOUI      20	// UI updates.
+#define SS_PRIORITY_VOTE        20
+#define SS_PRIORITY_ELECTRONICS 20	// Integrated Electronics processing.
+#define SS_PRIORITY_MACHINERY   20	// Machinery + powernet ticks.
+#define SS_PRIORITY_CALAMITY    20	// Singularity, Tesla, Nar'sie, blob, etc.
+#define SS_PRIORITY_EVENT       20
+#define SS_PRIORITY_DISEASE     20	// Disease ticks.
+#define SS_PRIORITY_ALARMS      20
+#define SS_PRIORITY_PLANTS      20	// Spreading plant effects.
+#define SS_PRIORITY_EFFECTS     20	// New-style effects manager. Timing of effects may be off if this gets too far behind.
+#define SS_PRIORITY_CHEMISTRY   10	// Multi-tick chemical reactions.
+#define SS_PRIORITY_SHUTTLE     10	// Shuttle movement.
+#define SS_PRIORITY_AIRFLOW     10	// Handles object movement due to ZAS airflow.
+#define SS_PRIORITY_ZCOPY       10	// Z-mimic icon generation/updates.
 
 // SS_BACKGROUND
+#define SS_PRIORITY_PROCESSING    50	// Generic datum processor. Replaces objects processor.
 //#define SS_PRIORITY_DEFAULT     50	// This is defined somewhere else.
-#define SS_PRIORITY_MODIFIER      18
-#define SS_PRIORITY_ARRIVALS      16	// Centcomm arrivals shuttle auto-launch. Usually asleep.
-#define SS_PRIORITY_PROCESSING    15	// Generic datum processor. Replaces objects processor.
-#define SS_PRIORITY_EXPLOSIVES    13	// Explosion processor. Doesn't have much effect on explosion tick-checking.
-#define SS_PRIORITY_DISPOSALS     12	// Disposal holder movement.
-#define SS_PRIORITY_WIRELESS      12	// Handles pairing of wireless devices. Usually will be asleep.
-#define SS_PRIORITY_NIGHT          5	// Nightmode.
-#define SS_PRIORITY_STATISTICS     4	// Player population polling & AFK kick.
-#define SS_PRIORITY_SUN            3	// Sun movement & Solar tracking.
-#define SS_PRIORITY_GARBAGE        2	// Garbage collection.
+#define SS_PRIORITY_ARRIVALS      30	// Centcomm arrivals shuttle auto-launch. Usually asleep.
+#define SS_PRIORITY_EXPLOSIVES    20	// Explosion processor. Doesn't have much effect on explosion tick-checking.
+#define SS_PRIORITY_DISPOSALS     20	// Disposal holder movement.
+#define SS_PRIORITY_MODIFIER      10
+#define SS_PRIORITY_NIGHT         10	// Nightmode.
+#define SS_PRIORITY_STATISTICS    10	// Player population polling & AFK kick.
+#define SS_PRIORITY_SUN           10	// Sun movement & Solar tracking.
+#define SS_PRIORITY_GARBAGE        5	// Garbage collection.

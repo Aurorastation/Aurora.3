@@ -8,6 +8,8 @@
 	color = "#00BFFF"
 	overdose = REAGENTS_OVERDOSE * 2
 	metabolism = REM * 0.5
+	metabolism_min = REM * 0.125
+	breathe_mul = 0.5
 	scannable = 1
 	taste_description = "bitterness"
 	var/datum/modifier/modifier
@@ -22,10 +24,75 @@
 	QDEL_NULL(modifier)
 	return ..()
 
+/datum/reagent/epinephrine
+	name = "Epinephrine"
+	id = "epinephrine"
+	description = "Epinephrine, also known as adrenaline, is a super strength stimulant and painkiller intended to keep a patient alive while in critical condition. Overdose causes heart damage and an energy boost equivelent to hyperzine."
+	reagent_state = LIQUID
+	color = "#FFFFFF"
+	overdose = 20
+	metabolism = 2
+	metabolism_min = 0.25
+	breathe_mul = 0.25
+	ingest_mul = 0.25
+	scannable = 1
+	taste_description = "salty sugar"
+	var/datum/modifier/modifier1
+	var/datum/modifier/modifier2
+
+/datum/reagent/epinephrine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+
+	var/reagent_strength = round(max(0,1 - (M.health/100)),0.1)
+
+	if(reagent_strength == 0)
+		return
+
+	var/list/damage_stats = list(BRUTE = M.getBruteLoss(), BURN = M.getFireLoss(), TOX = M.getToxLoss(), OXY = M.getOxyLoss())
+
+	var/best_stat = "None"
+	var/best_value = 0
+
+	for(var/key in damage_stats)
+		var/value = damage_stats[key]
+		if(value > best_value)
+			best_stat = key
+			best_value = value
+
+	switch(best_stat)
+		if(BRUTE)
+			M.adjustBruteLoss(-removed*5*reagent_strength)
+		if(BURN)
+			M.adjustFireLoss(-removed*5*reagent_strength)
+		if(TOX)
+			M.adjustToxLoss(-removed*5*reagent_strength)
+		if(OXY)
+			M.adjustOxyLoss(-removed*5*reagent_strength)
+
+	M.make_jittery(removed*10)
+	M.add_chemical_effect(CE_STABLE)
+	M.add_chemical_effect(CE_PAINKILLER, 25)
+	if (!modifier1)
+		modifier1 = M.add_modifier(/datum/modifier/adrenaline, MODIFIER_REAGENT, src, _strength = 1, override = MODIFIER_OVERRIDE_STRENGTHEN)
+
+/datum/reagent/epinephrine/overdose(var/mob/living/carbon/human/H, var/alien, removed )
+	if(istype(H))
+		var/obj/item/organ/F = H.internal_organs_by_name["heart"]
+		if(istype(F))
+			F.take_damage(-removed*0.1)
+			H.make_jittery(removed*10)
+			H.add_chemical_effect(CE_SPEEDBOOST, 1)
+			if (!modifier2)
+				modifier2 = H.add_modifier(/datum/modifier/stimulant, MODIFIER_REAGENT, src, _strength = 1, override = MODIFIER_OVERRIDE_STRENGTHEN)
+
+/datum/reagent/epinephrine/Destroy()
+	QDEL_NULL(modifier1)
+	QDEL_NULL(modifier2)
+	return ..()
+
 /datum/reagent/bicaridine
 	name = "Bicaridine"
 	id = "bicaridine"
-	description = "Bicaridine is an analgesic medication and can be used to treat blunt trauma."
+	description = "Bicaridine is an analgesic medication and can be used to treat blunt trauma. Lasts twice as long when inhaled, however it is generally twice as weak."
 	reagent_state = LIQUID
 	color = "#BF0000"
 	overdose = REAGENTS_OVERDOSE
@@ -33,6 +100,8 @@
 	metabolism = REM * 1.5//Get to overdose state a bit faster
 	taste_description = "bitterness"
 	taste_mult = 3
+	breathe_met = REM * 1.5 * 0.5
+	breathe_mul = 0.5
 
 /datum/reagent/bicaridine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.heal_organ_damage(5 * removed, 0)
@@ -96,12 +165,15 @@
 /datum/reagent/dexalin
 	name = "Dexalin"
 	id = "dexalin"
-	description = "Dexalin is used in the treatment of oxygen deprivation."
+	description = "Dexalin is used in the treatment of oxygen deprivation. The medication is twice as powerful and lasts twice as long when inhaled."
 	reagent_state = LIQUID
 	color = "#0080FF"
 	overdose = REAGENTS_OVERDOSE
 	scannable = 1
 	taste_description = "bitterness"
+	metabolism = REM
+	breathe_met = REM * 0.5
+	breathe_mul = 2
 
 /datum/reagent/dexalin/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(alien == IS_VOX)
@@ -114,12 +186,15 @@
 /datum/reagent/dexalinp
 	name = "Dexalin Plus"
 	id = "dexalinp"
-	description = "Dexalin Plus is used in the treatment of oxygen deprivation. It is highly effective."
+	description = "Dexalin Plus is used in the treatment of oxygen deprivation. It is highly effective, and is twice as powerful and lasts twice as long when inhaled."
 	reagent_state = LIQUID
 	color = "#0040FF"
 	overdose = REAGENTS_OVERDOSE * 0.5
 	scannable = 1
 	taste_description = "bitterness"
+	metabolism = REM
+	breathe_met = REM * 0.5
+	breathe_mul = 2
 
 /datum/reagent/dexalinp/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(alien == IS_VOX)
@@ -132,17 +207,57 @@
 /datum/reagent/tricordrazine
 	name = "Tricordrazine"
 	id = "tricordrazine"
-	description = "Tricordrazine is a highly potent stimulant, originally derived from cordrazine. Can be used to treat a wide range of injuries."
+	description = "Tricordrazine is a highly potent stimulant, originally derived from cordrazine. Can be used to treat a wide range of injuries, however it does not work when inhaled. Has different healing properties depending on the chemical's temperature."
 	reagent_state = LIQUID
 	color = "#8040FF"
 	scannable = 1
-
 	taste_description = "bitterness"
+	breathe_mul = 0
 
 /datum/reagent/tricordrazine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+	var/power = 1 + Clamp((get_temperature() - (T0C + 20))*0.1,-0.5,0.5)
+	//Heals 10% more brute and less burn for every 1 celcius above 20 celcius, up 50% more/less.
+	//Heals 10% more burn and less brute for every 1 celcius below 20 celcius, up to 50% more/less.
 	M.adjustOxyLoss(-6 * removed)
-	M.heal_organ_damage(3 * removed, 3 * removed)
+	M.heal_organ_damage(3 * removed * power,3 * removed * power)
 	M.adjustToxLoss(-3 * removed)
+
+/datum/reagent/omnizine
+	name = "Omnizine"
+	id = "omnizine"
+	description = "Omnizine is a low strength over-the-counter stimulant designed and marketed as a 'treat all' pill. Ingesting or inhaling the substance has the same strength as directly injecting it."
+	reagent_state = SOLID
+	color = "#BBBBBB"
+	metabolism = REM
+	ingest_mul = 1
+	breathe_mul = 1
+	scannable = 1
+	taste_description = "bittersweet chalk"
+
+/datum/reagent/omnizine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+	M.adjustOxyLoss(-1 * removed)
+	M.adjustBruteLoss(-1 * removed)
+	M.adjustFireLoss(-1 * removed)
+	M.adjustToxLoss(-1 * removed)
+
+/datum/reagent/atropine
+	name = "Atropine"
+	id = "atropine"
+	description = "Atropine is an emergency stabilizing reagent designed to heal suffocation, blunt trauma, and burns in critical condition. Side effects include toxins increase."
+	reagent_state = LIQUID
+	metabolism = 1
+	color = "#FF40FF"
+	scannable = 1
+	taste_description = "bitterness"
+	breathe_mul = 0
+
+/datum/reagent/atropine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+	var/reagent_strength = max(0.25,1 - (M.health/100))
+	M.adjustOxyLoss(-5 * removed * reagent_strength)
+	M.adjustBruteLoss(-5 * removed * reagent_strength)
+	M.adjustFireLoss(-5 * removed * reagent_strength)
+
+	M.adjustToxLoss(1 * removed)
 
 /datum/reagent/cryoxadone
 	name = "Cryoxadone"
@@ -164,7 +279,7 @@
 /datum/reagent/clonexadone
 	name = "Clonexadone"
 	id = "clonexadone"
-	description = "A liquid compound similar to that used in the cloning process. Can be used to 'finish' the cloning process when used in conjunction with a cryo tube."
+	description = "A liquid compound similar to that used in the cloning process. Can be used to 'finish' the cloning process when used in conjunction with a cryo tube. Its main limitation is that the targets body temperature must be under 170K for it to metabolise correctly."
 	reagent_state = LIQUID
 	color = "#80BFFF"
 	metabolism = REM * 0.5
@@ -183,13 +298,15 @@
 /datum/reagent/paracetamol
 	name = "Paracetamol"
 	id = "paracetamol"
-	description = "Most probably know this as Tylenol, but this chemical is a mild, simple painkiller."
+	description = "Most probably know this as Tylenol, but this chemical is a mild, simple painkiller. Does not work when inhaled."
 	reagent_state = LIQUID
 	color = "#C8A5DC"
 	overdose = 60
 	scannable = 1
 	metabolism = 0.02
 	taste_description = "sickness"
+	metabolism_min = 0.005
+	breathe_mul = 0
 
 /datum/reagent/paracetamol/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.add_chemical_effect(CE_PAINKILLER, 50)
@@ -201,13 +318,15 @@
 /datum/reagent/tramadol
 	name = "Tramadol"
 	id = "tramadol"
-	description = "A simple, yet effective painkiller."
+	description = "Tramadol is a very effective painkiller designed for victims of heavy physical trauma. Does not work when inhaled."
 	reagent_state = LIQUID
 	color = "#CB68FC"
 	overdose = 30
 	scannable = 1
 	metabolism = 0.02
 	taste_description = "sourness"
+	metabolism_min = 0.005
+	breathe_mul = 0
 
 /datum/reagent/tramadol/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.add_chemical_effect(CE_PAINKILLER, 80)
@@ -219,19 +338,28 @@
 /datum/reagent/oxycodone
 	name = "Oxycodone"
 	id = "oxycodone"
-	description = "An effective and very addictive painkiller."
+	description = "Oxycodone is incredibly potent and very addictive painkiller. Do not mix with alcohol. Does not work when inhaled."
 	reagent_state = LIQUID
 	color = "#800080"
 	overdose = 20
 	metabolism = 0.02
 	taste_description = "bitterness"
+	metabolism_min = 0.005
+	breathe_mul = 0
 
 /datum/reagent/oxycodone/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.add_chemical_effect(CE_PAINKILLER, 200)
+	var/mob/living/carbon/human/H = M
+	if(!istype(H))
+		return
+	var/bac = H.get_blood_alcohol()
+	if(bac >= 0.02)
+		M.hallucination = max(M.hallucination, bac * 300)
+		M.druggy = max(M.druggy, bac * 100)
 
 /datum/reagent/oxycodone/overdose(var/mob/living/carbon/M, var/alien)
 	..()
-	M.druggy = max(M.druggy, 10)
+	M.druggy = max(M.druggy, 20)
 	M.hallucination = max(M.hallucination, 60)
 
 /* Other medicine */
@@ -239,7 +367,7 @@
 /datum/reagent/synaptizine
 	name = "Synaptizine"
 	id = "synaptizine"
-	description = "Synaptizine is used to treat various diseases."
+	description = "Synaptizine is used to treat a robust array of conditions, such as drowsyness, paralysis, weakness, LSD overdose, hallucinations, and pain. Moderately poisonous, and should only be used as a last resort."
 	reagent_state = LIQUID
 	color = "#99CCFF"
 	metabolism = REM * 0.05
@@ -247,6 +375,7 @@
 	scannable = 1
 	var/datum/modifier/modifier
 	taste_description = "bitterness"
+	metabolism_min = REM * 0.0125
 
 /datum/reagent/synaptizine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.drowsyness = max(M.drowsyness - 5, 0)
@@ -264,7 +393,6 @@
 	QDEL_NULL(modifier)
 	return ..()
 
-
 /datum/reagent/alkysine
 	name = "Alkysine"
 	id = "alkysine"
@@ -275,6 +403,7 @@
 	overdose = REAGENTS_OVERDOSE
 	scannable = 1
 	taste_description = "bitterness"
+	metabolism_min = REM * 0.075
 
 /datum/reagent/alkysine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.adjustBrainLoss(-30 * removed)
@@ -292,8 +421,8 @@
 	taste_description = "dull toxin"
 
 /datum/reagent/imidazoline/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	M.eye_blurry = max(M.eye_blurry - 5, 0)
-	M.eye_blind = max(M.eye_blind - 5, 0)
+	M.eye_blurry = max(M.eye_blurry - 5 * removed, 0)
+	M.eye_blind = max(M.eye_blind - 5 * removed, 0)
 	if(ishuman(M))
 		var/mob/living/carbon/human/H = M
 		var/obj/item/organ/eyes/E = H.get_eyes(no_synthetic = TRUE)
@@ -327,6 +456,8 @@
 	color = "#004000"
 	overdose = REAGENTS_OVERDOSE
 	taste_description = "acid"
+	metabolism = 1
+	metabolism_min = 0.25
 
 /datum/reagent/ryetalyn/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	var/needs_update = M.mutations.len > 0
@@ -343,13 +474,15 @@
 /datum/reagent/hyperzine
 	name = "Hyperzine"
 	id = "hyperzine"
-	description = "Hyperzine is a highly effective, long lasting, muscle stimulant."
+	description = "Hyperzine is a highly effective, long lasting, muscle stimulant. Lasts twice as long when inhaled."
 	reagent_state = LIQUID
 	color = "#FF3300"
 	metabolism = REM * 0.15
 	overdose = REAGENTS_OVERDOSE * 0.5
 	var/datum/modifier = null
 	taste_description = "acid"
+	metabolism_min = REM * 0.025
+	breathe_met = REM * 0.15 * 0.5
 
 /datum/reagent/hyperzine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(prob(5))
@@ -423,9 +556,18 @@
 	overdose = REAGENTS_OVERDOSE
 	scannable = 1
 	taste_description = "bitterness"
+	unaffected_species = IS_MACHINE
+	var/last_taste_time = -10000
 
 /datum/reagent/hyronalin/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	M.apply_radiation(-30 * removed)
+	if(M.is_diona())
+		if(last_taste_time + 950 < world.time) // Not to spam message
+			to_chat(M, "<span class='danger'>Your body withers as you feel a searing pain throughout.</span>")
+			last_taste_time = world.time
+		metabolism = REM * 0.22
+		M.adjustToxLoss(45 * removed) // Tested numbers myself
+	else
+		M.apply_radiation(-30 * removed)
 
 /datum/reagent/arithrazine
 	name = "Arithrazine"
@@ -437,12 +579,21 @@
 	overdose = REAGENTS_OVERDOSE
 	scannable = 1
 	taste_description = "bitterness"
+	unaffected_species = IS_MACHINE
+	var/last_taste_time = -10000
 
 /datum/reagent/arithrazine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	M.apply_radiation(-70 * removed)
-	M.adjustToxLoss(-10 * removed)
-	if(prob(60))
-		M.take_organ_damage(4 * removed, 0)
+	if(M.is_diona())
+		if(last_taste_time + 450 < world.time) // Not to spam message
+			to_chat(M, "<span class='danger'>Your body withers as you feel a searing pain throughout.</span>")
+			last_taste_time = world.time
+		metabolism = REM * 0.195
+		M.adjustToxLoss(115 * removed) // Tested numbers myself
+	else
+		M.apply_radiation(-70 * removed)
+		M.adjustToxLoss(-10 * removed)
+		if(prob(60))
+			M.take_organ_damage(4 * removed, 0)
 
 /datum/reagent/spaceacillin
 	name = "Spaceacillin"
@@ -504,117 +655,571 @@
 	else if(M.bodytemperature < 311)
 		M.bodytemperature = min(310, M.bodytemperature + (40 * TEMPERATURE_DAMAGE_COEFFICIENT))
 
-/* Antidepressants */
+/* mental */
 
-#define ANTIDEPRESSANT_MESSAGE_DELAY 5*60*10
+#define ANTIDEPRESSANT_MESSAGE_DELAY 1800 //3 minutes
 
-/datum/reagent/methylphenidate
-	name = "Methylphenidate"
-	id = "methylphenidate"
-	description = "Improves the ability to concentrate."
+/datum/reagent/mental
+	name = null //Just like alcohol
+	id = "mental"
+	description = "Some nameless, experimental antidepressant that you should obviously not have your hands on."
 	reagent_state = LIQUID
-	color = "#BF80BF"
-	metabolism = 0.01
+	color = "#FFFFFF"
+	metabolism = 0.001 * REM
+	metabolism_min = 0
 	data = 0
-	taste_description = "sourness"
+	scannable = 1
+	overdose = REAGENTS_OVERDOSE
+	taste_description = "bugs"
+	ingest_mul = 1
+	var/alchohol_affected = 1
+	var/min_dose = 1
+	var/messagedelay = ANTIDEPRESSANT_MESSAGE_DELAY
+	var/list/goodmessage = list() //Messages when all your brain traumas are cured.
+	var/list/badmessage = list() //Messages when you still have at least one brain trauma it's suppose to cure.
+	var/list/worstmessage = list() //Messages when the user is at possible risk for more trauma
+	var/list/suppress_traumas  //List of brain traumas that the medication temporarily suppresses, with the key being the brain trauma and the value being the minimum dosage required to cure. Negative values means that the trauma is temporarily gained on the value instead.
+	var/list/dosage_traumas //List of brain traumas that the medication permanently adds at these dosages, with the key being the brain trauma and the value being base percent chance to add.
+	var/list/withdrawal_traumas //List of withdrawl effects that the medication permanently adds during withdrawl, with the key being the brain trauma, and the value being the base percent chance to add.
+	var/list/suppressing_reagents = list() // List of reagents that suppress the withdrawal effects, with the key being the reagent and the vlue being the minimum dosage required to suppress.
 
-/datum/reagent/methylphenidate/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	if(volume <= 0.1 && data != -1)
-		data = -1
-		M << "<span class='warning'>You lose focus...</span>"
-	else
-		if(world.time > data + ANTIDEPRESSANT_MESSAGE_DELAY)
-			data = world.time
-			M << "<span class='notice'>Your mind feels focused and undivided.</span>"
+	fallback_specific_heat = 1.5
 
-/datum/reagent/citalopram
-	name = "Citalopram"
-	id = "citalopram"
-	description = "Stabilizes the mind a little."
+/datum/reagent/mental/affect_blood(var/mob/living/carbon/human/H, var/alien, var/removed)
+
+	if(!istype(H) || max_dose < min_dose || (world.time < data && volume > removed) || messagedelay == -1)
+		return
+	//max_dose < min_dose and volume > removed prevents message startup/startdown spam if you're using something like a cigarette or similiar device that transfers a little bit of reagents at a time.
+	//If in the case that a cigarette has a lower transfer rate than the metabolism rate, then message spam will occur since it's starting and stopping constantly.
+	//This also prevents the whole code from working if the dosage is very small.
+
+	var/hastrauma = 0 //whether or not the brain has trauma
+	var/obj/item/organ/brain/B = H.internal_organs_by_name["brain"]
+	var/bac = H.get_blood_alcohol()
+
+	if(alchohol_affected && bac > 0.01)
+		H.hallucination = max(H.hallucination, bac * 400)
+
+	if(B) //You won't feel anything if you don't have a brain.
+		for(var/datum/brain_trauma/BT in B.traumas)
+			var/goal_volume = suppress_traumas[BT]
+			if (volume >= goal_volume) // If the dosage is greater than the goal, then suppress the trauma.
+				if(!BT.suppressed && !BT.permanent)
+					BT.suppressed = 1
+					BT.on_lose()
+			else if(volume < goal_volume-1 && goal_volume > 0) // -1 So it doesn't spam back and forth constantly if reagents are being metabolized
+				if(BT.suppressed)
+					BT.suppressed = 0
+					BT.on_gain()
+					hastrauma = 1
+		for(var/datum/brain_trauma/BT in dosage_traumas)
+			var/percentchance = max(0,dosage_traumas[BT] - dose*10) // If you've been taking this medication for a while then side effects are rarer.
+			if(!H.has_trauma_type(BT) && prob(percentchance))
+				B.gain_trauma(BT,FALSE)
+		if(volume < max_dose*0.25) //If you haven't been taking your regular dose, then cause issues.
+			var/suppress_withdrawl = FALSE
+			for(var/k in suppressing_reagents)
+				var/datum/reagent/v = suppressing_reagents[k]
+				if(H.reagents.has_reagent(v,k))
+					suppress_withdrawl = TRUE
+					break
+			if(!suppress_withdrawl)
+				if (H.shock_stage < 20 && worstmessage.len)
+					to_chat(H,"<span class='danger'>[pick(worstmessage)]</span>")
+				messagedelay = initial(messagedelay) * 0.25
+				for(var/k in withdrawal_traumas)
+					var/datum/brain_trauma/BT = k
+					var/percentchance = max(withdrawal_traumas[k] * (dose/20)) //The higher the dosage, the more likely it is do get withdrawal traumas.
+					if(!H.has_trauma_type(BT) && prob(percentchance))
+						B.gain_trauma(BT,FALSE)
+		else if(hastrauma || volume < max_dose*0.5) //If your current dose is not high enough, then alert the player.
+			if (H.shock_stage < 10 && badmessage.len)
+				to_chat(H,"<span class='warning'>[pick(badmessage)]</span>")
+			messagedelay = initial(messagedelay) * 0.5
+		else
+			if (H.shock_stage < 5 && goodmessage.len)
+				to_chat(H,"<span class='good'>[pick(goodmessage)]</span>")
+			messagedelay = initial(messagedelay)
+
+	data = world.time + (messagedelay SECONDS)
+
+/datum/reagent/mental/nicotine
+	name = "Nicotine"
+	id = "nicotine"
+	description = "Nicotine is a stimulant and relaxant commonly found in tobacco products. It is very poisonous, unless at very low doses."
 	reagent_state = LIQUID
-	color = "#FF80FF"
-	metabolism = 0.01
-	data = 0
-
-/datum/reagent/citalopram/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	if(volume <= 0.1 && data != -1)
-		data = -1
-		M << "<span class='warning'>Your mind feels a little less stable...</span>"
-		if (ishuman(M))
-			var/mob/living/carbon/human/H = M
-			var/obj/item/organ/brain/B = H.internal_organs_by_name["brain"]
-			if(B)
-				for(var/x in B.traumas)
-					var/datum/brain_trauma/BT = x
-					if((istype(BT, BRAIN_TRAUMA_MILD) || istype(BT, BRAIN_TRAUMA_SPECIAL)) && BT.suppressed)
-						BT.on_gain()
-						BT.suppressed = 0
-
-	else
-		if((world.time > data + ANTIDEPRESSANT_MESSAGE_DELAY) || !data)
-			data = world.time
-			M << "<span class='notice'>Your mind feels stable... a little stable.</span>"
-
-			if (ishuman(M))
-				var/mob/living/carbon/human/H = M
-				var/obj/item/organ/brain/B = H.internal_organs_by_name["brain"]
-				if(B)
-					for(var/x in B.traumas)
-						var/datum/brain_trauma/BT = x
-						if((istype(BT, BRAIN_TRAUMA_MILD) || istype(BT, BRAIN_TRAUMA_SPECIAL)) && !BT.permanent)
-							BT.on_lose()
-							BT.suppressed = 1
-
-/datum/reagent/paroxetine
-	name = "Paroxetine"
-	id = "paroxetine"
-	description = "Stabilizes the mind greatly, but has a chance of adverse effects."
-	reagent_state = LIQUID
-	color = "#FF80BF"
-	metabolism = 0.01
+	color = "#333333"
+	metabolism = 0.0016 * REM
+	overdose = 3
 	data = 0
 	taste_description = "bitterness"
+	goodmessage = list("You feel good.","You feel relaxed.","You feel alert and focused.")
+	badmessage = list("You start to crave nicotine...")
+	worstmessage = list("You need your nicotine fix!")
+	suppress_traumas  = list(
+		/datum/brain_trauma/mild/phobia = 0.1,
+		/datum/brain_trauma/mild/muscle_weakness/ = 0.05
+	)
+	conflicting_reagent = null
+	min_dose = 0.0064 * REM
+	var/datum/modifier/modifier
 
-/datum/reagent/paroxetine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	if((volume <= 0.1 || data == -2) && data != -1)
-		data = -1
-		M << "<span class='warning'>Your mind feels much less stable...</span>"
-		if (ishuman(M))
-			var/mob/living/carbon/human/H = M
-			var/obj/item/organ/brain/B = H.internal_organs_by_name["brain"]
-			if(B)
-				for(var/x in B.traumas)
-					var/datum/brain_trauma/BT = x
-					if((istype(BT, BRAIN_TRAUMA_MILD) || istype(BT, BRAIN_TRAUMA_SEVERE) || istype(BT, BRAIN_TRAUMA_SPECIAL)) && BT.suppressed)
-						BT.on_gain()
-						BT.suppressed = 0
+/datum/reagent/mental/nicotine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+	. = ..()
+	M.add_chemical_effect(CE_PAINKILLER, 5)
+
+/datum/reagent/mental/nicotine/overdose(var/mob/living/carbon/M, var/alien, var/removed, var/scale)
+	. = ..()
+	M.adjustOxyLoss(10 * removed * scale)
+	M.Weaken(10 * removed * scale)
+
+/datum/reagent/mental/methylphenidate
+	name = "Methylphenidate"
+	id = "methylphenidate"
+	description = "Methylphenidate is an AHDH treatment drug that treats basic distractions such as phobias and hallucinations at moderate doses. Withdrawl effects are rare. Side effects are rare, and include hallucinations."
+	reagent_state = LIQUID
+	color = "#8888AA"
+	metabolism = 0.01 * REM
+	data = 0
+	taste_description = "paper"
+	goodmessage = list("You feel focused.","You feel like you have no distractions.","You feel willing to work.")
+	badmessage = list("You feel a little distracted...","You feel slight agitation...","You feel a dislike towards work...")
+	worstmessage = list("You feel completely distrtacted...","You feel like you don't want to work...","You think you see things...")
+	suppress_traumas  = list(
+		/datum/brain_trauma/special/imaginary_friend = 20,
+		/datum/brain_trauma/mild/hallucinations = 10,
+		/datum/brain_trauma/mild/phobia/ = 10
+	)
+	dosage_traumas = list(
+		/datum/brain_trauma/mild/hallucinations = 5
+	)
+	withdrawal_traumas = list(
+		/datum/brain_trauma/mild/phobia/ = 5,
+		/datum/brain_trauma/mild/hallucinations = 2
+	)
+
+/datum/reagent/mental/fluvoxamine
+	name = "Fluvoxamine"
+	id = "fluvoxamine"
+	description = "Fluvoxamine is safe and effective at treating basic phobias, as well as schizophrenia and muscle weakness at higher doses. Withdrawl effects are rare. Side effects are rare, and include hallucinations."
+	reagent_state = LIQUID
+	color = "#888888"
+	metabolism = 0.01 * REM
+	data = 0
+	taste_description = "bitterness"
+	goodmessage = list("You do not feel the need to worry about simple things.","You feel calm and level-headed.","You feel fine.")
+	badmessage = list("You feel a little blue.","You feel slight agitation...","You feel a little nervous...")
+	worstmessage = list("You worry about the littlest thing...","You feel like you are at risk...","You think you see things...")
+	suppress_traumas  = list(
+		/datum/brain_trauma/mild/phobia/ = 2,
+		/datum/brain_trauma/severe/split_personality = 10,
+		/datum/brain_trauma/special/imaginary_friend = 20,
+		/datum/brain_trauma/mild/muscle_weakness = 10
+	)
+	dosage_traumas = list(
+		/datum/brain_trauma/mild/hallucinations = 5
+	)
+	withdrawal_traumas = list(
+		/datum/brain_trauma/mild/phobia/ = 5,
+		/datum/brain_trauma/mild/hallucinations = 2
+	)
+
+/datum/reagent/mental/sertraline
+	name = "Sertraline"
+	id = "sertraline"
+	description = "Sertraline is cheap, safe, and effective at treating basic phobias, however it does not last as long as other drugs of it's class. Withdrawl effects are uncommon. Side effects are rare."
+	reagent_state = LIQUID
+	color = "#88AA88"
+	metabolism = 0.02 * REM
+	data = 0
+	taste_description = "paper"
+	goodmessage = list("You feel fine.","You feel rational.","You feel decent.")
+	badmessage = list("You feel a little blue.","You feel slight agitation...","You feel a little nervous...")
+	worstmessage = list("You worry about the littlest thing...","You feel like you are at risk...","You think you see things...")
+	suppress_traumas  = list(
+		/datum/brain_trauma/mild/phobia/ = 2
+	)
+	dosage_traumas = list(
+		/datum/brain_trauma/mild/hallucinations = 5
+	)
+	withdrawal_traumas = list(
+		/datum/brain_trauma/mild/phobia/ = 10,
+		/datum/brain_trauma/mild/hallucinations = 5
+	)
+	suppressing_reagents = list(/datum/reagent/mental/fluvoxamine = 5)
+
+/datum/reagent/mental/escitalopram
+	name = "Escitalopram"
+	id = "escitalopram"
+	description = "Escitalopram is expensive, safe and very effective at treating basic phobias as well as advanced phobias like monophobia. A common side effect is drowsiness, and a rare side effect is hallucinations. Withdrawl effects are uncommon."
+	reagent_state = LIQUID
+	color = "#FF8888"
+	metabolism = 0.01 * REM
+	data = 0
+	taste_description = "duct tape"
+	goodmessage = list("You feel relaxed.","You feel at ease.","You feel care free.")
+	badmessage = list("You feel worried.","You feel slight agitation.","You feel nervous.")
+	worstmessage = list("You worry about the littlest thing...","You feel like you are at risk...","You think you see things...")
+	suppress_traumas  = list(
+		/datum/brain_trauma/mild/phobia/ = 1,
+		/datum/brain_trauma/severe/monophobia = 5
+	)
+	dosage_traumas = list(
+		/datum/brain_trauma/mild/hallucinations = 5
+	)
+	withdrawal_traumas = list(
+		/datum/brain_trauma/mild/phobia/ = 10,
+		/datum/brain_trauma/mild/hallucinations = 10
+	)
+	suppressing_reagents = list(
+		/datum/reagent/mental/fluvoxamine = 5,
+		/datum/reagent/mental/sertraline = 5
+	)
+
+/datum/reagent/mental/paroxetine
+	name = "Paroxetine"
+	id = "paroxetine"
+	description = "Paroxetine is effective at treating basic phobias while also preventing the body from overheating. Side effects are rare, and include hallucinations. Withdrawl effects are frequent and unsafe."
+	reagent_state = LIQUID
+	color = "#AA8866"
+	metabolism = 0.01 * REM
+	data = 0
+	taste_description = "bandaid"
+	goodmessage = list("You do not feel the need to worry about simple things.","You feel calm and level-headed.","You feel decent.")
+	badmessage = list("You worry about the littlest thing.","You feel like you are at risk.","You think you see things.")
+	worstmessage = list("You start to overreact to sounds and movement...","Your hear dangerous thoughts in your head...","You are really starting to see things...")
+	messagedelay = ANTIDEPRESSANT_MESSAGE_DELAY * 0.75
+	suppress_traumas  = list(
+		/datum/brain_trauma/mild/phobia/ = 5
+	)
+	dosage_traumas = list(
+		/datum/brain_trauma/mild/hallucinations = 5
+	)
+	withdrawal_traumas = list(
+		/datum/brain_trauma/mild/phobia/ = 25,
+		/datum/brain_trauma/mild/hallucinations = 50
+	)
+	suppressing_reagents = list(
+		/datum/reagent/mental/escitalopram = 5,
+		/datum/reagent/mental/fluvoxamine = 10,
+		/datum/reagent/mental/sertraline = 10
+	)
+
+/datum/reagent/mental/paroxetine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+	if(M.bodytemperature > 310)
+		M.bodytemperature = max(310, M.bodytemperature - removed*100)
+	. = ..()
+
+/datum/reagent/mental/duloxetine
+	name = "Duloxetine"
+	id = "duloxetine"
+	description = "Duloxetine is effective at treating basic phobias and concussions. A rare side effect is hallucinations. Withdrawl effects are common."
+	reagent_state = LIQUID
+	color = "#88FFFF"
+	metabolism = 0.01 * REM
+	data = 0
+	taste_description = "scotch tape"
+	goodmessage = list("You feel at ease.","Your mind feels healthy..")
+	badmessage = list("You worry about the littlest thing.","Your head starts to feel weird...","You think you see things.")
+	worstmessage = list("You start to overreact to sounds and movement...","Your head feels really weird.","You are really starting to see things...")
+	messagedelay = ANTIDEPRESSANT_MESSAGE_DELAY * 0.75
+	suppress_traumas  = list(
+		/datum/brain_trauma/mild/concussion = 5,
+		/datum/brain_trauma/mild/phobia/ = 5
+	)
+	dosage_traumas = list(
+		/datum/brain_trauma/mild/hallucinations = 5
+	)
+	withdrawal_traumas = list(
+		/datum/brain_trauma/mild/phobia/ = 25,
+		/datum/brain_trauma/mild/hallucinations = 25,
+		/datum/brain_trauma/mild/concussion = 10
+	)
+	suppressing_reagents = list(
+		/datum/reagent/mental/paroxetine = 5,
+		/datum/reagent/mental/escitalopram = 5,
+		/datum/reagent/mental/fluvoxamine = 10,
+		/datum/reagent/mental/sertraline = 10
+	)
+
+/datum/reagent/mental/venlafaxine
+	name = "Venlafaxine"
+	id = "venlafaxine"
+	description = "Venlafaxine is effective at treating basic phobias, monophobia, and stuttering. Side effects are uncommon and include hallucinations. Withdrawl effects are common."
+	reagent_state = LIQUID
+	color = "#FF88FF"
+	metabolism = 0.01 * REM
+	data = 0
+	taste_description = "glue"
+	goodmessage = list("You feel at ease.","Your mind feels healthy..","You feel unafraid to speak...")
+	badmessage = list("You worry about the littlest thing.","You think you see things.")
+	worstmessage = list("You start to overreact to sounds and movement...","You are really starting to see things...")
+	messagedelay = ANTIDEPRESSANT_MESSAGE_DELAY * 0.75
+	suppress_traumas  = list(
+		/datum/brain_trauma/mild/phobia = 5,
+		/datum/brain_trauma/mild/stuttering = 2,
+		/datum/brain_trauma/severe/monophobia = 5
+	)
+	dosage_traumas = list(
+		/datum/brain_trauma/mild/hallucinations = 10
+	)
+	withdrawal_traumas = list(
+		/datum/brain_trauma/mild/phobia/ = 25,
+		/datum/brain_trauma/mild/hallucinations = 25
+	)
+	suppressing_reagents = list(
+		/datum/reagent/mental/duloxetine = 5,
+		/datum/reagent/mental/paroxetine = 5,
+		/datum/reagent/mental/escitalopram = 5,
+		/datum/reagent/mental/fluvoxamine = 10,
+		/datum/reagent/mental/sertraline = 10
+	)
+
+/datum/reagent/mental/risperidone
+	name = "Risperidone"
+	id = "risperidone"
+	description = "Risperidone is a potent antipsychotic medication used to treat schizophrenia, stuttering, speech impediment, monophobia, hallucinations, tourettes, and muscle spasms. Side effects are common and include pacifism. Withdrawl symptoms are dangerous and almost always occur."
+	reagent_state = LIQUID
+	color = "#FF4444"
+	metabolism = 0.02 * REM
+	data = 0
+	taste_description = "cardboard"
+	goodmessage = list("Your mind feels as one.","You feel comfortable speaking.","Your body feels good.","Your thoughts are pure.")
+	badmessage = list("You start hearing voices...","You think you see things...","You feel really upset...","You want attention...")
+	worstmessage = list("You think you start seeing things...","You swear someone inside you spoke to you...","You hate feeling alone...","You feel really upset...")
+	messagedelay = ANTIDEPRESSANT_MESSAGE_DELAY * 0.5
+	suppress_traumas  = list(
+		/datum/brain_trauma/severe/split_personality = 5,
+		/datum/brain_trauma/special/imaginary_friend = 10,
+		/datum/brain_trauma/mild/stuttering = 2,
+		/datum/brain_trauma/mild/speech_impediment = 5,
+		/datum/brain_trauma/severe/monophobia = 5,
+		/datum/brain_trauma/mild/hallucinations = 5,
+		/datum/brain_trauma/mild/muscle_spasms = 10,
+		/datum/brain_trauma/mild/tourettes = 10
+	)
+	dosage_traumas = list(
+		/datum/brain_trauma/severe/pacifism = 25
+	)
+	withdrawal_traumas = list(
+		/datum/brain_trauma/mild/hallucinations = 100,
+		/datum/brain_trauma/severe/split_personality = 10,
+		/datum/brain_trauma/special/imaginary_friend = 20,
+		/datum/brain_trauma/mild/tourettes = 50,
+		/datum/brain_trauma/severe/monophobia = 50
+	)
+	suppressing_reagents = list(
+		/datum/reagent/mental/venlafaxine = 20,
+		/datum/reagent/mental/duloxetine = 20,
+		/datum/reagent/mental/paroxetine = 20,
+		/datum/reagent/mental/escitalopram = 20
+	)
+
+/datum/reagent/mental/olanzapine
+	name = "Olanzapine"
+	id = "olanzapine"
+	description = "Olanzapine is a high-strength, expensive antipsychotic medication used to treat schizophrenia, stuttering, speech impediment, monophobia, hallucinations, tourettes, and muscle spasms. Side effects are common and include pacifism. The medication metabolizes quickly, and withdrawl is dangerous."
+	reagent_state = LIQUID
+	color = "#FF8844"
+	metabolism = 0.02 * REM
+	data = 0
+	taste_description = "paint"
+	goodmessage = list("Your mind feels as one.","You feel comfortable speaking.","Your body feels good.","Your thoughts are pure.","Your body feels responsive.","You can handle being alone.")
+	badmessage = list("You start hearing voices...","You think you see things...","You want a friend...")
+	worstmessage = list("You think you start seeing things...","You swear someone inside you spoke to you...")
+	messagedelay = ANTIDEPRESSANT_MESSAGE_DELAY * 0.5
+	suppress_traumas  = list(
+		/datum/brain_trauma/severe/split_personality = 5,
+		/datum/brain_trauma/special/imaginary_friend = 10,
+		/datum/brain_trauma/mild/stuttering = 1,
+		/datum/brain_trauma/mild/speech_impediment = 2,
+		/datum/brain_trauma/severe/monophobia = 2,
+		/datum/brain_trauma/mild/muscle_spasms = 5,
+		/datum/brain_trauma/mild/tourettes = 10
+	)
+	dosage_traumas = list(
+		/datum/brain_trauma/severe/pacifism = 25
+	)
+	withdrawal_traumas = list(
+		/datum/brain_trauma/mild/hallucinations = 200,
+		/datum/brain_trauma/severe/split_personality = 50,
+		/datum/brain_trauma/special/imaginary_friend = 50
+	)
+	suppressing_reagents = list(
+		/datum/reagent/mental/venlafaxine = 20,
+		/datum/reagent/mental/duloxetine = 20,
+		/datum/reagent/mental/paroxetine = 20,
+		/datum/reagent/mental/escitalopram = 20
+	)
+
+/datum/reagent/mental/truthserum
+	name = "Truth serum"
+	id = "truthserum"
+	description = "This highly illegal, expensive, military strength truth serum is a must have for secret corporate interrogations. Do not ingest."
+	reagent_state = LIQUID
+	color = "#888888"
+	metabolism = 0.05 * REM
+	data = 0
+	scannable = 0
+	taste_description = "something"
+	goodmessage = list("You feel like you have nothing to hide.","You feel compelled to spill your secrets.","You feel like you can trust those around you.")
+	badmessage = list()
+	worstmessage = list()
+	suppress_traumas  = list(
+		/datum/brain_trauma/mild/tourettes = 1
+	)
+	dosage_traumas = list(
+		/datum/brain_trauma/severe/pacifism = 25
+	)
+	messagedelay = 30
+	ingest_mul = 0 //Stomach acid will melt the nanobots
+
+/datum/reagent/mental/bugjuice
+	name = "V'krexi Amino Acid Mixture"
+	id = "vaam"
+	description = "A mixture of several high-energy amino acids, based on the secretions and saliva of V'krexi larvae."
+	reagent_state = LIQUID
+	color = "#bcd827"
+	metabolism = 0.6
+	overdose = 5
+	data = 0
+	taste_description = "bitterness"
+	metabolism_min = 0.5
+	breathe_mul = 0
+	goodmessage = list("You feel great.","You feel full of energy.","You feel alert and focused.")
+	badmessage = list("You can't think straight...","You're sweating heavily...","Your heart is racing...")
+	worstmessage = list("You feel incredibly lightheaded!","You feel incredibly dizzy!")
+	suppress_traumas  = list(
+		/datum/brain_trauma/mild/muscle_weakness/ = 0.01
+	)
+	var/datum/modifier/modifier
+
+/datum/reagent/mental/bugjuice/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+	. = ..()
+	M.add_chemical_effect(CE_PAINKILLER, 5)
+	M.drowsyness = 0
+
+/datum/reagent/mental/bugjuice/overdose(var/mob/living/carbon/M, var/alien, var/removed, var/scale)
+	. = ..()
+	M.adjustOxyLoss(1 * removed * scale)
+	M.Weaken(10 * removed * scale)
+	M.make_jittery(20)
+	M.make_dizzy(10)
+
+	if (prob(10))
+		M << pick("You feel nauseous", "Ugghh....", "Your stomach churns uncomfortably", "You feel like you're about to throw up", "You feel queasy","You feel pressure in your abdomen")
+
+	if (prob(dose))
+		M.vomit()
+
+/datum/reagent/mannitol
+	name = "Mannitol"
+	id = "mannitol"
+	description = "Mannitol is a super strength chemical that heals brain tissue damage and cures dumbness, cerebral blindness, cerebral paralysis, colorblindness, and aphasia. More effective when the patient's body temperature is less than 170K."
+	reagent_state = LIQUID
+	color = "#FFFF00"
+	metabolism = REM * 2 //0.4
+	overdose = REAGENTS_OVERDOSE
+	scannable = 1
+	taste_description = "bitterness"
+	metabolism_min = REM * 0.25
+	var/list/curable_traumas = list(
+		/datum/brain_trauma/mild/dumbness/,
+		/datum/brain_trauma/severe/blindness/,
+		/datum/brain_trauma/severe/paralysis/,
+		/datum/brain_trauma/severe/total_colorblind/,
+		/datum/brain_trauma/severe/aphasia/
+	)
+
+/datum/reagent/mannitol/affect_blood(var/mob/living/carbon/human/M, var/alien, var/removed)
+
+	M.add_chemical_effect(CE_PAINKILLER, 10)
+	var/chance = dose*removed
+	if(M.bodytemperature < 170)
+		chance = (chance*4) + 5
+		M.adjustBrainLoss(-30 * removed)
 	else
-		if(data >= 0)
-			if((world.time > data + ANTIDEPRESSANT_MESSAGE_DELAY) || !data)
-				data = world.time
-				if(prob(75))
-					M << "<span class='notice'>Your mind feels much more stable.</span>"
-					if (ishuman(M))
-						var/mob/living/carbon/human/H = M
-						var/obj/item/organ/brain/B = H.internal_organs_by_name["brain"]
-						if(B)
-							for(var/x in B.traumas)
-								var/datum/brain_trauma/BT = x
-								if((istype(BT, BRAIN_TRAUMA_MILD) || istype(BT, BRAIN_TRAUMA_SEVERE) || istype(BT, BRAIN_TRAUMA_SPECIAL)) && !BT.permanent)
-									BT.on_lose(1)
-									BT.suppressed = 1
-				else
-					data = -2
-					M << "<span class='warning'>Your mind breaks apart...</span>"
-					if(ishuman(M))
-						var/mob/living/carbon/human/H = M
-						if(prob(66))
-							if(prob(70))
-								H.gain_trauma_type(BRAIN_TRAUMA_MILD)
-							else
-								H.gain_trauma_type(BRAIN_TRAUMA_SEVERE)
-					else
-						M.hallucination += 200
+		M.adjustBrainLoss(-10 * removed)
+
+	if(prob(chance))
+		M.cure_trauma_type(pick(curable_traumas))
+
+
+
+//Things that are not cured/treated by medication:
+//Gerstmann Syndrome
+//Cerebral Near-Blindness
+//Mutism
+//Cerebral Blindness
+//Narcolepsy
+//Discoordination
+
+/datum/reagent/calomel
+	name = "Calomel"
+	id = "calomel"
+	description = "A highly toxic medicine that quickly purges most chemicals from the bloodstream. Overdose causes bloodloss and more toxin buildup, however works twice as fast."
+	color = "#222244"
+	metabolism = 0.5 * REM
+	overdose = 30
+	scannable = 1
+	taste_description = "thick salt"
+	reagent_state = SOLID
+
+/datum/reagent/calomel/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+	var/is_overdosed = overdose && (dose > overdose)
+	if(is_overdosed)
+		removed *= 2
+
+	var/amount_to_purge = removed*4 //Every unit removes 4 units of other chemicals
+	var/amount_purged = 0
+
+	for(var/datum/reagent/selected in M.reagents.reagent_list)
+		if(selected == src)
+			continue
+		if(selected.id == "blood" && !is_overdosed)
+			continue
+		var/local_amount = min(amount_to_purge, selected.volume)
+		M.reagents.remove_reagent(selected.id, local_amount)
+		amount_to_purge -= local_amount
+		amount_purged += local_amount
+		if(amount_to_purge <= 0)
+			break
+
+	M.adjustToxLoss(removed + amount_purged*0.5) //15u has the potential to do 15 + 30 toxin damage in 30 seconds
+
+	. = ..()
+
+/datum/reagent/pulmodeiectionem
+	name = "Pulmodeiectionem"
+	id = "pulmodeiectionem"
+	description = "A powdery chemical that damages the mucus lining in the the main broncus and the trachea, allowing particles to easily escape the lungs. Only works when inhaled. May cause long term damage to the lungs, and oxygen deprevation."
+	color = "#550055"
+	metabolism = 2 * REM
+	overdose = 10
+	scannable = 1
+	taste_description = "coarse dust"
+	reagent_state = SOLID
+
+/datum/reagent/pulmodeiectionem/affect_breathe(var/mob/living/carbon/human/H, var/alien, var/removed)
+	if(istype(H))
+		var/obj/item/organ/L = H.internal_organs_by_name["lungs"]
+		if(istype(L) && !L.robotic && !L.is_broken())
+			var/amount_to_purge = removed*5 //Every unit removes 5 units of other chemicals.
+			for(var/datum/reagent/selected in H.breathing.reagent_list)
+				if(selected == src)
+					continue
+				var/local_amount = min(amount_to_purge, selected.volume)
+				H.breathing.remove_reagent(selected.id, local_amount)
+				amount_to_purge -= local_amount
+				if(amount_to_purge <= 0)
+					break
+
+			H.adjustOxyLoss(2*removed) //Every unit deals 2 oxy damage
+			if(prob(75)) //Cough uncontrolably
+				H.emote("cough")
+				L.take_damage(0.2*removed) //Every 5 units deals 1 lung damage, absolute worse case scenario.
+
+	. = ..()
 
 /datum/reagent/rezadone
 	name = "Rezadone"
@@ -665,6 +1270,7 @@
 	color = "#BF0000"
 	taste_description = "bitter metal"
 	overdose = 5
+	fallback_specific_heat = 1.2
 
 /datum/reagent/azoth/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	..()
@@ -701,16 +1307,59 @@
 	if(istype(M))
 		var/obj/item/organ/F = M.internal_organs_by_name["heart"]
 		if(istype(F))
-			var/nutritionmod = max(0.25, (1 - M.nutrition) / M.max_nutrition * 0.5) //Less effective when your stomach is "full".
-			F.take_damage(-removed*nutritionmod)
+			if(M.max_nutrition > 0)
+				var/nutritionmod = max(0.25, (1 - M.nutrition) / M.max_nutrition * 0.5) //Less effective when your stomach is "full".
+				F.take_damage(-removed*nutritionmod)
 	..()
 
-/datum/reagent/adipemcina/overdose(var/mob/living/carbon/human/M, var/alien)
+/datum/reagent/adipemcina/overdose(var/mob/living/carbon/M, var/alien)
 	if(istype(M))
 		if(prob(25))
 			M.add_chemical_effect(CE_ALCOHOL_TOXIC, 1)
 			M.vomit()
 
+/datum/reagent/potassium_hydrophoro
+	name = "Potassium Hydrophoride"
+	id = "potassium_hydrophoro"
+	description = "A liquid compound that can miraculously restores hydration when injected directly into the bloodstream. Excellent at solving severe hydration problems, however the effects of an overdose are to be noted."
+	reagent_state = LIQUID
+	color = "#1ca9c9"
+	taste_description = "numbness"
+	unaffected_species = IS_MACHINE
+
+/datum/reagent/potassium_hydrophoro/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+	if(alien == IS_VAURCA)
+		if( (M.hydration / M.max_hydration) > CREW_HYDRATION_OVERHYDRATED)
+			M.adjustHydrationLoss(removed*2)
+		else
+			M.adjustHydrationLoss(-removed*5)
+	else
+		if( (M.hydration > M.max_hydration) > CREW_HYDRATION_OVERHYDRATED)
+			overdose(M,alien,removed,0)
+			M.adjustHydrationLoss(-removed*2)
+		else
+			M.adjustHydrationLoss(-removed*5)
+
+/datum/reagent/potassium_hydrophoro/overdose(var/mob/living/carbon/M, var/alien, var/removed, var/scale)
+	if(alien != IS_VAURCA) //Vaurca can't overdose on this
+		if(scale >= 1) //Overdose by too much of the chemical
+			M.adjustToxLoss(1*removed*scale)
+
+		if (ishuman(M) && prob(10))
+			var/mob/living/carbon/human/H = M
+			H.delayed_vomit()
+
+/datum/reagent/coagulant
+	name = "Coagulant"
+	id = "coagulant"
+	description = "A chemical that can temporarily stop the blood loss caused by internal wounds."
+	reagent_state = LIQUID
+	color = "#8b0000"
+	overdose = REAGENTS_OVERDOSE
+	taste_description = "bitterness"
+	fallback_specific_heat = 1
+
+//Secret Chems
 /datum/reagent/elixir
 	name = "Elixir of Life"
 	id = "elixir_life"
@@ -718,6 +1367,7 @@
 	color = "#ffd700"
 	affects_dead = 1
 	taste_description = "eternal blissfulness"
+	fallback_specific_heat = 2
 
 /datum/reagent/elixir/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(ishuman(M))
@@ -725,3 +1375,15 @@
 			M.adjustOxyLoss(-rand(15,20))
 			M.visible_message("<span class='danger'>\The [M] shudders violently!</span>")
 			M.stat = 0
+
+/datum/reagent/pacifier
+	name = "Paxazide"
+	id = "paxazide"
+	description = "A mind altering chemical compound capable of suppressing violent tendencies."
+	reagent_state = LIQUID
+	color = "#1ca9c9"
+	taste_description = "numbness"
+
+/datum/reagent/pacifier/affect_blood(var/mob/living/carbon/H, var/alien, var/removed)
+	H.add_chemical_effect(CE_PACIFIED, 1)
+

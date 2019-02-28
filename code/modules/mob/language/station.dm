@@ -6,7 +6,7 @@
 	exclaim_verb = "rustles"
 	colour = "soghun"
 	key = "q"
-	flags = RESTRICTED
+	flags = RESTRICTED|TCOMSSIM
 	syllables = list("hs","zt","kr","st","sh")
 
 /datum/language/diona/get_random_name()
@@ -28,7 +28,7 @@
 	exclaim_verb = "roars"
 	colour = "soghun"
 	key = "o"
-	flags = WHITELISTED
+	flags = WHITELISTED|TCOMSSIM
 	space_chance = 40
 	syllables = list(
 		"za", "az", "ze", "ez", "zi", "iz", "zo", "oz", "zu", "uz", "zs", "sz",
@@ -39,21 +39,23 @@
 		"ra", "ar", "re", "er", "ri", "ir", "ro", "or", "ru", "ur", "rs", "sr",
 		"a",  "a",  "e",  "e",  "i",  "i",  "o",  "o",  "u",  "u",  "s",  "s"
 	)
+	partial_understanding = list(LANGUAGE_AZAZIBA = 25)
 
 // tajaran languages
 /datum/language/tajaran
 	name = LANGUAGE_SIIK_MAAS
-	desc = "The traditionally employed tongue of Adhomai, composed of expressive yowls and chirps. Native to the Tajaran."
+	desc = "The traditionally employed tongue of Adhomai, composed of expressive yowls and chirps. Native to the Tajara."
 	speech_verb = "mrowls"
 	ask_verb = "mrowls"
 	exclaim_verb = "yowls"
 	colour = "tajaran"
 	key = "j"
-	flags = WHITELISTED
+	flags = WHITELISTED|TCOMSSIM
 	syllables = list("mrr","rr","tajr","kir","raj","kii","mir","kra","ahk","nal","vah","khaz","jri","ran","darr",
 	"mi","jri","dynh","manq","rhe","zar","rrhaz","kal","chur","eech","thaa","dra","jurl","mah","sanu","dra","ii'r",
 	"ka","aasi","far","wa","baq","ara","qara","zir","sam","mak","hrar","nja","rir","khan","jun","dar","rik","kah",
 	"hal","ket","jurl","mah","tul","cresh","azu","ragh","mro","mra","mrro","mrra")
+	partial_understanding = list(LANGUAGE_SIIK_TAJR = 50, LANGUAGE_YA_SSA = 25, LANGUAGE_DELVAHII = 50, LANGUAGE_SIIK_TAU = 40)
 
 /datum/language/tajaran/get_random_name(var/gender)
 
@@ -74,6 +76,7 @@
 	colour = "i"
 	key = "i"
 	flags = NO_STUTTER | SIGNLANG | WHITELISTED
+	partial_understanding = list(LANGUAGE_SIIK_TAJR = 50)
 
 /datum/language/siik_tajr
 	name = LANGUAGE_SIIK_TAJR
@@ -89,6 +92,7 @@
 	"mi","jri","dynh","manq","rhe","zar","rrhaz","kal","chur","eech","thaa","dra","jurl","mah","sanu","dra","ii'r",
 	"ka","aasi","far","wa","baq","ara","qara","zir","sam","mak","hrar","nja","rir","khan","jun","dar","rik","kah",
 	"hal","ket","jurl","mah","tul","cresh","azu","ragh","mro","mra","mrro","mrra")
+	partial_understanding = list(LANGUAGE_SIIK_MAAS = 50, LANGUAGE_SIGN_TAJARA = 25, LANGUAGE_SIIK_TAU= 20)
 
 /datum/language/yassa
 	name = LANGUAGE_YA_SSA
@@ -98,11 +102,40 @@
 	exclaim_verb = "yowls"
 	colour = "yassa"
 	key = "r"
-	flags = WHITELISTED
+	flags = WHITELISTED|TCOMSSIM
 	syllables = list("hrr","rhr","tarj","khir","rajh","kir","mier","kre","ahek","nlhal","veh","khaz","dri","rhan","darrer",
 	"mi","jhri","dynher","manqi","rhas","shar","drhaz","kalh","shur","echi","tha","draer","jurl","maher","sanii","dra","ii'r",
 	"kan","aesi","fare","we","bash","arha","quara","zhir","sem","make","hrer","nja","rir","can","jhun","dar","rik","kah",
 	"hal","kete","juril","mah","tul","cresh","azu","ragh","miro","mara","mrero","mrara")
+	partial_understanding = list(LANGUAGE_SIIK_MAAS = 50)
+
+/datum/language/delvahhi
+	name = LANGUAGE_DELVAHII
+	desc = "A dialect developed by the Zhan-Khazan communities, commonly used in religious ceremonies dedicated to the Snow God and amongst settlements comprised mostly of Zhan-Khazan."
+	speech_verb = "mrowls"
+	ask_verb = "mrowls"
+	exclaim_verb = "yowls"
+	colour = "delvahhi"
+	key = "n"
+	flags = WHITELISTED|TCOMSSIM
+	syllables = list("mrr","rr","tajr","kir","raj","kii","mir","kra","ahk","nal","vah","khaz","jri","ran","darr",
+	"mi","jri","dynh","manq","rhe","zar","rrhaz","kal","chur","eech","thaa","dra","jurl","mah","sanu","dra","ii'r",
+	"ka","aasi","far","wa","baq","ara","qara","zir","sam","mak","hrar","nja","rir","khan","jun","dar","rik","kah",
+	"hal","ket","jurl","mah","tul","cresh","azu","ragh","mro","mra","mrro","mrra")
+	partial_understanding = list(LANGUAGE_SIIK_MAAS = 50)
+
+/datum/language/siik_tau
+	name = LANGUAGE_SIIK_TAU
+	desc = "A macaronic form of Tau Ceti Basic and Siik'maas, developed in Mendell City soon after Tajara entered the galactic field."
+	speech_verb = "slurs"
+	ask_verb = "mrowmbles"
+	exclaim_verb = "exclaims"
+	colour = "siiktau"
+	key = "t"
+	flags = WHITELISTED|TCOMSSIM
+	syllables = list("m'Rr","rr","tahjr","kir","rrahj","kii","mirr","krah","ahhk","nahl","vahh","khahz","jri","rahn","dahrr",
+	"mi","j'Rri","dy'Nh","mah'nq","rhe","zahr","r'Rhahz","kahl")
+	partial_understanding = list(LANGUAGE_SIIK_MAAS = 40,  LANGUAGE_SIIK_TAJR = 20, LANGUAGE_TCB = 60)
 
 /datum/language/skrell
 	name = LANGUAGE_SKRELLIAN
@@ -112,8 +145,27 @@
 	exclaim_verb = "warbles"
 	colour = "skrell"
 	key = "k"
-	flags = WHITELISTED
+	flags = WHITELISTED|TCOMSSIM
 	syllables = list("qr","qrr","xuq","qil","quum","xuqm","vol","xrim","zaoo","qu-uu","qix","qoo","zix","*","!")
+
+/datum/language/skrell/get_random_name()
+	var/new_name = ""
+	var/suff = ""
+	var/name_pieces = list("Zish", "Kin", "Qu", "Sukak", "Shin", "Ulu", "Nini", "Nai", "Xunu", "Zix", "Ooo", "Paut", "Sulux", "Xiialt", "Riori", "Eqeq", "Xicic", "Ooin", "Kaaxi", "Nuux", "Iirun", "Akoox", "Nunuz", "Ouik", "Uptari", "Vuzu", "Weish", "Liise", "Xiiux", "Lesh", "Ezhin", "Vulun", "Ponoh", "Pish", "Nali", "Yonosh")
+	var/first_name = "[pick(name_pieces)]"
+	name_pieces -= first_name
+	if(prob(40))
+		suff = "[pick(name_pieces)]"
+		name_pieces -= suff
+		first_name += "[pick(list("'", "-"))]" + suff
+	var/last_name = "[pick(name_pieces)]"
+	name_pieces -= last_name
+	if(prob(40))
+		suff = "[pick(name_pieces)]"
+		name_pieces -= suff
+		last_name += "[pick(list("'", "-"))]" + suff
+	new_name = first_name + " " + last_name
+	return new_name
 
 /datum/language/bug
 	name = LANGUAGE_VAURCA
@@ -191,9 +243,16 @@
 	whisper_verb = "whispers"
 	colour = "solcom"
 	key = "1"
-	flags = WHITELISTED
-
-	//syllables are at the bottom of the file
+	flags = WHITELISTED | TCOMSSIM
+	syllables = list("a", "abe", "ade", "ai", "an", "ana", "ba", "bae", "bai", "bang", "bao", "bei", "ben", "beo", "bi", "bian", "bing", "bo", "bu", "bugu", "bun", "cai", "can", "cao", "cau", "chan", "chen", "cheong",
+	"chiu", "chong", "chyo", "da", "dan", "dao", "de", "deun", "duo", "eon", "eun", "eusi", "feng", "fu", "ga", "gak", "gan", "gang", "gao", "ge", "gei", "gen", "geo", "gil", "go", "gou", "gu", "gua", "gui", "gul",
+	"gun", "guo", "gwi", "ha", "hai", "hal", "han", "hap", "hara", "he", "hego", "hen", "hon", "hoo", "hu", "hua", "hun", "hyeong", "i", "jae", "jeo", "jeon", "ji", "jia", "jian", "jiang", "jie", "jong", "ju", "jue",
+	"juede", "jung", "juzi", "ka", "kang", "kawa", "ke", "keun", "ki", "kin", "ko", "kore", "kou", "ku", "kuda", "kun", "kyu", "lang", "lao", "leng", "leung", "li", "lian", "liang", "lie", "ling", "lizi", "lleo", "long",
+	"lu", "ma", "mah", "me", "mei", "meinu", "men", "meng", "meog", "meoni", "mi", "mian", "min", "mo", "mot", "mu", "mun", "na", "nae", "nai", "nari", "ne", "ni", "nii", "nim", "nin", "no", "nop", "nu", "o", "oba", "oga", "oji",
+	"oka", "ong", "op", "oto", "pa", "pai", "pang", "pin", "ping", "pong", "pu", "pum", "pye", "qi", "qie", "qing", "ra", "rei", "ren", "ri", "ru", "ruan", "sa", "sai", "sama", "san", "sang", "se", "sei", "sen", "seo", "seon", "seong",
+	"shang", "shen", "sheng", "shi", "sho", "shui", "si", "su", "sui", "sum", "sun", "swi", "ta", "tae", "tai", "tame", "tamen", "tan", "te", "tei", "ti", "tian", "to", "ton", "tsu", "ul", "wa", "wan", "wang", "wei", "wo", "xi", "xian",
+	"xiao", "xing", "xiong", "xiu", "xu", "xuan", "xue", "ya", "yan", "yang", "yeong", "yi", "yige", "yin", "ying", "yiqi", "yong", "you", "yu", "yuli", "yuyi", "zai", "zao", "zhan", "zhang", "zhe", "zhen", "zheng", "zhuo", "zi", "zo",
+	"zu", "zun", "zuo")
 
 /datum/language/human/get_spoken_verb(var/msg_end)
 	switch(msg_end)
@@ -220,7 +279,7 @@
 	exclaim_verb = "loudly beeps"
 	colour = "changeling"
 	key = "6"
-	flags = RESTRICTED | NO_STUTTER
+	flags = RESTRICTED | NO_STUTTER | TCOMSSIM
 	syllables = list("beep","beep","beep","beep","beep","boop","boop","boop","bop","bop","dee","dee","doo","doo","hiss","hss","buzz","buzz","bzz","ksssh","keey","wurr","wahh","tzzz")
 	space_chance = 10
 
@@ -259,63 +318,5 @@
 	key = "p"
 	flags = WHITELISTED | NONVERBAL
 	syllables = list("azs","zis","zau","azua","skiu","zuakz","izo","aei","ki","kut","zo")
+	partial_understanding = list(LANGUAGE_UNATHI = 50)
 
-//Syllable Lists
-/*
-	This list really long, mainly because I can't make up my mind about which mandarin syllables should be removed,
-	and the english syllables had to be duplicated so that there is roughly a 50-50 weighting.
-	Sources:
-	http://www.sttmedia.com/syllablefrequency-english
-	http://www.chinahighlights.com/travelguide/learning-chinese/pinyin-syllables.htm
-*/
-/datum/language/human/syllables = list(
-"a", "ai", "an", "ang", "ao", "ba", "bai", "ban", "bang", "bao", "bei", "ben", "beng", "bi", "bian", "biao",
-"bie", "bin", "bing", "bo", "bu", "ca", "cai", "can", "cang", "cao", "ce", "cei", "cen", "ceng", "cha", "chai",
-"chan", "chang", "chao", "che", "chen", "cheng", "chi", "chong", "chou", "chu", "chua", "chuai", "chuan", "chuang", "chui", "chun",
-"chuo", "ci", "cong", "cou", "cu", "cuan", "cui", "cun", "cuo", "da", "dai", "dan", "dang", "dao", "de", "dei",
-"den", "deng", "di", "dian", "diao", "die", "ding", "diu", "dong", "dou", "du", "duan", "dui", "dun", "duo", "e",
-"ei", "en", "er", "fa", "fan", "fang", "fei", "fen", "feng", "fo", "fou", "fu", "ga", "gai", "gan", "gang",
-"gao", "ge", "gei", "gen", "geng", "gong", "gou", "gu", "gua", "guai", "guan", "guang", "gui", "gun", "guo", "ha",
-"hai", "han", "hang", "hao", "he", "hei", "hen", "heng", "hm", "hng", "hong", "hou", "hu", "hua", "huai", "huan",
-"huang", "hui", "hun", "huo", "ji", "jia", "jian", "jiang", "jiao", "jie", "jin", "jing", "jiong", "jiu", "ju", "juan",
-"jue", "jun", "ka", "kai", "kan", "kang", "kao", "ke", "kei", "ken", "keng", "kong", "kou", "ku", "kua", "kuai",
-"kuan", "kuang", "kui", "kun", "kuo", "la", "lai", "lan", "lang", "lao", "le", "lei", "leng", "li", "lia", "lian",
-"liang", "liao", "lie", "lin", "ling", "liu", "long", "lou", "lu", "luan", "lun", "luo", "ma", "mai", "man", "mang",
-"mao", "me", "mei", "men", "meng", "mi", "mian", "miao", "mie", "min", "ming", "miu", "mo", "mou", "mu", "na",
-"nai", "nan", "nang", "nao", "ne", "nei", "nen", "neng", "ng", "ni", "nian", "niang", "niao", "nie", "nin", "ning",
-"niu", "nong", "nou", "nu", "nuan", "nuo", "o", "ou", "pa", "pai", "pan", "pang", "pao", "pei", "pen", "peng",
-"pi", "pian", "piao", "pie", "pin", "ping", "po", "pou", "pu", "qi", "qia", "qian", "qiang", "qiao", "qie", "qin",
-"qing", "qiong", "qiu", "qu", "quan", "que", "qun", "ran", "rang", "rao", "re", "ren", "reng", "ri", "rong", "rou",
-"ru", "rua", "ruan", "rui", "run", "ruo", "sa", "sai", "san", "sang", "sao", "se", "sei", "sen", "seng", "sha",
-"shai", "shan", "shang", "shao", "she", "shei", "shen", "sheng", "shi", "shou", "shu", "shua", "shuai", "shuan", "shuang", "shui",
-"shun", "shuo", "si", "song", "sou", "su", "suan", "sui", "sun", "suo", "ta", "tai", "tan", "tang", "tao", "te",
-"teng", "ti", "tian", "tiao", "tie", "ting", "tong", "tou", "tu", "tuan", "tui", "tun", "tuo", "wa", "wai", "wan",
-"wang", "wei", "wen", "weng", "wo", "wu", "xi", "xia", "xian", "xiang", "xiao", "xie", "xin", "xing", "xiong", "xiu",
-"xu", "xuan", "xue", "xun", "ya", "yan", "yang", "yao", "ye", "yi", "yin", "ying", "yong", "you", "yu", "yuan",
-"yue", "yun", "za", "zai", "zan", "zang", "zao", "ze", "zei", "zen", "zeng", "zha", "zhai", "zhan", "zhang", "zhao",
-"zhe", "zhei", "zhen", "zheng", "zhi", "zhong", "zhou", "zhu", "zhua", "zhuai", "zhuan", "zhuang", "zhui", "zhun", "zhuo", "zi",
-"zong", "zou", "zuan", "zui", "zun", "zuo", "zu",
-"al", "an", "ar", "as", "at", "ea", "ed", "en", "er", "es", "ha", "he", "hi", "in", "is", "it",
-"le", "me", "nd", "ne", "ng", "nt", "on", "or", "ou", "re", "se", "st", "te", "th", "ti", "to",
-"ve", "wa", "all", "and", "are", "but", "ent", "era", "ere", "eve", "for", "had", "hat", "hen", "her", "hin",
-"his", "ing", "ion", "ith", "not", "ome", "oul", "our", "sho", "ted", "ter", "tha", "the", "thi",
-"al", "an", "ar", "as", "at", "ea", "ed", "en", "er", "es", "ha", "he", "hi", "in", "is", "it",
-"le", "me", "nd", "ne", "ng", "nt", "on", "or", "ou", "re", "se", "st", "te", "th", "ti", "to",
-"ve", "wa", "all", "and", "are", "but", "ent", "era", "ere", "eve", "for", "had", "hat", "hen", "her", "hin",
-"his", "ing", "ion", "ith", "not", "ome", "oul", "our", "sho", "ted", "ter", "tha", "the", "thi",
-"al", "an", "ar", "as", "at", "ea", "ed", "en", "er", "es", "ha", "he", "hi", "in", "is", "it",
-"le", "me", "nd", "ne", "ng", "nt", "on", "or", "ou", "re", "se", "st", "te", "th", "ti", "to",
-"ve", "wa", "all", "and", "are", "but", "ent", "era", "ere", "eve", "for", "had", "hat", "hen", "her", "hin",
-"his", "ing", "ion", "ith", "not", "ome", "oul", "our", "sho", "ted", "ter", "tha", "the", "thi",
-"al", "an", "ar", "as", "at", "ea", "ed", "en", "er", "es", "ha", "he", "hi", "in", "is", "it",
-"le", "me", "nd", "ne", "ng", "nt", "on", "or", "ou", "re", "se", "st", "te", "th", "ti", "to",
-"ve", "wa", "all", "and", "are", "but", "ent", "era", "ere", "eve", "for", "had", "hat", "hen", "her", "hin",
-"his", "ing", "ion", "ith", "not", "ome", "oul", "our", "sho", "ted", "ter", "tha", "the", "thi",
-"al", "an", "ar", "as", "at", "ea", "ed", "en", "er", "es", "ha", "he", "hi", "in", "is", "it",
-"le", "me", "nd", "ne", "ng", "nt", "on", "or", "ou", "re", "se", "st", "te", "th", "ti", "to",
-"ve", "wa", "all", "and", "are", "but", "ent", "era", "ere", "eve", "for", "had", "hat", "hen", "her", "hin",
-"his", "ing", "ion", "ith", "not", "ome", "oul", "our", "sho", "ted", "ter", "tha", "the", "thi",
-"al", "an", "ar", "as", "at", "ea", "ed", "en", "er", "es", "ha", "he", "hi", "in", "is", "it",
-"le", "me", "nd", "ne", "ng", "nt", "on", "or", "ou", "re", "se", "st", "te", "th", "ti", "to",
-"ve", "wa", "all", "and", "are", "but", "ent", "era", "ere", "eve", "for", "had", "hat", "hen", "her", "hin",
-"his", "ing", "ion", "ith", "not", "ome", "oul", "our", "sho", "ted", "ter", "tha", "the", "thi")

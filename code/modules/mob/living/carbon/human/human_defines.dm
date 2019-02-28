@@ -111,3 +111,5 @@
 	var/stance_damage = 0 //Whether this mob's ability to stand has been affected
 
 	var/datum/unarmed_attack/default_attack	//default unarmed attack
+
+	var/datum/martial_art/martial_art = null

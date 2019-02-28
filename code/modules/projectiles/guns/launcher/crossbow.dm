@@ -42,7 +42,7 @@
 	if(throwforce == 15) // The rod has been superheated - we don't want it to be useable when removed from the bow.
 		user  << "[src] shatters into a scattering of overstressed metal shards as it leaves the crossbow."
 		var/obj/item/weapon/material/shard/shrapnel/S = new()
-		S.loc = get_turf(src)
+		S.forceMove(get_turf(src))
 		qdel(src)
 
 /obj/item/weapon/gun/launcher/crossbow
@@ -83,7 +83,7 @@
 	if(tension)
 		if(bolt)
 			user.visible_message("[user] relaxes the tension on [src]'s string and removes [bolt].","You relax the tension on [src]'s string and remove [bolt].")
-			bolt.loc = get_turf(src)
+			bolt.forceMove(get_turf(src))
 			var/obj/item/weapon/arrow/A = bolt
 			bolt = null
 			A.removed(user)
@@ -147,7 +147,7 @@
 			if (R.use(1))
 				bolt = new /obj/item/weapon/arrow/rod(src)
 				bolt.fingerprintslast = src.fingerprintslast
-				bolt.loc = src
+				bolt.forceMove(src)
 				update_icon()
 				user.visible_message("[user] jams [bolt] into [src].","You jam [bolt] into [src].")
 				superheat_rod(user)
@@ -155,18 +155,17 @@
 
 	if(istype(W, /obj/item/weapon/cell))
 		if(!cell)
-			user.drop_item()
+			user.drop_from_inventory(cell,src)
 			cell = W
-			cell.loc = src
 			user << "<span class='notice'>You jam [cell] into [src] and wire it to the firing coil.</span>"
 			superheat_rod(user)
 		else
 			user << "<span class='notice'>[src] already has a cell installed.</span>"
 
-	else if(isscrewdriver(W))
+	else if(W.isscrewdriver())
 		if(cell)
 			var/obj/item/C = cell
-			C.loc = get_turf(user)
+			C.forceMove(get_turf(user))
 			user << "<span class='notice'>You jimmy [cell] out of [src] with [W].</span>"
 			cell = null
 		else
@@ -227,7 +226,7 @@
 			else
 				user << "<span class='notice'>You need at least three rods to complete this task.</span>"
 			return
-	else if(iswelder(W))
+	else if(W.iswelder())
 		if(buildstate == 1)
 			var/obj/item/weapon/weldingtool/T = W
 			if(T.remove_fuel(0,user))
@@ -237,7 +236,7 @@
 			buildstate++
 			update_icon()
 		return
-	else if(iscoil(W))
+	else if(W.iscoil())
 		var/obj/item/stack/cable_coil/C = W
 		if(buildstate == 2)
 			if(C.use(5))
@@ -265,7 +264,7 @@
 			else
 				user << "<span class='notice'>You need at least three plastic sheets to complete this task.</span>"
 			return
-	else if(isscrewdriver(W))
+	else if(W.isscrewdriver())
 		if(buildstate == 5)
 			user << "<span class='notice'>You secure the crossbow's various parts.</span>"
 			new /obj/item/weapon/gun/launcher/crossbow(get_turf(src))

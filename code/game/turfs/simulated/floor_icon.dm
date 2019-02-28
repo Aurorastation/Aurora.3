@@ -7,9 +7,7 @@
 	var/list/to_add = list()
 
 	if(flooring)
-		// Set initial icon and strings.
-		name = flooring.name
-		desc = flooring.desc
+		// Set initial icon.
 		icon = flooring.icon
 
 		if(flooring_override)

@@ -94,8 +94,7 @@
 				spawn(1)
 					var/newname = sanitizeSafe(input(vox,"Enter a name, or leave blank for the default name.", "Name change","") as text, MAX_NAME_LEN)
 					if(!newname || newname == "")
-						var/datum/language/L = all_languages[vox.species.default_language]
-						newname = L.get_random_name()
+						newname = user.species.get_random_name()
 					vox.real_name = newname
 					vox.name = vox.real_name
 					raiders.update_access(vox)
@@ -145,14 +144,10 @@
 			var/choice = input("Do you wish to become a Vox? This is not reversible.") as null|anything in list("No","Yes")
 			if(choice == "Yes")
 				user.set_species("Vox")
-				user.species.equip_survival_gear(user)
+				user.species.before_equip(user)
 
 				var/newname = sanitizeSafe(input(user,"Enter a name, or leave blank for the default name.", "Name change","") as text, MAX_NAME_LEN)
 				if(!newname || newname == "")
-					var/datum/language/L = all_languages[user.species.default_language]
-					newname = L.get_random_name()
+					newname = user.species.get_random_name()
 				user.fully_replace_character_name(user.real_name,newname)
-				user.h_style = "Short Vox Quills"
-				user.f_style = "Shaved"
-				user.update_hair(0)
 	..()

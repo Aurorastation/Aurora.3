@@ -141,7 +141,7 @@
 	if(M.a_intent == I_HURT)
 		set_flee_target(M)
 
-/mob/living/simple_animal/cat/ex_act()
+/mob/living/simple_animal/cat/ex_act(var/severity = 2.0)
 	. = ..()
 	set_flee_target(src.loc)
 
@@ -286,3 +286,12 @@
 /mob/living/simple_animal/cat/kitten/Initialize()
 	. = ..()
 	gender = pick(MALE, FEMALE)
+
+/mob/living/simple_animal/cat/penny
+	name = "Penny"
+	desc = "An important cat, straight from Central Command."
+	icon_state = "penny"
+	item_state = "penny"
+	icon_living = "penny"
+	icon_dead = "penny_dead"
+	holder_type = /obj/item/weapon/holder/cat/penny

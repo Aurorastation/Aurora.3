@@ -130,7 +130,8 @@
 	damage = 25
 
 /obj/item/projectile/bullet/pistol/strong //revolvers and matebas
-	damage = 60
+	damage = 45
+	armor_penetration = 15
 
 /obj/item/projectile/bullet/pistol/rubber //"rubber" bullets
 	name = "rubber bullet"
@@ -196,7 +197,7 @@
 	armor_penetration = 80
 	hitscan = 1 //so the PTR isn't useless as a sniper weapon
 	maiming = 1
-	maim_rate = 60
+	maim_rate = 3
 	maim_type = DROPLIMB_BLUNT
 
 /obj/item/projectile/bullet/rifle/vintage
@@ -316,4 +317,9 @@
 	penetrating = 0
 	damage = 10
 
-
+/obj/item/projectile/bullet/gauss
+	name = "slug"
+	icon_state = "heavygauss"
+	damage = 30
+	muzzle_type = /obj/effect/projectile/muzzle/gauss
+	embed = 0

@@ -124,14 +124,14 @@
 
 /area/turbolift/research_station
 	name = "Station - By Research"
-	lift_announce_str = "Arriving at the Research Main Level. Facilities in this floor include: Research and Development, Robotics, Genetics, Xenobotany, Miscellaneous Research, Conference Room."
+	lift_announce_str = "Arriving at the Research Main Level. Facilities in this floor include: Research and Development, Robotics, Telescience, Miscellaneous Research, Conference Room."
 
 	lift_floor_label = "Main Level (Research)"
 	lift_floor_name = "Main Level (Research)"
 
 /area/turbolift/research_maintenance
 	name = "Maintenance - Below Research"
-	lift_announce_str = "Arriving at the Research Sub-Level. Facilities in this floor include: Xenoarcheology, Toxins, Bomb Range, Xenobiology."
+	lift_announce_str = "Arriving at the Research Sub-Level. Facilities in this floor include: Xenoarcheology, Toxins, Bomb Range, Test Range, Xenobiology, Xenobotany."
 	base_turf = /turf/simulated/floor/plating
 
 	lift_floor_label = "Sub-Level (Research)"
@@ -186,7 +186,7 @@
 
 /area/turbolift/cargo_station
 	name = "Station - By Cargo"
-	lift_announce_str = "Arriving at the Cargo Main Level. Facilities in this floor include: Cargo Office, Warehouse, Resource Processing, Mining Station."
+	lift_announce_str = "Arriving at the Cargo Main Level. Facilities in this floor include: Cargo Office, Warehouse, Sorting Office, Resource Processing, Mining Station."
 
 	lift_floor_label = "Main Level (Cargo)"
 	lift_floor_name = "Main Level (Cargo)"
@@ -195,7 +195,7 @@
 
 /area/turbolift/cargo_deliverys
 	name = "Arrivals - Cargo"
-	lift_announce_str = "Arriving at the Cargo Surface Level. Facilities in this floor include: Cargo Shuttle Dock, Cargo Bay, Sorting Office."
+	lift_announce_str = "Arriving at the Cargo Surface Level. Facilities in this floor include: Cargo Shuttle Dock, Cargo Bay."
 
 	lift_floor_label = "Surface Level (Cargo)"
 	lift_floor_name = "Surface Level (Cargo)"
@@ -224,14 +224,14 @@
 
 /area/turbolift/medical_station
 	name = "Medical Lift - Main"
-	lift_announce_str = "Arriving at the Medical Main Level. Facilities in this floor include: Lobby, Chemistry, Intensive Care Unit, General Treatment Unit, Surgery Wing, Consultation Wing, Cloning Wing, Briefing Room."
+	lift_announce_str = "Arriving at the Medical Main Level. Facilities in this floor include: Lobby, Chemistry, Intensive Care Unit, General Treatment Unit, Surgery Wing, Consultation Wing, Cloning Wing."
 
 	lift_floor_label = "Main Level (Medical)"
 	lift_floor_name = "Main Level (Medical)"
 
 /area/turbolift/medical_sub
 	name = "Medical Lift - Sub"
-	lift_announce_str = "Arriving at the Medical Sub-Level. Facilities in this floor include: Virology, Patient Ward, Patient Acute Rooms, Cafeteria, Long-term Morgue, Staff Wing."
+	lift_announce_str = "Arriving at the Medical Sub-Level. Facilities in this floor include: Virology, Supervised Living Center, Long-term Morgue, Staff Wing, Briefing Room."
 
 	lift_floor_label = "Sub-Level (Medical)"
 	lift_floor_name = "Sub-Level (Medical)"

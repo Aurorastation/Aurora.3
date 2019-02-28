@@ -33,7 +33,7 @@
 	var/inputting = 0 				// 1 = actually inputting, 0 = not inputting
 	var/input_level = 50000 		// amount of power the SMES attempts to charge by
 	var/input_level_max = 200000 	// cap on input_level
-	var/input_available = 0 		// amount of charge available from input last tick
+	var/input_taken = 0 			// amount that we received from powernet last tick
 
 	var/output_attempt = 0 			// 1 = attempting to output, 0 = not attempting to output
 	var/outputting = 0 				// 1 = actually outputting, 0 = not outputting
@@ -55,6 +55,7 @@
 	var/input_pulsed = 0
 	var/output_cut = 0
 	var/output_pulsed = 0
+	var/is_critical = FALSE			// Use by gridcheck event, if set to true we do not disable it
 	var/failure_timer = 0			// Set by gridcheck event, temporarily disables the SMES.
 	var/target_load = 0
 	var/open_hatch = 0
@@ -64,6 +65,10 @@
 	var/should_be_mapped = 0 // If this is set to 0 it will send out warning on New()
 	var/datum/effect_system/sparks/big_spark
 	var/datum/effect_system/sparks/small_spark
+
+	var/time = 0
+	var/charge_mode = 0
+	var/last_time = 1
 
 /obj/machinery/power/smes/drain_power(var/drain_check, var/surge, var/amount = 0)
 
@@ -123,7 +128,7 @@
 
 /obj/machinery/power/smes/update_icon()
 	cut_overlays()
-	if(stat & BROKEN)	
+	if(stat & BROKEN)
 		return
 
 	if(inputting == 2)
@@ -153,11 +158,30 @@
 	if(terminal && terminal.powernet)
 		inputted_power = terminal.powernet.draw_power(inputted_power)
 		charge += inputted_power * SMESRATE
+		input_taken = inputted_power
 		if(percentage == 100)
 			inputting = 2
 		else if(percentage)
 			inputting = 1
 		// else inputting = 0, as set in process()
+
+/obj/machinery/power/smes/proc/update_time()
+
+	var/delta_power = input_taken - output_used
+	delta_power *= SMESRATE
+
+	var/goal = (delta_power < 0) ? (charge) : (capacity - charge)
+
+	var/time_secs = (delta_power) ? ((goal / abs(delta_power)) * (round(world.time - last_time) / 10)) : (0)
+	// If it is negative - we are discharging
+	if(delta_power < 0)
+		charge_mode = 0
+	else if(delta_power != 0)
+		charge_mode = 1
+	else
+		charge_mode = 2
+	last_time = world.time
+	time = ((time_secs / 3600) > 1) ? ("[round(time_secs / 3600)] hours, [round((time_secs % 3600) / 60)] minutes") : ("[round(time_secs / 60)] minutes, [round(time_secs % 60)] seconds")
 
 /obj/machinery/power/smes/machinery_process()
 	if(stat & BROKEN)	return
@@ -173,6 +197,8 @@
 	last_disp = chargedisplay()
 	last_chrg = inputting
 	last_onln = outputting
+
+	update_time()
 
 	//inputting
 	if(input_attempt && (!input_pulsed && !input_cut))
@@ -268,7 +294,7 @@
 
 
 /obj/machinery/power/smes/attackby(var/obj/item/weapon/W as obj, var/mob/user as mob)
-	if(isscrewdriver(W))
+	if(W.isscrewdriver())
 		if(!open_hatch)
 			open_hatch = 1
 			user << "<span class='notice'>You open the maintenance hatch of [src].</span>"
@@ -282,7 +308,7 @@
 		user << "<span class='warning'>You need to open access hatch on [src] first!</span>"
 		return 0
 
-	if(iscoil(W) && !terminal && !building_terminal)
+	if(W.iscoil() && !terminal && !building_terminal)
 		building_terminal = 1
 		var/obj/item/stack/cable_coil/CC = W
 		if (CC.get_amount() <= 10)
@@ -301,7 +327,7 @@
 		stat = 0
 		return 0
 
-	else if(iswirecutter(W) && terminal && !building_terminal)
+	else if(W.iswirecutter() && terminal && !building_terminal)
 		building_terminal = 1
 		var/turf/tempTDir = terminal.loc
 		if (istype(tempTDir))
@@ -333,17 +359,23 @@
 	// this is the data which will be sent to the ui
 	var/data[0]
 	data["nameTag"] = name_tag
-	data["storedCapacity"] = round(100.0*charge/capacity, 0.1)
+	if(capacity)
+		data["storedCapacity"] = round(100.0*charge/capacity, 0.1)
+	else
+		data["storedCapacity"] = 0
 	data["charging"] = inputting
 	data["chargeMode"] = input_attempt
 	data["chargeLevel"] = input_level
 	data["chargeMax"] = input_level_max
+	data["charge_taken"] = round(input_taken)
 	data["outputOnline"] = output_attempt
 	data["outputLevel"] = output_level
 	data["outputMax"] = output_level_max
 	data["outputLoad"] = round(output_used)
 	data["failTime"] = failure_timer * 2
 	data["outputting"] = outputting
+	data["time"] = time
+	data["charge_mode"] = charge_mode
 
 
 	// update the ui if it exists, returns null if no ui is passed/found
@@ -351,7 +383,7 @@
 	if (!ui)
 		// the ui does not exist, so we'll create a new() one
         // for a list of parameters and their descriptions see the code docs in \code\modules\nano\nanoui.dm
-		ui = new(user, src, ui_key, "smes.tmpl", "SMES Unit", 540, 380)
+		ui = new(user, src, ui_key, "smes.tmpl", "SMES Unit", 540, 420)
 		// when the ui is first opened this is the data it will use
 		ui.set_initial_data(data)
 		// open the new ui window

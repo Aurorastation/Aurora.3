@@ -15,7 +15,7 @@
 	ammo_type = /obj/item/ammo_casing/a145
 	//+2 accuracy over the LWAP because only one shot
 	accuracy = -3
-	scoped_accuracy = 2
+	scoped_accuracy = 4
 	var/bolt_open = 0
 
 	fire_sound = 'sound/weapons/Gunshot_DMR.ogg'
@@ -58,7 +58,7 @@
 	if(bolt_open)
 		if(chambered)
 			user << "<span class='notice'>You work the bolt open, ejecting [chambered]!</span>"
-			chambered.loc = get_turf(src)
+			chambered.forceMove(get_turf(src))
 			loaded -= chambered
 			chambered = null
 		else
@@ -111,14 +111,10 @@
 	recoil = 1
 	silenced = 1
 	fire_sound = 'sound/weapons/Gunshot_light.ogg'
-	handle_casings = HOLD_CASINGS
-	load_method = SINGLE_CASING
-	magazine_type = null
-	allowed_magazines = list(/obj/item/ammo_magazine/tranq)
 	max_shells = 4
 	ammo_type = null
 	accuracy = -3
-	scoped_accuracy = 3
+	scoped_accuracy = 4
 	bolt_open = 0
 	muzzle_flash = 1
 
@@ -155,10 +151,10 @@
 	magazine_type = /obj/item/ammo_magazine/d762
 	allowed_magazines = list(/obj/item/ammo_magazine/d762)
 	accuracy = -4
-	scoped_accuracy = 2
+	scoped_accuracy = 3
 
 	recoil_wielded = 1
-	accuracy_wielded = 0
+	accuracy_wielded = 1
 
 	//action button for wielding
 	action_button_name = "Wield rifle"
@@ -220,7 +216,7 @@
 	accuracy = -4
 	scoped_accuracy = 3
 	recoil_wielded = 2
-	accuracy_wielded = 0
+	accuracy_wielded = 1
 	multi_aim = 0 //Definitely a fuck no. Being able to target one person at this range is plenty.
 
 	firemodes = list(

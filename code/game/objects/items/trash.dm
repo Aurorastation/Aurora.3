@@ -7,6 +7,9 @@
 	w_class = 1.0
 	desc = "This is rubbish."
 
+/obj/item/trash/attack(mob/M as mob, mob/living/user as mob)
+	return
+
 /obj/item/trash/koisbar
 	name = "\improper K'ois Bar Wrapper"
 	icon_state = "koisbar"
@@ -108,6 +111,10 @@
 	name = "useless plastic"
 	icon_state = "useless_plastic"
 
+/obj/item/trash/can
+	name = "used can"
+	icon_state = "can-used"
 
-/obj/item/trash/attack(mob/M as mob, mob/living/user as mob)
-	return
+/obj/item/trash/tuna
+	name = "\improper Tuna Snax"
+	icon_state = "tuna"

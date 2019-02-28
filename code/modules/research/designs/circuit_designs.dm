@@ -79,12 +79,6 @@
 	build_path = /obj/item/weapon/circuitboard/pandemic
 	sort_string = "FAEAA"
 
-/datum/design/circuit/scan_console
-	name = "DNA machine"
-	id = "scan_console"
-	build_path = /obj/item/weapon/circuitboard/scan_consolenew
-	sort_string = "FAGAA"
-
 /datum/design/circuit/clonecontrol
 	name = "cloning control console"
 	id = "clonecontrol"
@@ -203,6 +197,13 @@
 	req_tech = list(TECH_DATA = 2, TECH_ENGINEERING = 2)
 	build_path = /obj/item/weapon/circuitboard/autolathe
 	sort_string = "HABAD"
+
+/datum/design/circuit/chem_heater
+	name = "chemistry heater"
+	id = "chem_heater"
+	req_tech = list(TECH_BIO = 2)
+	build_path = /obj/item/weapon/circuitboard/chem_heater
+	sort_string = "HABAF"
 
 /datum/design/circuit/rdservercontrol
 	name = "R&D server control console"
@@ -355,6 +356,19 @@
 	name = "Exosuit module circuit design ([name])"
 /datum/design/circuit/mecha/AssembleDesignDesc()
 	desc = "Allows for the construction of \a [name] module."
+
+
+/datum/design/circuit/mecha/hermes_main
+	name = "Hermes central control"
+	id = "hermes_main"
+	build_path = /obj/item/weapon/circuitboard/mecha/hermes/main
+	sort_string = "MAAAB"
+
+/datum/design/circuit/mecha/hermes_peri
+	name = "Hermes peripherals control"
+	id = "hermes_peri"
+	build_path = /obj/item/weapon/circuitboard/mecha/hermes/peripherals
+	sort_string = "MAAAC"
 
 /datum/design/circuit/mecha/ripley_main
 	name = "APLU 'Ripley' central control"
@@ -509,3 +523,10 @@
 	req_tech = list(TECH_ENGINEERING = 3, TECH_DATA = 3, TECH_POWER = 3, TECH_MATERIAL = 4, TECH_PHORON = 2)
 	build_path = /obj/item/weapon/circuitboard/rtg/advanced
 	sort_string = "WAAAD"
+
+/datum/design/circuit/slot_machine
+	name = "slot machine"
+	id = "slot_machine"
+	req_tech = list(TECH_DATA = 2)
+	build_path = /obj/item/weapon/circuitboard/slot_machine
+	sort_string = "WAAAE"

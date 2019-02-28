@@ -18,6 +18,7 @@
 	item_state = "bl_suit"
 	worn_state = "tactifool"
 	siemens_coefficient = 1
+	has_sensor = 1
 	armor = null
 
 /obj/item/clothing/under/syndicate/tracksuit

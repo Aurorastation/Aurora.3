@@ -220,7 +220,7 @@
 	icon_state = "deliveryPaper"
 	w_class = 3.0
 	var/amount = 25.0
-
+	var/wrapping_tag = "Sorting Office"
 
 /obj/item/weapon/packageWrap/afterattack(var/obj/target as obj, mob/user as mob, proximity)
 	if(!proximity) return
@@ -263,6 +263,7 @@
 			if(i > 5)
 				P.icon_state = "deliverycrate5"
 				P.name = "huge parcel"
+			P.sortTag = wrapping_tag
 			P.add_fingerprint(usr)
 			O.add_fingerprint(usr)
 			src.add_fingerprint(usr)
@@ -276,6 +277,7 @@
 			var/obj/structure/bigDelivery/P = new /obj/structure/bigDelivery(get_turf(O.loc))
 			P.icon_state = "deliverycrate"
 			P.wrapped = O
+			P.sortTag = wrapping_tag
 			O.forceMove(P)
 			src.amount -= 3
 			user.visible_message("\The [user] wraps \a [target] with \a [src].",\
@@ -289,6 +291,7 @@
 			var/obj/structure/bigDelivery/P = new /obj/structure/bigDelivery(get_turf(O.loc))
 			P.wrapped = O
 			O.welded = 1
+			P.sortTag = wrapping_tag
 			O.forceMove(P)
 			src.amount -= 3
 			user.visible_message("\The [user] wraps \a [target] with \a [src].",\
@@ -312,13 +315,13 @@
 
 /obj/structure/bigDelivery/Destroy()
 	if(wrapped) //sometimes items can disappear. For example, bombs. --rastaf0
-		wrapped.loc = (get_turf(loc))
+		wrapped.forceMove((get_turf(loc)))
 		if(istype(wrapped, /obj/structure/closet))
 			var/obj/structure/closet/O = wrapped
 			O.welded = 0
 	var/turf/T = get_turf(src)
 	for(var/atom/movable/AM in contents)
-		AM.loc = T
+		AM.forceMove(T)
 	return ..()
 
 /obj/item/device/destTagger
@@ -429,7 +432,7 @@
 	if(!I || !user)
 		return
 
-	if(isscrewdriver(I))
+	if(I.isscrewdriver())
 		if(c_mode==0)
 			c_mode=1
 			playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, 1)
@@ -440,7 +443,7 @@
 			playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, 1)
 			user << "You attach the screws around the power connection."
 			return
-	else if(iswelder(I) && c_mode==1)
+	else if(I.iswelder() && c_mode==1)
 		var/obj/item/weapon/weldingtool/W = I
 		if(W.remove_fuel(1,user))
 			user << "You start slicing the floorweld off the delivery chute."

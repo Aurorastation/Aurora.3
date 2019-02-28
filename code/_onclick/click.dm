@@ -44,7 +44,7 @@
 
 	next_click = world.time + 1
 
-	if(client.buildmode)
+	if(client && client.buildmode)
 		build_click(src, client.buildmode, params, A)
 		return
 
@@ -307,12 +307,12 @@
 	LE.launch_projectile(A, zone_sel? zone_sel.selecting : null, src, params)
 
 /mob/living/carbon/human/LaserEyes(atom/A, params)
-	if(nutrition>0)
-		..()
-		nutrition = max(nutrition - rand(1,5),0)
-		handle_regular_hud_updates()
-	else
+	if(nutrition <= 0)
 		src << "<span class='warning'>You're out of energy!  You need food!</span>"
+		return
+	..()
+	adjustNutritionLoss(rand(1,5))
+	handle_regular_hud_updates()
 
 // Simple helper to face what you clicked on, in case it should be needed in more than one place
 /mob/proc/face_atom(var/atom/A)

@@ -42,7 +42,7 @@
 	else
 		ae = electronics
 		electronics = null
-		ae.loc = src.loc
+		ae.forceMove(src.loc)
 	if(operating == -1)
 		ae.icon_state = "door_electronics_smoked"
 		operating = 0
@@ -151,7 +151,7 @@
 		if(H.species.can_shred(H))
 			user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 			playsound(src.loc, 'sound/effects/Glasshit.ogg', 75, 1)
-			visible_message("<span class='danger'>[user] smashes against the [src.name].</span>", 1)
+			user.visible_message("<span class='danger'>[user] smashes against [src].</span>", "<span class='danger'>You smash against [src]!</span>")
 			take_damage(25)
 			return
 	return src.attackby(user, user)
@@ -180,7 +180,7 @@
 		return 1
 
 	//If it's emagged, crowbar can pry electronics out.
-	if (src.operating == -1 && iscrowbar(I))
+	if (src.operating == -1 && I.iscrowbar())
 		playsound(src.loc, 'sound/items/Crowbar.ogg', 100, 1)
 		user.visible_message("[user] removes the electronics from the windoor.", "You start to remove electronics from the windoor.")
 		if (do_after(user,40))
@@ -209,7 +209,7 @@
 			else
 				ae = electronics
 				electronics = null
-				ae.loc = src.loc
+				ae.forceMove(src.loc)
 			ae.icon_state = "door_electronics_smoked"
 
 			operating = 0

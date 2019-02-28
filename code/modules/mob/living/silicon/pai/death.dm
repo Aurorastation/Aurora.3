@@ -2,7 +2,7 @@
 	if(card)
 		card.removePersonality()
 		if(gibbed)
-			src.loc = get_turf(card)
+			src.forceMove(get_turf(card))
 			qdel(card)
 		else
 			close_up()

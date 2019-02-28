@@ -21,15 +21,14 @@
 
 	..()
 
-	if(handcuffed)
-		spawn() escape_handcuffs()
-	else if(legcuffed)
-		spawn() escape_legcuffs()
+	if (handcuffed)
+		INVOKE_ASYNC(src, .proc/escape_handcuffs)
+	else if (legcuffed)
+		INVOKE_ASYNC(src, .proc/escape_legcuffs)
 
 /mob/living/carbon/human/process_resist()
 	if (istype(wear_suit, /obj/item/clothing/suit/straight_jacket))
-		spawn
-			escape_jacket()
+		INVOKE_ASYNC(src, .proc/escape_jacket)
 		return
 	..()
 
@@ -38,25 +37,25 @@
 		"<span class='danger'>\The [src] attempts to escape [wear_suit]!</span>",
 		"<span class='warning'>You attempt to escape [wear_suit]. (This will take around 6 minutes and you need to stand still)</span>"
 		)
-	if (!do_after(src, 1.5 MINUTES, act_target = wear_suit))
+	if (!do_after(src, 1.5 MINUTES, act_target = src))
 		return
 	visible_message(
 			"<span class='danger'>\The [src] is shifting in their [wear_suit]!</span>",
 			"<span class='warning'>You start to loosen the [wear_suit].</span>"
 		)
-	if (!do_after(src, 1.5 MINUTES, act_target = wear_suit))
+	if (!do_after(src, 1.5 MINUTES, act_target = src))
 		return
 	visible_message(
 			"<span class='danger'>\The [src] is moving in their [wear_suit]!</span>",
 			"<span class='warning'>You slip one of your arms out of the [wear_suit].</span>"
 		)
-	if (!do_after(src, 1.5 MINUTES, act_target = wear_suit))
+	if (!do_after(src, 1.5 MINUTES, act_target = src))
 		return
 	visible_message(
 			"<span class='danger'>\The [src] is moving around in their [wear_suit] - it looks like they are about to break out!</span>",
 			"<span class='warning'>You start to pull loose the straps on the straightjacket[wear_suit].</span>"
 		)
-	if (do_after(src, 1.5 MINUTES, act_target = wear_suit))
+	if (do_after(src, 1.5 MINUTES, act_target = src))
 		var/obj/ex_suit = wear_suit
 		remove_from_mob(wear_suit)
 		ex_suit.forceMove(get_turf(src))
@@ -80,26 +79,60 @@
 	//If you are handcuffed with actual handcuffs... Well what do I know, maybe someone will want to handcuff you with toilet paper in the future...
 	if(istype(HC))
 		breakouttime = HC.breakouttime
-		displaytime = breakouttime / 600 //Minutes
+	
+	if(buckled)
+		breakouttime += 600 //If you are buckled, it takes a minute longer, but you are unbuckled and uncuffed instantly
+	
+	displaytime = breakouttime / 600 //Minutes
 
 	var/mob/living/carbon/human/H = src
 	if(istype(H) && H.gloves && istype(H.gloves,/obj/item/clothing/gloves/rig))
 		breakouttime /= 2
 		displaytime /= 2
 
-	visible_message(
-		"<span class='danger'>\The [src] attempts to remove \the [HC]!</span>",
-		"<span class='warning'>You attempt to remove \the [HC]. (This will take around [displaytime] minutes and you need to stand still)</span>"
-		)
+	//Check if the user is trying to violently remove the handcuffs
+	var/violent_removal = 0
+	if(a_intent == I_HURT)
+		violent_removal = 1
+		breakouttime = rand(450,600)
+		visible_message(
+			"<span class='danger'>\The [src] attempts to break out of \the [HC]!</span>",
+			"<span class='warning'>You attempt to break out of \the [HC]. (This will take around 1 minute and you need to stand still)</span>"
+			)
+	else
+		visible_message(
+			"<span class='danger'>\The [src] attempts to slip out of \the [HC]!</span>",
+			"<span class='warning'>You attempt to slip out of \the [HC]. (This will take around [displaytime] minutes and you need to stand still)</span>"
+			)
 
 	if(do_after(src, breakouttime))
-		if(!handcuffed || buckled)
+		if(!handcuffed)
 			return
-		visible_message(
-			"<span class='danger'>\The [src] manages to remove \the [handcuffed]!</span>",
-			"<span class='notice'>You successfully remove \the [handcuffed].</span>"
-			)
+
+		var/buckle_message_user = ""
+		var/buckle_message_other = ""
+		if(buckled) //If the person is buckled, also unbuckle the person
+			buckle_message_user = " and unbuckle yourself"
+			buckle_message_other = " and to unbuckle themself"
+			buckled.user_unbuckle_mob(src)
+		
+		if(violent_removal)
+			var/obj/item/organ/external/E = H.get_organ(pick("l_arm","r_arm"))
+			var/dislocate_message = ""
+			if(E && !E.is_dislocated())
+				E.dislocate(1)
+				dislocate_message = ", but dislocate your [E] in the process"
+			visible_message(
+				"<span class='danger'>\The [src] manages to remove \the [handcuffed][buckle_message_other]!</span>",
+				"<span class='notice'>You successfully remove \the [handcuffed][buckle_message_user][dislocate_message].</span>"
+				)
+		else
+			visible_message(
+				"<span class='notice'>\The [src] manages to slip out of \the [handcuffed][buckle_message_other]!</span>",
+				"<span class='notice'>You successfully slip out of \the [handcuffed][buckle_message_user].</span>"
+				)
 		drop_from_inventory(handcuffed)
+
 
 /mob/living/carbon/proc/escape_legcuffs()
 	if(!canClick())
@@ -199,22 +232,6 @@
 		return 1
 	return ..()
 
-/mob/living/carbon/escape_buckle()
-	setClickCooldown(100)
-	if(!buckled) return
-
+/mob/living/carbon/human/escape_buckle()
 	if(!restrained())
 		..()
-	else
-		visible_message(
-			"<span class='danger'>[usr] attempts to unbuckle themself!</span>",
-			"<span class='warning'>You attempt to unbuckle yourself. (This will take around 2 minutes and you need to stand still)</span>"
-			)
-
-		if(do_after(usr, 1200))
-			if(!buckled)
-				return
-			visible_message("<span class='danger'>[usr] manages to unbuckle themself!</span>",
-							"<span class='notice'>You successfully unbuckle yourself.</span>")
-			buckled.user_unbuckle_mob(src)
-

@@ -17,6 +17,7 @@
 /obj/effect/projectile/tracer/laser
 	name = "laser"
 	icon_state = "beam"
+	light_color = LIGHT_COLOR_RED
 
 /obj/effect/projectile/tracer/laser/blue
 	icon_state = "beam_blue"
@@ -24,41 +25,60 @@
 /obj/effect/projectile/tracer/disabler
 	name = "disabler"
 	icon_state = "beam_omni"
+	light_color = LIGHT_COLOR_CYAN
 
 /obj/effect/projectile/tracer/xray
 	name = "xray laser"
 	icon_state = "xray"
+	light_color = LIGHT_COLOR_GREEN
 
 /obj/effect/projectile/tracer/pulse
 	name = "pulse laser"
 	icon_state = "u_laser"
+	light_color = LIGHT_COLOR_BLUE
 
 /obj/effect/projectile/tracer/plasma_cutter
 	name = "plasma blast"
 	icon_state = "plasmacutter"
+	light_color = LIGHT_COLOR_CYAN
 
 /obj/effect/projectile/tracer/stun
 	name = "stun beam"
 	icon_state = "stun"
+	light_color = LIGHT_COLOR_YELLOW
 
 /obj/effect/projectile/tracer/heavy_laser
 	name = "heavy laser"
 	icon_state = "beam_heavy"
-
-/obj/effect/projectile/tracer/cult/heavy
-	name = "heavy arcane beam"
-	icon_state = "hcult"
+	light_power = 3
+	light_color = LIGHT_COLOR_RED
 
 /obj/effect/projectile/tracer/cult
 	name = "arcane beam"
 	icon_state = "cult"
+	light_color = LIGHT_COLOR_VIOLET
+	appearance_flags = NO_CLIENT_COLOR
+
+/obj/effect/projectile/tracer/cult/heavy
+	name = "heavy arcane beam"
+	icon_state = "hcult"
+	light_power = 3
+	appearance_flags = NO_CLIENT_COLOR
 
 /obj/effect/projectile/tracer/solar
 	name = "solar energy"
 	icon_state = "solar"
+	light_color = LIGHT_COLOR_FIRE
 
 /obj/effect/projectile/tracer/eyelaser
 	icon_state = "eye"
+	light_color = LIGHT_COLOR_RED
 
 /obj/effect/projectile/tracer/emitter
 	icon_state = "emitter"
+	light_color = LIGHT_COLOR_GREEN
+
+/obj/effect/projectile/tracer/tachyon
+	name = "particle beam"
+	icon_state = "invisible"
+	light_color = LIGHT_COLOR_VIOLET

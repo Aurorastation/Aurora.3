@@ -184,7 +184,7 @@
 
 		if (istype(usr,/mob/living/carbon/human))
 			var/mob/living/carbon/human/H = usr
-			if(H.species.can_shred(H))
+			if(H.species.can_shred(H) || (H.is_berserk()))
 				attack_generic(H,25)
 				return
 
@@ -221,7 +221,7 @@
 
 	if(W.flags & NOBLUDGEON) return
 
-	if(isscrewdriver(W))
+	if(W.isscrewdriver())
 		if(reinf && state >= 1)
 			state = 3 - state
 			update_nearby_icons()
@@ -237,11 +237,11 @@
 			update_nearby_icons()
 			playsound(loc, 'sound/items/Screwdriver.ogg', 75, 1)
 			user << (anchored ? "<span class='notice'>You have fastened the window to the floor.</span>" : "<span class='notice'>You have unfastened the window.</span>")
-	else if(iscrowbar(W) && reinf && state <= 1)
+	else if(W.iscrowbar() && reinf && state <= 1)
 		state = 1 - state
 		playsound(loc, 'sound/items/Crowbar.ogg', 75, 1)
 		user << (state ? "<span class='notice'>You have pried the window into the frame.</span>" : "<span class='notice'>You have pried the window out of the frame.</span>")
-	else if(iswrench(W) && !anchored && (!state || !reinf))
+	else if(W.iswrench() && !anchored && (!state || !reinf))
 		if(!glasstype)
 			user << "<span class='notice'>You're not sure how to dismantle \the [src] properly.</span>"
 		else
@@ -525,7 +525,7 @@
 /obj/structure/window/reinforced/crescent/attackby()
 	return
 
-/obj/structure/window/reinforced/crescent/ex_act()
+/obj/structure/window/reinforced/crescent/ex_act(var/severity = 2.0)
 	return
 
 /obj/structure/window/reinforced/crescent/hitby()

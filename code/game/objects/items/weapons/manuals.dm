@@ -1193,9 +1193,9 @@
 					<li><a href="#MiscProcedures">Other Maintence Procedures</a></li>
 				</ol>
 				<br>
-		
+
 				<a name="Saftey"><h2>Basic Saftey</h2><br></a>
-				Before starting any maintence protocols a basic set of safety instructions are to be followed to ensure safe operation of the system. They are as follows: 
+				Before starting any maintence protocols a basic set of safety instructions are to be followed to ensure safe operation of the system. They are as follows:
 				<ul>
 					<li>Gather all proper radiation equipment including: A Class A full body radiation suit, proper eye protection (such as meson goggles), and a geiger counter if available.</li>
 					<li>Announce over a station wide intercom that the gravity generator is going under maintence.</li>
@@ -1203,7 +1203,7 @@
 					<li>Ensure all proper gear is gathered prior to entering which includes: radiation equipment, first aid equipment, and fire saftey equipment.<br></li>
 					<b>Note</b>:If there is a fire in the chamber read: <a href="#p8548">Procedure 8548</a>
 				</ul><br><br>
-		
+
 				<a name="StartUp"><h2>Starting The System</h2><br></a>
 				<ul>
 					<li>Ensure all steps in basic saftey are completed.</li>
@@ -1224,7 +1224,7 @@
 					<li>Ensure that there is no longer garvity.</a><br></li>
 					<b>Note</b>:If the shutdown procedure fails, read: <a href="#p9142">Procedure 9142</a>
 				</ul><br><br>
-		
+
 				<a name="p8549"><h2>Procedure 8549 (Repairing Physical Damage)</h2><br></a>
 				In the case of physical damage to your gravity generation systems, follow the following steps:<br>
 				<b>Note</b>:In the case of total destruction of the system, read:<a href="#p2482">Procedure 2482</a>
@@ -1277,3 +1277,153 @@
 				</body>
 			</html>
 			"}
+
+/obj/item/weapon/book/manual/psych
+	name = "Sigmund Freud for Dummies"
+	desc = "The number one must-have manual for teaching you how to love your mother!"
+	icon_state = "bookMedical"
+	author = "NTCC Odin Psychiatry Wing"
+	title = "Sigmund Freud for Dummies"
+
+/obj/item/weapon/book/manual/psych/New()
+	..()
+	dat = {"<html>
+				<head>
+				<style>
+				h1 {font-size: 21px; margin: 15px 0px 5px;}
+				h2 {font-size: 15px; margin: 15px 0px 5px;}
+				li {margin: 2px 0px 2px 15px;}
+				ul {margin: 5px; padding: 0px;}
+				ol {margin: 5px; padding: 0px 15px;}
+				body {font-size: 13px; font-family: Verdana;}
+				</style>
+				</head>
+				<body>
+				<a name="Foreword"><h1>The Code:</h1></a>
+				The discipline of psychiatry is a time-honored art passed down from sensei to padawan over the ages. Under any circumstance, disclosing the contents of this sacred text is a violation of your honor.<br><br>
+
+				<h2><a name="Contents">Contents</a></h2>
+				<ol>
+					<li><a href="#Traumas">Traumas 101</a></li>
+					<li><a href="#Hypnosis">Hypnosis and You</a></li>
+					<li><a href="#Chakras">The Chakra In You</a></li>
+					<li><a href="#Isolation">Putting a Patient in Time-out</a></li>
+					<li><a href="#Surgery">When You Alone Aren't Good Enough: Surgery and Drugs</a></li>
+				</ol>
+				<br>
+
+				<a name="Traumas"><h2>Traumas 101</h2><br></a>
+				In your tenure as a psychiatrist aboard your assigned station you will likely encounter those affected by brain damage. Science in this regard has progressed, and in your disposal are several tools to cure these addled men and women. Keep in mind these bulletins:
+				<ul>
+					<li>1: Always talk to your patient first. Doctor-patient counseling is often necessary to get a good diagnosis of the patient's psychoma, and not to mention it can go a long way to comforting them. Never start treatment without counseling!</li>
+					<li>2: Some of the most common traumas you find will be those that affect the patient's physical actions, such as seizures or tourettes. These are typically remedied with 'chakra' therapy.</li>
+					<li>3: The next most common traumas are those that affect the patient's behavior, such as phobias. These can be solved with hypnosis therapy.</li>
+					<li>4: Beyond those two, some traumas may cause the patient to hallucinate. These are best solved with isolation therapy.</li>
+					<li>5: Finally, some traumas escape easy categorization. In a few cases they can be solved with invasive brain surgery, but some traumas may only be suppressable with drug therapy.<br></li>
+					<b>Remember!</b>: Never begin therapy without counseling the patient!
+				</ul><br><br>
+
+				<a name="Hypnosis"><h2>Hypnosis and You</h2><br></a>
+				<ul>
+					<li>1. Ensure that the patient is comfortably seated and secure.</li>
+					<li>2: If the patient firmly does not believe in hypnosis, attempt to convince them. Hypnosis will not work on someone actively resisting it.</li>
+					<li>3: Utilizing the purpose-built mesmetron pocketwatch, initiate hypnosis as per your training.</li>
+					<li>3b: Once the patient has entered their slumber, stay with them! Do not leave them unattended, for their are highly vulnerable in this state!</li>
+					<li>4: Whisper to the patient a pertintent hypnotic suggestion for their current psychosis, at your discretion.<br></li>
+					<li>5: Release the patient from their trance.<br></li>
+					<b>Note</b>: It falls upon you to carefully word your suggestion to best handle the patient's psychosis. You may wish to pair multiple suggestions.
+				</ul><br><br>
+
+				<a name="Chakras"><h2>The Chakra In You</h2><br></a>
+				<ul>
+					<li>1: Strap the patient into your therapy pod, equipped with phoron-enhanced quartz healing crystals.</li><br>
+					<li>2: Ensure the patient is comfortable. Warn them of possible surges and difficulties..</li><br>
+					<li>3: Initiate a neural scan, taking careful notice of the number of brain anomalies. Compare them to notes from your counseling.</li><br>
+					<li>4: Evaluate the patient's condition, determine the optimal number of cycles.<br></li>
+					<li>5: Query the patient, and attempt to discern if the operation was successful. If not, repeat the process. Tend to any patient contamination</a><br></li>
+					<b>Note</b>: The therapy pod is equipped only to deal with brain abnormalities that produce tangible physical behavioural alterations, such as seizures. Mis-timed cycles may contaminate the patient.
+				</ul><br><br>
+
+				<a name="Isolation"><h2>Putting a Patient in Time-out</h2><br></a>
+				<ul>
+					<li>1: Ensure that the metronome in your isolation chamber is active and stabilized before handling the patient.</li><br>
+					<li>2: Comfort the patient as you seal them in the isolation chamber. If they resist, use more rigorous persuasion.</a><br>
+					<li>3: Monitor the patient throughout the operation from outside the isolation chamber.<br></li>
+					<li>3b: Ensure that the patient remains isolated throughout. The therapy will not work otherwise.<br></li>
+					<li>3c: Do not be afraid to periodically speak to the patient. This will even be necessary for diagnosis.<br></li>
+					<li>4: Once you believe the patient to be cured, release them from the isolation chamber.<br></li>
+					<li>5: If the patient has decieved you, repeat the operation with additional persuasion.</a></li>
+				</ul><br>
+
+				<a name="Surgery"><h2>When You Alone Aren't Good Enough: Surgery and Drugs</h2><br></a>
+				Sometimes the therapy available to you just doesn't cut it. Don't get angry! Ensure the patient receives fair treatment, and prescribe appropriate action to your colleagues.
+				<ul>
+					<li>Surgery: Be advised, brain surgery is a complex and dangerous procedure and you should not prescribe unless drug therapy is simply not possible. Counsel the patient on the matter and send them down to the surgeon with a written report.</li><br>
+					<li>Drug Therapy: A more reasonable and far safer option. Counsel the patient and fill out a prescription for the relevant chemical suppressant. Ensure that the patient and the chemist are both aware that these suppressants are temporary and require periodic re-administration.</li><br>
+				</ul><br><br>
+
+				<a name="Closing Statements"><h1>Post-Therapy Actions:</h1></a>
+				After you believe a successful therapy has been conducted, your work does not end here. You must check and double-check the patient's wellbeing before releasing them for duty, conducting an after action counseling and keeping meticulous paperwork. You are advised to schedule the patient for a later check-up.
+				Remember; once you have been afflicted with brain trauma you are over four times as likely to suffer it again! Keep your patient's best interests at heart.
+				</body>
+			</html>
+			"}
+
+/obj/item/weapon/book/manual/ka_custom
+	name = "Guide to Custom Kinetic Accelerators"
+	icon_state ="rulebook"
+	author = "Quartermaster Burgs"
+	title = "Guide to Custom Kinetic Accelerators"
+	dat = {"<html>
+				<head>
+					<style>
+						h1 {font-size: 21px; margin: 15px 0px 5px;}
+						h2 {font-size: 15px; margin: 15px 0px 5px;}
+						li {margin: 2px 0px 2px 15px;}
+						ul {margin: 5px; padding: 0px;}
+						ol {margin: 5px; padding: 0px 15px;}
+						body {font-size: 13px; font-family: Verdana;}
+					</style>
+				</head>
+				<body>
+					<h1>Metal Snowflake: Your Guide to Custom Kinetic Accelerators</h1>
+					<h2>by Quartermaster Burgs</h2>
+					<br>
+					<p>So you want to make your own custom kinetic accelerator. While it may look simple to take apart, swap, and modify parts to fit your working needs, there are a few things to keep in mind before assembling.</p>
+
+					<p>Know your parts. To make a working kinetic accelerator, you require a power converter, a kinetic cell, and a frame to store it all on. Some parts are better for certain jobs than others. Some are more compact, more economical, more powerful, more quick, more durable. Mix and match parts to your liking, however there may be some parts that are incompatible with other parts due to software differences.</p>
+
+					<p>A power converter contains a complex assembly that converts kinetic energy into destructive energy via powerful magnets and heat induction, which are perfect for destroying rock in areas with minimal atmosphere.</p>
+
+					<p>A kinetic cell holds the kinetic energy and usually has a means of creating it, such as a lever, a pump, or an internal power source. Manual pumps are quite the common and wise choice given how electrical outlets and recharging station are not too common while out on the dig.</p>
+
+					<p>A frame is quite literally a frame; the weapon's base. All frames contain special software that allows the components to interact with eachother easily and safely without causing sparks or other malfunctions. Some frames contain extra bonus software, such as over-clocking or recoil damping predictors.</p>
+
+					<p>Assembly is very easy. First, you secure the power cell, then you secure the power converter, then you install any additional upgrade chips. The bolts will quite literally screw themselves securely. If you wish to remove the parts, a wrench is required to disassemble.</p>
+
+					<p>It's best to test fire the weapon in a safe location before going out for a long haul. There are plenty of things that could go wrong with the assembly, but thankfully do to regulations and other legalwork, the weapon will prevent itself from firing if the software detects an issue. There is a digital screen located on the top of the frame that would state if there was anything wrong with the weapon if an attempt to fire is made. Here are the error codes for said weapon.</p>
+					<br>
+					<h2>Error Codes:</h2>
+
+					<p>0: Means that there is a component connection issue. Ensure that the entire assembly (Frame, Power Converter, Cell) are secured together as one.</p>
+
+					<p>101: Means that there is not enough voltage going into the power converter. Ensure that the cell is rated enough to handle the power consumption of the entire assembly.</p>
+
+					<p>102: Means that there is not enough amps going into the power converter. Ensure that there are no other modules that may reduce the amount of amps going into the power converter.</p>
+
+					<p>103: Means that there are not enough watts going into the power converter. Ensure that the power cell is rated enough to handle the power consumption of the entire assembly.</p>
+
+					<p>201: Means that the frame is not rated to handle the entirety of the heat energy of the components. Either upgrade the frame, or downgrade the components.</p>
+				</body>
+			</html>
+			"}
+
+/obj/item/weapon/book/manual/battlemonsters
+	name = "\improper Guide to Battlemonsters"
+	icon_state ="battlemonsters"
+	author = "Macro Toy Company"		 // Who wrote the thing, can be changed by pen or PC. It is not automatically assigned
+	title = "Guide to Battlemonsters"
+
+/obj/item/weapon/book/manual/battlemonsters/New()
+	..()
+	dat = {"<html><head></head><body><iframe width='100%' height='100%' src="[config.wikiurl]Guide_to_Battlemonsters&printable=yes&remove_links=1" frameborder="0" id="main_frame"></iframe></body></html>"}

@@ -39,7 +39,7 @@
 		user << "You can see \the [modulator] attached."
 
 /obj/item/weapon/gun/energy/laser/prototype/attackby(var/obj/item/weapon/D, var/mob/user)
-	if(!isscrewdriver(D))
+	if(!D.isscrewdriver())
 		return ..()
 	user << "You disassemble \the [src]."
 	disassemble(user)
@@ -162,11 +162,11 @@
 			modifier.degrade(1)
 	if((prob(A.damage)/burst))
 		if(prob(A.damage/2))
-			medium_fail(user)
+			medium_fail(ismob(loc) ? loc : null)
 		else
-			small_fail(user)
+			small_fail(ismob(loc) ? loc : null)
 
-	updatetype(user)
+	updatetype(ismob(loc) ? loc : null)
 	return A
 
 /obj/item/weapon/gun/energy/laser/prototype/proc/disassemble(var/mob/user)

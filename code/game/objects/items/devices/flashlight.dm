@@ -80,9 +80,9 @@
 
 				var/list/pinpoint = list("oxycodone"=1,"tramadol"=5)
 				var/list/dilating = list("space_drugs"=5,"mindbreaker"=1)
-				if(M.reagents.has_any_reagent(pinpoint) || H.ingested.has_any_reagent(pinpoint))
+				if(M.reagents.has_any_reagent(pinpoint) || H.ingested.has_any_reagent(pinpoint) || H.breathing.has_any_reagent(pinpoint))
 					user << span("notice", "\The [M]'s pupils are already pinpoint and cannot narrow any more.")
-				else if(M.reagents.has_any_reagent(dilating) || H.ingested.has_any_reagent(dilating))
+				else if(M.reagents.has_any_reagent(dilating) || H.ingested.has_any_reagent(dilating) || H.breathing.has_any_reagent(dilating))
 					user << span("notice", "\The [M]'s pupils narrow slightly, but are still very dilated.")
 				else
 					user << span("notice", "\The [M]'s pupils narrow.")
@@ -332,3 +332,15 @@
 	light_color = LIGHT_COLOR_YELLOW //"#FEF923"
 	icon_state = "glowstick_yellow"
 	item_state = "glowstick_yellow"
+
+/obj/item/device/flashlight/headlights
+	name = "headlights"
+	desc = "Some nifty lamps drawing from internal battery sources to produce a light, though a dim one."
+	icon_state = "headlights"
+	item_state = "headlights"
+	flags = CONDUCT
+	slot_flags = SLOT_HEAD | SLOT_EARS
+	brightness_on = 2
+	w_class = 1
+	light_wedge = LIGHT_WIDE
+	body_parts_covered = 0

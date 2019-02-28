@@ -38,7 +38,7 @@
 /obj/machinery/power/smes/batteryrack/update_icon()
 	cut_overlays()
 	if(stat & BROKEN)	return
-	
+
 	if (output_attempt)
 		add_overlay("gsmes_outputting")
 	if(inputting)
@@ -55,7 +55,7 @@
 /obj/machinery/power/smes/batteryrack/attackby(var/obj/item/weapon/W as obj, var/mob/user as mob) //these can only be moved by being reconstructed, solves having to remake the powernet.
 	..() //SMES attackby for now handles screwdriver, cable coils and wirecutters, no need to repeat that here
 	if(open_hatch)
-		if(iscrowbar(W))
+		if(W.iscrowbar())
 			if (charge < (capacity / 100))
 				if (!output_attempt && !input_attempt)
 					playsound(get_turf(src), 'sound/items/Crowbar.ogg', 50, 1)
@@ -63,7 +63,7 @@
 					M.state = 2
 					M.icon_state = "box_1"
 					for(var/obj/I in component_parts)
-						I.loc = src.loc
+						I.forceMove(src.loc)
 					qdel(src)
 					return 1
 				else
@@ -73,9 +73,8 @@
 		else if ((istype(W, /obj/item/weapon/stock_parts/capacitor) && (capacitors_amount < 5)) || (istype(W, /obj/item/weapon/cell) && (cells_amount < 5)))
 			if (charge < (capacity / 100))
 				if (!output_attempt && !input_attempt)
-					user.drop_item()
+					user.drop_from_inventory(W,src)
 					component_parts += W
-					W.loc = src
 					RefreshParts()
 					user << "<span class='notice'>You upgrade the [src] with [W.name].</span>"
 				else

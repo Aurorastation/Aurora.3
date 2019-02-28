@@ -90,6 +90,8 @@
 	new /obj/item/weapon/storage/fancy/candle_box(src)
 	new /obj/item/weapon/storage/fancy/candle_box(src)
 	new /obj/item/weapon/deck/tarot(src)
+	new /obj/item/device/radio/headset/headset_service(src)
+	new /obj/item/weapon/spirit_board(src)
 	return
 
 
@@ -377,9 +379,9 @@
 	new /obj/item/clothing/under/color/green(src)
 	new /obj/item/clothing/under/color/orange(src)
 	new /obj/item/clothing/under/color/pink(src)
-	new /obj/item/clothing/under/dress/plaid_blue(src)
-	new /obj/item/clothing/under/dress/plaid_red(src)
-	new /obj/item/clothing/under/dress/plaid_purple(src)
+	new /obj/item/clothing/under/skirt/plaid_blue(src)
+	new /obj/item/clothing/under/skirt/plaid_red(src)
+	new /obj/item/clothing/under/skirt/plaid_purple(src)
 	new /obj/item/clothing/shoes/blue(src)
 	new /obj/item/clothing/shoes/yellow(src)
 	new /obj/item/clothing/shoes/green(src)

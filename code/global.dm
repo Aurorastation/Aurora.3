@@ -1,6 +1,6 @@
 //#define TESTING
-#if DM_VERSION < 511
-#error Your version of BYOND is too old to compile the code. At least BYOND 511 is required.
+#if DM_VERSION < 512
+#error Your version of BYOND is too old to compile the code. At least BYOND 512 is required.
 #endif
 
 
@@ -60,6 +60,7 @@ var/list/kickoffsloc = list()
 var/list/prisonwarp         = list() // Prisoners go to these
 var/list/holdingfacility    = list() // Captured people go here
 var/list/xeno_spawn         = list() // Aliens spawn at at these.
+var/list/asteroid_spawn     = list() // Asteroid "Dungeons" spawn at these.
 var/list/tdome1             = list()
 var/list/tdome2             = list()
 var/list/tdomeobserve       = list()
@@ -114,7 +115,7 @@ var/list/robot_module_types = list(
 	"Construction",
 	"Medical",
 	"Rescue",
-	"Miner",
+	"Mining",
 	"Custodial",
 	"Service",
 	"Clerical",

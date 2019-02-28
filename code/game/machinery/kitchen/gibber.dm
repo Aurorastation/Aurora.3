@@ -45,7 +45,7 @@
 
 		if(M.loc == input_plate
 		)
-			M.loc = src
+			M.forceMove(src)
 			M.gib()
 
 
@@ -99,6 +99,7 @@
 
 	else if(istype(W, /obj/item/organ))
 		user.drop_from_inventory(W)
+		//TODO: Gibber Animations
 		qdel(W)
 		user.visible_message("<span class='danger'>\The [user] feeds \the [W] into \the [src], obliterating it.</span>")
 
@@ -147,7 +148,7 @@
 		if(victim.client)
 			victim.client.perspective = EYE_PERSPECTIVE
 			victim.client.eye = src
-		victim.loc = src
+		victim.forceMove(src)
 		src.occupant = victim
 		update_icon()
 
@@ -166,11 +167,11 @@
 	if(operating || !src.occupant)
 		return
 	for(var/obj/O in src)
-		O.loc = src.loc
+		O.forceMove(src.loc)
 	if (src.occupant.client)
 		src.occupant.client.eye = src.occupant.client.mob
 		src.occupant.client.perspective = MOB_PERSPECTIVE
-	src.occupant.loc = src.loc
+	src.occupant.forceMove(src.loc)
 	src.occupant = null
 	update_icon()
 	return
@@ -234,7 +235,7 @@
 			if(istype(thing,/obj/item/organ) && prob(80))
 				qdel(thing)
 				continue
-			thing.loc = get_turf(thing) // Drop it onto the turf for throwing.
+			thing.forceMove(get_turf(thing)) // Drop it onto the turf for throwing.
 			thing.throw_at(get_edge_target_turf(src,gib_throw_dir),rand(0,3),emagged ? 100 : 50) // Being pelted with bits of meat and bone would hurt.
 
 		update_icon()

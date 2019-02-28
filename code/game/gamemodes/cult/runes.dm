@@ -4,7 +4,6 @@ var/list/sacrificed = list()
 	return
 
 /obj/effect/rune
-
 /*
  * Use as a general guideline for this and related files:
  *  * <span class='warning'>...</span> - when something non-trivial or an error happens, so something similar to "Sparks come out of the machine!"
@@ -31,6 +30,12 @@ var/list/sacrificed = list()
 		if (istype(user, /mob/living))
 			user.take_overall_damage(5, 0)
 		qdel(src)
+
+	var/turf/T = get_turf(user)
+	if (T.z in current_map.admin_levels)
+		to_chat(user, "<span class='warning'>You are too far from the station, Nar'sie is unable to reach you here.</span>")
+		return fizzle(user)
+
 	if(allrunesloc && index != 0)
 		if(istype(src,/obj/effect/rune))
 			user.say("Sas[pick("'","`")]so c'arta forbici!")//Only you can stop auto-muting
@@ -39,7 +44,7 @@ var/list/sacrificed = list()
 		user.visible_message("<span class='danger'>[user] disappears in a flash of red light!</span>", \
 		"<span class='danger'>You feel as your body gets dragged through the dimension of Nar-Sie!</span>", \
 		"<span class='danger'>You hear a sickening crunch and sloshing of viscera.</span>")
-		user.loc = allrunesloc[rand(1,index)]
+		user.forceMove(allrunesloc[rand(1,index)])
 		return
 	if(istype(src,/obj/effect/rune))
 		return	fizzle(user) //Use friggin manuals, Dorf, your list was of zero length.
@@ -77,9 +82,9 @@ var/list/sacrificed = list()
 		"<span class='warning'>You smell ozone.</span>")
 		for(var/obj/O in src.loc)
 			if(!O.anchored)
-				O.loc = IP.loc
+				O.forceMove(IP.loc)
 		for(var/mob/M in src.loc)
-			M.loc = IP.loc
+			M.forceMove(IP.loc)
 		return
 
 	return fizzle(user)
@@ -159,7 +164,7 @@ var/list/sacrificed = list()
 					target.adjustBrainLoss(rand(1,5), 55)
 
 		initial_message = 1
-		if (target.species && (target.species.flags & NO_PAIN))
+		if (!target.can_feel_pain())
 			target.visible_message("<span class='warning'>The markings below [target] glow a bloody red.</span>")
 		else
 			target.visible_message("<span class='warning'>[target] writhes in pain as the markings below \him glow a bloody red.</span>", "<span class='danger'>AAAAAAHHHH!</span>", "<span class='warning'>You hear an anguished scream.</span>")
@@ -179,8 +184,7 @@ var/list/sacrificed = list()
 					cult.add_antagonist(target.mind)
 					converting -= target
 					target.hallucination = 0 //sudden clarity
-					playsound(target, 'sound/effects/bloodcult.ogg', 100, 1)
-
+					sound_to(target, 'sound/effects/bloodcult.ogg')
 		sleep(100) //proc once every 10 seconds
 	return 1
 
@@ -188,6 +192,11 @@ var/list/sacrificed = list()
 
 /obj/effect/rune/proc/tearreality(var/mob/living/user)
 	if(!cult.allow_narsie)
+		return fizzle(user)
+
+	var/turf/T = get_turf(src)
+	if (!T.z in current_map.station_levels)
+		to_chat(user, "<span class='warning'>You are too far from the station, Nar'sie can not be summoned here.</span>")
 		return fizzle(user)
 
 	var/list/cultists = new()
@@ -217,10 +226,15 @@ var/list/sacrificed = list()
 		user.whisper("Ta'gh fara[pick("'","`")]qha fel d'amar det!")
 	playsound(U, 'sound/magic/Disable_Tech.ogg', 25, 1)
 	var/turf/T = get_turf(U)
-	if(T)
-		T.hotspot_expose(700,125)
 	var/rune = src // detaching the proc - in theory
-	empulse(U, (range_red - 2), range_red)
+
+	var/list/ex = list(user) // exclude caster
+	for(var/mob/M in range(range_red, T))
+		if(iscultist(M))
+			ex += M
+		else
+			continue
+	empulse(T, range_red - 2, range_red, exclude = ex)
 	qdel(rune)
 	return
 
@@ -448,7 +462,7 @@ var/list/sacrificed = list()
 			chose_name = 1
 			break
 	D.universal_speak = 1
-	D.underwear = 0
+	D.underwear = null
 	D.key = ghost.key
 	cult.add_antagonist(D.mind)
 	playsound(loc, 'sound/magic/exit_blood.ogg', 100, 1)
@@ -836,7 +850,7 @@ var/list/sacrificed = list()
 		if(cultist.buckled || cultist.handcuffed || (!isturf(cultist.loc) && !istype(cultist.loc, /obj/structure/closet)))
 			user << "<span class='warning'>You cannot summon \the [cultist], for \his shackles of blood are strong.</span>"
 			return fizzle(user)
-		cultist.loc = src.loc
+		cultist.forceMove(src.loc)
 		cultist.lying = 1
 		cultist.regenerate_icons()
 
@@ -1059,7 +1073,6 @@ var/list/sacrificed = list()
 /////////////////////////////////////////TWENTY-FIFTH RUNE
 
 /obj/effect/rune/proc/armor(var/mob/living/user)
-
 	if(istype(src,/obj/effect/rune))
 		user.say("N'ath reth sh'yro eth d[pick("'","`")]raggathnor!")
 	else

@@ -45,7 +45,7 @@ fundamental differences
 			return
 		else
 			selected_option = choice
-			user << "<span class='notice'>You prepare \the [src] to make \a [selected_option].</span>"
+			usr << "<span class='notice'>You prepare \the [src] to make \a [selected_option].</span>"
 			var/datum/cooking_item/CI = cooking_objs[1]
 			CI.combine_target = selected_option
 

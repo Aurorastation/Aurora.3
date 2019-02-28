@@ -379,7 +379,7 @@
 	return
 
 /mob/living/carbon/slime/proc/gain_nutrition(var/amount)
-	nutrition += amount
+	adjustNutritionLoss(-10)
 	if(prob(amount * 2)) // Gain around one level per 50 nutrition
 		powerlevel++
 		if(powerlevel > 10)

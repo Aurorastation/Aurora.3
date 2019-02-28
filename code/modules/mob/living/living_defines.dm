@@ -75,3 +75,6 @@
 	var/tesla_ignore = 0	// If true, mob is not affected by tesla bolts.
 
 	var/stop_sight_update = 0 //If true, it won't reset the mob vision flags
+
+	var/burn_mod = 1
+	var/brute_mod = 1

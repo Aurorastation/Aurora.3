@@ -21,8 +21,8 @@
 	max_equip = 4
 
 
-/obj/mecha/combat/phazon/equipped/New()
-	..()
+/obj/mecha/combat/phazon/equipped/Initialize()
+	.= ..()
 	var/obj/item/mecha_parts/mecha_equipment/ME = new /obj/item/mecha_parts/mecha_equipment/tool/rcd
 	ME.attach(src)
 	ME = new /obj/item/mecha_parts/mecha_equipment/gravcatapult
@@ -35,7 +35,7 @@
 			if(can_move)
 				can_move = 0
 				flick("phazon-phase", src)
-				src.loc = get_step(src,src.dir)
+				src.forceMove(get_step(src,src.dir))
 				src.use_power(phasing_energy_drain)
 				sleep(step_in*3)
 				can_move = 1

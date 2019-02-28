@@ -176,42 +176,45 @@
 	return 1 //Nothing found to block so return success!
 
 var/const/enterloopsanity = 100
-/turf/Entered(atom/atom as mob|obj)
 
+/turf/Entered(atom/movable/AM)
 	if(movement_disabled)
 		usr << "<span class='warning'>Movement is admin-disabled.</span>" //This is to identify lag problems
 		return
-	..()
 
-	if(!istype(atom, /atom/movable))
-		return
+	ASSERT(istype(AM))
 
-	var/atom/movable/A = atom
-
-	if(ismob(A))
-		var/mob/M = A
+	if(ismob(AM))
+		var/mob/M = AM
 		if(!M.lastarea)
 			M.lastarea = get_area(M.loc)
-		if(M.lastarea.has_gravity == 0)
+		if(M.lastarea.has_gravity() == 0)
 			inertial_drift(M)
 
 		// Footstep SFX logic moved to human_movement.dm - Move().
 
-		else if(!istype(src, /turf/space))
+		else if (type != /turf/space)
 			M.inertia_dir = 0
 			M.make_floating(0)
+
 	..()
+
 	var/objects = 0
-	if(A && (A.flags & PROXMOVE) && A.simulated)
-		for(var/atom/movable/thing in range(1))
-			if(objects > enterloopsanity) break
+	if(AM && (AM.flags & PROXMOVE) && AM.simulated)
+		for(var/atom/movable/oAM in range(1))
+			if(objects > enterloopsanity)
+				break
 			objects++
-			spawn(0)
-				if(A)
-					A.HasProximity(thing, 1)
-					if ((thing && A) && (thing.flags & PROXMOVE))
-						thing.HasProximity(A, 1)
-	return
+
+			if (oAM.simulated)
+				AM.proximity_callback(oAM)
+
+/atom/movable/proc/proximity_callback(atom/movable/AM)
+	set waitfor = FALSE
+	sleep(0)
+	HasProximity(AM, TRUE)
+	if (!QDELETED(AM) && !QDELETED(src) && (AM.flags & PROXMOVE))
+		AM.HasProximity(src, TRUE)
 
 /turf/proc/adjacent_fire_act(turf/simulated/floor/source, temperature, volume)
 	return
@@ -226,7 +229,7 @@ var/const/enterloopsanity = 100
 	return can_have_cabling()
 
 /turf/attackby(obj/item/C, mob/user)
-	if (can_lay_cable() && iscoil(C))
+	if (can_lay_cable() && C.iscoil())
 		var/obj/item/stack/cable_coil/coil = C
 		coil.turf_place(src, user)
 	else
@@ -394,7 +397,7 @@ var/const/enterloopsanity = 100
 /turf/MouseDrop_T(atom/movable/O as mob|obj, mob/user as mob)
 	var/turf/T = get_turf(user)
 	var/area/A = T.loc
-	if((istype(A) && !(A.has_gravity)) || (istype(T,/turf/space)))
+	if((istype(A) && !(A.has_gravity())) || (istype(T,/turf/space)))
 		return
 	if(istype(O, /obj/screen))
 		return

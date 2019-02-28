@@ -12,7 +12,6 @@
 
 	fill()
 		..()
-		new /obj/item/weapon/storage/box/autoinjectors(src)
 		new /obj/item/weapon/storage/box/syringes(src)
 		new /obj/item/weapon/reagent_containers/dropper(src)
 		new /obj/item/weapon/reagent_containers/dropper(src)
@@ -57,7 +56,6 @@
 			new /obj/item/weapon/storage/backpack/medic(src)
 		else
 			new /obj/item/weapon/storage/backpack/satchel_med(src)
-		new /obj/item/clothing/under/rank/nursesuit (src)
 		new /obj/item/clothing/head/nursehat (src)
 		switch(pick("blue", "green", "purple"))
 			if ("blue")
@@ -80,13 +78,12 @@
 				new /obj/item/clothing/under/rank/medical/purple(src)
 				new /obj/item/clothing/head/surgery/purple(src)
 		new /obj/item/clothing/under/rank/medical(src)
-		new /obj/item/clothing/under/rank/nurse(src)
 		new /obj/item/clothing/under/rank/orderly(src)
 		new /obj/item/clothing/suit/storage/toggle/labcoat(src)
 		new /obj/item/clothing/suit/storage/toggle/fr_jacket(src)
 		new /obj/item/clothing/shoes/white(src)
-//		new /obj/item/weapon/cartridge/medical(src)
 		new /obj/item/device/radio/headset/headset_med(src)
+		new /obj/item/clothing/glasses/hud/health/aviator(src)
 
 
 /obj/structure/closet/secure_closet/CMO
@@ -107,6 +104,7 @@
 		new /obj/item/clothing/suit/bio_suit/cmo(src)
 		new /obj/item/clothing/head/bio_hood/cmo(src)
 		new /obj/item/clothing/shoes/white(src)
+		new /obj/item/clothing/under/rank/chief_medical_officer(src)
 		new /obj/item/weapon/cartridge/cmo(src)
 		new /obj/item/clothing/gloves/latex(src)
 		new /obj/item/device/radio/headset/heads/cmo(src)
@@ -114,6 +112,8 @@
 		new /obj/item/weapon/reagent_containers/hypospray(src)
 		new /obj/item/clothing/suit/storage/toggle/labcoat/cmo(src)
 		new /obj/item/clothing/suit/storage/toggle/labcoat/cmoalt(src)
+		new /obj/item/weapon/storage/box/inhalers(src)
+		new /obj/item/clothing/glasses/hud/health/aviator(src)
 
 /obj/structure/closet/secure_closet/CMO2
 	name = "chief medical officer's attire"
@@ -171,7 +171,12 @@
 		new /obj/item/weapon/storage/box/pillbottles(src)
 		new /obj/item/weapon/storage/box/spraybottles(src)
 		new /obj/item/weapon/storage/box/spraybottles(src)
-
+		new /obj/item/weapon/storage/box/inhalers(src)
+		new /obj/item/weapon/storage/box/inhalers_auto(src)
+		new /obj/item/weapon/storage/box/autoinjectors(src)
+		new /obj/item/weapon/storage/box/syringes(src)
+		new /obj/item/weapon/storage/box/beakers(src)
+		new /obj/item/weapon/storage/box/beakers(src)
 
 /obj/structure/closet/secure_closet/medical_wall
 	name = "first aid closet"

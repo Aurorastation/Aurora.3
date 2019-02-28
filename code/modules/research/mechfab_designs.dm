@@ -96,6 +96,14 @@
 	id = "armour"
 	build_path = /obj/item/robot_parts/robot_component/armour
 
+/datum/design/item/mechfab/robot/component/surge
+	name = "Heavy surge prevention module"
+	desc = "Used to boost prevent damage from EMP. Has limited surge preventions."
+	id = "borg_surge_module"
+	materials = list(DEFAULT_WALL_MATERIAL = 20000, "glass" = 6000, "gold" = 5000, "silver" = 7500) // Should be expensive
+	req_tech = list(TECH_MATERIAL = 4, TECH_BLUESPACE = 2, TECH_MAGNET = 5, TECH_POWER = 5, TECH_ENGINEERING = 4, TECH_COMBAT = 3)
+	build_path = /obj/item/robot_parts/robot_component/surge
+
 /datum/design/item/mechfab/ripley
 	category = "Ripley"
 
@@ -316,6 +324,61 @@
 	time = 60
 	materials = list(DEFAULT_WALL_MATERIAL = 50000, "uranium" = 10000)
 
+
+/// Hermes
+
+/datum/design/item/mechfab/hermes
+	category = "Hermes"
+
+/datum/design/item/mechfab/hermes/chassis
+	name = "Hermes chassis"
+	id = "hermes_chassis"
+	build_path = /obj/item/mecha_parts/chassis/hermes
+	time = 10
+	materials = list(DEFAULT_WALL_MATERIAL = 20000)
+
+/datum/design/item/mechfab/hermes/torso
+	name = "Hermes torso"
+	id = "hermes_torso"
+	build_path = /obj/item/mecha_parts/part/hermes_torso
+	time = 18
+	materials = list(DEFAULT_WALL_MATERIAL = 21000)
+
+/datum/design/item/mechfab/hermes/head
+	name = "Hermes head"
+	id = "hermes_head"
+	build_path = /obj/item/mecha_parts/part/hermes_head
+	time = 10
+	materials = list(DEFAULT_WALL_MATERIAL = 1000, "glass" = 1000)
+
+/datum/design/item/mechfab/hermes/left_arm
+	name = "Hermes left arm"
+	id = "hermes_left_arm"
+	build_path = /obj/item/mecha_parts/part/hermes_left_arm
+	time = 12
+	materials = list(DEFAULT_WALL_MATERIAL = 10000)
+
+/datum/design/item/mechfab/hermes/right_arm
+	name = "Hermes right arm"
+	id = "hermes_right_arm"
+	build_path = /obj/item/mecha_parts/part/hermes_right_arm
+	time = 12
+	materials = list(DEFAULT_WALL_MATERIAL = 10000)
+
+/datum/design/item/mechfab/hermes/left_leg
+	name = "Hermes left leg"
+	id = "hermes_left_leg"
+	build_path = /obj/item/mecha_parts/part/hermes_left_leg
+	time = 13
+	materials = list(DEFAULT_WALL_MATERIAL = 10000)
+
+/datum/design/item/mechfab/hermes/right_leg
+	name = "Hermes right leg"
+	id = "hermes_right_leg"
+	build_path = /obj/item/mecha_parts/part/hermes_right_leg
+	time = 13
+	materials = list(DEFAULT_WALL_MATERIAL = 10000)
+
 /datum/design/item/robot_upgrade
 	build_type = MECHFAB
 	time = 12
@@ -367,6 +430,10 @@
 	id = "borg_jetpack_module"
 	materials = list(DEFAULT_WALL_MATERIAL = 10000, "phoron" = 15000, "uranium" = 20000)
 	build_path = /obj/item/robot_parts/robot_component/jetpack
+
+
+
+
 
 /*
 //Commented out by nanako
@@ -788,3 +855,11 @@
 	req_tech = list(TECH_MATERIAL = 3, TECH_POWER = 4, TECH_COMBAT = 4, TECH_MAGNET = 3)
 	materials = list(DEFAULT_WALL_MATERIAL= 7000, "glass"= 2250, "uranium"= 3250, "gold"= 2500)
 	build_path = /obj/item/rig_module/mounted/egun
+
+/datum/design/hardsuitmodules/cooling_module
+	name = "mounted cooling unit"
+	desc = "A heat sink with liquid cooled radiator."
+	id = "cooling_module"
+	req_tech = list(TECH_MATERIAL = 2, TECH_POWER = 3, TECH_ENGINEERING = 3)
+	materials = list(DEFAULT_WALL_MATERIAL= 7000, "glass"= 5500)
+	build_path = /obj/item/rig_module/cooling_unit

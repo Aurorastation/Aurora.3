@@ -91,7 +91,7 @@
 
 	if(!serial)
 		serial = rand(1, poster_designs.len) //use a random serial if none is given
-	
+
 	serial_number = serial
 
 	var/datum/poster/design
@@ -100,7 +100,7 @@
 		design = new path
 	else
 		design = poster_designs[serial_number]
-		
+
 	set_poster(design)
 
 	switch (placement_dir)
@@ -124,7 +124,7 @@
 	icon_state = design.icon_state // poster[serial_number]
 
 /obj/structure/sign/poster/attackby(obj/item/weapon/W as obj, mob/user as mob)
-	if(iswirecutter(W))
+	if(W.iswirecutter())
 		playsound(loc, 'sound/items/Wirecutter.ogg', 100, 1)
 		if(ruined)
 			user << "<span class='notice'>You remove the remnants of the poster.</span>"
@@ -155,8 +155,8 @@
 
 /obj/structure/sign/poster/proc/roll_and_drop(turf/newloc)
 	var/obj/item/weapon/contraband/poster/P = new(src, serial_number)
-	P.loc = newloc
-	src.loc = P
+	P.forceMove(newloc)
+	src.forceMove(P)
 	qdel(src)
 
 /datum/poster

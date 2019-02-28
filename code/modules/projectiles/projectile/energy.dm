@@ -175,9 +175,8 @@
 /obj/item/projectile/energy/gravitydisabler/on_impact(atom/target)
 	. = ..()
 	var/area/A = get_area(target)
-	if(A && A.has_gravity == 1)
-		A.has_gravity = 0
-		A.gravitychange(A.has_gravity,A)
+	if(A && A.has_gravity())
+		A.gravitychange(FALSE)
 		addtimer(CALLBACK(src, .proc/turnongravity), 150)
 
 	if(istype(target, /obj/machinery/gravity_generator/main))
@@ -185,8 +184,7 @@
 		T.eshutoff()
 
 /obj/item/projectile/energy/gravitydisabler/proc/turnongravity(var/area/A)
-	A.has_gravity = 1
-	A.gravitychange(A.has_gravity,A)
+	A.gravitychange(TRUE)
 
 /obj/item/projectile/energy/bee
 	name = "bees"
@@ -212,23 +210,17 @@
 
 /obj/item/projectile/energy/blaster
 	name = "blaster bolt"
-	icon_state = "laser"
+	icon_state = "heavybolt"
+	damage = 30
 	check_armour = "laser"
-	damage = 15
 	damage_type = BURN
 	pass_flags = PASSTABLE | PASSGLASS | PASSGRILLE
-	embed = 0
-	incinerate = 2
+	muzzle_type = /obj/effect/projectile/muzzle/bolt
 
-/*/obj/item/projectile/energy/flamer
-	name = "promethium"
-	icon_state = "fire"
-	check_armour = "energy"
-	kill_count = 25
-	damage = 10
-	damage_type = BURN
-	pass_flags = PASSTABLE
-	step_delay = 2
-	kill_count = 75
-	embed = 0
-	incinerate = 10*/
+/obj/item/projectile/energy/blaster/heavy
+	damage = 35
+
+/obj/item/projectile/energy/blaster/incendiary
+	icon_state = "laser"
+	damage = 15
+	incinerate = 2

@@ -1,4 +1,4 @@
-#define Clamp(x, y, z) 	(x <= y ? y : (x >= z ? z : x))
+#define Clamp(x, low, high) 	max(low, min(high, x))
 #define CLAMP01(x) 		(Clamp(x, 0, 1))
 
 #define span(class, text) ("<span class='[class]'>[text]</span>")
@@ -41,20 +41,6 @@
 #define issilicon(A) istype(A, /mob/living/silicon)
 
 #define isslime(A) istype(A, /mob/living/carbon/slime)
-
-#define isscrewdriver(A) istype(A, /obj/item/weapon/screwdriver)
-
-#define iswrench(A) istype(A, /obj/item/weapon/wrench)
-
-#define iswelder(A) istype(A, /obj/item/weapon/weldingtool)
-
-#define iscoil(A) istype(A, /obj/item/stack/cable_coil)
-
-#define iswirecutter(A) istype(A, /obj/item/weapon/wirecutters)
-
-#define ismultitool(A) istype(A, /obj/item/device/multitool)
-
-#define iscrowbar(A) istype(A, /obj/item/weapon/crowbar)
 
 #define iscapacitor(A) istype(A, /obj/item/weapon/stock_parts/capacitor)
 

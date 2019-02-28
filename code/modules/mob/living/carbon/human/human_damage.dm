@@ -102,27 +102,27 @@
 
 
 /mob/living/carbon/human/adjustBruteLoss(var/amount)
-	amount = amount*species.brute_mod
 	if(amount > 0)
+		amount *= brute_mod
 		take_overall_damage(amount, 0)
 	else
 		heal_overall_damage(-amount, 0)
 	BITSET(hud_updateflag, HEALTH_HUD)
 
 /mob/living/carbon/human/adjustFireLoss(var/amount)
-	amount = amount*species.burn_mod
 	if(amount > 0)
+		amount *= burn_mod
 		take_overall_damage(0, amount)
 	else
 		heal_overall_damage(0, -amount)
 	BITSET(hud_updateflag, HEALTH_HUD)
 
 /mob/living/carbon/human/proc/adjustBruteLossByPart(var/amount, var/organ_name, var/obj/damage_source = null)
-	amount = amount*species.brute_mod
 	if (organ_name in organs_by_name)
 		var/obj/item/organ/external/O = get_organ(organ_name)
 
 		if(amount > 0)
+			amount *= brute_mod
 			O.take_damage(amount, 0, sharp=is_sharp(damage_source), edge=has_edge(damage_source), used_weapon=damage_source)
 		else
 			//if you don't want to heal robot organs, they you will have to check that yourself before using this proc.
@@ -131,11 +131,11 @@
 	BITSET(hud_updateflag, HEALTH_HUD)
 
 /mob/living/carbon/human/proc/adjustFireLossByPart(var/amount, var/organ_name, var/obj/damage_source = null)
-	amount = amount*species.burn_mod
 	if (organ_name in organs_by_name)
 		var/obj/item/organ/external/O = get_organ(organ_name)
 
 		if(amount > 0)
+			amount *= burn_mod
 			O.take_damage(0, amount, sharp=is_sharp(damage_source), edge=has_edge(damage_source), used_weapon=damage_source)
 		else
 			//if you don't want to heal robot organs, they you will have to check that yourself before using this proc.
@@ -214,7 +214,9 @@
 	if(species.flags & NO_BREATHE)
 		oxyloss = 0
 	else
-		amount = amount*species.oxy_mod
+		if(amount > 0)
+			amount *= species.oxy_mod
+
 		if(getOxyLoss() + amount >=  abs(config.health_threshold_crit)) //start taking brain damage if they go into crit from oxyloss
 			adjustBrainLoss(amount,55) //this brain damage won't be lethal)
 		..(amount)
@@ -231,12 +233,11 @@
 	return ..()
 
 /mob/living/carbon/human/adjustToxLoss(var/amount)
-	if(species && species.toxins_mod)
-		amount = amount*species.toxins_mod
+	if(species && species.toxins_mod && amount > 0)
+		amount *= species.toxins_mod
 	if(species.flags & NO_POISON)
 		toxloss = 0
 	else
-		amount = amount*species.toxins_mod
 		..(amount)
 
 /mob/living/carbon/human/setToxLoss(var/amount)
@@ -244,6 +245,22 @@
 		toxloss = 0
 	else
 		..()
+
+/mob/living/carbon/human/adjustHalLoss(var/amount, var/ignoreImmunity = 0)//An inherited version so this doesnt affect cyborgs
+	if(status_flags & GODMODE)	return 0	//godmode
+	if(!ignoreImmunity)//Adjusting how hallloss works. Species with the NO_PAIN flag will suffer most of the effects of halloss, but will be immune to most conventional sources of accumulating it
+		if (!can_feel_pain())//Species with the NO_PAIN flag will only gather halloss through species-specific mechanics, which apply it with the ignoreImmunity flag
+			return 0
+
+	if(wearing_rig) //I don't know if this is the best way, but I'm hard-pressed to think of a different way. Thanks Vaurca.
+		for(var/obj/item/rig_module/lattice/L in wearing_rig.installed_modules)
+			if(L.active && lattice_users.len)
+				amount = amount / (lattice_users.len + 1)
+				for(var/mob/living/carbon/human/H in lattice_users)
+					if(H != src)
+						H.setHalLoss(min(max(H.getHalLoss() + amount, 0),(H.maxHealth*2)))
+
+	halloss = min(max(halloss + amount, 0),(maxHealth*2))
 
 ////////////////////////////////////////////
 
@@ -381,7 +398,7 @@ This function restores all organs.
 
 	//Handle other types of damage
 	if(damagetype != BRUTE && damagetype != BURN)
-		if(!stat && damagetype == HALLOSS && !(species && (species.flags & NO_PAIN)))
+		if(!stat && damagetype == HALLOSS && (can_feel_pain()))
 			if ((damage > 25 && prob(20)) || (damage > 50 && prob(60)))
 				emote("scream")
 
@@ -407,12 +424,14 @@ This function restores all organs.
 	switch(damagetype)
 		if(BRUTE)
 			damageoverlaytemp = 20
-			damage = damage*species.brute_mod
+			if(damage > 0)
+				damage *= species.brute_mod
 			if(organ.take_damage(damage, 0, sharp, edge, used_weapon))
 				UpdateDamageIcon()
 		if(BURN)
 			damageoverlaytemp = 20
-			damage = damage*species.burn_mod
+			if(damage > 0)
+				damage *= species.burn_mod
 			if(organ.take_damage(0, damage, sharp, edge, used_weapon))
 				UpdateDamageIcon()
 

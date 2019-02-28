@@ -18,6 +18,10 @@ var/datum/controller/subsystem/atlas/SSatlas
 	var/list/spawn_locations = list()
 
 	var/list/connected_z_cache = list()
+	var/z_levels = 0	// Each bit represents a connection between adjacent levels.  So the first bit means levels 1 and 2 are connected.
+
+/datum/controller/subsystem/atlas/stat_entry()
+	..("W:{X:[world.maxx] Y:[world.maxy] Z:[world.maxz]} ZL:[z_levels]")
 
 /datum/controller/subsystem/atlas/New()
 	NEW_SS_GLOBAL(SSatlas)
@@ -25,7 +29,7 @@ var/datum/controller/subsystem/atlas/SSatlas
 /datum/controller/subsystem/atlas/Initialize(timeofday)
 	// Quick sanity check.
 	if (world.maxx != WORLD_MIN_SIZE || world.maxy != WORLD_MIN_SIZE || world.maxz != 1)
-		world << "<span class='warning'>WARNING: Suspected pre-compiled map: things may break horribly!</span>"
+		to_world("<span class='warning'>WARNING: Suspected pre-compiled map: things may break horribly!</span>")
 		log_ss("atlas", "-- WARNING: Suspected pre-compiled map! --")
 
 	maploader = new
@@ -112,6 +116,7 @@ var/datum/controller/subsystem/atlas/SSatlas
 /datum/controller/subsystem/atlas/proc/setup_multiz()
 	for (var/thing in height_markers)
 		var/obj/effect/landmark/map_data/marker = thing
+		log_debug("atlas: setting up Z marker on level [marker.z] with height [marker.height].")
 		marker.setup()
 
 	connected_z_cache.Cut()
@@ -133,7 +138,7 @@ var/datum/controller/subsystem/atlas/SSatlas
 
 	admin_departments = list(
 		"[current_map.boss_name]",
-		"[current_map.system_name] Government", 
+		"[current_map.system_name] Government",
 		"Supply"
 	)
 
@@ -152,7 +157,7 @@ var/datum/controller/subsystem/atlas/SSatlas
 /datum/controller/subsystem/atlas/proc/OnMapload(datum/callback/callback)
 	if (!istype(callback))
 		CRASH("Invalid callback.")
-	
+
 	mapload_callbacks += callback
 
 /datum/controller/subsystem/atlas/proc/setup_spawnpoints()

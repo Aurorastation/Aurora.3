@@ -70,7 +70,7 @@
 	// Meat for biomass.
 	if(!prints_prosthetics && istype(W, /obj/item/weapon/reagent_containers/food/snacks/meat))
 		stored_matter += 50
-		user.drop_item()
+		user.drop_from_inventory(W,src)
 		user << "<span class='info'>\The [src] processes \the [W]. Levels of stored biomass now: [stored_matter]</span>"
 		qdel(W)
 		return
@@ -78,9 +78,9 @@
 	if(prints_prosthetics && istype(W, /obj/item/stack/material) && W.get_material_name() == DEFAULT_WALL_MATERIAL)
 		var/obj/item/stack/S = W
 		stored_matter += S.amount * 10
-		user.drop_item()
+		user.drop_from_inventory(W,src)
 		user << "<span class='info'>\The [src] processes \the [W]. Levels of stored matter now: [stored_matter]</span>"
 		qdel(W)
 		return
-	
+
 	return..()

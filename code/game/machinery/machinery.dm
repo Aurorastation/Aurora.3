@@ -128,6 +128,8 @@ Class Procs:
 	var/printing = 0 // Is this machine currently printing anything?
 	var/tmp/machinery_processing = FALSE	// Are we process()ing in SSmachinery?
 	var/has_special_power_checks = FALSE	// If true, call auto_use_power instead of doing it all in SSmachinery.
+	var/clicksound //played sound on usage
+	var/clickvol = 40 //volume
 
 /obj/machinery/Initialize(mapload, d = 0, populate_components = TRUE)
 	. = ..()
@@ -229,6 +231,8 @@ Class Procs:
 
 /obj/machinery/CouldUseTopic(var/mob/user)
 	..()
+	if(istype (user, /mob/living/carbon))
+		playsound(src, clicksound, clickvol)
 	user.set_machine(src)
 
 /obj/machinery/CouldNotUseTopic(var/mob/user)
@@ -296,6 +300,13 @@ Class Procs:
 	state(text, "blue")
 	playsound(src.loc, 'sound/machines/pingx3.ogg', 50, 0)
 
+/obj/machinery/proc/buzz(text=null)
+	if (!text)
+		text = "\The [src] buzzes."
+
+	state(text, "blue")
+	playsound(src.loc, 'sound/machines/buzz-sigh.ogg', 50, 0) //TODO: Check if that one is the correct sound
+
 /obj/machinery/proc/shock(mob/user, prb)
 	if(inoperable())
 		return 0
@@ -352,7 +363,7 @@ Class Procs:
 						R.handle_item_insertion(G, 1)
 						component_parts -= G
 						component_parts += B
-						B.loc = src
+						B.forceMove(src)
 						user << "<span class='notice'>[G.name] replaced with [B.name].</span>"
 						break
 		for(var/obj/item/weapon/stock_parts/A in component_parts)
@@ -368,9 +379,10 @@ Class Procs:
 						R.handle_item_insertion(A, 1)
 						component_parts -= A
 						component_parts += B
-						B.loc = src
+						B.forceMove(src)
 						user << "<span class='notice'>[A.name] replaced with [B.name].</span>"
 						break
+		RefreshParts()  
 		update_icon()
 	else
 		user << "<span class='notice'>Following parts detected in the machine:</span>"
@@ -385,7 +397,7 @@ Class Procs:
 	M.state = 2
 	M.icon_state = "box_1"
 	for(var/obj/I in component_parts)
-		I.loc = loc
+		I.forceMove(loc)
 	qdel(src)
 	return 1
 

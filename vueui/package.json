@@ -1,0 +1,30 @@
+{
+  "name": "vueui",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "build-dev": "vue-cli-service build --target app --name main --mode development",
+    "build": "vue-cli-service build --target app --name main",
+    "lint": "vue-cli-service lint",
+    "dev": "vue-cli-service build --watch"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.2.0",
+    "vue": "^2.5.21",
+    "webpack": "^4.28.3"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "^3.2.2",
+    "@vue/cli-plugin-eslint": "^3.2.2",
+    "@vue/cli-service": "^3.2.2",
+    "node-sass": "^4.11.0",
+    "sass-loader": "^7.1.0",
+    "vue-template-compiler": "^2.5.21",
+    "webpack-command": "^0.4.1"
+  },
+  "browserslist": [
+    "ie >= 9",
+    "edge >= 12",
+    "cover 50%"
+  ]
+}

@@ -11,8 +11,13 @@
 	throw_range = 15
 	throw_speed = 3
 
-	//matter = list("metal" = 50,"glass" = 50)
-
+	var/tileoffset = 14
+	var/viewsize = 7
 
 /obj/item/device/binoculars/attack_self(mob/user)
-	zoom(user)
+	zoom(user,tileoffset,viewsize)
+
+/obj/item/device/binoculars/high_power
+	name = "high power binoculars"
+	desc = "A pair of high power binoculars."
+	tileoffset = 14*3

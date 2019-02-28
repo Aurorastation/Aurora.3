@@ -85,7 +85,7 @@
 /obj/machinery/firealarm/attackby(obj/item/W as obj, mob/user as mob)
 	src.add_fingerprint(user)
 
-	if (isscrewdriver(W) && buildstage == 2)
+	if (W.isscrewdriver() && buildstage == 2)
 		if(!wiresexposed)
 			set_light(0)
 		wiresexposed = !wiresexposed
@@ -96,20 +96,20 @@
 		set_light(0)
 		switch(buildstage)
 			if(2)
-				if (ismultitool(W))
+				if (W.ismultitool())
 					src.detecting = !( src.detecting )
 					if (src.detecting)
 						user.visible_message("<span class='notice'>\The [user] has reconnected [src]'s detecting unit!</span>", "<span class='notice'>You have reconnected [src]'s detecting unit.</span>")
 					else
 						user.visible_message("<span class='notice'>\The [user] has disconnected [src]'s detecting unit!</span>", "<span class='notice'>You have disconnected [src]'s detecting unit.</span>")
-				else if (iswirecutter(W))
+				else if (W.iswirecutter())
 					user.visible_message("<span class='notice'>\The [user] has cut the wires inside \the [src]!</span>", "<span class='notice'>You have cut the wires inside \the [src].</span>")
 					new/obj/item/stack/cable_coil(get_turf(src), 5)
 					playsound(src.loc, 'sound/items/Wirecutter.ogg', 50, 1)
 					buildstage = 1
 					update_icon()
 			if(1)
-				if(iscoil(W))
+				if(W.iscoil())
 					var/obj/item/stack/cable_coil/C = W
 					if (C.use(5))
 						user << "<span class='notice'>You wire \the [src].</span>"
@@ -118,12 +118,12 @@
 					else
 						user << "<span class='warning'>You need 5 pieces of cable to wire \the [src].</span>"
 						return
-				else if(iscrowbar(W))
+				else if(W.iscrowbar())
 					user << "You pry out the circuit!"
 					playsound(src.loc, 'sound/items/Crowbar.ogg', 50, 1)
 					spawn(20)
 						var/obj/item/weapon/firealarm_electronics/circuit = new /obj/item/weapon/firealarm_electronics()
-						circuit.loc = user.loc
+						circuit.forceMove(user.loc)
 						buildstage = 0
 						update_icon()
 			if(0)
@@ -133,7 +133,7 @@
 					buildstage = 1
 					update_icon()
 
-				else if(iswrench(W))
+				else if(W.iswrench())
 					user << "You remove the fire alarm assembly from the wall!"
 					new /obj/item/frame/fire_alarm(get_turf(user))
 					playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
@@ -225,8 +225,8 @@
 	var/area/area = get_area(src)
 	for(var/obj/machinery/firealarm/FA in area)
 		fire_alarm.triggerAlarm(loc, FA, duration)
+		playsound(FA.loc, 'sound/ambience/firealarm.ogg', 75, 0)
 	update_icon()
-	//playsound(src.loc, 'sound/ambience/signal.ogg', 75, 0)
 	return
 
 /obj/machinery/firealarm/proc/set_security_level(var/newlevel)

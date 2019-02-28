@@ -9,6 +9,7 @@
 	invisibility  = INVISIBILITY_LIGHTING
 	simulated     = 0
 	blend_mode    = BLEND_MULTIPLY
+	appearance_flags = NO_CLIENT_COLOR
 
 	var/needs_update = FALSE
 

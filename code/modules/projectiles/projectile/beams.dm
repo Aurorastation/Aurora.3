@@ -339,3 +339,18 @@
 /obj/item/projectile/beam/energy_net/proc/do_net(var/mob/M)
 	var/obj/item/weapon/energy_net/net = new (get_turf(M))
 	net.throw_impact(M)
+
+/obj/item/projectile/beam/tachyon
+	name = "particle beam"
+	icon_state = "xray"
+	damage = 25
+	armor_penetration = 65
+	penetrating = 1
+	maiming = 1
+	maim_rate = 5
+	clean_cut = 1
+	maim_type = DROPLIMB_BURN
+
+	muzzle_type = /obj/effect/projectile/muzzle/tachyon
+	tracer_type = /obj/effect/projectile/tracer/tachyon
+	impact_type = /obj/effect/projectile/impact/tachyon

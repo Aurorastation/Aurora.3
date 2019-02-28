@@ -1,101 +1,83 @@
 {
-    "categories": {
-        "security": {
-            "name": "security",
-            "display_name": "Security",
-            "description": "Security Items",
-            "icon": "person",
-            "price_modifier": 1
-        },
-        "engineering": {
-            "name": "engineering",
-            "display_name": "Engineering",
-            "description": "Engineering Items",
-            "icon": "wrench",
-            "price_modifier": 1
-        }
-    },
-    "suppliers": {
-        "nanotrasen": {
-            "name": "Nano Trasen",
-            "description": "Your default supplier.",
-            "tag_line": "For all your station supplies.",
-            "shuttle_time": 100,
-            "shuttle_price": 500,
-            "available": 1,
-            "price_modifier": 1
-        },
-        "einsteinengines": {
-            "name": "Einstein Engies",
-            "description": "Manufacturer of high tech engineering equipment.",
-            "tag_line": "Everything your engineers need and more.",
-            "shuttle_time": 200,
-            "shuttle_price": 200,
-            "available": 1,
-            "price_modifier": 1
-        },
-        "weaponsco": {
-            "name": "Weapons Co",
-            "description": "Mass producing weapons. Nothing too fancy, but cheap.",
-            "tag_line": "Need to shoot stuff badly ? - We got you covered.",
-            "shuttle_time": 300,
-            "shuttle_price": 300,
-            "available": 1,
-            "price_modifier": 1
-        }
-    },
+	"categories": {
+		"security": {
+			"name": "security",
+			"display_name": "Security",
+			"description": "Security Items",
+			"icon": "person",
+			"price_modifier": 1
+		},
+		"engineering": {
+			"name": "engineering",
+			"display_name": "Engineering",
+			"description": "Engineering Items",
+			"icon": "wrench",
+			"price_modifier": 1
+		}
+	},
+	"suppliers": {
+		"nanotrasen": {
+			"name": "Nano Trasen",
+			"description": "Your default supplier.",
+			"tag_line": "For all your station supplies.",
+			"shuttle_time": 100,
+			"shuttle_price": 500,
+			"available": 1,
+			"price_modifier": 1
+		},
+		"einsteinengines": {
+			"name": "Einstein Engies",
+			"description": "Manufacturer of high tech engineering equipment.",
+			"tag_line": "Everything your engineers need and more.",
+			"shuttle_time": 200,
+			"shuttle_price": 200,
+			"available": 1,
+			"price_modifier": 1
+		},
+		"weaponsco": {
+			"name": "Weapons Co",
+			"description": "Mass producing weapons. Nothing too fancy, but cheap.",
+			"tag_line": "Need to shoot stuff badly ? - We got you covered.",
+			"shuttle_time": 300,
+			"shuttle_price": 300,
+			"available": 1,
+			"price_modifier": 1
+		}
+	},
 	"items": {
-        "/obj/item/weapon/gun/projectile/sec": {
-            "name": ".45 Pistol",
-            "description": "A standard sidearm, found pretty much everywhere humans are. Uses .45 rounds.",
+		".45 Pistol": {
+			"name": ".45 Pistol",
+			"supplier": "weaponsco",
+			"description": "A standard sidearm, found pretty much everywhere humans are. Uses .45 rounds.",
             "categories": ["medical", "security", "engineering", "civilian"],
-            "suppliers": {
-                "einsteinengines": {
-                    "base_purchase_price": 200,
-                    "vars": {
-                        "name": ".45 Pistol - Einstein Engines",
-                        "desc": "A handmade einstein engines branded custom .45 sidearm."
-                    }
-                },
-                "weaponsco": {
-                    "base_purchase_price": 50,
-                    "vars": {
-                        "name": ".45 Pistol - Weapons Co",
-                        "desc": "A cheap mass produced .45 sidearm brought to you by Weapons Co"
-                    }
-                },
-                "nanotrasen": {
-                    "base_purchase_price": 100
-                }
-            },
-            "amount": 2,
-            "access": 3,
-            "container_type": "crate",
-            "groupable": 1
-        },
-        "/obj/item/clothing/gloves/yellow": {
+            "price": 100,
+			"items": {
+				".45 Pistol": {
+                    "path": "/obj/item/weapon/gun/projectile/sec",
+					"vars": []
+				}
+			},
+			"access": 3,
+			"container_type": "crate",
+            "groupable": 1,
+            "item_mul": 1
+		},
+		"/obj/item/clothing/gloves/yellow": {
             "name": "Insulated Gloves",
-            "description": "Rubber Insulated Gloves",
+            "supplier": "einsteinengines",
+			"description": "Rubber Insulated Gloves",
             "categories": ["engineering"],
-            "suppliers": {
-                "einsteinengines": {
-                    "base_purchase_price": 50,
-                    "vars": {
-                        "name": "Insulated Gloves - Einstein Engines",
-                        "desc": "Handmade and toroughly tested insulated gloves. Guaranteed safety"
-                    }
-                },
-                "blahmanufacuring": {
-                    "base_purchase_price": 30
-                },
-                "nanotrasen": {
-                    "base_purchase_price": 10
-                }
-            },
-            "amount": 1,
-            "access": 10,
-            "container_type": "crate",
-            "groupable": 1
-        }
-    }
+            "price": 20,
+			"items": {
+				"Insulated Gloves": {
+                    "path": "/obj/item/clothing/gloves/yellow",
+					"vars": []
+				}
+			},
+			"access": 10,
+			"container_type": "crate",
+            "groupable": 1,
+            "item_mul": 2
+		}
+	}
 }

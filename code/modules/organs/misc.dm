@@ -52,6 +52,7 @@
 	vital = 1
 	var/backup_time = 0
 	var/datum/mind/backup
+	origin_tech = list(TECH_ENGINEERING = 5, TECH_DATA=3, TECH_BIO=3)
 
 /obj/item/organ/stack/process()
 	if(owner && owner.stat != DEAD && !is_broken())

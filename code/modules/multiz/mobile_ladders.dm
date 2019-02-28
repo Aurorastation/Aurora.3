@@ -28,7 +28,7 @@
 
 		new /obj/structure/ladder/mobile(A)
 
-		user.drop_item()
+		user.drop_from_inventory(src,get_turf(src))
 		qdel(src)
 
 	else if (istype(A, /turf/simulated/floor))        //Place onto Floor
@@ -46,7 +46,7 @@
 
 		new /obj/structure/ladder/mobile(upper_loc)
 
-		user.drop_item()
+		user.drop_from_inventory(src,get_turf(src))
 		qdel(src)
 
 /obj/item/weapon/ladder_mobile/afterattack(atom/A, mob/user,proximity)

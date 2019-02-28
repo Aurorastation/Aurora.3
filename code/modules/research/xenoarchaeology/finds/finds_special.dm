@@ -201,7 +201,7 @@
 
 /obj/effect/shadow_wight/process()
 	if(src.loc)
-		src.loc = get_turf(pick(orange(1,src)))
+		src.forceMove(get_turf(pick(orange(1,src))))
 		var/mob/living/carbon/M = locate() in src.loc
 		if(M)
 			playsound(src.loc, pick('sound/hallucinations/behind_you1.ogg',\

@@ -25,10 +25,10 @@
 	return ..()
 
 /obj/item/weapon/plastique/attackby(var/obj/item/I, var/mob/user)
-	if(isscrewdriver(I))
+	if(I.isscrewdriver())
 		open_panel = !open_panel
 		user << "<span class='notice'>You [open_panel ? "open" : "close"] the wire panel.</span>"
-	else if(iswirecutter(I) || ismultitool(I) || istype(I, /obj/item/device/assembly/signaler ))
+	else if(I.iswirecutter() || I.ismultitool() || istype(I, /obj/item/device/assembly/signaler ))
 		wires.Interact(user)
 	else
 		..()
@@ -49,7 +49,7 @@
 	user.do_attack_animation(target)
 
 	if(do_after(user, 50) && in_range(user, target))
-		user.drop_item()
+		user.drop_item() //TODO: Look into this
 		src.target = target
 		loc = null
 
@@ -62,7 +62,7 @@
 		else
 			message_admins("[key_name(user, user.client)](<A HREF='?_src_=holder;adminmoreinfo=\ref[user]'>?</A>) planted [src.name] on [target.name] at ([target.x],[target.y],[target.z] - <A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[target.x];Y=[target.y];Z=[target.z]'>JMP</a>) with [timer] second fuse",0,1)
 			log_game("[key_name(user)] planted [src.name] on [target.name] at ([target.x],[target.y],[target.z]) with [timer] second fuse",ckey=key_name(user))
-		
+
 		target.add_overlay(image_overlay, TRUE)
 		user << "Bomb has been planted. Timer counting down from [timer]."
 
@@ -80,7 +80,7 @@
 	if(target)
 		if (istype(target, /turf/simulated/wall))
 			var/turf/simulated/wall/W = target
-			W.dismantle_wall(1)
+			W.dismantle_wall(1, no_product = TRUE)
 		else if(istype(target, /mob/living))
 			target.ex_act(2) // c4 can't gib mobs anymore.
 		else

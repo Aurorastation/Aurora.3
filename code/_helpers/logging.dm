@@ -1,22 +1,36 @@
 //print an error message to world.log
 
-
 // On Linux/Unix systems the line endings are LF, on windows it's CRLF, admins that don't use notepad++
 // will get logs that are one big line if the system is Linux and they are using notepad.  This solves it by adding CR to every line ending
 // in the logs.  ascii character 13 = CR
 
-#define SEVERITY_ALERT    1
-#define SEVERITY_CRITICAL 2
-#define SEVERITY_ERROR    3
-#define SEVERITY_WARNING  4
-#define SEVERITY_NOTICE   5
-#define SEVERITY_INFO     6
-#define SEVERITY_DEBUG    7
+#define SEVERITY_ALERT    1 //Alert: action must be taken immediately
+#define SEVERITY_CRITICAL 2 //Critical: critical conditions
+#define SEVERITY_ERROR    3 //Error: error conditions
+#define SEVERITY_WARNING  4 //Warning: warning conditions
+#define SEVERITY_NOTICE   5 //Notice: normal but significant condition
+#define SEVERITY_INFO     6 //Informational: informational messages
+#define SEVERITY_DEBUG    7 //Debug: debug-level messages
 
 /var/global/log_end = world.system_type == UNIX ? ascii2text(13) : ""
 
+// logging.dm
+/proc/log_startup()
+	var/static/already_logged = FALSE
+	if (!already_logged)
+		WRITE_LOG(diary, "[log_end]\n[log_end]\nStarting up. (ID: [game_id]) [log_end]\n---------------------[log_end]")
+		already_logged = TRUE
+	else
+		crash_with("log_startup() was called more then once")
+
+/proc/log_topic(T, addr, master, key, var/list/queryparams)
+	WRITE_LOG(diary, "[game_id] TOPIC: \"[T]\", from:[addr], master:[master], key:[key], auth:[queryparams["auth"] ? queryparams["auth"] : "null"] [log_end]")
+
 /proc/error(msg)
 	world.log << "## ERROR: [msg][log_end]"
+
+/proc/shutdown_logging()
+	call(RUST_G, "log_close_all")()
 
 #define WARNING(MSG) warning("[MSG] in [__FILE__] at line [__LINE__] src: [src] usr: [usr].")
 //print a warning message to world.log
@@ -28,9 +42,9 @@
 	world.log << "## TESTING: [msg][log_end]"
 
 /proc/game_log(category, text)
-	diary << "\[[time_stamp()]] [game_id] [category]: [text][log_end]"
+	WRITE_LOG(diary, "[game_id] [category]: [text][log_end]")
 
-/proc/log_admin(text,level=5,ckey="",admin_key="",ckey_target="")
+/proc/log_admin(text,level=SEVERITY_NOTICE,ckey="",admin_key="",ckey_target="")
 	admin_log.Add(text)
 	if (config.log_admin)
 		game_log("ADMIN", text)
@@ -39,6 +53,9 @@
 /proc/log_debug(text,level = SEVERITY_DEBUG)
 	if (config.log_debug)
 		game_log("DEBUG", text)
+
+	if (level == SEVERITY_ERROR) // Errors are always logged
+		error(text)
 
 	for(var/client/C in admins)
 		if(!C.prefs) //This is to avoid null.toggles runtime error while still initialyzing players preferences
@@ -55,7 +72,7 @@
 		long_message = "[time_stamp()]: [text]",
 		level = level,
 		category = "GAME",
-		additional_data = list("_ckey" = html_encode(ckey), "_admin_key" = html_encode(admin_key), "_target" = html_encode(target))
+		additional_data = list("_ckey" = html_encode(ckey), "_admin_key" = html_encode(admin_key), "_target" = html_encode(ckey_target))
 	)
 
 /proc/log_vote(text)
@@ -162,6 +179,15 @@
 	game_log("FAILSAFE", text)
 	send_gelf_log(text, "[time_stamp()]: [text]", SEVERITY_ALERT, "FAILSAFE")
 
+/proc/log_tgs(text, severity = SEVERITY_INFO)
+	game_log("TGS", text)
+	send_gelf_log(
+		short_message = text,
+		long_message="[time_stamp()]: [text]",
+		level = severity,
+		category = "TGS"
+	)
+
 /proc/log_unit_test(text)
 	world.log << "## UNIT_TEST ##: [text]"
 
@@ -248,3 +274,6 @@
 
 /proc/key_name_admin(var/whom, var/include_name = 1)
 	return key_name(whom, 1, include_name, 1)
+
+#undef RUST_G
+#undef WRITE_LOG

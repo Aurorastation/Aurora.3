@@ -75,14 +75,14 @@
 	var/oldloc = loc
 	var/obj/machinery/crusher_base/left = locate(/obj/machinery/crusher_base, get_step(src, WEST))
 	var/obj/machinery/crusher_base/right = locate(/obj/machinery/crusher_base, get_step(src, EAST))
-	
+
 	loc=null
 	if(left)
 		left.update_icon()
 	if(right)
 		right.update_icon()
 	loc=oldloc
-	
+
 	QDEL_NULL(pstn)
 	return ..()
 
@@ -100,10 +100,10 @@
 		return
 	if(default_part_replacement(user, O))
 		return
-	
+
 	//Stuff you can do if the maint hatch is open
 	if(panel_open)
-		if(iswrench(O))
+		if(O.iswrench())
 			user << "<span class='notice'>You start [valve_open ? "closing" : "opening"] the pressure relief valve of [src].</span>"
 			if(do_after(user,50))
 				valve_open = !valve_open
@@ -138,7 +138,7 @@
 
 	if(QDELETED(left))
 		left = null
-		
+
 	if(QDELETED(right))
 		right = null
 
@@ -164,7 +164,7 @@
 			holographic_overlay(src, icon, "[asmtype]-overlay-green")
 	if(panel_open)
 		add_overlay("[asmtype]-hatch")
-	update_above()	
+	update_above()
 
 /obj/machinery/crusher_base/power_change()
 	..()
@@ -188,7 +188,7 @@
 		//If we are idle, flash the warning lights and then put us into pre_start once we are done
 		if(status == "idle")
 			if(initial)
-				playsound(loc, 'sound/machines/airalarm.ogg', 50, 1)	//Plays a beep
+				playsound(src.loc, 'sound/effects/crusher_alarm.ogg', 50, 1)	//Plays a sound
 				initial = 0
 			//TODO: Flash the lights
 			if(timediff > time_stage_pre)
@@ -214,7 +214,7 @@
 					status = "stage1"
 					action_start_time = world.time
 					initial = 1
-		
+
 		//Extend the second piston
 		else if(status == "stage1")
 			if(valve_check())
@@ -248,7 +248,7 @@
 					status = "stage3"
 					action_start_time = world.time
 					initial = 1
-		
+
 		//Wait a moment, then reverse the direction
 		else if(status == "stage3")
 			if(initial)
@@ -308,7 +308,7 @@
 			action_start_time = world.time
 			initial = 1
 			update_icon()
-	
+
 	//Move all the items in the move list
 	for(var/atom/movable/AM in items_to_move)
 		if(!AM.simulated)
@@ -322,7 +322,7 @@
 		if(!AM.piston_move())
 			items_to_crush += AM
 		CHECK_TICK
-	
+
 	//Destroy all the items in the crush list
 	for(var/atom/movable/AM in items_to_crush)
 		items_to_crush -= AM
@@ -366,7 +366,7 @@
 	name = "trash compactor piston"
 	desc = "A colossal piston used for crushing garbage."
 	icon = 'icons/obj/machines/crusherpiston.dmi' //Placeholder TODO: Get a proper icon
-	icon_state = "piston_0" 
+	icon_state = "piston_0"
 	density = 0
 	anchored = 1
 	pixel_y = -64
@@ -501,7 +501,7 @@
 	return ..()
 
 /mob/living/carbon/piston_move()
-	if(!(species && (species.flags & NO_PAIN)))
+	if(can_feel_pain())
 		emote("scream")
 	return ..()
 
@@ -513,6 +513,8 @@
 // The crush act proc
 //
 /atom/movable/proc/crush_act()
+	if(!simulated)
+		return
 	ex_act(1)
 	if(!QDELETED(src))
 		qdel(src)//Just as a failsafe

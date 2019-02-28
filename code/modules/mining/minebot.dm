@@ -151,7 +151,7 @@
 	<font size = \"1\">[status_report]</font><br>
 	<center><img src = barcode[rand(0, 3)].png></center></center>"}
 		P.update_icon()
-		visible_message("\icon[src] <span class = 'notice'>The [usr] pings, \"[P.name] ready for review\", and happily disgorges a small printout.</span>", 2)
+		visible_message("\icon[src] <span class = 'notice'>The [usr] pings, \"[P.name] ready for review\", and happily disgorges a small printout.</span>", range = 2)
 		playsound(src.loc, 'sound/machines/ping.ogg', 50, 0)
 
 /**********************Minebot Upgrades**********************/

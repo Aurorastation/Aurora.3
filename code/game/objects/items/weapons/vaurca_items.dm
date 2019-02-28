@@ -13,6 +13,18 @@
 	user << "This mask is too tight to adjust."
 	return
 
+/obj/item/clothing/mask/breath/vaurca/expression
+	name = "human expression mask"
+	desc = "A mask that allows emotively challenged aliens to convey facial expressions. This one depicts a human."
+	icon_state = "human_mask"
+	item_state = "human_mask"
+
+/obj/item/clothing/mask/breath/vaurca/expression/skrell
+	name = "skrell expression mask"
+	desc = "A mask that allows emotively challenged aliens to convey facial expressions. This one depicts a skrell."
+	icon_state = "skrell_mask"
+	item_state = "skrell_mask"
+
 /obj/item/weapon/melee/energy/vaurca
 	name = "thermal knife"
 	desc = "A Vaurcae-designed combat knife with a thermal energy blade designed for close-quarter encounters."
@@ -39,7 +51,10 @@
 	icon_state = "eknife1"
 	item_state = icon_state
 	damtype = "fire"
-	user.regenerate_icons()
+	if(ishuman(user))
+		var/mob/living/carbon/human/H = user
+		H.update_inv_l_hand()
+		H.update_inv_r_hand()
 	user << "<span class='notice'>\The [src] is now energised.</span>"
 
 /obj/item/weapon/melee/energy/vaurca/deactivate(mob/living/user)
@@ -47,7 +62,10 @@
 	icon_state = "eknife0"
 	item_state = icon_state
 	damtype = "brute"
-	user.regenerate_icons()
+	if(ishuman(user))
+		var/mob/living/carbon/human/H = user
+		H.update_inv_l_hand()
+		H.update_inv_r_hand()
 	user << "<span class='notice'>\The [src] is de-energised.</span>"
 
 /obj/item/vaurca/box
@@ -172,7 +190,8 @@
 
 	species_restricted = list("Vaurca")
 
-	light_overlay = "helmet_light"
+	light_overlay = "helmet_light_dual_green"
+	light_color = "#3e7c3e"
 
 /obj/item/clothing/shoes/magboots/vox/vaurca
 
@@ -183,7 +202,259 @@
 	contained_sprite = 1
 	icon = 'icons/obj/vaurca_items.dmi'
 
-	species_restricted = list("Vaurca")
+	species_restricted = list("Vaurca","Vaurca Warform")
+	sprite_sheets = list(
+		"Vaurca Warform" = 'icons/mob/species/warriorform/shoes.dmi'
+		)
 
 	action_button_name = "Toggle the magclaws"
 
+/obj/item/clothing/suit/space/void/scout
+	name = "scout armor"
+	contained_sprite = 1
+	icon = 'icons/obj/vaurca_items.dmi'
+	icon_state = "scout"
+	item_state = "scout"
+	desc = "Armor designed for K'laxan scouts, made of lightweight sturdy material that does not restrict movement."
+	slowdown = -1
+
+	species_restricted = list("Vaurca")
+	armor = list(melee = 50, bullet = 20, laser = 50, energy = 30, bomb = 45, bio = 100, rad = 10)
+
+/obj/item/clothing/head/helmet/space/void/scout
+	name = "scout helmet"
+	desc = "A helmet designed for K'laxan scouts, made of lightweight sturdy material that does not restrict movement."
+	contained_sprite = 1
+	icon = 'icons/obj/vaurca_items.dmi'
+	icon_state = "helm_scout"
+	item_state = "helm_scout"
+
+	species_restricted = list("Vaurca")
+	armor = list(melee = 40, bullet = 20, laser = 40, energy = 30, bomb = 45, bio = 100, rad = 10)
+
+	light_overlay = "helmet_light_dual_green"
+	light_color = "#3e7c3e"
+
+/obj/item/clothing/suit/space/void/commando
+	name = "commando armor"
+	contained_sprite = 1
+	icon = 'icons/obj/vaurca_items.dmi'
+	icon_state = "commando"
+	item_state = "commando"
+	desc = "A design perfected by the Zo'ra, this helmet is commonly used  by frontline warriors of a hive. Ablative design deflects lasers away from the body while providing moderate physical protection."
+
+	species_restricted = list("Vaurca")
+	armor = list(melee = 40, bullet = 40, laser = 60, energy = 50, bomb = 45, bio = 100, rad = 10)
+
+/obj/item/clothing/head/helmet/space/void/commando
+	name = "commando helmet"
+	desc = "A design perfected by the Zo'ra, this helmet is commonly used  by frontline warriors of a hive. Ablative design deflects lasers away from the body while providing moderate physical protection."
+	contained_sprite = 1
+	icon = 'icons/obj/vaurca_items.dmi'
+	icon_state = "helm_commando"
+	item_state = "helm_commando"
+
+	species_restricted = list("Vaurca")
+	armor = list(melee = 30, bullet = 30, laser = 60, energy = 50, bomb = 45, bio = 100, rad = 10)
+
+	light_overlay = "helmet_light_dual_green"
+	light_color = "#3e7c3e"
+
+/obj/item/clothing/mask/gas/vaurca
+	name = "tactical garment"
+	desc = "A tactical mandible garment with state of the art air filtration."
+	item_flags = BLOCK_GAS_SMOKE_EFFECT | AIRTIGHT | FLEXIBLEMATERIAL | THICKMATERIAL
+	flags_inv = HIDEEARS|HIDEEYES|HIDEFACE
+	body_parts_covered = FACE|EYES
+	gas_filter_strength = 3
+	w_class = 2.0
+	filtered_gases = list("nitrogen", "sleeping_agent")
+	armor = list(melee = 25, bullet = 10, laser = 25, energy = 25, bomb = 0, bio = 50, rad = 15)
+	icon = 'icons/obj/vaurca_items.dmi'
+	icon_state = "m_metalg"
+	item_state = "m_metalg"
+	contained_sprite = 1
+
+/obj/item/weapon/melee/energy/vaurca_zweihander
+	name = "thermal greatblade"
+	desc = "An infamous execution blade of the Zo'ra, due to its size, only the largest Za were able to carry it in active combat."
+	icon = 'icons/obj/vaurca_items.dmi'
+	icon_state = "greatblade0"
+	item_state = "greatblade0"
+	active_force = 30
+	armor_penetration = 30
+	active_throwforce = 20
+	active_w_class = 5
+	force = 10
+	throwforce = 10
+	throw_speed = 5
+	throw_range = 10
+	w_class = 4.0
+	flags = CONDUCT | NOBLOODY
+	attack_verb = list("stabbed", "chopped", "sliced", "cleaved", "slashed", "cut")
+	sharp = 1
+	edge = 1
+	contained_sprite = 1
+	base_reflectchance = 40
+	base_block_chance = 60
+	shield_power = 150
+
+/obj/item/weapon/melee/energy/vaurca_zweihander/attack(mob/living/carbon/human/M as mob, mob/living/carbon/user as mob)
+	user.setClickCooldown(16)
+	..()
+
+/obj/item/weapon/melee/energy/vaurca_zweihander/pre_attack(var/mob/living/target, var/mob/living/user)
+	if(istype(target))
+		cleave(user, target)
+	..()
+
+/obj/item/weapon/melee/energy/vaurca_zweihander/activate(mob/living/user)
+	..()
+	icon_state = "greatblade1"
+	item_state = icon_state
+	damtype = "fire"
+	if(ishuman(user))
+		var/mob/living/carbon/human/H = user
+		H.update_inv_l_hand()
+		H.update_inv_r_hand()
+	user << "<span class='notice'>\The [src] is now energised.</span>"
+
+/obj/item/weapon/melee/energy/vaurca_zweihander/deactivate(mob/living/user)
+	..()
+	icon_state = "greatblade0"
+	item_state = icon_state
+	damtype = "brute"
+	if(ishuman(user))
+		var/mob/living/carbon/human/H = user
+		H.update_inv_l_hand()
+		H.update_inv_r_hand()
+	user << "<span class='notice'>\The [src] is de-energised.</span>"
+
+/obj/item/weapon/gun/launcher/crossbow/vaurca
+	name = "gauss rifle"
+	desc = "An unwieldy, heavy weapon that propels metal projectiles with magnetic coils that run its length."
+	contained_sprite = 1
+	icon = 'icons/obj/vaurca_items.dmi'
+	icon_state = "gaussrifle"
+	item_state = "gaussrifle"
+	fire_sound = 'sound/effects/Explosion2.ogg'
+	fire_sound_text = "a subdued boom"
+	fire_delay = 12
+	slot_flags = SLOT_BACK
+	needspin = TRUE
+	recoil = 6
+
+
+	release_speed = 5
+	var/list/belt = new/list()
+	var/belt_size = 12 //holds this + one in the chamber
+	recoil_wielded = 2
+	accuracy_wielded = -1
+	fire_delay_wielded = 1
+
+	//action button for wielding
+	action_button_name = "Wield rifle"
+
+/obj/item/weapon/gun/launcher/crossbow/vaurca/can_wield()
+	return 1
+
+/obj/item/weapon/gun/launcher/crossbow/vaurca/ui_action_click()
+	if(src in usr)
+		toggle_wield(usr)
+
+/obj/item/weapon/gun/launcher/crossbow/vaurca/verb/wield_rifle()
+	set name = "Wield rifle"
+	set category = "Object"
+	set src in usr
+
+	toggle_wield(usr)
+	if(istype(usr,/mob/living/carbon/human))
+		var/mob/living/carbon/human/H = usr
+		H.update_inv_l_hand()
+		H.update_inv_r_hand()
+
+/obj/item/weapon/gun/launcher/crossbow/vaurca/update_icon()
+	if(wielded)
+		item_state = "gaussrifle-wielded"
+	else
+		item_state = "gaussrifle"
+	update_held_icon()
+
+/obj/item/weapon/gun/launcher/crossbow/vaurca/consume_next_projectile(mob/user=null)
+	return bolt
+
+/obj/item/weapon/gun/launcher/crossbow/vaurca/handle_post_fire(mob/user, atom/target)
+	bolt = null
+	tension = 1
+	..()
+
+/obj/item/weapon/gun/launcher/crossbow/vaurca/attack_self(mob/living/user as mob)
+	pump(user)
+
+/obj/item/weapon/gun/launcher/crossbow/vaurca/proc/pump(mob/M as mob)
+	playsound(M, 'sound/weapons/shotgunpump.ogg', 60, 1)
+
+	if(bolt)
+		if(tension < max_tension)
+			if(do_after(M, 5 * tension))
+				M << "<span class='warning'>You pump [src], charging the magnetic coils.</span>"
+				tension++
+		else
+			M << "<span class='notice'>\The [src]'s magnetic coils are at maximum charge.</span>"
+		return
+	var/obj/item/next
+	if(belt.len)
+		next = belt[1]
+	if(do_after(M, 10))
+		if(next)
+			belt -= next //Remove grenade from loaded list.
+			bolt = next
+			M << "<span class='warning'>You pump [src], loading \a [next] into the chamber.</span>"
+		else
+			M << "<span class='warning'>You pump [src], but the magazine is empty.</span>"
+
+/obj/item/weapon/gun/launcher/crossbow/vaurca/proc/load(obj/item/W, mob/user)
+	if(belt.len >= belt_size)
+		user << "<span class='warning'>[src] is full.</span>"
+		return
+	user.remove_from_mob(W)
+	W.forceMove(src)
+	belt.Insert(1, W) //add to the head of the list, so that it is loaded on the next pump
+	user.visible_message("[user] inserts \a [W] into [src].", "<span class='notice'>You insert \a [W] into [src].</span>")
+
+/obj/item/weapon/gun/launcher/crossbow/vaurca/proc/unload(mob/user)
+	if(belt.len)
+		var/obj/item/weapon/arrow/rod/R = belt[belt.len]
+		belt.len--
+		user.put_in_hands(R)
+		user.visible_message("[user] removes \a [R] from [src].", "<span class='notice'>You remove \a [R] from [src].</span>")
+	else
+		user << "<span class='warning'>[src] is empty.</span>"
+
+/obj/item/weapon/gun/launcher/crossbow/vaurca/attackby(obj/item/I, mob/user)
+	if(istype(I, /obj/item/weapon/arrow))
+		load(I, user)
+	if(istype(I, /obj/item/stack/rods))
+		var/obj/item/stack/rods/R = I
+		if (R.use(1))
+			var/obj/item/weapon/arrow/rod/ROD = new /obj/item/weapon/arrow/rod(src)
+			load(ROD, user)
+	else
+		..()
+
+/obj/item/weapon/gun/launcher/crossbow/vaurca/attack_hand(mob/user)
+	if(user.get_inactive_hand() == src)
+		unload(user)
+	else
+		..()
+
+/obj/item/weapon/gun/launcher/crossbow/vaurca/superheat_rod(mob/user)
+	if(!user || !bolt) return
+	if(bolt.throwforce >= 25) return
+	if(!istype(bolt,/obj/item/weapon/arrow/rod)) return
+
+	bolt.throwforce = 25
+	bolt.icon_state = "metal-rod-superheated"
+
+/obj/item/weapon/gun/launcher/crossbow/vaurca/update_icon()
+	return

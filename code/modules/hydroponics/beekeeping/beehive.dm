@@ -38,12 +38,12 @@
 		user << "The lid is open. The bees can't grow and produce honey until it's closed!"
 
 /obj/machinery/beehive/attackby(var/obj/item/I, var/mob/user)
-	if(iscrowbar(I))
+	if(I.iscrowbar())
 		closed = !closed
 		user.visible_message("<span class='notice'>[user] [closed ? "closes" : "opens"] \the [src].</span>", "<span class='notice'>You [closed ? "close" : "open"] \the [src].</span>")
 		update_icon()
 		return
-	else if(iswrench(I))
+	else if(I.iswrench())
 		anchored = !anchored
 		user.visible_message("<span class='notice'>[user] [anchored ? "wrenches" : "unwrenches"] \the [src].</span>", "<span class='notice'>You [anchored ? "wrench" : "unwrench"] \the [src].</span>")
 		if (!smoked && !anchored && (bee_count > 10))
@@ -64,7 +64,6 @@
 		++frames
 		user.visible_message("<span class='notice'>[user] loads \the [I] into \the [src].</span>", "<span class='notice'>You load \the [I] into \the [src].</span>")
 		update_icon()
-		user.drop_from_inventory(I)
 		qdel(I)
 		return
 	else if(istype(I, /obj/item/bee_pack))
@@ -103,7 +102,7 @@
 		if(smoked)
 			user << "The hive is smoked."
 		return 1
-	else if(isscrewdriver(I))
+	else if(I.isscrewdriver())
 		if(bee_count)
 			visible_message("<span class='danger'>The bees are furious you're trying to destroy their home!</span>")
 			release_bees(1, 30)
@@ -270,7 +269,6 @@
 	if(do_after(user, 30))
 		user.visible_message("<span class='notice'>[user] constructs a beehive.</span>", "<span class='notice'>You construct a beehive.</span>")
 		new /obj/machinery/beehive(get_turf(user))
-		user.drop_from_inventory(src)
 		qdel(src)
 	return
 

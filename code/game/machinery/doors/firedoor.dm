@@ -40,6 +40,9 @@
 	power_channel = ENVIRON
 	use_power = 1
 	idle_power_usage = 5
+	dir = SOUTH
+
+	var/enable_smart_generation = TRUE
 
 	var/list/tile_info[4]
 	var/list/dir_alerts[4] // 4 dirs, bitflags
@@ -50,7 +53,11 @@
 		"cold"
 	)
 
-/obj/machinery/door/firedoor/Initialize()
+	var/door_directions = 0
+	var/noair_directions = 0
+	var/diffarea_directions = 0
+
+/obj/machinery/door/firedoor/Initialize(var/mapload)
 	. = ..()
 	for(var/obj/machinery/door/firedoor/F in loc)
 		if(F != src)
@@ -62,11 +69,55 @@
 	A.all_doors.Add(src)
 	areas_added = list(A)
 
+	if(!mapload)
+		enable_smart_generation = 0
+
 	for(var/direction in cardinal)
-		A = get_area(get_step(src,direction))
+
+		var/turf/T = get_step(src,direction)
+
+		if(enable_smart_generation)
+			if(locate(src.type) in T)
+				door_directions |= direction
+
+			if(T.oxygen <= 0)
+				noair_directions |= direction
+
+			if(get_area(src.loc) != get_area(T))
+				diffarea_directions |= direction
+
+		A = get_area(T)
 		if(istype(A) && !(A in areas_added))
 			A.all_doors.Add(src)
 			areas_added += A
+
+	if(enable_smart_generation)
+
+		var/turf/T = get_turf(src)
+		if(locate(/obj/structure/grille,T))
+			hashatch = 0
+
+		if(locate(/obj/machinery/door/airlock,T))
+			dir = SOUTH
+		else
+			if(door_directions & (EAST | WEST))
+				if(noair_directions & NORTH)
+					dir = SOUTH
+				else if(noair_directions & SOUTH)
+					dir = NORTH
+				else if(diffarea_directions & NORTH)
+					dir = NORTH
+				else if(diffarea_directions & SOUTH)
+					dir = SOUTH
+			else if(door_directions & (NORTH | SOUTH) )
+				if(noair_directions & EAST)
+					dir = WEST
+				else if(noair_directions & WEST)
+					dir = EAST
+				else if(diffarea_directions & EAST)
+					dir = EAST
+				else if(diffarea_directions & WEST)
+					dir = WEST
 
 	if (!density)
 		cut_overlay(hatch_image)	// Parent call adds this, but we don't want it just yet.
@@ -159,14 +210,23 @@
 	for(var/area/A in areas_added)		//Checks if there are fire alarms in any areas associated with that firedoor
 		if(A.fire || A.air_doors_activated)
 			alarmed = 1
-/*
-	var/answer = alert(user, "Would you like to [density ? "open" : "close"] this [src.name]?[ alarmed && density ? "\nNote that by doing so, you acknowledge any damages from opening this\n[src.name] as being your own fault, and you will be held accountable under the law." : ""]",\
-	"\The [src]", "Yes, [density ? "open" : "close"]", "No")
-	if(answer == "No")
-		return*/
 	if(user.incapacitated() || (get_dist(src, user) > 1  && !issilicon(user)))
 		user << "Sorry, you must remain able bodied and close to \the [src] in order to use it."
 		return
+
+	if(ishuman(user))
+		var/mob/living/carbon/human/H = user
+
+		if(H.species.can_shred(H))
+
+			if(src.density)
+				visible_message("<span class='danger'>\The [H] forces \the [src] open!</span>")
+				open(1)
+			else
+				visible_message("<span class='danger'>\The [H] forces \the [src] closed!</span>")
+				close(1)
+			return
+
 	if(density && (stat & (BROKEN|NOPOWER))) //can still close without power
 		user << "\The [src] is not functioning, you'll have to force it open manually."
 		return
@@ -209,7 +269,7 @@
 	add_fingerprint(user)
 	if(operating)
 		return//Already doing something.
-	if(iswelder(C) && !repairing)
+	if(C.iswelder() && !repairing)
 		var/obj/item/weapon/weldingtool/W = C
 		if(W.remove_fuel(0, user))
 			blocked = !blocked
@@ -220,14 +280,14 @@
 			update_icon()
 			return
 
-	if(density && isscrewdriver(C))
+	if(density && C.isscrewdriver())
 		hatch_open = !hatch_open
 		user.visible_message("<span class='danger'>[user] has [hatch_open ? "opened" : "closed"] \the [src] maintenance panel.</span>",
 									"You have [hatch_open ? "opened" : "closed"] the [src] maintenance panel.")
 		update_icon()
 		return
 
-	if(blocked && iscrowbar(C) && !repairing)
+	if(blocked && C.iscrowbar() && !repairing)
 		if(!hatch_open)
 			user << "<span class='danger'>You must open the maintenance panel first!</span>"
 		else
@@ -256,11 +316,11 @@
 		user << "<span class='danger'>\The [src] is welded shut!</span>"
 		return
 
-	if(iscrowbar(C) || istype(C,/obj/item/weapon/material/twohanded/fireaxe) || (istype(C, /obj/item/weapon/melee/hammer)))
+	if(C.iscrowbar() || istype(C,/obj/item/weapon/material/twohanded/fireaxe) || (istype(C, /obj/item/weapon/melee/hammer)))
 		if(operating)
 			return
 
-		if(blocked && iscrowbar(C))
+		if(blocked && C.iscrowbar())
 			user.visible_message("<span class='danger'>\The [user] pries at \the [src] with \a [C], but \the [src] is welded in place!</span>",\
 			"You try to pry \the [src] [density ? "open" : "closed"], but it is welded in place!",\
 			"You hear someone struggle and metal straining.")
@@ -275,7 +335,7 @@
 				"You start forcing \the [src] [density ? "open" : "closed"] with \the [C]!",\
 				"You hear metal strain.")
 		if(do_after(user,30))
-			if(iscrowbar(C) || (istype(C, /obj/item/weapon/melee/hammer)))
+			if(C.iscrowbar() || (istype(C, /obj/item/weapon/melee/hammer)))
 				if(stat & (BROKEN|NOPOWER) || !density)
 					user.visible_message("<span class='danger'>\The [user] forces \the [src] [density ? "open" : "closed"] with \a [C]!</span>",\
 					"You force \the [src] [density ? "open" : "closed"] with \the [C]!",\
@@ -397,6 +457,10 @@
 			do_set_light = 1
 		if(dir_alerts)
 			for (var/d = 1; d <= 4; d++)
+				//1 = NORTH
+				//2 = SOUTH
+				//3 = EAST
+				//4 = WEST
 				var/cdir = cardinal[d]
 				if (!dir_alerts[d])
 					continue
@@ -466,3 +530,5 @@
 /obj/machinery/door/firedoor/multi_tile
 	icon = 'icons/obj/doors/DoorHazard2x1.dmi'
 	width = 2
+	dir = EAST
+	enable_smart_generation = FALSE

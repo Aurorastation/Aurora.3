@@ -13,7 +13,7 @@
 	var/scanning = 0
 
 /obj/machinery/computer/diseasesplicer/attackby(var/obj/I as obj, var/mob/user as mob)
-	if(isscrewdriver(I))
+	if(I.isscrewdriver())
 		return ..(I,user)
 
 	if(istype(I,/obj/item/weapon/virusdish))
@@ -23,8 +23,7 @@
 			return
 
 		dish = I
-		c.drop_item()
-		I.loc = src
+		c.drop_from_inventory(I,src)
 
 	if(istype(I,/obj/item/weapon/diseasedisk))
 		user << "You upload the contents of the disk onto the buffer."
@@ -104,20 +103,12 @@
 		if(!burning)
 			var/obj/item/weapon/diseasedisk/d = new /obj/item/weapon/diseasedisk(src.loc)
 			d.analysed = analysed
-			if(analysed)
-				if (memorybank)
-					d.name = "[memorybank.effect.name] GNA disk (Stage: [memorybank.effect.stage])"
-					d.effect = memorybank
-				else if (species_buffer)
-					d.name = "[jointext(species_buffer, ", ")] GNA disk"
-					d.species = species_buffer
-			else
-				if (memorybank)
-					d.name = "Unknown GNA disk (Stage: [memorybank.effect.stage])"
-					d.effect = memorybank
-				else if (species_buffer)
-					d.name = "Unknown Species GNA disk"
-					d.species = species_buffer
+			if (memorybank)
+				d.name = "[analysed ? memorybank.effect.name : "Unknown"] GNA disk (Stage: [memorybank.effect.stage])"
+				d.effect = memorybank
+			else if (species_buffer)
+				d.name = "[analysed ? jointext(species_buffer, ", ") : "Unknown"] GNA disk"
+				d.species = species_buffer
 
 			ping("\The [src] pings, \"Backup disk saved.\"")
 			SSnanoui.update_uis(src)
@@ -155,7 +146,7 @@
 
 	if(href_list["eject"])
 		if (dish)
-			dish.loc = src.loc
+			dish.forceMove(src.loc)
 			dish = null
 		return 1
 

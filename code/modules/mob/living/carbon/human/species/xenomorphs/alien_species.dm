@@ -37,6 +37,8 @@
 	sprint_speed_factor = 2
 	sprint_cost_factor = 0.80
 	stamina_recovery = 5
+	natural_climbing = 1
+	climb_coeff = 0.1
 
 	virus_immune = 1
 
@@ -83,6 +85,12 @@
 	bump_flag = ALIEN
 	swap_flags = ~HEAVY
 	push_flags = (~HEAVY) ^ ROBOT
+
+	move_trail = /obj/effect/decal/cleanable/blood/tracks/claw
+
+	max_nutrition_factor = -1
+
+	max_hydration_factor = -1
 
 	var/alien_number = 0
 	var/caste_name = "creature" // Used to update alien name.
@@ -336,6 +344,7 @@
 	has_resist =    1
 	has_pressure =  0
 	has_nutrition = 0
+	has_hydration = 0
 	has_bodytemp =  0
 	has_internals = 0
 

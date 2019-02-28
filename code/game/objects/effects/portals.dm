@@ -1,6 +1,6 @@
 /obj/effect/portal
 	name = "portal"
-	desc = "Looks unstable. Best to test it with the clown."
+	desc = "Looks unstable. Best to test it carefully."
 	icon = 'icons/obj/stationobjs.dmi'
 	icon_state = "portal"
 	density = 1

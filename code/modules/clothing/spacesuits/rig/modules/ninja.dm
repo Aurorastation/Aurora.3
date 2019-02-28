@@ -46,7 +46,7 @@
 
 	anim(get_turf(H), H, 'icons/effects/effects.dmi', "electricity",null,20,null)
 
-	H.visible_message("[H.name] vanishes into thin air!",1)
+	H.visible_message("<span class='notice'>[H] vanishes into thin air!</span>", "<span class='notice'>You vanish into thin air!</span>")
 
 /obj/item/rig_module/stealth_field/deactivate()
 
@@ -68,8 +68,8 @@
 
 /obj/item/rig_module/teleporter
 
-	name = "teleportation module"
-	desc = "A complex, sleek-looking, hardsuit-integrated teleportation module."
+	name = "bluespace teleportation module"
+	desc = "A complex, sleek-looking, hardsuit-integrated teleportation module that exploits bluespace energy to phase from one location to another instantaneously."
 	icon_state = "teleporter"
 	use_power_cost = 40
 	redundant = 1
@@ -78,7 +78,7 @@
 
 	engage_string = "Emergency Leap"
 
-	interface_name = "VOID-shift phase projector"
+	interface_name = "VOID-shift bluespace phase projector"
 	interface_desc = "An advanced teleportation system. It is capable of pinpoint precision or random leaps forward."
 
 /obj/item/rig_module/teleporter/proc/phase_in(var/mob/M,var/turf/T)
@@ -132,13 +132,16 @@
 		return 0
 
 	phase_out(H,get_turf(H))
-	H.forceMove(T)
+	do_teleport(H,T)
 	phase_in(H,get_turf(H))
+
+	if(T != get_turf(H))
+		to_chat(H,span("warning","Something interferes with your [src]!"))
 
 	for(var/obj/item/weapon/grab/G in H.contents)
 		if(G.affecting)
 			phase_out(G.affecting,get_turf(G.affecting))
-			G.affecting.forceMove(locate(T.x+rand(-1,1),T.y+rand(-1,1),T.z))
+			do_teleport(G.affecting,locate(T.x+rand(-1,1),T.y+rand(-1,1),T.z))
 			phase_in(G.affecting,get_turf(G.affecting))
 
 	return 1
@@ -269,50 +272,13 @@
 /obj/item/rig_module/emergency_powergenerator/proc/reset_cooldown()
 	cooldown = 0
 
-/obj/item/rig_module/emag_hand
-	name = "EMAG integrated hand"
-	desc = "A complex uprade that allows the user to touch things with their hand and apply an EMAG effect. High power cost."
+/obj/item/rig_module/device/emag_hand
+	name = "integrated cryptographic sequencer"
+	desc = "A complex uprade that allows the user to apply an EMAG effect to certain objects. High power cost."
 	use_power_cost = 100
-	usable = 0
-	toggleable = 1
-	activates_on_touch = 1
-	disruptive = 0
-
-	activate_string = "Enable EMAG"
-	deactivate_string = "Disable EMAG"
-
-	interface_name = "enable EMAG"
-	interface_desc = "A complex uprade that allows the user to touch things with their hand and apply an EMAG effect. High power cost."
-	var/atom/interfaced_with
 	module_cooldown = 4800
 
-/obj/item/rig_module/emag_hand/activate()
-	if(!..())
-		return
+	interface_name = "integrated cryptographic sequencer"
+	interface_desc = "A complex uprade that allows the user to apply an EMAG effect to certain objects. High power cost."
 
-/obj/item/rig_module/emag_hand/deactivate()
-	if(!..())
-		return
-
-/obj/item/rig_module/emag_hand/engage(atom/target)
-
-	if(!..())
-		return 0
-
-	if(interfaced_with)
-		return 0
-
-	if(!target)
-		return 1
-
-	if(!target.Adjacent(holder.wearer))
-		return 0
-
-	holder.wearer << "<span class = 'danger'>You stick your hand on [target] shorting out some of its circuits!</span>"
-	interfaced_with = target
-	target.emag_act(user, src)
-	addtimer(CALLBACK(src, /obj/item/rig_module/emag_hand/proc/reset_interface, 2))
-	return 1
-
-/obj/item/rig_module/emag_hand/proc/reset_interface()
-	interfaced_with = null
+	device_type = /obj/item/weapon/robot_emag

@@ -20,7 +20,7 @@
 /obj/effect/temp_visual/singularity_pull()
 	return
 
-/obj/effect/temp_visual/ex_act()
+/obj/effect/temp_visual/ex_act(var/severity = 2.0)
 	return
 
 /obj/effect/temp_visual/dir_setting

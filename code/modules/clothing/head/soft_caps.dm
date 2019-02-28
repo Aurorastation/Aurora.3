@@ -8,7 +8,6 @@
 		)
 	var/flipped = 0
 	siemens_coefficient = 0.9
-	body_parts_covered = 0
 
 /obj/item/clothing/head/soft/dropped()
 	src.icon_state = initial(icon_state)
@@ -79,3 +78,9 @@
 	name = "corporate security cap"
 	desc = "It's field cap in corporate colors."
 	icon_state = "corpsoft"
+
+
+/obj/item/clothing/head/soft/iacberet
+	name = "IAC soft cap"
+	desc = "It's field cap in IAC colors."
+	icon_state = "iachat"

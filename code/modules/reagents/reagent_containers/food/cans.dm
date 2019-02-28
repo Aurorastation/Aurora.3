@@ -135,3 +135,123 @@
 	. = ..()
 	reagents.add_reagent("koispasteclean", 10)
 	reagents.add_reagent("phoron", 5)
+
+/obj/item/weapon/reagent_containers/food/drinks/cans/root_beer
+	name = "\improper R&D Root Beer"
+	desc = "A classic Earth drink from the United Americas province."
+	icon_state = "root_beer"
+	center_of_mass = list("x"=16, "y"=10)
+
+/obj/item/weapon/reagent_containers/food/drinks/cans/root_beer/Initialize()
+	. = ..()
+	reagents.add_reagent("root_beer", 30)
+
+//zoda
+
+/obj/item/weapon/reagent_containers/food/drinks/cans/zorasoda
+	name = "\improper Zo'ra Soda Cherry"
+	desc = "A can of cherry energy drink, with V'krexi additives. All good colas come in cherry."
+	icon_state = "zoracherry"
+	center_of_mass = list("x"=16, "y"=10)
+
+/obj/item/weapon/reagent_containers/food/drinks/cans/zorasoda/Initialize()
+	. = ..()
+	reagents.add_reagent("zora_cherry", 20)
+	reagents.add_reagent("vaam", 15)
+
+/obj/item/weapon/reagent_containers/food/drinks/cans/zorakois
+	name = "\improper Zo'ra Soda Kois Twist"
+	desc = "A can of K'ois flavored energy drink, with V'krexi additives. Contains no K'ois, probably contains no palatable flavor."
+	icon_state = "koistwist"
+	center_of_mass = list("x"=16, "y"=10)
+
+/obj/item/weapon/reagent_containers/food/drinks/cans/zorakois/Initialize()
+	. = ..()
+	reagents.add_reagent("zora_kois", 20)
+	reagents.add_reagent("vaam", 15)
+
+/obj/item/weapon/reagent_containers/food/drinks/cans/zoraphoron
+	name = "\improper Zo'ra Soda Phoron Passion"
+	desc = "A can of grape flavored energy drink, with V'krexi additives. Tastes nothing like phoron according to Unbound taste testers."
+	icon_state = "phoronpassion"
+	center_of_mass = list("x"=16, "y"=10)
+
+/obj/item/weapon/reagent_containers/food/drinks/cans/zoraphoron/Initialize()
+	. = ..()
+	reagents.add_reagent("zora_phoron", 20)
+	reagents.add_reagent("vaam", 15)
+
+/obj/item/weapon/reagent_containers/food/drinks/cans/zorahozm
+	name = "\improper High Octane Zorane Might"
+	desc = "A can of fizzy, acidic energy, with plenty V'krexi additives. It tastes like the bottom of your mouth is being impaled by a freezing cold spear, a spear laced with bees and salt."
+	icon_state = "hozm"
+	center_of_mass = list("x"=16, "y"=10)
+
+/obj/item/weapon/reagent_containers/food/drinks/cans/zorahozm/Initialize()
+	. = ..()
+	reagents.add_reagent("zora_hozm", 20)
+	reagents.add_reagent("vaam", 15)
+
+/obj/item/weapon/reagent_containers/food/drinks/cans/zoravenom
+	name = "\improper Zo'ra Soda Sour Venom Grass (Diet!)"
+	desc = "A diet can of Venom Grass flavored energy drink, with V'krexi additives. It still tastes like a cloud of stinging polytrinic bees, but calories are nowhere to be found."
+	icon_state = "sourvenomgrass"
+	center_of_mass = list("x"=16, "y"=10)
+
+/obj/item/weapon/reagent_containers/food/drinks/cans/zoravenom/Initialize()
+	. = ..()
+	reagents.add_reagent("zora_venom", 20)
+	reagents.add_reagent("vaam", 15)
+
+/obj/item/weapon/reagent_containers/food/drinks/cans/zoraklax
+	name = "\improper Klaxan Energy Crush"
+	desc = "A can of orange cream flavored energy drink, with V'krexi additives. Engineered nearly to perfection."
+	icon_state = "klaxancrush"
+	center_of_mass = list("x"=16, "y"=10)
+
+/obj/item/weapon/reagent_containers/food/drinks/cans/zoraklax/Initialize()
+	. = ..()
+	reagents.add_reagent("zora_klax", 20)
+	reagents.add_reagent("vaam", 15)
+
+/obj/item/weapon/reagent_containers/food/drinks/cans/zoracthur
+	name = "\improper C'thur Rockin' Raspberry"
+	desc = "A can of blue raspberry flavored energy drink, with V'krexi additives. You're pretty sure this was shipped by mistake, the previous K'laxan Energy Crush wrapper is still partly visible underneath the current one."
+	icon_state = "cthurberry"
+	center_of_mass = list("x"=16, "y"=10)
+
+/obj/item/weapon/reagent_containers/food/drinks/cans/zoracthur/Initialize()
+	. = ..()
+	reagents.add_reagent("zora_cthur", 20)
+	reagents.add_reagent("vaam", 15)
+
+/obj/item/weapon/reagent_containers/food/drinks/cans/zoradrone
+	name = "\improper Drone Fuel"
+	desc = "A can of some kind of industrial fluid flavored energy drink, with V'krexi additives meant for Vaurca. <span class='warning'>Known to induce vomiting in humans!</span>."
+	icon_state = "dronefuel"
+	center_of_mass = list("x"=16, "y"=10)
+
+/obj/item/weapon/reagent_containers/food/drinks/cans/zoradrone/Initialize()
+	. = ..()
+	reagents.add_reagent("zora_drone", 30)
+	reagents.add_reagent("vaam", 10)
+
+/obj/item/weapon/reagent_containers/food/drinks/cans/zorajelly
+	name = "\improper Royal Jelly"
+	desc = "A can of... You aren't sure, but it smells pleasant already."
+	icon_state = "royaljelly"
+	center_of_mass = list("x"=16, "y"=10)
+
+/obj/item/weapon/reagent_containers/food/drinks/cans/zorajelly/Initialize()
+	. = ..()
+	reagents.add_reagent("zora_jelly", 30)
+
+/obj/item/weapon/reagent_containers/food/drinks/cans/adhomai_milk
+	name = "fermented fatshouters milk"
+	desc = "A can of fermented fatshouters milk, imported from Adhomai."
+	icon_state = "milk_can"
+	center_of_mass = list("x"=16, "y"=10)
+
+/obj/item/weapon/reagent_containers/food/drinks/cans/adhomai_milk/Initialize()
+	. = ..()
+	reagents.add_reagent("adhomai_milk", 30)

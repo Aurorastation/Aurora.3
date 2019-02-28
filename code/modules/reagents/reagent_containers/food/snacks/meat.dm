@@ -56,7 +56,7 @@
 	desc = "Tastes like... well, you know."
 
 /obj/item/weapon/reagent_containers/food/snacks/meat/chicken
-	name = "chicken"
+	name = "chicken meat"
 	icon_state = "chickenbreast"
 	cooked_icon = "chickenbreast_cooked"
 	filling_color = "#BBBBAA"
@@ -81,12 +81,34 @@
 	name = "rotten meat"
 	desc = "A slab of rotten meat."
 	icon_state = "shadowmeat"
-	health = 180
-	filling_color = "#FF1C1C"
 
 /obj/item/weapon/reagent_containers/food/snacks/meat/undead/Initialize()
 	. = ..()
 	reagents.add_reagent("protein", 6)
 	reagents.add_reagent("undead_ichor", 5)
 
+/obj/item/weapon/reagent_containers/food/snacks/meat/adhomai
+	name = "snow strider meat"
+	desc = "A slab of nav'twir's meat, an animal native from Adhomai."
+	icon_state = "adhomai_meat"
 
+/obj/item/weapon/reagent_containers/food/snacks/meat/mice
+	name = "mice meat"
+	icon_state = "chickenbreast"
+	desc = "You have reached the epitome of poorness: eating the station's vermin."
+
+
+/obj/item/weapon/reagent_containers/food/snacks/meat/mice/Initialize()
+	. = ..()
+	reagents.add_reagent("protein", 5)
+	reagents.add_reagent("rattoxin", 1)
+	src.bitesize = 1.5
+
+/obj/item/weapon/reagent_containers/food/snacks/meat/dionanymph
+	name = "diona nymph meat"
+	desc = "A slab of weird green meat."
+	icon_state = "plantmeat"
+
+/obj/item/weapon/reagent_containers/food/snacks/meat/dionanymph/Initialize()
+	. = ..()
+	reagents.add_reagent("protein", 6)

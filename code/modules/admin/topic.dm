@@ -282,9 +282,9 @@
 			if("observer")			M.change_mob_type( /mob/abstract/observer , null, null, delmob )
 			if("larva")				M.change_mob_type( /mob/living/carbon/alien/larva , null, null, delmob )
 			if("nymph")				M.change_mob_type( /mob/living/carbon/alien/diona , null, null, delmob )
-			if("human")				M.change_mob_type( /mob/living/carbon/human , null, null, delmob, href_list["species"])
+			if("human")				spawn_humanoid_species_admin(usr, M, delmob)
 			if("slime")				M.change_mob_type( /mob/living/carbon/slime , null, null, delmob )
-			if("monkey")			M.change_mob_type( /mob/living/carbon/human/monkey , null, null, delmob )
+			if("ai")				M.change_mob_type( /mob/living/silicon/ai , null, null, delmob )
 			if("robot")				M.change_mob_type( /mob/living/silicon/robot , null, null, delmob )
 			if("cat")				M.change_mob_type( /mob/living/simple_animal/cat , null, null, delmob )
 			if("runtime")			M.change_mob_type( /mob/living/simple_animal/cat/fluff/Runtime , null, null, delmob )
@@ -552,9 +552,9 @@
 		master_mode = href_list["c_mode2"]
 		log_admin("[key_name(usr)] set the mode as [master_mode].",admin_key=key_name(usr))
 		message_admins("<span class='notice'>[key_name_admin(usr)] set the mode as [master_mode].</span>", 1)
-		world << "<span class='notice'><b>The mode is now: [master_mode]</b></span>"
+		to_world("<span class='notice'><b>The mode is now: [master_mode]</b></span>")
 		Game() // updates the main game menu
-		world.save_mode(master_mode)
+		SSpersist_config.last_gamemode = master_mode
 		.(href, list("c_mode"=1))
 
 	else if(href_list["f_secret2"])
@@ -639,7 +639,7 @@
 		sleep(5)
 		if(!M)	return
 
-		M.loc = prison_cell
+		M.forceMove(prison_cell)
 		if(istype(M, /mob/living/carbon/human))
 			var/mob/living/carbon/human/prisoner = M
 			prisoner.equip_to_slot_or_del(new /obj/item/clothing/under/color/orange(prisoner), slot_w_uniform)
@@ -668,7 +668,7 @@
 
 		M.Paralyse(5)
 		sleep(5)
-		M.loc = pick(tdome1)
+		M.forceMove(pick(tdome1))
 		spawn(50)
 			M << "<span class='notice'>You have been sent to the Thunderdome.</span>"
 		log_admin("[key_name(usr)] has sent [key_name(M)] to the thunderdome. (Team 1)",admin_key=key_name(usr),ckey=key_name(M))
@@ -693,7 +693,7 @@
 
 		M.Paralyse(5)
 		sleep(5)
-		M.loc = pick(tdome2)
+		M.forceMove(pick(tdome2))
 		spawn(50)
 			M << "<span class='notice'>You have been sent to the Thunderdome.</span>"
 		log_admin("[key_name(usr)] has sent [key_name(M)] to the thunderdome. (Team 2)",admin_key=key_name(usr),ckey=key_name(M))
@@ -715,7 +715,7 @@
 
 		M.Paralyse(5)
 		sleep(5)
-		M.loc = pick(tdomeadmin)
+		M.forceMove(pick(tdomeadmin))
 		spawn(50)
 			M << "<span class='notice'>You have been sent to the Thunderdome.</span>"
 		log_admin("[key_name(usr)] has sent [key_name(M)] to the thunderdome. (Admin.)",admin_key=key_name(usr),ckey=key_name(M))
@@ -744,7 +744,7 @@
 			observer.equip_to_slot_or_del(new /obj/item/clothing/shoes/black(observer), slot_shoes)
 		M.Paralyse(5)
 		sleep(5)
-		M.loc = pick(tdomeobserve)
+		M.forceMove(pick(tdomeobserve))
 		spawn(50)
 			M << "<span class='notice'>You have been sent to the Thunderdome.</span>"
 		log_admin("[key_name(usr)] has sent [key_name(M)] to the thunderdome. (Observer.)",admin_key=key_name(usr),ckey=key_name(M))
@@ -852,7 +852,7 @@
 	else if(href_list["take_ticket"])
 		var/datum/ticket/ticket = locate(href_list["take_ticket"])
 
-		if(isnull(ticket))
+		if(!istype(ticket))
 			return
 
 		ticket.take(usr.client)
@@ -870,6 +870,7 @@
 		var/special_role_description = ""
 		var/health_description = ""
 		var/gender_description = ""
+		var/species_description = "N/A"
 		var/turf/T = get_turf(M)
 
 		//Location
@@ -898,13 +899,19 @@
 		else
 			health_description = "This mob type has no health to speak of."
 
-		//Gener
+		//Species
+		if (ishuman(M))
+			var/mob/living/carbon/human/H = M
+			if (H.species)
+				species_description = "<b>[H.species.name]</b>"
+
+		//GenDer
 		switch(M.gender)
 			if(MALE,FEMALE)	gender_description = "[M.gender]"
 			else			gender_description = "<font color='red'><b>[M.gender]</b></font>"
 
 		src.owner << "<b>Info about [M.name]:</b> "
-		src.owner << "Mob type = [M.type]; Gender = [gender_description] Damage = [health_description]"
+		src.owner << "Mob type = [M.type]; Species = [species_description] Gender = [gender_description] Damage = [health_description]"
 		src.owner << "Name = <b>[M.name]</b>; Real_name = [M.real_name]; Mind_name = [M.mind?"[M.mind.name]":""]; Key = <b>[M.key]</b>;"
 		src.owner << "Location = [location_description];"
 		src.owner << "[special_role_description]"
@@ -1158,10 +1165,6 @@
 		if(!check_rights(R_SPAWN))	return
 		return create_object(usr)
 
-	else if(href_list["quick_create_object"])
-		if(!check_rights(R_SPAWN))	return
-		return quick_create_object(usr)
-
 	else if(href_list["create_turf"])
 		if(!check_rights(R_SPAWN))	return
 		return create_turf(usr)
@@ -1305,7 +1308,8 @@
 
 	else if(href_list["ac_submit_new_channel"])
 		var/check = 0
-		for(var/datum/feed_channel/FC in news_network.network_channels)
+		for(var/channel in SSnews.network_channels)
+			var/datum/feed_channel/FC = SSnews.GetFeedChannel(channel)
 			if(FC.channel_name == src.admincaster_feed_channel.channel_name)
 				check = 1
 				break
@@ -1314,7 +1318,7 @@
 		else
 			var/choice = alert("Please confirm Feed channel creation","Network Channel Handler","Confirm","Cancel")
 			if(choice=="Confirm")
-				news_network.CreateFeedChannel(admincaster_feed_channel.channel_name, admincaster_signature, admincaster_feed_channel.locked, 1)
+				SSnews.CreateFeedChannel(admincaster_feed_channel.channel_name, admincaster_signature, admincaster_feed_channel.locked, 1)
 				feedback_inc("newscaster_channels",1)                  //Adding channel to the global network
 				log_admin("[key_name_admin(usr)] created command feed channel: [src.admincaster_feed_channel.channel_name]!",admin_key=key_name(usr))
 				src.admincaster_screen=5
@@ -1322,8 +1326,9 @@
 
 	else if(href_list["ac_set_channel_receiving"])
 		var/list/available_channels = list()
-		for(var/datum/feed_channel/F in news_network.network_channels)
-			available_channels += F.channel_name
+		for(var/channel in SSnews.network_channels)
+			var/datum/feed_channel/FC = SSnews.GetFeedChannel(channel)
+			available_channels += FC.channel_name
 		src.admincaster_feed_channel.channel_name = sanitizeSafe(input(usr, "Choose receiving Feed Channel", "Network Channel Handler") in available_channels )
 		src.access_news_network()
 
@@ -1336,7 +1341,8 @@
 			src.admincaster_screen = 6
 		else
 			feedback_inc("newscaster_stories",1)
-			news_network.SubmitArticle(src.admincaster_feed_message.body, src.admincaster_signature, src.admincaster_feed_channel.channel_name, null, 1)
+			var/datum/feed_channel/ch =  SSnews.GetFeedChannel(src.admincaster_feed_channel.channel_name)
+			SSnews.SubmitArticle(src.admincaster_feed_message.body, src.admincaster_signature, ch, null, 1)
 			src.admincaster_screen=4
 
 		log_admin("[key_name_admin(usr)] submitted a feed story to channel: [src.admincaster_feed_channel.channel_name]!",admin_key=key_name(usr))
@@ -1360,12 +1366,12 @@
 
 	else if(href_list["ac_menu_wanted"])
 		var/already_wanted = 0
-		if(news_network.wanted_issue)
+		if(SSnews.wanted_issue)
 			already_wanted = 1
 
 		if(already_wanted)
-			src.admincaster_feed_message.author = news_network.wanted_issue.author
-			src.admincaster_feed_message.body = news_network.wanted_issue.body
+			src.admincaster_feed_message.author = SSnews.wanted_issue.author
+			src.admincaster_feed_message.body = SSnews.wanted_issue.body
 		src.admincaster_screen = 14
 		src.access_news_network()
 
@@ -1390,15 +1396,15 @@
 					WANTED.body = src.admincaster_feed_message.body                   //Wanted desc
 					WANTED.backup_author = src.admincaster_signature                  //Submitted by
 					WANTED.is_admin_message = 1
-					news_network.wanted_issue = WANTED
+					SSnews.wanted_issue = WANTED
 					for(var/obj/machinery/newscaster/NEWSCASTER in allCasters)
 						NEWSCASTER.newsAlert()
 						NEWSCASTER.update_icon()
 					src.admincaster_screen = 15
 				else
-					news_network.wanted_issue.author = src.admincaster_feed_message.author
-					news_network.wanted_issue.body = src.admincaster_feed_message.body
-					news_network.wanted_issue.backup_author = src.admincaster_feed_message.backup_author
+					SSnews.wanted_issue.author = src.admincaster_feed_message.author
+					SSnews.wanted_issue.body = src.admincaster_feed_message.body
+					SSnews.wanted_issue.backup_author = src.admincaster_feed_message.backup_author
 					src.admincaster_screen = 19
 				log_admin("[key_name_admin(usr)] issued a Station-wide Wanted Notification for [src.admincaster_feed_message.author]!",admin_key=key_name(usr))
 		src.access_news_network()
@@ -1406,7 +1412,7 @@
 	else if(href_list["ac_cancel_wanted"])
 		var/choice = alert("Please confirm Wanted Issue removal","Network Security Handler","Confirm","Cancel")
 		if(choice=="Confirm")
-			news_network.wanted_issue = null
+			SSnews.wanted_issue = null
 			for(var/obj/machinery/newscaster/NEWSCASTER in allCasters)
 				NEWSCASTER.update_icon()
 			src.admincaster_screen=17
@@ -1480,6 +1486,66 @@
 
 	else if(href_list["ac_set_signature"])
 		src.admincaster_signature = sanitize(input(usr, "Provide your desired signature", "Network Identity Handler", ""))
+		src.access_news_network()
+
+	else if(href_list["ac_add_comment"])
+		var/com_msg = sanitize(input(usr, "Write your Comment", "Network Comment Handler", "") as message, encode = 0, trim = 0, extra = 0)
+		var/datum/feed_message/viewing_story = locate(href_list["ac_story"])
+		if(!istype(viewing_story))
+			return
+		var/datum/feed_comment/comment = new
+		comment.author = src.admincaster_signature
+		comment.message = com_msg
+		comment.posted = "[worldtime2text()]"
+		viewing_story.comments += comment
+		to_chat(usr, "Comment successfully added!")
+		src.admincaster_screen = 20
+		src.access_news_network()
+
+	else if(href_list["ac_view_comments"])
+		var/datum/feed_message/viewing_story = locate(href_list["ac_story"])
+		if(!istype(viewing_story))
+			return
+		src.admincaster_screen = 20
+		src.admincaster_viewing_message = viewing_story
+		src.access_news_network()
+
+	else if(href_list["ac_like"])
+		var/datum/feed_message/viewing_story = locate(href_list["ac_story"])
+		if((src.admincaster_signature in viewing_story.interacted) || !istype(viewing_story))
+			return
+		viewing_story.interacted += src.admincaster_signature
+		viewing_story.likes += 1
+		src.access_news_network()
+
+	else if(href_list["ac_dislike"])
+		var/datum/feed_message/viewing_story = locate(href_list["ac_story"])
+		if((src.admincaster_signature in viewing_story.interacted) || !istype(viewing_story))
+			return
+		viewing_story.interacted += src.admincaster_signature
+		viewing_story.dislikes += 1
+		src.access_news_network()
+
+	else if(href_list["ac_setlikes"])
+		var/datum/feed_message/viewing_story = locate(href_list["ac_story"])
+		if(!istype(viewing_story))
+			return
+		var/amount = input(usr, "Provide your desired number of likes", "Network Social Manager", "") as num
+		viewing_story.likes = amount
+		src.access_news_network()
+	else if(href_list["ac_setdislikes"])
+		var/datum/feed_message/viewing_story = locate(href_list["ac_story"])
+		if(!istype(viewing_story))
+			return
+		var/amount = input(usr, "Provide your desired number of dislikes", "Network Social Manager", "") as num
+		viewing_story.dislikes = amount
+		src.access_news_network()
+	else if(href_list["ac_censorcomment"])
+		var/datum/feed_comment/comment = locate(href_list["ac_comment"])
+		if(!istype(comment))
+			return
+		comment.message = "\[REDACTED\]"
+		src.admincaster_screen = 20
 		src.access_news_network()
 
 	else if(href_list["populate_inactive_customitems"])
@@ -1625,3 +1691,9 @@ mob/living/silicon/ai/can_centcom_reply()
 
 	. = "<A HREF='?[source];adminplayerobservejump=\ref[target]'>JMP</A>"
 	. += target.extra_admin_link(source)
+
+/proc/spawn_humanoid_species_admin(var/mob/user, var/mob/M, var/delmob)
+	var/input = input(user, "Select a species:") as null|anything in all_species
+	if(!input)
+		return
+	M.change_mob_type( /mob/living/carbon/human , null, null, delmob, input)

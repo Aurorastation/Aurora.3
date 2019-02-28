@@ -2,7 +2,7 @@
 	return
 
 /obj/item/device/soulstone
-	name = "Soul Stone Shard"
+	name = "soul stone shard"
 	icon = 'icons/obj/wizard.dmi'
 	icon_state = "soulstone"
 	item_state = "electronic"
@@ -11,6 +11,7 @@
 	slot_flags = SLOT_BELT
 	origin_tech = list(TECH_BLUESPACE = 4, TECH_MATERIAL = 4)
 	var/imprinted = "empty"
+	appearance_flags = NO_CLIENT_COLOR
 
 //////////////////////////////Capturing////////////////////////////////////////////////////////
 
@@ -88,6 +89,7 @@
 	return
 
 /obj/structure/constructshell/cult
+	appearance_flags = NO_CLIENT_COLOR
 	icon_state = "construct-cult"
 	desc = "This eerie contraption looks like it would come alive if supplied with a missing ingredient."
 
@@ -130,7 +132,7 @@
 	qdel(animation)
 
 	var/mob/living/simple_animal/shade/S = new /mob/living/simple_animal/shade( T.loc )
-	S.loc = src //put shade in stone
+	S.forceMove(src) //put shade in stone
 	S.status_flags |= GODMODE //So they won't die inside the stone somehow
 	S.canmove = 0//Can't move out of the soul stone
 	S.name = "Shade of [T.real_name]"
@@ -166,7 +168,7 @@
 		U << "<span class='danger'>Capture failed!</span>: The soul stone has already been imprinted with [src.imprinted]'s mind!"
 		return
 
-	T.loc = src //put shade in stone
+	T.forceMove(src) //put shade in stone
 	T.status_flags |= GODMODE
 	T.canmove = 0
 	T.health = T.maxHealth

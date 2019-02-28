@@ -29,7 +29,7 @@
 
 		if(0)
 			// State 0
-			if(iswrench(W) && isturf(src.loc))
+			if(W.iswrench() && isturf(src.loc))
 				playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
 				user << "You wrench the assembly into place."
 				anchored = 1
@@ -40,14 +40,14 @@
 
 		if(1)
 			// State 1
-			if(iswelder(W))
+			if(W.iswelder())
 				if(weld(W, user))
 					user << "You weld the assembly securely into place."
 					anchored = 1
 					state = 2
 				return
 
-			else if(iswrench(W))
+			else if(W.iswrench())
 				playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
 				user << "You unattach the assembly from its place."
 				anchored = 0
@@ -57,7 +57,7 @@
 
 		if(2)
 			// State 2
-			if(iscoil(W))
+			if(W.iscoil())
 				var/obj/item/stack/cable_coil/C = W
 				if(C.use(2))
 					user << "<span class='notice'>You add wires to the assembly.</span>"
@@ -66,7 +66,7 @@
 					user << "<span class='warning'>You need 2 coils of wire to wire the assembly.</span>"
 				return
 
-			else if(iswelder(W))
+			else if(W.iswelder())
 
 				if(weld(W, user))
 					user << "You unweld the assembly from its place."
@@ -77,7 +77,7 @@
 
 		if(3)
 			// State 3
-			if(isscrewdriver(W))
+			if(W.isscrewdriver())
 				playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, 1)
 
 				var/input = sanitize(input(usr, "Which networks would you like to connect this camera to? Separate networks with a comma. No Spaces!\nFor example: Station,Security,Secret", "Set Network", camera_network ? camera_network : NETWORK_STATION))
@@ -96,7 +96,7 @@
 
 				state = 4
 				var/obj/machinery/camera/C = new(src.loc)
-				src.loc = C
+				src.forceMove(C)
 				C.assembly = src
 
 				C.auto_turn()
@@ -115,7 +115,7 @@
 							break
 				return
 
-			else if(iswirecutter(W))
+			else if(W.iswirecutter())
 
 				new/obj/item/stack/cable_coil(get_turf(src), 2)
 				playsound(src.loc, 'sound/items/Wirecutter.ogg', 50, 1)
@@ -128,16 +128,16 @@
 		user << "You attach \the [W] into the assembly inner circuits."
 		upgrades += W
 		user.remove_from_mob(W)
-		W.loc = src
+		W.forceMove(src)
 		return
 
 	// Taking out upgrades
-	else if(iscrowbar(W) && upgrades.len)
+	else if(W.iscrowbar() && upgrades.len)
 		var/obj/U = locate(/obj) in upgrades
 		if(U)
 			user << "You unattach an upgrade from the assembly."
 			playsound(src.loc, 'sound/items/Crowbar.ogg', 50, 1)
-			U.loc = get_turf(src)
+			U.forceMove(get_turf(src))
 			upgrades -= U
 		return
 

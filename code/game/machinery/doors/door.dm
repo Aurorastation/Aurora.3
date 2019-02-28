@@ -43,7 +43,7 @@
 	var/image/hatch_image
 
 	//Multi-tile doors
-	dir = EAST
+	dir = SOUTH
 	var/width = 1
 
 	// turf animation
@@ -253,7 +253,20 @@
 	return src.attack_hand(user)
 
 /obj/machinery/door/attack_hand(mob/user as mob)
-	return src.attackby(user, user)
+	if(src.operating > 0 || isrobot(user))	return //borgs can't attack doors open because it conflicts with their AI-like interaction with them.
+
+	if(src.operating) return
+
+	if(src.allowed(user) && operable())
+		if(src.density)
+			open()
+		else
+			close()
+		return
+
+	if(src.density)
+		do_animate("deny")
+		return
 
 /obj/machinery/door/attack_tk(mob/user as mob)
 	if(requiresID() && !allowed(null))
@@ -287,7 +300,7 @@
 		else
 			repairing = stack.split(amount_needed)
 			if (repairing)
-				repairing.loc = src
+				repairing.forceMove(src)
 				transfer = repairing.amount
 
 		if (transfer)
@@ -295,7 +308,7 @@
 
 		return
 
-	if(repairing && iswelder(I))
+	if(repairing && I.iswelder())
 		if(!density)
 			user << "<span class='warning'>\The [src] must be closed before you can repair it.</span>"
 			return
@@ -312,10 +325,10 @@
 				repairing = null
 		return
 
-	if(repairing && iscrowbar(I))
+	if(repairing && I.iscrowbar())
 		user << "<span class='notice'>You remove \the [repairing].</span>"
 		playsound(src.loc, 'sound/items/Crowbar.ogg', 100, 1)
-		repairing.loc = user.loc
+		repairing.forceMove(user.loc)
 		repairing = null
 		return
 
@@ -540,6 +553,11 @@
 			source.thermal_conductivity = DOOR_HEAT_TRANSFER_COEFFICIENT
 		else
 			source.thermal_conductivity = initial(source.thermal_conductivity)
+
+/obj/machinery/door/proc/is_open(var/invert=0)
+	if(invert)
+		return src.density
+	return !src.density
 
 /obj/machinery/door/Move(new_loc, new_dir)
 	//update_nearby_tiles()

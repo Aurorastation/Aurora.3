@@ -26,16 +26,23 @@
 		/obj/item/weapon/gun/projectile/tanto                = TRADER_THIS_TYPE,
 		/obj/item/weapon/gun/projectile/revolver/detective   = TRADER_THIS_TYPE,
 		/obj/item/weapon/gun/projectile/revolver/deckard     = TRADER_THIS_TYPE,
+		/obj/item/weapon/gun/projectile/leyon                = TRADER_THIS_TYPE,
+		/obj/item/weapon/gun/projectile/automatic/x9         = TRADER_THIS_TYPE,
 		/obj/item/ammo_magazine/c45m                         = TRADER_ALL,
 		/obj/item/ammo_magazine/c45m/empty                   = TRADER_BLACKLIST,
-		/obj/item/ammo_magazine/shotgun                      = TRADER_ALL,
-		/obj/item/ammo_magazine/t40                          = TRADER_ALL,
-		/obj/item/ammo_magazine/t40/empty                    = TRADER_BLACKLIST,
+		/obj/item/ammo_magazine/mc10mm                       = TRADER_ALL,
+		/obj/item/ammo_magazine/mc10mm/leyon                 = TRADER_BLACKLIST,
+		/obj/item/ammo_magazine/mc10mm/empty                 = TRADER_BLACKLIST,
+		/obj/item/weapon/storage/box/ammo10mm                = TRADER_THIS_TYPE,
 		/obj/item/ammo_magazine/c38                          = TRADER_ALL,
+		/obj/item/ammo_magazine/c45x                         = TRADER_THIS_TYPE,
 		/obj/item/weapon/storage/box/beanbags                = TRADER_THIS_TYPE,
 		/obj/item/weapon/storage/box/shotgunammo             = TRADER_THIS_TYPE,
 		/obj/item/weapon/storage/box/shotgunshells           = TRADER_THIS_TYPE,
-		/obj/item/clothing/accessory/holster                 = TRADER_SUBTYPES_ONLY
+		/obj/item/weapon/storage/box/haywireshells           = TRADER_THIS_TYPE,
+		/obj/item/weapon/storage/box/incendiaryshells        = TRADER_THIS_TYPE,
+		/obj/item/clothing/accessory/holster                 = TRADER_SUBTYPES_ONLY,
+		/obj/item/clothing/accessory/holster/thigh/fluff     = TRADER_BLACKLIST_ALL
 	)
 
 /datum/trader/ship/egunshop
@@ -58,16 +65,17 @@
 	)
 
 	possible_trading_items = list(
-		/obj/item/weapon/gun/energy/taser         = TRADER_THIS_TYPE,
-		/obj/item/weapon/gun/energy/stunrevolver  = TRADER_THIS_TYPE,
-		/obj/item/weapon/gun/energy/xray          = TRADER_THIS_TYPE,
-		/obj/item/weapon/gun/energy/rifle         = TRADER_THIS_TYPE,
-		/obj/item/weapon/gun/energy/rifle/laser   = TRADER_THIS_TYPE,
-		/obj/item/weapon/gun/energy/gun           = TRADER_THIS_TYPE,
-		/obj/item/weapon/gun/energy/pistol        = TRADER_THIS_TYPE,
-		/obj/item/weapon/gun/energy/gun/nuclear   = TRADER_THIS_TYPE,
-		/obj/item/weapon/gun/energy/laser/shotgun = TRADER_THIS_TYPE,
-		/obj/item/clothing/accessory/holster      = TRADER_ALL
+		/obj/item/weapon/gun/energy/taser                 = TRADER_THIS_TYPE,
+		/obj/item/weapon/gun/energy/stunrevolver          = TRADER_THIS_TYPE,
+		/obj/item/weapon/gun/energy/xray                  = TRADER_THIS_TYPE,
+		/obj/item/weapon/gun/energy/rifle                 = TRADER_THIS_TYPE,
+		/obj/item/weapon/gun/energy/rifle/laser           = TRADER_THIS_TYPE,
+		/obj/item/weapon/gun/energy/gun                   = TRADER_THIS_TYPE,
+		/obj/item/weapon/gun/energy/pistol                = TRADER_THIS_TYPE,
+		/obj/item/weapon/gun/energy/gun/nuclear           = TRADER_THIS_TYPE,
+		/obj/item/weapon/gun/energy/laser/shotgun         = TRADER_THIS_TYPE,
+		/obj/item/clothing/accessory/holster              = TRADER_ALL,
+		/obj/item/clothing/accessory/holster/thigh/fluff  = TRADER_BLACKLIST_ALL
 	)
 
 /datum/trader/ship/illegalgun
@@ -88,19 +96,21 @@
 	)
 
 	possible_trading_items = list(
-		/obj/item/weapon/gun/projectile/boltaction         = TRADER_ALL,
-		/obj/item/weapon/gun/projectile/dragunov           = TRADER_THIS_TYPE,
-		/obj/item/weapon/gun/projectile/silenced           = TRADER_THIS_TYPE,
-		/obj/item/weapon/gun/projectile/automatic/tommygun = TRADER_THIS_TYPE,
-		/obj/item/weapon/gun/projectile/automatic/mini_uzi = TRADER_THIS_TYPE,
-		/obj/item/weapon/gun/projectile/improvised_handgun = TRADER_THIS_TYPE,
-		/obj/item/weapon/gun/projectile/shotgun/improvised = TRADER_THIS_TYPE,
-		/obj/item/weapon/gun/energy/retro                  = TRADER_THIS_TYPE,
-		/obj/item/weapon/gun/projectile/revolver/derringer = TRADER_THIS_TYPE,
-		/obj/item/weapon/gun/projectile/pirate             = TRADER_THIS_TYPE,
-		/obj/item/weapon/gun/projectile/contender          = TRADER_THIS_TYPE,
-		/obj/item/weapon/gun/projectile/revolver/lemat     = TRADER_THIS_TYPE,
-		/obj/item/weapon/gun/projectile/boltaction/vintage = TRADER_THIS_TYPE
+		/obj/item/weapon/gun/projectile/shotgun/pump/rifle           = TRADER_ALL,
+		/obj/item/weapon/gun/projectile/dragunov                     = TRADER_THIS_TYPE,
+		/obj/item/weapon/gun/projectile/silenced                     = TRADER_THIS_TYPE,
+		/obj/item/weapon/gun/projectile/automatic/tommygun           = TRADER_THIS_TYPE,
+		/obj/item/weapon/gun/projectile/automatic/mini_uzi           = TRADER_THIS_TYPE,
+		/obj/item/weapon/gun/projectile/improvised_handgun           = TRADER_THIS_TYPE,
+		/obj/item/weapon/gun/projectile/shotgun/improvised           = TRADER_THIS_TYPE,
+		/obj/item/weapon/gun/energy/retro                            = TRADER_THIS_TYPE,
+		/obj/item/weapon/gun/projectile/revolver/derringer           = TRADER_THIS_TYPE,
+		/obj/item/weapon/gun/projectile/pirate                       = TRADER_THIS_TYPE,
+		/obj/item/weapon/gun/projectile/contender                    = TRADER_THIS_TYPE,
+		/obj/item/weapon/gun/projectile/revolver/lemat               = TRADER_THIS_TYPE,
+		/obj/item/weapon/gun/projectile/shotgun/pump/rifle/vintage   = TRADER_THIS_TYPE,
+		/obj/item/weapon/gun/energy/rifle/icelance                   = TRADER_THIS_TYPE,
+		/obj/item/clothing/accessory/storage/bayonet                 = TRADER_THIS_TYPE
 	)
 
 
@@ -141,5 +151,6 @@
 		/obj/item/clothing/under/tactical                         = TRADER_THIS_TYPE,
 		/obj/item/clothing/mask/gas/tactical                      = TRADER_THIS_TYPE,
 		/obj/item/weapon/shield/riot/tact                         = TRADER_THIS_TYPE,
-		/obj/item/weapon/storage/belt/security/tactical           = TRADER_THIS_TYPE
+		/obj/item/weapon/storage/belt/security/tactical           = TRADER_THIS_TYPE,
+		/obj/item/weapon/storage/belt/bandolier                   = TRADER_THIS_TYPE
 	)

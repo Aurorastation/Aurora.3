@@ -14,6 +14,7 @@
 	max_storage_space = 14 //enough to hold all starting contents
 	origin_tech = list(TECH_COMBAT = 1)
 	attack_verb = list("robusted")
+	use_sound = 'sound/items/storage/toolbox.ogg'
 	var/stunhit = 0
 
 /obj/item/weapon/storage/toolbox/Initialize()

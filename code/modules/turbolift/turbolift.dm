@@ -94,11 +94,7 @@
 	if (!moving_upwards || next_floor == floors[floors.len])	// If moving down or moving to the top floor, squish.
 		for(var/turf/T in destination)
 			for(var/atom/movable/AM in T)
-				if(istype(AM, /mob/living))
-					var/mob/living/M = AM
-					M.gib()
-				else if(AM.simulated && !istype(AM, /mob/abstract/eye))
-					qdel(AM)
+				AM.crush_act()
 
 	origin.move_contents_to(destination)
 

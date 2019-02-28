@@ -7,6 +7,7 @@
 	scan_desc = "conflicting neuroimaging reports"
 	gain_text = "<span class='warning'>You feel like your mind was split in two.</span>"
 	lose_text = "<span class='notice'>You feel alone again.</span>"
+	cure_type = CURE_SOLITUDE
 	var/current_controller = OWNER
 	var/initialized = FALSE //to prevent personalities deleting themselves while we wait for ghosts
 	var/mob/living/mental/split_personality/stranger_backseat //there's two so they can swap without overwriting
@@ -63,8 +64,8 @@
 		free_backseat = stranger_backseat
 
 	log_game("[current_backseat]/([current_backseat.ckey]) assumed control of [owner]/([owner.ckey] due to [src]. (Original owner: [current_controller == OWNER ? owner.ckey : current_backseat.ckey])")
-	to_chat(owner, "<span class='userdanger'>You feel your control being taken away... your other personality is in charge now!</span>")
-	to_chat(current_backseat, "<span class='userdanger'>You manage to take control of your body!</span>")
+	to_chat(owner, "<span class='danger'>You feel your control being taken away... your other personality is in charge now!</span>")
+	to_chat(current_backseat, "<span class='danger'>You manage to take control of your body!</span>")
 
 	//Body to backseat
 

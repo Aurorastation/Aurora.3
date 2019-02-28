@@ -807,7 +807,7 @@ Used In File(s): \code\game\objects\items\devices\PDA\PDA.dm
                         <span class="average"> No current approved orders </span><br><br>
                     {{else}}
                         {{props data.records.supply.approved}}
-                            <span class="average">#{{:value.order_id}} - {{:value.customer}} - {{:value.price_cargo}} Credits </span>
+                            <span class="average">#{{:value.order_id}} - {{:value.ordered_by}} - {{:value.price_cargo}} Credits </span>
                         {{/props}}
                     {{/if}}
                     <br><br>
@@ -816,7 +816,7 @@ Used In File(s): \code\game\objects\items\devices\PDA\PDA.dm
                             <span class="average">No current requested orders</span><br><br>
                     {{else}}
                         {{props data.records.supply.requests}}
-                            <span class="average">#{{:value.order_id}} - {{:value.customer}} - {{:value.price_cargo}} Credits </span>
+                            <span class="average">#{{:value.order_id}} - {{:value.ordered_by}} - {{:value.price_cargo}} Credits </span>
                         {{/props}}
                     {{/if}}
 				</div>
@@ -1011,10 +1011,6 @@ Used In File(s): \code\game\objects\items\devices\PDA\PDA.dm
                 {{:helper.link('Set news tone', 'comment', {'choice' : "Newstone"}, null, 'fixedLeftWide')}}
             </div>
         </div>
-        
-		{{if data.reception != 1}}
-			<span class="bad">No reception with newscaster network.</span>
-		{{/if}}
 		
 		<div class="item">
             <div class="itemContent">
@@ -1032,12 +1028,7 @@ Used In File(s): \code\game\objects\items\devices\PDA\PDA.dm
 
     {{else data.mode == 61}}      
         <H2><span class="white">{{:data.feed.channel}}</span></H2>
-        <span class="white">Created by: </span><span class="average">{{:data.feed.author}}<br></span>
-		
-		{{if data.reception != 1}}
-			<span class="bad">No reception with newscaster network.</span>
-		{{/if}}
-		
+        <span class="white">Created by: </span><span class="average">{{:data.feed.author}}<br></span>		
         <div class="statusDisplay" style="overflow: auto;">
             <div class="item">
                 <div class="itemContent" style="width: 100%;">
@@ -1047,14 +1038,17 @@ Used In File(s): \code\game\objects\items\devices\PDA\PDA.dm
 						No further feed story additions are allowed while the D-Notice is in effect.<br>
 					{{else}}
 						{{for data.feed.messages}}
-							-{{:value.body}}<br>
-							{{if value.has_image}}
-								<img src='pda_news_tmp_photo_{{:data.feed.channel}}_{{:value.index}}.png' width = '180'><br>
-								{{if value.caption}}
-									<span class="caption">{{:value.caption}}</span><br>
+							<BLOCKQUOTE style="padding:2px 4px;border-left:4px #797979 solid;">
+								{{:value.body}}<br>
+								{{if value.has_image}}
+									<img src='pda_news_tmp_photo_{{:data.feed.channel}}_{{:value.index}}.png' width = '180'><br>
+									{{if value.caption}}
+										<span class="caption">{{:value.caption}}</span><br>
+									{{/if}}
 								{{/if}}
-							{{/if}}
-							<span class="footer">[{{:value.message_type}} by <span class="average">{{:value.author}}</span> - {{:value.time_stamp}}]</span><br>
+								<span class="footer">[{{:value.message_type}} by <span class="average">{{:value.author}}</span> - {{:value.time_stamp}}]</span><br>
+								<span class="footer">[Likes: <FONT COLOR='DarkGreen'>{{:value.likes}}</FONT> Dislikes: <FONT COLOR='Maroon'>{{:value.dislikes}}</FONT>]</span>
+							</BLOCKQUOTE>
 							<br>
 						{{empty}}
 							<I>No feed messages found in channel...</I>

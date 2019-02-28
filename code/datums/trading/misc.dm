@@ -10,10 +10,10 @@
 		"hail_deny"            = "I no longer wish to speak to you.",
 		"trade_complete"       = "Remember to give them attention and food. They are living beings, and you should treat them like so.",
 		"trade_blacklist"      = "Legally I can't do that. Morally, I refuse to do that.",
-		"trade_found_unwanted" = "I only want animals. I don't need food, shiny things, I'm looking for specific ones at that. Ones I already have the cage and food for.",
+		"trade_found_unwanted" = "I only want animals. I don't need food or shiny things. I'm looking for specific ones at that. Ones I already have the cage and food for.",
 		"trade_not_enough"     = "I'd give you the animal for free, but I need the money to feed the others. So you must pay in full.",
 		"how_much"             = "This is a fine specimen, I believe it will cost you VALUE credits.",
-		"what_want"            = "I have the facilities currently to support",
+		"what_want"            = "I have the facilities, currently, to support",
 		"compliment_deny"      = "That was almost charming.",
 		"compliment_accept"    = "Thank you. I needed that.",
 		"insult_good"          = "I ask you to stop. We can be peaceful. I know we can.",
@@ -23,53 +23,39 @@
 	)
 
 	possible_wanted_items = list(
-		/mob/living/simple_animal/corgi                  = TRADER_THIS_TYPE,
-		/mob/living/simple_animal/cat                    = TRADER_THIS_TYPE,
-		/mob/living/simple_animal/crab                   = TRADER_THIS_TYPE,
-		/mob/living/simple_animal/lizard                 = TRADER_THIS_TYPE,
-		/mob/living/simple_animal/mouse                  = TRADER_THIS_TYPE,
-		/mob/living/simple_animal/mushroom               = TRADER_THIS_TYPE,
-		/mob/living/simple_animal/parrot                 = TRADER_THIS_TYPE,
-		/mob/living/simple_animal/tindalos               = TRADER_THIS_TYPE,
-		/mob/living/simple_animal/tomato                 = TRADER_THIS_TYPE,
-		/mob/living/simple_animal/cow                    = TRADER_THIS_TYPE,
-		/mob/living/simple_animal/chick                  = TRADER_THIS_TYPE,
-		/mob/living/simple_animal/chicken                = TRADER_THIS_TYPE,
-		/mob/living/simple_animal/yithian                = TRADER_THIS_TYPE,
-		/mob/living/simple_animal/hostile/diyaab         = TRADER_THIS_TYPE,
-		/mob/living/simple_animal/hostile/bear           = TRADER_THIS_TYPE,
-		/mob/living/simple_animal/hostile/shantak        = TRADER_THIS_TYPE,
-		/mob/living/simple_animal/hostile/samak          = TRADER_THIS_TYPE,
-		/mob/living/simple_animal/hostile/retaliate/goat = TRADER_THIS_TYPE,
-		/mob/living/simple_animal/hostile/carp           = TRADER_THIS_TYPE,
-		/mob/living/simple_animal/hostile/commanded/dog  = TRADER_ALL,
-		/mob/living/simple_animal/hostile/bear           = TRADER_THIS_TYPE,
-		/mob/living/simple_animal/hostile/biglizard      = TRADER_THIS_TYPE
+		/mob/living/simple_animal/mushroom                           = TRADER_THIS_TYPE,
+		/mob/living/simple_animal/tomato                             = TRADER_THIS_TYPE,
+		/mob/living/simple_animal/mouse/king                         = TRADER_THIS_TYPE,
+		/mob/living/simple_animal/hostile/diyaab                     = TRADER_THIS_TYPE,
+		/mob/living/simple_animal/hostile/shantak                    = TRADER_THIS_TYPE,
+		/mob/living/simple_animal/hostile/samak                      = TRADER_THIS_TYPE,
+		/mob/living/simple_animal/hostile/bear                       = TRADER_ALL,
+		/mob/living/simple_animal/hostile/carp                       = TRADER_ALL,
+		/mob/living/simple_animal/hostile/biglizard                  = TRADER_THIS_TYPE,
+		/mob/living/simple_animal/hostile/giant_spider               = TRADER_ALL,
+		/mob/living/simple_animal/hostile/commanded/bear             = TRADER_THIS_TYPE,
+		/mob/living/simple_animal/hostile/retaliate/cavern_dweller   = TRADER_THIS_TYPE
 	)
 
 	possible_trading_items = list(
 		/mob/living/simple_animal/corgi                  = TRADER_THIS_TYPE,
+		/mob/living/simple_animal/corgi/puppy            = TRADER_THIS_TYPE,
 		/mob/living/simple_animal/cat                    = TRADER_THIS_TYPE,
+		/mob/living/simple_animal/cat/kitten             = TRADER_THIS_TYPE,
 		/mob/living/simple_animal/crab                   = TRADER_THIS_TYPE,
 		/mob/living/simple_animal/lizard                 = TRADER_THIS_TYPE,
 		/mob/living/simple_animal/mouse                  = TRADER_THIS_TYPE,
-		/mob/living/simple_animal/mushroom               = TRADER_THIS_TYPE,
 		/mob/living/simple_animal/parrot                 = TRADER_THIS_TYPE,
 		/mob/living/simple_animal/tindalos               = TRADER_THIS_TYPE,
-		/mob/living/simple_animal/tomato                 = TRADER_THIS_TYPE,
 		/mob/living/simple_animal/cow                    = TRADER_THIS_TYPE,
 		/mob/living/simple_animal/chick                  = TRADER_THIS_TYPE,
 		/mob/living/simple_animal/chicken                = TRADER_THIS_TYPE,
 		/mob/living/simple_animal/yithian                = TRADER_THIS_TYPE,
-		/mob/living/simple_animal/hostile/diyaab         = TRADER_THIS_TYPE,
-		/mob/living/simple_animal/hostile/bear           = TRADER_THIS_TYPE,
-		/mob/living/simple_animal/hostile/shantak        = TRADER_THIS_TYPE,
-		/mob/living/simple_animal/hostile/samak          = TRADER_THIS_TYPE,
+		/mob/living/simple_animal/penguin                = TRADER_THIS_TYPE,
+		/mob/living/simple_animal/penguin/baby           = TRADER_THIS_TYPE,
+		/mob/living/simple_animal/corgi/fox              = TRADER_THIS_TYPE,
 		/mob/living/simple_animal/hostile/retaliate/goat = TRADER_THIS_TYPE,
-		/mob/living/simple_animal/hostile/carp           = TRADER_THIS_TYPE,
 		/mob/living/simple_animal/hostile/commanded/dog  = TRADER_ALL,
-		/mob/living/simple_animal/hostile/bear           = TRADER_THIS_TYPE,
-		/mob/living/simple_animal/hostile/biglizard      = TRADER_THIS_TYPE,
 		/obj/item/device/dociler                         = TRADER_THIS_TYPE
 	)
 
@@ -81,7 +67,7 @@
 	insult_drop = 0
 	possible_origins = list("Yacks and Yucks Shop", "The Shop From Which I Sell Humorous Items", "The Prank Gestalt", "The Clown's Armory")
 	speech = list(
-		"hail_generic"      = "We welcome you to our shop of humorous items, we invite you to partake in the experience of being pranked, and pranking someone else.",
+		"hail_generic"      = "We welcome you to our shop of humorous items. We invite you to partake in the experience of being pranked, and pranking someone else.",
 		"hail_Diona"        = "Welcome, other gestalt. We invite you to learn of our experiences, and teach us of your own.",
 		"hail_deny"         = "We cannot do business with you. We are sorry.",
 		"trade_complete"    = "We thank you for purchasing something. We enjoyed the experience of you doing so and we hope to learn from it.",
@@ -93,7 +79,7 @@
 		"compliment_accept" = "You are attempting to compliment us.",
 		"insult_good"       = "You are attempting to insult us, correct?",
 		"insult_bad"        = "We do not understand.",
-		"bribe_refusal"     = "We are sorry but we cannot accept.",
+		"bribe_refusal"     = "We are sorry, but we cannot accept.",
 		"bribe_accept"      = "We are happy to say that we accept this bribe."
 	)
 
@@ -153,6 +139,8 @@
 		/obj/item/clothing/head/hasturhood              = TRADER_THIS_TYPE,
 		/obj/item/clothing/head/helmet/gladiator        = TRADER_THIS_TYPE,
 		/obj/item/clothing/head/plaguedoctorhat         = TRADER_THIS_TYPE,
+		/obj/item/clothing/head/helmet/unathi           = TRADER_THIS_TYPE,
+		/obj/item/clothing/head/helmet/tank             = TRADER_ALL,
 		/obj/item/clothing/glasses/monocle              = TRADER_THIS_TYPE,
 		/obj/item/clothing/mask/smokable/pipe           = TRADER_THIS_TYPE,
 		/obj/item/clothing/mask/gas/plaguedoctor        = TRADER_THIS_TYPE,
@@ -161,6 +149,7 @@
 		/obj/item/clothing/suit/judgerobe               = TRADER_THIS_TYPE,
 		/obj/item/clothing/suit/wizrobe/magusred        = TRADER_THIS_TYPE,
 		/obj/item/clothing/suit/wizrobe/magusblue       = TRADER_THIS_TYPE,
+		/obj/item/clothing/suit/armor/unathi            = TRADER_THIS_TYPE,
 		/obj/item/clothing/under/gladiator              = TRADER_THIS_TYPE,
 		/obj/item/clothing/under/kilt                   = TRADER_THIS_TYPE,
 		/obj/item/clothing/under/redcoat                = TRADER_THIS_TYPE,
@@ -171,6 +160,7 @@
 		/obj/item/weapon/material/star                  = TRADER_THIS_TYPE,
 		/obj/item/weapon/material/twohanded/baseballbat = TRADER_THIS_TYPE,
 		/obj/item/weapon/material/twohanded/pike        = TRADER_ALL,
+		/obj/item/weapon/material/twohanded/zweihander  = TRADER_THIS_TYPE,
 		/obj/item/weapon/melee/whip                     = TRADER_THIS_TYPE
 	)
 

@@ -4,6 +4,28 @@
 /mob/living/silicon/handle_message_mode(message_mode, message, verb, speaking, used_radios, alt_name)
 	log_say("[key_name(src)] : [message]",ckey=key_name(src))
 
+/mob/living/silicon/robot/handle_speech_problems(var/message, var/verb, var/message_mode)
+	var/speech_problem_flag = 0
+	//Handle gibberish when components are damaged
+	if(message_mode)
+		//If we have a radio message, just look at the damage of the radio
+		var/datum/robot_component/C = get_component("radio")
+		if(C.get_damage())
+			speech_problem_flag = 1
+			message=Gibberish(message,C.max_damage/C.get_damage())
+	else
+		var/damaged = 100-(Clamp(health,0,maxHealth)/maxHealth)*100
+		if(damaged > 40)
+			speech_problem_flag = 1
+			message = Gibberish(message,damaged-10)
+
+	var/list/returns[4]
+	returns[1] = message
+	returns[2] = verb
+	returns[3] = speech_problem_flag
+	returns[4] = world.view
+	return returns
+
 /mob/living/silicon/robot/handle_message_mode(message_mode, message, verb, speaking, used_radios, alt_name)
 	..()
 	if(message_mode)
@@ -81,7 +103,7 @@
 		//This is much faster.
 		var/list/listening = list()
 		var/list/listening_obj = list()
-		var/turf/T = get_turf(H)		
+		var/turf/T = get_turf(H)
 
 		if(T)
 			var/list/hear = hear(7, T)

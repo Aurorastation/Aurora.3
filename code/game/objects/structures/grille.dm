@@ -93,12 +93,12 @@
 	spawn(0) healthcheck() //spawn to make sure we return properly if the grille is deleted
 
 /obj/structure/grille/attackby(obj/item/weapon/W as obj, mob/user as mob)
-	if(iswirecutter(W))
+	if(W.iswirecutter())
 		if(!shock(user, 100))
 			playsound(loc, 'sound/items/Wirecutter.ogg', 100, 1)
 			new /obj/item/stack/rods(get_turf(src), destroyed ? 1 : 2)
 			qdel(src)
-	else if((isscrewdriver(W)) && (istype(loc, /turf/simulated) || anchored))
+	else if((W.isscrewdriver()) && (istype(loc, /turf/simulated) || anchored))
 		if(!shock(user, 90))
 			playsound(loc, 'sound/items/Screwdriver.ogg', 100, 1)
 			anchored = !anchored
@@ -241,6 +241,7 @@
 	desc = "A matrice built out of an unknown material, with some sort of force field blocking air around it"
 	icon_state = "grillecult"
 	health = 40 //Make it strong enough to avoid people breaking in too easily
+	appearance_flags = NO_CLIENT_COLOR
 
 /obj/structure/grille/cult/CanPass(atom/movable/mover, turf/target, height = 1.5, air_group = 0)
 	if(air_group)

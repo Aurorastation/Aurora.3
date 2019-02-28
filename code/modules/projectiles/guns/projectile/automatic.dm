@@ -9,14 +9,15 @@
 	origin_tech = list(TECH_COMBAT = 4, TECH_MATERIAL = 2)
 	slot_flags = SLOT_BELT
 	ammo_type = /obj/item/ammo_casing/c9mm
+	accuracy = 1
 	multi_aim = 1
 	burst_delay = 2
 	sel_mode = 1
 
 	firemodes = list(
 		list(mode_name="semiauto",       burst=1, fire_delay=0,    move_delay=null, burst_accuracy=null, dispersion=null),
-		list(mode_name="3-round bursts", burst=3, fire_delay=null, move_delay=4,    burst_accuracy=list(0,-1,-1),       dispersion=list(0, 10, 15)),
-		list(mode_name="short bursts",   burst=5, fire_delay=null, move_delay=4,    burst_accuracy=list(0,-1,-1,-2,-2), dispersion=list(5, 10, 15, 20))
+		list(mode_name="3-round bursts", burst=3, fire_delay=null, move_delay=2,    burst_accuracy=list(1,0,0),       dispersion=list(0, 10, 15)),
+		list(mode_name="short bursts",   burst=5, fire_delay=null, move_delay=3,    burst_accuracy=list(1,0,,-1,-1), dispersion=list(5, 10, 15, 20))
 		)
 
 //Submachine guns and personal defence weapons, go.
@@ -34,6 +35,10 @@
 	origin_tech = list(TECH_COMBAT = 5, TECH_MATERIAL = 2, TECH_ILLEGAL = 8)
 	ammo_type = /obj/item/ammo_casing/c45
 
+/obj/item/weapon/gun/projectile/automatic/mini_uzi/update_icon()
+	..()
+	icon_state = (ammo_magazine)? "mini-uzi" : "mini-uzi-e"
+
 /obj/item/weapon/gun/projectile/automatic/c20r
 	name = "submachine gun"
 	desc = "The C-20r is a lightweight and rapid firing SMG, for when you REALLY need someone dead. Uses 10mm rounds. Has a 'Scarborough Arms - Per falcis, per pravitas' buttstamp."
@@ -44,7 +49,7 @@
 	caliber = "10mm"
 	origin_tech = list(TECH_COMBAT = 5, TECH_MATERIAL = 2, TECH_ILLEGAL = 8)
 	slot_flags = SLOT_BELT|SLOT_BACK
-	fire_sound = 'sound/weapons/Gunshot_light.ogg'
+	fire_sound = 'sound/weapons/gunshot_pistol.ogg'
 	load_method = MAGAZINE
 	magazine_type = /obj/item/ammo_magazine/a10mm
 	allowed_magazines = list(/obj/item/ammo_magazine/a10mm)
@@ -69,7 +74,7 @@
 	origin_tech = list(TECH_COMBAT = 5, TECH_MATERIAL = 2)
 	slot_flags = SLOT_BELT
 	ammo_type = "/obj/item/ammo_casing/c9mmr"
-	fire_sound = 'sound/weapons/Gunshot_light.ogg'
+	fire_sound = 'sound/weapons/gunshot_pistol.ogg'
 	load_method = MAGAZINE
 	magazine_type = /obj/item/ammo_magazine/mc9mmt/rubber
 	allowed_magazines = list(/obj/item/ammo_magazine/mc9mmt)
@@ -101,17 +106,17 @@
 
 	firemodes = list(
 		list(mode_name="semiauto",       burst=1, fire_delay=10,    move_delay=null, burst_accuracy=null, dispersion=null),
-		list(mode_name="3-round bursts", burst=3, fire_delay=null, move_delay=4,    burst_accuracy=list(0,-1,-1),       dispersion=list(0, 5, 10)),
-		list(mode_name="short bursts",   burst=5, fire_delay=null, move_delay=4,    burst_accuracy=list(0,-1,-1,-2,-2), dispersion=list(5, 5, 15))
+		list(mode_name="3-round bursts", burst=3, fire_delay=null, move_delay=2,    burst_accuracy=list(1,0,0),       dispersion=list(0, 5, 10)),
+		list(mode_name="short bursts",   burst=5, fire_delay=null, move_delay=3,    burst_accuracy=list(1,0,0,-1,-1), dispersion=list(5, 5, 15))
 		)
 
 	//slower to regain aim, more inaccurate if not wielding
 	fire_delay = 10
-	accuracy = -2
+	accuracy = -1
 
 	//wielding information
 	fire_delay_wielded = 6
-	accuracy_wielded = 0
+	accuracy_wielded = 2
 
 	//action button for wielding
 	action_button_name = "Wield rifle"
@@ -134,6 +139,9 @@
 /obj/item/weapon/gun/projectile/automatic/rifle/sts35
 	name = "assault rifle"
 	desc = "A durable, rugged looking automatic weapon of a make popular on the frontier worlds. Uses 7.62mm rounds. It is unmarked."
+	can_bayonet = TRUE
+	knife_x_offset = 23
+	knife_y_offset = 13
 
 /obj/item/weapon/gun/projectile/automatic/rifle/sts35/update_icon()
 	..()
@@ -157,7 +165,7 @@
 	caliber = "a556"
 	origin_tech = list(TECH_COMBAT = 8, TECH_MATERIAL = 3)
 	ammo_type = "/obj/item/ammo_casing/a556"
-	fire_sound = 'sound/weapons/Gunshot.ogg'
+	fire_sound = 'sound/weapons/rifleshot.ogg'
 	slot_flags = SLOT_BACK
 	load_method = MAGAZINE
 	magazine_type = /obj/item/ammo_magazine/a556
@@ -165,10 +173,14 @@
 	auto_eject = 1
 	auto_eject_sound = 'sound/weapons/smg_empty_alarm.ogg'
 
+	can_bayonet = TRUE
+	knife_x_offset = 23
+	knife_y_offset = 13
+
 	burst_delay = 4
 	firemodes = list(
 		list(mode_name="semiauto",       burst=1,    fire_delay=10,    move_delay=null, use_launcher=null, burst_accuracy=null, dispersion=null),
-		list(mode_name="3-round bursts", burst=3,    fire_delay=null, move_delay=6,    use_launcher=null, burst_accuracy=list(0,-1,-1), dispersion=list(0, 7.5)),
+		list(mode_name="3-round bursts", burst=3,    fire_delay=null, move_delay=3,    use_launcher=null, burst_accuracy=list(2,1,1), dispersion=list(0, 7.5)),
 		list(mode_name="fire grenades",  burst=null, fire_delay=null, move_delay=null, use_launcher=1,    burst_accuracy=null, dispersion=null)
 		)
 
@@ -221,7 +233,7 @@
 
 /obj/item/weapon/gun/projectile/automatic/rifle/l6_saw
 	name = "light machine gun"
-	desc = "A rather traditionally made L6 SAW with a pleasantly lacquered wooden pistol grip. Has 'Aussec Armoury- 2431' engraved on the reciever"
+	desc = "A rather traditionally made L6 SAW with a pleasantly lacquered wooden pistol grip. Has 'Aussec Armoury- 2431' engraved on the receiver"
 	icon_state = "l6closed100"
 	item_state = "l6closedmag"
 	w_class = 4
@@ -238,8 +250,8 @@
 	magazine_type = /obj/item/ammo_magazine/a762
 
 	firemodes = list(
-		list(mode_name="short bursts",	burst=5, move_delay=6, burst_accuracy = list(0,-1,-1,-2,-2),          dispersion = list(3, 6, 9)),
-		list(mode_name="long bursts",	burst=8, move_delay=8, burst_accuracy = list(0,-1,-1,-2,-2,-2,-3,-3), dispersion = list(8))
+		list(mode_name="short bursts",	burst=5, move_delay=4, burst_accuracy = list(1,0,0,-1,-1),          dispersion = list(3, 6, 9)),
+		list(mode_name="long bursts",	burst=8, move_delay=5, burst_accuracy = list(1,0,0,-1,-1,-1,-2,-2), dispersion = list(8))
 		)
 
 	var/cover_open = 0
@@ -272,7 +284,11 @@
 		return ..() //once open, behave like normal
 
 /obj/item/weapon/gun/projectile/automatic/rifle/l6_saw/update_icon()
-	icon_state = "l6[cover_open ? "open" : "closed"][ammo_magazine ? round(ammo_magazine.stored_ammo.len, 25) : "-empty"]"
+	icon_state = "l6[cover_open ? "open" : "closed"][ammo_magazine ? round(ammo_magazine.stored_ammo.len*2, 25) : "-empty"]"
+	if(wielded)
+		item_state = "l6closedmag-wielded"
+	else
+		item_state = initial(item_state)
 
 /obj/item/weapon/gun/projectile/automatic/rifle/l6_saw/load_ammo(var/obj/item/A, mob/user)
 	if(!cover_open)
@@ -324,7 +340,7 @@
 
 	firemodes = list(
 		list(mode_name="single coil",	burst=1,    fire_delay=0,    move_delay=null, burst_accuracy=null, dispersion=null),
-		list(mode_name="dual coil",	burst=2, move_delay=8, accuracy = list(-2,-3), dispersion = list(20))
+		list(mode_name="dual coil",	burst=2, move_delay=5, accuracy = list(-2,-3), dispersion = list(20))
 		)
 
 
@@ -348,8 +364,8 @@
 
 	firemodes = list(
 		list(mode_name="semiauto",       burst=1, move_delay=null, burst_accuracy=null, dispersion=null),
-		list(mode_name="3-round bursts", burst=3, move_delay=4,    burst_accuracy=list(0,-1,-1),       dispersion=list(0, 10, 15)),
-		list(mode_name="short bursts",   burst=5, move_delay=4,    burst_accuracy=list(0,-1,-1,-2,-2), dispersion=list(5, 10, 15))
+		list(mode_name="3-round bursts", burst=3, move_delay=2,    burst_accuracy=list(2,1,1),       dispersion=list(0, 10, 15)),
+		list(mode_name="short bursts",   burst=5, move_delay=3,    burst_accuracy=list(2,1,1,0,0), dispersion=list(5, 10, 15))
 		)
 
 
@@ -358,7 +374,7 @@
 
 	//wielding information
 	fire_delay_wielded = 5
-	accuracy_wielded = 0
+	accuracy_wielded = 2
 	scoped_accuracy = 2
 
 	action_button_name = "Wield rifle"
@@ -384,6 +400,9 @@
 	set name = "Wield rifle"
 	set category = "Object"
 	set src in usr
+
+	toggle_wield(usr)
+	usr.update_icon()
 
 /obj/item/weapon/gun/projectile/automatic/rifle/shotgun
 	name = "assault shotgun"
@@ -414,7 +433,7 @@
 
 	firemodes = list(
 		list(mode_name="semiauto",       burst=1, fire_delay= 10,    move_delay=null, burst_accuracy=null, dispersion=null),
-		list(mode_name="3-round bursts", burst=3, fire_delay=null, move_delay=4,    burst_accuracy=list(0,-1,-1),       dispersion=list(0, 10, 15))
+		list(mode_name="3-round bursts", burst=3, fire_delay=null, move_delay=3,    burst_accuracy=list(0,-1,-1),       dispersion=list(0, 10, 15))
 		)
 
 /obj/item/weapon/gun/projectile/automatic/rifle/shotgun/update_icon()

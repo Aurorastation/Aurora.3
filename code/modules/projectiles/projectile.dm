@@ -83,6 +83,7 @@
 	var/datum/point/vector/trajectory
 	var/trajectory_ignore_forcemove = FALSE	//instructs forceMove to NOT reset our trajectory to the new location!
 	var/range = 50 //This will de-increment every step. When 0, it will deletze the projectile.
+	var/aoe = 0 //For KAs, really
 
 	//Hitscan
 	var/hitscan = FALSE		//Whether this is hitscan. If it is, speed is basically ignored.
@@ -105,30 +106,11 @@
 	if(isanimal(target))
 		return FALSE
 	var/mob/living/L = target
-
-	var/splatter_color = "#A10808"
-
-
-	if (ishuman(target))
-		var/mob/living/carbon/human/H = target
-		var/obj/item/organ/external/organ = H.get_organ(def_zone)
-		var/armor = H.getarmor_organ(organ, check_armour)
-		if(agony)
-			agony = max(0, agony - armor)
-
-		if (H.species)
-			splatter_color = H.species.blood_color || "#A10808"
-
-		/*
-		Maim / Maiming check. Disembody a limb depending on several factors.
-
-		can_be_maimed and maim_bonus are defined on 'obj/item/organ/external'.
-		*/
-		if(organ.can_be_maimed && maiming)
-			if(prob(maim_rate * (organ.get_damage() * organ.maim_bonus)))
-				organ.droplimb(clean_cut,maim_type)
-
 	if (damage_type == BRUTE)
+		var/splatter_color = "#A10808"
+		var/mob/living/carbon/human/H = target
+		if (istype(H)&& H.species && H.species.blood_color)
+			splatter_color = H.species.blood_color
 		var/splatter_dir = starting ? get_dir(starting, target.loc) : dir
 		new /obj/effect/temp_visual/dir_setting/bloodsplatter(target.loc, splatter_dir, splatter_color)
 
@@ -158,7 +140,7 @@
 
 /obj/item/projectile/proc/launch_projectile(atom/target, target_zone, mob/user, params, angle_override, forced_spread = 0)
 	original = target
-	def_zone = target_zone
+	def_zone = check_zone(target_zone)
 	firer = user
 	var/direct_target
 	if(get_turf(target) == get_turf(src))
@@ -181,7 +163,7 @@
 		return
 
 	//roll to-hit
-	miss_modifier = max(15*(distance-2) - round(15*accuracy) + miss_modifier, 0)
+	miss_modifier = max(15*(distance-1) - round(25*accuracy) + miss_modifier, 0)
 	var/hit_zone = get_zone_with_miss_chance(def_zone, target_mob, miss_modifier, ranged_attack=(distance > 1 || original != target_mob)) //if the projectile hits a target we weren't originally aiming at then retain the chance to miss
 
 	var/result = PROJECTILE_FORCE_MISS
@@ -282,7 +264,7 @@
 	qdel(src)
 	return TRUE
 
-/obj/item/projectile/ex_act()
+/obj/item/projectile/ex_act(var/severity = 2.0)
 	return //explosions probably shouldn't delete projectiles
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

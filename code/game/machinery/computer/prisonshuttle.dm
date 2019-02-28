@@ -27,13 +27,13 @@ var/prison_shuttle_timeleft = 0
 		return src.attack_hand(user)
 
 	attackby(I as obj, user as mob)
-		if(isscrewdriver(I))
+		if(I.isscrewdriver())
 			playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, 1)
 			if(do_after(user, 20))
 				var/obj/structure/computerframe/A = new /obj/structure/computerframe( src.loc )
 				var/obj/item/weapon/circuitboard/prison_shuttle/M = new /obj/item/weapon/circuitboard/prison_shuttle( A )
 				for (var/obj/C in src)
-					C.loc = src.loc
+					C.forceMove(src.loc)
 				A.circuit = M
 				A.anchored = 1
 

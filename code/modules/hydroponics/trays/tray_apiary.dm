@@ -35,10 +35,8 @@
 	else if(istype(Proj ,/obj/item/projectile/energy/florayield))
 		if(!yieldmod)
 			yieldmod += 1
-			//world << "Yield increased by 1, from 0, to a total of [myseed.yield]"
 		else if (prob(1/(yieldmod * yieldmod) *100))//This formula gives you diminishing returns based on yield. 100% with 1 yield, decreasing to 25%, 11%, 6, 4, 2...
 			yieldmod += 1
-			//world << "Yield increased by 1, to a total of [myseed.yield]"
 	else
 		..()
 		return
@@ -50,14 +48,15 @@
 		else
 			health = 10
 			nutrilevel += 10
-			user.drop_item()
+			user.drop_from_inventory(O,get_turf(src))
 			qdel(O)
 			user << "<span class='notice'>You carefully insert the queen into [src], she gets busy making a hive.</span>"
 			bees_in_hive = 0
 	else if(istype(O, /obj/item/beezeez))
 		beezeez += 100
 		nutrilevel += 10
-		user.drop_item()
+		user.drop_from_inventory(O,get_turf(src))
+		qdel(O)
 		if(health > 0)
 			user << "<span class='notice'>You insert [O] into [src]. A relaxed humming appears to pick up.</span>"
 		else

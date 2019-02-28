@@ -53,6 +53,8 @@
 			return list(access_cent_general, access_cent_living, access_cent_medical)
 		if("Death Commando")
 			return list(access_cent_general, access_cent_specops, access_cent_living, access_cent_storage)
+		if("NanoTrasen Representative")
+			return list(access_cent_general, access_cent_living, access_cent_storage, access_cent_thunder, access_cent_medical, access_cent_specops, access_cent_teleporter)
 		if("Research Officer")
 			return list(access_cent_general, access_cent_specops, access_cent_medical, access_cent_teleporter, access_cent_storage)
 		if("BlackOps Commander")
@@ -63,6 +65,21 @@
 			return list(access_cent_general, access_cent_captain, access_cent_living, access_cent_storage)
 		if("Emergency Response Team")
 			return list(access_cent_general, access_cent_specops, access_cent_living, access_cent_storage)
+	log_debug("Invalid job [job] passed to get_centcom_access")
+	return list()
+
+/proc/get_syndicate_access(job)
+	switch(job)
+		if("Syndicate Operative")
+			return list(access_syndicate)
+		if("Syndicate Operative Leader")
+			return list(access_syndicate, access_syndicate_leader)
+		if("Syndicate Agent")
+			return list(access_syndicate, access_maint_tunnels)
+		if("Syndicate Commando")
+			return list(access_syndicate, access_syndicate_leader)
+	log_debug("Invalid job [job] passed to get_syndicate_access")
+	return list()
 
 /var/list/datum/access/priv_all_access_datums
 /proc/get_all_access_datums()
@@ -104,28 +121,28 @@
 	if(!priv_all_access)
 		priv_all_access = get_access_ids()
 
-	return priv_all_access
+	return priv_all_access.Copy()
 
 /var/list/priv_station_access
 /proc/get_all_station_access()
 	if(!priv_station_access)
 		priv_station_access = get_access_ids(ACCESS_TYPE_STATION)
 
-	return priv_station_access
+	return priv_station_access.Copy()
 
 /var/list/priv_centcom_access
 /proc/get_all_centcom_access()
 	if(!priv_centcom_access)
 		priv_centcom_access = get_access_ids(ACCESS_TYPE_CENTCOM)
 
-	return priv_centcom_access
+	return priv_centcom_access.Copy()
 
 /var/list/priv_syndicate_access
 /proc/get_all_syndicate_access()
 	if(!priv_syndicate_access)
 		priv_syndicate_access = get_access_ids(ACCESS_TYPE_SYNDICATE)
 
-	return priv_syndicate_access
+	return priv_syndicate_access.Copy()
 
 /var/list/priv_region_access
 /proc/get_region_accesses(var/code)

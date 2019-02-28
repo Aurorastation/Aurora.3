@@ -20,8 +20,9 @@
 	var/icon_state_opening = null
 	var/icon_state_closed = null
 	var/icon_state_closing = null
+	var/open_sound = 'sound/machines/blastdooropen.ogg'
+	var/close_sound = 'sound/machines/blastdoorclose.ogg'
 	var/damage = BLAST_DOOR_CRUSH_DAMAGE
-
 	closed_layer = 3.4 // Above airlocks when closed
 	var/id = 1.0
 	dir = 1
@@ -34,10 +35,17 @@
 	var/_wifi_id
 	var/datum/wifi/receiver/button/door/wifi_receiver
 
+	var/securitylock = FALSE
+	var/is_critical = FALSE
+
 /obj/machinery/door/blast/Initialize()
 	. = ..()
 	if(_wifi_id)
 		wifi_receiver = new(_wifi_id, src)
+	if(density)
+		layer = closed_layer
+	else
+		layer = open_layer
 
 /obj/machinery/door/airlock/Destroy()
 	qdel(wifi_receiver)
@@ -67,6 +75,7 @@
 // Description: Opens the door. No checks are done inside this proc.
 /obj/machinery/door/blast/proc/force_open()
 	src.operating = 1
+	playsound(src.loc, open_sound, 100, 1)
 	flick(icon_state_opening, src)
 	src.density = 0
 	update_nearby_tiles()
@@ -80,7 +89,10 @@
 // Parameters: None
 // Description: Closes the door. No checks are done inside this proc.
 /obj/machinery/door/blast/proc/force_close()
+	if(density)
+		return 0
 	src.operating = 1
+	playsound(src.loc, close_sound, 100, 1)
 	src.layer = closed_layer
 	flick(icon_state_closing, src)
 	src.density = 1
@@ -105,7 +117,7 @@
 // This only works on broken doors or doors without power. Also allows repair with Plasteel.
 /obj/machinery/door/blast/attackby(obj/item/weapon/C as obj, mob/user as mob)
 	src.add_fingerprint(user)
-	if(iscrowbar(C) || (istype(C, /obj/item/weapon/material/twohanded/fireaxe) && C:wielded == 1) || (istype(C, /obj/item/weapon/melee/hammer)))
+	if((istype(C, /obj/item/weapon/material/twohanded/fireaxe) && C:wielded == 1) || (istype(C, /obj/item/weapon/melee/hammer)))
 		if (((stat & NOPOWER) || 	(stat & BROKEN)) && !( src.operating ))
 			force_toggle()
 		else
@@ -169,6 +181,19 @@
 	return ..()
 
 
+/obj/machinery/door/blast/power_change()
+	..()
+	if(src.operating || (stat & BROKEN) || is_critical)
+		return
+	if(stat & NOPOWER)
+		INVOKE_ASYNC(src, /obj/machinery/door/blast/.proc/force_close)
+		securitylock = TRUE
+	else if(securitylock)
+		INVOKE_ASYNC(src, /obj/machinery/door/blast/.proc/force_open)
+		securitylock = FALSE
+
+/obj/machinery/door/blast/attack_hand(mob/user as mob)
+	return
 
 // SUBTYPE: Regular
 // Your classical blast door, found almost everywhere.

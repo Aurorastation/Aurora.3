@@ -60,7 +60,7 @@
 	desc = "Worn brownish synthcotton vest with lots of pockets to unload your hands."
 	icon_state = "vest_brown"
 	slots = 5
-	
+
 /obj/item/clothing/accessory/storage/white_vest
 	name = "white webbing vest"
 	desc = "Durable white synthcotton vest with lots of pockets to carry essentials."
@@ -109,3 +109,19 @@
 
 	new /obj/item/weapon/material/hatchet/unathiknife(hold)
 	new /obj/item/weapon/material/hatchet/unathiknife(hold)
+
+/obj/item/clothing/accessory/storage/bayonet
+	name = "bayonet sheath"
+	desc = "A leather sheath designated to hold a bayonet."
+	icon_state = "holster_machete"
+	slots = 1
+
+/obj/item/clothing/accessory/storage/bayonet/Initialize()
+	. = ..()
+	hold.max_storage_space = 4
+	hold.max_w_class = 3
+	hold.can_hold = list(
+		/obj/item/weapon/material/knife/bayonet
+	)
+
+	new /obj/item/weapon/material/knife/bayonet(hold)

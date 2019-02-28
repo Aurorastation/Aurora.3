@@ -77,7 +77,7 @@
 				H.name += " [pick(last_names)]"
 				H.real_name = H.name
 
-				H.set_species(randomize)
+				addtimer(CALLBACK(H, /mob/living/carbon/human.proc/set_species, randomize), 0)
 				H.universal_speak = 1
 				var/datum/preferences/A = new() //Randomize appearance for the human
 				A.randomize_appearance_for(H)

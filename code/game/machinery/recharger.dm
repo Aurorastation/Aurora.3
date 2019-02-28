@@ -14,7 +14,7 @@
 	var/obj/item/charging
 
 	var/list/allowed_devices = list(
-		/obj/item/weapon/gun/energy, 
+		/obj/item/weapon/gun/energy,
 		/obj/item/weapon/melee/baton,
 		/obj/item/weapon/cell,
 		/obj/item/modular_computer,
@@ -43,7 +43,7 @@
 		qdel(bar)
 
 /obj/machinery/recharger/attackby(obj/item/weapon/G as obj, mob/user as mob)
-	if(portable && iswrench(G))
+	if(portable && G.iswrench())
 		if(charging)
 			user << "<span class='alert'>Remove [charging] first!</span>"
 			return
@@ -77,8 +77,7 @@
 			user << "<span class='warning'>\The [name] blinks red as you try to insert the item!</span>"
 			return
 
-		user.drop_item()
-		G.forceMove(src)
+		user.drop_from_inventory(G,src)
 		charging = G
 		update_icon()
 

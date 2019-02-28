@@ -65,7 +65,7 @@
 			else if (response == "Carbon-Copy")
 				P = new /obj/item/weapon/paper/carbon
 
-		P.loc = user.loc
+		P.forceMove(user.loc)
 		user.put_in_hands(P)
 		user << "<span class='notice'>You take [P] out of the [src].</span>"
 	else
@@ -78,17 +78,16 @@
 /obj/item/weapon/paper_bin/attackby(obj/item/weapon/O as obj, mob/user as mob)
 	if(istype(O, /obj/item/weapon/paper))
 		var/obj/item/weapon/paper/i = O
-		user.drop_item()
-		i.loc = src
+		user.drop_from_inventory(i,src)
 		user << "<span class='notice'>You put [i] in [src].</span>"
 		papers.Add(i)
 		amount++
  /*	if(istype(O, /obj/item/weapon/paper_pack))	WIP written in.
  		var/obj/item/weapon/paper_bundle/j = O
- 		user.drop_item()
  		amount += j.amount
  		user << "<span class='notice'>You add paper from [j] into [src].</span>"
- 		del(j)
+ 		user.drop_from_inventory(j,get_turf(src))
+		qdel(j)
  */
 
 

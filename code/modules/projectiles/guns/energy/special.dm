@@ -1,31 +1,52 @@
-/obj/item/weapon/gun/energy/ionrifle
+/obj/item/weapon/gun/energy/rifle/ionrifle
 	name = "ion rifle"
-	desc = "The NT Mk60 EW Halicon is a man portable anti-armor weapon designed to disable mechanical threats, produced by NT."
-	icon_state = "ionrifle"
-	item_state = "ionrifle"
+	desc = "The NT Mk70 EW Halicon is a man portable anti-armor weapon designed to disable mechanical threats, produced by NT. Has two settings: stun and kill"
+	icon_state = "ionriflestun100"
+	item_state = "ionriflestun100" // so the human update icon uses the icon_state instead.
+	modifystate = "ionriflestun"
+	projectile_type = /obj/item/projectile/ion/stun
 	fire_sound = 'sound/weapons/Laser.ogg'
 	origin_tech = list(TECH_COMBAT = 2, TECH_MAGNET = 4)
 	w_class = 4
+	accuracy = 1
 	force = 10
 	flags =  CONDUCT
 	slot_flags = SLOT_BACK
 	charge_cost = 300
 	max_shots = 10
-	projectile_type = /obj/item/projectile/ion
+	secondary_projectile_type =  /obj/item/projectile/ion
+	secondary_fire_sound = 'sound/weapons/Laser.ogg'
 	can_turret = 1
+	can_switch_modes = 1
 	turret_sprite_set = "ion"
 
-/obj/item/weapon/gun/energy/ionrifle/emp_act(severity)
+	firemodes = list(
+		list(mode_name="stun", projectile_type=/obj/item/projectile/ion/stun, modifystate="ionriflestun", fire_sound='sound/weapons/Laser.ogg', charge_cost = 300),
+		list(mode_name="lethal", projectile_type=/obj/item/projectile/ion, modifystate="ionriflekill", fire_sound='sound/weapons/Laser.ogg', charge_cost = 450)
+		)
+
+/obj/item/weapon/gun/energy/rifle/ionrifle/emp_act(severity)
 	..(max(severity, 2)) //so it doesn't EMP itself, I guess
 
-/obj/item/weapon/gun/energy/ionrifle/update_icon()
-	..()
-	if(power_supply.charge < charge_cost)
-		item_state = "ionrifle-empty"
-	else
-		item_state = initial(item_state)
+/obj/item/weapon/gun/energy/rifle/ionrifle/update_icon()
+	if(charge_meter && power_supply && power_supply.maxcharge)
+		var/ratio = power_supply.charge / power_supply.maxcharge
 
-/obj/item/weapon/gun/energy/ionrifle/mounted
+		//make sure that rounding down will not give us the empty state even if we have charge for a shot left.
+		if(power_supply.charge < charge_cost)
+			ratio = 0
+		else
+			ratio = max(round(ratio, 0.25) * 100, 25)
+
+		if(modifystate)
+			icon_state = "[modifystate][ratio]"
+			item_state = "[modifystate][ratio]"
+		else
+			icon_state = "[initial(icon_state)][ratio]"
+			item_state = "[initial(icon_state)][ratio]"
+	update_held_icon()
+
+/obj/item/weapon/gun/energy/rifle/ionrifle/mounted
 	name = "mounted ion rifle"
 	self_recharge = 1
 	use_external_power = 1
@@ -281,8 +302,9 @@
 	fire_sound = 'sound/weapons/Laser.ogg'
 	slot_flags = SLOT_BACK | SLOT_HOLSTER | SLOT_BELT
 	w_class = 3
+	accuracy = 1
 	force = 10
-	projectile_type = /obj/item/projectile/energy/blaster
+	projectile_type = /obj/item/projectile/energy/blaster/incendiary
 	max_shots = 6
 	sel_mode = 1
 	burst = 1
@@ -310,6 +332,7 @@
 	attack_verb = list("sundered", "annihilated", "sliced", "cleaved", "slashed", "pulverized")
 	slot_flags = SLOT_BACK
 	w_class = 5
+	accuracy = 3 // It's a massive beam, okay.
 	force = 60
 	projectile_type = /obj/item/projectile/beam/megaglaive
 	max_shots = 36
@@ -343,8 +366,14 @@
 
 	toggle_wield(usr)
 
-/obj/item/weapon/gun/energy/vaurca/typec/attack(atom/A, mob/living/user, def_zone)
-	return ..() //Pistolwhippin'
+/obj/item/weapon/gun/energy/vaurca/typec/attack(mob/living/carbon/human/M as mob, mob/living/carbon/user as mob)
+	user.setClickCooldown(16)
+	..()
+
+/obj/item/weapon/gun/energy/vaurca/typec/pre_attack(var/mob/living/target, var/mob/living/user)
+	if(istype(target))
+		cleave(user, target)
+	..()
 
 /obj/item/weapon/gun/energy/vaurca/typec/special_check(var/mob/user)
 	if(is_charging)
@@ -371,14 +400,13 @@
 /obj/item/weapon/gun/energy/vaurca/typec/attack_hand(mob/user as mob)
 	if(loc != user)
 		var/mob/living/carbon/human/H = user
-		if(istype(H))
-			if(H.species.name == "Vaurca Breeder")
-				playsound(user, 'sound/weapons/saberon.ogg', 50, 1)
-				anchored = 1
-				user << "<span class='notice'>\The [src] is now energised.</span>"
-				icon_state = "megaglaive1"
-				..()
-				return
+		if(H.mob_size >= 30)
+			playsound(user, 'sound/weapons/saberon.ogg', 50, 1)
+			anchored = 1
+			user << "<span class='notice'>\The [src] is now energised.</span>"
+			icon_state = "megaglaive1"
+			..()
+			return
 		user << "<span class='warning'>\The [src] is far too large for you to pick up.</span>"
 		return
 
@@ -403,6 +431,7 @@
 	fire_sound = 'sound/magic/lightningbolt.ogg'
 	slot_flags = SLOT_BACK
 	w_class = 4
+	accuracy = 0 // Overwrite just in case.
 	force = 15
 	projectile_type = /obj/item/projectile/beam/thermaldrill
 	max_shots = 90
@@ -419,8 +448,8 @@
 
 	firemodes = list(
 		list(mode_name="2 second burst", burst=10, burst_delay = 1, fire_delay = 20),
-		list(mode_name="4 second burst", burst=20, burst_delay = 1, fire_delay = 40, dispersion = list(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10)),
-		list(mode_name="6 second burst", burst=30, burst_delay = 1, fire_delay = 60, dispersion = list(0, 1.5, 3, 4.5, 6, 7.5, 9, 10.5, 12, 13.5, 15, 16.5, 18, 19.5, 21))
+		list(mode_name="4 second burst", burst=20, burst_delay = 1, fire_delay = 40),
+		list(mode_name="6 second burst", burst=30, burst_delay = 1, fire_delay = 60)
 		)
 
 	action_button_name = "Wield thermal drill"
@@ -453,6 +482,7 @@
 					)
 	is_charging = 1
 	if(!do_after(user, 40))
+		is_charging = FALSE
 		return 0
 	is_charging = 0
 	if(!istype(user.get_active_hand(), src))
@@ -484,7 +514,6 @@
 	charge_meter = 1
 	use_external_power = 1
 	charge_cost = 25
-	dispersion = list(0, 3, 6, 9, 12, 15, 18, 21, 24, 27, 30)
 
 /obj/item/weapon/gun/energy/vaurca/mountedthermaldrill/special_check(var/mob/user)
 	if(is_charging)
@@ -503,23 +532,20 @@
 
 	return ..()
 
-/*/obj/item/weapon/gun/energy/vaurca/flamer
-	name = "Vaurcae Incinerator"
-	desc = "A devious flamethrower device that procedurally converts atmosphere to fuel for a virtually unlimited tank."
-	icon_state = "incinerator"
-	item_state = "incinerator"
-	fire_sound = 'sound/effects/extinguish.ogg'
-	charge_meter = 0
-	slot_flags = SLOT_BACK
-	w_class = 3
-	force = 10
-	projectile_type = /obj/item/projectile/energy/flamer
-	self_recharge = 1
-	recharge_time = 2
-	max_shots = 80
-	firemodes = list(
-		list(mode_name="spray", burst = 20, burst_delay = -1, fire_delay = 10, dispersion = list(0.5, 0.5, 1.0, 1.0, 1.5, 1.5, 2.0, 2.0, 2.5, 2.5, 3.0, 3.0, 3.5, 4.0, 4.5, 5.0, 5.5, 6.0, 6.0, 6.0)),
-		)*/
+/obj/item/weapon/gun/energy/vaurca/tachyon
+	name = "tachyon carbine"
+	desc = "A Vaurcan carbine that fires a beam of concentrated faster than light particles, capable of passing through most forms of matter."
+	contained_sprite = 1
+	icon = 'icons/obj/vaurca_items.dmi'
+	icon_state = "tachyoncarbine"
+	item_state = "tachyoncarbine"
+	fire_sound = 'sound/weapons/laser3.ogg'
+	projectile_type = /obj/item/projectile/beam/tachyon
+	origin_tech = list(TECH_COMBAT = 5, TECH_MATERIAL = 3, TECH_MAGNET = 2, TECH_ILLEGAL = 2)
+	max_shots = 10
+	accuracy = 1
+	fire_delay = 1
+	can_turret = 0
 
 /obj/item/weapon/gun/energy/tesla
 	name = "tesla gun"

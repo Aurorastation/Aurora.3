@@ -72,8 +72,7 @@
 		user << span("warning", "[M] already has a tracker installed. Please remove the existing one.")
 		return
 
-	user.drop_from_inventory(src)
-	src.forceMove(M)
+	user.drop_from_inventory(src,M)
 	playsound(get_turf(user), 'sound/items/Deconstruct.ogg', 50, 1)
 	exo_beacons.Add(src)
 	user.visible_message("[user] installs [src] in [M].", "You install [src] in [M]")
@@ -92,7 +91,7 @@
 	qdel(src)
 	return
 
-/obj/item/mecha_parts/mecha_tracking/ex_act()
+/obj/item/mecha_parts/mecha_tracking/ex_act(var/severity = 2.0)
 	qdel(src)
 	return
 

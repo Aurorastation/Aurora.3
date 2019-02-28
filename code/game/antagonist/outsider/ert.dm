@@ -8,9 +8,9 @@ var/datum/antagonist/ert/ert
 	welcome_text = "As member of the Emergency Response Team, you answer only to your leader and CentComm officials."
 	leader_welcome_text = "As leader of the Emergency Response Team, you answer only to CentComm, and have authority to override the Captain where it is necessary to achieve your mission goals. It is recommended that you attempt to cooperate with the captain where possible, however."
 	landmark_id = "Response Team"
-	
-	id_type = /obj/item/weapon/card/id/centcom/ERT
-	
+
+	id_type = /obj/item/weapon/card/id/ert
+
 	flags = ANTAG_OVERRIDE_JOB | ANTAG_SET_APPEARANCE | ANTAG_HAS_LEADER | ANTAG_CHOOSE_NAME | ANTAG_RANDOM_EXCEPTED
 	antaghud_indicator = "hudloyalist"
 
@@ -38,7 +38,7 @@ var/datum/antagonist/ert/ert
 	//Special radio setup
 	player.equip_to_slot_or_del(new /obj/item/device/radio/headset/ert(src), slot_l_ear)
 	player.equip_to_slot_or_del(new /obj/item/clothing/under/ert(src), slot_w_uniform)
-	player.equip_to_slot_or_del(new /obj/item/clothing/shoes/swat(src), slot_shoes)
+	player.equip_to_slot_or_del(new /obj/item/clothing/shoes/swat/ert(src), slot_shoes)
 	player.equip_to_slot_or_del(new /obj/item/clothing/gloves/swat(src), slot_gloves)
 	player.equip_to_slot_or_del(new /obj/item/clothing/glasses/sunglasses(src), slot_glasses)
 

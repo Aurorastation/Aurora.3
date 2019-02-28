@@ -75,6 +75,14 @@
 			endgame_exits += loc
 			delete_me = 1
 			return
+		if("asteroid spawn")
+			asteroid_spawn += loc
+			delete_me = 1
+			return
+		if("skrell_entry")
+			dream_entries += loc
+			delete_me = 1
+			return
 
 	landmarks_list += src
 	return 1
@@ -144,7 +152,7 @@
 	delete_me = 1
 
 /obj/effect/landmark/costume/maid/New()
-	new /obj/item/clothing/under/blackskirt(src.loc)
+	new /obj/item/clothing/under/skirt/(src.loc)
 	var/CHOICE = pick( /obj/item/clothing/head/beret , /obj/item/clothing/head/rabbitears )
 	new CHOICE(src.loc)
 	new /obj/item/clothing/glasses/sunglasses/blindfold(src.loc)
@@ -246,3 +254,8 @@
 	new /obj/item/clothing/mask/gas/sexymime(src.loc)
 	new /obj/item/clothing/under/sexymime(src.loc)
 	delete_me = 1
+
+/obj/effect/landmark/dungeon_spawn
+	name = "asteroid spawn"
+	icon = 'icons/1024x1024.dmi'
+	icon_state = "yellow"

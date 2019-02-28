@@ -319,7 +319,8 @@ var/global/list/obj/item/device/pda/PDAs = list()
 
 /obj/item/device/pda/Initialize(mapload)
 	. = ..()
-	PDAs += src
+	if(!(src in PDAs))
+		PDAs += src
 	if (!mapload)
 		try_sort_pda_list()
 	if(default_cartridge)
@@ -427,10 +428,6 @@ var/global/list/obj/item/device/pda/PDAs = list()
 	data["new_Message"] = new_message
 	data["new_News"] = new_news
 
-	var/datum/reception/reception = get_reception(src, do_sleep = 0)
-	var/has_reception = reception.telecomms_reception & TELECOMMS_RECEPTION_SENDER
-	data["reception"] = has_reception
-
 	if(mode==2)
 		var/convopdas[0]
 		var/pdas[0]
@@ -462,7 +459,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 						if(P.icon_state == "pda-hop"||P.icon_state == "pda-cargo"||P.icon_state == "pda-q"||P.icon_state == "pda-miner")
 							pdas.Add(list(list("Name" = "[P]", "Reference" = "\ref[P]", "Detonate" = "[P.detonate]", "inconvo" = "0")))
 					if(7)	//service
-						if(P.icon_state == "pda-hop"||P.icon_state == "pda-j"||P.icon_state == "pda-bar"||P.icon_state == "pda-holy"||P.icon_state == "pda-lawyer"||P.icon_state == "pda-libb"||P.icon_state == "pda-hydro"||P.icon_state == "pda-chef")
+						if(P.icon_state == "pda-hop"||P.icon_state == "pda-bar"||P.icon_state == "pda-holy"||P.icon_state == "pda-lawyer"||P.icon_state == "pda-libb"||P.icon_state == "pda-hydro"||P.icon_state == "pda-chef"||P.icon_state == "pda-j")
 							pdas.Add(list(list("Name" = "[P]", "Reference" = "\ref[P]", "Detonate" = "[P.detonate]", "inconvo" = "0")))
 					if(8)	//medical
 						if(P.icon_state == "pda-cmo"||P.icon_state == "pda-v"||P.icon_state == "pda-m"||P.icon_state == "pda-chem")
@@ -518,16 +515,13 @@ var/global/list/obj/item/device/pda/PDAs = list()
 		if(isnull(data["aircontents"]))
 			data["aircontents"] = list("reading" = 0)
 	if(mode==6)
-		if(has_reception)
-			feeds.Cut()
-			for(var/datum/feed_channel/channel in news_network.network_channels)
-				feeds[++feeds.len] = list("name" = channel.channel_name, "censored" = channel.censored)
+		feeds.Cut()
+		for(var/channel in SSnews.network_channels)
+			var/datum/feed_channel/FC = SSnews.GetFeedChannel(channel)
+			feeds[++feeds.len] = list("name" = FC.channel_name, "censored" = FC.censored)
 		data["feedChannels"] = feeds
 	if(mode==61)
-		var/datum/feed_channel/FC
-		for(FC in news_network.network_channels)
-			if(FC.channel_name == active_feed["name"])
-				break
+		var/datum/feed_channel/FC = SSnews.GetFeedChannel(active_feed["name"])
 
 		var/list/feed = feed_info[active_feed]
 		if(!feed)
@@ -538,7 +532,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 			feed["updated"] = -1
 			feed_info[active_feed] = feed
 
-		if(FC.updated > feed["updated"] && has_reception)
+		if(FC.updated > feed["updated"])
 			feed["author"]	= FC.author
 			feed["updated"]	= FC.updated
 			feed["censored"] = FC.censored
@@ -552,7 +546,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 						usr << browse_rsc(FM.img, "pda_news_tmp_photo_[feed["channel"]]_[index].png")
 					// News stories are HTML-stripped but require newline replacement to be properly displayed in NanoUI
 					var/body = replacetext(FM.body, "\n", "<br>")
-					messages[++messages.len] = list("author" = FM.author, "body" = body, "message_type" = FM.message_type, "time_stamp" = FM.time_stamp, "has_image" = (FM.img != null), "caption" = FM.caption, "index" = index)
+					messages[++messages.len] = list("author" = FM.author, "body" = body, "message_type" = FM.message_type, "time_stamp" = FM.time_stamp, "has_image" = (FM.img != null), "caption" = FM.caption, "index" = index, "likes" = FM.likes, "dislikes" = FM.dislikes)
 			feed["messages"] = messages
 
 		data["feed"] = feed
@@ -877,7 +871,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 						if("2")		// Eject pAI device
 							var/turf/T = get_turf_or_move(src.loc)
 							if(T)
-								pai.loc = T
+								pai.forceMove(T)
 								pai = null
 
 		else
@@ -910,65 +904,56 @@ var/global/list/obj/item/device/pda/PDAs = list()
 
 /obj/item/device/pda/proc/detonate_act(var/obj/item/device/pda/P)
 	//TODO: sometimes these attacks show up on the message server
-	var/i = rand(1,100)
-	var/j = rand(0,1) //Possibility of losing the PDA after the detonation
+	var/effect = pick("explosion", "burn", "emp", "smoke", "stun", "spark")
 	var/message = ""
 	var/mob/living/M = null
 	if(ismob(P.loc))
 		M = P.loc
 
-	//switch(i) //Yes, the overlapping cases are intended.
-	if(i<=10) //The traditional explosion
-		P.explode()
-		j=1
-		message += "Your [P] suddenly explodes!"
-	if(i>=10 && i<= 20) //The PDA burns a hole in the holder.
-		j=1
-		if(M && isliving(M))
-			M.apply_damage( rand(30,60) , BURN)
-		message += "You feel a searing heat! Your [P] is burning!"
-	if(i>=20 && i<=25) //EMP
-		empulse(P.loc, 3, 6, 1)
-		message += "Your [P] emits a wave of electromagnetic energy!"
-	if(i>=25 && i<=40) //Smoke
-		var/datum/effect/effect/system/smoke_spread/chem/S = new /datum/effect/effect/system/smoke_spread/chem
-		S.attach(P.loc)
-		S.set_up(P, 10, 0, P.loc, 60)
-		playsound(P.loc, 'sound/effects/smoke.ogg', 50, 1, -3)
-		S.start()
-		message += "Large clouds of smoke billow forth from your [P]!"
-	if(i>=40 && i<=45) //Bad smoke
-		var/datum/effect/effect/system/smoke_spread/bad/B = new /datum/effect/effect/system/smoke_spread/bad
-		B.attach(P.loc)
-		B.set_up(P, 10, 0, P.loc)
-		playsound(P.loc, 'sound/effects/smoke.ogg', 50, 1, -3)
-		B.start()
-		message += "Large clouds of noxious smoke billow forth from your [P]!"
-	if(i>=65 && i<=75) //Weaken
-		if(M && isliving(M))
-			M.apply_effects(weaken = 1)
-		message += "Your [P] flashes with a blinding white light! You feel weaker."
-	if(i>=75 && i<=85) //Stun and stutter
-		if(M && isliving(M))
-			M.apply_effects(stun = 1, stutter = 1)
-		message += "Your [P] flashes with a blinding white light! You feel weaker."
-	if(i>=85) //Sparks
-		spark(P.loc, 2)
-		message += "Your [P] begins to spark violently!"
-	if(i>45 && i<65 && prob(50)) //Nothing happens
-		message += "Your [P] bleeps loudly."
-		j = prob(10)
+	switch(effect)
 
-	if(j) //This kills the PDA
-		qdel(P)
-		if(message)
-			message += "It melts in a puddle of plastic."
-		else
-			message += "Your [P] shatters in a thousand pieces!"
+		if("explosion")
+			P.explode()
+			message += "Your [P] suddenly explodes!"
+
+		if("burn")
+			if(M && isliving(M))
+				M.apply_damage( rand(30,60) , BURN)
+			message += "You feel a searing heat! Your [P] is burning!"
+
+		if("emp")
+			empulse(P.loc, 3, 6, 1)
+
+		if("smoke")
+			var/datum/effect/effect/system/smoke_spread/bad/S = new /datum/effect/effect/system/smoke_spread/bad
+			S.set_up(P, 10, 0, P.loc, 60)
+			S.attach(P.loc)
+			S.start()
+			playsound(P.loc, 'sound/effects/smoke.ogg', 50, 1, -3)
+			message += "Large clouds of smoke billow forth from your [P]!"
+
+		if("stun")
+			if(M && isliving(M))
+				M.apply_effect(5, WEAKEN)
+				flick("flash", M.flash)
+			message += "Your [P] flashes with a blinding white light!"
+
+		if("spark")
+			spark(P.loc, 2)
+			message += "Your [P] begins to spark violently!"
+
+	if(message)
+		message += " "
+
+	if(effect == "explosion")
+		message += "Your [P] shatters in a thousand pieces!"
+	else
+		message += "\The [P] melts in a puddle of plastic."
 
 	if(M && isliving(M))
-		message = "<span class='warning'>[message]</span>"
-		M.show_message(message, 1)
+		to_chat(M, "<span class='warning'>[message]</span>")
+
+	qdel(P)
 
 /obj/item/device/pda/proc/remove_id()
 	if (id)
@@ -1213,14 +1198,14 @@ var/global/list/obj/item/device/pda/PDAs = list()
 		else
 			var/obj/item/I = user.get_active_hand()
 			if (istype(I, /obj/item/weapon/card/id) && user.unEquip(I))
-				I.loc = src
+				I.forceMove(src)
 				id = I
 			return 1
 	else
 		var/obj/item/weapon/card/I = user.get_active_hand()
 		if (istype(I, /obj/item/weapon/card/id) && I:registered_name && user.unEquip(I))
 			var/obj/old_id = id
-			I.loc = src
+			I.forceMove(src)
 			id = I
 			user.put_in_hands(old_id)
 			return 1
@@ -1231,8 +1216,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 	..()
 	if(istype(C, /obj/item/weapon/cartridge) && !cartridge)
 		cartridge = C
-		user.drop_item()
-		cartridge.loc = src
+		user.drop_from_inventory(cartridge,src)
 		user << "<span class='notice'>You insert [cartridge] into [src].</span>"
 		SSnanoui.update_uis(src) // update all UIs attached to src
 		if(cartridge.radio)
@@ -1244,12 +1228,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 			user << "<span class='notice'>\The [src] rejects the ID.</span>"
 			return
 		if(!owner)
-			owner = idcard.registered_name
-			ownjob = idcard.assignment
-			ownrank = idcard.rank
-			name = "PDA-[owner] ([ownjob])"
-			user << "<span class='notice'>Card scanned.</span>"
-			try_sort_pda_list()
+			update_userinfo(idcard,user)
 		else
 			//Basic safety check. If either both objects are held by user or PDA is on ground and card is in hand.
 			if(((src in user.contents) && (C in user.contents)) || (istype(loc, /turf) && in_range(src, user) && (C in user.contents)) )
@@ -1259,8 +1238,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 			return	//Return in case of failed check or when successful.
 		updateSelfDialog()//For the non-input related code.
 	else if(istype(C, /obj/item/device/paicard) && !src.pai)
-		user.drop_item()
-		C.loc = src
+		user.drop_from_inventory(C,src)
 		pai = C
 		pai.update_location()//This notifies the pAI that they've been slotted into a PDA
 		user << "<span class='notice'>You slot \the [C] into [src].</span>"
@@ -1269,11 +1247,19 @@ var/global/list/obj/item/device/pda/PDAs = list()
 		if(pen)
 			user << "<span class='notice'>There is already a pen in \the [src].</span>"
 		else
-			user.drop_item()
-			C.forceMove(src)
+			user.drop_from_inventory(C,src)
 			pen = C
 			user << "<span class='notice'>You slide \the [C] into \the [src].</span>"
 	return
+
+/obj/item/device/pda/proc/update_userinfo(var/obj/item/weapon/card/id/idcard, var/mob/living/user)
+	owner = idcard.registered_name
+	ownjob = idcard.assignment
+	ownrank = idcard.rank
+	name = "PDA-[owner] ([ownjob])"
+	if(user)
+		to_chat(user, "<span class='notice'>Card scanned.</span>")
+	try_sort_pda_list()
 
 /obj/item/device/pda/attack(mob/living/C as mob, mob/living/user as mob)
 	if (istype(C, /mob/living/carbon))
@@ -1417,8 +1403,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 
 /obj/item/device/pda/Destroy()
 	PDAs -= src
-	if (src.id && prob(90)) //IDs are kept in 90% of the cases
-		src.id.loc = get_turf(src.loc)
+	QDEL_NULL(id)
 	QDEL_NULL(pen)
 	if (LAZYLEN(linked_consoles))
 		for(var/A in linked_consoles)
@@ -1473,20 +1458,20 @@ var/global/list/obj/item/device/pda/PDAs = list()
 	icon = 'icons/obj/pda.dmi'
 	icon_state = "pdabox"
 
-	New()
-		..()
-		new /obj/item/device/pda(src)
-		new /obj/item/device/pda(src)
-		new /obj/item/device/pda(src)
-		new /obj/item/device/pda(src)
-		new /obj/item/weapon/cartridge/head(src)
+/obj/item/weapon/storage/box/PDAs/fill()
+	..()
+	new /obj/item/device/pda(src)
+	new /obj/item/device/pda(src)
+	new /obj/item/device/pda(src)
+	new /obj/item/device/pda(src)
+	new /obj/item/weapon/cartridge/head(src)
 
-		var/newcart = pick(	/obj/item/weapon/cartridge/engineering,
-							/obj/item/weapon/cartridge/security,
-							/obj/item/weapon/cartridge/medical,
-							/obj/item/weapon/cartridge/signal/science,
-							/obj/item/weapon/cartridge/quartermaster)
-		new newcart(src)
+	var/newcart = pick(	/obj/item/weapon/cartridge/engineering,
+						/obj/item/weapon/cartridge/security,
+						/obj/item/weapon/cartridge/medical,
+						/obj/item/weapon/cartridge/signal/science,
+						/obj/item/weapon/cartridge/quartermaster)
+	new newcart(src)
 
 // Pass along the pulse to atoms in contents, largely added so pAIs are vulnerable to EMP
 /obj/item/device/pda/emp_act(severity)

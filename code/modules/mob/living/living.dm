@@ -20,6 +20,11 @@
 	src.visible_message("<b>[src]</b> points to [A]")
 	return 1
 
+/mob/living/Crossed(var/atom/movable/AM)
+	if(istype(AM, /obj/mecha))
+		var/obj/mecha/MB = AM
+		MB.trample(src)
+
 /*one proc, four uses
 swapping: if it's 1, the mobs are trying to switch, if 0, non-passive is pushing passive
 default behaviour is:
@@ -203,7 +208,6 @@ default behaviour is:
 //sort of a legacy burn method for /electrocute, /shock, and the e_chair
 /mob/living/proc/burn_skin(burn_amount)
 	if(istype(src, /mob/living/carbon/human))
-		//world << "DEBUG: burn_skin(), mutations=[mutations]"
 		if(mShock in src.mutations) //shockproof
 			return 0
 		if (COLD_RESISTANCE in src.mutations) //fireproof
@@ -236,8 +240,6 @@ default behaviour is:
 		temperature -= change
 		if(actual < desired)
 			temperature = desired
-//	if(istype(src, /mob/living/carbon/human))
-//		world << "[src] ~ [src.bodytemperature] ~ [temperature]"
 	return temperature
 
 
@@ -250,6 +252,7 @@ default behaviour is:
 
 /mob/living/proc/adjustBruteLoss(var/amount)
 	if(status_flags & GODMODE)	return 0	//godmode
+	amount *= brute_mod
 	bruteloss = min(max(bruteloss + amount, 0),(maxHealth*2))
 
 /mob/living/proc/getOxyLoss()
@@ -279,6 +282,7 @@ default behaviour is:
 
 /mob/living/proc/adjustFireLoss(var/amount)
 	if(status_flags & GODMODE)	return 0	//godmode
+	amount *= burn_mod
 	fireloss = min(max(fireloss + amount, 0),(maxHealth*2))
 
 /mob/living/proc/getCloneLoss()
@@ -305,14 +309,23 @@ default behaviour is:
 	return halloss
 
 /mob/living/proc/adjustHalLoss(var/amount)
-	if(status_flags & GODMODE)	return 0	//godmode
+	if(status_flags & GODMODE)
+		return 0
+
+	if(amount > 0)
+		amount *= 2/(get_nutrition_mul(0.5,1) + get_hydration_mul(0.5,1))
+
 	halloss = min(max(halloss + amount, 0),(maxHealth*2))
 
 /mob/living/carbon/adjustHalLoss(var/amount, var/ignoreImmunity = 0)//An inherited version so this doesnt affect cyborgs
 	if(status_flags & GODMODE)	return 0	//godmode
 	if(!ignoreImmunity)//Adjusting how hallloss works. Species with the NO_PAIN flag will suffer most of the effects of halloss, but will be immune to most conventional sources of accumulating it
-		if (species && species.flags & NO_PAIN)//Species with this flag will only gather halloss through species-specific mechanics, which apply it with the ignoreImmunity flag
+		if (!can_feel_pain())//Species with the NO_PAIN flag will only gather halloss through species-specific mechanics, which apply it with the ignoreImmunity flag
 			return 0
+
+	if(amount > 0)
+		amount *= 1/get_hydration_mul()
+		amount *= 1/get_nutrition_mul()
 
 	halloss = min(max(halloss + amount, 0),(maxHealth*2))
 
@@ -453,7 +466,8 @@ default behaviour is:
 	fire_stacks = 0
 
 /mob/living/proc/rejuvenate()
-	reagents.clear_reagents()
+	if(!isnull(reagents))
+		reagents.clear_reagents()
 
 	// shut down various types of badness
 	setToxLoss(0)
@@ -467,6 +481,7 @@ default behaviour is:
 	// shut down ongoing problems
 	total_radiation = 0
 	nutrition = 400
+	hydration = 400
 	bodytemperature = T20C
 	sdisabilities = 0
 	disabilities = 0
@@ -576,7 +591,7 @@ default behaviour is:
 
 						if(!istype(M.loc, /turf/space))
 							var/area/A = get_area(M)
-							if(A.has_gravity)
+							if(A.has_gravity())
 								//this is the gay blood on floor shit -- Added back -- Skie
 								if (M.lying && (prob(M.getBruteLoss() / 6)))
 									var/turf/location = M.loc
@@ -628,7 +643,6 @@ default behaviour is:
 	set category = "IC"
 
 	if(!incapacitated(INCAPACITATION_KNOCKOUT) && canClick())
-		setClickCooldown(20)
 		resist_grab()
 		if(!weakened)
 			process_resist()
@@ -644,9 +658,12 @@ default behaviour is:
 		spawn() escape_buckle()
 
 	//Breaking out of a locker?
-	if( src.loc && (istype(src.loc, /obj/structure/closet)) )
+	if( src.loc && istype(src.loc, /obj/structure/closet) )
 		var/obj/structure/closet/C = loc
 		spawn() C.mob_breakout(src)
+	else if(src.loc && istype(src.loc, /obj/item/weapon/trap/animal))
+		var/obj/item/weapon/trap/animal/A = loc
+		spawn() A.mob_breakout(src)
 
 /mob/living/proc/escape_inventory(obj/item/weapon/holder/H)
 	if(H != src.loc) return
@@ -678,7 +695,15 @@ default behaviour is:
 	if(buckled)
 		buckled.user_unbuckle_mob(src)
 
+/mob/living/var/last_resist
+
 /mob/living/proc/resist_grab()
+	if (last_resist + 4 > world.time)
+		return
+	last_resist = world.time
+	if(stunned > 10)
+		src << "<span class='notice'>You can't move...</span>"
+		return
 	var/resisting = 0
 	for(var/obj/O in requests)
 		requests.Remove(O)
@@ -700,6 +725,7 @@ default behaviour is:
 					qdel(G)
 	if(resisting)
 		visible_message("<span class='danger'>[src] resists!</span>")
+		setClickCooldown(20)
 
 /mob/living/verb/lay_down()
 	set name = "Rest"
@@ -726,7 +752,7 @@ default behaviour is:
 		layer = UNDERDOOR
 		underdoor = 1
 
-/mob/living/carbon/drop_from_inventory(var/obj/item/W, var/atom/Target = null)
+/mob/living/carbon/drop_from_inventory(var/obj/item/W, var/atom/target = null)
 	if(W in internal_organs)
 		return
 	..()

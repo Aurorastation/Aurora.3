@@ -295,7 +295,8 @@
 	inputs = list()
 	outputs = list(
 		"X"= IC_PINTYPE_NUMBER,
-		"Y" = IC_PINTYPE_NUMBER
+		"Y" = IC_PINTYPE_NUMBER,
+		"Z" = IC_PINTYPE_NUMBER
 	)
 	activators = list(
 		"get coordinates" = IC_PINTYPE_PULSE_IN,
@@ -309,11 +310,13 @@
 
 	set_pin_data(IC_OUTPUT, 1, null)
 	set_pin_data(IC_OUTPUT, 2, null)
+	set_pin_data(IC_OUTPUT, 3, null)
 	if(!T)
 		return
 
 	set_pin_data(IC_OUTPUT, 1, T.x)
 	set_pin_data(IC_OUTPUT, 2, T.y)
+	set_pin_data(IC_OUTPUT, 3, T.z)
 
 	push_data()
 	activate_pin(2)
@@ -347,9 +350,15 @@
 	return ..()
 
 /obj/item/integrated_circuit/input/microphone/hear_talk(mob/living/M, msg, var/verb="says", datum/language/speaking=null)
+	if(isanimal(M))
+		if(!M.universal_speak)
+			return
+
 	var/translated = FALSE
 	if(M && msg)
 		if(speaking)
+			if(!speaking.machine_understands)
+				msg = speaking.scramble(msg)
 			if(!istype(speaking, /datum/language/common))
 				translated = TRUE
 		set_pin_data(IC_OUTPUT, 1, M.GetVoice())

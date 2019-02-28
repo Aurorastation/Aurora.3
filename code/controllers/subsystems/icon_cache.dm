@@ -50,9 +50,6 @@
 	//    haironly:   nobeard_[hair_style][r_hair][g_hair][b_hair]
 	//    beardonly:  [beard_style][r_facial][g_facial][b_facial]_nohair
 	var/list/human_hair_cache = list()
-	var/list/human_underwear_cache = list()
-	var/list/human_undershirt_cache = list()
-	var/list/human_socks_cache = list()
 	var/list/organ_keymap = list()
 	var/current_organ_keymap_idex = 1
 	// This is an assoc list of all icon states in `icons/mob/collar.dmi`, used by human update-icons.
@@ -72,6 +69,8 @@
 
 	var/list/space_cache = list()
 	var/list/crayon_cache = list()
+
+	var/list/istate_cache = list()
 
 /datum/controller/subsystem/icon_cache/New()
 	NEW_SS_GLOBAL(SSicon_cache)
@@ -95,7 +94,7 @@
 	var/key = organ.get_mob_cache_key(FALSE)
 	. = organ_keymap[key]
 	if (!.)
-		organ_keymap[key] = "organ[current_organ_keymap_idex++]"
+		organ_keymap[key] = "o[current_organ_keymap_idex++]"
 		. = organ_keymap[key]
 
 /datum/controller/subsystem/icon_cache/proc/setup_uniform_mappings()
@@ -124,3 +123,35 @@
 		I.icon_state = istr
 		I.overlays += space_dust_cache[istr]
 		space_cache[istr] = I
+
+/datum/controller/subsystem/icon_cache/proc/get_state(icon/I, state)	// returns an APPEARANCE, not an image!
+	if (!isicon(I))
+		CRASH("Expected icon.")
+
+	if (!istext(state))
+		// non-fatal, so just print a message then carry on.
+		crash_with("Received non-text icon_state '[state || "(NULL)"]'; normalizing, but this shouldn't happen.")
+		state = "[state]"
+
+	var/list/cache = istate_cache[I]
+	if (cache)
+		if (cache[state])
+			return cache[state]
+	else
+		cache = preload_icon(I)
+
+	var/image/im = image(icon = I, icon_state = state)
+	return cache[state] = im.appearance
+
+// Loads all icon states in an icon into the istate cache.
+/datum/controller/subsystem/icon_cache/proc/preload_icon(icon/I)
+	log_debug("SSicon_cache: preloading '[I]'...")
+	var/list/cache = list()
+	var/image/im = new(icon = I)
+	for (var/state in icon_states(I))
+		im.icon_state = state
+		cache[state] = im.appearance
+
+	log_debug("SSicon_cache: preloaded [cache.len] states.")
+	istate_cache[I] = cache
+	return cache

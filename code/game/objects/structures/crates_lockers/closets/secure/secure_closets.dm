@@ -50,13 +50,13 @@
 
 /obj/structure/closet/secure_closet/proc/togglelock(mob/user as mob)
 	if(opened)
-		user << "<span class='notice'>Close the locker first.</span>"
+		to_chat(user,  "<span class='notice'>Close the locker first.</span>")
 		return
 	if(broken)
-		user << "<span class='warning'>The locker appears to be broken.</span>"
+		to_chat(user,  "<span class='warning'>The locker appears to be broken.</span>")
 		return
 	if(user.loc == src)
-		user << "<span class='notice'>You can't reach the lock from inside.</span>"
+		to_chat(user, "<span class='notice'>You can't reach the lock from inside.</span>")
 		return
 	if(allowed(user))
 		locked = !locked
@@ -65,7 +65,7 @@
 				O << "<span class='notice'>The locker has been [locked ? null : "un"]locked by [user].</span>"
 		update_icon()
 	else
-		user << "<span class='notice'>Access Denied</span>"
+		to_chat(user,  "<span class='notice'>Access Denied</span>")
 
 /obj/structure/closet/secure_closet/proc/CanChainsaw(var/obj/item/weapon/material/twohanded/chainsaw/ChainSawVar)
 	return (ChainSawVar.powered && !opened && !broken)
@@ -77,8 +77,8 @@
 			if(large)
 				MouseDrop_T(G.affecting, user)	//act like they were dragged onto the closet
 			else
-				user << "<span class='notice'>The locker is too small to stuff [G.affecting] into!</span>"
-		if(iswelder(W))
+				to_chat(user,  "<span class='notice'>The locker is too small to stuff [G.affecting] into!</span>")
+		if(W.iswelder())
 			var/obj/item/weapon/weldingtool/WT = W
 			if(WT.isOn())
 				user.visible_message(
@@ -90,7 +90,7 @@
 				if (!do_after(user, 2 SECONDS, act_target = src, extra_checks = CALLBACK(src, .proc/is_open)))
 					return
 				if(!WT.remove_fuel(0,user))
-					user << "<span class='notice'>You need more welding fuel to complete this task.</span>"
+					to_chat(user,  "<span class='notice'>You need more welding fuel to complete this task.</span>")
 					return
 				else
 					new /obj/item/stack/material/steel(loc)
@@ -104,38 +104,39 @@
 			return
 		else if(W.loc != user) // This should stop mounted modules ending up outside the module.
 			return
-		user.drop_item()
 		if(W)
-			W.forceMove(loc)
-	else if(isscrewdriver(W) && canbemoved)
+			user.drop_from_inventory(W,loc)
+		else
+			user.drop_item()
+	else if(W.isscrewdriver() && canbemoved)
 		if(screwed)
-			user << "<span class='notice'>You start to unscrew the locker from the floor...</span>"
+			to_chat(user,  "<span class='notice'>You start to unscrew the locker from the floor...</span>")
 			playsound(loc, 'sound/items/Screwdriver.ogg', 50, 1)
 			if (do_after(user, 10 SECONDS, act_target = src))
-				user << "<span class='notice'>You unscrew the locker!</span>"
+				to_chat(user,  "<span class='notice'>You unscrew the locker!</span>")
 				playsound(loc, 'sound/items/Screwdriver.ogg', 50, 1)
 				screwed = 0
 		else if(!screwed && wrenched)
-			user << "<span class='notice'>You start to screw the locker to the floor...</span>"
+			to_chat(user,  "<span class='notice'>You start to screw the locker to the floor...</span>")
 			playsound(src, 'sound/items/Welder.ogg', 80, 1)
 			if (do_after(user, 15, act_target = src))
-				user << "<span class='notice'>You screw the locker!</span>"
+				to_chat(user,  "<span class='notice'>You screw the locker!</span>")
 				playsound(loc, 'sound/items/Screwdriver.ogg', 50, 1)
 				screwed = 1
-	else if(iswrench(W) && canbemoved)
+	else if(W.iswrench() && canbemoved)
 		if(wrenched && !screwed)
-			user << "<span class='notice'>You start to unfasten the bolts holding the locker in place...</span>"
+			to_chat(user,  "<span class='notice'>You start to unfasten the bolts holding the locker in place...</span>")
 			playsound(loc, 'sound/items/Ratchet.ogg', 50, 1)
 			if (do_after(user, 15 SECONDS, act_target = src))
-				user << "<span class='notice'>You unfasten the locker's bolts!</span>"
+				to_chat(user,  "<span class='notice'>You unfasten the locker's bolts!</span>")
 				playsound(loc, 'sound/items/Ratchet.ogg', 50, 1)
 				wrenched = 0
 				anchored = 0
 		else if(!wrenched)
-			user << "<span class='notice'>You start to fasten the bolts holding the locker in place...</span>"
+			to_chat(user,  "<span class='notice'>You start to fasten the bolts holding the locker in place...</span>")
 			playsound(loc, 'sound/items/Ratchet.ogg', 50, 1)
 			if (do_after(user, 15, act_target = src))
-				user << "<span class='notice'>You fasten the locker's bolts!</span>"
+				to_chat(user,  "<span class='notice'>You fasten the locker's bolts!</span>")
 				playsound(loc, 'sound/items/Ratchet.ogg', 50, 1)
 				wrenched = 1
 				anchored = 1
@@ -162,7 +163,7 @@
 				spark(src, 5)
 				playsound(loc, 'sound/weapons/blade1.ogg', 50, 1)
 				playsound(loc, "sparks", 50, 1)
-		else if(iswelder(W))
+		else if(W.iswelder())
 			var/obj/item/weapon/weldingtool/WT = W
 			if(WT.isOn())
 				user.visible_message(
@@ -174,7 +175,7 @@
 				if (!do_after(user, 2 SECONDS, act_target = src, extra_checks = CALLBACK(src, .proc/is_closed)))
 					return
 				if(!WT.remove_fuel(0,user))
-					user << "<span class='notice'>You need more welding fuel to complete this task.</span>"
+					to_chat(user,  "<span class='notice'>You need more welding fuel to complete this task.</span>")
 					return
 				welded = !welded
 				update_icon()

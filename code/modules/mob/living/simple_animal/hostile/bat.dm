@@ -74,6 +74,7 @@
 	faction = "cult"
 	supernatural = 1
 	tameable = FALSE
+	appearance_flags = NO_CLIENT_COLOR
 
 /mob/living/simple_animal/hostile/scarybat/cult/cultify()
 	return

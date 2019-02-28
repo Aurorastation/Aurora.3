@@ -102,7 +102,7 @@
  */
 
 /client/verb/warnings_check()
-	set name = "My warnings"
+	set name = "Warnings and Notifications"
 	set category = "OOC"
 	set desc = "Display warnings issued to you."
 
@@ -115,7 +115,48 @@
 		alert("Connection to the SQL database lost. Aborting. Please alert an Administrator or a member of staff.")
 		return
 
-	var/dat = "<div align='center'><h3>Warnings received</h3></div><br>"
+	var/dat = ""
+
+	//
+	// Notifications
+	//
+
+	var/DBQuery/notification_query = dbcon.NewQuery({"SELECT
+		id, message, created_by
+	FROM ss13_player_notifications
+	WHERE 
+		acked_at IS NULL 
+		AND ckey = :ckey:
+		AND type IN ('player_greeting','player_greeting_chat')
+	"})
+	notification_query.Execute(list("ckey" = ckey))
+
+	var/notification_header=0
+	while(notification_query.NextRow())
+		if(!notification_header)
+			notification_header=1
+			dat += "<div align='center'><h3>Pending Notifications</h3></div><br>"
+			dat += "<table width='90%' bgcolor='#e3e3e3' cellpadding='5' cellspacing='0' align='center'>"
+			dat += "<tr>"
+			dat += "<th width='20%'>ADMIN</th>"
+			dat += "<th width='60%'>TEXT</th>"
+			dat += "<th width='20%'>ACKNOWLEDGE</th>"
+			dat += "</tr>"
+		
+		dat += "<tr bgcolor='90ee90' align='center'>"
+		dat += "<td>[notification_query.item[3]]</td>"
+		dat += "<td>[notification_query.item[2]]</td>"
+		dat += "<td><b>(<a href='byond://?src=\ref[src];notifacknowledge=[notification_query.item[1]]'>Acknowledge Notification</a>)</b></td>"
+		dat += "</tr>"
+
+	if(notification_header)
+		dat += "</table>"
+
+	//
+	// Warnings
+	//
+
+	dat += "<div align='center'><h3>Warnings Received</h3></div><br>"
 
 	dat += "<table width='90%' bgcolor='#e3e3e3' cellpadding='5' cellspacing='0' align='center'>"
 	dat += "<tr>"
@@ -179,6 +220,23 @@
 
 	var/DBQuery/query = dbcon.NewQuery("UPDATE ss13_warnings SET acknowledged = 1 WHERE id = :warning_id:;")
 	query.Execute(list("warning_id" = warning_id))
+
+	warnings_check()
+
+/client/proc/notifications_acknowledge(var/id)
+	if(!id)
+		error("Error: Argument ID for notificaton acknowledgement not supplied.")
+		return
+
+	if (!establish_db_connection(dbcon))
+		error("Error: Unable to establish db connection during notification acknowledgement.")
+		return
+
+	var/DBQuery/query = dbcon.NewQuery({"UPDATE ss13_player_notifications
+	SET acked_by = :ckey:, acked_at = NOW()
+	WHERE id = :id: AND ckey = :ckey:
+	"})
+	query.Execute(list("ckey" = src.ckey, "id" = id))
 
 	warnings_check()
 
@@ -333,6 +391,50 @@
 
 	usr << browse(dat, "window=lookupwarns;size=900x500")
 	feedback_add_details("admin_verb","WARN-LKUP")
+
+//Admin Proc to add a new User Notification
+/client/proc/notification_add()
+	set category = "Admin"
+	set name = "Add Notification"
+
+	if(!check_rights(R_ADMIN|R_MOD|R_DEV|R_CCIAA))
+		return
+
+	if (!establish_db_connection(dbcon))
+		error("Error: Unable to establish db connection while adding a notification.")
+		return
+
+	var/ckey = ckey(input(usr, "What ckey?", "Enter a ckey"))
+	if(!ckey)
+		to_chat(usr,"You need to specify a ckey.")
+		return
+
+	//Validate ckey
+	var/DBQuery/validatequery = dbcon.NewQuery("SELECT id FROM ss13_player WHERE ckey = :ckey:")
+	validatequery.Execute(list("ckey" = ckey))
+
+	if (validatequery.RowCount() == 0)
+		to_chat(usr, "Could not find a player with that ckey.")
+		return
+	else if (validatequery.RowCount() != 1)
+		to_chat(usr, "Found more than one player with this ckey. This should not happen, please inform the server maintainers.")
+		return
+
+	var/list/types=list("player_greeting","player_greeting_chat","admin","ccia")
+	var/type = input(usr, "Which Type?", "Choose a type", "") as null|anything in (types)
+	if(!type)
+		to_chat(usr,"You need to specify a type.")
+		return
+
+	var/message = sanitize(input(usr,"Notification Message", "Specify a notification message"))
+	if(!message)
+		to_chat(usr,"You need to specify a notification message.")
+		return
+
+	var/DBQuery/addquery = dbcon.NewQuery("INSERT INTO ss13_player_notifications (`ckey`, `type`, `message`, `created_by`) VALUES (:ckey:, :type:, :message:, :a_ckey:)")
+	addquery.Execute(list("ckey" = ckey, "type" = type, "message" = message, "a_ckey" = usr.ckey))
+	to_chat(usr,"Notification added.")
+	
 
 /*
  * A proc for editing and deleting warnings issued

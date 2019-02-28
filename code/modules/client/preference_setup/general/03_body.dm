@@ -103,7 +103,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 		"facial_style"  = pref.f_style,
 		"eyes_colour"   = rgb(pref.r_eyes, pref.g_eyes, pref.b_eyes),
 		"b_type"        = pref.b_type,
-		"disabilities"  = pref.disabilities,
+		"disabilities"  = json_encode(pref.disabilities),
 		"organs_data"   = list2params(pref.organ_data),
 		"organs_robotic"= list2params(pref.rlimb_data),
 		"body_markings" = json_encode(pref.body_markings),
@@ -135,8 +135,6 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 		pref.g_eyes      = GetGreenPart(pref.eyes_colour)
 		pref.b_eyes      = GetBluePart(pref.eyes_colour)
 
-		pref.disabilities = text2num(pref.disabilities)
-
 		if (istext(pref.organ_data))
 			pref.organ_data = params2list(pref.organ_data)
 		if (istext(pref.rlimb_data))
@@ -148,6 +146,13 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 			catch (var/exception/e)
 				log_debug("BODY MARKINGS: Caught [e]. Initial value: [before]")
 				pref.body_markings = list()
+		if (istext(pref.disabilities))
+			var/before = pref.disabilities
+			try
+				pref.disabilities = json_decode(pref.disabilities)
+			catch (var/exception/e)
+				log_debug("DISABILITIES: Caught [e]. Initial value: [before]")
+				pref.disabilities = list()
 
 	pref.r_hair   = sanitize_integer(pref.r_hair, 0, 255, initial(pref.r_hair))
 	pref.g_hair   = sanitize_integer(pref.g_hair, 0, 255, initial(pref.g_hair))
@@ -166,13 +171,14 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 	pref.b_eyes   = sanitize_integer(pref.b_eyes, 0, 255, initial(pref.b_eyes))
 	pref.b_type   = sanitize_text(pref.b_type, initial(pref.b_type))
 
-	pref.disabilities = sanitize_integer(pref.disabilities, 0, 65535, initial(pref.disabilities))
 	if (!pref.organ_data || !islist(pref.organ_data))
 		pref.organ_data = list()
 	if (!pref.rlimb_data || !islist(pref.rlimb_data))
 		pref.rlimb_data = list()
 	if (!pref.body_markings || !islist(pref.body_markings))
 		pref.body_markings = list()
+	if (!pref.disabilities || !islist(pref.disabilities))
+		pref.disabilities = list()
 
 /datum/category_item/player_setup_item/general/body/content(var/mob/user)
 	var/list/out = list()
@@ -189,7 +195,9 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 	out += "Blood Type: <a href='?src=\ref[src];blood_type=1'>[pref.b_type]</a><br>"
 	if(has_flag(mob_species, HAS_SKIN_TONE))
 		out += "Skin Tone: <a href='?src=\ref[src];skin_tone=1'>[-pref.s_tone + 35]/220</a><br>"
-	out += "Needs Glasses: <a href='?src=\ref[src];disabilities=[NEARSIGHTED]'><b>[pref.disabilities & NEARSIGHTED ? "Yes" : "No"]</b></a><br>"
+	out += "Disabilities: <a href='?src=\ref[src];trait_add=1'>Adjust</a><br>"
+	for(var/M in pref.disabilities)
+		out += "     [M] <a href='?src=\ref[src];trait_remove=[M]'>-</a><br>"
 	if(!(has_flag(mob_species, HAS_FBP)))
 		out += "Limbs: <a href='?src=\ref[src];limbs=1'>Adjust</a><br>"
 		out += "Internal Organs: <a href='?src=\ref[src];organs=1'>Adjust</a><br>"
@@ -622,9 +630,17 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 
 		return TOPIC_REFRESH
 
-	else if(href_list["disabilities"])
-		var/disability_flag = text2num(href_list["disabilities"])
-		pref.disabilities ^= disability_flag
+	else if(href_list["trait_add"])
+		var/list/available_disabilities = pref.disabilities ^ chargen_disabilities_list
+
+		var/new_trait = input(user, "Choose a disability:", "Character Preference")  as null|anything in available_disabilities
+		if(new_trait && CanUseTopic(user))
+			pref.disabilities += new_trait
+		return TOPIC_REFRESH
+
+	else if(href_list["trait_remove"])
+		var/M = href_list["trait_remove"]
+		pref.disabilities -= M
 		return TOPIC_REFRESH
 
 	else if(href_list["toggle_clothing"])

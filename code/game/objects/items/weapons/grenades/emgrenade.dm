@@ -4,8 +4,8 @@
 	item_state = "empgrenade"
 	origin_tech = list(TECH_MATERIAL = 2, TECH_MAGNET = 3)
 
-	prime()
-		..()
-		if(empulse(src, 4, 10))
-			qdel(src)
-		return
+/obj/item/weapon/grenade/empgrenade/prime()
+	..()
+	if(empulse(src, 4, 10))
+		qdel(src)
+	return

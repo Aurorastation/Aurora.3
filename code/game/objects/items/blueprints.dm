@@ -94,7 +94,6 @@ move an amendment</a> to the drawing.</p>
 	return AREA_STATION
 
 /obj/item/blueprints/proc/create_area()
-	//world << "DEBUG: create_area"
 	var/res = detect_room(get_turf(usr))
 	if(!istype(res,/list))
 		switch(res)
@@ -116,9 +115,6 @@ move an amendment</a> to the drawing.</p>
 		return
 	var/area/A = new
 	A.name = str
-	//var/ma
-	//ma = A.master ? "[A.master]" : "(null)"
-	//world << "DEBUG: create_area: <br>A.name=[A.name]<br>A.tag=[A.tag]<br>A.master=[ma]"
 	A.power_equip = 0
 	A.power_light = 0
 	A.power_environ = 0
@@ -136,12 +132,11 @@ move an amendment</a> to the drawing.</p>
 /obj/item/blueprints/proc/move_turfs_to_area(var/list/turf/turfs, var/area/A)
 	A.contents.Add(turfs)
 		//oldarea.contents.Remove(usr.loc) // not needed
-		//T.loc = A //error: cannot change constant value
+		//T.forceMove(A) //error: cannot change constant value
 
 
 /obj/item/blueprints/proc/edit_area()
 	var/area/A = get_area()
-	//world << "DEBUG: edit_area"
 	var/prevname = "[A.name]"
 	var/str = sanitizeSafe(input("New area name:","Blueprint Editing", prevname), MAX_NAME_LEN)
 	if(!str || !length(str) || str==prevname) //cancel

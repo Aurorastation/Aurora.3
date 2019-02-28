@@ -200,7 +200,7 @@ Implant Specifics:<BR>"}
 				explosion(get_turf(T), -1, 0, 1, 6)
 				T.gib()
 			if (elevel == "Full Explosion")
-				explosion(get_turf(T), 0, 1, 3, 6)
+				explosion_spread(get_turf(T), rand(8,13))
 				T.gib()
 
 		else
@@ -213,6 +213,15 @@ Implant Specifics:<BR>"}
 
 	if(t)
 		t.hotspot_expose(3500,125)
+
+/proc/explosion_spread(turf/epicenter, power, adminlog = 1, z_transfer = UP|DOWN)
+	var/datum/explosiondata/data = new
+	data.epicenter = epicenter
+	data.rec_pow = power
+	data.spreading = TRUE
+	data.adminlog = adminlog
+	data.z_transfer = z_transfer
+	SSexplosives.queue(data)
 
 /obj/item/weapon/implant/explosive/implanted(mob/source as mob)
 	elevel = alert("What sort of explosion would you prefer?", "Implant Intent", "Localized Limb", "Destroy Body", "Full Explosion")
@@ -532,7 +541,7 @@ the implant may become unstable and either pre-maturely inject the subject or si
 	if (imp_in)
 		imp_in.put_in_hands(scanned)
 	else
-		scanned.loc = t
+		scanned.forceMove(t)
 	qdel(src)
 
 /obj/item/weapon/implant/compressed/implanted(mob/source as mob)

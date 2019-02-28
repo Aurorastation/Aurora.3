@@ -19,7 +19,7 @@
 	var/maxWaterLevel = 100
 	var/maxNutriLevel = 10
 	var/maxPestLevel = 10
-	var/maxWeedLevel = 10
+	var/maxWeedLevel = 0 // Hydroponics systems don't grow weeds irl. Pests are still an issue.
 
 	// Tray state vars.
 	var/dead = 0               // Is it dead?
@@ -33,7 +33,7 @@
 	var/mutation_mod = 0       // Modifier to mutation chance
 	var/toxins = 0             // Toxicity in the tray?
 	var/mutation_level = 0     // When it hits 100, the plant mutates.
-	var/tray_light = 1         // Supplied lighting.
+	var/tray_light = 5         // Supplied lighting.
 
 	// Mechanical concerns.
 	var/health = 0             // Plant health.
@@ -137,7 +137,7 @@
 			return
 		var/mob/living/carbon/alien/diona/nymph = usr
 		if(nymph.nutrition > 100 && nutrilevel < 10)
-			nymph.nutrition -= ((10-nutrilevel)*5)
+			nymph.adjustNutritionLoss((10-nutrilevel)*5)
 			nutrilevel = 10
 			nymph.visible_message("<font color='blue'><b>[nymph]</b> secretes a trickle of green liquid, refilling [src].</font>","<font color='blue'>You secrete a trickle of green liquid, refilling [src].</font>")
 		return//Nymphs cant open and close lids
@@ -460,7 +460,7 @@
 	if (O.is_open_container())
 		return 0
 
-	if(iswirecutter(O) || istype(O, /obj/item/weapon/scalpel))
+	if(O.iswirecutter() || istype(O, /obj/item/weapon/scalpel))
 
 		if(!seed)
 			user << "There is nothing to take a sample from in \the [src]."
@@ -565,7 +565,7 @@
 		qdel(O)
 		check_health()
 
-	else if(mechanical && iswrench(O))
+	else if(mechanical && O.iswrench())
 
 		//If there's a connector here, the portable_atmospherics setup can handle it.
 		if(locate(/obj/machinery/atmospherics/portables_connector/) in loc)
@@ -647,10 +647,11 @@
 			light_string = "that the internal lights are set to [tray_light] lumens"
 		else
 			var/light_available
-			if(T.dynamic_lighting)
+			if(TURF_IS_DYNAMICALLY_LIT(T))
 				light_available = T.get_lumcount(0, 3) * 10
 			else
-				light_available =  5
+				light_available = 5
+
 			light_string = "a light level of [light_available] lumens"
 
 		usr << "The tray's sensor suite is reporting [light_string] and a temperature of [environment.temperature]K."

@@ -77,17 +77,17 @@
 /obj/vehicle/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	if(istype(W, /obj/item/weapon/hand_labeler))
 		return
-	if(isscrewdriver(W))
+	if(W.isscrewdriver())
 		if(!locked)
 			open = !open
 			update_icon()
 			user << "<span class='notice'>Maintenance panel is now [open ? "opened" : "closed"].</span>"
-	else if(iscrowbar(W) && cell && open)
+	else if(W.iscrowbar() && cell && open)
 		remove_cell(user)
 
 	else if(istype(W, /obj/item/weapon/cell) && !cell && open)
 		insert_cell(W, user)
-	else if(iswelder(W))
+	else if(W.iswelder())
 		var/obj/item/weapon/weldingtool/T = W
 		if(T.welding)
 			if(health < maxhealth)
@@ -195,7 +195,7 @@
 		return 1
 
 /obj/vehicle/proc/explode()
-	src.visible_message("<span class='danger'>[src] blows apart!</span>", 1)
+	visible_message("<span class='danger'>[src] blows apart!</span>")
 	var/turf/Tsec = get_turf(src)
 
 	new /obj/item/stack/rods(Tsec)
@@ -245,8 +245,7 @@
 	if(!istype(C))
 		return
 
-	H.drop_from_inventory(C)
-	C.forceMove(src)
+	H.drop_from_inventory(C,src)
 	cell = C
 	powercheck()
 	usr << "<span class='notice'>You install [C] in [src].</span>"

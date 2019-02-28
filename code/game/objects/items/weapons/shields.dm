@@ -108,7 +108,9 @@
 
 /obj/item/weapon/shield/buckler/get_block_chance(mob/user, var/damage, atom/damage_source = null, mob/attacker = null)
 	if(istype(damage_source, /obj/item/projectile))
-		return 0
+		var/obj/item/projectile/P = damage_source
+		if((is_sharp(P) && damage > 10) || istype(P, /obj/item/projectile/beam))
+			return 0
 	return base_block_chance
 
 /*
@@ -222,6 +224,18 @@
 	icon_state = "eshield[active]"
 	if(active)
 		set_light(1.5, 1.5, "#006AFF")
+	else
+		set_light(0)
+
+/obj/item/weapon/shield/energy/legion
+	name = "energy barrier"
+	desc = "A large deployable energy shield meant to provide excellent protection against ranged attacks."
+	icon_state = "ebarrier0"
+
+/obj/item/weapon/shield/energy/legion/update_icon()
+	icon_state = "ebarrier[active]"
+	if(active)
+		set_light(1.5, 1.5, "#33FFFF")
 	else
 		set_light(0)
 

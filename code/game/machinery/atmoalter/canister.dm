@@ -178,7 +178,7 @@ update_flag
 		update_icon()
 
 		if (src.holding)
-			src.holding.loc = src.loc
+			src.holding.forceMove(src.loc)
 			src.holding = null
 
 		return 1
@@ -260,7 +260,7 @@ update_flag
 			valve_open = !valve_open
 
 /obj/machinery/portable_atmospherics/canister/attackby(var/obj/item/weapon/W as obj, var/mob/user as mob)
-	if(!iswrench(W) && !istype(W, /obj/item/weapon/tank) && !istype(W, /obj/item/device/analyzer) && !istype(W, /obj/item/device/pda))
+	if(!W.iswrench() && !istype(W, /obj/item/weapon/tank) && !istype(W, /obj/item/device/analyzer) && !istype(W, /obj/item/device/pda))
 		visible_message("<span class='warning'>\The [user] hits \the [src] with \a [W]!</span>")
 		src.health -= W.force
 		src.add_fingerprint(user)
@@ -354,7 +354,7 @@ update_flag
 				release_log += "Valve was <b>closed</b> by [usr] ([usr.ckey]), stopping the transfer into the [holding]<br>"
 			if(istype(holding, /obj/item/weapon/tank))
 				holding.manipulated_by = usr.real_name
-			holding.loc = loc
+			holding.forceMove(loc)
 			holding = null
 
 	if (href_list["pressure_adj"])
@@ -457,4 +457,9 @@ update_flag
 /obj/machinery/portable_atmospherics/canister/phoron/engine_setup/Initialize()
 	. = ..()
 	src.air_contents.adjust_gas("phoron", MolesForPressure())
+	src.update_icon()
+
+/obj/machinery/portable_atmospherics/canister/air/cold/Initialize()
+	. = ..()
+	src.air_contents.temperature = 283
 	src.update_icon()

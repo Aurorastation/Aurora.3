@@ -67,6 +67,10 @@
 
 	var/obj/item/device/firing_pin/pin = /obj/item/device/firing_pin//standard firing pin for most guns.
 
+	var/can_bayonet = FALSE
+	var/obj/item/weapon/material/knife/bayonet/bayonet
+	var/knife_x_offset = 0
+	var/knife_y_offset = 0
 
 	var/next_fire_time = 0
 
@@ -103,6 +107,15 @@
 
 	queue_icon_update()
 
+/obj/item/weapon/gun/update_icon()
+	underlays.Cut()
+	if(bayonet)
+		var/image/I
+		I = image('icons/obj/gun.dmi', "bayonet")
+		I.pixel_x = knife_x_offset
+		I.pixel_y = knife_y_offset
+		underlays += I
+	return ..()
 
 //Checks whether a given mob can use the gun
 //Any checks that shouldn't result in handle_click_empty() being called if they fail should go here.
@@ -113,7 +126,7 @@
 	if(!user.IsAdvancedToolUser())
 		return 0
 
-	if(user.disabilities & PACIFIST)
+	if(user.is_pacified())
 		to_chat(user, "<span class='notice'>You don't want to risk harming anyone!</span>")
 		return 0
 
@@ -122,6 +135,13 @@
 	if(HULK in M.mutations)
 		M << "<span class='danger'>Your fingers are much too large for the trigger guard!</span>"
 		return 0
+
+	if(ishuman(M))
+		var/mob/living/carbon/human/A = M
+		if(A.martial_art && A.martial_art.no_guns)
+			to_chat(A, "<span class='warning'>[A.martial_art.no_guns_message]</span>")
+			return 0
+
 	if((CLUMSY in M.mutations) && prob(40)) //Clumsy handling
 		var/obj/P = consume_next_projectile()
 		if(P)
@@ -173,34 +193,43 @@
 		handle_suicide(user)
 	else if(user.a_intent == I_HURT) //point blank shooting
 		Fire(A, user, pointblank=1)
+	else if(bayonet)
+		bayonet.attack(A, user, def_zone)
 	else
 		return ..() //Pistolwhippin'
 
-/obj/item/weapon/gun/proc/Fire(atom/target, mob/living/user, clickparams, pointblank=0, reflex=0)
-	if(!user || !target) return
+/obj/item/weapon/gun/proc/fire_checks(atom/target, mob/living/user, clickparams, pointblank=0, reflex=0)
+	if(!user || !target)
+		return 0
 
 	add_fingerprint(user)
 	if(user.client && (user.client.prefs.toggles_secondary & SAFETY_CHECK) && user.a_intent != I_HURT) //Check this first to save time.
 		user << "You refrain from firing, as you aren't on harm intent."
-		return
+		return 0
 
 	if(!special_check(user))
-		return
+		return 0
 
 	var/failure_chance = 100 - reliability
 	if(failure_chance && prob(failure_chance))
 		handle_reliability_fail(user)
-		return
+		return 0
 
 	if(world.time < next_fire_time)
 		if (world.time % 3) //to prevent spam
 			user << "<span class='warning'>[src] is not ready to fire again!</span>"
-		return
+		return 0
 
 	var/shoot_time = (burst - 1)* burst_delay
-	user.setClickCooldown(shoot_time) //no clicking on things while shooting
-	user.setMoveCooldown(shoot_time) //no moving while shooting either
+	user.setClickCooldown(shoot_time)
+	user.setMoveCooldown(shoot_time)
 	next_fire_time = world.time + shoot_time
+
+	return 1
+
+/obj/item/weapon/gun/proc/Fire(atom/target, mob/living/user, clickparams, pointblank=0, reflex=0)
+	if(!fire_checks(target,user,clickparams,pointblank,reflex))
+		return
 
 	//actually attempt to shoot
 	var/turf/targloc = get_turf(target) //cache this in case target gets deleted during shooting, e.g. if it was a securitron that got destroyed.
@@ -641,6 +670,8 @@
 obj/item/weapon/gun/Destroy()
 	if (istype(pin))
 		QDEL_NULL(pin)
+	if(bayonet)
+		QDEL_NULL(bayonet)
 	return ..()
 
 
@@ -668,13 +699,33 @@ obj/item/weapon/gun/Destroy()
 	return
 
 /obj/item/weapon/gun/attackby(var/obj/item/I as obj, var/mob/user as mob)
+
+	if(istype(I, /obj/item/weapon/material/knife/bayonet))
+		if(!can_bayonet)
+			return ..()
+
+		if(bayonet)
+			to_chat(user, "<span class='danger'>There is a bayonet attached to \the [src] already.</span>")
+			return
+
+		user.drop_from_inventory(I,src)
+		bayonet = I
+		to_chat(user, "<span class='notice'>You attach \the [I] to the front of \the [src].</span>")
+		update_icon()
+
+	if(I.iscrowbar() && bayonet)
+		to_chat(user, "<span class='notice'>You detach \the [bayonet] from \the [src].</span>")
+		bayonet.forceMove(get_turf(src))
+		bayonet = null
+		update_icon()
+
 	if(!pin)
 		return ..()
 
-	if(isscrewdriver(I))
+	if(I.isscrewdriver())
 		visible_message("<span class = 'warning'>[user] begins to try and pry out [src]'s firing pin!</span>")
 		if(do_after(user,45 SECONDS,act_target = src))
-			if(pin.durable)
+			if(pin.durable || prob(50))
 				visible_message("<span class = 'notice'>[user] pops the [pin] out of [src]!</span>")
 				pin.forceMove(get_turf(src))
 				pin = null//clear it out.

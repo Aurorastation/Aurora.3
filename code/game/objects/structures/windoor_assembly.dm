@@ -69,7 +69,7 @@ obj/structure/windoor_assembly/Destroy()
 	//I really should have spread this out across more states but thin little windoors are hard to sprite.
 	switch(state)
 		if("01")
-			if(iswelder(W) && !anchored )
+			if(W.iswelder() && !anchored )
 				var/obj/item/weapon/weldingtool/WT = W
 				if (WT.remove_fuel(0,user))
 					user.visible_message("[user] dissassembles the windoor assembly.", "You start to dissassemble the windoor assembly.")
@@ -87,7 +87,7 @@ obj/structure/windoor_assembly/Destroy()
 					return
 
 			//Wrenching an unsecure assembly anchors it in place. Step 4 complete
-			if(iswrench(W) && !anchored)
+			if(W.iswrench() && !anchored)
 				playsound(src.loc, 'sound/items/Ratchet.ogg', 100, 1)
 				user.visible_message("[user] secures the windoor assembly to the floor.", "You start to secure the windoor assembly to the floor.")
 
@@ -101,7 +101,7 @@ obj/structure/windoor_assembly/Destroy()
 						src.name = "Anchored Windoor Assembly"
 
 			//Unwrenching an unsecure assembly un-anchors it. Step 4 undone
-			else if(iswrench(W) && anchored)
+			else if(W.iswrench() && anchored)
 				playsound(src.loc, 'sound/items/Ratchet.ogg', 100, 1)
 				user.visible_message("[user] unsecures the windoor assembly to the floor.", "You start to unsecure the windoor assembly to the floor.")
 
@@ -132,7 +132,7 @@ obj/structure/windoor_assembly/Destroy()
 							src.name = "Secure Windoor Assembly"
 
 			//Adding cable to the assembly. Step 5 complete.
-			else if(iscoil(W) && anchored)
+			else if(W.iscoil() && anchored)
 				user.visible_message("[user] wires the windoor assembly.", "You start to wire the windoor assembly.")
 
 				var/obj/item/stack/cable_coil/CC = W
@@ -150,7 +150,7 @@ obj/structure/windoor_assembly/Destroy()
 		if("02")
 
 			//Removing wire from the assembly. Step 5 undone.
-			if(iswirecutter(W) && !src.electronics)
+			if(W.iswirecutter() && !src.electronics)
 				playsound(src.loc, 'sound/items/Wirecutter.ogg', 100, 1)
 				user.visible_message("[user] cuts the wires from the airlock assembly.", "You start to cut the wires from airlock assembly.")
 
@@ -175,8 +175,7 @@ obj/structure/windoor_assembly/Destroy()
 					if(do_after(user, 40))
 						EL.inuse = 0
 						if(!src) return
-						user.drop_item()
-						EL.forceMove(src)
+						user.drop_from_inventory(EL,src)
 						user << "<span class='notice'>You've installed the airlock electronics!</span>"
 						src.name = "Near finished Windoor Assembly"
 						src.electronics = EL
@@ -184,7 +183,7 @@ obj/structure/windoor_assembly/Destroy()
 						EL.inuse = 0
 
 			//Screwdriver to remove airlock electronics. Step 6 undone.
-			else if(isscrewdriver(W) && src.electronics)
+			else if(W.isscrewdriver() && src.electronics)
 				playsound(src.loc, 'sound/items/Screwdriver.ogg', 100, 1)
 				user.visible_message("[user] removes the electronics from the airlock assembly.", "You start to uninstall electronics from the airlock assembly.")
 
@@ -197,10 +196,10 @@ obj/structure/windoor_assembly/Destroy()
 						src.name = "Wired Windoor Assembly"
 					var/obj/item/weapon/airlock_electronics/ae = electronics
 					electronics = null
-					ae.loc = src.loc
+					ae.forceMove(src.loc)
 
 			//Crowbar to complete the assembly, Step 7 complete.
-			else if(iscrowbar(W))
+			else if(W.iscrowbar())
 				if(!src.electronics)
 					usr << "<span class='warning'>The assembly is missing electronics.</span>"
 					return
@@ -232,7 +231,7 @@ obj/structure/windoor_assembly/Destroy()
 						else
 							windoor.req_access = src.electronics.conf_access
 						windoor.electronics = src.electronics
-						src.electronics.loc = windoor
+						src.electronics.forceMove(windoor)
 					else
 						var/obj/machinery/door/window/windoor = new /obj/machinery/door/window(src.loc)
 						if(src.facing == "l")
@@ -250,7 +249,7 @@ obj/structure/windoor_assembly/Destroy()
 						else
 							windoor.req_access = src.electronics.conf_access
 						windoor.electronics = src.electronics
-						src.electronics.loc = windoor
+						src.electronics.forceMove(windoor)
 
 
 					qdel(src)

@@ -23,7 +23,7 @@
 		// After target moves, check for nearby stakes. If associated, move to target
 		for(var/obj/structure/target_stake/M in view(3,src))
 			if(M.density == 0 && M.pinned_target == src)
-				M.loc = loc
+				M.forceMove(loc)
 
 		// This may seem a little counter-intuitive but I assure you that's for a purpose.
 		// Stakes are the ones that carry targets, yes, but in the stake code we set
@@ -33,7 +33,7 @@
 
 
 	attackby(obj/item/W as obj, mob/user as mob)
-		if (iswelder(W))
+		if (W.iswelder())
 			var/obj/item/weapon/weldingtool/WT = W
 			if(WT.remove_fuel(0, user))
 				cut_overlays()
@@ -61,7 +61,7 @@
 						user.put_in_hands(src)
 						user << "You take the target out of the stake."
 				else
-					src.loc = get_turf(user)
+					src.forceMove(get_turf(user))
 					user << "You take the target out of the stake."
 
 				stake.pinned_target = null

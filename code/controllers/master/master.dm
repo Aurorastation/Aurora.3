@@ -124,7 +124,7 @@ var/CURRENT_TICKLIMIT = TICK_LIMIT_RUNNING
 				msg = "The [BadBoy.name] subsystem seems to be destabilizing the MC and will be offlined."
 				BadBoy.flags |= SS_NO_FIRE
 		if(msg)
-			admin_notice("<span class='danger'>[msg]</span>", R_DEBUG | R_DEV)				
+			admin_notice("<span class='danger'>[msg]</span>", R_DEBUG | R_DEV)
 			log_mc(msg)
 
 	if (istype(Master.subsystems))
@@ -180,8 +180,12 @@ var/CURRENT_TICKLIMIT = TICK_LIMIT_RUNNING
 #ifndef UNIT_TEST
 	world.sleep_offline = 1
 #endif
+
+	world.TgsInitializationComplete()
 	world.tick_lag = config.Ticklag
+
 	var/initialized_tod = REALTIMEOFDAY
+
 	sleep(1)
 	initializations_finished_with_no_players_logged_in = initialized_tod < REALTIMEOFDAY - 10
 	// Loop.
@@ -287,7 +291,7 @@ var/CURRENT_TICKLIMIT = TICK_LIMIT_RUNNING
 			continue
 
 		//Byond resumed us late. assume it might have to do the same next tick
-		if (last_run + Ceiling(world.tick_lag * (processing * sleep_delta), world.tick_lag) < world.time)
+		if (last_run + CEILING(world.tick_lag * (processing * sleep_delta), world.tick_lag) < world.time)
 			sleep_delta += 1
 
 		sleep_delta = MC_AVERAGE_FAST(sleep_delta, 1) //decay sleep_delta
@@ -373,7 +377,7 @@ var/CURRENT_TICKLIMIT = TICK_LIMIT_RUNNING
 		if (SS_flags & SS_NO_FIRE)
 			subsystemstocheck -= SS
 			continue
-		if (!(SS_flags & SS_TICKER) && (SS_flags & SS_KEEP_TIMING) && SS.last_fire + (SS.wait * 0.75) > world.time)
+		if ((SS_flags & (SS_TICKER|SS_KEEP_TIMING)) == SS_KEEP_TIMING && SS.last_fire + (SS.wait * 0.75) > world.time)
 			continue
 		SS.enqueue()
 	. = 1
@@ -440,7 +444,7 @@ var/CURRENT_TICKLIMIT = TICK_LIMIT_RUNNING
 			if (!(queue_node_flags & SS_TICKER))
 				ran_non_ticker = TRUE
 			ran = TRUE
-			
+
 			queue_node_paused = (queue_node.state == SS_PAUSED || queue_node.state == SS_PAUSING)
 			last_type_processed = queue_node
 

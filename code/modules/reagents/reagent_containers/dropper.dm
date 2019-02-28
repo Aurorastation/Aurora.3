@@ -11,6 +11,7 @@
 	w_class = 1
 	slot_flags = SLOT_EARS
 	volume = 5
+	center_of_mass = null
 
 	afterattack(var/obj/target, var/mob/user, var/flag)
 		if(!target.reagents || !flag) return
@@ -54,7 +55,7 @@
 
 					if(safe_thing)
 						trans = reagents.trans_to_obj(safe_thing, amount_per_transfer_from_this)
-						user.visible_message("<span class='warning'>[user] tries to squirt something into [target]'s eyes, but fails!</span>", "<span class='notice'>You transfer [trans] units of the solution.</span>")
+						user.visible_message("<span class='warning'>[user] tries to squirt something into [target]'s eyes, but fails!</span>", "<span class='warning'>You try to squirt something into [target]'s eyes, but fail!</span>")
 						return
 
 				trans = reagents.trans_to_mob(target, reagents.total_volume, CHEM_BLOOD)

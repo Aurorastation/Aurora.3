@@ -65,8 +65,8 @@
 		LTC.input_info = input_info.Copy()
 		LTC.output_info = output_info.Copy()
 
-		LTC.input_flow_setting = input_flow_setting
-		LTC.pressure_setting = pressure_setting
+		LTC.default_input_flow_setting = input_flow_setting
+		LTC.default_pressure_setting = pressure_setting
 		return 1
 
 /obj/item/weapon/circuitboard/air_management/supermatter_core/construct(var/obj/machinery/computer/general_air_control/supermatter_core/SC)
@@ -77,8 +77,8 @@
 		SC.input_info = input_info.Copy()
 		SC.output_info = output_info.Copy()
 
-		SC.input_flow_setting = input_flow_setting
-		SC.pressure_setting = input_flow_setting
+		SC.default_input_flow_setting = input_flow_setting
+		SC.default_pressure_setting = input_flow_setting
 		return 1
 
 /obj/item/weapon/circuitboard/air_management/injector_control/construct(var/obj/machinery/computer/general_air_control/fuel_injection/FI)
@@ -109,8 +109,8 @@
 		input_info = LTC.input_info.Copy()
 		output_info = LTC.output_info.Copy()
 
-		input_flow_setting = LTC.input_flow_setting
-		pressure_setting = LTC.pressure_setting
+		input_flow_setting = LTC.default_input_flow_setting
+		pressure_setting = LTC.default_pressure_setting
 		return 1
 
 /obj/item/weapon/circuitboard/air_management/supermatter_core/deconstruct(var/obj/machinery/computer/general_air_control/supermatter_core/SC)
@@ -121,8 +121,8 @@
 		input_info = SC.input_info.Copy()
 		output_info = SC.output_info.Copy()
 
-		input_flow_setting = SC.input_flow_setting
-		pressure_setting = SC.input_flow_setting
+		input_flow_setting = SC.default_input_flow_setting
+		pressure_setting = SC.default_input_flow_setting
 		return 1
 
 /obj/item/weapon/circuitboard/air_management/injector_control/deconstruct(var/obj/machinery/computer/general_air_control/fuel_injection/FI)
