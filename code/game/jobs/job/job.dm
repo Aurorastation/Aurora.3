@@ -84,16 +84,12 @@
 		species_modifier = human_species.economic_modifier
 		PROCLOG_WEIRD("species [H.species || "NULL"] did not have a set economic_modifier!")
 
-	var/wage_gap
+	var/wage_gap = 1
 	switch(H.gender)
-		if(MALE)
-			wage_gap = 1
 		if(FEMALE)
 			wage_gap = 0.8
 		if(NEUTER)
 			wage_gap = 0.7
-		else
-			wage_gap = 1
 
 	var/money_amount = ((rand(5,50) + rand(5, 50)) * loyalty * economic_modifier * species_modifier) * wage_gap
 	var/datum/money_account/M = SSeconomy.create_account(H.real_name, money_amount, null)
