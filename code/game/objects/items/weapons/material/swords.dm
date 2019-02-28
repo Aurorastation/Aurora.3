@@ -142,7 +142,7 @@
 
 /obj/item/weapon/material/sword/amohdan_sword
 	name = "amohdan blade"
-	desc = "A tajara sword, commonly used by the swordsmen of the island of Amohda."
+	desc = "A tajaran sword, commonly used by the swordsmen of the island of Amohda."
 	icon = 'icons/obj/sword.dmi'
 	icon_state = "amohdan_sword"
 	item_state = "amohdan_sword"
