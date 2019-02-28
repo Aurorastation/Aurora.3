@@ -19,34 +19,6 @@
 
 	var/label_text = ""
 
-	var/list/can_be_placed_into = list(
-		/obj/machinery/chem_master/,
-		/obj/machinery/chemical_dispenser,
-		/obj/machinery/reagentgrinder,
-		/obj/structure/table,
-		/obj/structure/closet,
-		/obj/structure/sink,
-		/obj/item/weapon/storage,
-		/obj/machinery/atmospherics/unary/cryo_cell,
-		/obj/machinery/dna_scannernew,
-		/obj/item/weapon/grenade/chem_grenade,
-		/mob/living/bot/medbot,
-		/obj/machinery/computer/pandemic,
-		/obj/item/weapon/storage/secure/safe,
-		/obj/machinery/iv_drip,
-		/obj/machinery/disease2/incubator,
-		/obj/machinery/disposal,
-		/mob/living/simple_animal/cow,
-		/mob/living/simple_animal/hostile/retaliate/goat,
-		/obj/machinery/computer/centrifuge,
-		/obj/machinery/sleeper,
-		/obj/machinery/smartfridge/,
-		/obj/machinery/biogenerator,
-		/obj/machinery/constructable_frame,
-		/obj/machinery/radiocarbon_spectrometer,
-		/obj/item/weapon/storage/part_replacer
-		)
-
 /obj/item/weapon/reagent_containers/glass/Initialize()
 	. = ..()
 	base_name = name
@@ -78,34 +50,14 @@
 /obj/item/weapon/reagent_containers/glass/AltClick(var/mob/user)
 	set_APTFT()
 
-/obj/item/weapon/reagent_containers/glass/afterattack(var/obj/target, var/mob/user, var/flag)
-	if(!is_open_container() || !flag)
-		return
-
-	for(var/type in can_be_placed_into)
-		if(istype(target, type))
-			return
-
-	if(standard_splash_mob(user, target))
-		return
-	if(standard_dispenser_refill(user, target))
-		return
-	if(standard_pour_into(user, target))
-		return
-
-	if(reagents && reagents.total_volume)
-		user << "<span class='notice'>You splash the solution onto [target].</span>"
-		reagents.splash(target, reagents.total_volume)
-		return
-
 /obj/item/weapon/reagent_containers/glass/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	if(istype(W,/obj/item/weapon/storage/part_replacer))
 		if(!reagents || !reagents.total_volume)
 			return ..()
 	if(istype(W, /obj/item/weapon/pen) || istype(W, /obj/item/device/flashlight/pen))
 		var/tmp_label = sanitizeSafe(input(user, "Enter a label for [name]", "Label", label_text), MAX_NAME_LEN)
-		if(length(tmp_label) > 10)
-			user << "<span class='notice'>The label can be at most 10 characters long.</span>"
+		if(length(tmp_label) > 15)
+			user << "<span class='notice'>The label can be at most 15 characters long.</span>"
 		else
 			user << "<span class='notice'>You set the label to \"[tmp_label]\".</span>"
 			label_text = tmp_label
@@ -128,6 +80,9 @@
 /obj/item/weapon/reagent_containers/glass/beaker/Initialize()
 	. = ..()
 	desc += " Can hold up to [volume] units."
+
+/obj/item/weapon/reagent_containers/glass/beaker/self_feed_message(var/mob/user)
+	to_chat(user, "<span class='notice'>You drink from \the [src].</span>")
 
 /obj/item/weapon/reagent_containers/glass/beaker/on_reagent_change()
 	update_icon()
@@ -175,6 +130,18 @@
 	amount_per_transfer_from_this = 10
 	possible_transfer_amounts = list(5,10,15,25,30,60,120)
 	flags = OPENCONTAINER
+
+/obj/item/weapon/reagent_containers/glass/beaker/bowl
+	name = "mixing bowl"
+	desc = "A large mixing bowl."
+	icon = 'icons/obj/kitchen.dmi'
+	icon_state = "mixingbowl"
+	matter = list(DEFAULT_WALL_MATERIAL = 300)
+	volume = 180
+	amount_per_transfer_from_this = 10
+	possible_transfer_amounts = list(5,10,15,25,30,60,180)
+	flags = OPENCONTAINER
+	unacidable = 0
 
 /obj/item/weapon/reagent_containers/glass/beaker/noreact
 	name = "cryostasis beaker"
@@ -237,13 +204,11 @@
 		user << "You add [D] to [src]."
 		qdel(D)
 		user.put_in_hands(new /obj/item/weapon/bucket_sensor)
-		user.drop_from_inventory(src)
 		qdel(src)
 		return
 	else if(istype(D, /obj/item/weapon/wirecutters))
 		to_chat(user, "<span class='notice'>You cut a big hole in \the [src] with \the [D].</span>")
 		user.put_in_hands(new /obj/item/clothing/head/helmet/bucket)
-		user.drop_from_inventory(src)
 		qdel(src)
 		return
 	else if(istype(D, /obj/item/weapon/mop))
@@ -262,6 +227,9 @@
 	if (!is_open_container())
 		add_overlay("lid_[initial(icon_state)]")
 
+/obj/item/weapon/reagent_containers/glass/bucket/self_feed_message(var/mob/user)
+	to_chat(user, "<span class='notice'>You drink heavily from \the [src].</span>")
+
 
 obj/item/weapon/reagent_containers/glass/bucket/wood
 	desc = "An old wooden bucket."
@@ -278,7 +246,6 @@ obj/item/weapon/reagent_containers/glass/bucket/wood
 	else if(istype(D, /obj/item/weapon/material/hatchet))
 		to_chat(user, "<span class='notice'>You cut a big hole in \the [src] with \the [D].</span>")
 		user.put_in_hands(new /obj/item/clothing/head/helmet/bucket/wood)
-		user.drop_from_inventory(src)
 		qdel(src)
 		return
 	else if(istype(D, /obj/item/weapon/mop))

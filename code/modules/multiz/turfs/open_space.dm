@@ -120,7 +120,7 @@
 	. = ..()
 	icon_state = "Fill"
 
-/turf/simulated/open/airless/chasm/get_smooth_underlay_icon(mutable_appearance/underlay_appearance, turf/asking_turf, adjacency_dir)
+/turf/simulated/open/chasm/get_smooth_underlay_icon(mutable_appearance/underlay_appearance, turf/asking_turf, adjacency_dir)
 	underlay_appearance.icon = 'icons/turf/basalt.dmi'
 	underlay_appearance.icon_state = "basalt"
 	if (prob(20))
@@ -200,12 +200,27 @@
 			to_chat(user, "<span class='warning'>The plating is going to need some support.</span>")
 
 	//To lay cable.
-	if(iscoil(C))
+	if(C.iscoil())
 		var/obj/item/stack/cable_coil/coil = C
 		coil.turf_place(src, user)
 		return
 	return
 
+/turf/simulated/open/attack_hand(var/mob/user)
+
+	if(ishuman(user) && user.a_intent == I_GRAB)
+		var/mob/living/carbon/human/H = user
+		var/turf/climbing_wall = GetBelow(H)
+		var/climb_bonus = 0
+		if(istype(climbing_wall, /turf/simulated/mineral))
+			climb_bonus = 20
+		else
+			climb_bonus = 0
+		H.climb(DOWN, src, climb_bonus)
+
 //Most things use is_plating to test if there is a cover tile on top (like regular floors)
 /turf/simulated/open/is_plating()
 	return TRUE
+
+/turf/simulated/open/AddTracks(var/list/DNA, var/comingdir, var/goingdir, var/bloodcolor="#A10808")
+	return

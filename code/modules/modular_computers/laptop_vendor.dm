@@ -297,14 +297,14 @@ obj/machinery/lapvend/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	else
 		visible_message("<span class='info'>\The [usr] swipes \the [ID_container] through \the [src].</span>")
 	if(I)
-		var/datum/money_account/customer_account = get_account(I.associated_account_number)
+		var/datum/money_account/customer_account = SSeconomy.get_account(I.associated_account_number)
 		if (!customer_account || customer_account.suspended)
 			ping("Connection error. Unable to connect to account.")
 			return 0
 
 		if(customer_account.security_level != 0) //If card requires pin authentication (ie seclevel 1 or 2)
 			var/attempt_pin = input("Enter pin code", "Vendor transaction") as num
-			customer_account = attempt_account_access(I.associated_account_number, attempt_pin, 2)
+			customer_account = SSeconomy.attempt_account_access(I.associated_account_number, attempt_pin, 2)
 
 			if(!customer_account)
 				ping("Unable to access account: incorrect credentials.")
@@ -320,9 +320,9 @@ obj/machinery/lapvend/attackby(obj/item/weapon/W as obj, mob/user as mob)
 			T.purpose = "Purchase of [(devtype == 1) ? "laptop computer" : "tablet microcomputer"]."
 			T.amount = total_price
 			T.source_terminal = src.name
-			T.date = current_date_string
+			T.date = worlddate2text()
 			T.time = worldtime2text()
-			customer_account.transaction_log.Add(T)
+			SSeconomy.add_transaction_log(customer_account,T)
 			return 1
 	else if(S)
 		if(total_price > S.worth)

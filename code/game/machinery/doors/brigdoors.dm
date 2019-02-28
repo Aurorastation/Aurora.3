@@ -207,7 +207,6 @@
 	// Used for the 'time left' display
 	var/second = round(timeleft() % 60)
 	var/minute = round((timeleft() - second) / 60)
-
 	. = "<h2>Timer System:</h2>"
 	. += "<b>Controls [src.id]</b><hr>"
 
@@ -215,7 +214,8 @@
 		. += "Insert a Securty Incident Report to load a criminal sentence<br>"
 	else
 		// Time Left display (uses releasetime)
-		. += "<b>Criminal</b>: [incident.criminal]\t"
+		var/obj/item/weapon/card/id/card = incident.card.resolve()
+		. += "<b>Criminal</b>: [card]\t"
 		. += "<a href='?src=\ref[src];button=menu_mode;menu_choice=menu_charges'>Charges</a><br>"
 		. += "<b>Sentence</b>: [add_zero( "[minute]", 2 )]:[add_zero( "[second]", 2 )]\t"
 		// Start/Stop timer
@@ -263,15 +263,13 @@
 
 	return .
 
-/obj/machinery/door_timer/attackby(obj/item/O as obj, user as mob)
+/obj/machinery/door_timer/attackby(obj/item/O as obj, var/mob/user as mob)
 	if( istype( O, /obj/item/weapon/paper/incident ))
 		if( !incident )
 			if( import( O, user ))
-				usr.drop_item()
-				O.loc = src
-
 				ping( "\The [src] pings, \"Successfully imported incident report!\"" )
-				qdel( O )
+				user.drop_from_inventory(O,get_turf(src))
+				qdel(O)
 				src.updateUsrDialog()
 		else
 			user <<  "<span class='alert'>\The [src] buzzes, \"There's already an active sentence!\"</span>"

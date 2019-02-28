@@ -91,6 +91,7 @@
 	icon = 'icons/turf/flooring/cult.dmi'
 	icon_state = "cult"
 	initial_flooring = /decl/flooring/reinforced/cult
+	appearance_flags = NO_CLIENT_COLOR
 
 /turf/simulated/floor/cult/cultify()
 	return
@@ -227,3 +228,38 @@
 	baseturf = /turf/space
 
 /turf/simulated/floor/light
+
+/turf/simulated/floor/silver
+	name = "silver floor"
+	icon = 'icons/turf/flooring/tiles.dmi'
+	icon_state = "silver"
+	initial_flooring = /decl/flooring/silver
+
+/turf/simulated/floor/gold
+	name = "golden floor"
+	icon = 'icons/turf/flooring/tiles.dmi'
+	icon_state = "gold"
+	initial_flooring = /decl/flooring/gold
+
+/turf/simulated/floor/uranium
+	name = "uranium floor"
+	icon = 'icons/turf/flooring/tiles.dmi'
+	icon_state = "uranium"
+	initial_flooring =/decl/flooring/uranium
+
+/turf/simulated/floor/phoron
+	name = "phoron floor"
+	icon = 'icons/turf/flooring/tiles.dmi'
+	icon_state = "plasma"
+	initial_flooring = /decl/flooring/phoron
+
+/turf/simulated/floor/diamond
+	name = "diamond floor"
+	icon = 'icons/turf/flooring/tiles.dmi'
+	icon_state = "diamond"
+	initial_flooring = /decl/flooring/diamond
+
+/turf/simulated/floor/vaurca
+	name = "alien floor"
+	icon = 'icons/turf/flooring/misc.dmi'
+	icon_state = "vaurca"

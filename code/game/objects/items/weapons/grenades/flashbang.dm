@@ -5,120 +5,108 @@
 	origin_tech = list(TECH_MATERIAL = 2, TECH_COMBAT = 1)
 	var/banglet = 0
 
-	prime()
-		..()
-		for(var/obj/structure/closet/L in hear(7, get_turf(src)))
-			if(locate(/mob/living/carbon/, L))
-				for(var/mob/living/carbon/M in L)
-					bang(get_turf(src), M)
+/obj/item/weapon/grenade/flashbang/prime()
+	..()
+	for(var/obj/structure/closet/L in hear(7, get_turf(src)))
+		if(locate(/mob/living/carbon/, L))
+			for(var/mob/living/carbon/M in L)
+				bang(get_turf(src), M)
 
+	for(var/mob/living/carbon/M in hear(7, get_turf(src)))
+		bang(get_turf(src), M)
 
-		for(var/mob/living/carbon/M in hear(7, get_turf(src)))
-			bang(get_turf(src), M)
+	for(var/obj/effect/blob/B in hear(8,get_turf(src)))       		//Blob damage here
+		var/damage = round(30/(get_dist(B,get_turf(src))+1))
+		B.health -= damage
+		B.update_icon()
 
-		for(var/obj/effect/blob/B in hear(8,get_turf(src)))       		//Blob damage here
-			var/damage = round(30/(get_dist(B,get_turf(src))+1))
-			B.health -= damage
-			B.update_icon()
+	single_spark(src.loc)
+	new/obj/effect/effect/smoke/illumination(src.loc, brightness=15)
+	qdel(src)
+	return
 
-		single_spark(src.loc)
-		new/obj/effect/effect/smoke/illumination(src.loc, brightness=15)
-		qdel(src)
-		return
+/obj/item/weapon/grenade/flashbang/proc/bang(var/turf/T , var/mob/living/carbon/M)  // Added a new proc called 'bang' that takes a location and a person to be banged.
+	if (locate(/obj/item/weapon/cloaking_device, M))								// Called during the loop that bangs people in lockers/containers and when banging
+		for(var/obj/item/weapon/cloaking_device/S in M)								// people in normal view.  Could theroetically be called during other explosions.
+			S.active = 0															// -- Polymorph
+			S.icon_state = "shield0"
 
-	proc/bang(var/turf/T , var/mob/living/carbon/M)					// Added a new proc called 'bang' that takes a location and a person to be banged.
-		if (locate(/obj/item/weapon/cloaking_device, M))			// Called during the loop that bangs people in lockers/containers and when banging
-			for(var/obj/item/weapon/cloaking_device/S in M)			// people in normal view.  Could theroetically be called during other explosions.
-				S.active = 0										// -- Polymorph
-				S.icon_state = "shield0"
-
-		M << "<span class='danger'>BANG</span>"
-		playsound(src.loc, 'sound/weapons/flashbang.ogg', 50, 1, 5)
+	M << "<span class='danger'>BANG</span>"
+	playsound(src.loc, 'sound/weapons/flashbang.ogg', 50, 1, 5)
 
 //Checking for protections
-		var/eye_safety = 0
-		var/ear_safety = 0
-		if(iscarbon(M))
-			eye_safety = M.eyecheck(TRUE)
-			if(ishuman(M))
-				if(istype(M:l_ear, /obj/item/clothing/ears/earmuffs) || istype(M:r_ear, /obj/item/clothing/ears/earmuffs))
-					ear_safety += 2
-				if(HULK in M.mutations)
-					ear_safety += 1
-				if(istype(M:head, /obj/item/clothing/head/helmet))
-					ear_safety += 1
-
-//Flashing everyone
-		if(eye_safety < FLASH_PROTECTION_MODERATE)
-			flick("e_flash", M.flash)
-			M.Stun(2)
-			M.Weaken(10)
-				//Vaurca damage 15/01/16
-			var/mob/living/carbon/human/H = M
-			if(isvaurca(H))
-				var/obj/item/organ/eyes/E = H.get_eyes()
-				if(!E)
-					return
-				usr << span("alert", "Your eyes burn with the intense light of the flash!.")
-				E.damage += rand(10, 11)
-				if(E.damage > 12)
-					M.eye_blurry += rand(3,6)
-				if (E.damage >= E.min_broken_damage)
-					M.sdisabilities |= BLIND
-				else if (E.damage >= E.min_bruised_damage)
-					M.eye_blind = 5
-					M.eye_blurry = 5
-					M.disabilities |= NEARSIGHTED
-					spawn(100)
-						M.disabilities &= ~NEARSIGHTED
-
-
-
-//Now applying sound
-		if((get_dist(M, T) <= 2 || src.loc == M.loc || src.loc == M))
-			if(ear_safety > 0)
-				M.Stun(2)
-				M.Weaken(1)
-			else
-				M.Stun(10)
-				M.Weaken(3)
-				if ((prob(14) || (M == src.loc && prob(70))))
-					M.ear_damage += rand(1, 10)
-				else
-					M.ear_damage += rand(0, 5)
-					M.ear_deaf = max(M.ear_deaf,15)
-
-		else if(get_dist(M, T) <= 5)
-			if(!ear_safety)
-				M << sound('sound/weapons/flash_ring.ogg',0,1,0,100)
-				M.Stun(8)
-				M.ear_damage += rand(0, 3)
-				M.ear_deaf = max(M.ear_deaf,10)
-
-		else if(!ear_safety)
-			M.Stun(4)
-			M.ear_damage += rand(0, 1)
-			M.ear_deaf = max(M.ear_deaf,5)
-
-//This really should be in mob not every check
+	var/eye_safety = 0
+	var/ear_safety = 0
+	if(iscarbon(M))
+		eye_safety = M.eyecheck(TRUE)
 		if(ishuman(M))
 			var/mob/living/carbon/human/H = M
-			var/obj/item/organ/eyes/E = H.get_eyes(no_synthetic = TRUE)
-			if (E && E.damage >= E.min_bruised_damage)
-				M << "<span class='danger'>Your eyes start to burn badly!</span>"
-				if(!banglet && !(istype(src , /obj/item/weapon/grenade/flashbang/clusterbang)))
-					if (E.damage >= E.min_broken_damage)
-						M << "<span class='danger'>You can't see anything!</span>"
-		if (M.ear_damage >= 15)
-			M << "<span class='danger'>Your ears start to ring badly!</span>"
-			if(!banglet && !(istype(src , /obj/item/weapon/grenade/flashbang/clusterbang)))
-				if (prob(M.ear_damage - 10 + 5))
-					M << "<span class='danger'>You can't hear anything!</span>"
-					M.sdisabilities |= DEAF
+			if(istype(H.l_ear, /obj/item/clothing/ears/earmuffs) || istype(H.r_ear, /obj/item/clothing/ears/earmuffs))
+				ear_safety += 2
+			if(HULK in H.mutations)
+				ear_safety += 1
+			if(istype(H.head, /obj/item/clothing/head/helmet))
+				ear_safety += 1
+
+//Flashing everyone
+	if(eye_safety < FLASH_PROTECTION_MODERATE)
+		flick("e_flash", M.flash)
+		M.Stun(2)
+		M.Weaken(10)
+			//Vaurca damage 15/01/16
+		var/mob/living/carbon/human/H = M
+		if(isvaurca(H))
+			var/obj/item/organ/eyes/E = H.get_eyes()
+			if(!E)
+				return
+
+			E.flash_act()
+
+//Now applying sound
+	if((get_dist(M, T) <= 2 || src.loc == M.loc || src.loc == M))
+		if(ear_safety > 0)
+			M.Stun(2)
+			M.Weaken(1)
 		else
-			if (M.ear_damage >= 5)
-				M << "<span class='danger'>Your ears start to ring!</span>"
-		M.update_icons()
+			M.Stun(10)
+			M.Weaken(3)
+			if ((prob(14) || (M == src.loc && prob(70))))
+				M.ear_damage += rand(1, 10)
+			else
+				M.ear_damage += rand(0, 5)
+				M.ear_deaf = max(M.ear_deaf,15)
+
+	else if(get_dist(M, T) <= 5)
+		if(!ear_safety)
+			M << sound('sound/weapons/flash_ring.ogg',0,1,0,100)
+			M.Stun(8)
+			M.ear_damage += rand(0, 3)
+			M.ear_deaf = max(M.ear_deaf,10)
+
+	else if(!ear_safety)
+		M.Stun(4)
+		M.ear_damage += rand(0, 1)
+		M.ear_deaf = max(M.ear_deaf,5)
+
+//This really should be in mob not every check
+	if(ishuman(M))
+		var/mob/living/carbon/human/H = M
+		var/obj/item/organ/eyes/E = H.get_eyes(no_synthetic = TRUE)
+		if (E && E.damage >= E.min_bruised_damage)
+			M << "<span class='danger'>Your eyes start to burn badly!</span>"
+			if(!banglet && !(istype(src , /obj/item/weapon/grenade/flashbang/clusterbang)))
+				if (E.damage >= E.min_broken_damage)
+					M << "<span class='danger'>You can't see anything!</span>"
+	if (M.ear_damage >= 15)
+		M << "<span class='danger'>Your ears start to ring badly!</span>"
+		if(!banglet && !(istype(src , /obj/item/weapon/grenade/flashbang/clusterbang)))
+			if (prob(M.ear_damage - 10 + 5))
+				M << "<span class='danger'>You can't hear anything!</span>"
+				M.sdisabilities |= DEAF
+	else
+		if (M.ear_damage >= 5)
+			M << "<span class='danger'>Your ears start to ring!</span>"
+	M.update_icons()
 
 /obj/item/weapon/grenade/flashbang/clusterbang//Created by Polymorph, fixed by Sieve
 	name = "clusterbang"

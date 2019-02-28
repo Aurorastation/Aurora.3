@@ -25,6 +25,9 @@
 	new /obj/item/weapon/shovel(src)
 	new /obj/item/weapon/pickaxe(src)
 	new /obj/item/weapon/ore_radar(src)
+	new /obj/item/weapon/key/minecarts(src)
+	new /obj/item/device/gps/mining(src)
+	new /obj/item/weapon/book/manual/ka_custom(src)
 
 /******************************Lantern*******************************/
 
@@ -118,6 +121,10 @@
 			user << "<span class='warning'>It's too heavy for you to wield fully.</span>"
 			return
 	else
+		return
+
+	if(!istype(user.get_active_hand(), src))
+		user << "<span class='warning'>You need to be holding the [name] in your active hand.</span>"
 		return
 
 	if(wielded) //Trying to unwield it
@@ -547,7 +554,7 @@
 		var/turf/T = get_turf(src)
 		T.attackby(C, user)
 		return
-	if (iswelder(C))
+	if (C.iswelder())
 		var/obj/item/weapon/weldingtool/WT = C
 		if(WT.remove_fuel(0, user))
 			user << "<span class='notice'>Slicing apart connectors ...</span>"
@@ -599,8 +606,7 @@
 /obj/vehicle/train/cargo/engine/mining/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	if(istype(W, /obj/item/weapon/key/minecarts))
 		if(!key)
-			user.drop_item()
-			W.forceMove(src)
+			user.drop_from_inventory(W,src)
 			key = W
 			verbs += /obj/vehicle/train/cargo/engine/verb/remove_key
 		return
@@ -934,7 +940,7 @@ var/list/total_extraction_beacons = list()
 			var/list/flooring_near_beacon = list()
 			for(var/turf/simulated/floor/floor in orange(1, beacon))
 				flooring_near_beacon += floor
-			A.loc = pick(flooring_near_beacon)
+			A.forceMove(pick(flooring_near_beacon))
 			single_spark(A.loc)
 			if(uses_left <= 0)
 				qdel(src)
@@ -1124,14 +1130,23 @@ var/list/total_extraction_beacons = list()
 	force = 15
 	throwforce = 5
 	origin_tech = list(TECH_BLUESPACE = 4, TECH_ENGINEERING = 3)
+	var/last_oresummon_time = 0
 
 /obj/item/weapon/oreportal/attack_self(mob/user)
-	user << "<span class='info'>You pulse the ore summoner.</span>"
-	for(var/obj/item/weapon/ore/O in orange(7,user))
-		single_spark(O.loc)
-		do_teleport(O, user, 0)
-
-		CHECK_TICK
+	if(world.time - last_oresummon_time >= 25)
+		to_chat(user, "<span class='notice'>You pulse the ore summoner.</span>")
+		last_oresummon_time = world.time
+		var/limit = 50
+		for(var/obj/item/weapon/ore/O in orange(7,user))
+			if(limit <= 0)
+				break
+			single_spark(O.loc)
+			do_teleport(O, user, 0)
+			limit -= 1
+			CHECK_TICK
+	else
+		to_chat(user, "The ore summoner is in the middle of some calibrations.")
+		return 0
 
 /******************************Sculpting*******************************/
 /obj/item/weapon/autochisel
@@ -1168,7 +1183,7 @@ var/list/total_extraction_beacons = list()
 
 /obj/structure/sculpting_block/attackby(obj/item/C as obj, mob/user as mob)
 
-	if (iswrench(C))
+	if (C.iswrench())
 		playsound(src.loc, 'sound/items/Ratchet.ogg', 100, 1)
 		user << "<span class='notice'>You [anchored ? "un" : ""]anchor the [name].</span>"
 		anchored = !anchored
@@ -1279,7 +1294,7 @@ var/list/total_extraction_beacons = list()
 		icon_state = "fitnessweight-c"
 		user.dir = SOUTH
 		user.Stun(4)
-		user.loc = src.loc
+		user.forceMove(src.loc)
 		var/image/W = image('icons/obj/mining.dmi',"fitnessweight-w")
 		W.layer = 5.1
 		add_overlay(W)
@@ -1307,7 +1322,8 @@ var/list/total_extraction_beacons = list()
 		icon_state = "fitnessweight"
 		cut_overlay(W)
 		user << "[finishmessage]"
-		user.nutrition = user.nutrition - 10
+		user.adjustNutritionLoss(5)
+		user.adjustHydrationLoss(5)
 
 /******************************Seismic Charge*******************************/
 
@@ -1341,8 +1357,8 @@ var/list/total_extraction_beacons = list()
 				if(iscarbon(LI))
 					var/mob/living/carbon/L = A
 					L.Weaken(3)
-					if(ishuman(L))
-						shake_camera(L, 20, 1)
+					shake_camera(L, 20, 1)
+					if(!isipc(L))
 						addtimer(CALLBACK(L, /mob/living/carbon/.proc/vomit), 20)
 
 		spawn(2)

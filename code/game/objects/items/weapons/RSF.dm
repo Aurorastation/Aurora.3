@@ -95,7 +95,7 @@ RSF
 			used_energy = 200
 
 	user << "Dispensing [product ? product : "product"]..."
-	product.loc = get_turf(A)
+	product.forceMove(get_turf(A))
 
 	if(isrobot(user))
 		var/mob/living/silicon/robot/R = user

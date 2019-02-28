@@ -34,6 +34,8 @@
 	throwforce = 0
 	throw_speed = 4
 	throw_range = 20
+	flags = OPENCONTAINER
+	var/key_data
 
 /obj/item/weapon/soap/nanotrasen
 	desc = "A NanoTrasen-brand bar of soap. Smells of phoron."
@@ -284,7 +286,7 @@
 		user.visible_message("<span class='warning'>[user] has sheathed \a [W] into \his [src]!</span>", "You sheathe \the [W] into \the [src].")
 		playsound(user.loc, 'sound/weapons/blade_sheath.ogg', 50, 1)
 		user.drop_from_inventory(W)
-		W.loc = src
+		W.forceMove(src)
 		src.concealed_blade = W
 		update_icon()
 	else
@@ -326,6 +328,10 @@
 	var/obj/item/gift = null
 	item_state = "gift"
 	w_class = 4.0
+
+/obj/item/weapon/gift/random_pixel/Initialize()
+	pixel_x = rand(-16,16)
+	pixel_y = rand(-16,16)
 
 /obj/item/weapon/legcuffs
 	name = "legcuffs"
@@ -490,7 +496,7 @@
 	matter = list(DEFAULT_WALL_MATERIAL = 50, "glass" = 50)
 
 /obj/item/weapon/module/power_control/attackby(var/obj/item/weapon/W as obj, var/mob/user as mob)
-	if (ismultitool(W))
+	if (W.ismultitool())
 		var/obj/item/weapon/circuitboard/ghettosmes/newcircuit = new/obj/item/weapon/circuitboard/ghettosmes(user.loc)
 		qdel(src)
 		user.put_in_hands(newcircuit)
@@ -573,7 +579,7 @@
 	icon_state = "neuralbroke"
 
 /obj/item/weapon/neuralbroke/attackby(obj/item/weapon/W as obj, mob/user as mob)
-	if(isscrewdriver(W))
+	if(W.isscrewdriver())
 		new /obj/item/device/encryptionkey/hivenet(user.loc)
 		playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, 1)
 		user << "You bypass the fried security chip and extract the encryption key."

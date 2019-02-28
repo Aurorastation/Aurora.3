@@ -89,17 +89,24 @@
 	gear_tweaks += new/datum/gear_tweak/path(hardhat)
 
 /datum/gear/head/hairflower
-	display_name = "hair flower pin selection"
-	path = /obj/item/clothing/head/hairflower
+	display_name = "hair flower pin (colorable)"
+	path = /obj/item/clothing/head/pin/flower/white
 
 /datum/gear/head/hairflower/New()
 	..()
-	var/hairflower = list()
-	hairflower["hair flower pin, red"] = /obj/item/clothing/head/hairflower
-	hairflower["hair flower pin, blue"] = /obj/item/clothing/head/hairflower/blue
-	hairflower["hair flower pin, yellow"] = /obj/item/clothing/head/hairflower/yellow
-	hairflower["hair flower pin, pink"] = /obj/item/clothing/head/hairflower/pink
-	gear_tweaks += new/datum/gear_tweak/path(hairflower)
+	gear_tweaks = list(gear_tweak_free_color_choice)
+
+/datum/gear/head/pin
+	display_name = "pin selection"
+	path = /obj/item/clothing/head/pin
+
+/datum/gear/head/pin/New()
+	..()
+	var/list/pins = list()
+	for(var/pin in typesof(/obj/item/clothing/head/pin))
+		var/obj/item/clothing/head/pin/pin_type = pin
+		pins[initial(pin_type.name)] = pin_type
+	gear_tweaks += new/datum/gear_tweak/path(sortAssoc(pins))
 
 /datum/gear/head/hats
 	display_name = "hat selection"
@@ -113,16 +120,14 @@
 	hats["hat, fez"] = /obj/item/clothing/head/fez
 	hats["hat, tophat"] = /obj/item/clothing/head/that
 	hats["hat, feather trilby"] = /obj/item/clothing/head/feathertrilby
-	hats["hat, fedora"] = /obj/item/clothing/head/fedora
+	hats["hat, black fedora"] = /obj/item/clothing/head/fedora
+	hats["hat, brown fedora"] = /obj/item/clothing/head/fedora/brown
+	hats["hat, grey fedora"] = /obj/item/clothing/head/fedora/grey
 	hats["hat, beaver"] = /obj/item/clothing/head/beaverhat
 	hats["hat, cowboy"] = /obj/item/clothing/head/cowboy
 	hats["hat, wide-brimmed cowboy"] = /obj/item/clothing/head/cowboy/wide
 	hats["hat, sombrero"] = /obj/item/clothing/head/sombrero
 	gear_tweaks += new/datum/gear_tweak/path(hats)
-
-/datum/gear/head/philosopher_wig
-	display_name = "natural philosopher wig"
-	path = /obj/item/clothing/head/philosopher_wig
 
 /datum/gear/head/hijab
 	display_name = "hijab selection"
@@ -173,3 +178,37 @@
 	surgical["surgical cap, green"] = /obj/item/clothing/head/surgery/green
 	surgical["surgical cap, black"] = /obj/item/clothing/head/surgery/black
 	gear_tweaks += new/datum/gear_tweak/path(surgical)
+
+/datum/gear/head/headbando
+	display_name = "basic headband"
+	path = /obj/item/clothing/head/headbando
+
+/datum/gear/head/headbando/New()
+	..()
+	gear_tweaks = list(gear_tweak_free_color_choice)
+
+/datum/gear/head/beanie
+	display_name = "beanie"
+	path = /obj/item/clothing/head/beanie
+
+/datum/gear/head/beanie/New()
+	..()
+	gear_tweaks = list(gear_tweak_free_color_choice)
+
+/datum/gear/head/loose_beanie
+	display_name = "loose beanie"
+	path = /obj/item/clothing/head/beanie_loose
+
+/datum/gear/head/loose_beanie/New()
+	..()
+	gear_tweaks = list(gear_tweak_free_color_choice)
+
+
+/datum/gear/head/iacberet
+	display_name = "IAC Beret"
+	path = /obj/item/clothing/head/soft/iacberet
+	allowed_roles = list("Chief Medical Officer", "Medical Doctor", "Chemist", "Paramedic", "Medical Resident")
+
+/datum/gear/head/tcflberet
+	display_name = "Tau Ceti Foreign Legion dress beret"
+	path = /obj/item/clothing/head/legion_beret

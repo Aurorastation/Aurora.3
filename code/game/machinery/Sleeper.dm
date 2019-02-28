@@ -146,8 +146,7 @@
 	if(istype(I, /obj/item/weapon/reagent_containers/glass))
 		if(!beaker)
 			beaker = I
-			user.drop_item()
-			I.loc = src
+			user.drop_from_inventory(I,src)
 			user.visible_message("<span class='notice'>\The [user] adds \a [I] to \the [src].</span>", "<span class='notice'>You add \a [I] to \the [src].</span>")
 		else
 			user << "<span class='warning'>\The [src] has a beaker already.</span>"
@@ -161,7 +160,7 @@
 			user << "<span class='warning'>\The machine won't accept that.</span>"
 			return
 
-		visible_message("[user] starts putting [G.affecting] into the [src].", 3)
+		user.visible_message("<span class='notice'>[user] starts putting [G.affecting] into [src].</span>", "<span class='notice'>You start putting [G.affecting] into [src].</span>", range = 3)
 
 		if (do_mob(user, G.affecting, 20, needhand = 0))
 			if(occupant)
@@ -181,7 +180,7 @@
 			update_icon()
 			qdel(G)
 			return
-	else if(isscrewdriver(I))
+	else if(I.isscrewdriver())
 		user << "You [panel_open ? "open" : "close"] the maintenance panel."
 		panel_open = !panel_open
 
@@ -236,7 +235,7 @@
 		if(M.client)
 			M.client.perspective = EYE_PERSPECTIVE
 			M.client.eye = src
-		M.loc = src
+		M.forceMove(src)
 		update_use_power(2)
 		occupant = M
 		update_icon()

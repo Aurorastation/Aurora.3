@@ -2,6 +2,7 @@
 				BLOOD SYSTEM
 ****************************************************/
 //Blood levels
+var/const/BLOOD_VOLUME_NORMAL = 560
 var/const/BLOOD_VOLUME_SAFE = 501
 var/const/BLOOD_VOLUME_OKAY = 336
 var/const/BLOOD_VOLUME_BAD = 224
@@ -15,13 +16,13 @@ var/const/BLOOD_VOLUME_SURVIVE = 122
 	if(vessel)
 		return
 
-	vessel = new/datum/reagents(600)
+	vessel = new/datum/reagents(BLOOD_VOLUME_NORMAL + 40)
 	vessel.my_atom = src
 
 	if(species && species.flags & NO_BLOOD) //We want the var for safety but we can do without the actual blood.
 		return
 
-	vessel.add_reagent("blood",560)
+	vessel.add_reagent("blood",BLOOD_VOLUME_NORMAL)
 	fixblood()
 
 //Resets blood data
@@ -54,7 +55,7 @@ var/const/BLOOD_VOLUME_SURVIVE = 122
 		var/blood_volume = round(vessel.get_reagent_amount("blood"))
 
 		//Blood regeneration if there is some space
-		if(blood_volume < 560 && blood_volume)
+		if(blood_volume < BLOOD_VOLUME_NORMAL && blood_volume)
 			var/datum/reagent/blood/B = locate() in vessel.reagent_list //Grab some blood
 			if(B) // Make sure there's some blood at all
 				if(weakref && B.data["donor"] != weakref) //If it's not theirs, then we look for theirs - donor is a weakref here, but it should be safe to just directly compare it.
@@ -67,21 +68,19 @@ var/const/BLOOD_VOLUME_SURVIVE = 122
 				if(CE_BLOODRESTORE in chem_effects)
 					B.volume += chem_effects[CE_BLOODRESTORE]
 
-		// Damaged heart virtually reduces the blood volume, as the blood isn't
-		// being pumped properly anymore.
+		//The heartfix to end all heartfixes
 		if(species && species.has_organ["heart"])
 			var/obj/item/organ/heart/heart = internal_organs_by_name["heart"]
-
 			if(!heart)
 				blood_volume = 0
-			else if(heart.is_broken())
-				blood_volume *= ((BLOOD_VOLUME_SURVIVE*1.5)/BLOOD_VOLUME_SAFE) //Fuck hardcoded values if it means one extra division operation per tick
-			else if(heart.is_bruised())
-				blood_volume *= (BLOOD_VOLUME_BAD/BLOOD_VOLUME_SAFE)
-			else if(heart.is_damaged())
-				blood_volume *= (BLOOD_VOLUME_OKAY/BLOOD_VOLUME_SAFE)
+			else if (heart.is_damaged())
+				blood_volume = min(BLOOD_VOLUME_SAFE - 1,blood_volume)
+				blood_volume = (BLOOD_VOLUME_SURVIVE + (BLOOD_VOLUME_NORMAL-BLOOD_VOLUME_SURVIVE) * max(1 - heart.damage/heart.min_broken_damage,0)) * (blood_volume/BLOOD_VOLUME_NORMAL)
 
 		//Effects of bloodloss
+		if(blood_volume < BLOOD_VOLUME_SAFE && oxyloss < 100 * (1 - blood_volume/BLOOD_VOLUME_NORMAL))
+			oxyloss += 3
+
 		switch(blood_volume)
 			if(BLOOD_VOLUME_SAFE to 10000)
 				if(pale)
@@ -96,22 +95,18 @@ var/const/BLOOD_VOLUME_SURVIVE = 122
 				if(prob(1))
 					var/word = pick("dizzy","woosey","faint")
 					src << "<span class='warning'>You feel [word]</span>"
-				if(oxyloss < 20)
-					oxyloss += 3
 			if(BLOOD_VOLUME_BAD to BLOOD_VOLUME_OKAY)
 				if(!pale)
 					pale = 1
 					update_body()
 				eye_blurry = max(eye_blurry,6)
-				if(oxyloss < 50)
-					oxyloss += 10
 				oxyloss += 1
 				if(prob(15))
 					Paralyse(rand(1,3))
 					var/word = pick("dizzy","woosey","faint")
 					src << "<span class='warning'>You feel extremely [word]</span>"
 			if(BLOOD_VOLUME_SURVIVE to BLOOD_VOLUME_BAD)
-				oxyloss += 5
+				oxyloss += 3
 				toxloss += 3
 				if(prob(15))
 					var/word = pick("dizzy","woosey","faint")
@@ -123,12 +118,10 @@ var/const/BLOOD_VOLUME_SURVIVE = 122
 				toxloss += 300 // just to be safe!
 				death()
 
-		// Without enough blood you slowly go hungry.
-		if(blood_volume < BLOOD_VOLUME_SAFE)
-			if(nutrition >= 300)
-				nutrition -= 10
-			else if(nutrition >= 200)
-				nutrition -= 3
+		// Without enough blood you slowly go hungry and thirsty
+		if(blood_volume <= BLOOD_VOLUME_SAFE)
+			adjustNutritionLoss(7)
+			adjustHydrationLoss(3)
 
 		//Bleeding out
 		var/blood_max = 0
@@ -223,7 +216,7 @@ var/const/BLOOD_VOLUME_SURVIVE = 122
 	var/list/chems = list()
 	chems = params2list(injected.data["trace_chem"])
 	for(var/C in chems)
-		src.reagents.add_reagent(C, (text2num(chems[C]) / 560) * amount)//adds trace chemicals to owner's blood
+		src.reagents.add_reagent(C, (text2num(chems[C]) / BLOOD_VOLUME_NORMAL) * amount)//adds trace chemicals to owner's blood
 	reagents.update_total()
 
 //Transfers blood from reagents to vessel, respecting blood types compatability.

@@ -561,6 +561,13 @@
 		. = ..()
 		reagents.add_reagent("sbiten", 100)
 
+/obj/item/weapon/reagent_containers/food/drinks/bottle/messa_mead
+	name = "messa's mead"
+	desc = "A bottle of Messa's mead. Bottled somewhere in the icy world of Adhomai."
+	icon_state = "messa_mead"
+	Initialize()
+		. = ..()
+		reagents.add_reagent("messa_mead", 100)
 
 // Butanol-based alcoholic drinks
 //=====================================

@@ -124,6 +124,9 @@
 		user << "<span class='warning'>Apparently it didn't work...</span>"
 		return
 
+	if(H.species && H.species.flags & NO_SCAN)
+		return
+
 	// Used by admin log.
 	var/injected_with_monkey = ""
 	if((buf.types & DNA2_BUF_SE) && (block ? (GetState() && block == MONKEYBLOCK) : GetState(MONKEYBLOCK)))
@@ -508,7 +511,7 @@
 	value = 0xFFF
 	//block = 9
 	New()
-		block = NERVOUSBLOCK
+		block = STUTTERBLOCK
 		..()
 
 /obj/item/weapon/dnainjector/antistutt
@@ -518,7 +521,7 @@
 	value = 0x001
 	//block = 9
 	New()
-		block = NERVOUSBLOCK
+		block = STUTTERBLOCK
 		..()
 
 /obj/item/weapon/dnainjector/blindmut

@@ -32,6 +32,8 @@
 	new /obj/item/clothing/suit/space/void/merc(src)
 	new /obj/item/clothing/mask/gas/syndicate(src)
 	new /obj/item/clothing/head/helmet/space/void/merc(src)
+	new /obj/item/airbubble/syndie(src)
+	new /obj/item/airbubble/syndie(src)
 
 
 /obj/structure/closet/syndicate/nuclear

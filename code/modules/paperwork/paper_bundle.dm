@@ -34,9 +34,8 @@
 
 	// merging bundles
 	else if(istype(W, /obj/item/weapon/paper_bundle))
-		user.drop_from_inventory(W)
 		for(var/obj/O in W)
-			O.loc = src
+			O.forceMove(src)
 			O.add_fingerprint(usr)
 			pages.Add(O)
 			amount++
@@ -62,8 +61,7 @@
 	else if(istype(sheet, /obj/item/weapon/photo))
 		user << "<span class='notice'>You add [(sheet.name == "photo") ? "the photo" : sheet.name] to [(src.name == "paper bundle") ? "the paper bundle" : src.name].</span>"
 
-	user.drop_from_inventory(sheet)
-	sheet.loc = src
+	user.drop_from_inventory(sheet,src)
 
 	pages.Insert(index, sheet)
 
@@ -84,10 +82,6 @@
 			if(get_dist(src, user) < 2 && user.get_active_hand() == P && P.lit)
 				user.visible_message("<span class='[class]'>[user] burns right through \the [src], turning it to ash. It flutters through the air before settling on the floor in a heap.</span>", \
 				"<span class='[class]'>You burn right through \the [src], turning it to ash. It flutters through the air before settling on the floor in a heap.</span>")
-
-				if(user.get_inactive_hand() == src)
-					user.drop_from_inventory(src)
-
 				new /obj/effect/decal/cleanable/ash(src.loc)
 				qdel(src)
 
@@ -169,10 +163,8 @@
 
 			if(pages.len <= 1)
 				var/obj/item/weapon/paper/P = src[1]
-				usr.drop_from_inventory(src)
 				usr.put_in_hands(P)
 				qdel(src)
-
 				return
 
 			if(page > pages.len)
@@ -204,10 +196,9 @@
 
 	usr << "<span class='notice'>You loosen the bundle.</span>"
 	for(var/obj/O in src)
-		O.loc = usr.loc
+		O.forceMove(usr.loc)
 		O.layer = initial(O.layer)
 		O.add_fingerprint(usr)
-	usr.drop_from_inventory(src)
 	qdel(src)
 	return
 

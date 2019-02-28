@@ -312,6 +312,7 @@
 // called when something steps onto a human
 // this handles mulebots and vehicles
 /mob/living/carbon/human/Crossed(var/atom/movable/AM)
+	..()
 	if(istype(AM, /obj/machinery/bot/mulebot))
 		var/obj/machinery/bot/mulebot/MB = AM
 		MB.RunOver(src)
@@ -405,7 +406,6 @@
 		return wear_id.GetID()
 
 /mob/living/carbon/human/electrocute_act(var/shock_damage, var/obj/source, var/base_siemens_coeff = 1.0, var/def_zone = null, var/tesla_shock = 0, var/ground_zero)
-	var/hairvar = 0
 	var/list/damage_areas = list()
 	if(status_flags & GODMODE)	return 0	//godmode
 
@@ -416,11 +416,7 @@
 
 	if(!def_zone)
 		//The way this works is by damaging multiple areas in an "Arc" if no def_zone is provided. should be pretty easy to add more arcs if it's needed. though I can't imangine a situation that can apply.
-		if(istype(user, /mob/living/carbon/human))
-			if(h_style == "Floorlength Braid" || h_style == "Very Long Hair")
-				hairvar = 1
-		var/count = hairvar == 1 ? rand(1, 7) : rand(1, 6)
-		switch (count)
+		switch ((h_style == "Floorlength Braid" || h_style == "Very Long Hair") ? rand(1, 7) : rand(1, 6))
 			if(1)
 				damage_areas = list("l_hand", "l_arm", "chest", "r_arm", "r_hand")
 			if(2)
@@ -452,7 +448,6 @@
 
 	var/obj/item/organ/external/affecting
 	for (var/area in damage_areas)
-
 		affecting = get_organ(check_zone(area))
 		var/emp_damage
 		switch(shock_damage)
@@ -533,7 +528,7 @@
 						for (var/datum/data/record/R in data_core.security)
 							if (R.fields["id"] == E.fields["id"])
 
-								var/setcriminal = input(usr, "Specify a new criminal status for this person.", "Security HUD", R.fields["criminal"]) in list("None", "*Arrest*", "Incarcerated", "Parolled", "Released", "Cancel")
+								var/setcriminal = input(usr, "Specify a new criminal status for this person.", "Security HUD", R.fields["criminal"]) in list("None", "*Arrest*", "Search", "Incarcerated", "Parolled", "Released", "Cancel")
 
 								if(hasHUD(usr, "security"))
 									if(setcriminal != "Cancel")
@@ -772,10 +767,14 @@
 
 	if (href_list["lookitem"])
 		var/obj/item/I = locate(href_list["lookitem"])
+		if(!I)
+			return
 		src.examinate(I)
 
 	if (href_list["lookmob"])
 		var/mob/M = locate(href_list["lookmob"])
+		if(!M)
+			return
 		src.examinate(M)
 
 	if (href_list["flavor_change"])
@@ -833,14 +832,22 @@
 	return 1
 
 /mob/living/carbon/human/IsAdvancedToolUser(var/silent)
+
+	if(is_berserk())
+		if(!silent)
+			src << "<span class='warning'>You are in no state to use that!</span>"
+		return 0
+
 	if(!species.has_fine_manipulation)
 		if(!silent)
 			src << "<span class='warning'>You don't have the dexterity to use that!</span>"
 		return 0
+
 	if(disabilities & MONKEYLIKE)
 		if(!silent)
 			src << "<span class='warning'>You don't have the dexterity to use that!</span>"
 		return 0
+
 	return 1
 
 /mob/living/carbon/human/abiotic(var/full_body = 0)
@@ -1085,6 +1092,11 @@
 	losebreath = 0
 	shock_stage = 0
 
+	//Fix husks
+	mutations.Remove(HUSK)
+	status_flags &= ~DISFIGURED	//Fixes the unknown status
+	update_body(1)
+
 	..()
 
 /mob/living/carbon/human/proc/is_lung_ruptured()
@@ -1098,38 +1110,7 @@
 		src.custom_pain("You feel a stabbing pain in your chest!", 1)
 		L.bruise()
 
-/*
-/mob/living/carbon/human/verb/simulate()
-	set name = "sim"
-	set background = 1
-
-	var/damage = input("Wound damage","Wound damage") as num
-
-	var/germs = 0
-	var/tdamage = 0
-	var/ticks = 0
-	while (germs < 2501 && ticks < 100000 && round(damage/10)*20)
-		log_misc("VIRUS TESTING: [ticks] : germs [germs] tdamage [tdamage] prob [round(damage/10)*20]")
-		ticks++
-		if (prob(round(damage/10)*20))
-			germs++
-		if (germs == 100)
-			world << "Reached stage 1 in [ticks] ticks"
-		if (germs > 100)
-			if (prob(10))
-				damage++
-				germs++
-		if (germs == 1000)
-			world << "Reached stage 2 in [ticks] ticks"
-		if (germs > 1000)
-			damage++
-			germs++
-		if (germs == 2500)
-			world << "Reached stage 3 in [ticks] ticks"
-	world << "Mob took [tdamage] tox damage"
-*/
 //returns 1 if made bloody, returns 0 otherwise
-
 /mob/living/carbon/human/add_blood(mob/living/carbon/human/M as mob)
 	if (!..())
 		return 0
@@ -1181,7 +1162,7 @@
 		for(var/obj/item/O in organ.implants)
 			if(!istype(O,/obj/item/weapon/implant) && prob(5)) //Moving with things stuck in you could be bad.
 				// All kinds of embedded objects cause bleeding.
-				if(species.flags & NO_PAIN)
+				if(!can_feel_pain())
 					src << "<span class='warning'>You feel [O] moving inside your [organ.name].</span>"
 				else
 					var/msg = pick( \
@@ -1302,6 +1283,9 @@
 	if (src.is_diona())
 		setup_gestalt(1)
 
+	burn_mod = species.burn_mod
+	brute_mod = species.brute_mod
+
 	max_stamina = species.stamina
 	stamina = max_stamina
 	sprint_speed_factor = species.sprint_speed_factor
@@ -1310,8 +1294,13 @@
 
 	exhaust_threshold = species.exhaust_threshold
 	max_nutrition = BASE_MAX_NUTRITION * species.max_nutrition_factor
+	max_hydration = BASE_MAX_HYDRATION * species.max_hydration_factor
 
 	nutrition_loss = HUNGER_FACTOR * species.nutrition_loss_factor
+	hydration_loss = THIRST_FACTOR * species.hydration_loss_factor
+
+	species.set_default_hair(src)
+
 	if(species)
 		return 1
 	else
@@ -1527,7 +1516,7 @@
 		"<span class='danger'>You pop [S]'s [current_limb.joint] back in!</span>")
 	current_limb.undislocate()
 
-/mob/living/carbon/human/drop_from_inventory(var/obj/item/W, var/atom/Target = null)
+/mob/living/carbon/human/drop_from_inventory(var/obj/item/W, var/atom/target = null)
 	if(W in organs)
 		return
 	..()
@@ -1602,7 +1591,10 @@
 	if(B && species && species.has_organ["brain"] && !isipc(src))
 		. = B.cure_trauma_type(brain_trauma_type, cure_permanent)
 
-/mob/living/carbon/human/proc/cure_all_traumas(cure_permanent = FALSE)
+/mob/living/carbon/human/proc/cure_all_traumas(cure_permanent = FALSE, cure_type = "")
 	var/obj/item/organ/brain/B = internal_organs_by_name["brain"]
 	if(B && species && species.has_organ["brain"] && !isipc(src))
-		. = B.cure_all_traumas(cure_permanent)
+		. = B.cure_all_traumas(cure_permanent, cure_type)
+
+/mob/living/carbon/human/get_metabolism(metabolism)
+	return ..() * (species ? species.metabolism_mod : 1)

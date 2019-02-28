@@ -355,12 +355,7 @@
 	var/test_x
 	var/test_y
 
-	var/zlights_going_up = FALSE
-	var/turf/originalT	// This is needed to reset our search point for bidirectional Z-lights.
-
-	FOR_DVIEW(originalT, Ceiling(actual_range), source_turf, 0)
-		T = originalT
-		zlights_going_up = FALSE
+	FOR_DVIEW(T, Ceiling(actual_range), source_turf, 0)
 		check_t:
 
 		if (light_angle && !facing_opaque)	// Directional lighting coordinate filter.
@@ -371,7 +366,7 @@
 			if ((PSEUDO_WEDGE(limit_a_x, limit_a_y, test_x, test_y) > 0) || (PSEUDO_WEDGE(test_x, test_y, limit_b_x, limit_b_y) > 0))
 				continue
 
-		if (T.dynamic_lighting || T.light_sources)
+		if (TURF_IS_DYNAMICALLY_LIT_UNSAFE(T) || T.light_sources)
 			Tcorners = T.corners
 			if (!T.lighting_corners_initialised)
 				T.lighting_corners_initialised = TRUE
@@ -387,28 +382,21 @@
 					Tcorners[i] = new /datum/lighting_corner(T, LIGHTING_CORNER_DIAGONAL[i])
 
 			if (!T.has_opaque_atom)
-				corners[Tcorners[1]] = 0
-				corners[Tcorners[2]] = 0
-				corners[Tcorners[3]] = 0
-				corners[Tcorners[4]] = 0
+				for(var/v = 1 to 4)
+					var/val = Tcorners[v]
+					if(val)
+						corners[val] = 0
+
+
 
 		turfs += T
 
 		// Note: above is defined on ALL turfs, but below is only defined on OPEN TURFS.
 
-		zlight_check:
-		if (zlights_going_up)	// If we're searching upwards, check above.
-			if (istype(T.above))	// We escape the goto loop if this condition is false.
-				T = T.above
-				goto check_t
-		else
-			if (T && (T.flags & MIMIC_BELOW) && T.below)	// Not searching upwards and we have a below turf.
-				T = T.below	// Consider the turf below us as well. (Z-lights)
-				goto check_t
-			else // Not searching upwards and we don't have a below turf.
-				zlights_going_up = TRUE
-				T = originalT
-				goto zlight_check
+		// Upwards lights are handled at the corner level, so only search down.
+		if (T && (T.flags & MIMIC_BELOW) && T.below)
+			T = T.below
+			goto check_t
 
 	END_FOR_DVIEW
 

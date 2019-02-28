@@ -34,10 +34,9 @@
 		if(installed_gun)
 			user << "<span class='warning'>There's already a weapon installed.</span>"
 			return
-		user.drop_from_inventory(gun)
+		user.drop_from_inventory(gun,src)
 		installed_gun = gun
 		size += gun.w_class
-		gun.forceMove(src)
 		user << "<span class='notice'>You slide \the [gun] into the firing mechanism.</span>"
 		playsound(src.loc, 'sound/items/Crowbar.ogg', 50, 1)
 	else

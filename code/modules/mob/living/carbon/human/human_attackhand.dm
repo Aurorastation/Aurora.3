@@ -103,6 +103,8 @@
 	if(istype(M,/mob/living/carbon))
 		M.spread_disease_to(src, "Contact")
 
+	var/datum/martial_art/attacker_style = H.martial_art
+
 	switch(M.a_intent)
 		if(I_HELP)
 			if(istype(H) && health < config.health_threshold_crit && health > config.health_threshold_dead)
@@ -144,9 +146,13 @@
 		if(I_GRAB)
 			if(M == src || anchored)
 				return 0
-			if(M.disabilities & PACIFIST)
+			if(M.is_pacified())
 				to_chat(M, "<span class='notice'>You don't want to risk hurting [src]!</span>")
 				return 0
+
+			if(attacker_style && attacker_style.grab_act(H, src))
+				return 1
+
 			for(var/obj/item/weapon/grab/G in src.grabbed_by)
 				if(G.assailant == M)
 					M << "<span class='notice'>You already grabbed [src].</span>"
@@ -154,7 +160,6 @@
 
 			if (!attempt_grab(M))
 				return
-
 
 			if(w_uniform)
 				w_uniform.add_fingerprint(M)
@@ -179,9 +184,13 @@
 			return 1
 
 		if(I_HURT)
-			if(M.disabilities & PACIFIST)
+			if(M.is_pacified())
 				to_chat(M, "<span class='notice'>You don't want to risk hurting [src]!</span>")
 				return 0
+
+			if(attacker_style && attacker_style.harm_act(H, src))
+				return 1
+
 			if(!istype(H))
 				attack_generic(H,rand(1,3),"punched")
 				return
@@ -296,7 +305,7 @@
 					real_damage += G.punch_force
 					hit_dam_type = G.punch_damtype
 					if(H.pulling_punches)
-						hit_dam_type = AGONY
+						hit_dam_type = HALLOSS
 
 					if(G.sharp)
 						is_sharp = 1
@@ -322,9 +331,13 @@
 			apply_damage(real_damage, hit_dam_type, hit_zone, armour, sharp=is_sharp, edge=is_edge)
 
 		if(I_DISARM)
-			if(M.disabilities & PACIFIST)
+			if(M.is_pacified())
 				to_chat(M, "<span class='notice'>You don't want to risk hurting [src]!</span>")
 				return 0
+
+			if(attacker_style && attacker_style.disarm_act(H, src))
+				return 1
+
 			M.attack_log += text("\[[time_stamp()]\] <font color='red'>Disarmed [src.name] ([src.ckey])</font>")
 			src.attack_log += text("\[[time_stamp()]\] <font color='orange'>Has been disarmed by [M.name] ([M.ckey])</font>")
 

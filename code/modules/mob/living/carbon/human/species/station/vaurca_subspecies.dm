@@ -47,8 +47,9 @@
 	unarmed_types = list(/datum/unarmed_attack/stomp, /datum/unarmed_attack/kick,  /datum/unarmed_attack/claws/strong, /datum/unarmed_attack/bite/strong)
 	rarity_value = 10
 	slowdown = 2
-	eyes = "blank_eyes" //makes it so that eye colour is not changed when skin colour is.
-	brute_mod = 0.2 //note to self: remove is_synthetic checks for brmod and burnmod
+	eyes = "breeder_eyes" //makes it so that eye colour is not changed when skin colour is.
+	eyes_icons = 'icons/mob/human_face/eyes48x48.dmi'
+	brute_mod = 0.1 //note to self: remove is_synthetic checks for brmod and burnmod
 	burn_mod = 0.8 //2x was a bit too much. we'll see how this goes.
 	toxins_mod = 1 //they're not used to all our weird human bacteria.
 	breakcuffs = list(MALE,FEMALE,NEUTER)
@@ -61,6 +62,7 @@
 	damage_overlays = 'icons/mob/human_races/masks/dam_breeder.dmi'
 	damage_mask = 'icons/mob/human_races/masks/dam_mask_breeder.dmi'
 	blood_mask = 'icons/mob/human_races/masks/blood_breeder.dmi'
+
 
 	stamina = 175
 	sprint_speed_factor = 1
@@ -76,9 +78,79 @@
 		/mob/living/carbon/human/proc/hivenet
 		)
 
-/datum/species/bug/type_c/equip_survival_gear(var/mob/living/carbon/human/H)
+/datum/species/bug/type_c/handle_post_spawn(var/mob/living/carbon/human/H)
+	..()
+	H.gender = FEMALE
 	return
 
-/datum/species/bug/type_c/handle_post_spawn(var/mob/living/carbon/human/H)
-	H.gender = FEMALE
+/datum/species/bug/type_big
+	name = "Vaurca Warform"
+	short_name = "vam"
+	name_plural = "Type BA"
+	bodytype = "Vaurca Warform"
+	primitive_form = "Vaurca Warrior"
+	icon_template = 'icons/mob/human_races/subspecies/r_vaurcamecha.dmi'
+	icobase = 'icons/mob/human_races/subspecies/r_vaurcamecha.dmi'
+	deform = 'icons/mob/human_races/subspecies/r_vaurcamecha.dmi'
+	default_language = LANGUAGE_GIBBERING
+	language = LANGUAGE_VAURCA
+	icon_x_offset = -8
+	unarmed_types = list(/datum/unarmed_attack/claws/cleave, /datum/unarmed_attack/bite/strong)
+	rarity_value = 10
+	slowdown = 0
+	eyes = "warform_eyes"
+	eyes_icons = 'icons/mob/human_face/warform_eyes.dmi'
+	brute_mod = 0.5
+	burn_mod = 0.1
+	fall_mod = 0
+	toxins_mod = 1
+	total_health = 200
+	breakcuffs = list(MALE,FEMALE,NEUTER)
+	mob_size = 30
+
+	speech_sounds = list('sound/voice/hiss1.ogg','sound/voice/hiss2.ogg','sound/voice/hiss3.ogg','sound/voice/hiss4.ogg')
+	speech_chance = 100
+
+	death_sound = 'sound/voice/hiss6.ogg'
+	damage_overlays = 'icons/mob/human_races/masks/dam_mask_warform.dmi'
+	damage_mask = 'icons/mob/human_races/masks/dam_mask_warform.dmi'
+	blood_mask = 'icons/mob/human_races/masks/dam_mask_warform.dmi'
+
+
+	stamina = 200
+	stamina_recovery = 5
+	sprint_speed_factor = 0.9
+	sprint_cost_factor = 0.5
+
+	heat_level_1 = 1000 //Default 360
+	heat_level_2 = 4000 //Default 400
+	heat_level_3 = 16000 //Default 1000
+	hazard_high_pressure = 55000 //Default 550
+	warning_high_pressure = 3250 //Default 325
+
+	spawn_flags = IS_RESTRICTED
+	flags = NO_SCAN | NO_SLIP | NO_PAIN | NO_BREATHE
+
+	inherent_verbs = list(
+		/mob/living/carbon/human/proc/rebel_yell,
+		/mob/living/carbon/human/proc/devour_head,
+		/mob/living/carbon/human/proc/formic_spray,
+		/mob/living/carbon/human/proc/trample
+		)
+
+	has_organ = list(
+		"neural socket"       = /obj/item/organ/vaurca/neuralsocket,
+		"lungs"               = /obj/item/organ/lungs/vaurca,
+		"right heart"         = /obj/item/organ/heart/right,
+		"left heart"          = /obj/item/organ/heart/left,
+		"phoron reservoir"    = /obj/item/organ/vaurca/reservoir,
+		"mechanical liver"    = /obj/item/organ/liver/vaurca/robo,
+		"mechanical kidneys"  = /obj/item/organ/kidneys/vaurca/robo,
+		"brain"               = /obj/item/organ/brain/vaurca,
+		"eyes"                = /obj/item/organ/eyes/vaurca,
+		"filtration bit"      = /obj/item/organ/vaurca/filtrationbit
+	)
+
+/datum/species/bug/type_big/handle_post_spawn(var/mob/living/carbon/human/H)
+	H.mutations.Add(HULK)
 	return ..()

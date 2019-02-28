@@ -87,6 +87,8 @@
 		if (is_diona())
 			diona_handle_light(DS)
 
+		handle_shared_dreaming()
+
 	handle_stasis_bag()
 
 	if(!handle_some_updates())
@@ -164,7 +166,7 @@
 	//Vision
 	var/obj/item/organ/vision
 	if(species.vision_organ)
-		vision = internal_organs_by_name[species.vision_organ]
+		vision =  internal_organs_by_name[species.vision_organ] || organs_by_name[species.vision_organ]
 
 	if (!vision)
 		if (species.vision_organ) // if they should have eyes but don't, they can't see
@@ -202,6 +204,11 @@
 			spawn( 0 )
 				emote("cough")
 				return
+
+	if((disabilities & ASTHMA) && getOxyLoss() >= 10)
+		if(prob(5))
+			emote("cough")
+
 	if (disabilities & TOURETTES)
 		speech_problem_flag = 1
 		if ((prob(10) && paralysis <= 1))
@@ -220,7 +227,7 @@
 				pixel_x = old_x
 				pixel_y = old_y
 				return
-	if (disabilities & NERVOUS)
+	if (disabilities & STUTTER)
 		speech_problem_flag = 1
 		if (prob(10))
 			stuttering = max(10, stuttering)
@@ -549,7 +556,10 @@
 		failed_last_breath = 1
 	else
 		failed_last_breath = 0
-		adjustOxyLoss(-5)
+		if(disabilities & ASTHMA)
+			adjustOxyLoss(rand(-5,0))
+		else
+			adjustOxyLoss(-5)
 
 
 	// Hot air hurts :(
@@ -596,7 +606,6 @@
 
 		if (temp_adj > BODYTEMP_HEATING_MAX) temp_adj = BODYTEMP_HEATING_MAX
 		if (temp_adj < BODYTEMP_COOLING_MAX) temp_adj = BODYTEMP_COOLING_MAX
-		//world << "Breath: [breath.temperature], [src]: [bodytemperature], Adjusting: [temp_adj]"
 		bodytemperature += temp_adj
 
 	else if(breath.temperature >= species.heat_discomfort_level)
@@ -761,21 +770,15 @@
 
 	if(bodytemperature < species.cold_level_1) //260.15 is 310.15 - 50, the temperature where you start to feel effects.
 		if(nutrition >= 2) //If we are very, very cold we'll use up quite a bit of nutriment to heat us up.
-			nutrition -= 2
+			adjustNutritionLoss(2)
 		var/recovery_amt = max((body_temperature_difference / BODYTEMP_AUTORECOVERY_DIVISOR), BODYTEMP_AUTORECOVERY_MINIMUM)
-		//world << "Cold. Difference = [body_temperature_difference]. Recovering [recovery_amt]"
-//				log_debug("Cold. Difference = [body_temperature_difference]. Recovering [recovery_amt]")
 		bodytemperature += recovery_amt
 	else if(species.cold_level_1 <= bodytemperature && bodytemperature <= species.heat_level_1)
 		var/recovery_amt = body_temperature_difference / BODYTEMP_AUTORECOVERY_DIVISOR
-		//world << "Norm. Difference = [body_temperature_difference]. Recovering [recovery_amt]"
-//				log_debug("Norm. Difference = [body_temperature_difference]. Recovering [recovery_amt]")
 		bodytemperature += recovery_amt
 	else if(bodytemperature > species.heat_level_1) //360.15 is 310.15 + 50, the temperature where you start to feel effects.
 		//We totally need a sweat system cause it totally makes sense...~
 		var/recovery_amt = min((body_temperature_difference / BODYTEMP_AUTORECOVERY_DIVISOR), -BODYTEMP_AUTORECOVERY_MINIMUM)	//We're dealing with negative numbers
-		//world << "Hot. Difference = [body_temperature_difference]. Recovering [recovery_amt]"
-//				log_debug("Hot. Difference = [body_temperature_difference]. Recovering [recovery_amt]")
 		bodytemperature += recovery_amt
 
 	//This proc returns a number made up of the flags for body parts which you are protected on. (such as HEAD, UPPER_TORSO, LOWER_TORSO, etc. See setup.dm for the full list)
@@ -905,6 +908,7 @@
 		if(touching) touching.metabolize()
 		if(ingested) ingested.metabolize()
 		if(bloodstr) bloodstr.metabolize()
+		if(breathing) breathing.metabolize()
 
 		if(CE_PAINKILLER in chem_effects)
 			analgesic = chem_effects[CE_PAINKILLER]
@@ -930,17 +934,31 @@
 		else //heal in the dark
 			heal_overall_damage(5,5)
 
-	// nutrition decrease
-	if (nutrition > 0 && stat != 2)
-		nutrition = max (0, nutrition - nutrition_loss)
+	// nutrition decrease over time
+	if(max_nutrition > 0)
+		if (nutrition > 0 && stat != 2)
+			adjustNutritionLoss(nutrition_loss * nutrition_attrition_rate)
 
-	if (nutrition > max_nutrition)
-		if(overeatduration < 600) //capped so people don't take forever to unfat
-			overeatduration++
-	else
-		if(overeatduration > 1)
-			overeatduration -= 2 //doubled the unfat rate
+		if (nutrition / max_nutrition > CREW_NUTRITION_OVEREATEN)
+			adjustNutritionLoss(1)
+			if(overeatduration < 600) //capped so people don't take forever to unfat
+				overeatduration++
+		else
+			if(overeatduration > 1)
+				overeatduration -= 2 //doubled the unfat rate
 
+	// hydration decrease over time
+	if(max_hydration > 0)
+		if (hydration > 0 && stat != 2)
+			adjustHydrationLoss(hydration_loss * hydration_attrition_rate)
+
+		if (hydration / max_hydration > CREW_HYDRATION_OVERHYDRATED)
+			adjustHydrationLoss(2)
+			if(overdrinkduration < 600) //capped so people don't take forever to undrink
+				overdrinkduration++
+		else
+			if(overdrinkduration > 1)
+				overdrinkduration -= 2 //doubled the undrink rate
 
 	// TODO: stomach and bloodstream organ.
 	if(!isSynthetic())
@@ -1021,7 +1039,7 @@
 			handle_dreams()
 			if (mind)
 				//Are they SSD? If so we'll keep them asleep but work off some of that sleep var in case of stoxin or similar.
-				if(client || sleeping > 3)
+				if(client || sleeping > 3 || istype(bg))
 					AdjustSleeping(-1)
 			if( prob(2) && health && !hal_crit )
 				spawn(0)
@@ -1029,6 +1047,7 @@
 		//CONSCIOUS
 		else
 			stat = CONSCIOUS
+			willfully_sleeping = 0
 
 		// Check everything else.
 
@@ -1169,24 +1188,40 @@
 
 		update_health_display()
 
-		//Update hunger UI less often, its not important
-		if((life_tick % 3 == 0) && nutrition_icon)
-			var/nut_factor = max(1,nutrition) / max_nutrition
-			var/new_val = ""
-			switch(nut_factor)
-				if(1 to INFINITY)
-					new_val = "nutrition0"
-				if(0.75 to 1)
-					new_val = "nutrition1"
-				if(0.5 to 0.75)
-					new_val = "nutrition2"
-				if(0.25 to 0.5)
-					new_val = "nutrition3"
-				else
-					new_val = "nutrition4"
-
-			if (nutrition_icon.icon_state != new_val)
-				nutrition_icon.icon_state = new_val
+		//Update hunger and thirst UI less often, its not important
+		if((life_tick % 3 == 0))
+			if(nutrition_icon)
+				var/nut_factor = max(0,min(nutrition / max_nutrition,1))
+				var/nut_icon = 5 //5 to 0, with 5 being lowest, 0 being highest
+				if(nut_factor >= CREW_NUTRITION_OVEREATEN)
+					nut_icon = 0
+				else if (nut_factor >= CREW_NUTRITION_FULL)
+					nut_icon = 1
+				else if (nut_factor >= CREW_NUTRITION_SLIGHTLYHUNGRY)
+					nut_icon = 2
+				else if (nut_factor >= CREW_NUTRITION_HUNGRY)
+					nut_icon = 3
+				else if (nut_factor >= CREW_NUTRITION_VERYHUNGRY )
+					nut_icon = 4
+				var/new_val = "nutrition[nut_icon]"
+				if (nutrition_icon.icon_state != new_val)
+					nutrition_icon.icon_state = new_val
+			if(hydration_icon)
+				var/hyd_factor = max(0,min(hydration / max_hydration,1))
+				var/hyd_icon = 5
+				if(hyd_factor >= CREW_HYDRATION_OVERHYDRATED)
+					hyd_icon = 0
+				else if(hyd_factor >= CREW_HYDRATION_HYDRATED)
+					hyd_icon = 1
+				else if(hyd_factor >= CREW_HYDRATION_SLIGHTLYTHIRSTY)
+					hyd_icon = 2
+				else if(hyd_factor >= CREW_HYDRATION_THIRSTY)
+					hyd_icon = 3
+				else if(hyd_factor >= CREW_HYDRATION_VERYTHIRSTY)
+					hyd_icon = 4
+				var/new_val = "thirst[hyd_icon]"
+				if (hydration_icon.icon_state != new_val)
+					hydration_icon.icon_state = new_val
 
 		if(pressure)
 			var/new_pressure = "pressure[pressure_alert]"
@@ -1286,7 +1321,7 @@
 	//0.1% chance of playing a scary sound to someone who's in complete darkness
 	if(isturf(loc) && rand(1,1000) == 1)
 		var/turf/T = loc
-		if(T.dynamic_lighting && T.get_lumcount() < 0.01)	// give a little bit of tolerance for near-dark areas.
+		if(T.get_lumcount() < 0.01)	// give a little bit of tolerance for near-dark areas.
 			playsound_local(src,pick(scarySounds),50, 1, -1)
 
 /mob/living/carbon/human/proc/handle_changeling()
@@ -1296,7 +1331,7 @@
 /mob/living/carbon/human/handle_shock()
 	..()
 	if(status_flags & GODMODE)	return 0	//godmode
-	if(species && species.flags & NO_PAIN) return
+	if(!can_feel_pain()) return
 
 	if(health < config.health_threshold_softcrit)// health 0 makes you immediately collapse
 		shock_stage = max(shock_stage, 61)
@@ -1498,6 +1533,9 @@
 					if((R.fields["id"] == E.fields["id"]) && (R.fields["criminal"] == "*Arrest*"))
 						holder.icon_state = "hudwanted"
 						break
+					else if((R.fields["id"] == E.fields["id"]) && (R.fields["criminal"] == "Search"))
+						holder.icon_state = "hudsearch"
+						break
 					else if((R.fields["id"] == E.fields["id"]) && (R.fields["criminal"] == "Incarcerated"))
 						holder.icon_state = "hudprisoner"
 						break
@@ -1506,7 +1544,6 @@
 						break
 					else if((R.fields["id"] == E.fields["id"]) && (R.fields["criminal"] == "Released"))
 						holder.icon_state = "hudreleased"
-						break
 		hud_list[WANTED_HUD] = holder
 
 	if (  BITTEST(hud_updateflag, IMPLOYAL_HUD) \
@@ -1555,7 +1592,7 @@
 	return slurring
 
 /mob/living/carbon/human/handle_stunned()
-	if(species.flags & NO_PAIN)
+	if(!can_feel_pain())
 		stunned = 0
 		return 0
 	if(..())
@@ -1624,7 +1661,8 @@
 	if (!exhaust_threshold) // Also quit if there's no exhaust threshold specified, because division by 0 is amazing.
 		return
 
-	if (failed_last_breath || oxyloss > exhaust_threshold)//Can't catch our breath if we're suffocating
+	if (failed_last_breath || (oxyloss + halloss) > exhaust_threshold)//Can't catch our breath if we're suffocating
+		flash_pain()
 		return
 
 	if (nutrition <= 0)
@@ -1632,13 +1670,19 @@
 			src << span("warning", "You feel hungry and exhausted, eat something to regain your energy!")
 		return
 
+	if (hydration <= 0)
+		if (prob(1.5))
+			src << span("warning", "You feel thirsty and exhausted, drink something to regain your energy!")
+		return
+
 	if (stamina != max_stamina)
 		//Any suffocation damage slows stamina regen.
 		//This includes oxyloss from low blood levels
-		var/regen = stamina_recovery * (1 - min(((oxyloss*2) / exhaust_threshold), 1))
+		var/regen = stamina_recovery * (1 - min(((oxyloss) / exhaust_threshold) + ((halloss) / exhaust_threshold), 1))
 		if (regen > 0)
 			stamina = min(max_stamina, stamina+regen)
-			nutrition = max(0, nutrition - stamina_recovery*0.18)
+			adjustNutritionLoss(stamina_recovery*0.09)
+			adjustHydrationLoss(stamina_recovery*0.32)
 			if (client)
 				hud_used.move_intent.update_move_icon(src)
 

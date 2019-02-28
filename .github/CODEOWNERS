@@ -5,10 +5,8 @@
 # If you want to be added, make a PR that adds you to it.
 # If you are added, then you are expected to review PRs in a timely manner.
 
-/code/world.dm @Lohikar @Arrow768
-/code/controllers/master/ @Lohikar
-/code/controllers/subsystems/supply.dm @Arrow768
-/code/controllers/subsystems/initialization/ @Lohikar
+/code/world.dm @Arrow768
+/code/controllers/subsystems/cargo.dm @Arrow768
 /code/datums/api.dm @Arrow768
 /code/datums/cargo.dm @Arrow768
 /code/datums/server_greeting.dm @Skull132
@@ -18,11 +16,13 @@
 /code/modules/client/preference_setup/ @Skull132
 /code/modules/customitems/item_defines.dm @Alberyk
 /code/modules/item_worth/ @Arrow768
-/code/modules/lighting/ @Lohikar
 /code/modules/modular_computers/ @Arrow768
 /code/modules/telesci/ @Arrow768
+/code/modules/cargo/ @Arrow768
 /code/modules/udp/ @Arrow768
+/code/modules/vueui/ @Karolis2011
 /code/modules/web_interface/ @Arrow768
 /lib/ @Skull132
 /nano/templates/ @Arrow768
 /SQL/ @Arrow768
+/vueui/ @Karolis2011

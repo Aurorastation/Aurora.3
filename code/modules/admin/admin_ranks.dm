@@ -66,6 +66,10 @@ var/list/admin_ranks = list()								//list of all ranks with associated rights
 		C.holder = null
 	admins.Cut()
 
+	// Clears admins from the world config.
+	for (var/A in world.GetConfig("admin"))
+		world.SetConfig("APP/admin", A, null)
+
 	if(config.admin_legacy_system)
 		load_admin_ranks()
 
@@ -110,14 +114,12 @@ var/list/admin_ranks = list()								//list of all ranks with associated rights
 			load_admins()
 			return
 
-		var/DBQuery/query = dbcon.NewQuery("SELECT ckey, rank, level, flags FROM ss13_admin")
+		var/DBQuery/query = dbcon.NewQuery("SELECT ckey, rank, (flags & 0xFFFF) as flags FROM ss13_player WHERE rank IS NOT NULL AND (flags & 0xFFFF) != 0")
 		query.Execute()
 		while(query.NextRow())
 			var/ckey = query.item[1]
 			var/rank = query.item[2]
-			if(rank == "Removed")	continue	//This person was de-adminned. They are only in the admin list for archive purposes.
-
-			var/rights = query.item[4]
+			var/rights = query.item[3]
 			if(istext(rights))	rights = text2num(rights)
 			var/datum/admins/D = new /datum/admins(rank, rights, ckey)
 

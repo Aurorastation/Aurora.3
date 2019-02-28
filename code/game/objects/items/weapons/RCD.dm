@@ -49,7 +49,8 @@
 		if((stored_matter + 10) > 30)
 			user << "<span class='notice'>The RCD can't hold any more matter-units.</span>"
 			return
-		user.drop_from_inventory(W)
+		//TODO: Possible better animation
+		user.drop_from_inventory(W,src)
 		qdel(W)
 		stored_matter += 10
 		playsound(src.loc, 'sound/machines/click.ogg', 50, 1)

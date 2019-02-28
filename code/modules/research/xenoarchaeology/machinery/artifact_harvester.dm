@@ -25,8 +25,7 @@
 	if(istype(I,/obj/item/weapon/anobattery))
 		if(!inserted_battery)
 			user << "<span class='notice'>You insert [I] into [src].</span>"
-			user.drop_item()
-			I.loc = src
+			user.drop_from_inventory(I,src)
 			src.inserted_battery = I
 			updateDialog()
 		else
@@ -156,7 +155,7 @@
 						//see if we can clear out an old effect
 						//delete it when the ids match to account for duplicate ids having different effects
 						if(inserted_battery.battery_effect && inserted_battery.stored_charge <= 0)
-							qdel(inserted_battery.battery_effect)
+							QDEL_NULL(inserted_battery.battery_effect)
 
 						//
 						var/datum/artifact_effect/source_effect
@@ -225,7 +224,7 @@
 			icon_state = "incubator"
 
 	if (href_list["ejectbattery"])
-		src.inserted_battery.loc = src.loc
+		src.inserted_battery.forceMove(src.loc)
 		src.inserted_battery = null
 
 	if (href_list["drainbattery"])

@@ -198,12 +198,12 @@
 	var/old_broken_state = broken_state
 	switch(broken_state)
 		if(GRAV_NEEDS_SCREWDRIVER)
-			if(isscrewdriver(I))
+			if(I.isscrewdriver())
 				user << "<span class='notice'>You secure the screws of the framework.</span>"
 				playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, 1)
 				broken_state++
 		if(GRAV_NEEDS_WELDING)
-			if(iswelder(I))
+			if(I.iswelder())
 				var/obj/item/weapon/weldingtool/WT = I
 				if(WT.remove_fuel(1, user))
 					user << "<span class='notice'>You mend the damaged framework.</span>"
@@ -220,13 +220,13 @@
 				else
 					user << "<span class='notice'>You need 10 sheets of plasteel.</span>"
 		if(GRAV_NEEDS_WRENCH)
-			if(iswrench(I))
+			if(I.iswrench())
 				user << "<span class='notice'>You secure the plating to the framework.</span>"
 				playsound(src.loc, 'sound/items/Ratchet.ogg', 75, 1)
 				set_fix()
 		else
 			..()
-	if(iscrowbar(I))
+	if(I.iscrowbar())
 		if(backpanelopen)
 			playsound(src.loc, 'sound/items/Crowbar.ogg', 50, 1)
 			user << "<span class='notice'>You replace the back panel.</span>"
@@ -341,13 +341,13 @@
 	var/alert = 0
 	var/area/area = get_area(src)
 	if(new_state) // If we turned on
-		if(gravity_in_level() == 0)
+		if(!area.has_gravity())
 			alert = 1
 			gravity_is_on = 1
 			investigate_log("was brought online and is now producing gravity for this level.", "gravity")
 			message_admins("The gravity generator was brought online. (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[x];Y=[y];Z=[z]'>[area.name]</a>)")
 	else
-		if(gravity_in_level() == 1)
+		if(area.has_gravity())
 			alert = 1
 			gravity_is_on = 0
 			investigate_log("was brought offline and there is now no gravity for this level.", "gravity")
@@ -416,20 +416,12 @@
 	var/turf/our_turf = get_turf(src)
 	for(var/mob/M in mob_list)
 		var/turf/their_turf = get_turf(M)
-		if(their_turf.z == our_turf.z)
+		if(their_turf && (their_turf.z == our_turf.z))
 			M.update_gravity(M.mob_has_gravity())
 			if(M.client)
 				if(!M)	return
 				shake_camera(M, 5, 1)
 				M.playsound_local(our_turf, 'sound/effects/alert.ogg', 100, 1, 0.5)
-
-/obj/machinery/gravity_generator/main/proc/gravity_in_level()
-	var/turf/T = get_turf(src)
-	if(!T)
-		return 0
-	if(SSmachinery.gravity_generators)
-		return length(SSmachinery.gravity_generators)
-	return 0
 
 /obj/machinery/gravity_generator/main/proc/update_list()
 	var/turf/T = get_turf(src.loc)
@@ -439,18 +431,11 @@
 
 		if(on)
 			for(var/area/A in localareas)
-				A.has_gravity = 1
-				if(round_start)
-					A.gravitychange(A.has_gravity,A,1)
-				else
-					A.gravitychange(A.has_gravity,A)
-			if(round_start == 1)
-				round_start = 0
+				A.gravitychange(TRUE)
 			SSmachinery.gravity_generators += src
 		else
 			for(var/area/A in localareas)
-				A.has_gravity = 0
-				A.gravitychange(A.has_gravity,A)
+				A.gravitychange(FALSE)
 			SSmachinery.gravity_generators -= src
 
 /obj/machinery/gravity_generator/main/Initialize()

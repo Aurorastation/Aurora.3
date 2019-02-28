@@ -10,7 +10,7 @@
 	var/datum/disease2/disease/virus2 = null
 
 /obj/machinery/computer/centrifuge/attackby(var/obj/O as obj, var/mob/user as mob)
-	if(isscrewdriver(O))
+	if(O.isscrewdriver())
 		return ..(O,user)
 
 	if(istype(O,/obj/item/weapon/reagent_containers/glass/beaker/vial))
@@ -19,8 +19,7 @@
 			return
 
 		sample = O
-		user.drop_item()
-		O.loc = src
+		user.drop_from_inventory(O,src)
 
 		user.visible_message("[user] adds \a [O] to \the [src]!", "You add \a [O] to \the [src]!")
 		SSnanoui.update_uis(src)
@@ -140,7 +139,7 @@
 
 		if("sample")
 			if(sample)
-				sample.loc = src.loc
+				sample.forceMove(src.loc)
 				sample = null
 			return 1
 

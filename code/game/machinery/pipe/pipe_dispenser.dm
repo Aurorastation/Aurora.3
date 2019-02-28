@@ -102,10 +102,10 @@
 	src.add_fingerprint(usr)
 	if (istype(W, /obj/item/pipe) || istype(W, /obj/item/pipe_meter))
 		usr << "<span class='notice'>You put [W] back to [src].</span>"
-		user.drop_item()
+		user.drop_from_inventory(W,get_turf(src))
 		qdel(W)
 		return
-	else if (iswrench(W))
+	else if (W.iswrench())
 		if (unwrenched==0)
 			playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
 			user << "<span class='notice'>You begin to unfasten \the [src] from the floor...</span>"

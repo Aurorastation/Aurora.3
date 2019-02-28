@@ -13,6 +13,7 @@
 	var/damtype = "brute"
 	var/force = 0
 	var/armor_penetration = 0
+	var/noslice = 0 // To make it not able to slice things.
 
 	var/being_shocked = 0
 
@@ -173,7 +174,12 @@
 /obj/proc/see_emote(mob/M as mob, text, var/emote_type)
 	return
 
-/obj/proc/tesla_act(var/power)
+/obj/proc/tesla_act(var/power, var/melt = FALSE)
+	if(melt)
+		visible_message(span("danger", "\The [src] melts down until ashes are left!"))
+		new /obj/effect/decal/cleanable/ash(loc)
+		qdel(src)
+		return
 	being_shocked = 1
 	var/power_bounced = power / 2
 	tesla_zap(src, 3, power_bounced)

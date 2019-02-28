@@ -25,16 +25,14 @@
 	fill()
 		..()
 		if (empty) return
-
 		icon_state = pick("ointment","firefirstaid")
-
+		new /obj/item/weapon/reagent_containers/pill/kelotane( src )
+		new /obj/item/weapon/reagent_containers/pill/kelotane( src )
+		new /obj/item/weapon/reagent_containers/pill/kelotane( src )
+		new /obj/item/stack/medical/ointment( src )
+		new /obj/item/stack/medical/ointment( src )
 		new /obj/item/device/healthanalyzer( src )
-		new /obj/item/weapon/reagent_containers/hypospray/autoinjector( src )
-		new /obj/item/stack/medical/ointment( src )
-		new /obj/item/stack/medical/ointment( src )
-		new /obj/item/weapon/reagent_containers/pill/kelotane( src )
-		new /obj/item/weapon/reagent_containers/pill/kelotane( src )
-		new /obj/item/weapon/reagent_containers/pill/kelotane( src ) //Replaced ointment with these since they actually work --Errorage
+		new /obj/item/weapon/reagent_containers/hypospray/autoinjector/inaprovaline( src )
 		return
 
 
@@ -50,21 +48,19 @@
 		new /obj/item/stack/medical/ointment(src)
 		new /obj/item/stack/medical/ointment(src)
 		new /obj/item/device/healthanalyzer(src)
-		new /obj/item/weapon/reagent_containers/hypospray/autoinjector( src )
+		new /obj/item/weapon/reagent_containers/hypospray/autoinjector/inaprovaline( src )
 		return
 
 /obj/item/weapon/storage/firstaid/toxin
 	name = "toxin first aid"
-	desc = "Used to treat when you have a high amoutn of toxins in your body."
+	desc = "Used to treat when you have a high amount of toxins in your body."
 	icon_state = "antitoxin"
 	item_state = "firstaid-toxin"
 
 	fill()
 		..()
 		if (empty) return
-
 		icon_state = pick("antitoxin","antitoxfirstaid","antitoxfirstaid2","antitoxfirstaid3")
-
 		new /obj/item/weapon/reagent_containers/syringe/antitoxin( src )
 		new /obj/item/weapon/reagent_containers/syringe/antitoxin( src )
 		new /obj/item/weapon/reagent_containers/syringe/antitoxin( src )
@@ -75,21 +71,21 @@
 		return
 
 /obj/item/weapon/storage/firstaid/o2
-	name = "oxygen deprivation first aid"
-	desc = "A box full of oxygen goodies."
+	name = "oxygen deprivation kit"
+	desc = "A box full of oxygen related goodies."
 	icon_state = "o2"
 	item_state = "firstaid-o2"
 
 	fill()
 		..()
 		if (empty) return
-		new /obj/item/weapon/reagent_containers/pill/dexalin( src )
-		new /obj/item/weapon/reagent_containers/pill/dexalin( src )
-		new /obj/item/weapon/reagent_containers/pill/dexalin( src )
-		new /obj/item/weapon/reagent_containers/pill/dexalin( src )
-		new /obj/item/weapon/reagent_containers/hypospray/autoinjector( src )
-		new /obj/item/weapon/reagent_containers/syringe/inaprovaline( src )
-		new /obj/item/device/healthanalyzer( src )
+		new /obj/item/weapon/reagent_containers/inhaler/dexalin( src )
+		new /obj/item/weapon/reagent_containers/inhaler/dexalin( src )
+		new /obj/item/weapon/reagent_containers/inhaler/dexalin( src )
+		new /obj/item/weapon/reagent_containers/inhaler/dexalin( src )
+		new /obj/item/weapon/reagent_containers/hypospray/autoinjector/inaprovaline( src )
+		new /obj/item/weapon/reagent_containers/hypospray/autoinjector/inaprovaline( src )
+		new /obj/item/device/breath_analyzer( src )
 		return
 
 /obj/item/weapon/storage/firstaid/adv
@@ -101,7 +97,7 @@
 /obj/item/weapon/storage/firstaid/adv/fill()
 	..()
 	if (empty) return
-	new /obj/item/weapon/reagent_containers/hypospray/autoinjector( src )
+	new /obj/item/weapon/reagent_containers/hypospray/autoinjector/inaprovaline( src )
 	new /obj/item/stack/medical/advanced/bruise_pack(src)
 	new /obj/item/stack/medical/advanced/bruise_pack(src)
 	new /obj/item/stack/medical/advanced/bruise_pack(src)
@@ -124,7 +120,7 @@
 	new /obj/item/weapon/storage/pill_bottle/dexalin_plus(src)
 	new /obj/item/weapon/storage/pill_bottle/dylovene(src)
 	new /obj/item/weapon/storage/pill_bottle/tramadol(src)
-	new /obj/item/weapon/storage/pill_bottle/spaceacillin(src)
+	new /obj/item/weapon/reagent_containers/inhaler/hyperzine(src)
 	new /obj/item/stack/medical/splint(src)
 	return
 
@@ -133,6 +129,7 @@
 	desc = "Contains tools for surgery. Has precise foam fitting for safe transport."
 	icon_state = "purplefirstaid"
 	item_state = "firstaid-advanced"
+	use_sound = 'sound/items/storage/briefcase.ogg'
 
 /obj/item/weapon/storage/firstaid/surgery/fill()
 	..()
@@ -147,7 +144,8 @@
 	new /obj/item/weapon/bonegel(src)
 	new /obj/item/weapon/FixOVein(src)
 	new /obj/item/stack/medical/advanced/bruise_pack(src)
-
+	new /obj/item/weapon/reagent_containers/inhaler/soporific(src)
+	new /obj/item/weapon/reagent_containers/inhaler/soporific(src)
 	make_exact_fit()
 
 /obj/item/weapon/storage/firstaid/brute
@@ -179,7 +177,7 @@
 	can_hold = list(/obj/item/weapon/reagent_containers/pill,/obj/item/weapon/dice,/obj/item/weapon/paper)
 	allow_quick_gather = 1
 	use_to_pickup = 1
-	use_sound = null
+	use_sound = 'sound/items/storage/pillbottle.ogg'
 	max_storage_space = 16
 
 /obj/item/weapon/storage/pill_bottle/antitox
@@ -308,16 +306,16 @@
 		new /obj/item/weapon/reagent_containers/pill/tramadol( src )
 		new /obj/item/weapon/reagent_containers/pill/tramadol( src )
 
-/obj/item/weapon/storage/pill_bottle/citalopram
-	name = "bottle of Citalopram pills"
+/obj/item/weapon/storage/pill_bottle/escitalopram
+	name = "bottle of Escitalopram pills"
 	desc = "Contains pills used to stabilize a patient's mood."
 
 	fill()
 		..()
-		new /obj/item/weapon/reagent_containers/pill/citalopram( src )
-		new /obj/item/weapon/reagent_containers/pill/citalopram( src )
-		new /obj/item/weapon/reagent_containers/pill/citalopram( src )
-		new /obj/item/weapon/reagent_containers/pill/citalopram( src )
-		new /obj/item/weapon/reagent_containers/pill/citalopram( src )
-		new /obj/item/weapon/reagent_containers/pill/citalopram( src )
-		new /obj/item/weapon/reagent_containers/pill/citalopram( src )
+		new /obj/item/weapon/reagent_containers/pill/escitalopram( src )
+		new /obj/item/weapon/reagent_containers/pill/escitalopram( src )
+		new /obj/item/weapon/reagent_containers/pill/escitalopram( src )
+		new /obj/item/weapon/reagent_containers/pill/escitalopram( src )
+		new /obj/item/weapon/reagent_containers/pill/escitalopram( src )
+		new /obj/item/weapon/reagent_containers/pill/escitalopram( src )
+		new /obj/item/weapon/reagent_containers/pill/escitalopram( src )

@@ -49,3 +49,16 @@
 
 /obj/item/weapon/storage/box/donut/empty
 	startswith = 0
+	max_storage_space = 12
+
+/obj/item/weapon/storage/box/pineapple
+	icon = 'icons/obj/storage.dmi'
+	icon_state = "pineapple_rings"
+	name = "can of pineapple rings"
+	var/startswith = 6
+	can_hold = list(/obj/item/weapon/reagent_containers/food/snacks/pineapple_ring)
+
+/obj/item/weapon/storage/box/pineapple/fill()
+	for(var/i=1; i <= startswith; i++)
+		new /obj/item/weapon/reagent_containers/food/snacks/pineapple_ring(src)
+	update_icon()

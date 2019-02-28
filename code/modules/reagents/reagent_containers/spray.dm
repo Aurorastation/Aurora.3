@@ -26,11 +26,16 @@
 	if(!usr || usr.stat || usr.lying || usr.restrained() || !Adjacent(usr))	return
 	safety = !safety
 	playsound(src.loc, 'sound/weapons/empty.ogg', 50, 1)
-	usr << "<span class = 'notice'>You twist the locking cap on the end of the nozzle, the spraybottle is now [safety ? "locked" : "unlocked"].</span>"
+	usr << "<span class = 'notice'>You twist the locking cap on the end of the nozzle. \The [src] is now [safety ? "locked" : "unlocked"].</span>"
 
 
 /obj/item/weapon/reagent_containers/spray/afterattack(atom/A as mob|obj, mob/user as mob, proximity)
-	if(istype(A, /obj/item/weapon/storage) || istype(A, /obj/structure/table) || istype(A, /obj/structure/closet) || istype(A, /obj/item/weapon/reagent_containers) || istype(A, /obj/structure/sink) || istype(A, /obj/structure/janitorialcart))
+
+	if(istype(A, /obj/item/weapon/reagent_containers))
+		. = ..()
+		return
+
+	if(is_type_in_list(A,can_be_placed_into))
 		return
 
 	if(istype(A, /mob))
@@ -57,8 +62,6 @@
 	Spray_at(A, user, proximity)
 
 	playsound(src.loc, 'sound/effects/spray2.ogg', 50, 1, -6)
-
-
 
 	if(reagents.has_reagent("sacid"))
 		message_admins("[key_name_admin(user)] fired sulphuric acid from \a [src].")
@@ -199,7 +202,7 @@
 	var/turf/T2 = get_step(T,turn(direction, -90))
 	var/list/the_targets = list(T, T1, T2)
 
-	for(var/a = 1 to 3)
+	for(var/a = 1 to spray_size)
 		spawn(0)
 			if(reagents.total_volume < 1) break
 			var/obj/effect/effect/water/chempuff/D = new/obj/effect/effect/water/chempuff(get_turf(src))
@@ -211,6 +214,19 @@
 			D.set_color()
 			D.set_up(my_target, rand(6, 8), 2)
 	return
+
+/obj/item/weapon/reagent_containers/spray/chemsprayer/xenobiology
+	name = "xenoblaster"
+	desc = "A child's plastic watergun repurposed for the use in pacifying slimes. Has an adjustable nozzle that controls precision as well as strength."
+	icon = 'icons/obj/gun.dmi'
+	icon_state = "xenoblaster"
+	item_state = "xenoblaster"
+	origin_tech = list(TECH_MATERIAL = 1, TECH_ENGINEERING = 1)
+	volume = 200
+	spray_size = 3
+	spray_sizes = list(1,3)
+	amount_per_transfer_from_this = 5
+	possible_transfer_amounts = list(5,15)
 
 /obj/item/weapon/reagent_containers/spray/plantbgone
 	name = "Plant-B-Gone"

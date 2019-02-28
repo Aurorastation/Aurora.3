@@ -27,6 +27,10 @@
 		to_chat(src, "<span class='warning'>[T] is not a creature you can drain useful blood from.</span>")
 		return
 
+	if(T.head && (T.head.item_flags & AIRTIGHT))
+		to_chat(src, "<span class='warning'>[T]'s headgear is blocking the way to the neck.</span>")
+		return
+
 	if (vampire.status & VAMP_DRAINING)
 		to_chat(src, "<span class='warning'>Your fangs are already sunk into a victim's neck!</span>")
 		return
@@ -46,7 +50,9 @@
 
 	to_chat(T, "<span class='warning'>You are unable to resist or even move. Your mind blanks as you're being fed upon.</span>")
 
-	T.Stun(10)
+	playsound(src.loc, 'sound/effects/drain_blood_new.ogg', 50, 1)
+
+	T.paralysis = 3400
 
 	while (do_mob(src, T, 50))
 		if (!mind.vampire)
@@ -67,7 +73,7 @@
 
 		// Alive and not of empty mind.
 		if (T.stat < 2 && T.client)
-			blood = min(10, T.vessel.get_reagent_amount("blood"))
+			blood = min(15, T.vessel.get_reagent_amount("blood"))
 			vampire.blood_total += blood
 			vampire.blood_usable += blood
 
@@ -103,10 +109,10 @@
 		T.vessel.remove_reagent("blood", 25)
 
 	vampire.status &= ~VAMP_DRAINING
-	to_chat(src, "<span class='notice'>You extract your fangs from [T.name]'s neck and stop draining them of blood. They will remember nothing of this occurance. Provided they survived.</span>")
-
+	visible_message("<span class='danger'>[src.name] stops biting [T.name]'s neck!</span>", "<span class='notice'>You extract your fangs from [T.name]'s neck and stop draining them of blood. They will remember nothing of this occurance. Provided they survived.</span>")
 	if (T.stat != 2)
 		to_chat(T, "<span class='warning'>You remember nothing about being fed upon. Instead, you simply remember having a pleasant encounter with [src.name].</span>")
+		T.paralysis = 0
 
 // Small area of effect stun.
 /mob/living/carbon/human/proc/vampire_glare()
@@ -213,7 +219,7 @@
 		to_chat(src, "<span class='warning'>Your powers are not capable of taking you that far.</span>")
 		return
 
-	if (!T.dynamic_lighting || T.get_lumcount() > 0.1)
+	if (T.get_lumcount() > 0.1)
 		// Too bright, cannot jump into.
 		to_chat(src, "<span class='warning'>The destination is too bright.</span>")
 		return
@@ -448,7 +454,7 @@
 	icon_state = "veil_ghost"
 
 	last_valid_turf = get_turf(owner.loc)
-	owner.loc = src
+	owner.forceMove(src)
 
 	desc += " Its features look faintly alike [owner.name]'s."
 
@@ -673,6 +679,10 @@
 		return
 
 	var/mob/living/carbon/human/T = G.affecting
+	if(isipc(T))
+		to_chat(src, "<span class='warning'>[T] is not a creature you can enthrall.</span>")
+		return
+
 	if (!istype(T))
 		to_chat(src, "<span class='warning'>[T] is not a creature you can enthrall.</span>")
 		return
@@ -747,7 +757,7 @@
 
 	admin_attack_log(src, T, "used diseased touch on [key_name(T)]", "was given a lethal disease by [key_name(src)]", "used diseased touch (<a href='?src=\ref[lethal];info=1'>virus info</a>) on")
 
-	vampire.use_blood(200)
+	vampire.use_blood(100)
 	verbs -= /mob/living/carbon/human/proc/vampire_diseasedtouch
 	ADD_VERB_IN_IF(src, 1800, /mob/living/carbon/human/proc/vampire_diseasedtouch, CALLBACK(src, .proc/finish_vamp_timeout))
 
@@ -847,6 +857,10 @@
 
 	if (T.stat == 2)
 		to_chat(src, "<span class='warning'>[T]'s body is broken and damaged beyond salvation. You have no use for them.</span>")
+		return
+
+	if (T.species.flags & NO_BLOOD)
+		to_chat(src, "<span class='warning'>[T] has no blood and can not be affected by your powers!</span>")
 		return
 
 	if (vampire.status & VAMP_DRAINING)

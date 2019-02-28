@@ -163,5 +163,105 @@ datum/unit_test/wire_test/start_test()
 #undef BLOCKED_UP
 #undef BLOCKED_DOWN
 
+/datum/unit_test/bad_doors
+	name = "MAP: Check for bad doors"
+
+/datum/unit_test/bad_doors/start_test()
+	var/checks = 0
+	var/failed_checks = 0
+	for(var/obj/machinery/door/airlock/A in world)
+		var/turf/T = get_turf(A)
+		checks++
+		if(istype(T, /turf/space) || istype(T, /turf/simulated/floor/asteroid) || isopenturf(T) || T.density)
+			failed_checks++
+			log_unit_test("Airlock [A] with bad turf at ([A.x],[A.y],[A.z]) in [T.loc].")
+	
+	if(failed_checks)
+		fail("\[[failed_checks] / [checks]\] Some doors had improper turfs below them.")
+	else
+		pass("All \[[checks]\] doors have proper turfs below them.")
+	
+	return 1
+
+/datum/unit_test/bad_firedoors
+	name = "MAP: Check for bad firedoors"
+
+/datum/unit_test/bad_firedoors/start_test()
+	var/checks = 0
+	var/failed_checks = 0
+	for(var/obj/machinery/door/firedoor/F in world)
+		var/turf/T = get_turf(F)
+		checks++
+		var/firelock_increment = 0
+		for(var/obj/machinery/door/firedoor/FD in T)
+			firelock_increment += 1
+		if(firelock_increment > 1)
+			failed_checks++
+			log_unit_test("Double firedoor [F] at ([F.x],[F.y],[F.z]) in [T.loc].")
+		else if(istype(T, /turf/space) || istype(T, /turf/simulated/floor/asteroid) || isopenturf(T) || T.density)
+			failed_checks++
+			log_unit_test("Firedoor with bad turf at ([F.x],[F.y],[F.z]) in [T.loc].")
+	
+	if(failed_checks)
+		fail("\[[failed_checks] / [checks]\] Some firedoors were doubled up or had bad turfs below them.")
+	else
+		pass("All \[[checks]\] firedoors have proper turfs below them and are not doubled up.")
+
+	return 1
+
+/datum/unit_test/bad_piping
+	name = "MAP: Check for bad piping"
+
+/datum/unit_test/bad_piping/start_test()
+	set background = 1
+	var/checks = 0
+	var/failed_checks = 0
+
+	//all plumbing - yes, some things might get stated twice, doesn't matter.
+	for (var/obj/machinery/atmospherics/plumbing in world)
+		if(!(plumbing.z in current_map.station_levels))
+			continue
+		checks++
+		if (plumbing.nodealert)
+			failed_checks++
+			log_unit_test("Unconnected [plumbing.name] located at [plumbing.x],[plumbing.y],[plumbing.z] ([get_area(plumbing.loc)])")
+
+	//Manifolds
+	for (var/obj/machinery/atmospherics/pipe/manifold/pipe in world)
+		if(!(pipe.z in current_map.station_levels))
+			continue
+		checks++
+		if (!pipe.node1 || !pipe.node2 || !pipe.node3)
+			failed_checks++
+			log_unit_test("Unconnected [pipe.name] located at [pipe.x],[pipe.y],[pipe.z] ([get_area(pipe.loc)])")
+
+	//Pipes
+	for (var/obj/machinery/atmospherics/pipe/simple/pipe in world)
+		if(!(pipe.z in current_map.station_levels))
+			continue
+		checks++
+		if (!pipe.node1 || !pipe.node2)
+			failed_checks++
+			log_unit_test("Unconnected [pipe.name] located at [pipe.x],[pipe.y],[pipe.z] ([get_area(pipe.loc)])")
+	
+	next_turf:
+		for(var/turf/T in turfs)
+			for(var/dir in cardinal)
+				var/list/connect_types = list(1 = 0, 2 = 0, 3 = 0)
+				for(var/obj/machinery/atmospherics/pipe in T)
+					checks++
+					if(dir & pipe.initialize_directions)
+						for(var/connect_type in pipe.connect_types)
+							connect_types[connect_type] += 1
+						if(connect_types[1] > 1 || connect_types[2] > 1 || connect_types[3] > 1)
+							log_unit_test("Overlapping pipe ([pipe.name]) located at [T.x],[T.y],[T.z] ([get_area(T)])")
+							continue next_turf
+	if(failed_checks)
+		fail("\[[failed_checks] / [checks]\] Some pipes are not properly connected or doubled up.")
+	else
+		pass("All \[[checks]\] pipes are properly connected and not doubled up.")
+
+	return 1
+
 #undef SUCCESS
 #undef FAILURE

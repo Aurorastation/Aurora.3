@@ -250,7 +250,7 @@
 	if(!src.HELMET)
 		return //Do I even need this sanity check? Nyoro~n
 	else
-		src.HELMET.loc = src.loc
+		src.HELMET.forceMove(src.loc)
 		src.HELMET = null
 		return
 
@@ -259,7 +259,7 @@
 	if(!src.SUIT)
 		return
 	else
-		src.SUIT.loc = src.loc
+		src.SUIT.forceMove(src.loc)
 		src.SUIT = null
 		return
 
@@ -268,7 +268,7 @@
 	if(!src.MASK)
 		return
 	else
-		src.MASK.loc = src.loc
+		src.MASK.forceMove(src.loc)
 		src.MASK = null
 		return
 
@@ -276,13 +276,13 @@
 /obj/machinery/suit_storage_unit/proc/dump_everything()
 	src.islocked = 0 //locks go free
 	if(src.SUIT)
-		src.SUIT.loc = src.loc
+		src.SUIT.forceMove(src.loc)
 		src.SUIT = null
 	if(src.HELMET)
-		src.HELMET.loc = src.loc
+		src.HELMET.forceMove(src.loc)
 		src.HELMET = null
 	if(src.MASK)
-		src.MASK.loc = src.loc
+		src.MASK.forceMove(src.loc)
 		src.MASK = null
 	if(src.OCCUPANT)
 		src.eject_occupant(OCCUPANT)
@@ -336,12 +336,12 @@
 				if(src.issuperUV)
 					var/burndamage = rand(28,35)
 					OCCUPANT.take_organ_damage(0,burndamage)
-					if (!(OCCUPANT.species && (OCCUPANT.species.flags & NO_PAIN)))
+					if (OCCUPANT.can_feel_pain())
 						OCCUPANT.emote("scream")
 				else
 					var/burndamage = rand(6,10)
 					OCCUPANT.take_organ_damage(0,burndamage)
-					if (!(OCCUPANT.species && (OCCUPANT.species.flags & NO_PAIN)))
+					if (OCCUPANT.can_feel_pain())
 						OCCUPANT.emote("scream")
 		if(i==3) //End of the cycle
 			if(!src.issuperUV)
@@ -358,7 +358,7 @@
 					src.SUIT = null
 				if(src.MASK)
 					src.MASK = null
-				visible_message("<font color='red'>With a loud whining noise, the Suit Storage Unit's door grinds open. Puffs of ashen smoke come out of its chamber.</font>", 3)
+				visible_message("<font color='red'>With a loud whining noise, [src]'s door grinds open. Puffs of ashen smoke come out of its chamber.</font>", range = 3)
 				src.isbroken = 1
 				src.isopen = 1
 				src.islocked = 0
@@ -405,7 +405,7 @@
 	if (!src.OCCUPANT)
 		return
 //	for(var/obj/O in src)
-//		O.loc = src.loc
+//		O.forceMove(src.loc
 
 	if (src.OCCUPANT.client)
 		if(user != OCCUPANT)
@@ -415,7 +415,7 @@
 
 		src.OCCUPANT.client.eye = src.OCCUPANT.client.mob
 		src.OCCUPANT.client.perspective = MOB_PERSPECTIVE
-	src.OCCUPANT.loc = src.loc
+	src.OCCUPANT.forceMove(src.loc)
 	src.OCCUPANT = null
 	if(!src.isopen)
 		src.isopen = 1
@@ -453,12 +453,12 @@
 	if ( (src.OCCUPANT) || (src.HELMET) || (src.SUIT) )
 		usr << "<font color='red'>It's too cluttered inside for you to fit in!</font>"
 		return
-	visible_message("[usr] starts squeezing into the suit storage unit!", 3)
+	usr.visible_message("<span class='notice'>[usr] starts squeezing into [src]!</span>", "<span class='notice'>You start squeezing into [src]!</span>", range = 3)
 	if(do_after(usr, 10))
 		usr.stop_pulling()
 		usr.client.perspective = EYE_PERSPECTIVE
 		usr.client.eye = src
-		usr.loc = src
+		usr.forceMove(src)
 //		usr.metabslow = 1
 		src.OCCUPANT = usr
 		src.isopen = 0 //Close the thing after the guy gets inside
@@ -478,7 +478,7 @@
 /obj/machinery/suit_storage_unit/attackby(obj/item/I as obj, mob/user as mob)
 	if(!src.ispowered)
 		return
-	if(isscrewdriver(I))
+	if(I.isscrewdriver())
 		src.panelopen = !src.panelopen
 		playsound(src.loc, 'sound/items/Screwdriver.ogg', 100, 1)
 		user << text("<font color='blue'>You [] the unit's maintenance panel.</font>",(src.panelopen ? "open up" : "close") )
@@ -497,19 +497,19 @@
 		if ( (src.OCCUPANT) || (src.HELMET) || (src.SUIT) ) //Unit needs to be absolutely empty
 			user << "<font color='red'>The unit's storage area is too cluttered.</font>"
 			return
-		visible_message("[user] starts putting [G.affecting.name] into the Suit Storage Unit.", 3)
+		user.visible_message("<span class='notice'>[user] starts putting [G.affecting] into [src].</span>", "<span class='notice'>You start putting [G.affecting] into [src].</span>", range = 3)
 		if(do_after(user, 20))
 			if(!G || !G.affecting) return //derpcheck
 			var/mob/M = G.affecting
 			if (M.client)
 				M.client.perspective = EYE_PERSPECTIVE
 				M.client.eye = src
-			M.loc = src
+			M.forceMove(src)
 			src.OCCUPANT = M
 			src.isopen = 0 //close ittt
 
 			//for(var/obj/O in src)
-			//	O.loc = src.loc
+			//	O.forceMove(src.loc
 			src.add_fingerprint(user)
 			qdel(G)
 			src.updateUsrDialog()
@@ -524,8 +524,7 @@
 			user << "<font color='blue'>The unit already contains a suit.</font>"
 			return
 		user << "You load the [S.name] into the storage compartment."
-		user.drop_item()
-		S.loc = src
+		user.drop_from_inventory(S,src)
 		src.SUIT = S
 		src.update_icon()
 		src.updateUsrDialog()
@@ -538,8 +537,7 @@
 			user << "<font color='blue'>The unit already contains a helmet.</font>"
 			return
 		user << "You load the [H.name] into the storage compartment."
-		user.drop_item()
-		H.loc = src
+		user.drop_from_inventory(H,src)
 		src.HELMET = H
 		src.update_icon()
 		src.updateUsrDialog()
@@ -552,8 +550,7 @@
 			user << "<font color='blue'>The unit already contains a mask.</font>"
 			return
 		user << "You load the [M.name] into the storage compartment."
-		user.drop_item()
-		M.loc = src
+		user.drop_from_inventory(M,src)
 		src.MASK = M
 		src.update_icon()
 		src.updateUsrDialog()
@@ -595,7 +592,7 @@
 	//Departments that the cycler can paint suits to look like.
 	var/list/departments = list("Engineering","Mining","Medical","Security","Atmos")
 	//Species that the suits can be configured to fit.
-	var/list/species = list("Human","Skrell","Unathi","Tajara")
+	var/list/species = list("Human","Skrell","Unathi","Tajara", "Vaurca", "Machine")
 
 	var/target_department
 	var/target_species
@@ -624,35 +621,30 @@
 	model_text = "Engineering"
 	req_access = list(access_construction)
 	departments = list("Engineering","Atmos")
-	species = list("Human","Tajara","Skrell","Unathi") //Add Unathi when sprites exist for their suits.
 
 /obj/machinery/suit_cycler/mining
 	name = "Mining suit cycler"
 	model_text = "Mining"
 	req_access = list(access_mining)
 	departments = list("Mining")
-	species = list("Human","Tajara","Skrell","Unathi")
 
 /obj/machinery/suit_cycler/security
 	name = "Security suit cycler"
 	model_text = "Security"
 	req_access = list(access_security)
 	departments = list("Security")
-	species = list("Human","Tajara","Skrell","Unathi")
 
 /obj/machinery/suit_cycler/medical
 	name = "Medical suit cycler"
 	model_text = "Medical"
 	req_access = list(access_medical)
 	departments = list("Medical")
-	species = list("Human","Tajara","Skrell","Unathi")
 
 /obj/machinery/suit_cycler/syndicate
 	name = "Nonstandard suit cycler"
 	model_text = "Nonstandard"
 	req_access = list(access_syndicate)
 	departments = list("Mercenary")
-	species = list("Human","Tajara","Skrell","Unathi")
 	can_repair = 1
 
 /obj/machinery/suit_cycler/wizard
@@ -660,7 +652,15 @@
 	model_text = "Wizardry"
 	req_access = null
 	departments = list("Wizardry")
-	species = list("Human","Tajara","Skrell","Unathi")
+	species = list("Human","Tajara","Skrell","Unathi", "Machine")
+	can_repair = 1
+
+/obj/machinery/suit_cycler/hos
+	name = "Head of Security suit cycler"
+	model_text = "Head of Security"
+	req_access = list(access_hos)
+	departments = list("Head of Security")
+	species = list("Human","Tajara","Skrell","Unathi", "Machine")
 	can_repair = 1
 
 /obj/machinery/suit_cycler/captain
@@ -668,7 +668,7 @@
 	model_text = "Captain"
 	req_access = list(access_captain)
 	departments = list("Captain")
-	species = list("Human","Tajara","Skrell","Unathi")
+	species = list("Human","Tajara","Skrell","Unathi", "Machine")
 	can_repair = 1
 
 /obj/machinery/suit_cycler/attack_ai(mob/user as mob)
@@ -681,7 +681,7 @@
 			return
 
 	//Hacking init.
-	if(ismultitool(I) || iswirecutter(I))
+	if(I.ismultitool() || I.iswirecutter())
 		if(panel_open)
 			attack_hand(user)
 		return
@@ -700,7 +700,7 @@
 			user << "<span class='danger'>There is no room inside the cycler for [G.affecting.name].</span>"
 			return
 
-		visible_message("<span class='notice'>[user] starts putting [G.affecting.name] into the suit cycler.</span>", 3)
+		user.visible_message("<span class='notice'>[user] starts putting [G.affecting] into [src].</span>", "<span class='notice'>You start putting [G.affecting] into [src].</span>", range = 3)
 
 		if(do_after(user, 20))
 			if(!G || !G.affecting) return
@@ -708,7 +708,7 @@
 			if (M.client)
 				M.client.perspective = EYE_PERSPECTIVE
 				M.client.eye = src
-			M.loc = src
+			M.forceMove(src)
 			src.occupant = M
 
 			src.add_fingerprint(user)
@@ -717,7 +717,7 @@
 			src.updateUsrDialog()
 
 			return
-	else if(isscrewdriver(I))
+	else if(I.isscrewdriver())
 
 		panel_open = !panel_open
 		user << "You [panel_open ?  "open" : "close"] the maintenance panel."
@@ -739,8 +739,7 @@
 			return
 
 		user << "You fit \the [I] into the suit cycler."
-		user.drop_item()
-		I.loc = src
+		user.drop_from_inventory(I,src)
 		helmet = I
 
 		src.update_icon()
@@ -762,8 +761,7 @@
 			return
 
 		user << "You fit \the [I] into the suit cycler."
-		user.drop_item()
-		I.loc = src
+		user.drop_from_inventory(I,src)
 		suit = I
 
 		src.update_icon()
@@ -840,11 +838,11 @@
 /obj/machinery/suit_cycler/Topic(href, href_list)
 	if(href_list["eject_suit"])
 		if(!suit) return
-		suit.loc = get_turf(src)
+		suit.forceMove(get_turf(src))
 		suit = null
 	else if(href_list["eject_helmet"])
 		if(!helmet) return
-		helmet.loc = get_turf(src)
+		helmet.forceMove(get_turf(src))
 		helmet = null
 	else if(href_list["select_department"])
 		var/choice = input("Please select the target department paintjob.","Suit cycler",null) as null|anything in departments
@@ -991,7 +989,7 @@
 		occupant.client.eye = occupant.client.mob
 		occupant.client.perspective = MOB_PERSPECTIVE
 
-	occupant.loc = get_turf(occupant)
+	occupant.forceMove(get_turf(occupant))
 	occupant = null
 
 	add_fingerprint(usr)

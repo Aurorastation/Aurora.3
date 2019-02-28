@@ -24,7 +24,7 @@
 
 	var/datum/action/item_action/action
 	var/action_button_name //It is also the text which gets displayed on the action button. If not set it defaults to 'Use [name]'. If it's not set, there'll be no button.
-	var/action_button_is_hands_free = 0 //If 1, bypass the restrained, lying, and stunned checks action buttons normally test for
+	var/default_action_type = /datum/action/item_action // Specify the default type and behavior of the action button for this atom.
 
 	//This flag is used to determine when items in someone's inventory cover others. IE helmets making it so you can't see glasses, etc.
 	//It should be used purely for appearance. For gameplay effects caused by items covering body parts, use body_parts_covered.
@@ -79,6 +79,7 @@
 
 	var/cleaving = FALSE
 	var/reach = 1 // Length of tiles it can reach, 1 is adjacent.
+	var/lock_picking_level = 0 //used to determine whether something can pick a lock, and how well.
 
 /obj/item/Destroy()
 	if(ismob(loc))
@@ -133,7 +134,7 @@
 
 	I.loc = null
 
-	I.loc = T
+	I.forceMove(T)
 
 /obj/item/examine(mob/user, var/distance = -1)
 	var/size
@@ -685,8 +686,6 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 
 		if(!cannotzoom)
 			M.visible_message("[zoomdevicename ? "[M] looks up from the [src.name]" : "[M] lowers the [src.name]"].")
-
-	return
 
 /obj/item/proc/pwr_drain()
 	return 0 // Process Kill

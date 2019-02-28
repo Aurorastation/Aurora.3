@@ -5,6 +5,9 @@
 	icon_state = "d66"
 	w_class = 1
 	var/sides = 6
+	var/weighted = FALSE //if this dice can cheat or something
+	var/favored_number = 1 //related to the var above
+	var/weighted_value = 70 //what is the chance of falling on the favored number
 	attack_verb = list("diced")
 
 /obj/item/weapon/dice/New()
@@ -12,7 +15,12 @@
 
 /obj/item/weapon/dice/throw_impact(atom/hit_atom)
 	..()
-	var/result = rand(1, sides)
+	var/result
+	if((weighted) && (prob(weighted_value)))
+		result = favored_number
+	else
+		result = rand(1, sides)
+
 	var/comment = ""
 	if(sides == 20 && result == 20)
 		comment = "Nat 20!"

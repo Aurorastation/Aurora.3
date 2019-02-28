@@ -92,8 +92,7 @@
 /obj/machinery/computer/cloning/attackby(obj/item/W as obj, mob/user as mob)
 	if (istype(W, /obj/item/weapon/disk/data)) //INSERT SOME DISKETTES
 		if (!src.diskette)
-			user.drop_item()
-			W.loc = src
+			user.drop_from_inventory(W,src)
 			src.diskette = W
 			user << "You insert [W]."
 			src.updateUsrDialog()
@@ -293,7 +292,7 @@
 				src.temp = "Load successful."
 			if("eject")
 				if (!isnull(src.diskette))
-					src.diskette.loc = src.loc
+					src.diskette.forceMove(src.loc)
 					src.diskette = null
 
 	else if (href_list["save_disk"]) //Save to disk!
@@ -350,6 +349,7 @@
 					var/answer = alert(selected,"Do you want to return to life?","Cloning","Yes","No")
 					if(answer != "No" && pod.growclone(C))
 						temp = "Initiating cloning cycle..."
+						playsound(src.loc, 'sound/machines/medbayscanner1.ogg', 100, 1)
 						records.Remove(C)
 						qdel(C)
 						menu = 1

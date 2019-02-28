@@ -225,14 +225,6 @@
 	item_state = "r_suit"
 	worn_state = "red_suit"
 
-/obj/item/clothing/under/blackskirt
-	name = "black skirt"
-	desc = "A black skirt, very fancy!"
-	icon_state = "blackskirt"
-	item_state = "bl_suit"
-	worn_state = "blackskirt"
-	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
-
 /obj/item/clothing/under/schoolgirl
 	name = "schoolgirl uniform"
 	desc = "It's just like one of my Japanese animes!"
@@ -340,6 +332,12 @@
 	item_state = "p_suit"
 	worn_state = "dress_saloon"
 
+/obj/item/clothing/under/dress/dress_evening
+	name = "evening gown"
+	desc = "A silky gown, leaves much to the imagination"
+	icon_state = "red_evening_gown"
+	item_state = "red_evening_gown"
+
 /obj/item/clothing/under/dress/dress_cap
 	name = "captain's dress uniform"
 	desc = "Feminine fashion for the style concious captain."
@@ -363,26 +361,6 @@
 	item_state = "y_suit"
 	worn_state = "huresource"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
-
-/obj/item/clothing/under/dress/plaid_blue
-	name = "blue plaid skirt"
-	desc = "A preppy blue skirt with a white blouse."
-	icon_state = "plaid_blue"
-	worn_state = "plaid_blue"
-
-/obj/item/clothing/under/dress/plaid_red
-	name = "red plaid skirt"
-	desc = "A preppy red skirt with a white blouse."
-	icon_state = "plaid_red"
-	item_state = "kilt"
-	worn_state = "plaid_red"
-
-/obj/item/clothing/under/dress/plaid_purple
-	name = "blue purple skirt"
-	desc = "A preppy purple skirt with a white blouse."
-	icon_state = "plaid_purple"
-	item_state = "kilt"
-	worn_state = "plaid_purple"
 
 //wedding stuff
 /obj/item/clothing/under/wedding/
@@ -445,12 +423,39 @@
 	worn_state = "sundress_white"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO
 
-/obj/item/clothing/under/blackjumpskirt
-	name = "black jumpskirt"
-	desc = "A black jumpskirt, Sol size 0."
-	icon_state = "blackjumpskirt"
-	item_state = "bl_suit"
-	worn_state = "blackjumpskirt"
+/obj/item/clothing/under/dress/stripeddress
+	name = "striped dress"
+	desc = "Fashion in space."
+	icon_state = "striped_dress"
+
+/obj/item/clothing/under/dress/sailordress
+	name = "sailor dress"
+	desc = "Formal wear for a leading lady."
+	icon_state = "sailor_dress"
+
+/obj/item/clothing/under/dress/white
+	name = "white dress"
+	desc = "A fancy white dress with a blue underdress."
+	icon_state = "whitedress"
+	flags_inv = HIDESHOES
+
+/obj/item/clothing/under/dress/red_swept_dress
+	name = "red swept dress"
+	desc = "A red dress that sweeps to the side."
+	icon_state = "red_swept_dress"
+
+/obj/item/clothing/under/dress/westernbustle
+	name = "western bustle"
+	desc = "A western bustle dress from somewhere in the ancient history of Earth."
+	icon_state = "westernbustle"
+
+/obj/item/clothing/under/dress/blacktango
+	name = "black tango dress"
+	desc = "An earthen black tango dress."
+	icon_state = "black_tango"
+
+/obj/item/clothing/under/dress/blacktango/alt
+	icon_state = "black_tango_alt"
 
 /obj/item/clothing/under/captainformal
 	name = "captain's formal uniform"
@@ -572,7 +577,19 @@
 	item_state = "blue_blazer"
 	worn_state = "blue_blazer"
 
+/obj/item/clothing/under/dominia
+	name = "dominia suit"
+	desc = "This is a suit in the style of Dominia nobility. It's the latest fashion across Dominian space."
+	icon_state = "domsuit"
 
+/obj/item/clothing/under/dominia/black
+	icon_state = "domsuit2"
+
+/obj/item/clothing/under/dom_thermal
+	name = "lyodsuit"
+	desc = "An imitation Lyodsuit from Dominia. Though it is not able to protect against extreme cold like a true lyodsuit it's lightweight and high quality fabric make it extremely comfortable to wear. \
+	Fashionable amongst the middle and lower classes of Dominia"
+	icon_state = "dom_thermal"
 
 //stripper
 /obj/item/clothing/under/stripper
@@ -643,3 +660,48 @@
 	desc = "An oldfashioned red swimsuit."
 	icon_state = "swim_red"
 	siemens_coefficient = 1
+
+/obj/item/clothing/under/kimono
+	name = "kimono"
+	desc = "A traditional Japanese kimono."
+	icon_state = "kimono"
+	item_state = "kimono"
+
+/obj/item/clothing/under/kimono/ronin
+	name = "ronin kimono"
+	desc = "A non-traditional Japanese kimono, it appears to be very gothic. Like, totally gothic."
+	icon_state = "ronin_kimono"
+	item_state = "ronin_kimono"
+
+/obj/item/clothing/under/kimono/fancy
+	name = "fancy kimono"
+	desc = "A Japanese kimono, this one is very luxurious. It brings to mine iced tea cans."
+	icon_state = "fancy_kimono"
+	item_state = "fancy_kimono"
+
+/obj/item/clothing/under/gov
+	name = "green formal uniform"
+	desc = "A neat proper uniform of someone on offical business. Plain, professional attire. The collar is <i>immaculately</i> starched."
+	icon_state = "greensuit"
+	item_state = "greensuit"
+	worn_state = "greensuit"
+
+/obj/item/clothing/under/medical_gown
+	name = "medical gown"
+	desc = "A loose pieces of clothing, commonly worn by medical patients."
+	icon_state = "medicalgown"
+	item_state = "medicalgown"
+	has_sensor = 2
+	sensor_mode = 3
+
+/obj/item/clothing/under/medical_gown/white
+	icon_state = "whitemedicalgown"
+	worn_state = "whitemedicalgown"
+
+/obj/item/clothing/under/legion
+	name = "Tau Ceti Foreign Legion uniform"
+	desc = "A blue field uniform used by the force of the Tau Ceti Foreign Legion forces."
+	icon_state = "taucetilegion"
+	item_state = "bl_suit"
+	worn_state = "taucetilegion"
+	siemens_coefficient = 0.7

@@ -9,7 +9,7 @@
 	force = 10
 	max_shots = 20
 	fire_delay = 6
-	accuracy = -2
+	accuracy = -1
 	can_turret = 1
 	secondary_projectile_type = /obj/item/projectile/beam
 	secondary_fire_sound = 'sound/weapons/Laser.ogg'
@@ -18,7 +18,7 @@
 	turret_is_lethal = 0
 
 	fire_delay_wielded = 1
-	accuracy_wielded = 0
+	accuracy_wielded = 2
 	sel_mode = 1
 
 	projectile_type = /obj/item/projectile/beam/stun
@@ -85,6 +85,7 @@
 	turret_sprite_set = "cannon"
 	turret_is_lethal = 1
 
+	accuracy_wielded = 2
 	fire_delay_wielded = 20
 
 /obj/item/weapon/gun/energy/rifle/laser/xray
@@ -101,7 +102,7 @@
 	can_switch_modes = 0
 	turret_sprite_set = "xray"
 	turret_is_lethal = 1
-	
+
 /obj/item/weapon/gun/energy/rifle/pulse
 	name = "pulse rifle"
 	desc = "A weapon that uses advanced pulse-based beam generation technology to emit powerful laser blasts. Because of its complexity and cost, it is rarely seen in use except by specialists."
@@ -116,7 +117,7 @@
 	can_switch_modes = 0
 	turret_sprite_set = "pulse"
 	turret_is_lethal = 1
-	
+
 	modifystate = null
 
 	firemodes = list(
@@ -138,3 +139,30 @@
 
 /obj/item/weapon/gun/energy/rifle/pulse/destroyer/attack_self(mob/living/user as mob)
 	user << "<span class='warning'>[src.name] has three settings, and they are all DESTROY.</span>"
+
+/obj/item/weapon/gun/energy/rifle/laser/tachyon
+	name = "tachyon rifle"
+	desc = "A Vaurcan rifle that fires a beam of concentrated faster than light particles, capable of passing through most forms of matter."
+	contained_sprite = 1
+	icon = 'icons/obj/vaurca_items.dmi'
+	icon_state = "tachyonrifle"
+	item_state = "tachyonrifle"
+	fire_sound = 'sound/weapons/laser3.ogg'
+	projectile_type = /obj/item/projectile/beam/tachyon
+	origin_tech = list(TECH_COMBAT = 5, TECH_MATERIAL = 3, TECH_MAGNET = 2, TECH_ILLEGAL = 2)
+	secondary_projectile_type = null
+	secondary_fire_sound = null
+	can_switch_modes = 0
+	can_turret = 0
+	zoomdevicename = "rifle scope"
+	var/obj/screen/overlay = null
+
+/obj/item/weapon/gun/energy/rifle/laser/tachyon/verb/scope()
+	set category = "Object"
+	set name = "Use Rifle Scope"
+	set popup_menu = 1
+
+	if(wielded)
+		toggle_scope(2.0, usr)
+	else
+		usr << "<span class='warning'>You can't look through the scope without stabilizing the rifle!</span>"

@@ -89,7 +89,7 @@
 
 /mob/living/silicon/robot/drone/Destroy()
 	if(hat)
-		hat.loc = get_turf(src)
+		hat.forceMove(get_turf(src))
 	return ..()
 
 /mob/living/silicon/robot/drone/construction
@@ -182,7 +182,7 @@
 		user << "<span class='danger'>\The [src] is not compatible with \the [W].</span>"
 		return
 
-	else if (iscrowbar(W))
+	else if (W.iscrowbar())
 		user << "<span class='danger'>\The [src] is hermetically sealed. You can't open the case.</span>"
 		return
 

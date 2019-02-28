@@ -121,20 +121,20 @@ obj/machinery/gateway/centerstation/process()
 		return
 
 	if(awaygate.calibrated)
-		M.loc = get_step(awaygate.loc, SOUTH)
+		M.forceMove(get_step(awaygate.loc, SOUTH))
 		M.set_dir(SOUTH)
 		return
 	else
 		var/obj/effect/landmark/dest = pick(awaydestinations)
 		if(dest)
-			M.loc = dest.loc
+			M.forceMove(dest.loc)
 			M.set_dir(SOUTH)
 			use_power(5000)
 		return
 
 
 /obj/machinery/gateway/centerstation/attackby(obj/item/device/W as obj, mob/user as mob)
-	if(ismultitool(W))
+	if(W.ismultitool())
 		user << "\black The gate is already calibrated, there is no work for you to do here."
 		return
 
@@ -225,12 +225,12 @@ obj/machinery/gateway/centerstation/process()
 			if(E.imp_in == M)//Checking that it's actually implanted vs just in their pocket
 				M << "\black The station gate has detected your exile implant and is blocking your entry."
 				return
-	M.loc = get_step(stationgate.loc, SOUTH)
+	M.forceMove(get_step(stationgate.loc, SOUTH))
 	M.set_dir(SOUTH)
 
 
 /obj/machinery/gateway/centeraway/attackby(obj/item/device/W as obj, mob/user as mob)
-	if(ismultitool(W))
+	if(W.ismultitool())
 		if(calibrated)
 			user << "\black The gate is already calibrated, there is no work for you to do here."
 			return

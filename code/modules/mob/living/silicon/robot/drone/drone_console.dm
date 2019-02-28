@@ -29,7 +29,9 @@
 	dat += "<B>Maintenance Units</B><BR>"
 
 	for(var/mob/living/silicon/robot/drone/D in silicon_mob_list)
-		if(D.z != src.z)
+		if(src.z in current_map.station_levels && !(D.z in current_map.station_levels)) //If the console is on a station level, then list all drones on the station levels
+			continue
+		else if (!(src.z in current_map.station_levels) && src.z != D.z) //If the console is not on the station, only list drones on the current level
 			continue
 		dat += "<BR>[D.real_name] ([D.stat == 2 ? "<font color='red'>INACTIVE</FONT>" : "<font color='green'>ACTIVE</FONT>"])"
 		dat += "<font dize = 9><BR>Cell charge: [D.cell.charge]/[D.cell.maxcharge]."

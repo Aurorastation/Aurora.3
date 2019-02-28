@@ -33,7 +33,7 @@
 			if(ishuman(user))
 				user.put_in_hands(I)
 			else
-				I.loc = get_turf(src)
+				I.forceMove(get_turf(src))
 			user << "<span class='notice'>You find \an [I] in the cistern.</span>"
 			w_items -= I.w_class
 			return
@@ -45,7 +45,7 @@
 	icon_state = "toilet[open][cistern]"
 
 /obj/structure/toilet/attackby(obj/item/I as obj, mob/living/user as mob)
-	if(iscrowbar(I))
+	if(I.iscrowbar())
 		user << "<span class='notice'>You start to [cistern ? "replace the lid on the cistern" : "lift the lid off the cistern"].</span>"
 		playsound(loc, 'sound/effects/stonedoor_openclose.ogg', 50, 1)
 		if(do_after(user, 30))
@@ -87,8 +87,7 @@
 		if(w_items + I.w_class > 5)
 			user << "<span class='notice'>The cistern is full.</span>"
 			return
-		user.drop_item()
-		I.loc = src
+		user.drop_from_inventory(I,src)
 		w_items += I.w_class
 		user << "You carefully place \the [I] into the cistern."
 		return
@@ -134,6 +133,7 @@
 	density = 0
 	anchored = 1
 	use_power = 0
+	var/spray_amount = 20
 	var/on = 0
 	var/obj/effect/mist/mymist = null
 	var/ismist = 0				//needs a var so we can make it linger~
@@ -169,7 +169,7 @@
 /obj/machinery/shower/attackby(obj/item/I as obj, mob/user as mob)
 	if(I.type == /obj/item/device/analyzer)
 		user << "<span class='notice'>The water temperature seems to be [watertemp].</span>"
-	if(iswrench(I))
+	if(I.iswrench())
 		var/newtemp = input(user, "What setting would you like to set the temperature valve to?", "Water Temperature Valve") in temperature_settings
 		user << "<span class='notice'>You begin to adjust the temperature valve with \the [I].</span>"
 		playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
@@ -221,10 +221,10 @@
 /obj/machinery/shower/proc/wash(atom/movable/O as obj|mob)
 	if(!on) return
 
-	if(isliving(O))
-		var/mob/living/L = O
-		L.ExtinguishMob()
-		L.fire_stacks = -20 //Douse ourselves with water to avoid fire more easily
+	var/obj/effect/effect/water/W = new(O)
+	W.create_reagents(spray_amount)
+	W.reagents.add_reagent("water", spray_amount)
+	W.set_up(O, spray_amount)
 
 	if(iscarbon(O))
 		var/mob/living/carbon/M = O
@@ -326,6 +326,7 @@
 	wash_floor()
 	if(!mobpresent)	return
 	for(var/mob/living/L in loc)
+		wash(L) // Why was it not here before?
 		process_heat(L)
 
 /obj/machinery/shower/proc/wash_floor()
@@ -368,6 +369,16 @@
 	desc = "A sink used for washing one's hands and face."
 	anchored = 1
 	var/busy = 0 	//Something's being washed at the moment
+	var/amount_per_transfer_from_this = 10
+	var/possible_transfer_amounts = list(5,10,15,25,30,50,60,100,120,250,300)
+
+/obj/structure/sink/verb/set_APTFT() //set amount_per_transfer_from_this
+	set name = "Set transfer amount"
+	set category = "Object"
+	set src in view(1)
+	var/N = input("Amount per transfer from this:","[src]") as null|anything in possible_transfer_amounts
+	if (N)
+		amount_per_transfer_from_this = N
 
 /obj/structure/sink/attack_hand(mob/user as mob)
 	if (ishuman(user))
@@ -415,7 +426,7 @@
 		var/atype = alert(usr, "Do you want to fill or empty \the [RG] at \the [src]?", "Fill or Empty", "Fill", "Empty", "Cancel")
 
 		if(!usr.Adjacent(src)) return
-		if(RG.loc != usr) return
+		if(RG.loc != usr && !isrobot(user)) return
 		if(busy)
 			usr << "<span class='warning'>Someone's already using \the [src].</span>"
 			return
@@ -426,7 +437,7 @@
 					usr << "<span class='warning'>\The [RG] is already full.</span>"
 					return
 
-				RG.reagents.add_reagent("water", min(RG.volume - RG.reagents.total_volume, RG.amount_per_transfer_from_this))
+				RG.reagents.add_reagent("water", min(RG.volume - RG.reagents.total_volume, amount_per_transfer_from_this))
 				oviewers(3, usr) << "<span class='notice'>[usr] fills \the [RG] using \the [src].</span>"
 				usr << "<span class='notice'>You fill \the [RG] using \the [src].</span>"
 			if ("Empty")
@@ -434,9 +445,9 @@
 					usr << "<span class='warning'>\The [RG] is already empty.</span>"
 					return
 
-				RG.reagents.clear_reagents()
-				oviewers(3, usr) << "<span class='notice'>[usr] empties \the [RG] into \the [src].</span>"
-				usr << "<span class='notice'>You empty \the [RG] into \the [src].</span>"
+				var/empty_amount = RG.reagents.trans_to(src, RG.amount_per_transfer_from_this)
+				oviewers(3, usr) << "<span class='notice'>[usr] empties [empty_amount]u of \the [RG] into \the [src].</span>"
+				usr << "<span class='notice'>You empty [empty_amount]u of \the [RG] into \the [src].</span>"
 		return
 
 	// Filling/empying Syringes

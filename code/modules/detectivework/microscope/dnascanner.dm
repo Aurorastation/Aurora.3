@@ -29,7 +29,7 @@
 	if(istype(swab) && swab.is_used())
 		user.unEquip(W)
 		src.bloodsamp = swab
-		swab.loc = src
+		swab.forceMove(src)
 		user << "<span class='notice'>You insert \the [W] into \the [src].</span>"
 	else
 		user << "<span class='warning'>\The [src] only accepts used swabs.</span>"
@@ -99,7 +99,7 @@
 	last_process_worldtime = world.time
 
 /obj/machinery/dnaforensics/proc/complete_scan()
-	src.visible_message("<span class='notice'>\icon[src] makes an insistent chime.</span>", 2)
+	visible_message("<span class='notice'>\icon[src] makes an insistent chime.</span>", range = 2)
 	update_icon()
 	if(bloodsamp)
 		var/obj/item/weapon/paper/P = new()

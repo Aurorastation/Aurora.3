@@ -74,6 +74,9 @@
 	name = "\improper Security - Tactical Equipment"
 	icon_state = "Tactical"
 
+/area/security/security_office
+	name = "\improper Security - Security Office"
+	icon_state = "security"
 
 /*
 	New()

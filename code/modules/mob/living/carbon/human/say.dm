@@ -74,7 +74,7 @@
 		// todo: fix this shit
 		if(rig.speech && rig.speech.voice_holder && rig.speech.voice_holder.active && rig.speech.voice_holder.voice)
 			voice_sub = rig.speech.voice_holder.voice
-	else
+	if(!voice_sub)
 		for(var/obj/item/gear in list(wear_mask,wear_suit,head))
 			if(!gear)
 				continue
@@ -125,7 +125,7 @@
 
 	return verb
 
-/mob/living/carbon/human/handle_speech_problems(var/message, var/verb)
+/mob/living/carbon/human/handle_speech_problems(var/message, var/verb, var/message_mode)
 	message = handle_speech_muts(message,verb)
 	for(var/datum/brain_trauma/trauma in get_traumas())
 		if(!trauma.suppressed)
@@ -157,10 +157,13 @@
 				message = uppertext(message)
 				verb = "yells loudly"
 
-	var/list/returns[3]
+	var/list/returns[4]
 	returns[1] = message
 	returns[2] = verb
 	returns[3] = speech_problem_flag
+	returns[4] = world.view
+
+	returns = species.handle_speech_problems(src, returns, message, verb, message_mode)
 	return returns
 
 /mob/living/carbon/human/handle_message_mode(message_mode, message, verb, speaking, used_radios, alt_name)
@@ -217,12 +220,9 @@
 					used_radios += r_ear
 
 /mob/living/carbon/human/handle_speech_sound()
-	if(species.speech_sounds && prob(species.speech_chance))
-		var/list/returns[2]
-		returns[1] = sound(pick(species.speech_sounds))
-		returns[2] = 50
-		return returns
-	return ..()
+	var/list/returns = ..()
+	returns = species.handle_speech_sound(src, returns)
+	return returns
 
 /mob/living/carbon/human/hear_say(var/message, var/verb = "says", var/datum/language/language = null, var/alt_name = "",var/italics = 0, var/mob/speaker = null)
 	for(var/T in get_traumas())
@@ -297,4 +297,24 @@
 				if(length(cword))
 					rearranged += cword
 			message ="[prefix][jointext(rearranged," ")]"
+		if(losebreath>=5) //Gasping is a mutation, right?
+			var/prefix=copytext(message,1,2)
+			if(prefix == ";")
+				message = copytext(message,2)
+			else if(prefix in list(":","#"))
+				prefix += copytext(message,2,3)
+				message = copytext(message,3)
+			else
+				prefix=""
+
+			var/list/words = splittext(message," ")
+			if (prob(50))
+				if (words.len>1)
+					var/gasppoint = rand(2, words.len)
+					words.Cut(gasppoint)
+				words[words.len] = "[words[words.len]]..."
+				emote("gasp")
+
+
+			message = "[prefix][jointext(words," ")]"
 	return message

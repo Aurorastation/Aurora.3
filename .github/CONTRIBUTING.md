@@ -7,6 +7,44 @@ All commits whose authorship dates are not prior to `1420675200 +0000` are assum
 
 All assets including icons and sound are under a [Creative Commons 3.0 BY-SA](https://creativecommons.org/licenses/by-sa/3.0/) license unless otherwise indicated.
 
+# Github Standards
+
+### Peer Review
+All pull requests are subject to peer review prior to being merged. After said reviews, they are given a final once-over by a maintainer and
+then merged if good.
+
+A **feature** pull request will require *two* reviews, with one of them being a community developer's. There is also a minimum time out of
+*three days* before a feature pull request can be merged. This is to ensure that there is enough time to review and discuss new additions
+from the game.
+
+A **bug fix** pull request will require *two* reviews, if it is to be merged in the first 24 hours, or *one* following the first 24 hours.
+
+### Prefer Atomic Pull-Requests
+Pull requests should do **one** thing.
+
+This means that a series of small, dependant pull requests is preferred over one large, monolithic one.
+Developers and maintainers may request that you break up a pull request into multiple smaller pull requests
+to enforce this standard at their discretion.
+
+Small pull requests allow for easier reverting, easier (and faster!) reviewing and deliberation, and enable
+developers in the future to more easily locate all changes relevant to a potential issue.
+
+### Changelogs
+Changelogs are automatically parsed from within the `html/changelogs` folder. A readme file exists there with specific information on how to
+create and manage changelogs. All pull requests which contain player-visible changes are required to have a changelog. Any others, like pull
+requests containing background system tweaks, minor optimizations, admin systems, etcetera, do not necessarily require a changelog.
+
+Changelogs should be written in a concise and clear manner. There is no need for long winded explanations or too much detail (such as
+specific numbers, values, etcetera) in a changelog. If necessary, the PR can be tagged as **wiki update** for a wiki article to be written
+about it.
+
+There also exist **IC changelogs**. These are presented in-game as a news article by NanoTrasen, and can be used to provide temporary fluff
+for in-game changes. To make use of these, simply put a IC changelog header into the description of the PR and write up the contents below
+it. An example:
+
+> # IC Changelog
+> A new weapon was commissioned by NanoTrasen. It is currently being tested aboard the NSS Aurora
+
 # Coding Standards
 
 ### Absolute Pathing

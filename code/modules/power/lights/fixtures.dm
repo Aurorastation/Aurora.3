@@ -82,6 +82,11 @@
 	brightness_power = 4
 	supports_nightmode = FALSE
 
+/obj/machinery/light/spot/weak
+	name = "exterior spotlight"
+	brightness_range = 12
+	brightness_power = 1.2
+
 /obj/machinery/light/built
 	start_with_cell = FALSE
 
@@ -160,7 +165,7 @@
 		if (LIGHT_BURNED)
 			stat |= BROKEN
 			stat &= ~MAINT
-		
+
 		if (LIGHT_BROKEN)
 			stat |= BROKEN
 			stat &= ~MAINT
@@ -300,8 +305,8 @@
 					stat &= ~NOPOWER
 
 				update()
-				
-				user.drop_item()	//drop the item to update overlays and such
+
+				user.drop_from_inventory(L,get_turf(src))
 				qdel(L)
 
 				if(!stat && rigged)
@@ -335,7 +340,7 @@
 
 	// attempt to stick weapon into light socket
 	else if(status == LIGHT_EMPTY)
-		if(isscrewdriver(W)) //If it's a screwdriver open it.
+		if(W.isscrewdriver()) //If it's a screwdriver open it.
 			playsound(src.loc, 'sound/items/Screwdriver.ogg', 75, 1)
 			user.visible_message("[user.name] opens [src]'s casing.", \
 				"You open [src]'s casing.", "You hear a noise.")
@@ -453,27 +458,28 @@
 		user << "You remove the light [fitting]."
 
 	// create a light tube/bulb item and put it in the user's hand
-	var/obj/item/weapon/light/L = new inserted_light()
-	L.status = status
-	L.rigged = rigged
-	L.brightness_range = brightness_range
-	L.brightness_power = brightness_power
-	L.brightness_color = brightness_color
+	if(inserted_light)
+		var/obj/item/weapon/light/L = new inserted_light()
+		L.status = status
+		L.rigged = rigged
+		L.brightness_range = brightness_range
+		L.brightness_power = brightness_power
+		L.brightness_color = brightness_color
 
-	// light item inherits the switchcount, then zero it
-	L.switchcount = switchcount
-	switchcount = 0
+		// light item inherits the switchcount, then zero it
+		L.switchcount = switchcount
+		switchcount = 0
 
-	L.update()
-	L.add_fingerprint(user)
+		L.update()
+		L.add_fingerprint(user)
 
-	user.put_in_active_hand(L)	//puts it in our active hand
+		user.put_in_active_hand(L)	//puts it in our active hand
 
-	inserted_light = null
+		inserted_light = null
 
-	status = LIGHT_EMPTY
-	stat |= MAINT
-	update()
+		status = LIGHT_EMPTY
+		stat |= MAINT
+		update()
 
 /obj/machinery/light/attack_tk(mob/user)
 	if(status == LIGHT_EMPTY)
@@ -495,7 +501,7 @@
 
 	L.update()
 	L.add_fingerprint(user)
-	L.loc = loc
+	L.forceMove(loc)
 
 	inserted_light = null
 
@@ -556,7 +562,7 @@
 		stat &= ~NOPOWER
 	else
 		stat |= NOPOWER
-	
+
 	update()
 
 // called when on fire

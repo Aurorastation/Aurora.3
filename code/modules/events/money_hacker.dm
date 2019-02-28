@@ -7,8 +7,8 @@
 
 /datum/event/money_hacker/setup()
 	end_time = world.time + 6000
-	if(all_money_accounts.len)
-		affected_account = pick(all_money_accounts)
+	if(SSeconomy.all_money_accounts.len)
+		affected_account = SSeconomy.get_account(pick(SSeconomy.all_money_accounts))
 
 		account_hack_attempted = 1
 	else
@@ -33,7 +33,7 @@
 
 /datum/event/money_hacker/end()
 	var/message
-	if(affected_account && !affected_account)
+	if(affected_account && !affected_account.suspended)
 		//hacker wins
 		message = "The hack attempt has succeeded."
 
@@ -48,13 +48,12 @@
 		T.amount = pick("","([rand(0,99999)])","alla money","9001$","HOLLA HOLLA GET DOLLA","([lost])")
 		var/date1 = "31 December, 1999"
 		var/date2 = "[num2text(rand(1,31))] [pick("January","February","March","April","May","June","July","August","September","October","November","December")], [rand(1000,3000)]"
-		T.date = pick("", current_date_string, date1, date2)
+		T.date = pick("", worlddate2text(), date1, date2)
 		var/time1 = rand(0, 99999999)
 		var/time2 = "[round(time1 / 36000)+12]:[(time1 / 600 % 60) < 10 ? add_zero(time1 / 600 % 60, 1) : time1 / 600 % 60]"
 		T.time = pick("", worldtime2text(), time2)
 		T.source_terminal = pick("","[pick("Biesel","New Gibson")] GalaxyNet Terminal #[rand(111,999)]","your mums place","nantrasen high CommanD")
-
-		affected_account.transaction_log.Add(T)
+		SSeconomy.add_transaction_log(affected_account,T)
 
 	else
 		//crew wins

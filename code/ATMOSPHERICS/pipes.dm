@@ -5,7 +5,7 @@
 	var/volume = 0
 	force = 20
 
-	layer = 2.4 //under wires with their 2.44
+	layer = PIPE_LAYER
 	use_power = 0
 
 	var/alert_pressure = 80*ONE_ATMOSPHERE
@@ -80,7 +80,7 @@
 	if(istype(W,/obj/item/device/pipe_painter))
 		return 0
 
-	if (!iswrench(W) && !istype(W, /obj/item/weapon/pipewrench))
+	if (!W.iswrench() && !istype(W, /obj/item/weapon/pipewrench))
 		return ..()
 	var/turf/T = src.loc
 	if (level==1 && isturf(T) && !T.is_plating())

@@ -182,7 +182,6 @@
 	update_icon()
 	return 1
 
-// this should probably use dump_contents()
 /obj/structure/closet/ex_act(severity)
 	switch(severity)
 		if(1)
@@ -194,15 +193,16 @@
 
 	if (health <= 0)
 		for (var/atom/movable/A as mob|obj in src)
-			A.forceMove(loc)
 			A.ex_act(severity + 1)
+		dump_contents()
+		new /obj/item/stack/material/steel(get_turf(src))
 		qdel(src)
 
 /obj/structure/closet/proc/damage(var/damage)
 	health -= damage
 	if(health <= 0)
-		for(var/atom/movable/A in src)
-			A.forceMove(loc)
+		dump_contents()
+		new /obj/item/stack/material/steel(get_turf(src))
 		qdel(src)
 
 /obj/structure/closet/bullet_act(var/obj/item/projectile/Proj)
@@ -221,7 +221,7 @@
 			return 0
 		if(istype(W,/obj/item/tk_grab))
 			return 0
-		if(iswelder(W))
+		if(W.iswelder())
 			var/obj/item/weapon/weldingtool/WT = W
 			if(WT.isOn())
 				user.visible_message(
@@ -256,12 +256,13 @@
 			return
 		if(!dropsafety(W))
 			return
-		usr.drop_item()
 		if(W)
-			W.forceMove(loc)
+			user.drop_from_inventory(W,loc)
+		else
+			user.drop_item()
 	else if(istype(W, /obj/item/weapon/packageWrap))
 		return
-	else if(iswelder(W))
+	else if(W.iswelder())
 		var/obj/item/weapon/weldingtool/WT = W
 		if(WT.isOn())
 			user.visible_message(
@@ -452,3 +453,14 @@
 
 /obj/structure/closet/onDropInto(var/atom/movable/AM)
 	return
+
+/obj/structure/closet/crush_act()
+	for (var/atom/movable/A in src)
+		if(istype(A, /mob/living))
+			var/mob/living/M = A
+			M.gib()
+		else if(A.simulated)
+			A.ex_act(1)
+	dump_contents()
+	new /obj/item/stack/material/steel(get_turf(src))
+	qdel(src)

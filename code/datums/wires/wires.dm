@@ -115,16 +115,19 @@ var/list/wireColours = list("red", "blue", "green", "darkred", "orange", "brown"
 		var/mob/living/L = usr
 		if(CanUse(L) && href_list["action"])
 			var/obj/item/I = L.get_active_hand()
+			if(!I)
+				return
+
 			holder.add_hiddenprint(L)
 			if(href_list["cut"]) // Toggles the cut/mend status
-				if(iswirecutter(I))
+				if(I.iswirecutter())
 					var/colour = href_list["cut"]
 					CutWireColour(colour)
 				else
 					L << "<span class='error'>You need wirecutters!</span>"
 
 			else if(href_list["pulse"])
-				if(ismultitool(I))
+				if(I.ismultitool())
 					var/colour = href_list["pulse"]
 					PulseColour(colour)
 				else
@@ -141,7 +144,7 @@ var/list/wireColours = list("red", "blue", "green", "darkred", "orange", "brown"
 				// Attach
 				else
 					if(istype(I, /obj/item/device/assembly/signaler))
-						L.drop_item()
+						usr.drop_from_inventory(I)
 						Attach(colour, I)
 					else
 						L << "<span class='error'>You need a remote signaller!</span>"
@@ -241,7 +244,7 @@ var/const/POWER = 8
 	if(colour && S)
 		if(!IsAttached(colour))
 			signallers[colour] = S
-			S.loc = holder
+			S.forceMove(holder)
 			S.connected = src
 			return S
 
@@ -251,7 +254,7 @@ var/const/POWER = 8
 		if(S)
 			signallers -= colour
 			S.connected = null
-			S.loc = holder.loc
+			S.forceMove(holder.loc)
 			return S
 
 

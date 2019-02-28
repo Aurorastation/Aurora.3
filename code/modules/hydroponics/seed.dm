@@ -292,7 +292,7 @@
 
 	// Handle light requirements.
 	if(!light_supplied)
-		if (current_turf.dynamic_lighting)
+		if (TURF_IS_DYNAMICALLY_LIT(current_turf))
 			light_supplied = current_turf.get_lumcount(0, 3) * 10
 		else
 			light_supplied = 5
@@ -327,7 +327,7 @@
 			spark(target, 3, alldirs)
 			var/turf/picked = get_turf(pick(turfs))                      // Just in case...
 			new/obj/effect/decal/cleanable/molten_item(get_turf(target)) // Leave a pile of goo behind for dramatic effect...
-			target.loc = picked                                          // And teleport them to the chosen location.
+			target.forceMove(picked)                                         // And teleport them to the chosen location.
 
 			impact = 1
 
@@ -703,40 +703,43 @@
 				total_yield = max(1,total_yield)
 
 		for(var/i = 0;i<total_yield;i++)
-			var/obj/item/product
-			if(has_mob_product)
-				product = new has_mob_product(get_turf(user),name)
-			else
-				product = new /obj/item/weapon/reagent_containers/food/snacks/grown(get_turf(user),name)
-			if(get_trait(TRAIT_PRODUCT_COLOUR))
-				if(!istype(product, /mob))
-					product.color = get_trait(TRAIT_PRODUCT_COLOUR)
-					if(istype(product,/obj/item/weapon/reagent_containers/food))
-						var/obj/item/weapon/reagent_containers/food/food = product
-						food.filling_color = get_trait(TRAIT_PRODUCT_COLOUR)
+			spawn_seed(get_turf(user))
 
-			if(mysterious)
-				product.name += "?"
-				product.desc += " On second thought, something about this one looks strange."
+/datum/seed/proc/spawn_seed(var/turf/spawning_loc)
+	var/obj/item/product
+	if(has_mob_product)
+		product = new has_mob_product(spawning_loc,name)
+	else
+		product = new /obj/item/weapon/reagent_containers/food/snacks/grown(spawning_loc,name)
+	if(get_trait(TRAIT_PRODUCT_COLOUR))
+		if(!istype(product, /mob))
+			product.color = get_trait(TRAIT_PRODUCT_COLOUR)
+			if(istype(product,/obj/item/weapon/reagent_containers/food))
+				var/obj/item/weapon/reagent_containers/food/food = product
+				food.filling_color = get_trait(TRAIT_PRODUCT_COLOUR)
 
-			if(get_trait(TRAIT_BIOLUM))
-				var/pwr
-				if(get_trait(TRAIT_BIOLUM_PWR) == 0)
-					pwr = get_trait(TRAIT_BIOLUM)
-				else
-					pwr = get_trait(TRAIT_BIOLUM_PWR)
-				var/clr
-				if(get_trait(TRAIT_BIOLUM_COLOUR))
-					clr = get_trait(TRAIT_BIOLUM_COLOUR)
-				product.set_light(get_trait(TRAIT_POTENCY)/10, pwr, clr)
+	if(mysterious)
+		product.name += "?"
+		product.desc += " On second thought, something about this one looks strange."
 
-			//Handle spawning in living, mobile products (like dionaea).
-			if(istype(product,/mob/living))
-				product.visible_message("<span class='notice'>The pod disgorges [product]!</span>")
-				handle_living_product(product)
-				if(istype(product,/mob/living/simple_animal/mushroom)) // Gross.
-					var/mob/living/simple_animal/mushroom/mush = product
-					mush.seed = src
+	if(get_trait(TRAIT_BIOLUM))
+		var/pwr
+		if(get_trait(TRAIT_BIOLUM_PWR) == 0)
+			pwr = get_trait(TRAIT_BIOLUM)
+		else
+			pwr = get_trait(TRAIT_BIOLUM_PWR)
+		var/clr
+		if(get_trait(TRAIT_BIOLUM_COLOUR))
+			clr = get_trait(TRAIT_BIOLUM_COLOUR)
+		product.set_light(get_trait(TRAIT_POTENCY)/10, pwr, clr)
+
+	//Handle spawning in living, mobile products (like dionaea).
+	if(istype(product,/mob/living))
+		product.visible_message("<span class='notice'>The pod disgorges [product]!</span>")
+		handle_living_product(product)
+		if(istype(product,/mob/living/simple_animal/mushroom)) // Gross.
+			var/mob/living/simple_animal/mushroom/mush = product
+			mush.seed = src
 
 // When the seed in this machine mutates/is modified, the tray seed value
 // is set to a new datum copied from the original. This datum won't actually

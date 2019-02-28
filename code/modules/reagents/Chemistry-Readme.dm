@@ -105,10 +105,10 @@ About the Holder:
 			Calls each reagent's touch_obj(target).
 
 		trans_to(var/atom/target, var/amount = 1, var/multiplier = 1, var/copy = 0)
-			The general proc for applying reagents to things externally (as opposed to directly injected into the contents). 
+			The general proc for applying reagents to things externally (as opposed to directly injected into the contents).
 			It first calls touch, then the appropriate trans_to_*() or splash_mob().
 			If for some reason you want touch effects to be bypassed (e.g. injecting stuff directly into a reagent container or person), call the appropriate trans_to_*() proc.
-			
+
 			Calls touch() before checking the type of [target], calling splash_mob(target, amount), trans_to_turf(target, amount, multiplier, copy), or trans_to_obj(target, amount, multiplier, copy).
 
 		trans_id_to(var/atom/target, var/id, var/amount = 1)
@@ -167,6 +167,9 @@ About Reagents:
 		touch_met
 			Ditto when touching.
 
+		breathe_met
+			Ditton when breathing.
+
 		dose
 			How much of the reagent has been processed, limited by [max_dose]. Used for reagents with varying effects (e.g. ethanol or rezadone) and overdosing.
 
@@ -200,6 +203,12 @@ About Reagents:
 		color_weight
 			How much reagent affects color of holder. Used by paint.
 
+		metabolism_min
+			Minimum amount of this reagent in the stomach/blood/lungs for this metabolism to actually run.
+
+		conflicting_reagents
+			List of reagents that conflict with the medication. Runs the affect_conflicting proc for each medication if present.
+
 	Procs:
 
 		remove_self(var/amount)
@@ -226,6 +235,9 @@ About Reagents:
 		affect_touch(var/mob/living/carbon/M, var/alien, var/removed)
 			Ditto, touching.
 
+		affect_breathe(var/mob/living/carbon/M, var/alien, var/removed)
+			Ditto, breathing. Defaults to affect_blood with 75% dose.
+
 		overdose(var/mob/living/carbon/M, var/alien)
 			Called when dose is above overdose. Defaults to M.adjustToxLoss(REM).
 
@@ -237,6 +249,9 @@ About Reagents:
 
 		get_data()
 			Returns data. Can be overriden.
+
+		affect_conflicting(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagent/conflicting_reagent)
+			Called when a reagent conflicts with another reagent in the system.
 
 About Recipes:
 

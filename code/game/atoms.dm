@@ -152,7 +152,7 @@
 /atom/proc/set_dir(new_dir)
 	. = new_dir != dir
 	dir = new_dir
-	
+
 	// Lighting
 	if (.)
 		var/datum/light_source/L
@@ -376,7 +376,7 @@
 		cur_y = y_arr.Find(src.z)
 		if(cur_y)
 			break
-//	world << "X = [cur_x]; Y = [cur_y]"
+
 	if(cur_x && cur_y)
 		return list("x"=cur_x,"y"=cur_y)
 	else

@@ -231,6 +231,7 @@
 			enabled = value
 		else if(href_list["command"] == "lethal")
 			lethal = value
+			lethal_icon = value
 		else if(href_list["command"] == "check_synth")
 			check_synth = value
 		else if(href_list["command"] == "check_weapons")
@@ -259,7 +260,7 @@
 
 /obj/machinery/porta_turret/attackby(obj/item/I, mob/user)
 	if(stat & BROKEN)
-		if(iscrowbar(I))
+		if(I.iscrowbar())
 			//If the turret is destroyed, you can remove it with a crowbar to
 			//try and salvage its components
 			user << "<span class='notice'>You begin prying the metal coverings off.</span>"
@@ -278,7 +279,7 @@
 					user << "<span class='notice'>You remove the turret but did not manage to salvage anything.</span>"
 				qdel(src) // qdel
 
-	else if((iswrench(I)))
+	else if((I.iswrench()))
 		if (immobile)
 			user << "<span class='notice'>[src] is firmly attached to the ground with some form of epoxy.</span>"
 			return
@@ -668,7 +669,7 @@
 	//this is a bit unwieldy but self-explanatory
 	switch(build_step)
 		if(0)	//first step
-			if(iswrench(I) && !anchored)
+			if(I.iswrench() && !anchored)
 				playsound(loc, 'sound/items/Ratchet.ogg', 100, 1)
 				user << "<span class='notice'>You secure the external bolts.</span>"
 				anchored = 1
@@ -676,7 +677,7 @@
 				icon_state = "turret_frame_1_[case_sprite_set]"
 				return
 
-			else if(iscrowbar(I) && !anchored)
+			else if(I.iscrowbar() && !anchored)
 				playsound(loc, 'sound/items/Crowbar.ogg', 75, 1)
 				user << "<span class='notice'>You dismantle the turret construction.</span>"
 				new /obj/item/stack/material/steel( loc, 5)
@@ -694,7 +695,7 @@
 					user << "<span class='warning'>You need two sheets of metal to continue construction.</span>"
 				return
 
-			else if(iswrench(I))
+			else if(I.iswrench())
 				playsound(loc, 'sound/items/Ratchet.ogg', 75, 1)
 				user << "<span class='notice'>You unfasten the external bolts.</span>"
 				anchored = 0
@@ -704,14 +705,14 @@
 
 
 		if(2)
-			if(iswrench(I))
+			if(I.iswrench())
 				playsound(loc, 'sound/items/Ratchet.ogg', 100, 1)
 				user << "<span class='notice'>You bolt the metal armor into place.</span>"
 				build_step = 3
 				icon_state = "turret_frame_3_[case_sprite_set]"
 				return
 
-			else if(iswelder(I))
+			else if(I.iswelder())
 				var/obj/item/weapon/weldingtool/WT = I
 				if(!WT.isOn())
 					return
@@ -739,8 +740,7 @@
 						user << "<span class='notice'>\the [I] is stuck to your hand, you cannot put it in \the [src]</span>"
 						return
 					user << "<span class='notice'>You install [I] into the turret.</span>"
-					user.drop_item()
-					E.loc = src
+					user.drop_from_inventory(E,src)
 					target_type = /obj/machinery/porta_turret
 					installation = I.type //installation becomes I.type
 					build_step = 4
@@ -748,7 +748,7 @@
 					add_overlay("turret_[E.turret_sprite_set]_off")
 					return
 
-			else if(iswrench(I))
+			else if(I.iswrench())
 				playsound(loc, 'sound/items/Ratchet.ogg', 100, 1)
 				user << "<span class='notice'>You remove the turret's metal armor bolts.</span>"
 				build_step = 2
@@ -768,7 +768,7 @@
 			//attack_hand() removes the gun
 
 		if(5)
-			if(isscrewdriver(I))
+			if(I.isscrewdriver())
 				playsound(loc, 'sound/items/Screwdriver.ogg', 100, 1)
 				build_step = 6
 				user << "<span class='notice'>You close the access hatch.</span>"
@@ -793,7 +793,7 @@
 					user << "<span class='warning'>You need two sheets of metal to continue construction.</span>"
 				return
 
-			else if(isscrewdriver(I))
+			else if(I.isscrewdriver())
 				playsound(loc, 'sound/items/Screwdriver.ogg', 100, 1)
 				build_step = 5
 				user << "<span class='notice'>You open the access hatch.</span>"
@@ -803,7 +803,7 @@
 				return
 
 		if(7)
-			if(iswelder(I))
+			if(I.iswelder())
 				var/obj/item/weapon/weldingtool/WT = I
 				if(!WT.isOn()) return
 				if(WT.get_fuel() < 5)
@@ -848,7 +848,7 @@
 
 					qdel(src) // qdel
 
-			else if(iscrowbar(I))
+			else if(I.iscrowbar())
 				playsound(loc, 'sound/items/Crowbar.ogg', 75, 1)
 				user << "<span class='notice'>You pry off the turret's exterior armor.</span>"
 				new /obj/item/stack/material/steel(loc, 2)
@@ -878,7 +878,7 @@
 			if(!installation)
 				return
 			build_step = 3
-			E.loc = src.loc
+			E.forceMove(src.loc)
 			installation = null
 			cut_overlays()
 			icon_state = "turret_frame_3_[case_sprite_set]"
@@ -909,13 +909,15 @@
 	eshot_sound	= 'sound/weapons/laser3.ogg'
 
 /obj/machinery/porta_turret/ion
-	installation = /obj/item/weapon/gun/energy/ionrifle
-	lethal = 1
-	lethal_icon = 1
-	egun = 0
+	installation = /obj/item/weapon/gun/energy/rifle/ionrifle
+	lethal = 0
+	lethal_icon = 0
+	egun = 1
 	sprite_set = "ion"
 
+	projectile = /obj/item/projectile/ion/stun
 	eprojectile = /obj/item/projectile/ion
+	shot_sound = 'sound/weapons/Laser.ogg'
 	eshot_sound	= 'sound/weapons/Laser.ogg'
 
 /obj/machinery/porta_turret/crossbow

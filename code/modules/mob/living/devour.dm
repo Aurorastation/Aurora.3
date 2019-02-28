@@ -42,7 +42,7 @@
 		var/mob/living/carbon/human/H = src
 		var/obj/item/blocked = H.check_mouth_coverage()
 		if(blocked)
-			user << "<span class='warning'>\The [blocked] is in the way!</span>"
+			src << "<span class='warning'>\The [blocked] is in the way!</span>"
 			return
 
 	//This check is exploit prevention.

@@ -78,9 +78,9 @@
 		if(ishuman(user))
 			if(!user.get_active_hand())
 				user.put_in_hands(cell)
-				cell.loc = user.loc
+				cell.forceMove(user.loc)
 		else
-			cell.loc = loc
+			cell.forceMove(loc)
 
 		cell.add_fingerprint(user)
 		cell.update_icon()
@@ -102,7 +102,7 @@
 
 
 /obj/machinery/floodlight/attackby(obj/item/weapon/W as obj, mob/user as mob)
-	if (isscrewdriver(W))
+	if (W.isscrewdriver())
 		if (!open)
 			if(unlocked)
 				unlocked = 0
@@ -111,7 +111,7 @@
 				unlocked = 1
 				user << "You unscrew the battery panel."
 
-	if (iscrowbar(W))
+	if (W.iscrowbar())
 		if(unlocked)
 			if(open)
 				open = 0
@@ -127,8 +127,7 @@
 			if(cell)
 				user << "There is a power cell already installed."
 			else
-				user.drop_item()
-				W.loc = src
+				user.drop_from_inventory(W,src)
 				cell = W
 				user << "You insert the power cell."
 	update_icon()

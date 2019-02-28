@@ -102,7 +102,15 @@
 			amount = list(1,2,3,4,5),
 			emag = 0
 		),
-		"botanic_leather" = list(
+		"custom_cigarettes" = list(
+			name = "Empty Cigarettes (x6)",
+			class = "Items",
+			object = /obj/item/weapon/storage/fancy/cigarettes/custom,
+			cost = 500,
+			amount = list(1,2,3,4,5),
+			emag = 0
+		),
+		"tape_roll" = list(
 			name = "Tape Roll",
 			class = "Items",
 			object = /obj/item/weapon/tape_roll,
@@ -311,7 +319,7 @@
 			user << "<span class='notice'>]The [src] is already loaded.</span>"
 		else
 			user.remove_from_mob(O)
-			O.loc = src
+			O.forceMove(src)
 			beaker = O
 			updateUsrDialog()
 	else if(processing)
@@ -347,7 +355,7 @@
 			user << "<span class='notice'>\The [src] is full! Activate it.</span>"
 		else
 			user.remove_from_mob(O)
-			O.loc = src
+			O.forceMove(src)
 			user << "<span class='notice'>You put \the [O] in \the [src]</span>"
 	update_icon()
 	return
@@ -499,7 +507,7 @@
 			activate()
 		if("detach")
 			if(beaker)
-				beaker.loc = src.loc
+				beaker.forceMove(src.loc)
 				beaker = null
 				update_icon()
 		if("create")

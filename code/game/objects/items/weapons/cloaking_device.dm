@@ -125,15 +125,14 @@
 /obj/item/weapon/cloaking_device/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	if(istype(W, /obj/item/weapon/cell))
 		if(!cell)
-			user.drop_item()
-			W.forceMove(src)
+			user.drop_from_inventory(W,src)
 			cell = W
 			user << "<span class='notice'>You install a cell in [src].</span>"
 			update_icon()
 		else
 			user << "<span class='notice'>[src] already has a cell.</span>"
 
-	else if(isscrewdriver(W))
+	else if(W.isscrewdriver())
 		if(cell)
 			cell.update_icon()
 			cell.forceMove(get_turf(src.loc))

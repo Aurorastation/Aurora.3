@@ -29,7 +29,7 @@
 		qdel(igniter)
 	if(ptank)
 		qdel(ptank)
-	
+
 	return ..()
 
 
@@ -71,22 +71,22 @@
 
 /obj/item/weapon/flamethrower/attackby(obj/item/W as obj, mob/user as mob)
 	if(user.stat || user.restrained() || user.lying)	return
-	if(iswrench(W) && !status)//Taking this apart
+	if(W.iswrench() && !status)//Taking this apart
 		var/turf/T = get_turf(src)
 		if(weldtool)
-			weldtool.loc = T
+			weldtool.forceMove(T)
 			weldtool = null
 		if(igniter)
-			igniter.loc = T
+			igniter.forceMove(T)
 			igniter = null
 		if(ptank)
-			ptank.loc = T
+			ptank.forceMove(T)
 			ptank = null
 		new /obj/item/stack/rods(T)
 		qdel(src)
 		return
 
-	if(isscrewdriver(W) && igniter && !lit)
+	if(W.isscrewdriver() && igniter && !lit)
 		status = !status
 		user << "<span class='notice'>[igniter] is now [status ? "secured" : "unsecured"]!</span>"
 		update_icon()
@@ -96,8 +96,7 @@
 		var/obj/item/device/assembly/igniter/I = W
 		if(I.secured)	return
 		if(igniter)		return
-		user.drop_item()
-		I.loc = src
+		user.drop_from_inventory(I,src)
 		igniter = I
 		update_icon()
 		return
@@ -106,9 +105,8 @@
 		if(ptank)
 			user << "<span class='notice'>There appears to already be a phoron tank loaded in [src]!</span>"
 			return
-		user.drop_item()
+		user.drop_from_inventory(W,src)
 		ptank = W
-		W.loc = src
 		update_icon()
 		return
 
@@ -190,7 +188,7 @@
 	//Transfer 5% of current tank air contents to turf
 	var/datum/gas_mixture/air_transfer = ptank.air_contents.remove_ratio(0.02*(throw_amount/100))
 	//air_transfer.toxins = air_transfer.toxins * 5 // This is me not comprehending the air system. I realize this is retarded and I could probably make it work without fucking it up like this, but there you have it. -- TLE
-	new/obj/effect/decal/cleanable/liquid_fuel/flamethrower_fuel(target,air_transfer.gas["phoron"],get_dir(loc,target))
+	new/obj/effect/decal/cleanable/liquid_fuel/flamethrower_fuel(target,air_transfer.gas["phoron"]*15,get_dir(loc,target))
 	air_transfer.gas["phoron"] = 0
 	target.assume_air(air_transfer)
 	//Burn it based on transfered gas

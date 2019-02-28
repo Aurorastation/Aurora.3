@@ -159,6 +159,8 @@
 			// Ignore antagonistic cyborgs
 			if(R.scrambledcodes)
 				continue
+			if(R.emagged)
+				continue
 			R << "<span class='danger'>Self-destruct command received.</span>"
 			spawn(10)
 				R.self_destruct()

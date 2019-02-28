@@ -3,7 +3,7 @@ var/datum/antagonist/traitor/traitors
 // Inherits most of its vars from the base datum.
 /datum/antagonist/traitor
 	id = MODE_TRAITOR
-	restricted_jobs = list("Internal Affairs Agent", "Head of Security", "Captain")
+	restricted_jobs = list("Internal Affairs Agent", "Head of Security", "Captain", "AI")
 	protected_jobs = list("Security Officer", "Security Cadet", "Warden", "Detective", "Forensic Technician")
 	flags = ANTAG_SUSPICIOUS | ANTAG_RANDSPAWN | ANTAG_VOTABLE
 
@@ -20,6 +20,13 @@ var/datum/antagonist/traitor/traitors
 	if (..())
 		return
 	if(href_list["spawn_uplink"]) spawn_uplink(locate(href_list["spawn_uplink"]))
+
+/datum/antagonist/traitor/can_become_antag(var/datum/mind/player)
+	if(!..())
+		return 0
+	if(istype(player.current, /mob/living/silicon/robot/drone))
+		return 0
+	return 1
 
 /datum/antagonist/traitor/create_objectives(var/datum/mind/traitor)
 	if(!..())

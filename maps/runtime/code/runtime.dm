@@ -3,11 +3,11 @@
 	full_name = "Runtime Debugging Station"
 	path = "runtime"
 
-	station_levels = list(1)
+	station_levels = list(1, 2, 3)
 	admin_levels = list()
-	contact_levels = list(1)
-	player_levels = list(1)
-	accessible_z_levels = list()
+	contact_levels = list(1, 2, 3)
+	player_levels = list(1, 2, 3)
+	accessible_z_levels = list(1, 2, 3)
 
 	station_name = "NSS Runtime"
 	station_short = "Runtime"

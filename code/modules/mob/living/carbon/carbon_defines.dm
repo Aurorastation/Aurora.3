@@ -19,6 +19,7 @@
 	var/intoxication = 0//Units of alcohol in their system
 	var/datum/reagents/metabolism/bloodstr = null
 	var/datum/reagents/metabolism/touching = null
+	var/datum/reagents/metabolism/breathing = null
 
 	var/pulse = PULSE_NORM	//current pulse level
 
@@ -27,4 +28,9 @@
 	var/last_taste_time = 0
 	var/last_taste_text = ""
 
+	var/last_smell_time = 0
+	var/last_smell_text = ""
+
 	var/coughedtime = null // should only be useful for carbons as the only thing using it has a carbon arg.
+
+	var/willfully_sleeping = 0

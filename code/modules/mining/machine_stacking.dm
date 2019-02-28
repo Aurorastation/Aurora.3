@@ -4,27 +4,37 @@
 	name = "stacking machine console"
 	icon = 'icons/obj/machines/mining_machines.dmi'
 	icon_state = "console"
-	density = 1
+	density = 0
 	anchored = 1
 	var/obj/machinery/mineral/stacking_machine/machine = null
-	var/machinedir = NORTHEAST
 	use_power = 1
 	idle_power_usage = 15
 	active_power_usage = 50
 
-/obj/machinery/mineral/stacking_unit_console/Initialize()
-	. = ..()
-	src.machine = locate(/obj/machinery/mineral/stacking_machine, get_step(src, machinedir))
-	if (machine)
-		machine.console = src
-	else
-		return INITIALIZE_HINT_QDEL
+/obj/machinery/mineral/stacking_unit_console/proc/setup_machine(mob/user)
+	if(!machine)
+		var/area/A = get_area(src)
+		var/best_distance = INFINITY
+		for(var/obj/machinery/mineral/stacking_machine/checked_machine in SSmachinery.all_machines)
+			if(A == get_area(checked_machine) && get_dist_euclidian(checked_machine,src) < best_distance)
+				machine = checked_machine
+				best_distance = get_dist_euclidian(checked_machine,src)
+		if (machine)
+			machine.console = src
+		else
+			user << "<span class='warning'>ERROR: Linked machine not found!</span>"
+
+	return machine
 
 /obj/machinery/mineral/stacking_unit_console/attack_hand(mob/user)
 	add_fingerprint(user)
 	ui_interact(user)
 
 /obj/machinery/mineral/stacking_unit_console/ui_interact(mob/user, ui_key = "main", datum/nanoui/ui = null, force_open = 1, datum/topic_state/state = default_state)
+
+	if(!setup_machine(user))
+		return
+
 	var/list/data = list(
 		"stack_amt" = machine.stack_amt,
 		"contents" = list()
@@ -108,17 +118,16 @@
 /obj/machinery/mineral/stacking_machine/machinery_process()
 	..()
 	if(!console)
-		log_debug("Stacking machine tried to process, but no console has linked itself to it.")
-		qdel(src)
 		return
 
 	if (output && input)
 		var/turf/T = get_turf(input)
 		for(var/obj/item/O in T)
 			if(!O) return
-			if(istype(O, /obj/item/stack) && stack_storage[O.type] != null)
-				stack_storage[O.type]++
-				qdel(O)
+			var/obj/item/stack/S = O
+			if(istype(S) && stack_storage[S.type] != null)
+				stack_storage[S.type] += S.amount
+				qdel(S)
 			else
 				O.forceMove(output.loc)
 

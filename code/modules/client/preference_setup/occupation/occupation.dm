@@ -126,7 +126,7 @@
 		if(alt_title && !(alt_title in job.alt_titles))
 			pref.player_alt_titles -= job.title
 
-/datum/category_item/player_setup_item/occupation/content(mob/user, limit = 16, list/splitJobs = list("Chief Medical Officer"))
+/datum/category_item/player_setup_item/occupation/content(mob/user, limit = 16, list/splitJobs = list("Chief Engineer", "Head of Security"))
 	var/list/dat = list(
 		"<tt><center>",
 		"<b>Choose occupation chances</b><br>Unavailable occupations are crossed out.<br>",

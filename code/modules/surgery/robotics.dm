@@ -130,7 +130,7 @@
 	can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 		if(..())
 			var/obj/item/organ/external/affected = target.get_organ(target_zone)
-			if(iswelder(tool))
+			if(tool.iswelder())
 				var/obj/item/weapon/weldingtool/welder = tool
 				if(!welder.isOn() || !welder.remove_fuel(1,user))
 					return 0
@@ -424,8 +424,7 @@
 		var/obj/item/device/mmi/M = tool
 		var/obj/item/organ/mmi_holder/holder = new(target, 1)
 		target.internal_organs_by_name["brain"] = holder
-		user.drop_from_inventory(tool)
-		tool.loc = holder
+		user.drop_from_inventory(tool,holder)
 		holder.stored_mmi = tool
 		holder.update_from_mmi()
 

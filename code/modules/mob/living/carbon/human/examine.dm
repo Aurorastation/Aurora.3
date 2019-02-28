@@ -7,22 +7,38 @@
 	var/skipears = 0
 	var/skipeyes = 0
 	var/skipface = 0
+	var/skipbody = 0
 
 	//exosuits and helmets obscure our view and stuff.
 	if(wear_suit)
+		skipbody |= wear_suit.body_parts_covered
 		skipgloves = wear_suit.flags_inv & HIDEGLOVES
 		skipsuitstorage = wear_suit.flags_inv & HIDESUITSTORAGE
 		skipjumpsuit = wear_suit.flags_inv & HIDEJUMPSUIT
 		skipshoes = wear_suit.flags_inv & HIDESHOES
 
 	if(head)
+		skipbody |= head.body_parts_covered
+		skipbody &= ~HEAD // head covering incorrectly hides 'face' damage
+		skipbody |= (skipbody & FACE) ? HEAD : 0 // if you hide face damage, however, then go ahead and hide head damage, since that's where face damage is
 		skipmask = head.flags_inv & HIDEMASK
 		skipeyes = head.flags_inv & HIDEEYES
 		skipears = head.flags_inv & HIDEEARS
 		skipface = head.flags_inv & HIDEFACE
 
 	if(wear_mask)
+		skipbody |= wear_mask.body_parts_covered
+		skipbody |= (wear_mask.body_parts_covered & FACE) ? HEAD : 0 // same as above
 		skipface |= wear_mask.flags_inv & HIDEFACE
+
+	if(w_uniform)
+		skipbody |= w_uniform.body_parts_covered
+
+	if(gloves)
+		skipbody |= gloves.body_parts_covered
+
+	if(shoes)
+		skipbody |= shoes.body_parts_covered
 
 	var/list/msg = list("<span class='info'>*---------*\nThis is ")
 
@@ -69,10 +85,16 @@
 
 	//suit/armour
 	if(wear_suit)
+		var/tie_msg
+		if(istype(wear_suit,/obj/item/clothing/suit))
+			var/obj/item/clothing/suit/U = wear_suit
+			if(LAZYLEN(U.accessories))
+				tie_msg += ". Attached to it is [lowertext(english_list(U.accessories))]"
+
 		if(wear_suit.blood_DNA)
 			msg += "<span class='warning'>[T.He] [T.is] wearing \icon[wear_suit] [wear_suit.gender==PLURAL?"some":"a"] [(wear_suit.blood_color != "#030303") ? "blood" : "oil"]-stained [wear_suit.name]!</span>\n"
 		else
-			msg += "[T.He] [T.is] wearing \icon[wear_suit] \a [wear_suit].\n"
+			msg += "[T.He] [T.is] wearing \icon[wear_suit] \a [wear_suit][tie_msg].\n"
 
 		//suit/armour storage
 		if(s_store && !skipsuitstorage)
@@ -216,28 +238,37 @@
 	if(on_fire)
 		msg += "<span class='danger'>[T.He] [T.is] on fire!</span>\n"
 	msg += "<span class='warning'>"
-
-
-	if (!(src.species.flags & NO_CHUBBY))
-		if(nutrition < 100)
+	if (!(src.species.flags & NO_CHUBBY) && max_nutrition > 0)
+		if(nutrition / max_nutrition <= CREW_NUTRITION_VERYHUNGRY)
 			msg += "[T.He] [T.is] severely malnourished.\n"
-		else if(nutrition >= 500)
+		else if(nutrition / max_nutrition >= CREW_NUTRITION_OVEREATEN)
 			msg += "[T.He] [T.is] quite chubby.\n"
-
+	if(max_hydration > 0)
+		if(hydration / max_hydration <= CREW_HYDRATION_VERYTHIRSTY)
+			msg += "[T.He] [T.is] severely dehydrated.\n"
 
 	msg += "</span>"
 
 	if(getBrainLoss() >= 60)
 		msg += "[T.He] [T.has] a stupid expression on [T.his] face.\n"
+	
+	var/have_client = client
+	var/inactivity = client ? client.inactivity : null
+	
+	if(bg)
+		disconnect_time = bg.disconnect_time
+		have_client = bg.client
+		inactivity =  have_client ? bg.client.inactivity : null
+		
 
 	if(species.show_ssd && (!species.has_organ["brain"] || has_brain()) && stat != DEAD)
 		if(!key)
 			msg += "<span class='deadsay'>[T.He] [T.is] [species.show_ssd]. It doesn't look like [T.he] [T.is] waking up anytime soon.</span>\n"
-		else if(!client)
+		else if(!client && !bg)
 			msg += "<span class='deadsay'>[T.He] [T.is] [species.show_ssd].</span>\n"
-		if(client && ((client.inactivity / 600) > 10)) // inactivity/10/60 > 10 MINUTES
-			msg += "<span class='deadsay'>\[Inactive for [round(client.inactivity / 600)] minutes.\]\n</span>"
-		else if((!client && (world.realtime - disconnect_time) >= 5 MINUTES))
+		if(have_client && ((inactivity / 600) > 10)) // inactivity/10/60 > 10 MINUTES
+			msg += "<span class='deadsay'>\[Inactive for [round(inactivity / 600)] minutes.\]\n</span>"
+		else if(!have_client && (world.realtime - disconnect_time) >= 5 MINUTES)
 			msg += "<span class='deadsay'>\[Disconnected/ghosted [(world.realtime - disconnect_time)/600] minutes ago.\]\n</span>"
 
 	var/list/wound_flavor_text = list()
@@ -258,7 +289,9 @@
 
 	for(var/obj/item/organ/external/temp in organs)
 		if(temp)
-			if(temp.status & ORGAN_ROBOT)
+			if(skipbody & temp.body_part)
+				continue
+			if(temp.status & ORGAN_ASSISTED)
 				if(!(temp.brute_dam + temp.burn_dam))
 					//wound_flavor_text["[temp.name]"] = "<span class='warning'>[T.He] [T.has] a robot [temp.name]!</span>\n"
 					// No need to notify about robotic limbs if they're not damaged, really.
@@ -293,7 +326,7 @@
 			if(!istype(O,/obj/item/weapon/implant) && !istype(O,/obj/item/weapon/material/shard/shrapnel))
 				msg += "<span class='danger'>[src] [T.has] \a [O] sticking out of [T.his] [organ.name]!</span>\n"
 	if(digitalcamo)
-		msg += "[T.He] [T.is] repulsively uncanny!\n"
+		msg += "[T.He] [T.is] a little difficult to identify.\n"
 
 	if(hasHUD(user,"security"))
 		var/perpname = "wot"

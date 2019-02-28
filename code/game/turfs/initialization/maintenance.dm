@@ -4,6 +4,9 @@
 	// Quick and dirty check to avoid placing things inside windows
 	if(locate(/obj/structure/grille, T))
 		return
+	//Don't place on openspace!
+	if(istype(T,/turf/simulated/open))
+		return
 
 	var/cardinal_turfs = T.CardinalTurfs()
 

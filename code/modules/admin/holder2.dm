@@ -13,6 +13,7 @@ var/list/admin_datums = list()
 	var/admincaster_screen = 0	//See newscaster.dm under machinery for a full description
 	var/datum/feed_message/admincaster_feed_message = new /datum/feed_message   //These two will act as holders.
 	var/datum/feed_channel/admincaster_feed_channel = new /datum/feed_channel
+	var/datum/feed_message/admincaster_viewing_message = null
 	var/admincaster_signature	//What you'll sign the newsfeeds as
 
 	var/list/watched_processes	// Processes marked to be shown in Status instead of just Processes.
@@ -31,6 +32,9 @@ var/list/admin_datums = list()
 	rank = initial_rank
 	rights = initial_rights
 	admin_datums[ckey] = src
+
+	if (rights & R_DEBUG)
+		world.SetConfig("APP/admin", ckey, "role=admin")
 
 /datum/admins/proc/associate(client/C)
 	if(istype(C))
@@ -65,7 +69,7 @@ generally it would be used like so:
 
 proc/admin_proc()
 	if(!check_rights(R_ADMIN)) return
-	world << "you have enough rights!"
+	to_world("you have enough rights!")
 
 NOTE: It checks usr by default. Supply the "user" argument if you wish to check for a specific mob.
 */

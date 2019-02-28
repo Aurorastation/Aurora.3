@@ -12,6 +12,12 @@
 	var/can_gain = TRUE //can this be gained through random traumas?
 	var/permanent = FALSE //can this be cured?
 	var/suppressed = 0 //currently being suppressed
+	var/cure_type //type of therapy that cures the trauma
+	//current cures:
+		//hypnosis - cures traumas that alter behavior
+		//solitude - cures traumas that produce hallucination
+		//electroshock - cures traumas that have physical effects
+		//surgery - cures traumas not covered above
 
 /datum/brain_trauma/New(obj/item/organ/brain/B, _permanent)
 	brain = B
@@ -42,6 +48,7 @@
 /datum/brain_trauma/proc/on_lose(silent)
 	if(!silent)
 		to_chat(owner, lose_text)
+	owner.adjustBrainLoss(-1)
 
 //Called when hearing a spoken message
 /datum/brain_trauma/proc/on_hear(message, speaker, message_language, raw_message, radio_freq)

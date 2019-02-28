@@ -71,7 +71,7 @@
 	if(!istext(adm_ckey) || !istext(new_rank))
 		return
 
-	var/DBQuery/select_query = dbcon.NewQuery("SELECT id FROM ss13_admin WHERE ckey = '[adm_ckey]'")
+	var/DBQuery/select_query = dbcon.NewQuery("SELECT id FROM `ss13_player` WHERE ckey = '[adm_ckey]' AND rank IS NOT NULL")
 	select_query.Execute()
 
 	var/new_admin = 1
@@ -81,18 +81,23 @@
 		admin_id = text2num(select_query.item[1])
 
 	if(new_admin)
-		var/DBQuery/insert_query = dbcon.NewQuery("INSERT INTO `ss13_admin` (`id`, `ckey`, `rank`, `level`, `flags`) VALUES (null, '[adm_ckey]', '[new_rank]', -1, 0)")
-		insert_query.Execute()
+		var/DBQuery/update_query = dbcon.NewQuery("UPDATE `ss13_player` SET `rank` = '[new_rank]', flags = 0 WHERE ckey = '[adm_ckey]'")
+		update_query.Execute()
 		var/DBQuery/log_query = dbcon.NewQuery("INSERT INTO `ss13_admin_log` (`id` ,`datetime` ,`adminckey` ,`adminip` ,`log` ) VALUES (NULL , NOW( ) , '[usr.ckey]', '[usr.client.address]', 'Added new admin [adm_ckey] to rank [new_rank]');")
 		log_query.Execute()
 		usr << "<span class='notice'>New admin added.</span>"
-	else
-		if(!isnull(admin_id) && isnum(admin_id))
-			var/DBQuery/insert_query = dbcon.NewQuery("UPDATE `ss13_admin` SET rank = '[new_rank]' WHERE id = [admin_id]")
-			insert_query.Execute()
-			var/DBQuery/log_query = dbcon.NewQuery("INSERT INTO `ss13_admin_log` (`id` ,`datetime` ,`adminckey` ,`adminip` ,`log` ) VALUES (NULL , NOW( ) , '[usr.ckey]', '[usr.client.address]', 'Edited the rank of [adm_ckey] to [new_rank]');")
-			log_query.Execute()
-			usr << "<span class='notice'>Admin rank changed.</span>"
+	else if(!isnull(admin_id) && isnum(admin_id) && new_rank != "Removed")
+		var/DBQuery/insert_query = dbcon.NewQuery("UPDATE `ss13_player` SET rank = '[new_rank]' WHERE id = [admin_id]")
+		insert_query.Execute()
+		var/DBQuery/log_query = dbcon.NewQuery("INSERT INTO `ss13_admin_log` (`id` ,`datetime` ,`adminckey` ,`adminip` ,`log` ) VALUES (NULL , NOW( ) , '[usr.ckey]', '[usr.client.address]', 'Edited the rank of [adm_ckey] to [new_rank]');")
+		log_query.Execute()
+		usr << "<span class='notice'>Admin rank changed.</span>"
+	else if(!isnull(admin_id) && isnum(admin_id) && new_rank == "Removed")
+		var/DBQuery/insert_query = dbcon.NewQuery("UPDATE `ss13_player` SET rank = NULL, flags = 0 WHERE id = [admin_id]")
+		insert_query.Execute()
+		var/DBQuery/log_query = dbcon.NewQuery("INSERT INTO `ss13_admin_log` (`id` ,`datetime` ,`adminckey` ,`adminip` ,`log` ) VALUES (NULL , NOW( ) , '[usr.ckey]', '[usr.client.address]', 'Removed the rank of [adm_ckey]');")
+		log_query.Execute()
+		usr << "<span class='notice'>Admin rank removed.</span>"
 
 /datum/admins/proc/log_admin_permission_modification(var/adm_ckey, var/new_permission)
 	if(config.admin_legacy_system)	return
@@ -123,7 +128,7 @@
 	if(!istext(adm_ckey) || !isnum(new_permission))
 		return
 
-	var/DBQuery/select_query = dbcon.NewQuery("SELECT id, flags FROM ss13_admin WHERE ckey = '[adm_ckey]'")
+	var/DBQuery/select_query = dbcon.NewQuery("SELECT id, flags FROM ss13_player WHERE ckey = '[adm_ckey]'")
 	select_query.Execute()
 
 	var/admin_id
@@ -136,13 +141,13 @@
 		return
 
 	if(admin_rights & new_permission) //This admin already has this permission, so we are removing it.
-		var/DBQuery/insert_query = dbcon.NewQuery("UPDATE `ss13_admin` SET flags = [admin_rights & ~new_permission] WHERE id = [admin_id]")
+		var/DBQuery/insert_query = dbcon.NewQuery("UPDATE `ss13_player` SET flags = [admin_rights & ~new_permission] WHERE id = [admin_id]")
 		insert_query.Execute()
 		var/DBQuery/log_query = dbcon.NewQuery("INSERT INTO `ss13_admin_log` (`id` ,`datetime` ,`adminckey` ,`adminip` ,`log` ) VALUES (NULL , NOW( ) , '[usr.ckey]', '[usr.client.address]', 'Removed permission [rights2text(new_permission)] (flag = [new_permission]) to admin [adm_ckey]');")
 		log_query.Execute()
 		usr << "<span class='notice'>Permission removed.</span>"
 	else //This admin doesn't have this permission, so we are adding it.
-		var/DBQuery/insert_query = dbcon.NewQuery("UPDATE `ss13_admin` SET flags = '[admin_rights | new_permission]' WHERE id = [admin_id]")
+		var/DBQuery/insert_query = dbcon.NewQuery("UPDATE `ss13_player` SET flags = '[admin_rights | new_permission]' WHERE id = [admin_id]")
 		insert_query.Execute()
 		var/DBQuery/log_query = dbcon.NewQuery("INSERT INTO `ss13_admin_log` (`id` ,`datetime` ,`adminckey` ,`adminip` ,`log` ) VALUES (NULL , NOW( ) , '[usr.ckey]', '[usr.client.address]', 'Added permission [rights2text(new_permission)] (flag = [new_permission]) to admin [adm_ckey]')")
 		log_query.Execute()

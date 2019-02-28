@@ -67,7 +67,7 @@
 	usr.pulling = null
 	usr.client.perspective = EYE_PERSPECTIVE
 	usr.client.eye = src
-	usr.loc = src
+	usr.forceMove(src)
 	src.occupant = usr
 	update_use_power(2)
 	src.icon_state = "body_scanner_1"
@@ -84,19 +84,19 @@
 
 	last_occupant_name = src.occupant.name
 	for(var/obj/O in src)
-		O.loc = src.loc
+		O.forceMove(src.loc)
 		//Foreach goto(30)
 	if (src.occupant.client)
 		src.occupant.client.eye = src.occupant.client.mob
 		src.occupant.client.perspective = MOB_PERSPECTIVE
-	src.occupant.loc = src.loc
+	src.occupant.forceMove(src.loc)
 	src.occupant = null
 	update_use_power(1)
 	src.icon_state = "body_scanner_0"
 	return
 
-/obj/machinery/bodyscanner/attackby(obj/item/weapon/grab/G as obj, user as mob)
-	if ((!( istype(G, /obj/item/weapon/grab) ) || !( ismob(G.affecting) )))
+/obj/machinery/bodyscanner/attackby(obj/item/weapon/grab/G, mob/user)
+	if ((!( istype(G, /obj/item/weapon/grab) ) || !( isliving(G.affecting) )))
 		return
 	if (src.occupant)
 		user << "<span class='warning'>The scanner is already occupied!</span>"
@@ -105,28 +105,26 @@
 		user << "<span class='warning'>Subject cannot have abiotic items on.</span>"
 		return
 
-	if(istype(G, /obj/item/weapon/grab))
+	var/mob/living/M = G.affecting
+	user.visible_message("<span class='notice'>[user] starts putting [M] into [src].</span>", "<span class='notice'>You start putting [M] into [src].</span>", range = 3)
 
-		var/mob/living/L = G:affecting
-		visible_message("[user] starts putting [G:affecting] into the scanner bed.", 3)
+	if (do_mob(user, G.affecting, 30, needhand = 0))
+		var/bucklestatus = M.bucklecheck(user)
+		if (!bucklestatus)//incase the patient got buckled during the delay
+			return
+		if (bucklestatus == 2)
+			var/obj/structure/LB = M.buckled
+			LB.user_unbuckle_mob(user)
+		if (M.client)
+			M.client.perspective = EYE_PERSPECTIVE
+			M.client.eye = src
 
-		if (do_mob(user, G:affecting, 30, needhand = 0))
-			var/bucklestatus = L.bucklecheck(user)
-			if (!bucklestatus)//incase the patient got buckled during the delay
-				return
-			if (bucklestatus == 2)
-				var/obj/structure/LB = L.buckled
-				LB.user_unbuckle_mob(user)
-			var/mob/M = G.affecting
-			if (istype(M) && M.client)
-				M.client.perspective = EYE_PERSPECTIVE
-				M.client.eye = src
-			M.loc = src
-			src.occupant = M
-			update_use_power(2)
-			src.icon_state = "body_scanner_1"
-			for(var/obj/O in src)
-				O.loc = src.loc
+		M.forceMove(src)
+		src.occupant = M
+		update_use_power(2)
+		src.icon_state = "body_scanner_1"
+		for(var/obj/O in src)
+			O.forceMove(loc)
 		//Foreach goto(154)
 	src.add_fingerprint(user)
 	//G = null
@@ -153,9 +151,9 @@
 		return
 
 	if(L == user)
-		visible_message("[user] starts climbing into the scanner bed.", 3)
+		user.visible_message("<span class='notice'>[user] starts climbing into [src].</span>", "<span class='notice'>You start climbing into [src].</span>", range = 3)
 	else
-		visible_message("[user] starts putting [L.name] into the scanner bed.", 3)
+		user.visible_message("<span class='notice'>[user] starts putting [L] into [src].</span>", "<span class='notice'>You start putting [L] into [src].</span>", range = 3)
 
 	if (do_mob(user, L, 30, needhand = 0))
 		if (bucklestatus == 2)
@@ -164,12 +162,13 @@
 		if (M.client)
 			M.client.perspective = EYE_PERSPECTIVE
 			M.client.eye = src
-		M.loc = src
+		M.forceMove(src)
 		src.occupant = M
 		update_use_power(2)
 		src.icon_state = "body_scanner_1"
+		playsound(src.loc, 'sound/machines/medbayscanner1.ogg', 50)
 		for(var/obj/Obj in src)
-			Obj.loc = src.loc
+			Obj.forceMove(src.loc)
 			//Foreach goto(154)
 	src.add_fingerprint(user)
 	//G = null
@@ -179,7 +178,7 @@
 	switch(severity)
 		if(1.0)
 			for(var/atom/movable/A as mob|obj in src)
-				A.loc = src.loc
+				A.forceMove(src.loc)
 				ex_act(severity)
 				//Foreach goto(35)
 			//SN src = null
@@ -188,7 +187,7 @@
 		if(2.0)
 			if (prob(50))
 				for(var/atom/movable/A as mob|obj in src)
-					A.loc = src.loc
+					A.forceMove(src.loc)
 					ex_act(severity)
 					//Foreach goto(108)
 				//SN src = null
@@ -197,7 +196,7 @@
 		if(3.0)
 			if (prob(25))
 				for(var/atom/movable/A as mob|obj in src)
-					A.loc = src.loc
+					A.forceMove(src.loc)
 					ex_act(severity)
 					//Foreach goto(181)
 				//SN src = null
@@ -269,7 +268,9 @@
 
 /obj/machinery/body_scanconsole/Initialize()
 	. = ..()
-	src.connected = locate(/obj/machinery/bodyscanner, get_step(src, WEST))
+	for(var/obj/machinery/bodyscanner/C in orange(1,src))
+		connected = C
+		break
 	src.connected.connected = src
 
 /obj/machinery/body_scanconsole/attack_ai(user as mob)

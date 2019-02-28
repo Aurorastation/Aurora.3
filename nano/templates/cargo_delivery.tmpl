@@ -4,25 +4,6 @@
 <br>
 <br>
 {{if data.page == "overview_main"}}
-    <div class="statusDisplay" style="min-height: 100px;">
-        <div class="item">
-            <div class="itemContent" style="width: 100%;">
-                <table>
-                    <tr>
-                        <td colspan="2"><h3>Shipped Orders</h3></td>
-                    </tr>
-                    <tr>
-                        <td><b>Shipped Order Number:</b></td>
-                        <td>{{:data.order_shipped_number}}</td>
-                    </tr>
-                    <tr>
-                        <td><b>Shipped Order Value:</b></td>
-                        <td>{{:data.order_shipped_value}} Credits</td>
-                    </tr>
-                </table>
-            </div>
-        </div>
-    </div>
 	<table>
     <tr>
         <th>Order ID</th>
@@ -30,10 +11,10 @@
         <th>Price</th>
         <th>Actions</th>
     </tr>
-    {{props data.order_shipped_list}}
+    {{props data.order_list}}
 		<tr>
 			<td>{{:value.order_id}}</td>
-            <td>{{:value.customer}}</td>
+            <td>{{:value.ordered_by}}</td>
             <td>{{:value.price}}</td>
             <td>
                 {{:helper.link('Details', 'close', {'order_overview' : value.order_id, 'page': 'order_overview'}, null)}}
@@ -66,24 +47,17 @@
                         <td><b>Item Value:</b></td>
                         <td>{{:data.order_details.price}}</td>
                     </tr>
-                    {{if data.order_details.shipment_cost != 0}}
-						<tr>
-							<td><b>Shipment Cost: (aliquot)</b></td>
-							<td>{{:data.order_details.shipment_cost}}</td>
-						</tr>
-					{{else}}
-						<tr>
-							<td><b>Shipment Cost: (max)</b></td>
-							<td>{{:data.order_details.shipment_cost_max}}</td>
-						</tr>
-                    {{/if}}
                     <tr>
-                        <td><b>Status:</b></td>
+                        <td><b>Shipment Cost:</b></td>
+                        <td>{{:data.order_details.shipment_cost}}</td>
+                    </tr>
+                    <tr>
+                        <td><b>Shipment Status:</b></td>
                         <td>{{:data.order_details.status_pretty}}</td>
                     </tr>
                     <tr>
                         <td><b>Customer:</b></td>
-                        <td>{{:data.order_details.customer}}</td>
+                        <td>{{:data.order_details.ordered_by}}</td>
                     </tr>
                     {{if data.order_details.authorized_by}}
                     <tr>
@@ -107,6 +81,12 @@
                     <tr>
                         <td><b>Shipped at:</b></td>
                         <td>{{:data.order_details.time_shipped}}</td>
+                    </tr>
+                    {{/if}}
+                    {{if data.order_details.time_paid}}
+                    <tr>
+                        <td><b>Paid at:</b></td>
+                        <td>{{:data.order_details.time_paid}}</td>
                     </tr>
                     {{/if}}
                 </table>
@@ -142,7 +122,7 @@
                     </tr>
                     <tr>
                         <td><b>Customer:</b></td>
-                        <td>{{:data.order_details.customer}}</td>
+                        <td>{{:data.order_details.ordered_by}}</td>
                     </tr>
                     <tr>
                         <td><b>Cardholer:</b></td>
@@ -159,10 +139,16 @@
         </div>
     </div>
 
-    {{if data.order_details.payment_status == 0}}
-        <div>{{:helper.link('Confirm Delivery and Pay', 'cart', {'pay' : 'true'}, null)}}</div>
+    {{if data.order_details.status == "shipped"}}
+        <div>{{:helper.link('Confirm Delivery and Pay', 'cart', {'deliver' : 'true'}, null)}}</div>
+    {{else data.order_details.status == "delivered"}}
+        <div><b>The order has already been delivered</b></div>
     {{else}}
-        <div><b>The order has already been paid</b></div>
+        {{if data.order_details.needs_payment}}
+            <div>{{:helper.link('Pay', 'play', {'deliver' : 'true'}, null)}}</div>
+        {{else}}
+            <div><b>The order has already been paid, but not shipped</b></div>
+        {{/if}}
     {{/if}}
 
 	<table width="100%">

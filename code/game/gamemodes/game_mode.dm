@@ -10,6 +10,7 @@ var/global/list/additional_antag_types = list()
 	var/probability = 0
 
 	var/required_players = 0                 // Minimum players for round to start if voted in.
+	var/max_players = 0			 			// Maximum players for round to start for secret voting. 0 means "doesn't matter"
 	var/required_enemies = 0                 // Minimum antagonists for round to start.
 	var/newscaster_announcements = null
 	var/end_on_antag_death = 0               // Round will end when all antagonists are dead.
@@ -123,9 +124,11 @@ var/global/list/additional_antag_types = list()
 		usr.client.holder.show_game_mode(usr)
 
 /datum/game_mode/proc/announce() //to be called when round starts
-	world << "<B>The current game mode is [capitalize(name)]!</B>"
-	if(round_description) world << "[round_description]"
-	if(round_autoantag) world << "Antagonists will be added to the round automagically as needed."
+	to_world("<B>The current game mode is [capitalize(name)]!</B>")
+	if(round_description)
+		to_world("[round_description]")
+	if(round_autoantag)
+		to_world("Antagonists will be added to the round automagically as needed.")
 	if(antag_templates && antag_templates.len)
 		var/antag_summary = "<b>Possible antagonist types:</b> "
 		var/i = 1
@@ -139,42 +142,65 @@ var/global/list/additional_antag_types = list()
 			i++
 		antag_summary += "."
 		if(antag_templates.len > 1 && !SSticker.hide_mode)
-			world << "[antag_summary]"
+			to_world("[antag_summary]")
 		else
 			message_admins("[antag_summary]")
 
 ///can_start()
 ///Checks to see if the game can be setup and ran with the current number of players or whatnot.
-/datum/game_mode/proc/can_start(var/do_not_spawn)
+/datum/game_mode/proc/can_start()
+
+	log_debug("GAMEMODE: Checking gamemode possibility selection for: [name]...")
+
+	var/returning = GAME_FAILURE_NONE
+
 	var/playerC = 0
 	for(var/mob/abstract/new_player/player in player_list)
-		if((player.client)&&(player.ready))
+		if(player.client && player.ready)
 			playerC++
 
-	if(playerC < required_players)
-		return 0
+	log_debug("GAMEMODE: [playerC] players checked and readied.")
 
-	if(!(antag_templates && antag_templates.len))
-		return 1
+	if(required_players && playerC < required_players)
+		log_debug("GAMEMODE: There aren't enough players ([playerC]/[required_players]) to start [name]!")
+		returning |= GAME_FAILURE_NO_PLAYERS
 
-	var/enemy_count = 0
-	if(antag_tags && antag_tags.len)
-		for(var/antag_tag in antag_tags)
-			var/datum/antagonist/antag = all_antag_types[antag_tag]
-			if(!antag)
-				continue
-			var/list/potential = list()
-			if(antag.flags & ANTAG_OVERRIDE_JOB)
-				potential = antag.pending_antagonists
-			else
-				potential = antag.candidates
-			if(islist(potential))
-				if(require_all_templates && potential.len < antag.initial_spawn_req)
-					return 0
-				enemy_count += potential.len
-				if(enemy_count >= required_enemies)
-					return 1
-	return 0
+	if(max_players && playerC > max_players)
+		log_debug("GAMEMODE: There are too many players ([playerC]/[max_players]) to start [name]!")
+		returning |= GAME_FAILURE_TOO_MANY_PLAYERS
+
+	if(antag_templates && antag_templates.len)
+		log_debug("GAMEMODE: Checking antag templates...")
+		if(antag_tags && antag_tags.len)
+			log_debug("GAMEMODE: Checking antag tags...")
+			var/total_enemy_count = 0
+			for(var/antag_tag in antag_tags)
+				var/datum/antagonist/antag = all_antag_types[antag_tag]
+				if(!antag)
+					continue
+				log_debug("GAMEMODE: Checking antag tag: [antag.role_text]...")
+				var/list/potential = list() //List of potential players to spawn as antagonists
+				if(antag.flags & ANTAG_OVERRIDE_JOB)
+					potential = antag.pending_antagonists
+				else
+					potential = antag.candidates
+				if(islist(potential))
+					if(potential.len)
+						log_debug("GAMEMODE: Found [potential.len] potential antagonists for [antag.role_text].")
+						total_enemy_count += potential.len
+						if(antag.initial_spawn_req && require_all_templates && potential.len < antag.initial_spawn_req)
+							log_debug("GAMEMODE: There are not enough antagonists ([potential.len]/[antag.initial_spawn_req]) for the role [antag.role_text]!")
+							returning |= GAME_FAILURE_NO_ANTAGS
+
+			log_debug("GAMEMODE: Found [total_enemy_count] total enemies for [name].")
+
+			if(required_enemies && total_enemy_count < required_enemies)
+				log_debug("GAMEMODE: There are not enough total antagonists ([total_enemy_count]/[required_enemies]) to start [name]!")
+				returning |= GAME_FAILURE_NO_ANTAGS
+
+	log_debug("GAMEMODE: Finished gamemode checking. [name] returned [returning].")
+
+	return returning
 
 /datum/game_mode/proc/refresh_event_modifiers()
 	if(event_delay_mod_moderate || event_delay_mod_major)
@@ -362,7 +388,7 @@ var/global/list/additional_antag_types = list()
 		text += "There were <b>no survivors</b> (<b>[ghosts] ghosts</b>)."
 
 		discord_text += "There were **no survivors** ([ghosts] ghosts)."
-	world << text
+	to_world(text)
 
 	discord_bot.send_to_announce(discord_text)
 	post_webhook_event(WEBHOOK_ROUNDEND, list("survivours"=surviving_total, "escaped"=escaped_total, "ghosts"=ghosts, "gamemode"=name, "gameid"=game_id, "antags"=antag_text))
@@ -533,7 +559,7 @@ var/global/list/additional_antag_types = list()
 	//New message handling
 	post_comm_message("Cent. Com. Status Summary", intercepttext)
 
-	world << sound('sound/AI/commandreport.ogg')
+	to_world(sound('sound/AI/commandreport.ogg'))
 
 /datum/game_mode/proc/get_players_for_role(var/role, var/antag_id)
 	var/list/players = list()
@@ -565,15 +591,6 @@ var/global/list/additional_antag_types = list()
 				log_debug("[player.key] had [antag_id] enabled, so we are drafting them.")
 				candidates += player.mind
 				players -= player
-
-		// If we don't have enough antags, draft people who voted for the round.
-		if(candidates.len < required_enemies)
-			for(var/mob/abstract/new_player/player in players)
-				if(player.ckey in SSvote.round_voters)
-					log_debug("[player.key] voted for this round, so we are drafting them.")
-					candidates += player.mind
-					players -= player
-					break
 
 	return candidates		// Returns: The number of people who had the antagonist role set to yes, regardless of recomended_enemies, if that number is greater than required_enemies
 							//			required_enemies if the number of people with that role set to yes is less than recomended_enemies,

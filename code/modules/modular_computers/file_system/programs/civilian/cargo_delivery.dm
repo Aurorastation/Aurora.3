@@ -38,10 +38,7 @@
 		last_user_name = data["id_owner"]
 
 	//Pass the shipped orders
-	var/list/shipped_orders = SScargo.get_orders_by_status("shipped",1)
-	data["order_shipped_list"] = shipped_orders
-	data["order_shipped_number"] = shipped_orders.len
-	data["order_shipped_value"] = SScargo.get_orders_value_by_status("shipped",1)
+	data["order_list"] = SScargo.get_orders_by_status("shipped",1) + SScargo.get_orders_by_status("approved",1)
 
 	//Pass along the order details
 	data["order_details"] = order_details
@@ -65,75 +62,54 @@
 	if(..())
 		return 1
 
-	//Everyone can pay
-	if(href_list["pay"])
-		if(order_details["payment_status"] == 1)
-			status_message = "Unable to Pay - Order has already been paid."
+
+	//Check if we want to deliver or pay
+	//If we are at the status shipped, then only the confirm delivery and pay button should be shown (deliver)
+	//If the status is not shipped, then only show the pay button as we can not confirm that it has been paid so far
+	//Everyone can pay / confirm delivery
+	if(href_list["deliver"])
+		order_details = co.get_list()
+
+		//Check if its already delivered
+		if(order_details["status"] == "delivered" && !order_details["needs_payment"])
+			status_message = "Unable to Deliver - Order has already been delivered and paid for."
 			return 1
 
 		if(program && program.computer && program.computer.card_slot && program.computer.network_card)
-			var/transaction_amount = order_details["price_customer"];
-			var/transaction_purpose = "Cargo Order #[order_details["order_id"]]";
-
 			var/obj/item/weapon/card/id/id_card = program.computer.card_slot.stored_card
-
 			if(!id_card || !id_card.registered_name)
 				status_message = "Card Error: Invalid ID Card in Card Reader"
 				return 1
 
-			var/datum/money_account/D = get_account(id_card.associated_account_number)
-			var/attempt_pin
-			if(D.security_level)
-				attempt_pin = input("Enter pin code", "EFTPOS transaction") as num
-				D = null
-			D = attempt_account_access(id_card.associated_account_number, attempt_pin, 2)
-			if(D)
-				if(!D.suspended)
-					if(transaction_amount <= D.money)
-						playsound(program.computer, 'sound/machines/chime.ogg', 50, 1)
+			//Check if a payment is required
+			if(order_details["needs_payment"])
+				var/transaction_amount = order_details["price_customer"]
+				var/transaction_purpose = "Cargo Order #[order_details["order_id"]]"
+				var/transaction_terminal = "Modular Computer #[program.computer.network_card.identification_id]"
 
-						//transfer the money
-						D.money -= transaction_amount
-						SScargo.supply_account.money += transaction_amount
-
-						//create entries in the two account transaction logs
-						var/datum/transaction/T = new()
-						T.target_name = "[SScargo.supply_account.owner_name]"
-						T.purpose = transaction_purpose
-						if(transaction_amount > 0)
-							T.amount = "([transaction_amount])"
-						else
-							T.amount = "[transaction_amount]"
-						T.source_terminal = "Modular Computer #[program.computer.network_card.identification_id]"
-						T.date = current_date_string
-						T.time = worldtime2text()
-						D.transaction_log.Add(T)
-						//
-						T = new()
-						T.target_name = D.owner_name
-						T.purpose = transaction_purpose
-						T.amount = "[transaction_amount]"
-						T.source_terminal = "Modular Computer #[program.computer.network_card.identification_id]"
-						T.date = current_date_string
-						T.time = worldtime2text()
-						SScargo.supply_account.transaction_log.Add(T)
-
-						//Get the cargo order and update its status to delivered and paid
-						status_message = SScargo.deliver_order(co,id_card.registered_name)
-						order_details = co.get_list()
-
-						return 1
-					else
-						status_message = "You don't have that much money!"
-						return 1
-				else
-					status_message = "Your account has been suspended."
+				var/status = SSeconomy.transfer_money(id_card.associated_account_number, SScargo.supply_account.account_number,transaction_purpose,transaction_terminal,transaction_amount,null,usr)
+				
+				if(status)
+					status_message = status
 					return 1
+
+				playsound(program.computer, 'sound/machines/chime.ogg', 50, 1)
+
+				//Check if we have delivered it aswell or only paid
+				if(order_details["status"] == "shipped")
+					status_message = co.set_delivered(id_card.registered_name,1)
+				else
+					status_message = co.set_paid(id_card.registered_name)
+				order_details = co.get_list()
+				
 			else
-				status_message = "Unable to access account. Check security settings and try again."
-				return 1
+				//TODO: Add a sound effect here
+				//If a payment is not needed and we are at the status shipped, then confirm the delivery
+				if(order_details["status"] == "shipped")
+					status_message = co.set_delivered(id_card.registered_name,0)
+			order_details = co.get_list()
 		else
-			status_message = "Unable to pay - Network Card or Cardreader Missing"
+			status_message = "Unable to process - Network Card or Cardreader Missing"
 			return 1
 
 
@@ -147,6 +123,7 @@
 		return
 
 	if(href_list["page"])
+		status_message = null //Null the previous status, so its not confusing
 		switch(href_list["page"])
 			if("overview_main")
 				page = "overview_main" //Main overview page that shows all the orders with the status shipped

@@ -147,14 +147,15 @@
 	interface_desc = "Dispenses loaded chemicals directly into the wearer's bloodstream."
 
 	charges = list(
-		list("tricordrazine", "tricordrazine", 0, 80),
-		list("tramadol",      "tramadol",      0, 80),
-		list("dexalin plus",  "dexalinp",      0, 80),
-		list("antibiotics",   "spaceacillin",  0, 80),
-		list("antitoxins",    "anti_toxin",    0, 80),
-		list("nutrients",     "glucose",     0, 80),
-		list("hyronalin",     "hyronalin",     0, 80),
-		list("radium",        "radium",        0, 80)
+		list("tricordrazine", "tricordrazine",        0, 80),
+		list("tramadol",      "tramadol",             0, 80),
+		list("dexalin plus",  "dexalinp",             0, 80),
+		list("antibiotics",   "spaceacillin",         0, 80),
+		list("antitoxins",    "anti_toxin",           0, 80),
+		list("nutrients",     "glucose",              0, 80),
+		list("hydration",     "potassium_hydrophoro", 0, 80),
+		list("hyronalin",     "hyronalin",            0, 80),
+		list("radium",        "radium",               0, 80)
 		)
 
 	var/max_reagent_volume = 80 //Used when refilling.
@@ -170,6 +171,7 @@
 		list("antibiotics",   "spaceacillin",  0, 20),
 		list("antitoxins",    "anti_toxin",    0, 20),
 		list("nutrients",     "glucose",     0, 80),
+		list("hydration",     "potassium_hydrophoro", 0, 80),
 		list("hyronalin",     "hyronalin",     0, 20),
 		list("radium",        "radium",        0, 20)
 		)
@@ -266,12 +268,29 @@
 		list("synaptizine",   "synaptizine",   0, 30),
 		list("hyperzine",     "hyperzine",     0, 30),
 		list("oxycodone",     "oxycodone",     0, 30),
-		list("nutrients",     "glucose",     0, 80)
+		list("nutrients",     "glucose",     0, 80),
+		list("hydration",     "potassium_hydrophoro", 0, 80)
 		)
 
 	interface_name = "combat chem dispenser"
 	interface_desc = "Dispenses loaded chemicals directly into the bloodstream."
 
+/obj/item/rig_module/chem_dispenser/vaurca
+
+	name = "vaurca combat chemical injector"
+	desc = "A complex web of tubing and needles suitable for vaurcan hardsuit use."
+
+	charges = list(
+		list("synaptizine",   "synaptizine",   0, 30),
+		list("hyperzine",     "hyperzine",     0, 30),
+		list("oxycodone",     "oxycodone",     0, 30),
+		list("phoron",     "phoron",     0, 60),
+		list("kois",     "k'ois paste",     0, 80),
+		list("hydration",     "potassium_hydrophoro", 0, 80)
+		)
+
+	interface_name = "vaurca combat chem dispenser"
+	interface_desc = "Dispenses loaded chemicals directly into the bloodstream."
 
 /obj/item/rig_module/chem_dispenser/injector
 
@@ -635,3 +654,90 @@
 		H.forceMove(leapEnd)
 
 		return 1
+
+
+/obj/item/rig_module/cooling_unit
+	name = "mounted cooling unit"
+	toggleable = 1
+	origin_tech = list(TECH_MAGNET = 2, TECH_MATERIAL = 2, TECH_ENGINEERING = 3)
+	interface_name = "mounted cooling unit"
+	interface_desc = "A heat sink with liquid cooled radiator."
+	icon_state = "suitcooler"
+	var/charge_consumption = 1
+	var/max_cooling = 12
+	var/thermostat = T20C
+
+/obj/item/rig_module/cooling_unit/process()
+	if(!active)
+		return passive_power_cost
+
+	var/mob/living/carbon/human/H = holder.wearer
+
+	var/temp_adj = min(H.bodytemperature - thermostat, max_cooling)
+
+	if (temp_adj < 0.5)
+		return passive_power_cost
+
+	H.bodytemperature -= temp_adj
+	active_power_cost = round((temp_adj/max_cooling)*charge_consumption)
+	return active_power_cost
+
+/obj/item/rig_module/boring
+	name = "burrowing lasers"
+	desc = "A set of precise boring lasers designed to carve a hole beneath the user."
+	icon_state = "actuators"
+	interface_name = "boring laser"
+	interface_desc = "Allows you to burrow to the z-level below."
+
+	disruptive = 1
+
+	use_power_cost = 5
+	module_cooldown = 25
+
+	usable = 1
+
+/obj/item/rig_module/boring/engage()
+	if (!..())
+		return 0
+
+	playsound(src,'sound/magic/lightningbolt.ogg',60,1)
+	var/turf/T = get_turf(holder.wearer)
+	if(istype(T, /turf/simulated))
+		if(istype(T, /turf/simulated/mineral) || istype(T, /turf/simulated/wall) || istype(T, /turf/simulated/shuttle))
+			T.ChangeTurf(T.baseturf)
+		else
+			T.ChangeTurf(/turf/space)
+
+
+
+var/global/list/lattice_users = list()
+
+/obj/item/rig_module/lattice
+	name = "neural lattice"
+	desc = "A probing mind collar that synchronizes the subject's pain receptors with all other neural lattices on the local grid."
+	icon_state = "actuators"
+	interface_name = "neural lattice"
+	interface_desc = "Synchronize neural lattice to reduce pain."
+
+	disruptive = 0
+
+	toggleable = 1
+	confined_use = 1
+
+
+/obj/item/rig_module/lattice/activate()
+	if (!..())
+		return 0
+
+	var/mob/living/carbon/human/H = holder.wearer
+	H << "<span class='notice'>Neural lattice engaged. Pain receptors altered.</span>"
+	lattice_users.Add(H)
+
+/obj/item/rig_module/lattice/deactivate()
+	if (!..())
+		return 0
+
+	var/mob/living/carbon/human/H = holder.wearer
+	H << "<span class='notice'>Neural lattice disengaged. Pain receptors restored.</span>"
+	lattice_users.Remove(H)
+

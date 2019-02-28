@@ -13,6 +13,7 @@
 	var/list/trigger_objs //also checked in mob equipment
 	var/list/trigger_turfs
 	var/list/trigger_species
+	cure_type = CURE_HYPNOSIS
 
 /datum/brain_trauma/mild/phobia/New(mob/living/carbon/C, _permanent, specific_type)
 	phobia_type = specific_type
@@ -96,11 +97,11 @@
 	next_scare = world.time + 120
 	var/message = pick("spooks you to the bone", "shakes you up", "terrifies you", "sends you into a panic", "sends chills down your spine")
 	if(reason)
-		to_chat(owner, "<span class='userdanger'>Seeing [reason] [message]!</span>")
+		to_chat(owner, "<span class='danger'>Seeing [reason] [message]!</span>")
 	else if(trigger_word)
-		to_chat(owner, "<span class='userdanger'>Hearing \"[trigger_word]\" [message]!</span>")
+		to_chat(owner, "<span class='danger'>Hearing \"[trigger_word]\" [message]!</span>")
 	else
-		to_chat(owner, "<span class='userdanger'>Something [message]!</span>")
+		to_chat(owner, "<span class='danger'>Something [message]!</span>")
 	var/reaction = rand(1,4)
 	owner.emote("scream")
 	switch(reaction)

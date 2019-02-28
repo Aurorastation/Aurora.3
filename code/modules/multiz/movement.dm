@@ -35,7 +35,7 @@
 	if (eyeobj)
 		return eyeobj.zMove(direction)
 
-	if (istype(src.loc,/obj/mecha))
+	if(istype(src.loc,/obj/mecha)||istype(src.loc,/obj/machinery/cryopod)||istype(src.loc,/obj/machinery/recharge_station))
 		return FALSE
 
 	// Check if we can actually travel a Z-level.
@@ -62,7 +62,7 @@
 
 	// If we want to move up,but the current area has gravity. Invoke CanAvoidGravity()
 	// to check if this move is possible.
-	if(direction == UP && area.has_gravity && !CanAvoidGravity())
+	if(direction == UP && area.has_gravity() && !CanAvoidGravity())
 		to_chat(src, "<span class='warning'>Gravity stops you from moving upward.</span>")
 		return FALSE
 
@@ -126,10 +126,86 @@
 	if(Allow_Spacemove())
 		return TRUE
 
-	if(Check_Shoegrip())	//scaling hull with magboots
-		for(var/turf/simulated/T in RANGE_TURFS(1,src))
-			if(T.density)
+	for(var/turf/simulated/T in RANGE_TURFS(1,src))
+		if(T.density)
+			if(Check_Shoegrip(FALSE))
 				return TRUE
+
+/mob/living/carbon/human/proc/climb(var/direction, var/turf/source, var/climb_bonus)
+	var/turf/destination
+	if(direction == UP)
+		destination = GetAbove(source)
+	else
+		destination = GetBelow(source)
+
+	if(!destination)
+		return
+
+	if(stat || paralysis || stunned || weakened || lying || restrained() || buckled)
+		return
+
+	if(destination.density)
+		to_chat(src, "<span class='notice'>There is something obstructing your destination!</span>")
+		return
+
+	for(var/obj/O in destination)
+		if(O.density)
+			to_chat(src, "<span class='notice'>There is something obstructing your destination!</span>")
+			return
+
+	visible_message("<span class='notice'>The [src] begins to climb [(direction == UP) ? "upwards" : "downwards"].</span>",
+		"<span class='notice'>You begin to climb [(direction == UP) ? "upwards" : "downwards"].</span>")
+	var/climb_chance = 50
+	var/climb_speed = 45 SECONDS
+	var/will_succeed = FALSE
+	var/turf/stack_turf = get_turf(src) //turf upon which obejcts must be stacked upon to gain vantage
+	var/speed_bonus = 0
+	if(direction == DOWN)
+		stack_turf = destination
+
+	if(species && !species.natural_climbing)
+		for(var/obj/O in stack_turf)
+			if(O.w_class >= 4.0 || O.anchored) //if an object is anchored it's stable footing
+				climb_chance = min(100, climb_chance + O.w_class) //large items increase your reach
+				speed_bonus = min(15, speed_bonus + 1)
+			else
+				climb_chance = max(0, climb_chance - O.w_class) //small items destabilize your footing
+				speed_bonus = max(0, speed_bonus - 1)
+		if(climb_bonus)
+			climb_chance = min(100, climb_chance + climb_bonus)
+	else
+		climb_chance = 100
+
+	if(species && species.climb_coeff)
+		climb_speed = round(max(1, (species.climb_coeff * climb_speed) - speed_bonus), 1)
+
+	if(prob(climb_chance))
+		will_succeed = TRUE
+
+	if(do_after(src, climb_speed, extra_checks  = CALLBACK(src, .proc/climb_check, will_succeed, climb_chance, climb_speed, direction, destination)))
+		if(will_succeed)
+			visible_message("<span class='noticed'>\The [src] climbs [(direction == UP) ? "upwards" : "downwards"].</span>",
+				"<span class='noticed'>You climb [(direction == UP) ? "upwards" : "downwards"].</span>")
+			forceMove(destination)
+			return
+		else
+			visible_message("<span class='warning'>\The [src] slips and falls as they climb [(direction == UP) ? "upwards" : "downwards"]!</span>",
+				"<span class='danger'>You slip and fall as you climb [(direction == UP) ? "upwards" : "downwards"]!</span>")
+			if(direction == DOWN)
+				Move(destination)
+			fall_impact(1, damage_mod = min(1, max(0.2, ((100-climb_chance)/100) - 0.2)))
+
+/mob/living/carbon/human/proc/climb_check(var/success, var/climb_chance, var/speed, var/direction, var/turf/destination) //purely for immersion and variety
+	if((last_special < world.time) && !success) //if you will succeed you can't fail
+		last_special = world.time + speed/10
+		if(prob(100 - climb_chance)) //The worse you are the sooner you'll fail.
+			visible_message("<span class='warning'>\The [src] slips and falls as they climb [(direction == UP) ? "upwards" : "downwards"]!</span>",
+				"<span class='danger'>You slip and fall as you climb [(direction == UP) ? "upwards" : "downwards"]!</span>")
+			if(direction == DOWN)
+				Move(destination)
+			fall_impact(1, damage_mod = min(1, max(0.2, ((100-climb_chance)/100) - 0.2)))
+			return 0
+	return 1
 
 /mob/living/silicon/robot/can_ztravel(var/direction)
 	if(incapacitated() || is_dead())
@@ -311,10 +387,10 @@
  * @return	TRUE if the proc ran completely. FALSE otherwise. Used to determine
  * if child procs should continue running or not, really.
  */
-/atom/movable/proc/fall_impact(levels_fallen, stopped_early = FALSE)
+/atom/movable/proc/fall_impact(levels_fallen, stopped_early = FALSE, var/damage_mod = 1)
 	// No gravity, stop falling into spess!
 	var/area/area = get_area(src)
-	if (istype(loc, /turf/space) || (area && !area.has_gravity))
+	if (istype(loc, /turf/space) || (area && !area.has_gravity()))
 		return FALSE
 
 	visible_message("\The [src] falls and lands on \the [loc]!", "You hear a thud!")
@@ -322,17 +398,17 @@
 	return TRUE
 
 // Mobs take damage if they fall!
-/mob/living/fall_impact(levels_fallen, stopped_early = FALSE)
+/mob/living/fall_impact(levels_fallen, stopped_early = FALSE, var/damage_mod = 1)
 	// No gravity, stop falling into spess!
 	var/area/area = get_area(src)
-	if (istype(loc, /turf/space) || (area && !area.has_gravity))
+	if (istype(loc, /turf/space) || (area && !area.has_gravity()))
 		return FALSE
 
 	visible_message("\The [src] falls and lands on \the [loc]!",
 		"With a loud thud, you land on \the [loc]!", "You hear a thud!")
 
 	var/z_velocity = 5*(levels_fallen**2)
-	var/damage = ((60 + z_velocity) + rand(-20,20))
+	var/damage = ((60 + z_velocity) + rand(-20,20)) * damage_mod
 	apply_damage(damage, BRUTE)
 
 	// The only piece of duplicate code. I was so close. Soooo close. :ree:
@@ -351,10 +427,10 @@
 
 	return TRUE
 
-/mob/living/carbon/human/fall_impact(levels_fallen, stopped_early = FALSE)
+/mob/living/carbon/human/fall_impact(levels_fallen, stopped_early = FALSE, var/damage_mod = 1)
 	// No gravity, stop falling into spess!
 	var/area/area = get_area(src)
-	if (istype(loc, /turf/space) || (area && !area.has_gravity))
+	if (istype(loc, /turf/space) || (area && !area.has_gravity()))
 		return FALSE
 
 	var/obj/item/weapon/rig/rig = get_rig()
@@ -374,7 +450,7 @@
 				"<span class='notice'>You tuck into a roll as you hit \the [loc], minimizing damage!</span>")
 
 	var/z_velocity = 5*(levels_fallen**2)
-	var/damage = (((60 * species.fall_mod) + z_velocity) + rand(-20,20)) * combat_roll
+	var/damage = (((60 * species.fall_mod) + z_velocity) + rand(-20,20)) * combat_roll * damage_mod
 	var/limb_damage = rand(0,damage/2)
 
 	if(prob(30) && combat_roll >= 1) //landed on their head
@@ -463,25 +539,25 @@
 /mob/living/carbon/human/bst/fall_impact()
 	return FALSE
 
-/obj/mecha/fall_impact(levels_fallen, stopped_early = FALSE)
+/obj/mecha/fall_impact(levels_fallen, stopped_early = FALSE, var/damage_mod = 1)
 	. = ..()
 	if (!.)
 		return
 
 	var/z_velocity = 5*(levels_fallen**2)
-	var/damage = ((60 + z_velocity) + rand(-20,20))
+	var/damage = ((60 + z_velocity) + rand(-20,20)) * damage_mod
 	take_damage(damage)
 
 	playsound(loc, "sound/effects/bang.ogg", 100, 1)
 	playsound(loc, "sound/effects/bamf.ogg", 100, 1)
 
-/obj/vehicle/fall_impact(levels_fallen, stopped_early = FALSE)
+/obj/vehicle/fall_impact(levels_fallen, stopped_early = FALSE, var/damage_mod = 1)
 	. = ..()
 	if (!.)
 		return
 
 	var/z_velocity = 5*(levels_fallen**2)
-	var/damage = ((60 + z_velocity) + rand(-20,20))
+	var/damage = ((60 + z_velocity) + rand(-20,20)) * damage_mod
 	health -= (damage * brute_dam_coeff)
 
 	playsound(loc, "sound/effects/clang.ogg", 75, 1)
@@ -503,7 +579,7 @@
 /atom/movable/proc/fall_collateral(levels_fallen, stopped_early = FALSE)
 	// No gravity, stop falling into spess!
 	var/area/area = get_area(src)
-	if (istype(loc, /turf/space) || (area && !area.has_gravity))
+	if (istype(loc, /turf/space) || (area && !area.has_gravity()))
 		return null
 
 	var/list/fall_specs = fall_get_specs(levels_fallen)

@@ -36,7 +36,7 @@
 
 /obj/machinery/floorlayer/attackby(var/obj/item/W as obj, var/mob/user as mob)
 
-	if (iswrench(W))
+	if (W.iswrench())
 		var/m = input("Choose work mode", "Mode") as null|anything in mode
 		mode[m] = !mode[m]
 		var/O = mode[m]
@@ -49,18 +49,18 @@
 		TakeTile(T)
 		return
 
-	if(iscrowbar(W))
+	if(W.iscrowbar())
 		if(!length(contents))
 			user << "<span class='notice'>\The [src] is empty.</span>"
 		else
 			var/obj/item/stack/tile/E = input("Choose remove tile type.", "Tiles") as null|anything in contents
 			if(E)
 				user <<  "<span class='notice'>You remove the [E] from /the [src].</span>"
-				E.loc = src.loc
+				E.forceMove(src.loc)
 				T = null
 		return
 
-	if(isscrewdriver(W))
+	if(W.isscrewdriver())
 		T = input("Choose tile type.", "Tiles") as null|anything in contents
 		return
 	..()
@@ -114,7 +114,7 @@
 
 /obj/machinery/floorlayer/proc/TakeTile(var/obj/item/stack/tile/tile)
 	if(!T)	T = tile
-	tile.loc = src
+	tile.forceMove(src)
 
 	SortStacks()
 

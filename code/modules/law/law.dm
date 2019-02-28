@@ -31,3 +31,21 @@ $PRISONER_NAME was found guilty of $CRIME on $DATE. Their sentence was $SENTENCE
 
 	var/severity = 0 // 1 - Low, 2 - Medium, 3 - High
 	var/felony = 0 // Does this law carry a felony conviction?
+
+/datum/law/proc/can_fine()
+	if(max_fine == 0)
+		return FALSE
+	return TRUE
+
+/datum/law/proc/get_fine_string()
+	if(max_fine == 0)
+		return "n.a."
+	return "[min_fine] - [max_fine] cR"
+
+/datum/law/proc/get_brig_time_string()
+	if(min_brig_time >= PERMABRIG_SENTENCE)
+		return "HuT"
+	if(max_brig_time >= PERMABRIG_SENTENCE)
+		return "[min_brig_time] minutes - HuT"
+	else
+		return "[min_brig_time] - [max_brig_time] minutes"

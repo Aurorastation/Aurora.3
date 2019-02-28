@@ -93,7 +93,7 @@ field_generator power level display
 	if(active)
 		user << "The [src] needs to be off."
 		return
-	else if(iswrench(W))
+	else if(W.iswrench())
 		switch(state)
 			if(0)
 				state = 1
@@ -112,7 +112,7 @@ field_generator power level display
 			if(2)
 				user << "<span class='warning'>The [src.name] needs to be unwelded from the floor.</span>"
 				return
-	else if(iswelder(W))
+	else if(W.iswelder())
 		var/obj/item/weapon/weldingtool/WT = W
 		switch(state)
 			if(0)
@@ -268,7 +268,7 @@ field_generator power level display
 			CF.set_master(src,G)
 			fields += CF
 			G.fields += CF
-			CF.loc = T
+			CF.forceMove(T)
 			CF.set_dir(field_dir)
 	var/listcheck = 0
 	for(var/obj/machinery/field_generator/FG in connected_gens)

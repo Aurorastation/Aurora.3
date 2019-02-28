@@ -23,6 +23,7 @@
 	siemens_coefficient = 0.2
 	permeability_coefficient = 0.1
 	unacidable = 1
+	slowdown = 1 // All rigs by default should have slowdown.
 
 	var/has_sealed_state = FALSE
 
@@ -156,9 +157,6 @@
 
 /obj/item/weapon/rig/Destroy()
 	for(var/obj/item/piece in list(gloves,boots,helmet,chest))
-		var/mob/living/M = piece.loc
-		if(istype(M))
-			M.drop_from_inventory(piece)
 		qdel(piece)
 	STOP_PROCESSING(SSprocessing, src)
 	qdel(wires)
@@ -324,8 +322,9 @@
 		if(piece.loc != src && !(wearer && piece.loc == wearer))
 			if(istype(piece.loc, /mob/living))
 				M = piece.loc
-				M.drop_from_inventory(piece)
-			piece.forceMove(src)
+				M.drop_from_inventory(piece,src)
+			else
+				piece.forceMove(src)
 
 	if(!istype(wearer) || loc != wearer || wearer.back != src || canremove || !cell || cell.charge <= 0)
 		if(!cell || cell.charge <= 0)
@@ -636,8 +635,7 @@
 					if(use_obj && check_slot == use_obj)
 						wearer << "<font color='blue'><b>Your [use_obj.name] [use_obj.gender == PLURAL ? "retract" : "retracts"] swiftly.</b></font>"
 						use_obj.canremove = 1
-						holder.drop_from_inventory(use_obj)
-						use_obj.forceMove(get_turf(src))
+						holder.drop_from_inventory(use_obj,get_turf(src)) //TODO: TEST THIS CODE!
 						use_obj.dropped()
 						use_obj.canremove = 0
 						use_obj.forceMove(src)
@@ -669,25 +667,21 @@
 	if(sealed)
 		if(H.head)
 			var/obj/item/garbage = H.head
-			H.drop_from_inventory(garbage)
 			H.head = null
 			qdel(garbage)
 
 		if(H.gloves)
 			var/obj/item/garbage = H.gloves
-			H.drop_from_inventory(garbage)
 			H.gloves = null
 			qdel(garbage)
 
 		if(H.shoes)
 			var/obj/item/garbage = H.shoes
-			H.drop_from_inventory(garbage)
 			H.shoes = null
 			qdel(garbage)
 
 		if(H.wear_suit)
 			var/obj/item/garbage = H.wear_suit
-			H.drop_from_inventory(garbage)
 			H.wear_suit = null
 			qdel(garbage)
 
@@ -728,7 +722,11 @@
 	take_hit((100/severity_class), "electrical pulse", 1)
 
 /obj/item/weapon/rig/proc/shock(mob/user)
-	if (electrocute_mob(user, cell, src)) //electrocute_mob() handles removing charge from the cell, no need to do that here.
+	var/touchy = pick("chest","head","groin")
+	if(!wearer)
+		touchy = "hand"
+
+	if (electrocute_mob(user, cell, src, contact_zone = touchy)) //electrocute_mob() handles removing charge from the cell, no need to do that here.
 		spark_system.queue()
 		if(user.stunned)
 			return 1

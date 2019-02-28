@@ -91,11 +91,11 @@ proc/overmap_spacetravel(var/turf/space/T, var/atom/movable/A)
 
 	var/turf/dest = locate(nx,ny,nz)
 	if(dest)
-		A.loc = dest
+		A.forceMove(dest)
 
 	if(istype(M, /obj/effect/map/sector/temporary))
 		var/obj/effect/map/sector/temporary/source = M
 		if (source.can_die())
 			testing("Catching [M] for future use")
-			source.loc = null
+			source.forceMove(null)
 			cached_space += source

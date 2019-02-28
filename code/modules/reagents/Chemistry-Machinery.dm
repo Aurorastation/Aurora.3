@@ -33,7 +33,7 @@
 
 /obj/machinery/chem_master/Initialize()
 	. = ..()
-	create_reagents(120)
+	create_reagents(300)
 
 /obj/machinery/chem_master/ex_act(severity)
 	switch(severity)
@@ -53,8 +53,7 @@
 			user << "A beaker is already loaded into the machine."
 			return
 		src.beaker = B
-		user.drop_item()
-		B.loc = src
+		user.drop_from_inventory(B,src)
 		user << "You add the beaker to the machine!"
 		src.updateUsrDialog()
 		icon_state = "mixer1"
@@ -66,11 +65,10 @@
 			return
 
 		src.loaded_pill_bottle = B
-		user.drop_item()
-		B.loc = src
+		user.drop_from_inventory(B,src)
 		user << "You add the pill bottle into the dispenser slot!"
 		src.updateUsrDialog()
-	else if(iswrench(B))
+	else if(B.iswrench())
 		anchored = !anchored
 		user << "You [anchored ? "attach" : "detach"] the [src] [anchored ? "to" : "from"] the ground"
 		playsound(src.loc, 'sound/items/Ratchet.ogg', 75, 1)
@@ -82,7 +80,7 @@
 
 	if (href_list["ejectp"])
 		if(loaded_pill_bottle)
-			loaded_pill_bottle.loc = src.loc
+			loaded_pill_bottle.forceMove(src.loc)
 			loaded_pill_bottle = null
 	else if(href_list["close"])
 		usr << browse(null, "window=chemmaster")
@@ -229,7 +227,7 @@
 	if(inoperable())
 		return
 	user.set_machine(src)
-	
+
 	var/datum/asset/pill_icons = get_asset_datum(/datum/asset/chem_master)
 	pill_icons.send(user.client)
 
@@ -530,8 +528,7 @@
 			return
 
 		src.beaker =  I
-		user.drop_item()
-		I.loc = src
+		user.drop_from_inventory(I,src)
 		user << "You add the beaker to the machine!"
 		src.updateUsrDialog()
 		icon_state = "mixer1"
@@ -583,8 +580,7 @@
 			return 1
 		else
 			src.beaker =  O
-			user.drop_item()
-			O.loc = src
+			user.drop_from_inventory(O,src)
 			update_icon()
 			src.updateUsrDialog()
 			return 0
@@ -596,9 +592,9 @@
 	if(!istype(O))
 		return
 
-	if(istype(O,/obj/item/weapon/storage/bag/plants))
+	if(istype(O,/obj/item/weapon/storage/bag/plants) || istype(O,/obj/item/weapon/storage/pill_bottle))
 		var/failed = 1
-		var/obj/item/weapon/storage/bag/P = O
+		var/obj/item/weapon/storage/P = O
 		for(var/obj/item/G in P.contents)
 			if(!G.reagents || !G.reagents.total_volume)
 				continue
@@ -625,7 +621,7 @@
 		return 0
 
 	user.remove_from_mob(O)
-	O.loc = src
+	O.forceMove(src)
 	holdingitems += O
 	src.updateUsrDialog()
 	return 0
@@ -713,7 +709,7 @@
 		return
 	if (!beaker)
 		return
-	beaker.loc = src.loc
+	beaker.forceMove(src.loc)
 	beaker = null
 	update_icon()
 
@@ -725,7 +721,7 @@
 		return
 
 	for(var/obj/item/O in holdingitems)
-		O.loc = src.loc
+		O.forceMove(src.loc)
 		holdingitems -= O
 	holdingitems.Cut()
 
@@ -813,3 +809,17 @@
 			target.say("*scream")
 			spawn(10)
 			user.visible_message("<span class='warning'>[user] stops the [src] and leaves [target] resting as they are.</span>", "<span class='warning'>You turn the [src] off and let go of [target].</span>")
+
+/obj/machinery/reagentgrinder/verb/Eject()
+	set src in oview(1)
+	set category = "Object"
+	set name = "Eject contents"
+
+	if(use_check(usr))
+		return
+	usr.visible_message(
+	"<span class='notice'>[usr] opens [src] and has removed [english_list(holdingitems)].</span>"
+		)
+
+	eject()
+	detach()

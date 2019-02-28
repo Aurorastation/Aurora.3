@@ -7,9 +7,9 @@
 	thrown_force_divisor = 0.1
 
 /obj/item/weapon/material/butterflyconstruction/attackby(obj/item/W as obj, mob/user as mob)
-	if(isscrewdriver(W))
+	if(W.isscrewdriver())
 		user << "You finish the concealed blade weapon."
-		new /obj/item/weapon/material/butterfly(user.loc, material.name)
+		new /obj/item/weapon/material/knife/butterfly(user.loc, material.name)
 		qdel(src)
 		return
 
@@ -59,12 +59,13 @@
 		var/obj/item/weapon/material/tmp_shard = I
 		finished = new /obj/item/weapon/material/twohanded/spear(get_turf(user), tmp_shard.material.name)
 		user << "<span class='notice'>You fasten \the [I] to the top of the rod with the cable.</span>"
-	else if(iswirecutter(I))
+	else if(I.iswirecutter())
 		finished = new /obj/item/weapon/melee/baton/cattleprod(get_turf(user))
 		user << "<span class='notice'>You fasten the wirecutters to the top of the rod with the cable, prongs outward.</span>"
 	if(finished)
-		user.drop_from_inventory(src)
-		user.drop_from_inventory(I)
+		user.drop_from_inventory(src,finished)
+		user.drop_from_inventory(I,finished)
+		//TODO: Possible better animation here.
 		qdel(I)
 		qdel(src)
 		user.put_in_hands(finished)
@@ -91,10 +92,11 @@
 		finished = new /obj/item/weapon/material/twohanded/pike(get_turf(user), tip.material.name)
 		user << "<span class='notice'>You attach \the [I] to the top of \the [src].</span>"
 	if(finished)
-		user.drop_from_inventory(src)
-		user.drop_from_inventory(I)
+		user.drop_from_inventory(src,finished)
+		user.drop_from_inventory(I,finished)
 		qdel(I)
 		qdel(src)
+		//TODO: Possible better animation here.
 		user.put_in_hands(finished)
 	update_icon(user)
 
@@ -109,3 +111,75 @@
 	force_divisor = 0.1
 	thrown_force_divisor = 0.1
 	default_material = "steel"
+
+
+/obj/item/weapon/material/woodenshield
+	name = "shield donut"
+	desc = "A wooden disc. Unusable as a shield without metal. Don't eat this."
+	icon = 'icons/obj/weapons.dmi'
+	icon_state = "buckler2"
+	force_divisor = 0.1
+	thrown_force_divisor = 0.1
+	default_material = "wood"
+
+/obj/item/weapon/material/woodenshield/attackby(var/obj/item/I, mob/user as mob)
+	..()
+	var/obj/item/finished
+	if(istype(I, /obj/item/weapon/material/shieldbits))
+		var/obj/item/weapon/material/woodenshield/donut = I
+		finished = new /obj/item/weapon/shield/buckler(get_turf(user), donut.material.name)
+		user << "<span class='notice'>You attach \the [I] to \the [src].</span>"
+	if(finished)
+		user.drop_from_inventory(src)
+		user.drop_from_inventory(I)
+		qdel(I)
+		qdel(src)
+		user.put_in_hands(finished)
+	update_icon(user)
+
+/obj/item/weapon/material/shieldbits
+	name = "shield fittings"
+	desc = "A metal ring and boss, fitting for a buckler."
+	icon = 'icons/obj/weapons.dmi'
+	icon_state = "buckler1"
+	force_divisor = 0.1
+	thrown_force_divisor = 0.1
+	default_material = "steel"
+
+/obj/item/woodcirclet
+	name = "wood circlet"
+	desc = "A small wood circlet for making a flower crown."
+	icon = 'icons/obj/buildingobject.dmi'
+	icon_state = "woodcirclet"
+	item_state = "woodcirclet"
+	w_class = ITEMSIZE_SMALL
+
+/obj/item/woodcirclet/attackby(obj/item/W as obj, mob/user as mob)
+	var/obj/item/complete
+	if(istype(W,/obj/item/seeds/poppyseed))
+		to_chat(user, "<span class='notice'>You attach the poppy to the circlet and create a beautiful flower crown.</span>")
+		complete = new /obj/item/clothing/head/poppy_crown(get_turf(user))
+		user.drop_from_inventory(W)
+		user.drop_from_inventory(src)
+		qdel(W)
+		qdel(src)
+		user.put_in_hands(complete)
+		return
+	else if(istype(W,/obj/item/seeds/sunflowerseed))
+		to_chat(user, "<span class='notice'>You attach the sunflower to the circlet and create a beautiful flower crown.</span>")
+		complete = new /obj/item/clothing/head/sunflower_crown(get_turf(user))
+		user.drop_from_inventory(W)
+		user.drop_from_inventory(src)
+		qdel(W)
+		qdel(src)
+		user.put_in_hands(complete)
+		return
+	else if(istype(W,/obj/item/seeds/harebell))
+		to_chat(user, "<span class='notice'>You attach the harebell to the circlet and create a beautiful flower crown.</span>")
+		complete = new /obj/item/clothing/head/lavender_crown(get_turf(user))
+		user.drop_from_inventory(W)
+		user.drop_from_inventory(src)
+		qdel(W)
+		qdel(src)
+		user.put_in_hands(complete)
+		return

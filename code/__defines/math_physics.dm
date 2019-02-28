@@ -1,5 +1,6 @@
 // Math constants.
 #define M_PI 3.14159
+#define NUM_E 2.71828183
 
 #define R_IDEAL_GAS_EQUATION       8.31    // kPa*L/(K*mol).
 #define ONE_ATMOSPHERE             101.325 // kPa.
@@ -19,8 +20,8 @@
 #define T20C 293.15 //   20.0 degrees celcius
 #define TCMB 2.7    // -270.3 degrees celcius
 
-#define CLAMP01(x) max(0, min(1, x))
 #define QUANTIZE(variable) (round(variable,0.0001))
+#define CEILING(x, y) ( -round(-(x) / (y)) * (y) )
 
 #define INFINITY	1.#INF
 

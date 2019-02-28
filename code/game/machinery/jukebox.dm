@@ -154,7 +154,7 @@ datum/track/New(var/title_name, var/audio)
 
 /obj/machinery/media/jukebox/proc/explode()
 	walk_to(src,0)
-	src.visible_message("<span class='danger'>\the [src] blows apart!</span>", 1)
+	visible_message("<span class='danger'>\the [src] blows apart!</span>")
 
 	explosion(src.loc, 0, 0, 1, rand(1,2), 1)
 
@@ -166,7 +166,7 @@ datum/track/New(var/title_name, var/audio)
 /obj/machinery/media/jukebox/attackby(obj/item/W as obj, mob/user as mob)
 	src.add_fingerprint(user)
 
-	if(iswrench(W))
+	if(W.iswrench())
 		if(playing)
 			StopPlaying()
 		user.visible_message("<span class='warning'>[user] has [anchored ? "un" : ""]secured \the [src].</span>", "<span class='notice'>You [anchored ? "un" : ""]secure \the [src].</span>")

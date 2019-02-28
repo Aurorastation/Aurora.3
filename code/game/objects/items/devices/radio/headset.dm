@@ -219,6 +219,13 @@
 	item_state = "headset"
 	ks2type = /obj/item/device/encryptionkey/ert
 
+/obj/item/device/radio/headset/legion
+	name = "Tau Ceti Foreign Legion radio headset"
+	desc = "The headset used by NanoTrasen sanctioned response forces."
+	icon_state = "com_headset"
+	item_state = "headset"
+	ks2type = /obj/item/device/encryptionkey/onlyert
+
 /obj/item/device/radio/headset/ia
 	name = "internal affairs headset"
 	desc = "The headset of your worst enemy."
@@ -226,20 +233,13 @@
 	item_state = "headset"
 	ks2type = /obj/item/device/encryptionkey/heads/hos
 
-/obj/item/device/radio/headset/entertainment
-	name = "actor's radio headset"
-	desc = "specially made to make you sound less cheesy."
-	icon_state = "com_headset"
-	item_state = "headset"
-	ks2type = /obj/item/device/encryptionkey/entertainment
-
 /obj/item/device/radio/headset/attackby(obj/item/weapon/W as obj, mob/user as mob)
 //	..()
 	user.set_machine(src)
-	if (!( isscrewdriver(W) || (istype(W, /obj/item/device/encryptionkey/ ))))
+	if (!( W.isscrewdriver() || (istype(W, /obj/item/device/encryptionkey/ ))))
 		return
 
-	if(isscrewdriver(W))
+	if(W.isscrewdriver())
 		if(keyslot1 || keyslot2)
 
 
@@ -251,7 +251,7 @@
 			if(keyslot1)
 				var/turf/T = get_turf(user)
 				if(T)
-					keyslot1.loc = T
+					keyslot1.forceMove(T)
 					keyslot1 = null
 
 
@@ -259,7 +259,7 @@
 			if(keyslot2)
 				var/turf/T = get_turf(user)
 				if(T)
-					keyslot2.loc = T
+					keyslot2.forceMove(T)
 					keyslot2 = null
 
 			recalculateChannels()
@@ -274,13 +274,11 @@
 			return
 
 		if(!keyslot1)
-			user.drop_item()
-			W.loc = src
+			user.drop_from_inventory(W,src)
 			keyslot1 = W
 
 		else
-			user.drop_item()
-			W.loc = src
+			user.drop_from_inventory(W,src)
 			keyslot2 = W
 
 

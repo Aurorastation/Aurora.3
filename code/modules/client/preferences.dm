@@ -26,6 +26,7 @@ datum/preferences
 	var/asfx_togs = ASFX_DEFAULT
 	var/UI_style_color = "#ffffff"
 	var/UI_style_alpha = 255
+	var/html_UI_style = "Nano"
 	var/motd_hash = ""					//Hashes for the new server greeting window.
 	var/memo_hash = ""
 
@@ -116,7 +117,7 @@ datum/preferences
 	var/exploit_record = ""
 	var/ccia_record = ""
 	var/list/ccia_actions = list()
-	var/disabilities = 0
+	var/list/disabilities = list()
 
 	var/nanotrasen_relation = "Neutral"
 
@@ -369,6 +370,8 @@ datum/preferences
 	// Destroy/cyborgize organs & setup body markings
 	character.sync_organ_prefs_to_mob(src)
 
+	character.sync_trait_prefs_to_mob(src)
+
 	character.underwear = underwear
 
 	character.undershirt = undershirt
@@ -385,6 +388,7 @@ datum/preferences
 		character.update_mutations(0)
 		character.update_body(0)
 		character.update_hair(0)
+		character.update_underwear(0)
 		character.update_icons()
 
 /datum/preferences/proc/open_load_dialog_sql(mob/user)
@@ -454,8 +458,11 @@ datum/preferences
 	if (!config.sql_saves || !config.sql_stats || !establish_db_connection(dbcon) || !H)
 		return
 
-	var/DBQuery/query = dbcon.NewQuery("INSERT INTO ss13_characters_log (char_id, game_id, datetime, job_name, special_role) VALUES (:char_id:, :game_id:, NOW(), :job:, :special_role:)")
-	query.Execute(list("char_id" = current_character, "game_id" = game_id, "job" = H.mind.assigned_role, "special_role" = H.mind.special_role))
+	if(!H.mind.assigned_role)
+		log_debug("Char-Log: Char [current_character] - [H.name] has joined with mind.assigned_role set to NULL")
+
+	var/DBQuery/query = dbcon.NewQuery("INSERT INTO ss13_characters_log (char_id, game_id, datetime, job_name, alt_title) VALUES (:char_id:, :game_id:, NOW(), :job:, :alt_title:)")
+	query.Execute(list("char_id" = current_character, "game_id" = game_id, "job" = H.mind.assigned_role, "alt_title" = H.mind.role_alt_title))
 
 // Turned into a proc so we could reuse it for SQL shenanigans.
 /datum/preferences/proc/new_setup(var/re_initialize = 0)
@@ -535,7 +542,7 @@ datum/preferences
 		flavour_texts_robot = list()
 
 		ccia_actions = list()
-		disabilities = 0
+		disabilities = list()
 
 		nanotrasen_relation = "Neutral"
 

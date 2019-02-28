@@ -13,7 +13,7 @@
 
 /obj/mecha/working/ripley/Destroy()
 	for(var/atom/movable/A in src.cargo)
-		A.loc = loc
+		A.forceMove(loc)
 		var/turf/T = loc
 		if(istype(T))
 			T.Entered(A)
@@ -29,7 +29,7 @@
 	max_temperature = 65000
 	health = 250
 	lights_power = 8
-	step_in = 7
+	step_in = 6
 	damage_absorption = list("brute"=0.6,"fire"=0.5,"bullet"=0.8,"laser"=0.7,"energy"=0.85,"bomb"=0.5)
 	wreckage = /obj/effect/decal/mecha_wreckage/ripley/firefighter
 
@@ -44,8 +44,8 @@
 	wreckage = /obj/effect/decal/mecha_wreckage/ripley/deathripley
 	step_energy_drain = 0
 
-/obj/mecha/working/ripley/deathripley/New()
-	..()
+/obj/mecha/working/ripley/deathripley/Initialize()
+	.= ..()
 	var/obj/item/mecha_parts/mecha_equipment/ME = new /obj/item/mecha_parts/mecha_equipment/tool/safety_clamp
 	ME.attach(src)
 	return
@@ -54,8 +54,8 @@
 	desc = "An old, dusty mining ripley."
 	name = "APLU \"Miner\""
 
-/obj/mecha/working/ripley/mining/New()
-	..()
+/obj/mecha/working/ripley/mining/Initialize()
+	.= ..()
 	//Attach drill
 	if(prob(25)) //Possible diamond drill... Feeling lucky?
 		var/obj/item/mecha_parts/mecha_equipment/tool/drill/diamonddrill/D = new /obj/item/mecha_parts/mecha_equipment/tool/drill/diamonddrill
@@ -71,3 +71,24 @@
 		qdel (B)
 
 
+/obj/mecha/working/ripley/combat
+	desc = "A large APLU unit fitted with specialized composite armor and fancy, though old targeting systems."
+	name = "combat APLU \"Ripley\""
+	icon_state = "combatripley"
+	initial_icon = "combatripley"
+	health = 300
+	wreckage = /obj/effect/decal/mecha_wreckage/ripley
+	deflect_chance = 10
+	damage_absorption = list("brute"=0.75,"fire"=1,"bullet"=0.8,"laser"=0.7,"energy"=0.85,"bomb"=1)
+
+/obj/mecha/working/ripley/combat/Initialize()
+	.= ..()
+	var/obj/item/mecha_parts/mecha_equipment/ME = new /obj/item/mecha_parts/mecha_equipment/weapon/energy/riggedlaser
+	ME.attach(src)
+	ME = new /obj/item/mecha_parts/mecha_equipment/tool/drill
+	ME.attach(src)
+	ME = new /obj/item/mecha_parts/mecha_equipment/tool/passenger
+	ME.attach(src)
+	ME = new /obj/item/mecha_parts/mecha_equipment/tool/passenger
+	ME.attach(src)
+	return

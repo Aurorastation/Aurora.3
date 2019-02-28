@@ -74,3 +74,8 @@
 	name = "\improper AI Main New"
 	icon_state = "storage"
 
+/area/turret_protected/corp_vault
+	name = "\improper NanoTrasen Corporate Vault"
+	icon_state = "ai_upload"
+	ambience = list('sound/ambience/ambimalf.ogg')
+

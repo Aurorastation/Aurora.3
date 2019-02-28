@@ -258,3 +258,14 @@
 	new /obj/item/weapon/spacecash/c1000(src)
 	new /obj/item/weapon/spacecash/c1000(src)
 	new /obj/item/weapon/spacecash/c1000(src)
+
+/obj/item/weapon/storage/box/syndie_kit/stimulants
+	name = "box of stimulants"
+	desc = "Comes with a combat inhaler, a large cartridge of hyperzine, a large cartridge of inaprovaline, and a large empty cartridge."
+
+/obj/item/weapon/storage/box/syndie_kit/stimulants/fill()
+	..()
+	new /obj/item/weapon/personal_inhaler/combat( src )
+	new /obj/item/weapon/reagent_containers/personal_inhaler_cartridge/large/hyperzine( src )
+	new /obj/item/weapon/reagent_containers/personal_inhaler_cartridge/large/inaprovaline( src )
+	new /obj/item/weapon/reagent_containers/personal_inhaler_cartridge/large( src )

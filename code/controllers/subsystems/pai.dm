@@ -26,7 +26,7 @@
 		var/datum/pai_software/P = new type()
 		if(pai_software_by_key[P.id])
 			var/datum/pai_software/O = pai_software_by_key[P.id]
-			world << "<span class='warning'>pAI software module [P.name] has the same key as [O.name]!</span>"
+			to_world("<span class='warning'>pAI software module [P.name] has the same key as [O.name]!</span>")
 			continue
 		pai_software_by_key[P.id] = P
 		if(P.default)
@@ -382,7 +382,7 @@
 /datum/controller/subsystem/pai/proc/question(client/C)
 	set waitfor = FALSE
 
-	if(!C)	
+	if(!C)
 		return
 	asked.Add(C.key)
 	asked[C.key] = world.time

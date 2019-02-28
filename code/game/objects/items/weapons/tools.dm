@@ -29,6 +29,8 @@
 	matter = list(DEFAULT_WALL_MATERIAL = 150)
 	attack_verb = list("bashed", "battered", "bludgeoned", "whacked")
 
+/obj/item/weapon/wrench/iswrench()
+	return TRUE
 
 /*
  * Screwdriver
@@ -47,8 +49,15 @@
 	throw_range = 5
 	matter = list(DEFAULT_WALL_MATERIAL = 75)
 	attack_verb = list("stabbed")
+	lock_picking_level = 5
+	var/random_icon = TRUE
 
-/obj/item/weapon/screwdriver/New()
+
+/obj/item/weapon/screwdriver/Initialize()
+	. = ..()
+	if(!random_icon)
+		return
+
 	switch(pick("red","blue","purple","brown","green","cyan","yellow"))
 		if ("red")
 			icon_state = "screwdriver2"
@@ -74,7 +83,6 @@
 
 	if (prob(75))
 		src.pixel_y = rand(0, 16)
-	..()
 
 /obj/item/weapon/screwdriver/attack(mob/living/carbon/M as mob, mob/living/carbon/user as mob, var/target_zone)
 	if(!istype(M) || user.a_intent == "help")
@@ -84,6 +92,9 @@
 	if((CLUMSY in user.mutations) && prob(50))
 		M = user
 	return eyestab(M,user)
+
+/obj/item/weapon/screwdriver/isscrewdriver()
+	return TRUE
 
 /*
  * Wirecutters
@@ -124,6 +135,9 @@
 	else
 		..()
 
+/obj/item/weapon/wirecutters/iswirecutter()
+	return TRUE
+
 /*
  * Welding Tool
  */
@@ -156,6 +170,8 @@
 	var/status = 1 		//Whether the welder is secured or unsecured (able to attach rods to it to make a flamethrower)
 	var/max_fuel = 20 	//The max amount of fuel the welder can hold
 
+/obj/item/weapon/weldingtool/iswelder()
+	return TRUE
 
 /obj/item/weapon/weldingtool/largetank
 	name = "industrial welding tool"
@@ -220,7 +236,7 @@
 		user << text("\icon[] [] contains []/[] units of fuel!", src, src.name, get_fuel(),src.max_fuel )
 
 /obj/item/weapon/weldingtool/attackby(obj/item/W as obj, mob/user as mob)
-	if(isscrewdriver(W))
+	if(W.isscrewdriver())
 		if (isrobot(loc))
 			user << span("alert", "You cannot modify your own welder!")
 			return
@@ -239,7 +255,7 @@
 		var/obj/item/stack/rods/R = W
 		R.use(1)
 		var/obj/item/weapon/flamethrower/F = new/obj/item/weapon/flamethrower(user.loc)
-		src.loc = F
+		src.forceMove(F)
 		F.weldtool = src
 		if (user.client)
 			user.client.screen -= src
@@ -252,7 +268,7 @@
 		user.remove_from_mob(src)
 		if (user.client)
 			user.client.screen -= src
-		src.loc = F
+		src.forceMove(F)
 		src.add_fingerprint(user)
 		return
 
@@ -284,7 +300,7 @@
 		var/obj/item/organ/external/S = M:organs_by_name[target_zone]
 
 		if (!S) return
-		if(!(S.status & ORGAN_ROBOT) || user.a_intent != I_HELP)
+		if(!(S.status & ORGAN_ASSISTED) || user.a_intent != I_HELP)
 			return ..()
 
 		if(M.isSynthetic() && M == user && !(M.get_species() == "Hunter-Killer"))
@@ -338,7 +354,7 @@
 			message_admins("[key_name_admin(user)] triggered a fueltank explosion.")
 			log_game("[key_name(user)] triggered a fueltank explosion with a welding tool.",ckey=key_name(user))
 			user << span("alert", "That was stupid of you.")
-			tank.explode()
+			tank.ex_act(3.0)
 			return
 		else
 			tank.armed = 0
@@ -522,6 +538,9 @@
 	matter = list(DEFAULT_WALL_MATERIAL = 50)
 	attack_verb = list("attacked", "bashed", "battered", "bludgeoned", "whacked")
 
+/obj/item/weapon/crowbar/iscrowbar()
+	return TRUE
+
 /obj/item/weapon/crowbar/red
 	icon = 'icons/obj/items.dmi'
 	icon_state = "red_crowbar"
@@ -541,3 +560,59 @@
 	origin_tech = list(TECH_MATERIAL = 1, TECH_ENGINEERING = 2)
 	matter = list(DEFAULT_WALL_MATERIAL = 150)
 	attack_verb = list("bashed", "battered", "bludgeoned", "whacked")
+
+//combitool
+
+/obj/item/combitool
+	name = "combi-tool"
+	desc = "It even has one of those nubbins for doing the thingy."
+	icon = 'icons/obj/combitool.dmi'
+	icon_state = "combitool"
+	force = 3
+	w_class = 2
+
+	var/list/tools = list(
+		"crowbar",
+		"screwdriver",
+		"wrench",
+		"wirecutters"
+		)
+	var/current_tool = 1
+
+/obj/item/combitool/Initialize()
+	desc = "[initial(desc)] ([tools.len]. [tools.len] possibilit[tools.len == 1 ? "y" : "ies"])"
+	. = ..()
+
+/obj/item/combitool/examine(var/mob/user)
+	. = ..()
+	if(. && tools.len)
+		to_chat(user, "It has the following fittings:")
+		for(var/tool in tools)
+			to_chat(user, "- [tool][tools[current_tool] == tool ? " (selected)" : ""]")
+
+/obj/item/combitool/iswrench()
+	return tools[current_tool] == "wrench"
+
+/obj/item/combitool/isscrewdriver()
+	return tools[current_tool] == "screwdriver"
+
+/obj/item/combitool/iswirecutter()
+	return tools[current_tool] == "wirecutters"
+
+/obj/item/combitool/iscrowbar()
+	return tools[current_tool] == "crowbar"
+
+/obj/item/combitool/proc/update_tool()
+	icon_state = "[initial(icon_state)]-[tools[current_tool]]"
+
+/obj/item/combitool/attack_self(var/mob/user)
+	if(++current_tool > tools.len)
+		current_tool = 1
+	var/tool = tools[current_tool]
+	if(!tool)
+		to_chat(user, "You can't seem to find any fittings in \the [src].")
+	else
+		to_chat(user, "You switch \the [src] to the [tool] fitting.")
+	update_tool()
+	return 1
+

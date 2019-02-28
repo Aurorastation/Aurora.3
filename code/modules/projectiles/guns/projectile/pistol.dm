@@ -5,6 +5,7 @@
 	allowed_magazines = list(/obj/item/ammo_magazine/c45m)
 	icon_state = "colt"
 	caliber = ".45"
+	accuracy = 1
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
 	fire_sound = 'sound/weapons/Gunshot_light.ogg'
 	load_method = MAGAZINE
@@ -44,8 +45,9 @@
 	magazine_type = /obj/item/ammo_magazine/c45m/rubber
 	allowed_magazines = list(/obj/item/ammo_magazine/c45m)
 	caliber = ".45"
+	accuracy = 1
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
-	fire_sound = 'sound/weapons/Gunshot_light.ogg'
+	fire_sound = 'sound/weapons/gunshot_pistol.ogg'
 	load_method = MAGAZINE
 
 /obj/item/weapon/gun/projectile/sec/update_icon()
@@ -79,6 +81,7 @@
 	desc = "The x9 tactical pistol is a lightweight fast firing handgun. Uses .45 rounds."
 	icon_state = "x9tactical"
 	w_class = 3
+	accuracy = 1
 	load_method = MAGAZINE
 	slot_flags = SLOT_BELT|SLOT_HOLSTER
 	max_shells = 16
@@ -93,19 +96,20 @@
 
 /obj/item/weapon/gun/projectile/tanto
 	desc = "A Necropolis Industries Tanto .40, designed to compete with the NT Mk58. Uses 10mm rounds."
-	name = "10mm pistol"
+	name = "10mm auto-pistol"
 	icon_state = "c05r"
-	magazine_type = /obj/item/ammo_magazine/t40
-	allowed_magazines = list(/obj/item/ammo_magazine/t40)
+	magazine_type = /obj/item/ammo_magazine/mc10mm
+	allowed_magazines = list(/obj/item/ammo_magazine/mc10mm)
 	caliber = "10mm"
+	accuracy = 1
 	origin_tech = list(TECH_COMBAT = 3, TECH_MATERIAL = 2)
-	fire_sound = 'sound/weapons/Gunshot_light.ogg'
+	fire_sound = 'sound/weapons/gunshot_pistol.ogg'
 	load_method = MAGAZINE
 	sel_mode = 1
 
 	firemodes = list(
 		list(mode_name="semiauto",       burst=1, fire_delay=0,    move_delay=null, burst_accuracy=null, dispersion=null),
-		list(mode_name="3-round bursts", burst=3, fire_delay=null, move_delay=4,    burst_accuracy=list(0,-1,-1),       dispersion=list(0, 10))
+		list(mode_name="3-round bursts", burst=3, fire_delay=null, move_delay=2,    burst_accuracy=list(1,0,0),       dispersion=list(0, 10))
 		)
 
 
@@ -121,6 +125,7 @@
 	desc = "A small, quiet,  easily concealable gun. Uses .45 rounds."
 	icon_state = "silenced_pistol"
 	w_class = 3
+	accuracy = 1
 	caliber = ".45"
 	silenced = 1
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2, TECH_ILLEGAL = 8)
@@ -133,6 +138,7 @@
 	desc = "A robust handgun that uses .50 AE ammo."
 	icon_state = "deagle"
 	force = 14.0
+	accuracy = 1
 	caliber = ".50"
 	load_method = MAGAZINE
 	magazine_type = /obj/item/ammo_magazine/a50
@@ -161,6 +167,7 @@
 	desc = "A bulky pistol designed to fire self propelled rounds"
 	icon_state = "gyropistol"
 	max_shells = 8
+	accuracy = 1
 	caliber = "75"
 	fire_sound = 'sound/effects/Explosion1.ogg'
 	origin_tech = list(TECH_COMBAT = 3)
@@ -184,10 +191,11 @@
 	icon_state = "pistol"
 	item_state = null
 	w_class = 2
+	accuracy = 1
 	caliber = "9mm"
 	silenced = 0
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2, TECH_ILLEGAL = 2)
-	fire_sound = 'sound/weapons/Gunshot_light.ogg'
+	fire_sound = 'sound/weapons/gunshot_pistol.ogg'
 	load_method = MAGAZINE
 	magazine_type = /obj/item/ammo_magazine/mc9mm
 	allowed_magazines = list(/obj/item/ammo_magazine/mc9mm)
@@ -215,11 +223,10 @@
 		if(user.l_hand != src && user.r_hand != src)	//if we're not in his hands
 			user << "<span class='notice'>You'll need [src] in your hands to do that.</span>"
 			return
-		user.drop_item()
+		user.drop_from_inventory(I,src)
 		user << "<span class='notice'>You screw [I] onto [src].</span>"
 		silenced = I	//dodgy?
 		w_class = 3
-		I.loc = src		//put the silencer into the gun
 		update_icon()
 		return
 	..()
@@ -263,7 +270,7 @@
 		/obj/item/ammo_casing/shotgun/pellet    = "12 gauge",
 		/obj/item/ammo_casing/shotgun/pellet    = "12 gauge",
 		/obj/item/ammo_casing/shotgun/beanbag   = "12 gauge",
-		/obj/item/ammo_casing/shotgun/emp	= "12 gauge",
+		/obj/item/ammo_casing/shotgun/emp	    = "12 gauge",
 		/obj/item/ammo_casing/a762              = "7.62mm",
 		/obj/item/ammo_casing/a556              = "5.56mm"
 		)
@@ -275,3 +282,28 @@
 	var/obj/item/ammo_casing/ammo = ammo_type
 	caliber = initial(ammo.caliber)
 	. = ..()
+
+/obj/item/weapon/gun/projectile/leyon
+	name = "10mm pistol"
+	desc = "The Leyon LCC Everyman is a small pistol that holds five shots and is loaded with a stripper clip, popular for self-defense on Mars. Uses 10mm rounds."
+	icon_state = "leyon"
+	caliber = "10mm"
+	w_class = 2
+	ammo_type = /obj/item/ammo_casing/c10mm
+	max_shells = 5
+	origin_tech = list(TECH_COMBAT = 1, TECH_MATERIAL = 1)
+	fire_sound = 'sound/weapons/gunshot_pistol.ogg'
+	load_method = SINGLE_CASING|SPEEDLOADER
+
+/obj/item/weapon/gun/projectile/leyon/load_ammo(var/obj/item/A, mob/user)
+	user.visible_message("[user] begins reloading \the [src].", "You begin reloading \the [src].")
+	if(!do_after(user, 20, act_target = src))
+		return
+	return ..()
+
+/obj/item/weapon/gun/projectile/leyon/update_icon()
+	..()
+	if(loaded.len)
+		icon_state = "leyon"
+	else
+		icon_state = "leyon-e"

@@ -10,6 +10,7 @@
 	gain_text = "<span class='notice'>You feel the bluespace pulsing around you...</span>"
 	lose_text = "<span class='warning'>The faint pulsing of bluespace fades into silence.</span>"
 	var/next_portal = 0
+	cure_type = CURE_SURGERY
 
 /datum/brain_trauma/special/bluespace_prophet/on_life()
 	if(world.time > next_portal)
@@ -90,3 +91,94 @@
 		user.forceMove(get_turf(linked_to))
 		user.visible_message("<span class='warning'>[user] [slip_in_message].</span>", ignored_mob = user)
 		user.visible_message("<span class='warning'>[user] [slip_out_message].</span>", "<span class='notice'>...and find your way to the other side.</span>")
+
+/datum/brain_trauma/special/love
+	name = "Hyper-dependency"
+	desc = "Patient feels lovesick and is emotionally dependent to a specific person."
+	scan_desc = "severe dependency"
+	gain_text = ""
+	lose_text = "<span class='notice'>You feel love leave your heart.</span>"
+	var/stress = 0
+	var/datum/weakref/beloved = null
+	cure_type = CURE_HYPNOSIS
+
+/datum/brain_trauma/special/love/on_gain()
+	..()
+	for(var/mob/living/L in view(7,owner))
+		if(L != owner)
+			beloved = L
+			break
+	if(beloved)
+		to_chat(owner, "<span class='notice'>You can't help but love [beloved]. You can't bear to be apart from them, and would do anything they say.</span>")
+
+	else
+		to_chat(owner, "<span class='notice'>You feel a brief burst of passion, but it quickly fades.</span>")
+		qdel()
+
+/datum/brain_trauma/special/love/on_life()
+	..()
+	if(check_alone())
+		stress = min(stress + 0.5, 100)
+		if(stress > 10 && (prob(10)))
+			stress_reaction()
+	else
+		stress = max(0, stress - 4)
+		if(prob(5) && stress > 0)
+			var/mushy = pick("You feel so good when [beloved] is with you.","You can't believe you ever lived without [beloved].","You'd do anything for [beloved].","[beloved] makes everything better.","You can never let [beloved] leave again.")
+			to_chat(owner, "<span class='notice'>[mushy]</span>")
+
+/datum/brain_trauma/special/love/proc/check_alone()
+	if(owner.disabilities & BLIND)
+		return TRUE
+
+	for(var/mob/living/L in view(owner, 7))
+		if(L == beloved)
+			return FALSE
+
+	return TRUE
+
+/datum/brain_trauma/special/love/proc/stress_reaction()
+	if(owner.stat != CONSCIOUS)
+		return
+
+	var/high_stress = (stress > 60) //things get psychosomatic from here on
+	switch(rand(1,6))
+		if(1)
+			if(!high_stress)
+				to_chat(owner, "<span class='warning'>You feel sick...</span>")
+			else
+				to_chat(owner, "<span class='warning'>You feel really sick at the thought of being seperated from [beloved]!</span>")
+			addtimer(CALLBACK(owner, /mob/living/carbon.proc/vomit, high_stress), 50) //blood vomit if high stress
+		if(2)
+			if(!high_stress)
+				to_chat(owner, "<span class='warning'>You can't stop shaking...</span>")
+				owner.dizziness += 20
+				owner.confused += 20
+				owner.Jitter(20)
+			else
+				to_chat(owner, "<span class='warning'>You feel weak and scared! If only [beloved] was here!</span>")
+				owner.dizziness += 20
+				owner.confused += 20
+				owner.Jitter(20)
+				owner.adjustHalLoss(50)
+
+		if(3, 4)
+			if(!high_stress)
+				to_chat(owner, "<span class='warning'>You feel really lonely without [beloved]...</span>")
+			else
+				to_chat(owner, "<span class='warning'>You're going mad with loneliness! You need [beloved]!</span>")
+				owner.hallucination += 20
+
+		if(5)
+			if(!high_stress)
+				to_chat(owner, "<span class='warning'>Your heart skips a beat. Oh, [beloved]!</span>")
+				owner.adjustOxyLoss(8)
+			else
+				if(prob(15) && ishuman(owner))
+					var/mob/living/carbon/human/H = owner
+					var/obj/item/organ/heart/heart = H.internal_organs_by_name["heart"]
+					heart.take_damage(heart.min_bruised_damage)
+					to_chat(H, "<span class='danger'>You feel a stabbing pain in your heart!</span>")
+				else
+					to_chat(owner, "<span class='danger'>You feel your heart lurching in your chest... Oh, [beloved]!</span>")
+					owner.adjustOxyLoss(8)

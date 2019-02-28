@@ -9,6 +9,7 @@
 	throw_range = 20
 	var/heal_brute = 0
 	var/heal_burn = 0
+	var/apply_sounds
 
 /obj/item/stack/medical/attack(mob/living/M as mob, mob/user as mob)
 	if (!istype(M) || istype(M, /mob/living/silicon) || istype(M, /mob/living/simple_animal/spiderbot))
@@ -33,7 +34,7 @@
 				user << "<span class='warning'>You can't apply [src] through [H.wear_suit]!</span>"
 				return 1
 
-		if(affecting.status & ORGAN_ROBOT)
+		if(affecting.status & ORGAN_ASSISTED)
 			user << "<span class='warning'>This isn't useful at all on a robotic limb..</span>"
 			return 1
 
@@ -65,6 +66,7 @@
 	origin_tech = list(TECH_BIO = 1)
 	heal_brute = 4
 	icon_has_variants = TRUE
+	apply_sounds = list('sound/items/rip1.ogg','sound/items/rip2.ogg')
 
 /obj/item/stack/medical/bruise_pack/attack(mob/living/carbon/M as mob, mob/user as mob)
 	if(..())
@@ -104,6 +106,7 @@
 						user.visible_message("<span class='notice'>\The [user] places a bandaid over \a [W.desc] on [M]'s [affecting.name].</span>", \
 						                              "<span class='notice'>You place a bandaid over \a [W.desc] on [M]'s [affecting.name].</span>" )
 					W.bandage()
+					playsound(src, pick(apply_sounds), 25)
 					used++
 				affecting.update_damages()
 				if(used == amount)
@@ -128,6 +131,7 @@
 	heal_burn = 4
 	origin_tech = list(TECH_BIO = 1)
 	icon_has_variants = TRUE
+	apply_sounds = list('sound/items/ointment.ogg')
 
 /obj/item/stack/medical/ointment/attack(mob/living/carbon/M as mob, mob/user as mob)
 	if(..())
@@ -145,6 +149,7 @@
 				user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 				user.visible_message("<span class='notice'>\The [user] starts salving wounds on [M]'s [affecting.name].</span>", \
 						             "<span class='notice'>You start salving the wounds on [M]'s [affecting.name].</span>" )
+				playsound(src, pick(apply_sounds), 25)
 				if(!do_mob(user, M, 10))
 					user << "<span class='notice'>You must stand still to salve wounds.</span>"
 					return 1
@@ -166,6 +171,7 @@
 	icon_state = "traumakit"
 	heal_brute = 8
 	origin_tech = list(TECH_BIO = 1)
+	apply_sounds = list('sound/items/rip1.ogg','sound/items/rip2.ogg','sound/items/tape.ogg')
 
 /obj/item/stack/medical/advanced/bruise_pack/attack(mob/living/carbon/M as mob, mob/user as mob)
 	if(..())
@@ -204,6 +210,7 @@
 					else
 						user.visible_message("<span class='notice'>\The [user] smears some bioglue over \a [W.desc] on [M]'s [affecting.name].</span>", \
 						                              "<span class='notice'>You smear some bioglue over \a [W.desc] on [M]'s [affecting.name].</span>" )
+					playsound(src, pick(apply_sounds), 25)
 					W.bandage()
 					W.disinfect()
 					W.heal_damage(heal_brute)
@@ -229,7 +236,7 @@
 	icon_state = "burnkit"
 	heal_burn = 8
 	origin_tech = list(TECH_BIO = 1)
-
+	apply_sounds = list('sound/items/ointment.ogg')
 
 /obj/item/stack/medical/advanced/ointment/attack(mob/living/carbon/M as mob, mob/user as mob)
 	if(..())
@@ -247,6 +254,7 @@
 				user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 				user.visible_message("<span class='notice'>\The [user] starts salving wounds on [M]'s [affecting.name].</span>", \
 						             "<span class='notice'>You start salving the wounds on [M]'s [affecting.name].</span>" )
+				playsound(src, pick(apply_sounds), 25)
 				if(!do_mob(user, M, 10))
 					user << "<span class='notice'>You must stand still to salve wounds.</span>"
 					return 1

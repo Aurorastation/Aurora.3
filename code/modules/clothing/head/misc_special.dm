@@ -144,7 +144,6 @@
 	name = "kitty ears"
 	desc = "A pair of kitty ears. Meow!"
 	icon_state = "kitty"
-	body_parts_covered = 0
 	siemens_coefficient = 1.5
 	item_icons = list()
 

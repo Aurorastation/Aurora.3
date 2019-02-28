@@ -16,6 +16,9 @@
 		mind.handle_mob_deletion(src)
 	for(var/infection in viruses)
 		qdel(infection)
+	for(var/cc in client_colors)
+		qdel(cc)
+	client_colors = null
 	viruses.Cut()
 
 	//Added this to prevent nonliving mobs from ghostising
@@ -54,6 +57,7 @@
 	healths = null
 	throw_icon = null
 	nutrition_icon = null
+	hydration_icon = null
 	pressure = null
 	damageoverlay = null
 	pain = null
@@ -106,10 +110,10 @@
 // self_message (optional) is what the src mob sees  e.g. "You do something!"
 // blind_message (optional) is what blind people will hear e.g. "You hear something!"
 
-/mob/visible_message(var/message, var/self_message, var/blind_message)
+/mob/visible_message(var/message, var/self_message, var/blind_message, var/range = world.view)
 	var/list/messageturfs = list()//List of turfs we broadcast to.
 	var/list/messagemobs = list()//List of living mobs nearby who can hear it, and distant ghosts who've chosen to hear it
-	for (var/turf in view(world.view, get_turf(src)))
+	for (var/turf in view(range, get_turf(src)))
 		messageturfs += turf
 
 	for(var/A in player_list)
@@ -288,7 +292,8 @@
 /mob/verb/examinate(atom/A as mob|obj|turf in view())
 	set name = "Examine"
 	set category = "IC"
-
+	if(!A)
+		return
 	if((is_blind(src) || usr.stat) && !isobserver(src))
 		src << "<span class='notice'>Something is there but you can't see it.</span>"
 		return 1
@@ -752,7 +757,7 @@
 			stat("Game ID", game_id)
 			stat("Map", current_map.full_name)
 			stat("Station Time", worldtime2text())
-			stat("Round Duration", round_duration())
+			stat("Round Duration", get_round_duration_formatted())
 			stat("Last Transfer Vote", SSvote.last_transfer_vote ? time2text(SSvote.last_transfer_vote, "hh:mm") : "Never")
 
 		if(client.holder)

@@ -12,6 +12,8 @@
 	organ_tag = "heart"
 	parent_organ = "chest"
 	dead_icon = "heart-off"
+	robotic_name = "circulatory pump"
+	robotic_sprite = "heart-prosthetic"
 
 /obj/item/organ/lungs
 	name = "lungs"
@@ -19,6 +21,8 @@
 	gender = PLURAL
 	organ_tag = "lungs"
 	parent_organ = "chest"
+	robotic_name = "gas exchange system"
+	robotic_sprite = "heart-prosthetic"
 
 /obj/item/organ/lungs/process()
 	..()
@@ -28,7 +32,7 @@
 
 	if (germ_level > INFECTION_LEVEL_ONE)
 		if(prob(5))
-			owner.emote("cough")		//respitory tract infection
+			owner.emote("cough")		//Respiratory tract infection
 
 	if(is_bruised())
 		if(prob(2))
@@ -44,6 +48,8 @@
 	gender = PLURAL
 	organ_tag = "kidneys"
 	parent_organ = "groin"
+	robotic_name = "prosthetic kidneys"
+	robotic_sprite = "kidneys-prosthetic"
 
 /obj/item/organ/kidneys/process()
 
@@ -68,6 +74,8 @@
 	gender = PLURAL
 	organ_tag = "eyes"
 	parent_organ = "head"
+	robotic_name = "visual prosthesis"
+	robotic_sprite = "eyes-prosthetic"
 	var/list/eye_colour = list(0,0,0)
 	var/singular_name = "eye"
 
@@ -86,6 +94,9 @@
 	if(is_broken() && !oldbroken && owner && !owner.stat)
 		owner << "<span class='danger'>You go blind!</span>"
 
+/obj/item/organ/eyes/proc/flash_act()
+	return
+
 /obj/item/organ/eyes/process() //Eye damage replaces the old eye_stat var.
 	..()
 	if(!owner)
@@ -100,6 +111,8 @@
 	icon_state = "liver"
 	organ_tag = "liver"
 	parent_organ = "groin"
+	robotic_name = "toxin filter"
+	robotic_sprite = "liver-prosthetic"
 
 /obj/item/organ/liver/process()
 
@@ -135,27 +148,22 @@
 		if(src.damage < 0)
 			src.damage = 0
 
-		// Get the effectiveness of the liver.
-		var/filter_effect = 3
+		var/filter_strength = INTOX_FILTER_HEALTHY
 		if(is_bruised())
-			filter_effect -= 1
+			filter_strength = INTOX_FILTER_BRUISED
 		if(is_broken())
-			filter_effect -= 2
+			filter_strength = INTOX_FILTER_DAMAGED
 
 		if (owner.intoxication > 0)
-			//ALCOHOL_FILTRATION_RATE is defined in intoxication.dm
-			owner.intoxication -= ALCOHOL_FILTRATION_RATE*filter_effect*PROCESS_ACCURACY//A weakened liver filters out alcohol more slowly
+			owner.intoxication -= filter_strength*PROCESS_ACCURACY
 			owner.intoxication = max(owner.intoxication, 0)
 			if (!owner.intoxication)
-				//If intoxication has just been reduced to zero, this will handle removing any effects
 				owner.handle_intoxication()
 
-		// Do some reagent processing.
 		if(owner.chem_effects[CE_ALCOHOL_TOXIC])
-			if(filter_effect < 3)
+			take_damage(owner.chem_effects[CE_ALCOHOL_TOXIC] * 0.1 * PROCESS_ACCURACY, prob(1))
+			if(is_damaged())
 				owner.adjustToxLoss(owner.chem_effects[CE_ALCOHOL_TOXIC] * 0.1 * PROCESS_ACCURACY)
-			else
-				take_damage(owner.chem_effects[CE_ALCOHOL_TOXIC] * 0.1 * PROCESS_ACCURACY, prob(1)) // Chance to warn them
 
 /obj/item/organ/appendix
 	name = "appendix"

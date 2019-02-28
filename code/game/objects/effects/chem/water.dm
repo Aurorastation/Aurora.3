@@ -12,7 +12,7 @@
 /obj/effect/effect/water/proc/set_color() // Call it after you move reagents to it
 	icon += reagents.get_color()
 
-/obj/effect/effect/water/proc/set_up(var/turf/target, var/step_count = 5, var/delay = 5)
+/obj/effect/effect/water/proc/set_up(var/turf/target, var/step_count = 5, var/delay = 5, var/lifespan = 10)
 	if(!target)
 		return
 	for(var/i = 1 to step_count)
@@ -28,7 +28,7 @@
 			if(T == get_turf(target))
 				break
 		sleep(delay)
-	sleep(10)
+	sleep(lifespan)
 	qdel(src)
 
 //Wets everything in the tile
@@ -75,3 +75,8 @@
 	name = "chemicals"
 	icon = 'icons/obj/chempuff.dmi'
 	icon_state = ""
+
+//used by evil things
+/obj/effect/effect/water/firewater
+	name = "napalm gel"
+	icon_state = "mustard"

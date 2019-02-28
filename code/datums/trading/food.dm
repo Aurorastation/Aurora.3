@@ -2,7 +2,7 @@
 	name = "Pizza Shop Employee"
 	name_language = TRADER_DEFAULT_NAME
 	origin = "Pizzeria"
-	possible_origins = list("Papa Joes", "Pizza Ship", "Dominator Pizza", "Little Kaezars", "Pizza Planet", "Cheese Louise")
+	possible_origins = list("Papa Joe's", "Pizza Ship", "Dominator Pizza", "Little Kaezars", "Pizza Planet", "Cheese Louise")
 	trade_flags = TRADER_MONEY
 	possible_wanted_items = list() //They are a pizza shop, not a bargainer.
 	possible_trading_items = list(/obj/item/weapon/reagent_containers/food/snacks/sliceable/pizza   = TRADER_SUBTYPES_ONLY)
@@ -12,7 +12,7 @@
 		"hail_deny"         = "Beeeep... I'm sorry, your connection has been severed.",
 		"trade_complete"    = "Thank you for choosing ORIGIN!",
 		"trade_no_goods"    = "I'm sorry but we only take cash.",
-		"trade_blacklisted" = "Sir thats... highly illegal.",
+		"trade_blacklisted" = "Sir that's... highly illegal.",
 		"trade_not_enough"  = "Uhh... that's not enough money for pizza.",
 		"how_much"          = "That pizza will cost you VALUE credits.",
 		"compliment_deny"   = "That's a bit forward, don't you think?",
@@ -70,11 +70,11 @@
 	speech = list(
 		"hail_generic"       = "There are two things constant in life, death and Chinese food. How may I help you?",
 		"hail_deny"          = "We do not take orders from rude customers.",
-		"trade_complete"     = "Thank you sir for your patronage.",
+		"trade_complete"     = "Thank you, sir, for your patronage.",
 		"trade_blacklist"    = "No, that is very odd. Why would you trade that away?",
 		"trade_no_goods"     = "I only accept money transfers.",
-		"trade_not_enough"   = "No, I am sorry that is not possible. I need to make a living.",
-		"how_much"           = "I give you ITEM for VALUE credits. No more, no less.",
+		"trade_not_enough"   = "No, I am sorry, that is not possible. I need to make a living.",
+		"how_much"           = "I give you ITEM, for VALUE credits. No more, no less.",
 		"compliment_deny"    = "That was an odd thing to say, you are very odd.",
 		"compliment_accept"  = "Good philosophy, see good in bad, I like.",
 		"insult_good"        = "As a man said long ago, \"When anger rises, think of the consequences.\" Think on that.",
@@ -107,7 +107,7 @@
 		/obj/item/weapon/reagent_containers/food/snacks/fruit_slice         = TRADER_BLACKLIST,
 		/obj/item/weapon/reagent_containers/food/snacks/grown               = TRADER_BLACKLIST_ALL,
 		/obj/item/weapon/reagent_containers/food/snacks/human               = TRADER_BLACKLIST_ALL,
-		/obj/item/weapon/reagent_containers/food/snacks/sliceable/braincake = TRADER_BLACKLIST,
+		/obj/item/weapon/reagent_containers/food/snacks/sliceable/cake/brain = TRADER_BLACKLIST,
 		/obj/item/weapon/reagent_containers/food/snacks/meat/human          = TRADER_BLACKLIST,
 		/obj/item/weapon/reagent_containers/food/snacks/variable            = TRADER_BLACKLIST_ALL
 	)
@@ -116,7 +116,7 @@
 		"hail_generic"       = "Hello, welcome to ORIGIN, grocery store of the future!",
 		"hail_deny"          = "I'm sorry, we've blacklisted your communications due to rude behavior.",
 		"trade_complete"     = "Thank you for shopping at ORIGIN!",
-		"trade_blacklist"    = "I... wow that's... no, sir. No.",
+		"trade_blacklist"    = "I... wow, that's... no, sir. No.",
 		"trade_no_goods"     = "ORIGIN only accepts cash, sir.",
 		"trade_not_enough"   = "That is not enough money, sir.",
 		"how_much"           = "Sir, that'll cost you VALUE credits. Will that be all?",
@@ -134,36 +134,36 @@
 	possible_origins = list("Cakes By Design", "Corner Bakery Local", "My Favorite Cake & Pastry Cafe", "Mama Joes Bakery", "Sprinkles and Fun")
 
 	speech = list(
-		"hail_generic"       = "Hello, welcome to ORIGIN, we serve baked goods, including pies and cakes and anything sweet!",
-		"hail_deny"          = "Our food is a privelege, not a right. Goodbye.",
+		"hail_generic"       = "Hello, welcome to ORIGIN! We serve baked goods, including pies, cakes and anything sweet!",
+		"hail_deny"          = "Our food is a privilege, not a right. Goodbye.",
 		"trade_complete"     = "Thank you for your purchase! Come again if you're hungry for more!",
 		"trade_blacklist"    = "We only accept money. Not... that.",
-		"trade_no_goods"     = "Cash for Cakes! That's our business!",
+		"trade_no_goods"     = "Cash for cakes! That's our business!",
 		"trade_not_enough"   = "Our dishes are much more expensive than that, sir.",
 		"how_much"           = "That lovely dish will cost you VALUE credits.",
 		"compliment_deny"    = "Oh wow, how nice of you...",
 		"compliment_accept"  = "You're almost as sweet as my pies!",
-		"insult_good"        = "My pie are NOT knockoffs!",
+		"insult_good"        = "My pies are NOT knockoffs!",
 		"insult_bad"         = "Well, aren't you a sour apple?",
 		"bribe_refusal"      = "Oh ho ho! I'd never think of taking ORIGIN on the road!"
 	)
 
 	possible_trading_items = list(
-		/obj/item/weapon/reagent_containers/food/snacks/birthdaycakeslice/filled        = TRADER_THIS_TYPE,
-		/obj/item/weapon/reagent_containers/food/snacks/carrotcakeslice/filled	        = TRADER_THIS_TYPE,
-		/obj/item/weapon/reagent_containers/food/snacks/cheesecakeslice/filled          = TRADER_THIS_TYPE,
-		/obj/item/weapon/reagent_containers/food/snacks/chocolatecakeslice/filled       = TRADER_THIS_TYPE,
-		/obj/item/weapon/reagent_containers/food/snacks/lemoncakeslice/filled           = TRADER_THIS_TYPE,
-		/obj/item/weapon/reagent_containers/food/snacks/limecakeslice/filled	        = TRADER_THIS_TYPE,
-		/obj/item/weapon/reagent_containers/food/snacks/orangecakeslice/filled          = TRADER_THIS_TYPE,
-		/obj/item/weapon/reagent_containers/food/snacks/plaincakeslice/filled           = TRADER_THIS_TYPE,
+		/obj/item/weapon/reagent_containers/food/snacks/cakeslice/birthday/filled       = TRADER_THIS_TYPE,
+		/obj/item/weapon/reagent_containers/food/snacks/cakeslice/carrot/filled	        = TRADER_THIS_TYPE,
+		/obj/item/weapon/reagent_containers/food/snacks/cakeslice/cheese/filled         = TRADER_THIS_TYPE,
+		/obj/item/weapon/reagent_containers/food/snacks/cakeslice/chocolate/filled      = TRADER_THIS_TYPE,
+		/obj/item/weapon/reagent_containers/food/snacks/cakeslice/lemon/filled          = TRADER_THIS_TYPE,
+		/obj/item/weapon/reagent_containers/food/snacks/cakeslice/lime/filled	        = TRADER_THIS_TYPE,
+		/obj/item/weapon/reagent_containers/food/snacks/cakeslice/orange/filled         = TRADER_THIS_TYPE,
+		/obj/item/weapon/reagent_containers/food/snacks/cakeslice/plain/filled          = TRADER_THIS_TYPE,
 		/obj/item/weapon/reagent_containers/food/snacks/pumpkinpieslice/filled          = TRADER_THIS_TYPE,
 		/obj/item/weapon/reagent_containers/food/snacks/bananabreadslice/filled         = TRADER_THIS_TYPE,
 		/obj/item/weapon/reagent_containers/food/snacks/sliceable                       = TRADER_SUBTYPES_ONLY,
 		/obj/item/weapon/reagent_containers/food/snacks/sliceable/pizza                 = TRADER_BLACKLIST_ALL,
 		/obj/item/weapon/reagent_containers/food/snacks/sliceable/xenomeatbread         = TRADER_BLACKLIST,
 		/obj/item/weapon/reagent_containers/food/snacks/sliceable/flatdough             = TRADER_BLACKLIST,
-		/obj/item/weapon/reagent_containers/food/snacks/sliceable/braincake             = TRADER_BLACKLIST,
+		/obj/item/weapon/reagent_containers/food/snacks/sliceable/cake/brain            = TRADER_BLACKLIST,
 		/obj/item/weapon/reagent_containers/food/snacks/pie                             = TRADER_THIS_TYPE,
 		/obj/item/weapon/reagent_containers/food/snacks/applepie                        = TRADER_THIS_TYPE
 	)

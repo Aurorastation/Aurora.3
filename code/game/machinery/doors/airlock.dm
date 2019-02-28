@@ -38,18 +38,21 @@
 	var/panel_visible_while_open = FALSE
 
 	var/open_sound_powered = 'sound/machines/airlock.ogg'
-	var/close_sound_powered = 'sound/machines/AirlockClose.ogg'
-	var/open_sound_unpowered = 'sound/machines/airlock_creaking.ogg'
-	var/close_sound_unpowered = 'sound/machines/airlock_creaking.ogg'
+	var/close_sound_powered = 'sound/machines/airlockclose.ogg'
+	var/open_sound_unpowered = 'sound/machines/airlock_open_force.ogg'
+	var/close_sound_unpowered = 'sound/machines/airlock_close_force.ogg'
 
-	var/bolts_dropping = 'sound/machines/BoltsDown.ogg'
-	var/bolts_rising = 'sound/machines/BoltsUp.ogg'
+	var/bolts_dropping = 'sound/machines/boltsdown.ogg'
+	var/bolts_rising = 'sound/machines/boltsup.ogg'
 
 	hashatch = 1
 
 	var/_wifi_id
 	var/datum/wifi/receiver/button/door/wifi_receiver
 	var/has_set_boltlight = FALSE
+
+	var/insecure = 1 //if the door is insecure it will open when power runs out
+	var/securitylock = 0
 
 /obj/machinery/door/airlock/attack_generic(var/mob/user, var/damage)
 	if(stat & (BROKEN|NOPOWER))
@@ -83,7 +86,7 @@
 	aiControlDisabled = 1
 	hackProof = 1
 	electrified_until = -1
-	open_sound_powered = 'sound/machines/airlock_creaking.ogg'
+	open_sound_powered = 'sound/machines/airlock_open_force.ogg'
 
 /obj/machinery/door/airlock/security
 	name = "Airlock"
@@ -114,6 +117,7 @@
 	icon = 'icons/obj/doors/Doorext.dmi'
 	assembly_type = /obj/structure/door_assembly/door_assembly_ext
 	hashatch = 0
+	insecure = 0
 
 /obj/machinery/door/airlock/science
 	name = "Airlock"
@@ -149,6 +153,13 @@
 	hatch_colour = "#606061"
 	hashatch = FALSE
 
+/obj/machinery/door/airlock/vaurca
+	name = "Alien Biomass Airlock"
+	icon = 'icons/obj/doors/Doorvaurca.dmi'
+	opacity = 0
+	hatch_colour = "#606061"
+	hashatch = FALSE
+
 /obj/machinery/door/airlock/centcom/attackby(obj/item/I, mob/user)
 	if (operating)
 		return
@@ -180,6 +191,7 @@
 	hashatch = 0
 	maxhealth = 800
 	panel_visible_while_open = TRUE
+	insecure = 0
 
 /obj/machinery/door/airlock/vault/bolted
 	icon_state = "door_locked"
@@ -212,6 +224,7 @@
 	assembly_type = /obj/structure/door_assembly/door_assembly_hatch
 	hatch_colour = "#5b5b5b"
 	var/hatch_colour_bolted = "#695a5a"
+	insecure = 0
 
 /obj/machinery/door/airlock/hatch/update_icon()//Special hatch colour setting for this one snowflakey door that changes color when bolted
 	if (hashatch)
@@ -361,6 +374,7 @@
 	assembly_type = /obj/structure/door_assembly/door_assembly_highsecurity
 	hatch_colour = "#5a5a66"
 	maxhealth = 600
+	insecure = 0
 
 
 
@@ -791,7 +805,7 @@ About the new airlock wires panel:
 			src.do_animate("spark")
 			src.stat |= BROKEN
 			var/check = src.open(1)
-			src.visible_message("\The [H] slices \the [src]'s controls[check ? ", ripping it open!" : ", breaking it!"]", "You slice \the [src]'s controls[check ? ", ripping it open!" : ", breaking it!"]", "You hear something sparking.")
+			H.visible_message("\The [H] slices \the [src]'s controls[check ? ", ripping it open!" : ", breaking it!"]", "You slice \the [src]'s controls[check ? ", ripping it open!" : ", breaking it!"]", "You hear something sparking.")
 			return
 	if(src.p_open)
 		user.set_machine(src)
@@ -903,7 +917,7 @@ About the new airlock wires panel:
 /obj/machinery/door/airlock/proc/CanChainsaw(var/obj/item/weapon/material/twohanded/chainsaw/ChainSawVar)
 	return (ChainSawVar.powered && density && hashatch)
 
-/obj/machinery/door/airlock/attackby(C as obj, mob/user as mob)
+/obj/machinery/door/airlock/attackby(var/obj/item/C, mob/user as mob)
 	if(!istype(usr, /mob/living/silicon))
 		if(src.isElectrified())
 			if(src.shock(user, 75))
@@ -918,19 +932,29 @@ About the new airlock wires panel:
 		var/obj/item/device/magnetic_lock/newbracer = C
 		newbracer.attachto(src, user)
 		return
-	if(!repairing && (iswelder(C) && !( src.operating > 0 ) && src.density))
-		var/obj/item/weapon/weldingtool/W = C
-		if(W.remove_fuel(0,user))
+	if(!repairing && (C.iswelder() && !( src.operating > 0 ) && src.density))
+		var/obj/item/weapon/weldingtool/WT = C
+		if(WT.isOn())
+			user.visible_message(
+				"<span class='warning'>[user] begins welding [src] [welded ? "open" : "shut"].</span>",
+				"<span class='notice'>You begin welding [src] [welded ? "open" : "shut"].</span>",
+				"You hear a welding torch on metal."
+			)
+			playsound(loc, 'sound/items/Welder.ogg', 50, 1)
+			if (!do_after(user, 2 SECONDS, act_target = src, extra_checks = CALLBACK(src, .proc/is_open, src.density)))
+				return
+			if(!WT.remove_fuel(0,user))
+				user << "<span class='notice'>You need more welding fuel to complete this task.</span>"
+				return
 			if(!src.welded)
 				src.welded = 1
 			else
 				src.welded = null
-			playsound(src, 'sound/items/Welder.ogg', 100, 1)
 			src.update_icon()
 			return
 		else
 			return
-	else if(isscrewdriver(C))
+	else if(C.isscrewdriver())
 		if (src.p_open)
 			if (stat & BROKEN)
 				usr << "<span class='warning'>The panel is broken and cannot be closed.</span>"
@@ -939,16 +963,16 @@ About the new airlock wires panel:
 		else
 			src.p_open = 1
 		src.update_icon()
-	else if(iswirecutter(C))
+	else if(C.iswirecutter())
 		return src.attack_hand(user)
-	else if(ismultitool(C))
+	else if(C.ismultitool())
 		return src.attack_hand(user)
 	else if(istype(C, /obj/item/device/assembly/signaler))
 		return src.attack_hand(user)
 	else if(istype(C, /obj/item/weapon/pai_cable))	// -- TLE
 		var/obj/item/weapon/pai_cable/cable = C
 		cable.plugin(src, user)
-	else if(!repairing && iscrowbar(C))
+	else if(!repairing && C.iscrowbar())
 		if(src.p_open && (operating < 0 || (!operating && welded && !src.arePowerSystemsOn() && density && (!src.locked || (stat & BROKEN)))) )
 			playsound(src.loc, 'sound/items/Crowbar.ogg', 100, 1)
 			user.visible_message("[user] removes the electronics from the airlock assembly.", "You start to remove electronics from the airlock assembly.")
@@ -1173,7 +1197,7 @@ About the new airlock wires panel:
 
 /mob/living/carbon/airlock_crush(var/crush_damage)
 	. = ..()
-	if (!(species && (species.flags & NO_PAIN)))
+	if (can_feel_pain())
 		emote("scream")
 
 /mob/living/silicon/robot/airlock_crush(var/crush_damage)
@@ -1238,7 +1262,7 @@ About the new airlock wires panel:
 		assembly_type = assembly.type
 
 		electronics = assembly.electronics
-		electronics.loc = src
+		electronics.forceMove(src)
 
 		//update the door's access to match the electronics'
 		secured_wires = electronics.secure
@@ -1311,6 +1335,13 @@ About the new airlock wires panel:
 		// If we lost power, disable electrification
 		// Keeping door lights on, runs on internal battery or something.
 		electrified_until = 0
+		//if we lost power open 'er up
+		if(insecure)
+			INVOKE_ASYNC(src, /obj/machinery/door/.proc/open, 1)
+			securitylock = 1
+	else if(securitylock)
+		INVOKE_ASYNC(src, /obj/machinery/door/.proc/close, 1)
+		securitylock = 0
 	update_icon()
 
 /obj/machinery/door/airlock/proc/prison_open()

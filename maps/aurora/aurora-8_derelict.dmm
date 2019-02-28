@@ -1,5 +1,4 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
-//Model dictionary trimmed on: 18-11-2017 20:57 (UTC)
 "aa" = (
 /turf/template_noop,
 /area/template_noop)
@@ -310,9 +309,7 @@
 /turf/simulated/floor/wood,
 /area/derelict/hallway/northwest)
 "aZ" = (
-/obj/structure/filingcabinet{
-	icon_state = "chestdrawer"
-	},
+/obj/structure/filingcabinet/chestdrawer,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/wood,
 /area/derelict/hallway/northwest)
@@ -2905,9 +2902,7 @@
 /turf/simulated/floor/tiled/white,
 /area/derelict/hallway/southeast)
 "jo" = (
-/obj/structure/filingcabinet{
-	icon_state = "chestdrawer"
-	},
+/obj/structure/filingcabinet/chestdrawer,
 /turf/simulated/floor/tiled/dark,
 /area/derelict/hallway/southeast)
 "jp" = (
@@ -2956,9 +2951,7 @@
 /turf/template_noop,
 /area/derelict/hallway/southeast)
 "jv" = (
-/obj/structure/filingcabinet{
-	icon_state = "chestdrawer"
-	},
+/obj/structure/filingcabinet/chestdrawer,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/white,
 /area/derelict/hallway/southeast)
@@ -3574,7 +3567,7 @@
 /obj/machinery/door/firedoor{
 	dir = 2
 	},
-/turf/template_noop,
+/turf/simulated/floor/airless,
 /area/derelict/hallway/southwest)
 "lo" = (
 /obj/machinery/status_display{
@@ -3640,7 +3633,7 @@
 /obj/machinery/door/firedoor{
 	dir = 2
 	},
-/turf/template_noop,
+/turf/simulated/floor/airless,
 /area/derelict/hallway/southwest)
 "lw" = (
 /obj/machinery/door/firedoor,
@@ -3732,7 +3725,7 @@
 /obj/machinery/door/firedoor{
 	dir = 2
 	},
-/turf/template_noop,
+/turf/simulated/floor/airless,
 /area/derelict/hallway/southwest)
 "lK" = (
 /obj/vehicle/train/cargo/trolley,
@@ -3850,7 +3843,7 @@
 /obj/machinery/door/firedoor{
 	dir = 2
 	},
-/turf/template_noop,
+/turf/simulated/floor/airless,
 /area/derelict/hallway/southwest)
 "mb" = (
 /obj/machinery/conveyor_switch/oneway{
@@ -3989,7 +3982,7 @@
 /obj/machinery/door/firedoor{
 	dir = 2
 	},
-/turf/template_noop,
+/turf/simulated/floor/airless,
 /area/template_noop)
 "mu" = (
 /obj/machinery/light_switch{
@@ -4188,7 +4181,7 @@
 /obj/machinery/door/firedoor{
 	dir = 2
 	},
-/turf/template_noop,
+/turf/simulated/floor/airless,
 /area/template_noop)
 "mW" = (
 /obj/machinery/navbeacon{
@@ -4447,7 +4440,7 @@
 	},
 /obj/effect/decal/cleanable/greenglow,
 /obj/item/weapon/reagent_containers/food/snacks/xemeatpie,
-/obj/item/weapon/reagent_containers/food/snacks/xenoburger,
+/obj/item/weapon/reagent_containers/food/snacks/burger/xeno,
 /obj/item/weapon/reagent_containers/food/snacks/xenomeat,
 /obj/item/weapon/reagent_containers/food/snacks/xenomeatbreadslice,
 /obj/effect/decal/cleanable/dirt,
@@ -4856,7 +4849,7 @@
 /obj/machinery/door/firedoor{
 	dir = 2
 	},
-/turf/template_noop,
+/turf/simulated/floor/airless,
 /area/derelict/hallway/southwest)
 "oJ" = (
 /obj/machinery/door/firedoor,
@@ -4893,9 +4886,7 @@
 /turf/template_noop,
 /area/template_noop)
 "oO" = (
-/obj/structure/filingcabinet{
-	icon_state = "chestdrawer"
-	},
+/obj/structure/filingcabinet/chestdrawer,
 /turf/simulated/floor/tiled/white,
 /area/derelict/hallway/southeast)
 "oP" = (
@@ -5272,7 +5263,7 @@
 /obj/machinery/door/firedoor{
 	dir = 2
 	},
-/turf/template_noop,
+/turf/simulated/floor/airless,
 /area/derelict/hallway/southwest)
 "pT" = (
 /obj/structure/grille,
@@ -5283,7 +5274,7 @@
 /obj/machinery/door/firedoor{
 	dir = 2
 	},
-/turf/template_noop,
+/turf/simulated/floor/airless,
 /area/derelict/hallway/southwest)
 "pU" = (
 /obj/structure/grille,
@@ -5297,7 +5288,7 @@
 /obj/machinery/door/firedoor{
 	dir = 2
 	},
-/turf/template_noop,
+/turf/simulated/floor/airless,
 /area/derelict/hallway/southwest)
 "pV" = (
 /obj/item/weapon/material/shard/phoron{
@@ -6043,7 +6034,7 @@
 /obj/machinery/door/firedoor{
 	dir = 2
 	},
-/turf/template_noop,
+/turf/simulated/floor/airless,
 /area/derelict/hallway/southeast)
 "sb" = (
 /obj/structure/cable/yellow{
@@ -6352,9 +6343,9 @@
 /area/derelict/hallway/southeast)
 "sR" = (
 /obj/machinery/light/small{
-	icon_state = "bulb-broken";
+	base_state = "bulb_broken";
 	dir = 8;
-	base_state = "bulb-broken"
+	icon_state = "bulb_broken"
 	},
 /turf/simulated/floor/airless,
 /area/derelict/hallway/southeast)
@@ -6386,7 +6377,7 @@
 /turf/template_noop,
 /area/template_noop)
 "sW" = (
-/obj/item/weapon/reagent_containers/food/snacks/birthdaycakeslice,
+/obj/item/weapon/reagent_containers/food/snacks/cakeslice/birthday,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/airless,
@@ -7748,9 +7739,9 @@
 /area/derelict/hallway/southeast)
 "wp" = (
 /obj/machinery/light/small{
-	base_state = "bulb-broken";
+	base_state = "bulb_broken";
 	dir = 4;
-	icon_state = "bulb-broken"
+	icon_state = "bulb_broken"
 	},
 /obj/structure/closet/walllocker/emerglocker/north,
 /turf/simulated/floor/airless,
@@ -7944,6 +7935,20 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/random/loot,
 /turf/simulated/floor/tiled/dark,
+/area/derelict/hallway/southwest)
+"Da" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/turf/simulated/floor/airless,
 /area/derelict/hallway/southwest)
 
 (1,1,1) = {"
@@ -28901,7 +28906,7 @@ aa
 im
 iH
 kc
-ke
+Da
 aa
 lv
 lN

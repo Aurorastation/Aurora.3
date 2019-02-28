@@ -199,28 +199,28 @@
 	req_tech = list(TECH_POWER = 5, TECH_ENGINEERING = 5)
 	materials = list(DEFAULT_WALL_MATERIAL = 4000, "uranium" = 1000)
 	build_path = /obj/item/laser_components/capacitor/nuclear
-	sort_string = "TZZBC"
+	sort_string = "TZZBD"
 
 /datum/design/item/weapon/modular_teranium
 	id = "stock_teranium"
 	req_tech = list(TECH_POWER = 6, TECH_ENGINEERING = 4, TECH_MAGNET = 6)
 	materials = list(DEFAULT_WALL_MATERIAL = 4000, "glass" = 1000, "uranium" = 500)
 	build_path = /obj/item/laser_components/capacitor/teranium
-	sort_string = "TZZBD"
+	sort_string = "TZZBE"
 
 /datum/design/item/weapon/modular_phoron
 	id = "stock_phoron"
-	req_tech = list(TECH_POWER = 7, TECH_ENGINEERING = 5, TECH_PHORON = 6)
+	req_tech = list(TECH_POWER = 7, TECH_ENGINEERING = 5, TECH_PHORON = 5)
 	materials = list(DEFAULT_WALL_MATERIAL = 4000, "phoron" = 3000, "uranium" = 500)
 	build_path = /obj/item/laser_components/capacitor/phoron
-	sort_string = "TZZBE"
+	sort_string = "TZZBF"
 
 /datum/design/item/weapon/modular_bs
 	id = "stock_bs"
-	req_tech = list(TECH_POWER = 7, TECH_ENGINEERING = 7, TECH_PHORON = 7, TECH_BLUESPACE = 7)
+	req_tech = list(TECH_POWER = 7, TECH_ENGINEERING = 7, TECH_PHORON = 6, TECH_BLUESPACE = 5)
 	materials = list(DEFAULT_WALL_MATERIAL = 4000, "phoron" = 3000, "uranium" = 500, "diamond" = 1000)
 	build_path = /obj/item/laser_components/capacitor/bluespace
-	sort_string = "TZZBF"
+	sort_string = "TZZBG"
 
 /datum/design/item/weapon/modular_lens
 	id = "stock_lens"
@@ -438,3 +438,161 @@
 	materials = list(DEFAULT_WALL_MATERIAL = 750, "glass" = 500, "phoron" = 1000)
 	build_path = /obj/item/laser_components/modulator
 	sort_string = "TZZEN"
+
+//Frames
+/datum/design/item/weapon/ka_frame01
+	id = "ka_frame01"
+	req_tech = list(TECH_MATERIAL = 1,TECH_ENGINEERING = 1)
+	materials = list(DEFAULT_WALL_MATERIAL = 3000)
+	build_path = /obj/item/weapon/gun/custom_ka/frame01
+	sort_string = "TZZFA"
+
+/datum/design/item/weapon/ka_frame02
+	id = "ka_frame02"
+	req_tech = list(TECH_MATERIAL = 1,TECH_ENGINEERING = 3)
+	materials = list(DEFAULT_WALL_MATERIAL = 4000)
+	build_path = /obj/item/weapon/gun/custom_ka/frame02
+	sort_string = "TZZFB"
+
+/datum/design/item/weapon/ka_frame03
+	id = "ka_frame03"
+	req_tech = list(TECH_MATERIAL = 3,TECH_ENGINEERING = 3)
+	materials = list(DEFAULT_WALL_MATERIAL = 5000, "silver" = 2000)
+	build_path = /obj/item/weapon/gun/custom_ka/frame03
+	sort_string = "TZZFC"
+
+/datum/design/item/weapon/ka_frame04
+	id = "ka_frame04"
+	req_tech = list(TECH_MATERIAL = 6,TECH_ENGINEERING = 5)
+	materials = list(DEFAULT_WALL_MATERIAL = 5000, "silver" = 2000, "diamond" = 1000)
+	build_path = /obj/item/weapon/gun/custom_ka/frame04
+	sort_string = "TZZFD"
+
+/datum/design/item/weapon/ka_frame05
+	id = "ka_frame05"
+	req_tech = list(TECH_MATERIAL = 6,TECH_ENGINEERING = 6)
+	materials = list(DEFAULT_WALL_MATERIAL = 6000, "silver" = 4000, "diamond" = 2000)
+	build_path = /obj/item/weapon/gun/custom_ka/frame05
+	sort_string = "TZZFE"
+
+//Cells
+/datum/design/item/weapon/ka_cell01
+	id = "ka_cell01"
+	req_tech = list(TECH_MATERIAL = 1,TECH_ENGINEERING = 1,TECH_MAGNET = 1,TECH_POWER = 1)
+	materials = list(DEFAULT_WALL_MATERIAL = 1000, "glass" = 1000)
+	build_path = /obj/item/custom_ka_upgrade/cells/cell01
+	sort_string = "TZZGA"
+
+/datum/design/item/weapon/ka_cell02
+	id = "ka_cell02"
+	req_tech = list(TECH_MATERIAL = 3,TECH_ENGINEERING = 1,TECH_MAGNET = 1,TECH_POWER = 3)
+	materials = list(DEFAULT_WALL_MATERIAL = 2000, "glass" = 1000, "silver" = 1000)
+	build_path = /obj/item/custom_ka_upgrade/cells/cell02
+	sort_string = "TZZGB"
+
+/datum/design/item/weapon/ka_cell03
+	id = "ka_cell03"
+	req_tech = list(TECH_MATERIAL = 4,TECH_ENGINEERING = 3,TECH_MAGNET = 2,TECH_POWER = 3)
+	materials = list(DEFAULT_WALL_MATERIAL = 3000, "glass" = 3000, "silver" = 3000, "gold" = 1000)
+	build_path = /obj/item/custom_ka_upgrade/cells/cell03
+	sort_string = "TZZGC"
+
+/datum/design/item/weapon/ka_cell04
+	id = "ka_cell04"
+	req_tech = list(TECH_MATERIAL = 5,TECH_ENGINEERING = 4,TECH_MAGNET = 3,TECH_POWER = 5)
+	materials = list(DEFAULT_WALL_MATERIAL = 4000, "glass" = 3000, "silver" = 3000, "gold" = 1000, "uranium" = 5000)
+	build_path = /obj/item/custom_ka_upgrade/cells/cell04
+	sort_string = "TZZGD"
+
+/datum/design/item/weapon/ka_cell05
+	id = "ka_cell05"
+	req_tech = list(TECH_MATERIAL = 5,TECH_ENGINEERING = 6,TECH_MAGNET = 5,TECH_POWER = 5, TECH_PHORON = 5)
+	materials = list(DEFAULT_WALL_MATERIAL = 5000, "glass" = 3000, "silver" = 3000, "gold" = 1000, "phoron" = 5000)
+	build_path = /obj/item/custom_ka_upgrade/cells/cell05
+	sort_string = "TZZGE"
+
+//Barrels
+/datum/design/item/weapon/ka_barrel01
+	id = "ka_barrel01"
+	req_tech = list(TECH_MATERIAL = 1,TECH_ENGINEERING = 1,TECH_MAGNET = 1, TECH_PHORON = 2)
+	materials = list(DEFAULT_WALL_MATERIAL = 2000, "glass" = 2000, "phoron" = 500)
+	build_path = /obj/item/custom_ka_upgrade/barrels/barrel01
+	sort_string = "TZZHA"
+
+/datum/design/item/weapon/ka_barrel02
+	id = "ka_barrel02"
+	req_tech = list(TECH_MATERIAL = 1,TECH_ENGINEERING = 1,TECH_MAGNET = 3, TECH_PHORON = 2)
+	materials = list(DEFAULT_WALL_MATERIAL = 3000, "glass" = 2000, "phoron" = 500)
+	build_path = /obj/item/custom_ka_upgrade/barrels/barrel02
+	sort_string = "TZZHB"
+
+/datum/design/item/weapon/ka_barrel03
+	id = "ka_barrel03"
+	req_tech = list(TECH_MATERIAL = 4,TECH_ENGINEERING = 3,TECH_MAGNET = 3, TECH_PHORON = 3)
+	materials = list(DEFAULT_WALL_MATERIAL = 4000, "glass" = 2000, "gold" = 2000, "phoron" = 1000)
+	build_path = /obj/item/custom_ka_upgrade/barrels/barrel03
+	sort_string = "TZZHC"
+
+/datum/design/item/weapon/ka_barrel04
+	id = "ka_barrel04"
+	req_tech = list(TECH_MATERIAL = 6,TECH_ENGINEERING = 3,TECH_MAGNET = 5, TECH_PHORON = 4)
+	materials = list(DEFAULT_WALL_MATERIAL = 5000, "glass" = 3000, "gold" = 3000, "phoron" = 3000, "diamond" = 1000)
+	build_path = /obj/item/custom_ka_upgrade/barrels/barrel04
+	sort_string = "TZZHD"
+
+/datum/design/item/weapon/ka_barrel05
+	id = "ka_barrel05"
+	req_tech = list(TECH_MATERIAL = 6,TECH_ENGINEERING = 5,TECH_MAGNET = 6, TECH_PHORON = 5)
+	materials = list(DEFAULT_WALL_MATERIAL = 6000, "glass" = 4000, "gold" = 4000, "phoron" = 4000, "diamond" = 2000)
+	build_path = /obj/item/custom_ka_upgrade/barrels/barrel05
+	sort_string = "TZZHE"
+
+//Upgrades
+/datum/design/item/weapon/ka_upgrade01
+	id = "ka_upgrade01"
+	req_tech = list(TECH_POWER = 4,TECH_MAGNET = 4, TECH_DATA = 4)
+	materials = list(DEFAULT_WALL_MATERIAL = 1000, "glass" = 2000, "gold" = 1000)
+	build_path = /obj/item/custom_ka_upgrade/upgrade_chips/damage
+	sort_string = "TZZIA"
+
+/datum/design/item/weapon/ka_upgrade02
+	id = "ka_upgrade02"
+	req_tech = list(TECH_POWER = 4,TECH_MAGNET = 4, TECH_DATA = 4)
+	materials = list(DEFAULT_WALL_MATERIAL = 1000, "glass" = 2000, "gold" = 1000)
+	build_path = /obj/item/custom_ka_upgrade/upgrade_chips/firerate
+	sort_string = "TZZIB"
+
+/datum/design/item/weapon/ka_upgrade03
+	id = "ka_upgrade03"
+	req_tech = list(TECH_POWER = 4,TECH_MAGNET = 4, TECH_DATA = 4)
+	materials = list(DEFAULT_WALL_MATERIAL = 1000, "glass" = 2000, "gold" = 1000)
+	build_path = /obj/item/custom_ka_upgrade/upgrade_chips/effeciency
+	sort_string = "TZZIC"
+
+/datum/design/item/weapon/ka_upgrade04
+	id = "ka_upgrade04"
+	req_tech = list(TECH_POWER = 4,TECH_MAGNET = 4, TECH_DATA = 4)
+	materials = list(DEFAULT_WALL_MATERIAL = 1000, "glass" = 2000, "gold" = 1000)
+	build_path = /obj/item/custom_ka_upgrade/upgrade_chips/recoil
+	sort_string = "TZZID"
+
+/datum/design/item/weapon/ka_upgrade05
+	id = "ka_upgrade05"
+	req_tech = list(TECH_POWER = 4,TECH_MAGNET = 4, TECH_DATA = 4)
+	materials = list(DEFAULT_WALL_MATERIAL = 1000, "glass" = 2000, "gold" = 1000)
+	build_path = /obj/item/custom_ka_upgrade/upgrade_chips/focusing
+	sort_string = "TZZIE"
+
+/datum/design/item/weapon/ka_upgrade06
+	id = "ka_upgrade06"
+	req_tech = list(TECH_POWER = 4,TECH_MAGNET = 4, TECH_DATA = 4)
+	materials = list(DEFAULT_WALL_MATERIAL = 1000, "glass" = 2000, "gold" = 1000)
+	build_path = /obj/item/custom_ka_upgrade/upgrade_chips/capacity
+	sort_string = "TZZIF"
+
+/datum/design/item/weapon/ka_upgrade07
+	id = "ka_upgrade07"
+	req_tech = list(TECH_POWER = 4,TECH_MAGNET = 4, TECH_DATA = 4)
+	materials = list(DEFAULT_WALL_MATERIAL = 1000, "glass" = 2000, "gold" = 1000)
+	build_path = /obj/item/custom_ka_upgrade/upgrade_chips/explosive
+	sort_string = "TZZIG"

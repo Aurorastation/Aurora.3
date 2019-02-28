@@ -21,6 +21,7 @@
 	siemens_coefficient = 0.9
 	species_restricted = list("exclude","Diona","Xenomorph","Vox","Golem")
 	flash_protection = FLASH_PROTECTION_MAJOR
+	allow_hair_covering = FALSE
 
 	var/obj/machinery/camera/camera
 	var/list/camera_networks

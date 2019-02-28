@@ -56,7 +56,7 @@
 
 /obj/machinery/microwave/attackby(var/obj/item/O as obj, var/mob/user as mob)
 	if(src.broken > 0)
-		if(src.broken == 2 && isscrewdriver(O)) // If it's broken and they're using a screwdriver
+		if(src.broken == 2 && O.isscrewdriver()) // If it's broken and they're using a screwdriver
 			user.visible_message( \
 				"<span class='notice'>\The [user] starts to fix part of the microwave.</span>", \
 				"<span class='notice'>You start to fix part of the microwave.</span>" \
@@ -67,7 +67,7 @@
 					"<span class='notice'>You have fixed part of the microwave.</span>" \
 				)
 				src.broken = 1 // Fix it a bit
-		else if(src.broken == 1 && iswrench(O)) // If it's broken and they're doing the wrench
+		else if(src.broken == 1 && O.iswrench()) // If it's broken and they're doing the wrench
 			user.visible_message( \
 				"<span class='notice'>\The [user] starts to fix part of the microwave.</span>", \
 				"<span class='notice'>You start to fix part of the microwave.</span>" \
@@ -116,8 +116,7 @@
 			return
 		else
 		//	user.remove_from_mob(O)	//This just causes problems so far as I can tell. -Pete
-			user.drop_item()
-			O.loc = src
+			user.drop_from_inventory(O,src)
 			user.visible_message( \
 				"<span class='notice'>\The [user] has added \the [O] to \the [src].</span>", \
 				"<span class='notice'>You add \the [O] to \the [src].</span>")
@@ -137,7 +136,7 @@
 		var/obj/item/weapon/grab/G = O
 		user << "<span class='warning'>This is ridiculous. You can not fit \the [G.affecting] in this [src].</span>"
 		return 1
-	else if(iscrowbar(O))
+	else if(O.iscrowbar())
 		user.visible_message( \
 			"<span class='notice'>\The [user] begins [src.anchored ? "unsecuring" : "securing"] the microwave.</span>", \
 			"<span class='notice'>You attempt to [src.anchored ? "unsecure" : "secure"] the microwave.</span>"
@@ -259,7 +258,7 @@
 			wzhzhzh(16)
 			muck_finish()
 			cooked = fail()
-			cooked.loc = src.loc
+			cooked.forceMove(src.loc)
 			return
 		else if (has_extra_item())
 			if (!wzhzhzh(16))
@@ -267,7 +266,7 @@
 				return
 			broke()
 			cooked = fail()
-			cooked.loc = src.loc
+			cooked.forceMove(src.loc)
 			return
 		else
 			if (!wzhzhzh(40))
@@ -275,7 +274,7 @@
 				return
 			stop()
 			cooked = fail()
-			cooked.loc = src.loc
+			cooked.forceMove(src.loc)
 			return
 	else
 		var/halftime = round((recipe.time*4)/10/2)
@@ -285,7 +284,7 @@
 		if (!wzhzhzh(halftime))
 			abort()
 			cooked = fail()
-			cooked.loc = src.loc
+			cooked.forceMove(src.loc)
 			return
 
 
@@ -300,7 +299,7 @@
 			cooked_items += things
 			//Move cooked things to the buffer so they're not considered as ingredients
 			for (var/atom/movable/AM in things)
-				AM.loc = temp
+				AM.forceMove(temp)
 
 			valid = 0
 			recipe = select_recipe(RECIPE_LIST(appliancetype),src)
@@ -310,7 +309,7 @@
 
 		for (var/r in cooked_items)
 			var/atom/movable/R = r
-			R.loc = src //Move everything from the buffer back to the container
+			R.forceMove(src) //Move everything from the buffer back to the container
 
 		qdel(temp)//Delete buffer object
 		temp = null
@@ -426,6 +425,23 @@
 			dispose()
 	return
 
+/obj/machinery/microwave/verb/Eject()
+	set src in oview(1)
+	set category = "Object"
+	set name = "Eject content"
+	usr.visible_message(
+	"<span class='notice'>[usr] is trying to open [src] to take out its content.</span>" ,
+	"<span class='notice'>You are trying to open [src] to take out its content</span>"
+	)
+
+	if (!do_after(usr, 1 SECONDS, act_target = src))
+		return
+
+	usr.visible_message(
+	"<span class='notice'>[usr] opened [src] and has taken out [english_list(contents)].</span>" ,
+	"<span class='notice'>You have opened [src] and taken out [english_list(contents)].</span>"
+	)
+	dispose()
 
 /obj/machinery/microwave/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
 	if (!mover)

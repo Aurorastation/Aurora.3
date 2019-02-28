@@ -7,7 +7,7 @@
 
 /turf/Entered(atom/movable/thing, turf/oldLoc)
 	. = ..()
-	if (thing.bound_overlay || !thing.no_z_overlay || !above || !(above.flags & MIMIC_BELOW) || (isturf(oldLoc) && oldLoc.above && (oldLoc.above.flags & MIMIC_BELOW)))
+	if (thing.bound_overlay || thing.no_z_overlay || !TURF_IS_MIMICING(above))
 		return
 	above.update_mimic()
 

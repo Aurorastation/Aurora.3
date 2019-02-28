@@ -112,12 +112,9 @@ They sell generic supplies and ask for generic supplies.
 		/obj/item/target                    = TRADER_ALL,
 		/obj/structure/dispenser            = TRADER_SUBTYPES_ONLY,
 		/obj/structure/filingcabinet        = TRADER_THIS_TYPE,
-		/obj/structure/safe                 = TRADER_THIS_TYPE,
 		/obj/structure/plushie              = TRADER_SUBTYPES_ONLY,
-		/obj/structure/sign                 = TRADER_SUBTYPES_ONLY,
-		/obj/structure/sign/double          = TRADER_BLACKLIST_ALL,
-		/obj/structure/sign/goldenplaque    = TRADER_BLACKLIST_ALL,
-		/obj/structure/sign/poster          = TRADER_BLACKLIST
+		/obj/mecha/working/hoverpod         = TRADER_THIS_TYPE,
+		/obj/vehicle/bike                   = TRADER_THIS_TYPE
 	)
 
 /datum/trader/trading_beacon/medical
@@ -128,6 +125,7 @@ They sell generic supplies and ask for generic supplies.
 		/obj/item/weapon/storage/pill_bottle                            = TRADER_SUBTYPES_ONLY,
 		/obj/item/weapon/reagent_containers/hypospray                   = TRADER_ALL,
 		/obj/item/device/healthanalyzer                                 = TRADER_THIS_TYPE,
+		/obj/item/device/breath_analyzer                                = TRADER_THIS_TYPE,
 		/obj/item/stack/medical/bruise_pack                             = TRADER_THIS_TYPE,
 		/obj/item/stack/medical/ointment                                = TRADER_THIS_TYPE,
 		/obj/item/stack/medical/advanced                                = TRADER_SUBTYPES_ONLY,
@@ -153,5 +151,6 @@ They sell generic supplies and ask for generic supplies.
 		/obj/item/weapon/reagent_containers/glass/bottle/chloralhydrate = TRADER_THIS_TYPE,
 		/obj/item/weapon/reagent_containers/glass/bottle/antitoxin      = TRADER_THIS_TYPE,
 		/obj/item/device/handheld_medical                               = TRADER_THIS_TYPE,
-		/obj/item/stack/medical/advanced/bruise_pack/spaceklot          = TRADER_THIS_TYPE
+		/obj/item/stack/medical/advanced/bruise_pack/spaceklot          = TRADER_THIS_TYPE,
+		/obj/mecha/medical/odysseus                                     = TRADER_THIS_TYPE
 	)

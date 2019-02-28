@@ -32,7 +32,7 @@ var/malftransformermade = 0
 	if(do_after(user, 30 SECONDS, act_target = src))
 		var/obj/product = new /obj/machinery/transformer
 		malftransformermade = 1
-		product.loc = get_turf(A)
+		product.forceMove(get_turf(A))
 
 	if(isrobot(user))
 		var/mob/living/silicon/robot/R = user

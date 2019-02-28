@@ -15,7 +15,6 @@
 		slot_l_hand_str = "caphat",
 		slot_r_hand_str = "caphat"
 		)
-	body_parts_covered = 0
 
 /obj/item/clothing/head/caphat/cap
 	name = "captain's cap"
@@ -39,7 +38,6 @@
 	desc = "It's hood that covers the head. It keeps you warm during the space winters."
 	icon_state = "chaplain_hood"
 	flags_inv = BLOCKHAIR
-	body_parts_covered = HEAD
 
 //Chaplain
 /obj/item/clothing/head/nun_hood
@@ -47,14 +45,12 @@
 	desc = "Maximum piety in this star system."
 	icon_state = "nun_hood"
 	flags_inv = BLOCKHAIR
-	body_parts_covered = HEAD
 
 //Mime
 /obj/item/clothing/head/beret
 	name = "beret"
 	desc = "A beret, an artists favorite headwear."
 	icon_state = "beret"
-	body_parts_covered = 0
 
 //berets
 /obj/item/clothing/head/beret/sec
@@ -138,7 +134,6 @@
 	allowed = list(/obj/item/weapon/reagent_containers/food/snacks/candy_corn, /obj/item/weapon/pen)
 	armor = list(melee = 50, bullet = 5, laser = 25,energy = 10, bomb = 0, bio = 0, rad = 0)
 	siemens_coefficient = 0.7
-	body_parts_covered = 0
 
 /obj/item/clothing/head/det/grey
 	icon_state = "detective2"

@@ -25,7 +25,7 @@
 
 	var/damage = W.force / 4.0
 
-	if(iswelder(W))
+	if(W.iswelder())
 		var/obj/item/weapon/weldingtool/WT = W
 
 		if(WT.remove_fuel(0, user))
@@ -192,7 +192,7 @@
 							return
 
 						if(prob(50))
-							src.visible_message("<span class='notice'>You hear something squeezing through the ventilation ducts.</span>",2)
+							visible_message("<span class='notice'>You hear something squeezing through the ventilation ducts.</span>", range = 2)
 						sleep(travel_time)
 
 						if(!exit_vent || exit_vent.welded)

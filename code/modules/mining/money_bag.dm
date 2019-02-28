@@ -48,6 +48,7 @@
 
 /obj/item/weapon/moneybag/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	..()
+	//TODO: Check this code
 	if (istype(W, /obj/item/weapon/coin))
 		var/obj/item/weapon/coin/C = W
 		user << "<span class='notice'>You add the [C.name] into the bag.</span>"
@@ -82,7 +83,7 @@
 				COIN = locate(/obj/item/weapon/coin/uranium,src.contents)
 		if(!COIN)
 			return
-		COIN.loc = src.loc
+		COIN.forceMove(src.loc)
 	return
 
 

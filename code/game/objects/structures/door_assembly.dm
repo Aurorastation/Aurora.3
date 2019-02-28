@@ -160,7 +160,7 @@
 		created_name = t
 		return
 
-	if(iswelder(W) && ( (istext(glass)) || (glass == 1) || (!anchored) ))
+	if(W.iswelder() && ( (istext(glass)) || (glass == 1) || (!anchored) ))
 		var/obj/item/weapon/weldingtool/WT = W
 		if (WT.remove_fuel(0, user))
 			playsound(src.loc, 'sound/items/Welder2.ogg', 50, 1)
@@ -190,7 +190,7 @@
 			user << "<span class='notice'>You need more welding fuel.</span>"
 			return
 
-	else if(iswrench(W) && state == 0)
+	else if(W.iswrench() && state == 0)
 		playsound(src.loc, 'sound/items/Ratchet.ogg', 100, 1)
 		if(anchored)
 			user.visible_message("[user] begins unsecuring the airlock assembly from the floor.", "You starts unsecuring the airlock assembly from the floor.")
@@ -202,7 +202,7 @@
 			user << "<span class='notice'>You [anchored? "un" : ""]secured the airlock assembly!</span>"
 			anchored = !anchored
 
-	else if(iscoil(W) && state == 0 && anchored)
+	else if(W.iscoil() && state == 0 && anchored)
 		var/obj/item/stack/cable_coil/C = W
 		if (C.get_amount() < 1)
 			user << "<span class='warning'>You need one length of coil to wire the airlock assembly.</span>"
@@ -213,7 +213,7 @@
 				src.state = 1
 				user << "<span class='notice'>You wire the airlock.</span>"
 
-	else if(iswirecutter(W) && state == 1 )
+	else if(W.iswirecutter() && state == 1 )
 		playsound(src.loc, 'sound/items/Wirecutter.ogg', 100, 1)
 		user.visible_message("[user] cuts the wires from the airlock assembly.", "You start to cut the wires from airlock assembly.")
 
@@ -232,8 +232,7 @@
 			if(do_after(user, 40))
 				EL.inuse = 0
 				if(!src) return
-				user.drop_item()
-				EL.forceMove(src)
+				user.drop_from_inventory(EL,src)
 				user << "<span class='notice'>You installed the airlock electronics!</span>"
 				src.state = 2
 				src.name = "Near finished Airlock Assembly"
@@ -241,7 +240,7 @@
 			else
 				EL.inuse = 0
 
-	else if(iscrowbar(W) && state == 2 )
+	else if(W.iscrowbar() && state == 2 )
 		//This should never happen, but just in case I guess
 		if (!electronics)
 			user << "<span class='notice'>There was nothing to remove.</span>"
@@ -256,7 +255,7 @@
 			user << "<span class='notice'>You removed the airlock electronics!</span>"
 			src.state = 1
 			src.name = "Wired Airlock Assembly"
-			electronics.loc = src.loc
+			electronics.forceMove(src.loc)
 			electronics = null
 
 	else if(istype(W, /obj/item/stack/material) && !glass)
@@ -284,7 +283,7 @@
 								user << "<span class='notice'>You installed [material_display_name(material_name)] plating into the airlock assembly.</span>"
 								glass = material_name
 
-	else if(isscrewdriver(W) && state == 2 )
+	else if(W.isscrewdriver() && state == 2 )
 		playsound(src.loc, 'sound/items/Screwdriver.ogg', 100, 1)
 		user << "<span class='notice'>Now finishing the airlock.</span>"
 

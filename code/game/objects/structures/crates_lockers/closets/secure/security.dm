@@ -139,8 +139,9 @@
 		//Tools
 		new /obj/item/weapon/cartridge/hos(src)
 		new /obj/item/device/radio/headset/heads/hos(src)
-		new /obj/item/ammo_magazine/tranq(src)
+		new /obj/item/weapon/storage/box/tranquilizer(src)
 		new /obj/item/clothing/glasses/sunglasses/sechud(src)
+		new /obj/item/clothing/glasses/sunglasses/sechud/head(src)
 		new /obj/item/weapon/shield/riot/tact(src)
 		new /obj/item/weapon/melee/baton/loaded(src)
 		new /obj/item/weapon/melee/telebaton(src)
@@ -148,9 +149,12 @@
 		new /obj/item/taperoll/police(src)
 		new /obj/item/device/flash(src)
 		new /obj/item/device/holowarrant(src)
+		new /obj/item/device/breath_analyzer(src)
 		//Belts
 		new /obj/item/clothing/accessory/holster/waist(src)
 		new /obj/item/weapon/storage/belt/security(src)
+
+
 
 /obj/structure/closet/secure_closet/hos2
 	name = "head of security's attire"
@@ -172,11 +176,13 @@
 		new /obj/item/clothing/head/beret/sec/hos(src)
 		new /obj/item/clothing/head/helmet/HoS(src)
 		//Tools
-		new /obj/item/clothing/glasses/sunglasses/sechud(src)
+		new /obj/item/clothing/glasses/sunglasses/sechud/aviator(src)
 		new /obj/item/device/radio/headset/heads/hos(src)
 		//Belts
 		new /obj/item/weapon/storage/belt/security(src)
 		new /obj/item/clothing/accessory/holster/waist(src)
+
+		new /obj/item/device/breath_analyzer(src)
 
 /obj/structure/closet/secure_closet/warden
 	name = "warden's locker"
@@ -213,6 +219,7 @@
 		//Tools
 		new /obj/item/weapon/cartridge/security(src)
 		new /obj/item/device/radio/headset/headset_sec(src)
+		new /obj/item/clothing/glasses/sunglasses/sechud/aviator(src)
 		new /obj/item/clothing/glasses/sunglasses/sechud(src)
 		new /obj/item/taperoll/police(src)
 		new /obj/item/weapon/reagent_containers/spray/pepper(src)
@@ -275,6 +282,7 @@
 		new /obj/item/clothing/head/helmet(src)
 		//Tools
 		new /obj/item/device/radio/headset/headset_sec(src)
+		new /obj/item/clothing/glasses/sunglasses/sechud/aviator(src)
 		new /obj/item/clothing/glasses/sunglasses/sechud(src)
 		new /obj/item/ammo_magazine/c45m/rubber(src)
 		new /obj/random/handgun(src)
@@ -322,31 +330,23 @@
 
 
 /obj/structure/closet/secure_closet/detective
-	name = "detective's cabinet"
+	name = "detective's locker"
 	req_access = list(access_detective)
-	icon_state = "cabinetdetective_locked"
-	icon_closed = "cabinetdetective"
-	icon_locked = "cabinetdetective_locked"
-	icon_opened = "cabinetdetective_open"
-	icon_broken = "cabinetdetective_broken"
-	icon_off = "cabinetdetective_broken"
-	storage_capacity = 45 //such a big closet deserves a little more capacity
+	icon_state = "sec1"
+	icon_closed = "sec"
+	icon_locked = "sec1"
+	icon_opened = "secopen"
+	icon_broken = "secbroken"
+	icon_off = "secoff"
 
 	fill()
 		//Appearance
+		new /obj/item/clothing/suit/storage/toggle/det_jacket(src)
 		new /obj/item/clothing/under/det(src)
 		new /obj/item/clothing/under/det/black(src)
 		new /obj/item/clothing/under/det/slob(src)
-		new /obj/item/clothing/suit/storage/toggle/det_trench(src)
-		new /obj/item/clothing/suit/storage/toggle/det_trench/technicolor(src)
-		new /obj/item/clothing/gloves/black(src)
-		new /obj/item/clothing/head/det(src)
-		new /obj/item/clothing/head/det/technicolor(src)
 		new /obj/item/clothing/gloves/black(src)
 		new /obj/item/clothing/shoes/brown(src)
-		new /obj/item/clothing/under/det(src)
-		new /obj/item/clothing/under/det/black(src)
-		new /obj/item/clothing/under/det/slob(src)
 		//Tools
 		new /obj/item/device/radio/headset/headset_sec(src)
 		new /obj/item/clothing/suit/storage/vest/detective(src)
@@ -369,9 +369,7 @@
 			return
 		else if(W.loc != user) // This should stop mounted modules ending up outside the module.
 			return
-		user.drop_item()
-		if(W)
-			W.forceMove(loc)
+		user.drop_from_inventory(W,loc)
 	else if(!opened)
 		if(istype(W, /obj/item/weapon/melee/energy/blade))//Attempt to cut open locker if locked
 			if(emag_act(INFINITY, user, "<span class='danger'>The locker has been sliced open by [user] with \an [W]</span>!", "<span class='danger'>You hear metal being sliced and sparks flying.</span>"))

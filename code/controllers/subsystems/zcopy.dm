@@ -1,7 +1,7 @@
 #define OPENTURF_MAX_PLANE -71
 #define OPENTURF_CAP_PLANE -70      // The multiplier goes here so it'll be on top of every other overlay.
 #define OPENTURF_MAX_DEPTH 10		// The maxiumum number of planes deep we'll go before we just dump everything on the same plane.
-#define SHADOWER_DARKENING_FACTOR 0.4	// The multiplication factor for openturf shadower darkness. Lighting will be multiplied by this.
+#define SHADOWER_DARKENING_FACTOR 0.85	// The multiplication factor for openturf shadower darkness. Lighting will be multiplied by this.
 
 /var/datum/controller/subsystem/zcopy/SSzcopy
 
@@ -13,9 +13,9 @@
 	flags = SS_FIRE_IN_LOBBY
 
 	var/list/queued_turfs = list()
-	var/list/qt_idex = 1
+	var/qt_idex = 1
 	var/list/queued_overlays = list()
-	var/list/qo_idex = 1
+	var/qo_idex = 1
 
 	var/list/openspace_overlays = list()
 	var/list/openspace_turfs = list()

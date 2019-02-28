@@ -234,7 +234,7 @@
 	item_state = "magboots"
 	icon_state = "magboots"
 
-	species_restricted = list("Vaurca Breeder")
+	species_restricted = list("Vaurca Breeder","Vaurca Warform")
 	sprite_sheets = list(
 		"Vaurca Breeder" = 'icons/mob/species/breeder/shoes.dmi'
 		)
@@ -281,7 +281,7 @@
 //ZZODDAA
 /obj/item/clothing/gloves/yellow/typec
 	icon = 'icons/mob/species/breeder/inventory/items.dmi'
-	desc = "A set of form-fitting carapace gauntlets. They appear to be fitted with some robust hydralics."
+	desc = "A set of form-fitting carapace gauntlets. They appear to be fitted with some robust hydraulics."
 	name = "carapace gauntlets"
 	w_class = 5.0
 	icon_state = "forceglove"

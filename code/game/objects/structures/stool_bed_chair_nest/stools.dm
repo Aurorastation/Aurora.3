@@ -112,7 +112,7 @@
 	qdel(src)
 
 /obj/item/weapon/stool/attackby(obj/item/weapon/W as obj, mob/user as mob)
-	if(iswrench(W))
+	if(W.iswrench())
 		playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
 		dismantle()
 		qdel(src)
@@ -122,7 +122,6 @@
 			return
 		var/obj/item/stack/C = W
 		if(C.get_amount() < 1) // How??
-			user.drop_from_inventory(C)
 			qdel(C)
 			return
 		var/padding_type //This is awful but it needs to be like this until tiles are given a material var.
@@ -138,11 +137,11 @@
 		C.use(1)
 		if(!istype(src.loc, /turf))
 			user.drop_from_inventory(src)
-			src.loc = get_turf(src)
+			src.forceMove(get_turf(src))
 		user << "You add padding to \the [src]."
 		add_padding(padding_type)
 		return
-	else if (iswirecutter(W))
+	else if (W.iswirecutter())
 		if(!padding_material)
 			user << "\The [src] has no padding to remove."
 			return
