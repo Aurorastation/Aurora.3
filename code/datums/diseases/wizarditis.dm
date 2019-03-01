@@ -31,8 +31,8 @@ STI KALY - blind
 			if(prob(1)&&prob(50))
 				affected_mob.say(pick("You shall not pass!", "Expeliarmus!", "By Merlins beard!", "Feel the power of the Dark Side!"))
 			if(prob(1)&&prob(50))
-				var/familiar_of_zero = pick("that you don't have enough mana.", "that the winds of magic are gone.", "an urge to summon familiar.")
-				to_chat(affected_mob, "<span class='warning'>You feel [familiar_of_zero]</span>")
+				var/arrows_var3 = pick("that you don't have enough mana.", "that the winds of magic are gone.", "an urge to summon familiar.")
+				to_chat(affected_mob, "<span class='warning'>You feel [arrows_var3]</span>")
 
 
 		if(3)
@@ -48,8 +48,8 @@ STI KALY - blind
 				affected_mob.say(pick("NEC CANTIO!","AULIE OXIN FIERA!","STI KALY!","EI NATH!"))
 				return
 			if(prob(1)&&prob(50))
-				var/neon_genesis_evangelion = pick("the tidal wave of raw power building inside.","that this location gives you a +2 to INT and +1 to WIS.","an urge to teleport.")
-				to_chat(affected_mob, "<span class='warning'>You feel [neon_genesis_evangelion]</span>")
+				var/arrows_var4 = pick("the tidal wave of raw power building inside.","that this location gives you a +2 to INT and +1 to WIS.","an urge to teleport.")
+				to_chat(affected_mob, "<span class='warning'>You feel [arrows_var4]</span>")
 				spawn_wizard_clothes(50)
 			if(prob(1)&&prob(1))
 				teleport()
