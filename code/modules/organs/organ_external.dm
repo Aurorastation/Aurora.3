@@ -212,6 +212,9 @@
 				break
 			parent.update_damages()
 
+	action_button_name = initial(action_button_name)
+	owner.update_action_buttons()
+
 /****************************************************
 			   DAMAGE PROCS
 ****************************************************/

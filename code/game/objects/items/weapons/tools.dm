@@ -314,9 +314,11 @@
 			// Welder is switched off!
 			to_chat(user, "<span class='warning'>You need to light the welding tool, first!</span>")
 			return
-		if(S.brute_dam > ROBOLIMB_SELF_REPAIR_CAP)
-			to_chat(user, "<span class='warning'>The damage is far too severe to patch over externally.</span>")
+
+		if(S.brute_dam > ROBOLIMB_SELF_REPAIR_CAP && (S.status & ORGAN_ROBOT))
+			user << "<span class='warning'>The damage is far too severe to patch over externally.</span>"
 			return
+
 		if (src.remove_fuel(0))
 			// Use a bit of fuel and repair
 			S.heal_damage(15,0,0,1)

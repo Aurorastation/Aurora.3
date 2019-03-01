@@ -5209,8 +5209,8 @@
 	reagents.add_reagent("water", 4)
 
 /obj/item/weapon/reagent_containers/food/snacks/adhomian_can
-	name = "canned fastshouters meat"
-	desc = "A piece of salted fastshouter's meat stored inside a metal can."
+	name = "canned fatshouters meat"
+	desc = "A piece of salted fatshouter's meat stored inside a metal can."
 	icon_state = "canned"
 	bitesize = 2
 	trash = /obj/item/trash/can
@@ -5335,7 +5335,6 @@
 	. = ..()
 	reagents.add_reagent("seafood", 4)
 
-//Snacks
 /obj/item/weapon/reagent_containers/food/snacks/cb01
 	name = "tau ceti bar"
 	desc = "A dark chocolate caramel and nougat bar made famous in Biesel."
@@ -5485,6 +5484,18 @@
 /obj/item/weapon/reagent_containers/food/snacks/cb10/Initialize()
 	. = ..()
 	reagents.add_reagent("sugar", 1)
+
+/obj/item/weapon/reagent_containers/food/snacks/hardbread
+	name = "adhomian hard bread"
+	desc = "A long-lasting tajaran bread. It is usually prepared for long journeys, hard winters or military campaigns."
+	icon_state = "loaf"
+	bitesize = 1
+	nutriment_desc = list("crusty bread" = 2)
+	nutriment_amt = 15
+	throw_range = 5
+	throwforce = 10
+	w_class = 3
+
 
 #undef NUTRIMENT_GOOD
 #undef NUTRIMENT_BAD

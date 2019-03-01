@@ -162,7 +162,7 @@
 
 /obj/item/organ/eyes/autakh/flash_act()
 	if(owner)
-		to_chat(owner, "<span class='notice'>\The [src]'s retinal overlays are overloaded by the strong light!</span>")
+		to_chat(owner, "<span class='notice'>Your [singular_name]'s retinal overlays are overloaded by the strong light!</span>")
 		owner.eye_blind = 5
 		owner.eye_blurry = 5
 		spark(get_turf(owner), 3)
@@ -183,7 +183,7 @@
 	disabled = FALSE
 
 	if(owner)
-		to_chat(owner, "<span class='notice'>\The [src]'s retinal overlays clicks and shifts!</span>")
+		to_chat(owner, "<span class='notice'>\The [singular_name]'s retinal overlays clicks and shifts!</span>")
 
 /obj/item/organ/adrenal
 	name = "adrenal management system"
