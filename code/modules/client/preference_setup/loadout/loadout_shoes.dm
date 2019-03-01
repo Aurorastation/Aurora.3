@@ -9,10 +9,6 @@
 	display_name = "workboots"
 	path = /obj/item/clothing/shoes/workboots
 
-/datum/gear/shoes/winterboots
-	display_name = "winter boots"
-	path = /obj/item/clothing/shoes/winter
-
 /datum/gear/shoes/sandals
 	display_name = "sandals"
 	path = /obj/item/clothing/shoes/sandal
@@ -30,7 +26,6 @@
 	shoes["green shoes"] = /obj/item/clothing/shoes/green
 	shoes["orange shoes"] = /obj/item/clothing/shoes/orange
 	shoes["purple shoes"] = /obj/item/clothing/shoes/purple
-	shoes["rainbow shoes"] = /obj/item/clothing/shoes/rainbow
 	shoes["red shoes"] = /obj/item/clothing/shoes/red
 	shoes["white shoes"] = /obj/item/clothing/shoes/white
 	shoes["yellow shoes"] = /obj/item/clothing/shoes/yellow
@@ -58,18 +53,6 @@
 	shoes["dress flats, blue"] = /obj/item/clothing/shoes/flats/blue
 	shoes["dress flats, green"] = /obj/item/clothing/shoes/flats/green
 	shoes["dress flats, purple"] = /obj/item/clothing/shoes/flats/purple
-	gear_tweaks += new/datum/gear_tweak/path(shoes)
-
-/datum/gear/shoes/cowboy
-	display_name = "cowboy boots selection"
-	path = /obj/item/clothing/shoes/cowboy
-
-/datum/gear/shoes/cowboy/New()
-	..()
-	var/shoes = list()
-	shoes["cowboy boots"] = /obj/item/clothing/shoes/cowboy
-	shoes["classic cowboy boots"] = /obj/item/clothing/shoes/cowboy/classic
-	shoes["snakeskin cowboy boots"] = /obj/item/clothing/shoes/cowboy/snakeskin
 	gear_tweaks += new/datum/gear_tweak/path(shoes)
 
 /datum/gear/shoes/heels

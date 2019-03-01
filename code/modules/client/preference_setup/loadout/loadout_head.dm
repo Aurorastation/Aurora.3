@@ -1,3 +1,9 @@
+/datum/gear/head
+	display_name = "beret, red"
+	path = /obj/item/clothing/head/beret
+	slot = slot_head
+	sort_category = "Hats and Headwear"
+
 /datum/gear/head/bandana
 	display_name = "bandana selection"
 	path = /obj/item/clothing/head/bandana
@@ -29,10 +35,6 @@
 	caps["yellow cap"] = /obj/item/clothing/head/soft/yellow
 	caps["mailman cap"] = /obj/item/clothing/head/mailman
 	gear_tweaks += new/datum/gear_tweak/path(caps)
-
-/datum/gear/head/beret
-	display_name = "beret, red"
-	path = /obj/item/clothing/head/beret
 
 /datum/gear/head/beret/eng
 	display_name = "beret, engie-orange"
@@ -117,8 +119,6 @@
 	hats["hat, black fedora"] = /obj/item/clothing/head/fedora
 	hats["hat, brown fedora"] = /obj/item/clothing/head/fedora/brown
 	hats["hat, grey fedora"] = /obj/item/clothing/head/fedora/grey
-	hats["hat, cowboy"] = /obj/item/clothing/head/cowboy
-	hats["hat, wide-brimmed cowboy"] = /obj/item/clothing/head/cowboy/wide
 	gear_tweaks += new/datum/gear_tweak/path(hats)
 
 /datum/gear/head/hijab
@@ -186,15 +186,6 @@
 /datum/gear/head/beanie/New()
 	..()
 	gear_tweaks = list(gear_tweak_free_color_choice)
-
-/datum/gear/head/loose_beanie
-	display_name = "loose beanie"
-	path = /obj/item/clothing/head/beanie_loose
-
-/datum/gear/head/loose_beanie/New()
-	..()
-	gear_tweaks = list(gear_tweak_free_color_choice)
-
 
 /datum/gear/head/iacberet
 	display_name = "IAC Beret"

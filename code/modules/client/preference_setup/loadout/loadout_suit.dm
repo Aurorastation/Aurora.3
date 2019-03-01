@@ -109,11 +109,6 @@
 	path = /obj/item/clothing/suit/storage/toggle/det_trench/technicolor
 	allowed_roles = list("Detective", "Head of Security")
 
-/datum/gear/suit/ian
-	display_name = "worn shirt"
-	description = "A worn out, curiously comfortable t-shirt with a picture of Ian."
-	path = /obj/item/clothing/suit/ianshirt
-
 /datum/gear/suit/secjacket
 	display_name = "navy security jacket (Security Officer)"
 	path = /obj/item/clothing/suit/security/navyofficer
@@ -207,14 +202,6 @@
 		var/obj/item/clothing/suit/storage/toggle/track/track = track_style
 		tracks[initial(track.name)] = track
 	gear_tweaks += new/datum/gear_tweak/path(sortAssoc(tracks))
-
-/datum/gear/suit/puffer_coat
-	display_name = "puffer coat"
-	path = /obj/item/clothing/suit/jacket/puffer
-
-/datum/gear/suit/puffer_vest
-	display_name = "puffer vest"
-	path = /obj/item/clothing/suit/jacket/puffer/vest
 
 /datum/gear/suit/greenjacket
 	display_name = "green suit jacket"

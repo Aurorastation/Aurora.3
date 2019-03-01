@@ -55,7 +55,6 @@
 	var/ties = list()
 	ties["blue tie"] = /obj/item/clothing/accessory/blue
 	ties["red tie"] = /obj/item/clothing/accessory/red
-	ties["horrible tie"] = /obj/item/clothing/accessory/horrible
 	ties["blue tie with a clip"] = /obj/item/clothing/accessory/tie/blue_clip
 	ties["blue long tie"] = /obj/item/clothing/accessory/tie/blue_long
 	ties["red tie with a clip"] = /obj/item/clothing/accessory/tie/red_clip
@@ -114,10 +113,6 @@
 	display_name = "drop pouches, simple"
 	path = /obj/item/clothing/accessory/storage/pouches
 	cost = 2
-
-/datum/gear/accessory/locket
-	display_name = "silver locket"
-	path = /obj/item/clothing/accessory/locket
 
 /datum/gear/accessory/locket
 	display_name = "silver locket"

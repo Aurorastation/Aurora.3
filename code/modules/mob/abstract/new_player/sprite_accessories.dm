@@ -113,10 +113,6 @@
 		name = "Half-banged Hair"
 		icon_state = "hair_halfbang"
 
-	halfbangalt
-		name = "Half-banged Hair Alt"
-		icon_state = "hair_halfbang_alt"
-
 	ponytail1
 		name = "Ponytail 1"
 		icon_state = "hair_ponytail"
@@ -178,11 +174,6 @@
 		name = "Parted"
 		icon_state = "hair_parted"
 
-	pompadour
-		name = "Pompadour"
-		icon_state = "hair_pompadour"
-		gender = MALE
-
 	quiff
 		name = "Quiff"
 		icon_state = "hair_quiff"
@@ -223,11 +214,6 @@
 		icon_state = "hair_bobcutalt"
 		gender = FEMALE
 
-	bowl
-		name = "Bowl"
-		icon_state = "hair_bowlcut"
-		gender = MALE
-
 	buzz
 		name = "Buzzcut"
 		icon_state = "hair_buzzcut"
@@ -253,10 +239,6 @@
 		name = "Devil Lock"
 		icon_state = "hair_devilock"
 
-	dreadlocks
-		name = "Dreadlocks"
-		icon_state = "hair_dreads"
-
 	curls
 		name = "Curls"
 		icon_state = "hair_curls"
@@ -268,11 +250,6 @@
 	afro2
 		name = "Afro 2"
 		icon_state = "hair_afro2"
-
-	afro_large
-		name = "Big Afro"
-		icon_state = "hair_bigafro"
-		gender = MALE
 
 	rows
 		name = "Rows"
@@ -315,10 +292,6 @@
 	fag
 		name = "Flow Hair"
 		icon_state = "hair_f"
-
-	feather
-		name = "Feather"
-		icon_state = "hair_feather"
 
 	hitop
 		name = "Hitop"
@@ -416,42 +389,16 @@
 	balding
 		name = "Balding Hair"
 		icon_state = "hair_e"
-		gender = MALE // turnoff!
-
-	familyman
-		name = "The Family Man"
-		icon_state = "hair_thefamilyman"
-		gender = MALE
-
-	mahdrills
-		name = "Drillruru"
-		icon_state = "hair_drillruru"
-		gender = FEMALE
 
 	fringetail
 		name = "Fringetail"
 		icon_state = "hair_fringetail"
 		gender = FEMALE
 
-	dandypomp
-		name = "Dandy Pompadour"
-		icon_state = "hair_dandypompadour"
-		gender = MALE
-
 	poofy
 		name = "Poofy"
 		icon_state = "hair_poofy"
 		gender = FEMALE
-
-	crono
-		name = "Chrono"
-		icon_state = "hair_toriyama"
-		gender = MALE
-
-	vegeta
-		name = "Vegeta"
-		icon_state = "hair_toriyama2"
-		gender = MALE
 
 	cia
 		name = "CIA"
@@ -491,16 +438,6 @@
 		name = "Bald"
 		icon_state = "bald"
 
-	eighties
-		name = "80's"
-		icon_state = "hair_80s"
-		gender = FEMALE
-
-	nia
-		name = "Nia"
-		icon_state = "hair_nia"
-		gender = FEMALE
-
 	unkept
 		name = "Unkept"
 		icon_state = "hair_unkept"
@@ -508,6 +445,10 @@
 	modern
 		name = "Modern"
 		icon_state = "hair_modern"
+
+	father
+		name = "Father"
+		icon_state = "hair_father"
 
 	bald
 		name = "Bald"
@@ -521,11 +462,6 @@
 	buncasual
 		name = "Casual Bun"
 		icon_state = "hair_bun2"
-		gender = FEMALE
-
-	doublebun
-		name = "Double-Bun"
-		icon_state = "hair_doublebun"
 		gender = FEMALE
 
 	bangshuman
@@ -620,7 +556,7 @@
 		gender = MALE
 
 	bowlcut2
-		name = "Bowl2"
+		name = "Bowl"
 		icon_state = "hair_bowlcut2"
 		gender = MALE
 
@@ -652,14 +588,6 @@
 		name = "Half-Shaved"
 		icon_state = "hair_halfshaved"
 
-	halfshavedemo
-		name = "Half-Shaved Emo"
-		icon_state = "hair_halfshavedemo"
-
-	longsideemo
-		name = "Long Side Emo"
-		icon_state = "hair_longsideemo"
-
 	sideswept
 		name = "Sideswept Hair"
 		icon_state = "hair_sideswept"
@@ -675,14 +603,6 @@
 	mohawkshavednaomi
 		name = "Naomi Mohawk"
 		icon_state = "hair_mohawkshavednaomi"
-
-	leftsidecut
-		name = "Left Sidecut"
-		icon_state = "hair_leftside"
-
-	rightsidecut
-		name = "Right Sidecut"
-		icon_state = "hair_rightside"
 
 	gentle2
 		name = "Gentle 2"
@@ -726,10 +646,6 @@
 	remohawk
 		name = "Mohawk"
 		icon_state = "hair_mohawk"
-
-	celes
-		name = "Drills, Side"
-		icon_state = "hair_celes"
 
 	lowbun
 		name = "Low Bun"

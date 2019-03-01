@@ -17,10 +17,6 @@
 	display_name = "glasses, hipster"
 	path = /obj/item/clothing/glasses/regular/hipster
 
-/datum/gear/eyes/glasses/monocle
-	display_name = "monocle"
-	path = /obj/item/clothing/glasses/monocle
-
 /datum/gear/eyes/glasses/goggles
 	display_name = "goggles"
 	path = /obj/item/clothing/glasses/goggles
