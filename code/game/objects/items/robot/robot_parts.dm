@@ -276,7 +276,7 @@
 			user.drop_from_inventory(W,src)
 			src.cell = W
 			user << "<span class='notice'>You insert the cell!</span>"
-	if(iscoil(W))
+	if(W.iscoil())
 		if(src.wires)
 			user << "<span class='warning'>You have already inserted wire!</span>"
 			return
@@ -289,7 +289,7 @@
 
 /obj/item/robot_parts/head/attackby(obj/item/W as obj, mob/user as mob)
 	..()
-	if(ismultitool(W))
+	if(W.ismultitool())
 		if(law_manager)
 			user << "<span class='notice'>You disable the lawing circuits on \the [src].</span>"
 			law_manager = FALSE

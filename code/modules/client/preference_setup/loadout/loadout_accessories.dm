@@ -1,8 +1,16 @@
 /datum/gear/accessory
-	display_name = "suspenders"
-	path = /obj/item/clothing/accessory/suspenders
+	display_name = "silver locket"
+	path = /obj/item/clothing/accessory/locket
 	slot = slot_tie
 	sort_category = "Accessories"
+
+/datum/gear/accessory/suspenders
+	display_name = "suspenders"
+	path = /obj/item/clothing/accessory/suspenders
+
+/datum/gear/accessory/suspenders/New()
+	..()
+	gear_tweaks = list(gear_tweak_free_color_choice)
 
 /datum/gear/accessory/waistcoat
 	display_name = "waistcoat"
@@ -115,14 +123,6 @@
 	path = /obj/item/clothing/accessory/storage/pouches
 	cost = 2
 
-/datum/gear/accessory/locket
-	display_name = "silver locket"
-	path = /obj/item/clothing/accessory/locket
-
-/datum/gear/accessory/locket
-	display_name = "silver locket"
-	path = /obj/item/clothing/accessory/locket
-
 /datum/gear/accessory/sweater
 	display_name = "sweater"
 	path = /obj/item/clothing/accessory/sweater
@@ -181,17 +181,10 @@
 /datum/gear/accessory/scarf/New()
 	..()
 	var/scarfs = list()
-	scarfs["white scarf"] = /obj/item/clothing/accessory/scarf
-	scarfs["yellow scarf"] = /obj/item/clothing/accessory/scarf/yellow
-	scarfs["green scarf"] = /obj/item/clothing/accessory/scarf/green
-	scarfs["purple scarf"] = /obj/item/clothing/accessory/scarf/purple
-	scarfs["black scarf"] = /obj/item/clothing/accessory/scarf/black
-	scarfs["red scarf"] = /obj/item/clothing/accessory/scarf/red
-	scarfs["orange scarf"] = /obj/item/clothing/accessory/scarf/orange
-	scarfs["light blue scarf"] = /obj/item/clothing/accessory/scarf/light_blue
-	scarfs["dark blue scarf"] = /obj/item/clothing/accessory/scarf/dark_blue
+	scarfs["plain scarf"] = /obj/item/clothing/accessory/scarf
 	scarfs["zebra scarf"] = /obj/item/clothing/accessory/scarf/zebra
 	gear_tweaks += new/datum/gear_tweak/path(scarfs)
+	gear_tweaks += list(gear_tweak_free_color_choice)
 
 /datum/gear/accessory/chaps
 	display_name = "chaps, brown"

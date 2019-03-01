@@ -1962,7 +1962,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 		return
 
 	if(broken)
-		if(isscrewdriver(I))
+		if(I.isscrewdriver())
 			if(!open)
 				open = TRUE
 				to_chat(user, "<span class='notice'>You unfasten the back panel.</span>")
@@ -1972,7 +1972,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 				to_chat(user, "<span class='notice'>You secure the back panel.</span>")
 			playsound(user.loc, 'sound/items/Screwdriver.ogg', 50, 1)
 
-		if(ismultitool(I) && open)
+		if(I.ismultitool() && open)
 			to_chat(user, "<span class='notice'>You quickly pulse a few fires, and reset the screen and device.</span>")
 			broken = FALSE
 			update_icon()
@@ -2645,6 +2645,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_state = "qrqil_cane"
 	item_state = "qrqil_cane"
 	contained_sprite = TRUE
+	w_class = 2
 	var/active = FALSE
 
 /obj/item/weapon/cane/fluff/qrqil_cane/attack_self(mob/user)
@@ -2653,9 +2654,11 @@ All custom items with worn sprites must follow the contained sprite system: http
 		playsound(user, 'sound/weapons/saberon.ogg', 50, 1)
 		to_chat(user, "<span class='notice'>\The [src] is now energised.</span>")
 		item_state = icon_state
+		w_class = 4
 	else
 		playsound(user, 'sound/weapons/saberoff.ogg', 50, 1)
 		to_chat(user, "<span class='notice'>\The [src] is now de-energised..</span>")
+		w_class = initial(w_class)
 
 	update_icon()
 	user.update_inv_l_hand(FALSE)
@@ -2668,3 +2671,27 @@ All custom items with worn sprites must follow the contained sprite system: http
 	else
 		icon_state = initial(icon_state)
 		item_state = icon_state
+
+
+/obj/item/clothing/accessory/poncho/fluff/djar_cape //Zandiziite Cape - D'Jar Sa'Kuate - firstact
+	name = "zandiziite cape"
+	desc = "A dominian cape, with a clasp bearing the symbol of a champion Zandiziite wrestler. It looks well worn, of the finest material."
+	icon = 'icons/obj/custom_items/djar_cape.dmi'
+	icon_state = "djar_cape"
+	item_state = "djar_cape"
+	contained_sprite = TRUE
+	icon_override = FALSE
+
+
+/obj/item/device/flashlight/fluff/maximus_squirrel //Vibrating Blue Squirrel - Maximus Crane - lordfowl
+	name = "vibrating blue squirrel"
+	desc = "It vibrates, and it is blue. The goal of adventurers everywhere."
+	icon = 'icons/obj/custom_items/maximus_squirrel.dmi'
+	icon_state = "maximus_squirrel"
+	item_state = "maximus_squirrel"
+	light_color = LIGHT_COLOR_BLUE
+	light_wedge = LIGHT_OMNI
+	action_button_name = null
+	activation_sound = null
+	brightness_on = 1
+	contained_sprite = TRUE

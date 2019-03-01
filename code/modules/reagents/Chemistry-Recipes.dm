@@ -2777,6 +2777,20 @@
 	required_reagents = list("ice" = 1, "victorygin" = 1)
 	result_amount = 2
 
+/datum/chemical_reaction/mars_coffee
+	name = "Martian Special"
+	id = "mars_coffee"
+	result = "mars_coffee"
+	required_reagents = list("coffee" = 4, "blackpepper" = 1)
+	result_amount = 5
+
+/datum/chemical_reaction/mountain_marauder
+	name = "Mountain Marauder"
+	id = "mountain_marauder"
+	result = "mountain_marauder"
+	required_reagents = list("adhomai_milk" = 1, "victorygin" = 1)
+	result_amount = 2
+
 //Kaed's Unathi cocktails
 //========
 
@@ -2890,6 +2904,44 @@
 	id = "pslatte"
 	result = "pslatte"
 	required_reagents = list("coffee" = 6, "pumpkinspice" = 2, "cream" = 2)
+	result_amount = 10
+
+//Skrell drinks. Bring forth the culture.
+//===========================================
+
+/datum/chemical_reaction/thirdincident
+	name = "The Third Incident"
+	id = "thirdincident"
+	result = "thirdincident"
+	required_reagents = list("egg" = 3, "bluecuracao" = 10, "grapejuice" = 10)
+	result_amount = 20
+
+/datum/chemical_reaction/upsidedowncup
+	name = "Upside-Down Cup"
+	id = "upsidedowncup"
+	result = "upsidedowncup"
+	required_reagents = list("dr_gibb" = 3, "ice" = 1, "lemonjuice" = 1)
+	result_amount = 5
+
+/datum/chemical_reaction/cigarettelizard
+	name = "Cigarette Lizard"
+	id = "cigarettelizard"
+	result = "cigarettelizard"
+	required_reagents = list("limejuice" = 2, "sodawater" = 2, "mintsyrup" = 1, "ice" = 1)
+	result_amount = 6
+
+/datum/chemical_reaction/sromshine
+	name = "Sromshine"
+	id = "sromshine"
+	result = "sromshine"
+	required_reagents = list("coffee" = 2, "orangejuice" = 1)
+	result_amount = 3
+
+/datum/chemical_reaction/cbsc
+	name = "Complex Bluespace Calculation"
+	id = "cbsc"
+	result = "cbsc"
+	required_reagents = list("wine" = 4, "vodka" = 2, "sodawater" = 3, "radium" = 1 )
 	result_amount = 10
 
 //transmutation
