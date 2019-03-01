@@ -1,8 +1,16 @@
 /datum/gear/accessory
-	display_name = "suspenders"
-	path = /obj/item/clothing/accessory/suspenders
+	display_name = "silver locket"
+	path = /obj/item/clothing/accessory/locket
 	slot = slot_tie
 	sort_category = "Accessories"
+
+/datum/gear/accessory/suspenders
+	display_name = "suspenders"
+	path = /obj/item/clothing/accessory/suspenders
+
+/datum/gear/accessory/suspenders/New()
+	..()
+	gear_tweaks = list(gear_tweak_free_color_choice)
 
 /datum/gear/accessory/waistcoat
 	display_name = "waistcoat"

@@ -191,3 +191,7 @@
 	display_name = "IAC Beret"
 	path = /obj/item/clothing/head/soft/iacberet
 	allowed_roles = list("Chief Medical Officer", "Medical Doctor", "Chemist", "Paramedic", "Medical Resident")
+
+/datum/gear/head/tcflberet
+	display_name = "Tau Ceti Foreign Legion dress beret"
+	path = /obj/item/clothing/head/legion_beret

@@ -33,6 +33,8 @@
 	var/robotic_name
 	var/robotic_sprite
 
+	var/robotize_type		// If set, this organ type will automatically be roboticized with this manufacturer.
+
 /obj/item/organ/New(loc, ...)
 	..()
 	if (!initialized && istype(loc, /mob/living/carbon/human/dummy/mannequin))
@@ -295,8 +297,9 @@
 	robotic = 1
 	min_bruised_damage = 15
 	min_broken_damage = 35
-	name = initial(name)
-	icon_state = initial(icon_state)
+	if(!robotize_type)
+		name = initial(name)
+		icon_state = initial(icon_state)
 
 /obj/item/organ/emp_act(severity)
 	if(!(status & ORGAN_ASSISTED))
@@ -347,6 +350,7 @@
 			msg_admin_attack("[user.name] ([user.ckey]) removed a vital organ ([src]) from [owner.name] ([owner.ckey]) (INTENT: [uppertext(user.a_intent)]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(owner))
 		owner.death()
 
+	owner.update_action_buttons()
 	owner = null
 
 /obj/item/organ/proc/replaced(var/mob/living/carbon/human/target,var/obj/item/organ/external/affected)
@@ -373,6 +377,7 @@
 	target.internal_organs_by_name[organ_tag] = src
 	if(robotic)
 		robotize()
+	owner.update_action_buttons()
 
 /obj/item/organ/eyes/replaced(var/mob/living/carbon/human/target)
 
