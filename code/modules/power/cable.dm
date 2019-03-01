@@ -522,7 +522,7 @@ obj/structure/cable/proc/cableColor(var/colorC)
 
 		if(S.burn_dam)
 			if(S.burn_dam > ROBOLIMB_SELF_REPAIR_CAP && (S.status & ORGAN_ROBOT))
-				user << "<span class='warning'>The damage is far too severe to patch over externally.</span>"
+				to_chat(user, "<span class='warning'>The damage is far too severe to patch over externally.</span>")
 				return
 
 			S.heal_damage(0,15,0,1)
