@@ -20,7 +20,8 @@
 
 /mob/living/test/on_hear_say(var/message)
 	. = ..(message)
-	heard = isnull(message)
+	if(message)
+		heard = TRUE
 	return .
 
 datum/unit_test/mob_hear
@@ -33,9 +34,10 @@ datum/unit_test/mob_hear/start_test()
 	if(!mobloc)
 		fail("Unable to find a location to create test mob")
 		return 0
-
-	var/list/test_speaker = create_test_mob_with_mind(mobloc, mob_type)
-	var/list/test_listener = create_test_mob_with_mind(mobloc, mob_type)
+	for(var/mob/M in get_turf(mobloc))
+		QDEL_NULL(M)
+	var/list/test_speaker = create_test_mob_with_mind(mobloc, mob_type, TRUE)
+	var/list/test_listener = create_test_mob_with_mind(mobloc, mob_type, TRUE)
 
 	if(isnull(test_speaker) || isnull(test_listener))
 		fail("Check Runtimed in Mob creation")
@@ -123,7 +125,7 @@ datum/unit_test/human_breath/check_result()
 //#define HALLOSS   "halloss"
 
 
-proc/create_test_mob_with_mind(var/turf/mobloc = null, var/mobtype = /mob/living/carbon/human)
+proc/create_test_mob_with_mind(var/turf/mobloc = null, var/mobtype = /mob/living/carbon/human, var/add_to_playerlist = FALSE)
 	var/list/test_result = list("result" = FAILURE, "msg"    = "", "mobref" = null)
 
 	if(isnull(mobloc))
@@ -139,6 +141,11 @@ proc/create_test_mob_with_mind(var/turf/mobloc = null, var/mobtype = /mob/living
 	test_result["result"] = SUCCESS
 	test_result["msg"] = "Mob created"
 	test_result["mobref"] = "\ref[L]"
+
+	if(add_to_playerlist)
+		player_list |= L
+		testing("Adding test subject to the player list")
+		world << "Adding test subject to the player list"
 
 	return test_result
 

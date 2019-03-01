@@ -1,10 +1,10 @@
 // At minimum every mob has a hear_say proc.
 
 /mob/proc/hear_say(var/message, var/verb = "says", var/datum/language/language = null, var/alt_name = "",var/italics = 0, var/mob/speaker = null, var/sound/speech_sound, var/sound_vol)
-	if(!client && !istype(src, /mob/living/test))
+	if(!istype(src, /mob/living/test) && !client)
 		return
 
-	if(speaker && !speaker.client && istype(src,/mob/abstract/observer) && !istype(speaker, /mob/living/test) && client.prefs.toggles & CHAT_GHOSTEARS && !speaker in view(src))
+	if(speaker && !istype(speaker, /mob/living/test) && (!speaker.client && istype(src,/mob/abstract/observer) && client.prefs.toggles & CHAT_GHOSTEARS && !speaker in view(src)))
 			//Does the speaker have a client?  It's either random stuff that observers won't care about (Experiment 97B says, 'EHEHEHEHEHEHEHE')
 			//Or someone snoring.  So we make it where they won't hear it.
 		return

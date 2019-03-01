@@ -249,6 +249,10 @@
 
 	for(var/m in player_list)
 		var/mob/M = m
+		if(istype(M, /mob/living/test))
+			if (!mobs[M])
+				mobs[M] = TRUE
+			continue
 		if(checkghosts == GHOSTS_ALL_HEAR && M.stat == DEAD && !isnewplayer(M) && (M.client && M.client.prefs.toggles & CHAT_GHOSTEARS))
 			if (!mobs[M])
 				mobs[M] = TRUE

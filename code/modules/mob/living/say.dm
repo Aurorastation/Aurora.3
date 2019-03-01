@@ -269,16 +269,18 @@ proc/get_radio_key_from_channel(var/channel)
 
 
 	var/list/hear_clients = list()
-	for(var/mob/M in listening)
+	for(var/m in listening)		
+		var/mob/M = m
 		M.hear_say(message, verb, speaking, alt_name, italics, src, speech_sound, sound_vol)
-		if (M.client || istype(M, /mob/living/test))
+		if (M.client)
 			hear_clients += M.client
 
 	var/speech_bubble_test = say_test(message)
 	var/image/speech_bubble = image('icons/mob/talk.dmi',src,"h[speech_bubble_test]")
 	INVOKE_ASYNC(GLOBAL_PROC, /proc/flick_overlay, speech_bubble, hear_clients, 30)
 
-	for(var/obj/O in listening_obj)
+	for(var/o in listening_obj)
+		var/obj/O = o
 		spawn(0)
 			if(O) //It's possible that it could be deleted in the meantime.
 				O.hear_talk(src, message, verb, speaking)
