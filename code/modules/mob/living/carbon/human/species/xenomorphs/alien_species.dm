@@ -111,8 +111,8 @@
 	return 0
 
 /datum/species/xenos/tap(var/mob/living/carbon/human/H,var/mob/living/target)
-	H.visible_message("<span class='notice'>[H] taps [target] on the shoulder with its scythe-like arm.</span>", \
-					"<span class='notice'>You tap [target] on the shoulder with your scythe-like arm.</span>")
+	H.visible_message("<span class='notice'>[H] caresses [target] with its scythe-like arm.</span>", \
+					"<span class='notice'>You caress [target] with your scythe-like arm.</span>")
 
 /datum/species/xenos/handle_post_spawn(var/mob/living/carbon/human/H)
 
