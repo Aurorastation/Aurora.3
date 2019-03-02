@@ -115,13 +115,14 @@
 		new /obj/item/weapon/storage/backpack/industrial(src)
 	else
 		new /obj/item/weapon/storage/backpack/satchel_eng(src)
-	if (prob(70))
+	if (prob(50))
 		new /obj/item/clothing/accessory/storage/brown_vest(src)
 	else
-		new /obj/item/clothing/accessory/storage/webbing(src)
+		new /obj/item/clothing/accessory/storage/brown_pouches(src)
 	new /obj/item/weapon/storage/toolbox/mechanical(src)
 	new /obj/item/device/radio/headset/headset_eng(src)
 	new /obj/item/clothing/suit/storage/hazardvest(src)
+	new /obj/item/clothing/head/hardhat/orange(src)
 	new /obj/item/clothing/mask/gas(src)
 	new /obj/item/clothing/glasses/meson(src)
 	new /obj/item/clothing/glasses/meson/aviator(src)

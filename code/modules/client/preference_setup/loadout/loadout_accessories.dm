@@ -83,16 +83,6 @@
 	..()
 	gear_tweaks = list(gear_tweak_free_color_choice)
 
-/datum/gear/accessory/brown_vest
-	display_name = "webbing, engineering"
-	path = /obj/item/clothing/accessory/storage/brown_vest
-	allowed_roles = list("Station Engineer", "Atmospheric Technician", "Chief Engineer", "Engineering Apprentice")
-
-/datum/gear/accessory/black_vest
-	display_name = "webbing, security"
-	path = /obj/item/clothing/accessory/storage/black_vest
-	allowed_roles = list("Security Officer","Head of Security","Warden", "Security Cadet", "Detective", "Forensic Technician")
-
 /datum/gear/accessory/white_vest
 	display_name = "webbing, medical"
 	path = /obj/item/clothing/accessory/storage/white_vest
@@ -131,48 +121,21 @@
 	..()
 	gear_tweaks = list(gear_tweak_free_color_choice)
 
-/datum/gear/accessory/dressshirt
-	display_name = "dress shirt"
-	path = /obj/item/clothing/accessory/dressshirt
+/datum/gear/accessory/shirt
+	display_name = "shirt selection"
+	description = "A selection of various top wear."
 
-/datum/gear/accessory/dressshirt/New()
+/datum/gear/accessory/shirt/New()
 	..()
-	gear_tweaks = list(gear_tweak_free_color_choice)
-
-/datum/gear/accessory/dressshirt_r
-	display_name = "dress shirt, rolled up"
-	path = /obj/item/clothing/accessory/dressshirt_r
-
-/datum/gear/accessory/dressshirt_r/New()
-	..()
-	gear_tweaks = list(gear_tweak_free_color_choice)
-
-/datum/gear/accessory/longsleeve
-	display_name = "long-sleeved shirt"
-	path = /obj/item/clothing/accessory/longsleeve
-
-/datum/gear/accessory/longsleeve/New()
-	..()
-	gear_tweaks = list(gear_tweak_free_color_choice)
-
-/datum/gear/accessory/longsleeve_s
-	display_name = "long-sleeved shirt, striped"
-	path = /obj/item/clothing/accessory/longsleeve_s
-
-/datum/gear/accessory/longsleeve_s/New()
-	..()
-	var/lshirt = list()
-	lshirt["black-striped"] = /obj/item/clothing/accessory/longsleeve_s
-	lshirt["blue-striped"] = /obj/item/clothing/accessory/longsleeve_sb
-	gear_tweaks += new/datum/gear_tweak/path(lshirt)
-
-/datum/gear/accessory/tshirt
-	display_name = "t-shirt"
-	path = /obj/item/clothing/accessory/tshirt
-
-/datum/gear/accessory/tshirt/New()
-	..()
-	gear_tweaks = list(gear_tweak_free_color_choice)
+	var/shirt = list()
+	shirt["dress shirt"] = /obj/item/clothing/accessory/dressshirt
+	shirt["dress shirt, rolled up"] = /obj/item/clothing/accessory/dressshirt_r
+	shirt["long-sleeved shirt"] = /obj/item/clothing/accessory/longsleeve
+	shirt["long-sleeve, blue stripes"] = /obj/item/clothing/accessory/longsleeve_sb
+	shirt["long-sleeve, black stripes"] = /obj/item/clothing/accessory/longsleeve_s
+	shirt["t-shirt"] = /obj/item/clothing/accessory/tshirt
+	gear_tweaks += new/datum/gear_tweak/path(shirt)
+	gear_tweaks += list(gear_tweak_free_color_choice)
 
 /datum/gear/accessory/scarf
 	display_name = "scarf selection"
@@ -185,13 +148,5 @@
 	scarfs["zebra scarf"] = /obj/item/clothing/accessory/scarf/zebra
 	gear_tweaks += new/datum/gear_tweak/path(scarfs)
 	gear_tweaks += list(gear_tweak_free_color_choice)
-
-/datum/gear/accessory/chaps
-	display_name = "chaps, brown"
-	path = /obj/item/clothing/accessory/chaps
-
-/datum/gear/accessory/chaps/black
-	display_name = "chaps, black"
-	path = /obj/item/clothing/accessory/chaps/black
 
 

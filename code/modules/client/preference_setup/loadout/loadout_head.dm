@@ -48,45 +48,6 @@
 	display_name = "beret, purple"
 	path = /obj/item/clothing/head/beret/purple
 
-/datum/gear/head/beret/sec
-	display_name = "beret, security"
-	path = /obj/item/clothing/head/beret/sec
-	allowed_roles = list("Security Officer", "Head of Security", "Warden", "Security Cadet", "Detective", "Forensic Technician")
-
-/datum/gear/head/beret/warden
-	display_name = "beret, security (warden)"
-	path = /obj/item/clothing/head/beret/sec/warden
-	allowed_roles = list("Head of Security", "Warden")
-
-/datum/gear/head/beret/hos
-	display_name = "beret, security (head of security)"
-	path = /obj/item/clothing/head/beret/sec/hos
-	allowed_roles = list("Head of Security")
-
-/datum/gear/head/corp
-	display_name = "cap, corporate (security)"
-	path = /obj/item/clothing/head/soft/sec/corp
-	allowed_roles = list("Security Officer","Head of Security", "Warden", "Security Cadet", "Detective", "Forensic Technician",)
-
-/datum/gear/head/sec
-	display_name = "cap, security"
-	path = /obj/item/clothing/head/soft/sec
-	allowed_roles = list("Security Officer", "Head of Security", "Warden", "Security Cadet", "Detective", "Forensic Technician",)
-
-/datum/gear/head/hardhat
-	display_name = "hardhat selection"
-	path = /obj/item/clothing/head/hardhat
-	allowed_roles = list("Station Engineer", "Atmospheric Technician", "Chief Engineer", "Engineering Apprentice")
-
-/datum/gear/head/hardhat/New()
-	..()
-	var/hardhat = list()
-	hardhat["hardhat, yellow"] = /obj/item/clothing/head/hardhat
-	hardhat["hardhat, blue"] = /obj/item/clothing/head/hardhat/dblue
-	hardhat["hardhat, orange"] = /obj/item/clothing/head/hardhat/orange
-	hardhat["hardhat, red"] = /obj/item/clothing/head/hardhat/red
-	gear_tweaks += new/datum/gear_tweak/path(hardhat)
-
 /datum/gear/head/hairflower
 	display_name = "hair flower pin (colorable)"
 	path = /obj/item/clothing/head/pin/flower/white

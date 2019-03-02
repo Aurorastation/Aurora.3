@@ -92,7 +92,6 @@
 	poncho["poncho, red"] = /obj/item/clothing/accessory/poncho/red
 	gear_tweaks += new/datum/gear_tweak/path(poncho)
 
-
 /datum/gear/suit/suitjacket
 	display_name = "suit jacket"
 	path = /obj/item/clothing/suit/storage/toggle/suitjacket
@@ -102,12 +101,15 @@
 	gear_tweaks = list(gear_tweak_free_color_choice)
 
 /datum/gear/suit/trenchcoat
-	display_name = "trenchcoat, brown"
+	display_name = "trenchcoat selection"
 	path = /obj/item/clothing/suit/storage/toggle/trench
 
-/datum/gear/suit/trenchcoatgrey
-	display_name = "trenchcoat, grey"
-	path = /obj/item/clothing/suit/storage/toggle/trench/grey
+/datum/gear/suit/trenchcoat/New()
+	..()
+	var/coat = list()
+	coat["trenchcoat, brown"] = /obj/item/clothing/suit/storage/toggle/trench
+	coat["trenchcoat, grey"] = /obj/item/clothing/suit/storage/toggle/trench/grey
+	gear_tweaks += new/datum/gear_tweak/path(coat)
 
 /datum/gear/suit/dominia
 	display_name = "dominia great coat selection"
