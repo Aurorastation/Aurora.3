@@ -219,3 +219,12 @@
 	description_fluff = "These traditional Unathi footwear have remained relatively unchanged in principle, with improved materials and construction being the only notable change. This pair is reinforced with leather of the Zazehal, a Moghesian species of eel that can grow up to twenty five feet long. Typically, Zazehal Festivals are thrown every month of the warm season in which Unathi strew freshly killed birds across the shoreline and collect these creatures with baskets. The fungi that grow on their skin is harvested and used as an exotic seasoning, and their skin is used for its' incredibly durable, shark-like leather."
 	icon_state = "eelcaligae"
 	armor = list(melee = 40, bullet = 0, laser = 0, energy = 15, bomb = 20, bio = 0, rad = 20)
+
+/obj/item/clothing/shoes/flats
+	desc = "A pair of low-heeled women's flats."
+	name = "black dress flats"
+	icon = 'icons/obj/clothing/cheongsams.dmi'
+	icon_state = "dressflats"
+	item_state = "dressflats"
+	species_restricted = null
+	contained_sprite = 1

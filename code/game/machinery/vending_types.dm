@@ -883,3 +883,51 @@
 		/obj/item/weapon/coin/battlemonsters = 10
 	)
 	restock_items = 0
+
+/obj/machinery/vending/deptclothing
+	name = "department memorabilia vendor"
+	desc = "Department pride! Department wars! Even if you aren't really a member of these departments..."
+	icon_state = "clothes"
+	products = list(
+		/obj/item/clothing/suit/storage/hooded/wintercoat/science = 1,
+		/obj/item/clothing/suit/storage/hooded/wintercoat/medical = 1,
+		/obj/item/clothing/suit/storage/hooded/wintercoat/engineering = 3,
+		/obj/item/clothing/suit/storage/hooded/wintercoat/engineering/atmos = 1,
+		/obj/item/clothing/suit/storage/hooded/wintercoat/hydro = 2,
+		/obj/item/clothing/suit/storage/hooded/wintercoat/cargo = 3,
+		/obj/item/clothing/suit/storage/hooded/wintercoat/miner = 2,
+		/obj/item/clothing/suit/storage/toggle/engi_dep_jacket = 3,
+		/obj/item/clothing/suit/storage/toggle/supply_dep_jacket = 3,
+		/obj/item/clothing/suit/storage/toggle/sci_dep_jacket = 1,
+		/obj/item/clothing/suit/storage/toggle/med_dep_jacket = 1,
+		/obj/item/clothing/accessory/poncho/roles/cargo = 2,
+		/obj/item/clothing/accessory/poncho/roles/science = 1,
+		/obj/item/clothing/accessory/poncho/roles/engineering = 2,
+		/obj/item/clothing/accessory/poncho/roles/medical = 1,
+
+	)
+	prices = list(
+		/obj/item/clothing/suit/storage/hooded/wintercoat/science = 120,
+		/obj/item/clothing/suit/storage/hooded/wintercoat/medical = 120,
+		/obj/item/clothing/suit/storage/hooded/wintercoat/engineering = 120,
+		/obj/item/clothing/suit/storage/hooded/wintercoat/engineering/atmos = 120,
+		/obj/item/clothing/suit/storage/hooded/wintercoat/hydro = 120,
+		/obj/item/clothing/suit/storage/hooded/wintercoat/cargo = 120,
+		/obj/item/clothing/suit/storage/hooded/wintercoat/miner = 120,
+		/obj/item/clothing/suit/storage/toggle/engi_dep_jacket = 80,
+		/obj/item/clothing/suit/storage/toggle/supply_dep_jacket = 80,
+		/obj/item/clothing/suit/storage/toggle/sci_dep_jacket = 80,
+		/obj/item/clothing/suit/storage/toggle/med_dep_jacket = 80,
+		/obj/item/clothing/accessory/poncho/roles/cargo = 60,
+		/obj/item/clothing/accessory/poncho/roles/science = 60,
+		/obj/item/clothing/accessory/poncho/roles/engineering = 60,
+		/obj/item/clothing/accessory/poncho/roles/medical = 60
+	)
+	contraband = list( // uniform regulation
+		/obj/item/clothing/suit/storage/hooded/wintercoat/security = 2,
+		/obj/item/clothing/suit/storage/toggle/sec_dep_jacket = 2
+	)
+	premium = list(
+		/obj/item/clothing/suit/storage/hooded/wintercoat/captain = 1
+	)
+	restock_items = 0

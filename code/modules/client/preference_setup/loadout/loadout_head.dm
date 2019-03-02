@@ -1,6 +1,6 @@
 /datum/gear/head
-	display_name = "ushanka"
-	path = /obj/item/clothing/head/ushanka
+	display_name = "Tau Ceti Foreign Legion dress beret"
+	path = /obj/item/clothing/head/legion_beret
 	slot = slot_head
 	sort_category = "Hats and Headwear"
 
@@ -29,7 +29,6 @@
 	caps["grey cap"] = /obj/item/clothing/head/soft/grey
 	caps["orange cap"] = /obj/item/clothing/head/soft/orange
 	caps["purple cap"] = /obj/item/clothing/head/soft/purple
-	caps["rainbow cap"] = /obj/item/clothing/head/soft/rainbow
 	caps["red cap"] = /obj/item/clothing/head/soft/red
 	caps["white cap"] = /obj/item/clothing/head/soft/mime
 	caps["yellow cap"] = /obj/item/clothing/head/soft/yellow
@@ -123,47 +122,23 @@
 	hats["hat, black fedora"] = /obj/item/clothing/head/fedora
 	hats["hat, brown fedora"] = /obj/item/clothing/head/fedora/brown
 	hats["hat, grey fedora"] = /obj/item/clothing/head/fedora/grey
-	hats["hat, beaver"] = /obj/item/clothing/head/beaverhat
-	hats["hat, cowboy"] = /obj/item/clothing/head/cowboy
-	hats["hat, wide-brimmed cowboy"] = /obj/item/clothing/head/cowboy/wide
-	hats["hat, sombrero"] = /obj/item/clothing/head/sombrero
 	gear_tweaks += new/datum/gear_tweak/path(hats)
 
 /datum/gear/head/hijab
-	display_name = "hijab selection"
+	display_name = "hijab"
 	path = /obj/item/clothing/head/hijab
 
 /datum/gear/head/hijab/New()
 	..()
-	var/hijab = list()
-	hijab["black hijab"] = /obj/item/clothing/head/hijab
-	hijab["grey hijab"] = /obj/item/clothing/head/hijab/grey
-	hijab["red hijab"] = /obj/item/clothing/head/hijab/red
-	hijab["brown hijab"] = /obj/item/clothing/head/hijab/brown
-	hijab["green hijab"] = /obj/item/clothing/head/hijab/green
-	hijab["blue hijab"] = /obj/item/clothing/head/hijab/blue
-	hijab["white hijab"] = /obj/item/clothing/head/hijab/white
-
-	gear_tweaks += new/datum/gear_tweak/path(hijab)
+	gear_tweaks = list(gear_tweak_free_color_choice)
 
 /datum/gear/head/turban
-	display_name = "turban selection"
+	display_name = "turban"
 	path = /obj/item/clothing/head/turban
 
 /datum/gear/head/turban/New()
 	..()
-	var/turbans = list()
-	turbans["black turban"] = /obj/item/clothing/head/turban
-	turbans["blue turban"] = /obj/item/clothing/head/turban/blue
-	turbans["green turban"] = /obj/item/clothing/head/turban/green
-	turbans["grey turban"] = /obj/item/clothing/head/turban/grey
-	turbans["orange turban"] = /obj/item/clothing/head/turban/orange
-	turbans["purple turban"] = /obj/item/clothing/head/turban/purple
-	turbans["red turban"] = /obj/item/clothing/head/turban/red
-	turbans["white turban"] = /obj/item/clothing/head/turban/white
-	turbans["yellow turban"] = /obj/item/clothing/head/turban/yellow
-
-	gear_tweaks += new/datum/gear_tweak/path(turbans)
+	gear_tweaks = list(gear_tweak_free_color_choice)
 
 /datum/gear/head/surgical
 	display_name = "surgical cap selection"
@@ -179,14 +154,6 @@
 	surgical["surgical cap, black"] = /obj/item/clothing/head/surgery/black
 	gear_tweaks += new/datum/gear_tweak/path(surgical)
 
-/datum/gear/head/headbando
-	display_name = "basic headband"
-	path = /obj/item/clothing/head/headbando
-
-/datum/gear/head/headbando/New()
-	..()
-	gear_tweaks = list(gear_tweak_free_color_choice)
-
 /datum/gear/head/beanie
 	display_name = "beanie"
 	path = /obj/item/clothing/head/beanie
@@ -195,20 +162,7 @@
 	..()
 	gear_tweaks = list(gear_tweak_free_color_choice)
 
-/datum/gear/head/loose_beanie
-	display_name = "loose beanie"
-	path = /obj/item/clothing/head/beanie_loose
-
-/datum/gear/head/loose_beanie/New()
-	..()
-	gear_tweaks = list(gear_tweak_free_color_choice)
-
-
 /datum/gear/head/iacberet
 	display_name = "IAC Beret"
 	path = /obj/item/clothing/head/soft/iacberet
 	allowed_roles = list("Chief Medical Officer", "Medical Doctor", "Chemist", "Paramedic", "Medical Resident")
-
-/datum/gear/head/tcflberet
-	display_name = "Tau Ceti Foreign Legion dress beret"
-	path = /obj/item/clothing/head/legion_beret

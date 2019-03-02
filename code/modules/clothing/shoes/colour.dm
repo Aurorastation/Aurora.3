@@ -61,46 +61,6 @@
 	icon_state = "orange"
 	var/obj/item/weapon/handcuffs/chained = null
 
-/obj/item/clothing/shoes/flats
-	desc = "A pair of black, low-heeled women's flats."
-	name = "black dress flats"
-	icon = 'icons/obj/clothing/cheongsams.dmi'
-	icon_state = "dressflatsblack"
-	item_state = "dressflatsblack"
-	species_restricted = null
-	contained_sprite = 1
-
-/obj/item/clothing/shoes/flats/red
-	desc = "A pair of red, low-heeled women's flats."
-	name = "red dress flats"
-	icon = 'icons/obj/clothing/cheongsams.dmi'
-	icon_state = "dressflatsred"
-	item_state = "dressflatsred"
-
-/obj/item/clothing/shoes/flats/blue
-	desc = "A pair of blue, low-heeled women's flats."
-	name = "blue dress flats"
-	icon_state = "dressflatsblue"
-	item_state = "dressflatsblue"
-
-/obj/item/clothing/shoes/flats/green
-	desc = "A pair of green, low-heeled women's flats."
-	name = "green dress flats"
-	icon_state = "dressflatsgreen"
-	item_state = "dressflatsgreen"
-
-/obj/item/clothing/shoes/flats/purple
-	desc = "A pair of purple, low-heeled women's flats."
-	name = "purple dress flats"
-	icon_state = "dressflatspurple"
-	item_state = "dressflatspurple"
-
-/obj/item/clothing/shoes/flats/white
-	desc = "A pair of white, low-heeled women's flats."
-	name = "white dress flats"
-	icon_state = "dressflatswhite"
-	item_state = "dressflatswhite"
-
 /obj/item/clothing/shoes/orange/proc/attach_cuffs(var/obj/item/weapon/handcuffs/cuffs, mob/user as mob)
 	if (src.chained) return
 
