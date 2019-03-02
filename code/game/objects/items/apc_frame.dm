@@ -24,7 +24,7 @@
 	if (!istype(loc, /turf/simulated/floor))
 		usr << "<span class='warning'>APC cannot be placed on this spot.</span>"
 		return
-	if (A.requires_power == 0 || istype(A, /area/space) || istype(A, /area/mine/unexplored) || istype(A, /area/mine/unexplored))
+	if (A.requires_power == 0 || istype(A, /area/space) || istype(A, /area/mine/unexplored) || istype(A, /area/mine/explored))
 		usr << "<span class='warning'>APC cannot be placed in this area.</span>"
 		return
 	if (A.get_apc())

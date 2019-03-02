@@ -38,9 +38,9 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
-  - bugfix: "Fixes #6079"
-  - bugfix: "Fixes #3803"
-  - bugfix: "Fixes #6088"
-  - bugfix: "Fixes #5930"
-  - bugfix: "Fixes #3072"
-    - bugfix: "Fixes #3986"
+  - bugfix: "Plushies are no longer impassable"
+  - bugfix: "Fixes recorders not being emagable"
+  - bugfix: "Teleportation trait now uses do_teleport instead of forcemove"
+  - bugfix: "Fixed the o2 medkit icon  "
+  - bugfix: "Changelings can no longer be disarmed"
+  - bugfix: "APC's can no longer be placed in the explored mining areas"
