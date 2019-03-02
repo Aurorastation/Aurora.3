@@ -334,7 +334,7 @@
 						dislocate(affecting, assailant, hit_zone)
 
 				if(I_DISARM)
-					if(hit_zone == "chest")
+					if(hit_zone != "head")
 						pin_down(affecting, assailant)
 					if(hit_zone == "head")
 						hair_pull(affecting, assailant)
