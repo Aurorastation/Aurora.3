@@ -324,6 +324,8 @@
 		slot_l_hand_str = "duffle",
 		slot_r_hand_str = "duffle"
 	)
+	slowdown = 1
+	max_storage_space = 38
 
 /obj/item/weapon/storage/backpack/duffel/cap
 	name = "captain's duffel bag"
@@ -392,17 +394,19 @@
 
 /obj/item/weapon/storage/backpack/duffel/syndie
 	name = "syndicate duffel bag"
-	desc = "A snazzy black and red duffel bag, perfect for smuggling C4 and Parapens."
+	desc = "A snazzy black and red duffel bag, perfect for smuggling C4 and Parapens. It seems to be made of a lighter material."
 	icon_state = "duffel-syndie"
 	item_state_slots = list(
 		slot_l_hand_str = "duffle_syndie",
 		slot_r_hand_str = "duffle_syndie"
 	)
+	slowdown = 0
 
 /obj/item/weapon/storage/backpack/duffel/wizard
 	name = "wizardly duffel bag"
 	desc = "A fancy blue wizard bag, duffel edition."
 	icon_state = "duffel-wizard"
+	slowdown = 0
 
 /*
  * Messenger Bags
