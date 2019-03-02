@@ -23,6 +23,7 @@
 				    access_detective, access_weapons)
 	minimal_player_age = 14
 	outfit = /datum/outfit/job/hos
+	exclusivity = 20
 
 /datum/outfit/job/hos
 	name = "Head of Security"
@@ -73,6 +74,7 @@
 	minimal_access = list(access_security, access_eva, access_sec_doors, access_brig, access_armory, access_maint_tunnels, access_external_airlocks, access_weapons)
 	minimal_player_age = 7
 	outfit = /datum/outfit/job/warden
+	exclusivity = 80
 
 /datum/outfit/job/warden
 	name = "Warden"
@@ -159,6 +161,7 @@
 	minimal_player_age = 3
 	outfit = /datum/outfit/job/forensics
 	alt_outfits = list("Crime Scene Investigator"=/datum/outfit/job/forensics/csi)
+	exclusivity = 80
 
 /datum/outfit/job/forensics
 	name = "Forensic Technician"
@@ -206,6 +209,7 @@
 	minimal_access = list(access_security, access_eva, access_sec_doors, access_brig, access_maint_tunnels, access_external_airlocks, access_weapons)
 	minimal_player_age = 7
 	outfit = /datum/outfit/job/officer
+	exclusivity = 90
 
 /datum/outfit/job/officer
 	name = "Security Officer"

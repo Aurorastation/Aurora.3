@@ -11,6 +11,7 @@
 	selection_color = "#ffeeaa"
 	req_admin_notify = 1
 	economic_modifier = 10
+	exclusivity = 30
 
 	ideal_character_age = 50
 
@@ -67,6 +68,7 @@
 	minimal_access = list(access_eva, access_engine, access_engine_equip, access_tech_storage, access_maint_tunnels, access_external_airlocks, access_construction)
 	alt_titles = list("Maintenance Technician","Engine Technician","Electrician")
 	outfit = /datum/outfit/job/engineer
+	exclusivity = 90
 
 /datum/outfit/job/engineer
 	name = "Engineer"
@@ -99,6 +101,7 @@
 	access = list(access_eva, access_engine, access_engine_equip, access_tech_storage, access_maint_tunnels, access_external_airlocks, access_construction, access_atmospherics, access_external_airlocks)
 	minimal_access = list(access_eva, access_engine, access_atmospherics, access_maint_tunnels, access_emergency_storage, access_construction, access_external_airlocks)
 	outfit = /datum/outfit/job/atmos
+	exclusivity = 90
 
 /datum/outfit/job/atmos
 	name = "Atmospheric Technician"

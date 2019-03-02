@@ -22,6 +22,7 @@
 	minimal_player_age = 14
 	ideal_character_age = 50
 	outfit = /datum/outfit/job/rd
+	exclusivity = 20
 
 /datum/outfit/job/rd
 	name = "Research Director"
@@ -55,6 +56,7 @@
 	access = list(access_robotics, access_tox, access_tox_storage, access_research, access_xenobiology, access_xenoarch)
 	minimal_access = list(access_tox, access_tox_storage, access_research, access_xenoarch)
 	alt_titles = list("Xenoarcheologist", "Anomalist", "Phoron Researcher")
+	exclusivity = 70
 
 	minimal_player_age = 14
 	outfit = /datum/outfit/job/scientist
@@ -88,6 +90,7 @@
 	access = list(access_robotics, access_tox, access_tox_storage, access_research, access_xenobiology, access_hydroponics)
 	minimal_access = list(access_research, access_xenobiology, access_hydroponics, access_tox_storage)
 	alt_titles = list("Xenobotanist")
+	exclusivity = 70
 
 	minimal_player_age = 14
 
@@ -111,6 +114,7 @@
 	access = list(access_robotics, access_tox, access_tox_storage, access_tech_storage, access_morgue, access_research) //As a job that handles so many corpses, it makes sense for them to have morgue access.
 	minimal_access = list(access_robotics, access_tech_storage, access_morgue, access_research) //As a job that handles so many corpses, it makes sense for them to have morgue access.
 	alt_titles = list("Biomechanical Engineer","Mechatronic Engineer")
+	exclusivity = 80
 
 	minimal_player_age = 7
 

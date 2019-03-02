@@ -111,6 +111,7 @@
 	minimal_access = list(access_maint_tunnels, access_mailsorting, access_cargo, access_cargo_bot, access_qm, access_mining, access_mining_station)
 
 	ideal_character_age = 40
+	exclusivity = 90
 
 	outfit = /datum/outfit/job/qm
 
@@ -292,6 +293,7 @@
 	access = list(access_lawyer, access_sec_doors, access_maint_tunnels, access_heads)
 	minimal_access = list(access_lawyer, access_sec_doors, access_heads)
 	outfit = /datum/outfit/job/iaa
+	exclusivity = 75
 
 /datum/outfit/job/iaa
 	name = "Internal Affairs Agent"

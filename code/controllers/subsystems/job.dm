@@ -175,6 +175,8 @@
 					continue
 
 				var/age = V.client.prefs.age
+				var/gender = V.client.prefs.gender
+				var/datum/species/mob_species = all_species[V.client.prefs.species]
 
 				switch(age)
 					if(job.minimum_character_age to (job.minimum_character_age+10))
@@ -190,6 +192,12 @@
 					else
 						// If there's ABSOLUTELY NOBODY ELSE
 						if(candidates.len == 1) weightedCandidates[V] = 1
+
+				if(gender != MALE)
+					weightedCandidates[V] -= 3
+
+				if(mob_species.economic_modifier <= 10)
+					weightedCandidates[V] -= 3
 
 			var/mob/abstract/new_player/candidate = pickweight(weightedCandidates)
 			if(AssignRole(candidate, command_position))
@@ -283,6 +291,20 @@
 
 				// If the player wants that job on this level, then try give it to him.
 				if(player.client.prefs.GetJobDepartment(job, level) & job.flag)
+
+					var/gender = player.client.prefs.gender
+					var/datum/species/mob_species = all_species[player.client.prefs.species]
+					var/exclusivity_malus
+					if(mob_species.economic_modifier <= 10)
+						exclusivity_malus = min(round(30*(1/(mob_species.economic_modifier)), 5)*2, 20) //20 for bugs, 10 for Unathi/Tajara
+					else
+						exclusivity_malus = 0
+
+					if((gender != MALE) && !prob(job.exclusivity))
+						continue
+
+					if(exclusivity_malus && !prob(job.exclusivity - exclusivity_malus))
+						continue
 
 					// If the job isn't filled
 					if((job.current_positions < job.spawn_positions) || job.spawn_positions == -1)
@@ -754,7 +776,7 @@
 					Debug("EC/([H]): [thing] failed mask/suit/head check; leftovers=[!!leftovers]")
 				else if (H.equip_to_slot_or_del(CI, G.slot))
 					CI.autodrobe_no_remove = TRUE
-					to_chat(H, "<span class='notice'>Equipping you with [thing]!</span>") 
+					to_chat(H, "<span class='notice'>Equipping you with [thing]!</span>")
 					custom_equip_slots += G.slot
 					Debug("EC/([H]): Equipped [CI] successfully.")
 				else if (leftovers)

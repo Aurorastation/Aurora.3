@@ -23,6 +23,7 @@
 	minimal_player_age = 10
 	ideal_character_age = 50
 	outfit = /datum/outfit/job/cmo
+	exclusivity = 20
 
 /datum/outfit/job/cmo
 	name = "Chief Medical Officer"
