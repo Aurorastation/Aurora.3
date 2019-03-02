@@ -327,7 +327,7 @@
 			spark(target, 3, alldirs)
 			var/turf/picked = get_turf(pick(turfs))                      // Just in case...
 			new/obj/effect/decal/cleanable/molten_item(get_turf(target)) // Leave a pile of goo behind for dramatic effect...
-			target.forceMove(picked)                                         // And teleport them to the chosen location.
+			do_teleport(target, picked)                                      // And teleport them to the chosen location.                                      // And teleport them to the chosen location.
 
 			impact = 1
 

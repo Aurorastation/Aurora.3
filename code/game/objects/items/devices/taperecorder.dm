@@ -162,7 +162,6 @@
 		return
 	if(emagged == 1)
 		usr << "<span class='warning'>The tape recorder makes a scratchy noise.</span>"
-		return
 	if(recording == 1)
 		usr << "<span class='notice'>You can't playback when recording!</span>"
 		return
