@@ -26,7 +26,7 @@
 	name = "starch capacitor"
 	desc = "A powercell composed of a primarily starch-based conductor."
 	icon_state = "starch_capacitor"
-	reliability = 5
+	reliability = 30
 	shots = 1
 	damage = 5
 
