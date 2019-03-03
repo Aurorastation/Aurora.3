@@ -405,3 +405,17 @@
 	damage = 2
 	icon_state = "bfg"
 	firing_sound = 'sound/magic/LightningShock.ogg'
+
+/obj/item/laser_components/modulator/tox
+	name = "phoron bolt modulator"
+	desc = "Modulates the beam into firing toxic phoron bolts."
+	projectile = /obj/item/projectile/energy/phoron
+	icon_state = "tox"
+	firing_sound = 'sound/effects/stealthoff.ogg'
+
+/obj/item/laser_components/modulator/net
+	name = "energy net modulator"
+	desc = "Modulates the beam into firing an energy net."
+	projectile = /obj/item/projectile/beam/energy_net
+	icon_state = "xray"
+	firing_sound = 'sound/weapons/plasma_cutter.ogg'

@@ -28,13 +28,6 @@
 	build_path = /obj/item/weapon/gun/energy/floragun
 	sort_string = "TBAAA"
 
-/datum/design/item/weapon/ammo_9mm
-	id = "ammo_9mm"
-	req_tech = list(TECH_COMBAT = 4, TECH_MATERIAL = 3)
-	materials = list(DEFAULT_WALL_MATERIAL = 3750, "silver" = 100)
-	build_path = /obj/item/ammo_magazine/c9mm
-	sort_string = "TAACA"
-
 /datum/design/item/weapon/stunshell
 	desc = "A stunning shell for a shotgun."
 	id = "stunshell"
@@ -301,6 +294,13 @@
 	build_path = /obj/item/laser_components/modifier/ebayonet
 	sort_string = "TZZDM"
 
+/datum/design/item/weapon/modular_grip
+	id = "stock_grip"
+	req_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
+	materials = list(DEFAULT_WALL_MATERIAL = 3000)
+	build_path = /obj/item/laser_components/modifier/grip
+	sort_string = "TZZDN"
+
 /datum/design/item/weapon/modular_taser
 	id = "stock_taser"
 	req_tech = list(TECH_COMBAT = 3, TECH_MATERIAL = 3, TECH_POWER = 2)
@@ -398,6 +398,20 @@
 	materials = list(DEFAULT_WALL_MATERIAL = 750, "glass" = 500, "phoron" = 1000)
 	build_path = /obj/item/laser_components/modulator
 	sort_string = "TZZEN"
+
+/datum/design/item/weapon/modular_tox
+	id = "stock_tox"
+	req_tech = list(TECH_COMBAT = 4, TECH_PHORON = 3)
+	materials = list(DEFAULT_WALL_MATERIAL = 2500, "glass" = 1000, "phoron" = 2000)
+	build_path = /obj/item/laser_components/modulator/tox
+	sort_string = "TZZEO"
+
+/datum/design/item/weapon/modular_net
+	id = "stock_net"
+	req_tech = list(TECH_COMBAT = 5, TECH_PHORON = 4, TECH_ILLEGAL = 4)
+	materials = list(DEFAULT_WALL_MATERIAL = 5000, "glass" = 1000, "phoron" = 3000)
+	build_path = /obj/item/laser_components/modulator/net
+	sort_string = "TZZEP"
 
 //Frames
 /datum/design/item/weapon/ka_frame01
