@@ -81,6 +81,8 @@
 		list(mode_name="increase yield", projectile_type=/obj/item/projectile/energy/florayield, modifystate="florayield")
 		)
 
+	needspin = FALSE
+
 /obj/item/weapon/gun/energy/floragun/afterattack(obj/target, mob/user, adjacent_flag)
 	//allow shooting into adjacent hydrotrays regardless of intent
 	if(adjacent_flag && istype(target,/obj/machinery/portable_atmospherics/hydroponics))
@@ -173,6 +175,8 @@
 	move_delay = 0
 	fire_delay = 3
 	dispersion = list(0, 15, 15)
+
+	needspin = FALSE
 
 	var/lightfail = 0
 
@@ -453,6 +457,8 @@
 		)
 
 	action_button_name = "Wield thermal drill"
+
+	needspin = FALSE
 
 /obj/item/weapon/gun/energy/vaurca/thermaldrill/can_wield()
 	return 1

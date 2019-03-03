@@ -128,6 +128,7 @@
 	name = "laser modulator"
 	desc = "A modification that modulates the beam into a standard laser beam."
 	icon_state = "laser"
+	origin_tech = list(TECH_COMBAT = 1, TECH_MAGNET = 2)
 	var/obj/item/projectile/beam/projectile = /obj/item/projectile/beam
 	var/firing_sound = 'sound/weapons/Laser.ogg'
 
