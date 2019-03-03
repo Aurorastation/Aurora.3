@@ -140,7 +140,7 @@
 	build_path = /obj/item/laser_components/capacitor/potato
 	sort_string = "TZZBB"
 
-/datum/design/item/weapon/modular_reinforced
+/datum/design/item/weapon/modular_capacitor_reinforced
 	id = "stock_reinforced_cap"
 	req_tech = list(TECH_POWER = 5, TECH_ENGINEERING = 3)
 	materials = list(DEFAULT_WALL_MATERIAL = 4000)

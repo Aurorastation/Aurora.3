@@ -34,7 +34,7 @@
 	name = "reinforced capacitor"
 	desc = "A reinforced laser weapon capacitor."
 	icon_state = "reinforced_capacitor"
-	reliability = 75
+	reliability = 80
 
 /obj/item/laser_components/capacitor/nuclear
 	name = "uranium-enriched capacitor"
@@ -42,7 +42,7 @@
 	icon_state = "uranium_capacitor"
 	damage = 20
 	shots = 10
-	reliability = 40
+	reliability = 50
 
 /obj/item/laser_components/capacitor/nuclear/small_fail(var/mob/user, var/obj/item/weapon/gun/energy/laser/prototype/prototype)
 	for (var/mob/living/M in range(0,src)) //Only a minor failure, enjoy your radiation if you're in the same tile or carrying it
@@ -70,7 +70,7 @@
 	icon_state = "teranium_capacitor"
 	damage = 25
 	shots = 15
-	reliability = 40
+	reliability = 45
 
 /obj/item/laser_components/capacitor/teranium/small_fail(var/mob/user, var/obj/item/weapon/gun/energy/laser/prototype/prototype)
 	tesla_zap(prototype, 3, 1000*(prototype.criticality+1))
@@ -91,7 +91,7 @@
 	icon_state = "phoron_capacitor"
 	damage = 30
 	shots = 25
-	reliability = 30
+	reliability = 40
 
 /obj/item/laser_components/capacitor/phoron/small_fail(var/mob/user, var/obj/item/weapon/gun/energy/laser/prototype/prototype)
 	for (var/mob/living/M in range(0,src)) //Only a minor failure, enjoy your radiation if you're in the same tile or carrying it
@@ -143,21 +143,21 @@
 	dispersion = list(1,-1,2,-2,3,-3,4,-4,5,-5,6,-6,7,-7,8,-8,9,-9,10,-10,11,-11,12,-12,13,-13,14,-14,15,-15)
 	burst = 4
 	accuracy = -1
-	reliability = 30
+	reliability = 35
 
 /obj/item/laser_components/focusing_lens/sniper
 	name = "precise lens"
 	desc = "A focusing lens that is made of refined crystal, providing enhanced clarity and precision."
 	icon_state = "precise_lens"
 	accuracy = 2
-	reliability = 20
+	reliability = 30
 	dispersion = list(0)
 
 /obj/item/laser_components/focusing_lens/strong
 	name = "reinforced lens"
 	desc = "A focusing lens that is reinforced with stronger material."
 	icon_state = "reinforced_lens"
-	reliability = 50
+	reliability = 60
 
 //Modifiers
 

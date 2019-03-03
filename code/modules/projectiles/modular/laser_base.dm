@@ -75,7 +75,10 @@
 /obj/item/laser_components/capacitor/repair_module(var/obj/item/stack/cable_coil/C)
 	if(!istype(C))
 		return
+	if(condition < 0)
+		return 0
 	if(C.use(5))
+		condition = max(condition - 5, 0)
 		return 1
 	return 0
 
@@ -106,7 +109,10 @@
 /obj/item/laser_components/focusing_lens/repair_module(var/obj/item/stack/nanopaste/N)
 	if(!istype(N))
 		return
+	if(condition < 0)
+		return 0
 	if(N.use(5))
+		condition = max(condition - 5, 0)
 		return 1
 	return 0
 
