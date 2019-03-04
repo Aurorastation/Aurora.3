@@ -84,7 +84,7 @@
 		riftimage.pixel_y = new_y
 		riftimage.loc = T_mob
 
-		to_chat(src, riftimage)
+		src << riftimage
 	else
 		if(riftimage)
 			qdel(riftimage)
