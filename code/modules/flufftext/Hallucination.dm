@@ -112,7 +112,7 @@ mob/living/carbon/proc/handle_hallucinations()
 				//Strange audio
 				//to_chat(src, "Strange Audio")
 				switch(rand(1,12))
-					if(1) to_chat(src, 'sound/machines/airlock.ogg')
+					if(1) sound_to(src, 'sound/machines/airlock.ogg')
 					if(2)
 						if(prob(50))to_chat(src, 'sound/effects/Explosion1.ogg')
 						else to_chat(src, 'sound/effects/Explosion2.ogg')
