@@ -55,7 +55,7 @@ BLIND     // can't see anything
 			icon_state = initial(icon_state)
 			user.update_inv_glasses()
 			if(activation_sound)
-				to_chat(usr, activation_sound)
+				sound_to(usr, activation_sound)
 			flash_protection = initial(flash_protection)
 			tint = initial(tint)
 			to_chat(usr, "You activate the optical matrix on the [src].")
