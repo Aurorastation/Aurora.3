@@ -28,7 +28,8 @@ Bonus
 	..()
 	if(prob(SYMPTOM_ACTIVATION_PROB))
 		var/mob/living/carbon/M = A.affected_mob
-		to_chat(M, "<span class='notice'>You feel like you're burning.</span>")
+		var/alberyk1 = "<span class='notice'>[pick("You feel hot.", "You feel like you're burning.")]</span>"
+		to_chat(M, alberyk1)
 		if(M.bodytemperature < BODYTEMP_HEAT_DAMAGE_LIMIT)
 			M.bodytemperature = min(M.bodytemperature + (20 * A.stage), BODYTEMP_HEAT_DAMAGE_LIMIT - 1)
 
