@@ -284,7 +284,7 @@ var/list/footstepfx = list("defaultstep","concretestep","grassstep","dirtstep","
 			var/area/A = get_area(src)
 			S.environment = A.sound_env
 
-	to_chat(src, S)
+	sound_to(src, S)
 	return S.volume
 
 /client/proc/playtitlemusic()
