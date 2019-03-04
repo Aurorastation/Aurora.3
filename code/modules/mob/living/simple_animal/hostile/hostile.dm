@@ -215,7 +215,7 @@ mob/living/simple_animal/hostile/hitby(atom/movable/AM as mob|obj,var/speed = TH
 		LoseTarget()
 	var/target = target_mob
 	// This code checks if we are not going to hit our target
-	if(smart && !Check_fire(target_mob))
+	if(smart && !check_fire(target_mob))
 		return
 	visible_message("<span class='warning'> <b>[src]</b> fires at [target]!</span>")
 
@@ -234,19 +234,17 @@ mob/living/simple_animal/hostile/hitby(atom/movable/AM as mob|obj,var/speed = TH
 	target_mob = null
 	return
 
-/mob/living/simple_animal/hostile/proc/Check_fire(target_mob)
+/mob/living/simple_animal/hostile/proc/check_fire(target_mob)
 	if(!target_mob)
 		return FALSE
 
 	var/target_hit = FALSE
 
-	for(var/M in check_trajectory(target_mob, src, pass_flags=PASSTABLE))
-		if(ismob(M))
-			var/mob/L = M
-			if(L == target_mob)
-				target_hit = TRUE
-			if((L.faction == faction) || (L in friends))
-				return FALSE
+	for(var/mob/M in check_trajectory(target_mob, src, pass_flags=PASSTABLE))
+		if(M == target_mob)
+			target_hit = TRUE
+		if((M.faction == faction) || (M in friends))
+			return FALSE
 
 	return target_hit
 
