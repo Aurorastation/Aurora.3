@@ -131,8 +131,8 @@
 				if(3.0)
 					dat += "<CENTER><B>Security Record</B></CENTER><BR>"
 					if ((istype(active1, /datum/data/record) && data_core.general.Find(active1)))
-						to_chat(user, browse_rsc(active1.fields["photo_front"], "front.png"))
-						to_chat(user, browse_rsc(active1.fields["photo_side"], "side.png"))
+						user << browse_rsc(active1.fields["photo_front"], "front.png")
+						user << browse_rsc(active1.fields["photo_side"], "side.png")
 						dat += text("<table><tr><td>	\
 						Name: <A href='?src=\ref[src];choice=Edit Field;field=name'>[active1.fields["name"]]</A><BR> \
 						ID: <A href='?src=\ref[src];choice=Edit Field;field=id'>[active1.fields["id"]]</A><BR>\n \
