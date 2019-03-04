@@ -48,6 +48,8 @@ var/list/diona_banned_languages = list(
 	diona_handle_lightmessages(DS)
 
 	DS.last_location = loc
+	if(light_amount)
+		adjustNutritionLoss(-light_amount) // regenerate our nutrition from light.
 
 /mob/living/carbon/proc/diona_handle_radiation(var/datum/dionastats/DS)
 	//Converts radiation to stored energy if its needed, and gives messages related to radiation
@@ -72,30 +74,6 @@ var/list/diona_banned_languages = list(
 	if (DS.dionatype == DIONA_WORKER)
 		for(var/mob/living/carbon/alien/diona/D in src)
 			D.adjustBruteLoss(severity*DS.trauma_factor*0.5)
-
-
-#define diona_max_pressure 100 //kpa, Highest pressure that has an effect
-#define diona_nutrition_factor 0.5 //nutrients we gain per proc at max pressure
-/mob/living/carbon/proc/diona_handle_air(var/datum/dionastats/DS, var/pressure)
-	//Diona don't need to breathe, and can survive happily in a vacuum
-	//But diona gestalts gain nutrition by extracting matter from gases in the air. If a gestalt spends a long time in space or on the asteroid, it may need to actually eat food
-	//For simplicity, we'll assume any gas is fine, so they'll just absorb nutrition based on pressure
-	if (!pressure)
-		return 0
-
-	if (DS.nutrient_organ)
-		if (DS.nutrient_organ.is_broken())
-			return 0
-
-	var/plus= (min(pressure,diona_max_pressure)  / diona_max_pressure)* diona_nutrition_factor
-	if (DS.nutrient_organ)
-		if(DS.nutrient_organ.is_bruised())
-			plus *= 0.5
-	plus = min(plus, max_nutrition - nutrition)
-
-	adjustNutritionLoss(-plus)
-
-	return plus*7 //The return value is the number of moles to remove from the local environment
 
 /mob/living/carbon/proc/diona_handle_temperature(var/datum/dionastats/DS)
 	if (bodytemperature < TEMP_REGEN_STOP)
@@ -546,5 +524,3 @@ var/list/diona_banned_languages = list(
 #undef LIFETICK_INTERVAL_LESS
 #undef REGROW_FOOD_REQ
 #undef REGROW_ENERGY_REQ
-#undef diona_max_pressure
-#undef diona_nutrition_factor
