@@ -202,52 +202,55 @@
 	if (src.health >= config.health_threshold_crit)
 		if(src == M && istype(src, /mob/living/carbon/human))
 			var/mob/living/carbon/human/H = src
-			src.visible_message( \
-				text("<span class='notice'>[src] examines [].</span>",src.gender==MALE?"himself":"herself"), \
-				"<span class='notice'>You check yourself for injuries.</span>" \
-				)
+			if(/mob/living/carbon/human/proc/self_diagnostics in src.species.inherent_verbs)
+				H.self_diagnostics()
+			else
+				src.visible_message( \
+					text("<span class='notice'>[src] examines [].</span>",src.gender==MALE?"himself":"herself"), \
+					"<span class='notice'>You check yourself for injuries.</span>" \
+					)
 
-			for(var/obj/item/organ/external/org in H.organs)
-				var/list/status = list()
-				var/brutedamage = org.brute_dam
-				var/burndamage = org.burn_dam
-				if(halloss > 0)
-					if(prob(30))
-						brutedamage += halloss
-					if(prob(30))
-						burndamage += halloss
-				switch(brutedamage)
-					if(1 to 20)
-						status += "bruised"
-					if(20 to 40)
-						status += "wounded"
-					if(40 to INFINITY)
-						status += "mangled"
+				for(var/obj/item/organ/external/org in H.organs)
+					var/list/status = list()
+					var/brutedamage = org.brute_dam
+					var/burndamage = org.burn_dam
+					if(halloss > 0)
+						if(prob(30))
+							brutedamage += halloss
+						if(prob(30))
+							burndamage += halloss
+					switch(brutedamage)
+						if(1 to 20)
+							status += "bruised"
+						if(20 to 40)
+							status += "wounded"
+						if(40 to INFINITY)
+							status += "mangled"
 
-				switch(burndamage)
-					if(1 to 10)
-						status += "numb"
-					if(10 to 40)
-						status += "blistered"
-					if(40 to INFINITY)
-						status += "peeling away"
+					switch(burndamage)
+						if(1 to 10)
+							status += "numb"
+						if(10 to 40)
+							status += "blistered"
+						if(40 to INFINITY)
+							status += "peeling away"
 
-				if(org.is_stump())
-					status += "MISSING"
-				if(org.status & ORGAN_MUTATED)
-					status += "weirdly shapen"
-				if(org.dislocated == 2)
-					status += "dislocated"
-				if(org.status & ORGAN_BROKEN)
-					status += "hurts when touched"
-				if(org.status & ORGAN_DEAD)
-					status += "is bruised and necrotic"
-				if(!org.is_usable())
-					status += "dangling uselessly"
-				if(status.len)
-					src.show_message("My [org.name] is <span class='warning'> [english_list(status)].</span>",1)
-				else
-					src.show_message("My [org.name] is <span class='notice'> OK.</span>",1)
+					if(org.is_stump())
+						status += "MISSING"
+					if(org.status & ORGAN_MUTATED)
+						status += "weirdly shapen"
+					if(org.dislocated == 2)
+						status += "dislocated"
+					if(org.status & ORGAN_BROKEN)
+						status += "hurts when touched"
+					if(org.status & ORGAN_DEAD)
+						status += "is bruised and necrotic"
+					if(!org.is_usable())
+						status += "dangling uselessly"
+					if(status.len)
+						src.show_message("My [org.name] is <span class='warning'> [english_list(status)].</span>",1)
+					else
+						src.show_message("My [org.name] is <span class='notice'> OK.</span>",1)
 
 			if((isskeleton(H)) && (!H.w_uniform) && (!H.wear_suit))
 				H.play_xylophone()
