@@ -627,6 +627,9 @@
 	var/pressure = environment.return_pressure()
 	var/adjusted_pressure = calculate_affecting_pressure(pressure)
 
+	if (consume_nutrition_from_air)
+		environment.remove(diona_handle_air(get_dionastats(), pressure))
+
 	//Check for contaminants before anything else because we don't want to skip it.
 	for(var/g in environment.gas)
 		if(gas_data.flags[g] & XGM_GAS_CONTAMINANT && environment.gas[g] > gas_data.overlay_limit[g] + 1)
