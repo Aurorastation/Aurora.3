@@ -83,6 +83,7 @@
 
 	if(!bot_amt)
 		qdel(src)
+		return
 
 	icon_state = "def_radar"
 	visible_message("<span class='warning'>\The [src] turns on!</span>")
