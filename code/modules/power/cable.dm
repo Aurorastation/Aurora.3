@@ -132,7 +132,15 @@ var/list/possible_cable_coil_colours = list(
 	if(!T.can_have_cabling())
 		return
 
-	if(W.iswirecutter())
+	if(W.iswirecutter() || (W.sharp || W.edge))
+
+		if(!W.iswirecutter())
+			if(user.a_intent != I_HELP)
+				return
+
+			if(W.flags & CONDUCT)
+				shock(user, 50, 0.7)
+
 		if(d1 == 12 || d2 == 12)
 			user << "<span class='warning'>You must cut this cable from above.</span>"
 			return
@@ -181,10 +189,6 @@ var/list/possible_cable_coil_colours = list(
 			user << "<span class='warning'>The cable is not powered.</span>"
 
 		shock(user, 5, 0.2)
-
-	else
-		if (W.flags & CONDUCT)
-			shock(user, 50, 0.7)
 
 	src.add_fingerprint(user)
 
@@ -512,18 +516,18 @@ obj/structure/cable/proc/cableColor(var/colorC)
 		if(!(S.status & ORGAN_ASSISTED) || user.a_intent != I_HELP)
 			return ..()
 
-		if(M.isSynthetic() && M == user)
+		if(M.isSynthetic() && M == user && !(M.get_species() == "Hunter-Killer"))
 			user << "<span class='warning'>You can't repair damage to your own body - it's against OH&S.</span>"
 			return
 
 		if(S.burn_dam)
-			if(S.burn_dam < ROBOLIMB_SELF_REPAIR_CAP)
-				S.heal_damage(0,15,0,1)
-				user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-				user.visible_message("<span class='danger'>\The [user] patches some damaged wiring on \the [M]'s [S.name] with \the [src].</span>")
-			else if(S.open != 2)
-				user << "<span class='danger'>The damage is far too severe to patch over externally.</span>"
-			return 1
+			if(S.burn_dam > ROBOLIMB_SELF_REPAIR_CAP && (S.status & ORGAN_ROBOT))
+				to_chat(user, "<span class='warning'>The damage is far too severe to patch over externally.</span>")
+				return
+
+			S.heal_damage(0,15,0,1)
+			user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
+			user.visible_message("<span class='danger'>\The [user] patches some damaged wiring on \the [M]'s [S.name] with \the [src].</span>")
 		else if(S.open != 2)
 			user << "<span class='notice'>Nothing to fix!</span>"
 

@@ -17,8 +17,6 @@
 	var/brute_mod = 1
 	var/burn_mod = 1
 
-	var/robotize_type		// If set, this organ type will automatically be roboticized with this manufacturer.
-
 	var/icon_name = null
 	var/body_part = null
 	var/icon_position = 0
@@ -213,6 +211,9 @@
 				qdel(W)
 				break
 			parent.update_damages()
+
+	action_button_name = initial(action_button_name)
+	owner.update_action_buttons()
 
 /****************************************************
 			   DAMAGE PROCS

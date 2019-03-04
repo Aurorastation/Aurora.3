@@ -120,8 +120,8 @@
 
 	move_trail = /obj/effect/decal/cleanable/blood/tracks/claw
 
-/datum/species/unathi/equip_survival_gear(var/mob/living/carbon/human/H)
-	..()
+/datum/species/unathi/before_equip(var/mob/living/carbon/human/H)
+	. = ..()
 	var/obj/item/clothing/shoes/sandal/S = new /obj/item/clothing/shoes/sandal(H)
 	if(H.equip_to_slot_or_del(S,slot_shoes))
 		S.autodrobe_no_remove = 1
@@ -192,8 +192,8 @@
 
 	default_h_style = "Tajaran Ears"
 
-/datum/species/tajaran/equip_survival_gear(var/mob/living/carbon/human/H)
-	..()
+/datum/species/tajaran/before_equip(var/mob/living/carbon/human/H)
+	. = ..()
 	var/obj/item/clothing/shoes/sandal/S = new /obj/item/clothing/shoes/sandal(H)
 	if(H.equip_to_slot_or_del(S,slot_shoes))
 		S.autodrobe_no_remove = 1
@@ -384,7 +384,8 @@
 		return 1
 	return 0
 
-/datum/species/diona/equip_survival_gear(var/mob/living/carbon/human/H)
+/datum/species/diona/before_equip(var/mob/living/carbon/human/H)
+	. = ..()
 	var/obj/item/device/flashlight/flare/F = new /obj/item/device/flashlight/flare(H)
 	if(H.backbag == 1)
 		H.equip_to_slot_or_del(F, slot_r_hand)
@@ -472,6 +473,10 @@
 
 	body_temperature = null
 	passive_temp_gain = 10  // This should cause IPCs to stabilize at ~80 C in a 20 C environment.
+
+	inherent_verbs = list(
+		/mob/living/carbon/human/proc/self_diagnostics
+	)
 
 	flags = IS_IPC
 	appearance_flags = HAS_SKIN_COLOR | HAS_HAIR_COLOR
@@ -646,7 +651,8 @@ datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
 		if ("yellow IPC screen")
 			return LIGHT_COLOR_YELLOW
 
-/datum/species/machine/equip_survival_gear(var/mob/living/carbon/human/H)
+/datum/species/machine/before_equip(var/mob/living/carbon/human/H)
+	. = ..()
 	check_tag(H, H.client)
 	H.gender = NEUTER
 
@@ -751,7 +757,8 @@ datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
 
 	move_trail = /obj/effect/decal/cleanable/blood/tracks/claw
 
-/datum/species/bug/equip_survival_gear(var/mob/living/carbon/human/H)
+/datum/species/bug/before_equip(var/mob/living/carbon/human/H)
+	. = ..()
 	H.gender = NEUTER
 	if(H.backbag == 1)
 		H.equip_to_slot_or_del(new /obj/item/weapon/storage/box/vaurca(H), slot_r_hand)

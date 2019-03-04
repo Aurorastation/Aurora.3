@@ -53,7 +53,7 @@
 	gear_tweaks = list(gear_tweak_free_color_choice)
 
 /datum/gear/autakh_engineering
-	display_name = "engineering grasper (Aut'akh Unathi)"
+	display_name = "engineering grasper"
 	description = "An Aut'akh augment limb, this one is outfitted with a limited toolkit."
 	path = /obj/item/organ/external/hand/right/autakh/tool
 	whitelisted = list("Aut'akh Unathi")
@@ -61,8 +61,8 @@
 	cost = 3
 	allowed_roles = list("Station Engineer", "Chief Engineer", "Atmospheric Technician", "Engineering Apprentice", "Roboticist")
 
-/datum/gear/autakh_engineering
-	display_name = "mining grasper (Aut'akh Unathi)"
+/datum/gear/autakh_mining
+	display_name = "mining grasper"
 	description = "An Aut'akh augment limb, this one is outfitted with a mining drill."
 	path = /obj/item/organ/external/hand/right/autakh/tool/mining
 	whitelisted = list("Aut'akh Unathi")
@@ -71,7 +71,7 @@
 	allowed_roles = list("Shaft Miner")
 
 /datum/gear/autakh_medical
-	display_name = "medical grasper (Aut'akh Unathi)"
+	display_name = "medical grasper"
 	description = "An Aut'akh augment limb, this one is outfitted with a health scanner."
 	path = /obj/item/organ/external/hand/right/autakh/medical
 	whitelisted = list("Aut'akh Unathi")
@@ -80,7 +80,7 @@
 	allowed_roles = list("Chief Medical Officer", "Medical Doctor", "Paramedic", "Medical Resident", "Psychiatrist", "Chemist")
 
 /datum/gear/autakh_security
-	display_name = "security grasper (Aut'akh Unathi)"
+	display_name = "security grasper"
 	description = "An Aut'akh augment limb, this one is outfitted with an electroshock weapon."
 	path = /obj/item/organ/external/hand/right/autakh/security
 	whitelisted = list("Aut'akh Unathi")
@@ -145,6 +145,21 @@
 		var/obj/item/clothing/ears/skrell/cloth_average/average = average_style
 		averagetypes[initial(average.name)] = average
 	gear_tweaks += new/datum/gear_tweak/path(sortAssoc(averagetypes))
+
+/datum/gear/accessory/capes
+	display_name = "shoulder capes (Skrell)"
+	path = /obj/item/clothing/accessory/poncho/shouldercape
+	whitelisted = list("Skrell")
+	sort_category = "Xenowear - Skrell"
+
+/datum/gear/accessory/capes/New()
+	..()
+	var/capes = list()
+	capes["star cape"] = /obj/item/clothing/accessory/poncho/shouldercape/star
+	capes["nebula cape"] = /obj/item/clothing/accessory/poncho/shouldercape/nebula
+	capes["nova cape"] = /obj/item/clothing/accessory/poncho/shouldercape/nova
+	capes["galaxy cape"] = /obj/item/clothing/accessory/poncho/shouldercape/galaxy
+	gear_tweaks += new/datum/gear_tweak/path(capes)
 
 //vaurca items
 
@@ -366,19 +381,37 @@
 	display_name = "cloth footwraps"
 	path = /obj/item/clothing/shoes/footwraps
 	sort_category = "Xenowear"
-	whitelisted = list("Vaurca Worker", "Vaurca Warrior", "Unathi", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
+	whitelisted = list("Vaurca Worker", "Vaurca Warrior", "Unathi", "Aut'akh Unathi", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
 
 /datum/gear/shoes/toeless
 	display_name = "toe-less jackboots"
 	path = /obj/item/clothing/shoes/jackboots/unathi
 	sort_category = "Xenowear"
-	whitelisted = list("Vaurca Worker", "Vaurca Warrior", "Unathi", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
+	whitelisted = list("Vaurca Worker", "Vaurca Warrior", "Unathi", "Aut'akh Unathi", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
 
 /datum/gear/shoes/workboots_toeless
 	display_name = "toeless workboots"
 	path = /obj/item/clothing/shoes/workboots/toeless
 	sort_category = "Xenowear"
-	whitelisted = list("Vaurca Worker", "Vaurca Warrior", "Unathi", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
+	whitelisted = list("Vaurca Worker", "Vaurca Warrior", "Unathi", "Aut'akh Unathi", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
+
+/datum/gear/shoes/caligae
+	display_name = "caligae"
+	path = /obj/item/clothing/shoes/caligae
+	whitelisted = list("Unathi", "Aut'akh Unathi", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
+	sort_category = "Xenowear"
+
+/datum/gear/shoes/caligae/New()
+	..()
+	var/caligae = list()
+	caligae["no sock"] = /obj/item/clothing/shoes/caligae
+	caligae["black sock"] = /obj/item/clothing/shoes/caligae/black
+	caligae["grey sock"] = /obj/item/clothing/shoes/caligae/grey
+	caligae["white sock"] = /obj/item/clothing/shoes/caligae/white
+	caligae["leather"] = /obj/item/clothing/shoes/caligae/armor
+	gear_tweaks += new/datum/gear_tweak/path(caligae)
+
+//ipc stuff
 
 /datum/gear/head/goldenchains
 	display_name = "golden deep headchains (Machine)"
