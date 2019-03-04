@@ -26,7 +26,7 @@ proc/empulse(turf/epicenter, heavy_range, light_range, log = FALSE, list/exclude
 		light_range = heavy_range
 
 	for(var/mob/M in range(heavy_range, epicenter))
-		to_chat(M, 'sound/effects/EMPulse.ogg')
+		sound_to(M, 'sound/effects/EMPulse.ogg')
 
 	for(var/atom/A in range(light_range, epicenter))
 		#ifdef EMPDEBUG
