@@ -16,6 +16,7 @@
 	allowed_eat_types = TYPE_ORGANIC | TYPE_SYNTHETIC | TYPE_HUMANOID
 	mob_size = 14
 	fall_mod = 0
+	grab_mod = 4
 
 	has_limbs = list(
 		"chest" =  list("path" = /obj/item/organ/external/chest/unbreakable),
