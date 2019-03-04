@@ -110,7 +110,7 @@
 
 	return 0
 
-/datum/species/xenos/hug(var/mob/living/carbon/human/H,var/mob/living/target)
+/datum/species/xenos/tap(var/mob/living/carbon/human/H,var/mob/living/target)
 	H.visible_message("<span class='notice'>[H] caresses [target] with its scythe-like arm.</span>", \
 					"<span class='notice'>You caress [target] with your scythe-like arm.</span>")
 
