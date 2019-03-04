@@ -28,13 +28,11 @@ mob/living/carbon/proc/handle_hallucinations()
 		switch(halpick)
 			if(0 to 15)
 				//Screwy HUD
-				//to_chat(src, "Screwy HUD")
 				hal_screwyhud = pick(1,2,3,3,4,4)
 				spawn(rand(100,250))
 					hal_screwyhud = 0
 			if(16 to 25)
 				//Strange items
-				//to_chat(src, "Traitor Items")
 				if(!halitem)
 					halitem = new
 					var/list/slots_free = list(ui_lhand,ui_rhand)
@@ -82,7 +80,6 @@ mob/living/carbon/proc/handle_hallucinations()
 							halitem = null
 			if(26 to 40)
 				//Flashes of danger
-				//to_chat(src, "Danger Flash")
 				if(!halimage)
 					var/list/possible_points = list()
 					for(var/turf/simulated/floor/F in view(src,world.view))
@@ -92,13 +89,10 @@ mob/living/carbon/proc/handle_hallucinations()
 
 						switch(rand(1,3))
 							if(1)
-								//to_chat(src, "Space")
 								halimage = image('icons/turf/space.dmi',target,"[rand(1,25)]",TURF_LAYER)
 							if(2)
-								//to_chat(src, "Fire")
 								halimage = image('icons/effects/fire.dmi',target,"1",TURF_LAYER)
 							if(3)
-								//to_chat(src, "C4")
 								halimage = image('icons/obj/assemblies.dmi',target,"plastic-explosive2",OBJ_LAYER+0.01)
 
 
@@ -110,29 +104,28 @@ mob/living/carbon/proc/handle_hallucinations()
 
 			if(41 to 65)
 				//Strange audio
-				//to_chat(src, "Strange Audio")
 				switch(rand(1,12))
 					if(1) sound_to(src, 'sound/machines/airlock.ogg')
 					if(2)
-						if(prob(50))to_chat(src, 'sound/effects/Explosion1.ogg')
-						else to_chat(src, 'sound/effects/Explosion2.ogg')
-					if(3) to_chat(src, 'sound/effects/explosionfar.ogg')
-					if(4) to_chat(src, 'sound/effects/Glassbr1.ogg')
-					if(5) to_chat(src, 'sound/effects/Glassbr2.ogg')
-					if(6) to_chat(src, 'sound/effects/Glassbr3.ogg')
-					if(7) to_chat(src, 'sound/machines/twobeep.ogg')
-					if(8) to_chat(src, 'sound/machines/windowdoor.ogg')
+						if(prob(50)) sound_to(src, 'sound/effects/Explosion1.ogg')
+						else sound_to(src, 'sound/effects/Explosion2.ogg')
+					if(3) sound_to(src, 'sound/effects/explosionfar.ogg')
+					if(4) sound_to(src, 'sound/effects/Glassbr1.ogg')
+					if(5) sound_to(src, 'sound/effects/Glassbr2.ogg')
+					if(6) sound_to(src, 'sound/effects/Glassbr3.ogg')
+					if(7) sound_to(src, 'sound/machines/twobeep.ogg')
+					if(8) sound_to(src, 'sound/machines/windowdoor.ogg')
 					if(9)
 						//To make it more realistic, I added two gunshots (enough to kill)
-						to_chat(src, 'sound/weapons/Gunshot.ogg')
+						sound_to(src, 'sound/weapons/Gunshot.ogg')
 						spawn(rand(10,30))
-							to_chat(src, 'sound/weapons/Gunshot.ogg')
-					if(10) to_chat(src, 'sound/weapons/smash.ogg')
+							sound_to(src, 'sound/weapons/Gunshot.ogg')
+					if(10) sound_to(src, 'sound/weapons/smash.ogg')
 					if(11)
 						//Same as above, but with tasers.
-						to_chat(src, 'sound/weapons/Taser.ogg')
+						sound_to(src, 'sound/weapons/Taser.ogg')
 						spawn(rand(10,30))
-							to_chat(src, 'sound/weapons/Taser.ogg')
+							sound_to(src, 'sound/weapons/Taser.ogg')
 				//Rare audio
 					if(12)
 //These sounds are (mostly) taken from Hidden: Source
@@ -144,7 +137,6 @@ mob/living/carbon/proc/handle_hallucinations()
 						sound_to(src, pick(creepyasssounds))
 			if(66 to 70)
 				//Flashes of danger
-				//to_chat(src, "Danger Flash")
 				if(!halbody)
 					var/list/possible_points = list()
 					for(var/turf/simulated/floor/F in view(src,world.view))
@@ -285,7 +277,7 @@ proc/check_panel(mob/M)
 		else if(src.dir == WEST)
 			del currentimage
 			src.currentimage = new /image(left,src)
-		to_chat(my_target, currentimage)
+		my_target << currentimage
 
 	proc/attack_loop()
 		while(!QDELETED(src))
@@ -326,7 +318,7 @@ proc/check_panel(mob/M)
 	var/obj/effect/overlay/O = new/obj/effect/overlay(target.loc)
 	O.name = "blood"
 	var/image/I = image('icons/effects/blood.dmi',O,"floor[rand(1,7)]",O.dir,1)
-	to_chat(target, I)
+	target << I
 	QDEL_IN(O, 300)
 
 var/list/non_fakeattack_weapons = list(/obj/item/weapon/gun/projectile, /obj/item/ammo_magazine/a357,\
@@ -346,18 +338,14 @@ var/list/non_fakeattack_weapons = list(/obj/item/weapon/gun/projectile, /obj/ite
 	/obj/item/clothing/suit/space/void, /obj/item/weapon/tank)
 
 /proc/fake_attack(var/mob/living/target)
-//	var/list/possible_clones = new/list()
 	var/mob/living/carbon/human/clone = null
 	var/clone_weapon = null
 
 	for(var/mob/living/carbon/human/H in living_mob_list)
 		if(H.stat || H.lying) continue
-//		possible_clones += H
 		clone = H
 		break	//changed the code a bit. Less randomised, but less work to do. Should be ok, world.contents aren't stored in any particular order.
 
-//	if(!possible_clones.len) return
-//	clone = pick(possible_clones)
 	if(!clone)	return
 
 	//var/obj/effect/fake_attacker/F = new/obj/effect/fake_attacker(outside_range(target))
@@ -381,28 +369,5 @@ var/list/non_fakeattack_weapons = list(/obj/item/weapon/gun/projectile, /obj/ite
 	F.right = image(clone,dir = EAST)
 	F.up = image(clone,dir = NORTH)
 	F.down = image(clone,dir = SOUTH)
-
-//	F.base = new /icon(clone.stand_icon)
-//	F.currentimage = new /image(clone)
-
-/*
-
-
-
-	F.left = new /icon(clone.stand_icon,dir=WEST)
-	for(var/icon/i in clone.overlays)
-		F.left.Blend(i)
-	F.up = new /icon(clone.stand_icon,dir=NORTH)
-	for(var/icon/i in clone.overlays)
-		F.up.Blend(i)
-	F.down = new /icon(clone.stand_icon,dir=SOUTH)
-	for(var/icon/i in clone.overlays)
-		F.down.Blend(i)
-	F.right = new /icon(clone.stand_icon,dir=EAST)
-	for(var/icon/i in clone.overlays)
-		F.right.Blend(i)
-
-	to_chat(target, F.up)
-	*/
 
 	F.updateimage()
