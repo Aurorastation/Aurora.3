@@ -219,7 +219,7 @@
 		else
 			ticktock = "Tick"
 		to_chat(H, "<span class='notice'><i>[ticktock]. . .</i></span>")
-		to_chat(H, 'sound/effects/singlebeat.ogg')
+		sound_to(H, 'sound/effects/singlebeat.ogg')
 		if(prob(1))
 			H.cure_all_traumas(cure_type = CURE_SOLITUDE)
 
