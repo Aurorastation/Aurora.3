@@ -307,11 +307,11 @@
 	icon = 'icons/obj/toy.dmi'
 	icon_state = "nymphplushie"
 	spawnlist = list(
-		/obj/structure/plushie/ian,
-		/obj/structure/plushie/drone,
-		/obj/structure/plushie/carp,
-		/obj/structure/plushie/beepsky,
-		/obj/structure/plushie/ivancarp,
+		/obj/item/toy/plushie/ian,
+		/obj/item/toy/plushie/drone,
+		/obj/item/toy/plushie/carp,
+		/obj/item/toy/plushie/beepsky,
+		/obj/item/toy/plushie/ivancarp,
 		/obj/item/toy/plushie/nymph,
 		/obj/item/toy/plushie/mouse,
 		/obj/item/toy/plushie/kitten,

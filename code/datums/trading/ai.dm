@@ -112,7 +112,7 @@ They sell generic supplies and ask for generic supplies.
 		/obj/item/target                    = TRADER_ALL,
 		/obj/structure/dispenser            = TRADER_SUBTYPES_ONLY,
 		/obj/structure/filingcabinet        = TRADER_THIS_TYPE,
-		/obj/structure/plushie              = TRADER_SUBTYPES_ONLY,
+		/obj/item/toy/plushie/              = TRADER_SUBTYPES_ONLY,
 		/obj/mecha/working/hoverpod         = TRADER_THIS_TYPE,
 		/obj/vehicle/bike                   = TRADER_THIS_TYPE
 	)
