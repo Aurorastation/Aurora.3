@@ -762,15 +762,8 @@
 	name = "generic small plush"
 	desc = "A very generic small plushie. It seems to not want to exist."
 	icon = 'icons/obj/toy.dmi'
-<<<<<<< Updated upstream
-	icon_state = "ianplushie"
-	anchored = 0
-	density = 0
-	var/phrase = "I don't want to exist anymore!"
-=======
 	icon_state = "nymphplushie"
 	var/phrase = "Hewwo!"
->>>>>>> Stashed changes
 
 /obj/item/toy/plushie/attack_self(mob/user as mob)
 	if(user.a_intent == I_HELP)
