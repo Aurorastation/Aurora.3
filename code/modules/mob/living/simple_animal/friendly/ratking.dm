@@ -59,7 +59,7 @@
 	cut_overlays()
 
 	for(var/mob/living/simple_animal/mouse/R in rats)
-		var/image/rat_overlay = image('icons/mob/animal.dmi', "[R.icon_state]")
+		var/image/rat_overlay = image('icons/mob/npc/animal.dmi', "[R.icon_state]")
 		rat_overlay.dir = src.dir
 		var/matrix/M = matrix()
 		M.Translate(rand(-6, 6), rand(-4, 8))

@@ -23,14 +23,14 @@
 	desc = "Did someone tread on this? It looks useless for cloning or cyborgification."
 	organ_tag = "brain"
 	parent_organ = "head"
-	icon = 'icons/mob/alien.dmi'
+	icon = 'icons/mob/npc/alien.dmi'
 	icon_state = "chitin"
 	vital = 1
 
 /obj/item/organ/brain/xeno
 	name = "thinkpan"
 	desc = "It looks kind of like an enormous wad of purple bubblegum."
-	icon = 'icons/mob/alien.dmi'
+	icon = 'icons/mob/npc/alien.dmi'
 	icon_state = "chitin"
 
 /obj/item/organ/brain/xeno/gain_trauma()
@@ -142,7 +142,7 @@
 	name = "slime core"
 	desc = "A complex, organic knot of jelly and crystalline particles."
 	robotic = 2
-	icon = 'icons/mob/slimes.dmi'
+	icon = 'icons/mob/npc/slimes.dmi'
 	icon_state = "green slime extract"
 	can_lobotomize = 0
 

@@ -2,7 +2,7 @@
 	name = "shambling horror"
 	desc = "A monstrous creature, made of twisted flesh and bone."
 	speak_emote = list("gibbers")
-	icon = 'icons/mob/animal.dmi'
+	icon = 'icons/mob/npc/animal.dmi'
 	icon_state = "abomination"
 	icon_living = "abomination"
 	icon_dead = "abomination_dead"

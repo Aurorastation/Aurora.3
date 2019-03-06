@@ -1,6 +1,6 @@
 /obj/item/organ/parasite
 	name = "parasite"
-	icon = 'icons/mob/alien.dmi'
+	icon = 'icons/mob/npc/alien.dmi'
 	icon_state = "burst_lie"
 	dead_icon = "bursted_lie"
 

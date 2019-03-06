@@ -2,7 +2,7 @@
 /mob/living/simple_animal/hostile/retaliate/cavern_dweller
 	name = "cavern dweller"
 	desc = "An alien creature that dwells in the tunnels of the asteroid, commonly found in the Romanovich Cloud."
-	icon = 'icons/mob/cavern.dmi'
+	icon = 'icons/mob/npc/cavern.dmi'
 	icon_state = "dweller" //icons from europa station
 	icon_living = "dweller"
 	icon_dead = "dweller_dead"
@@ -68,7 +68,7 @@
 /mob/living/simple_animal/hostile/retaliate/minedrone
 	name = "mining rover"
 	desc = "A dilapidated mining rover, with the faded colors of the Sol Alliance. It looks more than a little lost."
-	icon = 'icons/mob/cavern.dmi'
+	icon = 'icons/mob/npc/cavern.dmi'
 	icon_state = "sadrone"
 	icon_living = "sadrone"
 	icon_dead = "sadrone_dead"

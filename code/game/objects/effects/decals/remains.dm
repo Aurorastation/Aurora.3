@@ -20,7 +20,7 @@
 /obj/effect/decal/remains/mouse
 	name = "mouse skeleton"
 	desc = "Looks like the remains of a small rodent. It doesn't squeak anymore."
-	icon = 'icons/mob/mouse.dmi'
+	icon = 'icons/mob/npc/mouse.dmi'
 	icon_state = "skeleton"
 
 /obj/effect/decal/remains/lizard

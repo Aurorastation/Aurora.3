@@ -151,3 +151,18 @@
 	harm_intent_damage = 5
 	melee_damage_lower = 20
 	melee_damage_upper = 25
+
+/mob/living/simple_animal/hostile/carp/old
+	icon_state = "carp_old"
+	icon_living = "carp_old"
+	icon_dead = "carp_old_dead"
+	icon_gib = "carp_old_gib"
+	icon_rest = "carp_old"
+
+/mob/living/simple_animal/hostile/carp/shark/old
+	icon = 'icons/mob/npc/spaceshark.dmi'
+	icon_state = "shark"
+	icon_living = "shark"
+	icon_dead = "shark_dead"
+	icon_rest = "shark"
+	pixel_x = -16

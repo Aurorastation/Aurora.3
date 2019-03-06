@@ -11,7 +11,7 @@
 /obj/item/weapon/trap/sarlacc
 	name = "great worm maw"
 	desc = "Hop in, the gastrointestinal juices are just fine."
-	icon = 'icons/mob/cavern.dmi'
+	icon = 'icons/mob/npc/cavern.dmi'
 	icon_state = "blank"
 	mouse_opacity = 0
 	throwforce = 0
@@ -90,7 +90,7 @@
 /mob/living/simple_animal/hostile/greatworm
 	name = "great worm"
 	desc = "The gaping maw opens and closes eternally, insatiably... Rumours however tell that those who can sate it are rewarded."
-	icon = 'icons/mob/cavern.dmi'
+	icon = 'icons/mob/npc/cavern.dmi'
 	icon_state = "sarlacc"
 	see_in_dark = 8
 	health = 100
@@ -254,7 +254,7 @@
 /mob/living/simple_animal/hostile/lesserworm
 	name = "lesser worm"
 	desc = "The maw on this creature is substantially smaller than the one on it's master, but it still hurts like hell."
-	icon = 'icons/mob/cavern.dmi'
+	icon = 'icons/mob/npc/cavern.dmi'
 	icon_state = "sarlacctentacle"
 	health = 25
 	maxHealth = 25
@@ -311,7 +311,7 @@
 /mob/living/simple_animal/hostile/greatwormking
 	name = "great worm king"
 	desc = "This pulsating brain seems somehow connected to all the other orifices in this room..."
-	icon = 'icons/mob/cavern.dmi'
+	icon = 'icons/mob/npc/cavern.dmi'
 	icon_state = "sarlaccbrain"
 	see_in_dark = 8
 	see_invisible = SEE_INVISIBLE_NOLIGHTING
@@ -405,7 +405,7 @@
 /obj/structure/greatworm
 	name = "great worm rectum"
 	desc = "The intestinal length of the great worm this end belongs to travels for what looks like miles."
-	icon = 'icons/mob/cavern.dmi'
+	icon = 'icons/mob/npc/cavern.dmi'
 	icon_state = "sarlaccend"
 	anchored = 1
 	density = 0
