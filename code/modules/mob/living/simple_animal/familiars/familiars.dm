@@ -49,11 +49,10 @@
 	name = "space pike"
 	desc = "A bigger, more magical cousin of the space carp."
 
-	icon = 'icons/mob/spaceshark.dmi'
 	icon_state = "shark"
 	icon_living = "shark"
 	icon_dead = "shark_dead"
-	pixel_x = -16
+	icon_rest = "shark_rest"
 
 	speak_emote = list("gnashes")
 	attacktext = "bitten"

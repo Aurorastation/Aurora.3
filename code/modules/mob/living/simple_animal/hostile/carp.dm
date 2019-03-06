@@ -7,6 +7,7 @@
 	icon_living = "carp"
 	icon_dead = "carp_dead"
 	icon_gib = "carp_gib"
+	icon_rest = "carp_rest"
 	speak_chance = 0
 	turns_per_move = 5
 	meat_type = /obj/item/weapon/reagent_containers/food/snacks/carpmeat
@@ -136,13 +137,11 @@
 /mob/living/simple_animal/hostile/carp/shark
 	name = "space shark"
 	desc = "The bigger, angrier cousin of the space carp."
-	icon = 'icons/mob/spaceshark.dmi'
 	icon_state = "shark"
 	icon_living = "shark"
 	icon_dead = "shark_dead"
+	icon_rest = "shark_rest"
 	meat_amount = 5
-
-	pixel_x = -16
 
 	maxHealth = 100
 	health = 100
