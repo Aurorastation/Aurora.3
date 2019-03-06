@@ -185,7 +185,6 @@
 		)
 
 /obj/item/weapon/rig/medical
-
 	name = "rescue suit control module"
 	suit_type = "rescue hardsuit"
 	desc = "A durable suit designed for medical rescue in high risk areas."
