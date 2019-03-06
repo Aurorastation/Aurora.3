@@ -53,7 +53,8 @@
 		/mob/living/proc/devour,
 		/mob/living/carbon/human/proc/regurgitate,
 		/mob/living/carbon/human/proc/detach_limb,
-		/mob/living/carbon/human/proc/attach_limb
+		/mob/living/carbon/human/proc/attach_limb,
+		/mob/living/carbon/human/proc/self_diagnostics
 	)
 
 	has_organ = list(
@@ -82,7 +83,6 @@
 		"r_foot" = list("path" = /obj/item/organ/external/foot/right/autakh)
 		)
 
-	spawn_flags = IS_RESTRICTED
 	appearance_flags = HAS_HAIR_COLOR | HAS_UNDERWEAR | HAS_SKIN_COLOR | HAS_EYE_COLOR
 	flags = NO_CHUBBY | NO_SCAN
 
