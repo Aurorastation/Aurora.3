@@ -530,3 +530,31 @@
 	req_tech = list(TECH_DATA = 2)
 	build_path = /obj/item/weapon/circuitboard/slot_machine
 	sort_string = "WAAAE"
+
+/datum/design/circuit/industrial
+	name = "industrial suit central circuit board"
+	id = "industrial"
+	req_tech = list(TECH_DATA = 3)
+	build_path = /obj/item/weapon/circuitboard/rig_assembly/civilian/industrial
+	sort_string = "WAAAF"
+
+/datum/design/circuit/eva
+	name = "EVA suit central circuit board"
+	id = "eva"
+	req_tech = list(TECH_DATA = 3)
+	build_path = /obj/item/weapon/circuitboard/rig_assembly/civilian/eva
+	sort_string = "WAAAG"
+
+/datum/design/circuit/rig_assembly/ce
+	name = "an advanced void suit central circuit board"
+	id = "ce"
+	req_tech = list(TECH_DATA = 3)
+	build_path = /obj/item/weapon/circuitboard/rig_assembly/civilian/ce
+	sort_string = "WAAAH"
+
+/datum/design/circuit/rig_assembly/hazmat
+	name = "AMI suit central circuit board"
+	id = "hazmat"
+	req_tech = list(TECH_DATA = 3)
+	build_path = /obj/item/weapon/circuitboard/rig_assembly/civilian/hazmat
+	sort_string = "WAAAI"

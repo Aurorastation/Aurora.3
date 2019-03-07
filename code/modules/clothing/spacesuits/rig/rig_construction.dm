@@ -6,10 +6,10 @@
 	w_class = 4
 	var/obj/item/weapon/circuitboard/board_type = null
 	var/obj/item/weapon/circuitboard/target_board_type = null
-	var/rig_type = "/obj/item/weapon/rig"
+	var/obj/item/weapon/rig/rig_type = /obj/item/weapon/rig
 
 	flags = CONDUCT
-	origin_tech = list(TECH_DATA = 2, TECH_MATERIAL = 2)
+	origin_tech = list(TECH_MATERIAL = 3, TECH_ENGINEERING = 2, TECH_MAGNET = 3, TECH_POWER = 3)
 	var/datum/construction/reversible/rig_assembly/construct
 	flags = CONDUCT
 
@@ -23,7 +23,7 @@
 	construct = new /datum/construction/reversible/rig_assembly/civilian(src)
 	construct.board_type = board_type
 	construct.steps[5]["key"] = board_type // defining board in construction step
-	construct.result = rig_type
+	construct.result = "[rig_type]"
 
 /obj/item/rig_assembly/combat/New()
 	..()
@@ -32,20 +32,84 @@
 	construct.target_board_type = target_board_type	
 	construct.steps[12]["key"] = board_type // defining board in construction step
 	construct.steps[10]["key"] = target_board_type
-	construct.result = rig_type
+	construct.result = "[rig_type]"
+
+///////////////////////
+////CIVILIAN BOARDS////
+///////////////////////
 
 /obj/item/rig_assembly/ce
 	name = "advanced voidsuit control module assembly"
 	desc = "An assembly frame for an advanced voidsuit that protects against hazardous, low pressure environments."
-	board_type = /obj/item/weapon/circuitboard/rig_assembly/ce
-	rig_type = "/obj/item/weapon/rig/ce"
+	board_type = /obj/item/weapon/circuitboard/rig_assembly/civilian/ce
+	rig_type = /obj/item/weapon/rig/ce
+
+/obj/item/rig_assembly/eva
+	name = "EVA suit control module assembly"
+	desc = "An assembly for light rig that is desiged for repairs and maintenance to the outside of habitats and vessels."
+	board_type = /obj/item/weapon/circuitboard/rig_assembly/civilian/eva
+	rig_type = /obj/item/weapon/rig/eva
+
+/obj/item/rig_assembly/industrial
+	name = "industrial suit control module assembly"
+	desc = "An assembly for a heavy, powerful rig used by construction crews and mining corporations."
+	board_type = /obj/item/weapon/circuitboard/rig_assembly/civilian/industrial
+	rig_type = /obj/item/weapon/rig/industrial
+
+/obj/item/rig_assembly/hazmat
+	name = "AMI control module assembly"
+	desc = "An assembly for Anomalous Material Interaction hardsuit that protects against the strangest energies the universe can throw at it."
+	board_type = /obj/item/weapon/circuitboard/rig_assembly/civilian/hazmat
+	rig_type = /obj/item/weapon/rig/hazmat
+
+/obj/item/rig_assembly/medical
+	name = "rescue suit control module assembly"
+	desc = "An assembly for a durable suit designed for medical rescue in high risk areas."
+	board_type = /obj/item/weapon/circuitboard/rig_assembly/civilian/medical
+	rig_type = /obj/item/weapon/rig/medical
+
+/////////////////////
+////COMBAT BOARDS////
+/////////////////////
 
 /obj/item/rig_assembly/combat
+	origin_tech = list(TECH_MATERIAL = 5, TECH_ENGINEERING = 4, TECH_MAGNET = 3, TECH_POWER = 3, TECH_COMBAT = 4)
+
+/obj/item/rig_assembly/combat/hazard
+	name = "hazard hardsuit control module"
+	desc = "An assembly for a security hardsuit designed for prolonged EVA in dangerous environments."
+	rig_type = /obj/item/weapon/rig/hazard
+	board_type = /obj/item/weapon/circuitboard/rig_assembly/combat/hazard
+	target_board_type = /obj/item/weapon/circuitboard/rig_assembly/combat/targeting/hazard
+
+/obj/item/rig_assembly/combat/combat
 	name = "combat hardsuit control module assembly"
 	desc = "An assembly frame for a sleek and dangerous hardsuit for active combat."
-	rig_type = "/obj/item/weapon/rig/combat"
-	board_type = /obj/item/weapon/circuitboard/rig_assembly/combat
-	target_board_type = /obj/item/weapon/circuitboard/rig_assembly/combat/targeting
+	rig_type = /obj/item/weapon/rig/combat
+	board_type = /obj/item/weapon/circuitboard/rig_assembly/combat/combat
+	target_board_type = /obj/item/weapon/circuitboard/rig_assembly/combat/targeting/combat
+
+//////////////////////
+////ILLEGAL BOARDS////
+//////////////////////
+
+/obj/item/rig_assembly/illegal
+	origin_tech = list(TECH_MATERIAL = 5, TECH_ENGINEERING = 4, TECH_MAGNET = 3, TECH_POWER = 4, TECH_COMBAT = 4, TECH_ILLEGAL = 4)
+
+/obj/item/rig_assembly/illegal/hacker
+	name = "light suit control module assembly"
+	desc = "An assembly for a lighter, less armoured rig suit."
+	rig_type = /obj/item/weapon/rig/light/hacker
+	board_type = /obj/item/weapon/circuitboard/rig_assembly/illegal/hacker
+	target_board_type = /obj/item/weapon/circuitboard/rig_assembly/illegal/targeting/hacker
+
+/obj/item/rig_assembly/illegal/stealth
+	name = "stealth suit control module assembly"
+	desc = "An assembly for a highly advanced and expensive suit designed for covert operations."
+	rig_type = /obj/item/weapon/rig/light/stealth
+	board_type = /obj/item/weapon/circuitboard/rig_assembly/illegal/stealth
+	target_board_type = /obj/item/weapon/circuitboard/rig_assembly/illegal/targeting/stealth
+	origin_tech = list(TECH_MATERIAL = 6, TECH_ENGINEERING = 5, TECH_MAGNET = 4, TECH_POWER = 5, TECH_COMBAT = 6, TECH_ILLEGAL = 6)
 
 /datum/construction/reversible/rig_assembly
 	result = null
