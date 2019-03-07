@@ -87,7 +87,7 @@
 
 	var/path = "data/logs/[time2text(world.realtime,"YYYY/MM-Month/DD-Day")].log"
 	if( fexists(path) )
-		to_chat(src, run( file(path) ))
+		src << run( file(path) )
 	else
 		to_chat(src, "<font color='red'>Error: view_txt_log(): File not found/Invalid path([path]).</font>")
 		return
