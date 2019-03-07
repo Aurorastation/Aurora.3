@@ -32,10 +32,10 @@
 /////////////////////
 
 /obj/item/weapon/circuitboard/rig_assembly/combat
-	origin_tech = list(TECH_DATA = 3)
+	origin_tech = list(TECH_DATA = 5)
 
 /obj/item/weapon/circuitboard/rig_assembly/combat/targeting
-	origin_tech = list(TECH_DATA = 3, TECH_COMBAT = 3)
+	origin_tech = list(TECH_DATA = 5, TECH_COMBAT = 4)
 
 /obj/item/weapon/circuitboard/rig_assembly/combat/hazard
 	name = "hazard rig central circuit board"
@@ -49,17 +49,17 @@
 
 /obj/item/weapon/circuitboard/rig_assembly/combat/targeting/combat
 	name = "combat rig control and targeting board"
-	origin_tech = list(TECH_DATA = 7, TECH_COMBAT = 5)
+	origin_tech = list(TECH_DATA = 7, TECH_COMBAT = 6)
 
 //////////////////////
 ////ILLEGAL BOARDS////
 //////////////////////
 
 /obj/item/weapon/circuitboard/rig_assembly/illegal
-	origin_tech = list(TECH_DATA = 5, TECH_ILLEGAL = 3)
+	origin_tech = list(TECH_DATA = 7, TECH_ILLEGAL = 4)
 
 /obj/item/weapon/circuitboard/rig_assembly/illegal/targeting
-	origin_tech = list(TECH_DATA = 5, TECH_COMBAT = 3, TECH_ILLEGAL = 3)
+	origin_tech = list(TECH_DATA = 7, TECH_COMBAT = 4, TECH_ILLEGAL = 4)
 
 /obj/item/weapon/circuitboard/rig_assembly/illegal/hacker
 	name = "cybersuit rig central circuit board"
@@ -69,9 +69,9 @@
 
 /obj/item/weapon/circuitboard/rig_assembly/illegal/stealth
 	name = "stealth rig central circuit board"
-	origin_tech = list(TECH_DATA = 7, TECH_ILLEGAL = 5)
+	origin_tech = list(TECH_DATA = 7, TECH_ILLEGAL = 6)
 
 /obj/item/weapon/circuitboard/rig_assembly/illegal/targeting/stealth
 	name = "stealth rig control and targeting board"
-	origin_tech = list(TECH_DATA = 7, TECH_COMBAT = 5, TECH_ILLEGAL = 5)
+	origin_tech = list(TECH_DATA = 7, TECH_COMBAT = 6, TECH_ILLEGAL = 6)
 

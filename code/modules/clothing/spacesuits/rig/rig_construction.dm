@@ -9,7 +9,7 @@
 	var/obj/item/weapon/rig/rig_type = /obj/item/weapon/rig
 
 	flags = CONDUCT
-	origin_tech = list(TECH_MATERIAL = 3, TECH_ENGINEERING = 2, TECH_MAGNET = 3, TECH_POWER = 3)
+	origin_tech = list(TECH_MATERIAL = 4, TECH_ENGINEERING = 3, TECH_MAGNET = 4, TECH_POWER = 4)
 	var/datum/construction/reversible/rig_assembly/construct
 	flags = CONDUCT
 
@@ -73,7 +73,7 @@
 ///////////////////////
 
 /obj/item/rig_assembly/combat
-	origin_tech = list(TECH_MATERIAL = 5, TECH_ENGINEERING = 4, TECH_MAGNET = 3, TECH_POWER = 3, TECH_COMBAT = 4)
+	origin_tech = list(TECH_MATERIAL = 5, TECH_ENGINEERING = 4, TECH_MAGNET = 4, TECH_POWER = 4, TECH_COMBAT = 4)
 
 /obj/item/rig_assembly/combat/hazard
 	name = "hazard hardsuit control module"
@@ -88,6 +88,7 @@
 	rig_type = /obj/item/weapon/rig/combat
 	board_type = /obj/item/weapon/circuitboard/rig_assembly/combat/combat
 	target_board_type = /obj/item/weapon/circuitboard/rig_assembly/combat/targeting/combat
+	origin_tech = list(TECH_MATERIAL = 6, TECH_ENGINEERING = 5, TECH_MAGNET = 4, TECH_POWER = 4, TECH_COMBAT = 6)
 
 ////////////////////////
 ////ILLEGAL ASSEMBLY////
