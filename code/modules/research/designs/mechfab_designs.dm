@@ -919,7 +919,7 @@
 	id = "rig_combat"
 	build_path = /obj/item/rig_assembly/combat/combat
 	req_tech = list(TECH_MATERIAL = 5, TECH_ENGINEERING = 4, TECH_MAGNET = 3, TECH_POWER = 3, TECH_COMBAT = 5)
-	materials = list(DEFAULT_WALL_MATERIAL = 55000, "glass" = 25000)
+	materials = list(DEFAULT_WALL_MATERIAL = 55000, "glass" = 25000, "silver" = 7500)
 
 /datum/design/rig/hacker
 	name = "light suit control module assembly"
@@ -927,7 +927,7 @@
 	id = "rig_hacker"
 	build_path = /obj/item/rig_assembly/illegal/hacker
 	req_tech = list(TECH_MATERIAL = 4, TECH_ENGINEERING = 3, TECH_MAGNET = 2, TECH_POWER = 3, TECH_COMBAT = 3, TECH_ILLEGAL = 3)
-	materials = list(DEFAULT_WALL_MATERIAL = 25000, "glass" = 12500)
+	materials = list(DEFAULT_WALL_MATERIAL = 25000, "glass" = 12500, "gold" = 2500)
 
 /datum/design/rig/stealth
 	name = "stealth suit control module assembly"
@@ -935,6 +935,6 @@
 	id = "rig_stealth"
 	build_path = /obj/item/rig_assembly/illegal/stealth
 	req_tech = list(TECH_MATERIAL = 5, TECH_ENGINEERING = 4, TECH_MAGNET = 3, TECH_POWER = 4, TECH_COMBAT = 5, TECH_ILLEGAL = 5)
-	materials = list(DEFAULT_WALL_MATERIAL = 27500, "glass" = 15000)
+	materials = list(DEFAULT_WALL_MATERIAL = 27500, "glass" = 15000, "gold" = 5000, "silver" = 2500)
 
 
