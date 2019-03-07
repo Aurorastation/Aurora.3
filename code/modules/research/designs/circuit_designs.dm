@@ -545,14 +545,14 @@
 	build_path = /obj/item/weapon/circuitboard/rig_assembly/civilian/eva
 	sort_string = "WAAAG"
 
-/datum/design/circuit/rig_assembly/ce
+/datum/design/circuit/ce
 	name = "an advanced void suit central circuit board"
 	id = "ce"
 	req_tech = list(TECH_DATA = 3)
 	build_path = /obj/item/weapon/circuitboard/rig_assembly/civilian/ce
 	sort_string = "WAAAH"
 
-/datum/design/circuit/rig_assembly/hazmat
+/datum/design/circuit/hazmat
 	name = "AMI suit central circuit board"
 	id = "hazmat"
 	req_tech = list(TECH_DATA = 3)
