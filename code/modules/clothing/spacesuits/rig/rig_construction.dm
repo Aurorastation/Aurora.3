@@ -34,9 +34,9 @@
 	construct.steps[10]["key"] = target_board_type
 	construct.result = "[rig_type]"
 
-///////////////////////
-////CIVILIAN BOARDS////
-///////////////////////
+////////////////////////
+////CIVILIAN ASEMBLY////
+////////////////////////
 
 /obj/item/rig_assembly/ce
 	name = "advanced voidsuit control module assembly"
@@ -68,9 +68,9 @@
 	board_type = /obj/item/weapon/circuitboard/rig_assembly/civilian/medical
 	rig_type = /obj/item/weapon/rig/medical
 
-/////////////////////
-////COMBAT BOARDS////
-/////////////////////
+///////////////////////
+////COMBAT ASSEMBLY////
+///////////////////////
 
 /obj/item/rig_assembly/combat
 	origin_tech = list(TECH_MATERIAL = 5, TECH_ENGINEERING = 4, TECH_MAGNET = 3, TECH_POWER = 3, TECH_COMBAT = 4)
@@ -89,9 +89,9 @@
 	board_type = /obj/item/weapon/circuitboard/rig_assembly/combat/combat
 	target_board_type = /obj/item/weapon/circuitboard/rig_assembly/combat/targeting/combat
 
-//////////////////////
-////ILLEGAL BOARDS////
-//////////////////////
+////////////////////////
+////ILLEGAL ASSEMBLY////
+////////////////////////
 
 /obj/item/rig_assembly/illegal
 	origin_tech = list(TECH_MATERIAL = 5, TECH_ENGINEERING = 4, TECH_MAGNET = 3, TECH_POWER = 4, TECH_COMBAT = 4, TECH_ILLEGAL = 4)
