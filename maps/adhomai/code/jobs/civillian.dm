@@ -9,11 +9,29 @@
 	supervisors = "the mayor"
 	selection_color = "#dddddd"
 	economic_modifier = 1
+	alt_titles = list("Lumberjack","Farmer")
 	outfit = /datum/outfit/job/adhomai/civillian
+	alt_outfits = list(
+		"Lumberjack"=/datum/outfit/job/adhomai/civillian/lumberjack,
+		"Farmer"=/datum/outfit/job/adhomai/civillian/farmer
+		)
 
 /datum/outfit/job/adhomai/civillian
 	name = "Civillian"
 	allow_backbag_choice = TRUE
+
+/datum/outfit/job/adhomai/civillian/lumberjack
+	name = "Lumberjack"
+
+	belt = /obj/item/weapon/material/axe
+
+/datum/outfit/job/adhomai/civillian/farmer
+	name = "Farmer"
+
+	belt = /obj/item/weapon/storage/bag/plants
+	r_pocket = /obj/item/weapon/material/minihoe
+	l_pocket = /obj/item/weapon/material/hatchet
+	l_hand = /obj/item/weapon/reagent_containers/glass/bucket
 
 /datum/job/mayor
 	title = "Mayor"

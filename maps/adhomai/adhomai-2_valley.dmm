@@ -1210,6 +1210,9 @@
 /obj/item/device/radio,
 /obj/item/device/radio,
 /obj/item/device/radio,
+/obj/item/device/radio,
+/obj/item/device/radio,
+/obj/item/device/radio,
 /turf/simulated/floor/tiled/dark,
 /area/adhomai/fortress)
 "dU" = (
@@ -1301,15 +1304,6 @@
 "ej" = (
 /turf/simulated/floor/plating,
 /area/adhomai/village/police)
-"ek" = (
-/obj/machinery/light/small{
-	brightness_color = "#DA0205";
-	brightness_power = 1;
-	brightness_range = 5;
-	dir = 5
-	},
-/turf/simulated/floor/asteroid/ash,
-/area/adhomai)
 "el" = (
 /obj/structure/bed,
 /turf/simulated/floor/plating,
@@ -1489,6 +1483,7 @@
 /area/adhomai/village)
 "eQ" = (
 /obj/structure/closet/crate,
+/obj/item/weapon/storage/bag/plants,
 /turf/simulated/floor/wood,
 /area/adhomai/village)
 "eR" = (
@@ -1788,6 +1783,7 @@
 /obj/structure/table/wood,
 /obj/item/device/flashlight/lantern,
 /obj/item/device/radio,
+/obj/item/device/gps,
 /turf/simulated/floor/tiled/dark,
 /area/adhomai/fortress)
 "fO" = (
@@ -3966,6 +3962,12 @@
 	},
 /turf/simulated/floor/wood,
 /area/adhomai/village/police)
+"Nz" = (
+/obj/machinery/light/small,
+/obj/structure/table/wood,
+/obj/item/weapon/material/twohanded/pike/pitchfork,
+/turf/simulated/floor/wood,
+/area/adhomai/village)
 "NG" = (
 /obj/machinery/appliance/cooker/oven,
 /turf/simulated/floor/wood,
@@ -59942,7 +59944,7 @@ ae
 DR
 es
 EH
-AD
+Nz
 DR
 aa
 aa
@@ -60709,7 +60711,7 @@ cj
 dN
 cj
 cj
-ek
+ae
 DR
 eH
 EH

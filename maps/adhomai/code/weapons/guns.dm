@@ -46,7 +46,7 @@
 	knife_y_offset = 13
 
 /obj/item/weapon/gun/projectile/grenadier/can_wield()
-	return 1
+	return TRUE
 
 /obj/item/weapon/gun/projectile/grenadier/ui_action_click()
 	if(src in usr)

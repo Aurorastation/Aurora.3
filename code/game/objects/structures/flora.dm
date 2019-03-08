@@ -5,9 +5,14 @@
 	density = 1
 	pixel_x = -16
 	layer = 9
+	var/being_cut = FALSE
 
 /obj/structure/flora/tree/attackby(obj/item/W, mob/user)
 	if(istype(W, /obj/item/weapon/material/axe))
+		if(being_cut)
+			return
+		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
+		being_cut = TRUE
 		user.visible_message("<span class='notice'>\The [user] begins to chop down \the [src].</span>")
 		user.do_attack_animation(src)
 		animate_shake()
@@ -19,6 +24,7 @@
 				qdel(src)
 				return
 		else
+			being_cut = FALSE
 			return ..()
 
 /obj/structure/flora/tree/pine
