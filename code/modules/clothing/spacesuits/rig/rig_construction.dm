@@ -2,7 +2,7 @@
 	name = "hardsuit control module assembly"
 	icon = 'icons/obj/rig_modules.dmi'
 	desc = "An assembly frame of back-mounted hardsuit deployment and control mechanism."
-	slot_flags = SLOT_BACK
+	var/icon_base = null
 	w_class = 4
 	var/obj/item/weapon/circuitboard/board_type = null
 	var/obj/item/weapon/circuitboard/target_board_type = null
@@ -41,30 +41,40 @@
 /obj/item/rig_assembly/ce
 	name = "advanced voidsuit control module assembly"
 	desc = "An assembly frame for an advanced voidsuit that protects against hazardous, low pressure environments."
+	icon_base = "ce"
+	icon_state = "ce1"
 	board_type = /obj/item/weapon/circuitboard/rig_assembly/civilian/ce
 	rig_type = /obj/item/weapon/rig/ce
 
 /obj/item/rig_assembly/eva
 	name = "EVA suit control module assembly"
 	desc = "An assembly for light rig that is desiged for repairs and maintenance to the outside of habitats and vessels."
+	icon_base = "eva"
+	icon_state = "eva1"
 	board_type = /obj/item/weapon/circuitboard/rig_assembly/civilian/eva
 	rig_type = /obj/item/weapon/rig/eva
 
 /obj/item/rig_assembly/industrial
 	name = "industrial suit control module assembly"
 	desc = "An assembly for a heavy, powerful rig used by construction crews and mining corporations."
+	icon_base = "industrial"
+	icon_state = "industrial1"
 	board_type = /obj/item/weapon/circuitboard/rig_assembly/civilian/industrial
 	rig_type = /obj/item/weapon/rig/industrial
 
 /obj/item/rig_assembly/hazmat
 	name = "AMI control module assembly"
 	desc = "An assembly for Anomalous Material Interaction hardsuit that protects against the strangest energies the universe can throw at it."
+	icon_base = "hazmat"
+	icon_state = "hazmat1"
 	board_type = /obj/item/weapon/circuitboard/rig_assembly/civilian/hazmat
 	rig_type = /obj/item/weapon/rig/hazmat
 
 /obj/item/rig_assembly/medical
 	name = "rescue suit control module assembly"
 	desc = "An assembly for a durable suit designed for medical rescue in high risk areas."
+	icon_base = "medical"
+	icon_state = "medical1"
 	board_type = /obj/item/weapon/circuitboard/rig_assembly/civilian/medical
 	rig_type = /obj/item/weapon/rig/medical
 
@@ -78,6 +88,8 @@
 /obj/item/rig_assembly/combat/hazard
 	name = "hazard hardsuit control module"
 	desc = "An assembly for a security hardsuit designed for prolonged EVA in dangerous environments."
+	icon_base = "hazard"
+	icon_state = "hazard1"
 	rig_type = /obj/item/weapon/rig/hazard
 	board_type = /obj/item/weapon/circuitboard/rig_assembly/combat/hazard
 	target_board_type = /obj/item/weapon/circuitboard/rig_assembly/combat/targeting/hazard
@@ -85,6 +97,8 @@
 /obj/item/rig_assembly/combat/combat
 	name = "combat hardsuit control module assembly"
 	desc = "An assembly frame for a sleek and dangerous hardsuit for active combat."
+	icon_base = "combat"
+	icon_state = "combat1"
 	rig_type = /obj/item/weapon/rig/combat
 	board_type = /obj/item/weapon/circuitboard/rig_assembly/combat/combat
 	target_board_type = /obj/item/weapon/circuitboard/rig_assembly/combat/targeting/combat
@@ -94,19 +108,23 @@
 ////ILLEGAL ASSEMBLY////
 ////////////////////////
 
-/obj/item/rig_assembly/illegal
+/obj/item/rig_assembly/combat/illegal
 	origin_tech = list(TECH_MATERIAL = 5, TECH_ENGINEERING = 4, TECH_MAGNET = 3, TECH_POWER = 4, TECH_COMBAT = 4, TECH_ILLEGAL = 4)
 
-/obj/item/rig_assembly/illegal/hacker
+/obj/item/rig_assembly/combat/illegal/hacker
 	name = "light suit control module assembly"
 	desc = "An assembly for a lighter, less armoured rig suit."
+	icon_base = "hacker"
+	icon_state = "hacker1"
 	rig_type = /obj/item/weapon/rig/light/hacker
 	board_type = /obj/item/weapon/circuitboard/rig_assembly/illegal/hacker
 	target_board_type = /obj/item/weapon/circuitboard/rig_assembly/illegal/targeting/hacker
 
-/obj/item/rig_assembly/illegal/stealth
+/obj/item/rig_assembly/combat/illegal/stealth
 	name = "stealth suit control module assembly"
 	desc = "An assembly for a highly advanced and expensive suit designed for covert operations."
+	icon_base = "stealth"
+	icon_state = "stealth1"
 	rig_type = /obj/item/weapon/rig/light/stealth
 	board_type = /obj/item/weapon/circuitboard/rig_assembly/illegal/stealth
 	target_board_type = /obj/item/weapon/circuitboard/rig_assembly/illegal/targeting/stealth
@@ -188,62 +206,61 @@
 		if(!..())
 			return 0
 
-		//TODO: better messages.
+		var/obj/item/rig_assembly/r
+		if(istype(holder, /obj/item/rig_assembly/))
+			r = holder
+		if(!r)
+			return 0
+
 		switch(index)
 			if(7)
 				if(diff==FORWARD)
 					user.visible_message("[user] adds the wiring to [holder].", "You add the wiring to [holder].")
-					holder.icon_state = "ripley3"
-				else
-					user.visible_message("[user] removes the wiring on [holder]", "You remove the wiring on [holder].")
-					holder.icon_state = "ripley1"
+					r.icon_state = r.icon_base + "2"
 			if(6)
 				if(diff==FORWARD)
 					user.visible_message("[user] adjusts the wiring of [holder].", "You adjust the wiring of [holder].")
-					holder.icon_state = "ripley4"
 				else
 					user.visible_message("[user] removes the wiring from [holder].", "You remove the wiring from [holder].")
 					var/obj/item/stack/cable_coil/coil = new /obj/item/stack/cable_coil(get_turf(holder))
 					coil.amount = 4
-					holder.icon_state = "ripley2"
+					r.icon_state = r.icon_base + "1"
 			if(5)
 				if(diff==FORWARD)
 					user.visible_message("[user] installs the central control module into [holder].", "You install the central computer mainboard into [holder].")
 					qdel(used_atom)
-					holder.icon_state = "ripley5"
+					r.icon_state = r.icon_base + "3"
 				else
 					user.visible_message("[user] disconnects the wiring of [holder].", "You disconnect the wiring of [holder].")
-					holder.icon_state = "ripley3"
+					r.icon_state = r.icon_base + "2"
 			if(4)
 				if(diff==FORWARD)
-					user.visible_message("[user] secures the mainboard.", "You secure the mainboard.")
-					holder.icon_state = "ripley6"
+					user.visible_message("[user] secures the central control module.", "You secure the central control module.")
 				else
 					user.visible_message("[user] removes the central control module from [holder].", "You remove the central computer mainboard from [holder].")
 					new board_type(get_turf(holder))
-					holder.icon_state = "ripley4"
+					r.icon_state = r.icon_base + "2"
 			if(3)
 				if(diff==FORWARD)
 					user.visible_message("[user] installs external armor layer to [holder].", "You install external reinforced armor layer to [holder].")
-					holder.icon_state = "ripley12"
+					r.icon_state = r.icon_base + "4"
 				else
 					user.visible_message("[user] cuts internal armor layer from [holder].", "You cut the internal armor layer from [holder].")
-					holder.icon_state = "ripley10"
 			if(2)
 				if(diff==FORWARD)
 					user.visible_message("[user] secures external armor layer.", "You secure external reinforced armor layer.")
-					holder.icon_state = "ripley13"
 				else
 					user.visible_message("[user] pries external armor layer from [holder].", "You prie external armor layer from [holder].")
 					var/obj/item/stack/material/plasteel/MS = new /obj/item/stack/material/plasteel(get_turf(holder))
 					MS.amount = 5
-					holder.icon_state = "ripley11"
+					r.icon_state = r.icon_base + "3"
 			if(1)
 				if(diff==FORWARD)
 					user.visible_message("[user] welds external armor layer to [holder].", "You weld external armor layer to [holder].")
+					r.icon_state = r.icon_base + "5"
 				else
 					user.visible_message("[user] unfastens the external armor layer.", "You unfasten the external armor layer.")
-					holder.icon_state = "ripley12"
+					r.icon_state = r.icon_base + "4"
 		return 1
 
 /datum/construction/reversible/rig_assembly/combat
@@ -312,116 +329,104 @@
 		if(!..())
 			return 0
 
-		//TODO: better messages.
+		var/obj/item/rig_assembly/r
+		if(istype(holder, /obj/item/rig_assembly/))
+			r = holder
+		if(!r)
+			return 0
+
 		switch(index)
 			
 			if(14)
 				if(diff==FORWARD)
 					user.visible_message("[user] adds the wiring to [holder].", "You add the wiring to [holder].")
-					holder.icon_state = "ripley3"
-				else
-					user.visible_message("[user] removes the wiring on [holder]", "You remove the wiring on [holder].")
-					holder.icon_state = "ripley1"
+					r.icon_state = r.icon_base + "2"
 			if(13)
 				if(diff==FORWARD)
 					user.visible_message("[user] adjusts the wiring of [holder].", "You adjust the wiring of [holder].")
-					holder.icon_state = "ripley4"
 				else
 					user.visible_message("[user] removes the wiring from [holder].", "You remove the wiring from [holder].")
 					var/obj/item/stack/cable_coil/coil = new /obj/item/stack/cable_coil(get_turf(holder))
 					coil.amount = 4
-					holder.icon_state = "ripley2"
+					r.icon_state = r.icon_base + "1"
 			if(12)
 				if(diff==FORWARD)
 					user.visible_message("[user] installs the central control module into [holder].", "You install the central computer mainboard into [holder].")
 					qdel(used_atom)
-					holder.icon_state = "ripley5"
+					r.icon_state = r.icon_base + "3"
 				else
 					user.visible_message("[user] disconnects the wiring of [holder].", "You disconnect the wiring of [holder].")
-					holder.icon_state = "ripley3"
+					r.icon_state = r.icon_base + "1"
 			if(11)
 				if(diff==FORWARD)
 					user.visible_message("[user] secures the mainboard.", "You secure the mainboard.")
-					holder.icon_state = "ripley6"
 				else
 					user.visible_message("[user] removes the central control module from [holder].", "You remove the central computer mainboard from [holder].")
 					new board_type(get_turf(holder))
-					holder.icon_state = "ripley4"
+					r.icon_state = r.icon_base + "2"
 			if(10)
 				if(diff==FORWARD)
 					user.visible_message("[user] installs the weapon control module into [holder].", "You install the weapon control module into [holder].")
 					qdel(used_atom)
-					holder.icon_state = "gygax9"
+					r.icon_state = r.icon_base + "4"
 				else
-					user.visible_message("[user] unfastens the peripherals control module.", "You unfasten the peripherals control module.")
-					holder.icon_state = "gygax7"
+					user.visible_message("[user] unfastens the central control module.", "You unfasten the central control module.")
+					r.icon_state = r.icon_base + "3"
 			if(9)
 				if(diff==FORWARD)
 					user.visible_message("[user] secures the weapon control module.", "You secure the weapon control module.")
-					holder.icon_state = "gygax10"
 				else
 					user.visible_message("[user] removes the weapon control module from [holder].", "You remove the weapon control module from [holder].")
 					new target_board_type(get_turf(holder))
-					holder.icon_state = "gygax8"
+					r.icon_state = r.icon_base + "3"
 			if(8)
 				if(diff==FORWARD)
 					user.visible_message("[user] installs advanced scanner module to [holder].", "You install advanced scanner module to [holder].")
 					qdel(used_atom)
-					holder.icon_state = "gygax11"
 				else
 					user.visible_message("[user] unfastens the weapon control module.", "You unfasten the weapon control module.")
-					holder.icon_state = "gygax9"
 			if(7)
 				if(diff==FORWARD)
 					user.visible_message("[user] secures the advanced scanner module.", "You secure the advanced scanner module.")
-					holder.icon_state = "gygax12"
 				else
 					user.visible_message("[user] removes the advanced scanner module from [holder].", "You remove the advanced scanner module from [holder].")
 					new /obj/item/weapon/stock_parts/scanning_module/adv(get_turf(holder))
-					holder.icon_state = "gygax10"
 			if(6)
 				if(diff==FORWARD)
 					user.visible_message("[user] installs internal armor layer to [holder].", "You install internal armor layer to [holder].")
-					holder.icon_state = "gygax15"
+					r.icon_state = r.icon_base + "5"
 				else
 					user.visible_message("[user] unfastens the advanced capacitor.", "You unfasten the advanced capacitor.")
-					holder.icon_state = "gygax13"
 			if(5)
 				if(diff==FORWARD)
 					user.visible_message("[user] secures internal armor layer.", "You secure internal armor layer.")
-					holder.icon_state = "gygax16"
 				else
 					user.visible_message("[user] pries internal armor layer from [holder].", "You prie internal armor layer from [holder].")
 					var/obj/item/stack/material/steel/MS = new /obj/item/stack/material/steel(get_turf(holder))
 					MS.amount = 5
-					holder.icon_state = "gygax14"
+					r.icon_state = r.icon_base + "4"
 			if(4)
 				if(diff==FORWARD)
 					user.visible_message("[user] welds internal armor layer to [holder].", "You weld the internal armor layer to [holder].")
-					holder.icon_state = "gygax17"
 				else
 					user.visible_message("[user] unfastens the internal armor layer.", "You unfasten the internal armor layer.")
-					holder.icon_state = "gygax15"
 			if(3)
 				if(diff==FORWARD)
 					user.visible_message("[user] installs external reinforced armor layer to [holder].", "You install external reinforced armor layer to [holder].")
-					holder.icon_state = "ripley12"
+					r.icon_state = r.icon_base + "5"
 				else
 					user.visible_message("[user] cuts internal armor layer from [holder].", "You cut the internal armor layer from [holder].")
-					holder.icon_state = "ripley10"
 			if(2)
 				if(diff==FORWARD)
 					user.visible_message("[user] secures external armor layer.", "You secure external reinforced armor layer.")
-					holder.icon_state = "ripley13"
 				else
 					user.visible_message("[user] pries external armor layer from [holder].", "You prie external armor layer from [holder].")
 					var/obj/item/stack/material/plasteel/MS = new /obj/item/stack/material/plasteel(get_turf(holder))
 					MS.amount = 5
-					holder.icon_state = "ripley11"
+					r.icon_state = r.icon_base + "4"
 			if(1)
 				if(diff==FORWARD)
 					user.visible_message("[user] welds external armor layer to [holder].", "You weld external armor layer to [holder].")
 				else
 					user.visible_message("[user] unfastens the external armor layer.", "You unfasten the external armor layer.")
-					holder.icon_state = "ripley12"
 		return 1

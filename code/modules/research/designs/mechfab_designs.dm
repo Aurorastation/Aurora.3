@@ -925,7 +925,7 @@
 	name = "light suit control module assembly"
 	desc = "An assembly for a lighter, less armoured rig suit."
 	id = "rig_hacker"
-	build_path = /obj/item/rig_assembly/illegal/hacker
+	build_path = /obj/item/rig_assembly/combat/illegal/hacker
 	req_tech = list(TECH_MATERIAL = 4, TECH_ENGINEERING = 3, TECH_MAGNET = 2, TECH_POWER = 3, TECH_COMBAT = 3, TECH_ILLEGAL = 3)
 	materials = list(DEFAULT_WALL_MATERIAL = 25000, "glass" = 12500, "gold" = 2500)
 
@@ -933,7 +933,7 @@
 	name = "stealth suit control module assembly"
 	desc = "An assembly for a highly advanced and expensive suit designed for covert operations."
 	id = "rig_stealth"
-	build_path = /obj/item/rig_assembly/illegal/stealth
+	build_path = /obj/item/rig_assembly/combat/illegal/stealth
 	req_tech = list(TECH_MATERIAL = 5, TECH_ENGINEERING = 4, TECH_MAGNET = 3, TECH_POWER = 4, TECH_COMBAT = 5, TECH_ILLEGAL = 5)
 	materials = list(DEFAULT_WALL_MATERIAL = 27500, "glass" = 15000, "gold" = 5000, "silver" = 2500)
 
