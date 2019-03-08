@@ -983,3 +983,39 @@
 
 		visible_message("<span class='notice'>\The [src] attaches \the [O] to \his body!</span>",
 				"<span class='notice'>You attach \the [O] to your body!</span>")
+
+/mob/living/carbon/human/proc/self_diagnostics()
+	set name = "Self-Diagnostics"
+	set desc = "Run an internal self-diagnostic to check for damage."
+	set category = "IC"
+
+	if(stat == DEAD) return
+
+	to_chat(src, "<span class='notice'>Performing self-diagnostic, please wait...</span>")
+	if (do_after(src, 10))
+		var/output = "<span class='notice'>Self-Diagnostic Results:\n</span>"
+
+		output += "Internal Temperature: [convert_k2c(bodytemperature)] Degrees Celsius\n"
+
+		output += "Current Charge Level: [nutrition]\n"
+
+		var/toxDam = getToxLoss()
+		if(toxDam)
+			output += "Blood Toxicity: <span class='warning'>[toxDam > 25 ? "Severe" : "Moderate"]</span>. Seek medical facilities for cleanup.\n"
+		else
+			output += "Blood Toxicity: <span style='color:green;'>OK</span>\n"
+
+		for(var/obj/item/organ/external/EO in organs)
+			if(EO.brute_dam || EO.burn_dam)
+				output += "[EO.name] - <span class='warning'>[EO.burn_dam + EO.brute_dam > ROBOLIMB_SELF_REPAIR_CAP ? "Heavy Damage" : "Light Damage"]</span>\n"
+			else
+				output += "[EO.name] - <span style='color:green;'>OK</span>\n"
+
+		for(var/obj/item/organ/IO in internal_organs)
+			if(IO.damage)
+				output += "[IO.name] - <span class='warning'>[IO.damage > 10 ? "Heavy Damage" : "Light Damage"]</span>\n"
+			else
+				output += "[IO.name] - <span style='color:green;'>OK</span>\n"
+
+		to_chat(src, output)
+
