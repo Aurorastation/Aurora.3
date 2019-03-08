@@ -106,7 +106,7 @@
 			t_him = "her"
 		var/show_ssd
 		var/mob/living/carbon/human/H
-		if(ishuman(src))
+		if(ishuman(src)) 
 			H = src
 			show_ssd = H.species.show_ssd
 		if(H && show_ssd && !client && !teleop)
@@ -286,7 +286,7 @@
 
 			var/show_ssd
 			var/mob/living/carbon/human/H
-			if(ishuman(src))
+			if(ishuman(src)) 
 				H = src
 				show_ssd = H.species.show_ssd
 			if(H && show_ssd && !client && !teleop)
@@ -302,12 +302,17 @@
 				M.visible_message("<span class='notice'>[M] shakes [src] trying to wake [t_him] up!</span>", \
 									"<span class='notice'>You shake [src] trying to wake [t_him] up!</span>")
 			else
-				var/mob/living/carbon/human/tapper = M
-				if(istype(tapper))
-					tapper.species.tap(tapper,src)
+				var/mob/living/carbon/human/hugger = M
+				if(istype(hugger))
+					hugger.species.hug(hugger,src)
 				else
-					M.visible_message("<span class='notice'>[M] taps [src] to get their attention!</span>", \
-								"<span class='notice'>You tap [src] to get their attention!</span>")
+					M.visible_message("<span class='notice'>[M] hugs [src] to make [t_him] feel better!</span>", \
+								"<span class='notice'>You hug [src] to make [t_him] feel better!</span>")
+				if(M.fire_stacks >= (src.fire_stacks + 3))
+					src.fire_stacks += 1
+					M.fire_stacks -= 1
+				if(M.on_fire)
+					src.IgniteMob()
 			AdjustParalysis(-3)
 			AdjustStunned(-3)
 			AdjustWeakened(-3)

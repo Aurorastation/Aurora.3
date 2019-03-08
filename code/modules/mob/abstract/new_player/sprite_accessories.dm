@@ -604,21 +604,6 @@
 		icon_state = "hair_undercut"
 		gender = MALE
 
-	undercut2
-		name = "Undercut 2"
-		icon_state = "hair_undercut2"
-		gender = MALE
-
-	undercut3
-		name = "Undercut 3"
-		icon_state = "hair_undercut3"
-		gender = MALE
-
-	shavedpart
-		name = "Partly Shaved"
-		icon_state = "hair_shavedpart"
-		gender = MALE
-
 	hightight
 		name = "High and Tight"
 		icon_state = "hair_hightight"

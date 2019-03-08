@@ -16,7 +16,6 @@
 	allowed_eat_types = TYPE_ORGANIC | TYPE_SYNTHETIC | TYPE_HUMANOID
 	mob_size = 14
 	fall_mod = 0
-	grab_mod = 4
 
 	has_limbs = list(
 		"chest" =  list("path" = /obj/item/organ/external/chest/unbreakable),
@@ -111,7 +110,7 @@
 
 	return 0
 
-/datum/species/xenos/tap(var/mob/living/carbon/human/H,var/mob/living/target)
+/datum/species/xenos/hug(var/mob/living/carbon/human/H,var/mob/living/target)
 	H.visible_message("<span class='notice'>[H] caresses [target] with its scythe-like arm.</span>", \
 					"<span class='notice'>You caress [target] with your scythe-like arm.</span>")
 
