@@ -11,6 +11,7 @@
 	burn_mod = 1.2
 	oxy_mod = 1
 	radiation_mod = 0.5
+	grab_mod = 1.25
 	mob_size = 10 //fairly lighter than the worker type.
 	taste_sensitivity = TASTE_DULL
 	blurb = "Type BA, a sub-type of the generic Type B Warriors, are the second most prominent type of Vaurca society, taking the form of hive security and military grunts. \
@@ -51,6 +52,7 @@
 	eyes_icons = 'icons/mob/human_face/eyes48x48.dmi'
 	brute_mod = 0.1 //note to self: remove is_synthetic checks for brmod and burnmod
 	burn_mod = 0.8 //2x was a bit too much. we'll see how this goes.
+	grab_mod = 4
 	toxins_mod = 1 //they're not used to all our weird human bacteria.
 	breakcuffs = list(MALE,FEMALE,NEUTER)
 	mob_size = 30
@@ -104,6 +106,7 @@
 	burn_mod = 0.1
 	fall_mod = 0
 	toxins_mod = 1
+	grab_mod = 10
 	total_health = 200
 	breakcuffs = list(MALE,FEMALE,NEUTER)
 	mob_size = 30
