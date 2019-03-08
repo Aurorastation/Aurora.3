@@ -56,6 +56,7 @@
 #define MODE_VAMPIRE "vampire"
 #define MODE_THRALL "thrall"
 #define MODE_LEGION "tau ceti foreign legion"
+#define MODE_PRA "republican army soldier"
 
 #define DEFAULT_TELECRYSTAL_AMOUNT 25
 

@@ -636,6 +636,7 @@ var/list/name_to_material
 	name = "iron"
 	stack_type = /obj/item/stack/material/iron
 	icon_colour = "#5C5454"
+	integrity = 150
 	weight = 22
 	conductivity = 10
 	sheet_singular_name = "ingot"

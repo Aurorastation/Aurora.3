@@ -8,3 +8,4 @@
 	required_enemies = 1
 	end_on_antag_death = 1
 	antag_tags = list(MODE_WIZARD)
+	votable = 1

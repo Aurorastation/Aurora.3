@@ -52,7 +52,7 @@
 			desc += " This one has the stamp of the Imperial Adhomian Army."
 
 		if("Royal Navy")
-			new /obj/item/weapon/reagent_containers/food/snacks/liquidfood(src)
+			new /obj/item/weapon/reagent_containers/food/snacks/hardbread(src)
 			new /obj/item/weapon/reagent_containers/food/snacks/adhomian_can(src)
 			new /obj/item/weapon/reagent_containers/food/drinks/bottle/messa_mead(src)
 			desc += " This one has the stamp of the Royal Navy."

@@ -94,7 +94,9 @@ var/datum/antagonist/traitor/traitors
 		return 0
 
 	traitor_mob.faction = "syndicate"
-	spawn_uplink(traitor_mob)
+//	spawn_uplink(traitor_mob)
+	var/obj/item/device/radio/uplink/U = new(traitor_mob.loc, traitor_mob.mind, DEFAULT_TELECRYSTAL_AMOUNT)
+	traitor_mob.put_in_hands(U)
 	// Tell them about people they might want to contact.
 	var/mob/living/carbon/human/M = get_nt_opposed()
 	if(M && M != traitor_mob)

@@ -30,6 +30,7 @@
 
 	var/datum/outfit/outfit = null
 	var/list/alt_outfits = null           // A list of special outfits for the alt titles list("alttitle" = /datum/outfit)
+	var/list/species_blacklist = list()
 
 //Only override this proc
 /datum/job/proc/after_spawn(mob/living/carbon/human/H)
@@ -46,7 +47,7 @@
 		return alt_outfits[H.job]
 	else if(outfit)
 		return outfit
- 
+
 /datum/job/proc/pre_equip(mob/living/carbon/human/H, visualsOnly = FALSE, alt_title = null)
 	if(!H)
 		return 0

@@ -1,4 +1,4 @@
-
+/*
 var/const/ENGSEC			=(1<<0)
 
 var/const/CAPTAIN			=(1<<0)
@@ -126,7 +126,7 @@ var/list/nonhuman_positions = list(
 	"pAI",
 	"Merchant"
 )
-
+*/
 /proc/guest_jobbans(var/job)
 	return ((job in command_positions) || job == "Internal Affairs Agent")
 

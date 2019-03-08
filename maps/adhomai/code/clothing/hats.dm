@@ -1,0 +1,35 @@
+/obj/item/clothing/head/nka
+	name = "service cap"
+	desc = "A military cap issued to the soldiers of the Imperial Army."
+	icon = 'icons/adhomai/clothing.dmi'
+	icon_state = "nkahat"
+	item_state = "nkahat"
+	contained_sprite = TRUE
+	armor = list(melee = 10, bullet = 10, laser = 0, energy = 0, bomb = 0, bio = 0, rad = 0)
+	siemens_coefficient = 0.7
+
+/obj/item/clothing/head/nka/fancy
+	name = "dress cap"
+	desc = "A fancy dress cap issued to the officers of the Imperial Army."
+	icon_state = "noblecap"
+	item_state = "noblecap"
+
+/obj/item/clothing/head/helmet/nka
+	name = "kettle helmet"
+	desc = "The standard helmet of the Imperial Army, commonly used by the Royal Grenadiers."
+	icon = 'icons/adhomai/clothing.dmi'
+	icon_state = "kettle"
+	item_state = "kettle"
+	contained_sprite = TRUE
+	armor = list(melee = 50, bullet = 50, laser = 15, energy = 10, bomb = 25, bio = 0, rad = 0)
+	siemens_coefficient = 0.5
+
+/obj/item/clothing/beret/pra
+	name = "green beret"
+	desc = "A military beret issued to the soldiers of the Republican Army."
+	icon = 'icons/adhomai/clothing.dmi'
+	icon_state = "beret"
+	item_state = "beret"
+	contained_sprite = TRUE
+	armor = list(melee = 10, bullet = 10, laser = 0, energy = 0, bomb = 0, bio = 0, rad = 0)
+	siemens_coefficient = 0.7

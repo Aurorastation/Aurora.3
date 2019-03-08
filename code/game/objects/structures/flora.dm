@@ -6,6 +6,21 @@
 	pixel_x = -16
 	layer = 9
 
+/obj/structure/flora/tree/attackby(obj/item/W, mob/user)
+	if(istype(W, /obj/item/weapon/material/axe))
+		user.visible_message("<span class='notice'>\The [user] begins to chop down \the [src].</span>")
+		user.do_attack_animation(src)
+		animate_shake()
+		if(do_after(user, 20, act_target = src))
+			user.visible_message("<span class='notice'>\The [user] chops down \the [src].</span>")
+			playsound(loc, 'sound/effects/woodcutting.ogg', 50, 1)
+			for(var/i in 1 to 8)
+				new /obj/item/stack/material/wood(src.loc)
+				qdel(src)
+				return
+		else
+			return ..()
+
 /obj/structure/flora/tree/pine
 	name = "pine tree"
 	icon = 'icons/obj/flora/pinetrees.dmi'

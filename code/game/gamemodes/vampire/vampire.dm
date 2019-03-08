@@ -10,6 +10,7 @@
 	end_on_antag_death = 0
 	antag_scaling_coeff = 8
 	antag_tags = list(MODE_VAMPIRE)
+	votable = 1
 
 /datum/game_mode/vampire/verb/vampire_help()
 	set category = "Vampire"

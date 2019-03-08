@@ -162,7 +162,7 @@
 		else if (ban_reason)
 			dat += "<del>[rank]</del></td><td><b> \[<a href='?src=\ref[user.client];view_jobban=\ref[rank];'>BANNED</a>]</b></td></tr>"
 			continue
-		if((pref.job_civilian_low & ASSISTANT) && (rank != "Assistant"))
+		if((pref.job_civilian_low & ASSISTANT) && (rank != "Civillian"))
 			dat += "<font color=orange>[rank]</font></td><td></td></tr>"
 			continue
 		if((rank in command_positions) || (rank == "AI"))//Bold head jobs
@@ -174,7 +174,7 @@
 
 		dat += "<a href='?src=\ref[src];set_job=[rank]'>"
 
-		if(rank == "Assistant")//Assistant is special
+		if(rank == "Civillian")//Assistant is special
 			if(pref.job_civilian_low & ASSISTANT)
 				dat += " <font color=green>\[Yes]</font>"
 			else

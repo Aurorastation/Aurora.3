@@ -32,12 +32,12 @@ var/list/mineral_can_smooth_with = list(
 	smooth = SMOOTH_MORE | SMOOTH_BORDER | SMOOTH_NO_CLEAR_ICON
 	smoothing_hints = SMOOTHHINT_CUT_F | SMOOTHHINT_ONLY_MATCH_TURF | SMOOTHHINT_TARGETS_NOT_UNIQUE
 
-	oxygen = 0
-	nitrogen = 0
+//	oxygen = 0
+//	nitrogen = 0
 	opacity = 1
 	density = 1
 	blocks_air = 1
-	temperature = T0C
+//	temperature = T0C
 	var/mined_turf = /turf/simulated/floor/asteroid/ash/rocky
 	var/ore/mineral
 	var/mined_ore = 0
@@ -386,6 +386,15 @@ var/list/mineral_can_smooth_with = list(
 				excavate_find(prob(5), finds[1])
 
 	//Add some rubble,  you did just clear out a big chunk of rock.
+	if(prob(25))
+		var/datum/reagents/R = new/datum/reagents(100)
+		R.my_atom = src
+		R.add_reagent("stone_dust",100)
+		var/datum/effect/effect/system/smoke_spread/chem/S = new("stone_dust")
+		S.show_log = 0
+		S.set_up(R, 10, 0, src, 40)
+		S.start()
+		qdel(R)
 
 	ChangeTurf(mined_turf)
 
@@ -540,9 +549,9 @@ var/list/mineral_can_smooth_with = list(
 	base_icon_state = "ash"
 
 	initial_flooring = null
-	oxygen = 0
-	nitrogen = 0
-	temperature = TCMB
+//	oxygen = 0
+//	nitrogen = 0
+//	temperature = TCMB
 	var/dug = 0 //Increments by 1 everytime it's dug. 11 is the last integer that should ever be here.
 	var/digging
 	has_resources = 1

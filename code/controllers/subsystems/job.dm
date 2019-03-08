@@ -88,6 +88,9 @@
 		if(jobban_isbanned(player, rank))
 			return FALSE
 
+		if(player.client.prefs.species in job.species_blacklist)
+			return FALSE
+
 		var/position_limit = job.total_positions
 		if(!latejoin)
 			position_limit = job.spawn_positions
@@ -754,7 +757,7 @@
 					Debug("EC/([H]): [thing] failed mask/suit/head check; leftovers=[!!leftovers]")
 				else if (H.equip_to_slot_or_del(CI, G.slot))
 					CI.autodrobe_no_remove = TRUE
-					to_chat(H, "<span class='notice'>Equipping you with [thing]!</span>") 
+					to_chat(H, "<span class='notice'>Equipping you with [thing]!</span>")
 					custom_equip_slots += G.slot
 					Debug("EC/([H]): Equipped [CI] successfully.")
 				else if (leftovers)
