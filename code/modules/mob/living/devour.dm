@@ -107,6 +107,7 @@
 	var/turf/victimloc = victim.loc
 	var/messes = 0//number of bloodstains we've placed
 	var/datum/reagents/vessel = victim.get_vessel(1)
+	var/mob/living/carbon/human/H = src
 	if(!victim.composition_reagent_quantity)
 		victim.calculate_composition()
 
@@ -130,6 +131,8 @@
 		time_needed_string = "[time_needed_seconds] seconds"
 
 
+
+
 	src.visible_message("<span class='danger'>[src] starts devouring [victim]</span>","<span class='danger'>You start devouring [victim], this will take approximately [time_needed_string]. You and the victim must remain still to continue, but you can interrupt feeding anytime and leave with what you've already eaten.</span>")
 
 	for (var/i = 0 to num_bites_needed)
@@ -142,13 +145,15 @@
 			if (messes < victim.mob_size - 1 && prob(50))
 				handle_devour_mess(src, victim, vessel)
 			if (victim.cloneloss >= victim_maxhealth)
-				visible_message("[src] finishes devouring [victim].","You finish devouring [victim].")
+				visible_message("[src] finishes devouring [victim].","You finfish devouring [victim].")
 				handle_devour_mess(src, victim, vessel, 1)
 				qdel(victim)
 				devouring = null
 				break
 		else
 			devouring = null
+			if(H.nutrition >= H.max_nutrition - 60)
+				src << "<span class='danger'>You cant eat anymore!.</span>"
 			if (victim && victimloc != victim.loc)
 				src << "<span class='danger'>[victim] moved away, you need to keep it still. Try grabbing, stunning or killing it first.</span>"
 			else if (ourloc != src.loc)

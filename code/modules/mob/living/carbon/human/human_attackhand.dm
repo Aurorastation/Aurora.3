@@ -404,14 +404,10 @@
 
 				//Actually disarm them
 				for(var/obj/item/I in holding)
-					if(istype(I,/obj/item/weapon/melee/arm_blade)) // check if its a armblade or not
-						playsound(loc, 'sound/weapons/thudswoosh.ogg', 50, 1, -1)
-						return
-					else
-						drop_from_inventory(I)
-						visible_message("<span class='danger'>[M] has disarmed [src]!</span>")
-						playsound(loc, 'sound/weapons/thudswoosh.ogg', 50, 1, -1)
-						return
+					drop_from_inventory(I)
+					visible_message("<span class='danger'>[M] has disarmed [src]!</span>")
+					playsound(loc, 'sound/weapons/thudswoosh.ogg', 50, 1, -1)
+					return
 
 			playsound(loc, 'sound/weapons/punchmiss.ogg', 25, 1, -1)
 			visible_message("<span class='danger'>[M] attempted to disarm [src]!</span>")
