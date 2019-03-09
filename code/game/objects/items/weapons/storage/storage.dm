@@ -537,6 +537,7 @@
 		if(openned_in_hands)
 			if(H.r_hand != src && H.l_hand != src)
 				H.put_in_hands(src)
+				return
 
 	if (src.loc == user)
 		src.open(user)
