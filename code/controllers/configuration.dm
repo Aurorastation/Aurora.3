@@ -289,6 +289,8 @@ var/list/gamemode_cache = list()
 	var/ert_red_inc = 3
 	var/ert_delta_inc = 10
 	var/ert_scaling_factor = 1
+	var/ert_scaling_factor_antag = 1
+	var/ert_scaling_factor_dead = 2
 
 /datum/configuration/New()
 	var/list/L = typesof(/datum/game_mode) - /datum/game_mode
@@ -887,6 +889,10 @@ var/list/gamemode_cache = list()
 					ert_delta_inc = text2num(value)
 				if ("ert_scaling_factor")
 					ert_scaling_factor = text2num(value)
+				if ("ert_scaling_factor_antag")
+					ert_scaling_factor_antag = text2num(value)
+				if ("ert_scaling_factor_dead")
+					ert_scaling_factor_dead = text2num(value)
 
 				else
 					log_misc("Unknown setting in configuration: '[name]'")

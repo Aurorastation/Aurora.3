@@ -5,6 +5,8 @@
 	wait = 1800 //Fire only every 3 minutes - Not more often needed for now
 
 	var/ert_progression_chance = 0
+	var/percentage_antagonists = 0
+	var/percentage_dead = 0
 	var/can_call_ert = TRUE
 	var/ert_type = "NanoTrasen Response Team" //what ert type will be deployed
 	var/send_emergency_team = 0 
@@ -18,8 +20,35 @@
 /datum/controller/subsystem/responseteam/New()
 	NEW_SS_GLOBAL(SSresponseteam)
 
+/datum/controller/subsystem/responseteam/stat_entry()
+	var/out = "PC:[ert_progression_chance] "
+	out += "BC:[config.ert_base_chance] "
+	out += "PA:[percentage_antagonists] "
+	out += "PAF:[config.ert_scaling_factor_antag] "
+	out += "PD:[percentage_dead] "
+	out += "PDF:[config.ert_scaling_factor_dead] "
+	out += "SF:[config.ert_scaling_factor] "
+	out += "CC:[can_call_ert] "
+	..(out)
+
 /datum/controller/subsystem/responseteam/fire()
 	if(send_emergency_team == 0) // There is no ERT at the time.
+		var/total = 0
+		var/deadcount = 0
+		var/antagonists = 0
+		for(var/mob/living/carbon/human/H in mob_list)
+			if(H.client)
+				total++
+				if(H.stat == 2) deadcount++
+				if(is_special_character(H) >= 1) antagonists++
+		if(total == 0)
+			percentage_antagonists = 0
+			percentage_dead = 0
+		else
+			percentage_antagonists = round(100 * antagonists / total)
+			percentage_dead = round(100 * deadcount / total)
+		
+
 		switch(get_security_level())
 			if("green")
 				ert_progression_chance += config.ert_green_inc
@@ -32,30 +61,6 @@
 			else
 				ert_progression_chance += 1
 
-// returns a number of dead players in %
-/datum/controller/subsystem/responseteam/proc/percentage_dead()
-	var/total = 0
-	var/deadcount = 0
-	for(var/mob/living/carbon/human/H in mob_list)
-		if(H.client) // Monkeys and mice don't have a client, amirite?
-			if(H.stat == 2) deadcount++
-			total++
-
-	if(total == 0) return 0
-	else return round(100 * deadcount / total)
-
-// counts the number of antagonists in %
-/datum/controller/subsystem/responseteam/proc/percentage_antagonists()
-	var/total = 0
-	var/antagonists = 0
-	for(var/mob/living/carbon/human/H in mob_list)
-		if(is_special_character(H) >= 1)
-			antagonists++
-		total++
-
-	if(total == 0) return 0
-	else return round(100 * antagonists / total)
-
 /datum/controller/subsystem/responseteam/proc/trigger_armed_response_team(var/forced_choice = FALSE)
 	if(!can_call_ert && !forced_choice)
 		return
@@ -63,8 +68,8 @@
 		return
 
 	var/ert_chance = ert_progression_chance + config.ert_base_chance // Is incremented by fire.
-	ert_chance += 2*percentage_dead() // the more people are dead, the higher the chance
-	ert_chance += percentage_antagonists() // the more antagonists, the higher the chance
+	ert_chance += config.ert_scaling_factor_dead*percentage_dead // the more people are dead, the higher the chance
+	ert_chance += config.ert_scaling_factor_antag*percentage_antagonists // the more antagonists, the higher the chance
 	ert_chance *= config.ert_scaling_factor
 	ert_chance = min(ert_chance, 100)
 
