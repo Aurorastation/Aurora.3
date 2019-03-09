@@ -2422,6 +2422,7 @@
 #include "code\modules\world_api\commands\misc.dm"
 #include "code\modules\world_api\commands\server_management.dm"
 #include "code\modules\world_api\commands\server_query.dm"
+#include "code\modules\world_api\commands\tickets.dm"
 #include "code\modules\xgm\xgm_gas_data.dm"
 #include "code\modules\xgm\xgm_gas_mixture.dm"
 #include "code\unit_tests\chemistry_tests.dm"

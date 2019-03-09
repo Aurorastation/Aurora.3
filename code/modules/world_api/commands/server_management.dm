@@ -55,7 +55,7 @@
 	name = "restart_round"
 	description = "Restarts the round"
 	params = list(
-		"senderkey" = list("name"="senderkey","desc"="Unique id of the person that authorized the restart","req"=1,"type"="senderkey")
+		"senderkey" = list("name"="senderkey","desc"="Unique id of the person that authorized the restart","req"=1,"type"="str")
 		)
 
 /datum/topic_command/restart_round/run_command(queryparams)
