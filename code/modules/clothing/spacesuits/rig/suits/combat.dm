@@ -11,7 +11,7 @@
 	allowed = list(/obj/item/weapon/gun,/obj/item/device/flashlight,/obj/item/weapon/tank,/obj/item/device/suit_cooling_unit,/obj/item/weapon/melee/baton)
 
 /obj/item/clothing/head/helmet/space/rig/combat
-	light_overlay = "helmet_light_dual_green"
+	light_overlay = "helmet_light_dual_cyan"
 	species_restricted = list("Human")
 
 /obj/item/clothing/suit/space/rig/combat

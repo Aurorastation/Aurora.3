@@ -170,34 +170,34 @@
 
 /datum/construction/reversible/rig_assembly/civilian
 	steps = list(
-					//1
-					list("key"=/obj/item/weapon/weldingtool,
-							"backkey"=/obj/item/weapon/wrench,
-							"desc"="External armor is wrenched"),
-					//2
-					list("key"=/obj/item/weapon/wrench,
-							"backkey"=/obj/item/weapon/crowbar,
-							"desc"="External armor is installed"),
-					//3
-					list("key"=/obj/item/stack/material/steel,
-							"backkey"=/obj/item/weapon/screwdriver,
-							"desc"="Central control module is secured"),
-					//4
-					list("key"=/obj/item/weapon/screwdriver,
-							"backkey"=/obj/item/weapon/crowbar,
-							"desc"="Central control module is installed"),
-					//5
-					list("key"=null,
-							"backkey"=/obj/item/weapon/wirecutters,
-							"desc"="The wiring is adjusted"),
-					//6
-					list("key"=/obj/item/weapon/wirecutters,
-							"backkey"=/obj/item/weapon/screwdriver,
-							"desc"="The wiring is added"),
-					//7
-					list("key"=/obj/item/stack/cable_coil,
-							"desc"="The wiring is removed added."),
-					)
+				//1
+				list("key"=/obj/item/weapon/weldingtool,
+					"backkey"=/obj/item/weapon/wrench,
+					"desc"="External armor is wrenched"),
+				//2
+				list("key"=/obj/item/weapon/wrench,
+						"backkey"=/obj/item/weapon/crowbar,
+						"desc"="External armor is installed"),
+				//3
+				list("key"=/obj/item/stack/material/steel,
+						"backkey"=/obj/item/weapon/screwdriver,
+						"desc"="Central control module is secured"),
+				//4
+				list("key"=/obj/item/weapon/screwdriver,
+						"backkey"=/obj/item/weapon/crowbar,
+						"desc"="Central control module is installed"),
+				//5
+				list("key"=null,
+						"backkey"=/obj/item/weapon/wirecutters,
+						"desc"="The wiring is adjusted"),
+				//6
+				list("key"=/obj/item/weapon/wirecutters,
+						"backkey"=/obj/item/weapon/screwdriver,
+						"desc"="The wiring is added"),
+				//7
+				list("key"=/obj/item/stack/cable_coil,
+						"desc"="The wiring is removed added."),
+				)
 
 /datum/construction/reversible/rig_assembly/civilian/action(atom/used_atom,mob/user as mob)
 	return check_step(used_atom,user)
@@ -206,9 +206,7 @@
 	if(!..())
 		return 0
 
-	var/obj/item/rig_assembly/r
-	if(istype(holder, /obj/item/rig_assembly/))
-		r = holder
+	var/obj/item/rig_assembly/r = holder
 	if(!r)
 		return 0
 
@@ -265,62 +263,62 @@
 
 /datum/construction/reversible/rig_assembly/combat
 	steps = list(
-					//1
-					list("key"=/obj/item/weapon/weldingtool,
-							"backkey"=/obj/item/weapon/wrench,
-							"desc"="External armor is wrenched."),
-					//2
-					list("key"=/obj/item/weapon/wrench,
-							"backkey"=/obj/item/weapon/crowbar,
-							"desc"="External armor is installed."),
-					//3
-					list("key"=/obj/item/stack/material/plasteel,
-							"backkey"=/obj/item/weapon/weldingtool,
-							"desc"="Internal armor is welded."),
-					//4
-					list("key"=/obj/item/weapon/weldingtool,
-							"backkey"=/obj/item/weapon/wrench,
-							"desc"="Internal armor is wrenched"),
-					//5
-					list("key"=/obj/item/weapon/wrench,
-							"backkey"=/obj/item/weapon/crowbar,
-							"desc"="Internal armor is installed"),
-					//6
-					list("key"=/obj/item/stack/material/steel,
-							"backkey"=/obj/item/weapon/screwdriver,
-							"desc"="Advanced scanner module is secured"),
-					//7
-					list("key"=/obj/item/weapon/screwdriver,
-					 		"backkey"=/obj/item/weapon/crowbar,
-					 		"desc"="Advanced scanner module is installed"),
-					//8
-					list("key"=/obj/item/weapon/stock_parts/scanning_module/adv,
-					 		"backkey"=/obj/item/weapon/screwdriver,
-					 		"desc"="Targeting module is secured"),
-					//9
-					list("key"=/obj/item/weapon/screwdriver,
-					 		"backkey"=/obj/item/weapon/crowbar,
-					 		"desc"="Targeting module is installed"),
-					//10
-					list("key"=null,
-					 		"backkey"=/obj/item/weapon/screwdriver,
-					 		"desc"="Central control module is secured"),
-					//11
-					list("key"=/obj/item/weapon/screwdriver,
-							"backkey"=/obj/item/weapon/crowbar,
-							"desc"="Central control module is installed"),
-					//12
-					list("key"=null,
-							"backkey"=/obj/item/weapon/wirecutters,
-							"desc"="The wiring is adjusted"),
-					//13
-					list("key"=/obj/item/weapon/wirecutters,
-							"backkey"=/obj/item/weapon/screwdriver,
-							"desc"="The wiring is added"),
-					//14
-					list("key"=/obj/item/stack/cable_coil,
-							"desc"="The wiring is removed added."),
-					)
+				//1
+				list("key"=/obj/item/weapon/weldingtool,
+						"backkey"=/obj/item/weapon/wrench,
+						"desc"="External armor is wrenched."),
+				//2
+				list("key"=/obj/item/weapon/wrench,
+						"backkey"=/obj/item/weapon/crowbar,
+						"desc"="External armor is installed."),
+				//3
+				list("key"=/obj/item/stack/material/plasteel,
+						"backkey"=/obj/item/weapon/weldingtool,
+						"desc"="Internal armor is welded."),
+				//4
+				list("key"=/obj/item/weapon/weldingtool,
+						"backkey"=/obj/item/weapon/wrench,
+						"desc"="Internal armor is wrenched"),
+				//5
+				list("key"=/obj/item/weapon/wrench,
+						"backkey"=/obj/item/weapon/crowbar,
+						"desc"="Internal armor is installed"),
+				//6
+				list("key"=/obj/item/stack/material/steel,
+						"backkey"=/obj/item/weapon/screwdriver,
+						"desc"="Advanced scanner module is secured"),
+				//7
+				list("key"=/obj/item/weapon/screwdriver,
+						"backkey"=/obj/item/weapon/crowbar,
+						"desc"="Advanced scanner module is installed"),
+				//8
+				list("key"=/obj/item/weapon/stock_parts/scanning_module/adv,
+						"backkey"=/obj/item/weapon/screwdriver,
+						"desc"="Targeting module is secured"),
+				//9
+				list("key"=/obj/item/weapon/screwdriver,
+						"backkey"=/obj/item/weapon/crowbar,
+						"desc"="Targeting module is installed"),
+				//10
+				list("key"=null,
+						"backkey"=/obj/item/weapon/screwdriver,
+						"desc"="Central control module is secured"),
+				//11
+				list("key"=/obj/item/weapon/screwdriver,
+						"backkey"=/obj/item/weapon/crowbar,
+						"desc"="Central control module is installed"),
+				//12
+				list("key"=null,
+						"backkey"=/obj/item/weapon/wirecutters,
+						"desc"="The wiring is adjusted"),
+				//13
+				list("key"=/obj/item/weapon/wirecutters,
+						"backkey"=/obj/item/weapon/screwdriver,
+						"desc"="The wiring is added"),
+				//14
+				list("key"=/obj/item/stack/cable_coil,
+						"desc"="The wiring is removed added."),
+				)
 
 /datum/construction/reversible/rig_assembly/combat/action(atom/used_atom,mob/user as mob)
 	return check_step(used_atom,user)
@@ -329,9 +327,7 @@
 	if(!..())
 		return 0
 
-	var/obj/item/rig_assembly/r
-	if(istype(holder, /obj/item/rig_assembly/))
-		r = holder
+	var/obj/item/rig_assembly/r = holder
 	if(!r)
 		return 0
 
