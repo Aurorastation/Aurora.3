@@ -1,4 +1,5 @@
 /obj/effect/decal/cleanable
+	layer = ON_TURF_LAYER
 	var/list/random_icon_states
 
 /obj/effect/decal/cleanable/clean_blood(var/ignore = 0)

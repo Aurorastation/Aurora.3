@@ -476,12 +476,23 @@ var/const/access_journalist = 70//journalist's office access
 	desc = "Merchant Access"
 	access_type = ACCESS_TYPE_CENTCOM
 
+/var/const/access_legion = 111//tau ceti foreign legion access
+/datum/access/legion
+	id = access_legion
+	desc = "Tau Ceti Foreign Legion Access"
+	access_type = ACCESS_TYPE_CENTCOM
+
 /***************
 * Antag access *
 ***************/
 /var/const/access_syndicate = 150//General Syndicate Access
 /datum/access/syndicate
 	id = access_syndicate
+	access_type = ACCESS_TYPE_SYNDICATE
+
+/var/const/access_syndicate_leader = 151 //Syndie Commander Access
+/datum/access/syndicate_leader
+	id = access_syndicate_leader
 	access_type = ACCESS_TYPE_SYNDICATE
 
 /*******

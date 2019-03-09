@@ -240,3 +240,11 @@
 	name = "emergency response team medical helmet"
 	desc = "A set of armor worn by medical members of the NanoTrasen Emergency Response Team. Has red and white highlights."
 	icon_state = "erthelmet_med"
+
+/obj/item/clothing/head/helmet/legion
+	name = "foreign legion helmet"
+	desc = "A large helmet meant to fit some pretty big heads. It has a ballistic faceplate on the front of it."
+	icon_state = "legion_helmet"
+	body_parts_covered = HEAD|FACE|EYES
+	flags_inv = HIDEEARS|HIDEEYES|HIDEFACE
+	armor = list(melee = 50, bullet = 30, laser = 30, energy = 15, bomb = 40, bio = 0, rad = 0)

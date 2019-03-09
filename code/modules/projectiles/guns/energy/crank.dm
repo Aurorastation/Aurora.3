@@ -19,6 +19,10 @@
 	firemodes = list()
 	modifystate = null
 
+	can_bayonet = TRUE
+	knife_x_offset = 23
+	knife_y_offset = 13
+
 /obj/item/weapon/gun/energy/rifle/icelance/attack_self(mob/living/user as mob)
 	if(is_charging)
 		user << "<span class='warning'>You are already charging \the [src].</span>"

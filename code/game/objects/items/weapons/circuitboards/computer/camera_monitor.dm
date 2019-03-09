@@ -56,7 +56,7 @@
 			user << "<span class='notice'>You [locked ? "" : "un"]lock the circuit controls.</span>"
 		else
 			user << "<span class='warning'>Access denied.</span>"
-	else if(ismultitool(I))
+	else if(I.ismultitool())
 		if(locked)
 			user << "<span class='warning'>Circuit controls are locked.</span>"
 			return

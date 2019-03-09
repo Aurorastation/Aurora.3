@@ -13,13 +13,13 @@
 /obj/structure/computerframe/attackby(obj/item/P as obj, mob/user as mob)
 	switch(state)
 		if(0)
-			if(iswrench(P))
+			if(P.iswrench())
 				playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
 				if(do_after(user, 20))
 					user << "<span class='notice'>You wrench the frame into place.</span>"
 					src.anchored = 1
 					src.state = 1
-			if(iswelder(P))
+			if(P.iswelder())
 				var/obj/item/weapon/weldingtool/WT = P
 				if(!WT.remove_fuel(0, user))
 					user << "The welding tool must be on to complete this task."
@@ -31,7 +31,7 @@
 					new /obj/item/stack/material/steel( src.loc, 5 )
 					qdel(src)
 		if(1)
-			if(iswrench(P))
+			if(P.iswrench())
 				playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
 				if(do_after(user, 20))
 					user << "<span class='notice'>You unfasten the frame.</span>"
@@ -47,12 +47,12 @@
 					user.drop_from_inventory(P,src)
 				else
 					user << "<span class='warning'>This frame does not accept circuit boards of this type!</span>"
-			if(isscrewdriver(P) && circuit)
+			if(P.isscrewdriver() && circuit)
 				playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, 1)
 				user << "<span class='notice'>You screw the circuit board into place and screw the drawer shut.</span>"
 				src.state = 2
 				src.icon_state = "2"
-			if(iscrowbar(P) && circuit)
+			if(P.iscrowbar() && circuit)
 				playsound(src.loc, 'sound/items/Crowbar.ogg', 50, 1)
 				user << "<span class='notice'>You remove the circuit board.</span>"
 				src.state = 1
@@ -60,12 +60,12 @@
 				circuit.forceMove(src.loc)
 				src.circuit = null
 		if(2)
-			if(isscrewdriver(P) && circuit)
+			if(P.isscrewdriver() && circuit)
 				playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, 1)
 				user << "<span class='notice'>You unfasten the circuit board.</span>"
 				src.state = 1
 				src.icon_state = "1"
-			if(iscoil(P))
+			if(P.iscoil())
 				var/obj/item/stack/cable_coil/C = P
 				if (C.get_amount() < 5)
 					user << "<span class='warning'>You need five coils of wire to add them to the frame.</span>"
@@ -78,7 +78,7 @@
 						state = 3
 						icon_state = "3"
 		if(3)
-			if(iswirecutter(P))
+			if(P.iswirecutter())
 				playsound(src.loc, 'sound/items/Wirecutter.ogg', 50, 1)
 				user << "<span class='notice'>You remove the cables.</span>"
 				src.state = 2
@@ -99,13 +99,13 @@
 						src.state = 4
 						src.icon_state = "4"
 		if(4)
-			if(iscrowbar(P))
+			if(P.iscrowbar())
 				playsound(src.loc, 'sound/items/Crowbar.ogg', 50, 1)
 				user << "<span class='notice'>You remove the glass keyboard.</span>"
 				src.state = 3
 				src.icon_state = "3"
 				new /obj/item/stack/material/glass( src.loc, 2 )
-			if(isscrewdriver(P))
+			if(P.isscrewdriver())
 				playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, 1)
 				user << "<span class='notice'>You connect the glass keyboard.</span>"
 				var/B = new src.circuit.build_path ( src.loc )

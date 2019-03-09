@@ -265,7 +265,7 @@
 			if(prob(10) && !(H.species.flags & NO_BLOOD))
 				to_chat(H,"<span class='warning'>Your nose begins to bleed...</span>")
 				H.drip(3)
-			else if(prob(25) && !(H.species.flags & NO_PAIN))
+			else if(prob(25) && (can_feel_pain()))
 				to_chat(H,"<span class='warning'>Your head hurts...</span>")
 			else if(prob(50))
 				to_chat(H,"<span class='warning'>Your mind buzzes...</span>")
@@ -890,3 +890,132 @@
 		to_chat(src,"<span class='notice'>You blow life back in \the [O], returning its past owner to life!</span>")
 		qdel(O)
 		last_special = world.time + 200
+
+/mob/living/carbon/human/proc/detach_limb()
+	set category = "Abilities"
+	set name = "Detach Limb"
+	set desc = "Detach one of your robotic appendages."
+
+	if(last_special > world.time)
+		return
+
+	if(stat || paralysis || stunned || weakened || lying || restrained())
+		to_chat(src,"<span class='warning'>You can not do that in your current state!</span>")
+		return
+
+	var/obj/item/organ/external/E = get_organ(zone_sel.selecting)
+
+	if(!E)
+		to_chat(src,"<span class='warning'>You are missing that limb.</span>")
+		return
+
+	if(!E.robotic)
+		to_chat(src,"<span class='warning'>You can only detach robotic limbs.</span>")
+		return
+
+	if(E.robotize_type != PROSTHETIC_AUTAKH)
+		to_chat(src,"<span class='warning'>Your body fails to interface with this alien technology.</span>")
+		return
+
+	if(E.is_stump() || (E.status & ORGAN_DESTROYED) || E.is_broken())
+		to_chat(src,"<span class='warning'>The limb is too damaged to be removed manually!</span>")
+		return
+
+	if(E.vital && !E.sabotaged)
+		to_chat(src,"<span class='warning'>Your safety system stops you from removing \the [E].</span>")
+		return
+
+	last_special = world.time + 20
+
+	E.removed(src)
+	E.forceMove(get_turf(src))
+
+	update_body()
+	updatehealth()
+	UpdateDamageIcon()
+
+	visible_message("<span class='notice'>\The [src] detaches \his [E]!</span>",
+			"<span class='notice'>You detach your [E]!</span>")
+
+/mob/living/carbon/human/proc/attach_limb()
+	set category = "Abilities"
+	set name = "Attach Limb"
+	set desc = "Attach a robotic limb to your body."
+
+	if(last_special > world.time)
+		return
+
+	if(stat || paralysis || stunned || weakened || lying || restrained())
+		to_chat(src,"<span class='warning'>You can not do that in your current state!</span>")
+		return
+
+	var/obj/item/organ/external/O = src.get_active_hand()
+
+	if(istype(O))
+
+		if(!O.robotic)
+			to_chat(src,"<span class='warning'>You are unable to interface with organic matter.</span>")
+			return
+
+		if(O.robotize_type != PROSTHETIC_AUTAKH)
+			to_chat(src,"<span class='warning'>Your body fails to interface with this alien technology.</span>")
+			return
+
+		if(organs_by_name[O.limb_name])
+			to_chat(src,"<span class='warning'>You already have a limb of this type.</span>")
+			return
+
+		if(!organs_by_name[O.parent_organ])
+			to_chat(src,"<span class='warning'>You are unable to find a place to attach \the [O] to your body.</span>")
+			return
+
+		last_special = world.time + 20
+
+		src.drop_from_inventory(O)
+		O.replaced(src)
+		src.update_body()
+		src.updatehealth()
+		src.UpdateDamageIcon()
+
+		update_body()
+		updatehealth()
+		UpdateDamageIcon()
+
+		visible_message("<span class='notice'>\The [src] attaches \the [O] to \his body!</span>",
+				"<span class='notice'>You attach \the [O] to your body!</span>")
+
+/mob/living/carbon/human/proc/self_diagnostics()
+	set name = "Self-Diagnostics"
+	set desc = "Run an internal self-diagnostic to check for damage."
+	set category = "IC"
+
+	if(stat == DEAD) return
+
+	to_chat(src, "<span class='notice'>Performing self-diagnostic, please wait...</span>")
+	if (do_after(src, 10))
+		var/output = "<span class='notice'>Self-Diagnostic Results:\n</span>"
+
+		output += "Internal Temperature: [convert_k2c(bodytemperature)] Degrees Celsius\n"
+
+		output += "Current Charge Level: [nutrition]\n"
+
+		var/toxDam = getToxLoss()
+		if(toxDam)
+			output += "Blood Toxicity: <span class='warning'>[toxDam > 25 ? "Severe" : "Moderate"]</span>. Seek medical facilities for cleanup.\n"
+		else
+			output += "Blood Toxicity: <span style='color:green;'>OK</span>\n"
+
+		for(var/obj/item/organ/external/EO in organs)
+			if(EO.brute_dam || EO.burn_dam)
+				output += "[EO.name] - <span class='warning'>[EO.burn_dam + EO.brute_dam > ROBOLIMB_SELF_REPAIR_CAP ? "Heavy Damage" : "Light Damage"]</span>\n"
+			else
+				output += "[EO.name] - <span style='color:green;'>OK</span>\n"
+
+		for(var/obj/item/organ/IO in internal_organs)
+			if(IO.damage)
+				output += "[IO.name] - <span class='warning'>[IO.damage > 10 ? "Heavy Damage" : "Light Damage"]</span>\n"
+			else
+				output += "[IO.name] - <span style='color:green;'>OK</span>\n"
+
+		to_chat(src, output)
+

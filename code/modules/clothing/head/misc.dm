@@ -270,6 +270,11 @@
 	flags_inv = BLOCKHAIR
 	siemens_coefficient = 2.0
 
+/obj/item/clothing/head/legion_beret
+	name = "TCFL dress beret"
+	desc = "A pale blue dress beret with a rubber insignia of a torch, surrounded by red stars and the letters \"TCFL\". A common good luck charm among former legionaires."
+	icon_state = "legion_beret"
+
 /obj/item/clothing/head/chicken
 	name = "chicken suit head"
 	desc = "Bkaw!"

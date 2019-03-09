@@ -364,12 +364,14 @@
 	range = RANGED
 
 /obj/item/mecha_parts/mecha_equipment/teleporter/action(atom/target)
+
 	if(!action_checks(target) || src.loc.z == 2) return
 	var/turf/T = get_turf(target)
 	if(T)
 		set_ready_state(0)
 		chassis.use_power(energy_drain)
-		do_teleport(chassis, T, 4)
+		do_teleport(chassis, T)
+		spark(T, 5, alldirs)
 		do_after_cooldown()
 	return
 

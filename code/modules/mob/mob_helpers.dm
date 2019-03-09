@@ -37,8 +37,20 @@
 	return 0
 
 /proc/isunathi(A)
-	if(istype(A, /mob/living/carbon/human) && (A:get_species() == "Unathi"))
-		return 1
+	if(ishuman(A))
+		var/mob/living/carbon/human/H = A
+		switch(H.get_species())
+			if ("Unathi")
+				return 1
+			if("Aut'akh Unathi")
+				return 1
+	return 0
+
+/proc/isautakh(A)
+	if(ishuman(A))
+		var/mob/living/carbon/human/H = A
+		if(H.get_species() == "Aut'akh Unathi")
+			return 1
 	return 0
 
 /proc/istajara(A)
@@ -414,6 +426,8 @@ It's fairly easy to fix if dealing with single letters but not so much with comp
 
 		var/x
 		for(x=0; x<duration, x++)
+			if(M.client)
+				return
 			if(aiEyeFlag)
 				M.client.eye = locate(dd_range(1,oldeye.loc.x+rand(-strength,strength),world.maxx),dd_range(1,oldeye.loc.y+rand(-strength,strength),world.maxy),oldeye.loc.z)
 			else
@@ -424,6 +438,8 @@ It's fairly easy to fix if dealing with single letters but not so much with comp
 		//Will make the strength falloff after the duration.
 		//This helps to reduce jarring effects of major screenshaking suddenly returning to stability
 		//Recommended taper values are 0.05-0.1
+		if(M.client)
+			return
 		if (taper > 0)
 			while (strength > 0)
 				strength -= taper

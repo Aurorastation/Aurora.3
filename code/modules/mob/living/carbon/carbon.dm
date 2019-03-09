@@ -90,6 +90,35 @@
 	if (!M.can_use_hand())
 		return
 
+	if(M.a_intent != I_HELP)
+		var/action
+		switch(a_intent)
+			if(I_GRAB)
+				action = "grabbed"
+			if(I_DISARM)
+				action = "pushed"
+			if(I_HURT)
+				action = "punched"
+		var/t_him = "it"
+		if (src.gender == MALE)
+			t_him = "him"
+		else if (src.gender == FEMALE)
+			t_him = "her"
+		var/show_ssd
+		var/mob/living/carbon/human/H
+		if(ishuman(src))
+			H = src
+			show_ssd = H.species.show_ssd
+		if(H && show_ssd && !client && !teleop)
+			if(H.bg)
+				to_chat(H, span("danger", "You sense some disturbance to your physical body!"))
+			else
+				visible_message("<span class='notice'>[M] [action] [src], but they do not respond... Maybe they have S.S.D?</span>")
+		else if(client && willfully_sleeping)
+			visible_message("<span class='notice'>[M] [action] [src] waking [t_him] up!</span>")
+			sleeping = 0
+			willfully_sleeping = 0
+
 	for(var/datum/disease/D in viruses)
 
 		if(D.spread_by_touch())
@@ -256,11 +285,16 @@
 				H.w_uniform.add_fingerprint(M)
 
 			var/show_ssd
-			var/mob/living/carbon/human/H = src
-			if(istype(H)) show_ssd = H.species.show_ssd
-			if(show_ssd && !client && !teleop)
-				M.visible_message("<span class='notice'>[M] shakes [src] trying to wake [t_him] up!</span>", \
-				"<span class='notice'>You shake [src], but they do not respond... Maybe they have S.S.D?</span>")
+			var/mob/living/carbon/human/H
+			if(ishuman(src))
+				H = src
+				show_ssd = H.species.show_ssd
+			if(H && show_ssd && !client && !teleop)
+				if(H.bg)
+					to_chat(H, span("warning", "You sense some disturbance to your physical body, like someone is trying to wake you up."))
+				else
+					M.visible_message("<span class='notice'>[M] shakes [src] trying to wake [t_him] up!</span>", \
+										"<span class='notice'>You shake [src], but they do not respond... Maybe they have S.S.D?</span>")
 			else if(lying || src.sleeping)
 				src.sleeping = max(0,src.sleeping-5)
 				if(src.sleeping == 0)
@@ -268,17 +302,12 @@
 				M.visible_message("<span class='notice'>[M] shakes [src] trying to wake [t_him] up!</span>", \
 									"<span class='notice'>You shake [src] trying to wake [t_him] up!</span>")
 			else
-				var/mob/living/carbon/human/hugger = M
-				if(istype(hugger))
-					hugger.species.hug(hugger,src)
+				var/mob/living/carbon/human/tapper = M
+				if(istype(tapper))
+					tapper.species.tap(tapper,src)
 				else
-					M.visible_message("<span class='notice'>[M] hugs [src] to make [t_him] feel better!</span>", \
-								"<span class='notice'>You hug [src] to make [t_him] feel better!</span>")
-				if(M.fire_stacks >= (src.fire_stacks + 3))
-					src.fire_stacks += 1
-					M.fire_stacks -= 1
-				if(M.on_fire)
-					src.IgniteMob()
+					M.visible_message("<span class='notice'>[M] taps [src] to get their attention!</span>", \
+								"<span class='notice'>You tap [src] to get their attention!</span>")
 			AdjustParalysis(-3)
 			AdjustStunned(-3)
 			AdjustWeakened(-3)
@@ -425,3 +454,16 @@
 		return TRUE
 	if(CE_PACIFIED in chem_effects)
 		return TRUE
+
+/mob/living/carbon/proc/get_metabolism(metabolism)
+	return metabolism
+
+/mob/living/carbon/proc/can_feel_pain()
+	if (species && (species.flags & NO_PAIN))
+		return FALSE
+	if (is_berserk())
+		return FALSE
+	if (analgesic > 100)
+		return FALSE
+
+	return TRUE

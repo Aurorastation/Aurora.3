@@ -52,16 +52,6 @@
 		cleave(user, target)
 	..()
 
-/obj/item/weapon/material/sword/trench
-	name = "trench knife"
-	desc = "A military knife used to slash and stab enemies in close quarters."
-	force_divisor = 0.4
-	icon_state = "trench"
-	item_state = "knife"
-	w_class = 3
-	slot_flags = SLOT_BELT
-	parry_chance = 5
-
 /obj/item/weapon/material/sword/sabre
 	name = "sabre"
 	desc = "A sharp curved backsword."
