@@ -34,19 +34,22 @@
 /datum/controller/subsystem/responseteam/fire()
 	if(send_emergency_team == 0) // There is no ERT at the time.
 		var/total = 0
+		var/chars = 0
 		var/deadcount = 0
 		var/antagonists = 0
 		for(var/mob/living/carbon/human/H in mob_list)
-			if(H.client)
-				total++
+			total++
+			if(is_special_character(H) >= 1) antagonists++
+			if(H.character_id) //We are only counting actual characters
+				chars++
 				if(H.stat == 2) deadcount++
-				if(is_special_character(H) >= 1) antagonists++
+				
 		if(total == 0)
 			percentage_antagonists = 0
 			percentage_dead = 0
 		else
 			percentage_antagonists = round(100 * antagonists / total)
-			percentage_dead = round(100 * deadcount / total)
+			percentage_dead = round(100 * deadcount / chars)
 		
 
 		switch(get_security_level())
