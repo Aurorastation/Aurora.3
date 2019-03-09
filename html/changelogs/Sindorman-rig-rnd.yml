@@ -42,5 +42,5 @@ changes:
   - tweak: "Hazard suit bullet and radiation armour is slightly increased."
   - tweak: "Industrial suit bullet armour is slightly decreased."
   - tweak: "Stealth suit now has slightly better armour than hacker suit."
-  - tweak: "Combat suit armour values have been slightly reduced to be lower than adminbus RIGS."
+  - tweak: "Combat suit armour values have been slightly reduced to be lower than adminbus RIGS. Also Combat suit is not restricted only to Human species."
   - tweak: "Combat suit sprite has been updated to match NT colouring for security. Thanks to Kyres"
