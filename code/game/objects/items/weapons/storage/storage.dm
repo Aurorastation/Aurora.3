@@ -536,6 +536,7 @@
 			return
 		if(openned_in_hands)
 			if(H.r_hand != src && H.l_hand != src)
+				H.drop_from_inventory(src)
 				H.put_in_hands(src)
 				return
 

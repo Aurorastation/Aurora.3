@@ -201,7 +201,7 @@
 		slot_r_hand_str = "satchel"
 		)
 	openned_in_hands = 0
-	max_storage_space = 20
+	max_storage_space = 18
 
 
 /obj/item/weapon/storage/backpack/satchel/withwallet
