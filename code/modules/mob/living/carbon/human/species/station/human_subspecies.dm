@@ -29,7 +29,7 @@
 
 /datum/species/human/offworlder/get_species_tally(var/mob/living/carbon/human/H)
 
-	if(H.back && istype(H.back, /obj/item/weapon/rig/light/offworlder))
+	if(istype(H.back, /obj/item/weapon/rig/light/offworlder))
 		var/obj/item/weapon/rig/light/offworlder/rig = H.back
 		if(!rig.offline)
 			return 0
@@ -57,7 +57,7 @@
 		if(A && !A.has_gravity())
 			return
 
-		if(H.back && istype(H.back, /obj/item/weapon/rig/light/offworlder))
+		if(istype(H.back, /obj/item/weapon/rig/light/offworlder))
 			var/obj/item/weapon/rig/light/offworlder/rig = H.back
 			if(!rig.offline)
 				return
