@@ -199,69 +199,69 @@
 							"desc"="The wiring is removed added."),
 					)
 
-	action(atom/used_atom,mob/user as mob)
-		return check_step(used_atom,user)
+/datum/construction/reversible/rig_assembly/civilian/action(atom/used_atom,mob/user as mob)
+	return check_step(used_atom,user)
 
-	custom_action(index, diff, atom/used_atom, mob/user)
-		if(!..())
-			return 0
+/datum/construction/reversible/rig_assembly/civilian/custom_action(index, diff, atom/used_atom, mob/user)
+	if(!..())
+		return 0
 
-		var/obj/item/rig_assembly/r
-		if(istype(holder, /obj/item/rig_assembly/))
-			r = holder
-		if(!r)
-			return 0
+	var/obj/item/rig_assembly/r
+	if(istype(holder, /obj/item/rig_assembly/))
+		r = holder
+	if(!r)
+		return 0
 
-		switch(index)
-			if(7)
-				if(diff==FORWARD)
-					user.visible_message("[user] adds the wiring to [holder].", "You add the wiring to [holder].")
-					r.icon_state = r.icon_base + "2"
-			if(6)
-				if(diff==FORWARD)
-					user.visible_message("[user] adjusts the wiring of [holder].", "You adjust the wiring of [holder].")
-				else
-					user.visible_message("[user] removes the wiring from [holder].", "You remove the wiring from [holder].")
-					var/obj/item/stack/cable_coil/coil = new /obj/item/stack/cable_coil(get_turf(holder))
-					coil.amount = 4
-					r.icon_state = r.icon_base + "1"
-			if(5)
-				if(diff==FORWARD)
-					user.visible_message("[user] installs the central control module into [holder].", "You install the central computer mainboard into [holder].")
-					qdel(used_atom)
-					r.icon_state = r.icon_base + "3"
-				else
-					user.visible_message("[user] disconnects the wiring of [holder].", "You disconnect the wiring of [holder].")
-					r.icon_state = r.icon_base + "2"
-			if(4)
-				if(diff==FORWARD)
-					user.visible_message("[user] secures the central control module.", "You secure the central control module.")
-				else
-					user.visible_message("[user] removes the central control module from [holder].", "You remove the central computer mainboard from [holder].")
-					new board_type(get_turf(holder))
-					r.icon_state = r.icon_base + "2"
-			if(3)
-				if(diff==FORWARD)
-					user.visible_message("[user] installs external armor layer to [holder].", "You install external reinforced armor layer to [holder].")
-					r.icon_state = r.icon_base + "4"
-				else
-					user.visible_message("[user] cuts internal armor layer from [holder].", "You cut the internal armor layer from [holder].")
-			if(2)
-				if(diff==FORWARD)
-					user.visible_message("[user] secures external armor layer.", "You secure external reinforced armor layer.")
-				else
-					user.visible_message("[user] pries external armor layer from [holder].", "You prie external armor layer from [holder].")
-					var/obj/item/stack/material/plasteel/MS = new /obj/item/stack/material/plasteel(get_turf(holder))
-					MS.amount = 5
-					r.icon_state = r.icon_base + "3"
-			if(1)
-				if(diff==FORWARD)
-					user.visible_message("[user] welds external armor layer to [holder].", "You weld external armor layer to [holder].")
-					r.icon_state = r.icon_base + "5"
-				else
-					user.visible_message("[user] unfastens the external armor layer.", "You unfasten the external armor layer.")
-					r.icon_state = r.icon_base + "4"
-		return 1
+	switch(index)
+		if(7)
+			if(diff==FORWARD)
+				user.visible_message("[user] adds the wiring to [holder].", "You add the wiring to [holder].")
+				r.icon_state = r.icon_base + "2"
+		if(6)
+			if(diff==FORWARD)
+				user.visible_message("[user] adjusts the wiring of [holder].", "You adjust the wiring of [holder].")
+			else
+				user.visible_message("[user] removes the wiring from [holder].", "You remove the wiring from [holder].")
+				var/obj/item/stack/cable_coil/coil = new /obj/item/stack/cable_coil(get_turf(holder))
+				coil.amount = 4
+				r.icon_state = r.icon_base + "1"
+		if(5)
+			if(diff==FORWARD)
+				user.visible_message("[user] installs the central control module into [holder].", "You install the central computer mainboard into [holder].")
+				qdel(used_atom)
+				r.icon_state = r.icon_base + "3"
+			else
+				user.visible_message("[user] disconnects the wiring of [holder].", "You disconnect the wiring of [holder].")
+				r.icon_state = r.icon_base + "2"
+		if(4)
+			if(diff==FORWARD)
+				user.visible_message("[user] secures the central control module.", "You secure the central control module.")
+			else
+				user.visible_message("[user] removes the central control module from [holder].", "You remove the central computer mainboard from [holder].")
+				new board_type(get_turf(holder))
+				r.icon_state = r.icon_base + "2"
+		if(3)
+			if(diff==FORWARD)
+				user.visible_message("[user] installs external armor layer to [holder].", "You install external reinforced armor layer to [holder].")
+				r.icon_state = r.icon_base + "4"
+			else
+				user.visible_message("[user] cuts internal armor layer from [holder].", "You cut the internal armor layer from [holder].")
+		if(2)
+			if(diff==FORWARD)
+				user.visible_message("[user] secures external armor layer.", "You secure external reinforced armor layer.")
+			else
+				user.visible_message("[user] pries external armor layer from [holder].", "You prie external armor layer from [holder].")
+				var/obj/item/stack/material/plasteel/MS = new /obj/item/stack/material/plasteel(get_turf(holder))
+				MS.amount = 5
+				r.icon_state = r.icon_base + "3"
+		if(1)
+			if(diff==FORWARD)
+				user.visible_message("[user] welds external armor layer to [holder].", "You weld external armor layer to [holder].")
+				r.icon_state = r.icon_base + "5"
+			else
+				user.visible_message("[user] unfastens the external armor layer.", "You unfasten the external armor layer.")
+				r.icon_state = r.icon_base + "4"
+	return 1
 
 /datum/construction/reversible/rig_assembly/combat
 	steps = list(
@@ -322,111 +322,111 @@
 							"desc"="The wiring is removed added."),
 					)
 
-	action(atom/used_atom,mob/user as mob)
-		return check_step(used_atom,user)
+/datum/construction/reversible/rig_assembly/combat/action(atom/used_atom,mob/user as mob)
+	return check_step(used_atom,user)
 
-	custom_action(index, diff, atom/used_atom, mob/user)
-		if(!..())
-			return 0
+/datum/construction/reversible/rig_assembly/combat/custom_action(index, diff, atom/used_atom, mob/user)
+	if(!..())
+		return 0
 
-		var/obj/item/rig_assembly/r
-		if(istype(holder, /obj/item/rig_assembly/))
-			r = holder
-		if(!r)
-			return 0
+	var/obj/item/rig_assembly/r
+	if(istype(holder, /obj/item/rig_assembly/))
+		r = holder
+	if(!r)
+		return 0
 
-		switch(index)
-			
-			if(14)
-				if(diff==FORWARD)
-					user.visible_message("[user] adds the wiring to [holder].", "You add the wiring to [holder].")
-					r.icon_state = r.icon_base + "2"
-			if(13)
-				if(diff==FORWARD)
-					user.visible_message("[user] adjusts the wiring of [holder].", "You adjust the wiring of [holder].")
-				else
-					user.visible_message("[user] removes the wiring from [holder].", "You remove the wiring from [holder].")
-					var/obj/item/stack/cable_coil/coil = new /obj/item/stack/cable_coil(get_turf(holder))
-					coil.amount = 4
-					r.icon_state = r.icon_base + "1"
-			if(12)
-				if(diff==FORWARD)
-					user.visible_message("[user] installs the central control module into [holder].", "You install the central computer mainboard into [holder].")
-					qdel(used_atom)
-					r.icon_state = r.icon_base + "3"
-				else
-					user.visible_message("[user] disconnects the wiring of [holder].", "You disconnect the wiring of [holder].")
-					r.icon_state = r.icon_base + "1"
-			if(11)
-				if(diff==FORWARD)
-					user.visible_message("[user] secures the mainboard.", "You secure the mainboard.")
-				else
-					user.visible_message("[user] removes the central control module from [holder].", "You remove the central computer mainboard from [holder].")
-					new board_type(get_turf(holder))
-					r.icon_state = r.icon_base + "2"
-			if(10)
-				if(diff==FORWARD)
-					user.visible_message("[user] installs the weapon control module into [holder].", "You install the weapon control module into [holder].")
-					qdel(used_atom)
-					r.icon_state = r.icon_base + "4"
-				else
-					user.visible_message("[user] unfastens the central control module.", "You unfasten the central control module.")
-					r.icon_state = r.icon_base + "3"
-			if(9)
-				if(diff==FORWARD)
-					user.visible_message("[user] secures the weapon control module.", "You secure the weapon control module.")
-				else
-					user.visible_message("[user] removes the weapon control module from [holder].", "You remove the weapon control module from [holder].")
-					new target_board_type(get_turf(holder))
-					r.icon_state = r.icon_base + "3"
-			if(8)
-				if(diff==FORWARD)
-					user.visible_message("[user] installs advanced scanner module to [holder].", "You install advanced scanner module to [holder].")
-					qdel(used_atom)
-				else
-					user.visible_message("[user] unfastens the weapon control module.", "You unfasten the weapon control module.")
-			if(7)
-				if(diff==FORWARD)
-					user.visible_message("[user] secures the advanced scanner module.", "You secure the advanced scanner module.")
-				else
-					user.visible_message("[user] removes the advanced scanner module from [holder].", "You remove the advanced scanner module from [holder].")
-					new /obj/item/weapon/stock_parts/scanning_module/adv(get_turf(holder))
-			if(6)
-				if(diff==FORWARD)
-					user.visible_message("[user] installs internal armor layer to [holder].", "You install internal armor layer to [holder].")
-					r.icon_state = r.icon_base + "5"
-				else
-					user.visible_message("[user] unfastens the advanced capacitor.", "You unfasten the advanced capacitor.")
-			if(5)
-				if(diff==FORWARD)
-					user.visible_message("[user] secures internal armor layer.", "You secure internal armor layer.")
-				else
-					user.visible_message("[user] pries internal armor layer from [holder].", "You prie internal armor layer from [holder].")
-					var/obj/item/stack/material/steel/MS = new /obj/item/stack/material/steel(get_turf(holder))
-					MS.amount = 5
-					r.icon_state = r.icon_base + "4"
-			if(4)
-				if(diff==FORWARD)
-					user.visible_message("[user] welds internal armor layer to [holder].", "You weld the internal armor layer to [holder].")
-				else
-					user.visible_message("[user] unfastens the internal armor layer.", "You unfasten the internal armor layer.")
-			if(3)
-				if(diff==FORWARD)
-					user.visible_message("[user] installs external reinforced armor layer to [holder].", "You install external reinforced armor layer to [holder].")
-					r.icon_state = r.icon_base + "5"
-				else
-					user.visible_message("[user] cuts internal armor layer from [holder].", "You cut the internal armor layer from [holder].")
-			if(2)
-				if(diff==FORWARD)
-					user.visible_message("[user] secures external armor layer.", "You secure external reinforced armor layer.")
-				else
-					user.visible_message("[user] pries external armor layer from [holder].", "You prie external armor layer from [holder].")
-					var/obj/item/stack/material/plasteel/MS = new /obj/item/stack/material/plasteel(get_turf(holder))
-					MS.amount = 5
-					r.icon_state = r.icon_base + "4"
-			if(1)
-				if(diff==FORWARD)
-					user.visible_message("[user] welds external armor layer to [holder].", "You weld external armor layer to [holder].")
-				else
-					user.visible_message("[user] unfastens the external armor layer.", "You unfasten the external armor layer.")
-		return 1
+	switch(index)
+		
+		if(14)
+			if(diff==FORWARD)
+				user.visible_message("[user] adds the wiring to [holder].", "You add the wiring to [holder].")
+				r.icon_state = r.icon_base + "2"
+		if(13)
+			if(diff==FORWARD)
+				user.visible_message("[user] adjusts the wiring of [holder].", "You adjust the wiring of [holder].")
+			else
+				user.visible_message("[user] removes the wiring from [holder].", "You remove the wiring from [holder].")
+				var/obj/item/stack/cable_coil/coil = new /obj/item/stack/cable_coil(get_turf(holder))
+				coil.amount = 4
+				r.icon_state = r.icon_base + "1"
+		if(12)
+			if(diff==FORWARD)
+				user.visible_message("[user] installs the central control module into [holder].", "You install the central computer mainboard into [holder].")
+				qdel(used_atom)
+				r.icon_state = r.icon_base + "3"
+			else
+				user.visible_message("[user] disconnects the wiring of [holder].", "You disconnect the wiring of [holder].")
+				r.icon_state = r.icon_base + "1"
+		if(11)
+			if(diff==FORWARD)
+				user.visible_message("[user] secures the mainboard.", "You secure the mainboard.")
+			else
+				user.visible_message("[user] removes the central control module from [holder].", "You remove the central computer mainboard from [holder].")
+				new board_type(get_turf(holder))
+				r.icon_state = r.icon_base + "2"
+		if(10)
+			if(diff==FORWARD)
+				user.visible_message("[user] installs the weapon control module into [holder].", "You install the weapon control module into [holder].")
+				qdel(used_atom)
+				r.icon_state = r.icon_base + "4"
+			else
+				user.visible_message("[user] unfastens the central control module.", "You unfasten the central control module.")
+				r.icon_state = r.icon_base + "3"
+		if(9)
+			if(diff==FORWARD)
+				user.visible_message("[user] secures the weapon control module.", "You secure the weapon control module.")
+			else
+				user.visible_message("[user] removes the weapon control module from [holder].", "You remove the weapon control module from [holder].")
+				new target_board_type(get_turf(holder))
+				r.icon_state = r.icon_base + "3"
+		if(8)
+			if(diff==FORWARD)
+				user.visible_message("[user] installs advanced scanner module to [holder].", "You install advanced scanner module to [holder].")
+				qdel(used_atom)
+			else
+				user.visible_message("[user] unfastens the weapon control module.", "You unfasten the weapon control module.")
+		if(7)
+			if(diff==FORWARD)
+				user.visible_message("[user] secures the advanced scanner module.", "You secure the advanced scanner module.")
+			else
+				user.visible_message("[user] removes the advanced scanner module from [holder].", "You remove the advanced scanner module from [holder].")
+				new /obj/item/weapon/stock_parts/scanning_module/adv(get_turf(holder))
+		if(6)
+			if(diff==FORWARD)
+				user.visible_message("[user] installs internal armor layer to [holder].", "You install internal armor layer to [holder].")
+				r.icon_state = r.icon_base + "5"
+			else
+				user.visible_message("[user] unfastens the advanced capacitor.", "You unfasten the advanced capacitor.")
+		if(5)
+			if(diff==FORWARD)
+				user.visible_message("[user] secures internal armor layer.", "You secure internal armor layer.")
+			else
+				user.visible_message("[user] pries internal armor layer from [holder].", "You prie internal armor layer from [holder].")
+				var/obj/item/stack/material/steel/MS = new /obj/item/stack/material/steel(get_turf(holder))
+				MS.amount = 5
+				r.icon_state = r.icon_base + "4"
+		if(4)
+			if(diff==FORWARD)
+				user.visible_message("[user] welds internal armor layer to [holder].", "You weld the internal armor layer to [holder].")
+			else
+				user.visible_message("[user] unfastens the internal armor layer.", "You unfasten the internal armor layer.")
+		if(3)
+			if(diff==FORWARD)
+				user.visible_message("[user] installs external reinforced armor layer to [holder].", "You install external reinforced armor layer to [holder].")
+				r.icon_state = r.icon_base + "5"
+			else
+				user.visible_message("[user] cuts internal armor layer from [holder].", "You cut the internal armor layer from [holder].")
+		if(2)
+			if(diff==FORWARD)
+				user.visible_message("[user] secures external armor layer.", "You secure external reinforced armor layer.")
+			else
+				user.visible_message("[user] pries external armor layer from [holder].", "You prie external armor layer from [holder].")
+				var/obj/item/stack/material/plasteel/MS = new /obj/item/stack/material/plasteel(get_turf(holder))
+				MS.amount = 5
+				r.icon_state = r.icon_base + "4"
+		if(1)
+			if(diff==FORWARD)
+				user.visible_message("[user] welds external armor layer to [holder].", "You weld external armor layer to [holder].")
+			else
+				user.visible_message("[user] unfastens the external armor layer.", "You unfasten the external armor layer.")
+	return 1

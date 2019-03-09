@@ -19,7 +19,7 @@
 	name = "EVA suit central circuit board"
 
 /obj/item/weapon/circuitboard/rig_assembly/civilian/ce
-	name = "an advanced void suit central circuit board"
+	name = "advanced void suit central circuit board"
 
 /obj/item/weapon/circuitboard/rig_assembly/civilian/hazmat
 	name = "AMI suit central circuit board"
