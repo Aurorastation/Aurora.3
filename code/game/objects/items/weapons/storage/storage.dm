@@ -36,6 +36,7 @@
 	var/allow_quick_gather	//Set this variable to allow the object to have the 'toggle mode' verb, which quickly collects all items from a tile.
 	var/collection_mode = 1  //0 = pick one at a time, 1 = pick all on tile
 	var/use_sound = "rustle"	//sound played when used. null for no sound.
+	var/openned_in_hands = 0 //can only be openned if held in hands
 
 /obj/item/weapon/storage/Destroy()
 	close_all()
@@ -60,7 +61,7 @@
 			return
 
 		if(over_object == usr && Adjacent(usr)) // this must come before the screen objects only block
-			src.open(usr)
+			src.attack_hand(usr)
 			return
 
 		if (!( istype(over_object, /obj/screen) ))
@@ -533,6 +534,9 @@
 			H.put_in_hands(src)
 			H.r_store = null
 			return
+		if(openned_in_hands)
+			if(H.r_hand != src && H.l_hand != src)
+				H.put_in_hands(src)
 
 	if (src.loc == user)
 		src.open(user)

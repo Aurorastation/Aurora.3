@@ -24,6 +24,7 @@
 	slot_flags = SLOT_BACK
 	max_w_class = 3
 	max_storage_space = 28
+	openned_in_hands = 1
 	var/species_restricted = list("exclude","Vaurca Breeder","Vaurca Warform")
 
 /obj/item/weapon/storage/backpack/mob_can_equip(M as mob, slot)
@@ -199,6 +200,9 @@
 		slot_l_hand_str = "satchel",
 		slot_r_hand_str = "satchel"
 		)
+	openned_in_hands = 0
+	max_storage_space = 20
+
 
 /obj/item/weapon/storage/backpack/satchel/withwallet
 	New()
@@ -412,6 +416,7 @@
 	name = "messenger bag"
 	desc = "A sturdy backpack worn over one shoulder."
 	icon_state = "courierbag"
+	openned_in_hands = 1
 
 /obj/item/weapon/storage/backpack/messenger/chem
 	name = "chemistry messenger bag"
