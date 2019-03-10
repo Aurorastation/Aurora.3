@@ -45,7 +45,7 @@
 		return
 
 	if(target.on_fire && target.fire_stacks > 0)
-		target << "<span class='notice'>Magical energies surround you, putting out all your flames.</span>"
+		to_chat(target, "<span class='notice'>Magical energies surround you, putting out all your flames.</span>")
 		target.ExtinguishMobCompletely()
 
 /spell/contract/punish
@@ -62,5 +62,5 @@
 	if(!target)
 		return
 
-	target << "<span class='danger'>Magical energies surround you, immolating you in a furious fashion!</span>"
+	to_chat(target, "<span class='danger'>Magical energies surround you, immolating you in a furious fashion!</span>")
 	target.IgniteMob(15)
