@@ -107,20 +107,9 @@
 	to_chat(usr, "<span class='notice'>Throwback</span>: Disarm Harm Disarm. Throws the target and an item at them.")
 	to_chat(usr, "<span class='notice'>The Plasma Fist</span>: Harm Disarm Disarm Disarm Harm. Knocks the brain out of the opponent and gibs their body.")
 
-/obj/item/plasma_fist_scroll
+/obj/item/martial_manual/plasma_fist
 	name = "frayed scroll"
 	desc = "An aged and frayed scrap of paper written in shifting runes. There are hand-drawn illustrations of pugilism."
 	icon = 'icons/obj/wizard.dmi'
 	icon_state ="scroll2"
-
-/obj/item/plasma_fist_scroll/attack_self(mob/user as mob)
-	if(!ishuman(user))
-		return
-	var/mob/living/carbon/human/H = user
-	var/datum/martial_art/plasma_fist/F = new/datum/martial_art/plasma_fist(null)
-	F.teach(H)
-	to_chat(H, "<span class='boldannounce'>You have learned the ancient martial art of Plasma Fist.</span>")
-	visible_message("<span class='warning'>[src] lights up in fire and quickly burns to ash.</span>")
-	new /obj/effect/decal/cleanable/ash(get_turf(src))
-	user.drop_from_inventory(src,get_turf(src))
-	qdel(src)
+	martial_art = /datum/martial_art/plasma_fist

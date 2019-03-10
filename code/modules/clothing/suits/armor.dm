@@ -498,9 +498,22 @@
 	icon = 'icons/obj/unathi_items.dmi'
 	icon_state = "unathi_armor"
 	item_state = "unathi_armor"
-	contained_sprite = 1
+	contained_sprite = TRUE
 	species_restricted = list("Unathi")
 	armor = list(melee = 65, bullet = 30, laser = 50, energy = 10, bomb = 25, bio = 0, rad = 0)
+
+/obj/item/clothing/suit/armor/tajara
+	name = "amohdan swordsmen armor"
+	desc = "A suit of armor used by the traditional warriors of Amohhda."
+	icon = 'icons/obj/tajara_items.dmi'
+	icon_state = "amohdan_armor"
+	item_state = "amohdan_armor"
+	contained_sprite = TRUE
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
+	allowed = list(/obj/item/weapon/gun,/obj/item/weapon/material/sword)
+	flags_inv = HIDEJUMPSUIT|HIDETAIL
+	species_restricted = list("Tajara")
+	armor = list(melee = 60, bullet = 50, laser = 20, energy = 10, bomb = 5, bio = 0, rad = 0)
 
 //tau ceti foreign legion armor
 

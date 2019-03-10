@@ -1544,6 +1544,7 @@
 #include "code\modules\martial_arts\skrell.dm"
 #include "code\modules\martial_arts\sleeping_carp.dm"
 #include "code\modules\martial_arts\sol_combat.dm"
+#include "code\modules\martial_arts\swordsmanship.dm"
 #include "code\modules\martial_arts\tajara.dm"
 #include "code\modules\martial_arts\unathi.dm"
 #include "code\modules\martial_arts\vaurca.dm"
