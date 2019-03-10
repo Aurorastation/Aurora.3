@@ -247,10 +247,10 @@
 	switch(msg_type)
 		if("cold")
 			if(!covered)
-				H << "<span class='danger'>[pick(cold_discomfort_strings)]</span>"
+				to_chat(H, "<span class='danger'>[pick(cold_discomfort_strings)]</span>")
 		if("heat")
 			if(covered)
-				H << "<span class='danger'>[pick(heat_discomfort_strings)]</span>"
+				to_chat(H, "<span class='danger'>[pick(heat_discomfort_strings)]</span>")
 
 /datum/species/proc/sanitize_name(var/name)
 	return sanitizeName(name)
@@ -503,7 +503,7 @@
 	if ((H.halloss + H.oxyloss) >= (exhaust_threshold * 0.8))
 		H.m_intent = "walk"
 		H.hud_used.move_intent.update_move_icon(H)
-		H << span("danger", "You're too exhausted to run anymore!")
+		to_chat(H, span("danger", "You're too exhausted to run anymore!"))
 		H.flash_pain()
 		return 0
 

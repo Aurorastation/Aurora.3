@@ -72,7 +72,7 @@
 			visible_message("<span class='danger'>[src] blocks the [O] with its shield!</span>")
 		//user.do_attack_animation(src)
 	else
-		usr << "<span class='warning'>This weapon is ineffective, it does no damage.</span>"
+		to_chat(usr, "<span class='warning'>This weapon is ineffective, it does no damage.</span>")
 		visible_message("<span class='warning'>[user] gently taps [src] with the [O].</span>")
 
 

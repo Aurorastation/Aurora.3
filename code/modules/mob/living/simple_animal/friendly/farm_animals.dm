@@ -82,9 +82,9 @@
 		user.visible_message("<span class='notice'>[user] milks [src] using \the [O].</span>")
 		var/transfered = udder.trans_id_to(G, "milk", rand(5,10))
 		if(G.reagents.total_volume >= G.volume)
-			user << "<span class='warning'>The [O] is full.</span>"
+			to_chat(user, "<span class='warning'>The [O] is full.</span>")
 		if(!transfered)
-			user << "<span class='warning'>The udder is dry. Wait a bit longer...</span>"
+			to_chat(user, "<span class='warning'>The udder is dry. Wait a bit longer...</span>")
 	else
 		..()
 //cow
@@ -125,9 +125,9 @@
 		user.visible_message("<span class='notice'>[user] milks [src] using \the [O].</span>")
 		var/transfered = udder.trans_id_to(G, "milk", rand(5,10))
 		if(G.reagents.total_volume >= G.volume)
-			user << "<span class='warning'>The [O] is full.</span>"
+			to_chat(user, "<span class='warning'>The [O] is full.</span>")
 		if(!transfered)
-			user << "<span class='warning'>The udder is dry. Wait a bit longer...</span>"
+			to_chat(user, "<span class='warning'>The udder is dry. Wait a bit longer...</span>")
 	else
 		..()
 
@@ -149,7 +149,7 @@
 											"[src] looks at you pleadingly",
 											"[src] looks at you with a resigned expression.",
 											"[src] seems resigned to its fate.")
-				M << pick(responses)
+				to_chat(M, pick(responses))
 	else
 		..()
 
@@ -266,9 +266,9 @@
 				qdel(O)
 				eggsleft += rand(1, 4)
 			else
-				user << "\The [name] doesn't seem hungry!"
+				to_chat(user, "\The [name] doesn't seem hungry!")
 		else
-			user << "\The [name] doesn't seem interested in that."
+			to_chat(user, "\The [name] doesn't seem interested in that.")
 	else
 		..()
 
