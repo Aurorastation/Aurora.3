@@ -123,23 +123,10 @@
 
 /obj/item/clothing/suit/space/rig/light/ninja
 	species_restricted = list("exclude","Diona","Xenomorph", "Golem")
-	sprite_sheets = list(
-		"Tajara" = 'icons/mob/species/tajaran/suit.dmi',
-		"Unathi" = 'icons/mob/species/unathi/suit.dmi',
-		"Vaurca" = "icons/mob/species/vaurca/suit.dmi",
-		"Machine" = 'icons/mob/species/machine/suit.dmi'
-		)
 	breach_threshold = 38 //comparable to regular hardsuits
 
 /obj/item/clothing/head/helmet/space/rig/light/ninja
 	species_restricted = list("exclude","Diona","Xenomorph", "Golem")
-	sprite_sheets = list(
-		"Tajara" = 'icons/mob/species/tajaran/helmet.dmi',
-		"Skrell" = 'icons/mob/species/skrell/helmet.dmi',
-		"Unathi" = 'icons/mob/species/unathi/helmet.dmi',
-		"Vaurca" = "icons/mob/species/vaurca/helmet.dmi",
-		"Machine" = 'icons/mob/species/machine/helmet.dmi'
-	)
 
 /obj/item/weapon/rig/light/stealth
 	name = "stealth suit control module"

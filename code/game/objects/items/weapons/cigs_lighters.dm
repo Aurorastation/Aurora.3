@@ -17,16 +17,17 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	var/lit = 0
 
 /proc/isflamesource(A)
-	if(iswelder(A))
+	var/obj/item/I = A
+	if(I.iswelder())
 		var/obj/item/weapon/weldingtool/WT = A
 		return (WT.isOn())
-	else if(istype(A, /obj/item/weapon/flame))
-		var/obj/item/weapon/flame/F = A
+	else if(istype(I, /obj/item/weapon/flame))
+		var/obj/item/weapon/flame/F = I
 		return (F.lit)
-	else if(istype(A, /obj/item/device/assembly/igniter))
+	else if(istype(I, /obj/item/device/assembly/igniter))
 		return 1
-	else if(istype(A, /obj/item/clothing/gloves/fluff/lunea_gloves))
-		var/obj/item/clothing/gloves/fluff/lunea_gloves/F = A
+	else if(istype(I, /obj/item/clothing/gloves/fluff/lunea_gloves))
+		var/obj/item/clothing/gloves/fluff/lunea_gloves/F = I
 		return (F.lit)
 	return 0
 
@@ -112,6 +113,8 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 		var/mob/living/carbon/human/C = loc
 		if(istype(C) && src == C.wear_mask)
 			reagents.trans_to_mob(C, burn_rate*initial_volume, CHEM_BREATHE, 0.75)
+			if(C.check_has_mouth() && prob(5))
+				reagents.trans_to_mob(C, burn_rate*initial_volume, CHEM_INGEST, 0.75)
 		else
 			reagents.remove_any(burn_rate*initial_volume)
 	else
@@ -125,6 +128,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 /obj/item/clothing/mask/smokable/proc/light(var/flavor_text = "[usr] lights the [name].")
 	if(!src.lit)
 		src.lit = 1
+		src.reagents.set_temperature(T0C + 45)
 		damtype = "fire"
 		if(reagents.get_reagent_amount("phoron")) // the phoron explodes when exposed to fire
 			var/datum/effect/effect/system/reagents_explosion/e = new()
@@ -192,7 +196,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 			text = zippomes
 		else if(istype(W, /obj/item/weapon/flame/lighter))
 			text = lightermes
-		else if(iswelder(W))
+		else if(W.iswelder())
 			text = weldermes
 		else if(istype(W, /obj/item/device/assembly/igniter))
 			text = ignitermes

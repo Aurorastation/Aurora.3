@@ -232,7 +232,6 @@ var/global/list/default_medbay_channels = list(
 	var/datum/radio_frequency/connection = null
 	if(channel && channels && channels.len > 0)
 		if (channel == "department")
-			//world << "DEBUG: channel=\"[channel]\" switching to \"[channels[1]]\""
 			channel = channels[1]
 		connection = secure_radio_connections[channel]
 	else
@@ -546,7 +545,7 @@ var/global/list/default_medbay_channels = list(
 /obj/item/device/radio/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	..()
 	user.set_machine(src)
-	if (!( isscrewdriver(W) ))
+	if (!( W.isscrewdriver() ))
 		return
 	b_stat = !( b_stat )
 	if(!istype(src, /obj/item/device/radio/beacon))
@@ -599,10 +598,10 @@ var/global/list/default_medbay_channels = list(
 /obj/item/device/radio/borg/attackby(obj/item/weapon/W as obj, mob/user as mob)
 //	..()
 	user.set_machine(src)
-	if (!( isscrewdriver(W) || (istype(W, /obj/item/device/encryptionkey/ ))))
+	if (!( W.isscrewdriver() || (istype(W, /obj/item/device/encryptionkey/ ))))
 		return
 
-	if(isscrewdriver(W))
+	if(W.isscrewdriver())
 		if(keyslot)
 
 

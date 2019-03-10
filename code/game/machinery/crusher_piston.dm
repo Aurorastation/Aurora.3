@@ -103,7 +103,7 @@
 
 	//Stuff you can do if the maint hatch is open
 	if(panel_open)
-		if(iswrench(O))
+		if(O.iswrench())
 			user << "<span class='notice'>You start [valve_open ? "closing" : "opening"] the pressure relief valve of [src].</span>"
 			if(do_after(user,50))
 				valve_open = !valve_open
@@ -501,7 +501,7 @@
 	return ..()
 
 /mob/living/carbon/piston_move()
-	if(!(species && (species.flags & NO_PAIN)))
+	if(can_feel_pain())
 		emote("scream")
 	return ..()
 

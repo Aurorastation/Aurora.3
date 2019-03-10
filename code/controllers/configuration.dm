@@ -974,6 +974,8 @@ var/list/gamemode_cache = list()
 	return gamemode_cache["extended"]
 
 /datum/configuration/proc/get_runnable_modes(secret_type = ROUNDTYPE_STR_SECRET)
+	log_debug("GAMEMODE: Checking runnable modes with secret_type set to [secret_type]...")
+
 	var/list/probabilities = config.probabilities_secret
 
 	if (secret_type == ROUNDTYPE_STR_MIXED_SECRET)
@@ -987,8 +989,25 @@ var/list/gamemode_cache = list()
 	var/list/runnable_modes = list()
 	for(var/game_mode in gamemode_cache)
 		var/datum/game_mode/M = gamemode_cache[game_mode]
-		if(M && M.can_start() == GAME_FAILURE_NONE && probabilities[M.config_tag] && probabilities[M.config_tag] > 0)
-			runnable_modes |= M
+		if(!M)
+			log_debug("GAMEMODE: ERROR: [M] does not exist!")
+			continue
+
+		var/can_start = M.can_start()
+		if(can_start != GAME_FAILURE_NONE)
+			log_debug("GAMEMODE: [M.name] cannot start! Reason: [can_start]")
+			continue
+
+		if(!probabilities[M.config_tag])
+			log_debug("GAMEMODE: ERROR: [M.name] does not have a config associated with it!")
+			continue
+
+		if(probabilities[M.config_tag] <= 0)
+			log_debug("GAMEMODE: ERROR: [M.name] has a probability equal or less than 0!")
+			continue
+
+		runnable_modes |= M
+
 	return runnable_modes
 
 /datum/configuration/proc/post_load()

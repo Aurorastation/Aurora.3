@@ -360,8 +360,6 @@ Turf and target are seperate in case you want to teleport some distance from a t
 		if(isAI(src))
 			var/mob/living/silicon/ai/A = src
 			oldname = null//don't bother with the records update crap
-			//world << "<b>[newname] is the AI!</b>"
-			//world << sound('sound/AI/newAI.ogg')
 			// Set eyeobj name
 			A.SetName(newname)
 
@@ -878,9 +876,9 @@ proc/is_hot(obj/item/W as obj)
 	if(W.sharp) return 1
 	return ( \
 		W.sharp													  || \
-		isscrewdriver(W)                   || \
+		W.isscrewdriver()                   || \
 		istype(W, /obj/item/weapon/pen)                           || \
-		iswelder(W)					  || \
+		W.iswelder()					  || \
 		istype(W, /obj/item/weapon/flame/lighter/zippo)			  || \
 		istype(W, /obj/item/weapon/flame/match)            		  || \
 		istype(W, /obj/item/clothing/mask/smokable/cigarette) 		      || \
@@ -1161,6 +1159,27 @@ var/list/wall_items = typecacheof(list(
 			user << "<span class='notice'>You need to be holding [src] to do that.</span>"
 		return USE_FAIL_NOT_IN_USER
 
+/obj/proc/iswrench()
+	return FALSE
+
+/obj/proc/isscrewdriver()
+	return FALSE
+
+/obj/proc/iswirecutter()
+	return FALSE
+
+/obj/proc/ismultitool()
+	return FALSE
+
+/obj/proc/iscrowbar()
+	return FALSE
+
+/obj/proc/iswelder()
+	return FALSE
+
+/obj/proc/iscoil()
+	return FALSE
+
 #undef NOT_FLAG
 #undef HAS_FLAG
 
@@ -1172,3 +1191,4 @@ var/list/wall_items = typecacheof(list(
 	else if (istype(A.loc, /obj/item/rig_module))
 		return 0
 	return 1
+

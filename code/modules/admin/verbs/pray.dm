@@ -45,7 +45,7 @@
 
 			C << msg_cciaa
 
-	discord_bot.send_to_cciaa("Emergency message from the station: `[msg]`, sent by [Sender]!")
+	discord_bot.send_to_cciaa("Emergency message from the station: `[msg]`, sent by [Sender]! Gamemode: [SSticker.mode]")
 
 	var/discord_msg = "[cciaa_present] agents online."
 	if (cciaa_present)

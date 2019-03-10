@@ -39,3 +39,9 @@
 	desc = "A vial that contains 30u of venemum. Changes DNA structure randomly, effectively masking your appearance until it wears off. Good for 15 minutes of appearance changes."
 	item_cost = 4
 	path = /obj/item/weapon/reagent_containers/glass/beaker/vial/venenum
+
+/datum/uplink_item/item/stealth_items/balaclava
+	name = "Balaclava"
+	desc = "Designed to both hide identities and keep your face comfy and warm."
+	item_cost = 1
+	path = /obj/item/clothing/mask/balaclava/tactical

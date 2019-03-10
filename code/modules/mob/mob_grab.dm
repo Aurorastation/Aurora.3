@@ -235,10 +235,17 @@
 		return
 	if(!assailant.canClick())
 		return
-	if(world.time < (last_action + UPGRADE_COOLDOWN))
-		return
 	if(!assailant.canmove || assailant.lying)
 		qdel(src)
+		return
+
+	var/grab_coeff = 1
+	if(ishuman(affecting))
+		var/mob/living/carbon/human/H = affecting
+		if(H.species)
+			grab_coeff = H.species.grab_mod
+
+	if(world.time < (last_action + (UPGRADE_COOLDOWN * grab_coeff)))
 		return
 
 	last_action = world.time

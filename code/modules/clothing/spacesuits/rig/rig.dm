@@ -23,6 +23,7 @@
 	siemens_coefficient = 0.2
 	permeability_coefficient = 0.1
 	unacidable = 1
+	slowdown = 1 // All rigs by default should have slowdown.
 
 	var/has_sealed_state = FALSE
 
@@ -722,6 +723,9 @@
 
 /obj/item/weapon/rig/proc/shock(mob/user)
 	var/touchy = pick("chest","head","groin")
+	if(!wearer)
+		touchy = "hand"
+
 	if (electrocute_mob(user, cell, src, contact_zone = touchy)) //electrocute_mob() handles removing charge from the cell, no need to do that here.
 		spark_system.queue()
 		if(user.stunned)

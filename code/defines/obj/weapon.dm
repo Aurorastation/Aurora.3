@@ -271,7 +271,7 @@
 		user.visible_message("<span class='warning'>[user] has unsheathed \a [concealed_blade] from \his [src]!</span>", "You unsheathe \the [concealed_blade] from \the [src].")
 		// Calling drop/put in hands to properly call item drop/pickup procs
 		playsound(user.loc, 'sound/weapons/blade_unsheath.ogg', 50, 1)
-		user.drop_from_inventory(src,enable_animations = FALSE)
+		user.drop_from_inventory(src)
 		user.put_in_hands(concealed_blade)
 		user.put_in_hands(src)
 		user.update_inv_l_hand(0)
@@ -328,6 +328,10 @@
 	var/obj/item/gift = null
 	item_state = "gift"
 	w_class = 4.0
+
+/obj/item/weapon/gift/random_pixel/Initialize()
+	pixel_x = rand(-16,16)
+	pixel_y = rand(-16,16)
 
 /obj/item/weapon/legcuffs
 	name = "legcuffs"
@@ -492,7 +496,7 @@
 	matter = list(DEFAULT_WALL_MATERIAL = 50, "glass" = 50)
 
 /obj/item/weapon/module/power_control/attackby(var/obj/item/weapon/W as obj, var/mob/user as mob)
-	if (ismultitool(W))
+	if (W.ismultitool())
 		var/obj/item/weapon/circuitboard/ghettosmes/newcircuit = new/obj/item/weapon/circuitboard/ghettosmes(user.loc)
 		qdel(src)
 		user.put_in_hands(newcircuit)
@@ -575,7 +579,7 @@
 	icon_state = "neuralbroke"
 
 /obj/item/weapon/neuralbroke/attackby(obj/item/weapon/W as obj, mob/user as mob)
-	if(isscrewdriver(W))
+	if(W.isscrewdriver())
 		new /obj/item/device/encryptionkey/hivenet(user.loc)
 		playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, 1)
 		user << "You bypass the fried security chip and extract the encryption key."

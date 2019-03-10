@@ -132,7 +132,15 @@ var/list/possible_cable_coil_colours = list(
 	if(!T.can_have_cabling())
 		return
 
-	if(iswirecutter(W))
+	if(W.iswirecutter() || (W.sharp || W.edge))
+
+		if(!W.iswirecutter())
+			if(user.a_intent != I_HELP)
+				return
+
+			if(W.flags & CONDUCT)
+				shock(user, 50, 0.7)
+
 		if(d1 == 12 || d2 == 12)
 			user << "<span class='warning'>You must cut this cable from above.</span>"
 			return
@@ -165,14 +173,14 @@ var/list/possible_cable_coil_colours = list(
 		return
 
 
-	else if(iscoil(W))
+	else if(W.iscoil())
 		var/obj/item/stack/cable_coil/coil = W
 		if (coil.get_amount() < 1)
 			user << "Not enough cable"
 			return
 		coil.cable_join(src, user)
 
-	else if(ismultitool(W))
+	else if(W.ismultitool())
 
 		if(powernet && (powernet.avail > 0))		// is it powered?
 			user << "<span class='warning'>[powernet.avail]W in power network.</span>"
@@ -181,10 +189,6 @@ var/list/possible_cable_coil_colours = list(
 			user << "<span class='warning'>The cable is not powered.</span>"
 
 		shock(user, 5, 0.2)
-
-	else
-		if (W.flags & CONDUCT)
-			shock(user, 50, 0.7)
 
 	src.add_fingerprint(user)
 
@@ -356,12 +360,12 @@ obj/structure/cable/proc/cableColor(var/colorC)
 	if(d1 == 11 || d2 == 11)
 		T = GetBelow(src)
 		if(T)
-			. += power_list(T, src, 12, 1)
+			. += power_list(T, src, 12, powernetless_only)
 
 	if(d1 == 12 || d2 == 12)
 		T = GetAbove(src)
 		if(T)
-			. += power_list(T, src, 11, 1)
+			. += power_list(T, src, 11, powernetless_only)
 
 	// Handle standard cables in adjacent turfs
 	for(var/cable_dir in list(d1, d2))
@@ -475,6 +479,9 @@ obj/structure/cable/proc/cableColor(var/colorC)
 	attack_verb = list("whipped", "lashed", "disciplined", "flogged")
 	stacktype = /obj/item/stack/cable_coil
 
+/obj/item/stack/cable_coil/iscoil()
+	return TRUE
+
 /obj/item/stack/cable_coil/cyborg
 	name = "cable coil synthesizer"
 	desc = "A device that makes cable."
@@ -506,21 +513,21 @@ obj/structure/cable/proc/cableColor(var/colorC)
 		var/obj/item/organ/external/S = H.organs_by_name[user.zone_sel.selecting]
 
 		if (!S) return
-		if(!(S.status & ORGAN_ROBOT) || user.a_intent != I_HELP)
+		if(!(S.status & ORGAN_ASSISTED) || user.a_intent != I_HELP)
 			return ..()
 
-		if(M.isSynthetic() && M == user)
+		if(M.isSynthetic() && M == user && !(M.get_species() == "Hunter-Killer"))
 			user << "<span class='warning'>You can't repair damage to your own body - it's against OH&S.</span>"
 			return
 
 		if(S.burn_dam)
-			if(S.burn_dam < ROBOLIMB_SELF_REPAIR_CAP)
-				S.heal_damage(0,15,0,1)
-				user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-				user.visible_message("<span class='danger'>\The [user] patches some damaged wiring on \the [M]'s [S.name] with \the [src].</span>")
-			else if(S.open != 2)
-				user << "<span class='danger'>The damage is far too severe to patch over externally.</span>"
-			return 1
+			if(S.burn_dam > ROBOLIMB_SELF_REPAIR_CAP && (S.status & ORGAN_ROBOT))
+				to_chat(user, "<span class='warning'>The damage is far too severe to patch over externally.</span>")
+				return
+
+			S.heal_damage(0,15,0,1)
+			user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
+			user.visible_message("<span class='danger'>\The [user] patches some damaged wiring on \the [M]'s [S.name] with \the [src].</span>")
 		else if(S.open != 2)
 			user << "<span class='notice'>Nothing to fix!</span>"
 
@@ -918,7 +925,7 @@ obj/structure/cable/proc/cableColor(var/colorC)
 	var/ticks = 0
 
 /obj/structure/noose/attackby(obj/item/W, mob/user, params)
-	if(iswirecutter(W))
+	if(W.iswirecutter())
 		user.visible_message("[user] cuts the noose.", "<span class='notice'>You cut the noose.</span>")
 		if(buckled_mob)
 			buckled_mob.visible_message("<span class='danger'>[buckled_mob] falls over and hits the ground!</span>",\

@@ -90,7 +90,7 @@
 				return
 
 /obj/structure/bed/attackby(obj/item/weapon/W as obj, mob/user as mob)
-	if(iswrench(W))
+	if(W.iswrench())
 		if(can_dismantle)
 			playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
 			dismantle()
@@ -121,7 +121,7 @@
 		add_padding(padding_type)
 		return
 
-	else if (iswirecutter(W))
+	else if (W.iswirecutter())
 		if(!padding_material)
 			user << "\The [src] has no padding to remove."
 			return
@@ -192,7 +192,7 @@
 	return // Doesn't care about material or anything else.
 
 /obj/structure/bed/roller/attackby(obj/item/weapon/W as obj, mob/user as mob)
-	if(iswrench(W) || istype(W,/obj/item/stack) || iswirecutter(W))
+	if(W.iswrench() || istype(W,/obj/item/stack) || W.iswirecutter())
 		return
 	else if(istype(W,/obj/item/roller_holder))
 		if(buckled_mob)

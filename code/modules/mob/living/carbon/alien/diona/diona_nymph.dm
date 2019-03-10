@@ -21,6 +21,8 @@
 	universal_understand = 0
 	universal_speak = 0
 	holder_type = /obj/item/weapon/holder/diona
+	meat_type = /obj/item/weapon/reagent_containers/food/snacks/meat/dionanymph
+	meat_amount = 2
 	maxHealth = 85
 	pass_flags = PASSTABLE
 
@@ -234,7 +236,8 @@
 /mob/living/carbon/alien/diona/proc/check_status_as_organ()
 	if (istype(gestalt, /mob/living/carbon/human) && !QDELETED(gestalt))
 		var/mob/living/carbon/human/H = gestalt
-
+		if(!H.bad_internal_organs)
+			return
 		if (health < maxHealth)
 			if (!(src in H.bad_internal_organs))
 				H.bad_internal_organs.Add(src)
@@ -372,3 +375,26 @@
 				DIO.master_nymph = D
 		return 1
 	. = ..()
+/mob/living/carbon/alien/diona/attackby(var/obj/item/O, var/mob/user)
+	if(istype(O, /obj/item/weapon/reagent_containers) || istype(O, /obj/item/stack/medical) || istype(O,/obj/item/weapon/gripper/))
+		..()
+
+	else if(meat_type && (stat == DEAD))	//if the animal has a meat, and if it is dead.
+		if(istype(O, /obj/item/weapon/material/knife) || istype(O, /obj/item/weapon/material/kitchen/utensil/knife ))
+			harvest(user)
+
+
+/mob/living/carbon/alien/diona/proc/harvest(var/mob/user)
+	var/actual_meat_amount = max(1,(meat_amount*0.75))
+	if(meat_type && actual_meat_amount>0 && (stat == DEAD))
+		for(var/i=0;i<actual_meat_amount;i++)
+			var/obj/item/meat = new meat_type(get_turf(src))
+			if (meat.name == "meat")
+				meat.name = "[src.name] [meat.name]"
+		if(issmall(src))
+			user.visible_message("<span class='danger'>[user] chops up \the [src]!</span>")
+			new/obj/effect/decal/cleanable/blood/splatter(get_turf(src))
+			qdel(src)
+		else
+			user.visible_message("<span class='danger'>[user] butchers \the [src] messily!</span>")
+			gib()

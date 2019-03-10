@@ -1,5 +1,5 @@
 #define TESLA_DEFAULT_POWER 1738260
-#define TESLA_MINI_POWER 869130
+#define TESLA_MINI_POWER 156250
 
 /obj/singularity/energy_ball
 	name = "energy ball"
@@ -15,10 +15,11 @@
 	density = 1
 	energy = 0
 	dissipate = 1
-	dissipate_delay = 5
+	dissipate_delay = 10
 	dissipate_strength = 1
 	layer = LIGHTING_LAYER + 0.1
 	blend_mode = BLEND_ADD
+	var/failed_direction = 0
 	var/list/orbiting_balls = list()
 	var/produced_power
 	var/energy_to_raise = 32
@@ -28,6 +29,7 @@
 	return
 
 /obj/singularity/energy_ball/Destroy()
+	walk(src, 0) // Stop walking
 	if(orbiting && istype(orbiting.orbiting, /obj/singularity/energy_ball))
 		var/obj/singularity/energy_ball/EB = orbiting.orbiting
 		EB.orbiting_balls -= src
@@ -42,45 +44,107 @@
 	if(!orbiting)
 		handle_energy()
 
-		move_the_basket_ball(4 + orbiting_balls.len * 1.5)
+		move_the_basket_ball(rand(1, 6) -  orbiting_balls.len * 0.25)
 
 		playsound(src.loc, 'sound/magic/lightningbolt.ogg', 100, 1, extrarange = 30)
 
 		pixel_x = 0
 		pixel_y = 0
 
-		dir = tesla_zap(src, 7, TESLA_DEFAULT_POWER, TRUE)
+		// This now does just the animation of all balls shooting main ball
+		for (var/obj/singularity/energy_ball/ball in orbiting_balls)
+			ball.Beam(src, icon_state="lightning[rand(1,12)]", icon = 'icons/effects/effects.dmi', time=2)
+
+		// Instead of miniballs shooting stuff, decided to make it just count the power produced.
+		dir = tesla_zap(src, 10, TESLA_DEFAULT_POWER + orbiting_balls.len * TESLA_MINI_POWER, TRUE)
 
 		pixel_x = -32
 		pixel_y = -32
-		for (var/ball in orbiting_balls)
-			var/range = rand(1, Clamp(orbiting_balls.len, 3, 7))
-			tesla_zap(ball, range, TESLA_MINI_POWER/7*range, TRUE)
+
 	else
 		energy = 0 // ensure we dont have miniballs of miniballs
-	if(energy == 0)
+	if(energy < 0)
 		qdel(src)
 
 /obj/singularity/energy_ball/examine(mob/user)
 	..()
 	if(orbiting_balls.len)
-		user << "The amount of orbiting mini-balls is [orbiting_balls.len]."
+		to_chat(user, "There are [orbiting_balls.len] energy balls orbiting \the [src].")
 
 
 /obj/singularity/energy_ball/proc/move_the_basket_ball(var/move_amount)
-	//we face the last thing we zapped, so this lets us favor that direction a bit
-	var/first_move = dir
-	for(var/i in 0 to move_amount)
-		var/move_dir = pick(alldirs + first_move) //give the first move direction a bit of favoring.
-		if(target && prob(60))
-			move_dir = get_dir(src,target)
-		var/turf/T = get_step(src, move_dir)
-		if(can_move(T))
-			forceMove(T)
-			dir = move_dir
-			for(var/mob/living/carbon/C in loc)
-				dust_mobs(C)
 
+	var/list/valid_directions = alldirs.Copy()
+
+	var/can_zmove = !(locate(/obj/machinery/containment_field) in view(12,src))
+	if(can_zmove && prob(10))
+		valid_directions.Add(UP)
+		valid_directions.Add(DOWN)
+
+	valid_directions.Remove(failed_direction)
+
+	var/move_dir = 0
+	if(target && prob(75))
+		move_dir = get_dir(src, target)
+	else
+		valid_directions.Remove(dir)
+		move_dir = (prob(50) && (dir != failed_direction)) ? dir : pick(valid_directions)
+
+	if(move_dir & (UP | DOWN) )
+		move_amount = 0
+
+	for(var/i in 0 to move_amount)
+		do_single_move(move_dir, move_amount)
+
+/obj/singularity/energy_ball/proc/do_single_move(var/move_dir, var/speed)
+	var/z_move = 0
+	var/turf/T
+	switch(move_dir)
+		if(UP)
+			T = GetAbove(src)
+			z_move = 1
+		if(DOWN)
+			T = GetBelow(src)
+			z_move = -1
+		else
+			T = get_step(src, move_dir)
+
+	if(can_move(T) && can_dunk(get_turf(src),T,move_dir))
+		switch(z_move)
+			if(1)
+				visible_message(span("danger","\The [src] gravitates upwards!"))
+				zMove(UP)
+				visible_message(span("danger","\The [src] gravitates from below!"))
+			if(0)
+				walk_to(src, T, 0, speed)
+			if(-1)
+				visible_message(span("danger","\The [src] gravitates downwards!"))
+				zMove(DOWN)
+				visible_message(span("danger","\The [src] gravitates from above!"))
+
+		if(dir in alldirs)
+			dir = move_dir
+		else
+			dir = pick(alldirs)
+
+		for(var/mob/living/carbon/C in loc)
+			dust_mobs(C)
+		failed_direction = 0
+	else
+		failed_direction = move_dir
+
+/obj/singularity/energy_ball/proc/can_dunk(var/turf/old_turf,var/turf/new_turf,var/move_direction)
+
+	if(istype(new_turf,/turf/simulated/wall/r_wall))
+		return FALSE
+
+	if(istype(old_turf,/turf/simulated/floor/reinforced) && (move_direction & DOWN))
+		return FALSE
+
+	if(istype(new_turf,/turf/simulated/floor/reinforced) && (move_direction & UP))
+		return FALSE
+
+	return TRUE
 
 /obj/singularity/energy_ball/proc/handle_energy()
 	if(energy >= energy_to_raise)
@@ -98,12 +162,27 @@
 		qdel(Orchiectomy_target)
 
 	else if(orbiting_balls.len)
+
+		// Basically the more balls we have the faster Tesla looses energy.
+		if(orbiting_balls.len > 16)
+			dissipate_delay = 3
+			dissipate_strength = 5
+		if(orbiting_balls.len > 12)
+			dissipate_delay = 5
+			dissipate_strength = 2
+		if(orbiting_balls.len <= 12)
+			dissipate_delay = 10
+			dissipate_strength = 1
+
 		dissipate() //sing code has a much better system.
+	else // that is when we have no balls but our energy is less
+		energy_to_raise = energy_to_raise / 1.25
+		energy_to_lower = (energy_to_raise / 1.25) - 20
 
 /obj/singularity/energy_ball/proc/new_mini_ball()
 	if(!loc)
 		return
-	var/obj/singularity/energy_ball/EB = new(loc)
+	var/obj/singularity/energy_ball/EB = new(loc, 0)
 
 	EB.transform *= pick(0.3, 0.4, 0.5, 0.6, 0.7)
 	var/icon/I = icon(icon,icon_state,dir)
@@ -128,15 +207,15 @@
 		target.dissipate_strength = target.orbiting_balls.len
 
 	. = ..()
+
 /obj/singularity/energy_ball/stop_orbit()
 	if (orbiting && istype(orbiting.orbiting, /obj/singularity/energy_ball))
 		var/obj/singularity/energy_ball/orbitingball = orbiting.orbiting
 		orbitingball.orbiting_balls -= src
 		orbitingball.dissipate_strength = orbitingball.orbiting_balls.len
-	..()
+	. = ..()
 	if (!loc && !QDELETED(src))
 		qdel(src)
-
 
 /obj/singularity/energy_ball/proc/dust_mobs(atom/A)
 	if(!iscarbon(A))
@@ -159,9 +238,9 @@
 	var/mob/living/closest_mob
 	var/obj/machinery/closest_machine
 	var/obj/structure/closest_structure
+	var/obj/machinery/power/emitter/closest_emitter // Use only if Tesla is too grown. Will escape.
 	var/static/list/blacklisted_types = typecacheof(list(
 		/obj/machinery/atmospherics,
-		/obj/machinery/power/emitter,
 		/obj/machinery/field_generator,
 		/mob/living/simple_animal,
 		/obj/machinery/particle_accelerator/control_box,
@@ -186,7 +265,10 @@
 		/obj/structure
 	))
 
+	var/rods_count = 0
+
 	for(var/A in typecache_filter_multi_list_exclusion(oview(source, zap_range+2), things_to_shock, blacklisted_types))
+		
 		if(istype(A, /obj/machinery/power/tesla_coil))
 			var/dist = get_dist(source, A)
 			var/obj/machinery/power/tesla_coil/C = A
@@ -199,9 +281,12 @@
 				closest_atom = C
 
 		else if(closest_tesla_coil)
+			if(istype(A, /obj/machinery/power/grounding_rod)) // to count number of rods
+				rods_count += 1
 			continue //no need checking these other things
 
 		else if(istype(A, /obj/machinery/power/grounding_rod))
+			rods_count += 1
 			var/dist = get_dist(source, A)-2
 			if(dist <= zap_range && (dist < closest_dist || !closest_grounding_rod))
 				closest_grounding_rod = A
@@ -209,6 +294,13 @@
 				closest_dist = dist
 
 		else if(closest_grounding_rod)
+			continue
+
+		else if(istype(A, /obj/machinery/power/emitter))
+			var/obj/machinery/power/emitter/e = A
+			closest_emitter = e
+		
+		else if(closest_emitter)
 			continue
 
 		else if(isliving(A))
@@ -241,20 +333,38 @@
 				closest_atom = A
 				closest_dist = dist
 
+	var/melt = FALSE
+	if(istype(source, /obj/singularity/energy_ball))
+		var/obj/singularity/energy_ball/E = source
+		if(E.energy && (E.orbiting_balls.len > rods_count * 4)) // so that miniballs don't fry stuff.
+			melt =  TRUE// 1 grounding rod can handle max 4 balls
+			E.visible_message(span("danger", "All [E.orbiting_balls.len] energize for a second, sending their energy to the main ball, which redirects it at the nearest object! Sacraficing one of its miniballs!"))
+			for(var/obj/singularity/energy_ball/mini in E.orbiting_balls)
+				mini.Beam(source, icon_state="lightning[rand(1,12)]", icon = 'icons/effects/effects.dmi', time=2)
+			playsound(source.loc, 'sound/magic/lightning_chargeup.ogg', 100, 1, extrarange = 30)
+			E.energy_to_raise = E.energy_to_raise / 1.25
+			E.energy_to_lower = (E.energy_to_raise / 1.25) - 20
+
+			var/Orchiectomy_target = pick(E.orbiting_balls)
+			qdel(Orchiectomy_target)
+
 	//Alright, we've done our loop, now lets see if was anything interesting in range
 	if(closest_atom)
 		//common stuff
-		source.Beam(closest_atom, icon_state="lightning[rand(1,12)]", icon = 'icons/effects/effects.dmi', time=5)
+		source.Beam(closest_atom, icon_state="lightning[rand(1,12)]", icon = 'icons/effects/effects.dmi', time= 5)
 		var/zapdir = get_dir(source, closest_atom)
 		if(zapdir)
 			. = zapdir
 
 	//per type stuff:
 	if(closest_tesla_coil)
-		closest_tesla_coil.tesla_act(power)
+		closest_tesla_coil.tesla_act(power, melt)
 
 	else if(closest_grounding_rod)
-		closest_grounding_rod.tesla_act(power)
+		closest_grounding_rod.tesla_act(power, melt)
+	
+	else if(closest_emitter)
+		closest_emitter.tesla_act(power, melt)
 
 	else if(closest_mob)
 		var/shock_damage = Clamp(round(power/400), 10, 90) + rand(-5, 5)

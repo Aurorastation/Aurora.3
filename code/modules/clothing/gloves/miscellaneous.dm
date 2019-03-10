@@ -122,7 +122,7 @@
 		checktime()
 
 /obj/item/clothing/gloves/watch/attackby(obj/item/weapon/W, mob/user)
-	if(isscrewdriver(W))
+	if(W.isscrewdriver())
 		if (clipped) //Using clipped because adding a new var for something is dumb
 			user.visible_message("<span class='notice'>[user] screws the cover of the [src] closed.</span>","<span class='notice'>You screw the cover of the [src] closed..</span>")
 			clipped = 0
@@ -133,7 +133,7 @@
 		return
 	if(wired)
 		return
-	if(iscoil(W))
+	if(W.iscoil())
 		var/obj/item/stack/cable_coil/C = W
 		if (!clipped)
 			user << "<span class='notice'>The [src] is not open.</span>"

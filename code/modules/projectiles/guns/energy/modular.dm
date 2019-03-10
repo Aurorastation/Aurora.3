@@ -39,7 +39,7 @@
 		user << "You can see \the [modulator] attached."
 
 /obj/item/weapon/gun/energy/laser/prototype/attackby(var/obj/item/weapon/D, var/mob/user)
-	if(!isscrewdriver(D))
+	if(!D.isscrewdriver())
 		return ..()
 	user << "You disassemble \the [src]."
 	disassemble(user)

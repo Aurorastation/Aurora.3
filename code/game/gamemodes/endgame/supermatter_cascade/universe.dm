@@ -38,9 +38,9 @@ var/global/universe_has_ended = 0
 /datum/universal_state/supermatter_cascade/OnEnter()
 	SSgarbage.disable()
 
-	world << "<span class='danger' style='font-size:22pt'>You are blinded by a brilliant flash of energy.</span>"
+	to_world("<span class='danger' style='font-size:22pt'>You are blinded by a brilliant flash of energy.</span>")
 
-	world << sound('sound/effects/cascade.ogg')
+	to_world(sound('sound/effects/cascade.ogg'))
 
 	for(var/mob/M in player_list)
 		flick("e_flash", M.flash)

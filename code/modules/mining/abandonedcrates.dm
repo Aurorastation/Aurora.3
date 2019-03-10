@@ -200,7 +200,7 @@
 
 /obj/structure/closet/crate/secure/loot/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	if(locked)
-		if (ismultitool(W)) // Greetings Urist McProfessor, how about a nice game of cows and bulls?
+		if (W.ismultitool()) // Greetings Urist McProfessor, how about a nice game of cows and bulls?
 			user << "<span class='notice'>DECA-CODE LOCK ANALYSIS:</span>"
 			if (attempts == 1)
 				user << "<span class='warning'>* Anti-Tamper system will activate on the next failed access attempt.</span>"

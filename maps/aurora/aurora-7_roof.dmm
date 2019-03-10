@@ -207,13 +207,6 @@
 /obj/machinery/suit_storage_unit/standard_unit,
 /turf/simulated/floor/tiled,
 /area/tcommsat/lounge)
-"aI" = (
-/obj/structure/disposaloutlet{
-	dir = 1
-	},
-/obj/structure/disposalpipe/trunk,
-/turf/simulated/floor/reinforced/airless,
-/area/mine/explored)
 "aJ" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -285,10 +278,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/tcommsat/lounge)
-"aO" = (
-/obj/structure/disposalpipe/segment,
-/turf/simulated/wall/r_wall,
-/area/tcommsat/lounge)
 "aP" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
@@ -309,6 +298,7 @@
 	},
 /obj/structure/lattice/catwalk,
 /obj/structure/cable/blue{
+	d1 = 32;
 	dir = 2;
 	icon_state = "11-1"
 	},
@@ -434,7 +424,6 @@
 	d2 = 8;
 	icon_state = "2-8"
 	},
-/obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled,
 /area/tcommsat/lounge)
 "aZ" = (
@@ -454,7 +443,6 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled,
 /area/tcommsat/lounge)
 "bb" = (
@@ -524,7 +512,6 @@
 	d2 = 4;
 	icon_state = "1-4"
 	},
-/obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled,
 /area/tcommsat/lounge)
 "bk" = (
@@ -619,27 +606,6 @@
 	d2 = 4;
 	icon_state = "2-4"
 	},
-/obj/structure/disposalpipe/segment{
-	dir = 4;
-	icon_state = "pipe-c"
-	},
-/turf/simulated/floor/tiled,
-/area/tcommsat/lounge)
-"bw" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/structure/cable/blue{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
 /turf/simulated/floor/tiled,
 /area/tcommsat/lounge)
 "bx" = (
@@ -655,10 +621,6 @@
 	d1 = 1;
 	d2 = 8;
 	icon_state = "1-8"
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 8;
-	icon_state = "pipe-c"
 	},
 /turf/simulated/floor/tiled,
 /area/tcommsat/lounge)
@@ -811,8 +773,8 @@
 	icon_state = "1-2"
 	},
 /obj/structure/disposalpipe/segment{
-	dir = 8;
-	icon_state = "pipe-c"
+	icon_state = "pipe-c";
+	dir = 2
 	},
 /turf/simulated/floor/tiled,
 /area/tcommsat/lounge)
@@ -1090,6 +1052,7 @@
 	d2 = 8;
 	icon_state = "1-8"
 	},
+/obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled,
 /area/tcommsat/lounge)
 "cr" = (
@@ -1125,7 +1088,11 @@
 /obj/structure/bed/chair{
 	dir = 8
 	},
-/obj/machinery/light,
+/obj/machinery/camera/network/telecom{
+	c_tag = "Telecomms - Dorm";
+	dir = 1;
+	icon_state = "camera"
+	},
 /turf/simulated/floor/tiled,
 /area/tcommsat/lounge)
 "cv" = (
@@ -1172,6 +1139,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
+/obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled,
 /area/tcommsat/lounge)
 "cz" = (
@@ -1281,6 +1249,7 @@
 	dir = 1
 	},
 /obj/structure/cable/blue,
+/obj/structure/disposalpipe/segment,
 /turf/simulated/floor/plating,
 /area/tcommsat/lounge)
 "cJ" = (
@@ -2100,6 +2069,7 @@
 /area/maintenance/solarmaint)
 "eo" = (
 /obj/structure/cable{
+	d1 = 32;
 	d2 = 2;
 	icon_state = "11-2"
 	},
@@ -2898,6 +2868,91 @@
 /obj/effect/floor_decal/industrial/warning/corner{
 	icon_state = "warningcorner";
 	dir = 1
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"hR" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable/blue{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/camera/network/telecom{
+	c_tag = "Telecomms - Lounge";
+	dir = 8;
+	icon_state = "camera"
+	},
+/obj/structure/disposalpipe/segment,
+/turf/simulated/floor/tiled,
+/area/tcommsat/lounge)
+"kE" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"za" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"Aj" = (
+/obj/structure/disposalpipe/segment,
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"AK" = (
+/obj/structure/disposalpipe/segment{
+	dir = 8;
+	icon_state = "pipe-c"
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"FZ" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable/blue{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/camera/network/telecom{
+	c_tag = "Telecomms - Lounge Entrance";
+	dir = 1;
+	icon_state = "camera"
+	},
+/turf/simulated/floor/tiled,
+/area/tcommsat/lounge)
+"IB" = (
+/obj/machinery/light{
+	dir = 4;
+	status = 2
+	},
+/turf/simulated/floor/tiled,
+/area/tcommsat/lounge)
+"Kb" = (
+/obj/random/loot,
+/turf/simulated/floor/asteroid/ash,
+/area/mine/explored)
+"WJ" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/structure/disposaloutlet{
+	icon_state = "outlet";
+	dir = 8
+	},
+/obj/structure/disposalpipe/trunk{
+	dir = 4
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/mine/explored)
@@ -4528,11 +4583,11 @@ aa
 aa
 aa
 aa
-ac
-ac
-ac
-ac
-ac
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -4783,13 +4838,13 @@ aa
 aa
 aa
 aa
-ab
-ac
-ac
-ac
-ab
-ac
-ac
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -5038,14 +5093,14 @@ aa
 aa
 aa
 aa
-ab
-ab
-ab
-ab
-ac
-ac
-ab
-ac
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -5295,13 +5350,13 @@ aa
 aa
 aa
 aa
-ab
-ab
-ab
-ab
-ab
-ab
-ab
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -5554,11 +5609,11 @@ aa
 ab
 ab
 ab
-ab
-ab
-ab
-ab
-ab
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -5809,14 +5864,14 @@ aa
 aa
 ab
 ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
 ac
+ab
+ab
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -6065,15 +6120,15 @@ aa
 aa
 ab
 ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
 ac
+ac
+ac
+ab
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -6322,15 +6377,15 @@ aa
 aa
 ab
 ab
+ac
+ac
+ac
+ac
 ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -6580,14 +6635,14 @@ ab
 ab
 ab
 ab
+ac
+ac
+ac
 ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -6838,14 +6893,14 @@ ab
 ab
 ab
 ab
+ac
+ac
 ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -7098,11 +7153,11 @@ ab
 ab
 ab
 ab
-ab
-ab
-ab
-ab
-ac
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -7358,8 +7413,8 @@ ab
 ab
 ab
 ab
-ab
-ab
+aa
+aa
 aa
 aa
 aa
@@ -7617,7 +7672,7 @@ ab
 ab
 ab
 ab
-ab
+aa
 aa
 aa
 aa
@@ -10678,7 +10733,7 @@ aa
 aa
 aa
 aa
-ac
+aa
 ac
 ac
 ac
@@ -10935,9 +10990,9 @@ aa
 aa
 aa
 aa
-ac
-ac
-ac
+aa
+aa
+aa
 ac
 ac
 ac
@@ -11192,17 +11247,17 @@ aa
 aa
 aa
 aa
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ab
-ab
-ab
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 ab
@@ -11451,9 +11506,9 @@ aa
 aa
 aa
 aa
-ac
-ac
-ac
+aa
+aa
+aa
 aa
 aa
 aa
@@ -13027,13 +13082,13 @@ bC
 bK
 bU
 bZ
-as
+IB
 aU
 cv
 ap
 ag
 fs
-ag
+WJ
 fe
 ah
 ah
@@ -13290,7 +13345,7 @@ ap
 ap
 cP
 ah
-ah
+kE
 ah
 ah
 ah
@@ -13547,7 +13602,7 @@ cw
 cG
 ah
 ah
-ah
+kE
 ah
 ah
 ah
@@ -13804,7 +13859,7 @@ cx
 cH
 ah
 ah
-ah
+kE
 ah
 ah
 ah
@@ -14061,7 +14116,7 @@ cx
 cH
 ah
 ah
-ah
+kE
 ah
 ah
 ah
@@ -14304,7 +14359,7 @@ au
 fb
 as
 as
-aU
+FZ
 ap
 bh
 bu
@@ -14318,7 +14373,7 @@ cx
 cH
 ah
 ah
-ah
+kE
 ah
 ah
 ah
@@ -14565,17 +14620,17 @@ aV
 ap
 as
 bv
-bE
+bV
 bO
-bV
-bV
-bV
+hR
+bE
+bE
 cq
 cy
 cI
-ah
-ah
-ah
+Aj
+Aj
+AK
 ah
 ah
 ah
@@ -14821,7 +14876,7 @@ ap
 aW
 ap
 as
-bw
+aU
 as
 as
 ap
@@ -15078,7 +15133,7 @@ ap
 aX
 ap
 bi
-bw
+aU
 as
 bP
 ap
@@ -15329,9 +15384,9 @@ ah
 ah
 ah
 ah
-an
-aI
-aO
+ah
+ah
+ap
 aY
 ba
 bj
@@ -16652,10 +16707,10 @@ ab
 ab
 ac
 ac
-ac
-ac
-ac
-ac
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -16910,9 +16965,9 @@ ab
 ac
 ac
 ac
-ac
-ac
-ac
+aa
+aa
+aa
 aa
 aa
 aa
@@ -17169,7 +17224,7 @@ ac
 ac
 ac
 ac
-ac
+aa
 aa
 aa
 aa
@@ -18700,7 +18755,7 @@ ab
 ac
 ac
 ac
-ab
+Kb
 ab
 ab
 ab
@@ -19473,7 +19528,7 @@ ac
 ac
 ac
 ab
-ab
+Kb
 ac
 ac
 ac
@@ -45451,10 +45506,10 @@ aa
 aa
 dp
 aa
-aa
-aa
-aa
-aa
+za
+ag
+ag
+aw
 aa
 aa
 aa
@@ -45708,10 +45763,10 @@ aa
 aa
 dp
 aa
-aa
-aa
-aa
-aa
+ae
+ah
+ah
+al
 aa
 aa
 aa
@@ -45965,10 +46020,10 @@ aa
 dp
 dp
 dp
-aa
-aa
-aa
-aa
+ae
+ah
+ah
+al
 aa
 aa
 aa
@@ -46222,10 +46277,10 @@ ag
 ag
 ag
 ag
-ag
-ag
-aw
-aa
+fe
+ah
+fg
+am
 aa
 aa
 aa
