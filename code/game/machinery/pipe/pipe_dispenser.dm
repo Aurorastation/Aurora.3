@@ -101,14 +101,14 @@
 /obj/machinery/pipedispenser/attackby(var/obj/item/W as obj, var/mob/user as mob)
 	src.add_fingerprint(usr)
 	if (istype(W, /obj/item/pipe) || istype(W, /obj/item/pipe_meter))
-		usr << "<span class='notice'>You put [W] back to [src].</span>"
+		to_chat(usr, "<span class='notice'>You put [W] back to [src].</span>")
 		user.drop_from_inventory(W,get_turf(src))
 		qdel(W)
 		return
 	else if (W.iswrench())
 		if (unwrenched==0)
 			playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
-			user << "<span class='notice'>You begin to unfasten \the [src] from the floor...</span>"
+			to_chat(user, "<span class='notice'>You begin to unfasten \the [src] from the floor...</span>")
 			if (do_after(user, 40))
 				user.visible_message( \
 					"<span class='notice'>[user] unfastens \the [src].</span>", \
@@ -121,7 +121,7 @@
 					usr << browse(null, "window=pipedispenser")
 		else /*if (unwrenched==1)*/
 			playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
-			user << "<span class='notice'>You begin to fasten \the [src] to the floor...</span>"
+			to_chat(user, "<span class='notice'>You begin to fasten \the [src] to the floor...</span>")
 			if (do_after(user, 20))
 				user.visible_message( \
 					"<span class='notice'>[user] fastens \the [src].</span>", \
