@@ -17,6 +17,8 @@
 	var/recalculating = FALSE
 
 /datum/beam/New(beam_origin,beam_target,beam_icon='icons/effects/beam.dmi',beam_icon_state="b_beam",time=50,maxdistance=10,btype = /obj/effect/ebeam,beam_sleep_time=3)
+	if(time >= INFINITY)
+		qdel(src)
 	origin = beam_origin
 	origin_oldloc =	get_turf(origin)
 	target = beam_target
@@ -29,8 +31,7 @@
 	icon = beam_icon
 	icon_state = beam_icon_state
 	beam_type = btype
-	if(time < INFINITY)
-		addtimer(CALLBACK(src,.proc/End), time)
+	addtimer(CALLBACK(src,.proc/End), time)
 
 /datum/beam/proc/Start()
 	Draw()
