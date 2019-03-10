@@ -179,9 +179,6 @@
 				positions["misc"] = list()
 			positions["misc"][name] = rank
 
-	// for(var/k in positions)
-	//	 positions[k] = list2params(positions[k]) // converts positions["heads"] = list("Bob"="Captain", "Bill"="CMO") into positions["heads"] = "Bob=Captain&Bill=CMO"
-
 	statuscode = 200
 	response = "Manifest fetched"
 	data = positions

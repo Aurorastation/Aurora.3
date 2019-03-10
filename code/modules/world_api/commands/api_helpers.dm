@@ -88,32 +88,9 @@
 		response = "DB Connection Unavailable"
 		return TRUE
 
-	var/DBQuery/permquery = dbcon.NewQuery({"SELECT api_f.command
-	FROM ss13_api_token_command as api_t_f, ss13_api_tokens as api_t, ss13_api_commands as api_f
-	WHERE api_t.id = api_t_f.token_id AND api_f.id = api_t_f.command_id
-	AND	api_t.deleted_at IS NULL
-	AND (
-	(token = :token: AND ip = :ip: AND command = :command:)
-	OR
-	(token = :token: AND ip IS NULL AND command = :command:)
-	OR
-	(token = :token: AND ip = :ip: AND command = \"_ANY\")
-	OR
-	(token = :token: AND ip IS NULL AND command = \"_ANY\")
-	OR
-	(token IS NULL AND ip IS NULL AND command = :command:)
-	)"})
-	//Get the tokens and the associated commands
-	//Check if the token, the ip and the command matches OR
-	// the token + command matches and the ip is NULL (commands that can be used by any ip, but require a token)
-	// the token + ip matches and the command is NULL (Allow a specific ip with a specific token to use all commands)
-	// the token + ip is NULL and the command matches (Allow a specific command to be used without auth)
-
-	permquery.Execute(list("token" = queryparams["auth"], "ip" = queryparams["addr"], "command" = queryparams["command"]))
-
-	if (!permquery.RowCount())
+	if (apicommand.check_auth(queryparams["addr"], queryparams["auth"], TRUE))
 		statuscode = 401
-		response = "Unauthorized - To access this command"
+		response = "Not Authorized - You are not authorized to use the requested command."
 		return TRUE
 
 	commanddata["name"] = apicommand.name
@@ -131,11 +108,32 @@
 	description = "Updates the available topic commands in the database"
 
 /datum/topic_command/update_command_database/run_command(queryparams)
-	api_update_command_database()
+	if (!api_update_command_database())
+		statuscode = 500
+		return TRUE
+	else
+		statuscode = 200
+		return TRUE
 
-	statuscode = 200
-	response = "Database Updated"
-	return TRUE
+/datum/topic_command/update_command_database/proc/api_update_command_database()
+	log_debug("API: DB Command Update Called")
+	//Check if DB Connection is established
+	if (!establish_db_connection(dbcon))
+		response = "Database connection lost, cannot update commands."
+		return FALSE //Error
+
+	var/DBQuery/commandinsertquery = dbcon.NewQuery({"INSERT INTO ss13_api_commands (command,description)
+	VALUES (:command_name:,:command_description:)
+	ON DUPLICATE KEY UPDATE description = :command_description:;"})
+
+	for(var/com in topic_commands)
+		var/datum/topic_command/command = topic_commands[com]
+		commandinsertquery.Execute(list("command_name" = command.name, "command_description" = command.description))
+
+	log_debug("API: DB Command Update Executed")
+
+	response = "Commands successfully updated."
+	return TRUE //OK
 
 //Ping Test
 /datum/topic_command/ping
