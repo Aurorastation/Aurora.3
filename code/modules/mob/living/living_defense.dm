@@ -289,9 +289,6 @@
 	return
 
 /mob/living/proc/adjust_fire_stacks(var/add_fire_stacks)
-	if(!fire_stacks)
-		fire_stacks = 0
-
 	fire_stacks = Clamp(fire_stacks + add_fire_stacks, FIRE_MIN_STACKS, FIRE_MAX_STACKS)
 
 	return fire_stacks

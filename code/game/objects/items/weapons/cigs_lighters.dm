@@ -590,7 +590,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	if(location)
 		location.hotspot_expose(700, 5)
 
-	if(lit && prob(10) && istype(src.loc,/mob/living/))
+	if(lit && prob(10) && isliving(src.loc))
 		var/mob/living/M = src.loc
 		if(M.IgniteMob())
 			M.visible_message(span("danger","\The [M] is ignited by \the [src]!"))
