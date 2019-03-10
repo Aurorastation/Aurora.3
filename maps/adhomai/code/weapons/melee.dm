@@ -65,7 +65,10 @@
 	// All good, turn it on.
 /obj/item/device/flashlight/flare/torch/proc/light(var/mob/user)
 	user.visible_message("<span class='notice'>[user] lights \the [src].</span>", "<span class='notice'>You light \the [src]!</span>")
+	on = TRUE
 	force = on_damage
 	damtype = "fire"
 	update_icon()
+	user.update_inv_l_hand()
+	user.update_inv_r_hand()
 	START_PROCESSING(SSprocessing, src)
