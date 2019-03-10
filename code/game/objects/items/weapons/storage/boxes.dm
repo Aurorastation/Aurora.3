@@ -71,9 +71,9 @@
 	..()
 	if (health < maxHealth)
 		if (health >= (maxHealth * 0.5))
-			user << span("warning", "It is slightly torn.")
+			to_chat(user, span("warning", "It is slightly torn."))
 		else
-			user << span("danger", "It is full of tears and holes.")
+			to_chat(user, span("danger", "It is full of tears and holes."))
 
 // BubbleWrap - A box can be folded up to make card
 /obj/item/weapon/storage/box/attack_self(mob/user as mob)
@@ -95,7 +95,7 @@
 	if ( !found )	// User is too far away
 		return
 	// Now make the cardboard
-	user << "<span class='notice'>You fold [src] flat.</span>"
+	to_chat(user, "<span class='notice'>You fold [src] flat.</span>")
 	new src.foldable(get_turf(src))
 	qdel(src)
 

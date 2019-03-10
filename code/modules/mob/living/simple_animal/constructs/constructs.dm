@@ -75,9 +75,9 @@
 				user.visible_message("<span class='notice'>\The [user] mends some of \the [src]'s wounds.</span>")
 			else
 				if (health < maxHealth)
-					user << "<span class='notice'>Healing \the [src] any further is beyond your abilities.</span>"
+					to_chat(user, "<span class='notice'>Healing \the [src] any further is beyond your abilities.</span>")
 				else
-					user << "<span class='notice'>\The [src] is undamaged.</span>"
+					to_chat(user, "<span class='notice'>\The [src] is undamaged.</span>")
 			return
 	return ..()
 
@@ -93,7 +93,7 @@
 		msg += "</span>"
 	msg += "*---------*</span>"
 
-	user << msg
+	to_chat(user, msg)
 
 /mob/living/simple_animal/construct/UnarmedAttack(var/atom/A, var/proximity)
 	if(istype(A, /obj/effect/rune))
