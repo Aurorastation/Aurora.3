@@ -7,6 +7,7 @@
 	icon_living = "dweller"
 	icon_dead = "dweller_dead"
 	ranged = 1
+	smart = TRUE
 	turns_per_move = 3
 	response_help = "pets"
 	response_disarm = "gently pushes aside"
@@ -77,6 +78,7 @@
 	maxHealth = 60
 	harm_intent_damage = 5
 	ranged = 1
+	smart = TRUE
 	melee_damage_lower = 0
 	melee_damage_upper = 0
 	attacktext = "barrels into"
