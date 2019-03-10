@@ -207,7 +207,7 @@
 		return 0
 
 	var/obj/item/rig_assembly/r = holder
-	if(!r)
+	if(!istype(r))
 		return 0
 
 	switch(index)
@@ -328,7 +328,7 @@
 		return 0
 
 	var/obj/item/rig_assembly/r = holder
-	if(!r)
+	if(!istype(r))
 		return 0
 
 	switch(index)
