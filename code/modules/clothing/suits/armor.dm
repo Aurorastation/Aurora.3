@@ -235,11 +235,11 @@
 /obj/item/clothing/suit/armor/reactive/attack_self(mob/user as mob)
 	src.active = !( src.active )
 	if (src.active)
-		user << "<span class='notice'>The reactive armor is now active.</span>"
+		to_chat(user, "<span class='notice'>The reactive armor is now active.</span>")
 		src.icon_state = "reactive"
 		src.item_state = "reactive"
 	else
-		user << "<span class='notice'>The reactive armor is now inactive.</span>"
+		to_chat(user, "<span class='notice'>The reactive armor is now inactive.</span>")
 		src.icon_state = "reactiveoff"
 		src.item_state = "reactiveoff"
 		src.add_fingerprint(user)
@@ -292,17 +292,17 @@
 		if(!holster.holstered)
 			var/obj/item/W = usr.get_active_hand()
 			if(!istype(W, /obj/item))
-				usr << "<span class='warning'>You need your gun equiped to holster it.</span>"
+				to_chat(usr, "<span class='warning'>You need your gun equiped to holster it.</span>")
 				return
 			holster.holster(W, usr)
 		else
-			usr << "<span class='warning'>There's already a gun in the holster, you need an empty hand to draw it.</span>"
+			to_chat(usr, "<span class='warning'>There's already a gun in the holster, you need an empty hand to draw it.</span>")
 			return
 	else
 		if(holster.holstered)
 			holster.unholster(usr)
 		else
-			usr << "<span class='warning'>There's no gun in the holster to draw.</span>"
+			to_chat(usr, "<span class='warning'>There's no gun in the holster to draw.</span>")
 
 
 //Non-hardsuit ERT armor.

@@ -37,7 +37,7 @@
 				)
 			attack_mob(L)
 			originator.eating = 1
-			L << "<span class='danger'>\The [src] begins digesting your upper body!</span>"
+			to_chat(L, "<span class='danger'>\The [src] begins digesting your upper body!</span>")
 			addtimer(CALLBACK(src, .proc/devour, L), 50 SECONDS)
 	..()
 
@@ -295,10 +295,10 @@
 		if(L != src)
 			L.apply_damage(15,BRUTE)
 			possible_targets += L
-			L << "<span class='danger'>\The [src] wraps around you tightly with its spiny teeth+!</span>"
+			to_chat(L, "<span class='danger'>\The [src] wraps around you tightly with its spiny teeth+!</span>")
 	if(Adjacent(originator) && possible_targets.len)
 		var/mob/living/L = pick(possible_targets)
-		L << "<span class='danger'>\The [src] flings you into \the [originator]'s maw!</span>"
+		to_chat(L, "<span class='danger'>\The [src] flings you into \the [originator]'s maw!</span>")
 		L.Move(originator.loc)
 
 /mob/living/simple_animal/hostile/lesserworm/Move()
@@ -400,7 +400,7 @@
 			var/madhouse = pick("psilocybin","mindbreaker","impedrezene","cryptobiolin","stoxin","mutagen")
 			var/madhouse_verbal_component = pick(thoughts)
 			L.reagents.add_reagent("[madhouse]", 3)
-			L << "<span class='alium'><b><i>[madhouse_verbal_component]</i></b></span>"
+			to_chat(L, "<span class='alium'><b><i>[madhouse_verbal_component]</i></b></span>")
 
 /obj/structure/greatworm
 	name = "great worm rectum"

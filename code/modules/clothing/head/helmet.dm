@@ -23,7 +23,7 @@
 
 	if(allow_hair_covering)
 		flags_inv ^= BLOCKHEADHAIR
-		usr << "<span class='notice'>[src] will now [flags_inv & BLOCKHEADHAIR ? "hide" : "show"] hair.</span>"
+		to_chat(usr, "<span class='notice'>[src] will now [flags_inv & BLOCKHEADHAIR ? "hide" : "show"] hair.</span>")
 	..()
 
 /obj/item/clothing/head/helmet/warden
@@ -77,11 +77,11 @@
 
 	if(src.icon_state == initial(icon_state))
 		src.icon_state = "[icon_state]-up"
-		user << "You raise the visor on \the [src]."
+		to_chat(user, "You raise the visor on \the [src].")
 		body_parts_covered = HEAD
 	else
 		src.icon_state = initial(icon_state)
-		user << "You lower the visor on \the [src]."
+		to_chat(user, "You lower the visor on \the [src].")
 		body_parts_covered = HEAD|FACE|EYES
 	update_clothing_icon()
 
@@ -129,11 +129,11 @@
 
 	if(src.icon_state == initial(icon_state))
 		src.icon_state = "[icon_state]-up"
-		user << "You raise the visor on \the [src]."
+		to_chat(user, "You raise the visor on \the [src].")
 		body_parts_covered = HEAD
 	else
 		src.icon_state = initial(icon_state)
-		user << "You lower the visor on \the [src]."
+		to_chat(user, "You lower the visor on \the [src].")
 		body_parts_covered = HEAD|FACE|EYES
 	update_clothing_icon()
 

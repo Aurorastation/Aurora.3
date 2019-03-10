@@ -13,13 +13,13 @@ var/ert_type = "NanoTrasen Response Team" //what ert type will be deployed
 	set desc = "Send an emergency response team to the station"
 
 	if(!holder)
-		usr << "<span class='danger'>Only administrators may use this command.</span>"
+		to_chat(usr, "<span class='danger'>Only administrators may use this command.</span>")
 		return
 	if(!ROUND_IS_STARTED)
-		usr << "<span class='danger'>The round hasn't started yet!</span>"
+		to_chat(usr, "<span class='danger'>The round hasn't started yet!</span>")
 		return
 	if(send_emergency_team)
-		usr << "<span class='danger'>[current_map.boss_name] has already dispatched an emergency response team!</span>"
+		to_chat(usr, "<span class='danger'>[current_map.boss_name] has already dispatched an emergency response team!</span>")
 		return
 	if(alert("Do you want to dispatch an Emergency Response Team?",,"Yes","No") != "Yes")
 		return
@@ -34,7 +34,7 @@ var/ert_type = "NanoTrasen Response Team" //what ert type will be deployed
 		ert_type = choice
 
 	if(send_emergency_team)
-		usr << "<span class='danger'>Looks like somebody beat you to it!</span>"
+		to_chat(usr, "<span class='danger'>Looks like somebody beat you to it!</span>")
 		return
 
 	message_admins("[key_name_admin(usr)] is dispatching an Emergency Response Team.", 1)
@@ -47,36 +47,36 @@ client/verb/JoinResponseTeam()
 	set category = "IC"
 
 	if(!MayRespawn(1))
-		usr << "<span class='warning'>You cannot join the response team at this time.</span>"
+		to_chat(usr, "<span class='warning'>You cannot join the response team at this time.</span>")
 		return
 
 	if(istype(usr,/mob/abstract/observer) || istype(usr,/mob/abstract/new_player))
 
 		if(!send_emergency_team)
-			usr << "No emergency response team is currently being sent."
+			to_chat(usr, "No emergency response team is currently being sent.")
 			return
 
 		if(jobban_isbanned(usr, "Antagonist") || jobban_isbanned(usr, "Emergency Response Team") || jobban_isbanned(usr, "Security Officer"))
-			usr << "<span class='danger'>You are jobbanned from the emergency reponse team!</span>"
+			to_chat(usr, "<span class='danger'>You are jobbanned from the emergency reponse team!</span>")
 			return
 
 		switch(ert_type)
 
 			if("Tau Ceti Foreign Legion")
 				if(legion.current_antagonists.len >= legion.hard_cap)
-					usr << "The emergency response team is already full!"
+					to_chat(usr, "The emergency response team is already full!")
 					return
 
 				legion.create_default(usr)
 
 			else
 				if(ert.current_antagonists.len >= ert.hard_cap)
-					usr << "The emergency response team is already full!"
+					to_chat(usr, "The emergency response team is already full!")
 					return
 
 				ert.create_default(usr)
 	else
-		usr << "You need to be an observer or new player to use this."
+		to_chat(usr, "You need to be an observer or new player to use this.")
 
 // returns a number of dead players in %
 proc/percentage_dead()
