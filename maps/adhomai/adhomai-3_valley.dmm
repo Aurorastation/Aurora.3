@@ -4,7 +4,7 @@
 /area/adhomai)
 "ab" = (
 /turf/simulated/wall/iron,
-/area/adhomai)
+/area/adhomai/village/foundry)
 "ac" = (
 /obj/structure/bed/chair/wood,
 /obj/effect/landmark/start{
@@ -81,16 +81,8 @@
 /turf/simulated/floor/tiled/white,
 /area/adhomai/village)
 "ao" = (
-/obj/effect/floor_decal/industrial/loading{
-	icon_state = "loadingarea";
-	dir = 8
-	},
-/obj/machinery/mineral/stacking_unit_console{
-	pixel_y = 32
-	},
-/obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/tiled,
-/area/adhomai)
+/turf/simulated/floor/tiled/steel,
+/area/adhomai/village/foundry)
 "ap" = (
 /turf/simulated/wall/wood,
 /area/adhomai)
@@ -116,8 +108,16 @@
 	},
 /area/adhomai/village)
 "as" = (
-/turf/simulated/floor/wood,
-/area/adhomai)
+/obj/effect/floor_decal/industrial/loading{
+	icon_state = "loadingarea";
+	dir = 8
+	},
+/obj/machinery/mineral/stacking_unit_console{
+	pixel_y = 32
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled,
+/area/adhomai/village/foundry)
 "at" = (
 /obj/structure/bed,
 /obj/item/weapon/bedsheet,
@@ -151,7 +151,7 @@
 /obj/machinery/door/firedoor,
 /obj/structure/plasticflaps,
 /turf/simulated/floor/plating,
-/area/adhomai)
+/area/adhomai/village/foundry)
 "ay" = (
 /obj/machinery/shower{
 	icon_state = "shower";
@@ -165,8 +165,9 @@
 /turf/simulated/floor/wood,
 /area/adhomai/village)
 "aA" = (
-/turf/simulated/floor/tiled/steel,
-/area/adhomai)
+/obj/machinery/mineral/stacking_machine,
+/turf/simulated/floor/plating,
+/area/adhomai/village/foundry)
 "aB" = (
 /obj/structure/bed/chair/wood{
 	icon_state = "wooden_chair";
@@ -215,26 +216,22 @@
 /turf/simulated/floor/tiled/dark,
 /area/adhomai/fortress)
 "aK" = (
-/obj/machinery/mineral/stacking_machine,
-/turf/simulated/floor/plating,
-/area/adhomai)
-"aL" = (
 /obj/machinery/conveyor{
 	dir = 8;
 	id = "mining_internal"
 	},
 /obj/machinery/mineral/input,
 /turf/simulated/floor/plating,
-/area/adhomai)
-"aM" = (
+/area/adhomai/village/foundry)
+"aL" = (
 /obj/machinery/conveyor{
 	dir = 8;
 	id = "mining_internal"
 	},
 /obj/machinery/light/small/emergency,
 /turf/simulated/floor/plating,
-/area/adhomai)
-"aN" = (
+/area/adhomai/village/foundry)
+"aM" = (
 /obj/machinery/conveyor{
 	dir = 9;
 	icon_state = "conveyor0";
@@ -242,8 +239,8 @@
 	reversed = 1
 	},
 /turf/simulated/floor/plating,
-/area/adhomai)
-"aO" = (
+/area/adhomai/village/foundry)
+"aN" = (
 /obj/machinery/mineral/stacking_unit_console{
 	pixel_y = -32
 	},
@@ -254,8 +251,8 @@
 	},
 /obj/machinery/light/small,
 /turf/simulated/floor/tiled,
-/area/adhomai)
-"aP" = (
+/area/adhomai/village/foundry)
+"aO" = (
 /obj/machinery/mineral/output,
 /obj/machinery/conveyor{
 	dir = 9;
@@ -264,15 +261,18 @@
 	reversed = 1
 	},
 /turf/simulated/floor/plating,
-/area/adhomai)
-"aQ" = (
+/area/adhomai/village/foundry)
+"aP" = (
 /obj/machinery/conveyor{
 	dir = 1;
 	id = "mining_internal"
 	},
 /obj/machinery/mineral/output,
 /turf/simulated/floor/plating,
-/area/adhomai)
+/area/adhomai/village/foundry)
+"aQ" = (
+/turf/simulated/floor/wood,
+/area/adhomai/village/foundry)
 "aR" = (
 /turf/simulated/floor/asteroid/ash{
 	icon_state = "rockyash"
@@ -297,23 +297,27 @@
 /turf/simulated/floor/tiled/white,
 /area/adhomai/village/bar)
 "aU" = (
-/obj/structure/table/wood,
-/turf/simulated/floor/wood,
-/area/adhomai)
-"aV" = (
 /obj/structure/bed/chair/office/light,
 /obj/machinery/light/small/emergency{
 	dir = 1;
 	status = 2
 	},
 /turf/simulated/floor/wood,
-/area/adhomai)
+/area/adhomai/village/foundry)
+"aV" = (
+/obj/structure/table/wood,
+/turf/simulated/floor/wood,
+/area/adhomai/village/foundry)
 "aW" = (
 /obj/effect/floor_decal/carpet,
 /obj/structure/flora/pottedplant/random,
 /obj/machinery/light/small,
 /turf/simulated/floor/carpet,
 /area/adhomai/village)
+"aX" = (
+/obj/item/weapon/shovel,
+/turf/simulated/floor/asteroid/ash,
+/area/adhomai)
 "aY" = (
 /obj/structure/table/glass,
 /turf/simulated/floor/carpet/blue,
@@ -362,11 +366,11 @@
 	dir = 6
 	},
 /turf/simulated/floor/tiled/steel,
-/area/adhomai)
+/area/adhomai/village/foundry)
 "bh" = (
 /obj/machinery/mineral/processing_unit,
 /turf/simulated/floor/plating,
-/area/adhomai)
+/area/adhomai/village/foundry)
 "bi" = (
 /obj/structure/closet/crate/freezer,
 /obj/item/weapon/reagent_containers/food/drinks/cans/adhomai_milk,
@@ -384,13 +388,10 @@
 /turf/simulated/floor/tiled,
 /area/adhomai/village)
 "bk" = (
-/obj/machinery/mineral/input,
-/obj/machinery/conveyor{
-	dir = 1;
-	id = "mining_internal"
-	},
-/turf/simulated/floor/plating,
-/area/adhomai)
+/obj/structure/table/wood,
+/obj/item/device/flashlight/lamp,
+/turf/simulated/floor/wood,
+/area/adhomai/village/foundry)
 "bl" = (
 /obj/structure/closet/crate/freezer,
 /obj/item/weapon/reagent_containers/food/snacks/meat/adhomai,
@@ -412,6 +413,18 @@
 /turf/simulated/floor/tiled/white,
 /area/adhomai/village/bar)
 "bn" = (
+/obj/structure/closet/crate,
+/turf/simulated/floor/tiled/steel,
+/area/adhomai/village/foundry)
+"bo" = (
+/obj/machinery/mineral/input,
+/obj/machinery/conveyor{
+	dir = 1;
+	id = "mining_internal"
+	},
+/turf/simulated/floor/plating,
+/area/adhomai/village/foundry)
+"bp" = (
 /obj/machinery/conveyor{
 	dir = 1;
 	id = "mining_internal"
@@ -420,34 +433,21 @@
 /obj/machinery/door/firedoor,
 /obj/structure/plasticflaps,
 /turf/simulated/floor/plating,
-/area/adhomai)
-"bo" = (
+/area/adhomai/village/foundry)
+"bq" = (
 /obj/structure/simple_door/iron,
 /turf/simulated/floor/tiled/steel,
-/area/adhomai)
-"bp" = (
-/obj/structure/closet/crate,
-/obj/machinery/light/small{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/steel,
-/area/adhomai)
-"bq" = (
+/area/adhomai/village/foundry)
+"br" = (
+/obj/structure/simple_door/iron,
+/turf/simulated/floor/wood,
+/area/adhomai/village/foundry)
+"bs" = (
 /obj/machinery/mineral/unloading_machine,
 /turf/simulated/floor/plating,
-/area/adhomai)
-"br" = (
-/obj/machinery/light/small,
-/turf/simulated/floor/tiled/steel,
-/area/adhomai)
-"bs" = (
-/obj/machinery/mineral/input,
-/obj/effect/floor_decal/industrial/loading{
-	icon_state = "loadingarea";
-	dir = 1
-	},
-/obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/tiled/steel,
+/area/adhomai/village/foundry)
+"bt" = (
+/turf/simulated/open,
 /area/adhomai)
 "bu" = (
 /obj/structure/simple_door/wood{
@@ -471,19 +471,18 @@
 /obj/item/device/flashlight/lantern,
 /obj/structure/table/wood,
 /turf/simulated/floor/tiled/steel,
-/area/adhomai)
+/area/adhomai/village/foundry)
 "by" = (
-/obj/structure/table/wood,
-/obj/item/weapon/pickaxe,
-/obj/item/weapon/pickaxe,
+/obj/structure/closet/crate,
+/obj/machinery/light/small{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/steel,
-/area/adhomai)
+/area/adhomai/village/foundry)
 "bz" = (
 /obj/structure/table/wood,
-/obj/item/weapon/storage/bag/ore,
-/obj/item/weapon/storage/bag/ore,
 /turf/simulated/floor/tiled/steel,
-/area/adhomai)
+/area/adhomai/village/foundry)
 "bA" = (
 /obj/structure/closet/cabinet,
 /obj/item/weapon/material/sword/sabre,
@@ -620,9 +619,10 @@
 /area/space)
 "bW" = (
 /obj/structure/table/wood,
-/obj/item/device/flashlight/lamp,
-/turf/simulated/floor/wood,
-/area/adhomai)
+/obj/item/weapon/pickaxe,
+/obj/item/weapon/pickaxe,
+/turf/simulated/floor/tiled/steel,
+/area/adhomai/village/foundry)
 "bX" = (
 /obj/machinery/light/small{
 	dir = 8
@@ -650,14 +650,26 @@
 /turf/simulated/floor/wood,
 /area/adhomai/village)
 "cb" = (
-/obj/structure/closet/crate,
-/turf/simulated/floor/tiled/steel,
-/area/adhomai)
+/obj/machinery/conveyor_switch/oneway{
+	id = "mining_internal";
+	name = "mining conveyor"
+	},
+/turf/simulated/floor/tiled,
+/area/adhomai/village/foundry)
 "cc" = (
 /obj/structure/table/wood,
 /obj/item/weapon/reagent_containers/food/drinks/bottle/messa_mead,
 /turf/simulated/floor/wood,
 /area/adhomai/village)
+"cd" = (
+/obj/machinery/mineral/input,
+/obj/effect/floor_decal/industrial/loading{
+	icon_state = "loadingarea";
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/steel,
+/area/adhomai/village/foundry)
 "ce" = (
 /obj/machinery/light/small,
 /turf/simulated/floor/carpet/blue,
@@ -744,16 +756,9 @@
 /turf/simulated/floor/wood,
 /area/adhomai/village/police)
 "ct" = (
-/obj/machinery/light/small{
-	brightness_color = "#DA0205";
-	brightness_power = 1;
-	brightness_range = 5;
-	dir = 5
-	},
-/obj/structure/table/wood,
-/obj/item/weapon/material/hatchet/butch,
-/turf/simulated/floor/wood,
-/area/adhomai/village)
+/obj/machinery/light/small,
+/turf/simulated/floor/snow,
+/area/adhomai)
 "cu" = (
 /obj/structure/bed/padded,
 /obj/item/weapon/bedsheet/brown,
@@ -815,6 +820,12 @@
 	},
 /turf/simulated/floor/wood,
 /area/adhomai/village)
+"cG" = (
+/obj/effect/landmark/start{
+	name = "Miner"
+	},
+/turf/simulated/floor/tiled/steel,
+/area/adhomai/village/foundry)
 "cH" = (
 /obj/structure/table/steel,
 /obj/machinery/light/small{
@@ -1131,14 +1142,20 @@
 /obj/structure/ore_box,
 /turf/simulated/floor/asteroid/ash,
 /area/adhomai)
+"dG" = (
+/obj/structure/table/wood,
+/obj/item/weapon/storage/bag/ore,
+/obj/item/weapon/storage/bag/ore,
+/turf/simulated/floor/tiled/steel,
+/area/adhomai/village/foundry)
 "dH" = (
+/obj/machinery/light/small,
+/turf/simulated/floor/tiled/steel,
+/area/adhomai/village/foundry)
+"dI" = (
 /obj/structure/ore_box,
 /turf/simulated/floor/tiled/steel,
-/area/adhomai)
-"dI" = (
-/obj/structure/closet/crate/trashcart,
-/turf/simulated/floor/tiled/steel,
-/area/adhomai)
+/area/adhomai/village/foundry)
 "dJ" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/table/steel,
@@ -1238,8 +1255,8 @@
 /turf/simulated/floor/wood,
 /area/adhomai/village)
 "dY" = (
-/obj/random/toolbox,
 /obj/structure/table/wood,
+/obj/item/weapon/crowbar,
 /turf/simulated/floor/tiled/dark,
 /area/adhomai/fortress)
 "dZ" = (
@@ -1252,6 +1269,10 @@
 /obj/item/weapon/reagent_containers/glass/rag,
 /turf/simulated/floor/tiled/white,
 /area/adhomai/village/medical)
+"eb" = (
+/obj/structure/closet/crate/trashcart,
+/turf/simulated/floor/tiled/steel,
+/area/adhomai/village/foundry)
 "ec" = (
 /obj/machinery/portable_atmospherics/hydroponics/soil,
 /obj/machinery/light{
@@ -1272,6 +1293,7 @@
 /area/adhomai/village/police)
 "ef" = (
 /obj/structure/closet/cabinet,
+/obj/item/weapon/storage/box/shotgunshells,
 /obj/item/weapon/storage/box/shotgunshells,
 /obj/item/weapon/gun/projectile/shotgun/doublebarrel/pellet,
 /obj/item/weapon/storage/belt/bandolier,
@@ -1304,6 +1326,12 @@
 "ej" = (
 /turf/simulated/floor/plating,
 /area/adhomai/village/police)
+"ek" = (
+/obj/structure/table/wood,
+/obj/item/weapon/ladder_mobile,
+/obj/item/weapon/ladder_mobile,
+/turf/simulated/floor/tiled/steel,
+/area/adhomai/village/foundry)
 "el" = (
 /obj/structure/bed,
 /turf/simulated/floor/plating,
@@ -1327,9 +1355,10 @@
 /turf/simulated/floor/snow,
 /area/adhomai)
 "ep" = (
-/obj/structure/simple_door/iron,
-/turf/simulated/floor/wood,
-/area/adhomai)
+/obj/structure/table/wood,
+/obj/item/hoist_kit,
+/turf/simulated/floor/tiled/steel,
+/area/adhomai/village/foundry)
 "eq" = (
 /obj/structure/table/wood,
 /obj/item/weapon/wirecutters/clippers,
@@ -1598,6 +1627,12 @@
 /obj/structure/table/wood,
 /turf/simulated/floor/tiled/dark,
 /area/adhomai/fortress)
+"fl" = (
+/obj/structure/table/wood,
+/obj/item/weapon/pickaxe,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/steel,
+/area/adhomai/village/foundry)
 "fm" = (
 /obj/item/weapon/material/kitchen/utensil/spoon,
 /obj/structure/table/wood,
@@ -1910,6 +1945,12 @@
 /obj/item/weapon/material/knife/trench,
 /turf/simulated/floor/tiled/dark,
 /area/adhomai/fortress)
+"gh" = (
+/obj/machinery/light/small{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/steel,
+/area/adhomai/village/foundry)
 "gi" = (
 /obj/structure/closet/cabinet,
 /obj/item/ammo_magazine/boltaction,
@@ -1921,6 +1962,8 @@
 /area/adhomai/fortress)
 "gj" = (
 /obj/structure/table/rack,
+/obj/item/clothing/mask/gas,
+/obj/item/clothing/mask/gas,
 /obj/item/clothing/mask/gas,
 /obj/item/clothing/mask/gas,
 /obj/item/clothing/mask/gas,
@@ -2027,11 +2070,9 @@
 /turf/simulated/floor/wood,
 /area/adhomai/village)
 "gy" = (
-/obj/effect/landmark/start{
-	name = "Miner"
-	},
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/steel,
-/area/adhomai)
+/area/adhomai/village/foundry)
 "gz" = (
 /obj/structure/table/wood,
 /obj/item/weapon/material/hatchet,
@@ -2071,6 +2112,11 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/adhomai/village)
+"gF" = (
+/obj/structure/closet/crate,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/steel,
+/area/adhomai/village/foundry)
 "gG" = (
 /obj/structure/table/wood,
 /obj/item/weapon/material/twohanded/pike,
@@ -2078,6 +2124,19 @@
 /obj/item/weapon/material/twohanded/pike,
 /turf/simulated/floor/wood,
 /area/adhomai/village/police)
+"gH" = (
+/obj/structure/closet/crate,
+/obj/item/device/flashlight/lantern,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/steel,
+/area/adhomai/village/foundry)
+"gI" = (
+/obj/structure/ladder{
+	icon_state = "ladder01";
+	pixel_y = 16
+	},
+/turf/simulated/open,
+/area/adhomai/village/mayor)
 "gJ" = (
 /obj/structure/table/wood,
 /obj/item/stack/medical/ointment,
@@ -2480,6 +2539,10 @@
 	},
 /turf/simulated/floor/wood,
 /area/adhomai/village/police)
+"hy" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/open,
+/area/adhomai/fortress)
 "hz" = (
 /obj/structure/curtain/open/bed{
 	pixel_y = 32
@@ -2509,14 +2572,10 @@
 /turf/simulated/floor/wood,
 /area/adhomai/village/medical)
 "hD" = (
-/obj/machinery/light/small{
-	brightness_color = "#DA0205";
-	brightness_power = 1;
-	brightness_range = 5;
-	dir = 5
-	},
-/turf/simulated/floor/snow,
-/area/adhomai)
+/obj/structure/table/wood,
+/obj/item/weapon/material/hatchet/butch,
+/turf/simulated/floor/wood,
+/area/adhomai/village)
 "hE" = (
 /obj/structure/toilet{
 	dir = 8
@@ -2702,6 +2761,9 @@
 	},
 /turf/simulated/floor/wood,
 /area/adhomai/village)
+"ig" = (
+/turf/simulated/open,
+/area/adhomai/fortress)
 "ih" = (
 /obj/structure/table/wood,
 /obj/machinery/light,
@@ -2834,10 +2896,11 @@
 /turf/simulated/floor/wood,
 /area/adhomai/village/mayor)
 "it" = (
-/obj/structure/table/steel,
-/obj/item/weapon/storage/fancy/cigar,
-/turf/simulated/floor/wood,
-/area/adhomai/village/mayor)
+/obj/effect/landmark/map_data{
+	height = 2
+	},
+/turf/unsimulated/wall/blizzard,
+/area/space)
 "iu" = (
 /obj/structure/table/steel,
 /obj/item/device/flashlight/lamp,
@@ -3793,10 +3856,6 @@
 	},
 /turf/simulated/floor/wood,
 /area/adhomai/village)
-"AV" = (
-/obj/structure/table/wood,
-/turf/simulated/floor/tiled/steel,
-/area/adhomai)
 "Ck" = (
 /obj/structure/bed/chair/wood,
 /turf/simulated/floor/wood,
@@ -3844,13 +3903,6 @@
 /obj/item/device/flashlight/lamp,
 /turf/simulated/floor/wood,
 /area/adhomai/village/police)
-"GX" = (
-/obj/machinery/conveyor_switch/oneway{
-	id = "mining_internal";
-	name = "mining conveyor"
-	},
-/turf/simulated/floor/tiled,
-/area/adhomai)
 "Hi" = (
 /obj/structure/window/basic{
 	icon_state = "window";
@@ -3899,10 +3951,6 @@
 /obj/structure/simple_door/wood,
 /turf/simulated/floor/wood,
 /area/adhomai/village)
-"Km" = (
-/obj/structure/reagent_dispensers/beerkeg,
-/turf/simulated/floor/wood,
-/area/adhomai/village/mayor)
 "Ko" = (
 /obj/structure/table/wood,
 /obj/item/device/flashlight/lantern,
@@ -4340,7 +4388,7 @@ bC
 bC
 bC
 bC
-bC
+it
 "}
 (2,1,1) = {"
 bC
@@ -6724,11 +6772,11 @@ cV
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
+ab
+ab
+ab
+ab
+ab
 aa
 aa
 aa
@@ -6981,12 +7029,12 @@ aa
 aa
 aa
 aa
-aa
-aa
-cU
+ab
+ek
+gy
+gF
+ab
 cV
-aa
-aa
 aa
 aa
 aa
@@ -7238,11 +7286,11 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
+ab
+ep
+ao
+gH
+ab
 aa
 aa
 aa
@@ -7495,11 +7543,11 @@ cS
 aa
 aa
 aa
-cV
-aa
-aa
-aa
-aa
+ab
+fl
+gy
+ao
+ab
 aa
 aa
 aa
@@ -7752,11 +7800,11 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-cS
-aa
+ab
+gh
+ao
+gy
+ab
 aa
 aa
 cV
@@ -8009,11 +8057,11 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
+bq
+gy
+ao
+bn
+ab
 aa
 aa
 aa
@@ -8266,12 +8314,12 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
+ab
+gy
+gy
+bn
+ab
+cW
 aa
 aa
 cU
@@ -8523,11 +8571,11 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
+ab
+ab
+ab
+ab
+ab
 aa
 aa
 aa
@@ -9553,7 +9601,7 @@ aa
 aa
 aa
 aa
-aa
+ae
 aa
 aa
 aa
@@ -9807,11 +9855,11 @@ dz
 aa
 aa
 aa
-aa
-aa
-aa
-cU
-aa
+ae
+ae
+ae
+ae
+ae
 cW
 aa
 aa
@@ -10064,11 +10112,11 @@ dz
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
+ae
+aX
+ae
+ae
+ae
 aa
 aa
 aa
@@ -10320,13 +10368,13 @@ dz
 dz
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+ae
+ae
+bt
+bt
+bt
+ae
+ae
 aa
 aa
 aa
@@ -10578,12 +10626,12 @@ dz
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
+ae
+bt
+bt
+bt
+bt
+ae
 aa
 aa
 aa
@@ -10835,13 +10883,13 @@ dz
 aa
 aa
 aa
-aa
-cU
-cV
-aa
-aa
-aa
-aa
+ae
+ae
+bt
+bt
+ae
+ae
+ae
 aa
 aa
 aa
@@ -11092,12 +11140,12 @@ dz
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
+ae
+ae
+bt
+ae
+ae
+ae
 aa
 aa
 cU
@@ -11349,9 +11397,9 @@ dz
 aa
 aa
 cV
-aa
-aa
-aa
+ae
+ae
+ae
 aa
 aa
 aa
@@ -11607,7 +11655,7 @@ aa
 aa
 aa
 aa
-aa
+ae
 cS
 aa
 aa
@@ -33479,7 +33527,7 @@ aa
 DR
 dW
 EH
-ct
+hD
 DR
 aa
 aa
@@ -33989,7 +34037,7 @@ aa
 aa
 aa
 aa
-aa
+ct
 DR
 dX
 EH
@@ -34503,7 +34551,7 @@ aa
 aa
 aa
 aa
-hD
+aa
 DR
 ca
 cc
@@ -35986,7 +36034,7 @@ ab
 ab
 ab
 ab
-bo
+bq
 ab
 ab
 ab
@@ -36237,15 +36285,15 @@ aa
 aa
 aa
 ab
-aA
-aA
-aA
-aA
-aA
-aA
-aA
-aA
-cb
+ao
+ao
+ao
+ao
+ao
+ao
+ao
+ao
+bn
 ab
 aa
 aa
@@ -36494,15 +36542,15 @@ aa
 aa
 aa
 ab
-ao
-aO
+as
+aN
 ab
-cb
-aA
-aA
-aA
-aA
-cb
+bn
+ao
+ao
+ao
+ao
+bn
 ab
 aa
 aa
@@ -36754,12 +36802,12 @@ ab
 ax
 ax
 bg
-cb
-aA
-aA
-aA
-aA
-cb
+bn
+ao
+ao
+ao
+ao
+bn
 ab
 aa
 aa
@@ -37008,15 +37056,15 @@ aa
 aa
 aa
 ab
-aK
-aK
+aA
+aA
 bg
+bn
+ao
+ao
 cb
-aA
-aA
-GX
-aA
-bz
+ao
+dG
 ab
 aa
 aa
@@ -37265,15 +37313,15 @@ aa
 aa
 aa
 ab
-aL
-aL
+aK
+aK
 bg
 bg
 bg
 ab
 ab
-aA
-br
+ao
+dH
 ab
 aa
 aa
@@ -37522,15 +37570,15 @@ aa
 aa
 aa
 ab
-aM
-aP
+aL
+aO
 bh
-bk
-bn
-bq
+bo
+bp
 bs
-aA
-aA
+cd
+ao
+ao
 ab
 aa
 aa
@@ -37779,15 +37827,15 @@ aa
 aa
 aa
 ab
-aN
-aQ
+aM
+aP
 bh
-bk
-bn
-bq
+bo
+bp
 bs
-aA
-aA
+cd
+ao
+ao
 ab
 aa
 aa
@@ -38044,7 +38092,7 @@ ab
 ab
 ab
 ab
-bo
+bq
 ab
 aa
 aa
@@ -38299,9 +38347,9 @@ aa
 aa
 ab
 bx
-aA
-aA
-aA
+ao
+ao
+ao
 ab
 aa
 aa
@@ -38554,11 +38602,11 @@ aa
 aa
 aa
 aa
-bo
-aA
-aA
-aA
-dH
+bq
+ao
+ao
+ao
+dI
 ab
 aa
 aa
@@ -38812,10 +38860,10 @@ aa
 aa
 aa
 ab
-cb
-gy
-aA
-dH
+bn
+cG
+ao
+dI
 ab
 aa
 aa
@@ -39069,10 +39117,10 @@ aa
 aa
 aa
 ab
-bp
-gy
-aA
-dH
+by
+cG
+ao
+dI
 ab
 cS
 aa
@@ -39326,10 +39374,10 @@ ab
 ab
 ab
 ab
-cb
-gy
-aA
-dH
+bn
+cG
+ao
+dI
 ab
 aa
 aa
@@ -39579,14 +39627,14 @@ aa
 aa
 aa
 ab
-as
-as
-as
+aQ
+aQ
+aQ
 ab
-AV
-aA
-aA
-dH
+bz
+ao
+ao
+dI
 ab
 aa
 aa
@@ -39836,14 +39884,14 @@ aa
 aa
 aa
 ab
-aV
 aU
-as
-ep
-aA
-aA
-aA
-dI
+aV
+aQ
+br
+ao
+ao
+ao
+eb
 ab
 aa
 aa
@@ -40093,14 +40141,14 @@ aa
 aa
 aa
 ab
-aU
-bW
-as
+aV
+bk
+aQ
 ab
-by
-aA
-aA
-aA
+bW
+ao
+ao
+ao
 ab
 aa
 aa
@@ -40356,7 +40404,7 @@ ab
 ab
 ab
 ab
-bo
+bq
 ab
 ab
 aa
@@ -42651,10 +42699,10 @@ bG
 bG
 bG
 bG
-bG
-bG
-bG
-bG
+mk
+mk
+mk
+mk
 bG
 aa
 aa
@@ -42908,10 +42956,10 @@ mk
 mk
 mk
 bG
-bG
-bG
-bG
-bG
+mk
+hy
+ig
+mk
 bG
 aa
 aa
@@ -43165,10 +43213,10 @@ Sh
 ku
 mk
 bG
-bG
-bG
-bG
-bG
+mk
+hy
+ig
+mk
 bG
 aa
 aa
@@ -43422,10 +43470,10 @@ Vp
 ku
 mk
 bG
-bG
-bG
-bG
-bG
+mk
+Vp
+Vp
+mk
 bG
 Ab
 Ab
@@ -43679,10 +43727,10 @@ eW
 ku
 mk
 bG
-bG
-bG
-bG
-bG
+mk
+Sh
+Vp
+mk
 bG
 Ab
 kw
@@ -43936,10 +43984,10 @@ Sh
 ku
 mk
 bG
-bG
-bG
-bG
-bG
+mk
+ff
+Vp
+mk
 bG
 Ab
 Ab
@@ -44193,10 +44241,10 @@ Vp
 ku
 mk
 bG
-bG
-bG
-bG
-bG
+mk
+Sh
+Vp
+mk
 bG
 bG
 aa
@@ -44450,10 +44498,10 @@ Vp
 kv
 mk
 bG
-bG
-bG
-bG
-bG
+mk
+Sh
+Vp
+mk
 bG
 bG
 aa
@@ -44709,7 +44757,7 @@ mk
 mk
 mk
 mk
-mk
+wV
 mk
 aa
 aa
@@ -50681,7 +50729,7 @@ aa
 aa
 aa
 aa
-aa
+jX
 aa
 aa
 aa
@@ -50931,14 +50979,14 @@ aa
 aa
 aa
 aa
+kJ
+iv
+kJ
 aa
 aa
 aa
 aa
 aa
-aa
-aa
-jX
 aa
 aa
 aa
@@ -51187,19 +51235,19 @@ aa
 aa
 aa
 aa
+kJ
+kJ
+mC
+kJ
+kJ
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+kJ
+oP
+oP
+oP
+kJ
 aa
 aa
 aa
@@ -51444,26 +51492,26 @@ aa
 aa
 aa
 aa
+kJ
+iq
+mC
+iA
+kJ
+aa
+aa
 aa
 kJ
-iv
+ij
+XF
+ik
 kJ
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+oP
+oP
+kJ
+kJ
+oP
+oP
+kJ
 aa
 aa
 aa
@@ -51702,25 +51750,25 @@ aa
 aa
 aa
 kJ
-kJ
+Fc
 mC
-kJ
+rs
 kJ
 aa
 aa
 aa
 kJ
+iH
+Fc
+kp
+kJ
+XF
+XF
+nc
+Fc
+XF
+iy
 oP
-oP
-oP
-kJ
-aa
-aa
-aa
-aa
-aa
-aa
-aa
 aa
 aa
 aa
@@ -51959,25 +52007,25 @@ aa
 aa
 aa
 kJ
-iq
+Fc
 mC
-iA
+sa
 kJ
 aa
 aa
 aa
 kJ
-ij
-XF
-ik
+NG
+Fc
+il
 kJ
+Fc
+mC
+iN
+iN
+mC
+qg
 oP
-oP
-kJ
-kJ
-oP
-oP
-kJ
 aa
 aa
 aa
@@ -52218,23 +52266,23 @@ aa
 kJ
 Fc
 mC
-rs
-kJ
-aa
-aa
-aa
-kJ
-iH
 Fc
-kp
 kJ
-XF
-XF
-nc
+aa
+aa
+aa
+kJ
+LK
 Fc
-XF
-iy
-oP
+kq
+kJ
+Fc
+iM
+iO
+iO
+iQ
+Fc
+kJ
 aa
 aa
 aa
@@ -52473,25 +52521,25 @@ aa
 aa
 aa
 kJ
-Fc
+io
 mC
-sa
+hS
 kJ
-aa
-aa
-aa
-kJ
-NG
-Fc
-il
-kJ
-Fc
-mC
-iN
-iN
-mC
-qg
 oP
+oP
+oP
+kJ
+vK
+kJ
+kJ
+kJ
+io
+iM
+iO
+iO
+iQ
+hS
+kJ
 aa
 aa
 aa
@@ -52734,21 +52782,21 @@ Fc
 mC
 Fc
 kJ
-aa
-aa
-aa
+iB
+iC
+iC
 kJ
-LK
-Fc
-kq
+mC
+iI
+mC
 kJ
 Fc
 iM
 iO
 iO
 iQ
-Fc
-kJ
+qg
+oP
 aa
 aa
 aa
@@ -52987,25 +53035,25 @@ DR
 aa
 aa
 kJ
-io
+Fc
 mC
-hS
-kJ
-oP
-oP
-oP
-kJ
+Fc
 vK
-kJ
-kJ
-kJ
-io
-iM
-iO
-iO
-iQ
-hS
-kJ
+mC
+mC
+mC
+vK
+mC
+mC
+mC
+vK
+Fc
+mC
+iP
+iP
+mC
+qg
+oP
 aa
 aa
 aa
@@ -53244,25 +53292,25 @@ Hi
 aa
 aa
 kJ
+sa
 Fc
-mC
-Fc
-kJ
-iB
-iC
-iC
+sa
 kJ
 mC
-iI
+iD
+iF
+kJ
 mC
+mC
+iJ
 kJ
 Fc
-iM
-iO
-iO
-iQ
-qg
-oP
+Fc
+Fc
+Fc
+Fc
+Fc
+kJ
 aa
 aa
 aa
@@ -53501,25 +53549,25 @@ Hi
 aa
 aa
 kJ
-Fc
-mC
-Fc
+kJ
 vK
-mC
-mC
-mC
+kJ
+kJ
+kJ
+kJ
+kJ
+kJ
+kJ
 vK
-mC
-mC
-mC
-vK
+kJ
+kJ
 Fc
-mC
-iP
-iP
-mC
-qg
-oP
+in
+is
+ip
+ir
+QE
+kJ
 aa
 aa
 aa
@@ -53758,24 +53806,24 @@ DR
 aa
 aa
 kJ
+iR
+Fc
+nc
 sa
-Fc
-sa
-kJ
-mC
-iD
-iF
-kJ
-mC
-mC
-iJ
 kJ
 Fc
+nc
+jf
+jF
 Fc
 Fc
-Fc
-Fc
-Fc
+kJ
+kJ
+kJ
+kJ
+kJ
+kJ
+kJ
 kJ
 aa
 aa
@@ -54015,25 +54063,25 @@ DR
 aa
 aa
 kJ
-kJ
+iS
+Fc
+Fc
+Fc
 vK
+Fc
+Fc
+Fc
+Fc
+Fc
+Fc
+iL
+Kz
+jh
+jj
+jm
 kJ
-kJ
-kJ
-kJ
-kJ
-kJ
-kJ
-vK
-kJ
-kJ
-Km
-in
-is
-ip
-ir
-QE
-kJ
+aa
+aa
 aa
 aa
 aa
@@ -54272,25 +54320,25 @@ aa
 aa
 aa
 kJ
-iR
+iT
 Fc
-nc
-sa
-kJ
-Fc
-nc
-jf
-jF
 Fc
 Fc
 kJ
+iE
+Fc
+Fc
+Fc
+Fc
+iw
 kJ
+js
+Kz
+Kz
+jn
 kJ
-kJ
-kJ
-kJ
-kJ
-kJ
+aa
+aa
 aa
 aa
 aa
@@ -54521,7 +54569,7 @@ aa
 aa
 DR
 cf
-ag
+fc
 DR
 aa
 aa
@@ -54529,22 +54577,22 @@ aa
 aa
 aa
 kJ
-iS
+iU
+Fc
+mC
+iZ
+kJ
+ak
 Fc
 Fc
 Fc
-vK
-Fc
-Fc
-Fc
-Fc
-Fc
-Fc
-iL
+Ck
+iK
+kJ
+jg
 Kz
-jh
-jj
-jm
+Kz
+jt
 kJ
 aa
 aa
@@ -54786,22 +54834,22 @@ aa
 aa
 aa
 kJ
-iT
+iV
 Fc
-Fc
-Fc
+iX
+ja
 kJ
-iE
+jp
+mC
+mC
 Fc
 Fc
-Fc
-Fc
-iw
+ix
 kJ
-js
 Kz
 Kz
-jn
+Kz
+Kz
 kJ
 aa
 aa
@@ -55043,22 +55091,22 @@ aa
 aa
 aa
 kJ
-iU
-Fc
-mC
-iZ
+iW
+Xu
+iY
+jb
 kJ
-ak
+iu
+iG
+iG
+ey
 Fc
-Fc
-Fc
-Ck
-iK
+sa
 kJ
-jg
+jk
+ji
 Kz
-Kz
-jt
+jl
 kJ
 aa
 aa
@@ -55300,22 +55348,22 @@ aa
 aa
 aa
 kJ
-iV
-Fc
-iX
-ja
 kJ
-jp
-mC
-mC
-Fc
-Fc
-ix
+oP
+oP
 kJ
-Kz
-Kz
-Kz
-Kz
+kJ
+kJ
+kJ
+kJ
+kJ
+kJ
+vK
+kJ
+kJ
+kJ
+kJ
+kJ
 kJ
 aa
 aa
@@ -55556,24 +55604,24 @@ aa
 aa
 aa
 aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 kJ
-iW
-Xu
-iY
-jb
+gI
 kJ
-iu
-iG
-iG
-it
-ey
-sa
-kJ
-jk
-ji
-Kz
-jl
-kJ
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -55813,24 +55861,24 @@ cV
 aa
 aa
 aa
-kJ
-kJ
-oP
-oP
-kJ
-kJ
-kJ
-kJ
-kJ
-kJ
-kJ
-kJ
-kJ
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 kJ
 kJ
 kJ
-kJ
-kJ
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa

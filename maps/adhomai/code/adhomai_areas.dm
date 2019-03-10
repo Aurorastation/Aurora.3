@@ -47,3 +47,8 @@
 /area/adhomai/village/foundry
 	name = "\improper Foundry"
 	icon_state = "auxstorage"
+
+/area/adhomai/cavern
+	name = "\improper Caverns"
+	icon_state = "dark"
+

@@ -2468,6 +2468,7 @@
 #include "maps\adhomai\code\jobs\military.dm"
 #include "maps\adhomai\code\mobs\geist.dm"
 #include "maps\adhomai\code\structures\bonfire.dm"
+#include "maps\adhomai\code\structures\kitchen.dm"
 #include "maps\adhomai\code\structures\telegraphy.dm"
 #include "maps\adhomai\code\weapons\guns.dm"
 #include "maps\adhomai\code\weapons\melee.dm"

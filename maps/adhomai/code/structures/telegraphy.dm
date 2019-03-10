@@ -9,8 +9,8 @@
 	var/in_cooldown = FALSE
 	var/datum/announcement/priority/crew_announcement = new
 
-/obj/structure/telegraphy/New()
-	..()
+/obj/structure/telegraphy/Initialize()
+	. = ..()
 	crew_announcement.newscast = 1
 
 

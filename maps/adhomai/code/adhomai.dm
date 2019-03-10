@@ -5,14 +5,15 @@
 
 	lobby_screens = list("aurora_asteroid", "aurora_postcard")
 
-	station_levels = list(2)
+	station_levels = list(2,3)
 	admin_levels = list(1)
 	contact_levels = list(2)
-	player_levels = list(2)
-	accessible_z_levels = list("8" = 2)
+	player_levels = list(2,3)
+	accessible_z_levels = list("8" = 2, "9" = 3)
 	base_turf_by_z = list(
 		"1" = /turf/space,
-		"2" = /turf/simulated/floor/snow
+		"2" = /turf/simulated/floor/asteroid/basalt,
+		"3" = /turf/simulated/floor/snow
 	)
 
 	station_name = "Adhomai"
@@ -29,5 +30,8 @@
 
 /datum/map/adhomai/generate_asteroid()
 	// Create the chasms.
-	new /datum/random_map/automata/cave_system/adhomai(null,0,0,2,255,255)
+	new /datum/random_map/automata/cave_system/adhomai/under(null,0,0,2,255,255)
+	new /datum/random_map/automata/cave_system/adhomai(null,0,0,3,255,255)
+
+	new /datum/random_map/noise/ore(null, 0, 0, 2, 255, 255)
 	new /datum/random_map/noise/ore(null, 0, 0, 2, 255, 255)
