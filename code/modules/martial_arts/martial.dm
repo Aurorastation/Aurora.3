@@ -9,6 +9,9 @@
 	var/no_guns = FALSE	//set to TRUE to prevent users of this style from using guns
 	var/no_guns_message = ""	//message to tell the style user if they try and use a gun while no_guns = TRUE (DISHONORABRU!)
 	var/temporary = 0
+	var/weapon_affinity	//if this martial art has any interaction with a weapon, also spawns said weapon when the manual is used
+	var/parry_multiplier = 1	//if this martial art increases the chance of parrying with the weapon
+	var/list/possible_weapons //if any weapon is spawned when you use the martial art manual
 
 /datum/martial_art/proc/disarm_act(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
 	return 0
@@ -166,3 +169,23 @@
 			break
 		A.set_dir(i)
 		playsound(A.loc, 'sound/weapons/punch1.ogg', 15, 1, -1)
+
+/obj/item/martial_manual
+	name = "SolCom manual"
+	desc = "A manual designated to teach the user about the martial art of solarian combat, a style based on traditional human martial arts."
+	icon = 'icons/obj/library.dmi'
+	icon_state ="cqcmanual"
+	var/martial_art = /datum/martial_art/sol_combat
+
+/obj/item/martial_manual/attack_self(mob/user as mob)
+	if(!ishuman(user))
+		return
+	var/mob/living/carbon/human/H = user
+	var/datum/martial_art/F = new martial_art(null)
+	F.teach(H)
+	to_chat(H, "<span class='notice'>You have learned the martial art of [F.name].</span>")
+	if(F.possible_weapons)
+		var/weapon = pick(F.possible_weapons)
+		var/obj/item/W = new weapon(get_turf(user))
+		H.put_in_hands(W)
+	qdel(src)
