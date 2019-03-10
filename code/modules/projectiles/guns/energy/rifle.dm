@@ -51,8 +51,8 @@
 /obj/item/weapon/gun/energy/rifle/laser
 	name = "laser rifle"
 	desc = "A common laser weapon, designed to kill with concentrated energy blasts."
-	icon_state = "laser"
-	item_state = "laser"
+	icon_state = "laserrifle"
+	item_state = "laserrifle"
 	fire_sound = 'sound/weapons/Laser.ogg'
 	max_shots = 15
 	origin_tech = list(TECH_COMBAT = 3, TECH_MAGNET = 2)
@@ -65,6 +65,14 @@
 
 	firemodes = list()
 	modifystate = null
+
+/obj/item/weapon/gun/energy/rifle/laser/update_icon()
+	..()
+	if(wielded)
+		item_state = "[initial(icon_state)]-wielded"
+	else
+		item_state = initial(item_state)
+	update_held_icon()
 
 /obj/item/weapon/gun/energy/rifle/laser/heavy
 	name = "laser cannon"
@@ -92,7 +100,7 @@
 	name = "xray laser rifle"
 	desc = "A high-power laser rifle capable of expelling concentrated xray blasts."
 	icon_state = "xrifle"
-	item_state = "xray"
+	item_state = "xrifle"
 	fire_sound = 'sound/weapons/laser3.ogg'
 	projectile_type = /obj/item/projectile/beam/xray
 	origin_tech = list(TECH_COMBAT = 5, TECH_MATERIAL = 3, TECH_MAGNET = 2, TECH_ILLEGAL = 2)
