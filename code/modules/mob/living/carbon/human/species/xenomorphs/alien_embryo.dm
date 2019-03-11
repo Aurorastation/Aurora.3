@@ -45,9 +45,9 @@
 		if(prob(1))
 			owner.emote("cough")
 		if(prob(1))
-			owner  << "<span class='danger'>Your throat feels sore.</span>"
+			to_chat(owner, "<span class='danger'>Your throat feels sore.</span>")
 		if(prob(1))
-			owner  << "<span class='danger'>Mucous runs down the back of your throat.</span>"
+			to_chat(owner, "<span class='danger'>Mucous runs down the back of your throat.</span>")
 
 	if(stage >= 3)
 		if(prob(1))
@@ -55,17 +55,17 @@
 		if(prob(1))
 			owner.emote("cough")
 		if(prob(2))
-			owner  << "<span class='danger'>Your muscles ache.</span>"
+			to_chat(owner, "<span class='danger'>Your muscles ache.</span>")
 			if(prob(20))
 				owner.take_organ_damage(1)
 		if(prob(2))
-			owner  << "<span class='danger'>Your stomach hurts.</span>"
+			to_chat(owner, "<span class='danger'>Your stomach hurts.</span>")
 			if(prob(20))
 				owner.adjustToxLoss(1)
 				owner.updatehealth()
 
 	if(stage >= 4)
-		owner  << "<span class='danger'>You feel something tearing its way out of your stomach!</span>"
+		to_chat(owner, "<span class='danger'>You feel something tearing its way out of your stomach!</span>")
 		owner.adjustToxLoss(10)
 		owner.updatehealth()
 		if(prob(50))

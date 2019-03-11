@@ -333,7 +333,7 @@
 		precision = max(rand(1,100)*bagholding.len,100)
 		if(istype(teleatom, /mob/living))
 			var/mob/living/MM = teleatom
-			MM << "<span class='danger'>The Bluespace interface on your [teleatom] interferes with the teleport!</span>"
+			to_chat(MM, "<span class='danger'>The Bluespace interface on your [teleatom] interferes with the teleport!</span>")
 	return 1
 
 /datum/teleport/instant/science/teleportChecks()
@@ -341,7 +341,7 @@
 		teleatom.visible_message("<span class='danger'>\The [teleatom] bounces off of the portal!</span>")
 		return 0
 
-	
+
 	if(isobserver(teleatom)) // do not teleport ghosts
 		return 0
 

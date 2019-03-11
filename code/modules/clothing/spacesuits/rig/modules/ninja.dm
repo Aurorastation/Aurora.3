@@ -41,7 +41,7 @@
 
 	var/mob/living/carbon/human/H = holder.wearer
 
-	H << "<font color='blue'><b>You are now invisible to normal detection.</b></font>"
+	to_chat(H, "<font color='blue'><b>You are now invisible to normal detection.</b></font>")
 	H.invisibility = INVISIBILITY_LEVEL_TWO
 
 	anim(get_turf(H), H, 'icons/effects/effects.dmi', "electricity",null,20,null)
@@ -55,7 +55,7 @@
 
 	var/mob/living/carbon/human/H = holder.wearer
 
-	H << "<span class='danger'>You are now visible.</span>"
+	to_chat(H, "<span class='danger'>You are now visible.</span>")
 	H.invisibility = 0
 
 	anim(get_turf(H), H,'icons/mob/mob.dmi',,"uncloak",,H.dir)
@@ -106,7 +106,7 @@
 	var/mob/living/carbon/human/H = holder.wearer
 
 	if(!istype(H.loc, /turf))
-		H << "<span class='warning'>You cannot teleport out of your current location.</span>"
+		to_chat(H, "<span class='warning'>You cannot teleport out of your current location.</span>")
 		return 0
 
 	var/turf/T
@@ -116,19 +116,19 @@
 		T = get_teleport_loc(get_turf(H), H, rand(5, 9))
 
 	if(!T || T.density)
-		H << "<span class='warning'>You cannot teleport into solid walls.</span>"
+		to_chat(H, "<span class='warning'>You cannot teleport into solid walls.</span>")
 		return 0
 
 	if(T.z in current_map.admin_levels)
-		H << "<span class='warning'>You cannot use your teleporter on this Z-level.</span>"
+		to_chat(H, "<span class='warning'>You cannot use your teleporter on this Z-level.</span>")
 		return 0
 
 	if(T.contains_dense_objects())
-		H << "<span class='warning'>You cannot teleport to a location with solid objects.</span>"
+		to_chat(H, "<span class='warning'>You cannot teleport to a location with solid objects.</span>")
 		return 0
 
 	if(T.z != H.z || get_dist(T, get_turf(H)) > world.view)
-		H << "<span class='warning'>You cannot teleport to such a distant object.</span>"
+		to_chat(H, "<span class='warning'>You cannot teleport to such a distant object.</span>")
 		return 0
 
 	phase_out(H,get_turf(H))
@@ -260,10 +260,10 @@
 		return
 	var/mob/living/carbon/human/H = holder.wearer
 	if(cooldown)
-		H << "<span class='danger'>There isn't enough power stored up yet!</span>"
+		to_chat(H, "<span class='danger'>There isn't enough power stored up yet!</span>")
 		return 0
 	else
-		H << "<span class='danger'>Your suit emits a loud sound as power is rapidly injected into your suits battery!</span>"
+		to_chat(H, "<span class='danger'>Your suit emits a loud sound as power is rapidly injected into your suits battery!</span>")
 		playsound(H.loc, 'sound/effects/sparks2.ogg', 50, 1)
 		holder.cell.give(generation_ammount)
 		cooldown = 1

@@ -16,7 +16,7 @@
 
 /obj/item/weapon/circuitboard/unary_atmos/examine()
 	..()
-	usr << "The jumper is connecting the [dir2text(machine_dir)] pins."
+	to_chat(usr, "The jumper is connecting the [dir2text(machine_dir)] pins.")
 
 /obj/item/weapon/circuitboard/unary_atmos/construct(var/obj/machinery/atmospherics/unary/U)
 	//TODO: Move this stuff into the relevant constructor when pipe/construction.dm is cleaned up.

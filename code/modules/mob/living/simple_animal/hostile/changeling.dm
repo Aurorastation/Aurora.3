@@ -80,15 +80,15 @@
 		return
 
 	if(src.is_devouring)
-		src << "<span class='warning'>We are already feasting on something!</span>"
+		to_chat(src, "<span class='warning'>We are already feasting on something!</span>")
 		return 0
 
 	if(!health)
-		src << "<span class='notice'>We are dead, we cannot use any abilities!</span>"
+		to_chat(src, "<span class='notice'>We are dead, we cannot use any abilities!</span>")
 		return
 
 	if(last_special > world.time)
-		src << "<span class='warning'>We must wait a little while before we can use this ability again!</span>"
+		to_chat(src, "<span class='warning'>We must wait a little while before we can use this ability again!</span>")
 		return
 
 	src.visible_message("<span class='warning'>[src] begins ripping apart and feasting on [target]!</span>")
@@ -97,7 +97,7 @@
 	target.adjustBruteLoss(35)
 
 	if(!do_after(src,150))
-		src<< "<span class='warning'>You need to wait longer to devour \the [target]!</span>"
+		to_chat(src, "<span class='warning'>You need to wait longer to devour \the [target]!</span>")
 		src.is_devouring = FALSE
 		return 0
 
@@ -106,7 +106,7 @@
 	target.adjustBruteLoss(35)
 
 	if(!do_after(src,150))
-		src<< "<span class='warning'>You need to wait longer to devour \the [target]!</span>"
+		to_chat(src, "<span class='warning'>You need to wait longer to devour \the [target]!</span>")
 		src.is_devouring = FALSE
 		return 0
 
@@ -125,7 +125,7 @@
 	set category = "Changeling"
 
 	if(!health)
-		usr << "<span class='notice'>We are dead, we cannot use any abilities!</span>"
+		to_chat(usr, "<span class='notice'>We are dead, we cannot use any abilities!</span>")
 		return
 
 	if(last_special > world.time)

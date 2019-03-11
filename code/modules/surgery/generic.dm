@@ -342,13 +342,13 @@
 		if (istype(tool, /obj/item/weapon/melee/energy))
 			var/obj/item/weapon/melee/energy/E = tool
 			if (!E.active)
-				user << "<span class='warning'>The energy blade is not turned on!</span>"
+				to_chat(user, "<span class='warning'>The energy blade is not turned on!</span>")
 				return 0
 
 		if (istype(tool, /obj/item/weapon/melee/chainsword))
 			var/obj/item/weapon/melee/chainsword/E = tool
 			if (!E.active)
-				user << "<span class='warning'>The blades aren't spinning, you can't cut anything!</span>"
+				to_chat(user, "<span class='warning'>The blades aren't spinning, you can't cut anything!</span>")
 				return 0
 
 		return !affected.cannot_amputate

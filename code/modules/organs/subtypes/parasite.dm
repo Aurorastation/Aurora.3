@@ -57,7 +57,7 @@
 		return
 
 	if(prob(10) && (owner.can_feel_pain()))
-		owner << "<span class='warning'>You feel a stinging pain in your abdomen!</span>"
+		to_chat(owner, "<span class='warning'>You feel a stinging pain in your abdomen!</span>")
 		owner.emote("me",1,"winces slightly.")
 		owner.adjustHalLoss(5)
 
@@ -76,13 +76,13 @@
 	if(stage >= 3)
 		set_light(1, l_color = "#E6E600")
 		if(prob(10))
-			owner << "<span class='warning'>You feel something squirming inside of you!</span>"
+			to_chat(owner, "<span class='warning'>You feel something squirming inside of you!</span>")
 			owner.reagents.add_reagent("phoron", 8)
 			owner.reagents.add_reagent("koispaste", 5)
 
 	if(stage >= 4)
 		if(prob(10))
-			owner << "<span class='danger'>You feel something alien coming up your throat!</span>"
+			to_chat(owner, "<span class='danger'>You feel something alien coming up your throat!</span>")
 			owner.emote("cough")
 
 			var/turf/T = get_turf(owner)
@@ -124,9 +124,9 @@
 
 	if(prob(10) && (owner.can_feel_pain()))
 		if(stage < 3)
-			owner << "<span class='warning'>You feel a stinging pain in your abdomen!</span>"
+			to_chat(owner, "<span class='warning'>You feel a stinging pain in your abdomen!</span>")
 		else
-			owner << "<span class='warning'>You feel a stinging pain in your head!</span>"
+			to_chat(owner, "<span class='warning'>You feel a stinging pain in your head!</span>")
 		owner.emote("me",1,"winces slightly.")
 		owner.adjustHalLoss(5)
 
@@ -139,14 +139,14 @@
 		set_light(-1.5, 6, "#FFFFFF")
 		if(!(all_languages[LANGUAGE_VAURCA] in owner.languages))
 			owner.add_language(LANGUAGE_VAURCA)
-			owner << "<span class='notice'> Your mind expands, and your thoughts join the unity of the Hivenet.</span>"
+			to_chat(owner, "<span class='notice'> Your mind expands, and your thoughts join the unity of the Hivenet.</span>")
 
 		if(prob(5))
-			owner << "<span class='warning'>You feel something squirming inside of you!</span>"
+			to_chat(owner, "<span class='warning'>You feel something squirming inside of you!</span>")
 			owner.reagents.add_reagent("blackkois", 4)
 
 		else if(prob(10))
-			owner << "<span class='warning'>You feel disorientated!</span>"
+			to_chat(owner, "<span class='warning'>You feel disorientated!</span>")
 			switch(rand(1,3))
 				if(1)
 					owner.confused += 10
@@ -161,8 +161,8 @@
 		var/obj/item/organ/brain/B = owner.internal_organs_by_name["brain"]
 
 		if(B && !B.lobotomized)
-			owner << "<span class='danger'>As the K'ois consumes your mind, you feel your past self, your memories, your very being slip away... only slavery to the swarm remains...</span>"
-			owner << "<b>You have been lobotomized by K'ois infection. All of your previous memories up until this point are gone, and all of your ambitions are nothing. You live for only one purpose; to serve the Lii'dra hive.</b>"
+			to_chat(owner, "<span class='danger'>As the K'ois consumes your mind, you feel your past self, your memories, your very being slip away... only slavery to the swarm remains...</span>")
+			to_chat(owner, "<b>You have been lobotomized by K'ois infection. All of your previous memories up until this point are gone, and all of your ambitions are nothing. You live for only one purpose; to serve the Lii'dra hive.</b>")
 
 			B.lobotomized = 1
 
@@ -175,12 +175,12 @@
 
 		if(prob(10))
 			if(owner.can_feel_pain())
-				owner << "<span class='warning'>You feel an unbearable pain in your mind!</span>"
+				to_chat(owner, "<span class='warning'>You feel an unbearable pain in your mind!</span>")
 				owner.emote("scream")
 			owner.adjustBrainLoss(1)
 
 		else if(prob(10))
-			owner << "<span class='danger'>You feel something alien coming up your throat!</span>"
+			to_chat(owner, "<span class='danger'>You feel something alien coming up your throat!</span>")
 
 			var/turf/T = get_turf(owner)
 
@@ -202,7 +202,7 @@
 /obj/item/organ/parasite/blackkois/removed(var/mob/living/carbon/human/target)
 	if(all_languages[LANGUAGE_VAURCA] in target.languages && stage >= 3 && !isvaurca(target))
 		target.remove_language(LANGUAGE_VAURCA)
-		target << "<span class='warning'>Your mind suddenly grows dark as the unity of the Hive is torn from you.</span>"
+		to_chat(target, "<span class='warning'>Your mind suddenly grows dark as the unity of the Hive is torn from you.</span>")
 	removed_langs = 0
 	..()
 
@@ -224,7 +224,7 @@
 		return
 
 	if(prob(10) && (owner.can_feel_pain()))
-		owner << "<span class='warning'>You feel a burning sensation on your skin!</span>"
+		to_chat(owner, "<span class='warning'>You feel a burning sensation on your skin!</span>")
 		owner.make_jittery(10)
 
 	else if(prob(10))
@@ -238,7 +238,7 @@
 
 		else if(prob(10))
 			if(!isundead(owner))
-				owner << "<span class='warning'>You feel sick.</span>"
+				to_chat(owner, "<span class='warning'>You feel sick.</span>")
 				owner.adjustToxLoss(5)
 				owner.delayed_vomit()
 
@@ -248,7 +248,7 @@
 				owner.adjustBruteLoss(-30)
 				owner.adjustFireLoss(-30)
 			else
-				owner << "<span class='cult'>You feel an insatiable hunger.</span>"
+				to_chat(owner, "<span class='cult'>You feel an insatiable hunger.</span>")
 				owner.nutrition = -1
 
 	if(stage >= 4)
@@ -257,9 +257,9 @@
 				if(ishuman_species(owner))
 					for(var/datum/language/L in owner.languages)
 						owner.remove_language(L.name)
-					owner << "<span class='warning'>You feel life leaving your husk, but death rejects you...</span>"
+					to_chat(owner, "<span class='warning'>You feel life leaving your husk, but death rejects you...</span>")
 					playsound(src.loc, 'sound/hallucinations/far_noise.ogg', 50, 1)
-					owner << "<font size='3'><span class='cult'>All that is left is a cruel hunger for the flesh of the living, and the desire to spread this infection. You must consume all the living!</font></span>"
+					to_chat(owner, "<font size='3'><span class='cult'>All that is left is a cruel hunger for the flesh of the living, and the desire to spread this infection. You must consume all the living!</font></span>")
 					owner.set_species("Zombie")
 				else
 					owner.adjustToxLoss(50)

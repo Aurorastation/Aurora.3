@@ -77,12 +77,12 @@
 /datum/uplink_item/item/visible_weapons/wrestling
 	name = "Wrestling Manual"
 	item_cost = 6
-	path = /obj/item/wrestling_manual
+	path = /obj/item/martial_manual/wrestling
 
 /datum/uplink_item/item/visible_weapons/solcom
 	name = "SolCom Manual"
 	item_cost = 6
-	path = /obj/item/sol_combat_manual
+	path = /obj/item/martial_manual
 
 /datum/uplink_item/item/visible_weapons/heavysniper
 	name = "Anti-materiel Rifle"

@@ -104,9 +104,9 @@
 	if(ishuman(usr))
 		add_fingerprint(usr)
 		if (locked || !registered_name)
-			usr << "<span class='warning'>You need to unlock it first.</span>"
+			to_chat(usr, "<span class='warning'>You need to unlock it first.</span>")
 		else if (broken)
-			usr << "<span class='warning'>It appears to be broken.</span>"
+			to_chat(usr, "<span class='warning'>It appears to be broken.</span>")
 		else
 			if (opened)
 				if(!close())

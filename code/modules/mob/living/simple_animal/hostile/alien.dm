@@ -37,6 +37,7 @@
 
 	tameable = FALSE
 	attack_emote = "growls at"
+	smart = TRUE
 
 /mob/living/simple_animal/hostile/alien/drone
 	name = "alien drone"
