@@ -234,3 +234,30 @@
 		H.equip_to_slot_or_del(new /obj/item/clothing/gloves/black/unathi(H), slot_gloves)
 	else
 		H.equip_to_slot_or_del(new /obj/item/clothing/gloves/black(H), slot_gloves)
+
+/datum/job/intern_sec
+	title = "Security Cadet"
+	flag = INTERN_SEC
+	department_flag = ENGSEC
+	faction = "Station"
+	total_positions = 2
+	spawn_positions = 2
+	supervisors = "the Head of Security"
+	selection_color = "#ffeeee"
+	access = list(access_security, access_sec_doors, access_maint_tunnels)
+	minimal_access = list(access_security, access_sec_doors, access_maint_tunnels)
+	outfit = /datum/outfit/job/intern_sec
+
+/datum/outfit/job/intern_sec
+	name = "Security Cadet"
+	jobtype = /datum/job/intern_sec
+
+	uniform = /obj/item/clothing/under/rank/security2
+	head = /obj/item/clothing/head/beret/sec
+	shoes = /obj/item/clothing/shoes/jackboots
+	l_ear = /obj/item/device/radio/headset/headset_sec
+
+	backpack = /obj/item/weapon/storage/backpack/security
+	satchel = /obj/item/weapon/storage/backpack/satchel_sec
+	dufflebag = /obj/item/weapon/storage/backpack/duffel/sec
+	messengerbag = /obj/item/weapon/storage/backpack/messenger/sec

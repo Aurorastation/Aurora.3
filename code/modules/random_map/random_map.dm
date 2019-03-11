@@ -112,7 +112,7 @@ var/global/list/map_count = list()
 				dat += get_map_char(map[tmp_cell])
 		dat += "<br>"
 	dat += "+------+</code>"
-	user << dat.Join()
+	to_chat(user, dat.Join())
 
 /datum/random_map/proc/set_map_size()
 	map = list()
@@ -164,7 +164,7 @@ var/global/list/map_count = list()
 
 	for(var/x = 1, x <= limit_x, x++)
 		for(var/y = 1, y <= limit_y, y++)
-			if(!priority_process) 
+			if(!priority_process)
 				CHECK_TICK
 			apply_to_turf(x,y)
 

@@ -854,7 +854,7 @@
 	var/location = get_turf(holder.my_atom)
 
 	for(var/mob/M in viewers(5, location))
-		M << "<span class='warning'>The solution spews out foam!</span>"
+		to_chat(M, "<span class='warning'>The solution spews out foam!</span>")
 
 	var/datum/effect/effect/system/foam_spread/s = new()
 	s.set_up(created_volume, location, holder, 0)
@@ -873,7 +873,7 @@
 	var/location = get_turf(holder.my_atom)
 
 	for(var/mob/M in viewers(5, location))
-		M << "<span class='warning'>The solution spews out a metalic foam!</span>"
+		to_chat(M, "<span class='warning'>The solution spews out a metalic foam!</span>")
 
 	var/datum/effect/effect/system/foam_spread/s = new()
 	s.set_up(created_volume, location, holder, 1)
@@ -891,7 +891,7 @@
 	var/location = get_turf(holder.my_atom)
 
 	for(var/mob/M in viewers(5, location))
-		M << "<span class='warning'>The solution spews out a metalic foam!</span>"
+		to_chat(M, "<span class='warning'>The solution spews out a metalic foam!</span>")
 
 	var/datum/effect/effect/system/foam_spread/s = new()
 	s.set_up(created_volume, location, holder, 2)
@@ -1321,7 +1321,7 @@
 	playsound(get_turf(holder.my_atom), 'sound/effects/phasein.ogg', 100, 1)
 	for(var/mob/living/M in range (get_turf(holder.my_atom), 7))
 		M.bodytemperature -= 140
-		M << "<span class='warning'>You feel a chill!</span>"
+		to_chat(M, "<span class='warning'>You feel a chill!</span>")
 
 //Orange
 /datum/chemical_reaction/slime/casp
@@ -2783,6 +2783,13 @@
 	result = "mars_coffee"
 	required_reagents = list("coffee" = 4, "blackpepper" = 1)
 	result_amount = 5
+
+/datum/chemical_reaction/mountain_marauder
+	name = "Mountain Marauder"
+	id = "mountain_marauder"
+	result = "mountain_marauder"
+	required_reagents = list("adhomai_milk" = 1, "victorygin" = 1)
+	result_amount = 2
 
 //Kaed's Unathi cocktails
 //========

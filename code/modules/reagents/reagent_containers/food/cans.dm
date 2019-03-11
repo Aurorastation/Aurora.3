@@ -245,3 +245,13 @@
 /obj/item/weapon/reagent_containers/food/drinks/cans/zorajelly/Initialize()
 	. = ..()
 	reagents.add_reagent("zora_jelly", 30)
+
+/obj/item/weapon/reagent_containers/food/drinks/cans/adhomai_milk
+	name = "fermented fatshouters milk"
+	desc = "A can of fermented fatshouters milk, imported from Adhomai."
+	icon_state = "milk_can"
+	center_of_mass = list("x"=16, "y"=10)
+
+/obj/item/weapon/reagent_containers/food/drinks/cans/adhomai_milk/Initialize()
+	. = ..()
+	reagents.add_reagent("adhomai_milk", 30)
