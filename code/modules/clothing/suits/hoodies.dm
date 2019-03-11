@@ -24,8 +24,8 @@
 	..()
 
 /obj/item/clothing/suit/storage/hooded/proc/RemoveHood()
-	icon_state = "[initial(icon_state)]"
-	item_state = "[initial(item_state)]"
+	icon_state = initial(icon_state)
+	item_state = initial(item_state)
 	suittoggled = 0
 
 	// Hood got nuked. Probably because of RIGs or the like.
@@ -51,17 +51,17 @@
 	set category = "Object"
 	set src in usr
 
-	if(!usr.canmove || usr.stat || usr.restrained())
+	if(!use_check(usr))
 		return 0
 
 	if(!suittoggled)
 		if(ishuman(loc))
 			var/mob/living/carbon/human/H = src.loc
 			if(H.wear_suit != src)
-				H << "<span class='warning'>You must be wearing [src] to put up the hood!</span>"
+				to_chat(H, "<span class='warning'>You must be wearing [src] to put up the hood!</span>")
 				return
 			if(H.head)
-				H << "<span class='warning'>You're already wearing something on your head!</span>"
+				to_chat(H, "<span class='warning'>You're already wearing something on your head!</span>")
 				return
 			else
 				H.equip_to_slot_if_possible(hood,slot_head,0,0,1)
@@ -174,3 +174,72 @@
 	name = "space carp hood"
 	desc = "A hood attached to a space carp costume."
 	icon_state = "carp_helm"
+
+/obj/item/clothing/suit/storage/hooded/wintercoat/hoodie
+	name = "hoodie"
+	desc = "Warm and cozy."
+	icon_state = "hoodie"
+	var/icon_open = "hoodie_open"
+	var/icon_closed = "hoodie"
+	item_state = "hoodie"
+	hoodtype = /obj/item/clothing/head/winterhood/hoodie
+
+/obj/item/clothing/suit/storage/hooded/wintercoat/hoodie/RemoveHood()
+	..()
+	icon_open = initial(icon_open)
+	icon_closed = initial(icon_closed)
+
+/obj/item/clothing/suit/storage/hooded/wintercoat/hoodie/verb/Toggle() //copied from storage toggle
+	set name = "Toggle Coat Buttons"
+	set category = "Object"
+	set src in usr
+	if(use_check(usr))
+		return 0
+	if(icon_state == icon_open)
+		icon_state = icon_closed
+		item_state = icon_closed
+		to_chat(usr, "You zip the hoodie.")
+	else if(icon_state == icon_closed)
+		icon_state = icon_open
+		item_state = icon_open
+		to_chat(usr, "You unzip the hoodie.")
+	else
+		to_chat(usr, "You attempt to zip the velcro on your [src], before promptly realising how silly you are.")
+		return
+	update_clothing_icon()
+
+/obj/item/clothing/suit/storage/hooded/wintercoat/hoodie/verb/ToggleHoodie()
+	set name ="Toggle Coat Hood"
+	set category = "Object"
+	set src in usr
+
+	if(use_check(usr))
+		return 0
+
+	if(!suittoggled)
+		if(ishuman(loc))
+			var/mob/living/carbon/human/H = src.loc
+			if(H.wear_suit != src)
+				to_chat(H, "<span class='warning'>You must be wearing [src] to put up the hood!</span>")
+				return
+			if(H.head)
+				to_chat(H, "<span class='warning'>You're already wearing something on your head!</span>")
+				return
+			else
+				H.equip_to_slot_if_possible(hood,slot_head,0,0,1)
+				suittoggled = 1
+				icon_open = "[initial(icon_open)]_t" // this is where the change is.
+				icon_closed = "[initial(icon_closed)]_t"
+				icon_state = "[initial(icon_state)]_t"
+				item_state = "[initial(item_state)]_t"
+				H.update_inv_wear_suit()
+	else
+		RemoveHood()
+
+/obj/item/clothing/head/winterhood/hoodie
+	name = "hood"
+	desc = "A hood attached to a warm hoodie."
+	icon_state = "hoodie_hood"
+
+/obj/item/clothing/suit/storage/hooded/wintercoat/hoodie/grey //legacy item. for raiders, shuttle spawn
+	color = "#777777"

@@ -30,11 +30,11 @@
 	face_atom(victim)
 
 	if (victim == src)
-		src << "<span class='warning'>You can't eat yourself!</span>"
+		to_chat(src, "<span class='warning'>You can't eat yourself!</span>")
 		return 0
 
 	if (devouring == victim)
-		src << span("notice","You stop eating [victim].")
+		to_chat(src, span("notice","You stop eating [victim]."))
 		devouring = null
 		return
 
@@ -42,26 +42,26 @@
 		var/mob/living/carbon/human/H = src
 		var/obj/item/blocked = H.check_mouth_coverage()
 		if(blocked)
-			src << "<span class='warning'>\The [blocked] is in the way!</span>"
+			to_chat(src, "<span class='warning'>\The [blocked] is in the way!</span>")
 			return
 
 	//This check is exploit prevention.
 	//Nymphs have seperate mechanics for gaining biomass from other diona
 	//This check prevents the exploit of almost-devouring a nymph, and then absorbing it to gain double biomass
 	if (victim.is_diona() && src.is_diona())
-		src << "<span class='warning'>You can't eat other diona!</span>"
+		to_chat(src, "<span class='warning'>You can't eat other diona!</span>")
 		return 0
 
 	if (!src.Adjacent(victim))
-		src << "<span class='warning'>That creature is too far away, move closer!</span>"
+		to_chat(src, "<span class='warning'>That creature is too far away, move closer!</span>")
 		return 0
 
 	if (!is_valid_for_devour(victim, eat_types))
-		src << "<span class='warning'>You can't eat that type of creature!</span>"
+		to_chat(src, "<span class='warning'>You can't eat that type of creature!</span>")
 		return 0
 
 	if (!victim.mob_size || !src.mob_size)
-		src << "<span class='danger'>Error, no mob size defined for [victim.type]! You have encountered a bug, report it on github </span>"
+		to_chat(src, "<span class='danger'>Error, no mob size defined for [victim.type]! You have encountered a bug, report it on github </span>")
 		return 0
 
 	if (!mouth_size)
@@ -85,11 +85,11 @@
 		victim.forceMove(src)
 		LAZYADD(stomach_contents, victim)
 	else if (victimloc != victim.loc)
-		src << "[victim] moved away, you need to keep it still. Try grabbing, stunning or killing it first."
+		to_chat(src, "[victim] moved away, you need to keep it still. Try grabbing, stunning or killing it first.")
 	else if (ourloc != src.loc)
-		src << "You moved! Can't eat if you move away from the victim"
+		to_chat(src, "You moved! Can't eat if you move away from the victim")
 	else if (devouring)
-		src << "Swallowing failed!"//reason unknown, maybe the eater got stunned?
+		to_chat(src, "Swallowing failed!")//reason unknown, maybe the eater got stunned?)
 
 	devouring = null
 
@@ -150,11 +150,11 @@
 		else
 			devouring = null
 			if (victim && victimloc != victim.loc)
-				src << "<span class='danger'>[victim] moved away, you need to keep it still. Try grabbing, stunning or killing it first.</span>"
+				to_chat(src, "<span class='danger'>[victim] moved away, you need to keep it still. Try grabbing, stunning or killing it first.</span>")
 			else if (ourloc != src.loc)
-				src << "<span class='danger'>You moved! Devouring cancelled.</span>"
+				to_chat(src, "<span class='danger'>You moved! Devouring cancelled.</span>")
 			else
-				src << "Devouring Cancelled."//reason unknown, maybe the eater got stunned?
+				to_chat(src, "Devouring Cancelled.")//reason unknown, maybe the eater got stunned?)
 				//This can also happen if you start devouring something else
 			break
 
@@ -184,14 +184,14 @@
 			ingested.add_reagent(M.composition_reagent, M.composition_reagent_quantity * dmg_factor)
 
 			if (M.stat == DEAD && !stomach_contents[M])	// If the mob has died, poke the consuming mob about it.
-				src << "Your stomach feels a little more relaxed as \the [M] finally stops fighting."
+				to_chat(src, "Your stomach feels a little more relaxed as \the [M] finally stops fighting.")
 				stomach_contents[M] = TRUE	// So the message doesn't play more than once.
 				continue
 
 			var/damage_dealt = (M.getFireLoss() * 0.66) + (M.getBruteLoss() * 0.33)
 			if (stomach_contents[M] && (damage_dealt >= M.maxHealth * 1.5))	//If we've consumed all of it (plus a bit), then digestion is finished.
 				LAZYREMOVE(stomach_contents, M)
-				src << "Your stomach feels a little more empty as you finish digesting \the [M]."
+				to_chat(src, "Your stomach feels a little more empty as you finish digesting \the [M].")
 				qdel(M)
 
 //Helpers

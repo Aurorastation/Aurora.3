@@ -169,7 +169,6 @@
 					limb_icon_cache[cache_key] = I
 				mob_icon.Blend(limb_icon_cache[cache_key], ICON_OVERLAY)
 
-	dir = EAST
 	icon = mob_icon
 
 	return mob_icon

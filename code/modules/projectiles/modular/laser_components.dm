@@ -47,20 +47,20 @@
 /obj/item/laser_components/capacitor/nuclear/small_fail(var/mob/user, var/obj/item/weapon/gun/energy/laser/prototype/prototype)
 	for (var/mob/living/M in range(0,src)) //Only a minor failure, enjoy your radiation if you're in the same tile or carrying it
 		if (M != user)
-			M << "<span class='warning'>You feel a warm sensation.</span>"
+			to_chat(M, "<span class='warning'>You feel a warm sensation.</span>")
 		M.apply_effect(rand(1,10)*(prototype.criticality+1), IRRADIATE)
 	return
 
 /obj/item/laser_components/capacitor/nuclear/medium_fail(var/mob/user, var/obj/item/weapon/gun/energy/laser/prototype/prototype)
 	for (var/mob/living/M in range(round((prototype.criticality+1)),src)) //Only a minor failure, enjoy your radiation if you're in the same tile or carrying it
 		if (M != user)
-			M << "<span class='warning'>You feel a warm sensation.</span>"
+			to_chat(M, "<span class='warning'>You feel a warm sensation.</span>")
 		M.apply_effect(rand(1,40)*(prototype.criticality+1), IRRADIATE)
 	return
 
 /obj/item/laser_components/capacitor/nuclear/critical_fail(var/mob/user, var/obj/item/weapon/gun/energy/laser/prototype/prototype)
 	for (var/mob/living/M in range(rand(2,6)*(prototype.criticality+1),src))
-		M << "<span class='warning'>You feel a wave of heat wash over you.</span>"
+		to_chat(M, "<span class='warning'>You feel a wave of heat wash over you.</span>")
 		M.apply_effect(300*(prototype.criticality+1), IRRADIATE)
 	..()
 
@@ -96,7 +96,7 @@
 /obj/item/laser_components/capacitor/phoron/small_fail(var/mob/user, var/obj/item/weapon/gun/energy/laser/prototype/prototype)
 	for (var/mob/living/M in range(0,src)) //Only a minor failure, enjoy your radiation if you're in the same tile or carrying it
 		if (M != user)
-			M << "<span class='warning'>You feel a warm sensation.</span>"
+			to_chat(M, "<span class='warning'>You feel a warm sensation.</span>")
 		M.apply_effect(rand(1,10)*(prototype.criticality+1), IRRADIATE)
 	return
 

@@ -16,4 +16,4 @@
 			pose = addtext(pose,".") //Makes sure all emotes end with a period.
 		msg += "\nIt [pose]"
 
-	user << msg
+	to_chat(user, msg)
