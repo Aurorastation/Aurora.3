@@ -1,0 +1,6 @@
+author: ChangeMe
+
+delete-after: True
+
+changes: 
+  - bugfix: "Tajara interaction with certain chemicals should work as expected now."
