@@ -42,7 +42,7 @@
 			continue
 		else if (target.airflow_process_delay)
 			target.airflow_process_delay = 0
-		
+
 		target.airflow_speed = min(target.airflow_speed, 15)
 		target.airflow_speed -= vsc.airflow_speed_decay
 		if (!target.airflow_skip_speedcheck)
@@ -84,7 +84,7 @@
 			if (MC_TICK_CHECK)
 				return
 			continue
-		
+
 		step_towards(target, target.airflow_dest)
 		if (ismob(target) && target:client)
 			target:setMoveCooldown(vsc.airflow_mob_slowdown)
@@ -92,7 +92,7 @@
 		if (MC_TICK_CHECK)
 			return
 
-#undef CLEAR_OBJECT		
+#undef CLEAR_OBJECT
 
 /atom/movable
 	var/tmp/airflow_xo
@@ -115,7 +115,7 @@
 		return FALSE
 
 	if (ismob(src))
-		src << span("danger", "You are pushed away by airflow!")
+		to_chat(src, span("danger", "You are pushed away by airflow!"))
 
 	last_airflow = world.time
 	var/airflow_falloff = 9 - sqrt((x - airflow_dest.x) ** 2 + (y - airflow_dest.y) ** 2)
@@ -123,9 +123,9 @@
 	if (airflow_falloff < 1)
 		airflow_dest = null
 		return FALSE
-	
-	airflow_speed = min(max(n * (9 / airflow_falloff), 1), 9)	
-	
+
+	airflow_speed = min(max(n * (9 / airflow_falloff), 1), 9)
+
 	airflow_od = 0
 
 	if (!density)
@@ -148,7 +148,7 @@
 /atom/movable/proc/RepelAirflowDest(n)
 	if (!prepare_airflow(n))
 		return
-	
+
 	airflow_xo = -(airflow_dest.x - src.x)
 	airflow_yo = -(airflow_dest.y - src.y)
 

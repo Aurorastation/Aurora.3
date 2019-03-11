@@ -143,7 +143,7 @@
 		dir = "default"
 
 	var/filename = "[ckey("[icon]_[icon_state]_[dir]")].png"
-	src << browse_rsc(I, filename)
+	to_chat(src, browse_rsc(I, filename))
 	return filename
 	*/
 

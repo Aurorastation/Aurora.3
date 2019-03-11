@@ -27,7 +27,7 @@
 /obj/item/weapon/plastique/attackby(var/obj/item/I, var/mob/user)
 	if(I.isscrewdriver())
 		open_panel = !open_panel
-		user << "<span class='notice'>You [open_panel ? "open" : "close"] the wire panel.</span>"
+		to_chat(user, "<span class='notice'>You [open_panel ? "open" : "close"] the wire panel.</span>")
 	else if(I.iswirecutter() || I.ismultitool() || istype(I, /obj/item/device/assembly/signaler ))
 		wires.Interact(user)
 	else
@@ -38,14 +38,14 @@
 	if(user.get_active_hand() == src)
 		newtime = Clamp(newtime, 10, 60000)
 		timer = newtime
-		user << "Timer set for [timer] seconds."
+		to_chat(user, "Timer set for [timer] seconds.")
 
 /obj/item/weapon/plastique/afterattack(atom/movable/target, mob/user, flag)
 	if (!flag)
 		return
 	if (ismob(target) || istype(target, /turf/unsimulated) || istype(target, /turf/simulated/shuttle)|| isopenturf(target) || istype(target, /obj/item/weapon/storage/) || istype(target, /obj/item/clothing/accessory/storage/) || istype(target, /obj/item/clothing/under))
 		return
-	user << "Planting explosives..."
+	to_chat(user, "Planting explosives...")
 	user.do_attack_animation(target)
 
 	if(do_after(user, 50) && in_range(user, target))
@@ -64,7 +64,7 @@
 			log_game("[key_name(user)] planted [src.name] on [target.name] at ([target.x],[target.y],[target.z]) with [timer] second fuse",ckey=key_name(user))
 
 		target.add_overlay(image_overlay, TRUE)
-		user << "Bomb has been planted. Timer counting down from [timer]."
+		to_chat(user, "Bomb has been planted. Timer counting down from [timer].")
 
 		addtimer(CALLBACK(src, .proc/explode, get_turf(target)), timer * 10)
 

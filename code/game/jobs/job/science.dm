@@ -131,3 +131,29 @@
 	satchel = /obj/item/weapon/storage/backpack/satchel_tox
 	dufflebag = /obj/item/weapon/storage/backpack/duffel/tox
 	messengerbag = /obj/item/weapon/storage/backpack/messenger/tox
+
+/datum/job/intern_sci
+	title = "Lab Assistant"
+	flag = INTERN_SCI
+	department_flag = MEDSCI
+	faction = "Station"
+	total_positions = 2
+	spawn_positions = 2
+	supervisors = "the Research Director"
+	selection_color = "#ffeeff"
+	access = list(access_research, access_tox)
+	minimal_access = list(access_research, access_tox)
+	outfit = /datum/outfit/job/intern_sci
+
+/datum/outfit/job/intern_sci
+	name = "Lab Assistant"
+	jobtype = /datum/job/intern_sci
+
+	uniform = /obj/item/clothing/under/rank/scientist
+	shoes = /obj/item/clothing/shoes/white
+	l_ear = /obj/item/device/radio/headset/headset_sci
+
+	backpack = /obj/item/weapon/storage/backpack/toxins
+	satchel = /obj/item/weapon/storage/backpack/satchel_tox
+	dufflebag = /obj/item/weapon/storage/backpack/duffel/tox
+	messengerbag = /obj/item/weapon/storage/backpack/messenger/tox

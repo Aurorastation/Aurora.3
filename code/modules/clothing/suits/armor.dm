@@ -235,11 +235,11 @@
 /obj/item/clothing/suit/armor/reactive/attack_self(mob/user as mob)
 	src.active = !( src.active )
 	if (src.active)
-		user << "<span class='notice'>The reactive armor is now active.</span>"
+		to_chat(user, "<span class='notice'>The reactive armor is now active.</span>")
 		src.icon_state = "reactive"
 		src.item_state = "reactive"
 	else
-		user << "<span class='notice'>The reactive armor is now inactive.</span>"
+		to_chat(user, "<span class='notice'>The reactive armor is now inactive.</span>")
 		src.icon_state = "reactiveoff"
 		src.item_state = "reactiveoff"
 		src.add_fingerprint(user)
@@ -292,17 +292,17 @@
 		if(!holster.holstered)
 			var/obj/item/W = usr.get_active_hand()
 			if(!istype(W, /obj/item))
-				usr << "<span class='warning'>You need your gun equiped to holster it.</span>"
+				to_chat(usr, "<span class='warning'>You need your gun equiped to holster it.</span>")
 				return
 			holster.holster(W, usr)
 		else
-			usr << "<span class='warning'>There's already a gun in the holster, you need an empty hand to draw it.</span>"
+			to_chat(usr, "<span class='warning'>There's already a gun in the holster, you need an empty hand to draw it.</span>")
 			return
 	else
 		if(holster.holstered)
 			holster.unholster(usr)
 		else
-			usr << "<span class='warning'>There's no gun in the holster to draw.</span>"
+			to_chat(usr, "<span class='warning'>There's no gun in the holster to draw.</span>")
 
 
 //Non-hardsuit ERT armor.
@@ -498,9 +498,22 @@
 	icon = 'icons/obj/unathi_items.dmi'
 	icon_state = "unathi_armor"
 	item_state = "unathi_armor"
-	contained_sprite = 1
+	contained_sprite = TRUE
 	species_restricted = list("Unathi")
 	armor = list(melee = 65, bullet = 30, laser = 50, energy = 10, bomb = 25, bio = 0, rad = 0)
+
+/obj/item/clothing/suit/armor/tajara
+	name = "amohdan swordsmen armor"
+	desc = "A suit of armor used by the traditional warriors of Amohhda."
+	icon = 'icons/obj/tajara_items.dmi'
+	icon_state = "amohdan_armor"
+	item_state = "amohdan_armor"
+	contained_sprite = TRUE
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
+	allowed = list(/obj/item/weapon/gun,/obj/item/weapon/material/sword)
+	flags_inv = HIDEJUMPSUIT|HIDETAIL
+	species_restricted = list("Tajara")
+	armor = list(melee = 60, bullet = 50, laser = 20, energy = 10, bomb = 5, bio = 0, rad = 0)
 
 //tau ceti foreign legion armor
 

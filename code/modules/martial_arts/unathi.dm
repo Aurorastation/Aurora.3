@@ -88,21 +88,6 @@
 	var/atom/throw_target = get_edge_target_turf(D, get_dir(D, get_step_away(D, A)))
 	D.throw_at(throw_target, 200, 4,A)
 
-/obj/item/kis_khan_manual
-	name = "kis khan scroll"
-	desc = "A parched scroll.It seems to be drawings of some sort of martial art involving tails."
-	icon = 'icons/obj/wizard.dmi'
-	icon_state = "scroll2"
-
-/obj/item/kis_khan_manual/attack_self(mob/user as mob)
-	if(!ishuman(user))
-		return
-	var/mob/living/carbon/human/H = user
-	var/datum/martial_art/kis_khan/F = new/datum/martial_art/kis_khan(null)
-	F.teach(H)
-	to_chat(H, "<span class='notice'>You have learned the martial art of Kis Khan.</span>")
-	qdel(src)
-
 /datum/martial_art/kis_khan/proc/kis_khan_help()
 	set name = "Recall Teachings"
 	set desc = "Remember the martial techniques of the Kis-khan."
@@ -113,3 +98,9 @@
 	to_chat(usr, "<span class='notice'>Swift Disarm</span>: Disarm Disarm Grab. Strikes your target's weapon, trying to disarm it from their hands.")
 	to_chat(usr, "<span class='notice'>Hammering Strike</span>: Disarm Harm Disarm. Delivers a strikes that will push the target away from you.")
 
+/obj/item/martial_manual/unathi
+	name = "kis khan scroll"
+	desc = "A parched scroll.It seems to be drawings of some sort of martial art involving tails."
+	icon = 'icons/obj/wizard.dmi'
+	icon_state = "scroll2"
+	martial_art = /datum/martial_art/kis_khan

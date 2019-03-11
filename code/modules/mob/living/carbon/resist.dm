@@ -77,10 +77,10 @@
 	//If you are handcuffed with actual handcuffs... Well what do I know, maybe someone will want to handcuff you with toilet paper in the future...
 	if(istype(HC))
 		breakouttime = HC.breakouttime
-	
+
 	if(buckled)
 		breakouttime += 600 //If you are buckled, it takes a minute longer, but you are unbuckled and uncuffed instantly
-	
+
 	displaytime = breakouttime / 600 //Minutes
 
 	var/mob/living/carbon/human/H = src
@@ -113,7 +113,7 @@
 			buckle_message_user = " and unbuckle yourself"
 			buckle_message_other = " and to unbuckle themself"
 			buckled.user_unbuckle_mob(src)
-		
+
 		if(violent_removal)
 			var/obj/item/organ/external/E = H.get_organ(pick("l_arm","r_arm"))
 			var/dislocate_message = ""
@@ -207,7 +207,7 @@
 		update_inv_handcuffed()
 
 /mob/living/carbon/proc/break_legcuffs()
-	src << "<span class='warning'>You attempt to break your legcuffs. (This will take around 5 seconds and you need to stand still)</span>"
+	to_chat(src, "<span class='warning'>You attempt to break your legcuffs. (This will take around 5 seconds and you need to stand still)</span>")
 	visible_message("<span class='danger'>[src] is trying to break the legcuffs!</span>")
 
 	if(do_after(src, 50))

@@ -31,7 +31,7 @@
 		for(var/obj/item/hand in handlist)
 			if(prob(current_size*5) && hand.w_class >= ((11-current_size)/2) && u_equip(hand))
 				step_towards(hand, src)
-				src << "<span class = 'warning'>The [S] pulls \the [hand] from your grip!</span>"
+				to_chat(src, "<span class = 'warning'>The [S] pulls \the [hand] from your grip!</span>")
 	apply_effect(current_size * 3, IRRADIATE, blocked = getarmor(null, "rad"))
 	if(shoes)
 		if(shoes.item_flags & NOSLIP) return 0
