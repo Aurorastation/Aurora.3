@@ -1,7 +1,7 @@
 /obj/item/organ/parasite/alien_embryo
 	name = "alien embryo"
 	desc = "All slimy and yuck."
-	icon = 'icons/mob/alien.dmi'
+	icon = 'icons/mob/npc/alien.dmi'
 	icon_state = "larva0_dead"
 	parent_organ = "chest"
 	organ_tag = "alien embryo"
@@ -113,7 +113,7 @@ Des: Removes all infection images from aliens and places an infection image on a
 			for(var/mob/living/L in mob_list)
 				if(iscarbon(L))
 					if(L.status_flags & XENO_HOST)
-						var/image/I = image('icons/mob/alien.dmi', loc = L, icon_state = "infected[stage]")
+						var/image/I = image('icons/mob/npc/alien.dmi', loc = L, icon_state = "infected[stage]")
 						alien.client.images += I
 
 /*----------------------------------------
@@ -130,7 +130,7 @@ Des: Checks if the passed mob (C) is infected with the alien egg, then gives eac
 
 			if(alien.client)
 				if(C.status_flags & XENO_HOST)
-					var/image/I = image('icons/mob/alien.dmi', loc = C, icon_state = "infected[stage]")
+					var/image/I = image('icons/mob/npc/alien.dmi', loc = C, icon_state = "infected[stage]")
 					alien.client.images += I
 
 /*----------------------------------------

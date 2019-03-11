@@ -9,7 +9,7 @@
 /mob/living/simple_animal/hostile/hivebot
 	name = "Hivebot"
 	desc = "A small robot"
-	icon = 'icons/mob/hivebot.dmi'
+	icon = 'icons/mob/npc/hivebot.dmi'
 	icon_state = "basic"
 	icon_living = "basic"
 	icon_dead = "basic"
@@ -59,7 +59,6 @@
 /mob/living/simple_animal/hostile/hivebot/tele//this still needs work
 	name = "Beacon"
 	desc = "Some odd beacon thing"
-	icon = 'icons/mob/hivebot.dmi'
 	icon_state = "def_radar-off"
 	icon_living = "def_radar-off"
 	health = 200
