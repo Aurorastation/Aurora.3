@@ -3607,6 +3607,10 @@
 "mC" = (
 /turf/simulated/floor/carpet,
 /area/adhomai/village/mayor)
+"mQ" = (
+/mob/living/carbon/human/farwa,
+/turf/simulated/floor/wood,
+/area/adhomai/village/mayor)
 "nc" = (
 /obj/machinery/light{
 	icon_state = "tube1";
@@ -3996,6 +4000,10 @@
 /obj/machinery/appliance/cooker/oven,
 /turf/simulated/floor/wood,
 /area/adhomai/village/mayor)
+"Ol" = (
+/mob/living/carbon/human/farwa,
+/turf/simulated/floor/wood,
+/area/adhomai/village/bar)
 "PJ" = (
 /obj/machinery/light/small{
 	dir = 8
@@ -41685,7 +41693,7 @@ aa
 fF
 mj
 Fr
-Fr
+Ol
 Fr
 Fr
 Fr
@@ -52253,7 +52261,7 @@ aa
 aa
 aa
 kJ
-Fc
+mQ
 mC
 Fc
 kJ
