@@ -282,6 +282,16 @@ var/list/gamemode_cache = list()
 
 	var/rounds_until_hard_restart = -1 // Changes how often a hard restart will be executed.
 
+	var/ert_base_chance = 10
+	var/ert_green_inc = 1
+	var/ert_yellow_inc = 1
+	var/ert_blue_inc = 2
+	var/ert_red_inc = 3
+	var/ert_delta_inc = 10
+	var/ert_scaling_factor = 1
+	var/ert_scaling_factor_antag = 1
+	var/ert_scaling_factor_dead = 2
+
 /datum/configuration/New()
 	var/list/L = typesof(/datum/game_mode) - /datum/game_mode
 	for (var/T in L)
@@ -864,6 +874,25 @@ var/list/gamemode_cache = list()
 
 				if ("rounds_until_hard_restart")
 					rounds_until_hard_restart = text2num(value)
+
+				if ("ert_base_chance")
+					ert_base_chance = text2num(value)
+				if ("ert_green_inc")
+					ert_green_inc = text2num(value)
+				if ("ert_yellow_inc")
+					ert_yellow_inc = text2num(value)
+				if ("ert_blue_inc")
+					ert_blue_inc = text2num(value)
+				if ("ert_red_inc")
+					ert_red_inc = text2num(value)
+				if ("ert_delta_inc")
+					ert_delta_inc = text2num(value)
+				if ("ert_scaling_factor")
+					ert_scaling_factor = text2num(value)
+				if ("ert_scaling_factor_antag")
+					ert_scaling_factor_antag = text2num(value)
+				if ("ert_scaling_factor_dead")
+					ert_scaling_factor_dead = text2num(value)
 
 				else
 					log_misc("Unknown setting in configuration: '[name]'")
