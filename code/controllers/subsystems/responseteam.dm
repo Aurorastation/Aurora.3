@@ -84,6 +84,9 @@
 	can_call_ert = FALSE // Only one call per round, gentleman.
 	send_emergency_team = 1
 
+	feedback_set("ert_called",ert_chance)
+	feedback_set_details("ert_called",ert_type)
+
 	sleep(600 * 5)
 	send_emergency_team = 0 // Can no longer join the ERT.
 	ert_type = "NanoTrasen Response Team"
