@@ -1248,7 +1248,7 @@
 //unathi horn beards and the like
 
 	una_chinhorn
-		icon = 'icons/mob/human_face/unathi_facial_hair.dmi'
+		icon = 'icons/mob/human_face/unathi_hair.dmi'
 		name = "Unathi Chin Horn"
 		icon_state = "facial_chinhorns"
 		species_allowed = list("Unathi")
