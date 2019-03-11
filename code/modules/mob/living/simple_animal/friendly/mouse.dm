@@ -3,7 +3,7 @@
 	real_name = "mouse"
 	desc = "It's a small, disgusting rodent, often found being annoying, and aiding in the spread of disease."
 
-	icon = 'icons/mob/mouse.dmi'
+	icon = 'icons/mob/npc/mouse.dmi'
 	icon_state = "mouse_gray"
 	item_state = "mouse_gray"
 	icon_living = "mouse_gray"
@@ -270,7 +270,7 @@
 	..()
 
 /mob/living/simple_animal/mouse/dust()
-	..(anim = "dust_[body_color]", remains = /obj/effect/decal/remains/mouse, iconfile = 'icons/mob/mouse.dmi')
+	..(anim = "dust_[body_color]", remains = /obj/effect/decal/remains/mouse, iconfile = 'icons/mob/npc/mouse.dmi')
 
 
 /*

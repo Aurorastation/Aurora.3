@@ -454,7 +454,7 @@
 //Holo-penguin
 
 /mob/living/simple_animal/penguin/holodeck
-	icon = 'icons/mob/penguins.dmi'
+	icon = 'icons/mob/npc/penguins.dmi'
 	icon_state = "penguin"
 	icon_living = "penguin"
 	icon_dead = "penguin_dead"
