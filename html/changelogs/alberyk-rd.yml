@@ -1,9 +1,0 @@
-author: Alberyk
-
-delete-after: True
-
-changes: 
-  - rscdel: "Removed the last non-modular guns from rd, such as the lawgiver."
-  - bugfix: "Fixed some issues with modular guns modules; such as repairing not working as intended and some being unavailable at research."
-  - rscdel: "Removed the illegal tech level from the securitron sound circuit." 
-  - tweak: "Modular guns capacitors are now more reliable."
