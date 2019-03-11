@@ -1,6 +1,6 @@
 /mob/living/carbon/slime
 	name = "baby slime"
-	icon = 'icons/mob/slimes.dmi'
+	icon = 'icons/mob/npc/slimes.dmi'
 	icon_state = "grey baby slime"
 	pass_flags = PASSTABLE
 	var/is_adult = 0

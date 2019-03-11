@@ -149,7 +149,7 @@ mob/living/carbon/proc/handle_hallucinations()
 							if(2,3)
 								halbody = image('icons/mob/human.dmi',target,"husk_s",TURF_LAYER)
 							if(4)
-								halbody = image('icons/mob/alien.dmi',target,"alienother",TURF_LAYER)
+								halbody = image('icons/mob/npc/alien.dmi',target,"alienother",TURF_LAYER)
 	//						if(5)
 	//							halbody = image('xcomalien.dmi',target,"chryssalid",TURF_LAYER)
 

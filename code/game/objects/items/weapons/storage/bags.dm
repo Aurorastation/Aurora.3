@@ -132,7 +132,7 @@
 
 /obj/item/weapon/storage/bag/slimes
 	name = "slime core bag"
-	icon = 'icons/mob/slimes.dmi'
+	icon = 'icons/mob/npc/slimes.dmi'
 	icon_state = "slimebag"
 	desc = "A pressurized and thermoregulated bag for the storage and transport of slime cores."
 	max_storage_space = 100
