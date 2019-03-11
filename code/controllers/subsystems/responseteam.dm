@@ -22,11 +22,11 @@
 
 /datum/controller/subsystem/responseteam/stat_entry()
 	var/out = "PC:[ert_progression_chance] "
-	out += "BC:[config.ert_base_chance] "
+	out += "BC:[config.ert_base_chance]\n"
 	out += "PA:[percentage_antagonists] "
-	out += "PAF:[config.ert_scaling_factor_antag] "
+	out += "PAF:[config.ert_scaling_factor_antag]\n"
 	out += "PD:[percentage_dead] "
-	out += "PDF:[config.ert_scaling_factor_dead] "
+	out += "PDF:[config.ert_scaling_factor_dead]\n"
 	out += "SF:[config.ert_scaling_factor] "
 	out += "CC:[can_call_ert] "
 	..(out)
