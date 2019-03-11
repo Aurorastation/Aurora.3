@@ -2,7 +2,7 @@
 
 	//Whitelist requirement for evolution experimentally removed
 	if(!is_alien_whitelisted(src, "Diona") && config.usealienwhitelist)
-		src << alert("You are currently not whitelisted to play as a full diona.")
+		to_chat(src, alert("You are currently not whitelisted to play as a full diona."))
 		return null
 
 	var/response = alert(src, "A worker gestalt is a large, slow, and durable humanoid form. You will lose the ability to ventcrawl and devour animals, but you will gain hand-like tendrils and the ability to wear things.You have enough biomass, are you certain you're ready to form a new gestalt?","Confirm Gestalt","Growth!","Patience...")
@@ -25,15 +25,15 @@
 
 	var/limbs_can_grow = round((nutrition / evolve_nutrition) * 6,1)
 	if(limbs_can_grow <= 3) //Head, Trunk, Fork
-		src << "<span class='warning'>You do not have enough biomass to grow yet. Currently you can only grow [limbs_can_grow]/6 limbs. ([nutrition]/[evolve_nutrition] biomass).</span>"
+		to_chat(src, "<span class='warning'>You do not have enough biomass to grow yet. Currently you can only grow [limbs_can_grow]/6 limbs. ([nutrition]/[evolve_nutrition] biomass).</span>")
 		return
 
 	if(gestalt)
-		src << "<span class='warning'>You are already part of a collective, if you wish to form your own, you must split off first.</span>"
+		to_chat(src, "<span class='warning'>You are already part of a collective, if you wish to form your own, you must split off first.</span>")
 		return
 
 	if (!istype(loc, /turf))
-		src << "<span class='warning'>There's not enough space to grow here. Stand on the floor!.</span>"
+		to_chat(src, "<span class='warning'>There's not enough space to grow here. Stand on the floor!.</span>")
 		return
 
 	// confirm_evolution() handles choices and other specific requirements.
@@ -91,7 +91,7 @@
 		if(limbs_to_remove <= 0)
 			break
 		var/obj/item/organ/external/O = adult.organs_by_name[organ_name]
-		src << "<span class='warning'>You didn't have enough biomass to grow your [O.name]!</span>"
+		to_chat(src, "<span class='warning'>You didn't have enough biomass to grow your [O.name]!</span>")
 		//adult.organs -= O
 		O.droplimb(1,DROPLIMB_EDGE)
 		qdel(O)

@@ -26,7 +26,7 @@
 		if (machine)
 			machine.console = src
 		else
-			user << "<span class='warning'>ERROR: Linked machine not found!</span>"
+			to_chat(user, "<span class='warning'>ERROR: Linked machine not found!</span>")
 
 	return machine
 
@@ -53,7 +53,7 @@
 		return
 
 	if(!allowed(user))
-		user << "<span class='warning'>Access denied.</span>"
+		to_chat(user, "<span class='warning'>Access denied.</span>")
 		return
 
 	user.set_machine(src)
@@ -118,15 +118,15 @@
 							ping( "\The [src] pings, \"Point transfer complete! Transaction total: [points] points!\"" )
 						points = 0
 					else
-						usr << "<span class='warning'>[station_name()]'s mining division is currently indebted to NanoTrasen. Transaction incomplete until debt is cleared.</span>"
+						to_chat(usr, "<span class='warning'>[station_name()]'s mining division is currently indebted to NanoTrasen. Transaction incomplete until debt is cleared.</span>")
 				else
-					usr << "<span class='warning'>Required access not found.</span>"
+					to_chat(usr, "<span class='warning'>Required access not found.</span>")
 		else if(href_list["choice"] == "insert")
 			var/obj/item/weapon/card/id/I = usr.get_active_hand()
 			if(istype(I))
 				usr.drop_from_inventory(I,src)
 				inserted_id = I
-			else usr << "<span class='warning'>No valid ID.</span>"
+			else to_chat(usr, "<span class='warning'>No valid ID.</span>")
 
 	if(href_list["toggle_smelting"])
 

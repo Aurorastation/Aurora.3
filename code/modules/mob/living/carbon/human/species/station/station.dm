@@ -55,6 +55,7 @@
 	gluttonous = 1
 	slowdown = 0.5
 	brute_mod = 0.8
+	grab_mod = 0.75
 	fall_mod = 1.2
 	ethanol_resistance = 0.4
 	taste_sensitivity = TASTE_SENSITIVE
@@ -179,6 +180,8 @@
 	flesh_color = "#AFA59E"
 	base_color = "#333333"
 
+	reagent_tag = IS_TAJARA
+
 	heat_discomfort_level = 292
 	heat_discomfort_strings = list(
 		"Your fur prickles in the heat.",
@@ -222,6 +225,8 @@
 	secondary_langs = list(LANGUAGE_SIIK_TAU)
 	name_language = LANGUAGE_SKRELLIAN
 	rarity_value = 3
+
+	grab_mod = 1.25
 
 	spawn_flags = CAN_JOIN | IS_WHITELISTED
 	appearance_flags = HAS_HAIR_COLOR | HAS_LIPS | HAS_UNDERWEAR | HAS_SKIN_COLOR | HAS_SOCKS
@@ -290,6 +295,8 @@
 	all known species, especially the Skrell. Their communal mind makes them slow to react, and they have difficulty understanding \
 	even the simplest concepts of other minds. Their alien physiology allows them survive happily off a diet of nothing but light, \
 	water and other radiation."
+
+	grab_mod = 1.1
 
 	has_organ = list(
 		"nutrient channel"   = /obj/item/organ/diona/nutrients,
@@ -370,7 +377,7 @@
 		H.updatehealth()
 		H.m_intent = "walk"
 		H.hud_used.move_intent.update_move_icon(H)
-		H << span("danger", "We have expended our energy reserves, and cannot continue to move at such a pace. We must find light!")
+		to_chat(H, span("danger", "We have expended our energy reserves, and cannot continue to move at such a pace. We must find light!"))
 		return 0
 
 /datum/species/diona/can_understand(var/mob/other)
@@ -469,6 +476,10 @@
 	body_temperature = null
 	passive_temp_gain = 10  // This should cause IPCs to stabilize at ~80 C in a 20 C environment.
 
+	inherent_verbs = list(
+		/mob/living/carbon/human/proc/self_diagnostics
+	)
+
 	flags = IS_IPC
 	appearance_flags = HAS_SKIN_COLOR | HAS_HAIR_COLOR
 	spawn_flags = CAN_JOIN | IS_WHITELISTED
@@ -528,7 +539,7 @@ datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
 			H.Weaken(15)
 			H.m_intent = "walk"
 			H.hud_used.move_intent.update_move_icon(H)
-			H << span("danger", "ERROR: Power reserves depleted, emergency shutdown engaged. Backup power will come online in approximately 30 seconds, initiate charging as primary directive.")
+			to_chat(H, span("danger", "ERROR: Power reserves depleted, emergency shutdown engaged. Backup power will come online in approximately 30 seconds, initiate charging as primary directive."))
 			playsound(H.loc, 'sound/machines/buzz-two.ogg', 100, 0)
 		else
 			return 1
