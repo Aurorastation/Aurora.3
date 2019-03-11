@@ -58,6 +58,8 @@
 /obj/item/laser_components/modifier/repair_module(var/obj/item/weapon/weldingtool/W)
 	if(!istype(W))
 		return
+	if(malus == base_malus)
+		return 0
 	if(W.remove_fuel(5))
 		malus = max(malus - 5, base_malus)
 		return 1
@@ -75,7 +77,10 @@
 /obj/item/laser_components/capacitor/repair_module(var/obj/item/stack/cable_coil/C)
 	if(!istype(C))
 		return
+	if(!condition > 0)
+		return 0
 	if(C.use(5))
+		condition = max(condition - 5, 0)
 		return 1
 	return 0
 
@@ -106,7 +111,10 @@
 /obj/item/laser_components/focusing_lens/repair_module(var/obj/item/stack/nanopaste/N)
 	if(!istype(N))
 		return
+	if(!condition > 0)
+		return 0
 	if(N.use(5))
+		condition = max(condition - 5, 0)
 		return 1
 	return 0
 
@@ -120,6 +128,7 @@
 	name = "laser modulator"
 	desc = "A modification that modulates the beam into a standard laser beam."
 	icon_state = "laser"
+	origin_tech = list(TECH_COMBAT = 1, TECH_MAGNET = 2)
 	var/obj/item/projectile/beam/projectile = /obj/item/projectile/beam
 	var/firing_sound = 'sound/weapons/Laser.ogg'
 

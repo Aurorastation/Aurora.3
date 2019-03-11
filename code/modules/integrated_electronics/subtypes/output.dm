@@ -200,7 +200,7 @@
 		"secure day"   = 'sound/voice/bsecureday.ogg'
 	)
 	spawn_flags = IC_SPAWN_RESEARCH
-	origin_tech = list(TECH_ENGINEERING = 2, TECH_DATA = 2, TECH_ILLEGAL = 1)
+	origin_tech = list(TECH_ENGINEERING = 2, TECH_DATA = 2)
 
 /obj/item/integrated_circuit/output/sound/medbot
 	name = "medbot sound circuit"
