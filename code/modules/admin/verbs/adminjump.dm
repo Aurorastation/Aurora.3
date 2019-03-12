@@ -44,8 +44,8 @@
 		return
 
 	if(config.allow_admin_jump)
-		log_admin("[key_name(usr)] jumped to [key_name(target)]", admin_key=key_name(usr),ckey=key_name(target))
-		message_admins("[key_name_admin(usr)] jumped to [key_name_admin(target)]", 1)
+		log_admin("[key_name(usr)] jumped to [key_name(M)]", admin_key=key_name(usr),ckey=key_name(M))
+		message_admins("[key_name_admin(usr)] jumped to [key_name_admin(M)]", 1)
 		if(src.mob)
 			var/mob/A = src.mob
 			var/turf/T = get_turf(M)
