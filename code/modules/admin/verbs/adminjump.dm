@@ -36,7 +36,7 @@
 		alert("Admin jumping disabled")
 	return
 
-/client/proc/jumptomob(var/mob/M in mob_list)
+/client/proc/jumptomob(input in getmobs())
 	set category = "Admin"
 	set name = "Jump to Mob"
 
@@ -44,11 +44,13 @@
 		return
 
 	if(config.allow_admin_jump)
-		log_admin("[key_name(usr)] jumped to [key_name(M)]",admin_key=key_name(usr),ckey=key_name(M))
-		message_admins("[key_name_admin(usr)] jumped to [key_name_admin(M)]", 1)
+		var/target = getmobs()[input]
+		if(!target) return
+		log_admin("[key_name(usr)] jumped to [key_name(target)]", admin_key=key_name(usr),ckey=key_name(target))
+		message_admins("[key_name_admin(usr)] jumped to [key_name_admin(target)]", 1)
 		if(src.mob)
 			var/mob/A = src.mob
-			var/turf/T = get_turf(M)
+			var/turf/T = get_turf(target)
 			if(isturf(T))
 				feedback_add_details("admin_verb","JM") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 				A.on_mob_jump()

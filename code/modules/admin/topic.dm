@@ -826,13 +826,10 @@
 
 	else if(href_list["adminplayerobservejump"])
 		if(!check_rights(R_MOD|R_ADMIN))	return
-
-		var/mob/M = locate(href_list["adminplayerobservejump"])
-
 		var/client/C = usr.client
 		if(!isobserver(usr))	C.admin_ghost()
 		sleep(2)
-		C.jumptomob(M)
+		C.jumptomob()
 
 	else if(href_list["check_antagonist"])
 		check_antagonists()
