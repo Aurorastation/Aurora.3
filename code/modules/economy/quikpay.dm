@@ -11,8 +11,7 @@
 	var/access_code = 0
 	var/editmode = 0
 	var/receipt = ""
-	var/account = "Civilian"
-	var/list/station_accounts = list("Command", "Medical", "Engineering", "Science", "Security", "Cargo", "Civilian")
+	var/destinationact = "Civilian"
 
 
 
@@ -103,55 +102,11 @@
 	if (!istype(O))
 		return
 
-	var/datum/money_account/customer_account = SSeconomy.get_account(I.associated_account_number)
-	var/datum/money_account/quickpay_account = SSeconomy.get_department_account(account)
-	if (!customer_account)
-		to_chat(user, span("notice", "Unable to access account, please contact the Head of Personnel."))
-		return 0
+		var/transaction_amount = sum
+		var/transaction_purpose = "[account] Payment"
+		var/transaction_terminal = machine_id
 
-	if(sum == 0)
-		to_chat(user, span("notice", "You need to select something and switch to the confirmation screen before you can pay."))
-		return 0
-
-	if(customer_account.suspended)
-		to_chat(user, span("notice", "Account Suspended, please contact the Head of Personnel."))
-		return 0
-
-	if(customer_account.security_level > 1) //If card requires pin authentication (ie seclevel 1 or 2)
-		var/attempt_pin = input("Enter pin code", "Quik-Pay transaction") as num
-		customer_account = SSeconomy.attempt_account_access(I.associated_account_number, attempt_pin, 2)
-
-		if(!customer_account)
-			to_chat(user, span("notice", "Unable to access account, please contact the Head of Personnel."))
-			return 0
-
-	if(sum > customer_account.money)
-		to_chat(user, span("notice", "Your account lack's the funds to process this payment."))
-		return 0
-	else
-
-
-		// debit money from the purchaser's account
-		customer_account.money -= sum
-		quickpay_account.money += sum
-
-
-
-
-		// create account log in the customers
-		var/datum/transaction/T = new()
-		T.target_name = machine_id
-		T.purpose = "Quik Pay Transaction"
-		T.amount = sum
-		T.source_terminal = machine_id
-		T.date = worlddate2text()
-		T.time = worldtime2text()
-		SSeconomy.add_transaction_log(customer_account,T)
-
-
-		print_receipt()
-		playsound(loc, 'sound/items/polaroid1.ogg', 50, 1)
-		to_chat(user, span("notice", "Transaction to [account] account approved for a total of [sum] credits."))
+		var/status = SSeconomy.transfer_money(I.associated_account_number, destinationact.account_number,transaction_purpose,transaction_terminal,transaction_amount,null,usr)
 
 		sum = 0
 		receipt = ""
@@ -173,8 +128,6 @@
 	VUEUI_SET_CHECK_IFNOTSET(data["price"], items, ., data)
 	VUEUI_SET_CHECK_IFNOTSET(data["tmp_name"], "", ., data)
 	VUEUI_SET_CHECK_IFNOTSET(data["tmp_price"], 0, ., data)
-	VUEUI_SET_CHECK_IFNOTSET(data["_accounts"], station_accounts, ., data)
-	VUEUI_SET_CHECK_IFNOTSET(data["account"], account, ., data)
 	VUEUI_SET_CHECK(data["tmp_price"], max(0, data["tmp_price"]), ., data)
 	if(data["tmp_price"] < 0)
 		data["tmp_price"] = 0
@@ -233,13 +186,30 @@
 				SSvueui.check_uis_for_change(src)
 		. = TRUE
 
-	if(href_list["changeaccount"])
-		if(editmode != 1)
-			return TRUE
-		if(href_list["changeaccount"] in station_accounts)
-			account = href_list["changeaccount"]
-		else
-			return TRUE
+	if(href_list["accountselect"])
+
+		if(editmode == 0)
+			to_chat(src, span("notice", "You don't have access to use this option."))
+			return 0
+		switch(input("What account would you like to select?", "Destination Account") as null|anything in list("Civilian", "Cargo", "Command", "Medical", "Security", "Engineering", "Science"))
+		
+			if("Civilian")
+				destinationact = "Civilian"
+			if("Cargo")
+				destinationact = "Cargo"
+			if("Command")
+				destinationact = "Command"
+			if("Medical")
+				destinationact = "Medical"
+			if("Security")
+				destinationact = "Security"
+			if("Engineering")
+				destinationact = "Engineering"
+			if("Science")
+				destinationact = "Science"
+	. = TRUE
+	playsound(src, 'sound/machines/chime.ogg', 50, 1)
+	SSvueui.check_uis_for_change(src)
 		
 
 
