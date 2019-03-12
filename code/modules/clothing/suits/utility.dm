@@ -21,11 +21,9 @@
 	allowed = list(/obj/item/device/flashlight,/obj/item/weapon/tank/emergency_oxygen,/obj/item/weapon/extinguisher)
 	slowdown = 1.0
 	flags_inv = HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT|HIDETAIL
-	item_flags = STOPPRESSUREDAMAGE
 	heat_protection = UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS|HANDS
 	max_heat_protection_temperature = FIRESUIT_MAX_HEAT_PROTECTION_TEMPERATURE
 	cold_protection = UPPER_TORSO | LOWER_TORSO | LEGS | FEET | ARMS | HANDS
-	max_fire_stacks = FIRE_MAX_FIRESUIT_STACKS
 
 
 /obj/item/clothing/suit/fire/firefighter
@@ -39,11 +37,13 @@
 	//icon_state = "thermal"
 	item_state = "ro_suit"
 	w_class = 4//bulky item
+	max_heat_protection_temperature = FIRESUIT_MAX_HEAT_PROTECTION_TEMPERATURE + 25000
 	slowdown = 1.5
 
 /obj/item/clothing/suit/fire/atmos
 	name = "atmospheric technician firesuit"
 	desc = "A suit that protects against fire and heat, this one is designed for atmospheric technicians."
+	max_heat_protection_temperature = FIRESUIT_MAX_HEAT_PROTECTION_TEMPERATURE + 15000
 	icon_state = "atmos_firesuit"
 	item_state = "atmos_firesuit"
 

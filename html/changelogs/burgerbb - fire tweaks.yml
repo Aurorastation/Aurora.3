@@ -37,5 +37,5 @@ changes:
   - tweak: "Lighters can set people on fire when used if the person is covered in fuel. Towels can help extinguish flames slightly more effectively than patting people out."
   - bugfix: "Fire Extinguishers are good at taking out fires. Foam solution is 3 time stronger than water."
   - tweak: "Drop rolling in extinguisher foam uses foam to extinguish fire."
-  - tweak: "Atmos suit max temperature threshold was increased from 30k to 45k."
-  - tweak: "Atmos suit can now handle up to 22 fire stacks before wearer takes damage. For reference fire suit handles 20 fire stacks max."
+  - balance: "Atmos suit max temperature threshold was increased from 30k to 40k. Atmos firefighter suit max temperature was increased from 30k to 45k. Heavy firesuit max temperature was increased from 30k to 55k. Same goes for their helmets"
+  - balance: "Firesuits and red/white/atmos hardhats no longer protect wearer from pressure. So people cannot use it in space. For areas with 2000+ KPa fire people need to use atmos voidsuit."

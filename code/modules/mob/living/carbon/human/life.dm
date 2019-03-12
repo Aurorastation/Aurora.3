@@ -1624,20 +1624,6 @@
 	if (thermal_protection < 1 && bodytemperature < burn_temperature)
 		bodytemperature += round(BODYTEMP_HEATING_MAX*(1-thermal_protection), 1)
 
-/mob/living/carbon/human/fire_burn_temperature()
-	if (fire_stacks <= 0)
-		return 0
-	
-	var/max_fire_stacks = 0
-	if(wear_suit && istype(wear_suit, /obj/item/clothing/suit))
-		var/obj/item/clothing/suit/s = wear_suit
-		max_fire_stacks = s.max_fire_stacks
-
-	//Scale quadratically so that single digit numbers of fire stacks don't burn ridiculously hot.
-	//lower limit of 700 K, same as matches and roughly the temperature of a cool flame.
-	return max(2.25*round(FIRESUIT_MAX_HEAT_PROTECTION_TEMPERATURE*(fire_stacks/max_fire_stacks)**2), 700)
-
-
 /mob/living/carbon/human/rejuvenate()
 	restore_blood()
 	..()
