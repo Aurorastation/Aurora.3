@@ -25,6 +25,7 @@
 	heat_protection = UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS|HANDS
 	max_heat_protection_temperature = FIRESUIT_MAX_HEAT_PROTECTION_TEMPERATURE
 	cold_protection = UPPER_TORSO | LOWER_TORSO | LEGS | FEET | ARMS | HANDS
+	max_fire_stacks = FIRE_MAX_FIRESUIT_STACKS
 
 
 /obj/item/clothing/suit/fire/firefighter

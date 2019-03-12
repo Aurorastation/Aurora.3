@@ -727,6 +727,7 @@
 		)
 
 	valid_accessory_slots = list("over")
+	var/max_fire_stacks = 0 // determins number of fire stacks before we recieve damage
 
 /obj/item/clothing/suit/update_clothing_icon()
 	if (ismob(src.loc))
