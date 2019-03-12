@@ -149,7 +149,7 @@
 	//We'll assume that the batter isnt going to be regurgitated and eaten by someone else. Only show this once
 	if (data["cooked"] != 1)
 		if (!messaged)
-			M << "Ugh, this raw [name] tastes disgusting."
+			to_chat(M, "Ugh, this raw [name] tastes disgusting.")
 			nutriment_factor *= 0.5
 			messaged = 1
 
@@ -353,7 +353,7 @@
 		M.take_organ_damage(0, removed * 1.5 * dfactor)
 		data["temperature"] -= (6 * removed) / (1 + volume*0.1)//Cools off as it burns you
 		if (lastburnmessage+100 < world.time	)
-			M << span("danger", "Searing hot oil burns you, wash it off quick!")
+			to_chat(M, span("danger", "Searing hot oil burns you, wash it off quick!"))
 			lastburnmessage = world.time
 
 
@@ -586,12 +586,12 @@
 			return
 	if(dose < agony_dose)
 		if(prob(5) || dose == metabolism) //dose == metabolism is a very hacky way of forcing the message the first time this procs
-			M << discomfort_message
+			to_chat(M, discomfort_message)
 	else
 		M.apply_effect(agony_amount, AGONY, 0)
 		if(prob(5))
 			M.custom_emote(2, "[pick("dry heaves!","coughs!","splutters!")]")
-			M << "<span class='danger'>You feel like your insides are burning!</span>"
+			to_chat(M, "<span class='danger'>You feel like your insides are burning!</span>")
 	if(istype(M, /mob/living/carbon/slime))
 		M.bodytemperature += rand(0, 15) + slime_temp_adj
 	holder.remove_reagent("frostoil", 5)
@@ -675,7 +675,7 @@
 		if(!H.can_feel_pain())
 			return
 	if(dose == metabolism)
-		M << "<span class='danger'>You feel like your insides are burning!</span>"
+		to_chat(M, "<span class='danger'>You feel like your insides are burning!</span>")
 	else
 		M.apply_effect(4, AGONY, 0)
 		if(prob(5))
@@ -974,6 +974,22 @@
 	glass_icon_state = "glass_white"
 	glass_name = "glass of soy milk"
 	glass_desc = "White and nutritious soy goodness!"
+
+/datum/reagent/drink/milk/adhomai
+	name = "Fermented Fatshouters Milk"
+	id = "adhomai_milk"
+	description = "A tajaran made fermented dairy product, traditionally consumed by nomadic population of Adhomai."
+	taste_description = "sour milk"
+
+	glass_name = "glass of fermented fatshouters milk"
+	glass_desc = "A tajaran made fermented dairy product, traditionally consumed by nomadic population of Adhomai."
+
+/datum/reagent/drink/milk/adhomai/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
+	..()
+	if(ishuman(M))
+		var/mob/living/carbon/human/H = M
+		if(alien != IS_TAJARA && prob(5))
+			H.delayed_vomit()
 
 /datum/reagent/drink/tea
 	name = "Tea"
@@ -3241,12 +3257,12 @@
 				return
 		if(dose < agony_dose)
 			if(prob(5) || dose == metabolism)
-				M << discomfort_message
+				to_chat(M, discomfort_message)
 		else
 			M.apply_effect(agony_amount, AGONY, 0)
 			if(prob(5))
 				M.custom_emote(2, "[pick("dry heaves!","coughs!","splutters!")]")
-				M << "<span class='danger'>You feel like your insides are burning!</span>"
+				to_chat(M, "<span class='danger'>You feel like your insides are burning!</span>")
 		if(istype(M, /mob/living/carbon/slime))
 			M.bodytemperature += rand(0, 15) + slime_temp_adj
 		holder.remove_reagent("frostoil", 2)
@@ -3467,7 +3483,7 @@
 /datum/reagent/alcohol/winter_offensive
 	name = "Winter Offensive"
 	id = "winter_offensive"
-	description = "An alcoholic tajaran cocktail, named after a less than successful military campaign."
+	description = "An alcoholic tajaran cocktail, named after the famous military campaign."
 	color = "#664300"
 	strength = 15
 	taste_description = "oily gin"
@@ -3475,7 +3491,26 @@
 
 	glass_icon_state = "winter_offensive"
 	glass_name = "glass of Winter Offensive"
-	glass_desc = "Proven to be more successful than the campaign."
+	glass_desc = "An alcoholic tajaran cocktail, named after the famous military campaign."
+
+/datum/reagent/alcohol/mountain_marauder
+	name = "Mountain Marauder"
+	id = "mountain_marauder"
+	description = "An adhomian beverage made from fermented fatshouters milk and victory gin."
+	color = "#DFDFDF"
+	strength = 15
+	taste_description = "alcoholic sour milk"
+
+	glass_icon_state = "mountain_marauder"
+	glass_name = "glass of Mountain Marauder"
+	glass_desc = "An adhomian beverage made from fermented fatshouters milk and victory gin."
+
+/datum/reagent/alcohol/mountain_marauder/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
+	..()
+	if(ishuman(M))
+		var/mob/living/carbon/human/H = M
+		if(alien != IS_TAJARA && prob(5))
+			H.delayed_vomit()
 
 // Skrellian drinks
 //====================
@@ -3866,7 +3901,7 @@
 		M.make_jittery(5)
 	else if(alien != IS_DIONA)
 		if (prob(10+dose))
-			M << pick("You feel nauseous", "Ugghh....", "Your stomach churns uncomfortably", "You feel like you're about to throw up", "You feel queasy","You feel pressure in your abdomen")
+			to_chat(M, pick("You feel nauseous", "Ugghh....", "Your stomach churns uncomfortably", "You feel like you're about to throw up", "You feel queasy","You feel pressure in your abdomen"))
 
 		if (prob(dose))
 			M.vomit()

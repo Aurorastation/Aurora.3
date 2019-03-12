@@ -100,7 +100,7 @@
 			return
 
 		wearer = user
-		wearer << "<span class='Notice'>You struggle into the [src]. It feels hot, heavy and uncomfortable</span>"
+		to_chat(wearer, "<span class='Notice'>You struggle into the [src]. It feels hot, heavy and uncomfortable</span>")
 		START_PROCESSING(SSprocessing, src)
 	else
 		wearer = null

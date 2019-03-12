@@ -1,8 +1,8 @@
 /obj/machinery/photocopier
 	name = "photocopier"
 	icon = 'icons/obj/library.dmi'
-	icon_state = "bigscanner"
-	var/insert_anim = "bigscanner1"
+	icon_state = "photocopier"
+	var/insert_anim = "photocopier1"
 	anchored = 1
 	density = 1
 	use_power = 1
@@ -64,7 +64,7 @@ VUEUI_MONITOR_VARS(/obj/machinery/photocopier, photocopiermonitor)
 				var/obj/item/weapon/paper_bundle/B = bundlecopy(copyitem)
 				sleep(15*B.pages.len)
 			else
-				usr << "<span class='warning'>\The [copyitem] can't be copied by \the [src].</span>"
+				to_chat(usr, "<span class='warning'>\The [copyitem] can't be copied by \the [src].</span>")
 				break
 
 			use_power(active_power_usage)
@@ -73,7 +73,7 @@ VUEUI_MONITOR_VARS(/obj/machinery/photocopier, photocopiermonitor)
 		if(copyitem)
 			copyitem.forceMove(usr.loc)
 			usr.put_in_hands(copyitem)
-			usr << "<span class='notice'>You take \the [copyitem] out of \the [src].</span>"
+			to_chat(usr, "<span class='notice'>You take \the [copyitem] out of \the [src].</span>")
 			copyitem = null
 			SSvueui.check_uis_for_change(src)
 	else if(href_list["aipic"])
@@ -104,25 +104,25 @@ VUEUI_MONITOR_VARS(/obj/machinery/photocopier, photocopiermonitor)
 		if(!copyitem)
 			user.drop_from_inventory(O,src)
 			copyitem = O
-			user << "<span class='notice'>You insert \the [O] into \the [src].</span>"
+			to_chat(user, "<span class='notice'>You insert \the [O] into \the [src].</span>")
 			flick(insert_anim, src)
 			SSvueui.check_uis_for_change(src)
 		else
-			user << "<span class='notice'>There is already something in \the [src].</span>"
+			to_chat(user, "<span class='notice'>There is already something in \the [src].</span>")
 	else if(istype(O, /obj/item/device/toner))
 		if(toner <= 10) //allow replacing when low toner is affecting the print darkness
-			user << "<span class='notice'>You insert \the [O] into \the [src].</span>"
+			to_chat(user, "<span class='notice'>You insert \the [O] into \the [src].</span>")
 			var/obj/item/device/toner/T = O
 			toner += T.toner_amount
 			user.drop_from_inventory(O,get_turf(src))
 			qdel(O)
 			SSvueui.check_uis_for_change(src)
 		else
-			user << "<span class='notice'>This cartridge is not yet ready for replacement! Use up the rest of the toner.</span>"
+			to_chat(user, "<span class='notice'>This cartridge is not yet ready for replacement! Use up the rest of the toner.</span>")
 	else if(O.iswrench())
 		playsound(loc, 'sound/items/Ratchet.ogg', 50, 1)
 		anchored = !anchored
-		user << "<span class='notice'>You [anchored ? "wrench" : "unwrench"] \the [src].</span>"
+		to_chat(user, "<span class='notice'>You [anchored ? "wrench" : "unwrench"] \the [src].</span>")
 	return
 
 /obj/machinery/photocopier/ex_act(severity)
