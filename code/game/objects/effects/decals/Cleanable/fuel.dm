@@ -155,11 +155,3 @@
 			else
 				new/obj/effect/decal/cleanable/foam(target, amount*0.25,1)
 			amount *= 0.75
-
-/obj/effect/decal/cleanable/foam/Crossed(AM as mob|obj)
-	if(isliving(AM))
-		var/mob/living/L = AM
-		L.ExtinguishMob(L.on_fire ? amount * 3 : amount * 1.5)
-		amount = amount * 3 - L.fire_stacks
-		if(amount <= 0)
-			qdel(src)

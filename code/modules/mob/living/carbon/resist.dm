@@ -2,7 +2,11 @@
 
 	//drop && roll
 	if(on_fire && !buckled)
-		ExtinguishMob(1.2)
+		var/obj/effect/decal/cleanable/foam/extinguisher_foam = locate() in src.loc
+		var/extra = 0
+		if(extinguisher_foam)
+			extra = extinguisher_foam.amount * 1.5
+		ExtinguishMob(1.2 + extra)
 		Weaken(3)
 		spin(32,2)
 		visible_message(
