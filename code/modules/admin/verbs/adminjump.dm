@@ -36,7 +36,7 @@
 		alert("Admin jumping disabled")
 	return
 
-/client/proc/jumptomob(input in getmobs())
+/client/proc/jumptomob(var/mob_in)
 	set category = "Admin"
 	set name = "Jump to Mob"
 
@@ -44,7 +44,7 @@
 		return
 
 	if(config.allow_admin_jump)
-		var/target = getmobs()[input]
+		var/target = getmobs()[mob_in]
 		if(!target) return
 		log_admin("[key_name(usr)] jumped to [key_name(target)]", admin_key=key_name(usr),ckey=key_name(target))
 		message_admins("[key_name_admin(usr)] jumped to [key_name_admin(target)]", 1)

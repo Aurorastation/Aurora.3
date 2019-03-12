@@ -827,9 +827,12 @@
 	else if(href_list["adminplayerobservejump"])
 		if(!check_rights(R_MOD|R_ADMIN))	return
 		var/client/C = usr.client
+		var/mob_in = (input("Jump-to-Mob") as null|anything in getmobs())
+		if(!mob_in)
+			return
 		if(!isobserver(usr))	C.admin_ghost()
 		sleep(2)
-		C.jumptomob()
+		C.jumptomob(mob_in)
 
 	else if(href_list["check_antagonist"])
 		check_antagonists()
