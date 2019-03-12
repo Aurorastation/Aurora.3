@@ -27,11 +27,11 @@
 			if(!user) return
 
 			if(nearest_artifact_distance >= 0)
-				user << "Exotic energy detected on wavelength '[nearest_artifact_id]' in a radius of [nearest_artifact_distance]m"
+				to_chat(user, "Exotic energy detected on wavelength '[nearest_artifact_id]' in a radius of [nearest_artifact_distance]m")
 			else
-				user << "Background radiation levels detected."
+				to_chat(user, "Background radiation levels detected.")
 	else
-		user << "Scanning array is recharging."
+		to_chat(user, "Scanning array is recharging.")
 
 /obj/item/device/ano_scanner/proc/scan()
 	set background = 1

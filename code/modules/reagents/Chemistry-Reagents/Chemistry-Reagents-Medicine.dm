@@ -1107,7 +1107,7 @@
 	M.make_dizzy(10)
 
 	if (prob(10))
-		M << pick("You feel nauseous", "Ugghh....", "Your stomach churns uncomfortably", "You feel like you're about to throw up", "You feel queasy","You feel pressure in your abdomen")
+		to_chat(M, pick("You feel nauseous", "Ugghh....", "Your stomach churns uncomfortably", "You feel like you're about to throw up", "You feel queasy","You feel pressure in your abdomen"))
 
 	if (prob(dose))
 		M.vomit()
@@ -1254,7 +1254,7 @@
 
 /datum/reagent/ipecac/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
 	if (prob(10+dose))
-		M << pick("You feel nauseous", "Ugghh....", "Your stomach churns uncomfortably", "You feel like you're about to throw up", "You feel queasy","You feel pressure in your abdomen")
+		to_chat(M, pick("You feel nauseous", "Ugghh....", "Your stomach churns uncomfortably", "You feel like you're about to throw up", "You feel queasy","You feel pressure in your abdomen"))
 
 	if (prob(dose))
 		M.vomit()

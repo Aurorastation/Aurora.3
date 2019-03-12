@@ -226,9 +226,9 @@
 				user.visible_message("<b>[user]</b> checks [src]'s pulse.", "You check [src]'s pulse.")
 				if (do_mob(user, src, 15))
 					if(pulse == PULSE_NONE)
-						user << "<span class='deadsay'>[T.He] [T.has] no pulse[src.client ? "" : " and [T.his] soul has departed"]...</span>"
+						to_chat(user, "<span class='deadsay'>[T.He] [T.has] no pulse[src.client ? "" : " and [T.his] soul has departed"]...</span>")
 					else
-						user << "<span class='deadsay'>[T.He] [T.has] a pulse!</span>"
+						to_chat(user, "<span class='deadsay'>[T.He] [T.has] a pulse!</span>")
 
 	else if (src.stat)
 		msg += span("warning", "[T.He] [T.is] not responding to anything around [T.him].\n")
@@ -251,15 +251,15 @@
 
 	if(getBrainLoss() >= 60)
 		msg += "[T.He] [T.has] a stupid expression on [T.his] face.\n"
-	
+
 	var/have_client = client
 	var/inactivity = client ? client.inactivity : null
-	
+
 	if(bg)
 		disconnect_time = bg.disconnect_time
 		have_client = bg.client
 		inactivity =  have_client ? bg.client.inactivity : null
-		
+
 
 	if(species.show_ssd && (!species.has_organ["brain"] || has_brain()) && stat != DEAD)
 		if(!key)
@@ -382,7 +382,7 @@
 			pose = addtext(pose,".") //Makes sure all emotes end with a period.
 		msg += "\n[T.He] [pose]"
 
-	user << msg.Join()
+	to_chat(user, msg.Join())
 
 //Helper procedure. Called by /mob/living/carbon/human/examine() and /mob/living/carbon/human/Topic() to determine HUD access to security and medical records.
 /proc/hasHUD(mob/M as mob, hudtype)

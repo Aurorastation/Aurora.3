@@ -91,10 +91,10 @@ var/const/BLOOD_VOLUME_SURVIVE = 122
 					pale = 1
 					update_body()
 					var/word = pick("dizzy","woosey","faint")
-					src << "<span class='warning'>You feel [word]</span>"
+					to_chat(src, "<span class='warning'>You feel [word]</span>")
 				if(prob(1))
 					var/word = pick("dizzy","woosey","faint")
-					src << "<span class='warning'>You feel [word]</span>"
+					to_chat(src, "<span class='warning'>You feel [word]</span>")
 			if(BLOOD_VOLUME_BAD to BLOOD_VOLUME_OKAY)
 				if(!pale)
 					pale = 1
@@ -104,13 +104,13 @@ var/const/BLOOD_VOLUME_SURVIVE = 122
 				if(prob(15))
 					Paralyse(rand(1,3))
 					var/word = pick("dizzy","woosey","faint")
-					src << "<span class='warning'>You feel extremely [word]</span>"
+					to_chat(src, "<span class='warning'>You feel extremely [word]</span>")
 			if(BLOOD_VOLUME_SURVIVE to BLOOD_VOLUME_BAD)
 				oxyloss += 3
 				toxloss += 3
 				if(prob(15))
 					var/word = pick("dizzy","woosey","faint")
-					src << "<span class='warning'>You feel extremely [word]</span>"
+					to_chat(src, "<span class='warning'>You feel extremely [word]</span>")
 			if(0 to BLOOD_VOLUME_SURVIVE)
 				// There currently is a strange bug here. If the mob is not below -100 health
 				// when death() is called, apparently they will be just fine, and this way it'll
