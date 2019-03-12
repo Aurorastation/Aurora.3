@@ -36,4 +36,4 @@ delete-after: True
 changes:
   - tweak: "Lighters can set people on fire when used if the person is covered in fuel. Towels can help extinguish flames slightly more effectively than patting people out."
   - bugfix: "Fire Extinguishers are good at taking out fires. Foam solution is 3 time stronger than water."
-  - tweak: "Walking through foam on the floor while on fire will use foam to reduce your fire stacks."
+  - tweak: "Drop rolling in extinguisher foam uses foam to extinguish fire."
