@@ -73,6 +73,7 @@
 	var/fall_mod =      1                    // Fall damage modifier, further modified by brute damage modifier
 	var/grab_mod =      1                    // How easy it is to grab the species. Higher is harder to grab.
 	var/metabolism_mod = 1					 // Reagent metabolism modifier
+	var/bleed_mod = 1						 // How fast this species bleeds.
 
 	var/vision_flags = DEFAULT_SIGHT         // Same flags as glasses.
 	var/inherent_eye_protection              // If set, this species has this level of inherent eye protection.
@@ -538,3 +539,9 @@
 	H.h_style = H.species.default_h_style
 	H.f_style = H.species.default_f_style
 	H.update_hair()
+
+/datum/species/proc/get_species_tally(var/mob/living/carbon/human/H)
+	return 0
+
+/datum/species/proc/equip_later_gear(var/mob/living/carbon/human/H) //this handles anything not covered by survival gear, it is only called after everything else is equiped to the mob
+	return
