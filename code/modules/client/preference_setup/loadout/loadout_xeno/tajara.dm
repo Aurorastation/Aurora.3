@@ -1,5 +1,5 @@
 /datum/gear/gloves/tajara
-	display_name = "gloves selection"
+	display_name = "tajara gloves selection"
 	path = /obj/item/clothing/gloves/black/tajara
 	whitelisted = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
 	sort_category = "Xenowear - Tajara"
