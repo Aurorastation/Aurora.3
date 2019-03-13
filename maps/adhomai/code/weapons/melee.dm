@@ -5,7 +5,7 @@
 	icon_state = "axe"
 	item_state = "axe"
 	contained_sprite = TRUE
-	force_divisor = 0.3
+	force_divisor = 0.5
 	thrown_force_divisor = 0.5
 	sharp = TRUE
 	edge = TRUE
@@ -72,3 +72,25 @@
 	user.update_inv_l_hand()
 	user.update_inv_r_hand()
 	START_PROCESSING(SSprocessing, src)
+
+
+/obj/item/weapon/material/sword/sabre/meteoric
+	default_material = "meteoric iron"
+
+/obj/item/weapon/material/sword/amohdan_sword/meteoric
+	default_material = "meteoric iron"
+
+/obj/item/weapon/material/blacksmith_hammer
+	name = "blacksmith hammer"
+	desc = "A hammer used to repair or craft tools.."
+	icon = 'icons/adhomai/blacksmith.dmi'
+	icon_state = "hammer"
+	icon_state = "hammer"
+	contained_sprite = TRUE
+	force_divisor = 0.5
+	thrown_force_divisor = 0.4
+	sharp = FALSE
+	edge = FALSE
+	attack_verb = list("smashed", "beaten", "slammed", "smacked", "struck", "battered", "bonked")
+	hitsound = 'sound/weapons/genhit3.ogg'
+	slot_flags = SLOT_BELT

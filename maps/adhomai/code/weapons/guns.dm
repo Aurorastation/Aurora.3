@@ -3,7 +3,7 @@
 	accuracy = -1
 
 /obj/item/weapon/gun/projectile/shotgun/pump/rifle/nka/scoped
-	desc = "A cheap ballistic rifle often found in the hands of tajaran soldiers. This one has been outfitted with telescopic sights"
+	desc = "A cheap ballistic rifle often found in the hands of tajaran soldiers. This one has been outfitted with a telescopic sight."
 	accuracy = -1
 	icon = 'icons/adhomai/guns.dmi'
 	icon_state = "scope"
@@ -63,7 +63,7 @@
 	ammo_type = /obj/item/ammo_casing/shotgun/beanbag
 
 /obj/item/weapon/gun/projectile/automatic/rifle/pra
-	desc = "A automatic rifle issued to the forces of the Republican Army."
+	desc = "An automatic rifle issued to the forces of the Republican Army."
 	icon = 'icons/adhomai/guns.dmi'
 	icon_state = "pra_rifle"
 	item_state = "pra_rifle"
@@ -77,3 +77,7 @@
 	else
 		item_state = (ammo_magazine)? "pra_rifle" : "pra_rifle-empty"
 	update_held_icon()
+
+/obj/item/weapon/gun/energy/lawgiver/nka
+	name = "\improper Lawbringer Mk I"
+	desc = "A prototype firearm produced by the Grrmhrvar Industries. It has multiple voice-activated firing modes."

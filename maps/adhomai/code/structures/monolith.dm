@@ -25,6 +25,7 @@
 		set_light(0.3, 0.1, 2, l_color = I.color)
 
 /obj/structure/monolith/attack_hand(mob/user)
+	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 	visible_message("[user] touches \the [src].")
 	if(istype(user,/mob/living/carbon/human))
 		var/mob/living/carbon/human/H = user

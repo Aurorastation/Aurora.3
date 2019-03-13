@@ -93,7 +93,6 @@
 
 	head = /obj/item/clothing/head/helmet/nka
 	suit = /obj/item/clothing/suit/armor/nka
-	uniform = /obj/item/clothing/under/color/grey
 	back = /obj/item/weapon/storage/backpack/satchel/grenadier
 	suit_store = /obj/item/weapon/gun/projectile/grenadier
 	l_pocket = /obj/item/ammo_magazine/boltaction

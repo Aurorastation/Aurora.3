@@ -220,6 +220,26 @@
 	l_pocket = /obj/item/device/flashlight/lantern
 	belt = /obj/item/weapon/pickaxe
 
+/datum/job/blacksmith
+	title = "Blacksmith"
+	flag = BLACKSMITH
+	department = "Civilian"
+	department_flag = CIVILIAN
+	faction = "Station"
+	total_positions = 1
+	spawn_positions = 1
+	supervisors = "the mayor"
+	selection_color = "#ddddff"
+
+	outfit = /datum/outfit/job/adhomai/blacksmith
+
+/datum/outfit/job/adhomai/blacksmith
+	name = "Blacksmith"
+	allow_backbag_choice = TRUE
+
+
+	belt = /obj/item/weapon/material/blacksmith_hammer
+
 /datum/job/chief_constable
 	title = "Chief Constable"
 	flag = CHIEF
