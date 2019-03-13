@@ -1,4 +1,4 @@
-#define UIDEBUG
+
 
 /obj/item/device/nanoquikpay
 	name = "\improper NT Quik-Pay"
@@ -101,15 +101,19 @@
 		return
 	if (!istype(O))
 		return
+	
+
+	else
 
 		var/transaction_amount = sum
-		var/transaction_purpose = "[account] Payment"
+		var/transaction_purpose = "[destinationact] Payment"
 		var/transaction_terminal = machine_id
 
-		var/status = SSeconomy.transfer_money(I.associated_account_number, destinationact.account_number,transaction_purpose,transaction_terminal,transaction_amount,null,usr)
-
+		SSeconomy.transfer_money(I.associated_account_number, SSeconomy.get_department_account(destinationact).account_number,transaction_purpose,transaction_terminal,transaction_amount,null,usr)
+		print_receipt()
 		sum = 0
 		receipt = ""
+		to_chat(src.loc, span("notice", "Transaction completed, please return to the home screen."))
 
 // VUEUI Below <3
 
@@ -134,6 +138,7 @@
 		. = data
 	VUEUI_SET_CHECK_IFNOTSET(data["selection"], list("_" = 0), ., data)
 	VUEUI_SET_CHECK(data["editmode"], editmode, ., data)
+	VUEUI_SET_CHECK(data["destinationact"], destinationact, ., data)
 
 /obj/item/device/nanoquikpay/Topic(href, href_list)
 	var/datum/vueui/ui = href_list["vueui"]
@@ -189,7 +194,7 @@
 	if(href_list["accountselect"])
 
 		if(editmode == 0)
-			to_chat(src, span("notice", "You don't have access to use this option."))
+			to_chat(src.loc, span("notice", "You don't have access to use this option."))
 			return 0
 		switch(input("What account would you like to select?", "Destination Account") as null|anything in list("Civilian", "Cargo", "Command", "Medical", "Security", "Engineering", "Science"))
 		
