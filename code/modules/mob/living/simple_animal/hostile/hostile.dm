@@ -25,6 +25,8 @@
 	var/list/target_type_validator_map = list()
 	var/attack_emote = "stares menacingly at"
 
+	var/smart = FALSE // This makes ranged mob check for friendly fire and obstacles
+
 /mob/living/simple_animal/hostile/Initialize()
 	. = ..()
 	target_type_validator_map[/mob/living] = CALLBACK(src, .proc/validator_living)
@@ -212,6 +214,9 @@ mob/living/simple_animal/hostile/hitby(atom/movable/AM as mob|obj,var/speed = TH
 	if(!see_target())
 		LoseTarget()
 	var/target = target_mob
+	// This code checks if we are not going to hit our target
+	if(smart && !check_fire(target_mob))
+		return
 	visible_message("<span class='warning'> <b>[src]</b> fires at [target]!</span>")
 
 	if(rapid)
@@ -228,6 +233,20 @@ mob/living/simple_animal/hostile/hitby(atom/movable/AM as mob|obj,var/speed = TH
 	stance = HOSTILE_STANCE_IDLE
 	target_mob = null
 	return
+
+/mob/living/simple_animal/hostile/proc/check_fire(target_mob)
+	if(!target_mob)
+		return FALSE
+
+	var/target_hit = FALSE
+
+	for(var/mob/M in check_trajectory(target_mob, src, pass_flags=PASSTABLE))
+		if(M == target_mob)
+			target_hit = TRUE
+		if((M.faction == faction) || (M in friends))
+			return FALSE
+
+	return target_hit
 
 /mob/living/simple_animal/hostile/proc/shoot_wrapper(target, location, user)
 	Shoot(target, location, user)

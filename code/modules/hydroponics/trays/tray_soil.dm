@@ -20,7 +20,7 @@
 					waterlevel += amountToRemove
 					user.visible_message("[user] pours [amountToRemove]u of water into the soil."," You pour [amountToRemove]u of water into the soil.")
 				else
-					user << "The soil is saturated with water already."
+					to_chat(user, "The soil is saturated with water already.")
 				return 1
 
 	if(istype(O,/obj/item/weapon/tank))
@@ -28,7 +28,7 @@
 	if(istype(O,/obj/item/weapon/shovel))
 		if(do_after(user, 50))
 			new /obj/item/stack/material/sandstone{amount = 3}(loc)
-			user << "<span class='notice'>You remove the soil from the bed and dismantle the sandstone base.</span>"
+			to_chat(user, "<span class='notice'>You remove the soil from the bed and dismantle the sandstone base.</span>")
 			playsound(src, 'sound/effects/stonedoor_openclose.ogg', 40, 1)
 			qdel(src)
 	else

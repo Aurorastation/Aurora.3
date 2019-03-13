@@ -1107,7 +1107,7 @@
 	M.make_dizzy(10)
 
 	if (prob(10))
-		M << pick("You feel nauseous", "Ugghh....", "Your stomach churns uncomfortably", "You feel like you're about to throw up", "You feel queasy","You feel pressure in your abdomen")
+		to_chat(M, pick("You feel nauseous", "Ugghh....", "Your stomach churns uncomfortably", "You feel like you're about to throw up", "You feel queasy","You feel pressure in your abdomen"))
 
 	if (prob(dose))
 		M.vomit()
@@ -1254,7 +1254,7 @@
 
 /datum/reagent/ipecac/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
 	if (prob(10+dose))
-		M << pick("You feel nauseous", "Ugghh....", "Your stomach churns uncomfortably", "You feel like you're about to throw up", "You feel queasy","You feel pressure in your abdomen")
+		to_chat(M, pick("You feel nauseous", "Ugghh....", "Your stomach churns uncomfortably", "You feel like you're about to throw up", "You feel queasy","You feel pressure in your abdomen"))
 
 	if (prob(dose))
 		M.vomit()
@@ -1387,3 +1387,12 @@
 /datum/reagent/pacifier/affect_blood(var/mob/living/carbon/H, var/alien, var/removed)
 	H.add_chemical_effect(CE_PACIFIED, 1)
 
+/datum/reagent/rmt
+	name = "Regenerative-Muscular Tissue Supplements"
+	id = "RMT"
+	description = "A chemical rampantly used by those seeking to remedy the effects of prolonged zero-gravity adaptations."
+	reagent_state = LIQUID
+	color = "#AA8866"
+	metabolism = 0.5 * REM
+	taste_description = "sourness"
+	fallback_specific_heat = 1

@@ -23,7 +23,7 @@
 
 	if(allow_hair_covering)
 		flags_inv ^= BLOCKHEADHAIR
-		usr << "<span class='notice'>[src] will now [flags_inv & BLOCKHEADHAIR ? "hide" : "show"] hair.</span>"
+		to_chat(usr, "<span class='notice'>[src] will now [flags_inv & BLOCKHEADHAIR ? "hide" : "show"] hair.</span>")
 	..()
 
 /obj/item/clothing/head/helmet/warden
@@ -77,11 +77,11 @@
 
 	if(src.icon_state == initial(icon_state))
 		src.icon_state = "[icon_state]-up"
-		user << "You raise the visor on \the [src]."
+		to_chat(user, "You raise the visor on \the [src].")
 		body_parts_covered = HEAD
 	else
 		src.icon_state = initial(icon_state)
-		user << "You lower the visor on \the [src]."
+		to_chat(user, "You lower the visor on \the [src].")
 		body_parts_covered = HEAD|FACE|EYES
 	update_clothing_icon()
 
@@ -129,11 +129,11 @@
 
 	if(src.icon_state == initial(icon_state))
 		src.icon_state = "[icon_state]-up"
-		user << "You raise the visor on \the [src]."
+		to_chat(user, "You raise the visor on \the [src].")
 		body_parts_covered = HEAD
 	else
 		src.icon_state = initial(icon_state)
-		user << "You lower the visor on \the [src]."
+		to_chat(user, "You lower the visor on \the [src].")
 		body_parts_covered = HEAD|FACE|EYES
 	update_clothing_icon()
 
@@ -248,3 +248,16 @@
 	body_parts_covered = HEAD|FACE|EYES
 	flags_inv = HIDEEARS|HIDEEYES|HIDEFACE
 	armor = list(melee = 50, bullet = 30, laser = 30, energy = 15, bomb = 40, bio = 0, rad = 0)
+
+/obj/item/clothing/head/helmet/tajara
+	name = "amohdan swordsmen helmet"
+	desc = "A helmet used by the traditional warriors of Amohhda."
+	icon = 'icons/obj/tajara_items.dmi'
+	icon_state = "amohdan_helmet"
+	item_state = "amohdan_helmet"
+	contained_sprite = TRUE
+	body_parts_covered = HEAD|FACE|EYES
+	flags_inv = HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE|BLOCKHAIR
+	species_restricted = list("Tajara")
+	armor = list(melee = 60, bullet = 50, laser = 20, energy = 10, bomb = 5, bio = 0, rad = 0)
+	allow_hair_covering = FALSE

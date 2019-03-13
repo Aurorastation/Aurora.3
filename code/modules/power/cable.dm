@@ -142,11 +142,11 @@ var/list/possible_cable_coil_colours = list(
 				shock(user, 50, 0.7)
 
 		if(d1 == 12 || d2 == 12)
-			user << "<span class='warning'>You must cut this cable from above.</span>"
+			to_chat(user, "<span class='warning'>You must cut this cable from above.</span>")
 			return
 
 		if(breaker_box)
-			user << "<span class='warning'>This cable is connected to nearby breaker box. Use breaker box to interact with it.</span>"
+			to_chat(user, "<span class='warning'>This cable is connected to nearby breaker box. Use breaker box to interact with it.</span>")
 			return
 
 		if (shock(user, 50))
@@ -176,17 +176,17 @@ var/list/possible_cable_coil_colours = list(
 	else if(W.iscoil())
 		var/obj/item/stack/cable_coil/coil = W
 		if (coil.get_amount() < 1)
-			user << "Not enough cable"
+			to_chat(user, "Not enough cable")
 			return
 		coil.cable_join(src, user)
 
 	else if(W.ismultitool())
 
 		if(powernet && (powernet.avail > 0))		// is it powered?
-			user << "<span class='warning'>[powernet.avail]W in power network.</span>"
+			to_chat(user, "<span class='warning'>[powernet.avail]W in power network.</span>")
 
 		else
-			user << "<span class='warning'>The cable is not powered.</span>"
+			to_chat(user, "<span class='warning'>The cable is not powered.</span>")
 
 		shock(user, 5, 0.2)
 
@@ -515,9 +515,8 @@ obj/structure/cable/proc/cableColor(var/colorC)
 		if (!S) return
 		if(!(S.status & ORGAN_ASSISTED) || user.a_intent != I_HELP)
 			return ..()
-
 		if(M.isSynthetic() && M == user && !(M.get_species() == "Hunter-Killer"))
-			user << "<span class='warning'>You can't repair damage to your own body - it's against OH&S.</span>"
+			to_chat(user, "<span class='warning'>You can't repair damage to your own body - it's against OH&S.</span>")
 			return
 
 		if(S.burn_dam)
@@ -528,8 +527,9 @@ obj/structure/cable/proc/cableColor(var/colorC)
 			S.heal_damage(0,15,0,1)
 			user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 			user.visible_message("<span class='danger'>\The [user] patches some damaged wiring on \the [M]'s [S.name] with \the [src].</span>")
+
 		else if(S.open != 2)
-			user << "<span class='notice'>Nothing to fix!</span>"
+			to_chat(user, "<span class='notice'>Nothing to fix!</span>")
 
 	else
 		return ..()
@@ -557,7 +557,7 @@ obj/structure/cable/proc/cableColor(var/colorC)
 		final_color = possible_cable_coil_colours["Red"]
 		selected_color = "red"
 	color = final_color
-	user << "<span class='notice'>You change \the [src]'s color to [lowertext(selected_color)].</span>"
+	to_chat(user, "<span class='notice'>You change \the [src]'s color to [lowertext(selected_color)].</span>")
 
 /obj/item/stack/cable_coil/proc/update_wclass()
 	if(amount == 1)
@@ -570,11 +570,11 @@ obj/structure/cable/proc/cableColor(var/colorC)
 		return
 
 	if(get_amount() == 1)
-		user << "A short piece of power cable."
+		to_chat(user, "A short piece of power cable.")
 	else if(get_amount() == 2)
-		user << "A piece of power cable."
+		to_chat(user, "A piece of power cable.")
 	else
-		user << "A coil of power cable. There are [get_amount()] lengths of cable in the coil."
+		to_chat(user, "A coil of power cable. There are [get_amount()] lengths of cable in the coil.")
 
 
 /obj/item/stack/cable_coil/verb/make_restraint()
@@ -585,14 +585,14 @@ obj/structure/cable/proc/cableColor(var/colorC)
 	if(ishuman(M) && !M.restrained() && !M.stat && !M.paralysis && ! M.stunned)
 		if(!istype(usr.loc,/turf)) return
 		if(src.amount <= 14)
-			usr << "<span class='warning'>You need at least 15 lengths to make restraints!</span>"
+			to_chat(usr, "<span class='warning'>You need at least 15 lengths to make restraints!</span>")
 			return
 		var/obj/item/weapon/handcuffs/cable/B = new /obj/item/weapon/handcuffs/cable(usr.loc)
 		B.color = color
-		usr << "<span class='notice'>You wind some cable together to make some restraints.</span>"
+		to_chat(usr, "<span class='notice'>You wind some cable together to make some restraints.</span>")
 		src.use(15)
 	else
-		usr << "<span class='notice'>You cannot do that.</span>"
+		to_chat(usr, "<span class='notice'>You cannot do that.</span>")
 	..()
 
 /obj/item/stack/cable_coil/cyborg/verb/set_colour()
@@ -639,18 +639,18 @@ obj/structure/cable/proc/cableColor(var/colorC)
 		return
 
 	if(get_amount() < 1) // Out of cable
-		user << "There is no cable left."
+		to_chat(user, "There is no cable left.")
 		return
 
 	if(get_dist(F,user) > 1) // Too far
-		user << "You can't lay cable at a place that far away."
+		to_chat(user, "You can't lay cable at a place that far away.")
 		return
 
 	if (!F.can_lay_cable())
 		if (istype(F, /turf/simulated/floor))
-			user << "You can't lay cable there unless the floor tiles are removed."
+			to_chat(user, "You can't lay cable there unless the floor tiles are removed.")
 		else
-			user << "You can't lay cable there unless there is plating or a catwalk."
+			to_chat(user, "You can't lay cable there unless there is plating or a catwalk.")
 		return
 
 	else
@@ -663,14 +663,14 @@ obj/structure/cable/proc/cableColor(var/colorC)
 
 		for(var/obj/structure/cable/LC in F)
 			if((LC.d1 == dirn && LC.d2 == 0 ) || ( LC.d2 == dirn && LC.d1 == 0))
-				user << "<span class='warning'>There's already a cable at that position.</span>"
+				to_chat(user, "<span class='warning'>There's already a cable at that position.</span>")
 				return
 ///// Z-Level Stuff
 		// check if the target is open space
 		if(isopenturf(F))
 			for(var/obj/structure/cable/LC in F)
 				if((LC.d1 == dirn && LC.d2 == 11 ) || ( LC.d2 == dirn && LC.d1 == 11))
-					user << "<span class='warning'>There's already a cable at that position.</span>"
+					to_chat(user, "<span class='warning'>There's already a cable at that position.</span>")
 					return
 
 			var/obj/structure/cable/C = new(F)
@@ -704,7 +704,7 @@ obj/structure/cable/proc/cableColor(var/colorC)
 ///// Z-Level Stuff
 			for(var/obj/structure/cable/LC in F)
 				if((LC.d1 == dirn && LC.d2 == 0 ) || ( LC.d2 == dirn && LC.d1 == 0))
-					user << "There's already a cable at that position."
+					to_chat(user, "There's already a cable at that position.")
 					return
 
 			var/obj/structure/cable/C = new(F)
@@ -747,7 +747,7 @@ obj/structure/cable/proc/cableColor(var/colorC)
 		return
 
 	if(get_dist(C, user) > 1)		// make sure it's close enough
-		user << "You can't lay cable at a place that far away."
+		to_chat(user, "You can't lay cable at a place that far away.")
 		return
 
 
@@ -760,7 +760,7 @@ obj/structure/cable/proc/cableColor(var/colorC)
 	// one end of the clicked cable is pointing towards us
 	if(C.d1 == dirn || C.d2 == dirn)
 		if(!T.can_have_cabling())						// can't place a cable if the floor is complete
-			user << "You can't lay cable there unless the floor tiles are removed."
+			to_chat(user, "You can't lay cable there unless the floor tiles are removed.")
 			return
 		else
 			// cable is pointing at us, we're standing on an open tile
@@ -770,7 +770,7 @@ obj/structure/cable/proc/cableColor(var/colorC)
 
 			for(var/obj/structure/cable/LC in U)		// check to make sure there's not a cable there already
 				if(LC.d1 == fdirn || LC.d2 == fdirn)
-					user << "There's already a cable at that position."
+					to_chat(user, "There's already a cable at that position.")
 					return
 
 			var/obj/structure/cable/NC = new(U)
@@ -816,7 +816,7 @@ obj/structure/cable/proc/cableColor(var/colorC)
 			if(LC == C)			// skip the cable we're interacting with
 				continue
 			if((LC.d1 == nd1 && LC.d2 == nd2) || (LC.d1 == nd2 && LC.d2 == nd1) )	// make sure no cable matches either direction
-				user << "There's already a cable at that position."
+				to_chat(user, "There's already a cable at that position.")
 				return
 
 
@@ -900,16 +900,16 @@ obj/structure/cable/proc/cableColor(var/colorC)
 	if(ishuman(M) && !M.restrained() && !M.stat && !M.paralysis && ! M.stunned)
 		if(!istype(usr.loc,/turf)) return
 		if(!(locate(/obj/item/weapon/stool) in usr.loc) && !(locate(/obj/structure/bed) in usr.loc) && !(locate(/obj/structure/table) in usr.loc) && !(locate(/obj/structure/toilet) in usr.loc))
-			usr << "<span class='warning'>You have to be standing on top of a chair/table/bed to make a noose!</span>"
+			to_chat(usr, "<span class='warning'>You have to be standing on top of a chair/table/bed to make a noose!</span>")
 			return 0
 		if(src.amount <= 24)
-			usr << "<span class='warning'>You need at least 25 lengths to make a noose!</span>"
+			to_chat(usr, "<span class='warning'>You need at least 25 lengths to make a noose!</span>")
 			return
 		new /obj/structure/noose(usr.loc)
-		usr << "<span class='notice'>You wind some cable together to make a noose, tying it to the ceiling.</span>"
+		to_chat(usr, "<span class='notice'>You wind some cable together to make a noose, tying it to the ceiling.</span>")
 		src.use(25)
 	else
-		usr << "<span class='notice'>You cannot do that.</span>"
+		to_chat(usr, "<span class='notice'>You cannot do that.</span>")
 	..()
 
 /obj/structure/noose
@@ -983,7 +983,7 @@ obj/structure/cable/proc/cableColor(var/colorC)
 				"<span class='notice'>You struggle to untie the noose over your neck.</span>")
 			if(!do_after(M, 150))
 				if(M && M.buckled)
-					M << "<span class='warning'>You fail to untie yourself!</span>"
+					to_chat(M, "<span class='warning'>You fail to untie yourself!</span>")
 				return
 			if(!M.buckled)
 				return
@@ -1005,7 +1005,7 @@ obj/structure/cable/proc/cableColor(var/colorC)
 		var/mob/living/carbon/human/H = M
 		var/obj/item/organ/external/affecting = H.get_organ("head")
 		if(!affecting)
-			user << "<span class='danger'>They don't have a head.</span>"
+			to_chat(user, "<span class='danger'>They don't have a head.</span>")
 			return
 
 	if(M.loc != src.loc) return 0 //Can only noose someone if they're on the same tile as noose
@@ -1023,7 +1023,7 @@ obj/structure/cable/proc/cableColor(var/colorC)
 		M.visible_message(\
 			"<span class='danger'>[user] attempts to tie \the [src] over [M]'s neck!</span>",\
 			"<span class='danger'>[user] ties \the [src] over your neck!</span>")
-		user << "<span class='notice'>It will take 20 seconds and you have to stand still.</span>"
+		to_chat(user, "<span class='notice'>It will take 20 seconds and you have to stand still.</span>")
 		if(do_after(user, 200))
 			if(buckle_mob(M))
 				M.visible_message(\
