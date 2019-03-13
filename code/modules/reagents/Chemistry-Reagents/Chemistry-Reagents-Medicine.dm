@@ -1389,7 +1389,7 @@
 
 /datum/reagent/rmt
 	name = "Regenerative-Muscular Tissue Supplements"
-	id = "RMT"
+	id = "rmt"
 	description = "A chemical rampantly used by those seeking to remedy the effects of prolonged zero-gravity adaptations."
 	reagent_state = LIQUID
 	color = "#AA8866"

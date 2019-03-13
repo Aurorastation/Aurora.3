@@ -460,8 +460,8 @@
 /obj/item/clothing/under/dress/offworlder
 	name = "\improper CR dress"
 	desc = "A very tight form-fitting padded suit that looks extremely comfortable to wear. This variant seems to have a poofy skirt and longer sleeves than normal."
-	icon_state = "cr_dress"
-	item_state = "cr_dress"
+	icon_state = "crdress"
+	worn_state = "crdress"
 
 /obj/item/clothing/under/captainformal
 	name = "captain's formal uniform"
@@ -715,5 +715,5 @@
 /obj/item/clothing/under/offworlder
 	name = "\improper CR suit"
 	desc = "A very tight form-fitting padded suit that looks extremely comfortable to wear."
-	icon_state = "cr_suit"
-	item_state = "cr_suit"
+	icon_state = "crsuit"
+	worn_state = "crsuit"

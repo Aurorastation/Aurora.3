@@ -94,5 +94,5 @@
 /obj/item/clothing/under/skirt/offworlder
 	name = "\improper CR skirt"
 	desc = "A very tight form-fitting padded suit that looks extremely comfortable to wear. This variant seems to have a poofy skirt and longer sleeves than normal."
-	icon_state = "cr_skirt"
-	item_state = "cr_skirt"
+	icon_state = "crskirt"
+	worn_state = "crskirt"
