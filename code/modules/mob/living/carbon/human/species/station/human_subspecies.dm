@@ -43,7 +43,7 @@
 
 
 	if(H.reagents)
-		if(H.reagents.has_reagent("RMT", 1))
+		if(H.reagents.has_reagent("rmt", 1))
 			return 0
 
 	return 4
@@ -69,7 +69,7 @@
 
 
 		if(H.reagents)
-			if(H.reagents.has_reagent("RMT", 1))
+			if(H.reagents.has_reagent("rmt", 1))
 				return
 
 		var/pain_message = pick("You feel sluggish as if something is weighing you down.",
