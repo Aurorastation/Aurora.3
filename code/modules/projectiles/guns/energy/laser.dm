@@ -1,8 +1,8 @@
 /obj/item/weapon/gun/energy/laser
 	name = "laser carbine"
 	desc = "An Hephaestus Industries G40E carbine, designed to kill with concentrated energy blasts."
-	icon_state = "laser"
-	item_state = "laser"
+	icon_state = "laserrifle"
+	item_state = "laserrifle"
 	fire_sound = 'sound/weapons/Laser.ogg'
 	slot_flags = SLOT_BELT|SLOT_BACK
 	accuracy = 1
