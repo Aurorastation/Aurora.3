@@ -237,7 +237,7 @@
 	name = "Blacksmith"
 	allow_backbag_choice = TRUE
 
-
+	suit = /obj/item/clothing/suit/apron/brown
 	belt = /obj/item/weapon/material/blacksmith_hammer
 
 /datum/job/chief_constable

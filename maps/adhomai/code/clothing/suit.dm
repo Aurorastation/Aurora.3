@@ -37,3 +37,11 @@
 	contained_sprite = TRUE
 	armor = list(melee = 40, bullet = 20, laser = 5, energy = 5, bomb = 5, bio = 0, rad = 0)
 	siemens_coefficient = 0.7
+
+/obj/item/clothing/suit/apron/brown
+	desc = "A brown apron, commonly used by blacksmiths."
+	icon = 'icons/adhomai/clothing.dmi'
+	icon_state = "apron"
+	item_state = "apron"
+	contained_sprite = TRUE
+	allowed = list (/obj/item/weapon/material/blacksmith_hammer)

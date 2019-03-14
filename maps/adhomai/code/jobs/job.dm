@@ -32,9 +32,10 @@ var/const/PRIEST			=(1<<3)
 var/const/MEDIC				=(1<<4)
 var/const/NURSE				=(1<<5)
 var/const/MINER				=(1<<5)
-var/const/CHIEF				=(1<<6)
-var/const/CONSTABLE			=(1<<7)
-var/const/ASSISTANT			=(1<<8)
+var/const/BLACKSMITH		=(1<<6)
+var/const/CHIEF				=(1<<7)
+var/const/CONSTABLE			=(1<<8)
+var/const/ASSISTANT			=(1<<9)
 
 
 var/list/assistant_occupations = list() //Leaving this on one line stops Travis complaining ~Scopes
@@ -70,6 +71,7 @@ var/list/civilian_positions = list(
 	"Physician",
 	"Nurse",
 	"Miner",
+	"Blacksmith",
 	"Chief Constable",
 	"Constable"
 )
