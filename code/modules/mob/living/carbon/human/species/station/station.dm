@@ -191,13 +191,13 @@
 	move_trail = /obj/effect/decal/cleanable/blood/tracks/paw
 
 	default_h_style = "Tajaran Ears"
-/*
+
 /datum/species/tajaran/before_equip(var/mob/living/carbon/human/H)
 	. = ..()
 	var/obj/item/clothing/shoes/sandal/S = new /obj/item/clothing/shoes/sandal(H)
 	if(H.equip_to_slot_or_del(S,slot_shoes))
 		S.autodrobe_no_remove = 1
-*/
+
 /datum/species/skrell
 	name = "Skrell"
 	short_name = "skr"
