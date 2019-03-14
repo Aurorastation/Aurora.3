@@ -4,7 +4,7 @@ var/list/holder_mob_icon_cache = list()
 /obj/item/weapon/holder
 	name = "holder"
 	desc = "You shouldn't ever see this."
-	icon = 'icons/mob/held_mobs.dmi'
+	icon = 'icons/mob/npc/held_mobs.dmi'
 	slot_flags = 0
 	sprite_sheets = list("Vox" = 'icons/mob/species/vox/head.dmi')
 	origin_tech = null
@@ -473,7 +473,7 @@ var/list/holder_mob_icon_cache = list()
 	name = "mouse"
 	desc = "It's a fuzzy little critter."
 	desc_dead = "It's filthy vermin, throw it in the trash."
-	icon = 'icons/mob/mouse.dmi'
+	icon = 'icons/mob/npc/mouse.dmi'
 	icon_state = "mouse_brown_sleep"
 	item_state = "mouse_brown"
 	icon_state_dead = "mouse_brown_dead"
@@ -559,7 +559,7 @@ var/list/holder_mob_icon_cache = list()
 
 //pAI
 /obj/item/weapon/holder/pai
-	icon = 'icons/mob/pai.dmi'
+	icon = 'icons/mob/npc/pai.dmi'
 	dir = EAST
 	contained_sprite = 1
 	slot_flags = SLOT_HEAD

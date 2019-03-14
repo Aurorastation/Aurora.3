@@ -70,6 +70,7 @@
 	desc = "A basic metal blade concealed in a lightweight plasteel grip. Small enough when folded to fit in a pocket."
 	icon = 'icons/obj/weapons.dmi'
 	icon_state = "butterfly"
+	item_state = null
 	hitsound = null
 	active = 0
 	w_class = 2
@@ -84,6 +85,7 @@
 		..() //Updates force.
 		throwforce = max(3,force-3)
 		icon_state += "_open"
+		item_state = icon_state
 		hitsound = 'sound/weapons/bladeslice.ogg'
 		w_class = 3
 		attack_verb = list("attacked", "slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut")
@@ -93,6 +95,7 @@
 		sharp = 0
 		hitsound = initial(hitsound)
 		icon_state = initial(icon_state)
+		item_state = initial(item_state)
 		w_class = initial(w_class)
 		attack_verb = initial(attack_verb)
 

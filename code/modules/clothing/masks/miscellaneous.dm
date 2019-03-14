@@ -156,3 +156,13 @@
 
 		eye.owner.eyeobj = null
 		eye.owner = null
+
+/obj/item/clothing/mask/offworlder/veil
+	name = "starveil"
+	desc = "A thin holographic veil meant to cover the face, intended to block out light."
+	icon_state = "starveil"
+	item_state = "starveil"
+	w_class = 2
+	body_parts_covered = FACE
+	down_body_parts_covered = null
+	adjustable = TRUE
