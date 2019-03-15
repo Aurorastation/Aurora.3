@@ -93,6 +93,11 @@
 	playsound(src.loc, 'sound/effects/squelch1.ogg', 100, 1)
 	open()
 
+obj/structure/pit/Crossed(AM as mob|obj)
+	for(var/obj/item/weapon/landmine/I in contents)
+		I.Crossed(AM)
+	..()
+
 /obj/structure/pit/closed
 	name = "mound"
 	desc = "Some things are better left buried."

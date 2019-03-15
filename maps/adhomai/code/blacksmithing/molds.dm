@@ -30,7 +30,7 @@
 	outcome = /obj/item/weapon/material/kitchen/utensil/knife
 
 /obj/item/mold/shovel
-	name = "sword mold"
+	name = "shovel mold"
 	icon_state = "mold_shovel"
 	allowed_materials = list("iron", DEFAULT_WALL_MATERIAL, "plasteel")
 	use_material = FALSE
@@ -38,7 +38,7 @@
 	needed_ammount = 3
 
 /obj/item/mold/shield
-	name = "sword fittings mold"
+	name = "shield fittings mold"
 	icon_state = "mold_shield"
 	allowed_materials = list("iron", DEFAULT_WALL_MATERIAL, "plasteel")
 	outcome = /obj/item/weapon/material/shieldbits
@@ -77,8 +77,24 @@
 	outcome = /obj/item/clothing/ring/material
 	needed_ammount = 2
 
-/obj/item/mold/sword
-	name = "sabre mold"
-	icon_state = "mold_blade"
-	outcome = /obj/item/weapon/material/sword/sabre
-	needed_ammount = 20
+/obj/item/mold/key
+	name = "key mold"
+	icon_state = "mold_key"
+	outcome = /obj/item/weapon/key
+	needed_ammount = 1
+
+/obj/item/mold/lock
+	name = "lock mold"
+	icon_state = "mold_key"
+	outcome = /obj/item/weapon/material/lock_construct
+	needed_ammount = 1
+
+/obj/item/mold/armor
+	name = "armor plate mold"
+	outcome = /obj/item/weapon/material/armor_plating
+	needed_ammount = 3
+
+/obj/item/mold/bat
+	name = "bat mold"
+	outcome = /obj/item/weapon/material/twohanded/baseballbat
+	needed_ammount = 10

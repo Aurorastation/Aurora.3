@@ -21,3 +21,20 @@
 	item_state = "sheet-metal"
 	default_type = "meteoric iron"
 	icon_has_variants = TRUE
+
+/material/sandbag
+	name = "sandbag"
+	stack_type = /obj/item/stack/material/sandbag
+	flags = MATERIAL_PADDING
+	icon_colour = "#c2b280"
+	hitsound = 'sound/weapons/smash.ogg'
+
+/obj/item/stack/material/sandbag
+	name = "sandbag"
+	icon = 'icons/adhomai/items.dmi'
+	icon_state = "sandbags"
+	default_type = "sandbag"
+
+/material/sandbag/generate_recipes()
+	..()
+	recipes += new/datum/stack_recipe("sandbag barricade", /obj/structure/barricade/sandbags, 2, time = 50, one_per_turf = 1, on_floor = 1, supplied_material = "[name]")

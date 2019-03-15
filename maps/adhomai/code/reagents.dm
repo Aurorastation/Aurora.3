@@ -8,8 +8,6 @@
 	specific_heat = 1
 
 /datum/reagent/stone_dust/affect_breathe(var/mob/living/carbon/human/H, var/alien, var/removed)
-
-/datum/reagent/stone_dust/affect_breathe(var/mob/living/carbon/human/H, var/alien, var/removed)
 	. = ..()
 	if(istype(H))
 		if(prob(5))

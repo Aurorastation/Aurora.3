@@ -1,9 +1,9 @@
 /datum/job/commander
 	title = "Commander"
 	flag = COMMANDER
-	department = "Security"
+	department = "Imperial Army"
 	head_position = 1
-	department_flag = ENGSEC
+	department_flag = ADHOMAI
 	faction = "Station"
 	total_positions = 1
 	spawn_positions = 1
@@ -20,7 +20,7 @@
 
 	uniform = /obj/item/clothing/under/uniform/hand
 	shoes = /obj/item/clothing/shoes/jackboots/unathi
-	r_pocket = /obj/item/weapon/key/hand
+	l_pocket = /obj/item/weapon/key/hand
 	back = /obj/item/weapon/storage/backpack/satchel
 	gloves = /obj/item/clothing/gloves/brown/tajara
 	backpack_contents = list(
@@ -28,23 +28,23 @@
 		/obj/item/weapon/key/armory = 1
 	)
 
-/datum/job/quartermaster
-	title = "Quatermaster"
-	flag = QUARTERMASTER
-	department = "Security"
-	department_flag = ENGSEC
+/datum/job/supply_officer
+	title = "Supply Officer"
+	flag = SUPPLYOFFICER
+	department = "Imperial Army"
+	department_flag = ADHOMAI
 	faction = "Station"
 	total_positions = 1
 	spawn_positions = 1
 	supervisors = "the Commander"
 	selection_color = "#ffeeee"
 
-	outfit = /datum/outfit/job/adhomai/military/quatermaster
+	outfit = /datum/outfit/job/adhomai/military/supply_officer
 
 	species_blacklist = list("Human", "Unathi", "Aut'akh Unathi", "Skrell", "Diona", "Vaurca Worker", "Vaurca Warrior", "Diona", "Baseline Frame",
 							"Hephaestus G1 Industrial Frame", "Hephaestus G2 Industrial Frame", "Xion Industrial Frame", "Zeng-Hu Mobility Frame", "Bishop Accessory Frame", "Shell Frame")
 
-/datum/outfit/job/adhomai/military/quatermaster
+/datum/outfit/job/adhomai/military/supply_officer
 	name = "Quatermaster"
 
 	shoes = /obj/item/clothing/shoes/jackboots/unathi
@@ -54,8 +54,8 @@
 /datum/job/levy
 	title = "Levy"
 	flag = LEVY
-	department = "Security"
-	department_flag = ENGSEC
+	department = "Imperial Army"
+	department_flag = ADHOMAI
 	faction = "Station"
 	total_positions = 10
 	spawn_positions = 10
@@ -74,8 +74,8 @@
 /datum/job/grenadier
 	title = "Royal Grenadier"
 	flag = GRENADIER
-	department = "Security"
-	department_flag = ENGSEC
+	department = "Imperial Army"
+	department_flag = ADHOMAI
 	faction = "Station"
 	total_positions = 2
 	spawn_positions = 2
@@ -102,39 +102,39 @@
 							/obj/item/weapon/grenade/frag = 3,
 							/obj/item/clothing/accessory/storage/bayonet = 1)
 
-/datum/job/sharpshoot
+/datum/job/sharpshooter
 	title = "Sharpshooter"
 	flag = SHARPSHOOTER
-	department = "Security"
-	department_flag = ENGSEC
+	department = "Imperial Army"
+	department_flag = ADHOMAI
 	faction = "Station"
 	total_positions = 2
 	spawn_positions = 2
 	supervisors = "the Commander"
 	selection_color = "#ffeeee"
-	outfit = /datum/outfit/job/adhomai/military/sharpshoot
+	outfit = /datum/outfit/job/adhomai/military/sharpshooter
 
-/datum/outfit/job/adhomai/military/sharpshoot
+/datum/outfit/job/adhomai/military/sharpshooter
 	name = "Sharpshooter"
 	allow_backbag_choice = FALSE
 
 	back = /obj/item/weapon/gun/projectile/shotgun/pump/rifle/nka/scoped
 	l_pocket = /obj/item/ammo_magazine/boltaction
 
-/datum/job/engineer
+/datum/job/combatengineer
 	title = "Combat Engineer"
-	flag = ENGINEER
-	department = "Security"
-	department_flag = ENGSEC
+	flag = COMBATENGINEER
+	department = "Imperial Army"
+	department_flag = ADHOMAI
 	faction = "Station"
 	total_positions = 2
 	spawn_positions = 2
 	supervisors = "the Commander"
 	selection_color = "#ffeeee"
 
-	outfit = /datum/outfit/job/adhomai/military/engineer
+	outfit = /datum/outfit/job/adhomai/military/combatengineer
 
-/datum/outfit/job/adhomai/military/engineer
+/datum/outfit/job/adhomai/military/combatengineer
 	name = "Combat Engineer"
 
 

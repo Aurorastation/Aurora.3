@@ -28,8 +28,15 @@
 
 	command_spawn_enabled = FALSE
 
+	allowed_jobs = list(/datum/job/commander, /datum/job/supply_officer, /datum/job/levy, /datum/job/grenadier, /datum/job/sharpshooter,/datum/job/combatengineer,
+					/datum/job/commoner, /datum/job/mayor, /datum/job/barkeeper, /datum/job/hunter, /datum/job/priest, /datum/job/physician, /datum/job/nurse,
+					/datum/job/prospector, /datum/job/blacksmith, /datum/job/chief_constable, /datum/job/constable)
+
+	assistant_job = "Commoner"
+
 /datum/map/adhomai/generate_asteroid()
-	// Create the chasms.
+
+	new /datum/random_map/noise/tundra/adhomai(null,0,0,3,255,255) //creates the wilderness before the caves
 	new /datum/random_map/automata/cave_system/adhomai/under(null,0,0,2,255,255)
 	new /datum/random_map/automata/cave_system/adhomai(null,0,0,3,255,255)
 

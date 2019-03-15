@@ -29,3 +29,7 @@
 /obj/item/weapon/key/medical
 	name = "clinic key"
 	key_data = "medical"
+
+/obj/item/weapon/key/blacksmith
+	name = "blacksmith key"
+	key_data = "blacksmith"

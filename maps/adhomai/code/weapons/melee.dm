@@ -5,11 +5,11 @@
 	icon_state = "axe"
 	item_state = "axe"
 	contained_sprite = TRUE
-	force_divisor = 0.5
-	thrown_force_divisor = 0.5
+	force_divisor = 0.4
+	thrown_force_divisor = 0.4
 	sharp = TRUE
 	edge = TRUE
-	attack_verb = list("attacked", "slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut")
+	attack_verb = list("attacked", "chopped", "cleaved", "torn", "cut")
 	hitsound = 'sound/weapons/bladeslice.ogg'
 	slot_flags = SLOT_BELT
 
@@ -87,10 +87,59 @@
 	icon_state = "hammer"
 	icon_state = "hammer"
 	contained_sprite = TRUE
-	force_divisor = 0.5
-	thrown_force_divisor = 0.4
+	force_divisor = 0.4
+	thrown_force_divisor = 0.3
 	sharp = FALSE
 	edge = FALSE
 	attack_verb = list("smashed", "beaten", "slammed", "smacked", "struck", "battered", "bonked")
 	hitsound = 'sound/weapons/genhit3.ogg'
 	slot_flags = SLOT_BELT
+
+/obj/item/weapon/material/caltrops
+	name = "caltrops"
+	desc = "A sharp antipersonnel weapon. Useful to delay advances."
+	icon = 'icons/adhomai/items.dmi'
+	icon_state = "caltrop1"
+	w_class = 1
+	force_divisor = 0.1
+	thrown_force_divisor = 0.3
+	sharp = TRUE
+	edge = TRUE
+	attack_verb = list("attacked", "slashed", "sliced", "torn", "ripped", "cut")
+	hitsound = 'sound/weapons/bladeslice.ogg'
+	applies_material_colour = FALSE
+
+/obj/item/weapon/material/caltrops/Initialize()
+	. = ..()
+	icon_state = "caltrop[pick(1,2,3)]"
+/obj/item/weapon/material/caltrops/Crossed(AM as mob|obj)
+	..()
+	if(ishuman(AM))
+		var/mob/living/carbon/human/H = AM
+		var/damage_coef = 1
+		if(H.buckled)
+			return
+
+		to_chat(H, "<span class='danger'>You step on \the [src]!</span>")
+		playsound(src.loc, 'sound/effects/glass_step.ogg', 50, 1)
+
+		if(H.species.siemens_coefficient<0.5 || isunathi(H) || isvaurca(H) || (H.species.flags & (NO_EMBED)))
+			damage_coef -= 0.2
+
+		if( H.shoes || ( H.wear_suit && (H.wear_suit.body_parts_covered & FEET) ) )
+			damage_coef -= 0.2
+
+		var/list/check = list("l_foot", "r_foot")
+		while(check.len)
+			var/picked = pick(check)
+			var/obj/item/organ/external/affecting = H.get_organ(picked)
+			if(affecting)
+				if(affecting.status & ORGAN_ROBOT)
+					damage_coef -= 0.2
+					return
+				if(affecting.take_damage(20*damage_coef, 0))
+					H.UpdateDamageIcon()
+				H.updatehealth()
+				return
+			check -= picked
+		return

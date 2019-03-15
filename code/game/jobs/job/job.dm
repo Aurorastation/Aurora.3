@@ -31,6 +31,7 @@
 	var/datum/outfit/outfit = null
 	var/list/alt_outfits = null           // A list of special outfits for the alt titles list("alttitle" = /datum/outfit)
 	var/list/species_blacklist = list()
+	var/is_assistant = FALSE
 
 //Only override this proc
 /datum/job/proc/after_spawn(mob/living/carbon/human/H)

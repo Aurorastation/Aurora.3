@@ -1,31 +1,32 @@
-/datum/job/assistant
-	title = "Civillian"
+/datum/job/commoner
+	title = "Commoner"
 	flag = ASSISTANT
-	department = "Civilian"
-	department_flag = CIVILIAN
+	department = "Village"
+	department_flag = ADHOMAI
 	faction = "Station"
 	total_positions = -1
 	spawn_positions = -1
 	supervisors = "the mayor"
-	selection_color = "#dddddd"
+	selection_color = "#ddddff"
 	economic_modifier = 1
 	alt_titles = list("Lumberjack","Farmer")
-	outfit = /datum/outfit/job/adhomai/civillian
+	outfit = /datum/outfit/job/adhomai/commoner
 	alt_outfits = list(
-		"Lumberjack"=/datum/outfit/job/adhomai/civillian/lumberjack,
-		"Farmer"=/datum/outfit/job/adhomai/civillian/farmer
+		"Lumberjack"=/datum/outfit/job/adhomai/commoner/lumberjack,
+		"Farmer"=/datum/outfit/job/adhomai/commoner/farmer
 		)
+	is_assistant = TRUE
 
-/datum/outfit/job/adhomai/civillian
+/datum/outfit/job/adhomai/commoner
 	name = "Civillian"
 	allow_backbag_choice = TRUE
 
-/datum/outfit/job/adhomai/civillian/lumberjack
+/datum/outfit/job/adhomai/commoner/lumberjack
 	name = "Lumberjack"
 
 	belt = /obj/item/weapon/material/axe
 
-/datum/outfit/job/adhomai/civillian/farmer
+/datum/outfit/job/adhomai/commoner/farmer
 	name = "Farmer"
 
 	belt = /obj/item/weapon/storage/bag/plants
@@ -36,14 +37,14 @@
 /datum/job/mayor
 	title = "Mayor"
 	flag = MAYOR
-	department = "Civilian"
+	department = "Village"
 	head_position = 1
-	department_flag = CIVILIAN
+	department_flag = ADHOMAI
 	faction = "Station"
 	total_positions = 1
 	spawn_positions = 1
 	supervisors = "the King"
-	selection_color = "#ddddff"
+	selection_color = "#dddddd"
 	req_admin_notify = 1
 
 	outfit = /datum/outfit/job/adhomai/mayor
@@ -64,8 +65,8 @@
 /datum/job/barkeeper
 	title = "Barkeeper"
 	flag = BARKEEPER
-	department = "Civilian"
-	department_flag = CIVILIAN
+	department = "Village"
+	department_flag = ADHOMAI
 	faction = "Station"
 	total_positions = 2
 	spawn_positions = 2
@@ -90,8 +91,8 @@
 /datum/job/hunter
 	title = "Hunter"
 	flag = HUNTER
-	department = "Civilian"
-	department_flag = CIVILIAN
+	department = "Village"
+	department_flag = ADHOMAI
 	faction = "Station"
 	total_positions = 1
 	spawn_positions = 1
@@ -112,8 +113,8 @@
 /datum/job/priest
 	title = "Priest"
 	flag = PRIEST
-	department = "Civilian"
-	department_flag = CIVILIAN
+	department = "Village"
+	department_flag = ADHOMAI
 	faction = "Station"
 	total_positions = 1
 	spawn_positions = 1
@@ -146,8 +147,8 @@
 /datum/job/physician
 	title = "Physician"
 	flag = MEDIC
-	department = "Civilian"
-	department_flag = CIVILIAN
+	department = "Village"
+	department_flag = ADHOMAI
 	faction = "Station"
 	total_positions = 1
 	spawn_positions = 1
@@ -170,8 +171,8 @@
 /datum/job/nurse
 	title = "Nurse"
 	flag = NURSE
-	department = "Civilian"
-	department_flag = CIVILIAN
+	department = "Village"
+	department_flag = ADHOMAI
 	faction = "Station"
 	total_positions = 1
 	spawn_positions = 1
@@ -197,20 +198,20 @@
 
 	return TRUE
 
-/datum/job/miner
-	title = "Miner"
-	flag = MINER
-	department = "Civilian"
-	department_flag = CIVILIAN
+/datum/job/prospector
+	title = "Prospector"
+	flag = PROSPECTOR
+	department = "Village"
+	department_flag = ADHOMAI
 	faction = "Station"
 	total_positions = 3
 	spawn_positions = 3
 	supervisors = "the mayor"
 	selection_color = "#ddddff"
 
-	outfit = /datum/outfit/job/adhomai/miner
+	outfit = /datum/outfit/job/adhomai/prospector
 
-/datum/outfit/job/adhomai/miner
+/datum/outfit/job/adhomai/prospector
 	name = "Miner"
 	allow_backbag_choice = TRUE
 
@@ -223,8 +224,8 @@
 /datum/job/blacksmith
 	title = "Blacksmith"
 	flag = BLACKSMITH
-	department = "Civilian"
-	department_flag = CIVILIAN
+	department = "Village"
+	department_flag = ADHOMAI
 	faction = "Station"
 	total_positions = 1
 	spawn_positions = 1
@@ -239,13 +240,14 @@
 
 	suit = /obj/item/clothing/suit/apron/brown
 	belt = /obj/item/weapon/material/blacksmith_hammer
+	r_pocket = /obj/item/weapon/key/blacksmith
 
 /datum/job/chief_constable
 	title = "Chief Constable"
-	flag = CHIEF
-	department = "Civilian"
+	flag = CHIEFCONSTABLE
+	department = "Village"
 	head_position = 1
-	department_flag = CIVILIAN
+	department_flag = ADHOMAI
 	faction = "Station"
 	total_positions = 1
 	spawn_positions = 1
@@ -273,8 +275,8 @@
 /datum/job/constable
 	title = "Constable"
 	flag = CONSTABLE
-	department = "Civilian"
-	department_flag = CIVILIAN
+	department = "Village"
+	department_flag = ADHOMAI
 	faction = "Station"
 	total_positions = 2
 	spawn_positions = 2

@@ -14,6 +14,7 @@
 	//alt_titles = list("Technical Assistant","Medical Intern","Research Assistant","Security Cadet", "Visitor")
 	alt_titles = list("Visitor")
 	outfit = /datum/outfit/job/assistant
+	is_assistant = TRUE
 
 /datum/job/assistant/get_access()
 	if(config.assistant_maint)

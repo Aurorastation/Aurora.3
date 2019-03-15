@@ -44,6 +44,10 @@
 	name = "\improper Police Station"
 	icon_state = "brig"
 
+/area/adhomai/village/blacksmith
+	name = "\improper Blacksmith Forge"
+	icon_state = "construction"
+
 /area/adhomai/village/foundry
 	name = "\improper Foundry"
 	icon_state = "auxstorage"

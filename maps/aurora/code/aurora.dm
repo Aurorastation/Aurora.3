@@ -63,6 +63,12 @@
 	emergency_shuttle_recall_message = "The emergency shuttle has been recalled."
 	emergency_shuttle_called_message = "An emergency evacuation shuttle has been called. It will arrive in approximately %ETA% minutes."
 
+	allowed_jobs = list(/datum/job/captain, /datum/job/hop, /datum/job/assistant, /datum/job/bartender, /datum/job/chef, /datum/job/hydro, /datum/job/qm, /datum/job/cargo_tech,
+						/datum/job/mining, /datum/job/janitor, /datum/job/journalist, /datum/job/librarian, /datum/job/lawyer, /datum/job/chaplain, /datum/job/chief_engineer,
+						/datum/job/engineer, /datum/job/atmos, /datum/job/intern_eng, /datum/job/cmo, /datum/job/doctor, /datum/job/chemist, /datum/job/psychiatrist, /datum/job/paramedic,
+						/datum/job/intern_med, /datum/job/rd, /datum/job/scientist, /datum/job/xenobiologist, /datum/job/roboticist, /datum/job/intern_sci, /datum/job/hos,
+						/datum/job/warden, /datum/job/detective, /datum/job/forensics, /datum/job/officer, /datum/job/intern_sec, /datum/job/ai, /datum/job/cyborg, /datum/job/merchant)
+
 /datum/map/aurora/generate_asteroid()
 	// Create the chasms.
 	new /datum/random_map/automata/cave_system/chasms(null,0,0,3,255,255)

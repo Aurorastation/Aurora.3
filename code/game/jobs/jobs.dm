@@ -1,4 +1,4 @@
-/*
+
 var/const/ENGSEC			=(1<<0)
 
 var/const/CAPTAIN			=(1<<0)
@@ -60,7 +60,10 @@ var/list/command_positions = list(
 	"Head of Security",
 	"Chief Engineer",
 	"Research Director",
-	"Chief Medical Officer"
+	"Chief Medical Officer",
+	"Mayor",
+	"King's Hand",
+	"Chief Constable"
 )
 
 
@@ -126,7 +129,7 @@ var/list/nonhuman_positions = list(
 	"pAI",
 	"Merchant"
 )
-*/
+
 /proc/guest_jobbans(var/job)
 	return ((job in command_positions) || job == "Internal Affairs Agent")
 
