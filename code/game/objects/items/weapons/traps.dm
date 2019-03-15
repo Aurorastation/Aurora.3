@@ -162,7 +162,7 @@
 		release_time = world.time
 		update_icon()
 		return
-	if(ishuman(L))
+	if(isliving(L))
 		var/mob/living/ll = L
 		var/icon/I = new /icon(src.icon, src.icon_state)
 		I.Blend(getFlatIcon(ll), ICON_UNDERLAY)
