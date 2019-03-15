@@ -10,7 +10,7 @@
 
 /obj/aiming_overlay/proc/trigger(var/perm)
 	if(owner && owner.client && (owner.client.prefs.toggles_secondary & SAFETY_CHECK) && owner.a_intent != I_HURT) //Check this first to save time.
-		owner << "You refrain from firing, as you aren't on harm intent."
+		to_chat(owner, "You refrain from firing, as you aren't on harm intent.")
 		return
 	if(!owner || !aiming_with || !aiming_at || !locked)
 		return

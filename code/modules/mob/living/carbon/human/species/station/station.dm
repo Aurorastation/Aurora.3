@@ -180,6 +180,8 @@
 	flesh_color = "#AFA59E"
 	base_color = "#333333"
 
+	reagent_tag = IS_TAJARA
+
 	heat_discomfort_level = 292
 	heat_discomfort_strings = list(
 		"Your fur prickles in the heat.",
@@ -375,7 +377,7 @@
 		H.updatehealth()
 		H.m_intent = "walk"
 		H.hud_used.move_intent.update_move_icon(H)
-		H << span("danger", "We have expended our energy reserves, and cannot continue to move at such a pace. We must find light!")
+		to_chat(H, span("danger", "We have expended our energy reserves, and cannot continue to move at such a pace. We must find light!"))
 		return 0
 
 /datum/species/diona/can_understand(var/mob/other)
@@ -537,7 +539,7 @@ datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
 			H.Weaken(15)
 			H.m_intent = "walk"
 			H.hud_used.move_intent.update_move_icon(H)
-			H << span("danger", "ERROR: Power reserves depleted, emergency shutdown engaged. Backup power will come online in approximately 30 seconds, initiate charging as primary directive.")
+			to_chat(H, span("danger", "ERROR: Power reserves depleted, emergency shutdown engaged. Backup power will come online in approximately 30 seconds, initiate charging as primary directive."))
 			playsound(H.loc, 'sound/machines/buzz-two.ogg', 100, 0)
 		else
 			return 1
@@ -687,6 +689,7 @@ datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
 	toxins_mod = 2 //they're not used to all our weird human bacteria.
 	oxy_mod = 0.6
 	radiation_mod = 0.2 //almost total radiation protection
+	bleed_mod = 2.2
 	warning_low_pressure = 50
 	hazard_low_pressure = 0
 	ethanol_resistance = 2

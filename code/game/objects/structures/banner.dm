@@ -18,10 +18,10 @@
 
 	if(icon_state == initial(icon_state))
 		icon_state = icon_up
-		usr << "You roll up the cloth."
+		to_chat(usr, "You roll up the cloth.")
 	else
 		icon_state = initial(icon_state)
-		usr << "You roll down the cloth."
+		to_chat(usr, "You roll down the cloth.")
 
 
 	src.update_icon()

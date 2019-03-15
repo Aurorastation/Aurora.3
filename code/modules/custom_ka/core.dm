@@ -32,7 +32,7 @@
 
 	var/obj/item/projectile/projectile_type = /obj/item/projectile/kinetic
 
-	pin = /obj/item/device/firing_pin
+	needspin = FALSE
 
 	sel_mode = 1 //index of the currently selected mode
 	firemodes = list()
