@@ -152,6 +152,22 @@
 	health = 100
 	var/datum/weakref/captured = null
 
+/obj/item/weapon/trap/animal/update_icon()
+	icon = initial(icon)
+	icon_state = "[icon_base][deployed]"
+	var/datum/L = captured ? captured.resolve() : null
+	if (!L)
+		deployed = FALSE
+		captured = null
+		release_time = world.time
+		update_icon()
+		return
+	if(ishuman(L))
+		var/mob/living/ll = L
+		var/icon/I = new /icon(src.icon, src.icon_state)
+		I.Blend(getFlatIcon(ll), ICON_UNDERLAY)
+		icon = image(I)
+
 /obj/item/weapon/trap/animal/examine(mob/user)
 	..()
 	if(captured)
@@ -386,6 +402,7 @@
 			new /obj/item/stack/rods(src.loc, resources["rods"])
 			if(resources.len == 2)
 				new /obj/item/stack/material/steel(src.loc, resources["metal"])
+			release()
 			qdel(src)
 
 	else if(W.isscrewdriver())
