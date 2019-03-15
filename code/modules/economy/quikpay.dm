@@ -194,7 +194,7 @@
 	if(href_list["accountselect"])
 
 		if(editmode == 0)
-			to_chat(src.loc, span("notice", "You don't have access to use this option."))
+			to_chat(usr, span("notice", "You don't have access to use this option."))
 			return 0
 		switch(input("What account would you like to select?", "Destination Account") as null|anything in list("Civilian", "Cargo", "Command", "Medical", "Security", "Engineering", "Science"))
 		
