@@ -673,7 +673,7 @@
 	name = "jelly donut"
 	desc = "You jelly?"
 	icon_state = "jdonut1"
-	filling_color = "#ED1169")
+	filling_color = "#ED1169"
 	nutriment_desc = list("sweetness" = 1, "donut" = 2)
 	nutriment_amt = 3
 	bitesize = 5
@@ -873,7 +873,7 @@
 	name = "worm fillet"
 	desc = "A fillet of electrifying cavern meat."
 	icon_state = "fishfillet"
-	filling_color = "#FFDEFE")
+	filling_color = "#FFDEFE"
 	bitesize = 6
 
 /obj/item/weapon/reagent_containers/food/snacks/dwellermeat/Initialize()
