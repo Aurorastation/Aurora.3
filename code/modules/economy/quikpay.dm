@@ -109,11 +109,17 @@
 		var/transaction_purpose = "[destinationact] Payment"
 		var/transaction_terminal = machine_id
 
-		SSeconomy.transfer_money(I.associated_account_number, SSeconomy.get_department_account(destinationact).account_number,transaction_purpose,transaction_terminal,transaction_amount,null,usr)
-		print_receipt()
-		sum = 0
-		receipt = ""
-		to_chat(src.loc, span("notice", "Transaction completed, please return to the home screen."))
+		var/transaction = SSeconomy.transfer_money(I.associated_account_number, SSeconomy.get_department_account(destinationact).account_number,transaction_purpose,transaction_terminal,transaction_amount,null,usr)
+
+		if(transaction)
+			to_chat(usr,"\icon[src]<span class='warning'>[transaction].</span>")
+		else
+			playsound(src, 'sound/machines/chime.ogg', 50, 1)
+			src.visible_message("\icon[src] \The [src] chimes.")
+			print_receipt()
+			sum = 0
+			receipt = ""
+			to_chat(src.loc, span("notice", "Transaction completed, please return to the home screen."))
 
 // VUEUI Below <3
 
