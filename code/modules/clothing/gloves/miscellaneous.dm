@@ -286,3 +286,9 @@
 	clipped = 1
 	sharp = 1
 	edge = 1
+
+/obj/item/clothing/gloves/offworlder
+	name = "starmitts"
+	desc = "Thick arm warmers and mittens that reach past the elbow."
+	icon_state = "starmittens"
+	item_state = "starmittens"
