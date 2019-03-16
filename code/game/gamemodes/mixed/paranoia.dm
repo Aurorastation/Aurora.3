@@ -7,6 +7,6 @@
 	required_enemies = 5
 	end_on_antag_death = 1
 	require_all_templates = 1
-	votable = 0
+	votable = 1
 	antag_tags = list(MODE_MALFUNCTION, MODE_TRAITOR, MODE_CHANGELING)
 	disabled_jobs = list("AI")

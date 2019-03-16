@@ -65,6 +65,8 @@
 	var/list/lobby_screens = list("title") // The list of lobby screen to pick() from. If left unset the first icon state is always selected.
 	var/assistant_job = "Assistant"
 
+	var/regular_turf_temperature = T20C //The initial temperature of the turfs in the map
+
 /datum/map/New()
 	if(!map_levels)
 		map_levels = station_levels.Copy()

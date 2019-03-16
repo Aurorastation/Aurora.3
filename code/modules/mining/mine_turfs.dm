@@ -32,12 +32,12 @@ var/list/mineral_can_smooth_with = list(
 	smooth = SMOOTH_MORE | SMOOTH_BORDER | SMOOTH_NO_CLEAR_ICON
 	smoothing_hints = SMOOTHHINT_CUT_F | SMOOTHHINT_ONLY_MATCH_TURF | SMOOTHHINT_TARGETS_NOT_UNIQUE
 
-//	oxygen = 0
-//	nitrogen = 0
+	oxygen = 0
+	nitrogen = 0
 	opacity = 1
 	density = 1
 	blocks_air = 1
-//	temperature = T0C
+	temperature = T0C
 	var/mined_turf = /turf/simulated/floor/asteroid/ash/rocky
 	var/ore/mineral
 	var/mined_ore = 0
@@ -549,9 +549,9 @@ var/list/mineral_can_smooth_with = list(
 	base_icon_state = "ash"
 
 	initial_flooring = null
-//	oxygen = 0
-//	nitrogen = 0
-//	temperature = TCMB
+	oxygen = 0
+	nitrogen = 0
+	temperature = TCMB
 	var/dug = 0 //Increments by 1 everytime it's dug. 11 is the last integer that should ever be here.
 	var/digging
 	has_resources = 1

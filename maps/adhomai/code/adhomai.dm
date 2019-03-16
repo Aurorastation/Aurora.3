@@ -34,6 +34,9 @@
 
 	assistant_job = "Commoner"
 
+	regular_turf_temperature = T0C-20
+
+
 /datum/map/adhomai/generate_asteroid()
 
 	new /datum/random_map/noise/tundra/adhomai(null,0,0,3,255,255) //creates the wilderness before the caves

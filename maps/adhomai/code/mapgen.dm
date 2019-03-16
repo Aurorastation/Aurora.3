@@ -1,10 +1,16 @@
 /datum/random_map/automata/cave_system/adhomai
 	descriptor = "adhomai caverns"
-	floor_type = /turf/simulated/floor/asteroid/ash
+	wall_type =  /turf/simulated/mineral/adhomai/surface
+	floor_type = /turf/simulated/floor/asteroid/ash/rocky/adhomai
+	mineral_sparse = /turf/simulated/mineral/random/adhomai/surface
+	mineral_rich = /turf/simulated/mineral/random/adhomai/high_chance/surface
 
 /datum/random_map/automata/cave_system/adhomai/under
 	descriptor = "adhomai deep caverns"
-	floor_type = /turf/simulated/floor/asteroid/basalt
+	wall_type =  /turf/simulated/mineral/adhomai
+	floor_type = /turf/simulated/floor/asteroid/basalt/adhomai
+	mineral_sparse = /turf/simulated/mineral/random/adhomai/high_chance
+	mineral_rich = /turf/simulated/mineral/random/adhomai/higher_chance
 
 /datum/random_map/noise/tundra/adhomai
 	descriptor = "adhomai wildnerss"
