@@ -148,6 +148,25 @@
 	flags = WHITELISTED|TCOMSSIM
 	syllables = list("qr","qrr","xuq","qil","quum","xuqm","vol","xrim","zaoo","qu-uu","qix","qoo","zix","*","!")
 
+/datum/language/skrell/get_random_name()
+	var/new_name = ""
+	var/suff = ""
+	var/name_pieces = list("Zish", "Kin", "Qu", "Sukak", "Shin", "Ulu", "Nini", "Nai", "Xunu", "Zix", "Ooo", "Paut", "Sulux", "Xiialt", "Riori", "Eqeq", "Xicic", "Ooin", "Kaaxi", "Nuux", "Iirun", "Akoox", "Nunuz", "Ouik", "Uptari", "Vuzu", "Weish", "Liise", "Xiiux", "Lesh", "Ezhin", "Vulun", "Ponoh", "Pish", "Nali", "Yonosh")
+	var/first_name = "[pick(name_pieces)]"
+	name_pieces -= first_name
+	if(prob(40))
+		suff = "[pick(name_pieces)]"
+		name_pieces -= suff
+		first_name += "[pick(list("'", "-"))]" + suff
+	var/last_name = "[pick(name_pieces)]"
+	name_pieces -= last_name
+	if(prob(40))
+		suff = "[pick(name_pieces)]"
+		name_pieces -= suff
+		last_name += "[pick(list("'", "-"))]" + suff
+	new_name = first_name + " " + last_name
+	return new_name
+
 /datum/language/bug
 	name = LANGUAGE_VAURCA
 	desc = "A localised expression of the Vaurcae hivemind, allowing Vaurcae to communicate from across great distances. \"It's a bugs life.\""
@@ -180,12 +199,12 @@
 
 	if (within_jamming_range(speaker))
 		// The user thinks that the message got through.
-		speaker << msg
+		to_chat(speaker, msg)
 		return
 
 	for(var/mob/player in player_list)
 		if(istype(player,/mob/abstract/observer) || ((src in player.languages && !within_jamming_range(player)) || check_special_condition(player)))
-			player << msg
+			to_chat(player, msg)
 
 /datum/language/bug/check_special_condition(var/mob/other)
 	if(istype(other, /mob/living/silicon))

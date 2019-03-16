@@ -74,7 +74,7 @@
 		..()
 
 /obj/item/stack/material/attackby(var/obj/item/W, var/mob/user)
-	if(iscoil(W))
+	if(W.iscoil())
 		material.build_wired_product(user, W, src)
 		return
 	else if(istype(W, /obj/item/stack/rods))

@@ -39,7 +39,7 @@
 	set src in oview(1)
 
 	if (src.anchored || usr:stat)
-		usr << "It is fastened to the floor!"
+		to_chat(usr, "It is fastened to the floor!")
 		return 0
 	src.set_dir(turn(src.dir, 90))
 	return 1
@@ -74,18 +74,18 @@
 /obj/machinery/power/emitter/proc/activate(mob/user as mob)
 	if(state == 2)
 		if(!powernet)
-			user << "\The [src] isn't connected to a wire."
+			to_chat(user, "\The [src] isn't connected to a wire.")
 			return 1
 		if(!src.locked)
 			if(src.active==1)
 				src.active = 0
-				user << "You turn off [src]."
+				to_chat(user, "You turn off [src].")
 				message_admins("Emitter turned off by [key_name_admin(user, user.client)](<A HREF='?_src_=holder;adminmoreinfo=\ref[user]'>?</A>) in ([x],[y],[z] - <A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[x];Y=[y];Z=[z]'>JMP</a>)",0,1)
 				log_game("Emitter turned off by [user.ckey]([user]) in ([x],[y],[z])",ckey=key_name(user))
 				investigate_log("turned <font color='red'>off</font> by [user.key]","singulo")
 			else
 				src.active = 1
-				user << "You turn on [src]."
+				to_chat(user, "You turn on [src].")
 				src.shot_number = 0
 				src.fire_delay = 100
 				message_admins("Emitter turned on by [key_name_admin(user, user.client)](<A HREF='?_src_=holder;adminmoreinfo=\ref[user]'>?</A>) in ([x],[y],[z] - <A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[x];Y=[y];Z=[z]'>JMP</a>)",0,1)
@@ -93,9 +93,9 @@
 				investigate_log("turned <font color='green'>on</font> by [user.key]","singulo")
 			update_icon()
 		else
-			user << "<span class='warning'>The controls are locked!</span>"
+			to_chat(user, "<span class='warning'>The controls are locked!</span>")
 	else
-		user << "<span class='warning'>\The [src] needs to be firmly secured to the floor first.</span>"
+		to_chat(user, "<span class='warning'>\The [src] needs to be firmly secured to the floor first.</span>")
 		return 1
 
 
@@ -151,9 +151,9 @@
 
 /obj/machinery/power/emitter/attackby(obj/item/W, mob/user)
 
-	if(iswrench(W))
+	if(W.iswrench())
 		if(active)
-			user << "Turn off [src] first."
+			to_chat(user, "Turn off [src] first.")
 			return
 		switch(state)
 			if(0)
@@ -171,17 +171,17 @@
 					"You hear a ratchet")
 				src.anchored = 0
 			if(2)
-				user << "<span class='warning'>\The [src] needs to be unwelded from the floor.</span>"
+				to_chat(user, "<span class='warning'>\The [src] needs to be unwelded from the floor.</span>")
 		return
 
-	if(iswelder(W))
+	if(W.iswelder())
 		var/obj/item/weapon/weldingtool/WT = W
 		if(active)
-			user << "Turn off [src] first."
+			to_chat(user, "Turn off [src] first.")
 			return
 		switch(state)
 			if(0)
-				user << "<span class='warning'>\The [src] needs to be wrenched to the floor.</span>"
+				to_chat(user, "<span class='warning'>\The [src] needs to be wrenched to the floor.</span>")
 			if(1)
 				if (WT.remove_fuel(0,user))
 					playsound(src.loc, 'sound/items/Welder2.ogg', 50, 1)
@@ -191,10 +191,10 @@
 					if (do_after(user,20))
 						if(!src || !WT.isOn()) return
 						state = 2
-						user << "You weld [src] to the floor."
+						to_chat(user, "You weld [src] to the floor.")
 						connect_to_network()
 				else
-					user << "<span class='warning'>You need more welding fuel to complete this task.</span>"
+					to_chat(user, "<span class='warning'>You need more welding fuel to complete this task.</span>")
 			if(2)
 				if (WT.remove_fuel(0,user))
 					playsound(src.loc, 'sound/items/Welder2.ogg', 50, 1)
@@ -204,25 +204,25 @@
 					if (do_after(user,20))
 						if(!src || !WT.isOn()) return
 						state = 1
-						user << "You cut [src] free from the floor."
+						to_chat(user, "You cut [src] free from the floor.")
 						disconnect_from_network()
 				else
-					user << "<span class='warning'>You need more welding fuel to complete this task.</span>"
+					to_chat(user, "<span class='warning'>You need more welding fuel to complete this task.</span>")
 		return
 
 	if(istype(W, /obj/item/weapon/card/id) || istype(W, /obj/item/device/pda))
 		if(emagged)
-			user << "<span class='warning'>The lock seems to be broken.</span>"
+			to_chat(user, "<span class='warning'>The lock seems to be broken.</span>")
 			return
 		if(src.allowed(user))
 			if(active)
 				src.locked = !src.locked
-				user << "The controls are now [src.locked ? "locked." : "unlocked."]"
+				to_chat(user, "The controls are now [src.locked ? "locked." : "unlocked."]")
 			else
 				src.locked = 0 //just in case it somehow gets locked
-				user << "<span class='warning'>The controls can only be locked when [src] is online.</span>"
+				to_chat(user, "<span class='warning'>The controls can only be locked when [src] is online.</span>")
 		else
-			user << "<span class='warning'>Access denied.</span>"
+			to_chat(user, "<span class='warning'>Access denied.</span>")
 		return
 	..()
 	return

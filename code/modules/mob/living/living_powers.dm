@@ -8,10 +8,10 @@
 
 	if (layer != 2.45)
 		layer = 2.45 //Just above cables with their 2.44
-		src << text("<span class='notice'>You are now hiding.</span>")
+		to_chat(src, text("<span class='notice'>You are now hiding.</span>"))
 	else
 		layer = MOB_LAYER
-		src << text("<span class='notice'>You have stopped hiding.</span>")
+		to_chat(src, text("<span class='notice'>You have stopped hiding.</span>"))
 
 /mob/living/proc/devour()
 	set category = "Abilities"
@@ -55,7 +55,7 @@
 	if (isnull(response))
 		return
 	else if (response == "No limit")
-		src << "Movement speed has now been set to normal, limits removed."
+		to_chat(src, "Movement speed has now been set to normal, limits removed.")
 		src.min_walk_delay = 0
 		return
 	else if (response == "Custom")
@@ -65,9 +65,9 @@
 		newspeed = text2num(response)
 
 	if (!newspeed || newspeed >= speed || newspeed <= 0.2)
-		src << "Error, invalid value entered. Walk speed has not been changed"
+		to_chat(src, "Error, invalid value entered. Walk speed has not been changed")
 		return
 
 
-	src << "Walking speed has now been limited to [newspeed] tiles per second, which is [(newspeed/speed)*100]% of your normal walking speed."
+	to_chat(src, "Walking speed has now been limited to [newspeed] tiles per second, which is [(newspeed/speed)*100]% of your normal walking speed.")
 	src.min_walk_delay = (10 / newspeed)

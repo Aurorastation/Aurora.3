@@ -40,12 +40,12 @@
 			if(!M.can_eat(loaded))
 				return
 			if (fullness > (550 * (1 + M.overeatduration / 2000)))
-				M <<"You cannot force anymore food down!"
+				to_chat(M, "You cannot force anymore food down!")
 				return
 			M.visible_message("<span class='notice'>\The [user] eats some [loaded] from \the [src].</span>")
 		else
 			if (fullness > (550 * (1 + M.overeatduration / 2000)))
-				M <<"You cannot force anymore food down their throat!"
+				to_chat(M, "You cannot force anymore food down their throat!")
 				return
 			user.visible_message("<span class='warning'>\The [user] begins to feed \the [M]!</span>")
 			if(!(M.can_force_feed(user, loaded) && do_mob(user, M, 5 SECONDS)))
@@ -56,7 +56,7 @@
 		cut_overlays()
 		return
 	else
-		user << "<span class='warning'>You don't have anything on \the [src].</span>"	//if we have help intent and no food scooped up DON'T STAB OURSELVES WITH THE FORK
+		to_chat(user, "<span class='warning'>You don't have anything on \the [src].</span>") 	//if we have help intent and no food scooped up DON'T STAB OURSELVES WITH THE FORK)
 		return
 
 /obj/item/weapon/material/kitchen/utensil/fork
@@ -102,7 +102,7 @@
 
 /obj/item/weapon/material/kitchen/utensil/knife/attack(target as mob, mob/living/user as mob, var/target_zone)
 	if ((CLUMSY in user.mutations) && prob(50))
-		user << "<span class='warning'>You accidentally cut yourself with \the [src].</span>"
+		to_chat(user, "<span class='warning'>You accidentally cut yourself with \the [src].</span>")
 		user.take_organ_damage(20)
 		return
 	return ..()
@@ -125,7 +125,7 @@
 
 /obj/item/weapon/material/kitchen/rollingpin/attack(mob/living/M as mob, mob/living/user as mob, var/target_zone)
 	if ((CLUMSY in user.mutations) && prob(50))
-		user << "<span class='warning'>\The [src] slips out of your hand and hits your head.</span>"
+		to_chat(user, "<span class='warning'>\The [src] slips out of your hand and hits your head.</span>")
 		user.drop_from_inventory(src)
 		user.take_organ_damage(10)
 		user.Paralyse(2)

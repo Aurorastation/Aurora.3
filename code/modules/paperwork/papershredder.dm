@@ -21,7 +21,7 @@
 		empty_bin(user, W)
 		return
 
-	else if (iswrench(W))
+	else if (W.iswrench())
 		playsound(loc, 'sound/items/Ratchet.ogg', 50, 1)
 		anchored = !anchored
 		user.visible_message(
@@ -30,7 +30,7 @@
 			"You hear a ratchet."
 		)
 		return
-		
+
 	else
 		var/paper_result
 		for(var/shred_type in shred_amounts)
@@ -38,17 +38,19 @@
 				paper_result = shred_amounts[shred_type]
 		if(paper_result)
 			if (!anchored)
-				user << span("warning", "\The [src] must be anchored to the ground to operate!")
+				to_chat(user, span("warning", "\The [src] must be anchored to the ground to operate!"))
 				return
 			if(paperamount == max_paper)
-				user << "<span class='warning'>\The [src] is full; please empty it before you continue.</span>"
+				to_chat(user, "<span class='warning'>\The [src] is full; please empty it before you continue.</span>")
 				return
 			if (paper_result > 0)
 				paperamount += paper_result
 			qdel(W)
 			playsound(src.loc, 'sound/items/pshred.ogg', 75, 1)
+			to_chat(user, span("notice", "You shred the paper."))
+			flick("papershredder_on", src)
 			if(paperamount > max_paper)
-				user <<"<span class='danger'>\The [src] was too full, and shredded paper goes everywhere!</span>"
+				to_chat(user, "<span class='danger'>\The [src] was too full, and shredded paper goes everywhere!</span>")
 				for(var/i=(paperamount-max_paper);i>0;i--)
 					var/obj/item/weapon/shreddedp/SP = get_shredded_paper()
 					SP.forceMove(get_turf(src))
@@ -67,7 +69,7 @@
 		return
 
 	if(!paperamount)
-		usr << "<span class='notice'>\The [src] is empty.</span>"
+		to_chat(usr, "<span class='notice'>\The [src] is empty.</span>")
 		return
 
 	empty_bin(usr)
@@ -79,7 +81,7 @@
 		empty_into = null
 
 	if(empty_into && empty_into.contents.len >= empty_into.storage_slots)
-		user << "<span class='notice'>\The [empty_into] is full.</span>"
+		to_chat(user, "<span class='notice'>\The [empty_into] is full.</span>")
 		return
 
 	while(paperamount)
@@ -91,12 +93,12 @@
 				break
 	if(empty_into)
 		if(paperamount)
-			user << "<span class='notice'>You fill \the [empty_into] with as much shredded paper as it will carry.</span>"
+			to_chat(user, "<span class='notice'>You fill \the [empty_into] with as much shredded paper as it will carry.</span>")
 		else
-			user << "<span class='notice'>You empty \the [src] into \the [empty_into].</span>"
+			to_chat(user, "<span class='notice'>You empty \the [src] into \the [empty_into].</span>")
 
 	else
-		user << "<span class='notice'>You empty \the [src].</span>"
+		to_chat(user, "<span class='notice'>You empty \the [src].</span>")
 	update_icon()
 
 /obj/machinery/papershredder/proc/get_shredded_paper()
@@ -118,12 +120,12 @@
 	if(user.restrained())
 		return
 	if(!P.lit)
-		user << "<span class='warning'>\The [P] is not lit.</span>"
+		to_chat(user, "<span class='warning'>\The [P] is not lit.</span>")
 		return
 	user.visible_message("<span class='warning'>\The [user] holds \the [P] up to \the [src]. It looks like \he's trying to burn it!</span>", \
 		"<span class='warning'>You hold \the [P] up to \the [src], burning it slowly.</span>")
 	if(!do_after(user,20))
-		user << "<span class='warning'>You must hold \the [P] steady to burn \the [src].</span>"
+		to_chat(user, "<span class='warning'>You must hold \the [P] steady to burn \the [src].</span>")
 		return
 	user.visible_message("<span class='danger'>\The [user] burns right through \the [src], turning it to ash. It flutters through the air before settling on the floor in a heap.</span>", \
 		"<span class='danger'>You burn right through \the [src], turning it to ash. It flutters through the air before settling on the floor in a heap.</span>")
