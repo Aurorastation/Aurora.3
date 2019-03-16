@@ -277,12 +277,12 @@
 	return
 
 
-/obj/structure/closet/wardrobe/chemistry_white
-	name = "chemistry wardrobe"
+/obj/structure/closet/wardrobe/pharmacy_white
+	name = "pharmacy wardrobe"
 	icon_state = "white"
 	icon_closed = "white"
 
-/obj/structure/closet/wardrobe/chemistry_white/fill()
+/obj/structure/closet/wardrobe/pharmacy_white/fill()
 	..()
 	new /obj/item/clothing/under/rank/pharmacist(src)
 	new /obj/item/clothing/under/rank/pharmacist(src)

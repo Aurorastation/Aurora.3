@@ -228,9 +228,9 @@
 		slot_r_hand_str = "medicalpack"
 		)
 
-/obj/item/weapon/storage/backpack/satchel_vir
-	name = "virologist  satchel"
-	desc = "A sterile satchel with virologist colours."
+/obj/item/weapon/storage/backpack/satchel_biochem
+	name = "bio-chemist satchel"
+	desc = "A sterile satchel with bio-chemist colours."
 	icon_state = "satchel-vir"
 
 /obj/item/weapon/storage/backpack/satchel_pharm

@@ -44629,7 +44629,7 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/pharmacy)
 "bCs" = (
-/obj/structure/closet/wardrobe/chemistry_white,
+/obj/structure/closet/wardrobe/pharmacy_white,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
