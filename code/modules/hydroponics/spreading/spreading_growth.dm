@@ -74,7 +74,11 @@
 
 	if(sampled)
 		//Should be between 2-7 for given the default range of values for TRAIT_PRODUCTION
-		var/chance = max(1, round(30/seed.get_trait(TRAIT_PRODUCTION)))
+		var/chance
+		if(!seed.get_trait(TRAIT_PRODUCTION))
+			chance = 1
+		else
+			chance = max(1, round(30/seed.get_trait(TRAIT_PRODUCTION)))
 		if(prob(chance))
 			sampled = 0
 

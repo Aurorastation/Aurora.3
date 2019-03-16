@@ -21,8 +21,8 @@
 	return
 
 /obj/structure/sign/attackby(obj/item/tool as obj, mob/user as mob)	//deconstruction
-	if(isscrewdriver(tool) && !istype(src, /obj/structure/sign/double))
-		user << "You unfasten the sign with your [tool]."
+	if(tool.isscrewdriver() && !istype(src, /obj/structure/sign/double))
+		to_chat(user, "You unfasten the sign with your [tool].")
 		unfasten()
 	else ..()
 
@@ -44,7 +44,7 @@
 	var/sign_state = ""
 
 /obj/item/sign/attackby(obj/item/tool as obj, mob/user as mob)	//construction
-	if(isscrewdriver(tool) && isturf(user.loc))
+	if(tool.isscrewdriver() && isturf(user.loc))
 		var/direction = input("In which direction?", "Select direction.") in list("North", "East", "South", "West", "Cancel")
 		if(direction == "Cancel") return
 		var/obj/structure/sign/S = new(user.loc)
@@ -61,7 +61,7 @@
 		S.name = name
 		S.desc = desc
 		S.icon_state = sign_state
-		user << "You fasten \the [S] with your [tool]."
+		to_chat(user, "You fasten \the [S] with your [tool].")
 		qdel(src)
 	else ..()
 
@@ -506,12 +506,12 @@
 
 	var/turf/W = A
 	if (!iswall(W) || !isturf(user.loc))
-		user << "<span class='warning'>You can't place this here!</span>"
+		to_chat(user, "<span class='warning'>You can't place this here!</span>")
 		return
 
 	var/placement_dir = get_dir(user, W)
 	if (!(placement_dir in cardinal))
-		user << "<span class='warning'>You must stand directly in front of the wall you wish to place that on.</span>"
+		to_chat(user, "<span class='warning'>You must stand directly in front of the wall you wish to place that on.</span>")
 		return
 
 	var/obj/structure/sign/flag/P = new(user.loc)

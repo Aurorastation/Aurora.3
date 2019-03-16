@@ -123,7 +123,7 @@
 
 /mob/living/bot/medbot/attack_hand(var/mob/user)
 	if (!has_ui_access(user))
-		user << "<span class='warning'>The unit's interface refuses to unlock!</span>"
+		to_chat(user, "<span class='warning'>The unit's interface refuses to unlock!</span>")
 		return
 
 	var/dat
@@ -165,15 +165,15 @@
 /mob/living/bot/medbot/attackby(var/obj/item/O, var/mob/user)
 	if(istype(O, /obj/item/weapon/reagent_containers/glass))
 		if(locked)
-			user << "<span class='notice'>You cannot insert a beaker because the panel is locked.</span>"
+			to_chat(user, "<span class='notice'>You cannot insert a beaker because the panel is locked.</span>")
 			return
 		if(!isnull(reagent_glass))
-			user << "<span class='notice'>There is already a beaker loaded.</span>"
+			to_chat(user, "<span class='notice'>There is already a beaker loaded.</span>")
 			return
 
 		user.drop_from_inventory(O,src)
 		reagent_glass = O
-		user << "<span class='notice'>You insert [O].</span>"
+		to_chat(user, "<span class='notice'>You insert [O].</span>")
 		return 1
 	else
 		..()
@@ -185,7 +185,7 @@
 	add_fingerprint(usr)
 
 	if (!has_ui_access(usr))
-		usr << "<span class='warning'>Insufficient permissions.</span>"
+		to_chat(usr, "<span class='warning'>Insufficient permissions.</span>")
 		return
 
 	if (href_list["power"])
@@ -218,7 +218,7 @@
 			reagent_glass.forceMove(get_turf(src))
 			reagent_glass = null
 		else
-			usr << "<span class='notice'>You cannot eject the beaker because the panel is locked.</span>"
+			to_chat(usr, "<span class='notice'>You cannot eject the beaker because the panel is locked.</span>")
 
 	else if (href_list["togglevoice"] && (!locked || issilicon(usr)))
 		vocal = !vocal
@@ -233,7 +233,7 @@
 	. = ..()
 	if(!emagged)
 		if(user)
-			user << "<span class='warning'>You short out [src]'s reagent synthesis circuits.</span>"
+			to_chat(user, "<span class='warning'>You short out [src]'s reagent synthesis circuits.</span>")
 		visible_message("<span class='warning'>[src] buzzes oddly!</span>")
 		flick("medibot_spark", src)
 		patient = null
@@ -314,7 +314,7 @@
 		return
 
 	if(contents.len >= 1)
-		user << "<span class='notice'>You need to empty [src] out first.</span>"
+		to_chat(user, "<span class='notice'>You need to empty [src] out first.</span>")
 		return
 
 	var/obj/item/weapon/firstaid_arm_assembly/A = new /obj/item/weapon/firstaid_arm_assembly
@@ -327,7 +327,7 @@
 
 	qdel(S)
 	user.put_in_hands(A)
-	user << "<span class='notice'>You add the robot arm to the first aid kit.</span>"
+	to_chat(user, "<span class='notice'>You add the robot arm to the first aid kit.</span>")
 	qdel(src)
 
 /obj/item/weapon/firstaid_arm_assembly
@@ -361,7 +361,7 @@
 					user.drop_from_inventory(W,get_turf(src))
 					qdel(W)
 					build_step++
-					user << "<span class='notice'>You add the health sensor to [src].</span>"
+					to_chat(user, "<span class='notice'>You add the health sensor to [src].</span>")
 					name = "First aid/robot arm/health analyzer assembly"
 					add_overlay("na_scanner")
 					return 1
@@ -370,7 +370,7 @@
 				if(isprox(W))
 					user.drop_from_inventory(W,get_turf(src))
 					qdel(W)
-					user << "<span class='notice'>You complete the Medibot! Beep boop.</span>"
+					to_chat(user, "<span class='notice'>You complete the Medibot! Beep boop.</span>")
 					var/turf/T = get_turf(src)
 					var/mob/living/bot/medbot/S = new /mob/living/bot/medbot(T)
 					S.skin = skin
