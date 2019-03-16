@@ -80,6 +80,58 @@
 	var/dead = 0
 	var/obj/item/stored_item
 
+	//cool new descriptions for the plants. WORLDBUILDING!!! And since they're using all the same pots now, maybe code in a way to change them around?
+
+/obj/structure/flora/pottedplant
+	name = "potted plant"
+	icon = 'icons/obj/plants.dmi'
+	icon_state = "plant-03"
+	desc = "A bouquet of Bieselite flora."
+
+/obj/structure/flora/pottedplant
+	name = "potted plant"
+	icon = 'icons/obj/plants.dmi'
+	icon_state = "plant-04"
+	desc = "A bamboo plant. Used widely in Japanese crafts."
+
+/obj/structure/flora/pottedplant
+	name = "potted plant"
+	icon = 'icons/obj/plants.dmi'
+	icon_state = "plant-07"
+	desc = "A reedy plant mostly used for decoration in Skrell homes, admired for its luxuriant stalks."
+
+/obj/structure/flora/pottedplant
+	name = "potted plant"
+	icon = 'icons/obj/plants.dmi'
+	icon_state = "plant-09"
+	desc = "A fleshy cave dwelling plant with huge nodules for flowers."
+
+/obj/structure/flora/pottedplant
+	name = "potted plant"
+	icon = 'icons/obj/plants.dmi'
+	icon_state = "plant-13"
+	desc = "A hardy succulent adapted to the Moghes deserts."
+
+/obj/structure/flora/pottedplant
+	name = "potted plant"
+	icon = 'icons/obj/plants.dmi'
+	icon_state = "plant-19"
+	desc = "A ropey, aquatic plant with crystaline flowers."
+
+/obj/structure/flora/pottedplant
+	name = "potted plant"
+	icon = 'icons/obj/plants.dmi'
+	icon_state = "plant-20"
+	desc = "A bioluminescent half-plant half-fungus hybrid. Said to come from Sedantis I."
+
+/obj/structure/flora/pottedplant
+	name = "potted plant"
+	icon = 'icons/obj/plants.dmi'
+	icon_state = "plant-22"
+	desc = "A cone shrub. Sadly doesn't come from Coney Island."
+
+
+
 /obj/structure/flora/pottedplant/Destroy()
 	QDEL_NULL(stored_item)
 	return ..()
@@ -142,10 +194,10 @@
 	..()
 	var/number = rand(1,36)
 	if (number == 36)
-		if (prob(90))//Make the wierd one rarer
+		if (prob(90))//Make the weird one rarer
 			number = rand(1,35)
 		else
-			desc = "It stares into your soul."
+			desc = "A half-sentient plant borne from a mishap in a Zeng-Hu genetics lab."
 
 	if (number < 10)
 		number = "0[number]"
