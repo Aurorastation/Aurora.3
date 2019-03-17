@@ -4450,7 +4450,7 @@
 /area/mine/unexplored)
 "aiO" = (
 /turf/simulated/wall/r_wall,
-/area/security/nuke_storage)
+/area/crew_quarters/theatre)
 "aiP" = (
 /obj/effect/floor_decal/industrial/warning/corner{
 	icon_state = "warningcorner";
@@ -5244,19 +5244,17 @@
 /turf/simulated/floor/wood,
 /area/maintenance/civ)
 "aki" = (
-/obj/structure/safe/station,
 /obj/machinery/light/small/emergency{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
-/area/security/nuke_storage)
+/area/crew_quarters/theatre)
 "akj" = (
 /obj/machinery/alarm{
 	pixel_y = 23
 	},
-/obj/machinery/anti_bluespace,
 /turf/simulated/floor/tiled/dark,
-/area/security/nuke_storage)
+/area/crew_quarters/theatre)
 "akk" = (
 /obj/machinery/alarm{
 	dir = 4;
@@ -5765,63 +5763,18 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/maintenance/civ)
-"alf" = (
-/obj/structure/table/reinforced/steel,
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 4
-	},
-/obj/random/bad_ai{
-	pixel_x = -4;
-	pixel_y = 4
-	},
-/obj/random/bad_ai,
-/obj/random/bad_ai{
-	pixel_x = 4;
-	pixel_y = -4
-	},
-/turf/simulated/floor/tiled/dark,
-/area/security/nuke_storage)
 "alg" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/tiled/dark,
-/area/security/nuke_storage)
+/area/crew_quarters/theatre)
 "alh" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/porta_turret/stationary,
-/obj/effect/floor_decal/industrial/warning/full,
 /obj/structure/cable/green{
 	d1 = 2;
 	d2 = 4;
 	icon_state = "2-4"
 	},
 /turf/simulated/floor/tiled/dark,
-/area/security/nuke_storage)
-"ali" = (
-/obj/structure/table/reinforced/steel,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/item/weapon/hand_tele,
-/turf/simulated/floor/tiled/dark,
-/area/security/nuke_storage)
-"alj" = (
-/obj/structure/table/reinforced/steel,
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 4
-	},
-/obj/random/rig_module{
-	pixel_x = -4;
-	pixel_y = 4
-	},
-/obj/random/rig_module,
-/obj/random/rig_module{
-	pixel_x = 4;
-	pixel_y = -4
-	},
-/turf/simulated/floor/tiled/dark,
-/area/security/nuke_storage)
+/area/crew_quarters/theatre)
 "alk" = (
 /turf/simulated/wall/r_wall,
 /area/engineering/engine_room)
@@ -6312,12 +6265,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/maintenance/civ)
-"ame" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/porta_turret/stationary,
-/obj/effect/floor_decal/industrial/warning/full,
-/turf/simulated/floor/tiled/dark,
-/area/security/nuke_storage)
 "amf" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /obj/structure/cable/green{
@@ -6326,40 +6273,15 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/dark,
-/area/security/nuke_storage)
+/area/crew_quarters/theatre)
 "amg" = (
 /obj/structure/cable/green{
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/structure/table/reinforced/steel,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/random/vault_weapon,
 /turf/simulated/floor/tiled/dark,
-/area/security/nuke_storage)
-"amh" = (
-/obj/structure/table/reinforced/steel,
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 4
-	},
-/obj/random/vault_rig{
-	pixel_x = -4;
-	pixel_y = 4
-	},
-/obj/random/vault_rig,
-/obj/random/vault_rig{
-	pixel_x = 4;
-	pixel_y = -4
-	},
-/obj/machinery/light/small/emergency{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/dark,
-/area/security/nuke_storage)
+/area/crew_quarters/theatre)
 "ami" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced,
@@ -6652,12 +6574,8 @@
 /turf/simulated/floor/plating,
 /area/maintenance/engineering)
 "amL" = (
-/obj/machinery/light/small/emergency{
-	dir = 1
-	},
-/obj/structure/closet/secure_closet/freezer/money,
 /turf/simulated/floor/tiled/dark,
-/area/security/nuke_storage)
+/area/crew_quarters/theatre)
 "amM" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -6695,7 +6613,7 @@
 	pixel_x = 24
 	},
 /turf/simulated/floor/tiled/dark,
-/area/security/nuke_storage)
+/area/crew_quarters/theatre)
 "amQ" = (
 /obj/structure/closet/secure_closet/guncabinet{
 	name = "Weaponry (Ion Rifle)";
@@ -6910,7 +6828,7 @@
 "ano" = (
 /obj/machinery/hologram/holopad,
 /turf/simulated/floor/tiled/dark,
-/area/security/nuke_storage)
+/area/crew_quarters/theatre)
 "anp" = (
 /obj/machinery/door/firedoor{
 	enable_smart_generation = 0
@@ -6920,26 +6838,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
-"anq" = (
-/obj/structure/table/reinforced/steel,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/item/weapon/grenade/chem_grenade/large/phoroncleaner{
-	pixel_x = -4;
-	pixel_y = 4
-	},
-/obj/item/weapon/grenade/chem_grenade/large/phoroncleaner{
-	pixel_x = 4;
-	pixel_y = 4
-	},
-/obj/item/weapon/grenade/chem_grenade/large/phoroncleaner,
-/obj/machinery/light/small/emergency{
-	icon_state = "bulb1";
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark,
-/area/security/nuke_storage)
 "anr" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -7335,24 +7233,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/civ)
-"aom" = (
-/obj/structure/table/reinforced/steel,
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 4
-	},
-/obj/random/finances,
-/turf/simulated/floor/tiled/dark,
-/area/security/nuke_storage)
 "aon" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
 /turf/simulated/floor/tiled/dark,
-/area/security/nuke_storage)
-"aoo" = (
-/turf/simulated/floor/tiled/dark,
-/area/security/nuke_storage)
+/area/crew_quarters/theatre)
 "aop" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	icon_state = "intact-supply";
@@ -7362,7 +7248,7 @@
 	dir = 10
 	},
 /turf/simulated/floor/tiled/dark,
-/area/security/nuke_storage)
+/area/crew_quarters/theatre)
 "aoq" = (
 /turf/simulated/wall/r_wall,
 /area/bridge)
@@ -8135,19 +8021,11 @@
 	dir = 9
 	},
 /turf/simulated/floor/tiled/dark,
-/area/security/nuke_storage)
-"apC" = (
-/obj/structure/table/reinforced/steel,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/random/finances,
-/turf/simulated/floor/tiled/dark,
-/area/security/nuke_storage)
+/area/crew_quarters/theatre)
 "apD" = (
 /obj/effect/floor_decal/industrial/hatch/red,
 /turf/simulated/floor/tiled/dark,
-/area/security/nuke_storage)
+/area/crew_quarters/theatre)
 "apE" = (
 /obj/machinery/light/small/emergency{
 	dir = 1
@@ -8158,7 +8036,7 @@
 	pixel_x = -22
 	},
 /turf/simulated/floor/tiled/dark,
-/area/security/nuke_storage)
+/area/crew_quarters/theatre)
 "apF" = (
 /obj/item/device/radio/intercom{
 	dir = 8;
@@ -8805,14 +8683,15 @@
 /turf/simulated/floor/plating,
 /area/maintenance/security_starboard)
 "aqM" = (
-/obj/machinery/door/airlock/vault/bolted{
-	req_access = list(20)
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/door/firedoor,
+/obj/machinery/door/airlock{
+	name = "Circus Backroom";
+	req_access = list(43)
+	},
 /turf/simulated/floor/tiled/dark,
-/area/security/nuke_storage)
+/area/crew_quarters/theatre)
 "aqN" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -8820,7 +8699,7 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/wall/r_wall,
-/area/security/nuke_storage)
+/area/crew_quarters/theatre)
 "aqO" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced{
@@ -9654,15 +9533,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/dark,
-/area/security/nuke_storage)
-"asf" = (
-/obj/machinery/porta_turret/stationary,
-/obj/structure/sign/securearea{
-	pixel_y = 32
-	},
-/obj/effect/floor_decal/industrial/warning/full,
-/turf/simulated/floor/tiled/dark,
-/area/security/nuke_storage)
+/area/crew_quarters/theatre)
 "asg" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced{
@@ -10569,13 +10440,13 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
-/area/security/nuke_storage)
+/area/crew_quarters/theatre)
 "att" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
-/area/security/nuke_storage)
+/area/crew_quarters/theatre)
 "atu" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced,
@@ -11583,11 +11454,6 @@
 "avf" = (
 /turf/simulated/wall/r_wall,
 /area/hallway/primary/starboard)
-"avg" = (
-/obj/machinery/porta_turret/stationary,
-/obj/effect/floor_decal/industrial/warning/full,
-/turf/simulated/floor/tiled/dark,
-/area/security/nuke_storage)
 "avh" = (
 /obj/machinery/light{
 	dir = 4
@@ -13700,7 +13566,7 @@
 	icon_state = "camera"
 	},
 /turf/simulated/floor/tiled/dark,
-/area/security/nuke_storage)
+/area/crew_quarters/theatre)
 "ayy" = (
 /obj/machinery/light/small/emergency{
 	icon_state = "bulb1";
@@ -13710,7 +13576,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
-/area/security/nuke_storage)
+/area/crew_quarters/theatre)
 "ayz" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 4
@@ -13720,17 +13586,17 @@
 	},
 /obj/machinery/hologram/holopad,
 /turf/simulated/floor/tiled/dark,
-/area/security/nuke_storage)
+/area/crew_quarters/theatre)
 "ayA" = (
 /obj/machinery/light/small/emergency,
 /turf/simulated/floor/tiled/dark,
-/area/security/nuke_storage)
+/area/crew_quarters/theatre)
 "ayB" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/effect/floor_decal/industrial/hatch/red,
 /turf/simulated/floor/tiled/dark,
-/area/security/nuke_storage)
+/area/crew_quarters/theatre)
 "ayC" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced{
@@ -14521,23 +14387,6 @@
 /obj/machinery/firealarm/east,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/starboard)
-"azY" = (
-/obj/structure/table/reinforced/steel,
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 4
-	},
-/obj/random/telecrystals{
-	pixel_x = 4;
-	pixel_y = 4
-	},
-/obj/random/telecrystals{
-	pixel_x = -4;
-	pixel_y = 4
-	},
-/obj/random/telecrystals,
-/turf/simulated/floor/tiled/dark,
-/area/security/nuke_storage)
 "azZ" = (
 /obj/random/junk,
 /obj/structure/cable/green{
@@ -16447,7 +16296,7 @@
 	icon_state = "camera"
 	},
 /turf/simulated/floor/tiled/dark,
-/area/security/nuke_storage)
+/area/crew_quarters/theatre)
 "aDb" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -16456,7 +16305,7 @@
 	},
 /obj/machinery/light/small/emergency,
 /turf/simulated/floor/tiled/dark,
-/area/security/nuke_storage)
+/area/crew_quarters/theatre)
 "aDc" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -17552,16 +17401,14 @@
 /turf/simulated/floor/tiled,
 /area/hallway/primary/starboard)
 "aER" = (
-/obj/machinery/door/airlock/highsecurity{
-	id_tag = "bunker1";
-	name = "Vault Access";
-	req_access = list(19)
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/door/firedoor,
+/obj/machinery/door/airlock/glass{
+	name = "Circus"
+	},
 /turf/simulated/floor/tiled/dark,
-/area/security/nuke_storage)
+/area/crew_quarters/theatre)
 "aES" = (
 /obj/effect/floor_decal/industrial/warning{
 	icon_state = "warning";
@@ -18933,20 +18780,6 @@
 /turf/simulated/floor/tiled,
 /area/hallway/primary/starboard)
 "aGO" = (
-/obj/machinery/turretid/lethal{
-	ailock = 1;
-	check_synth = 1;
-	control_area = "\improper Vault";
-	desc = "A firewall prevents AIs from interacting with this device.";
-	name = "Vault lethal turret control";
-	pixel_x = -28;
-	pixel_y = 0;
-	req_access = list(20)
-	},
-/obj/structure/sign/securearea{
-	name = "\improper ONLY COMMAND STAFF";
-	pixel_y = 32
-	},
 /obj/effect/floor_decal/industrial/warning{
 	icon_state = "warning";
 	dir = 1
@@ -18955,7 +18788,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
-/area/security/nuke_storage)
+/area/crew_quarters/theatre)
 "aGP" = (
 /obj/effect/floor_decal/industrial/warning{
 	icon_state = "warning";
@@ -18964,15 +18797,11 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/dark,
-/area/security/nuke_storage)
+/area/crew_quarters/theatre)
 "aGQ" = (
 /obj/effect/floor_decal/industrial/warning{
 	icon_state = "warning";
 	dir = 1
-	},
-/obj/structure/sign/securearea{
-	name = "\improper ONLY COMMAND STAFF";
-	pixel_y = 32
 	},
 /obj/machinery/light/small/emergency{
 	dir = 1
@@ -18983,7 +18812,7 @@
 	pixel_y = 0
 	},
 /turf/simulated/floor/tiled/dark,
-/area/security/nuke_storage)
+/area/crew_quarters/theatre)
 "aGR" = (
 /obj/machinery/computer/teleporter,
 /turf/simulated/floor/plating,
@@ -21007,12 +20836,6 @@
 	dir = 4;
 	icon_state = "direction_com";
 	pixel_y = 40
-	},
-/turf/simulated/floor/tiled,
-/area/hallway/primary/starboard)
-"aKh" = (
-/obj/structure/sign/securearea{
-	pixel_y = 32
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/starboard)
@@ -57540,6 +57363,9 @@
 	icon_state = "spline_fancy";
 	dir = 1
 	},
+/obj/effect/landmark/start{
+	name = "Entertainer"
+	},
 /turf/simulated/floor/wood,
 /area/crew_quarters/bar)
 "bVC" = (
@@ -64576,7 +64402,7 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/wall/r_wall,
-/area/security/nuke_storage)
+/area/crew_quarters/theatre)
 "civ" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced,
@@ -107830,24 +107656,24 @@ ahT
 aiO
 aiO
 aiO
-alf
-alj
-amh
-aom
-azY
+amL
+amL
+amL
+amL
+amL
 aiO
 aiO
 aiO
-asf
-aoo
+amL
+amL
 ayx
-aoo
-avg
+amL
+amL
 aiO
 aiO
 aiO
 aiO
-aKh
+awK
 aLT
 aNP
 avd
@@ -108087,19 +107913,19 @@ ahT
 aiO
 aiO
 aki
-aoo
-ame
+amL
+amL
 alg
 aon
 aDa
 aiO
 apE
-aoo
-aoo
-aoo
+amL
+amL
+amL
 ats
-aoo
-aoo
+amL
+amL
 ayA
 aiO
 aGO
@@ -108344,8 +108170,8 @@ ahT
 aiO
 aiO
 akj
-aoo
-aoo
+amL
+amL
 ano
 aop
 ase
@@ -108601,19 +108427,19 @@ ahT
 aiO
 aiO
 amL
-aoo
+amL
 alh
 amf
 apB
 aDb
 aqN
 amP
-aoo
-aoo
-aoo
+amL
+amL
+amL
 att
-aoo
-aoo
+amL
+amL
 ayA
 aiO
 aGQ
@@ -108858,24 +108684,24 @@ ahT
 aiO
 aiO
 aiO
-ali
+amL
 amg
-anq
-apC
-apC
+amL
+amL
+amL
 aiO
 aiO
 aiO
-asf
-aoo
+amL
+amL
 ayy
-aoo
-avg
+amL
+amL
 aiO
 aiO
 aiO
 aiO
-aKh
+awK
 aLZ
 awK
 awK

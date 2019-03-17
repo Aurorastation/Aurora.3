@@ -115,7 +115,7 @@
 	flags = HIDE_FROM_HOLOMAP
 
 /area/crew_quarters/theatre
-	name = "\improper Theatre"
+	name = "\improper Circus"
 	icon_state = "Theatre"
 	sound_env = LARGE_SOFTFLOOR
 
