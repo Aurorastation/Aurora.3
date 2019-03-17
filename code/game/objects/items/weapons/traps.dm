@@ -160,7 +160,6 @@
 		deployed = FALSE
 		captured = null
 		release_time = world.time
-		update_icon()
 		return
 	if(isliving(L))
 		var/mob/living/ll = L
