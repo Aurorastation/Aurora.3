@@ -127,6 +127,6 @@
 	name = "space twinkie"
 	icon_state = "space_twinkie"
 
-/obj/item/trash/crumbs //used for generic plattered food. example is lasagna.
+/obj/item/trash/grease //used for generic plattered food. example is lasagna.
 	name = "square tray"
 	icon_state = "grease"
