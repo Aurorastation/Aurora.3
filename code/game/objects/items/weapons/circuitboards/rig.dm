@@ -20,6 +20,7 @@
 
 /obj/item/weapon/circuitboard/rig_assembly/civilian/ce
 	name = "advanced void suit central circuit board"
+	origin_tech = list(TECH_DATA = 5)
 
 /obj/item/weapon/circuitboard/rig_assembly/civilian/hazmat
 	name = "AMI suit central circuit board"
