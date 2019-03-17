@@ -38,6 +38,6 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - tweak: "Removed the Virologist and Chemist. Replaced it with the Pharmacist and Bio-Chemist"
+  - tweak: "Removed the Virologist and Chemist. Replaced it with the Pharmacist and Biochemist"
   - maptweak: "Renamed the medical chemistry to pharmacy"
   - maptweak: "Remapped Virology and related areas"

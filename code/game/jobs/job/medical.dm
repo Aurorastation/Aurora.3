@@ -118,7 +118,7 @@
 	economic_modifier = 5
 	access = list(access_medical, access_medical_equip, access_morgue, access_surgery, access_pharmacy, access_virology, access_genetics)
 	minimal_access = list(access_medical, access_medical_equip, access_pharmacy, access_virology)
-	alt_titles = list("Bio-Chemist")
+	alt_titles = list("Biochemist")
 	outfit = /datum/outfit/job/pharmacist
 
 /datum/outfit/job/pharmacist

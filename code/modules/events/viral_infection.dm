@@ -10,7 +10,7 @@ datum/event/viral_infection/setup()
 	var/list/valid_diseases = list()
 
 	for(var/mob/living/carbon/human/H in mob_list)
-		if(H.mind && H.stat != DEAD && H.is_client_active(5) && H.get_assignment() == "Bio-Chemist")
+		if(H.mind && H.stat != DEAD && H.is_client_active(5) && H.get_assignment() == "Biochemist")
 			has_virologist = TRUE
 			break
 
