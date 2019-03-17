@@ -291,14 +291,17 @@
 			pref.job_civilian_high = 0
 			pref.job_medsci_high = 0
 			pref.job_engsec_high = 0
+			pref.job_adhomai_high = 0
 			return 1
 		if(2)//Set current highs to med, then reset them
 			pref.job_civilian_med |= pref.job_civilian_high
 			pref.job_medsci_med |= pref.job_medsci_high
 			pref.job_engsec_med |= pref.job_engsec_high
+			pref.job_adhomai_med |= pref.job_adhomai_high
 			pref.job_civilian_high = 0
 			pref.job_medsci_high = 0
 			pref.job_engsec_high = 0
+			pref.job_adhomai_high = 0
 
 	switch(job.department_flag)
 		if(CIVILIAN)

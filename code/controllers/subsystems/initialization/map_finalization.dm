@@ -27,6 +27,8 @@
 	// This is dependant on markers.
 	populate_antag_spawns()
 
+	config.setup_antag_datums()
+
 	..()
 
 /proc/resort_all_areas()

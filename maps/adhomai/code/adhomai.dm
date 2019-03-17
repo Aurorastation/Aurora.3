@@ -36,6 +36,8 @@
 
 	regular_turf_temperature = T0C-20
 
+	allowed_gamemodes = list("changeling", "cult", "extended","conflux", "crossfire", "feeding", "siege", "traitorling", "uprising", "veilparty", "mercenary", "revolution",
+							"autotraitor", "traitor", "vampire", "wizard")
 
 /datum/map/adhomai/generate_asteroid()
 

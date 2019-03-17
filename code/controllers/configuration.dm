@@ -292,7 +292,7 @@ var/list/gamemode_cache = list()
 	var/ert_scaling_factor_antag = 1
 	var/ert_scaling_factor_dead = 2
 
-/datum/configuration/New()
+/datum/configuration/proc/setup_antag_datums()
 	var/list/L = typesof(/datum/game_mode) - /datum/game_mode
 	for (var/T in L)
 		// I wish I didn't have to instance the game modes in order to look up
@@ -305,7 +305,7 @@ var/list/gamemode_cache = list()
 				src.modes += M.config_tag
 				src.mode_names[M.config_tag] = M.name
 				src.probabilities_secret[M.config_tag] = M.probability
-				if (M.votable)
+				if (M.config_tag in current_map.allowed_gamemodes)
 					src.votable_modes += M.config_tag
 	src.votable_modes += ROUNDTYPE_STR_SECRET
 //	votable_modes += ROUNDTYPE_STR_MIXED_SECRET

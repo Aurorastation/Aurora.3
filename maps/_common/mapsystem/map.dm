@@ -67,6 +67,10 @@
 
 	var/regular_turf_temperature = T20C //The initial temperature of the turfs in the map
 
+	var/list/allowed_gamemodes = list("changeling", "cult", "extended", "heist", "malfunction", "conflux", "crossfire", "feeding", "infiltration", "intrigue",  "paranoia", "siege",
+									"traitorling", "uprising", "veilparty", "visitors", "ninja", "mercenary", "revolution", "autotraitor", "traitor", "vampire", "wizard")
+
+
 /datum/map/New()
 	if(!map_levels)
 		map_levels = station_levels.Copy()
