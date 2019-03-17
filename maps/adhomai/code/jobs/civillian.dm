@@ -49,8 +49,7 @@
 
 	outfit = /datum/outfit/job/adhomai/mayor
 
-	species_blacklist = list("Human", "Unathi", "Aut'akh Unathi", "Skrell", "Diona", "Vaurca Worker", "Vaurca Warrior", "Diona", "Baseline Frame", "Zhan-Khazan Tajara", "M'sai Tajara",
-							"Hephaestus G1 Industrial Frame", "Hephaestus G2 Industrial Frame", "Xion Industrial Frame", "Zeng-Hu Mobility Frame", "Bishop Accessory Frame", "Shell Frame")
+	species_blacklist = list("Zhan-Khazan Tajara", "M'sai Tajara", HUMAN_SPECIES, UNATHI_SPECIES, TAJARA_SPECIES, SKRELL_SPECIES, VAURCA_SPECIES, DIONA_SPECIES, IPC_SPECIES)
 
 /datum/outfit/job/adhomai/mayor
 	name = "Civillian"
@@ -121,8 +120,7 @@
 	supervisors = "the mayor"
 	selection_color = "#ddddff"
 
-	species_blacklist = list("Human", "Unathi", "Aut'akh Unathi", "Skrell", "Diona", "Vaurca Worker", "Vaurca Warrior", "Diona", "Baseline Frame", "Hephaestus G1 Industrial Frame", "Hephaestus G2 Industrial Frame",
-	"Xion Industrial Frame", "Zeng-Hu Mobility Frame", "Bishop Accessory Frame", "Shell Frame")
+	species_blacklist = list(HUMAN_SPECIES, UNATHI_SPECIES, TAJARA_SPECIES, SKRELL_SPECIES, VAURCA_SPECIES, DIONA_SPECIES, IPC_SPECIES)
 
 	outfit = /datum/outfit/job/adhomai/priest
 
@@ -255,8 +253,7 @@
 	selection_color = "#dddddd"
 	req_admin_notify = 1
 	minimal_player_age = 10
-	species_blacklist = list("Human", "Unathi", "Aut'akh Unathi", "Skrell", "Diona", "Vaurca Worker", "Vaurca Warrior", "Diona", "Baseline Frame",
-							"Hephaestus G1 Industrial Frame", "Hephaestus G2 Industrial Frame", "Xion Industrial Frame", "Zeng-Hu Mobility Frame", "Bishop Accessory Frame", "Shell Frame")
+	species_blacklist = list("Zhan-Khazan Tajara", HUMAN_SPECIES, UNATHI_SPECIES, TAJARA_SPECIES, SKRELL_SPECIES, VAURCA_SPECIES, DIONA_SPECIES, IPC_SPECIES)
 
 	outfit = /datum/outfit/job/adhomai/chief_constable
 
@@ -282,8 +279,7 @@
 	spawn_positions = 2
 	supervisors = "the chief constable"
 	selection_color = "#ddddff"
-	species_blacklist = list("Human", "Unathi", "Aut'akh Unathi", "Skrell", "Diona", "Vaurca Worker", "Vaurca Warrior", "Diona", "Baseline Frame",
-							"Hephaestus G1 Industrial Frame", "Hephaestus G2 Industrial Frame", "Xion Industrial Frame", "Zeng-Hu Mobility Frame", "Bishop Accessory Frame", "Shell Frame")
+	species_blacklist = list(HUMAN_SPECIES, UNATHI_SPECIES, TAJARA_SPECIES, SKRELL_SPECIES, VAURCA_SPECIES, DIONA_SPECIES, IPC_SPECIES)
 	outfit = /datum/outfit/job/adhomai/constable
 
 

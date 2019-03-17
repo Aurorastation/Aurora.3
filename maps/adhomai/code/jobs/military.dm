@@ -11,9 +11,7 @@
 	selection_color = "#ffdddd"
 	req_admin_notify = 1
 	outfit = /datum/outfit/job/adhomai/military/commander
-
-	species_blacklist = list("Human", "Unathi", "Aut'akh Unathi", "Skrell", "Diona", "Vaurca Worker", "Vaurca Warrior", "Diona", "Baseline Frame", "Zhan-Khazan Tajara", "M'sai Tajara",
-							"Hephaestus G1 Industrial Frame", "Hephaestus G2 Industrial Frame", "Xion Industrial Frame", "Zeng-Hu Mobility Frame", "Bishop Accessory Frame", "Shell Frame")
+	species_blacklist = list("Zhan-Khazan Tajara", "M'sai Tajara", HUMAN_SPECIES, UNATHI_SPECIES, TAJARA_SPECIES, SKRELL_SPECIES, VAURCA_SPECIES, DIONA_SPECIES, IPC_SPECIES)
 
 /datum/outfit/job/adhomai/military/commander
 	name = "Commander"
@@ -41,8 +39,7 @@
 
 	outfit = /datum/outfit/job/adhomai/military/supply_officer
 
-	species_blacklist = list("Human", "Unathi", "Aut'akh Unathi", "Skrell", "Diona", "Vaurca Worker", "Vaurca Warrior", "Diona", "Baseline Frame",
-							"Hephaestus G1 Industrial Frame", "Hephaestus G2 Industrial Frame", "Xion Industrial Frame", "Zeng-Hu Mobility Frame", "Bishop Accessory Frame", "Shell Frame")
+	species_blacklist = list(HUMAN_SPECIES, UNATHI_SPECIES, TAJARA_SPECIES, SKRELL_SPECIES, VAURCA_SPECIES, DIONA_SPECIES, IPC_SPECIES)
 
 /datum/outfit/job/adhomai/military/supply_officer
 	name = "Quatermaster"
@@ -84,8 +81,7 @@
 
 	outfit = /datum/outfit/job/adhomai/military/grenadier
 
-	species_blacklist = list("Human", "Unathi", "Aut'akh Unathi", "Skrell", "Diona", "Vaurca Worker", "Vaurca Warrior", "Diona", "Baseline Frame", "M'sai Tajara",
-							"Hephaestus G1 Industrial Frame", "Hephaestus G2 Industrial Frame", "Xion Industrial Frame", "Zeng-Hu Mobility Frame", "Bishop Accessory Frame", "Shell Frame")
+	species_blacklist = list("Tajara", "M'sai Tajara", HUMAN_SPECIES, UNATHI_SPECIES, TAJARA_SPECIES, SKRELL_SPECIES, VAURCA_SPECIES, DIONA_SPECIES, IPC_SPECIES)
 
 /datum/outfit/job/adhomai/military/grenadier
 	name = "Royal Grenadier"

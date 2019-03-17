@@ -239,3 +239,13 @@
 #define CURE_HYPNOSIS "hypnosis"
 #define CURE_SURGERY "surgery"
 #define CURE_ADMIN "all"
+
+
+//defines that includes the species and all of their subspecies, to be used in loadout and job restrictions
+#define HUMAN_SPECIES list("Human", "Off-Worlder Human")
+#define UNATHI_SPECIES list("Unathi", "Aut'akh Unathi")
+#define TAJARA_SPECIES list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
+#define SKRELL_SPECIES list("Skrell")
+#define VAURCA_SPECIES list("Vaurca Worker", "Vaurca Warrior", "Vaurca Breeder", "Vaurca Warform")
+#define DIONA_SPECIES list("Diona")
+#define IPC_SPECIES list("Baseline Frame", "Shell Frame", "Hephaestus G1 Industrial Frame", "Hunter-Killer", "Hephaestus G2 Industrial Frame", "Xion Industrial Frame", "Zeng-Hu Mobility Frame", "Bishop Accessory Frame", "Unbranded Frame")
