@@ -43,7 +43,7 @@
 	icon_state = "syndi_cakes"
 
 /obj/item/trash/waffles
-	name = "waffles"
+	name = "square tray"
 	icon_state = "waffles"
 
 /obj/item/trash/plate
@@ -92,7 +92,7 @@
 	icon_state = "cbeef-used"
 
 /obj/item/trash/brownies
-	name = "brownie tray"
+	name = "square tray"
 	icon_state = "brownies"
 
 /obj/item/trash/snacktray
@@ -126,3 +126,7 @@
 /obj/item/trash/space_twinkie
 	name = "space twinkie"
 	icon_state = "space_twinkie"
+
+/obj/item/trash/crumbs //used for generic plattered food. example is lasagna.
+	name = "square tray"
+	icon_state = "grease"

@@ -4428,7 +4428,7 @@
 	name = "lasagna"
 	desc = "Favorite of cats."
 	icon_state = "lasagna"
-	trash = /obj/item/trash/plate
+	trash = /obj/item/trash/grease
 	center_of_mass = list("x"=16, "y"=17)
 	nutriment_amt = 5
 	nutriment_desc = list("pasta" = 4, "tomato" = 2)
@@ -4454,6 +4454,7 @@
 	name = "carp sashimi"
 	desc = "A traditional human dish, recreated using space carp."
 	icon_state = "sashimi"
+	trash = /obj/item/trash/grease
 	filling_color = "#FFDEFE"
 	center_of_mass = list("x"=17, "y"=13)
 	bitesize = 4
@@ -4881,7 +4882,7 @@
 	name = "meat pancake"
 	desc = "An omelette baked on top of a giant meat patty. This monstrousity is typically shared between four people during a dinnertime meal."
 	icon_state = "egg_pancake"
-	trash = /obj/item/trash/plate
+	trash = /obj/item/trash/tray
 
 /obj/item/weapon/reagent_containers/food/snacks/stuffed_meatball/Initialize()
 	. = ..()
