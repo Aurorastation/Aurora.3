@@ -122,3 +122,7 @@
 /obj/item/trash/skrellsnacks
 	name = "\improper SkrellSnax"
 	icon_state = "skrellsnacks"
+
+/obj/item/trash/space_twinkie
+	name = "space twinkie"
+	icon_state = "space_twinkie"
