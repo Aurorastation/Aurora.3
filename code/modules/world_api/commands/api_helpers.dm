@@ -110,7 +110,7 @@
 /datum/topic_command/update_command_database/run_command(queryparams)
 	if (!api_update_command_database())
 		statuscode = 500
-		return TRUE
+		return FALSE
 	else
 		statuscode = 200
 		return TRUE
