@@ -89,7 +89,7 @@
 	attach_assembly(var/obj/item/device/assembly/A, var/mob/user)
 		holder = new/obj/item/device/assembly_holder(get_turf(src))
 		if(holder.attach(A,src,user))
-			user << "<span class='notice'>You attach \the [A] to \the [src]!</span>"
+			to_chat(user, "<span class='notice'>You attach \the [A] to \the [src]!</span>")
 			return 1
 		return 0
 
@@ -100,11 +100,11 @@
 			if((!A.secured) && (!secured))
 				attach_assembly(A,user)
 				return
-		if(isscrewdriver(W))
+		if(W.isscrewdriver())
 			if(toggle_secure())
-				user << "<span class='notice'>\The [src] is ready!</span>"
+				to_chat(user, "<span class='notice'>\The [src] is ready!</span>")
 			else
-				user << "<span class='notice'>\The [src] can now be attached!</span>"
+				to_chat(user, "<span class='notice'>\The [src] can now be attached!</span>")
 			return
 		..()
 		return
@@ -119,9 +119,9 @@
 		..(user)
 		if((in_range(src, user) || loc == user))
 			if(secured)
-				user << "\The [src] is ready!"
+				to_chat(user, "\The [src] is ready!")
 			else
-				user << "\The [src] can be attached!"
+				to_chat(user, "\The [src] can be attached!")
 		return
 
 

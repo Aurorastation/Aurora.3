@@ -737,7 +737,7 @@
 		/obj/item/clothing/shoes/clown_shoes = 0.1,
 		/obj/item/clothing/shoes/winter = 0.3,
 		/obj/item/clothing/suit/storage/hazardvest = 1,
-		/obj/item/clothing/suit/storage/leather_jacket/nanotrasen = 0.7,
+		/obj/item/clothing/suit/storage/toggle/leather_jacket/nanotrasen = 0.7,
 		/obj/item/clothing/suit/ianshirt = 0.5,
 		/obj/item/clothing/suit/syndicatefake = 0.6,
 		/obj/item/clothing/suit/imperium_monk = 0.4,

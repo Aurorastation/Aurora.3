@@ -133,7 +133,7 @@
 
 /turf/Enter(atom/movable/mover as mob|obj, atom/forget as mob|obj|turf|area)
 	if(movement_disabled && usr.ckey != movement_disabled_exception)
-		usr << "<span class='warning'>Movement is admin-disabled.</span>" //This is to identify lag problems
+		to_chat(usr, "<span class='warning'>Movement is admin-disabled.</span>") //This is to identify lag problems)
 		return
 
 	..()
@@ -179,7 +179,7 @@ var/const/enterloopsanity = 100
 
 /turf/Entered(atom/movable/AM)
 	if(movement_disabled)
-		usr << "<span class='warning'>Movement is admin-disabled.</span>" //This is to identify lag problems
+		to_chat(usr, "<span class='warning'>Movement is admin-disabled.</span>") //This is to identify lag problems)
 		return
 
 	ASSERT(istype(AM))
@@ -229,7 +229,7 @@ var/const/enterloopsanity = 100
 	return can_have_cabling()
 
 /turf/attackby(obj/item/C, mob/user)
-	if (can_lay_cable() && iscoil(C))
+	if (can_lay_cable() && C.iscoil())
 		var/obj/item/stack/cable_coil/coil = C
 		coil.turf_place(src, user)
 	else
@@ -312,9 +312,9 @@ var/const/enterloopsanity = 100
 				var/obj/effect/rune/R = O
 				// Only show message for visible runes
 				if (R.visibility)
-					user << "<span class='warning'>No matter how well you wash, the bloody symbols remain!</span>"
+					to_chat(user, "<span class='warning'>No matter how well you wash, the bloody symbols remain!</span>")
 	else
-		user << "<span class='warning'>\The [source] is too dry to wash that.</span>"
+		to_chat(user, "<span class='warning'>\The [source] is too dry to wash that.</span>")
 	source.reagents.trans_to_turf(src, 1, 10)	//10 is the multiplier for the reaction effect. probably needed to wet the floor properly.
 
 /turf/proc/update_blood_overlays()

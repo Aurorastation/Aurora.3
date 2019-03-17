@@ -62,7 +62,7 @@
 		locked = !locked
 		for(var/mob/O in viewers(user, 3))
 			if((O.client && !( O.blinded )))
-				O << "<span class='notice'>The locker has been [locked ? null : "un"]locked by [user].</span>"
+				to_chat(O, "<span class='notice'>The locker has been [locked ? null : "un"]locked by [user].</span>")
 		update_icon()
 	else
 		to_chat(user,  "<span class='notice'>Access Denied</span>")
@@ -78,7 +78,7 @@
 				MouseDrop_T(G.affecting, user)	//act like they were dragged onto the closet
 			else
 				to_chat(user,  "<span class='notice'>The locker is too small to stuff [G.affecting] into!</span>")
-		if(iswelder(W))
+		if(W.iswelder())
 			var/obj/item/weapon/weldingtool/WT = W
 			if(WT.isOn())
 				user.visible_message(
@@ -108,7 +108,7 @@
 			user.drop_from_inventory(W,loc)
 		else
 			user.drop_item()
-	else if(isscrewdriver(W) && canbemoved)
+	else if(W.isscrewdriver() && canbemoved)
 		if(screwed)
 			to_chat(user,  "<span class='notice'>You start to unscrew the locker from the floor...</span>")
 			playsound(loc, 'sound/items/Screwdriver.ogg', 50, 1)
@@ -123,7 +123,7 @@
 				to_chat(user,  "<span class='notice'>You screw the locker!</span>")
 				playsound(loc, 'sound/items/Screwdriver.ogg', 50, 1)
 				screwed = 1
-	else if(iswrench(W) && canbemoved)
+	else if(W.iswrench() && canbemoved)
 		if(wrenched && !screwed)
 			to_chat(user,  "<span class='notice'>You start to unfasten the bolts holding the locker in place...</span>")
 			playsound(loc, 'sound/items/Ratchet.ogg', 50, 1)
@@ -163,7 +163,7 @@
 				spark(src, 5)
 				playsound(loc, 'sound/weapons/blade1.ogg', 50, 1)
 				playsound(loc, "sparks", 50, 1)
-		else if(iswelder(W))
+		else if(W.iswelder())
 			var/obj/item/weapon/weldingtool/WT = W
 			if(WT.isOn())
 				user.visible_message(
@@ -225,7 +225,7 @@
 	else if(istype(usr, /mob/living/silicon/robot) && Adjacent(usr))
 		togglelock(usr)
 	else
-		usr << "<span class='warning'>This mob type can't use this verb.</span>"
+		to_chat(usr, "<span class='warning'>This mob type can't use this verb.</span>")
 
 /obj/structure/closet/secure_closet/update_icon()//Putting the welded stuff in updateicon() so it's easy to overwrite for special cases (Fridges, cabinets, and whatnot)
 	cut_overlays()

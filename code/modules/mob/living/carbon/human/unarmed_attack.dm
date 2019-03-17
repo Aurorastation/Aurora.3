@@ -49,12 +49,17 @@ var/global/list/sparring_attack_cache = list()
 		return
 
 	var/stun_chance = rand(0, 100)
+	var/pain_message = TRUE
+
+	if(!target.can_feel_pain())
+		pain_message = FALSE
 
 	if(attack_damage >= 5 && armour < 100 && !(target == user) && stun_chance <= attack_damage * 5) // 25% standard chance
 		switch(zone) // strong punches can have effects depending on where they hit
 			if("head", "mouth", "eyes")
 				// Induce blurriness
-				target.visible_message("<span class='danger'>[target] looks momentarily disoriented.</span>", "<span class='danger'>You see stars.</span>")
+				if(pain_message)
+					target.visible_message("<span class='danger'>[target] looks momentarily disoriented.</span>", "<span class='danger'>You see stars.</span>")
 				target.apply_effect(attack_damage*2, EYE_BLUR, armour)
 			if("l_arm", "l_hand")
 				if (target.l_hand)
@@ -79,11 +84,13 @@ var/global/list/sparring_attack_cache = list()
 						target.set_dir(reverse_dir[target.dir])
 					target.apply_effect(attack_damage * 0.4, WEAKEN, armour)
 			if("groin")
-				target.visible_message("<span class='warning'>[target] looks like \he is in pain!</span>", "<span class='warning'>[(target.gender=="female") ? "Oh god that hurt!" : "Oh no, not your[pick("testicles", "crown jewels", "clockweights", "family jewels", "marbles", "bean bags", "teabags", "sweetmeats", "goolies")]!"]</span>")
+				if(pain_message)
+					target.visible_message("<span class='warning'>[target] looks like \he is in pain!</span>", "<span class='warning'>[(target.gender=="female") ? "Oh god that hurt!" : "Oh no, not your[pick("testicles", "crown jewels", "clockweights", "family jewels", "marbles", "bean bags", "teabags", "sweetmeats", "goolies")]!"]</span>")
 				target.apply_effects(stutter = attack_damage * 2, agony = attack_damage* 3, blocked = armour)
 			if("l_leg", "l_foot", "r_leg", "r_foot")
 				if(!target.lying)
-					target.visible_message("<span class='warning'>[target] gives way slightly.</span>")
+					if(pain_message)
+						target.visible_message("<span class='warning'>[target] gives way slightly.</span>")
 					target.apply_effect(attack_damage*3, AGONY, armour)
 	else if(attack_damage >= 5 && !(target == user) && (stun_chance + attack_damage * 5 >= 100) && armour < 100) // Chance to get the usual throwdown as well (25% standard chance)
 		if(!target.lying)
@@ -106,7 +113,7 @@ var/global/list/sparring_attack_cache = list()
 	eyes.take_damage(rand(3,4), 1)
 
 	user.visible_message("<span class='danger'>[user] presses \his [eye_attack_text] into [target]'s [eyes.name]!</span>")
-	target << "<span class='danger'>You experience[(target.species.flags & NO_PAIN)? "" : " immense pain as you feel" ] [eye_attack_text_victim] being pressed into your [eyes.name][(target.species.flags & NO_PAIN)? "." : "!"]</span>"
+	to_chat(target, "<span class='danger'>You experience[(!target.can_feel_pain())? "" : " immense pain as you feel" ] [eye_attack_text_victim] being pressed into your [eyes.name][(!target.can_feel_pain())? "." : "!"]</span>")
 
 /datum/unarmed_attack/bite
 	attack_verb = list("bit")
