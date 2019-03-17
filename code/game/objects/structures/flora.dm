@@ -80,58 +80,6 @@
 	var/dead = 0
 	var/obj/item/stored_item
 
-	//cool new descriptions for the plants. WORLDBUILDING!!! And since they're using all the same pots now, maybe code in a way to change them around?
-
-/obj/structure/flora/pottedplant
-	name = "potted plant"
-	icon = 'icons/obj/plants.dmi'
-	icon_state = "plant-03"
-	desc = "A bouquet of Bieselite flora."
-
-/obj/structure/flora/pottedplant
-	name = "potted plant"
-	icon = 'icons/obj/plants.dmi'
-	icon_state = "plant-04"
-	desc = "A bamboo plant. Used widely in Japanese crafts."
-
-/obj/structure/flora/pottedplant
-	name = "potted plant"
-	icon = 'icons/obj/plants.dmi'
-	icon_state = "plant-07"
-	desc = "A reedy plant mostly used for decoration in Skrell homes, admired for its luxuriant stalks."
-
-/obj/structure/flora/pottedplant
-	name = "potted plant"
-	icon = 'icons/obj/plants.dmi'
-	icon_state = "plant-09"
-	desc = "A fleshy cave dwelling plant with huge nodules for flowers."
-
-/obj/structure/flora/pottedplant
-	name = "potted plant"
-	icon = 'icons/obj/plants.dmi'
-	icon_state = "plant-13"
-	desc = "A hardy succulent adapted to the Moghes deserts."
-
-/obj/structure/flora/pottedplant
-	name = "potted plant"
-	icon = 'icons/obj/plants.dmi'
-	icon_state = "plant-19"
-	desc = "A ropey, aquatic plant with crystaline flowers."
-
-/obj/structure/flora/pottedplant
-	name = "potted plant"
-	icon = 'icons/obj/plants.dmi'
-	icon_state = "plant-20"
-	desc = "A bioluminescent half-plant half-fungus hybrid. Said to come from Sedantis I."
-
-/obj/structure/flora/pottedplant
-	name = "potted plant"
-	icon = 'icons/obj/plants.dmi'
-	icon_state = "plant-22"
-	desc = "A cone shrub. Sadly doesn't come from Coney Island."
-
-
-
 /obj/structure/flora/pottedplant/Destroy()
 	QDEL_NULL(stored_item)
 	return ..()
@@ -202,6 +150,30 @@
 	if (number < 10)
 		number = "0[number]"
 	icon_state = "plant-[number]"
+	if (number == 3)
+	else
+		desc = "A bouquet of Bieselite flora."
+	if (number == 4)
+	else
+		desc = "A bamboo plant. Used widely in Japanese crafts."
+	if (number == 7)
+	else
+		desc = "A reedy plant mostly used for decoration in Skrell homes, admired for its luxuriant stalks."
+	if (number == 9)
+	else
+		desc = "A fleshy cave dwelling plant with huge nodules for flowers."
+	if (number == 13)
+	else
+		desc = "A hardy succulent adapted to the Moghes deserts."
+	if (number == 19)
+	else
+		desc = "A ropey, aquatic plant with crystaline flowers."
+	if (number == 20)
+	else
+		desc = "A bioluminescent half-plant half-fungus hybrid. Said to come from Sedantis I."
+	if (number == 22)
+	else
+		desc = "A cone shrub. Sadly doesn't come from Coney Island."
 
 //newbushes
 
