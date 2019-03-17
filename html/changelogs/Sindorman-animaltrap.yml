@@ -40,3 +40,4 @@ delete-after: True
 changes: 
   - tweak: "Disassembling trap with things inside of it will release whatever is inside."
   - rscadd: "Animal traps now display visually what prey is inside of them."
+  - backend: "Tesla no longer logs spawn of new miniballs."
