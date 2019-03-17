@@ -23955,7 +23955,7 @@
 	dir = 1
 	},
 /obj/effect/landmark/start{
-	name = "Chemist"
+	name = "Pharmacist"
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay4)
@@ -23964,7 +23964,7 @@
 	dir = 1
 	},
 /obj/effect/landmark/start{
-	name = "Chemist"
+	name = "Pharmacist"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/white,
