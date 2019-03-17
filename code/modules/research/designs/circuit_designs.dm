@@ -548,7 +548,7 @@
 /datum/design/circuit/ce
 	name = "advanced void suit central circuit board"
 	id = "ce_rig"
-	req_tech = list(TECH_DATA = 3)
+	req_tech = list(TECH_DATA = 4)
 	build_path = /obj/item/weapon/circuitboard/rig_assembly/civilian/ce
 	sort_string = "WAAAH"
 
