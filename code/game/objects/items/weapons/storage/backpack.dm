@@ -49,7 +49,7 @@
 					wearable = 1
 
 			if(!wearable && !(slot in list(slot_l_store, slot_r_store, slot_s_store)))
-				H << "<span class='danger'>Your species cannot wear [src].</span>"
+				to_chat(H, "<span class='danger'>Your species cannot wear [src].</span>")
 				return 0
 	return 1
 
@@ -89,7 +89,7 @@
 
 	attackby(obj/item/weapon/W as obj, mob/user as mob)
 		if(istype(W, /obj/item/weapon/storage/backpack/holding))
-			user << "<span class='warning'>The Bluespace interfaces of the two devices conflict and malfunction.</span>"
+			to_chat(user, "<span class='warning'>The Bluespace interfaces of the two devices conflict and malfunction.</span>")
 			qdel(W)
 			return
 		..()
@@ -228,9 +228,9 @@
 		slot_r_hand_str = "medicalpack"
 		)
 
-/obj/item/weapon/storage/backpack/satchel_biochem
-	name = "bio-chemist satchel"
-	desc = "A sterile satchel with bio-chemist colours."
+/obj/item/weapon/storage/backpack/satchel_vir
+	name = "virologist satchel"
+	desc = "A sterile satchel with virologist colours."
 	icon_state = "satchel-vir"
 
 /obj/item/weapon/storage/backpack/satchel_pharm
@@ -324,6 +324,8 @@
 		slot_l_hand_str = "duffle",
 		slot_r_hand_str = "duffle"
 	)
+	slowdown = 1
+	max_storage_space = 38
 
 /obj/item/weapon/storage/backpack/duffel/cap
 	name = "captain's duffel bag"
@@ -392,17 +394,19 @@
 
 /obj/item/weapon/storage/backpack/duffel/syndie
 	name = "syndicate duffel bag"
-	desc = "A snazzy black and red duffel bag, perfect for smuggling C4 and Parapens."
+	desc = "A snazzy black and red duffel bag, perfect for smuggling C4 and Parapens. It seems to be made of a lighter material."
 	icon_state = "duffel-syndie"
 	item_state_slots = list(
 		slot_l_hand_str = "duffle_syndie",
 		slot_r_hand_str = "duffle_syndie"
 	)
+	slowdown = 0
 
 /obj/item/weapon/storage/backpack/duffel/wizard
 	name = "wizardly duffel bag"
 	desc = "A fancy blue wizard bag, duffel edition."
 	icon_state = "duffel-wizard"
+	slowdown = 0
 
 /*
  * Messenger Bags

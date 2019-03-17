@@ -212,3 +212,30 @@
 	jobtype = /datum/job/paramedic
 
 	uniform = /obj/item/clothing/under/rank/medical/paramedic
+
+/datum/job/intern_med
+	title = "Medical Resident"
+	flag = INTERN_MED
+	department_flag = MEDSCI
+	faction = "Station"
+	total_positions = 2
+	spawn_positions = 2
+	supervisors = "the Chief Medical Officer"
+	selection_color = "#ffeef0"
+	access = list(access_medical, access_surgery, access_medical_equip)
+	minimal_access = list(access_medical, access_surgery, access_medical_equip)
+	alt_titles = list("Medical Intern")
+	outfit = /datum/outfit/job/intern_med
+
+/datum/outfit/job/intern_med
+	name = "Medical Resident"
+	jobtype = /datum/job/intern_med
+
+	uniform = /obj/item/clothing/under/rank/medical
+	shoes = /obj/item/clothing/shoes/white
+	l_ear = /obj/item/device/radio/headset/headset_med
+
+	backpack = /obj/item/weapon/storage/backpack/medic
+	satchel = /obj/item/weapon/storage/backpack/satchel_med
+	dufflebag = /obj/item/weapon/storage/backpack/duffel/med
+	messengerbag = /obj/item/weapon/storage/backpack/messenger/med

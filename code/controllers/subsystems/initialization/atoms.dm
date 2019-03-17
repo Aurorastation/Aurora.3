@@ -35,7 +35,7 @@ var/datum/controller/subsystem/atoms/SSatoms
 
 	LAZYINITLIST(late_loaders)
 	LAZYINITLIST(late_qdel)
-	
+
 	var/count
 	var/list/mapload_arg = list(TRUE)
 	if(atoms)
@@ -70,15 +70,15 @@ var/datum/controller/subsystem/atoms/SSatoms
 		var/num_qdels = late_qdel.len
 		for(var/thing in late_qdel)
 			qdel(thing)
-		
+
 		admin_notice(span("danger", "Late-qdeleted [num_qdels] atoms."), R_DEBUG)
 		log_ss("atoms", "Late qdeleted [num_qdels] atoms.")
 
 		late_qdel.Cut()
-		
+
 	if(atoms)
 		. = created_atoms + atoms
-		created_atoms = null 
+		created_atoms = null
 
 /datum/controller/subsystem/atoms/proc/InitAtom(atom/A, list/arguments)
 	var/the_type = A.type
@@ -92,7 +92,7 @@ var/datum/controller/subsystem/atoms/SSatoms
 
 	if(start_tick != world.time)
 		BadInitializeCalls[the_type] |= BAD_INIT_SLEPT
-	
+
 	if(result != INITIALIZE_HINT_NORMAL)
 		switch(result)
 			if(INITIALIZE_HINT_LATELOAD)
@@ -111,12 +111,12 @@ var/datum/controller/subsystem/atoms/SSatoms
 					return TRUE
 			else
 				BadInitializeCalls[the_type] |= BAD_INIT_NO_HINT
-				
+
 	if(!A)	//possible harddel
 		return TRUE
 	else if(!A.initialized)
 		BadInitializeCalls[the_type] |= BAD_INIT_DIDNT_INIT
-	
+
 	return QDELETED(A)
 
 /datum/controller/subsystem/atoms/proc/ForceInitializeContents(atom/A)
@@ -147,7 +147,7 @@ var/datum/controller/subsystem/atoms/SSatoms
 /*datum/controller/subsystem/atoms/Shutdown()
 	var/initlog = InitLog()
 	if(initlog)
-		world.log << initlog*/
+		world.log <<  initlog*/
 
 /datum/controller/subsystem/atoms/Recover()
 	initialized = SSatoms.initialized

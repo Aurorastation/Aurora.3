@@ -62,7 +62,7 @@
 
 /obj/item/weapon/computer_hardware/battery_module/diagnostics(var/mob/user)
 	..()
-	user << "Internal battery charge: [battery.charge]/[battery.maxcharge] mAh"
+	to_chat(user, "Internal battery charge: [battery.charge]/[battery.maxcharge] mAh")
 
 /obj/item/weapon/computer_hardware/battery_module/Initialize()
 	. = ..()
