@@ -35,3 +35,21 @@
 /obj/item/clothing/under/uniform/pra/alt
 	icon_state = "catshirt"
 	item_state = "catshirt"
+
+/obj/item/clothing/under/uniform/dragoon
+	name = "imperial dragoon uniform"
+	desc = "A robust military uniform issued to the dragoons of the Imperial Army."
+	icon_state = "military_uniform"
+	item_state = "military_uniform"
+
+/obj/item/clothing/under/uniform/dragoon/commander
+	name = "imperial dragoon commander uniform"
+	desc = "A robust military uniform issued to the commander of the Imperial Dragoons."
+	icon_state = "military_commander"
+	item_state = "military_commander"
+
+/obj/item/clothing/under/uniform/sailor
+	name = "sailor uniform"
+	desc = "A military uniform issued to the sailors of the Royal Navy."
+	icon_state = "sailor"
+	item_state = "sailor"

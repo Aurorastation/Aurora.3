@@ -33,3 +33,20 @@
 	contained_sprite = TRUE
 	armor = list(melee = 10, bullet = 10, laser = 0, energy = 0, bomb = 0, bio = 0, rad = 0)
 	siemens_coefficient = 0.7
+
+/obj/item/clothing/head/nka/dragoon
+	name = "tall fur hat"
+	desc = "A black fur hat made of Nav'twir."
+	icon_state = "bighat"
+	item_state = "bighat"
+	armor = list(melee = 40, bullet = 25, laser = 0, energy = 0, bomb = 0, bio = 0, rad = 0)
+	siemens_coefficient = 0.5
+
+/obj/item/clothing/head/nka/dragoon/commander
+	desc = "A black fur hat made of Nav'twir. This one is used by a commander of the Imperial Dragoons."
+
+/obj/item/clothing/head/nka/sailor
+	name = "sailor cap"
+	desc = "A military cap issued to the sailors of the Royal Navy."
+	icon_state = "sailorhat"
+	item_state = "sailorhat"

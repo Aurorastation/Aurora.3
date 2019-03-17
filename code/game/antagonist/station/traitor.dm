@@ -94,9 +94,8 @@ var/datum/antagonist/traitor/traitors
 		return 0
 
 	traitor_mob.faction = "syndicate"
-//	spawn_uplink(traitor_mob)
-	var/obj/item/device/radio/uplink/U = new(traitor_mob.loc, traitor_mob.mind, DEFAULT_TELECRYSTAL_AMOUNT)
-	traitor_mob.put_in_hands(U)
+	spawn_uplink(traitor_mob)
+
 	// Tell them about people they might want to contact.
 	var/mob/living/carbon/human/M = get_nt_opposed()
 	if(M && M != traitor_mob)
@@ -131,13 +130,8 @@ var/datum/antagonist/traitor/traitors
 		to_chat(traitor_mob, "You have elected to not have an AntagCorp portable teleportation relay installed!")
 		R = null
 	else
-		to_chat(traitor_mob, "You have not selected a location for your relay in the antagonist options! Defaulting to PDA!")
-		R = locate(/obj/item/device/pda) in traitor_mob.contents
-		if (!R)
-			R = locate(/obj/item/device/radio) in traitor_mob.contents
-			to_chat(traitor_mob, "Could not locate a PDA, installing into a Radio instead!")
-		if (!R)
-			to_chat(traitor_mob, "Unfortunately, neither a radio or a PDA relay could be installed.")
+		var/obj/item/device/radio/uplink/U = new(traitor_mob.loc, traitor_mob.mind, DEFAULT_TELECRYSTAL_AMOUNT)
+		traitor_mob.put_in_hands(U)
 
 	if(!R)
 		return
