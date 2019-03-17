@@ -164,9 +164,9 @@
 		return
 	if(isliving(L))
 		var/mob/living/ll = L
-		var/icon/I = new /icon(src.icon, src.icon_state)
-		I.Blend(getFlatIcon(ll), ICON_UNDERLAY)
-		icon = image(I)
+		var/image/temp = ll.appearance
+		temp.add_overlay(src.appearance)
+		icon = temp
 
 /obj/item/weapon/trap/animal/examine(mob/user)
 	..()
