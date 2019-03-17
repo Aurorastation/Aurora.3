@@ -84,7 +84,7 @@
 	icon_state = "meatsnack-used"
 
 /obj/item/trash/maps
-	name = "map salty ham"
+	name = "maps salty ham"
 	icon_state = "maps-used"
 
 /obj/item/trash/nathisnack
