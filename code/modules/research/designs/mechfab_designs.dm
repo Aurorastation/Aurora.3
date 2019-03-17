@@ -879,6 +879,8 @@
 	desc = "An assembly frame for an advanced voidsuit that protects against hazardous, low pressure environments."
 	id = "rig_ce"
 	build_path = /obj/item/rig_assembly/ce
+	req_tech = list(TECH_MATERIAL = 4, TECH_ENGINEERING = 3, TECH_MAGNET = 3, TECH_POWER = 4)
+	materials = list(DEFAULT_WALL_MATERIAL = 25000, "glass" = 12500)
 
 /datum/design/rig/eva
 	name = "EVA suit control module assembly"
