@@ -45,6 +45,7 @@
 	icon_state = "ce1"
 	board_type = /obj/item/weapon/circuitboard/rig_assembly/civilian/ce
 	rig_type = /obj/item/weapon/rig/ce
+	origin_tech = list(TECH_MATERIAL = 5, TECH_ENGINEERING = 4, TECH_MAGNET = 4, TECH_POWER = 5)
 
 /obj/item/rig_assembly/eva
 	name = "EVA suit control module assembly"
@@ -196,7 +197,7 @@
 						"desc"="The wiring is added"),
 				//7
 				list("key"=/obj/item/stack/cable_coil,
-						"desc"="The wiring is removed added."),
+						"desc"="The wiring is removed"),
 				)
 
 /datum/construction/reversible/rig_assembly/civilian/action(atom/used_atom,mob/user as mob)
@@ -317,7 +318,7 @@
 						"desc"="The wiring is added"),
 				//14
 				list("key"=/obj/item/stack/cable_coil,
-						"desc"="The wiring is removed added."),
+						"desc"="The wiring is removed"),
 				)
 
 /datum/construction/reversible/rig_assembly/combat/action(atom/used_atom,mob/user as mob)
