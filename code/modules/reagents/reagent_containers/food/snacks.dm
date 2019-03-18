@@ -723,7 +723,7 @@
 
 /obj/item/weapon/reagent_containers/food/snacks/egg
 	name = "egg"
-	desc = "IT'S TIME FOR EGG DELIVERY! CAN YOU DELIVER SIXTY EGGS?"
+	desc = "Can I offer you a nice egg in this trying time?"
 	icon_state = "egg"
 	filling_color = "#FDFFD1"
 	volume = 10
