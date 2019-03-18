@@ -12460,15 +12460,7 @@
 "awC" = (
 /obj/structure/table/wood,
 /obj/item/weapon/paper_bin,
-/obj/item/weapon/pen{
-	pixel_x = 5;
-	pixel_y = 5
-	},
-/obj/item/weapon/pen/blue{
-	pixel_x = 1;
-	pixel_y = 1
-	},
-/obj/item/weapon/pen/red,
+/obj/item/weapon/pen/multi,
 /turf/simulated/floor/carpet,
 /area/lawoffice)
 "awD" = (
