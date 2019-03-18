@@ -320,8 +320,8 @@
 	new /obj/item/clothing/under/rank/virologist(src)
 	new /obj/item/clothing/shoes/white(src)
 	new /obj/item/clothing/shoes/white(src)
-	new /obj/item/clothing/suit/storage/toggle/labcoat/virologist(src)
-	new /obj/item/clothing/suit/storage/toggle/labcoat/virologist(src)
+	new /obj/item/clothing/suit/storage/toggle/labcoat/biochemist(src)
+	new /obj/item/clothing/suit/storage/toggle/labcoat/biochemist(src)
 	new /obj/item/clothing/mask/surgical(src)
 	new /obj/item/clothing/mask/surgical(src)
 	return

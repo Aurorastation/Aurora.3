@@ -120,6 +120,9 @@
 	minimal_access = list(access_medical, access_medical_equip, access_pharmacy, access_virology)
 	alt_titles = list("Biochemist")
 	outfit = /datum/outfit/job/pharmacist
+	alt_outfits = list(
+		"Biochemist"=/datum/outfit/job/pharmacist/biochemist
+		)
 
 /datum/outfit/job/pharmacist
 	name = "Pharmacist"
@@ -136,6 +139,17 @@
 	dufflebag = /obj/item/weapon/storage/backpack/duffel/pharm
 	messengerbag = /obj/item/weapon/storage/backpack/messenger/pharm
 
+/datum/outfit/job/pharmacist/biochemist
+	name = "Biochemist"
+	jobtype = /datum/job/pharmacist
+
+	uniform = /obj/item/clothing/under/rank/biochemist
+	suit = /obj/item/clothing/suit/storage/toggle/labcoat/biochemist
+
+	backpack = /obj/item/weapon/storage/backpack/virology
+	satchel = /obj/item/weapon/storage/backpack/satchel_vir
+	dufflebag = /obj/item/weapon/storage/backpack/duffel/vir
+	messengerbag = /obj/item/weapon/storage/backpack/messenger/viro
 
 /datum/job/psychiatrist
 	title = "Psychiatrist"

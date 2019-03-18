@@ -204,7 +204,7 @@
 	permeability_coefficient = 0.50
 	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 10, bio = 0, rad = 0)
 
-/obj/item/clothing/under/rank/virologist_new
+/obj/item/clothing/under/rank/biochemist
 	desc = "Made of a special fiber that gives increased protection against biohazards."
 	name = "virologist's jumpsuit"
 	icon_state = "virologist_new"
