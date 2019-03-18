@@ -72,12 +72,12 @@
 	display_name = "surgical apron"
 	path = /obj/item/clothing/suit/apron/surgery
 	cost = 1
-	allowed_roles = list("Scientist", "Chief Medical Officer", "Medical Doctor", "Pharmacist", "Geneticist", "Paramedic", "Medical Resident", "Xenobiologist", "Roboticist", "Research Director", "Forensic Technician")
+	allowed_roles = list(MEDICAL_ROLES, SCIENCE_ROLES, "Physician")
 
 /datum/gear/suit/iacvest
 	display_name = "IAC vest"
 	path = /obj/item/clothing/suit/iacvest
-	allowed_roles = list("Chief Medical Officer", "Medical Doctor", "Pharmacist", "Paramedic", "Medical Resident")
+	allowed_roles = list(MEDICAL_ROLES, SCIENCE_ROLES, "Physician")
 
 /datum/gear/suit/poncho
 	display_name = "poncho selection"
@@ -120,18 +120,21 @@
 	description = "A rugged canvas trenchcoat, designed and created by TX Fabrication Corp. The coat is externally impact resistant - perfect for your next act of autodefenestration!"
 	path = /obj/item/clothing/suit/storage/toggle/det_trench
 	allowed_roles = list("Detective", "Head of Security")
+	allowed_maps = list("aurora", "exodus")
 
 /datum/gear/suit/det_trenchcoat_black
 	display_name = "black trenchcoat (Detective)"
 	description = "A rugged canvas trenchcoat, designed and created by TX Fabrication Corp. The coat is externally impact resistant - perfect for your next act of autodefenestration!"
 	path = /obj/item/clothing/suit/storage/toggle/det_trench/black
 	allowed_roles = list("Detective", "Head of Security")
+	allowed_maps = list("aurora", "exodus")
 
 /datum/gear/suit/det_trenchcoat_techni
 	display_name = "technicolor trenchcoat (Detective)"
 	description = "A 23rd-century multi-purpose trenchcoat. It's fibres are hyper-absorbent. Can be painted into any color."
 	path = /obj/item/clothing/suit/storage/toggle/det_trench/technicolor
 	allowed_roles = list("Detective", "Head of Security")
+	allowed_maps = list("aurora", "exodus")
 
 /datum/gear/suit/ian
 	display_name = "worn shirt"
@@ -146,61 +149,73 @@
 	display_name = "winter coat, captain"
 	path = /obj/item/clothing/suit/storage/hooded/wintercoat/captain
 	allowed_roles = list("Captain")
+	allowed_maps = list("aurora", "exodus")
 
 /datum/gear/suit/winter/security
 	display_name = "winter coat, security"
 	path = /obj/item/clothing/suit/storage/hooded/wintercoat/security
-	allowed_roles = list("Security Officer", "Head of Security", "Warden", "Security Cadet", "Detective", "Forensic Technician")
+	allowed_roles = list(SECURITY_ROLES)
+	allowed_maps = list("aurora", "exodus")
 
 /datum/gear/suit/winter/science
 	display_name = "winter coat, science"
 	path = /obj/item/clothing/suit/storage/hooded/wintercoat/science
-	allowed_roles = list("Research Director", "Scientist", "Xenobiologist", "Roboticist", "Lab Assistant", "Geneticist")
+	allowed_roles = list(SCIENCE_ROLES)
+	allowed_maps = list("aurora", "exodus")
 
 /datum/gear/suit/winter/medical
 	display_name = "winter coat, medical"
 	path = /obj/item/clothing/suit/storage/hooded/wintercoat/medical
-	allowed_roles = list("Chief Medical Officer", "Medical Doctor", "Paramedic", "Medical Resident", "Psychiatrist", "Pharmacist")
+	allowed_roles = list(MEDICAL_ROLES)
+	allowed_maps = list("aurora", "exodus")
 
 /datum/gear/suit/winter/engineering
 	display_name = "winter coat, engineering"
 	path = /obj/item/clothing/suit/storage/hooded/wintercoat/engineering
-	allowed_roles = list("Station Engineer", "Chief Engineer", "Engineering Apprentice")
+	allowed_roles = list(ENGINEERING_ROLES)
+	allowed_maps = list("aurora", "exodus")
 
 /datum/gear/suit/winter/atmos
 	display_name = "winter coat, atmospherics"
 	path = /obj/item/clothing/suit/storage/hooded/wintercoat/engineering/atmos
 	allowed_roles = list("Atmospheric Technician", "Chief Engineer")
+	allowed_maps = list("aurora", "exodus")
 
 /datum/gear/suit/winter/hydro
 	display_name = "winter coat, hydroponics"
 	path = /obj/item/clothing/suit/storage/hooded/wintercoat/hydro
 	allowed_roles = list("Head of Personnel", "Gardener")
+	allowed_maps = list("aurora", "exodus")
 
 /datum/gear/suit/winter/cargo
 	display_name = "winter coat, cargo"
 	path = /obj/item/clothing/suit/storage/hooded/wintercoat/cargo
-	allowed_roles = list("Cargo Technician", "Quartermaster", "Head of Personnel")
+	allowed_roles = list(CARGO_ROLES)
+	allowed_maps = list("aurora", "exodus")
 
 /datum/gear/suit/winter/mining
 	display_name = "winter coat, mining"
 	path = /obj/item/clothing/suit/storage/hooded/wintercoat/miner
 	allowed_roles = list("Quartermaster", "Head of Personnel", "Shaft Miner")
+	allowed_maps = list("aurora", "exodus")
 
 /datum/gear/suit/secjacket
 	display_name = "navy security jacket (Security Officer)"
 	path = /obj/item/clothing/suit/security/navyofficer
 	allowed_roles = list("Security Officer", "Head of Security", "Warden")
+	allowed_maps = list("aurora", "exodus")
 
 /datum/gear/suit/secjacketwarden
 	display_name = "navy security jacket (Warden)"
 	path = /obj/item/clothing/suit/security/navywarden
 	allowed_roles = list("Head of Security", "Warden")
+	allowed_maps = list("aurora", "exodus")
 
 /datum/gear/suit/secjackethos
 	display_name = "navy security jacket (Head of Security)"
 	path = /obj/item/clothing/suit/security/navyhos
 	allowed_roles = list("Head of Security")
+	allowed_maps = list("aurora", "exodus")
 
 /datum/gear/suit/dominia
 	display_name = "dominia great coat selection"
@@ -232,22 +247,32 @@
 /datum/gear/suit/miscellaneous/engi_dep_jacket
 	display_name = "department jacket, engineering"
 	path = /obj/item/clothing/suit/storage/toggle/engi_dep_jacket
+	allowed_roles = list(ENGINEERING_ROLES)
+	allowed_maps = list("aurora", "exodus")
 
 /datum/gear/suit/miscellaneous/supply_dep_jacket
 	display_name = "department jacket, supply"
 	path = /obj/item/clothing/suit/storage/toggle/supply_dep_jacket
+	allowed_roles = list(CARGO_ROLES)
+	allowed_maps = list("aurora", "exodus")
 
 /datum/gear/suit/miscellaneous/sci_dep_jacket
 	display_name = "department jacket, science"
 	path = /obj/item/clothing/suit/storage/toggle/sci_dep_jacket
+	allowed_roles = list(SCIENCE_ROLES)
+	allowed_maps = list("aurora", "exodus")
 
 /datum/gear/suit/miscellaneous/med_dep_jacket
 	display_name = "department jacket, medical"
 	path = /obj/item/clothing/suit/storage/toggle/med_dep_jacket
+	allowed_roles = list(MEDICAL_ROLES)
+	allowed_maps = list("aurora", "exodus")
 
 /datum/gear/suit/miscellaneous/sec_dep_jacket
 	display_name = "department jacket, security"
 	path = /obj/item/clothing/suit/storage/toggle/sec_dep_jacket
+	allowed_roles = list(SECURITY_ROLES)
+	allowed_maps = list("aurora", "exodus")
 
 /datum/gear/suit/miscellaneous/peacoat
 	display_name = "peacoat"

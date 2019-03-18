@@ -51,7 +51,7 @@
 
 	allowed_jobs = list(/datum/job/captain, /datum/job/hop, /datum/job/assistant, /datum/job/bartender, /datum/job/chef, /datum/job/hydro, /datum/job/qm, /datum/job/cargo_tech,
 						/datum/job/mining, /datum/job/janitor, /datum/job/journalist, /datum/job/librarian, /datum/job/lawyer, /datum/job/chaplain, /datum/job/chief_engineer,
-						/datum/job/engineer, /datum/job/atmos, /datum/job/intern_eng, /datum/job/cmo, /datum/job/doctor, /datum/job/chemist, /datum/job/psychiatrist, /datum/job/paramedic,
+						/datum/job/engineer, /datum/job/atmos, /datum/job/intern_eng, /datum/job/cmo, /datum/job/doctor, /datum/job/pharmacist, /datum/job/psychiatrist, /datum/job/paramedic,
 						/datum/job/intern_med, /datum/job/rd, /datum/job/scientist, /datum/job/xenobiologist, /datum/job/roboticist, /datum/job/intern_sci, /datum/job/hos,
 						/datum/job/warden, /datum/job/detective, /datum/job/forensics, /datum/job/officer, /datum/job/intern_sec, /datum/job/ai, /datum/job/cyborg)
 

@@ -1,6 +1,6 @@
 //A list of datums to be used in the loadout
 
-#define MEDICAL_ROLES list("Chief Medical Officer", "Medical Doctor", "Chemist", "Psychiatrist", "Paramedic", "Medical Resident")
+#define MEDICAL_ROLES list("Chief Medical Officer", "Medical Doctor", "Pharmacist", "Psychiatrist", "Paramedic", "Medical Resident")
 
 #define ENGINEERING_ROLES list("Station Engineer","Atmospheric Technician","Chief Engineer","Engineering Apprentice")
 
