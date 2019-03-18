@@ -301,6 +301,8 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 
 	var/mob/living/character = create_character()	//creates the human and transfers vars and mind
 
+	character = SSjobs.EquipPersonal(character, rank, 1,spawning_at)					//equips the human
+
 	UpdateFactionList(character)
 
 	// AIs don't need a spawnpoint, they must spawn at an empty core
@@ -324,7 +326,6 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 	//Find our spawning point.
 	var/join_message = SSjobs.LateSpawn(character, rank)
 
-	character = SSjobs.EquipPersonal(character, rank, 1,spawning_at)					//equips the human
 	equip_custom_items(character)
 
 	character.lastarea = get_area(loc)

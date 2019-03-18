@@ -826,10 +826,10 @@
 
 	else if(href_list["adminplayerobservejump"])
 		if(!check_rights(R_MOD|R_ADMIN))	return
+		var/client/C = usr.client
 
 		var/mob/M = locate(href_list["adminplayerobservejump"])
 
-		var/client/C = usr.client
 		if(!isobserver(usr))	C.admin_ghost()
 		sleep(2)
 		C.jumptomob(M)
