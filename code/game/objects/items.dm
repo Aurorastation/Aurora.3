@@ -80,6 +80,7 @@
 	var/cleaving = FALSE
 	var/reach = 1 // Length of tiles it can reach, 1 is adjacent.
 	var/lock_picking_level = 0 //used to determine whether something can pick a lock, and how well.
+	// Its vital that if you make new power tools or new recipies that you include this
 
 /obj/item/Destroy()
 	if(ismob(loc))

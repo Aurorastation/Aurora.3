@@ -180,3 +180,42 @@
 	armor = list(melee = 10, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 10, rad = 0)
 	siemens_coefficient = 0.9
 	can_hold_knife = 1
+
+/obj/item/clothing/shoes/caligae
+	name = "caligae"
+	desc = "The standard Unathi marching footwear. Made of leather and rubber, with heavy hob-nailed soles, their unique design allows for improved traction and protection, leading to them catching on with other species."
+	description_fluff = "These traditional Unathi footwear have remained relatively unchanged in principle, with improved materials and construction being the only notable change. Originally used for warriors, they became widespread for their comfort and durability. Some are worn with socks, for warmth. Although made for the Unathi anatomy, they have picked up popularity among other species."
+	icon_state = "caligae"
+	item_state = "caligae"
+	force = 5
+	armor = list(melee = 10, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0, rad = 0)
+	body_parts_covered = FEET|LEGS
+	species_restricted = null
+	sprite_sheets = list(
+		"Tajara" = 'icons/mob/species/tajaran/shoes.dmi',
+		"Unathi" = 'icons/mob/species/unathi/shoes.dmi')
+
+/obj/item/clothing/shoes/caligae/white
+	name = "white caligae"
+	desc = "The standard Unathi marching footwear. Made of leather and rubber, with heavy hob-nailed soles, their unique design allows for improved traction and protection. This one has white socks."
+	icon_state = "whitecaligae"
+	item_state = "whitecaligae"
+
+/obj/item/clothing/shoes/caligae/grey
+	name = "grey caligae"
+	desc = "The standard Unathi marching footwear. Made of leather and rubber, with heavy hob-nailed soles, their unique design allows for improved traction and protection. This one has grey socks."
+	icon_state = "greycaligae"
+	item_state = "greycaligae"
+
+/obj/item/clothing/shoes/caligae/black
+	name = "black caligae"
+	desc = "The standard Unathi marching footwear. Made of leather and rubber, with heavy hob-nailed soles, their unique design allows for improved traction and protection. This one has black socks."
+	icon_state = "blackcaligae"
+	item_state = "blackcaligae"
+
+/obj/item/clothing/shoes/caligae/armor
+	name = "leather caligae"
+	desc = "The standard Unathi marching footwear. These are made for heavier conditions, featuring tough and waterproof eel-leather covering, offering far greater protection."
+	description_fluff = "These traditional Unathi footwear have remained relatively unchanged in principle, with improved materials and construction being the only notable change. This pair is reinforced with leather of the Zazehal, a Moghesian species of eel that can grow up to twenty five feet long. Typically, Zazehal Festivals are thrown every month of the warm season in which Unathi strew freshly killed birds across the shoreline and collect these creatures with baskets. The fungi that grow on their skin is harvested and used as an exotic seasoning, and their skin is used for its' incredibly durable, shark-like leather."
+	icon_state = "eelcaligae"
+	armor = list(melee = 40, bullet = 0, laser = 0, energy = 15, bomb = 20, bio = 0, rad = 20)

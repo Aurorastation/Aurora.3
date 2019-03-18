@@ -55,6 +55,7 @@
 	var/input_pulsed = 0
 	var/output_cut = 0
 	var/output_pulsed = 0
+	var/is_critical = FALSE			// Use by gridcheck event, if set to true we do not disable it
 	var/failure_timer = 0			// Set by gridcheck event, temporarily disables the SMES.
 	var/target_load = 0
 	var/open_hatch = 0
@@ -335,7 +336,7 @@
 			else
 				user << "<span class='notice'>You begin to cut the cables...</span>"
 				playsound(get_turf(src), 'sound/items/Deconstruct.ogg', 50, 1)
-				if(do_after(user, 50))
+				if(do_after(user, 50/W.toolspeed))
 					if (prob(50) && electrocute_mob(usr, terminal.powernet, terminal))
 						big_spark.queue()
 						building_terminal = 0

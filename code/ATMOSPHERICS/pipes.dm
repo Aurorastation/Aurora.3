@@ -95,9 +95,9 @@
 			return 1
 		else
 			user << "<span class='warning'>You struggle to unwrench \the [src] with your pipe wrench.</span>"
-	playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
+	playsound(src.loc, W.usesound, 50, 1)
 	user << "<span class='notice'>You begin to unfasten \the [src]...</span>"
-	if (do_after(user, istype(W, /obj/item/weapon/pipewrench) ? 80 : 40, act_target = src))
+	if (do_after(user, istype(W, /obj/item/weapon/pipewrench) ? 80/W.toolspeed : 40/W.toolspeed, act_target = src))
 		user.visible_message( \
 			"<span class='notice'>\The [user] unfastens \the [src].</span>", \
 			"<span class='notice'>You have unfastened \the [src].</span>", \

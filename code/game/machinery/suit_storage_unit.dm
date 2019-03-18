@@ -336,12 +336,12 @@
 				if(src.issuperUV)
 					var/burndamage = rand(28,35)
 					OCCUPANT.take_organ_damage(0,burndamage)
-					if (!(OCCUPANT.species && (OCCUPANT.species.flags & NO_PAIN)))
+					if (OCCUPANT.can_feel_pain())
 						OCCUPANT.emote("scream")
 				else
 					var/burndamage = rand(6,10)
 					OCCUPANT.take_organ_damage(0,burndamage)
-					if (!(OCCUPANT.species && (OCCUPANT.species.flags & NO_PAIN)))
+					if (OCCUPANT.can_feel_pain())
 						OCCUPANT.emote("scream")
 		if(i==3) //End of the cycle
 			if(!src.issuperUV)
@@ -480,7 +480,7 @@
 		return
 	if(I.isscrewdriver())
 		src.panelopen = !src.panelopen
-		playsound(src.loc, 'sound/items/Screwdriver.ogg', 100, 1)
+		playsound(src.loc, I.usesound, 100, 1)
 		user << text("<font color='blue'>You [] the unit's maintenance panel.</font>",(src.panelopen ? "open up" : "close") )
 		src.updateUsrDialog()
 		return

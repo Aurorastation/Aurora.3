@@ -136,7 +136,7 @@
 				else if(W.iswrench())
 					user << "You remove the fire alarm assembly from the wall!"
 					new /obj/item/frame/fire_alarm(get_turf(user))
-					playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
+					playsound(src.loc, W.usesound, 50, 1)
 					qdel(src)
 		return
 

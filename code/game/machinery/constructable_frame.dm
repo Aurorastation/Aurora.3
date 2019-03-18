@@ -73,9 +73,15 @@
 					to_chat(user, span("notice", "You start to add cables to the blueprint."))
 					if(do_after(user, 20) && state == 2)
 						if(C.use(5))
-							to_chat(user, span("notice", "You add cables to the blueprint."))
+							user << "<span class='notice'>You add cables to the frame.</span>"
 							state = 3
-							icon_state = "blueprint_2"
+							icon_state = "box_1"
+				else
+					if(P.iswrench())
+						playsound(src.loc, P.usesound, 75, 1)
+						user << "<span class='notice'>You dismantle the blueprint</span>"
+						new /obj/item/stack/material/steel(src.loc, 5)
+						qdel(src)
 			if(3)
 				if(istype(P, /obj/item/weapon/circuitboard))
 					var/obj/item/weapon/circuitboard/B = P
@@ -132,7 +138,7 @@
 								component_check = 0
 								break
 						if(component_check)
-							playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, 1)
+							playsound(src.loc,  P.usesound, 50, 1)
 							var/obj/machinery/new_machine = new src.circuit.build_path(loc, dir, FALSE)
 
 							if(new_machine.component_parts)

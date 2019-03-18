@@ -68,7 +68,7 @@
 		if(ishuman(M))
 			var/mob/living/carbon/human/H = M
 
-			if(H.species.siemens_coefficient<0.5 || isvaurca(H) || (H.species.flags & (NO_EMBED))) //Thick skin.
+			if(H.species.siemens_coefficient<0.5 || isunathi(H) || isvaurca(H) || (H.species.flags & (NO_EMBED))) //Thick skin.
 				return
 
 			if( H.shoes || ( H.wear_suit && (H.wear_suit.body_parts_covered & FEET) ) )
@@ -84,7 +84,7 @@
 					if(affecting.take_damage(5, 0))
 						H.UpdateDamageIcon()
 					H.updatehealth()
-					if(!(H.species.flags & NO_PAIN))
+					if(H.can_feel_pain())
 						H.Weaken(3)
 					return
 				check -= picked

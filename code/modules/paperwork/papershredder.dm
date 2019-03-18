@@ -22,7 +22,7 @@
 		return
 
 	else if (W.iswrench())
-		playsound(loc, 'sound/items/Ratchet.ogg', 50, 1)
+		playsound(loc, W.usesound, 50, 1)
 		anchored = !anchored
 		user.visible_message(
 			span("notice", anchored ? "\The [user] fastens \the [src] to \the [loc]." : "\The unfastens \the [src] from \the [loc]."),
@@ -47,6 +47,8 @@
 				paperamount += paper_result
 			qdel(W)
 			playsound(src.loc, 'sound/items/pshred.ogg', 75, 1)
+			to_chat(user, span("notice", "You shred the paper."))
+			flick("papershredder_on", src)
 			if(paperamount > max_paper)
 				user <<"<span class='danger'>\The [src] was too full, and shredded paper goes everywhere!</span>"
 				for(var/i=(paperamount-max_paper);i>0;i--)

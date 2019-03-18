@@ -332,7 +332,7 @@ var/list/mineral_can_smooth_with = list(
 
 		user << "<span class='warning'>You start chiselling [src] into a sculptable block.</span>"
 
-		if(!do_after(user,80))
+		if(!do_after(user,80/W.toolspeed))
 			return
 
 		if (!istype(src, /turf/simulated/mineral))
@@ -668,7 +668,7 @@ var/list/asteroid_floor_smooth = list(
 			user << "<span class='warning'>You start digging deeper.</span>"
 			playsound(user.loc, 'sound/effects/stonedoor_openclose.ogg', 50, 1)
 			digging = 1
-			if(!do_after(user, 60))
+			if(!do_after(user, 60/W.toolspeed))
 				if (istype(src, /turf/simulated/floor/asteroid))
 					digging = 0
 				return

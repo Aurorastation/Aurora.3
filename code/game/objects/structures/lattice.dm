@@ -75,7 +75,7 @@
 /obj/structure/lattice/catwalk/attackby(obj/item/C, mob/user)
 	if (C.iswelder())
 		var/obj/item/weapon/weldingtool/WT = C
-		if (do_after(user, 5, act_target = src) && WT.remove_fuel(1, user))
+		if (do_after(user, 5/C.toolspeed, act_target = src) && WT.remove_fuel(1, user))
 			user << "<span class='notice'>You slice apart [src].</span>"
 			playsound(src, 'sound/items/Welder.ogg', 50, 1)
 			new /obj/item/stack/rods{amount = 3}(loc)
@@ -85,7 +85,7 @@
 	if (C.isscrewdriver())
 		anchored = !anchored
 		user << "<span class='notice'>You [anchored ? "" : "un"]anchor [src].</span>"
-		playsound(src, 'sound/items/Screwdriver.ogg', 50, 1)
+		playsound(src, C.usesound, 50, 1)
 		queue_smooth(src)
 		queue_smooth_neighbors(src)
 	else

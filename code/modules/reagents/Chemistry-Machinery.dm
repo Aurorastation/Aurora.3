@@ -71,7 +71,7 @@
 	else if(B.iswrench())
 		anchored = !anchored
 		user << "You [anchored ? "attach" : "detach"] the [src] [anchored ? "to" : "from"] the ground"
-		playsound(src.loc, 'sound/items/Ratchet.ogg', 75, 1)
+		playsound(src.loc, B.usesound, 75, 1)
 
 
 /obj/machinery/chem_master/Topic(href, href_list)

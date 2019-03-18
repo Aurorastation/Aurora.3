@@ -107,8 +107,8 @@
 			visible_message("<span class='danger'>The bees are furious you're trying to destroy their home!</span>")
 			release_bees(1, 30)
 		user << "<span class='notice'>You start dismantling \the [src]. This will take a while...</span>"
-		playsound(loc, 'sound/items/Screwdriver.ogg', 50, 1)
-		if(do_after(user, 150))
+		playsound(loc, I.usesound, 50, 1)
+		if(do_after(user, 150/I.toolspeed))
 			user.visible_message("<span class='notice'>[user] dismantles \the [src].</span>", "<span class='notice'>You dismantle \the [src].</span>")
 			new /obj/item/beehive_assembly(loc)
 			qdel(src)

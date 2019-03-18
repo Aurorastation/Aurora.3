@@ -24,6 +24,8 @@
 	var/icon_species_in_hand = 0//If 1, we will use the species tag even for rendering this item in the left/right hand.
 
 	var/equip_slot = 0
+	var/usesound = null
+	var/toolspeed = 1
 
 /obj/Destroy()
 	STOP_PROCESSING(SSprocessing, src)
@@ -174,7 +176,12 @@
 /obj/proc/see_emote(mob/M as mob, text, var/emote_type)
 	return
 
-/obj/proc/tesla_act(var/power)
+/obj/proc/tesla_act(var/power, var/melt = FALSE)
+	if(melt)
+		visible_message(span("danger", "\The [src] melts down until ashes are left!"))
+		new /obj/effect/decal/cleanable/ash(loc)
+		qdel(src)
+		return
 	being_shocked = 1
 	var/power_bounced = power / 2
 	tesla_zap(src, 3, power_bounced)

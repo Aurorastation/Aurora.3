@@ -341,7 +341,7 @@
 	// attempt to stick weapon into light socket
 	else if(status == LIGHT_EMPTY)
 		if(W.isscrewdriver()) //If it's a screwdriver open it.
-			playsound(src.loc, 'sound/items/Screwdriver.ogg', 75, 1)
+			playsound(src.loc, W.usesound, 75, 1)
 			user.visible_message("[user.name] opens [src]'s casing.", \
 				"You open [src]'s casing.", "You hear a noise.")
 			var/obj/machinery/light_construct/newlight = null
@@ -458,27 +458,28 @@
 		user << "You remove the light [fitting]."
 
 	// create a light tube/bulb item and put it in the user's hand
-	var/obj/item/weapon/light/L = new inserted_light()
-	L.status = status
-	L.rigged = rigged
-	L.brightness_range = brightness_range
-	L.brightness_power = brightness_power
-	L.brightness_color = brightness_color
+	if(inserted_light)
+		var/obj/item/weapon/light/L = new inserted_light()
+		L.status = status
+		L.rigged = rigged
+		L.brightness_range = brightness_range
+		L.brightness_power = brightness_power
+		L.brightness_color = brightness_color
 
-	// light item inherits the switchcount, then zero it
-	L.switchcount = switchcount
-	switchcount = 0
+		// light item inherits the switchcount, then zero it
+		L.switchcount = switchcount
+		switchcount = 0
 
-	L.update()
-	L.add_fingerprint(user)
+		L.update()
+		L.add_fingerprint(user)
 
-	user.put_in_active_hand(L)	//puts it in our active hand
+		user.put_in_active_hand(L)	//puts it in our active hand
 
-	inserted_light = null
+		inserted_light = null
 
-	status = LIGHT_EMPTY
-	stat |= MAINT
-	update()
+		status = LIGHT_EMPTY
+		stat |= MAINT
+		update()
 
 /obj/machinery/light/attack_tk(mob/user)
 	if(status == LIGHT_EMPTY)

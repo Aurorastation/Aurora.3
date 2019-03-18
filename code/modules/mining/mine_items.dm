@@ -1184,7 +1184,7 @@ var/list/total_extraction_beacons = list()
 /obj/structure/sculpting_block/attackby(obj/item/C as obj, mob/user as mob)
 
 	if (C.iswrench())
-		playsound(src.loc, 'sound/items/Ratchet.ogg', 100, 1)
+		playsound(src.loc, C.usesound, 100, 1)
 		user << "<span class='notice'>You [anchored ? "un" : ""]anchor the [name].</span>"
 		anchored = !anchored
 

@@ -28,6 +28,7 @@
 	icon_state = "butch"
 	desc = "A huge thing used for chopping and chopping up meat."
 	force_divisor = 0.25 // 15 when wielded with hardness 60 (steel)
+	slot_flags = SLOT_BELT
 	attack_verb = list("cleaved", "slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut")
 
 /obj/item/weapon/material/hatchet/unathiknife

@@ -399,7 +399,7 @@
 				connected.system_error("unexpected user interface error")
 				return
 
-		playsound(src.loc, 'sound/items/Ratchet.ogg', 100, 1)
+		playsound(src.loc, W.usesound, 100, 1)
 		user << "<span class='notice'>You [anchored ? "un" : ""]anchor the brace.</span>"
 
 		anchored = !anchored

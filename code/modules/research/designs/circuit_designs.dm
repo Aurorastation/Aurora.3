@@ -415,6 +415,19 @@
 /datum/design/circuit/mecha/AssembleDesignDesc()
 	desc = "Allows for the construction of \a [name] module."
 
+
+/datum/design/circuit/mecha/hermes_main
+	name = "Hermes central control"
+	id = "hermes_main"
+	build_path = /obj/item/weapon/circuitboard/mecha/hermes/main
+	sort_string = "MAAAB"
+
+/datum/design/circuit/mecha/hermes_peri
+	name = "Hermes peripherals control"
+	id = "hermes_peri"
+	build_path = /obj/item/weapon/circuitboard/mecha/hermes/peripherals
+	sort_string = "MAAAC"
+
 /datum/design/circuit/mecha/ripley_main
 	name = "APLU 'Ripley' central control"
 	id = "ripley_main"

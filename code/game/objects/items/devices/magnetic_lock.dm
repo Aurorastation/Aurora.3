@@ -138,7 +138,7 @@
 					user.visible_message(span("notice", "[user] starts welding the metal shell of [src]."), span("notice", "You start [hacked ? "repairing" : "welding open"] the metal covering of [src]."))
 					playsound(loc, 'sound/items/Welder.ogg', 50, 1)
 					add_overlay("overlay_welding")
-					if (do_after(user, 25))
+					if (do_after(user, 25/I.toolspeed))
 						user << span("notice", "You are able to [hacked ? "repair" : "weld through"] the metal shell of [src].")
 						if (hacked) locked = 1
 						else locked = 0
@@ -171,7 +171,7 @@
 		if (2)
 			if (I.isscrewdriver())
 				user << span("notice", "You unscrew and remove the wiring cover from \the [src].")
-				playsound(loc, 'sound/items/Screwdriver.ogg', 50, 1)
+				playsound(loc, I.usesound, 50, 1)
 				setconstructionstate(3)
 				return
 
@@ -197,7 +197,7 @@
 
 			if (I.isscrewdriver())
 				user << span("notice", "You replace and screw tight the wiring cover from \the [src].")
-				playsound(loc, 'sound/items/Screwdriver.ogg', 50, 1)
+				playsound(loc, I.usesound, 50, 1)
 				setconstructionstate(2)
 				return
 

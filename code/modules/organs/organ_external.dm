@@ -17,8 +17,6 @@
 	var/brute_mod = 1
 	var/burn_mod = 1
 
-	var/robotize_type		// If set, this organ type will automatically be roboticized with this manufacturer.
-
 	var/icon_name = null
 	var/body_part = null
 	var/icon_position = 0
@@ -237,7 +235,7 @@
 			brute -= brute / 2
 
 	if(status & ORGAN_BROKEN && prob(40) && brute)
-		if (owner && !(owner.species && (owner.species.flags & NO_PAIN)))
+		if (owner && (owner.can_feel_pain()))
 			owner.emote("scream")	//getting hit on broken hand hurts
 	if(used_weapon)
 		add_autopsy_data("[used_weapon]", brute + burn)
@@ -916,7 +914,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 			"<span class='warning'>You hear a loud cracking sound coming from \the [owner].</span>",\
 			"<span class='danger'>Something feels like it shattered in your [name]!</span>",\
 			"You hear a sickening crack.")
-		if(owner.species && !(owner.species.flags & NO_PAIN))
+		if(owner.species && (owner.can_feel_pain()))
 			owner.emote("scream")
 
 	playsound(src.loc, "fracture", 100, 1, -2)

@@ -30,7 +30,7 @@
 /obj/structure/bed/chair/e_chair/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	if(W.iswrench())
 		var/obj/structure/bed/chair/C = new /obj/structure/bed/chair(loc)
-		playsound(loc, 'sound/items/Ratchet.ogg', 50, 1)
+		playsound(loc, W.usesound, 50, 1)
 		C.set_dir(dir)
 		part.forceMove(get_turf(src))
 		part.master = null
@@ -187,7 +187,7 @@
 
 /obj/structure/metronome/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	if(W.iswrench())
-		playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
+		playsound(src.loc, W.usesound, 50, 1)
 		if(anchored)
 			user << "<span class='notice'>You unanchor \the [src] and it destabilizes.</span>"
 			STOP_PROCESSING(SSfast_process, src)
