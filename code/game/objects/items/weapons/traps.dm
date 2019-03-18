@@ -153,8 +153,9 @@
 	var/datum/weakref/captured = null
 
 /obj/item/weapon/trap/animal/update_icon()
+	cut_overlays()
 	icon = initial(icon)
-	icon_state = "[icon_base][deployed]"
+	icon_state = "[icon_base][deployed]"	
 	var/datum/L = captured ? captured.resolve() : null
 	if (!L)
 		deployed = FALSE
@@ -162,10 +163,10 @@
 		release_time = world.time
 		return
 	if(isliving(L))
-		var/mob/living/ll = L
-		var/image/temp = ll.appearance
-		temp.add_overlay(src.appearance)
-		icon = temp
+		var/mutable_appearance/MA = new(L)
+		MA.layer = FLOAT_LAYER
+		MA.plane = FLOAT_PLANE
+		underlays += MA
 
 /obj/item/weapon/trap/animal/examine(mob/user)
 	..()

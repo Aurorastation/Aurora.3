@@ -30,10 +30,9 @@
 
 	var/chained = 0//Adminbus chain-grab
 
-/obj/singularity/New(loc, var/starting_energy = 50, var/temp = 0, var/log = FALSE)
+/obj/singularity/New(loc, var/starting_energy = 50, var/temp = 0)
 	//CARN: admin-alert for chuckle-fuckery.
-	if(log)
-		admin_investigate_setup()
+	admin_investigate_setup()
 	energy = starting_energy
 
 	if (temp)
