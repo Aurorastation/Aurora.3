@@ -174,6 +174,11 @@
 	desc = "A warning sign which reads 'CHEMISTRY'."
 	icon_state = "chemistry1"
 
+/obj/structure/sign/pharmacy
+	name = "\improper Pharmacy"
+	desc = "A warning sign which reads 'PHARMACY'."
+	icon_state = "pharmacy1"
+
 /obj/structure/sign/botany
 	name = "\improper HYDROPONICS"
 	desc = "A warning sign which reads 'HYDROPONICS'."

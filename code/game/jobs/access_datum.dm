@@ -207,10 +207,10 @@
 	desc = "Construction Areas"
 	region = ACCESS_REGION_ENGINEERING
 
-/var/const/access_chemistry = 33
-/datum/access/chemistry
-	id = access_chemistry
-	desc = "Chemistry Lab"
+/var/const/access_pharmacy = 33
+/datum/access/pharmacy
+	id = access_pharmacy
+	desc = "Pharmacy Lab"
 	region = ACCESS_REGION_MEDBAY
 
 /var/const/access_cargo_bot = 34
