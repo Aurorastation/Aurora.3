@@ -488,6 +488,27 @@
 	id = "drill"
 	build_path = /obj/item/mecha_parts/mecha_equipment/tool/drill
 
+/datum/design/item/mecha/kinetic_accelerator
+	name = "Burst kinetic accelerator"
+	id = "kinetic_accelerator"
+	req_tech = list(TECH_MATERIAL = 4, TECH_ENGINEERING = 3, TECH_MAGNET = 3, TECH_PHORON = 3)
+	materials = list("glass" = 2250, DEFAULT_WALL_MATERIAL = 55000, "silver" = 5250)
+	build_path = /obj/item/mecha_parts/mecha_equipment/weapon/energy/kin_accelerator
+
+/datum/design/item/mecha/kinetic_accelerator/burst
+	name = "Kinetic accelerator"
+	id = "kinetic_accelerator_burst"
+	req_tech = list(TECH_MATERIAL = 5, TECH_ENGINEERING = 4, TECH_MAGNET = 4, TECH_PHORON = 4)
+	materials = list("glass" = 5250, DEFAULT_WALL_MATERIAL = 60000, "silver" = 7250)
+	build_path = /obj/item/mecha_parts/mecha_equipment/weapon/energy/kin_accelerator/burst
+
+/datum/design/item/mecha/flamethrower
+	name = "Flamethrower"
+	id = "flamethrower"
+	req_tech = list(TECH_MATERIAL = 3, TECH_ENGINEERING = 4, TECH_COMBAT = 2, TECH_PHORON = 2)
+	materials = list("glass" = 5250, DEFAULT_WALL_MATERIAL = 40000)
+	build_path = /obj/item/mecha_parts/mecha_equipment/weapon/flamethrower
+
 /datum/design/item/mecha/extinguisher
 	name = "Extinguisher"
 	id = "extinguisher"

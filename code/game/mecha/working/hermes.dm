@@ -9,7 +9,7 @@
 	health = 150
 	wreckage = /obj/effect/decal/mecha_wreckage/hermes
 	cargo_capacity = 6
-	damage_absorption = list("brute"=1.6,"fire"=0.3,"bullet"=0.5,"laser"=0.8,"energy"=1.25,"bomb"=2)
+	damage_absorption = list("brute"=0.8,"fire"=1,"bullet"=0.9,"laser"=0.9,"energy"=1,"bomb"=1.25)
 	internals_req_access = list()
 
 
