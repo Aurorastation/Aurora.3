@@ -24,9 +24,9 @@
 		var/group_size = rand(group_size_min, group_size_max)
 		for (var/j = 1, j <= group_size, j++)
 			if(prob(50))
-				new/mob/living/simple_animal/cow (spawn_locations[i])
+				new/mob/living/simple_animal/hostile/retaliate/rafama (spawn_locations[i])
 			else
-				new/mob/living/simple_animal/crab (spawn_locations[i])
+				new/mob/living/simple_animal/hostile/retaliate/rafama (spawn_locations[i])
 
 			CHECK_TICK
 		i++

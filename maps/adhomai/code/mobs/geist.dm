@@ -1,6 +1,6 @@
 /mob/living/simple_animal/hostile/geist
 	name = "cavern geist"
-	desc = "A monster that dwells in Adhomai's caverns."
+	desc = "A monstrous creature that haunts the caverns of Adhomai."
 	icon = 'icons/adhomai/geist.dmi'
 	icon_state = "geist"
 	icon_living = "geist"

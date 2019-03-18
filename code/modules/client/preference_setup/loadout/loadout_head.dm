@@ -44,7 +44,7 @@
 	display_name = "beret, engie-orange"
 	path = /obj/item/clothing/head/beret/engineering
 	allowed_roles = list(ENGINEERING_ROLES)
-	allowed_maps = list("Aurora", "Exodus")
+	allowed_maps = list("aurora", "exodus")
 
 /datum/gear/head/beret/purp
 	display_name = "beret, purple"
@@ -54,37 +54,37 @@
 	display_name = "beret, security"
 	path = /obj/item/clothing/head/beret/sec
 	allowed_roles = list(SECURITY_ROLES)
-	allowed_maps = list("Aurora", "Exodus")
+	allowed_maps = list("aurora", "exodus")
 
 /datum/gear/head/beret/warden
 	display_name = "beret, security (warden)"
 	path = /obj/item/clothing/head/beret/sec/warden
 	allowed_roles = list("Head of Security", "Warden")
-	allowed_maps = list("Aurora", "Exodus")
+	allowed_maps = list("aurora", "exodus")
 
 /datum/gear/head/beret/hos
 	display_name = "beret, security (head of security)"
 	path = /obj/item/clothing/head/beret/sec/hos
 	allowed_roles = list("Head of Security")
-	allowed_maps = list("Aurora", "Exodus")
+	allowed_maps = list("aurora", "exodus")
 
 /datum/gear/head/corp
 	display_name = "cap, corporate (security)"
 	path = /obj/item/clothing/head/soft/sec/corp
 	allowed_roles = list(SECURITY_ROLES)
-	allowed_maps = list("Aurora", "Exodus")
+	allowed_maps = list("aurora", "exodus")
 
 /datum/gear/head/sec
 	display_name = "cap, security"
 	path = /obj/item/clothing/head/soft/sec
 	allowed_roles = list(SECURITY_ROLES)
-	allowed_maps = list("Aurora", "Exodus")
+	allowed_maps = list("aurora", "exodus")
 
 /datum/gear/head/hardhat
 	display_name = "hardhat selection"
 	path = /obj/item/clothing/head/hardhat
 	allowed_roles = list(ENGINEERING_ROLES)
-	allowed_maps = list("Aurora", "Exodus")
+	allowed_maps = list("aurora", "exodus")
 
 /datum/gear/head/hardhat/New()
 	..()

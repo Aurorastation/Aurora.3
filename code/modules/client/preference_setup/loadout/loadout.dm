@@ -62,8 +62,9 @@ var/list/gear_datums = list()
 		var/datum/gear/G = gear_datums[gear_name]
 		if(max_cost && G.cost > max_cost)
 			continue
-		if(!current_map.name in G.allowed_maps)
-			continue
+		if(G.allowed_maps)
+			if(!current_map.path in G.allowed_maps)
+				continue
 		if(G.whitelisted && preference_mob)
 			for(var/species in G.whitelisted)
 				if(is_alien_whitelisted(preference_mob, global.all_species[species]))
@@ -222,7 +223,7 @@ var/list/gear_datums = list()
 	var/whitelisted        //Term to check the whitelist for..
 	var/sort_category = "General"
 	var/list/gear_tweaks = list() //List of datums which will alter the item after it has been spawned.
-	var/list/allowed_maps = list("Aurora", "Exodus", "Adhomai") //List of maps where this loadout is available
+	var/list/allowed_maps //List of maps where this loadout is available
 
 /datum/gear/New()
 	..()

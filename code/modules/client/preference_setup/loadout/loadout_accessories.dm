@@ -24,7 +24,7 @@
 /datum/gear/accessory/armband
 	display_name = "armband selection"
 	path = /obj/item/clothing/accessory/armband
-	allowed_maps = list("Aurora", "Exodus")
+	allowed_maps = list("aurora", "exodus")
 
 /datum/gear/accessory/armband/New()
 	..()
@@ -88,19 +88,19 @@
 	display_name = "webbing, engineering"
 	path = /obj/item/clothing/accessory/storage/brown_vest
 	allowed_roles = list(ENGINEERING_ROLES)
-	allowed_maps = list("Aurora", "Exodus")
+	allowed_maps = list("aurora", "exodus")
 
 /datum/gear/accessory/black_vest
 	display_name = "webbing, security"
 	path = /obj/item/clothing/accessory/storage/black_vest
 	allowed_roles = list(SECURITY_ROLES)
-	allowed_maps = list("Aurora", "Exodus")
+	allowed_maps = list("aurora", "exodus")
 
 /datum/gear/accessory/white_vest
 	display_name = "webbing, medical"
 	path = /obj/item/clothing/accessory/storage/white_vest
 	allowed_roles = list(MEDICAL_ROLES)
-	allowed_maps = list("Aurora", "Exodus")
+	allowed_maps = list("aurora", "exodus")
 
 /datum/gear/accessory/webbing
 	display_name = "webbing, simple"
@@ -111,19 +111,19 @@
 	display_name = "drop pouches, engineering"
 	path = /obj/item/clothing/accessory/storage/brown_pouches
 	allowed_roles = list(ENGINEERING_ROLES)
-	allowed_maps = list("Aurora", "Exodus")
+	allowed_maps = list("aurora", "exodus")
 
 /datum/gear/accessory/black_pouches
 	display_name = "drop pouches, security"
 	path = /obj/item/clothing/accessory/storage/black_pouches
 	allowed_roles = list(SECURITY_ROLES)
-	allowed_maps = list("Aurora", "Exodus")
+	allowed_maps = list("aurora", "exodus")
 
 /datum/gear/accessory/white_pouches
 	display_name = "drop pouches, medical"
 	path = /obj/item/clothing/accessory/storage/white_pouches
 	allowed_roles = list(MEDICAL_ROLES)
-	allowed_maps = list("Aurora", "Exodus")
+	allowed_maps = list("aurora", "exodus")
 
 /datum/gear/accessory/pouches
 	display_name = "drop pouches, simple"

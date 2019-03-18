@@ -33,31 +33,31 @@
 	display_name = "science Goggles"
 	path = /obj/item/clothing/glasses/science
 	allowed_roles = list(SCIENCE_ROLES)
-	allowed_maps = list("Aurora", "Exodus")
+	allowed_maps = list("aurora", "exodus")
 
 /datum/gear/eyes/materialaviators
 	display_name = "aviators, material"
 	path = /obj/item/clothing/glasses/material/aviator
 	allowed_roles = list(ENGINEERING_ROLES, "Shaft Miner")
-	allowed_maps = list("Aurora", "Exodus")
+	allowed_maps = list("aurora", "exodus")
 
 /datum/gear/eyes/mesonaviators
 	display_name = "aviators, meson"
 	path = /obj/item/clothing/glasses/meson/aviator
 	allowed_roles = list(ENGINEERING_ROLES, "Research Director","Scientist")
-	allowed_maps = list("Aurora", "Exodus")
+	allowed_maps = list("aurora", "exodus")
 
 /datum/gear/eyes/mesonprescription
 	display_name = "meson goggles, prescription"
 	path = /obj/item/clothing/glasses/meson/prescription
 	allowed_roles = list(ENGINEERING_ROLES, "Research Director","Scientist")
-	allowed_maps = list("Aurora", "Exodus")
+	allowed_maps = list("aurora", "exodus")
 
 /datum/gear/eyes/security
 	display_name = "security HUD"
 	path = /obj/item/clothing/glasses/hud/security
 	allowed_roles = list(SECURITY_ROLES)
-	allowed_maps = list("Aurora", "Exodus")
+	allowed_maps = list("aurora", "exodus")
 
 /datum/gear/eyes/security/aviator
 	display_name = "aviators, security"
@@ -67,7 +67,7 @@
 	display_name = "medical HUD"
 	path = /obj/item/clothing/glasses/hud/health
 	allowed_roles = list(MEDICAL_ROLES)
-	allowed_maps = list("Aurora", "Exodus")
+	allowed_maps = list("aurora", "exodus")
 
 /datum/gear/eyes/medical/aviator
 	display_name = "aviators, medical"
@@ -85,7 +85,7 @@
 /datum/gear/eyes/shades/aviator
 	display_name = "sunglasses, aviator (Security/Command)"
 	path = /obj/item/clothing/glasses/sunglasses/aviator
-	allowed_maps = list("Aurora", "Exodus")
+	allowed_maps = list("aurora", "exodus")
 
 /datum/gear/eyes/glasses/fakesun
 	display_name = "sunglasses, stylish"
@@ -108,42 +108,42 @@
 	path= /obj/item/clothing/glasses/eyepatch/hud/security
 	allowed_roles = list(SECURITY_ROLES)
 	cost = 2 //snowflake tax
-	allowed_maps = list("Aurora", "Exodus")
+	allowed_maps = list("aurora", "exodus")
 
 /datum/gear/eyes/medpatch
 	display_name = "HUDpatch, Medical"
 	path = /obj/item/clothing/glasses/eyepatch/hud/medical
 	allowed_roles = list(MEDICAL_ROLES)
 	cost = 2
-	allowed_maps = list("Aurora", "Exodus")
+	allowed_maps = list("aurora", "exodus")
 
 /datum/gear/eyes/mespatch
 	display_name = "HUDpatch, Mesons"
 	path = /obj/item/clothing/glasses/eyepatch/hud/meson
 	allowed_roles = list(ENGINEERING_ROLES, "Research Director","Scientist", "Shaft Miner")
 	cost = 2
-	allowed_maps = list("Aurora", "Exodus")
+	allowed_maps = list("aurora", "exodus")
 
 /datum/gear/eyes/matpatch
 	display_name = "HUDpatch, Material"
 	path = /obj/item/clothing/glasses/eyepatch/hud/material
 	allowed_roles = list(ENGINEERING_ROLES, "Shaft Miner")
 	cost = 2
-	allowed_maps = list("Aurora", "Exodus")
+	allowed_maps = list("aurora", "exodus")
 
 /datum/gear/eyes/scipatch
 	display_name = "HUDpatch, Science"
 	path = /obj/item/clothing/glasses/eyepatch/hud/science
 	allowed_roles = list(SCIENCE_ROLES)
 	cost = 2
-	allowed_maps = list("Aurora", "Exodus")
+	allowed_maps = list("aurora", "exodus")
 
 /datum/gear/eyes/weldpatch
 	display_name = "HUDpatch, Welding"
 	path = /obj/item/clothing/glasses/eyepatch/hud/welder
 	allowed_roles = list(ENGINEERING_ROLES,"Research Director","Roboticist")
 	cost = 2
-	allowed_maps = list("Aurora", "Exodus")
+	allowed_maps = list("aurora", "exodus")
 
 /datum/gear/eyes/spiffygogs
 	display_name = "orange goggles"
