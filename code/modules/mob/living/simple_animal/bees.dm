@@ -93,7 +93,7 @@
 		if( prob(sting_prob*prob_mult) && (M.stat == CONSCIOUS || (M.stat == UNCONSCIOUS && prob(25*prob_mult))) ) // Try to sting! If you're not moving, think about stinging.
 			M.apply_damage(min(strength*0.85,2)+mut, BURN, sharp=1) // Stinging. The more mutated I am, the harder I sting.
 			M.apply_damage(max(strength*0.2,(round(feral/10,1)*(max((round(strength/20,1)),1)))+toxic), TOX) // Bee venom based on how angry I am and how many there are of me!
-			M << "<span class='warning'>You have been stung!</span>"
+			to_chat(M, "<span class='warning'>You have been stung!</span>")
 			M.flash_pain()
 
 
@@ -232,10 +232,10 @@
 //No more grabbing bee swarms
 /mob/living/simple_animal/bee/attempt_grab(var/mob/living/grabber)
 	if (prob(strength*5))//if the swarm is big you might grab a few bees, you won't make a serious dent
-		grabber << "<span class = 'warning'>You attempt to grab the swarm, but only manage to snatch a scant handful of crushed bees.</span>"
+		to_chat(grabber, "<span class = 'warning'>You attempt to grab the swarm, but only manage to snatch a scant handful of crushed bees.</span>")
 		apply_damage(strength*0.5, BRUTE, used_weapon = "Crushing by [grabber.name]")
 	else
-		grabber << "<span class = 'warning'>For some bizarre reason known only to yourself, you attempt to grab ahold of the swarm of bees. You come away with nothing but empty, slightly stung hands.</span>"
+		to_chat(grabber, "<span class = 'warning'>For some bizarre reason known only to yourself, you attempt to grab ahold of the swarm of bees. You come away with nothing but empty, slightly stung hands.</span>")
 		grabber.apply_damage(strength*0.5, BURN)
 
 	return 0

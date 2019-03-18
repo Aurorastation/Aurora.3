@@ -25,7 +25,7 @@
 				user.visible_message("<span class='notice'>\The [user] applied some [src] at [R]'s damaged areas.</span>",\
 					"<span class='notice'>You apply some [src] at [R]'s damaged areas.</span>")
 		else
-			user << "<span class='notice'>All [R]'s systems are nominal.</span>"
+			to_chat(user, "<span class='notice'>All [R]'s systems are nominal.</span>")
 
 	if (istype(M,/mob/living/carbon/human))		//Repairing robolimbs
 		var/mob/living/carbon/human/H = M
@@ -37,11 +37,11 @@
 
 				if(S.limb_name == "head")
 					if(H.head && istype(H.head,/obj/item/clothing/head/helmet/space))
-						user << "<span class='warning'>You can't apply [src] through [H.head]!</span>"
+						to_chat(user, "<span class='warning'>You can't apply [src] through [H.head]!</span>")
 						return
 				else
 					if(H.wear_suit && istype(H.wear_suit,/obj/item/clothing/suit/space))
-						user << "<span class='warning'>You can't apply [src] through [H.wear_suit]!</span>"
+						to_chat(user, "<span class='warning'>You can't apply [src] through [H.wear_suit]!</span>")
 						return
 
 				if(do_mob(user, M, 7))
@@ -51,13 +51,13 @@
 					user.visible_message("<span class='notice'>\The [user] applies some nanite paste at[user != M ? " \the [M]'s" : " \the [user]"] [S.name] with \the [src].</span>",\
 					"<span class='notice'>You apply some nanite paste at [user == M ? "your" : "[M]'s"] [S.name].</span>")
 			else
-				user << "<span class='notice'>Nothing to fix here.</span>"
+				to_chat(user, "<span class='notice'>Nothing to fix here.</span>")
 		else
 			if (can_operate(H))
 				if (do_surgery(H,user,src))
 					return
 			else
-				user << "<span class='notice'>Nothing to fix in here.</span>"
+				to_chat(user, "<span class='notice'>Nothing to fix in here.</span>")
 
 
 /obj/item/stack/nanopaste/surge

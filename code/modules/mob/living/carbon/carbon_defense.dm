@@ -14,7 +14,7 @@
 		t_him = "her"
 	var/show_ssd
 	var/mob/living/carbon/human/H
-	if(ishuman(src)) 
+	if(ishuman(src))
 		H = src
 		show_ssd = H.species.show_ssd
 	if(H && show_ssd && !client && !teleop)
@@ -42,7 +42,7 @@
 		t_him = "her"
 	var/show_ssd
 	var/mob/living/carbon/human/H
-	if(ishuman(src)) 
+	if(ishuman(src))
 		H = src
 		show_ssd = H.species.show_ssd
 	if(H && show_ssd && !client && !teleop)
@@ -69,7 +69,7 @@
 		t_him = "her"
 	var/show_ssd
 	var/mob/living/carbon/human/H
-	if(ishuman(src)) 
+	if(ishuman(src))
 		H = src
 		show_ssd = H.species.show_ssd
 	if(H && show_ssd && !client && !teleop)
@@ -82,10 +82,10 @@
 				to_chat(H, span("danger", "You sense great disturbance to your physical body!"))
 		else
 			user.visible_message("<span class='danger'>[user] attacked [src] with [I] waking [t_him] up!</span>", \
-								"<span class='danger'>You attacked [src] with [I], but they do not respond... Maybe they have S.S.D?</span>")
+					    "<span class='danger'>You attacked [src] with [I], but they do not respond... Maybe they have S.S.D?</span>")
 	else if(client && willfully_sleeping)
 		user.visible_message("<span class='danger'>[user] attacked [src] with [I] waking [t_him] up!</span>", \
-							"<span class='danger'>You attacked [src] with [I] waking [t_him] up!</span>")
+				    "<span class='danger'>You attacked [src] with [I] waking [t_him] up!</span>")
 		sleeping = 0
 		willfully_sleeping = 0
 

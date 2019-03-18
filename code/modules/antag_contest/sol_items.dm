@@ -16,7 +16,7 @@
 		return 0
 	else
 		clear_antag_roles(H.mind, 1)
-		H << "<span class='notice'>You feel a surge of loyalty towards Admiral Michael Frost.</span>"
+		to_chat(H, "<span class='notice'>You feel a surge of loyalty towards Admiral Michael Frost.</span>")
 	return 1
 
 
