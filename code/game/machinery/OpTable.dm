@@ -143,7 +143,7 @@
 	if (istype(W, /obj/item/weapon/grab))
 		var/obj/item/weapon/grab/G = W
 		if (src.victim)
-			usr << "<span class='notice'><B>The table is already occupied!</B></span>"
+			to_chat(usr, "<span class='notice'><B>The table is already occupied!</B></span>")
 			return 0
 
 		var/mob/living/L = G.affecting
@@ -168,9 +168,9 @@
 /obj/machinery/optable/proc/check_table(mob/living/carbon/patient as mob)
 	check_victim()
 	if(src.victim && get_turf(victim) == get_turf(src) && victim.lying)
-		usr << "<span class='warning'>\The [src] is already occupied!</span>"
+		to_chat(usr, "<span class='warning'>\The [src] is already occupied!</span>")
 		return 0
 	if(patient.buckled)
-		usr << "<span class='notice'>Unbuckle \the [patient] first!</span>"
+		to_chat(usr, "<span class='notice'>Unbuckle \the [patient] first!</span>")
 		return 0
 	return 1

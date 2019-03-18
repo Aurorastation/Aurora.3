@@ -105,22 +105,22 @@ var/list/mineral_can_smooth_with = list(
 	if(mineral)
 		switch(mined_ore)
 			if(0)
-				user << "<span class='info'>It is ripe with [mineral.display_name].</span>"
+				to_chat(user, "<span class='info'>It is ripe with [mineral.display_name].</span>")
 			if(1)
-				user << "<span class='info'>Its [mineral.display_name] looks a little depleted.</span>"
+				to_chat(user, "<span class='info'>Its [mineral.display_name] looks a little depleted.</span>")
 			if(2)
-				user << "<span class='warning'>Its [mineral.display_name] looks very depleted!</span>"
+				to_chat(user, "<span class='warning'>Its [mineral.display_name] looks very depleted!</span>")
 	else
-		user << "<span class='info'>It is devoid of any valuable minerals.</span>"
+		to_chat(user, "<span class='info'>It is devoid of any valuable minerals.</span>")
 	switch(emitter_blasts_taken)
 		if(0)
-			user << "<span class='info'>It is in pristine condition.</span>"
+			to_chat(user, "<span class='info'>It is in pristine condition.</span>")
 		if(1)
-			user << "<span class='info'>It appears a little damaged.</span>"
+			to_chat(user, "<span class='info'>It appears a little damaged.</span>")
 		if(2)
-			user << "<span class='warning'>It is crumbling!</span>"
+			to_chat(user, "<span class='warning'>It is crumbling!</span>")
 		if(3)
-			user << "<span class='danger'>It looks ready to collapse at any moment!</span>"
+			to_chat(user, "<span class='danger'>It looks ready to collapse at any moment!</span>")
 
 /turf/simulated/mineral/ex_act(severity)
 	switch(severity)
@@ -199,7 +199,7 @@ var/list/mineral_can_smooth_with = list(
 /turf/simulated/mineral/attackby(obj/item/weapon/W as obj, mob/user as mob)
 
 	if (!usr.IsAdvancedToolUser())
-		usr << "<span class='warning'>You don't have the dexterity to do this!</span>"
+		to_chat(usr, "<span class='warning'>You don't have the dexterity to do this!</span>")
 		return
 
 	if (istype(W, /obj/item/device/core_sampler))
@@ -220,7 +220,7 @@ var/list/mineral_can_smooth_with = list(
 			if (!istype(src, /turf/simulated/mineral))
 				return
 
-			user << "<span class='notice'>\icon[P] [src] has been excavated to a depth of [2*excavation_level]cm.</span>"
+			to_chat(user, "<span class='notice'>\icon[P] [src] has been excavated to a depth of [2*excavation_level]cm.</span>")
 		return
 
 	if (istype(W, /obj/item/weapon/pickaxe) && W.simulated)	// Pickaxe offhand is not simulated.
@@ -249,7 +249,7 @@ var/list/mineral_can_smooth_with = list(
 				fail_message = ". <b>[pick("There is a crunching noise","[W] collides with some different rock","Part of the rock face crumbles away","Something breaks under [W]")]</b>"
 
 		if(fail_message)
-			user << "<span class='warning'>You start [P.drill_verb][fail_message ? fail_message : ""].</span>"
+			to_chat(user, "<span class='warning'>You start [P.drill_verb][fail_message ? fail_message : ""].</span>")
 
 		if(fail_message && prob(90))
 			if(prob(25))
@@ -321,7 +321,7 @@ var/list/mineral_can_smooth_with = list(
 					add_overlay(archaeo_overlay)*/
 
 		else
-			user << "<span class='notice'> You stop [P.drill_verb] [src].</span>"
+			to_chat(user, "<span class='notice'> You stop [P.drill_verb] [src].</span>")
 			P.drilling = 0
 
 	if (istype(W, /obj/item/weapon/autochisel))
@@ -330,7 +330,7 @@ var/list/mineral_can_smooth_with = list(
 			return
 		last_act = world.time
 
-		user << "<span class='warning'>You start chiselling [src] into a sculptable block.</span>"
+		to_chat(user, "<span class='warning'>You start chiselling [src] into a sculptable block.</span>")
 
 		if(!do_after(user,80/W.toolspeed))
 			return
@@ -338,7 +338,7 @@ var/list/mineral_can_smooth_with = list(
 		if (!istype(src, /turf/simulated/mineral))
 			return
 
-		user << "<span class='notice'>You finish chiselling [src] into a sculptable block.</span>"
+		to_chat(user, "<span class='notice'>You finish chiselling [src] into a sculptable block.</span>")
 		new /obj/structure/sculpting_block(src)
 		GetDrilled(1)
 
@@ -372,7 +372,7 @@ var/list/mineral_can_smooth_with = list(
 		if(prob(50))
 			pain = 1
 		for(var/mob/living/M in range(src, 200))
-			M << "<font color='red'><b>[pick("A high pitched [pick("keening","wailing","whistle")]","A rumbling noise like [pick("thunder","heavy machinery")]")] somehow penetrates your mind before fading away!</b></font>"
+			to_chat(M, "<font color='red'><b>[pick("A high pitched [pick("keening","wailing","whistle")]","A rumbling noise like [pick("thunder","heavy machinery")]")] somehow penetrates your mind before fading away!</b></font>")
 			if(pain)
 				flick("pain",M.pain)
 				if(prob(50))
@@ -629,7 +629,7 @@ var/list/asteroid_floor_smooth = list(
 			return
 		var/obj/item/stack/rods/R = W
 		if (R.use(1))
-			user << "<span class='notice'>Constructing support lattice ...</span>"
+			to_chat(user, "<span class='notice'>Constructing support lattice ...</span>")
 			playsound(src, 'sound/weapons/Genhit.ogg', 50, 1)
 			ReplaceWithLattice()
 		return
@@ -646,7 +646,7 @@ var/list/asteroid_floor_smooth = list(
 			ChangeTurf(/turf/simulated/floor/airless)
 			return
 		else
-			user << "<span class='warning'>The plating is going to need some support.</span>"
+			to_chat(user, "<span class='warning'>The plating is going to need some support.</span>")
 			return
 
 	var/static/list/usable_tools = typecacheof(list(
@@ -665,7 +665,7 @@ var/list/asteroid_floor_smooth = list(
 		if(dug)
 			if(!GetBelow(src))
 				return
-			user << "<span class='warning'>You start digging deeper.</span>"
+			to_chat(user, "<span class='warning'>You start digging deeper.</span>")
 			playsound(user.loc, 'sound/effects/stonedoor_openclose.ogg', 50, 1)
 			digging = 1
 			if(!do_after(user, 60/W.toolspeed))
@@ -682,38 +682,38 @@ var/list/asteroid_floor_smooth = list(
 			if(prob(33))
 				switch(dug)
 					if(1)
-						user << "<span class='notice'>You've made a little progress.</span>"
+						to_chat(user, "<span class='notice'>You've made a little progress.</span>")
 					if(2)
-						user << "<span class='notice'>You notice the hole is a little deeper.</span>"
+						to_chat(user, "<span class='notice'>You notice the hole is a little deeper.</span>")
 					if(3)
-						user << "<span class='notice'>You think you're about halfway there.</span>"
+						to_chat(user, "<span class='notice'>You think you're about halfway there.</span>")
 					if(4)
-						user << "<span class='notice'>You finish up lifting another pile of dirt.</span>"
+						to_chat(user, "<span class='notice'>You finish up lifting another pile of dirt.</span>")
 					if(5)
-						user << "<span class='notice'>You dig a bit deeper. You're definitely halfway there now.</span>"
+						to_chat(user, "<span class='notice'>You dig a bit deeper. You're definitely halfway there now.</span>")
 					if(6)
-						user << "<span class='notice'>You still have a ways to go.</span>"
+						to_chat(user, "<span class='notice'>You still have a ways to go.</span>")
 					if(7)
-						user << "<span class='notice'>The hole looks pretty deep now.</span>"
+						to_chat(user, "<span class='notice'>The hole looks pretty deep now.</span>")
 					if(8)
-						user << "<span class='notice'>The ground is starting to feel a lot looser.</span>"
+						to_chat(user, "<span class='notice'>The ground is starting to feel a lot looser.</span>")
 					if(9)
-						user << "<span class='notice'>You can almost see the other side.</span>"
+						to_chat(user, "<span class='notice'>You can almost see the other side.</span>")
 					if(10)
-						user << "<span class='notice'>Just a little deeper. . .</span>"
+						to_chat(user, "<span class='notice'>Just a little deeper. . .</span>")
 					else
-						user << "<span class='notice'>You penetrate the virgin earth!</span>"
+						to_chat(user, "<span class='notice'>You penetrate the virgin earth!</span>")
 			else
 				if(dug <= 10)
-					user << "<span class='notice'>You dig a little deeper.</span>"
+					to_chat(user, "<span class='notice'>You dig a little deeper.</span>")
 				else
-					user << "<span class='notice'>You dug a big hole.</span>"
+					to_chat(user, "<span class='notice'>You dug a big hole.</span>")
 
 			gets_dug(user)
 			digging = 0
 			return
 
-		user << "<span class='warning'>You start digging.</span>"
+		to_chat(user, "<span class='warning'>You start digging.</span>")
 		playsound(user.loc, 'sound/effects/stonedoor_openclose.ogg', 50, 1)
 
 		digging = 1
@@ -727,7 +727,7 @@ var/list/asteroid_floor_smooth = list(
 		if (!istype(src, /turf/simulated/floor/asteroid))
 			return
 
-		user << "<span class='notice'> You dug a hole.</span>"
+		to_chat(user, "<span class='notice'> You dug a hole.</span>")
 		digging = 0
 
 		gets_dug(user)
@@ -809,7 +809,7 @@ var/list/asteroid_floor_smooth = list(
 			var/area/below_area = below.loc		// Let's just assume that the turf is not in nullspace.
 			if(below_area.station_area)
 				if (user)
-					user << "<span class='alert'>You strike metal!</span>"
+					to_chat(user, "<span class='alert'>You strike metal!</span>")
 				below.spawn_roof(ROOF_FORCE_SPAWN)
 			else
 				ChangeTurf(/turf/space)

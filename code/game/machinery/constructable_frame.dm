@@ -73,13 +73,13 @@
 					to_chat(user, span("notice", "You start to add cables to the blueprint."))
 					if(do_after(user, 20) && state == 2)
 						if(C.use(5))
-							user << "<span class='notice'>You add cables to the frame.</span>"
+							to_chat(user, "<span class='notice'>You add cables to the frame.</span>")
 							state = 3
 							icon_state = "box_1"
 				else
 					if(P.iswrench())
 						playsound(src.loc, P.usesound, 75, 1)
-						user << "<span class='notice'>You dismantle the blueprint</span>"
+						to_chat(user, "<span class='notice'>You dismantle the blueprint</span>")
 						new /obj/item/stack/material/steel(src.loc, 5)
 						qdel(src)
 			if(3)
@@ -107,7 +107,7 @@
 						to_chat(user, span("warning", "This blueprint does not accept circuit boards of this type!"))
 				else
 					if(P.iswirecutter())
-						playsound(src.loc, 'sound/items/Wirecutter.ogg', 50, 1, pitch_toggle)
+						playsound(src.loc, P.usesound, 50, 1, pitch_toggle)
 						to_chat(user, span("notice", "You remove the cables."))
 						state = 1
 						icon_state = "blueprint_0"
@@ -185,7 +185,7 @@
 									req_components[I]--
 									update_desc()
 									break
-							user << desc
+							to_chat(user, desc)
 							if(P && P.loc != src && !istype(P, /obj/item/stack))
 								to_chat(user, span("notice", "You cannot add that component to the machine!."))
 

@@ -100,7 +100,7 @@
 	var/oldbroken = is_broken()
 	..()
 	if(is_broken() && !oldbroken && owner && !owner.stat)
-		owner << "<span class='danger'>You go blind!</span>"
+		to_chat(owner, "<span class='danger'>You go blind!</span>")
 
 /obj/item/organ/eyes/proc/flash_act()
 	return
@@ -131,7 +131,7 @@
 
 	if (germ_level > INFECTION_LEVEL_ONE)
 		if(prob(1))
-			owner << "<span class='warning'>Your skin itches.</span>"
+			to_chat(owner, "<span class='warning'>Your skin itches.</span>")
 	if (germ_level > INFECTION_LEVEL_TWO)
 		if(prob(1))
 			spawn owner.delayed_vomit()

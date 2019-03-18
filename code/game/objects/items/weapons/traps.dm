@@ -98,7 +98,7 @@
 	set_dir(L.dir)
 	can_buckle = 1
 	buckle_mob(L)
-	L << "<span class='danger'>The steel jaws of \the [src] bite into you, trapping you in place!</span>"
+	to_chat(L, "<span class='danger'>The steel jaws of \the [src] bite into you, trapping you in place!</span>")
 	deployed = 0
 	can_buckle = initial(can_buckle)
 	playsound(src, 'sound/weapons/beartrap_shut.ogg', 100, 1)//Really loud snapping sound

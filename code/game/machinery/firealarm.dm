@@ -112,14 +112,14 @@
 				if(W.iscoil())
 					var/obj/item/stack/cable_coil/C = W
 					if (C.use(5))
-						user << "<span class='notice'>You wire \the [src].</span>"
+						to_chat(user, "<span class='notice'>You wire \the [src].</span>")
 						buildstage = 2
 						return
 					else
-						user << "<span class='warning'>You need 5 pieces of cable to wire \the [src].</span>"
+						to_chat(user, "<span class='warning'>You need 5 pieces of cable to wire \the [src].</span>")
 						return
 				else if(W.iscrowbar())
-					user << "You pry out the circuit!"
+					to_chat(user, "You pry out the circuit!")
 					playsound(src.loc, 'sound/items/Crowbar.ogg', 50, 1)
 					spawn(20)
 						var/obj/item/weapon/firealarm_electronics/circuit = new /obj/item/weapon/firealarm_electronics()
@@ -128,13 +128,13 @@
 						update_icon()
 			if(0)
 				if(istype(W, /obj/item/weapon/firealarm_electronics))
-					user << "You insert the circuit!"
+					to_chat(user, "You insert the circuit!")
 					qdel(W)
 					buildstage = 1
 					update_icon()
 
 				else if(W.iswrench())
-					user << "You remove the fire alarm assembly from the wall!"
+					to_chat(user, "You remove the fire alarm assembly from the wall!")
 					new /obj/item/frame/fire_alarm(get_turf(user))
 					playsound(src.loc, W.usesound, 50, 1)
 					qdel(src)

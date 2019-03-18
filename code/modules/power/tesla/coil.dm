@@ -83,7 +83,6 @@
 
 /obj/machinery/power/grounding_rod/tesla_act(var/power, var/melt = FALSE)
 	flick("coil_shock_1", src)
-	..()
 
 /obj/item/weapon/circuitboard/tesla_coil
 	name = "tesla coil circuitry"

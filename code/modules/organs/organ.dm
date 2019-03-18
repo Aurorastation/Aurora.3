@@ -173,7 +173,7 @@
 /obj/item/organ/examine(mob/user)
 	..(user)
 	if(status & ORGAN_DEAD)
-		user << "<span class='notice'>The decay has set in.</span>"
+		to_chat(user, "<span class='notice'>The decay has set in.</span>")
 
 /obj/item/organ/proc/handle_germ_effects()
 	//** Handle the effects of infections

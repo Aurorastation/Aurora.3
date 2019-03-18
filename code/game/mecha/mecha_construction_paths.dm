@@ -25,12 +25,12 @@
 		if(C.use(4))
 			playsound(holder, 'sound/items/Deconstruct.ogg', 50, 1)
 		else
-			user << ("There's not enough cable to finish the task.")
+			to_chat(user, ("There's not enough cable to finish the task."))
 			return 0
 	else if(istype(I, /obj/item/stack))
 		var/obj/item/stack/S = I
 		if(S.get_amount() < 5)
-			user << ("There's not enough material in this stack.")
+			to_chat(user, ("There's not enough material in this stack."))
 			return 0
 		else
 			S.use(5)
@@ -58,12 +58,12 @@
 		if(C.use(4))
 			playsound(holder, 'sound/items/Deconstruct.ogg', 50, 1)
 		else
-			user << ("There's not enough cable to finish the task.")
+			to_chat(user, ("There's not enough cable to finish the task."))
 			return 0
 	else if(istype(I, /obj/item/stack))
 		var/obj/item/stack/S = I
 		if(S.get_amount() < 5)
-			user << ("There's not enough material in this stack.")
+			to_chat(user, ("There's not enough material in this stack."))
 			return 0
 		else
 			S.use(5)
@@ -1704,19 +1704,19 @@
 		if(12)
 			if(diff==FORWARD)
 				user.visible_message("[user] adds the wiring to [holder].", "You add the wiring to [holder].")
-				holder.icon_state = "hermes3"
+				holder.icon_state = "hermes4"
 			else
 				user.visible_message("[user] deactivates [holder] hydraulic systems.", "You deactivate [holder] hydraulic systems.")
 				holder.icon_state = "hermes1"
 		if(11)
 			if(diff==FORWARD)
 				user.visible_message("[user] adjusts the wiring of [holder].", "You adjust the wiring of [holder].")
-				holder.icon_state = "hermes4"
+				holder.icon_state = "hermes5"
 			else
 				user.visible_message("[user] removes the wiring from [holder].", "You remove the wiring from [holder].")
 				var/obj/item/stack/cable_coil/coil = new /obj/item/stack/cable_coil(get_turf(holder))
 				coil.amount = 4
-				holder.icon_state = "hermes2"
+				holder.icon_state = "hermes3"
 		if(10)
 			if(diff==FORWARD)
 				user.visible_message("[user] installs the central control module into [holder].", "You install the central computer mainboard into [holder].")

@@ -92,7 +92,7 @@
 /obj/item/weapon/pickaxe/mob_can_equip(M as mob, slot)
 	//Cannot equip wielded items.
 	if(wielded)
-		M << "<span class='warning'>Unwield the [initial(name)] first!</span>"
+		to_chat(M, "<span class='warning'>Unwield the [initial(name)] first!</span>")
 		return 0
 
 	return ..()
@@ -118,18 +118,18 @@
 	if(istype(user, /mob/living/carbon/human))
 		var/mob/living/carbon/human/H = user
 		if(issmall(H))
-			user << "<span class='warning'>It's too heavy for you to wield fully.</span>"
+			to_chat(user, "<span class='warning'>It's too heavy for you to wield fully.</span>")
 			return
 	else
 		return
 
 	if(!istype(user.get_active_hand(), src))
-		user << "<span class='warning'>You need to be holding the [name] in your active hand.</span>"
+		to_chat(user, "<span class='warning'>You need to be holding the [name] in your active hand.</span>")
 		return
 
 	if(wielded) //Trying to unwield it
 		unwield()
-		user << "<span class='notice'>You are now carrying the [initial(name)] with one hand.</span>"
+		to_chat(user, "<span class='notice'>You are now carrying the [initial(name)] with one hand.</span>")
 
 		var/obj/item/weapon/pickaxe/offhand/O = user.get_inactive_hand()
 		if(O && istype(O))
@@ -137,10 +137,10 @@
 
 	else //Trying to wield it
 		if(user.get_inactive_hand())
-			user << "<span class='warning'>You need your other hand to be empty</span>"
+			to_chat(user, "<span class='warning'>You need your other hand to be empty</span>")
 			return
 		wield()
-		user << "<span class='notice'>You grab the [initial(name)] with both hands.</span>"
+		to_chat(user, "<span class='notice'>You grab the [initial(name)] with both hands.</span>")
 
 		var/obj/item/weapon/pickaxe/offhand/O = new(user) ////Let's reserve his other hand~
 		O.name = "[initial(name)] - offhand"
@@ -404,11 +404,11 @@
 
 	var/turf/T = get_turf(src)
 	if(!T || !istype(T, /turf/simulated/floor/asteroid))
-		user << "The beacon won't stand up in this terrain."
+		to_chat(user, "The beacon won't stand up in this terrain.")
 		return
 
 	if(F && F.upright)
-		user << "There is already a beacon here."
+		to_chat(user, "There is already a beacon here.")
 		return
 
 	var/obj/item/stack/flag/newflag = new src.type(T)
@@ -445,34 +445,34 @@
 
 /obj/item/weapon/rrf/examine(mob/user)
 	if(..(user, 0))
-		user << "It currently holds [stored_matter]/30 fabrication-units."
+		to_chat(user, "It currently holds [stored_matter]/30 fabrication-units.")
 
 /obj/item/weapon/rrf/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	..()
 	if (istype(W, /obj/item/weapon/rcd_ammo))
 
 		if ((stored_matter + 30) > 30)
-			user << "The RRF can't hold any more matter."
+			to_chat(user, "The RRF can't hold any more matter.")
 			return
 
 		qdel(W)
 
 		stored_matter += 30
 		playsound(src.loc, 'sound/machines/click.ogg', 10, 1)
-		user << "The RRF now holds [stored_matter]/30 fabrication-units."
+		to_chat(user, "The RRF now holds [stored_matter]/30 fabrication-units.")
 		return
 
 	if (istype(W, /obj/item/weapon/rrf_ammo))
 
 		if ((stored_matter + 15) > 30)
-			user << "The RRF can't hold any more matter."
+			to_chat(user, "The RRF can't hold any more matter.")
 			return
 
 		qdel(W)
 
 		stored_matter += 15
 		playsound(src.loc, 'sound/machines/click.ogg', 10, 1)
-		user << "The RRF now holds [stored_matter]/30 fabrication-units."
+		to_chat(user, "The RRF now holds [stored_matter]/30 fabrication-units.")
 		return
 
 /obj/item/weapon/rrf/afterattack(atom/A, mob/user as mob, proximity)
@@ -500,7 +500,7 @@
 
 	new /obj/structure/track(get_turf(A))
 
-	user << "Dispensing track..."
+	to_chat(user, "Dispensing track...")
 
 	if(isrobot(user))
 		var/mob/living/silicon/robot/R = user
@@ -508,7 +508,7 @@
 			R.cell.use(used_energy)
 	else
 		stored_matter--
-		user << "The RRF now holds [stored_matter]/30 fabrication-units."
+		to_chat(user, "The RRF now holds [stored_matter]/30 fabrication-units.")
 
 
 /obj/structure/track
@@ -557,7 +557,7 @@
 	if (C.iswelder())
 		var/obj/item/weapon/weldingtool/WT = C
 		if(WT.remove_fuel(0, user))
-			user << "<span class='notice'>Slicing apart connectors ...</span>"
+			to_chat(user, "<span class='notice'>Slicing apart connectors ...</span>")
 		new /obj/item/stack/rods(src.loc)
 		qdel(src)
 
@@ -668,12 +668,12 @@
 /obj/item/weapon/ore_radar/attack_self(mob/user)
 	if(!active)
 		active = 1
-		usr << "<span class='notice'>You activate the pinpointer</span>"
+		to_chat(usr, "<span class='notice'>You activate the pinpointer</span>")
 		START_PROCESSING(SSfast_process, src)
 	else
 		active = 0
 		icon_state = "pinoff"
-		usr << "<span>You deactivate the pinpointer</span>"
+		to_chat(usr, "<span>You deactivate the pinpointer</span>")
 		STOP_PROCESSING(SSfast_process, src)
 
 /obj/item/weapon/ore_radar/process()
@@ -737,7 +737,7 @@
 /obj/item/device/wormhole_jaunter/proc/turf_check(mob/user)
 	var/turf/device_turf = get_turf(user)
 	if(!device_turf||device_turf.z==0)
-		user << "<span class='notice'>You're having difficulties getting the [src.name] to work.</span>"
+		to_chat(user, "<span class='notice'>You're having difficulties getting the [src.name] to work.</span>")
 		return FALSE
 	return TRUE
 
@@ -757,7 +757,7 @@
 
 	var/list/L = get_destinations(user)
 	if(!L.len)
-		user << "<span class='notice'>The [src.name] found no beacons in the world to anchor a wormhole to.</span>"
+		to_chat(user, "<span class='notice'>The [src.name] found no beacons in the world to anchor a wormhole to.</span>")
 		return
 	var/chosen_beacon = pick(L)
 	var/obj/effect/portal/wormhole/jaunt_tunnel/J = new /obj/effect/portal/wormhole/jaunt_tunnel(get_turf(src), chosen_beacon, lifespan=100)
@@ -822,7 +822,7 @@
 		if(istype(target, /mob/living/simple_animal))
 			var/mob/living/simple_animal/M = target
 			if(!(M.find_type() & revive_type))
-				user << "<span class='info'>[src] does not work on this sort of creature.</span>"
+				to_chat(user, "<span class='info'>[src] does not work on this sort of creature.</span>")
 				return
 			if(M.stat == DEAD)
 				if(!malfunctioning)
@@ -835,10 +835,10 @@
 				playsound(src,'sound/effects/refill.ogg',50,1)
 				return
 			else
-				user << "<span class='info'>[src] is only effective on the dead.</span>"
+				to_chat(user, "<span class='info'>[src] is only effective on the dead.</span>")
 				return
 		else
-			user << "<span class='info'>[src] is only effective on lesser beings.</span>"
+			to_chat(user, "<span class='info'>[src] is only effective on lesser beings.</span>")
 			return
 
 /obj/item/weapon/lazarus_injector/emp_act()
@@ -848,9 +848,9 @@
 /obj/item/weapon/lazarus_injector/examine(mob/user)
 	..()
 	if(!loaded)
-		user << "<span class='info'>[src] is empty.</span>"
+		to_chat(user, "<span class='info'>[src] is empty.</span>")
 	if(malfunctioning)
-		user << "<span class='info'>The display on [src] seems to be flickering.</span>"
+		to_chat(user, "<span class='info'>The display on [src] seems to be flickering.</span>")
 
 /**********************Point Transfer Card**********************/
 
@@ -865,15 +865,15 @@
 		if(points)
 			var/obj/item/weapon/card/id/C = I
 			C.mining_points += points
-			user << "<span class='info'>You transfer [points] points to [C].</span>"
+			to_chat(user, "<span class='info'>You transfer [points] points to [C].</span>")
 			points = 0
 		else
-			user << "<span class='info'>There's no points left on [src].</span>"
+			to_chat(user, "<span class='info'>There's no points left on [src].</span>")
 	..()
 
 /obj/item/weapon/card/mining_point_card/examine(mob/user)
 	..()
-	user << "There's [points] point\s on the card."
+	to_chat(user, "There's [points] point\s on the card.")
 
 /**********************"Fultons"**********************/
 
@@ -903,7 +903,7 @@ var/list/total_extraction_beacons = list()
 			possible_beacons += EP
 
 	if(!possible_beacons.len)
-		user << "There are no extraction beacons in existence!"
+		to_chat(user, "There are no extraction beacons in existence!")
 		return
 
 	else
@@ -917,21 +917,21 @@ var/list/total_extraction_beacons = list()
 
 /obj/item/weapon/extraction_pack/afterattack(atom/movable/A, mob/living/carbon/human/user)
 	if(!beacon)
-		user << "[src] is not linked to a beacon, and cannot be used."
+		to_chat(user, "[src] is not linked to a beacon, and cannot be used.")
 		return
 	if(!istype(A))
 		return
 	else
 		if(istype(A,/mob/living))
-			user << "[src] is not safe for use with living creatures, they wouldn't survive the trip back!"
+			to_chat(user, "[src] is not safe for use with living creatures, they wouldn't survive the trip back!")
 			return
 		if(A.loc == user) // no extracting stuff you're holding
 			return
 		if(A.anchored)
 			return
-		user << "<span class='notice'>You start attaching the pack to [A]...</span>"
+		to_chat(user, "<span class='notice'>You start attaching the pack to [A]...</span>")
 		if(do_after(user,50))
-			user << "<span class='notice'>You attach the pack to [A] and activate it.</span>"
+			to_chat(user, "<span class='notice'>You attach the pack to [A] and activate it.</span>")
 			uses_left--
 			if(uses_left <= 0)
 				user.drop_item(src)
@@ -954,7 +954,7 @@ var/list/total_extraction_beacons = list()
 	origin_tech = list(TECH_BLUESPACE = 1, TECH_PHORON = 1, TECH_ENGINEERING = 2)
 
 /obj/item/warp_core/attack_self(mob/user)
-	user << "<span class='notice'>You start placing down the beacon. . .</span>"
+	to_chat(user, "<span class='notice'>You start placing down the beacon. . .</span>")
 	if(do_after(user,15))
 		new /obj/structure/extraction_point(get_turf(user))
 		qdel(src)
@@ -1021,10 +1021,10 @@ var/list/total_extraction_beacons = list()
 /obj/item/weapon/resonator/attack_self(mob/user)
 	if(burst_time == 50)
 		burst_time = 30
-		user << "<span class='info'>You set the resonator's fields to detonate after 3 seconds.</span>"
+		to_chat(user, "<span class='info'>You set the resonator's fields to detonate after 3 seconds.</span>")
 	else
 		burst_time = 50
-		user << "<span class='info'>You set the resonator's fields to detonate after 5 seconds.</span>"
+		to_chat(user, "<span class='info'>You set the resonator's fields to detonate after 5 seconds.</span>")
 
 /obj/item/weapon/resonator/afterattack(atom/target, mob/user, proximity_flag)
 	..()
@@ -1072,7 +1072,7 @@ var/list/total_extraction_beacons = list()
 	for(var/mob/living/L in T)
 		if(creator)
 			add_logs(creator, L, "used a resonator field on", "resonator")
-		L << "<span class='danger'>The [src.name] ruptured with you in it!</span>"
+		to_chat(L, "<span class='danger'>The [src.name] ruptured with you in it!</span>")
 		L.apply_damage(resonance_damage, BRUTE)
 	qdel(src)
 
@@ -1176,7 +1176,7 @@ var/list/total_extraction_beacons = list()
 	set src in oview(1)
 
 	if (src.anchored || usr:stat)
-		usr << "It is fastened to the floor!"
+		to_chat(usr, "It is fastened to the floor!")
 		return 0
 	src.set_dir(turn(src.dir, 90))
 	return 1
@@ -1185,7 +1185,7 @@ var/list/total_extraction_beacons = list()
 
 	if (C.iswrench())
 		playsound(src.loc, C.usesound, 100, 1)
-		user << "<span class='notice'>You [anchored ? "un" : ""]anchor the [name].</span>"
+		to_chat(user, "<span class='notice'>You [anchored ? "un" : ""]anchor the [name].</span>")
 		anchored = !anchored
 
 	if (istype(C, /obj/item/weapon/autochisel))
@@ -1206,7 +1206,7 @@ var/list/total_extraction_beacons = list()
 				sculpting_coefficient = 1
 
 			if(sculpting_coefficient >= 7)
-				user << "<span class='warning'>You hardly remember what [T] really looks like! Bah!</span>"
+				to_chat(user, "<span class='warning'>You hardly remember what [T] really looks like! Bah!</span>")
 				T = null
 
 			user.visible_message("<span class='notice'>[user] carves away at the sculpting block!</span>",
@@ -1227,7 +1227,7 @@ var/list/total_extraction_beacons = list()
 				if(times_carved <= 9)
 					times_carved += 1
 					if(times_carved < 1)
-						user << "<span class='notice'>You review your work and see there is more to do.</span>"
+						to_chat(user, "<span class='notice'>You review your work and see there is more to do.</span>")
 					return
 				else
 					sculpted = 1
@@ -1287,7 +1287,7 @@ var/list/total_extraction_beacons = list()
 	if(!istype(user))
 		return
 	if(in_use)
-		user << "It's already in use - wait a bit."
+		to_chat(user, "It's already in use - wait a bit.")
 		return
 	else
 		in_use = 1
@@ -1321,7 +1321,7 @@ var/list/total_extraction_beacons = list()
 		var/finishmessage = pick("You feel stronger!","You feel like you can take on the world!","You feel robust!","You feel indestructible!")
 		icon_state = "fitnessweight"
 		cut_overlay(W)
-		user << "[finishmessage]"
+		to_chat(user, "[finishmessage]")
 		user.adjustNutritionLoss(5)
 		user.adjustHydrationLoss(5)
 

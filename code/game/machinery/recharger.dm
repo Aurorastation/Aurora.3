@@ -28,7 +28,7 @@
 
 /obj/machinery/recharger/examine(mob/user)
 	. = ..(user, 3)
-	user << "There is [charging ? "\a [charging]" : "nothing"] in [src]."
+	to_chat(user, "There is [charging ? "[charging]" : "nothing"] in [src].")
 	if (charging && .)
 		var/obj/item/weapon/cell/C = charging.get_cell()
 		if (istype(C) && user.client && (!user.progressbars || !user.progressbars[src]))
@@ -45,10 +45,10 @@
 /obj/machinery/recharger/attackby(obj/item/weapon/G as obj, mob/user as mob)
 	if(portable && G.iswrench())
 		if(charging)
-			user << "<span class='alert'>Remove [charging] first!</span>"
+			to_chat(user, "<span class='alert'>Remove [charging] first!</span>")
 			return
 		anchored = !anchored
-		user << "You have [anchored ? "attached" : "detached"] the recharger."
+		to_chat(user, "You have [anchored ? "attached" : "detached"] the recharger.")
 		playsound(loc, G.usesound, 75, 1)
 		return
 
@@ -59,7 +59,7 @@
 				charging = null
 				update_icon()
 			else
-				user << "<span class='danger'>Your gripper cannot hold \the [charging].</span>"
+				to_chat(user, "<span class='danger'>Your gripper cannot hold \the [charging].</span>")
 
 	if(!dropsafety(G))
 		return
@@ -67,14 +67,14 @@
 	if(is_type_in_list(G, allowed_devices))
 		if (G.get_cell() == DEVICE_NO_CELL)
 			if (G.charge_failure_message)
-				user << "<span class='warning'>\The [G][G.charge_failure_message]</span>"
+				to_chat(user, "<span class='warning'>\The [G][G.charge_failure_message]</span>")
 			return
 		if(charging)
-			user << "<span class='warning'>\A [charging] is already charging here.</span>"
+			to_chat(user, "<span class='warning'>\A [charging] is already charging here.</span>")
 			return
 		// Checks to make sure he's not in space doing it, and that the area got proper power.
 		if(!powered())
-			user << "<span class='warning'>\The [name] blinks red as you try to insert the item!</span>"
+			to_chat(user, "<span class='warning'>\The [name] blinks red as you try to insert the item!</span>")
 			return
 
 		user.drop_from_inventory(G,src)

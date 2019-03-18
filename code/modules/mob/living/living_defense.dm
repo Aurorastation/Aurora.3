@@ -69,7 +69,7 @@
 	if(C && C.active)
 		C.attack_self(src)//Should shut it off
 		update_icons()
-		src << "<span class='notice'>Your [C.name] was disrupted!</span>"
+		to_chat(src, "<span class='notice'>Your [C.name] was disrupted!</span>")
 		Stun(2)
 
 	//Being hit while using a deadman switch
@@ -83,7 +83,7 @@
 	//Stun Beams
 	if(P.taser_effect)
 		stun_effect_act(0, P.agony, def_zone, P)
-		src <<"<span class='warning'>You have been hit by [P]!</span>"
+		to_chat(src, "<span class='warning'>You have been hit by [P]!</span>")
 		qdel(P)
 		return
 

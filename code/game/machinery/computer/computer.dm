@@ -104,12 +104,12 @@
 			for (var/obj/C in src)
 				C.forceMove(src.loc)
 			if (src.stat & BROKEN)
-				user << "<span class='notice'>The broken glass falls out.</span>"
+				to_chat(user, "<span class='notice'>The broken glass falls out.</span>")
 				new /obj/item/weapon/material/shard( src.loc )
 				A.state = 3
 				A.icon_state = "3"
 			else
-				user << "<span class='notice'>You disconnect the glass keyboard panel.</span>"
+				to_chat(user, "<span class='notice'>You disconnect the glass keyboard panel.</span>")
 				A.state = 4
 				A.icon_state = "4"
 			M.deconstruct(src)

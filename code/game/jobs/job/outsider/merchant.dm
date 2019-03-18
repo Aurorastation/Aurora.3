@@ -8,7 +8,6 @@
 	spawn_positions = 0
 	supervisors = "yourself and the market"
 	selection_color = "#515151"
-	idtype = /obj/item/weapon/card/id/merchant
 	minimal_player_age = 10
 	economic_modifier = 5
 	ideal_character_age = 30
@@ -20,17 +19,24 @@
 
 	latejoin_at_spawnpoints = TRUE
 
-/datum/job/merchant/equip(var/mob/living/carbon/human/H)
-	if(!H)
-		return FALSE
-	H.equip_to_slot_or_del(new /obj/item/clothing/under/color/grey(H), slot_w_uniform)
-	H.equip_to_slot_or_del(new /obj/item/clothing/shoes/brown(H), slot_shoes)
-	H.equip_to_slot_or_del(new /obj/item/device/pda/merchant(H), slot_belt)
-	H.equip_to_slot_or_del(new /obj/item/device/price_scanner(H), slot_r_store)
+	outfit = /datum/outfit/job/merchant
 
-	H << "You are a merchant heading to the [station_name()] to make profit, your main objective is to sell and trade with the crew."
+/datum/outfit/job/merchant
+	name = "Merchant"
+	jobtype = /datum/job/merchant
 
-	return TRUE
+	uniform =/obj/item/clothing/under/color/grey
+	shoes = /obj/item/clothing/shoes/brown
+	id = /obj/item/weapon/card/id/merchant
+	pda = /obj/item/device/pda/merchant
+	r_pocket = /obj/item/device/price_scanner
+
+	backpack_contents = list(
+		/obj/item/weapon/storage/box/evidence = 1
+	)
+
+/datum/job/merchant/announce(mob/living/carbon/human/H)
+	to_chat(H,"You are a merchant heading to the [station_name()] to make profit, your main objective is to sell and trade with the crew.")
 
 /datum/job/merchant/New()
 	..()

@@ -70,7 +70,7 @@
 	else
 		R.intenselight = 1
 		R.update_robot_light()
-		R << "Lighting systems upgrade detected."
+		to_chat(R, "Lighting systems upgrade detected.")
 	return 1
 
 /obj/item/borg/upgrade/restart

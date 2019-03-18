@@ -88,14 +88,14 @@
 /obj/item/weapon/paper/examine(mob/user)
 	..()
 	if (old_name && icon_state == "paper_plane")
-		user << span("notice", "You're going to have to unfold it before you can read it.")
+		to_chat(user, span("notice", "You're going to have to unfold it before you can read it."))
 		return
 	if(name != "sheet of paper")
-		user << "It's titled '[name]'."
+		to_chat(user, "It's titled '[name]'.")
 	if(in_range(user, src) || isobserver(user))
 		show_content(usr)
 	else
-		user << "<span class='notice'>You have to go closer if you want to read it.</span>"
+		to_chat(user, "<span class='notice'>You have to go closer if you want to read it.</span>")
 
 
 /obj/item/weapon/paper/proc/show_content(mob/user, forceshow)
@@ -112,7 +112,7 @@
 	set src in usr
 
 	if((CLUMSY in usr.mutations) && prob(50))
-		usr << "<span class='warning'>You cut yourself on the paper.</span>"
+		to_chat(usr, "<span class='warning'>You cut yourself on the paper.</span>")
 		return
 	var/n_name = sanitizeSafe(input(usr, "What would you like to label the paper?", "Paper Labelling", null)  as text, MAX_NAME_LEN)
 
@@ -175,7 +175,7 @@
 		if(ishuman(M))
 			var/mob/living/carbon/human/H = M
 			if(H == user)
-				user << "<span class='notice'>You wipe off the lipstick with [src].</span>"
+				to_chat(user, "<span class='notice'>You wipe off the lipstick with [src].</span>")
 				H.lip_style = null
 				H.update_body()
 			else
@@ -327,7 +327,7 @@
 				qdel(src)
 
 			else
-				user << "<span class='warning'>You must hold \the [P] steady to burn \the [src].</span>"
+				to_chat(user, "<span class='warning'>You must hold \the [P] steady to burn \the [src].</span>")
 
 
 /obj/item/weapon/paper/Topic(href, href_list)
@@ -340,7 +340,7 @@
 		//var/t = strip_html_simple(input(usr, "What text do you wish to add to " + (id=="end" ? "the end of the paper" : "field "+id) + "?", "[name]", null),8192) as message
 
 		if(free_space <= 0)
-			usr << "<span class='info'>There isn't enough space left on \the [src] to write anything.</span>"
+			to_chat(usr, "<span class='info'>There isn't enough space left on \the [src] to write anything.</span>")
 			return
 
 		var/t =  sanitize(input("Enter what you want to write:", "Write", null, null) as message, free_space, extra = 0)
@@ -375,7 +375,7 @@
 
 
 		if(fields > 50)//large amount of fields creates a heavy load on the server, see updateinfolinks() and addtofield()
-			usr << "<span class='warning'>Too many fields. Sorry, you can't do this.</span>"
+			to_chat(usr, "<span class='warning'>Too many fields. Sorry, you can't do this.</span>")
 			fields = last_fields_value
 			return
 
@@ -387,7 +387,7 @@
 
 		update_space(t)
 
-		usr << browse("<HTML><HEAD><TITLE>[name]</TITLE></HEAD><BODY bgcolor='[color]'>[info_links][stamps]</BODY></HTML>", "window=[name]") // Update the window
+		usr << browse("<HTML><HEAD><TITLE>[name]</TITLE></HEAD><BODY bgcolor='[color]'>[info_links][stamps]</BODY></HTML>", "window=[name]") // Update the window)
 
 		playsound(src, pick('sound/items/pen1.ogg','sound/items/pen2.ogg'), 10)
 		update_icon()
@@ -408,7 +408,7 @@
 		if (istype(P, /obj/item/weapon/paper/carbon))
 			var/obj/item/weapon/paper/carbon/C = P
 			if (!C.iscopy && !C.copied)
-				user << "<span class='notice'>Take off the carbon copy first.</span>"
+				to_chat(user, "<span class='notice'>Take off the carbon copy first.</span>")
 				add_fingerprint(user)
 				return
 		var/obj/item/weapon/paper_bundle/B = new(src.loc)
@@ -445,7 +445,7 @@
 				src.forceMove(get_turf(h_user))
 				if(h_user.client)	h_user.client.screen -= src
 				h_user.put_in_hands(B)
-		user << "<span class='notice'>You clip the [P.name] to [(src.name == "paper") ? "the paper" : src.name].</span>"
+		to_chat(user, "<span class='notice'>You clip the [P.name] to [(src.name == "paper") ? "the paper" : src.name].</span>")
 		src.forceMove(B)
 
 		B.pages.Add(src)
@@ -455,7 +455,7 @@
 
 	else if(istype(P, /obj/item/weapon/pen))
 		if(icon_state == "scrap")
-			usr << "<span class='warning'>\The [src] is too crumpled to write on.</span>"
+			to_chat(usr, "<span class='warning'>\The [src] is too crumpled to write on.</span>")
 			return
 
 		var/obj/item/weapon/pen/robopen/RP = P
@@ -486,7 +486,7 @@
 
 		if(istype(P, /obj/item/weapon/stamp/clown))
 			if(!clown)
-				user << "<span class='notice'>You are totally unable to use the stamp. HONK!</span>"
+				to_chat(user, "<span class='notice'>You are totally unable to use the stamp. HONK!</span>")
 				return
 
 		if(!ico)
@@ -500,7 +500,7 @@
 		add_overlay(stampoverlay)
 
 		playsound(src, 'sound/items/stamp.ogg', 50, 1)
-		user << "<span class='notice'>You stamp the paper with \the [P].</span>"
+		to_chat(user, "<span class='notice'>You stamp the paper with \the [P].</span>")
 
 	else if(istype(P, /obj/item/weapon/flame))
 		burnpaper(P, user)

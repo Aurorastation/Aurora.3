@@ -62,7 +62,7 @@
 		locked = !locked
 		for(var/mob/O in viewers(user, 3))
 			if((O.client && !( O.blinded )))
-				O << "<span class='notice'>The locker has been [locked ? null : "un"]locked by [user].</span>"
+				to_chat(O, "<span class='notice'>The locker has been [locked ? null : "un"]locked by [user].</span>")
 		update_icon()
 	else
 		to_chat(user,  "<span class='notice'>Access Denied</span>")
@@ -225,7 +225,7 @@
 	else if(istype(usr, /mob/living/silicon/robot) && Adjacent(usr))
 		togglelock(usr)
 	else
-		usr << "<span class='warning'>This mob type can't use this verb.</span>"
+		to_chat(usr, "<span class='warning'>This mob type can't use this verb.</span>")
 
 /obj/structure/closet/secure_closet/update_icon()//Putting the welded stuff in updateicon() so it's easy to overwrite for special cases (Fridges, cabinets, and whatnot)
 	cut_overlays()
