@@ -581,7 +581,7 @@
 	reagent_state = LIQUID
 	color = "#D35908"
 	touch_met = 50
-	taste_description = "fiery death"
+	taste_description = "plhegm"
 
 /datum/reagent/fuel/napalm
 	name = "Zo'rane Fire"
