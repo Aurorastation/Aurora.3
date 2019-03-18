@@ -1376,6 +1376,7 @@
 #include "code\modules\economy\EFTPOS.dm"
 #include "code\modules\economy\Events.dm"
 #include "code\modules\economy\Events_Mundane.dm"
+#include "code\modules\economy\quikpay.dm"
 #include "code\modules\economy\TradeDestinations.dm"
 #include "code\modules\effects\effect_system.dm"
 #include "code\modules\effects\ion_trail_follow.dm"

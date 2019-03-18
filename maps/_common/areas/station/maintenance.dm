@@ -145,6 +145,10 @@
 /area/maintenance/medbay
 	name = "Medbay Maintenance"
 	icon_state = "maint_medbay"
+	
+/area/maintenance/medbay_interstitial
+	name = "\improper Medbay Interstitial Maintenance"
+	icon_state = "maint_medbay"
 
 /area/maintenance/research_port
 	name = "Research Maintenance - Port"
