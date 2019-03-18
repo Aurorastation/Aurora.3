@@ -27,16 +27,16 @@
 
 	if(isanimal(A))
 		A.name = animaltag
-		to_chat(user, span("notice", "You tag the animal as [animaltag].</span>"))
+		to_chat(user,"<span class='notice'>You tag the animal as [animaltag].</span>")
 
 	else
-		to_chat(user, span("notice", "You can't tag non animals.</span>"))
+		to_chat(user, "<span class='notice'>You can't tag non animals.</span>")
 		return
 
 /obj/item/device/animaltagger/attack_self(mob/user as mob)
 
 	var/inputtag = sanitizeSafe(input(user,"Label text?","Set label",""), MAX_NAME_LEN)
 	if(!inputtag || !length(inputtag))
-		to_chat(user, span("notice", "Invalid tag line.</span>"))
+		to_chat(user, "<span class='notice'>Invalid tag line.</span>")
 		return
 	animaltag = inputtag
