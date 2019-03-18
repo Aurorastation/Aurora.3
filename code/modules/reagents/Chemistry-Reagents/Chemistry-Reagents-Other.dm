@@ -577,7 +577,7 @@
 /datum/reagent/fuel/zoragel
 	name = "Inert Gel"
 	id = "zoragel"
-	description = "A highly cohesive but otherwise inert and harmless gel."
+	description = "A particularly adhesive but otherwise inert and harmless gel."
 	reagent_state = LIQUID
 	color = "#D35908"
 	touch_met = 50
