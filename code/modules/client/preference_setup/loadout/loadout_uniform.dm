@@ -12,7 +12,7 @@
 /datum/gear/uniform/iacjumpsuit
 	display_name = "IAC Jumpsuit"
 	path = /obj/item/clothing/under/rank/iacjumpsuit
-	allowed_roles = list(MEDICAL_ROLES, "Physician")
+	allowed_roles = list("Chief Medical Officer", "Medical Doctor", "Pharmacist", "Paramedic", "Medical Resident")
 
 /datum/gear/uniform/jumpsuit
 	display_name = "generic jumpsuits"
@@ -87,7 +87,7 @@
 /datum/gear/uniform/scrubs
 	display_name = "scrubs selection"
 	path = /obj/item/clothing/under/rank/medical/black
-	allowed_roles = list(MEDICAL_ROLES, SCIENCE_ROLES, "Physician")
+	allowed_roles = list("Scientist","Chief Medical Officer", "Medical Doctor", "Pharmacist", "Geneticist", "Paramedic", "Medical Resident", "Xenobiologist", "Roboticist", "Research Director", "Forensic Technician")
 
 /datum/gear/uniform/scrubs/New()
 	..()
@@ -130,7 +130,6 @@
 	display_name = "uniform, captain dress"
 	path = /obj/item/clothing/under/dress/dress_cap
 	allowed_roles = list("Captain")
-	allowed_maps = list("aurora", "exodus")
 
 /datum/gear/uniform/customdress
 	display_name = "Evening gown"
@@ -143,38 +142,32 @@
 /datum/gear/uniform/corpsecsuit
 	display_name = "uniform, corporate (Security)"
 	path = /obj/item/clothing/under/rank/security/corp
-	allowed_roles = list(SECURITY_ROLES)
-	allowed_maps = list("aurora", "exodus")
+	allowed_roles = list("Security Officer", "Head of Security", "Warden", "Security Cadet")
 
 /datum/gear/uniform/uniform_hop
 	display_name = "uniform, HoP dress"
 	path = /obj/item/clothing/under/dress/dress_hop
 	allowed_roles = list("Head of Personnel")
-	allowed_maps = list("aurora", "exodus")
 
 /datum/gear/uniform/uniform_hr
 	display_name = "uniform, HR director (HoP)"
 	path = /obj/item/clothing/under/dress/dress_hr
 	allowed_roles = list("Head of Personnel")
-	allowed_maps = list("aurora", "exodus")
 
 /datum/gear/uniform/navysecsuit
 	display_name = "uniform, navyblue (Security Officer)"
 	path = /obj/item/clothing/under/rank/security/navyblue
 	allowed_roles = list("Security Officer", "Head of Security", "Warden")
-	allowed_maps = list("aurora", "exodus")
 
 /datum/gear/uniform/navysecsuit_warden
 	display_name = "uniform, navyblue (Warden)"
 	path = /obj/item/clothing/under/rank/warden/navyblue
 	allowed_roles = list("Head of Security", "Warden")
-	allowed_maps = list("aurora", "exodus")
 
 /datum/gear/uniform/navysecsuit_hos
 	display_name = "uniform, navyblue (Head of Security)"
 	path = /obj/item/clothing/under/rank/head_of_security/navyblue
 	allowed_roles = list("Head of Security")
-	allowed_maps = list("aurora", "exodus")
 
 /datum/gear/uniform/pants
 	display_name = "pants selection"

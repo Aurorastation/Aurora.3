@@ -72,12 +72,12 @@
 	display_name = "surgical apron"
 	path = /obj/item/clothing/suit/apron/surgery
 	cost = 1
-	allowed_roles = list(MEDICAL_ROLES, "Physician")
+	allowed_roles = list("Scientist", "Chief Medical Officer", "Medical Doctor", "Pharmacist", "Geneticist", "Paramedic", "Medical Resident", "Xenobiologist", "Roboticist", "Research Director", "Forensic Technician")
 
 /datum/gear/suit/iacvest
 	display_name = "IAC vest"
 	path = /obj/item/clothing/suit/iacvest
-	allowed_roles = list(MEDICAL_ROLES, "Physician")
+	allowed_roles = list("Chief Medical Officer", "Medical Doctor", "Pharmacist", "Paramedic", "Medical Resident")
 
 /datum/gear/suit/poncho
 	display_name = "poncho selection"
@@ -146,73 +146,61 @@
 	display_name = "winter coat, captain"
 	path = /obj/item/clothing/suit/storage/hooded/wintercoat/captain
 	allowed_roles = list("Captain")
-	allowed_maps = list("aurora", "exodus")
 
 /datum/gear/suit/winter/security
 	display_name = "winter coat, security"
 	path = /obj/item/clothing/suit/storage/hooded/wintercoat/security
-	allowed_roles = list(SECURITY_ROLES)
-	allowed_maps = list("aurora", "exodus")
+	allowed_roles = list("Security Officer", "Head of Security", "Warden", "Security Cadet", "Detective", "Forensic Technician")
 
 /datum/gear/suit/winter/science
 	display_name = "winter coat, science"
 	path = /obj/item/clothing/suit/storage/hooded/wintercoat/science
-	allowed_roles = list(SCIENCE_ROLES)
-	allowed_maps = list("aurora", "exodus")
+	allowed_roles = list("Research Director", "Scientist", "Xenobiologist", "Roboticist", "Lab Assistant", "Geneticist")
 
 /datum/gear/suit/winter/medical
 	display_name = "winter coat, medical"
 	path = /obj/item/clothing/suit/storage/hooded/wintercoat/medical
-	allowed_roles = list(MEDICAL_ROLES)
-	allowed_maps = list("aurora", "exodus")
+	allowed_roles = list("Chief Medical Officer", "Medical Doctor", "Paramedic", "Medical Resident", "Psychiatrist", "Pharmacist")
 
 /datum/gear/suit/winter/engineering
 	display_name = "winter coat, engineering"
 	path = /obj/item/clothing/suit/storage/hooded/wintercoat/engineering
-	allowed_roles = list(ENGINEERING_ROLES)
-	allowed_maps = list("aurora", "exodus")
+	allowed_roles = list("Station Engineer", "Chief Engineer", "Engineering Apprentice")
 
 /datum/gear/suit/winter/atmos
 	display_name = "winter coat, atmospherics"
 	path = /obj/item/clothing/suit/storage/hooded/wintercoat/engineering/atmos
 	allowed_roles = list("Atmospheric Technician", "Chief Engineer")
-	allowed_maps = list("aurora", "exodus")
 
 /datum/gear/suit/winter/hydro
 	display_name = "winter coat, hydroponics"
 	path = /obj/item/clothing/suit/storage/hooded/wintercoat/hydro
 	allowed_roles = list("Head of Personnel", "Gardener")
-	allowed_maps = list("aurora", "exodus")
 
 /datum/gear/suit/winter/cargo
 	display_name = "winter coat, cargo"
 	path = /obj/item/clothing/suit/storage/hooded/wintercoat/cargo
-	allowed_roles = list(CARGO_ROLES)
-	allowed_maps = list("aurora", "exodus")
+	allowed_roles = list("Cargo Technician", "Quartermaster", "Head of Personnel")
 
 /datum/gear/suit/winter/mining
 	display_name = "winter coat, mining"
 	path = /obj/item/clothing/suit/storage/hooded/wintercoat/miner
 	allowed_roles = list("Quartermaster", "Head of Personnel", "Shaft Miner")
-	allowed_maps = list("aurora", "exodus")
 
 /datum/gear/suit/secjacket
 	display_name = "navy security jacket (Security Officer)"
 	path = /obj/item/clothing/suit/security/navyofficer
 	allowed_roles = list("Security Officer", "Head of Security", "Warden")
-	allowed_maps = list("aurora", "exodus")
 
 /datum/gear/suit/secjacketwarden
 	display_name = "navy security jacket (Warden)"
 	path = /obj/item/clothing/suit/security/navywarden
 	allowed_roles = list("Head of Security", "Warden")
-	allowed_maps = list("aurora", "exodus")
 
 /datum/gear/suit/secjackethos
 	display_name = "navy security jacket (Head of Security)"
 	path = /obj/item/clothing/suit/security/navyhos
 	allowed_roles = list("Head of Security")
-	allowed_maps = list("aurora", "exodus")
 
 /datum/gear/suit/dominia
 	display_name = "dominia great coat selection"
