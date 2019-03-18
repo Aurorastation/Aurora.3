@@ -13236,9 +13236,6 @@
 /turf/unsimulated/wall/riveted,
 /area/centcom/ferry)
 "aDN" = (
-/obj/machinery/atm{
-	pixel_x = -26
-	},
 /obj/structure/banner,
 /turf/unsimulated/floor{
 	icon_state = "green";
@@ -19381,6 +19378,7 @@
 /obj/machinery/status_display/arrivals_display{
 	pixel_y = 32
 	},
+/obj/structure/curtain,
 /turf/unsimulated/floor{
 	icon_state = "freezerfloor";
 	dir = 2
@@ -19515,13 +19513,6 @@
 	dir = 4;
 	status = 0
 	},
-/turf/unsimulated/floor{
-	icon_state = "freezerfloor";
-	dir = 2
-	},
-/area/centcom/spawning)
-"aRs" = (
-/obj/machinery/light,
 /turf/unsimulated/floor{
 	icon_state = "freezerfloor";
 	dir = 2
@@ -24456,6 +24447,22 @@
 /obj/machinery/chem_master,
 /turf/simulated/floor/tiled/dark,
 /area/centcom/legion)
+"vCq" = (
+/obj/machinery/atm{
+	pixel_x = -26
+	},
+/turf/unsimulated/floor{
+	icon_state = "floor"
+	},
+/area/centcom/holding)
+"xoT" = (
+/obj/machinery/light,
+/obj/structure/curtain,
+/turf/unsimulated/floor{
+	icon_state = "freezerfloor";
+	dir = 2
+	},
+/area/centcom/spawning)
 
 (1,1,1) = {"
 aaa
@@ -60882,7 +60889,7 @@ aDb
 aCo
 aCo
 aCo
-aCo
+vCq
 aCo
 aWt
 aCq
@@ -68372,7 +68379,7 @@ aHK
 aHK
 aHK
 aHK
-aaM
+aaP
 aaM
 aaM
 aaM
@@ -68626,10 +68633,10 @@ aOA
 aHK
 aRa
 aRa
+aRa
 aHK
 aRL
-aHK
-aaM
+aaP
 aaM
 aaM
 aaM
@@ -68884,9 +68891,9 @@ aQB
 aQX
 aQX
 aQX
+aQB
 aQX
-aHK
-aaM
+aaP
 aaM
 aaM
 aaM
@@ -69139,11 +69146,11 @@ aId
 aOA
 aHK
 aRb
-aRs
+aHK
+xoT
 aHK
 aRM
-aHK
-aaM
+aaP
 aaM
 aaM
 aaM
@@ -69396,11 +69403,11 @@ aPM
 aOB
 aHK
 aRc
+aHK
 aRc
 aHK
 aRN
-aHK
-aaM
+aaP
 aaM
 aaM
 aaM
@@ -69657,7 +69664,7 @@ aHK
 aHK
 aHK
 aHK
-aaM
+aaP
 aaM
 aaM
 aaM

@@ -38,13 +38,13 @@
 
 /client/proc/jumptomob(var/mob/M in mob_list)
 	set category = "Admin"
-	set name = "Jump to Mob"
+	set name = "Jump to Mob Admin"
 
 	if(!check_rights(R_ADMIN|R_MOD|R_DEBUG|R_DEV))
 		return
 
 	if(config.allow_admin_jump)
-		log_admin("[key_name(usr)] jumped to [key_name(M)]",admin_key=key_name(usr),ckey=key_name(M))
+		log_admin("[key_name(usr)] jumped to [key_name(M)]", admin_key=key_name(usr),ckey=key_name(M))
 		message_admins("[key_name_admin(usr)] jumped to [key_name_admin(M)]", 1)
 		if(src.mob)
 			var/mob/A = src.mob
