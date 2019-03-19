@@ -153,7 +153,6 @@
 	var/datum/weakref/captured = null
 
 /obj/item/weapon/trap/animal/process()
-	. = ..()
 	update_icon()
 
 /obj/item/weapon/trap/animal/update_icon()
@@ -171,11 +170,8 @@
 		var/mutable_appearance/MA = new(L)
 		MA.layer = FLOAT_LAYER
 		MA.plane = FLOAT_PLANE	
-		var/temp = underlays.Find(MA)
-		if(temp)
-			underlays[temp] = MA
-		else
-			underlays += MA
+		underlays.Cut()
+		underlays += MA
 
 /obj/item/weapon/trap/animal/examine(mob/user)
 	..()
