@@ -169,6 +169,7 @@
 	sharp = 1
 	edge = 0
 	var/icon/broken_outline = icon('icons/obj/drinks.dmi', "broken")
+	w_class = 2
 
 /obj/item/weapon/broken_bottle/attack(mob/living/carbon/M as mob, mob/living/carbon/user as mob, var/target_zone)
 	playsound(loc, 'sound/weapons/bladeslice.ogg', 50, 1, -1)
