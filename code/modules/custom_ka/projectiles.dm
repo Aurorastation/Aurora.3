@@ -8,6 +8,12 @@
 	range = 5
 	var/pressure_decrease = 0.25
 
+/obj/item/projectile/kinetic/mech
+	damage = 15
+
+/obj/item/projectile/kinetic/mech/burst
+	damage = 10
+
 /obj/item/projectile/kinetic/on_impact(var/atom/A,var/aoe_scale = 1, var/damage_scale = 1)
 	var/turf/target_turf = get_turf(A)
 	if(!target_turf)
