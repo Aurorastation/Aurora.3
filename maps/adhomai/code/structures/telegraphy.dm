@@ -50,7 +50,7 @@
 				return
 				in_cooldown = FALSE
 
-			var/turf/T = get_turf(locate(ix, iy, 2))
+			var/turf/T = get_turf(locate(ix, iy, 3))
 
 			if(T)
 				command_announcement.Announce("All soldiers to their positions, the artillery is opening fire!", "Artillery Bombardment")

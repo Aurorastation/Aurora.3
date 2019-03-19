@@ -39,6 +39,24 @@
 	allowed_gamemodes = list("changeling", "cult", "extended","conflux", "crossfire", "feeding", "siege", "traitorling", "uprising", "veilparty", "mercenary", "revolution",
 							"autotraitor", "traitor", "vampire", "wizard")
 
+	mudane_events	= list(
+		// Severity level, event name, even type, base weight, role weights, one shot, min weight, max weight. Last two only used if set and non-zero
+		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Nothing",					/datum/event/nothing,				120),
+		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Animal Migration",			/datum/event/animal_migration,		120)
+	)
+
+	moderate_events = list(
+		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Nothing",							/datum/event/nothing,						200),
+		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Appendicitis", 					/datum/event/spontaneous_appendicitis, 		0,		list(ASSIGNMENT_MEDICAL = 25)),
+		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Random Antagonist",				/datum/event/random_antag,		 			0,		list(ASSIGNMENT_ANY = 1, ASSIGNMENT_SECURITY = 1),0,10,125, list("Extended")),
+		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Meteor Chunks",			/datum/event/meteor_chunks,					800)
+	)
+
+	major_events = list(
+		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Nothing",						/datum/event/nothing,				135)
+	)
+
+
 /datum/map/adhomai/generate_asteroid()
 
 	new /datum/random_map/noise/tundra/adhomai(null,0,0,3,255,255) //creates the wilderness before the caves

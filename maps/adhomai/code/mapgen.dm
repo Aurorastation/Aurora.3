@@ -12,6 +12,11 @@
 	mineral_sparse = /turf/simulated/mineral/random/adhomai/high_chance
 	mineral_rich = /turf/simulated/mineral/random/adhomai/higher_chance
 
+/datum/random_map/automata/meteor_chunk
+	descriptor = "meteor chunk"
+	wall_type =  /turf/simulated/mineral/random/adhomai/higher_chance
+	floor_type = /turf/simulated/floor/snow
+
 /datum/random_map/noise/tundra/adhomai
 	descriptor = "adhomai wildnerss"
 	target_turf_type = /turf/unsimulated/mask/adhomai
@@ -31,7 +36,7 @@
 	switch(val)
 		if(2)
 			if(prob(5))
-				new /mob/living/simple_animal/crab(T)
+				new /mob/living/simple_animal/hostile/retaliate/rafama(T)
 		if(6)
 			var/grass_path = pick(typesof(/obj/structure/flora/grass)-/obj/structure/flora/grass)
 			new grass_path(T)

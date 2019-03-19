@@ -1,6 +1,7 @@
 /area/adhomai/fortress
 	name = "\improper Fortress"
 	icon_state = "blueold"
+	station_area = FALSE
 
 /area/adhomai/fortress/outpost
 	name = "\improper Outpost"
@@ -9,6 +10,7 @@
 /area/adhomai/village
 	name = "\improper Village"
 	icon_state = "crew_quarters"
+	station_area = FALSE
 
 /area/adhomai/village/bar
 	name = "\improper Bar"
