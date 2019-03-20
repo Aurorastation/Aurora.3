@@ -29,7 +29,11 @@
 /area/rnd/telesci
 	name = "\improper Research - Telescience Laboratory"
 	icon_state = "research"
-	
+
+/area/rnd/sec
+	name = "\improper Research - Security Office"
+	icon_state = "research"
+
 /area/rnd/chemistry
 	name = "\improper Research - Exploratory Chemistry"
 	icon_state = "chem"
@@ -63,7 +67,7 @@
 	name = "\improper Research - Xenoflora Lab"
 	icon_state = "xeno_f_lab"
 	no_light_control = TRUE
-	
+
 /area/rnd/xenobiology/xenoflora_hazard
 	name = "\improper Research - Xenoflora Hazardous Specimens"
 	icon_state = "red"
@@ -121,27 +125,27 @@
 /area/rnd/misc_lab
 	name = "\improper Research - Miscellaneous Research"
 	icon_state = "toxmisc"
-	
+
 /area/rnd/eva
 	name = "\improper Research - EVA Preparation"
 	icon_state = "blue"
-	
+
 /area/rnd/xenoarch_atrium
 	name = "\improper Research - Xenoarcheology Atrium"
 	icon_state = "research"
-	
+
 /area/rnd/xenoarch_storage
 	name = "\improper Research - Xenoarcheology Storage"
 	icon_state = "purple"
-	
+
 /area/rnd/isolation_a
 	name = "\improper Research - Anomaly Isolation A"
 	icon_state = "blue"
-	
+
 /area/rnd/isolation_b
 	name = "\improper Research - Anomaly Isolation B"
 	icon_state = "red"
-	
+
 /area/rnd/isolation_c
 	name = "\improper Research - Anomaly Isolation C"
 	icon_state = "green"

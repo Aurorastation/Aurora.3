@@ -153,6 +153,10 @@
 	name = "\improper Cargo Office"
 	icon_state = "quartoffice"
 
+/area/quartermaster/sec
+	name = "\improper Cargo Security Office"
+	icon_state = "quartoffice"
+
 /area/quartermaster/lobby
 	name = "\improper Cargo Lobby"
 	icon_state = "green"

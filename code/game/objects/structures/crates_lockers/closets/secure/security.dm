@@ -262,7 +262,7 @@
 
 /obj/structure/closet/secure_closet/security
 	name = "security officer's locker"
-	req_access = list(access_brig)
+	req_access = list(access_weapons)
 	icon_state = "sec1"
 	icon_closed = "sec"
 	icon_locked = "sec1"
@@ -279,9 +279,7 @@
 		new /obj/item/clothing/head/soft/sec/corp(src)
 		new /obj/item/clothing/under/rank/security/corp(src)
 		new /obj/item/clothing/suit/storage/vest/officer(src)
-		new /obj/item/clothing/head/helmet(src)
 		//Tools
-		new /obj/item/device/radio/headset/headset_sec(src)
 		new /obj/item/clothing/glasses/sunglasses/sechud/aviator(src)
 		new /obj/item/clothing/glasses/sunglasses/sechud(src)
 		new /obj/item/ammo_magazine/c45m/rubber(src)
@@ -299,11 +297,19 @@
 		new /obj/item/clothing/accessory/storage/black_vest(src)
 		new /obj/item/weapon/storage/belt/security(src)
 
+/obj/structure/closet/secure_closet/security/brig
+
+	fill()
+		..()
+		new /obj/item/clothing/head/helmet/brigsec(src)
+		new /obj/item/clothing/accessory/armband/cargo(src)
+		new /obj/item/device/encryptionkey/headset_cargo(src)
 
 /obj/structure/closet/secure_closet/security/cargo
 
 	fill()
 		..()
+		new /obj/item/clothing/head/helmet/carsec(src)
 		new /obj/item/clothing/accessory/armband/cargo(src)
 		new /obj/item/device/encryptionkey/headset_cargo(src)
 
@@ -311,6 +317,7 @@
 
 	fill()
 		..()
+		new /obj/item/clothing/head/helmet/engsec(src)
 		new /obj/item/clothing/accessory/armband/engine(src)
 		new /obj/item/device/encryptionkey/headset_eng(src)
 
@@ -318,6 +325,7 @@
 
 	fill()
 		..()
+		new /obj/item/clothing/head/helmet/scisec(src)
 		new /obj/item/clothing/accessory/armband/science(src)
 		new /obj/item/device/encryptionkey/headset_sci(src)
 
@@ -325,6 +333,7 @@
 
 	fill()
 		..()
+		new /obj/item/clothing/head/helmet/medsec(src)
 		new /obj/item/clothing/accessory/armband/medgreen(src)
 		new /obj/item/device/encryptionkey/headset_med(src)
 

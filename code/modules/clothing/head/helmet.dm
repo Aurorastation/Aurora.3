@@ -26,6 +26,26 @@
 		to_chat(usr, "<span class='notice'>[src] will now [flags_inv & BLOCKHEADHAIR ? "hide" : "show"] hair.</span>")
 	..()
 
+/obj/item/clothing/head/helmet/brigsec
+	desc = "Standard Security gear. Protects the head from impacts. This one is marked as belonging to the General Officer."
+	icon_state = "helmetsec"
+
+/obj/item/clothing/head/helmet/medsec
+	desc = "Standard Security gear. Protects the head from impacts. This one is marked as belonging to the Medical Officer."
+	icon_state = "helmetmed"
+
+/obj/item/clothing/head/helmet/scisec
+	desc = "Standard Security gear. Protects the head from impacts. This one is marked as belonging to the Science Officer."
+	icon_state = "helmetsci"
+
+/obj/item/clothing/head/helmet/engsec
+	desc = "Standard Security gear. Protects the head from impacts. This one is marked as belonging to the Engineering Officer."
+	icon_state = "helmeteng"
+
+/obj/item/clothing/head/helmet/carsec
+	desc = "Standard Security gear. Protects the head from impacts. This one is marked as belonging to the Supply Officer."
+	icon_state = "helmetcar"
+
 /obj/item/clothing/head/helmet/warden
 	name = "warden's hat"
 	desc = "It's a special helmet issued to the Warden of a securiy force. Protects the head from impacts."

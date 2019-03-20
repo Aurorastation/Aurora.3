@@ -157,3 +157,48 @@
 	satchel = /obj/item/weapon/storage/backpack/satchel_tox
 	dufflebag = /obj/item/weapon/storage/backpack/duffel/tox
 	messengerbag = /obj/item/weapon/storage/backpack/messenger/tox
+
+/datum/job/sciofficer
+	title = "Science Officer"
+	flag = SCISEC
+	department = "Science"
+	department_flag = MEDSCI
+	faction = "Station"
+	total_positions = 1
+	spawn_positions = 1
+	supervisors = "the research director"
+	selection_color = "#ffeeff"
+	economic_modifier = 4
+	access = list(access_sec_doors, access_eva, access_external_airlocks, access_weapons, access_tox, access_tox_storage, access_research, access_robotics, access_xenobiology, access_xenoarch, access_maint_tunnels)
+	minimal_access = list(access_sec_doors, access_eva, access_external_airlocks, access_weapons, access_tox, access_tox_storage, access_research, access_robotics, access_xenobiology, access_xenoarch, access_maint_tunnels)
+	minimal_player_age = 7
+	outfit = /datum/outfit/job/sciofficer
+
+/datum/outfit/job/sciofficer
+	name = "Science Officer"
+	jobtype = /datum/job/sciofficer
+
+	uniform = /obj/item/clothing/under/rank/security
+	shoes = /obj/item/clothing/shoes/jackboots
+	l_ear = /obj/item/device/radio/headset/headset_sci
+	pda = /obj/item/device/pda/security
+	l_pocket = /obj/item/device/flash
+
+	backpack = /obj/item/weapon/storage/backpack/security
+	satchel = /obj/item/weapon/storage/backpack/satchel_sec
+	dufflebag = /obj/item/weapon/storage/backpack/duffel/sec
+	messengerbag = /obj/item/weapon/storage/backpack/messenger/sec
+
+	backpack_contents = list(
+		/obj/item/weapon/handcuffs = 1,
+		/obj/item/clothing/accessory/armband/science = 1
+	)
+
+/datum/outfit/job/sciofficer/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+	. = ..()
+	if(istajara(H))
+		H.equip_to_slot_or_del(new /obj/item/clothing/gloves/black/tajara(H), slot_gloves)
+	else if(isunathi(H))
+		H.equip_to_slot_or_del(new /obj/item/clothing/gloves/black/unathi(H), slot_gloves)
+	else
+		H.equip_to_slot_or_del(new /obj/item/clothing/gloves/black(H), slot_gloves)

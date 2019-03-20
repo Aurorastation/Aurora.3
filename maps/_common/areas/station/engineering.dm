@@ -96,3 +96,8 @@
 /area/engineering/gravity_gen
 	name = "\improper Engineering - Gravity Generator"
 	icon_state = "engine"
+
+/area/engineering/sec
+	name = "\improper Engineering - Security Office"
+	icon_state = "engineering_break"
+	sound_env = MEDIUM_SOFTFLOOR

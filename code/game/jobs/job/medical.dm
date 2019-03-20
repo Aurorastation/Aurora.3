@@ -253,3 +253,48 @@
 	satchel = /obj/item/weapon/storage/backpack/satchel_med
 	dufflebag = /obj/item/weapon/storage/backpack/duffel/med
 	messengerbag = /obj/item/weapon/storage/backpack/messenger/med
+
+/datum/job/medofficer
+	title = "Medical Officer"
+	flag = MEDSEC
+	department = "Medical"
+	department_flag = MEDSCI
+	faction = "Station"
+	total_positions = 1
+	spawn_positions = 1
+	supervisors = "the chief medical officer"
+	selection_color = "#ffeef0"
+	economic_modifier = 4
+	access = list (access_sec_doors, access_eva, access_weapons, access_medical, access_medical_equip, access_morgue, access_surgery, access_pharmacy, access_virology, access_maint_tunnels, access_external_airlocks, access_psychiatrist, access_paramedic)
+	minimal_access = list(access_sec_doors, access_eva, access_weapons, access_medical, access_medical_equip, access_morgue, access_eva, access_maint_tunnels, access_external_airlocks, access_paramedic)
+	minimal_player_age = 7
+	outfit = /datum/outfit/job/medofficer
+
+/datum/outfit/job/medofficer
+	name = "Medical Officer"
+	jobtype = /datum/job/medofficer
+
+	uniform = /obj/item/clothing/under/rank/security
+	shoes = /obj/item/clothing/shoes/jackboots
+	l_ear = /obj/item/device/radio/headset/headset_med
+	pda = /obj/item/device/pda/security
+	l_pocket = /obj/item/device/flash
+
+	backpack = /obj/item/weapon/storage/backpack/security
+	satchel = /obj/item/weapon/storage/backpack/satchel_sec
+	dufflebag = /obj/item/weapon/storage/backpack/duffel/sec
+	messengerbag = /obj/item/weapon/storage/backpack/messenger/sec
+
+	backpack_contents = list(
+		/obj/item/weapon/handcuffs = 1,
+		/obj/item/clothing/accessory/armband/med = 1
+	)
+
+/datum/outfit/job/medofficer/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+	. = ..()
+	if(istajara(H))
+		H.equip_to_slot_or_del(new /obj/item/clothing/gloves/black/tajara(H), slot_gloves)
+	else if(isunathi(H))
+		H.equip_to_slot_or_del(new /obj/item/clothing/gloves/black/unathi(H), slot_gloves)
+	else
+		H.equip_to_slot_or_del(new /obj/item/clothing/gloves/black(H), slot_gloves)

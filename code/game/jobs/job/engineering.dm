@@ -141,3 +141,48 @@
 	satchel = /obj/item/weapon/storage/backpack/satchel_eng
 	dufflebag = /obj/item/weapon/storage/backpack/duffel/eng
 	messengerbag = /obj/item/weapon/storage/backpack/messenger/engi
+
+/datum/job/engofficer
+	title = "Engineering Officer"
+	flag = ENGISEC
+	department = "Engineering"
+	department_flag = ENGSEC
+	faction = "Station"
+	total_positions = 1
+	spawn_positions = 1
+	supervisors = "the chief engineer"
+	selection_color = "#fff5cc"
+	economic_modifier = 4
+	access = list(access_sec_doors, access_eva, access_external_airlocks, access_weapons, access_engine, access_engine_equip, access_tech_storage, access_maint_tunnels, access_construction, access_atmospherics)
+	minimal_access = list(access_sec_doors, access_eva, access_external_airlocks, access_weapons, access_engine, access_engine_equip, access_tech_storage, access_maint_tunnels, access_construction, access_atmospherics,)
+	minimal_player_age = 7
+	outfit = /datum/outfit/job/engofficer
+
+/datum/outfit/job/engofficer
+	name = "Engineering Officer"
+	jobtype = /datum/job/engofficer
+
+	uniform = /obj/item/clothing/under/rank/security
+	shoes = /obj/item/clothing/shoes/jackboots
+	l_ear = /obj/item/device/radio/headset/headset_eng
+	pda = /obj/item/device/pda/security
+	l_pocket = /obj/item/device/flash
+
+	backpack = /obj/item/weapon/storage/backpack/security
+	satchel = /obj/item/weapon/storage/backpack/satchel_sec
+	dufflebag = /obj/item/weapon/storage/backpack/duffel/sec
+	messengerbag = /obj/item/weapon/storage/backpack/messenger/sec
+
+	backpack_contents = list(
+		/obj/item/weapon/handcuffs = 1,
+		/obj/item/clothing/accessory/armband/engine = 1
+	)
+
+/datum/outfit/job/engofficer/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+	. = ..()
+	if(istajara(H))
+		H.equip_to_slot_or_del(new /obj/item/clothing/gloves/black/tajara(H), slot_gloves)
+	else if(isunathi(H))
+		H.equip_to_slot_or_del(new /obj/item/clothing/gloves/black/unathi(H), slot_gloves)
+	else
+		H.equip_to_slot_or_del(new /obj/item/clothing/gloves/black(H), slot_gloves)
