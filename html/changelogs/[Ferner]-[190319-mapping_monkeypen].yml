@@ -38,4 +38,4 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
-  - maptweak: "Added a simian testing pen to the upstairs virology lab."
+  - maptweak: "Added a simian testing pen to the upstairs virology lab. Fixed an unlabeled airlock. Emptied a filing cabinet in maintenance that contained the full crew medical records."
