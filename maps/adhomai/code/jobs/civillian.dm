@@ -240,6 +240,64 @@
 	belt = /obj/item/weapon/material/blacksmith_hammer
 	r_pocket = /obj/item/weapon/key/blacksmith
 
+/datum/job/archeologist
+	title = "Archeologist"
+	flag = ARCHEO
+	department = "Village"
+	department_flag = ADHOMAI
+	faction = "Station"
+	total_positions = 1
+	spawn_positions = 1
+	supervisors = "the mayor"
+	selection_color = "#ddddff"
+
+	outfit = /datum/outfit/job/adhomai/archeologist
+
+/datum/outfit/job/adhomai/archeologist
+	name = "archeologist"
+	allow_backbag_choice = TRUE
+
+	head = /obj/item/clothing/head/fedora/archeologist
+	uniform = /obj/item/clothing/under/archeologist
+	suit = /obj/item/clothing/suit/storage/archeologist
+	shoes = /obj/item/clothing/shoes/jackboots
+	r_pocket = /obj/item/device/ano_scanner
+	l_pocket = /obj/item/device/flashlight/lantern
+	belt = /obj/item/weapon/melee/whip
+	backpack_contents = list(
+		/obj/item/weapon/storage/box/excavation = 1,
+		/obj/item/device/depth_scanner = 1,
+		/obj/item/device/core_sampler = 1,
+		/obj/item/device/measuring_tape = 1,
+		/obj/item/weapon/pickaxe/hand = 1
+	)
+
+
+/datum/job/trader
+	title = "Trader"
+	flag = TRADER
+	department = "Village"
+	department_flag = ADHOMAI
+	faction = "Station"
+	total_positions = 1
+	spawn_positions = 1
+	supervisors = "the mayor"
+	selection_color = "#ddddff"
+
+	outfit = /datum/outfit/job/adhomai/trader
+
+/datum/outfit/job/adhomai/trader
+	name = "trader"
+	allow_backbag_choice = TRUE
+
+	pda = /obj/item/device/pda/merchant
+	r_pocket = /obj/item/device/price_scanner
+	l_pocket = /obj/item/weapon/key/trader
+
+	backpack_contents = list(
+		/obj/item/weapon/storage/box/excavation = 1
+	)
+
 /datum/job/chief_constable
 	title = "Chief Constable"
 	flag = CHIEFCONSTABLE
@@ -275,8 +333,8 @@
 	department = "Village"
 	department_flag = ADHOMAI
 	faction = "Station"
-	total_positions = 2
-	spawn_positions = 2
+	total_positions = 3
+	spawn_positions = 3
 	supervisors = "the chief constable"
 	selection_color = "#ddddff"
 	species_blacklist = list(HUMAN_SPECIES, UNATHI_SPECIES, TAJARA_SPECIES, SKRELL_SPECIES, VAURCA_SPECIES, DIONA_SPECIES, IPC_SPECIES)

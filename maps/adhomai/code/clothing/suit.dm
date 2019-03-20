@@ -45,3 +45,14 @@
 	item_state = "apron"
 	contained_sprite = TRUE
 	allowed = list (/obj/item/weapon/material/blacksmith_hammer)
+
+/obj/item/clothing/suit/storage/archeologist
+	name = "brown jacket"
+	desc = "A brown jacket used by archeologist and treasure hunters."
+	icon = 'icons/adhomai/clothing.dmi'
+	icon_state = "explorer_jacket"
+	item_state = "explorer_jacket"
+	contained_sprite = TRUE
+	body_parts_covered = UPPER_TORSO|ARMS
+	armor = list(melee = 20, bullet = 15, laser = 5, energy = 5, bomb = 5, bio = 0, rad = 0)
+	siemens_coefficient = 0.7

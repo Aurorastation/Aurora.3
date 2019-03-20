@@ -15,8 +15,10 @@ var/const/MEDIC				=(1<<10)
 var/const/NURSE				=(1<<11)
 var/const/PROSPECTOR		=(1<<12)
 var/const/BLACKSMITH		=(1<<13)
-var/const/CHIEFCONSTABLE	=(1<<15)
-var/const/CONSTABLE			=(1<<16)
+var/const/ARCHEO			=(1<<14)
+var/const/TRADER			=(1<<15)
+var/const/CHIEFCONSTABLE	=(1<<16)
+var/const/CONSTABLE			=(1<<17)
 
 var/list/adhomai_positions = list(
 	"Mayor",
@@ -30,6 +32,8 @@ var/list/adhomai_positions = list(
 	"Nurse",
 	"Prospector",
 	"Blacksmith",
+	"Archeologist",
+	"Trader",
 	"Chief Constable",
 	"Constable",
 	"Commander",

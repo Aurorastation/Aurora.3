@@ -122,3 +122,13 @@
 		new item2_type(src)
 	if(item3_type)
 		new item3_type(src)
+
+/obj/item/weapon/storage/wallet/poor/fill()
+	..()
+	new /obj/item/weapon/spacecash/c10 (src)
+	new /obj/item/weapon/spacecash/c10 (src)
+	new /obj/item/weapon/spacecash/c20 (src)
+	new /obj/item/weapon/spacecash/c50 (src)
+	if (prob(20))
+		new /obj/item/weapon/spacecash/c100 (src)
+

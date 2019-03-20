@@ -53,3 +53,11 @@
 	desc = "A military uniform issued to the sailors of the Royal Navy."
 	icon_state = "sailor"
 	item_state = "sailor"
+
+/obj/item/clothing/under/archeologist
+	name = "archeologist uniform"
+	desc = "A simple uniform used by archeologist."
+	icon = 'icons/adhomai/clothing.dmi'
+	icon_state = "explorer_uniform"
+	item_state = "explorer_uniform"
+	contained_sprite = TRUE

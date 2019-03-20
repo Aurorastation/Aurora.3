@@ -33,3 +33,7 @@
 /obj/item/weapon/key/blacksmith
 	name = "blacksmith key"
 	key_data = "blacksmith"
+
+/obj/item/weapon/key/trader
+	name = "trader key"
+	key_data = "merchant"

@@ -44,9 +44,17 @@
 
 /obj/item/clothing/head/nka/dragoon/commander
 	desc = "A black fur hat made of Nav'twir. This one is used by a commander of the Imperial Dragoons."
+	icon_state = "bighatboss"
+	item_state = "bighatboss"
 
 /obj/item/clothing/head/nka/sailor
 	name = "sailor cap"
 	desc = "A military cap issued to the sailors of the Royal Navy."
 	icon_state = "sailorhat"
 	item_state = "sailorhat"
+
+/obj/item/clothing/head/fedora/archeologist
+	desc = "A worn hat used by archeologist."
+	icon = 'icons/adhomai/clothing.dmi'
+	icon_state = "explorer_hat"
+	item_state = "explorer_hat"
