@@ -663,7 +663,7 @@
 /datum/reagent/bluespace_dust/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(prob(25))
 		M.make_jittery(5)
-		M << "<span class='warning'>You feel unstable...</span>"
+		to_chat(M, "<span class='warning'>You feel unstable...</span>")
 
 	if(prob(10))
 		do_teleport(M, get_turf(M), 5, asoundin = 'sound/effects/phasein.ogg')
@@ -746,7 +746,7 @@
 	return 1
 
 /obj/item/shapesand/afterattack(atom/A, mob/living/user)
-	user << "<span class='warning'>As you attempt to use the [src], it crumbles into inert sand!</span>"
+	to_chat(user, "<span class='warning'>As you attempt to use the [src], it crumbles into inert sand!</span>")
 	new /obj/item/weapon/ore/glass(get_turf(src))
 	qdel(src)
 	return

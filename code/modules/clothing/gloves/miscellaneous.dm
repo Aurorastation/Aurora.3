@@ -96,13 +96,13 @@
 	set src in usr
 
 	if(wired && !clipped)
-		usr << "You check your watch, spotting a digital collection of numbers reading '[worldtime2text()]'. Today's date is '[time2text(world.time, "Month DD")]. [game_year]'."
+		to_chat(usr, "You check your watch, spotting a digital collection of numbers reading '[worldtime2text()]'. Today's date is '[time2text(world.time, "Month DD")]. [game_year]'.")
 		if (emergency_shuttle.get_status_panel_eta())
-			usr << "<span class='warning'>The shuttle's status is reported as: [emergency_shuttle.get_status_panel_eta()].</span>"
+			to_chat(usr, "<span class='warning'>The shuttle's status is reported as: [emergency_shuttle.get_status_panel_eta()].</span>")
 	else if(wired && clipped)
-		usr << "You check your watch realising it's still open"
+		to_chat(usr, "You check your watch realising it's still open")
 	else
-		usr << "You check your watch as it dawns on you that it's broken"
+		to_chat(usr, "You check your watch as it dawns on you that it's broken")
 
 /obj/item/clothing/gloves/watch/verb/pointatwatch()
 	set category = "Object"
@@ -136,20 +136,20 @@
 	if(W.iscoil())
 		var/obj/item/stack/cable_coil/C = W
 		if (!clipped)
-			user << "<span class='notice'>The [src] is not open.</span>"
+			to_chat(user, "<span class='notice'>The [src] is not open.</span>")
 			return
 
 		if(wired)
-			user << "<span class='notice'>The [src] are already wired.</span>"
+			to_chat(user, "<span class='notice'>The [src] are already wired.</span>")
 			return
 
 		if(C.amount < 2)
-			user << "<span class='notice'>There is not enough wire to cover the [src].</span>"
+			to_chat(user, "<span class='notice'>There is not enough wire to cover the [src].</span>")
 			return
 
 		C.use(2)
 		wired = 1
-		user << "<span class='notice'>You repair some wires in the [src].</span>"
+		to_chat(user, "<span class='notice'>You repair some wires in the [src].</span>")
 		return
 
 /obj/item/clothing/gloves/watch/emp_act(severity)
@@ -286,3 +286,9 @@
 	clipped = 1
 	sharp = 1
 	edge = 1
+
+/obj/item/clothing/gloves/offworlder
+	name = "starmitts"
+	desc = "Thick arm warmers and mittens that reach past the elbow."
+	icon_state = "starmittens"
+	item_state = "starmittens"

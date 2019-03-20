@@ -30,7 +30,7 @@
 
 /obj/machinery/appliance/cooker/fryer/examine(var/mob/user)
 	if (..())//no need to duplicate adjacency check
-		user << "Oil Level: [oil.total_volume]/[optimal_oil]"
+		to_chat(user, "Oil Level: [oil.total_volume]/[optimal_oil]")
 
 /obj/machinery/appliance/cooker/fryer/Initialize()
 	. = ..()
@@ -154,7 +154,7 @@
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN*3)
 
 	if(!victim || !victim.Adjacent(user))
-		user << "<span class='danger'>Your victim slipped free!</span>"
+		to_chat(user, "<span class='danger'>Your victim slipped free!</span>")
 		return
 
 	var/damage = rand(7,13)
@@ -190,10 +190,12 @@
 
 
 		if(!nopain)
-			victim << "<span class='danger'>Agony consumes you as searing hot oil scorches your [E ? E.name : "flesh"] horribly!</span>"
+			var/arrows_var1 = E ? E.name : "flesh"
+			to_chat(victim, "<span class='danger'>Agony consumes you as searing hot oil scorches your [arrows_var1] horribly!</span>")
 			victim.emote("scream")
 		else
-			victim << "<span class='danger'>Searing hot oil scorches your [E ? E.name : "flesh"]!</span>"
+			var/arrows_var2 = E ? E.name : "flesh"
+			to_chat(victim, "<span class='danger'>Searing hot oil scorches your [arrows_var2]!</span>")
 
 
 		user.attack_log += text("\[[time_stamp()]\] <font color='red'>Has [cook_type] \the [victim] ([victim.ckey]) in \a [src]</font>")

@@ -84,11 +84,11 @@
 
 		if(icon_state == icon_badge)
 			icon_state = icon_nobadge
-			usr << "You conceal \the [src]'s badge."
+			to_chat(usr, "You conceal \the [src]'s badge.")
 		else if(icon_state == icon_nobadge)
 			icon_state = icon_badge
-			usr << "You reveal \the [src]'s badge."
+			to_chat(usr, "You reveal \the [src]'s badge.")
 		else
-			usr << "\The [src] does not have a vest badge."
+			to_chat(usr, "\The [src] does not have a vest badge.")
 			return
 		update_clothing_icon()

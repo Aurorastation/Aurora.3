@@ -393,9 +393,9 @@ var/list/world_api_rate_limit = list()
 	dbcon = initialize_database_object("config/dbconfig.txt")
 
 	if (!setup_database_connection(dbcon))
-		world.log << "Your server failed to establish a connection with the feedback database."
+		world.log <<  "Your server failed to establish a connection with the feedback database."
 	else
-		world.log << "Feedback database connection established."
+		world.log <<  "Feedback database connection established."
 	return 1
 
 /proc/initialize_database_object(var/filename)
@@ -458,7 +458,7 @@ var/list/world_api_rate_limit = list()
 		error("Database connection failed with message:")
 		error(con.ErrorMsg())
 #else
-		world.log << con.ErrorMsg()
+		world.log <<  con.ErrorMsg()
 #endif
 
 	return .

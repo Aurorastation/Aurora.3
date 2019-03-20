@@ -42,7 +42,7 @@ proc/createRandomZlevel()
 		var/file = file(map)
 		if(isfile(file))
 			loader.load_map(file)
-			world.log << "away mission loaded: [map]"
+			world.log <<  "away mission loaded: [map]"
 
 		for(var/obj/effect/landmark/L in landmarks_list)
 			if (L.name != "awaystart")

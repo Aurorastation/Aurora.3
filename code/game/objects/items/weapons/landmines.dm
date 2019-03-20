@@ -24,7 +24,7 @@
 		return
 
 	layer = TURF_LAYER+0.2
-	usr << "<span class='notice'>You hide \the [src].</span>"
+	to_chat(usr, "<span class='notice'>You hide \the [src].</span>")
 
 
 /obj/item/weapon/landmine/attack_self(mob/user as mob)

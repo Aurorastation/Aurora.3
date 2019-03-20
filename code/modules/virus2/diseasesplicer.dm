@@ -19,14 +19,14 @@
 	if(istype(I,/obj/item/weapon/virusdish))
 		var/mob/living/carbon/c = user
 		if (dish)
-			user << "\The [src] is already loaded."
+			to_chat(user, "\The [src] is already loaded.")
 			return
 
 		dish = I
 		c.drop_from_inventory(I,src)
 
 	if(istype(I,/obj/item/weapon/diseasedisk))
-		user << "You upload the contents of the disk onto the buffer."
+		to_chat(user, "You upload the contents of the disk onto the buffer.")
 		memorybank = I:effect
 		species_buffer = I:species
 		analysed = I:analysed

@@ -1,6 +1,6 @@
 //skirts
 
-/obj/item/clothing/under/skirt/
+/obj/item/clothing/under/skirt
 	name = "black skirt"
 	desc = "A black skirt, very fancy!"
 	icon_state = "blackskirt"
@@ -90,3 +90,9 @@
 	icon_state = "loincloth"
 	item_state = "loincloth"
 	worn_state = "loincloth"
+
+/obj/item/clothing/under/skirt/offworlder
+	name = "\improper CR skirt"
+	desc = "A very tight form-fitting padded suit that looks extremely comfortable to wear. This variant seems to have a poofy skirt and longer sleeves than normal."
+	icon_state = "crskirt"
+	worn_state = "crskirt"
