@@ -47,7 +47,7 @@
 
 /obj/item/clothing/suit/storage/hooded/verb/ToggleHood()
 
-	set name ="Toggle Coat Hood"
+	set name = "Toggle Coat Hood"
 	set category = "Object"
 	set src in usr
 
@@ -208,7 +208,7 @@
 		return
 	update_clothing_icon()
 
-/obj/item/clothing/suit/storage/hooded/wintercoat/hoodie/verb/ToggleHoodie()
+/obj/item/clothing/suit/storage/hooded/wintercoat/hoodie/ToggleHood()
 	set name ="Toggle Coat Hood"
 	set category = "Object"
 	set src in usr
