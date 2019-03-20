@@ -38,7 +38,7 @@
 
 	if (!L)
 		return
-		
+
 	var/new_name = input(usr, "Pick a name","Name") as text
 	var/mob/living/carbon/human/M = new(null)
 
@@ -155,7 +155,7 @@
 		return
 
 	if(!is_type_in_list(A,centcom_areas))
-		src << "<span class='warning'>You need to be back at central to do this.</span>"
+		to_chat(src, "<span class='warning'>You need to be back at central to do this.</span>")
 		return
 
 	if(holder.original_mob)
@@ -204,11 +204,11 @@
 	set category = "Special Verbs"
 
 	if (!check_rights(R_ADMIN|R_CCIAA|R_FUN))
-		usr << "<span class='warning'>You do not have enough powers to do this.</span>"
+		to_chat(usr, "<span class='warning'>You do not have enough powers to do this.</span>")
 		return
 
 	if (!department)
-		usr << "<span class='warning'>No target department specified!</span>"
+		to_chat(usr, "<span class='warning'>No target department specified!</span>")
 		return
 
 	var/obj/machinery/photocopier/faxmachine/fax = null
@@ -219,18 +219,18 @@
 			break
 
 	if (!fax)
-		usr << "<span class='warning'>Couldn't find a fax machine to send this to!</span>"
+		to_chat(usr, "<span class='warning'>Couldn't find a fax machine to send this to!</span>")
 		return
 
 	//todo: sanitize
 	var/input = input(usr, "Please enter a message to reply to via secure connection. NOTE: BBCode does not work, but HTML tags do! Use <br> for line breaks.", "Outgoing message from Centcomm", "") as message|null
 	if (!input)
-		usr << "<span class='warning'>Cancelled.</span>"
+		to_chat(usr, "<span class='warning'>Cancelled.</span>")
 		return
 
 	var/customname = input(usr, "Pick a title for the report", "Title") as text|null
 	if (!customname)
-		usr << "<span class='warning'>Cancelled.</span>"
+		to_chat(usr, "<span class='warning'>Cancelled.</span>")
 		return
 	var/announce = alert(usr, "Do you wish to announce the fax being sent?", "Announce Fax", "Yes", "No")
 	if(announce == "Yes")
@@ -251,15 +251,15 @@
 	P.add_overlay(stampoverlay)
 	P.stamps += "<HR><i>This paper has been stamped by the Central Command Quantum Relay.</i>"
 
-	if(fax.recievefax(P))
+	if(fax.receivefax(P))
 		if(announce == 1)
 			command_announcement.Announce("A fax has been sent to the [department] fax machine.", "Fax Sent")
-		usr << "<span class='notice'>Message transmitted successfully.</span>"
+		to_chat(usr, "<span class='notice'>Message transmitted successfully.</span>")
 		log_and_message_admins("sent a fax message to the [department] fax machine. (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[fax.x];Y=[fax.y];Z=[fax.z]'>JMP</a>)")
 
 		sent_faxes += P
 	else
-		usr << "<span class='warning'>Message reply failed.</span>"
+		to_chat(usr, "<span class='warning'>Message reply failed.</span>")
 		qdel(P)
 	return
 
@@ -269,7 +269,7 @@
 	set category = "Special Verbs"
 
 	if (!check_rights(R_ADMIN|R_CCIAA|R_FUN))
-		usr << "<span class='warning'>You do not have enough powers to do this.</span>"
+		to_chat(usr, "<span class='warning'>You do not have enough powers to do this.</span>")
 		return
 
 	var/data = "<center><a href='?_src_=holder;CentcommFaxReply=1'>Send New Fax</a></center>"
@@ -305,6 +305,6 @@
 		return
 
 	message_admins("[key_name_admin(src)] accessed file: [path]")
-	usr << run( file(path) )
+	to_chat(usr, run( file(path) ))
 	feedback_add_details("admin_verb","DOGL") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 	return

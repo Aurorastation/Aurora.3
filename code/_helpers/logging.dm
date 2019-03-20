@@ -1,6 +1,5 @@
 //print an error message to world.log
 
-
 // On Linux/Unix systems the line endings are LF, on windows it's CRLF, admins that don't use notepad++
 // will get logs that are one big line if the system is Linux and they are using notepad.  This solves it by adding CR to every line ending
 // in the logs.  ascii character 13 = CR
@@ -15,22 +14,37 @@
 
 /var/global/log_end = world.system_type == UNIX ? ascii2text(13) : ""
 
+// logging.dm
+/proc/log_startup()
+	var/static/already_logged = FALSE
+	if (!already_logged)
+		WRITE_LOG(diary, "[log_end]\n[log_end]\nStarting up. (ID: [game_id]) [log_end]\n---------------------[log_end]")
+		already_logged = TRUE
+	else
+		crash_with("log_startup() was called more then once")
+
+/proc/log_topic(T, addr, master, key, var/list/queryparams)
+	WRITE_LOG(diary, "[game_id] TOPIC: \"[T]\", from:[addr], master:[master], key:[key], auth:[queryparams["auth"] ? queryparams["auth"] : "null"] [log_end]")
+
 /proc/error(msg)
-	world.log << "## ERROR: [msg][log_end]"
+	world.log <<  "## ERROR: [msg][log_end]"
+
+/proc/shutdown_logging()
+	call(RUST_G, "log_close_all")()
 
 #define WARNING(MSG) warning("[MSG] in [__FILE__] at line [__LINE__] src: [src] usr: [usr].")
 //print a warning message to world.log
 /proc/warning(msg)
-	world.log << "## WARNING: [msg][log_end]"
+	world.log <<  "## WARNING: [msg][log_end]"
 
 //print a testing-mode debug message to world.log
 /proc/testing(msg)
-	world.log << "## TESTING: [msg][log_end]"
+	world.log <<  "## TESTING: [msg][log_end]"
 
 /proc/game_log(category, text)
-	diary << "\[[time_stamp()]] [game_id] [category]: [text][log_end]"
+	WRITE_LOG(diary, "[game_id] [category]: [text][log_end]")
 
-/proc/log_admin(text,level=5,ckey="",admin_key="",ckey_target="")
+/proc/log_admin(text,level=SEVERITY_NOTICE,ckey="",admin_key="",ckey_target="")
 	admin_log.Add(text)
 	if (config.log_admin)
 		game_log("ADMIN", text)
@@ -47,7 +61,7 @@
 		if(!C.prefs) //This is to avoid null.toggles runtime error while still initialyzing players preferences
 			return
 		if(C.prefs.toggles & CHAT_DEBUGLOGS)
-			C << "DEBUG: [text]"
+			to_chat(C, "DEBUG: [text]")
 	send_gelf_log(short_message = text, long_message = "[time_stamp()]: [text]", level = level, category = "DEBUG")
 
 /proc/log_game(text, level = SEVERITY_NOTICE, ckey = "", admin_key = "", ckey_target = "")
@@ -130,7 +144,7 @@
 	)
 
 /proc/log_to_dd(text)
-	world.log << text //this comes before the config check because it can't possibly runtime
+	world.log <<  text //this comes before the config check because it can't possibly runtime
 	if(config.log_world_output)
 		game_log("DD_OUTPUT", text)
 	send_gelf_log(short_message = text, long_message = "[time_stamp()]: [text]", level = SEVERITY_NOTICE, category = "DD_OUTPUT")
@@ -154,7 +168,7 @@
 	game_log("SS", msg)
 	send_gelf_log(msg, "[time_stamp()]: [msg]", SEVERITY_DEBUG, "SUBSYSTEM", additional_data = list("_subsystem" = subsystem))
 	if (log_world)
-		world.log << "SS[subsystem]: [text]"
+		world.log <<  "SS[subsystem]: [text]"
 
 /proc/log_ss_init(text)
 	game_log("SS", "[text]")
@@ -175,7 +189,7 @@
 	)
 
 /proc/log_unit_test(text)
-	world.log << "## UNIT_TEST ##: [text]"
+	world.log <<  "## UNIT_TEST ##: [text]"
 
 /proc/log_exception(exception/e)
 	if (config.log_runtime)
@@ -260,3 +274,6 @@
 
 /proc/key_name_admin(var/whom, var/include_name = 1)
 	return key_name(whom, 1, include_name, 1)
+
+#undef RUST_G
+#undef WRITE_LOG

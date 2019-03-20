@@ -22,7 +22,7 @@ Iterating through a listener list:
 /proc/print_myobj()
 	for (var/thing in GET_LISTENERS("myid"))
 		var/listener/L = thing
-		world << L.target
+		to_world(L.target)
 
 */
 

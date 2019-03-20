@@ -16,6 +16,7 @@
 	slot_flags = SLOT_BELT
 	origin_tech = list(TECH_BIO = 2, TECH_MATERIAL = 2)
 	matter = list(DEFAULT_WALL_MATERIAL = 250)
+	center_of_mass = null
 
 /obj/item/weapon/reagent_containers/personal_inhaler_cartridge/examine(var/mob/user)
 	if(!..(user, 2))
@@ -35,12 +36,12 @@
 /obj/item/weapon/reagent_containers/personal_inhaler_cartridge/attack_self(mob/user as mob)
 	if(is_open_container())
 		if(reagents && reagents.reagent_list.len)
-			to_chat(user,"<span class='notice'>With a quick twist of the cartridge's lid, you secure the reagents inside \the [src].</span>")
+			to_chat(user,"<span class='notice'>With a quick twist of \the [src]'s lid, you secure the reagents inside.</span>")
 			flags ^= OPENCONTAINER
 		else
-			to_chat(user,"<span class='notice'>You can't secure the cartridge without putting reagents in!</span>")
+			to_chat(user,"<span class='notice'>You can't secure \the [src] without putting reagents in!</span>")
 	else
-		to_chat(user,"<span class='notice'>\The reagents inside [src] are already secured.</span>")
+		to_chat(user,"<span class='notice'>The reagents inside \the [src] are already secured.</span>")
 	return
 
 /obj/item/weapon/reagent_containers/personal_inhaler_cartridge/large
@@ -140,7 +141,7 @@
 	if(M.reagents)
 		var/contained = stored_cartridge.reagentlist()
 		var/trans = stored_cartridge.reagents.trans_to_mob(M, transfer_amount, CHEM_BREATHE, bypass_checks = TRUE)
-		admin_inject_log(user, M, src, contained, trans)
+		admin_inject_log(user, M, src, contained, reagents.get_temperature(), trans)
 		playsound(M.loc, 'sound/items/stimpack.ogg', 50, 1)
 		if(eject_when_empty)
 			to_chat(user,"<span class='notice'>\The [stored_cartridge] automatically ejects from \the [src].</span>")

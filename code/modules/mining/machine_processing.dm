@@ -18,20 +18,31 @@
 /obj/machinery/mineral/processing_unit_console/proc/setup_machine(mob/user)
 	if(!machine)
 		var/area/A = get_area(src)
+		var/best_distance = INFINITY
 		for(var/obj/machinery/mineral/processing_unit/checked_machine in SSmachinery.all_machines)
-			if(A == get_area(checked_machine))
+			if(A == get_area(checked_machine) && get_dist_euclidian(checked_machine,src) < best_distance)
 				machine = checked_machine
-				break
+				best_distance = get_dist_euclidian(checked_machine,src)
 		if (machine)
 			machine.console = src
 		else
-			user << "<span class='warning'>ERROR: Linked machine not found!</span>"
+			to_chat(user, "<span class='warning'>ERROR: Linked machine not found!</span>")
 
 	return machine
 
 /obj/machinery/mineral/processing_unit_console/attack_hand(mob/user)
 	add_fingerprint(user)
 	interact(user)
+
+/obj/machinery/mineral/processing_unit_console/attackby(obj/item/I, mob/user)
+	if(istype(I,/obj/item/weapon/card/id))
+		var/obj/item/weapon/card/id/C = user.get_active_hand()
+		if(istype(C) && !istype(inserted_id))
+			user.drop_from_inventory(C,src)
+			inserted_id = C
+			interact(user)
+	else
+		..()
 
 /obj/machinery/mineral/processing_unit_console/interact(mob/user)
 
@@ -42,7 +53,7 @@
 		return
 
 	if(!allowed(user))
-		user << "<span class='warning'>Access denied.</span>"
+		to_chat(user, "<span class='warning'>Access denied.</span>")
 		return
 
 	user.set_machine(src)
@@ -107,15 +118,15 @@
 							ping( "\The [src] pings, \"Point transfer complete! Transaction total: [points] points!\"" )
 						points = 0
 					else
-						usr << "<span class='warning'>[station_name()]'s mining division is currently indebted to NanoTrasen. Transaction incomplete until debt is cleared.</span>"
+						to_chat(usr, "<span class='warning'>[station_name()]'s mining division is currently indebted to NanoTrasen. Transaction incomplete until debt is cleared.</span>")
 				else
-					usr << "<span class='warning'>Required access not found.</span>"
+					to_chat(usr, "<span class='warning'>Required access not found.</span>")
 		else if(href_list["choice"] == "insert")
 			var/obj/item/weapon/card/id/I = usr.get_active_hand()
 			if(istype(I))
 				usr.drop_from_inventory(I,src)
 				inserted_id = I
-			else usr << "<span class='warning'>No valid ID.</span>"
+			else to_chat(usr, "<span class='warning'>No valid ID.</span>")
 
 	if(href_list["toggle_smelting"])
 

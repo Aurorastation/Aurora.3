@@ -52,6 +52,7 @@
 	vital = 1
 	var/backup_time = 0
 	var/datum/mind/backup
+	origin_tech = list(TECH_ENGINEERING = 5, TECH_DATA=3, TECH_BIO=3)
 
 /obj/item/organ/stack/process()
 	if(owner && owner.stat != DEAD && !is_broken())
@@ -69,6 +70,6 @@
 		if(prob(80))
 			owner.death()
 		else
-			owner << "<span class='warning'>Your mind breaks apart when your cortical stack is removed! Your memories and personality are nothing but echoes lost in the numbness of your thoughts...</span>"
+			to_chat(owner, "<span class='warning'>Your mind breaks apart when your cortical stack is removed! Your memories and personality are nothing but echoes lost in the numbness of your thoughts...</span>")
 			owner.set_species("Vox Pariah")
 	..()

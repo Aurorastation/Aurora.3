@@ -80,15 +80,16 @@
 	icon_open = "labcoat_gen_open"
 	icon_closed = "labcoat_gen"
 
-/obj/item/clothing/suit/storage/toggle/labcoat/chemist
-	name = "chemist labcoat"
-	desc = "A suit that protects against minor chemical spills. Has an orange stripe on the shoulder."
+/obj/item/clothing/suit/storage/toggle/labcoat/pharmacist
+	name = "pharmacist labcoat"
+	desc = "A suit that protects against minor chemical spills. Offers slightly more protection against biohazards than the standard model. Has an orange stripe on the shoulder."
 	icon_state = "labcoat_chem_open"
 	icon_open = "labcoat_chem_open"
 	icon_closed = "labcoat_chem"
+	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 60, rad = 0)
 
-/obj/item/clothing/suit/storage/toggle/labcoat/virologist
-	name = "virologist labcoat"
+/obj/item/clothing/suit/storage/toggle/labcoat/biochemist
+	name = "biochemist labcoat"
 	desc = "A suit that protects against minor chemical spills. Offers slightly more protection against biohazards than the standard model. Has a green stripe on the shoulder."
 	icon_state = "labcoat_vir_open"
 	icon_open = "labcoat_vir_open"
@@ -101,3 +102,11 @@
 	icon_state = "labcoat_tox_open"
 	icon_open = "labcoat_tox_open"
 	icon_closed = "labcoat_tox"
+
+/obj/item/clothing/suit/iacvest
+	desc = "It's a lightweight vest. Made of a dark, navy mesh with highly-reflective white material, designed to be worn by the Interstellar Aid Corps as a high-visibility vest, over any other clothing. The I.A.C. logo is prominently  displayed on the back of the vest, between the shoulders."
+	name = "IAC vest"
+	icon_state = "iac_vest_s"
+	item_state = "iac_vest"
+	permeability_coefficient = 0.50
+	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 5, rad = 0)

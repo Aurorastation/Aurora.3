@@ -9,10 +9,17 @@ emp_act
 */
 
 /mob/living/carbon/human/bullet_act(var/obj/item/projectile/P, var/def_zone)
-	if(martial_art && martial_art.deflection_chance)
-		if(prob(martial_art.deflection_chance))
-			src.visible_message("<span class='danger'>\The [src] deflects \the [P]!</span>")
-			return 0
+
+	var/species_check = src.species.bullet_act(P, def_zone, src)
+
+	if(species_check)
+		return species_check
+
+	if(!is_physically_disabled())
+		if(martial_art && martial_art.deflection_chance)
+			if(prob(martial_art.deflection_chance))
+				src.visible_message("<span class='danger'>\The [src] deflects \the [P]!</span>")
+				return 0
 
 	def_zone = check_zone(def_zone)
 	if(!has_organ(def_zone))
@@ -54,7 +61,8 @@ emp_act
 
 	switch (def_zone)
 		if("head")
-			agony_amount *= 1.50
+			eye_blurry += min((rand(1,3) * (agony_amount/40)), 12)
+			confused = min(max(confused, 2 * (agony_amount/40)), 8)
 		if("l_hand", "r_hand")
 			var/c_hand
 			if (def_zone == "l_hand")
@@ -70,7 +78,7 @@ emp_act
 					emote("me", 1, "drops what they were holding, their [affected.name] malfunctioning!")
 				else
 					var/emote_scream = pick("screams in pain and ", "lets out a sharp cry and ", "cries out and ")
-					emote("me", 1, "[(species && species.flags & NO_PAIN) ? "" : emote_scream ]drops what they were holding in their [affected.name]!")
+					emote("me", 1, "[(!can_feel_pain()) ? "" : emote_scream ]drops what they were holding in their [affected.name]!")
 
 	..(stun_amount, agony_amount, def_zone)
 
@@ -161,15 +169,26 @@ emp_act
 	if(isipc(src))
 		var/obj/item/organ/surge/s = src.internal_organs_by_name["surge"]
 		if(!isnull(s))
-			if(s.surge_left)
+			if(s.surge_left >= 1)
 				playsound(src.loc, 'sound/magic/LightningShock.ogg', 25, 1)
 				s.surge_left -= 1
 				if(s.surge_left)
-					to_chat(src, "<span class='warning'>Warning: EMP detected, integrated surge prevention module activated. There are [s.surge_left] preventions left.</span>")
+					visible_message("<span class='warning'>[src] was not affected by EMP pulse.</span>", "<span class='warning'>Warning: EMP detected, integrated surge prevention module activated. There are [s.surge_left] preventions left.</span>")
 				else
 					s.broken = 1
 					s.icon_state = "surge_ipc_broken"
-					to_chat(src, "<span class='warning'>Warning: EMP detected, integrated surge prevention module activated. The surge prevention module is fried, replacement recommended.</span>")
+					visible_message("<span class='warning'>[src] was not affected by EMP pulse.</span>", "<span class='warning'>Warning: EMP detected, integrated surge prevention module activated. The surge prevention module is fried, replacement recommended.</span>")
+				return 1
+			else if(s.surge_left == 0.5)
+				to_chat(src, "<span class='danger'>Warning: EMP detected, integrated surge prevention module is damaged and was unable to fully protect from EMP. Half of the damage taken. Replacement recommended.</span>")
+				for(var/obj/O in src)
+					if(!O)	continue
+					O.emp_act(severity * 2) // EMP act takes reverse numbers
+				for(var/obj/item/organ/external/O  in organs)
+					O.emp_act(severity)
+					for(var/obj/item/organ/I  in O.internal_organs)
+						if(I.robotic == 0)	continue
+						I.emp_act(severity * 2) // EMP act takes reverse numbers
 				return 1
 			else
 				to_chat(src, "<span class='danger'>Warning: EMP detected, integrated surge prevention module is fried and unable to protect from EMP. Replacement recommended.</span>")
@@ -205,7 +224,7 @@ emp_act
 
 	var/obj/item/organ/external/affecting = get_organ(hit_zone)
 	if (!affecting || affecting.is_stump())
-		user << "<span class='danger'>They are missing that limb!</span>"
+		to_chat(user, "<span class='danger'>They are missing that limb!</span>")
 		return null
 
 	return hit_zone
@@ -308,12 +327,12 @@ emp_act
 /mob/living/carbon/human/emag_act(var/remaining_charges, mob/user, var/emag_source)
 	var/obj/item/organ/external/affecting = get_organ(user.zone_sel.selecting)
 	if(!affecting || !(affecting.status & ORGAN_ROBOT))
-		user << "<span class='warning'>That limb isn't robotic.</span>"
+		to_chat(user, "<span class='warning'>That limb isn't robotic.</span>")
 		return -1
 	if(affecting.sabotaged)
-		user << "<span class='warning'>[src]'s [affecting.name] is already sabotaged!</span>"
+		to_chat(user, "<span class='warning'>[src]'s [affecting.name] is already sabotaged!</span>")
 		return -1
-	user << "<span class='notice'>You sneakily slide [emag_source] into the dataport on [src]'s [affecting.name] and short out the safeties.</span>"
+	to_chat(user, "<span class='notice'>You sneakily slide [emag_source] into the dataport on [src]'s [affecting.name] and short out the safeties.</span>")
 	affecting.sabotaged = 1
 	return 1
 
@@ -503,13 +522,13 @@ emp_act
 /mob/living/carbon/human/proc/grabbedby(mob/living/carbon/human/user,var/supress_message = 0)
 	if(user == src || anchored)
 		return 0
-	if(user.disabilities & PACIFIST)
+	if(user.is_pacified())
 		to_chat(user, "<span class='notice'>You don't want to risk hurting [src]!</span>")
 		return 0
 
 	for(var/obj/item/weapon/grab/G in user.grabbed_by)
 		if(G.assailant == user)
-			user << "<span class='notice'>You already grabbed [src].</span>"
+			to_chat(user, "<span class='notice'>You already grabbed [src].</span>")
 			return
 
 	if (!attempt_grab(user))
@@ -520,7 +539,7 @@ emp_act
 
 	var/obj/item/weapon/grab/G = new /obj/item/weapon/grab(user, src)
 	if(buckled)
-		user << "<span class='notice'>You cannot grab [src], \he is buckled in!</span>"
+		to_chat(user, "<span class='notice'>You cannot grab [src], \he is buckled in!</span>")
 	if(!G)	//the grab will delete itself in New if affecting is anchored
 		return
 	user.put_in_active_hand(G)

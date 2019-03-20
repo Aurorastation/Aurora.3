@@ -9,7 +9,7 @@
 		var/weakness = GetAnomalySusceptibility(toucher)
 		if(prob(weakness * 100))
 			var/mob/living/carbon/C = toucher
-			C << "<span class='notice'>You feel a soothing energy invigorate you.</span>"
+			to_chat(C, "<span class='notice'>You feel a soothing energy invigorate you.</span>")
 
 			if(ishuman(toucher))
 				var/mob/living/carbon/human/H = toucher
@@ -18,7 +18,8 @@
 						affecting.heal_damage(25 * weakness, 25 * weakness)
 				//H:heal_organ_damage(25, 25)
 				H.vessel.add_reagent("blood",5)
-				H.nutrition += 50 * weakness
+				H.adjustNutritionLoss(-50 * weakness)
+				H.adjustHydrationLoss(-50 * weakness)
 				H.adjustBrainLoss(-25 * weakness)
 				H.apply_radiation(-1*min(H.total_radiation, 25 * weakness))
 				H.bodytemperature = initial(H.bodytemperature)
@@ -40,7 +41,7 @@
 			var/weakness = GetAnomalySusceptibility(C)
 			if(prob(weakness * 100))
 				if(prob(10))
-					C << "<span class='notice'>You feel a soothing energy radiating from something nearby.</span>"
+					to_chat(C, "<span class='notice'>You feel a soothing energy radiating from something nearby.</span>")
 				C.adjustBruteLoss(-1 * weakness)
 				C.adjustFireLoss(-1 * weakness)
 				C.adjustToxLoss(-1 * weakness)
@@ -55,7 +56,7 @@
 		for (var/mob/living/carbon/C in range(src.effectrange,T))
 			var/weakness = GetAnomalySusceptibility(C)
 			if(prob(weakness * 100))
-				C << "<span class='notice'>A wave of energy invigorates you.</span>"
+				to_chat(C, "<span class='notice'>A wave of energy invigorates you.</span>")
 				C.adjustBruteLoss(-5 * weakness)
 				C.adjustFireLoss(-5 * weakness)
 				C.adjustToxLoss(-5 * weakness)

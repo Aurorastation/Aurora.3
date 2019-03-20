@@ -7,7 +7,7 @@
 
 <script>
 import Store from '../../store.js'
-
+import Utils from '../../utils.js'
 export default {
   props: {
     icon: {
@@ -16,9 +16,7 @@ export default {
     },
     params: {
       type: Object,
-      default() {
-        return {}
-      }
+      default: null
     },
     pushState: {
       type: Boolean,
@@ -41,17 +39,7 @@ export default {
         }
         return
       }
-      var sendparams = []
-      for(var val in this.params) {
-        sendparams.push(encodeURIComponent(val) + "=" + encodeURIComponent(this.params[val]))
-      }
-      var r = new XMLHttpRequest()
-      var sendUrl = "?src=" + Store.state.uiref + "&" + sendparams.join("&")
-      if (this.pushState) {
-        sendUrl += "&" + Store.getStatePushString()
-      }
-      r.open("GET", sendUrl, true);
-      r.send()
+      Utils.sendToTopic(this.params, this.pushState)
     }
   }
 }

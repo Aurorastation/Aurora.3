@@ -40,6 +40,7 @@
 	name = "Garden seed storage"
 	scanner = list("stats")
 	starting_seeds = list(
+		/obj/item/seeds/ambrosiavulgarisseed = 3,
 		/obj/item/seeds/appleseed = 3,
 		/obj/item/seeds/bananaseed = 3,
 		/obj/item/seeds/berryseed = 3,
@@ -51,19 +52,26 @@
 		/obj/item/seeds/chiliseed = 3,
 		/obj/item/seeds/cocoapodseed = 3,
 		/obj/item/seeds/cornseed = 3,
+		/obj/item/seeds/replicapod = 3,
+		/obj/item/seeds/earthenroot = 2,
 		/obj/item/seeds/eggplantseed = 3,
+		/obj/item/seeds/garlicseed = 3,
 		/obj/item/seeds/grapeseed = 3,
 		/obj/item/seeds/grassseed = 3,
-		/obj/item/seeds/replicapod = 3,
 		/obj/item/seeds/lemonseed = 3,
 		/obj/item/seeds/limeseed = 3,
 		/obj/item/seeds/mtearseed = 2,
+		/obj/item/seeds/nifberries = 2,
+		/obj/item/seeds/onionseed = 3,
 		/obj/item/seeds/orangeseed = 3,
 		/obj/item/seeds/peanutseed = 3,
+		/obj/item/seeds/peppercornseed = 3,
+		/obj/item/seeds/plastiseed = 3,
 		/obj/item/seeds/plumpmycelium = 3,
 		/obj/item/seeds/poppyseed = 3,
 		/obj/item/seeds/potatoseed = 3,
 		/obj/item/seeds/pumpkinseed = 3,
+		/obj/item/seeds/reishimycelium = 2,
 		/obj/item/seeds/riceseed = 3,
 		/obj/item/seeds/soyaseed = 3,
 		/obj/item/seeds/sugarcaneseed = 3,
@@ -75,8 +83,6 @@
 		/obj/item/seeds/watermelonseed = 3,
 		/obj/item/seeds/wheatseed = 3,
 		/obj/item/seeds/whitebeetseed = 3,
-		/obj/item/seeds/earthenroot = 2,
-		/obj/item/seeds/nifberries = 2
 	)
 
 /obj/machinery/seed_storage/xenobotany
@@ -301,12 +307,12 @@
 		if (loaded)
 			user.visible_message("[user] puts the seeds from \the [O.name] into \the [src].", "You put the seeds from \the [O.name] into \the [src].")
 		else
-			user << "<span class='notice'>There are no seeds in \the [O.name].</span>"
+			to_chat(user, "<span class='notice'>There are no seeds in \the [O.name].</span>")
 		return
-	else if(iswrench(O))
+	else if(O.iswrench())
 		playsound(loc, 'sound/items/Ratchet.ogg', 50, 1)
 		anchored = !anchored
-		user << "You [anchored ? "wrench" : "unwrench"] \the [src]."
+		to_chat(user, "You [anchored ? "wrench" : "unwrench"] \the [src].")
 
 /obj/machinery/seed_storage/proc/add(var/obj/item/seeds/O as obj)
 	if (istype(O.loc, /mob))

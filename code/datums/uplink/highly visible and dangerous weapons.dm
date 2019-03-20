@@ -77,12 +77,12 @@
 /datum/uplink_item/item/visible_weapons/wrestling
 	name = "Wrestling Manual"
 	item_cost = 6
-	path = /obj/item/wrestling_manual
+	path = /obj/item/martial_manual/wrestling
 
 /datum/uplink_item/item/visible_weapons/solcom
 	name = "SolCom Manual"
 	item_cost = 6
-	path = /obj/item/sol_combat_manual
+	path = /obj/item/martial_manual
 
 /datum/uplink_item/item/visible_weapons/heavysniper
 	name = "Anti-materiel Rifle"
@@ -103,6 +103,11 @@
 	name = "Steel Throwing Star"
 	item_cost = 2
 	path = /obj/item/weapon/material/star
+
+/datum/uplink_item/item/visible_weapons/icelance
+	name = "Icelance Rifle"
+	item_cost = 6
+	path = /obj/item/weapon/gun/energy/rifle/icelance
 
 /datum/uplink_item/item/visible_weapons/custom_ka
 	name = "Kinetic Laser Assembly"

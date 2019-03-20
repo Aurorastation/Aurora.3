@@ -20,6 +20,50 @@
 	//loading
 	if(istype(target,/obj))
 		var/obj/O = target
+		var/T = chassis.loc
+		if(istype(target, /obj/item/weapon/ore))
+			var/obj/mecha/working/chass = chassis // Since hydraulic clamp can only be installed on working mechs, no need to check for type.
+			var/obj/structure/ore_box/ore_box
+			if(chass)
+				ore_box = locate(/obj/structure/ore_box) in chass.cargo
+			if(ore_box)
+				var/list/stuff = range(chassis,1)
+				var/obj/item/weapon/ore/t = (locate(/obj/item/weapon/ore) in stuff)
+				if(t && do_after_cooldown())
+					if(T == chassis.loc && src == chassis.selected)
+						for(var/obj/item/weapon/ore/ore in stuff)
+							if(get_dir(chassis,ore)&chassis.dir)
+								ore.Move(ore_box)
+						chassis.visible_message("<span class='notice'>\The [chassis] picks up ore from the ground all around.</span>")
+						playsound(src.loc, 'sound/mecha/hydraulic.ogg', 50, 1, -1)
+						set_ready_state(0)
+						chassis.use_power(energy_drain)
+						do_after_cooldown()
+						return
+					else
+						occupant_message("<span class='warning'>You must hold still while handling objects.</span>")
+						return
+			else
+				occupant_message("You lift [target] and start to load it into cargo compartment.")
+				chassis.visible_message("[chassis] lifts [target] and starts to load it into cargo compartment.")
+				playsound(src.loc, 'sound/mecha/hydraulic.ogg', 50, 1, -1)
+				set_ready_state(0)
+				chassis.use_power(energy_drain)
+				O.anchored = 1
+				if(do_after_cooldown())
+					if(T == chassis.loc && src == chassis.selected)
+						cargo_holder.cargo += O
+						O.forceMove(chassis)
+						O.anchored = 0
+						occupant_message("<span class='notice'>[target] succesfully loaded.</span>")
+						log_message("Loaded [O]. Cargo compartment capacity: [cargo_holder.cargo_capacity - cargo_holder.cargo.len]")
+						do_after_cooldown()
+						return
+					else
+						occupant_message("<span class='warning'>You must hold still while handling objects.</span>")
+						O.anchored = initial(O.anchored)
+						return
+
 		if(O.buckled_mob)
 			return
 		if(locate(/mob/living) in O)
@@ -34,10 +78,10 @@
 
 		occupant_message("You lift [target] and start to load it into cargo compartment.")
 		chassis.visible_message("[chassis] lifts [target] and starts to load it into cargo compartment.")
+		playsound(src.loc, 'sound/mecha/hydraulic.ogg', 50, 1, -1)
 		set_ready_state(0)
 		chassis.use_power(energy_drain)
 		O.anchored = 1
-		var/T = chassis.loc
 		if(do_after_cooldown(target))
 			if(T == chassis.loc && src == chassis.selected)
 				cargo_holder.cargo += O
@@ -87,6 +131,7 @@
 	chassis.use_power(energy_drain)
 	chassis.visible_message("<span class='danger'>\The [chassis] starts to drill \the [target]</span>", "<span class='warning'>You hear a large drill.</span>")
 	occupant_message("<span class='danger'>You start to drill \the [target]</span>")
+	playsound(src.loc, 'sound/mecha/mechdrill.ogg', 50, 1, -1)
 	var/T = chassis.loc
 	var/C = target.loc	//why are these backwards? we may never know -Pete
 	if(do_after_cooldown(target))
@@ -104,7 +149,10 @@
 						M.GetDrilled()
 				log_message("Drilled through \the [target]")
 				if(locate(/obj/item/mecha_parts/mecha_equipment/tool/hydraulic_clamp) in chassis.equipment)
-					var/obj/structure/ore_box/ore_box = locate(/obj/structure/ore_box) in chassis:cargo
+					var/obj/mecha/working/chass = chassis // Since hydraulic clamp can only be installed on working mechs, no need to check for type.
+					var/obj/structure/ore_box/ore_box
+					if(chass)
+						ore_box = locate(/obj/structure/ore_box) in chass.cargo
 					if(ore_box)
 						for(var/obj/item/weapon/ore/ore in range(chassis,1))
 							if(get_dir(chassis,ore)&chassis.dir)
@@ -115,7 +163,10 @@
 						M.gets_dug()
 				log_message("Drilled through \the [target]")
 				if(locate(/obj/item/mecha_parts/mecha_equipment/tool/hydraulic_clamp) in chassis.equipment)
-					var/obj/structure/ore_box/ore_box = locate(/obj/structure/ore_box) in chassis:cargo
+					var/obj/mecha/working/chass = chassis // Since hydraulic clamp can only be installed on working mechs, no need to check for type.
+					var/obj/structure/ore_box/ore_box
+					if(chass)
+						ore_box = locate(/obj/structure/ore_box) in chass.cargo
 					if(ore_box)
 						for(var/obj/item/weapon/ore/ore in range(chassis,1))
 							if(get_dir(chassis,ore)&chassis.dir)
@@ -141,6 +192,7 @@
 	chassis.use_power(energy_drain)
 	chassis.visible_message("<span class='danger'>\The [chassis] starts to drill \the [target]</span>", "<span class='warning'>You hear a large drill.</span>")
 	occupant_message("<span class='danger'>You start to drill \the [target]</span>")
+	playsound(src.loc, 'sound/mecha/mechdrill.ogg', 50, 1, -1)
 	var/T = chassis.loc
 	var/C = target.loc	//why are these backwards? we may never know -Pete
 	if(do_after_cooldown(target))
@@ -156,7 +208,10 @@
 						M.GetDrilled()
 				log_message("Drilled through \the [target]")
 				if(locate(/obj/item/mecha_parts/mecha_equipment/tool/hydraulic_clamp) in chassis.equipment)
-					var/obj/structure/ore_box/ore_box = locate(/obj/structure/ore_box) in chassis:cargo
+					var/obj/mecha/working/chass = chassis // Since hydraulic clamp can only be installed on working mechs, no need to check for type.
+					var/obj/structure/ore_box/ore_box
+					if(chass)
+						ore_box = locate(/obj/structure/ore_box) in chass.cargo
 					if(ore_box)
 						for(var/obj/item/weapon/ore/ore in range(chassis,1))
 							if(get_dir(chassis,ore)&chassis.dir)
@@ -166,7 +221,10 @@
 					M.gets_dug()
 				log_message("Drilled through \the [target]")
 				if(locate(/obj/item/mecha_parts/mecha_equipment/tool/hydraulic_clamp) in chassis.equipment)
-					var/obj/structure/ore_box/ore_box = locate(/obj/structure/ore_box) in chassis:cargo
+					var/obj/mecha/working/chass = chassis // Since hydraulic clamp can only be installed on working mechs, no need to check for type.
+					var/obj/structure/ore_box/ore_box
+					if(chass)
+						ore_box = locate(/obj/structure/ore_box) in chass.cargo
 					if(ore_box)
 						for(var/obj/item/weapon/ore/ore in range(target,1))
 							ore.Move(ore_box)
@@ -361,12 +419,14 @@
 	range = RANGED
 
 /obj/item/mecha_parts/mecha_equipment/teleporter/action(atom/target)
+
 	if(!action_checks(target) || src.loc.z == 2) return
 	var/turf/T = get_turf(target)
 	if(T)
 		set_ready_state(0)
 		chassis.use_power(energy_drain)
-		do_teleport(chassis, T, 4)
+		do_teleport(chassis, T)
+		spark(T, 5, alldirs)
 		do_after_cooldown()
 	return
 
@@ -829,7 +889,7 @@
 	if(isnull(result))
 		user.visible_message("[user] tries to shove [weapon] into [src]. What a dumb-ass.","<span class='warning'>[fuel] traces minimal. [weapon] cannot be used as fuel.</span>")
 	else if(!result)
-		user << "Unit is full."
+		to_chat(user, "Unit is full.")
 	else
 		user.visible_message("[user] loads [src] with [fuel].","[result] unit\s of [fuel] successfully loaded.")
 	return
@@ -1119,7 +1179,7 @@
 /obj/item/mecha_parts/mecha_equipment/tool/passenger/destroy()
 	for(var/atom/movable/AM in src)
 		AM.forceMove(get_turf(src))
-		AM << "<span class='danger'>You tumble out of the destroyed [src.name]!</span>"
+		to_chat(AM, "<span class='danger'>You tumble out of the destroyed [src.name]!</span>")
 	return ..()
 
 /obj/item/mecha_parts/mecha_equipment/tool/passenger/Exit(atom/movable/O)
@@ -1136,9 +1196,9 @@
 			log_message("[user] boarded.")
 			occupant_message("[user] boarded.")
 		else if(src.occupant != user)
-			user << "<span class='warning'>[src.occupant] was faster. Try better next time, loser.</span>"
+			to_chat(user, "<span class='warning'>[src.occupant] was faster. Try better next time, loser.</span>")
 	else
-		user << "You stop entering the exosuit."
+		to_chat(user, "You stop entering the exosuit.")
 
 /obj/item/mecha_parts/mecha_equipment/tool/passenger/verb/eject()
 	set name = "Eject"
@@ -1148,7 +1208,7 @@
 
 	if(usr != occupant)
 		return
-	occupant << "You climb out from \the [src]."
+	to_chat(occupant, "You climb out from \the [src].")
 	go_out()
 	occupant_message("[occupant] disembarked.")
 	log_message("[occupant] disembarked.")
@@ -1205,18 +1265,18 @@
 		return
 
 	if (!isturf(usr.loc))
-		usr << "<span class='danger'>You can't reach the passenger compartment from here.</span>"
+		to_chat(usr, "<span class='danger'>You can't reach the passenger compartment from here.</span>")
 		return
 
 	if(iscarbon(usr))
 		var/mob/living/carbon/C = usr
 		if(C.handcuffed)
-			usr << "<span class='danger'>Kinda hard to climb in while handcuffed don't you think?</span>"
+			to_chat(usr, "<span class='danger'>Kinda hard to climb in while handcuffed don't you think?</span>")
 			return
 
 	for(var/mob/living/carbon/slime/M in range(1,usr))
 		if(M.Victim == usr)
-			usr << "<span class='danger'>You're too busy getting your life sucked out of you.</span>"
+			to_chat(usr, "<span class='danger'>You're too busy getting your life sucked out of you.</span>")
 			return
 
 	//search for a valid passenger compartment
@@ -1236,13 +1296,13 @@
 	//didn't find anything
 	switch (feedback)
 		if (OCCUPIED)
-			usr << "<span class='danger'>The passenger compartment is already occupied!</span>"
+			to_chat(usr, "<span class='danger'>The passenger compartment is already occupied!</span>")
 		if (LOCKED)
-			usr << "<span class='warning'>The passenger compartment hatch is locked!</span>"
+			to_chat(usr, "<span class='warning'>The passenger compartment hatch is locked!</span>")
 		if (OCCUPIED|LOCKED)
-			usr << "<span class='danger'>All of the passenger compartments are already occupied or locked!</span>"
+			to_chat(usr, "<span class='danger'>All of the passenger compartments are already occupied or locked!</span>")
 		if (0)
-			usr << "<span class='warning'>\The [src] doesn't have a passenger compartment.</span>"
+			to_chat(usr, "<span class='warning'>\The [src] doesn't have a passenger compartment.</span>")
 
 #undef LOCKED
 #undef OCCUPIED

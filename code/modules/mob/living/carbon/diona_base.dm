@@ -8,8 +8,8 @@
 #define NYMPH_ABSORB_NUTRITION	650
 #define NYMPH_ABSORB_DEAD_FACTOR	0.3
 
-#define REGROW_FOOD_REQ		100
-#define REGROW_ENERGY_REQ	40
+#define REGROW_FOOD_REQ		150
+#define REGROW_ENERGY_REQ	60
 
 
 #define LANGUAGE_POINTS_TO_LEARN	3 //The number of samples of a language required to learn it
@@ -92,7 +92,9 @@ var/list/diona_banned_languages = list(
 		if(DS.nutrient_organ.is_bruised())
 			plus *= 0.5
 	plus = min(plus, max_nutrition - nutrition)
-	nutrition += plus
+
+	adjustNutritionLoss(-plus)
+
 	return plus*7 //The return value is the number of moles to remove from the local environment
 
 /mob/living/carbon/proc/diona_handle_temperature(var/datum/dionastats/DS)
@@ -116,11 +118,8 @@ var/list/diona_banned_languages = list(
 //Most medicines don't work on diona, but physical treatment for external wounds helps a little,
 //and some alternative things that are toxic to other life, such as radium and mutagen, will benefit diona
 /mob/living/carbon/proc/diona_handle_regeneration(var/datum/dionastats/DS)
-	if ((DS.stored_energy < 1 && !total_radiation)) //we need energy or radiation to heal
+	if ((DS.stored_energy < 1 && !total_radiation)) //we need energy or total_radiation to heal
 		return FALSE
-
-	var/radiation = max(total_radiation, 0)
-
 
 	var/value //A little variable we'll reuse to optimise
 	var/CL //Cached loss, to save on repeatedly recalculating it
@@ -132,10 +131,10 @@ var/list/diona_banned_languages = list(
 	if (getHalLoss() > 0)
 		CL = getHalLoss()
 		if (CL > 0)
-			if (radiation > 0)
-				value = min(CL, radiation, 2*HF)
+			if (total_radiation > 0)
+				value = min(CL, total_radiation, 2*HF)
 				adjustHalLoss(value*-3,1) //Halloss heals more quickly
-				radiation -= value
+				total_radiation -= value
 				CL = getHalLoss()
 
 			value = min(CL, DS.stored_energy, 1*HF)
@@ -149,10 +148,10 @@ var/list/diona_banned_languages = list(
 		CL = getBruteLoss()
 
 		if (CL > 0)
-			if (radiation > 0)
-				value = min(CL, radiation, 2*HF)
+			if (total_radiation > 0)
+				value = min(CL, total_radiation, 2*HF)
 				adjustBruteLoss(value*-1)
-				radiation -= value
+				total_radiation -= value
 				CL = getBruteLoss() //After adjusting it, recalculate for the lighthealing
 
 			value = min(CL, DS.stored_energy, 1*HF)
@@ -161,10 +160,10 @@ var/list/diona_banned_languages = list(
 
 		CL = getFireLoss()
 		if (CL > 0)
-			if (radiation > 0)
-				value = min(CL, radiation, 2*HF)
+			if (total_radiation > 0)
+				value = min(CL, total_radiation, 2*HF)
 				adjustFireLoss(value*-1)
-				radiation -= value
+				total_radiation -= value
 				CL = getFireLoss()
 
 			value = min(CL, DS.stored_energy, 1*HF)
@@ -173,10 +172,10 @@ var/list/diona_banned_languages = list(
 
 		CL = stunned
 		if (CL > 0)
-			if (radiation > 0)
-				value = min(CL, radiation, 2*HF)
+			if (total_radiation > 0)
+				value = min(CL, total_radiation, 2*HF)
 				stunned -= value
-				radiation -= value
+				total_radiation -= value
 				CL = stunned
 
 			value = min(CL, DS.stored_energy, 1*HF)
@@ -186,10 +185,10 @@ var/list/diona_banned_languages = list(
 
 		CL = weakened
 		if (CL > 0)
-			if (radiation > 0)
-				value = min(CL, radiation, 2*HF)
+			if (total_radiation > 0)
+				value = min(CL, total_radiation, 2*HF)
 				weakened -= value
-				radiation -= value
+				total_radiation -= value
 				CL = weakened
 
 			value = min(CL, DS.stored_energy, 1*HF)
@@ -200,10 +199,10 @@ var/list/diona_banned_languages = list(
 		if (life_tick % LIFETICK_INTERVAL_LESS == 0)
 			CL = getToxLoss()
 			if (CL > 0)
-				if (radiation > 0)
-					value = min(CL, radiation, 2*HF*LIFETICK_INTERVAL_LESS)
+				if (total_radiation > 0)
+					value = min(CL, total_radiation, 2*HF*LIFETICK_INTERVAL_LESS)
 					adjustToxLoss(value*-1)
-					radiation -= value
+					total_radiation -= value
 					CL = getToxLoss()
 
 				value = min(CL, DS.stored_energy, 1*HF*LIFETICK_INTERVAL_LESS)
@@ -213,10 +212,10 @@ var/list/diona_banned_languages = list(
 
 			CL = getCloneLoss()
 			if (CL > 0)
-				if (radiation > 0)
-					value = min(CL, radiation, 2*HF*LIFETICK_INTERVAL_LESS)
+				if (total_radiation > 0)
+					value = min(CL, total_radiation, 2*HF*LIFETICK_INTERVAL_LESS)
 					adjustCloneLoss(value/-2.5) //Genetic damage, should diona ever suffer it, heals much more slowly.
-					radiation -= value //Most likely the only time they'll cloneloss is escaping from being partially devoured
+					total_radiation -= value //Most likely the only time they'll cloneloss is escaping from being partially devoured
 					CL = getCloneLoss()
 
 				value = min(CL, DS.stored_energy, 1*HF*LIFETICK_INTERVAL_LESS)
@@ -227,20 +226,14 @@ var/list/diona_banned_languages = list(
 		updatehealth()
 		return FALSE
 
-	// A little inter-proc communication.
-	// We need the continued radiation count for the sake of actually working.
-	return max(radiation, 0)
-
 // Continuation of the Diona regen proc, but for human specific actions.
 /mob/living/carbon/human/diona_handle_regeneration(var/datum/dionastats/DS)
-	. = ..()
+	..()
 
 	// We cancel with regening organ, as it's meant to stop all other regenerative
 	// processes. Just pray to shit the timers don't implode.
-	if (!. || DS.regening_organ)
+	if ((!total_radiation && !DS.healing_factor && !DS.stored_energy) || DS.regening_organ)
 		return FALSE
-
-	var/radiation = .
 
 	//Next up, healing any damage to internal organs.
 	//Diona really only have one critical organ, the light receptor node in the head.
@@ -251,10 +244,10 @@ var/list/diona_banned_languages = list(
 			for (var/obj/item/organ/O in bad_internal_organs)
 				var/CL = O.damage
 				var/value
-				if (radiation > 0)
-					value = min(CL, radiation, 2 * DS.healing_factor * LIFETICK_INTERVAL_LESS)
+				if(total_radiation > 0)
+					value = min(CL, total_radiation, 2 * DS.healing_factor * LIFETICK_INTERVAL_LESS)
 					O.damage += value/-1.5
-					radiation -= value
+					total_radiation -= value
 					CL = getCloneLoss()
 
 				value = min(CL, DS.stored_energy, 1 * DS.healing_factor * LIFETICK_INTERVAL_LESS)
@@ -279,6 +272,8 @@ var/list/diona_banned_languages = list(
 		//We will only replace ONE organ or limb each time this procs
 		var/path
 		for (var/i in species.has_limbs)
+			if(organs_by_name[i]) //Allow arm transplants + cyborg limbs
+				continue
 			path = species.has_limbs[i]["path"]
 			var/limb_exists = 0
 			for (var/obj/item/organ/external/B in organs)
@@ -300,13 +295,14 @@ var/list/diona_banned_languages = list(
 				to_chat(src, "<span class='danger'>You try to regrow a lost limb, but you lack the biomass. Find some food!</span>")
 				return
 			DS.stored_energy -= REGROW_ENERGY_REQ
-			nutrition -= REGROW_FOOD_REQ
+			adjustNutritionLoss(REGROW_FOOD_REQ)
 			playsound(src, 'sound/species/diona/gestalt_grow.ogg', 30, 1)
 			visible_message("<span class='warning'>[src] begins to shift and quiver.</span>",
 				"<span class='warning'>You begin to shift and quiver, feeling a stirring within your trunk</span>")
 
 			DS.regening_organ = TRUE
-			addtimer(CALLBACK(src, .proc/diona_regen_callback, path), 52)
+			to_chat(src, "<span class='notice'>You are trying to regrow a lost limb, this is a long and complicated process that will take 10 minutes!</span>")
+			addtimer(CALLBACK(src, .proc/diona_regen_callback, path), 10 MINUTES)
 			return
 
 
@@ -334,7 +330,7 @@ var/list/diona_banned_languages = list(
 				return
 
 			DS.stored_energy -= REGROW_ENERGY_REQ
-			nutrition -= REGROW_FOOD_REQ
+			adjustNutritionLoss(REGROW_FOOD_REQ)
 			var/obj/item/organ/O = new path(src)
 			internal_organs_by_name[O.organ_tag] = O
 			internal_organs.Add(O)
@@ -360,7 +356,7 @@ var/list/diona_banned_languages = list(
 		//If we have less than six nymphs, we add one each proc
 		if (topup_nymphs(1))
 			DS.stored_energy -= REGROW_ENERGY_REQ
-			nutrition -= REGROW_FOOD_REQ
+			adjustNutritionLoss(REGROW_FOOD_REQ)
 			to_chat(src, "<span class='danger'>You feel a stirring inside you as a new nymph is born within your trunk!</span>")
 
 	updatehealth()
@@ -424,7 +420,7 @@ var/list/diona_banned_languages = list(
 			var/HP = 1 //HP  = health-percentage
 			if (DS.LMS == 4)
 				if (HP < 0.6)
-					to_chat(src, "<span class='danger'>The darkness burns. Your nymphs decay and wilt You are in mortal danger!</span>")
+					to_chat(src, "<span class='danger'>The darkness burns. Your nymphs decay and wilt. You are in mortal danger!</span>")
 					DS.LMS = 5
 
 			else if (DS.LMS == 5)
@@ -529,7 +525,7 @@ var/list/diona_banned_languages = list(
 	var/restrictedlight_factor = 0.8 //A value between 0 and 1 that determines how much we nerf the strength of certain worn lights
 		//1 means flashlights work normally., 0 means they do nothing
 
-	var/obj/item/organ/diona/node/light_organ = null //The organ this gestalt uses to recieve light. This is left null for nymphs
+	var/obj/item/organ/diona/node/light_organ = null //The organ this gestalt uses to receive light. This is left null for nymphs
 	var/obj/item/organ/diona/nutrients/nutrient_organ = null //Organ
 	var/LMS = 1 //Lightmessage state. Switching between states gives the user a message
 	var/dionatype //1 = nymph, 2 = worker gestalt

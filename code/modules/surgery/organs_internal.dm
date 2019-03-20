@@ -236,11 +236,11 @@
 			return 0
 
 		if((affected.status & ORGAN_ROBOT) && !(O.status & ORGAN_ROBOT))
-			user << "<span class='danger'>You cannot install a naked organ into a robotic body.</span>"
+			to_chat(user, "<span class='danger'>You cannot install a naked organ into a robotic body.</span>")
 			return SURGERY_FAILURE
 
 		if(!target.species)
-			user << "<span class='danger'>You have no idea what species this person is. Report this on the bug tracker.</span>"
+			to_chat(user, "<span class='danger'>You have no idea what species this person is. Report this on the bug tracker.</span>")
 			return SURGERY_FAILURE
 
 		var/o_is = (O.gender == PLURAL) ? "are" : "is"
@@ -252,22 +252,22 @@
 		else if(target.species.has_organ[O.organ_tag])
 
 			if(O.damage > (O.max_damage * 0.75))
-				user << "<span class='warning'>\The [O.organ_tag] [o_is] in no state to be transplanted.</span>"
+				to_chat(user, "<span class='warning'>\The [O.organ_tag] [o_is] in no state to be transplanted.</span>")
 				return SURGERY_FAILURE
 
 			if(!target.internal_organs_by_name[O.organ_tag])
 				organ_missing = 1
 			else
-				user << "<span class='warning'>\The [target] already has [o_a][O.organ_tag].</span>"
+				to_chat(user, "<span class='warning'>\The [target] already has [o_a][O.organ_tag].</span>")
 				return SURGERY_FAILURE
 
 			if(O && affected.limb_name == O.parent_organ)
 				organ_compatible = 1
 			else
-				user << "<span class='warning'>\The [O.organ_tag] [o_do] normally go in \the [affected.name].</span>"
+				to_chat(user, "<span class='warning'>\The [O.organ_tag] [o_do] normally go in \the [affected.name].</span>")
 				return SURGERY_FAILURE
 		else
-			user << "<span class='warning'>You're pretty sure [target.species.name_plural] don't normally have [o_a][O.organ_tag].</span>"
+			to_chat(user, "<span class='warning'>You're pretty sure [target.species.name_plural] don't normally have [o_a][O.organ_tag].</span>")
 			return SURGERY_FAILURE
 
 		return ..() && organ_missing && organ_compatible

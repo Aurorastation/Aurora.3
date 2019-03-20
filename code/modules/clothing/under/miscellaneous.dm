@@ -332,6 +332,12 @@
 	item_state = "p_suit"
 	worn_state = "dress_saloon"
 
+/obj/item/clothing/under/dress/dress_evening
+	name = "evening gown"
+	desc = "A silky gown, leaves much to the imagination"
+	icon_state = "red_evening_gown"
+	item_state = "red_evening_gown"
+
 /obj/item/clothing/under/dress/dress_cap
 	name = "captain's dress uniform"
 	desc = "Feminine fashion for the style concious captain."
@@ -416,6 +422,46 @@
 	item_state = "sundress_white"
 	worn_state = "sundress_white"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO
+
+/obj/item/clothing/under/dress/stripeddress
+	name = "striped dress"
+	desc = "Fashion in space."
+	icon_state = "striped_dress"
+
+/obj/item/clothing/under/dress/sailordress
+	name = "sailor dress"
+	desc = "Formal wear for a leading lady."
+	icon_state = "sailor_dress"
+
+/obj/item/clothing/under/dress/white
+	name = "white dress"
+	desc = "A fancy white dress with a blue underdress."
+	icon_state = "whitedress"
+	flags_inv = HIDESHOES
+
+/obj/item/clothing/under/dress/red_swept_dress
+	name = "red swept dress"
+	desc = "A red dress that sweeps to the side."
+	icon_state = "red_swept_dress"
+
+/obj/item/clothing/under/dress/westernbustle
+	name = "western bustle"
+	desc = "A western bustle dress from somewhere in the ancient history of Earth."
+	icon_state = "westernbustle"
+
+/obj/item/clothing/under/dress/blacktango
+	name = "black tango dress"
+	desc = "An earthen black tango dress."
+	icon_state = "black_tango"
+
+/obj/item/clothing/under/dress/blacktango/alt
+	icon_state = "black_tango_alt"
+
+/obj/item/clothing/under/dress/offworlder
+	name = "\improper CR dress"
+	desc = "A very tight form-fitting padded suit that looks extremely comfortable to wear. This variant seems to have a poofy skirt and longer sleeves than normal."
+	icon_state = "crdress"
+	worn_state = "crdress"
 
 /obj/item/clothing/under/captainformal
 	name = "captain's formal uniform"
@@ -587,7 +633,7 @@
 	siemens_coefficient = 1
 
 //swimsuit
-/obj/item/clothing/under/swimsuit/
+/obj/item/clothing/under/swimsuit
 	siemens_coefficient = 1
 	body_parts_covered = 0
 
@@ -645,3 +691,29 @@
 	icon_state = "greensuit"
 	item_state = "greensuit"
 	worn_state = "greensuit"
+
+/obj/item/clothing/under/medical_gown
+	name = "medical gown"
+	desc = "A loose pieces of clothing, commonly worn by medical patients."
+	icon_state = "medicalgown"
+	item_state = "medicalgown"
+	has_sensor = 2
+	sensor_mode = 3
+
+/obj/item/clothing/under/medical_gown/white
+	icon_state = "whitemedicalgown"
+	worn_state = "whitemedicalgown"
+
+/obj/item/clothing/under/legion
+	name = "Tau Ceti Foreign Legion uniform"
+	desc = "A blue field uniform used by the force of the Tau Ceti Foreign Legion forces."
+	icon_state = "taucetilegion"
+	item_state = "bl_suit"
+	worn_state = "taucetilegion"
+	siemens_coefficient = 0.7
+
+/obj/item/clothing/under/offworlder
+	name = "\improper CR suit"
+	desc = "A very tight form-fitting padded suit that looks extremely comfortable to wear."
+	icon_state = "crsuit"
+	worn_state = "crsuit"

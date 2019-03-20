@@ -17,8 +17,10 @@
 	var/list/reagent_volumes = list()
 	var/list/reagent_names = list()
 
+	center_of_mass = null
+
 /obj/item/weapon/reagent_containers/borghypo/medical
-	reagent_ids = list("bicaridine", "inaprovaline", "dexalin", "tramadol", "spaceacillin", "anti_toxin")
+	reagent_ids = list("bicaridine", "kelotane", "anti_toxin", "dexalin", "inaprovaline", "tramadol", "spaceacillin")
 
 /obj/item/weapon/reagent_containers/borghypo/rescue
 	reagent_ids = list("tricordrazine", "inaprovaline", "tramadol")
@@ -74,14 +76,14 @@
 			return
 
 	if (M.can_inject(user, 1))
-		visible_message("<span class='notice'>[user] injects [M] with their hypospray!</span>", "<span class='notice'>You inject [M] with your hypospray!</span>")
+		user.visible_message("<span class='notice'>[user] injects [M] with their hypospray!</span>", "<span class='notice'>You inject [M] with your hypospray!</span>", "<span class='notice'>You hear a hissing noise.</span>")
 		to_chat(M,"<span class='notice'>You feel a tiny prick!</span>")
 
 		if(M.reagents)
 			var/t = min(amount_per_transfer_from_this, reagent_volumes[reagent_ids[mode]])
 			M.reagents.add_reagent(reagent_ids[mode], t)
 			reagent_volumes[reagent_ids[mode]] -= t
-			admin_inject_log(user, M, src, reagent_ids[mode], t)
+			admin_inject_log(user, M, src, reagent_ids[mode], reagents.get_temperature(), t)
 			to_chat(user,"<span class='notice'>[t] units injected. [reagent_volumes[reagent_ids[mode]]] units remaining.</span>")
 	return
 
@@ -95,7 +97,7 @@
 		else
 			t += "<a href='?src=\ref[src];reagent=[reagent_ids[i]]'>[reagent_names[i]]</a>"
 	t = "Available reagents: [t]."
-	user << t
+	to_chat(user, t)
 
 	return
 
@@ -106,7 +108,7 @@
 			playsound(loc, 'sound/effects/pop.ogg', 50, 0)
 			mode = t
 			var/datum/reagent/R = SSchemistry.chemical_reagents[reagent_ids[mode]]
-			usr << "<span class='notice'>Synthesizer is now producing '[R.name]'.</span>"
+			to_chat(usr, "<span class='notice'>Synthesizer is now producing '[R.name]'.</span>")
 
 /obj/item/weapon/reagent_containers/borghypo/examine(mob/user)
 	if(!..(user, 2))
@@ -114,7 +116,7 @@
 
 	var/datum/reagent/R = SSchemistry.chemical_reagents[reagent_ids[mode]]
 
-	user << "<span class='notice'>It is currently producing [R.name] and has [reagent_volumes[reagent_ids[mode]]] out of [volume] units left.</span>"
+	to_chat(user, "<span class='notice'>It is currently producing [R.name] and has [reagent_volumes[reagent_ids[mode]]] out of [volume] units left.</span>")
 
 /obj/item/weapon/reagent_containers/borghypo/service
 	name = "cyborg drink synthesizer"
@@ -138,15 +140,15 @@
 		return
 
 	if(!reagent_volumes[reagent_ids[mode]])
-		user << "<span class='notice'>[src] is out of this reagent, give it some time to refill.</span>"
+		to_chat(user, "<span class='notice'>[src] is out of this reagent, give it some time to refill.</span>")
 		return
 
 	if(!target.reagents.get_free_space())
-		user << "<span class='notice'>[target] is full.</span>"
+		to_chat(user, "<span class='notice'>[target] is full.</span>")
 		return
 
 	var/t = min(amount_per_transfer_from_this, reagent_volumes[reagent_ids[mode]])
 	target.reagents.add_reagent(reagent_ids[mode], t)
 	reagent_volumes[reagent_ids[mode]] -= t
-	user << "<span class='notice'>You transfer [t] units of the solution to [target].</span>"
+	to_chat(user, "<span class='notice'>You transfer [t] units of the solution to [target].</span>")
 	return

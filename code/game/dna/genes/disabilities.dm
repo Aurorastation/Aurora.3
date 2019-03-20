@@ -35,7 +35,7 @@
 	if(sdisability)
 		M.sdisabilities|=sdisability
 	if(activation_message)
-		M << "<span class='warning'>[activation_message]</span>"
+		to_chat(M, "<span class='warning'>[activation_message]</span>")
 	else
 		testing("[name] has no activation message.")
 
@@ -47,7 +47,7 @@
 	if(sdisability)
 		M.sdisabilities &= (~sdisability)
 	if(deactivation_message)
-		M << "<span class='warning'>[deactivation_message]</span>"
+		to_chat(M, "<span class='warning'>[deactivation_message]</span>")
 	else
 		testing("[name] has no deactivation message.")
 
@@ -92,13 +92,13 @@
 	New()
 		block=TWITCHBLOCK
 
-/datum/dna/gene/disability/nervousness
-	name="Nervousness"
-	activation_message="You feel nervous."
-	disability=NERVOUS
+/datum/dna/gene/disability/stutter
+	name="Stuttering"
+	activation_message="You feel like forming words becomes increasingly difficult."
+	disability=STUTTER
 
 	New()
-		block=NERVOUSBLOCK
+		block=STUTTERBLOCK
 
 /datum/dna/gene/disability/blindness
 	name="Blindness"

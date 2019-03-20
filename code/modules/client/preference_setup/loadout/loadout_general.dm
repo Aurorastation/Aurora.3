@@ -38,13 +38,33 @@
 	..()
 	gear_tweaks += new/datum/gear_tweak/reagents(lunchables_alcohol_reagents())
 
-/datum/gear/vacflask
-	display_name = "vacuum-flask"
+/datum/gear/vacflask_cold
+	display_name = "cold vacuum-flask"
 	path = /obj/item/weapon/reagent_containers/food/drinks/flask/vacuumflask
 
-/datum/gear/vacflask/New()
+/datum/gear/vacflask_cold/New()
 	..()
 	gear_tweaks += new/datum/gear_tweak/reagents(lunchables_drink_reagents())
+
+/datum/gear/vacflask_cold/spawn_item(var/location, var/metadata)
+	. = ..()
+	var/obj/item/weapon/reagent_containers/food/drinks/flask/vacuumflask/spawned_flask = .
+	if(istype(spawned_flask) && spawned_flask.reagents)
+		spawned_flask.reagents.set_temperature(T0C + 5)
+
+/datum/gear/vacflask_hot
+	display_name = "hot vacuum-flask"
+	path = /obj/item/weapon/reagent_containers/food/drinks/flask/vacuumflask
+
+/datum/gear/vacflask_hot/New()
+	..()
+	gear_tweaks += new/datum/gear_tweak/reagents(lunchables_drink_reagents())
+
+/datum/gear/vacflask_hot/spawn_item(var/location, var/metadata)
+	. = ..()
+	var/obj/item/weapon/reagent_containers/food/drinks/flask/vacuumflask/spawned_flask = .
+	if(istype(spawned_flask) && spawned_flask.reagents)
+		spawned_flask.reagents.set_temperature(T0C + 45)
 
 /datum/gear/lunchbox
 	display_name = "lunchbox"
@@ -102,7 +122,6 @@
 	flags["flag, Democratic People's Republic of Adhomai"] = /obj/item/weapon/flag/dpra/l
 	gear_tweaks += new/datum/gear_tweak/path(flags)
 
-
 /datum/gear/towel
 	display_name = "towel"
 	path = /obj/item/weapon/towel
@@ -118,3 +137,7 @@
 /datum/gear/chess
 	display_name = "chess game kit"
 	path = /obj/item/weapon/storage/box/chess_kit
+
+/datum/gear/battlemonsters
+	display_name = "battlemonsters starter deck"
+	path = /obj/item/battle_monsters/wrapped

@@ -20,6 +20,11 @@
 	src.visible_message("<b>[src]</b> points to [A]")
 	return 1
 
+/mob/living/Crossed(var/atom/movable/AM)
+	if(istype(AM, /obj/mecha))
+		var/obj/mecha/MB = AM
+		MB.trample(src)
+
 /*one proc, four uses
 swapping: if it's 1, the mobs are trying to switch, if 0, non-passive is pushing passive
 default behaviour is:
@@ -59,14 +64,14 @@ default behaviour is:
 			for(var/mob/living/M in range(tmob, 1))
 				if(tmob.pinned.len || ((M.pulling == tmob && ( tmob.restrained() && !( M.restrained() ) && M.stat == 0)) || locate(/obj/item/weapon/grab, tmob.grabbed_by.len)) )
 					if (last_push_notif + 0.5 SECONDS <= world.time)
-						src << "<span class='warning'>[tmob] is restrained, you cannot push past</span>"
+						to_chat(src, "<span class='warning'>[tmob] is restrained, you cannot push past</span>")
 						last_push_notif = world.time
 
 					now_pushing = FALSE
 					return
 				if( tmob.pulling == M && ( M.restrained() && !( tmob.restrained() ) && tmob.stat == 0) )
 					if (last_push_notif + 0.5 SECONDS <= world.time)
-						src << "<span class='warning'>[tmob] is restraining [M], you cannot push past</span>"
+						to_chat(src, "<span class='warning'>[tmob] is restraining [M], you cannot push past</span>")
 						last_push_notif = world.time
 
 					now_pushing = FALSE
@@ -99,7 +104,7 @@ default behaviour is:
 
 			if(istype(tmob, /mob/living/carbon/human) && (FAT in tmob.mutations))
 				if(prob(40) && !(FAT in src.mutations))
-					src << "<span class='danger'>You fail to push [tmob]'s fat ass out of the way.</span>"
+					to_chat(src, "<span class='danger'>You fail to push [tmob]'s fat ass out of the way.</span>")
 					now_pushing = FALSE
 					return
 
@@ -179,9 +184,9 @@ default behaviour is:
 	set hidden = 1
 	if ((src.health < 0 && src.health > -95.0))
 		src.death()
-		src << "<span class='notice'>You have given up life and succumbed to death.</span>"
+		to_chat(src, "<span class='notice'>You have given up life and succumbed to death.</span>")
 	else
-		src << "<span class='warning'>You are not injured enough to succumb to death!</span>"
+		to_chat(src, "<span class='warning'>You are not injured enough to succumb to death!</span>")
 
 
 /mob/living/proc/updatehealth()
@@ -203,7 +208,6 @@ default behaviour is:
 //sort of a legacy burn method for /electrocute, /shock, and the e_chair
 /mob/living/proc/burn_skin(burn_amount)
 	if(istype(src, /mob/living/carbon/human))
-		//world << "DEBUG: burn_skin(), mutations=[mutations]"
 		if(mShock in src.mutations) //shockproof
 			return 0
 		if (COLD_RESISTANCE in src.mutations) //fireproof
@@ -236,8 +240,6 @@ default behaviour is:
 		temperature -= change
 		if(actual < desired)
 			temperature = desired
-//	if(istype(src, /mob/living/carbon/human))
-//		world << "[src] ~ [src.bodytemperature] ~ [temperature]"
 	return temperature
 
 
@@ -307,14 +309,23 @@ default behaviour is:
 	return halloss
 
 /mob/living/proc/adjustHalLoss(var/amount)
-	if(status_flags & GODMODE)	return 0	//godmode
+	if(status_flags & GODMODE)
+		return 0
+
+	if(amount > 0)
+		amount *= 2/(get_nutrition_mul(0.5,1) + get_hydration_mul(0.5,1))
+
 	halloss = min(max(halloss + amount, 0),(maxHealth*2))
 
 /mob/living/carbon/adjustHalLoss(var/amount, var/ignoreImmunity = 0)//An inherited version so this doesnt affect cyborgs
 	if(status_flags & GODMODE)	return 0	//godmode
 	if(!ignoreImmunity)//Adjusting how hallloss works. Species with the NO_PAIN flag will suffer most of the effects of halloss, but will be immune to most conventional sources of accumulating it
-		if (species && species.flags & NO_PAIN)//Species with this flag will only gather halloss through species-specific mechanics, which apply it with the ignoreImmunity flag
+		if (!can_feel_pain())//Species with the NO_PAIN flag will only gather halloss through species-specific mechanics, which apply it with the ignoreImmunity flag
 			return 0
+
+	if(amount > 0)
+		amount *= 1/get_hydration_mul()
+		amount *= 1/get_nutrition_mul()
 
 	halloss = min(max(halloss + amount, 0),(maxHealth*2))
 
@@ -470,6 +481,7 @@ default behaviour is:
 	// shut down ongoing problems
 	total_radiation = 0
 	nutrition = 400
+	hydration = 400
 	bodytemperature = T20C
 	sdisabilities = 0
 	disabilities = 0
@@ -517,11 +529,11 @@ default behaviour is:
 
 	if(config.allow_Metadata)
 		if(client)
-			usr << "[src]'s Metainfo:<br>[client.prefs.metadata]"
+			to_chat(usr, "[src]'s Metainfo:<br>[client.prefs.metadata]")
 		else
-			usr << "[src] does not have any stored infomation!"
+			to_chat(usr, "[src] does not have any stored infomation!")
 	else
-		usr << "OOC Metadata is not supported by this server!"
+		to_chat(usr, "OOC Metadata is not supported by this server!")
 
 	return
 
@@ -646,9 +658,12 @@ default behaviour is:
 		spawn() escape_buckle()
 
 	//Breaking out of a locker?
-	if( src.loc && (istype(src.loc, /obj/structure/closet)) )
+	if( src.loc && istype(src.loc, /obj/structure/closet) )
 		var/obj/structure/closet/C = loc
 		spawn() C.mob_breakout(src)
+	else if(src.loc && istype(src.loc, /obj/item/weapon/trap/animal))
+		var/obj/item/weapon/trap/animal/A = loc
+		spawn() A.mob_breakout(src)
 
 /mob/living/proc/escape_inventory(obj/item/weapon/holder/H)
 	if(H != src.loc) return
@@ -657,8 +672,8 @@ default behaviour is:
 
 	if(istype(M))
 		M.drop_from_inventory(H)
-		M << "<span class='warning'>\The [H] wriggles out of your grip!</span>"
-		src << "<span class='warning'>You wriggle out of \the [M]'s grip!</span>"
+		to_chat(M, "<span class='warning'>\The [H] wriggles out of your grip!</span>")
+		to_chat(src, "<span class='warning'>You wriggle out of \the [M]'s grip!</span>")
 
 		// Update whether or not this mob needs to pass emotes to contents.
 		for(var/atom/A in M.contents)
@@ -670,10 +685,10 @@ default behaviour is:
 		var/obj/item/clothing/accessory/holster/holster = H.loc
 		if(holster.holstered == H)
 			holster.clear_holster()
-		src << "<span class='warning'>You extricate yourself from \the [holster].</span>"
+		to_chat(src, "<span class='warning'>You extricate yourself from \the [holster].</span>")
 		H.forceMove(get_turf(H))
 	else if(istype(H.loc,/obj/item))
-		src << "<span class='warning'>You struggle free of \the [H.loc].</span>"
+		to_chat(src, "<span class='warning'>You struggle free of \the [H.loc].</span>")
 		H.forceMove(get_turf(H))
 
 /mob/living/proc/escape_buckle()
@@ -687,7 +702,7 @@ default behaviour is:
 		return
 	last_resist = world.time
 	if(stunned > 10)
-		src << "<span class='notice'>You can't move...</span>"
+		to_chat(src, "<span class='notice'>You can't move...</span>")
 		return
 	var/resisting = 0
 	for(var/obj/O in requests)
@@ -717,7 +732,7 @@ default behaviour is:
 	set category = "IC"
 
 	resting = !resting
-	src << "<span class='notice'>You are now [resting ? "resting" : "getting up"]</span>"
+	to_chat(src, "<span class='notice'>You are now [resting ? "resting" : "getting up"]</span>")
 
 /mob/living/proc/cannot_use_vents()
 	return "You can't fit into that vent."
@@ -757,7 +772,7 @@ default behaviour is:
 					inertia_dir = 1
 				else if(y >= world.maxy -TRANSITIONEDGE)
 					inertia_dir = 2
-				src << "<span class='warning'>Something you are carrying is preventing you from leaving.</span>"
+				to_chat(src, "<span class='warning'>Something you are carrying is preventing you from leaving.</span>")
 				return
 
 	..()
@@ -781,10 +796,10 @@ default behaviour is:
 	if(!..())
 		return 0
 	if(!possession_candidate)
-		possessor << "<span class='warning'>That animal cannot be possessed.</span>"
+		to_chat(possessor, "<span class='warning'>That animal cannot be possessed.</span>")
 		return 0
 	if(jobban_isbanned(possessor, "Animal"))
-		possessor << "<span class='warning'>You are banned from animal roles.</span>"
+		to_chat(possessor, "<span class='warning'>You are banned from animal roles.</span>")
 		return 0
 	if(!possessor.MayRespawn(1,ANIMAL))
 		return 0
@@ -796,7 +811,7 @@ default behaviour is:
 		return 0
 
 	if(src.ckey || src.client)
-		possessor << "<span class='warning'>\The [src] already has a player.</span>"
+		to_chat(possessor, "<span class='warning'>\The [src] already has a player.</span>")
 		return 0
 
 	message_admins("<span class='adminnotice'>[key_name_admin(possessor)] has taken control of \the [src].</span>")
@@ -805,16 +820,16 @@ default behaviour is:
 	qdel(possessor)
 
 	if(round_is_spooky(6)) // Six or more active cultists.
-		src << "<span class='notice'>You reach out with tendrils of ectoplasm and invade the mind of \the [src]...</span>"
-		src << "<b>You have assumed direct control of \the [src].</b>"
-		src << "<span class='notice'>Due to the spookiness of the round, you have taken control of the poor animal as an invading, possessing spirit - roleplay accordingly.</span>"
+		to_chat(src, "<span class='notice'>You reach out with tendrils of ectoplasm and invade the mind of \the [src]...</span>")
+		to_chat(src, "<b>You have assumed direct control of \the [src].</b>")
+		to_chat(src, "<span class='notice'>Due to the spookiness of the round, you have taken control of the poor animal as an invading, possessing spirit - roleplay accordingly.</span>")
 		src.universal_speak = 1
 		src.universal_understand = 1
 		//src.cultify() // Maybe another time.
 		return
 
-	src << "<b>You are now \the [src]!</b>"
-	src << "<span class='notice'>Remember to stay in character for a mob of this type!</span>"
+	to_chat(src, "<b>You are now \the [src]!</b>")
+	to_chat(src, "<span class='notice'>Remember to stay in character for a mob of this type!</span>")
 	return 1
 
 /mob/living/Destroy()

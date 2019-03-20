@@ -198,15 +198,15 @@
 	var/old_broken_state = broken_state
 	switch(broken_state)
 		if(GRAV_NEEDS_SCREWDRIVER)
-			if(isscrewdriver(I))
-				user << "<span class='notice'>You secure the screws of the framework.</span>"
+			if(I.isscrewdriver())
+				to_chat(user, "<span class='notice'>You secure the screws of the framework.</span>")
 				playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, 1)
 				broken_state++
 		if(GRAV_NEEDS_WELDING)
-			if(iswelder(I))
+			if(I.iswelder())
 				var/obj/item/weapon/weldingtool/WT = I
 				if(WT.remove_fuel(1, user))
-					user << "<span class='notice'>You mend the damaged framework.</span>"
+					to_chat(user, "<span class='notice'>You mend the damaged framework.</span>")
 					playsound(src.loc, 'sound/items/Welder2.ogg', 50, 1)
 					broken_state++
 		if(GRAV_NEEDS_PLASTEEL)
@@ -214,26 +214,26 @@
 				var/obj/item/stack/material/plasteel/PS = I
 				if(PS.amount >= 10)
 					PS.use(10)
-					user << "<span class='notice'>You add the plating to the framework.</span>"
+					to_chat(user, "<span class='notice'>You add the plating to the framework.</span>")
 					playsound(src.loc, 'sound/machines/click.ogg', 75, 1)
 					broken_state++
 				else
-					user << "<span class='notice'>You need 10 sheets of plasteel.</span>"
+					to_chat(user, "<span class='notice'>You need 10 sheets of plasteel.</span>")
 		if(GRAV_NEEDS_WRENCH)
-			if(iswrench(I))
-				user << "<span class='notice'>You secure the plating to the framework.</span>"
+			if(I.iswrench())
+				to_chat(user, "<span class='notice'>You secure the plating to the framework.</span>")
 				playsound(src.loc, 'sound/items/Ratchet.ogg', 75, 1)
 				set_fix()
 		else
 			..()
-	if(iscrowbar(I))
+	if(I.iscrowbar())
 		if(backpanelopen)
 			playsound(src.loc, 'sound/items/Crowbar.ogg', 50, 1)
-			user << "<span class='notice'>You replace the back panel.</span>"
+			to_chat(user, "<span class='notice'>You replace the back panel.</span>")
 			backpanelopen = 0
 		else
 			playsound(src.loc, 'sound/items/Crowbar.ogg', 50, 1)
-			user << "<span class='notice'>You open the back panel.</span>"
+			to_chat(user, "<span class='notice'>You open the back panel.</span>")
 			backpanelopen = 1
 
 	if(old_broken_state != broken_state)
@@ -416,7 +416,7 @@
 	var/turf/our_turf = get_turf(src)
 	for(var/mob/M in mob_list)
 		var/turf/their_turf = get_turf(M)
-		if(their_turf.z == our_turf.z)
+		if(their_turf && (their_turf.z == our_turf.z))
 			M.update_gravity(M.mob_has_gravity())
 			if(M.client)
 				if(!M)	return

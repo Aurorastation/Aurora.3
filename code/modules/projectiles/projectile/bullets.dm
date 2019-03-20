@@ -130,7 +130,8 @@
 	damage = 25
 
 /obj/item/projectile/bullet/pistol/strong //revolvers and matebas
-	damage = 60
+	damage = 45
+	armor_penetration = 15
 
 /obj/item/projectile/bullet/pistol/rubber //"rubber" bullets
 	name = "rubber bullet"
@@ -316,4 +317,9 @@
 	penetrating = 0
 	damage = 10
 
-
+/obj/item/projectile/bullet/gauss
+	name = "slug"
+	icon_state = "heavygauss"
+	damage = 30
+	muzzle_type = /obj/effect/projectile/muzzle/gauss
+	embed = 0

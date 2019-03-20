@@ -200,7 +200,7 @@
 			to_chat(user, "<span class='warning'>The plating is going to need some support.</span>")
 
 	//To lay cable.
-	if(iscoil(C))
+	if(C.iscoil())
 		var/obj/item/stack/cable_coil/coil = C
 		coil.turf_place(src, user)
 		return
@@ -221,3 +221,6 @@
 //Most things use is_plating to test if there is a cover tile on top (like regular floors)
 /turf/simulated/open/is_plating()
 	return TRUE
+
+/turf/simulated/open/AddTracks(var/list/DNA, var/comingdir, var/goingdir, var/bloodcolor="#A10808")
+	return

@@ -55,10 +55,10 @@
 /spell/targeted/life_steal/cast(list/targets, mob/living/user)
 	for(var/mob/living/M in targets)
 		if(M.stat == DEAD)
-			user << "There is no left life to steal."
+			to_chat(user, "There is no left life to steal.")
 			return 0
 		if(isipc(M))
-			user << "There is no life to steal."
+			to_chat(user, "There is no life to steal.")
 			return 0
 		M.visible_message("<span class='danger'>Blood flows from \the [M] into \the [user]!</span>")
 		gibs(M.loc)
@@ -88,19 +88,19 @@
 
 	for(var/mob/living/target in targets)
 		if(!(target.stat == DEAD))
-			user << "This spell can't affect the living."
+			to_chat(user, "This spell can't affect the living.")
 			return 0
 
-		if(isskeleton(target))
-			user << "This spell can't affect the undead."
+		if(isundead(target))
+			to_chat(user, "This spell can't affect the undead.")
 			return 0
 
 		if(islesserform(target))
-			user << "This spell can't affect this lesser creature."
+			to_chat(user, "This spell can't affect this lesser creature.")
 			return 0
 
 		if(isipc(target))
-			user << "This spell can't affect non-organics."
+			to_chat(user, "This spell can't affect non-organics.")
 			return 0
 
 		var/mob/living/carbon/human/skeleton/F = new(get_turf(target))
@@ -115,7 +115,7 @@
 					F.dust()
 
 			else
-				F << "<B>You are a skeleton minion to [usr], they are your master. Obey and protect your master at all costs, you have no free will.</B>"
+				to_chat(F, "<B>You are a skeleton minion to [usr], they are your master. Obey and protect your master at all costs, you have no free will.</B>")
 				F.faction = usr.faction
 
 		//equips the skeleton war gear
@@ -140,67 +140,79 @@
 	max_targets = 1
 	level_max = list(Sp_TOTAL = 0, Sp_SPEED = 0, Sp_POWER = 0)
 
+	cast_sound = 'sound/magic/pope_entry.ogg'
+
 	hud_state = "wiz_lich"
 
 /spell/targeted/lichdom/cast(mob/target,var/mob/living/carbon/human/user as mob)
-
-	if(isskeleton(user))
-		user << "You have no soul or life to offer."
+	..()
+	if(isundead(user))
+		to_chat(user, "You have no soul or life to offer.")
 		return 0
 
 	user.visible_message("<span class='cult'>\The [user]'s skin sloughs off bone, their blood boils and guts turn to dust!</span>")
 	gibs(user.loc)
-	playsound(src, 'sound/magic/pope_entry.ogg', 100, 1)
-	user.verbs += /mob/living/carbon/proc/dark_resurrection
+	user.add_spell(new /spell/targeted/dark_resurrection)
 	user.set_species("Skeleton")
 	user.unEquip(user.wear_suit)
 	user.unEquip(user.head)
 	user.equip_to_slot_or_del(new /obj/item/clothing/suit/wizrobe/black(user), slot_wear_suit)
 	user.equip_to_slot_or_del(new /obj/item/clothing/head/wizard/black(user), slot_head)
-	user << "<span class='notice'>Your soul flee to the remains of your heart, turning it into your phylactery. Do not allow anyone to destroy it!</span>"
+	to_chat(user, "<span class='notice'>Your soul flee to the remains of your heart, turning it into your phylactery. Do not allow anyone to destroy it!</span>")
 	var/obj/item/phylactery/G = new(get_turf(user))
 	G.lich = user
 	G.icon_state = "cursedheart-on"
-
+	user.remove_spell(src)
 	return 1
 
-/mob/living/carbon/proc/dark_resurrection()
-	set category = "Abilities"
-	set name = "Dark Resurrection"
-	set desc = "Return to your phylactery and rebuild your body."
+/spell/targeted/dark_resurrection
+	name = "Dark Resurrection"
+	desc = "This spell brings the user back to life, as long their soul is stored in a phylactery."
+	feedback = "DAR"
+	range = 0
+	school = "necromancy"
+	spell_flags = GHOSTCAST | INCLUDEUSER
+	charge_max = 600 //1 minute
+	max_targets = 1
 
-	var/mob/living/carbon/C = usr
-	if(C.stat != DEAD)
-		C << "<span class='notice'>You're not dead yet!</span>"
-		return
+	invocation = ""
+	invocation_type = SpI_NONE
+
+	hud_state = "wiz_lich"
+
+/spell/targeted/dark_resurrection/cast(mob/target,var/mob/living/carbon/human/user as mob)
+	..()
+	if(user.stat != DEAD)
+		to_chat(user, "<span class='notice'>You're not dead yet!</span>")
+		return 0
 
 	var/obj/item/phylactery/P
 	for(var/thing in world_phylactery)
 		var/obj/item/phylactery/N = thing
-		if (!QDELETED(N) && N.lich == C)
+		if (!QDELETED(N) && N.lich == user)
 			P = N
 
 	if(P)
-		C.forceMove(get_turf(P))
-		C << "<span class='notice'>Your dead body returns to your phylactery, slowly rebuilding itself.</span>"
+		user.forceMove(get_turf(P))
+		to_chat(user, "<span class='notice'>Your dead body returns to your phylactery, slowly rebuilding itself.</span>")
 		if(prob(25))
 			var/area/A = get_area(P)
 			command_announcement.Announce("High levels of bluespace activity detected at \the [A]. Investigate it soon as possible.", "Bluespace Anomaly Report")
-		C.verbs -= /mob/living/carbon/proc/dark_resurrection
-		addtimer(CALLBACK(src, .proc/post_dark_resurrection), rand(400, 800))
+
+		addtimer(CALLBACK(src, .proc/post_dark_resurrection, user), rand(200, 400))
+		return 1
 
 	else
-		C << "<span class='danger'>Your phylactery was destroyed, your existence will face oblivion now.</span>"
-		C.visible_message("<span class='cult'>As [C]'s body turns to dust, a twisted wail can be heard!</span>")
-		playsound(C.loc, 'sound/hallucinations/wail.ogg', 50, 1)
-		C.dust()
-		return
+		to_chat(user, "<span class='danger'>Your phylactery was destroyed, your existence will face oblivion now.</span>")
+		user.visible_message("<span class='cult'>As [user]'s body turns to dust, a twisted wail can be heard!</span>")
+		playsound(get_turf(user), 'sound/hallucinations/wail.ogg', 50, 1)
+		user.dust()
+		return 0
 
-/mob/living/carbon/proc/post_dark_resurrection()
-	src.revive()
-	src << "<span class='danger'>You have returned to life!</span>"
-	src.visible_message("<span class='cult'>[src] rises up from the dead!</span>")
-	playsound(src, 'sound/magic/pope_entry.ogg', 100, 1)
-	src.update_canmove()
-	src.verbs += /mob/living/carbon/proc/dark_resurrection
+/spell/targeted/dark_resurrection/proc/post_dark_resurrection(var/mob/living/carbon/human/user as mob)
+	user.revive()
+	to_chat(user, "<span class='danger'>You have returned to life!</span>")
+	user.visible_message("<span class='cult'>[user] rises up from the dead!</span>")
+	playsound(get_turf(user), 'sound/magic/pope_entry.ogg', 100, 1)
+	user.update_canmove()
 	return 1

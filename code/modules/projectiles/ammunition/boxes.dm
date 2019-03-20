@@ -7,7 +7,7 @@
 	caliber = "357"
 	ammo_type = /obj/item/ammo_casing/a357
 	matter = list(DEFAULT_WALL_MATERIAL = 1260)
-	max_ammo = 7
+	max_ammo = 8
 	multiple_sprites = 1
 
 /obj/item/ammo_magazine/a454
@@ -82,22 +82,30 @@
 	name = "magazine (.45 flash)"
 	ammo_type = /obj/item/ammo_casing/c45/flash
 
-/obj/item/ammo_magazine/t40
+/obj/item/ammo_magazine/mc10mm
 	name = "magazine (10mm)"
 	icon_state = "5.56"
 	mag_type = MAGAZINE
-	ammo_type = /obj/item/ammo_casing/t40
+	ammo_type = /obj/item/ammo_casing/c10mm
 	matter = list(DEFAULT_WALL_MATERIAL = 475) //metal costs are very roughly based around 1 .45 casing = 75 metal
 	caliber = "10mm"
 	max_ammo = 12
 	multiple_sprites = 1
 
-/obj/item/ammo_magazine/t40/empty
+/obj/item/ammo_magazine/mc10mm/empty
 	initial_ammo = 0
 
-/obj/item/ammo_magazine/t40/rubber
+/obj/item/ammo_magazine/mc10mm/rubber
 	name = "magazine (10mm rubber)"
-	ammo_type = /obj/item/ammo_casing/t40/rubber
+	ammo_type = /obj/item/ammo_casing/c10mm/rubber
+
+/obj/item/ammo_magazine/mc10mm/leyon
+	name = "ammo clip (10mm)"
+	icon_state = "10mmclip"
+	mag_type = SPEEDLOADER
+	matter = list(DEFAULT_WALL_MATERIAL = 1800)
+	max_ammo = 5
+	multiple_sprites = 1
 
 /obj/item/ammo_magazine/mc9mm
 	name = "magazine (9mm)"
@@ -168,7 +176,7 @@
 	mag_type = MAGAZINE
 	caliber = "10mm"
 	matter = list(DEFAULT_WALL_MATERIAL = 1500)
-	ammo_type = /obj/item/ammo_casing/t40
+	ammo_type = /obj/item/ammo_casing/c10mm
 	max_ammo = 20
 	multiple_sprites = 1
 
@@ -235,19 +243,6 @@
 	max_ammo = 2
 
 /obj/item/ammo_magazine/trodpack/empty
-	initial_ammo = 0
-
-/obj/item/ammo_magazine/tranq
-	name = "tranquilizer darts (.50 cal PPS)"
-	icon_state = "incendiaryshot_box"
-	origin_tech = list(TECH_COMBAT = 2)
-	mag_type = SINGLE_CASING
-	caliber = "PPS"
-	matter = list(DEFAULT_WALL_MATERIAL = 4500)
-	ammo_type = /obj/item/ammo_casing/tranq
-	max_ammo = 4
-
-/obj/item/ammo_magazine/tranq/empty
 	initial_ammo = 0
 
 /obj/item/ammo_magazine/a762
@@ -414,11 +409,16 @@
 	ammo_type = /obj/item/ammo_casing/a762
 	max_ammo = 1000
 
-/obj/item/ammo_magazine/leyon
-	name = "ammo clip (10mm)"
-	icon_state = "10mmclip"
-	ammo_type = /obj/item/ammo_casing/t40
-	caliber = "10mm"
-	matter = list(DEFAULT_WALL_MATERIAL = 1800)
-	max_ammo = 5
+/obj/item/ammo_magazine/gauss
+	name = "tungsten slug box"
+	icon_state = "slugbox"
+	mag_type = MAGAZINE
+	caliber = "gauss"
+	ammo_type = /obj/item/ammo_casing/gauss
+	max_ammo = 7
 	multiple_sprites = 1
+
+/obj/item/ammo_magazine/gauss/emp
+	name = "ion slug box"
+	icon_state = "empslugbox"
+	ammo_type = /obj/item/ammo_casing/gauss/emp

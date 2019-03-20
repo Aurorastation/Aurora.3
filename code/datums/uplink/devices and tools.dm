@@ -23,9 +23,9 @@
 
 /datum/uplink_item/item/tools/surge
 	name = "IPC surge prevention module"
-	item_cost = 14
+	item_cost = 12
 	path = /obj/item/stack/nanopaste/surge
-	desc = "An internal module that allow operative IPC frames to be protected from EMP pulse. The device has limited use that varies between one to three pulses"
+	desc = "An internal module that allow operative IPC frames to be protected from EMP pulse. The device has limited use that varies between two to five pulses"
 
 /datum/uplink_item/item/tools/clerical
 	name = "Morphic Clerical Kit"
@@ -131,3 +131,15 @@
 	item_cost = 4
 	path = /obj/item/clothing/glasses/night/aviator
 	desc = "A pair of night-vision glasses disguised as aviator shades."
+	
+/datum/uplink_item/item/tools/suit_cooling_unit
+	name = "Portable suit cooling unit"
+	item_cost = 4
+	path = /obj/item/device/suit_cooling_unit/improved
+	desc = "A suit cooling unit with a high capacity power cell."
+
+/datum/uplink_item/item/tools/rig_cooling_unit
+	name = "mounted suit cooling unit"
+	item_cost = 8
+	path = /obj/item/rig_module/cooling_unit
+	desc = "A mounted suit cooling unit for use with rigs."

@@ -112,7 +112,7 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 			ready = 0
 
 	if(href_list["refresh"])
-		src << browse(null, "window=playersetup") //closes the player setup window
+		src << browse(null, "window=playersetup") //closes the player setup window)
 		new_player_panel_proc()
 
 	if(href_list["observe"])
@@ -126,17 +126,17 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 			if(!client)	return 1
 			var/mob/abstract/observer/observer = new /mob/abstract/observer(src)
 			spawning = 1
-			src << sound(null, repeat = 0, wait = 0, volume = 85, channel = 1) // MAD JAMS cant last forever yo
+			src << sound(null, repeat = 0, wait = 0, volume = 85, channel = 1) // MAD JAMS cant last forever yo)
 
 
 			observer.started_as_observer = 1
 			close_spawn_windows()
 			var/obj/O = locate("landmark*Observer-Start")
 			if(istype(O))
-				src << "<span class='notice'>Now teleporting.</span>"
+				to_chat(src, "<span class='notice'>Now teleporting.</span>")
 				observer.forceMove(O.loc)
 			else
-				src << "<span class='danger'>Could not locate an observer spawn point. Use the Teleport verb to jump to the station map.</span>"
+				to_chat(src, "<span class='danger'>Could not locate an observer spawn point. Use the Teleport verb to jump to the station map.</span>")
 			observer.timeofdeath = world.time // Set the time of death so that the respawn timer works correctly.
 
 			announce_ghost_joinleave(src)
@@ -161,7 +161,7 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 	if(href_list["late_join"])
 
 		if(SSticker.current_state != GAME_STATE_PLAYING)
-			usr << "<span class='warning'>The round is either not ready, or has already finished...</span>"
+			to_chat(usr, "<span class='warning'>The round is either not ready, or has already finished...</span>")
 			return
 
 		// Cannot join without a saved character, if we're on SQL saves.
@@ -172,11 +172,11 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 		if(!check_rights(R_ADMIN, 0))
 			var/datum/species/S = all_species[client.prefs.species]
 			if((S.spawn_flags & IS_WHITELISTED) && !is_alien_whitelisted(src, client.prefs.species) && config.usealienwhitelist)
-				src << alert("You are currently not whitelisted to play [client.prefs.species].")
+				to_chat(src, alert("You are currently not whitelisted to play [client.prefs.species]."))
 				return 0
 
 			if(!(S.spawn_flags & CAN_JOIN))
-				src << alert("Your current species, [client.prefs.species], is not available for play on the station.")
+				to_chat(src, alert("Your current species, [client.prefs.species], is not available for play on the station."))
 				return 0
 
 		LateChoices()
@@ -187,19 +187,19 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 	if(href_list["SelectedJob"])
 
 		if(!config.enter_allowed)
-			usr << "<span class='notice'>There is an administrative lock on entering the game!</span>"
+			to_chat(usr, "<span class='notice'>There is an administrative lock on entering the game!</span>")
 			return
 		else if(SSticker.mode && SSticker.mode.explosion_in_progress)
-			usr << "<span class='danger'>The station is currently exploding. Joining would go poorly.</span>"
+			to_chat(usr, "<span class='danger'>The station is currently exploding. Joining would go poorly.</span>")
 			return
 
 		var/datum/species/S = all_species[client.prefs.species]
 		if((S.spawn_flags & IS_WHITELISTED) && !is_alien_whitelisted(src, client.prefs.species) && config.usealienwhitelist)
-			src << alert("You are currently not whitelisted to play [client.prefs.species].")
+			to_chat(src, alert("You are currently not whitelisted to play [client.prefs.species]."))
 			return 0
 
 		if(!(S.spawn_flags & CAN_JOIN))
-			src << alert("Your current species, [client.prefs.species], is not available for play on the station.")
+			to_chat(src, alert("Your current species, [client.prefs.species], is not available for play on the station."))
 			return 0
 
 		AttemptLateSpawn(href_list["SelectedJob"],client.prefs.spawnpoint)
@@ -244,7 +244,7 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 				var/id_max = text2num(href_list["maxid"])
 
 				if( (id_max - id_min) > 100 )	//Basic exploit prevention
-					usr << "The option ID difference is too big. Please contact administration or the database admin."
+					to_chat(usr, "The option ID difference is too big. Please contact administration or the database admin.")
 					return
 
 				for(var/optionid = id_min; optionid <= id_max; optionid++)
@@ -263,7 +263,7 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 				var/id_max = text2num(href_list["maxoptionid"])
 
 				if( (id_max - id_min) > 100 )	//Basic exploit prevention
-					usr << "The option ID difference is too big. Please contact administration or the database admin."
+					to_chat(usr, "The option ID difference is too big. Please contact administration or the database admin.")
 					return
 
 				for(var/optionid = id_min; optionid <= id_max; optionid++)
@@ -282,16 +282,16 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 	if(src != usr)
 		return 0
 	if(SSticker.current_state != GAME_STATE_PLAYING)
-		usr << "<span class='warning'>The round is either not ready, or has already finished...</span>"
+		to_chat(usr, "<span class='warning'>The round is either not ready, or has already finished...</span>")
 		return 0
 	if(!config.enter_allowed)
-		usr << "<span class='notice'>There is an administrative lock on entering the game!</span>"
+		to_chat(usr, "<span class='notice'>There is an administrative lock on entering the game!</span>")
 		return 0
 	if(config.sql_saves && !client.prefs.current_character)
 		alert(src, "You have not saved your character yet. Please do so before attempting to join.")
 		return 0
 	if(!IsJobAvailable(rank))
-		src << alert("[rank] is not available. Please try another.")
+		to_chat(src, alert("[rank] is not available. Please try another."))
 		return 0
 
 	spawning = 1
@@ -360,7 +360,7 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 
 	var/dat = "<html><body><center>"
 	dat += "<b>Welcome, [name].<br></b>"
-	dat += "Round Duration: [round_duration()]<br>"
+	dat += "Round Duration: [get_round_duration_formatted()]<br>"
 
 	if(emergency_shuttle) //In case Nanotrasen decides reposess CentComm's shuttles.
 		if(emergency_shuttle.going_to_centcom()) //Shuttle is going to centcomm, not recalled
@@ -421,13 +421,10 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 	else
 		client.prefs.copy_to(new_character)
 
-	src << sound(null, repeat = 0, wait = 0, volume = 85, channel = 1) // MAD JAMS cant last forever yo
+	src << sound(null, repeat = 0, wait = 0, volume = 85, channel = 1) // MAD JAMS cant last forever yo)
 
 	if(mind)
 		mind.active = 0					//we wish to transfer the key manually
-		if(mind.assigned_role == "Clown")				//give them a clownname if they are a clown
-			new_character.real_name = pick(clown_names)	//I hate this being here of all places but unfortunately dna is based on real_name!
-			new_character.rename_self("clown")
 		mind.original = new_character
 		mind.transfer_to(new_character)					//won't transfer key since the mind is not active
 
@@ -464,8 +461,8 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 	return 0
 
 /mob/abstract/new_player/proc/close_spawn_windows()
-	src << browse(null, "window=latechoices") //closes late choices window
-	src << browse(null, "window=playersetup") //closes the player setup window
+	src << browse(null, "window=latechoices") //closes late choices window)
+	src << browse(null, "window=playersetup") //closes the player setup window)
 
 /mob/abstract/new_player/proc/has_admin_rights()
 	return check_rights(R_ADMIN, 0, src)

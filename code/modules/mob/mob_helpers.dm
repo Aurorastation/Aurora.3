@@ -37,8 +37,20 @@
 	return 0
 
 /proc/isunathi(A)
-	if(istype(A, /mob/living/carbon/human) && (A:get_species() == "Unathi"))
-		return 1
+	if(ishuman(A))
+		var/mob/living/carbon/human/H = A
+		switch(H.get_species())
+			if ("Unathi")
+				return 1
+			if("Aut'akh Unathi")
+				return 1
+	return 0
+
+/proc/isautakh(A)
+	if(ishuman(A))
+		var/mob/living/carbon/human/H = A
+		if(H.get_species() == "Aut'akh Unathi")
+			return 1
 	return 0
 
 /proc/istajara(A)
@@ -105,6 +117,17 @@
 		return 1
 	return 0
 
+/proc/isundead(A)
+	if(istype(A, /mob/living/carbon/human))
+		switch(A:get_species())
+			if ("Skeleton")
+				return 1
+			if ("Zombie")
+				return 1
+			if ("Apparition")
+				return 1
+	return 0
+
 /proc/islesserform(A)
 	if(istype(A, /mob/living/carbon/human))
 		switch(A:get_species())
@@ -163,6 +186,12 @@ proc/getsensorlevel(A)
 		return mind && mind.assigned_role == "Space Wizard"
 	else
 		return mind && (mind.assigned_role == "Space Wizard" || mind.assigned_role == "Apprentice")
+
+/mob/proc/is_berserk()
+	return FALSE
+
+/mob/proc/is_pacified()
+	return FALSE
 
 /*
 	Miss Chance
@@ -397,6 +426,8 @@ It's fairly easy to fix if dealing with single letters but not so much with comp
 
 		var/x
 		for(x=0; x<duration, x++)
+			if(M.client)
+				return
 			if(aiEyeFlag)
 				M.client.eye = locate(dd_range(1,oldeye.loc.x+rand(-strength,strength),world.maxx),dd_range(1,oldeye.loc.y+rand(-strength,strength),world.maxy),oldeye.loc.z)
 			else
@@ -407,6 +438,8 @@ It's fairly easy to fix if dealing with single letters but not so much with comp
 		//Will make the strength falloff after the duration.
 		//This helps to reduce jarring effects of major screenshaking suddenly returning to stability
 		//Recommended taper values are 0.05-0.1
+		if(M.client)
+			return
 		if (taper > 0)
 			while (strength > 0)
 				strength -= taper
@@ -499,7 +532,7 @@ proc/is_blind(A)
 	var/turf/sourceturf = get_turf(broadcast_source)
 	for(var/mob/M in targets)
 		var/turf/targetturf = get_turf(M)
-		if((targetturf.z == sourceturf.z))
+		if(targetturf && (targetturf.z == sourceturf.z))
 			M.show_message("<span class='info'>\icon[icon] [message]</span>", 1)
 
 /proc/mobs_in_area(var/area/A)
@@ -552,7 +585,7 @@ proc/is_blind(A)
 					else										// Everyone else (dead people who didn't ghost yet, etc.)
 						lname = name
 				lname = "<span class='name'>[lname]</span> "
-			M << "[follow] <span class='deadsay'>" + create_text_tag("dead", "DEAD:", M.client) + " [lname][message]</span>"
+			to_chat(M, "[follow] <span class='deadsay'>" + create_text_tag("dead", "DEAD:", M.client) + " [lname][message]</span>")
 
 //Announces that a ghost has joined/left, mainly for use with wizards
 /proc/announce_ghost_joinleave(O, var/joined_ghosts = 1, var/message = "")
@@ -684,7 +717,7 @@ proc/is_blind(A)
 		if (istype(user,/mob/living/silicon/robot))
 			return 2
 		else
-			user << "You must unbuckle the subject first"
+			to_chat(user, "You must unbuckle the subject first")
 			return 0
 	return 1
 
@@ -707,8 +740,8 @@ proc/is_blind(A)
 		var/turf/location = loc
 		if (istype(location, /turf/simulated))
 			location.add_vomit_floor(src, 1)
-
-		nutrition -= 60
+		adjustNutritionLoss(60)
+		adjustHydrationLoss(30)
 		if (intoxication)//The pain and system shock of vomiting, sobers you up a little
 			intoxication *= 0.9
 
@@ -726,9 +759,9 @@ proc/is_blind(A)
 		return
 	if(!lastpuke)
 		lastpuke = 1
-		src << "<span class='warning'>You feel nauseous...</span>"
+		to_chat(src, "<span class='warning'>You feel nauseous...</span>")
 		spawn(150)	//15 seconds until second warning
-			src << "<span class='warning'>You feel like you are about to throw up!</span>"
+			to_chat(src, "<span class='warning'>You feel like you are about to throw up!</span>")
 			spawn(100)	//and you have 10 more for mad dash to the bucket
 				vomit()//Vomit function is in mob helpers
 				spawn(350)	//wait 35 seconds before next volley
@@ -931,7 +964,7 @@ proc/is_blind(A)
 	if (justmoved)
 		reportto.contained_visible_message(H,  "<span class='notice'>[H] [action3] [reportto] [preposition] their [newlocation]</span>", "<span class='notice'>You are [action] [preposition] [H]'s [newlocation]</span>", "", 1)
 	else
-		reportto << "<span class='notice'>You are [action] [preposition] [H]'s [newlocation]</span>"
+		to_chat(reportto, "<span class='notice'>You are [action] [preposition] [H]'s [newlocation]</span>")
 
 /atom/proc/get_holding_mob()
 	//This function will return the mob which is holding this holder, or null if it's not held
@@ -1161,3 +1194,68 @@ proc/is_blind(A)
 
 /mob/living/silicon/ai/get_multitool()
 	return ..(aiMulti)
+
+/mob/proc/get_hydration_mul(var/minscale = 0, var/maxscale = 1)
+
+	if(status_flags & GODMODE) //Godmode
+		return maxscale
+
+	if(max_hydration <= 0) //Has no hydration
+		return maxscale
+
+	var/hydration_mul = hydration/max_hydration
+
+	if(hydration_mul >= CREW_HYDRATION_OVERHYDRATED)
+		return minscale + ( (maxscale - minscale) * 0.66)
+
+	if(hydration_mul <= CREW_HYDRATION_DEHYDRATED)
+		return minscale
+
+	if(hydration_mul <= CREW_HYDRATION_VERYTHIRSTY)
+		return minscale + ( (maxscale - minscale) * 0.33)
+
+	if(hydration_mul <= CREW_HYDRATION_THIRSTY)
+		return minscale + ( (maxscale - minscale) * 0.66)
+
+	return minscale + ( (maxscale - minscale) * 1)
+
+/mob/proc/get_nutrition_mul(var/minscale = 0, var/maxscale = 1)
+
+	if(status_flags & GODMODE) //Godmode
+		return maxscale
+
+	if(max_nutrition <= 0) //Has no nutrition
+		return maxscale
+
+	var/nutrition_mul = nutrition/max_nutrition
+
+	if(nutrition_mul >= CREW_NUTRITION_OVEREATEN)
+		return minscale + ( (maxscale - minscale) * 0.66)
+
+	if(nutrition_mul <= CREW_NUTRITION_STARVING)
+		return minscale
+
+	if(nutrition_mul <= CREW_NUTRITION_VERYHUNGRY)
+		return minscale + ( (maxscale - minscale) * 0.33)
+
+	if(nutrition_mul <= CREW_NUTRITION_HUNGRY)
+		return minscale + ( (maxscale - minscale) * 0.66)
+
+	return minscale + ( (maxscale - minscale) * 1)
+
+
+/mob/proc/adjustNutritionLoss(var/amount)
+
+	if(max_nutrition <= 0)
+		return FALSE
+	nutrition = max(0,min(max_nutrition,nutrition - amount))
+
+	return TRUE
+
+/mob/proc/adjustHydrationLoss(var/amount)
+
+	if(max_hydration <= 0)
+		return FALSE
+	hydration = max(0,min(max_hydration,hydration - amount))
+
+	return TRUE

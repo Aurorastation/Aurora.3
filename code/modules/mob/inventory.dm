@@ -29,7 +29,7 @@
 			qdel(W)
 		else
 			if(!disable_warning)
-				src << "<span class='warning'>You are unable to equip that.</span>" //Only print if del_on_fail is false
+				to_chat(src, "<span class='warning'>You are unable to equip [W].</span>")  //Only print if del_on_fail is false
 		return 0
 
 	equip_to_slot(W, slot, redraw_mob) //This proc should not ever fail.
@@ -43,7 +43,29 @@
 
 //This is just a commonly used configuration for the equip_to_slot_if_possible() proc, used to equip people when the rounds tarts and when events happen and such.
 /mob/proc/equip_to_slot_or_del(obj/item/W as obj, slot)
-	. = equip_to_slot_if_possible(W, slot, TRUE, TRUE, FALSE, ignore_blocked = TRUE)
+	. = equip_to_slot_if_possible(W, slot, TRUE, TRUE, FALSE, TRUE)
+
+// Convinience proc.  Collects crap that fails to equip either onto the mob's back, or drops it.
+// Used in job equipping so shit doesn't pile up at the start loc.
+/mob/living/carbon/human/proc/equip_or_collect(var/obj/item/W, var/slot)
+	if(!istype(W))
+		log_debug("MobEquip: Error when equipping [W] for [src] in [slot]")
+		return
+	if(W.mob_can_equip(src, slot, TRUE, TRUE))
+		//Mob can equip.  Equip it.
+		equip_to_slot_or_del(W, slot)
+	else
+		//Mob can't equip it.  Put it their backpack or toss it on the floor
+		if(istype(back, /obj/item/weapon/storage))
+			var/obj/item/weapon/storage/S = back
+			//Now, B represents a container we can insert W into.
+			S.handle_item_insertion(W,1)
+			return S
+
+		var/turf/T = get_turf(src)
+		if(istype(T))
+			W.forceMove(T)
+			return T
 
 //The list of slots by priority. equip_to_appropriate_slot() uses this list. Doesn't matter if a mob type doesn't have a slot.
 var/list/slot_equipment_priority = list( \
@@ -294,7 +316,7 @@ var/list/slot_equipment_priority = list( \
 			var/turf/end_T = get_turf(target)
 			if(start_T && end_T)
 				var/mob/M = item
-				if(disabilities & PACIFIST)
+				if(is_pacified())
 					to_chat(src, "<span class='notice'>You gently let go of [M].</span>")
 					src.remove_from_mob(item)
 					item.loc = src.loc
@@ -314,7 +336,7 @@ var/list/slot_equipment_priority = list( \
 	src.remove_from_mob(item)
 	item.loc = src.loc
 
-	if(disabilities & PACIFIST)
+	if(is_pacified())
 		to_chat(src, "<span class='notice'>You set [item] down gently on the ground.</span>")
 		return
 
@@ -345,3 +367,30 @@ var/list/slot_equipment_priority = list( \
 		qdel(entry)
 
 
+/mob/living/carbon/human/proc/equipOutfit(outfit, visualsOnly = FALSE)
+	var/datum/outfit/O = null
+
+	if(ispath(outfit))
+		O = new outfit
+	else
+		O = outfit
+		if(!istype(O))
+			return FALSE
+	if(!O)
+		return FALSE
+
+	return O.equip(src, visualsOnly)
+
+/mob/living/carbon/human/proc/preEquipOutfit(outfit, visualsOnly = FALSE)
+	var/datum/outfit/O = null
+
+	if(ispath(outfit))
+		O = new outfit
+	else
+		O = outfit
+		if(!istype(O))
+			return FALSE
+	if(!O)
+		return FALSE
+
+	return O.pre_equip(src, visualsOnly)

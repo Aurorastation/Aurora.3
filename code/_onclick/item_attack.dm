@@ -61,7 +61,7 @@ avoid code duplication. This includes items that may sometimes act as a standard
 	if(M == user && user.a_intent != I_HURT)
 		return 0
 
-	if(user.disabilities & PACIFIST)
+	if(user.is_pacified())
 		return 0
 
 	/////////////////////////
@@ -91,10 +91,17 @@ avoid code duplication. This includes items that may sometimes act as a standard
 	var/power = force
 	if(HULK in user.mutations)
 		power *= 2
-	if(istype(user, /mob/living/carbon/human))
+	if(ishuman(user))
 		var/mob/living/carbon/human/X = user
 		if(X.gloves && istype(X.gloves,/obj/item/clothing/gloves/force))
 			var/obj/item/clothing/gloves/force/G = X.gloves
 			power *= G.amplification
+
+		if(ishuman(target))
+			if(X.martial_art && X.martial_art.weapon_affinity && istype(src, X.martial_art.weapon_affinity))
+				perform_technique(target, X, hit_zone)
+
 	return target.hit_with_weapon(src, user, power, hit_zone)
 
+/obj/item/proc/perform_technique(var/mob/living/carbon/human/target, var/mob/living/carbon/human/user, var/target_zone)	//used when weapons have special interactions with martial arts
+	return

@@ -26,6 +26,10 @@
 	movement_range = 15
 	energy = 15
 
+// Can only be obtained by hacking the machine
+/obj/effect/accelerated_particle/powerful
+	movement_range = 20
+	energy = 50
 
 /obj/effect/accelerated_particle/New(loc, dir = 2)
 	src.forceMove(loc)
@@ -62,7 +66,7 @@
 	var/radiation = (energy*2)
 	M.apply_effect((radiation*3),IRRADIATE,blocked = M.getarmor(null, "rad"))
 	M.updatehealth()
-	//M << "\red You feel odd."
+	//to_chat(M, "\red You feel odd.")
 	return
 
 

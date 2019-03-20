@@ -27,6 +27,18 @@
 
 	return filtered
 
+/obj/item/clothing/mask/gas/alt
+	desc = "A face-covering mask that can be connected to an air supply. Filters harmful gases from the air. Doesn't seem to mask the face as much as older designs."
+	flags_inv = HIDEEARS
+	item_state = "gas_alt_alt"
+	icon_state = "gas_alt_alt"
+
+/obj/item/clothing/mask/gas/old
+	desc = "A face-covering mask that can be connected to an air supply. Seems to be an old, outdated design."
+	filtered_gases = list("sleeping_agent")
+	item_state = "gas_mask"
+	icon_state = "gas_mask"
+
 //Plague Dr suit can be found in clothing/suits/bio.dm
 /obj/item/clothing/mask/gas/plaguedoctor
 	name = "plague doctor mask"

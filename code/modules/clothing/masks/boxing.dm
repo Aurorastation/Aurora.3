@@ -14,12 +14,12 @@
 
 	if(src.icon_state == initial(icon_state))
 		src.icon_state = "[icon_state]_r"
-		user << "You roll up \the [src]."
+		to_chat(user, "You roll up \the [src].")
 		body_parts_covered = HEAD
 		flags_inv = BLOCKHAIR
 	else
 		src.icon_state = initial(icon_state)
-		user << "You lower \the [src]."
+		to_chat(user, "You lower \the [src].")
 		flags_inv = HIDEFACE|BLOCKHAIR
 		body_parts_covered = HEAD|FACE|EYES
 
@@ -29,6 +29,13 @@
 	name = "green balaclava"
 	desc = "Designed to both hide identities and keep your face comfy and warm."
 	icon_state = "swatclava"
+
+/obj/item/clothing/mask/balaclava/iacmask
+	name = "IAC balaclava"
+	desc = "Designed to keep the user warm and sterile in hostile enviroments."
+	icon_state = "iacmask"
+	germ_level = 0
+	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 60, rad = 0)
 
 /obj/item/clothing/mask/luchador
 	name = "luchador mask"

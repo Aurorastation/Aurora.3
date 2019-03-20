@@ -23,11 +23,11 @@
 /spell/targeted/shapeshift/cast(var/list/targets, mob/user)
 	for(var/mob/living/M in targets)
 		if(M.stat == DEAD)
-			user << "[name] can only transform living targets."
+			to_chat(user, "[name] can only transform living targets.")
 			continue
 
 		if(M.mind.special_role in protected_roles)
-			user << "Your spell has no effect on them."
+			to_chat(user, "Your spell has no effect on them.")
 			continue
 
 		if(M.buckled)
@@ -81,7 +81,7 @@
 
 /spell/targeted/shapeshift/baleful_polymorph
 	name = "Baleful Polymorth"
-	desc = "This spell transforms its target into a small, furry animal."
+	desc = "This spell transforms its target into a small, furry animal. Those practiced in the high arcane arts can block this spell with ease, however."
 	feedback = "BP"
 	possible_transformations = list(/mob/living/simple_animal/lizard,/mob/living/simple_animal/mouse,/mob/living/simple_animal/corgi, /mob/living/simple_animal/cat)
 
@@ -97,7 +97,7 @@
 
 	newVars = list("health" = 50, "maxHealth" = 50)
 
-	protected_roles = list("Wizard","Changeling","Cultist","Vampire")
+	protected_roles = list("Wizard")
 
 	hud_state = "wiz_poly"
 

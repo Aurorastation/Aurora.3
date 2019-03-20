@@ -365,7 +365,7 @@ nanoui is used to open and update nano browser uis
 		<script type='text/javascript'>
 			function receiveUpdateData(jsonString)
 			{
-				// We need both jQuery and NanoStateManager to be able to recieve data
+				// We need both jQuery and NanoStateManager to be able to receive data
 				// At the moment any data received before those libraries are loaded will be lost
 				if (typeof NanoStateManager != 'undefined' && typeof jQuery != 'undefined')
 				{
@@ -468,8 +468,8 @@ nanoui is used to open and update nano browser uis
 
 	var/list/send_data = get_send_data(data)
 
-	//user << list2json(data) // used for debugging
-	user << output(list2params(list(json_encode(send_data))),"[window_id].browser:receiveUpdateData")
+	//to_chat(user, list2json(data) // used for debugging)
+	to_chat(user, output(list2params(list(json_encode(send_data))),"[window_id].browser:receiveUpdateData"))
 
  /**
   * This Topic() proc is called whenever a user clicks on a link within a Nano UI

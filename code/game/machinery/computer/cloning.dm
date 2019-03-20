@@ -94,7 +94,7 @@
 		if (!src.diskette)
 			user.drop_from_inventory(W,src)
 			src.diskette = W
-			user << "You insert [W]."
+			to_chat(user, "You insert [W].")
 			src.updateUsrDialog()
 			return
 	else
@@ -349,6 +349,7 @@
 					var/answer = alert(selected,"Do you want to return to life?","Cloning","Yes","No")
 					if(answer != "No" && pod.growclone(C))
 						temp = "Initiating cloning cycle..."
+						playsound(src.loc, 'sound/machines/medbayscanner1.ogg', 100, 1)
 						records.Remove(C)
 						qdel(C)
 						menu = 1

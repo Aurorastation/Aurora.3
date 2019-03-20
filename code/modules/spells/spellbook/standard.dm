@@ -16,6 +16,7 @@
 							/spell/aoe_turf/smoke = 					1,
 							/spell/targeted/genetic/blind = 			   	1,
 							/spell/targeted/subjugation = 					1,
+							/spell/targeted/mindcontrol =					2,
 							/spell/aoe_turf/conjure/forcewall = 			        1,
 							/spell/aoe_turf/blink = 					1,
 							/spell/area_teleport = 						1,

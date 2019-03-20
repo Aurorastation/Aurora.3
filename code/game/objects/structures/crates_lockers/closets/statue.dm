@@ -3,10 +3,10 @@
 	universal_understand = 1
 
 /mob/statue_mob/send_emote()
-	src << "You are unable to emote while trapped as a statue."
+	to_chat(src, "You are unable to move while trapped as a statue.")
 
 /mob/statue_mob/say()
-	src << "You are unable to speak while trapped as a statue."
+	to_chat(src, "You are unable to speak while trapped as a statue.")
 
 /obj/structure/closet/statue
 	name = "statue"
@@ -16,7 +16,7 @@
 	density = 1
 	anchored = 1
 	health = 0 //destroying the statue kills the mob within
-	var/timer = 240 //eventually the person will be freed
+	var/timer = 90 //eventually the person will be freed
 	var/mob/statue_mob/imprisoned = null //the temporary mob that is created when someone is put inside a statue
 
 /obj/structure/closet/statue/eternal
@@ -73,9 +73,9 @@
 	..()
 
 /obj/structure/closet/statue/process()
-	timer--
+	timer -= 2
 
-	if (timer == 50)
+	if (timer == 10)
 		visible_message("<span class='notice'>\The [src]'s surface begins cracking and dissolving!</span>")
 
 	if (timer <= 0)

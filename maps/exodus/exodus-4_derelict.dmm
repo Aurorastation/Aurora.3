@@ -741,10 +741,6 @@
 /obj/machinery/recharge_station,
 /turf/simulated/floor/airless,
 /area/constructionsite/ai)
-"bU" = (
-/obj/machinery/door/airlock/maintenance_hatch,
-/turf/simulated/wall,
-/area/constructionsite/hallway/fore)
 "bV" = (
 /obj/structure/lattice,
 /turf/template_noop,
@@ -762,10 +758,6 @@
 "bZ" = (
 /obj/structure/grille,
 /turf/simulated/floor/airless,
-/area/constructionsite/hallway/aft)
-"ca" = (
-/obj/machinery/door/airlock/maintenance_hatch,
-/turf/simulated/wall,
 /area/constructionsite/hallway/aft)
 "cb" = (
 /obj/machinery/door/airlock/highsecurity{
@@ -811,13 +803,6 @@
 "ck" = (
 /turf/template_noop,
 /area/constructionsite/medical)
-"cl" = (
-/obj/machinery/door/airlock/glass_medical{
-	name = "Medbay";
-	req_one_access = list(65,5)
-	},
-/turf/simulated/wall,
-/area/constructionsite/hallway/aft)
 "cm" = (
 /obj/machinery/door/airlock/glass_atmos{
 	name = "Atmospherics";
@@ -907,8 +892,7 @@
 "cv" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4;
-	icon_state = "intact";
-	
+	icon_state = "intact"
 	},
 /turf/simulated/wall,
 /area/constructionsite/atmospherics)
@@ -38611,7 +38595,7 @@ ap
 an
 an
 an
-bU
+ap
 ae
 ac
 ab
@@ -39902,7 +39886,7 @@ bX
 bX
 bX
 bW
-ca
+cc
 bW
 ab
 ab
@@ -42235,7 +42219,7 @@ bZ
 bZ
 bZ
 bZ
-cl
+cy
 bZ
 bZ
 bZ

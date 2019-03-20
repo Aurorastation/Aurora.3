@@ -46,7 +46,6 @@
 			isactive[name] = active ? "Active" : "Inactive"
 		else
 			isactive[name] = t.fields["p_stat"]
-			//world << "[name]: [rank]"
 			//cael - to prevent multiple appearances of a player/job combination, add a continue after each line
 		var/department = 0
 		if(real_rank in command_positions)
@@ -323,9 +322,9 @@
 			return R
 
 /proc/GetAssignment(var/mob/living/carbon/human/H)
-	if(H.mind.role_alt_title)
+	if(H.mind && H.mind.role_alt_title)
 		return H.mind.role_alt_title
-	else if(H.mind.assigned_role)
+	else if(H.mind && H.mind.assigned_role)
 		return H.mind.assigned_role
 	else if(H.job)
 		return H.job

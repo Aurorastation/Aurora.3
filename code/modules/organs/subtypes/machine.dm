@@ -80,7 +80,7 @@
 	emp_counter += 30/severity
 	if(emp_counter >= 30)
 		owner.Paralyse(emp_counter/6)
-		owner << "<span class='danger'>%#/ERR: Power leak detected!$%^/</span>"
+		to_chat(owner, "<span class='danger'>%#/ERR: Power leak detected!$%^/</span>")
 
 
 /obj/item/organ/surge
@@ -96,7 +96,7 @@
 
 /obj/item/organ/surge/Initialize()
 	if(!surge_left && !broken)
-		surge_left = rand(1, 3)
+		surge_left = rand(2, 5)
 	robotize()
 	. = ..()
 

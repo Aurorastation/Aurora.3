@@ -49,7 +49,7 @@
 					wearable = 1
 
 			if(!wearable && !(slot in list(slot_l_store, slot_r_store, slot_s_store)))
-				H << "<span class='danger'>Your species cannot wear [src].</span>"
+				to_chat(H, "<span class='danger'>Your species cannot wear [src].</span>")
 				return 0
 	return 1
 
@@ -89,7 +89,7 @@
 
 	attackby(obj/item/weapon/W as obj, mob/user as mob)
 		if(istype(W, /obj/item/weapon/storage/backpack/holding))
-			user << "<span class='warning'>The Bluespace interfaces of the two devices conflict and malfunction.</span>"
+			to_chat(user, "<span class='warning'>The Bluespace interfaces of the two devices conflict and malfunction.</span>")
 			qdel(W)
 			return
 		..()
@@ -165,8 +165,8 @@
 	desc = "It's a sterile backpack able to withstand different pathogens from entering its fabric."
 	icon_state = "viropack"
 
-/obj/item/weapon/storage/backpack/chemistry
-	name = "chemistry backpack"
+/obj/item/weapon/storage/backpack/pharmacy
+	name = "pharmacy backpack"
 	desc = "It's an orange backpack which was designed to hold beakers, pill bottles and bottles."
 	icon_state = "chempack"
 
@@ -175,20 +175,7 @@
 	desc = "It's a Vaurca cloak, with paltry storage options."
 	icon_state = "cape"
 	max_storage_space = 12
-
-/obj/item/weapon/storage/backpack/cloak/mob_can_equip(mob/user)
-
-	if (!..())
-		return 0
-
-	if(ishuman(user))
-		var/mob/living/carbon/human/H = user
-		if (H.species.get_bodytype() == "Vaurca")
-			item_state = "vaurcacape"
-	else
-		item_state = "cape"
-
-	return 1
+	sprite_sheets = list("Vaurca" = 'icons/mob/species/vaurca/back.dmi')
 
 /obj/item/weapon/storage/backpack/syndie
 	name = "syndicate rucksack"
@@ -246,9 +233,9 @@
 	desc = "A sterile satchel with virologist colours."
 	icon_state = "satchel-vir"
 
-/obj/item/weapon/storage/backpack/satchel_chem
-	name = "chemist satchel"
-	desc = "A sterile satchel with chemist colours."
+/obj/item/weapon/storage/backpack/satchel_pharm
+	name = "pharmacist satchel"
+	desc = "A sterile satchel with pharmacist colours."
 	icon_state = "satchel-chem"
 
 /obj/item/weapon/storage/backpack/satchel_gen
@@ -337,6 +324,8 @@
 		slot_l_hand_str = "duffle",
 		slot_r_hand_str = "duffle"
 	)
+	slowdown = 1
+	max_storage_space = 38
 
 /obj/item/weapon/storage/backpack/duffel/cap
 	name = "captain's duffel bag"
@@ -394,8 +383,8 @@
 	desc = "It sure won't hold your genes together, but it'll keep the denim ones safe."
 	icon_state = "duffel-genetics"
 
-/obj/item/weapon/storage/backpack/duffel/chem
-	name = "chemistry duffel bag"
+/obj/item/weapon/storage/backpack/duffel/pharm
+	name = "pharmacy duffel bag"
 	desc = "Spice up the love life a little."
 	icon_state = "duffel-chemistry"
 	item_state_slots = list(
@@ -405,17 +394,19 @@
 
 /obj/item/weapon/storage/backpack/duffel/syndie
 	name = "syndicate duffel bag"
-	desc = "A snazzy black and red duffel bag, perfect for smuggling C4 and Parapens."
+	desc = "A snazzy black and red duffel bag, perfect for smuggling C4 and Parapens. It seems to be made of a lighter material."
 	icon_state = "duffel-syndie"
 	item_state_slots = list(
 		slot_l_hand_str = "duffle_syndie",
 		slot_r_hand_str = "duffle_syndie"
 	)
+	slowdown = 0
 
 /obj/item/weapon/storage/backpack/duffel/wizard
 	name = "wizardly duffel bag"
 	desc = "A fancy blue wizard bag, duffel edition."
 	icon_state = "duffel-wizard"
+	slowdown = 0
 
 /*
  * Messenger Bags
@@ -426,9 +417,9 @@
 	desc = "A sturdy backpack worn over one shoulder."
 	icon_state = "courierbag"
 
-/obj/item/weapon/storage/backpack/messenger/chem
-	name = "chemistry messenger bag"
-	desc = "A serile backpack worn over one shoulder.  This one is in chemsitry colors."
+/obj/item/weapon/storage/backpack/messenger/pharm
+	name = "pharmacy messenger bag"
+	desc = "A serile backpack worn over one shoulder.  This one is in pharmacy colors."
 	icon_state = "courierbagchem"
 
 /obj/item/weapon/storage/backpack/messenger/med
@@ -478,5 +469,10 @@
 
 /obj/item/weapon/storage/backpack/messenger/wizard
 	name = "wizardly messenger bag"
-	desc = "A wizardly backpack worn over one shoulder. This one is in blue and purple colors. "
+	desc = "A wizardly backpack worn over one shoulder. This one is in blue and purple colors."
 	icon_state = "courierbagwizard"
+
+/obj/item/weapon/storage/backpack/legion
+	name = "military rucksack"
+	desc = "A sturdy backpack with the emblems and markings of the Tau Ceti Foreign Legion."
+	icon_state = "legion_bag"

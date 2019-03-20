@@ -1,6 +1,6 @@
 /mob/living/simple_animal
 	name = "animal"
-	icon = 'icons/mob/animal.dmi'
+	icon = 'icons/mob/npc/animal.dmi'
 	health = 20
 	maxHealth = 20
 
@@ -130,7 +130,7 @@
 	. = ..()
 	if(.)
 		if(src.nutrition && src.stat != DEAD && hunger_enabled)
-			src.nutrition -= nutrition_step
+			src.adjustNutritionLoss(nutrition_step)
 
 /mob/living/simple_animal/Released()
 	//These will cause mobs to immediately do things when released.
@@ -148,17 +148,17 @@
 
 	if (hunger_enabled)
 		if (!nutrition)
-			user << "<span class='danger'>It looks starving!</span>"
+			to_chat(user, "<span class='danger'>It looks starving!</span>")
 		else if (nutrition < max_nutrition *0.5)
-			user << "<span class='notice'>It looks hungry.</span>"
+			to_chat(user, "<span class='notice'>It looks hungry.</span>")
 		else if ((reagents.total_volume > 0 && nutrition > max_nutrition *0.75) || nutrition > max_nutrition *0.9)
-			user << "It looks full and contented."
+			to_chat(user, "It looks full and contented.")
 	if (stat == DEAD)
-		user << "<span class='danger'>It looks dead.</span>"
+		to_chat(user, "<span class='danger'>It looks dead.</span>")
 	if (health < maxHealth * 0.5)
-		user << "<span class='danger'>It looks badly wounded.</span>"
+		to_chat(user, "<span class='danger'>It looks badly wounded.</span>")
 	else if (health < maxHealth)
-		user << "<span class='warning'>It looks wounded.</span>"
+		to_chat(user, "<span class='warning'>It looks wounded.</span>")
 
 
 /mob/living/simple_animal/Life()
@@ -289,11 +289,10 @@
 /mob/living/simple_animal/proc/process_food()
 	if (hunger_enabled)
 		if (nutrition)
-			nutrition -= nutrition_step//Bigger animals get hungry faster
-			nutrition = max(0,min(nutrition, max_nutrition))//clamp the value
+			adjustNutritionLoss(nutrition_step)//Bigger animals get hungry faster
 		else
 			if (prob(3))
-				src << "You feel hungry..."
+				to_chat(src, "You feel hungry...")
 
 
 		if (!reagents || !reagents.total_volume)
@@ -303,7 +302,7 @@
 			var/removed = min(current.metabolism*digest_factor, current.volume)
 			if (istype(current, /datum/reagent/nutriment))//If its food, it feeds us
 				var/datum/reagent/nutriment/N = current
-				nutrition += removed*N.nutriment_factor
+				adjustNutritionLoss(-removed*N.nutriment_factor)
 				var/heal_amount = removed*N.regen_factor
 				if (bruteloss > 0)
 					var/n = min(heal_amount, bruteloss)
@@ -408,6 +407,9 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 
 //TODO: refactor mob attackby(), attacked_by(), and friends.
 /mob/living/simple_animal/proc/attacked_with_item(var/obj/item/O, var/mob/user)
+	if(istype(O, /obj/item/weapon/trap/animal))
+		O.attack(src, user)
+		return
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 	if(!O.force)
 		visible_message("<span class='notice'>[user] gently taps [src] with \the [O].</span>")
@@ -425,7 +427,7 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 		apply_damage(damage, O.damtype, used_weapon = "[O.name]")
 		poke(1)
 	else
-		usr << "<span class='danger'>This weapon is ineffective, it does no damage.</span>"
+		to_chat(usr, "<span class='danger'>This weapon is ineffective, it does no damage.</span>")
 		poke()
 
 	visible_message("<span class='danger'>\The [src] has been attacked with the [O] by [user].</span>")
@@ -656,21 +658,23 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 	else
 		fall_asleep()
 
-	src << span("notice","You are now [resting ? "resting" : "getting up"]")
+	to_chat(src, span("notice","You are now [resting ? "resting" : "getting up"]"))
 
 	update_icons()
 
 //Todo: add snowflakey shit to it.
-/mob/living/simple_animal/electrocute_act(var/shock_damage, var/obj/source, var/base_siemens_coeff = 1.0, var/def_zone = null, var/tesla_shock = 0)
+/mob/living/simple_animal/electrocute_act(var/shock_damage, var/obj/source, var/base_siemens_coeff = 1.0, var/def_zone = null, var/tesla_shock = 0, var/ground_zero)
 	apply_damage(shock_damage, BURN)
+	playsound(loc, "sparks", 50, 1, -1)
+	spark(loc, 5, alldirs)
 	visible_message("<span class='warning'>[src] was shocked by [source]!</span>", "<span class='danger'>You are shocked by [source]!</span>", "<span class='notice'>You hear an electrical crack.</span>")
 
 
 /mob/living/simple_animal/can_fall()
 	if (stat != DEAD && flying)
 		return FALSE
-	else
-		return TRUE
+
+	return ..()
 
 /mob/living/simple_animal/can_ztravel()
 	if (stat != DEAD && flying)

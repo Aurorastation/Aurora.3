@@ -112,7 +112,9 @@ They sell generic supplies and ask for generic supplies.
 		/obj/item/target                    = TRADER_ALL,
 		/obj/structure/dispenser            = TRADER_SUBTYPES_ONLY,
 		/obj/structure/filingcabinet        = TRADER_THIS_TYPE,
-		/obj/structure/plushie              = TRADER_SUBTYPES_ONLY
+		/obj/item/toy/plushie/              = TRADER_SUBTYPES_ONLY,
+		/obj/mecha/working/hoverpod         = TRADER_THIS_TYPE,
+		/obj/vehicle/bike                   = TRADER_THIS_TYPE
 	)
 
 /datum/trader/trading_beacon/medical
@@ -149,5 +151,6 @@ They sell generic supplies and ask for generic supplies.
 		/obj/item/weapon/reagent_containers/glass/bottle/chloralhydrate = TRADER_THIS_TYPE,
 		/obj/item/weapon/reagent_containers/glass/bottle/antitoxin      = TRADER_THIS_TYPE,
 		/obj/item/device/handheld_medical                               = TRADER_THIS_TYPE,
-		/obj/item/stack/medical/advanced/bruise_pack/spaceklot          = TRADER_THIS_TYPE
+		/obj/item/stack/medical/advanced/bruise_pack/spaceklot          = TRADER_THIS_TYPE,
+		/obj/mecha/medical/odysseus                                     = TRADER_THIS_TYPE
 	)

@@ -34,7 +34,7 @@
 
 /obj/item/device/flashlight/attack_self(mob/user)
 	if(!isturf(user.loc))
-		user << "You cannot turn the light on while in this [user.loc]." //To prevent some lighting anomalities.
+		to_chat(user, "You cannot turn the light on while in this [user.loc].") //To prevent some lighting anomalities.)
 		return 0
 	on = !on
 	if(on && activation_sound)
@@ -54,38 +54,38 @@
 		var/mob/living/carbon/human/H = M	//mob has protective eyewear
 		if(istype(H))
 			if(M:eyecheck())
-				user << span("warning", "You're going to need to remove \The [M]'s eye protection first.")
+				to_chat(user, span("warning", "You're going to need to remove \The [M]'s eye protection first."))
 				return
 
 			var/obj/item/organ/vision
 			if(H.species.vision_organ)
 				vision = H.internal_organs_by_name[H.species.vision_organ]
 			if(!vision)
-				user << span("warning", "You can't find any [H.species.vision_organ ? H.species.vision_organ : "eyes"] on [H]!")
+				to_chat(user, span("warning", "You can't find any [H.species.vision_organ ? H.species.vision_organ : "eyes"] on [H]!"))
 
 			user.visible_message(span("notice", "\The [user] directs [src] to [M]'s eyes."), span("notice", "You direct [src] to [M]'s eyes."))
 
 			if (H != user)	//can't look into your own eyes buster
 				if(M.stat == DEAD || M.blinded)	//mob is dead or fully blind
-					user << span("warning","\The [M]'s pupils do not react to the light!")
+					to_chat(user, span("warning","\The [M]'s pupils do not react to the light!"))
 					return
 				if(XRAY in M.mutations)
-					user << span("notice", "\The [M]'s pupils give an eerie glow!")
+					to_chat(user, span("notice", "\The [M]'s pupils give an eerie glow!"))
 				if(vision.damage)
-					user << span("warning", "There's visible damage to [M]'s [vision.name]!")
+					to_chat(user, span("warning", "There's visible damage to [M]'s [vision.name]!"))
 				else if(M.eye_blurry)
-					user << span("notice", "\The [M]'s pupils react slower than normally.")
+					to_chat(user, span("notice", "\The [M]'s pupils react slower than normally."))
 				if(M.getBrainLoss() > 15)
-					user << span("notice", "There's visible lag between left and right pupils' reactions.")
+					to_chat(user, span("notice", "There's visible lag between left and right pupils' reactions."))
 
 				var/list/pinpoint = list("oxycodone"=1,"tramadol"=5)
 				var/list/dilating = list("space_drugs"=5,"mindbreaker"=1)
 				if(M.reagents.has_any_reagent(pinpoint) || H.ingested.has_any_reagent(pinpoint) || H.breathing.has_any_reagent(pinpoint))
-					user << span("notice", "\The [M]'s pupils are already pinpoint and cannot narrow any more.")
+					to_chat(user, span("notice", "\The [M]'s pupils are already pinpoint and cannot narrow any more."))
 				else if(M.reagents.has_any_reagent(dilating) || H.ingested.has_any_reagent(dilating) || H.breathing.has_any_reagent(dilating))
-					user << span("notice", "\The [M]'s pupils narrow slightly, but are still very dilated.")
+					to_chat(user, span("notice", "\The [M]'s pupils narrow slightly, but are still very dilated."))
 				else
-					user << span("notice", "\The [M]'s pupils narrow.")
+					to_chat(user, span("notice", "\The [M]'s pupils narrow."))
 
 			user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN) //can be used offensively
 			flick("flash", M.flash)
@@ -215,7 +215,7 @@
 
 	// Usual checks
 	if(!fuel)
-		user << "<span class='notice'>It's out of fuel.</span>"
+		to_chat(user, "<span class='notice'>It's out of fuel.</span>")
 		return
 	if(on)
 		return
@@ -285,7 +285,7 @@
 /obj/item/device/flashlight/glowstick/attack_self(var/mob/living/user)
 
 	if(((CLUMSY in user.mutations)) && prob(50))
-		user << "<span class='notice'>You break \the [src] apart, spilling its contents everywhere!</span>"
+		to_chat(user, "<span class='notice'>You break \the [src] apart, spilling its contents everywhere!</span>")
 		fuel = 0
 		new /obj/effect/decal/cleanable/greenglow(get_turf(user))
 		user.apply_effect((rand(15,30)),IRRADIATE,blocked = user.getarmor(null, "rad"))
@@ -293,10 +293,10 @@
 		return
 
 	if(!fuel)
-		user << "<span class='notice'>\The [src] has already been used.</span>"
+		to_chat(user, "<span class='notice'>\The [src] has already been used.</span>")
 		return
 	if(on)
-		user << "<span class='notice'>\The [src] has already been turned on.</span>"
+		to_chat(user, "<span class='notice'>\The [src] has already been turned on.</span>")
 		return
 
 	. = ..()
@@ -332,3 +332,15 @@
 	light_color = LIGHT_COLOR_YELLOW //"#FEF923"
 	icon_state = "glowstick_yellow"
 	item_state = "glowstick_yellow"
+
+/obj/item/device/flashlight/headlights
+	name = "headlights"
+	desc = "Some nifty lamps drawing from internal battery sources to produce a light, though a dim one."
+	icon_state = "headlights"
+	item_state = "headlights"
+	flags = CONDUCT
+	slot_flags = SLOT_HEAD | SLOT_EARS
+	brightness_on = 2
+	w_class = 1
+	light_wedge = LIGHT_WIDE
+	body_parts_covered = 0

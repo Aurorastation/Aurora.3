@@ -59,8 +59,8 @@
 	name = "industrial suit control module"
 	suit_type = "industrial hardsuit"
 	desc = "A heavy, powerful rig used by construction crews and mining corporations."
-	icon_state = "engineering_rig"
-	armor = list(melee = 60, bullet = 50, laser = 30,energy = 15, bomb = 30, bio = 100, rad = 50)
+	icon_state = "industrial_rig"
+	armor = list(melee = 60, bullet = 40, laser = 30, energy = 15, bomb = 30, bio = 100, rad = 50)
 	slowdown = 3
 	offline_slowdown = 10
 	offline_vision_restriction = TINT_HEAVY
@@ -68,7 +68,7 @@
 
 	helm_type = /obj/item/clothing/head/helmet/space/rig/industrial
 
-	allowed = list(/obj/item/device/flashlight,/obj/item/weapon/tank,/obj/item/device/suit_cooling_unit,/obj/item/weapon/storage/bag/ore,/obj/item/device/t_scanner,/obj/item/weapon/pickaxe, /obj/item/weapon/rcd)
+	allowed = list(/obj/item/device/flashlight,/obj/item/weapon/tank,/obj/item/device/suit_cooling_unit,/obj/item/weapon/storage/bag/ore,/obj/item/weapon/pickaxe, /obj/item/weapon/gun/custom_ka, /obj/item/weapon/gun/energy/vaurca/thermaldrill)
 
 	req_access = list()
 	req_one_access = list()
@@ -94,7 +94,7 @@
 	suit_type = "EVA hardsuit"
 	desc = "A light rig for repairs and maintenance to the outside of habitats and vessels."
 	icon_state = "eva_rig"
-	armor = list(melee = 30, bullet = 10, laser = 20,energy = 25, bomb = 20, bio = 100, rad = 100)
+	armor = list(melee = 30, bullet = 10, laser = 20, energy = 25, bomb = 20, bio = 100, rad = 100)
 	slowdown = 0
 	offline_slowdown = 1
 	offline_vision_restriction = TINT_HEAVY
@@ -162,9 +162,8 @@
 	name = "AMI control module"
 	suit_type = "hazmat hardsuit"
 	desc = "An Anomalous Material Interaction hardsuit that protects against the strangest energies the universe can throw at it."
-	icon_state = "science_rig"
+	icon_state = "hazmat_rig"
 	armor = list(melee = 45, bullet = 5, laser = 40, energy = 65, bomb = 60, bio = 100, rad = 100)
-	slowdown = 1
 	offline_vision_restriction = TINT_HEAVY
 	emp_protection = 40
 
@@ -186,13 +185,11 @@
 		)
 
 /obj/item/weapon/rig/medical
-
 	name = "rescue suit control module"
 	suit_type = "rescue hardsuit"
 	desc = "A durable suit designed for medical rescue in high risk areas."
 	icon_state = "medical_rig"
 	armor = list(melee = 30, bullet = 15, laser = 20, energy = 60, bomb = 30, bio = 100, rad = 100)
-	slowdown = 1
 	offline_vision_restriction = TINT_HEAVY
 
 	helm_type = /obj/item/clothing/head/helmet/space/rig/medical
@@ -217,10 +214,9 @@
 /obj/item/weapon/rig/hazard
 	name = "hazard hardsuit control module"
 	suit_type = "hazard hardsuit"
-	desc = "A Security hardsuit designed for prolonged EVA in dangerous environments."
+	desc = "A security hardsuit designed for prolonged EVA in dangerous environments."
 	icon_state = "hazard_rig"
-	armor = list(melee = 60, bullet = 40, laser = 30, energy = 15, bomb = 60, bio = 100, rad = 30)
-	slowdown = 1
+	armor = list(melee = 60, bullet = 45, laser = 30, energy = 15, bomb = 60, bio = 100, rad = 45)
 	offline_slowdown = 3
 	offline_vision_restriction = TINT_HEAVY
 

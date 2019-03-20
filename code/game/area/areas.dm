@@ -54,6 +54,7 @@
 		'sound/ambience/ambigen14.ogg'
 	)
 	var/list/forced_ambience = null
+	var/loop_ambience = TRUE
 	var/sound_env = STANDARD_STATION
 	var/turf/base_turf //The base turf type of the area, which can be used to override the z-level's base turf
 	var/no_light_control = 0		// if 1, lights in area cannot be toggled with light controller
@@ -338,12 +339,12 @@ var/list/mob/living/forced_ambiance_list = new
 
 	if(!L.client.ambience_playing)
 		L.client.ambience_playing = 1
-		L << sound('sound/ambience/shipambience.ogg', repeat = 1, wait = 0, volume = 35, channel = 2)
+		L << sound('sound/ambience/shipambience.ogg', repeat = loop_ambience, wait = 0, volume = 35, channel = 2)
 
 	if(forced_ambience)
 		if(forced_ambience.len)
 			forced_ambiance_list |= L
-			L << sound(pick(forced_ambience), repeat = 1, wait = 0, volume = 25, channel = 1)
+			L << sound(pick(forced_ambience), repeat = loop_ambience, wait = 0, volume = 25, channel = 1)
 		else
 			L << sound(null, channel = 1)
 	else if(src.ambience.len && prob(35))
@@ -375,7 +376,7 @@ var/list/mob/living/forced_ambiance_list = new
 		else
 			H.AdjustStunned(1)
 			H.AdjustWeakened(1)
-		mob << "<span class='notice'>The sudden appearance of gravity makes you fall to the floor!</span>"
+		to_chat(mob, "<span class='notice'>The sudden appearance of gravity makes you fall to the floor!</span>")
 
 /area/proc/prison_break()
 	for(var/obj/machinery/power/apc/temp_apc in src)
@@ -405,7 +406,7 @@ var/list/mob/living/forced_ambiance_list = new
 
 //A useful proc for events.
 //This returns a random area of the station which is meaningful. Ie, a room somewhere
-/proc/random_station_area()
+/proc/random_station_area(var/filter_players = FALSE)
 	var/list/possible = list()
 	for(var/Y in the_station_areas)
 		if(!Y)
@@ -419,11 +420,27 @@ var/list/mob/living/forced_ambiance_list = new
 			continue
 		if (istype(A, /area/constructionsite))
 			continue
+		if (istype(A, /area/turbolift))
+			continue
+		if (istype(A, /area/mine))
+			continue
 
 		//Although hostile mobs instadying to turrets is fun
 		//If there's no AI they'll just be hit with stunbeams all day and spam the attack logs.
 		if (istype(A, /area/turret_protected) || LAZYLEN(A.turret_controls))
 			continue
+
+		if(filter_players)
+			var/should_continue = FALSE
+			for(var/mob/living/carbon/human/H in human_mob_list)
+				if(!H.client)
+					continue
+				if(A == get_area(H))
+					should_continue = TRUE
+					break
+
+			if(should_continue)
+				continue
 
 		possible += A
 

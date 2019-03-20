@@ -5,6 +5,7 @@
 	item_state = null	//so the human update icon uses the icon_state instead.
 	fire_sound = 'sound/weapons/Taser.ogg'
 	max_shots = 5
+	accuracy = 1 // More of a buff to secborgs and mounted taser users.
 	projectile_type = /obj/item/projectile/energy/electrode
 	can_turret = 1
 	turret_sprite_set = "carbine"

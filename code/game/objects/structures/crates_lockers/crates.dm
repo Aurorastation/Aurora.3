@@ -93,23 +93,23 @@
 		return ..()
 	else if(istype(W, /obj/item/weapon/packageWrap))
 		return
-	else if(iscoil(W))
+	else if(W.iscoil())
 		var/obj/item/stack/cable_coil/C = W
 		if(rigged)
-			user << "<span class='notice'>[src] is already rigged!</span>"
+			to_chat(user, "<span class='notice'>[src] is already rigged!</span>")
 			return
 		if (C.use(1))
-			user  << "<span class='notice'>You rig [src].</span>"
+			to_chat(user, "<span class='notice'>You rig [src].</span>")
 			rigged = 1
 			return
 	else if(istype(W, /obj/item/device/radio/electropack))
 		if(rigged)
-			user  << "<span class='notice'>You attach [W] to [src].</span>"
+			to_chat(user, "<span class='notice'>You attach [W] to [src].</span>")
 			user.drop_from_inventory(W,src)
 			return
-	else if(iswirecutter(W))
+	else if(W.iswirecutter())
 		if(rigged)
-			user  << "<span class='notice'>You cut away the wiring.</span>"
+			to_chat(user, "<span class='notice'>You cut away the wiring.</span>")
 			playsound(loc, 'sound/items/Wirecutter.ogg', 100, 1)
 			rigged = 0
 			return
@@ -172,7 +172,7 @@
 
 /obj/structure/closet/crate/toggle(var/mob/user)
 	if (!opened && tablestatus == -1)
-		user << span("warning", "You can't open that while it's under the table")
+		to_chat(user, span("warning", "You can't open that while it's under the table"))
 		return 0
 	else
 		return ..()
@@ -210,18 +210,18 @@
 
 	//User must be in reach of the crate
 	if (!user.Adjacent(src))
-		user << span("warning", "You need to be closer to the crate!")
+		to_chat(user, span("warning", "You need to be closer to the crate!"))
 		return
 
 	//One of us has to be near the table
 	if (!user.Adjacent(table) && !Adjacent(table))
-		user << span("warning", "Take the crate closer to the table!")
+		to_chat(user, span("warning", "Take the crate closer to the table!"))
 		return
 
 
 	for (var/obj/structure/closet/crate/C in get_turf(table))
 		if (C.tablestatus != -1)
-			user << span("warning", "There's already a crate on this table!")
+			to_chat(user, span("warning", "There's already a crate on this table!"))
 			return
 
 	//Crates are heavy, hauling them onto tables is hard.
@@ -291,16 +291,16 @@
 
 /obj/structure/closet/crate/secure/proc/togglelock(mob/user as mob)
 	if(opened)
-		user << "<span class='notice'>Close the crate first.</span>"
+		to_chat(user, "<span class='notice'>Close the crate first.</span>")
 		return
 	if(broken)
-		user << "<span class='warning'>The crate appears to be broken.</span>"
+		to_chat(user, "<span class='warning'>The crate appears to be broken.</span>")
 		return
 	if(allowed(user))
 		set_locked(!locked, user)
 		return 1
 	else
-		user << "<span class='notice'>Access Denied</span>"
+		to_chat(user, "<span class='notice'>Access Denied</span>")
 
 /obj/structure/closet/crate/secure/proc/set_locked(var/newlocked, mob/user = null)
 	if(locked == newlocked) return
@@ -324,7 +324,7 @@
 		add_fingerprint(usr)
 		togglelock(usr)
 	else
-		usr << "<span class='warning'>This mob type can't use this verb.</span>"
+		to_chat(usr, "<span class='warning'>This mob type can't use this verb.</span>")
 
 /obj/structure/closet/crate/secure/attack_hand(mob/user as mob)
 	add_fingerprint(user)
@@ -352,7 +352,7 @@
 		playsound(loc, "sparks", 60, 1)
 		locked = 0
 		broken = 1
-		user << "<span class='notice'>You unlock \the [src].</span>"
+		to_chat(user, "<span class='notice'>You unlock \the [src].</span>")
 		return 1
 
 /obj/structure/closet/crate/secure/emp_act(severity)
@@ -488,14 +488,12 @@
 
 /obj/structure/closet/crate/freezer/rations //For use in the escape shuttle
 	name = "emergency rations"
-	desc = "A crate of emergency rations."
-
+	desc = "A crate of emergency rations containing liquid food and some bottles of water."
 
 /obj/structure/closet/crate/freezer/rations/fill()
-	new /obj/item/weapon/reagent_containers/food/snacks/liquidfood(src)
-	new /obj/item/weapon/reagent_containers/food/snacks/liquidfood(src)
-	new /obj/item/weapon/reagent_containers/food/snacks/liquidfood(src)
-	new /obj/item/weapon/reagent_containers/food/snacks/liquidfood(src)
+	for(var/i=1,i<=6,i++)
+		new /obj/item/weapon/reagent_containers/food/snacks/liquidfood(src)
+		new /obj/item/weapon/reagent_containers/food/drinks/cans/waterbottle(src)
 
 /obj/structure/closet/crate/bin
 	name = "large bin"
@@ -687,10 +685,9 @@
 	icon_closed = pick(iconchoices)
 	icon_opened = iconchoices[icon_closed]
 	update_icon()
-	while (quantity > 0)
-		quantity --
+	for (var/i in 1 to quantity)
 		var/newtype = get_spawntype()
-		spawn_stock(newtype,src)
+		call(newtype)(src)
 
 /obj/structure/closet/crate/loot/proc/get_spawntype()
 	var/stocktype = pickweight(spawntypes)

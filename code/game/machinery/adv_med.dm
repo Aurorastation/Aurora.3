@@ -59,10 +59,10 @@
 	if (usr.stat != 0)
 		return
 	if (src.occupant)
-		usr << "<span class='warning'>The scanner is already occupied!</span>"
+		to_chat(usr, "<span class='warning'>The scanner is already occupied!</span>")
 		return
 	if (usr.abiotic())
-		usr << "<span class='warning'>The subject cannot have abiotic items on.</span>"
+		to_chat(usr, "<span class='warning'>The subject cannot have abiotic items on.</span>")
 		return
 	usr.pulling = null
 	usr.client.perspective = EYE_PERSPECTIVE
@@ -99,10 +99,10 @@
 	if ((!( istype(G, /obj/item/weapon/grab) ) || !( isliving(G.affecting) )))
 		return
 	if (src.occupant)
-		user << "<span class='warning'>The scanner is already occupied!</span>"
+		to_chat(user, "<span class='warning'>The scanner is already occupied!</span>")
 		return
 	if (G.affecting.abiotic())
-		user << "<span class='warning'>Subject cannot have abiotic items on.</span>"
+		to_chat(user, "<span class='warning'>Subject cannot have abiotic items on.</span>")
 		return
 
 	var/mob/living/M = G.affecting
@@ -138,10 +138,10 @@
 		return
 	var/mob/living/M = O//Theres no reason this shouldn't be /mob/living
 	if (src.occupant)
-		user << "<span class='notice'><B>The scanner is already occupied!</B></span>"
+		to_chat(user, "<span class='notice'><B>The scanner is already occupied!</B></span>")
 		return
 	if (M.abiotic())
-		user << "<span class='notice'><B>Subject cannot have abiotic items on.</B></span>"
+		to_chat(user, "<span class='notice'><B>Subject cannot have abiotic items on.</B></span>")
 		return
 
 	var/mob/living/L = O
@@ -166,6 +166,7 @@
 		src.occupant = M
 		update_use_power(2)
 		src.icon_state = "body_scanner_1"
+		playsound(src.loc, 'sound/machines/medbayscanner1.ogg', 50)
 		for(var/obj/Obj in src)
 			Obj.forceMove(src.loc)
 			//Foreach goto(154)

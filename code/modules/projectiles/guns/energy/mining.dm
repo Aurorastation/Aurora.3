@@ -1,10 +1,5 @@
 /*******************PLASMA CUTTER*******************/
 
-/obj/item/weapon/gun/energy/plasmacutter/mounted
-	name = "mounted plasma cutter"
-	self_recharge = 1
-	use_external_power = 1
-
 /obj/item/weapon/gun/energy/plasmacutter
 	name = "plasma cutter"
 	desc = "A mining tool capable of expelling concentrated plasma bursts. You could use it to cut limbs off of xenos! Or, you know, mine stuff."
@@ -16,6 +11,7 @@
 	fire_sound = 'sound/weapons/plasma_cutter.ogg'
 	slot_flags = SLOT_BELT|SLOT_BACK
 	w_class = 3
+	accuracy = 1
 	force = 15
 	sharp = 1
 	edge = 1
@@ -23,6 +19,12 @@
 	matter = list(DEFAULT_WALL_MATERIAL = 4000)
 	projectile_type = /obj/item/projectile/beam/plasmacutter
 	max_shots = 15
+	needspin = FALSE
+
+/obj/item/weapon/gun/energy/plasmacutter/mounted
+	name = "mounted plasma cutter"
+	self_recharge = 1
+	use_external_power = 1
 
 /obj/item/projectile/beam/plasmacutter
 	name = "plasma arc"

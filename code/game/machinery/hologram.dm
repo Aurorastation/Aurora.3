@@ -158,13 +158,13 @@ var/const/HOLOPAD_MODE = RANGE_BASED
 /obj/machinery/hologram/holopad/proc/activate_holo(mob/living/silicon/ai/user)
 	if(!(stat & NOPOWER) && user.eyeobj.loc == src.loc)//If the projector has power and client eye is on it
 		if (user.holo)
-			user << "<span class='danger'>ERROR:</span> Image feed in progress."
+			to_chat(user, "<span class='danger'>ERROR:</span> Image feed in progress.")
 			return
 		create_holo(user)//Create one.
 		if(hacked == 0)
 			src.visible_message("A holographic image of [user] flicks to life right before your eyes!")
 	else
-		user << "<span class='danger'>ERROR:</span> Unable to project hologram."
+		to_chat(user, "<span class='danger'>ERROR:</span> Unable to project hologram.")
 	return
 
 /*This is the proc for special two-way communication between AI and holopad/people talking near holopad.
@@ -368,7 +368,7 @@ Holographic project of everything else.
 		flat_icon.AddAlphaMask(alpha_mask)//Finally, let's mix in a distortion effect.
 		hologram.icon = flat_icon
 
-		world << "Your icon should appear now."
+		to_world("Your icon should appear now.")
 	return
 */
 

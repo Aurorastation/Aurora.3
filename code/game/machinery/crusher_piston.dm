@@ -103,11 +103,11 @@
 
 	//Stuff you can do if the maint hatch is open
 	if(panel_open)
-		if(iswrench(O))
-			user << "<span class='notice'>You start [valve_open ? "closing" : "opening"] the pressure relief valve of [src].</span>"
+		if(O.iswrench())
+			to_chat(user, "<span class='notice'>You start [valve_open ? "closing" : "opening"] the pressure relief valve of [src].</span>")
 			if(do_after(user,50))
 				valve_open = !valve_open
-				user << "<span class='notice'>You [valve_open ? "open" : "close"] the pressure relief valve of [src].</span>"
+				to_chat(user, "<span class='notice'>You [valve_open ? "open" : "close"] the pressure relief valve of [src].</span>")
 				if(valve_open)
 					blocked = 0
 					action = "retract"
@@ -118,7 +118,7 @@
 	if(!istype(C))
 		return 0
 	if(num_progress != 0) //Piston needs to be retracted before you are able to deconstruct it
-		user << "<span class='notice'>You can not deconstruct [src] while the piston is extended.</span>"
+		to_chat(user, "<span class='notice'>You can not deconstruct [src] while the piston is extended.</span>")
 		return 0
 	return ..()
 
@@ -188,7 +188,7 @@
 		//If we are idle, flash the warning lights and then put us into pre_start once we are done
 		if(status == "idle")
 			if(initial)
-				playsound(loc, 'sound/machines/airalarm.ogg', 50, 1)	//Plays a beep
+				playsound(src.loc, 'sound/effects/crusher_alarm.ogg', 50, 1)	//Plays a sound
 				initial = 0
 			//TODO: Flash the lights
 			if(timediff > time_stage_pre)
@@ -501,7 +501,7 @@
 	return ..()
 
 /mob/living/carbon/piston_move()
-	if(!(species && (species.flags & NO_PAIN)))
+	if(can_feel_pain())
 		emote("scream")
 	return ..()
 

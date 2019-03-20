@@ -45,16 +45,16 @@
 	switch(selection)
 		if ("Rod")
 			new /obj/item/weapon/nullrod(user.loc)
-			user << "<span class='notice'>A simple obsidian rod, a classic. Rods like these are seen in the hands of religious folks all across the galaxy.</span>"
+			to_chat(user, "<span class='notice'>A simple obsidian rod, a classic. Rods like these are seen in the hands of religious folks all across the galaxy.</span>")
 		if ("Staff")
 			new /obj/item/weapon/nullrod/nullstaff(user.loc)
-			user << "<span class='notice'>A simple staff, a popular choice amongst shamans and wise men. You doubt this will fit in your bag, but you can put it on your back.</span>"
+			to_chat(user, "<span class='notice'>A simple staff, a popular choice amongst shamans and wise men. You doubt this will fit in your bag, but you can put it on your back.</span>")
 		if ("Orb")
 			new /obj/item/weapon/nullrod/nullorb(user.loc)
 		if ("Athame")
 			new /obj/item/weapon/nullrod/nullathame(user.loc)
-			user << "<span class='notice'>An athame, a ritualistic dagger. It's blade is curved and ornate, yet it is rather blunt.</span>"
-	user << "<span class='notice'>You take your [selection] from the box, and throw the empty box away.</span>"
+			to_chat(user, "<span class='notice'>An athame, a ritualistic dagger. It's blade is curved and ornate, yet it is rather blunt.</span>")
+	to_chat(user, "<span class='notice'>You take your [selection] from the box, and throw the empty box away.</span>")
 	qdel(src)
 	return
 
@@ -65,15 +65,15 @@
 
 	if(LAZYLEN(user.spell_list))
 		user.silence_spells(300) //30 seconds
-		user << "<span class='danger'>You've been silenced!</span>"
+		to_chat(user, "<span class='danger'>You've been silenced!</span>")
 		return
 
 	if (!user.IsAdvancedToolUser())
-		user << "<span class='danger'>You don't have the dexterity to do this!</span>"
+		to_chat(user, "<span class='danger'>You don't have the dexterity to do this!</span>")
 		return
 
 	if ((CLUMSY in user.mutations) && prob(50))
-		user << "<span class='danger'>The rod slips out of your hand and hits your head.</span>"
+		to_chat(user, "<span class='danger'>The rod slips out of your hand and hits your head.</span>")
 		user.take_organ_damage(10)
 		user.Paralyse(20)
 		return
@@ -97,10 +97,10 @@
 				user.visible_message("<span class='warning'>[user]'s concentration is broken!</span>", "<span class='warning'>Your concentration is broken! You and your target need to stay uninterrupted for longer!</span>")
 				return
 		else if(prob(10))
-			user << "<span class='danger'>The rod slips in your hand.</span>"
+			to_chat(user, "<span class='danger'>The rod slips in your hand.</span>")
 			..()
 		else
-			user << "<span class='danger'>The rod appears to do nothing.</span>"
+			to_chat(user, "<span class='danger'>The rod appears to do nothing.</span>")
 			M.visible_message("<span class='danger'>\The [user] waves \the [src] over \the [M]'s head.</span>")
 			if(ishuman(M))
 				var/mob/living/carbon/human/H = M
@@ -121,7 +121,7 @@
 	if(!proximity)
 		return
 	if (istype(A, /turf/simulated/floor))
-		user << "<span class='notice'>You hit the floor with the [src].</span>"
+		to_chat(user, "<span class='notice'>You hit the floor with the [src].</span>")
 		call(/obj/effect/rune/proc/revealrunes)(src)
 
 /obj/item/weapon/energy_net
@@ -188,7 +188,7 @@
 		var/mob/living/carbon/M = affecting
 		M.anchored = initial(affecting.anchored)
 		M.captured = 0
-		M << "You are free of the net!"
+		to_chat(M, "You are free of the net!")
 
 	STOP_PROCESSING(SSprocessing, src)
 	return ..()
@@ -231,7 +231,7 @@
 	if(holdingfacility.len)
 		affecting.forceMove(pick(holdingfacility))
 
-	affecting << "You appear in a strange place!"
+	to_chat(affecting, "You appear in a strange place!")
 
 	playsound(affecting.loc, 'sound/effects/phasein.ogg', 25, 1)
 	playsound(affecting.loc, 'sound/effects/sparks2.ogg', 50, 1)
@@ -264,7 +264,7 @@
 	else
 		health -= rand(5,8)
 
-	H << "<span class='danger'>You claw at the energy net.</span>"
+	to_chat(H, "<span class='danger'>You claw at the energy net.</span>")
 
 	healthcheck()
 	return
@@ -316,6 +316,6 @@
 	attack_verb = list("banned")
 
 /obj/item/weapon/banhammer/attack(mob/M as mob, mob/user as mob)
-	M << "<font color='red'><b> You have been banned FOR NO REISIN by [user]</b></font>"
-	user << "<font color='red'> You have <b>BANNED</b> [M]</font>"
+	to_chat(M, "<font color='red'><b> You have been banned FOR NO REISIN by [user]</b></font>")
+	to_chat(user, "<font color='red'> You have <b>BANNED</b> [M]</font>")
 	playsound(loc, 'sound/effects/adminhelp.ogg', 15)

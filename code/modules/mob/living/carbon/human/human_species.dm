@@ -20,7 +20,7 @@ INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy/mannequin)
 	. = ..(mapload, "Resomi")
 
 /mob/living/carbon/human/skrell/Initialize(mapload)
-	h_style = "Skrell Male Tentacles"
+	h_style = "Skrell Average Tentacles"
 	. = ..(mapload, "Skrell")
 
 /mob/living/carbon/human/tajaran/Initialize(mapload)
@@ -64,10 +64,12 @@ INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy/mannequin)
 	src.gender = FEMALE
 
 /mob/living/carbon/human/type_a/Initialize(mapload)
+	h_style = "Classic Antennae"
 	. = ..(mapload, "Vaurca Worker")
 	src.gender = NEUTER
 
 /mob/living/carbon/human/type_b/Initialize(mapload)
+	h_style = "Classic Antennae"
 	. = ..(mapload, "Vaurca Warrior")
 	src.gender = NEUTER
 
@@ -145,3 +147,57 @@ INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy/mannequin)
 
 /mob/living/carbon/human/terminator
 	mob_size = 30
+
+/mob/living/carbon/human/golem/Initialize(mapload)
+	. = ..(mapload, "Coal Golem")
+
+/mob/living/carbon/human/iron_golem/Initialize(mapload)
+	. = ..(mapload, "Iron Golem")
+
+/mob/living/carbon/human/bronze_golem/Initialize(mapload)
+	. = ..(mapload, "Bronze Golem")
+
+/mob/living/carbon/human/steel_golem/Initialize(mapload)
+	. = ..(mapload, "Steel Golem")
+
+/mob/living/carbon/human/plasteel_golem/Initialize(mapload)
+	. = ..(mapload, "Plasteel Golem")
+
+/mob/living/carbon/human/titanium_golem/Initialize(mapload)
+	. = ..(mapload, "Titanium Golem")
+
+/mob/living/carbon/human/cloth_golem/Initialize(mapload)
+	. = ..(mapload, "Cloth Golem")
+
+/mob/living/carbon/human/cardboard_golem/Initialize(mapload)
+	. = ..(mapload, "Cardboard Golem")
+
+/mob/living/carbon/human/glass_golem/Initialize(mapload)
+	. = ..(mapload, "Glass Golem")
+
+/mob/living/carbon/human/phoron_golem/Initialize(mapload)
+	. = ..(mapload, "Phoron Golem")
+
+/mob/living/carbon/human/mhydrogen_golem/Initialize(mapload)
+	. = ..(mapload, "Metallic Hydrogen Golem")
+
+/mob/living/carbon/human/wood_golem/Initialize(mapload)
+	. = ..(mapload, "Wood Golem")
+
+/mob/living/carbon/human/diamond_golem/Initialize(mapload)
+	. = ..(mapload, "Diamond Golem")
+
+/mob/living/carbon/human/sand_golem/Initialize(mapload)
+	. = ..(mapload, "Sand Golem")
+
+/mob/living/carbon/human/uranium_golem/Initialize(mapload)
+	. = ..(mapload, "Uranium Golem")
+
+/mob/living/carbon/human/homunculus/Initialize(mapload)
+	. = ..(mapload, "Homunculus")
+
+/mob/living/carbon/human/adamantine_golem/Initialize(mapload)
+	. = ..(mapload, "Adamantine Golem")
+
+/mob/living/carbon/human/autakh/Initialize(mapload)
+	. = ..(mapload, "Aut'akh Unathi")

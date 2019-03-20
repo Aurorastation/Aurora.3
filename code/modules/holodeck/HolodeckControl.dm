@@ -24,6 +24,9 @@
 	var/last_change = 0
 	var/last_gravity_change = 0
 
+	req_one_access = list(access_heads, access_chapel_office)
+	var/locked = FALSE
+
 /obj/machinery/computer/HolodeckControl/Initialize()
 	. = ..()
 	linkedholodeck = locate(linkedholodeck_area)
@@ -87,6 +90,12 @@
 	else
 		dat += "Gravity is <A href='?src=\ref[src];gravity=1'><font color=blue>(OFF)</font></A><BR>"
 
+	if(!locked)
+		dat += "Holodeck is <A href='?src=\ref[src];togglehololock=1'><font color=green>(UNLOCKED)</font></A><BR>"
+	else
+		dat = "<B>Holodeck Control System</B><BR>"
+		dat += "Holodeck is <A href='?src=\ref[src];togglehololock=1'><font color=red>(LOCKED)</font></A><BR>"
+
 	user << browse(dat, "window=computer;size=400x500")
 	onclose(user, "computer")
 	return
@@ -94,7 +103,12 @@
 /obj/machinery/computer/HolodeckControl/Topic(href, href_list)
 	if(..())
 		return 1
+
 	if((usr.contents.Find(src) || (in_range(src, usr) && istype(src.loc, /turf))) || (istype(usr, /mob/living/silicon)))
+
+		if(locked && !allowed(usr))
+			return
+
 		usr.set_machine(src)
 
 		if(href_list["program"])
@@ -121,6 +135,9 @@
 		else if(href_list["gravity"])
 			toggleGravity(linkedholodeck)
 
+		else if(href_list["togglehololock"])
+			togglelock(usr)
+
 		src.add_fingerprint(usr)
 	src.updateUsrDialog()
 	return
@@ -131,9 +148,10 @@
 	if (!emagged)
 		emagged = 1
 		safety_disabled = 1
+		req_one_access = list()
 		update_projections()
-		user << "<span class='notice'>You vastly increase projector power and override the safety and security protocols.</span>"
-		user << "Warning.  Automatic shutoff and derezing protocols have been corrupted.  Please call [current_map.company_name] maintenance and do not use the simulator."
+		to_chat(user, "<span class='notice'>You vastly increase projector power and override the safety and security protocols.</span>")
+		to_chat(user, "Warning.  Automatic shutoff and derezing protocols have been corrupted.  Please call [current_map.company_name] maintenance and do not use the simulator.")
 		log_game("[key_name(usr)] emagged the Holodeck Control Computer",ckey=key_name(usr))
 		return 1
 		src.updateUsrDialog()
@@ -347,6 +365,15 @@
 
 	active = 0
 	use_power = 1
+
+/obj/machinery/computer/HolodeckControl/proc/togglelock(var/mob/user)
+	if(allowed(user))
+		locked = !locked
+		visible_message("<span class='notice'>\The [src] emits a series of beeps to announce it has been [locked ? null : "un"]locked.</span>", range = 3)
+		return FALSE
+	else
+		to_chat(user, "<span class='warning'>Access denied.</span>")
+		return TRUE
 
 /obj/machinery/computer/HolodeckControl/Exodus
 	density = 0

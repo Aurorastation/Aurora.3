@@ -571,7 +571,7 @@
 "abx" = (
 /obj/structure/table/rack/holorack,
 /obj/item/clothing/under/dress/dress_saloon,
-/obj/item/clothing/head/hairflower,
+/obj/item/clothing/head/pin/flower,
 /turf/simulated/floor/holofloor/tiled/dark,
 /area/holodeck/source_theatre)
 "aby" = (
@@ -5018,7 +5018,7 @@
 /area/template_noop)
 "anO" = (
 /obj/structure/table/rack,
-/obj/item/weapon/gun/energy/ionrifle,
+/obj/item/weapon/gun/energy/rifle/ionrifle,
 /obj/machinery/recharger/wallcharger{
 	pixel_x = 5;
 	pixel_y = 32
@@ -6892,7 +6892,7 @@
 /area/centcom/specops)
 "asY" = (
 /obj/structure/table/rack,
-/obj/item/weapon/gun/energy/ionrifle,
+/obj/item/weapon/gun/energy/rifle/ionrifle,
 /turf/unsimulated/floor{
 	icon_state = "vault";
 	dir = 1
@@ -8021,7 +8021,9 @@
 	locked = 1;
 	name = "To: Administration Level"
 	},
-/turf/unsimulated/wall/riveted,
+/turf/unsimulated/floor{
+	icon_state = "floor"
+	},
 /area/centcom/suppy)
 "axw" = (
 /obj/machinery/light/spot{
@@ -11000,7 +11002,7 @@
 /area/skipjack_station/start)
 "aFU" = (
 /obj/structure/table/rack,
-/obj/item/weapon/gun/energy/ionrifle,
+/obj/item/weapon/gun/energy/rifle/ionrifle,
 /obj/item/weapon/material/harpoon,
 /obj/item/clothing/suit/space/void/merc,
 /obj/item/clothing/head/helmet/space/void/merc,
@@ -11026,7 +11028,7 @@
 /obj/item/seeds/potatoseed,
 /obj/item/seeds/ambrosiavulgarisseed,
 /obj/item/weapon/material/minihoe,
-/obj/item/weapon/beartrap,
+/obj/item/weapon/trap,
 /obj/structure/table/steel,
 /turf/simulated/shuttle/plating,
 /area/skipjack_station/start)
@@ -11260,12 +11262,12 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
-/obj/item/weapon/beartrap,
-/obj/item/weapon/beartrap,
-/obj/item/weapon/beartrap,
-/obj/item/weapon/beartrap,
-/obj/item/weapon/beartrap,
-/obj/item/weapon/beartrap,
+/obj/item/weapon/trap,
+/obj/item/weapon/trap,
+/obj/item/weapon/trap,
+/obj/item/weapon/trap,
+/obj/item/weapon/trap,
+/obj/item/weapon/trap,
 /turf/simulated/shuttle/floor{
 	icon_state = "floor4"
 	},
@@ -17868,7 +17870,7 @@
 /obj/structure/artilleryplaceholder/decorative{
 	icon_state = "28"
 	},
-/obj/machinery/artillerycontrol{
+/obj/machinery/computer/artillerycontrol{
 	desc = "Bluespace Artillery; the thinking man's solution."
 	},
 /obj/effect/decal/warning_stripes,
@@ -19846,7 +19848,9 @@
 	name = "Traditional Vaurcesian Cuisine";
 	opacity = 1
 	},
-/turf/unsimulated/wall/riveted,
+/turf/unsimulated/floor{
+	icon_state = "floor"
+	},
 /area/centcom/spawning)
 "eYC" = (
 /obj/machinery/light,
@@ -56724,7 +56728,7 @@ aXm
 pCY
 aXm
 eWW
-aaM
+aVL
 aaM
 aaM
 aaM
@@ -60489,7 +60493,7 @@ aaM
 avQ
 aLQ
 aLQ
-aLQ
+avQ
 axw
 aSs
 aSs

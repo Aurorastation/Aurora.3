@@ -19,7 +19,7 @@
 
 		log_and_message_admins("Spacevines spawned at \the [get_area(T)]", location = T)
 		return
-		
+
 	log_and_message_admins("<span class='notice'>Event: Spacevines failed to find a viable turf.</span>")
 
 /obj/effect/dead_plant
@@ -72,7 +72,7 @@
 		if (!QDELETED(neighbor))
 			SSplants.add_plant(neighbor)
 	return ..()
-	
+
 /obj/effect/plant/single
 	spread_chance = 0
 
@@ -86,7 +86,7 @@
 		parent = newparent
 
 	if(!SSplants)
-		world << "<span class='danger'>Plant controller does not exist and [src] requires it. Aborting.</span>"
+		to_world("<span class='danger'>Plant controller does not exist and [src] requires it. Aborting.</span>")
 		qdel(src)
 		return
 
@@ -242,18 +242,18 @@
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 	SSplants.add_plant(src)
 
-	if(iswirecutter(W) || istype(W, /obj/item/weapon/scalpel))
+	if(W.iswirecutter() || istype(W, /obj/item/weapon/scalpel))
 		if(sampled)
-			user << "<span class='warning'>\The [src] has already been sampled recently.</span>"
+			to_chat(user, "<span class='warning'>\The [src] has already been sampled recently.</span>")
 			return
 		if(!is_mature())
-			user << "<span class='warning'>\The [src] is not mature enough to yield a sample yet.</span>"
+			to_chat(user, "<span class='warning'>\The [src] is not mature enough to yield a sample yet.</span>")
 			return
 		if(!seed)
-			user << "<span class='warning'>There is nothing to take a sample from.</span>"
+			to_chat(user, "<span class='warning'>There is nothing to take a sample from.</span>")
 			return
 		if(sampled)
-			user << "<span class='danger'>You cannot take another sample from \the [src].</span>"
+			to_chat(user, "<span class='danger'>You cannot take another sample from \the [src].</span>")
 			return
 		if(prob(70))
 			sampled = 1

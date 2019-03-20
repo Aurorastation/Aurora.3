@@ -55,7 +55,6 @@
 		var/list/w = heard_words["[lowertext(seperate[Xa])]"]
 		if(w)
 			w.Add("[lowertext(seperate[next])]")
-		//world << "Adding [lowertext(seperate[next])] to [lowertext(seperate[Xa])]"
 
 	if(prob(30))
 		var/list/options = list("[holder_atom] seems to be listening intently to [source]...",\
@@ -66,14 +65,6 @@
 	if(prob(20))
 		spawn(2)
 			SaySomething(pick(seperate))
-
-/*/obj/item/weapon/talkingcrystal/proc/debug()
-	//set src in view()
-	for(var/v in heard_words)
-		world << "[uppertext(v)]"
-		var/list/d = heard_words["[v]"]
-		for(var/X in d)
-			world << "[X]"*/
 
 /datum/talking_atom/proc/SaySomething(var/word = null)
 	if(!holder_atom)
@@ -125,5 +116,5 @@
 			listening|=M
 
 	for(var/mob/M in listening)
-		M << "\icon[holder_atom] <b>[holder_atom]</b> reverberates, <span class='notice'>\"[msg]\"</span>"
+		to_chat(M, "\icon[holder_atom] <b>[holder_atom]</b> reverberates, <span class='notice'>\"[msg]\"</span>")
 	last_talk_time = world.time

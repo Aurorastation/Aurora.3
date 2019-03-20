@@ -260,7 +260,7 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 							i++
 							dat+="<BLOCKQUOTE style=\"padding:2px 4px;border-left:4px #797979 solid\">[MESSAGE.body] <FONT SIZE=1>\[Likes: <FONT COLOR='DarkGreen'>[MESSAGE.likes]</FONT> Dislikes: <FONT COLOR='maroon'>[MESSAGE.dislikes]</FONT>\]</FONT><BR>"
 							if(MESSAGE.img)
-								usr << browse_rsc(MESSAGE.img, "tmp_photo[i].png")
+								to_chat(usr, browse_rsc(MESSAGE.img, "tmp_photo[i].png"))
 								dat+="<img src='tmp_photo[i].png' width = '180'><BR>"
 								if(MESSAGE.caption)
 									dat+="<FONT SIZE=1><B>[MESSAGE.caption]</B></FONT><BR>"
@@ -366,7 +366,7 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 				dat+="<B>Description</B>: [SSnews.wanted_issue.body]<BR>"
 				dat+="<B>Photo:</B>: "
 				if(SSnews.wanted_issue.img)
-					usr << browse_rsc(SSnews.wanted_issue.img, "tmp_photow.png")
+					to_chat(usr, browse_rsc(SSnews.wanted_issue.img, "tmp_photow.png"))
 					dat+="<BR><img src='tmp_photow.png' width = '180'>"
 				else
 					dat+="None"
@@ -735,7 +735,7 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 						O.show_message("[user.name] forcefully slams the [src.name] with the [I.name]!" )
 					playsound(src.loc, 'sound/effects/Glasshit.ogg', 100, 1)
 		else
-			user << "<span class='notice'>This does nothing.</span>"
+			to_chat(user, "<span class='notice'>This does nothing.</span>")
 	src.update_icon()
 
 /obj/machinery/newscaster/attack_ai(mob/user as mob)
@@ -755,7 +755,7 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 			photo_data.photo.forceMove(src.loc)
 			if(!issilicon(user))
 				user.put_in_inactive_hand(photo_data.photo)
-		qdel(photo_data)
+		QDEL_NULL(photo_data)
 
 	if(istype(user.get_active_hand(), /obj/item/weapon/photo))
 		var/obj/item/photo = user.get_active_hand()
@@ -846,7 +846,7 @@ obj/item/weapon/newspaper/attack_self(mob/user as mob)
 							i++
 							dat+="-[MESSAGE.body] <BR>"
 							if(MESSAGE.img)
-								user << browse_rsc(MESSAGE.img, "tmp_photo[i].png")
+								to_chat(user, browse_rsc(MESSAGE.img, "tmp_photo[i].png"))
 								dat+="<img src='tmp_photo[i].png' width = '180'><BR>"
 							dat+="<FONT SIZE=1>\[[MESSAGE.message_type] by <FONT COLOR='maroon'>[MESSAGE.author]</FONT>\]</FONT><BR><BR>"
 						dat+="</ul>"
@@ -862,7 +862,7 @@ obj/item/weapon/newspaper/attack_self(mob/user as mob)
 					dat+="<B>Description</B>: [important_message.body]<BR>"
 					dat+="<B>Photo:</B>: "
 					if(important_message.img)
-						user << browse_rsc(important_message.img, "tmp_photow.png")
+						to_chat(user, browse_rsc(important_message.img, "tmp_photow.png"))
 						dat+="<BR><img src='tmp_photow.png' width = '180'>"
 					else
 						dat+="None"
@@ -878,7 +878,7 @@ obj/item/weapon/newspaper/attack_self(mob/user as mob)
 		human_user << browse(dat, "window=newspaper_main;size=300x400")
 		onclose(human_user, "newspaper_main")
 	else
-		user << "The paper is full of intelligible symbols!"
+		to_chat(user, "The paper is full of intelligible symbols!")
 
 
 obj/item/weapon/newspaper/Topic(href, href_list)
@@ -916,7 +916,7 @@ obj/item/weapon/newspaper/Topic(href, href_list)
 obj/item/weapon/newspaper/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	if(istype(W, /obj/item/weapon/pen))
 		if(src.scribble_page == src.curr_page)
-			user << "<FONT COLOR='blue'>There's already a scribble in this page... You wouldn't want to make things too cluttered, would you?</FONT>"
+			to_chat(user, "<FONT COLOR='blue'>There's already a scribble in this page... You wouldn't want to make things too cluttered, would you?</FONT>")
 		else
 			var/s = sanitize(input(user, "Write something", "Newspaper", ""))
 			s = sanitize(s)

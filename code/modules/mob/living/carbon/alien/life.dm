@@ -29,7 +29,7 @@
 
 	var/rads = total_radiation/25
 	apply_radiation(rads*-1)
-	nutrition += rads
+	adjustNutritionLoss(-rads)
 	heal_overall_damage(rads,rads)
 	adjustOxyLoss(-(rads))
 	adjustToxLoss(-(rads))
@@ -159,7 +159,7 @@
 		adjustFireLoss((environment.temperature - (T0C+66))/5) // Might be too high, check in testing.
 		if (fire) fire.icon_state = "fire2"
 		if(prob(20))
-			src << "<span class='danger'>You feel a searing heat!</span>"
+			to_chat(src, "<span class='danger'>You feel a searing heat!</span>")
 	else
 		if (fire) fire.icon_state = "fire0"
 

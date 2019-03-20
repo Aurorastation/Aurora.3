@@ -21,8 +21,8 @@
 	return
 
 /obj/structure/sign/attackby(obj/item/tool as obj, mob/user as mob)	//deconstruction
-	if(isscrewdriver(tool) && !istype(src, /obj/structure/sign/double))
-		user << "You unfasten the sign with your [tool]."
+	if(tool.isscrewdriver() && !istype(src, /obj/structure/sign/double))
+		to_chat(user, "You unfasten the sign with your [tool].")
 		unfasten()
 	else ..()
 
@@ -44,7 +44,7 @@
 	var/sign_state = ""
 
 /obj/item/sign/attackby(obj/item/tool as obj, mob/user as mob)	//construction
-	if(isscrewdriver(tool) && isturf(user.loc))
+	if(tool.isscrewdriver() && isturf(user.loc))
 		var/direction = input("In which direction?", "Select direction.") in list("North", "East", "South", "West", "Cancel")
 		if(direction == "Cancel") return
 		var/obj/structure/sign/S = new(user.loc)
@@ -61,7 +61,7 @@
 		S.name = name
 		S.desc = desc
 		S.icon_state = sign_state
-		user << "You fasten \the [S] with your [tool]."
+		to_chat(user, "You fasten \the [S] with your [tool].")
 		qdel(src)
 	else ..()
 
@@ -173,6 +173,11 @@
 	name = "\improper CHEMISTRY"
 	desc = "A warning sign which reads 'CHEMISTRY'."
 	icon_state = "chemistry1"
+
+/obj/structure/sign/pharmacy
+	name = "\improper Pharmacy"
+	desc = "A warning sign which reads 'PHARMACY'."
+	icon_state = "pharmacy1"
 
 /obj/structure/sign/botany
 	name = "\improper HYDROPONICS"
@@ -506,12 +511,12 @@
 
 	var/turf/W = A
 	if (!iswall(W) || !isturf(user.loc))
-		user << "<span class='warning'>You can't place this here!</span>"
+		to_chat(user, "<span class='warning'>You can't place this here!</span>")
 		return
 
 	var/placement_dir = get_dir(user, W)
 	if (!(placement_dir in cardinal))
-		user << "<span class='warning'>You must stand directly in front of the wall you wish to place that on.</span>"
+		to_chat(user, "<span class='warning'>You must stand directly in front of the wall you wish to place that on.</span>")
 		return
 
 	var/obj/structure/sign/flag/P = new(user.loc)
@@ -552,4 +557,36 @@
 	P.name = name
 	P.desc = desc
 	qdel(src)
+
+
+/obj/structure/sign/flag/attack_hand(mob/user as mob)
+
+
+	if(alert("Do you want to rip \the [src] from the wall?","You think...","Yes","No") == "Yes")
+
+		if(!do_after(user, 2 SECONDS, act_target = src))
+			return 0
+
+
+		visible_message("<span class='warning'>\The [user] rips \the [src] in a single, decisive motion!</span>" )
+		playsound(src.loc, 'sound/items/poster_ripped.ogg', 100, 1)
+		icon_state = "poster_ripped"
+		name = "ripped poster"
+		desc = "You can't make out anything from the flag's original print. It's ruined."
+		add_fingerprint(user)
+
+/obj/structure/sign/flag/attackby(obj/item/weapon/W as obj, mob/user as mob)
+	..()
+
+	if(istype(W, /obj/item/weapon/flame/lighter))
+
+		visible_message("<span class='warning'>\The [user] starts to burn \the [src] down!</span>")
+
+		if(!do_after(user, 2 SECONDS, act_target = src))
+			return 0
+		visible_message("<span class='warning'>\The [user] burns \the [src] down!</span>")
+		playsound(src.loc, 'sound/items/zippo_on.ogg', 100, 1)
+		new /obj/effect/decal/cleanable/ash(src.loc)
+
+		qdel(src)
 

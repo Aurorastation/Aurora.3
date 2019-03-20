@@ -51,7 +51,6 @@
 	force_unwielded = round(force_wielded*unwielded_force_divisor)
 	force = force_unwielded
 	throwforce = round(force*thrown_force_divisor)
-	//world << "[src] has unwielded force [force_unwielded], wielded force [force_wielded] and throwforce [throwforce] when made from default material [material.name]"
 
 /obj/item/weapon/material/twohanded/New()
 	..()
@@ -60,7 +59,7 @@
 /obj/item/weapon/material/twohanded/mob_can_equip(M as mob, slot)
 	//Cannot equip wielded items.
 	if(wielded)
-		M << "<span class='warning'>Unwield the [base_name] first!</span>"
+		to_chat(M, "<span class='warning'>Unwield the [base_name] first!</span>")
 		return 0
 
 	return ..()
@@ -95,18 +94,18 @@
 	if(istype(user, /mob/living/carbon/human))
 		var/mob/living/carbon/human/H = user
 		if(issmall(H))
-			user << "<span class='warning'>It's too heavy for you to wield fully.</span>"
+			to_chat(user, "<span class='warning'>It's too heavy for you to wield fully.</span>")
 			return
 	else
 		return
 
 	if(!istype(user.get_active_hand(), src))
-		user << "<span class='warning'>You need to be holding the [name] in your active hand.</span>"
+		to_chat(user, "<span class='warning'>You need to be holding the [name] in your active hand.</span>")
 		return
 
 	if(wielded) //Trying to unwield it
 		unwield()
-		user << "<span class='notice'>You are now carrying the [name] with one hand.</span>"
+		to_chat(user, "<span class='notice'>You are now carrying the [name] with one hand.</span>")
 		if (src.unwieldsound)
 			playsound(src.loc, unwieldsound, 50, 1)
 
@@ -117,10 +116,10 @@
 
 	else //Trying to wield it
 		if(user.get_inactive_hand())
-			user << "<span class='warning'>You need your other hand to be empty.</span>"
+			to_chat(user, "<span class='warning'>You need your other hand to be empty.</span>")
 			return
 		wield()
-		user << "<span class='notice'>You grab the [base_name] with both hands.</span>"
+		to_chat(user, "<span class='notice'>You grab the [base_name] with both hands.</span>")
 		if (src.wieldsound)
 			playsound(src.loc, wieldsound, 50, 1)
 
@@ -188,8 +187,9 @@
 	force_wielded = 30
 	attack_verb = list("attacked", "chopped", "cleaved", "torn", "cut")
 	applies_material_colour = 0
+	can_embed = 0
 
-/obj/item/weapon/material/twohanded/fireaxe/afterattack(atom/A as mob|obj|turf|area, mob/user as mob, proximity)
+/obj/item/weapon/material/twohanded/fireaxe/afterattack(atom/A, mob/user, proximity)
 	if(!proximity) return
 	..()
 	if(A && wielded)
@@ -203,6 +203,7 @@
 			P.die_off()
 
 /obj/item/weapon/material/twohanded/fireaxe/pre_attack(var/mob/living/target, var/mob/living/user)
+	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN * 2.5)
 	if(istype(target))
 		cleave(user, target)
 	..()
@@ -235,11 +236,11 @@
 /obj/item/weapon/material/twohanded/spear/examine(mob/user)
 	..(user)
 	if(explosive)
-		user << "It has \the [explosive] strapped to it."
+		to_chat(user, "It has \the [explosive] strapped to it.")
 
 /obj/item/weapon/material/twohanded/spear/attackby(var/obj/item/I, var/mob/living/user)
 	if(istype(I, /obj/item/organ/external/head))
-		user << "<span class='notice'>You stick the head onto the spear and stand it upright on the ground.</span>"
+		to_chat(user, "<span class='notice'>You stick the head onto the spear and stand it upright on the ground.</span>")
 		var/obj/structure/headspear/HS = new /obj/structure/headspear(user.loc)
 		var/matrix/M = matrix()
 		I.transform = M
@@ -253,7 +254,7 @@
 		return
 
 	if(istype(I, /obj/item/weapon/grenade))
-		user << "<span class='notice'>You strap \the [I] to \the [src].</span>"
+		to_chat(user, "<span class='notice'>You strap \the [I] to \the [src].</span>")
 		user.unEquip(I)
 		I.forceMove(src)
 		explosive = I
@@ -427,7 +428,7 @@
 
 /obj/item/weapon/material/twohanded/chainsaw/examine(mob/user)
 	if(..(user, 1))
-		user << "A heavy-duty chainsaw meant for cutting wood. Contains [round(reagents.get_reagent_amount(fuel_type))] unit\s of fuel."
+		to_chat(user, "A heavy-duty chainsaw meant for cutting wood. Contains [round(reagents.get_reagent_amount(fuel_type))] unit\s of fuel.")
 
 /obj/item/weapon/material/twohanded/chainsaw/attack(mob/M as mob, mob/living/user as mob)
 	. = ..()
@@ -439,7 +440,7 @@
 	if(!proximity) return
 	if (istype(O, /obj/structure/reagent_dispensers/fueltank) && get_dist(src,O) <= 1 && !powered)
 		O.reagents.trans_to_obj(src, max_fuel)
-		user << "<span class='notice'>[src] refueled</span>"
+		to_chat(user, "<span class='notice'>[src] refueled</span>")
 		playsound(loc, 'sound/effects/refill.ogg', 50, 1, -6)
 		return
 	else if(powered)
@@ -468,14 +469,14 @@
 	var/eye_damage = max(0, (2 - H.eyecheck())*multiplier )
 	E.damage += eye_damage
 	if(eye_damage > 0)
-		H << "<span class='danger'>Some stray sparks fly in your eyes!</span>"
+		to_chat(H, "<span class='danger'>Some stray sparks fly in your eyes!</span>")
 
 /obj/item/weapon/material/twohanded/chainsaw/AltClick(mob/user as mob)
 
 	if(powered)
 		PowerDown(user)
 	else if(!wielded)
-		user << "<span class='notice'>You need to hold this with two hands to turn this on.</span>"
+		to_chat(user, "<span class='notice'>You need to hold this with two hands to turn this on.</span>")
 	else if(reagents.get_reagent_amount("fuel") <= 0)
 		user.visible_message(\
 			"<span class='notice'>[user] pulls the cord on the [src], but nothing happens.</span>",\

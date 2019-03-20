@@ -17,8 +17,8 @@
 	var/squeak = 0
 
 
-/obj/mecha/combat/honker/New()
-	..()
+/obj/mecha/combat/honker/Initialize()
+	.= ..()
 	var/obj/item/mecha_parts/mecha_equipment/ME = new /obj/item/mecha_parts/mecha_equipment/weapon/honker
 	ME.attach(src)
 	ME = new /obj/item/mecha_parts/mecha_equipment/weapon/ballistic/missile_rack/banana_mortar
@@ -68,7 +68,7 @@
 			var/mob/living/carbon/human/H = M
 			if(istype(H.l_ear, /obj/item/clothing/ears/earmuffs) || istype(H.r_ear, /obj/item/clothing/ears/earmuffs))
 				continue
-		M << "<font color='red' size='7'>HONK</font>"
+		to_chat(M, "<font color='red' size='7'>HONK</font>")
 		M.sleeping = 0
 		M.stuttering += 20
 		M.ear_deaf += 30

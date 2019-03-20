@@ -24,7 +24,7 @@
 
 	..()
 	if ((H.invisibility == INVISIBILITY_LEVEL_TWO) && M.back && (istype(M.back, /obj/item/weapon/rig)))
-		H << "<span class='danger'>You are now visible.</span>"
+		to_chat(H, "<span class='danger'>You are now visible.</span>")
 		H.invisibility = 0
 
 		anim(get_turf(H), H,'icons/mob/mob.dmi',,"uncloak",,H.dir)
@@ -71,7 +71,7 @@
 
 						return 1
 					else
-						M << "<span class='warning'>Not enough charge!</span>"
+						to_chat(M, "<span class='warning'>Not enough charge!</span>")
 						visible_message("<span class='danger'>[src] has been touched with the stun gloves by [M]!</span>")
 					return
 
@@ -109,16 +109,16 @@
 		if(I_HELP)
 			if(istype(H) && health < config.health_threshold_crit && health > config.health_threshold_dead)
 				if(!H.check_has_mouth())
-					H << "<span class='danger'>You don't have a mouth, you cannot perform CPR!</span>"
+					to_chat(H, "<span class='danger'>You don't have a mouth, you cannot perform CPR!</span>")
 					return
 				if(!check_has_mouth())
-					H << "<span class='danger'>They don't have a mouth, you cannot perform CPR!</span>"
+					to_chat(H, "<span class='danger'>They don't have a mouth, you cannot perform CPR!</span>")
 					return
 				if((H.head && (H.head.body_parts_covered & FACE)) || (H.wear_mask && (H.wear_mask.body_parts_covered & FACE)))
-					H << "<span class='notice'>Remove your mask!</span>"
+					to_chat(H, "<span class='notice'>Remove your mask!</span>")
 					return 0
 				if((head && (head.body_parts_covered & FACE)) || (wear_mask && (wear_mask.body_parts_covered & FACE)))
-					H << "<span class='notice'>Remove [src]'s mask!</span>"
+					to_chat(H, "<span class='notice'>Remove [src]'s mask!</span>")
 					return 0
 
 				if (!cpr_time)
@@ -136,8 +136,8 @@
 				adjustOxyLoss(-(min(getOxyLoss(), 5)))
 				updatehealth()
 				H.visible_message("<span class='danger'>\The [H] performs CPR on \the [src]!</span>")
-				src << "<span class='notice'>You feel a breath of fresh air enter your lungs. It feels good.</span>"
-				H << "<span class='warning'>Repeat at least every 7 seconds.</span>"
+				to_chat(src, "<span class='notice'>You feel a breath of fresh air enter your lungs. It feels good.</span>")
+				to_chat(H, "<span class='warning'>Repeat at least every 7 seconds.</span>")
 
 			else
 				help_shake_act(M)
@@ -146,7 +146,7 @@
 		if(I_GRAB)
 			if(M == src || anchored)
 				return 0
-			if(M.disabilities & PACIFIST)
+			if(M.is_pacified())
 				to_chat(M, "<span class='notice'>You don't want to risk hurting [src]!</span>")
 				return 0
 
@@ -155,7 +155,7 @@
 
 			for(var/obj/item/weapon/grab/G in src.grabbed_by)
 				if(G.assailant == M)
-					M << "<span class='notice'>You already grabbed [src].</span>"
+					to_chat(M, "<span class='notice'>You already grabbed [src].</span>")
 					return
 
 			if (!attempt_grab(M))
@@ -166,7 +166,7 @@
 
 			var/obj/item/weapon/grab/G = new /obj/item/weapon/grab(M, src)
 			if(buckled)
-				M << "<span class='notice'>You cannot grab [src], \he is buckled in!</span>"
+				to_chat(M, "<span class='notice'>You cannot grab [src], \he is buckled in!</span>")
 			if(!G)	//the grab will delete itself in New if affecting is anchored
 				return
 			M.put_in_active_hand(G)
@@ -184,7 +184,7 @@
 			return 1
 
 		if(I_HURT)
-			if(M.disabilities & PACIFIST)
+			if(M.is_pacified())
 				to_chat(M, "<span class='notice'>You don't want to risk hurting [src]!</span>")
 				return 0
 
@@ -202,7 +202,7 @@
 			var/obj/item/organ/external/affecting = get_organ(hit_zone)
 
 			if(!affecting || affecting.is_stump())
-				M << "<span class='danger'>They are missing that limb!</span>"
+				to_chat(M, "<span class='danger'>They are missing that limb!</span>")
 				return 1
 
 			switch(src.a_intent)
@@ -331,7 +331,7 @@
 			apply_damage(real_damage, hit_dam_type, hit_zone, armour, sharp=is_sharp, edge=is_edge)
 
 		if(I_DISARM)
-			if(M.disabilities & PACIFIST)
+			if(M.is_pacified())
 				to_chat(M, "<span class='notice'>You don't want to risk hurting [src]!</span>")
 				return 0
 
@@ -404,11 +404,10 @@
 
 				//Actually disarm them
 				for(var/obj/item/I in holding)
-					if(I)
-						drop_from_inventory(I)
-						visible_message("<span class='danger'>[M] has disarmed [src]!</span>")
-						playsound(loc, 'sound/weapons/thudswoosh.ogg', 50, 1, -1)
-						return
+					drop_from_inventory(I)
+					visible_message("<span class='danger'>[M] has disarmed [src]!</span>")
+					playsound(loc, 'sound/weapons/thudswoosh.ogg', 50, 1, -1)
+					return
 
 			playsound(loc, 'sound/weapons/punchmiss.ogg', 25, 1, -1)
 			visible_message("<span class='danger'>[M] attempted to disarm [src]!</span>")

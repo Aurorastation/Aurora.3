@@ -273,7 +273,7 @@
 /obj/machinery/access_button/attack_hand(mob/user)
 	add_fingerprint(usr)
 	if(!allowed(user))
-		user << "<span class='warning'>Access Denied</span>"
+		to_chat(user, "<span class='warning'>Access Denied</span>")
 
 	else if(radio_connection)
 		var/datum/signal/signal = new
@@ -312,6 +312,6 @@
 /obj/machinery/door/airlock/proc/command(var/new_command)
 	cur_command = new_command
 
-	//if there's no power, recieve the signal but just don't do anything. This allows airlocks to continue to work normally once power is restored
+	//if there's no power, receive the signal but just don't do anything. This allows airlocks to continue to work normally once power is restored
 	if(arePowerSystemsOn())
 		INVOKE_ASYNC(src, .proc/execute_current_command)

@@ -102,7 +102,7 @@
 					"We are happy to inform you that due to the delay, we have been instructed to IMMEDIATELY deposit all funds into your account",\
 					"Dear fund beneficiary, We have please to inform you that overdue funds payment has finally been approved and released for payment",\
 					"Due to my lack of agents I require an off-world financial account to immediately deposit the sum of 1 POINT FIVE MILLION credits.",\
-					"Greetings sir, I regretfully to inform you that as I lay dying here due to my lack ofheirs I have chosen you to recieve the full sum of my lifetime savings of 1.5 billion credits")
+					"Greetings sir, I regretfully to inform you that as I lay dying here due to my lack ofheirs I have chosen you to receive the full sum of my lifetime savings of 1.5 billion credits")
 
 				if(6)
 					var/pornography = pick("www.wetskrell.nt",\
@@ -150,7 +150,7 @@
 					"Hi [P.owner]! Remember me from high-school? Well I have this great business deal proposition....",\
 					"If you don't forward this message to 8 more crewmembers your head will die in their sleep.",\
 					"If you break the chain you will have bad luck for the rest of you're miserable life. Forward to 10 more crewmembers.",\
-					"Forward this email to 3.14 more crewmembers and recieve 10,000 cR!",\
+					"Forward this email to 3.14 more crewmembers and receive 10,000 cR!",\
 					"[P.owner]! I come from the future to give warning! The code has become self-referential! Run while you still can!")
 
 			if (useMS.send_pda_message("[P.owner]", sender, message))	//Message been filtered by spam filter.
@@ -180,4 +180,4 @@
 				L = get(P, /mob/living/silicon)
 
 			if(L)
-				L << "\icon[P] <b>Message from [sender] (Unknown / spam?), </b>\"[message]\" (Unable to Reply)"
+				to_chat(L, "\icon[P] <b>Message from [sender] (Unknown / spam?), </b>\"[message]\" (Unable to Reply)")

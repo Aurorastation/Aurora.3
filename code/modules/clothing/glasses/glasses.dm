@@ -47,7 +47,7 @@ BLIND     // can't see anything
 			user.update_inv_glasses()
 			flash_protection = FLASH_PROTECTION_NONE
 			tint = TINT_NONE
-			usr << "You deactivate the optical matrix on the [src]."
+			to_chat(usr, "You deactivate the optical matrix on the [src].")
 			if(activated_color)
 				set_light(0)
 		else
@@ -55,10 +55,10 @@ BLIND     // can't see anything
 			icon_state = initial(icon_state)
 			user.update_inv_glasses()
 			if(activation_sound)
-				usr << activation_sound
+				sound_to(usr, activation_sound)
 			flash_protection = initial(flash_protection)
 			tint = initial(tint)
-			usr << "You activate the optical matrix on the [src]."
+			to_chat(usr, "You activate the optical matrix on the [src].")
 			if(activated_color)
 				set_light(2, 0.4, activated_color)
 		user.update_action_buttons()
@@ -175,6 +175,7 @@ BLIND     // can't see anything
 	desc = "A simple pair of plain goggles."
 	icon_state = "plaingoggles"
 	item_flags = AIRTIGHT
+	unacidable = 1
 
 
 /obj/item/clothing/glasses/eyepatch
@@ -249,14 +250,14 @@ BLIND     // can't see anything
 	if(istype(W, /obj/item/clothing/glasses/hud/health))
 		user.drop_item()
 		qdel(W)
-		user << "<span class='notice'>You attach a set of medical HUDs to your glasses.</span>"
+		to_chat(user, "<span class='notice'>You attach a set of medical HUDs to your glasses.</span>")
 		var/turf/T = get_turf(src)
 		new /obj/item/clothing/glasses/hud/health/prescription(T)
 		qdel(src)
 	if(istype(W, /obj/item/clothing/glasses/hud/security))
 		user.drop_item()
 		qdel(W)
-		user << "<span class='notice'>You attach a set of security HUDs to your glasses.</span>"
+		to_chat(user, "<span class='notice'>You attach a set of security HUDs to your glasses.</span>")
 		var/turf/T = get_turf(src)
 		new /obj/item/clothing/glasses/hud/security/prescription(T)
 		qdel(src)
@@ -328,7 +329,7 @@ BLIND     // can't see anything
 			item_state = initial(item_state)
 			flash_protection = initial(flash_protection)
 			tint = initial(tint)
-			usr << "You flip \the [src] down to protect your eyes."
+			to_chat(usr, "You flip \the [src] down to protect your eyes.")
 		else
 			src.up = !src.up
 			flags_inv &= ~HIDEEYES
@@ -337,7 +338,7 @@ BLIND     // can't see anything
 			item_state = "[initial(item_state)]up"
 			flash_protection = FLASH_PROTECTION_NONE
 			tint = TINT_NONE
-			usr << "You push \the [src] up out of your face."
+			to_chat(usr, "You push \the [src] up out of your face.")
 		update_clothing_icon()
 		usr.update_action_buttons()
 
@@ -487,7 +488,7 @@ BLIND     // can't see anything
 /obj/item/clothing/glasses/thermal/emp_act(severity)
 	if(istype(src.loc, /mob/living/carbon/human))
 		var/mob/living/carbon/human/M = src.loc
-		M << "<span class='danger'>\The [src] overloads and blinds you!</span>"
+		to_chat(M, "<span class='danger'>\The [src] overloads and blinds you!</span>")
 		if(M.glasses == src)
 			M.eye_blind = 3
 			M.eye_blurry = 5
@@ -702,7 +703,7 @@ BLIND     // can't see anything
 			icon_state = initial(icon_state)
 			item_state = initial(item_state)
 			item_flags |= AIRTIGHT
-			usr << "You flip \the [src] down over your eyes."
+			to_chat(usr, "You flip \the [src] down over your eyes.")
 		else
 			src.up = !src.up
 			flags_inv &= ~HIDEEYES
@@ -710,6 +711,22 @@ BLIND     // can't see anything
 			icon_state = "[initial(icon_state)]up"
 			item_state = "[initial(item_state)]up"
 			item_flags &= ~AIRTIGHT
-			usr << "You push \the [src] up off your eyes."
+			to_chat(usr, "You push \the [src] up off your eyes.")
 		update_clothing_icon()
 		usr.update_action_buttons()
+
+/obj/item/clothing/glasses/spiffygogs/offworlder
+	name = "starshades"
+	desc = "Thick, durable eye protection meant to filter light to an acceptable degree in the long-term."
+	icon_state = "starshades"
+	item_state = "starshades"
+
+/obj/item/clothing/glasses/spiffygogs/offworlder/toggle()
+	..()
+	if(!up)
+		flash_protection = FLASH_PROTECTION_MAJOR
+		tint = TINT_MODERATE
+
+	else
+		flash_protection = initial(flash_protection)
+		tint = initial(tint)

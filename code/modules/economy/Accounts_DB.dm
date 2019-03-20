@@ -27,7 +27,7 @@
 		T.target_name = target
 		T.purpose = reason
 		T.amount = amount
-		T.date = current_date_string
+		T.date = worlddate2text()
 		T.time = worldtime2text()
 		T.source_terminal = machine_id
 		return T
@@ -42,7 +42,7 @@
 
 /obj/machinery/account_database/Initialize()
 	. = ..()
-	machine_id = "[station_name()] Acc. DB #[num_financial_terminals++]"
+	machine_id = "[station_name()] Acc. DB #[SSeconomy.num_financial_terminals++]"
 
 /obj/machinery/account_database/attackby(obj/O, mob/user)
 	if(!istype(O, /obj/item/weapon/card/id))
@@ -71,7 +71,7 @@
 	data["machine_id"] = machine_id
 	data["creating_new_account"] = creating_new_account
 	data["detailed_account_view"] = !!detailed_account_view
-	data["station_account_number"] = station_account.account_number
+	data["station_account_number"] = SSeconomy.station_account.account_number
 	data["transactions"] = null
 	data["accounts"] = null
 
@@ -82,7 +82,7 @@
 		data["suspended"] = detailed_account_view.suspended
 
 		var/list/trx[0]
-		for (var/datum/transaction/T in detailed_account_view.transaction_log)
+		for (var/datum/transaction/T in detailed_account_view.transactions)
 			trx.Add(list(list(\
 				"date" = T.date, \
 				"time" = T.time, \
@@ -95,13 +95,12 @@
 			data["transactions"] = trx
 
 	var/list/accounts[0]
-	for(var/i=1, i<=all_money_accounts.len, i++)
-		var/datum/money_account/D = all_money_accounts[i]
+	for(var/M in SSeconomy.all_money_accounts)
+		var/datum/money_account/D = SSeconomy.get_account(M)
 		accounts.Add(list(list(\
 			"account_number"=D.account_number,\
 			"owner_name"=D.owner_name,\
-			"suspended"=D.suspended ? "SUSPENDED" : "",\
-			"account_index"=i)))
+			"suspended"=D.suspended ? "SUSPENDED" : "")))
 
 	if (accounts.len > 0)
 		data["accounts"] = accounts
@@ -142,17 +141,17 @@
 				var/account_name = href_list["holder_name"]
 				var/starting_funds = max(text2num(href_list["starting_funds"]), 0)
 
-				starting_funds = Clamp(starting_funds, 0, station_account.money)	// Not authorized to put the station in debt.
+				starting_funds = Clamp(starting_funds, 0, SSeconomy.station_account.money)	// Not authorized to put the station in debt.
 				starting_funds = min(starting_funds, fund_cap)						// Not authorized to give more than the fund cap.
 
-				create_account(account_name, starting_funds, src)
+				SSeconomy.create_account(account_name, starting_funds, src)
 				if(starting_funds > 0)
 					//subtract the money
-					station_account.money -= starting_funds
+					SSeconomy.station_account.money -= starting_funds
 
 					//create a transaction log entry
-					var/trx = create_transation(account_name, "New account activation", "([starting_funds])")
-					station_account.transaction_log.Add(trx)
+					var/datum/transaction/trx = create_transation(account_name, "New account activation", "([starting_funds])")
+					SSeconomy.add_transaction_log(SSeconomy.station_account,trx)
 
 					creating_new_account = 0
 					ui.close()
@@ -174,9 +173,7 @@
 						held_card = C
 
 			if("view_account_detail")
-				var/index = text2num(href_list["account_index"])
-				if(index && index <= all_money_accounts.len)
-					detailed_account_view = all_money_accounts[index]
+				detailed_account_view = SSeconomy.get_account(href_list["account_number"])
 
 			if("view_accounts_list")
 				detailed_account_view = null
@@ -184,14 +181,14 @@
 
 			if("revoke_payroll")
 				var/funds = detailed_account_view.money
-				var/account_trx = create_transation(station_account.owner_name, "Revoke payroll", "([funds])")
+				var/account_trx = create_transation(SSeconomy.station_account.owner_name, "Revoke payroll", "([funds])")
 				var/station_trx = create_transation(detailed_account_view.owner_name, "Revoke payroll", funds)
 
-				station_account.money += funds
+				SSeconomy.station_account.money += funds
 				detailed_account_view.money = 0
 
-				detailed_account_view.transaction_log.Add(account_trx)
-				station_account.transaction_log.Add(station_trx)
+				SSeconomy.add_transaction_log(detailed_account_view,account_trx)
+				SSeconomy.add_transaction_log(SSeconomy.station_account,station_trx)
 
 				callHook("revoke_payroll", list(detailed_account_view))
 
@@ -207,7 +204,7 @@
 						<u>Holder:</u> [detailed_account_view.owner_name]<br>
 						<u>Balance:</u> $[detailed_account_view.money]<br>
 						<u>Status:</u> [detailed_account_view.suspended ? "Suspended" : "Active"]<br>
-						<u>Transactions:</u> ([detailed_account_view.transaction_log.len])<br>
+						<u>Transactions:</u> ([detailed_account_view.transactions.len])<br>
 						<table>
 							<thead>
 								<tr>
@@ -221,7 +218,7 @@
 							<tbody>
 						"}
 
-					for (var/datum/transaction/T in detailed_account_view.transaction_log)
+					for (var/datum/transaction/T in detailed_account_view.transactions)
 						text += {"
 									<tr>
 										<td>[T.date] [T.time]</td>
@@ -254,8 +251,8 @@
 							<tbody>
 					"}
 
-					for(var/i=1, i<=all_money_accounts.len, i++)
-						var/datum/money_account/D = all_money_accounts[i]
+					for(var/M in SSeconomy.all_money_accounts)
+						var/datum/money_account/D = SSeconomy.get_account(M)
 						text += {"
 								<tr>
 									<td>#[D.account_number]</td>

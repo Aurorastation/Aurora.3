@@ -74,9 +74,9 @@
 		for (var/a in cooking_objs)
 			var/datum/cooking_item/CI = a
 			string += "-\a [CI.container.label(null, CI.combine_target)], [report_progress(CI)]</br>"
-		usr << string
+		to_chat(usr, string)
 	else
-		usr << span("notice","It is empty.")
+		to_chat(usr, span("notice","It is empty."))
 
 /obj/machinery/appliance/proc/report_progress(var/datum/cooking_item/CI)
 	if (!CI || !CI.max_cookwork)
@@ -120,14 +120,14 @@
 		return
 
 	if (!user.IsAdvancedToolUser())
-		user << "You lack the dexterity to do that!"
+		to_chat(user, "You lack the dexterity to do that!")
 		return
 
 	if (user.stat || user.restrained() || user.incapacitated())
 		return
 
 	if (!Adjacent(user) && !issilicon(user))
-		user << "You can't reach [src] from here."
+		to_chat(user, "You can't reach [src] from here.")
 		return
 
 	if (stat & POWEROFF)//Its turned off
@@ -155,14 +155,14 @@
 		return
 
 	if (!usr.IsAdvancedToolUser())
-		usr << "You lack the dexterity to do that!"
+		to_chat(usr, "You lack the dexterity to do that!")
 		return
 
 	if (usr.stat || usr.restrained() || usr.incapacitated())
 		return
 
 	if (!Adjacent(usr) && !issilicon(usr))
-		usr << "You can't adjust the [src] from this distance, get closer!"
+		to_chat(usr, "You can't adjust the [src] from this distance, get closer!")
 		return
 
 	if(output_options.len)
@@ -171,10 +171,10 @@
 			return
 		if(choice == "Default")
 			selected_option = null
-			usr << "<span class='notice'>You decide not to make anything specific with \the [src].</span>"
+			to_chat(usr, "<span class='notice'>You decide not to make anything specific with \the [src].</span>")
 		else
 			selected_option = choice
-			usr << "<span class='notice'>You prepare \the [src] to make \a [selected_option] with the next thing you put in. Try putting several ingredients in a container!</span>"
+			to_chat(usr, "<span class='notice'>You prepare \the [src] to make \a [selected_option] with the next thing you put in. Try putting several ingredients in a container!</span>")
 
 //Handles all validity checking and error messages for inserting things
 /obj/machinery/appliance/proc/can_insert(var/obj/item/I, var/mob/user)
@@ -186,18 +186,18 @@
 	if(istype(G))
 
 		if(!can_cook_mobs)
-			user << "<span class='warning'>That's not going to fit.</span>"
+			to_chat(user, "<span class='warning'>That's not going to fit.</span>")
 			return 0
 
 		if(!isliving(G.affecting))
-			user << "<span class='warning'>You can't cook that.</span>"
+			to_chat(user, "<span class='warning'>You can't cook that.</span>")
 			return 0
 
 		return 2
 
 
 	if (!has_space(I))
-		user << "<span class='warning'>There's no room in [src] for that!</span>"
+		to_chat(user, "<span class='warning'>There's no room in [src] for that!</span>")
 		return 0
 
 
@@ -207,16 +207,16 @@
 	// We're trying to cook something else. Check if it's valid.
 	var/obj/item/weapon/reagent_containers/food/snacks/check = I
 	if(istype(check) && islist(check.cooked) && (cook_type in check.cooked))
-		user << "<span class='warning'>\The [check] has already been [cook_type].</span>"
+		to_chat(user, "<span class='warning'>\The [check] has already been [cook_type].</span>")
 		return 0
 	else if(istype(check, /obj/item/weapon/reagent_containers/glass))
-		user << "<span class='warning'>That would probably break [src].</span>"
+		to_chat(user, "<span class='warning'>That would probably break [src].</span>")
 		return 0
 	else if(istype(check, /obj/item/weapon/disk/nuclear))
-		user << "<span class='warning'>You can't cook that.</span>"
+		to_chat(user, "<span class='warning'>You can't cook that.</span>")
 		return 0
 	else if(!istype(check) && !istype(check, /obj/item/weapon/holder))
-		user << "<span class='warning'>That's not edible.</span>"
+		to_chat(user, "<span class='warning'>That's not edible.</span>")
 		return 0
 
 	return 1
@@ -231,7 +231,7 @@
 
 /obj/machinery/appliance/attackby(var/obj/item/I, var/mob/user)
 	if(!cook_type || (stat & (BROKEN)))
-		user << "<span class='warning'>\The [src] is not working.</span>"
+		to_chat(user, "<span class='warning'>\The [src] is not working.</span>")
 		return
 
 	var/result = can_insert(I, user)
@@ -634,7 +634,7 @@
 /datum/cooking_item
 	var/max_cookwork
 	var/cookwork
-	var/overcook_mult = 3
+	var/overcook_mult = 5
 	var/result_type = 0
 	var/obj/item/weapon/reagent_containers/cooking_container/container = null
 	var/combine_target = null

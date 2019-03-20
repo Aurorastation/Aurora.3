@@ -43,8 +43,8 @@
 	if(!(..(user, 1) && radio_desc))
 		return
 
-	user << "The following channels are available:"
-	user << radio_desc
+	to_chat(user, "The following channels are available:")
+	to_chat(user, radio_desc)
 
 /obj/item/device/radio/headset/handle_message_mode(mob/living/M as mob, message, channel)
 	if (channel == "special")
@@ -219,6 +219,13 @@
 	item_state = "headset"
 	ks2type = /obj/item/device/encryptionkey/ert
 
+/obj/item/device/radio/headset/legion
+	name = "Tau Ceti Foreign Legion radio headset"
+	desc = "The headset used by NanoTrasen sanctioned response forces."
+	icon_state = "com_headset"
+	item_state = "headset"
+	ks2type = /obj/item/device/encryptionkey/onlyert
+
 /obj/item/device/radio/headset/ia
 	name = "internal affairs headset"
 	desc = "The headset of your worst enemy."
@@ -229,10 +236,10 @@
 /obj/item/device/radio/headset/attackby(obj/item/weapon/W as obj, mob/user as mob)
 //	..()
 	user.set_machine(src)
-	if (!( isscrewdriver(W) || (istype(W, /obj/item/device/encryptionkey/ ))))
+	if (!( W.isscrewdriver() || (istype(W, /obj/item/device/encryptionkey/ ))))
 		return
 
-	if(isscrewdriver(W))
+	if(W.isscrewdriver())
 		if(keyslot1 || keyslot2)
 
 
@@ -256,14 +263,14 @@
 					keyslot2 = null
 
 			recalculateChannels()
-			user << "You pop out the encryption keys in the headset!"
+			to_chat(user, "You pop out the encryption keys in the headset!")
 
 		else
-			user << "This headset doesn't have any encryption keys!  How useless..."
+			to_chat(user, "This headset doesn't have any encryption keys!  How useless...")
 
 	if(istype(W, /obj/item/device/encryptionkey/))
 		if(keyslot1 && keyslot2)
-			user << "The headset can't hold another key!"
+			to_chat(user, "The headset can't hold another key!")
 			return
 
 		if(!keyslot1)

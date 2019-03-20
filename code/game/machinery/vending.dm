@@ -101,6 +101,12 @@
 	var/vend_id = "generic"	//Id of the refill cartridge that has to be used
 	var/restock_items = 0	//If items can be restocked into the vending machine
 	var/list/restock_blocked_items = list() //Items that can not be restocked if restock_items is enabled
+	var/random_itemcount = 1 //If the number of items should be randomized
+
+	var/temperature_setting = 0 //-1 means cooling, 1 means heating, 0 means doing nothing.
+
+	var/cooling_temperature = T0C + 5 //Best temp for soda.
+	var/heating_temperature = T0C + 57 //Best temp for coffee.
 
 /obj/machinery/vending/Initialize()
 	. = ..()
@@ -140,8 +146,11 @@
 			var/datum/data/vending_product/product = new/datum/data/vending_product(entry)
 
 			product.price = (entry in src.prices) ? src.prices[entry] : 0
-			product.amount = (current_list[1][entry]) ? current_list[1][entry] : 1
-			product.max_amount = product.amount
+			product.max_amount = product.amount = product.amount = (current_list[1][entry]) ? current_list[1][entry] : 1
+			if (random_itemcount == 1 && category == CAT_NORMAL) //Only the normal category is randomized.
+				product.amount = rand(1,product.max_amount)
+			else
+				product.amount = product.max_amount
 			product.category = category
 
 			src.product_records.Add(product)
@@ -174,12 +183,13 @@
 /obj/machinery/vending/emag_act(var/remaining_charges, var/mob/user)
 	if (!emagged)
 		src.emagged = 1
-		user << "You short out the product lock on \the [src]"
+		to_chat(user, "You short out the product lock on \the [src]")
 		return 1
 
 /obj/machinery/vending/attackby(obj/item/weapon/W as obj, mob/user as mob)
 
 	var/obj/item/weapon/card/id/I = W.GetID()
+	var/datum/money_account/vendor_account = SSeconomy.get_department_account("Vendor")
 
 	if (currently_vending && vendor_account && !vendor_account.suspended)
 		var/paid = 0
@@ -214,16 +224,16 @@
 	if (I || istype(W, /obj/item/weapon/spacecash))
 		attack_hand(user)
 		return
-	else if(isscrewdriver(W))
+	else if(W.isscrewdriver())
 		src.panel_open = !src.panel_open
-		user << "You [src.panel_open ? "open" : "close"] the maintenance panel."
+		to_chat(user, "You [src.panel_open ? "open" : "close"] the maintenance panel.")
 		cut_overlays()
 		if(src.panel_open)
 			add_overlay("[initial(icon_state)]-panel")
 
 		SSnanoui.update_uis(src)  // Speaker switch is on the main UI, not wires UI
 		return
-	else if(ismultitool(W)||iswirecutter(W))
+	else if(W.ismultitool()||W.iswirecutter())
 		if(src.panel_open)
 			attack_hand(user)
 		return
@@ -231,10 +241,10 @@
 		user.drop_from_inventory(W,src)
 		coin = W
 		categories |= CAT_COIN
-		user << "<span class='notice'>You insert \the [W] into \the [src].</span>"
+		to_chat(user, "<span class='notice'>You insert \the [W] into \the [src].</span>")
 		SSnanoui.update_uis(src)
 		return
-	else if(iswrench(W))
+	else if(W.iswrench())
 		if(!can_move)
 			return
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
@@ -246,7 +256,7 @@
 
 		if(do_after(user, 20))
 			if(!src) return
-			user << "<span class='notice'>You [anchored? "un" : ""]secured \the [src]!</span>"
+			to_chat(user, "<span class='notice'>You [anchored? "un" : ""]secured \the [src]!</span>")
 			anchored = !anchored
 		return
 
@@ -256,29 +266,29 @@
 			if(VR.charges)
 				if(VR.vend_id == vend_id)
 					VR.restock_inventory(src)
-					user << "<span class='notice'>You restock \the [src] with \the [VR]!</span>"
+					to_chat(user, "<span class='notice'>You restock \the [src] with \the [VR]!</span>")
 					if(!VR.charges)
-						user << "<span class='warning'>\The [VR] is depleted!</span>"
+						to_chat(user, "<span class='warning'>\The [VR] is depleted!</span>")
 				else
-					user << "<span class='warning'>\The [VR] is not stocked for this type of vendor!</span>"
+					to_chat(user, "<span class='warning'>\The [VR] is not stocked for this type of vendor!</span>")
 			else
-				user << "<span class='warning'>\The [VR] is depleted!</span>"
+				to_chat(user, "<span class='warning'>\The [VR] is depleted!</span>")
 			return
 		else
-			user << "<span class='warning'>You must open \the [src]'s maintenance panel first!</span>"
+			to_chat(user, "<span class='warning'>You must open \the [src]'s maintenance panel first!</span>")
 			return
 
 	else if(!is_borg_item(W))
 		if(!restock_items)
-			user << "<span class='warning'>\the [src] can not be restocked manually!</span>"
+			to_chat(user, "<span class='warning'>\the [src] can not be restocked manually!</span>")
 			return
 		for(var/path in restock_blocked_items)
 			if(istype(W,path))
-				user << "<span class='warning'>\the [src] does not accept this item!</span>"
+				to_chat(user, "<span class='warning'>\the [src] does not accept this item!</span>")
 				return
 
 		for(var/datum/data/vending_product/R in product_records)
-			if(istype(W, R.product_path))
+			if(W.type == R.product_path)
 				stock(R, user)
 				qdel(W)
 				return
@@ -296,7 +306,7 @@
 
 		// This is not a status display message, since it's something the character
 		// themselves is meant to see BEFORE putting the money in
-		usr << "\icon[cashmoney] <span class='warning'>That is not enough money.</span>"
+		to_chat(usr, "\icon[cashmoney] <span class='warning'>That is not enough money.</span>")
 		return 0
 
 	if(istype(cashmoney, /obj/item/weapon/spacecash/bundle))
@@ -357,7 +367,8 @@
 		visible_message("<span class='info'>\The [usr] swipes \the [I] through \the [src].</span>")
 	else
 		visible_message("<span class='info'>\The [usr] swipes \the [ID_container] through \the [src].</span>")
-	var/datum/money_account/customer_account = get_account(I.associated_account_number)
+	var/datum/money_account/vendor_account = SSeconomy.get_department_account("Vendor")
+	var/datum/money_account/customer_account = SSeconomy.get_account(I.associated_account_number)
 	if (!customer_account)
 		//Allow BSTs to take stuff from vendors, for debugging and adminbus purposes
 		if (istype(I, /obj/item/weapon/card/id/bst))
@@ -376,7 +387,7 @@
 	// empty at high security levels
 	if(customer_account.security_level != 0) //If card requires pin authentication (ie seclevel 1 or 2)
 		var/attempt_pin = input("Enter pin code", "Vendor transaction") as num
-		customer_account = attempt_account_access(I.associated_account_number, attempt_pin, 2)
+		customer_account = SSeconomy.attempt_account_access(I.associated_account_number, attempt_pin, 2)
 
 		if(!customer_account)
 			src.status_message = "Unable to access account: incorrect credentials."
@@ -402,9 +413,9 @@
 		else
 			T.amount = "[currently_vending.price]"
 		T.source_terminal = src.name
-		T.date = current_date_string
+		T.date = worlddate2text()
 		T.time = worldtime2text()
-		customer_account.transaction_log.Add(T)
+		SSeconomy.add_transaction_log(customer_account,T)
 
 		// Give the vendor the money. We use the account owner name, which means
 		// that purchases made with stolen/borrowed card will look like the card
@@ -418,6 +429,7 @@
  *  Called after the money has already been taken from the customer.
  */
 /obj/machinery/vending/proc/credit_purchase(var/target as text)
+	var/datum/money_account/vendor_account = SSeconomy.get_department_account("Vendor")
 	vendor_account.money += currently_vending.price
 
 	var/datum/transaction/T = new()
@@ -425,9 +437,9 @@
 	T.purpose = "Purchase of [currently_vending.product_name]"
 	T.amount = "[currently_vending.price]"
 	T.source_terminal = src.name
-	T.date = current_date_string
+	T.date = worlddate2text()
 	T.time = worldtime2text()
-	vendor_account.transaction_log.Add(T)
+	SSeconomy.add_transaction_log(vendor_account,T)
 
 /obj/machinery/vending/attack_ai(mob/user as mob)
 	return attack_hand(user)
@@ -494,6 +506,7 @@
 		ui.open()
 
 /obj/machinery/vending/Topic(href, href_list)
+	var/datum/money_account/vendor_account = SSeconomy.get_department_account("Vendor")
 	if(stat & (BROKEN|NOPOWER))
 		return
 	if(usr.stat || usr.restrained())
@@ -501,24 +514,24 @@
 
 	if(href_list["remove_coin"] && !istype(usr,/mob/living/silicon))
 		if(!coin)
-			usr << "There is no coin in this machine."
+			to_chat(usr, "There is no coin in this machine.")
 			return
 
 		coin.forceMove(src.loc)
 		if(!usr.get_active_hand())
 			usr.put_in_hands(coin)
-		usr << "<span class='notice'>You remove the [coin] from the [src]</span>"
+		to_chat(usr, "<span class='notice'>You remove the [coin] from the [src]</span>")
 		coin = null
 		categories &= ~CAT_COIN
 
 	if ((usr.contents.Find(src) || (in_range(src, usr) && istype(src.loc, /turf))))
-		if (text2num(href_list["vend"]) && (src.vend_ready) && (!currently_vending))
+		if (href_list["vendItem"] && vend_ready && !currently_vending)
 			if((!allowed(usr)) && !emagged && scan_id)	//For SECURE VENDING MACHINES YEAH
-				usr << "<span class='warning'>Access denied.</span>"	//Unless emagged of course
+				to_chat(usr, "<span class='warning'>Access denied.</span>")	//Unless emagged of course)
 				flick(icon_deny,src)
 				return
 
-			var/key = text2num(href_list["vend"])
+			var/key = text2num(href_list["vendItem"])
 			var/datum/data/vending_product/R = product_records[key]
 
 			// This should not happen unless the request from NanoUI was bad
@@ -528,7 +541,7 @@
 			if(R.price <= 0)
 				src.vend(R, usr)
 			else if(istype(usr,/mob/living/silicon)) //If the item is not free, provide feedback if a synth is trying to buy something.
-				usr << "<span class='danger'>Artificial unit recognized.  Artificial units cannot complete this transaction.  Purchase canceled.</span>"
+				to_chat(usr, "<span class='danger'>Artificial unit recognized.  Artificial units cannot complete this transaction.  Purchase canceled.</span>")
 				return
 			else
 				src.currently_vending = R
@@ -553,7 +566,7 @@
 		return
 
 	if((!allowed(usr)) && !emagged && scan_id)	//For SECURE VENDING MACHINES YEAH
-		usr << "<span class='warning'>Access denied.</span>"	//Unless emagged of course
+		to_chat(usr, "<span class='warning'>Access denied.</span>")	//Unless emagged of course)
 		flick(src.icon_deny,src)
 		return
 	src.vend_ready = 0 //One thing at a time!!
@@ -561,19 +574,17 @@
 	src.status_error = 0
 	SSnanoui.update_uis(src)
 
-
-
 	if (R.category & CAT_COIN)
 		if(!coin)
-			user << "<span class='notice'>You need to insert a coin to get this item.</span>"
+			to_chat(user, "<span class='notice'>You need to insert a coin to get this item.</span>")
 			return
 		if(coin.string_attached)
 			if(prob(50))
-				user << "<span class='notice'>You successfully pull the coin out before \the [src] could swallow it.</span>"
+				to_chat(user, "<span class='notice'>You successfully pull the coin out before \the [src] could swallow it.</span>")
 				src.visible_message("<span class='notice'>The [src] putters to life, coughing out its 'premium' item after a moment.</span>")
 				playsound(src.loc, 'sound/items/poster_being_created.ogg', 50, 1)
 			else
-				user << "<span class='notice'>You weren't able to pull the coin out fast enough, the machine ate it, string and all.</span>"
+				to_chat(user, "<span class='notice'>You weren't able to pull the coin out fast enough, the machine ate it, string and all.</span>")
 				src.visible_message("<span class='notice'>The [src] putters to life, coughing out its 'premium' item after a moment.</span>")
 				playsound(src.loc, 'sound/items/poster_being_created.ogg', 50, 1)
 				qdel(coin)
@@ -598,15 +609,23 @@
 		flick(src.icon_vend,src)
 	spawn(src.vend_delay)
 		playsound(src.loc, 'sound/machines/vending.ogg', 35, 1)
-		new R.product_path(get_turf(src))
+		var/obj/vended = new R.product_path(get_turf(src))
 		src.status_message = ""
 		src.status_error = 0
 		src.vend_ready = 1
 		currently_vending = null
 		SSnanoui.update_uis(src)
+		if(istype(vended,/obj/item/weapon/reagent_containers/))
+			var/obj/item/weapon/reagent_containers/RC = vended
+			if(RC.reagents)
+				switch(temperature_setting)
+					if(-1)
+						use_power(RC.reagents.set_temperature(cooling_temperature))
+					if(1)
+						use_power(RC.reagents.set_temperature(heating_temperature))
 
 /obj/machinery/vending/proc/stock(var/datum/data/vending_product/R, var/mob/user)
-	user << "<span class='notice'>You insert \the [R.product_name] in the product receptor.</span>"
+	to_chat(user, "<span class='notice'>You insert \the [R.product_name] in the product receptor.</span>")
 	R.amount++
 
 	SSnanoui.update_uis(src)

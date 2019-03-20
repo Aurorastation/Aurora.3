@@ -13,9 +13,12 @@
 /obj/random/Initialize()
 	. = ..()
 	if (!prob(spawn_nothing_percentage))
-		var/item = spawn_item()
-		if (has_postspawn && item)
-			post_spawn(item)
+		var/obj/spawned_item = spawn_item()
+		if(spawned_item)
+			spawned_item.pixel_x = pixel_x
+			spawned_item.pixel_y = pixel_y
+			if(has_postspawn)
+				post_spawn(spawned_item)
 
 	return INITIALIZE_HINT_QDEL
 
@@ -180,19 +183,22 @@
 		/obj/item/weapon/storage/pill_bottle/zoom = 2,
 		/obj/item/weapon/reagent_containers/glass/beaker/vial/random/toxin = 1,
 		/obj/item/weapon/contraband/poster = 5,
-		/obj/item/weapon/material/butterfly = 2,
+		/obj/item/weapon/material/knife/butterfly = 2,
 		/obj/item/weapon/material/butterflyblade = 3,
 		/obj/item/weapon/material/butterflyhandle = 3,
 		/obj/item/weapon/material/wirerod = 3,
 		/obj/item/weapon/melee/baton/cattleprod = 1,
-		/obj/item/weapon/material/hatchet/tacknife = 1,
+		/obj/item/weapon/material/knife/tacknife = 1,
 		/obj/item/weapon/material/kitchen/utensil/knife/boot = 2,
 		/obj/item/weapon/storage/secure/briefcase/money = 1,
-		/obj/item/weapon/material/butterfly/switchblade = 1,
+		/obj/item/weapon/material/knife/butterfly/switchblade = 1,
 		/obj/item/weapon/reagent_containers/syringe/drugs = 1,
 		/obj/item/weapon/reagent_containers/food/snacks/grown/mushroom/libertycap = 2,
 		/obj/item/weapon/reagent_containers/food/snacks/grown/ambrosiavulgaris = 2,
 		/obj/item/weapon/reagent_containers/food/snacks/grown/ambrosiadeus = 1,
+		/obj/item/weapon/reagent_containers/food/snacks/grown/mushroom/reishi = 1,
+		/obj/item/weapon/reagent_containers/food/snacks/grown/mushroom/destroyingangel = 1,
+		/obj/item/weapon/reagent_containers/food/snacks/grown/mushroom/ghostmushroom = 0.5,
 		/obj/item/seeds/ambrosiavulgarisseed = 2,
 		/obj/item/seeds/ambrosiadeusseed = 1,
 		/obj/item/clothing/mask/gas/voice = 1,
@@ -301,15 +307,22 @@
 	icon = 'icons/obj/toy.dmi'
 	icon_state = "nymphplushie"
 	spawnlist = list(
-		/obj/structure/plushie/ian,
-		/obj/structure/plushie/drone,
-		/obj/structure/plushie/carp,
-		/obj/structure/plushie/beepsky,
-		/obj/structure/plushie/ivancarp,
+		/obj/item/toy/plushie/ian,
+		/obj/item/toy/plushie/drone,
+		/obj/item/toy/plushie/carp,
+		/obj/item/toy/plushie/beepsky,
+		/obj/item/toy/plushie/ivancarp,
 		/obj/item/toy/plushie/nymph,
 		/obj/item/toy/plushie/mouse,
 		/obj/item/toy/plushie/kitten,
-		/obj/item/toy/plushie/lizard
+		/obj/item/toy/plushie/lizard,
+		/obj/item/toy/plushie/farwa,
+		/obj/item/toy/plushie/squid/green,
+		/obj/item/toy/plushie/squid/mint,
+		/obj/item/toy/plushie/squid/blue,
+		/obj/item/toy/plushie/squid/orange,
+		/obj/item/toy/plushie/squid/yellow,
+		/obj/item/toy/plushie/squid/pink
 	)
 
 /obj/random/smalltank
@@ -351,7 +364,7 @@
 		/obj/item/weapon/storage/backpack/hydroponics = 3,
 		/obj/item/weapon/storage/backpack/genetics = 3,
 		/obj/item/weapon/storage/backpack/virology = 3,
-		/obj/item/weapon/storage/backpack/chemistry = 3,
+		/obj/item/weapon/storage/backpack/pharmacy = 3,
 		/obj/item/weapon/storage/backpack/cloak = 2,
 		/obj/item/weapon/storage/backpack/syndie = 1,
 		/obj/item/weapon/storage/backpack/wizard = 1,
@@ -360,7 +373,7 @@
 		/obj/item/weapon/storage/backpack/satchel_eng = 3,
 		/obj/item/weapon/storage/backpack/satchel_med = 3,
 		/obj/item/weapon/storage/backpack/satchel_vir = 3,
-		/obj/item/weapon/storage/backpack/satchel_chem = 3,
+		/obj/item/weapon/storage/backpack/satchel_pharm = 3,
 		/obj/item/weapon/storage/backpack/satchel_gen = 3,
 		/obj/item/weapon/storage/backpack/satchel_tox = 3,
 		/obj/item/weapon/storage/backpack/satchel_sec = 3,
@@ -381,11 +394,11 @@
 		/obj/item/weapon/storage/backpack/duffel/tox = 3,
 		/obj/item/weapon/storage/backpack/duffel/sec = 3,
 		/obj/item/weapon/storage/backpack/duffel/gen = 3,
-		/obj/item/weapon/storage/backpack/duffel/chem = 3,
+		/obj/item/weapon/storage/backpack/duffel/pharm = 3,
 		/obj/item/weapon/storage/backpack/duffel/syndie = 1,
 		/obj/item/weapon/storage/backpack/duffel/wizard = 1,
 		/obj/item/weapon/storage/backpack/messenger = 2,
-		/obj/item/weapon/storage/backpack/messenger/chem = 2,
+		/obj/item/weapon/storage/backpack/messenger/pharm = 2,
 		/obj/item/weapon/storage/backpack/messenger/med = 2,
 		/obj/item/weapon/storage/backpack/messenger/viro = 2,
 		/obj/item/weapon/storage/backpack/messenger/tox = 2,
@@ -664,6 +677,7 @@
 	icon_state = "gift3"
 	problist = list(
 		/obj/item/clothing/glasses/meson = 1,
+		/obj/item/weapon/trap/animal = 0.8,
 		/obj/item/clothing/glasses/meson/prescription = 0.7,
 		/obj/item/clothing/glasses/material = 0.8,
 		/obj/item/clothing/glasses/sunglasses = 1.5,
@@ -700,6 +714,7 @@
 		/obj/item/clothing/head/helmet/augment = 0.1,
 		/obj/item/clothing/mask/balaclava = 1,
 		/obj/item/clothing/mask/gas = 1.5,
+		/obj/item/clothing/mask/gas/old = 1.0,
 		/obj/item/clothing/mask/gas/cyborg = 0.7,
 		/obj/item/clothing/mask/gas/owl_mask = 0.5,
 		/obj/item/clothing/mask/gas/syndicate = 0.4,
@@ -722,7 +737,7 @@
 		/obj/item/clothing/shoes/clown_shoes = 0.1,
 		/obj/item/clothing/shoes/winter = 0.3,
 		/obj/item/clothing/suit/storage/hazardvest = 1,
-		/obj/item/clothing/suit/storage/leather_jacket/nanotrasen = 0.7,
+		/obj/item/clothing/suit/storage/toggle/leather_jacket/nanotrasen = 0.7,
 		/obj/item/clothing/suit/ianshirt = 0.5,
 		/obj/item/clothing/suit/syndicatefake = 0.6,
 		/obj/item/clothing/suit/imperium_monk = 0.4,
@@ -741,8 +756,8 @@
 		/obj/item/toy/balloon = 0.4,
 		/obj/item/weapon/haircomb = 0.5,
 		/obj/item/weapon/lipstick = 0.6,
-		/obj/item/weapon/material/knife/hook = 0.3,
-		/obj/item/weapon/material/hatchet/tacknife = 0.4,
+		/obj/item/weapon/material/hook = 0.3,
+		/obj/item/weapon/material/knife/tacknife = 0.4,
 		/obj/item/weapon/storage/fancy/cigarettes = 1.2,
 		/obj/item/weapon/storage/fancy/cigarettes/dromedaryco = 0.8,
 		/obj/item/weapon/storage/fancy/cigarettes/killthroat = 0.3,
@@ -818,7 +833,10 @@
 		/obj/random/spacecash = 0.3,
 		/obj/item/device/firing_pin = 0.3,
 		/obj/item/weapon/reagent_containers/inhaler/hyperzine = 0.1,
-		/obj/item/weapon/storage/box/pineapple = 0.1
+		/obj/item/weapon/storage/box/pineapple = 0.1,
+		/obj/item/weapon/flag/america = 0.1,
+		/obj/item/weapon/flag/america/l = 0.1,
+		/obj/item/weapon/razor = 0.5
 	)
 
 /obj/random/hoodie
@@ -856,6 +874,7 @@
 		/obj/item/weapon/gun/projectile/automatic/terminator = 0.5,
 		/obj/item/weapon/rig/military = 0.5,
 		/obj/item/weapon/rig/unathi/fancy = 0.5,
+		/obj/item/weapon/rig/vaurca/minimal = 0.5,
 		/obj/item/weapon/anomaly_core = 0.5
 	)
 
@@ -885,6 +904,7 @@
 		/obj/item/trash/tastybread= 0.75,
 		/obj/item/trash/meatsnack = 0.5,
 		/obj/item/trash/maps = 0.5,
+		/obj/item/trash/tuna = 0.5,
 		/obj/effect/decal/cleanable/ash = 1.5,
 		/obj/effect/decal/cleanable/dirt = 2,
 		/obj/effect/decal/cleanable/flour = 1,
@@ -907,9 +927,7 @@
 		/obj/item/ammo_casing/c45/rubber = 0.5,
 		/obj/item/ammo_casing/c9mm/rubber = 0.5,
 		/obj/item/ammo_casing/c45/flash = 0.5,
-		/obj/item/ammo_casing/shotgun/beanbag = 0.5,
-		/obj/item/weapon/flag/america = 1,
-		/obj/item/weapon/flag/america/l = 1
+		/obj/item/ammo_casing/shotgun/beanbag = 0.5
 	)
 
 //Sometimes the chef will have spare oil in storage.
@@ -936,7 +954,6 @@
 		/obj/item/weapon/material/sword/katana,
 		/obj/item/weapon/material/sword/rapier,
 		/obj/item/weapon/material/sword/longsword,
-		/obj/item/weapon/material/sword/trench,
 		/obj/item/weapon/material/sword/sabre,
 		/obj/item/weapon/material/sword/axe,
 		/obj/item/weapon/material/sword/khopesh,
@@ -985,7 +1002,42 @@
 		/obj/item/clothing/mask/gas/mime				= 11,
 		/obj/item/weapon/gun/energy/wand/toy			= 5,
 		/obj/item/device/binoculars						= 11,
-		/obj/item/device/megaphone						= 11
+		/obj/item/device/megaphone						= 11,
+		/obj/item/eightball								= 11,
+		/obj/item/eightball/haunted						= 1,
+		/obj/item/eightball/broken						= 1,
+		/obj/item/weapon/spirit_board					= 5,
+		/obj/item/device/laser_pointer						= 1
+
+
+	)
+
+/obj/random/arcade/orion
+	name = "random arcade loot for orion trails"
+	desc = "Arcade loot for orion trails aracde machine!"
+	icon = 'icons/obj/items.dmi'
+	icon_state = "gift3"
+	spawnlist = list(
+		/obj/item/clothing/under/syndicate/tacticool	= 7,
+		/obj/item/toy/sword								= 22,
+		/obj/item/weapon/gun/projectile/revolver/capgun	= 11,
+		/obj/item/weapon/gun/bang						= 22,
+		/obj/item/toy/crossbow							= 11,
+		/obj/random/action_figure						= 11,
+		/obj/item/toy/cultsword							= 7,
+		/obj/item/toy/syndicateballoon					= 10,
+		/obj/item/toy/nanotrasenballoon					= 5,
+		/obj/item/toy/katana							= 11,
+		/obj/random/plushie								= 55,
+		/obj/item/weapon/storage/belt/champion			= 11,
+		/obj/item/weapon/pen/invisible					= 10,
+		/obj/item/weapon/grenade/fake					= 7,
+		/obj/item/weapon/gun/energy/wand/toy			= 7,
+		/obj/item/device/binoculars						= 11,
+		/obj/item/device/megaphone						= 11,
+		/obj/item/eightball								= 11,
+		/obj/item/eightball/haunted						= 5,
+		/obj/item/weapon/spirit_board					= 5
 	)
 
 /obj/random/custom_ka
@@ -1056,3 +1108,114 @@
 		/obj/item/weapon/gun/custom_ka/frameF/prebuilt01 = 1,
 		/obj/item/weapon/gun/custom_ka/frameF/prebuilt02 = 1
 	)
+
+/obj/random/vault_rig
+	name = "random rigsuit"
+	desc = "Contains a random rigsuit found in the vault."
+	icon = 'icons/obj/rig_modules.dmi'
+	icon_state = "breacher_rig"
+	spawnlist = list(
+		/obj/item/weapon/rig/ce = 1,
+		/obj/item/weapon/rig/eva= 1,
+		/obj/item/weapon/rig/hazard = 1,
+		/obj/item/weapon/rig/hazmat = 1,
+		/obj/item/weapon/rig/medical = 1,
+		/obj/item/weapon/rig/industrial = 1
+	)
+
+/obj/random/telecrystals
+	name = "random telecrystals"
+	desc = "Contains a random amount of telecrystals."
+	icon = 'icons/obj/telescience.dmi'
+	icon_state = "telecrystal"
+	spawnlist = list(
+		/obj/item/stack/telecrystal{amount = 5} = 0.7,
+		/obj/item/stack/telecrystal{amount = 10} = 0.1,
+		/obj/item/stack/telecrystal{amount = 15} = 0.2,
+	)
+
+/obj/random/bad_ai
+	name = "random evil AI module"
+	desc = "Contains a random evil AI module."
+	icon = 'icons/obj/module.dmi'
+	icon_state = "std_mod"
+	spawnlist = list(
+		/obj/item/weapon/aiModule/antimov = 1,
+		/obj/item/weapon/aiModule/asimov = 1,
+		/obj/item/weapon/aiModule/purge = 1,
+		/obj/item/weapon/aiModule/quarantine = 1,
+		/obj/item/weapon/aiModule/freeform = 1,
+		/obj/item/weapon/aiModule/oneHuman = 0.5,
+		/obj/item/weapon/aiModule/oxygen = 1
+	)
+
+/obj/random/rig_module
+	name = "random rig module"
+	desc = "Contains a random rig module worthy of vault protection."
+	icon = 'icons/obj/rig_modules.dmi'
+	icon_state = "actuators"
+	spawnlist = list(
+		/obj/item/rig_module/actuators/combat = 1,
+		/obj/item/rig_module/chem_dispenser/combat = 1,
+		/obj/item/rig_module/chem_dispenser/injector = 1,
+		/obj/item/rig_module/device/emag_hand = 1,
+		/obj/item/rig_module/device/rcd = 1,
+		/obj/item/rig_module/electrowarfare_suite = 0.5,
+		/obj/item/rig_module/emp_shielding = 0.5,
+		/obj/item/rig_module/fabricator/energy_net = 1,
+		/obj/item/rig_module/fabricator = 0.5,
+		/obj/item/rig_module/grenade_launcher = 0.5,
+		/obj/item/rig_module/maneuvering_jets = 0.5,
+		/obj/item/rig_module/mounted/egun = 1,
+		/obj/item/rig_module/mounted/smg = 0.5,
+		/obj/item/rig_module/vision/multi = 0.5
+	)
+
+/obj/random/finances
+	name = "random valued item"
+	desc = "Contains raw valued items like phoron, gold, and money."
+	spawnlist = list(
+		/obj/item/weapon/spacecash/bundle{worth = 5000} = 0.25,
+		/obj/item/weapon/spacecash/bundle{worth = 10000} = 0.5,
+		/obj/item/weapon/spacecash/bundle{worth = 25000} = 0.25,
+		/obj/item/stack/material/phoron{amount = 50} = 1,
+		/obj/item/stack/material/gold{amount = 50} = 1
+	)
+
+	has_postspawn = TRUE
+
+/obj/random/finances/post_spawn(var/obj/item/spawned)
+	spawned.update_icon()
+
+/obj/random/vault_weapon
+	name = "random vault weapon"
+	desc = "This is a random vault weapon."
+	icon = 'icons/obj/gun.dmi'
+	icon_state = "retro100"
+	spawnlist = list(
+		/obj/item/weapon/gun/custom_ka/frameA/prebuilt = 1,
+		/obj/item/weapon/gun/custom_ka/frameB/prebuilt = 0.5,
+		/obj/item/weapon/gun/custom_ka/frameC/prebuilt = 0.25,
+		/obj/item/weapon/gun/custom_ka/frameD/prebuilt = 0.125,
+		/obj/item/weapon/gun/custom_ka/frameF/prebuilt01 = 0.03125,
+		/obj/item/weapon/gun/custom_ka/frameF/prebuilt02 = 0.03125,
+		/obj/item/weapon/gun/custom_ka/frameE/prebuilt = 0.03125,
+		/obj/item/weapon/gun/energy/captain/xenoarch = 0.5,
+		/obj/item/weapon/gun/energy/laser/xenoarch = 0.5,
+		/obj/item/weapon/gun/energy/laser/practice/xenoarch = 0.25,
+		/obj/item/weapon/gun/energy/xray/xenoarch = 0.25,
+		/obj/item/weapon/gun/energy/net = 1
+	)
+
+/obj/random/vault_weapon/post_spawn(var/obj/item/weapon/gun/spawned)
+	spawned.name = "prototype [spawned.name]"
+	if(istype(spawned,/obj/item/weapon/gun/custom_ka/))
+		var/obj/item/weapon/gun/custom_ka/KA = spawned
+		KA.can_disassemble_barrel = FALSE
+		KA.can_disassemble_cell = FALSE
+
+	if(istype(spawned,/obj/item/weapon/gun/energy/))
+		var/obj/item/weapon/gun/energy/E = spawned
+		E.charge_cost *= 2
+		E.self_recharge = 0
+		E.reliability = 90

@@ -142,12 +142,12 @@
 /obj/item/weapon/melee/energy/glaive/activate(mob/living/user)
 	..()
 	icon_state = "eglaive1"
-	user << "<span class='notice'>\The [src] is now energised.</span>"
+	to_chat(user, "<span class='notice'>\The [src] is now energised.</span>")
 
 /obj/item/weapon/melee/energy/glaive/deactivate(mob/living/user)
 	..()
 	icon_state = initial(icon_state)
-	user << "<span class='notice'>\The [src] is de-energised.</span>"
+	to_chat(user, "<span class='notice'>\The [src] is de-energised.</span>")
 
 /obj/item/weapon/melee/energy/glaive/attack(mob/living/carbon/human/M as mob, mob/living/carbon/user as mob)
 	user.setClickCooldown(16)
@@ -190,12 +190,12 @@
 /obj/item/weapon/melee/energy/axe/activate(mob/living/user)
 	..()
 	icon_state = "axe1"
-	user << "<span class='notice'>\The [src] is now energised.</span>"
+	to_chat(user, "<span class='notice'>\The [src] is now energised.</span>")
 
 /obj/item/weapon/melee/energy/axe/deactivate(mob/living/user)
 	..()
 	icon_state = initial(icon_state)
-	user << "<span class='notice'>\The [src] is de-energised. It's just a regular axe now.</span>"
+	to_chat(user, "<span class='notice'>\The [src] is de-energised. It's just a regular axe now.</span>")
 
 /*
  * Energy Sword
@@ -242,14 +242,14 @@
 
 /obj/item/weapon/melee/energy/sword/activate(mob/living/user)
 	if(!active)
-		user << "<span class='notice'>\The [src] is now energised.</span>"
+		to_chat(user, "<span class='notice'>\The [src] is now energised.</span>")
 	..()
 	attack_verb = list("attacked", "slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut")
 	icon_state = "sword[blade_color]"
 
 /obj/item/weapon/melee/energy/sword/deactivate(mob/living/user)
 	if(active)
-		user << "<span class='notice'>\The [src] deactivates!</span>"
+		to_chat(user, "<span class='notice'>\The [src] deactivates!</span>")
 	..()
 	attack_verb = list()
 	icon_state = initial(icon_state)
@@ -258,12 +258,28 @@
 	name = "energy cutlass"
 	desc = "Arrrr matey."
 	icon_state = "cutlass0"
+
 	base_reflectchance = 60
 	base_block_chance = 60
 
 /obj/item/weapon/melee/energy/sword/pirate/activate(mob/living/user)
 	..()
 	icon_state = "cutlass1"
+
+/obj/item/weapon/melee/energy/sword/knife
+	name = "energy utility knife"
+	desc = "Some cheap energy blade, branded at the hilt with the logo of the Tau Ceti Foreign Legion."
+	icon_state = "edagger0"
+	base_reflectchance = 10
+	base_block_chance = 10
+	active_force = 20
+	force = 10
+	origin_tech = list(TECH_MAGNET = 3)
+
+/obj/item/weapon/melee/energy/sword/knife/activate(mob/living/user)
+	..()
+	icon_state = "edagger1"
+
 /*
 *Power Sword
 */

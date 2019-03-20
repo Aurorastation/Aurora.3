@@ -84,11 +84,11 @@
 		cell.charge -= cost
 		if(cell.charge <= 0)
 			cell.charge = 0
-			src << "<span class='warning'>Your shield has overloaded!</span>"
+			to_chat(src, "<span class='warning'>Your shield has overloaded!</span>")
 		else
 			brute -= absorb_brute
 			burn -= absorb_burn
-			src << "<span class='warning'>Your shield absorbs some of the impact!</span>"
+			to_chat(src, "<span class='warning'>Your shield absorbs some of the impact!</span>")
 
 	if(!emp)
 		var/datum/robot_component/armour/A = get_armour()
@@ -130,11 +130,11 @@
 		cell.charge -= cost
 		if(cell.charge <= 0)
 			cell.charge = 0
-			src << "<span class='warning'>Your shield has overloaded!</span>"
+			to_chat(src, "<span class='warning'>Your shield has overloaded!</span>")
 		else
 			brute -= absorb_brute
 			burn -= absorb_burn
-			src << "<span class='warning'>Your shield absorbs some of the impact!</span>"
+			to_chat(src, "<span class='warning'>Your shield absorbs some of the impact!</span>")
 
 	var/datum/robot_component/armour/A = get_armour()
 	if(A)
@@ -155,16 +155,21 @@
 		parts -= picked
 
 /mob/living/silicon/robot/emp_act(severity)
-	if(components["surge"] && components["surge"].installed)
-		if(components["surge"].surge_left)
+	var/datum/robot_component/surge/C = components["surge"]
+	if(C && C.installed)
+		if(C.surge_left >= 1)
 			playsound(src.loc, 'sound/magic/LightningShock.ogg', 25, 1)
-			components["surge"].surge_left -= 1
+			C.surge_left -= 1
 			visible_message("<span class='warning'>[src] was not affected by EMP pulse.</span>", "<span class='warning'>Warning: Power surge detected, source - EMP. Surge prevention module re-routed surge to prevent damage to vital electronics.</span>")
-			if(components["surge"].surge_left)
-				to_chat(src, "<span class='notice'>Surge module has [components["surge"].surge_left] preventions left!</span>")
+			if(C.surge_left)
+				to_chat(src, "<span class='notice'>Surge module has [C.surge_left] preventions left!</span>")
 			else
-				components["surge"].destroy()
+				C.destroy()
 				to_chat(src, "<span class='danger'>Module is entirely fried, replacement is recommended.</span>")
+			return
+		else if(C.surge_left == 0.5)
+			to_chat(src, "<span class='danger'>Warning: Power surge detected, source - EMP, integrated surge prevention module is damaged and was unable to fully protect from EMP. Half of the damage taken. Replacement recommended.</span>")
+			..(2) // borgs only take 1-2 EMP
 			return
 		else
 			to_chat(src, "<span class='notice'>Warning: Power surge detected, source - EMP. Surge prevention module is depleted and requires replacement</span>")

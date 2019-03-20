@@ -106,10 +106,10 @@
 	data["buildable"] = get_build_options()
 	data["category"] = category
 	data["categories"] = categories
-	if(all_robolimbs)
+	if(chargen_robolimbs )
 		var/list/T = list()
-		for(var/A in all_robolimbs)
-			var/datum/robolimb/R = all_robolimbs[A]
+		for(var/A in chargen_robolimbs )
+			var/datum/robolimb/R = chargen_robolimbs [A]
 			T += list(list("id" = A, "company" = R.company))
 		data["manufacturers"] = T
 		data["manufacturer"] = manufacturer
@@ -141,7 +141,7 @@
 			category = href_list["category"]
 
 	if(href_list["manufacturer"])
-		if(href_list["manufacturer"] in all_robolimbs)
+		if(href_list["manufacturer"] in chargen_robolimbs )
 			manufacturer = href_list["manufacturer"]
 
 	if(href_list["eject"])
@@ -156,7 +156,7 @@
 
 /obj/machinery/mecha_part_fabricator/attackby(var/obj/item/I, var/mob/user)
 	if(busy)
-		user << "<span class='notice'>\The [src] is busy. Please wait for completion of previous operation.</span>"
+		to_chat(user, "<span class='notice'>\The [src] is busy. Please wait for completion of previous operation.</span>")
 		return 1
 	if(default_deconstruction_screwdriver(user, I))
 		return
@@ -199,10 +199,10 @@
 				materials[material] += amnt
 				stack.use(1)
 				count++
-			user << "You insert [count] [sname] into the fabricator."
+			to_chat(user, "You insert [count] [sname] into the fabricator.")
 			update_busy()
 	else
-		user << "The fabricator cannot hold more [sname]."
+		to_chat(user, "The fabricator cannot hold more [sname].")
 
 /obj/machinery/mecha_part_fabricator/MouseDrop_T(mob/living/carbon/human/target as mob, mob/user as mob)
 	if (!istype(target) || target.buckled || get_dist(user, src) > 1 || get_dist(user, target) > 1 || user.stat || istype(user, /mob/living/silicon/ai))

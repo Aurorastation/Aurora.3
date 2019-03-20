@@ -17,7 +17,7 @@
 	anchored = 1
 
 /obj/effect/decal/cleanable/ash/attack_hand(mob/user as mob)
-	user << "<span class='notice'>[src] sifts through your fingers.</span>"
+	to_chat(user, "<span class='notice'>[src] sifts through your fingers.</span>")
 	var/turf/simulated/floor/F = get_turf(src)
 	if (istype(F))
 		F.dirt += 4
@@ -60,7 +60,7 @@
 
 /obj/effect/decal/cleanable/greenglow/Initialize(mapload)
 	. = ..()
-	if (!ROUND_IS_STARTED)	// Round-start goo should stick around.
+	if (!mapload)	// Round-start goo should stick around.
 		QDEL_IN(src, 2 MINUTES)
 
 /obj/effect/decal/cleanable/cobweb
@@ -103,10 +103,10 @@
 	random_icon_states = list("vomit_1", "vomit_2", "vomit_3", "vomit_4")
 	var/list/viruses = list()
 
-	Destroy()
-		for(var/datum/disease/D in viruses)
-			D.cure(0)
-		return ..()
+/obj/effect/decal/cleanable/vomit/Destroy()
+	for(var/datum/disease/D in viruses)
+		D.cure(0)
+	return ..()
 
 /obj/effect/decal/cleanable/tomato_smudge
 	name = "tomato smudge"

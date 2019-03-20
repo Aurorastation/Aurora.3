@@ -35,13 +35,15 @@
 	return list(thearea)
 
 /spell/area_teleport/cast(area/thearea, mob/user)
-	if(!istype(thearea))
-		if(istype(thearea, /list))
-			thearea = thearea[1]
+	if(!istype(thearea) && istype(thearea, /list))
+		thearea = thearea[1]
+
 	var/list/L = list()
 	for(var/turf/T in get_area_turfs(thearea.type))
 		if(!T.density)
 			var/clear = 1
+			if(T.is_hole) //No more teleporting in holes.
+				continue
 			for(var/obj/O in T)
 				if(O.density)
 					clear = 0
@@ -50,7 +52,7 @@
 				L+=T
 
 	if(!L.len)
-		user <<"The spell matrix was unable to locate a suitable teleport destination for an unknown reason. Sorry."
+		to_chat(user, "The spell matrix was unable to locate a suitable teleport destination for an unknown reason. Sorry.")
 		return
 
 	if(user && user.buckled)
@@ -59,18 +61,7 @@
 			B.user_unbuckle_mob(user)
 		user.buckled = null
 
-	var/attempt = null
-	var/success = 0
-	while(L.len)
-		attempt = pick(L)
-		success = user.Move(attempt)
-		if(!success)
-			L.Remove(attempt)
-		else
-			break
-
-	if(!success)
-		user.forceMove(pick(L))
+	do_teleport(user,pick(L))
 
 	return
 

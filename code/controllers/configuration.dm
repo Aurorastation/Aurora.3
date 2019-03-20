@@ -18,7 +18,7 @@ var/list/gamemode_cache = list()
 	var/log_pda = 0						// log pda messages
 	var/log_hrefs = 0					// logs all links clicked in-game. Could be used for debugging and tracking down exploits
 	var/log_runtime = 0					// logs world.log to a file
-	var/log_world_output = 0			// log world.log << messages
+	var/log_world_output = 0			// log world.log <<  messages
 	var/sql_enabled = 1					// for sql switching
 	var/allow_admin_ooccolor = 0		// Allows admins with relevant permissions to have their own ooc colour
 	var/allow_vote_restart = 0 			// allow votes to restart
@@ -138,8 +138,8 @@ var/list/gamemode_cache = list()
 	var/welder_vision = 1
 	var/generate_asteroid = 0
 	var/dungeon_chance = 0
-	
-	
+
+
 	var/no_click_cooldown = 0
 
 	//Used for modifying movement speed for mobs.
@@ -223,9 +223,7 @@ var/list/gamemode_cache = list()
 	var/client_error_message = ""
 	var/client_warn_version = 0
 	var/client_warn_message = ""
-#if DM_VERSION > 511
 	var/list/client_blacklist_version = list()
-#endif
 
 	//Mark-up enabling
 	var/allow_chat_markup = 0
@@ -281,6 +279,18 @@ var/list/gamemode_cache = list()
 	var/iterative_explosives_z_multiplier = 0.75
 
 	var/ticket_reminder_period = 0
+
+	var/rounds_until_hard_restart = -1 // Changes how often a hard restart will be executed.
+
+	var/ert_base_chance = 10
+	var/ert_green_inc = 1
+	var/ert_yellow_inc = 1
+	var/ert_blue_inc = 2
+	var/ert_red_inc = 3
+	var/ert_delta_inc = 10
+	var/ert_scaling_factor = 1
+	var/ert_scaling_factor_antag = 1
+	var/ert_scaling_factor_dead = 2
 
 /datum/configuration/New()
 	var/list/L = typesof(/datum/game_mode) - /datum/game_mode
@@ -400,7 +410,7 @@ var/list/gamemode_cache = list()
 					config.log_runtime = text2num(value)
 
 				if ("dungeon_chance")
-					config.dungeon_chance = text2num(value)					
+					config.dungeon_chance = text2num(value)
 
 				if ("generate_asteroid")
 					config.generate_asteroid = 1
@@ -775,10 +785,8 @@ var/list/gamemode_cache = list()
 				if("client_warn_message")
 					config.client_warn_message = value
 
-#if DM_VERSION > 511
 				if("client_blacklist_version")
 					config.client_blacklist_version = splittext(value, ";")
-#endif
 
 				if("allow_chat_markup")
 					config.allow_chat_markup = 1
@@ -842,7 +850,7 @@ var/list/gamemode_cache = list()
 
 				if("fastboot")
 					fastboot = TRUE
-					world.log << "Fastboot is ENABLED."
+					world.log <<  "Fastboot is ENABLED."
 
 				if("merchant_chance")
 					config.merchant_chance = text2num(value)
@@ -863,6 +871,28 @@ var/list/gamemode_cache = list()
 					ticket_reminder_period = text2num(value)
 					if (ticket_reminder_period < 1)
 						ticket_reminder_period = 0
+
+				if ("rounds_until_hard_restart")
+					rounds_until_hard_restart = text2num(value)
+
+				if ("ert_base_chance")
+					ert_base_chance = text2num(value)
+				if ("ert_green_inc")
+					ert_green_inc = text2num(value)
+				if ("ert_yellow_inc")
+					ert_yellow_inc = text2num(value)
+				if ("ert_blue_inc")
+					ert_blue_inc = text2num(value)
+				if ("ert_red_inc")
+					ert_red_inc = text2num(value)
+				if ("ert_delta_inc")
+					ert_delta_inc = text2num(value)
+				if ("ert_scaling_factor")
+					ert_scaling_factor = text2num(value)
+				if ("ert_scaling_factor_antag")
+					ert_scaling_factor_antag = text2num(value)
+				if ("ert_scaling_factor_dead")
+					ert_scaling_factor_dead = text2num(value)
 
 				else
 					log_misc("Unknown setting in configuration: '[name]'")
@@ -973,6 +1003,8 @@ var/list/gamemode_cache = list()
 	return gamemode_cache["extended"]
 
 /datum/configuration/proc/get_runnable_modes(secret_type = ROUNDTYPE_STR_SECRET)
+	log_debug("GAMEMODE: Checking runnable modes with secret_type set to [secret_type]...")
+
 	var/list/probabilities = config.probabilities_secret
 
 	if (secret_type == ROUNDTYPE_STR_MIXED_SECRET)
@@ -986,8 +1018,25 @@ var/list/gamemode_cache = list()
 	var/list/runnable_modes = list()
 	for(var/game_mode in gamemode_cache)
 		var/datum/game_mode/M = gamemode_cache[game_mode]
-		if(M && M.can_start() && probabilities[M.config_tag] && probabilities[M.config_tag] > 0)
-			runnable_modes |= M
+		if(!M)
+			log_debug("GAMEMODE: ERROR: [M] does not exist!")
+			continue
+
+		var/can_start = M.can_start()
+		if(can_start != GAME_FAILURE_NONE)
+			log_debug("GAMEMODE: [M.name] cannot start! Reason: [can_start]")
+			continue
+
+		if(!probabilities[M.config_tag])
+			log_debug("GAMEMODE: ERROR: [M.name] does not have a config associated with it!")
+			continue
+
+		if(probabilities[M.config_tag] <= 0)
+			log_debug("GAMEMODE: ERROR: [M.name] has a probability equal or less than 0!")
+			continue
+
+		runnable_modes |= M
+
 	return runnable_modes
 
 /datum/configuration/proc/post_load()

@@ -69,7 +69,7 @@
 	if(C && C.active)
 		C.attack_self(src)//Should shut it off
 		update_icons()
-		src << "<span class='notice'>Your [C.name] was disrupted!</span>"
+		to_chat(src, "<span class='notice'>Your [C.name] was disrupted!</span>")
 		Stun(2)
 
 	//Being hit while using a deadman switch
@@ -83,7 +83,7 @@
 	//Stun Beams
 	if(P.taser_effect)
 		stun_effect_act(0, P.agony, def_zone, P)
-		src <<"<span class='warning'>You have been hit by [P]!</span>"
+		to_chat(src, "<span class='warning'>You have been hit by [P]!</span>")
 		qdel(P)
 		return
 
@@ -115,7 +115,7 @@
 		apply_effect(STUTTER, agony_amount/10)
 		apply_effect(EYE_BLUR, agony_amount/10)
 
-/mob/living/proc/electrocute_act(var/shock_damage, var/obj/source, var/siemens_coeff = 1.0, var/tesla_shock = 0)
+/mob/living/proc/electrocute_act(var/shock_damage, var/obj/source, var/siemens_coeff = 1.0, var/tesla_shock = 0, var/ground_zero)
 	  return 0 //only carbon liveforms have this proc
 
 /mob/living/emp_act(severity)
@@ -324,12 +324,9 @@
 	for(var/obj/item/I in src)
 		if(I.action_button_name)
 			if(!I.action)
-				if(I.action_button_is_hands_free)
-					I.action = new/datum/action/item_action/hands_free
-				else
-					I.action = new/datum/action/item_action
-				I.action.name = I.action_button_name
-				I.action.target = I
+				I.action = new I.default_action_type
+			I.action.name = I.action_button_name
+			I.action.SetTarget(I)
 			I.action.Grant(src)
 	return
 

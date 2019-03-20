@@ -48,7 +48,7 @@
 	if(!proximity) return
 	if (istype(A, /obj/structure/reagent_dispensers/watertank) && get_dist(src,A) <= 1)
 		A.reagents.trans_to_obj(src, 10)
-		user << "<span class='notice'>You fill the balloon with the contents of [A].</span>"
+		to_chat(user, "<span class='notice'>You fill the balloon with the contents of [A].</span>")
 		src.desc = "A translucent balloon with some form of liquid sloshing around in it."
 		src.update_icon()
 	return
@@ -57,15 +57,15 @@
 	if(istype(O, /obj/item/weapon/reagent_containers/glass))
 		if(O.reagents)
 			if(O.reagents.total_volume < 1)
-				user << "The [O] is empty."
+				to_chat(user, "The [O] is empty.")
 			else if(O.reagents.total_volume >= 1)
 				if(O.reagents.has_reagent("pacid", 1))
-					user << "The acid chews through the balloon!"
+					to_chat(user, "The acid chews through the balloon!")
 					O.reagents.splash(user, reagents.total_volume)
 					qdel(src)
 				else
 					src.desc = "A translucent balloon with some form of liquid sloshing around in it."
-					user << "<span class='notice'>You fill the balloon with the contents of [O].</span>"
+					to_chat(user, "<span class='notice'>You fill the balloon with the contents of [O].</span>")
 					O.reagents.trans_to_obj(src, 10)
 	src.update_icon()
 	return
@@ -98,7 +98,7 @@
 	icon = 'icons/obj/weapons.dmi'
 	icon_state = "syndballoon"
 	item_state = "syndballoon"
-	w_class = ITEMSIZE_LARGE  
+	w_class = ITEMSIZE_LARGE
 
 /obj/item/toy/nanotrasenballoon
 	name = "criminal balloon"
@@ -110,7 +110,7 @@
 	icon = 'icons/obj/weapons.dmi'
 	icon_state = "ntballoon"
 	item_state = "ntballoon"
-	w_class = ITEMSIZE_LARGE  
+	w_class = ITEMSIZE_LARGE
 
 /*
  * Fake telebeacon
@@ -151,7 +151,7 @@
 
 	examine(mob/user)
 		if(..(user, 2) && bullets)
-			user << "<span class='notice'>It is loaded with [bullets] foam darts!</span>"
+			to_chat(user, "<span class='notice'>It is loaded with [bullets] foam darts!</span>")
 
 	attackby(obj/item/I as obj, mob/user as mob)
 		if(istype(I, /obj/item/toy/ammo/crossbow))
@@ -159,9 +159,9 @@
 				user.drop_from_inventory(I,src)
 				qdel(I)
 				bullets++
-				user << "<span class='notice'>You load the foam dart into the crossbow.</span>"
+				to_chat(user, "<span class='notice'>You load the foam dart into the crossbow.</span>")
 			else
-				usr << "<span class='warning'>It's already fully loaded.</span>"
+				to_chat(usr, "<span class='warning'>It's already fully loaded.</span>")
 
 
 	afterattack(atom/target as mob|obj|turf|area, mob/user as mob, flag)
@@ -266,13 +266,13 @@
 	attack_self(mob/user as mob)
 		src.active = !( src.active )
 		if (src.active)
-			user << "<span class='notice'>You extend the plastic blade with a quick flick of your wrist.</span>"
+			to_chat(user, "<span class='notice'>You extend the plastic blade with a quick flick of your wrist.</span>")
 			playsound(user, 'sound/weapons/saberon.ogg', 50, 1)
 			src.icon_state = "sword[colorvar]"
 			src.item_state = "sword[colorvar]"
 			src.w_class = ITEMSIZE_LARGE
 		else
-			user << "<span class='notice'>You push the plastic blade back down into the handle.</span>"
+			to_chat(user, "<span class='notice'>You push the plastic blade back down into the handle.</span>")
 			playsound(user, 'sound/weapons/saberoff.ogg', 50, 1)
 			src.icon_state = "sword0"
 			src.item_state = "sword0"
@@ -326,7 +326,7 @@
 	if((ishuman(H))) //i guess carp and shit shouldn't set them off
 		var/mob/living/carbon/M = H
 		if(M.m_intent == "run")
-			M << "<span class='warning'>You step on the snap pop!</span>"
+			to_chat(M, "<span class='warning'>You step on the snap pop!</span>")
 
 			spark(src, 2)
 			new /obj/effect/decal/cleanable/ash(src.loc)
@@ -365,12 +365,12 @@
 
 	else if (istype(A, /obj/structure/reagent_dispensers/watertank) && get_dist(src,A) <= 1)
 		A.reagents.trans_to(src, 10)
-		user << "<span class='notice'>You refill your flower!</span>"
+		to_chat(user, "<span class='notice'>You refill your flower!</span>")
 		return
 
 	else if (src.reagents.total_volume < 1)
 		src.empty = 1
-		user << "<span class='notice'>Your flower has run dry!</span>"
+		to_chat(user, "<span class='notice'>Your flower has run dry!</span>")
 		return
 
 	else
@@ -392,7 +392,7 @@
 				for(var/atom/T in get_turf(D))
 					D.reagents.touch(T)
 					if(ismob(T) && T:client)
-						T:client << "<span class='warning'>\The [user] has sprayed you with water!</span>"
+						to_chat(T:client, "<span class='warning'>\The [user] has sprayed you with water!</span>")
 				sleep(4)
 			qdel(D)
 
@@ -400,7 +400,7 @@
 
 /obj/item/toy/waterflower/examine(mob/user)
 	if(..(user, 0))
-		user << text("\icon[] [] units of water left!", src, src.reagents.total_volume)
+		to_chat(user, text("\icon[] [] units of water left!", src, src.reagents.total_volume))
 
 /*
  * Bosun's whistle
@@ -417,7 +417,7 @@
 
 /obj/item/toy/bosunwhistle/attack_self(mob/user as mob)
 	if(cooldown < world.time - 35)
-		user << "<span class='notice'>You blow on [src], creating an ear-splitting noise!</span>"
+		to_chat(user, "<span class='notice'>You blow on [src], creating an ear-splitting noise!</span>")
 		playsound(user, 'sound/misc/boatswain.ogg', 20, 1)
 		cooldown = world.time
 
@@ -433,14 +433,14 @@
 //all credit to skasi for toy mech fun ideas
 /obj/item/toy/prize/attack_self(mob/user as mob)
 	if(cooldown < world.time - 8)
-		user << "<span class='notice'>You play with [src].</span>"
+		to_chat(user, "<span class='notice'>You play with [src].</span>")
 		playsound(user, 'sound/mecha/mechstep.ogg', 20, 1)
 		cooldown = world.time
 
 /obj/item/toy/prize/attack_hand(mob/user as mob)
 	if(loc == user)
 		if(cooldown < world.time - 8)
-			user << "<span class='notice'>You play with [src].</span>"
+			to_chat(user, "<span class='notice'>You play with [src].</span>")
 			playsound(user, 'sound/mecha/mechturn.ogg', 20, 1)
 			cooldown = world.time
 			return
@@ -505,205 +505,205 @@
  */
 
 /obj/item/toy/figure
-	name = "Completely Glitched action figure"
+	name = "completely glitched action figure"
 	desc = "A \"Space Life\" brand... wait, what the hell is this thing? It seems to be requesting the sweet release of death."
 	icon_state = "assistant"
 	icon = 'icons/obj/toy.dmi'
 	w_class = ITEMSIZE_TINY
 
 /obj/item/toy/figure/cmo
-	name = "Chief Medical Officer action figure"
-	desc = "A \"Space Life\" brand Chief Medical Officer action figure."
+	name = "chief medical officer action figure"
+	desc = "A \"Space Life\" brand chief medical officer action figure."
 	icon_state = "cmo"
 
 /obj/item/toy/figure/assistant
-	name = "Assistant action figure"
-	desc = "A \"Space Life\" brand Assistant action figure."
+	name = "assistant action figure"
+	desc = "A \"Space Life\" brand assistant action figure."
 	icon_state = "assistant"
 
 /obj/item/toy/figure/atmos
-	name = "Atmospheric Technician action figure"
-	desc = "A \"Space Life\" brand Atmospheric Technician action figure."
+	name = "atmospheric technician action figure"
+	desc = "A \"Space Life\" brand atmospheric technician action figure."
 	icon_state = "atmos"
 
 /obj/item/toy/figure/bartender
-	name = "Bartender action figure"
-	desc = "A \"Space Life\" brand Bartender action figure."
+	name = "bartender action figure"
+	desc = "A \"Space Life\" brand bartender action figure."
 	icon_state = "bartender"
 
 /obj/item/toy/figure/borg
-	name = "Cyborg action figure"
-	desc = "A \"Space Life\" brand Cyborg action figure."
+	name = "cyborg action figure"
+	desc = "A \"Space Life\" brand cyborg action figure."
 	icon_state = "borg"
 
 /obj/item/toy/figure/gardener
-	name = "Gardener action figure"
-	desc = "A \"Space Life\" brand Gardener action figure."
+	name = "gardener action figure"
+	desc = "A \"Space Life\" brand gardener action figure."
 	icon_state = "botanist"
 
 /obj/item/toy/figure/captain
-	name = "Captain action figure"
-	desc = "A \"Space Life\" brand Captain action figure."
+	name = "captain action figure"
+	desc = "A \"Space Life\" brand captain action figure."
 	icon_state = "captain"
 
 /obj/item/toy/figure/cargotech
-	name = "Cargo Technician action figure"
-	desc = "A \"Space Life\" brand Cargo Technician action figure."
+	name = "cargo technician action figure"
+	desc = "A \"Space Life\" brand cargo technician action figure."
 	icon_state = "cargotech"
 
 /obj/item/toy/figure/ce
-	name = "Chief Engineer action figure"
-	desc = "A \"Space Life\" brand Chief Engineer action figure."
+	name = "chief engineer action figure"
+	desc = "A \"Space Life\" brand chief engineer action figure."
 	icon_state = "ce"
 
 /obj/item/toy/figure/chaplain
-	name = "Chaplain action figure"
-	desc = "A \"Space Life\" brand Chaplain action figure."
+	name = "chaplain action figure"
+	desc = "A \"Space Life\" brand chaplain action figure."
 	icon_state = "chaplain"
 
 /obj/item/toy/figure/chef
-	name = "Chef action figure"
-	desc = "A \"Space Life\" brand Chef action figure."
+	name = "chef action figure"
+	desc = "A \"Space Life\" brand chef action figure."
 	icon_state = "chef"
 
 /obj/item/toy/figure/chemist
 	name = "Chemist action figure"
-	desc = "A \"Space Life\" brand Chemist action figure."
+	desc = "A \"Space Life\" brand chemist action figure."
 	icon_state = "chemist"
 
 /obj/item/toy/figure/clown
-	name = "Clown action figure"
-	desc = "A \"Space Life\" brand Clown action figure."
+	name = "clown action figure"
+	desc = "A \"Space Life\" brand clown action figure."
 	icon_state = "clown"
 
 /obj/item/toy/figure/corgi
-	name = "Corgi action figure"
-	desc = "A \"Space Life\" brand Corgi action figure."
+	name = "corgi action figure"
+	desc = "A \"Space Life\" brand corgi action figure."
 	icon_state = "ian"
 
 /obj/item/toy/figure/detective
-	name = "Detective action figure"
-	desc = "A \"Space Life\" brand Detective action figure."
+	name = "detective action figure"
+	desc = "A \"Space Life\" brand detective action figure."
 	icon_state = "detective"
 
 /obj/item/toy/figure/dsquad
-	name = "Space Commando action figure"
-	desc = "A \"Space Life\" brand Space Commando action figure."
+	name = "space commando action figure"
+	desc = "A \"Space Life\" brand space commando action figure."
 	icon_state = "dsquad"
 
 /obj/item/toy/figure/engineer
-	name = "Engineer action figure"
-	desc = "A \"Space Life\" brand Engineer action figure."
+	name = "engineer action figure"
+	desc = "A \"Space Life\" brand engineer action figure."
 	icon_state = "engineer"
 
 /obj/item/toy/figure/geneticist
-	name = "Geneticist action figure"
-	desc = "A \"Space Life\" brand Geneticist action figure, which was recently dicontinued."
+	name = "geneticist action figure"
+	desc = "A \"Space Life\" brand geneticist action figure, which was recently dicontinued."
 	icon_state = "geneticist"
 
 /obj/item/toy/figure/hop
-	name = "Head of Personel action figure"
-	desc = "A \"Space Life\" brand Head of Personel action figure."
+	name = "head of personel action figure"
+	desc = "A \"Space Life\" brand head of personel action figure."
 	icon_state = "hop"
 
 /obj/item/toy/figure/hos
-	name = "Head of Security action figure"
-	desc = "A \"Space Life\" brand Head of Security action figure."
+	name = "head of security action figure"
+	desc = "A \"Space Life\" brand head of security action figure."
 	icon_state = "hos"
 
 /obj/item/toy/figure/qm
-	name = "Quartermaster action figure"
-	desc = "A \"Space Life\" brand Quartermaster action figure."
+	name = "quartermaster action figure"
+	desc = "A \"Space Life\" brand quartermaster action figure."
 	icon_state = "qm"
 
 /obj/item/toy/figure/janitor
-	name = "Janitor action figure"
-	desc = "A \"Space Life\" brand Janitor action figure."
+	name = "janitor action figure"
+	desc = "A \"Space Life\" brand janitor action figure."
 	icon_state = "janitor"
 
 /obj/item/toy/figure/agent
-	name = "Internal Affairs Agent action figure"
-	desc = "A \"Space Life\" brand Internal Affairs Agent action figure."
+	name = "internal affairs agent action figure"
+	desc = "A \"Space Life\" brand internal affairs agent action figure."
 	icon_state = "agent"
 
 /obj/item/toy/figure/librarian
-	name = "Librarian action figure"
-	desc = "A \"Space Life\" brand Librarian action figure."
+	name = "librarian action figure"
+	desc = "A \"Space Life\" brand librarian action figure."
 	icon_state = "librarian"
-	
+
 /obj/item/toy/figure/journalist
-	name = "Journalist action figure"
-	desc = "A \"Space Life\" brand Librarian action figure. The word 'librarian' on the tag is scratched out with marker, and 'journalist' is written in its place."
+	name = "journalist action figure"
+	desc = "A \"Space Life\" brand librarian action figure. The word 'librarian' on the tag is scratched out with marker, and 'journalist' is written in its place."
 	icon_state = "librarian"
 
 /obj/item/toy/figure/md
-	name = "Medical Doctor action figure"
-	desc = "A \"Space Life\" brand Medical Doctor action figure."
+	name = "medical doctor action figure"
+	desc = "A \"Space Life\" brand medical doctor action figure."
 	icon_state = "md"
 
 /obj/item/toy/figure/mime
-	name = "Mime action figure"
-	desc = "A \"Space Life\" brand Mime action figure."
+	name = "mime action figure"
+	desc = "A \"Space Life\" brand mime action figure."
 	icon_state = "mime"
 
 /obj/item/toy/figure/miner
-	name = "Shaft Miner action figure"
-	desc = "A \"Space Life\" brand Shaft Miner action figure."
+	name = "shaft miner action figure"
+	desc = "A \"Space Life\" brand shaft miner action figure."
 	icon_state = "miner"
 
 /obj/item/toy/figure/ninja
-	name = "Space Ninja action figure"
-	desc = "A \"Space Life\" brand Space Ninja action figure."
+	name = "space ninja action figure"
+	desc = "A \"Space Life\" brand space ninja action figure."
 	icon_state = "ninja"
 
 /obj/item/toy/figure/wizard
-	name = "Wizard action figure"
-	desc = "A \"Space Life\" brand Wizard action figure."
+	name = "wizard action figure"
+	desc = "A \"Space Life\" brand wizard action figure."
 	icon_state = "wizard"
 
 /obj/item/toy/figure/rd
-	name = "Research Director action figure"
-	desc = "A \"Space Life\" brand Research Director action figure."
+	name = "research director action figure"
+	desc = "A \"Space Life\" brand research director action figure."
 	icon_state = "rd"
 
 /obj/item/toy/figure/roboticist
-	name = "Roboticist action figure"
-	desc = "A \"Space Life\" brand Roboticist action figure."
+	name = "roboticist action figure"
+	desc = "A \"Space Life\" brand roboticist action figure."
 	icon_state = "roboticist"
 
 /obj/item/toy/figure/scientist
-	name = "Scientist action figure"
-	desc = "A \"Space Life\" brand Scientist action figure."
+	name = "scientist action figure"
+	desc = "A \"Space Life\" brand scientist action figure."
 	icon_state = "scientist"
 
 /obj/item/toy/figure/syndie
-	name = "Doom Operative action figure"
-	desc = "A \"Space Life\" brand Doom Operative action figure."
+	name = "doom operative action figure"
+	desc = "A \"Space Life\" brand doom operative action figure."
 	icon_state = "syndie"
 
 /obj/item/toy/figure/secofficer
-	name = "Security Officer action figure"
-	desc = "A \"Space Life\" brand Security Officer action figure."
+	name = "security officer action figure"
+	desc = "A \"Space Life\" brand security officer action figure."
 	icon_state = "secofficer"
 
 /obj/item/toy/figure/warden
-	name = "Warden action figure"
-	desc = "A \"Space Life\" brand Warden action figure."
+	name = "warden action figure"
+	desc = "A \"Space Life\" brand warden action figure."
 	icon_state = "warden"
 
 /obj/item/toy/figure/psychologist
-	name = "Psychologist action figure"
-	desc = "A \"Space Life\" brand Psychologist action figure."
+	name = "psychologist action figure"
+	desc = "A \"Space Life\" brand psychologist action figure."
 	icon_state = "psychologist"
 
 /obj/item/toy/figure/paramedic
-	name = "Paramedic action figure"
-	desc = "A \"Space Life\" brand Paramedic action figure."
+	name = "paramedic action figure"
+	desc = "A \"Space Life\" brand paramedic action figure."
 	icon_state = "paramedic"
 
 /obj/item/toy/figure/ert
-	name = "Emergency Response Team Commander action figure"
-	desc = "A \"Space Life\" brand Emergency Response Team Commander action figure."
+	name = "emergency response team commander action figure"
+	desc = "A \"Space Life\" brand emergency response team commander action figure."
 	icon_state = "ert"
 
 /obj/item/toy/therapy_red
@@ -758,63 +758,12 @@
  * Plushies
  */
 
-//Large plushies.
-/obj/structure/plushie
-	name = "generic plush"
-	desc = "A very generic plushie. It seems to not want to exist."
-	icon = 'icons/obj/toy.dmi'
-	icon_state = "ianplushie"
-	anchored = 0
-	density = 1
-	var/phrase = "I don't want to exist anymore!"
-
-/obj/structure/plushie/attack_hand(mob/user)
-	if(user.a_intent == I_HELP)
-		user.visible_message("<span class='notice'><b>\The [user]</b> hugs [src]!</span>","<span class='notice'>You hug [src]!</span>")
-	else if (user.a_intent == I_HURT)
-		user.visible_message("<span class='warning'><b>\The [user]</b> punches [src]!</span>","<span class='warning'>You punch [src]!</span>")
-	else if (user.a_intent == I_GRAB)
-		user.visible_message("<span class='warning'><b>\The [user]</b> attempts to strangle [src]!</span>","<span class='warning'>You attempt to strangle [src]!</span>")
-	else
-		user.visible_message("<span class='notice'><b>\The [user]</b> pokes the [src].</span>","<span class='notice'>You poke the [src].</span>")
-		visible_message("[src] says, \"[phrase]\"")
-
-/obj/structure/plushie/ian
-	name = "plush corgi"
-	desc = "A plushie of an adorable corgi! Don't you just want to hug it and squeeze it and call it \"Ian\"?"
-	icon_state = "ianplushie"
-	phrase = "Arf!"
-
-/obj/structure/plushie/drone
-	name = "plush drone"
-	desc = "A plushie of a happy drone! It appears to be smiling, and has a small tag which reads \"N.D.V. Icarus Gift Shop\"."
-	icon_state = "droneplushie"
-	phrase = "Beep boop!"
-
-/obj/structure/plushie/carp
-	name = "plush carp"
-	desc = "A plushie of an elated carp! Straight from the wilds of the Tau Ceti frontier, now right here in your hands."
-	icon_state = "carpplushie"
-	phrase = "Glorf!"
-
-/obj/structure/plushie/beepsky
-	name = "plush Officer Sweepsky"
-	desc = "A plushie of a popular industrious cleaning robot! If it could feel emotions, it would love you."
-	icon_state = "beepskyplushie"
-	phrase = "Ping!"
-
-/obj/structure/plushie/ivancarp
-	name = "plush Ivan the carp"
-	desc = "A plushie in the spitting image of a russian raised carp."
-	icon_state = "carpplushie_russian"
-	phrase = "Blyat!"
-
-//Small plushies.
 /obj/item/toy/plushie
 	name = "generic small plush"
 	desc = "A very generic small plushie. It seems to not want to exist."
 	icon = 'icons/obj/toy.dmi'
 	icon_state = "nymphplushie"
+	var/phrase = "Hewwo!"
 
 /obj/item/toy/plushie/attack_self(mob/user as mob)
 	if(user.a_intent == I_HELP)
@@ -825,11 +774,48 @@
 		user.visible_message("<span class='warning'><b>\The [user]</b> attempts to strangle [src]!</span>","<span class='warning'>You attempt to strangle [src]!</span>")
 	else
 		user.visible_message("<span class='notice'><b>\The [user]</b> pokes the [src].</span>","<span class='notice'>You poke the [src].</span>")
+		visible_message("[src] says, \"[phrase]\"")
+
+//Large plushies.
+
+
+/obj/item/toy/plushie/ian
+	name = "plush corgi"
+	desc = "A plushie of an adorable corgi! Don't you just want to hug it and squeeze it and call it \"Ian\"?"
+	icon_state = "ianplushie"
+	phrase = "Arf!"
+
+/obj/item/toy/plushie/drone
+	name = "plush drone"
+	desc = "A plushie of a happy drone! It appears to be smiling, and has a small tag which reads \"N.D.V. Icarus Gift Shop\"."
+	icon_state = "droneplushie"
+	phrase = "Beep boop!"
+
+/obj/item/toy/plushie/carp
+	name = "plush carp"
+	desc = "A plushie of an elated carp! Straight from the wilds of the Tau Ceti frontier, now right here in your hands."
+	icon_state = "carpplushie"
+	phrase = "Glorf!"
+
+/obj/item/toy/plushie/beepsky
+	name = "plush Officer Sweepsky"
+	desc = "A plushie of a popular industrious cleaning robot! If it could feel emotions, it would love you."
+	icon_state = "beepskyplushie"
+	phrase = "Ping!"
+
+/obj/item/toy/plushie/ivancarp
+	name = "plush Ivan the carp"
+	desc = "A plushie in the spitting image of a russian raised carp."
+	icon_state = "carpplushie_russian"
+	phrase = "Blyat!"
+
+//Small plushies.
 
 /obj/item/toy/plushie/nymph
 	name = "diona nymph plush"
 	desc = "A plushie of an adorable diona nymph! While its level of self-awareness is still being debated, its level of cuteness is not."
 	icon_state = "nymphplushie"
+	slot_flags = SLOT_HEAD
 
 /obj/item/toy/plushie/mouse
 	name = "mouse plush"
@@ -840,6 +826,7 @@
 	name = "kitten plush"
 	desc = "A plushie of a cute kitten! Watch as it purrs it's way right into your heart."
 	icon_state = "kittenplushie"
+	slot_flags = SLOT_HEAD
 
 /obj/item/toy/plushie/lizard
 	name = "lizard plush"
@@ -853,8 +840,54 @@
 
 /obj/item/toy/plushie/farwa
 	name = "farwa plush"
-	desc = "A farwa plush doll. It's soft and comforting!"
+	desc = "A farwa plush doll. It's soft and comforting, with extra grip!"
 	icon_state = "farwaplushie"
+	slot_flags = SLOT_HEAD
+
+//Squid Plushies
+
+/obj/item/toy/plushie/squid/green
+	name = "green squid plushie"
+	desc = "A small, cute and loveable squid friend. This one is green."
+	icon = 'icons/obj/toy.dmi'
+	icon_state = "greensquid"
+	slot_flags = SLOT_HEAD
+
+/obj/item/toy/plushie/squid/mint
+	name = "mint squid plushie"
+	desc = "A small, cute and loveable squid friend. This one is mint coloured."
+	icon = 'icons/obj/toy.dmi'
+	icon_state = "mintsquid"
+	slot_flags = SLOT_HEAD
+
+/obj/item/toy/plushie/squid/blue
+	name = "blue squid plushie"
+	desc = "A small, cute and loveable squid friend. This one is blue."
+	icon = 'icons/obj/toy.dmi'
+	icon_state = "bluesquid"
+	slot_flags = SLOT_HEAD
+
+/obj/item/toy/plushie/squid/orange
+	name = "orange squid plushie"
+	desc = "A small, cute and loveable squid friend. This one is orange."
+	icon = 'icons/obj/toy.dmi'
+	icon_state = "orangesquid"
+	slot_flags = SLOT_HEAD
+
+/obj/item/toy/plushie/squid/yellow
+	name = "yellow squid plushie"
+	desc = "A small, cute and loveable squid friend. This one is yellow."
+	icon = 'icons/obj/toy.dmi'
+	icon_state = "yellowsquid"
+	slot_flags = SLOT_HEAD
+
+/obj/item/toy/plushie/squid/pink
+	name = "pink squid plushie"
+	desc = "A small, cute and loveable squid friend. This one is pink."
+	icon = 'icons/obj/toy.dmi'
+	icon_state = "pinksquid"
+	slot_flags = SLOT_HEAD
+
 
 //Toy cult sword
 /obj/item/toy/cultsword
@@ -872,7 +905,7 @@
 	name = "toddler"
 	desc = "This baby looks almost real. Wait, did it just burp?"
 	force = 5
-	w_class = ITEMSIZE_LARGE  
+	w_class = ITEMSIZE_LARGE
 	slot_flags = SLOT_BACK
 */
 

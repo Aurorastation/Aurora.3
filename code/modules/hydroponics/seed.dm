@@ -123,15 +123,15 @@
 	if(get_trait(TRAIT_CARNIVOROUS))
 		if(get_trait(TRAIT_CARNIVOROUS) == 2)
 			if(affecting)
-				target << "<span class='danger'>\The [fruit]'s thorns pierce your [affecting.name] greedily!</span>"
+				to_chat(target, "<span class='danger'>\The [fruit]'s thorns pierce your [affecting.name] greedily!</span>")
 			else
-				target << "<span class='danger'>\The [fruit]'s thorns pierce your flesh greedily!</span>"
+				to_chat(target, "<span class='danger'>\The [fruit]'s thorns pierce your flesh greedily!</span>")
 			damage = get_trait(TRAIT_POTENCY)/2
 		else
 			if(affecting)
-				target << "<span class='danger'>\The [fruit]'s thorns dig deeply into your [affecting.name]!</span>"
+				to_chat(target, "<span class='danger'>\The [fruit]'s thorns dig deeply into your [affecting.name]!</span>")
 			else
-				target << "<span class='danger'>\The [fruit]'s thorns dig deeply into your flesh!</span>"
+				to_chat(target, "<span class='danger'>\The [fruit]'s thorns dig deeply into your flesh!</span>")
 			damage = get_trait(TRAIT_POTENCY)/5
 	else
 		return
@@ -160,7 +160,7 @@
 		if(!body_coverage)
 			return
 
-		target << "<span class='danger'>You are stung by \the [fruit]!</span>"
+		to_chat(target, "<span class='danger'>You are stung by \the [fruit]!</span>")
 		for(var/rid in chems)
 			var/injecting = min(5,max(1,get_trait(TRAIT_POTENCY)/5))
 			target.reagents.add_reagent(rid,injecting)
@@ -327,7 +327,7 @@
 			spark(target, 3, alldirs)
 			var/turf/picked = get_turf(pick(turfs))                      // Just in case...
 			new/obj/effect/decal/cleanable/molten_item(get_turf(target)) // Leave a pile of goo behind for dramatic effect...
-			target.forceMove(picked)                                         // And teleport them to the chosen location.
+			do_teleport(target, picked)                                      // And teleport them to the chosen location.                                      // And teleport them to the chosen location.
 
 			impact = 1
 
@@ -674,9 +674,9 @@
 		return
 
 	if(!force_amount && get_trait(TRAIT_YIELD) == 0 && !harvest_sample)
-		if(istype(user)) user << "<span class='danger'>You fail to harvest anything useful.</span>"
+		if(istype(user)) to_chat(user, "<span class='danger'>You fail to harvest anything useful.</span>")
 	else
-		if(istype(user)) user << "You [harvest_sample ? "take a sample" : "harvest"] from the [display_name]."
+		if(istype(user)) to_chat(user, "You [harvest_sample ? "take a sample" : "harvest"] from the [display_name].")
 
 		//This may be a new line. Update the global if it is.
 		if(name == "new line" || !(name in SSplants.seeds))
@@ -703,40 +703,43 @@
 				total_yield = max(1,total_yield)
 
 		for(var/i = 0;i<total_yield;i++)
-			var/obj/item/product
-			if(has_mob_product)
-				product = new has_mob_product(get_turf(user),name)
-			else
-				product = new /obj/item/weapon/reagent_containers/food/snacks/grown(get_turf(user),name)
-			if(get_trait(TRAIT_PRODUCT_COLOUR))
-				if(!istype(product, /mob))
-					product.color = get_trait(TRAIT_PRODUCT_COLOUR)
-					if(istype(product,/obj/item/weapon/reagent_containers/food))
-						var/obj/item/weapon/reagent_containers/food/food = product
-						food.filling_color = get_trait(TRAIT_PRODUCT_COLOUR)
+			spawn_seed(get_turf(user))
 
-			if(mysterious)
-				product.name += "?"
-				product.desc += " On second thought, something about this one looks strange."
+/datum/seed/proc/spawn_seed(var/turf/spawning_loc)
+	var/obj/item/product
+	if(has_mob_product)
+		product = new has_mob_product(spawning_loc,name)
+	else
+		product = new /obj/item/weapon/reagent_containers/food/snacks/grown(spawning_loc,name)
+	if(get_trait(TRAIT_PRODUCT_COLOUR))
+		if(!istype(product, /mob))
+			product.color = get_trait(TRAIT_PRODUCT_COLOUR)
+			if(istype(product,/obj/item/weapon/reagent_containers/food))
+				var/obj/item/weapon/reagent_containers/food/food = product
+				food.filling_color = get_trait(TRAIT_PRODUCT_COLOUR)
 
-			if(get_trait(TRAIT_BIOLUM))
-				var/pwr
-				if(get_trait(TRAIT_BIOLUM_PWR) == 0)
-					pwr = get_trait(TRAIT_BIOLUM)
-				else
-					pwr = get_trait(TRAIT_BIOLUM_PWR)
-				var/clr
-				if(get_trait(TRAIT_BIOLUM_COLOUR))
-					clr = get_trait(TRAIT_BIOLUM_COLOUR)
-				product.set_light(get_trait(TRAIT_POTENCY)/10, pwr, clr)
+	if(mysterious)
+		product.name += "?"
+		product.desc += " On second thought, something about this one looks strange."
 
-			//Handle spawning in living, mobile products (like dionaea).
-			if(istype(product,/mob/living))
-				product.visible_message("<span class='notice'>The pod disgorges [product]!</span>")
-				handle_living_product(product)
-				if(istype(product,/mob/living/simple_animal/mushroom)) // Gross.
-					var/mob/living/simple_animal/mushroom/mush = product
-					mush.seed = src
+	if(get_trait(TRAIT_BIOLUM))
+		var/pwr
+		if(get_trait(TRAIT_BIOLUM_PWR) == 0)
+			pwr = get_trait(TRAIT_BIOLUM)
+		else
+			pwr = get_trait(TRAIT_BIOLUM_PWR)
+		var/clr
+		if(get_trait(TRAIT_BIOLUM_COLOUR))
+			clr = get_trait(TRAIT_BIOLUM_COLOUR)
+		product.set_light(get_trait(TRAIT_POTENCY)/10, pwr, clr)
+
+	//Handle spawning in living, mobile products (like dionaea).
+	if(istype(product,/mob/living))
+		product.visible_message("<span class='notice'>The pod disgorges [product]!</span>")
+		handle_living_product(product)
+		if(istype(product,/mob/living/simple_animal/mushroom)) // Gross.
+			var/mob/living/simple_animal/mushroom/mush = product
+			mush.seed = src
 
 // When the seed in this machine mutates/is modified, the tray seed value
 // is set to a new datum copied from the original. This datum won't actually

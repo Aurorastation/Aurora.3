@@ -9,7 +9,7 @@
 	force = 10
 	max_shots = 20
 	fire_delay = 6
-	accuracy = -2
+	accuracy = -1
 	can_turret = 1
 	secondary_projectile_type = /obj/item/projectile/beam
 	secondary_fire_sound = 'sound/weapons/Laser.ogg'
@@ -18,7 +18,7 @@
 	turret_is_lethal = 0
 
 	fire_delay_wielded = 1
-	accuracy_wielded = 0
+	accuracy_wielded = 2
 	sel_mode = 1
 
 	projectile_type = /obj/item/projectile/beam/stun
@@ -51,8 +51,8 @@
 /obj/item/weapon/gun/energy/rifle/laser
 	name = "laser rifle"
 	desc = "A common laser weapon, designed to kill with concentrated energy blasts."
-	icon_state = "laser"
-	item_state = "laser"
+	icon_state = "laserrifle"
+	item_state = "laserrifle"
 	fire_sound = 'sound/weapons/Laser.ogg'
 	max_shots = 15
 	origin_tech = list(TECH_COMBAT = 3, TECH_MAGNET = 2)
@@ -65,6 +65,14 @@
 
 	firemodes = list()
 	modifystate = null
+
+/obj/item/weapon/gun/energy/rifle/laser/update_icon()
+	..()
+	if(wielded)
+		item_state = "[initial(icon_state)]-wielded"
+	else
+		item_state = initial(item_state)
+	update_held_icon()
 
 /obj/item/weapon/gun/energy/rifle/laser/heavy
 	name = "laser cannon"
@@ -85,13 +93,14 @@
 	turret_sprite_set = "cannon"
 	turret_is_lethal = 1
 
+	accuracy_wielded = 2
 	fire_delay_wielded = 20
 
 /obj/item/weapon/gun/energy/rifle/laser/xray
 	name = "xray laser rifle"
 	desc = "A high-power laser rifle capable of expelling concentrated xray blasts."
 	icon_state = "xrifle"
-	item_state = "xray"
+	item_state = "xrifle"
 	fire_sound = 'sound/weapons/laser3.ogg'
 	projectile_type = /obj/item/projectile/beam/xray
 	origin_tech = list(TECH_COMBAT = 5, TECH_MATERIAL = 3, TECH_MAGNET = 2, TECH_ILLEGAL = 2)
@@ -137,7 +146,7 @@
 	secondary_fire_sound = null
 
 /obj/item/weapon/gun/energy/rifle/pulse/destroyer/attack_self(mob/living/user as mob)
-	user << "<span class='warning'>[src.name] has three settings, and they are all DESTROY.</span>"
+	to_chat(user, "<span class='warning'>[src.name] has three settings, and they are all DESTROY.</span>")
 
 /obj/item/weapon/gun/energy/rifle/laser/tachyon
 	name = "tachyon rifle"
@@ -164,4 +173,4 @@
 	if(wielded)
 		toggle_scope(2.0, usr)
 	else
-		usr << "<span class='warning'>You can't look through the scope without stabilizing the rifle!</span>"
+		to_chat(usr, "<span class='warning'>You can't look through the scope without stabilizing the rifle!</span>")
