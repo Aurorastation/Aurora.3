@@ -59,7 +59,7 @@
 	name = "industrial suit control module"
 	suit_type = "industrial hardsuit"
 	desc = "A heavy, powerful rig used by construction crews and mining corporations."
-	icon_state = "industrial_rig"
+	icon_state = "engineering_rig"
 	armor = list(melee = 60, bullet = 40, laser = 30, energy = 15, bomb = 30, bio = 100, rad = 50)
 	slowdown = 3
 	offline_slowdown = 10
@@ -162,7 +162,7 @@
 	name = "AMI control module"
 	suit_type = "hazmat hardsuit"
 	desc = "An Anomalous Material Interaction hardsuit that protects against the strangest energies the universe can throw at it."
-	icon_state = "hazmat_rig"
+	icon_state = "science_rig"
 	armor = list(melee = 45, bullet = 5, laser = 40, energy = 65, bomb = 60, bio = 100, rad = 100)
 	offline_vision_restriction = TINT_HEAVY
 	emp_protection = 40
