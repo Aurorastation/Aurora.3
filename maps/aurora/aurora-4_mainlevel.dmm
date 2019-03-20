@@ -4646,9 +4646,6 @@
 /obj/structure/reagent_dispensers/watertank,
 /turf/simulated/floor/plating,
 /area/maintenance/security_starboard)
-"ana" = (
-/turf/simulated/wall,
-/area/security/security_office)
 "anb" = (
 /obj/structure/stairs/north,
 /turf/simulated/floor/tiled,
@@ -63451,26 +63448,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay2)
-"iwz" = (
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1
-	},
-/turf/simulated/floor/plating,
-/area/mine/unexplored)
 "izC" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -65027,28 +65004,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/civ)
-"qQy" = (
-/obj/structure/disposalpipe/segment{
-	dir = 8;
-	icon_state = "pipe-c"
-	},
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 8;
-	icon_state = "1-8"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 9
-	},
-/obj/effect/floor_decal/industrial/warning{
-	icon_state = "warning";
-	dir = 1
-	},
-/turf/simulated/floor/plating,
-/area/mine/unexplored)
 "qRW" = (
 /obj/structure/extinguisher_cabinet{
 	pixel_y = -32
@@ -65253,13 +65208,6 @@
 /obj/structure/bed/chair/wood,
 /turf/simulated/floor/wood,
 /area/crew_quarters/bar)
-"rPv" = (
-/obj/structure/ladder/up{
-	pixel_y = 16
-	},
-/obj/structure/lattice/catwalk/indoor,
-/turf/simulated/floor/plating,
-/area/mine/unexplored)
 "rPZ" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/maintenance{
@@ -65602,12 +65550,6 @@
 /obj/effect/floor_decal/corner/grey/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/bar)
-"tLr" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/mine/unexplored)
 "tTz" = (
 /obj/structure/table/standard,
 /obj/effect/decal/cleanable/dirt,
@@ -65705,26 +65647,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/maintenance/medbay)
-"urg" = (
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/effect/floor_decal/industrial/warning/corner{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/mine/unexplored)
 "usO" = (
 /obj/effect/floor_decal/corner/mauve{
 	icon_state = "corner_white";
@@ -66419,25 +66341,6 @@
 /mob/living/simple_animal/mouse/brown,
 /turf/simulated/floor/plating,
 /area/maintenance/civ)
-"xQI" = (
-/obj/structure/disposalpipe/up,
-/obj/effect/floor_decal/industrial/warning{
-	icon_state = "warning";
-	dir = 8
-	},
-/obj/machinery/atmospherics/pipe/zpipe/up/supply,
-/obj/machinery/atmospherics/pipe/zpipe/up/scrubbers,
-/obj/structure/cable/green{
-	d2 = 2;
-	icon_state = "0-2"
-	},
-/obj/structure/cable/green{
-	d1 = 16;
-	d2 = 0;
-	icon_state = "12-0"
-	},
-/turf/simulated/floor/plating,
-/area/mine/unexplored)
 "xTr" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -86974,8 +86877,8 @@ aaa
 aaa
 aaa
 aaa
-tLr
-urg
+aaa
+aaa
 aab
 aab
 aaa
@@ -87231,8 +87134,8 @@ aaa
 aaa
 aab
 aab
-rPv
-iwz
+aaa
+aaa
 aaa
 aaa
 aaa
@@ -87488,8 +87391,8 @@ cbQ
 cbQ
 cbQ
 aaa
-xQI
-qQy
+aaa
+aaa
 aaa
 aaa
 aaa
@@ -100500,7 +100403,7 @@ afe
 afe
 afe
 afe
-ana
+aaV
 aaV
 aaV
 aaV
