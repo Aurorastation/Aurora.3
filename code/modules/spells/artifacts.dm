@@ -19,12 +19,12 @@
 			var/mob/living/carbon/human/H = user
 			var/obj/item/organ/E = H.get_eyes(no_synthetic = TRUE)
 			if (!E)
-				user << "<span class='notice'>You stare deep into the abyss... and nothing happens. What a letdown.</span>"
+				to_chat(user, "<span class='notice'>You stare deep into the abyss... and nothing happens. What a letdown.</span>")
 				return
 
-			user << "<span class='warning'>You stare deep into the abyss... and the abyss stares back.</span>"
+			to_chat(user, "<span class='warning'>You stare deep into the abyss... and the abyss stares back.</span>")
 			sleep(10)
-			user << "<span class='warning'>Your [E.name] fill with painful light, and you feel a sharp burning sensation in your head!</span>"
+			to_chat(user, "<span class='warning'>Your [E.name] fill with painful light, and you feel a sharp burning sensation in your head!</span>")
 			user.custom_emote(2, "screams in horror!")
 			playsound(user, 'sound/hallucinations/far_noise.ogg', 40, 1)
 			user.drop_item()
@@ -36,7 +36,7 @@
 			H.hallucination += 20
 			return
 	else
-		user << "<span class='info'>You can see... everything!</span>"
+		to_chat(user, "<span class='info'>You can see... everything!</span>")
 		visible_message("<span class='danger'>[user] stares into [src], their eyes glazing over.</span>")
 
 		user.teleop = user.ghostize(1)
@@ -73,13 +73,13 @@
 	..()
 	icon_state = "runesword1"
 	item_state = "runesword1"
-	user << "<span class='notice'>\The [src] surges to life!.</span>"
+	to_chat(user, "<span class='notice'>\The [src] surges to life!.</span>")
 
 /obj/item/weapon/melee/energy/wizard/deactivate(mob/living/user)
 	..()
 	icon_state = "runesword0"
 	item_state = "runesword0"
-	user << "<span class='notice'>\The [src] slowly dies out.</span>"
+	to_chat(user, "<span class='notice'>\The [src] slowly dies out.</span>")
 
 /obj/item/weapon/melee/energy/wizard/attack(mob/living/M, mob/living/user, var/target_zone)
 	if(user.is_wizard())
@@ -89,7 +89,7 @@
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
 		var/obj/item/organ/external/affecting = H.get_organ(zone)
-		user << "<span class='danger'>The sword refuses you as its true wielder, slashing your [affecting.name] instead!</span>"
+		to_chat(user, "<span class='danger'>The sword refuses you as its true wielder, slashing your [affecting.name] instead!</span>")
 
 	user.apply_damage(active_force, BRUTE, zone, 0, sharp=1, edge=1)
 
@@ -146,7 +146,7 @@
 	reagents.add_reagent("undead_ichor", 120)
 
 /obj/item/phylactery/Destroy()
-	lich << "<span class='danger'>Your phylactery was destroyed, your soul is cast into the abyss as your immortality vanishes away!</span>"
+	to_chat(lich, "<span class='danger'>Your phylactery was destroyed, your soul is cast into the abyss as your immortality vanishes away!</span>")
 	world_phylactery -= src
 	lich = null
 	return ..()
@@ -154,9 +154,9 @@
 /obj/item/phylactery/examine(mob/user)
 	..(user)
 	if(!lich)
-		user << "The heart is inert."
+		to_chat(user, "The heart is inert.")
 	else
-		user << "The heart is pulsing slowly."
+		to_chat(user, "The heart is pulsing slowly.")
 
 /obj/item/phylactery/attackby(var/obj/item/I, var/mob/user)
 	..()
@@ -168,7 +168,7 @@
 
 /obj/item/phylactery/pickup(mob/living/user as mob)
 	if(!user.is_wizard() && src.lich)
-		user << "<span class='warning'>As you pick up \the [src], you feel a wave of dread wash over you.</span>"
+		to_chat(user, "<span class='warning'>As you pick up \the [src], you feel a wave of dread wash over you.</span>")
 		for(var/obj/machinery/light/P in view(7, user))
 			P.flicker(1)
 

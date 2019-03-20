@@ -76,8 +76,8 @@
 			src.take_organ_damage(0,10,emp=1)
 			Stun(rand(1,5))
 	flick("noise", src:flash)
-	src << "<span class='danger'>*BZZZT*</span>"
-	src << "<span class='warning'>Warning: Electromagnetic pulse detected.</span>"
+	to_chat(src, "<span class='danger'>*BZZZT*</span>")
+	to_chat(src, "<span class='warning'>Warning: Electromagnetic pulse detected.</span>")
 	..()
 
 /mob/living/silicon/stun_effect_act(var/stun_amount, var/agony_amount)
@@ -187,7 +187,7 @@
 //can't inject synths
 /mob/living/silicon/can_inject(var/mob/user, var/error_msg)
 	if(error_msg)
-		user << "<span class='alert'>The armoured plating is too tough.</span>"
+		to_chat(user, "<span class='alert'>The armoured plating is too tough.</span>")
 	return 0
 
 
@@ -243,13 +243,13 @@
 	switch(sensor_type)
 		if ("Security")
 			sensor_mode = SEC_HUD
-			src << "<span class='notice'>Security records overlay enabled.</span>"
+			to_chat(src, "<span class='notice'>Security records overlay enabled.</span>")
 		if ("Medical")
 			sensor_mode = MED_HUD
-			src << "<span class='notice'>Life signs monitor overlay enabled.</span>"
+			to_chat(src, "<span class='notice'>Life signs monitor overlay enabled.</span>")
 		if ("Disable")
 			sensor_mode = 0
-			src << "Sensor augmentations disabled."
+			to_chat(src, "Sensor augmentations disabled.")
 
 /mob/living/silicon/verb/pose()
 	set name = "Set Pose"
@@ -324,7 +324,7 @@
 					alarm_raised = 1
 					if(!reported)
 						reported = 1
-						src << "<span class='warning'>--- [AH.category] Detected ---</span>"
+						to_chat(src, "<span class='warning'>--- [AH.category] Detected ---</span>")
 					raised_alarm(A)
 
 		for(var/datum/alarm_handler/AH in queued_alarms)
@@ -334,24 +334,24 @@
 				if(alarms[A] == -1)
 					if(!reported)
 						reported = 1
-						src << "<span class='notice'>--- [AH.category] Cleared ---</span>"
-					src << "\The [A.alarm_name()]."
+						to_chat(src, "<span class='notice'>--- [AH.category] Cleared ---</span>")
+					to_chat(src, "\The [A.alarm_name()].")
 
 		if(alarm_raised)
-			src << "<A HREF=?src=\ref[src];showalerts=1>\[Show Alerts\]</A>"
+			to_chat(src, "<A HREF=?src=\ref[src];showalerts=1>\[Show Alerts\]</A>")
 
 		for(var/datum/alarm_handler/AH in queued_alarms)
 			var/list/alarms = queued_alarms[AH]
 			alarms.Cut()
 
 /mob/living/silicon/proc/raised_alarm(var/datum/alarm/A)
-	src << "[A.alarm_name()]!"
+	to_chat(src, "[A.alarm_name()]!")
 
 /mob/living/silicon/ai/raised_alarm(var/datum/alarm/A)
 	var/cameratext = ""
 	for(var/obj/machinery/camera/C in A.cameras())
 		cameratext += "[(cameratext == "")? "" : "|"]<A HREF=?src=\ref[src];switchcamera=\ref[C]>[C.c_tag]</A>"
-	src << "[A.alarm_name()]! ([(cameratext)? cameratext : "No Camera"])"
+	to_chat(src, "[A.alarm_name()]! ([(cameratext)? cameratext : "No Camera"])")
 
 
 /mob/living/silicon/proc/is_traitor()

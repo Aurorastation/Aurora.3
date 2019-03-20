@@ -49,27 +49,27 @@
 	//I couldn't feasibly  fix the overlay bugs caused by cleaning items we are wearing.
 	//So this is a workaround. This also makes more sense from an IC standpoint. ~Carn
 	if(user.client && (target in user.client.screen))
-		user << "<span class='notice'>You need to take that [target.name] off before cleaning it.</span>"
+		to_chat(user, "<span class='notice'>You need to take that [target.name] off before cleaning it.</span>")
 	else if(istype(target,/obj/effect/decal/cleanable))
-		user << "<span class='notice'>You scrub \the [target.name] out.</span>"
+		to_chat(user, "<span class='notice'>You scrub \the [target.name] out.</span>")
 		qdel(target)
 	else if(istype(target,/turf))
-		user << "You start scrubbing the [target.name]"
+		to_chat(user, "You start scrubbing the [target.name]")
 		if (do_after(user, 30, needhand = 0))
-			user << "<span class='notice'>You scrub \the [target.name] clean.</span>"
+			to_chat(user, "<span class='notice'>You scrub \the [target.name] clean.</span>")
 			var/turf/T = target
 			T.clean(src, user)
 	else if(istype(target,/obj/structure/sink) || istype(target,/obj/structure/sink))
-		user << "<span class='notice'>You wet \the [src] in the sink.</span>"
+		to_chat(user, "<span class='notice'>You wet \the [src] in the sink.</span>")
 		wet()
 	else if (istype(target, /obj/structure/mopbucket) || istype(target, /obj/item/weapon/reagent_containers/glass) || istype(target, /obj/structure/reagent_dispensers/watertank))
 		if (target.reagents && target.reagents.total_volume)
-			user << "<span class='notice'>You wet \the [src] in the [target].</span>"
+			to_chat(user, "<span class='notice'>You wet \the [src] in the [target].</span>")
 			wet()
 		else
-			user << "\The [target] is empty!"
+			to_chat(user, "\The [target] is empty!")
 	else
-		user << "<span class='notice'>You clean \the [target.name].</span>"
+		to_chat(user, "<span class='notice'>You clean \the [target.name].</span>")
 		target.clean_blood()
 	return
 

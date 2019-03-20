@@ -3,7 +3,7 @@
 	real_name = "mouse"
 	desc = "It's a small, disgusting rodent, often found being annoying, and aiding in the spread of disease."
 
-	icon = 'icons/mob/mouse.dmi'
+	icon = 'icons/mob/npc/mouse.dmi'
 	icon_state = "mouse_gray"
 	item_state = "mouse_gray"
 	icon_living = "mouse_gray"
@@ -186,13 +186,13 @@
 	if (stat == CONSCIOUS)
 		if (squeakcooldown > world.time) return
 		squeakcooldown = world.time + 4 SECONDS
-	
+
 		if (squeals > 0 || !manual)
 			playsound(src, 'sound/effects/creatures/mouse_squeak_loud.ogg', 50, 1)
 			squeals --
 			log_say("[key_name(src)] squeals! ",ckey=key_name(src))
 		else
-			src << "<span class='warning'>Your hoarse mousey throat can't squeal just now, stop and take a breath!</span>"
+			to_chat(src, "<span class='warning'>Your hoarse mousey throat can't squeal just now, stop and take a breath!</span>")
 
 
 //Wrapper verbs for the squeak functions
@@ -203,7 +203,7 @@
 	if (usr.client.handle_spam_prevention(null, MUTE_IC))
 		return
 	else if (usr.client.prefs.muted & MUTE_IC)
-		usr << "<span class='danger'>You are muted from IC emotes.</span>"
+		to_chat(usr, "<span class='danger'>You are muted from IC emotes.</span>")
 		return
 
 	squeak_loud(1)
@@ -215,7 +215,7 @@
 	if (usr.client.handle_spam_prevention(null, MUTE_IC))
 		return
 	else if (usr.client.prefs.muted & MUTE_IC)
-		usr << "<span class='danger'>You are muted from IC emotes.</span>"
+		to_chat(usr, "<span class='danger'>You are muted from IC emotes.</span>")
 		return
 
 	squeak_soft(1)
@@ -227,7 +227,7 @@
 	if (usr.client.handle_spam_prevention(null, MUTE_IC))
 		return
 	else if (usr.client.prefs.muted & MUTE_IC)
-		usr << "<span class='danger'>You are muted from IC emotes.</span>"
+		to_chat(usr, "<span class='danger'>You are muted from IC emotes.</span>")
 		return
 
 	squeak(1)
@@ -237,7 +237,7 @@
 	if( ishuman(AM) )
 		if(!stat)
 			var/mob/M = AM
-			M << "<span class='notice'>\icon[src] Squeek!</span>"
+			to_chat(M, "<span class='notice'>\icon[src] Squeek!</span>")
 			poke(1) //Wake up if stepped on
 			if (prob(95))
 				squeak(0)
@@ -270,7 +270,7 @@
 	..()
 
 /mob/living/simple_animal/mouse/dust()
-	..(anim = "dust_[body_color]", remains = /obj/effect/decal/remains/mouse, iconfile = 'icons/mob/mouse.dmi')
+	..(anim = "dust_[body_color]", remains = /obj/effect/decal/remains/mouse, iconfile = 'icons/mob/npc/mouse.dmi')
 
 
 /*

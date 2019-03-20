@@ -43,6 +43,8 @@
 			continue
 		if(W.autodrobe_no_remove)
 			continue
+		if(!W.canremove)
+			continue
 		H.drop_from_inventory(W,gearbox)
 
 	to_chat(H,"<span class='notice'>You feel a pleasant breeze as the autolocker whisks away all of your clothes, packing them neatly in a box.</span>")
