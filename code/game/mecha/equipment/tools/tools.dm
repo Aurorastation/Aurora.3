@@ -1,3 +1,5 @@
+#define UIDEBUG
+
 /obj/item/mecha_parts/mecha_equipment/tool/hydraulic_clamp
 	name = "hydraulic clamp"
 	desc = "Equipment for engineering exosuits. Lifts objects and loads them into cargo."
@@ -1248,6 +1250,50 @@
 			to_chat(usr, "<span class='danger'>All of the passenger compartments are already occupied or locked!</span>")
 		if (0)
 			to_chat(usr, "<span class='warning'>\The [src] doesn't have a passenger compartment.</span>")
+
+
+
+/obj/item/mecha_parts/mecha_equipment/tool/artillerycomputer
+	name = "passenger compartment"
+	desc = "A mountable passenger compartment for exo-suits. Rather cramped."
+	icon_state = "mecha_abooster_ccw"
+	origin_tech = list(TECH_ENGINEERING = 1, TECH_BIO = 1)
+	var/ax = null
+	var/ay = null
+	var/az = null
+
+
+
+/obj/mecha/verb/artillery()
+	set name = "Artillery Computer"
+	set desc = "Use the onboard artillery system to rain hell upon your foe."
+	set category = "Exosuit Interface"
+	set src = usr.loc
+	var/ax = null
+	var/ay = null
+	var/az = null
+
+	if(!src.occupant) return
+	if(usr!=src.occupant)
+		return
+
+	var/playerinput_x = input("Enter the X cord", "X Cord") as num
+	ax = playerinput_x
+	var/playerinput_y = input("Enter the Y cord", "Y Cord") as num
+	ay = playerinput_y
+	var/playerinput_z = input("Enter the Z cord", "X Cord") as num
+	az = playerinput_z
+
+	switch(input(src.occupant, "What would you like to select?", "Machine Debug Software") as null|anything in list("Fire", "Self Destruct"))
+		if("Fire")
+			var/turf/T = get_turf(locate(ax, ay, az))
+			sleep(25)
+			explosion(T,2,5,11)
+
+		if("Self Destruct")
+			var/turf/T = get_turf(locate(src))
+			sleep(25)
+			explosion(T,2,5,11)
 
 #undef LOCKED
 #undef OCCUPIED

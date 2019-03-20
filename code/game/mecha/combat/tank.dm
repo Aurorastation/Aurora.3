@@ -157,6 +157,43 @@
 	ME.attach(src)
 	return
 
+
+
+/obj/mecha/combat/tank/btr
+	name = "CVR-50"
+	desc = "A armored personal carrier, used by Frontier militas in there wars against the Solarian Goverment, it has seen better days."
+	icon = 'icons/obj/cars.dmi'
+	icon_state = "cvr"
+	initial_icon = "cvr"
+	pixel_x = -41
+	health = 750
+	w_class = 45
+	wreckage = /obj/effect/decal/mecha_wreckage/tank/jotun
+	step_in = 3
+
+/obj/mecha/combat/tank/btr/Initialize()
+	.= ..()
+
+	var/obj/item/mecha_parts/mecha_equipment/ME
+	if(equipment.len)//Now to remove it and equip anew.
+		for(ME in equipment)
+			ME.detach(src)
+			qdel(ME)
+
+	ME = new /obj/item/mecha_parts/mecha_equipment/weapon/ballistic/btrgun
+	ME.attach(src)
+	ME = new /obj/item/mecha_parts/mecha_equipment/tool/passenger
+	ME.attach(src)
+	ME = new /obj/item/mecha_parts/mecha_equipment/tool/passenger
+	ME.attach(src)
+	ME = new /obj/item/mecha_parts/mecha_equipment/tool/passenger
+	ME.attach(src)
+	ME = new /obj/item/mecha_parts/mecha_equipment/tool/passenger
+	ME.attach(src)
+	ME = new /obj/item/mecha_parts/mecha_equipment/armor_booster/antiproj_armor_booster
+	ME.attach(src)
+	return
+
 #undef NOMINAL
 #undef FIRSTRUN
 #undef POWER
