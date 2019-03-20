@@ -12,11 +12,11 @@
 	req_admin_notify = 1
 	economic_modifier = 10
 	access = list(access_medical, access_medical_equip, access_morgue, access_genetics, access_heads,
-			access_chemistry, access_virology, access_cmo, access_surgery, access_RC_announce, access_engine, access_construction,
+			access_pharmacy, access_virology, access_cmo, access_surgery, access_RC_announce, access_engine, access_construction,
 			access_keycard_auth, access_sec_doors, access_psychiatrist, access_eva, access_external_airlocks, access_research,
 			access_paramedic, access_maint_tunnels)
 	minimal_access = list(access_medical, access_medical_equip, access_morgue, access_genetics, access_heads,
-			access_chemistry, access_virology, access_cmo, access_surgery, access_RC_announce, access_engine, access_construction,
+			access_pharmacy, access_virology, access_cmo, access_surgery, access_RC_announce, access_engine, access_construction,
 			access_keycard_auth, access_sec_doors, access_psychiatrist, access_eva, access_external_airlocks, access_research,
 			access_paramedic, access_maint_tunnels)
 
@@ -53,12 +53,11 @@
 	supervisors = "the chief medical officer"
 	selection_color = "#ffeef0"
 	economic_modifier = 7
-	access = list(access_medical, access_medical_equip, access_morgue, access_surgery, access_chemistry, access_virology, access_genetics, access_eva)
-	minimal_access = list(access_medical, access_medical_equip, access_morgue, access_surgery, access_virology, access_eva)
-	alt_titles = list("Surgeon","Emergency Physician","Nurse","Virologist")
+	access = list(access_medical, access_medical_equip, access_morgue, access_surgery, access_pharmacy, access_virology, access_genetics, access_eva)
+	minimal_access = list(access_medical, access_medical_equip, access_morgue, access_surgery, access_eva)
+	alt_titles = list("Surgeon","Emergency Physician","Nurse")
 	outfit = /datum/outfit/job/doctor
 	alt_outfits = list(
-		"Virologist"=/datum/outfit/job/doctor/virologist,
 		"Emergency Physician"=/datum/outfit/job/doctor/emergency_physician,
 		"Surgeon"=/datum/outfit/job/doctor/surgeon,
 		"Nurse"=/datum/outfit/job/doctor/nurse
@@ -80,19 +79,6 @@
 	satchel = /obj/item/weapon/storage/backpack/satchel_med
 	dufflebag = /obj/item/weapon/storage/backpack/duffel/med
 	messengerbag = /obj/item/weapon/storage/backpack/messenger/med
-
-/datum/outfit/job/doctor/virologist
-	name = "Virologist"
-	jobtype = /datum/job/doctor
-
-	uniform = /obj/item/clothing/under/rank/virologist
-	suit = /obj/item/clothing/suit/storage/toggle/labcoat/virologist
-	mask = /obj/item/clothing/mask/surgical
-	pda = /obj/item/device/pda/viro
-
-	backpack = /obj/item/weapon/storage/backpack/virology
-	satchel = /obj/item/weapon/storage/backpack/satchel_vir
-	messengerbag = /obj/item/weapon/storage/backpack/messenger/viro
 
 /datum/outfit/job/doctor/emergency_physician
 	name = "Emergency Physician"
@@ -119,8 +105,8 @@
 	head = /obj/item/clothing/head/nursehat
 
 
-/datum/job/chemist
-	title = "Chemist"
+/datum/job/pharmacist
+	title = "Pharmacist"
 	flag = CHEMIST
 	department = "Medical"
 	department_flag = MEDSCI
@@ -130,25 +116,40 @@
 	supervisors = "the chief medical officer"
 	selection_color = "#ffeef0"
 	economic_modifier = 5
-	access = list(access_medical, access_medical_equip, access_morgue, access_surgery, access_chemistry, access_virology, access_genetics)
-	minimal_access = list(access_medical, access_medical_equip, access_chemistry)
-	alt_titles = list("Pharmacist")
-	outfit = /datum/outfit/job/chemist
+	access = list(access_medical, access_medical_equip, access_morgue, access_surgery, access_pharmacy, access_virology, access_genetics)
+	minimal_access = list(access_medical, access_medical_equip, access_pharmacy, access_virology)
+	alt_titles = list("Biochemist")
+	outfit = /datum/outfit/job/pharmacist
+	alt_outfits = list(
+		"Biochemist"=/datum/outfit/job/pharmacist/biochemist
+		)
 
-/datum/outfit/job/chemist
-	name = "Chemist"
-	jobtype = /datum/job/chemist
+/datum/outfit/job/pharmacist
+	name = "Pharmacist"
+	jobtype = /datum/job/pharmacist
 
-	uniform = /obj/item/clothing/under/rank/chemist
-	suit = /obj/item/clothing/suit/storage/toggle/labcoat/chemist
+	uniform = /obj/item/clothing/under/rank/pharmacist
+	suit = /obj/item/clothing/suit/storage/toggle/labcoat/pharmacist
 	shoes = /obj/item/clothing/shoes/white
 	l_ear = /obj/item/device/radio/headset/headset_med
 	pda =  /obj/item/device/pda/chemist
 
-	backpack = /obj/item/weapon/storage/backpack/chemistry
-	satchel = /obj/item/weapon/storage/backpack/satchel_chem
-	dufflebag = /obj/item/weapon/storage/backpack/duffel/chem
-	messengerbag = /obj/item/weapon/storage/backpack/messenger/chem
+	backpack = /obj/item/weapon/storage/backpack/pharmacy
+	satchel = /obj/item/weapon/storage/backpack/satchel_pharm
+	dufflebag = /obj/item/weapon/storage/backpack/duffel/pharm
+	messengerbag = /obj/item/weapon/storage/backpack/messenger/pharm
+
+/datum/outfit/job/pharmacist/biochemist
+	name = "Biochemist"
+	jobtype = /datum/job/pharmacist
+
+	uniform = /obj/item/clothing/under/rank/biochemist
+	suit = /obj/item/clothing/suit/storage/toggle/labcoat/biochemist
+
+	backpack = /obj/item/weapon/storage/backpack/virology
+	satchel = /obj/item/weapon/storage/backpack/satchel_vir
+	dufflebag = /obj/item/weapon/storage/backpack/duffel/vir
+	messengerbag = /obj/item/weapon/storage/backpack/messenger/viro
 
 /datum/job/psychiatrist
 	title = "Psychiatrist"
@@ -161,7 +162,7 @@
 	economic_modifier = 5
 	supervisors = "the chief medical officer"
 	selection_color = "#ffeef0"
-	access = list(access_medical, access_medical_equip, access_morgue, access_surgery, access_chemistry, access_virology, access_genetics, access_psychiatrist)
+	access = list(access_medical, access_medical_equip, access_morgue, access_surgery, access_pharmacy, access_virology, access_genetics, access_psychiatrist)
 	minimal_access = list(access_medical, access_medical_equip, access_psychiatrist)
 	alt_titles = list("Psychologist")
 	outfit = /datum/outfit/job/psychiatrist
@@ -196,7 +197,7 @@
 	supervisors = "the chief medical officer"
 	selection_color = "#ffeef0"
 	economic_modifier = 4
-	access = list(access_medical, access_medical_equip, access_morgue, access_surgery, access_chemistry, access_virology, access_eva, access_maint_tunnels, access_external_airlocks, access_psychiatrist, access_paramedic)
+	access = list(access_medical, access_medical_equip, access_morgue, access_surgery, access_pharmacy, access_virology, access_eva, access_maint_tunnels, access_external_airlocks, access_psychiatrist, access_paramedic)
 	minimal_access = list(access_medical, access_medical_equip, access_morgue, access_eva, access_maint_tunnels, access_external_airlocks, access_paramedic)
 	alt_titles = list("Emergency Medical Technician")
 	outfit = /datum/outfit/job/paramedic
@@ -225,3 +226,30 @@
 	jobtype = /datum/job/paramedic
 
 	uniform = /obj/item/clothing/under/rank/medical/paramedic
+
+/datum/job/intern_med
+	title = "Medical Resident"
+	flag = INTERN_MED
+	department_flag = MEDSCI
+	faction = "Station"
+	total_positions = 2
+	spawn_positions = 2
+	supervisors = "the Chief Medical Officer"
+	selection_color = "#ffeef0"
+	access = list(access_medical, access_surgery, access_medical_equip)
+	minimal_access = list(access_medical, access_surgery, access_medical_equip)
+	alt_titles = list("Medical Intern")
+	outfit = /datum/outfit/job/intern_med
+
+/datum/outfit/job/intern_med
+	name = "Medical Resident"
+	jobtype = /datum/job/intern_med
+
+	uniform = /obj/item/clothing/under/rank/medical
+	shoes = /obj/item/clothing/shoes/white
+	l_ear = /obj/item/device/radio/headset/headset_med
+
+	backpack = /obj/item/weapon/storage/backpack/medic
+	satchel = /obj/item/weapon/storage/backpack/satchel_med
+	dufflebag = /obj/item/weapon/storage/backpack/duffel/med
+	messengerbag = /obj/item/weapon/storage/backpack/messenger/med

@@ -251,9 +251,9 @@ datum/preferences
 
 	if(href_list["preference"] == "open_whitelist_forum")
 		if(config.forumurl)
-			user << link(config.forumurl)
+			to_chat(user, link(config.forumurl))
 		else
-			user << "<span class='danger'>The forum URL is not set in the server configuration.</span>"
+			to_chat(user, "<span class='danger'>The forum URL is not set in the server configuration.</span>")
 			return
 	ShowChoices(usr)
 	return 1
@@ -280,7 +280,7 @@ datum/preferences
 		close_load_dialog(usr)
 	else if(href_list["new_character_sql"])
 		new_setup(1)
-		usr << "<span class='notice'>Your setup has been refreshed.</span>"
+		to_chat(usr, "<span class='notice'>Your setup has been refreshed.</span>")
 		close_load_dialog(usr)
 	else if(href_list["close_load_dialog"])
 		close_load_dialog(usr)
@@ -554,11 +554,11 @@ datum/preferences
 		return
 
 	if (!current_character)
-		C << "<span class='notice'>You do not have a character loaded.</span>"
+		to_chat(C, "<span class='notice'>You do not have a character loaded.</span>")
 		return
 
 	if (!establish_db_connection(dbcon))
-		C << "<span class='notice'>Unable to establish database connection.</span>"
+		to_chat(C, "<span class='notice'>Unable to establish database connection.</span>")
 		return
 
 	var/DBQuery/query = dbcon.NewQuery("UPDATE ss13_characters SET deleted_at = NOW() WHERE id = :char_id:")
@@ -567,4 +567,4 @@ datum/preferences
 	// Create a new character.
 	new_setup(1)
 
-	C << "<span class='warning'>Character successfully deleted! Please make a new one or load an existing setup.</span>"
+	to_chat(C, "<span class='warning'>Character successfully deleted! Please make a new one or load an existing setup.</span>")
