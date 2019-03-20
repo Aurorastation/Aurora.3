@@ -105,3 +105,29 @@
 	fire_time = 15
 	projectile = /obj/item/projectile/energy/tesla
 	fire_sound = 'sound/magic/LightningShock.ogg'
+
+/obj/item/mecha_parts/mecha_equipment/weapon/energy/kin_accelerator
+	name = "mounted kinetic accelerator"
+	desc = "A very robust mounted kinetic accelerator used by professional mining contractors intended for the use in mining soft metals such as gold on asteroids."
+	icon_state = "mecha_KA"
+	energy_drain = 40
+	projectiles_per_shot = 1
+	equip_cooldown = 15
+	projectile = /obj/item/projectile/kinetic/mech
+	fire_sound = 'sound/weapons/Kenetic_accel.ogg'
+	required_type = list(/obj/mecha/combat, /obj/mecha/working/hoverpod/combatpod, /obj/mecha/working/ripley)
+
+/obj/item/mecha_parts/mecha_equipment/weapon/energy/kin_accelerator/Fire_wrapper(var/turf/curloc, atom/target, mob/user, params)
+	var/obj/item/projectile/kinetic/mech/P = new projectile(curloc)
+	Fire(P, target, user, params)
+	return
+
+/obj/item/mecha_parts/mecha_equipment/weapon/energy/kin_accelerator/burst
+	name = "mounted burst kinetic accelerator"
+	desc = "A very robust mounted burst kinetic accelerator used by professional mining contractors intended for the use in mining soft metals such as gold on asteroids. This version shoots 3 projectiles at a time."
+	icon_state = "mecha_heavyKA"
+	energy_drain = 70
+	projectiles_per_shot = 3
+	fire_cooldown = 3
+	equip_cooldown = 30
+	projectile = /obj/item/projectile/kinetic/mech/burst
