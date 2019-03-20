@@ -15,6 +15,7 @@
 	interface_name = "mounted flash"
 	interface_desc = "Stuns your target by blinding them with a bright light."
 	device_type = /obj/item/device/flash
+	category = MODULE_LIGHT_COMBAT
 
 /obj/item/rig_module/grenade_launcher
 
@@ -28,6 +29,8 @@
 
 	var/fire_force = 30
 	var/fire_distance = 10
+
+	category = MODULE_HEAVY_COMBAT
 
 	charges = list(
 		list("flashbang",   "flashbang",   /obj/item/weapon/grenade/flashbang,  3),
@@ -106,6 +109,8 @@
 	name = "mounted cleaning grenade launcher"
 	desc = "A specialty shoulder-mounted micro-explosive dispenser."
 
+	category = MODULE_GENERAL
+
 	charges = list(
 		list("cleaning grenade",   "cleaning grenade",   /obj/item/weapon/grenade/chem_grenade/cleaner,  9)
 		)
@@ -120,6 +125,8 @@
 	icon_state = "lcannon"
 
 	engage_string = "Configure"
+
+	category = MODULE_HEAVY_COMBAT
 
 	interface_name = "mounted laser cannon"
 	interface_desc = "A shoulder-mounted cell-powered laser cannon."
@@ -156,6 +163,8 @@
 
 	gun_type = /obj/item/weapon/gun/energy/gun/mounted
 
+	category = MODULE_LIGHT_COMBAT
+
 /obj/item/rig_module/mounted/taser
 
 	name = "mounted taser"
@@ -173,6 +182,8 @@
 	interface_desc = "A shoulder-mounted cell-powered taser."
 
 	gun_type = /obj/item/weapon/gun/energy/taser/mounted
+
+	category = MODULE_LIGHT_COMBAT
 
 /obj/item/rig_module/mounted/pulse
 
@@ -229,6 +240,8 @@
 	construction_cost = list("glass" = 5250, DEFAULT_WALL_MATERIAL = 30000, "silver" = 5250, "phoron" = 7250)
 	construction_time = 300
 
+	category = MODULE_UTILITY
+
 	gun_type = /obj/item/weapon/gun/energy/plasmacutter/mounted
 
 /obj/item/rig_module/mounted/thermalldrill
@@ -240,6 +253,7 @@
 
 	gun_type = /obj/item/weapon/gun/energy/vaurca/mountedthermaldrill
 
+	category = MODULE_UTILITY
 
 /obj/item/rig_module/mounted/energy_blade
 
@@ -261,6 +275,8 @@
 	passive_power_cost = 0
 
 	gun_type = /obj/item/weapon/gun/energy/crossbow/ninja
+
+	category = MODULE_SPECIAL
 
 /obj/item/rig_module/mounted/energy_blade/process()
 
@@ -316,6 +332,8 @@
 	var/fire_force = 30
 	var/fire_distance = 10
 
+	category = MODULE_SPECIAL
+
 /obj/item/rig_module/fabricator/engage(atom/target)
 
 	if(!..())
@@ -347,3 +365,5 @@
 	interface_desc = "An integrated microfactory that produces wet floor signs from thin air and electricity."
 
 	fabrication_type = /obj/item/weapon/caution
+
+	category = MODULE_GENERAL

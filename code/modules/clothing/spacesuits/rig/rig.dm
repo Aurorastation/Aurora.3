@@ -84,6 +84,8 @@
 	var/datum/wires/rig/wires
 	var/datum/effect_system/sparks/spark_system
 
+	var/allowed_module_types = MODULE_GENERAL // All rigs by default should have access to general
+
 /obj/item/weapon/rig/examine()
 	to_chat(usr, "This is \icon[src][src.name].")
 	to_chat(usr, "[src.desc]")
