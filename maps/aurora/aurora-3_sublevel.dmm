@@ -15298,8 +15298,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenobiology/xenoflora)
 "aDy" = (
-/obj/item/clothing/mask/gas/alt,
-/obj/item/clothing/mask/gas/alt,
 /obj/effect/floor_decal/corner/green{
 	icon_state = "corner_white";
 	dir = 10
@@ -15309,9 +15307,6 @@
 	dir = 1;
 	network = list("Research Outpost")
 	},
-/obj/structure/closet/crate/hydroponics/prespawned,
-/obj/item/watertank,
-/obj/item/watertank,
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenobiology/xenoflora)
 "aDz" = (
@@ -28613,9 +28608,6 @@
 /turf/simulated/floor/tiled,
 /area/rnd/xenoarch_atrium)
 "gaJ" = (
-/obj/structure/closet/secure_closet/hydroponics{
-	req_access = list(47)
-	},
 /obj/effect/floor_decal/corner/green{
 	icon_state = "corner_white";
 	dir = 10
@@ -28624,6 +28616,7 @@
 	icon_state = "spline_plain";
 	dir = 4
 	},
+/obj/structure/closet/secure_closet/xenobotany,
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenobiology/xenoflora)
 "ged" = (
@@ -30570,13 +30563,11 @@
 /turf/simulated/floor/plating,
 /area/rnd/xenobiology/xenoflora_hazard)
 "nkZ" = (
-/obj/structure/closet/secure_closet/hydroponics{
-	req_access = list(47)
-	},
 /obj/effect/floor_decal/corner/green{
 	icon_state = "corner_white";
 	dir = 10
 	},
+/obj/structure/closet/secure_closet/xenobotany,
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenobiology/xenoflora)
 "noC" = (
