@@ -272,7 +272,7 @@
 
 /mob/living/proc/ExtinguishMob(var/fire_stacks_to_remove = 0)
 
-	if (fire_starts_to_remove)
+	if (fire_stacks_to_remove)
 		adjust_fire_stacks(-fire_stacks_to_remove)
 
 	if(fire_stacks <= 0 && on_fire)
