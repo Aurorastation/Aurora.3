@@ -1297,6 +1297,7 @@
 #include "code\modules\clothing\spacesuits\miscellaneous.dm"
 #include "code\modules\clothing\spacesuits\spacesuits.dm"
 #include "code\modules\clothing\spacesuits\syndi.dm"
+#include "code\modules\clothing\spacesuits\rig\_defines.dm"
 #include "code\modules\clothing\spacesuits\rig\rig.dm"
 #include "code\modules\clothing\spacesuits\rig\rig_attackby.dm"
 #include "code\modules\clothing\spacesuits\rig\rig_construction.dm"
