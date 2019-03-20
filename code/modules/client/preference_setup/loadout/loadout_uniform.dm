@@ -130,6 +130,7 @@
 	display_name = "uniform, captain dress"
 	path = /obj/item/clothing/under/dress/dress_cap
 	allowed_roles = list("Captain")
+	allowed_maps = list("aurora", "exodus")
 
 /datum/gear/uniform/customdress
 	display_name = "Evening gown"
