@@ -8655,7 +8655,7 @@
 /area/shuttle/administration/centcom)
 "aur" = (
 /obj/machinery/door/airlock/centcom{
-	name = "To: NSS Exodus Processing";
+	name = "CCIAP Penny Chambers";
 	opacity = 1
 	},
 /turf/unsimulated/floor,
@@ -24451,10 +24451,86 @@
 	icon_state = "floor"
 	},
 /area/centcom/holding)
+"gFm" = (
+/turf/unsimulated/floor{
+	dir = 2;
+	icon_state = "carpetsymbol"
+	},
+/area/centcom/living)
 "haj" = (
 /obj/machinery/chem_master,
 /turf/simulated/floor/tiled/dark,
 /area/centcom/legion)
+"kFf" = (
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	dir = 3
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/machinery/door/window/northleft{
+	base_state = "right";
+	dir = 4;
+	icon_state = "right";
+	name = "CCIAP Penny";
+	req_access = list(101)
+	},
+/mob/living/simple_animal/cat/penny,
+/turf/unsimulated/floor{
+	dir = 2;
+	icon_state = "carpetsymbol"
+	},
+/area/centcom/living)
+"ntu" = (
+/obj/item/clothing/head/collectable/petehat,
+/turf/unsimulated/floor{
+	icon_state = "blue";
+	dir = 9
+	},
+/area/centcom/living)
+"rxc" = (
+/obj/machinery/light{
+	dir = 2;
+	icon_state = "tube1";
+	pixel_y = 0
+	},
+/turf/unsimulated/floor{
+	dir = 8;
+	icon_state = "wood"
+	},
+/area/centcom/living)
+"sSP" = (
+/obj/item/toy/plushie/kitten,
+/turf/unsimulated/floor{
+	dir = 2;
+	icon_state = "carpetsymbol"
+	},
+/area/centcom/living)
+"tgL" = (
+/obj/machinery/light{
+	dir = 8;
+	icon_state = "tube1";
+	pixel_y = 0
+	},
+/turf/unsimulated/floor{
+	dir = 8;
+	icon_state = "wood"
+	},
+/area/centcom/living)
+"vGX" = (
+/obj/machinery/light{
+	dir = 1;
+	icon_state = "tube1";
+	pixel_y = 0
+	},
+/turf/unsimulated/floor{
+	dir = 8;
+	icon_state = "wood"
+	},
+/area/centcom/living)
 "xjq" = (
 /obj/machinery/light,
 /obj/structure/curtain,
@@ -59818,11 +59894,11 @@ atv
 atk
 apW
 apW
-aqe
-aqu
-aqu
-aqu
-aqM
+asF
+asF
+tgL
+asF
+asF
 apW
 apW
 auU
@@ -60075,11 +60151,11 @@ atw
 atF
 atQ
 apW
-aqf
-aqe
-aqu
-aqM
-aqX
+asF
+sSP
+gFm
+sSP
+asF
 apW
 apW
 auV
@@ -60332,11 +60408,11 @@ arI
 asb
 atR
 apW
-arH
-aqu
-aqu
-aqu
-asJ
+vGX
+gFm
+kFf
+gFm
+rxc
 apW
 apW
 auW
@@ -60589,11 +60665,11 @@ ars
 atG
 atQ
 apW
-aqf
-aqg
-aqu
-aqN
-aqX
+asF
+sSP
+gFm
+sSP
+asF
 apW
 apW
 auX
@@ -60846,11 +60922,11 @@ arI
 asb
 atS
 apW
-aqg
-aqu
-aqu
-aqu
-aqN
+asF
+aYk
+asF
+aYk
+asF
 apW
 apW
 auY
@@ -62134,7 +62210,7 @@ arK
 arK
 asd
 aru
-asD
+ntu
 arK
 arK
 arK
