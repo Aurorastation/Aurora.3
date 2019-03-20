@@ -165,8 +165,8 @@
 	desc = "It's a sterile backpack able to withstand different pathogens from entering its fabric."
 	icon_state = "viropack"
 
-/obj/item/weapon/storage/backpack/chemistry
-	name = "chemistry backpack"
+/obj/item/weapon/storage/backpack/pharmacy
+	name = "pharmacy backpack"
 	desc = "It's an orange backpack which was designed to hold beakers, pill bottles and bottles."
 	icon_state = "chempack"
 
@@ -233,9 +233,9 @@
 	desc = "A sterile satchel with virologist colours."
 	icon_state = "satchel-vir"
 
-/obj/item/weapon/storage/backpack/satchel_chem
-	name = "chemist satchel"
-	desc = "A sterile satchel with chemist colours."
+/obj/item/weapon/storage/backpack/satchel_pharm
+	name = "pharmacist satchel"
+	desc = "A sterile satchel with pharmacist colours."
 	icon_state = "satchel-chem"
 
 /obj/item/weapon/storage/backpack/satchel_gen
@@ -383,8 +383,8 @@
 	desc = "It sure won't hold your genes together, but it'll keep the denim ones safe."
 	icon_state = "duffel-genetics"
 
-/obj/item/weapon/storage/backpack/duffel/chem
-	name = "chemistry duffel bag"
+/obj/item/weapon/storage/backpack/duffel/pharm
+	name = "pharmacy duffel bag"
 	desc = "Spice up the love life a little."
 	icon_state = "duffel-chemistry"
 	item_state_slots = list(
@@ -417,9 +417,9 @@
 	desc = "A sturdy backpack worn over one shoulder."
 	icon_state = "courierbag"
 
-/obj/item/weapon/storage/backpack/messenger/chem
-	name = "chemistry messenger bag"
-	desc = "A serile backpack worn over one shoulder.  This one is in chemsitry colors."
+/obj/item/weapon/storage/backpack/messenger/pharm
+	name = "pharmacy messenger bag"
+	desc = "A serile backpack worn over one shoulder.  This one is in pharmacy colors."
 	icon_state = "courierbagchem"
 
 /obj/item/weapon/storage/backpack/messenger/med
