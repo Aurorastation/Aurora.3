@@ -3,4 +3,4 @@ author: Alberyk
 delete-after: True
 
 changes: 
-  - bugfix: "Fixed an issue with some hardsuit and items missing their icons, such as the industrial and hazmat hardsuits.
+  - bugfix: "Fixed an issue with some hardsuit and items missing their icons, such as the industrial and hazmat hardsuits."
