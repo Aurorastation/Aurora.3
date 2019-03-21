@@ -15307,6 +15307,7 @@
 	dir = 1;
 	network = list("Research Outpost")
 	},
+/obj/structure/closet/crate/hydroponics/prespawned,
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenobiology/xenoflora)
 "aDz" = (
