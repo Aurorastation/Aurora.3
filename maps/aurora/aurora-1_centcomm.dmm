@@ -8655,7 +8655,7 @@
 /area/shuttle/administration/centcom)
 "aur" = (
 /obj/machinery/door/airlock/centcom{
-	name = "CCIAP Penny Chambers";
+	name = "Morale Department";
 	opacity = 1
 	},
 /turf/unsimulated/floor,
@@ -24443,6 +24443,10 @@
 	icon_state = "wood_siding1"
 	},
 /area/centcom/spawning)
+"cdm" = (
+/obj/structure/sign/poster,
+/turf/unsimulated/wall/riveted,
+/area/centcom/living)
 "eSC" = (
 /obj/machinery/atm{
 	pixel_x = -26
@@ -24452,43 +24456,86 @@
 	},
 /area/centcom/holding)
 "gFm" = (
+/obj/structure/table/wood,
 /turf/unsimulated/floor{
-	dir = 2;
-	icon_state = "carpetsymbol"
+	dir = 4;
+	icon_state = "carpetside"
 	},
 /area/centcom/living)
 "haj" = (
 /obj/machinery/chem_master,
 /turf/simulated/floor/tiled/dark,
 /area/centcom/legion)
-"kFf" = (
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 3
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
+"igp" = (
 /obj/machinery/door/window/northleft{
 	base_state = "right";
-	dir = 4;
+	dir = 8;
 	icon_state = "right";
 	name = "CCIAP Penny";
 	req_access = list(101)
 	},
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 3
+	},
 /mob/living/simple_animal/cat/penny,
 /turf/unsimulated/floor{
-	dir = 2;
-	icon_state = "carpetsymbol"
+	dir = 8;
+	icon_state = "wood"
 	},
 /area/centcom/living)
-"ntu" = (
-/obj/item/clothing/head/collectable/petehat,
+"iZQ" = (
+/obj/structure/table/wood,
+/obj/item/weapon/paper_bin{
+	pixel_x = 1;
+	pixel_y = 9
+	},
+/obj/item/weapon/pen/multi,
 /turf/unsimulated/floor{
-	icon_state = "blue";
-	dir = 9
+	dir = 6;
+	icon_state = "carpetside"
+	},
+/area/centcom/living)
+"jur" = (
+/obj/structure/sign/poster{
+	pixel_x = 0;
+	pixel_y = 32;
+	poster_type = "/datum/poster/bay_15"
+	},
+/turf/unsimulated/wall/riveted,
+/area/centcom/living)
+"kCi" = (
+/turf/unsimulated/floor{
+	dir = 9;
+	icon_state = "carpetside"
+	},
+/area/centcom/living)
+"kFf" = (
+/obj/structure/bed/chair/comfy/brown{
+	dir = 8
+	},
+/turf/unsimulated/floor{
+	dir = 8;
+	icon_state = "wood"
+	},
+/area/centcom/living)
+"mky" = (
+/obj/structure/sign/poster{
+	poster_type = "/datum/poster/bay_50";
+	pixel_x = -32
+	},
+/turf/unsimulated/wall/riveted,
+/area/centcom/living)
+"mLr" = (
+/turf/unsimulated/floor{
+	dir = 10;
+	icon_state = "carpetside"
 	},
 /area/centcom/living)
 "rxc" = (
@@ -24502,11 +24549,19 @@
 	icon_state = "wood"
 	},
 /area/centcom/living)
-"sSP" = (
-/obj/item/toy/plushie/kitten,
+"rGZ" = (
+/obj/structure/filingcabinet,
 /turf/unsimulated/floor{
-	dir = 2;
-	icon_state = "carpetsymbol"
+	dir = 8;
+	icon_state = "wood"
+	},
+/area/centcom/living)
+"sSP" = (
+/obj/structure/table/wood,
+/obj/item/device/flashlight/lamp,
+/turf/unsimulated/floor{
+	dir = 5;
+	icon_state = "carpetside"
 	},
 /area/centcom/living)
 "tgL" = (
@@ -24515,9 +24570,12 @@
 	icon_state = "tube1";
 	pixel_y = 0
 	},
+/obj/structure/bed/chair/office/bridge{
+	dir = 4
+	},
 /turf/unsimulated/floor{
 	dir = 8;
-	icon_state = "wood"
+	icon_state = "carpetside"
 	},
 /area/centcom/living)
 "vGX" = (
@@ -59637,11 +59695,11 @@ apW
 apW
 apW
 apW
+jur
 apW
+jur
 apW
-apW
-apW
-apW
+jur
 apU
 apU
 auT
@@ -59893,13 +59951,13 @@ atk
 atv
 atk
 apW
-apW
+mky
 asF
-asF
+kCi
 tgL
+mLr
 asF
-asF
-apW
+cdm
 apW
 auU
 avg
@@ -60154,7 +60212,7 @@ apW
 asF
 sSP
 gFm
-sSP
+iZQ
 asF
 apW
 apW
@@ -60407,13 +60465,13 @@ asB
 arI
 asb
 atR
-apW
+mky
 vGX
-gFm
+asF
 kFf
-gFm
+asF
 rxc
-apW
+cdm
 apW
 auW
 avh
@@ -60666,9 +60724,9 @@ atG
 atQ
 apW
 asF
-sSP
-gFm
-sSP
+asF
+asF
+asF
 asF
 apW
 apW
@@ -60921,13 +60979,13 @@ asB
 arI
 asb
 atS
-apW
-asF
+mky
+rGZ
 aYk
 asF
 aYk
-asF
-apW
+igp
+cdm
 apW
 auY
 avi
@@ -61180,9 +61238,9 @@ arI
 atc
 apW
 apW
-apW
+cdm
 aur
-apW
+cdm
 apW
 apW
 apW
@@ -62210,7 +62268,7 @@ arK
 arK
 asd
 aru
-ntu
+asD
 arK
 arK
 arK
