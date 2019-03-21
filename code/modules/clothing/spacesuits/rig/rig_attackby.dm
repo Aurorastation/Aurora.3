@@ -44,10 +44,12 @@
 
 		// Hacking.
 		if(W.iswirecutter() || W.ismultitool())
+
 			if(open)
 				wires.Interact(user)
 			else
 				to_chat(user, "You can't reach the wiring.")
+
 			return
 		// Air tank.
 		if(istype(W,/obj/item/weapon/tank)) //Todo, some kind of check for suits without integrated air supplies.
@@ -65,6 +67,7 @@
 		// Check if this is a hardsuit upgrade or a modification.
 		else if(istype(W,/obj/item/rig_module))
 
+			var/obj/item/rig_module/module = W
 			if(istype(src.loc,/mob/living/carbon/human))
 				var/mob/living/carbon/human/H = src.loc
 				if(H.back == src)
@@ -72,6 +75,12 @@
 					return 1
 
 			if(!installed_modules) installed_modules = list()
+
+			if(!(module.category & allowed_module_types))
+				var/mod_name = get_module_category(module.category)
+				to_chat(user, span("warning", "\The [src] does not support [mod_name] modules!"))
+				return 0
+
 			if(installed_modules.len)
 				for(var/obj/item/rig_module/installed_mod in installed_modules)
 					if(!installed_mod.redundant && istype(installed_mod,W))
@@ -204,3 +213,20 @@
 		subverted = 1
 		to_chat(user, "<span class='danger'>You short out the access protocol for the suit.</span>")
 		return 1
+
+/obj/item/weapon/rig/proc/get_module_category(var/category)
+	switch(category)
+		if(MODULE_GENERAL)
+			return "general"
+		if(MODULE_LIGHT_COMBAT)
+			return "light combat"
+		if(MODULE_HEAVY_COMBAT)
+			return "heavy combat"
+		if(MODULE_UTILITY)
+			return "utility"
+		if(MODULE_MEDICAL)
+			return "medical"
+		if(MODULE_SPECIAL)
+			return "special"
+		if(MODULE_VAURCA)
+			return "vaurca"

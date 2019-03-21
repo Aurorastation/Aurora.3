@@ -54,6 +54,8 @@
 		/obj/item/rig_module/voice,
 		/obj/item/rig_module/vision
 		)
+	
+	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_SPECIAL
 
 //The cybersuit is not space-proof. It does however, have good siemens_coefficient values
 /obj/item/clothing/head/lightrig/hacker
@@ -95,6 +97,8 @@
 		/obj/item/rig_module/self_destruct,
 		/obj/item/rig_module/actuators
 	)
+
+	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT | MODULE_SPECIAL | MODULE_MEDICAL | MODULE_UTILITY | MODULE_VAURCA
 
 /obj/item/weapon/rig/light/ninja/equipped
 	initial_modules = list(
@@ -142,6 +146,8 @@
 		/obj/item/rig_module/vision
 		)
 
+	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_SPECIAL
+
 /obj/item/weapon/rig/light/offworlder
 	name = "exo-stellar skeleton module"
 	suit_type = "exo-stellar skeleton"
@@ -174,4 +180,3 @@
 	cold_protection = UPPER_TORSO
 	flags_inv = 0
 	species_restricted = list("Human")
-
