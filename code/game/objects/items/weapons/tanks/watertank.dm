@@ -1,6 +1,6 @@
 /obj/item/watertank
 	name = "backpack water tank"
-	desc = "A watertank backpack with nozzle to refill hydroponic trays."
+	desc = "A watertank backpack with nozzle to water plants."
 	icon = 'icons/obj/hydro_equipment.dmi'
 	icon_state = "waterpack"
 	item_state = "waterpack"
