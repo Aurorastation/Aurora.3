@@ -104,10 +104,10 @@
 	//Stuff you can do if the maint hatch is open
 	if(panel_open)
 		if(O.iswrench())
-			user << "<span class='notice'>You start [valve_open ? "closing" : "opening"] the pressure relief valve of [src].</span>"
+			to_chat(user, "<span class='notice'>You start [valve_open ? "closing" : "opening"] the pressure relief valve of [src].</span>")
 			if(do_after(user,50))
 				valve_open = !valve_open
-				user << "<span class='notice'>You [valve_open ? "open" : "close"] the pressure relief valve of [src].</span>"
+				to_chat(user, "<span class='notice'>You [valve_open ? "open" : "close"] the pressure relief valve of [src].</span>")
 				if(valve_open)
 					blocked = 0
 					action = "retract"
@@ -118,7 +118,7 @@
 	if(!istype(C))
 		return 0
 	if(num_progress != 0) //Piston needs to be retracted before you are able to deconstruct it
-		user << "<span class='notice'>You can not deconstruct [src] while the piston is extended.</span>"
+		to_chat(user, "<span class='notice'>You can not deconstruct [src] while the piston is extended.</span>")
 		return 0
 	return ..()
 

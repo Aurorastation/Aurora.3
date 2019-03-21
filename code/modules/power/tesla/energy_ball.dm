@@ -268,7 +268,7 @@
 	var/rods_count = 0
 
 	for(var/A in typecache_filter_multi_list_exclusion(oview(source, zap_range+2), things_to_shock, blacklisted_types))
-		
+
 		if(istype(A, /obj/machinery/power/tesla_coil))
 			var/dist = get_dist(source, A)
 			var/obj/machinery/power/tesla_coil/C = A
@@ -299,7 +299,7 @@
 		else if(istype(A, /obj/machinery/power/emitter))
 			var/obj/machinery/power/emitter/e = A
 			closest_emitter = e
-		
+
 		else if(closest_emitter)
 			continue
 
@@ -362,7 +362,7 @@
 
 	else if(closest_grounding_rod)
 		closest_grounding_rod.tesla_act(power, melt)
-	
+
 	else if(closest_emitter)
 		closest_emitter.tesla_act(power, melt)
 

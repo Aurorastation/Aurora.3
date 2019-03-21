@@ -15,31 +15,37 @@
 
 /datum/rig_vision/nvg
 	mode = "night vision"
+
 /datum/rig_vision/nvg/New()
 	glasses = new /obj/item/clothing/glasses/night
 
 /datum/rig_vision/thermal
 	mode = "thermal scanner"
+
 /datum/rig_vision/thermal/New()
 	glasses = new /obj/item/clothing/glasses/thermal
 
 /datum/rig_vision/meson
 	mode = "meson scanner"
+
 /datum/rig_vision/meson/New()
 	glasses = new /obj/item/clothing/glasses/meson
 
 /datum/rig_vision/material
 	mode = "meson scanner"
+
 /datum/rig_vision/material/New()
 	glasses = new /obj/item/clothing/glasses/material
 
 /datum/rig_vision/sechud
 	mode = "security HUD"
+
 /datum/rig_vision/sechud/New()
 	glasses = new /obj/item/clothing/glasses/hud/security
 
 /datum/rig_vision/medhud
 	mode = "medical HUD"
+
 /datum/rig_vision/medhud/New()
 	glasses = new /obj/item/clothing/glasses/hud/health
 
@@ -70,6 +76,8 @@
 
 	var/vision_index
 
+	category = MODULE_GENERAL
+
 /obj/item/rig_module/vision/multi
 
 	name = "hardsuit optical package"
@@ -85,6 +93,8 @@
 						/datum/rig_vision/thermal,
 						/datum/rig_vision/sechud,
 						/datum/rig_vision/medhud)
+	
+	category = MODULE_SPECIAL
 
 /obj/item/rig_module/vision/meson
 
@@ -102,7 +112,7 @@
 
 	vision_modes = list(/datum/rig_vision/meson,
 						/datum/rig_vision/material)
-
+	
 /obj/item/rig_module/vision/thermal
 
 	name = "hardsuit thermal scanner"
@@ -115,6 +125,8 @@
 	interface_desc = "An integrated thermal scanner."
 
 	vision_modes = list(/datum/rig_vision/thermal)
+
+	category = MODULE_LIGHT_COMBAT
 
 /obj/item/rig_module/vision/nvg
 
@@ -132,6 +144,8 @@
 
 	vision_modes = list(/datum/rig_vision/nvg)
 
+	category = MODULE_LIGHT_COMBAT
+
 /obj/item/rig_module/vision/sechud
 
 	name = "hardsuit security hud"
@@ -147,6 +161,8 @@
 	interface_desc = "An integrated security heads up display."
 
 	vision_modes = list(/datum/rig_vision/sechud)
+
+	category = MODULE_LIGHT_COMBAT
 
 /obj/item/rig_module/vision/medhud
 
@@ -164,6 +180,7 @@
 
 	vision_modes = list(/datum/rig_vision/medhud)
 
+	category = MODULE_MEDICAL
 
 // There should only ever be one vision module installed in a suit.
 /obj/item/rig_module/vision/installed()
@@ -179,7 +196,7 @@
 
 	// Don't cycle if this engage() is being called by activate().
 	if(starting_up)
-		holder.wearer << "<font color='blue'>You activate your visual sensors.</font>"
+		to_chat(holder.wearer, "<font color='blue'>You activate your visual sensors.</font>")
 		return 1
 
 	if(vision_modes.len > 1)
@@ -188,9 +205,9 @@
 			vision_index = 1
 		vision = vision_modes[vision_index]
 
-		holder.wearer << "<font color='blue'>You cycle your sensors to <b>[vision.mode]</b> mode.</font>"
+		to_chat(holder.wearer, "<font color='blue'>You cycle your sensors to <b>[vision.mode]</b> mode.</font>")
 	else
-		holder.wearer << "<font color='blue'>Your sensors only have one mode.</font>"
+		to_chat(holder.wearer, "<font color='blue'>Your sensors only have one mode.</font>")
 	return 1
 
 /obj/item/rig_module/vision/New()
