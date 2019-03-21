@@ -21,12 +21,12 @@
 	power_channel = ENVIRON
 
 /obj/machinery/keycard_auth/attack_ai(mob/user as mob)
-	user << "The station AI is not to interact with these devices."
+	to_chat(user, "The station AI is not to interact with these devices.")
 	return
 
 /obj/machinery/keycard_auth/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	if(stat & (NOPOWER|BROKEN))
-		user << "This device is not powered."
+		to_chat(user, "This device is not powered.")
 		return
 	if(istype(W,/obj/item/weapon/card/id))
 		var/obj/item/weapon/card/id/ID = W
@@ -47,12 +47,12 @@
 
 /obj/machinery/keycard_auth/attack_hand(mob/user as mob)
 	if(user.stat || stat & (NOPOWER|BROKEN))
-		user << "This device is not powered."
+		to_chat(user, "This device is not powered.")
 		return
 	if(!user.IsAdvancedToolUser())
 		return 0
 	if(busy)
-		user << "This device is busy."
+		to_chat(user, "This device is busy.")
 		return
 
 	user.set_machine(src)
@@ -70,8 +70,6 @@
 
 		dat += "<li><A href='?src=\ref[src];triggerevent=Grant Emergency Maintenance Access'>Grant Emergency Maintenance Access</A></li>"
 		dat += "<li><A href='?src=\ref[src];triggerevent=Revoke Emergency Maintenance Access'>Revoke Emergency Maintenance Access</A></li>"
-		dat += "<li><A href='?src=\ref[src];triggerevent=Cyborg Crisis Override'>Cyborg Crisis Override</A></li>"
-		dat += "<li><A href='?src=\ref[src];triggerevent=Disable Cyborg Crisis Override'>Disable Cyborg Crisis Override</A></li>"
 		dat += "</ul>"
 		user << browse(dat, "window=keycard_auth;size=500x250")
 	if(screen == 2)
@@ -84,10 +82,10 @@
 /obj/machinery/keycard_auth/Topic(href, href_list)
 	..()
 	if(busy)
-		usr << "This device is busy."
+		to_chat(usr, "This device is busy.")
 		return
 	if(usr.stat || stat & (BROKEN|NOPOWER))
-		usr << "This device is without power."
+		to_chat(usr, "This device is without power.")
 		return
 	if(href_list["triggerevent"])
 		event = href_list["triggerevent"]
@@ -151,18 +149,12 @@
 		if("Revoke Emergency Maintenance Access")
 			revoke_maint_all_access()
 			feedback_inc("alert_keycard_auth_maintRevoke",1)
-		if("Cyborg Crisis Override")
-			cyborg_crisis_override()
-			feedback_inc("alert_keycard_auth_borgCrisis",1)
-		if("Disable Cyborg Crisis Override")
-			disable_cyborg_crisis_override()
-			feedback_inc("alert_keycard_auth_borgDisable",1)
 		if("Emergency Response Team")
 			if(is_ert_blocked())
-				usr << "<span class='warning'>All emergency response teams are dispatched and can not be called at this time.</span>"
+				to_chat(usr, "<span class='warning'>All emergency response teams are dispatched and can not be called at this time.</span>")
 				return
 
-			trigger_armed_response_team(1)
+			SSresponseteam.trigger_armed_response_team()
 			feedback_inc("alert_keycard_auth_ert",1)
 
 /obj/machinery/keycard_auth/proc/is_ert_blocked()
@@ -185,15 +177,3 @@ var/global/maint_all_access = 0
 	if(maint_all_access && src.check_access_list(list(access_maint_tunnels)))
 		return 1
 	return ..(M)
-
-/proc/cyborg_crisis_override()
-	for(var/mob/living/silicon/robot/M in silicon_mob_list)
-		M.crisis_override = 1
-	to_world("<font size=4 color='red'>Attention!</font>")
-	to_world("<font color='red'>Cyborg crisis override has been activated, station bound cyborgs are allowed to select the combat module during code red.</font>")
-
-/proc/disable_cyborg_crisis_override()
-	for(var/mob/living/silicon/robot/M in silicon_mob_list)
-		M.crisis_override = 0
-	to_world("<font size=4 color='red'>Attention!</font>")
-	to_world("<font color='red'>Cyborg crisis override has been deactivated, station bound cyborgs are no longer allowed to select the combat module.</font>")

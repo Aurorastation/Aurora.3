@@ -54,6 +54,8 @@
 		/obj/item/rig_module/voice,
 		/obj/item/rig_module/vision
 		)
+	
+	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_SPECIAL
 
 //The cybersuit is not space-proof. It does however, have good siemens_coefficient values
 /obj/item/clothing/head/lightrig/hacker
@@ -96,6 +98,8 @@
 		/obj/item/rig_module/actuators
 	)
 
+	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT | MODULE_SPECIAL | MODULE_MEDICAL | MODULE_UTILITY | MODULE_VAURCA
+
 /obj/item/weapon/rig/light/ninja/equipped
 	initial_modules = list(
 		/obj/item/rig_module/teleporter,
@@ -133,6 +137,7 @@
 	suit_type = "stealth"
 	desc = "A highly advanced and expensive suit designed for covert operations."
 	icon_state = "stealth_rig"
+	armor = list(melee = 45, bullet = 20, laser = 50, energy = 10, bomb = 25, bio = 30, rad = 20)
 
 	req_access = list(access_syndicate)
 
@@ -140,3 +145,38 @@
 		/obj/item/rig_module/stealth_field,
 		/obj/item/rig_module/vision
 		)
+
+	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_SPECIAL
+
+/obj/item/weapon/rig/light/offworlder
+	name = "exo-stellar skeleton module"
+	suit_type = "exo-stellar skeleton"
+	desc = "A compact exoskeleton that hugs the body tightly and has various inbuilt utilities for life support."
+	icon_state = "offworlder_rig"
+	allowed = list(/obj/item/weapon/tank, /obj/item/device/flashlight)
+	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 5, rad = 5)
+	airtight = 0
+	seal_delay = 5
+
+	helm_type = /obj/item/clothing/head/lightrig/offworlder
+	chest_type = /obj/item/clothing/suit/lightrig/offworlder
+	glove_type = null
+	boot_type = null
+
+	initial_modules = list(
+		/obj/item/rig_module/vitalscanner,
+		/obj/item/rig_module/chem_dispenser/offworlder
+		)
+
+/obj/item/clothing/head/lightrig/offworlder
+	name = "helmet"
+	flags = 0
+	species_restricted = list("Human")
+
+/obj/item/clothing/suit/lightrig/offworlder
+	flags = 0
+	body_parts_covered = UPPER_TORSO
+	heat_protection = UPPER_TORSO
+	cold_protection = UPPER_TORSO
+	flags_inv = 0
+	species_restricted = list("Human")

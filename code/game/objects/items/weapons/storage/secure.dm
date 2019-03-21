@@ -30,7 +30,7 @@
 
 	examine(mob/user)
 		if(..(user, 1))
-			user << text("The service panel is [src.open ? "open" : "closed"].")
+			to_chat(user, text("The service panel is [src.open ? "open" : "closed"]."))
 
 	attackby(obj/item/weapon/W as obj, mob/user as mob)
 		if(locked)
@@ -40,12 +40,12 @@
 				playsound(src.loc, "sparks", 50, 1)
 				return
 
-			if (isscrewdriver(W))
+			if (W.isscrewdriver())
 				if (do_after(user, 20))
 					src.open =! src.open
 					user.show_message(text("<span class='notice'>You [] the service panel.</span>", (src.open ? "open" : "close")))
 				return
-			if ((ismultitool(W)) && (src.open == 1)&& (!src.l_hacking))
+			if ((W.ismultitool()) && (src.open == 1)&& (!src.l_hacking))
 				user.show_message("<span class='notice'>Now attempting to reset internal memory, please hold.</span>", 1)
 				src.l_hacking = 1
 				if (do_after(usr, 100))
@@ -133,7 +133,7 @@
 		cut_overlays()
 		add_overlay(icon_locking)
 		locked = 0
-		user << (feedback ? feedback : "You short out the lock of \the [src].")
+		to_chat(user, (feedback ? feedback : "You short out the lock of \the [src]."))
 		return 1
 
 // -----------------------------
@@ -152,7 +152,7 @@
 
 	attack_hand(mob/user as mob)
 		if ((src.loc == user) && (src.locked == 1))
-			usr << "<span class='warning'>[src] is locked and cannot be opened!</span>"
+			to_chat(usr, "<span class='warning'>[src] is locked and cannot be opened!</span>")
 		else if ((src.loc == user) && (!src.locked))
 			src.open(usr)
 		else

@@ -55,14 +55,19 @@
 			data["viruses"] = preserve
 
 /datum/reagent/blood/touch_turf(var/turf/simulated/T)
+
 	if(!istype(T) || volume < 3)
 		return
+
 	var/datum/weakref/W = data["donor"]
 	if (!W)
 		blood_splatter(T, src, 1)
+		return
+
 	W = W.resolve()
 	if(istype(W, /mob/living/carbon/human))
 		blood_splatter(T, src, 1)
+
 	else if(istype(W, /mob/living/carbon/alien))
 		var/obj/effect/decal/cleanable/blood/B = blood_splatter(T, src, 1)
 		if(B)
@@ -74,7 +79,7 @@
 			if(M.dna.unique_enzymes == data["blood_DNA"]) //so vampires can't drink their own blood
 				return
 			M.mind.vampire.blood_usable += removed
-			M<< "<span class='notice'>You have accumulated [M.mind.vampire.blood_usable] [M.mind.vampire.blood_usable > 1 ? "units" : "unit"] of usable blood. It tastes quite stale.</span>"
+			to_chat(M, "<span class='notice'>You have accumulated [M.mind.vampire.blood_usable] [M.mind.vampire.blood_usable > 1 ? "units" : "unit"] of usable blood. It tastes quite stale.</span>")
 			return
 	if(dose > 5)
 		M.adjustToxLoss(removed)
@@ -259,7 +264,7 @@
 		var/mob/living/carbon/slime/S = M
 		S.adjustToxLoss(12 * removed) // A slime having water forced down its throat would cause much more damage then being splashed on it
 		if (!S.client && S.Target)
-		
+
 			S.Target = null
 			++S.Discipline
 
@@ -309,7 +314,7 @@
 	remove_self(volume)
 	return
 
-/datum/reagent/fuel/touch_mob(var/mob/living/L, var/amount)
+/datum/reagent/fuel/napalm/touch_mob(var/mob/living/L, var/amount)
 	. = ..()
 	if(istype(L))
 		L.adjust_fire_stacks(amount / 10) // Splashing people with welding fuel to make them easy to ignite!

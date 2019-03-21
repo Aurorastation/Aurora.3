@@ -6,7 +6,7 @@
 /datum/event/money_lotto/start()
 	winner_sum = pick(1, 50, 100, 500, 1000, 2000, 5000)
 	if(SSeconomy.all_money_accounts.len)
-		var/datum/money_account/D = pick(SSeconomy.all_money_accounts)
+		var/datum/money_account/D = SSeconomy.get_account(pick(SSeconomy.all_money_accounts))
 		winner_name = D.owner_name
 		if(!D.suspended)
 			D.money += winner_sum

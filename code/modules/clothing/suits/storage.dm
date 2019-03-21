@@ -33,7 +33,7 @@
 	pockets.hear_talk(M, msg, verb, speaking)
 	..()
 
-//Jackets with buttons, used for labcoats, IA jackets, First Responder jackets, and brown jackets.
+//Jackets with buttons
 /obj/item/clothing/suit/storage/toggle
 	var/icon_open
 	var/icon_closed
@@ -47,13 +47,13 @@
 		if(icon_state == icon_open) //Will check whether icon state is currently set to the "open" or "closed" state and switch it around with a message to the user
 			icon_state = icon_closed
 			item_state = icon_closed
-			usr << "You button up the coat."
+			to_chat(usr, "You button up the coat.")
 		else if(icon_state == icon_closed)
 			icon_state = icon_open
 			item_state = icon_open
-			usr << "You unbutton the coat."
+			to_chat(usr, "You unbutton the coat.")
 		else //in case some goofy admin switches icon states around without switching the icon_open or icon_closed
-			usr << "You attempt to button-up the velcro on your [src], before promptly realising how silly you are."
+			to_chat(usr, "You attempt to button-up the velcro on your [src], before promptly realising how silly you are.")
 			return
 		update_clothing_icon()	//so our overlays update
 
@@ -84,11 +84,11 @@
 
 		if(icon_state == icon_badge)
 			icon_state = icon_nobadge
-			usr << "You conceal \the [src]'s badge."
+			to_chat(usr, "You conceal \the [src]'s badge.")
 		else if(icon_state == icon_nobadge)
 			icon_state = icon_badge
-			usr << "You reveal \the [src]'s badge."
+			to_chat(usr, "You reveal \the [src]'s badge.")
 		else
-			usr << "\The [src] does not have a vest badge."
+			to_chat(usr, "\The [src] does not have a vest badge.")
 			return
 		update_clothing_icon()
