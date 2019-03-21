@@ -1119,3 +1119,17 @@
 	..()
 	for(var/i in 1 to 8)
 		new /obj/item/ammo_casing/tranq(src)
+
+/obj/item/weapon/storage/box/secradios
+	name = "box of security headsets"
+	desc = "A box of NanoTrasen ISD short-range radio headsets."
+
+/obj/item/weapon/storage/box/secradios/fill()
+	..()
+	new /obj/item/device/radio/headset/headset_sec(src)
+	new /obj/item/device/radio/headset/headset_sec(src)
+	new /obj/item/device/radio/headset/headset_sec(src)
+	new /obj/item/device/radio/headset/headset_sec(src)
+	new /obj/item/device/radio/headset/headset_sec(src)
+	new /obj/item/device/radio/headset/headset_sec(src)
+	new /obj/item/device/radio/headset/headset_sec(src)

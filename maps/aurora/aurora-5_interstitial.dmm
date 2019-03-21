@@ -7162,6 +7162,19 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/upperlevel)
+"oZ" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/medical/sec)
 "pa" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -7266,8 +7279,7 @@
 /turf/simulated/floor/asteroid/ash/rocky,
 /area/maintenance/interstitial_construction_site)
 "qj" = (
-/obj/machinery/computer/secure_data,
-/obj/effect/floor_decal/corner/blue/full,
+/obj/structure/table/standard,
 /turf/simulated/floor/tiled,
 /area/medical/sec)
 "qo" = (
@@ -7329,6 +7341,19 @@
 	},
 /turf/simulated/floor/tiled,
 /area/medical/virology)
+"qO" = (
+/obj/structure/closet/secure_closet/security/med,
+/obj/machinery/alarm{
+	dir = 4;
+	icon_state = "alarm0";
+	pixel_x = -22;
+	pixel_y = 0
+	},
+/obj/effect/floor_decal/corner/blue/full{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/mine/unexplored)
 "qQ" = (
 /obj/structure/grille,
 /obj/machinery/door/firedoor,
@@ -7391,7 +7416,10 @@
 	},
 /area/maintenance/maintcentral)
 "rg" = (
-/obj/machinery/hologram/holopad,
+/obj/effect/floor_decal/corner/lime/full{
+	icon_state = "corner_white_full";
+	dir = 8
+	},
 /turf/simulated/floor/tiled,
 /area/medical/sec)
 "rt" = (
@@ -7411,6 +7439,9 @@
 	},
 /turf/simulated/floor/plating,
 /area/medical/virology)
+"ry" = (
+/turf/simulated/wall,
+/area/mine/unexplored)
 "rA" = (
 /obj/structure/table/rack,
 /obj/item/weapon/storage/toolbox/mechanical,
@@ -7685,24 +7716,19 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/virologyaccess)
 "uu" = (
-/obj/structure/bed/chair/office/light{
-	icon_state = "officechair_white";
-	dir = 4
-	},
-/obj/machinery/button/remote/airlock{
-	desc = "A remote control-switch for the office door.";
-	id = "medsecdoor";
-	name = "Office Door Control";
-	pixel_x = 28;
-	pixel_y = 6;
-	req_access = list(63)
-	},
-/obj/effect/floor_decal/corner/lime{
-	icon_state = "corner_white";
+/obj/structure/bed/chair{
 	dir = 8
 	},
-/obj/effect/landmark/start{
-	name = "Medical Officer"
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/blue/full{
+	icon_state = "corner_white_full";
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/medical/sec)
@@ -7732,6 +7758,9 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/disposalpipe/segment{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
@@ -7789,10 +7818,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/medical/virology)
 "vg" = (
-/obj/effect/floor_decal/corner/blue/full{
-	icon_state = "corner_white_full";
-	dir = 4
-	},
 /obj/machinery/power/apc{
 	dir = 4;
 	name = "east bump";
@@ -7802,6 +7827,10 @@
 	icon_state = "0-2";
 	dir = 1
 	},
+/obj/effect/floor_decal/corner/lime/full{
+	dir = 4
+	},
+/obj/structure/closet/emcloset,
 /turf/simulated/floor/tiled,
 /area/medical/sec)
 "vk" = (
@@ -7857,9 +7886,6 @@
 /turf/simulated/floor/airless,
 /area/maintenance/interstitial_construction_site)
 "we" = (
-/obj/effect/floor_decal/corner/blue/full{
-	dir = 1
-	},
 /obj/structure/cable/green{
 	icon_state = "2-8";
 	dir = 4
@@ -7869,6 +7895,14 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
+	},
+/obj/effect/floor_decal/corner/lime/full{
+	icon_state = "corner_white_full";
+	dir = 1
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4;
+	icon_state = "pipe-c"
 	},
 /turf/simulated/floor/tiled,
 /area/medical/sec)
@@ -8035,13 +8069,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/virologyaccess)
-"zb" = (
-/obj/effect/floor_decal/corner/lime{
-	icon_state = "corner_white";
-	dir = 4
-	},
-/turf/simulated/floor/tiled,
-/area/medical/sec)
 "zd" = (
 /obj/machinery/computer/diseasesplicer,
 /obj/effect/floor_decal/corner/lime{
@@ -8094,6 +8121,13 @@
 /obj/structure/bed/chair/office/light,
 /turf/simulated/floor/tiled/white,
 /area/medical/virology)
+"Ac" = (
+/obj/machinery/recharger/wallcharger{
+	pixel_y = 28
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on,
+/turf/simulated/floor/tiled,
+/area/medical/sec)
 "Am" = (
 /turf/simulated/wall/r_wall,
 /area/medical/virology)
@@ -8129,6 +8163,10 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 8;
+	icon_state = "pipe-c"
 	},
 /turf/simulated/floor/tiled,
 /area/medical/sec)
@@ -8303,11 +8341,10 @@
 /turf/simulated/floor/plating,
 /area/maintenance/medbay_interstitial)
 "DH" = (
-/obj/effect/floor_decal/corner/lime{
-	icon_state = "corner_white";
+/obj/effect/floor_decal/corner/blue/full{
+	icon_state = "corner_white_full";
 	dir = 1
 	},
-/obj/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/tiled,
 /area/medical/sec)
 "DU" = (
@@ -8368,6 +8405,28 @@
 /obj/machinery/hologram/holopad,
 /turf/simulated/floor/tiled/white,
 /area/medical/virologyaccess)
+"EG" = (
+/obj/structure/bed/chair/office/light{
+	icon_state = "officechair_white";
+	dir = 4
+	},
+/obj/machinery/button/remote/airlock{
+	desc = "A remote control-switch for the office door.";
+	id = "medsecdoor";
+	name = "Office Door Control";
+	pixel_x = 28;
+	pixel_y = 6;
+	req_access = list(63)
+	},
+/obj/effect/landmark/start{
+	name = "Medical Officer"
+	},
+/obj/machinery/newscaster{
+	pixel_x = -32;
+	pixel_y = -32
+	},
+/turf/simulated/floor/tiled,
+/area/medical/sec)
 "EK" = (
 /obj/structure/disposalpipe/segment,
 /turf/simulated/wall,
@@ -8506,7 +8565,6 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/structure/disposalpipe/segment,
 /obj/effect/floor_decal/sign/v,
 /obj/structure/cable/green{
 	icon_state = "1-4";
@@ -8518,6 +8576,7 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
 	},
+/obj/structure/disposalpipe/junction,
 /turf/simulated/floor/tiled/white,
 /area/medical/virologyaccess)
 "Gj" = (
@@ -8601,16 +8660,6 @@
 /turf/simulated/floor/plating,
 /area/maintenance/medbay_interstitial)
 "GJ" = (
-/obj/structure/closet/secure_closet/security/med,
-/obj/machinery/alarm{
-	dir = 4;
-	icon_state = "alarm0";
-	pixel_x = -22;
-	pixel_y = 0
-	},
-/obj/effect/floor_decal/corner/blue/full{
-	dir = 8
-	},
 /turf/simulated/floor/tiled,
 /area/medical/sec)
 "GK" = (
@@ -8624,6 +8673,16 @@
 	},
 /turf/simulated/wall/r_wall,
 /area/maintenance/interstitial_main)
+"GR" = (
+/obj/machinery/computer/secure_data,
+/obj/effect/floor_decal/corner/blue/full,
+/obj/item/device/radio/intercom{
+	dir = 4;
+	name = "Station Intercom (General)";
+	pixel_x = -25
+	},
+/turf/simulated/floor/tiled,
+/area/mine/unexplored)
 "GT" = (
 /turf/simulated/open,
 /area/medical/psych)
@@ -8644,16 +8703,6 @@
 	temperature = 278
 	},
 /area/medical/virology)
-"Hh" = (
-/obj/structure/bed/chair{
-	dir = 8
-	},
-/obj/effect/floor_decal/corner/lime,
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 1
-	},
-/turf/simulated/floor/tiled,
-/area/medical/sec)
 "Hm" = (
 /obj/structure/lattice,
 /turf/simulated/open,
@@ -9270,6 +9319,19 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/maintcentral)
+"Ki" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/disposal,
+/obj/structure/disposalpipe/trunk{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/medical/sec)
 "Kr" = (
 /obj/effect/floor_decal/industrial/warning{
 	icon_state = "warning";
@@ -9896,6 +9958,24 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/virology)
+"Np" = (
+/obj/machinery/door/firedoor,
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 1
+	},
+/obj/structure/window/reinforced,
+/obj/structure/grille,
+/obj/machinery/door/blast/shutters{
+	density = 0;
+	dir = 1;
+	icon_state = "shutter0";
+	id = "LCKDshutters";
+	name = "MedBay Lockdown Shutters";
+	opacity = 0
+	},
+/turf/simulated/floor/plating,
+/area/medical/virology)
 "NQ" = (
 /obj/structure/table/rack,
 /obj/item/weapon/pickaxe,
@@ -10083,6 +10163,15 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/virologyaccess)
+"QF" = (
+/obj/item/modular_computer/console/preset/security,
+/obj/machinery/light{
+	dir = 8;
+	icon_state = "tube1";
+	pixel_x = 0
+	},
+/turf/simulated/floor/tiled,
+/area/mine/unexplored)
 "QM" = (
 /obj/effect/floor_decal/corner/green{
 	icon_state = "corner_white";
@@ -10167,15 +10256,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/medical/upperlevel)
-"RU" = (
-/obj/item/modular_computer/console/preset/security,
-/obj/machinery/light{
-	dir = 8;
-	icon_state = "tube1";
-	pixel_x = 0
-	},
-/turf/simulated/floor/tiled,
-/area/medical/sec)
 "RX" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -10558,6 +10638,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/white,
 /area/medical/virologyaccess)
 "VC" = (
@@ -10753,10 +10836,14 @@
 /turf/simulated/floor/airless,
 /area/maintenance/interstitial_construction_site)
 "Xh" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 6
-	},
+/obj/machinery/hologram/holopad,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/disposalpipe/segment{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
@@ -10839,10 +10926,8 @@
 /turf/simulated/floor/plating,
 /area/maintenance/interstitial_main)
 "XO" = (
-/obj/structure/table/standard,
-/obj/machinery/recharger/wallcharger{
-	pixel_y = -28
-	},
+/obj/effect/floor_decal/corner/lime/full,
+/obj/structure/flora/pottedplant/random,
 /turf/simulated/floor/tiled,
 /area/medical/sec)
 "XQ" = (
@@ -40969,11 +41054,11 @@ UD
 Ji
 FT
 mo
-mo
-aa
-aa
-ab
-ab
+ry
+ry
+ry
+ry
+ry
 XA
 MX
 Oj
@@ -41226,10 +41311,10 @@ Gy
 aB
 TV
 mo
-mo
-aa
-ab
-ab
+ry
+qO
+QF
+GR
 Am
 ar
 ar
@@ -41484,10 +41569,10 @@ tN
 mj
 Ch
 Vm
-Vm
-Vm
-Vm
-Am
+Ac
+Wf
+EG
+YY
 DU
 DU
 nN
@@ -41742,9 +41827,9 @@ mo
 mo
 Vm
 GJ
-RU
+LA
 qj
-YY
+Np
 xy
 xy
 nN
@@ -41997,9 +42082,9 @@ mo
 mo
 mo
 ab
-Ys
+Vm
 DH
-Wf
+oZ
 uu
 rY
 DU
@@ -42254,9 +42339,9 @@ aa
 aa
 ab
 ab
-XZ
+Ys
 rg
-LA
+Ki
 XO
 Am
 Am
@@ -42512,9 +42597,9 @@ ab
 ab
 ab
 XZ
-zb
+GJ
 Xh
-Hh
+GJ
 Am
 of
 BP
