@@ -328,7 +328,25 @@
 			updateUsrDialog()
 		else
 			to_chat(user, "<span class='notice'>Access denied.</span>")
-
+	
+	else if(I.iswelder())
+		var/obj/item/weapon/weldingtool/WT = I
+		if (!WT.welding)
+			to_chat(user, "<span class='danger'>\The [WT] must be turned on!</span>")
+		else if (WT.remove_fuel(0,user))
+			to_chat(user, "<span class='notice'>Now welding \the [src].</span>")
+			if(do_after(user, 20))
+				if(!src || !WT.isOn()) return
+				playsound(src.loc, 'sound/items/Welder2.ogg', 50, 1)
+				health += maxhealth / 2
+				if(health > maxhealth)
+					health = maxhealth
+				return
+			else
+				to_chat(user, "<span class='notice'>You fail to complete the welding.</span>")
+		else
+			to_chat(user, "<span class='warning'>You need more welding fuel to complete this task.</span>")
+			return 1
 	else
 		//if the turret was attacked with the intention of harming it:
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
@@ -336,11 +354,11 @@
 		if(I.force * 0.5 > 1) //if the force of impact dealt at least 1 damage, the turret gets pissed off
 			if(!attacked && !emagged)
 				attacked = 1
-				addtimer(CALLBACK(src, .proc/reset_attacked), 6 SECONDS, TIMER_UNIQUE | TIMER_OVERRIDE)
+				addtimer(CALLBACK(src, .proc/reset_attacked), 1 SECONDS, TIMER_UNIQUE | TIMER_OVERRIDE)
 		..()
 
 /obj/machinery/porta_turret/proc/reset_attacked()
-	attacked = 0
+	attacked = FALSE
 
 /obj/machinery/porta_turret/emag_act(var/remaining_charges, var/mob/user)
 	if(!emagged)
@@ -351,6 +369,7 @@
 		emagged = 1
 		lethal_icon = 1
 		controllock = 1
+		shot_delay = shot_delay / 2
 		enabled = 0 //turns off the turret temporarily
 		sleep(60) //6 seconds for the traitor to gtfo of the area before the turret decides to ruin his shit
 		enabled = 1 //turns it back on. The cover popUp() popDown() are automatically called in process(), no need to define it here
@@ -442,9 +461,9 @@
 	if(!tryToShootAt(targets))
 		if(!tryToShootAt(secondarytargets) && !resetting) // if no valid targets, go for secondary targets
 			resetting = TRUE
-			addtimer(CALLBACK(src, /obj/machinery/porta_turret/.proc/reset), 6 SECONDS) // no valid targets, close the cover
+			addtimer(CALLBACK(src, .proc/reset), 6 SECONDS, TIMER_UNIQUE | TIMER_OVERRIDE) // no valid targets, close the cover
 	
-	if(targets.len && secondarytargets.len)
+	if(targets.len || secondarytargets.len)
 		STOP_PROCESSING(SSprocessing, src)
 		START_PROCESSING(SSfast_process, src)
 	else
@@ -600,11 +619,8 @@
 
 /obj/machinery/porta_turret/proc/shootAt(var/mob/living/target)
 	//any emagged turrets will shoot extremely fast! This not only is deadly, but drains a lot power!
-	if(!(emagged || attacked))		//if it hasn't been emagged or attacked, it has to obey a cooldown rate
-		if(last_fired || !raised)	//prevents rapid-fire shooting, unless it's been emagged
-			return
-		last_fired = TRUE
-		addtimer(CALLBACK(src, .proc/reset_last_fired), shot_delay)
+	if(last_fired || !raised)	//prevents rapid-fire shooting, unless it's been emagged
+		return
 
 	var/turf/T = get_turf(src)
 	var/turf/U = get_turf(target)
@@ -632,6 +648,8 @@
 	var/def_zone = get_exposed_defense_zone(target)
 	//Shooting Code:
 	A.launch_projectile(target, def_zone)
+	last_fired = TRUE
+	addtimer(CALLBACK(src, .proc/reset_last_fired), shot_delay, TIMER_UNIQUE | TIMER_OVERRIDE)
 
 /datum/turret_checks
 	var/enabled
