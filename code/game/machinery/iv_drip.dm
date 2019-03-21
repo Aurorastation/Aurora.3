@@ -54,16 +54,16 @@
 /obj/machinery/iv_drip/attackby(obj/item/weapon/W as obj, mob/user as mob)
 
 	if (istype(W, /obj/item/weapon/reagent_containers/blood/ripped))
-		user << "You can't use a ripped bloodpack."
+		to_chat(user, "You can't use a ripped bloodpack.")
 		return
 	if (istype(W, /obj/item/weapon/reagent_containers))
 		if(!isnull(src.beaker))
-			user << "There is already a reagent container loaded!"
+			to_chat(user, "There is already a reagent container loaded!")
 			return
 
 		user.drop_from_inventory(W,src)
 		src.beaker = W
-		user << "You attach \the [W] to \the [src]."
+		to_chat(user, "You attach \the [W] to \the [src].")
 		src.update_icon()
 		return
 	else
@@ -84,21 +84,21 @@
 			return
 
 	if(src.attached && src.beaker)
-	
+
 		var/mob/living/carbon/human/T = attached
 
 		if(!istype(T))
 			return
-		
+
 		if(!T.dna)
 			return
-			
+
 		if(NOCLONE in T.mutations)
 			return
 
 		if(T.species.flags & NO_BLOOD)
 			return
-	
+
 		// Give blood
 		if(mode)
 			if(src.beaker.volume > 0)
@@ -144,31 +144,31 @@
 	set src in view(1)
 
 	if(!istype(usr, /mob/living))
-		usr << "<span class='warning'>You can't do that.</span>"
+		to_chat(usr, "<span class='warning'>You can't do that.</span>")
 		return
 
 	if(usr.stat)
 		return
 
 	mode = !mode
-	usr << "The IV drip is now [mode ? "injecting" : "taking blood"]."
+	to_chat(usr, "The IV drip is now [mode ? "injecting" : "taking blood"].")
 
 /obj/machinery/iv_drip/examine(mob/user)
 	..(user)
 	if (!(user in view(2)) && user!=src.loc) return
 
-	user << "The IV drip is [mode ? "injecting" : "taking blood"]."
-	user << "<span class='notice'>The transfer rate is set to [src.transfer_amount] u/sec</span>"
+	to_chat(user, "The IV drip is [mode ? "injecting" : "taking blood"].")
+	to_chat(user, "<span class='notice'>The transfer rate is set to [src.transfer_amount] u/sec</span>")
 
 	if(beaker)
 		if(beaker.reagents && beaker.reagents.reagent_list.len)
-			usr << "<span class='notice'>Attached is \a [beaker] with [beaker.reagents.total_volume] units of liquid.</span>"
+			to_chat(usr, "<span class='notice'>Attached is \a [beaker] with [beaker.reagents.total_volume] units of liquid.</span>")
 		else
-			usr << "<span class='notice'>Attached is an empty [beaker].</span>"
+			to_chat(usr, "<span class='notice'>Attached is an empty [beaker].</span>")
 	else
-		usr << "<span class='notice'>No chemicals are attached.</span>"
+		to_chat(usr, "<span class='notice'>No chemicals are attached.</span>")
 
-	usr << "<span class='notice'>[attached ? attached : "No one"] is attached.</span>"
+	to_chat(usr, "<span class='notice'>[attached ? attached : "No one"] is attached.</span>")
 
 // Let's doctors set the rate of transfer. Useful if you want to set the rate at the rate of metabolisation.
 // No longer have to take someone to dialysis because they have leftover sleeptox after surgery.
@@ -184,13 +184,13 @@
 	set_rate:
 		var/amount = input("Set transfer rate as u/sec (between 4 and 0.001)") as num
 		if ((0.001 > amount || amount > 4) && amount != 0)
-			usr << "<span class='warning'>Entered value must be between 0.001 and 4.</span>"
+			to_chat(usr, "<span class='warning'>Entered value must be between 0.001 and 4.</span>")
 			goto set_rate
 		if (transfer_amount == 0)
 			transfer_amount = REM
 			return
 		transfer_amount = amount
-		usr << "<span class='notice'>Transfer rate set to [src.transfer_amount] u/sec</span>"
+		to_chat(usr, "<span class='notice'>Transfer rate set to [src.transfer_amount] u/sec</span>")
 
 /obj/machinery/iv_drip/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
 	if(height && istype(mover) && mover.checkpass(PASSTABLE)) //allow bullets, beams, thrown objects, mice, drones, and the like through.

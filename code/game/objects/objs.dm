@@ -45,7 +45,7 @@
 /obj/CanUseTopic(var/mob/user, var/datum/topic_state/state)
 	if(user.CanUseObjTopic(src))
 		return ..()
-	user << "<span class='danger'>\icon[src]Access Denied!</span>"
+	to_chat(user, "<span class='danger'>\icon[src]Access Denied!</span>")
 	return STATUS_CLOSE
 
 /mob/living/silicon/CanUseObjTopic(var/obj/O)
@@ -174,7 +174,12 @@
 /obj/proc/see_emote(mob/M as mob, text, var/emote_type)
 	return
 
-/obj/proc/tesla_act(var/power)
+/obj/proc/tesla_act(var/power, var/melt = FALSE)
+	if(melt)
+		visible_message(span("danger", "\The [src] melts down until ashes are left!"))
+		new /obj/effect/decal/cleanable/ash(loc)
+		qdel(src)
+		return
 	being_shocked = 1
 	var/power_bounced = power / 2
 	tesla_zap(src, 3, power_bounced)

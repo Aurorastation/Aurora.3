@@ -57,15 +57,15 @@
 			if(!I.anchored)
 				content_size += Ceiling(I.w_class/2)
 		if(!content_size)
-			user << "It is empty."
+			to_chat(user, "It is empty.")
 		else if(storage_capacity > content_size*4)
-			user << "It is barely filled."
+			to_chat(user, "It is barely filled.")
 		else if(storage_capacity > content_size*2)
-			user << "It is less than half full."
+			to_chat(user, "It is less than half full.")
 		else if(storage_capacity > content_size)
-			user << "There is still some free space."
+			to_chat(user, "There is still some free space.")
 		else
-			user << "It is full."
+			to_chat(user, "It is full.")
 
 /obj/structure/closet/proc/stored_weight()
 	var/content_size = 0
@@ -177,7 +177,7 @@
 
 /obj/structure/closet/proc/toggle(mob/user as mob)
 	if(!(opened ? close() : open()))
-		user << "<span class='notice'>It won't budge!</span>"
+		to_chat(user, "<span class='notice'>It won't budge!</span>")
 		return
 	update_icon()
 	return 1
@@ -221,7 +221,7 @@
 			return 0
 		if(istype(W,/obj/item/tk_grab))
 			return 0
-		if(iswelder(W))
+		if(W.iswelder())
 			var/obj/item/weapon/weldingtool/WT = W
 			if(WT.isOn())
 				user.visible_message(
@@ -233,7 +233,7 @@
 				if (!do_after(user, 2 SECONDS, act_target = src, extra_checks = CALLBACK(src, .proc/is_open)))
 					return
 				if(!WT.remove_fuel(0,user))
-					user << "<span class='notice'>You need more welding fuel to complete this task.</span>"
+					to_chat(user, "<span class='notice'>You need more welding fuel to complete this task.</span>")
 					return
 				else
 					new /obj/item/stack/material/steel(loc)
@@ -262,7 +262,7 @@
 			user.drop_item()
 	else if(istype(W, /obj/item/weapon/packageWrap))
 		return
-	else if(iswelder(W))
+	else if(W.iswelder())
 		var/obj/item/weapon/weldingtool/WT = W
 		if(WT.isOn())
 			user.visible_message(
@@ -274,7 +274,7 @@
 			if (!do_after(user, 2 SECONDS, act_target = src, extra_checks = CALLBACK(src, .proc/is_closed)))
 				return
 			if(!WT.remove_fuel(0,user))
-				user << "<span class='notice'>You need more welding fuel to complete this task.</span>"
+				to_chat(user, "<span class='notice'>You need more welding fuel to complete this task.</span>")
 				return
 			welded = !welded
 			update_icon()
@@ -326,7 +326,7 @@
 		return
 
 	if(!open())
-		user << "<span class='notice'>It won't budge!</span>"
+		to_chat(user, "<span class='notice'>It won't budge!</span>")
 
 /obj/structure/closet/attack_hand(mob/user as mob)
 	add_fingerprint(user)
@@ -336,7 +336,7 @@
 /obj/structure/closet/attack_self_tk(mob/user as mob)
 	add_fingerprint(user)
 	if(!toggle())
-		usr << "<span class='notice'>It won't budge!</span>"
+		to_chat(usr, "<span class='notice'>It won't budge!</span>")
 
 /obj/structure/closet/verb/verb_toggleopen()
 	set src in oview(1)
@@ -350,7 +350,7 @@
 		add_fingerprint(usr)
 		toggle(usr)
 	else
-		usr << "<span class='warning'>This mob type can't use this verb.</span>"
+		to_chat(usr, "<span class='warning'>This mob type can't use this verb.</span>")
 
 /obj/structure/closet/update_icon()//Putting the welded stuff in updateicon() so it's easy to overwrite for special cases (Fridges, cabinets, and whatnot)
 	cut_overlays()
@@ -400,7 +400,7 @@
 	//okay, so the closet is either welded or locked... resist!!!
 	escapee.next_move = world.time + 100
 	escapee.last_special = world.time + 100
-	escapee << "<span class='warning'>You lean on the back of \the [src] and start pushing the door open. (this will take about [breakout_time] minutes)</span>"
+	to_chat(escapee, "<span class='warning'>You lean on the back of \the [src] and start pushing the door open. (this will take about [breakout_time] minutes)</span>")
 	visible_message("<span class='danger'>\The [src] begins to shake violently!</span>")
 
 	var/time = 6 * breakout_time * 2
@@ -435,7 +435,7 @@
 
 	//Well then break it!
 	breakout = 0
-	escapee << "<span class='warning'>You successfully break out!</span>"
+	to_chat(escapee, "<span class='warning'>You successfully break out!</span>")
 	visible_message("<span class='danger'>\the [escapee] successfully broke out of \the [src]!</span>")
 	playsound(loc, 'sound/effects/grillehit.ogg', 100, 1)
 	break_open()

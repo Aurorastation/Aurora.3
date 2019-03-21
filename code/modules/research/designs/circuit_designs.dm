@@ -357,6 +357,19 @@
 /datum/design/circuit/mecha/AssembleDesignDesc()
 	desc = "Allows for the construction of \a [name] module."
 
+
+/datum/design/circuit/mecha/hermes_main
+	name = "Hermes central control"
+	id = "hermes_main"
+	build_path = /obj/item/weapon/circuitboard/mecha/hermes/main
+	sort_string = "MAAAB"
+
+/datum/design/circuit/mecha/hermes_peri
+	name = "Hermes peripherals control"
+	id = "hermes_peri"
+	build_path = /obj/item/weapon/circuitboard/mecha/hermes/peripherals
+	sort_string = "MAAAC"
+
 /datum/design/circuit/mecha/ripley_main
 	name = "APLU 'Ripley' central control"
 	id = "ripley_main"
@@ -517,3 +530,94 @@
 	req_tech = list(TECH_DATA = 2)
 	build_path = /obj/item/weapon/circuitboard/slot_machine
 	sort_string = "WAAAE"
+
+/datum/design/circuit/industrial
+	name = "industrial suit central circuit board"
+	id = "industrial_rig"
+	req_tech = list(TECH_DATA = 3)
+	build_path = /obj/item/weapon/circuitboard/rig_assembly/civilian/industrial
+	sort_string = "WAAAF"
+
+/datum/design/circuit/eva
+	name = "EVA suit central circuit board"
+	id = "eva_rig"
+	req_tech = list(TECH_DATA = 3)
+	build_path = /obj/item/weapon/circuitboard/rig_assembly/civilian/eva
+	sort_string = "WAAAG"
+
+/datum/design/circuit/ce
+	name = "advanced void suit central circuit board"
+	id = "ce_rig"
+	req_tech = list(TECH_DATA = 4)
+	build_path = /obj/item/weapon/circuitboard/rig_assembly/civilian/ce
+	sort_string = "WAAAH"
+
+/datum/design/circuit/hazmat
+	name = "AMI suit central circuit board"
+	id = "hazmat_rig"
+	req_tech = list(TECH_DATA = 3)
+	build_path = /obj/item/weapon/circuitboard/rig_assembly/civilian/hazmat
+	sort_string = "WAAAI"
+
+/datum/design/circuit/medical
+	name = "rescue suit central circuit board"
+	id = "medical_rig"
+	req_tech = list(TECH_DATA = 3)
+	build_path = /obj/item/weapon/circuitboard/rig_assembly/civilian/medical
+	sort_string = "WAAAJ"
+
+/datum/design/circuit/hazard
+	name = "hazard rig central circuit board"
+	id = "hazard_rig"
+	req_tech = list(TECH_DATA = 4)
+	build_path = /obj/item/weapon/circuitboard/rig_assembly/combat/hazard
+	sort_string = "WAAAK"
+
+/datum/design/circuit/hazard_target
+	name = "hazard rig control and targeting board"
+	id = "hazard_rig_target"
+	req_tech = list(TECH_DATA = 4, TECH_COMBAT = 3)
+	build_path = /obj/item/weapon/circuitboard/rig_assembly/combat/targeting/hazard
+	sort_string = "WAAAL"
+
+/datum/design/circuit/combat
+	name = "combat rig central circuit board"
+	id = "combat_rig"
+	req_tech = list(TECH_DATA = 6)
+	build_path = /obj/item/weapon/circuitboard/rig_assembly/combat/combat
+	sort_string = "WAAAM"
+
+/datum/design/circuit/combat_target
+	name = "combat rig control and targeting board"
+	id = "combat_rig_target"
+	req_tech = list(TECH_DATA = 6, TECH_COMBAT = 5)
+	build_path = /obj/item/weapon/circuitboard/rig_assembly/combat/targeting/combat
+	sort_string = "WAAAN"
+
+/datum/design/circuit/hacker
+	name = "cybersuit rig central circuit board"
+	id = "hacker_rig"
+	req_tech = list(TECH_DATA = 6, TECH_ILLEGAL = 3)
+	build_path = /obj/item/weapon/circuitboard/rig_assembly/illegal/hacker
+	sort_string = "WAAAO"
+
+/datum/design/circuit/hacker_target
+	name = "cybersuit rig control and targeting board"
+	id = "hacker_rig"
+	req_tech = list(TECH_DATA = 6, TECH_COMBAT = 3, TECH_ILLEGAL = 3)
+	build_path = /obj/item/weapon/circuitboard/rig_assembly/illegal/targeting/hacker
+	sort_string = "WAAAP"
+
+/datum/design/circuit/stealth
+	name = "stealth rig central circuit board"
+	id = "stealth_rig"
+	req_tech = list(TECH_DATA = 6, TECH_ILLEGAL = 5)
+	build_path = /obj/item/weapon/circuitboard/rig_assembly/illegal/stealth
+	sort_string = "WAAAQ"
+
+/datum/design/circuit/stealth_target
+	name = "stealth rig control and targeting board"
+	id = "stealth_rig_target"
+	req_tech = list(TECH_DATA = 6, TECH_COMBAT = 5, TECH_ILLEGAL = 5)
+	build_path = /obj/item/weapon/circuitboard/rig_assembly/illegal/targeting/stealth
+	sort_string = "WAAAR"

@@ -124,7 +124,7 @@ var/const/tk_maxrange = 15
 		if(8 to tk_maxrange)
 			user.setMoveCooldown(10)
 		else
-			user << "<span class='notice'>Your mind won't reach that far.</span>"
+			to_chat(user, "<span class='notice'>Your mind won't reach that far.</span>")
 			return
 
 	if(!focus)

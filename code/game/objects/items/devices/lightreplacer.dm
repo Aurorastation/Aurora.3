@@ -156,7 +156,7 @@
 	return count
 
 /obj/item/device/lightreplacer/attack_self(mob/user)
-	usr << "It has [uses] lights remaining."
+	to_chat(usr, "It has [uses] lights remaining.")
 
 /obj/item/device/lightreplacer/update_icon()
 	if(emagged)
@@ -184,7 +184,7 @@
 	if(target.status != LIGHT_OK)
 		if(CanUse(U))
 			if(!Use(U)) return
-			U << "<span class='notice'>You replace the [target.fitting] with the [src].</span>"
+			to_chat(U, "<span class='notice'>You replace the [target.fitting] with the [src].</span>")
 
 			if(target.status != LIGHT_EMPTY)
 
@@ -196,6 +196,7 @@
 				L1.brightness_color = target.brightness_color
 				L1.switchcount = target.switchcount
 				target.switchcount = 0
+				target.inserted_light = L1.type
 				L1.update()
 
 				target.status = LIGHT_EMPTY
@@ -204,9 +205,9 @@
 				if (store_broken)
 					if (stored() < max_stored)
 						L1.forceMove(src)
-						U << "<span class='notice'>\The [src] neatly sucks the broken [target.fitting] into its internal storage. Now storing [stored()]/[max_stored] broken bulbs</span>"
+						to_chat(U, "<span class='notice'>\The [src] neatly sucks the broken [target.fitting] into its internal storage. Now storing [stored()]/[max_stored] broken bulbs</span>")
 					else
-						U << "<span class='danger'>\The [src] tries to suck up the broken [target.fitting] but it has no more space. Empty it into the trash!</span>"
+						to_chat(U, "<span class='danger'>\The [src] tries to suck up the broken [target.fitting] but it has no more space. Empty it into the trash!</span>")
 
 			var/obj/item/weapon/light/L2 = new target.light_type()
 
@@ -216,6 +217,7 @@
 			target.brightness_range = L2.brightness_range
 			target.brightness_power = L2.brightness_power
 			target.brightness_color = L2.brightness_color
+			target.inserted_light = L2.type
 			target.update()
 			qdel(L2)
 
@@ -224,10 +226,10 @@
 			return
 
 		else
-			U << failmsg
+			to_chat(U, failmsg)
 			return
 	else
-		U << "There is a working [target.fitting] already inserted."
+		to_chat(U, "There is a working [target.fitting] already inserted.")
 		return
 
 /obj/item/device/lightreplacer/emag_act(var/remaining_charges, var/mob/user)

@@ -39,6 +39,8 @@
 	helm_type = null
 	boot_type = null
 
+	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT | MODULE_SPECIAL | MODULE_MEDICAL | MODULE_UTILITY | MODULE_VAURCA
+
 /obj/item/weapon/rig/internalaffairs/equipped
 
 	req_access = list(access_lawyer)
@@ -59,10 +61,10 @@
 	name = "industrial suit control module"
 	suit_type = "industrial hardsuit"
 	desc = "A heavy, powerful rig used by construction crews and mining corporations."
-	icon_state = "engineering_rig"
-	armor = list(melee = 60, bullet = 50, laser = 30,energy = 15, bomb = 30, bio = 100, rad = 50)
-	slowdown = 3
-	offline_slowdown = 10
+	icon_state = "industrial_rig"
+	armor = list(melee = 60, bullet = 40, laser = 30, energy = 15, bomb = 30, bio = 100, rad = 50)
+	slowdown = 2
+	offline_slowdown = 7
 	offline_vision_restriction = TINT_HEAVY
 	emp_protection = -20
 
@@ -73,6 +75,7 @@
 	req_access = list()
 	req_one_access = list()
 
+	allowed_module_types = MODULE_GENERAL | MODULE_UTILITY
 
 /obj/item/weapon/rig/industrial/equipped
 
@@ -94,9 +97,9 @@
 	suit_type = "EVA hardsuit"
 	desc = "A light rig for repairs and maintenance to the outside of habitats and vessels."
 	icon_state = "eva_rig"
-	armor = list(melee = 30, bullet = 10, laser = 20,energy = 25, bomb = 20, bio = 100, rad = 100)
+	armor = list(melee = 30, bullet = 10, laser = 20, energy = 25, bomb = 20, bio = 100, rad = 100)
 	slowdown = 0
-	offline_slowdown = 1
+	offline_slowdown = 3
 	offline_vision_restriction = TINT_HEAVY
 
 	helm_type = /obj/item/clothing/head/helmet/space/rig/eva
@@ -106,6 +109,8 @@
 
 	req_access = list()
 	req_one_access = list()
+
+	allowed_module_types = MODULE_GENERAL | MODULE_UTILITY
 
 /obj/item/weapon/rig/eva/equipped
 
@@ -129,7 +134,7 @@
 	icon_state = "ce_rig"
 	armor = list(melee = 40, bullet = 10, laser = 30,energy = 25, bomb = 40, bio = 100, rad = 100)
 	slowdown = 0
-	offline_slowdown = 0
+	offline_slowdown = 3
 	offline_vision_restriction = 0
 	max_heat_protection_temperature = 7500
 
@@ -140,6 +145,8 @@
 
 	req_access = list()
 	req_one_access = list()
+
+	allowed_module_types = MODULE_GENERAL | MODULE_UTILITY 
 
 /obj/item/weapon/rig/ce/equipped
 
@@ -162,9 +169,8 @@
 	name = "AMI control module"
 	suit_type = "hazmat hardsuit"
 	desc = "An Anomalous Material Interaction hardsuit that protects against the strangest energies the universe can throw at it."
-	icon_state = "science_rig"
+	icon_state = "hazmat_rig"
 	armor = list(melee = 45, bullet = 5, laser = 40, energy = 65, bomb = 60, bio = 100, rad = 100)
-	slowdown = 1
 	offline_vision_restriction = TINT_HEAVY
 	emp_protection = 40
 
@@ -174,6 +180,8 @@
 
 	req_access = list()
 	req_one_access = list()
+
+	allowed_module_types = MODULE_GENERAL | MODULE_UTILITY
 
 /obj/item/weapon/rig/hazmat/equipped
 
@@ -186,13 +194,13 @@
 		)
 
 /obj/item/weapon/rig/medical
-
 	name = "rescue suit control module"
 	suit_type = "rescue hardsuit"
 	desc = "A durable suit designed for medical rescue in high risk areas."
 	icon_state = "medical_rig"
 	armor = list(melee = 30, bullet = 15, laser = 20, energy = 60, bomb = 30, bio = 100, rad = 100)
-	slowdown = 1
+	slowdown = 0
+	offline_slowdown = 2
 	offline_vision_restriction = TINT_HEAVY
 
 	helm_type = /obj/item/clothing/head/helmet/space/rig/medical
@@ -201,6 +209,8 @@
 
 	req_access = list()
 	req_one_access = list()
+
+	allowed_module_types = MODULE_GENERAL | MODULE_MEDICAL 
 
 /obj/item/weapon/rig/medical/equipped
 
@@ -217,10 +227,9 @@
 /obj/item/weapon/rig/hazard
 	name = "hazard hardsuit control module"
 	suit_type = "hazard hardsuit"
-	desc = "A Security hardsuit designed for prolonged EVA in dangerous environments."
+	desc = "A security hardsuit designed for prolonged EVA in dangerous environments."
 	icon_state = "hazard_rig"
-	armor = list(melee = 60, bullet = 40, laser = 30, energy = 15, bomb = 60, bio = 100, rad = 30)
-	slowdown = 1
+	armor = list(melee = 60, bullet = 45, laser = 30, energy = 15, bomb = 60, bio = 100, rad = 45)
 	offline_slowdown = 3
 	offline_vision_restriction = TINT_HEAVY
 
@@ -231,6 +240,7 @@
 	req_access = list()
 	req_one_access = list()
 
+	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT
 
 /obj/item/weapon/rig/hazard/equipped
 
@@ -249,8 +259,8 @@
 	desc = "A heavy rig designated for operations under the water, you are not sure what it is doing here however."
 	icon_state = "diving_rig"
 	armor = list(melee = 30, bullet = 10, laser = 20, energy = 25, bomb = 20, bio = 100, rad = 100)
-	slowdown = 4
-	offline_slowdown = 2
+	slowdown = 3
+	offline_slowdown = 4
 	offline_vision_restriction = TINT_HEAVY
 
 	chest_type = /obj/item/clothing/suit/space/rig/diving

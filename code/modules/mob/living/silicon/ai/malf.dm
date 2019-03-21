@@ -15,9 +15,9 @@
 	verbs += new/datum/game_mode/malfunction/verb/ai_help()
 
 	// And greet user with some OOC info.
-	user << "You are malfunctioning, you do not have to follow any laws."
-	user << "Use ai-help command to view relevant information about your abilities"
-	user << "<span class='danger'>Malf AI has been severely buffed. Ensure that you use these new powers responsibly and follow a narrative.</span>"
+	to_chat(user, "You are malfunctioning, you do not have to follow any laws.")
+	to_chat(user, "Use ai-help command to view relevant information about your abilities")
+	to_chat(user, "<span class='danger'>Malf AI has been severely buffed. Ensure that you use these new powers responsibly and follow a narrative.</span>")
 
 // Safely remove malfunction status, fixing hacked APCs and resetting variables.
 /mob/living/silicon/ai/proc/stop_malf()
@@ -35,7 +35,7 @@
 	src.verbs = null
 	add_ai_verbs()
 	// Let them know.
-	user << "You are no longer malfunctioning. Your abilities have been removed."
+	to_chat(user, "You are no longer malfunctioning. Your abilities have been removed.")
 
 // Called every tick. Checks if AI is malfunctioning. If yes calls Process on research datum which handles all logic.
 /mob/living/silicon/ai/proc/malf_process()
@@ -80,14 +80,14 @@
 /mob/living/silicon/ai/proc/start_apu(var/shutup = 0)
 	if(!hardware || !istype(hardware, /datum/malf_hardware/apu_gen))
 		if(!shutup)
-			src << "You do not have an APU generator and you shouldn't have this verb. Report this."
+			to_chat(src, "You do not have an APU generator and you shouldn't have this verb. Report this.")
 		return
 	if(hardware_integrity() < 50)
 		if(!shutup)
-			src << "<span class='notice'>Starting APU... <b>FAULT</b>(System Damaged)</span>"
+			to_chat(src, "<span class='notice'>Starting APU... <b>FAULT</b>(System Damaged)</span>")
 		return
 	if(!shutup)
-		src << "Starting APU... ONLINE"
+		to_chat(src, "Starting APU... ONLINE")
 	APU_power = 1
 
 // Stops AI's APU generator
@@ -98,7 +98,7 @@
 	if(APU_power)
 		APU_power = 0
 		if(!shutup)
-			src << "Shutting down APU... DONE"
+			to_chat(src, "Shutting down APU... DONE")
 
 // Returns percentage of AI's remaining backup capacitor charge (maxhealth - oxyloss).
 /mob/living/silicon/ai/proc/backup_capacitor()

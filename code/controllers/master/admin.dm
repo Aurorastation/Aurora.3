@@ -20,7 +20,7 @@
 		return
 
 	var/permit_mark = TRUE
-		
+
 	if(!class)
 		if(istype(target, /datum/controller/subsystem))
 			class = "subsystem"
@@ -36,10 +36,10 @@
 	var/list/paramlist = params2list(params)
 	if (paramlist["shift"] && permit_mark && target)
 		if (target in usr.client.holder.watched_processes)
-			usr << span("notice", "[target] removed from watchlist.")
+			to_chat(usr, span("notice", "[target] removed from watchlist."))
 			LAZYREMOVE(usr.client.holder.watched_processes, target)
 		else
-			usr << span("notice", "[target] added to watchlist.")
+			to_chat(usr, span("notice", "[target] added to watchlist."))
 			LAZYADD(usr.client.holder.watched_processes, target)
 	else
 		usr.client.debug_variables(target)
@@ -51,7 +51,7 @@
 	set name = "Restart Controller"
 	set desc = "Restart one of the various periodic loop controllers for the game (be careful!)"
 
-	if(!check_rights(R_DEBUG|R_SERVER)) 
+	if(!check_rights(R_DEBUG|R_SERVER))
 		return
 
 	switch(controller)
@@ -90,13 +90,13 @@ var/list/panic_targets_data_loss = list(
 		return
 
 	if (alert("Hard-Restart [controller]? Use with caution, this may break things.", "Subsystem Restart", "No", "No", "Yes") != "Yes")
-		usr << "Aborted."
+		to_chat(usr, "Aborted.")
 		return
 
 	// If it's marked as potentially causing data-loss (like SStimer), require another confirmation.
 	if (panic_targets_data_loss[controller])
 		if (alert("This subsystem ([controller]) may cause data loss or strange behavior if restarted! Continue?", "AAAAAA", "No", "No", "Yes") != "Yes")
-			usr << "Aborted."
+			to_chat(usr, "Aborted.")
 			return
 
 	log_and_message_admins(span("danger", "hard-restarted the [controller] subsystem."))
@@ -105,5 +105,5 @@ var/list/panic_targets_data_loss = list(
 	// NEW_SS_GLOBAL will handle destruction of old controller & data transfer, just create a new one and add it to the MC.
 	var/ctype = panic_targets[controller]
 	Master.subsystems += new ctype
-	
+
 	sortTim(Master.subsystems, /proc/cmp_subsystem_display)
