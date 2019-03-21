@@ -493,14 +493,20 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 		var/mob/living/L = target_mob
 		if(!L.stat)
 			return (0)
-	if (istype(target_mob,/obj/mecha))
+	if (istype(target_mob, /obj/mecha))
 		var/obj/mecha/M = target_mob
 		if (M.occupant)
 			return (0)
-	if (istype(target_mob,/obj/machinery/bot))
+	if (istype(target_mob, /obj/machinery/bot))
 		var/obj/machinery/bot/B = target_mob
 		if(B.health > 0)
 			return (0)
+	if(istype(target_mob, /obj/machinery/porta_turret/))
+		var/obj/machinery/porta_turret/T = target_mob
+		if(T.health > 0)
+			return (0)
+	if(istype(target_mob, /obj/effect/energy_field))
+		return (0)
 	return 1
 
 /mob/living/simple_animal/say(var/message)

@@ -32,6 +32,7 @@
 	target_type_validator_map[/mob/living] = CALLBACK(src, .proc/validator_living)
 	target_type_validator_map[/obj/mecha] = CALLBACK(src, .proc/validator_mecha)
 	target_type_validator_map[/obj/machinery/bot] = CALLBACK(src, .proc/validator_bot)
+	target_type_validator_map[/obj/machinery/porta_turret] = CALLBACK(src, .proc/validator_turret)
 
 /mob/living/simple_animal/hostile/Destroy()
 	friends = null
@@ -154,16 +155,22 @@ mob/living/simple_animal/hostile/hitby(atom/movable/AM as mob|obj,var/speed = TH
 		LoseTarget()
 	if(isliving(target_mob))
 		var/mob/living/L = target_mob
-		L.attack_generic(src,rand(melee_damage_lower,melee_damage_upper),attacktext)
+		L.attack_generic(src, rand(melee_damage_lower, melee_damage_upper), attacktext)
 		return L
-	if(istype(target_mob,/obj/mecha))
+	if(istype(target_mob, /obj/mecha))
 		var/obj/mecha/M = target_mob
-		M.attack_generic(src,rand(melee_damage_lower,melee_damage_upper),attacktext)
+		M.attack_generic(src, rand(melee_damage_lower, melee_damage_upper), attacktext)
 		return M
-	if(istype(target_mob,/obj/machinery/bot))
+	if(istype(target_mob, /obj/machinery/bot))
 		var/obj/machinery/bot/B = target_mob
-		B.attack_generic(src,rand(melee_damage_lower,melee_damage_upper),attacktext)
+		B.attack_generic(src, rand(melee_damage_lower, melee_damage_upper), attacktext)
 		return B
+	if(istype(target_mob, /obj/machinery/porta_turret))
+		var/obj/machinery/porta_turret/T = target_mob
+		src.do_attack_animation(T)
+		T.health -= max(melee_damage_lower, melee_damage_upper) / 3
+		visible_message("<span class='danger'>[src] [attacktext] \the [T]!</span>")
+		return T
 
 /mob/living/simple_animal/hostile/proc/LoseTarget()
 	stance = HOSTILE_STANCE_IDLE
@@ -354,3 +361,8 @@ mob/living/simple_animal/hostile/hitby(atom/movable/AM as mob|obj,var/speed = TH
 		return TRUE
 	else
 		return FALSE
+
+/mob/living/simple_animal/hostile/proc/validator_turret(var/obj/machinery/porta_turret/T, var/atom/current)
+	if(isliving(current)) // We prefer mobs over anything else
+		return FALSE
+	return !(T.health <= 0)
