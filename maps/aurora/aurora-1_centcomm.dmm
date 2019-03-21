@@ -8669,11 +8669,7 @@
 /area/centcom/living)
 "aut" = (
 /obj/machinery/door/airlock/centcom{
-	name = "To: NSS Aurora Processing"
-	},
-/obj/item/tape/engineering{
-	icon_state = "engineering_door";
-	layer = 4
+	name = "IT Department"
 	},
 /turf/unsimulated/floor,
 /area/centcom/living)
@@ -8931,58 +8927,25 @@
 /turf/unsimulated/wall/riveted,
 /area/centcom/control)
 "auU" = (
-/obj/machinery/telecomms/receiver/preset_cent,
-/turf/unsimulated/floor{
-	icon_state = "green";
-	dir = 9
-	},
+/obj/machinery/computer/teleporter,
+/turf/simulated/floor/tiled/dark,
 /area/centcom/control)
 "auV" = (
+/obj/machinery/teleport/station,
+/turf/simulated/floor/tiled/dark,
+/area/centcom/living)
+"auW" = (
+/obj/machinery/teleport/hub,
+/turf/simulated/floor/tiled/dark,
+/area/centcom/control)
+"auX" = (
+/turf/simulated/floor/tiled/dark,
+/area/centcom/control)
+"auZ" = (
 /obj/machinery/telecomms/bus/preset_cent,
 /turf/unsimulated/floor{
 	icon_state = "green";
-	dir = 1
-	},
-/area/centcom/control)
-"auW" = (
-/obj/machinery/telecomms/processor/preset_cent,
-/turf/unsimulated/floor{
-	icon_state = "green";
-	dir = 1
-	},
-/area/centcom/control)
-"auX" = (
-/obj/machinery/telecomms/server/presets/centcomm,
-/turf/unsimulated/floor{
-	icon_state = "green";
-	dir = 1
-	},
-/area/centcom/control)
-"auY" = (
-/obj/machinery/account_database{
-	name = "CentComm Accounts database"
-	},
-/turf/unsimulated/floor{
-	icon_state = "green";
-	dir = 5
-	},
-/area/centcom/control)
-"auZ" = (
-/obj/machinery/computer/teleporter,
-/turf/unsimulated/floor{
-	icon_state = "engine"
-	},
-/area/centcom/control)
-"ava" = (
-/obj/machinery/teleport/station,
-/turf/unsimulated/floor{
-	icon_state = "engine"
-	},
-/area/centcom/control)
-"avb" = (
-/obj/machinery/teleport/hub,
-/turf/unsimulated/floor{
-	icon_state = "engine"
+	dir = 8
 	},
 /area/centcom/control)
 "avc" = (
@@ -9002,12 +8965,6 @@
 "avf" = (
 /turf/unsimulated/wall/riveted,
 /area/centcom/creed)
-"avg" = (
-/turf/unsimulated/floor{
-	icon_state = "green";
-	dir = 8
-	},
-/area/centcom/control)
 "avh" = (
 /turf/unsimulated/floor{
 	icon_state = "floor"
@@ -9018,10 +8975,7 @@
 	dir = 4;
 	status = 0
 	},
-/turf/unsimulated/floor{
-	icon_state = "green";
-	dir = 4
-	},
+/turf/simulated/floor/tiled/dark,
 /area/centcom/control)
 "avj" = (
 /obj/structure/table/rack,
@@ -9227,28 +9181,14 @@
 	dir = 8
 	},
 /area/centcom/control)
-"avD" = (
-/turf/unsimulated/floor{
-	icon_state = "green";
-	dir = 4
-	},
-/area/centcom/control)
-"avE" = (
-/obj/machinery/light{
-	icon_state = "tube1";
-	dir = 8
-	},
-/turf/unsimulated/floor{
-	icon_state = "engine"
-	},
-/area/centcom/control)
 "avF" = (
 /obj/machinery/light{
 	dir = 4;
-	status = 0
+	icon_state = "tube1"
 	},
 /turf/unsimulated/floor{
-	icon_state = "engine"
+	icon_state = "green";
+	dir = 4
 	},
 /area/centcom/control)
 "avG" = (
@@ -9345,11 +9285,6 @@
 /area/centcom/control)
 "avM" = (
 /obj/machinery/telecomms/hub/preset_cent,
-/turf/unsimulated/floor{
-	icon_state = "green"
-	},
-/area/centcom/control)
-"avN" = (
 /turf/unsimulated/floor{
 	icon_state = "green"
 	},
@@ -9483,16 +9418,6 @@
 	icon_state = "fakewindows"
 	},
 /area/centcom/shared_dream)
-"awe" = (
-/obj/machinery/door/airlock/centcom{
-	name = "Communications Control";
-	opacity = 1;
-	req_access = list(104)
-	},
-/turf/unsimulated/floor{
-	icon_state = "delivery"
-	},
-/area/centcom/control)
 "awf" = (
 /obj/structure/banner,
 /turf/unsimulated/floor{
@@ -24443,6 +24368,28 @@
 	icon_state = "wood_siding1"
 	},
 /area/centcom/spawning)
+"bkc" = (
+/turf/unsimulated/floor{
+	icon_state = "green";
+	dir = 4
+	},
+/area/centcom/living)
+"dLX" = (
+/obj/machinery/computer/telecomms/monitor,
+/turf/unsimulated/floor{
+	icon_state = "green";
+	dir = 5
+	},
+/area/centcom/living)
+"eyw" = (
+/obj/machinery/account_database{
+	name = "CentComm Accounts database"
+	},
+/turf/unsimulated/floor{
+	icon_state = "green";
+	dir = 4
+	},
+/area/centcom/control)
 "eSC" = (
 /obj/machinery/atm{
 	pixel_x = -26
@@ -24451,10 +24398,166 @@
 	icon_state = "floor"
 	},
 /area/centcom/holding)
+"fPQ" = (
+/obj/machinery/telecomms/server/presets/centcomm,
+/turf/unsimulated/floor{
+	icon_state = "green";
+	dir = 8
+	},
+/area/centcom/living)
+"gDh" = (
+/obj/machinery/telecomms/receiver/preset_cent,
+/turf/unsimulated/floor{
+	icon_state = "green";
+	dir = 8
+	},
+/area/centcom/control)
 "haj" = (
 /obj/machinery/chem_master,
 /turf/simulated/floor/tiled/dark,
 /area/centcom/legion)
+"hGZ" = (
+/obj/machinery/light{
+	icon_state = "tube1";
+	dir = 8
+	},
+/turf/unsimulated/floor{
+	icon_state = "green";
+	dir = 8
+	},
+/area/centcom/living)
+"jcW" = (
+/obj/machinery/light{
+	dir = 4;
+	icon_state = "tube1"
+	},
+/turf/unsimulated/floor{
+	icon_state = "green";
+	dir = 4
+	},
+/area/centcom/living)
+"jfV" = (
+/obj/machinery/light{
+	icon_state = "tube1";
+	dir = 8
+	},
+/obj/machinery/telecomms/processor/preset_cent,
+/turf/unsimulated/floor{
+	icon_state = "green";
+	dir = 8
+	},
+/area/centcom/living)
+"jBJ" = (
+/obj/machinery/computer/telecomms/server,
+/turf/unsimulated/floor{
+	icon_state = "green";
+	dir = 4
+	},
+/area/centcom/living)
+"jTp" = (
+/turf/unsimulated/floor{
+	icon_state = "green";
+	dir = 1
+	},
+/area/centcom/living)
+"ktR" = (
+/obj/structure/table/steel,
+/obj/item/weapon/paper/monitorkey,
+/turf/unsimulated/floor{
+	icon_state = "green";
+	dir = 4
+	},
+/area/centcom/control)
+"lpW" = (
+/obj/machinery/blackbox_recorder,
+/turf/unsimulated/floor{
+	icon_state = "green";
+	dir = 4
+	},
+/area/centcom/living)
+"nkd" = (
+/obj/machinery/computer/telecomms/traffic,
+/turf/unsimulated/floor{
+	icon_state = "green";
+	dir = 4
+	},
+/area/centcom/living)
+"ntk" = (
+/obj/machinery/lapvend,
+/turf/unsimulated/floor{
+	icon_state = "green";
+	dir = 9
+	},
+/area/centcom/living)
+"oIb" = (
+/obj/machinery/light{
+	icon_state = "tube1";
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/centcom/control)
+"oPC" = (
+/turf/unsimulated/floor{
+	icon_state = "green";
+	dir = 8
+	},
+/area/centcom/living)
+"peK" = (
+/obj/structure/bed/chair/office/dark{
+	dir = 4
+	},
+/turf/unsimulated/floor{
+	icon_state = "floor"
+	},
+/area/centcom/living)
+"sel" = (
+/obj/structure/bed/chair/office/dark{
+	dir = 4
+	},
+/turf/unsimulated/floor{
+	icon_state = "floor"
+	},
+/area/centcom/control)
+"tcY" = (
+/obj/machinery/light{
+	dir = 4;
+	icon_state = "tube1"
+	},
+/obj/machinery/computer/message_monitor,
+/turf/unsimulated/floor{
+	icon_state = "green";
+	dir = 4
+	},
+/area/centcom/living)
+"vtz" = (
+/obj/structure/bed/chair/office/dark{
+	dir = 4
+	},
+/turf/unsimulated/floor{
+	icon_state = "green";
+	dir = 1
+	},
+/area/centcom/living)
+"wpE" = (
+/obj/machinery/light{
+	dir = 1;
+	icon_state = "tube1";
+	pixel_y = 0
+	},
+/turf/unsimulated/floor{
+	icon_state = "green";
+	dir = 1
+	},
+/area/centcom/living)
+"wGd" = (
+/obj/machinery/light{
+	dir = 2;
+	icon_state = "tube1"
+	},
+/turf/unsimulated/floor{
+	icon_state = "green"
+	},
+/area/centcom/control)
 "xjq" = (
 /obj/machinery/light,
 /obj/structure/curtain,
@@ -59826,9 +59929,9 @@ aqM
 apW
 apW
 auU
-avg
-avC
-avL
+auX
+oIb
+auX
 auT
 auT
 auT
@@ -60083,9 +60186,9 @@ aqX
 apW
 apW
 auV
-avh
-avh
-avM
+auX
+auX
+auX
 auT
 awU
 axv
@@ -60340,10 +60443,10 @@ asJ
 apW
 apW
 auW
-avh
-avh
-avN
-awe
+auX
+auX
+auX
+awg
 awV
 avh
 avh
@@ -60597,9 +60700,9 @@ aqX
 apW
 apW
 auX
-avh
-aYv
-avO
+auX
+auX
+auX
 auT
 awV
 avh
@@ -60853,10 +60956,10 @@ aqu
 aqN
 apW
 apW
-auY
+auX
 avi
-avD
-avP
+auX
+auX
 auT
 awV
 axw
@@ -62902,17 +63005,17 @@ arI
 asb
 atS
 apW
-aqe
-aqu
-aqu
-aqu
-aqM
-apW
-apW
+ntk
+oPC
+oPC
+hGZ
+oPC
+fPQ
+jfV
 auZ
-avc
-avE
-avc
+gDh
+avC
+avL
 auT
 awV
 axw
@@ -63159,17 +63262,17 @@ ars
 atG
 atQ
 apW
-aqf
-aqe
-aqu
-aqM
-aqX
-apW
-apW
-ava
-avc
-avc
-avc
+jTp
+arI
+arI
+arI
+arI
+arI
+arI
+avh
+avh
+avh
+avM
 auT
 awV
 avh
@@ -63416,18 +63519,18 @@ arI
 asb
 atR
 apW
-arH
-aqu
-aqu
-aqu
-asJ
-apW
-apW
-avb
-avc
-avc
-avc
-awg
+wpE
+arI
+arI
+arI
+arI
+arI
+arI
+avh
+avh
+avh
+wGd
+auT
 awV
 avh
 avh
@@ -63673,17 +63776,17 @@ atx
 atH
 atQ
 apW
-aqf
-aqg
-aqu
-aqN
-aqX
-apW
-apW
-avc
-avc
-avc
-avc
+vtz
+peK
+peK
+arI
+arI
+arI
+peK
+sel
+avh
+aYv
+avO
 auT
 awX
 axx
@@ -63930,17 +64033,17 @@ aty
 ato
 apW
 apW
-aqg
-aqu
-aqu
-aqu
-aqN
-apW
-apW
-avc
-avc
+dLX
+jBJ
+nkd
+jcW
+bkc
+lpW
+tcY
+eyw
+ktR
 avF
-avc
+avP
 auT
 awh
 axy
