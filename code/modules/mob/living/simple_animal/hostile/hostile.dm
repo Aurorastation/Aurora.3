@@ -168,7 +168,7 @@ mob/living/simple_animal/hostile/hitby(atom/movable/AM as mob|obj,var/speed = TH
 	if(istype(target_mob, /obj/machinery/porta_turret))
 		var/obj/machinery/porta_turret/T = target_mob
 		src.do_attack_animation(T)
-		T.health -= max(melee_damage_lower, melee_damage_upper) / 3
+		T.take_damage(max(melee_damage_lower, melee_damage_upper) / 2)
 		visible_message("<span class='danger'>[src] [attacktext] \the [T]!</span>")
 		return T
 
