@@ -287,7 +287,7 @@
 
 	backpack_contents = list(
 		/obj/item/weapon/handcuffs = 1,
-		/obj/item/clothing/accessory/armband/med = 1
+		/obj/item/clothing/accessory/armband/medgreen = 1
 	)
 
 /datum/outfit/job/medofficer/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)

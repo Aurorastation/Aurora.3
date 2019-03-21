@@ -150,7 +150,7 @@
 /datum/gear/suit/winter/security
 	display_name = "winter coat, security"
 	path = /obj/item/clothing/suit/storage/hooded/wintercoat/security
-	allowed_roles = list("Security Officer", "Head of Security", "Warden", "Security Cadet", "Detective", "Forensic Technician")
+	allowed_roles = list("Supply Officer", "Medical Officer", "Science Officer", "General Officer", "Engineering Officer", "Head of Security", "Warden", "Security Cadet", "Detective", "Forensic Technician")
 
 /datum/gear/suit/winter/science
 	display_name = "winter coat, science"
@@ -190,7 +190,7 @@
 /datum/gear/suit/secjacket
 	display_name = "navy security jacket (Security Officer)"
 	path = /obj/item/clothing/suit/security/navyofficer
-	allowed_roles = list("Security Officer", "Head of Security", "Warden")
+	allowed_roles = list("Supply Officer", "Medical Officer", "Science Officer", "General Officer", "Engineering Officer", "Head of Security", "Warden")
 
 /datum/gear/suit/secjacketwarden
 	display_name = "navy security jacket (Warden)"

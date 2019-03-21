@@ -298,6 +298,7 @@
 		new /obj/item/weapon/storage/belt/security(src)
 
 /obj/structure/closet/secure_closet/security/brig
+	req_access = list(access_security, access_weapons)
 
 	fill()
 		..()
@@ -306,6 +307,7 @@
 		new /obj/item/device/encryptionkey/headset_cargo(src)
 
 /obj/structure/closet/secure_closet/security/cargo
+	req_access = list(access_cargo, access_weapons)
 
 	fill()
 		..()
@@ -314,6 +316,7 @@
 		new /obj/item/device/encryptionkey/headset_cargo(src)
 
 /obj/structure/closet/secure_closet/security/engine
+	req_access = list(access_engine, access_weapons)
 
 	fill()
 		..()
@@ -322,6 +325,7 @@
 		new /obj/item/device/encryptionkey/headset_eng(src)
 
 /obj/structure/closet/secure_closet/security/science
+	req_access = list(access_research, access_weapons)
 
 	fill()
 		..()
@@ -330,6 +334,7 @@
 		new /obj/item/device/encryptionkey/headset_sci(src)
 
 /obj/structure/closet/secure_closet/security/med
+	req_access = list(access_medical, access_weapons)
 
 	fill()
 		..()

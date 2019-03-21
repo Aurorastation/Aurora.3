@@ -51,7 +51,7 @@
 /datum/gear/eyes/security
 	display_name = "security HUD"
 	path = /obj/item/clothing/glasses/hud/security
-	allowed_roles = list("Security Officer", "Head of Security", "Warden", "Security Cadet", "Detective", "Forensic Technician")
+	allowed_roles = list("Supply Officer", "Medical Officer", "Science Officer", "General Officer", "Engineering Officer", "Head of Security", "Warden", "Security Cadet", "Detective", "Forensic Technician")
 
 /datum/gear/eyes/security/aviator
 	display_name = "aviators, security"
@@ -69,7 +69,7 @@
 /datum/gear/eyes/shades
 	display_name = "sunglasses, fat (Security/Command)"
 	path = /obj/item/clothing/glasses/sunglasses/big
-	allowed_roles = list("Security Officer", "Head of Security", "Warden", "Captain", "Head of Personnel", "Quartermaster", "Internal Affairs Agent", "Detective", "Forensic Technician")
+	allowed_roles = list("Supply Officer", "Medical Officer", "Science Officer", "General Officer", "Engineering Officer", "Head of Security", "Warden", "Captain", "Head of Personnel", "Quartermaster", "Internal Affairs Agent", "Detective", "Forensic Technician")
 
 /datum/gear/eyes/shades/prescriptionsun
 	display_name = "sunglasses, presciption (Security/Command)"
@@ -98,7 +98,7 @@
 /datum/gear/eyes/secpatch
 	display_name = "HUDpatch, Security"
 	path= /obj/item/clothing/glasses/eyepatch/hud/security
-	allowed_roles = list("Security Officer", "Head of Security", "Warden", "Security Cadet", "Detective", "Forensic Technician")
+	allowed_roles = list("Supply Officer", "Medical Officer", "Science Officer", "General Officer", "Engineering Officer", "Head of Security", "Warden", "Security Cadet", "Detective", "Forensic Technician")
 	cost = 2 //snowflake tax
 
 /datum/gear/eyes/medpatch
