@@ -28,7 +28,7 @@
 	icon_state = "mecha_scatter"
 	equip_cooldown = 20
 	projectile = /obj/item/projectile/bullet/pellet
-	fire_sound = 'sound/weapons/Gunshot.ogg'
+	fire_sound = 'sound/weapons/shotgun.ogg'
 	fire_volume = 80
 	projectiles = 40
 	deviation = 0.7

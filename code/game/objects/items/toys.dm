@@ -758,63 +758,12 @@
  * Plushies
  */
 
-//Large plushies.
-/obj/structure/plushie
-	name = "generic plush"
-	desc = "A very generic plushie. It seems to not want to exist."
-	icon = 'icons/obj/toy.dmi'
-	icon_state = "ianplushie"
-	anchored = 0
-	density = 1
-	var/phrase = "I don't want to exist anymore!"
-
-/obj/structure/plushie/attack_hand(mob/user)
-	if(user.a_intent == I_HELP)
-		user.visible_message("<span class='notice'><b>\The [user]</b> hugs [src]!</span>","<span class='notice'>You hug [src]!</span>")
-	else if (user.a_intent == I_HURT)
-		user.visible_message("<span class='warning'><b>\The [user]</b> punches [src]!</span>","<span class='warning'>You punch [src]!</span>")
-	else if (user.a_intent == I_GRAB)
-		user.visible_message("<span class='warning'><b>\The [user]</b> attempts to strangle [src]!</span>","<span class='warning'>You attempt to strangle [src]!</span>")
-	else
-		user.visible_message("<span class='notice'><b>\The [user]</b> pokes the [src].</span>","<span class='notice'>You poke the [src].</span>")
-		visible_message("[src] says, \"[phrase]\"")
-
-/obj/structure/plushie/ian
-	name = "plush corgi"
-	desc = "A plushie of an adorable corgi! Don't you just want to hug it and squeeze it and call it \"Ian\"?"
-	icon_state = "ianplushie"
-	phrase = "Arf!"
-
-/obj/structure/plushie/drone
-	name = "plush drone"
-	desc = "A plushie of a happy drone! It appears to be smiling, and has a small tag which reads \"N.D.V. Icarus Gift Shop\"."
-	icon_state = "droneplushie"
-	phrase = "Beep boop!"
-
-/obj/structure/plushie/carp
-	name = "plush carp"
-	desc = "A plushie of an elated carp! Straight from the wilds of the Tau Ceti frontier, now right here in your hands."
-	icon_state = "carpplushie"
-	phrase = "Glorf!"
-
-/obj/structure/plushie/beepsky
-	name = "plush Officer Sweepsky"
-	desc = "A plushie of a popular industrious cleaning robot! If it could feel emotions, it would love you."
-	icon_state = "beepskyplushie"
-	phrase = "Ping!"
-
-/obj/structure/plushie/ivancarp
-	name = "plush Ivan the carp"
-	desc = "A plushie in the spitting image of a russian raised carp."
-	icon_state = "carpplushie_russian"
-	phrase = "Blyat!"
-
-//Small plushies.
 /obj/item/toy/plushie
 	name = "generic small plush"
 	desc = "A very generic small plushie. It seems to not want to exist."
 	icon = 'icons/obj/toy.dmi'
 	icon_state = "nymphplushie"
+	var/phrase = "Hewwo!"
 
 /obj/item/toy/plushie/attack_self(mob/user as mob)
 	if(user.a_intent == I_HELP)
@@ -825,6 +774,42 @@
 		user.visible_message("<span class='warning'><b>\The [user]</b> attempts to strangle [src]!</span>","<span class='warning'>You attempt to strangle [src]!</span>")
 	else
 		user.visible_message("<span class='notice'><b>\The [user]</b> pokes the [src].</span>","<span class='notice'>You poke the [src].</span>")
+		visible_message("[src] says, \"[phrase]\"")
+
+//Large plushies.
+
+
+/obj/item/toy/plushie/ian
+	name = "plush corgi"
+	desc = "A plushie of an adorable corgi! Don't you just want to hug it and squeeze it and call it \"Ian\"?"
+	icon_state = "ianplushie"
+	phrase = "Arf!"
+
+/obj/item/toy/plushie/drone
+	name = "plush drone"
+	desc = "A plushie of a happy drone! It appears to be smiling, and has a small tag which reads \"N.D.V. Icarus Gift Shop\"."
+	icon_state = "droneplushie"
+	phrase = "Beep boop!"
+
+/obj/item/toy/plushie/carp
+	name = "plush carp"
+	desc = "A plushie of an elated carp! Straight from the wilds of the Tau Ceti frontier, now right here in your hands."
+	icon_state = "carpplushie"
+	phrase = "Glorf!"
+
+/obj/item/toy/plushie/beepsky
+	name = "plush Officer Sweepsky"
+	desc = "A plushie of a popular industrious cleaning robot! If it could feel emotions, it would love you."
+	icon_state = "beepskyplushie"
+	phrase = "Ping!"
+
+/obj/item/toy/plushie/ivancarp
+	name = "plush Ivan the carp"
+	desc = "A plushie in the spitting image of a russian raised carp."
+	icon_state = "carpplushie_russian"
+	phrase = "Blyat!"
+
+//Small plushies.
 
 /obj/item/toy/plushie/nymph
 	name = "diona nymph plush"

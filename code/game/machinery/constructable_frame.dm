@@ -202,4 +202,3 @@
 //Animals can run under them, lots of empty space
 		return 1
 	return ..()
-

@@ -74,6 +74,7 @@
 	antenna["antenna, side"] = /obj/item/clothing/head/antenna/side
 	antenna["antenna, dish"] = /obj/item/clothing/head/antenna/dish
 	gear_tweaks += new/datum/gear_tweak/path(antenna)
+	gear_tweaks += list(gear_tweak_free_color_choice)
 
 /datum/gear/ears/headlights
 	display_name = "headlights (Machine)"
