@@ -38,6 +38,7 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
+  - tweak: "Emagging turrets now decreases their shot delay by half, instead of allowing them to bypass cooldown."
   - tweak: "Hostile mobs now target turrets and attack the."
   - tweak: "Turrets can now be repaired with welding tool if they are not completely destroyed."
   - tweak: "Turrets now now use faster processing(delay decreased from 2 second to 0.5 seconds process) if they have targets to shoot. Which makes them track and shoot faster than usual, allowing to unleash full potential of emagged and fast shooting guns."
