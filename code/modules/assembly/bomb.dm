@@ -26,9 +26,9 @@
 	if(istype(W, /obj/item/device/analyzer))
 		bombtank.attackby(W, user)
 		return
-	if(iswrench(W) && !status)	//This is basically bomb assembly code inverted. apparently it works.
+	if(W.iswrench() && !status)	//This is basically bomb assembly code inverted. apparently it works.
 
-		user << "<span class='notice'>You disassemble [src].</span>"
+		to_chat(user, "<span class='notice'>You disassemble [src].</span>")
 
 		bombassembly.forceMove(user.loc)
 		bombassembly.master = null
@@ -40,16 +40,16 @@
 
 		qdel(src)
 		return
-	if((iswelder(W) && W:welding))
+	if((W.iswelder() && W:welding))
 		if(!status)
 			status = 1
 			bombers += "[key_name(user)] welded a single tank bomb. Temp: [bombtank.air_contents.temperature-T0C]"
 			message_admins("[key_name_admin(user)] welded a single tank bomb. Temp: [bombtank.air_contents.temperature-T0C]")
-			user << "<span class='notice'>A pressure hole has been bored to [bombtank] valve. \The [bombtank] can now be ignited.</span>"
+			to_chat(user, "<span class='notice'>A pressure hole has been bored to [bombtank] valve. \The [bombtank] can now be ignited.</span>")
 		else
 			status = 0
 			bombers += "[key_name(user)] unwelded a single tank bomb. Temp: [bombtank.air_contents.temperature-T0C]"
-			user << "<span class='notice'>The hole has been closed.</span>"
+			to_chat(user, "<span class='notice'>The hole has been closed.</span>")
 	add_fingerprint(user)
 	..()
 

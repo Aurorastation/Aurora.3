@@ -55,6 +55,7 @@
 	var/input_pulsed = 0
 	var/output_cut = 0
 	var/output_pulsed = 0
+	var/is_critical = FALSE			// Use by gridcheck event, if set to true we do not disable it
 	var/failure_timer = 0			// Set by gridcheck event, temporarily disables the SMES.
 	var/target_load = 0
 	var/open_hatch = 0
@@ -250,7 +251,7 @@
 //Will return 1 on failure
 /obj/machinery/power/smes/proc/make_terminal(const/mob/user)
 	if (user.loc == loc)
-		user << "<span class='warning'>You must not be on the same tile as the [src].</span>"
+		to_chat(user, "<span class='warning'>You must not be on the same tile as the [src].</span>")
 		return 1
 
 	//Direction the terminal will face to
@@ -262,13 +263,13 @@
 			tempDir = WEST
 	var/turf/tempLoc = get_step(src, reverse_direction(tempDir))
 	if (istype(tempLoc, /turf/space))
-		user << "<span class='warning'>You can't build a terminal on space.</span>"
+		to_chat(user, "<span class='warning'>You can't build a terminal on space.</span>")
 		return 1
 	else if (istype(tempLoc))
 		if(!tempLoc.is_plating())
-			user << "<span class='warning'>You must remove the floor plating first.</span>"
+			to_chat(user, "<span class='warning'>You must remove the floor plating first.</span>")
 			return 1
-	user << "<span class='notice'>You start adding cable to the [src].</span>"
+	to_chat(user, "<span class='notice'>You start adding cable to the [src].</span>")
 	if(do_after(user, 50))
 		terminal = new /obj/machinery/power/terminal(tempLoc)
 		terminal.set_dir(tempDir)
@@ -293,25 +294,25 @@
 
 
 /obj/machinery/power/smes/attackby(var/obj/item/weapon/W as obj, var/mob/user as mob)
-	if(isscrewdriver(W))
+	if(W.isscrewdriver())
 		if(!open_hatch)
 			open_hatch = 1
-			user << "<span class='notice'>You open the maintenance hatch of [src].</span>"
+			to_chat(user, "<span class='notice'>You open the maintenance hatch of [src].</span>")
 			return 0
 		else
 			open_hatch = 0
-			user << "<span class='notice'>You close the maintenance hatch of [src].</span>"
+			to_chat(user, "<span class='notice'>You close the maintenance hatch of [src].</span>")
 			return 0
 
 	if (!open_hatch)
-		user << "<span class='warning'>You need to open access hatch on [src] first!</span>"
+		to_chat(user, "<span class='warning'>You need to open access hatch on [src] first!</span>")
 		return 0
 
-	if(iscoil(W) && !terminal && !building_terminal)
+	if(W.iscoil() && !terminal && !building_terminal)
 		building_terminal = 1
 		var/obj/item/stack/cable_coil/CC = W
 		if (CC.get_amount() <= 10)
-			user << "<span class='warning'>You need more cables.</span>"
+			to_chat(user, "<span class='warning'>You need more cables.</span>")
 			building_terminal = 0
 			return 0
 		if (make_terminal(user))
@@ -326,14 +327,14 @@
 		stat = 0
 		return 0
 
-	else if(iswirecutter(W) && terminal && !building_terminal)
+	else if(W.iswirecutter() && terminal && !building_terminal)
 		building_terminal = 1
 		var/turf/tempTDir = terminal.loc
 		if (istype(tempTDir))
 			if(!tempTDir.is_plating())
-				user << "<span class='warning'>You must remove the floor plating first.</span>"
+				to_chat(user, "<span class='warning'>You must remove the floor plating first.</span>")
 			else
-				user << "<span class='notice'>You begin to cut the cables...</span>"
+				to_chat(user, "<span class='notice'>You begin to cut the cables...</span>")
 				playsound(get_turf(src), 'sound/items/Deconstruct.ogg', 50, 1)
 				if(do_after(user, 50))
 					if (prob(50) && electrocute_mob(usr, terminal.powernet, terminal))

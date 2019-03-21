@@ -76,7 +76,7 @@
 /obj/item/weapon/fuel/proc/injest(mob/M as mob)
 	switch(content)
 		if("Anti-Hydrogen")
-			mob << span("notice", "That was not a very bright idea.")
+			to_chat(mob, span("notice", "That was not a very bright idea."))
 			M.gib()
 		if("Hydrogen")
 			to_chat(M, "<span class='notice'>You feel very light, as if you might just float away...</span>")
