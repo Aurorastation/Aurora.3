@@ -235,6 +235,11 @@
 		var/value = text2num(href_list["value"])
 		if(href_list["command"] == "enable")
 			enabled = value
+			if (enabled)
+				START_PROCESSING(SSprocessing, src)
+			else
+				STOP_PROCESSING(SSprocessing, src)
+				STOP_PROCESSING(SSfast_process, src)
 		else if(href_list["command"] == "lethal")
 			lethal = value
 			lethal_icon = value
@@ -441,7 +446,6 @@
 
 /obj/machinery/porta_turret/process()
 	//the main machinery process
-
 	if(stat & (NOPOWER|BROKEN))
 		//if the turret has no power or is broken, make the turret pop down if it hasn't already
 		popDown()
@@ -666,6 +670,11 @@
 	if(controllock)
 		return
 	src.enabled = TC.enabled
+	if (enabled)
+		START_PROCESSING(SSprocessing, src)
+	else
+		STOP_PROCESSING(SSprocessing, src)
+		STOP_PROCESSING(SSfast_process, src)
 	if(egun) //If turret can switch modes.
 		src.lethal = TC.lethal
 		src.lethal_icon = TC.lethal
