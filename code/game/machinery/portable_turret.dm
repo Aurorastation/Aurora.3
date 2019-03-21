@@ -70,6 +70,19 @@
 	var/list/secondarytargets = list()	//targets that are least important
 	var/resetting = FALSE
 
+/obj/machinery/porta_turret/examine(mob/user)
+	..()
+	var/msg = ""
+	if(health / maxhealth < 0.35)
+		msg += span("danger", "\the [src] is critically damaged!")
+	if(health / maxhealth < 0.6)
+		msg += span("warning", "\the [src] is badly damaged!")
+	if(health / maxhealth < 1)
+		msg += span("notice", "\the [src] is slightly damaged!")
+	else
+		msg += span("green", "\the [src] is critically damaged!")
+	to_chat(user, msg)
+
 /obj/machinery/porta_turret/crescent
 	enabled = FALSE
 	ailock = TRUE
@@ -351,12 +364,10 @@
 			return
 		else if (WT.remove_fuel(3, user))
 			to_chat(user, "<span class='notice'>Now welding \the [src].</span>")
-			if(do_after(user, 20))
+			if(do_after(user, 5))
 				if(!src || !WT.isOn()) return
 				playsound(src.loc, 'sound/items/Welder2.ogg', 50, 1)
-				health += maxhealth / 2
-				if(health > maxhealth)
-					health = maxhealth
+				health += min(maxhealth / 3, maxhealth)
 				return
 			else
 				to_chat(user, "<span class='notice'>You fail to complete the welding.</span>")
