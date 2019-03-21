@@ -54,6 +54,8 @@
 		/obj/item/rig_module/voice,
 		/obj/item/rig_module/vision
 		)
+	
+	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_SPECIAL
 
 //The cybersuit is not space-proof. It does however, have good siemens_coefficient values
 /obj/item/clothing/head/lightrig/hacker
@@ -96,6 +98,8 @@
 		/obj/item/rig_module/actuators
 	)
 
+	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT | MODULE_SPECIAL | MODULE_MEDICAL | MODULE_UTILITY | MODULE_VAURCA
+
 /obj/item/weapon/rig/light/ninja/equipped
 	initial_modules = list(
 		/obj/item/rig_module/teleporter,
@@ -133,6 +137,7 @@
 	suit_type = "stealth"
 	desc = "A highly advanced and expensive suit designed for covert operations."
 	icon_state = "stealth_rig"
+	armor = list(melee = 45, bullet = 20, laser = 50, energy = 10, bomb = 25, bio = 30, rad = 20)
 
 	req_access = list(access_syndicate)
 
@@ -140,6 +145,8 @@
 		/obj/item/rig_module/stealth_field,
 		/obj/item/rig_module/vision
 		)
+
+	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_SPECIAL
 
 /obj/item/weapon/rig/light/offworlder
 	name = "exo-stellar skeleton module"
@@ -173,4 +180,3 @@
 	cold_protection = UPPER_TORSO
 	flags_inv = 0
 	species_restricted = list("Human")
-
