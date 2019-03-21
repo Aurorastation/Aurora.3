@@ -338,7 +338,11 @@
 		var/obj/item/weapon/weldingtool/WT = I
 		if (!WT.welding)
 			to_chat(user, "<span class='danger'>\The [WT] must be turned on!</span>")
-		else if (WT.remove_fuel(0,user))
+			return
+		else if (stat & BROKEN)
+			to_chat(user, "<span class='danger'>\The [src] is too damaged and can only be salvaged.!</span>")
+			return
+		else if (WT.remove_fuel(3, user))
 			to_chat(user, "<span class='notice'>Now welding \the [src].</span>")
 			if(do_after(user, 20))
 				if(!src || !WT.isOn()) return
