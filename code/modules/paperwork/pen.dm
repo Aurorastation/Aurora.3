@@ -10,7 +10,7 @@
  * Pens
  */
 /obj/item/weapon/pen
-	desc = "It's a normal black ink pen."
+	desc = "An instrument for writing or drawing with ink. This one is in black. Stylish, classic and professional."
 	name = "pen"
 	icon = 'icons/obj/bureaucracy.dmi'
 	icon_state = "pen"
@@ -25,17 +25,18 @@
 
 
 /obj/item/weapon/pen/blue
-	desc = "It's a normal blue ink pen."
+	desc = "An instrument for writing or drawing with ink. This one is in blue. Ironically used mostly by white-collar workers."
 	icon_state = "pen_blue"
 	colour = "blue"
 
 /obj/item/weapon/pen/red
-	desc = "It's a normal red ink pen."
+	desc = "An instrument for writing or drawing with ink. This one is in red. Favored by teachers and creeps who like to pretend to write in blood."
 	icon_state = "pen_red"
 	colour = "red"
 
 /obj/item/weapon/pen/multi
-	desc = "It's a pen with multiple colors of ink!"
+	desc = "An instrument for writing or drawing with ink. This one comes with with multiple colors! Push down all three simultaneously to rule the universe."
+	icon_state = "pen_multi"
 	var/selectedColor = 1
 	var/colors = list("black","blue","red")
 

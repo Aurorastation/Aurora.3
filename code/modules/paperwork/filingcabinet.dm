@@ -38,8 +38,9 @@
 	if(istype(P, /obj/item/weapon/paper) || istype(P, /obj/item/weapon/folder) || istype(P, /obj/item/weapon/photo) || istype(P, /obj/item/weapon/paper_bundle))
 		user << "<span class='notice'>You put [P] in [src].</span>"
 		user.drop_from_inventory(P,src)
-		icon_state = "[initial(icon_state)]-open"
-		sleep(5)
+		flick("[initial(icon_state)]-open",src)
+		playsound(loc, 'sound/misc/filingcabinet.ogg', 50, 1)
+		sleep(20)
 		icon_state = initial(icon_state)
 		updateUsrDialog()
 	else if(iswrench(P))
@@ -90,9 +91,10 @@
 		if(istype(P) && (P.loc == src) && src.Adjacent(usr))
 			usr.put_in_hands(P)
 			updateUsrDialog()
-			icon_state = "[initial(icon_state)]-open"
+			flick("[initial(icon_state)]-open",src)
+			playsound(loc, 'sound/misc/filingcabinet.ogg', 50, 1)
 			spawn(0)
-				sleep(5)
+				sleep(20)
 				icon_state = initial(icon_state)
 
 
