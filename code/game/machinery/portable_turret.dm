@@ -66,6 +66,9 @@
 
 	var/wrenching = 0
 	var/last_target			//last target fired at, prevents turrets from erratically firing at all valid targets in range
+	var/list/targets = list()			//list of primary targets
+	var/list/secondarytargets = list()	//targets that are least important
+	var/resetting = FALSE
 
 /obj/machinery/porta_turret/crescent
 	enabled = FALSE
@@ -115,6 +118,7 @@
 			if(SOME_TC.lethal != lethal && !egun)
 				SOME_TC.enabled = 0
 			src.setState(SOME_TC)
+	START_PROCESSING(SSprocessing, src)
 
 /obj/machinery/porta_turret/crescent/Initialize()
 	. = ..()
@@ -129,6 +133,8 @@
 			aTurretID.turretModes()
 	qdel(spark_system)
 	spark_system = null
+	STOP_PROCESSING(SSprocessing, src)
+	STOP_PROCESSING(SSfast_process, src)
 	. = ..()
 
 
@@ -414,7 +420,7 @@
 	spark_system.queue()	//creates some sparks because they look cool
 	update_icon()
 
-/obj/machinery/porta_turret/machinery_process()
+/obj/machinery/porta_turret/process()
 	//the main machinery process
 
 	if(stat & (NOPOWER|BROKEN))
@@ -427,19 +433,32 @@
 		popDown()
 		return
 
-	var/list/targets = list()			//list of primary targets
-	var/list/secondarytargets = list()	//targets that are least important
+	targets = list()
+	secondarytargets = list()
 
 	for(var/mob/M in mobs_in_view(world.view, src))
 		assess_and_assign(M, targets, secondarytargets)
 
 	if(!tryToShootAt(targets))
-		if(!tryToShootAt(secondarytargets)) // if no valid targets, go for secondary targets
-			popDown() // no valid targets, close the cover
+		if(!tryToShootAt(secondarytargets) && !resetting) // if no valid targets, go for secondary targets
+			resetting = TRUE
+			addtimer(CALLBACK(src, /obj/machinery/porta_turret/.proc/reset), 6 SECONDS) // no valid targets, close the cover
+	
+	if(targets.len && secondarytargets.len)
+		STOP_PROCESSING(SSprocessing, src)
+		START_PROCESSING(SSfast_process, src)
+	else
+		STOP_PROCESSING(SSfast_process, src)
+		START_PROCESSING(SSprocessing, src)
 
 	if(auto_repair && (health < maxhealth))
 		use_power(20000)
 		health = min(health+1, maxhealth) // 1HP for 20kJ
+
+/obj/machinery/porta_turret/proc/reset()
+	if(!targets.len && !secondarytargets.len)
+		popDown()
+	resetting = FALSE
 
 /obj/machinery/porta_turret/proc/assess_and_assign(var/mob/living/L, var/list/targets, var/list/secondarytargets)
 	switch(assess_living(L))
@@ -577,14 +596,14 @@
 	return
 
 /obj/machinery/porta_turret/proc/reset_last_fired()
-	last_fired = 0
+	last_fired = FALSE
 
 /obj/machinery/porta_turret/proc/shootAt(var/mob/living/target)
 	//any emagged turrets will shoot extremely fast! This not only is deadly, but drains a lot power!
 	if(!(emagged || attacked))		//if it hasn't been emagged or attacked, it has to obey a cooldown rate
 		if(last_fired || !raised)	//prevents rapid-fire shooting, unless it's been emagged
 			return
-		last_fired = 1
+		last_fired = TRUE
 		addtimer(CALLBACK(src, .proc/reset_last_fired), shot_delay)
 
 	var/turf/T = get_turf(src)
