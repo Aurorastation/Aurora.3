@@ -189,7 +189,7 @@
 		list("hyronalin",     "hyronalin",     0, 20),
 		list("radium",        "radium",        0, 20)
 		)
-	
+
 	category = MODULE_UTILITY
 
 /obj/item/rig_module/chem_dispenser/accepts_item(var/obj/item/input_item, var/mob/living/user)
@@ -325,6 +325,8 @@
 
 	interface_name = "chem dispenser"
 	interface_desc = "Dispenses loaded chemicals directly into the bloodstream."
+
+	category = MODULE_GENERAL
 
 
 /obj/item/rig_module/chem_dispenser/injector
@@ -809,6 +811,8 @@ var/global/list/lattice_users = list()
 	construction_time = 100
 
 	usable = 1
+
+	category = MODULE_GENERAL
 
 /obj/item/rig_module/healthscanner/engage()
 	if (!..())

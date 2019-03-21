@@ -146,7 +146,7 @@
 	req_access = list()
 	req_one_access = list()
 
-	allowed_module_types = MODULE_GENERAL | MODULE_UTILITY 
+	allowed_module_types = MODULE_GENERAL | MODULE_UTILITY
 
 /obj/item/weapon/rig/ce/equipped
 
@@ -210,7 +210,7 @@
 	req_access = list()
 	req_one_access = list()
 
-	allowed_module_types = MODULE_GENERAL | MODULE_MEDICAL 
+	allowed_module_types = MODULE_GENERAL | MODULE_MEDICAL
 
 /obj/item/weapon/rig/medical/equipped
 
