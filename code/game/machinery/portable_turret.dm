@@ -105,6 +105,13 @@
 
 	//Sets up a spark system
 	spark_system = bind_spark(src, 5)
+	if(installation)
+		var/obj/item/weapon/gun/G = new installation(src)
+		if(G.fire_delay_wielded > 0)
+			shot_delay = max(G.fire_delay_wielded, 7.5)
+		else
+			shot_delay = max(G.fire_delay, 7.5)
+		qdel(G)
 
 	var/area/control_area = get_area(src)
 	if(istype(control_area))
