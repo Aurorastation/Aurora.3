@@ -2767,12 +2767,16 @@ All custom items with worn sprites must follow the contained sprite system: http
 
 
 /obj/item/fluff/tokash_spear //Ancestral Spear - Suvek Tokash - evandorf
-	name = "spear pedestal"
-	desc = "A simple pedestal used to display something."
+	name = "display stand"
+	desc = "A small plasteel display stand which uses magnetic fields to levitate an object."
 	icon = 'icons/obj/custom_items/tokash_spear.dmi'
 	icon_state = "stand-spear"
 	w_class = 3
 	var/has_spear = TRUE
+
+/obj/item/fluff/tokash_spear/examine(mob/user)
+	if(..(user, 1) && has_spear)
+		to_chat(user, "It currently holds an old looking spearhead.")
 
 /obj/item/fluff/tokash_spear/update_icon()
 	if(has_spear)
@@ -2800,7 +2804,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 
 /obj/item/fluff/tokash_spearhead
 	name = "ancestral spearhead"
-	desc = "A spearhead from an old unathi spear, or at least what remains of it."
+	desc = "An aged and worn spearhead. It seems to be made of bronze or composite metal."
 	icon = 'icons/obj/custom_items/tokash_spear.dmi'
 	icon_state = "spearhead"
 	w_class = 2
