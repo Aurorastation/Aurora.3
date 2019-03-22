@@ -2037,7 +2037,7 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/highsecurity{
 	id_tag = "bunker1";
-	name = "Unlabeled Secure Airlock";
+	name = "Command Teleporter Maintenance";
 	req_access = list(19)
 	},
 /turf/simulated/floor/plating,
@@ -50345,7 +50345,7 @@
 /area/maintenance/medbay)
 "bLR" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/filingcabinet/medical,
+/obj/structure/filingcabinet,
 /turf/simulated/floor/carpet/blue,
 /area/maintenance/medbay)
 "bLS" = (
