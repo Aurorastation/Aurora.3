@@ -41,4 +41,5 @@ changes:
   - tweak: "Tweaks some bureaucracy sprites."
   - tweak: "Reverts pen sprite with some improvements."
   - soundadd: "Filing cabinets make sound now."
+  - soundadd: "Boxes have new sounds."
 
