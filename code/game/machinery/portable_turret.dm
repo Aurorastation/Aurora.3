@@ -365,7 +365,8 @@
 		else if (WT.remove_fuel(3, user))
 			to_chat(user, "<span class='notice'>Now welding \the [src].</span>")
 			if(do_after(user, 5))
-				if(!src || !WT.isOn()) return
+				if(QDELETED(src) || !WT.isOn())
+					return
 				playsound(src.loc, 'sound/items/Welder2.ogg', 50, 1)
 				health += min(maxhealth / 3, maxhealth)
 				return
