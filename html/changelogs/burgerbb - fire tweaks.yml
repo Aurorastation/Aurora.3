@@ -41,3 +41,4 @@ changes:
   - balance: "Firesuits and red/white/atmos hardhats no longer protect wearer from pressure. So people cannot use it in space. For areas with 2000+ KPa fire people need to use atmos voidsuit."
   - tweak: "Cyborg recharge station now refills fire extinguisher in all cyborgs."
   - tweak: "Fire now produces CO2 with rate varing by amount of fire."
+  - tweak: "Firesuit sprite has been updates to show gloves visually, since it covers gloves slot."
