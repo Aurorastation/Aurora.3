@@ -1178,16 +1178,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 	unique = 1
 
 
-/obj/item/clothing/shoes/fluff/hikmat_shoes //Native Tajaran Foot-wear - Hikmat Rrhazkal-Jawdat - prospekt1559
-	name = "native tajaran foot-wear"
-	desc = "Native foot and leg wear worn by Tajara, completely covering the legs in wraps and the feet in native Tajaran fabric."
-	icon = 'icons/obj/custom_items/hikmat_shoes.dmi'
-	icon_state = "hikmat_shoes"
-	item_state = "hikmat_shoes"
-	species_restricted = null
-	contained_sprite = TRUE
-
-
 /obj/item/clothing/suit/storage/fluff/vira_coat //Designer Military Coat - Vira Bolivar - scheveningen
 	name = "designer military coat"
 	desc = "A dark funnel neck designer military-style dress coat, specially fitted on commission, clearly designed for a woman's figure. \
