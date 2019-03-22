@@ -1,6 +1,6 @@
 /mob/living/silicon/pai
 	name = "pAI"
-	icon = 'icons/mob/pai.dmi'
+	icon = 'icons/mob/npc/pai.dmi'
 	icon_state = "repairbot"
 	holder_type = /obj/item/weapon/holder/pai/drone
 

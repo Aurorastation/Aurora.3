@@ -215,11 +215,12 @@
 
 	lift_size_x = 4
 	lift_size_y = 4
-	depth = 2
+	depth = 3
 
 	areas_to_use = list(
 		/area/turbolift/medical_sub,
-		/area/turbolift/medical_station
+		/area/turbolift/medical_station,
+		/area/turbolift/medical_interstitial
 		)
 
 /area/turbolift/medical_station
@@ -237,6 +238,13 @@
 	lift_floor_name = "Sub-Level (Medical)"
 
 	base_turf = /turf/simulated/floor/plating
+
+/area/turbolift/medical_interstitial
+	name = "Medical Lift - Interstitial"
+	lift_announce_str = "Arriving at the Medical Upper-Level. Facilities in this floor include: Psychiatry Wing, Psychiatrist's Office, Therapy Ward."
+
+	lift_floor_label = "Upper-Level (Medical)"
+	lift_floor_name = "Upper-Level (Medical)"
 
 //AI Access
 /obj/turbolift_map_holder/aurora/aiaccess

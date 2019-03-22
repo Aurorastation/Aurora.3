@@ -379,24 +379,21 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 
 	return (T && T.holy) && (invisibility <= SEE_INVISIBLE_LIVING || (mind in cult.current_antagonists))
 
-/mob/abstract/observer/verb/jumptomob(target in getmobs()) //Moves the ghost instead of just changing the ghosts's eye -Nodrak
+/mob/abstract/observer/verb/jumptomob(input in getmobs()) //Moves the ghost instead of just changing the ghosts's eye -Nodrak
 	set category = "Ghost"
 	set name = "Jump to Mob"
 	set desc = "Teleport to a mob"
 
 	if(istype(usr, /mob/abstract/observer)) //Make sure they're an observer!
+		var/target = getmobs()[input]
+		if(!target) return
+		var/turf/T = get_turf(target) //Turf of the destination mob
 
-		if (!target)//Make sure we actually have a target
-			return
+		if(T && isturf(T))	//Make sure the turf exists, then move the source to that destination.
+			stop_following()
+			forceMove(T)
 		else
-			var/mob/M = getmobs()[target] //Destination mob
-			var/turf/T = get_turf(M) //Turf of the destination mob
-
-			if(T && isturf(T))	//Make sure the turf exists, then move the source to that destination.
-				stop_following()
-				forceMove(T)
-			else
-				to_chat(src, "This mob is not located in the game world.")
+			to_chat(src, "This mob is not located in the game world.")
 /*
 /mob/abstract/observer/verb/boo()
 	set category = "Ghost"

@@ -1387,3 +1387,12 @@
 /datum/reagent/pacifier/affect_blood(var/mob/living/carbon/H, var/alien, var/removed)
 	H.add_chemical_effect(CE_PACIFIED, 1)
 
+/datum/reagent/rmt
+	name = "Regenerative-Muscular Tissue Supplements"
+	id = "rmt"
+	description = "A chemical rampantly used by those seeking to remedy the effects of prolonged zero-gravity adaptations."
+	reagent_state = LIQUID
+	color = "#AA8866"
+	metabolism = 0.5 * REM
+	taste_description = "sourness"
+	fallback_specific_heat = 1
