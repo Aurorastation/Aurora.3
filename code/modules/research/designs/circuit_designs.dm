@@ -628,3 +628,38 @@
 	req_tech = list(TECH_DATA = 6, TECH_COMBAT = 5, TECH_ILLEGAL = 5)
 	build_path = /obj/item/weapon/circuitboard/rig_assembly/illegal/targeting/stealth
 	sort_string = "WAAAR"
+
+/datum/design/circuit/refiner
+	name = "industrial smelter"
+	id = "refiner"
+	req_tech = list(TECH_MAGNET = 2, TECH_ENGINEERING = 2)
+	build_path = /obj/item/weapon/circuitboard/refiner
+	sort_string = "XBAAA"
+
+/datum/design/circuit/stacker
+	name = "stacking machine"
+	id = "stacker"
+	req_tech = list(TECH_MAGNET = 2, TECH_ENGINEERING = 2)
+	build_path = /obj/item/weapon/circuitboard/stacker
+	sort_string = "XBAAB"
+
+/datum/design/circuit/unloader
+	name = "unloading machine"
+	id = "unloader"
+	req_tech = list(TECH_MAGNET = 2, TECH_ENGINEERING = 2)
+	build_path = /obj/item/weapon/circuitboard/unloader
+	sort_string = "XBAAC"
+
+/datum/design/circuit/refinerconsole
+	name = "ore redemption console"
+	id = "refiner_console"
+	req_tech = list(TECH_ENGINEERING = 2)
+	build_path = /obj/item/weapon/circuitboard/refinerconsole
+	sort_string = "XCAAA"
+
+/datum/design/circuit/refinerconsole
+	name = "stacker console"
+	id = "stacker_console"
+	req_tech = list(TECH_ENGINEERING = 2)
+	build_path = /obj/item/weapon/circuitboard/stackerconsole
+	sort_string = "XCAAB"
