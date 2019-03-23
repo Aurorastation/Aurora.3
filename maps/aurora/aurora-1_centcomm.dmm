@@ -24369,6 +24369,7 @@
 	},
 /area/centcom/spawning)
 "bkc" = (
+/obj/machinery/computer/aiupload,
 /turf/unsimulated/floor{
 	icon_state = "green";
 	dir = 4
@@ -24392,16 +24393,14 @@
 	},
 /area/centcom/living)
 "dLX" = (
-/obj/machinery/computer/telecomms/monitor,
+/obj/machinery/blackbox_recorder,
 /turf/unsimulated/floor{
 	icon_state = "green";
 	dir = 5
 	},
 /area/centcom/living)
 "eyw" = (
-/obj/machinery/account_database{
-	name = "CentComm Accounts database"
-	},
+/obj/machinery/telecomms/processor/preset_cent,
 /turf/unsimulated/floor{
 	icon_state = "green";
 	dir = 4
@@ -24423,7 +24422,20 @@
 	},
 /area/centcom/holding)
 "fPQ" = (
-/obj/machinery/telecomms/server/presets/centcomm,
+/obj/structure/window/reinforced,
+/obj/structure/table/reinforced/steel,
+/obj/item/weapon/aiModule/antimov,
+/obj/item/weapon/aiModule/oneHuman,
+/obj/item/weapon/aiModule/oxygen,
+/obj/item/weapon/aiModule/purge,
+/obj/item/weapon/aiModule/syndicate,
+/obj/item/weapon/aiModule/teleporterOffline,
+/obj/item/weapon/aiModule/tyrant,
+/obj/machinery/door/window{
+	dir = 4;
+	name = "AI Laws (Bad)";
+	req_access = list(109)
+	},
 /turf/unsimulated/floor{
 	icon_state = "green";
 	dir = 8
@@ -24449,6 +24461,35 @@
 	icon_state = "tube1";
 	dir = 8
 	},
+/obj/structure/banner,
+/turf/unsimulated/floor{
+	icon_state = "green";
+	dir = 8
+	},
+/area/centcom/living)
+"hRs" = (
+/obj/structure/table/reinforced/steel,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/item/weapon/aiModule/asimov,
+/obj/item/weapon/aiModule/corp,
+/obj/item/weapon/aiModule/drone,
+/obj/item/weapon/aiModule/freeform,
+/obj/item/weapon/aiModule/freeformcore,
+/obj/item/weapon/aiModule/nanotrasen,
+/obj/item/weapon/aiModule/protectStation,
+/obj/item/weapon/aiModule/prototypeEngineOffline,
+/obj/item/weapon/aiModule/paladin,
+/obj/item/weapon/aiModule/quarantine,
+/obj/item/weapon/aiModule/reset,
+/obj/item/weapon/aiModule/robocop,
+/obj/item/weapon/aiModule/safeguard,
+/obj/machinery/door/window{
+	dir = 4;
+	name = "AI Laws (Good)";
+	req_access = list(109)
+	},
 /turf/unsimulated/floor{
 	icon_state = "green";
 	dir = 8
@@ -24459,17 +24500,18 @@
 	dir = 4;
 	icon_state = "tube1"
 	},
+/obj/structure/table/steel,
+/obj/item/weapon/paper/monitorkey,
+/obj/item/weapon/aicard,
+/obj/item/device/debugger,
 /turf/unsimulated/floor{
 	icon_state = "green";
 	dir = 4
 	},
 /area/centcom/living)
 "jfV" = (
-/obj/machinery/light{
-	icon_state = "tube1";
-	dir = 8
-	},
-/obj/machinery/telecomms/processor/preset_cent,
+/obj/structure/window/reinforced,
+/obj/machinery/lapvend,
 /turf/unsimulated/floor{
 	icon_state = "green";
 	dir = 8
@@ -24488,7 +24530,7 @@
 	},
 /area/centcom/living)
 "jBJ" = (
-/obj/machinery/computer/telecomms/server,
+/obj/machinery/computer/message_monitor,
 /turf/unsimulated/floor{
 	icon_state = "green";
 	dir = 4
@@ -24501,26 +24543,23 @@
 	},
 /area/centcom/living)
 "ktR" = (
-/obj/structure/table/steel,
-/obj/item/weapon/paper/monitorkey,
 /turf/unsimulated/floor{
 	icon_state = "green";
 	dir = 4
 	},
 /area/centcom/control)
 "lpW" = (
-/obj/machinery/blackbox_recorder,
+/obj/machinery/computer/borgupload,
 /turf/unsimulated/floor{
 	icon_state = "green";
 	dir = 4
 	},
 /area/centcom/living)
-"mBR" = (
-/obj/structure/sign/poster{
-	poster_type = "/datum/poster/bay_50";
-	pixel_x = -32
+"lwP" = (
+/obj/structure/window/reinforced,
+/turf/unsimulated/floor{
+	icon_state = "floor"
 	},
-/turf/unsimulated/wall/riveted,
 /area/centcom/living)
 "mQj" = (
 /turf/unsimulated/floor{
@@ -24529,17 +24568,25 @@
 	},
 /area/centcom/living)
 "nkd" = (
-/obj/machinery/computer/telecomms/traffic,
+/obj/machinery/account_database{
+	name = "CentComm Accounts database"
+	},
 /turf/unsimulated/floor{
 	icon_state = "green";
 	dir = 4
 	},
 /area/centcom/living)
 "ntk" = (
-/obj/machinery/lapvend,
 /turf/unsimulated/floor{
 	icon_state = "green";
 	dir = 9
+	},
+/area/centcom/living)
+"nPC" = (
+/obj/structure/banner,
+/turf/unsimulated/floor{
+	icon_state = "green";
+	dir = 8
 	},
 /area/centcom/living)
 "oIb" = (
@@ -24556,11 +24603,7 @@
 	},
 /area/centcom/living)
 "oQu" = (
-/obj/structure/sign/poster{
-	pixel_x = 0;
-	pixel_y = 32;
-	poster_type = "/datum/poster/bay_15"
-	},
+/obj/effect/wingrille_spawn/reinforced/crescent,
 /turf/unsimulated/wall/riveted,
 /area/centcom/living)
 "oVL" = (
@@ -24590,20 +24633,22 @@
 	icon_state = "floor"
 	},
 /area/centcom/living)
+"pkO" = (
+/obj/machinery/door/window{
+	dir = 2;
+	name = "Central Command T-Coms";
+	req_access = list(109)
+	},
+/turf/unsimulated/floor{
+	icon_state = "floor"
+	},
+/area/centcom/living)
 "plN" = (
 /obj/structure/filingcabinet,
 /turf/unsimulated/floor{
 	dir = 8;
 	icon_state = "wood"
 	},
-/area/centcom/living)
-"pAk" = (
-/obj/structure/sign/poster{
-	dir = 1;
-	pixel_x = -32;
-	poster_type = "/datum/poster/bay_50"
-	},
-/turf/unsimulated/wall/riveted,
 /area/centcom/living)
 "pPH" = (
 /obj/structure/table/wood,
@@ -24624,24 +24669,11 @@
 /obj/structure/bed/chair/office/bridge{
 	dir = 4
 	},
-/obj/machinery/light{
-	dir = 8;
-	icon_state = "tube1";
-	pixel_y = 0
-	},
 /turf/unsimulated/floor{
 	dir = 8;
 	icon_state = "carpetside"
 	},
 /area/centcom/living)
-"sel" = (
-/obj/structure/bed/chair/office/dark{
-	dir = 4
-	},
-/turf/unsimulated/floor{
-	icon_state = "floor"
-	},
-/area/centcom/control)
 "sxc" = (
 /obj/machinery/light{
 	dir = 1;
@@ -24658,7 +24690,7 @@
 	dir = 4;
 	icon_state = "tube1"
 	},
-/obj/machinery/computer/message_monitor,
+/obj/structure/window/reinforced,
 /turf/unsimulated/floor{
 	icon_state = "green";
 	dir = 4
@@ -24671,15 +24703,6 @@
 	icon_state = "floor"
 	},
 /area/centcom/control)
-"vtz" = (
-/obj/structure/bed/chair/office/dark{
-	dir = 4
-	},
-/turf/unsimulated/floor{
-	icon_state = "green";
-	dir = 1
-	},
-/area/centcom/living)
 "vyG" = (
 /obj/structure/bed/chair/comfy/beige{
 	dir = 8
@@ -24705,6 +24728,7 @@
 	dir = 2;
 	icon_state = "tube1"
 	},
+/obj/machinery/telecomms/server/presets/centcomm,
 /turf/unsimulated/floor{
 	icon_state = "green"
 	},
@@ -59816,10 +59840,10 @@ apW
 apW
 apW
 oQu
-apW
+oQu
+oQu
 oQu
 apW
-oQu
 apU
 apU
 auT
@@ -60071,13 +60095,13 @@ atk
 atv
 atk
 apW
-gav
+apW
 asF
 bvD
 rzy
 mQj
 asF
-mBR
+gav
 apW
 auU
 auX
@@ -60585,13 +60609,13 @@ asB
 arI
 asb
 atR
-gav
+apW
 sxc
 asF
 vyG
 asF
 djI
-pAk
+gav
 apW
 auW
 auX
@@ -61099,13 +61123,13 @@ asB
 arI
 asb
 atS
-gav
+apW
 plN
 aYk
 asF
 aYk
 oVL
-mBR
+gav
 apW
 auX
 avi
@@ -61358,9 +61382,9 @@ arI
 atc
 apW
 apW
-apW
+gav
 aur
-apW
+gav
 apW
 apW
 apW
@@ -63157,10 +63181,10 @@ asb
 atS
 apW
 ntk
-oPC
+nPC
 oPC
 hGZ
-oPC
+hRs
 fPQ
 jfV
 auZ
@@ -63419,7 +63443,7 @@ arI
 arI
 arI
 arI
-arI
+lwP
 avh
 avh
 avh
@@ -63676,7 +63700,7 @@ arI
 arI
 arI
 arI
-arI
+pkO
 avh
 avh
 avh
@@ -63927,14 +63951,14 @@ atx
 atH
 atQ
 apW
-vtz
+jTp
 peK
 peK
 arI
 arI
 arI
-peK
-sel
+lwP
+avh
 avh
 aYv
 avO
