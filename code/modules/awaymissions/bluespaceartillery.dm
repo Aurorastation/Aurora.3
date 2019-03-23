@@ -46,7 +46,7 @@
 	if ((usr.contents.Find(src) || (in_range(src, usr) && istype(src.loc, /turf))) || (istype(usr, /mob/living/silicon)))
 		if (usr.stat || usr.restrained()) return
 		if (src.reload < 180) return
-		if ((usr.contents.Find(src) || (in_range(src, usr) && istype(src.loc, /turf))) || (istype(usr, /mob/living/silicon)))
+		if ((user.contents.Find(src) || (in_range(src, user) && istype(src.loc, /turf))) || (istype(user, /mob/living/silicon)))
 			command_announcement.Announce("Bluespace artillery fire detected. Brace for impact.")
 			to_world(sound('sound/effects/yamato_fire.ogg'))
 			message_admins("[key_name_admin(usr)] has launched an artillery strike.", 1)
