@@ -2,20 +2,6 @@
 "a" = (
 /turf/template_noop,
 /area/template_noop)
-"b" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 4;
-	icon_state = "1-4"
-	},
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
-/turf/simulated/floor/airless,
-/area/construction/Storage)
 "c" = (
 /obj/structure/lattice,
 /turf/template_noop,
@@ -95,9 +81,6 @@
 "m" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
-	},
-/obj/machinery/atmospherics/unary/vent_pump{
-	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/construction/Storage)
@@ -209,52 +192,14 @@
 	},
 /turf/simulated/floor/tiled,
 /area/construction/Storage)
-"D" = (
-/obj/machinery/light{
-	dir = 8
-	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 4
-	},
-/turf/simulated/floor/tiled,
-/area/construction/Storage)
-"F" = (
+"E" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	icon_state = "intact-supply";
 	dir = 9
 	},
 /turf/simulated/wall/r_wall,
 /area/construction/Storage)
-"G" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 4
-	},
-/turf/simulated/floor/tiled,
-/area/construction/Storage)
-"J" = (
-/turf/simulated/wall/r_wall,
-/area/construction/Storage)
-"M" = (
-/obj/structure/cable{
-	d1 = 32;
-	d2 = 2;
-	icon_state = "11-2"
-	},
-/obj/structure/lattice/catwalk,
-/obj/machinery/atmospherics/pipe/zpipe/down/supply,
-/turf/simulated/open,
-/area/construction/Storage)
-"Q" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/turf/simulated/wall/r_wall,
-/area/construction/Storage)
-"R" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 5
-	},
-/turf/simulated/wall/r_wall,
-/area/construction/Storage)
-"U" = (
+"F" = (
 /obj/structure/cable{
 	d1 = 16;
 	d2 = 0;
@@ -264,11 +209,66 @@
 /obj/machinery/atmospherics/pipe/zpipe/up/supply,
 /turf/simulated/floor/airless,
 /area/construction/Storage)
-"V" = (
+"J" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
+	},
+/turf/simulated/wall/r_wall,
+/area/construction/Storage)
+"K" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/construction/Storage)
+"L" = (
+/turf/simulated/wall/r_wall,
+/area/construction/Storage)
+"N" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	icon_state = "intact-supply";
 	dir = 6
 	},
+/turf/simulated/wall/r_wall,
+/area/construction/Storage)
+"O" = (
+/obj/structure/cable{
+	d1 = 32;
+	d2 = 2;
+	icon_state = "11-2"
+	},
+/obj/structure/lattice/catwalk,
+/obj/machinery/atmospherics/pipe/zpipe/down/supply,
+/turf/simulated/open,
+/area/construction/Storage)
+"T" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/obj/machinery/atmospherics/unary/vent_pump{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/construction/Storage)
+"U" = (
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
+/turf/simulated/floor/airless,
+/area/construction/Storage)
+"Y" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/wall/r_wall,
 /area/construction/Storage)
 
@@ -839,11 +839,11 @@ d
 d
 d
 d
+L
+L
+N
+Y
 J
-J
-V
-Q
-R
 d
 d
 d
@@ -893,11 +893,11 @@ d
 d
 d
 d
-J
-M
-b
+L
+O
 U
 F
+E
 d
 d
 d
@@ -947,20 +947,20 @@ d
 d
 d
 d
-J
-J
+L
+L
 e
-J
-J
-J
-J
-J
-J
-J
-J
-J
-J
-J
+L
+L
+L
+L
+L
+L
+L
+L
+L
+L
+L
 d
 d
 a
@@ -1001,20 +1001,20 @@ d
 d
 d
 d
-J
+L
 f
 i
+T
 m
-G
-G
-G
-G
-G
+m
+m
+m
+m
 p
-G
-D
+m
+K
 A
-J
+L
 d
 d
 a
@@ -1055,7 +1055,7 @@ d
 d
 d
 d
-J
+L
 g
 j
 j
@@ -1068,7 +1068,7 @@ q
 j
 j
 t
-J
+L
 d
 d
 a
@@ -1109,7 +1109,7 @@ d
 d
 d
 d
-J
+L
 g
 j
 j
@@ -1122,7 +1122,7 @@ r
 v
 v
 B
-J
+L
 d
 d
 a
@@ -1163,7 +1163,7 @@ d
 d
 d
 d
-J
+L
 g
 k
 k
@@ -1176,7 +1176,7 @@ o
 k
 k
 t
-J
+L
 d
 d
 a
@@ -1217,7 +1217,7 @@ d
 d
 d
 d
-J
+L
 g
 j
 j
@@ -1230,7 +1230,7 @@ k
 j
 j
 t
-J
+L
 d
 d
 a
@@ -1271,7 +1271,7 @@ d
 d
 d
 d
-J
+L
 g
 j
 j
@@ -1284,7 +1284,7 @@ k
 j
 j
 t
-J
+L
 d
 d
 a
@@ -1325,7 +1325,7 @@ d
 d
 d
 d
-J
+L
 g
 j
 j
@@ -1338,7 +1338,7 @@ k
 j
 j
 t
-J
+L
 d
 d
 a
@@ -1379,7 +1379,7 @@ d
 d
 d
 d
-J
+L
 g
 j
 j
@@ -1392,7 +1392,7 @@ k
 j
 j
 t
-J
+L
 d
 d
 a
@@ -1433,7 +1433,7 @@ d
 d
 d
 d
-J
+L
 g
 k
 k
@@ -1446,7 +1446,7 @@ o
 k
 k
 t
-J
+L
 d
 d
 a
@@ -1487,7 +1487,7 @@ d
 d
 d
 d
-J
+L
 g
 j
 j
@@ -1500,7 +1500,7 @@ s
 w
 y
 C
-J
+L
 d
 d
 a
@@ -1541,7 +1541,7 @@ d
 d
 d
 d
-J
+L
 g
 j
 j
@@ -1554,7 +1554,7 @@ t
 x
 z
 t
-J
+L
 d
 d
 a
@@ -1595,7 +1595,7 @@ d
 d
 d
 d
-J
+L
 h
 l
 n
@@ -1608,7 +1608,7 @@ u
 h
 l
 u
-J
+L
 d
 d
 a
@@ -1649,20 +1649,20 @@ d
 d
 d
 d
-J
-J
-J
-J
-J
-J
-J
-J
-J
-J
-J
-J
-J
-J
+L
+L
+L
+L
+L
+L
+L
+L
+L
+L
+L
+L
+L
+L
 d
 d
 a

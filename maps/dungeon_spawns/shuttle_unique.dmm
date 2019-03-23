@@ -549,7 +549,7 @@
 	},
 /turf/unsimulated/chasm_mask,
 /area/crashed_ship)
-"CQ" = (
+"DG" = (
 /obj/structure/cable/yellow{
 	d1 = 1;
 	d2 = 2;
@@ -1401,10 +1401,10 @@ aa
 aa
 ae
 aT
-CQ
-CQ
-CQ
-CQ
+DG
+DG
+DG
+DG
 bs
 ae
 aa

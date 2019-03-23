@@ -1371,7 +1371,24 @@
 /obj/structure/table/standard,
 /turf/simulated/floor/tiled,
 /area/storage/primary)
-"fO" = (
+"ie" = (
+/obj/effect/wingrille_spawn/reinforced,
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/plating,
+/area/hallway/primary/central_one)
+"jf" = (
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/wall/r_wall,
+/area/engineering/gravity_gen)
+"ob" = (
 /obj/machinery/light{
 	dir = 8
 	},
@@ -1382,44 +1399,7 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/maintcentral)
-"hX" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 5
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/maintcentral)
-"my" = (
-/obj/effect/wingrille_spawn/reinforced,
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/turf/simulated/floor/plating,
-/area/hallway/primary/central_one)
-"rF" = (
-/obj/structure/cable{
-	d1 = 2;
-	d2 = 4;
-	icon_state = "2-4"
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/maintcentral)
-"yG" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/turf/simulated/wall/r_wall,
-/area/construction)
-"Ai" = (
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/turf/simulated/wall/r_wall,
-/area/engineering/gravity_gen)
-"Al" = (
+"pX" = (
 /obj/structure/cable{
 	d1 = 16;
 	d2 = 0;
@@ -1429,7 +1409,13 @@
 /obj/machinery/atmospherics/pipe/zpipe/up/supply,
 /turf/simulated/floor/plating,
 /area/maintenance/maintcentral)
-"MB" = (
+"Bd" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/wall/r_wall,
+/area/construction)
+"Go" = (
 /obj/structure/cable{
 	d1 = 1;
 	d2 = 2;
@@ -1437,16 +1423,21 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/maintcentral)
-"Ql" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 4
+"HB" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
 	},
-/obj/machinery/atmospherics/unary/vent_pump{
-	dir = 1
+/turf/simulated/floor/plating,
+/area/maintenance/maintcentral)
+"HJ" = (
+/obj/structure/cable{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
 	},
-/turf/simulated/floor/tiled,
-/area/construction)
-"RL" = (
+/turf/simulated/floor/plating,
+/area/maintenance/maintcentral)
+"HK" = (
 /obj/machinery/light{
 	dir = 8
 	},
@@ -1455,6 +1446,15 @@
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/construction)
+"TP" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/obj/machinery/atmospherics/unary/vent_pump{
+	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/construction)
@@ -2074,15 +2074,15 @@ ae
 ae
 ae
 bw
-rF
-MB
-MB
-MB
-MB
-fO
-MB
-Al
-hX
+HJ
+Go
+Go
+Go
+Go
+ob
+Go
+pX
+HB
 ae
 ae
 ae
@@ -2128,7 +2128,7 @@ af
 af
 af
 bx
-my
+ie
 bV
 bV
 bV
@@ -2136,7 +2136,7 @@ bV
 bx
 cK
 cK
-yG
+Bd
 cK
 cK
 cK
@@ -2190,8 +2190,8 @@ bK
 bK
 cL
 cT
-RL
-Ql
+HK
+TP
 di
 di
 di
@@ -3094,7 +3094,7 @@ ac
 ae
 ai
 ai
-Ai
+jf
 aQ
 ai
 ai
