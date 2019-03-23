@@ -39,3 +39,4 @@ delete-after: True
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
   - maptweak: "Due to recent change that makes fire produce CO2 SM waste handling system has been upgraded. It now has high volume pump to support high flow of waste. It also is connected to tha scrubbers network to dump waste directly into atmo's main filtering system. You can still use canisters if you want. Engineers are recommended to make waste system dump waste directly into scrubbers network for best result."
+  - maptweak: "Fire no longer produces CO2 exponetially. Now linearly."
