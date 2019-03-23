@@ -73,16 +73,16 @@
 /obj/machinery/porta_turret/examine(mob/user)
 	..()
 	var/msg = ""
-	if(health / maxhealth < 0.35)
+	if(!health)
+		msg += span("danger", "\the [src] is destroyed!")
+	else if(health / maxhealth < 0.35)
 		msg += span("danger", "\the [src] is critically damaged!")
 	else if(health / maxhealth < 0.6)
 		msg += span("warning", "\the [src] is badly damaged!")
 	else if(health / maxhealth < 1)
-		msg += span("notice", "\the [src] is slightly damaged!")
-	else if(!health)
-		msg += span("danger", "\the [src] is destroyed!")
+		msg += span("notice", "\the [src] is slightly damaged!")	
 	else
-		msg += span("good", "\the [src] is healhy damaged!")
+		msg += span("good", "\the [src] is not damaged!")
 	to_chat(user, msg)
 
 /obj/machinery/porta_turret/crescent
