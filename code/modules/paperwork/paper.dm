@@ -128,7 +128,8 @@
 			return
 		//crumple dat paper
 		info = stars(info,85)
-		user.visible_message("\The [user] crumples \the [src] into a ball!", "You crumple \the [src] into a ball.", "You hear crinkling.")
+		user.visible_message("\The [user] crumples \the [src] into a ball!", "You crumple \the [src] into a ball.")
+		playsound(src, 'sound/bureaucracy/papercrumple.ogg', 50, 1)
 		icon_state = "scrap"
 		throw_range = 8
 		return
@@ -138,7 +139,8 @@
 			user.show_message(span("alert", "The paper is already folded into a plane."))
 			return
 		user.visible_message(span("notice", "\The [user] carefully folds \the [src] into a plane."),
-			span("notice", "You carefully fold \the [src] into a plane."), "You hear paper rustling.")
+			span("notice", "You carefully fold \the [src] into a plane.")
+			playsound(src, 'sound/bureaucracy/paperfold.ogg', 50, 1)
 		icon_state = "paper_plane"
 		throw_range = 8
 		old_name = name
@@ -146,7 +148,8 @@
 		return
 
 	if (user.a_intent == I_HELP && old_name && icon_state == "paper_plane")
-		user.visible_message(span("notice", "\The [user] unfolds \the [src]."), span("notice", "You unfold \the [src]."), "You hear paper rustling.")
+		user.visible_message(span("notice", "\The [user] unfolds \the [src]."), span("notice", "You unfold \the [src].")
+		playsound(src, 'sound/bureaucracy/paperfold.ogg', 50, 1)
 		icon_state = initial(icon_state)
 		throw_range = initial(throw_range)
 		name = old_name
@@ -389,7 +392,7 @@
 
 		usr << browse("<HTML><HEAD><TITLE>[name]</TITLE></HEAD><BODY bgcolor='[color]'>[info_links][stamps]</BODY></HTML>", "window=[name]") // Update the window)
 
-		playsound(src, pick('sound/items/pen1.ogg','sound/items/pen2.ogg'), 10)
+		playsound(src, pick('sound/bureaucracy/pen1.ogg','sound/bureaucracy/pen2.ogg'), 10)
 		update_icon()
 
 
@@ -499,7 +502,7 @@
 		stamped += P.type
 		add_overlay(stampoverlay)
 
-		playsound(src, 'sound/items/stamp.ogg', 50, 1)
+		playsound(src, 'sound/bureaucracy/stamp.ogg', 50, 1)
 		to_chat(user, "<span class='notice'>You stamp the paper with \the [P].</span>")
 
 	else if(istype(P, /obj/item/weapon/flame))

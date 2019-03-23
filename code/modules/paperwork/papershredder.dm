@@ -46,7 +46,7 @@
 			if (paper_result > 0)
 				paperamount += paper_result
 			qdel(W)
-			playsound(src.loc, 'sound/items/pshred.ogg', 75, 1)
+			playsound(src.loc, 'sound/bureaucracy/papershred.ogg', 75, 1)
 			to_chat(user, span("notice", "You shred the paper."))
 			flick("papershredder_on", src)
 			if(paperamount > max_paper)
