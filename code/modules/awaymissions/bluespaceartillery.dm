@@ -43,7 +43,7 @@
 /obj/machinery/computer/artillerycontrol/proc/announce_and_fire(var/turf/t, var/mob/user)
 	if(!istype(t))
 		return
-	if ((usr.contents.Find(src) || (in_range(src, usr) && istype(src.loc, /turf))) || (istype(usr, /mob/living/silicon)))
+	if ((user.contents.Find(src) || (in_range(src, user) && istype(src.loc, /turf))) || (istype(user, /mob/living/silicon)))
 		if (user.stat || user.restrained()) return
 		if (src.reload < 180) return
 		if ((user.contents.Find(src) || (in_range(src, user) && istype(src.loc, /turf))) || (istype(user, /mob/living/silicon)))
