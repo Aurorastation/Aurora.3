@@ -7358,13 +7358,6 @@
 	icon_state = "floor4"
 	},
 /area/shuttle/administration/centcom)
-"ars" = (
-/obj/effect/decal/warning_stripes,
-/obj/machinery/porta_turret/crescent,
-/turf/unsimulated/floor{
-	icon_state = "floor"
-	},
-/area/centcom/living)
 "art" = (
 /obj/structure/banner,
 /turf/unsimulated/floor{
@@ -8666,7 +8659,7 @@
 /turf/unsimulated/floor{
 	icon_state = "redfull"
 	},
-/area/centcom/living)
+/area/centcom/control)
 "aut" = (
 /obj/machinery/door/airlock/centcom{
 	name = "IT Department"
@@ -11228,14 +11221,6 @@
 	icon_state = "dark"
 	},
 /area/centcom/test)
-"azL" = (
-/obj/machinery/porta_turret/crescent,
-/obj/effect/decal/warning_stripes,
-/turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 8
-	},
-/area/centcom/test)
 "azM" = (
 /obj/structure/sign/nosmoking_2,
 /turf/unsimulated/wall/riveted,
@@ -11503,6 +11488,8 @@
 	req_access = list(101)
 	},
 /obj/machinery/turretid{
+	ailock = 1;
+	enabled = 1;
 	pixel_x = 28;
 	pixel_y = -28;
 	req_access = list(101)
@@ -17718,13 +17705,6 @@
 /turf/unsimulated/floor{
 	icon_state = "blue";
 	dir = 5
-	},
-/area/centcom/spawning)
-"aNL" = (
-/obj/machinery/porta_turret/crescent,
-/obj/effect/decal/warning_stripes,
-/turf/unsimulated/floor{
-	icon_state = "floor"
 	},
 /area/centcom/spawning)
 "aNM" = (
@@ -24414,13 +24394,6 @@
 	icon_state = "floor"
 	},
 /area/centcom/holding)
-"fgZ" = (
-/obj/effect/decal/warning_stripes,
-/obj/machinery/porta_turret/crescent,
-/turf/unsimulated/floor{
-	icon_state = "floor"
-	},
-/area/centcom/holding)
 "fPQ" = (
 /obj/structure/window/reinforced,
 /obj/structure/table/reinforced/steel,
@@ -24561,6 +24534,13 @@
 	icon_state = "floor"
 	},
 /area/centcom/living)
+"lXq" = (
+/obj/machinery/porta_turret/crescent,
+/turf/unsimulated/floor{
+	icon_state = "vault";
+	dir = 1
+	},
+/area/centcom/control)
 "mQj" = (
 /turf/unsimulated/floor{
 	dir = 10;
@@ -56512,7 +56492,7 @@ avs
 avs
 awM
 ave
-axY
+lXq
 awS
 awS
 awS
@@ -60863,7 +60843,7 @@ aqX
 apW
 asY
 atm
-ars
+ukL
 atG
 atQ
 apW
@@ -61625,7 +61605,7 @@ aqE
 aqu
 aqM
 apW
-ars
+ukL
 arI
 asb
 aru
@@ -62189,7 +62169,7 @@ aDH
 aCo
 aCo
 aCo
-fgZ
+ukL
 aCo
 aCo
 aCo
@@ -62653,7 +62633,7 @@ aqF
 aqu
 aqN
 apW
-ars
+ukL
 arI
 asb
 aru
@@ -63433,7 +63413,7 @@ aqX
 apW
 asY
 atm
-ars
+ukL
 atG
 atQ
 apW
@@ -64277,7 +64257,7 @@ aNK
 aNW
 aId
 aId
-aNL
+axw
 aId
 aId
 aPM
@@ -65019,11 +64999,11 @@ aDb
 aEV
 aDb
 aWa
-fgZ
+ukL
 aCo
 aFr
 aCo
-fgZ
+ukL
 aWA
 aDb
 aEV
@@ -65231,7 +65211,7 @@ asF
 atp
 arI
 arI
-arI
+ukL
 arI
 asq
 aaM
@@ -65254,7 +65234,7 @@ awY
 ayB
 awh
 azw
-azL
+awi
 awj
 aAr
 aaM
@@ -66329,7 +66309,7 @@ aJH
 aJH
 aJG
 aKZ
-aNL
+axw
 aMs
 aId
 aId
@@ -66337,7 +66317,7 @@ aId
 aId
 aId
 aOA
-aNL
+axw
 aHK
 aaM
 aaM
@@ -69927,7 +69907,7 @@ aJH
 aJH
 aJH
 aKZ
-aNL
+axw
 aMs
 aId
 aId
@@ -69935,7 +69915,7 @@ aId
 aId
 aId
 aOA
-aNL
+axw
 aHK
 aHK
 aHK
