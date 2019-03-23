@@ -28,7 +28,7 @@
 	var/locked = 1			//if the turret's behaviour control access is locked
 	var/controllock = 0		//if the turret responds to control panels
 
-	var/installation = /obj/item/weapon/gun/energy/gun		//the type of weapon installed
+	var/obj/item/weapon/gun/energy/installation = /obj/item/weapon/gun/energy/gun //the type of weapon installed
 	var/gun_charge = 0		//the charge of the gun inserted
 	var/reqpower = 500		//holder for power needed
 	var/lethal_icon = 0		//holder for the icon_state. 1 for lethal sprite, null for stun sprite.
@@ -75,9 +75,9 @@
 	var/msg = ""
 	if(health / maxhealth < 0.35)
 		msg += span("danger", "\the [src] is critically damaged!")
-	if(health / maxhealth < 0.6)
+	else if(health / maxhealth < 0.6)
 		msg += span("warning", "\the [src] is badly damaged!")
-	if(health / maxhealth < 1)
+	else if(health / maxhealth < 1)
 		msg += span("notice", "\the [src] is slightly damaged!")
 	else
 		msg += span("green", "\the [src] is critically damaged!")
@@ -118,13 +118,13 @@
 
 	//Sets up a spark system
 	spark_system = bind_spark(src, 5)
+	if(!istype(installation, /obj/item/weapon/gun/energy))
+		installation = new installation(src)
 	if(installation)
-		var/obj/item/weapon/gun/G = new installation(src)
-		if(G.fire_delay_wielded > 0)
-			shot_delay = max(G.fire_delay_wielded, 7.5)
+		if(installation.fire_delay_wielded > 0)
+			shot_delay = max(installation.fire_delay_wielded, 4)
 		else
-			shot_delay = max(G.fire_delay, 7.5)
-		qdel(G)
+			shot_delay = max(installation.fire_delay, 4)
 
 	var/area/control_area = get_area(src)
 	if(istype(control_area))
@@ -299,9 +299,8 @@
 				if(prob(70) && !no_salvage)
 					to_chat(user, "<span class='notice'>You remove the turret and salvage some components.</span>")
 					if(installation)
-						var/obj/item/weapon/gun/energy/Gun = new installation(loc)
-						Gun.power_supply.charge = gun_charge
-						Gun.update_icon()
+						installation.forceMove(loc)
+						installation = null
 					if(prob(50))
 						new /obj/item/stack/material/steel(loc, rand(1,4))
 					if(prob(50))
@@ -359,8 +358,8 @@
 		if (!WT.welding)
 			to_chat(user, "<span class='danger'>\The [WT] must be turned on!</span>")
 			return
-		else if (stat & BROKEN)
-			to_chat(user, "<span class='danger'>\The [src] is too damaged and can only be salvaged.!</span>")
+		else if (health == maxhealth)
+			to_chat(user, "<span class='notice'>\The [src] is fully repaired.</span>")
 			return
 		else if (WT.remove_fuel(3, user))
 			to_chat(user, "<span class='notice'>Now welding \the [src].</span>")
@@ -368,7 +367,8 @@
 				if(QDELETED(src) || !WT.isOn())
 					return
 				playsound(src.loc, 'sound/items/Welder2.ogg', 50, 1)
-				health += min(maxhealth / 3, maxhealth)
+				health += maxhealth / 3
+				health = min(maxhealth, health)
 				return
 			else
 				to_chat(user, "<span class='notice'>You fail to complete the welding.</span>")
@@ -726,7 +726,7 @@
 	var/target_type = /obj/machinery/porta_turret	// The type we intend to build
 	var/build_step = 0			//the current step in the building process
 	var/finish_name = "turret"	//the name applied to the product turret
-	var/installation = null		//the gun type installed
+	var/obj/item/weapon/gun/energy/installation = null		//the gun type installed
 	var/case_sprite_set = 0		//sprite set the turret case will use
 	var/obj/item/weapon/gun/energy/E = null
 
@@ -811,7 +811,7 @@
 					to_chat(user, "<span class='notice'>You install [I] into the turret.</span>")
 					user.drop_from_inventory(E,src)
 					target_type = /obj/machinery/porta_turret
-					installation = I.type //installation becomes I.type
+					installation = I //installation becomes I.type
 					build_step = 4
 					icon_state = "turret_frame_4_[case_sprite_set]"
 					add_overlay("turret_[E.turret_sprite_set]_off")
@@ -908,13 +908,13 @@
 					Turret.lethal_icon = E.turret_is_lethal
 					// Check if gun has wielded delay, turret will have same fire rate as the gun.
 					if(E.fire_delay_wielded > 0)
-						Turret.shot_delay = E.fire_delay_wielded
+						Turret.shot_delay = max(E.fire_delay_wielded, 4)
 					else
-						Turret.shot_delay = E.fire_delay
+						Turret.shot_delay = max(E.fire_delay, 4)
 
 					Turret.cover_set = case_sprite_set
 					Turret.icon_state = "cover_[case_sprite_set]"
-
+					START_PROCESSING(SSprocessing, Turret)
 					qdel(src) // qdel
 
 			else if(I.iscrowbar())
