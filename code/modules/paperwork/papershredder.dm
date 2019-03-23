@@ -137,15 +137,10 @@
 
 /obj/item/weapon/shreddedp
 	name = "shredded paper"
+	desc = "The remains of private, confidential, or otherwise sensitive documents."
 	icon = 'icons/obj/bureaucracy.dmi'
 	icon_state = "shredp"
 	throwforce = 0
 	w_class = 1
 	throw_range = 3
 	throw_speed = 1
-
-/obj/item/weapon/shreddedp/New()
-	..()
-	pixel_x = rand(-5,5)
-	pixel_y = rand(-5,5)
-	if(prob(65)) color = pick("#BABABA","#7F7F7F")
