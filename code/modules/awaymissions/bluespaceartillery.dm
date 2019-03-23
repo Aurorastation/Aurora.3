@@ -44,7 +44,7 @@
 	if(!istype(t))
 		return
 	if ((usr.contents.Find(src) || (in_range(src, usr) && istype(src.loc, /turf))) || (istype(usr, /mob/living/silicon)))
-		if (usr.stat || usr.restrained()) return
+		if (user.stat || user.restrained()) return
 		if (src.reload < 180) return
 		if ((user.contents.Find(src) || (in_range(src, user) && istype(src.loc, /turf))) || (istype(user, /mob/living/silicon)))
 			command_announcement.Announce("Bluespace artillery fire detected. Brace for impact.")
