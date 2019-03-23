@@ -61,15 +61,15 @@
 	G.request_player(src, "Someone is attempting to reboot a mining drone.", 30 SECONDS)
 
 /mob/living/silicon/robot/drone/mining/welcome_drone()
-	src << "<b>You are a mining drone, a tiny-brained robotic industrial machine</b>."
-	src << "You have little individual will, some personality, and no drives or urges other than your laws and the art of mining."
-	src << "Remember, <b>you DO NOT take orders from the AI.</b>"
-	src << "Use <b>say ;Hello</b> to talk to other drones and <b>say Hello</b> to speak silently to your nearby fellows."
+	to_chat(src, "<b>You are a mining drone, a tiny-brained robotic industrial machine</b>.")
+	to_chat(src, "You have little individual will, some personality, and no drives or urges other than your laws and the art of mining.")
+	to_chat(src, "Remember, <b>you DO NOT take orders from the AI.</b>")
+	to_chat(src, "Use <b>say ;Hello</b> to talk to other drones and <b>say Hello</b> to speak silently to your nearby fellows.")
 
 /mob/living/silicon/robot/drone/mining/attackby(var/obj/item/weapon/W, var/mob/user)
 
 	if(istype(W, /obj/item/borg/upgrade/))
-		user << "<span class='danger'>\The [src] is not compatible with \the [W].</span>"
+		to_chat(user, "<span class='danger'>\The [src] is not compatible with \the [W].</span>")
 		return
 
 	else if (istype(W, /obj/item/weapon/card/id)||istype(W, /obj/item/device/pda))
@@ -78,11 +78,11 @@
 		if(choice=="Reboot")
 
 			if(!config.allow_drone_spawn || emagged || health < -maxHealth) //It's dead, Dave.
-				user << "<span class='danger'>The interface is fried, and a distressing burned smell wafts from the robot's interior. You're not rebooting this one.</span>"
+				to_chat(user, "<span class='danger'>The interface is fried, and a distressing burned smell wafts from the robot's interior. You're not rebooting this one.</span>")
 				return
 
 			if(!allowed(usr))
-				user << "<span class='danger'>Access denied.</span>"
+				to_chat(user, "<span class='danger'>Access denied.</span>")
 				return
 
 			user.visible_message("<span class='danger'>\The [user] swipes \his ID card through \the [src], attempting to reboot it.</span>", "<span class='danger'>>You swipe your ID card through \the [src], attempting to reboot it.</span>")
@@ -92,7 +92,7 @@
 		else
 			var/obj/item/weapon/card/id/ID = W
 			if(!allowed(usr))
-				user << "<span class='danger'>Access denied.</span>"
+				to_chat(user, "<span class='danger'>Access denied.</span>")
 				return
 
 			user.visible_message("<span class='danger'>\The [user] swipes \his ID card through \the [src], recycling it into points.</span>", "<span class='danger'>>You swipe your ID card through \the [src], recycling it into points.</span>")
@@ -120,12 +120,12 @@
 
 	var/input = sanitize(input(usr, "Please enter a message to print out. NOTE: BBCode does not work.", "Print readout", "") as message|null)
 	if (!input)
-		usr << "<span class='warning'>Cancelled.</span>"
+		to_chat(usr, "<span class='warning'>Cancelled.</span>")
 		return
 
 	var/customname = input(usr, "Pick a title for the report", "Title") as text|null
 	if (!customname)
-		usr << "<span class='warning'>Cancelled.</span>"
+		to_chat(usr, "<span class='warning'>Cancelled.</span>")
 		return
 
 	var/status_report
@@ -140,7 +140,7 @@
 			status_report = "System status unknown."
 
 	// Create the reply message
-	usr << "<span class='warning'>You begin printing the message.</span>"
+	to_chat(usr, "<span class='warning'>You begin printing the message.</span>")
 	if(do_after(src,20))
 		var/obj/item/weapon/paper/P = new /obj/item/weapon/paper(src.loc)
 		P.name = "mining report - [customname]"
@@ -169,7 +169,7 @@
 
 /obj/item/device/mine_bot_ugprade/proc/upgrade_bot(var/mob/living/silicon/robot/drone/mining/M, mob/user)
 	if(M.melee_upgrade)
-		user << "[src] already has a drill upgrade installed!"
+		to_chat(user, "[src] already has a drill upgrade installed!")
 		return
 	M.modtype = initial(M.modtype)
 	M.uneq_all()
@@ -190,7 +190,7 @@
 
 /obj/item/device/mine_bot_ugprade/health/upgrade_bot(var/mob/living/silicon/robot/drone/mining/M, mob/user)
 	if(M.health_upgrade)
-		user << "[src] already has a reinforced chassis!"
+		to_chat(user, "[src] already has a reinforced chassis!")
 		return
 	M.maxHealth = 100
 	M.health += 55
@@ -205,7 +205,7 @@
 
 /obj/item/device/mine_bot_ugprade/ka/upgrade_bot(var/mob/living/silicon/robot/drone/mining/M, mob/user)
 	if(M.ranged_upgrade)
-		user << "[src] already has a KA upgrade installed!"
+		to_chat(user, "[src] already has a KA upgrade installed!")
 		return
 	M.modtype = initial(M.modtype)
 	M.uneq_all()

@@ -34,6 +34,8 @@
 	suit_overlay_active =   "stealth_active"
 	suit_overlay_inactive = "stealth_inactive"
 
+	category = MODULE_SPECIAL
+
 /obj/item/rig_module/stealth_field/activate()
 
 	if(!..())
@@ -41,7 +43,7 @@
 
 	var/mob/living/carbon/human/H = holder.wearer
 
-	H << "<font color='blue'><b>You are now invisible to normal detection.</b></font>"
+	to_chat(H, "<font color='blue'><b>You are now invisible to normal detection.</b></font>")
 	H.invisibility = INVISIBILITY_LEVEL_TWO
 
 	anim(get_turf(H), H, 'icons/effects/effects.dmi', "electricity",null,20,null)
@@ -55,7 +57,7 @@
 
 	var/mob/living/carbon/human/H = holder.wearer
 
-	H << "<span class='danger'>You are now visible.</span>"
+	to_chat(H, "<span class='danger'>You are now visible.</span>")
 	H.invisibility = 0
 
 	anim(get_turf(H), H,'icons/mob/mob.dmi',,"uncloak",,H.dir)
@@ -80,6 +82,8 @@
 
 	interface_name = "VOID-shift bluespace phase projector"
 	interface_desc = "An advanced teleportation system. It is capable of pinpoint precision or random leaps forward."
+
+	category = MODULE_SPECIAL
 
 /obj/item/rig_module/teleporter/proc/phase_in(var/mob/M,var/turf/T)
 
@@ -106,7 +110,7 @@
 	var/mob/living/carbon/human/H = holder.wearer
 
 	if(!istype(H.loc, /turf))
-		H << "<span class='warning'>You cannot teleport out of your current location.</span>"
+		to_chat(H, "<span class='warning'>You cannot teleport out of your current location.</span>")
 		return 0
 
 	var/turf/T
@@ -116,19 +120,19 @@
 		T = get_teleport_loc(get_turf(H), H, rand(5, 9))
 
 	if(!T || T.density)
-		H << "<span class='warning'>You cannot teleport into solid walls.</span>"
+		to_chat(H, "<span class='warning'>You cannot teleport into solid walls.</span>")
 		return 0
 
 	if(T.z in current_map.admin_levels)
-		H << "<span class='warning'>You cannot use your teleporter on this Z-level.</span>"
+		to_chat(H, "<span class='warning'>You cannot use your teleporter on this Z-level.</span>")
 		return 0
 
 	if(T.contains_dense_objects())
-		H << "<span class='warning'>You cannot teleport to a location with solid objects.</span>"
+		to_chat(H, "<span class='warning'>You cannot teleport to a location with solid objects.</span>")
 		return 0
 
 	if(T.z != H.z || get_dist(T, get_turf(H)) > world.view)
-		H << "<span class='warning'>You cannot teleport to such a distant object.</span>"
+		to_chat(H, "<span class='warning'>You cannot teleport to such a distant object.</span>")
 		return 0
 
 	phase_out(H,get_turf(H))
@@ -160,6 +164,8 @@
 	fabrication_type = /obj/item/weapon/energy_net
 	use_power_cost = 60
 
+	category = MODULE_SPECIAL
+
 /obj/item/rig_module/fabricator/energy_net/engage(atom/target)
 
 	if(holder && holder.wearer)
@@ -182,6 +188,8 @@
 	interface_name = "dead man's switch"
 	interface_desc = "An integrated self-destruct module. When the wearer dies, so does the surrounding area. Do not press this button."
 	var/list/explosion_values = list(3,4,5,6)
+
+	category = MODULE_SPECIAL
 
 /obj/item/rig_module/self_destruct/small
 	explosion_values = list(1,2,3,4)
@@ -228,6 +236,8 @@
 	interface_desc = "A highly experimental system that augments the hardsuit's existing EM shielding."
 	var/protection_amount = 30
 
+	category = MODULE_SPECIAL
+
 /obj/item/rig_module/emp_shielding/activate()
 	if(!..())
 		return
@@ -255,15 +265,17 @@
 	interface_desc = "A high yield power generating device that takes a long time to recharge."
 	var/generation_ammount = 1500
 
+	category = MODULE_SPECIAL
+
 /obj/item/rig_module/emergency_powergenerator/engage()
 	if(!..())
 		return
 	var/mob/living/carbon/human/H = holder.wearer
 	if(cooldown)
-		H << "<span class='danger'>There isn't enough power stored up yet!</span>"
+		to_chat(H, "<span class='danger'>There isn't enough power stored up yet!</span>")
 		return 0
 	else
-		H << "<span class='danger'>Your suit emits a loud sound as power is rapidly injected into your suits battery!</span>"
+		to_chat(H, "<span class='danger'>Your suit emits a loud sound as power is rapidly injected into your suits battery!</span>")
 		playsound(H.loc, 'sound/effects/sparks2.ogg', 50, 1)
 		holder.cell.give(generation_ammount)
 		cooldown = 1
@@ -282,3 +294,5 @@
 	interface_desc = "A complex uprade that allows the user to apply an EMAG effect to certain objects. High power cost."
 
 	device_type = /obj/item/weapon/robot_emag
+
+	category = MODULE_SPECIAL

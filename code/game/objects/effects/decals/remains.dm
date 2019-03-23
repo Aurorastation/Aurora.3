@@ -20,7 +20,7 @@
 /obj/effect/decal/remains/mouse
 	name = "mouse skeleton"
 	desc = "Looks like the remains of a small rodent. It doesn't squeak anymore."
-	icon = 'icons/mob/mouse.dmi'
+	icon = 'icons/mob/npc/mouse.dmi'
 	icon_state = "skeleton"
 
 /obj/effect/decal/remains/lizard
@@ -28,7 +28,7 @@
 	icon_state = "lizard"
 
 /obj/effect/decal/remains/attack_hand(mob/user as mob)
-	user << "<span class='notice'>[src] sinks together into a pile of ash.</span>"
+	to_chat(user, "<span class='notice'>[src] sinks together into a pile of ash.</span>")
 	var/turf/simulated/floor/F = get_turf(src)
 	if (istype(F))
 		new /obj/effect/decal/cleanable/ash(F)

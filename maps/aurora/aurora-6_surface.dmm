@@ -17925,6 +17925,10 @@
 	icon_state = "0-2";
 	pixel_y = 0
 	},
+/obj/machinery/camera/network/civilian_surface{
+	c_tag = "Civilian - Surface Substation";
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/maintenance/substation/civilian_east)
 "Hr" = (

@@ -21,12 +21,12 @@
 	power_channel = ENVIRON
 
 /obj/machinery/keycard_auth/attack_ai(mob/user as mob)
-	user << "The station AI is not to interact with these devices."
+	to_chat(user, "The station AI is not to interact with these devices.")
 	return
 
 /obj/machinery/keycard_auth/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	if(stat & (NOPOWER|BROKEN))
-		user << "This device is not powered."
+		to_chat(user, "This device is not powered.")
 		return
 	if(istype(W,/obj/item/weapon/card/id))
 		var/obj/item/weapon/card/id/ID = W
@@ -47,12 +47,12 @@
 
 /obj/machinery/keycard_auth/attack_hand(mob/user as mob)
 	if(user.stat || stat & (NOPOWER|BROKEN))
-		user << "This device is not powered."
+		to_chat(user, "This device is not powered.")
 		return
 	if(!user.IsAdvancedToolUser())
 		return 0
 	if(busy)
-		user << "This device is busy."
+		to_chat(user, "This device is busy.")
 		return
 
 	user.set_machine(src)
@@ -82,10 +82,10 @@
 /obj/machinery/keycard_auth/Topic(href, href_list)
 	..()
 	if(busy)
-		usr << "This device is busy."
+		to_chat(usr, "This device is busy.")
 		return
 	if(usr.stat || stat & (BROKEN|NOPOWER))
-		usr << "This device is without power."
+		to_chat(usr, "This device is without power.")
 		return
 	if(href_list["triggerevent"])
 		event = href_list["triggerevent"]
@@ -151,10 +151,10 @@
 			feedback_inc("alert_keycard_auth_maintRevoke",1)
 		if("Emergency Response Team")
 			if(is_ert_blocked())
-				usr << "<span class='warning'>All emergency response teams are dispatched and can not be called at this time.</span>"
+				to_chat(usr, "<span class='warning'>All emergency response teams are dispatched and can not be called at this time.</span>")
 				return
 
-			trigger_armed_response_team(1)
+			SSresponseteam.trigger_armed_response_team()
 			feedback_inc("alert_keycard_auth_ert",1)
 
 /obj/machinery/keycard_auth/proc/is_ert_blocked()

@@ -12,10 +12,10 @@ var/list/dream_entries = list()
 			bg.ckey = ckey
 			bg.client = client
 			ckey = "@[bg.ckey]"
-			bg << "<span class='notice'>As you lose consiousness, you feel yourself entering Srom.</span>"
-			bg << "<span class='warning'>Whilst in shared dreaming, you find it difficult to hide your secrets.</span>"
+			to_chat(bg, "<span class='notice'>As you lose consiousness, you feel yourself entering Srom.</span>")
+			to_chat(bg, "<span class='warning'>Whilst in shared dreaming, you find it difficult to hide your secrets.</span>")
 			if(willfully_sleeping)
-				bg << "To wake up, use the \"Awaken\" verb in the IC tab."
+				to_chat(bg, "To wake up, use the \"Awaken\" verb in the IC tab.")
 			log_and_message_admins("has entered the shared dream", bg)
 	// Does NOT
 	else
@@ -31,4 +31,4 @@ var/list/dream_entries = list()
 			old_bg.show_message("<span class='notice'>[bg] fades as their connection is severed.</span>")
 			animate(old_bg, alpha=0, time = 200)
 			QDEL_IN(old_bg, 20)
-			src << "<span class='warning'>You are ripped from the Srom as your body awakens.</span>"
+			to_chat(src, "<span class='warning'>You are ripped from the Srom as your body awakens.</span>")

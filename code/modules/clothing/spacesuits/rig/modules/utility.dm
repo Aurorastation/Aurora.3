@@ -41,6 +41,8 @@
 
 	device_type = /obj/item/device/healthanalyzer
 
+	category = MODULE_MEDICAL
+
 /obj/item/rig_module/device/drill
 	name = "hardsuit diamond drill mount"
 	desc = "A very heavy diamond-tipped drill."
@@ -55,6 +57,8 @@
 
 	device_type = /obj/item/weapon/pickaxe/diamonddrill
 
+	category = MODULE_UTILITY
+
 /obj/item/rig_module/device/basicdrill
 	name = "hardsuit drill mount"
 	desc = "A very heavy basic drill."
@@ -67,6 +71,8 @@
 
 	device_type = /obj/item/weapon/pickaxe/drill
 
+	category = MODULE_UTILITY
+
 /obj/item/rig_module/device/anomaly_scanner
 	name = "hardsuit anomaly scanner"
 	desc = "You think it's called an Elder Sarsparilla or something."
@@ -78,6 +84,8 @@
 	selectable = 0
 	device_type = /obj/item/device/ano_scanner
 
+	category = MODULE_UTILITY
+
 /obj/item/rig_module/device/orescanner
 	name = "ore scanner module"
 	desc = "A clunky old ore scanner."
@@ -88,6 +96,8 @@
 	usable = 1
 	selectable = 0
 	device_type = /obj/item/weapon/mining_scanner
+
+	category = MODULE_UTILITY
 
 /obj/item/rig_module/device/rcd
 	name = "RCD mount"
@@ -101,6 +111,8 @@
 	construction_time = 1000
 
 	device_type = /obj/item/weapon/rcd/mounted
+
+	category = MODULE_UTILITY
 
 /obj/item/rig_module/device/New()
 	..()
@@ -160,6 +172,8 @@
 
 	var/max_reagent_volume = 80 //Used when refilling.
 
+	category = MODULE_HEAVY_COMBAT
+
 /obj/item/rig_module/chem_dispenser/ninja
 	interface_desc = "Dispenses loaded chemicals directly into the wearer's bloodstream. This variant is made to be extremely light and flexible."
 
@@ -176,13 +190,15 @@
 		list("radium",        "radium",        0, 20)
 		)
 
+	category = MODULE_UTILITY
+
 /obj/item/rig_module/chem_dispenser/accepts_item(var/obj/item/input_item, var/mob/living/user)
 
 	if(!input_item.is_open_container())
 		return 0
 
 	if(!input_item.reagents || !input_item.reagents.total_volume)
-		user << "\The [input_item] is empty."
+		to_chat(user, "\The [input_item] is empty.")
 		return 0
 
 	// Magical chemical filtration system, do not question it.
@@ -204,9 +220,9 @@
 				break
 
 	if(total_transferred)
-		user << "<font color='blue'>You transfer [total_transferred] units into the suit reservoir.</font>"
+		to_chat(user, "<font color='blue'>You transfer [total_transferred] units into the suit reservoir.</font>")
 	else
-		user << "<span class='danger'>None of the reagents seem suitable.</span>"
+		to_chat(user, "<span class='danger'>None of the reagents seem suitable.</span>")
 	return 1
 
 /obj/item/rig_module/chem_dispenser/engage(atom/target)
@@ -217,7 +233,7 @@
 	var/mob/living/carbon/human/H = holder.wearer
 
 	if(!charge_selected)
-		H << "<span class='danger'>You have not selected a chemical type.</span>"
+		to_chat(H, "<span class='danger'>You have not selected a chemical type.</span>")
 		return 0
 
 	var/datum/rig_charge/charge = charges[charge_selected]
@@ -227,7 +243,7 @@
 
 	var/chems_to_use = 10
 	if(charge.charges <= 0)
-		H << "<span class='danger'>Insufficient chems!</span>"
+		to_chat(H, "<span class='danger'>Insufficient chems!</span>")
 		return 0
 	else if(charge.charges < chems_to_use)
 		chems_to_use = charge.charges
@@ -242,16 +258,16 @@
 		target_mob = H
 
 	if(!H.Adjacent(target_mob))
-		H << "<span class='danger'>You are not close enough to inject them!</span>"
+		to_chat(H, "<span class='danger'>You are not close enough to inject them!</span>")
 		return 0
 
 	if(target_mob != H)
-		H << "<span class='danger'>You inject [target_mob] with [chems_to_use] unit\s of [charge.display_name].</span>"
+		to_chat(H, "<span class='danger'>You inject [target_mob] with [chems_to_use] unit\s of [charge.display_name].</span>")
 
 	if(target_mob.is_physically_disabled())
 		target_mob.reagents.add_reagent(charge.display_name, chems_to_use)
 	else
-		target_mob << "<span class='danger'>You feel a rushing in your veins as [chems_to_use] unit\s of [charge.display_name] [chems_to_use == 1 ? "is" : "are"] injected.</span>"
+		to_chat(target_mob, "<span class='danger'>You feel a rushing in your veins as [chems_to_use] unit\s of [charge.display_name] [chems_to_use == 1 ? "is" : "are"] injected.</span>")
 		target_mob.reagents.add_reagent(charge.display_name, chems_to_use)
 
 	charge.charges -= chems_to_use
@@ -275,6 +291,8 @@
 	interface_name = "combat chem dispenser"
 	interface_desc = "Dispenses loaded chemicals directly into the bloodstream."
 
+	category = MODULE_LIGHT_COMBAT
+
 /obj/item/rig_module/chem_dispenser/vaurca
 
 	name = "vaurca combat chemical injector"
@@ -292,6 +310,25 @@
 	interface_name = "vaurca combat chem dispenser"
 	interface_desc = "Dispenses loaded chemicals directly into the bloodstream."
 
+
+	category = MODULE_VAURCA
+
+/obj/item/rig_module/chem_dispenser/offworlder
+
+	name = "chemical injector"
+	desc = "A complex web of tubing and needles suitable for hardsuit use."
+
+	charges = list(
+		list("dexalin",   "dexalin",   0, 5),
+		list("inaprovaline",     "inaprovaline",     0, 5)
+		)
+
+	interface_name = "chem dispenser"
+	interface_desc = "Dispenses loaded chemicals directly into the bloodstream."
+
+	category = MODULE_GENERAL
+
+
 /obj/item/rig_module/chem_dispenser/injector
 
 	name = "mounted chemical injector"
@@ -304,6 +341,8 @@
 
 	interface_name = "mounted chem injector"
 	interface_desc = "Dispenses loaded chemicals via an arm-mounted injector."
+
+	category = MODULE_MEDICAL
 
 /obj/item/rig_module/chem_dispenser/injector/paramedic //downgraded version
 
@@ -332,6 +371,8 @@
 
 	var/obj/item/voice_changer/voice_holder
 
+	category = MODULE_SPECIAL
+
 /obj/item/rig_module/voice/New()
 	..()
 	voice_holder = new(src)
@@ -355,17 +396,17 @@
 		if("Enable")
 			active = 1
 			voice_holder.active = 1
-			usr << "<font color='blue'>You enable the speech synthesiser.</font>"
+			to_chat(usr, "<font color='blue'>You enable the speech synthesiser.</font>")
 		if("Disable")
 			active = 0
 			voice_holder.active = 0
-			usr << "<font color='blue'>You disable the speech synthesiser.</font>"
+			to_chat(usr, "<font color='blue'>You disable the speech synthesiser.</font>")
 		if("Set Name")
 			var/raw_choice = sanitize(input(usr, "Please enter a new name.")  as text|null, MAX_NAME_LEN)
 			if(!raw_choice)
 				return 0
 			voice_holder.voice = raw_choice
-			usr << "<font color='blue'>You are now mimicking <B>[voice_holder.voice]</B>.</font>"
+			to_chat(usr, "<font color='blue'>You are now mimicking <B>[voice_holder.voice]</B>.</font>")
 	return 1
 
 /obj/item/rig_module/maneuvering_jets
@@ -391,6 +432,8 @@
 	interface_desc = "An inbuilt EVA maneuvering system that runs off the rig air supply."
 
 	var/obj/item/weapon/tank/jetpack/rig/jets
+
+	category = MODULE_GENERAL
 
 /obj/item/rig_module/maneuvering_jets/engage()
 	if(!..())
@@ -450,6 +493,8 @@
 	selectable = 0
 	device_type = /obj/item/weapon/paper_bin
 
+	category = MODULE_GENERAL
+
 /obj/item/rig_module/device/paperdispenser/engage(atom/target)
 
 	if(!..() || !device)
@@ -469,6 +514,8 @@
 	usable = 1
 	device_type = /obj/item/weapon/pen/multi
 
+	category = MODULE_GENERAL
+
 /obj/item/rig_module/device/stamp
 	name = "mounted internal affairs stamp"
 	desc = "DENIED."
@@ -479,6 +526,8 @@
 	usable = 1
 	var/iastamp
 	var/deniedstamp
+
+	category = MODULE_GENERAL
 
 /obj/item/rig_module/device/stamp/New()
 	..()
@@ -493,10 +542,10 @@
 	if(!target)
 		if(device == iastamp)
 			device = deniedstamp
-			holder.wearer << "<span class='notice'>Switched to denied stamp.</span>"
+			to_chat(holder.wearer, "<span class='notice'>Switched to denied stamp.</span>")
 		else if(device == deniedstamp)
 			device = iastamp
-			holder.wearer << "<span class='notice'>Switched to internal affairs stamp.</span>"
+			to_chat(holder.wearer, "<span class='notice'>Switched to internal affairs stamp.</span>")
 		return 1
 
 /obj/item/rig_module/device/decompiler
@@ -507,6 +556,8 @@
 	interface_desc = "Eats trash like no one's business."
 
 	device_type = /obj/item/weapon/matter_decompiler
+
+	category = MODULE_GENERAL
 
 /obj/item/rig_module/actuators
 	name = "leg actuators"
@@ -539,6 +590,8 @@
 							// Such as leaping faster, or grappling targets.
 	var/leapDistance = 4	// Determines how far the actuators allow you to leap (radius, inclusive).
 
+	category = MODULE_GENERAL
+
 /obj/item/rig_module/actuators/combat
 	name = "military grade leg actuators"
 	desc = "A set of high-powered hydraulic actuators, for improved traversal of multilevelled areas."
@@ -548,6 +601,8 @@
 	leapDistance = 7
 
 	use_power_cost = 10
+
+	category = MODULE_LIGHT_COMBAT
 
 /obj/item/rig_module/actuators/engage(var/atom/target)
 	if (!..())
@@ -667,6 +722,8 @@
 	var/max_cooling = 12
 	var/thermostat = T20C
 
+	category = MODULE_GENERAL
+
 /obj/item/rig_module/cooling_unit/process()
 	if(!active)
 		return passive_power_cost
@@ -696,6 +753,8 @@
 
 	usable = 1
 
+	category = MODULE_VAURCA
+
 /obj/item/rig_module/boring/engage()
 	if (!..())
 		return 0
@@ -724,13 +783,14 @@ var/global/list/lattice_users = list()
 	toggleable = 1
 	confined_use = 1
 
+	category = MODULE_VAURCA
 
 /obj/item/rig_module/lattice/activate()
 	if (!..())
 		return 0
 
 	var/mob/living/carbon/human/H = holder.wearer
-	H << "<span class='notice'>Neural lattice engaged. Pain receptors altered.</span>"
+	to_chat(H, "<span class='notice'>Neural lattice engaged. Pain receptors altered.</span>")
 	lattice_users.Add(H)
 
 /obj/item/rig_module/lattice/deactivate()
@@ -738,6 +798,24 @@ var/global/list/lattice_users = list()
 		return 0
 
 	var/mob/living/carbon/human/H = holder.wearer
-	H << "<span class='notice'>Neural lattice disengaged. Pain receptors restored.</span>"
+	to_chat(H, "<span class='notice'>Neural lattice disengaged. Pain receptors restored.</span>")
 	lattice_users.Remove(H)
 
+/obj/item/rig_module/vitalscanner
+	name = "integrated vitals tracker"
+	desc = "A hardsuit-mounted vitals tracker."
+	icon_state = "scanner"
+	interface_name = "vitals tracker"
+	interface_desc = "Shows an informative health readout of the user."
+	construction_cost = list("$glass" = 3250, DEFAULT_WALL_MATERIAL = 500)
+	construction_time = 100
+
+	usable = 1
+
+	category = MODULE_GENERAL
+
+/obj/item/rig_module/healthscanner/engage()
+	if (!..())
+		return 0
+
+	health_scan_mob(holder.wearer, holder.wearer)

@@ -246,7 +246,7 @@
 	if(!damage)
 		return
 	if(status == LIGHT_EMPTY||status == LIGHT_BROKEN)
-		user << "That object is useless to you."
+		to_chat(user, "That object is useless to you.")
 		return
 	if(!(status == LIGHT_OK||status == LIGHT_BURNED))
 		return
@@ -285,14 +285,14 @@
 	// attempt to insert light
 	if(istype(W, /obj/item/weapon/light))
 		if(status != LIGHT_EMPTY)
-			user << "There is a [fitting] already inserted."
+			to_chat(user, "There is a [fitting] already inserted.")
 			return
 		else
 			src.add_fingerprint(user)
 			var/obj/item/weapon/light/L = W
 			if(istype(L, light_type))
 				status = L.status
-				user << "You insert the [L.name]."
+				to_chat(user, "You insert the [L.name].")
 				switchcount = L.switchcount
 				rigged = L.rigged
 				brightness_range = L.brightness_range
@@ -315,7 +315,7 @@
 
 					explode()
 			else
-				user << "This type of light requires a [fitting]."
+				to_chat(user, "This type of light requires a [fitting].")
 				return
 
 		// attempt to break the light
@@ -324,7 +324,7 @@
 	else if(status != LIGHT_BROKEN && status != LIGHT_EMPTY)
 		if(prob(1+W.force * 5))
 
-			user << "You hit the light, and it smashes!"
+			to_chat(user, "You hit the light, and it smashes!")
 			for(var/mob/M in viewers(src))
 				if(M == user)
 					continue
@@ -336,7 +336,7 @@
 			broken()
 
 		else
-			user << "You hit the light!"
+			to_chat(user, "You hit the light!")
 
 	// attempt to stick weapon into light socket
 	else if(status == LIGHT_EMPTY)
@@ -365,7 +365,7 @@
 			qdel(src)
 			return
 
-		user << "You stick \the [W] into the light socket!"
+		to_chat(user, "You stick \the [W] into the light socket!")
 		if(has_power() && (W.flags & CONDUCT))
 			spark(src, 3)
 			//if(!user.mutations & COLD_RESISTANCE)
@@ -418,7 +418,7 @@
 	add_fingerprint(user)
 
 	if(status == LIGHT_EMPTY)
-		user << "There is no [fitting] in this light."
+		to_chat(user, "There is no [fitting] in this light.")
 		return
 
 	if(istype(user,/mob/living/carbon/human))
@@ -448,14 +448,14 @@
 			prot = 1
 
 		if(prot || (COLD_RESISTANCE in user.mutations))
-			user << "You remove the light [fitting]"
+			to_chat(user, "You remove the light [fitting]")
 		else if(TK in user.mutations)
-			user << "You telekinetically remove the light [fitting]."
+			to_chat(user, "You telekinetically remove the light [fitting].")
 		else
-			user << "You try to remove the light [fitting], but it's too hot and you don't want to burn your hand."
+			to_chat(user, "You try to remove the light [fitting], but it's too hot and you don't want to burn your hand.")
 			return				// if burned, don't remove the light
 	else
-		user << "You remove the light [fitting]."
+		to_chat(user, "You remove the light [fitting].")
 
 	// create a light tube/bulb item and put it in the user's hand
 	if(inserted_light)
@@ -483,10 +483,10 @@
 
 /obj/machinery/light/attack_tk(mob/user)
 	if(status == LIGHT_EMPTY)
-		user << "There is no [fitting] in this light."
+		to_chat(user, "There is no [fitting] in this light.")
 		return
 
-	user << "You telekinetically remove the light [fitting]."
+	to_chat(user, "You telekinetically remove the light [fitting].")
 	// create a light tube/bulb item and put it in the user's hand
 	var/obj/item/weapon/light/L = new inserted_light()
 	L.status = status

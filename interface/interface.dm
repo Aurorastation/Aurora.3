@@ -6,9 +6,9 @@
 	if( config.wikiurl )
 		if(alert("This will open the wiki in your browser. Are you sure?",,"Yes","No")=="No")
 			return
-		src << link(config.wikiurl)
+		to_chat(src, link(config.wikiurl))
 	else
-		src << "<span class='warning'>The wiki URL is not set in the server configuration.</span>"
+		to_chat(src, "<span class='warning'>The wiki URL is not set in the server configuration.</span>")
 	return
 
 /client/verb/forum()
@@ -18,9 +18,9 @@
 	if( config.forumurl )
 		if(alert("This will open the forum in your browser. Are you sure?",,"Yes","No")=="No")
 			return
-		src << link(config.forumurl)
+		to_chat(src, link(config.forumurl))
 	else
-		src << "<span class='warning'>The forum URL is not set in the server configuration.</span>"
+		to_chat(src, "<span class='warning'>The forum URL is not set in the server configuration.</span>")
 	return
 
 /client/verb/reportbug()
@@ -30,9 +30,9 @@
 	if( config.githuburl )
 		if(alert("This will open the issue tracker in your browser. Are you sure?",,"Yes","No")=="No")
 			return
-		src << link(config.githuburl + "/issues")
+		to_chat(src, link(config.githuburl + "/issues"))
 	else
-		src << span("warning", "The issue tracker URL is not set in the server configuration.")
+		to_chat(src, span("warning", "The issue tracker URL is not set in the server configuration."))
 	return
 
 #define RULES_FILE "config/rules.html"
@@ -159,13 +159,13 @@ Any-Mode: (hotkey doesn't need to be on)
 </font>"}
 
 	if(isrobot(src.mob))
-		src << robot_hotkey_mode
-		src << robot_other
+		to_chat(src, robot_hotkey_mode)
+		to_chat(src, robot_other)
 	else
-		src << hotkey_mode
-		src << other
+		to_chat(src, hotkey_mode)
+		to_chat(src, other)
 	if(holder)
-		src << admin
+		to_chat(src, admin)
 
 /client/verb/open_webint()
 	set name = "open_webint"
@@ -175,9 +175,9 @@ Any-Mode: (hotkey doesn't need to be on)
 	if (config.webint_url)
 		if(alert("This will open the web interface in your browser. Are you sure?", ,"Yes","No") == "No")
 			return
-		src << link(config.webint_url)
+		to_chat(src, link(config.webint_url))
 	else
-		src << span("warning", "The web interface URL is not set in the server configuration.")
+		to_chat(src, span("warning", "The web interface URL is not set in the server configuration."))
 	return
 
 /client/verb/open_discord()
@@ -189,8 +189,8 @@ Any-Mode: (hotkey doesn't need to be on)
 		if(alert("This will open Discord in your browser or directly. Are you sure?",, "Yes", "No") == "Yes")
 			var/url_link = discord_bot.retreive_invite()
 			if (url_link)
-				src << link(url_link)
+				to_chat(src, link(url_link))
 			else
-				src << span("danger", "An error occured retreiving the invite.")
+				to_chat(src, span("danger", "An error occured retreiving the invite."))
 	else
-		src << span("warning", "The serverside Discord bot is not set up.")
+		to_chat(src, span("warning", "The serverside Discord bot is not set up."))

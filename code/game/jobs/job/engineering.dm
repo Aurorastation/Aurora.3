@@ -114,3 +114,30 @@
 	satchel = /obj/item/weapon/storage/backpack/satchel_eng
 	dufflebag = /obj/item/weapon/storage/backpack/duffel/eng
 	messengerbag = /obj/item/weapon/storage/backpack/messenger/engi
+
+/datum/job/intern_eng
+	title = "Engineering Apprentice"
+	flag = INTERN_ENG
+	department_flag = ENGSEC
+	faction = "Station"
+	total_positions = 2
+	spawn_positions = 2
+	supervisors = "the Chief Engineer"
+	selection_color = "#fff5cc"
+	access = list(access_maint_tunnels, access_construction, access_engine_equip, access_engine)
+	minimal_access = list(access_maint_tunnels, access_construction, access_engine_equip, access_engine)
+	outfit = /datum/outfit/job/intern_eng
+
+/datum/outfit/job/intern_eng
+	name = "Engineering Apprentice"
+	jobtype = /datum/job/intern_eng
+
+	uniform = /obj/item/clothing/under/rank/engineer
+	shoes = /obj/item/clothing/shoes/orange
+	head = /obj/item/clothing/head/beret/engineering
+	l_ear = /obj/item/device/radio/headset/headset_eng
+
+	backpack = /obj/item/weapon/storage/backpack/industrial
+	satchel = /obj/item/weapon/storage/backpack/satchel_eng
+	dufflebag = /obj/item/weapon/storage/backpack/duffel/eng
+	messengerbag = /obj/item/weapon/storage/backpack/messenger/engi

@@ -8,7 +8,7 @@
 
 	if (src.client)
 		if(src.client.prefs.muted & (MUTE_DEADCHAT|MUTE_IC))
-			src << "<span class='warning'>You cannot talk in deadchat (muted).</span>"
+			to_chat(src, "<span class='warning'>You cannot talk in deadchat (muted).</span>")
 			return
 
 	. = src.say_dead(message)
@@ -27,7 +27,7 @@
 
 	if(src.client)
 		if(src.client.prefs.muted & (MUTE_DEADCHAT|MUTE_IC))
-			src << "<span class='warning'>You cannot emote in deadchat (muted).</span>"
+			to_chat(src, "<span class='warning'>You cannot emote in deadchat (muted).</span>")
 			return
 
 	. = src.emote_dead(message)
