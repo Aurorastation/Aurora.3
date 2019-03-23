@@ -17,7 +17,7 @@
 	s["roundduration"] = get_round_duration_formatted()
 	s["gameid"] = game_id
 	s["game_state"] = SSticker ? 0 : SSticker.current_state
-	s["transferring"] = !emergency_shuttle_shuttle.online()
+	s["transferring"] = emergency_shuttle ? !emergency_shuttle.online() : FALSE
 
 	s["players"] = clients.len
 	s["admins"] = 0
