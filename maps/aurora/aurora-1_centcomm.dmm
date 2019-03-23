@@ -10344,6 +10344,7 @@
 /area/centcom/specops)
 "axY" = (
 /obj/machinery/porta_turret/crescent,
+/obj/effect/decal/warning_stripes,
 /turf/unsimulated/floor{
 	icon_state = "vault";
 	dir = 1
@@ -11489,6 +11490,7 @@
 	},
 /obj/machinery/turretid{
 	ailock = 1;
+	check_access = 0;
 	enabled = 1;
 	pixel_x = 28;
 	pixel_y = -28;
@@ -13383,13 +13385,6 @@
 	name = "grass"
 	},
 /area/centcom/holding)
-"aEp" = (
-/obj/machinery/porta_turret/crescent,
-/obj/effect/decal/warning_stripes,
-/turf/unsimulated/floor{
-	icon_state = "floor"
-	},
-/area/centcom/holding)
 "aEq" = (
 /obj/structure/bed/chair{
 	dir = 8
@@ -14280,7 +14275,7 @@
 /turf/unsimulated/floor{
 	icon_state = "wood"
 	},
-/area/centcom/holding)
+/area/centcom/control)
 "aGp" = (
 /turf/unsimulated/floor{
 	icon_state = "wood"
@@ -15190,7 +15185,7 @@
 /turf/unsimulated/floor{
 	icon_state = "white"
 	},
-/area/centcom/holding)
+/area/centcom/control)
 "aIr" = (
 /turf/unsimulated/floor{
 	dir = 4;
@@ -16901,7 +16896,7 @@
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
-/area/centcom/holding)
+/area/centcom/control)
 "aLR" = (
 /obj/machinery/light{
 	icon_state = "tube1";
@@ -24536,6 +24531,7 @@
 /area/centcom/living)
 "lXq" = (
 /obj/machinery/porta_turret/crescent,
+/obj/effect/decal/warning_stripes,
 /turf/unsimulated/floor{
 	icon_state = "vault";
 	dir = 1
@@ -24681,6 +24677,14 @@
 /obj/machinery/porta_turret/crescent,
 /turf/unsimulated/floor{
 	icon_state = "floor"
+	},
+/area/centcom/control)
+"vdZ" = (
+/obj/effect/decal/warning_stripes,
+/obj/machinery/porta_turret/crescent,
+/turf/unsimulated/floor{
+	icon_state = "vault";
+	dir = 5
 	},
 /area/centcom/control)
 "vyG" = (
@@ -55726,7 +55730,7 @@ ays
 ayM
 azf
 ave
-azV
+awi
 aAh
 aAw
 aAP
@@ -58847,7 +58851,7 @@ aCo
 aCo
 aCo
 aCo
-aEp
+axw
 aCo
 aCo
 aCo
@@ -58861,7 +58865,7 @@ aCo
 aCo
 aCo
 aCo
-aEp
+axw
 aCo
 aCo
 aCo
@@ -59855,7 +59859,7 @@ aCj
 aDC
 aDM
 aDY
-aDY
+vdZ
 aDY
 aDM
 aEM
@@ -60369,7 +60373,7 @@ aCm
 aCm
 aDM
 aDY
-aDY
+vdZ
 aDY
 aEB
 aEO
