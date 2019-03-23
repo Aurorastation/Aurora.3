@@ -1691,6 +1691,15 @@
 	},
 /turf/simulated/floor/airless,
 /area/mine/explored)
+"dC" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 8
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
 "dD" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -1781,6 +1790,14 @@
 "dL" = (
 /turf/simulated/open,
 /area/skipjack_station/above)
+"dM" = (
+/obj/effect/floor_decal/industrial/warning,
+/obj/effect/floor_decal/industrial/warning/corner{
+	icon_state = "warningcorner";
+	dir = 4
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
 "dN" = (
 /obj/machinery/power/tracker,
 /obj/structure/cable/yellow{
@@ -34956,7 +34973,7 @@ ai
 ai
 ai
 ai
-vW
+dM
 aa
 aa
 aa
@@ -35213,7 +35230,7 @@ aa
 aa
 aa
 aa
-zh
+dC
 ag
 ag
 ag
@@ -45489,7 +45506,7 @@ aa
 aa
 dp
 aa
-SM
+za
 ag
 ag
 aw

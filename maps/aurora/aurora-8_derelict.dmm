@@ -7936,7 +7936,7 @@
 /obj/random/loot,
 /turf/simulated/floor/tiled/dark,
 /area/derelict/hallway/southwest)
-"Ag" = (
+"Da" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
@@ -28906,7 +28906,7 @@ aa
 im
 iH
 kc
-Ag
+Da
 aa
 lv
 lN
