@@ -7359,8 +7359,8 @@
 	},
 /area/shuttle/administration/centcom)
 "ars" = (
-/obj/machinery/porta_turret/crescent,
 /obj/effect/decal/warning_stripes,
+/obj/machinery/porta_turret/crescent,
 /turf/unsimulated/floor{
 	icon_state = "floor"
 	},
@@ -8655,14 +8655,14 @@
 /area/shuttle/administration/centcom)
 "aur" = (
 /obj/machinery/door/airlock/centcom{
-	name = "To: NSS Exodus Processing";
+	name = "Morale Department";
 	opacity = 1
 	},
 /turf/unsimulated/floor,
 /area/centcom/living)
 "aus" = (
-/obj/machinery/porta_turret/crescent,
 /obj/effect/decal/warning_stripes,
+/obj/machinery/porta_turret/crescent,
 /turf/unsimulated/floor{
 	icon_state = "redfull"
 	},
@@ -22485,7 +22485,7 @@
 	pixel_x = 1;
 	pixel_y = 9
 	},
-/obj/item/weapon/pen,
+/obj/item/weapon/pen/multi,
 /turf/unsimulated/floor{
 	dir = 10;
 	icon_state = "carpetside"
@@ -24374,6 +24374,23 @@
 	dir = 4
 	},
 /area/centcom/living)
+"bvD" = (
+/turf/unsimulated/floor{
+	dir = 9;
+	icon_state = "carpetside"
+	},
+/area/centcom/living)
+"djI" = (
+/obj/machinery/light{
+	dir = 2;
+	icon_state = "tube1";
+	pixel_y = 0
+	},
+/turf/unsimulated/floor{
+	dir = 8;
+	icon_state = "wood"
+	},
+/area/centcom/living)
 "dLX" = (
 /obj/machinery/computer/telecomms/monitor,
 /turf/unsimulated/floor{
@@ -24398,12 +24415,23 @@
 	icon_state = "floor"
 	},
 /area/centcom/holding)
+"fgZ" = (
+/obj/effect/decal/warning_stripes,
+/obj/machinery/porta_turret/crescent,
+/turf/unsimulated/floor{
+	icon_state = "floor"
+	},
+/area/centcom/holding)
 "fPQ" = (
 /obj/machinery/telecomms/server/presets/centcomm,
 /turf/unsimulated/floor{
 	icon_state = "green";
 	dir = 8
 	},
+/area/centcom/living)
+"gav" = (
+/obj/structure/sign/poster,
+/turf/unsimulated/wall/riveted,
 /area/centcom/living)
 "gDh" = (
 /obj/machinery/telecomms/receiver/preset_cent,
@@ -24447,6 +24475,18 @@
 	dir = 8
 	},
 /area/centcom/living)
+"jAE" = (
+/obj/structure/table/wood,
+/obj/item/weapon/paper_bin{
+	pixel_x = 1;
+	pixel_y = 9
+	},
+/obj/item/weapon/pen/multi,
+/turf/unsimulated/floor{
+	dir = 6;
+	icon_state = "carpetside"
+	},
+/area/centcom/living)
 "jBJ" = (
 /obj/machinery/computer/telecomms/server,
 /turf/unsimulated/floor{
@@ -24473,6 +24513,19 @@
 /turf/unsimulated/floor{
 	icon_state = "green";
 	dir = 4
+	},
+/area/centcom/living)
+"mBR" = (
+/obj/structure/sign/poster{
+	poster_type = "/datum/poster/bay_50";
+	pixel_x = -32
+	},
+/turf/unsimulated/wall/riveted,
+/area/centcom/living)
+"mQj" = (
+/turf/unsimulated/floor{
+	dir = 10;
+	icon_state = "carpetside"
 	},
 /area/centcom/living)
 "nkd" = (
@@ -24502,12 +24555,83 @@
 	dir = 8
 	},
 /area/centcom/living)
+"oQu" = (
+/obj/structure/sign/poster{
+	pixel_x = 0;
+	pixel_y = 32;
+	poster_type = "/datum/poster/bay_15"
+	},
+/turf/unsimulated/wall/riveted,
+/area/centcom/living)
+"oVL" = (
+/obj/machinery/door/window{
+	dir = 8;
+	name = "CCIAP Penny";
+	req_access = list(109)
+	},
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced,
+/mob/living/simple_animal/cat/penny,
+/turf/unsimulated/floor{
+	dir = 8;
+	icon_state = "wood"
+	},
+/area/centcom/living)
 "peK" = (
 /obj/structure/bed/chair/office/dark{
 	dir = 4
 	},
 /turf/unsimulated/floor{
 	icon_state = "floor"
+	},
+/area/centcom/living)
+"plN" = (
+/obj/structure/filingcabinet,
+/turf/unsimulated/floor{
+	dir = 8;
+	icon_state = "wood"
+	},
+/area/centcom/living)
+"pAk" = (
+/obj/structure/sign/poster{
+	dir = 1;
+	pixel_x = -32;
+	poster_type = "/datum/poster/bay_50"
+	},
+/turf/unsimulated/wall/riveted,
+/area/centcom/living)
+"pPH" = (
+/obj/structure/table/wood,
+/turf/unsimulated/floor{
+	dir = 4;
+	icon_state = "carpetside"
+	},
+/area/centcom/living)
+"qMl" = (
+/obj/structure/table/wood,
+/obj/item/device/flashlight/lamp,
+/turf/unsimulated/floor{
+	dir = 5;
+	icon_state = "carpetside"
+	},
+/area/centcom/living)
+"rzy" = (
+/obj/structure/bed/chair/office/bridge{
+	dir = 4
+	},
+/obj/machinery/light{
+	dir = 8;
+	icon_state = "tube1";
+	pixel_y = 0
+	},
+/turf/unsimulated/floor{
+	dir = 8;
+	icon_state = "carpetside"
 	},
 /area/centcom/living)
 "sel" = (
@@ -24518,6 +24642,17 @@
 	icon_state = "floor"
 	},
 /area/centcom/control)
+"sxc" = (
+/obj/machinery/light{
+	dir = 1;
+	icon_state = "tube1";
+	pixel_y = 0
+	},
+/turf/unsimulated/floor{
+	dir = 8;
+	icon_state = "wood"
+	},
+/area/centcom/living)
 "tcY" = (
 /obj/machinery/light{
 	dir = 4;
@@ -24529,6 +24664,13 @@
 	dir = 4
 	},
 /area/centcom/living)
+"ukL" = (
+/obj/effect/decal/warning_stripes,
+/obj/machinery/porta_turret/crescent,
+/turf/unsimulated/floor{
+	icon_state = "floor"
+	},
+/area/centcom/control)
 "vtz" = (
 /obj/structure/bed/chair/office/dark{
 	dir = 4
@@ -24536,6 +24678,15 @@
 /turf/unsimulated/floor{
 	icon_state = "green";
 	dir = 1
+	},
+/area/centcom/living)
+"vyG" = (
+/obj/structure/bed/chair/comfy/beige{
+	dir = 8
+	},
+/turf/unsimulated/floor{
+	dir = 8;
+	icon_state = "wood"
 	},
 /area/centcom/living)
 "wpE" = (
@@ -59664,11 +59815,11 @@ apW
 apW
 apW
 apW
+oQu
 apW
+oQu
 apW
-apW
-apW
-apW
+oQu
 apU
 apU
 auT
@@ -59920,13 +60071,13 @@ atk
 atv
 atk
 apW
-apW
-aqe
-aqu
-aqu
-aqu
-aqM
-apW
+gav
+asF
+bvD
+rzy
+mQj
+asF
+mBR
 apW
 auU
 auX
@@ -60178,11 +60329,11 @@ atw
 atF
 atQ
 apW
-aqf
-aqe
-aqu
-aqM
-aqX
+asF
+qMl
+pPH
+jAE
+asF
 apW
 apW
 auV
@@ -60434,13 +60585,13 @@ asB
 arI
 asb
 atR
-apW
-arH
-aqu
-aqu
-aqu
-asJ
-apW
+gav
+sxc
+asF
+vyG
+asF
+djI
+pAk
 apW
 auW
 auX
@@ -60457,7 +60608,7 @@ avh
 avh
 avh
 avh
-axw
+ukL
 avh
 avh
 aBO
@@ -60692,11 +60843,11 @@ ars
 atG
 atQ
 apW
-aqf
-aqg
-aqu
-aqN
-aqX
+asF
+asF
+asF
+asF
+asF
 apW
 apW
 auX
@@ -60948,13 +61099,13 @@ asB
 arI
 asb
 atS
-apW
-aqg
-aqu
-aqu
-aqu
-aqN
-apW
+gav
+plN
+aYk
+asF
+aYk
+oVL
+mBR
 apW
 auX
 avi
@@ -60973,7 +61124,7 @@ ayw
 auT
 auT
 aBc
-axw
+ukL
 aBO
 azM
 aCp
@@ -62014,7 +62165,7 @@ aDH
 aCo
 aCo
 aCo
-aEp
+fgZ
 aCo
 aCo
 aCo
@@ -63029,7 +63180,7 @@ ayw
 auT
 auT
 aBc
-axw
+ukL
 aBO
 auT
 aaM
@@ -63541,7 +63692,7 @@ avh
 avh
 avh
 avh
-axw
+ukL
 avh
 avh
 aBO
@@ -64844,11 +64995,11 @@ aDb
 aEV
 aDb
 aWa
-aEp
+fgZ
 aCo
 aFr
 aCo
-aEp
+fgZ
 aWA
 aDb
 aEV
