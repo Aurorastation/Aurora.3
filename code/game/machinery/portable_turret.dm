@@ -74,15 +74,15 @@
 	..()
 	var/msg = ""
 	if(!health)
-		msg += span("danger", "\the [src] is destroyed!")
+		msg += span("danger", "\The [src] is destroyed!")
 	else if(health / maxhealth < 0.35)
-		msg += span("danger", "\the [src] is critically damaged!")
+		msg += span("danger", "\The [src] is critically damaged!")
 	else if(health / maxhealth < 0.6)
-		msg += span("warning", "\the [src] is badly damaged!")
+		msg += span("warning", "\The [src] is badly damaged!")
 	else if(health / maxhealth < 1)
-		msg += span("notice", "\the [src] is slightly damaged!")	
+		msg += span("notice", "\The [src] is slightly damaged!")	
 	else
-		msg += span("good", "\the [src] is not damaged!")
+		msg += span("good", "\The [src] is not damaged!")
 	to_chat(user, msg)
 
 /obj/machinery/porta_turret/crescent
