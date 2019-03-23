@@ -256,7 +256,7 @@ Class Procs:
 		return 1
 	if ( ! (istype(usr, /mob/living/carbon/human) || \
 			istype(usr, /mob/living/silicon)))
-		usr << "<span class='warning'>You don't have the dexterity to do this!</span>"
+		to_chat(usr, "<span class='warning'>You don't have the dexterity to do this!</span>")
 		return 1
 /*
 	//distance checks are made by atom/proc/DblClick
@@ -269,7 +269,7 @@ Class Procs:
 			visible_message("<span class='warning'>[H] stares cluelessly at [src] and drools.</span>")
 			return 1
 		else if(prob(H.getBrainLoss()))
-			user << "<span class='warning'>You momentarily forget how to use [src].</span>"
+			to_chat(user, "<span class='warning'>You momentarily forget how to use [src].</span>")
 			return 1
 
 	src.add_fingerprint(user)
@@ -336,7 +336,7 @@ Class Procs:
 		return 0
 	playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, 1)
 	panel_open = !panel_open
-	user << "<span class='notice'>You [panel_open ? "open" : "close"] the maintenance hatch of [src].</span>"
+	to_chat(user, "<span class='notice'>You [panel_open ? "open" : "close"] the maintenance hatch of [src].</span>")
 	update_icon()
 	return 1
 
@@ -364,7 +364,7 @@ Class Procs:
 						component_parts -= G
 						component_parts += B
 						B.forceMove(src)
-						user << "<span class='notice'>[G.name] replaced with [B.name].</span>"
+						to_chat(user, "<span class='notice'>[G.name] replaced with [B.name].</span>")
 						break
 		for(var/obj/item/weapon/stock_parts/A in component_parts)
 			for(var/D in CB.req_components)
@@ -380,14 +380,14 @@ Class Procs:
 						component_parts -= A
 						component_parts += B
 						B.forceMove(src)
-						user << "<span class='notice'>[A.name] replaced with [B.name].</span>"
+						to_chat(user, "<span class='notice'>[A.name] replaced with [B.name].</span>")
 						break
 		RefreshParts()
 		update_icon()
 	else
-		user << "<span class='notice'>Following parts detected in the machine:</span>"
+		to_chat(user, "<span class='notice'>Following parts detected in the machine:</span>")
 		for(var/var/obj/item/C in component_parts)
-			user << "<span class='notice'>    [C.name]</span>"
+			to_chat(user, "<span class='notice'>    [C.name]</span>")
 	return 1
 
 /obj/machinery/proc/dismantle()

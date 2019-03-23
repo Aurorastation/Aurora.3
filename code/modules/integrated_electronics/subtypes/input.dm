@@ -350,9 +350,15 @@
 	return ..()
 
 /obj/item/integrated_circuit/input/microphone/hear_talk(mob/living/M, msg, var/verb="says", datum/language/speaking=null)
+	if(isanimal(M))
+		if(!M.universal_speak)
+			return
+
 	var/translated = FALSE
 	if(M && msg)
 		if(speaking)
+			if(!speaking.machine_understands)
+				msg = speaking.scramble(msg)
 			if(!istype(speaking, /datum/language/common))
 				translated = TRUE
 		set_pin_data(IC_OUTPUT, 1, M.GetVoice())

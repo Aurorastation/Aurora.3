@@ -10,7 +10,7 @@ mob/var/next_pain_time = 0
 mob/living/carbon/proc/pain(var/partname, var/amount, var/force, var/burning = 0)
 	if(stat >= 1)
 		return
-	if(species && (species.flags & NO_PAIN))
+	if(!can_feel_pain())
 		return
 	if(analgesic > 40)
 		return
@@ -44,7 +44,7 @@ mob/living/carbon/proc/pain(var/partname, var/amount, var/force, var/burning = 0
 				msg = "<b><font size=3>Your [partname] is screaming out in pain!</font></b>"
 	if(msg && (msg != last_pain_message || prob(10)))
 		last_pain_message = msg
-		src << msg
+		to_chat(src, msg)
 	next_pain_time = world.time + (100 - amount)
 
 
@@ -53,7 +53,7 @@ mob/living/carbon/proc/pain(var/partname, var/amount, var/force, var/burning = 0
 mob/living/carbon/human/proc/custom_pain(var/message, var/flash_strength)
 	if(stat >= 1)
 		return
-	if(species.flags & NO_PAIN)
+	if(!can_feel_pain())
 		return
 	if(reagents.has_reagent("tramadol"))
 		return
@@ -68,13 +68,13 @@ mob/living/carbon/human/proc/custom_pain(var/message, var/flash_strength)
 	// Anti message spam checks
 	if(msg && ((msg != last_pain_message) || (world.time >= next_pain_time)))
 		last_pain_message = msg
-		src << msg
+		to_chat(src, msg)
 	next_pain_time = world.time + 100
 
 mob/living/carbon/human/proc/handle_pain()
 	// not when sleeping
 
-	if(species.flags & NO_PAIN) return
+	if(!can_feel_pain()) return
 
 	if(stat >= 2) return
 	if(analgesic > 70)

@@ -61,7 +61,7 @@
 					to_chat(user,"<span class='notice'>The top cap is wrenched on tight!</span>")
 		return
 
-	if (iswrench(O))
+	if (O.iswrench())
 		if(can_tamper && user.a_intent == I_HURT)
 			user.visible_message("<span class='warning'>\The [user] wrenches \the [src]'s faucet [is_leaking ? "closed" : "open"].</span>","<span class='warning'>You wrench \the [src]'s faucet [is_leaking ? "closed" : "open"]</span>")
 			is_leaking = !is_leaking
@@ -140,9 +140,9 @@
 	if(!..(user, 2))
 		return
 	if (is_leaking)
-		user << "<span class='warning'>Fuel faucet is wrenched open, leaking the fuel!</span>"
+		to_chat(user, "<span class='warning'>Fuel faucet is wrenched open, leaking the fuel!</span>")
 	if(rig)
-		user << "<span class='notice'>There is some kind of device rigged to the tank.</span>"
+		to_chat(user, "<span class='notice'>There is some kind of device rigged to the tank.</span>")
 
 /obj/structure/reagent_dispensers/fueltank/attack_hand(mob/user)
 	if (rig)
@@ -157,7 +157,7 @@
 	src.add_fingerprint(user)
 	if (istype(W,/obj/item/device/assembly_holder))
 		if (rig)
-			user << "<span class='warning'>There is another device in the way.</span>"
+			to_chat(user, "<span class='warning'>There is another device in the way.</span>")
 			return ..()
 		user.visible_message("[user] begins rigging [W] to \the [src].", "You begin rigging [W] to \the [src]")
 		if(do_after(user, 20))
@@ -254,7 +254,7 @@
 	reagents.add_reagent("water",capacity)
 
 /obj/structure/reagent_dispensers/water_cooler/attackby(obj/item/weapon/W as obj, mob/user as mob)
-	if (isscrewdriver(W))
+	if (W.isscrewdriver())
 		src.add_fingerprint(user)
 		playsound(src.loc, 'sound/items/Ratchet.ogg', 100, 1)
 		if(do_after(user, 20))

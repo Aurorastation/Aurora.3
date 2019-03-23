@@ -22,7 +22,7 @@
 		if (M)
 			LinkTo(M)
 		else
-			user << "<span class='warning'>ERROR: Linked machine not found!</span>"
+			to_chat(user, "<span class='warning'>ERROR: Linked machine not found!</span>")
 
 	return machine
 

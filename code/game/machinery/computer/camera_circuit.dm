@@ -38,7 +38,7 @@
 
 	attackby(var/obj/item/I, var/mob/user)//if(health > 50)
 		..()
-		else if(isscrewdriver(I))
+		else if(I.isscrewdriver())
 			secured = !secured
 			user.visible_message("<span class='notice'>The [src] can [secured ? "no longer" : "now"] be modified.</span>")
 			updateBuildPath()
@@ -108,8 +108,8 @@
 /obj/item/weapon/circuitboard/camera/emag_act(var/remaining_charges, var/mob/user)
 	if(network)
 		authorised = 1
-		user << "<span class='notice'>You authorised the circuit network!</span>"
+		to_chat(user, "<span class='notice'>You authorised the circuit network!</span>")
 		updateDialog()
 		return 1
 	else
-		user << "<span class='warning'>You must select a camera network circuit!</span>"
+		to_chat(user, "<span class='warning'>You must select a camera network circuit!</span>")

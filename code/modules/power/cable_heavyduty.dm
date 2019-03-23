@@ -15,11 +15,11 @@
 	if(!T.is_plating())
 		return
 
-	if(iswirecutter(W))
-		usr << "<span class='notice'>These cables are too tough to be cut with those [W.name].</span>"
+	if(W.iswirecutter())
+		to_chat(usr, "<span class='notice'>These cables are too tough to be cut with those [W.name].</span>")
 		return
-	else if(iscoil(W))
-		usr << "<span class='notice'>You will need heavier cables to connect to these.</span>"
+	else if(W.iscoil())
+		to_chat(usr, "<span class='notice'>You will need heavier cables to connect to these.</span>")
 		return
 	else
 		..()
