@@ -12,6 +12,7 @@
 	matter = list(DEFAULT_WALL_MATERIAL = 2000)
 	projectile_type = /obj/item/projectile/beam/midlaser
 	can_turret = 1
+	turret_is_lethal = 1
 	turret_sprite_set = "laser"
 
 /obj/item/weapon/gun/energy/laser/mounted
@@ -36,6 +37,7 @@ obj/item/weapon/gun/energy/retro
 	projectile_type = /obj/item/projectile/beam
 	fire_delay = 10 //old technology
 	can_turret = 1
+	turret_is_lethal = 1
 	turret_sprite_set = "retro"
 
 /obj/item/weapon/gun/energy/captain
@@ -52,6 +54,7 @@ obj/item/weapon/gun/energy/retro
 	max_shots = 5 //to compensate a bit for self-recharging
 	self_recharge = 1
 	can_turret = 1
+	turret_is_lethal = 1
 	turret_sprite_set = "captain"
 
 /obj/item/weapon/gun/energy/lasercannon
@@ -67,6 +70,7 @@ obj/item/weapon/gun/energy/retro
 	max_shots = 5
 	fire_delay = 20
 	can_turret = 1
+	turret_is_lethal = 1
 	turret_sprite_set = "cannon"
 
 /obj/item/weapon/gun/energy/lasercannon/mounted
@@ -88,6 +92,7 @@ obj/item/weapon/gun/energy/retro
 	max_shots = 20
 	fire_delay = 1
 	can_turret = 1
+	turret_is_lethal = 1
 	turret_sprite_set = "xray"
 
 /obj/item/weapon/gun/energy/xray/mounted
@@ -116,6 +121,7 @@ obj/item/weapon/gun/energy/retro
 	scoped_accuracy = 4
 	can_turret = 1
 	turret_sprite_set = "sniper"
+	turret_is_lethal = 1
 
 	fire_delay_wielded = 35
 	accuracy_wielded = 0
@@ -161,6 +167,7 @@ obj/item/weapon/gun/energy/retro
 	fire_delay = 2
 	dispersion = list(10)
 	can_turret = 1
+	turret_is_lethal = 1
 	turret_sprite_set = "laser"
 
 ////////Laser Tag////////////////////
