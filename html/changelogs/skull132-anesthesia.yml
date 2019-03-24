@@ -1,0 +1,5 @@
+author: Skull132
+delete-after: True
+
+changes:
+  - tweak: "Upped the amount of \"sleep\" a person is held at when under anesthesia. This should lessen the occurances of people waking up mid-surgery while under the gas."
