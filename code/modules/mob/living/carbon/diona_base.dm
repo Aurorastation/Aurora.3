@@ -75,6 +75,11 @@ var/list/diona_banned_languages = list(
 	if (DS.nutrient_organ)
 		if (DS.nutrient_organ.is_broken())
 			return 0
+	
+	if (consume_nutrition_from_air && (nutrition / max_nutrition > 0.25))
+		to_chat(src, span("notice", "You feel like you have replanished enough of nutrition to stay alive. Consuming more makes you feel gross."))
+		consume_nutrition_from_air = !consume_nutrition_from_air
+		return
 
 	var/plus= (min(pressure,diona_max_pressure)  / diona_max_pressure)* diona_nutrition_factor
 	if (DS.nutrient_organ)
