@@ -11,6 +11,19 @@
 	var/obj/item/mold/current_mold
 	var/smelting = FALSE
 
+/obj/structure/smelter/Destroy()
+	if(current_mold)
+		QDEL_NULL(current_mold)
+
+	return ..()
+
+/obj/structure/smelter/examine(mob/user)
+	..(user)
+	if(smelting)
+		to_chat(user, "It is smelting something.")
+	if(current_mold)
+		to_chat(user, "\The [current_mold] is inside of it.")
+
 /obj/structure/smelter/Initialize()
 	. = ..()
 	fuel = rand(3, 5)

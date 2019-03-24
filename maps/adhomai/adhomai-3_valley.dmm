@@ -3065,6 +3065,7 @@
 "jm" = (
 /obj/structure/table/steel,
 /obj/item/weapon/reagent_containers/glass/bucket,
+/obj/item/weapon/mop,
 /turf/simulated/floor/tiled/steel{
 	icon_state = "hydrofloor"
 	},
@@ -3102,9 +3103,7 @@
 	},
 /area/adhomai/village)
 "jr" = (
-/obj/structure/curtain/open/bed{
-	pixel_x = 32
-	},
+/obj/machinery/recharge_station,
 /turf/simulated/floor/tiled/steel{
 	icon_state = "hydrofloor"
 	},
@@ -3623,9 +3622,6 @@
 /obj/machinery/artifact_analyser,
 /turf/simulated/floor/wood,
 /area/adhomai/village)
-"pR" = (
-/turf/unsimulated/mask/adhomai,
-/area/adhomai/village)
 "pU" = (
 /turf/simulated/floor/wood,
 /area/adhomai/village/townhall)
@@ -3745,6 +3741,16 @@
 	},
 /turf/simulated/floor/wood,
 /area/adhomai/village/bar)
+"td" = (
+/obj/machinery/light/small{
+	dir = 8
+	},
+/obj/structure/mopbucket,
+/obj/item/weapon/mop,
+/turf/simulated/floor/tiled/steel{
+	icon_state = "hydrofloor"
+	},
+/area/adhomai/village)
 "ty" = (
 /obj/structure/simple_door/iron{
 	initial_lock_value = "merchant"
@@ -4017,11 +4023,6 @@
 	},
 /turf/simulated/floor/wood,
 /area/adhomai/village)
-"AX" = (
-/obj/structure/table/glass,
-/obj/item/device/flashlight/lamp,
-/turf/unsimulated/mask/adhomai,
-/area/adhomai/village)
 "Bu" = (
 /obj/structure/barricade/sandbags,
 /turf/simulated/floor/snow,
@@ -4083,6 +4084,14 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/adhomai/village/shop)
+"DJ" = (
+/obj/structure/table/wood,
+/obj/item/weapon/reagent_containers/glass/bucket,
+/obj/item/weapon/reagent_containers/glass/rag,
+/turf/simulated/floor/tiled/steel{
+	icon_state = "hydrofloor"
+	},
+/area/adhomai/village)
 "DL" = (
 /obj/structure/reagent_dispensers/coolanttank,
 /turf/simulated/floor/wood,
@@ -4473,6 +4482,11 @@
 /obj/structure/sign/double/barsign,
 /turf/simulated/wall/wood,
 /area/adhomai/village/bar)
+"OM" = (
+/obj/structure/table/wood,
+/obj/item/weapon/reagent_containers/glass/rag,
+/turf/simulated/floor/wood,
+/area/adhomai/village/police)
 "OR" = (
 /obj/structure/reagent_dispensers/fueltank,
 /turf/simulated/floor/tiled/dark,
@@ -4599,6 +4613,12 @@
 /obj/item/clothing/mask/gas/alt,
 /obj/item/clothing/mask/gas/alt,
 /turf/simulated/floor/wood,
+/area/adhomai/village)
+"Td" = (
+/obj/structure/reagent_dispensers/watertank,
+/turf/simulated/floor/tiled/steel{
+	icon_state = "hydrofloor"
+	},
 /area/adhomai/village)
 "Tt" = (
 /obj/structure/bed/chair/wood{
@@ -4744,10 +4764,6 @@
 "XJ" = (
 /turf/simulated/floor/wood,
 /area/adhomai/village/police)
-"Yf" = (
-/obj/structure/bed,
-/turf/unsimulated/mask/adhomai,
-/area/adhomai/village)
 "Yy" = (
 /obj/structure/table/steel,
 /obj/item/weapon/pen/blue,
@@ -46985,7 +47001,7 @@ ae
 aa
 Wm
 eC
-wF
+OM
 eC
 XJ
 Wm
@@ -47242,7 +47258,7 @@ ae
 aa
 Wm
 XJ
-wF
+XJ
 XJ
 XJ
 cI
@@ -48564,7 +48580,7 @@ EH
 EH
 de
 DR
-EH
+cA
 AE
 hW
 Hi
@@ -48813,7 +48829,7 @@ ae
 aa
 Hi
 fK
-EH
+uh
 DR
 DR
 EH
@@ -49592,7 +49608,7 @@ EH
 EH
 EH
 DR
-EH
+cA
 lG
 hY
 Hi
@@ -53687,7 +53703,7 @@ ck
 DR
 DR
 DR
-af
+DR
 DR
 aa
 ae
@@ -53942,9 +53958,9 @@ an
 an
 ag
 DR
-aa
-aa
-aa
+td
+al
+DR
 aa
 aa
 ae
@@ -54199,9 +54215,9 @@ aH
 DR
 aH
 DR
-aa
-aa
-aa
+DJ
+al
+DR
 aa
 aa
 ae
@@ -54456,9 +54472,9 @@ ch
 DR
 ch
 DR
-aa
-aa
-aa
+Td
+al
+ck
 aa
 aa
 ae
@@ -54713,9 +54729,9 @@ DR
 DR
 DR
 DR
-aa
-aa
-aa
+DR
+DR
+DR
 aa
 aa
 ae
@@ -59334,8 +59350,8 @@ cf
 ag
 aH
 aE
-pR
-pR
+aE
+aE
 aE
 ce
 DR
@@ -59591,8 +59607,8 @@ jo
 fc
 DR
 ex
-Yf
-AX
+aZ
+ky
 aZ
 aE
 DR
@@ -59848,8 +59864,8 @@ DR
 DR
 DR
 DR
-pR
-pR
+DR
+DR
 DR
 DR
 DR

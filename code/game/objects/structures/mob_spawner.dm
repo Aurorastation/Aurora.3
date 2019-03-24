@@ -15,12 +15,13 @@
 
 /obj/structure/mob_spawner/Initialize()
 	. = ..()
-	for(var/mob/abstract/observer/O in player_list)
-		if(!O.MayRespawn())
-			continue
-		if(O.client)
-			var/area/A = get_area(src)
-			to_chat(O, "[ghost_follow_link(src, O)] <span class='deadsay'><font size=3><b>A [src.name] has been created at \the [A].</a></b></font></span>")
+	if(announce_when_created)
+		for(var/mob/abstract/observer/O in player_list)
+			if(!O.MayRespawn())
+				continue
+			if(O.client)
+				var/area/A = get_area(src)
+				to_chat(O, "[ghost_follow_link(src, O)] <span class='deadsay'><font size=3><b>A [src.name] has been created at \the [A].</a></b></font></span>")
 
 /obj/structure/mob_spawner/examine(mob/user)
 	if(..(user, 1) && used)

@@ -9,6 +9,12 @@
 	var/obj/item/mold/current_mold
 	var/blacksmithing = FALSE
 
+/obj/structure/anvil/Destroy()
+	if(current_mold)
+		QDEL_NULL(current_mold)
+
+	return ..()
+
 /obj/structure/anvil/update_icon()
 	overlays.Cut()
 	if(current_mold)
@@ -20,7 +26,7 @@
 	if(istype(W, /obj/item/mold))
 		var/obj/item/mold/M = W
 		if(current_mold)
-			to_chat(user, "<span class='warning'>There is a mold inside \the [src] already.</span>")
+			to_chat(user, "<span class='warning'>There is a mold on \the [src] already.</span>")
 			return
 
 		if(!M.filling)
@@ -40,7 +46,7 @@
 			return
 
 		if(!current_mold)
-			to_chat(user, "<span class='warning'>\The [W] has no mold on it.</span>")
+			to_chat(user, "<span class='warning'>\The [W] has no mold on \the [src].</span>")
 			return
 
 		if(!current_mold.filling)

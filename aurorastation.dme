@@ -2508,6 +2508,7 @@
 #include "maps\adhomai\code\structures\monolith.dm"
 #include "maps\adhomai\code\structures\pit.dm"
 #include "maps\adhomai\code\structures\sandbags.dm"
+#include "maps\adhomai\code\structures\sarcophagus.dm"
 #include "maps\adhomai\code\structures\telegraphy.dm"
 #include "maps\adhomai\code\weapons\guns.dm"
 #include "maps\adhomai\code\weapons\melee.dm"
