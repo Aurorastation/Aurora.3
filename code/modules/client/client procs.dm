@@ -287,7 +287,10 @@
 /client/proc/handle_spam_prevention(message, mute_type)
 	. = FALSE
 
-	if (config.automute_on && !holder && length(message))
+	if (prefs.muted & mute_type)
+		to_chat(src, "<span class='warning'>You are muted and cannot send messages.</span>")
+		. = TRUE
+	else if (config.automute_on && !holder && length(message))
 		. = . || automute_by_time(mute_type)
 
 		. = . || automute_by_duplicate(message, mute_type)
