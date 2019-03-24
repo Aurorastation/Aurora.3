@@ -48,13 +48,12 @@
 	desc = "A hardsuit-mounted vitals tracker."
 	interface_name = "vitals tracker"
 	interface_desc = "Shows an informative health readout of the user."
-	construction_cost = list("$glass" = 3250, DEFAULT_WALL_MATERIAL = 500)
-	construction_time = 100
 
 	usable = 1
 	selectable = 0
 
 	category = MODULE_GENERAL
+
 
 /obj/item/rig_module/device/drill
 	name = "hardsuit diamond drill mount"
