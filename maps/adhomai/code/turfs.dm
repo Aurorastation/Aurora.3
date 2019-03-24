@@ -24,11 +24,6 @@
 	nitrogen = MOLES_N2STANDARD
 	temperature = T0C-20
 
-/turf/simulated/lava/adhomai
-	oxygen = MOLES_O2STANDARD
-	nitrogen = MOLES_N2STANDARD
-	temperature = T0C-20
-
 /turf/simulated/lava
 	oxygen = MOLES_O2STANDARD
 	nitrogen = MOLES_N2STANDARD
