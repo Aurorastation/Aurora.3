@@ -18,7 +18,8 @@
 	icon = 'icons/adhomai/animals.dmi'
 	icon_state = "fatshouter"
 	icon_living = "fatshouter"
-	icon_dead = "fatshouters_dead"
+	icon_dead = "fatshouter_dead"
+	meat_type = /obj/item/weapon/reagent_containers/food/snacks/meat/adhomai
 
 /mob/living/simple_animal/hostile/retaliate/rafama
 	name = "steed of Mata'ke"
@@ -34,7 +35,7 @@
 	a_intent = I_HURT
 	stop_automated_movement_when_pulled = 0
 	mob_size = 12
-	meat_type = /obj/item/weapon/reagent_containers/food/snacks/meat
+	meat_type = /obj/item/weapon/reagent_containers/food/snacks/meat/adhomai
 
 	maxHealth = 40
 	health = 40

@@ -49,13 +49,15 @@
 		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Nothing",							/datum/event/nothing,						200),
 		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Appendicitis", 					/datum/event/spontaneous_appendicitis, 		0,		list(ASSIGNMENT_MEDICAL = 25)),
 		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Random Antagonist",				/datum/event/random_antag,		 			0,		list(ASSIGNMENT_ANY = 1, ASSIGNMENT_SECURITY = 1),0,10,125, list("Extended")),
-		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Meteor Chunks",					/datum/event/meteor_chunks,					400),
-		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Supply Drop",						/datum/event/drop_pod,						700)
+		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Meteor Chunks",					/datum/event/meteor_chunks,					200),
+		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Supply Drop",						/datum/event/drop_pod,						700),
+		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Travelling Party",					/datum/event/mob_spawner,					600)
 	)
 
 	major_events = list(
 		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Nothing",						/datum/event/nothing,				135),
-		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Supply Drop",					/datum/event/drop_pod,				500)
+		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Supply Drop",					/datum/event/drop_pod,				500),
+		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Republican Invasion",			/datum/event/mob_spawner,			250)
 	)
 
 

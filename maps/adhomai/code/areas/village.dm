@@ -47,3 +47,7 @@
 /area/adhomai/village/foundry
 	name = "\improper Foundry"
 	icon_state = "auxstorage"
+
+/area/adhomai/village/shop
+	name = "\improper Shop"
+	icon_state = "quartloading"

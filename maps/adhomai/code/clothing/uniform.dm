@@ -44,7 +44,7 @@
 
 /obj/item/clothing/under/uniform/dragoon/commander
 	name = "imperial dragoon commander uniform"
-	desc = "A robust military uniform issued to the commander of the Imperial Dragoons."
+	desc = "A robust military uniform issued to an officer of the Imperial Dragoons."
 	icon_state = "military_commander"
 	item_state = "military_commander"
 
@@ -56,7 +56,7 @@
 
 /obj/item/clothing/under/archeologist
 	name = "archeologist uniform"
-	desc = "A simple uniform used by archeologist."
+	desc = "A simple uniform used by archeologists."
 	icon = 'icons/adhomai/clothing.dmi'
 	icon_state = "explorer_uniform"
 	item_state = "explorer_uniform"

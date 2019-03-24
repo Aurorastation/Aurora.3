@@ -88,15 +88,16 @@
 	reagents.add_reagent("undead_ichor", 5)
 
 /obj/item/weapon/reagent_containers/food/snacks/meat/adhomai
-	name = "snow strider meat"
-	desc = "A slab of nav'twir's meat, an animal native from Adhomai."
+	name = "adhomian meat"
+	desc = "A slab of some animal native from Adhomai."
 	icon_state = "adhomai_meat"
+
+/obj/item/weapon/reagent_containers/food/snacks/meat/adhomai
 
 /obj/item/weapon/reagent_containers/food/snacks/meat/mice
 	name = "mice meat"
 	icon_state = "chickenbreast"
 	desc = "You have reached the epitome of poorness: eating the station's vermin."
-
 
 /obj/item/weapon/reagent_containers/food/snacks/meat/mice/Initialize()
 	. = ..()

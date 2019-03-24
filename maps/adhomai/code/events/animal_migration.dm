@@ -1,5 +1,6 @@
 /datum/event/animal_migration
 	ic_name = "animal migration"
+	no_fake = 1
 
 /datum/event/animal_migration/start()
 	if(severity == EVENT_LEVEL_MAJOR)

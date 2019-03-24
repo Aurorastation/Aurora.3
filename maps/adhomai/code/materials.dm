@@ -36,5 +36,5 @@
 	default_type = "sandbag"
 
 /material/sandbag/generate_recipes()
-	..()
+	recipes = list()
 	recipes += new/datum/stack_recipe("sandbag barricade", /obj/structure/barricade/sandbags, 2, time = 50, one_per_turf = 1, on_floor = 1, supplied_material = "[name]")

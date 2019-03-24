@@ -234,9 +234,9 @@
 	. = ..()
 	if(!body_color)
 		body_color = pick( list("brown","black","white") )
-	icon_state = "chicken_[body_color]"
-	icon_living = "chicken_[body_color]"
-	icon_dead = "chicken_[body_color]_dead"
+	icon_state = "[icon_state]_[body_color]"
+	icon_living = "[icon_state]_[body_color]"
+	icon_dead = "[icon_state]_[body_color]_dead"
 	pixel_x = rand(-6, 6)
 	pixel_y = rand(0, 10)
 	chicken_count += 1

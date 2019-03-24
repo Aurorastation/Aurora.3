@@ -54,7 +54,7 @@
 
 			if(T)
 				command_announcement.Announce("All soldiers to their positions, the artillery is opening fire!", "Artillery Bombardment")
-				to_world(sound('sound/effects/yamato_fire.ogg'))
+				to_world(sound('sound/effects/artillery-gunfire.ogg'))
 				message_admins("[key_name_admin(user)] has launched an artillery strike.", 1)
 				explosion(T,2,5,11)
 				addtimer(CALLBACK(src, .proc/rearm), 10 MINUTE)

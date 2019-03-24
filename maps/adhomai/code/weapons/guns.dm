@@ -7,8 +7,12 @@
 	accuracy = -1
 	icon = 'icons/adhomai/guns.dmi'
 	icon_state = "scope"
+	item_state = "scope"
 	scoped_accuracy = 3
 	can_bayonet = FALSE
+	can_sawoff = FALSE
+	has_wield_state = TRUE
+	contained_sprite = TRUE
 
 /obj/item/weapon/gun/projectile/shotgun/pump/rifle/nka/scoped/verb/scope()
 	set category = "Object"
@@ -27,7 +31,7 @@
 	icon_state = "rifle"
 	item_state = "moistnugget"
 	w_class = 4
-	load_method = SPEEDLOADER
+	load_method = SINGLE_CASING|SPEEDLOADER
 	max_shells = 5
 	caliber = "a762"
 	origin_tech = list(TECH_COMBAT = 4, TECH_MATERIAL = 2)
@@ -44,6 +48,8 @@
 	can_bayonet = TRUE
 	knife_x_offset = 23
 	knife_y_offset = 13
+
+	action_button_name = "Wield rifle"
 
 /obj/item/weapon/gun/projectile/grenadier/can_wield()
 	return TRUE

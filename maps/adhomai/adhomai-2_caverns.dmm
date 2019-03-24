@@ -154,6 +154,9 @@
 /area/adhomai/fortress)
 "aH" = (
 /obj/structure/table/wood,
+/obj/item/weapon/handcuffs,
+/obj/item/weapon/handcuffs,
+/obj/item/weapon/handcuffs,
 /turf/simulated/floor/tiled/dark,
 /area/adhomai/fortress)
 "aI" = (

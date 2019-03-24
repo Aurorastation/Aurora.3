@@ -54,7 +54,6 @@
 	alpha = 200
 
 /obj/structure/curtain/open/bed
-	name = "bed curtain"
 	color = "#854636"
 
 /obj/structure/curtain/open/privacy

@@ -8,7 +8,6 @@
 	spawn_positions = -1
 	supervisors = "the mayor"
 	selection_color = "#ddddff"
-	economic_modifier = 1
 	alt_titles = list("Lumberjack","Farmer")
 	outfit = /datum/outfit/job/adhomai/commoner
 	alt_outfits = list(
@@ -16,6 +15,9 @@
 		"Farmer"=/datum/outfit/job/adhomai/commoner/farmer
 		)
 	is_assistant = TRUE
+
+	create_record = FALSE
+	account_allowed = FALSE
 
 /datum/outfit/job/adhomai/commoner
 	name = "Civillian"
@@ -31,25 +33,27 @@
 
 	belt = /obj/item/weapon/storage/bag/plants
 	r_pocket = /obj/item/weapon/material/minihoe
-	l_pocket = /obj/item/weapon/material/hatchet
 	l_hand = /obj/item/weapon/reagent_containers/glass/bucket
 
 /datum/job/mayor
 	title = "Mayor"
 	flag = MAYOR
 	department = "Village"
-	head_position = 1
+	head_position = TRUE
 	department_flag = ADHOMAI
 	faction = "Station"
 	total_positions = 1
 	spawn_positions = 1
 	supervisors = "the King"
 	selection_color = "#dddddd"
-	req_admin_notify = 1
+	req_admin_notify = TRUE
 
 	outfit = /datum/outfit/job/adhomai/mayor
 
 	species_blacklist = list("Zhan-Khazan Tajara", "M'sai Tajara", HUMAN_SPECIES, UNATHI_SPECIES, TAJARA_SPECIES, SKRELL_SPECIES, VAURCA_SPECIES, DIONA_SPECIES, IPC_SPECIES)
+
+	create_record = FALSE
+	account_allowed = FALSE
 
 /datum/outfit/job/adhomai/mayor
 	name = "Civillian"
@@ -57,9 +61,9 @@
 
 	uniform = /obj/item/clothing/under/tajaran/fancy
 	suit = /obj/item/clothing/suit/storage/tajaran/cloak/fancy
-	shoes = /obj/item/clothing/shoes/tajara
 	gloves = /obj/item/clothing/gloves/white/tajara
 	r_pocket = /obj/item/weapon/key/mayor
+	l_pocket = /obj/item/weapon/storage/wallet/rich
 
 /datum/job/barkeeper
 	title = "Barkeeper"
@@ -74,18 +78,20 @@
 
 	outfit = /datum/outfit/job/adhomai/barkeeper
 
+	create_record = FALSE
+	account_allowed = FALSE
+
 /datum/outfit/job/adhomai/barkeeper
 	name = "Barkeeper"
 	allow_backbag_choice = TRUE
 
-	uniform = /obj/item/clothing/under/tajaran
-	shoes = /obj/item/clothing/shoes/tajara
 	r_pocket = /obj/item/weapon/key/bar
 	belt = /obj/item/weapon/gun/projectile/shotgun/doublebarrel/sawn/bean
 	backpack_contents = list(
 		/obj/item/weapon/reagent_containers/food/drinks/bottle/messa_mead = 2,
 		/obj/item/weapon/storage/box/beanbags = 1
 	)
+	l_pocket = /obj/item/weapon/storage/wallet/medium
 
 /datum/job/hunter
 	title = "Hunter"
@@ -100,14 +106,16 @@
 
 	outfit = /datum/outfit/job/adhomai/hunter
 
+	create_record = FALSE
+	account_allowed = FALSE
+
 /datum/outfit/job/adhomai/hunter
 	name = "Hunter"
 
-	uniform = /obj/item/clothing/under/tajaran
 	suit = /obj/item/clothing/suit/armor/hunter
 	back = /obj/item/weapon/gun/projectile/shotgun/pump/rifle/nka/scoped
 	r_pocket = /obj/item/ammo_magazine/boltaction
-	l_pocket = /obj/item/ammo_magazine/boltaction
+	l_pocket = /obj/item/weapon/storage/wallet/medium
 
 /datum/job/priest
 	title = "Priest"
@@ -124,12 +132,16 @@
 
 	outfit = /datum/outfit/job/adhomai/priest
 
+	create_record = FALSE
+	account_allowed = FALSE
+
 /datum/outfit/job/adhomai/priest
 	name = "Priest"
 	allow_backbag_choice = TRUE
 
 	uniform = /obj/item/clothing/under/color/white
 	belt = /obj/item/weapon/nullrod
+	l_pocket = /obj/item/weapon/storage/wallet/medium
 
 /datum/outfit/job/adhomai/priest/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
@@ -155,6 +167,9 @@
 
 	outfit = /datum/outfit/job/adhomai/physician
 
+	create_record = FALSE
+	account_allowed = FALSE
+
 /datum/outfit/job/adhomai/physician
 	name = "Physician"
 	allow_backbag_choice = TRUE
@@ -163,8 +178,8 @@
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat
 	shoes = /obj/item/clothing/shoes/sandal
 	suit_store = /obj/item/device/flashlight/pen
-	r_pocket = /obj/item/stack/medical/bruise_pack
-	l_pocket = /obj/item/weapon/key/medical
+	r_pocket = /obj/item/weapon/key/medical
+	l_pocket = /obj/item/weapon/storage/wallet/rich
 
 /datum/job/nurse
 	title = "Nurse"
@@ -179,14 +194,17 @@
 
 	outfit = /datum/outfit/job/adhomai/nurse
 
+	create_record = FALSE
+	account_allowed = FALSE
+
 /datum/outfit/job/adhomai/nurse
 	name = "Nurse"
 	allow_backbag_choice = TRUE
 
 	uniform = /obj/item/clothing/under/rank/medical
 	shoes = /obj/item/clothing/shoes/sandal
-	r_pocket = /obj/item/stack/medical/bruise_pack
-	l_pocket = /obj/item/weapon/key/medical
+	r_pocket = /obj/item/weapon/key/medical
+	l_pocket = /obj/item/weapon/storage/wallet/medium
 
 /datum/outfit/job/adhomai/nurse/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
@@ -209,6 +227,9 @@
 
 	outfit = /datum/outfit/job/adhomai/prospector
 
+	create_record = FALSE
+	account_allowed = FALSE
+
 /datum/outfit/job/adhomai/prospector
 	name = "Miner"
 	allow_backbag_choice = TRUE
@@ -216,7 +237,7 @@
 	uniform = /obj/item/clothing/under/tajaran
 	shoes = /obj/item/clothing/shoes/footwraps
 	r_pocket = /obj/item/weapon/storage/bag/ore
-	l_pocket = /obj/item/device/flashlight/lantern
+	l_hand = /obj/item/device/flashlight/lantern
 	belt = /obj/item/weapon/pickaxe
 
 /datum/job/blacksmith
@@ -232,6 +253,9 @@
 
 	outfit = /datum/outfit/job/adhomai/blacksmith
 
+	create_record = FALSE
+	account_allowed = FALSE
+
 /datum/outfit/job/adhomai/blacksmith
 	name = "Blacksmith"
 	allow_backbag_choice = TRUE
@@ -239,6 +263,7 @@
 	suit = /obj/item/clothing/suit/apron/brown
 	belt = /obj/item/weapon/material/blacksmith_hammer
 	r_pocket = /obj/item/weapon/key/blacksmith
+	l_pocket = /obj/item/weapon/storage/wallet/medium
 
 /datum/job/archeologist
 	title = "Archeologist"
@@ -253,6 +278,9 @@
 
 	outfit = /datum/outfit/job/adhomai/archeologist
 
+	create_record = FALSE
+	account_allowed = FALSE
+
 /datum/outfit/job/adhomai/archeologist
 	name = "archeologist"
 	allow_backbag_choice = TRUE
@@ -262,7 +290,7 @@
 	suit = /obj/item/clothing/suit/storage/archeologist
 	shoes = /obj/item/clothing/shoes/jackboots
 	r_pocket = /obj/item/device/ano_scanner
-	l_pocket = /obj/item/device/flashlight/lantern
+	l_pocket = /obj/item/weapon/storage/wallet/medium
 	belt = /obj/item/weapon/melee/whip
 	backpack_contents = list(
 		/obj/item/weapon/storage/box/excavation = 1,
@@ -286,35 +314,40 @@
 
 	outfit = /datum/outfit/job/adhomai/trader
 
+	create_record = FALSE
+	account_allowed = FALSE
+
 /datum/outfit/job/adhomai/trader
 	name = "trader"
 	allow_backbag_choice = TRUE
 
-	pda = /obj/item/device/pda/merchant
-	r_pocket = /obj/item/device/price_scanner
-	l_pocket = /obj/item/weapon/key/trader
+	pda = /obj/item/weapon/card/id/merchant
+	l_pocket = /obj/item/weapon/storage/wallet/poor
+	r_pocket = /obj/item/weapon/key/trader
 
 	backpack_contents = list(
-		/obj/item/weapon/storage/box/excavation = 1
+		/obj/item/device/price_scanner = 1
 	)
 
 /datum/job/chief_constable
 	title = "Chief Constable"
 	flag = CHIEFCONSTABLE
 	department = "Village"
-	head_position = 1
+	head_position = TRUE
 	department_flag = ADHOMAI
 	faction = "Station"
 	total_positions = 1
 	spawn_positions = 1
 	supervisors = "the mayor"
 	selection_color = "#dddddd"
-	req_admin_notify = 1
+	req_admin_notify = TRUE
 	minimal_player_age = 10
 	species_blacklist = list("Zhan-Khazan Tajara", HUMAN_SPECIES, UNATHI_SPECIES, TAJARA_SPECIES, SKRELL_SPECIES, VAURCA_SPECIES, DIONA_SPECIES, IPC_SPECIES)
 
 	outfit = /datum/outfit/job/adhomai/chief_constable
 
+	create_record = FALSE
+	account_allowed = FALSE
 
 /datum/outfit/job/adhomai/chief_constable
 	name = "Chief Constable"
@@ -323,9 +356,12 @@
 	uniform = /obj/item/clothing/under/uniform/constable
 	suit = /obj/item/clothing/suit/armor/constable
 	shoes = /obj/item/clothing/shoes/jackboots/unathi
-	r_pocket = /obj/item/weapon/key/cell
-	l_pocket = /obj/item/weapon/key/chief
+	r_pocket = /obj/item/weapon/key/chief
+	l_pocket = /obj/item/weapon/storage/wallet/rich
 	belt = /obj/item/weapon/melee/classic_baton
+	backpack_contents = list(
+		/obj/item/weapon/key/cell = 2
+	)
 
 /datum/job/constable
 	title = "Constable"
@@ -340,6 +376,8 @@
 	species_blacklist = list(HUMAN_SPECIES, UNATHI_SPECIES, TAJARA_SPECIES, SKRELL_SPECIES, VAURCA_SPECIES, DIONA_SPECIES, IPC_SPECIES)
 	outfit = /datum/outfit/job/adhomai/constable
 
+	create_record = FALSE
+	account_allowed = FALSE
 
 /datum/outfit/job/adhomai/constable
 	name = "Constable"
@@ -348,4 +386,4 @@
 	uniform = /obj/item/clothing/under/uniform/constable
 	shoes = /obj/item/clothing/shoes/tajara
 	r_pocket = /obj/item/weapon/key/cell
-	l_pocket = /obj/item/device/flashlight/lantern
+	l_pocket = /obj/item/weapon/storage/wallet/medium

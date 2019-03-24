@@ -45,10 +45,11 @@ var/list/adhomai_positions = list(
 
 /datum/outfit/job/adhomai
 	allow_backbag_choice = FALSE
-	uniform = /obj/item/clothing/under/tajaran
+	uniform = /obj/item/clothing/under/serviceoveralls
 	id = null
 	l_ear = null
 	back = /obj/item/weapon/storage/backpack/satchel
-	shoes = /obj/item/clothing/shoes/tajara
-	pda = null
+	shoes = /obj/item/clothing/shoes/sandal
+	l_pocket = /obj/item/weapon/storage/wallet/poor
 	box = null
+	pda = null

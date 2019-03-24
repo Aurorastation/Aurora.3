@@ -95,7 +95,7 @@
 
 obj/structure/pit/Crossed(AM as mob|obj)
 	for(var/obj/item/weapon/landmine/I in contents)
-		I.Crossed(AM)
+		I.Crossed(AM, TRUE)
 	..()
 
 /obj/structure/pit/closed
