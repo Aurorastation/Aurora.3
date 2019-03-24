@@ -78,11 +78,8 @@ var/list/whitelist = list()
 		var/datum/species/S = species
 		species = S.name
 
-	if (lowertext(species) == "human")
-		return 1
-
-	if (lowertext(species) == "off-worlder human")
-		return 1
+	if (!(species.spawn_flags & IS_WHITELISTED))
+		return TRUE
 
 	if (!alien_whitelist && !config.sql_whitelists)
 		return 0
