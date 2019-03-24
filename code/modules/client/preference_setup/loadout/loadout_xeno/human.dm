@@ -10,11 +10,11 @@
 
 /datum/gear/uniform/offworlder/dress
 	display_name = "CR dress"
-	path = /obj/item/clothing/under/offworlder
+	path = /obj/item/clothing/under/dress/offworlder
 
 /datum/gear/uniform/offworlder/skirt
 	display_name = "CR skirt"
-	path = /obj/item/clothing/under/dress/offworlder
+	path = /obj/item/clothing/under/skirt/offworlder
 
 /datum/gear/eyes/glasses/offworlder
 	display_name = "starshades"
@@ -43,6 +43,10 @@
 /datum/gear/accessory/offworlder/neckbrace
 	display_name = "neckbrace"
 	path = /obj/item/clothing/accessory/offworlder/bracer/neckbrace
+
+/datum/gear/accessory/offworlder/scarf
+	display_name = "pioneer's scarf"
+	path = /obj/item/clothing/accessory/scarf/offworlder
 
 /datum/gear/accessory/offworlder_armband
 	display_name = "exo-stellar ribbon selection"
