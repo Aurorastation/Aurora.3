@@ -1,0 +1,7 @@
+author: Alberyk
+
+delete-after: True
+
+changes: 
+  - bugfix: "Off-worlder loadout should be available now."
+  - bugfix: "Off-worlder humans can now use robotic limbs."
