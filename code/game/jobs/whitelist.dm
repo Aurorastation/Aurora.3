@@ -75,6 +75,7 @@ var/list/whitelist = list()
 		return 0
 
 	if (istype(species, /datum/species))
+		var/datum/species/S = species
 		if (!(S.spawn_flags & IS_WHITELISTED))
 			return TRUE
 
