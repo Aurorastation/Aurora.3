@@ -75,11 +75,8 @@ var/list/whitelist = list()
 		return 0
 
 	if (istype(species, /datum/species))
-		var/datum/species/S = species
-		species = S.name
-
-	if (!(S.spawn_flags & IS_WHITELISTED))
-		return TRUE
+		if (!(S.spawn_flags & IS_WHITELISTED))
+			return TRUE
 
 	if (!alien_whitelist && !config.sql_whitelists)
 		return 0
