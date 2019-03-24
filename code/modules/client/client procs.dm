@@ -273,13 +273,15 @@
 			to_chat(src, "<span class='danger'>You have exceeded the spam filter limit for identical messages. An auto-mute was applied.</span>")
 			cmd_admin_mute(mob, mute_type, 1)
 			log_debug("SPAM_PROTECT: [src] tripped duplicate message filter, now muted.")
+			last_message_count = 0
 			return TRUE
 		else if(last_message_count >= SPAM_TRIGGER_WARNING)
 			to_chat(src, "<span class='danger'>You are nearing the spam filter limit for identical messages.</span>")
 			log_debug("SPAM_PROTECT: [src] tripped duplicate message filter, now warned.")
 			return FALSE
+	else
+		last_message_count = 0
 
-	last_message_count = 0
 	return FALSE
 
 /client/proc/handle_spam_prevention(message, mute_type)
