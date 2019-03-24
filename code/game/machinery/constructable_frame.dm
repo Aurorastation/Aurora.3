@@ -27,7 +27,7 @@
 		desc = D
 
 /obj/machinery/constructable_frame/verb/rotate()
-	set name = "Rotate Window Counter-Clockwise"
+	set name = "Rotate Frame Counter-Clockwise"
 	set category = "Object"
 	set src in oview(1)
 
@@ -38,7 +38,7 @@
 	return
 
 /obj/machinery/constructable_frame/verb/revrotate()
-	set name = "Rotate Window Clockwise"
+	set name = "Rotate Frame Clockwise"
 	set category = "Object"
 	set src in oview(1)
 
