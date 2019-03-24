@@ -24,7 +24,7 @@
 
 obj/item/weapon/gun/energy/staff/special_check(var/mob/living/user)
 	if(HULK in user.mutations)
-		user << "<span class='danger'>In your rage you momentarily forget the operation of this stave!</span>"
+		to_chat(user, "<span class='danger'>In your rage you momentarily forget the operation of this stave!</span>")
 		return 0
 	if(!user.is_wizard())
 		if(istype(user, /mob/living/carbon/human))
@@ -74,7 +74,7 @@ obj/item/weapon/gun/energy/staff/special_check(var/mob/living/user)
 
 obj/item/weapon/gun/energy/staff/animate/special_check(var/mob/living/user)
 	if(HULK in user.mutations)
-		user << "<span class='danger'>In your rage you momentarily forget the operation of this stave!</span>"
+		to_chat(user, "<span class='danger'>In your rage you momentarily forget the operation of this stave!</span>")
 		return 0
 	if(!user.is_wizard())
 		if(istype(user, /mob/living/carbon/human))
@@ -110,7 +110,7 @@ obj/item/weapon/gun/energy/staff/focus
 
 obj/item/weapon/gun/energy/staff/focus/special_check(var/mob/living/user)
 	if(HULK in user.mutations)
-		user << "<span class='danger'>In your rage you momentarily forget the operation of this stave!</span>"
+		to_chat(user, "<span class='danger'>In your rage you momentarily forget the operation of this stave!</span>")
 		return 0
 	if(!user.is_wizard())
 		if(istype(user, /mob/living/carbon/human))
@@ -120,7 +120,7 @@ obj/item/weapon/gun/energy/staff/focus/special_check(var/mob/living/user)
 			var/obj/item/organ/external/RA = H.get_organ("r_arm")
 			var/active_hand = H.hand
 			playsound(user, 'sound/magic/lightningbolt.ogg', 40, 1)
-			user << "<span class='warning'>Coruscating waves of energy wreathe around your arm...hot...so <b>hot</b>!</span>"
+			to_chat(user, "<span class='warning'>Coruscating waves of energy wreathe around your arm...hot...so <b>hot</b>!</span>")
 			user.show_message("<b>[user]</b> screams!",2)
 			user.drop_item()
 			if(active_hand)
@@ -134,11 +134,11 @@ obj/item/weapon/gun/energy/staff/focus/special_check(var/mob/living/user)
 obj/item/weapon/gun/energy/staff/focus/attack_self(mob/living/user as mob)
 	if(projectile_type == /obj/item/projectile/forcebolt)
 		charge_cost = 400
-		user << "<span class='warning'>The [src.name] will now strike a small area.</span>"
+		to_chat(user, "<span class='warning'>The [src.name] will now strike a small area.</span>")
 		projectile_type = /obj/item/projectile/forcebolt/strong
 	else
 		charge_cost = 200
-		user << "<span class='warning'>The [src.name] will now strike only a single person.</span>"
+		to_chat(user, "<span class='warning'>The [src.name] will now strike only a single person.</span>")
 		projectile_type = /obj/item/projectile/forcebolt
 
 
@@ -162,7 +162,7 @@ obj/item/weapon/gun/energy/staff/focus/attack_self(mob/living/user as mob)
 /obj/item/weapon/gun/energy/staff/chaos/special_check(var/mob/living/user)
 	projectile_type = pick(possible_projectiles)
 	if(HULK in user.mutations)
-		user << "<span class='danger'>In your rage you momentarily forget the operation of this stave!</span>"
+		to_chat(user, "<span class='danger'>In your rage you momentarily forget the operation of this stave!</span>")
 		return 0
 	if(!user.is_wizard())
 		if(istype(user, /mob/living/carbon/human))
@@ -207,7 +207,7 @@ obj/item/weapon/gun/energy/staff/focus/attack_self(mob/living/user as mob)
 
 /obj/item/weapon/gun/energy/wand/special_check(var/mob/living/user)
 	if(HULK in user.mutations)
-		user << "<span class='danger'>In your rage you momentarily forget the operation of this wand!</span>"
+		to_chat(user, "<span class='danger'>In your rage you momentarily forget the operation of this wand!</span>")
 		return 0
 	return 1
 
@@ -227,13 +227,12 @@ obj/item/weapon/gun/energy/staff/focus/attack_self(mob/living/user as mob)
 
 /obj/item/weapon/gun/energy/wand/fire/special_check(var/mob/living/user)
 	if(HULK in user.mutations)
-		user << "<span class='danger'>In your rage you momentarily forget the operation of this wand!</span>"
+		to_chat(user, "<span class='danger'>In your rage you momentarily forget the operation of this wand!</span>")
 		return 0
 	if(!user.is_wizard())
 		if(istype(user, /mob/living/carbon/human))
 			var/mob/living/carbon/human/H = user
-			H.fire_stacks += 15
-			H.IgniteMob()
+			H.IgniteMob(15)
 			H.visible_message("<span class='danger'>\The [src] explodes in a shower of fire!</span>")
 			H.drop_item()
 			qdel(src)
@@ -254,7 +253,7 @@ obj/item/weapon/gun/energy/staff/focus/attack_self(mob/living/user as mob)
 
 /obj/item/weapon/gun/energy/wand/polymorph/special_check(var/mob/living/user)
 	if(HULK in user.mutations)
-		user << "<span class='danger'>In your rage you momentarily forget the operation of this wand!</span>"
+		to_chat(user, "<span class='danger'>In your rage you momentarily forget the operation of this wand!</span>")
 		return 0
 	if(!user.is_wizard())
 		if(istype(user, /mob/living/carbon/human))
@@ -280,16 +279,16 @@ obj/item/weapon/gun/energy/staff/focus/attack_self(mob/living/user as mob)
 
 /obj/item/weapon/gun/energy/wand/teleport/special_check(var/mob/living/user) //todo: think of something else for this
 	if(HULK in user.mutations)
-		user << "<span class='danger'>In your rage you momentarily forget the operation of this wand!</span>"
+		to_chat(user, "<span class='danger'>In your rage you momentarily forget the operation of this wand!</span>")
 		return 0
 	if(!user.is_wizard())
 		if(istype(user, /mob/living/carbon/human))
 			var/mob/living/carbon/human/H = user
 			var/obj/item/organ/O = H.internal_organs_by_name[pick(H.species.vision_organ || "eyes","appendix","kidneys","liver", "heart", "lungs", "brain")]
 			if(O == null)
-				user << "<span class='notice'>You can't make any sense of the arcane glyphs... maybe you should try again.</span>"
+				to_chat(user, "<span class='notice'>You can't make any sense of the arcane glyphs... maybe you should try again.</span>")
 			else
-				user << "<span class='danger'>As you stumble over the arcane glyphs, you feel a twisting sensation in your [O.name]!</span>"
+				to_chat(user, "<span class='danger'>As you stumble over the arcane glyphs, you feel a twisting sensation in your [O.name]!</span>")
 				user.visible_message("<span class='danger'>\A flash of smoke pours out of [user]'s orifices!</span>")
 				playsound(user, 'sound/magic/lightningshock.ogg', 40, 1)
 				var/datum/effect/effect/system/smoke_spread/smoke = new /datum/effect/effect/system/smoke_spread()
@@ -316,7 +315,7 @@ obj/item/weapon/gun/energy/staff/focus/attack_self(mob/living/user as mob)
 
 /obj/item/weapon/gun/energy/wand/force/special_check(var/mob/living/user)
 	if(HULK in user.mutations)
-		user << "<span class='danger'>In your rage you momentarily forget the operation of this wand!</span>"
+		to_chat(user, "<span class='danger'>In your rage you momentarily forget the operation of this wand!</span>")
 		return 0
 	if(!user.is_wizard())
 		if(istype(user, /mob/living/carbon/human))
@@ -342,7 +341,7 @@ obj/item/weapon/gun/energy/staff/focus/attack_self(mob/living/user as mob)
 
 /obj/item/weapon/gun/energy/wand/animation/special_check(var/mob/living/user)
 	if(HULK in user.mutations)
-		user << "<span class='danger'>In your rage you momentarily forget the operation of this wand!</span>"
+		to_chat(user, "<span class='danger'>In your rage you momentarily forget the operation of this wand!</span>")
 		return 0
 	if(!user.is_wizard())
 		if(istype(user, /mob/living/carbon/human))

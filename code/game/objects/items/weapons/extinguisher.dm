@@ -126,7 +126,7 @@
 	safety = !safety
 	src.icon_state = "[sprite_name][!safety]"
 	src.desc = "The safety is [safety ? "on" : "off"]."
-	user << "The safety is [safety ? "on" : "off"]."
+	to_chat(user, "The safety is [safety ? "on" : "off"].")
 	return
 
 /obj/item/weapon/extinguisher/attackby(var/obj/O as obj, var/mob/user as mob)
@@ -169,7 +169,7 @@
 
 	if (!safety)
 		if (src.reagents.total_volume < 1)
-			usr << "<span class='notice'>\The [src] is empty.</span>"
+			to_chat(usr, "<span class='notice'>\The [src] is empty.</span>")
 			return
 
 		if (world.time < src.last_use + 20)

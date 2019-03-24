@@ -34,7 +34,8 @@ Bonus
 		var/mob/living/carbon/M = A.affected_mob
 		switch(A.stage)
 			if(1, 2, 3, 4)
-				M << "<span class='notice'>[pick("You feel nauseous.", "You feel like you're going to throw up!")]</span>"
+				var/message = pick("You feel nauseous.", "You feel like you're going to throw up!")
+				to_chat(M, "<span class='notice'>[message]</span>")
 			else
 				Vomit(M)
 

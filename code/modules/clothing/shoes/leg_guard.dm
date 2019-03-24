@@ -12,7 +12,7 @@
 	if(..()) //This will only run if no other problems occured when equiping.
 		if(H.wear_suit)
 			if(H.wear_suit.body_parts_covered & LEGS)
-				H << "<span class='warning'>You can't wear \the [src] with \the [H.wear_suit], it's in the way.</span>"
+				to_chat(H, "<span class='warning'>You can't wear \the [src] with \the [H.wear_suit], it's in the way.</span>")
 				return 0
 		return 1
 

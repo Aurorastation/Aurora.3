@@ -44,7 +44,7 @@
 
 	//search the href for script injection
 	if( findtext(href,"<script",1,0) )
-		world.log << "Attempted use of scripts within a topic call, by [src]"
+		world.log <<  "Attempted use of scripts within a topic call, by [src]"
 		message_admins("Attempted use of scripts within a topic call, by [src]")
 		//del(usr)
 		return
@@ -74,10 +74,10 @@
 
 	if(href_list["discord_msg"])
 		if(!holder && received_discord_pm < world.time - 6000) //Worse they can do is spam IRC for 10 minutes
-			usr << "<span class='warning'>You are no longer able to use this, it's been more then 10 minutes since an admin on Discord has responded to you</span>"
+			to_chat(usr, "<span class='warning'>You are no longer able to use this, it's been more then 10 minutes since an admin on Discord has responded to you</span>")
 			return
 		if(mute_discord)
-			usr << "<span class='warning'You cannot use this as your client has been muted from sending messages to the admins on Discord</span>"
+			to_chat(usr, "<span class='warning'You cannot use this as your client has been muted from sending messages to the admins on Discord</span>")
 			return
 		cmd_admin_discord_pm(href_list["discord_msg"])
 		return
@@ -114,7 +114,7 @@
 
 		establish_db_connection(dbcon)
 		if (!dbcon.IsConnected())
-			src << "<span class='warning'>Action failed! Database link could not be established!</span>"
+			to_chat(src, "<span class='warning'>Action failed! Database link could not be established!</span>")
 			return
 
 
@@ -122,11 +122,11 @@
 		check_query.Execute(list("id" = request_id))
 
 		if (!check_query.NextRow())
-			src << "<span class='warning'>No request found!</span>"
+			to_chat(src, "<span class='warning'>No request found!</span>")
 			return
 
 		if (ckey(check_query.item[1]) != ckey || check_query.item[2] != "new")
-			src << "<span class='warning'>Request authentication failed!</span>"
+			to_chat(src, "<span class='warning'>Request authentication failed!</span>")
 			return
 
 		var/query_contents = ""
@@ -146,7 +146,7 @@
 
 				feedback_message = "<font color='red'><b>Link request rejected!</b></font>"
 			else
-				src << "<span class='warning'>Invalid command sent.</span>"
+				to_chat(src, "<span class='warning'>Invalid command sent.</span>")
 				return
 
 		var/DBQuery/update_query = dbcon.NewQuery(query_contents)
@@ -155,7 +155,7 @@
 		if (href_list["linkingaction"] == "accept" && alert("To complete the process, you have to visit the website. Do you want to do so now?",,"Yes","No") == "Yes")
 			process_webint_link("interface/user/link")
 
-		src << feedback_message
+		to_chat(src, feedback_message)
 		check_linking_requests()
 		return
 
@@ -185,13 +185,13 @@
 			// Forum link from various panels.
 			if ("github")
 				if (!config.githuburl)
-					src << "<span class='danger'>Github URL not set in the config. Unable to open the site.</span>"
+					to_chat(src, "<span class='danger'>Github URL not set in the config. Unable to open the site.</span>")
 				else if (alert("This will open the Github page in your browser. Are you sure?",, "Yes", "No") == "Yes")
 					if (href_list["pr"])
 						var/pr_link = "[config.githuburl]pull/[href_list["pr"]]"
-						src << link(pr_link)
+						to_chat(src, link(pr_link))
 					else
-						src << link(config.githuburl)
+						to_chat(src, link(config.githuburl))
 
 			// Forum link from various panels.
 			if ("forums")
@@ -253,7 +253,7 @@
 					if (!(prefs.muted & mute_type))
 						cmd_admin_mute(src.mob, mute_type, 1)
 
-					src << "<span class='danger'>You have tripped the macro filter. An auto-mute was applied.</span>"
+					to_chat(src, "<span class='danger'>You have tripped the macro filter. An auto-mute was applied.</span>")
 					last_message_time = world.time
 					spam_alert = 4
 					return 1
@@ -265,11 +265,11 @@
 		if(last_message == message)
 			last_message_count++
 			if(last_message_count >= SPAM_TRIGGER_AUTOMUTE)
-				src << "<span class='danger'>You have exceeded the spam filter limit for identical messages. An auto-mute was applied.</span>"
+				to_chat(src, "<span class='danger'>You have exceeded the spam filter limit for identical messages. An auto-mute was applied.</span>")
 				cmd_admin_mute(src.mob, mute_type, 1)
 				return 1
 			if(last_message_count >= SPAM_TRIGGER_WARNING)
-				src << "<span class='danger'>You are nearing the spam filter limit for identical messages.</span>"
+				to_chat(src, "<span class='danger'>You are nearing the spam filter limit for identical messages.</span>")
 				return 0
 
 	last_message = message
@@ -279,13 +279,13 @@
 //This stops files larger than UPLOAD_LIMIT being sent from client to server via input(), client.Import() etc.
 /client/AllowUpload(filename, filelength)
 	if(filelength > UPLOAD_LIMIT)
-		src << "<font color='red'>Error: AllowUpload(): File Upload too large. Upload Limit: [UPLOAD_LIMIT/1024]KiB.</font>"
+		to_chat(src, "<font color='red'>Error: AllowUpload(): File Upload too large. Upload Limit: [UPLOAD_LIMIT/1024]KiB.</font>")
 		return 0
 /*	//Don't need this at the moment. But it's here if it's needed later.
 	//Helps prevent multiple files being uploaded at once. Or right after eachother.
 	var/time_to_wait = fileaccess_timer - world.time
 	if(time_to_wait > 0)
-		src << "<font color='red'>Error: AllowUpload(): Spam prevention. Please wait [round(time_to_wait/10)] seconds.</font>"
+		to_chat(src, "<font color='red'>Error: AllowUpload(): Spam prevention. Please wait [round(time_to_wait/10)] seconds.</font>")
 		return 0
 	fileaccess_timer = world.time + FTPDELAY	*/
 	return 1
@@ -307,7 +307,7 @@
 		del(src)
 		return
 
-	src << "<span class='alert'>If the title screen is black, resources are still downloading. Please be patient until the title screen appears.</span>"
+	to_chat(src, "<span class='alert'>If the title screen is black, resources are still downloading. Please be patient until the title screen appears.</span>")
 
 
 	clients += src
@@ -339,13 +339,13 @@
 			return 0
 
 	if (byond_version < config.client_error_version)
-		src << "<span class='danger'><b>Your version of BYOND is too old!</b></span>"
-		src << config.client_error_message
-		src << "Your version: [byond_version]."
-		src << "Required version: [config.client_error_version] or later."
-		src << "Visit http://www.byond.com/download/ to get the latest version of BYOND."
+		to_chat(src, "<span class='danger'><b>Your version of BYOND is too old!</b></span>")
+		to_chat(src, config.client_error_message)
+		to_chat(src, "Your version: [byond_version].")
+		to_chat(src, "Required version: [config.client_error_version] or later.")
+		to_chat(src, "Visit http://www.byond.com/download/ to get the latest version of BYOND.")
 		if (holder)
-			src << "Admins get a free pass. However, <b>please</b> update your BYOND as soon as possible. Certain things may cause crashes if you play with your present version."
+			to_chat(src, "Admins get a free pass. However, <b>please</b> update your BYOND as soon as possible. Certain things may cause crashes if you play with your present version.")
 		else
 			log_access("Failed Login: [key] [computer_id] [address] - Outdated BYOND major version: [byond_version].")
 			del(src)
@@ -354,9 +354,9 @@
 	if (LAZYLEN(config.client_blacklist_version))
 		var/client_version = "[byond_version].[byond_build]"
 		if (client_version in config.client_blacklist_version)
-			src << "<span class='danger'><b>Your version of BYOND is explicitly blacklisted from joining this server!</b></span>"
-			src << "Your current version: [client_version]."
-			src << "Visit http://www.byond.com/download/ to download a different version. Try looking for a newer one, or go one lower."
+			to_chat(src, "<span class='danger'><b>Your version of BYOND is explicitly blacklisted from joining this server!</b></span>")
+			to_chat(src, "Your current version: [client_version].")
+			to_chat(src, "Visit http://www.byond.com/download/ to download a different version. Try looking for a newer one, or go one lower.")
 			log_access("Failed Login: [key] [computer_id] [address] - Blacklisted BYOND version: [client_version].")
 			del(src)
 			return 0
@@ -629,7 +629,7 @@
 			log_debug("Unrecognized process_webint_link() call used. Route sent: '[route]'.")
 			return
 
-	src << link(linkURL)
+	to_chat(src, link(linkURL))
 	return
 
 /client/verb/show_greeting()
