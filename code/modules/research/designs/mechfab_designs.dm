@@ -891,7 +891,7 @@
 /datum/design/rig
 	build_type = MECHFAB
 	category = "RIG Assemblies"
-	materials = list(DEFAULT_WALL_MATERIAL = 25000, "glass" = 10000)
+	materials = list(DEFAULT_WALL_MATERIAL = 25000, "glass" = 10000, "silver" = 5500, "gold" = 5500)
 	req_tech = list(TECH_MATERIAL = 3, TECH_ENGINEERING = 2, TECH_MAGNET = 3, TECH_POWER = 3)
 	time = 20
 
@@ -901,7 +901,7 @@
 	id = "rig_ce"
 	build_path = /obj/item/rig_assembly/ce
 	req_tech = list(TECH_MATERIAL = 4, TECH_ENGINEERING = 3, TECH_MAGNET = 3, TECH_POWER = 4)
-	materials = list(DEFAULT_WALL_MATERIAL = 25000, "glass" = 12500)
+	materials = list(DEFAULT_WALL_MATERIAL = 25000, "glass" = 12500, "silver" = 5500, "gold" = 5500, "phoron" = 7550)
 
 /datum/design/rig/eva
 	name = "EVA suit control module assembly"
@@ -913,7 +913,7 @@
 	name = "industrial suit control module assembly"
 	desc = "An assembly for a heavy, powerful rig used by construction crews and mining corporations."
 	id = "rig_industrial"
-	materials = list(DEFAULT_WALL_MATERIAL = 30000, "glass" = 12500)
+	materials = list(DEFAULT_WALL_MATERIAL = 25000, "glass" = 12500, "silver" = 3500, "gold" = 3500, "uranium" = 5550)
 	build_path = /obj/item/rig_assembly/industrial
 
 /datum/design/rig/hazmat
@@ -921,12 +921,14 @@
 	desc = "An assembly for Anomalous Material Interaction hardsuit that protects against the strangest energies the universe can throw at it."
 	id = "rig_hazmat"
 	build_path = /obj/item/rig_assembly/hazmat
+	materials = list(DEFAULT_WALL_MATERIAL = 25000, "glass" = 25000, "silver" = 5500, "gold" = 5500, "phoron" = 7550)
 
 /datum/design/rig/medical
 	name = "rescue suit control module assembly"
 	desc = "An assembly for a durable suit designed for medical rescue in high risk areas."
 	id = "rig_medical"
 	build_path = /obj/item/rig_assembly/medical
+	materials = list(DEFAULT_WALL_MATERIAL = 25000, "glass" = 12500, "silver" = 5500, "gold" = 3500, "phoron" = 7550)
 
 /datum/design/rig/hazard
 	name = "hazard hardsuit control module"
@@ -934,7 +936,7 @@
 	id = "rig_hazard"
 	build_path = /obj/item/rig_assembly/combat/hazard
 	req_tech = list(TECH_MATERIAL = 4, TECH_ENGINEERING = 3, TECH_MAGNET = 3, TECH_POWER = 3, TECH_COMBAT = 3)
-	materials = list(DEFAULT_WALL_MATERIAL = 45000, "glass" = 20000)
+	materials = list(DEFAULT_WALL_MATERIAL = 30000, "glass" = 12500, "silver" = 3500, "gold" = 3500, "uranium" = 5550)
 
 /datum/design/rig/combat
 	name = "combat hardsuit control module assembly"
@@ -942,7 +944,7 @@
 	id = "rig_combat"
 	build_path = /obj/item/rig_assembly/combat/combat
 	req_tech = list(TECH_MATERIAL = 5, TECH_ENGINEERING = 4, TECH_MAGNET = 3, TECH_POWER = 3, TECH_COMBAT = 5)
-	materials = list(DEFAULT_WALL_MATERIAL = 55000, "glass" = 25000, "silver" = 7500)
+	materials = list(DEFAULT_WALL_MATERIAL = 30000, "glass" = 12500, "silver" = 3500, "gold" = 3500, "uranium" = 5550, "diamond" = 7500)
 
 /datum/design/rig/hacker
 	name = "light suit control module assembly"
@@ -950,7 +952,7 @@
 	id = "rig_hacker"
 	build_path = /obj/item/rig_assembly/combat/illegal/hacker
 	req_tech = list(TECH_MATERIAL = 4, TECH_ENGINEERING = 3, TECH_MAGNET = 2, TECH_POWER = 3, TECH_COMBAT = 3, TECH_ILLEGAL = 3)
-	materials = list(DEFAULT_WALL_MATERIAL = 25000, "glass" = 12500, "gold" = 2500)
+	materials = list(DEFAULT_WALL_MATERIAL = 25000, "glass" = 12500, "gold" = 2500, "gold" = 3500)
 
 /datum/design/rig/stealth
 	name = "stealth suit control module assembly"
@@ -958,6 +960,6 @@
 	id = "rig_stealth"
 	build_path = /obj/item/rig_assembly/combat/illegal/stealth
 	req_tech = list(TECH_MATERIAL = 5, TECH_ENGINEERING = 4, TECH_MAGNET = 3, TECH_POWER = 4, TECH_COMBAT = 5, TECH_ILLEGAL = 5)
-	materials = list(DEFAULT_WALL_MATERIAL = 27500, "glass" = 15000, "gold" = 5000, "silver" = 2500)
+	materials = list(DEFAULT_WALL_MATERIAL = 27500, "glass" = 15000, "gold" = 5000, "silver" = 2500, "gold" = 3500,"diamond" = 5500 )
 
 
