@@ -116,24 +116,42 @@
 	else
 		..()
 
-/obj/item/weapon/shreddedp/proc/burnpaper(var/obj/item/weapon/flame/lighter/P, var/mob/user)
-	if(user.restrained())
-		return
-	if(!P.lit)
-		to_chat(user, "<span class='warning'>\The [P] is not lit.</span>")
-		return
-	user.visible_message("<span class='warning'>\The [user] holds \the [P] up to \the [src]. It looks like \he's trying to burn it!</span>", \
-		"<span class='warning'>You hold \the [P] up to \the [src], burning it slowly.</span>")
-	if(!do_after(user,20))
-		to_chat(user, "<span class='warning'>You must hold \the [P] steady to burn \the [src].</span>")
-		return
-	user.visible_message("<span class='danger'>\The [user] burns right through \the [src], turning it to ash. It flutters through the air before settling on the floor in a heap.</span>", \
-		"<span class='danger'>You burn right through \the [src], turning it to ash. It flutters through the air before settling on the floor in a heap.</span>")
-	FireBurn()
+/obj/item/weapon/shreddedp/proc/burnpaper(obj/item/weapon/flame/P, mob/user)
+	var/class = "warning"
 
-/obj/item/weapon/shreddedp/proc/FireBurn()
-	new /obj/effect/decal/cleanable/ash(get_turf(src))
-	qdel(src)
+	if (!user.restrained())
+		if (istype(P, /obj/item/weapon/flame))
+			var/obj/item/weapon/flame/F = P
+			if (!F.lit)
+				return
+		else if (iswelder(P))
+			var/obj/item/weapon/weldingtool/F = P // NOW THAT'S WHAT I CALL RECYCLING - wezzy
+			if (!F.welding)
+				return
+			if (!F.remove_fuel(1, user))
+				return
+		else
+
+			return
+
+		if(istype(P, /obj/item/weapon/flame/lighter/zippo))
+			class = "rose"
+
+		user.visible_message("<span class='[class]'>[user] holds \the [P] up to \the [src], it looks like \he's trying to burn it!</span>", \
+		"<span class='[class]'>You hold \the [P] up to \the [src], burning it slowly.</span>")
+		playsound(src.loc, 'sound/bureaucracy/paperburn.ogg', 50, 1)
+		icon_state = "shredp_onfire"
+
+		spawn(20)
+			if(get_dist(src, user) < 2 && user.get_active_hand() == P)
+				user.visible_message("<span class='[class]'>[user] burns right through \the [src], turning it to ash. It flutters through the air before settling on the floor in a heap.</span>", \
+				"<span class='[class]'>You burn right through \the [src], turning it to ash. It flutters through the air before settling on the floor in a heap.</span>")
+				new /obj/effect/decal/cleanable/ash(src.loc)
+				qdel(src)
+
+			else
+				user << "<span class='warning'>You must hold \the [P] steady to burn \the [src].</span>"
+
 
 /obj/item/weapon/shreddedp
 	name = "shredded paper"
