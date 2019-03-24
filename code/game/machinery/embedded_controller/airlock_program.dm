@@ -216,7 +216,7 @@
 					memory["target_pressure"] = memory["internal_sensor_pressure"]
 					state = STATE_PREPARE
 					target_state = TARGET_NONE
-				
+
 				else if(memory["pump_status"] != "off")
 					signalPump(tag_airpump, 0)
 				else

@@ -90,11 +90,27 @@ obj/machinery/embedded_controller/radio/Destroy()
 	else if(istype(C,/obj/item/device/debugger))
 		var/newtag = input(user, "Enter a new controller ID tag.", "Controller Tag Control") as null|text
 		id_tag = newtag
+		update_tags()
 		return
+
+/obj/machinery/embedded_controller/radio/proc/update_tags()
+	return
+
+/obj/machinery/embedded_controller/radio/airlock/update_tags()
+	. = ..()
+	tag_exterior_door = "[id_tag]_outer"
+	tag_interior_door = "[id_tag]_inner"
+	tag_airpump = "[id_tag]_pump"
+	tag_chamber_sensor = "[id_tag]_sensor"
+	tag_exterior_sensor = "[id_tag]_ext_sensor"
+	tag_interior_sensor = "[id_tag]_int_sensor"
+	tag_airlock_mech_sensor = "[id_tag]_airlock_mech"
+	tag_shuttle_mech_sensor = "[id_tag]_shuttle_mech"
+	sync_program()
 
 /obj/machinery/embedded_controller/radio/dismantle()
 	playsound(loc, 'sound/items/Screwdriver.ogg', 50, 1)
-	var/obj/item/frame/controller/controller = new/obj/item/frame/controller(loc)
+	var/obj/item/frame/controller/radio/controller = new/obj/item/frame/controller(loc)
 	controller.build_machine_type = src.type
 	controller.id_tag = src.id_tag
 	qdel(src)

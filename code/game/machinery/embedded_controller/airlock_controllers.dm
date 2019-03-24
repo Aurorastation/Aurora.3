@@ -16,6 +16,24 @@
 	. = ..()
 	program = new/datum/computer/file/embedded_program/airlock(src)
 
+/obj/machinery/embedded_controller/radio/proc/sync_program()
+	return
+
+/obj/machinery/embedded_controller/radio/airlock/sync_program()
+	var/datum/computer/file/embedded_program/airlock/ap = program
+	ap.tag_exterior_door = tag_exterior_door? tag_exterior_door : "[id_tag]_outer"
+	ap.tag_interior_door = tag_interior_door? tag_interior_door : "[id_tag]_inner"
+	ap.tag_airpump = tag_airpump? tag_airpump : "[id_tag]_pump"
+	ap.tag_chamber_sensor = tag_chamber_sensor? tag_chamber_sensor : "[id_tag]_sensor"
+	ap.tag_exterior_sensor = tag_exterior_sensor? tag_exterior_sensor : "[id_tag]_ext_sensor"
+	ap.tag_interior_sensor = tag_interior_sensor? tag_interior_sensor : "[id_tag]_int_sensor"
+	ap.tag_airlock_mech_sensor = tag_airlock_mech_sensor? tag_airlock_mech_sensor : "[id_tag]_airlock_mech"
+	ap.tag_shuttle_mech_sensor = tag_shuttle_mech_sensor? tag_shuttle_mech_sensor : "[id_tag]_shuttle_mech"
+	ap.memory["secure"] = tag_secure
+
+/obj/machinery/embedded_controller/radio/airlock/attackby(obj/item/C, mob/user)
+	. = ..()
+
 //Advanced airlock controller for when you want a more versatile airlock controller - useful for turning simple access control rooms into airlocks
 /obj/machinery/embedded_controller/radio/airlock/advanced_airlock_controller
 	name = "Advanced Airlock Controller"
@@ -55,6 +73,8 @@
 		if("cycle_ext")
 			clean = 1
 		if("cycle_int")
+			clean = 1
+		if("cycle")
 			clean = 1
 		if("force_ext")
 			clean = 1

@@ -118,7 +118,7 @@
 	recipes += new/datum/stack_recipe("knife grip", /obj/item/weapon/material/butterflyhandle, 4, time = 20, one_per_turf = 0, on_floor = 1, supplied_material = "[name]")
 	recipes += new/datum/stack_recipe("dark floor tile", /obj/item/stack/tile/floor_dark, 1, 4, 20)
 	recipes += new/datum/stack_recipe_list("embedded controller frames", list( \
-		new/datum/stack_recipe("airlock controller frame", /obj/item/frame/controller/airlock, 2), \
+		new/datum/stack_recipe("airlock controller frame", /obj/item/frame/controller/radio/airlock, 2), \
 		new/datum/stack_recipe("docking controller frame", /obj/item/frame/button/mass_driver, 2)
 		))
 
