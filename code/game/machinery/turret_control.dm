@@ -28,10 +28,8 @@
 	var/check_anomalies = 1	//checks if it can shoot at unidentified lifeforms (ie xenos)
 	var/check_synth = 0 	//if active, will shoot at anything not an AI or cyborg
 	var/ailock = 0 	//Silicons cannot use this
-
 	req_access = list(access_ai_upload)
-
-	 // list of turrets under control
+	var/ui_ref = null //used for turrets UI ref
 
 /obj/machinery/turretid/stun
 	enabled = 1
@@ -135,6 +133,11 @@
 	data["is_lethal"] = 1
 	data["lethal"] = lethal
 	data["can_switch"] = egun
+	var/turrets[0]
+	if(istype(control_area))
+		for (var/obj/machinery/porta_turret/aTurret in control_area.turrets)
+			turrets[++turrets.len] = list("name" = sanitize(aTurret.name) + " [turrets.len]", "ref"= "\ref[aTurret]")
+	data["turrets"] = turrets
 
 	if(data["access"])
 		var/settings[0]
@@ -148,10 +151,11 @@
 
 	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if (!ui)
-		ui = new(user, src, ui_key, "turret_control.tmpl", "Turret Controls", 500, 300)
+		ui = new(user, src, ui_key, "turret_control.tmpl", "Turret Controls", 625, 425)
 		ui.set_initial_data(data)
 		ui.open()
 		ui.set_auto_update(1)
+	ui_ref = ui
 
 /obj/machinery/turretid/Topic(href, href_list)
 	if(..())
@@ -175,8 +179,17 @@
 			check_access = value
 		else if(href_list["command"] == "check_anomalies")
 			check_anomalies = value
-
 		updateTurrets()
+		update_icon()
+		return 1
+	else if(href_list["turret"])
+		if(ui_ref)
+			var/obj/machinery/porta_turret/aTurret = locate(href_list["turret"]) in (control_area.turrets)
+			message_admins("trying to open UI")
+			if(!aTurret)
+				return
+			aTurret.ui_interact(usr, master_ui = ui_ref)
+
 		update_icon()
 		return 1
 

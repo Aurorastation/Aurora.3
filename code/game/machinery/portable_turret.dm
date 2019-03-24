@@ -127,6 +127,7 @@
 			shot_delay = max(installation.fire_delay_wielded, 4)
 		else
 			shot_delay = max(installation.fire_delay, 4)
+		name = "[installation.name] [name]"
 
 	var/area/control_area = get_area(src)
 	if(istype(control_area))
@@ -181,7 +182,10 @@
 	else
 		icon_state = "cover_[cover_set]"
 
-/obj/machinery/porta_turret/proc/isLocked(mob/user)
+/obj/machinery/porta_turret/proc/isLocked(mob/user, var/remote = FALSE)
+	if(remote)
+		message_admins("Is unlocked")
+		return FALSE
 	if(ailock && issilicon(user))
 		to_chat(user, "<span class='notice'>There seems to be a firewall preventing you from accessing this device.</span>")
 		return 1
@@ -192,21 +196,22 @@
 
 	return 0
 
-/obj/machinery/porta_turret/attack_ai(mob/user)
-	if(isLocked(user))
+/obj/machinery/porta_turret/attack_ai(mob/user, var/remote = FALSE)
+	if(can_use(user, remote))
 		return
 
 	ui_interact(user)
 
-/obj/machinery/porta_turret/attack_hand(mob/user)
-	if(isLocked(user))
+/obj/machinery/porta_turret/attack_hand(mob/user, var/remote = FALSE)
+	if(can_use(user, remote))
 		return
 
-	ui_interact(user)
+	message_admins("Opening UI")
+	ui_interact(user, remote)
 
-/obj/machinery/porta_turret/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
+/obj/machinery/porta_turret/ui_interact(mob/user, var/remote = FALSE, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/master_ui = null, var/datum/topic_state/state = default_state)
 	var/data[0]
-	data["access"] = !isLocked(user)
+	data["access"] = !isLocked(user, remote)
 	data["locked"] = locked
 	data["enabled"] = enabled
 	data["is_lethal"] = 1
@@ -225,29 +230,28 @@
 
 	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if (!ui)
-		ui = new(user, src, ui_key, "turret_control.tmpl", "Turret Controls", 500, 300)
+		ui = new(user, src, ui_key, "turret_control.tmpl", "[name] turret Controls", 500, 300, master_ui = master_ui, state = state)
 		ui.set_initial_data(data)
 		ui.open()
 		ui.set_auto_update(1)
 
-/obj/machinery/porta_turret/proc/HasController()
+/obj/machinery/porta_turret/proc/HasController(var/remote = FALSE)
+	if(remote)
+		return FALSE
 	var/area/A = get_area(src)
 	return A && A.turret_controls.len > 0
 
-/obj/machinery/porta_turret/CanUseTopic(var/mob/user)
-	if(HasController())
+/obj/machinery/porta_turret/proc/can_use(var/mob/user, var/remote = FALSE)
+	if(HasController(remote))
 		to_chat(user, "<span class='notice'>Turrets can only be controlled using the assigned turret controller.</span>")
 		return STATUS_CLOSE
 
-	if(isLocked(user))
+	if(isLocked(user, remote))
 		return STATUS_CLOSE
 
 	if(!anchored)
 		to_chat(usr, "<span class='notice'>\The [src] has to be secured first!</span>")
 		return STATUS_CLOSE
-
-	return ..()
-
 
 /obj/machinery/porta_turret/Topic(href, href_list)
 	if(..())

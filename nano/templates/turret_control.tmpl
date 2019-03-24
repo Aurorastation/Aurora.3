@@ -46,3 +46,13 @@
         </div>
     {{/for}}
 {{/if}}
+
+<div class='item'>
+    <div class="itemLabelWide">
+		List of Turrets:
+        {{for data.turrets}}
+            {{:helper.link(value.name, null, {'turret' : value.ref}, null)}}
+            <br><br>
+        {{/for}}
+    </div>
+</div>
