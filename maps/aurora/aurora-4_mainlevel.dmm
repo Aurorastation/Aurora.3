@@ -5279,9 +5279,7 @@
 /turf/simulated/floor/plating,
 /area/engineering/engine_waste)
 "akm" = (
-/obj/machinery/atmospherics/pipe/manifold/visible/black{
-	dir = 4
-	},
+/obj/machinery/atmospherics/binary/pump/high_power,
 /turf/simulated/floor/plating,
 /area/engineering/engine_waste)
 "akn" = (
@@ -5299,8 +5297,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 1
 	},
 /turf/simulated/floor/plating,
 /area/engineering/engine_waste)
@@ -5832,10 +5830,6 @@
 /turf/simulated/wall/r_wall,
 /area/engineering/engine_room)
 "all" = (
-/obj/machinery/atmospherics/binary/pump{
-	dir = 1;
-	name = "Waste Pump"
-	},
 /obj/structure/window/reinforced{
 	dir = 8
 	},
@@ -5846,13 +5840,16 @@
 	req_access = null;
 	req_one_access = list(11,24)
 	},
+/obj/machinery/atmospherics/binary/pump/high_power{
+	icon_state = "map_off";
+	dir = 1
+	},
 /turf/simulated/floor/plating,
 /area/engineering/engine_waste)
 "alm" = (
 /obj/machinery/atmospherics/pipe/simple/visible/black{
 	dir = 5
 	},
-/obj/machinery/meter,
 /obj/machinery/door/window/brigdoor/westleft{
 	dir = 1;
 	icon_state = "leftsecure";
@@ -5863,9 +5860,6 @@
 /turf/simulated/floor/plating,
 /area/engineering/engine_waste)
 "aln" = (
-/obj/machinery/atmospherics/portables_connector{
-	dir = 8
-	},
 /obj/structure/window/reinforced{
 	dir = 4
 	},
@@ -5877,6 +5871,9 @@
 	req_access = null;
 	req_one_access = list(11,24)
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/universal{
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/engineering/engine_waste)
 "alo" = (
@@ -5886,6 +5883,10 @@
 	pixel_x = 24
 	},
 /obj/structure/cable,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	icon_state = "intact-scrubbers";
+	dir = 9
+	},
 /turf/simulated/floor/plating,
 /area/engineering/engine_waste)
 "alp" = (
@@ -65213,6 +65214,10 @@
 	},
 /turf/simulated/floor/plating,
 /area/rnd/chemistry)
+"fUO" = (
+/obj/machinery/atmospherics/pipe/manifold4w/visible/black,
+/turf/simulated/floor/plating,
+/area/engineering/engine_waste)
 "fXR" = (
 /obj/structure/table/standard,
 /obj/item/clothing/head/beret/sec{
@@ -66148,6 +66153,12 @@
 /obj/structure/table/rack,
 /turf/simulated/floor/tiled/white,
 /area/maintenance/research_port)
+"ljA" = (
+/obj/machinery/atmospherics/portables_connector{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/engineering/engine_waste)
 "lnw" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
@@ -80654,8 +80665,8 @@ aab
 ahi
 ahV
 aiQ
-ajC
 akl
+ajD
 all
 amn
 anw
@@ -80911,7 +80922,7 @@ aab
 ahi
 ahW
 aiR
-ajD
+fUO
 akm
 alm
 amo
@@ -81168,7 +81179,7 @@ aab
 ahi
 ahV
 aiS
-ajC
+ljA
 akn
 aln
 amo
