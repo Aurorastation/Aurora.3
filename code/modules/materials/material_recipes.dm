@@ -104,7 +104,8 @@
 		new/datum/stack_recipe("button frame", /obj/item/frame/button, 2), \
 		new/datum/stack_recipe("mass driver button frame", /obj/item/frame/button/mass_driver, 2), \
 		new/datum/stack_recipe("door button frame", /obj/item/frame/button/door, 2), \
-		new/datum/stack_recipe("airlock access button frame", /obj/item/frame/button/access, 2)
+		new/datum/stack_recipe("airlock access button frame", /obj/item/frame/button/access, 2), \
+		new/datum/stack_recipe("airlock sensor frame", /obj/item/frame/sensor, 2)
 		))
 	recipes += new/datum/stack_recipe_list("embedded controller frames", list( \
 		new/datum/stack_recipe("airlock controller frame", /obj/item/frame/button, 2), \
