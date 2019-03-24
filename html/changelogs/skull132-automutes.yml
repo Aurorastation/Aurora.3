@@ -1,0 +1,6 @@
+author: Skull132
+
+delete-after: True
+
+changes:
+  - bugfix: "Imaginary friends are no longer auto-muted after saying shit."
