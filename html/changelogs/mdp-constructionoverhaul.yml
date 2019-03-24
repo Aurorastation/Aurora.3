@@ -1,0 +1,49 @@
+################################
+# Example Changelog File
+#
+# Note: This file, and files beginning with ".", and files that don't end in ".yml" will not be read. If you change this file, you will look really dumb.
+#
+# Your changelog will be merged with a master changelog. (New stuff added only, and only on the date entry for the day it was merged.)
+# When it is, any changes listed below will disappear.
+#
+# Valid Prefixes: 
+#   bugfix
+#   wip (For works in progress)
+#   tweak
+#   soundadd
+#   sounddel
+#   rscadd (general adding of nice things)
+#   rscdel (general deleting of nice things)
+#   imageadd
+#   imagedel
+#   maptweak
+#   spellcheck (typo fixes)
+#   experiment
+#   balance
+#   admin
+#   backend
+#   security
+#   refactor
+#################################
+
+# Your name.  
+author: MoondancerPony
+
+# Optional: Remove this file after generating master changelog.  Useful for PR changelogs that won't get used again.
+delete-after: True
+
+# Any changes you've made.  See valid prefix list above.
+# INDENT WITH TWO SPACES.  NOT TABS.  SPACES.
+# SCREW THIS UP AND IT WON'T WORK.
+# Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
+# Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
+changes: 
+  - refactor: "Replaced the invisible input/output objects for mining machinery with constructible industrial hoppers."
+  - rscadd: "Added circuitboards for mining machinery."
+  - rscadd: "Added recipes to make docking/airlock controllers from plasteel sheets."
+  - rscadd: "Added recipes to make buttons, mining hoppers, and airlock sensors from steel sheets."
+  - rscadd: "Added recipes to make conveyor belts and conveyor switches from plastic sheets."
+  - rscadd: "Most of these, as well as airlock boards and vent pumps can have various variables configured with a debugger from Engineering."
+  - rscadd: "Buttons can be constructed, opened, deconstructed, and have assembly pieces placed in them, activated when the button is."
+  - rscadd: "Conveyor belts and switches can be deconstructed."
+  - rscadd: "Added two new integrated circuit components, an advanced signaller as well as a reference encoder (converts a reference to a text format that can be stored, transmitted, and compared)."

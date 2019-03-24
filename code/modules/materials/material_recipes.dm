@@ -107,10 +107,6 @@
 		new/datum/stack_recipe("airlock access button frame", /obj/item/frame/button/access, 2), \
 		new/datum/stack_recipe("airlock sensor frame", /obj/item/frame/sensor, 2)
 		))
-	recipes += new/datum/stack_recipe_list("embedded controller frames", list( \
-		new/datum/stack_recipe("airlock controller frame", /obj/item/frame/button, 2), \
-		new/datum/stack_recipe("docking controller frame", /obj/item/frame/button/mass_driver, 2)
-		))
 
 /material/plasteel/generate_recipes()
 	..()
@@ -120,7 +116,7 @@
 	recipes += new/datum/stack_recipe("dark floor tile", /obj/item/stack/tile/floor_dark, 1, 4, 20)
 	recipes += new/datum/stack_recipe_list("embedded controller frames", list( \
 		new/datum/stack_recipe("airlock controller frame", /obj/item/frame/controller/radio/airlock, 2), \
-		new/datum/stack_recipe("docking controller frame", /obj/item/frame/button/mass_driver, 2)
+		new/datum/stack_recipe("docking controller frame", /obj/item/frame/controller/radio/docking_hatch, 2)
 		))
 
 /material/plastic/generate_recipes()
