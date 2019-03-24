@@ -14,8 +14,6 @@
 	warning_low_pressure = 30
 	hazard_low_pressure = 10
 
-	spawn_flags = IS_RESTRICTED
-
 /datum/species/human/offworlder/equip_later_gear(var/mob/living/carbon/human/H)
 	if(H.back)
 		var/obj/item/I = H.back
