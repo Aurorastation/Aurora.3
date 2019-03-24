@@ -1,0 +1,6 @@
+author: Alberyk
+
+delete-after: True
+
+changes: 
+  - tweak: "Printing rigs in robotics should be more resource expensive now."
