@@ -81,6 +81,9 @@ var/list/whitelist = list()
 	if (lowertext(species) == "human")
 		return 1
 
+	if (lowertext(species) == "off-worlder human")
+		return 1
+
 	if (!alien_whitelist && !config.sql_whitelists)
 		return 0
 
