@@ -2,7 +2,7 @@ author: MoondancerPony
 delete-after: True
 
 changes: 
-  - refactor: "Replaced the invisible input/output objects for mining machinery with constructible industrial hoppers."
+  - experiment: "Replaced the invisible input/output objects for mining machinery with constructible industrial hoppers."
   - rscadd: "Added circuitboards for mining machinery."
   - rscadd: "Added recipes to make docking/airlock controllers from plasteel sheets."
   - rscadd: "Added recipes to make buttons, mining hoppers, and airlock sensors from steel sheets."
