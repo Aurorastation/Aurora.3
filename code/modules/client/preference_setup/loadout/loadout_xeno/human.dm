@@ -65,7 +65,6 @@
 /datum/gear/mask/offworlder
 	display_name = "jagmask"
 	path = /obj/item/clothing/mask/breath/offworlder/jagmask
-
 	whitelisted = list("Off-Worlder Human")
 	sort_category = "Xenowear - Human"
 
