@@ -22,7 +22,7 @@
 	set name = "Rotate (Clockwise)"
 	set src in view(1)
 
-	if (usr.stat || usr.restrained() || anchored)
+	if(use_check(usr) || anchored)
 		return
 
 	src.set_dir(turn(src.dir, -90))
@@ -33,7 +33,7 @@
 	set name = "Rotate (Counterclockwise)"
 	set src in view(1)
 
-	if (usr.stat || usr.restrained() || anchored)
+	if(use_check(usr) || anchored)
 		return
 
 	src.set_dir(turn(src.dir, 90))
