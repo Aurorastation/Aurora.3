@@ -21,7 +21,7 @@
 	icon_state = "medbay"
 
 /area/adhomai/village/mayor
-	name = "\improper Mayor's Palace"
+	name = "\improper Governor's Palace"
 	icon_state = "captain"
 
 /area/adhomai/village/townhall

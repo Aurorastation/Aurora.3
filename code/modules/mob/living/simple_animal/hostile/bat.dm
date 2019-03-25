@@ -38,6 +38,7 @@
 
 	faction = "scarybat"
 	flying = TRUE
+	butchering_products = list(/obj/item/stack/material/animalhide = 1)
 	var/mob/living/owner
 
 /mob/living/simple_animal/hostile/scarybat/Initialize(mapload, mob/living/L as mob)

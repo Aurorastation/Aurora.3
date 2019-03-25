@@ -87,3 +87,15 @@
 /obj/item/weapon/gun/energy/lawgiver/nka
 	name = "\improper Lawbringer Mk I"
 	desc = "A prototype firearm produced by the Grrmhrvar Industries. It has multiple voice-activated firing modes."
+
+/obj/item/weapon/gun/projectile/revolver/detective/constable
+	desc = "A cheap revolver produced by the Royal Firearms industries, commonly issued to constables. Uses .38-Special rounds."
+	icon = 'icons/adhomai/guns.dmi'
+	icon_state = "constable_gun"
+
+/obj/item/weapon/gun/projectile/revolver/detective/constable/update_icon()
+	..()
+	if(loaded.len)
+		icon_state = "constable_gun"
+	else
+		icon_state = "constable_gun-empty"

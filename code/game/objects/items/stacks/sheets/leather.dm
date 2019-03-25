@@ -77,12 +77,14 @@
 	desc = "This hide was stripped of it's hair, but still needs tanning."
 	singular_name = "hairless hide piece"
 	icon_state = "sheet-hairlesshide"
+	default_type = "hide"
 
 /obj/item/stack/material/wetleather
 	name = "wet leather"
 	desc = "This leather has been cleaned but still needs to be dried."
 	singular_name = "wet leather piece"
 	icon_state = "sheet-wetleather"
+	default_type = "hide"
 	var/wetness = 30 //Reduced when exposed to high temperautres
 	var/drying_threshold_temperature = 500 //Kelvin to start drying
 	icon_has_variants = TRUE

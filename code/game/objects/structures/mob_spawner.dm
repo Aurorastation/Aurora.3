@@ -78,7 +78,7 @@
 	finish_mob(H)
 
 /obj/structure/mob_spawner/proc/get_mob_name(var/mob/living/carbon/human/target)
-	if(name)
+	if(mob_name)
 		return mob_name
 	else
 		return target.species.get_random_name(target.gender)

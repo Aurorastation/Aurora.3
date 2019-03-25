@@ -19,6 +19,7 @@
 	holder_type = /obj/item/weapon/holder/lizard
 	density = 0
 	seek_speed = 0.75
+	butchering_products = list(/obj/item/stack/material/animalhide/lizard = 2)
 
 	var/decompose_time = 18000
 

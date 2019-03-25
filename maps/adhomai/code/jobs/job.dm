@@ -24,7 +24,7 @@ var/list/adhomai_positions = list(
 	"Mayor",
 	"King's Hand",
 	"Civillian",
-	"Mayor",
+	"Governor",
 	"Barkeeper",
 	"Hunter",
 	"Priest",

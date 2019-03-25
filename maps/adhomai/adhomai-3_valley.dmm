@@ -333,10 +333,6 @@
 /obj/structure/table/reinforced,
 /turf/simulated/floor/lino,
 /area/adhomai/village)
-"bc" = (
-/obj/structure/signpost,
-/turf/simulated/floor/snow,
-/area/adhomai)
 "bd" = (
 /obj/structure/bed,
 /obj/item/weapon/bedsheet/brown,
@@ -1322,12 +1318,12 @@
 /area/adhomai/village/mayor)
 "ez" = (
 /obj/structure/closet/cabinet,
-/obj/item/weapon/gun/projectile/revolver/detective,
 /obj/item/ammo_magazine/c38,
 /obj/item/weapon/reagent_containers/spray/pepper,
 /obj/item/weapon/melee/classic_baton,
 /obj/item/weapon/handcuffs,
 /obj/item/clothing/accessory/holster/hip,
+/obj/item/weapon/gun/projectile/revolver/detective/constable,
 /turf/simulated/floor/wood,
 /area/adhomai/village/police)
 "eB" = (
@@ -1596,11 +1592,11 @@
 /area/adhomai/fortress/outpost)
 "fx" = (
 /obj/structure/closet/cabinet,
-/obj/item/weapon/gun/projectile/revolver/detective,
 /obj/item/ammo_magazine/c38,
 /obj/item/weapon/reagent_containers/spray/pepper,
 /obj/item/weapon/melee/classic_baton,
 /obj/item/clothing/accessory/holster/waist,
+/obj/item/weapon/gun/projectile/revolver/detective/constable,
 /turf/simulated/floor/wood,
 /area/adhomai/village/police)
 "fy" = (
@@ -2960,7 +2956,7 @@
 "iX" = (
 /obj/structure/bed/chair/wood,
 /obj/effect/landmark/start{
-	name = "Mayor"
+	name = "Governor"
 	},
 /turf/simulated/floor/carpet,
 /area/adhomai/village/mayor)
@@ -4695,6 +4691,12 @@
 /obj/structure/bed/chair/wood,
 /turf/simulated/floor/tiled/dark,
 /area/adhomai/village/temple)
+"VU" = (
+/obj/effect/landmark{
+	name = "AdhomaiJourney"
+	},
+/turf/simulated/floor/asteroid/ash/adhomai,
+/area/adhomai)
 "VY" = (
 /obj/structure/window/reinforced/full,
 /turf/unsimulated/mask/adhomai,
@@ -4816,6 +4818,16 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/adhomai/village/shop)
+"ZK" = (
+/obj/machinery/light/small{
+	dir = 4;
+	pixel_y = 0
+	},
+/obj/effect/landmark/start{
+	name = "Nurse"
+	},
+/turf/simulated/floor/wood,
+/area/adhomai/village/medical)
 "ZP" = (
 /obj/structure/table/wood,
 /obj/item/weapon/paper_bin,
@@ -4905,8 +4917,8 @@ qi
 qi
 qi
 qi
-ae
-ae
+qi
+qi
 qi
 qi
 qi
@@ -5162,7 +5174,7 @@ cU
 aa
 cW
 aa
-ae
+VU
 ae
 Rm
 Rm
@@ -9790,7 +9802,7 @@ aa
 aa
 ae
 ae
-bc
+Rm
 Rm
 Bu
 Bu
@@ -40318,7 +40330,7 @@ aQ
 aQ
 ab
 bz
-ao
+Ey
 ao
 dI
 ab
@@ -44460,7 +44472,7 @@ aa
 eB
 hC
 pn
-TX
+ZK
 jR
 jT
 pn
@@ -51392,7 +51404,7 @@ aa
 aa
 aa
 aa
-bc
+aa
 ae
 aa
 ae

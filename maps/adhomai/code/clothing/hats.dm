@@ -24,7 +24,7 @@
 	armor = list(melee = 50, bullet = 50, laser = 15, energy = 10, bomb = 25, bio = 0, rad = 0)
 	siemens_coefficient = 0.5
 
-/obj/item/clothing/beret/pra
+/obj/item/clothing/head/beret/pra
 	name = "green beret"
 	desc = "A military beret issued to the soldiers of the Republican Army."
 	icon = 'icons/adhomai/clothing.dmi'

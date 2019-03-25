@@ -23,6 +23,7 @@
 	maxHealth = 40
 	melee_damage_lower = 1
 	melee_damage_upper = 5
+	butchering_products = list(/obj/item/stack/material/animalhide = 3)
 	var/datum/reagents/udder = null
 
 /mob/living/simple_animal/hostile/retaliate/goat/Initialize()
@@ -113,6 +114,7 @@
 	beg_for_food = 0
 	var/datum/reagents/udder = null
 	mob_size = 20//based on mass of holstein fresian dairy cattle, what the sprite is based on
+	butchering_products = list(/obj/item/stack/material/animalhide = 8)
 
 /mob/living/simple_animal/cow/Initialize()
 	. = ..()

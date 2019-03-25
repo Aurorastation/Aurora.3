@@ -4063,6 +4063,10 @@
 	icon_state = "swall_c"
 	},
 /area/template_noop)
+"kR" = (
+/obj/structure/signpost/adhomai,
+/turf/simulated/floor/snow,
+/area/traveller_outpost)
 "kS" = (
 /obj/structure/shuttle/engine/heater,
 /obj/structure/window/reinforced{
@@ -22413,6 +22417,7 @@
 /obj/random/booze,
 /obj/random/handgun,
 /obj/random/prebuilt_ka,
+/obj/random/firstaid,
 /turf/simulated/floor/wood,
 /area/traveller_outpost)
 "XS" = (
@@ -22449,9 +22454,11 @@
 /area/centcom/holding)
 "XV" = (
 /obj/structure/table/rack,
-/obj/random/contraband,
-/obj/random/contraband,
-/obj/random/firstaid,
+/obj/random/backpack,
+/obj/random/backpack,
+/obj/random/backpack,
+/obj/random/backpack,
+/obj/random/backpack,
 /turf/simulated/floor/wood,
 /area/traveller_outpost)
 "XW" = (
@@ -22961,6 +22968,8 @@
 /obj/random/loot,
 /obj/random/loot,
 /obj/random/toolbox,
+/obj/random/contraband,
+/obj/random/contraband,
 /turf/simulated/floor/wood,
 /area/traveller_outpost)
 "Zg" = (
@@ -23173,6 +23182,15 @@
 	},
 /turf/simulated/floor/tiled,
 /area/centcom/holding)
+"Zz" = (
+/obj/structure/table/rack,
+/obj/item/device/flashlight/lantern,
+/obj/item/device/flashlight/lantern,
+/obj/item/device/flashlight/lantern,
+/obj/item/device/flashlight/lantern,
+/obj/item/device/flashlight/lantern,
+/turf/simulated/floor/wood,
+/area/traveller_outpost)
 "ZB" = (
 /turf/simulated/floor/snow,
 /turf/simulated/shuttle/wall/dark{
@@ -53290,7 +53308,7 @@ MK
 Le
 la
 la
-la
+Zz
 MK
 Mv
 Mv
@@ -54580,7 +54598,7 @@ Mv
 Mv
 Mv
 Mv
-Mv
+kR
 YK
 aM
 aM

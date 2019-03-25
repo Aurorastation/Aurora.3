@@ -37,11 +37,14 @@
 	mob_size = 12
 	meat_type = /obj/item/weapon/reagent_containers/food/snacks/meat/adhomai
 
-	maxHealth = 40
-	health = 40
+	maxHealth = 50
+	health = 50
 
 	harm_intent_damage = 3
 	melee_damage_lower = 15
 	melee_damage_upper = 15
 	attacktext = "bitten"
 	attack_sound = 'sound/weapons/bite.ogg'
+
+	butchering_products = list(/obj/item/stack/material/animalhide = 8)
+	meat_amount = 10

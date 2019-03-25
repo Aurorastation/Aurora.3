@@ -10,7 +10,7 @@
 
 	uniform = /obj/item/clothing/under/uniform/pra/alt
 	suit = /obj/item/clothing/suit/armor/pra
-	head = /obj/item/clothing/beret/pra
+	head = /obj/item/clothing/head/beret/pra
 	r_pocket = /obj/item/device/megaphone
 	l_pocket = /obj/item/device/binoculars
 	belt = /obj/item/weapon/gun/projectile/colt

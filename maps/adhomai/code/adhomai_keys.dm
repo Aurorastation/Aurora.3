@@ -11,7 +11,7 @@
 	key_data = "armory"
 
 /obj/item/weapon/key/mayor
-	name = "mayor key"
+	name = "governor key"
 	key_data = "mayor"
 
 /obj/item/weapon/key/bar

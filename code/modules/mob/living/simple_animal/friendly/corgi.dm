@@ -26,6 +26,8 @@
 
 	holder_type = /obj/item/weapon/holder/corgi
 
+	butchering_products = list(/obj/item/stack/material/animalhide/corgi = 3)
+
 	var/obj/item/inventory_head
 	var/obj/item/inventory_back
 
@@ -110,6 +112,7 @@
 	icon_state = "puppy"
 	icon_living = "puppy"
 	icon_dead = "puppy_dead"
+	butchering_products = list(/obj/item/stack/material/animalhide/corgi = 1)
 
 //pupplies cannot wear anything.
 /mob/living/simple_animal/corgi/puppy/Topic(href, href_list)

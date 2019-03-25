@@ -6,7 +6,7 @@
 	faction = "Station"
 	total_positions = -1
 	spawn_positions = -1
-	supervisors = "the mayor"
+	supervisors = "the governor"
 	selection_color = "#ddddff"
 	alt_titles = list("Lumberjack","Farmer")
 	outfit = /datum/outfit/job/adhomai/commoner
@@ -36,7 +36,7 @@
 	l_hand = /obj/item/weapon/reagent_containers/glass/bucket
 
 /datum/job/mayor
-	title = "Mayor"
+	title = "Governor"
 	flag = MAYOR
 	department = "Village"
 	head_position = TRUE
@@ -73,7 +73,7 @@
 	faction = "Station"
 	total_positions = 2
 	spawn_positions = 2
-	supervisors = "the mayor"
+	supervisors = "the governor"
 	selection_color = "#ddddff"
 
 	outfit = /datum/outfit/job/adhomai/barkeeper
@@ -85,6 +85,7 @@
 	name = "Barkeeper"
 	allow_backbag_choice = TRUE
 
+	uniform = /obj/item/clothing/under/rank/bartender
 	r_pocket = /obj/item/weapon/key/bar
 	belt = /obj/item/weapon/gun/projectile/shotgun/doublebarrel/sawn/bean
 	backpack_contents = list(
@@ -101,7 +102,7 @@
 	faction = "Station"
 	total_positions = 1
 	spawn_positions = 1
-	supervisors = "the mayor"
+	supervisors = "the governor"
 	selection_color = "#ddddff"
 
 	outfit = /datum/outfit/job/adhomai/hunter
@@ -125,11 +126,10 @@
 	faction = "Station"
 	total_positions = 1
 	spawn_positions = 1
-	supervisors = "the mayor"
+	supervisors = "the governor"
 	selection_color = "#ddddff"
 
-	species_blacklist = list(HUMAN_SPECIES, UNATHI_SPECIES, TAJARA_SPECIES, SKRELL_SPECIES, VAURCA_SPECIES, DIONA_SPECIES, IPC_SPECIES)
-
+	alt_titles = list("Missionary")
 	outfit = /datum/outfit/job/adhomai/priest
 
 	create_record = FALSE
@@ -140,12 +140,12 @@
 	allow_backbag_choice = TRUE
 
 	uniform = /obj/item/clothing/under/color/white
-	belt = /obj/item/weapon/nullrod
 	l_pocket = /obj/item/weapon/storage/wallet/medium
+	backpack_contents = list(/obj/item/weapon/nullrod/itembox = 1)
 
 /datum/outfit/job/adhomai/priest/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
-	if(H)
+	if(H && istajara(H))
 		if(H.gender == MALE)
 			H.equip_to_slot_or_del(new /obj/item/clothing/suit/storage/hooded/tajaran/priest(H), slot_wear_suit)
 		else
@@ -162,7 +162,7 @@
 	faction = "Station"
 	total_positions = 1
 	spawn_positions = 1
-	supervisors = "the mayor"
+	supervisors = "the governor"
 	selection_color = "#ddddff"
 
 	outfit = /datum/outfit/job/adhomai/physician
@@ -187,8 +187,8 @@
 	department = "Village"
 	department_flag = ADHOMAI
 	faction = "Station"
-	total_positions = 1
-	spawn_positions = 1
+	total_positions = 2
+	spawn_positions = 2
 	supervisors = "the physician"
 	selection_color = "#ddddff"
 
@@ -220,9 +220,9 @@
 	department = "Village"
 	department_flag = ADHOMAI
 	faction = "Station"
-	total_positions = 3
-	spawn_positions = 3
-	supervisors = "the mayor"
+	total_positions = 4
+	spawn_positions = 4
+	supervisors = "the governor"
 	selection_color = "#ddddff"
 
 	outfit = /datum/outfit/job/adhomai/prospector
@@ -234,7 +234,6 @@
 	name = "Miner"
 	allow_backbag_choice = TRUE
 
-	uniform = /obj/item/clothing/under/tajaran
 	shoes = /obj/item/clothing/shoes/footwraps
 	r_pocket = /obj/item/weapon/storage/bag/ore
 	l_hand = /obj/item/device/flashlight/lantern
@@ -248,7 +247,7 @@
 	faction = "Station"
 	total_positions = 1
 	spawn_positions = 1
-	supervisors = "the mayor"
+	supervisors = "the governor"
 	selection_color = "#ddddff"
 
 	outfit = /datum/outfit/job/adhomai/blacksmith
@@ -273,7 +272,7 @@
 	faction = "Station"
 	total_positions = 1
 	spawn_positions = 1
-	supervisors = "the mayor"
+	supervisors = "the governor"
 	selection_color = "#ddddff"
 
 	outfit = /datum/outfit/job/adhomai/archeologist
@@ -309,7 +308,7 @@
 	faction = "Station"
 	total_positions = 1
 	spawn_positions = 1
-	supervisors = "the mayor"
+	supervisors = "the governor"
 	selection_color = "#ddddff"
 
 	outfit = /datum/outfit/job/adhomai/trader
@@ -338,7 +337,7 @@
 	faction = "Station"
 	total_positions = 1
 	spawn_positions = 1
-	supervisors = "the mayor"
+	supervisors = "the governor"
 	selection_color = "#dddddd"
 	req_admin_notify = TRUE
 	minimal_player_age = 10

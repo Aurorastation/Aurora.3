@@ -7,62 +7,75 @@
 	welcome_message = "You are a soldier of the Republican Army, listen to your commander and complete your mission."
 
 /obj/structure/mob_spawner/pra/finish_mob(var/mob/living/carbon/human/target)
-	var/final_color
+	var/red
+	var/green
+	var/blue
+
 	if(target.species.name == "M'sai Tajara")
 		var/fur_color = pick("Silver", "Wheat", "Ivory")
 		switch(fur_color)
 
 			if("Silver")
-				final_color = "#C0C0C0"
+				red = 192
+				green = 192
+				blue = 192
 
 			if("Wheat")
-				final_color = "#CDBA96"
+				red = 205
+				green = 186
+				blue = 150
 
 			if("Ivory")
-				final_color = "#CDCDC0"
+				red = 205
+				green = 205
+				blue = 192
 
 	if(target.species.name == "Zhan-Khazan Tajara")
 		var/fur_color = pick("Grey", "Chocolate", "Black")
 		switch(fur_color)
 
 			if("Grey")
-				final_color = "#1E1E1E"
+				red = 30
+				green = 30
+				blue = 30
 
 			if("Chocolate")
-				final_color = "#5E2612"
+				red = 94
+				green = 38
+				blue = 18
 
 			if("Black")
-				final_color = "#000000"
+				red = 0
+				green = 0
+				blue = 0
 
 	if(target.species.name == "Tajara")
 		var/fur_color = pick("Kochiba", "Taupe", "Ruddy", "Orange")
 		switch(fur_color)
 
 			if("Kochiba")
-				final_color = "#6B4423"
+				red = 107
+				green = 68
+				blue =  35
 
 			if("Taupe")
-				final_color = "#483C32"
+				red = 72
+				green = 60
+				blue = 50
 
 			if("Ruddy")
-				final_color = "#8A360F"
+				red = 138
+				green = 54
+				blue = 15
 
 			if("Orange")
-				final_color = "#EE4000"
+				red = 238
+				green = 64
+				blue = 0
 
-	target.r_skin = hex2num(copytext(final_color,2,4))
-	target.g_skin = hex2num(copytext(final_color,4,6))
-	target.b_skin = hex2num(copytext(final_color,6,8))
-
-	target.r_hair = hex2num(copytext(final_color,2,4))
-	target.g_hair = hex2num(copytext(final_color,4,6))
-	target.b_hair = hex2num(copytext(final_color,6,8))
-
-	target.update_dna()
-	target.regenerate_icons()
-	target.update_body()
-	target.update_hair()
-
+	target.change_skin_color(red, green, blue)
+	target.change_hair_color(red, green, blue)
+	target.change_facial_hair_color(red, green, blue)
 	target.change_appearance(APPEARANCE_ALL_HAIR | APPEARANCE_EYE_COLOR, target.loc, target)
 
 

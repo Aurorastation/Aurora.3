@@ -36,7 +36,7 @@
 
 	regular_turf_temperature = T0C-20
 
-	allowed_gamemodes = list("changeling", "cult", "extended","conflux", "crossfire", "feeding", "siege", "traitorling", "uprising", "veilparty", "mercenary", "revolution",
+	allowed_gamemodes = list("changeling", "cult", "extended","conflux", "feeding", "siege", "traitorling", "uprising", "veilparty", "mercenary", "revolution",
 							"autotraitor", "traitor", "vampire", "wizard")
 
 	mudane_events	= list(
