@@ -43,6 +43,18 @@
 
 	category = MODULE_MEDICAL
 
+/obj/item/rig_module/device/healthscanner/vitalscanner
+	name = "integrated vitals tracker"
+	desc = "A hardsuit-mounted vitals tracker."
+	interface_name = "vitals tracker"
+	interface_desc = "Shows an informative health readout of the user."
+
+	usable = 1
+	selectable = 0
+
+	category = MODULE_GENERAL
+
+
 /obj/item/rig_module/device/drill
 	name = "hardsuit diamond drill mount"
 	desc = "A very heavy diamond-tipped drill."
@@ -801,21 +813,3 @@ var/global/list/lattice_users = list()
 	to_chat(H, "<span class='notice'>Neural lattice disengaged. Pain receptors restored.</span>")
 	lattice_users.Remove(H)
 
-/obj/item/rig_module/vitalscanner
-	name = "integrated vitals tracker"
-	desc = "A hardsuit-mounted vitals tracker."
-	icon_state = "scanner"
-	interface_name = "vitals tracker"
-	interface_desc = "Shows an informative health readout of the user."
-	construction_cost = list("$glass" = 3250, DEFAULT_WALL_MATERIAL = 500)
-	construction_time = 100
-
-	usable = 1
-
-	category = MODULE_GENERAL
-
-/obj/item/rig_module/healthscanner/engage()
-	if (!..())
-		return 0
-
-	health_scan_mob(holder.wearer, holder.wearer)

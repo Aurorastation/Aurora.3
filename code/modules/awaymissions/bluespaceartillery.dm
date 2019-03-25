@@ -43,21 +43,14 @@
 /obj/machinery/computer/artillerycontrol/proc/announce_and_fire(var/turf/t, var/mob/user)
 	if(!istype(t))
 		return
-	if ((usr.contents.Find(src) || (in_range(src, usr) && istype(src.loc, /turf))) || (istype(usr, /mob/living/silicon)))
-		var/A
-		A = input("Area to jump bombard", "Open Fire", A) in teleportlocs
-		var/area/thearea = teleportlocs[A]
-		if (usr.stat || usr.restrained()) return
-		if(src.reload < 180) return
-		if ((usr.contents.Find(src) || (in_range(src, usr) && istype(src.loc, /turf))) || (istype(usr, /mob/living/silicon)))
+	if ((user.contents.Find(src) || (in_range(src, user) && istype(src.loc, /turf))) || (istype(user, /mob/living/silicon)))
+		if (user.stat || user.restrained()) return
+		if (src.reload < 180) return
+		if ((user.contents.Find(src) || (in_range(src, user) && istype(src.loc, /turf))) || (istype(user, /mob/living/silicon)))
 			command_announcement.Announce("Bluespace artillery fire detected. Brace for impact.")
 			to_world(sound('sound/effects/yamato_fire.ogg'))
 			message_admins("[key_name_admin(usr)] has launched an artillery strike.", 1)
-			var/list/L = list()
-			for(var/turf/T in get_area_turfs(thearea.type))
-				L+=T
-			var/loc = pick(L)
-			explosion(loc,2,5,11)
+			explosion(t,2,5,11)
 			reload = 0
 
 /obj/structure/artilleryplaceholder

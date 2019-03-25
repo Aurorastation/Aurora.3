@@ -10,11 +10,11 @@
 
 /datum/gear/uniform/offworlder/dress
 	display_name = "CR dress"
-	path = /obj/item/clothing/under/offworlder
+	path = /obj/item/clothing/under/dress/offworlder
 
 /datum/gear/uniform/offworlder/skirt
 	display_name = "CR skirt"
-	path = /obj/item/clothing/under/dress/offworlder
+	path = /obj/item/clothing/under/skirt/offworlder
 
 /datum/gear/eyes/glasses/offworlder
 	display_name = "starshades"
@@ -44,6 +44,10 @@
 	display_name = "neckbrace"
 	path = /obj/item/clothing/accessory/offworlder/bracer/neckbrace
 
+/datum/gear/accessory/offworlder/scarf
+	display_name = "pioneer's scarf"
+	path = /obj/item/clothing/accessory/scarf/offworlder
+
 /datum/gear/accessory/offworlder_armband
 	display_name = "exo-stellar ribbon selection"
 	path = /obj/item/clothing/accessory/armband/offworlder
@@ -59,22 +63,22 @@
 	gear_tweaks += new/datum/gear_tweak/path(armbands)
 
 /datum/gear/mask/offworlder
-	display_name = "overmask"
-	path = /obj/item/clothing/mask/breath/offworlder
+	display_name = "jagmask"
+	path = /obj/item/clothing/mask/breath/offworlder/jagmask
 	whitelisted = list("Off-Worlder Human")
 	sort_category = "Xenowear - Human"
 
-/datum/gear/mask/offworlder/New()
+/datum/gear/mask/offworlder/overmask
+	display_name = "overmask"
+	path = /obj/item/clothing/mask/breath/offworlder
+
+/datum/gear/mask/offworlder/overmask/New()
 	..()
 	gear_tweaks = list(gear_tweak_free_color_choice)
 
 /datum/gear/mask/offworlder/veil
 	display_name = "starveil"
 	path = /obj/item/clothing/mask/offworlder/veil
-
-/datum/gear/mask/offworlder/veil/jagmask
-	display_name = "jagmask"
-	path = /obj/item/clothing/mask/breath/offworlder/jagmask
 
 /datum/gear/gloves/offworlder
 	display_name = "starmitts"

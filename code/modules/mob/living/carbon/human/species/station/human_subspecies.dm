@@ -14,8 +14,6 @@
 	warning_low_pressure = 30
 	hazard_low_pressure = 10
 
-	spawn_flags = IS_RESTRICTED
-
 /datum/species/human/offworlder/equip_later_gear(var/mob/living/carbon/human/H)
 	if(H.back)
 		var/obj/item/I = H.back
@@ -36,14 +34,19 @@
 		else
 			return 3
 
+	var/obj/item/organ/external/l_leg = H.get_organ("l_leg")
+	var/obj/item/organ/external/r_leg = H.get_organ("r_leg")
+
+	if((l_leg.status & ORGAN_ROBOT) && (r_leg.status & ORGAN_ROBOT))
+		return
+
 	if(H.w_uniform)
 		var/obj/item/clothing/under/suit = H.w_uniform
 		if(locate(/obj/item/clothing/accessory/offworlder/bracer) in suit.accessories)
 			return 0
 
-
-	if(H.reagents)
-		if(H.reagents.has_reagent("rmt", 1))
+	for (var/datum/reagent/R in H.ingested.reagent_list)
+		if(R.id == "rmt")
 			return 0
 
 	return 4
@@ -57,6 +60,12 @@
 		if(A && !A.has_gravity())
 			return
 
+		var/obj/item/organ/external/l_leg = H.get_organ("l_leg")
+		var/obj/item/organ/external/r_leg = H.get_organ("r_leg")
+
+		if((l_leg.status & ORGAN_ROBOT) && (r_leg.status & ORGAN_ROBOT))
+			return
+
 		if(istype(H.back, /obj/item/weapon/rig/light/offworlder))
 			var/obj/item/weapon/rig/light/offworlder/rig = H.back
 			if(!rig.offline)
@@ -68,8 +77,8 @@
 				return
 
 
-		if(H.reagents)
-			if(H.reagents.has_reagent("rmt", 1))
+		for (var/datum/reagent/R in H.ingested.reagent_list)
+			if(R.id == "rmt")
 				return
 
 		var/pain_message = pick("You feel sluggish as if something is weighing you down.",
