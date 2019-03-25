@@ -92,8 +92,6 @@
 	desc = "A slab of some animal native from Adhomai."
 	icon_state = "adhomai_meat"
 
-/obj/item/weapon/reagent_containers/food/snacks/meat/adhomai
-
 /obj/item/weapon/reagent_containers/food/snacks/meat/mice
 	name = "mice meat"
 	icon_state = "chickenbreast"

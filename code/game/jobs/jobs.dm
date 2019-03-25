@@ -62,7 +62,7 @@ var/list/command_positions = list(
 	"Research Director",
 	"Chief Medical Officer",
 	"Governor",
-	"King's Hand",
+	"Commander",
 	"Chief Constable"
 )
 
