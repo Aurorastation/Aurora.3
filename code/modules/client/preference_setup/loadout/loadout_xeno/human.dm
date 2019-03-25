@@ -45,7 +45,7 @@
 	path = /obj/item/clothing/accessory/offworlder/bracer/neckbrace
 
 /datum/gear/accessory/offworlder/scarf
-	display_name = "pioneer's scarf"
+	display_name = "pioneer scarf"
 	path = /obj/item/clothing/accessory/scarf/offworlder
 
 /datum/gear/accessory/offworlder_armband
