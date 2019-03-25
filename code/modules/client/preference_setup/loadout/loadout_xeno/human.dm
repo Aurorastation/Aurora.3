@@ -63,22 +63,23 @@
 	gear_tweaks += new/datum/gear_tweak/path(armbands)
 
 /datum/gear/mask/offworlder
-	display_name = "overmask"
-	path = /obj/item/clothing/mask/breath/offworlder
+	display_name = "jagmask"
+	path = /obj/item/clothing/mask/breath/offworlder/jagmask
+
 	whitelisted = list("Off-Worlder Human")
 	sort_category = "Xenowear - Human"
 
-/datum/gear/mask/offworlder/New()
+/datum/gear/mask/offworlder/overmask
+	display_name = "overmask"
+	path = /obj/item/clothing/mask/breath/offworlder
+
+/datum/gear/mask/offworlder/overmask/New()
 	..()
 	gear_tweaks = list(gear_tweak_free_color_choice)
 
 /datum/gear/mask/offworlder/veil
 	display_name = "starveil"
 	path = /obj/item/clothing/mask/offworlder/veil
-
-/datum/gear/mask/offworlder/veil/jagmask
-	display_name = "jagmask"
-	path = /obj/item/clothing/mask/breath/offworlder/jagmask
 
 /datum/gear/gloves/offworlder
 	display_name = "starmitts"
