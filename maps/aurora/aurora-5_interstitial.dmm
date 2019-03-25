@@ -7080,6 +7080,14 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/airless,
 /area/maintenance/interstitial_construction_site)
+"nO" = (
+/obj/effect/floor_decal/corner/red{
+	icon_state = "corner_white";
+	dir = 5
+	},
+/obj/structure/bed/chair,
+/turf/simulated/floor/tiled/white,
+/area/medical/virology)
 "nP" = (
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/plating,
@@ -7153,6 +7161,12 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/white,
 /area/medical/upperlevel)
+"oW" = (
+/obj/effect/floor_decal/corner/red/full,
+/obj/structure/table/rack,
+/obj/item/weapon/storage/box/monkeycubes,
+/turf/simulated/floor/tiled/white,
+/area/medical/virology)
 "pa" = (
 /obj/structure/lattice,
 /turf/simulated/open,
@@ -7241,6 +7255,13 @@
 	pixel_x = 24
 	},
 /obj/structure/closet/wardrobe/virology_white,
+/obj/machinery/ringer{
+	department = "Pharmacy Frontdesk";
+	id = "pharmacy_ringer";
+	pixel_x = 0;
+	pixel_y = -28;
+	req_access = list(33)
+	},
 /turf/simulated/floor/tiled/white,
 /area/medical/virology)
 "pP" = (
@@ -7433,6 +7454,22 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/substation/interstitial)
+"sL" = (
+/obj/structure/grille,
+/obj/machinery/door/firedoor,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced,
+/turf/simulated/floor/plating,
+/area/medical/virology)
 "sU" = (
 /obj/effect/floor_decal/corner/lime{
 	dir = 10
@@ -7474,6 +7511,14 @@
 "tA" = (
 /turf/simulated/wall/r_wall,
 /area/medical/virologyaccess)
+"tI" = (
+/obj/effect/floor_decal/corner/red{
+	icon_state = "corner_white";
+	dir = 10
+	},
+/obj/machinery/light,
+/turf/simulated/floor/tiled/white,
+/area/medical/virology)
 "tJ" = (
 /obj/structure/grille,
 /obj/machinery/door/firedoor,
@@ -7742,9 +7787,8 @@
 	pixel_y = 32
 	},
 /obj/machinery/light{
-	dir = 4;
 	icon_state = "tube1";
-	pixel_x = 0
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/medical/virology)
@@ -7968,6 +8012,24 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/white,
 /area/medical/upperlevel)
+"zB" = (
+/obj/effect/floor_decal/corner/red{
+	icon_state = "corner_white";
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9
+	},
+/obj/structure/sink{
+	dir = 4;
+	icon_state = "sink";
+	pixel_x = 12
+	},
+/turf/simulated/floor/tiled/white,
+/area/medical/virology)
 "zC" = (
 /obj/machinery/door/firedoor,
 /obj/structure/window/reinforced,
@@ -8259,6 +8321,24 @@
 "CQ" = (
 /turf/simulated/wall/r_wall,
 /area/maintenance/medbay_interstitial)
+"CS" = (
+/obj/machinery/door/firedoor,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/door/window/westleft{
+	name = "Simian Testing Pen";
+	req_access = list(33)
+	},
+/obj/machinery/door/window/eastleft{
+	name = "Simian Testing Pen";
+	req_access = list(33)
+	},
+/turf/simulated/floor/tiled/white,
+/area/medical/virology)
 "CT" = (
 /obj/machinery/alarm/cold{
 	pixel_y = 24
@@ -8373,6 +8453,20 @@
 	temperature = 278
 	},
 /area/medical/virology)
+"Eq" = (
+/obj/effect/floor_decal/corner/red/full{
+	icon_state = "corner_white_full";
+	dir = 4
+	},
+/obj/machinery/camera/network/medbay{
+	c_tag = "Medical - Virology Lab Testing Pen";
+	dir = 1
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/white,
+/area/medical/virology)
 "EM" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
@@ -8428,6 +8522,16 @@
 /obj/structure/closet/emcloset,
 /turf/simulated/floor/tiled/white,
 /area/medical/virologyaccess)
+"Fr" = (
+/obj/effect/floor_decal/corner/red/full{
+	icon_state = "corner_white_full";
+	dir = 8
+	},
+/obj/machinery/alarm{
+	pixel_y = 24
+	},
+/turf/simulated/floor/tiled/white,
+/area/medical/virology)
 "Fs" = (
 /turf/simulated/open,
 /area/turbolift/medical_interstitial)
@@ -8562,6 +8666,14 @@
 "GT" = (
 /turf/simulated/open,
 /area/medical/psych)
+"GX" = (
+/obj/effect/floor_decal/corner/red/full{
+	icon_state = "corner_white_full";
+	dir = 1
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/turf/simulated/floor/tiled/white,
+/area/medical/virology)
 "GY" = (
 /obj/random/loot,
 /obj/effect/decal/cleanable/dirt,
@@ -9191,6 +9303,15 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/disposalpipe/segment,
+/turf/simulated/floor/tiled/white,
+/area/medical/virology)
+"KE" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/white,
 /area/medical/virology)
 "KI" = (
@@ -9840,21 +9961,6 @@
 /obj/machinery/hologram/holopad,
 /turf/simulated/floor/tiled/white,
 /area/medical/virology)
-"ND" = (
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/disposalpipe/segment,
-/obj/structure/sign/nosmoking_2{
-	pixel_x = 32;
-	pixel_y = 0
-	},
-/turf/simulated/floor/tiled/white,
-/area/medical/virology)
 "NM" = (
 /obj/structure/table/rack,
 /obj/machinery/light/small/emergency{
@@ -10246,6 +10352,9 @@
 	dir = 4
 	},
 /obj/machinery/disease2/diseaseanalyser,
+/obj/structure/sign/nosmoking_2{
+	pixel_y = 32
+	},
 /turf/simulated/floor/tiled/dark,
 /area/medical/virology)
 "SZ" = (
@@ -10318,36 +10427,24 @@
 	d2 = 8;
 	icon_state = "2-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 10
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 10
-	},
 /obj/structure/disposalpipe/segment{
 	dir = 2;
 	icon_state = "pipe-c"
 	},
-/obj/effect/floor_decal/corner/lime/full{
-	icon_state = "corner_white_full";
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	icon_state = "map-scrubbers";
 	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/lime{
+	icon_state = "corner_white";
+	dir = 5
 	},
 /obj/effect/floor_decal/industrial/warning{
 	icon_state = "warning";
 	dir = 1
-	},
-/obj/machinery/button/remote/blast_door{
-	id = "virologylab_lockdown";
-	name = "Virology Lockdown";
-	pixel_x = 32;
-	req_access = list(33)
-	},
-/obj/machinery/ringer{
-	department = "Pharmacy Frontdesk";
-	id = "pharmacy_ringer";
-	pixel_x = 28;
-	pixel_y = 28;
-	req_access = list(33)
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/virology)
@@ -10449,6 +10546,13 @@
 	},
 /obj/machinery/camera/network/medbay{
 	c_tag = "Medical - Virology Lab"
+	},
+/obj/machinery/button/remote/blast_door{
+	id = "virologylab_lockdown";
+	name = "Virology Lockdown";
+	pixel_x = -14;
+	pixel_y = 33;
+	req_access = list(33)
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/virology)
@@ -42014,12 +42118,12 @@ aa
 aa
 ab
 ab
+ab
+ab
 aa
 aa
-aa
-aa
-aa
-aa
+ab
+ab
 aa
 aa
 aa
@@ -42277,7 +42381,7 @@ ab
 ab
 ab
 ab
-aa
+ab
 aa
 aa
 XF
@@ -42527,7 +42631,6 @@ aa
 aa
 aa
 aa
-aa
 ab
 ab
 ab
@@ -42535,7 +42638,8 @@ ab
 ab
 ab
 ab
-aa
+ab
+ab
 aa
 XF
 Yw
@@ -43555,7 +43659,7 @@ aa
 aa
 aa
 aa
-aa
+ab
 ab
 ab
 SM
@@ -43812,7 +43916,7 @@ aa
 aa
 aa
 aa
-aa
+ab
 ab
 ab
 mX
@@ -44083,7 +44187,7 @@ aa
 XF
 vI
 Us
-ND
+Kx
 ju
 Kx
 SN
@@ -44338,9 +44442,9 @@ aa
 aa
 aa
 XF
-XF
-XF
-XF
+sL
+CS
+sL
 XF
 Kf
 ve
@@ -44594,10 +44698,10 @@ Bk
 aa
 aa
 aa
-aa
-aa
-aa
-aa
+XF
+Fr
+KE
+oW
 XF
 XF
 XF
@@ -44851,11 +44955,11 @@ Bk
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
+XF
+nO
+KE
+tI
+XF
 XF
 CT
 Ph
@@ -45108,11 +45212,11 @@ Bk
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
+XF
+GX
+zB
+Eq
+XF
 XF
 Zp
 uh
@@ -45365,11 +45469,11 @@ Bk
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
+XF
+XF
+XF
+XF
+XF
 XF
 XF
 XF
