@@ -1,6 +1,0 @@
-author: Alberyk
-
-delete-after: True
-
-changes: 
-  - bugfix: "Advanced health scanners should not work on aut'akh unathi and off-worlder humans."
