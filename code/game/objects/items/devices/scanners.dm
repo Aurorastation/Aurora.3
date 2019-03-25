@@ -27,6 +27,11 @@ BREATH ANALYZER
 	src.add_fingerprint(user)
 	return
 
+/obj/item/device/healthanalyzer/attack_self(mob/user)
+	health_scan_mob(user, user)
+	src.add_fingerprint(user)
+	return
+
 /proc/health_scan_mob(var/mob/living/M, var/mob/living/user, var/visible_msg, var/ignore_clumsiness, var/show_limb_damage = TRUE)
 	if ( ((CLUMSY in user.mutations) || (DUMB in user.mutations)) && prob(50))
 		to_chat(user, text("<span class='warning'>You try to analyze the floor's vitals!</span>"))

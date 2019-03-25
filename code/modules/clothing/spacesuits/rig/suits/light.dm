@@ -164,7 +164,7 @@
 	boot_type = null
 
 	initial_modules = list(
-		/obj/item/rig_module/vitalscanner,
+		/obj/item/rig_module/device/healthscanner/vitalscanner,
 		/obj/item/rig_module/chem_dispenser/offworlder
 		)
 
@@ -202,7 +202,7 @@
 	)
 
 	initial_modules = list(
-		/obj/item/rig_module/vitalscanner,
+		/obj/item/rig_module/device/healthscanner/vitalscanner,
 		/obj/item/rig_module/chem_dispenser/offworlder,
 		/obj/item/rig_module/actuators/combat,
 		/obj/item/rig_module/fabricator/energy_net,

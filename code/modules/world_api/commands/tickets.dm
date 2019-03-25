@@ -13,7 +13,7 @@
 		"closed" = 0
 	)
 
-	for (var/id in tickets)
+	for (var/id = tickets.len, id >= 1, id--)
 		var/datum/ticket/ticket = tickets[id]
 		switch (ticket.status)
 			if (TICKET_OPEN)
@@ -43,7 +43,7 @@
 	var/list/ticket_data = list()
 
 	for (var/datum/ticket/ticket in tickets)
-		if (!only_open || ticket.status == TICKET_CLOSED)
+		if (only_open && ticket.status == TICKET_CLOSED)
 			continue
 
 		ticket_data["[ticket.id]"] = serialize_ticket(ticket)
