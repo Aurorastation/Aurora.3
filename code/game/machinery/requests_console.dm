@@ -84,10 +84,17 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 			else
 				set_light(0)
 
-/obj/machinery/requests_console/Initialize()
-	pixel_x = -DIR2PIXEL_X(dir)
-	pixel_y = -DIR2PIXEL_Y(dir)
+/obj/machinery/requests_console/Initialize(mapload, var/dir, var/building = 0)
 	. = ..()
+
+	if(building)
+		if(dir)
+			src.set_dir(dir)
+
+		pixel_x = (dir & 3)? 0 : (dir == 4 ? -24 : 24)
+		pixel_y = (dir & 3)? (dir ==1 ? -24 : 24) : 0
+		update_icon()
+		return
 
 	announcement.title = "[department] announcement"
 	announcement.newscast = 1

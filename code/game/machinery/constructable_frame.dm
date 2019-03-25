@@ -62,6 +62,7 @@
 					if(P.ismultitool())
 						playsound(src.loc, 'sound/items/poster_ripped.ogg', 75, 1)
 						to_chat(user, span("notice", "You decide to scrap the blueprint"))
+						new /obj/item/stack/material/steel(src.loc, 5)
 						qdel(src)
 			if(2)
 				if(P.iscoil())
@@ -75,7 +76,7 @@
 						if(C.use(5))
 							to_chat(user, "<span class='notice'>You add cables to the frame.</span>")
 							state = 3
-							icon_state = "box_1"
+							icon_state = "blueprint_2"
 				else
 					if(P.iswrench())
 						playsound(src.loc, P.usesound, 75, 1)
