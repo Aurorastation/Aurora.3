@@ -124,7 +124,7 @@
 			var/obj/item/weapon/flame/F = P
 			if (!F.lit)
 				return
-		else if (iswelder(P))
+		else if(P.iswelder())
 			var/obj/item/weapon/weldingtool/F = P // NOW THAT'S WHAT I CALL RECYCLING - wezzy
 			if (!F.welding)
 				return
@@ -150,7 +150,7 @@
 				qdel(src)
 
 			else
-				user << "<span class='warning'>You must hold \the [P] steady to burn \the [src].</span>"
+				to_chat(user, span("warning", "You must hold \the [P] steady to burn \the [src]."))
 
 
 /obj/item/weapon/shreddedp
