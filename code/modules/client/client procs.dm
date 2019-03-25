@@ -249,14 +249,14 @@
 		return FALSE
 
 	if (config.macro_trigger && (REALTIMEOFDAY - last_message_time) < config.macro_trigger)
-		spam_alert = max(spam_alert + 1, 4)
+		spam_alert = min(spam_alert + 1, 4)
 		log_debug("SPAM_PROTECT: [src] tripped macro-trigger. Now at alert [spam_alert].")
 
-	if (spam_alert > 3 && !(prefs.muted & mute_type))
-		cmd_admin_mute(src.mob, mute_type, 1)
-		to_chat(src, "<span class='danger'>You have tripped the macro-trigger. An auto-mute was applied.</span>")
-		log_debug("SPAM_PROTECT: [src] tripped macro-trigger, now muted.")
-		return TRUE
+		if (spam_alert > 3 && !(prefs.muted & mute_type))
+			cmd_admin_mute(src.mob, mute_type, 1)
+			to_chat(src, "<span class='danger'>You have tripped the macro-trigger. An auto-mute was applied.</span>")
+			log_debug("SPAM_PROTECT: [src] tripped macro-trigger, now muted.")
+			return TRUE
 
 	spam_alert = max(0, spam_alert - 1)
 	return FALSE
