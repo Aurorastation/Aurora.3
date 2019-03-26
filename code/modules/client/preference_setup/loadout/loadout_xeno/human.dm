@@ -90,8 +90,8 @@
 	..()
 	gear_tweaks = list(gear_tweak_free_color_choice)
 
-/datum/gear/offworlder_pills
-	display_name = "bottle of RTM pills"
-	path = /obj/item/weapon/storage/pill_bottle/rtm
+/datum/gear/offworlder_rig
+	display_name = "exo-stellar skeleton"
+	path = /obj/item/weapon/rig/light/offworlder
 	whitelisted = list("Off-Worlder Human")
 	sort_category = "Xenowear - Human"
