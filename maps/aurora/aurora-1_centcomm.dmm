@@ -23449,7 +23449,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/centcom/legion)
 "bam" = (
-/obj/structure/closet/secure_closet/engineering_electrical,
+/obj/structure/closet/secure_closet/engineering_electrical{
+	name = "tcfl electrical supplies";
+	req_access = list(111)
+	},
 /turf/simulated/floor/tiled/dark,
 /area/centcom/legion)
 "ban" = (
