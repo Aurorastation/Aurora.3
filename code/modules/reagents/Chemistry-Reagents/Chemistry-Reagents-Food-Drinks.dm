@@ -995,7 +995,7 @@
 	name = "Hakhma Milk"
 	id = "beetle_milk"
 	description = "A milky substance extracted from the brood sac of the viviparous Hakhma, often consumed by Offworlders and Scarabs."
-	nutriment_factor = 10
+	nutrition = 4
 	color = "#FFF8AD"
 	taste_description = "alien milk"
 
