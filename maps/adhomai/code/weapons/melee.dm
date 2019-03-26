@@ -5,8 +5,8 @@
 	icon_state = "axe"
 	item_state = "axe"
 	contained_sprite = TRUE
-	force_divisor = 0.4
-	thrown_force_divisor = 0.4
+	force_divisor = 0.3
+	thrown_force_divisor = 0.3
 	sharp = TRUE
 	edge = TRUE
 	attack_verb = list("attacked", "chopped", "cleaved", "torn", "cut")
@@ -87,7 +87,7 @@
 	icon_state = "hammer"
 	icon_state = "hammer"
 	contained_sprite = TRUE
-	force_divisor = 0.4
+	force_divisor = 0.3
 	thrown_force_divisor = 0.3
 	sharp = FALSE
 	edge = FALSE
