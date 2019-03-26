@@ -103,7 +103,7 @@
 	if(!forceshow && istype(user,/mob/living/silicon/ai))
 		var/mob/living/silicon/ai/AI
 		can_read = get_dist(src, AI.camera) < 2
-	to_chat(user, browse("<HTML><HEAD><TITLE>[name]</TITLE></HEAD><BODY bgcolor='[color]'>[can_read ? info : stars(info)][stamps]</BODY></HTML>", "window=[name]"))
+	user << browse("<HTML><HEAD><TITLE>[name]</TITLE></HEAD><BODY bgcolor='[color]'>[can_read ? info : stars(info)][stamps]</BODY></HTML>", "window=[name]")
 	onclose(user, "[name]")
 
 /obj/item/weapon/paper/verb/rename()
@@ -379,7 +379,7 @@
 
 
 		if(fields > 50)//large amount of fields creates a heavy load on the server, see updateinfolinks() and addtofield()
-			usr << "<span class='warning'>Too many fields. Sorry, you can't do this.</span>"
+			to_chat(usr, span("warning", "Too many fields. Sorry, you can't do this."))
 			fields = last_fields_value
 			return
 
@@ -466,7 +466,7 @@
 		if ( istype(RP) && RP.mode == 2 )
 			RP.RenamePaper(user,src)
 		else
-			to_chat(usr, browse("<HTML><HEAD><TITLE>[name]</TITLE></HEAD><BODY bgcolor='[color]'>[info_links][stamps]</BODY></HTML>", "window=[name]"))
+			user << browse("<HTML><HEAD><TITLE>[name]</TITLE></HEAD><BODY bgcolor='[color]'>[info_links][stamps]</BODY></HTML>", "window=[name]")
 		return
 
 	else if(istype(P, /obj/item/weapon/stamp) || istype(P, /obj/item/clothing/ring/seal))
@@ -504,7 +504,7 @@
 		add_overlay(stampoverlay)
 
 		playsound(src, 'sound/bureaucracy/stamp.ogg', 50, 1)
-		to_chat(user, span("notice", "You stamp the paper with \the [P].</span>"))
+		to_chat(user, span("notice", "You stamp the paper with \the [P]."))
 
 	else if(istype(P, /obj/item/weapon/flame))
 		burnpaper(P, user)
