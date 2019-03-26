@@ -991,6 +991,17 @@
 		if(alien != IS_TAJARA && prob(5))
 			H.delayed_vomit()
 
+/datum/reagent/drink/milk/beetle
+	name = "Hakhma Milk"
+	id = "beetle_milk"
+	description = "A milky substance extracted from the brood sac of the viviparous Hakhma, often consumed by Offworlders and Scarabs."
+	nutriment_factor = 10
+	color = "#FFF8AD"
+	taste_description = "alien milk"
+
+	glass_name = "glass of hakhma milk"
+	glass_desc = "A milky substance extracted from the brood sac of the viviparous Hakhma, often consumed by Offworlders and Scarabs."
+
 /datum/reagent/drink/tea
 	name = "Tea"
 	id = "tea"
