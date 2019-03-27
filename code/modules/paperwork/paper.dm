@@ -506,7 +506,7 @@
 		playsound(src, 'sound/bureaucracy/stamp.ogg', 50, 1)
 		to_chat(user, span("notice", "You stamp the paper with \the [P]."))
 
-	else if(istype(P, /obj/item/weapon/flame))
+	else if(istype(P, /obj/item/weapon/flame) || P.iswelder())
 		burnpaper(P, user)
 	else if(P.iswelder())
 		burnpaper(P, user)

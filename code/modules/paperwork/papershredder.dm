@@ -116,7 +116,7 @@
 	else
 		..()
 
-/obj/item/weapon/shreddedp/proc/burnpaper(obj/item/weapon/flame/P, mob/user)
+/obj/item/weapon/shreddedp/proc/burnpaper(obj/item/weapon/P, mob/user)
 	var/class = "warning"
 
 	if (!user.restrained())
