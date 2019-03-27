@@ -124,7 +124,7 @@
 			var/obj/item/weapon/flame/F = P
 			if (!F.lit)
 				return
-		else if(P.iswelder())
+		else if (P.iswelder())
 			var/obj/item/weapon/weldingtool/F = P // NOW THAT'S WHAT I CALL RECYCLING - wezzy
 			if (!F.welding)
 				return
@@ -140,7 +140,7 @@
 		user.visible_message("<span class='[class]'>[user] holds \the [P] up to \the [src], it looks like \he's trying to burn it!</span>", \
 		"<span class='[class]'>You hold \the [P] up to \the [src], burning it slowly.</span>")
 		playsound(src.loc, 'sound/bureaucracy/paperburn.ogg', 50, 1)
-		icon_state = "shredp_onfire"
+		icon_state = "shredp_onfire" //no do_after here, so people can walk n' burn at the same time. -wezzy
 
 		spawn(20)
 			if(get_dist(src, user) < 2 && user.get_active_hand() == P)
@@ -155,7 +155,7 @@
 
 /obj/item/weapon/shreddedp
 	name = "shredded paper"
-	desc = "The remains of private, confidential, or otherwise sensitive documents."
+	desc = "The remains of a private, confidential, or otherwise sensitive document."
 	icon = 'icons/obj/bureaucracy.dmi'
 	icon_state = "shredp"
 	throwforce = 0
