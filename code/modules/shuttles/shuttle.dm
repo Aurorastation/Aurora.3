@@ -118,6 +118,7 @@
 				else
 					M << "<span class='warning'>The floor lurches beneath you!</span>"
 					shake_camera(M, 10, 1)
+				M.playsound_local(M.loc, 'sound/effects/shuttle/takeoff.ogg', 100, 1, 0.5)
 		if(istype(M, /mob/living/carbon))
 			if(!M.buckled)
 				M.Weaken(3)

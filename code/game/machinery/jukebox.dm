@@ -30,7 +30,6 @@ datum/track/New(var/title_name, var/audio)
 		new/datum/track("D`Fort", 'sound/ambience/song_game.ogg'),
 		new/datum/track("Floating", 'sound/music/main.ogg'),
 		new/datum/track("Endless Space", 'sound/music/space.ogg'),
-		new/datum/track("Part A", 'sound/misc/TestLoop1.ogg'),
 		new/datum/track("Scratch", 'sound/music/title1.ogg'),
 		new/datum/track("Trai`Tor", 'sound/music/traitor.ogg'),
 		new/datum/track("Thunderdome", 'sound/music/THUNDERDOME.ogg'),

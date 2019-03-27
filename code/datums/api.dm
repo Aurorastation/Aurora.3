@@ -839,7 +839,7 @@ proc/api_update_command_database()
 	C.received_discord_pm = world.time
 	C.discord_admin = queryparams["senderkey"]
 
-	C << 'sound/effects/adminhelp.ogg'
+	C << 'sound/admin/bwoink.ogg'
 	C << message
 
 	for(var/client/A in admins)

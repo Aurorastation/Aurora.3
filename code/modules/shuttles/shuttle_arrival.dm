@@ -14,6 +14,7 @@
 	if(moving_status != SHUTTLE_IDLE) return
 
 	//it would be cool to play a sound here
+
 	moving_status = SHUTTLE_WARMUP
 	spawn(warmup_time*10)
 		if (moving_status == SHUTTLE_IDLE)

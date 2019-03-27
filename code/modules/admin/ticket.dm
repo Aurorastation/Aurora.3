@@ -102,13 +102,13 @@ var/global/list/ticket_panels = list()
 		if (C)
 			admin_found = TRUE
 			to_chat(C, "<span class='danger'><b>You have yet to close [owner]'s ticket!</b></span>")
-			sound_to(C, 'sound/effects/adminhelp.ogg')
+			sound_to(C, 'sound/admin/bwoink.ogg')
 
 	if (!admin_found)
 		message_admins("<span class='danger'><b>[owner]'s ticket has yet to be closed!</b></span>")
 		for(var/client/C in admins)
 			if((C.holder.rights & (R_ADMIN|R_MOD)) && (C.prefs.toggles & SOUND_ADMINHELP))
-				sound_to(C, 'sound/effects/adminhelp.ogg')
+				sound_to(C, 'sound/admin/bwoink.ogg')
 
 	reminder_timer = addtimer(CALLBACK(src, .proc/remind), config.ticket_reminder_period SECONDS, TIMER_UNIQUE|TIMER_STOPPABLE)
 
