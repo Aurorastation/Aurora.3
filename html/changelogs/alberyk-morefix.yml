@@ -1,7 +1,0 @@
-author: Alberyk
-
-delete-after: True
-
-changes: 
-  - bugfix: "Vaurca should spawn with their inhalers again."
-  - tweak: "Off-worlders do not spawn witheir rigs anymore, they can now be selected using the loadout instead."
