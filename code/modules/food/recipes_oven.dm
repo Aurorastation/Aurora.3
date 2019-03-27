@@ -84,6 +84,7 @@
 
 /datum/recipe/garlicbread
 	appliance = OVEN
+	reagents = list("spacespice" = 2)
 	items = list(
 		/obj/item/weapon/reagent_containers/food/snacks/sliceable/flatdough,
 		/obj/item/weapon/reagent_containers/food/snacks/cheesewedge,
