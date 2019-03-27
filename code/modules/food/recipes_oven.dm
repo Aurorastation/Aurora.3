@@ -82,6 +82,15 @@
 	)
 	result = /obj/item/weapon/reagent_containers/food/snacks/flatbread
 
+/datum/recipe/garlicbread
+	appliance = OVEN
+	items = list(
+		/obj/item/weapon/reagent_containers/food/snacks/sliceable/flatdough,
+		/obj/item/weapon/reagent_containers/food/snacks/cheesewedge,
+		/obj/item/weapon/reagent_containers/food/snacks/cheesewedge
+	)
+	result = /obj/item/weapon/reagent_containers/food/snacks/sliceable/garlicbreadloaf
+
 /datum/recipe/meatbread
 	appliance = OVEN
 	items = list(
