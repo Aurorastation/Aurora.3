@@ -30,6 +30,7 @@
 	var/ailock = 0 	//Silicons cannot use this
 	req_access = list(access_ai_upload)
 	var/ui_ref = null //used for turrets UI ref
+	var/remote_access = FALSE
 
 /obj/machinery/turretid/stun
 	enabled = 1
@@ -136,7 +137,7 @@
 	var/turrets[0]
 	if(istype(control_area))
 		for (var/obj/machinery/porta_turret/aTurret in control_area.turrets)
-			turrets[++turrets.len] = list("name" = sanitize(aTurret.name) + " [turrets.len]", "ref"= "\ref[aTurret]")
+			turrets[++turrets.len] = list("name" = sanitize(aTurret.name + " [turrets.len]"), "ref"= "\ref[aTurret]", "settings" = aTurret.generate_data(user, TRUE))
 	data["turrets"] = turrets
 
 	if(data["access"])
@@ -149,7 +150,8 @@
 		settings[++settings.len] = list("category" = "Check misc. Lifeforms", "setting" = "check_anomalies", "value" = check_anomalies)
 		data["settings"] = settings
 
-	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
+	if(!remote_access)
+		ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if (!ui)
 		ui = new(user, src, ui_key, "turret_control.tmpl", "Turret Controls", 625, 425)
 		ui.set_initial_data(data)
@@ -182,14 +184,28 @@
 		updateTurrets()
 		update_icon()
 		return 1
-	else if(href_list["turret"])
-		if(ui_ref)
-			var/obj/machinery/porta_turret/aTurret = locate(href_list["turret"]) in (control_area.turrets)
-			message_admins("trying to open UI")
-			if(!aTurret)
-				return
-			aTurret.ui_interact(usr, master_ui = ui_ref)
-
+	else if(href_list["turret"] && href_list["value"])
+		var/value = text2num(href_list["value"])
+		var/obj/machinery/porta_turret/aTurret = locate(href_list["turret_ref"]) in (control_area.turrets)
+		if(!aTurret)
+			return
+		if(href_list["turret"] == "enable")
+			aTurret.enabled = value
+		else if(href_list["turret"] == "lethal")
+			aTurret.lethal = value
+			aTurret.update_icon()
+		else if(href_list["turret"] == "check_synth")
+			aTurret.check_synth = value
+		else if(href_list["turret"] == "check_weapons")
+			aTurret.check_weapons = value
+		else if(href_list["turret"] == "check_records")
+			aTurret.check_records = value
+		else if(href_list["turret"] == "check_arrest")
+			aTurret.check_arrest = value
+		else if(href_list["turret"] == "check_access")
+			aTurret.check_access = value
+		else if(href_list["turret"] == "check_anomalies")
+			aTurret.check_anomalies = value
 		update_icon()
 		return 1
 

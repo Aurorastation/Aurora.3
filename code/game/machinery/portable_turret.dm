@@ -209,7 +209,7 @@
 	message_admins("Opening UI")
 	ui_interact(user, remote)
 
-/obj/machinery/porta_turret/ui_interact(mob/user, var/remote = FALSE, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/master_ui = null, var/datum/topic_state/state = default_state)
+/obj/machinery/porta_turret/proc/generate_data(mob/user, var/remote = FALSE)
 	var/data[0]
 	data["access"] = !isLocked(user, remote)
 	data["locked"] = locked
@@ -220,13 +220,17 @@
 
 	if(data["access"])
 		var/settings[0]
-		settings[++settings.len] = list("category" = "Neutralize All Non-Synthetics", "setting" = "check_synth", "value" = check_synth)
-		settings[++settings.len] = list("category" = "Check Weapon Authorization", "setting" = "check_weapons", "value" = check_weapons)
-		settings[++settings.len] = list("category" = "Check Security Records", "setting" = "check_records", "value" = check_records)
-		settings[++settings.len] = list("category" = "Check Arrest Status", "setting" = "check_arrest", "value" = check_arrest)
-		settings[++settings.len] = list("category" = "Check Access Authorization", "setting" = "check_access", "value" = check_access)
-		settings[++settings.len] = list("category" = "Check misc. Lifeforms", "setting" = "check_anomalies", "value" = check_anomalies)
+		settings[++settings.len] = list("category" = "Neutralize All Non-Synthetics", "setting" = "check_synth", "value" = check_synth, "ref" = "\ref[src]")
+		settings[++settings.len] = list("category" = "Check Weapon Authorization", "setting" = "check_weapons", "value" = check_weapons, "ref" = "\ref[src]")
+		settings[++settings.len] = list("category" = "Check Security Records", "setting" = "check_records", "value" = check_records, "ref" = "\ref[src]")
+		settings[++settings.len] = list("category" = "Check Arrest Status", "setting" = "check_arrest", "value" = check_arrest, "ref" = "\ref[src]")
+		settings[++settings.len] = list("category" = "Check Access Authorization", "setting" = "check_access", "value" = check_access, "ref" = "\ref[src]")
+		settings[++settings.len] = list("category" = "Check misc. Lifeforms", "setting" = "check_anomalies", "value" = check_anomalies, "ref" = "\ref[src]")
 		data["settings"] = settings
+	return data
+
+/obj/machinery/porta_turret/ui_interact(mob/user, var/remote = FALSE, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/master_ui = null, var/datum/topic_state/state = default_state)
+	var/data = generate_data(user)
 
 	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if (!ui)

@@ -49,10 +49,34 @@
 
 <div class='item'>
     <div class="itemLabelWide">
-		List of Turrets:
-        {{for data.turrets}}
-            {{:helper.link(value.name, null, {'turret' : value.ref}, null)}}
-            <br><br>
-        {{/for}}
+		<b>List of Turrets:</b>
     </div>
+    {{for data.turrets}}
+        <div class="item">
+            <div class="itemLabelWide">
+                {{:value.name}}
+            </div>
+            <div class="item">
+                {{:helper.link('Enabled', null, {'turret' : 'enable', 'value' : 1, 'turret_ref': value.ref},  value.settings.enabled ?'redButton' : null)}}
+                {{:helper.link('Disabled',null, {'turret' : 'enable', 'value' : 0, 'turret_ref': value.ref}, !value.settings.enabled ? 'selected' : null)}}
+
+                {{if data.is_lethal}}
+                    {{if value.settings.can_switch}}
+                        {{:helper.link('Lethal', null, {'turret' : 'lethal', 'value' : 1, 'turret_ref': value.ref},  value.settings.lethal ?'redButton' : null)}}
+                        {{:helper.link('Stun',null, {'turret' : 'lethal', 'value' : 0, 'turret_ref': value.ref}, !value.settings.lethal ? 'selected' : null)}}
+                    {{else}}
+                        {{:helper.link('Lethal', null, null, 'disabled')}}
+                        {{:helper.link('Stun',null, null, 'disabled')}}
+                    {{/if}}
+                {{/if}}
+
+                {{for value.settings.settings}}
+                    {{:helper.link(value.category, null, {'turret' : value.setting, 'value' : 1, 'turret_ref': value.ref},  value.value ?'redButton' : null)}}
+                    {{:helper.link(value.category, null, {'turret' : value.setting, 'value' : 0, 'turret_ref': value.ref}, !value.value ? 'selected' : null)}}
+
+                {{/for}}
+            </div>
+        </div>
+        <br><br>
+    {{/for}}
 </div>
