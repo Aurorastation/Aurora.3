@@ -40,7 +40,7 @@
 		user.drop_from_inventory(P,src)
 		flick("[initial(icon_state)]-open",src)
 		playsound(loc, 'sound/bureaucracy/filingcabinet.ogg', 50, 1)
-		sleep(20)
+		sleep(40)
 		icon_state = initial(icon_state)
 		updateUsrDialog()
 	else if(P.iswrench())
