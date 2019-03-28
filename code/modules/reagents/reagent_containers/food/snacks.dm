@@ -5470,27 +5470,34 @@
 
 
 /obj/item/weapon/reagent_containers/food/snacks/sliceable/garlicbreadloaf
-	name = "garlic cheesy loaf"
+	name = "garlic bread"
 	desc = "The best friend of any italian dish."
 	icon_state = "garlicloaf"
 	slice_path = /obj/item/weapon/reagent_containers/food/snacks/garlicbreadslice
 	slices_num = 4
 	filling_color = "#F7EDD5"
 	center_of_mass = list("x"=16, "y"=10)
-	nutriment_desc = list("crusty bread" = 10, "cheese" = 10, "garlic" = 15)
 	nutriment_amt = 25
 
 /obj/item/weapon/reagent_containers/food/snacks/sliceable/garlicbreadloaf/Initialize()
 	. = ..()
+	reagents.add_reagent("garlicsauce", 6)
+	reagents.add_reagent("carbon", 3)
 
 /obj/item/weapon/reagent_containers/food/snacks/garlicbreadslice
-	name = "garlic cheesy bread slice"
+	name = "garlic bread slice"
 	desc = "Just a cut of finger licking goodness."
 	icon_state = "garlicloaf_slice"
 	trash = /obj/item/trash/plate
 	filling_color = "#F7EDD5"
 	bitesize = 4
 	center_of_mass = list("x"=16, "y"=14)
+
+/obj/item/weapon/reagent_containers/food/snacks/garlicbreadslice/Initialize()
+	. = ..()
+	reagents.add_reagent("garlicsauce", 1)
+	reagents.add_reagent("carbon", 3)
+
 
 #undef NUTRIMENT_GOOD
 #undef NUTRIMENT_BAD

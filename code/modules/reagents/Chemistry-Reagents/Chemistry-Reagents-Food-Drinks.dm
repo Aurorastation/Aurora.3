@@ -500,6 +500,10 @@
 	nutriment_factor = 4
 	color = "#d8c045"
 
+/datum/reagent/nutriment/garlicsauce/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+	if(M.mind.vampire)
+		M.adjustToxLoss(1 * removed)
+
 /* Non-food stuff like condiments */
 
 /datum/reagent/sodiumchloride
