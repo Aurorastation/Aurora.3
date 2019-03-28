@@ -107,8 +107,19 @@
 	paperamount--
 	return new /obj/item/weapon/shreddedp(get_turf(src))
 
-/obj/machinery/papershredder/update_icon()
-	icon_state = "papershredder[max(0,min(5,Floor(paperamount/2)))]"
+/obj/machinery/papershredder/update_icon() //makes it show how full the papershredder is while covering up the animation. Seemsgood - Wezzy
+	cut_overlays()
+	switch(paperamount)
+		if(2 to 3)
+			add_overlay("papershredder1")
+		if(4 to 5)
+			add_overlay("papershredder2")
+		if(6 to 7)
+			add_overlay("papershredder3")
+		if(8 to 9)
+			add_overlay("papershredder4")
+		if(10)
+			add_overlay("papershredder5")
 
 /obj/item/weapon/shreddedp/attackby(var/obj/item/W as obj, var/mob/user)
 	if(istype(W, /obj/item/weapon/flame/lighter))
