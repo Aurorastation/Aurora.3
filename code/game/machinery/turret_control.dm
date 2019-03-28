@@ -1,7 +1,7 @@
 ////////////////////////
 //Turret Control Panel//
 ////////////////////////
-
+#define UIDEBUG
 /area
 	// Turrets use this list to see if individual power/lethal settings are allowed
 	var/list/turret_controls = list()
@@ -126,7 +126,7 @@
 
 	ui_interact(user)
 
-/obj/machinery/turretid/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
+/obj/machinery/turretid/proc/generate_data(mob/user)
 	var/data[0]
 	data["access"] = !isLocked(user)
 	data["locked"] = locked
@@ -149,15 +149,14 @@
 		settings[++settings.len] = list("category" = "Check Access Authorization", "setting" = "check_access", "value" = check_access)
 		settings[++settings.len] = list("category" = "Check misc. Lifeforms", "setting" = "check_anomalies", "value" = check_anomalies)
 		data["settings"] = settings
+	return data
 
-	if(!remote_access)
-		ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
+/obj/machinery/turretid/ui_interact(mob/user, ui_key = "main", var/datum/vueui/ui = null, var/force_open = 1)
+
+	ui = SSvueui.get_open_ui(user, src)
 	if (!ui)
-		ui = new(user, src, ui_key, "turret_control.tmpl", "Turret Controls", 625, 425)
-		ui.set_initial_data(data)
+		ui = new(user, src, "turrets-turret-controls", 625, 425, "Turret Controls", generate_data(user))
 		ui.open()
-		ui.set_auto_update(1)
-	ui_ref = ui
 
 /obj/machinery/turretid/Topic(href, href_list)
 	if(..())
