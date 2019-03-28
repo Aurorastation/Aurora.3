@@ -150,16 +150,6 @@ STOCK_ITEM_COMMON(smallcell, 4)
 		)
 		new type(L)
 
-STOCK_ITEM_COMMON(robolimb, 2.5)
-	var/manufacturer = pick(all_robolimbs)
-	var/limbtype = pick( \
-		/obj/item/robot_parts/l_arm, \
-		/obj/item/robot_parts/r_arm, \
-		/obj/item/robot_parts/l_leg, \
-		/obj/item/robot_parts/r_leg \
-	)
-	new limbtype(L, manufacturer)
-
 //Spawns a random circuitboard
 //Allboards being a global list might be faster, but it didnt seem worth the extra memory
 STOCK_ITEM_COMMON(circuitboard, 2)
