@@ -24,7 +24,7 @@
 	path = /obj/item/weapon/storage/box/duelingkit/pirate
 	cost = 6
 
-/datum/gear/gun/pirate
+/datum/gear/gun/leyon
 	display_name = "Deluxe Leyon Dueling Kit"
 	path = /obj/item/weapon/storage/box/duelingkit/leyon
 	cost = 7
