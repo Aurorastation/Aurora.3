@@ -75,6 +75,8 @@ obj/item/weapon/gun/bang/deagle
 
 
 /obj/item/weapon/storage/box/duelingkit/
+	icon = 'icons/obj/weapons.dmi'
+	icon_state = "gunbox"
 	name = "Dueling Kit"
 	desc = "Everything you need to duel, except a weapon."
 
