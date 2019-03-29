@@ -975,7 +975,7 @@
 	//satisfaction decrease over time
 	if(satisfaction > 0 && stat != 2 && sat_refractor < 20)
 		satisfaction = max(satisfaction - (1 * ((satisfaction/100)*3)), 0)
-	if(satisfaction > (0.7 * 100) && prob(lust/5))
+	if(satisfaction > (70) && prob(lust/5))
 		var/list/satisfaction_message = list(
 			"Damn, you're so chad.", "Damn, you should get a cat. Bitches love cats.", "Fuck anime, you're a stud.", "Kapow! Look at the muscles on you, killer.", "Fuck all the incels, you rock.",
 			"God, you're so cash money.", "Fuck all the haters, they're so jealous.", "Oh yeah! You're so alpha.", "God, you're just so full of energy.", "Get pumped, killer!",

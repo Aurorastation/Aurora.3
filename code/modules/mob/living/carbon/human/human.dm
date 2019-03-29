@@ -126,6 +126,9 @@
 				stat("Tank Pressure", internal.air_contents.return_pressure())
 				stat("Distribution Pressure", internal.distribute_pressure)
 
+		stat(null, "Current Lust: [lust]/100")
+		stat(null, "Current Satisfaction: [satisfaction]/100")
+		stat(null, "Current ERP Combo Multiplier: +[erp_combo]x")
 		var/obj/item/organ/xenos/plasmavessel/P = internal_organs_by_name["plasma vessel"]
 		if(P)
 			stat(null, "Phoron Stored: [P.stored_plasma]/[P.max_plasma]")
@@ -1574,7 +1577,7 @@
 	dat += "<BR><A href='?src=\ref[src];erp=compliment'>Compliment [name]</A>"
 	dat += "<BR><A href='?src=\ref[src];erp=wink_suggestively'>Wink at [name], suggestively</A>"
 
-	//tier 2 ERPs. These are only available with a certain satisfaction, and increase satisfaction by 2 and lust by 2.
+	//tier 2 ERPs. These are only available with a certain satisfaction, and increase satisfaction by 1 and lust by 2.
 	if(Huser.satisfaction > 20)
 		dat += "<B><HR><FONT size=2>Intimate ERP</FONT></B><BR><HR>"
 		dat += "<BR><A href='?src=\ref[src];erp=confess_admiration'>Confess romantic interest in [name]</A>"
@@ -1661,28 +1664,28 @@
 
 		if("confess_admiration")
 			erp_timer = 2
-			erp_sat_gain = 2
+			erp_sat_gain = 1
 			erp_lust_gain = 2
 			erp_message = "<i>[user] [intensity_message] confesses romantic interest in [src]</i>."
 		if("kiss_cheek")
 			erp_timer = 2
-			erp_sat_gain = 2
+			erp_sat_gain = 1
 			erp_lust_gain = 2
 			erp_message = "<i>[user] [intensity_message] kisses [src] on their cheek.</i>"
 		if("cuddle")
 			erp_timer = 2
-			erp_sat_gain = 2
+			erp_sat_gain = 1
 			erp_lust_gain = 2
 			erp_message = "<i>[user] [intensity_message] cuddles with [src].</i>"
 		if("caress")
 			erp_timer = 2
-			erp_sat_gain = 2
+			erp_sat_gain = 1
 			erp_lust_gain = 2
 			var/target_zone = pick("thigh","cheek","inner thigh","abdomen")
 			erp_message = "<i>[user] [intensity_message] caresses [src]'s [target_zone].</i>"
 		if("sweet_nothings")
 			erp_timer = 2
-			erp_sat_gain = 2
+			erp_sat_gain = 1
 			erp_lust_gain = 2
 			erp_message = "<i>[user] [intensity_message] whispers sweet nothings into [src]'s ear.</i>"
 
@@ -1706,8 +1709,8 @@
 			erp_message = "<b>[user] [intensity_message] kisses [src]. On the lips!</b>"
 		if("try_for_baby")
 			erp_timer = 4
-			erp_sat_gain = 6
-			erp_lust_gain = -6
+			erp_sat_gain = 10
+			erp_lust_gain = -10
 			ignore_sat_maximum = 1
 			erp_message = "<b>[user] and [src] [intensity_message] try for a baby together!</b>"
 
