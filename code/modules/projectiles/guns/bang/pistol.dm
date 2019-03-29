@@ -73,7 +73,6 @@ obj/item/weapon/gun/bang/deagle
 	pixel_offset_x = 0
 	pixel_offset_y = 12
 
-
 /obj/item/weapon/storage/box/duelingkit/
 	icon = 'icons/obj/weapons.dmi'
 	icon_state = "gunbox"
