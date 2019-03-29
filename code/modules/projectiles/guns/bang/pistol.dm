@@ -74,4 +74,63 @@ obj/item/weapon/gun/bang/deagle
 	pixel_offset_y = 12
 
 
+/obj/item/weapon/storage/box/duelingkit/
+	name = "Dueling Kit"
+	desc = "Everything you need to duel, except a weapon."
 
+/obj/item/weapon/storage/box/duelingkit/fill()
+	new /obj/item/clothing/gloves/dueling(src)
+	new /obj/item/weapon/book/manual/codeduello(src)
+
+/obj/item/weapon/storage/box/duelingkit/colt
+	name = "Deluxe Vintage Dueling Kit"
+	desc = "Everything you need to duel, including an vintage pistol."
+
+/obj/item/weapon/storage/box/duelingkit/colt/fill()
+	..()
+	new /obj/item/weapon/gun/bang/colt(src)
+
+/obj/item/weapon/storage/box/duelingkit/sec
+	..()
+	name = "Deluxe Nanotrasen Dueling Kit"
+	desc = "Everything you need to duel, including an Nanotrasen-branded pistol."
+
+/obj/item/weapon/storage/box/duelingkit/sec/fill()
+	..()
+	new /obj/item/weapon/gun/bang/sec(src)
+
+/obj/item/weapon/storage/box/duelingkit/x9
+	..()
+	name = "Deluxe x9 Dueling Kit"
+	desc = "Everything you need to duel, including an automatic x9 pistol."
+
+/obj/item/weapon/storage/box/duelingkit/x9/fill()
+	..()
+	new /obj/item/weapon/gun/bang/x9(src)
+
+/obj/item/weapon/storage/box/duelingkit/deagle
+	..()
+	name = "Deluxe Deagle Dueling Kit"
+	desc = "Everything you need to duel, including deagle."
+
+/obj/item/weapon/storage/box/duelingkit/deagle/fill()
+	..()
+	new /obj/item/weapon/gun/bang/deagle(src)
+
+/obj/item/weapon/storage/box/duelingkit/pirate
+	..()
+	name = "Deluxe Pirate Dueling Kit"
+	desc = "Everything you need to duel, including a pirate style zip gun."
+
+/obj/item/weapon/storage/box/duelingkit/pirate/fill()
+	..()
+	new /obj/item/weapon/gun/bang/pirate(src)
+
+/obj/item/weapon/storage/box/duelingkit/leyon
+	..()
+	name = "Deluxe Leyon Dueling Kit"
+	desc = "Everything you need to duel, including a compact leyon pistol."
+
+/obj/item/weapon/storage/box/duelingkit/leyon/fill()
+	..()
+	new /obj/item/weapon/gun/projectile/leyon(src)

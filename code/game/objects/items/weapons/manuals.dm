@@ -1427,3 +1427,37 @@
 /obj/item/weapon/book/manual/battlemonsters/New()
 	..()
 	dat = {"<html><head></head><body><iframe width='100%' height='100%' src="[config.wikiurl]Guide_to_Battlemonsters&printable=yes&remove_links=1" frameborder="0" id="main_frame"></iframe></body></html>"}
+
+/obj/item/weapon/book/manual/codeduello
+	name = "An Abbreviated Code Duello"
+	icon_state ="codeduello"
+	author = "John Lyde Wilson"
+	title = "An Abbreviated Guide to the Code Duello"
+	desc = "A high quality, gold-embossed beginners guide to the noble art of the duel. Read it if you wish to keep your honor intact."
+	dat = {"<html>
+				<head>
+					<style>
+						h1 {font-size: 21px; margin: 15px 0px 5px;}
+						h2 {font-size: 15px; margin: 15px 0px 5px;}
+						li {margin: 2px 0px 2px 15px;}
+						ul {margin: 5px; padding: 0px;}
+						ol {margin: 5px; padding: 0px 15px;}
+						body {font-size: 13px; font-family: Verdana;}
+					</style>
+				</head>
+				<body>
+					<h1>The Code Duello, an Abbreviated Beginner's Guide</h1>
+					<br>
+					<p>The ancient practice of dueling has been a noble art of conflict, of war on the smallest scale. At its most basic level, a duel is a challenge by one party to another who has wronged them in some fashion.</p>
+					<p>Since times forgotten by the modern spacefaring man, the guidelines known as Code Duello have guided men and women of honor on how to restore said honor if it has been sullied by another. The original Code Duello is said to have been dozens of pages long and contained many precise and specific steps, but we here at the Abbreviated Arts of War have prepared a simplified version for your ease of reading.</p>
+					<p>Simply follow these five easy steps and your honor will be maintained:</p>
+					<br>
+					<p>Step One: Identify an aggression against your honor or the honor of another individual you seek to protect. It really does not matter what said action is, it could be anything from insulting you directly to serving you last at a bar. As long as you feel you have been dishonored, the Code Duello is behind you!</p>
+					<p>Step Two: Present your challenge to the aggressor. Traditionally, this is done with a slap across the face with a dueling glove and a formal declaration that you challenge them, and for what reason.</p>
+					<p>Step Three: Make a demand of the aggressor that will restore your honor. This could be anything from issuing a public apology to providing you restitution for their actions. If they refuse, continue to Step Four.</p>
+					<p>Step Four: Now that the offending party has refused your offer to settle their offense out of combat, the formal duel planning begins. The challenger may choose weapons and time of the duel, and the challenged may choose the location of the duel. Should the location the duel be untenable, such as in a nuclear reactor, the challenger may refuse. Should the challenged not possess a weapon of the type suggested by the challenger (guns, blades, fists, etc), they may be given an opportunity to acquire it.</p>
+					<p>Refusal to particulate in the duel or provide restitution indicates the challenged is an honorless dog, and can be executed like the beast they are at the leisure of the challenger.</p>
+					<p>Step Five: Once the weapons and location has been agreed upon, and the time of the duel has come, both individuals meet at the designated location. They face away from each other at a safe distance of at least ten feet until the duel begins. A designated third party must count down. When the countdown ends, the duel begins. The last man or woman standing is the victor of the duel. The other has forfeitted their claim to honor on this challenge.</p>
+				</body>
+			</html>
+			"}

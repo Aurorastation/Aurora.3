@@ -70,6 +70,14 @@
 	permeability_coefficient = 0.05
 	siemens_coefficient = 0.50 //thick work gloves
 
+/obj/item/clothing/gloves/dueling
+	desc = "These leather gloves are designed for use in formal dueling."
+	name = "dueling gloves"
+	icon_state = "dueling"
+	item_state = "browngloves"
+	force = 0.1
+	species_restricted = null
+
 /obj/item/clothing/gloves/botanic_leather/unathi
 	name = "unathi leather gloves"
 	species_restricted = list("Unathi")
