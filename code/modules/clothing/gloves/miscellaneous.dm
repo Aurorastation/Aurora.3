@@ -75,8 +75,19 @@
 	name = "dueling gloves"
 	icon_state = "dueling"
 	item_state = "browngloves"
-	force = 0.1
 	species_restricted = null
+
+/obj/item/clothing/gloves/dueling/attack(mob/living/target, mob/living/user, proximal)
+	if (!proximal || !ishuman(target))
+		return ..()
+
+	user.visible_message(
+		"<span class='danger'>[user] slaps [target] across the face with [src]!</span>",
+		"<span class='alert'>You slap [target] across the face with [src], challenging them to a duel.</span>",
+		"You hear cloth impacting something fleshy.")
+	playsound(src, 'sound/effects/snap.ogg', 40, 1)
+
+	. = ..()
 
 /obj/item/clothing/gloves/botanic_leather/unathi
 	name = "unathi leather gloves"
