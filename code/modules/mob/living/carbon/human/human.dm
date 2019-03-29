@@ -791,6 +791,13 @@
 				flavor_texts[href_list["flavor_change"]] = msg
 				set_flavor()
 				return
+
+	if (href_list["erp"])
+		handle_erp(href_list["erp"],usr)
+
+		if((machine)&&(in_range(src, usr)))
+			show_inv(machine)
+
 	..()
 	return
 
@@ -1546,7 +1553,221 @@
 		return
 	return ..()
 
+/mob/living/carbon/human/proc/show_erp(mob/user as mob)
+	if(user.incapacitated()  || !user.Adjacent(src))
+		return
 
+	if(!ishuman(user))
+		return
+
+	var/mob/living/carbon/human/Huser = user
+
+	Huser.set_machine(src)
+	var/dat = "<B><HR><FONT size=3>[name]</FONT></B><BR><HR>"
+
+	//tier 1 ERPs. These are always available and increase satisfaction by 1, and decrease lust by 1.
+	dat += "<B><HR><FONT size=2>Casual ERP</FONT></B><BR><HR>"
+	dat += "<BR><A href='?src=\ref[src];erp=respect'>Respect [name]</A>"
+	dat += "<BR><A href='?src=\ref[src];erp=loving_stare'>Lovingly stare at [name]</A>"
+	dat += "<BR><A href='?src=\ref[src];erp=hold_hands'>Hold [name]'s hand</A>"
+	dat += "<BR><A href='?src=\ref[src];erp=hug'>Hug [name]</A>"
+	dat += "<BR><A href='?src=\ref[src];erp=compliment'>Compliment [name]</A>"
+	dat += "<BR><A href='?src=\ref[src];erp=wink_suggestively'>Wink at [name], suggestively</A>"
+
+	//tier 2 ERPs. These are only available with a certain satisfaction, and increase satisfaction by 2 and lust by 2.
+	if(Huser.satisfaction > 20)
+		dat += "<B><HR><FONT size=2>Intimate ERP</FONT></B><BR><HR>"
+		dat += "<BR><A href='?src=\ref[src];erp=confess_admiration'>Confess romantic interest in [name]</A>"
+		dat += "<BR><A href='?src=\ref[src];erp=kiss_cheek'>Kiss [name]'s cheek</A>"
+		dat += "<BR><A href='?src=\ref[src];erp=cuddle'>Cuddle with [name]</A>"
+		dat += "<BR><A href='?src=\ref[src];erp=caress'>Caress [name]'s thigh</A>"
+		dat += "<BR><A href='?src=\ref[src];erp=sweet_nothings'>Whisper sweet nothings to [name]</A>"
+
+	//tier 3 ERPs. These decrease lust by 6 and increase satisfaction by 6 and prevent it from decreasing for a certain period, but are only available if lust is high enough.
+	if((Huser.satisfaction > 35) && (Huser.lust > 50))
+		dat += "<B><HR><FONT size=2>EXTREME ERP MOVES (DON'T TRY THIS AT HOME KIDS!)</FONT></B><BR><HR>"
+		dat += "<BR><A href='?src=\ref[src];erp=lewd_thoughts'>Share lewd thoughts with [name]</A>"
+		dat += "<BR><A href='?src=\ref[src];erp=touch_butt'>Touch butts with [name]</A>"
+		dat += "<BR><A href='?src=\ref[src];erp=kiss_lips'>Kiss [name]. On the lips.</A>"
+		dat += "<BR><A href='?src=\ref[src];erp=try_for_baby'>Try for baby with [name].</A>"
+
+	dat += "<BR><A href='?src=\ref[Huser];refresh=1'>Refresh</A>"
+	dat += "<BR><A href='?src=\ref[Huser];mach_close=mob[name]'>Close</A>"
+
+	Huser << browse(dat, text("window=mob[name];size=340x540"))
+	onclose(Huser, "mob[name]")
+	return
+
+/mob/living/carbon/human/proc/handle_erp(var/erp_type,var/mob/living/carbon/human/user)
+	if(!erp_type || !istype(user))
+		return 0
+
+	if(user.incapacitated()  || !user.Adjacent(src))
+		user << browse(null, text("window=mob[src.name]"))
+		return 0
+
+	var/intensity_message = "limply"
+	switch(user.satisfaction)
+		if(0 to 1)
+			intensity_message = "limply"
+		if(2 to 20)
+			intensity_message = "shyly"
+		if(21 to 40)
+			intensity_message = "vigorously"
+		if(41 to 60)
+			intensity_message = "lovingly"
+		if(61 to INFINITY)
+			intensity_message = "passionately"
+
+	if(user.a_intent == I_HURT)
+		intensity_message = "aggressively"
+
+	var/erp_timer = 0
+	var/erp_sat_gain
+	var/erp_lust_gain
+	var/erp_message
+	var/ignore_sat_maximum = 0
+	switch(erp_type)
+		if("respect")
+			erp_timer = 1
+			erp_sat_gain = 1
+			erp_lust_gain = -1
+			erp_message = "[user] [intensity_message] calls [src] by their first name."
+		if("loving_stare")
+			erp_timer = 1
+			erp_sat_gain = 1
+			erp_lust_gain = -1
+			erp_message = "[user] [intensity_message] stares deep into [src]'s eyes."
+		if("hold_hands")
+			erp_timer = 1
+			erp_sat_gain = 1
+			erp_lust_gain = -1
+			erp_message = "[user] [intensity_message] holds [src]'s hand."
+		if("hug")
+			erp_timer = 1
+			erp_sat_gain = 1
+			erp_lust_gain = -1
+			erp_message = "[user] [intensity_message] holds [src] in an embrace."
+		if("compliment")
+			erp_timer = 1
+			erp_sat_gain = 1
+			erp_lust_gain = -1
+			erp_message = "[user] [intensity_message] compliments [src]."
+		if("wink_suggestively")
+			erp_timer = 1
+			erp_sat_gain = 1
+			erp_lust_gain = -1
+			erp_message = "[user] [intensity_message] winks at [src], suggestively."
+
+		if("confess_admiration")
+			erp_timer = 2
+			erp_sat_gain = 2
+			erp_lust_gain = 2
+			erp_message = "<i>[user] [intensity_message] confesses romantic interest in [src]</i>."
+		if("kiss_cheek")
+			erp_timer = 2
+			erp_sat_gain = 2
+			erp_lust_gain = 2
+			erp_message = "<i>[user] [intensity_message] kisses [src] on their cheek.</i>"
+		if("cuddle")
+			erp_timer = 2
+			erp_sat_gain = 2
+			erp_lust_gain = 2
+			erp_message = "<i>[user] [intensity_message] cuddles with [src].</i>"
+		if("caress")
+			erp_timer = 2
+			erp_sat_gain = 2
+			erp_lust_gain = 2
+			var/target_zone = pick("thigh","cheek","inner thigh","abdomen")
+			erp_message = "<i>[user] [intensity_message] caresses [src]'s [target_zone].</i>"
+		if("sweet_nothings")
+			erp_timer = 2
+			erp_sat_gain = 2
+			erp_lust_gain = 2
+			erp_message = "<i>[user] [intensity_message] whispers sweet nothings into [src]'s ear.</i>"
+
+		if("lewd_thoughts")
+			erp_timer = 4
+			erp_sat_gain = 6
+			erp_lust_gain = -6
+			ignore_sat_maximum = 1
+			erp_message = "<b>[user] [intensity_message] suggests something lewd to [src]!</b>"
+		if("touch_butt")
+			erp_timer = 4
+			erp_sat_gain = 6
+			erp_lust_gain = -6
+			ignore_sat_maximum = 1
+			erp_message = "<b>[user] and [src] [intensity_message] touch each other's butts!</b>"
+		if("kiss_lips")
+			erp_timer = 4
+			erp_sat_gain = 6
+			erp_lust_gain = -6
+			ignore_sat_maximum = 1
+			erp_message = "<b>[user] [intensity_message] kisses [src]. On the lips!</b>"
+		if("try_for_baby")
+			erp_timer = 4
+			erp_sat_gain = 6
+			erp_lust_gain = -6
+			ignore_sat_maximum = 1
+			erp_message = "<b>[user] and [src] [intensity_message] try for a baby together!</b>"
+
+	if(do_after(user, erp_timer))
+		//naked is sexy
+		if (!w_uniform)
+			erp_sat_gain += 1
+			erp_lust_gain += 1
+
+		if (!user.w_uniform)
+			erp_sat_gain += 1
+			erp_lust_gain += 1
+
+		if(user.last_erp_move != erp_type)
+			user.last_erp_move = erp_type
+			user.erp_combo = min(erp_combo + 0.2, 2)
+		else
+			user.erp_combo = 0 //c-c-c-c-combo breaker! you fucking suck!
+
+		var/user_erp_score = erp_sat_gain + (erp_sat_gain * user.erp_combo)
+		if(ignore_sat_maximum)
+			user.satisfaction += user_erp_score
+			satisfaction += erp_sat_gain
+		else
+			user.satisfaction = min(user.satisfaction + user_erp_score, 100)
+			satisfaction = min(satisfaction + erp_sat_gain, 100)
+
+		user.lust += erp_lust_gain
+		lust += erp_lust_gain
+
+		var/lewd_message = pick("Oh yeah... that's good.", "Oh, daddy!", "OH God!", "Hell yeah, brother!", "Ooh! Ooh! Ohh...",\
+				"Oh golly gee willickers!", "Geeze louise, you're aroused!", "Oh dearie dear dear!", "Oh, you could do this forever!",\
+				"How lewd, doing this in public!", "Oh, it's so wrong... but it feels so right.", "Jesus weeps at this lewd behavior.",\
+				"Does this feel as good for them as it does for you?", "Oh shit I'm feelin' it!", "This is finger-lickin' good!",\
+				"It's hard to stay focused when something so lewd is happening!", "You're such a slut for good vibes.", "Daddy, oohhhh...",\
+				"This really rocks your socks!", "God, you're such a thirsty bitch.", "Please, may I have another!", "Wham-bam, thank you ma'am!")
+		to_chat(src, "<span class='notice'>[lewd_message]</span>")
+		to_chat(user, "<span class='notice'>[lewd_message]</span>")
+		visible_message("<span class='erp'>[erp_message]</span>")
+
+	else
+		user << browse(null, text("window=mob[src.name]"))
+		return 0
+
+/mob/living/carbon/human/MouseDrop_T(mob/living/M, mob/living/user)
+	. = ..()
+	if(user == src) //only degenerates ERP themselves
+		return
+	if(user != M) //you can't force two non-consenting adults to ERP one another. you have to take responsibility for your actions.
+		return
+	if(!ishuman(M) || !ishuman(user)) //only degenerates ERP nonhumans
+		return
+
+	switch(alert("Would you like to ERP with [user]?",,"Yes","No"))
+		if("Yes")
+			visible_message("<span class='notice'>[user] and [src] engage in mutually consented to physical-emotional stimulation.</span>")
+			show_erp(user)
+		if("No")
+			to_chat(user, "<span class='danger'>[src] does not willingly consent.</span>")
+			return
 
 /mob/living/carbon/human/AltClickOn(var/atom/A)
 	var/doClickAction = 1

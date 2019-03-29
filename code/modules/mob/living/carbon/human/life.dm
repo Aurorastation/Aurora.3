@@ -960,6 +960,51 @@
 			if(overdrinkduration > 1)
 				overdrinkduration -= 2 //doubled the undrink rate
 
+	//refractory period
+	if(sat_refractor > 0)
+		if(stat != 2)
+			sat_refractor = max(satisfaction - 2, 0)
+
+	//erp combo
+	if(erp_combo > 0)
+		if(stat != 2)
+			erp_combo = max(erp_combo - 0.1, 0)
+		else
+			erp_combo = 0 //no excellent lewds for dead people
+
+	//satisfaction decrease over time
+	if(satisfaction > 0 && stat != 2 && sat_refractor < 20)
+		satisfaction = max(satisfaction - (1 * ((satisfaction/100)*3)), 0)
+	if(satisfaction > (0.7 * 100) && prob(lust/5))
+		var/list/satisfaction_message = list(
+			"Damn, you're so chad.", "Damn, you should get a cat. Bitches love cats.", "Fuck anime, you're a stud.", "Kapow! Look at the muscles on you, killer.", "Fuck all the incels, you rock.",
+			"God, you're so cash money.", "Fuck all the haters, they're so jealous.", "Oh yeah! You're so alpha.", "God, you're just so full of energy.", "Get pumped, killer!",
+			"They should call you Wolf, 'cuz you're an alpha!.", "Hell yeah, brother.", "Hell no, brother.", "Oink oink, all the lil' piggies want to be you.", "You're so hot, you could put the sun outta business.",
+			"Fuck poetry, you're a boss.", "You could go for another sesh, brah.", "All those nerds wish they were you.", "God, you're so hot.", "You'd bang you if you weren't you, and it wouldn't even be gay.",
+			"You're the top dog in this kennel, brah.", "Killer moves, brother! Hell yeah!", "Oh god, everyone's so jealous of you.", "You rock, holmes!","You're the rock this church is built on. Hell to the yeah!",
+			"You're alpha as fuck, dude.", "You should throw a killer smosh, brah.", "Damn, you're hungry.", "Your emotional insecurities are meaningless when you're THIS alpha. Hell yeah, brother!",
+			"The futile pursuit of happiness and significance in this cold meaningless world ain't got nothing on you, killer. Hell yeah!",  "Damn, you're such a hunk.",  "Hell to the yeah, brother!",)
+		to_chat(src, "<span class='notice'>[pick(satisfaction_message)]</span>")
+	if(satisfaction > 150)
+		to_chat(src, "<span class='danger'>Oh God! You're almost there... almost there... Ugghhh! You're gonna blow!</span>")
+		visible_message("<span class='danger'>[src] explodes with orgasmic bliss! At least they get some...</span>")
+		gib()
+		return
+
+	//lust increase over time
+	if(lust < 100 && stat != 2 && satisfaction < 30)
+		lust = min(lust + 1, 100)
+	if(lust > (50) && prob(lust/5))
+		var/list/lust_message = list(
+			"You crave human contact.", "You could really go for a hug right now.", "You feel so lonely.", "You have unsatisfied yearnings.", "You miss your mother.",
+			"You wish someone would listen to your problems.", "You just want someone to hold your hand.", "Your body yearns for comfort.", "You wish you had a significant other.",
+			"You feel so alone in this cold universe.", "You just want to be intimate with someone.", "You're such a virgin.", "You wish someone would whisper something sweet in your ear.",
+			"You'd pay for intimacy.", "You feel like such a degenerate, filled with these lustful thoughts.", "You're a sicko.", "You feel half full.", "You feel like you're missing your other half.",
+			"You're so thirsty... for a special juice.", "Your heart wants something your body could never acquire.", "Maybe if you weren't so ugly you wouldn't be so alone.", "Maybe you just were always meant to be alone.",
+			"You should buy a cat. Maybe three.", "Why have sex when you can have naps instead?", "Your parents died disappointed in you.", "Your parents would never have guessed their line would end with you.",
+			"You just want to hold something warm in your arms.",  "A life lived alone is the life you'll always live.",  "You can't stand seeing another happy couple. You'll snap.",  "Oh God, why can't I just have someone to be happy with.")
+		to_chat(src, "<span class='warning'>[pick(lust_message)]</span>")
+
 	// TODO: stomach and bloodstream organ.
 	if(!isSynthetic())
 		handle_trace_chems()

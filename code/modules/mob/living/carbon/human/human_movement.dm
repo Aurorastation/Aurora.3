@@ -75,6 +75,11 @@
 
 	tally += config.human_delay
 
+	if(lust > 50)
+		tally += lust/50
+
+	if(satisfaction > 70)
+		tally -= (4 - (10 - (satisfaction/10)))
 	tally *= 2/(get_hydration_mul(0.75,1) + get_nutrition_mul(0.75,1))
 
 	tally = round(tally,1)
