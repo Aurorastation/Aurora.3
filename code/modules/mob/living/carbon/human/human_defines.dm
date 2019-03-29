@@ -115,9 +115,12 @@
 	var/datum/martial_art/martial_art = null
 
 	var/lust = 0
+	var/lust_refractor = 0
 
 	var/satisfaction = 0
 	var/sat_refractor = 0
 
 	var/last_erp_move
 	var/erp_combo = 0
+
+	var/erping = 0

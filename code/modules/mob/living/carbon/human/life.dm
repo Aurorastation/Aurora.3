@@ -963,7 +963,11 @@
 	//refractory period
 	if(sat_refractor > 0)
 		if(stat != 2)
-			sat_refractor = max(satisfaction - 2, 0)
+			sat_refractor = max(sat_refractor - 1, 0)
+
+	if(lust_refractor > 0)
+		if(stat != 2)
+			lust_refractor = max(lust_refractor - 1, 0)
 
 	//erp combo
 	if(erp_combo > 0)
@@ -973,8 +977,8 @@
 			erp_combo = 0 //no excellent lewds for dead people
 
 	//satisfaction decrease over time
-	if(satisfaction > 0 && stat != 2 && sat_refractor < 20)
-		satisfaction = max(satisfaction - (1 * ((satisfaction/100)*3)), 0)
+	if(satisfaction > 0 && stat != 2 && sat_refractor == 0)
+		satisfaction = max(satisfaction - (0.5 * ((satisfaction/100)*3)), 0)
 	if(satisfaction > (70) && prob(lust/5))
 		var/list/satisfaction_message = list(
 			"Damn, you're so chad.", "Damn, you should get a cat. Bitches love cats.", "Fuck anime, you're a stud.", "Kapow! Look at the muscles on you, killer.", "Fuck all the incels, you rock.",
@@ -987,13 +991,13 @@
 		to_chat(src, "<span class='notice'>[pick(satisfaction_message)]</span>")
 	if(satisfaction > 150)
 		to_chat(src, "<span class='danger'>Oh God! You're almost there... almost there... Ugghhh! You're gonna blow!</span>")
-		visible_message("<span class='danger'>[src] explodes with orgasmic bliss! At least they get some...</span>")
+		visible_message("<span class='danger'>[src] explodes with orgasmic bliss! At least they got some...</span>")
 		gib()
 		return
 
 	//lust increase over time
-	if(lust < 100 && stat != 2 && satisfaction < 30)
-		lust = min(lust + 1, 100)
+	if(lust < 100 && stat != 2 && satisfaction < 30 && lust_refractor == 0)
+		lust = min(lust + 0.1, 100)
 	if(lust > (50) && prob(lust/5))
 		var/list/lust_message = list(
 			"You crave human contact.", "You could really go for a hug right now.", "You feel so lonely.", "You have unsatisfied yearnings.", "You miss your mother.",
