@@ -1583,7 +1583,7 @@
 		dat += "<BR><A href='?src=\ref[src];erp=confess_admiration'>Confess romantic interest in [name]</A>"
 		dat += "<BR><A href='?src=\ref[src];erp=kiss_cheek'>Kiss [name]'s cheek</A>"
 		dat += "<BR><A href='?src=\ref[src];erp=cuddle'>Cuddle with [name]</A>"
-		dat += "<BR><A href='?src=\ref[src];erp=caress'>Caress [name]'s thigh</A>"
+		dat += "<BR><A href='?src=\ref[src];erp=caress'>Caress [name] intimately</A>"
 		dat += "<BR><A href='?src=\ref[src];erp=sweet_nothings'>Whisper sweet nothings to [name]</A>"
 
 	//tier 3 ERPs. These decrease lust by 6 and increase satisfaction by 6 and prevent it from decreasing for a certain period, but are only available if lust is high enough.
