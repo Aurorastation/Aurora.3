@@ -60,7 +60,7 @@
 		usr << "<span class='danger'>\The [src] cannot be placed on this spot.</span>"
 		return
 	if (A.requires_power == 0 || A.name == "Space")
-		usr << "<span class='danger'>\The [src] cannot be placed in this area.</span>"
+		to_chat(usr, span("danger", "\The [src] cannot be placed in this area."))
 		return
 
 	if(gotwallitem(loc, ndir))
