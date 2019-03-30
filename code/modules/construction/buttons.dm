@@ -57,7 +57,7 @@
 	var/turf/loc = get_turf(usr)
 	var/area/A = loc.loc
 	if (!istype(loc, /turf/simulated/floor))
-		usr << "<span class='danger'>\The [src] cannot be placed on this spot.</span>"
+		to_chat(usr, span("danger", "\The [src] cannot be placed on this spot."))
 		return
 	if (!A.requires_power || A.name == "Space")
 		to_chat(usr, span("danger", "\The [src] cannot be placed in this area."))
