@@ -623,6 +623,5 @@
 	if(signal.data)
 		data = url_decode(list2params(signal.data))
 	set_pin_data(IC_OUTPUT, 2, data)
-	world << data
 	push_data()
 	activate_pin(3)
