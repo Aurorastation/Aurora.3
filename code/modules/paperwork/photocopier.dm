@@ -2,7 +2,7 @@
 	name = "photocopier"
 	icon = 'icons/obj/library.dmi'
 	icon_state = "photocopier"
-	var/insert_anim = "photocopier1"
+	var/insert_anim = "photocopier_scan"
 	anchored = 1
 	density = 1
 	use_power = 1
@@ -179,11 +179,13 @@ VUEUI_MONITOR_VARS(/obj/machinery/photocopier, photocopiermonitor)
 	toner--
 	if(toner == 0)
 		visible_message("<span class='notice'>A red light on \the [src] flashes, indicating that it is out of toner.</span>")
+		flick("photocopier_notoner", src)
 		return
 
 	c.set_content_unsafe(pname, info)
 	if (print)
-		src.print(c, use_sound, 'sound/items/poster_being_created.ogg', delay)
+		src.print(c, use_sound, 'sound/bureaucracy/print.ogg', delay)
+		flick("photocopier_print", src)
 	return c
 
 /obj/machinery/photocopier/proc/photocopy(var/obj/item/weapon/photo/photocopy)
@@ -204,6 +206,7 @@ VUEUI_MONITOR_VARS(/obj/machinery/photocopier, photocopiermonitor)
 	if(toner < 0)
 		toner = 0
 		visible_message("<span class='notice'>A red light on \the [src] flashes, indicating that it is out of toner.</span>")
+		flick("photocopier_notoner", src)
 
 	return p
 
