@@ -619,7 +619,6 @@
 		return 0
 
 	set_pin_data(IC_OUTPUT, 1, istype(signal.source, /atom/) ? "\ref[signal.source]" : signal.source)
-	world << signal.debug_print()
 	var/data
 	if(signal.data)
 		data = url_decode(list2params(signal.data))
