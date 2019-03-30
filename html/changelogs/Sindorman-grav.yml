@@ -40,4 +40,4 @@ delete-after: True
 changes: 
   - bugfix: "Gravity generator now is affected by any power change in the area. Hence when APC looses power so does the gravity generator, and gains otherwise."
   - tweak: "Gravity generator no longer process gravity change if no change happened. This will stop message appearing about gravity change when none happened."
-  - tweak: "Entering the area without gravity or loosing gravity in the area now produces a notice message."
+  - tweak: "Entering the area without gravity or losing gravity in the area now produces a notice message."
