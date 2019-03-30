@@ -64,7 +64,7 @@
 		return
 
 	if(gotwallitem(loc, ndir))
-		usr << "<span class='danger'>There's already an item on this wall!</span>"
+		to_chat(usr, span("danger", "There's already an item on this wall!"))
 		return
 
 	var/obj/machinery/M = new build_machine_type(loc, ndir, 1)
