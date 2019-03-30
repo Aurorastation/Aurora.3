@@ -197,7 +197,7 @@
 			return
 		default_deconstruction_crowbar(user, W)
 		return
-	if(istype(W,/obj/item/device/debugger) & panel_open)
+	if(istype(W,/obj/item/device/debugger) && panel_open)
 		var/newid = input(user, "Enter a new wireless ID.", "Button Radio") as null|text
 		if(wifi_sender)
 			QDEL_NULL(wifi_sender)
