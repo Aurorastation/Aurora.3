@@ -42,7 +42,7 @@
 	set category = "Object"
 	set src in oview(1)
 
-	if(usr.incapacitated())
+	if(use_check(usr) || anchored)
 		return 0
 
 	set_dir(turn(dir, 270))
