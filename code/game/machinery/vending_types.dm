@@ -209,7 +209,8 @@
 		/obj/item/weapon/reagent_containers/food/drinks/cans/space_up = 10,
 		/obj/item/weapon/reagent_containers/food/drinks/cans/iced_tea = 10,
 		/obj/item/weapon/reagent_containers/food/drinks/cans/grape_juice = 10,
-		/obj/item/weapon/reagent_containers/food/drinks/cans/koispunch = 5
+		/obj/item/weapon/reagent_containers/food/drinks/cans/koispunch = 5,
+		/obj/item/weapon/reagent_containers/food/drinks/cans/beetle_milk = 10
 	)
 	contraband = list(
 		/obj/item/weapon/reagent_containers/food/drinks/cans/thirteenloko = 5,
@@ -225,7 +226,8 @@
 		/obj/item/weapon/reagent_containers/food/drinks/cans/space_up = 15,
 		/obj/item/weapon/reagent_containers/food/drinks/cans/iced_tea = 113,
 		/obj/item/weapon/reagent_containers/food/drinks/cans/grape_juice = 16,
-		/obj/item/weapon/reagent_containers/food/drinks/cans/koispunch = 50
+		/obj/item/weapon/reagent_containers/food/drinks/cans/koispunch = 50,
+		/obj/item/weapon/reagent_containers/food/drinks/cans/beetle_milk = 5
 	)
 	idle_power_usage = 211 //refrigerator - believe it or not, this is actually the average power consumption of a refrigerated vending machine according to NRCan.
 	temperature_setting = -1
