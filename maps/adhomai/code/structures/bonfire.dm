@@ -33,6 +33,11 @@
 		if(C.lit)
 			light(user)
 
+	if(istype(W, /obj/item/device/flashlight/flare/torch))
+		var/obj/item/device/flashlight/flare/torch/T = W
+		if(!T.on)
+			T.light(user)
+
 	if(istype(W,/obj/item/stack/material/wood) && (fuel < max_fuel))
 		var/obj/item/stack/material/wood/I = W
 		I.use(1)

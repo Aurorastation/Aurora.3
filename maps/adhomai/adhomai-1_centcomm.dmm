@@ -4081,7 +4081,7 @@
 	id = "syndicate_elite";
 	name = "Hull Door Control"
 	},
-/obj/machinery/light/small/red,
+/obj/machinery/light/small,
 /turf/simulated/shuttle/floor{
 	icon_state = "floor4"
 	},
@@ -4090,7 +4090,7 @@
 /obj/machinery/computer/syndicate_elite_shuttle{
 	req_access = null
 	},
-/obj/machinery/light/small/red,
+/obj/machinery/light/small,
 /turf/simulated/shuttle/floor{
 	icon_state = "floor4"
 	},
@@ -22698,6 +22698,17 @@
 /obj/item/weapon/pen/red,
 /turf/simulated/floor/tiled/dark,
 /area/pra_base)
+"YA" = (
+/obj/structure/bed/chair{
+	dir = 4
+	},
+/obj/machinery/light/small{
+	dir = 8
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor4"
+	},
+/area/shuttle/syndicate_elite/mothership)
 "YB" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
@@ -23374,6 +23385,18 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
 /area/centcom/holding)
+"ZV" = (
+/obj/structure/bed/chair{
+	dir = 8
+	},
+/obj/machinery/light/small{
+	dir = 4;
+	pixel_y = 0
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor4"
+	},
+/area/shuttle/syndicate_elite/mothership)
 "ZW" = (
 /obj/structure/table/rack,
 /obj/item/ammo_magazine/c762,
@@ -56663,7 +56686,7 @@ jQ
 kf
 kq
 kq
-kq
+YA
 kq
 kq
 kq
@@ -57177,7 +57200,7 @@ jS
 kf
 ks
 ks
-ks
+ZV
 ks
 kr
 kr
