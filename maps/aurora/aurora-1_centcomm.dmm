@@ -8921,26 +8921,34 @@
 /area/centcom/control)
 "auU" = (
 /obj/machinery/computer/teleporter,
-/turf/simulated/floor/tiled/dark,
-/area/centcom/control)
+/turf/unsimulated/floor{
+	icon_state = "dark"
+	},
+/area/centcom/living)
 "auV" = (
 /obj/machinery/teleport/station,
-/turf/simulated/floor/tiled/dark,
+/turf/unsimulated/floor{
+	icon_state = "dark"
+	},
 /area/centcom/living)
 "auW" = (
 /obj/machinery/teleport/hub,
-/turf/simulated/floor/tiled/dark,
-/area/centcom/control)
+/turf/unsimulated/floor{
+	icon_state = "dark"
+	},
+/area/centcom/living)
 "auX" = (
-/turf/simulated/floor/tiled/dark,
-/area/centcom/control)
+/turf/unsimulated/floor{
+	icon_state = "dark"
+	},
+/area/centcom/living)
 "auZ" = (
 /obj/machinery/telecomms/bus/preset_cent,
 /turf/unsimulated/floor{
 	icon_state = "green";
 	dir = 8
 	},
-/area/centcom/control)
+/area/centcom/living)
 "avc" = (
 /turf/unsimulated/floor{
 	icon_state = "engine"
@@ -8968,8 +8976,10 @@
 	dir = 4;
 	status = 0
 	},
-/turf/simulated/floor/tiled/dark,
-/area/centcom/control)
+/turf/unsimulated/floor{
+	icon_state = "dark"
+	},
+/area/centcom/living)
 "avj" = (
 /obj/structure/table/rack,
 /obj/item/ammo_magazine/a762,
@@ -9173,7 +9183,7 @@
 	icon_state = "green";
 	dir = 8
 	},
-/area/centcom/control)
+/area/centcom/living)
 "avF" = (
 /obj/machinery/light{
 	dir = 4;
@@ -9183,7 +9193,7 @@
 	icon_state = "green";
 	dir = 4
 	},
-/area/centcom/control)
+/area/centcom/living)
 "avG" = (
 /obj/machinery/door/blast/regular{
 	dir = 1;
@@ -9275,13 +9285,13 @@
 	icon_state = "green";
 	dir = 10
 	},
-/area/centcom/control)
+/area/centcom/living)
 "avM" = (
 /obj/machinery/telecomms/hub/preset_cent,
 /turf/unsimulated/floor{
 	icon_state = "green"
 	},
-/area/centcom/control)
+/area/centcom/living)
 "avO" = (
 /obj/machinery/computer/rdservercontrol{
 	badmin = 1;
@@ -9290,14 +9300,14 @@
 /turf/unsimulated/floor{
 	icon_state = "green"
 	},
-/area/centcom/control)
+/area/centcom/living)
 "avP" = (
 /obj/machinery/r_n_d/server/centcom,
 /turf/unsimulated/floor{
 	icon_state = "green";
 	dir = 6
 	},
-/area/centcom/control)
+/area/centcom/living)
 "avQ" = (
 /obj/machinery/door/airlock/centcom{
 	name = "NMSS Odin Sub-Deck";
@@ -9416,7 +9426,7 @@
 /turf/unsimulated/floor{
 	icon_state = "redfull"
 	},
-/area/centcom/living)
+/area/centcom/control)
 "awg" = (
 /obj/machinery/door/airlock/centcom{
 	name = "Teleporter Bay";
@@ -9426,7 +9436,7 @@
 /turf/unsimulated/floor{
 	icon_state = "delivery"
 	},
-/area/centcom/control)
+/area/centcom/living)
 "awh" = (
 /turf/unsimulated/wall/riveted,
 /area/centcom/test)
@@ -22599,7 +22609,7 @@
 /turf/unsimulated/floor{
 	icon_state = "floor"
 	},
-/area/centcom/control)
+/area/centcom/living)
 "aYw" = (
 /obj/structure/bed/chair/office/bridge{
 	dir = 4
@@ -24380,7 +24390,7 @@
 	icon_state = "green";
 	dir = 4
 	},
-/area/centcom/control)
+/area/centcom/living)
 "eSC" = (
 /obj/machinery/atm{
 	pixel_x = -26
@@ -24419,7 +24429,7 @@
 	icon_state = "green";
 	dir = 8
 	},
-/area/centcom/control)
+/area/centcom/living)
 "haj" = (
 /obj/machinery/chem_master,
 /turf/simulated/floor/tiled/dark,
@@ -24515,7 +24525,7 @@
 	icon_state = "green";
 	dir = 4
 	},
-/area/centcom/control)
+/area/centcom/living)
 "lpW" = (
 /obj/machinery/computer/borgupload,
 /turf/unsimulated/floor{
@@ -24570,8 +24580,10 @@
 	icon_state = "tube1";
 	dir = 8
 	},
-/turf/simulated/floor/tiled/dark,
-/area/centcom/control)
+/turf/unsimulated/floor{
+	icon_state = "dark"
+	},
+/area/centcom/living)
 "oPC" = (
 /turf/unsimulated/floor{
 	icon_state = "green";
@@ -24716,7 +24728,7 @@
 /turf/unsimulated/floor{
 	icon_state = "green"
 	},
-/area/centcom/control)
+/area/centcom/living)
 "xjq" = (
 /obj/machinery/light,
 /obj/structure/curtain,
@@ -59829,12 +59841,12 @@ oQu
 oQu
 apW
 apU
-apU
-auT
-auT
-auT
-auT
-auT
+apW
+apW
+apW
+apW
+apW
+apW
 awT
 axu
 ayd
@@ -60091,7 +60103,7 @@ auU
 auX
 oIb
 auX
-auT
+apW
 auT
 auT
 ave
@@ -60348,7 +60360,7 @@ auV
 auX
 auX
 auX
-auT
+apW
 awU
 axv
 axv
@@ -60862,7 +60874,7 @@ auX
 auX
 auX
 auX
-auT
+apW
 awV
 avh
 aye
@@ -61119,7 +61131,7 @@ auX
 avi
 auX
 auX
-auT
+apW
 awV
 axw
 ayf
@@ -61372,11 +61384,11 @@ gav
 apW
 apW
 apW
-auT
-auT
-auT
-auT
-auT
+apW
+apW
+apW
+apW
+apW
 awW
 avh
 ayf
@@ -61633,9 +61645,9 @@ arI
 arI
 asb
 avQ
-aru
-atm
-arI
+aAe
+awV
+avh
 ayf
 ayw
 avh
@@ -61891,8 +61903,8 @@ arJ
 asc
 avR
 awf
-atm
-arI
+awV
+avh
 ayf
 ayw
 ayR
@@ -62147,9 +62159,9 @@ aru
 aru
 aru
 avQ
-aru
-atm
-arI
+aAe
+awV
+avh
 ayf
 ayw
 ayS
@@ -62405,8 +62417,8 @@ arK
 asd
 avR
 awf
-atm
-arI
+awV
+avh
 ayf
 ayw
 ayT
@@ -62661,9 +62673,9 @@ arI
 arI
 asb
 avQ
-aru
-atm
-arI
+aAe
+awV
+avh
 ayf
 ayw
 avh
@@ -62914,11 +62926,11 @@ apW
 apW
 apW
 apW
-auT
-auT
-auT
-auT
-auT
+apW
+apW
+apW
+apW
+apW
 awW
 avh
 ayf
@@ -63175,7 +63187,7 @@ auZ
 gDh
 avC
 avL
-auT
+apW
 awV
 axw
 ayf
@@ -63428,11 +63440,11 @@ arI
 arI
 arI
 lwP
-avh
-avh
-avh
+arI
+arI
+arI
 avM
-auT
+apW
 awV
 avh
 ayg
@@ -63685,11 +63697,11 @@ arI
 arI
 arI
 pkO
-avh
-avh
-avh
+arI
+arI
+arI
 wGd
-auT
+apW
 awV
 avh
 avh
@@ -63942,11 +63954,11 @@ arI
 arI
 arI
 lwP
-avh
-avh
+arI
+arI
 aYv
 avO
-auT
+apW
 awX
 axx
 axx
@@ -64203,7 +64215,7 @@ eyw
 ktR
 avF
 avP
-auT
+apW
 awh
 axy
 awh
@@ -64456,11 +64468,11 @@ apW
 apW
 apW
 apW
-auT
-auT
-auT
-auT
-auT
+apW
+apW
+apW
+apW
+apW
 awY
 awY
 ayh
