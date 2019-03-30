@@ -63,7 +63,8 @@ var/list/command_positions = list(
 	"Chief Medical Officer",
 	"Governor",
 	"Commander",
-	"Chief Constable"
+	"Chief Constable",
+	"NanoTrasen Representative"
 )
 
 

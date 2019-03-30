@@ -19,6 +19,9 @@ var/const/ARCHEO			=(1<<14)
 var/const/TRADER			=(1<<15)
 var/const/CHIEFCONSTABLE	=(1<<16)
 var/const/CONSTABLE			=(1<<17)
+var/const/NTREP				=(1<<18)
+var/const/NTREMPLOYEE		=(1<<19)
+var/const/NTGUARD			=(1<<20)
 
 var/list/adhomai_positions = list(
 	"Mayor",
@@ -41,7 +44,11 @@ var/list/adhomai_positions = list(
 	"Supply Officer",
 	"Royal Grenadier",
 	"Sharpshooter",
-	"Combat Engineer")
+	"Combat Engineer",
+	"NanoTrasen Representative",
+	"NanoTrasen Employee",
+	"NanoTrasen Guard"
+	)
 
 /datum/outfit/job/adhomai
 	allow_backbag_choice = FALSE

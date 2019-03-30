@@ -50,7 +50,7 @@
 
 	outfit = /datum/outfit/job/adhomai/mayor
 
-	species_blacklist = list("Zhan-Khazan Tajara", "M'sai Tajara", HUMAN_SPECIES, UNATHI_SPECIES, TAJARA_SPECIES, SKRELL_SPECIES, VAURCA_SPECIES, DIONA_SPECIES, IPC_SPECIES)
+	species_blacklist = list("Zhan-Khazan Tajara", "M'sai Tajara", HUMAN_SPECIES, UNATHI_SPECIES, SKRELL_SPECIES, VAURCA_SPECIES, DIONA_SPECIES, IPC_SPECIES)
 
 	create_record = FALSE
 	account_allowed = FALSE
@@ -114,7 +114,7 @@
 	name = "Hunter"
 
 	suit = /obj/item/clothing/suit/armor/hunter
-	back = /obj/item/weapon/gun/projectile/shotgun/pump/rifle/nka/scoped
+	l_hand = /obj/item/weapon/gun/projectile/shotgun/pump/rifle/nka/scoped
 	r_pocket = /obj/item/ammo_magazine/boltaction
 	l_pocket = /obj/item/weapon/storage/wallet/medium
 
@@ -341,7 +341,7 @@
 	selection_color = "#dddddd"
 	req_admin_notify = TRUE
 	minimal_player_age = 10
-	species_blacklist = list("Zhan-Khazan Tajara", HUMAN_SPECIES, UNATHI_SPECIES, TAJARA_SPECIES, SKRELL_SPECIES, VAURCA_SPECIES, DIONA_SPECIES, IPC_SPECIES)
+	species_blacklist = list("Zhan-Khazan Tajara", HUMAN_SPECIES, UNATHI_SPECIES, SKRELL_SPECIES, VAURCA_SPECIES, DIONA_SPECIES, IPC_SPECIES)
 
 	outfit = /datum/outfit/job/adhomai/chief_constable
 
@@ -372,7 +372,7 @@
 	spawn_positions = 3
 	supervisors = "the chief constable"
 	selection_color = "#ddddff"
-	species_blacklist = list(HUMAN_SPECIES, UNATHI_SPECIES, TAJARA_SPECIES, SKRELL_SPECIES, VAURCA_SPECIES, DIONA_SPECIES, IPC_SPECIES)
+	species_blacklist = list(HUMAN_SPECIES, UNATHI_SPECIES, SKRELL_SPECIES, VAURCA_SPECIES, DIONA_SPECIES, IPC_SPECIES)
 	outfit = /datum/outfit/job/adhomai/constable
 
 	create_record = FALSE

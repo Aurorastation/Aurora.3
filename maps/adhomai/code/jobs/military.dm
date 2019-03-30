@@ -11,7 +11,7 @@
 	selection_color = "#ffdddd"
 	req_admin_notify = TRUE
 	outfit = /datum/outfit/job/adhomai/military/commander
-	species_blacklist = list("Zhan-Khazan Tajara", "M'sai Tajara", HUMAN_SPECIES, UNATHI_SPECIES, TAJARA_SPECIES, SKRELL_SPECIES, VAURCA_SPECIES, DIONA_SPECIES, IPC_SPECIES)
+	species_blacklist = list("Zhan-Khazan Tajara", "M'sai Tajara", HUMAN_SPECIES, UNATHI_SPECIES, SKRELL_SPECIES, VAURCA_SPECIES, DIONA_SPECIES, IPC_SPECIES)
 	create_record = FALSE
 	account_allowed = FALSE
 
@@ -44,7 +44,7 @@
 
 	outfit = /datum/outfit/job/adhomai/military/supply_officer
 
-	species_blacklist = list(HUMAN_SPECIES, UNATHI_SPECIES, TAJARA_SPECIES, SKRELL_SPECIES, VAURCA_SPECIES, DIONA_SPECIES, IPC_SPECIES)
+	species_blacklist = list(HUMAN_SPECIES, UNATHI_SPECIES, SKRELL_SPECIES, VAURCA_SPECIES, DIONA_SPECIES, IPC_SPECIES)
 
 /datum/outfit/job/adhomai/military/supply_officer
 	name = "Quatermaster"
@@ -90,7 +90,7 @@
 	supervisors = "the Commander"
 	selection_color = "#ffeeee"
 	outfit = /datum/outfit/job/adhomai/military/grenadier
-	species_blacklist = list("Tajara", "M'sai Tajara", HUMAN_SPECIES, UNATHI_SPECIES, TAJARA_SPECIES, SKRELL_SPECIES, VAURCA_SPECIES, DIONA_SPECIES, IPC_SPECIES)
+	species_blacklist = list("Tajara", "M'sai Tajara", HUMAN_SPECIES, UNATHI_SPECIES, SKRELL_SPECIES, VAURCA_SPECIES, DIONA_SPECIES, IPC_SPECIES)
 
 	create_record = FALSE
 	account_allowed = FALSE
@@ -128,7 +128,7 @@
 	name = "Sharpshooter"
 	allow_backbag_choice = FALSE
 
-	back = /obj/item/weapon/gun/projectile/shotgun/pump/rifle/nka/scoped
+	l_hand = /obj/item/weapon/gun/projectile/shotgun/pump/rifle/nka/scoped
 	l_pocket = /obj/item/weapon/storage/wallet/medium
 
 /datum/job/combatengineer

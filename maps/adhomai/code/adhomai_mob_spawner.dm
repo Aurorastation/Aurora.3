@@ -30,6 +30,8 @@
 				green = 205
 				blue = 192
 
+		target.add_language(LANGUAGE_SIGN_TAJARA)
+
 	if(target.species.name == "Zhan-Khazan Tajara")
 		var/fur_color = pick("Grey", "Chocolate", "Black")
 		switch(fur_color)
@@ -48,6 +50,8 @@
 				red = 0
 				green = 0
 				blue = 0
+
+		target.add_language(LANGUAGE_DELVAHII)
 
 	if(target.species.name == "Tajara")
 		var/fur_color = pick("Kochiba", "Taupe", "Ruddy", "Orange")
@@ -73,9 +77,12 @@
 				green = 64
 				blue = 0
 
+		target.add_language(LANGUAGE_SIIK_TAJR)
+
 	target.change_skin_color(red, green, blue)
 	target.change_hair_color(red, green, blue)
 	target.change_facial_hair_color(red, green, blue)
+	target.add_language(LANGUAGE_SIIK_MAAS)
 	target.change_appearance(APPEARANCE_ALL_HAIR | APPEARANCE_EYE_COLOR, target.loc, target)
 
 
