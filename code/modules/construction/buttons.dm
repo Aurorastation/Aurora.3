@@ -59,7 +59,7 @@
 	if (!istype(loc, /turf/simulated/floor))
 		usr << "<span class='danger'>\The [src] cannot be placed on this spot.</span>"
 		return
-	if (A.requires_power == 0 || A.name == "Space")
+	if (!A.requires_power || A.name == "Space")
 		to_chat(usr, span("danger", "\The [src] cannot be placed in this area."))
 		return
 
