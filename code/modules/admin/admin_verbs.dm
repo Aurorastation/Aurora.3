@@ -440,7 +440,7 @@ var/list/admin_verbs_cciaa = list(
 	verbs.Remove(/client/proc/hide_most_verbs, admin_verbs_hideable)
 	verbs += /client/proc/show_verbs
 
-	to_chat(src, "<span class='interface'>Most of your adminverbs have been hidden.</span>")
+	src << "<span class='interface'>Most of your adminverbs have been hidden.</span>"
 	feedback_add_details("admin_verb","HMV") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 	return
 
@@ -451,7 +451,7 @@ var/list/admin_verbs_cciaa = list(
 	remove_admin_verbs()
 	verbs += /client/proc/show_verbs
 
-	to_chat(src, "<span class='interface'>Almost all of your adminverbs have been hidden.</span>")
+	src << "<span class='interface'>Almost all of your adminverbs have been hidden.</span>"
 	feedback_add_details("admin_verb","TAVVH") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 	return
 
@@ -462,7 +462,7 @@ var/list/admin_verbs_cciaa = list(
 	verbs -= /client/proc/show_verbs
 	add_admin_verbs()
 
-	to_chat(src, "<span class='interface'>All of your adminverbs are now visible.</span>")
+	src << "<span class='interface'>All of your adminverbs are now visible.</span>"
 	feedback_add_details("admin_verb","TAVVS") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 
@@ -480,13 +480,13 @@ var/list/admin_verbs_cciaa = list(
 			ghost.reenter_corpse()
 			log_admin("[src] reentered their corpose using aghost.",admin_key=key_name(src))
 		else
-			to_chat(ghost, "<font color='red'>Error: Aghost: Can't reenter corpse.</font>")
+			ghost << "<font color='red'>Error: Aghost: Can't reenter corpse.</font>"
 			return
 
 		feedback_add_details("admin_verb","P") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 	else if(istype(mob,/mob/abstract/new_player))
-		to_chat(src, "<font color='red'>Error: Aghost: Can't admin-ghost whilst in the lobby. Join or Observe first.</font>")
+		src << "<font color='red'>Error: Aghost: Can't admin-ghost whilst in the lobby. Join or Observe first.</font>"
 	else
 		//ghostize
 		var/mob/body = mob
@@ -506,11 +506,11 @@ var/list/admin_verbs_cciaa = list(
 	if(holder && mob)
 		if(mob.invisibility == INVISIBILITY_OBSERVER)
 			mob.invisibility = initial(mob.invisibility)
-			to_chat(mob, "<span class='danger'>Invisimin off. Invisibility reset.</span>")
+			mob << "<span class='danger'>Invisimin off. Invisibility reset.</span>"
 			mob.alpha = max(mob.alpha + 100, 255)
 		else
 			mob.invisibility = INVISIBILITY_OBSERVER
-			to_chat(mob, "<span class='notice'><b>Invisimin on. You are now as invisible as a ghost.</b></span>")
+			mob << "<span class='notice'><b>Invisimin on. You are now as invisible as a ghost.</b></span>"
 			mob.alpha = max(mob.alpha - 100, 0)
 
 
@@ -783,7 +783,7 @@ var/list/admin_verbs_cciaa = list(
 		deadmin_holder.reassociate()
 		log_admin("[src] re-admined themself.",admin_key=key_name(src))
 		message_admins("[src] re-admined themself.", 1)
-		to_chat(src, "<span class='interface'>You now have the keys to control the planet, or atleast a small space station</span>")
+		src << "<span class='interface'>You now have the keys to control the planet, or atleast a small space station</span>"
 		verbs -= /client/proc/readmin_self
 
 /client/proc/deadmin_self()
@@ -795,7 +795,7 @@ var/list/admin_verbs_cciaa = list(
 			log_admin("[src] deadmined themself.",admin_key=key_name(src))
 			message_admins("[src] deadmined themself.", 1)
 			deadmin()
-			to_chat(src, "<span class='interface'>You are now a normal player.</span>")
+			src << "<span class='interface'>You are now a normal player.</span>"
 			verbs |= /client/proc/readmin_self
 	feedback_add_details("admin_verb","DAS") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
@@ -806,10 +806,10 @@ var/list/admin_verbs_cciaa = list(
 	if(config)
 		if(config.log_hrefs)
 			config.log_hrefs = 0
-			to_chat(src, "<b>Stopped logging hrefs</b>")
+			src << "<b>Stopped logging hrefs</b>"
 		else
 			config.log_hrefs = 1
-			to_chat(src, "<b>Started logging hrefs</b>")
+			src << "<b>Started logging hrefs</b>"
 
 /client/proc/check_ai_laws()
 	set name = "Check AI Laws"
@@ -871,7 +871,7 @@ var/list/admin_verbs_cciaa = list(
 	if(!H) return
 
 	if(!H.client)
-		to_chat(usr, "Only mobs with clients can alter their own appearance.")
+		usr << "Only mobs with clients can alter their own appearance."
 		return
 
 	switch(alert("Do you wish for [H] to be allowed to select non-whitelisted races?","Alter Mob Appearance","Yes","No","Cancel"))
@@ -913,7 +913,7 @@ var/list/admin_verbs_cciaa = list(
 	var/mob/living/carbon/human/M = input("Select mob.", "Edit Appearance") as null|anything in human_mob_list
 
 	if(!istype(M, /mob/living/carbon/human))
-		to_chat(usr, "<span class='warning'>You can only do this to humans!</span>")
+		usr << "<span class='warning'>You can only do this to humans!</span>"
 		return
 	switch(alert("Are you sure you wish to edit this mob's appearance? Skrell, Unathi, Vox and Tajaran can result in unintended consequences.",,"Yes","No"))
 		if("No")
@@ -985,7 +985,7 @@ var/list/admin_verbs_cciaa = list(
 			if (J.current_positions >= J.total_positions && J.total_positions != -1)
 				jobs += J.title
 		if (!jobs.len)
-			to_chat(usr, "There are no fully staffed jobs.")
+			usr << "There are no fully staffed jobs."
 			return
 		var/job = input("Please select job slot to free", "Free job slot")  as null|anything in jobs
 		if (job)
@@ -999,9 +999,9 @@ var/list/admin_verbs_cciaa = list(
 
 	prefs.toggles ^= CHAT_ATTACKLOGS
 	if (prefs.toggles & CHAT_ATTACKLOGS)
-		to_chat(usr, "You now will get attack log messages")
+		usr << "You now will get attack log messages"
 	else
-		to_chat(usr, "You now won't get attack log messages")
+		usr << "You now won't get attack log messages"
 	prefs.save_preferences()
 
 
@@ -1012,11 +1012,11 @@ var/list/admin_verbs_cciaa = list(
 	if(config)
 		if(config.cult_ghostwriter)
 			config.cult_ghostwriter = 0
-			to_chat(src, "<b>Disallowed ghost writers.</b>")
+			src << "<b>Disallowed ghost writers.</b>"
 			message_admins("Admin [key_name_admin(usr)] has disabled ghost writers.", 1)
 		else
 			config.cult_ghostwriter = 1
-			to_chat(src, "<b>Enabled ghost writers.</b>")
+			src << "<b>Enabled ghost writers.</b>"
 			message_admins("Admin [key_name_admin(usr)] has enabled ghost writers.", 1)
 
 /client/proc/toggledrones()
@@ -1026,11 +1026,11 @@ var/list/admin_verbs_cciaa = list(
 	if(config)
 		if(config.allow_drone_spawn)
 			config.allow_drone_spawn = 0
-			to_chat(src, "<b>Disallowed maint drones.</b>")
+			src << "<b>Disallowed maint drones.</b>"
 			message_admins("Admin [key_name_admin(usr)] has disabled maint drones.", 1)
 		else
 			config.allow_drone_spawn = 1
-			to_chat(src, "<b>Enabled maint drones.</b>")
+			src << "<b>Enabled maint drones.</b>"
 			message_admins("Admin [key_name_admin(usr)] has enabled maint drones.", 1)
 
 /client/proc/toggledebuglogs()
@@ -1039,9 +1039,9 @@ var/list/admin_verbs_cciaa = list(
 
 	prefs.toggles ^= CHAT_DEBUGLOGS
 	if (prefs.toggles & CHAT_DEBUGLOGS)
-		to_chat(usr, "You now will get debug log messages")
+		usr << "You now will get debug log messages"
 	else
-		to_chat(usr, "You now won't get debug log messages")
+		usr << "You now won't get debug log messages"
 
 
 /client/proc/man_up(mob/T as mob in mob_list)
@@ -1049,8 +1049,8 @@ var/list/admin_verbs_cciaa = list(
 	set name = "Man Up"
 	set desc = "Tells mob to man up and deal with it."
 
-	to_chat(T, "<span class='notice'><b><font size=3>Man up and deal with it.</font></b></span>")
-	to_chat(T, "<span class='notice'>Move on.</span>")
+	T << "<span class='notice'><b><font size=3>Man up and deal with it.</font></b></span>"
+	T << "<span class='notice'>Move on.</span>"
 
 	log_admin("[key_name(usr)] told [key_name(T)] to man up and deal with it.", admin_key=key_name(usr), ckey=key_name(T))
 	message_admins("<span class='notice'>[key_name_admin(usr)] told [key_name(T)] to man up and deal with it.</span>", 1)
@@ -1062,45 +1062,10 @@ var/list/admin_verbs_cciaa = list(
 
 	for (var/mob/T as mob in mob_list)
 		T << "<br><center><span class='notice'><b><font size=4>Man up.<br> Deal with it.</font></b><br>Move on.</span></center><br>"
-		T << 'sound/admin/Serithi/ManUp1.ogg'
-		to_chat(T, "<br><center><span class='notice'><b><font size=4>Man up.<br> Deal with it.</font></b><br>Move on.</span></center><br>")
-		sound_to(T, 'sound/admin/Serithi/ManUp1.ogg')
+		T << 'sound/voice/ManUp1.ogg'
 
 	log_admin("[key_name(usr)] told everyone to man up and deal with it.",admin_key=key_name(usr))
 	message_admins("<span class='notice'>[key_name_admin(usr)] told everyone to man up and deal with it.</span>", 1)
-
-/client/proc/global_pretend_democracy()
-	set category = "Fun"
-	set name = "Pretend Democracy Global"
-	set desc = "Tells everyone it's time to pretend it's a democracy."
-
-	for (var/mob/T as mob in mob_list)
-		T << "<br><center><span class='notice'><b><font size=4>Time to pretend this is a democracy.<br>"
-		T << 'sound/admin/Serithi/pretenddemoc.ogg'
-		to_chat(T, "<br><center><span class='notice'><b><font size=4>Time to pretend this is a democracy.<br>")
-		sound_to(T, 'sound/admin/Serithi/pretenddemoc.ogg')
-
-/client/proc/global_shuttle_here()
-	set category = "Fun"
-	set name = "Shuttle Here Global"
-	set desc = "Tells everyone that the shuttle is here."
-
-	for (var/mob/T as mob in mob_list)
-		T << "<br><center><span class='notice'><b><font size=4>Have no fear, the shuttle is here.<br>"
-		T << 'sound/admin/Serithi/Shuttlehere.ogg'
-		to_chat(T, "<br><center><span class='notice'><b><font size=4>Have no fear, the shuttle is here.<br>")
-		sound_to(T, 'sound/admin/Serithi/Shuttlehere.ogg')
-
-/client/proc/global_need_your_vote()
-	set category = "Fun"
-	set name = "We Need Your Vote Global"
-	set desc = "Tells everyone that their vote is needed."
-
-	for (var/mob/T as mob in mob_list)
-		T << "<br><center><span class='notice'><b><font size=4>We need. Your vote.<br>"
-		T << 'sound/admin/Serithi/weneedvote.ogg'
-		to_chat(T, "<br><center><span class='notice'><b><font size=4>We need. Your vote.<br>")
-		sound_to(T, 'sound/admin/Serithi/weneedvote.ogg')
 
 /client/proc/give_spell(mob/T as mob in mob_list) // -- Urist
 	set category = "Fun"
@@ -1124,7 +1089,7 @@ var/list/admin_verbs_cciaa = list(
 	var/ans = alert(src, "This will force explosions to run in the [config.use_spreading_explosions ? "old manner (circular)" : "new, realistic manner (spreading)"]. Do you want to proceed?", "Switch explosion type", "Yes", "Cancel")
 
 	if (!ans || ans == "Cancel")
-		to_chat(src, "<span class='notice'>Cancelled.</span>")
+		src << "<span class='notice'>Cancelled.</span>"
 		return
 
 	config.use_spreading_explosions = !config.use_spreading_explosions
@@ -1264,5 +1229,5 @@ var/list/admin_verbs_cciaa = list(
 /client/proc/apply_sunstate()
 	set hidden = TRUE
 
-	to_chat(usr, "The sunlight system is disabled.")
+	usr << "The sunlight system is disabled."
 #endif
