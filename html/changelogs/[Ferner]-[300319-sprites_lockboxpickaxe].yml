@@ -39,4 +39,4 @@ delete-after: True
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
   - imageadd: "Introduced new pickaxe sprites. Sprites for when they are wielded were also added."
-  - imageadd: "Gave the lockbox its own unique held sprite, a replacement for the generic box one it had before."
+  - imageadd: "Gave the lockbox its own unique held sprite, a replacement for the generic box one it had before. Added missing directional sprite for the secure briefcase."
