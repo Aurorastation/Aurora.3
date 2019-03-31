@@ -34,9 +34,9 @@
 /obj/item/weapon/gripper/examine(var/mob/user)
 	..()
 	if (wrapped)
-		user << span("notice", "It is holding \the [wrapped]")
+		to_chat(user, span("notice", "It is holding \the [wrapped]"))
 	else
-		user << "It is empty."
+		to_chat(user, "It is empty.")
 
 
 /proc/grippersafety(var/obj/item/weapon/gripper/G)
@@ -62,16 +62,16 @@
 		for(var/typepath in can_hold)
 			if(istype(I,typepath))
 				if (feedback)
-					user << "You collect \the [I]."
+					to_chat(user, "You collect \the [I].")
 				I.forceMove(src)
 				wrapped = I
 				update_icon()
 				return 1
 		if (feedback)
-			user << "<span class='danger'>Your gripper cannot hold \the [I].</span>"
+			to_chat(user, "<span class='danger'>Your gripper cannot hold \the [I].</span>")
 		return 0
 	if (feedback)
-		user << "<span class='danger'>Your gripper is already holding \the [wrapped].</span>"
+		to_chat(user, "<span class='danger'>Your gripper is already holding \the [wrapped].</span>")
 	return 0
 
 /obj/item/weapon/gripper/update_icon()
@@ -155,9 +155,9 @@
 	else if (istype(target, /obj/item/weapon/storage) && !istype(target, /obj/item/weapon/storage/pill_bottle) && !istype(target, /obj/item/weapon/storage/secure))
 		for (var/obj/item/C in target.contents)
 			if (grip_item(C, user, 0))
-				user << "You grab the [C] from inside the [target.name]."
+				to_chat(user, "You grab the [C] from inside the [target.name].")
 				return
-		user << "There is nothing inside the box that your gripper can collect"
+		to_chat(user, "There is nothing inside the box that your gripper can collect")
 		return
 
 	else if(istype(target,/obj/item)) //Check that we're not pocketing a mob.

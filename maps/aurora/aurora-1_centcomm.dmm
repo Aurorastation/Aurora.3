@@ -13236,9 +13236,6 @@
 /turf/unsimulated/wall/riveted,
 /area/centcom/ferry)
 "aDN" = (
-/obj/machinery/atm{
-	pixel_x = -26
-	},
 /obj/structure/banner,
 /turf/unsimulated/floor{
 	icon_state = "green";
@@ -19381,6 +19378,7 @@
 /obj/machinery/status_display/arrivals_display{
 	pixel_y = 32
 	},
+/obj/structure/curtain,
 /turf/unsimulated/floor{
 	icon_state = "freezerfloor";
 	dir = 2
@@ -19515,13 +19513,6 @@
 	dir = 4;
 	status = 0
 	},
-/turf/unsimulated/floor{
-	icon_state = "freezerfloor";
-	dir = 2
-	},
-/area/centcom/spawning)
-"aRs" = (
-/obj/machinery/light,
 /turf/unsimulated/floor{
 	icon_state = "freezerfloor";
 	dir = 2
@@ -23203,8 +23194,13 @@
 /turf/simulated/floor/tiled/dark,
 /area/centcom/legion)
 "aZE" = (
-/obj/item/weapon/storage/fancy/cigarettes,
-/obj/structure/table/reinforced,
+/obj/structure/table/rack,
+/obj/item/weapon/storage/backpack/legion,
+/obj/item/weapon/storage/backpack/legion,
+/obj/item/weapon/storage/backpack/legion,
+/obj/item/weapon/storage/backpack/legion,
+/obj/item/weapon/storage/backpack/legion,
+/obj/item/weapon/storage/backpack/legion,
 /turf/simulated/floor/tiled/dark,
 /area/centcom/legion)
 "aZF" = (
@@ -23240,6 +23236,9 @@
 /area/centcom/legion)
 "aZK" = (
 /obj/effect/floor_decal/industrial/loading,
+/obj/machinery/door/blast/regular{
+	id = "tcfl"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/centcom/legion)
 "aZL" = (
@@ -24442,6 +24441,26 @@
 /obj/structure/bed/chair/unmovable,
 /turf/unsimulated/floor{
 	icon_state = "wood_siding1"
+	},
+/area/centcom/spawning)
+"eSC" = (
+/obj/machinery/atm{
+	pixel_x = -26
+	},
+/turf/unsimulated/floor{
+	icon_state = "floor"
+	},
+/area/centcom/holding)
+"haj" = (
+/obj/machinery/chem_master,
+/turf/simulated/floor/tiled/dark,
+/area/centcom/legion)
+"xjq" = (
+/obj/machinery/light,
+/obj/structure/curtain,
+/turf/unsimulated/floor{
+	icon_state = "freezerfloor";
+	dir = 2
 	},
 /area/centcom/spawning)
 
@@ -27625,7 +27644,7 @@ bah
 asU
 asU
 asU
-baQ
+haj
 asK
 asK
 aZD
@@ -28652,7 +28671,7 @@ asK
 baj
 bas
 baE
-asU
+baQ
 baU
 asK
 baP
@@ -60870,7 +60889,7 @@ aDb
 aCo
 aCo
 aCo
-aCo
+eSC
 aCo
 aWt
 aCq
@@ -68360,7 +68379,7 @@ aHK
 aHK
 aHK
 aHK
-aaM
+aaP
 aaM
 aaM
 aaM
@@ -68614,10 +68633,10 @@ aOA
 aHK
 aRa
 aRa
+aRa
 aHK
 aRL
-aHK
-aaM
+aaP
 aaM
 aaM
 aaM
@@ -68872,9 +68891,9 @@ aQB
 aQX
 aQX
 aQX
+aQB
 aQX
-aHK
-aaM
+aaP
 aaM
 aaM
 aaM
@@ -69127,11 +69146,11 @@ aId
 aOA
 aHK
 aRb
-aRs
+aHK
+xjq
 aHK
 aRM
-aHK
-aaM
+aaP
 aaM
 aaM
 aaM
@@ -69384,11 +69403,11 @@ aPM
 aOB
 aHK
 aRc
+aHK
 aRc
 aHK
 aRN
-aHK
-aaM
+aaP
 aaM
 aaM
 aaM
@@ -69645,7 +69664,7 @@ aHK
 aHK
 aHK
 aHK
-aaM
+aaP
 aaM
 aaM
 aaM

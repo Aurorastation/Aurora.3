@@ -15,7 +15,7 @@
 	s_tone = null
 	skin_color = null
 	hair_color = null
-	if(status & ORGAN_ROBOT && !(isipc(human)))
+	if(status & ORGAN_ROBOT && !(isipc(human)) && !(isautakh(human)))
 		return
 	if(species && human.species && species.name != human.species.name)
 		return
@@ -169,7 +169,6 @@
 					limb_icon_cache[cache_key] = I
 				mob_icon.Blend(limb_icon_cache[cache_key], ICON_OVERLAY)
 
-	dir = EAST
 	icon = mob_icon
 
 	return mob_icon
