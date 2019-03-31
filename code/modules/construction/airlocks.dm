@@ -39,7 +39,7 @@
 
 	var/turf/loc = get_turf(usr)
 	if(gotwallitem(loc, ndir))
-		usr << "<span class='danger'>There's already an item on this wall!</span>"
+		to_chat(usr, span("danger", "There's already an item on this wall!"))
 		return
 
 	var/obj/machinery/embedded_controller/M = new build_machine_type(loc, ndir, 1)
@@ -66,7 +66,7 @@
 
 	var/turf/loc = get_turf(usr)
 	if(gotwallitem(loc, ndir))
-		usr << "<span class='danger'>There's already an item on this wall!</span>"
+		to_chat(usr, span("danger", "There's already an item on this wall!"))
 		return
 
 	var/obj/machinery/embedded_controller/radio/M = new build_machine_type(loc, ndir, 1) // so we can use this for airlock and docking controllers
