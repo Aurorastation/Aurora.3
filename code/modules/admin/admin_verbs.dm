@@ -1062,10 +1062,37 @@ var/list/admin_verbs_cciaa = list(
 
 	for (var/mob/T as mob in mob_list)
 		T << "<br><center><span class='notice'><b><font size=4>Man up.<br> Deal with it.</font></b><br>Move on.</span></center><br>"
-		T << 'sound/voice/ManUp1.ogg'
+		T << 'sound/admin/Serithi/ManUp1.ogg'
 
 	log_admin("[key_name(usr)] told everyone to man up and deal with it.",admin_key=key_name(usr))
 	message_admins("<span class='notice'>[key_name_admin(usr)] told everyone to man up and deal with it.</span>", 1)
+
+/client/proc/global_pretend_democracy()
+	set category = "Fun"
+	set name = "Pretend Democracy Global"
+	set desc = "Tells everyone it's time to pretend it's a democracy."
+
+	for (var/mob/T as mob in mob_list)
+		T << "<br><center><span class='notice'><b><font size=4>Time to pretend this is a democracy.<br>"
+		T << 'sound/admin/Serithi/pretenddemoc.ogg'
+
+/client/proc/global_shuttle_here()
+	set category = "Fun"
+	set name = "Shuttle Here Global"
+	set desc = "Tells everyone that the shuttle is here."
+
+	for (var/mob/T as mob in mob_list)
+		T << "<br><center><span class='notice'><b><font size=4>Have no fear, the shuttle is here.<br>"
+		T << 'sound/admin/Serithi/Shuttlehere.ogg'
+
+/client/proc/global_need_your_vote()
+	set category = "Fun"
+	set name = "We Need Your Vote Global"
+	set desc = "Tells everyone that their vote is needed."
+
+	for (var/mob/T as mob in mob_list)
+		T << "<br><center><span class='notice'><b><font size=4>We need. Your vote.<br>"
+		T << 'sound/admin/Serithi/weneedvote.ogg'
 
 /client/proc/give_spell(mob/T as mob in mob_list) // -- Urist
 	set category = "Fun"
