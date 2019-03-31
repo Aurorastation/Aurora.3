@@ -44,10 +44,12 @@
 		var/blocked = list(src.type, /obj/item/weapon/nullrod/nullorb) + typesof(/obj/item/weapon/nullrod/fluff)
 		nullchoices = generate_chameleon_choices(/obj/item/weapon/nullrod, blocked)
 
-/obj/item/weapon/nullrod/verb/change(picked in nullchoices)
+/obj/item/weapon/nullrod/verb/change()
 	set name = "Reassemble"
 	set category = "Obsidian Relics"
 	set src in usr
+
+	var/picked = input("What form would you like your obsidian relic to take?", "Reassembling your obsidian relic") as null|anything in nullchoices
 
 	if(!ispath(nullchoices[picked]))
 		return
@@ -124,6 +126,21 @@
 	if (istype(A, /turf/simulated/floor))
 		to_chat(user, "<span class='notice'>You hit the floor with the [src].</span>")
 		call(/obj/effect/rune/proc/revealrunes)(src)
+
+/obj/item/weapon/reagent_containers/spray/aspergillum/AltClick()
+	return
+
+/obj/item/weapon/reagent_containers/spray/aspergillum
+	name = "aspergillum"
+	desc = "A ceremonial item for sprinkling holy water, or other liquids, on a subject. It has two sacred bells attached."
+	icon = 'icons/obj/weapons.dmi'
+	icon_state = "aspergillum"
+	item_state = "aspergillum"
+	amount_per_transfer_from_this = 5
+	possible_transfer_amounts = null
+	spray_size = 1
+	volume = 10
+	spray_sound = 'sound/effects/jingle.ogg'
 
 /obj/item/weapon/energy_net
 	name = "energy net"
