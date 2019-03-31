@@ -28,27 +28,6 @@
 	build_path = /obj/item/weapon/gun/energy/floragun
 	sort_string = "TBAAA"
 
-/datum/design/item/weapon/gun/phoronpistol
-	id = "ppistol"
-	req_tech = list(TECH_COMBAT = 5, TECH_PHORON = 4)
-	materials = list(DEFAULT_WALL_MATERIAL = 5000, "glass" = 1000, "phoron" = 3000)
-	build_path = /obj/item/weapon/gun/energy/toxgun
-	sort_string = "TAAAD"
-
-/datum/design/item/weapon/gun/smg
-	id = "smg"
-	req_tech = list(TECH_COMBAT = 4, TECH_MATERIAL = 3)
-	materials = list(DEFAULT_WALL_MATERIAL = 8000, "silver" = 2000, "diamond" = 1000)
-	build_path = /obj/item/weapon/gun/projectile/automatic
-	sort_string = "TAABA"
-
-/datum/design/item/weapon/ammo_9mm
-	id = "ammo_9mm"
-	req_tech = list(TECH_COMBAT = 4, TECH_MATERIAL = 3)
-	materials = list(DEFAULT_WALL_MATERIAL = 3750, "silver" = 100)
-	build_path = /obj/item/ammo_magazine/c9mm
-	sort_string = "TAACA"
-
 /datum/design/item/weapon/stunshell
 	desc = "A stunning shell for a shotgun."
 	id = "stunshell"
@@ -96,25 +75,6 @@
 	build_path = /obj/item/weapon/melee/energy/glaive
 	sort_string = "TVAAA"
 
-/datum/design/item/weapon/gun/railgun
-	id = "railgun"
-	name = "railgun"
-	desc = "An advanced rifle that magnetically propels hyperdense rods at breakneck speeds to devastating effect."
-	req_tech = list(TECH_COMBAT = 7, TECH_PHORON = 2, TECH_MATERIAL = 7, TECH_MAGNET = 4, TECH_POWER = 5, TECH_ILLEGAL = 3)
-	materials = list(DEFAULT_WALL_MATERIAL = 75000, "glass" = 18750, "phoron" = 11250, "gold" = 7500, "silver" = 7500)
-	build_path = /obj/item/weapon/gun/projectile/automatic/railgun
-	sort_string = "TVCAA"
-
-/datum/design/item/weapon/gun/lawgiver
-	name = "Lawgiver"
-	desc = "A highly advanced firearm for the modern police force. It has multiple voice-activated firing modes."
-	id = "lawgiver"
-	req_tech = list(TECH_COMBAT = 6, TECH_PHORON = 4, TECH_BLUESPACE = 5, TECH_MATERIAL = 7)
-	build_type = PROTOLATHE
-	materials = list(DEFAULT_WALL_MATERIAL = 6000, "glass" = 1000, "uranium" = 1000, "phoron" = 1000, "diamond" = 3000)
-	build_path = /obj/item/weapon/gun/energy/lawgiver
-	sort_string = "TVEAA"
-
 /datum/design/item/forcegloves
  	name = "Force Gloves"
  	desc = "These gloves bend gravity and bluespace, dampening inertia and augmenting the wearer's melee capabilities."
@@ -143,13 +103,6 @@
 	materials = list(DEFAULT_WALL_MATERIAL = 2000, "glass" = 2000, "silver" = 500, "diamond" = 3000)
 	build_path = /obj/item/weapon/gun/energy/beegun
 	sort_string = "TVMAA"
-
-/datum/design/item/weapon/trodpack
-	id = "trodpack"
-	req_tech = list(TECH_COMBAT = 7, TECH_PHORON = 2, TECH_MATERIAL = 7, TECH_MAGNET = 4, TECH_POWER = 5, TECH_ILLEGAL = 3)
-	materials = list(DEFAULT_WALL_MATERIAL = 15000, "glass" = 9750, "phoron" = 5250, "gold" = 1100)
-	build_path = /obj/item/ammo_magazine/trodpack
-	sort_string = "TVNAA"
 
 ///MODULAR WEAPON COMPONENTS
 /datum/design/item/weapon/modular_small
@@ -187,7 +140,7 @@
 	build_path = /obj/item/laser_components/capacitor/potato
 	sort_string = "TZZBB"
 
-/datum/design/item/weapon/modular_reinforced
+/datum/design/item/weapon/modular_capacitor_reinforced
 	id = "stock_reinforced_cap"
 	req_tech = list(TECH_POWER = 5, TECH_ENGINEERING = 3)
 	materials = list(DEFAULT_WALL_MATERIAL = 4000)
@@ -341,6 +294,13 @@
 	build_path = /obj/item/laser_components/modifier/ebayonet
 	sort_string = "TZZDM"
 
+/datum/design/item/weapon/modular_grip
+	id = "stock_grip"
+	req_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
+	materials = list(DEFAULT_WALL_MATERIAL = 3000)
+	build_path = /obj/item/laser_components/modifier/grip
+	sort_string = "TZZDN"
+
 /datum/design/item/weapon/modular_taser
 	id = "stock_taser"
 	req_tech = list(TECH_COMBAT = 3, TECH_MATERIAL = 3, TECH_POWER = 2)
@@ -438,6 +398,20 @@
 	materials = list(DEFAULT_WALL_MATERIAL = 750, "glass" = 500, "phoron" = 1000)
 	build_path = /obj/item/laser_components/modulator
 	sort_string = "TZZEN"
+
+/datum/design/item/weapon/modular_tox
+	id = "stock_tox"
+	req_tech = list(TECH_COMBAT = 4, TECH_PHORON = 3)
+	materials = list(DEFAULT_WALL_MATERIAL = 2500, "glass" = 1000, "phoron" = 2000)
+	build_path = /obj/item/laser_components/modulator/tox
+	sort_string = "TZZEO"
+
+/datum/design/item/weapon/modular_net
+	id = "stock_net"
+	req_tech = list(TECH_COMBAT = 5, TECH_PHORON = 4, TECH_ILLEGAL = 4)
+	materials = list(DEFAULT_WALL_MATERIAL = 5000, "glass" = 1000, "phoron" = 3000)
+	build_path = /obj/item/laser_components/modulator/net
+	sort_string = "TZZEP"
 
 //Frames
 /datum/design/item/weapon/ka_frame01

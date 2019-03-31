@@ -85,7 +85,7 @@
 /obj/item/eightball/haunted/start_shaking(mob/user)
 	for(var/mob/abstract/observer/O in player_list)
 		if(O.client)
-			O << "[ghost_follow_link(user, O)] <span class='deadsay'><font size=3><b>\The [user] is shaking \the [src], hoping to get an answer to \"[question]\".<a href='?src=\ref[src];candidate=\ref[O]'>(Answer)</a></b></font></span>"
+			to_chat(O, "[ghost_follow_link(user, O)] <span class='deadsay'><font size=3><b>\The [user] is shaking \the [src], hoping to get an answer to \"[question]\".<a href='?src=\ref[src];candidate=\ref[O]'>(Answer)</a></b></font></span>")
 
 /obj/item/eightball/haunted/Topic(href, href_list)
 	if(href_list["candidate"])

@@ -31,7 +31,7 @@
 				if (!mobstoyellat || !mobstoyellat.len)
 					return
 				for(var/mob/living/A in mobstoyellat)
-					A <<"<span class='danger'>You feel as if you shouldn't be on the shuttle.</span>" // give them an angry text
+					to_chat(A, "<span class='danger'>You feel as if you shouldn't be on the shuttle.</span>") // give them an angry text
 					if(!A.client && ishuman(A) && SSarrivals.failreturnnumber >= 3) // well they are SSD and holding up the shuttle so might as well.
 						SSjobs.DespawnMob(A)
 						global_announcer.autosay("[A.real_name], [A.mind.role_alt_title], has entered long-term storage.", "Cryogenic Oversight")

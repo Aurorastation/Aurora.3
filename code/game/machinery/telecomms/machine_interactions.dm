@@ -15,7 +15,7 @@
 /obj/machinery/telecomms/attackby(obj/item/P as obj, mob/user as mob)
 
 	// Using a multitool lets you access the receiver's interface
-	if(ismultitool(P))
+	if(P.ismultitool())
 		attack_hand(user)
 
 
@@ -25,53 +25,53 @@
 		if (integrity < 100)               								//Damaged, let's repair!
 			if (T.use(1))
 				integrity = between(0, integrity + rand(10,20), 100)
-				usr << "You apply the Nanopaste to [src], repairing some of the damage."
+				to_chat(usr, "You apply the Nanopaste to [src], repairing some of the damage.")
 		else
-			usr << "This machine is already in perfect condition."
+			to_chat(usr, "This machine is already in perfect condition.")
 		return
 
 
 	switch(construct_op)
 		if(0)
-			if(isscrewdriver(P))
-				user << "You unfasten the bolts."
+			if(P.isscrewdriver())
+				to_chat(user, "You unfasten the bolts.")
 				playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, 1)
 				construct_op ++
 		if(1)
-			if(isscrewdriver(P))
-				user << "You fasten the bolts."
+			if(P.isscrewdriver())
+				to_chat(user, "You fasten the bolts.")
 				playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, 1)
 				construct_op --
-			if(iswrench(P))
-				user << "You dislodge the external plating."
+			if(P.iswrench())
+				to_chat(user, "You dislodge the external plating.")
 				playsound(src.loc, 'sound/items/Ratchet.ogg', 75, 1)
 				construct_op ++
 		if(2)
-			if(iswrench(P))
-				user << "You secure the external plating."
+			if(P.iswrench())
+				to_chat(user, "You secure the external plating.")
 				playsound(src.loc, 'sound/items/Ratchet.ogg', 75, 1)
 				construct_op --
-			if(iswirecutter(P))
+			if(P.iswirecutter())
 				playsound(src.loc, 'sound/items/Wirecutter.ogg', 50, 1)
-				user << "You remove the cables."
+				to_chat(user, "You remove the cables.")
 				construct_op ++
 				var/obj/item/stack/cable_coil/A = new /obj/item/stack/cable_coil( user.loc )
 				A.amount = 5
 				stat |= BROKEN // the machine's been borked!
 		if(3)
-			if(iscoil(P))
+			if(P.iscoil())
 				var/obj/item/stack/cable_coil/A = P
 				if (A.use(5))
-					user << "<span class='notice'>You insert the cables.</span>"
+					to_chat(user, "<span class='notice'>You insert the cables.</span>")
 					construct_op--
 					stat &= ~BROKEN // the machine's not borked anymore!
 				else
-					user << "<span class='warning'>You need five coils of wire for this.</span>"
-			if(iscrowbar(P))
-				user << "You begin prying out the circuit board other components..."
+					to_chat(user, "<span class='warning'>You need five coils of wire for this.</span>")
+			if(P.iscrowbar())
+				to_chat(user, "You begin prying out the circuit board other components...")
 				playsound(src.loc, 'sound/items/Crowbar.ogg', 50, 1)
 				if(do_after(user,60))
-					user << "You finish prying out the components."
+					to_chat(user, "You finish prying out the components.")
 
 					// Drop all the component stuff
 					if(contents.len > 0)
@@ -88,7 +88,7 @@
 								newpath = text2path(I)
 								var/obj/item/s = new newpath
 								s.forceMove(user.loc)
-								if(iscoil(P))
+								if(P.iscoil())
 									var/obj/item/stack/cable_coil/A = P
 									A.amount = 1
 

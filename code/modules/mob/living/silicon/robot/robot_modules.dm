@@ -112,6 +112,7 @@ var/global/list/robot_modules = list(
 	return
 
 /obj/item/weapon/robot_module/proc/respawn_consumable(var/mob/living/silicon/robot/R, var/rate)
+	var/obj/item/weapon/extinguisher/E = locate() in src.modules
 	var/obj/item/device/flash/F = locate() in src.modules
 	if(F)
 		if(F.broken)
@@ -121,9 +122,12 @@ var/global/list/robot_modules = list(
 		else if(F.times_used)
 			F.times_used--
 
+	if(E && E.reagents.total_volume < E.reagents.maximum_volume)
+		E.reagents.add_reagent("monoammoniumphosphate", E.max_water * 0.2)
+
 	if(!synths || !synths.len)
 		return
-
+	
 	for(var/datum/matter_synth/T in synths)
 		T.add_charge(T.recharge_rate * rate)
 

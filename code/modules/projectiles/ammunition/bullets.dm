@@ -265,7 +265,7 @@
 /obj/item/ammo_casing/gauss
 	name = "tungsten slug"
 	desc = "A heavy tungsten gauss slug."
-	caliber = "gaus"
+	caliber = "gauss"
 	icon_state = "tungstenslug"
 	projectile_type = /obj/item/projectile/bullet/gauss
 

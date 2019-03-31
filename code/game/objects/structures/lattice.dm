@@ -42,16 +42,16 @@
 		var/turf/T = get_turf(src)
 		T.attackby(C, user) //BubbleWrap - hand this off to the underlying turf instead
 		return
-	if (iswelder(C))
+	if (C.iswelder())
 		var/obj/item/weapon/weldingtool/WT = C
 		if(WT.remove_fuel(0, user))
-			user << "<span class='notice'>Slicing lattice joints ...</span>"
+			to_chat(user, "<span class='notice'>Slicing lattice joints ...</span>")
 		new /obj/item/stack/rods(src.loc)
 		qdel(src)
 	if (istype(C, /obj/item/stack/rods))
 		var/obj/item/stack/rods/R = C
 		if (R.use(2))
-			user << "<span class='notice'>Constructing catwalk ...</span>"
+			to_chat(user, "<span class='notice'>Constructing catwalk ...</span>")
 			playsound(src, 'sound/weapons/Genhit.ogg', 50, 1)
 			new /obj/structure/lattice/catwalk(src.loc)
 			qdel(src)
@@ -73,18 +73,18 @@
 	layer = 2.7	// Above wires.
 
 /obj/structure/lattice/catwalk/attackby(obj/item/C, mob/user)
-	if (iswelder(C))
+	if (C.iswelder())
 		var/obj/item/weapon/weldingtool/WT = C
 		if (do_after(user, 5, act_target = src) && WT.remove_fuel(1, user))
-			user << "<span class='notice'>You slice apart [src].</span>"
+			to_chat(user, "<span class='notice'>You slice apart [src].</span>")
 			playsound(src, 'sound/items/Welder.ogg', 50, 1)
 			new /obj/item/stack/rods{amount = 3}(loc)
 			qdel(src)
 
 /obj/structure/lattice/catwalk/indoor/attackby(obj/item/C, mob/user)
-	if (isscrewdriver(C))
+	if (C.isscrewdriver())
 		anchored = !anchored
-		user << "<span class='notice'>You [anchored ? "" : "un"]anchor [src].</span>"
+		to_chat(user, "<span class='notice'>You [anchored ? "" : "un"]anchor [src].</span>")
 		playsound(src, 'sound/items/Screwdriver.ogg', 50, 1)
 		queue_smooth(src)
 		queue_smooth_neighbors(src)

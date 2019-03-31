@@ -1,7 +1,7 @@
 //I will need to recode parts of this but I am way too tired atm
 /obj/effect/blob
 	name = "blob"
-	icon = 'icons/mob/blob.dmi'
+	icon = 'icons/mob/npc/blob.dmi'
 	icon_state = "blob"
 	light_range = 3
 	light_color = "#b5ff5b"
@@ -235,7 +235,7 @@
 	switch(W.damtype)
 		if("fire")
 			damage = (W.force / fire_resist)
-			if(iswelder(W))
+			if(W.iswelder())
 				playsound(loc, 'sound/items/Welder.ogg', 100, 1)
 		if("brute")
 			if(prob(30) && !issilicon(user))
@@ -249,7 +249,6 @@
 
 /obj/effect/blob/core
 	name = "blob core"
-	icon = 'icons/mob/blob.dmi'
 	icon_state = "blob_core"
 	light_range = 1
 	light_power = 2
@@ -298,7 +297,6 @@
 // Half the stats of a normal core. Blob has a very small probability of growing these when spreading. These will spread the blob further.
 /obj/effect/blob/core/secondary
 	name = "small blob core"
-	icon = 'icons/mob/blob.dmi'
 	icon_state = "blob_core"
 	maxHealth = 100
 	brute_resist = 1
@@ -319,7 +317,6 @@
 
 /obj/effect/blob/shield
 	name = "strong blob"
-	icon = 'icons/mob/blob.dmi'
 	icon_state = "blob_idle"
 	maxHealth = 60
 	brute_resist = 1

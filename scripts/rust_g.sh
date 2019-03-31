@@ -10,7 +10,7 @@ set -e
 curl https://sh.rustup.rs -sSf | sh -s -- -y --default-host i686-unknown-linux-gnu
 
 source ~/.profile
-git clone --branch $RUST_G_VERSION https://github.com/tgstation/rust-g
+git clone --branch $RUST_G_VERSION https://github.com/Aurorastation/rust-g
 
 cd rust-g
 cargo build --release

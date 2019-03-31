@@ -27,30 +27,16 @@ var/global/list/ticket_panels = list()
 	if (config.ticket_reminder_period)
 		reminder_timer = addtimer(CALLBACK(src, .proc/remind), config.ticket_reminder_period SECONDS, TIMER_UNIQUE|TIMER_STOPPABLE)
 
-/datum/ticket/proc/close(var/client/closed_by)
-	if(!closed_by)
-		return
-
-	if(status == TICKET_CLOSED)
-		return
-
-	if(status == TICKET_ASSIGNED && !((closed_by.ckey in assigned_admins) || owner == closed_by.ckey) && alert(closed_by, "You are not assigned to this ticket. Are you sure you want to close it?",  "Close ticket?" , "Yes" , "No") != "Yes")
-		return
-
-	if(status == TICKET_ASSIGNED && !closed_by.holder) // non-admins can only close a ticket if no admin has taken it
-		return
-
+/datum/ticket/proc/broadcast_closure(closing_user)
 	var/client/owner_client = client_by_ckey(owner)
 	if(owner_client && owner_client.adminhelped == ADMINHELPED_DISCORD)
-		discord_bot.send_to_admins("[key_name(owner_client)]'s request for help has been closed/deemed unnecessary by [key_name(closed_by)].")
+		discord_bot.send_to_admins("[key_name(owner_client)]'s request for help has been closed/deemed unnecessary by [closing_user].")
 		owner_client.adminhelped = ADMINHELPED
 
+/datum/ticket/proc/set_to_closed(closing_key)
 	src.status = TICKET_CLOSED
-	src.closed_by = closed_by.ckey
+	src.closed_by = closing_key
 	src.closed_rt = world.realtime
-
-	to_chat(client_by_ckey(src.owner), "<span class='notice'><b>Your ticket has been closed by [closed_by].</b></span>")
-	message_admins("<span class='notice'><b>[src.owner]</b>'s ticket has been closed by <b>[key_name(closed_by)]</b>.</span>")
 
 	update_ticket_panels()
 
@@ -59,7 +45,43 @@ var/global/list/ticket_panels = list()
 
 	log_to_db()
 
-	return 1
+/datum/ticket/proc/close(var/client/closed_by)
+	if(!closed_by)
+		return FALSE
+
+	if(status == TICKET_CLOSED)
+		return FALSE
+
+	if(status == TICKET_ASSIGNED && !((closed_by.ckey in assigned_admins) || owner == closed_by.ckey) && alert(closed_by, "You are not assigned to this ticket. Are you sure you want to close it?",  "Close ticket?" , "Yes" , "No") != "Yes")
+		return FALSE
+
+	if(status == TICKET_ASSIGNED && !closed_by.holder) // non-admins can only close a ticket if no admin has taken it
+		return FALSE
+
+	broadcast_closure(key_name(closed_by))
+
+	to_chat(client_by_ckey(src.owner), "<span class='notice'><b>Your ticket has been closed by [closed_by].</b></span>")
+	message_admins("<span class='notice'><b>[src.owner]</b>'s ticket has been closed by <b>[key_name(closed_by)]</b>.</span>")
+
+	set_to_closed(closed_by.ckey)
+
+	return TRUE
+
+/datum/ticket/proc/close_remotely(closing_user)
+	if (!closing_user)
+		return FALSE
+
+	if (status != TICKET_OPEN)
+		return FALSE
+
+	broadcast_closure("[closing_user] (Remotely)")
+
+	to_chat(client_by_ckey(src.owner), "<span class='notice'><b>Your ticket has been closed by [closing_user] (remotely).</b></span>")
+	message_admins("<span class='notice'><b>[src.owner]</b>'s ticket has been closed by <b>[closing_user] (remotely)</b>.</span>")
+
+	set_to_closed(closing_user)
+
+	return TRUE
 
 /datum/ticket/proc/take(var/client/assigned_admin)
 	if(!assigned_admin)
@@ -116,6 +138,13 @@ var/global/list/ticket_panels = list()
 	for(var/datum/ticket/ticket in tickets)
 		if(ticket.owner == owner && (ticket.status == TICKET_OPEN || ticket.status == TICKET_ASSIGNED))
 			return ticket // there should only be one open ticket by a client at a time, so no need to keep looking
+
+/proc/get_ticket_by_id(id)
+	for (var/datum/ticket/ticket in tickets)
+		if (ticket.id == id)
+			return ticket
+
+	return null
 
 /datum/ticket/proc/is_active()
 	if(status != TICKET_ASSIGNED)

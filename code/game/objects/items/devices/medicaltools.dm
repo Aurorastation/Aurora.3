@@ -49,7 +49,7 @@ Contains:
 
 		if(affecting.open == 0)
 			if(affecting.is_bandaged())
-				user << "<span class='warning'>The wounds on [M]'s [affecting.name] have already been treated.</span>"
+				to_chat(user, "<span class='warning'>The wounds on [M]'s [affecting.name] have already been treated.</span>")
 				return 1
 			else
 				user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
@@ -66,7 +66,7 @@ Contains:
 					if(used == amount)
 						break
 					if(!do_mob(user, M, W.damage/5))
-						user << "<span class='notice'>You must stand still to bandage wounds.</span>"
+						to_chat(user, "<span class='notice'>You must stand still to bandage wounds.</span>")
 						break
 					if (W.current_stage <= W.max_bleeding_stage)
 						user.visible_message("<span class='notice'>\The [user] pours the powder \a [W.desc] on [M]'s [affecting.name].</span>", \
