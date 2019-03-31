@@ -299,7 +299,8 @@
 		to_chat(user, "<span class='notice'>You begin to carve out [title].</span>")
 		if(do_after(user, 30))
 			to_chat(user, "<span class='notice'>You carve out the pages from [title]! You didn't want to read it anyway.</span>")
-			playsound(loc, 'sound/bureaucracy/papershred.ogg', 50, 1)
+			playsound(loc, 'sound/bureaucracy/papercrumple.ogg', 50, 1)
+			new /obj/item/weapon/shreddedp(get_turf(src))
 			carved = 1
 			return
 	else
