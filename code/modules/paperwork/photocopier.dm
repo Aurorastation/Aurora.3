@@ -1,8 +1,8 @@
 /obj/machinery/photocopier
 	name = "photocopier"
 	icon = 'icons/obj/library.dmi'
-	icon_state = "photocopier"
-	var/insert_anim = "photocopier_scan"
+	icon_state = "bigscanner"
+	var/insert_anim = "bigscanner1"
 	anchored = 1
 	density = 1
 	use_power = 1
@@ -64,7 +64,7 @@ VUEUI_MONITOR_VARS(/obj/machinery/photocopier, photocopiermonitor)
 				var/obj/item/weapon/paper_bundle/B = bundlecopy(copyitem)
 				sleep(15*B.pages.len)
 			else
-				to_chat(usr, "<span class='warning'>\The [copyitem] can't be copied by \the [src].</span>")
+				usr << "<span class='warning'>\The [copyitem] can't be copied by \the [src].</span>"
 				break
 
 			use_power(active_power_usage)
@@ -73,7 +73,7 @@ VUEUI_MONITOR_VARS(/obj/machinery/photocopier, photocopiermonitor)
 		if(copyitem)
 			copyitem.forceMove(usr.loc)
 			usr.put_in_hands(copyitem)
-			to_chat(usr, "<span class='notice'>You take \the [copyitem] out of \the [src].</span>")
+			usr << "<span class='notice'>You take \the [copyitem] out of \the [src].</span>"
 			copyitem = null
 			SSvueui.check_uis_for_change(src)
 	else if(href_list["aipic"])
@@ -104,29 +104,25 @@ VUEUI_MONITOR_VARS(/obj/machinery/photocopier, photocopiermonitor)
 		if(!copyitem)
 			user.drop_from_inventory(O,src)
 			copyitem = O
-			to_chat(user, "<span class='notice'>You insert \the [O] into \the [src].</span>")
+			user << "<span class='notice'>You insert \the [O] into \the [src].</span>"
 			flick(insert_anim, src)
-			playsound(loc, 'sound/bureaucracy/scan.ogg', 75, 1)
 			SSvueui.check_uis_for_change(src)
 		else
-			to_chat(user, "<span class='notice'>There is already something in \the [src].</span>")
+			user << "<span class='notice'>There is already something in \the [src].</span>"
 	else if(istype(O, /obj/item/device/toner))
 		if(toner <= 10) //allow replacing when low toner is affecting the print darkness
-			to_chat(user, "<span class='notice'>You insert \the [O] into \the [src].</span>")
-			playsound(loc, 'sound/machines/buzz-two.ogg', 75, 1)
-
+			user << "<span class='notice'>You insert \the [O] into \the [src].</span>"
 			var/obj/item/device/toner/T = O
 			toner += T.toner_amount
 			user.drop_from_inventory(O,get_turf(src))
 			qdel(O)
 			SSvueui.check_uis_for_change(src)
 		else
-			to_chat(user, "<span class='notice'>This cartridge is not yet ready for replacement! Use up the rest of the toner.</span>")
-	else if(O.iswrench())
-		playsound(loc, 'sound/effects/Switch1.ogg', 50, 1)
-		flick("photocopier_toner", src)
+			user << "<span class='notice'>This cartridge is not yet ready for replacement! Use up the rest of the toner.</span>"
+	else if(iswrench(O))
+		playsound(loc, 'sound/items/Ratchet.ogg', 50, 1)
 		anchored = !anchored
-		to_chat(user, "<span class='notice'>You [anchored ? "wrench" : "unwrench"] \the [src].</span>")
+		user << "<span class='notice'>You [anchored ? "wrench" : "unwrench"] \the [src].</span>"
 	return
 
 /obj/machinery/photocopier/ex_act(severity)
@@ -183,14 +179,11 @@ VUEUI_MONITOR_VARS(/obj/machinery/photocopier, photocopiermonitor)
 	toner--
 	if(toner == 0)
 		visible_message("<span class='notice'>A red light on \the [src] flashes, indicating that it is out of toner.</span>")
-		flick("photocopier_notoner", src)
-		playsound(loc, 'sound/machines/buzz-two.ogg', 75, 1)
 		return
 
 	c.set_content_unsafe(pname, info)
 	if (print)
-		flick("photocopier_print", src)
-		src.print(c, use_sound, 'sound/bureaucracy/print.ogg', delay)
+		src.print(c, use_sound, 'sound/items/poster_being_created.ogg', delay)
 	return c
 
 /obj/machinery/photocopier/proc/photocopy(var/obj/item/weapon/photo/photocopy)
@@ -211,8 +204,7 @@ VUEUI_MONITOR_VARS(/obj/machinery/photocopier, photocopiermonitor)
 	if(toner < 0)
 		toner = 0
 		visible_message("<span class='notice'>A red light on \the [src] flashes, indicating that it is out of toner.</span>")
-		flick("photocopier_notoner", src)
-		playsound(loc, 'sound/machines/buzz-two.ogg', 75, 1)
+
 	return p
 
 //If need_toner is 0, the copies will still be lightened when low on toner, however it will not be prevented from printing. TODO: Implement print queues for fax machines and get rid of need_toner
@@ -222,10 +214,7 @@ VUEUI_MONITOR_VARS(/obj/machinery/photocopier, photocopiermonitor)
 		if(toner <= 0 && need_toner)
 			toner = 0
 			visible_message("<span class='notice'>A red light on \the [src] flashes, indicating that it is out of toner.</span>")
-			flick("photocopier_notoner", src)
-			playsound(loc, 'sound/machines/buzz-two.ogg', 75, 1)
 			break
-
 
 		if(istype(W, /obj/item/weapon/paper))
 			W = copy(W)
@@ -244,6 +233,5 @@ VUEUI_MONITOR_VARS(/obj/machinery/photocopier, photocopiermonitor)
 
 /obj/item/device/toner
 	name = "toner cartridge"
-	desc = "You can never get enough of monstrously expensive printer ink."
 	icon_state = "tonercartridge"
 	var/toner_amount = 30
