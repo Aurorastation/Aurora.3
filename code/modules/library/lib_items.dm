@@ -88,7 +88,7 @@
 		else
 	return
 
-/obj/structure/bookcase/update_icon()
+/obj/structure/fcase/update_icon()
 	if(contents.len < 5)
 		icon_state = "book-[contents.len]"
 	else
@@ -215,7 +215,9 @@
 	if(src.dat)
 		user << browse("<TT><I>Penned by [author].</I></TT> <BR>" + "[dat]", "window=book")
 		user.visible_message("[user] opens a book titled \"[src.title]\" and begins reading intently.")
+		playsound(loc, 'sound/bureaucracy/bookopen.ogg', 50, 1)
 		onclose(user, "book")
+		playsound(loc, 'sound/bureaucracy/bookclose.ogg', 50, 1)
 	else
 		to_chat(user, "This book is completely blank!")
 
@@ -297,6 +299,7 @@
 		to_chat(user, "<span class='notice'>You begin to carve out [title].</span>")
 		if(do_after(user, 30))
 			to_chat(user, "<span class='notice'>You carve out the pages from [title]! You didn't want to read it anyway.</span>")
+			playsound(loc, 'sound/bureaucracy/papershred.ogg', 50, 1)
 			carved = 1
 			return
 	else
