@@ -316,12 +316,6 @@
 	attack_verb = list("banned")
 
 /obj/item/weapon/banhammer/attack(mob/M as mob, mob/user as mob)
-<<<<<<< HEAD
-	M << "<font color='red'><b> You have been banned FOR NO REISIN by [user]</b></font>"
-	user << "<font color='red'> You have <b>BANNED</b> [M]</font>"
-	playsound(loc, 'sound/admin/bwoink.ogg', 15)
-=======
 	to_chat(M, "<font color='red'><b> You have been banned FOR NO REISIN by [user]</b></font>")
 	to_chat(user, "<font color='red'> You have <b>BANNED</b> [M]</font>")
-	playsound(loc, 'sound/effects/adminhelp.ogg', 15)
->>>>>>> upstream/master
+	playsound(loc, 'sound/admin/bwoink.ogg', 15)

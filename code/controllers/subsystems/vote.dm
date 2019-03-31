@@ -438,12 +438,7 @@ var/datum/controller/subsystem/vote/SSvote
 						if (X.is_afk())
 							admin_number_afk++
 						if (X.prefs.toggles & SOUND_ADMINHELP)
-<<<<<<< HEAD
-							X << 'sound/admin/bwoink.ogg'
-=======
-							to_chat(X, 'sound/effects/adminhelp.ogg')
->>>>>>> upstream/master
-
+							to_chat(X, 'sound/admin/bwoink.ogg')
 				if ((admin_number_present - admin_number_afk) <= 0)
 					initiate_vote("restart", usr.key)
 				else
