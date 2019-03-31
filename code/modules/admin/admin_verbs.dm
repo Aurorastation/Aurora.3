@@ -1073,7 +1073,7 @@ var/list/admin_verbs_cciaa = list(
 	set desc = "Tells everyone it's time to pretend it's a democracy."
 
 	for (var/mob/T as mob in mob_list)
-		T << "<br><center><span class='notice'><b><font size=4>Time to pretend this is a democracy.<br>"
+		T << "<br><center><span class='notice'><b><font size=4>Time to pretend this is a democracy.</font></b></span></center><br>"
 		T << 'sound/admin/Serithi/pretenddemoc.ogg'
 
 /client/proc/global_shuttle_here()
@@ -1082,7 +1082,7 @@ var/list/admin_verbs_cciaa = list(
 	set desc = "Tells everyone that the shuttle is here."
 
 	for (var/mob/T as mob in mob_list)
-		T << "<br><center><span class='notice'><b><font size=4>Have no fear, the shuttle is here.<br>"
+		T << "<br><center><span class='notice'><b><font size=4>Have no fear, the shuttle is here.</font></b></span></center><br>"
 		T << 'sound/admin/Serithi/Shuttlehere.ogg'
 
 /client/proc/global_need_your_vote()
@@ -1091,7 +1091,7 @@ var/list/admin_verbs_cciaa = list(
 	set desc = "Tells everyone that their vote is needed."
 
 	for (var/mob/T as mob in mob_list)
-		T << "<br><center><span class='notice'><b><font size=4>We need. Your vote.<br>"
+		T << "<br><center><span class='notice'><b><font size=4>We need. Your vote.</font></b></span></center><br>"
 		T << 'sound/admin/Serithi/weneedvote.ogg'
 
 /client/proc/give_spell(mob/T as mob in mob_list) // -- Urist
