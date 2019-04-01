@@ -359,6 +359,8 @@ var/list/mob/living/forced_ambiance_list = new
 	for(var/mob/M in src)
 		if(has_gravity())
 			thunk(M)
+		else
+			to_chat(M, span("notice", "The sudden lack of gravity makes you feel weightless and float cluelessly!"))
 		M.update_floating( M.Check_Dense_Object() )
 
 /area/proc/thunk(mob)
