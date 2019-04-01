@@ -15,15 +15,10 @@
 	hazard_low_pressure = 10
 
 /datum/species/human/offworlder/equip_later_gear(var/mob/living/carbon/human/H)
-	if(H.back)
-		var/obj/item/I = H.back
-		H.unEquip(I)
-		H.put_in_hands(I)
-
-	var/obj/item/weapon/rig/light/offworlder/skeleton = new(get_turf(H))
-	skeleton.autodrobe_no_remove = TRUE
-	H.equip_to_slot_or_del(skeleton,slot_back)
-	to_chat(H, "<span class='notice'>You have access to \the [skeleton], deploy it to allow you to walk properly.</span>")
+	if(istype(H.get_equipped_item(slot_back), /obj/item/weapon/storage/backpack))
+		H.equip_to_slot_or_del(new /obj/item/weapon/storage/pill_bottle/rmt(H.back), slot_in_backpack)
+	else
+		H.equip_to_slot_or_del(new /obj/item/weapon/storage/pill_bottle/rmt(H), slot_r_hand)
 
 /datum/species/human/offworlder/get_species_tally(var/mob/living/carbon/human/H)
 
@@ -34,14 +29,19 @@
 		else
 			return 3
 
+	var/obj/item/organ/external/l_leg = H.get_organ("l_leg")
+	var/obj/item/organ/external/r_leg = H.get_organ("r_leg")
+
+	if((l_leg.status & ORGAN_ROBOT) && (r_leg.status & ORGAN_ROBOT))
+		return
+
 	if(H.w_uniform)
 		var/obj/item/clothing/under/suit = H.w_uniform
 		if(locate(/obj/item/clothing/accessory/offworlder/bracer) in suit.accessories)
 			return 0
 
-
-	if(H.reagents)
-		if(H.reagents.has_reagent("rmt", 1))
+	for (var/datum/reagent/R in H.ingested.reagent_list)
+		if(R.id == "rmt")
 			return 0
 
 	return 4
@@ -55,6 +55,12 @@
 		if(A && !A.has_gravity())
 			return
 
+		var/obj/item/organ/external/l_leg = H.get_organ("l_leg")
+		var/obj/item/organ/external/r_leg = H.get_organ("r_leg")
+
+		if((l_leg.status & ORGAN_ROBOT) && (r_leg.status & ORGAN_ROBOT))
+			return
+
 		if(istype(H.back, /obj/item/weapon/rig/light/offworlder))
 			var/obj/item/weapon/rig/light/offworlder/rig = H.back
 			if(!rig.offline)
@@ -66,8 +72,8 @@
 				return
 
 
-		if(H.reagents)
-			if(H.reagents.has_reagent("rmt", 1))
+		for (var/datum/reagent/R in H.ingested.reagent_list)
+			if(R.id == "rmt")
 				return
 
 		var/pain_message = pick("You feel sluggish as if something is weighing you down.",

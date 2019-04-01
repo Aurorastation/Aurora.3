@@ -4,12 +4,6 @@
 	universal_understand = 1
 
 /mob/living/parasite/captive_brain/say(var/message)
-
-	if (src.client)
-		if(client.prefs.muted & MUTE_IC)
-			to_chat(src, "<span class='warning'>You cannot speak in IC (muted).</span>")
-			return
-
 	if(istype(src.loc,/mob/living/parasite/meme))
 
 		message = sanitize(message)
