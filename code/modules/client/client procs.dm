@@ -244,37 +244,59 @@
 /proc/client_by_ckey(ckey)
 	return directory[ckey]
 
-/client/proc/handle_spam_prevention(var/message, var/mute_type)
-	if (config.automute_on && !holder && length(message))
-		if (last_message_time)
-			if (world.time - last_message_time < config.macro_trigger)
-				spam_alert++
-				if (spam_alert > 3)
-					if (!(prefs.muted & mute_type))
-						cmd_admin_mute(src.mob, mute_type, 1)
+/client/proc/automute_by_time(mute_type)
+	if (!last_message_time)
+		return FALSE
 
-					to_chat(src, "<span class='danger'>You have tripped the macro filter. An auto-mute was applied.</span>")
-					last_message_time = world.time
-					spam_alert = 4
-					return 1
-			else
-				spam_alert = max(0, spam_alert--)
+	if (config.macro_trigger && (REALTIMEOFDAY - last_message_time) < config.macro_trigger)
+		spam_alert = min(spam_alert + 1, 4)
+		log_debug("SPAM_PROTECT: [src] tripped macro-trigger. Now at alert [spam_alert].")
 
-		last_message_time = world.time
+		if (spam_alert > 3 && !(prefs.muted & mute_type))
+			cmd_admin_mute(src.mob, mute_type, 1)
+			to_chat(src, "<span class='danger'>You have tripped the macro-trigger. An auto-mute was applied.</span>")
+			log_debug("SPAM_PROTECT: [src] tripped macro-trigger, now muted.")
+			return TRUE
 
-		if(last_message == message)
-			last_message_count++
-			if(last_message_count >= SPAM_TRIGGER_AUTOMUTE)
-				to_chat(src, "<span class='danger'>You have exceeded the spam filter limit for identical messages. An auto-mute was applied.</span>")
-				cmd_admin_mute(src.mob, mute_type, 1)
-				return 1
-			if(last_message_count >= SPAM_TRIGGER_WARNING)
-				to_chat(src, "<span class='danger'>You are nearing the spam filter limit for identical messages.</span>")
-				return 0
+	spam_alert = max(0, spam_alert - 1)
+	return FALSE
 
+/client/proc/automute_by_duplicate(message, mute_type)
+	if (!last_message)
+		return FALSE
+
+	if (last_message == message)
+		last_message_count++
+		log_debug("SPAM_PROTECT: [src] tripped duplicate message filter. Last message count: [last_message_count]. Message: [message]")
+
+		if(last_message_count >= SPAM_TRIGGER_AUTOMUTE)
+			to_chat(src, "<span class='danger'>You have exceeded the spam filter limit for identical messages. An auto-mute was applied.</span>")
+			cmd_admin_mute(mob, mute_type, 1)
+			log_debug("SPAM_PROTECT: [src] tripped duplicate message filter, now muted.")
+			last_message_count = 0
+			return TRUE
+		else if(last_message_count >= SPAM_TRIGGER_WARNING)
+			to_chat(src, "<span class='danger'>You are nearing the spam filter limit for identical messages.</span>")
+			log_debug("SPAM_PROTECT: [src] tripped duplicate message filter, now warned.")
+			return FALSE
+	else
+		last_message_count = 0
+
+	return FALSE
+
+/client/proc/handle_spam_prevention(message, mute_type)
+	. = FALSE
+
+	if (prefs.muted & mute_type)
+		to_chat(src, "<span class='warning'>You are muted and cannot send messages.</span>")
+		. = TRUE
+	else if (config.automute_on && !holder && length(message))
+		. = . || automute_by_time(mute_type)
+
+		. = . || automute_by_duplicate(message, mute_type)
+
+	last_message_time = REALTIMEOFDAY
 	last_message = message
-	last_message_count = 0
-	return 0
 
 //This stops files larger than UPLOAD_LIMIT being sent from client to server via input(), client.Import() etc.
 /client/AllowUpload(filename, filelength)
