@@ -141,3 +141,8 @@
 /datum/gear/battlemonsters
 	display_name = "battlemonsters starter deck"
 	path = /obj/item/battle_monsters/wrapped
+
+/datum/gear/lantern
+	display_name = "lantern"
+	path = /obj/item/device/flashlight/lantern
+	allowed_maps = list("adhomai")

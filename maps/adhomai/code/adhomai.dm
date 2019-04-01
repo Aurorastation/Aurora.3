@@ -60,6 +60,8 @@
 		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Republican Invasion",			/datum/event/mob_spawner,			250)
 	)
 
+	possible_lobby_tracks = list('sound/music/thats-my-horse.ogg')
+
 
 /datum/map/adhomai/generate_asteroid()
 

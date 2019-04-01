@@ -19,10 +19,10 @@
 		if(do_after(user, 20, act_target = src))
 			user.visible_message("<span class='notice'>\The [user] chops down \the [src].</span>")
 			playsound(loc, 'sound/effects/woodcutting.ogg', 50, 1)
-			for(var/i in 1 to 4)
-				new /obj/item/stack/material/wood(src.loc)
-				qdel(src)
-				return
+			var/obj/item/stack/material/wood/T = new(src.loc)
+			T.amount = 8
+			qdel(src)
+			return
 		else
 			being_cut = FALSE
 			return ..()

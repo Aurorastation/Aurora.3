@@ -17,6 +17,7 @@
 	var/list/civ = new()
 	var/list/bot = new()
 	var/list/misc = new()
+	var/list/adhomai = new()
 	var/list/isactive = new()
 	var/dat = {"
 	<head><style>
@@ -74,6 +75,8 @@
 			department = 1
 		if(!department && !(name in heads))
 			misc[name] = rank
+		if(!department && !(name in adhomai_positions))
+			adhomai[name] = rank
 	if(heads.len > 0)
 		dat += "<tr><th colspan=3>Heads</th></tr>"
 		for(name in heads)
@@ -120,6 +123,12 @@
 		dat += "<tr><th colspan=3>Miscellaneous</th></tr>"
 		for(name in misc)
 			dat += "<tr[even ? " class='alt'" : ""]><td>[name]</td><td>[misc[name]]</td><td>[isactive[name]]</td></tr>"
+			even = !even
+
+	if(misc.len > 0)
+		dat += "<tr><th colspan=3>Adhomai</th></tr>"
+		for(name in adhomai)
+			dat += "<tr[even ? " class='alt'" : ""]><td>[name]</td><td>[adhomai[name]]</td><td>[isactive[name]]</td></tr>"
 			even = !even
 
 	dat += "</table>"

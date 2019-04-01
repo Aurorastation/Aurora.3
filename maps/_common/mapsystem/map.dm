@@ -122,6 +122,14 @@
 		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Major Vermin Infestation",	/datum/event/infestation/major, 	15,	list(ASSIGNMENT_SECURITY = 15, ASSIGNMENT_MEDICAL = 10))
 	)
 
+	var/list/possible_lobby_tracks = list(
+		'sound/music/space.ogg',
+		'sound/music/traitor.ogg',
+		'sound/music/title2.ogg',
+		'sound/music/clouds.s3m',
+		'sound/music/space_oddity.ogg'
+	)
+
 /datum/map/New()
 	if(!map_levels)
 		map_levels = station_levels.Copy()
