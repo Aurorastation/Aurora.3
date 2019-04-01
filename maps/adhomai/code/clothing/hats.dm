@@ -58,3 +58,4 @@
 	icon = 'icons/adhomai/clothing.dmi'
 	icon_state = "explorer_hat"
 	item_state = "explorer_hat"
+	contained_sprite = TRUE
