@@ -179,7 +179,7 @@
 	var/datum/asset/welcome = get_asset_datum(/datum/asset/simple/misc)
 	welcome.send(user)
 
-	user << browse('html/templates/welcome_screen.html', "window=greeting;size=640x500")
+	user << browse('html/templates/welcome_screen.html', "window=greeting;size=800x500")
 
 /*
  * A proc used to close the server greeting window for a user.
@@ -192,7 +192,7 @@
 		return
 
 	if (reason)
-		user << span("notice", reason)
+		to_chat(user, span("notice", reason))
 
 	user << browse(null, "window=greeting")
 
@@ -213,17 +213,17 @@
 	var/list/data = list("div" = "", "content" = "", "update" = 1, "changeHash" = null)
 
 	if (outdated_info & OUTDATED_NOTE)
-		user << output("#note-placeholder", "greeting.browser:RemoveElement")
+		to_chat(user, output("#note-placeholder", "greeting.browser:RemoveElement"))
 
 		data["div"] = "#note"
 		data["update"] = 1
 
 		for (var/datum/client_notification/a in user.prefs.notifications)
 			data["content"] = a.get_html()
-			user << output(JS_SANITIZE(data), "greeting.browser:AddContent")
+			to_chat(user, output(JS_SANITIZE(data), "greeting.browser:AddContent"))
 
 	if (!user.holder)
-		user << output("#memo-tab", "greeting.browser:RemoveElement")
+		to_chat(user, output("#memo-tab", "greeting.browser:RemoveElement"))
 	else
 		if (outdated_info & OUTDATED_MEMO)
 			data["update"] = 1
@@ -234,7 +234,7 @@
 
 		data["div"] = "#memo"
 		data["content"] = get_memo_content(user)
-		user << output(JS_SANITIZE(data), "greeting.browser:AddContent")
+		to_chat(user, output(JS_SANITIZE(data), "greeting.browser:AddContent"))
 
 	if (outdated_info & OUTDATED_MOTD)
 		data["update"] = 1
@@ -245,7 +245,17 @@
 
 	data["div"] = "#motd"
 	data["content"] = motd
-	user << output(JS_SANITIZE(data), "greeting.browser:AddContent")
+	to_chat(user, output(JS_SANITIZE(data), "greeting.browser:AddContent"))
+
+	data["div"] = "#testmerges"
+	data["content"] = revdata.greeting_info
+
+	if (revdata.test_merges.len)
+		data["update"] = 1
+	else
+		data["update"] = 0
+	data["changeHash"] = null
+	to_chat(user, output(JS_SANITIZE(data), "greeting.browser:AddContent"))
 
 /*
  * Basically the Topic proc for the greeting datum.
@@ -338,3 +348,5 @@
 #undef OUTDATED_MOTD
 
 #undef MEMOFILE
+
+#undef JS_SANITIZE

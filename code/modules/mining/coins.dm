@@ -49,19 +49,19 @@
 	icon_state = "coin_battlemonsters"
 
 /obj/item/weapon/coin/attackby(obj/item/weapon/W as obj, mob/user as mob)
-	if(iscoil(W))
+	if(W.iscoil())
 		var/obj/item/stack/cable_coil/CC = W
 		if(string_attached)
-			user << "<span class='notice'>There already is a string attached to this coin.</span>"
+			to_chat(user, "<span class='notice'>There already is a string attached to this coin.</span>")
 			return
 		if (CC.use(1))
 			add_overlay("coin_string_overlay")
 			string_attached = 1
-			user << "<span class='notice'>You attach a string to the coin.</span>"
+			to_chat(user, "<span class='notice'>You attach a string to the coin.</span>")
 		else
-			user << "<span class='notice'>This cable coil appears to be empty.</span>"
+			to_chat(user, "<span class='notice'>This cable coil appears to be empty.</span>")
 		return
-	else if(iswirecutter(W))
+	else if(W.iswirecutter())
 		if(!string_attached)
 			..()
 			return
@@ -71,7 +71,7 @@
 		CC.update_icon()
 		cut_overlays()
 		string_attached = null
-		user << "<span class='notice'>You detach the string from the coin.</span>"
+		to_chat(user, "<span class='notice'>You detach the string from the coin.</span>")
 	else ..()
 
 /obj/item/weapon/coin/attack_self(mob/user as mob)

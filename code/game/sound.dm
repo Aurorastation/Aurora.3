@@ -147,6 +147,16 @@ var/list/switchsounds = list(
 	'sound/machines/switch3.ogg',
 	'sound/machines/switch4.ogg'
 )
+var/list/keyboardsounds = list(
+	'sound/machines/keyboard/keypress1.ogg',
+	'sound/machines/keyboard/keypress2.ogg',
+	'sound/machines/keyboard/keypress3.ogg',
+	'sound/machines/keyboard/keypress4.ogg',
+	'sound/machines/keyboard/keystroke1.ogg',
+	'sound/machines/keyboard/keystroke2.ogg',
+	'sound/machines/keyboard/keystroke3.ogg',
+	'sound/machines/keyboard/keystroke4.ogg'
+	)
 
 var/list/footstepfx = list("defaultstep","concretestep","grassstep","dirtstep","waterstep","sandstep", "gravelstep")
 
@@ -274,13 +284,13 @@ var/list/footstepfx = list("defaultstep","concretestep","grassstep","dirtstep","
 			var/area/A = get_area(src)
 			S.environment = A.sound_env
 
-	src << S
+	sound_to(src, S)
 	return S.volume
 
 /client/proc/playtitlemusic()
 	if(!SSticker.login_music)	return
 	if(prefs.toggles & SOUND_LOBBY)
-		src << sound(SSticker.login_music, repeat = 0, wait = 0, volume = 85, channel = 1) // MAD JAMS
+		src << sound(SSticker.login_music, repeat = 0, wait = 0, volume = 85, channel = 1) // MAD JAMS)
 
 /proc/get_rand_frequency()
 	return rand(32000, 55000) //Frequency stuff only works with 45kbps oggs.
@@ -308,4 +318,5 @@ var/list/footstepfx = list("defaultstep","concretestep","grassstep","dirtstep","
 			if ("gravelstep") soundin = pick(gravelfootsteps)
 			if ("computerbeep") soundin = pick(computerbeeps)
 			if ("switch") soundin = pick(switchsounds)
+			if ("keyboard") soundin = pick(keyboardsounds)
 	return soundin

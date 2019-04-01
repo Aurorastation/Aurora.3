@@ -84,6 +84,7 @@
 #define APPEARANCE_EYE_COLOR 0x100
 #define APPEARANCE_ALL_HAIR (APPEARANCE_HAIR|APPEARANCE_HAIR_COLOR|APPEARANCE_FACIAL_HAIR|APPEARANCE_FACIAL_HAIR_COLOR)
 #define APPEARANCE_ALL       0xFFFF
+#define APPEARANCE_PLASTICSURGERY (APPEARANCE_ALL & ~APPEARANCE_RACE)
 
 // Click cooldown
 #define DEFAULT_ATTACK_COOLDOWN 8 //Default timeout for aggressive actions
@@ -128,11 +129,11 @@
 #define BASE_MAX_HYDRATION  800
 #define THIRST_FACTOR       0.02 // Factor of how fast mob hydration decreases over time.
 
-#define CREW_MINIMUM_HYDRATION BASE_MAX_HYDRATION * CREW_HYDRATION_SLIGHTLYTHIRSTY	// The minimum amount of nutrition a crewmember will spawn with.
-#define CREW_MAXIMUM_HYDRATION BASE_MAX_HYDRATION * CREW_HYDRATION_HYDRATED	// Same as above, but maximum.
+#define CREW_MINIMUM_HYDRATION CREW_HYDRATION_SLIGHTLYTHIRSTY	// The minimum amount of nutrition a crewmember will spawn with, represented as a percentage
+#define CREW_MAXIMUM_HYDRATION CREW_HYDRATION_HYDRATED	// Same as above, but maximum.
 
-#define CREW_MINIMUM_NUTRITION BASE_MAX_NUTRITION * CREW_NUTRITION_SLIGHTLYHUNGRY	// The minimum amount of nutrition a crewmember will spawn with.
-#define CREW_MAXIMUM_NUTRITION BASE_MAX_NUTRITION * CREW_NUTRITION_FULL	// Same as above, but maximum.
+#define CREW_MINIMUM_NUTRITION CREW_NUTRITION_FULL	// The minimum amount of nutrition a crewmember will spawn with, represented as a percentage.
+#define CREW_MAXIMUM_NUTRITION CREW_NUTRITION_OVEREATEN	// Same as above, but maximum.
 
 //Note that all of this is relative to nutrition/max nutrition
 #define CREW_NUTRITION_OVEREATEN 0.8
@@ -222,6 +223,8 @@
 #define PROSTHETIC_ZH "Zeng-Hu Pharmaceuticals"
 #define PROSTHETIC_HI "Hephaestus Industries"
 #define PROSTHETIC_XMG "Xion Manufacturing Group"
+#define PROSTHETIC_DIONA "Unknown Model"
+#define PROSTHETIC_AUTAKH "Aut'akh Manufactured"
 
 //Brain Damage defines
 #define BRAIN_DAMAGE_MILD 10

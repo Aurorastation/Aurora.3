@@ -133,7 +133,7 @@
 	var/mob/living/M = user
 
 	if(HULK in M.mutations)
-		M << "<span class='danger'>Your fingers are much too large for the trigger guard!</span>"
+		to_chat(M, "<span class='danger'>Your fingers are much too large for the trigger guard!</span>")
 		return 0
 
 	if(ishuman(M))
@@ -204,7 +204,7 @@
 
 	add_fingerprint(user)
 	if(user.client && (user.client.prefs.toggles_secondary & SAFETY_CHECK) && user.a_intent != I_HURT) //Check this first to save time.
-		user << "You refrain from firing, as you aren't on harm intent."
+		to_chat(user, "You refrain from firing, as you aren't on harm intent.")
 		return 0
 
 	if(!special_check(user))
@@ -217,7 +217,7 @@
 
 	if(world.time < next_fire_time)
 		if (world.time % 3) //to prevent spam
-			user << "<span class='warning'>[src] is not ready to fire again!</span>"
+			to_chat(user, "<span class='warning'>[src] is not ready to fire again!</span>")
 		return 0
 
 	var/shoot_time = (burst - 1)* burst_delay
@@ -463,7 +463,7 @@
 			mouthshoot = 0
 			return
 		else if (in_chamber.damage_type == HALLOSS)
-			user << "<span class = 'notice'>Ow...</span>"
+			to_chat(user, "<span class = 'notice'>Ow...</span>")
 			user.apply_effect(110,AGONY,0)
 		else
 			log_and_message_admins("[key_name(user)] commited suicide using \a [src]")
@@ -533,7 +533,7 @@
 /obj/item/weapon/gun/attack_self(mob/user)
 	var/datum/firemode/new_mode = switch_firemodes(user)
 	if(new_mode)
-		user << "<span class='notice'>\The [src] is now set to [new_mode.name].</span>"
+		to_chat(user, "<span class='notice'>\The [src] is now set to [new_mode.name].</span>")
 
 //Handling of rifles and two-handed weapons.
 /obj/item/weapon/gun/proc/can_wield()
@@ -543,20 +543,20 @@
 	if(!can_wield())
 		return
 	if(!istype(user.get_active_hand(), /obj/item/weapon/gun))
-		user << "<span class='warning'>You need to be holding the [name] in your active hand</span>"
+		to_chat(user, "<span class='warning'>You need to be holding the [name] in your active hand</span>")
 		return
 	if(!istype(user, /mob/living/carbon/human))
-		user << "<span class='warning'>It's too heavy for you to stabilize properly.</span>"
+		to_chat(user, "<span class='warning'>It's too heavy for you to stabilize properly.</span>")
 		return
 
 	var/mob/living/carbon/human/M = user
 	if(istype(M.species, /datum/species/monkey))
-		user << "<span class='warning'>It's too heavy for you to stabilize properly.</span>"
+		to_chat(user, "<span class='warning'>It's too heavy for you to stabilize properly.</span>")
 		return
 
 	if(wielded)
 		unwield()
-		user << "<span class='notice'>You are no-longer stabilizing the [name] with both hands.</span>"
+		to_chat(user, "<span class='notice'>You are no-longer stabilizing the [name] with both hands.</span>")
 
 		var/obj/item/weapon/gun/offhand/O = user.get_inactive_hand()
 		if(O && istype(O))
@@ -570,10 +570,10 @@
 
 	else
 		if(user.get_inactive_hand())
-			user << "<span class='warning'>You need your other hand to be empty.</span>"
+			to_chat(user, "<span class='warning'>You need your other hand to be empty.</span>")
 			return
 		wield()
-		user << "<span class='notice'>You stabilize the [initial(name)] with both hands.</span>"
+		to_chat(user, "<span class='notice'>You stabilize the [initial(name)] with both hands.</span>")
 
 		var/obj/item/weapon/gun/offhand/O = new(user)
 		O.name = "[initial(name)] - offhand"
@@ -610,7 +610,7 @@
 	//Cannot equip wielded items.
 	if(can_wield())
 		if(wielded)
-			M << "<span class='warning'>Lower the [initial(name)] first!</span>"
+			to_chat(M, "<span class='warning'>Lower the [initial(name)] first!</span>")
 			return 0
 
 	return ..()
@@ -657,7 +657,7 @@
 		if(user)
 			var/obj/item/weapon/gun/O = user.get_inactive_hand()
 			if(istype(O))
-				user << "<span class='notice'>You are no-longer stabilizing the [name] with both hands.</span>"
+				to_chat(user, "<span class='notice'>You are no-longer stabilizing the [name] with both hands.</span>")
 				O.unwield()
 				unwield()
 
@@ -713,13 +713,19 @@ obj/item/weapon/gun/Destroy()
 		to_chat(user, "<span class='notice'>You attach \the [I] to the front of \the [src].</span>")
 		update_icon()
 
+	if(I.iscrowbar() && bayonet)
+		to_chat(user, "<span class='notice'>You detach \the [bayonet] from \the [src].</span>")
+		bayonet.forceMove(get_turf(src))
+		bayonet = null
+		update_icon()
+
 	if(!pin)
 		return ..()
 
-	if(isscrewdriver(I))
+	if(I.isscrewdriver())
 		visible_message("<span class = 'warning'>[user] begins to try and pry out [src]'s firing pin!</span>")
 		if(do_after(user,45 SECONDS,act_target = src))
-			if(pin.durable)
+			if(pin.durable || prob(50))
 				visible_message("<span class = 'notice'>[user] pops the [pin] out of [src]!</span>")
 				pin.forceMove(get_turf(src))
 				pin = null//clear it out.

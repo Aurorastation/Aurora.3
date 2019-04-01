@@ -11,7 +11,7 @@
 	appliance = OVEN
 	fruit = list("apple" = 1)
 	reagents = list("pacid" = 5) //It dissolves the carapace. Still poisonous, though.
-	items = list(/obj/item/weapon/holder/diona)
+	items = list(/obj/item/weapon/reagent_containers/food/snacks/meat/dionanymph)
 	result = /obj/item/weapon/reagent_containers/food/snacks/dionaroast
 	reagent_mix = RECIPE_REAGENT_REPLACE //No eating polyacid
 
@@ -239,6 +239,16 @@
 	)
 	result = /obj/item/weapon/reagent_containers/food/snacks/tajaran_bread
 	reagent_mix = RECIPE_REAGENT_REPLACE
+
+/datum/recipe/hardbread
+	appliance = OVEN
+	reagents = list("spacespice" = 1)
+	items = list(
+		/obj/item/weapon/reagent_containers/food/snacks/tajaran_bread,
+		/obj/item/weapon/reagent_containers/food/snacks/tajaran_bread,
+		/obj/item/weapon/reagent_containers/food/snacks/tajaran_bread
+	)
+	result = /obj/item/weapon/reagent_containers/food/snacks/hardbread
 
 //Baked sweets:
 //---------------
@@ -473,7 +483,7 @@
 
 /datum/recipe/cake/birthday
 	appliance = OVEN
-	items = list(/obj/item/clothing/head/cakehat)
+	items = list(/obj/item/weapon/flame/candle)
 	result = /obj/item/weapon/reagent_containers/food/snacks/sliceable/cake/birthday
 
 /datum/recipe/cake/apple
@@ -488,13 +498,13 @@
 
 /datum/recipe/pancakes
 	appliance = OVEN
-	fruit = list("blueberries" = 2)
+	fruit = list("berries" = 2)
 	items = list(
 		/obj/item/weapon/reagent_containers/food/snacks/sliceable/flatdough,
 		/obj/item/weapon/reagent_containers/food/snacks/sliceable/flatdough
-	)
+		)
 	result = /obj/item/weapon/reagent_containers/food/snacks/pancakes
-	result = /obj/item/weapon/reagent_containers/food/snacks/pancakes
+	result_quantity = 2
 
 /datum/recipe/lasagna
 	appliance = OVEN
@@ -565,7 +575,7 @@
 
 /datum/recipe/truffle
 	appliance = OVEN
-	reagents = list("sugar" = 5, "cream" = 5)
+	reagents = list("coco" = 2, "cream" = 5)
 	items = list(
 		/obj/item/weapon/reagent_containers/food/snacks/chocolatebar
 	)

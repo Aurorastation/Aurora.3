@@ -26,11 +26,11 @@
 /obj/machinery/space_heater/examine(mob/user)
 	..(user)
 
-	user << "The heater is [on ? "on" : "off"] and the hatch is [panel_open ? "open" : "closed"]."
+	to_chat(user, "The heater is [on ? "on" : "off"] and the hatch is [panel_open ? "open" : "closed"].")
 	if(panel_open)
-		user << "The power cell is [cell ? "installed" : "missing"]."
+		to_chat(user, "The power cell is [cell ? "installed" : "missing"].")
 	else
-		user << "The charge meter reads [cell ? round(cell.percent(),1) : 0]%"
+		to_chat(user, "The charge meter reads [cell ? round(cell.percent(),1) : 0]%")
 	return
 
 /obj/machinery/space_heater/powered()
@@ -50,7 +50,7 @@
 	if(istype(I, /obj/item/weapon/cell))
 		if(panel_open)
 			if(cell)
-				user << "There is already a power cell inside."
+				to_chat(user, "There is already a power cell inside.")
 				return
 			else
 				// insert cell
@@ -63,9 +63,9 @@
 					user.visible_message("<span class='notice'>[user] inserts a power cell into [src].</span>", "<span class='notice'>You insert the power cell into [src].</span>")
 					power_change()
 		else
-			user << "The hatch must be open to insert a power cell."
+			to_chat(user, "The hatch must be open to insert a power cell.")
 			return
-	else if(isscrewdriver(I))
+	else if(I.isscrewdriver())
 		panel_open = !panel_open
 		user.visible_message("<span class='notice'>[user] [panel_open ? "opens" : "closes"] the hatch on the [src].</span>", "<span class='notice'>You [panel_open ? "open" : "close"] the hatch on the [src].</span>")
 		update_icon()

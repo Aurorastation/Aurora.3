@@ -36,6 +36,8 @@
 	speed = 3
 	mob_size = 6
 
+	attack_emote = "skitters toward"
+
 //nursemaids - these create webs and eggs
 /mob/living/simple_animal/hostile/giant_spider/nurse
 	desc = "Furry and beige, it makes you shudder to look at it. This one has brilliant green eyes."
@@ -88,7 +90,7 @@
 			if(!(O.status & (ORGAN_ROBOT|ORGAN_ADV_ROBOT)) && !O.cannot_amputate)
 				var/eggs = new /obj/effect/spider/eggcluster(O, src)
 				O.implants += eggs
-				H << "<span class='warning'>The [src] injects something into your [O.name]!</span>"
+				to_chat(H, "<span class='warning'>The [src] injects something into your [O.name]!</span>")
 
 /mob/living/simple_animal/hostile/giant_spider/think()
 	..()

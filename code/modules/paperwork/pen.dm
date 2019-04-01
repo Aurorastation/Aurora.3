@@ -10,7 +10,7 @@
  * Pens
  */
 /obj/item/weapon/pen
-	desc = "It's a normal black ink pen."
+	desc = "An instrument for writing or drawing with ink. This one is in black. Stylish, classic and professional."
 	name = "pen"
 	icon = 'icons/obj/bureaucracy.dmi'
 	icon_state = "pen"
@@ -25,17 +25,18 @@
 
 
 /obj/item/weapon/pen/blue
-	desc = "It's a normal blue ink pen."
+	desc = "An instrument for writing or drawing with ink. This one is in blue. Ironically used mostly by white-collar workers."
 	icon_state = "pen_blue"
 	colour = "blue"
 
 /obj/item/weapon/pen/red
-	desc = "It's a normal red ink pen."
+	desc = "An instrument for writing or drawing with ink. This one is in red. Favored by teachers and creeps who like to pretend to write in blood."
 	icon_state = "pen_red"
 	colour = "red"
 
 /obj/item/weapon/pen/multi
-	desc = "It's a pen with multiple colors of ink!"
+	desc = "An instrument for writing or drawing with ink. This one comes with with multiple colors! Push down all three simultaneously to rule the universe."
+	icon_state = "pen_multi"
 	var/selectedColor = 1
 	var/colors = list("black","blue","red")
 
@@ -50,10 +51,10 @@
 	else
 		icon_state = "pen_[colour]"
 
-	user << "<span class='notice'>Changed color to '[colour].'</span>"
+	to_chat(user, "<span class='notice'>Changed color to '[colour].'</span>")
 
 /obj/item/weapon/pen/invisible
-	desc = "It's an invisble pen marker."
+	desc = "An instrument for writing or drawing with ink. This one has invisible ink."
 	icon_state = "pen"
 	colour = "white"
 
@@ -61,8 +62,8 @@
 /obj/item/weapon/pen/attack(mob/M as mob, mob/user as mob, var/target_zone)
 	if(!ismob(M))
 		return
-	user << "<span class='warning'>You stab [M] with the pen.</span>"
-//	M << "\red You feel a tiny prick!" //That's a whole lot of meta!
+	to_chat(user, "<span class='warning'>You stab [M] with the pen.</span>")
+//	to_chat(M, "\red You feel a tiny prick!" //That's a whole lot of meta!)
 	M.attack_log += text("\[[time_stamp()]\] <font color='orange'>Has been stabbed with [name]  by [user.name] ([user.ckey])</font>")
 	user.attack_log += text("\[[time_stamp()]\] <font color='red'>Used the [name] to stab [M.name] ([M.ckey])</font>")
 	msg_admin_attack("[user.name] ([user.ckey]) Used the [name] to stab [M.name] ([M.ckey]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(M))
@@ -93,7 +94,7 @@
 			if(M.reagents)
 				var/contained_reagents = reagents.get_reagents()
 				var/trans = reagents.trans_to_mob(M, 30, CHEM_BLOOD)
-				admin_inject_log(user, M, src, contained_reagents, trans)
+				admin_inject_log(user, M, src, contained_reagents, reagents.get_temperature(), trans)
 
 /*
  * Sleepy Pens
@@ -166,7 +167,7 @@
 				colour = COLOR_WHITE
 			else
 				colour = COLOR_BLACK
-		usr << "<span class='info'>You select the [lowertext(selected_type)] ink container.</span>"
+		to_chat(usr, "<span class='info'>You select the [lowertext(selected_type)] ink container.</span>")
 
 
 /*

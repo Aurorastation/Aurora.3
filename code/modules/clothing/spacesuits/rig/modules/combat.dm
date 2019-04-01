@@ -15,6 +15,7 @@
 	interface_name = "mounted flash"
 	interface_desc = "Stuns your target by blinding them with a bright light."
 	device_type = /obj/item/device/flash
+	category = MODULE_LIGHT_COMBAT
 
 /obj/item/rig_module/grenade_launcher
 
@@ -28,6 +29,8 @@
 
 	var/fire_force = 30
 	var/fire_distance = 10
+
+	category = MODULE_HEAVY_COMBAT
 
 	charges = list(
 		list("flashbang",   "flashbang",   /obj/item/weapon/grenade/flashbang,  3),
@@ -51,10 +54,10 @@
 		return 0
 
 	if(accepted_item.charges >= 5)
-		user << "<span class='danger'>Another grenade of that type will not fit into the module.</span>"
+		to_chat(user, "<span class='danger'>Another grenade of that type will not fit into the module.</span>")
 		return 0
 
-	user << "<font color='blue'><b>You slot \the [input_device] into the suit module.</b></font>"
+	to_chat(user, "<font color='blue'><b>You slot \the [input_device] into the suit module.</b></font>")
 	qdel(input_device)
 	accepted_item.charges++
 	return 1
@@ -70,7 +73,7 @@
 	var/mob/living/carbon/human/H = holder.wearer
 
 	if(!charge_selected)
-		H << "<span class='danger'>You have not selected a grenade type.</span>"
+		to_chat(H, "<span class='danger'>You have not selected a grenade type.</span>")
 		return 0
 
 	var/datum/rig_charge/charge = charges[charge_selected]
@@ -79,7 +82,7 @@
 		return 0
 
 	if(charge.charges <= 0)
-		H << "<span class='danger'>Insufficient grenades!</span>"
+		to_chat(H, "<span class='danger'>Insufficient grenades!</span>")
 		return 0
 
 	charge.charges--
@@ -106,6 +109,8 @@
 	name = "mounted cleaning grenade launcher"
 	desc = "A specialty shoulder-mounted micro-explosive dispenser."
 
+	category = MODULE_GENERAL
+
 	charges = list(
 		list("cleaning grenade",   "cleaning grenade",   /obj/item/weapon/grenade/chem_grenade/cleaner,  9)
 		)
@@ -120,6 +125,8 @@
 	icon_state = "lcannon"
 
 	engage_string = "Configure"
+
+	category = MODULE_HEAVY_COMBAT
 
 	interface_name = "mounted laser cannon"
 	interface_desc = "A shoulder-mounted cell-powered laser cannon."
@@ -156,6 +163,8 @@
 
 	gun_type = /obj/item/weapon/gun/energy/gun/mounted
 
+	category = MODULE_LIGHT_COMBAT
+
 /obj/item/rig_module/mounted/taser
 
 	name = "mounted taser"
@@ -173,6 +182,8 @@
 	interface_desc = "A shoulder-mounted cell-powered taser."
 
 	gun_type = /obj/item/weapon/gun/energy/taser/mounted
+
+	category = MODULE_LIGHT_COMBAT
 
 /obj/item/rig_module/mounted/pulse
 
@@ -216,7 +227,7 @@
 	interface_name = "mounted ion rifle"
 	interface_desc = "A shoulder-mounted cell-powered ion rifle."
 
-	gun_type = /obj/item/weapon/gun/energy/ionrifle/mounted
+	gun_type = /obj/item/weapon/gun/energy/rifle/ionrifle/mounted
 
 /obj/item/rig_module/mounted/plasmacutter
 	name = "hardsuit plasma cutter"
@@ -229,6 +240,8 @@
 	construction_cost = list("glass" = 5250, DEFAULT_WALL_MATERIAL = 30000, "silver" = 5250, "phoron" = 7250)
 	construction_time = 300
 
+	category = MODULE_UTILITY
+
 	gun_type = /obj/item/weapon/gun/energy/plasmacutter/mounted
 
 /obj/item/rig_module/mounted/thermalldrill
@@ -240,6 +253,7 @@
 
 	gun_type = /obj/item/weapon/gun/energy/vaurca/mountedthermaldrill
 
+	category = MODULE_UTILITY
 
 /obj/item/rig_module/mounted/energy_blade
 
@@ -262,6 +276,8 @@
 
 	gun_type = /obj/item/weapon/gun/energy/crossbow/ninja
 
+	category = MODULE_SPECIAL
+
 /obj/item/rig_module/mounted/energy_blade/process()
 
 	if(holder && holder.wearer)
@@ -278,7 +294,7 @@
 	var/mob/living/M = holder.wearer
 
 	if(M.l_hand && M.r_hand)
-		M << "<span class='danger'>Your hands are full.</span>"
+		to_chat(M, "<span class='danger'>Your hands are full.</span>")
 		deactivate()
 		return
 
@@ -316,6 +332,8 @@
 	var/fire_force = 30
 	var/fire_distance = 10
 
+	category = MODULE_SPECIAL
+
 /obj/item/rig_module/fabricator/engage(atom/target)
 
 	if(!..())
@@ -330,11 +348,11 @@
 		firing.throw_at(target,fire_force,fire_distance)
 	else
 		if(H.l_hand && H.r_hand)
-			H << "<span class='danger'>Your hands are full.</span>"
+			to_chat(H, "<span class='danger'>Your hands are full.</span>")
 		else
 			var/obj/item/new_weapon = new fabrication_type()
 			new_weapon.forceMove(H)
-			H << "<font color='blue'><b>You quickly fabricate \a [new_weapon].</b></font>"
+			to_chat(H, "<font color='blue'><b>You quickly fabricate \a [new_weapon].</b></font>")
 			H.put_in_hands(new_weapon)
 
 	return 1
@@ -347,3 +365,5 @@
 	interface_desc = "An integrated microfactory that produces wet floor signs from thin air and electricity."
 
 	fabrication_type = /obj/item/weapon/caution
+
+	category = MODULE_GENERAL

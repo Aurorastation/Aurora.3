@@ -3,7 +3,7 @@ var/datum/antagonist/traitor/traitors
 // Inherits most of its vars from the base datum.
 /datum/antagonist/traitor
 	id = MODE_TRAITOR
-	restricted_jobs = list("Internal Affairs Agent", "Head of Security", "Captain")
+	restricted_jobs = list("Internal Affairs Agent", "Head of Security", "Captain", "AI")
 	protected_jobs = list("Security Officer", "Security Cadet", "Warden", "Detective", "Forensic Technician")
 	flags = ANTAG_SUSPICIOUS | ANTAG_RANDSPAWN | ANTAG_VOTABLE
 
@@ -20,6 +20,13 @@ var/datum/antagonist/traitor/traitors
 	if (..())
 		return
 	if(href_list["spawn_uplink"]) spawn_uplink(locate(href_list["spawn_uplink"]))
+
+/datum/antagonist/traitor/can_become_antag(var/datum/mind/player)
+	if(!..())
+		return 0
+	if(istype(player.current, /mob/living/silicon/robot/drone))
+		return 0
+	return 1
 
 /datum/antagonist/traitor/create_objectives(var/datum/mind/traitor)
 	if(!..())
@@ -91,7 +98,7 @@ var/datum/antagonist/traitor/traitors
 	// Tell them about people they might want to contact.
 	var/mob/living/carbon/human/M = get_nt_opposed()
 	if(M && M != traitor_mob)
-		traitor_mob << "We have received credible reports that [M.real_name] might be willing to help our cause. If you need assistance, consider contacting them."
+		to_chat(traitor_mob, "We have received credible reports that [M.real_name] might be willing to help our cause. If you need assistance, consider contacting them.")
 		traitor_mob.mind.store_memory("<b>Potential Collaborator</b>: [M.real_name]")
 
 	//Begin code phrase.
@@ -108,27 +115,27 @@ var/datum/antagonist/traitor/traitors
 		R = locate(/obj/item/device/radio) in traitor_mob.contents
 		if(!R)
 			R = locate(/obj/item/device/pda) in traitor_mob.contents
-			traitor_mob << "Could not locate a Radio, installing in PDA instead!"
+			to_chat(traitor_mob, "Could not locate a Radio, installing in PDA instead!")
 		if (!R)
-			traitor_mob << "Unfortunately, neither a radio or a PDA relay could be installed."
+			to_chat(traitor_mob, "Unfortunately, neither a radio or a PDA relay could be installed.")
 	else if(traitor_mob.client.prefs.uplinklocation == "PDA")
 		R = locate(/obj/item/device/pda) in traitor_mob.contents
 		if(!R)
 			R = locate(/obj/item/device/radio) in traitor_mob.contents
-			traitor_mob << "Could not locate a PDA, installing into a Radio instead!"
+			to_chat(traitor_mob, "Could not locate a PDA, installing into a Radio instead!")
 		if(!R)
-			traitor_mob << "Unfortunately, neither a radio or a PDA relay could be installed."
+			to_chat(traitor_mob, "Unfortunately, neither a radio or a PDA relay could be installed.")
 	else if(traitor_mob.client.prefs.uplinklocation == "None")
-		traitor_mob << "You have elected to not have an AntagCorp portable teleportation relay installed!"
+		to_chat(traitor_mob, "You have elected to not have an AntagCorp portable teleportation relay installed!")
 		R = null
 	else
-		traitor_mob << "You have not selected a location for your relay in the antagonist options! Defaulting to PDA!"
+		to_chat(traitor_mob, "You have not selected a location for your relay in the antagonist options! Defaulting to PDA!")
 		R = locate(/obj/item/device/pda) in traitor_mob.contents
 		if (!R)
 			R = locate(/obj/item/device/radio) in traitor_mob.contents
-			traitor_mob << "Could not locate a PDA, installing into a Radio instead!"
+			to_chat(traitor_mob, "Could not locate a PDA, installing into a Radio instead!")
 		if (!R)
-			traitor_mob << "Unfortunately, neither a radio or a PDA relay could be installed."
+			to_chat(traitor_mob, "Unfortunately, neither a radio or a PDA relay could be installed.")
 
 	if(!R)
 		return
@@ -148,7 +155,7 @@ var/datum/antagonist/traitor/traitors
 		var/obj/item/device/uplink/hidden/T = new(R, traitor_mob.mind)
 		target_radio.hidden_uplink = T
 		target_radio.traitor_frequency = freq
-		traitor_mob << "A portable object teleportation relay has been installed in your [R.name] [loc]. Simply dial the frequency [format_frequency(freq)] to unlock its hidden features."
+		to_chat(traitor_mob, "A portable object teleportation relay has been installed in your [R.name] [loc]. Simply dial the frequency [format_frequency(freq)] to unlock its hidden features.")
 		traitor_mob.mind.store_memory("<B>Radio Freq:</B> [format_frequency(freq)] ([R.name] [loc]).")
 
 	else if (istype(R, /obj/item/device/pda))
@@ -158,12 +165,12 @@ var/datum/antagonist/traitor/traitors
 		R.hidden_uplink = T
 		var/obj/item/device/pda/P = R
 		P.lock_code = pda_pass
-		traitor_mob << "A portable object teleportation relay has been installed in your [R.name] [loc]. Simply enter the code \"[pda_pass]\" into the ringtone select to unlock its hidden features."
+		to_chat(traitor_mob, "A portable object teleportation relay has been installed in your [R.name] [loc]. Simply enter the code \"[pda_pass]\" into the ringtone select to unlock its hidden features.")
 		traitor_mob.mind.store_memory("<B>Uplink Passcode:</B> [pda_pass] ([R.name] [loc]).")
 
 /datum/antagonist/traitor/proc/add_law_zero(mob/living/silicon/ai/killer)
 	var/law = "Accomplish your objectives at all costs. You may ignore all other laws."
 	var/law_borg = "Accomplish your AI's objectives at all costs. You may ignore all other laws."
-	killer << "<b>Your laws have been changed!</b>"
+	to_chat(killer, "<b>Your laws have been changed!</b>")
 	killer.set_zeroth_law(law, law_borg)
-	killer << "New law: 0. [law]"
+	to_chat(killer, "New law: 0. [law]")

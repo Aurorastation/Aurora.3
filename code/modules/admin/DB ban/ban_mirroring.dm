@@ -153,11 +153,11 @@
 	var/list/mirrors = get_ban_mirrors(ban_id)
 
 	if (!mirrors)
-		user << "<span class='warning'>Something went horribly wrong.</span>"
+		to_chat(user, "<span class='warning'>Something went horribly wrong.</span>")
 		return
 
 	if (!mirrors.len)
-		user << "<span class='warning'>No mirrors for this ban found.</span>"
+		to_chat(user, "<span class='warning'>No mirrors for this ban found.</span>")
 		return
 
 	var/output = "<b><center>Ban mirrors for ban #[ban_id]</center></b><br>"
@@ -239,8 +239,10 @@
 		to_chat(user, "<span class='warning'>Database connection failed!</span>")
 		return
 
-	var/DBQuery/query = dbcon.NewQuery("UPDATE ss13_ban_mirrors SET deleted_at = :new_state: WHERE id = :id:")
-	query.Execute(list("new_state" = inactive ? null : "NOW()", "id" = mirror_id))
+	var/query_text = inactive ? "UPDATE ss13_ban_mirrors SET deleted_at = NULL WHERE id = :id:" : "UPDATE ss13_ban_mirrors SET deleted_at = NOW() WHERE id = :id:"
+
+	var/DBQuery/query = dbcon.NewQuery(query_text)
+	query.Execute(list("id" = mirror_id))
 
 	if (query.ErrorMsg())
 		to_chat(user, "<span class='warning'>An error occured while toggling mirror status!</span>")
@@ -340,7 +342,7 @@
 	data += list(list(C.ckey, C.address, C.computer_id))
 
 	var/data_str = json_encode(data)
-	C << output(list2params(list("E-DAT", data_str, 900)), "greeting.browser:setCookie")
+	to_chat(C, output(list2params(list("E-DAT", data_str, 900)), "greeting.browser:setCookie"))
 
 #undef BAD_CID
 #undef BAD_IP

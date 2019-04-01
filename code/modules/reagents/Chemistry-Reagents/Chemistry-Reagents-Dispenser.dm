@@ -6,6 +6,7 @@
 	color = "#808080"
 	metabolism = REM * 0.2
 	taste_description = "acid"
+	specific_heat = 0.567
 
 /datum/reagent/acetone/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.adjustToxLoss(removed * 3)
@@ -14,17 +15,17 @@
 	if(istype(O, /obj/item/weapon/paper))
 		var/obj/item/weapon/paper/paperaffected = O
 		paperaffected.clearpaper()
-		usr << "The solution dissolves the ink on the paper."
+		to_chat(usr, "The solution dissolves the ink on the paper.")
 		return
 	if(istype(O, /obj/item/weapon/book))
 		if(volume < 5)
 			return
 		if(istype(O, /obj/item/weapon/book/tome))
-			usr << "<span class='notice'>The solution does nothing. Whatever this is, it isn't normal ink.</span>"
+			to_chat(usr, "<span class='notice'>The solution does nothing. Whatever this is, it isn't normal ink.</span>")
 			return
 		var/obj/item/weapon/book/affectedbook = O
 		affectedbook.dat = null
-		usr << "<span class='notice'>The solution dissolves the ink on the book.</span>"
+		to_chat(usr, "<span class='notice'>The solution dissolves the ink on the book.</span>")
 	return
 
 /datum/reagent/aluminum
@@ -35,6 +36,7 @@
 	color = "#A8A8A8"
 	taste_description = "metal"
 	taste_mult = 1.1
+	specific_heat = 0.811
 
 /datum/reagent/ammonia
 	name = "Ammonia"
@@ -47,6 +49,7 @@
 	taste_mult = 2
 	breathe_mul = 2
 	breathe_met = REM * 0.25
+	specific_heat = 1.048
 
 /datum/reagent/ammonia/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(alien == IS_VOX)
@@ -63,6 +66,7 @@
 	ingest_met = REM * 5
 	taste_description = "sour chalk"
 	taste_mult = 1.5
+	specific_heat = 0.018
 
 /datum/reagent/carbon/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
 	if(M.ingested && M.ingested.reagent_list.len > 1) // Need to have at least 2 reagents - cabon and something to remove
@@ -87,6 +91,11 @@
 	description = "A highly ductile metal."
 	color = "#6E3B08"
 	taste_description = "copper"
+	specific_heat = 1.148
+
+/datum/reagent/copper/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
+	if (alien & IS_SKRELL)
+		M.add_chemical_effect(CE_BLOODRESTORE, 8 * removed)
 
 /datum/reagent/alcohol //Parent class for all alcoholic reagents, though this one shouldn't be used anywhere.
 	name = null	// This null name should prevent alcohol from being added to global lists.
@@ -126,6 +135,7 @@
 	return ..()
 
 /datum/reagent/alcohol/touch_mob(mob/living/L, amount)
+	. = ..()
 	if (istype(L) && strength > 40)
 		L.adjust_fire_stacks((amount / (flammability_divisor || 1)) * (strength / 100))
 
@@ -165,6 +175,8 @@
 	glass_name = "glass of ethanol"
 	glass_desc = "A well-known alcohol with a variety of applications."
 
+	specific_heat = 0.605
+
 /datum/reagent/alcohol/ethanol/affect_ingest(var/mob/living/carbon/human/M, var/alien, var/removed)
 	if(!istype(M))
 		return
@@ -184,17 +196,17 @@
 	if(istype(O, /obj/item/weapon/paper))
 		var/obj/item/weapon/paper/paperaffected = O
 		paperaffected.clearpaper()
-		usr << "The solution dissolves the ink on the paper."
+		to_chat(usr, "The solution dissolves the ink on the paper.")
 		return
 	if(istype(O, /obj/item/weapon/book))
 		if(volume < 5)
 			return
 		if(istype(O, /obj/item/weapon/book/tome))
-			usr << "<span class='notice'>The solution does nothing. Whatever this is, it isn't normal ink.</span>"
+			to_chat(usr, "<span class='notice'>The solution does nothing. Whatever this is, it isn't normal ink.</span>")
 			return
 		var/obj/item/weapon/book/affectedbook = O
 		affectedbook.dat = null
-		usr << "<span class='notice'>The solution dissolves the ink on the book.</span>"
+		to_chat(usr, "<span class='notice'>The solution dissolves the ink on the book.</span>")
 	return
 
 
@@ -214,6 +226,8 @@
 	glass_icon_state = "glass_clear"
 	glass_name = "glass of butanol"
 	glass_desc = "A fairly harmless alcohol that has intoxicating effects on certain species."
+
+	specific_heat = 0.549
 
 /datum/reagent/alcohol/butanol/affect_ingest(var/mob/living/carbon/human/M, var/alien, var/removed)
 	if(!istype(M))
@@ -240,6 +254,8 @@
 	touch_met = 5
 	taste_description = "sweet tasting metal"
 
+	specific_heat = 0.549 //Unknown
+
 /datum/reagent/hydrazine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.adjustToxLoss(4 * removed)
 
@@ -260,8 +276,11 @@
 	color = "#353535"
 	taste_description = "metal"
 
+	specific_heat = 1.181
+
 /datum/reagent/iron/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
-	M.add_chemical_effect(CE_BLOODRESTORE, 8 * removed)
+	if (!(alien & IS_SKRELL))
+		M.add_chemical_effect(CE_BLOODRESTORE, 8 * removed)
 
 /datum/reagent/lithium
 	name = "Lithium"
@@ -270,6 +289,8 @@
 	reagent_state = SOLID
 	color = "#808080"
 	taste_description = "metal"
+
+	specific_heat = 0.633
 
 /datum/reagent/lithium/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(M.canmove && !M.restrained() && !(istype(M.loc, /turf/space)))
@@ -285,6 +306,8 @@
 	color = "#484848"
 	ingest_met = REM*0.2
 	taste_mult = 0 //mercury apparently is tasteless
+
+	specific_heat = 0.631
 
 /datum/reagent/mercury/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(M.canmove && !M.restrained() && !(istype(M.loc, /turf/space)))
@@ -302,6 +325,8 @@
 	color = "#832828"
 	taste_description = "vinegar"
 
+	specific_heat = 0.569
+
 /datum/reagent/potassium
 	name = "Potassium"
 	id = "potassium"
@@ -309,6 +334,8 @@
 	reagent_state = SOLID
 	color = "#A0A0A0"
 	taste_description = "sweetness" //potassium is bitter in higher doses but sweet in lower ones.
+
+	specific_heat = 0.214
 
 /datum/reagent/radium
 	name = "Radium"
@@ -319,10 +346,18 @@
 	taste_description = "the color blue, and regret"
 	unaffected_species = IS_MACHINE
 
+	specific_heat = 0.220
+	var/message_shown = FALSE
+
 /datum/reagent/radium/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.apply_effect(10 * removed, IRRADIATE, blocked = 0) // Radium may increase your chances to cure a disease
-	if(alien == IS_DIONA)
+	if(M.is_diona())
 		M.adjustToxLoss(-20 * removed)
+		M.adjustBruteLoss(-20 * removed)
+		M.adjustFireLoss(-20 * removed)
+		if(!message_shown) // Not to spam message
+			to_chat(M, "<span class='notice'>You feel an extreme energy as your body regenerates faster.</span>")
+			message_shown = TRUE
 		return
 	if(M.virus2.len)
 		for(var/ID in M.virus2)
@@ -358,6 +393,8 @@
 	var/meltdose = 10 // How much is needed to melt
 	taste_description = "acid"
 
+	fallback_specific_heat = 0.815
+
 /datum/reagent/acid/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.take_organ_damage(0, removed * power)
 
@@ -373,11 +410,11 @@
 		var/mob/living/carbon/human/H = M
 		if(H.head)
 			if(H.head.unacidable)
-				H << "<span class='danger'>Your [H.head] protects you from the acid.</span>"
+				to_chat(H, "<span class='danger'>Your [H.head] protects you from the acid.</span>")
 				remove_self(volume)
 				return
 			else if(removed > meltdose)
-				H << "<span class='danger'>Your [H.head] melts away!</span>"
+				to_chat(H, "<span class='danger'>Your [H.head] melts away!</span>")
 				qdel(H.head)
 				H.update_inv_head(1)
 				H.update_hair(1)
@@ -387,11 +424,11 @@
 
 		if(H.wear_mask)
 			if(H.wear_mask.unacidable)
-				H << "<span class='danger'>Your [H.wear_mask] protects you from the acid.</span>"
+				to_chat(H, "<span class='danger'>Your [H.wear_mask] protects you from the acid.</span>")
 				remove_self(volume)
 				return
 			else if(removed > meltdose)
-				H << "<span class='danger'>Your [H.wear_mask] melts away!</span>"
+				to_chat(H, "<span class='danger'>Your [H.wear_mask] melts away!</span>")
 				qdel(H.wear_mask)
 				H.update_inv_wear_mask(1)
 				H.update_hair(1)
@@ -401,10 +438,10 @@
 
 		if(H.glasses)
 			if(H.glasses.unacidable)
-				H << "<span class='danger'>Your [H.glasses] partially protect you from the acid!</span>"
+				to_chat(H, "<span class='danger'>Your [H.glasses] partially protect you from the acid!</span>")
 				removed /= 2
 			else if(removed > meltdose)
-				H << "<span class='danger'>Your [H.glasses] melt away!</span>"
+				to_chat(H, "<span class='danger'>Your [H.glasses] melt away!</span>")
 				qdel(H.glasses)
 				H.update_inv_glasses(1)
 				removed -= meltdose / 2
@@ -422,7 +459,7 @@
 				if(affecting.take_damage(0, removed * power * 0.1))
 					H.UpdateDamageIcon()
 				if(prob(100 * removed / meltdose)) // Applies disfigurement
-					if (!(H.species && (H.species.flags & NO_PAIN)))
+					if (H.can_feel_pain())
 						H.emote("scream")
 					H.status_flags |= DISFIGURED
 		else
@@ -435,7 +472,7 @@
 		var/obj/effect/decal/cleanable/molten_item/I = new/obj/effect/decal/cleanable/molten_item(O.loc)
 		I.desc = "Looks like this was \an [O] some time ago."
 		for(var/mob/M in viewers(5, O))
-			M << "<span class='warning'>\The [O] melts.</span>"
+			to_chat(M, "<span class='warning'>\The [O] melts.</span>")
 		qdel(O)
 		remove_self(meltdose) // 10 units of acid will not melt EVERYTHING on the tile
 
@@ -448,6 +485,7 @@
 	power = 3
 	meltdose = 8
 	taste_description = "stomach acid"
+	specific_heat = 1.710
 
 /datum/reagent/acid/polyacid //Not in dispensers, but it should be here
 	name = "Polytrinic acid"
@@ -466,6 +504,7 @@
 	reagent_state = SOLID
 	color = "#A8A8A8"
 	taste_description = "metal"
+	specific_heat = 2.650
 
 /datum/reagent/sodium
 	name = "Sodium"
@@ -474,6 +513,7 @@
 	reagent_state = SOLID
 	color = "#808080"
 	taste_description = "salty metal"
+	specific_heat = 0.483
 
 /datum/reagent/sugar
 	name = "Sugar"
@@ -488,6 +528,8 @@
 	glass_name = "glass of sugar"
 	glass_desc = "The organic compound commonly known as table sugar and sometimes called saccharose. This white, odorless, crystalline powder has a pleasing, sweet taste."
 
+	specific_heat = 0.332
+
 /datum/reagent/sugar/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.adjustNutritionLoss(-removed*3)
 
@@ -497,7 +539,9 @@
 	description = "A chemical element with a pungent smell."
 	reagent_state = SOLID
 	color = "#BF8C00"
-	taste_description = "old eggs"
+	taste_description = "rotten eggs"
+
+	specific_heat = 0.503
 
 /datum/reagent/tungsten
 	name = "Tungsten"
@@ -506,3 +550,6 @@
 	reagent_state = SOLID
 	color = "#DCDCDC"
 	taste_mult = 0 //no taste
+	specific_heat = 18
+
+	specific_heat = 0.859

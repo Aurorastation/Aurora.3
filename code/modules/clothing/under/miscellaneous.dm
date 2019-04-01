@@ -457,6 +457,12 @@
 /obj/item/clothing/under/dress/blacktango/alt
 	icon_state = "black_tango_alt"
 
+/obj/item/clothing/under/dress/offworlder
+	name = "\improper CR dress"
+	desc = "A very tight form-fitting padded suit that looks extremely comfortable to wear, made of strong woven spider-silk. This variant seems to be tailored to resemble a dress, revealing much more skin."
+	icon_state = "crdress"
+	worn_state = "crdress"
+
 /obj/item/clothing/under/captainformal
 	name = "captain's formal uniform"
 	desc = "A captain's formal-wear, for special occasions."
@@ -627,7 +633,7 @@
 	siemens_coefficient = 1
 
 //swimsuit
-/obj/item/clothing/under/swimsuit/
+/obj/item/clothing/under/swimsuit
 	siemens_coefficient = 1
 	body_parts_covered = 0
 
@@ -697,3 +703,17 @@
 /obj/item/clothing/under/medical_gown/white
 	icon_state = "whitemedicalgown"
 	worn_state = "whitemedicalgown"
+
+/obj/item/clothing/under/legion
+	name = "Tau Ceti Foreign Legion uniform"
+	desc = "A blue field uniform used by the force of the Tau Ceti Foreign Legion forces."
+	icon_state = "taucetilegion"
+	item_state = "bl_suit"
+	worn_state = "taucetilegion"
+	siemens_coefficient = 0.7
+
+/obj/item/clothing/under/offworlder
+	name = "\improper CR suit"
+	desc = "A very tight form-fitting padded suit that looks extremely comfortable to wear."
+	icon_state = "crsuit"
+	worn_state = "crsuit"

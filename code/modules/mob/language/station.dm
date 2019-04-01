@@ -6,7 +6,7 @@
 	exclaim_verb = "rustles"
 	colour = "soghun"
 	key = "q"
-	flags = RESTRICTED
+	flags = RESTRICTED|TCOMSSIM
 	syllables = list("hs","zt","kr","st","sh")
 
 /datum/language/diona/get_random_name()
@@ -28,7 +28,7 @@
 	exclaim_verb = "roars"
 	colour = "soghun"
 	key = "o"
-	flags = WHITELISTED
+	flags = WHITELISTED|TCOMSSIM
 	space_chance = 40
 	syllables = list(
 		"za", "az", "ze", "ez", "zi", "iz", "zo", "oz", "zu", "uz", "zs", "sz",
@@ -50,7 +50,7 @@
 	exclaim_verb = "yowls"
 	colour = "tajaran"
 	key = "j"
-	flags = WHITELISTED
+	flags = WHITELISTED|TCOMSSIM
 	syllables = list("mrr","rr","tajr","kir","raj","kii","mir","kra","ahk","nal","vah","khaz","jri","ran","darr",
 	"mi","jri","dynh","manq","rhe","zar","rrhaz","kal","chur","eech","thaa","dra","jurl","mah","sanu","dra","ii'r",
 	"ka","aasi","far","wa","baq","ara","qara","zir","sam","mak","hrar","nja","rir","khan","jun","dar","rik","kah",
@@ -102,7 +102,7 @@
 	exclaim_verb = "yowls"
 	colour = "yassa"
 	key = "r"
-	flags = WHITELISTED
+	flags = WHITELISTED|TCOMSSIM
 	syllables = list("hrr","rhr","tarj","khir","rajh","kir","mier","kre","ahek","nlhal","veh","khaz","dri","rhan","darrer",
 	"mi","jhri","dynher","manqi","rhas","shar","drhaz","kalh","shur","echi","tha","draer","jurl","maher","sanii","dra","ii'r",
 	"kan","aesi","fare","we","bash","arha","quara","zhir","sem","make","hrer","nja","rir","can","jhun","dar","rik","kah",
@@ -117,7 +117,7 @@
 	exclaim_verb = "yowls"
 	colour = "delvahhi"
 	key = "n"
-	flags = WHITELISTED
+	flags = WHITELISTED|TCOMSSIM
 	syllables = list("mrr","rr","tajr","kir","raj","kii","mir","kra","ahk","nal","vah","khaz","jri","ran","darr",
 	"mi","jri","dynh","manq","rhe","zar","rrhaz","kal","chur","eech","thaa","dra","jurl","mah","sanu","dra","ii'r",
 	"ka","aasi","far","wa","baq","ara","qara","zir","sam","mak","hrar","nja","rir","khan","jun","dar","rik","kah",
@@ -132,7 +132,7 @@
 	exclaim_verb = "exclaims"
 	colour = "siiktau"
 	key = "t"
-	flags = WHITELISTED
+	flags = WHITELISTED|TCOMSSIM
 	syllables = list("m'Rr","rr","tahjr","kir","rrahj","kii","mirr","krah","ahhk","nahl","vahh","khahz","jri","rahn","dahrr",
 	"mi","j'Rri","dy'Nh","mah'nq","rhe","zahr","r'Rhahz","kahl")
 	partial_understanding = list(LANGUAGE_SIIK_MAAS = 40,  LANGUAGE_SIIK_TAJR = 20, LANGUAGE_TCB = 60)
@@ -145,8 +145,27 @@
 	exclaim_verb = "warbles"
 	colour = "skrell"
 	key = "k"
-	flags = WHITELISTED
+	flags = WHITELISTED|TCOMSSIM
 	syllables = list("qr","qrr","xuq","qil","quum","xuqm","vol","xrim","zaoo","qu-uu","qix","qoo","zix","*","!")
+
+/datum/language/skrell/get_random_name()
+	var/new_name = ""
+	var/suff = ""
+	var/name_pieces = list("Zish", "Kin", "Qu", "Sukak", "Shin", "Ulu", "Nini", "Nai", "Xunu", "Zix", "Ooo", "Paut", "Sulux", "Xiialt", "Riori", "Eqeq", "Xicic", "Ooin", "Kaaxi", "Nuux", "Iirun", "Akoox", "Nunuz", "Ouik", "Uptari", "Vuzu", "Weish", "Liise", "Xiiux", "Lesh", "Ezhin", "Vulun", "Ponoh", "Pish", "Nali", "Yonosh")
+	var/first_name = "[pick(name_pieces)]"
+	name_pieces -= first_name
+	if(prob(40))
+		suff = "[pick(name_pieces)]"
+		name_pieces -= suff
+		first_name += "[pick(list("'", "-"))]" + suff
+	var/last_name = "[pick(name_pieces)]"
+	name_pieces -= last_name
+	if(prob(40))
+		suff = "[pick(name_pieces)]"
+		name_pieces -= suff
+		last_name += "[pick(list("'", "-"))]" + suff
+	new_name = first_name + " " + last_name
+	return new_name
 
 /datum/language/bug
 	name = LANGUAGE_VAURCA
@@ -180,12 +199,12 @@
 
 	if (within_jamming_range(speaker))
 		// The user thinks that the message got through.
-		speaker << msg
+		to_chat(speaker, msg)
 		return
 
 	for(var/mob/player in player_list)
 		if(istype(player,/mob/abstract/observer) || ((src in player.languages && !within_jamming_range(player)) || check_special_condition(player)))
-			player << msg
+			to_chat(player, msg)
 
 /datum/language/bug/check_special_condition(var/mob/other)
 	if(istype(other, /mob/living/silicon))
@@ -224,7 +243,7 @@
 	whisper_verb = "whispers"
 	colour = "solcom"
 	key = "1"
-	flags = WHITELISTED
+	flags = WHITELISTED | TCOMSSIM
 	syllables = list("a", "abe", "ade", "ai", "an", "ana", "ba", "bae", "bai", "bang", "bao", "bei", "ben", "beo", "bi", "bian", "bing", "bo", "bu", "bugu", "bun", "cai", "can", "cao", "cau", "chan", "chen", "cheong",
 	"chiu", "chong", "chyo", "da", "dan", "dao", "de", "deun", "duo", "eon", "eun", "eusi", "feng", "fu", "ga", "gak", "gan", "gang", "gao", "ge", "gei", "gen", "geo", "gil", "go", "gou", "gu", "gua", "gui", "gul",
 	"gun", "guo", "gwi", "ha", "hai", "hal", "han", "hap", "hara", "he", "hego", "hen", "hon", "hoo", "hu", "hua", "hun", "hyeong", "i", "jae", "jeo", "jeon", "ji", "jia", "jian", "jiang", "jie", "jong", "ju", "jue",
@@ -260,7 +279,7 @@
 	exclaim_verb = "loudly beeps"
 	colour = "changeling"
 	key = "6"
-	flags = RESTRICTED | NO_STUTTER
+	flags = RESTRICTED | NO_STUTTER | TCOMSSIM
 	syllables = list("beep","beep","beep","beep","beep","boop","boop","boop","bop","bop","dee","dee","doo","doo","hiss","hss","buzz","buzz","bzz","ksssh","keey","wurr","wahh","tzzz")
 	space_chance = 10
 
@@ -277,7 +296,7 @@
 	exclaim_verb = "trills"
 	colour = "alien"
 	key = "v"
-	flags = WHITELISTED
+	flags = RESTRICTED
 	space_chance = 50
 	syllables = list(
 			"ca", "ra", "ma", "sa", "na", "ta", "la", "sha", "scha", "a", "a",

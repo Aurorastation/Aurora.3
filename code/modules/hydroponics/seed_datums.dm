@@ -718,7 +718,7 @@
 
 /datum/seed/grapes/green/setup_traits()
 	..()
-	set_trait(TRAIT_PRODUCT_COLOUR,"42ed2f")
+	set_trait(TRAIT_PRODUCT_COLOUR,"#42ED2F")
 
 //Everything else
 /datum/seed/peanuts
@@ -1127,8 +1127,8 @@
 /datum/seed/diona
 	name = "diona"
 	seed_name = "diona"
-	seed_noun = "nodes"
-	display_name = "replicant pods"
+	seed_noun = "node"
+	display_name = "diona pod"
 	can_self_harvest = 1
 	has_mob_product = /mob/living/carbon/alien/diona
 
@@ -1226,8 +1226,8 @@
 
 /datum/seed/nifberries
 	name = "nifberries"
-	seed_name = "nif-berries"
-	display_name = "nif-berries shrub"
+	seed_name = "dirt berries"
+	display_name = "dirt berries shrub"
 	chems = list("nutriment" = list(0,15), "oil" = list(1,5))
 	kitchen_tag = "nifberries"
 
@@ -1239,7 +1239,7 @@
 	set_trait(TRAIT_PRODUCTION,5)
 	set_trait(TRAIT_YIELD,2)
 	set_trait(TRAIT_POTENCY,10)
-	set_trait(TRAIT_PRODUCT_ICON,"nuts")
+	set_trait(TRAIT_PRODUCT_ICON,"bean")
 	set_trait(TRAIT_PRODUCT_COLOUR,"#C4AE7A")
 	set_trait(TRAIT_PLANT_COLOUR,"#4D8F53")
 	set_trait(TRAIT_PLANT_ICON,"bush4")

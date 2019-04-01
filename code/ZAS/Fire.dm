@@ -109,7 +109,7 @@ turf/proc/hotspot_expose(exposed_temperature, exposed_volume, soh = 0)
 	var/obj/effect/decal/cleanable/liquid_fuel/fuel = locate() in src
 	LAZYINITLIST(zone.fire_tiles)
 	zone.fire_tiles |= src
-	if(fuel) 
+	if(fuel)
 		LAZYADD(zone.fuel_objs, fuel)
 
 	var/obj/effect/decal/cleanable/foam/extinguisher_foam = locate() in src
@@ -130,7 +130,7 @@ turf/proc/hotspot_expose(exposed_temperature, exposed_volume, soh = 0)
 	icon = 'icons/effects/fire.dmi'
 	icon_state = "1"
 	light_color = "#ED9200"
-	layer = TURF_LAYER
+	layer = ON_TURF_LAYER
 
 	var/firelevel = 1 //Calculated by gas_mixture.calculate_firelevel()
 
@@ -155,6 +155,8 @@ turf/proc/hotspot_expose(exposed_temperature, exposed_volume, soh = 0)
 	else
 		icon_state = "1"
 		set_light(3, FIRE_LIGHT_1, no_update = TRUE)
+	
+	air_contents.adjust_gas("carbon_dioxide", firelevel * 0.07)
 
 	for(var/mob/living/L in loc)
 		L.FireBurn(firelevel, air_contents.temperature, air_contents.return_pressure())  //Burn the mobs!
@@ -388,7 +390,15 @@ datum/gas_mixture/proc/check_recombustability(list/fuel_objs)
 
 	if(total_combustables > 0)
 		//slows down the burning when the concentration of the reactants is low
-		var/damping_multiplier = min(1, active_combustables / (total_moles/group_multiplier))
+		var/damping_multiplier
+		if(!total_moles || !group_multiplier)
+			damping_multiplier = min(1, active_combustables)
+		else if(!total_moles)
+			damping_multiplier = min(1, active_combustables / group_multiplier)
+		else if(!group_multiplier)
+			damping_multiplier = min(1, active_combustables / total_moles)
+		else
+			damping_multiplier = min(1, active_combustables / (total_moles/group_multiplier))
 
 		//weight the damping mult so that it only really brings down the firelevel when the ratio is closer to 0
 		damping_multiplier = 2*damping_multiplier - (damping_multiplier*damping_multiplier)

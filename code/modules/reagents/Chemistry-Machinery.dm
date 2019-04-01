@@ -33,7 +33,7 @@
 
 /obj/machinery/chem_master/Initialize()
 	. = ..()
-	create_reagents(120)
+	create_reagents(300)
 
 /obj/machinery/chem_master/ex_act(severity)
 	switch(severity)
@@ -50,27 +50,27 @@
 	if(istype(B, /obj/item/weapon/reagent_containers/glass))
 
 		if(src.beaker)
-			user << "A beaker is already loaded into the machine."
+			to_chat(user, "A beaker is already loaded into the machine.")
 			return
 		src.beaker = B
 		user.drop_from_inventory(B,src)
-		user << "You add the beaker to the machine!"
+		to_chat(user, "You add the beaker to the machine!")
 		src.updateUsrDialog()
 		icon_state = "mixer1"
 
 	else if(istype(B, /obj/item/weapon/storage/pill_bottle))
 
 		if(src.loaded_pill_bottle)
-			user << "A pill bottle is already loaded into the machine."
+			to_chat(user, "A pill bottle is already loaded into the machine.")
 			return
 
 		src.loaded_pill_bottle = B
 		user.drop_from_inventory(B,src)
-		user << "You add the pill bottle into the dispenser slot!"
+		to_chat(user, "You add the pill bottle into the dispenser slot!")
 		src.updateUsrDialog()
-	else if(iswrench(B))
+	else if(B.iswrench())
 		anchored = !anchored
-		user << "You [anchored ? "attach" : "detach"] the [src] [anchored ? "to" : "from"] the ground"
+		to_chat(user, "You [anchored ? "attach" : "detach"] the [src] [anchored ? "to" : "from"] the ground")
 		playsound(src.loc, 'sound/items/Ratchet.ogg', 75, 1)
 
 
@@ -227,7 +227,7 @@
 	if(inoperable())
 		return
 	user.set_machine(src)
-	
+
 	var/datum/asset/pill_icons = get_asset_datum(/datum/asset/chem_master)
 	pill_icons.send(user.client)
 
@@ -524,12 +524,12 @@
 	if(istype(I, /obj/item/weapon/reagent_containers/glass))
 		if(stat & (NOPOWER|BROKEN)) return
 		if(src.beaker)
-			user << "A beaker is already loaded into the machine."
+			to_chat(user, "A beaker is already loaded into the machine.")
 			return
 
 		src.beaker =  I
 		user.drop_from_inventory(I,src)
-		user << "You add the beaker to the machine!"
+		to_chat(user, "You add the beaker to the machine!")
 		src.updateUsrDialog()
 		icon_state = "mixer1"
 
@@ -586,15 +586,15 @@
 			return 0
 
 	if(holdingitems && holdingitems.len >= limit)
-		usr << "The machine cannot hold anymore items."
+		to_chat(usr, "The machine cannot hold anymore items.")
 		return 1
 
 	if(!istype(O))
 		return
 
-	if(istype(O,/obj/item/weapon/storage/bag/plants))
+	if(istype(O,/obj/item/weapon/storage/bag/plants) || istype(O,/obj/item/weapon/storage/pill_bottle))
 		var/failed = 1
-		var/obj/item/weapon/storage/bag/P = O
+		var/obj/item/weapon/storage/P = O
 		for(var/obj/item/G in P.contents)
 			if(!G.reagents || !G.reagents.total_volume)
 				continue
@@ -605,19 +605,19 @@
 				break
 
 		if(failed)
-			user << "Nothing in the plant bag is usable."
+			to_chat(user, "Nothing in the plant bag is usable.")
 			return 1
 
 		if(!O.contents.len)
-			user << "You empty \the [O] into \the [src]."
+			to_chat(user, "You empty \the [O] into \the [src].")
 		else
-			user << "You fill \the [src] from \the [O]."
+			to_chat(user, "You fill \the [src] from \the [O].")
 
 		src.updateUsrDialog()
 		return 0
 
 	if(!sheet_reagents[O.type] && (!O.reagents || !O.reagents.total_volume))
-		user << "\The [O] is not suitable for blending."
+		to_chat(user, "\The [O] is not suitable for blending.")
 		return 0
 
 	user.remove_from_mob(O)
@@ -809,3 +809,17 @@
 			target.say("*scream")
 			spawn(10)
 			user.visible_message("<span class='warning'>[user] stops the [src] and leaves [target] resting as they are.</span>", "<span class='warning'>You turn the [src] off and let go of [target].</span>")
+
+/obj/machinery/reagentgrinder/verb/Eject()
+	set src in oview(1)
+	set category = "Object"
+	set name = "Eject contents"
+
+	if(use_check(usr))
+		return
+	usr.visible_message(
+	"<span class='notice'>[usr] opens [src] and has removed [english_list(holdingitems)].</span>"
+		)
+
+	eject()
+	detach()

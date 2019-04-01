@@ -19,7 +19,7 @@
 		var/obj/item/organ/external/LH = H.get_organ("l_hand")
 		var/obj/item/organ/external/RH = H.get_organ("r_hand")
 		var/active_hand = H.hand
-		user << "<span class='warning'>Your hand passes through the [src] with a flash of searing heat!</span>"
+		to_chat(user, "<span class='warning'>Your hand passes through the [src] with a flash of searing heat!</span>")
 		playsound(user, 'sound/effects/sparks4.ogg', 40, 1)
 		user.drop_item()
 		if(active_hand)
@@ -55,7 +55,7 @@
 		var/obj/item/organ/external/LH = H.get_organ("l_hand")
 		var/obj/item/organ/external/RH = H.get_organ("r_hand")
 		var/active_hand = H.hand
-		user << "<span class='warning'>Your hand passes through the [src] with a flash of searing heat!</span>"
+		to_chat(user, "<span class='warning'>Your hand passes through the [src] with a flash of searing heat!</span>")
 		playsound(user, 'sound/effects/sparks4.ogg', 40, 1)
 		user.drop_item()
 		if(active_hand)

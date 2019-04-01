@@ -138,8 +138,8 @@
 		else
 			f_name += "oil-stained [name][infix]."
 
-	user << "\icon[src] That's [f_name] [suffix]"
-	user << desc
+	to_chat(user, "\icon[src] That's [f_name] [suffix]")
+	to_chat(user, desc)
 
 	return distance == -1 || (get_dist(src, user) <= distance)
 
@@ -376,7 +376,7 @@
 		cur_y = y_arr.Find(src.z)
 		if(cur_y)
 			break
-//	world << "X = [cur_x]; Y = [cur_y]"
+
 	if(cur_x && cur_y)
 		return list("x"=cur_x,"y"=cur_y)
 	else

@@ -8,7 +8,6 @@
 	gender = PLURAL
 	density = 0
 	anchored = 1
-	layer = 2.001
 	icon = 'icons/effects/blood.dmi'
 	icon_state = "mfloor1"
 	random_icon_states = list("mfloor1", "mfloor2", "mfloor3", "mfloor4", "mfloor5", "mfloor6", "mfloor7")
@@ -122,7 +121,7 @@
 			return
 		var/taken = rand(1,amount)
 		amount -= taken
-		user << "<span class='notice'>You get some of \the [src] on your hands.</span>"
+		to_chat(user, "<span class='notice'>You get some of \the [src] on your hands.</span>")
 		LAZYINITLIST(user.blood_DNA)
 
 		if (blood_DNA)
@@ -170,7 +169,7 @@
 
 /obj/effect/decal/cleanable/blood/writing/examine(mob/user)
 	..(user)
-	user << "It reads: <font color='[basecolor]'>\"[message]\"</font>"
+	to_chat(user, "It reads: <font color='[basecolor]'>\"[message]\"</font>")
 
 /obj/effect/decal/cleanable/blood/gibs
 	name = "gibs"

@@ -72,7 +72,7 @@
 			return
 		var/obj/item/stack/rods/R = C
 		if (R.use(1))
-			user << "<span class='notice'>Constructing support lattice ...</span>"
+			to_chat(user, "<span class='notice'>Constructing support lattice ...</span>")
 			playsound(src, 'sound/weapons/Genhit.ogg', 50, 1)
 			ReplaceWithLattice()
 		return
@@ -89,7 +89,7 @@
 			ChangeTurf(/turf/simulated/floor/airless)
 			return
 		else
-			user << "<span class='warning'>The plating is going to need some support.</span>"
+			to_chat(user, "<span class='warning'>The plating is going to need some support.</span>")
 
 	..(C, user)
 
@@ -97,7 +97,7 @@
 
 /turf/space/Entered(atom/movable/A as mob|obj)
 	if(movement_disabled)
-		usr << "<span class='warning'>Movement is admin-disabled.</span>" //This is to identify lag problems
+		to_chat(usr, "<span class='warning'>Movement is admin-disabled.</span>") //This is to identify lag problems)
 		return
 	..()
 	if ((!(A) || src != A.loc))	return
@@ -131,13 +131,7 @@
 		next_x = (--cur_x||global_map.len)
 		y_arr = global_map[next_x]
 		target_z = y_arr[cur_y]
-/*
-		//debug
-		world << "Src.z = [src.z] in global map X = [cur_x], Y = [cur_y]"
-		world << "Target Z = [target_z]"
-		world << "Next X = [next_x]"
-		//debug
-*/
+
 		if(target_z)
 			A.z = target_z
 			A.x = world.maxx - 2
@@ -156,13 +150,7 @@
 		next_x = (++cur_x > global_map.len ? 1 : cur_x)
 		y_arr = global_map[next_x]
 		target_z = y_arr[cur_y]
-/*
-		//debug
-		world << "Src.z = [src.z] in global map X = [cur_x], Y = [cur_y]"
-		world << "Target Z = [target_z]"
-		world << "Next X = [next_x]"
-		//debug
-*/
+
 		if(target_z)
 			A.z = target_z
 			A.x = 3
@@ -180,13 +168,7 @@
 		y_arr = global_map[cur_x]
 		next_y = (--cur_y||y_arr.len)
 		target_z = y_arr[next_y]
-/*
-		//debug
-		world << "Src.z = [src.z] in global map X = [cur_x], Y = [cur_y]"
-		world << "Next Y = [next_y]"
-		world << "Target Z = [target_z]"
-		//debug
-*/
+
 		if(target_z)
 			A.z = target_z
 			A.y = world.maxy - 2
@@ -205,13 +187,7 @@
 		y_arr = global_map[cur_x]
 		next_y = (++cur_y > y_arr.len ? 1 : cur_y)
 		target_z = y_arr[next_y]
-/*
-		//debug
-		world << "Src.z = [src.z] in global map X = [cur_x], Y = [cur_y]"
-		world << "Next Y = [next_y]"
-		world << "Target Z = [target_z]"
-		//debug
-*/
+
 		if(target_z)
 			A.z = target_z
 			A.y = 3

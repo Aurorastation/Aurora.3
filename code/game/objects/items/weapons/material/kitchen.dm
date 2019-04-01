@@ -36,27 +36,27 @@
 			return ..()
 	var/fullness = M.nutrition + (M.reagents.get_reagent_amount("nutriment") * 25)
 	if (reagents.total_volume > 0)
-		reagents.trans_to_mob(M, reagents.total_volume, CHEM_INGEST)
 		if(M == user)
 			if(!M.can_eat(loaded))
 				return
 			if (fullness > (550 * (1 + M.overeatduration / 2000)))
-				M <<"You cannot force anymore food down!"
+				to_chat(M, "You cannot force anymore food down!")
 				return
 			M.visible_message("<span class='notice'>\The [user] eats some [loaded] from \the [src].</span>")
 		else
 			if (fullness > (550 * (1 + M.overeatduration / 2000)))
-				M <<"You cannot force anymore food down their throat!"
+				to_chat(M, "You cannot force anymore food down their throat!")
 				return
 			user.visible_message("<span class='warning'>\The [user] begins to feed \the [M]!</span>")
 			if(!(M.can_force_feed(user, loaded) && do_mob(user, M, 5 SECONDS)))
 				return
 			M.visible_message("<span class='notice'>\The [user] feeds some [loaded] to \the [M] with \the [src].</span>")
+		reagents.trans_to_mob(M, reagents.total_volume, CHEM_INGEST)
 		playsound(M.loc,'sound/items/eatfood.ogg', rand(10,40), 1)
 		cut_overlays()
 		return
 	else
-		user << "<span class='warning'>You don't have anything on \the [src].</span>"	//if we have help intent and no food scooped up DON'T STAB OURSELVES WITH THE FORK
+		to_chat(user, "<span class='warning'>You don't have anything on \the [src].</span>") 	//if we have help intent and no food scooped up DON'T STAB OURSELVES WITH THE FORK)
 		return
 
 /obj/item/weapon/material/kitchen/utensil/fork
@@ -102,7 +102,7 @@
 
 /obj/item/weapon/material/kitchen/utensil/knife/attack(target as mob, mob/living/user as mob, var/target_zone)
 	if ((CLUMSY in user.mutations) && prob(50))
-		user << "<span class='warning'>You accidentally cut yourself with \the [src].</span>"
+		to_chat(user, "<span class='warning'>You accidentally cut yourself with \the [src].</span>")
 		user.take_organ_damage(20)
 		return
 	return ..()
@@ -125,7 +125,7 @@
 
 /obj/item/weapon/material/kitchen/rollingpin/attack(mob/living/M as mob, mob/living/user as mob, var/target_zone)
 	if ((CLUMSY in user.mutations) && prob(50))
-		user << "<span class='warning'>\The [src] slips out of your hand and hits your head.</span>"
+		to_chat(user, "<span class='warning'>\The [src] slips out of your hand and hits your head.</span>")
 		user.drop_from_inventory(src)
 		user.take_organ_damage(10)
 		user.Paralyse(2)

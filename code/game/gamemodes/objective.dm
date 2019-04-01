@@ -645,7 +645,7 @@ datum/objective/heist
 
 datum/objective/heist/kidnap
 	choose_target()
-		var/list/roles = list("Chief Engineer","Research Director","Roboticist","Chemist","Station Engineer")
+		var/list/roles = list("Chief Engineer","Research Director","Roboticist","Pharmacist","Station Engineer")
 		var/list/possible_targets = list()
 		var/list/priority_targets = list()
 
@@ -716,7 +716,7 @@ datum/objective/heist/loot
 				target_amount = 2
 				loot = "two laser guns"
 			if(8)
-				target = /obj/item/weapon/gun/energy/ionrifle
+				target = /obj/item/weapon/gun/energy/rifle/ionrifle
 				target_amount = 1
 				loot = "an ion gun"
 

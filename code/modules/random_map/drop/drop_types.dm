@@ -34,7 +34,7 @@ var/global/list/datum/supply_drop_loot/supply_drop
 		/obj/item/weapon/gun/energy/laser,
 		/obj/item/weapon/gun/energy/laser,
 		/obj/item/weapon/gun/energy/sniperrifle,
-		/obj/item/weapon/gun/energy/ionrifle)
+		/obj/item/weapon/gun/energy/rifle/ionrifle)
 
 /datum/supply_drop_loot/ballistics
 	name = "Ballistics"

@@ -10,12 +10,12 @@
 	var/datum/disease2/disease/virus2 = null
 
 /obj/machinery/computer/centrifuge/attackby(var/obj/O as obj, var/mob/user as mob)
-	if(isscrewdriver(O))
+	if(O.isscrewdriver())
 		return ..(O,user)
 
 	if(istype(O,/obj/item/weapon/reagent_containers/glass/beaker/vial))
 		if(sample)
-			user << "\The [src] is already loaded."
+			to_chat(user, "\The [src] is already loaded.")
 			return
 
 		sample = O

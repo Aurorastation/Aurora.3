@@ -11,7 +11,7 @@ var/const/MAX_ACTIVE_TIME = 400
 /obj/item/clothing/mask/facehugger
 	name = "alien"
 	desc = "It has some sort of a tube at the end of its tail."
-	icon = 'icons/mob/alien.dmi'
+	icon = 'icons/mob/npc/alien.dmi'
 	icon_state = "facehugger"
 	item_state = "facehugger"
 	w_class = 3 //note: can be picked up by aliens unlike most other items of w_class below 4
@@ -49,11 +49,11 @@ var/const/MAX_ACTIVE_TIME = 400
 	..(user)
 	switch(stat)
 		if(DEAD,UNCONSCIOUS)
-			user << "<span class='danger'>\The [src] is not moving.</span>"
+			to_chat(user, "<span class='danger'>\The [src] is not moving.</span>")
 		if(CONSCIOUS)
-			user << "<span class='danger'>\The [src] seems to be active.</span>"
+			to_chat(user, "<span class='danger'>\The [src] seems to be active.</span>")
 	if (sterile)
-		user << "<span class='danger'>It looks like the proboscis has been removed.</span>"
+		to_chat(user, "<span class='danger'>It looks like the proboscis has been removed.</span>")
 	return
 
 /obj/item/clothing/mask/facehugger/attackby(obj/item/I, mob/user)
@@ -117,7 +117,7 @@ var/const/MAX_ACTIVE_TIME = 400
 		return
 
 	var/mob/living/carbon/human/C = M
-	if(istype(C) && locate(/obj/item/organ/xenos/alien_embryo) in C.internal_organs)
+	if(istype(C) && locate(/obj/item/organ/parasite/alien_embryo) in C.internal_organs)
 		return
 
 	if(locate(/obj/item/organ/xenos/hivenode) in C.internal_organs)
@@ -177,7 +177,7 @@ var/const/MAX_ACTIVE_TIME = 400
 	if(!sterile)
 		//target.contract_disease(new /datum/disease/alien_embryo(0)) //so infection chance is same as virus infection chance
 		var/obj/item/organ/affecting = target.get_organ("chest")
-		var/obj/item/organ/xenos/alien_embryo/kid = new(affecting)
+		var/obj/item/organ/parasite/alien_embryo/kid = new(affecting)
 		kid.replaced(target,affecting)
 		target.status_flags |= XENO_HOST
 

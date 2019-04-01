@@ -15,6 +15,7 @@
 	var/light_power_on = 1
 	var/overlay_layer
 	var/is_holographic = TRUE
+	clicksound = "keyboard"
 
 /obj/machinery/computer/Initialize()
 	. = ..()
@@ -92,8 +93,8 @@
 	text = replacetext(text, "\n", "<BR>")
 	return text
 
-/obj/machinery/computer/attackby(I as obj, user as mob)
-	if(isscrewdriver(I) && circuit)
+/obj/machinery/computer/attackby(var/obj/I, user as mob)
+	if(I.isscrewdriver() && circuit)
 		playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, 1)
 		if(do_after(user, 20))
 			var/obj/structure/computerframe/A = new /obj/structure/computerframe( src.loc )
@@ -103,12 +104,12 @@
 			for (var/obj/C in src)
 				C.forceMove(src.loc)
 			if (src.stat & BROKEN)
-				user << "<span class='notice'>The broken glass falls out.</span>"
+				to_chat(user, "<span class='notice'>The broken glass falls out.</span>")
 				new /obj/item/weapon/material/shard( src.loc )
 				A.state = 3
 				A.icon_state = "3"
 			else
-				user << "<span class='notice'>You disconnect the glass keyboard panel.</span>"
+				to_chat(user, "<span class='notice'>You disconnect the glass keyboard panel.</span>")
 				A.state = 4
 				A.icon_state = "4"
 			M.deconstruct(src)

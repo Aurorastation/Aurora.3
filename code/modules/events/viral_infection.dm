@@ -1,66 +1,58 @@
-/var/global/list/event_viruses = list() // so that event viruses are kept around for admin logs, rather than being GCed
-
 datum/event/viral_infection
-	var/list/viruses = list()
-	ic_name = "a biohazard"
-	no_fake = 1//Probability in announce complicates it
+	var/datum/disease2/disease/generated/generated_disease
+	ic_name = "a viral outbreak"
 
 datum/event/viral_infection/setup()
-	announceWhen = rand(0, 3000)
+	announceWhen = rand(60, 300)
 	endWhen = announceWhen + 1
 
-	//generate 1-3 viruses. This way there's an upper limit on how many individual diseases need to be cured if many people are initially infected
-	var/num_diseases = rand(1,3)
-	for (var/i=0, i < num_diseases, i++)
-		var/datum/disease2/disease/D = new /datum/disease2/disease
+	var/has_virologist = FALSE
+	var/list/valid_diseases = list()
 
-		var/strength = 1 //whether the disease is of the greater or lesser variety
-		if (severity >= EVENT_LEVEL_MAJOR && prob(75))
-			strength = 2
-		D.makerandom(strength)
-		viruses += D
+	for(var/mob/living/carbon/human/H in mob_list)
+		if(H.mind && H.stat != DEAD && H.is_client_active(5) && H.get_assignment() == "Biochemist")
+			has_virologist = TRUE
+			break
+
+	for(var/path in subtypesof(/datum/disease2/disease/generated/))
+		var/datum/disease2/disease/generated/G = new path
+		if(!has_virologist && G.dangerous)
+			continue
+		valid_diseases += G.type
+		qdel(G)
+
+	var/result = pick(valid_diseases)
+	generated_disease = new result
 
 datum/event/viral_infection/announce()
 
-	if (severity == EVENT_LEVEL_MAJOR || prob(60))
-		command_announcement.Announce("Confirmed outbreak of level 5 biohazard aboard [station_name()]. All personnel must contain the outbreak.", "Biohazard Alert", new_sound = 'sound/AI/outbreak5.ogg')
+	var/disease_name = generated_disease ? generated_disease.generated_name : pick("Xenomorph Transformation", "Wizarditis", "GBS", "The Rhumba Beat")
+
+	var/announcement_body
+	var/announcement_title
+
+	if(!generated_disease || generated_disease.dangerous)
+		announcement_title = "High Risk Viral Outbreak"
+		announcement_body = "Confirmed outbreak of level 7 viral infection classification \"[disease_name]\". Failure to contain outbreak and comply with official orders may result in contract termination and/or death."
+	else
+		announcement_title = "Viral Outbreak"
+		announcement_body = "Confirmed outbreak of level 5 viral infection classification \"[disease_name]\". Please report to the medbay if you show any unusual symptoms."
+
+	command_announcement.Announce(announcement_body, announcement_title)
 
 datum/event/viral_infection/start()
-	if(!viruses.len) return
-
-	var/list/candidates = list()	//list of candidate keys
-	for(var/mob/living/carbon/human/G in player_list)
-		if(G.mind && G.stat != DEAD && G.is_client_active(5) && !player_is_antag(G.mind))
-			var/turf/T = get_turf(G)
+	var/list/candidates = list()
+	for(var/mob/living/carbon/human/H in player_list)
+		if(H.mind && H.stat != DEAD && H.is_client_active(5) && !player_is_antag(H.mind))
+			var/turf/T = get_turf(H)
 			if(T.z in current_map.station_levels)
-				candidates += G
+				candidates += H
 	if(!candidates.len)	return
-	candidates = shuffle(candidates)//Incorporating Donkie's list shuffle
+	candidates = shuffle(candidates)
 
-	var/list/used_viruses = list()
-	var/list/used_candidates = list()
-	severity = max(EVENT_LEVEL_MUNDANE, severity - 1)
-	var/actual_severity = severity * rand(1, 3)
-	while(actual_severity > 0 && candidates.len)
-		var/datum/disease2/disease/D = pick(viruses)
-		infect_mob(candidates[1], D.getcopy())
-		used_candidates += candidates[1]
-		candidates.Remove(candidates[1])
-		actual_severity--
-		used_viruses |= D
-
-	event_viruses |= used_viruses
-	var/list/used_viruses_links = list()
-	var/list/used_viruses_text = list()
-	for(var/datum/disease2/disease/D in used_viruses)
-		used_viruses_links += "<a href='?src=\ref[D];info=1'>[D.name()]</a>"
-		used_viruses_text += D.name()
-
-	var/list/used_candidates_links = list()
-	var/list/used_candidates_text = list()
-	for(var/mob/M in used_candidates)
-		used_candidates_links += key_name_admin(M)
-		used_candidates_text += key_name(M)
-
-	log_admin("Virus event affecting [english_list(used_candidates_text)] started; Viruses: [english_list(used_viruses_text)]")
-	message_admins("Virus event affecting [english_list(used_candidates_links)] started; Viruses: [english_list(used_viruses_links)]")
+	for(var/i=1,i<=severity,i++)
+		if(candidates.len)
+			infect_mob(candidates[1], generated_disease.getcopy())
+			log_admin("Virus event affecting [candidates[1]] started; Virus: [generated_disease.generated_name] ")
+			message_admins("Virus event affecting [candidates[1]] started; Virus: [generated_disease.generated_name] ")
+			candidates -= candidates[1]

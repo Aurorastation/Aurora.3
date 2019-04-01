@@ -3,7 +3,7 @@ var/global/list/robot_modules = list(
 	"Service" 		= /obj/item/weapon/robot_module/clerical/butler,
 	"Clerical" 		= /obj/item/weapon/robot_module/clerical/general,
 	"Research" 		= /obj/item/weapon/robot_module/research,
-	"Miner" 		= /obj/item/weapon/robot_module/miner,
+	"Mining" 		= /obj/item/weapon/robot_module/miner,
 	"Rescue" 		= /obj/item/weapon/robot_module/medical/rescue,
 	"Medical" 		= /obj/item/weapon/robot_module/medical/general,
 	"Security" 		= /obj/item/weapon/robot_module/security/general,
@@ -112,6 +112,7 @@ var/global/list/robot_modules = list(
 	return
 
 /obj/item/weapon/robot_module/proc/respawn_consumable(var/mob/living/silicon/robot/R, var/rate)
+	var/obj/item/weapon/extinguisher/E = locate() in src.modules
 	var/obj/item/device/flash/F = locate() in src.modules
 	if(F)
 		if(F.broken)
@@ -121,9 +122,12 @@ var/global/list/robot_modules = list(
 		else if(F.times_used)
 			F.times_used--
 
+	if(E && E.reagents.total_volume < E.reagents.maximum_volume)
+		E.reagents.add_reagent("monoammoniumphosphate", E.max_water * 0.2)
+
 	if(!synths || !synths.len)
 		return
-
+	
 	for(var/datum/matter_synth/T in synths)
 		T.add_charge(T.recharge_rate * rate)
 
@@ -243,6 +247,7 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/weapon/reagent_containers/syringe(src)
 	src.modules += new /obj/item/device/reagent_scanner/adv(src)
 	src.modules += new /obj/item/weapon/autopsy_scanner(src) // an autopsy scanner
+	src.modules += new /obj/item/device/breath_analyzer(src)
 	src.emag = new /obj/item/weapon/reagent_containers/spray(src)
 	src.emag.reagents.add_reagent("pacid", 250)
 	src.emag.name = "Polyacid spray"
@@ -296,6 +301,7 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/borg/sight/hud/med(src)
 	src.modules += new /obj/item/device/healthanalyzer(src)
 	src.modules += new /obj/item/device/reagent_scanner/adv(src)
+	src.modules += new /obj/item/device/breath_analyzer(src)
 	src.modules += new /obj/item/weapon/crowbar(src)
 	src.modules += new /obj/item/roller_holder(src)
 	src.modules += new /obj/item/weapon/reagent_containers/borghypo/rescue(src)

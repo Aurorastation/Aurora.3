@@ -7,6 +7,7 @@
 	icon_living = "carp"
 	icon_dead = "carp_dead"
 	icon_gib = "carp_gib"
+	icon_rest = "carp_rest"
 	speak_chance = 0
 	turns_per_move = 5
 	meat_type = /obj/item/weapon/reagent_containers/food/snacks/carpmeat
@@ -38,6 +39,7 @@
 	break_stuff_probability = 15
 
 	faction = "carp"
+	attack_emote = "nashes at"
 
 	flying = TRUE
 
@@ -89,8 +91,8 @@
 		visible_message("<span class='danger'>\the [src] has attacked [e]!</span>")
 		src.do_attack_animation(e)
 
-/mob/living/simple_animal/hostile/carp/DestroySurroundings()
-	if(prob(break_stuff_probability))
+/mob/living/simple_animal/hostile/carp/DestroySurroundings(var/bypass_prob = FALSE)
+	if(prob(break_stuff_probability) || bypass_prob)
 		for(var/dir in cardinal) // North, South, East, West
 			var/obj/effect/energy_field/e = locate(/obj/effect/energy_field, get_step(src, dir))
 			if(e)
@@ -135,13 +137,11 @@
 /mob/living/simple_animal/hostile/carp/shark
 	name = "space shark"
 	desc = "The bigger, angrier cousin of the space carp."
-	icon = 'icons/mob/spaceshark.dmi'
 	icon_state = "shark"
 	icon_living = "shark"
 	icon_dead = "shark_dead"
+	icon_rest = "shark_rest"
 	meat_amount = 5
-
-	pixel_x = -16
 
 	maxHealth = 100
 	health = 100
@@ -151,3 +151,18 @@
 	harm_intent_damage = 5
 	melee_damage_lower = 20
 	melee_damage_upper = 25
+
+/mob/living/simple_animal/hostile/carp/old
+	icon_state = "carp_old"
+	icon_living = "carp_old"
+	icon_dead = "carp_old_dead"
+	icon_gib = "carp_old_gib"
+	icon_rest = "carp_old"
+
+/mob/living/simple_animal/hostile/carp/shark/old
+	icon = 'icons/mob/npc/spaceshark.dmi'
+	icon_state = "shark"
+	icon_living = "shark"
+	icon_dead = "shark_dead"
+	icon_rest = "shark"
+	pixel_x = -16

@@ -71,6 +71,10 @@
 	var/radiation_mod = 1                    // Radiation modifier
 	var/flash_mod =     1                    // Stun from blindness modifier.
 	var/fall_mod =      1                    // Fall damage modifier, further modified by brute damage modifier
+	var/grab_mod =      1                    // How easy it is to grab the species. Higher is harder to grab.
+	var/metabolism_mod = 1					 // Reagent metabolism modifier
+	var/bleed_mod = 1						 // How fast this species bleeds.
+
 	var/vision_flags = DEFAULT_SIGHT         // Same flags as glasses.
 	var/inherent_eye_protection              // If set, this species has this level of inherent eye protection.
 	var/eyes_are_impermeable = FALSE         // If TRUE, this species' eyes are not damaged by phoron.
@@ -244,10 +248,10 @@
 	switch(msg_type)
 		if("cold")
 			if(!covered)
-				H << "<span class='danger'>[pick(cold_discomfort_strings)]</span>"
+				to_chat(H, "<span class='danger'>[pick(cold_discomfort_strings)]</span>")
 		if("heat")
 			if(covered)
-				H << "<span class='danger'>[pick(heat_discomfort_strings)]</span>"
+				to_chat(H, "<span class='danger'>[pick(heat_discomfort_strings)]</span>")
 
 /datum/species/proc/sanitize_name(var/name)
 	return sanitizeName(name)
@@ -266,13 +270,11 @@
 		return "unknown"
 	return species_language.get_random_name(gender)
 
-/datum/species/proc/equip_survival_gear(var/mob/living/carbon/human/H,var/extendedtank = 1)
-	if(H.backbag == 1)
-		if (extendedtank)	H.equip_to_slot_or_del(new /obj/item/weapon/storage/box/engineer(H), slot_r_hand)
-		else	H.equip_to_slot_or_del(new /obj/item/weapon/storage/box/survival(H), slot_r_hand)
-	else
-		if (extendedtank)	H.equip_to_slot_or_del(new /obj/item/weapon/storage/box/engineer(H.back), slot_in_backpack)
-		else	H.equip_to_slot_or_del(new /obj/item/weapon/storage/box/survival(H.back), slot_in_backpack)
+/datum/species/proc/before_equip(mob/living/carbon/human/H, visualsOnly = FALSE, datum/job/J)
+	return
+
+/datum/species/proc/after_equip(mob/living/carbon/human/H, visualsOnly = FALSE, datum/job/J)
+	return
 
 /datum/species/proc/create_organs(var/mob/living/carbon/human/H) //Handles creation of mob organs.
 
@@ -319,8 +321,13 @@
 		for(var/obj/item/organ/I in H.internal_organs)
 			I.status |= ORGAN_ADV_ROBOT
 
-/datum/species/proc/hug(var/mob/living/carbon/human/H,var/mob/living/target)
-
+/datum/species/proc/tap(var/mob/living/carbon/human/H,var/mob/living/target)
+	var/t_his = "their"
+	switch(target.gender)
+		if(MALE)
+			t_his = "his"
+		if(FEMALE)
+			t_his = "her"
 	var/t_him = "them"
 	switch(target.gender)
 		if(MALE)
@@ -328,8 +335,15 @@
 		if(FEMALE)
 			t_him = "her"
 
-	H.visible_message("<span class='notice'>[H] hugs [target] to make [t_him] feel better!</span>", \
-					"<span class='notice'>You hug [target] to make [t_him] feel better!</span>")
+	if(H.on_fire)
+		target.fire_stacks += 1
+		target.IgniteMob()
+		H.visible_message("<span class='danger'>[H] taps [target], setting [t_him] ablaze!</span>", \
+						"<span class='warning'>You tap [target], setting [t_him] ablaze!</span>")
+		msg_admin_attack("[key_name(H)] spread fire to [target.name] ([target.ckey]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[H.x];Y=[H.y];Z=[H.z]'>JMP</a>)",ckey=key_name(H),ckey_target=key_name(target))
+	else
+		H.visible_message("<span class='notice'>[H] taps [target] to get [t_his] attention!</span>", \
+						"<span class='notice'>You tap [target] to get [t_his] attention!</span>")
 
 /datum/species/proc/remove_inherent_verbs(var/mob/living/carbon/human/H)
 	if(inherent_verbs)
@@ -490,7 +504,7 @@
 	if ((H.halloss + H.oxyloss) >= (exhaust_threshold * 0.8))
 		H.m_intent = "walk"
 		H.hud_used.move_intent.update_move_icon(H)
-		H << span("danger", "You're too exhausted to run anymore!")
+		to_chat(H, span("danger", "You're too exhausted to run anymore!"))
 		H.flash_pain()
 		return 0
 
@@ -512,7 +526,22 @@
 /datum/species/proc/bullet_act(var/obj/item/projectile/P, var/def_zone, var/mob/living/carbon/human/H)
 	return 0
 
+/datum/species/proc/handle_speech_problems(mob/living/carbon/human/H, list/current_flags, message, message_verb, message_mode)
+	return current_flags
+
+/datum/species/proc/handle_speech_sound(mob/living/carbon/human/H, list/current_flags)
+	if(speech_sounds && prob(speech_chance))
+		current_flags[1] = sound(pick(speech_sounds))
+		current_flags[2] = 50
+	return current_flags
+
 /datum/species/proc/set_default_hair(var/mob/living/carbon/human/H)
 	H.h_style = H.species.default_h_style
 	H.f_style = H.species.default_f_style
 	H.update_hair()
+
+/datum/species/proc/get_species_tally(var/mob/living/carbon/human/H)
+	return 0
+
+/datum/species/proc/equip_later_gear(var/mob/living/carbon/human/H) //this handles anything not covered by survival gear, it is only called after everything else is equiped to the mob
+	return

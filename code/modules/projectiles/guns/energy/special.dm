@@ -1,31 +1,52 @@
-/obj/item/weapon/gun/energy/ionrifle
+/obj/item/weapon/gun/energy/rifle/ionrifle
 	name = "ion rifle"
-	desc = "The NT Mk60 EW Halicon is a man portable anti-armor weapon designed to disable mechanical threats, produced by NT."
-	icon_state = "ionrifle"
-	item_state = "ionrifle"
+	desc = "The NT Mk70 EW Halicon is a man portable anti-armor weapon designed to disable mechanical threats, produced by NT. Has two settings: stun and kill"
+	icon_state = "ionriflestun100"
+	item_state = "ionriflestun100" // so the human update icon uses the icon_state instead.
+	modifystate = "ionriflestun"
+	projectile_type = /obj/item/projectile/ion/stun
 	fire_sound = 'sound/weapons/Laser.ogg'
 	origin_tech = list(TECH_COMBAT = 2, TECH_MAGNET = 4)
 	w_class = 4
+	accuracy = 1
 	force = 10
 	flags =  CONDUCT
 	slot_flags = SLOT_BACK
 	charge_cost = 300
 	max_shots = 10
-	projectile_type = /obj/item/projectile/ion
+	secondary_projectile_type =  /obj/item/projectile/ion
+	secondary_fire_sound = 'sound/weapons/Laser.ogg'
 	can_turret = 1
+	can_switch_modes = 1
 	turret_sprite_set = "ion"
 
-/obj/item/weapon/gun/energy/ionrifle/emp_act(severity)
+	firemodes = list(
+		list(mode_name="stun", projectile_type=/obj/item/projectile/ion/stun, modifystate="ionriflestun", fire_sound='sound/weapons/Laser.ogg', charge_cost = 300),
+		list(mode_name="lethal", projectile_type=/obj/item/projectile/ion, modifystate="ionriflekill", fire_sound='sound/weapons/Laser.ogg', charge_cost = 450)
+		)
+
+/obj/item/weapon/gun/energy/rifle/ionrifle/emp_act(severity)
 	..(max(severity, 2)) //so it doesn't EMP itself, I guess
 
-/obj/item/weapon/gun/energy/ionrifle/update_icon()
-	..()
-	if(power_supply.charge < charge_cost)
-		item_state = "ionrifle-empty"
-	else
-		item_state = initial(item_state)
+/obj/item/weapon/gun/energy/rifle/ionrifle/update_icon()
+	if(charge_meter && power_supply && power_supply.maxcharge)
+		var/ratio = power_supply.charge / power_supply.maxcharge
 
-/obj/item/weapon/gun/energy/ionrifle/mounted
+		//make sure that rounding down will not give us the empty state even if we have charge for a shot left.
+		if(power_supply.charge < charge_cost)
+			ratio = 0
+		else
+			ratio = max(round(ratio, 0.25) * 100, 25)
+
+		if(modifystate)
+			icon_state = "[modifystate][ratio]"
+			item_state = "[modifystate][ratio]"
+		else
+			icon_state = "[initial(icon_state)][ratio]"
+			item_state = "[initial(icon_state)][ratio]"
+	update_held_icon()
+
+/obj/item/weapon/gun/energy/rifle/ionrifle/mounted
 	name = "mounted ion rifle"
 	self_recharge = 1
 	use_external_power = 1
@@ -59,6 +80,8 @@
 		list(mode_name="induce mutations", projectile_type=/obj/item/projectile/energy/floramut, modifystate="floramut"),
 		list(mode_name="increase yield", projectile_type=/obj/item/projectile/energy/florayield, modifystate="florayield")
 		)
+
+	needspin = FALSE
 
 /obj/item/weapon/gun/energy/floragun/afterattack(obj/target, mob/user, adjacent_flag)
 	//allow shooting into adjacent hydrotrays regardless of intent
@@ -152,6 +175,8 @@
 	move_delay = 0
 	fire_delay = 3
 	dispersion = list(0, 15, 15)
+
+	needspin = FALSE
 
 	var/lightfail = 0
 
@@ -251,10 +276,10 @@
 
 /obj/item/weapon/gun/energy/vaurca/gatlinglaser/special_check(var/mob/user)
 	if(is_charging)
-		user << "<span class='danger'>\The [src] is already spinning!</span>"
+		to_chat(user, "<span class='danger'>\The [src] is already spinning!</span>")
 		return 0
 	if(!wielded)
-		user << "<span class='danger'>You cannot fire this weapon with just one hand!</span>"
+		to_chat(user, "<span class='danger'>You cannot fire this weapon with just one hand!</span>")
 		return 0
 	playsound(src, 'sound/weapons/chainsawstart.ogg', 90, 1)
 	user.visible_message(
@@ -281,8 +306,9 @@
 	fire_sound = 'sound/weapons/Laser.ogg'
 	slot_flags = SLOT_BACK | SLOT_HOLSTER | SLOT_BELT
 	w_class = 3
+	accuracy = 1
 	force = 10
-	projectile_type = /obj/item/projectile/energy/blaster
+	projectile_type = /obj/item/projectile/energy/blaster/incendiary
 	max_shots = 6
 	sel_mode = 1
 	burst = 1
@@ -310,6 +336,7 @@
 	attack_verb = list("sundered", "annihilated", "sliced", "cleaved", "slashed", "pulverized")
 	slot_flags = SLOT_BACK
 	w_class = 5
+	accuracy = 3 // It's a massive beam, okay.
 	force = 60
 	projectile_type = /obj/item/projectile/beam/megaglaive
 	max_shots = 36
@@ -354,10 +381,10 @@
 
 /obj/item/weapon/gun/energy/vaurca/typec/special_check(var/mob/user)
 	if(is_charging)
-		user << "<span class='danger'>\The [src] is already charging!</span>"
+		to_chat(user, "<span class='danger'>\The [src] is already charging!</span>")
 		return 0
 	if(!wielded)
-		user << "<span class='danger'>You could never fire this weapon with merely one hand!</span>"
+		to_chat(user, "<span class='danger'>You could never fire this weapon with merely one hand!</span>")
 		return 0
 	user.visible_message(
 					"<span class='danger'>\The [user] begins charging the [src]!</span>",
@@ -380,11 +407,11 @@
 		if(H.mob_size >= 30)
 			playsound(user, 'sound/weapons/saberon.ogg', 50, 1)
 			anchored = 1
-			user << "<span class='notice'>\The [src] is now energised.</span>"
+			to_chat(user, "<span class='notice'>\The [src] is now energised.</span>")
 			icon_state = "megaglaive1"
 			..()
 			return
-		user << "<span class='warning'>\The [src] is far too large for you to pick up.</span>"
+		to_chat(user, "<span class='warning'>\The [src] is far too large for you to pick up.</span>")
 		return
 
 /obj/item/weapon/gun/energy/vaurca/typec/dropped(var/mob/user)
@@ -408,6 +435,7 @@
 	fire_sound = 'sound/magic/lightningbolt.ogg'
 	slot_flags = SLOT_BACK
 	w_class = 4
+	accuracy = 0 // Overwrite just in case.
 	force = 15
 	projectile_type = /obj/item/projectile/beam/thermaldrill
 	max_shots = 90
@@ -430,6 +458,8 @@
 
 	action_button_name = "Wield thermal drill"
 
+	needspin = FALSE
+
 /obj/item/weapon/gun/energy/vaurca/thermaldrill/can_wield()
 	return 1
 
@@ -446,10 +476,10 @@
 
 /obj/item/weapon/gun/energy/vaurca/thermaldrill/special_check(var/mob/user)
 	if(is_charging)
-		user << "<span class='danger'>\The [src] is already charging!</span>"
+		to_chat(user, "<span class='danger'>\The [src] is already charging!</span>")
 		return 0
 	if(!wielded)
-		user << "<span class='danger'>You cannot fire this weapon with just one hand!</span>"
+		to_chat(user, "<span class='danger'>You cannot fire this weapon with just one hand!</span>")
 		return 0
 	user.visible_message(
 					"<span class='danger'>\The [user] begins charging the [src]!</span>",
@@ -493,7 +523,7 @@
 
 /obj/item/weapon/gun/energy/vaurca/mountedthermaldrill/special_check(var/mob/user)
 	if(is_charging)
-		user << "<span class='danger'>\The [src] is already charging!</span>"
+		to_chat(user, "<span class='danger'>\The [src] is already charging!</span>")
 		return 0
 	user.visible_message(
 					"<span class='danger'>\The [user] begins charging the [src]!</span>",
@@ -519,6 +549,7 @@
 	projectile_type = /obj/item/projectile/beam/tachyon
 	origin_tech = list(TECH_COMBAT = 5, TECH_MATERIAL = 3, TECH_MAGNET = 2, TECH_ILLEGAL = 2)
 	max_shots = 10
+	accuracy = 1
 	fire_delay = 1
 	can_turret = 0
 

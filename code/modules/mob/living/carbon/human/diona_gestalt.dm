@@ -14,14 +14,12 @@
 	var/datum/dionastats/DS
 
 
-
 /mob/living/carbon/human/proc/setup_gestalt()
 	composition_reagent = "nutriment"//Dionae are plants, so eating them doesn't give animal protein
 	setup_dionastats()
 	verbs += /mob/living/carbon/human/proc/check_light
 	verbs += /mob/living/carbon/human/proc/diona_split_nymph
 	verbs += /mob/living/proc/devour
-
 
 	spawn(10)
 	//This is delayed after a gestalt is spawned, to allow nymphs to be added to it before extras are created
@@ -38,7 +36,7 @@
 				newname = "Diona Gestalt ([rand(100,999)])"
 			real_name = newname
 			name = newname
-			src << "<span class=notice>We are named [real_name] for now, but we can choose a new name for our gestalt. (Check the Abilities Tab)</span>"
+			to_chat(src, "<span class=notice>We are named [real_name] for now, but we can choose a new name for our gestalt. (Check the Abilities Tab)</span>")
 			//This allows a gestalt to rename itself -once- upon reforming
 
 		verbs.Add(/mob/living/carbon/proc/absorb_nymph)
@@ -120,19 +118,19 @@
 	set name = "Check light level"
 
 	if (!DS.light_organ || DS.light_organ.is_broken() || DS.light_organ.is_bruised())
-		usr << span("danger", "Our response node is damaged or missing, without it we can't tell light from darkness. We can only hope this area is bright enough to let us regenerate it!")
+		to_chat(usr, span("danger", "Our response node is damaged or missing, without it we can't tell light from darkness. We can only hope this area is bright enough to let us regenerate it!"))
 		return
 	var/light = get_lightlevel_diona(DS)
 	if (light <= -0.75)
-		usr << span("danger", "It is pitch black here! This is extremely dangerous, we must find light, or death will soon follow!")
+		to_chat(usr, span("danger", "It is pitch black here! This is extremely dangerous, we must find light, or death will soon follow!"))
 	else if (light <= 0)
-		usr << span("danger", "This area is too dim to sustain us for long, we should move closer to the light, or we will shortly be in danger!")
+		to_chat(usr, span("danger", "This area is too dim to sustain us for long, we should move closer to the light, or we will shortly be in danger!"))
 	else if (light > 0 && light < 1.5)
-		usr << span("warning", "The light here can sustain us, barely. It feels cold and distant.")
+		to_chat(usr, span("warning", "The light here can sustain us, barely. It feels cold and distant."))
 	else if (light <= 3)
-		usr << span("notice", "This light is comfortable and warm, Quite adequate for our needs.")
+		to_chat(usr, span("notice", "This light is comfortable and warm, Quite adequate for our needs."))
 	else
-		usr << span("notice", "This warm radiance is bliss. Here we are safe and energised! Stay a while..")
+		to_chat(usr, span("notice", "This warm radiance is bliss. Here we are safe and energised! Stay a while.."))
 
 
 
@@ -208,7 +206,7 @@
 		real_name = newname
 		name = newname
 		mind.name = newname
-		src << "<span class=notice>Our collective shall now be known as [real_name] !</span>"
+		to_chat(src, "<span class=notice>Our collective shall now be known as [real_name] !</span>")
 		verbs.Remove(/mob/living/carbon/human/proc/gestalt_set_name)
 
 
@@ -236,13 +234,14 @@
 		if(!O || O.is_stump())
 			nymphs_to_kill_off += 1
 
+	var/total_nymph = 0
 	for(var/mob/living/carbon/alien/diona/D in src)
 		if(nymphs_to_kill_off > 0)
 			D.stat = DEAD
 			nymphs_to_kill_off -= 1
 			qdel(D)
 			continue
-		if ((!D.key) && bestNymph == null)
+		if ((!D.mind) && bestNymph == null)
 			//As a safety, we choose the first unkeyed one to begin with, even if its dead.
 			//We'll replace this choice when/if we find a better one
 			bestNymph = D
@@ -252,6 +251,7 @@
 		D.set_dir(pick(NORTH, SOUTH, EAST, WEST))
 		D.gestalt = null
 		if (D.stat != DEAD && D.health > (D.maxHealth*0.1))//If a nymph is alive and has enough health, it will emerge from the gestalt
+			total_nymph += 1
 			D.stat = CONSCIOUS
 			D.stunned = 0
 			D.update_verbs()
@@ -267,11 +267,14 @@
 		drop_from_inventory(W)
 
 	if (bestNymph)
+		var/split_reag_volume = src.reagents.total_volume /  total_nymph // All nymps needs to get reagents of Gestal split between.
 		for(var/mob/living/carbon/alien/diona/D in nymphos)
-			D.master_nymph = bestNymph
-			D.birds_of_feather += nymphos
-			D.pixel_y += rand(-10,10)
-			D.pixel_x += rand(-10,10)
+			src.reagents.trans_to_mob(D, split_reag_volume, CHEM_BLOOD)
+			if(!D.mind)
+				D.master_nymph = bestNymph
+				D.birds_of_feather += nymphos
+				D.pixel_y += rand(-10,10)
+				D.pixel_x += rand(-10,10)
 		bestNymph.set_dir(dir)
 		transfer_languages(src, bestNymph)
 		if(mind)

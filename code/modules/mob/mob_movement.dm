@@ -55,17 +55,17 @@
 				var/mob/living/carbon/C = usr
 				C.toggle_throw_mode()
 			else
-				usr << "<span class='warning'>This mob type cannot throw items.</span>"
+				to_chat(usr, "<span class='warning'>This mob type cannot throw items.</span>")
 			return
 		if(NORTHWEST)
 			if(iscarbon(usr))
 				var/mob/living/carbon/C = usr
 				if(!C.get_active_hand())
-					usr << "<span class='warning'>You have nothing to drop in your hand.</span>"
+					to_chat(usr, "<span class='warning'>You have nothing to drop in your hand.</span>")
 					return
 				drop_item()
 			else
-				usr << "<span class='warning'>This mob type cannot drop items.</span>"
+				to_chat(usr, "<span class='warning'>This mob type cannot drop items.</span>")
 			return
 
 //This gets called when you press the delete button.
@@ -73,7 +73,7 @@
 	set hidden = 1
 
 	if(!usr.pulling)
-		usr << "<span class='notice'>You are not pulling anything.</span>"
+		to_chat(usr, "<span class='notice'>You are not pulling anything.</span>")
 		return
 	usr.stop_pulling()
 
@@ -253,13 +253,13 @@
 			for(var/mob/M in range(mob, 1))
 				if(M.pulling == mob)
 					if(!M.restrained() && M.stat == 0 && M.canmove && mob.Adjacent(M))
-						src << "<span class='notice'>You're restrained! You can't move!</span>"
+						to_chat(src, "<span class='notice'>You're restrained! You can't move!</span>")
 						return 0
 					else
 						M.stop_pulling()
 
 		if(mob.pinned.len)
-			src << "<span class='notice'>You're pinned to a wall by [mob.pinned[1]]!</span>"
+			to_chat(src, "<span class='notice'>You're pinned to a wall by [mob.pinned[1]]!</span>")
 			return 0
 
 		move_delay = world.time - leftover//set move delay
@@ -389,7 +389,7 @@
 		if(1)
 			var/turf/T = get_step(mob, direct)
 			if(mob.check_holy(T))
-				mob << "<span class='warning'>You cannot get past holy grounds while you are in this plane of existence!</span>"
+				to_chat(mob, "<span class='warning'>You cannot get past holy grounds while you are in this plane of existence!</span>")
 				return
 			else
 				mob.forceMove(get_step(mob, direct))
@@ -398,6 +398,45 @@
 			anim(mobloc,mob,'icons/mob/mob.dmi',,"shadow",,mob.dir)
 			mob.forceMove(get_step(mob, direct))
 			mob.dir = direct
+
+		if(3)
+			if(!mob.canmove || mob.anchored)
+				return
+			move_delay = 1 + world.time
+			var/turf/T = get_step(mob, direct)
+			for(var/obj/structure/window/W in T)
+				if(istype(W, /obj/structure/window/phoronbasic) || istype(W, /obj/structure/window/phoronreinforced))
+					if(W.is_full_window())
+						to_chat(mob, "<span class='warning'>\The [W] obstructs your movement!</span>")
+						return
+
+					if((direct & W.dir) && W.density)
+						to_chat(mob, "<span class='warning'>\The [W] obstructs your movement!</span>")
+						return
+			if(istype(T, /turf/simulated/wall/phoron) || istype(T, /turf/simulated/wall/ironphoron))
+				to_chat(mob, "<span class='warning'>\The [T] obstructs your movement!</span>")
+				return
+
+			for(var/mob/living/L in T)
+				if(L.is_diona() == DIONA_WORKER)
+					to_chat(mob, "<span class='danger'>You struggle briefly as you are photovored into \the [L], trapped within a nymphomatic husk!</span>")
+					var/mob/living/carbon/alien/diona/D = new /mob/living/carbon/alien/diona(L)
+					var/mob/living/simple_animal/shade/bluespace/BS = mob
+					if (!(/mob/living/carbon/proc/echo_eject in L.verbs))
+						L.verbs.Add(/mob/living/carbon/proc/echo_eject)
+					BS.mind.transfer_to(D)
+					D.echo = 1
+					D.stat = CONSCIOUS
+					D.gestalt = L
+					D.sync_languages(D.gestalt)
+					D.update_verbs()
+					D.forceMove(L)
+					qdel(BS)
+					return
+
+			mob.forceMove(get_step(mob, direct))
+			mob.dir = direct
+
 	// Crossed is always a bit iffy
 	for(var/obj/S in mob.loc)
 		if(istype(S,/obj/effect/step_trigger) || istype(S,/obj/effect/beam))

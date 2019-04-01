@@ -49,7 +49,7 @@
 			if (!istype(C.mob, /mob/abstract))
 				if (C.is_afk(inactivity_threshold))
 					log_access("AFK: [key_name(C)]")
-					C << span("warning", "You have been inactive for more than [config.kick_inactive] minute\s and have been disconnected.")
+					to_chat(C, span("warning", "You have been inactive for more than [config.kick_inactive] minute\s and have been disconnected."))
 					qdel(C)
 
 	// Handle population polling.
@@ -255,7 +255,6 @@
 		lakey = sanitizeSQL(H.lastattacker:key)
 	var/sqltime = time2text(world.realtime, "YYYY-MM-DD hh:mm:ss")
 	var/coord = "[H.x], [H.y], [H.z]"
-	//world << "INSERT INTO death (name, byondkey, job, special, pod, tod, laname, lakey, gender, bruteloss, fireloss, brainloss, oxyloss) VALUES ('[sqlname]', '[sqlkey]', '[sqljob]', '[sqlspecial]', '[sqlpod]', '[sqltime]', '[laname]', '[lakey]', '[H.gender]', [H.bruteloss], [H.getFireLoss()], [H.brainloss], [H.getOxyLoss()])"
 	establish_db_connection(dbcon)
 	if(!dbcon.IsConnected())
 		log_game("SQL ERROR during death reporting. Failed to connect.")
@@ -289,7 +288,6 @@
 		lakey = sanitizeSQL(H.lastattacker:key)
 	var/sqltime = time2text(world.realtime, "YYYY-MM-DD hh:mm:ss")
 	var/coord = "[H.x], [H.y], [H.z]"
-	//world << "INSERT INTO death (name, byondkey, job, special, pod, tod, laname, lakey, gender, bruteloss, fireloss, brainloss, oxyloss) VALUES ('[sqlname]', '[sqlkey]', '[sqljob]', '[sqlspecial]', '[sqlpod]', '[sqltime]', '[laname]', '[lakey]', '[H.gender]', [H.bruteloss], [H.getFireLoss()], [H.brainloss], [H.getOxyLoss()])"
 	establish_db_connection(dbcon)
 	if(!dbcon.IsConnected())
 		log_game("SQL ERROR during death reporting. Failed to connect.")

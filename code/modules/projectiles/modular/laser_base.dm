@@ -20,11 +20,11 @@
 /obj/item/laser_components/attackby(var/obj/item/weapon/D as obj, var/mob/user as mob)
 	if(!istype(D,repair_item))
 		return ..()
-	user << "<span class='warning'>You begin repairing \the [src].</span>"
+	to_chat(user, "<span class='warning'>You begin repairing \the [src].</span>")
 	if(do_after(user,20) && repair_module(D))
-		user << "<span class='notice'>You repair \the [src].</span>"
+		to_chat(user, "<span class='notice'>You repair \the [src].</span>")
 	else
-		user << "<span class='warning'>You fail to repair \the [src].</span>"
+		to_chat(user, "<span class='warning'>You fail to repair \the [src].</span>")
 
 /obj/item/laser_components/proc/repair_module(var/obj/item/weapon/D)
 	return 1
@@ -47,7 +47,7 @@
 	. = ..(user, 1)
 	if(.)
 		if(malus > base_malus)
-			user << "<span class='warning'>\The [src] appears damaged.</span>"
+			to_chat(user, "<span class='warning'>\The [src] appears damaged.</span>")
 
 /obj/item/laser_components/modifier/degrade(var/increment = 1)
 	if(increment)
@@ -58,6 +58,8 @@
 /obj/item/laser_components/modifier/repair_module(var/obj/item/weapon/weldingtool/W)
 	if(!istype(W))
 		return
+	if(malus == base_malus)
+		return 0
 	if(W.remove_fuel(5))
 		malus = max(malus - 5, base_malus)
 		return 1
@@ -75,7 +77,10 @@
 /obj/item/laser_components/capacitor/repair_module(var/obj/item/stack/cable_coil/C)
 	if(!istype(C))
 		return
+	if(!condition > 0)
+		return 0
 	if(C.use(5))
+		condition = max(condition - 5, 0)
 		return 1
 	return 0
 
@@ -83,7 +88,7 @@
 	. = ..(user, 1)
 	if(.)
 		if(condition > 0)
-			user << "<span class='warning'>\The [src] appears damaged.</span>"
+			to_chat(user, "<span class='warning'>\The [src] appears damaged.</span>")
 
 /obj/item/laser_components/capacitor/proc/small_fail(var/mob/user, var/obj/item/weapon/gun/energy/laser/prototype/prototype)
 	return
@@ -106,7 +111,10 @@
 /obj/item/laser_components/focusing_lens/repair_module(var/obj/item/stack/nanopaste/N)
 	if(!istype(N))
 		return
+	if(!condition > 0)
+		return 0
 	if(N.use(5))
+		condition = max(condition - 5, 0)
 		return 1
 	return 0
 
@@ -114,12 +122,13 @@
 	. = ..(user, 1)
 	if(.)
 		if(condition > 0)
-			user << "<span class='warning'>\The [src] appears damaged.</span>"
+			to_chat(user, "<span class='warning'>\The [src] appears damaged.</span>")
 
 /obj/item/laser_components/modulator
 	name = "laser modulator"
 	desc = "A modification that modulates the beam into a standard laser beam."
 	icon_state = "laser"
+	origin_tech = list(TECH_COMBAT = 1, TECH_MAGNET = 2)
 	var/obj/item/projectile/beam/projectile = /obj/item/projectile/beam
 	var/firing_sound = 'sound/weapons/Laser.ogg'
 
@@ -134,7 +143,7 @@
 	icon_state = "small"
 	var/stage = 1
 	var/size = CHASSIS_SMALL
-	var/modifier_cap = 1
+	var/modifier_cap = 3
 
 	var/list/gun_mods = list()
 	var/obj/item/laser_components/capacitor/capacitor
@@ -165,7 +174,7 @@
 		user.drop_from_inventory(A,src)
 	else
 		return ..()
-	user << "<span class='notice'>You insert \the [A] into the assembly.</span>"
+	to_chat(user, "<span class='notice'>You insert \the [A] into the assembly.</span>")
 	update_icon()
 	check_completion()
 

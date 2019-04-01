@@ -178,8 +178,7 @@
 	dislocated = -1
 	joint = "structural ligament"
 	amputation_point = "branch"
-
-
+	vital = FALSE // Lore team requested this, not vital organ. We can still live without it.
 
 /obj/item/organ/diona/process()
 	return
@@ -225,7 +224,7 @@
 	name = "nutrient channel"
 	parent_organ = "chest"
 	organ_tag = "nutrient channel"
-	icon = 'icons/mob/alien.dmi'
+	icon = 'icons/mob/npc/alien.dmi'
 	icon_state = "claw"
 
 /obj/item/organ/diona/nutrients/removed()
@@ -235,7 +234,7 @@
 	name = "response node"
 	parent_organ = "head"
 	organ_tag = "response node"
-	icon = 'icons/mob/alien.dmi'
+	icon = 'icons/mob/npc/alien.dmi'
 	icon_state = "claw"
 
 /obj/item/organ/diona/node/removed()

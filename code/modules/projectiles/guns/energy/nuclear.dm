@@ -2,9 +2,10 @@
 	name = "energy carbine"
 	desc = "An energy-based carbine with two settings: Stun and kill."
 	icon_state = "energystun100"
-	item_state = null	//so the human update icon uses the icon_state instead.
+	item_state = null	// so the human update icon uses the icon_state instead.
 	fire_sound = 'sound/weapons/Taser.ogg'
 	slot_flags = SLOT_BELT
+	accuracy = 1
 	max_shots = 10
 	can_turret = 1
 	secondary_projectile_type = /obj/item/projectile/beam
@@ -55,9 +56,9 @@
 /obj/item/weapon/gun/energy/gun/nuclear/small_fail(var/mob/user)
 	for (var/mob/living/M in range(0,src)) //Only a minor failure, enjoy your radiation if you're in the same tile or carrying it
 		if (M == user)
-			M << "<span class='warning'>Your gun feels pleasantly warm for a moment.</span>"
+			to_chat(M, "<span class='warning'>Your gun feels pleasantly warm for a moment.</span>")
 		else
-			M << "<span class='warning'>You feel a warm sensation.</span>"
+			to_chat(M, "<span class='warning'>You feel a warm sensation.</span>")
 		M.apply_effect(rand(3,120), IRRADIATE)
 	return
 
@@ -69,9 +70,9 @@
 	return
 
 /obj/item/weapon/gun/energy/gun/nuclear/critical_fail(var/mob/user)
-	user << "<span class='danger'>Your gun's reactor overloads!</span>"
+	to_chat(user, "<span class='danger'>Your gun's reactor overloads!</span>")
 	for (var/mob/living/M in range(rand(1,4),src))
-		M << "<span class='warning'>You feel a wave of heat wash over you.</span>"
+		to_chat(M, "<span class='warning'>You feel a wave of heat wash over you.</span>")
 		M.apply_effect(300, IRRADIATE)
 	crit_fail = 1 //break the gun so it stops recharging
 	self_recharge = FALSE

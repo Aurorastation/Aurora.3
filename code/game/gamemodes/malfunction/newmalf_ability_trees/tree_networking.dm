@@ -47,15 +47,15 @@
 		return
 
 	if(!istype(A))
-		user << "This is not an APC!"
+		to_chat(user, "This is not an APC!")
 		return
 
 	if(A)
 		if(A.hacker && A.hacker == user)
-			user << "You already control this APC!"
+			to_chat(user, "You already control this APC!")
 			return
 		else if(A.aidisabled)
-			user << "<span class='notice'>Unable to connect to APC. Please verify wire connection and try again.</span>"
+			to_chat(user, "<span class='notice'>Unable to connect to APC. Please verify wire connection and try again.</span>")
 			return
 	else
 		return
@@ -65,20 +65,20 @@
 
 	log_ability_use(user, "basic encryption hack", A, 0)	// Does not notify admins, but it's still logged for reference.
 	user.hacking = 1
-	user << "Beginning APC system override..."
+	to_chat(user, "Beginning APC system override...")
 	sleep(300)
-	user << "APC hack completed. Uploading modified operation software.."
+	to_chat(user, "APC hack completed. Uploading modified operation software..")
 	sleep(200)
-	user << "Restarting APC to apply changes.."
+	to_chat(user, "Restarting APC to apply changes..")
 	sleep(100)
 	if(A)
 		A.ai_hack(user)
 		if(A.hacker == user)
-			user << "Hack successful. You now have full control over the APC."
+			to_chat(user, "Hack successful. You now have full control over the APC.")
 		else
-			user << "<span class='notice'>Hack failed. Connection to APC has been lost. Please verify wire connection and try again.</span>"
+			to_chat(user, "<span class='notice'>Hack failed. Connection to APC has been lost. Please verify wire connection and try again.</span>")
 	else
-		user << "<span class='notice'>Hack failed. Unable to locate APC. Please verify the APC still exists.</span>"
+		to_chat(user, "<span class='notice'>Hack failed. Unable to locate APC. Please verify the APC still exists.</span>")
 	user.hacking = 0
 
 
@@ -99,7 +99,7 @@
 		if("Template")
 			establish_db_connection(dbcon)
 			if (!dbcon.IsConnected())
-				src << "<span class='notice'>Unable to connect to the database.</span>"
+				to_chat(src, "<span class='notice'>Unable to connect to the database.</span>")
 				return
 			var/DBQuery/query = dbcon.NewQuery("SELECT title, message FROM ss13_ccia_general_notice_list WHERE deleted_at IS NULL")
 			query.Execute()
@@ -113,7 +113,7 @@
 
 			// Catch empty list
 			if (!templates.len)
-				src << "<span class='notice'>There are no templates in the database.</span>"
+				to_chat(src, "<span class='notice'>There are no templates in the database.</span>")
 				return
 
 			reporttitle = input(usr, "Please select a command report template.", "Create Command Report") in template_names
@@ -138,13 +138,13 @@
 	switch(alert("Should this be announced to the general population?",,"Yes","No"))
 		if("Yes")
 			if(!reporttitle || !reportbody || !ability_pay(user, price))
-				user << "Hack Aborted due to no title, no body message, or you do not have enough CPU for this action."
+				to_chat(user, "Hack Aborted due to no title, no body message, or you do not have enough CPU for this action.")
 				return
 
 			log_ability_use(user, "advanced encryption hack")
 			// Commented out while trialing the malf ai buff
 			//if(prob(50) && user.hack_can_fail)
-			//	user << "Hack Failed."
+			//	to_chat(user, "Hack Failed.")
 			//	if(prob(5))
 			//		user.hack_fails ++
 			//		announce_hack_failure(user, "quantum message relay")
@@ -157,13 +157,13 @@
 
 		if("No")
 			if(!reporttitle || !reportbody || !ability_pay(user, price))
-				user << "Hack Aborted due to no title, no body message, or you do not have enough CPU for this action."
+				to_chat(user, "Hack Aborted due to no title, no body message, or you do not have enough CPU for this action.")
 				return
 
 			log_ability_use(user, "advanced encryption hack")
 			// Commented out while trialing the malf ai buffs
 			//if(prob(50) && user.hack_can_fail)
-			//	user << "Hack Failed."
+			//	to_chat(user, "Hack Failed.")
 			//	if(prob(5))
 			//		user.hack_fails ++
 			//		announce_hack_failure(user, "quantum message relay")
@@ -172,8 +172,8 @@
 			//	log_ability_use(user, "advanced encryption hack (FAIL - title: [reporttitle])")
 			//	return
 			log_ability_use(user, "advanced encryption hack (SUCCESS - title: [reporttitle])")
-			world << "<span class='alert'>New [current_map.company_name] Update available at all communication consoles.</span>"
-			world << sound('sound/AI/commandreport.ogg')
+			to_world("<span class='alert'>New [current_map.company_name] Update available at all communication consoles.</span>")
+			to_world(sound('sound/AI/commandreport.ogg'))
 			post_comm_message(reporttitle, reportbody)
 
 /datum/game_mode/malfunction/verb/elite_encryption_hack()
@@ -187,11 +187,11 @@
 
 	var/alert_target = input("Select new alert level:") in list("green", "blue", "red", "delta", "CANCEL")
 	if(!alert_target || !ability_pay(user, price) || alert_target == "CANCEL")
-		user << "Hack Aborted"
+		to_chat(user, "Hack Aborted")
 		return
 	//Reduced from 60-10 to 20-5 while trialing the malf ai buffs
 	if(prob(20) && user.hack_can_fail)
-		user << "Hack Failed."
+		to_chat(user, "Hack Failed.")
 		if(prob(5))
 			user.hack_fails ++
 			announce_hack_failure(user, "alert control system")
@@ -213,7 +213,7 @@
 		return
 	if (!ability_prechecks(user, price) || !ability_pay(user, price) || user.system_override)
 		if(user.system_override)
-			user << "You already started the system override sequence."
+			to_chat(user, "You already started the system override sequence.")
 		return
 	log_ability_use(user, "system override (STARTED)")
 	var/list/remaining_apcs = list()
@@ -245,8 +245,8 @@
 			command_announcement.Announce("Error: Network firewall breached. Network integrity compromised.", "Network Monitoring")
 	else
 		command_announcement.Announce("Error: Ongoing hacking attempt. Automatic countermeasures ineffective. Network firewall breached. Network integrity compromised. External network connections disabled.", "Network Monitoring")
-	user << "## BEGINNING SYSTEM OVERRIDE."
-	user << "## ESTIMATED DURATION: [round((duration+300)/600)] MINUTES"
+	to_chat(user, "## BEGINNING SYSTEM OVERRIDE.")
+	to_chat(user, "## ESTIMATED DURATION: [round((duration+300)/600)] MINUTES")
 	user.hacking = 1
 	user.system_override = 1
 	// Now actually begin the hack. Each APC takes 10 seconds.
@@ -258,9 +258,9 @@
 			continue
 		A.ai_hack(user)
 		if(A.hacker == user)
-			user << "## OVERRIDDEN: [A.name]"
+			to_chat(user, "## OVERRIDDEN: [A.name]")
 
-	user << "## REACHABLE APC SYSTEMS OVERTAKEN. BYPASSING PRIMARY FIREWALL."
+	to_chat(user, "## REACHABLE APC SYSTEMS OVERTAKEN. BYPASSING PRIMARY FIREWALL.")
 	sleep(300)
 	// Hack all APCs, including those built during hack sequence.
 	for(var/obj/machinery/power/apc/A in SSmachinery.processing_machines)
@@ -268,7 +268,7 @@
 			A.ai_hack(src)
 
 	log_ability_use(user, "system override (FINISHED)")
-	user << "## PRIMARY FIREWALL BYPASSED. YOU NOW HAVE FULL SYSTEM CONTROL."
+	to_chat(user, "## PRIMARY FIREWALL BYPASSED. YOU NOW HAVE FULL SYSTEM CONTROL.")
 	command_announcement.Announce("Our system administrators just reported that we've been locked out from your control network. Whoever did this now has full access to the station's systems.", "Network Administration Center")
 	user.hack_can_fail = 0
 	user.hacking = 0

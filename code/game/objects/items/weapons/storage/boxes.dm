@@ -26,6 +26,7 @@
 	desc = "It's just an ordinary box."
 	icon_state = "box"
 	item_state = "syringe_kit"
+	use_sound = 'sound/items/storage/box.ogg'
 	var/foldable = /obj/item/stack/material/cardboard	// BubbleWrap - if set, can be folded (when empty) into a sheet of cardboard
 	var/maxHealth = 20	//health is already defined
 
@@ -71,9 +72,9 @@
 	..()
 	if (health < maxHealth)
 		if (health >= (maxHealth * 0.5))
-			user << span("warning", "It is slightly torn.")
+			to_chat(user, span("warning", "It is slightly torn."))
 		else
-			user << span("danger", "It is full of tears and holes.")
+			to_chat(user, span("danger", "It is full of tears and holes."))
 
 // BubbleWrap - A box can be folded up to make card
 /obj/item/weapon/storage/box/attack_self(mob/user as mob)
@@ -95,7 +96,8 @@
 	if ( !found )	// User is too far away
 		return
 	// Now make the cardboard
-	user << "<span class='notice'>You fold [src] flat.</span>"
+	to_chat(user, "<span class='notice'>You fold [src] flat.</span>")
+	playsound(src.loc, 'sound/items/storage/boxfold.ogg', 30, 1)
 	new src.foldable(get_turf(src))
 	qdel(src)
 
@@ -384,6 +386,21 @@
 	new /obj/item/device/firing_pin/implant/loyalty(src)
 	new /obj/item/device/firing_pin/implant/loyalty(src)
 	new /obj/item/device/firing_pin/implant/loyalty(src)
+
+/obj/item/weapon/storage/box/firingpinsRD
+	name = "box of assorted firing pins"
+	desc = "A box of varied assortment of firing pins. Appears to have R&D stickers on all sides of the box. Also seems to have a smiley face sticker on the top of it."
+
+/obj/item/weapon/storage/box/firingpinsRD/fill()
+	..()
+	new /obj/item/device/firing_pin(src)
+	new /obj/item/device/firing_pin(src)
+	new /obj/item/device/firing_pin/access(src)
+	new /obj/item/device/firing_pin/access(src)
+	new /obj/item/device/firing_pin/implant/loyalty(src)
+	new /obj/item/device/firing_pin/implant/loyalty(src)
+	new /obj/item/device/firing_pin/clown(src)
+	new /obj/item/device/firing_pin/dna(src)
 
 /obj/item/weapon/storage/box/teargas
 	name = "box of pepperspray grenades"
@@ -721,6 +738,7 @@
 /obj/item/weapon/storage/box/pillbottles
 	name = "box of pill bottles"
 	desc = "It has pictures of pill bottles on its front."
+	icon_state = "pillbox"
 
 /obj/item/weapon/storage/box/pillbottles/fill()
 	..()
@@ -785,8 +803,8 @@
 	return
 
 /obj/item/weapon/storage/box/autoinjectors
-	name = "box of injectors"
-	desc = "Contains autoinjectors."
+	name = "box of empty injectors"
+	desc = "Contains empty autoinjectors."
 	icon_state = "syringe"
 
 /obj/item/weapon/storage/box/autoinjectors/fill()
@@ -983,7 +1001,8 @@
 			/obj/item/weapon/reagent_containers/food/snacks/meatsnack,
 			/obj/item/weapon/reagent_containers/food/snacks/maps,
 			/obj/item/weapon/reagent_containers/food/snacks/nathisnack,
-			/obj/item/weapon/reagent_containers/food/snacks/adhomian_can
+			/obj/item/weapon/reagent_containers/food/snacks/adhomian_can,
+			/obj/item/weapon/reagent_containers/food/snacks/tuna
 	)
 	for (var/i = 0,i<7,i++)
 		var/type = pick(snacks)
@@ -1021,6 +1040,15 @@
 
 	for(var/i in 1 to 6)
 		new /obj/item/weapon/reagent_containers/personal_inhaler_cartridge/large(src)
+
+/obj/item/weapon/storage/box/inhalers_auto
+	name = "autoinhaler kit"
+	desc = "A box filled with a combat inhaler and several large empty inhaler cartridges."
+	icon_state = "box_inhalers"
+
+/obj/item/weapon/storage/box/inhalers_auto/fill()
+	for(var/i in 1 to 8)
+		new /obj/item/weapon/reagent_containers/inhaler(src)
 
 /obj/item/weapon/storage/box/clams
 	name = "box of Ras'val clam"
@@ -1069,3 +1097,26 @@
 		new chosen_candy(src)
 
 	make_exact_fit()
+
+
+/obj/item/weapon/storage/box/crabmeat
+	name = "box of crab legs"
+	desc = "A box filled with high-quality crab legs. Shipped to Aurora by popular demand!"
+
+/obj/item/weapon/storage/box/crabmeat/fill()
+	..()
+	new /obj/item/weapon/reagent_containers/food/snacks/crabmeat(src)
+	new /obj/item/weapon/reagent_containers/food/snacks/crabmeat(src)
+	new /obj/item/weapon/reagent_containers/food/snacks/crabmeat(src)
+	new /obj/item/weapon/reagent_containers/food/snacks/crabmeat(src)
+	new /obj/item/weapon/reagent_containers/food/snacks/crabmeat(src)
+
+/obj/item/weapon/storage/box/tranquilizer
+	name = "box of tranquilizer darts"
+	desc = "It has a picture of a tranquilizer dart and several warning symbols on the front.<br>WARNING: Live ammunition. Misuse may result in serious injury or death."
+	icon_state = "incendiaryshot_box"
+
+/obj/item/weapon/storage/box/tranquilizer/fill()
+	..()
+	for(var/i in 1 to 8)
+		new /obj/item/ammo_casing/tranq(src)

@@ -32,7 +32,7 @@
 		new /obj/item/stack/medical/ointment( src )
 		new /obj/item/stack/medical/ointment( src )
 		new /obj/item/device/healthanalyzer( src )
-		new /obj/item/weapon/reagent_containers/hypospray/autoinjector( src )
+		new /obj/item/weapon/reagent_containers/hypospray/autoinjector/inaprovaline( src )
 		return
 
 
@@ -48,7 +48,7 @@
 		new /obj/item/stack/medical/ointment(src)
 		new /obj/item/stack/medical/ointment(src)
 		new /obj/item/device/healthanalyzer(src)
-		new /obj/item/weapon/reagent_containers/hypospray/autoinjector( src )
+		new /obj/item/weapon/reagent_containers/hypospray/autoinjector/inaprovaline( src )
 		return
 
 /obj/item/weapon/storage/firstaid/toxin
@@ -83,8 +83,8 @@
 		new /obj/item/weapon/reagent_containers/inhaler/dexalin( src )
 		new /obj/item/weapon/reagent_containers/inhaler/dexalin( src )
 		new /obj/item/weapon/reagent_containers/inhaler/dexalin( src )
-		new /obj/item/weapon/reagent_containers/hypospray/autoinjector( src )
-		new /obj/item/weapon/reagent_containers/hypospray/autoinjector( src )
+		new /obj/item/weapon/reagent_containers/hypospray/autoinjector/inaprovaline( src )
+		new /obj/item/weapon/reagent_containers/hypospray/autoinjector/inaprovaline( src )
 		new /obj/item/device/breath_analyzer( src )
 		return
 
@@ -97,7 +97,7 @@
 /obj/item/weapon/storage/firstaid/adv/fill()
 	..()
 	if (empty) return
-	new /obj/item/weapon/reagent_containers/hypospray/autoinjector( src )
+	new /obj/item/weapon/reagent_containers/hypospray/autoinjector/inaprovaline( src )
 	new /obj/item/stack/medical/advanced/bruise_pack(src)
 	new /obj/item/stack/medical/advanced/bruise_pack(src)
 	new /obj/item/stack/medical/advanced/bruise_pack(src)
@@ -319,3 +319,17 @@
 		new /obj/item/weapon/reagent_containers/pill/escitalopram( src )
 		new /obj/item/weapon/reagent_containers/pill/escitalopram( src )
 		new /obj/item/weapon/reagent_containers/pill/escitalopram( src )
+
+/obj/item/weapon/storage/pill_bottle/rmt
+	name = "bottle of RMT pills"
+	desc = "Contains pills used to remedy the effects of prolonged zero-gravity adaptations."
+
+/obj/item/weapon/storage/pill_bottle/rmt/fill()
+	..()
+	new /obj/item/weapon/reagent_containers/pill/rmt(src)
+	new /obj/item/weapon/reagent_containers/pill/rmt(src)
+	new /obj/item/weapon/reagent_containers/pill/rmt(src)
+	new /obj/item/weapon/reagent_containers/pill/rmt(src)
+	new /obj/item/weapon/reagent_containers/pill/rmt(src)
+	new /obj/item/weapon/reagent_containers/pill/rmt(src)
+	new /obj/item/weapon/reagent_containers/pill/rmt(src)

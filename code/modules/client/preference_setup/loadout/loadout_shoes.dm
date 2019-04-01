@@ -9,6 +9,10 @@
 	display_name = "workboots"
 	path = /obj/item/clothing/shoes/workboots
 
+/datum/gear/shoes/winterboots
+	display_name = "winter boots"
+	path = /obj/item/clothing/shoes/winter
+
 /datum/gear/shoes/sandals
 	display_name = "sandals"
 	path = /obj/item/clothing/shoes/sandal

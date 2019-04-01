@@ -12,7 +12,7 @@
 /datum/gear/uniform/iacjumpsuit
 	display_name = "IAC Jumpsuit"
 	path = /obj/item/clothing/under/rank/iacjumpsuit
-	allowed_roles = list("Chief Medical Officer", "Medical Doctor", "Chemist", "Paramedic", "Medical Resident")
+	allowed_roles = list("Chief Medical Officer", "Medical Doctor", "Pharmacist", "Paramedic", "Medical Resident")
 
 /datum/gear/uniform/jumpsuit
 	display_name = "generic jumpsuits"
@@ -50,19 +50,12 @@
 /datum/gear/uniform/skirt/New()
 	..()
 	var/skirts = list()
-	skirts["plaid skirt, blue"] = /obj/item/clothing/under/skirt/plaid_blue
-	skirts["plaid skirt, purple"] = /obj/item/clothing/under/skirt/plaid_purple
-	skirts["plaid skirt, red"] = /obj/item/clothing/under/skirt/plaid_red
-	skirts["jumpskirt, black"] = /obj/item/clothing/under/skirt/blackjumpskirt
-	skirts["skirt, black"] = /obj/item/clothing/under/skirt/
-	skirts["skirt, khaki"] = /obj/item/clothing/under/skirt/khaki
-	skirts["short skirt, black"] = /obj/item/clothing/under/skirt/short_black
-	skirts["short skirt, blue"] = /obj/item/clothing/under/skirt/blue
-	skirts["short skirt, red"] = /obj/item/clothing/under/skirt/red
-	skirts["skirt, swept"] = /obj/item/clothing/under/skirt/swept
-
-
+	skirts["casual skirt"] = /obj/item/clothing/under/skirt/casual
+	skirts["long skirt"] = /obj/item/clothing/under/skirt/long
+	skirts["pencil skirt"] = /obj/item/clothing/under/skirt/pencil
+	skirts["swept skirt"] = /obj/item/clothing/under/skirt/swept
 	gear_tweaks += new/datum/gear_tweak/path(skirts)
+	gear_tweaks += list(gear_tweak_free_color_choice)
 
 /datum/gear/uniform/suit
 	display_name = "suit selection"
@@ -94,7 +87,7 @@
 /datum/gear/uniform/scrubs
 	display_name = "scrubs selection"
 	path = /obj/item/clothing/under/rank/medical/black
-	allowed_roles = list("Scientist","Chief Medical Officer", "Medical Doctor", "Chemist", "Geneticist", "Paramedic", "Medical Resident", "Xenobiologist", "Roboticist", "Research Director", "Forensic Technician")
+	allowed_roles = list("Scientist","Chief Medical Officer", "Medical Doctor", "Pharmacist", "Geneticist", "Paramedic", "Medical Resident", "Xenobiologist", "Roboticist", "Research Director", "Forensic Technician")
 
 /datum/gear/uniform/scrubs/New()
 	..()

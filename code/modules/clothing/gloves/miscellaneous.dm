@@ -96,13 +96,13 @@
 	set src in usr
 
 	if(wired && !clipped)
-		usr << "You check your watch, spotting a digital collection of numbers reading '[worldtime2text()]'. Today's date is '[time2text(world.time, "Month DD")]. [game_year]'."
+		to_chat(usr, "You check your watch, spotting a digital collection of numbers reading '[worldtime2text()]'. Today's date is '[time2text(world.time, "Month DD")]. [game_year]'.")
 		if (emergency_shuttle.get_status_panel_eta())
-			usr << "<span class='warning'>The shuttle's status is reported as: [emergency_shuttle.get_status_panel_eta()].</span>"
+			to_chat(usr, "<span class='warning'>The shuttle's status is reported as: [emergency_shuttle.get_status_panel_eta()].</span>")
 	else if(wired && clipped)
-		usr << "You check your watch realising it's still open"
+		to_chat(usr, "You check your watch realising it's still open")
 	else
-		usr << "You check your watch as it dawns on you that it's broken"
+		to_chat(usr, "You check your watch as it dawns on you that it's broken")
 
 /obj/item/clothing/gloves/watch/verb/pointatwatch()
 	set category = "Object"
@@ -122,7 +122,7 @@
 		checktime()
 
 /obj/item/clothing/gloves/watch/attackby(obj/item/weapon/W, mob/user)
-	if(isscrewdriver(W))
+	if(W.isscrewdriver())
 		if (clipped) //Using clipped because adding a new var for something is dumb
 			user.visible_message("<span class='notice'>[user] screws the cover of the [src] closed.</span>","<span class='notice'>You screw the cover of the [src] closed..</span>")
 			clipped = 0
@@ -133,29 +133,69 @@
 		return
 	if(wired)
 		return
-	if(iscoil(W))
+	if(W.iscoil())
 		var/obj/item/stack/cable_coil/C = W
 		if (!clipped)
-			user << "<span class='notice'>The [src] is not open.</span>"
+			to_chat(user, "<span class='notice'>The [src] is not open.</span>")
 			return
 
 		if(wired)
-			user << "<span class='notice'>The [src] are already wired.</span>"
+			to_chat(user, "<span class='notice'>The [src] are already wired.</span>")
 			return
 
 		if(C.amount < 2)
-			user << "<span class='notice'>There is not enough wire to cover the [src].</span>"
+			to_chat(user, "<span class='notice'>There is not enough wire to cover the [src].</span>")
 			return
 
 		C.use(2)
 		wired = 1
-		user << "<span class='notice'>You repair some wires in the [src].</span>"
+		to_chat(user, "<span class='notice'>You repair some wires in the [src].</span>")
 		return
 
 /obj/item/clothing/gloves/watch/emp_act(severity)
 	if(prob(50/severity))
 		wired = 0
 	..()
+
+/obj/item/clothing/gloves/armchain
+	name = "cobalt arm chains"
+	desc = "A set of luxurious chains intended to be wrapped around long, lanky arms. They don't seem particularly comfortable. They're encrusted with cobalt-blue gems, and made of <b>REAL</b> faux gold."
+	icon_state = "cobalt_armchains"
+	item_state = "cobalt_armchains"
+	siemens_coefficient = 1.0
+	fingerprint_chance = 100
+
+/obj/item/clothing/gloves/armchain/emerald
+	name = "emerald arm chains"
+	desc = "A set of luxurious chains intended to be wrapped around long, lanky arms. They don't seem particularly comfortable. They're encrusted with emerald-green gems, and made of <b>REAL</b> faux gold."
+	icon_state = "emerald_armchains"
+	item_state = "emerald_armchains"
+
+/obj/item/clothing/gloves/armchain/ruby
+	name = "ruby arm chains"
+	desc = "A set of luxurious chains intended to be wrapped around long, lanky arms. They don't seem particularly comfortable. They're encrusted with ruby-red gems, and made of <b>REAL</b> faux gold."
+	icon_state = "ruby_armchains"
+	item_state = "ruby_armchains"
+
+/obj/item/clothing/gloves/goldbracer
+	name = "cobalt bracers"
+	desc = "A pair of sturdy and thick decorative bracers, seeming better for fashion than protection. They're encrusted with cobalt-blue gems, and made of <b>REAL</b> faux gold."
+	icon_state = "cobalt_bracers"
+	item_state = "cobalt_bracers"
+	siemens_coefficient = 1.0
+	fingerprint_chance = 100
+
+/obj/item/clothing/gloves/goldbracer/emerald
+	name = "emerald bracers"
+	desc = "A pair of sturdy and thick decorative bracers, seeming better for fashion than protection. They're encrusted with emerald-green gems, and made of <b>REAL</b> faux gold."
+	icon_state = "emerald_bracers"
+	item_state = "emerald_bracers"
+
+/obj/item/clothing/gloves/goldbracer/ruby
+	name = "ruby bracers"
+	desc = "A pair of sturdy and thick decorative bracers, seeming better for fashion than protection. They're encrusted with ruby-red gems, and made of <b>REAL</b> faux gold."
+	icon_state = "ruby_bracers"
+	item_state = "ruby_bracers"
 
 	/*
 	Forcegloves.  They amplify force from melee hits as well as muck up disarm and stuff a little.
@@ -246,3 +286,9 @@
 	clipped = 1
 	sharp = 1
 	edge = 1
+
+/obj/item/clothing/gloves/offworlder
+	name = "starmitts"
+	desc = "Thick arm warmers and mittens that reach past the elbow."
+	icon_state = "starmittens"
+	item_state = "starmittens"

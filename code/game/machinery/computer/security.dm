@@ -36,21 +36,22 @@
 	if(!usr || usr.stat || usr.lying || usr.restrained() || !Adjacent(usr))	return
 
 	if(scan)
-		usr << "You remove \the [scan] from \the [src]."
+		to_chat(usr, "You remove \the [scan] from \the [src].")
 		scan.forceMove(get_turf(src))
 		if(!usr.get_active_hand() && istype(usr,/mob/living/carbon/human))
 			usr.put_in_hands(scan)
 		scan = null
 	else
-		usr << "There is no ID card to remove from the console."
+		to_chat(usr, "There is no ID card to remove from the console.")
 	return
 
 /obj/machinery/computer/secure_data/attackby(obj/item/O as obj, user as mob)
 	if(istype(O, /obj/item/weapon/card/id) && !scan)
 		usr.drop_from_inventory(O,src)
 		scan = O
-		user << "You insert [O]."
-	..()
+		to_chat(user, "You insert [O].")
+	else
+		..()
 
 /obj/machinery/computer/secure_data/attack_ai(mob/user as mob)
 	return attack_hand(user)
@@ -63,7 +64,7 @@
 
 /obj/machinery/computer/secure_data/ui_interact(user)
 	if (src.z > 6)
-		user << "<span class='warning'>Unable to establish a connection:</span> You're too far away from the station!"
+		to_chat(user, "<span class='warning'>Unable to establish a connection:</span> You're too far away from the station!")
 		return
 	var/dat
 
@@ -413,7 +414,7 @@ What a mess.*/
 				if (!( istype(active2, /datum/data/record) ))
 					return
 				var/a2 = active2
-				var/t1 = sanitize(input("Add Comment:", "Secure. records", null, null)  as message)
+				var/t1 = sanitize(input("Add Comment:", "Secure. records", null, null)  as message, MAX_PAPER_MESSAGE_LEN)
 				if ((!( t1 ) || !( authenticated ) || usr.stat || usr.restrained() || (!in_range(src, usr) && (!istype(usr, /mob/living/silicon))) || active2 != a2))
 					return
 				var/counter = 1
@@ -455,19 +456,19 @@ What a mess.*/
 				switch(href_list["field"])
 					if("name")
 						if (istype(active1, /datum/data/record))
-							var/t1 = sanitizeName(input("Please input name:", "Secure. records", active1.fields["name"], null)  as text)
+							var/t1 = sanitizeName(input("Please input name:", "Secure. records", active1.fields["name"], null)  as text, MAX_PAPER_MESSAGE_LEN)
 							if (!t1 || active1 != a1)
 								return
 							active1.fields["name"] = t1
 					if("id")
 						if (istype(active2, /datum/data/record))
-							var/t1 = sanitize(input("Please input id:", "Secure. records", active1.fields["id"], null)  as text)
+							var/t1 = sanitize(input("Please input id:", "Secure. records", active1.fields["id"], null)  as text, MAX_PAPER_MESSAGE_LEN)
 							if (!t1 || active1 != a1)
 								return
 							active1.fields["id"] = t1
 					if("fingerprint")
 						if (istype(active1, /datum/data/record))
-							var/t1 = sanitize(input("Please input fingerprint hash:", "Secure. records", active1.fields["fingerprint"], null)  as text)
+							var/t1 = sanitize(input("Please input fingerprint hash:", "Secure. records", active1.fields["fingerprint"], null)  as text, MAX_PAPER_MESSAGE_LEN)
 							if (!t1 || active1 != a1)
 								return
 							active1.fields["fingerprint"] = t1
@@ -485,31 +486,31 @@ What a mess.*/
 							active1.fields["age"] = t1
 					if("mi_crim")
 						if (istype(active2, /datum/data/record))
-							var/t1 = sanitize(input("Please input minor disabilities list:", "Secure. records", active2.fields["mi_crim"], null)  as text)
+							var/t1 = sanitize(input("Please input minor disabilities list:", "Secure. records", active2.fields["mi_crim"], null)  as text, MAX_PAPER_MESSAGE_LEN)
 							if (!t1 || active2 != a2)
 								return
 							active2.fields["mi_crim"] = t1
 					if("mi_crim_d")
 						if (istype(active2, /datum/data/record))
-							var/t1 = sanitize(input("Please summarize minor dis.:", "Secure. records", active2.fields["mi_crim_d"], null)  as message)
+							var/t1 = sanitize(input("Please summarize minor dis.:", "Secure. records", active2.fields["mi_crim_d"], null)  as message, MAX_PAPER_MESSAGE_LEN)
 							if (!t1 || active2 != a2)
 								return
 							active2.fields["mi_crim_d"] = t1
 					if("ma_crim")
 						if (istype(active2, /datum/data/record))
-							var/t1 = sanitize(input("Please input major diabilities list:", "Secure. records", active2.fields["ma_crim"], null)  as text)
+							var/t1 = sanitize(input("Please input major diabilities list:", "Secure. records", active2.fields["ma_crim"], null)  as text, MAX_PAPER_MESSAGE_LEN)
 							if (!t1 || active2 != a2)
 								return
 							active2.fields["ma_crim"] = t1
 					if("ma_crim_d")
 						if (istype(active2, /datum/data/record))
-							var/t1 = sanitize(input("Please summarize major dis.:", "Secure. records", active2.fields["ma_crim_d"], null)  as message)
+							var/t1 = sanitize(input("Please summarize major dis.:", "Secure. records", active2.fields["ma_crim_d"], null)  as message, MAX_PAPER_MESSAGE_LEN)
 							if (!t1 || active2 != a2)
 								return
 							active2.fields["ma_crim_d"] = t1
 					if("notes")
 						if (istype(active2, /datum/data/record))
-							var/t1 = sanitize(input("Please summarize notes:", "Secure. records", html_decode(active2.fields["notes"]), null)  as message, extra = 0)
+							var/t1 = sanitize(input("Please summarize notes:", "Secure. records", html_decode(active2.fields["notes"]), null)  as message,MAX_PAPER_MESSAGE_LEN, extra = 0)
 							if (!t1 || active2 != a2)
 								return
 							active2.fields["notes"] = t1
@@ -537,7 +538,7 @@ What a mess.*/
 							alert(usr, "You do not have the required rank to do this!")
 					if("species")
 						if (istype(active1, /datum/data/record))
-							var/t1 = sanitize(input("Please enter race:", "General records", active1.fields["species"], null)  as message)
+							var/t1 = sanitize(input("Please enter race:", "General records", active1.fields["species"], null)  as message, MAX_PAPER_MESSAGE_LEN)
 							if (!t1 || active1 != a1)
 								return
 							active1.fields["species"] = t1
