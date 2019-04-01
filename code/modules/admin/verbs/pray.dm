@@ -9,12 +9,8 @@
 	msg = sanitize(msg)
 	if(!msg)	return
 
-	if(usr.client)
-		if(usr.client.prefs.muted & MUTE_PRAY)
-			to_chat(usr, "<span class='warning'>You cannot pray (muted).</span>")
-			return
-		if(src.client.handle_spam_prevention(msg,MUTE_PRAY))
-			return
+	if(client && client.handle_spam_prevention(msg,MUTE_PRAY))
+		return
 
 	var/image/cross = image('icons/obj/storage.dmi',"bible")
 	msg = "<span class='notice'>\icon[cross] <b><font color=purple>PRAY: </font>[key_name(src, 1)] (<A HREF='?_src_=holder;adminmoreinfo=\ref[src]'>?</A>) (<A HREF='?_src_=holder;adminplayeropts=\ref[src]'>PP</A>) (<A HREF='?_src_=vars;Vars=\ref[src]'>VV</A>) (<A HREF='?_src_=holder;subtlemessage=\ref[src]'>SM</A>) ([admin_jump_link(src, src)]) (<A HREF='?_src_=holder;secretsadmin=check_antagonist'>CA</A>) (<A HREF='?_src_=holder;adminspawncookie=\ref[src]'>SC</a>):</b> [msg]</span>"
