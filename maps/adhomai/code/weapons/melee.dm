@@ -85,7 +85,7 @@
 	desc = "A hammer used to repair or craft tools.."
 	icon = 'icons/adhomai/blacksmith.dmi'
 	icon_state = "hammer"
-	icon_state = "hammer"
+	item_state = "hammer"
 	contained_sprite = TRUE
 	force_divisor = 0.3
 	thrown_force_divisor = 0.3
