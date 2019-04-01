@@ -1478,7 +1478,6 @@
 /obj/item/ammo_magazine/c38,
 /obj/item/weapon/gun/projectile/revolver/lemat,
 /obj/item/device/binoculars,
-/obj/item/device/flashlight/lantern,
 /obj/item/clothing/accessory/holster/hip,
 /obj/item/clothing/suit/armor/nka,
 /obj/item/clothing/head/helmet/nka,
@@ -3554,6 +3553,12 @@
 	},
 /turf/simulated/floor/snow,
 /area/adhomai)
+"lW" = (
+/obj/machinery/computer/cryopod{
+	pixel_y = 32
+	},
+/turf/simulated/floor/lino,
+/area/adhomai/village)
 "md" = (
 /obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
@@ -4474,6 +4479,10 @@
 /obj/structure/table/wood,
 /obj/item/weapon/deck/cards,
 /turf/simulated/floor/wood,
+/area/adhomai/village)
+"FY" = (
+/obj/machinery/cryopod,
+/turf/simulated/floor/carpet/blue,
 /area/adhomai/village)
 "FZ" = (
 /obj/structure/closet/crate,
@@ -57682,7 +57691,7 @@ aY
 aY
 cZ
 DR
-aG
+lW
 aG
 aG
 DR
@@ -58707,7 +58716,7 @@ DR
 ex
 aZ
 ky
-aZ
+FY
 aE
 DR
 aI
@@ -60249,7 +60258,7 @@ DR
 ex
 aZ
 ky
-aZ
+FY
 aE
 DR
 aI
@@ -61791,7 +61800,7 @@ DR
 ex
 aZ
 ky
-aZ
+FY
 aE
 DR
 aI
@@ -63333,7 +63342,7 @@ DR
 ex
 aZ
 ky
-aZ
+FY
 aE
 DR
 aI
@@ -64875,7 +64884,7 @@ DR
 ex
 aZ
 ky
-aZ
+FY
 aE
 DR
 aI

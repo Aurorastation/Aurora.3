@@ -2519,6 +2519,7 @@
 #include "maps\adhomai\code\structures\sandbags.dm"
 #include "maps\adhomai\code\structures\sarcophagus.dm"
 #include "maps\adhomai\code\structures\signpost.dm"
+#include "maps\adhomai\code\structures\signs.dm"
 #include "maps\adhomai\code\structures\telegraphy.dm"
 #include "maps\adhomai\code\weapons\guns.dm"
 #include "maps\adhomai\code\weapons\melee.dm"
