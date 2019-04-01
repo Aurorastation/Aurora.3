@@ -49,6 +49,7 @@
 /datum/outfit/job/adhomai/military/supply_officer
 	name = "Quatermaster"
 
+	uniform = /obj/item/clothing/under/uniform/supply
 	shoes = /obj/item/clothing/shoes/jackboots/unathi
 	r_pocket = /obj/item/weapon/key/armory
 	l_pocket = /obj/item/weapon/storage/wallet/medium
@@ -74,7 +75,7 @@
 /datum/outfit/job/adhomai/military
 	name = "Levy"
 
-	uniform = /obj/item/clothing/under/uniform
+	uniform = /obj/item/clothing/under/uniform/levy
 	shoes = /obj/item/clothing/shoes/tajara
 	head = /obj/item/clothing/head/nka
 	r_pocket = /obj/item/weapon/key/soldier
@@ -99,6 +100,7 @@
 	name = "Royal Grenadier"
 	allow_backbag_choice = FALSE
 
+	uniform = /obj/item/clothing/under/uniform/grenadier
 	head = /obj/item/clothing/head/helmet/nka
 	suit = /obj/item/clothing/suit/armor/nka
 	back = /obj/item/weapon/storage/backpack/satchel/grenadier
@@ -128,6 +130,7 @@
 	name = "Sharpshooter"
 	allow_backbag_choice = FALSE
 
+	uniform = /obj/item/clothing/under/uniform/sharpshooter
 	l_hand = /obj/item/weapon/gun/projectile/shotgun/pump/rifle/nka/scoped
 	l_pocket = /obj/item/weapon/storage/wallet/medium
 
@@ -150,6 +153,7 @@
 /datum/outfit/job/adhomai/military/combatengineer
 	name = "Combat Engineer"
 
+	uniform = /obj/item/clothing/under/uniform/combat_engineer
 	back = /obj/item/weapon/storage/backpack/satchel/engineer
 	l_pocket = /obj/item/weapon/storage/wallet/medium
 	belt = /obj/item/weapon/pickaxe

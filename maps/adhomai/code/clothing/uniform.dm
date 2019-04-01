@@ -8,11 +8,27 @@
 	armor = list(melee = 10, bullet = 5, laser = 0,energy = 0, bomb = 0, bio = 0, rad = 0)
 	siemens_coefficient = 0.7
 
+/obj/item/clothing/under/uniform/levy
+	starting_accessories = list(/obj/item/clothing/accessory/epaulette)
+
+/obj/item/clothing/under/uniform/grenadier
+	starting_accessories = list(/obj/item/clothing/accessory/epaulette/grenadier)
+
+/obj/item/clothing/under/uniform/combat_engineer
+	starting_accessories = list(/obj/item/clothing/accessory/epaulette/engineer)
+
+/obj/item/clothing/under/uniform/sharpshooter
+	starting_accessories = list(/obj/item/clothing/accessory/epaulette/sharpshooter)
+
+/obj/item/clothing/under/uniform/supply
+	starting_accessories = list(/obj/item/clothing/accessory/epaulette/supply)
+
 /obj/item/clothing/under/uniform/hand
 	name = "officer uniform"
 	desc = "A service military uniform issued to the officers of the Imperial Army."
 	icon_state = "captain"
 	item_state = "captain"
+	starting_accessories = list(/obj/item/clothing/accessory/epaulette/commander)
 
 /obj/item/clothing/under/uniform/hand/fancy
 	name = "officer dress uniform"

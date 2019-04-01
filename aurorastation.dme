@@ -2498,6 +2498,7 @@
 #include "maps\adhomai\code\blacksmithing\blacksmith_pieces.dm"
 #include "maps\adhomai\code\blacksmithing\molds.dm"
 #include "maps\adhomai\code\blacksmithing\smelter.dm"
+#include "maps\adhomai\code\clothing\accessory.dm"
 #include "maps\adhomai\code\clothing\back.dm"
 #include "maps\adhomai\code\clothing\hats.dm"
 #include "maps\adhomai\code\clothing\suit.dm"
