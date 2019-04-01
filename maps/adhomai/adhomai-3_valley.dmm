@@ -476,9 +476,11 @@
 /area/adhomai/village/foundry)
 "bA" = (
 /obj/structure/closet/cabinet,
-/obj/item/weapon/material/sword/sabre,
 /obj/item/clothing/under/uniform/hand/fancy,
 /obj/item/clothing/head/nka/fancy,
+/obj/item/clothing/under/uniform/hand/fancy/alt,
+/obj/item/clothing/head/nka/fancy/alt,
+/obj/item/clothing/accessory/levy_coat/dress/officer,
 /turf/simulated/floor/tiled/dark,
 /area/adhomai/fortress)
 "bG" = (
@@ -1481,6 +1483,7 @@
 /obj/item/clothing/accessory/holster/hip,
 /obj/item/clothing/suit/armor/nka,
 /obj/item/clothing/head/helmet/nka,
+/obj/item/weapon/material/sword/sabre,
 /turf/simulated/floor/tiled/dark,
 /area/adhomai/fortress)
 "fb" = (
@@ -2560,6 +2563,9 @@
 /area/adhomai/village/mayor)
 "hT" = (
 /obj/structure/telegraphy,
+/obj/structure/sign/adhomai/paiting/nuke{
+	pixel_y = 32
+	},
 /turf/simulated/floor/tiled/dark,
 /area/adhomai/fortress)
 "hU" = (
@@ -2937,10 +2943,16 @@
 /area/adhomai/village/mayor)
 "iT" = (
 /obj/structure/bookcase/libraryspawn/reference,
+/obj/structure/sign/double/painting/planet{
+	pixel_y = 32
+	},
 /turf/simulated/floor/wood,
 /area/adhomai/village/mayor)
 "iU" = (
 /obj/structure/bookcase/libraryspawn/nonfiction,
+/obj/structure/sign/double/painting/planet/right{
+	pixel_y = 32
+	},
 /turf/simulated/floor/wood,
 /area/adhomai/village/mayor)
 "iV" = (
@@ -3582,10 +3594,22 @@
 "mC" = (
 /turf/simulated/floor/carpet,
 /area/adhomai/village/mayor)
+"mP" = (
+/obj/structure/sign/double/painting/mountain/right{
+	pixel_y = 32
+	},
+/turf/simulated/floor/tiled,
+/area/adhomai/village)
 "mQ" = (
 /mob/living/carbon/human/farwa,
 /turf/simulated/floor/wood,
 /area/adhomai/village/mayor)
+"nb" = (
+/obj/structure/sign/double/painting{
+	pixel_y = 32
+	},
+/turf/simulated/floor/wood,
+/area/adhomai/village)
 "nc" = (
 /obj/machinery/light{
 	icon_state = "tube1";
@@ -3593,6 +3617,12 @@
 	},
 /turf/simulated/floor/wood,
 /area/adhomai/village/mayor)
+"nv" = (
+/obj/structure/sign/double/painting/right{
+	pixel_y = 32
+	},
+/turf/simulated/floor/wood,
+/area/adhomai/village)
 "nJ" = (
 /obj/structure/curtain/open/bed{
 	pixel_y = -32
@@ -4093,6 +4123,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/adhomai/fortress)
+"xL" = (
+/obj/structure/sign/adhomai/smith{
+	pixel_x = -32
+	},
+/turf/simulated/floor/snow,
+/area/adhomai)
 "xM" = (
 /obj/structure/closet/crate,
 /obj/random/toolbox,
@@ -4288,6 +4324,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/adhomai/village/shop)
+"BT" = (
+/obj/structure/sign/adhomai{
+	pixel_y = 32
+	},
+/turf/simulated/floor/snow,
+/area/adhomai)
 "Ch" = (
 /obj/structure/table/wood,
 /turf/simulated/floor/carpet,
@@ -4468,6 +4510,18 @@
 	},
 /turf/simulated/floor/carpet,
 /area/adhomai/village)
+"FC" = (
+/obj/structure/sign/adhomai/paiting{
+	pixel_y = 32
+	},
+/turf/simulated/floor/wood,
+/area/adhomai/village/townhall)
+"FH" = (
+/obj/structure/sign/adhomai/shop{
+	pixel_x = 32
+	},
+/turf/simulated/floor/snow,
+/area/adhomai)
 "FJ" = (
 /obj/structure/closet/cabinet,
 /obj/item/stack/material/platinum{
@@ -4478,6 +4532,12 @@
 "FN" = (
 /obj/structure/table/wood,
 /obj/item/weapon/deck/cards,
+/turf/simulated/floor/wood,
+/area/adhomai/village)
+"FW" = (
+/obj/structure/sign/adhomai/paiting{
+	pixel_y = 32
+	},
 /turf/simulated/floor/wood,
 /area/adhomai/village)
 "FY" = (
@@ -4599,6 +4659,12 @@
 /obj/item/weapon/pen,
 /turf/simulated/floor/tiled/white,
 /area/adhomai/village/medical)
+"Hv" = (
+/obj/structure/sign/adhomai/paiting{
+	pixel_x = 32
+	},
+/turf/simulated/floor/wood,
+/area/adhomai/village/bar)
 "Hw" = (
 /obj/structure/window/reinforced{
 	icon_state = "rwindow";
@@ -4670,6 +4736,12 @@
 /obj/item/weapon/pen,
 /turf/simulated/floor/lino,
 /area/adhomai/village)
+"Iq" = (
+/obj/structure/sign/adhomai/paiting{
+	pixel_y = 32
+	},
+/turf/simulated/floor/wood,
+/area/adhomai/village/mayor)
 "IA" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced{
@@ -4935,10 +5007,6 @@
 /obj/item/weapon/reagent_containers/food/drinks/drinkingglass,
 /turf/simulated/floor/wood,
 /area/adhomai/village)
-"OL" = (
-/obj/structure/sign/double/barsign,
-/turf/simulated/wall/wood,
-/area/adhomai/village/bar)
 "OM" = (
 /obj/structure/table/wood,
 /obj/item/weapon/reagent_containers/glass/rag,
@@ -4965,6 +5033,12 @@
 	},
 /turf/simulated/floor/wood,
 /area/adhomai/village)
+"PP" = (
+/obj/structure/sign/double/barsign{
+	pixel_y = 32
+	},
+/turf/simulated/floor/wood,
+/area/adhomai/village/bar)
 "Qc" = (
 /obj/structure/window/reinforced{
 	icon_state = "rwindow";
@@ -5065,6 +5139,12 @@
 /obj/item/weapon/flame/lighter/zippo,
 /turf/simulated/floor/wood,
 /area/adhomai/village)
+"Se" = (
+/obj/structure/sign/adhomai/court{
+	pixel_x = 32
+	},
+/turf/simulated/floor/snow,
+/area/adhomai)
 "Sh" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
@@ -5081,6 +5161,12 @@
 	pixel_y = 32
 	},
 /turf/simulated/floor/wood,
+/area/adhomai/village)
+"Sr" = (
+/obj/structure/sign/double/painting/mountain{
+	pixel_y = 32
+	},
+/turf/simulated/floor/tiled,
 /area/adhomai/village)
 "Su" = (
 /obj/effect/decal/cleanable/dirt,
@@ -5164,6 +5250,12 @@
 	icon_state = "hydrofloor"
 	},
 /area/adhomai/village)
+"To" = (
+/obj/structure/sign/adhomai/constable{
+	pixel_y = 32
+	},
+/turf/simulated/floor/snow,
+/area/adhomai)
 "Tt" = (
 /obj/structure/bed/chair/wood{
 	dir = 1
@@ -5277,6 +5369,12 @@
 /obj/structure/bed/chair/wood,
 /turf/simulated/floor/tiled/dark,
 /area/adhomai/village/temple)
+"VT" = (
+/obj/structure/sign/adhomai/paiting{
+	pixel_y = 32
+	},
+/turf/simulated/floor/wood,
+/area/adhomai/village/blacksmith)
 "VU" = (
 /obj/effect/landmark{
 	name = "AdhomaiJourney"
@@ -5360,6 +5458,12 @@
 "XJ" = (
 /turf/simulated/floor/wood,
 /area/adhomai/village/police)
+"XP" = (
+/obj/structure/sign/adhomai/hotel{
+	pixel_y = 32
+	},
+/turf/simulated/floor/snow,
+/area/adhomai)
 "XV" = (
 /obj/structure/window/reinforced{
 	icon_state = "rwindow";
@@ -5381,6 +5485,12 @@
 /obj/item/weapon/pen/blue,
 /turf/simulated/floor/tiled/dark,
 /area/adhomai/fortress)
+"Yz" = (
+/obj/structure/sign/adhomai/paiting{
+	pixel_y = 32
+	},
+/turf/simulated/floor/lino,
+/area/adhomai/village)
 "YD" = (
 /turf/simulated/floor/tiled/white,
 /area/adhomai/village/bar)
@@ -39191,7 +39301,7 @@ Zq
 vB
 yx
 Cu
-vB
+VT
 ZP
 KY
 KY
@@ -40737,7 +40847,7 @@ aa
 aa
 aa
 ae
-aa
+xL
 aa
 aa
 aa
@@ -44059,8 +44169,8 @@ cW
 aa
 aa
 aa
-OL
-Fr
+wf
+PP
 dL
 si
 cz
@@ -44075,7 +44185,7 @@ Fr
 Fr
 Hr
 wf
-aa
+BT
 ae
 aa
 aa
@@ -44585,7 +44695,7 @@ pK
 ib
 gD
 jZ
-Fr
+Hv
 of
 im
 wf
@@ -47178,7 +47288,7 @@ aa
 aa
 aa
 pl
-pU
+FC
 hM
 pU
 pl
@@ -48694,7 +48804,7 @@ aa
 aa
 aa
 DR
-EH
+FW
 EH
 az
 bf
@@ -48710,7 +48820,7 @@ DR
 DR
 DR
 DR
-EH
+nb
 DR
 ag
 hE
@@ -48967,7 +49077,7 @@ vQ
 EH
 AD
 DR
-EH
+nv
 DR
 JP
 DR
@@ -49481,7 +49591,7 @@ fK
 uh
 DR
 DR
-EH
+FW
 EH
 EH
 EH
@@ -51317,7 +51427,7 @@ aa
 aa
 aa
 DR
-EH
+FW
 EH
 JP
 EH
@@ -52312,7 +52422,7 @@ ae
 ae
 aa
 aa
-aa
+FH
 aa
 aa
 aa
@@ -53326,7 +53436,7 @@ am
 am
 jq
 DR
-aa
+To
 ka
 aa
 ae
@@ -53345,7 +53455,7 @@ lA
 Xd
 aa
 kJ
-Fc
+Iq
 mC
 sa
 kJ
@@ -54340,7 +54450,7 @@ aa
 aa
 aa
 aa
-aa
+Se
 ae
 ae
 ae
@@ -56153,7 +56263,7 @@ co
 aG
 da
 DR
-aa
+XP
 ae
 aa
 ae
@@ -56456,7 +56566,7 @@ aa
 aa
 aa
 DR
-EH
+FW
 EH
 JP
 EH
@@ -56661,7 +56771,7 @@ EH
 IE
 Ct
 DR
-aG
+Yz
 bb
 bb
 Io
@@ -58719,7 +58829,7 @@ ky
 FY
 aE
 DR
-aI
+Sr
 aI
 DR
 aa
@@ -58976,7 +59086,7 @@ DR
 DR
 DR
 DR
-aI
+mP
 aI
 DR
 aa
