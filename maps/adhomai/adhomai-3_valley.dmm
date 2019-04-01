@@ -1280,8 +1280,7 @@
 /turf/simulated/floor/tiled/steel,
 /area/adhomai/village/foundry)
 "eq" = (
-/obj/structure/table/wood,
-/obj/item/weapon/wirecutters/clippers,
+/obj/machinery/smartfridge/drying_rack,
 /turf/simulated/floor/wood,
 /area/adhomai/village)
 "er" = (
@@ -1300,6 +1299,7 @@
 "eu" = (
 /obj/structure/table/wood,
 /obj/item/weapon/material/minihoe,
+/obj/item/weapon/wirecutters/clippers,
 /turf/simulated/floor/wood,
 /area/adhomai/village)
 "ev" = (
@@ -4231,6 +4231,10 @@
 	},
 /turf/simulated/floor/wood,
 /area/adhomai/village/police)
+"AL" = (
+/obj/machinery/biogenerator,
+/turf/simulated/floor/wood,
+/area/adhomai/village)
 "AM" = (
 /obj/vehicle/bike{
 	icon_state = "bike_off";
@@ -4965,6 +4969,22 @@
 /obj/structure/grille,
 /turf/simulated/floor/wood,
 /area/adhomai/village)
+"Qh" = (
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 1
+	},
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/turf/simulated/floor/wood,
+/area/adhomai/village)
 "Qi" = (
 /obj/machinery/light/small,
 /turf/simulated/floor/carpet,
@@ -5290,10 +5310,6 @@
 "Xd" = (
 /turf/simulated/wall/iron,
 /area/adhomai/village/shop)
-"Xj" = (
-/obj/structure/simple_door/wood,
-/turf/simulated/floor/snow,
-/area/adhomai/village)
 "Xp" = (
 /obj/item/weapon/stool/padded,
 /turf/simulated/floor/carpet/blue,
@@ -35611,7 +35627,7 @@ aa
 DR
 ed
 EH
-EH
+AD
 DR
 Rm
 Rm
@@ -47134,7 +47150,7 @@ DR
 EH
 EH
 hW
-Km
+Qh
 aa
 ae
 aa
@@ -55916,7 +55932,7 @@ ae
 ae
 ae
 ae
-Xj
+JP
 EH
 EH
 DR
@@ -62319,7 +62335,7 @@ ae
 DR
 Xb
 EH
-EH
+AL
 DR
 aa
 aa

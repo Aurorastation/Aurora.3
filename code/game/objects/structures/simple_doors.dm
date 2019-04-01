@@ -151,7 +151,7 @@
 /obj/structure/simple_door/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	if(istype(W, /obj/item/weapon/key) && lock)
 		var/obj/item/weapon/key/K = W
-		if(!lock.toggle(W))
+		if(!lock.toggle(W, user))
 			to_chat(user, "<span class='warning'>\The [K] does not fit in the lock!</span>")
 		return
 
