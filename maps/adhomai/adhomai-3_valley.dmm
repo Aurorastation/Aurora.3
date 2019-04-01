@@ -3958,11 +3958,6 @@
 "uV" = (
 /turf/simulated/floor/tiled/dark,
 /area/adhomai/village/townhall)
-"vb" = (
-/obj/structure/table/steel,
-/obj/structure/curtain/black,
-/turf/unsimulated/mask/adhomai,
-/area/adhomai/fortress/outpost)
 "vd" = (
 /obj/structure/closet/crate,
 /obj/random/medical,
@@ -4755,6 +4750,7 @@
 /obj/item/mold/shield,
 /obj/item/mold/bat,
 /obj/item/mold/armor,
+/obj/item/mold/halberd,
 /turf/simulated/floor/wood,
 /area/adhomai/village/blacksmith)
 "KB" = (
@@ -10683,7 +10679,7 @@ Ib
 Ib
 fe
 Ib
-vb
+fv
 Ib
 aa
 Bu

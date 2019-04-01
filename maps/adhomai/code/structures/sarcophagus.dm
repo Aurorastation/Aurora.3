@@ -17,6 +17,9 @@
 	if(prob(15))
 		new /obj/random/sword (src)
 
+	if(prob(15))
+		new /obj/item/mold/sword(src)
+
 	if(prob(10))
 		new /obj/item/stack/material/meteoric (src)
 		new /obj/item/stack/material/meteoric (src)

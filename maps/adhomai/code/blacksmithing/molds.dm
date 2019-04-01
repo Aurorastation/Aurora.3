@@ -98,3 +98,15 @@
 	name = "bat mold"
 	outcome = /obj/item/weapon/material/twohanded/baseballbat
 	needed_ammount = 10
+
+/obj/item/mold/halberd
+	name = "halberd mold"
+	icon_state = "mold_shovel"
+	outcome = /obj/item/weapon/material/blacksmith_piece/halberd
+	needed_ammount = 15
+
+/obj/item/mold/sword
+	name = "sword mold"
+	icon_state = "mold_blade"
+	outcome = /obj/item/weapon/material/sword/amohdan_sword
+	needed_ammount = 15

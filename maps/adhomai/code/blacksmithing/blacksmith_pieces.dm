@@ -61,3 +61,10 @@
 	icon_state = "axe_head"
 	use_material = TRUE
 	result = /obj/item/weapon/material/axe
+
+/obj/item/weapon/material/blacksmith_piece/halberd
+	name = "halberd head"
+	desc = "A sharp head of a halberd."
+	icon_state = "halberd_head"
+	use_material = TRUE
+	result = /obj/item/weapon/material/twohanded/pike/halberd
