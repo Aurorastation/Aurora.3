@@ -386,16 +386,11 @@
 		return 1
 	return 0
 
-/datum/species/diona/before_equip(var/mob/living/carbon/human/H)
-	. = ..()
-	var/obj/item/device/flashlight/flare/F = new /obj/item/device/flashlight/flare(H)
-	if(H.backbag == 1)
-		H.equip_to_slot_or_del(F, slot_r_hand)
+/datum/species/diona/equip_later_gear(var/mob/living/carbon/human/H)
+	if(istype(H.get_equipped_item(slot_back), /obj/item/weapon/storage/backpack))
+		H.equip_to_slot_or_del(new /obj/item/device/flashlight/flare((H.back), slot_in_backpack))
 	else
-		H.equip_to_slot_or_del(F, slot_in_backpack)
-	if(!QDELETED(F))
-		F.autodrobe_no_remove = 1
-	H.gender = NEUTER
+		H.equip_to_slot_or_del(new /obj/item/device/flashlight/flare((H), slot_r_hand))
 
 /datum/species/diona/handle_post_spawn(var/mob/living/carbon/human/H)
 	H.gender = NEUTER
@@ -763,16 +758,19 @@ datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
 /datum/species/bug/before_equip(var/mob/living/carbon/human/H)
 	. = ..()
 	H.gender = NEUTER
-	if(H.backbag == 1)
-		H.equip_to_slot_or_del(new /obj/item/weapon/storage/box/vaurca(H), slot_r_hand)
-	else
-		H.equip_to_slot_or_del(new /obj/item/weapon/storage/box/vaurca(H.back), slot_in_backpack)
 	var/obj/item/clothing/shoes/sandal/S = new /obj/item/clothing/shoes/sandal(H)
 	if(H.equip_to_slot_or_del(S,slot_shoes))
 		S.autodrobe_no_remove = 1
 	var/obj/item/clothing/mask/breath/M = new /obj/item/clothing/mask/breath(H)
 	if(H.equip_to_slot_or_del(M, slot_wear_mask))
 		M.autodrobe_no_remove = 1
+
+/datum/species/bug/equip_later_gear(var/mob/living/carbon/human/H)
+	if(istype(H.get_equipped_item(slot_back), /obj/item/weapon/storage/backpack))
+		H.equip_to_slot_or_del(new /obj/item/weapon/storage/box/vaurca((H.back), slot_in_backpack))
+	else
+		H.equip_to_slot_or_del(new /obj/item/weapon/storage/box/vaurca((H), slot_r_hand))
+
 
 /datum/species/bug/handle_post_spawn(var/mob/living/carbon/human/H)
 	H.gender = NEUTER
