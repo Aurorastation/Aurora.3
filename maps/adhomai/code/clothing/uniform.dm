@@ -9,32 +9,38 @@
 	siemens_coefficient = 0.7
 
 /obj/item/clothing/under/uniform/levy
-	starting_accessories = list(/obj/item/clothing/accessory/epaulette)
+	starting_accessories = list(/obj/item/clothing/accessory/levy_coat, /obj/item/clothing/accessory/epaulette)
 
 /obj/item/clothing/under/uniform/grenadier
-	starting_accessories = list(/obj/item/clothing/accessory/epaulette/grenadier)
+	starting_accessories = list(/obj/item/clothing/accessory/levy_coat, /obj/item/clothing/accessory/epaulette/grenadier)
 
 /obj/item/clothing/under/uniform/combat_engineer
-	starting_accessories = list(/obj/item/clothing/accessory/epaulette/engineer)
+	starting_accessories = list(/obj/item/clothing/accessory/levy_coat, /obj/item/clothing/accessory/epaulette/engineer)
 
 /obj/item/clothing/under/uniform/sharpshooter
-	starting_accessories = list(/obj/item/clothing/accessory/epaulette/sharpshooter)
+	starting_accessories = list(/obj/item/clothing/accessory/levy_coat, /obj/item/clothing/accessory/epaulette/sharpshooter)
 
 /obj/item/clothing/under/uniform/supply
-	starting_accessories = list(/obj/item/clothing/accessory/epaulette/supply)
+	starting_accessories = list(/obj/item/clothing/accessory/levy_coat, /obj/item/clothing/accessory/epaulette/supply)
 
 /obj/item/clothing/under/uniform/hand
 	name = "officer uniform"
 	desc = "A service military uniform issued to the officers of the Imperial Army."
 	icon_state = "captain"
 	item_state = "captain"
-	starting_accessories = list(/obj/item/clothing/accessory/epaulette/commander)
+	starting_accessories = list(/obj/item/clothing/accessory/levy_coat/officer, /obj/item/clothing/accessory/epaulette/commander)
 
 /obj/item/clothing/under/uniform/hand/fancy
 	name = "officer dress uniform"
 	desc = "A fancy dress military uniform issued to the officers of the Imperial Army."
 	icon_state = "noble"
 	item_state = "noble"
+	starting_accessories = null
+
+/obj/item/clothing/under/uniform/hand/fancy/alt
+	icon_state = "nka_officerdress"
+	item_state = "nka_officerdress"
+	starting_accessories = (/obj/item/clothing/accessory/levy_coat/dress/officer)
 
 /obj/item/clothing/under/uniform/constable
 	name = "constable uniform"

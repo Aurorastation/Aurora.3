@@ -8,11 +8,20 @@
 	armor = list(melee = 10, bullet = 10, laser = 0, energy = 0, bomb = 0, bio = 0, rad = 0)
 	siemens_coefficient = 0.7
 
+/obj/item/clothing/head/nka/dress
+	name = "dress cap"
+	icon_state = "nka_cap"
+	item_state = "nka_cap"
+
 /obj/item/clothing/head/nka/fancy
 	name = "dress cap"
 	desc = "A fancy dress cap issued to the officers of the Imperial Army."
 	icon_state = "noblecap"
 	item_state = "noblecap"
+
+/obj/item/clothing/head/nka/fancy/alt
+	icon_state = "nka_officercap"
+	item_state = "nka_officercap"
 
 /obj/item/clothing/head/helmet/nka
 	name = "kettle helmet"

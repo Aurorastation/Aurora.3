@@ -107,6 +107,7 @@
 	suit_store = /obj/item/weapon/gun/projectile/grenadier
 	l_pocket = /obj/item/weapon/storage/wallet/medium
 	gloves = /obj/item/clothing/gloves/brown/tajara
+	belt = /obj/item/weapon/storage/belt/security/tactical/nka
 	backpack_contents = list(
 							/obj/item/ammo_magazine/boltaction = 2,
 							/obj/item/weapon/grenade/frag = 3,

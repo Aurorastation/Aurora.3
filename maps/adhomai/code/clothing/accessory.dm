@@ -31,3 +31,28 @@
 	desc = "An ornamental shoulder piece that displays a rank among the Imperial Army. This one bears the rank of a commander."
 	icon_state = "shoulderboard_commander"
 	item_state = "shoulderboard_commander"
+
+/obj/item/clothing/accessory/levy_coat
+	name = "levy coat"
+	desc = "A simple coat issued as part of the Imperial Army uniform."
+	icon = 'icons/adhomai/clothing.dmi'
+	icon_state = "nka_coat"
+	item_state = "nka_coat"
+	contained_sprite = TRUE
+	slot = "coat"
+
+/obj/item/clothing/accessory/levy_coat/officer
+	name = "officer coat"
+	icon_state = "captain_coat"
+	item_state = "captain_coat"
+
+/obj/item/clothing/accessory/levy_coat/dress
+	name = "dress coat"
+	desc = "A fancy coat issued as part of the Imperial Army dress uniform."
+	icon_state = "nka_dress"
+	item_state = "nka_dress"
+
+/obj/item/clothing/accessory/levy_coat/dress/officer
+	icon_state = "nka_officerdress"
+	item_state = "nka_officerdress"
+
