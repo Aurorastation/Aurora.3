@@ -447,7 +447,7 @@
 /turf/simulated/floor/tiled/white,
 /area/adhomai/village/bar)
 "bv" = (
-/obj/structure/simple_door/iron{
+/obj/structure/simple_door/cell{
 	initial_lock_value = "cell"
 	},
 /turf/simulated/floor/plating,
@@ -5127,6 +5127,11 @@
 /obj/item/weapon/stool/padded,
 /turf/simulated/floor/tiled/dark,
 /area/adhomai/fortress)
+"QW" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/barricade/bars,
+/turf/simulated/floor/plating,
+/area/adhomai/village/police)
 "Rg" = (
 /obj/structure/table/glass,
 /obj/item/weapon/reagent_containers/food/drinks/drinkingglass,
@@ -47285,7 +47290,7 @@ XG
 ZU
 XJ
 XJ
-AH
+QW
 kg
 el
 df
@@ -48056,7 +48061,7 @@ XJ
 XJ
 XJ
 XJ
-AH
+QW
 kg
 el
 df
@@ -48827,7 +48832,7 @@ kA
 eC
 XJ
 XJ
-AH
+QW
 ej
 kh
 df

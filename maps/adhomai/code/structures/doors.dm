@@ -5,7 +5,7 @@
 
 /obj/structure/barricade/bars
 	name = "bars"
-	icon = 'icons/adhomai/sandbags.dmi'
+	icon = 'icons/adhomai/structures.dmi'
 	icon_state = "prisonbars"
 	smooth = SMOOTH_TRUE
 	health = 300
