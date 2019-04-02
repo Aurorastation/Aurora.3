@@ -140,7 +140,6 @@
 	desc = "A large stone brick fireplace."
 	icon = 'icons/adhomai/fireplace.dmi'
 	icon_state = "fireplace"
-	density = TRUE
 	pixel_x = -16
 	safe = TRUE
 
