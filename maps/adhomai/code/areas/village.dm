@@ -37,7 +37,7 @@
 	icon_state = "chapel"
 
 /area/adhomai/village/police
-	name = "\improper Police Station"
+	name = "\improper Constabulary"
 	icon_state = "brig"
 
 /area/adhomai/village/blacksmith

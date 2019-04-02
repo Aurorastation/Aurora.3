@@ -4,10 +4,10 @@
 	icon_state = "signpub"
 
 /obj/structure/sign/adhomai/constable
-	name = "constable station sign"
+	name = "constabulary sign"
 	icon_state = "signconstable"
 
-/obj/structure/sign/adhomai/constable
+/obj/structure/sign/adhomai/laundry
 	name = "laundry sign"
 	icon_state = "signlaundry"
 
