@@ -21,7 +21,7 @@
           </div>
           <div v-if="can_switch">
             <div class="itemContentNarrow">
-              <vui-button :params="{'command' : 'lethal', 'value' : 1}" :class="{'redButton': lethal}">On</vui-button>
+              <vui-button :disabled="!can_switch" :params="{'command' : 'lethal', 'value' : 1}" :class="{'redButton': lethal}">On</vui-button>
               <vui-button :params="{'command' : 'lethal', 'value' : 0}" :class="{'selected': !lethal}">Off</vui-button>
             </div>
           </div>
