@@ -42,6 +42,19 @@
 	caliber = "trod"
 	projectile_type = /obj/item/projectile/bullet/trod
 
+
+/obj/item/ammo_casing/caseless445m
+	desc = "Caseless ammo fragments."
+	icon_state = "trod"
+	caliber = "445 caseless"
+	projectile_type = /obj/item/projectile/bullet/rifle/caseless445m
+
+/obj/item/ammo_casing/caseless475
+	desc = "Caseless ammo fragments."
+	icon_state = "trod"
+	caliber = "A4.75x33 Caseless"
+	projectile_type = /obj/item/projectile/bullet/rifle/caseless475
+
 /obj/item/ammo_casing/c9mm
 	desc = "A 9mm bullet casing."
 	caliber = "9mm"

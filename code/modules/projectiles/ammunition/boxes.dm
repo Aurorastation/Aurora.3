@@ -245,6 +245,34 @@
 /obj/item/ammo_magazine/trodpack/empty
 	initial_ammo = 0
 
+
+/obj/item/ammo_magazine/g11
+	name = "G11 Stick Mag"
+	icon_state = "g11mag"
+	mag_type = MAGAZINE
+	caliber = "A4.75x33"
+	ammo_type = /obj/item/ammo_casing/caseless475
+	multiple_sprites = 0
+	max_ammo = 45
+	icon = 'icons/obj/g11.dmi'
+
+
+/obj/item/ammo_magazine/g11/sniper
+	name = "G11-S  Mag"
+	icon_state = "g11mag"
+	mag_type = MAGAZINE
+	caliber = "A4.75x33"
+	ammo_type = /obj/item/ammo_casing/caseless445m
+	multiple_sprites = 0
+	max_ammo = 5
+	icon = 'icons/obj/g11.dmi'
+
+
+/obj/item/ammo_magazine/g11/empty
+	initial_ammo = 0
+/obj/item/ammo_magazine/g11/sniper/empty
+	initial_ammo = 0
+
 /obj/item/ammo_magazine/a762
 	name = "magazine box (7.62mm)"
 	icon_state = "a762"

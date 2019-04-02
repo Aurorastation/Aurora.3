@@ -84,10 +84,20 @@
 	item_cost = 6
 	path = /obj/item/martial_manual
 
+/*
+
+//This is commented out incase somebody wants to easily add it back in
 /datum/uplink_item/item/visible_weapons/heavysniper
 	name = "Anti-materiel Rifle"
 	item_cost = DEFAULT_TELECRYSTAL_AMOUNT
 	path = /obj/item/weapon/gun/projectile/heavysniper
+
+*/
+
+/datum/uplink_item/item/visible_weapons/g11
+	name = "G11 Battle Rifle"
+	item_cost = 16
+	path = /obj/item/weapon/gun/projectile/automatic/g11
 
 /datum/uplink_item/item/visible_weapons/gatling
 	name = "Gatling Machine Gun"

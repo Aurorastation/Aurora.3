@@ -343,6 +343,57 @@
 		list(mode_name="dual coil",	burst=2, move_delay=5, accuracy = list(-2,-3), dispersion = list(20))
 		)
 
+/obj/item/weapon/gun/projectile/automatic/g11
+	name = "G11"
+	desc = "An advanced rifle seemingly made from germanic space magic."
+	icon = 'icons/obj/g11.dmi'
+	icon_state = "g11"
+	item_state = "z8carbine"
+	w_class = 4
+	force = 10
+	caliber = "A4.75x33"
+	origin_tech = list(TECH_COMBAT = 8, TECH_MATERIAL = 7, TECH_ILLEGAL = 5)
+	slot_flags = SLOT_BELT|SLOT_BACK
+	fire_sound = 'sound/weapons/g11fire.ogg'
+	load_method = MAGAZINE
+	magazine_type = /obj/item/ammo_magazine/g11
+	allowed_magazines = list(/obj/item/ammo_magazine/g11, /obj/item/ammo_magazine/g11/sniper)
+	auto_eject = 1
+	auto_eject_sound = 'sound/weapons/smg_empty_alarm.ogg'
+	recoil = 1
+
+	firemodes = list(
+		list(mode_name="semiauto",       burst=1,    fire_delay=10,    move_delay=null, use_launcher=null, burst_accuracy=null, dispersion=null),
+		list(mode_name="3-round bursts", burst=3,    fire_delay=null, move_delay=3,    use_launcher=null, burst_accuracy=list(2,1,1), dispersion=list(0, 7.5)),
+		list(mode_name="long bursts",	burst=8, move_delay=5, burst_accuracy = list(1,0,0,-1,-1,-1,-2,-2), dispersion = list(8))
+		)
+
+/obj/item/weapon/gun/projectile/automatic/g11/verb/scope()
+	set category = "Object"
+	set name = "Use Scope"
+	set popup_menu = 1
+
+
+	toggle_scope(0.5, usr)
+
+
+/obj/item/weapon/gun/projectile/automatic/g11/verb/wield_rifle()
+	set name = "Wield rifle"
+	set category = "Object"
+	set src in usr
+
+	toggle_wield(usr)
+	usr.update_icon()
+
+/obj/item/weapon/gun/projectile/automatic/g11/update_icon()
+	..()
+	icon_state = (ammo_magazine)? "g11" : "g11-empty"
+	if(wielded)
+		item_state = "z8carbine-wielded"
+	else
+		item_state = "z8carbine"
+	update_held_icon()
+	return
 
 /obj/item/weapon/gun/projectile/automatic/terminator
 	name = "flechette rifle"
