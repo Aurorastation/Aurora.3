@@ -20,7 +20,7 @@
 	item_state = "shoulderboard_supply"
 
 /obj/item/clothing/accessory/epaulette/engineer
-	name = "combat officer epaulette"
+	name = "combat engineer epaulette"
 	desc = "An ornamental shoulder piece that displays a rank among the Imperial Army. This one bears the rank of a combat engineer."
 	icon_state = "shoulderboard_engineer"
 	item_state = "shoulderboard_engineer"
