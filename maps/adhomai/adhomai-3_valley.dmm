@@ -943,15 +943,6 @@
 /obj/structure/table/wood,
 /turf/simulated/floor/tiled/dark,
 /area/adhomai/fortress)
-"di" = (
-/obj/machinery/portable_atmospherics/hydroponics/soil,
-/obj/machinery/light{
-	dir = 2;
-	icon_state = "tube1";
-	pixel_y = 0
-	},
-/turf/simulated/floor/holofloor/desert,
-/area/adhomai)
 "dk" = (
 /obj/structure/table/wood,
 /obj/item/weapon/paper_bin,
@@ -1092,14 +1083,6 @@
 /obj/item/weapon/storage/fancy/cigarettes,
 /turf/simulated/floor/tiled/dark,
 /area/adhomai/fortress/outpost)
-"dK" = (
-/obj/machinery/light{
-	dir = 4;
-	icon_state = "tube1";
-	pixel_x = 0
-	},
-/turf/simulated/floor/holofloor/desert,
-/area/adhomai)
 "dL" = (
 /obj/item/weapon/paper_bin,
 /obj/structure/table/wood,
@@ -1113,14 +1096,6 @@
 	icon_state = "hydrofloor"
 	},
 /area/adhomai/village)
-"dN" = (
-/obj/machinery/light{
-	dir = 8;
-	icon_state = "tube1";
-	pixel_y = 0
-	},
-/turf/simulated/floor/holofloor/desert,
-/area/adhomai)
 "dP" = (
 /obj/item/weapon/storage/fancy/candle_box,
 /obj/structure/table/wood,
@@ -1193,14 +1168,6 @@
 /obj/structure/closet/crate/trashcart,
 /turf/simulated/floor/tiled/steel,
 /area/adhomai/village/foundry)
-"ec" = (
-/obj/machinery/portable_atmospherics/hydroponics/soil,
-/obj/machinery/light{
-	dir = 1;
-	icon_state = "tube1"
-	},
-/turf/simulated/floor/holofloor/desert,
-/area/adhomai)
 "ed" = (
 /obj/item/weapon/trap/animal/medium,
 /turf/simulated/floor/wood,
@@ -1481,9 +1448,11 @@
 /obj/item/weapon/gun/projectile/revolver/lemat,
 /obj/item/device/binoculars,
 /obj/item/clothing/accessory/holster/hip,
+/obj/item/weapon/material/sword/sabre,
+/obj/item/clothing/shoes/armored_boots,
+/obj/item/clothing/gloves/grenadier,
 /obj/item/clothing/suit/armor/nka,
 /obj/item/clothing/head/helmet/nka,
-/obj/item/weapon/material/sword/sabre,
 /turf/simulated/floor/tiled/dark,
 /area/adhomai/fortress)
 "fb" = (
@@ -3516,6 +3485,13 @@
 /obj/item/mold/butterflyhandle,
 /turf/simulated/floor/wood,
 /area/adhomai/village/blacksmith)
+"lk" = (
+/obj/machinery/light{
+	icon_state = "tube1";
+	dir = 1
+	},
+/turf/simulated/floor/wood,
+/area/adhomai/village/townhall)
 "lm" = (
 /obj/structure/window/reinforced{
 	icon_state = "rwindow";
@@ -3716,6 +3692,12 @@
 "pg" = (
 /turf/simulated/floor/tiled/dark,
 /area/adhomai/village/temple)
+"pj" = (
+/obj/structure/bonfire/fireplace{
+	dir = 4
+	},
+/turf/simulated/floor/carpet/blue,
+/area/adhomai/village)
 "pl" = (
 /turf/simulated/wall/wood,
 /area/adhomai/village/townhall)
@@ -4361,6 +4343,12 @@
 /obj/structure/grille,
 /turf/simulated/floor/wood,
 /area/adhomai/village/medical)
+"CU" = (
+/obj/structure/bonfire/fireplace{
+	dir = 4
+	},
+/turf/simulated/floor/wood,
+/area/adhomai/village)
 "CZ" = (
 /obj/item/weapon/stool,
 /turf/simulated/floor/wood,
@@ -4387,6 +4375,10 @@
 	},
 /turf/simulated/floor/carpet,
 /area/adhomai/village/bar)
+"Dy" = (
+/obj/structure/bonfire/fireplace,
+/turf/simulated/floor/wood,
+/area/adhomai/village/police)
 "DJ" = (
 /obj/structure/table/wood,
 /obj/item/weapon/reagent_containers/glass/bucket,
@@ -4588,6 +4580,10 @@
 	},
 /turf/simulated/floor/snow,
 /area/adhomai)
+"GH" = (
+/obj/structure/bonfire/fireplace,
+/turf/simulated/floor/wood,
+/area/adhomai/village/bar)
 "GI" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced{
@@ -4789,6 +4785,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/adhomai/village/police)
+"Jx" = (
+/obj/structure/bonfire/fireplace{
+	dir = 8
+	},
+/turf/simulated/floor/wood,
+/area/adhomai/village)
 "JN" = (
 /obj/item/weapon/stool/padded,
 /turf/simulated/floor/tiled/dark,
@@ -4836,6 +4838,7 @@
 /obj/item/mold/bat,
 /obj/item/mold/armor,
 /obj/item/mold/halberd,
+/obj/item/mold/helmet,
 /turf/simulated/floor/wood,
 /area/adhomai/village/blacksmith)
 "KB" = (
@@ -4893,6 +4896,13 @@
 	},
 /turf/simulated/floor/wood,
 /area/adhomai/village/blacksmith)
+"LJ" = (
+/obj/structure/table/wood,
+/obj/structure/sign/adhomai/paiting{
+	pixel_y = 32
+	},
+/turf/simulated/floor/wood,
+/area/adhomai/village)
 "LK" = (
 /obj/structure/sink/kitchen{
 	pixel_y = 32
@@ -5143,6 +5153,7 @@
 /obj/structure/sign/adhomai/court{
 	pixel_x = 32
 	},
+/obj/structure/street_lamp,
 /turf/simulated/floor/snow,
 /area/adhomai)
 "Sh" = (
@@ -5156,6 +5167,13 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/adhomai/village/shop)
+"Sp" = (
+/obj/machinery/light/small{
+	dir = 1
+	},
+/obj/structure/bonfire/fireplace,
+/turf/simulated/floor/wood,
+/area/adhomai/village)
 "Sq" = (
 /obj/structure/curtain/open/bed{
 	pixel_y = 32
@@ -5400,6 +5418,10 @@
 	},
 /turf/simulated/floor/wood,
 /area/adhomai/village/blacksmith)
+"Wz" = (
+/obj/structure/bonfire/fireplace,
+/turf/simulated/floor/wood,
+/area/adhomai/village/mayor)
 "WK" = (
 /obj/structure/table/steel,
 /obj/item/weapon/paper_bin,
@@ -5455,6 +5477,10 @@
 "XG" = (
 /turf/simulated/floor/carpet,
 /area/adhomai/village/police)
+"XH" = (
+/obj/structure/street_lamp,
+/turf/simulated/floor/holofloor/desert,
+/area/adhomai)
 "XJ" = (
 /turf/simulated/floor/wood,
 /area/adhomai/village/police)
@@ -5476,6 +5502,16 @@
 /obj/structure/grille,
 /turf/simulated/floor/wood,
 /area/adhomai/village/mayor)
+"XX" = (
+/obj/structure/bonfire/fireplace{
+	dir = 8
+	},
+/turf/simulated/floor/wood,
+/area/adhomai/village/townhall)
+"Yd" = (
+/obj/structure/street_lamp,
+/turf/simulated/floor/snow,
+/area/adhomai)
 "Yw" = (
 /obj/structure/closet/cabinet,
 /turf/simulated/floor/carpet,
@@ -39567,7 +39603,7 @@ rl
 aa
 aa
 cS
-aa
+Yd
 ae
 ae
 ae
@@ -41618,7 +41654,7 @@ aa
 aa
 aa
 ae
-aa
+Yd
 aa
 aa
 aa
@@ -42111,8 +42147,8 @@ ae
 ae
 aa
 wf
-Fr
 JQ
+Fr
 nL
 oA
 du
@@ -42138,7 +42174,7 @@ aa
 aa
 aa
 aa
-aa
+Yd
 aa
 aa
 aa
@@ -42368,8 +42404,8 @@ ae
 ae
 aa
 wf
-Fr
 El
+Fr
 nL
 Fr
 sh
@@ -42674,7 +42710,7 @@ Rm
 Rm
 Rm
 Rm
-Rm
+Yd
 ae
 ae
 Rm
@@ -42934,7 +42970,7 @@ Rm
 Rm
 ae
 ae
-Rm
+Yd
 Rm
 Rm
 Rm
@@ -43391,15 +43427,15 @@ aa
 aa
 aa
 aa
-aa
+Yd
 ae
 ae
 aa
 wf
-Fr
-Fr
-nL
-Fr
+wf
+wf
+wf
+GH
 Fr
 Fr
 Fr
@@ -43652,10 +43688,10 @@ aa
 ae
 ae
 aa
+aa
+aa
+aa
 wf
-Fr
-Fr
-nL
 Fr
 Fr
 Fr
@@ -43671,7 +43707,7 @@ Fr
 Fr
 sg
 wf
-aa
+Yd
 ae
 aa
 aa
@@ -43909,9 +43945,9 @@ aa
 ae
 ae
 aa
-wf
-wf
-wf
+aa
+aa
+aa
 wf
 eI
 dx
@@ -45245,7 +45281,7 @@ uV
 uV
 uV
 uV
-aa
+Yd
 ae
 ae
 aa
@@ -45729,7 +45765,7 @@ aa
 aa
 aa
 ae
-aa
+Yd
 aa
 lm
 rk
@@ -46533,7 +46569,7 @@ uV
 ae
 ae
 ae
-aa
+Yd
 aa
 Mz
 pg
@@ -47754,7 +47790,7 @@ mk
 aa
 Bu
 aa
-aa
+Yd
 ae
 ae
 aa
@@ -48059,7 +48095,7 @@ pl
 oC
 pU
 pl
-pU
+lk
 pU
 pU
 iz
@@ -48273,7 +48309,7 @@ ae
 ae
 aa
 Wm
-XJ
+Dy
 eC
 eT
 XJ
@@ -48317,8 +48353,8 @@ pU
 QC
 pl
 kz
-hN
 pU
+XX
 pl
 pl
 pl
@@ -48547,7 +48583,7 @@ aa
 aa
 aa
 DR
-sA
+Sp
 EH
 az
 zK
@@ -48555,7 +48591,7 @@ hX
 Km
 aa
 aa
-aa
+Yd
 ae
 aa
 aa
@@ -48804,7 +48840,7 @@ aa
 aa
 aa
 DR
-FW
+EH
 EH
 az
 bf
@@ -49318,7 +49354,7 @@ aa
 aa
 aa
 DR
-zK
+LJ
 EH
 EH
 EH
@@ -49360,7 +49396,7 @@ aa
 aa
 ae
 ae
-aa
+Yd
 aa
 aa
 aa
@@ -50365,7 +50401,7 @@ lG
 lG
 EH
 EH
-EH
+Jx
 DR
 cA
 lG
@@ -50373,7 +50409,7 @@ hY
 Km
 aa
 aa
-dC
+aa
 aa
 aa
 aa
@@ -50629,9 +50665,9 @@ Hi
 DR
 DR
 aa
-dB
-ap
-dE
+aa
+aa
+aa
 aa
 aa
 aa
@@ -50887,7 +50923,7 @@ aa
 aa
 aa
 aa
-dD
+aa
 aa
 aa
 aa
@@ -51095,7 +51131,7 @@ aa
 Gz
 Bu
 Bu
-aa
+Yd
 ae
 ae
 aa
@@ -51105,35 +51141,35 @@ aa
 aa
 aa
 aa
-aa
+Yd
 ae
 aa
 aa
 aa
 aa
 cR
-aa
-aa
-aa
-aa
-jX
-aa
-aa
-aa
-aa
-ae
-aa
-aa
-aa
-aa
-ae
-aa
+Yd
 aa
 aa
 aa
 jX
 aa
 aa
+aa
+aa
+ae
+aa
+aa
+aa
+Yd
+ae
+aa
+aa
+aa
+aa
+jX
+aa
+Yd
 ae
 aa
 aa
@@ -51145,6 +51181,7 @@ aa
 aa
 aa
 aa
+Yd
 aa
 aa
 aa
@@ -51154,8 +51191,7 @@ aa
 aa
 aa
 aa
-aa
-aa
+Yd
 ae
 ae
 aa
@@ -51929,7 +51965,7 @@ ae
 ae
 ae
 ae
-aa
+Yd
 aa
 aa
 aa
@@ -52129,12 +52165,13 @@ aa
 aa
 aa
 ae
-aa
+Yd
 ae
 aa
 ae
 aa
 aa
+Yd
 aa
 aa
 aa
@@ -52144,8 +52181,7 @@ aa
 aa
 aa
 aa
-aa
-aa
+Yd
 aa
 aa
 aa
@@ -52158,7 +52194,7 @@ ae
 ae
 ae
 aa
-dC
+aa
 aa
 aa
 aa
@@ -52170,7 +52206,7 @@ aa
 aa
 aa
 aa
-aa
+Yd
 ae
 aa
 aa
@@ -52178,7 +52214,7 @@ aa
 aa
 aa
 jX
-aa
+Yd
 aa
 aa
 aa
@@ -52394,9 +52430,9 @@ aa
 aa
 aa
 aa
-dC
 aa
 aa
+aa
 ae
 ae
 ae
@@ -52414,9 +52450,9 @@ ae
 ae
 ae
 ae
-dB
-ap
-dE
+aa
+aa
+Yd
 ae
 ae
 ae
@@ -52650,29 +52686,29 @@ vW
 Wm
 aa
 aa
-dB
-ap
-dE
-aa
-ae
-aa
-aa
-aa
-aa
-aa
-aa
-aa
 aa
 aa
 aa
 aa
 ae
 aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ae
+aa
 ae
 ae
 ae
 aa
-dD
+aa
 aa
 Xd
 Sk
@@ -52908,7 +52944,7 @@ Wm
 aa
 aa
 aa
-dD
+aa
 aa
 aa
 ae
@@ -53695,7 +53731,7 @@ cr
 DR
 aa
 ae
-aa
+Yd
 ae
 ae
 ka
@@ -53724,7 +53760,7 @@ LK
 Fc
 kq
 kJ
-Fc
+Wz
 iM
 iO
 iO
@@ -54226,7 +54262,7 @@ Zs
 Xd
 aa
 kJ
-Fc
+Wz
 mC
 Fc
 kJ
@@ -56055,8 +56091,8 @@ JP
 EH
 EH
 DR
-uh
-zK
+EH
+CU
 DR
 aa
 aa
@@ -56779,7 +56815,7 @@ aG
 DR
 Ns
 aa
-aa
+Yd
 ae
 ae
 ae
@@ -57795,7 +57831,7 @@ aa
 aa
 ba
 fJ
-aE
+pj
 uI
 aY
 aY
@@ -57811,20 +57847,20 @@ aa
 ae
 ae
 ae
-ae
-ae
-ae
-ae
-ae
-ae
-ae
-ae
-ae
-ae
-ae
-ae
-ae
-ae
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -58069,19 +58105,19 @@ ae
 ae
 ae
 aa
-cj
-cj
-cY
-cj
-cj
-ae
-ae
-cj
-cj
-cY
-cj
-cj
-ae
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -58326,19 +58362,19 @@ ae
 ae
 ae
 aa
-cj
-cj
-dK
-cj
-cj
-ae
-ae
-cj
-cj
-dK
-cj
-cj
-ae
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -58583,19 +58619,19 @@ ae
 ae
 ae
 aa
-cj
-di
-ap
-ec
-cj
-ae
-ae
-cj
-di
-ap
-ec
-cj
-ae
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -58839,19 +58875,19 @@ aa
 ae
 ae
 ae
-aa
-cj
-cj
-dN
-cj
-cj
 ae
 ae
-cj
-cj
-dN
-cj
-cj
+ae
+ae
+ae
+ae
+ae
+ae
+ae
+ae
+ae
+ae
+ae
 ae
 aa
 aa
@@ -59096,7 +59132,7 @@ aa
 ae
 ae
 ae
-cR
+Yd
 cj
 cj
 cY
@@ -59337,7 +59373,7 @@ aa
 aa
 ba
 fJ
-aE
+pj
 Gn
 aY
 fG
@@ -59870,14 +59906,14 @@ ae
 aa
 cj
 cj
-cY
+XH
 cj
 cj
 ae
 ae
 cj
 cj
-cY
+XH
 cj
 cj
 ae
@@ -60124,7 +60160,7 @@ aa
 ae
 ae
 ae
-aa
+cR
 cj
 cj
 cY
@@ -60879,7 +60915,7 @@ aa
 aa
 ba
 fJ
-aE
+pj
 aY
 aY
 sc
@@ -61669,14 +61705,14 @@ ae
 aa
 cj
 cj
-dK
+XH
 cj
 cj
 ae
 ae
 cj
 cj
-dK
+cY
 cj
 cj
 ae
@@ -61925,16 +61961,16 @@ ae
 ae
 aa
 cj
-di
-ap
-ec
+cj
+cY
+cj
 cj
 ae
 ae
 cj
-di
-ap
-ec
+cj
+cY
+cj
 cj
 ae
 DR
@@ -62183,14 +62219,14 @@ ae
 aa
 cj
 cj
-dN
+cY
 cj
 cj
 ae
 ae
 cj
 cj
-dN
+XH
 cj
 cj
 ae
@@ -62421,7 +62457,7 @@ aa
 aa
 ba
 fJ
-aE
+pj
 fG
 aY
 aY
@@ -62702,11 +62738,11 @@ ae
 ae
 ae
 ae
-ae
-ae
-ae
-ae
-ae
+cj
+cj
+cY
+cj
+cj
 ae
 JP
 EH
@@ -62947,7 +62983,7 @@ DR
 aa
 aa
 aa
-aa
+Yd
 ae
 ae
 ae
@@ -63725,14 +63761,14 @@ aa
 aa
 cj
 cj
-dK
+XH
 cj
 cj
 ae
 ae
 cj
 cj
-dK
+cY
 cj
 cj
 ae
@@ -63963,7 +63999,7 @@ aa
 aa
 ba
 fJ
-aE
+pj
 sc
 aY
 Rg
@@ -63981,16 +64017,16 @@ cR
 aa
 aa
 cj
-di
-ap
-ec
+cj
+cY
+cj
 cj
 ae
 ae
 cj
-di
-ap
-ec
+cj
+XH
+cj
 cj
 ae
 aa
@@ -64239,14 +64275,14 @@ aa
 aa
 cj
 cj
-dN
+cY
 cj
 cj
 ae
 ae
 cj
 cj
-dN
+cY
 cj
 cj
 ae
@@ -65261,7 +65297,7 @@ aa
 aa
 aa
 ae
-aa
+Yd
 aa
 aa
 aa
@@ -66295,14 +66331,14 @@ dz
 aa
 cj
 cj
-dK
+XH
 cj
 cj
 ae
 ae
 cj
 cj
-dK
+XH
 cj
 cj
 ae
@@ -66551,16 +66587,16 @@ dz
 dz
 aa
 cj
-di
-ap
-ec
+cj
+cY
+cj
 cj
 ae
 ae
 cj
-di
-ap
-ec
+cj
+cY
+cj
 cj
 ae
 aa
@@ -66809,14 +66845,14 @@ aa
 aa
 cj
 cj
-dN
+cY
 cj
 cj
 ae
 ae
 cj
 cj
-dN
+cY
 cj
 cj
 ae
@@ -67049,7 +67085,7 @@ aa
 aa
 aa
 DR
-EH
+cE
 EH
 NE
 Hi
@@ -67563,8 +67599,8 @@ aa
 aa
 aa
 DR
-cE
 EH
+Jx
 EH
 EH
 DR

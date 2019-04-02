@@ -31,7 +31,8 @@
 		/obj/item/weapon/screwdriver,
 		/obj/item/weapon/stamp,
 		/obj/item/device/paicard,
-		/obj/item/fluff)
+		/obj/item/fluff,
+		/obj/item/weapon/key)
 	slot_flags = SLOT_ID
 
 	var/obj/item/weapon/card/id/front_id = null

@@ -101,12 +101,13 @@
 	allow_backbag_choice = FALSE
 
 	uniform = /obj/item/clothing/under/uniform/grenadier
-	head = /obj/item/clothing/head/helmet/nka
+	head = /obj/item/clothing/head/helmet/nka/grenadier
+	shoes = /obj/item/clothing/shoes/armored_boots
+	gloves = /obj/item/clothing/gloves/grenadier
 	suit = /obj/item/clothing/suit/armor/nka
 	back = /obj/item/weapon/storage/backpack/satchel/grenadier
 	suit_store = /obj/item/weapon/gun/projectile/grenadier
 	l_pocket = /obj/item/weapon/storage/wallet/medium
-	gloves = /obj/item/clothing/gloves/brown/tajara
 	belt = /obj/item/weapon/storage/belt/security/tactical/nka
 	backpack_contents = list(
 							/obj/item/ammo_magazine/boltaction = 2,

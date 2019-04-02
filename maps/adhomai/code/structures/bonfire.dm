@@ -9,6 +9,7 @@
 	var/fuel = 2000
 	var/max_fuel = 2000
 	var/on_fire = FALSE
+	var/safe = FALSE
 
 /obj/structure/bonfire/Initialize()
 	. = ..()
@@ -50,9 +51,25 @@
 		return
 	if(!on_fire)
 		on_fire = TRUE
-		set_light(6)
+		check_light()
 		update_icon()
 		START_PROCESSING(SSprocessing, src)
+
+/obj/structure/bonfire/proc/check_light()
+	if(on_fire)
+		switch(fuel)
+			if(0 to 200)
+				set_light(2)
+			if(200 to 600)
+				set_light(3)
+			if(600 to 900)
+				set_light(4)
+			if(900 to 1300)
+				set_light(5)
+			if(1300 to 2000)
+				set_light(6)
+	else
+		set_light(0)
 
 /obj/structure/bonfire/process()
 	if(!on_fire)
@@ -71,11 +88,28 @@
 		var/mob/living/M = locate(/mob/living, src.loc)
 		burn(M)
 
+	check_light()
+	heat()
+
 /obj/structure/bonfire/proc/extinguish()
 	on_fire = FALSE
 	START_PROCESSING(SSprocessing, src)
-	set_light(0)
+	check_light()
 	update_icon()
+
+/obj/structure/bonfire/proc/heat()
+	var/turf/simulated/L = loc
+	if(istype(L))
+		var/datum/gas_mixture/env = L.return_air()
+		if(env.temperature >= T0C+10)
+			return
+		var/transfer_moles = 0.25 * env.total_moles
+		var/datum/gas_mixture/removed = env.remove(transfer_moles)
+
+		if(removed)
+			removed.add_thermal_energy(4000)
+
+			env.merge(removed)
 
 /obj/structure/bonfire/Crossed(AM as mob|obj)
 	if(on_fire)
@@ -84,6 +118,8 @@
 	..()
 
 /obj/structure/bonfire/proc/burn(var/mob/living/M, var/entered = FALSE)
+	if(safe)
+		return
 	if(M)
 		if(entered)
 			to_chat(M, "<span class='warning'>You are covered by fire and heat from entering \the [src]!</span>")
@@ -98,3 +134,28 @@
 				M.adjust_fire_stacks(5)
 				M.IgniteMob()
 				return
+
+/obj/structure/bonfire/fireplace
+	name = "fireplace"
+	desc = "A large stone brick fireplace."
+	icon = 'icons/adhomai/fireplace.dmi'
+	icon_state = "fireplace"
+	density = TRUE
+	pixel_x = -16
+	safe = TRUE
+
+/obj/structure/bonfire/fireplace/update_icon()
+	cut_overlays()
+	if(on_fire)
+		switch(fuel)
+			if(0 to 500)
+				add_overlay("fireplace_fire0")
+			if(500 to 1000)
+				add_overlay("fireplace_fire1")
+			if(1000 to 1500)
+				add_overlay("fireplace_fire2")
+			if(1500 to 1700)
+				add_overlay("fireplace_fire3")
+			if(1700 to 2000)
+				add_overlay("fireplace_fire4")
+		add_overlay("fireplace_glow")

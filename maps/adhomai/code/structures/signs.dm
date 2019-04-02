@@ -28,8 +28,8 @@
 	icon_state = "signhotel"
 
 /obj/structure/sign/adhomai/paiting
-	name = "paiting "
-	desc = "A framed oil paiting."
+	name = "painting "
+	desc = "A framed oil painting."
 	icon_state = "adhomai"
 
 /obj/structure/sign/adhomai/paiting/singulo
@@ -39,10 +39,10 @@
 	icon_state = "boom"
 
 /obj/structure/sign/double/painting
-	name = "paiting"
+	name = "painting"
 	icon = 'icons/adhomai/signs.dmi'
 	icon_state = "sky-left"
-	desc = "A framed large oil paiting."
+	desc = "A framed large oil painting."
 
 /obj/structure/sign/double/painting/right
 	icon_state = "sky-right"

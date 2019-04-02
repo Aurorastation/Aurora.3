@@ -73,8 +73,8 @@ for reference:
 	if(!material)
 		qdel(src)
 		return
-	name = "[material.display_name] barricade"
-	desc = "This space is blocked off by a barricade made of [material.display_name]."
+	name = "[material.display_name] [name]"
+	desc = "This space is blocked off by a [name] made of [material.display_name]."
 	color = material.icon_colour
 	maxhealth = material.integrity
 	health = maxhealth

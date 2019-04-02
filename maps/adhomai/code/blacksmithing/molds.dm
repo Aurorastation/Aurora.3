@@ -82,6 +82,20 @@
 	icon_state = "mold_key"
 	outcome = /obj/item/weapon/key
 	needed_ammount = 1
+	var/key_data
+
+/obj/item/mold/key/create_result(var/turf/T)
+	var/obj/item/weapon/key/S = new(T, filling.name)
+	if(key_data)
+		S.key_data = key_data
+
+/obj/item/mold/key/attackby(var/obj/item/I, var/mob/user)
+	if(istype(I, /obj/item/weapon/key))
+		to_chat(user, "<span class='notice'>You imprint \the [I] into \the [src].</span>")
+		var/obj/item/weapon/key/K = I
+		key_data = K.key_data
+	return
+	..()
 
 /obj/item/mold/lock
 	name = "lock mold"
@@ -90,8 +104,8 @@
 	needed_ammount = 1
 
 /obj/item/mold/armor
-	name = "armor plate mold"
-	outcome = /obj/item/weapon/material/armor_plating
+	name = "armor mold"
+	outcome = /obj/item/clothing/suit/armor/nka
 	needed_ammount = 3
 
 /obj/item/mold/bat
@@ -110,3 +124,9 @@
 	icon_state = "mold_blade"
 	outcome = /obj/item/weapon/material/sword/amohdan_sword
 	needed_ammount = 15
+
+/obj/item/mold/helmet
+	name = "helmet mold"
+	icon_state = "mold_shovel"
+	outcome = /obj/item/clothing/head/helmet/nka
+	needed_ammount = 10

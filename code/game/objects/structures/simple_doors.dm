@@ -15,6 +15,8 @@
 	var/health = 100
 	var/maxhealth = 100
 
+	atmos_canpass = CANPASS_PROC
+
 /obj/structure/simple_door/fire_act(datum/gas_mixture/air, exposed_temperature, exposed_volume)
 	TemperatureAct(exposed_temperature)
 
@@ -31,7 +33,7 @@
 		qdel(src)
 		return
 	icon_state = material.door_icon_base
-	name = "[material.display_name] door"
+	name = "[material.display_name] [name]"
 	color = material.icon_colour
 
 	maxhealth = max(1,round(material.integrity))
@@ -217,6 +219,12 @@
 		return
 	for(var/mob/living/L in range(1,src))
 		L.apply_effect(round(material.radioactivity/3),IRRADIATE,0)
+
+/obj/structure/simple_door/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
+	if(!state)
+		return 0
+	else
+		return 1
 
 /obj/structure/simple_door/iron/New(var/newloc,var/material_name, var/complexity)
 	..(newloc, "iron", complexity)

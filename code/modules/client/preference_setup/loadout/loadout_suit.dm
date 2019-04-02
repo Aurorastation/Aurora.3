@@ -326,3 +326,19 @@
 /datum/gear/suit/cardigan/New()
 	..()
 	gear_tweaks = list(gear_tweak_free_color_choice)
+
+/datum/gear/suit/apron/brown
+	display_name = "brown apron"
+	path = /obj/item/clothing/suit/apron/brown
+	allowed_maps = list("adhomai")
+	cost = 1
+
+/datum/gear/suit/storage/brown_jacket
+	display_name = "brown jacket"
+	path = /obj/item/clothing/suit/storage/brown_jacket
+	allowed_maps = list("adhomai")
+
+/datum/gear/suit/padded_coat
+	display_name = "warm padded coat"
+	path = /obj/item/clothing/suit/padded_coat
+	allowed_maps = list("adhomai")

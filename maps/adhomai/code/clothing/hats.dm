@@ -29,9 +29,13 @@
 	icon = 'icons/adhomai/clothing.dmi'
 	icon_state = "kettle"
 	item_state = "kettle"
-	contained_sprite = TRUE
 	armor = list(melee = 50, bullet = 50, laser = 15, energy = 10, bomb = 25, bio = 0, rad = 0)
 	siemens_coefficient = 0.5
+	contained_sprite = TRUE
+
+/obj/item/clothing/head/helmet/nka/grenadier
+	icon_state = "roygrenhelm"
+	item_state = "roygrenhelm"
 
 /obj/item/clothing/head/beret/pra
 	name = "green beret"

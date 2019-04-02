@@ -56,3 +56,21 @@
 	body_parts_covered = UPPER_TORSO|ARMS
 	armor = list(melee = 20, bullet = 15, laser = 5, energy = 5, bomb = 5, bio = 0, rad = 0)
 	siemens_coefficient = 0.7
+
+/obj/item/clothing/suit/storage/brown_jacket
+	name = "brown jacket"
+	desc = "A brown jacket, rugged and durable."
+	icon = 'icons/adhomai/clothing.dmi'
+	icon_state = "explorer_jacket"
+	item_state = "explorer_jacket"
+	contained_sprite = TRUE
+	body_parts_covered = UPPER_TORSO|ARMS
+
+/obj/item/clothing/suit/padded_coat
+	name = "warm padded coat"
+	desc = "A simple padded coat heavy jacket, for warmth, not for protection."
+	icon = 'icons/adhomai/clothing.dmi'
+	icon_state = "chief_constable"
+	item_state = "chief_constable"
+	contained_sprite = TRUE
+	body_parts_covered = UPPER_TORSO|ARMS
