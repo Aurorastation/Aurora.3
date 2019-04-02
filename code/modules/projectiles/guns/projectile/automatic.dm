@@ -344,7 +344,7 @@
 		)
 
 /obj/item/weapon/gun/projectile/automatic/g11
-	name = "G11"
+	name = "battle rifle"
 	desc = "An advanced rifle seemingly made from germanic space magic."
 	icon = 'icons/obj/g11.dmi'
 	icon_state = "g11"
@@ -361,11 +361,10 @@
 	auto_eject = 1
 	auto_eject_sound = 'sound/weapons/smg_empty_alarm.ogg'
 	recoil = 1
+	handle_casings = DELETE_CASINGS
 
 	firemodes = list(
-		list(mode_name="semiauto",       burst=1,    fire_delay=10,    move_delay=null, use_launcher=null, burst_accuracy=null, dispersion=null),
-		list(mode_name="3-round bursts", burst=3,    fire_delay=null, move_delay=3,    use_launcher=null, burst_accuracy=list(2,1,1), dispersion=list(0, 7.5)),
-		list(mode_name="long bursts",	burst=8, move_delay=5, burst_accuracy = list(1,0,0,-1,-1,-1,-2,-2), dispersion = list(8))
+		list(mode_name="semiauto",       burst=1,    fire_delay=7,    move_delay=null, use_launcher=null, burst_accuracy=null, dispersion=null)
 		)
 
 /obj/item/weapon/gun/projectile/automatic/g11/verb/scope()

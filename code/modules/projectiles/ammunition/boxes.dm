@@ -247,7 +247,7 @@
 
 
 /obj/item/ammo_magazine/g11
-	name = "G11 Stick Mag"
+	name = "battle rifle magazine"
 	icon_state = "g11mag"
 	mag_type = MAGAZINE
 	caliber = "A4.75x33"
@@ -258,7 +258,7 @@
 
 
 /obj/item/ammo_magazine/g11/sniper
-	name = "G11-S  Mag"
+	name = "battle rifle magazine(S Brand)"
 	icon_state = "g11mag"
 	mag_type = MAGAZINE
 	caliber = "A4.75x33"

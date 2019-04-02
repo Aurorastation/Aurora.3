@@ -190,14 +190,12 @@
 	armor_penetration = 25
 
 /obj/item/projectile/bullet/rifle/caseless475
-	damage = 25
-	armor_penetration = 25
+	damage = 20
+	armor_penetration = 28
 
 /obj/item/projectile/bullet/rifle/caseless445m
 	damage = 50
-	stun = 1
-	weaken = 1
-	penetrating = 5
+	penetrating = 4
 	armor_penetration = 40
 	maim_rate = 1
 	maim_type = DROPLIMB_EDGE
