@@ -69,6 +69,7 @@
 	var/list/targets = list()			//list of primary targets
 	var/list/secondarytargets = list()	//targets that are least important
 	var/resetting = FALSE
+	var/fast_processing = FALSE
 
 /obj/machinery/porta_turret/examine(mob/user)
 	..()
@@ -156,8 +157,11 @@
 			aTurretID.turretModes()
 	qdel(spark_system)
 	spark_system = null
-	STOP_PROCESSING(SSprocessing, src)
-	STOP_PROCESSING(SSfast_process, src)
+	if(fast_processing)
+		STOP_PROCESSING(SSfast_process, src)
+	else
+		STOP_PROCESSING(SSprocessing, src)
+	
 	. = ..()
 
 
@@ -267,9 +271,12 @@
 			enabled = value
 			if (enabled)
 				START_PROCESSING(SSprocessing, src)
+				fast_processing = FALSE
+			else if(fast_processing)
+				STOP_PROCESSING(SSfast_process, src)
+				fast_processing = FALSE
 			else
 				STOP_PROCESSING(SSprocessing, src)
-				STOP_PROCESSING(SSfast_process, src)
 		else if(href_list["command"] == "lethal")
 			lethal = value
 			lethal_icon = value
@@ -501,11 +508,15 @@
 			addtimer(CALLBACK(src, .proc/reset), 6 SECONDS, TIMER_UNIQUE | TIMER_OVERRIDE) // no valid targets, close the cover
 	
 	if(targets.len || secondarytargets.len)
-		STOP_PROCESSING(SSprocessing, src)
-		START_PROCESSING(SSfast_process, src)
+		if(!fast_processing)
+			STOP_PROCESSING(SSprocessing, src)
+			START_PROCESSING(SSfast_process, src)
+			fast_processing = TRUE
 	else
-		STOP_PROCESSING(SSfast_process, src)
-		START_PROCESSING(SSprocessing, src)
+		if(fast_processing)
+			STOP_PROCESSING(SSfast_process, src)
+			START_PROCESSING(SSprocessing, src)
+			fast_processing = FALSE
 
 	if(auto_repair && (health < maxhealth))
 		use_power(20000)
@@ -705,8 +716,11 @@
 	src.enabled = TC.enabled
 	if (enabled)
 		START_PROCESSING(SSprocessing, src)
-	else
+		fast_processing = FALSE
+	else if(fast_processing)
 		STOP_PROCESSING(SSprocessing, src)
+		fast_processing = FALSE
+	else
 		STOP_PROCESSING(SSfast_process, src)
 	if(egun) //If turret can switch modes.
 		src.lethal = TC.lethal

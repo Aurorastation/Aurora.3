@@ -32,6 +32,7 @@
 	var/ui_ref = null //used for turrets UI ref
 	var/remote_access = FALSE
 
+
 /obj/machinery/turretid/stun
 	enabled = 1
 	icon_state = "control_stun"
