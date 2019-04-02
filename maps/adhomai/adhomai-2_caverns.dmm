@@ -859,7 +859,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/adhomai/village/police)
 "Oe" = (
-/turf/simulated/wall/r_wall,
+/turf/simulated/wall/iron,
 /area/adhomai/village/police)
 "TG" = (
 /obj/structure/table/wood,
