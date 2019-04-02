@@ -703,6 +703,25 @@
 /obj/structure/monolith,
 /turf/simulated/floor/asteroid/basalt/adhomai,
 /area/adhomai/cavern)
+"cC" = (
+/obj/structure/toilet{
+	icon_state = "toilet00";
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/adhomai/village/police)
+"dg" = (
+/obj/structure/closet/cabinet,
+/obj/item/weapon/storage/box/shotgunshells,
+/obj/item/weapon/storage/box/shotgunshells,
+/obj/item/weapon/gun/projectile/shotgun/doublebarrel/pellet,
+/obj/item/weapon/storage/belt/bandolier,
+/turf/simulated/floor/tiled/dark,
+/area/adhomai/village/police)
+"dv" = (
+/obj/structure/stairs/east,
+/turf/simulated/floor/tiled/dark,
+/area/adhomai/village/police)
 "eY" = (
 /turf/simulated/floor/cult,
 /area/adhomai/cavern)
@@ -715,6 +734,22 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/cult,
 /area/adhomai/cavern)
+"jf" = (
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/adhomai/village/police)
+"ly" = (
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/table/wood,
+/turf/simulated/floor/tiled/dark,
+/area/adhomai/village/police)
+"lB" = (
+/turf/simulated/floor/plating,
+/area/adhomai/village/police)
 "nf" = (
 /obj/random/sarcophagus,
 /turf/simulated/floor/cult,
@@ -731,24 +766,153 @@
 "qK" = (
 /turf/simulated/wall/cult,
 /area/adhomai/cavern)
+"rQ" = (
+/obj/structure/simple_door/cell{
+	initial_lock_value = "cell"
+	},
+/turf/simulated/floor/plating,
+/area/adhomai/village/police)
+"rR" = (
+/obj/structure/closet,
+/obj/machinery/light/small,
+/turf/simulated/floor/tiled/dark,
+/area/adhomai/village/police)
 "sj" = (
 /obj/structure/cult/tome,
 /turf/simulated/floor/cult,
 /area/adhomai/cavern)
+"sr" = (
+/obj/structure/table/wood,
+/turf/simulated/floor/tiled/dark,
+/area/adhomai/village/police)
+"tS" = (
+/obj/structure/bed,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/plating,
+/area/adhomai/village/police)
 "wk" = (
 /obj/structure/cult/talisman,
 /obj/item/weapon/archaeological_find,
 /turf/simulated/floor/cult,
 /area/adhomai/cavern)
+"zg" = (
+/obj/structure/closet/cabinet,
+/obj/item/weapon/gun/projectile/automatic/tommygun,
+/obj/item/ammo_magazine/tommymag,
+/turf/simulated/floor/tiled/dark,
+/area/adhomai/village/police)
+"zh" = (
+/obj/structure/bed/chair/wood/adhomai{
+	icon_state = "tajchair";
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/adhomai/village/police)
+"zW" = (
+/obj/structure/table/wood,
+/obj/machinery/light/small,
+/turf/simulated/floor/tiled/dark,
+/area/adhomai/village/police)
+"Ey" = (
+/obj/machinery/light/small{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/plating,
+/area/adhomai/village/police)
 "EK" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/blood/splatter,
 /turf/simulated/floor/cult,
 /area/adhomai/cavern)
+"Gd" = (
+/obj/machinery/light/small{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/adhomai/village/police)
 "Hh" = (
 /obj/effect/decal/cleanable/blood/splatter,
 /turf/simulated/floor/cult,
 /area/adhomai/cavern)
+"If" = (
+/obj/machinery/light/small{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/adhomai/village/police)
+"Im" = (
+/obj/structure/bed,
+/turf/simulated/floor/plating,
+/area/adhomai/village/police)
+"Jp" = (
+/obj/structure/simple_door/iron{
+	initial_lock_value = "chief"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/adhomai/village/police)
+"LS" = (
+/obj/structure/closet,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/adhomai/village/police)
+"Oe" = (
+/turf/simulated/wall/r_wall,
+/area/adhomai/village/police)
+"TG" = (
+/obj/structure/table/wood,
+/obj/item/weapon/storage/box/beanbags,
+/obj/item/weapon/storage/box/beanbags,
+/turf/simulated/floor/tiled/dark,
+/area/adhomai/village/police)
+"TS" = (
+/turf/simulated/floor/tiled/dark,
+/area/adhomai/village/police)
+"UA" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/barricade/bars,
+/turf/simulated/floor/plating,
+/area/adhomai/village/police)
+"Xa" = (
+/obj/machinery/light/small{
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/adhomai/village/police)
+"Xz" = (
+/obj/machinery/light/small{
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/table/rack,
+/obj/item/weapon/shield/buckler,
+/obj/item/weapon/shield/buckler,
+/obj/item/weapon/shield/buckler,
+/turf/simulated/floor/tiled/dark,
+/area/adhomai/village/police)
+"Yq" = (
+/obj/structure/toilet{
+	icon_state = "toilet00";
+	dir = 8
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/plating,
+/area/adhomai/village/police)
+"Yw" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/plating,
+/area/adhomai/village/police)
+"YK" = (
+/obj/structure/table/rack,
+/obj/item/weapon/material/twohanded/pike,
+/obj/item/weapon/material/twohanded/pike,
+/obj/item/weapon/material/twohanded/pike,
+/turf/simulated/floor/tiled/dark,
+/area/adhomai/village/police)
 
 (1,1,1) = {"
 ae
@@ -39079,14 +39243,14 @@ ae
 ae
 ae
 ae
+ae
+aa
 aa
 aL
 aL
 aL
 aL
 aL
-ae
-ae
 ae
 ae
 ae
@@ -39336,14 +39500,14 @@ ae
 ae
 ae
 ae
+ae
+aa
 aa
 aL
 aM
 aP
 aM
 aL
-ae
-ae
 ae
 ae
 ae
@@ -39593,14 +39757,14 @@ ae
 ae
 ae
 ae
+ae
+aa
 aa
 aL
 aN
 aN
 aN
 aL
-ae
-ae
 ae
 ae
 ae
@@ -39850,14 +40014,14 @@ ae
 ae
 ae
 ae
+ae
+aa
 aa
 aL
 aM
 aN
 cs
 aL
-ae
-ae
 ae
 ae
 ae
@@ -40107,14 +40271,14 @@ ae
 ae
 ae
 ae
+ae
+aa
 aa
 aL
 aN
 aN
 cs
 aL
-ae
-ae
 ae
 ae
 ae
@@ -40364,14 +40528,14 @@ ae
 ae
 ae
 ae
+ae
+aa
 aa
 aL
 aN
 aN
 aN
 aL
-ae
-ae
 ae
 ae
 ae
@@ -40621,14 +40785,14 @@ ae
 ae
 ae
 ae
+ae
+aa
 aa
 aL
 aO
 aM
 aM
 aL
-ae
-ae
 ae
 ae
 ae
@@ -40878,14 +41042,14 @@ ae
 ae
 ae
 ae
+ae
+aa
 aa
 aL
 aL
 aL
 aL
 aL
-ae
-ae
 ae
 ae
 ae
@@ -41135,7 +41299,7 @@ ae
 ae
 ae
 ae
-aa
+ae
 aa
 ae
 ae
@@ -41392,10 +41556,10 @@ ae
 ae
 ae
 ae
+ae
 aa
 aa
-ae
-ae
+aa
 ae
 ae
 ae
@@ -41649,13 +41813,13 @@ ae
 ae
 ae
 ae
+ae
 aa
 aa
-ae
-ae
-ae
-ae
-ae
+aa
+aa
+aa
+aa
 ae
 ae
 ae
@@ -41906,14 +42070,14 @@ ae
 ae
 ae
 ae
+ae
+ae
+ae
+ae
+ae
 aa
 aa
-ae
-ae
-ae
-ae
-ae
-ae
+aa
 ae
 ae
 ae
@@ -42156,21 +42320,21 @@ ae
 ae
 ae
 ae
-ae
-ae
-ae
-ae
-ae
-ae
+Oe
+Oe
+Oe
+Oe
+Oe
+Oe
+Oe
+Oe
+Oe
+Oe
+Oe
 ae
 aa
 aa
-ae
-ae
-ae
-ae
-ae
-ae
+aa
 ae
 ae
 ae
@@ -42413,21 +42577,21 @@ ae
 ae
 ae
 ae
-ae
-ae
-ae
-ae
-ae
+Oe
+Xa
+tS
+Yw
+UA
+TS
+TS
+Gd
+TS
+TS
+Oe
 ae
 ae
 aa
 aa
-ae
-ae
-ae
-ae
-ae
-ae
 ae
 ae
 ae
@@ -42670,17 +42834,17 @@ ae
 ae
 ae
 ae
-ae
-ae
-ae
-ae
-ae
-ae
-ae
-aa
-aa
-ae
-ae
+Oe
+cC
+lB
+lB
+rQ
+TS
+TS
+TS
+TS
+TS
+Oe
 ae
 ae
 ae
@@ -42927,21 +43091,21 @@ ae
 ae
 ae
 ae
-ae
-ae
-ae
-ae
-ae
-ae
-ae
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+Oe
+Oe
+Oe
+Oe
+Oe
+If
+TS
+TS
+TS
+dv
+Oe
+Oe
+Oe
+Oe
+Oe
 aa
 aa
 aa
@@ -43184,21 +43348,21 @@ ae
 ae
 ae
 ae
-ae
-ae
-ae
-ae
-ae
-ae
-ae
-ae
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+Oe
+Xa
+Im
+Yw
+UA
+TS
+TS
+TS
+LS
+Oe
+Oe
+zg
+dg
+dg
+Oe
 aa
 aa
 ae
@@ -43441,21 +43605,21 @@ ae
 ae
 ae
 ae
-ae
-ae
-ae
-ae
-ae
-ae
-ae
-ae
-ae
-ae
-ae
-ae
-ae
-ae
-ae
+Oe
+cC
+Yw
+lB
+rQ
+TS
+TS
+TS
+rR
+Oe
+If
+TS
+TS
+TS
+Oe
 ae
 ae
 ae
@@ -43698,21 +43862,21 @@ ae
 ae
 ae
 ae
-ae
-ae
-ae
-ae
-ae
-ae
-ae
-ae
-ae
-ae
-ae
-ae
-ae
-ae
-ae
+Oe
+Oe
+Oe
+Oe
+Oe
+If
+TS
+TS
+TS
+Jp
+TS
+TS
+TS
+TS
+Oe
 ae
 ae
 ae
@@ -43955,21 +44119,21 @@ ae
 ae
 ae
 ae
-ae
-ae
-ae
-ae
-ae
-ae
-ae
-ae
-ae
-ae
-ae
-ae
-ae
-ae
-ae
+Oe
+Ey
+Im
+lB
+UA
+TS
+TS
+sr
+zW
+Oe
+Xz
+jf
+TS
+ly
+Oe
 ae
 ae
 ae
@@ -44212,21 +44376,21 @@ ae
 ae
 ae
 ae
-ae
-ae
-ae
-ae
-ae
-ae
-ae
-ae
-ae
-ae
-ae
-ae
-ae
-ae
-ae
+Oe
+Yq
+lB
+lB
+rQ
+TS
+TS
+zh
+TS
+Oe
+YK
+TS
+TS
+TG
+Oe
 ae
 ae
 ae
@@ -44469,21 +44633,21 @@ ae
 ae
 ae
 ae
-ae
-ae
-ae
-ae
-ae
-ae
-ae
-ae
-ae
-ae
-ae
-ae
-ae
-ae
-ae
+Oe
+Oe
+Oe
+Oe
+Oe
+Oe
+Oe
+Oe
+Oe
+Oe
+Oe
+Oe
+Oe
+Oe
+Oe
 ae
 ae
 ae
