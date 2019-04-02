@@ -36,7 +36,7 @@
 
 	if(istype(W, /obj/item/device/flashlight/flare/torch))
 		var/obj/item/device/flashlight/flare/torch/T = W
-		if(!T.on)
+		if(T.on)
 			T.light(user)
 
 	if(istype(W,/obj/item/stack/material/wood) && (fuel < max_fuel))

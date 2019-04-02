@@ -7,7 +7,6 @@
 	name = "bars"
 	icon = 'icons/adhomai/structures.dmi'
 	icon_state = "prisonbars"
-	smooth = SMOOTH_TRUE
 	health = 300
 	maxhealth = 300
 
