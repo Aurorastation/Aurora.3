@@ -891,7 +891,7 @@
 /datum/design/rig
 	build_type = MECHFAB
 	category = "RIG Assemblies"
-	materials = list(DEFAULT_WALL_MATERIAL = 25000, "glass" = 10000, "silver" = 5500)
+	materials = list(DEFAULT_WALL_MATERIAL = 30000, "glass" = 12500)
 	req_tech = list(TECH_MATERIAL = 3, TECH_ENGINEERING = 2, TECH_MAGNET = 3, TECH_POWER = 3)
 	time = 20
 
