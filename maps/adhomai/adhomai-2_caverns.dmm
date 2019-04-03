@@ -69,24 +69,11 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/adhomai/fortress)
-"aq" = (
-/obj/machinery/light/small,
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/plating,
-/area/adhomai/fortress)
-"ar" = (
-/obj/machinery/light/small,
-/turf/simulated/floor/plating,
-/area/adhomai/fortress)
 "as" = (
 /obj/structure/simple_door/iron{
 	initial_lock_value = "soldier"
 	},
 /turf/simulated/floor/tiled/dark,
-/area/adhomai/fortress)
-"at" = (
-/obj/effect/wingrille_spawn/reinforced,
-/turf/simulated/floor/plating,
 /area/adhomai/fortress)
 "au" = (
 /turf/simulated/floor/tiled/dark,
@@ -813,6 +800,11 @@
 /obj/machinery/light/small,
 /turf/simulated/floor/tiled/dark,
 /area/adhomai/village/police)
+"DE" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/barricade/bars,
+/turf/simulated/floor/plating,
+/area/adhomai/fortress)
 "Ey" = (
 /obj/machinery/light/small{
 	dir = 1
@@ -845,6 +837,12 @@
 /obj/structure/bed,
 /turf/simulated/floor/plating,
 /area/adhomai/village/police)
+"IW" = (
+/obj/structure/simple_door/cell{
+	initial_lock_value = "cell"
+	},
+/turf/simulated/floor/plating,
+/area/adhomai/fortress)
 "Jp" = (
 /obj/structure/simple_door/iron{
 	initial_lock_value = "chief"
@@ -875,6 +873,12 @@
 /obj/structure/barricade/bars,
 /turf/simulated/floor/plating,
 /area/adhomai/village/police)
+"WZ" = (
+/obj/machinery/light/small{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/adhomai/fortress)
 "Xa" = (
 /obj/machinery/light/small{
 	dir = 1
@@ -33052,8 +33056,8 @@ ae
 aj
 ak
 an
-aq
-aj
+al
+IW
 au
 aG
 au
@@ -33310,7 +33314,7 @@ aj
 al
 al
 an
-as
+DE
 au
 aH
 aJ
@@ -33566,8 +33570,8 @@ ae
 aj
 am
 an
-an
-at
+WZ
+IW
 au
 aI
 au
@@ -34080,8 +34084,8 @@ ae
 aj
 ak
 al
-aq
-aj
+al
+IW
 au
 au
 au
@@ -34337,8 +34341,8 @@ ae
 aj
 al
 al
-al
-as
+an
+DE
 au
 au
 au
@@ -34594,8 +34598,8 @@ ae
 aj
 am
 al
-al
-at
+WZ
+IW
 au
 au
 au
@@ -35108,8 +35112,8 @@ ae
 aj
 ak
 an
-ar
-aj
+al
+IW
 au
 au
 au
@@ -35365,8 +35369,8 @@ ae
 aj
 an
 ap
-al
-as
+an
+DE
 au
 au
 au
@@ -35622,8 +35626,8 @@ ae
 aj
 ao
 al
-al
-at
+WZ
+IW
 au
 au
 au
@@ -36136,8 +36140,8 @@ ae
 aj
 ak
 an
-aq
-aj
+al
+IW
 au
 au
 au
@@ -36393,8 +36397,8 @@ ae
 aj
 an
 al
-al
-as
+an
+DE
 au
 au
 au
@@ -36650,8 +36654,8 @@ ae
 aj
 ao
 ap
-al
-at
+WZ
+IW
 au
 au
 au

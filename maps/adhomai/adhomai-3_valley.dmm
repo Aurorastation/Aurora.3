@@ -1454,14 +1454,9 @@
 /obj/item/device/flashlight/lamp,
 /turf/simulated/floor/tiled/dark,
 /area/adhomai/fortress)
-"fR" = (
-/obj/structure/table/wood,
-/obj/item/weapon/paper_bin,
-/turf/simulated/floor/tiled/dark,
-/area/adhomai/fortress)
 "fS" = (
 /obj/structure/table/wood,
-/obj/item/weapon/pen/blue,
+/obj/item/device/radio/phone,
 /turf/simulated/floor/tiled/dark,
 /area/adhomai/fortress)
 "fT" = (
@@ -1690,9 +1685,6 @@
 	},
 /turf/simulated/floor/wood,
 /area/adhomai/village/bar)
-"gC" = (
-/turf/simulated/wall/iron,
-/area/adhomai/village/medical)
 "gD" = (
 /obj/structure/bed/chair/comfy/brown,
 /turf/simulated/floor/wood,
@@ -3022,6 +3014,10 @@
 	},
 /turf/simulated/floor/plating,
 /area/adhomai/village/medical)
+"qc" = (
+/obj/structure/reagent_dispensers/fueltank,
+/turf/simulated/floor/tiled/dark,
+/area/adhomai/village/police)
 "qg" = (
 /obj/structure/curtain/open/bed{
 	pixel_y = -32
@@ -3316,7 +3312,6 @@
 /obj/item/weapon/reagent_containers/food/condiment/peppermill,
 /obj/item/weapon/storage/fancy/egg_box,
 /obj/item/weapon/reagent_containers/food/drinks/milk,
-/obj/machinery/light/small,
 /turf/simulated/floor/tiled/freezer,
 /area/adhomai/village/bar)
 "tk" = (
@@ -3349,6 +3344,13 @@
 	pixel_y = 0
 	},
 /turf/simulated/floor/lino,
+/area/adhomai/village/police)
+"tH" = (
+/obj/vehicle/bike{
+	icon_state = "bike_off";
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
 /area/adhomai/village/police)
 "tI" = (
 /obj/structure/curtain/open/bed{
@@ -3912,7 +3914,7 @@
 	pixel_y = 0
 	},
 /obj/structure/table/wood,
-/obj/item/weapon/phone,
+/obj/item/device/radio/phone,
 /turf/simulated/floor/wood,
 /area/adhomai/village/bar)
 "zK" = (
@@ -3983,6 +3985,18 @@
 /obj/structure/bed/chair/wood,
 /turf/simulated/floor/carpet,
 /area/adhomai/village)
+"AB" = (
+/obj/machinery/button/remote/blast_door{
+	id = "bike";
+	name = "constable garage control";
+	pixel_x = 0;
+	pixel_y = 30
+	},
+/obj/structure/table/wood,
+/obj/item/clothing/head/welding,
+/obj/item/weapon/weldingtool,
+/turf/simulated/floor/tiled/dark,
+/area/adhomai/village/police)
 "AC" = (
 /obj/structure/table/steel,
 /obj/item/weapon/paper_bin,
@@ -4731,7 +4745,7 @@
 /area/adhomai/village/bar)
 "Ht" = (
 /obj/structure/sign/examroom,
-/turf/simulated/wall/iron,
+/turf/simulated/wall/wood,
 /area/adhomai/village/medical)
 "Hv" = (
 /obj/structure/curtain/open/bed{
@@ -4986,6 +5000,12 @@
 /obj/structure/grille,
 /turf/simulated/floor/wood,
 /area/adhomai/village)
+"Kn" = (
+/obj/machinery/door/blast/shutters{
+	id = "bike"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/adhomai/village/police)
 "Ko" = (
 /obj/structure/table/wood,
 /obj/item/device/flashlight/lantern,
@@ -5394,6 +5414,7 @@
 /area/adhomai/village/medical)
 "OM" = (
 /obj/structure/table/wood,
+/obj/item/device/radio/phone,
 /turf/simulated/floor/lino,
 /area/adhomai/village/police)
 "OP" = (
@@ -5530,6 +5551,9 @@
 /obj/machinery/iv_drip,
 /turf/simulated/floor/lino,
 /area/adhomai/village/medical)
+"Qk" = (
+/turf/simulated/wall,
+/area/adhomai/village/police)
 "QC" = (
 /obj/machinery/light{
 	dir = 4;
@@ -6044,6 +6068,11 @@
 /obj/item/weapon/pen/blue,
 /turf/simulated/floor/wood,
 /area/adhomai/village)
+"Wu" = (
+/obj/structure/table/wood,
+/obj/machinery/cell_charger,
+/turf/simulated/floor/tiled/dark,
+/area/adhomai/village/police)
 "Wy" = (
 /obj/structure/simple_door/iron{
 	initial_lock_value = "blacksmith"
@@ -6063,10 +6092,10 @@
 /area/adhomai/village/mayor)
 "WE" = (
 /obj/structure/table/wood,
-/obj/item/weapon/phone,
 /obj/structure/window/reinforced{
 	dir = 4
 	},
+/obj/item/device/radio/phone,
 /turf/simulated/floor/wood,
 /area/adhomai/village/medical)
 "WG" = (
@@ -6178,7 +6207,7 @@
 "XY" = (
 /obj/structure/table/wood,
 /obj/structure/window/reinforced,
-/obj/item/weapon/phone,
+/obj/item/device/radio/phone,
 /turf/simulated/floor/wood,
 /area/adhomai/village/police)
 "Yc" = (
@@ -6328,12 +6357,6 @@
 	},
 /turf/simulated/floor/carpet/blue,
 /area/adhomai/village)
-"ZU" = (
-/obj/structure/curtain/open/bed{
-	pixel_x = -32
-	},
-/turf/simulated/floor/lino,
-/area/adhomai/village/police)
 
 (1,1,1) = {"
 bG
@@ -43912,7 +43935,7 @@ wf
 aa
 aa
 aa
-aa
+ae
 ae
 aa
 AT
@@ -44166,11 +44189,11 @@ sJ
 Fr
 Fr
 dy
-aa
-aa
-aa
 ae
 ae
+ae
+ae
+aa
 aa
 uY
 Mo
@@ -44423,9 +44446,9 @@ Fr
 Fr
 Fr
 wf
-ae
-ae
-ae
+BT
+aa
+aa
 ae
 aa
 aa
@@ -44680,9 +44703,9 @@ sJ
 Fr
 Fr
 dy
-aa
-aa
-Ns
+ae
+ae
+ae
 ae
 aa
 lU
@@ -44937,9 +44960,9 @@ sJ
 Fr
 Hr
 wf
-ae
-ae
-ae
+aa
+aa
+aa
 ae
 aa
 lU
@@ -45194,7 +45217,7 @@ Fr
 Fr
 tc
 Ha
-BT
+aa
 aa
 aa
 ae
@@ -45691,7 +45714,7 @@ aa
 aa
 aa
 aa
-wf
+aa
 wf
 Nx
 Fr
@@ -45941,14 +45964,14 @@ Bu
 aa
 ae
 ae
-cR
+Qk
+Qk
+Qk
+Qk
+Qk
 aa
 aa
 aa
-aa
-aa
-aa
-wf
 Ha
 LA
 Fr
@@ -46198,14 +46221,14 @@ Bu
 aa
 ae
 ae
+Qk
+AB
+Wu
+qc
+Qk
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-wf
 ng
 BF
 lO
@@ -46231,7 +46254,7 @@ lU
 lU
 GS
 pn
-gC
+lU
 lU
 lU
 lU
@@ -46455,14 +46478,14 @@ Bu
 aa
 ae
 ae
+Kn
+YH
+tH
+YH
+Qk
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-wf
 Go
 xf
 Fr
@@ -46712,14 +46735,14 @@ aa
 aa
 ae
 ae
+Wm
+YH
+YH
+YH
+Qk
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-wf
 wf
 or
 Fr
@@ -46969,14 +46992,14 @@ aa
 aa
 ae
 ae
+Kn
+YH
+tH
+YH
+Qk
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-wf
 wf
 HM
 Fr
@@ -47002,7 +47025,7 @@ aa
 uY
 rk
 pn
-gC
+lU
 MK
 nI
 lU
@@ -47226,11 +47249,11 @@ aa
 aa
 ae
 ae
-aa
-aa
-aa
-aa
-aa
+Wm
+YH
+YH
+YH
+Qk
 aa
 aa
 aa
@@ -47259,10 +47282,10 @@ aa
 lU
 qv
 Zn
-gC
-gC
-gC
-gC
+lU
+lU
+lU
+lU
 dV
 Fa
 Fa
@@ -47483,6 +47506,11 @@ aa
 aa
 ae
 ae
+vW
+YH
+Ji
+YH
+Qk
 aa
 aa
 aa
@@ -47496,15 +47524,10 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+DR
+DR
+DR
+DR
 DR
 DR
 JP
@@ -47740,12 +47763,12 @@ aa
 aa
 ae
 ae
-aa
-Wm
-Wm
-vS
-dc
-Wm
+Qk
+Qk
+Qk
+RM
+Qk
+Qk
 Wm
 Wm
 vS
@@ -47998,10 +48021,10 @@ aa
 ae
 ae
 aa
-Wm
+Qk
 Bw
-ZU
-ZU
+eC
+eC
 HA
 Wm
 kg
@@ -53141,7 +53164,7 @@ aa
 aa
 aa
 ae
-bY
+aa
 ae
 aa
 ae
@@ -53650,10 +53673,10 @@ aa
 Bu
 aa
 aa
-ct
 aa
 aa
-bY
+aa
+aa
 ae
 ae
 ae
@@ -57224,7 +57247,7 @@ Rm
 (199,1,1) = {"
 mk
 ac
-fR
+dk
 Vp
 Vp
 mk
