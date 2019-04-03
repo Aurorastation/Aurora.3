@@ -171,7 +171,7 @@
 /obj/item/clothing/suit/vaurca/shaper
 	name = "shaper robes"
 	desc = "A fashionable robe tailored for nonhuman proportions, this one is blue and golden."
-	icon_state = "shaper_robers"
-	item_state = "shaper_robers"
+	icon_state = "shaper_robes"
+	item_state = "shaper_robes"
 	species_restricted = list("Vaurca")
 
