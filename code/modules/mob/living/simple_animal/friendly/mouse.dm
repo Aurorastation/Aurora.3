@@ -156,8 +156,10 @@
 //This is triggered when a mob steps on an NPC mouse, or manually by a playermouse
 /mob/living/simple_animal/mouse/proc/squeak(var/manual = 1)
 	if (stat == CONSCIOUS)
-		if (squeakcooldown > world.time) return
+		if (squeakcooldown > world.time)
+			return
 		squeakcooldown = world.time + 2 SECONDS
+
 		playsound(src, 'sound/effects/mousesqueek.ogg', 70, 1)
 		if (manual)
 			log_say("[key_name(src)] squeaks! ",ckey=key_name(src))
@@ -171,7 +173,9 @@
 		var/sound = pick(new_squeaks)
 
 		last_softsqueak = sound
-		if (squeakcooldown > world.time) return
+
+		if (squeakcooldown > world.time)
+			return
 
 		squeakcooldown = world.time + 2 SECONDS
 		playsound(src, sound, 5, 1, -4.6)
@@ -184,7 +188,9 @@
 //Triggered manually, when a mouse dies, or rarely when its stepped on
 /mob/living/simple_animal/mouse/proc/squeak_loud(var/manual = 0)
 	if (stat == CONSCIOUS)
-		if (squeakcooldown > world.time) return
+		if (squeakcooldown > world.time)
+			return
+
 		squeakcooldown = world.time + 4 SECONDS
 
 		if (squeals > 0 || !manual)
@@ -200,9 +206,7 @@
 	set name = "Squeal!"
 	set category = "Abilities"
 
-	if (usr.client.handle_spam_prevention(null, MUTE_IC))
-		return
-	else if (usr.client.prefs.muted & MUTE_IC)
+	if (usr.client.prefs.muted & MUTE_IC)
 		to_chat(usr, "<span class='danger'>You are muted from IC emotes.</span>")
 		return
 
@@ -212,9 +216,7 @@
 	set name = "Soft Squeaking"
 	set category = "Abilities"
 
-	if (usr.client.handle_spam_prevention(null, MUTE_IC))
-		return
-	else if (usr.client.prefs.muted & MUTE_IC)
+	if (usr.client.prefs.muted & MUTE_IC)
 		to_chat(usr, "<span class='danger'>You are muted from IC emotes.</span>")
 		return
 
@@ -224,9 +226,7 @@
 	set name = "Squeak"
 	set category = "Abilities"
 
-	if (usr.client.handle_spam_prevention(null, MUTE_IC))
-		return
-	else if (usr.client.prefs.muted & MUTE_IC)
+	if (usr.client.prefs.muted & MUTE_IC)
 		to_chat(usr, "<span class='danger'>You are muted from IC emotes.</span>")
 		return
 
