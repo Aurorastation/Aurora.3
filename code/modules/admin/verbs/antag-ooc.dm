@@ -7,8 +7,7 @@
 		to_chat(src, "<span class='warning'>You cannot use AOOC while ghosting/observing!</span>")
 		return
 
-	if (src.prefs.muted & MUTE_AOOC)
-		to_chat(src, "<span class='warning'>You are muted from speaking on AOOC!</span>")
+	if (handle_spam_prevention(msg, MUTE_AOOC))
 		return
 
 	msg = sanitize(msg)
