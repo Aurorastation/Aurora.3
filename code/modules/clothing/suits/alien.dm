@@ -167,3 +167,11 @@
 	desc = "A fashionable robe tailored for nonhuman proportions, this one is blue and golden."
 	icon_state = "robeblue"
 	item_state = "robeblue"
+
+/obj/item/clothing/suit/vaurca/shaper
+	name = "shaper robes"
+	desc = "A fashionable robe tailored for nonhuman proportions, this one is blue and golden."
+	icon_state = "shaper_robers"
+	item_state = "shaper_robers"
+	species_restricted = list("Vaurca")
+
