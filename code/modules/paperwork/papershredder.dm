@@ -46,7 +46,7 @@
 			if (paper_result > 0)
 				paperamount += paper_result
 			qdel(W)
-			playsound(src.loc, 'sound/items/pshred.ogg', 75, 1)
+			playsound(src.loc, 'sound/bureaucracy/papershred.ogg', 75, 1)
 			to_chat(user, span("notice", "You shred the paper."))
 			flick("papershredder_on", src)
 			if(paperamount > max_paper)
@@ -107,8 +107,19 @@
 	paperamount--
 	return new /obj/item/weapon/shreddedp(get_turf(src))
 
-/obj/machinery/papershredder/update_icon()
-	icon_state = "papershredder[max(0,min(5,Floor(paperamount/2)))]"
+/obj/machinery/papershredder/update_icon() //makes it show how full the papershredder is while covering up the animation. Seemsgood - Wezzy
+	cut_overlays()
+	switch(paperamount)
+		if(2 to 3)
+			add_overlay("papershredder1")
+		if(4 to 5)
+			add_overlay("papershredder2")
+		if(6 to 7)
+			add_overlay("papershredder3")
+		if(8 to 9)
+			add_overlay("papershredder4")
+		if(10)
+			add_overlay("papershredder5")
 
 /obj/item/weapon/shreddedp/attackby(var/obj/item/W as obj, var/mob/user)
 	if(istype(W, /obj/item/weapon/flame/lighter))
@@ -116,36 +127,49 @@
 	else
 		..()
 
-/obj/item/weapon/shreddedp/proc/burnpaper(var/obj/item/weapon/flame/lighter/P, var/mob/user)
-	if(user.restrained())
-		return
-	if(!P.lit)
-		to_chat(user, "<span class='warning'>\The [P] is not lit.</span>")
-		return
-	user.visible_message("<span class='warning'>\The [user] holds \the [P] up to \the [src]. It looks like \he's trying to burn it!</span>", \
-		"<span class='warning'>You hold \the [P] up to \the [src], burning it slowly.</span>")
-	if(!do_after(user,20))
-		to_chat(user, "<span class='warning'>You must hold \the [P] steady to burn \the [src].</span>")
-		return
-	user.visible_message("<span class='danger'>\The [user] burns right through \the [src], turning it to ash. It flutters through the air before settling on the floor in a heap.</span>", \
-		"<span class='danger'>You burn right through \the [src], turning it to ash. It flutters through the air before settling on the floor in a heap.</span>")
-	FireBurn()
+/obj/item/weapon/shreddedp/proc/burnpaper(obj/item/weapon/P, mob/user)
+	var/class = "warning"
 
-/obj/item/weapon/shreddedp/proc/FireBurn()
-	new /obj/effect/decal/cleanable/ash(get_turf(src))
-	qdel(src)
+	if (!user.restrained())
+		if (istype(P, /obj/item/weapon/flame))
+			var/obj/item/weapon/flame/F = P
+			if (!F.lit)
+				return
+		else if (P.iswelder())
+			var/obj/item/weapon/weldingtool/F = P // NOW THAT'S WHAT I CALL RECYCLING - wezzy
+			if (!F.welding)
+				return
+			if (!F.remove_fuel(1, user))
+				return
+		else
+
+			return
+
+		if(istype(P, /obj/item/weapon/flame/lighter/zippo))
+			class = "rose"
+
+		user.visible_message("<span class='[class]'>[user] holds \the [P] up to \the [src], it looks like \he's trying to burn it!</span>", \
+		"<span class='[class]'>You hold \the [P] up to \the [src], burning it slowly.</span>")
+		playsound(src.loc, 'sound/bureaucracy/paperburn.ogg', 50, 1)
+		icon_state = "shredp_onfire" //no do_after here, so people can walk n' burn at the same time. -wezzy
+
+		spawn(20)
+			if(get_dist(src, user) < 2 && user.get_active_hand() == P)
+				user.visible_message("<span class='[class]'>[user] burns right through \the [src], turning it to ash. It flutters through the air before settling on the floor in a heap.</span>", \
+				"<span class='[class]'>You burn right through \the [src], turning it to ash. It flutters through the air before settling on the floor in a heap.</span>")
+				new /obj/effect/decal/cleanable/ash(src.loc)
+				qdel(src)
+
+			else
+				to_chat(user, span("warning", "You must hold \the [P] steady to burn \the [src]."))
+
 
 /obj/item/weapon/shreddedp
 	name = "shredded paper"
+	desc = "The remains of a private, confidential, or otherwise sensitive document."
 	icon = 'icons/obj/bureaucracy.dmi'
 	icon_state = "shredp"
 	throwforce = 0
 	w_class = 1
 	throw_range = 3
 	throw_speed = 1
-
-/obj/item/weapon/shreddedp/New()
-	..()
-	pixel_x = rand(-5,5)
-	pixel_y = rand(-5,5)
-	if(prob(65)) color = pick("#BABABA","#7F7F7F")

@@ -720,13 +720,14 @@ BLIND     // can't see anything
 	desc = "Thick, durable eye protection meant to filter light to an acceptable degree in the long-term."
 	icon_state = "starshades"
 	item_state = "starshades"
+	flash_protection = FLASH_PROTECTION_MAJOR
+	tint = TINT_MODERATE
 
 /obj/item/clothing/glasses/spiffygogs/offworlder/toggle()
 	..()
 	if(!up)
 		flash_protection = FLASH_PROTECTION_MAJOR
 		tint = TINT_MODERATE
-
 	else
-		flash_protection = initial(flash_protection)
-		tint = initial(tint)
+		flash_protection = FLASH_PROTECTION_NONE
+		tint = TINT_NONE
