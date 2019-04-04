@@ -26,7 +26,7 @@
 	company_short = "NKA"
 	system_name = "S'rand'marr"
 
-//	lobby_screens = list("adhomai")
+	lobby_screens = list("adhomai")
 
 	command_spawn_enabled = FALSE
 
