@@ -24,3 +24,13 @@
 
 	else
 		return
+
+/obj/item/weapon/card/id/papers
+	name = "identity papers"
+	desc = "A hand-written document containing personal information and a small ID card."
+	icon = 'icons/obj/custom_items/leland_items.dmi'
+	icon_state = "leland_badge-info"
+	item_state = "paper"
+
+/obj/item/weapon/card/id/papers/proc/update_name()
+    name = "[src.registered_name]'s documents"

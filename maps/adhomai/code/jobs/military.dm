@@ -12,7 +12,6 @@
 	req_admin_notify = TRUE
 	outfit = /datum/outfit/job/adhomai/military/commander
 	species_blacklist = list("Zhan-Khazan Tajara", "M'sai Tajara", HUMAN_SPECIES, UNATHI_SPECIES, SKRELL_SPECIES, VAURCA_SPECIES, DIONA_SPECIES, IPC_SPECIES)
-	create_record = FALSE
 	account_allowed = FALSE
 
 /datum/outfit/job/adhomai/military/commander
@@ -39,7 +38,6 @@
 	spawn_positions = 1
 	supervisors = "the Commander"
 	selection_color = "#ffeeee"
-	create_record = FALSE
 	account_allowed = FALSE
 
 	outfit = /datum/outfit/job/adhomai/military/supply_officer
@@ -69,7 +67,6 @@
 	supervisors = "the Commander"
 	selection_color = "#ffeeee"
 	outfit = /datum/outfit/job/adhomai/military
-	create_record = FALSE
 	account_allowed = FALSE
 
 /datum/outfit/job/adhomai/military
@@ -93,7 +90,6 @@
 	outfit = /datum/outfit/job/adhomai/military/grenadier
 	species_blacklist = list("Tajara", "M'sai Tajara", HUMAN_SPECIES, UNATHI_SPECIES, SKRELL_SPECIES, VAURCA_SPECIES, DIONA_SPECIES, IPC_SPECIES)
 
-	create_record = FALSE
 	account_allowed = FALSE
 
 /datum/outfit/job/adhomai/military/grenadier
@@ -125,7 +121,6 @@
 	supervisors = "the Commander"
 	selection_color = "#ffeeee"
 	outfit = /datum/outfit/job/adhomai/military/sharpshooter
-	create_record = FALSE
 	account_allowed = FALSE
 
 /datum/outfit/job/adhomai/military/sharpshooter
@@ -149,7 +144,6 @@
 
 	outfit = /datum/outfit/job/adhomai/military/combatengineer
 
-	create_record = FALSE
 	account_allowed = FALSE
 
 /datum/outfit/job/adhomai/military/combatengineer
