@@ -115,9 +115,12 @@
 
 	if(melody == "--CANCEL--")	return
 
-	log_admin("[key_name(src)] played sound [melody]",admin_key=key_name(src))
-	message_admins("[key_name_admin(src)] played sound [melody]", 1)
 	var/area/A = get_area(eyeobj.loc)
+	if(!A) return
+
+	log_admin("[key_name(src)] played sound [melody] in [A]", admin_key=key_name(src))
+	message_admins("[key_name_admin(src)] played sound [melody] in [A]", 1)
+
 	for(var/obj/item/device/radio/intercom/i in A)
 		playsound(i.loc, melody, 40, 0)
 	time_music = world.time
