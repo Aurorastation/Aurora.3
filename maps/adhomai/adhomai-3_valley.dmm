@@ -122,11 +122,11 @@
 	dir = 4
 	},
 /obj/structure/table/rack,
-/obj/item/weapon/gun/bang/colt,
-/obj/item/weapon/gun/bang/colt,
-/obj/item/weapon/gun/bang/colt,
 /obj/effect/floor_decal/industrial/outline/red,
 /obj/effect/decal/cleanable/dirt,
+/obj/item/weapon/gun/projectile/colt,
+/obj/item/weapon/gun/projectile/colt,
+/obj/item/weapon/gun/projectile/colt,
 /turf/simulated/floor/tiled/dark,
 /area/adhomai/fortress)
 "av" = (
@@ -1318,6 +1318,11 @@
 	name = "Equipment"
 	},
 /obj/effect/floor_decal/industrial/outline/red,
+/obj/item/ammo_magazine/boltaction,
+/obj/item/ammo_magazine/boltaction,
+/obj/item/ammo_magazine/boltaction,
+/obj/item/ammo_magazine/boltaction,
+/obj/item/ammo_magazine/boltaction,
 /turf/simulated/floor/tiled/dark,
 /area/adhomai/fortress)
 "fV" = (
@@ -4732,6 +4737,12 @@
 "Db" = (
 /turf/simulated/open,
 /area/adhomai/village/bar)
+"Dc" = (
+/obj/structure/simple_door/iron{
+	initial_lock_value = "captain"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/adhomai/fortress)
 "Df" = (
 /obj/structure/filingcabinet/filingcabinet,
 /obj/machinery/light{
@@ -7397,8 +7408,9 @@
 	name = "Equipment"
 	},
 /obj/effect/floor_decal/industrial/outline/red,
-/obj/item/weapon/gun/projectile/heavysniper,
-/obj/item/weapon/storage/box/sniperammo,
+/obj/item/weapon/storage/belt/security/tactical/nka,
+/obj/item/weapon/storage/belt/security/tactical/nka,
+/obj/item/weapon/storage/belt/security/tactical/nka,
 /turf/simulated/floor/tiled/dark,
 /area/adhomai/fortress)
 "Ws" = (
@@ -44325,16 +44337,16 @@ Rm
 Rm
 "}
 (143,1,1) = {"
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+Bu
+Bu
+Bu
+Bu
+Bu
+Bu
+Bu
+Bu
+Bu
+Bu
 aa
 aa
 aa
@@ -44582,6 +44594,7 @@ Rm
 Rm
 "}
 (144,1,1) = {"
+Bu
 aa
 aa
 aa
@@ -44590,8 +44603,7 @@ aa
 aa
 aa
 aa
-aa
-aa
+Bu
 aa
 aa
 aa
@@ -44839,6 +44851,7 @@ Rm
 Rm
 "}
 (145,1,1) = {"
+Bu
 aa
 aa
 aa
@@ -44847,20 +44860,19 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+Bu
+Bu
+Bu
+Bu
+Bu
+Bu
+Bu
+Bu
+Bu
+Bu
+Bu
+Bu
+Bu
 Bu
 Bu
 aa
@@ -45096,6 +45108,7 @@ Rm
 Rm
 "}
 (146,1,1) = {"
+Bu
 aa
 aa
 aa
@@ -45112,8 +45125,7 @@ aa
 aa
 aa
 aa
-aa
-aa
+Bu
 aa
 aa
 aa
@@ -45353,7 +45365,7 @@ Rm
 Rm
 "}
 (147,1,1) = {"
-aa
+Bu
 aa
 aa
 JR
@@ -45370,7 +45382,7 @@ aa
 aa
 aa
 aa
-aa
+Bu
 aa
 aa
 aa
@@ -45610,7 +45622,7 @@ Rm
 Rm
 "}
 (148,1,1) = {"
-aa
+Bu
 aa
 aa
 JR
@@ -45627,7 +45639,7 @@ aa
 aa
 aa
 aa
-aa
+Bu
 aa
 aa
 aa
@@ -45867,7 +45879,7 @@ Rm
 Rm
 "}
 (149,1,1) = {"
-aa
+Bu
 aa
 aa
 JR
@@ -45884,7 +45896,7 @@ aa
 aa
 aa
 aa
-aa
+Bu
 aa
 aa
 aa
@@ -46124,7 +46136,7 @@ Rm
 Rm
 "}
 (150,1,1) = {"
-aa
+Bu
 aa
 aa
 aa
@@ -46381,7 +46393,7 @@ Rm
 Rm
 "}
 (151,1,1) = {"
-aa
+Bu
 aa
 aa
 aa
@@ -46638,7 +46650,7 @@ Rm
 Rm
 "}
 (152,1,1) = {"
-aa
+Bu
 aa
 aa
 aa
@@ -51013,7 +51025,7 @@ Vs
 uQ
 uQ
 mk
-Vp
+ff
 Xi
 Vp
 fk
@@ -53322,7 +53334,7 @@ Rm
 (178,1,1) = {"
 aa
 aa
-aa
+Yd
 Bu
 aa
 aa
@@ -53330,7 +53342,7 @@ aa
 Bu
 aa
 aa
-aa
+Yd
 Bu
 aa
 aa
@@ -54350,7 +54362,7 @@ Rm
 (182,1,1) = {"
 aa
 aa
-aa
+Yd
 Bu
 aa
 aa
@@ -54358,7 +54370,7 @@ aa
 Bu
 aa
 aa
-aa
+Yd
 Bu
 aa
 aa
@@ -55124,7 +55136,7 @@ yX
 yX
 yX
 yX
-wV
+Dc
 yX
 yX
 yX
@@ -55899,10 +55911,10 @@ Tu
 db
 mk
 ye
-Vp
-Vp
-Vp
-Vp
+JN
+KB
+KB
+JN
 Sh
 yX
 yX
@@ -56670,10 +56682,10 @@ zP
 Qr
 mk
 ME
-JN
-KB
-KB
-JN
+Vp
+Vp
+Vp
+Sh
 Vp
 Vp
 Vp
@@ -56926,15 +56938,15 @@ Ca
 mk
 mk
 mk
-Vp
-Vp
-Vp
-Vp
-Sh
+mk
+mk
+fV
+mk
+fq
 mk
 mk
 mk
-kt
+fV
 mk
 fq
 yX
@@ -59762,7 +59774,7 @@ mk
 gi
 yX
 yX
-pR
+fV
 yX
 mk
 aa
@@ -60796,7 +60808,7 @@ Sh
 te
 yX
 aa
-aa
+Bu
 aa
 aa
 aa
@@ -61053,7 +61065,7 @@ Sh
 yX
 mk
 aa
-aa
+Bu
 aa
 aa
 aa
@@ -61288,7 +61300,7 @@ bG
 "}
 (209,1,1) = {"
 aa
-aa
+Bu
 Bu
 Bu
 Bu
@@ -61310,7 +61322,7 @@ yX
 yX
 aa
 aa
-cU
+Bu
 aa
 aa
 aa
@@ -61545,7 +61557,7 @@ bG
 "}
 (210,1,1) = {"
 Rm
-aa
+Bu
 aa
 aa
 aa
@@ -61567,7 +61579,7 @@ mk
 aa
 aa
 aa
-aa
+Bu
 aa
 aa
 aa
@@ -61802,6 +61814,7 @@ bG
 "}
 (211,1,1) = {"
 Rm
+Bu
 aa
 aa
 aa
@@ -61823,8 +61836,7 @@ aa
 aa
 aa
 aa
-aa
-aa
+Bu
 aa
 aa
 aa
@@ -62059,6 +62071,7 @@ bG
 "}
 (212,1,1) = {"
 Rm
+Bu
 aa
 aa
 aa
@@ -62080,8 +62093,7 @@ aa
 aa
 aa
 aa
-aa
-aa
+Bu
 aa
 aa
 aa
@@ -62316,6 +62328,7 @@ bG
 "}
 (213,1,1) = {"
 Rm
+Bu
 aa
 aa
 aa
@@ -62327,18 +62340,17 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-cV
-aa
+Bu
+Bu
+Bu
+Bu
+Bu
+Bu
+Bu
+Bu
+Bu
+Bu
+Bu
 aa
 aa
 aa
@@ -62573,19 +62585,19 @@ bG
 "}
 (214,1,1) = {"
 Rm
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+Bu
+Bu
+Bu
+Bu
+Bu
+Bu
+Bu
+Bu
+Bu
+Bu
+Bu
+Bu
+Bu
 aa
 aa
 aa
