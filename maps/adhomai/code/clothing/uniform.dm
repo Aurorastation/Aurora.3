@@ -12,6 +12,10 @@
 	starting_accessories = list(/obj/item/clothing/accessory/levy_coat, /obj/item/clothing/accessory/epaulette)
 
 /obj/item/clothing/under/uniform/grenadier
+	name = "royal grenadier uniform"
+	desc = "A robust military uniform issued to the Royal Grenadiers."
+	icon_state = "roygrencombat"
+	item_state = "roygrencombat"
 	starting_accessories = list(/obj/item/clothing/accessory/levy_coat, /obj/item/clothing/accessory/epaulette/grenadier)
 
 /obj/item/clothing/under/uniform/combat_engineer

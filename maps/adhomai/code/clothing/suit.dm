@@ -1,12 +1,18 @@
 /obj/item/clothing/suit/armor/nka
 	name = "chestplate"
-	desc = "The standard body armor of the Imperial Army, commonly used by the Royal Grenadiers."
+	desc = "The standard body armor of the Imperial Army"
 	icon = 'icons/adhomai/clothing.dmi'
 	icon_state = "chest_armour"
 	item_state = "chest_armour"
 	contained_sprite = TRUE
 	armor = list(melee = 50, bullet = 50, laser = 15, energy = 10, bomb = 25, bio = 0, rad = 0)
 	siemens_coefficient = 0.5
+
+/obj/item/clothing/suit/armor/nka/grenadier
+	desc = "The standard body armor of the Royal Grenadiers"
+	icon_state = "roygrenchest"
+	item_state = "roygrenchest"
+	armor = list(melee = 70, bullet = 70, laser = 20, energy = 10, bomb = 25, bio = 0, rad = 0)
 
 /obj/item/clothing/suit/armor/hunter
 	name = "heavy coat"

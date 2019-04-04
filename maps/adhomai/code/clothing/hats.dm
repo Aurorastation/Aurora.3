@@ -34,8 +34,10 @@
 	contained_sprite = TRUE
 
 /obj/item/clothing/head/helmet/nka/grenadier
+	desc = "The standard helmet issued to the Royal Grenadiers."
 	icon_state = "roygrenhelm"
 	item_state = "roygrenhelm"
+	armor = list(melee = 70, bullet = 70, laser = 20, energy = 10, bomb = 25, bio = 0, rad = 0)
 
 /obj/item/clothing/head/beret/pra
 	name = "green beret"

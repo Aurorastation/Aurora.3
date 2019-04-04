@@ -102,9 +102,9 @@
 
 	uniform = /obj/item/clothing/under/uniform/grenadier
 	head = /obj/item/clothing/head/helmet/nka/grenadier
-	shoes = /obj/item/clothing/shoes/armored_boots
-	gloves = /obj/item/clothing/gloves/grenadier
-	suit = /obj/item/clothing/suit/armor/nka
+	shoes = /obj/item/clothing/shoes/armored_boots/grenadier
+	gloves = /obj/item/clothing/gloves/grenadier/armored
+	suit = /obj/item/clothing/suit/armor/nka/grenadier
 	back = /obj/item/weapon/storage/backpack/satchel/grenadier
 	suit_store = /obj/item/weapon/gun/projectile/grenadier
 	l_pocket = /obj/item/weapon/storage/wallet/medium
