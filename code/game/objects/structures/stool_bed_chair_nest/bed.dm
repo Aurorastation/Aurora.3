@@ -258,6 +258,8 @@
 	if(buckled_mob)
 		if(buckled_mob.buckled == src)
 			buckled_mob.forceMove(src.loc)
+		if(has_gravity())
+			playsound(src, 'sound/effects/roll.ogg', 100, 1)
 		else
 			buckled_mob = null
 

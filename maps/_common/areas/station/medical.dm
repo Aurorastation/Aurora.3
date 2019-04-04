@@ -8,7 +8,9 @@
 /area/medical/medbay
 	name = "\improper Medbay Hallway - Port"
 	icon_state = "medbay"
-	ambience = list('sound/ambience/signal.ogg')
+	ambience = list('sound/ambience/signal.ogg',
+					'sound/ambience/ambinice.ogg'
+	)
 
 //Medbay is a large area, these additional areas help level out APC load.
 
@@ -18,47 +20,65 @@
 
 /area/medical/temp_morgue
 	name = "\improper Medical - Temporary Morgue"
-	icon_state = "morgue"
+	icon_state = "morgue" //creepy!
+	ambience = list('sound/ambience/ambimo1.ogg',
+					'sound/ambience/ambimo2.ogg',
+					'sound/ambience/ambiruin7.ogg',
+					'sound/ambience/ambiruin6.ogg',\
+					'sound/ambience/ambiodd.ogg',
+					'sound/ambience/ambimystery.ogg'
+	)
 
 /area/medical/medbay2
 	name = "\improper Medbay Hallway - Starboard"
 	icon_state = "medbay2"
-	ambience = list('sound/ambience/signal.ogg')
+	ambience = list('sound/ambience/signal.ogg',
+					'sound/ambience/ambinice.ogg'
+	)
 
 /area/medical/medbay3
 	name = "\improper Medbay Hallway - Fore"
 	icon_state = "medbay3"
-	ambience = list('sound/ambience/signal.ogg')
-
+	ambience = list('sound/ambience/signal.ogg',
+					'sound/ambience/ambinice.ogg'
+	)
 /area/medical/medbay4
 	name = "\improper Medbay Hallway - Staff Wing"
 	icon_state = "medbay4"
-	ambience = list('sound/ambience/signal.ogg')
-
+	ambience = list('sound/ambience/signal.ogg',
+					'sound/ambience/ambinice.ogg'
+	)
 /area/medical/biostorage
 	name = "\improper Medical - Secondary Storage"
 	icon_state = "medbay2"
-	ambience = list('sound/ambience/signal.ogg')
-
+	ambience = list('sound/ambience/signal.ogg',
+					'sound/ambience/ambinice.ogg'
+	)
 /area/medical/reception
 	name = "\improper Medical - Reception"
 	icon_state = "medbay"
-	ambience = list('sound/ambience/signal.ogg')
-
+	ambience = list('sound/ambience/signal.ogg',
+					'sound/ambience/ambinice.ogg'
+	)
 /area/medical/psych
 	name = "\improper Medical - Psych Room"
 	icon_state = "medbay3"
-	ambience = list('sound/ambience/signal.ogg')
-
+	ambience = list('sound/ambience/signal.ogg',
+					'sound/ambience/ambinice.ogg'
+	)
 /area/medical/upperlevel
 	name = "\improper Medical - Upper-Level Hallway"
 	icon_state = "medbay2"
+	ambience = list('sound/ambience/signal.ogg',
+					'sound/ambience/ambinice.ogg'
+	)
 
 /area/crew_quarters/medbreak
 	name = "\improper Medical - Break Room"
 	icon_state = "medbay3"
-	ambience = list('sound/ambience/signal.ogg')
-
+	ambience = list('sound/ambience/signal.ogg',
+					'sound/ambience/ambinice.ogg'
+	)
 /area/medical/patients_rooms
 	name = "\improper Medical - Patient's Rooms"
 	icon_state = "patients"
@@ -142,8 +162,13 @@
 /area/medical/morgue
 	name = "\improper Medical - Long-term Morgue"
 	icon_state = "morgue"
-	ambience = list('sound/ambience/ambimo1.ogg','sound/ambience/ambimo2.ogg','sound/music/main.ogg')
-
+	ambience = list('sound/ambience/ambimo1.ogg',
+					'sound/ambience/ambimo2.ogg',
+					'sound/ambience/ambiruin7.ogg',
+					'sound/ambience/ambiruin6.ogg',\
+					'sound/ambience/ambiodd.ogg',
+					'sound/ambience/ambimystery.ogg'
+	)
 /area/medical/pharmacy
 	name = "\improper Medical - Pharmacy"
 	icon_state = "phar"

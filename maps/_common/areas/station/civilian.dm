@@ -131,13 +131,29 @@
 /area/chapel/main
 	name = "\improper Chapel"
 	icon_state = "chapel"
-	ambience = list('sound/ambience/ambicha1.ogg','sound/ambience/ambicha2.ogg','sound/ambience/ambicha3.ogg','sound/ambience/ambicha4.ogg','sound/music/traitor.ogg')
+	ambience = list('sound/ambience/ambicha1.ogg',
+					'sound/ambience/ambicha2.ogg',
+					'sound/ambience/ambicha3.ogg',
+					'sound/ambience/ambicha4.ogg',
+					'sound/ambience/ambiholy.ogg',
+					'sound/ambience/ambiholy2.ogg',
+					'sound/ambience/ambiholy3.ogg',\
+					'sound/music/traitor.ogg'
+					)
 	sound_env = LARGE_ENCLOSED
 
 /area/chapel/office
 	name = "\improper Chapel Office"
 	icon_state = "chapeloffice"
-
+	ambience = list('sound/ambience/ambicha1.ogg',
+					'sound/ambience/ambicha2.ogg',
+					'sound/ambience/ambicha3.ogg',
+					'sound/ambience/ambicha4.ogg',
+					'sound/ambience/ambiholy.ogg',
+					'sound/ambience/ambiholy2.ogg',
+					'sound/ambience/ambiholy3.ogg',\
+					'sound/music/traitor.ogg'
+					)
 /area/lawoffice
 	name = "\improper Internal Affairs"
 	icon_state = "law"

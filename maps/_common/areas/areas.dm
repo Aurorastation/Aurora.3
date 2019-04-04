@@ -31,7 +31,14 @@ Generally you don't want to put your areas in here; if the area is only used in 
 	power_light = 0
 	power_equip = 0
 	power_environ = 0
-	ambience = list('sound/ambience/ambispace.ogg','sound/music/title2.ogg','sound/music/space.ogg','sound/music/main.ogg','sound/music/traitor.ogg')
+	ambience = list('sound/ambience/ambispace.ogg',
+					'sound/ambience/ambispace2.ogg',
+					'sound/ambience/title2.ogg',
+					'sound/music/main.ogg',
+					'sound/music/space.ogg',
+					'sound/ambience/ambiatmos.ogg',
+					'sound/music/traitor.ogg'
+					)
 	no_light_control = 1
 	base_turf = /turf/space
 

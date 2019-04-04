@@ -12,7 +12,9 @@
 		"thunderdomecourt" = new /datum/holodeck_program(/area/holodeck/source_thunderdomecourt,
 			list('sound/music/THUNDERDOME.ogg')
 		),
-		"beach" = new /datum/holodeck_program(/area/holodeck/source_beach),
+		"beach" = new /datum/holodeck_program(/area/holodeck/source_beach,
+			list('sound/ambience/shore.ogg')
+		),
 		"desert" = new /datum/holodeck_program(/area/holodeck/source_desert,
 			list(
 				'sound/effects/wind/wind_2_1.ogg',
@@ -46,8 +48,8 @@
 		),
 		"theatre" = new /datum/holodeck_program(/area/holodeck/source_theatre),
 		"meetinghall" = new /datum/holodeck_program(/area/holodeck/source_meetinghall),
-		"courtroom" = new /datum/holodeck_program(/area/holodeck/source_courtroom, 
-			list('sound/music/traitor.ogg')
+		"courtroom" = new /datum/holodeck_program(/area/holodeck/source_courtroom,
+			list('sound/music/pursuit.ogg')
 		),
 		"burntest" = new /datum/holodeck_program(/area/holodeck/source_burntest, list()),
 		"wildlifecarp" = new /datum/holodeck_program(/area/holodeck/source_wildlife, list()),
@@ -61,7 +63,7 @@
 			)
 		),
 		"gym" = new /datum/holodeck_program(/area/holodeck/source_gym),
-		"battlemonsters" = new /datum/holodeck_program(/area/holodeck/source_battlemonsters, 
+		"battlemonsters" = new /datum/holodeck_program(/area/holodeck/source_battlemonsters,
 			list(
 				'sound/music/battlemonsters_theme.ogg'
 			),

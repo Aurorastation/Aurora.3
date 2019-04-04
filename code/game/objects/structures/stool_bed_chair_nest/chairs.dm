@@ -144,6 +144,8 @@
 				for (var/mob/O in src.loc)
 					if (O != occupant)
 						Collide(O)
+			if(has_gravity())
+				playsound(src, 'sound/effects/roll.ogg', 100, 1)
 			else
 				unbuckle_mob()
 

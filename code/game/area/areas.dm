@@ -51,7 +51,8 @@
 		'sound/ambience/ambigen10.ogg',
 		'sound/ambience/ambigen11.ogg',
 		'sound/ambience/ambigen12.ogg',
-		'sound/ambience/ambigen14.ogg'
+		'sound/ambience/ambigen14.ogg',
+		'sound/ambience/ambigen15.ogg'
 	)
 	var/list/forced_ambience = null
 	var/loop_ambience = TRUE

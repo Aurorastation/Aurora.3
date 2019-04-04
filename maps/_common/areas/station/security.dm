@@ -51,15 +51,24 @@
 /area/security/forensics_office
 	name = "\improper Security - Forensic Office"
 	icon_state = "detective"
+	ambience = list('sound/ambience/ambidet1.ogg',
+					'sound/ambience/ambidet2.ogg'
+					)
 	sound_env = MEDIUM_SOFTFLOOR
 
 /area/security/detectives_office
 	name = "\improper Security - Detective's Office"
 	icon_state = "detective"
+	ambience = list('sound/ambience/ambidet1.ogg',
+					'sound/ambience/ambidet2.ogg'
+					)
 
 /area/security/investigations
 	name = "\improper Security - Investigations Division"
 	icon_state = "detective"
+	ambience = list('sound/ambience/ambidet1.ogg',
+					'sound/ambience/ambidet2.ogg'
+					)
 
 /area/security/training
 	name = "\improper Security - Training Wing"
