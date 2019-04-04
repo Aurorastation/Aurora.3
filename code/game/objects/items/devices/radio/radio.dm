@@ -214,6 +214,7 @@ var/global/list/default_medbay_channels = list(
 		else
 			if (channels[chan_name] & FREQ_LISTENING)
 				channels[chan_name] &= ~FREQ_LISTENING
+				playsound(src.loc, null)
 			else
 				channels[chan_name] |= FREQ_LISTENING
 		. = 1
