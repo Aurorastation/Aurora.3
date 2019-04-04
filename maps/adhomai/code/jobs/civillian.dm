@@ -340,7 +340,6 @@
 	supervisors = "the governor"
 	selection_color = "#dddddd"
 	req_admin_notify = TRUE
-	minimal_player_age = 10
 	species_blacklist = list("Zhan-Khazan Tajara", HUMAN_SPECIES, UNATHI_SPECIES, SKRELL_SPECIES, VAURCA_SPECIES, DIONA_SPECIES, IPC_SPECIES)
 
 	outfit = /datum/outfit/job/adhomai/chief_constable
