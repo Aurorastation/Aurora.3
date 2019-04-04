@@ -70,3 +70,27 @@
 
 /obj/structure/telegraphy/mayor
 	diplo_options = list("Message the capital", "Make Annoucement", "Cancel")
+
+/obj/machinery/computer/secure_data/adhomai
+	name = "security database"
+	desc = "This old, dillapidated machine looks ready to fall apart."
+	icon = 'icons/obj/computer.dmi'
+	icon_state = "old_cons"
+
+	icon_screen = null
+
+	light_range_on = 0
+	light_power_on = 0
+	is_holographic = FALSE
+
+
+/obj/machinery/computer/med_data/adhomai
+	name = "medical database"
+	desc = "This old, dillapidated machine looks ready to fall apart."
+	icon = 'icons/adhomai/structures.dmi'
+	icon_state = "server"
+
+	icon_screen = null
+	light_range_on = 0
+	light_power_on = 0
+	is_holographic = FALSE

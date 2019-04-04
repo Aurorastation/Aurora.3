@@ -120,7 +120,7 @@ obj/structure/pit/Crossed(AM as mob|obj)
 	icon_state = "pit0"
 
 /obj/structure/pit/closed/grave/Initialize()
-	var/obj/structure/closet/coffin/C = new(src.loc)
+	var/obj/structure/closet/coffin/sarcophagus/C = new(src.loc)
 	var/obj/effect/decal/remains/human/bones = new(C)
 	bones.layer = BELOW_MOB_LAYER
 	var/obj/structure/gravemarker/random/R = new(src.loc)

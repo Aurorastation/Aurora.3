@@ -9,8 +9,15 @@
 	speak_emote = list("whistles")
 	emote_hear = list("whistles loudly")
 	emote_see = list("whistles")
-	body_color = "white"
 	holder_type = null
+
+/mob/living/simple_animal/chicken/ice_tunneler/update_icons()
+	if (stat == DEAD)
+		icon_state = icon_dead
+	else if ((stat == UNCONSCIOUS || resting) && icon_rest)
+		icon_state = icon_rest
+	else if (icon_living)
+		icon_state = icon_living
 
 /mob/living/simple_animal/cow/fatshouter
 	name = "fatshouter"

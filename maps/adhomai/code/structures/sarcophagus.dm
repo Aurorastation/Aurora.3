@@ -23,6 +23,8 @@
 	if(prob(10))
 		new /obj/item/stack/material/meteoric (src)
 		new /obj/item/stack/material/meteoric (src)
+		new /obj/item/stack/material/meteoric (src)
+		new /obj/item/stack/material/meteoric (src)
 
 	new /obj/effect/decal/remains/xeno (src)
 

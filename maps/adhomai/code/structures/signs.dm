@@ -28,7 +28,7 @@
 	icon_state = "signhotel"
 
 /obj/structure/sign/adhomai/paiting
-	name = "painting "
+	name = "painting"
 	desc = "A framed oil painting."
 	icon_state = "adhomai"
 

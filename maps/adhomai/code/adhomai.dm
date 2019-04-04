@@ -26,6 +26,8 @@
 	company_short = "NKA"
 	system_name = "S'rand'marr"
 
+//	lobby_screens = list("adhomai")
+
 	command_spawn_enabled = FALSE
 
 	allowed_jobs = list(/datum/job/commander, /datum/job/supply_officer, /datum/job/levy, /datum/job/grenadier, /datum/job/sharpshooter,/datum/job/combatengineer,
