@@ -16,7 +16,6 @@
 		)
 	is_assistant = TRUE
 
-	create_record = FALSE
 	account_allowed = FALSE
 
 /datum/outfit/job/adhomai/commoner
@@ -52,7 +51,6 @@
 
 	species_blacklist = list("Zhan-Khazan Tajara", "M'sai Tajara", HUMAN_SPECIES, UNATHI_SPECIES, SKRELL_SPECIES, VAURCA_SPECIES, DIONA_SPECIES, IPC_SPECIES)
 
-	create_record = FALSE
 	account_allowed = FALSE
 
 /datum/outfit/job/adhomai/mayor
@@ -78,7 +76,6 @@
 
 	outfit = /datum/outfit/job/adhomai/barkeeper
 
-	create_record = FALSE
 	account_allowed = FALSE
 
 /datum/outfit/job/adhomai/barkeeper
@@ -107,7 +104,6 @@
 
 	outfit = /datum/outfit/job/adhomai/hunter
 
-	create_record = FALSE
 	account_allowed = FALSE
 
 /datum/outfit/job/adhomai/hunter
@@ -132,7 +128,6 @@
 	alt_titles = list("Missionary")
 	outfit = /datum/outfit/job/adhomai/priest
 
-	create_record = FALSE
 	account_allowed = FALSE
 
 /datum/outfit/job/adhomai/priest
@@ -167,7 +162,6 @@
 
 	outfit = /datum/outfit/job/adhomai/physician
 
-	create_record = FALSE
 	account_allowed = FALSE
 
 /datum/outfit/job/adhomai/physician
@@ -194,7 +188,6 @@
 
 	outfit = /datum/outfit/job/adhomai/nurse
 
-	create_record = FALSE
 	account_allowed = FALSE
 
 /datum/outfit/job/adhomai/nurse
@@ -227,7 +220,6 @@
 
 	outfit = /datum/outfit/job/adhomai/prospector
 
-	create_record = FALSE
 	account_allowed = FALSE
 
 /datum/outfit/job/adhomai/prospector
@@ -252,7 +244,6 @@
 
 	outfit = /datum/outfit/job/adhomai/blacksmith
 
-	create_record = FALSE
 	account_allowed = FALSE
 
 /datum/outfit/job/adhomai/blacksmith
@@ -277,7 +268,6 @@
 
 	outfit = /datum/outfit/job/adhomai/archeologist
 
-	create_record = FALSE
 	account_allowed = FALSE
 
 /datum/outfit/job/adhomai/archeologist
@@ -313,7 +303,6 @@
 
 	outfit = /datum/outfit/job/adhomai/trader
 
-	create_record = FALSE
 	account_allowed = FALSE
 
 /datum/outfit/job/adhomai/trader
@@ -344,7 +333,6 @@
 
 	outfit = /datum/outfit/job/adhomai/chief_constable
 
-	create_record = FALSE
 	account_allowed = FALSE
 
 /datum/outfit/job/adhomai/chief_constable
@@ -374,7 +362,6 @@
 	species_blacklist = list(HUMAN_SPECIES, UNATHI_SPECIES, SKRELL_SPECIES, VAURCA_SPECIES, DIONA_SPECIES, IPC_SPECIES)
 	outfit = /datum/outfit/job/adhomai/constable
 
-	create_record = FALSE
 	account_allowed = FALSE
 
 /datum/outfit/job/adhomai/constable

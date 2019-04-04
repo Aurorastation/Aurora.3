@@ -45,7 +45,7 @@ var/list/adhomai_positions = list(
 /datum/outfit/job/adhomai
 	allow_backbag_choice = FALSE
 	uniform = /obj/item/clothing/under/serviceoveralls
-	id = null
+	id = /obj/item/weapon/card/id/papers
 	l_ear = null
 	back = /obj/item/weapon/storage/backpack/satchel
 	shoes = /obj/item/clothing/shoes/sandal
