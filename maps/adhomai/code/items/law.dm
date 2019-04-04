@@ -32,5 +32,5 @@
 	icon_state = "leland_badge-info"
 	item_state = "paper"
 
-/obj/item/weapon/card/id/papers/proc/update_name()
+/obj/item/weapon/card/id/papers/update_name()
     name = "[src.registered_name]'s documents"
