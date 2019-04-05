@@ -3,6 +3,7 @@
 
 /mob/living/silicon/ai
 	var/time_music = -3000
+	var/area/played_area = null
 
 var/list/ai_list = list()
 var/list/ai_verbs_default = list(
@@ -30,7 +31,8 @@ var/list/ai_verbs_default = list(
 	/mob/living/silicon/ai/proc/ai_examine,
 	/mob/living/silicon/ai/proc/multitool_mode,
 	/mob/living/silicon/ai/proc/toggle_hologram_movement,
-	/mob/living/silicon/ai/proc/play_sound
+	/mob/living/silicon/ai/proc/play_sound,
+	/mob/living/silicon/ai/proc/cancel_sound
 )
 
 //Not sure why this is necessary...

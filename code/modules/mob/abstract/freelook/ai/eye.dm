@@ -108,21 +108,32 @@
 		to_chat(src, "<span class='warning'>You have played music recently, you have to wait [(round(delay/60) > 0) ? ("[round(delay/60)] minutes") : ("[delay] seconds") ]</span>")
 		return
 	var/list/sounds = file2list("sound/serversound_list.txt");
-	sounds += "--CANCEL--"
 	sounds += sounds_cache
 
-	var/melody = input("Select a sound from the server to play", "Server sound list", "--CANCEL--") in sounds
+	var/melody = input("Select a sound from the server to play", "Server sound list") as null|anything in sounds
+	if(!melody) return
 
-	if(melody == "--CANCEL--")	return
+	played_area = get_area(eyeobj.loc)
+	if(!played_area) return
+	if(!(played_area in the_station_areas))
+		to_chat(usr, span("warning", "You can only play music on station."))
+		return
 
-	var/area/A = get_area(eyeobj.loc)
-	if(!A) return
+	log_game("[key_name(src)] played sound [melody] in [played_area]", admin_key=key_name(src))
+	message_admins("[key_name_admin(src)] played sound [melody] in [played_area]", 1)
 
-	log_admin("[key_name(src)] played sound [melody] in [A]", admin_key=key_name(src))
-	message_admins("[key_name_admin(src)] played sound [melody] in [A]", 1)
-
-	for(var/obj/item/device/radio/intercom/i in A)
-		playsound(i.loc, melody, 40, 0)
+	for(var/obj/item/device/radio/intercom/i in played_area)
+		i.listening = TRUE
+		playsound(i, melody, 60, 0)
+		CHECK_TICK
 	time_music = world.time
 
-	feedback_add_details("admin_verb","PGS") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
+/mob/living/silicon/ai/proc/cancel_sound()
+	set category = "AI Commands"
+	set name = "Cancel Music In The Area"
+	if(!played_area) return
+
+	for(var/obj/item/device/radio/intercom/i in played_area)
+		playsound(i, null)
+		CHECK_TICK
+	

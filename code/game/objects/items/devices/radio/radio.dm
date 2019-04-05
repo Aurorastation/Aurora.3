@@ -177,6 +177,8 @@ var/global/list/default_medbay_channels = list(
 
 /obj/item/device/radio/proc/ToggleReception()
 	listening = !listening && !(wires.IsIndexCut(WIRE_RECEIVE) || wires.IsIndexCut(WIRE_SIGNAL))
+	if(!listening)
+		playsound(src, null)
 
 /obj/item/device/radio/CanUseTopic()
 	if(!on)
@@ -214,7 +216,6 @@ var/global/list/default_medbay_channels = list(
 		else
 			if (channels[chan_name] & FREQ_LISTENING)
 				channels[chan_name] &= ~FREQ_LISTENING
-				playsound(src.loc, null)
 			else
 				channels[chan_name] |= FREQ_LISTENING
 		. = 1

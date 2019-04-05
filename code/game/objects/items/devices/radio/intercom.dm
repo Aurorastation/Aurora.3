@@ -1,5 +1,3 @@
-var/list/intercomm_list = list()
-
 /obj/item/device/radio/intercom
 	name = "station intercom (General)"
 	desc = "Talk through this."
@@ -49,7 +47,6 @@ var/list/intercomm_list = list()
 /obj/item/device/radio/intercom/Initialize()
 	. = ..()
 	power_interface = new(loc, src)
-	intercomm_list += src
 
 /obj/item/device/radio/intercom/department/medbay/Initialize()
 	. = ..()
@@ -93,7 +90,6 @@ var/list/intercomm_list = list()
 
 /obj/item/device/radio/intercom/Destroy()
 	QDEL_NULL(power_interface)
-	intercomm_list -= src
 	return ..()
 
 /obj/item/device/radio/intercom/attack_ai(mob/user as mob)
