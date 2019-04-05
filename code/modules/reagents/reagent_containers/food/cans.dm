@@ -255,3 +255,13 @@
 /obj/item/weapon/reagent_containers/food/drinks/cans/adhomai_milk/Initialize()
 	. = ..()
 	reagents.add_reagent("adhomai_milk", 30)
+
+/obj/item/weapon/reagent_containers/food/drinks/cans/beetle_milk
+	name = "\improper Hakhma Milk"
+	desc = "A can of Hakhma beetle milk, sourced from Scarab and Drifter communities."
+	icon_state = "beetlemilk"
+	center_of_mass = list("x"=16, "y"=10)
+
+/obj/item/weapon/reagent_containers/food/drinks/cans/beetle_milk/Initialize()
+	. = ..()
+	reagents.add_reagent("beetle_milk", 30)

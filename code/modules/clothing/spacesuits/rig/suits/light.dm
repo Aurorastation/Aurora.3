@@ -157,7 +157,6 @@
 	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 5, rad = 5)
 	airtight = 0
 	seal_delay = 5
-	item_flags = 0
 	helm_type = /obj/item/clothing/head/lightrig/offworlder
 	chest_type = /obj/item/clothing/suit/lightrig/offworlder
 	glove_type = null
@@ -178,6 +177,7 @@
 	cold_protection = UPPER_TORSO
 	flags_inv = 0
 	species_restricted = list("Human")
+	flash_protection = FLASH_PROTECTION_MAJOR
 
 /obj/item/weapon/rig/light/offworlder/techno
 	name = "techno-conglomerate mobility hardsuit control module"
