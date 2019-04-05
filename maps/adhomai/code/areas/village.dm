@@ -26,10 +26,6 @@
 
 /area/adhomai/village/townhall
 	name = "\improper Town Hall"
-	icon_state = "entry_1"
-
-/area/adhomai/village/townhall
-	name = "\improper Town Hall"
 	icon_state = "bridge"
 
 /area/adhomai/village/temple
@@ -51,3 +47,7 @@
 /area/adhomai/village/shop
 	name = "\improper Shop"
 	icon_state = "quartloading"
+
+/area/adhomai/village/court
+	name = "\improper Court"
+	icon_state = "entry_1"

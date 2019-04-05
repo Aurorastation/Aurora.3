@@ -285,7 +285,7 @@
 	icon_state = "rampbot";
 	dir = 8
 	},
-/area/crew_quarters/courtroom)
+/area/adhomai/village/court)
 "aX" = (
 /obj/item/weapon/shovel,
 /turf/simulated/floor/asteroid/ash/adhomai,
@@ -415,7 +415,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/wood,
-/area/crew_quarters/courtroom)
+/area/adhomai/village/court)
 "bE" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced,
@@ -770,7 +770,7 @@
 	pixel_y = -32
 	},
 /turf/simulated/floor/wood,
-/area/crew_quarters/courtroom)
+/area/adhomai/village/court)
 "dq" = (
 /obj/structure/table/wood,
 /obj/random/booze,
@@ -832,7 +832,7 @@
 /obj/item/weapon/pen/multi,
 /obj/item/weapon/handcuffs,
 /turf/simulated/floor/wood,
-/area/crew_quarters/courtroom)
+/area/adhomai/village/court)
 "dF" = (
 /obj/structure/ore_box,
 /turf/simulated/floor/asteroid/ash/adhomai,
@@ -1491,10 +1491,10 @@
 "gT" = (
 /obj/structure/barricade/bars,
 /turf/simulated/floor/plating,
-/area/crew_quarters/courtroom)
+/area/adhomai/village/court)
 "gV" = (
 /turf/simulated/floor/wood,
-/area/crew_quarters/courtroom)
+/area/adhomai/village/court)
 "gX" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/closet/crate/bin{
@@ -1505,19 +1505,19 @@
 "gY" = (
 /obj/structure/flora/pottedplant/random,
 /turf/simulated/floor/wood,
-/area/crew_quarters/courtroom)
+/area/adhomai/village/court)
 "ha" = (
 /obj/structure/bed/chair/wood/adhomai{
 	icon_state = "tajchair";
 	dir = 4
 	},
 /turf/simulated/floor/carpet,
-/area/crew_quarters/courtroom)
+/area/adhomai/village/court)
 "hb" = (
 /obj/structure/table/wood,
 /obj/item/weapon/storage/briefcase,
 /turf/simulated/floor/carpet,
-/area/crew_quarters/courtroom)
+/area/adhomai/village/court)
 "he" = (
 /obj/structure/table/wood,
 /obj/structure/sign/adhomai/paiting/nuke{
@@ -1534,7 +1534,7 @@
 	pixel_x = -3
 	},
 /turf/simulated/floor/carpet,
-/area/crew_quarters/courtroom)
+/area/adhomai/village/court)
 "hi" = (
 /obj/structure/table/wood,
 /turf/simulated/floor/carpet,
@@ -1579,7 +1579,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/wood,
-/area/crew_quarters/courtroom)
+/area/adhomai/village/court)
 "hx" = (
 /obj/structure/curtain/open/bed{
 	pixel_x = 32
@@ -2147,7 +2147,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/plating,
-/area/crew_quarters/courtroom)
+/area/adhomai/village/court)
 "ka" = (
 /obj/effect/landmark/start{
 	name = "Commoner"
@@ -2346,7 +2346,7 @@
 "lt" = (
 /obj/structure/closet/cabinet,
 /turf/simulated/floor/wood,
-/area/crew_quarters/courtroom)
+/area/adhomai/village/court)
 "ly" = (
 /obj/item/weapon/material/kitchen/utensil/fork,
 /obj/item/weapon/material/kitchen/utensil/fork,
@@ -2738,7 +2738,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/wood,
-/area/crew_quarters/courtroom)
+/area/adhomai/village/court)
 "ow" = (
 /obj/structure/closet/cabinet,
 /obj/item/weapon/storage/belt/archaeology,
@@ -2828,7 +2828,7 @@
 	dir = 5
 	},
 /turf/simulated/floor/wood,
-/area/crew_quarters/courtroom)
+/area/adhomai/village/court)
 "pj" = (
 /obj/structure/bonfire/fireplace{
 	dir = 4
@@ -2887,7 +2887,7 @@
 /obj/item/weapon/gavelblock,
 /obj/item/weapon/gavelhammer,
 /turf/simulated/floor/lino,
-/area/crew_quarters/courtroom)
+/area/adhomai/village/court)
 "pE" = (
 /obj/effect/decal/cleanable/cobweb,
 /obj/structure/closet/crate/large,
@@ -2951,7 +2951,7 @@
 	name = "Commoner"
 	},
 /turf/simulated/floor/wood,
-/area/crew_quarters/courtroom)
+/area/adhomai/village/court)
 "pY" = (
 /obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
@@ -3071,7 +3071,7 @@
 /obj/item/weapon/paper_bin,
 /obj/item/weapon/pen/multi,
 /turf/simulated/floor/wood,
-/area/crew_quarters/courtroom)
+/area/adhomai/village/court)
 "qY" = (
 /obj/structure/table/wood,
 /obj/item/weapon/hand_labeler,
@@ -3117,7 +3117,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/plating,
-/area/crew_quarters/courtroom)
+/area/adhomai/village/court)
 "rs" = (
 /obj/structure/table/steel,
 /turf/simulated/floor/wood,
@@ -3170,7 +3170,7 @@
 /area/adhomai/village)
 "rJ" = (
 /turf/simulated/floor/carpet,
-/area/crew_quarters/courtroom)
+/area/adhomai/village/court)
 "rL" = (
 /obj/structure/table/wood,
 /obj/structure/bedsheetbin,
@@ -3324,20 +3324,20 @@
 /area/adhomai/village/medical)
 "sO" = (
 /turf/simulated/wall/wood,
-/area/crew_quarters/courtroom)
+/area/adhomai/village/court)
 "sQ" = (
 /obj/structure/curtain/open/bed{
 	pixel_y = 32
 	},
 /turf/simulated/floor/wood,
-/area/crew_quarters/courtroom)
+/area/adhomai/village/court)
 "sS" = (
 /obj/structure/bed/chair/wood/adhomai{
 	icon_state = "tajchair";
 	dir = 8
 	},
 /turf/simulated/floor/lino,
-/area/crew_quarters/courtroom)
+/area/adhomai/village/court)
 "sU" = (
 /obj/item/device/flashlight/lamp,
 /obj/structure/table/wood,
@@ -3396,7 +3396,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/barricade/bars,
 /turf/simulated/floor/plating,
-/area/crew_quarters/courtroom)
+/area/adhomai/village/court)
 "tq" = (
 /obj/structure/bed/chair/wood/adhomai{
 	icon_state = "tajchair";
@@ -3434,7 +3434,7 @@
 	pixel_x = 32
 	},
 /turf/simulated/floor/lino,
-/area/crew_quarters/courtroom)
+/area/adhomai/village/court)
 "tJ" = (
 /obj/effect/floor_decal/carpet,
 /obj/effect/floor_decal/carpet{
@@ -3897,7 +3897,7 @@
 "wP" = (
 /obj/structure/simple_door/wood,
 /turf/simulated/floor/wood,
-/area/crew_quarters/courtroom)
+/area/adhomai/village/court)
 "wR" = (
 /obj/machinery/light/small,
 /turf/simulated/floor/wood,
@@ -3967,7 +3967,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/wood,
-/area/crew_quarters/courtroom)
+/area/adhomai/village/court)
 "xy" = (
 /obj/machinery/light/small{
 	dir = 1
@@ -3994,7 +3994,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/plating,
-/area/crew_quarters/courtroom)
+/area/adhomai/village/court)
 "xI" = (
 /obj/structure/closet/gmcloset,
 /obj/machinery/light{
@@ -4105,7 +4105,7 @@
 	},
 /obj/item/weapon/clipboard,
 /turf/simulated/floor/lino,
-/area/crew_quarters/courtroom)
+/area/adhomai/village/court)
 "yx" = (
 /obj/structure/closet/cabinet,
 /obj/item/stack/material/steel{
@@ -4134,7 +4134,7 @@
 "yL" = (
 /obj/structure/bed/chair/wood/adhomai,
 /turf/simulated/floor/wood,
-/area/crew_quarters/courtroom)
+/area/adhomai/village/court)
 "yQ" = (
 /obj/structure/table/rack,
 /obj/item/weapon/storage/toolbox/mechanical,
@@ -4207,7 +4207,7 @@
 /area/adhomai/village/shop)
 "zn" = (
 /turf/simulated/floor/plating,
-/area/crew_quarters/courtroom)
+/area/adhomai/village/court)
 "zw" = (
 /obj/structure/bed/chair/wood/adhomai,
 /obj/effect/landmark/start{
@@ -4250,7 +4250,7 @@
 /obj/item/clothing/head/powdered_wig,
 /obj/item/clothing/suit/judgerobe,
 /turf/simulated/floor/lino,
-/area/crew_quarters/courtroom)
+/area/adhomai/village/court)
 "zU" = (
 /obj/structure/bed/chair/wood/adhomai{
 	icon_state = "tajchair";
@@ -4356,7 +4356,7 @@
 	pixel_y = 32
 	},
 /turf/simulated/floor/wood,
-/area/crew_quarters/courtroom)
+/area/adhomai/village/court)
 "AP" = (
 /obj/structure/table/wood,
 /obj/item/device/ano_scanner,
@@ -4395,7 +4395,7 @@
 /obj/machinery/papershredder,
 /obj/machinery/light/small,
 /turf/simulated/floor/wood,
-/area/crew_quarters/courtroom)
+/area/adhomai/village/court)
 "AY" = (
 /obj/structure/table/rack,
 /obj/item/weapon/gun/projectile/shotgun/pump/rifle/nka/scoped,
@@ -4433,7 +4433,7 @@
 	pixel_y = -32
 	},
 /turf/simulated/floor/wood,
-/area/crew_quarters/courtroom)
+/area/adhomai/village/court)
 "Bh" = (
 /obj/machinery/light{
 	icon_state = "tube1";
@@ -4674,7 +4674,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/plating,
-/area/crew_quarters/courtroom)
+/area/adhomai/village/court)
 "CJ" = (
 /obj/structure/curtain/open/bed{
 	pixel_x = -32
@@ -4695,7 +4695,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/plating,
-/area/crew_quarters/courtroom)
+/area/adhomai/village/court)
 "CU" = (
 /obj/structure/bonfire/fireplace{
 	dir = 4
@@ -4802,7 +4802,7 @@
 	pixel_y = 4
 	},
 /turf/simulated/floor/lino,
-/area/crew_quarters/courtroom)
+/area/adhomai/village/court)
 "Dx" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/sign/poster{
@@ -5037,7 +5037,7 @@
 	icon_state = "rampbot";
 	dir = 1
 	},
-/area/crew_quarters/courtroom)
+/area/adhomai/village/court)
 "EG" = (
 /obj/structure/table/wood,
 /turf/simulated/floor/wood,
@@ -5132,7 +5132,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/carpet,
-/area/crew_quarters/courtroom)
+/area/adhomai/village/court)
 "FD" = (
 /obj/effect/floor_decal/spline/plain{
 	dir = 8;
@@ -5160,7 +5160,7 @@
 	icon_state = "spline_plain"
 	},
 /turf/simulated/floor/lino,
-/area/crew_quarters/courtroom)
+/area/adhomai/village/court)
 "FS" = (
 /obj/structure/table/rack,
 /obj/structure/window/reinforced{
@@ -5352,7 +5352,7 @@
 	icon_state = "rampbot";
 	dir = 8
 	},
-/area/crew_quarters/courtroom)
+/area/adhomai/village/court)
 "Hf" = (
 /obj/effect/floor_decal/carpet{
 	icon_state = "carpet_edges";
@@ -5806,7 +5806,7 @@
 "Kl" = (
 /obj/structure/table/wood,
 /turf/simulated/floor/carpet,
-/area/crew_quarters/courtroom)
+/area/adhomai/village/court)
 "Km" = (
 /obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
@@ -6001,7 +6001,7 @@
 /area/adhomai/village/mayor)
 "LI" = (
 /turf/simulated/floor/lino,
-/area/crew_quarters/courtroom)
+/area/adhomai/village/court)
 "LJ" = (
 /obj/structure/table/wood,
 /obj/structure/sign/adhomai/paiting{
@@ -6316,7 +6316,7 @@
 	initial_lock_value = "cell"
 	},
 /turf/simulated/floor/plating,
-/area/crew_quarters/courtroom)
+/area/adhomai/village/court)
 "Op" = (
 /obj/machinery/light/small,
 /obj/effect/floor_decal/corner/green/diagonal,
@@ -6416,7 +6416,7 @@
 /area/adhomai/village/temple)
 "OZ" = (
 /turf/simulated/floor/tiled/dark,
-/area/crew_quarters/courtroom)
+/area/adhomai/village/court)
 "Pi" = (
 /obj/structure/sink{
 	dir = 8;
@@ -6848,7 +6848,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/plating,
-/area/crew_quarters/courtroom)
+/area/adhomai/village/court)
 "Sc" = (
 /obj/structure/mopbucket,
 /obj/item/weapon/mop,
@@ -7263,7 +7263,7 @@
 	pixel_y = -32
 	},
 /turf/simulated/floor/wood,
-/area/crew_quarters/courtroom)
+/area/adhomai/village/court)
 "Va" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/bedsheetbin,
@@ -7280,7 +7280,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/plating,
-/area/crew_quarters/courtroom)
+/area/adhomai/village/court)
 "Vn" = (
 /obj/structure/table/wood,
 /obj/item/weapon/folder/yellow,
@@ -7367,7 +7367,7 @@
 	pixel_y = 0
 	},
 /turf/simulated/floor/wood,
-/area/crew_quarters/courtroom)
+/area/adhomai/village/court)
 "We" = (
 /obj/structure/curtain/open/shower,
 /obj/machinery/shower{
@@ -7478,7 +7478,7 @@
 	pixel_x = 32
 	},
 /turf/simulated/floor/tiled/dark,
-/area/crew_quarters/courtroom)
+/area/adhomai/village/court)
 "WK" = (
 /obj/structure/table/steel,
 /obj/item/weapon/paper_bin,
@@ -7652,7 +7652,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/plating,
-/area/crew_quarters/courtroom)
+/area/adhomai/village/court)
 "Yu" = (
 /obj/structure/table/wood,
 /obj/structure/window/reinforced{

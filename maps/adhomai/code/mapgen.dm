@@ -42,7 +42,7 @@
 				var/grass_path = pick(typesof(/obj/structure/flora/grass)-/obj/structure/flora/grass)
 				new grass_path(T)
 			if(prob(0.5))
-				var/mob_type = pick(list(/mob/living/simple_animal/chicken/ice_tunneler, /mob/living/simple_animal/cow/fatshouter))
+				var/mob_type = pick(list(/mob/living/simple_animal/ice_tunneler, /mob/living/simple_animal/cow/fatshouter))
 				new mob_type(T)
 		if(7)
 			if(prob(60))

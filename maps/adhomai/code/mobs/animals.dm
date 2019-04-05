@@ -1,4 +1,4 @@
-/mob/living/simple_animal/chicken/ice_tunneler
+/mob/living/simple_animal/ice_tunneler
 	name = "ice tunneler"
 	desc = "An egg producing beast from Adhomai. It is known for burrowing in ice and snow."
 	icon = 'icons/adhomai/animals.dmi'
@@ -9,15 +9,35 @@
 	speak_emote = list("whistles")
 	emote_hear = list("whistles loudly")
 	emote_see = list("whistles")
-	holder_type = null
+	var/eggsleft = 0
 
-/mob/living/simple_animal/chicken/ice_tunneler/update_icons()
-	if (stat == DEAD)
-		icon_state = icon_dead
-	else if ((stat == UNCONSCIOUS || resting) && icon_rest)
-		icon_state = icon_rest
-	else if (icon_living)
-		icon_state = icon_living
+/mob/living/simple_animal/ice_tunneler/attackby(var/obj/item/O as obj, var/mob/user as mob)
+	if(istype(O, /obj/item/weapon/reagent_containers/food/snacks/grown)) //feedin' dem chickens
+		var/obj/item/weapon/reagent_containers/food/snacks/grown/G = O
+		if(G.seed && G.seed.kitchen_tag == "wheat")
+			if(!stat && eggsleft < 8)
+				user.visible_message(
+					span("notice", "\The [user] feeds \the [O] to \the [name]! It clucks happily."),
+					span("notice", "You feed \the [O] to \the [name]! It clucks happily."),
+					"You hear a cluck.")
+				user.drop_from_inventory(O,get_turf(src))
+				qdel(O)
+				eggsleft += rand(1, 4)
+			else
+				to_chat(user, "\The [name] doesn't seem hungry!")
+		else
+			to_chat(user, "\The [name] doesn't seem interested in that.")
+	else
+		..()
+
+/mob/living/simple_animal/ice_tunneler/Life()
+	. =..()
+	if(!.)
+		return
+	if(!stat && prob(3) && eggsleft > 0)
+		visible_message("[src] lays an egg.")
+		eggsleft--
+		new /obj/item/weapon/reagent_containers/food/snacks/egg(get_turf(src))
 
 /mob/living/simple_animal/cow/fatshouter
 	name = "fatshouter"
