@@ -126,7 +126,6 @@ var/datum/controller/subsystem/docs/SSdocs
 		while(document_query.NextRow())
 			CHECK_TICK
 			try
-				log_ss("docs", "Tags (SQL): [json_decode(document_query.item[5])]")
 				add_document(
 					document_query.item[1],
 					document_query.item[2],
@@ -152,7 +151,6 @@ var/datum/controller/subsystem/docs/SSdocs
 	for (var/document in docsconfig)
 		CHECK_TICK
 		try
-			log_ss("docs", "Tags (JSON): [list2params(docsconfig[document]["tags"])]")
 			add_document(
 				docsconfig[document]["name"],
 				docsconfig[document]["title"],
@@ -161,7 +159,6 @@ var/datum/controller/subsystem/docs/SSdocs
 				docsconfig[document]["tags"])
 		catch(var/exception/ec)
 			log_ss("docs","Error when loading document: [ec]")
-			log_debug("SSdocs: Error when loading document: [ec]")
 	return 1
 
 /datum/controller/subsystem/docs/proc/add_document(var/name,var/title,var/chance,var/content,var/tags)
@@ -205,9 +202,10 @@ var/datum/controller/subsystem/docs/SSdocs
 /obj/random/document/item_to_spawn()
 	return /obj/item/weapon/paper
 
-/obj/random/document/post_spawn(var/obj/item/spawned)
+/obj/random/document/post_spawn(var/obj/item/weapon/paper/spawned)
+	if(!istype(spawned))
+		return
 	var/list/total_tags = src.tags | list(SSDOCS_MEDIUM_PAPER)
-	log_ss("docs","Tags selected: [list2params(total_tags)]")
 	var/datum/docs_document/doc
 	if(total_tags.len == 1)
 		doc = SSdocs.pick_document_by_tag(total_tags[1])
@@ -219,11 +217,9 @@ var/datum/controller/subsystem/docs/SSdocs
 		if(!istype(doc))
 			log_ss("docs","pick_document_by_tags returned null paper!")
 			return
-	if(!istype(spawned, /obj/item/weapon/paper))
-		return
 	log_ss("docs","Document [doc.name] successfully spawned!")
 	var/obj/item/weapon/paper/P = spawned
-	P.set_content_unsafe(doc.title, doc.content)
+	P.set_content(doc.title, doc.content)
 
 /obj/random/document/junk/post_spawn(var/obj/item/spawned)
 	..()
@@ -233,10 +229,10 @@ var/datum/controller/subsystem/docs/SSdocs
 		P.icon_state = "scrap"
 
 /datum/controller/subsystem/docs/proc/create_file(var/datum/docs_document/file)
-		var/datum/computer_file/data/F = new/datum/computer_file/data()
-		F.filename = file.title
-		F.filetype = "TXT"
-		log_ss("docs","Digital file created: [file.title].TXT")
-		F.stored_data = file.content
-		F.calculate_size()
-		return F
+	var/datum/computer_file/data/F = new/datum/computer_file/data()
+	F.filename = file.title
+	F.filetype = "TXT"
+	log_ss("docs","Digital file created: [file.title].TXT")
+	F.stored_data = file.content
+	F.calculate_size()
+	return F

@@ -449,6 +449,8 @@ proc/TextPreview(var/string,var/len=40)
 	t = replacetext(t, "\[time\]", "[worldtime2text()]")
 	t = replacetext(t, "\[date\]", "[worlddate2text()]")
 	t = replacetext(t, "\[editorbr\]", "<BR>")
+	t = replacetext(t, "\[image\]", "<img src = https://cdn.aurorastation.org/images/")
+	t = replacetext(t, "\[/image\]", "></img>")
 	return t
 
 /proc/html2pencode(t)
