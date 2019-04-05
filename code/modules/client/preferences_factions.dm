@@ -23,6 +23,7 @@ var/global/list/citizenship_choices = list(
 	"Zo'ra Hive",
 	"K'lax Hive",
 	"Empire of Dominia"
+	"New Kingdom of Adhomai"
 	)
 
 var/global/list/home_system_choices = list(
