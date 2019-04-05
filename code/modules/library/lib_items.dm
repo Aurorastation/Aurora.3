@@ -203,6 +203,12 @@
 	var/obj/item/store	//What's in the book?
 
 /obj/item/weapon/book/attack_self(var/mob/user as mob)
+	playsound(src.loc, pick(
+							'sound/bureaucracy/book/turnpage1.ogg',\
+							'sound/bureaucracy/book/turnpage2.ogg',\
+							'sound/bureaucracy/book/turnpage3.ogg',\
+							'sound/bureaucracy/book/turnpage4.ogg',\
+							), rand(40,80), 1)
 	if(carved)
 		if(store)
 			to_chat(user, "<span class='notice'>[store] falls out of [title]!</span>")
