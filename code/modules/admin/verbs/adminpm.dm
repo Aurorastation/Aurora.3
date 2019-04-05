@@ -37,10 +37,6 @@
 //Fetching a message if needed. src is the sender and C is the target client
 
 /client/proc/cmd_admin_pm(var/client/C, var/msg = null, var/datum/ticket/ticket = null)
-	if(prefs.muted & MUTE_ADMINHELP)
-		to_chat(src, "<font color='red'>Error: Private-Message: You are unable to use PM-s (muted).</font>")
-		return
-
 	if(!istype(C,/client))
 		if(holder)	to_chat(src, "<font color='red'>Error: Private-Message: Client not found.</font>")
 		else		to_chat(src, "<font color='red'>Error: Private-Message: Client not found. They may have lost connection, so try using an adminhelp!</font>")

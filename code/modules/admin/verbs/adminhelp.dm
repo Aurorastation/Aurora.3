@@ -70,11 +70,6 @@ var/list/adminhelp_ignored_words = list("unknown","the","a","an","of","monkey","
 		to_chat(usr, "<span class='warning'>Speech is currently admin-disabled.</span>")
 		return
 
-	//handle muting and automuting
-	if(prefs.muted & MUTE_ADMINHELP)
-		to_chat(src, "<font color='red'>Error: Admin-PM: You cannot send adminhelps (Muted).</font>")
-		return
-
 	adminhelped = ADMINHELPED
 
 	if(src.handle_spam_prevention(msg,MUTE_ADMINHELP))
