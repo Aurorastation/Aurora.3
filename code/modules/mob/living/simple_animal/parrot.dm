@@ -28,7 +28,7 @@
 /mob/living/simple_animal/parrot
 	name = "\improper Parrot"
 	desc = "The parrot squaks, \"It's a Parrot! BAWWK!\""
-	icon = 'icons/mob/animal.dmi'
+	icon = 'icons/mob/npc/animal.dmi'
 	icon_state = "parrot_fly"
 	icon_living = "parrot_fly"
 	icon_dead = "parrot_dead"
@@ -161,19 +161,19 @@
 							if(copytext(possible_phrase,1,3) in department_radio_keys)
 								possible_phrase = copytext(possible_phrase,3,length(possible_phrase))
 					else
-						usr << "<span class='warning'>There is nothing to remove from its [remove_from].</span>"
+						to_chat(usr, "<span class='warning'>There is nothing to remove from its [remove_from].</span>")
 						return
 
 		//Adding things to inventory
 		else if(href_list["add_inv"])
 			var/add_to = href_list["add_inv"]
 			if(!usr.get_active_hand())
-				usr << "<span class='warning'>You have nothing in your hand to put on its [add_to].</span>"
+				to_chat(usr, "<span class='warning'>You have nothing in your hand to put on its [add_to].</span>")
 				return
 			switch(add_to)
 				if("ears")
 					if(ears)
-						usr << "<span class='warning'>It's already wearing something.</span>"
+						to_chat(usr, "<span class='warning'>It's already wearing something.</span>")
 						return
 					else
 						var/obj/item/item_to_add = usr.get_active_hand()
@@ -181,14 +181,14 @@
 							return
 
 						if( !istype(item_to_add,  /obj/item/device/radio/headset) )
-							usr << "<span class='warning'>This object won't fit.</span>"
+							to_chat(usr, "<span class='warning'>This object won't fit.</span>")
 							return
 
 						var/obj/item/device/radio/headset/headset_to_add = item_to_add
 
 						usr.drop_from_inventory(headset_to_add,src)
 						src.ears = headset_to_add
-						usr << "You fit the headset onto [src]."
+						to_chat(usr, "You fit the headset onto [src].")
 
 						LAZYCLEARLIST(available_channels)
 						for(var/ch in headset_to_add.channels)
@@ -568,7 +568,7 @@
 		return -1
 
 	if(held_item)
-		src << "<span class='warning'>You are already holding the [held_item]</span>"
+		to_chat(src, "<span class='warning'>You are already holding the [held_item]</span>")
 		return 1
 
 	for(var/obj/item/I in view(1,src))
@@ -584,7 +584,7 @@
 			visible_message("[src] grabs the [held_item]!", "<span class='notice'>You grab the [held_item]!</span>", "You hear the sounds of wings flapping furiously.")
 			return held_item
 
-	src << "<span class='warning'>There is nothing of interest to take.</span>"
+	to_chat(src, "<span class='warning'>There is nothing of interest to take.</span>")
 	return 0
 
 /mob/living/simple_animal/parrot/proc/steal_from_mob()
@@ -596,7 +596,7 @@
 		return -1
 
 	if(held_item)
-		src << "<span class='warning'>You are already holding the [held_item]</span>"
+		to_chat(src, "<span class='warning'>You are already holding the [held_item]</span>")
 		return 1
 
 	var/obj/item/stolen_item = null
@@ -615,7 +615,7 @@
 			visible_message("[src] grabs the [held_item] out of [C]'s hand!", "<span class='notice'>You snag the [held_item] out of [C]'s hand!</span>", "You hear the sounds of wings flapping furiously.")
 			return held_item
 
-	src << "<span class='warning'>There is nothing of interest to take.</span>"
+	to_chat(src, "<span class='warning'>There is nothing of interest to take.</span>")
 	return 0
 
 /mob/living/simple_animal/parrot/verb/drop_held_item_player()
@@ -639,7 +639,7 @@
 		return -1
 
 	if(!held_item)
-		usr << "<span class='warning'>You have nothing to drop!</span>"
+		to_chat(usr, "<span class='warning'>You have nothing to drop!</span>")
 		return 0
 
 	if(!drop_gently)
@@ -647,11 +647,11 @@
 			var/obj/item/weapon/grenade/G = held_item
 			G.forceMove(src.loc)
 			G.prime()
-			src << "You let go of the [held_item]!"
+			to_chat(src, "You let go of the [held_item]!")
 			held_item = null
 			return 1
 
-	src << "You drop the [held_item]."
+	to_chat(src, "You drop the [held_item].")
 
 	held_item.forceMove(src.loc)
 	held_item = null
@@ -672,7 +672,7 @@
 					src.forceMove(AM.loc)
 					icon_state = "parrot_sit"
 					return
-	src << "<span class='warning'>There is no perch nearby to sit on.</span>"
+	to_chat(src, "<span class='warning'>There is no perch nearby to sit on.</span>")
 	return
 
 /*

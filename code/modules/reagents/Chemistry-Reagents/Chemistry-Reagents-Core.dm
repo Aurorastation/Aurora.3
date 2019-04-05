@@ -79,7 +79,7 @@
 			if(M.dna.unique_enzymes == data["blood_DNA"]) //so vampires can't drink their own blood
 				return
 			M.mind.vampire.blood_usable += removed
-			M<< "<span class='notice'>You have accumulated [M.mind.vampire.blood_usable] [M.mind.vampire.blood_usable > 1 ? "units" : "unit"] of usable blood. It tastes quite stale.</span>"
+			to_chat(M, "<span class='notice'>You have accumulated [M.mind.vampire.blood_usable] [M.mind.vampire.blood_usable > 1 ? "units" : "unit"] of usable blood. It tastes quite stale.</span>")
 			return
 	if(dose > 5)
 		M.adjustToxLoss(removed)
@@ -236,14 +236,8 @@
 	. = ..()
 	if(istype(M) && isliving(M))
 		var/mob/living/L = M
-		var/needed = L.fire_stacks * 10
-		if(amount > needed)
-			L.fire_stacks = 0
-			L.ExtinguishMob()
-			remove_self(needed)
-		else
-			L.adjust_fire_stacks(-(amount / 10))
-			remove_self(amount)
+		L.ExtinguishMob(L.on_fire ? amount : amount*0.5)
+		remove_self(amount)
 
 	if(istype(M) && !istype(M, /mob/abstract))
 		M.color = initial(M.color)

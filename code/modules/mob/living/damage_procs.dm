@@ -63,8 +63,7 @@
 		if(DROWSY)
 			drowsyness = max(drowsyness, effect * BLOCKED_MULT(blocked))
 		if(INCINERATE)
-			adjust_fire_stacks(effect * BLOCKED_MULT(blocked))
-			IgniteMob()
+			IgniteMob(effect * BLOCKED_MULT(blocked))
 	updatehealth()
 	return 1
 

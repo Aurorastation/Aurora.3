@@ -154,12 +154,6 @@ proc/get_radio_key_from_channel(var/channel)
 	return verb
 
 /mob/living/say(var/message, var/datum/language/speaking = null, var/verb="says", var/alt_name="")
-
-	if(client)
-		if(client.prefs.muted & MUTE_IC)
-			to_chat(src, "<span class='warning'>You cannot speak in IC (Muted).</span>")
-			return
-
 	if(stat)
 		if(stat == DEAD)
 			return say_dead(message)

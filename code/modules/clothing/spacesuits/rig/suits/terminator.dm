@@ -4,7 +4,6 @@
 	icon_state = "terminator_rig"
 	suit_type = "synthetic exoskeleton"
 	armor = list(melee = 80, bullet = 75, laser = 60, energy = 15, bomb = 80, bio = 100, rad = 30)
-	slowdown = 1
 	offline_slowdown = 3
 	offline_vision_restriction = TINT_HEAVY
 	has_sealed_state = TRUE
@@ -40,6 +39,8 @@
 		/obj/item/rig_module/mounted/plasmacutter,
 		/obj/item/rig_module/actuators/combat
 	)
+
+	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT | MODULE_SPECIAL | MODULE_MEDICAL | MODULE_UTILITY | MODULE_VAURCA
 
 /obj/item/clothing/head/helmet/space/rig/terminator
 	species_restricted = list("Heavy Machine")

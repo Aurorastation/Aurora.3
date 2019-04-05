@@ -62,7 +62,7 @@
 	crashed_area = new crashed_area()
 	for(var/turf/T in area_station)
 		var/turf/T_n = get_turf(locate(T.x, T.y + distance, T.z))
-		
+
 		T_n = get_turf(locate(T.x, T.y + distance, T.z))
 		if(T_n)
 			crashed_area.contents += T_n
@@ -83,8 +83,8 @@
 		"override_enabled" = docking_program.override_enabled,
 		"door_state" = 	docking_program.memory["door_status"]["state"],
 		"door_lock" = 	docking_program.memory["door_status"]["lock"],
-		"destination" = docking_program.destination
-		"emagged" = emagged
+		//"destination" = docking_program.destination,
+		"emagged" = emagged,
 		"can_force" = pod.can_force() || (emergency_shuttle.departed && pod.can_launch()),	//allow players to manually launch ahead of time if the shuttle leaves
 		"is_armed" = pod.arming_controller.armed
 	)
@@ -146,7 +146,7 @@
 
 /obj/machinery/embedded_controller/radio/simple_docking_controller/escape_pod_berth/emag_act(var/remaining_charges, var/mob/user)
 	if (!emagged)
-		user << "<span class='notice'>You emag the [src], arming the escape pod!</span>"
+		to_chat(user, "<span class='notice'>You emag the [src], arming the escape pod!</span>")
 		emagged = 1
 		if (istype(docking_program, /datum/computer/file/embedded_program/docking/simple/escape_pod))
 			var/datum/computer/file/embedded_program/docking/simple/escape_pod/P = docking_program

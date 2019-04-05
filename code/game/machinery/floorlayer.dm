@@ -44,18 +44,18 @@
 		return
 
 	if(istype(W, /obj/item/stack/tile))
-		user << "<span class='notice'>\The [W] successfully loaded.</span>"
+		to_chat(user, "<span class='notice'>\The [W] successfully loaded.</span>")
 		user.drop_item(T)
 		TakeTile(T)
 		return
 
 	if(W.iscrowbar())
 		if(!length(contents))
-			user << "<span class='notice'>\The [src] is empty.</span>"
+			to_chat(user, "<span class='notice'>\The [src] is empty.</span>")
 		else
 			var/obj/item/stack/tile/E = input("Choose remove tile type.", "Tiles") as null|anything in contents
 			if(E)
-				user <<  "<span class='notice'>You remove the [E] from /the [src].</span>"
+				to_chat(user,  "<span class='notice'>You remove the [E] from /the [src].</span>")
 				E.forceMove(src.loc)
 				T = null
 		return
@@ -73,7 +73,7 @@
 	var/number = 0
 	if (T)
 		number = T.get_amount()
-	user << "<span class='notice'>\The [src] has [number] tile\s, dismantle is [dismantle?"on":"off"], laying is [laying?"on":"off"], collect is [collect?"on":"off"].</span>"
+	to_chat(user, "<span class='notice'>\The [src] has [number] tile\s, dismantle is [dismantle?"on":"off"], laying is [laying?"on":"off"], collect is [collect?"on":"off"].</span>")
 
 /obj/machinery/floorlayer/proc/reset()
 	on=0
