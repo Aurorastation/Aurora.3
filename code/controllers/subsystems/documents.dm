@@ -40,8 +40,7 @@ var/datum/controller/subsystem/docs/SSdocs
 //A rewritten version of pickweight.
 /datum/controller/subsystem/docs/proc/pick_document()
 	var/subtotal = rand() * src.total_docs
-	var/doc
-	for (doc in docs)
+	for (var/doc in docs)
 		subtotal -= docs[doc].chance
 		if (subtotal <= 0)
 			return docs[doc]
@@ -52,8 +51,7 @@ var/datum/controller/subsystem/docs/SSdocs
 	if(!docs_by_tags[tag])
 		return 0
 	var/subtotal = rand() * src.total_by_tags[tag]
-	var/doc
-	for (doc in docs_by_tags[tag])
+	for (var/doc in docs_by_tags[tag])
 		subtotal -= docs_by_tags[tag][doc].chance
 		if (subtotal <= 0)
 			return docs_by_tags[tag][doc]
@@ -71,8 +69,7 @@ var/datum/controller/subsystem/docs/SSdocs
 		total_chance += total_by_tags[t]
 		tag_sublist += docs_by_tags[t]
 	var/subtotal = total_chance * rand()
-	var/doc
-	for(doc in tag_sublist)
+	for(var/doc in tag_sublist)
 		subtotal -= tag_sublist[doc].chance
 		if(subtotal <= 0)
 			return tag_sublist[doc]
@@ -89,14 +86,10 @@ var/datum/controller/subsystem/docs/SSdocs
 		tag_sublist &= docs_by_tags[t]
 	log_ss("docs", "Tag sublist has length [tag_sublist.len].")
 	var/subtotal = 0
-	var/datum/docs_document/dd
-	for(dd in tag_sublist)
-		if(!istype(dd))
-			return 0
+	for(var/datum/docs_document/dd in tag_sublist)
 		subtotal += dd.chance
 	subtotal *= rand()
-	var/doc
-	for (doc in tag_sublist)
+	for (var/doc in tag_sublist)
 		subtotal -= tag_sublist[doc].chance
 		if (subtotal <= 0)
 			return tag_sublist[doc]
