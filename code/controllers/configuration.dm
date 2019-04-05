@@ -283,6 +283,7 @@ var/list/gamemode_cache = list()
 	var/rounds_until_hard_restart = -1 // Changes how often a hard restart will be executed.
 
 	var/docs_load_docs_from
+	var/docs_image_host
  
 	var/ert_base_chance = 10
 	var/ert_green_inc = 1
@@ -879,6 +880,8 @@ var/list/gamemode_cache = list()
 
 				if ("docs_load_docs_from")
 					docs_load_docs_from = value
+				if ("docs_image_host")
+					docs_image_host = value
 
 				if ("ert_base_chance")
 					ert_base_chance = text2num(value)
