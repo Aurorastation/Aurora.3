@@ -10,7 +10,7 @@
 	throw_range = 4
 	throwforce = 10
 	w_class = 2
-	var/global/list/nullchoices
+	var/static/list/nullchoices
 
 /obj/item/weapon/nullrod/nullstaff
 	name = "null staff"
@@ -58,7 +58,7 @@
 
 	if (ismob(src.loc))
 		var/mob/M = src.loc
-		M.update_inv_r_hand()
+		M.update_inv_r_hand(FALSE)
 		M.update_inv_l_hand()
 
 /obj/item/weapon/nullrod/attack(mob/M as mob, mob/living/user as mob) //Paste from old-code to decult with a null rod.
