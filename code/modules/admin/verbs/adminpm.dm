@@ -3,7 +3,7 @@
 	set category = null
 	set name = "Admin PM Mob"
 	if(!holder)
-		src << "<font color='red'>Error: Admin-PM-Context: Only administrators may use this command.</font>"
+		to_chat(src, "<font color='red'>Error: Admin-PM-Context: Only administrators may use this command.</font>")
 		return
 	if( !ismob(M) || !M.client )	return
 	cmd_admin_pm(M.client,null)
@@ -14,7 +14,7 @@
 	set category = "Admin"
 	set name = "Admin PM"
 	if(!holder)
-		src << "<font color='red'>Error: Admin-PM-Panel: Only administrators may use this command.</font>"
+		to_chat(src, "<font color='red'>Error: Admin-PM-Panel: Only administrators may use this command.</font>")
 		return
 	var/list/client/targets[0]
 	for(var/client/T)
@@ -37,13 +37,9 @@
 //Fetching a message if needed. src is the sender and C is the target client
 
 /client/proc/cmd_admin_pm(var/client/C, var/msg = null, var/datum/ticket/ticket = null)
-	if(prefs.muted & MUTE_ADMINHELP)
-		src << "<font color='red'>Error: Private-Message: You are unable to use PM-s (muted).</font>"
-		return
-
 	if(!istype(C,/client))
-		if(holder)	src << "<font color='red'>Error: Private-Message: Client not found.</font>"
-		else		src << "<font color='red'>Error: Private-Message: Client not found. They may have lost connection, so try using an adminhelp!</font>"
+		if(holder)	to_chat(src, "<font color='red'>Error: Private-Message: Client not found.</font>")
+		else		to_chat(src, "<font color='red'>Error: Private-Message: Client not found. They may have lost connection, so try using an adminhelp!</font>")
 		return
 
 	var/receive_pm_type = "Player"
@@ -56,7 +52,7 @@
 			receive_pm_type = holder.rank
 
 	else if(!C.holder)
-		src << "<span class='warning'>Error: Admin-PM: Non-admin to non-admin PM communication is forbidden.</span>"
+		to_chat(src, "<span class='warning'>Error: Admin-PM: Non-admin to non-admin PM communication is forbidden.</span>")
 		return
 
 	//get message text, limit it's length.and clean/escape html
@@ -67,9 +63,9 @@
 			return
 		if(!C)
 			if(holder)
-				src << "<font color='red'>Error: Admin-PM: Client not found.</font>"
+				to_chat(src, "<font color='red'>Error: Admin-PM: Client not found.</font>")
 			else
-				src << "<font color='red'>Error: Private-Message: Client not found. They may have lost connection, so try using an adminhelp!</font>"
+				to_chat(src, "<font color='red'>Error: Private-Message: Client not found. They may have lost connection, so try using an adminhelp!</font>")
 			return
 
 	if(!check_rights(R_SERVER|R_DEBUG|R_DEV, 0))
@@ -94,10 +90,10 @@
 			ticket = new /datum/ticket(C.ckey)
 			ticket.take(src)
 		else
-			src << "<span class='notice'>You do not have an open ticket. Please use the adminhelp verb to open a ticket.</span>"
+			to_chat(src, "<span class='notice'>You do not have an open ticket. Please use the adminhelp verb to open a ticket.</span>")
 			return
 	else if(ticket.status != TICKET_ASSIGNED && src.ckey == ticket.owner)
-		src << "<span class='notice'>Your ticket is not open for conversation. Please wait for an administrator to receive your adminhelp.</span>"
+		to_chat(src, "<span class='notice'>Your ticket is not open for conversation. Please wait for an administrator to receive your adminhelp.</span>")
 		return
 
 	// if the sender is an admin and they're not assigned to the ticket, ask them if they want to take/join it, unless the admin is responding to their own ticket
@@ -110,7 +106,7 @@
 	if(holder && !C.holder)
 		receive_message = "<span class='pm'><span class='howto'><b>-- Click the [receive_pm_type]'s name to reply --</b></span></span>\n"
 		if(C.adminhelped)
-			C << receive_message
+			to_chat(C, receive_message)
 			C.adminhelped = NOT_ADMINHELPED
 
 		//AdminPM popup for ApocStation and anybody else who wants to use it. Set it with POPUP_ADMIN_PM in config.txt ~Carn
@@ -133,7 +129,7 @@
 	else
 		sender_message += ": <span class='message'>[msg]</span>"
 	sender_message += "</span></span>"
-	src << sender_message
+	to_chat(src, sender_message)
 
 	var/receiver_message = "<span class='pm'><span class='in'>" + create_text_tag("pm_in", "", C) + " <b>\[[receive_pm_type] PM\]</b> <span class='name'>[get_options_bar(src, C.holder ? 1 : 0, C.holder ? 1 : 0, 1)]</span>"
 	if(C.holder)
@@ -142,12 +138,16 @@
 	else
 		receiver_message += ": <span class='message'>[msg]</span>"
 	receiver_message += "</span></span>"
-	C << receiver_message
+	to_chat(C, receiver_message)
 
 	//play the recieving admin the adminhelp sound (if they have them enabled)
 	//non-admins shouldn't be able to disable this
 	if(C.prefs && C.prefs.toggles & SOUND_ADMINHELP)
+<<<<<<< HEAD
 		C << 'sound/admin/bwoink.ogg'
+=======
+		sound_to(C, 'sound/effects/adminhelp.ogg')
+>>>>>>> upstream/master
 
 	log_admin("PM: [key_name(src)]->[key_name(C)]: [msg]", admin_key = key_name(src), ckey_target = key_name(C))
 
@@ -159,11 +159,11 @@
 		if(X == C || X == src)
 			continue
 		if(X.key != key && X.key != C.key && (X.holder.rights & (R_ADMIN|R_MOD)))
-			X << "<span class='pm'><span class='other'>" + create_text_tag("pm_other", "PM:", X) + " <span class='name'>[key_name(src, X, 0, ticket)]</span> to <span class='name'>[key_name(C, X, 0, ticket)]</span> (<a href='?_src_=holder;take_ticket=\ref[ticket]'>[(ticket.status == TICKET_OPEN) ? "TAKE" : "JOIN"]</a>) (<a href='?src=\ref[usr];close_ticket=\ref[ticket]'>CLOSE</a>): <span class='message'>[msg]</span></span></span>"
+			to_chat(X, "<span class='pm'><span class='other'>" + create_text_tag("pm_other", "PM:", X) + " <span class='name'>[key_name(src, X, 0, ticket)]</span> to <span class='name'>[key_name(C, X, 0, ticket)]</span> (<a href='?_src_=holder;take_ticket=\ref[ticket]'>[(ticket.status == TICKET_OPEN) ? "TAKE" : "JOIN"]</a>) (<a href='?src=\ref[usr];close_ticket=\ref[ticket]'>CLOSE</a>): <span class='message'>[msg]</span></span></span>")
 
 /client/proc/cmd_admin_discord_pm(sender)
 	if(prefs.muted & MUTE_ADMINHELP)
-		src << "<font color='red'>Error: Private-Message: You are unable to use PM-s (muted).</font>"
+		to_chat(src, "<font color='red'>Error: Private-Message: You are unable to use PM-s (muted).</font>")
 		return
 
 	var/msg = input(src,"Message:", "Reply private message to [sender] on Discord") as text|null
@@ -176,11 +176,11 @@
 	post_webhook_event(WEBHOOK_ADMIN_PM, list("title"="Help is requested", "message"="PlayerPM to **[sender]** from **[key_name(src)]**: ```[html_decode(msg)]```"))
 	discord_bot.send_to_admins("PlayerPM to [sender] from [key_name(src)]: [html_decode(msg)]")
 
-	src << "<span class='pm'><span class='out'>" + create_text_tag("pm_out_alt", "", src) + " to <span class='name'>Discord-[sender]</span>: <span class='message'>[msg]</span></span></span>"
+	to_chat(src, "<span class='pm'><span class='out'>" + create_text_tag("pm_out_alt", "", src) + " to <span class='name'>Discord-[sender]</span>: <span class='message'>[msg]</span></span></span>")
 
 	log_admin("PM: [key_name(src)]->Discord-[sender]: [msg]")
 	for(var/client/X in admins)
 		if(X == src)
 			continue
 		if(X.holder.rights & (R_ADMIN|R_MOD))
-			X << "<span class='pm'><span class='other'>" + create_text_tag("pm_other", "PM:", X) + " <span class='name'>[key_name(src, X, 0)]</span> to <span class='name'>Discord-[sender]</span>: <span class='message'>[msg]</span></span></span>"
+			to_chat(X, "<span class='pm'><span class='other'>" + create_text_tag("pm_other", "PM:", X) + " <span class='name'>[key_name(src, X, 0)]</span> to <span class='name'>Discord-[sender]</span>: <span class='message'>[msg]</span></span></span>")

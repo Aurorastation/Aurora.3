@@ -57,7 +57,7 @@
 		if(isturf(loc))
 			var/turf/T = loc
 			if (T.is_hole)
-				usr << "<span class='warning'>You don't think kickstands work here.</span>"
+				to_chat(usr, "<span class='warning'>You don't think kickstands work here.</span>")
 				return
 		usr.visible_message("\The [usr] puts down \the [src]'s kickstand.", "You put down \the [src]'s kickstand.", "You hear a thunk.")
 		playsound(src, 'sound/misc/bike/stand_down.ogg', 50, 1)
@@ -76,19 +76,19 @@
 
 /obj/vehicle/bike/MouseDrop_T(var/atom/movable/C, mob/user as mob)
 	if(!load(C))
-		user << "<span class='warning'>You were unable to load \the [C] onto \the [src].</span>"
+		to_chat(user, "<span class='warning'>You were unable to load \the [C] onto \the [src].</span>")
 		return
 
 /obj/vehicle/bike/attack_hand(var/mob/user as mob)
 	if(user == load)
 		unload(load)
-		user << "You unbuckle yourself from \the [src]"
+		to_chat(user, "You unbuckle yourself from \the [src]")
 	else if(user != load && load)
 		user.visible_message ("[user] starts to unbuckle [load] from \the [src]!")
 		if(do_after(user, 8 SECONDS, act_target = src))
 			unload(load)
-			user <<"You unbuckle [load] from \the [src]"
-			load <<"You were unbuckled from \the [src] by [user]"
+			to_chat(user, "You unbuckle [load] from \the [src]")
+			to_chat(load, "You were unbuckled from \the [src] by [user]")
 
 /obj/vehicle/bike/relaymove(mob/user, direction)
 	if(user != load || !on || user.incapacitated())

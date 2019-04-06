@@ -98,7 +98,7 @@
 	set_dir(L.dir)
 	can_buckle = 1
 	buckle_mob(L)
-	L << "<span class='danger'>The steel jaws of \the [src] bite into you, trapping you in place!</span>"
+	to_chat(L, "<span class='danger'>The steel jaws of \the [src] bite into you, trapping you in place!</span>")
 	deployed = 0
 	can_buckle = initial(can_buckle)
 	playsound(src, 'sound/weapons/beartrap_shut.ogg', 100, 1)//Really loud snapping sound
@@ -373,7 +373,7 @@
 	if(istype(W, /obj/item/weapon/reagent_containers) && contents.len)
 		var/mob/living/L = pick(contents)
 		W.afterattack(L, user, TRUE)
-	else if(iswelder(W))
+	else if(W.iswelder())
 		var/obj/item/weapon/weldingtool/WT = W
 		user.visible_message("<span class='notice'>[user] is trying to slice \the [src]!</span>",
 							 "You are trying to slice \the [src]!")
@@ -388,7 +388,7 @@
 				new /obj/item/stack/material/steel(src.loc, resources["metal"])
 			qdel(src)
 
-	else if(istype(W, /obj/item/weapon/screwdriver))
+	else if(W.isscrewdriver())
 		var/turf/T = get_turf(src)
 		if(!T)
 			to_chat(user, "<span class='warning'>There is nothing to secure [src] to!</span>")

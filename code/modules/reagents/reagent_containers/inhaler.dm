@@ -112,9 +112,9 @@
 /obj/item/weapon/reagent_containers/inhaler/examine(mob/user)
 	..(user)
 	if(reagents && reagents.reagent_list.len)
-		user << "<span class='notice'>It is currently loaded.</span>"
+		to_chat(user, "<span class='notice'>It is currently loaded.</span>")
 	else
-		user << "<span class='notice'>It is spent.</span>"
+		to_chat(user, "<span class='notice'>It is spent.</span>")
 
 /obj/item/weapon/reagent_containers/inhaler/dexalin
 	name = "autoinhaler (dexalin)"

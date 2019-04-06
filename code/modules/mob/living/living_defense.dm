@@ -69,7 +69,7 @@
 	if(C && C.active)
 		C.attack_self(src)//Should shut it off
 		update_icons()
-		src << "<span class='notice'>Your [C.name] was disrupted!</span>"
+		to_chat(src, "<span class='notice'>Your [C.name] was disrupted!</span>")
 		Stun(2)
 
 	//Being hit while using a deadman switch
@@ -83,7 +83,7 @@
 	//Stun Beams
 	if(P.taser_effect)
 		stun_effect_act(0, P.agony, def_zone, P)
-		src <<"<span class='warning'>You have been hit by [P]!</span>"
+		to_chat(src, "<span class='warning'>You have been hit by [P]!</span>")
 		qdel(P)
 		return
 
@@ -257,24 +257,42 @@
 	spawn(1) updatehealth()
 	return 1
 
-/mob/living/proc/IgniteMob()
+/mob/living/proc/IgniteMob(var/fire_stacks_to_add = 0)
+
+	if(fire_stacks_to_add)
+		adjust_fire_stacks(fire_stacks_to_add)
+
 	if(fire_stacks > 0 && !on_fire)
 		on_fire = 1
 		set_light(light_range + MOB_FIRE_LIGHT_RANGE, light_power + MOB_FIRE_LIGHT_POWER)
 		update_fire()
+		return TRUE
 
-/mob/living/proc/ExtinguishMob()
-	if(on_fire)
+	return FALSE
+
+/mob/living/proc/ExtinguishMob(var/fire_stacks_to_remove = 0)
+
+	if (fire_stacks_to_remove)
+		adjust_fire_stacks(-fire_stacks_to_remove)
+
+	if(fire_stacks <= 0 && on_fire)
 		on_fire = 0
-		fire_stacks = 0
 		set_light(max(0, light_range - MOB_FIRE_LIGHT_RANGE), max(0, light_power - MOB_FIRE_LIGHT_POWER))
 		update_fire()
+		return TRUE
+
+	return FALSE
+
+/mob/living/proc/ExtinguishMobCompletely()
+	return ExtinguishMob(fire_stacks)
 
 /mob/living/proc/update_fire()
 	return
 
-/mob/living/proc/adjust_fire_stacks(add_fire_stacks) //Adjusting the amount of fire_stacks we have on person
-    fire_stacks = Clamp(fire_stacks + add_fire_stacks, FIRE_MIN_STACKS, FIRE_MAX_STACKS)
+/mob/living/proc/adjust_fire_stacks(var/add_fire_stacks)
+	fire_stacks = Clamp(fire_stacks + add_fire_stacks, FIRE_MIN_STACKS, FIRE_MAX_STACKS)
+
+	return fire_stacks
 
 /mob/living/proc/handle_fire()
 	if(fire_stacks < 0)
@@ -283,20 +301,19 @@
 	if(!on_fire)
 		return 1
 	else if(fire_stacks <= 0)
-		ExtinguishMob() //Fire's been put out.
+		ExtinguishMobCompletely() //Fire's been put out.
 		return 1
 
 	var/datum/gas_mixture/G = loc.return_air() // Check if we're standing in an oxygenless environment
 	if(G.gas["oxygen"] < 1)
-		ExtinguishMob() //If there's no oxygen in the tile we're on, put out the fire
+		ExtinguishMobCompletely() //If there's no oxygen in the tile we're on, put out the fire
 		return 1
 
 	var/turf/location = get_turf(src)
 	location.hotspot_expose(fire_burn_temperature(), 50, 1)
 
 /mob/living/fire_act()
-	adjust_fire_stacks(2)
-	IgniteMob()
+	IgniteMob(2)
 
 /mob/living/proc/get_cold_protection()
 	return 0
@@ -324,12 +341,9 @@
 	for(var/obj/item/I in src)
 		if(I.action_button_name)
 			if(!I.action)
-				if(I.action_button_is_hands_free)
-					I.action = new/datum/action/item_action/hands_free
-				else
-					I.action = new/datum/action/item_action
-				I.action.name = I.action_button_name
-				I.action.target = I
+				I.action = new I.default_action_type
+			I.action.name = I.action_button_name
+			I.action.SetTarget(I)
 			I.action.Grant(src)
 	return
 

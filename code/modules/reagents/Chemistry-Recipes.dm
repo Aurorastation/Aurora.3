@@ -824,6 +824,21 @@
 	holder.del_reagent("napalm")
 	return
 
+/datum/chemical_reaction/zoragel
+	name = "Inert Gel"
+	id = "zoragel"
+	result = "zoragel"
+	required_reagents = list("sacid" = 1, "aluminum" = 1, "sugar" = 1, "surfactant" = 3)
+	result_amount = 1
+
+/datum/chemical_reaction/zorafire
+	name = "Zo'rane Fire"
+	id = "greekfire"
+	result = "greekfire"
+	required_reagents = list("nitroglycerin" = 2, "pyrosilicate" = 2, "phoron" = 3, "zoragel" = 3)
+	result_amount = 1
+	log_is_important = 1
+
 /datum/chemical_reaction/chemsmoke
 	name = "Chemsmoke"
 	id = "chemsmoke"
@@ -854,7 +869,7 @@
 	var/location = get_turf(holder.my_atom)
 
 	for(var/mob/M in viewers(5, location))
-		M << "<span class='warning'>The solution spews out foam!</span>"
+		to_chat(M, "<span class='warning'>The solution spews out foam!</span>")
 
 	var/datum/effect/effect/system/foam_spread/s = new()
 	s.set_up(created_volume, location, holder, 0)
@@ -873,7 +888,7 @@
 	var/location = get_turf(holder.my_atom)
 
 	for(var/mob/M in viewers(5, location))
-		M << "<span class='warning'>The solution spews out a metalic foam!</span>"
+		to_chat(M, "<span class='warning'>The solution spews out a metalic foam!</span>")
 
 	var/datum/effect/effect/system/foam_spread/s = new()
 	s.set_up(created_volume, location, holder, 1)
@@ -891,7 +906,7 @@
 	var/location = get_turf(holder.my_atom)
 
 	for(var/mob/M in viewers(5, location))
-		M << "<span class='warning'>The solution spews out a metalic foam!</span>"
+		to_chat(M, "<span class='warning'>The solution spews out a metalic foam!</span>")
 
 	var/datum/effect/effect/system/foam_spread/s = new()
 	s.set_up(created_volume, location, holder, 2)
@@ -1321,7 +1336,7 @@
 	playsound(get_turf(holder.my_atom), 'sound/effects/phasein.ogg', 100, 1)
 	for(var/mob/living/M in range (get_turf(holder.my_atom), 7))
 		M.bodytemperature -= 140
-		M << "<span class='warning'>You feel a chill!</span>"
+		to_chat(M, "<span class='warning'>You feel a chill!</span>")
 
 //Orange
 /datum/chemical_reaction/slime/casp
@@ -2777,6 +2792,20 @@
 	required_reagents = list("ice" = 1, "victorygin" = 1)
 	result_amount = 2
 
+/datum/chemical_reaction/mars_coffee
+	name = "Martian Special"
+	id = "mars_coffee"
+	result = "mars_coffee"
+	required_reagents = list("coffee" = 4, "blackpepper" = 1)
+	result_amount = 5
+
+/datum/chemical_reaction/mountain_marauder
+	name = "Mountain Marauder"
+	id = "mountain_marauder"
+	result = "mountain_marauder"
+	required_reagents = list("adhomai_milk" = 1, "victorygin" = 1)
+	result_amount = 2
+
 //Kaed's Unathi cocktails
 //========
 
@@ -2890,6 +2919,44 @@
 	id = "pslatte"
 	result = "pslatte"
 	required_reagents = list("coffee" = 6, "pumpkinspice" = 2, "cream" = 2)
+	result_amount = 10
+
+//Skrell drinks. Bring forth the culture.
+//===========================================
+
+/datum/chemical_reaction/thirdincident
+	name = "The Third Incident"
+	id = "thirdincident"
+	result = "thirdincident"
+	required_reagents = list("egg" = 3, "bluecuracao" = 10, "grapejuice" = 10)
+	result_amount = 20
+
+/datum/chemical_reaction/upsidedowncup
+	name = "Upside-Down Cup"
+	id = "upsidedowncup"
+	result = "upsidedowncup"
+	required_reagents = list("dr_gibb" = 3, "ice" = 1, "lemonjuice" = 1)
+	result_amount = 5
+
+/datum/chemical_reaction/cigarettelizard
+	name = "Cigarette Lizard"
+	id = "cigarettelizard"
+	result = "cigarettelizard"
+	required_reagents = list("limejuice" = 2, "sodawater" = 2, "mintsyrup" = 1, "ice" = 1)
+	result_amount = 6
+
+/datum/chemical_reaction/sromshine
+	name = "Sromshine"
+	id = "sromshine"
+	result = "sromshine"
+	required_reagents = list("coffee" = 2, "orangejuice" = 1)
+	result_amount = 3
+
+/datum/chemical_reaction/cbsc
+	name = "Complex Bluespace Calculation"
+	id = "cbsc"
+	result = "cbsc"
+	required_reagents = list("wine" = 4, "vodka" = 2, "sodawater" = 3, "radium" = 1 )
 	result_amount = 10
 
 //transmutation
@@ -3095,3 +3162,10 @@
 	result = "venenum"
 	result_amount = 1
 	required_reagents = list("phoron_salt" = 1, "ryetalyn" = 1)
+
+/datum/chemical_reaction/rmt
+	name = "RMT"
+	id = "rmt"
+	result = "rmt"
+	result_amount = 1
+	required_reagents = list("potassium" = 1, "inaprovaline" = 1)

@@ -26,24 +26,24 @@
 	. = ..(user)
 
 	if(health == maxhealth)
-		user << "<span class='notice'>It looks fully intact.</span>"
+		to_chat(user, "<span class='notice'>It looks fully intact.</span>")
 	else
 		var/perc = health / maxhealth
 		if(perc > 0.75)
-			user << "<span class='notice'>It has a few cracks.</span>"
+			to_chat(user, "<span class='notice'>It has a few cracks.</span>")
 		else if(perc > 0.5)
-			user << "<span class='warning'>It looks slightly damaged.</span>"
+			to_chat(user, "<span class='warning'>It looks slightly damaged.</span>")
 		else if(perc > 0.25)
-			user << "<span class='warning'>It looks moderately damaged.</span>"
+			to_chat(user, "<span class='warning'>It looks moderately damaged.</span>")
 		else
-			user << "<span class='danger'>It looks heavily damaged.</span>"
+			to_chat(user, "<span class='danger'>It looks heavily damaged.</span>")
 	if(silicate)
 		if (silicate < 30)
-			user << "<span class='notice'>It has a thin layer of silicate.</span>"
+			to_chat(user, "<span class='notice'>It has a thin layer of silicate.</span>")
 		else if (silicate < 70)
-			user << "<span class='notice'>It is covered in silicate.</span>"
+			to_chat(user, "<span class='notice'>It is covered in silicate.</span>")
 		else
-			user << "<span class='notice'>There is a thick layer of silicate covering it.</span>"
+			to_chat(user, "<span class='notice'>There is a thick layer of silicate covering it.</span>")
 
 /obj/structure/window/proc/take_damage(var/damage = 0,  var/sound_effect = 1)
 	var/initialhealth = health
@@ -221,29 +221,29 @@
 
 	if(W.flags & NOBLUDGEON) return
 
-	if(isscrewdriver(W))
+	if(W.isscrewdriver())
 		if(reinf && state >= 1)
 			state = 3 - state
 			update_nearby_icons()
 			playsound(loc, 'sound/items/Screwdriver.ogg', 75, 1)
-			user << (state == 1 ? "<span class='notice'>You have unfastened the window from the frame.</span>" : "<span class='notice'>You have fastened the window to the frame.</span>")
+			to_chat(user, (state == 1 ? "<span class='notice'>You have unfastened the window from the frame.</span>" : "<span class='notice'>You have fastened the window to the frame.</span>"))
 		else if(reinf && state == 0)
 			anchored = !anchored
 			update_nearby_icons()
 			playsound(loc, 'sound/items/Screwdriver.ogg', 75, 1)
-			user << (anchored ? "<span class='notice'>You have fastened the frame to the floor.</span>" : "<span class='notice'>You have unfastened the frame from the floor.</span>")
+			to_chat(user, (anchored ? "<span class='notice'>You have fastened the frame to the floor.</span>" : "<span class='notice'>You have unfastened the frame from the floor.</span>"))
 		else if(!reinf)
 			anchored = !anchored
 			update_nearby_icons()
 			playsound(loc, 'sound/items/Screwdriver.ogg', 75, 1)
-			user << (anchored ? "<span class='notice'>You have fastened the window to the floor.</span>" : "<span class='notice'>You have unfastened the window.</span>")
-	else if(iscrowbar(W) && reinf && state <= 1)
+			to_chat(user, (anchored ? "<span class='notice'>You have fastened the window to the floor.</span>" : "<span class='notice'>You have unfastened the window.</span>"))
+	else if(W.iscrowbar() && reinf && state <= 1)
 		state = 1 - state
 		playsound(loc, 'sound/items/Crowbar.ogg', 75, 1)
-		user << (state ? "<span class='notice'>You have pried the window into the frame.</span>" : "<span class='notice'>You have pried the window out of the frame.</span>")
-	else if(iswrench(W) && !anchored && (!state || !reinf))
+		to_chat(user, (state ? "<span class='notice'>You have pried the window into the frame.</span>" : "<span class='notice'>You have pried the window out of the frame.</span>"))
+	else if(W.iswrench() && !anchored && (!state || !reinf))
 		if(!glasstype)
-			user << "<span class='notice'>You're not sure how to dismantle \the [src] properly.</span>"
+			to_chat(user, "<span class='notice'>You're not sure how to dismantle \the [src] properly.</span>")
 		else
 			visible_message("<span class='notice'>[user] dismantles \the [src].</span>")
 			if(dir == SOUTHWEST)
@@ -307,7 +307,7 @@
 		return 0
 
 	if(anchored)
-		usr << "It is fastened to the floor therefore you can't rotate it!"
+		to_chat(usr, "It is fastened to the floor therefore you can't rotate it!")
 		return 0
 
 	update_nearby_tiles(need_rebuild=1) //Compel updates before
@@ -326,7 +326,7 @@
 		return 0
 
 	if(anchored)
-		usr << "It is fastened to the floor therefore you can't rotate it!"
+		to_chat(usr, "It is fastened to the floor therefore you can't rotate it!")
 		return 0
 
 	update_nearby_tiles(need_rebuild=1) //Compel updates before

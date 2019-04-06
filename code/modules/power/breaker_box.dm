@@ -35,29 +35,29 @@
 	// Enabled on server startup. Used in substations to keep them in bypass mode.
 /obj/machinery/power/breakerbox/activated/Initialize()
 	. = ..()
-	set_state(1)	
+	set_state(1)
 
 /obj/machinery/power/breakerbox/examine(mob/user)
 	..()
 	if(on)
-		user << "<span class='good'>It seems to be online.</span>"
+		to_chat(user, "<span class='good'>It seems to be online.</span>")
 	else
-		user << "<span class='bad'>It seems to be offline.</span>"
+		to_chat(user, "<span class='bad'>It seems to be offline.</span>")
 
 /obj/machinery/power/breakerbox/attack_ai(mob/user)
 	if(update_locked)
-		user << "<span class='bad'>System locked. Please try again later.</span>"
+		to_chat(user, "<span class='bad'>System locked. Please try again later.</span>")
 		return
 
 	if(busy)
-		user << "<span class='bad'>System is busy. Please wait until current operation is finished before changing power settings.</span>"
+		to_chat(user, "<span class='bad'>System is busy. Please wait until current operation is finished before changing power settings.</span>")
 		return
 
 	busy = 1
-	user << "<span class='good'>Updating power settings..</span>"
+	to_chat(user, "<span class='good'>Updating power settings..</span>")
 	if(do_after(user, 50))
 		set_state(!on)
-		user << "<span class='good'>Update Completed. New setting:[on ? "on": "off"]</span>"
+		to_chat(user, "<span class='good'>Update Completed. New setting:[on ? "on": "off"]</span>")
 		update_locked = 1
 		addtimer(CALLBACK(src, .proc/reset_locked), 600)
 	busy = 0
@@ -68,11 +68,11 @@
 
 /obj/machinery/power/breakerbox/attack_hand(mob/user)
 	if(update_locked)
-		user << "<span class='bad'>System locked. Please try again later.</span>"
+		to_chat(user, "<span class='bad'>System locked. Please try again later.</span>")
 		return
 
 	if(busy)
-		user << "<span class='bad'>System is busy. Please wait until current operation is finished before changing power settings.</span>"
+		to_chat(user, "<span class='bad'>System is busy. Please wait until current operation is finished before changing power settings.</span>")
 		return
 
 	busy = 1
@@ -89,11 +89,11 @@
 	busy = 0
 
 /obj/machinery/power/breakerbox/attackby(var/obj/item/weapon/W as obj, var/mob/user as mob)
-	if(ismultitool(W))
+	if(W.ismultitool())
 		var/newtag = input(user, "Enter new RCON tag. Use \"NO_TAG\" to disable RCON or leave empty to cancel.", "SMES RCON system") as text
 		if(newtag)
 			RCon_tag = newtag
-			user << "<span class='notice'>You changed the RCON tag to: [newtag]</span>"
+			to_chat(user, "<span class='notice'>You changed the RCON tag to: [newtag]</span>")
 			SSmachinery.queue_rcon_update()
 
 /obj/machinery/power/breakerbox/proc/set_state(var/state)

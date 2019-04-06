@@ -70,9 +70,9 @@
 				handle_storage_deferred(user)
 
 			if (count)
-				user << "<span class='notice'>You empty [count] broken bulbs into the trashbag.</span>"
+				to_chat(user, "<span class='notice'>You empty [count] broken bulbs into the trashbag.</span>")
 			else if (!bagfull)
-				user << "<span class='notice'>There are no broken bulbs to empty out.</span>"
+				to_chat(user, "<span class='notice'>There are no broken bulbs to empty out.</span>")
 			return 1
 	..()
 
@@ -132,7 +132,7 @@
 
 /obj/item/weapon/storage/bag/slimes
 	name = "slime core bag"
-	icon = 'icons/mob/slimes.dmi'
+	icon = 'icons/mob/npc/slimes.dmi'
 	icon_state = "slimebag"
 	desc = "A pressurized and thermoregulated bag for the storage and transport of slime cores."
 	max_storage_space = 100
@@ -162,14 +162,14 @@
 /obj/item/weapon/storage/bag/sheetsnatcher/can_be_inserted(obj/item/W as obj, stop_messages = 0)
 	if(!istype(W,/obj/item/stack/material))
 		if(!stop_messages)
-			usr << "The snatcher does not accept [W]."
+			to_chat(usr, "The snatcher does not accept [W].")
 		return 0
 	var/current = 0
 	for(var/obj/item/stack/material/S in contents)
 		current += S.amount
 	if(capacity == current)//If it's full, you're done
 		if(!stop_messages)
-			usr << "<span class='warning'>The snatcher is full.</span>"
+			to_chat(usr, "<span class='warning'>The snatcher is full.</span>")
 		return 0
 	return 1
 

@@ -22,13 +22,13 @@
 		return 1
 	if(istype(W, /obj/item/weapon/aicard))
 		if(stored_card)
-			user << "\The [src] is already occupied."
+			to_chat(user, "\The [src] is already occupied.")
 			return
 		user.drop_from_inventory(W,src)
 		stored_card = W
 		update_power_usage()
-	if(isscrewdriver(W))
-		user << "You manually remove \the [stored_card] from \the [src]."
+	if(W.isscrewdriver())
+		to_chat(user, "You manually remove \the [stored_card] from \the [src].")
 		stored_card.forceMove(get_turf(src))
 		stored_card = null
 		update_power_usage()
