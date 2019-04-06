@@ -2,16 +2,13 @@
 	var/connected = 0
 	var/list/programs = list()
 
-/datum/NTSL_interpreter/New()
-	attempt_connect()
-	..()
-
 /datum/NTSL_interpreter/proc/attempt_connect()
 	var/res = send(list(action="clear"))
 	if(!res)
-		message_admins("NTSL2+ Daemon could not be connected to. Functionality will not be enabled.")
+		log_debug("NTSL2+ Daemon could not be connected to. Functionality will not be enabled.")
 	else
 		connected = 1
+		log_debug("NTSL2+ Daemon connected successfully.")
 
 /datum/NTSL_interpreter/proc/disconnect()
 	connected = 0
@@ -34,12 +31,14 @@
 	Sends a command to the Daemon. This is an internal function, and should be avoided when used externally.
 */
 /datum/NTSL_interpreter/proc/send(var/list/commands)
-	var/http[] = world.Export("http://[config.ntsl_hostname]:[config.ntsl_port]/[list2params(commands)]")
-	if(http)
-		return file2text(http["CONTENT"])
+	if(config.ntsl_hostname && config.ntsl_port) // Requires config to be set.
+		var/http[] = world.Export("http://[config.ntsl_hostname]:[config.ntsl_port]/[list2params(commands)]")
+		if(http)
+			return file2text(http["CONTENT"])
 	return 0
 
-
-
-
 var/datum/NTSL_interpreter/ntsl2 = new()
+
+/hook/startup/proc/init_ntsl2()
+	ntsl2.attempt_connect()
+	return 1
