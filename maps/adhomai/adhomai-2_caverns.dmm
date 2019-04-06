@@ -69,12 +69,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/adhomai/fortress)
-"as" = (
-/obj/structure/simple_door/iron{
-	initial_lock_value = "soldier"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/adhomai/fortress)
 "au" = (
 /turf/simulated/floor/tiled/dark,
 /area/adhomai/fortress)
@@ -470,7 +464,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/adhomai/village/townhall)
 "cj" = (
-/obj/structure/simple_door{
+/obj/structure/simple_door/adhomai/iron{
 	initial_lock_value = "mayor"
 	},
 /turf/simulated/floor/tiled/dark,
@@ -546,8 +540,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/adhomai/fortress)
 "de" = (
-/obj/structure/simple_door/wood,
-/obj/effect/decal/cleanable/dirt,
+/obj/structure/simple_door/adhomai/wood,
 /turf/simulated/floor/cult,
 /area/adhomai/village/temple)
 "dg" = (
@@ -637,10 +630,9 @@
 /turf/simulated/floor/plating,
 /area/adhomai/village/police)
 "mf" = (
-/obj/structure/simple_door/iron{
+/obj/structure/simple_door/adhomai/iron{
 	initial_lock_value = "soldier"
 	},
-/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
 /area/adhomai/fortress)
 "mm" = (
@@ -733,9 +725,6 @@
 "sj" = (
 /obj/structure/cult/tome,
 /turf/simulated/floor/cult,
-/area/adhomai/cavern)
-"sm" = (
-/turf/simulated/wall/iron,
 /area/adhomai/cavern)
 "sr" = (
 /obj/structure/table/wood,
@@ -1067,7 +1056,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/adhomai/fortress)
 "Jp" = (
-/obj/structure/simple_door/iron{
+/obj/structure/simple_door/adhomai/iron{
 	initial_lock_value = "chief"
 	},
 /turf/simulated/floor/tiled/dark,
@@ -1267,11 +1256,6 @@
 /obj/structure/filingcabinet/filingcabinet,
 /turf/simulated/floor/tiled/dark,
 /area/adhomai/village/townhall)
-"Wk" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/structure/simple_door/wood,
-/turf/simulated/floor/cult,
-/area/adhomai/village/temple)
 "Wu" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/table/wood,
@@ -36631,7 +36615,7 @@ IW
 au
 au
 aI
-as
+mf
 au
 au
 au
@@ -39201,7 +39185,7 @@ aj
 yt
 yt
 au
-as
+mf
 av
 aI
 aj
@@ -39460,7 +39444,7 @@ dd
 au
 aj
 aj
-as
+mf
 aj
 ae
 ae
@@ -42372,7 +42356,7 @@ QL
 QL
 QL
 QL
-sm
+QL
 ae
 ae
 ae
@@ -42629,7 +42613,7 @@ GW
 Ah
 Ah
 Ah
-sm
+QL
 ae
 ae
 ae
@@ -42882,11 +42866,11 @@ rI
 rI
 rI
 rI
-Wk
+de
 mm
 mm
 pH
-sm
+QL
 ae
 ae
 ae
@@ -43143,7 +43127,7 @@ QL
 Iu
 rI
 Ah
-sm
+QL
 ae
 ae
 ae
@@ -43400,7 +43384,7 @@ QL
 QL
 QL
 QL
-sm
+QL
 ae
 ae
 ae
