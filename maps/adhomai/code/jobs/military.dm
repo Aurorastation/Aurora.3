@@ -107,7 +107,7 @@
 	belt = /obj/item/weapon/storage/belt/security/tactical/nka
 	backpack_contents = list(
 							/obj/item/ammo_magazine/boltaction = 2,
-							/obj/item/weapon/grenade/frag = 3,
+							/obj/item/weapon/grenade/frag/nka = 3,
 							/obj/item/clothing/accessory/storage/bayonet = 1)
 
 /datum/job/sharpshooter

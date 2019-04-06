@@ -2512,6 +2512,8 @@
 #include "maps\adhomai\code\events\mob_spawner.dm"
 #include "maps\adhomai\code\items\boxes.dm"
 #include "maps\adhomai\code\items\law.dm"
+#include "maps\adhomai\code\items\oldtimey.dm"
+#include "maps\adhomai\code\items\sandbags.dm"
 #include "maps\adhomai\code\jobs\civillian.dm"
 #include "maps\adhomai\code\jobs\job.dm"
 #include "maps\adhomai\code\jobs\military.dm"
