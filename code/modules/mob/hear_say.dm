@@ -128,7 +128,6 @@
 	if(vname)
 		speaker_name = vname
 
-
 	if(hard_to_hear)
 		speaker_name = "unknown"
 
