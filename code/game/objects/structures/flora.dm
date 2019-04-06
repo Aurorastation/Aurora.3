@@ -121,6 +121,8 @@
 	return ..()
 
 /obj/structure/flora/pottedplant/attackby(obj/item/W, mob/user)
+	if(!ishuman(user))
+		return
 	user.visible_message("[user] begins digging around inside of \the [src].", "You begin digging around in \the [src], trying to hide \the [W].")
 	if(do_after(user, 20, act_target = src))
 		if(!stored_item)
