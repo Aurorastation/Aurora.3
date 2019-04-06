@@ -2,6 +2,7 @@
 
 /obj/structure/window/sandbag
 	name = "sandbag"
+	desc = "A barricade made of sandbags."
 	icon = 'icons/adhomai/sandbag.dmi'
 	icon_state = "sandbag"
 	layer = MOB_LAYER + 0.01 //just above mobs
@@ -104,10 +105,6 @@
 
 /obj/structure/window/sandbag/attackby(obj/O as obj, mob/user as mob)
 	return FALSE
-
-/obj/structure/window/sandbag/examine(mob/user)
-	user << "That's a sandbag."
-	return TRUE
 
 /obj/structure/window/sandbag/take_damage(var/damage = FALSE, var/sound_effect = TRUE)
 	return FALSE
