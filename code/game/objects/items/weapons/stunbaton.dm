@@ -156,9 +156,10 @@
 					return 1
 				else
 					H.visible_message("<span class='danger'>[L] has been prodded in the [affecting.name] with \the [src] by [user]!</span>")
+					var/intent = "(INTENT: [user? uppertext(user.a_intent) : "N/A"])"
+					admin_attack_log(user, L, "was stunned by this mob with [src] [intent]", "stunned this mob with [src] [intent]", "stunned with [src] \the")
 					if(!sheathed)
 						H.electrocute_act(force * 2, src, ground_zero = target_zone)
-
 		if(isslime(L))
 			var/mob/living/carbon/slime/S =  L
 			if(!status)
@@ -183,10 +184,6 @@
 	L.stun_effect_act(stun, agony, target_zone, src)
 
 	playsound(loc, 'sound/weapons/Egloves.ogg', 50, 1, -1)
-	if(!no_attack_log && user.a_intent != I_HURT)
-		user.attack_log += "\[[time_stamp()]\]<font color='red'> stunned [L.name] ([L.ckey]) with [name] (INTENT: [uppertext(user.a_intent)])</font>"
-		L.attack_log += "\[[time_stamp()]\]<font color='orange'> stunned by [user.name] ([user.ckey]) with [name] (INTENT: [uppertext(user.a_intent)])</font>"
-		msg_admin_attack("[key_name_admin(user)] stunned [key_name_admin(L)] with the [src] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(L))
 
 	if(status)
 		deductcharge(hitcost)
