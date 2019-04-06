@@ -264,7 +264,7 @@
 /turf/simulated/floor/wood,
 /area/adhomai/village/foundry)
 "aW" = (
-/obj/structure/simple_door/wood,
+/obj/structure/simple_door/adhomai/wood,
 /turf/simulated/floor/tiled/ramp/bottom{
 	icon_state = "rampbot";
 	dir = 8
@@ -724,12 +724,6 @@
 /obj/random/booze,
 /turf/simulated/floor/wood,
 /area/adhomai/village/bar)
-"ds" = (
-/obj/structure/table/steel,
-/obj/item/weapon/reagent_containers/food/drinks/bottle/messa_mead,
-/obj/item/weapon/reagent_containers/food/drinks/drinkingglass,
-/turf/simulated/floor/tiled/dark,
-/area/adhomai/fortress/outpost)
 "dt" = (
 /obj/structure/table/wood,
 /obj/item/weapon/storage/pill_bottle/dice,
@@ -799,13 +793,6 @@
 /obj/structure/ore_box,
 /turf/simulated/floor/tiled/steel,
 /area/adhomai/village/foundry)
-"dJ" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/structure/table/steel,
-/obj/item/weapon/material/ashtray/bronze,
-/obj/item/weapon/storage/fancy/cigarettes,
-/turf/simulated/floor/tiled/dark,
-/area/adhomai/fortress/outpost)
 "dM" = (
 /obj/structure/curtain/open/bed{
 	pixel_x = -32
@@ -1082,7 +1069,7 @@
 /turf/simulated/floor/tiled/white,
 /area/adhomai/village)
 "fe" = (
-/obj/structure/simple_door/iron{
+/obj/structure/simple_door/adhomai/iron{
 	initial_lock_value = "soldier"
 	},
 /turf/simulated/floor/tiled/dark,
@@ -1750,7 +1737,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/adhomai/fortress)
 "iL" = (
-/obj/structure/simple_door/wood{
+/obj/structure/simple_door/adhomai/wood{
 	initial_lock_value = "mayor"
 	},
 /turf/simulated/floor/tiled/steel{
@@ -2131,13 +2118,6 @@
 /obj/effect/decal/cleanable/ash,
 /turf/simulated/floor/tiled/dark,
 /area/adhomai/fortress)
-"kt" = (
-/obj/structure/simple_door/iron{
-	initial_lock_value = "soldier"
-	},
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/dark,
-/area/adhomai/fortress)
 "ku" = (
 /obj/structure/table/wood,
 /obj/item/weapon/clipboard,
@@ -2502,7 +2482,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/adhomai/fortress)
 "nh" = (
-/obj/structure/simple_door/wood,
+/obj/structure/simple_door/adhomai/iron{
+	initial_lock_value = "soldier"
+	},
 /turf/simulated/floor/wood,
 /area/adhomai)
 "nl" = (
@@ -3360,7 +3342,7 @@
 /turf/simulated/floor/tiled/white,
 /area/adhomai/village/medical)
 "ud" = (
-/obj/structure/barricade/sandbags,
+/obj/structure/window/sandbag,
 /turf/simulated/floor/asteroid/ash/adhomai,
 /area/adhomai)
 "ue" = (
@@ -3752,20 +3734,10 @@
 /obj/random/loot,
 /turf/simulated/floor/tiled/dark,
 /area/adhomai/village/shop)
-"wP" = (
-/obj/structure/simple_door/wood,
-/turf/simulated/floor/wood,
-/area/adhomai/village/court)
 "wR" = (
 /obj/machinery/light/small,
 /turf/simulated/floor/wood,
 /area/adhomai/village/police)
-"wV" = (
-/obj/structure/simple_door/iron{
-	initial_lock_value = "soldier"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/adhomai/fortress)
 "wZ" = (
 /obj/structure/bed/chair/wood/adhomai,
 /obj/structure/curtain/open/bed{
@@ -4259,7 +4231,8 @@
 /turf/simulated/floor/tiled/freezer,
 /area/adhomai/village/medical)
 "Bu" = (
-/obj/structure/barricade/sandbags,
+/obj/structure/window/sandbag,
+/obj/structure/window/sandbag,
 /turf/simulated/floor/snow,
 /area/adhomai)
 "Bw" = (
@@ -5245,6 +5218,17 @@
 "IA" = (
 /turf/simulated/floor/carpet,
 /area/adhomai/village/medical)
+"IB" = (
+/obj/structure/window/sandbag{
+	icon_state = "sandbag";
+	dir = 1
+	},
+/obj/structure/window/sandbag{
+	icon_state = "sandbag";
+	dir = 4
+	},
+/turf/simulated/floor/snow,
+/area/adhomai)
 "IE" = (
 /obj/structure/table/wood,
 /obj/item/weapon/pen,
@@ -5829,6 +5813,17 @@
 /obj/item/clothing/mask/breath/medical,
 /turf/simulated/floor/tiled/white,
 /area/adhomai/village/medical)
+"Nf" = (
+/obj/structure/window/sandbag{
+	icon_state = "sandbag";
+	dir = 1
+	},
+/obj/structure/window/sandbag{
+	icon_state = "sandbag";
+	dir = 8
+	},
+/turf/simulated/floor/snow,
+/area/adhomai)
 "Nh" = (
 /obj/item/weapon/reagent_containers/glass/bucket,
 /obj/structure/table/wood,
@@ -7245,12 +7240,6 @@
 	},
 /turf/simulated/floor/lino,
 /area/adhomai/village)
-"YF" = (
-/obj/structure/simple_door/wood{
-	initial_lock_value = "medical"
-	},
-/turf/simulated/floor/tiled/white,
-/area/adhomai/village/medical)
 "YG" = (
 /obj/structure/bed/chair/wood/adhomai{
 	icon_state = "tajchair";
@@ -9556,16 +9545,16 @@ ae
 ae
 Rm
 Rm
-Bu
-Bu
-Bu
-Bu
-Bu
-Bu
-Bu
-Bu
-Bu
-Bu
+DK
+NJ
+NJ
+NJ
+NJ
+NJ
+NJ
+NJ
+NJ
+ue
 Rm
 Rm
 Rm
@@ -9705,16 +9694,16 @@ Rm
 Rm
 Rm
 Rm
-Bu
-Bu
-Bu
-Bu
-Bu
-Bu
-Bu
-Bu
-Bu
-Bu
+DK
+NJ
+NJ
+NJ
+NJ
+NJ
+NJ
+NJ
+NJ
+ue
 Rm
 Rm
 Rm
@@ -9813,7 +9802,7 @@ ae
 ae
 Rm
 Rm
-Bu
+Ss
 aa
 aa
 aa
@@ -9822,7 +9811,7 @@ aa
 aa
 aa
 aa
-Bu
+fM
 Rm
 Rm
 Rm
@@ -9962,7 +9951,7 @@ Rm
 Rm
 Rm
 Rm
-Bu
+Ss
 aa
 aa
 aa
@@ -9971,7 +9960,7 @@ aa
 aa
 aa
 aa
-Bu
+fM
 Rm
 Rm
 Rm
@@ -10070,7 +10059,7 @@ ae
 ae
 Rm
 Rm
-Bu
+Ss
 aa
 Ib
 Ib
@@ -10079,7 +10068,7 @@ Ib
 Ib
 Ib
 aa
-Bu
+fM
 Rm
 Rm
 Rm
@@ -10219,7 +10208,7 @@ Rm
 Rm
 Rm
 Rm
-Bu
+Ss
 aa
 Ib
 Ib
@@ -10228,7 +10217,7 @@ Ib
 Ib
 Ib
 aa
-Bu
+fM
 Rm
 Rm
 Rm
@@ -10327,7 +10316,7 @@ ae
 ae
 Rm
 Rm
-Bu
+Ss
 aa
 Ib
 fj
@@ -10336,7 +10325,7 @@ eZ
 eX
 Ib
 aa
-Bu
+fM
 Rm
 Rm
 Rm
@@ -10476,16 +10465,16 @@ Rm
 Rm
 Rm
 Rm
-Bu
+Ss
 aa
 Ib
-ds
+fj
 fh
 eZ
 eX
 Ib
 aa
-Bu
+fM
 Rm
 Rm
 Rm
@@ -10584,7 +10573,7 @@ ae
 ae
 Rm
 Rm
-Bu
+Ss
 aa
 Ib
 fh
@@ -10593,7 +10582,7 @@ ad
 fA
 fw
 aa
-Bu
+fM
 Rm
 Rm
 Rm
@@ -10733,7 +10722,7 @@ Rm
 Rm
 Rm
 Rm
-Bu
+Ss
 aa
 Ib
 fh
@@ -10742,7 +10731,7 @@ ad
 fA
 fw
 aa
-Bu
+fM
 Rm
 Rm
 Rm
@@ -10841,7 +10830,7 @@ ae
 ae
 Rm
 Rm
-Bu
+Ss
 aa
 fe
 eX
@@ -10850,7 +10839,7 @@ fr
 fB
 fw
 aa
-Bu
+fM
 Rm
 Rm
 Rm
@@ -10990,7 +10979,7 @@ Rm
 Rm
 Rm
 Rm
-Bu
+Ss
 aa
 fe
 eX
@@ -10999,7 +10988,7 @@ fr
 fB
 fw
 aa
-Bu
+fM
 Rm
 Rm
 Rm
@@ -11098,7 +11087,7 @@ ae
 ae
 Rm
 Rm
-Bu
+Ss
 aa
 Ib
 ad
@@ -11107,7 +11096,7 @@ fy
 fC
 fw
 aa
-Bu
+fM
 Rm
 Rm
 Rm
@@ -11247,7 +11236,7 @@ Rm
 Rm
 Rm
 Rm
-Bu
+Ss
 aa
 Ib
 ad
@@ -11256,7 +11245,7 @@ fy
 fC
 fw
 aa
-Bu
+fM
 Rm
 Rm
 Rm
@@ -11355,7 +11344,7 @@ ae
 ae
 Rm
 Rm
-Bu
+Ss
 aa
 Ib
 Ib
@@ -11364,7 +11353,7 @@ Ib
 fv
 Ib
 aa
-Bu
+fM
 Rm
 Rm
 Rm
@@ -11504,7 +11493,7 @@ Rm
 Rm
 Rm
 Rm
-Bu
+Ss
 aa
 Ib
 Ib
@@ -11513,7 +11502,7 @@ Ib
 fv
 Ib
 aa
-Bu
+fM
 Rm
 Rm
 Rm
@@ -11612,16 +11601,16 @@ ae
 ae
 Rm
 Rm
-Bu
-Bu
-Bu
+IB
+Bk
+Bk
 aa
 aa
 bX
 aa
-Bu
-Bu
-Bu
+Bk
+Bk
+Uj
 Rm
 Rm
 Rm
@@ -11761,16 +11750,16 @@ Rm
 Rm
 Rm
 Rm
-Bu
-Bu
-Bu
+IB
+Bk
+Bk
 aa
 aa
 bX
 aa
-Bu
-Bu
-Bu
+Bk
+Bk
+Uj
 Rm
 Rm
 Rm
@@ -12383,16 +12372,16 @@ ae
 ae
 Rm
 Rm
-Bu
-Bu
-Bu
+Nf
+NJ
+NJ
 aa
 aa
 bY
 aa
-Bu
-Bu
-Bu
+NJ
+NJ
+CC
 Rm
 Rm
 Rm
@@ -12532,16 +12521,16 @@ Rm
 Rm
 Rm
 Rm
-Bu
-Bu
-Bu
+Nf
+NJ
+NJ
 aa
 aa
 bY
 aa
-Bu
-Bu
-Bu
+NJ
+NJ
+CC
 Rm
 Rm
 Rm
@@ -12640,7 +12629,7 @@ ae
 ae
 Rm
 Rm
-Bu
+Ss
 aa
 Ib
 Ib
@@ -12649,7 +12638,7 @@ Ib
 fv
 Ib
 aa
-Bu
+fM
 Rm
 Rm
 Rm
@@ -12789,7 +12778,7 @@ Rm
 Rm
 Rm
 Rm
-Bu
+Ss
 aa
 Ib
 Ib
@@ -12798,7 +12787,7 @@ Ib
 fv
 Ib
 aa
-Bu
+fM
 Rm
 Rm
 Rm
@@ -12897,7 +12886,7 @@ ae
 ae
 Rm
 Rm
-Bu
+Ss
 aa
 Ib
 eX
@@ -12906,7 +12895,7 @@ fy
 fD
 VY
 aa
-Bu
+fM
 Rm
 Rm
 Rm
@@ -13046,16 +13035,16 @@ Rm
 Rm
 Rm
 Rm
-Bu
+Ss
 aa
 Ib
 eX
 ad
 fy
 fD
-fw
+VY
 aa
-Bu
+fM
 Rm
 Rm
 Rm
@@ -13154,7 +13143,7 @@ ae
 ae
 Rm
 Rm
-Bu
+Ss
 aa
 fe
 eX
@@ -13163,7 +13152,7 @@ fr
 fA
 VY
 aa
-Bu
+fM
 Rm
 Rm
 Rm
@@ -13303,16 +13292,16 @@ Rm
 Rm
 Rm
 Rm
-Bu
+Ss
 aa
 fe
 eX
 eX
 fr
 fA
-fw
+VY
 aa
-Bu
+fM
 Rm
 Rm
 Rm
@@ -13411,7 +13400,7 @@ ae
 ae
 Rm
 Rm
-Bu
+Ss
 aa
 Ib
 fh
@@ -13420,7 +13409,7 @@ eX
 fE
 VY
 aa
-Bu
+fM
 Rm
 Rm
 Rm
@@ -13560,16 +13549,16 @@ Rm
 Rm
 Rm
 Rm
-Bu
+Ss
 aa
 Ib
 fh
 ad
 eX
 fE
-fw
+VY
 aa
-Bu
+fM
 Rm
 Rm
 Rm
@@ -13668,7 +13657,7 @@ ae
 ae
 Rm
 Rm
-Bu
+Ss
 aa
 Ib
 jG
@@ -13677,7 +13666,7 @@ fz
 oT
 Ib
 aa
-Bu
+fM
 Rm
 Rm
 Rm
@@ -13817,16 +13806,16 @@ Rm
 Rm
 Rm
 Rm
-Bu
+Ss
 aa
 Ib
-dJ
+jG
 fh
 fz
-ad
+oT
 Ib
 aa
-Bu
+fM
 Rm
 Rm
 Rm
@@ -13925,7 +13914,7 @@ ae
 ae
 Rm
 Rm
-Bu
+Ss
 aa
 Ib
 Ib
@@ -13934,7 +13923,7 @@ Ib
 Ib
 Ib
 aa
-Bu
+fM
 Rm
 Rm
 Rm
@@ -14074,7 +14063,7 @@ Rm
 Rm
 Rm
 Rm
-Bu
+Ss
 aa
 Ib
 Ib
@@ -14083,7 +14072,7 @@ Ib
 Ib
 Ib
 aa
-Bu
+fM
 Rm
 Rm
 Rm
@@ -14182,7 +14171,7 @@ ae
 ae
 Rm
 Rm
-Bu
+Ss
 aa
 aa
 aa
@@ -14191,7 +14180,7 @@ aa
 aa
 aa
 aa
-Bu
+fM
 Rm
 Rm
 Rm
@@ -14331,7 +14320,7 @@ Rm
 Rm
 Rm
 Rm
-Bu
+Ss
 aa
 aa
 aa
@@ -14340,7 +14329,7 @@ aa
 aa
 aa
 aa
-Bu
+fM
 Rm
 Rm
 Rm
@@ -14439,16 +14428,16 @@ ae
 ae
 Rm
 Rm
-Bu
-Bu
-Bu
-Bu
-Bu
-Bu
-Bu
-Bu
-Bu
-Bu
+IB
+Bk
+Bk
+Bk
+Bk
+Bk
+Bk
+Bk
+Bk
+QG
 Rm
 Rm
 Rm
@@ -14588,16 +14577,16 @@ Rm
 Rm
 Rm
 Rm
-Bu
-Bu
-Bu
-Bu
-Bu
-Bu
-Bu
-Bu
-Bu
-Bu
+IB
+Bk
+Bk
+Bk
+Bk
+Bk
+Bk
+Bk
+Bk
+QG
 Rm
 Rm
 Rm
@@ -46485,7 +46474,7 @@ yX
 yX
 yX
 yX
-wV
+op
 yX
 yX
 yX
@@ -47001,7 +46990,7 @@ Vp
 BH
 Vp
 Sh
-wV
+op
 Vp
 Vp
 Vp
@@ -48287,7 +48276,7 @@ GJ
 Vp
 Vp
 Vp
-wV
+op
 Vp
 Vp
 Vp
@@ -48856,7 +48845,7 @@ MK
 Op
 lU
 lU
-YF
+mA
 lU
 lU
 lU
@@ -50086,7 +50075,7 @@ eS
 Vp
 Vp
 Sh
-kt
+Sh
 Sh
 Sh
 Sh
@@ -51898,7 +51887,7 @@ ns
 mk
 yX
 sB
-fM
+QG
 aa
 ae
 ae
@@ -52412,7 +52401,7 @@ fs
 yX
 mk
 aa
-fM
+CC
 aa
 ae
 ae
@@ -52646,19 +52635,19 @@ Rm
 Rm
 "}
 (177,1,1) = {"
-Bu
-Bu
-Bu
-Bu
-Bu
-Bu
-Bu
-Bu
-Bu
+NJ
+NJ
+NJ
+ue
+NJ
+NJ
+NJ
+ue
+NJ
 aa
-Bu
-Bu
-Bu
+NJ
+ue
+NJ
 aa
 yX
 yX
@@ -52906,7 +52895,7 @@ Rm
 aa
 aa
 Yd
-Bu
+fM
 aa
 aa
 aa
@@ -52914,7 +52903,7 @@ Bu
 aa
 aa
 Yd
-Bu
+fM
 aa
 aa
 bX
@@ -53934,15 +53923,15 @@ Rm
 aa
 aa
 Yd
-Bu
+fM
 aa
 aa
 aa
-Bu
+fM
 aa
 aa
 Yd
-Bu
+fM
 aa
 aa
 aa
@@ -54188,19 +54177,19 @@ Rm
 Rm
 "}
 (183,1,1) = {"
-Bu
-Bu
-Bu
-Bu
-Bu
-Bu
-Bu
-Bu
-Bu
+Bk
+Bk
+Bk
+Uj
+Bk
+Bk
+Bk
+Uj
+Bk
 aa
-Bu
-Bu
-Bu
+Bk
+Uj
+Bk
 aa
 yX
 yX
@@ -57806,9 +57795,9 @@ Vp
 fs
 yX
 mk
-aa
-aa
-aa
+Bk
+Bk
+Bk
 QG
 ae
 ae
@@ -58075,7 +58064,7 @@ gV
 sO
 sO
 sO
-wP
+AJ
 sO
 sO
 sO
@@ -58834,9 +58823,9 @@ Vp
 vZ
 yX
 mk
-aa
-aa
-aa
+NJ
+NJ
+NJ
 CC
 aa
 aa

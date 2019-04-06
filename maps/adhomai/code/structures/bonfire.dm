@@ -107,7 +107,7 @@
 		var/datum/gas_mixture/removed = env.remove(transfer_moles)
 
 		if(removed)
-			removed.add_thermal_energy(4000)
+			removed.add_thermal_energy(10000)
 
 			env.merge(removed)
 

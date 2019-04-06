@@ -33,14 +33,12 @@
 	icon_state = "firstaid"
 
 /obj/item/weapon/storage/firstaid/regular/adhomai/fill()
-		..()
-		if (empty) return
-		new /obj/item/stack/medical/bruise_pack/adhomai(src)
-		new /obj/item/stack/medical/bruise_pack/adhomai(src)
-		new /obj/item/stack/medical/bruise_pack/adhomai(src)
-		new /obj/item/stack/medical/ointment/adhomai(src)
-		new /obj/item/stack/medical/ointment/adhomai(src)
-		return
+	new /obj/item/stack/medical/bruise_pack/adhomai(src)
+	new /obj/item/stack/medical/bruise_pack/adhomai(src)
+	new /obj/item/stack/medical/bruise_pack/adhomai(src)
+	new /obj/item/stack/medical/ointment/adhomai(src)
+	new /obj/item/stack/medical/ointment/adhomai(src)
+	return
 
 /obj/structure/siren
 	name = "air raid siren"
@@ -132,20 +130,6 @@
 
 /obj/structure/window/classic/update_nearby_icons()
 	return
-
-/obj/structure/simple_door/adhomai/wood
-	icon = 'icons/adhomai/structures.dmi'
-	icon_state = "wood1"
-
-/obj/structure/simple_door/adhomai/wood/New(var/newloc,var/material_name)
-	..(newloc, "wood")
-
-/obj/structure/simple_door/adhomai/iron
-	icon = 'icons/adhomai/structures.dmi'
-	icon_state = "iron"
-
-/obj/structure/simple_door/adhomai/iron/New(var/newloc,var/material_name, var/complexity)
-	..(newloc, "iron", complexity)
 
 /obj/machinery/media/jukebox/record
 	name = "record player"

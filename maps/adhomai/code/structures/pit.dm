@@ -131,7 +131,7 @@ obj/structure/pit/Crossed(AM as mob|obj)
 	name = "grave marker"
 	desc = "You're not the first."
 	icon = 'icons/adhomai/structures.dmi'
-	icon_state = "wood"
+	icon_state = "wooden"
 	pixel_x = 15
 	pixel_y = 8
 	anchored = 1
