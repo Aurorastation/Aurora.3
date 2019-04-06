@@ -45,7 +45,7 @@
 			..()
 			return
 
-		to_chat(user, "<span class='notice'>You start feeding [W] into \the [src]</span>")
+		user << "<span class='notice'>You start feeding [W] into \the [src]</span>"
 		if(do_after(user,30))
 			src.visible_message("<span class='notice'>\The [src] begins to print out a modsuit.</span>")
 			pressing = 1

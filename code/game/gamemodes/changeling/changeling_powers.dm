@@ -211,8 +211,6 @@ var/global/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","E
 	changeling.absorbedcount++
 	changeling.isabsorbing = 0
 
-	admin_attack_log(usr, T, "extracted the DNA of", "had their DNA extracted by", "extracted DNA from")
-
 	return 1
 
 /mob/proc/changeling_extract_dna()
@@ -324,8 +322,6 @@ var/global/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","E
 
 	changeling.absorbedcount++
 	changeling.isabsorbing = 0
-
-	admin_attack_log(usr, T, "absorbed the DNA of", "had their DNA absorbed by", "lethally absorbed DNA from")
 
 	T.death(0)
 	T.Drain()

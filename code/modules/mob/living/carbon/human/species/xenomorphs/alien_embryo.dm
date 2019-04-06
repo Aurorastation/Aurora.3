@@ -1,7 +1,7 @@
 /obj/item/organ/parasite/alien_embryo
 	name = "alien embryo"
 	desc = "All slimy and yuck."
-	icon = 'icons/mob/npc/alien.dmi'
+	icon = 'icons/mob/alien.dmi'
 	icon_state = "larva0_dead"
 	parent_organ = "chest"
 	organ_tag = "alien embryo"
@@ -45,9 +45,9 @@
 		if(prob(1))
 			owner.emote("cough")
 		if(prob(1))
-			to_chat(owner, "<span class='danger'>Your throat feels sore.</span>")
+			owner  << "<span class='danger'>Your throat feels sore.</span>"
 		if(prob(1))
-			to_chat(owner, "<span class='danger'>Mucous runs down the back of your throat.</span>")
+			owner  << "<span class='danger'>Mucous runs down the back of your throat.</span>"
 
 	if(stage >= 3)
 		if(prob(1))
@@ -55,17 +55,17 @@
 		if(prob(1))
 			owner.emote("cough")
 		if(prob(2))
-			to_chat(owner, "<span class='danger'>Your muscles ache.</span>")
+			owner  << "<span class='danger'>Your muscles ache.</span>"
 			if(prob(20))
 				owner.take_organ_damage(1)
 		if(prob(2))
-			to_chat(owner, "<span class='danger'>Your stomach hurts.</span>")
+			owner  << "<span class='danger'>Your stomach hurts.</span>"
 			if(prob(20))
 				owner.adjustToxLoss(1)
 				owner.updatehealth()
 
 	if(stage >= 4)
-		to_chat(owner, "<span class='danger'>You feel something tearing its way out of your stomach!</span>")
+		owner  << "<span class='danger'>You feel something tearing its way out of your stomach!</span>"
 		owner.adjustToxLoss(10)
 		owner.updatehealth()
 		if(prob(50))
@@ -113,7 +113,7 @@ Des: Removes all infection images from aliens and places an infection image on a
 			for(var/mob/living/L in mob_list)
 				if(iscarbon(L))
 					if(L.status_flags & XENO_HOST)
-						var/image/I = image('icons/mob/npc/alien.dmi', loc = L, icon_state = "infected[stage]")
+						var/image/I = image('icons/mob/alien.dmi', loc = L, icon_state = "infected[stage]")
 						alien.client.images += I
 
 /*----------------------------------------
@@ -130,7 +130,7 @@ Des: Checks if the passed mob (C) is infected with the alien egg, then gives eac
 
 			if(alien.client)
 				if(C.status_flags & XENO_HOST)
-					var/image/I = image('icons/mob/npc/alien.dmi', loc = C, icon_state = "infected[stage]")
+					var/image/I = image('icons/mob/alien.dmi', loc = C, icon_state = "infected[stage]")
 					alien.client.images += I
 
 /*----------------------------------------

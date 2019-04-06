@@ -29,7 +29,7 @@ Basically: I can use it to target things where I click. I can then pass these ta
 	if(!hand_spell.valid_target(A,user))
 		return
 	if(world.time < next_spell_time)
-		to_chat(user, "<span class='warning'>The spell isn't ready yet!</span>")
+		user << "<span class='warning'>The spell isn't ready yet!</span>"
 		return
 
 	if(hand_spell.cast_hand(A,user))
@@ -42,7 +42,7 @@ Basically: I can use it to target things where I click. I can then pass these ta
 		if(!casts)
 			user.drop_from_inventory(src)
 			return
-		to_chat(user, "[casts]/[hand_spell.casts] charges left.")
+		user << "[casts]/[hand_spell.casts] charges left."
 
 /obj/item/magic_hand/throw_at() //no throwing pls
 	usr.drop_from_inventory(src)

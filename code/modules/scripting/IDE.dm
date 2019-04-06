@@ -13,16 +13,16 @@ client/verb/tcssave()
 				log_misc(msg)
 				message_admins("[mob.name] has uploaded a NTLS script to [Machine.SelectedServer] ([mob.x],[mob.y],[mob.z] - <A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[mob.x];Y=[mob.y];Z=[mob.z]'>JMP</a>)",0,1)
 				Server.setcode( tcscode ) // this actually saves the code from input to the server
-				to_chat(src, output(null, "tcserror")) // clear the errors)
+				src << output(null, "tcserror") // clear the errors
 			else
-				to_chat(src, output(null, "tcserror"))
-				to_chat(src, output("<font color = red>Failed to save: Unable to locate server machine. (Back up your code before exiting the window!)</font>", "tcserror"))
+				src << output(null, "tcserror")
+				src << output("<font color = red>Failed to save: Unable to locate server machine. (Back up your code before exiting the window!)</font>", "tcserror")
 		else
-			to_chat(src, output(null, "tcserror"))
-			to_chat(src, output("<font color = red>Failed to save: Unable to locate machine. (Back up your code before exiting the window!)</font>", "tcserror"))
+			src << output(null, "tcserror")
+			src << output("<font color = red>Failed to save: Unable to locate machine. (Back up your code before exiting the window!)</font>", "tcserror")
 	else
-		to_chat(src, output(null, "tcserror"))
-		to_chat(src, output("<font color = red>Failed to save: Unable to locate machine. (Back up your code before exiting the window!)</font>", "tcserror"))
+		src << output(null, "tcserror")
+		src << output("<font color = red>Failed to save: Unable to locate machine. (Back up your code before exiting the window!)</font>", "tcserror")
 
 
 client/verb/tcscompile()
@@ -39,42 +39,42 @@ client/verb/tcscompile()
 				var/list/compileerrors = Server.compile() // then compile the code!
 
 				// Output all the compile-time errors
-				to_chat(src, output(null, "tcserror"))
+				src << output(null, "tcserror")
 
 				if(compileerrors.len)
-					to_chat(src, output("<b>Compile Errors</b>", "tcserror"))
+					src << output("<b>Compile Errors</b>", "tcserror")
 					for(var/scriptError/e in compileerrors)
-						to_chat(src, output("<font color = red>\t>[e.message]</font>", "tcserror"))
-					to_chat(src, output("([compileerrors.len] errors)", "tcserror"))
+						src << output("<font color = red>\t>[e.message]</font>", "tcserror")
+					src << output("([compileerrors.len] errors)", "tcserror")
 
 					// Output compile errors to all other people viewing the code too
 					for(var/mob/M in Machine.viewingcode)
 						if(M.client)
-							to_chat(M, output(null, "tcserror"))
-							to_chat(M, output("<b>Compile Errors</b>", "tcserror"))
+							M << output(null, "tcserror")
+							M << output("<b>Compile Errors</b>", "tcserror")
 							for(var/scriptError/e in compileerrors)
-								to_chat(M, output("<font color = red>\t>[e.message]</font>", "tcserror"))
-							to_chat(M, output("([compileerrors.len] errors)", "tcserror"))
+								M << output("<font color = red>\t>[e.message]</font>", "tcserror")
+							M << output("([compileerrors.len] errors)", "tcserror")
 
 
 				else
-					to_chat(src, output("<font color = blue>TCS compilation successful!</font>", "tcserror"))
-					to_chat(src, output("(0 errors)", "tcserror"))
+					src << output("<font color = blue>TCS compilation successful!</font>", "tcserror")
+					src << output("(0 errors)", "tcserror")
 
 					for(var/mob/M in Machine.viewingcode)
 						if(M.client)
-							to_chat(M, output("<font color = blue>TCS compilation successful!</font>", "tcserror"))
-							to_chat(M, output("(0 errors)", "tcserror"))
+							M << output("<font color = blue>TCS compilation successful!</font>", "tcserror")
+							M << output("(0 errors)", "tcserror")
 
 			else
-				to_chat(src, output(null, "tcserror"))
-				to_chat(src, output("<font color = red>Failed to compile: Unable to locate server machine. (Back up your code before exiting the window!)</font>", "tcserror"))
+				src << output(null, "tcserror")
+				src << output("<font color = red>Failed to compile: Unable to locate server machine. (Back up your code before exiting the window!)</font>", "tcserror")
 		else
-			to_chat(src, output(null, "tcserror"))
-			to_chat(src, output("<font color = red>Failed to compile: Unable to locate machine. (Back up your code before exiting the window!)</font>", "tcserror"))
+			src << output(null, "tcserror")
+			src << output("<font color = red>Failed to compile: Unable to locate machine. (Back up your code before exiting the window!)</font>", "tcserror")
 	else
-		to_chat(src, output(null, "tcserror"))
-		to_chat(src, output("<font color = red>Failed to compile: Unable to locate machine. (Back up your code before exiting the window!)</font>", "tcserror"))
+		src << output(null, "tcserror")
+		src << output("<font color = red>Failed to compile: Unable to locate machine. (Back up your code before exiting the window!)</font>", "tcserror")
 
 client/verb/tcsrun()
 	set hidden = 1
@@ -90,32 +90,32 @@ client/verb/tcsrun()
 				var/list/compileerrors = Server.compile() // then compile the code!
 
 				// Output all the compile-time errors
-				to_chat(src, output(null, "tcserror"))
+				src << output(null, "tcserror")
 
 				if(compileerrors.len)
-					to_chat(src, output("<b>Compile Errors</b>", "tcserror"))
+					src << output("<b>Compile Errors</b>", "tcserror")
 					for(var/scriptError/e in compileerrors)
-						to_chat(src, output("<font color = red>\t>[e.message]</font>", "tcserror"))
-					to_chat(src, output("([compileerrors.len] errors)", "tcserror"))
+						src << output("<font color = red>\t>[e.message]</font>", "tcserror")
+					src << output("([compileerrors.len] errors)", "tcserror")
 
 					// Output compile errors to all other people viewing the code too
 					for(var/mob/M in Machine.viewingcode)
 						if(M.client)
-							to_chat(M, output(null, "tcserror"))
-							to_chat(M, output("<b>Compile Errors</b>", "tcserror"))
+							M << output(null, "tcserror")
+							M << output("<b>Compile Errors</b>", "tcserror")
 							for(var/scriptError/e in compileerrors)
-								to_chat(M, output("<font color = red>\t>[e.message]</font>", "tcserror"))
-							to_chat(M, output("([compileerrors.len] errors)", "tcserror"))
+								M << output("<font color = red>\t>[e.message]</font>", "tcserror")
+							M << output("([compileerrors.len] errors)", "tcserror")
 
 				else
 					// Finally, we run the code!
-					to_chat(src, output("<font color = blue>TCS compilation successful! Code executed.</font>", "tcserror"))
-					to_chat(src, output("(0 errors)", "tcserror"))
+					src << output("<font color = blue>TCS compilation successful! Code executed.</font>", "tcserror")
+					src << output("(0 errors)", "tcserror")
 
 					for(var/mob/M in Machine.viewingcode)
 						if(M.client)
-							to_chat(M, output("<font color = blue>TCS compilation successful!</font>", "tcserror"))
-							to_chat(M, output("(0 errors)", "tcserror"))
+							M << output("<font color = blue>TCS compilation successful!</font>", "tcserror")
+							M << output("(0 errors)", "tcserror")
 
 					var/datum/signal/signal = new()
 					signal.data["message"] = ""
@@ -132,14 +132,14 @@ client/verb/tcsrun()
 
 
 			else
-				to_chat(src, output(null, "tcserror"))
-				to_chat(src, output("<font color = red>Failed to run: Unable to locate server machine. (Back up your code before exiting the window!)</font>", "tcserror"))
+				src << output(null, "tcserror")
+				src << output("<font color = red>Failed to run: Unable to locate server machine. (Back up your code before exiting the window!)</font>", "tcserror")
 		else
-			to_chat(src, output(null, "tcserror"))
-			to_chat(src, output("<font color = red>Failed to run: Unable to locate machine. (Back up your code before exiting the window!)</font>", "tcserror"))
+			src << output(null, "tcserror")
+			src << output("<font color = red>Failed to run: Unable to locate machine. (Back up your code before exiting the window!)</font>", "tcserror")
 	else
-		to_chat(src, output(null, "tcserror"))
-		to_chat(src, output("<font color = red>Failed to run: Unable to locate machine. (Back up your code before exiting the window!)</font>", "tcserror"))
+		src << output(null, "tcserror")
+		src << output("<font color = red>Failed to run: Unable to locate machine. (Back up your code before exiting the window!)</font>", "tcserror")
 
 
 client/verb/exittcs()
@@ -171,16 +171,16 @@ client/verb/tcsrevert()
 
 				winset(mob, "tcscode", "text=\"[showcode]\"")
 
-				to_chat(src, output(null, "tcserror")) // clear the errors)
+				src << output(null, "tcserror") // clear the errors
 			else
-				to_chat(src, output(null, "tcserror"))
-				to_chat(src, output("<font color = red>Failed to revert: Unable to locate server machine.</font>", "tcserror"))
+				src << output(null, "tcserror")
+				src << output("<font color = red>Failed to revert: Unable to locate server machine.</font>", "tcserror")
 		else
-			to_chat(src, output(null, "tcserror"))
-			to_chat(src, output("<font color = red>Failed to revert: Unable to locate machine.</font>", "tcserror"))
+			src << output(null, "tcserror")
+			src << output("<font color = red>Failed to revert: Unable to locate machine.</font>", "tcserror")
 	else
-		to_chat(src, output(null, "tcserror"))
-		to_chat(src, output("<font color = red>Failed to revert: Unable to locate machine.</font>", "tcserror"))
+		src << output(null, "tcserror")
+		src << output("<font color = red>Failed to revert: Unable to locate machine.</font>", "tcserror")
 
 
 client/verb/tcsclearmem()
@@ -195,17 +195,17 @@ client/verb/tcsclearmem()
 				var/obj/machinery/telecomms/server/Server = Machine.SelectedServer
 				Server.memory = list() // clear the memory
 				// Show results
-				to_chat(src, output(null, "tcserror"))
-				to_chat(src, output("<font color = blue>Server memory cleared!</font>", "tcserror"))
+				src << output(null, "tcserror")
+				src << output("<font color = blue>Server memory cleared!</font>", "tcserror")
 				for(var/mob/M in Machine.viewingcode)
 					if(M.client)
-						to_chat(M, output("<font color = blue>Server memory cleared!</font>", "tcserror"))
+						M << output("<font color = blue>Server memory cleared!</font>", "tcserror")
 			else
-				to_chat(src, output(null, "tcserror"))
-				to_chat(src, output("<font color = red>Failed to clear memory: Unable to locate server machine.</font>", "tcserror"))
+				src << output(null, "tcserror")
+				src << output("<font color = red>Failed to clear memory: Unable to locate server machine.</font>", "tcserror")
 		else
-			to_chat(src, output(null, "tcserror"))
-			to_chat(src, output("<font color = red>Failed to clear memory: Unable to locate machine.</font>", "tcserror"))
+			src << output(null, "tcserror")
+			src << output("<font color = red>Failed to clear memory: Unable to locate machine.</font>", "tcserror")
 	else
-		to_chat(src, output(null, "tcserror"))
-		to_chat(src, output("<font color = red>Failed to clear memory: Unable to locate machine.</font>", "tcserror"))
+		src << output(null, "tcserror")
+		src << output("<font color = red>Failed to clear memory: Unable to locate machine.</font>", "tcserror")

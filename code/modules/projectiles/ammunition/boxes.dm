@@ -7,7 +7,7 @@
 	caliber = "357"
 	ammo_type = /obj/item/ammo_casing/a357
 	matter = list(DEFAULT_WALL_MATERIAL = 1260)
-	max_ammo = 8
+	max_ammo = 7
 	multiple_sprites = 1
 
 /obj/item/ammo_magazine/a454
@@ -243,6 +243,19 @@
 	max_ammo = 2
 
 /obj/item/ammo_magazine/trodpack/empty
+	initial_ammo = 0
+
+/obj/item/ammo_magazine/tranq
+	name = "tranquilizer darts (.50 cal PPS)"
+	icon_state = "incendiaryshot_box"
+	origin_tech = list(TECH_COMBAT = 2)
+	mag_type = SINGLE_CASING
+	caliber = "PPS"
+	matter = list(DEFAULT_WALL_MATERIAL = 4500)
+	ammo_type = /obj/item/ammo_casing/tranq
+	max_ammo = 4
+
+/obj/item/ammo_magazine/tranq/empty
 	initial_ammo = 0
 
 /obj/item/ammo_magazine/a762

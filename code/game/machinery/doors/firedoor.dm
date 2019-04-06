@@ -150,9 +150,9 @@
 		return
 
 	if(pdiff >= FIREDOOR_MAX_PRESSURE_DIFF)
-		to_chat(user, "<span class='warning'>WARNING: Current pressure differential is [pdiff]kPa! Opening door may result in injury!</span>")
+		user << "<span class='warning'>WARNING: Current pressure differential is [pdiff]kPa! Opening door may result in injury!</span>"
 
-	to_chat(user, "<b>Sensor readings:</b>")
+	user << "<b>Sensor readings:</b>"
 	for(var/index = 1; index <= tile_info.len; index++)
 		var/o = "&nbsp;&nbsp;"
 		switch(index)
@@ -166,7 +166,7 @@
 				o += "WEST: "
 		if(tile_info[index] == null)
 			o += "<span class='warning'>DATA UNAVAILABLE</span>"
-			to_chat(user, o)
+			user << o
 			continue
 		var/celsius = convert_k2c(tile_info[index][1])
 		var/pressure = tile_info[index][2]
@@ -174,14 +174,14 @@
 		o += "[celsius]&deg;C</span> "
 		o += "<span style='color:blue'>"
 		o += "[pressure]kPa</span></li>"
-		to_chat(user, o)
+		user << o
 
 	if(islist(users_to_open) && users_to_open.len)
 		var/users_to_open_string = users_to_open[1]
 		if(users_to_open.len >= 2)
 			for(var/i = 2 to users_to_open.len)
 				users_to_open_string += ", [users_to_open[i]]"
-		to_chat(user, "These people have opened \the [src] during an alert: [users_to_open_string].")
+		user << "These people have opened \the [src] during an alert: [users_to_open_string]."
 
 /obj/machinery/door/firedoor/CollidedWith(atom/AM)
 	if(p_open || operating)
@@ -203,7 +203,7 @@
 		return//Already doing something.
 
 	if(blocked)
-		to_chat(user, "<span class='warning'>\The [src] is welded solid!</span>")
+		user << "<span class='warning'>\The [src] is welded solid!</span>"
 		return
 
 	var/alarmed = lockdown
@@ -211,7 +211,7 @@
 		if(A.fire || A.air_doors_activated)
 			alarmed = 1
 	if(user.incapacitated() || (get_dist(src, user) > 1  && !issilicon(user)))
-		to_chat(user, "Sorry, you must remain able bodied and close to \the [src] in order to use it.")
+		user << "Sorry, you must remain able bodied and close to \the [src] in order to use it."
 		return
 
 	if(ishuman(user))
@@ -228,11 +228,11 @@
 			return
 
 	if(density && (stat & (BROKEN|NOPOWER))) //can still close without power
-		to_chat(user, "\The [src] is not functioning, you'll have to force it open manually.")
+		user << "\The [src] is not functioning, you'll have to force it open manually."
 		return
 
 	if(alarmed && density && lockdown && !allowed(user))
-		to_chat(user, "<span class='warning'>Access denied.  Please wait for authorities to arrive, or for the alert to clear.</span>")
+		user << "<span class='warning'>Access denied.  Please wait for authorities to arrive, or for the alert to clear.</span>"
 		return
 	else
 		user.visible_message("<span class='notice'>\The [src] [density ? "open" : "close"]s for \the [user].</span>",\
@@ -269,7 +269,7 @@
 	add_fingerprint(user)
 	if(operating)
 		return//Already doing something.
-	if(C.iswelder() && !repairing)
+	if(iswelder(C) && !repairing)
 		var/obj/item/weapon/weldingtool/W = C
 		if(W.remove_fuel(0, user))
 			blocked = !blocked
@@ -280,16 +280,16 @@
 			update_icon()
 			return
 
-	if(density && C.isscrewdriver())
+	if(density && isscrewdriver(C))
 		hatch_open = !hatch_open
 		user.visible_message("<span class='danger'>[user] has [hatch_open ? "opened" : "closed"] \the [src] maintenance panel.</span>",
 									"You have [hatch_open ? "opened" : "closed"] the [src] maintenance panel.")
 		update_icon()
 		return
 
-	if(blocked && C.iscrowbar() && !repairing)
+	if(blocked && iscrowbar(C) && !repairing)
 		if(!hatch_open)
-			to_chat(user, "<span class='danger'>You must open the maintenance panel first!</span>")
+			user << "<span class='danger'>You must open the maintenance panel first!</span>"
 		else
 			user.visible_message("<span class='danger'>[user] is removing the electronics from \the [src].</span>",
 									"You start to remove the electronics from [src].")
@@ -313,14 +313,14 @@
 		return
 
 	if(blocked)
-		to_chat(user, "<span class='danger'>\The [src] is welded shut!</span>")
+		user << "<span class='danger'>\The [src] is welded shut!</span>"
 		return
 
-	if(C.iscrowbar() || istype(C,/obj/item/weapon/material/twohanded/fireaxe) || (istype(C, /obj/item/weapon/melee/hammer)))
+	if(iscrowbar(C) || istype(C,/obj/item/weapon/material/twohanded/fireaxe) || (istype(C, /obj/item/weapon/melee/hammer)))
 		if(operating)
 			return
 
-		if(blocked && C.iscrowbar())
+		if(blocked && iscrowbar(C))
 			user.visible_message("<span class='danger'>\The [user] pries at \the [src] with \a [C], but \the [src] is welded in place!</span>",\
 			"You try to pry \the [src] [density ? "open" : "closed"], but it is welded in place!",\
 			"You hear someone struggle and metal straining.")
@@ -335,7 +335,7 @@
 				"You start forcing \the [src] [density ? "open" : "closed"] with \the [C]!",\
 				"You hear metal strain.")
 		if(do_after(user,30))
-			if(C.iscrowbar() || (istype(C, /obj/item/weapon/melee/hammer)))
+			if(iscrowbar(C) || (istype(C, /obj/item/weapon/melee/hammer)))
 				if(stat & (BROKEN|NOPOWER) || !density)
 					user.visible_message("<span class='danger'>\The [user] forces \the [src] [density ? "open" : "closed"] with \a [C]!</span>",\
 					"You force \the [src] [density ? "open" : "closed"] with \the [C]!",\

@@ -52,21 +52,15 @@
 		/obj/item/seeds/chiliseed = 3,
 		/obj/item/seeds/cocoapodseed = 3,
 		/obj/item/seeds/cornseed = 3,
-		/obj/item/seeds/replicapod = 3,
-		/obj/item/seeds/earthenroot = 2,
 		/obj/item/seeds/eggplantseed = 3,
-		/obj/item/seeds/garlicseed = 3,
 		/obj/item/seeds/grapeseed = 3,
 		/obj/item/seeds/grassseed = 3,
+		/obj/item/seeds/replicapod = 3,
 		/obj/item/seeds/lemonseed = 3,
 		/obj/item/seeds/limeseed = 3,
 		/obj/item/seeds/mtearseed = 2,
-		/obj/item/seeds/nifberries = 2,
-		/obj/item/seeds/onionseed = 3,
 		/obj/item/seeds/orangeseed = 3,
 		/obj/item/seeds/peanutseed = 3,
-		/obj/item/seeds/peppercornseed = 3,
-		/obj/item/seeds/plastiseed = 3,
 		/obj/item/seeds/plumpmycelium = 3,
 		/obj/item/seeds/poppyseed = 3,
 		/obj/item/seeds/potatoseed = 3,
@@ -83,6 +77,8 @@
 		/obj/item/seeds/watermelonseed = 3,
 		/obj/item/seeds/wheatseed = 3,
 		/obj/item/seeds/whitebeetseed = 3,
+		/obj/item/seeds/earthenroot = 2,
+		/obj/item/seeds/nifberries = 2
 	)
 
 /obj/machinery/seed_storage/xenobotany
@@ -307,12 +303,12 @@
 		if (loaded)
 			user.visible_message("[user] puts the seeds from \the [O.name] into \the [src].", "You put the seeds from \the [O.name] into \the [src].")
 		else
-			to_chat(user, "<span class='notice'>There are no seeds in \the [O.name].</span>")
+			user << "<span class='notice'>There are no seeds in \the [O.name].</span>"
 		return
-	else if(O.iswrench())
+	else if(iswrench(O))
 		playsound(loc, 'sound/items/Ratchet.ogg', 50, 1)
 		anchored = !anchored
-		to_chat(user, "You [anchored ? "wrench" : "unwrench"] \the [src].")
+		user << "You [anchored ? "wrench" : "unwrench"] \the [src]."
 
 /obj/machinery/seed_storage/proc/add(var/obj/item/seeds/O as obj)
 	if (istype(O.loc, /mob))

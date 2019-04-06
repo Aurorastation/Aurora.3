@@ -113,7 +113,7 @@
 		"filter_n2o" = ("sleeping_agent" in scrubbing_gas),
 		"sigtype" = "status"
 	)
-
+	
 	var/area/A = get_area(src)
 	if(!A.air_scrub_names[id_tag])
 		var/new_name = "[A.name] Air Scrubber #[A.air_scrub_names.len+1]"
@@ -253,22 +253,22 @@
 		update_icon()
 
 /obj/machinery/atmospherics/unary/vent_scrubber/attackby(var/obj/item/weapon/W as obj, var/mob/user as mob)
-	if (W.iswrench())
+	if (iswrench(W))
 		if (!(stat & NOPOWER) && use_power)
-			to_chat(user, "<span class='warning'>You cannot unwrench \the [src], turn it off first.</span>")
+			user << "<span class='warning'>You cannot unwrench \the [src], turn it off first.</span>"
 			return 1
 		var/turf/T = src.loc
 		if (node && node.level==1 && isturf(T) && !T.is_plating())
-			to_chat(user, "<span class='warning'>You must remove the plating first.</span>")
+			user << "<span class='warning'>You must remove the plating first.</span>"
 			return 1
 		var/datum/gas_mixture/int_air = return_air()
 		var/datum/gas_mixture/env_air = loc.return_air()
 		if ((int_air.return_pressure()-env_air.return_pressure()) > 2*ONE_ATMOSPHERE)
-			to_chat(user, "<span class='warning'>You cannot unwrench \the [src], it is too exerted due to internal pressure.</span>")
+			user << "<span class='warning'>You cannot unwrench \the [src], it is too exerted due to internal pressure.</span>"
 			add_fingerprint(user)
 			return 1
 		playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
-		to_chat(user, "<span class='notice'>You begin to unfasten \the [src]...</span>")
+		user << "<span class='notice'>You begin to unfasten \the [src]...</span>"
 		if (do_after(user, 40, act_target = src))
 			user.visible_message( \
 				"<span class='notice'>\The [user] unfastens \the [src].</span>", \
@@ -278,12 +278,12 @@
 			qdel(src)
 		return 1
 
-	if(W.iswelder())
+	if(iswelder(W))
 		var/obj/item/weapon/weldingtool/WT = W
 		if (!WT.welding)
-			to_chat(user, "<span class='danger'>\The [WT] must be turned on!</span>")
+			user << "<span class='danger'>\The [WT] must be turned on!</span>"
 		else if (WT.remove_fuel(0,user))
-			to_chat(user, "<span class='notice'>Now welding \the [src].</span>")
+			user << "<span class='notice'>Now welding \the [src].</span>"
 			if(do_after(user, 20, act_target = src))
 				if(!src || !WT.isOn()) return
 				playsound(src.loc, 'sound/items/Welder2.ogg', 50, 1)
@@ -296,23 +296,23 @@
 					welded = 0
 					update_icon()
 			else
-				to_chat(user, "<span class='notice'>You fail to complete the welding.</span>")
+				user << "<span class='notice'>You fail to complete the welding.</span>"
 		else
-			to_chat(user, "<span class='warning'>You need more welding fuel to complete this task.</span>")
+			user << "<span class='warning'>You need more welding fuel to complete this task.</span>"
 		return 1
 	return ..()
 
 /obj/machinery/atmospherics/unary/vent_scrubber/examine(mob/user)
 	if(..(user, 1))
-		to_chat(user, "A small gauge in the corner reads [round(last_flow_rate, 0.1)] L/s; [round(last_power_draw)] W")
+		user << "A small gauge in the corner reads [round(last_flow_rate, 0.1)] L/s; [round(last_power_draw)] W"
 	else
-		to_chat(user, "You are too far away to read the gauge.")
+		user << "You are too far away to read the gauge."
 	if(welded)
-		to_chat(user, "It seems welded shut.")
+		user << "It seems welded shut."
 
 /obj/machinery/atmospherics/unary/vent_scrubber/Destroy()
 	if(initial_loc)
 		initial_loc.air_scrub_info -= id_tag
 		initial_loc.air_scrub_names -= id_tag
-
+	
 	return ..()

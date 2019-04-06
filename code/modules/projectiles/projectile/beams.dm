@@ -220,7 +220,7 @@
 						A.visible_message("<span class='danger'>[A] bursts like a balloon!</span>")
 						A.gib()
 
-			to_chat(M, 'sound/effects/basscannon.ogg')
+			M << 'sound/effects/basscannon.ogg'
 	return 1
 
 /obj/item/projectile/beam/shotgun

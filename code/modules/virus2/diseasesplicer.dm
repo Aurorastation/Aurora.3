@@ -13,20 +13,20 @@
 	var/scanning = 0
 
 /obj/machinery/computer/diseasesplicer/attackby(var/obj/I as obj, var/mob/user as mob)
-	if(I.isscrewdriver())
+	if(isscrewdriver(I))
 		return ..(I,user)
 
 	if(istype(I,/obj/item/weapon/virusdish))
 		var/mob/living/carbon/c = user
 		if (dish)
-			to_chat(user, "\The [src] is already loaded.")
+			user << "\The [src] is already loaded."
 			return
 
 		dish = I
 		c.drop_from_inventory(I,src)
 
 	if(istype(I,/obj/item/weapon/diseasedisk))
-		to_chat(user, "You upload the contents of the disk onto the buffer.")
+		user << "You upload the contents of the disk onto the buffer."
 		memorybank = I:effect
 		species_buffer = I:species
 		analysed = I:analysed

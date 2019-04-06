@@ -66,7 +66,7 @@
 
 /obj/item/weapon/gun/projectile/contender/special_check(mob/user)
 	if(retracted_bolt)
-		to_chat(user, "<span class='warning'>You can't fire \the [src] while the bolt is open!</span>")
+		user << "<span class='warning'>You can't fire \the [src] while the bolt is open!</span>"
 		return 0
 	return ..()
 
@@ -139,15 +139,15 @@
 				else
 					add_overlay("springfield-clip-full")
 			else
-				to_chat(user, "<span class='warning'>There is no ammo in \the [has_clip.name]!</span>")
+				user << "<span class='warning'>There is no ammo in \the [has_clip.name]!</span>"
 		else if(!open_bolt)
-			to_chat(user, "<span class='warning'>The bolt on \the [src.name] is closed!</span>")
+			user << "<span class='warning'>The bolt on \the [src.name] is closed!</span>"
 		else
-			to_chat(user, "<span class='warning'>There is no clip in \the [src.name]!</span>")
+			user << "<span class='warning'>There is no clip in \the [src.name]!</span>"
 
 /obj/item/weapon/gun/projectile/shotgun/pump/rifle/vintage/pump(mob/M as mob)
 	if(!wielded)
-		to_chat(M, "<span class='warning'>You cannot work \the [src]'s bolt without gripping it with both hands!</span>")
+		M << "<span class='warning'>You cannot work \the [src]'s bolt without gripping it with both hands!</span>"
 		return
 	if(!open_bolt)
 		open_bolt = 1
@@ -178,12 +178,12 @@
 /obj/item/weapon/gun/projectile/shotgun/pump/rifle/vintage/attackby(var/obj/item/A as obj, mob/user as mob)
 	if(istype(A, /obj/item/ammo_magazine/boltaction/vintage))
 		if(!open_bolt)
-			to_chat(user, "<span class='notice'>You need to open the bolt of \the [src] first.</span>")
+			user << "<span class='notice'>You need to open the bolt of \the [src] first.</span>"
 			return
 		if(!has_clip)
 			user.drop_from_inventory(A,src)
 			has_clip = A
-			to_chat(user, "<span class='notice'>You load the clip into \the [src].</span>")
+			user << "<span class='notice'>You load the clip into \the [src].</span>"
 			if(!has_clip.stored_ammo.len)
 				add_overlay("springfield-clip-empty")
 			else if(has_clip.stored_ammo.len <= 3)
@@ -198,19 +198,19 @@
 
 /obj/item/weapon/gun/projectile/shotgun/pump/rifle/vintage/load_ammo(var/obj/item/A, mob/user)
 	if(!open_bolt)
-		to_chat(user, "<span class='warning'>The bolt is closed on \the [src]!</span>")
+		user << "<span class='warning'>The bolt is closed on \the [src]!</span>"
 		return
 	..()
 
 /obj/item/weapon/gun/projectile/shotgun/pump/rifle/vintage/Fire(atom/target, mob/living/user, clickparams, pointblank=0, reflex=0)
 	if(open_bolt)
-		to_chat(user, "<span class='warning'>The bolt is open on \the [src]!</span>")
+		user << "<span class='warning'>The bolt is open on \the [src]!</span>"
 		return
 	..()
 
 /obj/item/weapon/gun/projectile/gauss
 	name = "gauss thumper"
-	desc = "An outdated gauss weapon which sees sparing use in modern times."
+	desc = "An outdated gauss weapon which sees sparing use in modern times. It's covered in the colors of the Tau Ceti Foreign Legion."
 	w_class = 3
 	slot_flags = 0
 	magazine_type = /obj/item/ammo_magazine/gauss

@@ -104,7 +104,7 @@
 			cooldown = 0
 		return 1
 	else
-		to_chat(loc, "<span class='danger'>This service is on cooldown! Try again in a bit!</span>")
+		loc << "<span class='danger'>This service is on cooldown! Try again in a bit!</span>"
 		return 0
 
 /datum/uplink_item/abstract/announcements/fake_radiation
@@ -122,5 +122,5 @@
 			cooldown = 0
 		return 1
 	else
-		to_chat(loc, "<span class='danger'>This service is on cooldown! Try again in a bit!</span>")
+		loc << "<span class='danger'>This service is on cooldown! Try again in a bit!</span>"
 		return 0

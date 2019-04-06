@@ -1,13 +1,13 @@
 /obj/item/weapon/gun/projectile/revolver
 	name = "revolver"
-	desc = "The revised Mark II Necropolis Industries revolver, chambering .357 rounds and utilizing a robust firing mechanism to deliver deadly rounds downrange. This is a monster of a hand cannon with a beautiful cedar grip and a transparent plastic cover so as to not splinter your hands while firing."
+	desc = "The classic Necropolis Industries .357 revolver, for when you only want to shoot once."
 	icon_state = "revolver"
 	item_state = "revolver"
 	accuracy = 1
 	caliber = "357"
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
 	handle_casings = CYCLE_CASINGS
-	max_shells = 8
+	max_shells = 7
 	ammo_type = /obj/item/ammo_casing/a357
 	fire_sound = 'sound/weapons/revolver_shoot.ogg'
 	var/chamber_offset = 0 //how many empty chambers in the cylinder until you hit a round
@@ -64,14 +64,14 @@
 	var/mob/M = usr
 	if(!M.mind)	return 0
 	if(!M.mind.assigned_role == "Detective")
-		to_chat(M, "<span class='notice'>You don't feel cool enough to name this gun, chump.</span>")
+		M << "<span class='notice'>You don't feel cool enough to name this gun, chump.</span>"
 		return 0
 
 	var/input = sanitizeSafe(input("What do you want to name the gun?", ,""), MAX_NAME_LEN)
 
 	if(src && input && !M.stat && in_range(M,src))
 		name = input
-		to_chat(M, "You name the gun [input]. Say hello to your new friend.")
+		M << "You name the gun [input]. Say hello to your new friend."
 		return 1
 
 // Blade Runner pistol.
@@ -105,7 +105,7 @@
 	desc = "A small pocket pistol, easily concealed. Uses .357 rounds."
 	icon_state = "derringer"
 	item_state = "concealed"
-	accuracy = -1
+	accuracy = -1 
 	w_class = 2
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2, TECH_ILLEGAL = 3)
 	handle_casings = CYCLE_CASINGS
@@ -126,7 +126,7 @@
 	needspin = FALSE
 
 /obj/item/weapon/gun/projectile/revolver/capgun/attackby(obj/item/W, mob/user)
-	if(!W.iswirecutter() || icon_state == "revolver")
+	if(!iswirecutter(W) || icon_state == "revolver")
 		return ..()
 	to_chat(user, "<span class='notice'>You snip off the toy markings off the [src].</span>")
 	name = "revolver"

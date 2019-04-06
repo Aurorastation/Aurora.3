@@ -94,7 +94,7 @@
 	desc = "A refrigerated storage unit for storing medicine and chemicals."
 	icon_state = "smartfridge" //To fix the icon in the map editor.
 	icon_on = "smartfridge_chem"
-	req_one_access = list(access_medical,access_pharmacy)
+	req_one_access = list(access_medical,access_chemistry)
 
 /obj/machinery/smartfridge/secure/medbay/accept_check(var/obj/item/O as obj)
 	if(istype(O,/obj/item/weapon/reagent_containers/glass/))
@@ -239,7 +239,7 @@
 ********************/
 
 /obj/machinery/smartfridge/attackby(var/obj/item/O as obj, var/mob/user as mob)
-	if(O.isscrewdriver())
+	if(isscrewdriver(O))
 		panel_open = !panel_open
 		user.visible_message("[user] [panel_open ? "opens" : "closes"] the maintenance panel of \the [src].", "You [panel_open ? "open" : "close"] the maintenance panel of \the [src].")
 		cut_overlays()
@@ -248,18 +248,18 @@
 		SSnanoui.update_uis(src)
 		return
 
-	if(O.ismultitool()||O.iswirecutter())
+	if(ismultitool(O)||iswirecutter(O))
 		if(panel_open)
 			attack_hand(user)
 		return
 
 	if(stat & NOPOWER)
-		to_chat(user, "<span class='notice'>\The [src] is unpowered and useless.</span>")
+		user << "<span class='notice'>\The [src] is unpowered and useless.</span>"
 		return
 
 	if(accept_check(O))
 		if(contents.len >= max_n_of_items)
-			to_chat(user, "<span class='notice'>\The [src] is full.</span>")
+			user << "<span class='notice'>\The [src] is full.</span>"
 			return 1
 		else
 			user.remove_from_mob(O)
@@ -279,7 +279,7 @@
 		for(var/obj/G in P.contents)
 			if(accept_check(G))
 				if(contents.len >= max_n_of_items)
-					to_chat(user, "<span class='notice'>\The [src] is full.</span>")
+					user << "<span class='notice'>\The [src] is full.</span>"
 					return 1
 				else
 					P.remove_from_storage(G,src)
@@ -292,19 +292,19 @@
 
 			user.visible_message("<span class='notice'>[user] loads \the [src] with \the [P].</span>", "<span class='notice'>You load \the [src] with \the [P].</span>")
 			if(P.contents.len > 0)
-				to_chat(user, "<span class='notice'>Some items are refused.</span>")
+				user << "<span class='notice'>Some items are refused.</span>"
 
 		SSnanoui.update_uis(src)
 
 	else
-		to_chat(user, "<span class='notice'>\The [src] smartly refuses [O].</span>")
+		user << "<span class='notice'>\The [src] smartly refuses [O].</span>"
 		return 1
 
 /obj/machinery/smartfridge/secure/emag_act(var/remaining_charges, var/mob/user)
 	if(!emagged)
 		emagged = 1
 		locked = -1
-		to_chat(user, "You short out the product lock on [src].")
+		user << "You short out the product lock on [src]."
 		return 1
 
 /obj/machinery/smartfridge/attack_ai(mob/user as mob)
@@ -412,6 +412,6 @@
 	if(stat & (NOPOWER|BROKEN)) return 0
 	if(usr.contents.Find(src) || (in_range(src, usr) && istype(loc, /turf)))
 		if(!allowed(usr) && !emagged && locked != -1 && href_list["vendItem"])
-			to_chat(usr, "<span class='warning'>Access denied.</span>")
+			usr << "<span class='warning'>Access denied.</span>"
 			return 0
 	return ..()

@@ -22,20 +22,20 @@
 
 	var/obj/item/organ/xenos/plasmavessel/P = internal_organs_by_name["plasma vessel"]
 	if(!istype(P))
-		to_chat(src, "<span class='danger'>Your plasma vessel has been removed!</span>")
+		src << "<span class='danger'>Your plasma vessel has been removed!</span>"
 		return
 
 	if(needs_organ)
 		var/obj/item/organ/I = internal_organs_by_name[needs_organ]
 		if(!I)
-			to_chat(src, "<span class='danger'>Your [needs_organ] has been removed!</span>")
+			src << "<span class='danger'>Your [needs_organ] has been removed!</span>"
 			return
 		else if((I.status & ORGAN_CUT_AWAY) || I.is_broken())
-			to_chat(src, "<span class='danger'>Your [needs_organ] is too damaged to function!</span>")
+			src << "<span class='danger'>Your [needs_organ] is too damaged to function!</span>"
 			return
 
 	if(P.stored_plasma < cost)
-		to_chat(src, "<span class='warning'>You don't have enough phoron stored to do that.</span>")
+		src << "<span class='warning'>You don't have enough phoron stored to do that.</span>"
 		return 0
 
 	if(needs_foundation)
@@ -46,7 +46,7 @@
 			if(!(istype(T,/turf/space)))
 				has_foundation = 1
 		if(!has_foundation)
-			to_chat(src, "<span class='warning'>You need a solid foundation to do that on.</span>")
+			src << "<span class='warning'>You need a solid foundation to do that on.</span>"
 			return 0
 
 	P.stored_plasma -= cost
@@ -59,12 +59,12 @@
 	set category = "Abilities"
 
 	if (get_dist(src,M) <= 1)
-		to_chat(src, "<span class='alium'>You need to be closer.</span>")
+		src << "<span class='alium'>You need to be closer.</span>"
 		return
 
 	var/obj/item/organ/xenos/plasmavessel/I = M.internal_organs_by_name["plasma vessel"]
 	if(!istype(I))
-		to_chat(src, "<span class='alium'>Their plasma vessel is missing.</span>")
+		src << "<span class='alium'>Their plasma vessel is missing.</span>"
 		return
 
 	var/amount = input("Amount:", "Transfer Plasma to [M]") as num
@@ -72,8 +72,8 @@
 		amount = abs(round(amount))
 		if(check_alien_ability(amount,0,"plasma vessel"))
 			M.gain_plasma(amount)
-			to_chat(M, "<span class='alium'>[src] has transfered [amount] plasma to you.</span>")
-			to_chat(src, "<span class='alium'>You have transferred [amount] plasma to [M].</span>")
+			M << "<span class='alium'>[src] has transfered [amount] plasma to you.</span>"
+			src << "<span class='alium'>You have transferred [amount] plasma to [M].</span>"
 	return
 
 // Queen verbs.
@@ -84,12 +84,12 @@
 	set category = "Abilities"
 
 	if(!config.aliens_allowed)
-		to_chat(src, "You begin to lay an egg, but hesitate. You suspect it isn't allowed.")
+		src << "You begin to lay an egg, but hesitate. You suspect it isn't allowed."
 		verbs -= /mob/living/carbon/human/proc/lay_egg
 		return
 
 	if(locate(/obj/structure/alien/egg) in get_turf(src))
-		to_chat(src, "There's already an egg here.")
+		src << "There's already an egg here."
 		return
 
 	if(check_alien_ability(75,1,"egg sac"))
@@ -105,7 +105,7 @@
 	set category = "Abilities"
 
 	if(alien_queen_exists())
-		to_chat(src, "<span class='notice'>We already have an active queen.</span>")
+		src << "<span class='notice'>We already have an active queen.</span>"
 		return
 
 	if(check_alien_ability(500))
@@ -131,7 +131,7 @@
 	set category = "Abilities"
 
 	if(!O in oview(1))
-		to_chat(src, "<span class='alium'>[O] is too far away.</span>")
+		src << "<span class='alium'>[O] is too far away.</span>"
 		return
 
 	// OBJ CHECK
@@ -151,7 +151,7 @@
 				cannot_melt = 1
 
 	if(cannot_melt)
-		to_chat(src, "<span class='alium'>You cannot dissolve this object.</span>")
+		src << "<span class='alium'>You cannot dissolve this object.</span>"
 		return
 
 	if(check_alien_ability(200,0,"acid gland"))
@@ -169,7 +169,7 @@
 		return
 
 	if(stat || paralysis || stunned || weakened || lying || restrained() || buckled)
-		to_chat(src, "You cannot spit neurotoxin in your current state.")
+		src << "You cannot spit neurotoxin in your current state."
 		return
 
 	visible_message("<span class='warning'>[src] spits neurotoxin at [target]!</span>", "<span class='alium'>You spit neurotoxin at [target].</span>")
@@ -207,20 +207,20 @@ mob/living/carbon/human/proc/xeno_infest(mob/living/carbon/human/M as mob in ovi
 	set category = "Abilities"
 
 	if(!M.Adjacent(src))
-		to_chat(src, "<span class='warning'>They are too far away.</span>")
+		src << "<span class='warning'>They are too far away.</span>"
 		return
 
 	if(!M.mind)
-		to_chat(src, "<span class='warning'>This mindless flesh adds nothing to the hive.</span>")
+		src << "<span class='warning'>This mindless flesh adds nothing to the hive.</span>"
 		return
 
 	if(M.species.get_bodytype() == "Xenomorph" || !isnull(M.internal_organs_by_name["hive node"]))
-		to_chat(src, "<span class='warning'>They are already part of the hive.</span>")
+		src << "<span class='warning'>They are already part of the hive.</span>"
 		return
 
 	var/obj/item/organ/affecting = M.get_organ("chest")
 	if(!affecting || (affecting.status & ORGAN_ROBOT))
-		to_chat(src, "<span class='warning'>This form is not compatible with our physiology.</span>")
+		src << "<span class='warning'>This form is not compatible with our physiology.</span>"
 		return
 
 	src.visible_message("<span class='danger'>\The [src] crouches over \the [M], extending a hideous protuberance from its head!</span>")
@@ -229,7 +229,7 @@ mob/living/carbon/human/proc/xeno_infest(mob/living/carbon/human/M as mob in ovi
 		return
 
 	if(!M || !M.Adjacent(src))
-		to_chat(src, "<span class='warning'>They are too far away.</span>")
+		src << "<span class='warning'>They are too far away.</span>"
 		return
 
 	if(M.species.get_bodytype() == "Xenomorph" || !isnull(M.internal_organs_by_name["hive node"]) || !affecting || (affecting.status & ORGAN_ROBOT))
@@ -239,6 +239,6 @@ mob/living/carbon/human/proc/xeno_infest(mob/living/carbon/human/M as mob in ovi
 		return
 
 	src.visible_message("<span class='danger'>\The [src] regurgitates something into \the [M]'s torso!</span>")
-	to_chat(M, "<span class='danger'>A hideous lump of alien mass strains your ribcage as it settles within!</span>")
+	M << "<span class='danger'>A hideous lump of alien mass strains your ribcage as it settles within!</span>"
 	var/obj/item/organ/xenos/hivenode/node = new(affecting)
 	node.replaced(M,affecting)

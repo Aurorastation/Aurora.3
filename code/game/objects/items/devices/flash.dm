@@ -16,7 +16,7 @@
 
 /obj/item/device/flash/proc/clown_check(var/mob/user)
 	if(user && (CLUMSY in user.mutations) && prob(50))
-		to_chat(user, "<span class='warning'>\The [src] slips out of your hand.</span>")
+		user << "<span class='warning'>\The [src] slips out of your hand.</span>"
 		user.drop_from_inventory(src)
 		return 0
 	return 1
@@ -44,7 +44,7 @@
 
 	if(!clown_check(user))	return
 	if(broken)
-		to_chat(user, "<span class='warning'>\The [src] is broken.</span>")
+		user << "<span class='warning'>\The [src] is broken.</span>"
 		return
 
 	flash_recharge()
@@ -56,12 +56,12 @@
 			last_used = world.time
 			if(prob(times_used))	//if you use it 5 times in a minute it has a 10% chance to break!
 				broken = 1
-				to_chat(user, "<span class='warning'>The bulb has burnt out!</span>")
+				user << "<span class='warning'>The bulb has burnt out!</span>"
 				icon_state = "flashburnt"
 				return
 			times_used++
 		else	//can only use it  5 times a minute
-			to_chat(user, "<span class='warning'>*click* *click*</span>")
+			user << "<span class='warning'>*click* *click*</span>"
 			return
 	playsound(src.loc, 'sound/weapons/flash.ogg', 100, 1)
 	var/flashfail = 0
@@ -79,13 +79,42 @@
 		var/safety = M:eyecheck(TRUE)
 		if(safety <= 0)
 			flick("e_flash", M.flash)
+				//Vaurca damage 15/01/16
 			var/mob/living/carbon/human/H = M
-			var/obj/item/organ/eyes/E = H.get_eyes()
-			if(!E)
-				return
+			if(isvaurca(H))
+				var/obj/item/organ/eyes/E = H.get_eyes()
+				if(!E)
+					return
+				user << span("alert", "Your eyes burn with the intense light of the flash!")
+				M.Weaken(10)
+				E.damage += rand(10, 11)
+				if(E.damage > 12)
+					M.eye_blurry += rand(3,6)
+				if (E.damage >= E.min_broken_damage)
+					M.sdisabilities |= BLIND
+				else if (E.damage >= E.min_bruised_damage)
+					M.eye_blind = 5
+					M.eye_blurry = 5
+					M.disabilities |= NEARSIGHTED
+					addtimer(CALLBACK(M, /mob/.proc/reset_nearsighted), 100)
 
-			E.flash_act()
-
+/*			if(ishuman(M) && ishuman(user) && M.stat!=DEAD)	//why is this even a thing
+				if(user.mind && user.mind in revs.current_antagonists)
+					var/revsafe = 0
+					for(var/obj/item/weapon/implant/loyalty/L in M)
+						if(L && L.implanted)
+							revsafe = 1
+							break
+					M.mind_initialize()		//give them a mind datum if they don't have one.
+					if(M.mind.has_been_rev)
+						revsafe = 2
+					if(!revsafe)
+						M.mind.has_been_rev = 1
+						revs.add_antagonist(M.mind)
+					else if(revsafe == 1)
+						user << "<span class='warning'>Something seems to be blocking the flash!</span>"
+					else
+						user << "<span class='warning'>This mind seems resistant to the flash!</span>"	*/
 		else
 			flashfail = 1
 
@@ -145,7 +174,7 @@
 		if(0 to 5)
 			if(prob(10*times_used))	//More consequential rolls are made the more you overuse the device.
 				broken = 1
-				to_chat(user, "<span class='warning'>The bulb has burnt out!</span>")
+				user << "<span class='warning'>The bulb has burnt out!</span>"
 				icon_state = "flashburnt"
 				return
 			times_used++
@@ -208,12 +237,12 @@
 	..()
 	if(!broken)
 		broken = 1
-		to_chat(user, "<span class='warning'>The bulb has burnt out!</span>")
+		user << "<span class='warning'>The bulb has burnt out!</span>"
 		icon_state = "flashburnt"
 
 /obj/item/device/flash/synthetic/attack_self(mob/living/carbon/user as mob, flag = 0, emp = 0)
 	..()
 	if(!broken)
 		broken = 1
-		to_chat(user, "<span class='warning'>The bulb has burnt out!</span>")
+		user << "<span class='warning'>The bulb has burnt out!</span>"
 		icon_state = "flashburnt"

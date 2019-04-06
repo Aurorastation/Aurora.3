@@ -99,7 +99,7 @@
 	if(RCon)
 		..()
 	else // RCON wire cut
-		to_chat(usr, "<span class='warning'>Connection error: Destination Unreachable.</span>")
+		usr << "<span class='warning'>Connection error: Destination Unreachable.</span>"
 
 	// Cyborgs standing next to the SMES can play with the wiring.
 	if(istype(usr, /mob/living/silicon/robot) && Adjacent(usr) && open_hatch)
@@ -193,9 +193,9 @@
 			// Sparks, Weak shock
 			small_spark.queue()	// This belongs to the parent SMES type.
 			if (user_protected && prob(80))
-				to_chat(h_user, "Small electrical arc almost burns your hand. Luckily you had your gloves on!")
+				h_user << "Small electrical arc almost burns your hand. Luckily you had your gloves on!"
 			else
-				to_chat(h_user, "Small electrical arc sparks and burns your hand as you touch the [src]!")
+				h_user << "Small electrical arc sparks and burns your hand as you touch the [src]!"
 				h_user.adjustFireLoss(rand(5,10))
 				h_user.Paralyse(2)
 			charge = 0
@@ -205,9 +205,9 @@
 			// Sparks, Medium shock, Weak EMP
 			big_spark.queue()
 			if (user_protected && prob(25))
-				to_chat(h_user, "Medium electrical arc sparks and almost burns your hand. Luckily you had your gloves on!")
+				h_user << "Medium electrical arc sparks and almost burns your hand. Luckily you had your gloves on!"
 			else
-				to_chat(h_user, "Medium electrical sparks as you touch the [src], severely burning your hand!")
+				h_user << "Medium electrical sparks as you touch the [src], severely burning your hand!"
 				h_user.adjustFireLoss(rand(10,25))
 				h_user.Paralyse(5)
 			spawn(0)
@@ -221,11 +221,11 @@
 			big_spark.queue()
 			big_spark.queue()
 			if (user_protected)
-				to_chat(h_user, "Strong electrical arc sparks between you and [src], ignoring your gloves and burning your hand!")
+				h_user << "Strong electrical arc sparks between you and [src], ignoring your gloves and burning your hand!"
 				h_user.adjustFireLoss(rand(25,60))
 				h_user.Paralyse(8)
 			else
-				to_chat(h_user, "Strong electrical arc sparks between you and [src], knocking you out for a while!")
+				h_user << "Strong electrical arc sparks between you and [src], knocking you out for a while!"
 				h_user.adjustFireLoss(rand(35,75))
 				h_user.Paralyse(12)
 			spawn(0)
@@ -240,7 +240,7 @@
 			// Sparks, Near - instantkill shock, Strong EMP, 25% light overload, 5% APC failure. 50% of SMES explosion. This is bad.
 			big_spark.queue()
 			big_spark.queue()
-			to_chat(h_user, "A massive electrical arc sparks between you and \the [src]. The last thing that goes through your mind is \"Oh shit...\".")
+			h_user << "A massive electrical arc sparks between you and \the [src]. The last thing that goes through your mind is \"Oh shit...\"."
 			// Remember, we have few gigajoules of electricity here.. Turn them into crispy toast.
 			h_user.adjustFireLoss(rand(150,195))
 			h_user.Paralyse(25)
@@ -303,7 +303,7 @@
 /obj/machinery/power/smes/buildable/attackby(var/obj/item/weapon/W as obj, var/mob/user as mob)
 	// No more disassembling of overloaded SMESs. You broke it, now enjoy the consequences.
 	if (failing)
-		to_chat(user, "<span class='warning'>The [src]'s screen is flashing with alerts. It seems to be overloaded! Touching it now is probably not a good idea.</span>")
+		user << "<span class='warning'>The [src]'s screen is flashing with alerts. It seems to be overloaded! Touching it now is probably not a good idea.</span>"
 		return
 	// If parent returned 1:
 	// - Hatch is open, so we can modify the SMES
@@ -311,20 +311,20 @@
 	if (..())
 
 		// Multitool - change RCON tag
-		if(W.ismultitool())
+		if(ismultitool(W))
 			var/newtag = input(user, "Enter new RCON tag. Use \"NO_TAG\" to disable RCON or leave empty to cancel.", "SMES RCON system") as text
 			if(newtag)
 				RCon_tag = newtag
-				to_chat(user, "<span class='notice'>You changed the RCON tag to: [newtag]</span>")
+				user << "<span class='notice'>You changed the RCON tag to: [newtag]</span>"
 				SSmachinery.queue_rcon_update()
 			return
 		// Charged above 1% and safeties are enabled.
 		if((charge > (capacity/100)) && safeties_enabled)
-			to_chat(user, "<span class='warning'>Safety circuit of [src] is preventing modifications while it's charged!</span>")
+			user << "<span class='warning'>Safety circuit of [src] is preventing modifications while it's charged!</span>"
 			return
 
 		if (output_attempt || input_attempt)
-			to_chat(user, "<span class='warning'>Turn off the [src] first!</span>")
+			user << "<span class='warning'>Turn off the [src] first!</span>"
 			return
 
 		// Probability of failure if safety circuit is disabled (in %)
@@ -335,20 +335,20 @@
 			failure_probability = 0
 
 		// Crowbar - Disassemble the SMES.
-		if(W.iscrowbar())
+		if(iscrowbar(W))
 			if (terminal)
-				to_chat(user, "<span class='warning'>You have to disassemble the terminal first!</span>")
+				user << "<span class='warning'>You have to disassemble the terminal first!</span>"
 				return
 
 			playsound(get_turf(src), 'sound/items/Crowbar.ogg', 50, 1)
-			to_chat(user, "<span class='warning'>You begin to disassemble the [src]!</span>")
+			user << "<span class='warning'>You begin to disassemble the [src]!</span>"
 			if (do_after(usr, 100 * cur_coils)) // More coils = takes longer to disassemble. It's complex so largest one with 5 coils will take 50s
 
 				if (failure_probability && prob(failure_probability))
 					total_system_failure(failure_probability, user)
 					return
 
-				to_chat(usr, "<span class='warning'>You have disassembled the SMES cell!</span>")
+				usr << "<span class='warning'>You have disassembled the SMES cell!</span>"
 				var/obj/machinery/constructable_frame/machine_frame/M = new /obj/machinery/constructable_frame/machine_frame(src.loc)
 				M.state = 2
 				M.icon_state = "box_1"
@@ -366,13 +366,13 @@
 					total_system_failure(failure_probability, user)
 					return
 
-				to_chat(usr, "You install the coil into the SMES unit!")
+				usr << "You install the coil into the SMES unit!"
 				user.drop_from_inventory(W,src)
 				cur_coils ++
 				component_parts += W
 				recalc_coils()
 			else
-				to_chat(usr, "<span class='warning'>You can't insert more coils to this SMES unit!</span>")
+				usr << "<span class='warning'>You can't insert more coils to this SMES unit!</span>"
 
 // Proc: toggle_input()
 // Parameters: None

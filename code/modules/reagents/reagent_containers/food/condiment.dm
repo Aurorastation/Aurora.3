@@ -19,7 +19,7 @@
 	playsound(user.loc, 'sound/items/drink.ogg', rand(10, 50), 1)
 
 /obj/item/weapon/reagent_containers/food/condiment/self_feed_message(var/mob/user)
-	to_chat(user, "<span class='notice'>You swallow some of contents of \the [src].</span>")
+	user << "<span class='notice'>You swallow some of contents of \the [src].</span>"
 
 /obj/item/weapon/reagent_containers/food/condiment/on_reagent_change()
 	if(icon_state == "saltshakersmall" || icon_state == "peppermillsmall" || icon_state == "flour" || icon_state == "spacespicebottle")

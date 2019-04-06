@@ -149,12 +149,12 @@
 		var/atom/impediment
 		var/valid = 0
 
-		if(destturf.density && destturf != teleatom)
+		if(destturf.density)
 			impediment = destturf
 
 		else
 			for(var/atom/movable/A in destturf)
-				if(A != teleatom && A.density && A.anchored)
+				if(A.density && A.anchored)
 					if(A.flags & ON_BORDER)
 						if(prob(10))
 							impediment = A
@@ -177,9 +177,6 @@
 							newdest = T
 							break
 
-
-
-
 			if(istype(teleatom, /obj))
 				valid = 1
 				var/obj/O = teleatom
@@ -190,20 +187,6 @@
 				if(O.density)
 					boominess += 5
 				if(O.opacity)
-					boominess += 10
-
-			if(istype(teleatom, /obj/mecha))
-				valid = 1
-				var/obj/mecha/M = teleatom
-				if(newdest)
-					M.ex_act(3)
-					M.occupant.adjustHalLoss(25)
-					to_chat(M.occupant, "<span class='danger'>You feel a sharp abdominal pain inside yourself as the [teleatom] phases into \the [impediment]</span>")
-
-				boominess += max(0, M.w_class - 1)
-				if(M.density)
-					boominess += 5
-				if(M.opacity)
 					boominess += 10
 
 			if(istype(teleatom, /mob/living))
@@ -333,7 +316,7 @@
 		precision = max(rand(1,100)*bagholding.len,100)
 		if(istype(teleatom, /mob/living))
 			var/mob/living/MM = teleatom
-			to_chat(MM, "<span class='danger'>The Bluespace interface on your [teleatom] interferes with the teleport!</span>")
+			MM << "<span class='danger'>The Bluespace interface on your [teleatom] interferes with the teleport!</span>"
 	return 1
 
 /datum/teleport/instant/science/teleportChecks()
@@ -341,10 +324,8 @@
 		teleatom.visible_message("<span class='danger'>\The [teleatom] bounces off of the portal!</span>")
 		return 0
 
-
 	if(isobserver(teleatom)) // do not teleport ghosts
 		return 0
-
 
 	if(!isemptylist(teleatom.search_contents_for(/obj/item/weapon/disk/nuclear)))
 		if(istype(teleatom, /mob/living))
@@ -355,7 +336,10 @@
 		return 0
 
 	if(destination.z in current_map.admin_levels) //centcomm z-level
-
+		if(istype(teleatom, /obj/mecha))
+			var/obj/mecha/MM = teleatom
+			MM.occupant << "<span class='danger'>\The [MM] would not survive the jump to a location so far away!</span>"
+			return 0
 		if(!isemptylist(teleatom.search_contents_for(/obj/item/weapon/storage/backpack/holding)))
 			teleatom.visible_message("<span class='danger'>\The [teleatom] bounces off of the portal!</span>")
 			return 0

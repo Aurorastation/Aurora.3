@@ -58,7 +58,7 @@ mob/Login()
 		if(S.weight == lowest)
 			serverlink = S.link
 
-	to_chat(src, link(serverlink))
+	src << link(serverlink)
 
 proc/extract(var/data, var/type = PLAYERS)
 

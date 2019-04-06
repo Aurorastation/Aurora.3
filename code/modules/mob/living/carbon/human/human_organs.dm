@@ -99,7 +99,7 @@
 	// standing is poor
 	if(stance_damage >= 4 || (stance_damage >= 2 && prob(5)))
 		if(!(lying || resting))
-			if(can_feel_pain())
+			if(species && !(species.flags & NO_PAIN))
 				emote("scream")
 			custom_emote(1, "collapses!")
 		Weaken(5) //can't emote while weakened, apparently.

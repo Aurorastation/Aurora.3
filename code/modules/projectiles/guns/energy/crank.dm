@@ -25,7 +25,7 @@
 
 /obj/item/weapon/gun/energy/rifle/icelance/attack_self(mob/living/user as mob)
 	if(is_charging)
-		to_chat(user, "<span class='warning'>You are already charging \the [src].</span>")
+		user << "<span class='warning'>You are already charging \the [src].</span>"
 		return
 	if(power_supply.charge < power_supply.maxcharge)
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
@@ -36,7 +36,7 @@
 		playsound(user.loc, 'sound/items/crank.ogg', 60, 1)
 		is_charging = TRUE
 		if(do_after(user,20))
-			to_chat(user, "<span class='notice'>You finish charging \the [src].</span>")
+			user << "<span class='notice'>You finish charging \the [src].</span>"
 			power_supply.give(charge_cost)
 			update_icon()
 			is_charging = FALSE

@@ -16,14 +16,11 @@
 	var/health_deficiency = (100 - health)
 	if(health_deficiency >= 40) tally += (health_deficiency / 25)
 
-	if (can_feel_pain())
+	if (!(species && (species.flags & NO_PAIN)))
 		if(halloss >= 10) tally += (halloss / 10) //halloss shouldn't slow you down if you can't even feel it
 
 	if(wear_suit)
 		tally += wear_suit.slowdown
-
-	if(species)
-		tally += species.get_species_tally(src)
 
 	if(istype(buckled, /obj/structure/bed/chair/wheelchair))
 		for(var/organ_name in list("l_hand","r_hand","l_arm","r_arm"))
@@ -47,7 +44,7 @@
 			else if(E.status & ORGAN_BROKEN)
 				tally += 1.5
 
-	if (can_feel_pain())
+	if (!(species && (species.flags & NO_PAIN)))
 		if(shock_stage >= 10) tally += 3
 
 	if(aiming && aiming.aiming_at) tally += 5 // Iron sights make you slower, it's a well-known fact.

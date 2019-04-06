@@ -3,9 +3,9 @@
 
 /obj/item/weapon/spellbook/student/attack_self(mob/living/user as mob)
 	if(user.is_wizard(TRUE))
-		to_chat(user, "<span class='warning'>This books is written for students, not for a true wizard like yourself!</span>")
+		user <<"<span class='warning'>This books is written for students, not for a true wizard like yourself!</span>"
 		return
-
+		
 	..()
 
 /datum/spellbook/student

@@ -98,24 +98,24 @@
 	//	return
 	..()
 	if (beakers.len)
-		to_chat(user, "<span class='notice'>[src] contains:</span>")
+		user << "<span class='notice'>[src] contains:</span>"
 		for(var/obj/item/weapon/reagent_containers/glass/beaker/B in beakers)
 			if(B.reagents && B.reagents.reagent_list.len)
 				for(var/datum/reagent/R in B.reagents.reagent_list)
-					to_chat(user, "<span class='notice'>[R.volume] units of [R.name]</span>")
+					user << "<span class='notice'>[R.volume] units of [R.name]</span>"
 
 /obj/item/weapon/gun/projectile/dartgun/attackby(obj/item/I as obj, mob/user as mob)
 	if(istype(I, /obj/item/weapon/reagent_containers/glass))
 		if(!istype(I, container_type))
-			to_chat(user, "<span class='notice'>[I] doesn't seem to fit into [src].</span>")
+			user << "<span class='notice'>[I] doesn't seem to fit into [src].</span>"
 			return
 		if(beakers.len >= max_beakers)
-			to_chat(user, "<span class='notice'>[src] already has [max_beakers] beakers in it - another one isn't going to fit!</span>")
+			user << "<span class='notice'>[src] already has [max_beakers] beakers in it - another one isn't going to fit!</span>"
 			return
 		var/obj/item/weapon/reagent_containers/glass/beaker/B = I
 		user.drop_from_inventory(B,src)
 		beakers += B
-		to_chat(user, "<span class='notice'>You slot [B] into [src].</span>")
+		user << "<span class='notice'>You slot [B] into [src].</span>"
 		src.updateUsrDialog()
 		return 1
 	..()
@@ -186,7 +186,7 @@
 		if(index <= beakers.len)
 			if(beakers[index])
 				var/obj/item/weapon/reagent_containers/glass/beaker/B = beakers[index]
-				to_chat(usr, "You remove [B] from [src].")
+				usr << "You remove [B] from [src]."
 				mixing -= B
 				beakers -= B
 				B.forceMove(get_turf(src))

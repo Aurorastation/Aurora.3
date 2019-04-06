@@ -51,7 +51,7 @@
 
 	examine(mob/user)
 		..(user)
-		to_chat(user, "<span class='notice'>The generator has [P.air_contents.phoron] units of fuel left, producing [power_gen] per cycle.</span>")
+		user << "<span class='notice'>The generator has [P.air_contents.phoron] units of fuel left, producing [power_gen] per cycle.</span>"
 
 	handleInactive()
 		heat -= 2
@@ -69,28 +69,28 @@
 	attackby(var/obj/item/O as obj, var/mob/user as mob)
 		if(istype(O, /obj/item/weapon/tank/phoron))
 			if(P)
-				to_chat(user, "<span class='warning'>The generator already has a phoron tank loaded!</span>")
+				user << "<span class='warning'>The generator already has a phoron tank loaded!</span>"
 				return
 			P = O
 			user.drop_from_inventory(O,src)
-			to_chat(user, "<span class='notice'>You add the phoron tank to the generator.</span>")
+			user << "<span class='notice'>You add the phoron tank to the generator.</span>"
 		else if(!active)
-			if(O.iswrench())
+			if(iswrench(O))
 				anchored = !anchored
 				playsound(src.loc, 'sound/items/Deconstruct.ogg', 50, 1)
 				if(anchored)
-					to_chat(user, "<span class='notice'>You secure the generator to the floor.</span>")
+					user << "<span class='notice'>You secure the generator to the floor.</span>"
 				else
-					to_chat(user, "<span class='notice'>You unsecure the generator from the floor.</span>")
+					user << "<span class='notice'>You unsecure the generator from the floor.</span>"
 				SSmachinery.powernet_update_queued = TRUE
-			else if(O.isscrewdriver())
+			else if(isscrewdriver(O))
 				open = !open
 				playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, 1)
 				if(open)
-					to_chat(user, "<span class='notice'>You open the access panel.</span>")
+					user << "<span class='notice'>You open the access panel.</span>"
 				else
-					to_chat(user, "<span class='notice'>You close the access panel.</span>")
-			else if(O.iscrowbar() && !open)
+					user << "<span class='notice'>You close the access panel.</span>"
+			else if(iscrowbar(O) && !open)
 				var/obj/machinery/constructable_frame/machine_frame/new_frame = new /obj/machinery/constructable_frame/machine_frame(src.loc)
 				for(var/obj/item/I in component_parts)
 					I.forceMove(src.loc)
@@ -163,7 +163,7 @@
 				usr << browse(null, "window=port_gen")
 				usr.machine = null
 
-/obj/machinery/power/port_gen/pacman2/emag_act(var/remaining_uses, var/mob/user)
+/obj/machinery/power/port_gen/pacman2/emag_act(var/remaining_uses, var/mob/user)				
 	emagged = 1
 	emp_act(1)
 	return 1

@@ -28,14 +28,14 @@
 	var/mob/M = usr
 	if(!M.mind)	return 0
 	if(!M.mind.assigned_role == "Detective")
-		to_chat(M, "<span class='notice'>You don't feel cool enough to name this gun, chump.</span>")
+		M << "<span class='notice'>You don't feel cool enough to name this gun, chump.</span>"
 		return 0
 
 	var/input = sanitizeSafe(input("What do you want to name the gun?", ,""), MAX_NAME_LEN)
 
 	if(src && input && !M.stat && in_range(M,src))
 		name = input
-		to_chat(M, "You name the gun [input]. Say hello to your new friend.")
+		M << "You name the gun [input]. Say hello to your new friend."
 		return 1
 
 /obj/item/weapon/gun/projectile/sec
@@ -210,7 +210,7 @@
 			if(user.l_hand != src && user.r_hand != src)
 				..()
 				return
-			to_chat(user, "<span class='notice'>You unscrew [silenced] from [src].</span>")
+			user << "<span class='notice'>You unscrew [silenced] from [src].</span>"
 			user.put_in_hands(silenced)
 			silenced = 0
 			w_class = 2
@@ -221,10 +221,10 @@
 /obj/item/weapon/gun/projectile/pistol/attackby(obj/item/I as obj, mob/user as mob)
 	if(istype(I, /obj/item/weapon/silencer))
 		if(user.l_hand != src && user.r_hand != src)	//if we're not in his hands
-			to_chat(user, "<span class='notice'>You'll need [src] in your hands to do that.</span>")
+			user << "<span class='notice'>You'll need [src] in your hands to do that.</span>"
 			return
 		user.drop_from_inventory(I,src)
-		to_chat(user, "<span class='notice'>You screw [I] onto [src].</span>")
+		user << "<span class='notice'>You screw [I] onto [src].</span>"
 		silenced = I	//dodgy?
 		w_class = 3
 		update_icon()

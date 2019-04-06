@@ -604,21 +604,6 @@
 		icon_state = "hair_undercut"
 		gender = MALE
 
-	undercut2
-		name = "Undercut 2"
-		icon_state = "hair_undercut2"
-		gender = MALE
-
-	undercut3
-		name = "Undercut 3"
-		icon_state = "hair_undercut3"
-		gender = MALE
-
-	shavedpart
-		name = "Partly Shaved"
-		icon_state = "hair_shavedpart"
-		gender = MALE
-
 	hightight
 		name = "High and Tight"
 		icon_state = "hair_hightight"
@@ -992,24 +977,24 @@
 	una_spines_long
 		icon = 'icons/mob/human_face/unathi_hair.dmi'
 		name = "Long Unathi Spines"
-		icon_state = "unathi_longspines"
+		icon_state = "soghun_longspines"
 		species_allowed = list("Unathi")
 
 		una_spines_short
 			name = "Short Unathi Spines"
-			icon_state = "unathi_shortspines"
+			icon_state = "soghun_shortspines"
 
 		una_frills_long
 			name = "Long Unathi Frills"
-			icon_state = "unathi_longfrills"
+			icon_state = "soghun_longfrills"
 
 		una_frills_short
 			name = "Short Unathi Frills"
-			icon_state = "unathi_shortfrills"
+			icon_state = "soghun_shortfrills"
 
 		una_horns
 			name = "Unathi Horns"
-			icon_state = "unathi_simplehorn"
+			icon_state = "soghun_horns"
 
 		una_bighorns
 			name = "Unathi Big Horns"
@@ -1019,9 +1004,9 @@
 			name = "Unathi Small Horns"
 			icon_state = "unathi_smallhorn"
 
-		una_swepthorns
-			name = "Unathi Swept-Forward Horns"
-			icon_state = "unathi_swepthorn"
+		una_ramhorns
+			name = "Unathi Ram Horns"
+			icon_state = "unathi_ramhorn"
 
 		una_sidefrills
 			name = "Unathi Side Frills"
@@ -1030,66 +1015,6 @@
 		una_mohawk
 			name = "Unathi Mohawk"
 			icon_state = "unathi_mohawk"
-
-		una_drachorn
-			name = "Unathi Draconic Horns"
-			icon_state = "unathi_drachorn"
-
-		una_lowerhorn
-			name = "Unathi Lower Horns"
-			icon_state = "unathi_lowerhorn"
-
-		una_spikehorn
-			name = "Unathi Spike Horns"
-			icon_state = "unathi_spikehorn"
-
-		una_shorthorn
-			name = "Unathi Short Horns"
-			icon_state = "unathi_shorthorn"
-
-		una_curlhorn
-			name = "Unathi Curled Horns"
-			icon_state = "unathi_curledhorn"
-
-		una_ramhornshort
-			name = "Unathi Short Ram Horns"
-			icon_state = "unathi_ramhorn"
-
-		una_ramhornlong
-			name = "Unathi Long Ram Horns"
-			icon_state = "unathi_ramhorn2"
-
-		una_chinhorn
-			name = "Unathi Chin Horn"
-			icon_state = "unathi_chinhorns"
-
-		una_hornadorns
-			name = "Unathi Horn Adorns"
-			icon_state = "unathi_hornadorns"
-
-		una_dorsalfrill
-			name = "Unathi Dorsal Frill"
-			icon_state = "unathi_dorsalfrill"
-
-		una_aquaticfrill
-			name = "Unathi Aquatic Frills"
-			icon_state = "unathi_aquaticfrills"
-
-		una_longfrill
-			name = "Unathi Long Frills"
-			icon_state = "unathi_longfrills"
-
-		una_shortfrill
-			name = "Unathi Short Frills"
-			icon_state = "unathi_shortfrills"
-
-		una_longdorsal
-			name = "Unathi Long Dorsal Frill"
-			icon_state = "unathi_longdorsal"
-
-		una_dracfrills
-			name = "Unathi Draconic Frills"
-			icon_state = "unathi_dracfrills"
 
 //skrell tentacles
 
@@ -1263,103 +1188,22 @@
 //unathi horn beards and the like
 
 	una_chinhorn
-		icon = 'icons/mob/human_face/unathi_hair.dmi'
+		icon = 'icons/mob/human_face/unathi_facial_hair.dmi'
 		name = "Unathi Chin Horn"
 		icon_state = "facial_chinhorns"
 		species_allowed = list("Unathi")
-		gender = NEUTER
 
 		una_hornadorns
 			name = "Unathi Horn Adorns"
 			icon_state = "facial_hornadorns"
 
+		una_spinespikes
+			name = "Unathi Spine Spikes"
+			icon_state = "facial_spikes"
+
 		una_dorsalfrill
 			name = "Unathi Dorsal Frill"
 			icon_state = "facial_dorsalfrill"
-
-		una_aquaticfrill
-			name = "Unathi Aquatic Frills"
-			icon_state = "facial_aquaticfrills"
-
-		una_longfrill
-			name = "Unathi Long Frills"
-			icon_state = "facial_longfrills"
-
-		una_shortfrill
-			name = "Unathi Short Frills"
-			icon_state = "facial_shortfrills"
-
-		una_longdorsal
-			name = "Unathi Long Dorsal Frill"
-			icon_state = "facial_longdorsal"
-
-		una_dracfrills
-			name = "Unathi Draconic Frills"
-			icon_state = "facial_dracfrills"
-
-		una_spines_short
-			name = "Short Unathi Spines"
-			icon_state = "facial_shortspines"
-
-		una_frills_long
-			name = "Long Unathi Frills"
-			icon_state = "facial_longfrills"
-
-		una_frills_short
-			name = "Short Unathi Frills"
-			icon_state = "facial_shortfrills"
-
-		una_horns
-			name = "Unathi Horns"
-			icon_state = "facial_simplehorn"
-
-		una_bighorns
-			name = "Unathi Big Horns"
-			icon_state = "facial_bighorn"
-
-		una_smallhorns
-			name = "Unathi Small Horns"
-			icon_state = "facial_smallhorn"
-
-		una_swepthorns
-			name = "Unathi Swept-Forward Horns"
-			icon_state = "facial_swepthorn"
-
-		una_sidefrills
-			name = "Unathi Side Frills"
-			icon_state = "facial_sidefrills"
-
-		una_mohawk
-			name = "Unathi Mohawk"
-			icon_state = "facial_mohawk"
-
-		una_drachorn
-			name = "Unathi Draconic Horns"
-			icon_state = "facial_drachorn"
-
-		una_lowerhorn
-			name = "Unathi Lower Horns"
-			icon_state = "facial_lowerhorn"
-
-		una_spikehorn
-			name = "Unathi Spike Horns"
-			icon_state = "facial_spikehorn"
-
-		una_shorthorn
-			name = "Unathi Short Horns"
-			icon_state = "facial_shorthorn"
-
-		una_curlhorn
-			name = "Unathi Curled Horns"
-			icon_state = "facial_curledhorn"
-
-		una_ramhornshort
-			name = "Unathi Short Ram Horns"
-			icon_state = "facial_ramhorn"
-
-		una_ramhornlong
-			name = "Unathi Long Ram Horns"
-			icon_state = "facial_ramhorn2"
 
 //ipc screens
 
@@ -1550,18 +1394,6 @@
 		icon_state = "una_scutes"
 		body_parts = list("chest")
 		species_allowed = list("Unathi")
-
-	spelunker
-		name = "Spelunker"
-		icon_state = "spelunker"
-		body_parts = list("l_leg","r_leg","l_arm","r_arm","chest","groin","head")
-		species_allowed = list("Vaurca")
-
-	delver
-		name = "Delver"
-		icon_state = "delver"
-		body_parts = list("l_leg","r_leg","l_arm","r_arm","chest","groin","head")
-		species_allowed = list("Vaurca")
 
 // Branded IPC markings - disabled for now, some layering issues.
 /*

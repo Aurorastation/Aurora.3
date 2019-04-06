@@ -74,18 +74,18 @@
 	if(stat & (NOPOWER|BROKEN))
 		return
 	if(operating)
-		to_chat(user, "<span class='danger'>\The [src] is locked and running, wait for it to finish.</span>")
+		user << "<span class='danger'>\The [src] is locked and running, wait for it to finish.</span>"
 		return
 	else
 		src.startgibbing(user)
 
 /obj/machinery/gibber/examine()
 	..()
-	to_chat(usr, "The safety guard is [emagged ? "<span class='danger'>disabled</span>" : "enabled"].")
+	usr << "The safety guard is [emagged ? "<span class='danger'>disabled</span>" : "enabled"]."
 
 /obj/machinery/gibber/emag_act(var/remaining_charges, var/mob/user)
 	emagged = !emagged
-	to_chat(user, "<span class='danger'>You [emagged ? "disable" : "enable"] \the [src]'s safety guard.</span>")
+	user << "<span class='danger'>You [emagged ? "disable" : "enable"] \the [src]'s safety guard.</span>"
 	return 1
 
 /obj/machinery/gibber/attackby(var/obj/item/W, var/mob/user)
@@ -121,24 +121,24 @@
 /obj/machinery/gibber/proc/move_into_gibber(var/mob/user,var/mob/living/victim)
 
 	if(src.occupant)
-		to_chat(user, "<span class='danger'>\The [src] is full, empty it first!</span>")
+		user << "<span class='danger'>\The [src] is full, empty it first!</span>"
 		return
 
 	if(operating)
-		to_chat(user, "<span class='danger'>\The [src] is locked and running, wait for it to finish.</span>")
+		user << "<span class='danger'>\The [src] is locked and running, wait for it to finish.</span>"
 		return
 
 	if(!(istype(victim, /mob/living/carbon)) && !(istype(victim, /mob/living/simple_animal)) )
-		to_chat(user, "<span class='danger'>This is not suitable for \the [src]!</span>")
+		user << "<span class='danger'>This is not suitable for \the [src]!</span>"
 		return
 
 	if(istype(victim,/mob/living/carbon/human) && !emagged)
-		to_chat(user, "<span class='danger'>\The [src] safety guard is engaged!</span>")
+		user << "<span class='danger'>\The [src] safety guard is engaged!</span>"
 		return
 
 
 	if(victim.abiotic(1))
-		to_chat(user, "<span class='danger'>\The [victim] may not have abiotic items on.</span>")
+		user << "<span class='danger'>\The [victim] may not have abiotic items on.</span>"
 		return
 
 	user.visible_message("<span class='danger'>\The [user] starts to put \the [victim] into \the [src]!</span>")

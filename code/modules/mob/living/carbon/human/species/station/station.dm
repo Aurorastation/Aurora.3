@@ -55,7 +55,6 @@
 	gluttonous = 1
 	slowdown = 0.5
 	brute_mod = 0.8
-	grab_mod = 0.75
 	fall_mod = 1.2
 	ethanol_resistance = 0.4
 	taste_sensitivity = TASTE_SENSITIVE
@@ -120,8 +119,8 @@
 
 	move_trail = /obj/effect/decal/cleanable/blood/tracks/claw
 
-/datum/species/unathi/before_equip(var/mob/living/carbon/human/H)
-	. = ..()
+/datum/species/unathi/equip_survival_gear(var/mob/living/carbon/human/H)
+	..()
 	var/obj/item/clothing/shoes/sandal/S = new /obj/item/clothing/shoes/sandal(H)
 	if(H.equip_to_slot_or_del(S,slot_shoes))
 		S.autodrobe_no_remove = 1
@@ -180,8 +179,6 @@
 	flesh_color = "#AFA59E"
 	base_color = "#333333"
 
-	reagent_tag = IS_TAJARA
-
 	heat_discomfort_level = 292
 	heat_discomfort_strings = list(
 		"Your fur prickles in the heat.",
@@ -194,8 +191,8 @@
 
 	default_h_style = "Tajaran Ears"
 
-/datum/species/tajaran/before_equip(var/mob/living/carbon/human/H)
-	. = ..()
+/datum/species/tajaran/equip_survival_gear(var/mob/living/carbon/human/H)
+	..()
 	var/obj/item/clothing/shoes/sandal/S = new /obj/item/clothing/shoes/sandal(H)
 	if(H.equip_to_slot_or_del(S,slot_shoes))
 		S.autodrobe_no_remove = 1
@@ -225,8 +222,6 @@
 	secondary_langs = list(LANGUAGE_SIIK_TAU)
 	name_language = LANGUAGE_SKRELLIAN
 	rarity_value = 3
-
-	grab_mod = 1.25
 
 	spawn_flags = CAN_JOIN | IS_WHITELISTED
 	appearance_flags = HAS_HAIR_COLOR | HAS_LIPS | HAS_UNDERWEAR | HAS_SKIN_COLOR | HAS_SOCKS
@@ -295,8 +290,6 @@
 	all known species, especially the Skrell. Their communal mind makes them slow to react, and they have difficulty understanding \
 	even the simplest concepts of other minds. Their alien physiology allows them survive happily off a diet of nothing but light, \
 	water and other radiation."
-
-	grab_mod = 1.1
 
 	has_organ = list(
 		"nutrient channel"   = /obj/item/organ/diona/nutrients,
@@ -377,7 +370,7 @@
 		H.updatehealth()
 		H.m_intent = "walk"
 		H.hud_used.move_intent.update_move_icon(H)
-		to_chat(H, span("danger", "We have expended our energy reserves, and cannot continue to move at such a pace. We must find light!"))
+		H << span("danger", "We have expended our energy reserves, and cannot continue to move at such a pace. We must find light!")
 		return 0
 
 /datum/species/diona/can_understand(var/mob/other)
@@ -386,11 +379,15 @@
 		return 1
 	return 0
 
-/datum/species/diona/equip_later_gear(var/mob/living/carbon/human/H)
-	if(istype(H.get_equipped_item(slot_back), /obj/item/weapon/storage/backpack))
-		H.equip_to_slot_or_del(new /obj/item/device/flashlight/flare((H.back), slot_in_backpack))
+/datum/species/diona/equip_survival_gear(var/mob/living/carbon/human/H)
+	var/obj/item/device/flashlight/flare/F = new /obj/item/device/flashlight/flare(H)
+	if(H.backbag == 1)
+		H.equip_to_slot_or_del(F, slot_r_hand)
 	else
-		H.equip_to_slot_or_del(new /obj/item/device/flashlight/flare((H), slot_r_hand))
+		H.equip_to_slot_or_del(F, slot_in_backpack)
+	if(!QDELETED(F))
+		F.autodrobe_no_remove = 1
+	H.gender = NEUTER
 
 /datum/species/diona/handle_post_spawn(var/mob/living/carbon/human/H)
 	H.gender = NEUTER
@@ -471,10 +468,6 @@
 	body_temperature = null
 	passive_temp_gain = 10  // This should cause IPCs to stabilize at ~80 C in a 20 C environment.
 
-	inherent_verbs = list(
-		/mob/living/carbon/human/proc/self_diagnostics
-	)
-
 	flags = IS_IPC
 	appearance_flags = HAS_SKIN_COLOR | HAS_HAIR_COLOR
 	spawn_flags = CAN_JOIN | IS_WHITELISTED
@@ -534,7 +527,7 @@ datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
 			H.Weaken(15)
 			H.m_intent = "walk"
 			H.hud_used.move_intent.update_move_icon(H)
-			to_chat(H, span("danger", "ERROR: Power reserves depleted, emergency shutdown engaged. Backup power will come online in approximately 30 seconds, initiate charging as primary directive."))
+			H << span("danger", "ERROR: Power reserves depleted, emergency shutdown engaged. Backup power will come online in approximately 30 seconds, initiate charging as primary directive.")
 			playsound(H.loc, 'sound/machines/buzz-two.ogg', 100, 0)
 		else
 			return 1
@@ -648,8 +641,7 @@ datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
 		if ("yellow IPC screen")
 			return LIGHT_COLOR_YELLOW
 
-/datum/species/machine/before_equip(var/mob/living/carbon/human/H)
-	. = ..()
+/datum/species/machine/equip_survival_gear(var/mob/living/carbon/human/H)
 	check_tag(H, H.client)
 	H.gender = NEUTER
 
@@ -684,7 +676,6 @@ datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
 	toxins_mod = 2 //they're not used to all our weird human bacteria.
 	oxy_mod = 0.6
 	radiation_mod = 0.2 //almost total radiation protection
-	bleed_mod = 2.2
 	warning_low_pressure = 50
 	hazard_low_pressure = 0
 	ethanol_resistance = 2
@@ -755,22 +746,18 @@ datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
 
 	move_trail = /obj/effect/decal/cleanable/blood/tracks/claw
 
-/datum/species/bug/before_equip(var/mob/living/carbon/human/H)
-	. = ..()
+/datum/species/bug/equip_survival_gear(var/mob/living/carbon/human/H)
 	H.gender = NEUTER
+	if(H.backbag == 1)
+		H.equip_to_slot_or_del(new /obj/item/weapon/storage/box/vaurca(H), slot_r_hand)
+	else
+		H.equip_to_slot_or_del(new /obj/item/weapon/storage/box/vaurca(H.back), slot_in_backpack)
 	var/obj/item/clothing/shoes/sandal/S = new /obj/item/clothing/shoes/sandal(H)
 	if(H.equip_to_slot_or_del(S,slot_shoes))
 		S.autodrobe_no_remove = 1
 	var/obj/item/clothing/mask/breath/M = new /obj/item/clothing/mask/breath(H)
 	if(H.equip_to_slot_or_del(M, slot_wear_mask))
 		M.autodrobe_no_remove = 1
-
-/datum/species/bug/equip_later_gear(var/mob/living/carbon/human/H)
-	if(istype(H.get_equipped_item(slot_back), /obj/item/weapon/storage/backpack))
-		H.equip_to_slot_or_del(new /obj/item/weapon/storage/box/vaurca((H.back), slot_in_backpack))
-	else
-		H.equip_to_slot_or_del(new /obj/item/weapon/storage/box/vaurca((H), slot_r_hand))
-
 
 /datum/species/bug/handle_post_spawn(var/mob/living/carbon/human/H)
 	H.gender = NEUTER

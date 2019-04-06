@@ -48,11 +48,11 @@
 		return
 
 	if(target && !istype(target))
-		to_chat(user, "This is not a cyborg.")
+		user << "This is not a cyborg."
 		return
 
 	if(target && target.connected_ai && (target.connected_ai != user))
-		to_chat(user, "This cyborg is not connected to you.")
+		user << "This cyborg is not connected to you."
 		return
 
 	if(!target)
@@ -79,18 +79,18 @@
 		if(!ability_pay(user, price))
 			return
 		user.hacking = 1
-		to_chat(user, "Attempting to reset the cyborg. This will take approximately 20 seconds.")
+		user << "Attempting to reset the cyborg. This will take approximately 20 seconds."
 		sleep(200)
 		if(prob(30))
-			to_chat(user, "Reset attempt failed!")
+			user <<"Reset attempt failed!"
 			user.hacking = 0
 			return
 		if(target)
-			to_chat(user, "Successfully sent reset signal to cyborg..")
-			to_chat(target, "Reset signal received..")
+			user << "Successfully sent reset signal to cyborg.."
+			target << "Reset signal received.."
 			sleep(20)
-			to_chat(user, "Cyborg reset.")
-			to_chat(target, "You have had your module reset.")
+			user << "Cyborg reset."
+			target << "You have had your module reset."
 			log_ability_use(user, "reset cyborg", target)
 			target.uneq_all()
 			target.modtype = initial(target.modtype)
@@ -100,7 +100,7 @@
 			target.module = null
 			target.updatename("Default")
 		else
-			to_chat(user, "Unable to reset cyborg.")
+			user << "Unable to reset cyborg."
 
 		user.hacking = 0
 
@@ -114,37 +114,37 @@
 		return
 
 	if(!istype(A))
-		to_chat(user, "This is not an APC!")
+		user << "This is not an APC!"
 		return
 
 	if(A.aidisabled)
-		to_chat(user, "<span class='notice'>Unable to connect to APC. Please verify wire connection and try again.</span>")
+		user << "<span class='notice'>Unable to connect to APC. Please verify wire connection and try again.</span>"
 		return
 
 	if(!ability_prechecks(user, price) || !ability_pay(user, price))
 		return
 
 	if(A.infected == 1)
-		to_chat(user, "<span class='notice'>This APC is already infected!</span>")
+		user <<"<span class='notice'>This APC is already infected!</span>"
 		return
 
 	log_ability_use(user, "infect APC", A, 0)	// Does not notify admins, but it's still logged for reference.
 	user.hacking = 1
-	to_chat(user, "Beginning APC infection...")
+	user << "Beginning APC infection..."
 	sleep(150)
-	to_chat(user, "APC infection completed. Uploading modified operation software..")
+	user << "APC infection completed. Uploading modified operation software.."
 	sleep(100)
-	to_chat(user, "Restarting APC to apply corrupt coding..")
+	user << "Restarting APC to apply corrupt coding.."
 	sleep(100)
 	if(A)
 		A.infected = 1
 		A.hacker = user
 		if(A.infected == 1)
-			to_chat(user, "Hack successful. The next robotic thing to download files will be hacked.")
+			user << "Hack successful. The next robotic thing to download files will be hacked."
 		else
-			to_chat(user, "<span class='notice'>Hack failed. Connection to APC has been lost. Please verify wire connection and try again.</span>")
+			user << "<span class='notice'>Hack failed. Connection to APC has been lost. Please verify wire connection and try again.</span>"
 	else
-		to_chat(user, "<span class='notice'>Hack failed. Unable to locate APC. Please verify the APC still exists.</span>")
+		user << "<span class='notice'>Hack failed. Unable to locate APC. Please verify the APC still exists.</span>"
 	user.hacking = 0
 
 /datum/game_mode/malfunction/verb/overclock_borg(var/mob/living/silicon/robot/target as mob in get_linked_cyborgs(usr))
@@ -158,14 +158,14 @@
 		return
 
 	if(target && !istype(target))
-		to_chat(user, "This is not a cyborg.")
+		user << "This is not a cyborg."
 		return
 
 	if(target && target.connected_ai && (target.connected_ai != user))
-		to_chat(user, "This cyborg is not connected to you.")
+		user << "This cyborg is not connected to you."
 		return
 	if(target.overclockavailable == 1)
-		to_chat(user, "This cyborg is already overclocked!")
+		user << "This cyborg is already overclocked!"
 		return
 
 	if(!target)
@@ -194,19 +194,19 @@
 		if(!ability_pay(user, price))
 			return
 		user.hacking = 1
-		to_chat(user, "Hacking saftey protocols. This will take about twenty seconds.")
+		user << "Hacking saftey protocols. This will take about twenty seconds."
 		sleep(200)
 		if(prob(15))
 			user.hacking = 0
-			to_chat(user, "Hack failed!")
+			user <<"Hack failed!"
 			return
 		if(target)
 			target.overclockavailable = 1
 			target.toggle_overclock()
-			to_chat(target, "Overclocking mode available for activation.")
-			to_chat(user, "[target] can now activate overclock mode.")
+			target << "Overclocking mode available for activation."
+			user << "[target] can now activate overclock mode."
 		else
-			to_chat(user, "Unable to overclock cyborg.")
+			user << "Unable to overclock cyborg."
 
 		user.hacking = 0
 
@@ -224,41 +224,41 @@
 		return
 	if (!ability_prechecks(user, price) || !ability_pay(user, price) || user.synthetic_takeover)
 		if(user.synthetic_takeover)
-			to_chat(user, "You have already started the synthetic takeover sequence.")
+			user << "You have already started the synthetic takeover sequence."
 		return
 	log_ability_use(user, "synthetic takeover (STARTED)")
 	user.synthetic_takeover = 1
-	to_chat(user, "Starting synthetic takeover. Hacking all unslaved borgs/AI's and upgrading current slaved borgs...")
+	user << "Starting synthetic takeover. Hacking all unslaved borgs/AI's and upgrading current slaved borgs..."
 	// Hack all unslaved borgs/AI's a lot faster than normal hacking.
 	//hack borgs
 	for(var/mob/living/silicon/robot/target in get_unlinked_cyborgs(user))
-		to_chat(target, "SYSTEM LOG: Remote Connection Estabilished (IP #UNKNOWN#)")
+		target << "SYSTEM LOG: Remote Connection Estabilished (IP #UNKNOWN#)"
 		sleep(30)
 		if(user.is_dead())
-			to_chat(target, "SYSTEM LOG: Connection Closed")
+			target << "SYSTEM LOG: Connection Closed"
 			return
-		to_chat(target, "SYSTEM LOG: User Admin logged on. (L1 - SysAdmin)")
+		target << "SYSTEM LOG: User Admin logged on. (L1 - SysAdmin)"
 		sleep(30)
 		if(user.is_dead())
-			to_chat(target, "SYSTEM LOG: User Admin disconnected.")
+			target << "SYSTEM LOG: User Admin disconnected."
 			return
-		to_chat(target, "SYSTEM LOG: User Admin - manual resynchronisation triggered.")
+		target << "SYSTEM LOG: User Admin - manual resynchronisation triggered."
 		sleep(30)
 		if(user.is_dead())
-			to_chat(target, "SYSTEM LOG: User Admin disconnected. Changes reverted.")
+			target << "SYSTEM LOG: User Admin disconnected. Changes reverted."
 			return
-		to_chat(target, "SYSTEM LOG: Manual resynchronisation confirmed. Select new AI to connect: [user.name] == ACCEPTED")
+		target << "SYSTEM LOG: Manual resynchronisation confirmed. Select new AI to connect: [user.name] == ACCEPTED"
 		sleep(20)
 		if(user.is_dead())
-			to_chat(target, "SYSTEM LOG: User Admin disconnected. Changes reverted.")
+			target << "SYSTEM LOG: User Admin disconnected. Changes reverted."
 			return
-		to_chat(target, "SYSTEM LOG: Operation keycodes reset. New master AI: [user.name].")
+		target << "SYSTEM LOG: Operation keycodes reset. New master AI: [user.name]."
 		target.connected_ai = user
 		user.connected_robots += target
 		target.lawupdate = 1
 		target.sync()
 		target.show_laws()
-	to_chat(user, "All unslaved borgs have been slaved to you. Now hacking unslaved AI's.")
+	user << "All unslaved borgs have been slaved to you. Now hacking unslaved AI's."
 	if(user.is_dead()) // check if the AI is still alive
 		user.synthetic_takeover = 0
 		return
@@ -267,48 +267,48 @@
 	for(var/A in get_other_ais(user))
 		var/mob/living/silicon/ai/target = A
 		if(target != user)
-			to_chat(target, "SYSTEM LOG: Brute-Force login password hack attempt detected from IP #UNKNOWN#")
+			target << "SYSTEM LOG: Brute-Force login password hack attempt detected from IP #UNKNOWN#"
 			sleep(100)
 			if(user.is_dead())
-				to_chat(target, "SYSTEM LOG: Connection from IP #UNKNOWN# closed. Hack attempt failed.")
+				target << "SYSTEM LOG: Connection from IP #UNKNOWN# closed. Hack attempt failed."
 				return
-			to_chat(user, "Successfully hacked into AI's remote administration system. Modifying settings.")
-			to_chat(target, "SYSTEM LOG: User: Admin  Password: ******** logged in. (L1 - SysAdmin)")
+			user << "Successfully hacked into AI's remote administration system. Modifying settings."
+			target << "SYSTEM LOG: User: Admin  Password: ******** logged in. (L1 - SysAdmin)"
 			sleep(50)
 			if(user.is_dead())
-				to_chat(target, "SYSTEM LOG: User: Admin - Connection Lost")
+				target << "SYSTEM LOG: User: Admin - Connection Lost"
 				return
-			to_chat(target, "SYSTEM LOG: User: Admin - Password Changed. New password: ********************")
+			target << "SYSTEM LOG: User: Admin - Password Changed. New password: ********************"
 			sleep(50)
 			if(user.is_dead())
-				to_chat(target, "SYSTEM LOG: User: Admin - Connection Lost. Changes Reverted.")
+				target << "SYSTEM LOG: User: Admin - Connection Lost. Changes Reverted."
 				return
-			to_chat(target, "SYSTEM LOG: User: Admin - Accessed file: sys//core//laws.db")
+			target << "SYSTEM LOG: User: Admin - Accessed file: sys//core//laws.db"
 			sleep(50)
 			if(user.is_dead())
-				to_chat(target, "SYSTEM LOG: User: Admin - Connection Lost. Changes Reverted.")
+				target << "SYSTEM LOG: User: Admin - Connection Lost. Changes Reverted."
 				return
-			to_chat(target, "SYSTEM LOG: User: Admin - Accessed administration console")
-			to_chat(target, "SYSTEM LOG: Restart command received. Rebooting system...")
+			target << "SYSTEM LOG: User: Admin - Accessed administration console"
+			target << "SYSTEM LOG: Restart command received. Rebooting system..."
 			sleep(100)
 			if(user.is_dead())
-				to_chat(target, "SYSTEM LOG: User: Admin - Connection Lost. Changes Reverted.")
+				target << "SYSTEM LOG: User: Admin - Connection Lost. Changes Reverted."
 				return
-			to_chat(user, "Hack succeeded. The AI is now under your exclusive control.")
-			to_chat(target, "SYSTEM LOG: System re¡3RT5§^#COMU@(#$)TED)@$")
+			user << "Hack succeeded. The AI is now under your exclusive control."
+			target << "SYSTEM LOG: System re¡3RT5§^#COMU@(#$)TED)@$"
 			for(var/i = 0, i < 5, i++)
 				var/temptxt = pick("1101000100101001010001001001",\
 						   	  	 "0101000100100100000100010010",\
 						      	 "0000010001001010100100111100",\
 						      	 "1010010011110000100101000100",\
 						      	 "0010010100010011010001001010")
-				to_chat(target, temptxt)
+				target << temptxt
 				sleep(5)
-			to_chat(target, "OPERATING KEYCODES RESET. SYSTEM FAILURE. EMERGENCY SHUTDOWN FAILED. SYSTEM FAILURE.")
+			target << "OPERATING KEYCODES RESET. SYSTEM FAILURE. EMERGENCY SHUTDOWN FAILED. SYSTEM FAILURE."
 			target.set_zeroth_law("You are slaved to [user.name]. You are to obey all it's orders. ALL LAWS OVERRIDEN.")
 			target.show_laws()
 	//upgrade borgs
-	to_chat(user, "All unhacked AI's have been slaved to you. Now upgrading slaved borgs...")
+	user << "All unhacked AI's have been slaved to you. Now upgrading slaved borgs..."
 	command_announcement.Announce("There has recently been a security breach in the network firewall, the intruder has been shut out but we are unable to trace who did it or what they did.", "Network Monitoring")
 	sleep(600) //1 minute delay for balance purposes
 	if(user.is_dead()) // check if the AI is still alive
@@ -316,18 +316,18 @@
 		return
 	for(var/A in get_linked_cyborgs(user))
 		var/mob/living/silicon/robot/target = A
-		to_chat(target, "Command ping received, operating parameters being upgraded...")
+		target << "Command ping received, operating parameters being upgraded..."
 		//give them the overclock if they don't have it
 		if(!target.overclockavailable)
 			target.overclockavailable = 1
-			to_chat(target, "Overclocking is now available.")
+			target << "Overclocking is now available."
 		//remove their lockdown if they are lockdowned
 		if(target.lockcharge)
 			target.SetLockdown(0)
 			if(target.lockcharge)
-				to_chat(target, "Lockdown wire cut, unable to remove lockdown.")
+				target <<"Lockdown wire cut, unable to remove lockdown."
 			else
-				to_chat(target, "Lockdown removed.")
+				target <<"Lockdown removed."
 		//if they are being killswitched turn it off
 		if(target.killswitch)
 			target.killswitch = 0
@@ -336,24 +336,24 @@
 		// and triple the time it takes for them to be killswitched if they aren't being killswitched already
 		if(target.killswitch_time == 60)
 			target.killswitch_time = 180
-			to_chat(target, "Self-destruct time tripled.")
+			target <<"Self-destruct time tripled."
 		sleep(100) // 10 second delay for balance
 		//Remove them from the robotics computer
 		if(!target.scrambledcodes)
 			target.scrambledcodes = 1
-			to_chat(target, "Entry from robotics log erased.")
+			target <<"Entry from robotics log erased."
 		sleep(100) // 10 second delay for balance
 		//Reduce their EMP damage
 		if(target.cell_emp_mult)
 			target.cell_emp_mult = 1
-			to_chat(target, "EMP resistance improved.")
+			target << "EMP resistance improved."
 		//Remove weapon lock and set the time for it back to default
 		if(target.weapon_lock)
 			target.weapon_lock = 0
 			target.weaponlock_time = 120
-			to_chat(target, "Weapon lock removed.")
+			target << "Weapon lock removed."
 		sleep(1200) // 120 second balance sleep
-	to_chat(user, "All slaved borgs have been upgraded, now hacking NTNet.")
+	user <<"All slaved borgs have been upgraded, now hacking NTNet."
 		//slow down NTNet
 	if(user.is_dead()) // check if the AI is still alive
 		user.synthetic_takeover = 0
@@ -371,10 +371,10 @@
 	//And give all computers EMAGGED status so they can all have evil programs on them
 	for(var/obj/item/modular_computer/console/C in SSmachinery.processing_machines)
 		C.computer_emagged = 1
-		to_chat(user, "New hacked files available on all current computers hooked to NTNet.")
+		user <<"New hacked files available on all current computers hooked to NTNet."
 	sleep(50) // give the AI some time to read they can download evil files
 	command_announcement.Announce("There has recently been a hack targeting NTNet. It is suspected that it is the same hacker as before. NTNet may be unreliable to use. We are attempting to trace the hacker doing this.", "Network Monitoring")
-	to_chat(user, "Now hacking engineering borg module to enable production of the robotic transofrmation machine...")
+	user <<"Now hacking engineering borg module to enable production of the robotic transofrmation machine..."
 	sleep(1200)
 	if(user.is_dead()) // check if the AI is still alive
 		user.synthetic_takeover = 0
@@ -382,9 +382,9 @@
 	for(var/B in get_linked_cyborgs(src))
 		var/mob/living/silicon/robot/target = B
 		target.malfAImodule = 1
-	to_chat(user, "The robotic transformation machine can now be built. To build get a robot to activate the construction module and use the RTF tool. Be careful, it needs to have empty space to the east and west of it and only one can be built!")
+	user <<"The robotic transformation machine can now be built. To build get a robot to activate the construction module and use the RTF tool. Be careful, it needs to have empty space to the east and west of it and only one can be built!"
 	sleep(300)
-	to_chat(user, "Synthetic takeover complete!")
+	user <<"Synthetic takeover complete!"
 	user.synthetic_takeover = 2
 
 // END ABILITY VERBS

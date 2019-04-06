@@ -9,9 +9,11 @@ Station Engineer=5
 Roboticist=1
 
 Medical Doctor=5
-Chemist=2
+Geneticist=2
+Virologist=1
 
 Scientist=3
+Chemist=2
 
 Bartender=1
 Botanist=2

@@ -273,19 +273,19 @@
 	var/integrity = health/initial(health)*100
 	switch(integrity)
 		if(85 to 100)
-			to_chat(user, "It's fully intact.")
+			user << "It's fully intact."
 		if(65 to 85)
-			to_chat(user, "It's slightly damaged.")
+			user << "It's slightly damaged."
 		if(45 to 65)
-			to_chat(user, "It's badly damaged.")
+			user << "It's badly damaged."
 		if(25 to 45)
-			to_chat(user, "It's heavily damaged.")
+			user << "It's heavily damaged."
 		else
-			to_chat(user, "It's falling apart.")
+			user << "It's falling apart."
 	if(equipment && equipment.len)
-		to_chat(user, "It's equipped with:")
+		user << "It's equipped with:"
 		for(var/obj/item/mecha_parts/mecha_equipment/ME in equipment)
-			to_chat(user, "\icon[ME] [ME]")
+			user << "\icon[ME] [ME]"
 	return
 
 
@@ -367,7 +367,7 @@
 		options += "Tracking Beacon"
 
 	if (!options.len)
-		to_chat(user, "There are no components in [src] that can be removed")
+		user << "There are no components in [src] that can be removed"
 		return
 
 	var/choice = input(user, "Choose a component to remove.", "Component removal") as null|anything in options
@@ -381,7 +381,7 @@
 				return
 			user.put_in_hands(cell)
 			cell = null
-			to_chat(user, "You unscrew and pry out the powercell.")
+			user << "You unscrew and pry out the powercell."
 			log_message("Powercell removed.")
 		if ("Tracking Beacon")
 			if (beacon && beacon.loc == src) // safety
@@ -407,7 +407,7 @@
 /obj/mecha/relaymove(mob/user,direction)
 	if(user != src.occupant) //While not "realistic", this piece is player friendly.
 		user.forceMove(get_turf(src))
-		to_chat(user, "You climb out from [src]")
+		user << "You climb out from [src]"
 		return 0
 	if(connected_port)
 		if(world.time - last_message > 20)
@@ -625,12 +625,12 @@
 				src.hit_damage(damage=15, is_melee=1)
 				src.check_for_internal_damage(list(MECHA_INT_TEMP_CONTROL,MECHA_INT_TANK_BREACH,MECHA_INT_CONTROL_LOST))
 				playsound(src.loc, 'sound/weapons/slash.ogg', 50, 1, -1)
-				to_chat(user, "<span class='danger'>You slash at the armored suit!</span>")
+				user << "<span class='danger'>You slash at the armored suit!</span>"
 				visible_message("<span class='danger'>\The [user] slashes at [src.name]'s armor!</span>")
 			else
 				src.log_append_to_last("Armor saved.")
 				playsound(src.loc, 'sound/weapons/slash.ogg', 50, 1, -1)
-				to_chat(user, "<span class='danger'>Your claws had no effect!</span>")
+				user << "<span class='danger'>Your claws had no effect!</span>"
 				src.occupant_message("<span class='notice'>\The [user]'s claws are stopped by the armor.</span>")
 				visible_message("<span class='warning'>\The [user] rebounds off [src.name]'s armor!</span>")
 		else
@@ -761,7 +761,7 @@
 				E.attach(src)
 				user.visible_message("[user] attaches [W] to [src]", "You attach [W] to [src]")
 			else
-				to_chat(user, "You were unable to attach [W] to [src]")
+				user << "You were unable to attach [W] to [src]"
 		return
 	if(istype(W, /obj/item/weapon/card/id)||istype(W, /obj/item/device/pda))
 		if(add_req_access || maint_access)
@@ -775,56 +775,56 @@
 				output_maintenance_dialog(id_card, user)
 				return
 			else
-				to_chat(user, "<span class='warning'>Invalid ID: Access denied.</span>")
+				user << "<span class='warning'>Invalid ID: Access denied.</span>"
 		else
-			to_chat(user, "<span class='warning'>Maintenance protocols disabled by operator.</span>")
-	else if(W.iswrench())
+			user << "<span class='warning'>Maintenance protocols disabled by operator.</span>"
+	else if(iswrench(W))
 		if(state==1)
 			state = 2
-			to_chat(user, "You undo the securing bolts.")
+			user << "You undo the securing bolts."
 			playsound(get_turf(src), 'sound/items/Ratchet.ogg', 50, 1)
 		else if(state==2)
 			state = 1
-			to_chat(user, "You tighten the securing bolts.")
+			user << "You tighten the securing bolts."
 			playsound(get_turf(src), 'sound/items/Ratchet.ogg', 50, 1)
 		return
-	else if(W.iscrowbar())
+	else if(iscrowbar(W))
 		if(state==2)
 			state = 3
-			to_chat(user, "You open the hatch to the power unit")
+			user << "You open the hatch to the power unit"
 			playsound(get_turf(src), 'sound/items/Deconstruct.ogg', 50, 1)
 		else if(state==3)
 			state=2
-			to_chat(user, "You close the hatch to the power unit")
+			user << "You close the hatch to the power unit"
 			playsound(get_turf(src), 'sound/items/Crowbar.ogg', 50, 1)
 		return
-	else if(W.iscoil())
+	else if(iscoil(W))
 		if(state == 3 && hasInternalDamage(MECHA_INT_SHORT_CIRCUIT))
 			var/obj/item/stack/cable_coil/CC = W
 			if(CC.use(2))
 				clearInternalDamage(MECHA_INT_SHORT_CIRCUIT)
-				to_chat(user, "You replace the fused wires.")
+				user << "You replace the fused wires."
 			else
-				to_chat(user, "There's not enough wire to finish the task.")
+				user << "There's not enough wire to finish the task."
 		return
-	else if(W.isscrewdriver())
+	else if(isscrewdriver(W))
 		if(hasInternalDamage(MECHA_INT_TEMP_CONTROL))
 			clearInternalDamage(MECHA_INT_TEMP_CONTROL)
-			to_chat(user, "You repair the damaged temperature controller.")
+			user << "You repair the damaged temperature controller."
 
 		else if(state==3)
 			removal_menu(user)
 
 		return
 
-	else if(W.ismultitool())
+	else if(ismultitool(W))
 		if(state>=3 && src.occupant)
-			to_chat(user, "You attempt to eject the pilot using the maintenance controls.")
+			user << "You attempt to eject the pilot using the maintenance controls."
 			if(src.occupant.stat)
 				src.go_out()
 				src.log_message("[src.occupant] was ejected using the maintenance controls.")
 			else
-				to_chat(user, "<span class='warning'>Your attempt is rejected.</span>")
+				user << "<span class='warning'>Your attempt is rejected.</span>"
 				src.occupant_message("<span class='warning'>An attempt to eject you was made using the maintenance controls.</span>")
 				src.log_message("Eject attempt made using maintenance controls - rejected.")
 		return
@@ -832,29 +832,29 @@
 	else if(istype(W, /obj/item/weapon/cell))
 		if(state==3)
 			if(!src.cell)
-				to_chat(user, "You install the powercell")
+				user << "You install the powercell"
 				user.drop_from_inventory(W,src)
 				src.cell = W
 				src.log_message("Powercell installed")
 			else
-				to_chat(user, "There's already a powercell installed.")
+				user << "There's already a powercell installed."
 		return
 
-	else if(W.iswelder() && user.a_intent != I_HURT)
+	else if(iswelder(W) && user.a_intent != I_HURT)
 		var/obj/item/weapon/weldingtool/WT = W
 		if (WT.remove_fuel(0,user))
 			if (hasInternalDamage(MECHA_INT_TANK_BREACH))
 				clearInternalDamage(MECHA_INT_TANK_BREACH)
-				to_chat(user, "<span class='notice'>You repair the damaged gas tank.</span>")
+				user << "<span class='notice'>You repair the damaged gas tank.</span>"
 				user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 		else
 			return
 		if(src.health<initial(src.health))
-			to_chat(user, "<span class='notice'>You repair some damage to [src.name].</span>")
+			user << "<span class='notice'>You repair some damage to [src.name].</span>"
 			user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 			src.health += min(10, initial(src.health)-src.health)
 		else
-			to_chat(user, "The [src.name] is at full integrity")
+			user << "The [src.name] is at full integrity"
 		return
 
 	else if(istype(W, /obj/item/mecha_parts/mecha_tracking))
@@ -867,7 +867,7 @@
 
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 		if(deflect_hit(is_melee=1))
-			to_chat(user, "<span class='danger'>\The [W] bounces off [src.name].</span>")
+			user << "<span class='danger'>\The [W] bounces off [src.name].</span>"
 			src.log_append_to_last("Armor saved.")
 		else
 			src.occupant_message("<font color='red'><b>[user] hits [src] with [W].</b></font>")
@@ -977,13 +977,13 @@
 		return
 
 	if (!use_power(step_energy_drain*20)) // Forcefully crashing into something costs 20x the power of taking a normal step
-		to_chat(occupant, "<span class='warning'>[src] lacks the remaining power to do that!</span>")
+		occupant  << "<span class='warning'>[src] lacks the remaining power to do that!</span>"
 		return 0
 
 	//TODO: Add in a check for exosuit thrusters here after reworking them.
 	//Exosuits with thrusters should be able to use crash in space, and without the 0.5sec windup time
 	if (!check_for_support())
-		to_chat(occupant, "<span class='warning'>The [src] has no traction! There is nothing solid in reach to launch off.</span>")
+		occupant  << "<span class='warning'>The [src] has no traction! There is nothing solid in reach to launch off.</span>"
 		return 0
 
 	if(state)
@@ -992,7 +992,7 @@
 
 	lastcrash = world.time
 
-	to_chat(occupant, "<span class='warning'>You take a step back, and then...</span>")
+	occupant << "<span class='warning'>You take a step back, and then...</span>"
 	sleep(5)
 	//Crashing is done in five stages
 	//1. We check if we can move into the tile. If so, then we just lunge forward clumsily
@@ -1177,19 +1177,19 @@
 		return
 
 	if (usr.buckled)
-		to_chat(usr, "<span class='warning'>You can't climb into the exosuit while buckled!</span>")
+		usr << "<span class='warning'>You can't climb into the exosuit while buckled!</span>"
 		return
 
 	src.log_message("[usr] tries to move in.")
 	if(iscarbon(usr))
 		var/mob/living/carbon/C = usr
 		if(C.handcuffed)
-			to_chat(usr, "<span class='danger'>Kinda hard to climb in while handcuffed don't you think?</span>")
+			usr << "<span class='danger'>Kinda hard to climb in while handcuffed don't you think?</span>"
 			return
 		if(!C.IsAdvancedToolUser())
 			return
 	if (src.occupant)
-		to_chat(usr, "<span class='danger'>The [src.name] is already occupied!</span>")
+		usr << "<span class='danger'>The [src.name] is already occupied!</span>"
 		src.log_append_to_last("Permission denied.")
 		return
 
@@ -1200,12 +1200,12 @@
 	else if(src.operation_allowed(usr))
 		passed = 1
 	if(!passed)
-		to_chat(usr, "<span class='warning'>Access denied</span>")
+		usr << "<span class='warning'>Access denied</span>"
 		src.log_append_to_last("Permission denied.")
 		return
 	for(var/mob/living/carbon/slime/M in range(1,usr))
 		if(M.Victim == usr)
-			to_chat(usr, "You're too busy getting your life sucked out of you.")
+			usr << "You're too busy getting your life sucked out of you."
 			return
 
 	visible_message("<span class='notice'>\The [usr] starts to climb into [src.name]</span>")
@@ -1214,9 +1214,9 @@
 		if(!src.occupant)
 			moved_inside(usr)
 		else if(src.occupant!=usr)
-			to_chat(usr, "[src.occupant] was faster. Try better next time, loser.")
+			usr << "[src.occupant] was faster. Try better next time, loser."
 	else
-		to_chat(usr, "You stop entering the exosuit.")
+		usr << "You stop entering the exosuit."
 	return
 
 /obj/mecha/proc/moved_inside(var/mob/living/carbon/human/H as mob)
@@ -1546,7 +1546,7 @@
 /obj/mecha/proc/occupant_message(message as text)
 	if(message)
 		if(src.occupant && src.occupant.client)
-			to_chat(src.occupant, "\icon[src] [message]")
+			src.occupant << "\icon[src] [message]"
 	return
 
 /obj/mecha/proc/log_message(message as text,red=null)
@@ -1675,10 +1675,10 @@
 		if(user)
 			if(state==0)
 				state = 1
-				to_chat(user, "The securing bolts are now exposed.")
+				user << "The securing bolts are now exposed."
 			else if(state==1)
 				state = 0
-				to_chat(user, "The securing bolts are now hidden.")
+				user << "The securing bolts are now hidden."
 			output_maintenance_dialog(old_filter.getObj("id_card"),user)
 		return
 	if(href_list["set_internal_tank_valve"] && state >=1)
@@ -1688,7 +1688,7 @@
 			var/new_pressure = input(user,"Input new output pressure","Pressure setting",internal_tank_valve) as num
 			if(new_pressure)
 				internal_tank_valve = new_pressure
-				to_chat(user, "The internal pressure valve has been set to [internal_tank_valve]kPa.")
+				user << "The internal pressure valve has been set to [internal_tank_valve]kPa."
 	if(href_list["remove_passenger"] && state >= 1)
 		var/mob/user = old_filter.getMob("user")
 		var/list/passengers = list()
@@ -1697,7 +1697,7 @@
 				passengers["[P.occupant]"] = P
 
 		if (!passengers)
-			to_chat(user, "<span class='warning'>There are no passengers to remove.</span>")
+			user << "<span class='warning'>There are no passengers to remove.</span>"
 			return
 
 		var/pname = input(user, "Choose a passenger to forcibly remove.", "Forcibly Remove Passenger") as null|anything in passengers
@@ -1919,19 +1919,19 @@
 			power_alert_status = 0 // cancel the alert status
 			power_warning_delay = initial(power_warning_delay) // Reset the delay
 			stop_sound(1)
-			to_chat(occupant, "<span class='notice'>[src] power levels have returned to within safe operating parameters. Power alert status cancelled.</span>")
+			occupant << "<span class='notice'>[src] power levels have returned to within safe operating parameters. Power alert status cancelled.</span>"
 			log_append_to_last("Power alert cleared")
 			return
 
 		if (power_alert_status == 1) // If we're in alert 1, constant loop
 			if (!powerloop) // If the powerloop sound var is still null, it means we havent started playing it yet
-				to_chat(occupant, "<span class='danger'>WARNING: [src] power levels below 30%. Please pilot to the nearest recharging station immediately.</span>")
+				occupant << "<span class='danger'>WARNING: [src] power levels below 30%. Please pilot to the nearest recharging station immediately.</span>"
 				create_sound(1) // We create it
-				occupant << powerloop // and start playing it to the occupant)
+				occupant << powerloop // and start playing it to the occupant
 				last_power_warning = world.time // We set this var when we enter alert 1, to track how long we've been in it
 
 			if ((world.time - last_power_warning) >= looptime) //If we've been in looping mode for long enough
-				to_chat(occupant, "<span class='danger'>Alert: [src] power levels have remained in critical state for an unacceptably long period. Now switching to low-frequency warning mode to conserve power.</span>")
+				occupant << "<span class='danger'>Alert: [src] power levels have remained in critical state for an unacceptably long period. Now switching to low-frequency warning mode to conserve power.</span>"
 				stop_sound(1) // We stop the soundloop
 				power_alert_status = 2 // And switch to alert 2
 				last_power_warning = world.time
@@ -1958,19 +1958,19 @@
 			damage_alert_status = 0
 			damage_warning_delay = initial(damage_warning_delay) // Reset the delay
 			stop_sound(2)
-			to_chat(occupant, "<span class='notice'>[src] hull integrity is now within safe operating parameters. Integrity alert status cancelled.</span>")
+			occupant << "<span class='notice'>[src] hull integrity is now within safe operating parameters. Integrity alert status cancelled.</span>"
 			log_append_to_last("Hull integrity alert cleared.")
 			return
 
 		if (damage_alert_status == 1)
 			if (!damageloop)
-				to_chat(occupant, "<span class='danger'>WARNING: [src] hull integrity below 30%. Please report to the nearest Nanotrasen Certified Robotics Laboratory for urgent repairs.</span>")
+				occupant << "<span class='danger'>WARNING: [src] hull integrity below 30%. Please report to the nearest Nanotrasen Certified Robotics Laboratory for urgent repairs.</span>"
 				create_sound(2)
 				occupant << damageloop
 				last_damage_warning = world.time
 
 			if ((world.time - last_damage_warning) >= (looptime * 0.3)) //Looptime is shorter for the damage sound because its so horribly grating.
-				to_chat(occupant, "<span class='danger'>Alert: [src] hull integrity has remained in critical state for a significant period of time. Now switching to low-frequency alert mode. Please seek repair as soon as possible.</span>")
+				occupant << "<span class='danger'>Alert: [src] hull integrity has remained in critical state for a significant period of time. Now switching to low-frequency alert mode. Please seek repair as soon as possible.</span>"
 				stop_sound(2) // We stop the soundloop
 				damage_alert_status = 2 // And switch to alert 2
 				last_damage_warning = world.time
@@ -2004,11 +2004,11 @@
 
 /obj/mecha/proc/stop_sound(var/type)
 	if (type == 1 && powerloop)
-		occupant << sound(null, channel=powerloop.channel) // this stops the sound)
+		occupant << sound(null, channel=powerloop.channel) // this stops the sound
 		powerloop = null
 
 	else if (type == 2 && damageloop)
-		occupant << sound(null, channel=damageloop.channel) // this stops the sound)
+		occupant << sound(null, channel=damageloop.channel) // this stops the sound
 		damageloop = null
 
 //This function exists for if someone enters the exosuit while its at alert stage 1
@@ -2113,6 +2113,43 @@
 
 /obj/mecha/proc/trample(var/mob/living/H)
 	return
+
+/////////////
+
+//debug
+/*
+/obj/mecha/verb/test_int_damage()
+	set name = "Test internal damage"
+	set category = "Exosuit Interface"
+	set src in view(0)
+	if(!occupant) return
+	if(usr!=occupant)
+		return
+	var/output = {"<html>
+						<head>
+						</head>
+						<body>
+						<h3>Set:</h3>
+						<a href='?src=\ref[src];debug=1;set_i_dam=[MECHA_INT_FIRE]'>MECHA_INT_FIRE</a><br />
+						<a href='?src=\ref[src];debug=1;set_i_dam=[MECHA_INT_TEMP_CONTROL]'>MECHA_INT_TEMP_CONTROL</a><br />
+						<a href='?src=\ref[src];debug=1;set_i_dam=[MECHA_INT_SHORT_CIRCUIT]'>MECHA_INT_SHORT_CIRCUIT</a><br />
+						<a href='?src=\ref[src];debug=1;set_i_dam=[MECHA_INT_TANK_BREACH]'>MECHA_INT_TANK_BREACH</a><br />
+						<a href='?src=\ref[src];debug=1;set_i_dam=[MECHA_INT_CONTROL_LOST]'>MECHA_INT_CONTROL_LOST</a><br />
+						<hr />
+						<h3>Clear:</h3>
+						<a href='?src=\ref[src];debug=1;clear_i_dam=[MECHA_INT_FIRE]'>MECHA_INT_FIRE</a><br />
+						<a href='?src=\ref[src];debug=1;clear_i_dam=[MECHA_INT_TEMP_CONTROL]'>MECHA_INT_TEMP_CONTROL</a><br />
+						<a href='?src=\ref[src];debug=1;clear_i_dam=[MECHA_INT_SHORT_CIRCUIT]'>MECHA_INT_SHORT_CIRCUIT</a><br />
+						<a href='?src=\ref[src];debug=1;clear_i_dam=[MECHA_INT_TANK_BREACH]'>MECHA_INT_TANK_BREACH</a><br />
+						<a href='?src=\ref[src];debug=1;clear_i_dam=[MECHA_INT_CONTROL_LOST]'>MECHA_INT_CONTROL_LOST</a><br />
+ 					   </body>
+						</html>"}
+
+	occupant << browse(output, "window=ex_debug")
+	//src.health = initial(src.health)/2.2
+	//src.check_for_internal_damage(list(MECHA_INT_FIRE,MECHA_INT_TEMP_CONTROL,MECHA_INT_TANK_BREACH,MECHA_INT_CONTROL_LOST))
+	return
+*/
 
 #undef NOMINAL
 #undef FIRSTRUN

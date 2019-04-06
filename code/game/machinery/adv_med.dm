@@ -8,10 +8,8 @@
 	var/obj/machinery/body_scanconsole/connected
 	var/list/allowed_species = list(
 		"Human",
-		"Off-Worlder Human",
 		"Skrell",
 		"Unathi",
-		"Aut'akh Unathi",
 		"Tajara",
 		"M'sai Tajara",
 		"Zhan-Khazan Tajara",
@@ -61,10 +59,10 @@
 	if (usr.stat != 0)
 		return
 	if (src.occupant)
-		to_chat(usr, "<span class='warning'>The scanner is already occupied!</span>")
+		usr << "<span class='warning'>The scanner is already occupied!</span>"
 		return
 	if (usr.abiotic())
-		to_chat(usr, "<span class='warning'>The subject cannot have abiotic items on.</span>")
+		usr << "<span class='warning'>The subject cannot have abiotic items on.</span>"
 		return
 	usr.pulling = null
 	usr.client.perspective = EYE_PERSPECTIVE
@@ -101,10 +99,10 @@
 	if ((!( istype(G, /obj/item/weapon/grab) ) || !( isliving(G.affecting) )))
 		return
 	if (src.occupant)
-		to_chat(user, "<span class='warning'>The scanner is already occupied!</span>")
+		user << "<span class='warning'>The scanner is already occupied!</span>"
 		return
 	if (G.affecting.abiotic())
-		to_chat(user, "<span class='warning'>Subject cannot have abiotic items on.</span>")
+		user << "<span class='warning'>Subject cannot have abiotic items on.</span>"
 		return
 
 	var/mob/living/M = G.affecting
@@ -140,10 +138,10 @@
 		return
 	var/mob/living/M = O//Theres no reason this shouldn't be /mob/living
 	if (src.occupant)
-		to_chat(user, "<span class='notice'><B>The scanner is already occupied!</B></span>")
+		user << "<span class='notice'><B>The scanner is already occupied!</B></span>"
 		return
 	if (M.abiotic())
-		to_chat(user, "<span class='notice'><B>Subject cannot have abiotic items on.</B></span>")
+		user << "<span class='notice'><B>Subject cannot have abiotic items on.</B></span>"
 		return
 
 	var/mob/living/L = O

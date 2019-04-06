@@ -29,20 +29,20 @@
 	update_icon()
 
 /obj/item/ammo_casing/attackby(obj/item/weapon/W as obj, mob/user as mob)
-	if(W.isscrewdriver())
+	if(isscrewdriver(W))
 		if(!BB)
-			to_chat(user, "<span class='notice'>There is no bullet in the casing to inscribe anything into.</span>")
+			user << "<span class='notice'>There is no bullet in the casing to inscribe anything into.</span>"
 			return
 
 		var/tmp_label = ""
 		var/label_text = sanitizeSafe(input(user, "Inscribe some text into \the [initial(BB.name)]","Inscription",tmp_label), MAX_NAME_LEN)
 		if(length(label_text) > 20)
-			to_chat(user, "<span class='warning'>The inscription can be at most 20 characters long.</span>")
+			user << "<span class='warning'>The inscription can be at most 20 characters long.</span>"
 		else if(!label_text)
-			to_chat(user, "<span class='notice'>You scratch the inscription off of [initial(BB)].</span>")
+			user << "<span class='notice'>You scratch the inscription off of [initial(BB)].</span>"
 			BB.name = initial(BB.name)
 		else
-			to_chat(user, "<span class='notice'>You inscribe \"[label_text]\" into \the [initial(BB.name)].</span>")
+			user << "<span class='notice'>You inscribe \"[label_text]\" into \the [initial(BB.name)].</span>"
 			BB.name = "[initial(BB.name)] (\"[label_text]\")"
 
 	..()
@@ -54,7 +54,7 @@
 /obj/item/ammo_casing/examine(mob/user)
 	..()
 	if (!BB)
-		to_chat(user, "This one is spent.")
+		user << "This one is spent."
 
 //Gun loading types
 #define SINGLE_CASING 	1	//The gun only accepts ammo_casings. ammo_magazines should never have this as their mag_type.
@@ -106,10 +106,10 @@
 	if(istype(W, /obj/item/ammo_casing))
 		var/obj/item/ammo_casing/C = W
 		if(C.caliber != caliber)
-			to_chat(user, "<span class='warning'>[C] does not fit into [src].</span>")
+			user << "<span class='warning'>[C] does not fit into [src].</span>"
 			return
 		if(stored_ammo.len >= max_ammo)
-			to_chat(user, "<span class='warning'>[src] is full!</span>")
+			user << "<span class='warning'>[src] is full!</span>"
 			return
 		user.remove_from_mob(C)
 		C.forceMove(src)
@@ -118,9 +118,9 @@
 
 /obj/item/ammo_magazine/attack_self(mob/user)
 	if(!stored_ammo.len)
-		to_chat(user, "<span class='notice'>[src] is already empty!</span>")
+		user << "<span class='notice'>[src] is already empty!</span>"
 		return
-	to_chat(user, "<span class='notice'>You empty [src].</span>")
+	user << "<span class='notice'>You empty [src].</span>"
 	for(var/obj/item/ammo_casing/C in stored_ammo)
 		C.forceMove(user.loc)
 		C.set_dir(pick(alldirs))
@@ -140,7 +140,7 @@
 
 /obj/item/ammo_magazine/examine(mob/user)
 	..()
-	to_chat(user, "There [(stored_ammo.len == 1)? "is" : "are"] [stored_ammo.len] round\s left!")
+	user << "There [(stored_ammo.len == 1)? "is" : "are"] [stored_ammo.len] round\s left!"
 
 //magazine icon state caching (caching lists are in SSicon_cache)
 

@@ -98,20 +98,20 @@ move an amendment</a> to the drawing.</p>
 	if(!istype(res,/list))
 		switch(res)
 			if(ROOM_ERR_SPACE)
-				to_chat(usr, "<span class='warning'>The new area must be completely airtight!</span>")
+				usr << "<span class='warning'>The new area must be completely airtight!</span>"
 				return
 			if(ROOM_ERR_TOOLARGE)
-				to_chat(usr, "<span class='warning'>The new area too large!</span>")
+				usr << "<span class='warning'>The new area too large!</span>"
 				return
 			else
-				to_chat(usr, "<span class='warning'>Error! Please notify administration!</span>")
+				usr << "<span class='warning'>Error! Please notify administration!</span>"
 				return
 	var/list/turf/turfs = res
 	var/str = sanitizeSafe(input("New area name:","Blueprint Editing", ""), MAX_NAME_LEN)
 	if(!str || !length(str)) //cancel
 		return
 	if(length(str) > 50)
-		to_chat(usr, "<span class='warning'>Name too long.</span>")
+		usr << "<span class='warning'>Name too long.</span>"
 		return
 	var/area/A = new
 	A.name = str
@@ -142,12 +142,12 @@ move an amendment</a> to the drawing.</p>
 	if(!str || !length(str) || str==prevname) //cancel
 		return
 	if(length(str) > 50)
-		to_chat(usr, "<span class='warning'>Text too long.</span>")
+		usr << "<span class='warning'>Text too long.</span>"
 		return
 	INVOKE_ASYNC(src, .proc/set_area_machinery_title, A, str, prevname)
 	A.name = str
 	sortTim(all_areas, /proc/cmp_text_asc)
-	to_chat(usr, "<span class='notice'>You set the area '[prevname]' title to '[str]'.</span>")
+	usr << "<span class='notice'>You set the area '[prevname]' title to '[str]'.</span>"
 	interact()
 	return
 

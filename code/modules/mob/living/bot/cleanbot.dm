@@ -251,7 +251,7 @@ var/list/cleanbot_types // Going to use this to generate a list of types once th
 
 /mob/living/bot/cleanbot/attack_hand(var/mob/user)
 	if (!has_ui_access(user) && !emagged)
-		to_chat(user, "<span class='warning'>The unit's interface refuses to unlock!</span>")
+		user << "<span class='warning'>The unit's interface refuses to unlock!</span>"
 		return
 
 	var/dat
@@ -277,7 +277,7 @@ var/list/cleanbot_types // Going to use this to generate a list of types once th
 	add_fingerprint(usr)
 
 	if (!has_ui_access(usr) && !emagged)
-		to_chat(usr, "<span class='warning'>Insufficient permissions.</span>")
+		usr << "<span class='warning'>Insufficient permissions.</span>"
 		return
 
 	switch(href_list["operation"])
@@ -298,17 +298,17 @@ var/list/cleanbot_types // Going to use this to generate a list of types once th
 				beacon_freq = freq
 		if("screw")
 			screwloose = !screwloose
-			to_chat(usr, "<span class='notice'>You twiddle the screw.</span>")
+			usr << "<span class='notice'>You twiddle the screw.</span>"
 		if("oddbutton")
 			oddbutton = !oddbutton
-			to_chat(usr, "<span class='notice'>You press the weird button.</span>")
+			usr << "<span class='notice'>You press the weird button.</span>"
 	attack_hand(usr)
 
 /mob/living/bot/cleanbot/emag_act(var/remaining_uses, var/mob/user)
 	. = ..()
 	if(!screwloose || !oddbutton)
 		if(user)
-			to_chat(user, "<span class='notice'>The [src] buzzes and beeps.</span>")
+			user << "<span class='notice'>The [src] buzzes and beeps.</span>"
 		oddbutton = 1
 		screwloose = 1
 		return 1
@@ -384,7 +384,7 @@ var/list/cleanbot_types // Going to use this to generate a list of types once th
 		var/turf/T = get_turf(loc)
 		var/mob/living/bot/cleanbot/A = new /mob/living/bot/cleanbot(T)
 		A.name = created_name
-		to_chat(user, "<span class='notice'>You add the robot arm to the bucket and sensor assembly. Beep boop!</span>")
+		user << "<span class='notice'>You add the robot arm to the bucket and sensor assembly. Beep boop!</span>"
 		qdel(src)
 
 	else if(istype(O, /obj/item/weapon/pen))

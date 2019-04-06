@@ -36,20 +36,20 @@
 	if(!usr || usr.stat || usr.lying || usr.restrained() || !Adjacent(usr))	return
 
 	if(scan)
-		to_chat(usr, "You remove \the [scan] from \the [src].")
+		usr << "You remove \the [scan] from \the [src]."
 		scan.forceMove(get_turf(src))
 		if(!usr.get_active_hand() && istype(usr,/mob/living/carbon/human))
 			usr.put_in_hands(scan)
 		scan = null
 	else
-		to_chat(usr, "There is no ID card to remove from the console.")
+		usr << "There is no ID card to remove from the console."
 	return
 
 /obj/machinery/computer/secure_data/attackby(obj/item/O as obj, user as mob)
 	if(istype(O, /obj/item/weapon/card/id) && !scan)
 		usr.drop_from_inventory(O,src)
 		scan = O
-		to_chat(user, "You insert [O].")
+		user << "You insert [O]."
 	else
 		..()
 
@@ -64,7 +64,7 @@
 
 /obj/machinery/computer/secure_data/ui_interact(user)
 	if (src.z > 6)
-		to_chat(user, "<span class='warning'>Unable to establish a connection:</span> You're too far away from the station!")
+		user << "<span class='warning'>Unable to establish a connection:</span> You're too far away from the station!"
 		return
 	var/dat
 

@@ -226,9 +226,9 @@
 				user.visible_message("<b>[user]</b> checks [src]'s pulse.", "You check [src]'s pulse.")
 				if (do_mob(user, src, 15))
 					if(pulse == PULSE_NONE)
-						to_chat(user, "<span class='deadsay'>[T.He] [T.has] no pulse[src.client ? "" : " and [T.his] soul has departed"]...</span>")
+						user << "<span class='deadsay'>[T.He] [T.has] no pulse[src.client ? "" : " and [T.his] soul has departed"]...</span>"
 					else
-						to_chat(user, "<span class='deadsay'>[T.He] [T.has] a pulse!</span>")
+						user << "<span class='deadsay'>[T.He] [T.has] a pulse!</span>"
 
 	else if (src.stat)
 		msg += span("warning", "[T.He] [T.is] not responding to anything around [T.him].\n")
@@ -252,23 +252,14 @@
 	if(getBrainLoss() >= 60)
 		msg += "[T.He] [T.has] a stupid expression on [T.his] face.\n"
 
-	var/have_client = client
-	var/inactivity = client ? client.inactivity : null
-
-	if(bg)
-		disconnect_time = bg.disconnect_time
-		have_client = bg.client
-		inactivity =  have_client ? bg.client.inactivity : null
-
-
 	if(species.show_ssd && (!species.has_organ["brain"] || has_brain()) && stat != DEAD)
 		if(!key)
 			msg += "<span class='deadsay'>[T.He] [T.is] [species.show_ssd]. It doesn't look like [T.he] [T.is] waking up anytime soon.</span>\n"
-		else if(!client && !bg)
+		else if(!client)
 			msg += "<span class='deadsay'>[T.He] [T.is] [species.show_ssd].</span>\n"
-		if(have_client && ((inactivity / 600) > 10)) // inactivity/10/60 > 10 MINUTES
-			msg += "<span class='deadsay'>\[Inactive for [round(inactivity / 600)] minutes.\]\n</span>"
-		else if(!have_client && (world.realtime - disconnect_time) >= 5 MINUTES)
+		if(client && ((client.inactivity / 600) > 10)) // inactivity/10/60 > 10 MINUTES
+			msg += "<span class='deadsay'>\[Inactive for [round(client.inactivity / 600)] minutes.\]\n</span>"
+		else if((!client && (world.realtime - disconnect_time) >= 5 MINUTES))
 			msg += "<span class='deadsay'>\[Disconnected/ghosted [(world.realtime - disconnect_time)/600] minutes ago.\]\n</span>"
 
 	var/list/wound_flavor_text = list()
@@ -291,7 +282,7 @@
 		if(temp)
 			if(skipbody & temp.body_part)
 				continue
-			if(temp.status & ORGAN_ASSISTED)
+			if(temp.status & ORGAN_ROBOT)
 				if(!(temp.brute_dam + temp.burn_dam))
 					//wound_flavor_text["[temp.name]"] = "<span class='warning'>[T.He] [T.has] a robot [temp.name]!</span>\n"
 					// No need to notify about robotic limbs if they're not damaged, really.
@@ -382,7 +373,7 @@
 			pose = addtext(pose,".") //Makes sure all emotes end with a period.
 		msg += "\n[T.He] [pose]"
 
-	to_chat(user, msg.Join())
+	user << msg.Join()
 
 //Helper procedure. Called by /mob/living/carbon/human/examine() and /mob/living/carbon/human/Topic() to determine HUD access to security and medical records.
 /proc/hasHUD(mob/M as mob, hudtype)

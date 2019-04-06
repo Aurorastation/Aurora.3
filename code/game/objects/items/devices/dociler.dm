@@ -15,7 +15,7 @@
 
 /obj/item/device/dociler/examine(var/mob/user)
 	. = ..(user)
-	to_chat(user, "<span class='notice'>It is currently set to [mode] docile mode.</span>")
+	user << "<span class='notice'>It is currently set to [mode] docile mode.</span>"
 
 /obj/item/device/dociler/attack_self(var/mob/user)
 	if(mode == "somewhat")
@@ -23,17 +23,17 @@
 	else
 		mode = "somewhat"
 
-	to_chat(user, "You set \the [src] to [mode] docile mode.")
+	user << "You set \the [src] to [mode] docile mode."
 
 /obj/item/device/dociler/afterattack(var/mob/living/L, var/mob/user, proximity)
 	if(!proximity) return
 
 	if(!istype(L, /mob/living/simple_animal))
-		to_chat(user, "<span class='warning'>\The [src] has no effect on \the [L].</span>")
+		user << "<span class='warning'>\The [src] has no effect on \the [L].</span>"
 		return
 
 	if(!loaded)
-		to_chat(user, "<span class='warning'>\The [src] isn't loaded!</span>")
+		user << "<span class='warning'>\The [src] isn't loaded!</span>"
 		return
 
 	user.visible_message("\The [user] thrusts \the [src] deep into \the [L]'s head, injecting something!")
@@ -45,7 +45,7 @@
 	if(istype(L,/mob/living/simple_animal/hostile))
 		var/mob/living/simple_animal/hostile/H = L
 		if(!H.tameable)
-			to_chat(user, "<span class='warning'>\The [src] has no effect on \the [L].</span>")
+			user << "<span class='warning'>\The [src] has no effect on \the [L].</span>"
 			return
 		else
 			H.LoseTarget()

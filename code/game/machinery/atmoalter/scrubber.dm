@@ -167,7 +167,7 @@
 	name = "[name] (ID [id])"
 
 /obj/machinery/portable_atmospherics/powered/scrubber/huge/attack_hand(var/mob/user as mob)
-		to_chat(usr, "<span class='notice'>You can't directly interact with this machine. Use the scrubber control console.</span>")
+		usr << "<span class='notice'>You can't directly interact with this machine. Use the scrubber control console.</span>"
 
 /obj/machinery/portable_atmospherics/powered/scrubber/huge/update_icon()
 	src.overlays = 0
@@ -206,21 +206,21 @@
 		update_connected_network()
 
 /obj/machinery/portable_atmospherics/powered/scrubber/huge/attackby(var/obj/item/I as obj, var/mob/user as mob)
-	if(I.iswrench())
+	if(iswrench(I))
 		if(on)
-			to_chat(user, "<span class='warning'>Turn \the [src] off first!</span>")
+			user << "<span class='warning'>Turn \the [src] off first!</span>"
 			return
 
 		anchored = !anchored
 		playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
-		to_chat(user, "<span class='notice'>You [anchored ? "wrench" : "unwrench"] \the [src].</span>")
+		user << "<span class='notice'>You [anchored ? "wrench" : "unwrench"] \the [src].</span>"
 
 		return
 
 	//doesn't use power cells
 	if(istype(I, /obj/item/weapon/cell))
 		return
-	if (I.isscrewdriver())
+	if (isscrewdriver(I))
 		return
 
 	//doesn't hold tanks
@@ -234,8 +234,8 @@
 	name = "Stationary Air Scrubber"
 
 /obj/machinery/portable_atmospherics/powered/scrubber/huge/stationary/attackby(var/obj/item/I as obj, var/mob/user as mob)
-	if(I.iswrench())
-		to_chat(user, "<span class='warning'>The bolts are too tight for you to unscrew!</span>")
+	if(iswrench(I))
+		user << "<span class='warning'>The bolts are too tight for you to unscrew!</span>"
 		return
 
 	..()

@@ -1,14 +1,5 @@
 var/global/datum/getrev/revdata = new()
 
-/hook/startup/proc/initialize_test_merges()
-	if (!revdata)
-		log_debug("GETREV: No rev found.")
-		return TRUE
-
-	revdata.testmerge_initialize()
-
-	return TRUE
-
 /datum/getrev
 	var/branch
 	var/revision
@@ -35,6 +26,13 @@ var/global/datum/getrev/revdata = new()
 					date = unix2date(unix_time)
 			break
 
+	var/datum/tgs_api/api = TGS_READ_GLOBAL(tgs)
+
+	if (api)
+		test_merges = api.TestMerges()
+	else
+		test_merges = list()
+
 	world.log << "Running revision:"
 	world.log << branch
 	world.log << date
@@ -46,15 +44,15 @@ client/verb/showrevinfo()
 	set desc = "Check the current server code revision"
 
 	if(revdata.revision)
-		to_chat(src, "<b>Server revision:</b> [revdata.branch] - [revdata.date]")
+		src << "<b>Server revision:</b> [revdata.branch] - [revdata.date]"
 		if(config.githuburl)
-			to_chat(src, "<a href='[config.githuburl]/commit/[revdata.revision]'>[revdata.revision]</a>")
+			src << "<a href='[config.githuburl]/commit/[revdata.revision]'>[revdata.revision]</a>"
 		else
-			to_chat(src, revdata.revision)
+			src << revdata.revision
 	else
-		to_chat(src, "Revision unknown")
+		src << "Revision unknown"
 
-	to_chat(src, "<b>Current Map:</b> [current_map.full_name]")
+	src << "<b>Current Map:</b> [current_map.full_name]"
 
 /datum/getrev/proc/testmerge_overview()
 	if (!test_merges.len)
@@ -86,19 +84,6 @@ client/verb/showrevinfo()
 	out += "</table>"
 
 	greeting_info = out.Join()
-
-/datum/getrev/proc/testmerge_initialize()
-	var/datum/tgs_api/api = TGS_READ_GLOBAL(tgs)
-
-	if (api)
-		log_debug("GETREV: TGS API found.")
-		test_merges = api.TestMerges()
-		log_debug("GETREV: [test_merges.len] test merges found.")
-	else
-		log_debug("GETREV: No TGS API found.")
-		test_merges = list()
-
-	generate_greeting_info()
 
 /datum/getrev/proc/testmerge_short_overview(datum/tgs_revision_information/test_merge/tm)
 	. = list()

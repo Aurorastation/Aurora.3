@@ -53,7 +53,7 @@
 			if(on_fire)
 				visible_message("<span class='warning'>\The [user] lights [src] with [W].</span>")
 			else
-				to_chat(user, "<span class='warning'>You manage to singe [src], but fail to light it.</span>")
+				user << "<span class='warning'>You manage to singe [src], but fail to light it.</span>"
 
 	. = ..()
 	update_name()
@@ -94,7 +94,7 @@
 
 /obj/item/weapon/reagent_containers/glass/rag/proc/wipe_down(atom/A, mob/user)
 	if(!reagents.total_volume)
-		to_chat(user, "<span class='warning'>The [initial(name)] is dry!</span>")
+		user << "<span class='warning'>The [initial(name)] is dry!</span>"
 	else
 		user.visible_message("\The [user] starts to wipe down [A] with [src]!")
 		reagents.splash(A, 1) //get a small amount of liquid on the thing we're wiping.
@@ -135,7 +135,7 @@
 
 	if(istype(A, /obj/structure/reagent_dispensers) || istype(A, /obj/structure/mopbucket) || istype(A, /obj/item/weapon/reagent_containers/glass))
 		if(!reagents.get_free_space())
-			to_chat(user, "<span class='warning'>\The [src] is already soaked.</span>")
+			user << "<span class='warning'>\The [src] is already soaked.</span>"
 			return
 
 		if(A.reagents && A.reagents.trans_to_obj(src, reagents.maximum_volume))

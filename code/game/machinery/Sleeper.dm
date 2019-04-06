@@ -119,7 +119,7 @@
 		return 1
 
 	if(usr == occupant)
-		to_chat(usr, "<span class='warning'>You can't reach the controls from the inside.</span>")
+		usr << "<span class='warning'>You can't reach the controls from the inside.</span>"
 		return
 
 	add_fingerprint(usr)
@@ -149,7 +149,7 @@
 			user.drop_from_inventory(I,src)
 			user.visible_message("<span class='notice'>\The [user] adds \a [I] to \the [src].</span>", "<span class='notice'>You add \a [I] to \the [src].</span>")
 		else
-			to_chat(user, "<span class='warning'>\The [src] has a beaker already.</span>")
+			user << "<span class='warning'>\The [src] has a beaker already.</span>"
 		return
 	else if(istype(I, /obj/item/weapon/grab))
 
@@ -157,14 +157,14 @@
 		var/mob/living/L = G.affecting
 
 		if(!istype(L))
-			to_chat(user, "<span class='warning'>\The machine won't accept that.</span>")
+			user << "<span class='warning'>\The machine won't accept that.</span>"
 			return
 
 		user.visible_message("<span class='notice'>[user] starts putting [G.affecting] into [src].</span>", "<span class='notice'>You start putting [G.affecting] into [src].</span>", range = 3)
 
 		if (do_mob(user, G.affecting, 20, needhand = 0))
 			if(occupant)
-				to_chat(user, "<span class='warning'>\The [src] is already occupied.</span>")
+				user << "<span class='warning'>\The [src] is already occupied.</span>"
 				return
 			var/bucklestatus = L.bucklecheck(user)
 
@@ -180,8 +180,8 @@
 			update_icon()
 			qdel(G)
 			return
-	else if(I.isscrewdriver())
-		to_chat(user, "You [panel_open ? "open" : "close"] the maintenance panel.")
+	else if(isscrewdriver(I))
+		user << "You [panel_open ? "open" : "close"] the maintenance panel."
 		panel_open = !panel_open
 
 	else if(default_part_replacement(user, I))
@@ -219,7 +219,7 @@
 	if(stat & (BROKEN|NOPOWER))
 		return
 	if(occupant)
-		to_chat(user, "<span class='warning'>\The [src] is already occupied.</span>")
+		user << "<span class='warning'>\The [src] is already occupied.</span>"
 		return
 
 	if(M == user)
@@ -229,7 +229,7 @@
 
 	if(do_after(user, 20))
 		if(occupant)
-			to_chat(user, "<span class='warning'>\The [src] is already occupied.</span>")
+			user << "<span class='warning'>\The [src] is already occupied.</span>"
 			return
 		M.stop_pulling()
 		if(M.client)
@@ -270,8 +270,8 @@
 		if(occupant.reagents.get_reagent_amount(chemical) + amount <= 20)
 			use_power(amount * CHEM_SYNTH_ENERGY)
 			occupant.reagents.add_reagent(chemical, amount)
-			to_chat(user, "Occupant now has [occupant.reagents.get_reagent_amount(chemical)] units of [available_chemicals[chemical]] in their bloodstream.")
+			user << "Occupant now has [occupant.reagents.get_reagent_amount(chemical)] units of [available_chemicals[chemical]] in their bloodstream."
 		else
-			to_chat(user, "The subject has too many chemicals.")
+			user << "The subject has too many chemicals."
 	else
-		to_chat(user, "There's no suitable occupant in \the [src].")
+		user << "There's no suitable occupant in \the [src]."

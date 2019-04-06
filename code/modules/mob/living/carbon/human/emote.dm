@@ -71,7 +71,7 @@
 
 			if (src.client)
 				if (client.prefs.muted & MUTE_IC)
-					to_chat(src, "<span class='danger'>You cannot send IC messages (muted).</span>")
+					src << "<span class='danger'>You cannot send IC messages (muted).</span>"
 					return
 			if (stat)
 				return
@@ -314,24 +314,8 @@
 							M = A
 							break
 				if(M)
-
+					message = "<span class='danger'>slaps [M] across the face. Ouch!</span>"
 					playsound(loc, 'sound/effects/snap.ogg', 50, 1)
-					var/show_ssd
-					var/mob/living/carbon/human/H
-					if(ishuman(src))
-						H = src
-						show_ssd = H.species.show_ssd
-					if(H && show_ssd && !H.client && !H.teleop)
-						if(H.bg)
-							to_chat(H, span("danger", "You sense some disturbance to your physical body!"))
-						else
-							message = "<span class='danger'>slaps [M] across the face, but they do not respond... Maybe they have S.S.D?</span>"
-					else if(H.client && H.willfully_sleeping)
-						message = "<span class='danger'>slaps [M] across the face, waking them up. Ouch!</span>"
-						H.sleeping = 0
-						H.willfully_sleeping = 0
-					else
-						message = "<span class='danger'>slaps [M] across the face. Ouch!</span>"
 				else
 					message = "<span class='danger'>slaps [get_visible_gender() == MALE ? "himself" : get_visible_gender() == FEMALE ? "herself" : "themselves"]!</span>"
 					playsound(loc, 'sound/effects/snap.ogg', 50, 1)
@@ -616,7 +600,7 @@
 
 		if("beep")
 			if (!isipc(src))
-				to_chat(src, span("notice", "You're not a Machine!"))
+				src << span("notice", "You're not a Machine!")
 			else
 				var/M = null
 				if(param)
@@ -636,7 +620,7 @@
 
 		if("ping")
 			if (!isipc(src))
-				to_chat(src, span("notice", "You're not a machine!"))
+				src << span("notice", "You're not a machine!")
 			else
 				var/M = null
 				if(param)
@@ -656,7 +640,7 @@
 
 		if("buzz")
 			if (!isipc(src))
-				to_chat(src, span("notice", "You're not a machine!"))
+				src << span("notice", "You're not a machine!")
 			else
 				var/M = null
 				if(param)
@@ -694,17 +678,21 @@
 
 		if("vomit")
 			if (!check_has_mouth(src))
-				to_chat(src, "<span class='warning'>You are unable to vomit.</span>")
+				src << "<span class='warning'>You are unable to vomit.</span>"
 				return
 			delayed_vomit()
 			return
 
 
 		if ("help")
-			to_chat(src, "blink, blink_r, blush, bow-(none)/mob, burp, choke, chuckle, clap, golfclap, collapse, cough, cry, custom, deathgasp, drool, eyebrow, frown, gasp, giggle, groan, grumble, handshake, hug-(none)/mob, glare-(none)/mob, grin, laugh, look-(none)/mob, moan, mumble, nod, pale, point-atom, raise, salute, shake, shiver, shrug, sigh, signal-#1-10, smile, sneeze, sniff, snore, stare-(none)/mob, tremble, twitch, twitch_s, whimper, wink, yawn, swish, sway/wag, fastsway/qwag, stopsway/swag, beep, ping, buzz, slap, snap, vomit")
+			src << {"blink, blink_r, blush, bow-(none)/mob, burp, choke, chuckle, clap, golfclap, collapse, cough,
+cry, custom, deathgasp, drool, eyebrow, frown, gasp, giggle, groan, grumble, handshake, hug-(none)/mob, glare-(none)/mob,
+grin, laugh, look-(none)/mob, moan, mumble, nod, pale, point-atom, raise, salute, shake, shiver, shrug,
+sigh, signal-#1-10, smile, sneeze, sniff, snore, stare-(none)/mob, tremble, twitch, twitch_s, whimper,
+wink, yawn, swish, sway/wag, fastsway/qwag, stopsway/swag, beep, ping, buzz, slap, snap, vomit"}
 
 		else
-			to_chat(src, span("notice", "Unusable emote '[act]'. Say *help for a list."))
+			src << span("notice", "Unusable emote '[act]'. Say *help for a list.")
 
 
 

@@ -5,12 +5,12 @@
 	A.add_fingerprint(user)
 	var/list/result = A.atmosanalyze(user)
 	if(result && result.len)
-		to_chat(user, "<span class='notice'>Results of the analysis[src == A ? "" : " of \the [A]"]</span>")
+		user << "<span class='notice'>Results of the analysis[src == A ? "" : " of \the [A]"]</span>"
 		for(var/line in result)
-			to_chat(user, "<span class='notice'>[line]</span>")
+			user << "<span class='notice'>[line]</span>"
 		return 1
 
-	to_chat(user, "<span class='warning'>Your [src] flashes a red light as it fails to analyze \the [A].</span>")
+	user << "<span class='warning'>Your [src] flashes a red light as it fails to analyze \the [A].</span>"
 	return 0
 
 /proc/atmosanalyzer_scan(var/obj/target, var/datum/gas_mixture/mixture, var/mob/user)

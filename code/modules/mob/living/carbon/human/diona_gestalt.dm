@@ -36,7 +36,7 @@
 				newname = "Diona Gestalt ([rand(100,999)])"
 			real_name = newname
 			name = newname
-			to_chat(src, "<span class=notice>We are named [real_name] for now, but we can choose a new name for our gestalt. (Check the Abilities Tab)</span>")
+			src << "<span class=notice>We are named [real_name] for now, but we can choose a new name for our gestalt. (Check the Abilities Tab)</span>"
 			//This allows a gestalt to rename itself -once- upon reforming
 
 		verbs.Add(/mob/living/carbon/proc/absorb_nymph)
@@ -118,19 +118,19 @@
 	set name = "Check light level"
 
 	if (!DS.light_organ || DS.light_organ.is_broken() || DS.light_organ.is_bruised())
-		to_chat(usr, span("danger", "Our response node is damaged or missing, without it we can't tell light from darkness. We can only hope this area is bright enough to let us regenerate it!"))
+		usr << span("danger", "Our response node is damaged or missing, without it we can't tell light from darkness. We can only hope this area is bright enough to let us regenerate it!")
 		return
 	var/light = get_lightlevel_diona(DS)
 	if (light <= -0.75)
-		to_chat(usr, span("danger", "It is pitch black here! This is extremely dangerous, we must find light, or death will soon follow!"))
+		usr << span("danger", "It is pitch black here! This is extremely dangerous, we must find light, or death will soon follow!")
 	else if (light <= 0)
-		to_chat(usr, span("danger", "This area is too dim to sustain us for long, we should move closer to the light, or we will shortly be in danger!"))
+		usr << span("danger", "This area is too dim to sustain us for long, we should move closer to the light, or we will shortly be in danger!")
 	else if (light > 0 && light < 1.5)
-		to_chat(usr, span("warning", "The light here can sustain us, barely. It feels cold and distant."))
+		usr << span("warning", "The light here can sustain us, barely. It feels cold and distant.")
 	else if (light <= 3)
-		to_chat(usr, span("notice", "This light is comfortable and warm, Quite adequate for our needs."))
+		usr << span("notice", "This light is comfortable and warm, Quite adequate for our needs.")
 	else
-		to_chat(usr, span("notice", "This warm radiance is bliss. Here we are safe and energised! Stay a while.."))
+		usr << span("notice", "This warm radiance is bliss. Here we are safe and energised! Stay a while..")
 
 
 
@@ -206,7 +206,7 @@
 		real_name = newname
 		name = newname
 		mind.name = newname
-		to_chat(src, "<span class=notice>Our collective shall now be known as [real_name] !</span>")
+		src << "<span class=notice>Our collective shall now be known as [real_name] !</span>"
 		verbs.Remove(/mob/living/carbon/human/proc/gestalt_set_name)
 
 

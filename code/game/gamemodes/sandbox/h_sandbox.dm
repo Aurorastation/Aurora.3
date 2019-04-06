@@ -105,7 +105,7 @@ datum/hSB
 							hsb.req_access += A
 
 					hsb.forceMove(usr.loc)
-					to_chat(usr, "<b>Sandbox:  Created an airlock.</b>")
+					usr << "<b>Sandbox:  Created an airlock.</b>"
 				if("hsbcanister")
 					var/list/hsbcanisters = typesof(/obj/machinery/portable_atmospherics/canister/) - /obj/machinery/portable_atmospherics/canister/
 					var/hsbcanister = input(usr, "Choose a canister to spawn.", "Sandbox:") in hsbcanisters + "Cancel"

@@ -105,14 +105,14 @@ obj/machinery/atmospherics/trinary/isConnectable(var/obj/machinery/atmospherics/
 		if(node2 && check_connect_types(node2,src))
 			if(direction == travel_direction)
 				return TRUE
-
+  
 /obj/machinery/atmospherics/proc/handle_z_crawl(var/mob/living/L, var/direction)
 	return
 
 /obj/machinery/atmospherics/pipe/zpipe/handle_z_crawl(var/mob/living/L, var/direction)
-	to_chat(L, span("notice", "You start climbing [travel_direction_name] the pipe. This will take a while..."))
+	L << span("notice", "You start climbing [travel_direction_name] the pipe. This will take a while...")
 	playsound(loc, 'sound/machines/ventcrawl.ogg', 100, 1, 3)
 	if(!do_after(L, 100, needhand = 0, act_target = get_turf(src)) || !can_z_crawl(L, direction))
-		to_chat(L, span("danger", "You gave up on climbing [travel_direction_name] the pipe."))
+		L << span("danger", "You gave up on climbing [travel_direction_name] the pipe.")
 		return FALSE
 	return ventcrawl_to(L, node2, null)

@@ -26,15 +26,15 @@
 
 	for(var/mob/living/target in targets)
 		if(target.stat == DEAD)
-			to_chat(user, "You didn't study necromancy back at the Space Wizard Federation academy.")
+			user << "You didn't study necromancy back at the Space Wizard Federation academy."
 			continue
 
 		if(!target.key || !target.mind)
-			to_chat(user, "They appear to be catatonic. Not even magic can affect their vacant mind.")
+			user << "They appear to be catatonic. Not even magic can affect their vacant mind."
 			continue
 
 		if(target.mind.special_role in protected_roles)
-			to_chat(user, "Their mind is resisting your spell.")
+			user << "Their mind is resisting your spell."
 			continue
 
 		var/mob/living/victim = target//The target of the spell whos body will be transferred to.
@@ -68,7 +68,7 @@
 		caster.key = ghost.key	//have to transfer the key since the mind was not active
 		for(var/spell/S in ghost.spell_list)
 			caster.add_spell(S)
-
+		
 		LAZYCLEARLIST(ghost.spell_list)
 
 		if(caster.mind.special_verbs.len)//If they had any special verbs, we add them here.
@@ -81,7 +81,7 @@
 
 		//After a certain amount of time the victim gets a message about being in a different body.
 		spawn(msg_wait)
-			to_chat(caster, "<span class='danger'>You feel woozy and lightheaded. Your body doesn't seem like your own.</span>")
+			caster << "<span class='danger'>You feel woozy and lightheaded. Your body doesn't seem like your own.</span>"
 
 /spell/targeted/mind_transfer/empower_spell()
 	range++

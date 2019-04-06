@@ -12,7 +12,7 @@
 
 /obj/item/weapon/bee_smoker/examine(mob/user)
 	if(..(user, 0))
-		to_chat(user, text("\icon[] [] contains []/[] units of fuel!", src, src.name, get_fuel(),src.max_fuel ))
+		user << text("\icon[] [] contains []/[] units of fuel!", src, src.name, get_fuel(),src.max_fuel )
 
 /obj/item/weapon/bee_smoker/New()
 	..()
@@ -25,12 +25,12 @@
 /obj/item/weapon/bee_smoker/resolve_attackby(atom/A, mob/user)
 	if (istype(A, /obj/structure/reagent_dispensers/fueltank) && get_dist(src,A) <= 1)
 		A.reagents.trans_to_obj(src, max_fuel)
-		to_chat(user, "<span class='notice'>Smoker refilled!</span>")
+		user << "<span class='notice'>Smoker refilled!</span>"
 		playsound(src.loc, 'sound/effects/refill.ogg', 50, 1, -6)
 	else if (istype(A, /obj/machinery/beehive/))
 		var/obj/machinery/beehive/B = A
 		if(B.closed)
-			to_chat(user, "<span class='notice'>You need to open \the [B] with a crowbar before smoking the bees.</span>")
+			user << "<span class='notice'>You need to open \the [B] with a crowbar before smoking the bees.</span>"
 			return 1
 
 		if (!remove_fuel(1,user))
@@ -61,7 +61,7 @@
 		return 1
 	else
 		if(M)
-			to_chat(M, "<span class='notice'>You need more welding fuel to complete this task.</span>")
+			M << "<span class='notice'>You need more welding fuel to complete this task.</span>"
 		return 0
 
 /obj/item/weapon/bee_smoker/proc/smoke_at(var/atom/A)

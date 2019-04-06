@@ -316,47 +316,47 @@
 		return
 	if(istype(O, /obj/item/weapon/reagent_containers/glass))
 		if(beaker)
-			to_chat(user, "<span class='notice'>]The [src] is already loaded.</span>")
+			user << "<span class='notice'>]The [src] is already loaded.</span>"
 		else
 			user.remove_from_mob(O)
 			O.forceMove(src)
 			beaker = O
 			updateUsrDialog()
 	else if(processing)
-		to_chat(user, "<span class='notice'>\The [src] is currently processing.</span>")
+		user << "<span class='notice'>\The [src] is currently processing.</span>"
 	else if(istype(O, /obj/item/weapon/storage/bag/plants))
 		var/i = 0
 		var/obj/item/weapon/storage/bag/P = O
 		for(var/obj/item/weapon/reagent_containers/food/snacks/grown/G in contents)
 			i++
 		if(i >= capacity)
-			to_chat(user, "<span class='notice'>\The [src] is already full! Activate it.</span>")
+			user << "<span class='notice'>\The [src] is already full! Activate it.</span>"
 		else
 			for(var/obj/item/weapon/reagent_containers/food/snacks/grown/G in P.contents)
 				P.remove_from_storage(G,src)
 				i++
 				if(i >= capacity)
-					to_chat(user, "<span class='notice'>You fill \the [src] to its capacity.</span>")
+					user << "<span class='notice'>You fill \the [src] to its capacity.</span>"
 					break
 
 				CHECK_TICK
 
 			if(i < capacity)
-				to_chat(user, "<span class='notice'>You empty \the [O] into \the [src].</span>")
+				user << "<span class='notice'>You empty \the [O] into \the [src].</span>"
 
 
 	else if(!istype(O, /obj/item/weapon/reagent_containers/food/snacks/grown))
-		to_chat(user, "<span class='notice'>You cannot put this in \the [src].</span>")
+		user << "<span class='notice'>You cannot put this in \the [src].</span>"
 	else
 		var/i = 0
 		for(var/obj/item/weapon/reagent_containers/food/snacks/grown/G in contents)
 			i++
 		if(i >= capacity)
-			to_chat(user, "<span class='notice'>\The [src] is full! Activate it.</span>")
+			user << "<span class='notice'>\The [src] is full! Activate it.</span>"
 		else
 			user.remove_from_mob(O)
 			O.forceMove(src)
-			to_chat(user, "<span class='notice'>You put \the [O] in \the [src]</span>")
+			user << "<span class='notice'>You put \the [O] in \the [src]</span>"
 	update_icon()
 	return
 
@@ -434,7 +434,7 @@
 	if (stat) //NOPOWER etc
 		return
 	if(processing)
-		to_chat(usr, "<span class='notice'>The biogenerator is in the process of working.</span>")
+		usr << "<span class='notice'>The biogenerator is in the process of working.</span>"
 		return
 	var/S = 0
 	for(var/obj/item/weapon/reagent_containers/food/snacks/grown/I in contents)

@@ -44,7 +44,7 @@
 
 	next_click = world.time + 1
 
-	if(client && client.buildmode)
+	if(client.buildmode)
 		build_click(src, client.buildmode, params, A)
 		return
 
@@ -171,7 +171,7 @@
 
 /mob/living/UnarmedAttack(var/atom/A, var/proximity_flag)
 	if(!Master.round_started)
-		to_chat(src, "You cannot attack people before the game has started.")
+		src << "You cannot attack people before the game has started."
 		return 0
 
 	if(stat)
@@ -308,7 +308,7 @@
 
 /mob/living/carbon/human/LaserEyes(atom/A, params)
 	if(nutrition <= 0)
-		to_chat(src, "<span class='warning'>You're out of energy!  You need food!</span>")
+		src << "<span class='warning'>You're out of energy!  You need food!</span>"
 		return
 	..()
 	adjustNutritionLoss(rand(1,5))

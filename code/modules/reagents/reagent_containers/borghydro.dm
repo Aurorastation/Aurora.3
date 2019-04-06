@@ -97,7 +97,7 @@
 		else
 			t += "<a href='?src=\ref[src];reagent=[reagent_ids[i]]'>[reagent_names[i]]</a>"
 	t = "Available reagents: [t]."
-	to_chat(user, t)
+	user << t
 
 	return
 
@@ -108,7 +108,7 @@
 			playsound(loc, 'sound/effects/pop.ogg', 50, 0)
 			mode = t
 			var/datum/reagent/R = SSchemistry.chemical_reagents[reagent_ids[mode]]
-			to_chat(usr, "<span class='notice'>Synthesizer is now producing '[R.name]'.</span>")
+			usr << "<span class='notice'>Synthesizer is now producing '[R.name]'.</span>"
 
 /obj/item/weapon/reagent_containers/borghypo/examine(mob/user)
 	if(!..(user, 2))
@@ -116,7 +116,7 @@
 
 	var/datum/reagent/R = SSchemistry.chemical_reagents[reagent_ids[mode]]
 
-	to_chat(user, "<span class='notice'>It is currently producing [R.name] and has [reagent_volumes[reagent_ids[mode]]] out of [volume] units left.</span>")
+	user << "<span class='notice'>It is currently producing [R.name] and has [reagent_volumes[reagent_ids[mode]]] out of [volume] units left.</span>"
 
 /obj/item/weapon/reagent_containers/borghypo/service
 	name = "cyborg drink synthesizer"
@@ -140,15 +140,15 @@
 		return
 
 	if(!reagent_volumes[reagent_ids[mode]])
-		to_chat(user, "<span class='notice'>[src] is out of this reagent, give it some time to refill.</span>")
+		user << "<span class='notice'>[src] is out of this reagent, give it some time to refill.</span>"
 		return
 
 	if(!target.reagents.get_free_space())
-		to_chat(user, "<span class='notice'>[target] is full.</span>")
+		user << "<span class='notice'>[target] is full.</span>"
 		return
 
 	var/t = min(amount_per_transfer_from_this, reagent_volumes[reagent_ids[mode]])
 	target.reagents.add_reagent(reagent_ids[mode], t)
 	reagent_volumes[reagent_ids[mode]] -= t
-	to_chat(user, "<span class='notice'>You transfer [t] units of the solution to [target].</span>")
+	user << "<span class='notice'>You transfer [t] units of the solution to [target].</span>"
 	return

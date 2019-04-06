@@ -66,7 +66,7 @@
 		used_masks += gene_mask
 		plant_traits -= gene_tag
 		gene_tag_masks[gene_tag] = gene_mask
-
+	
 	..()
 
 /datum/controller/subsystem/plants/Recover()
@@ -133,8 +133,8 @@
 	if(!holder)	return
 
 	if(!SSplants || !SSplants.gene_tag_masks)
-		to_chat(usr, "Gene masks not set.")
+		usr << "Gene masks not set."
 		return
 
 	for(var/mask in SSplants.gene_tag_masks)
-		to_chat(usr, "[mask]: [SSplants.gene_tag_masks[mask]]")
+		usr << "[mask]: [SSplants.gene_tag_masks[mask]]"

@@ -24,13 +24,13 @@ var/list/floor_light_cache = list()
 	anchored = 1
 
 /obj/machinery/floor_light/attackby(var/obj/item/W, var/mob/user)
-	if(W.isscrewdriver())
+	if(isscrewdriver(W))
 		anchored = !anchored
 		visible_message("<span class='notice'>\The [user] has [anchored ? "attached" : "detached"] \the [src].</span>")
-	else if(W.iswelder() && (damaged || (stat & BROKEN)))
+	else if(iswelder(W) && (damaged || (stat & BROKEN)))
 		var/obj/item/weapon/weldingtool/WT = W
 		if(!WT.remove_fuel(0, user))
-			to_chat(user, "<span class='warning'>\The [src] must be on to complete this task.</span>")
+			user << "<span class='warning'>\The [src] must be on to complete this task.</span>"
 			return
 		playsound(src.loc, 'sound/items/Welder.ogg', 50, 1)
 		if(!do_after(user, 20))
@@ -61,15 +61,15 @@ var/list/floor_light_cache = list()
 	else
 
 		if(!anchored)
-			to_chat(user, "<span class='warning'>\The [src] must be screwed down first.</span>")
+			user << "<span class='warning'>\The [src] must be screwed down first.</span>"
 			return
 
 		if(stat & BROKEN)
-			to_chat(user, "<span class='warning'>\The [src] is too damaged to be functional.</span>")
+			user << "<span class='warning'>\The [src] is too damaged to be functional.</span>"
 			return
 
 		if(stat & NOPOWER)
-			to_chat(user, "<span class='warning'>\The [src] is unpowered.</span>")
+			user << "<span class='warning'>\The [src] is unpowered.</span>"
 			return
 
 		on = !on

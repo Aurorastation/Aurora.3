@@ -83,7 +83,7 @@
 		update_icon()
 
 /obj/machinery/atmospherics/omni/attackby(var/obj/item/weapon/W as obj, var/mob/user as mob)
-	if(!W.iswrench())
+	if(!iswrench(W))
 		return ..()
 
 	var/int_pressure = 0
@@ -91,10 +91,10 @@
 		int_pressure += P.air.return_pressure()
 	var/datum/gas_mixture/env_air = loc.return_air()
 	if ((int_pressure - env_air.return_pressure()) > 2*ONE_ATMOSPHERE)
-		to_chat(user, "<span class='warning'>You cannot unwrench \the [src], it is too exerted due to internal pressure.</span>")
+		user << "<span class='warning'>You cannot unwrench \the [src], it is too exerted due to internal pressure.</span>"
 		add_fingerprint(user)
 		return 1
-	to_chat(user, "<span class='notice'>You begin to unfasten \the [src]...</span>")
+	user << "<span class='notice'>You begin to unfasten \the [src]...</span>"
 	playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
 	if(do_after(user, 40, act_target = src))
 		user.visible_message( \
@@ -115,7 +115,7 @@
 /obj/machinery/atmospherics/omni/proc/update_port_icons()
 	if(!check_icon_cache())
 		return
-
+	
 	on_states.Cut()
 	off_states.Cut()
 

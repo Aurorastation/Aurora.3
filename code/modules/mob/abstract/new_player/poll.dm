@@ -40,13 +40,13 @@
 	if(dbcon.IsConnected())
 		var/DBQuery/select_query = dbcon.NewQuery("SELECT link FROM ss13_poll_question WHERE id = :pollid:")
 		select_query.Execute(list("pollid"=pollid))
-
+		
 		var/link = null
 		while(select_query.NextRow())
 			link = select_query.item[1]
 
 		if(link && link != "")
-			to_chat(usr, link(link))
+			usr << link(link)
 		else
 			log_debug("Polling: [usr.ckey] tried to open poll [pollid] with a invalid link: [link]")
 
@@ -77,7 +77,7 @@
 			break
 
 		if(!found)
-			to_chat(usr, "<span class='warning'>Poll question details not found.</span>")
+			usr << "<span class='warning'>Poll question details not found.</span>"
 			return
 
 		switch(polltype)
@@ -346,7 +346,7 @@
 			break
 
 		if(!validpoll)
-			to_chat(usr, "<span class='warning'>Poll is not valid.</span>")
+			usr << "<span class='warning'>Poll is not valid.</span>"
 			return
 
 		var/DBQuery/select_query2 = dbcon.NewQuery("SELECT id FROM ss13_poll_option WHERE id = [optionid] AND pollid = [pollid]")
@@ -359,7 +359,7 @@
 			break
 
 		if(!validoption)
-			to_chat(usr, "<span class='warning'>Poll option is not valid.</span>")
+			usr << "<span class='warning'>Poll option is not valid.</span>"
 			return
 
 		var/alreadyvoted = 0
@@ -373,11 +373,11 @@
 				break
 
 		if(!multichoice && alreadyvoted)
-			to_chat(usr, "<span class='warning'>You already voted in this poll.</span>")
+			usr << "<span class='warning'>You already voted in this poll.</span>"
 			return
 
 		if(multichoice && (alreadyvoted >= multiplechoiceoptions))
-			to_chat(usr, "<span class='warning'>You already have more than [multiplechoiceoptions] logged votes on this poll. Enough is enough. Contact the database admin if this is an error.</span>")
+			usr << "<span class='warning'>You already have more than [multiplechoiceoptions] logged votes on this poll. Enough is enough. Contact the database admin if this is an error.</span>"
 			return
 
 		var/adminrank = "Player"
@@ -388,7 +388,7 @@
 		var/DBQuery/insert_query = dbcon.NewQuery("INSERT INTO ss13_poll_vote (id ,datetime ,pollid ,optionid ,ckey ,ip ,adminrank) VALUES (null, Now(), [pollid], [optionid], '[usr.ckey]', '[usr.client.address]', '[adminrank]')")
 		insert_query.Execute()
 
-		to_chat(usr, "<span class='notice'>Vote successful.</span>")
+		usr << "<span class='notice'>Vote successful.</span>"
 		usr << browse(null,"window=playerpoll")
 
 
@@ -413,7 +413,7 @@
 			break
 
 		if(!validpoll)
-			to_chat(usr, "<span class='warning'>Poll is not valid.</span>")
+			usr << "<span class='warning'>Poll is not valid.</span>"
 			return
 
 		var/alreadyvoted = 0
@@ -426,7 +426,7 @@
 			break
 
 		if(alreadyvoted)
-			to_chat(usr, "<span class='warning'>You already sent your feedback for this poll.</span>")
+			usr << "<span class='warning'>You already sent your feedback for this poll.</span>"
 			return
 
 		var/adminrank = "Player"
@@ -440,13 +440,13 @@
 		replytext = replacetext(replytext, "%BR%", "<BR>")
 
 		if(!text_pass)
-			to_chat(usr, "The text you entered was blank, contained illegal characters or was too long. Please correct the text and submit again.")
+			usr << "The text you entered was blank, contained illegal characters or was too long. Please correct the text and submit again."
 			return
 
 		var/DBQuery/insert_query = dbcon.NewQuery("INSERT INTO ss13_poll_textreply (id ,datetime ,pollid ,ckey ,ip ,replytext ,adminrank) VALUES (null, Now(), [pollid], '[usr.ckey]', '[usr.client.address]', '[replytext]', '[adminrank]')")
 		insert_query.Execute()
 
-		to_chat(usr, "<span class='notice'>Feedback logging successful.</span>")
+		usr << "<span class='notice'>Feedback logging successful.</span>"
 		usr << browse(null,"window=playerpoll")
 
 
@@ -471,7 +471,7 @@
 			break
 
 		if(!validpoll)
-			to_chat(usr, "<span class='warning'>Poll is not valid.</span>")
+			usr << "<span class='warning'>Poll is not valid.</span>"
 			return
 
 		var/DBQuery/select_query2 = dbcon.NewQuery("SELECT id FROM ss13_poll_option WHERE id = [optionid] AND pollid = [pollid]")
@@ -484,7 +484,7 @@
 			break
 
 		if(!validoption)
-			to_chat(usr, "<span class='warning'>Poll option is not valid.</span>")
+			usr << "<span class='warning'>Poll option is not valid.</span>"
 			return
 
 		var/alreadyvoted = 0
@@ -497,7 +497,7 @@
 			break
 
 		if(alreadyvoted)
-			to_chat(usr, "<span class='warning'>You already voted in this poll.</span>")
+			usr << "<span class='warning'>You already voted in this poll.</span>"
 			return
 
 		var/adminrank = "Player"
@@ -508,5 +508,5 @@
 		var/DBQuery/insert_query = dbcon.NewQuery("INSERT INTO ss13_poll_vote (id ,datetime ,pollid ,optionid ,ckey ,ip ,adminrank, rating) VALUES (null, Now(), [pollid], [optionid], '[usr.ckey]', '[usr.client.address]', '[adminrank]', [(isnull(rating)) ? "null" : rating])")
 		insert_query.Execute()
 
-		to_chat(usr, "<span class='notice'>Vote successful.</span>")
+		usr << "<span class='notice'>Vote successful.</span>"
 		usr << browse(null,"window=playerpoll")

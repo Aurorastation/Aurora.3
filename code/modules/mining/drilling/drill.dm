@@ -156,9 +156,9 @@
 				return
 	if(active) return ..()
 
-	if(O.iscrowbar())
+	if(iscrowbar(O))
 		if (panel_open && cell)
-			to_chat(user, "You wrench out \the [cell].")
+			user << "You wrench out \the [cell]."
 			cell.forceMove(get_turf(user))
 			component_parts -= cell
 			cell = null
@@ -166,12 +166,12 @@
 
 	if(istype(O, /obj/item/weapon/cell))
 		if(cell)
-			to_chat(user, "The drill already has a cell installed.")
+			user << "The drill already has a cell installed."
 		else
 			user.drop_from_inventory(O,src)
 			cell = O
 			component_parts += O
-			to_chat(user, "You install \the [O].")
+			user << "You install \the [O]."
 		return
 	..()
 
@@ -179,7 +179,7 @@
 	check_supports()
 
 	if(need_player_check)
-		to_chat(user, "You hit the manual override and reset the drill's error checking.")
+		user << "You hit the manual override and reset the drill's error checking."
 		need_player_check = 0
 		if(anchored)
 			get_resource_field()
@@ -194,7 +194,7 @@
 			else
 				visible_message("<span class='notice'>\The [src] shudders to a grinding halt.</span>")
 		else
-			to_chat(user, "<span class='notice'>The drill is unpowered.</span>")
+			user << "<span class='notice'>The drill is unpowered.</span>"
 	else
 		if(use_cell_power())
 			if(!supported && !panel_open)
@@ -231,7 +231,7 @@
 					else
 						visible_message("<span class='notice'>\icon[src] [src.name] beeps, \"Unsealed cell fitting error manually resolved. Operations may resume normally.\"</span>")
 		else
-			to_chat(user, "<span class='notice'>The drill is unpowered.</span>")
+			user << "<span class='notice'>The drill is unpowered.</span>"
 	update_icon()
 
 /obj/machinery/mining/drill/update_icon()
@@ -323,11 +323,11 @@
 	if(B)
 		for(var/obj/item/weapon/ore/O in contents)
 			O.forceMove(B)
-		to_chat(usr, "<span class='notice'>You unload the drill's storage cache into the ore box.</span>")
+		usr << "<span class='notice'>You unload the drill's storage cache into the ore box.</span>"
 	else
 		for(var/obj/item/weapon/ore/O in contents)
 			O.forceMove(src.loc)
-		to_chat(usr, "<span class='notice'>You spill the content's of the drill's storage box all over the ground. Idiot.</span>")
+		usr << "<span class='notice'>You spill the content's of the drill's storage box all over the ground. Idiot.</span>"
 
 
 /obj/machinery/mining/brace
@@ -342,7 +342,7 @@
 
 /obj/machinery/mining/brace/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	if(connected && connected.active)
-		to_chat(user, "<span class='notice'>You know you ought not work with the brace of a <i>running</i> drill, but you do anyways.</span>")
+		user << "<span class='notice'>You know you ought not work with the brace of a <i>running</i> drill, but you do anyways.</span>"
 		sleep(5)
 		if(istype(user, /mob/living/carbon/human))
 			//Save the users active hand
@@ -370,10 +370,10 @@
 	if(default_deconstruction_crowbar(user, W))
 		return
 
-	if(W.iswrench())
+	if(iswrench(W))
 
 		if(istype(get_turf(src), /turf/space))
-			to_chat(user, "<span class='notice'>You send the [src] careening into space. Idiot.</span>")
+			user << "<span class='notice'>You send the [src] careening into space. Idiot.</span>"
 			var/inertia = rand(10,30)
 			for(var/i in 1 to inertia)
 				step_away(src,user,15,8)
@@ -400,7 +400,7 @@
 				return
 
 		playsound(src.loc, 'sound/items/Ratchet.ogg', 100, 1)
-		to_chat(user, "<span class='notice'>You [anchored ? "un" : ""]anchor the brace.</span>")
+		user << "<span class='notice'>You [anchored ? "un" : ""]anchor the brace.</span>"
 
 		anchored = !anchored
 		if(anchored)
@@ -448,7 +448,7 @@
 	if(usr.stat) return
 
 	if (src.anchored)
-		to_chat(usr, "It is anchored in place!")
+		usr << "It is anchored in place!"
 		return 0
 
 	src.set_dir(turn(src.dir, 90))

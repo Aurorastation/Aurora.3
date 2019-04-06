@@ -242,18 +242,18 @@
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 	SSplants.add_plant(src)
 
-	if(W.iswirecutter() || istype(W, /obj/item/weapon/scalpel))
+	if(iswirecutter(W) || istype(W, /obj/item/weapon/scalpel))
 		if(sampled)
-			to_chat(user, "<span class='warning'>\The [src] has already been sampled recently.</span>")
+			user << "<span class='warning'>\The [src] has already been sampled recently.</span>"
 			return
 		if(!is_mature())
-			to_chat(user, "<span class='warning'>\The [src] is not mature enough to yield a sample yet.</span>")
+			user << "<span class='warning'>\The [src] is not mature enough to yield a sample yet.</span>"
 			return
 		if(!seed)
-			to_chat(user, "<span class='warning'>There is nothing to take a sample from.</span>")
+			user << "<span class='warning'>There is nothing to take a sample from.</span>"
 			return
 		if(sampled)
-			to_chat(user, "<span class='danger'>You cannot take another sample from \the [src].</span>")
+			user << "<span class='danger'>You cannot take another sample from \the [src].</span>"
 			return
 		if(prob(70))
 			sampled = 1

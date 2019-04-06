@@ -36,7 +36,7 @@
 	if(locked && !emagged)
 		locked = 0
 		emagged = 1
-		to_chat(user, "<span class='warning'>You short out [src]'s maintenance hatch lock.</span>")
+		user << "<span class='warning'>You short out [src]'s maintenance hatch lock.</span>"
 		log_and_message_admins("emagged [src]'s maintenance hatch lock")
 		return 1
 
@@ -49,26 +49,26 @@
 	..(user)
 	if (src.health < maxhealth)
 		if (src.health > maxhealth/3)
-			to_chat(user, "<span class='warning'>[src]'s parts look loose.</span>")
+			user << "<span class='warning'>[src]'s parts look loose.</span>"
 		else
-			to_chat(user, "<span class='danger'>[src]'s parts look very loose!</span>")
+			user << "<span class='danger'>[src]'s parts look very loose!</span>"
 	return
 
 /obj/machinery/bot/attackby(obj/item/weapon/W as obj, mob/user as mob)
-	if(W.isscrewdriver())
+	if(isscrewdriver(W))
 		if(!locked)
 			open = !open
-			to_chat(user, "<span class='notice'>Maintenance panel is now [src.open ? "opened" : "closed"].</span>")
-	else if(W.iswelder())
+			user << "<span class='notice'>Maintenance panel is now [src.open ? "opened" : "closed"].</span>"
+	else if(iswelder(W))
 		if(health < maxhealth)
 			if(open)
 				health = min(maxhealth, health+10)
 				user.visible_message("<span class='warning'>[user] repairs [src]!</span>","<span class='notice'>You repair [src]!</span>")
 				user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 			else
-				to_chat(user, "<span class='notice'>Unable to repair with the maintenance panel closed.</span>")
+				user << "<span class='notice'>Unable to repair with the maintenance panel closed.</span>"
 		else
-			to_chat(user, "<span class='notice'>[src] does not need a repair.</span>")
+			user << "<span class='notice'>[src] does not need a repair.</span>"
 	else
 		if(hasvar(W,"force") && hasvar(W,"damtype"))
 			switch(W.damtype)
@@ -118,7 +118,7 @@
 	pulse2.set_dir(pick(cardinal))
 
 	QDEL_IN(pulse2, 10)
-
+	
 	if (on)
 		turn_off()
 	addtimer(CALLBACK(src, .proc/post_emp, was_on), severity * 300)

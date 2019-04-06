@@ -9,13 +9,13 @@ mob/proc/airflow_stun()
 	if(last_airflow_stun > world.time - vsc.airflow_stun_cooldown)	return 0
 
 	if(!(status_flags & CANSTUN) && !(status_flags & CANWEAKEN))
-		to_chat(src, "<span class='notice'>You stay upright as the air rushes past you.</span>")
+		src << "<span class='notice'>You stay upright as the air rushes past you.</span>"
 		return 0
 	if(buckled)
-		to_chat(src, "<span class='notice'>Air suddenly rushes past you!</span>")
+		src << "<span class='notice'>Air suddenly rushes past you!</span>"
 		return 0
 	if(!lying)
-		to_chat(src, "<span class='warning'>The sudden rush of air knocks you over!</span>")
+		src << "<span class='warning'>The sudden rush of air knocks you over!</span>"
 	Weaken(5)
 	last_airflow_stun = world.time
 

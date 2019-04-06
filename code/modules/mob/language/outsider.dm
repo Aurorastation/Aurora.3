@@ -8,7 +8,6 @@
 	key = "z"
 	flags = RESTRICTED
 	syllables = list("sss","sSs","SSS")
-	machine_understands = FALSE
 
 /datum/language/xenos
 	name = LANGUAGE_HIVEMIND
@@ -80,7 +79,6 @@
 	flags = WHITELISTED
 	syllables = list("ti","ti","ti","hi","hi","ki","ki","ki","ki","ya","ta","ha","ka","ya","chi","cha","kah", \
 	"SKRE","AHK","EHK","RAWK","KRA","AAA","EEE","KI","II","KRI","KA")
-	machine_understands = FALSE
 
 /datum/language/vox/get_random_name()
 	return ..(FEMALE,1,6)
@@ -102,7 +100,6 @@
 		"sektath", "mal'zua", "zasan", "therium", "viortia", "kla'atu", "barada", "nikt'o", "fwe'sh", "mah", "erl", "nyag", "r'ya", \
 		"gal'h'rfikk", "harfrandid", "mud'gib", "fuu", "ma'jin", "dedo", "ol'btoh", "n'ath", "reth", "sh'yro", "eth", \
 		"d'rekkathnor", "khari'd", "gual'te", "nikka", "nikt'o", "barada", "kla'atu", "barhah", "hra" ,"zar'garis")
-	machine_understands = FALSE
 
 /datum/language/cultcommon/get_random_name()
 	var/new_name = "[pick(list("Anguished", "Blasphemous", "Corrupt", "Cruel", "Depraved", "Despicable", "Disturbed", "Exacerbated", "Foul", "Hateful", "Inexorable", "Implacable", "Impure", "Malevolent", "Malignant", "Malicious", "Pained", "Profane", "Profligate", "Relentless", "Resentful", "Restless", "Spiteful", "Tormented", "Unclean", "Unforgiving", "Vengeful", "Vindictive", "Wicked", "Wronged"))]"

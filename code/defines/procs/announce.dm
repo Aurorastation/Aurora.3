@@ -53,10 +53,10 @@
 datum/announcement/proc/Message(message as text, message_title as text)
 	for(var/mob/M in player_list)
 		if(!istype(M,/mob/abstract/new_player) && !isdeaf(M))
-			to_chat(M, "<h2 class='alert'>[title]</h2>")
-			to_chat(M, "<span class='alert'>[message]</span>")
+			M << "<h2 class='alert'>[title]</h2>"
+			M << "<span class='alert'>[message]</span>"
 			if (announcer)
-				to_chat(M, "<span class='alert'> -[html_encode(announcer)]</span>")
+				M << "<span class='alert'> -[html_encode(announcer)]</span>"
 
 datum/announcement/minor/Message(message as text, message_title as text)
 	to_world("<b>[message]</b>")
@@ -78,7 +78,7 @@ datum/announcement/priority/command/Message(message as text, message_title as te
 	command += "<br>"
 	for(var/mob/M in player_list)
 		if(!istype(M,/mob/abstract/new_player) && !isdeaf(M))
-			to_chat(M, command)
+			M << command
 
 datum/announcement/priority/security/Message(message as text, message_title as text)
 	to_world("<font size=4 color='red'>[message_title]</font>")
@@ -101,7 +101,7 @@ datum/announcement/proc/PlaySound(var/message_sound)
 		return
 	for(var/mob/M in player_list)
 		if(!istype(M,/mob/abstract/new_player) && !isdeaf(M) && (M.client.prefs.asfx_togs & ASFX_VOX))
-			to_chat(M, message_sound)
+			M << message_sound
 
 datum/announcement/proc/Sound(var/message_sound)
 	PlaySound(message_sound)

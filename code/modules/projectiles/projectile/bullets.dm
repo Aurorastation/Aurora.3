@@ -130,8 +130,7 @@
 	damage = 25
 
 /obj/item/projectile/bullet/pistol/strong //revolvers and matebas
-	damage = 45
-	armor_penetration = 15
+	damage = 60
 
 /obj/item/projectile/bullet/pistol/rubber //"rubber" bullets
 	name = "rubber bullet"

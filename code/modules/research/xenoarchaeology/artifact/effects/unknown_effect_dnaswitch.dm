@@ -15,8 +15,13 @@
 /datum/artifact_effect/dnaswitch/DoEffectTouch(var/mob/toucher)
 	var/weakness = GetAnomalySusceptibility(toucher)
 	if(ishuman(toucher) && prob(weakness * 100))
-		var/DoEffectAuraVariable = "<span class='good'>[pick("You feel a little different.","You feel very strange.","Your stomach churns.","Your skin feels loose.","You feel a stabbing pain in your head.")]</span>"
-		to_chat(toucher, DoEffectAuraVariable)
+		toucher << pick("\green You feel a little different.",\
+		"\green You feel very strange.",\
+		"\green Your stomach churns.",\
+		"\green Your skin feels loose.",\
+		"\green You feel a stabbing pain in your head.",\
+		"\green You feel a tingling sensation in your chest.",\
+		"\green Your entire body vibrates.")
 		if(prob(75))
 			scramble(1, toucher, weakness * severity)
 		else
@@ -30,8 +35,13 @@
 			var/weakness = GetAnomalySusceptibility(H)
 			if(prob(weakness * 100))
 				if(prob(30))
-					var/DoEffectAuraVariable = "<span class='good'>[pick("You feel a little different.","You feel very strange.","Your stomach churns.","Your skin feels loose.","You feel a stabbing pain in your head.")]</span>"
-					to_chat(H, DoEffectAuraVariable)
+					H << pick("\green You feel a little different.",\
+					"\green You feel very strange.",\
+					"\green Your stomach churns.",\
+					"\green Your skin feels loose.",\
+					"\green You feel a stabbing pain in your head.",\
+					"\green You feel a tingling sensation in your chest.",\
+					"\green Your entire body vibrates.")
 				if(prob(50))
 					scramble(1, H, weakness * severity)
 				else
@@ -44,8 +54,13 @@
 			var/weakness = GetAnomalySusceptibility(H)
 			if(prob(weakness * 100))
 				if(prob(75))
-					var/DoEffectPulseVariable = "<span class='good'>[pick("You feel a little different.","You feel very strange.","Your stomach churns.","Your skin feels loose.","You feel a stabbing pain in your head.")]</span>"
-					to_chat(H, DoEffectPulseVariable)
+					H << pick("\green You feel a little different.",\
+					"\green You feel very strange.",\
+					"\green Your stomach churns.",\
+					"\green Your skin feels loose.",\
+					"\green You feel a stabbing pain in your head.",\
+					"\green You feel a tingling sensation in your chest.",\
+					"\green Your entire body vibrates.")
 				if(prob(25))
 					if(prob(75))
 						scramble(1, H, weakness * severity)

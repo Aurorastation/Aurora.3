@@ -23,19 +23,19 @@
 	desc = "Did someone tread on this? It looks useless for cloning or cyborgification."
 	organ_tag = "brain"
 	parent_organ = "head"
-	icon = 'icons/mob/npc/alien.dmi'
+	icon = 'icons/mob/alien.dmi'
 	icon_state = "chitin"
 	vital = 1
 
 /obj/item/organ/brain/xeno
 	name = "thinkpan"
 	desc = "It looks kind of like an enormous wad of purple bubblegum."
-	icon = 'icons/mob/npc/alien.dmi'
+	icon = 'icons/mob/alien.dmi'
 	icon_state = "chitin"
 
 /obj/item/organ/brain/xeno/gain_trauma()
 	return
-
+	
 /obj/item/organ/brain/Initialize(mapload)
 	. = ..()
 	health = config.default_brain_health
@@ -61,15 +61,15 @@
 	if(H.mind)
 		H.mind.transfer_to(brainmob)
 
-	to_chat(brainmob, "<span class='notice'>You feel slightly disoriented. That's normal when you're just a [initial(src.name)].</span>")
+	brainmob << "<span class='notice'>You feel slightly disoriented. That's normal when you're just a [initial(src.name)].</span>"
 	callHook("debrain", list(brainmob))
 
 /obj/item/organ/brain/examine(mob/user) // -- TLE
 	..(user)
 	if(brainmob && brainmob.client)//if thar be a brain inside... the brain.
-		to_chat(user, "You can feel the small spark of life still left in this one.")
+		user << "You can feel the small spark of life still left in this one."
 	else
-		to_chat(user, "This one seems particularly lifeless. Perhaps it will regain some of its luster later..")
+		user << "This one seems particularly lifeless. Perhaps it will regain some of its luster later.."
 
 /obj/item/organ/brain/removed(var/mob/living/user)
 
@@ -111,12 +111,12 @@
 	lobotomized = 1
 
 	if(owner)
-		to_chat(owner, "<span class='danger'>As part of your brain is drilled out, you feel your past self, your memories, your very being slip away...</span>")
-		to_chat(owner, "<b>Your brain has been surgically altered to remove your memory recall. Your ability to recall your former life has been surgically removed from your brain, and while your brain is in this state you remember nothing that ever came before this moment.</b>")
+		owner << "<span class='danger'>As part of your brain is drilled out, you feel your past self, your memories, your very being slip away...</span>"
+		owner << "<b>Your brain has been surgically altered to remove your memory recall. Your ability to recall your former life has been surgically removed from your brain, and while your brain is in this state you remember nothing that ever came before this moment.</b>"
 
 	else if(brainmob)
-		to_chat(brainmob, "<span class='danger'>As part of your brain is drilled out, you feel your past self, your memories, your very being slip away...</span>")
-		to_chat(brainmob, "<b>Your brain has been surgically altered to remove your memory recall. Your ability to recall your former life has been surgically removed from your brain, and while your brain is in this state you remember nothing that ever came before this moment.</b>")
+		brainmob << "<span class='danger'>As part of your brain is drilled out, you feel your past self, your memories, your very being slip away...</span>"
+		brainmob << "<b>Your brain has been surgically altered to remove your memory recall. Your ability to recall your former life has been surgically removed from your brain, and while your brain is in this state you remember nothing that ever came before this moment.</b>"
 
 	return
 
@@ -126,7 +126,7 @@
 			user.visible_message("<span class='danger'>[user] drills [src] deftly with [W] into the brain!</span>")
 			lobotomize(user)
 		else
-			to_chat(user, "<span class='notice'>The brain has already been operated on!</span>")
+			user << "<span class='notice'>The brain has already been operated on!</span>"
 	..()
 
 /obj/item/organ/brain/process()
@@ -142,7 +142,7 @@
 	name = "slime core"
 	desc = "A complex, organic knot of jelly and crystalline particles."
 	robotic = 2
-	icon = 'icons/mob/npc/slimes.dmi'
+	icon = 'icons/mob/slimes.dmi'
 	icon_state = "green slime extract"
 	can_lobotomize = 0
 

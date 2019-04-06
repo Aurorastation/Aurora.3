@@ -29,7 +29,7 @@
 	if(istype(O, /obj/item/weapon/card/id) && !scan && user.unEquip(O))
 		O.forceMove(src)
 		scan = O
-		to_chat(user, "You insert [O].")
+		user << "You insert [O]."
 	else
 		..()
 
@@ -45,13 +45,13 @@
 	if(!usr || usr.stat || usr.lying || usr.restrained() || !Adjacent(usr))	return
 
 	if(scan)
-		to_chat(usr, "You remove \the [scan] from \the [src].")
+		usr << "You remove \the [scan] from \the [src]."
 		scan.forceMove(get_turf(src))
 		if(!usr.get_active_hand() && istype(usr,/mob/living/carbon/human))
 			usr.put_in_hands(scan)
 		scan = null
 	else
-		to_chat(usr, "There is no ID card to remove from the console.")
+		usr << "There is no ID card to remove from the console."
 	return
 
 /obj/machinery/computer/skills/attack_ai(mob/user as mob)
@@ -65,7 +65,7 @@
 
 /obj/machinery/computer/skills/ui_interact(mob/user as mob)
 	if (src.z > 6)
-		to_chat(user, "<span class='danger'>Unable to establish a connection:</span> You're too far away from the station!")
+		user << "<span class='danger'>Unable to establish a connection:</span> You're too far away from the station!"
 		return
 	var/dat
 
@@ -113,8 +113,8 @@
 					if ((istype(active1, /datum/data/record) && data_core.general.Find(active1)))
 						var/icon/front = active1.fields["photo_front"]
 						var/icon/side = active1.fields["photo_side"]
-						to_chat(user, browse_rsc(front, "front.png"))
-						to_chat(user, browse_rsc(side, "side.png"))
+						user << browse_rsc(front, "front.png")
+						user << browse_rsc(side, "side.png")
 						dat += text({"<table><tr><td>	\
 						<b>Name:</b> <A href='?src=\ref[src];choice=Edit Field;field=name'>[active1.fields["name"]]</A><BR>
 						<b>ID:</b> <A href='?src=\ref[src];choice=Edit Field;field=id'>[active1.fields["id"]]</A><BR>
@@ -199,7 +199,7 @@ What a mess.*/
 		switch(href_list["choice"])
 // Open Action URL
 			if("openActionUrl")
-				to_chat(usr, link(href_list["url"]))
+				usr << link(href_list["url"])
 // SORTING!
 			if("Sorting")
 				// Reverse the order if clicked twice

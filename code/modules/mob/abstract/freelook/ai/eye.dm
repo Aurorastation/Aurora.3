@@ -96,4 +96,4 @@
 		return
 
 	eyeobj.acceleration = !eyeobj.acceleration
-	to_chat(usr, "Camera acceleration has been toggled [eyeobj.acceleration ? "on" : "off"].")
+	usr << "Camera acceleration has been toggled [eyeobj.acceleration ? "on" : "off"]."

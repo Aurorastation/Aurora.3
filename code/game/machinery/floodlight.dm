@@ -70,7 +70,7 @@
 		turn_off(1)
 	else
 		if(!turn_on(1))
-			to_chat(user, "You try to turn on \the [src] but it does not work.")
+			user << "You try to turn on \the [src] but it does not work."
 
 
 /obj/machinery/floodlight/attack_hand(mob/user as mob)
@@ -88,7 +88,7 @@
 		src.cell = null
 		on = 0
 		set_light(0)
-		to_chat(user, "You remove the power cell")
+		user << "You remove the power cell"
 		update_icon()
 		return
 
@@ -96,40 +96,40 @@
 		turn_off(1)
 	else
 		if(!turn_on(1))
-			to_chat(user, "You try to turn on \the [src] but it does not work.")
+			user << "You try to turn on \the [src] but it does not work."
 
 	update_icon()
 
 
 /obj/machinery/floodlight/attackby(obj/item/weapon/W as obj, mob/user as mob)
-	if (W.isscrewdriver())
+	if (isscrewdriver(W))
 		if (!open)
 			if(unlocked)
 				unlocked = 0
-				to_chat(user, "You screw the battery panel in place.")
+				user << "You screw the battery panel in place."
 			else
 				unlocked = 1
-				to_chat(user, "You unscrew the battery panel.")
+				user << "You unscrew the battery panel."
 
-	if (W.iscrowbar())
+	if (iscrowbar(W))
 		if(unlocked)
 			if(open)
 				open = 0
 				overlays = null
-				to_chat(user, "You crowbar the battery panel in place.")
+				user << "You crowbar the battery panel in place."
 			else
 				if(unlocked)
 					open = 1
-					to_chat(user, "You remove the battery panel.")
+					user << "You remove the battery panel."
 
 	if (istype(W, /obj/item/weapon/cell))
 		if(open)
 			if(cell)
-				to_chat(user, "There is a power cell already installed.")
+				user << "There is a power cell already installed."
 			else
 				user.drop_from_inventory(W,src)
 				cell = W
-				to_chat(user, "You insert the power cell.")
+				user << "You insert the power cell."
 	update_icon()
 
 /obj/item/weapon/floodlight_diy
@@ -140,7 +140,7 @@
 	item_state = "syringe_kit"
 
 /obj/item/weapon/floodlight_diy/attack_self(mob/user)
-	to_chat(user, "<span class='notice'>You start piecing together the kit...</span>")
+	user << "<span class='notice'>You start piecing together the kit...</span>"
 	if(do_after(user, 80))
 		var/obj/machinery/floodlight/R = new /obj/machinery/floodlight(user.loc)
 		user.visible_message("<span class='notice'>[user] assembles \a [R].\

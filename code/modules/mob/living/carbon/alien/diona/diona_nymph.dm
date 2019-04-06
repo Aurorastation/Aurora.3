@@ -106,27 +106,27 @@
 	var/light = get_lightlevel_diona(DS)
 
 	if (light <= -0.75)
-		to_chat(usr, span("danger", "It is pitch black here! This is extremely dangerous, we must find light, or death will soon follow!"))
+		usr << span("danger", "It is pitch black here! This is extremely dangerous, we must find light, or death will soon follow!")
 	else if (light <= 0)
-		to_chat(usr, span("danger", "This area is too dim to sustain us for long, we should move closer to the light, or we will shortly be in danger!"))
+		usr << span("danger", "This area is too dim to sustain us for long, we should move closer to the light, or we will shortly be in danger!")
 	else if (light > 0 && light < 1.5)
-		to_chat(usr, span("warning", "The light here can sustain us, barely. It feels cold and distant."))
+		usr << span("warning", "The light here can sustain us, barely. It feels cold and distant.")
 	else if (light <= 3)
-		to_chat(usr, span("notice", "This light is comfortable and warm, Quite adequate for our needs."))
+		usr << span("notice", "This light is comfortable and warm, Quite adequate for our needs.")
 	else
-		to_chat(usr, span("notice", "This warm radiance is bliss. Here we are safe and energised! Stay a while.."))
+		usr << span("notice", "This warm radiance is bliss. Here we are safe and energised! Stay a while..")
 
 /mob/living/carbon/alien/diona/start_pulling(var/atom/movable/AM)
 	//TODO: Collapse these checks into one proc (see pai and drone)
 	if(istype(AM,/obj/item))
 		var/obj/item/O = AM
 		if(O.w_class > 2)
-			to_chat(src, "<span class='warning'>You are too small to pull that.</span>")
+			src << "<span class='warning'>You are too small to pull that.</span>"
 			return
 		else
 			..()
 	else
-		to_chat(src, "<span class='warning'>You are too small to pull that.</span>")
+		src << "<span class='warning'>You are too small to pull that.</span>"
 		return
 
 /mob/living/carbon/alien/diona/put_in_hands(var/obj/item/W) // No hands.

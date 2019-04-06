@@ -14,7 +14,7 @@
 	var/obj/item/charging
 
 	var/list/allowed_devices = list(
-		/obj/item/weapon/gun/energy,
+		/obj/item/weapon/gun/energy, 
 		/obj/item/weapon/melee/baton,
 		/obj/item/weapon/cell,
 		/obj/item/modular_computer,
@@ -28,7 +28,7 @@
 
 /obj/machinery/recharger/examine(mob/user)
 	. = ..(user, 3)
-	to_chat(user, "There is [charging ? "[charging]" : "nothing"] in [src].")
+	user << "There is [charging ? "\a [charging]" : "nothing"] in [src]."
 	if (charging && .)
 		var/obj/item/weapon/cell/C = charging.get_cell()
 		if (istype(C) && user.client && (!user.progressbars || !user.progressbars[src]))
@@ -43,12 +43,12 @@
 		qdel(bar)
 
 /obj/machinery/recharger/attackby(obj/item/weapon/G as obj, mob/user as mob)
-	if(portable && G.iswrench())
+	if(portable && iswrench(G))
 		if(charging)
-			to_chat(user, "<span class='alert'>Remove [charging] first!</span>")
+			user << "<span class='alert'>Remove [charging] first!</span>"
 			return
 		anchored = !anchored
-		to_chat(user, "You have [anchored ? "attached" : "detached"] the recharger.")
+		user << "You have [anchored ? "attached" : "detached"] the recharger."
 		playsound(loc, 'sound/items/Ratchet.ogg', 75, 1)
 		return
 
@@ -59,7 +59,7 @@
 				charging = null
 				update_icon()
 			else
-				to_chat(user, "<span class='danger'>Your gripper cannot hold \the [charging].</span>")
+				user << "<span class='danger'>Your gripper cannot hold \the [charging].</span>"
 
 	if(!dropsafety(G))
 		return
@@ -67,14 +67,14 @@
 	if(is_type_in_list(G, allowed_devices))
 		if (G.get_cell() == DEVICE_NO_CELL)
 			if (G.charge_failure_message)
-				to_chat(user, "<span class='warning'>\The [G][G.charge_failure_message]</span>")
+				user << "<span class='warning'>\The [G][G.charge_failure_message]</span>"
 			return
 		if(charging)
-			to_chat(user, "<span class='warning'>\A [charging] is already charging here.</span>")
+			user << "<span class='warning'>\A [charging] is already charging here.</span>"
 			return
 		// Checks to make sure he's not in space doing it, and that the area got proper power.
 		if(!powered())
-			to_chat(user, "<span class='warning'>\The [name] blinks red as you try to insert the item!</span>")
+			user << "<span class='warning'>\The [name] blinks red as you try to insert the item!</span>"
 			return
 
 		user.drop_from_inventory(G,src)

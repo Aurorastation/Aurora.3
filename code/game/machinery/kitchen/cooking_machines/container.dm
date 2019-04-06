@@ -27,22 +27,22 @@
 		var/string = "It contains....</br>"
 		for (var/atom/movable/A in contents)
 			string += "[A.name] </br>"
-		to_chat(user, span("notice", string))
+		user << span("notice", string)
 	if (reagents.total_volume)
-		to_chat(user, span("notice", "It contains [reagents.total_volume]u of reagents."))
+		user << span("notice", "It contains [reagents.total_volume]u of reagents.")
 
 
 /obj/item/weapon/reagent_containers/cooking_container/attackby(var/obj/item/I as obj, var/mob/user as mob)
 	for (var/possible_type in insertable)
 		if (istype(I, possible_type))
 			if (!can_fit(I))
-				to_chat(user, span("warning","There's no more space in the [src] for that!"))
+				user << span("warning","There's no more space in the [src] for that!")
 				return 0
 
 			if(!user.unEquip(I))
 				return
 			I.forceMove(src)
-			to_chat(user, span("notice", "You put the [I] into the [src]"))
+			user << span("notice", "You put the [I] into the [src]")
 			return
 
 /obj/item/weapon/reagent_containers/cooking_container/verb/empty()
@@ -59,21 +59,21 @@
 		return
 
 	if (user.stat || user.restrained())
-		to_chat(user, "<span class='notice'>You are in no fit state to do this.</span>")
+		user << "<span class='notice'>You are in no fit state to do this.</span>"
 		return
 
 	if (!Adjacent(user))
-		to_chat(user, "You can't reach [src] from here.")
+		user << "You can't reach [src] from here."
 		return
 
 	if (!contents.len)
-		to_chat(user, span("warning", "There's nothing in the [src] you can remove!"))
+		user << span("warning", "There's nothing in the [src] you can remove!")
 		return
 
 	for (var/atom/movable/A in contents)
 		A.forceMove(get_turf(src))
 
-	to_chat(user, span("notice", "You remove all the solid items from the [src]."))
+	user << span("notice", "You remove all the solid items from the [src].")
 
 /obj/item/weapon/reagent_containers/cooking_container/proc/check_contents()
 	if (contents.len == 0)

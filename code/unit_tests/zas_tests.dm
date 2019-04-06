@@ -78,15 +78,16 @@ proc/test_air_in_area(var/test_area, var/expectation = UT_NORMAL)
 					return test_result
 
 				if(expectation == UT_NORMAL)
+
 					if(abs(temp - T20C) > 10)
 						test_result["msg"] = "Temperature out of bounds: [temp] | [t_msg]"
 						return test_result
 
 				if(expectation == UT_NORMAL_COLD)
+
 					if(temp > 120)
 						test_result["msg"] = "Temperature out of bounds: [temp] | [t_msg]"
 						return test_result
-
 				if(expectation == UT_NORMAL_COOL)
 					if(temp > 283)
 						test_result["msg"] = "Temperature out of bounds: [temp] | [t_msg]"
@@ -125,6 +126,10 @@ datum/unit_test/zas_area_test/arrival_maint
 datum/unit_test/zas_area_test/
 	name = "ZAS: Cargo Maintenance"
 	area_path = /area/maintenance/cargo
+
+datum/unit_test/zas_area_test/virology
+	name = "ZAS: Virology"
+	area_path = /area/medical/virology
 
 datum/unit_test/zas_area_test/xenobio
 	name = "ZAS: Xenobiology"

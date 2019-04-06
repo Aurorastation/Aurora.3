@@ -13,13 +13,13 @@
 /spell/hand/cast(list/targets, mob/user)
 	for(var/mob/M in targets)
 		if(M.get_active_hand())
-			to_chat(user, "<span class='warning'>You need an empty hand to cast this spell.</span>")
+			user << "<span class='warning'>You need an empty hand to cast this spell.</span>"
 			return
 		var/obj/item/magic_hand/H = new(src)
 		if(!M.put_in_active_hand(H))
 			qdel(H)
 			return
-		to_chat(user, "You ready the [name] spell ([casts]/[casts] charges).")
+		user << "You ready the [name] spell ([casts]/[casts] charges)."
 
 /spell/hand/proc/valid_target(var/atom/a,var/mob/user) //we use seperate procs for our target checking for the hand spells.
 	var/distance = get_dist(a,user)

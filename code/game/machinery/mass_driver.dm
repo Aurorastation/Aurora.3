@@ -38,7 +38,7 @@
 			O_limit++
 			if(O_limit >= 20)
 				for(var/mob/M in hearers(src, null))
-					to_chat(M, "<span class='notice'>The mass driver lets out a screech, it mustn't be able to handle any more items.</span>")
+					M << "<span class='notice'>The mass driver lets out a screech, it mustn't be able to handle any more items.</span>"
 				break
 			use_power(500)
 			spawn( 0 )
@@ -54,7 +54,7 @@
 
 /obj/machinery/mass_driver/attackby(obj/item/W, mob/user)
 
-	if(W.iswrench())
+	if(iswrench(W))
 		if(!anchored)
 			playsound(src.loc, 'sound/items/Ratchet.ogg', 75, 1)
 			user.visible_message("[user.name] secures [src] to the floor.", \
@@ -74,7 +74,7 @@
 	set src in oview(1)
 
 	if (src.anchored || usr:stat)
-		to_chat(usr, "It is fastened to the floor!")
+		usr << "It is fastened to the floor!"
 		return 0
 	src.set_dir(turn(src.dir, 90))
 	return 1
@@ -87,7 +87,7 @@
 	item_state = "syringe_kit"
 
 /obj/item/weapon/mass_driver_diy/attack_self(mob/user)
-	to_chat(user, "<span class='notice'>You start piecing together the kit...</span>")
+	user << "<span class='notice'>You start piecing together the kit...</span>"
 	if(do_after(user, 80))
 		var/master_id = "[user.name] - [pick("A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")][rand(100,999)]"
 		var/obj/machinery/mass_driver/mining/R = new /obj/machinery/mass_driver/mining(user.loc)
@@ -114,12 +114,12 @@
 	//must place on a wall and user must not be inside a closet/mecha/whatever
 	var/turf/W = A
 	if (!iswall(W) || !isturf(user.loc))
-		to_chat(user, "<span class='warning'>You can't place this here!</span>")
+		user << "<span class='warning'>You can't place this here!</span>"
 		return
 
 	var/placement_dir = get_dir(user, W)
 	if (!(placement_dir in cardinal))
-		to_chat(user, "<span class='warning'>You must stand directly in front of the wall you wish to place that on.</span>")
+		user << "<span class='warning'>You must stand directly in front of the wall you wish to place that on.</span>"
 		return
 
 	//just check if there is a poster on or adjacent to the wall
@@ -135,10 +135,10 @@
 			break
 
 	if (stuff_on_wall)
-		to_chat(user, "<span class='notice'>There is already a button there!</span>")
+		user << "<span class='notice'>There is already a button there!</span>"
 		return
 
-	to_chat(user, "<span class='notice'>You place down the button.</span>")
+	user << "<span class='notice'>You place down the button.</span>"
 	var/obj/machinery/button/mass_driver/B = new /obj/machinery/button/remote/driver(user.loc)
 
 	switch (placement_dir)

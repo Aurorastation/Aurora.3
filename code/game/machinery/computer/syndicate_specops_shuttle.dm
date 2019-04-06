@@ -60,7 +60,7 @@ var/syndicate_elite_shuttle_timeleft = 0
 	if (syndicate_elite_shuttle_moving_to_station || syndicate_elite_shuttle_moving_to_mothership) return
 
 	if (!syndicate_elite_can_move())
-		to_chat(usr, "<span class='warning'>The Syndicate Elite shuttle is unable to leave.</span>")
+		usr << "<span class='warning'>The Syndicate Elite shuttle is unable to leave.</span>"
 		return
 
 		sleep(600)
@@ -174,7 +174,7 @@ var/syndicate_elite_shuttle_timeleft = 0
 
 	for(var/turf/T in get_area_turfs(end_location) )
 		var/mob/M = locate(/mob) in T
-		to_chat(M, "<span class='warning'>You have arrived to [current_map.station_name]. Commence operation!</span>")
+		M << "<span class='warning'>You have arrived to [current_map.station_name]. Commence operation!</span>"
 
 /proc/syndicate_elite_can_move()
 	if(syndicate_elite_shuttle_moving_to_station || syndicate_elite_shuttle_moving_to_mothership) return 0
@@ -187,15 +187,15 @@ var/syndicate_elite_shuttle_timeleft = 0
 	return attack_hand(user)
 
 /obj/machinery/computer/syndicate_elite_shuttle/emag_act(var/remaining_charges, var/mob/user)
-	to_chat(user, "<span class='notice'>The electronic systems in this console are far too advanced for your primitive hacking peripherals.</span>")
+	user << "<span class='notice'>The electronic systems in this console are far too advanced for your primitive hacking peripherals.</span>"
 
 /obj/machinery/computer/syndicate_elite_shuttle/attack_hand(var/mob/user as mob)
 	if(!allowed(user))
-		to_chat(user, "<span class='warning'>Access Denied.</span>")
+		user << "<span class='warning'>Access Denied.</span>"
 		return
 
 //	if (sent_syndicate_strike_team == 0)
-//		to_chat(usr, "<span class='warning'>The strike team has not yet deployed.</span>")
+//		usr << "<span class='warning'>The strike team has not yet deployed.</span>"
 //		return
 
 	if(..())
@@ -225,17 +225,17 @@ var/syndicate_elite_shuttle_timeleft = 0
 	if (href_list["sendtodock"])
 		if(!syndicate_elite_shuttle_at_station|| syndicate_elite_shuttle_moving_to_station || syndicate_elite_shuttle_moving_to_mothership) return
 
-		to_chat(usr, "<span class='notice'>The Syndicate will not allow the Elite Squad shuttle to return.</span>")
+		usr << "<span class='notice'>The Syndicate will not allow the Elite Squad shuttle to return.</span>"
 		return
 
 	else if (href_list["sendtostation"])
 		if(syndicate_elite_shuttle_at_station || syndicate_elite_shuttle_moving_to_station || syndicate_elite_shuttle_moving_to_mothership) return
 
 		if (!specops_can_move())
-			to_chat(usr, "<span class='warning'>The Syndicate Elite shuttle is unable to leave.</span>")
+			usr << "<span class='warning'>The Syndicate Elite shuttle is unable to leave.</span>"
 			return
 
-		to_chat(usr, "<span class='notice'>The Syndicate Elite shuttle will arrive on [current_map.station_name] in [(SYNDICATE_ELITE_MOVETIME/10)] seconds.</span>")
+		usr << "<span class='notice'>The Syndicate Elite shuttle will arrive on [current_map.station_name] in [(SYNDICATE_ELITE_MOVETIME/10)] seconds.</span>"
 
 		temp  = "Shuttle departing.<BR><BR><A href='?src=\ref[src];mainmenu=1'>OK</A>"
 		updateUsrDialog()

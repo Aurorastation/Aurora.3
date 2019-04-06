@@ -84,7 +84,7 @@
 /obj/mecha/combat/marauder/relaymove(mob/user,direction)
 	if(user != src.occupant) //While not "realistic", this piece is player friendly.
 		user.forceMove(get_turf(src))
-		to_chat(user, "You climb out from [src]")
+		user << "You climb out from [src]"
 		return 0
 	if(!can_move)
 		return 0

@@ -81,12 +81,29 @@
 	basic_hit(A,D)
 	return 1
 
+
 /datum/martial_art/baghrar/disarm_act(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
 	add_to_streak("D",D)
 	if(check_streak(A,D))
 		return 1
 	basic_hit(A,D)
 	return 1
+
+
+/obj/item/baghrar_manual
+	name = "baghrar manual"
+	desc = "A manual designated to teach the user about the tajaran martial art of Baghrar."
+	icon = 'icons/obj/library.dmi'
+	icon_state ="cqcmanual"
+
+/obj/item/baghrar_manual/attack_self(mob/user as mob)
+	if(!ishuman(user))
+		return
+	var/mob/living/carbon/human/H = user
+	var/datum/martial_art/baghrar/F = new/datum/martial_art/baghrar(null)
+	F.teach(H)
+	to_chat(H, "<span class='notice'>You have learned the martial art of Baqhrar.</span>")
+	qdel(src)
 
 /datum/martial_art/baghrar/proc/baghrar_help()
 	set name = "Recall Teachings"
@@ -97,9 +114,4 @@
 	to_chat(usr, "<span class='notice'>Eye Rake</span>: Harm Disarm Harm. Strikes your target's face, damaging their eyes.")
 	to_chat(usr, "<span class='notice'>Claw Punch</span>: Disarm Harm Harm. Hits your target with your claws, dealing damage and causing bleeding.")
 	to_chat(usr, "<span class='notice'>Rrak'narrr Stab</span>: Harm Harm Disarm Disarm. Stabs your target with your claws, dealing more damage based on how hurt they are.")
-
-/obj/item/martial_manual/tajara
-	name = "baghrar manual"
-	desc = "A manual designated to teach the user about the tajaran martial art of Baghrar."
-	martial_art = /datum/martial_art/baghrar
 

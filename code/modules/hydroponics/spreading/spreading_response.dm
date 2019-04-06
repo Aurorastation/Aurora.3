@@ -82,4 +82,4 @@
 	if(victim.loc == src.loc)
 		buckle_mob(victim)
 		victim.set_dir(pick(cardinal))
-		to_chat(victim, "<span class='danger'>Tendrils tighten around you!</span>")
+		victim << "<span class='danger'>Tendrils [pick("wind", "tangle", "tighten")] around you!</span>"

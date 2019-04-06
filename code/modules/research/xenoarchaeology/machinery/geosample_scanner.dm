@@ -66,7 +66,7 @@
 
 /obj/machinery/radiocarbon_spectrometer/attackby(var/obj/I as obj, var/mob/user as mob)
 	if(scanning)
-		to_chat(user, "<span class='warning'>You can't do that while [src] is scanning!</span>")
+		user << "<span class='warning'>You can't do that while [src] is scanning!</span>"
 	else
 		if(istype(I, /obj/item/stack/nanopaste))
 			var/choice = alert("What do you want to do with the nanopaste?","Radiometric Scanner","Scan nanopaste","Fix seal integrity")
@@ -82,22 +82,22 @@
 				var/obj/item/weapon/reagent_containers/glass/G = I
 				var/amount_transferred = min(src.reagents.maximum_volume - src.reagents.total_volume, G.reagents.total_volume)
 				G.reagents.trans_to(src, amount_transferred)
-				to_chat(user, "<span class='info'>You empty [amount_transferred]u of coolant into [src].</span>")
+				user << "<span class='info'>You empty [amount_transferred]u of coolant into [src].</span>"
 				update_coolant()
 				return
 			else if(choice == "Empty coolant")
 				var/obj/item/weapon/reagent_containers/glass/G = I
 				var/amount_transferred = min(G.reagents.maximum_volume - G.reagents.total_volume, src.reagents.total_volume)
 				src.reagents.trans_to(G, amount_transferred)
-				to_chat(user, "<span class='info'>You remove [amount_transferred]u of coolant from [src].</span>")
+				user << "<span class='info'>You remove [amount_transferred]u of coolant from [src].</span>"
 				update_coolant()
 				return
 		if(scanned_item)
-			to_chat(user, "<span class=warning>\The [src] already has \a [scanned_item] inside!</span>")
+			user << "<span class=warning>\The [src] already has \a [scanned_item] inside!</span>"
 			return
 		user.drop_from_inventory(I,src)
 		scanned_item = I
-		to_chat(user, "<span class=notice>You put \the [I] into \the [src].</span>")
+		user << "<span class=notice>You put \the [I] into \the [src].</span>"
 
 /obj/machinery/radiocarbon_spectrometer/proc/update_coolant()
 	var/total_purity = 0
@@ -337,11 +337,11 @@
 					scanner_progress = 0
 					scanning = 1
 					t_left_radspike = pick(5,10,15)
-					to_chat(usr, "<span class='notice'>Scan initiated.</span>")
+					usr << "<span class='notice'>Scan initiated.</span>"
 				else
-					to_chat(usr, "<span class='warning'>Could not initiate scan, seal requires replacing.</span>")
+					usr << "<span class='warning'>Could not initiate scan, seal requires replacing.</span>"
 			else
-				to_chat(usr, "<span class='warning'>Insert an item to scan.</span>")
+				usr << "<span class='warning'>Insert an item to scan.</span>"
 
 	if(href_list["maserWavelength"])
 		maser_wavelength = max(min(maser_wavelength + 1000 * text2num(href_list["maserWavelength"]), 10000), 1)

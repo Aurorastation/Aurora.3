@@ -115,23 +115,20 @@ var/list/wireColours = list("red", "blue", "green", "darkred", "orange", "brown"
 		var/mob/living/L = usr
 		if(CanUse(L) && href_list["action"])
 			var/obj/item/I = L.get_active_hand()
-			if(!I)
-				return
-
 			holder.add_hiddenprint(L)
 			if(href_list["cut"]) // Toggles the cut/mend status
-				if(I.iswirecutter())
+				if(iswirecutter(I))
 					var/colour = href_list["cut"]
 					CutWireColour(colour)
 				else
-					to_chat(L, "<span class='error'>You need wirecutters!</span>")
+					L << "<span class='error'>You need wirecutters!</span>"
 
 			else if(href_list["pulse"])
-				if(I.ismultitool())
+				if(ismultitool(I))
 					var/colour = href_list["pulse"]
 					PulseColour(colour)
 				else
-					to_chat(L, "<span class='error'>You need a multitool!</span>")
+					L << "<span class='error'>You need a multitool!</span>"
 
 			else if(href_list["attach"])
 				var/colour = href_list["attach"]
@@ -147,7 +144,7 @@ var/list/wireColours = list("red", "blue", "green", "darkred", "orange", "brown"
 						usr.drop_from_inventory(I)
 						Attach(colour, I)
 					else
-						to_chat(L, "<span class='error'>You need a remote signaller!</span>")
+						L << "<span class='error'>You need a remote signaller!</span>"
 
 
 

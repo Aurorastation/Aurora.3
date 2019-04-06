@@ -74,7 +74,7 @@ field_generator power level display
 	if(state == 2)
 		if(get_dist(src, user) <= 1)//Need to actually touch the thing to turn it on
 			if(src.active >= 1)
-				to_chat(user, "You are unable to turn off the [src.name] once it is online.")
+				user << "You are unable to turn off the [src.name] once it is online."
 				return 1
 			else
 				user.visible_message("[user.name] turns on the [src.name]", \
@@ -85,15 +85,15 @@ field_generator power level display
 
 				src.add_fingerprint(user)
 	else
-		to_chat(user, "The [src] needs to be firmly secured to the floor first.")
+		user << "The [src] needs to be firmly secured to the floor first."
 		return
 
 
 /obj/machinery/field_generator/attackby(obj/item/W, mob/user)
 	if(active)
-		to_chat(user, "The [src] needs to be off.")
+		user << "The [src] needs to be off."
 		return
-	else if(W.iswrench())
+	else if(iswrench(W))
 		switch(state)
 			if(0)
 				state = 1
@@ -110,13 +110,13 @@ field_generator power level display
 					"You hear ratchet")
 				src.anchored = 0
 			if(2)
-				to_chat(user, "<span class='warning'>The [src.name] needs to be unwelded from the floor.</span>")
+				user << "<span class='warning'>The [src.name] needs to be unwelded from the floor.</span>"
 				return
-	else if(W.iswelder())
+	else if(iswelder(W))
 		var/obj/item/weapon/weldingtool/WT = W
 		switch(state)
 			if(0)
-				to_chat(user, "<span class='warning'>The [src.name] needs to be wrenched to the floor.</span>")
+				user << "<span class='warning'>The [src.name] needs to be wrenched to the floor.</span>"
 				return
 			if(1)
 				if (WT.remove_fuel(0,user))
@@ -127,7 +127,7 @@ field_generator power level display
 					if (do_after(user,20, act_target = src))
 						if(!src || !WT.isOn()) return
 						state = 2
-						to_chat(user, "You weld the field generator to the floor.")
+						user << "You weld the field generator to the floor."
 				else
 					return
 			if(2)
@@ -139,7 +139,7 @@ field_generator power level display
 					if (do_after(user,20, act_target = src))
 						if(!src || !WT.isOn()) return
 						state = 1
-						to_chat(user, "You cut the [src] free from the floor.")
+						user << "You cut the [src] free from the floor."
 				else
 					return
 	else

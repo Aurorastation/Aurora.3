@@ -24,13 +24,13 @@
 /obj/item/weapon/antag_spawner/borg_tele/attack_self(mob/user)
 
 	if(uses == 0)
-		to_chat(usr, "This teleporter is out of uses.")
+		usr << "This teleporter is out of uses."
 		return
-
-	to_chat(user, "<span class='notice'>The syndicate robot teleporter is attempting to locate an available cyborg.</span>")
+		
+	user << "<span class='notice'>The syndicate robot teleporter is attempting to locate an available cyborg.</span>"
 	var/datum/ghosttrap/ghost = get_ghost_trap("syndicate cyborg")
 	uses--
-
+	
 	var/mob/living/silicon/robot/syndicate/F = new(get_turf(usr))
 	spark(F, 4, alldirs)
 	ghost.request_player(F,"An operative is requesting a syndicate cyborg.", 60 SECONDS)

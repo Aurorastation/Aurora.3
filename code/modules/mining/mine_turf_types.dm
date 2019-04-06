@@ -37,7 +37,8 @@
 			else
 				L.bodytemperature = min(L.bodytemperature + 150, 1000)
 		else
-			L.IgniteMob(15)
+			L.adjust_fire_stacks(15)
+			L.IgniteMob()
 			return 1
 	..()
 

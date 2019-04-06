@@ -80,7 +80,7 @@ var/global/list/narsie_list = list()
 			if(M.status_flags & GODMODE)
 				continue
 			if(!iscultist(M))
-				to_chat(M, "<span class='danger'>You feel your sanity crumble away in an instant as you gaze upon [src.name]...</span>")
+				M << "<span class='danger'>You feel your sanity crumble away in an instant as you gaze upon [src.name]...</span>"
 				M.apply_effect(3, STUN)
 
 
@@ -339,13 +339,13 @@ var/global/list/narsie_list = list()
 /obj/singularity/narsie/proc/acquire(const/mob/food)
 	var/capname = uppertext(name)
 
-	to_chat(target, "<span class='notice'><b>[capname] HAS LOST INTEREST IN YOU.</b></span>")
+	target << "<span class='notice'><b>[capname] HAS LOST INTEREST IN YOU.</b></span>"
 	target = food
 
 	if (ishuman(target))
-		to_chat(target, "<span class='danger'>[capname] HUNGERS FOR YOUR SOUL.</span>")
+		target << "<span class='danger'>[capname] HUNGERS FOR YOUR SOUL.</span>"
 	else
-		to_chat(target, "<span class='danger'>[capname] HAS CHOSEN YOU TO LEAD HIM TO HIS NEXT MEAL.</span>")
+		target << "<span class='danger'>[capname] HAS CHOSEN YOU TO LEAD HIM TO HIS NEXT MEAL.</span>"
 
 /obj/singularity/narsie/on_capture()
 	chained = 1

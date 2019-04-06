@@ -28,20 +28,20 @@
 	if(!usr || usr.stat || usr.lying || usr.restrained() || !Adjacent(usr))	return
 
 	if(scan)
-		to_chat(usr, "You remove \the [scan] from \the [src].")
+		usr << "You remove \the [scan] from \the [src]."
 		scan.forceMove(get_turf(src))
 		if(!usr.get_active_hand() && istype(usr,/mob/living/carbon/human))
 			usr.put_in_hands(scan)
 		scan = null
 	else
-		to_chat(usr, "There is no ID card to remove from the console.")
+		usr << "There is no ID card to remove from the console."
 	return
 
 /obj/machinery/computer/med_data/attackby(var/obj/item/O, var/mob/user)
 	if(istype(O, /obj/item/weapon/card/id) && !scan && user.unEquip(O))
 		O.forceMove(src)
 		scan = O
-		to_chat(user, "You insert \the [O].")
+		user << "You insert \the [O]."
 	else
 		..()
 
@@ -84,8 +84,8 @@
 				if(4.0)
 					var/icon/front = active1.fields["photo_front"]
 					var/icon/side = active1.fields["photo_side"]
-					to_chat(user, browse_rsc(front, "front.png"))
-					to_chat(user, browse_rsc(side, "side.png"))
+					user << browse_rsc(front, "front.png")
+					user << browse_rsc(side, "side.png")
 					dat += "<CENTER><B>Medical Record</B></CENTER><BR>"
 					if ((istype(src.active1, /datum/data/record) && data_core.general.Find(src.active1)))
 						dat += "<table><tr><td>Name: [active1.fields["name"]] \

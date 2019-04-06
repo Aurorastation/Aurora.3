@@ -1,8 +1,8 @@
 /obj/item/weapon/gun/energy/laser
 	name = "laser carbine"
 	desc = "An Hephaestus Industries G40E carbine, designed to kill with concentrated energy blasts."
-	icon_state = "laserrifle"
-	item_state = "laserrifle"
+	icon_state = "laser"
+	item_state = "laser"
 	fire_sound = 'sound/weapons/Laser.ogg'
 	slot_flags = SLOT_BELT|SLOT_BACK
 	accuracy = 1
@@ -138,7 +138,7 @@ obj/item/weapon/gun/energy/retro
 	if(wielded)
 		toggle_scope(2.0, usr)
 	else
-		to_chat(usr, "<span class='warning'>You can't look through the scope without stabilizing the rifle!</span>")
+		usr << "<span class='warning'>You can't look through the scope without stabilizing the rifle!</span>"
 
 /obj/item/weapon/gun/energy/laser/shotgun
 	name = "quad-beam laser"
@@ -179,7 +179,7 @@ obj/item/weapon/gun/energy/retro
 /obj/item/weapon/gun/energy/lasertag/special_check(var/mob/living/carbon/human/M)
 	if(ishuman(M))
 		if(!istype(M.wear_suit, required_vest))
-			to_chat(M, "<span class='warning'>You need to be wearing your laser tag vest!</span>")
+			M << "<span class='warning'>You need to be wearing your laser tag vest!</span>"
 			return 0
 	return ..()
 

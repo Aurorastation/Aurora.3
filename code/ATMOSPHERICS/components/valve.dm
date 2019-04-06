@@ -236,7 +236,7 @@
 	if(!powered())
 		return
 	if(!src.allowed(user))
-		to_chat(user, "<span class='warning'>Access denied.</span>")
+		user << "<span class='warning'>Access denied.</span>"
 		return
 	..()
 
@@ -300,19 +300,19 @@
 				open()
 
 /obj/machinery/atmospherics/valve/attackby(var/obj/item/weapon/W as obj, var/mob/user as mob)
-	if (!W.iswrench())
+	if (!iswrench(W))
 		return ..()
 	if (istype(src, /obj/machinery/atmospherics/valve/digital))
-		to_chat(user, "<span class='warning'>You cannot unwrench \the [src], it's too complicated.</span>")
+		user << "<span class='warning'>You cannot unwrench \the [src], it's too complicated.</span>"
 		return 1
 	var/datum/gas_mixture/int_air = return_air()
 	var/datum/gas_mixture/env_air = loc.return_air()
 	if ((int_air.return_pressure()-env_air.return_pressure()) > 2*ONE_ATMOSPHERE)
-		to_chat(user, "<span class='warning'>You cannot unwrench \the [src], it is too exerted due to internal pressure.</span>")
+		user << "<span class='warning'>You cannot unwrench \the [src], it is too exerted due to internal pressure.</span>"
 		add_fingerprint(user)
 		return 1
 	playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
-	to_chat(user, "<span class='notice'>You begin to unfasten \the [src]...</span>")
+	user << "<span class='notice'>You begin to unfasten \the [src]...</span>"
 	if (do_after(user, 40, act_target = src))
 		user.visible_message( \
 			"<span class='notice'>\The [user] unfastens \the [src].</span>", \
@@ -323,4 +323,4 @@
 
 /obj/machinery/atmospherics/valve/examine(mob/user)
 	..()
-	to_chat(user, "It is [open ? "open" : "closed"].")
+	user << "It is [open ? "open" : "closed"]."

@@ -111,7 +111,7 @@
 
 		if(board["[i]"])
 			var/obj/item/I = board["[i]"]
-			to_chat(user, browse_rsc(board_icons["[I.icon] [I.icon_state]"],"[I.icon_state].png"))
+			user << browse_rsc(board_icons["[I.icon] [I.icon_state]"],"[I.icon_state].png")
 			dat += " style='background-image:url([I.icon_state].png)'>"
 		else
 			dat+= ">"
@@ -123,7 +123,7 @@
 
 	if(selected >= 0 && !isobserver(user))
 		dat += "<br><A href='?src=\ref[src];remove=0'>Remove Selected Piece</A>"
-	user << browse(jointext(dat, null),"window=boardgame;size=430x500") // 50px * 8 squares + 30 margin)
+	user << browse(jointext(dat, null),"window=boardgame;size=430x500") // 50px * 8 squares + 30 margin
 	onclose(usr, "boardgame")
 
 /obj/item/weapon/board/Topic(href, href_list)
