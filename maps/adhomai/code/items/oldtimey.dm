@@ -32,7 +32,7 @@
 	icon = 'icons/adhomai/items.dmi'
 	icon_state = "firstaid"
 
-	fill()
+/obj/item/weapon/storage/firstaid/regular/adhomai/fill()
 		..()
 		if (empty) return
 		new /obj/item/stack/medical/bruise_pack/adhomai(src)
