@@ -57,7 +57,7 @@
 
 /obj/structure/siren/attack_hand(mob/user)
 	if ((cooldown < world.time - 1200) || (world.time < 1200))
-		user << "<span class='notice'>You turn the [src], creating an ear-splitting noise!</span>"
+		to_chat(user, "<span class='notice'>You turn the [src], creating an ear-splitting noise!</span>")
 		playsound(user, 'sound/misc/siren.ogg', 100, TRUE)
 		cooldown = world.time
 	return //It's just a loudspeaker
@@ -80,7 +80,7 @@
 				S.use(3)
 				qdel(src)
 		else
-			user << "<span class = 'warning'>You need at least 3 sheets of glass.</span>"
+			to_chat(user, "<span class = 'warning'>You need at least 3 sheets of glass.</span>")
 
 /obj/structure/window/classic
 	desc = "A good old window."
