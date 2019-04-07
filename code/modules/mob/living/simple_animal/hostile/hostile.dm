@@ -78,7 +78,7 @@
 	target_mob = H
 	FoundTarget()
 	stance = HOSTILE_STANCE_ATTACKING
-	custom_emote(1, "notices that [H] is charging at it and [attack_emote] [H] back!")
+	custom_emote(1, "gets taunted by [H] and begins to retaliate!")
 
 /mob/living/simple_animal/hostile/bullet_act(var/obj/item/projectile/P, var/def_zone)
 	..()
