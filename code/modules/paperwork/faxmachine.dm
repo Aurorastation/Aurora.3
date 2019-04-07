@@ -216,7 +216,7 @@ var/list/admin_departments
 		return 0
 
 	flick("faxreceive", src)
-	playsound(loc, "sound/items/polaroid1.ogg", 50, 1)
+	playsound(loc, "sound/bureaucracy/print.ogg", 75, 1)
 
 	// give the sprite some time to flick
 	spawn(20)
