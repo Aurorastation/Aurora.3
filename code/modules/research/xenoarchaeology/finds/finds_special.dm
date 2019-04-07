@@ -93,7 +93,7 @@
 				charges += 0.25
 			else
 				charges += 1
-				playsound(src.loc, 'sound/effects/splat.ogg', 50, 1, -3)
+				playsound(src.loc, 'sound/effects/gore/blood_splat.ogg', 50, 1, -3)
 
 	//use up stored charges
 	if(charges >= 10)

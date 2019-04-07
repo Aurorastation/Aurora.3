@@ -227,7 +227,7 @@
 		src.occupant.gib()
 		occupant = null
 
-		playsound(src.loc, 'sound/effects/splat.ogg', 50, 1)
+		playsound(src.loc, 'sound/effects/gore/blood_splat.ogg', 50, 1)
 		operating = 0
 		for (var/obj/thing in contents)
 			// Todo: unify limbs and internal organs

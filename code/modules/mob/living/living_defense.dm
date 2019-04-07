@@ -29,6 +29,8 @@
 			show_message("<span class='warning'>[absorb_text]</span>")
 		else
 			show_message("<span class='warning'>Your armor absorbs the blow!</span>")
+
+		playsound(src, "sound/weapons/armorblockheavy[rand(1,3)].ogg", 50, 1, 1)
 		return 100
 
 	//this makes it so that X armour blocks X% damage, when including the chance of hard block.
@@ -44,6 +46,8 @@
 			show_message("<span class='warning'>[soften_text]</span>")
 		else
 			show_message("<span class='warning'>Your armor softens the blow!</span>")
+
+		playsound(src, "sound/weapons/armorblock[rand(1,4)].ogg", 50, 1, 1)
 
 	return round(blocked, 1)
 

@@ -30,6 +30,7 @@
 	icon = 'icons/obj/wizard.dmi'
 	icon_state = "render"
 	applies_material_colour = 0
+	drawsound = 'sound/weapons/holster/unholster_knife.ogg'
 
 /obj/item/weapon/material/knife/bayonet
 	name = "bayonet"
@@ -87,6 +88,8 @@
 		icon_state += "_open"
 		item_state = icon_state
 		hitsound = 'sound/weapons/bladeslice.ogg'
+		drop_sound = 'sound/items/drop/knife.ogg'
+		drawsound = 'sound/weapons/holster/unholster_knife.ogg'
 		w_class = 3
 		attack_verb = list("attacked", "slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut")
 	else
@@ -113,5 +116,6 @@
 		playsound(user, 'sound/weapons/flipblade.ogg', 15, 1)
 	else
 		to_chat(user, "<span class='notice'>\The [src] can now be concealed.</span>")
+		playsound(user, 'sound/weapons/flipblade.ogg', 15, 1)
 	update_force()
 	add_fingerprint(user)

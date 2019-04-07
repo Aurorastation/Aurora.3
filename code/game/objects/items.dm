@@ -80,6 +80,11 @@
 	var/cleaving = FALSE
 	var/reach = 1 // Length of tiles it can reach, 1 is adjacent.
 	var/lock_picking_level = 0 //used to determine whether something can pick a lock, and how well.
+	var/drop_sound = 'sound/items/drop/device.ogg'
+	var/swing_sound = null
+	var/drawsound = null
+	var/equipsound = null
+	var/list/parry_sounds = list() //List of parry sounds to play when we block.
 
 /obj/item/Destroy()
 	if(ismob(loc))
@@ -764,3 +769,13 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 	if(AStar(get_turf(us), get_turf(them), /turf/proc/AdjacentTurfsRanged, /turf/proc/Distance, max_nodes=25, max_node_depth=range))
 		return TRUE
 	return FALSE
+
+/obj/item/throw_impact(atom/hit_atom)
+	..()
+	if(drop_sound)
+		playsound(src, drop_sound, 50, 0)
+
+/obj/item/proc/drawsound(mob/user)
+	if(drawsound)
+		user.visible_message("<span class = 'warning'><b>[user] grabs a weapon!</b></span>")
+		playsound(user, drawsound, 50, 1)

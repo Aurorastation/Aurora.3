@@ -39,7 +39,7 @@
 	vodka		spawn_reagent = "vodka"
 	gin			spawn_reagent = "gin"
 	rum			spawn_reagent = "rum"
-	tequila		spawn_reagent = "tequilla"
+	tequila		spawn_reagent = "tequila"
 	vermouth	spawn_reagent = "vermouth"
 	cognac		spawn_reagent = "cognac"
 	ale			spawn_reagent = "ale"

@@ -140,7 +140,7 @@
 									break spray_loop
 							blood_splatter(target, null, 1)
 			blood_splatter(src.loc, null, 1)
-			playsound(src.loc, 'sound/effects/splat.ogg', 50, 1, -6)
+			playsound(src.loc, 'sound/effects/gore/blood_splat.ogg', 50, 1, -6)
 			if(istype(H))
 				H.bloody_hands()
 				if (loc == usr)

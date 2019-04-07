@@ -15,6 +15,7 @@
 	max_heat_protection_temperature = HELMET_MAX_HEAT_PROTECTION_TEMPERATURE
 	siemens_coefficient = 0.5
 	w_class = 3
+	drop_sound = 'sound/items/drop/helm.ogg'
 	var/allow_hair_covering = TRUE //in case if you want to allow someone to switch the BLOCKHEADHAIR var from the helmet or not
 
 /obj/item/clothing/head/helmet/verb/toggle_block_hair()

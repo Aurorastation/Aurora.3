@@ -26,7 +26,7 @@
 			accuracy = 1,
 			dispersion = null,
 			projectile_type = /obj/item/projectile/bullet/pistol,
-			fire_sound = 'sound/weapons/Gunshot_smg.ogg'
+			fire_sound = 'sound/weapons/gunshot/gunshot_smg.ogg'
 		),
 		list(
 			mode_name = "rapidfire",
@@ -38,7 +38,7 @@
 			accuracy = list(1, 0, 0,-1,-1),
 			dispersion = list(0, 10, 10),
 			projectile_type = /obj/item/projectile/bullet/pistol,
-			fire_sound = 'sound/weapons/Gunshot_smg.ogg'
+			fire_sound = 'sound/weapons/gunshot/gunshot_smg.ogg'
 		),
 		list(
 			mode_name = "highex",
@@ -74,7 +74,7 @@
 			accuracy = 1,
 			dispersion = null,
 			projectile_type = /obj/item/projectile/bullet/shotgun/incendiary,
-			fire_sound = 'sound/weapons/Gunshot.ogg'
+			fire_sound = 'sound/weapons/gunshot/gunshot.ogg'
 		),
 		list(
 			mode_name = "armorpiercing",
@@ -86,7 +86,7 @@
 			accuracy = 1,
 			dispersion = null,
 			projectile_type = /obj/item/projectile/bullet/rifle/a556,
-			fire_sound = 'sound/weapons/Gunshot.ogg'
+			fire_sound = 'sound/weapons/gunshot/gunshot.ogg'
 		),
 		list(
 			mode_name = "pellets",
@@ -98,7 +98,7 @@
 			accuracy = 0,
 			dispersion = null,
 			projectile_type = /obj/item/projectile/bullet/pellet/shotgun,
-			fire_sound = 'sound/weapons/Gunshot.ogg'
+			fire_sound = 'sound/weapons/gunshot/gunshot.ogg'
 		)
 	)
 

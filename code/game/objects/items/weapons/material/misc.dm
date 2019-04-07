@@ -30,6 +30,7 @@
 	force_divisor = 0.25 // 15 when wielded with hardness 60 (steel)
 	slot_flags = SLOT_BELT
 	attack_verb = list("cleaved", "slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut")
+	drawsound = 'sound/weapons/holster/unholster_knife.ogg'
 
 /obj/item/weapon/material/hatchet/unathiknife
 	name = "duelling knife"
@@ -37,6 +38,7 @@
 	icon = 'icons/obj/weapons.dmi'
 	icon_state = "unathiknife"
 	attack_verb = list("ripped", "torn", "cut")
+	drawsound = 'sound/weapons/holster/unholster_knife.ogg'
 
 /obj/item/weapon/material/hook
 	name = "meat hook"
@@ -45,6 +47,7 @@
 	desc = "A sharp, metal hook that sticks into things."
 	icon_state = "hook_knife"
 	item_state = "hook_knife"
+	drawsound = 'sound/weapons/holster/unholster_knife.ogg'
 
 /obj/item/weapon/material/minihoe // -- Numbers
 	name = "mini hoe"
@@ -56,6 +59,7 @@
 	thrown_force_divisor = 0.25 // as above
 	w_class = 2
 	attack_verb = list("slashed", "sliced", "cut", "clawed")
+	drawsound = 'sound/weapons/holster/unholster_knife.ogg'
 
 /obj/item/weapon/material/scythe
 	icon_state = "scythe0"
@@ -71,3 +75,4 @@
 	slot_flags = SLOT_BACK
 	origin_tech = list(TECH_MATERIAL = 2, TECH_COMBAT = 2)
 	attack_verb = list("chopped", "sliced", "cut", "reaped")
+	drawsound = 'sound/weapons/holster/unholster_knife.ogg'

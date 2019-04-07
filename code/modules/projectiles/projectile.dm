@@ -12,6 +12,14 @@
 	animate_movement = 0	//Use SLIDE_STEPS in conjunction with legacy
 	var/projectile_type = /obj/item/projectile
 
+	var/list/mob_hit_sound = list(
+	'sound/effects/gore/bullethit1.ogg',
+	'sound/effects/gore/bullethit2.ogg',
+	'sound/effects/gore/bullethit3.ogg',
+	'sound/effects/gore/bullethit4.ogg'
+	) //Sound it makes when it hits a mob. It's a list so you can put multiple hit sounds there.
+	var/wall_hitsound = "hitwall"
+
 	var/def_zone = ""	//Aiming at
 	var/mob/firer = null//Who shot it
 	var/silenced = FALSE	//Attack message

@@ -315,7 +315,7 @@
 	load_method = MAGAZINE
 	magazine_type = /obj/item/ammo_magazine/tommymag
 	allowed_magazines = list(/obj/item/ammo_magazine/tommymag, /obj/item/ammo_magazine/tommydrum)
-	fire_sound = 'sound/weapons/tommygun_shoot.ogg'
+	fire_sound = 'sound/weapons/gunshot/tommygun_shoot.ogg'
 
 /obj/item/weapon/gun/projectile/automatic/tommygun/update_icon()
 	..()
@@ -355,7 +355,7 @@
 	force = 30
 	caliber = "flechette"
 	slot_flags = SLOT_BELT|SLOT_BACK
-	fire_sound = 'sound/weapons/Gunshot_DMR.ogg'
+	fire_sound = 'sound/weapons/gunshot/DMR.ogg'
 	load_method = MAGAZINE
 	magazine_type = /obj/item/ammo_magazine/flechette
 	allowed_magazines = list(/obj/item/ammo_magazine/flechette,/obj/item/ammo_magazine/flechette/explosive)

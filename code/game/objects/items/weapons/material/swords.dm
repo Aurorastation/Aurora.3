@@ -1,6 +1,6 @@
 /obj/item/weapon/material/sword
 	name = "claymore"
-	desc = "What are you standing around staring at this for? Get to killing!"
+	desc = "Claymore! Not the explosive kind, unfortunately."
 	icon_state = "claymore"
 	item_state = "claymore"
 	slot_flags = SLOT_BELT|SLOT_BACK
@@ -13,6 +13,14 @@
 	hitsound = 'sound/weapons/bladeslice.ogg'
 	can_embed = 0
 	var/parry_chance = 40
+	parry_sounds = list(
+	'sound/weapons/blade_parry1.ogg',
+	'sound/weapons/blade_parry2.ogg',
+	'sound/weapons/blade_parry3.ogg'
+	)
+	drawsound = 'sound/weapons/holster/unholster_sword2.ogg'
+	equipsound = 'sound/weapons/holster/holster_sword1.ogg'
+	drop_sound = 'sound/items/drop/sword.ogg'
 
 /obj/item/weapon/material/sword/handle_shield(mob/user, var/damage, atom/damage_source = null, mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
 	var/parry_bonus = 1
@@ -24,7 +32,8 @@
 
 	if(default_parry_check(user, attacker, damage_source) && prob(parry_chance * parry_bonus))
 		user.visible_message("<span class='danger'>\The [user] parries [attack_text] with \the [src]!</span>")
-		playsound(user.loc, 'sound/weapons/punchmiss.ogg', 50, 1)
+		if(parry_sounds)
+			playsound(user.loc, pick(parry_sounds), 50, 1)
 		return 1
 	return 0
 

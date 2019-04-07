@@ -84,4 +84,4 @@ Bonus
 
 	var/turf/simulated/pos = get_turf(M)
 	pos.add_blood_floor(M)
-	playsound(pos, 'sound/effects/splat.ogg', 50, 1)
+	playsound(pos, 'sound/effects/gore/blood_splat.ogg', 50, 1)

@@ -158,7 +158,81 @@ var/list/keyboardsounds = list(
 	'sound/machines/keyboard/keystroke4.ogg'
 	)
 
-var/list/footstepfx = list("defaultstep","concretestep","grassstep","dirtstep","waterstep","sandstep", "gravelstep")
+var/list/swing_sound = list(
+	'sound/weapons/swing_01.ogg',
+	'sound/weapons/swing_02.ogg',
+	'sound/weapons/swing_03.ogg'
+	)
+
+var/list/blunt_swing = list(
+	'sound/weapons/blunt_swing1.ogg',
+	'sound/weapons/blunt_swing2.ogg',
+	'sound/weapons/blunt_swing3.ogg'
+	)
+
+var/list/footstepfx = list(
+	"defaultstep",
+	"concretestep",
+	"grassstep",
+	"dirtstep",
+	"waterstep",
+	"sandstep",
+	"gravelstep"
+	)
+
+var/list/button_sound = list(
+	'sound/machines/button1.ogg',
+	'sound/machines/button2.ogg',
+	'sound/machines/button3.ogg',
+	'sound/machines/button4.ogg'
+	)
+
+var/list/stab_sound = list(
+	'sound/weapons/stab1.ogg',
+	'sound/weapons/stab2.ogg',
+	'sound/weapons/stab3.ogg'
+	)
+
+var/list/slash_sound = list(
+	'sound/weapons/slash1.ogg',
+	'sound/weapons/slash2.ogg',
+	'sound/weapons/slash3.ogg'
+	)
+
+var/list/brifle = list(
+	'sound/weapons/newrifle.ogg',
+	'sound/weapons/newrifle2.ogg',
+	'sound/weapons/newrifle3.ogg'
+	)
+
+var/list/bullet_hit_wall = list(
+	'sound/weapons/guns/misc/ric1.ogg',
+	'sound/weapons/guns/misc/ric2.ogg',
+	'sound/weapons/guns/misc/ric3.ogg',
+	'sound/weapons/guns/misc/ric4.ogg',
+	'sound/weapons/guns/misc/ric5.ogg'
+	)
+
+var/list/casing_sound = list (
+	'sound/weapons/guns/misc/casingfall1.ogg',
+	'sound/weapons/guns/misc/casingfall2.ogg',
+	'sound/weapons/guns/misc/casingfall3.ogg'
+	)
+
+var/list/trauma_sound = list(
+	'sound/effects/gore/trauma1.ogg',
+	'sound/effects/gore/trauma2.ogg',
+	'sound/effects/gore/trauma3.ogg'
+	)
+
+var/list/chop_sound = list(
+	'sound/effects/gore/chop1.ogg',
+	'sound/effects/gore/chop2.ogg',
+	'sound/effects/gore/chop3.ogg',
+	'sound/effects/gore/chop4.ogg',
+	'sound/effects/gore/chop5.ogg',
+	'sound/effects/gore/chop6.ogg',
+	)
 
 //var/list/gun_sound = list('sound/weapons/Gunshot.ogg', 'sound/weapons/Gunshot2.ogg','sound/weapons/Gunshot3.ogg','sound/weapons/Gunshot4.ogg')
 
@@ -319,4 +393,12 @@ var/list/footstepfx = list("defaultstep","concretestep","grassstep","dirtstep","
 			if ("computerbeep") soundin = pick(computerbeeps)
 			if ("switch") soundin = pick(switchsounds)
 			if ("keyboard") soundin = pick(keyboardsounds)
+			if ("slash_sound") soundin = pick(slash_sound)
+			if ("swing_sound") soundin = pick(swing_sound)
+			if ("blunt_swing") soundin = pick(blunt_swing)
+			if ("brifle") soundin = pick(brifle)
+			if ("hitwall") soundin = pick(bullet_hit_wall)
+			if ("casing_sound") soundin = pick(casing_sound)
+			if ("trauma") soundin = pick(trauma_sound)
+			if ("chop") soundin = pick(chop_sound)
 	return soundin

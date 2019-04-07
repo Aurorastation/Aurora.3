@@ -186,7 +186,7 @@
 /datum/reagent/alcohol/ethanol/sake
 	value = 0.11
 
-/datum/reagent/alcohol/ethanol/tequilla
+/datum/reagent/alcohol/ethanol/tequila
 	value = 0.1
 
 /datum/reagent/alcohol/ethanol/thirteenloko
@@ -396,7 +396,7 @@
 /datum/reagent/alcohol/ethanol/syndicatebomb
 	value = 0.21
 
-/datum/reagent/alcohol/ethanol/tequilla_sunrise
+/datum/reagent/alcohol/ethanol/tequila_sunrise
 	value = 0.13
 
 /datum/reagent/alcohol/ethanol/threemileisland
@@ -572,28 +572,28 @@
 
 /datum/reagent/mental/sertraline
 	value = 6
-	
+
 /datum/reagent/mental/fluvoxamine
 	value = 6
-	
+
 /datum/reagent/mental/escitalopram
 	value = 6
 
 /datum/reagent/mental/paroxetine
 	value = 3.5
-	
+
 /datum/reagent/mental/duloxetine
 	value = 6
-	
+
 /datum/reagent/mental/venlafaxine
 	value = 6
-	
+
 /datum/reagent/mental/risperidone
 	value = 6
-	
+
 /datum/reagent/mental/olanzapine
 	value = 6
-	
+
 /datum/reagent/mental/truthserum
 	value = 8
 
@@ -620,7 +620,7 @@
 
 /datum/reagent/uranium
 	value = 9
-	
+
 /datum/reagent/platinum
 	value = 3
 

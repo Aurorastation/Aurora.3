@@ -56,6 +56,7 @@
 	var/recentpump = 0 // to prevent spammage
 	var/pump_fail_msg = "<span class='warning'>You cannot rack the shotgun without gripping it with both hands!</span>"
 	var/pump_snd = 'sound/weapons/shotgunpump.ogg'
+	var/casingsound = 'sound/weapons/guns/misc/shotgun_fall.ogg'
 	var/has_wield_state = TRUE
 
 	action_button_name = "Wield shotgun"
@@ -118,7 +119,7 @@
 	origin_tech = list(TECH_COMBAT = 5, TECH_MATERIAL = 2)
 	max_shells = 7 //match the ammo box capacity, also it can hold a round in the chamber anyways, for a total of 8.
 	ammo_type = /obj/item/ammo_casing/shotgun
-	fire_sound = 'sound/weapons/shotgun_shoot.ogg'
+	fire_sound = 'sound/weapons/gunshot/shotgun_shoot.ogg'
 
 /obj/item/weapon/gun/projectile/shotgun/doublebarrel
 	name = "double-barreled shotgun"

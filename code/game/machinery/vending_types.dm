@@ -52,7 +52,7 @@
 		/obj/item/weapon/reagent_containers/food/drinks/bottle/gin = 5,
 		/obj/item/weapon/reagent_containers/food/drinks/bottle/whiskey = 5,
 		/obj/item/weapon/reagent_containers/food/drinks/bottle/fireball = 2,
-		/obj/item/weapon/reagent_containers/food/drinks/bottle/tequilla = 5,
+		/obj/item/weapon/reagent_containers/food/drinks/bottle/tequila = 5,
 		/obj/item/weapon/reagent_containers/food/drinks/bottle/champagne = 5,
 		/obj/item/weapon/reagent_containers/food/drinks/bottle/vodka = 5,
 		/obj/item/weapon/reagent_containers/food/drinks/bottle/vermouth = 5,

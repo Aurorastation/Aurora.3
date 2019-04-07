@@ -122,7 +122,7 @@
 	caliber = "a762"
 	magazine_type = null
 	max_shells = 1000
-	fire_sound = 'sound/weapons/gunshot_saw.ogg'
+	fire_sound = 'sound/weapons/gunshot/saw.ogg'
 	needspin = FALSE
 	origin_tech = null
 

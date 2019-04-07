@@ -21,12 +21,13 @@
 	var/wielded = 0
 	var/force_wielded = 0
 	var/force_unwielded
-	var/wieldsound = null
+	var/wieldsound = 'sound/weapons/thudswoosh.ogg'
 	var/unwieldsound = null
 	var/base_icon
 	var/base_name
 	var/unwielded_force_divisor = 0.25
 	var/parry_chance = 15
+	var/wielded_icon = null
 	action_button_name = "Wield two-handed weapon"
 
 /obj/item/weapon/material/twohanded/proc/unwield()
