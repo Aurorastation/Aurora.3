@@ -594,8 +594,25 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 						UnarmedAttack(movement_target)
 						if (get_turf(movement_target) == loc)
 							set_dir(pick(NORTH, SOUTH, EAST, WEST, NORTH, NORTH))//Face a random direction when eating, but mostly upwards
-					else if(ishuman(movement_target.loc) && Adjacent(src, get_turf(movement_target)) && prob(10))
-						beg(movement_target, movement_target.loc)
+					else if(ishuman(movement_target.loc) && Adjacent(src, get_turf(movement_target.loc)) && (prob(10) || nutrition / max_nutrition <= 0.25))
+						var/mob/living/carbon/human/H = movement_target.loc
+						var/obj/item/weapon/reagent_containers/food/snacks/F = null
+						if(istype(H.l_hand, /obj/item/weapon/reagent_containers/food/snacks))
+							F = H.l_hand
+
+						else if(istype(H.r_hand, /obj/item/weapon/reagent_containers/food/snacks))
+							F = H.r_hand
+						if(nutrition / max_nutrition <= 0.25)
+							H.visible_message(
+												span("warning", "\the [src] grabs \the [F] with its teeth and steals it from \the [H] hands. Taking a bite and dropping it on the floor."),
+												span("warning", "\the [src] grabs \the [F] with its teeth and steals it from your hands. Taking a bite and dropping it on the floor.")
+							)
+							H.drop_from_inventory(F)
+							UnarmedAttack(F)
+							if (get_turf(F) == loc)
+								set_dir(pick(NORTH, SOUTH, EAST, WEST, NORTH, NORTH))//Face a random direction when eating, but mostly upwards
+						else
+							beg(movement_target, movement_target.loc)
 			else
 				scan_interval = max(min_scan_interval, min(scan_interval+1, max_scan_interval))//If nothing is happening, ian's scanning frequency slows down to save processing
 

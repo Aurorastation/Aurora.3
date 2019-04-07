@@ -18,7 +18,7 @@
 	response_help = "pets"
 	response_disarm = "gently pushes aside"
 	response_harm = "kicks"
-	mob_size = 4
+	mob_size = 5
 	holder_type = /obj/item/weapon/holder/fox
 
 //Captain fox
