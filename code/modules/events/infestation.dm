@@ -48,9 +48,9 @@
 
 	switch(chosen_mob)
 		if(INFESTATION_HIVEBOTS)
-			event_name = "Minor Hivebot Invasion"
+			event_name = "Hivebot Invasion"
 			chosen_verb = "have invaded"
-			chosen_mob_types += /mob/living/simple_animal/hostile/hivebot/tele
+			chosen_mob_types += /mob/living/simple_animal/hostile/hivebotbeacon
 		if(INFESTATION_SPACE_BATS)
 			event_name = "Space Bat Nest"
 			chosen_verb = "have been breeding in"
