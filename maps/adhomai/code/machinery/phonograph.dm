@@ -17,3 +17,6 @@
 		new/datum/track("Beatophone", 'maps/adhomai/sound/beatophone.ogg'),
 		new/datum/track("The Same Song", 'maps/adhomai/sound/thesamesong.ogg')
 	)
+
+/obj/machinery/media/jukebox/phonograph/update_icon()
+	return
