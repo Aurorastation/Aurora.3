@@ -18,8 +18,8 @@
 	response_disarm = "bops"
 	response_harm   = "kicks"
 	see_in_dark = 5
-	mob_size = 4
-	max_nutrition = 250	//Dogs are insatiable eating monsters. This scales with their mob size too
+	mob_size = 3.5
+	max_nutrition = 80	//Dogs are insatiable eating monsters. This scales with their mob size too
 	stomach_size_mult = 30
 	seek_speed = 6
 	possession_candidate = 1
@@ -32,7 +32,6 @@
 /mob/living/simple_animal/corgi/Initialize()
 	. = ..()
 	nutrition = max_nutrition * 0.3	//Ian doesn't start with a full belly so will be hungry at roundstart
-	nutrition_step = mob_size * 0.12
 
 //IAN! SQUEEEEEEEEE~
 /mob/living/simple_animal/corgi/Ian

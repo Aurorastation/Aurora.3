@@ -18,7 +18,8 @@
 	response_help = "pets"
 	response_disarm = "gently pushes aside"
 	response_harm = "kicks"
-	mob_size = 5
+	mob_size = 4
+	max_nutrition = 90
 	holder_type = /obj/item/weapon/holder/fox
 
 //Captain fox

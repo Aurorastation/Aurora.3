@@ -107,6 +107,11 @@
 /mob/living/simple_animal/proc/beg(var/atom/thing, var/atom/holder)
 	visible_emote("gazes longingly at [holder]'s [thing]",0)
 
+/mob/living/simple_animal/proc/update_nutrition_stats()
+	nutrition_step = mob_size * 0.03 * metabolic_factor
+	bite_factor = mob_size * 0.3
+	max_nutrition *= 1 + (nutrition_step*4)//Max nutrition scales faster than costs, so bigger creatures eat less often
+
 /mob/living/simple_animal/Initialize()
 	. = ..()
 	seek_move_delay = (1 / seek_speed) * 10	//number of ds between moves
@@ -115,9 +120,7 @@
 	verbs -= /mob/verb/observe
 	health = maxHealth
 	if (mob_size)
-		nutrition_step = mob_size * 0.03 * metabolic_factor
-		bite_factor = mob_size * 0.3
-		max_nutrition *= 1 + (nutrition_step*4)//Max nutrition scales faster than costs, so bigger creatures eat less often
+		update_nutrition_stats()
 		reagents = new/datum/reagents(stomach_size_mult*mob_size, src)
 	else
 		reagents = new/datum/reagents(20, src)
@@ -594,7 +597,7 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 						UnarmedAttack(movement_target)
 						if (get_turf(movement_target) == loc)
 							set_dir(pick(NORTH, SOUTH, EAST, WEST, NORTH, NORTH))//Face a random direction when eating, but mostly upwards
-					else if(ishuman(movement_target.loc) && Adjacent(src, get_turf(movement_target.loc)) && (prob(10) || nutrition / max_nutrition <= 0.25))
+					else if(ishuman(movement_target.loc) && Adjacent(get_turf(movement_target.loc)) && (prob(10) || nutrition / max_nutrition <= 0.25))
 						var/mob/living/carbon/human/H = movement_target.loc
 						var/obj/item/weapon/reagent_containers/food/snacks/F = null
 						if(istype(H.l_hand, /obj/item/weapon/reagent_containers/food/snacks))
