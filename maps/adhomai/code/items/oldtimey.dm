@@ -130,11 +130,3 @@
 
 /obj/structure/window/classic/update_nearby_icons()
 	return
-
-/obj/machinery/media/jukebox/record
-	name = "record player"
-	desc = "Play that funky music..."
-	icon = 'icons/adhomai/structures.dmi'
-	icon_state = "record"
-
-	anchored = 1

@@ -2517,6 +2517,7 @@
 #include "maps\adhomai\code\jobs\civillian.dm"
 #include "maps\adhomai\code\jobs\job.dm"
 #include "maps\adhomai\code\jobs\military.dm"
+#include "maps\adhomai\code\machinery\phonograph.dm"
 #include "maps\adhomai\code\mobs\animals.dm"
 #include "maps\adhomai\code\mobs\geist.dm"
 #include "maps\adhomai\code\structures\bonfire.dm"

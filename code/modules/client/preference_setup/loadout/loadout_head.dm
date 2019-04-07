@@ -219,3 +219,12 @@
 /datum/gear/head/tcflberet
 	display_name = "Tau Ceti Foreign Legion dress beret"
 	path = /obj/item/clothing/head/legion_beret
+
+/datum/gear/head/helmet/tank
+	display_name = "padded cap"
+	path = /obj/item/clothing/head/helmet/tank
+	allowed_roles = list(ARMED_ROLES)
+
+/datum/gear/head/helmet/tank/New()
+	..()
+	gear_tweaks = list(gear_tweak_free_color_choice)
