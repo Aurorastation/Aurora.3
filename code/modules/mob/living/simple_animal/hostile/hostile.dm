@@ -66,8 +66,19 @@
 	if(!isnull(T))
 		stance = HOSTILE_STANCE_ATTACK
 	if(isliving(T))
-		custom_emote(1,"[attack_emote] [T]")
+		custom_emote(1, "[attack_emote] [T]")
+		if(istype(T, /mob/living/simple_animal/hostile/))
+			var/mob/living/simple_animal/hostile/H = T
+			H.being_targeted(src)
 	return T
+
+// This proc is used when one hostile mob targets another hostile mob.
+/mob/living/simple_animal/hostile/proc/being_targeted(var/mob/living/simple_animal/hostile/H)
+	if(!H || target_mob == H) return
+	target_mob = H
+	FoundTarget()
+	stance = HOSTILE_STANCE_ATTACKING
+	custom_emote(1, "notices that [H] is charging at it and [attack_emote] [H] back!")
 
 /mob/living/simple_animal/hostile/bullet_act(var/obj/item/projectile/P, var/def_zone)
 	..()
