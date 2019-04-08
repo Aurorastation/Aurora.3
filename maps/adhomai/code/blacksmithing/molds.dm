@@ -34,7 +34,7 @@
 	icon_state = "mold_shovel"
 	allowed_materials = list("iron", DEFAULT_WALL_MATERIAL, "plasteel")
 	use_material = FALSE
-	outcome = /obj/item/weapon/material/kitchen/utensil/spoon
+	outcome = /obj/item/weapon/material/blacksmith_piece
 	needed_ammount = 3
 
 /obj/item/mold/shield
