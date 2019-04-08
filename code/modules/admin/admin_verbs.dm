@@ -1072,7 +1072,7 @@ var/list/admin_verbs_cciaa = list(
 	set name = "Pretend Democracy Global"
 	set desc = "Tells everyone it's time to pretend it's a democracy."
 
-	for (var/mob/T as mob in mob_list)
+	for (var/mob/T in mob_list)
 		to_chat(T, "<br><center><span class='notice'><b><font size=4>Time to pretend this is a democracy.</font></b></span></center><br>")
 		sound_to(T, 'sound/admin/Serithi/pretenddemoc.ogg')
 
