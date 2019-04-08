@@ -503,7 +503,7 @@
 /area/adhomai/village)
 "cj" = (
 /obj/machinery/portable_atmospherics/hydroponics/soil,
-/turf/simulated/floor/holofloor/desert,
+/turf/simulated/floor/adhomai/desert,
 /area/adhomai)
 "ck" = (
 /obj/structure/simple_door/adhomai/wood,
@@ -667,7 +667,7 @@
 /turf/simulated/floor/snow,
 /area/adhomai)
 "cY" = (
-/turf/simulated/floor/holofloor/desert,
+/turf/simulated/floor/adhomai/desert,
 /area/adhomai)
 "cZ" = (
 /obj/structure/flora/pottedplant/random,
@@ -7142,7 +7142,7 @@
 /area/adhomai/village/police)
 "XH" = (
 /obj/structure/street_lamp,
-/turf/simulated/floor/holofloor/desert,
+/turf/simulated/floor/adhomai/desert,
 /area/adhomai)
 "XJ" = (
 /turf/simulated/floor/wood,
