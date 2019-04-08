@@ -2,7 +2,7 @@
 /datum/hud/proc/unplayer_hud()
 	return
 
-/mob/dead/observer/instantiate_hud(var/datum/hud/HUD)
+/mob/abstract/observer/instantiate_hud(var/datum/hud/HUD)
 	HUD.ghost_hud()
 
 /datum/hud/proc/ghost_hud()
@@ -11,9 +11,9 @@
 /mob/living/carbon/brain/instantiate_hud(var/datum/hud/HUD)
 	HUD.brain_hud()
 
-/datum/hud/proc/brain_hud(ui_style = 'icons/mob/screen1_Midnight.dmi')
+/datum/hud/proc/brain_hud(ui_style = 'icons/mob/screen/midnight.dmi')
 	mymob.blind = new /obj/screen()
-	mymob.blind.icon = 'icons/mob/screen1_full.dmi'
+	mymob.blind.icon = 'icons/mob/screen/full.dmi'
 	mymob.blind.icon_state = "blackimageoverlay"
 	mymob.blind.name = " "
 	mymob.blind.screen_loc = "1,1"
@@ -22,7 +22,7 @@
 /mob/living/silicon/ai/instantiate_hud(var/datum/hud/HUD)
 	HUD.ai_hud()
 
-/datum/hud/proc/blob_hud(ui_style = 'icons/mob/screen1_Midnight.dmi')
+/datum/hud/proc/blob_hud(ui_style = 'icons/mob/screen/midnight.dmi')
 
 	blobpwrdisplay = new /obj/screen()
 	blobpwrdisplay.name = "blob power"
@@ -43,7 +43,7 @@
 /mob/living/carbon/slime/instantiate_hud(var/datum/hud/HUD)
 	HUD.slime_hud()
 
-/datum/hud/proc/slime_hud(ui_style = 'icons/mob/screen1_Midnight.dmi')
+/datum/hud/proc/slime_hud(ui_style = 'icons/mob/screen/midnight.dmi')
 
 	src.adding = list()
 
@@ -127,7 +127,7 @@
 		constructtype = "harvester"
 
 	mymob.flash = new /obj/screen()
-	mymob.flash.icon = 'icons/mob/screen1.dmi'
+	mymob.flash.icon = 'icons/mob/screen/generic.dmi'
 	mymob.flash.icon_state = "blank"
 	mymob.flash.name = "flash"
 	mymob.flash.screen_loc = ui_entire_screen
@@ -136,30 +136,31 @@
 
 	if(constructtype)
 		mymob.fire = new /obj/screen()
-		mymob.fire.icon = 'icons/mob/screen1_construct.dmi'
+		mymob.fire.icon = 'icons/mob/screen/construct.dmi'
 		mymob.fire.icon_state = "fire0"
 		mymob.fire.name = "fire"
 		mymob.fire.screen_loc = ui_construct_fire
 
 		mymob.healths = new /obj/screen()
-		mymob.healths.icon = 'icons/mob/screen1_construct.dmi'
+		mymob.healths.icon = 'icons/mob/screen/construct.dmi'
 		mymob.healths.icon_state = "[constructtype]_health0"
 		mymob.healths.name = "health"
 		mymob.healths.screen_loc = ui_construct_health
 
 		mymob.pullin = new /obj/screen()
-		mymob.pullin.icon = 'icons/mob/screen1_construct.dmi'
+		mymob.pullin.icon = 'icons/mob/screen/construct.dmi'
 		mymob.pullin.icon_state = "pull0"
 		mymob.pullin.name = "pull"
 		mymob.pullin.screen_loc = ui_construct_pull
 
 		mymob.zone_sel = new /obj/screen/zone_sel()
-		mymob.zone_sel.icon = 'icons/mob/screen1_construct.dmi'
-		mymob.zone_sel.overlays.len = 0
-		mymob.zone_sel.overlays += image('icons/mob/zone_sel.dmi', "[mymob.zone_sel.selecting]")
+
+		mymob.zone_sel.icon = 'icons/mob/screen/construct.dmi'
+		mymob.zone_sel.cut_overlays()
+		mymob.zone_sel.add_overlay(image('icons/mob/zone_sel.dmi', "[mymob.zone_sel.selecting]"))
 
 		mymob.purged = new /obj/screen()
-		mymob.purged.icon = 'icons/mob/screen1_construct.dmi'
+		mymob.purged.icon = 'icons/mob/screen/construct.dmi'
 		mymob.purged.icon_state = "purge0"
 		mymob.purged.name = "purged"
 		mymob.purged.screen_loc = ui_construct_purge

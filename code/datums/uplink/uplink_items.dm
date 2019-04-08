@@ -1,4 +1,4 @@
-var/datum/uplink/uplink = new()
+var/datum/uplink/uplink
 
 /datum/uplink
 	var/list/items_assoc
@@ -31,6 +31,7 @@ var/datum/uplink/uplink = new()
 	var/item_cost = 0
 	var/datum/uplink_category/category		// Item category
 	var/list/datum/antagonist/antag_roles	// Antag roles this item is displayed to. If empty, display to all.
+	var/list/datum/antagonist/antag_job     // Antag job this item is displayed to, if empty, display to all.
 
 /datum/uplink_item/item
 	var/path = null
@@ -73,7 +74,7 @@ var/datum/uplink/uplink = new()
 
 /datum/uplink_item/proc/can_view(obj/item/device/uplink/U)
 	// Making the assumption that if no uplink was supplied, then we don't care about antag roles
-	if(!U || !antag_roles.len)
+	if(!U || (!antag_roles.len && !antag_job))
 		return 1
 
 	// With no owner, there's no need to check antag status.
@@ -84,6 +85,9 @@ var/datum/uplink/uplink = new()
 		var/datum/antagonist/antag = all_antag_types[antag_role]
 		if(antag.is_antagonist(U.uplink_owner))
 			return 1
+
+	if (antag_job == U.uplink_owner.assigned_role) //for a quick and easy list of the assigned_role, look in specialty.dm
+		return 1
 	return 0
 
 /datum/uplink_item/proc/cost(var/telecrystals)

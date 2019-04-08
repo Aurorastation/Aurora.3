@@ -21,25 +21,25 @@
 			if(prob(2))
 				affected_mob.emote("yawn")
 			if(prob(2))
-				affected_mob << "<span class='warning'>Your don't feel like yourself.</span>"
+				to_chat(affected_mob, "<span class='warning'>Your don't feel like yourself.</span>")
 			if(prob(5))
-				affected_mob.adjustBrainLoss(1)
+				affected_mob.adjustBrainLoss(1, 55)
 				affected_mob.updatehealth()
 		if(3)
 			if(prob(2))
 				affected_mob.emote("stare")
 			if(prob(2))
 				affected_mob.emote("drool")
-			if(prob(10) && affected_mob.getBrainLoss()<=98)//shouldn't retard you to death now
-				affected_mob.adjustBrainLoss(2)
+			if(prob(10))//shouldn't retard you to death now
+				affected_mob.adjustBrainLoss(2, 55)
 				affected_mob.updatehealth()
 				if(prob(2))
-					affected_mob << "<span class='warning'>You try to remember something important...but can't.</span>"
+					to_chat(affected_mob, "<span class='warning'>You try to remember something important...but can't.</span>")
 /*			if(prob(10))
 				affected_mob.adjustToxLoss(3)
 				affected_mob.updatehealth()
 				if(prob(2))
-					affected_mob << "<span class='warning'>Your head hurts.</span>" */
+					to_chat(affected_mob, "<span class='warning'>Your head hurts.</span>" */
 		if(4)
 			if(prob(2))
 				affected_mob.emote("stare")
@@ -49,14 +49,14 @@
 				affected_mob.adjustToxLoss(4)
 				affected_mob.updatehealth()
 				if(prob(2))
-					affected_mob << "<span class='notice'>Your head hurts.</span>" */
-			if(prob(15) && affected_mob.getBrainLoss()<=98) //shouldn't retard you to death now
-				affected_mob.adjustBrainLoss(3)
+					to_chat(affected_mob, "<span class='notice'>Your head hurts.</span>" */
+			if(prob(15)) //shouldn't retard you to death now
+				affected_mob.adjustBrainLoss(3, 55)
 				affected_mob.updatehealth()
 				if(prob(2))
-					affected_mob << "<span class='warning'>A strange buzzing fills your head, removing all thoughts.</span>"
+					to_chat(affected_mob, "<span class='warning'>A strange buzzing fills your head, removing all thoughts.</span>")
 			if(prob(3))
-				affected_mob << "<span class='warning'>You lose consciousness...</span>"
+				to_chat(affected_mob, "<span class='warning'>You lose consciousness...</span>")
 				for(var/mob/O in viewers(affected_mob, null))
 					O.show_message("[affected_mob] suddenly collapses", 1)
 				affected_mob.Paralyse(rand(5,10))

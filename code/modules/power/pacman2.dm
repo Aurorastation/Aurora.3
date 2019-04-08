@@ -30,16 +30,15 @@
 		P.air_contents.phoron -= 0.01
 		return
 
-	New()
-		..()
-		component_parts = list()
-		component_parts += new /obj/item/weapon/stock_parts/matter_bin(src)
-		component_parts += new /obj/item/weapon/stock_parts/micro_laser(src)
-		component_parts += new /obj/item/stack/cable_coil(src)
-		component_parts += new /obj/item/stack/cable_coil(src)
-		component_parts += new /obj/item/weapon/stock_parts/capacitor(src)
-		component_parts += new board_path(src)
-		RefreshParts()
+	setup_components()
+		. = list(
+			new /obj/item/weapon/stock_parts/matter_bin(src),
+			new /obj/item/weapon/stock_parts/micro_laser(src),
+			new /obj/item/stack/cable_coil(src),
+			new /obj/item/stack/cable_coil(src),
+			new /obj/item/weapon/stock_parts/capacitor(src),
+			new board_path(src)
+		)
 
 	RefreshParts()
 		var/temp_rating = 0
@@ -52,7 +51,7 @@
 
 	examine(mob/user)
 		..(user)
-		user << "<span class='notice'>The generator has [P.air_contents.phoron] units of fuel left, producing [power_gen] per cycle.</span>"
+		to_chat(user, "<span class='notice'>The generator has [P.air_contents.phoron] units of fuel left, producing [power_gen] per cycle.</span>")
 
 	handleInactive()
 		heat -= 2
@@ -70,32 +69,31 @@
 	attackby(var/obj/item/O as obj, var/mob/user as mob)
 		if(istype(O, /obj/item/weapon/tank/phoron))
 			if(P)
-				user << "<span class='warning'>The generator already has a phoron tank loaded!</span>"
+				to_chat(user, "<span class='warning'>The generator already has a phoron tank loaded!</span>")
 				return
 			P = O
-			user.drop_item()
-			O.loc = src
-			user << "<span class='notice'>You add the phoron tank to the generator.</span>"
+			user.drop_from_inventory(O,src)
+			to_chat(user, "<span class='notice'>You add the phoron tank to the generator.</span>")
 		else if(!active)
-			if(istype(O, /obj/item/weapon/wrench))
+			if(O.iswrench())
 				anchored = !anchored
 				playsound(src.loc, 'sound/items/Deconstruct.ogg', 50, 1)
 				if(anchored)
-					user << "<span class='notice'>You secure the generator to the floor.</span>"
+					to_chat(user, "<span class='notice'>You secure the generator to the floor.</span>")
 				else
-					user << "<span class='notice'>You unsecure the generator from the floor.</span>"
+					to_chat(user, "<span class='notice'>You unsecure the generator from the floor.</span>")
 				SSmachinery.powernet_update_queued = TRUE
-			else if(istype(O, /obj/item/weapon/screwdriver))
+			else if(O.isscrewdriver())
 				open = !open
 				playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, 1)
 				if(open)
-					user << "<span class='notice'>You open the access panel.</span>"
+					to_chat(user, "<span class='notice'>You open the access panel.</span>")
 				else
-					user << "<span class='notice'>You close the access panel.</span>"
-			else if(istype(O, /obj/item/weapon/crowbar) && !open)
+					to_chat(user, "<span class='notice'>You close the access panel.</span>")
+			else if(O.iscrowbar() && !open)
 				var/obj/machinery/constructable_frame/machine_frame/new_frame = new /obj/machinery/constructable_frame/machine_frame(src.loc)
 				for(var/obj/item/I in component_parts)
-					I.loc = src.loc
+					I.forceMove(src.loc)
 				new_frame.state = 2
 				new_frame.icon_state = "box_1"
 				qdel(src)
@@ -165,7 +163,7 @@
 				usr << browse(null, "window=port_gen")
 				usr.machine = null
 
-/obj/machinery/power/port_gen/pacman2/emag_act(var/remaining_uses, var/mob/user)				
+/obj/machinery/power/port_gen/pacman2/emag_act(var/remaining_uses, var/mob/user)
 	emagged = 1
 	emp_act(1)
 	return 1

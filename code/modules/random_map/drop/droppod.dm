@@ -112,7 +112,7 @@
 	// Splatter anything under us that survived the explosion.
 	if(value != SD_EMPTY_TILE && T.contents.len)
 		for(var/atom/movable/AM in T)
-			if(AM.simulated && !istype(AM, /mob/dead))
+			if(AM.simulated && !istype(AM, /mob/abstract))
 				qdel(AM)
 
 	// Also spawn doors and loot.
@@ -173,11 +173,11 @@
 	else
 		var/list/candidates = list()
 		for(var/client/player in clients)
-			if(player.mob && istype(player.mob, /mob/dead/observer))
+			if(player.mob && istype(player.mob, /mob/abstract/observer))
 				candidates |= player
 
 		if(!candidates.len)
-			usr << "There are no candidates for a drop pod launch."
+			to_chat(usr, "There are no candidates for a drop pod launch.")
 			return
 
 		// Get a player and a mob type.
@@ -210,10 +210,7 @@
 	// Chuck them into the pod.
 	var/automatic_pod
 	if(spawned_mob && selected_player)
-		if(selected_player.mob.mind)
-			selected_player.mob.mind.transfer_to(spawned_mob)
-		else
-			spawned_mob.ckey = selected_player.mob.ckey
+		spawned_mob.ckey = selected_player.mob.ckey
 		spawned_mobs = list(spawned_mob)
 		message_admins("[key_name_admin(usr)] dropped a pod containing \the [spawned_mob] ([spawned_mob.key]) at ([usr.x],[usr.y],[usr.z])")
 		log_admin("[key_name(usr)] dropped a pod containing \the [spawned_mob] ([spawned_mob.key]) at ([usr.x],[usr.y],[usr.z])",admin_key=key_name(usr),ckey=key_name(spawned_mob))

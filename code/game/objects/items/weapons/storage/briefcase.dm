@@ -10,3 +10,4 @@
 	w_class = 4
 	max_w_class = 3
 	max_storage_space = 16
+	use_sound = 'sound/items/storage/briefcase.ogg'

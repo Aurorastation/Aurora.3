@@ -69,27 +69,21 @@
 	pressure_checks = 2
 	pressure_checks_default = 2
 
-/obj/machinery/atmospherics/unary/vent_pump/New()
-	..()
-	air_contents.volume = ATMOS_DEFAULT_VOLUME_PUMP
-	
-
 /obj/machinery/atmospherics/unary/vent_pump/Initialize()
 	. = ..()
+	air_contents.volume = ATMOS_DEFAULT_VOLUME_PUMP
 
-	initial_loc = get_area(loc)
+	initial_loc = loc.loc
 	area_uid = initial_loc.uid
 	if (!id_tag)
 		assign_uid()
 		id_tag = num2text(uid)
-		
+
 	//some vents work his own special way
-	radio_filter_in = frequency==1439?(RADIO_FROM_AIRALARM):null
-	radio_filter_out = frequency==1439?(RADIO_TO_AIRALARM):null
+	radio_filter_in = frequency == 1439 ? (RADIO_FROM_AIRALARM) : null
+	radio_filter_out = frequency == 1439 ? (RADIO_TO_AIRALARM) : null
 	if(frequency)
 		radio_connection = register_radio(src, frequency, frequency, radio_filter_in)
-
-	atmos_init()
 
 // Different from the above.
 /obj/machinery/atmospherics/unary/vent_pump/atmos_init()
@@ -105,8 +99,8 @@
 	power_channel = EQUIP
 	power_rating = 15000	//15 kW ~ 20 HP
 
-/obj/machinery/atmospherics/unary/vent_pump/high_volume/New()
-	..()
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/Initialize()
+	. = ..()
 	air_contents.volume = ATMOS_DEFAULT_VOLUME_PUMP + 800
 
 /obj/machinery/atmospherics/unary/vent_pump/engine
@@ -114,8 +108,8 @@
 	power_channel = ENVIRON
 	power_rating = 30000	//15 kW ~ 20 HP
 
-/obj/machinery/atmospherics/unary/vent_pump/engine/New()
-	..()
+/obj/machinery/atmospherics/unary/vent_pump/engine/Initialize()
+	. = ..()
 	air_contents.volume = ATMOS_DEFAULT_VOLUME_PUMP + 500 //meant to match air injector
 
 /obj/machinery/atmospherics/unary/vent_pump/update_icon(var/safety = 0)
@@ -140,6 +134,8 @@
 
 	icon_state = vent_icon
 
+	update_underlays()
+
 /obj/machinery/atmospherics/unary/vent_pump/update_underlays()
 	if(..())
 		underlays.Cut()
@@ -155,8 +151,7 @@
 				add_underlay(T,, dir)
 
 /obj/machinery/atmospherics/unary/vent_pump/hide()
-	update_icon()
-	update_underlays()
+	queue_icon_update()
 
 /obj/machinery/atmospherics/unary/vent_pump/proc/can_pump()
 	if(stat & (NOPOWER|BROKEN))
@@ -350,12 +345,12 @@
 	return
 
 /obj/machinery/atmospherics/unary/vent_pump/attackby(obj/item/W, mob/user)
-	if(istype(W, /obj/item/weapon/weldingtool))
+	if(W.iswelder())
 		var/obj/item/weapon/weldingtool/WT = W
 		if (!WT.welding)
-			user << "<span class='danger'>\The [WT] must be turned on!</span>"
+			to_chat(user, "<span class='danger'>\The [WT] must be turned on!</span>")
 		else if (WT.remove_fuel(0,user))
-			user << "<span class='notice'>Now welding the vent.</span>"
+			to_chat(user, "<span class='notice'>Now welding the vent.</span>")
 			if(do_after(user, 20))
 				if(!src || !WT.isOn()) return
 				playsound(src.loc, 'sound/items/Welder2.ogg', 50, 1)
@@ -368,20 +363,20 @@
 					welded = 0
 					update_icon()
 			else
-				user << "<span class='notice'>You fail to complete the welding.</span>"
+				to_chat(user, "<span class='notice'>You fail to complete the welding.</span>")
 		else
-			user << "<span class='warning'>You need more welding fuel to complete this task.</span>"
+			to_chat(user, "<span class='warning'>You need more welding fuel to complete this task.</span>")
 			return 1
 	else
 		..()
 
 /obj/machinery/atmospherics/unary/vent_pump/examine(mob/user)
 	if(..(user, 1))
-		user << "A small gauge in the corner reads [round(last_flow_rate, 0.1)] L/s; [round(last_power_draw)] W"
+		to_chat(user, "A small gauge in the corner reads [round(last_flow_rate, 0.1)] L/s; [round(last_power_draw)] W")
 	else
-		user << "You are too far away to read the gauge."
+		to_chat(user, "You are too far away to read the gauge.")
 	if(welded)
-		user << "It seems welded shut."
+		to_chat(user, "It seems welded shut.")
 
 /obj/machinery/atmospherics/unary/vent_pump/power_change()
 	var/old_stat = stat
@@ -390,23 +385,23 @@
 		update_icon()
 
 /obj/machinery/atmospherics/unary/vent_pump/attackby(var/obj/item/weapon/W as obj, var/mob/user as mob)
-	if (!istype(W, /obj/item/weapon/wrench))
+	if (!W.iswrench())
 		return ..()
 	if (!(stat & NOPOWER) && use_power)
-		user << "<span class='warning'>You cannot unwrench \the [src], turn it off first.</span>"
+		to_chat(user, "<span class='warning'>You cannot unwrench \the [src], turn it off first.</span>")
 		return 1
 	var/turf/T = src.loc
 	if (node && node.level==1 && isturf(T) && !T.is_plating())
-		user << "<span class='warning'>You must remove the plating first.</span>"
+		to_chat(user, "<span class='warning'>You must remove the plating first.</span>")
 		return 1
 	var/datum/gas_mixture/int_air = return_air()
 	var/datum/gas_mixture/env_air = loc.return_air()
 	if ((int_air.return_pressure()-env_air.return_pressure()) > 2*ONE_ATMOSPHERE)
-		user << "<span class='warning'>You cannot unwrench \the [src], it is too exerted due to internal pressure.</span>"
+		to_chat(user, "<span class='warning'>You cannot unwrench \the [src], it is too exerted due to internal pressure.</span>")
 		add_fingerprint(user)
 		return 1
 	playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
-	user << "<span class='notice'>You begin to unfasten \the [src]...</span>"
+	to_chat(user, "<span class='notice'>You begin to unfasten \the [src]...</span>")
 	if (do_after(user, 40))
 		user.visible_message( \
 			"<span class='notice'>\The [user] unfastens \the [src].</span>", \

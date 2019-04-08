@@ -13,9 +13,9 @@
 	var/pocket_size = 2
 	var/pocket_total = null//This will be calculated, unless specifically overidden
 
-/obj/item/clothing/suit/armor/New()
-	..()
-	pockets = new/obj/item/weapon/storage/internal(src)
+/obj/item/clothing/suit/armor/Initialize()
+	. = ..()
+	pockets = new /obj/item/weapon/storage/internal(src)
 	pockets.storage_slots = pocket_slots	//two slots
 	pockets.max_w_class = pocket_size		//fit only pocket sized items
 	if (pocket_total)
@@ -25,8 +25,7 @@
 
 /obj/item/clothing/suit/armor/Destroy()
 	if (pockets)
-		qdel(pockets)
-		pockets = null
+		QDEL_NULL(pockets)
 	return ..()
 
 /obj/item/clothing/suit/armor/attack_hand(mob/user as mob)
@@ -94,19 +93,30 @@
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS|LEGS
 	armor = list(melee = 65, bullet = 30, laser = 50, energy = 10, bomb = 25, bio = 0, rad = 0)
 	pocket_slots = 4//More slots because coat
-	
-/obj/item/clothing/suit/armor/hos/jensen
+
+/obj/item/clothing/suit/storage/toggle/armor/hos/jensen
 	name = "armored trenchcoat"
 	desc = "A trenchcoat augmented with a special alloy for some protection and style."
 	icon_state = "jensencoat"
 	item_state = "jensencoat"
+	icon_open = "jensencoat_open"
+	icon_closed = "jensencoat"
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS|LEGS
+	armor = list(melee = 65, bullet = 30, laser = 50, energy = 10, bomb = 25, bio = 0, rad = 0)
+	allowed = list(/obj/item/weapon/gun/energy,/obj/item/weapon/reagent_containers/spray/pepper,/obj/item/weapon/gun/projectile,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/weapon/melee/baton,/obj/item/weapon/handcuffs,/obj/item/device/flashlight)
+
+/obj/item/clothing/suit/storage/toggle/armor/hos/jensen/Initialize()
+	. = ..()
+	pockets = new/obj/item/weapon/storage/internal(src)
+	pockets.storage_slots = 4
+	pockets.max_w_class = 2
+	pockets.max_storage_space = 8
 
 /obj/item/clothing/suit/armor/riot
 	name = "riot suit"
 	desc = "A suit of armor with heavy padding to protect against melee attacks. Looks like it might impair movement."
 	icon_state = "riot"
 	item_state = "swat_suit"
-	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
 	slowdown = 1
 	armor = list(melee = 80, bullet = 20, laser = 25, energy = 10, bomb = 0, bio = 0, rad = 0)
 	siemens_coefficient = 0.5
@@ -144,10 +154,10 @@
 			// Find a turf near or on the original location to bounce to
 			var/new_x = P.starting.x + pick(0, 0, 0, 0, 0, -1, 1, -2, 2)
 			var/new_y = P.starting.y + pick(0, 0, 0, 0, 0, -1, 1, -2, 2)
-			var/turf/curloc = get_turf(user)
 
 			// redirect the projectile
-			P.redirect(new_x, new_y, curloc, user)
+			P.firer = user
+			P.old_style_target(locate(new_x, new_y, P.z))
 
 			return PROJECTILE_CONTINUE // complete projectile permutation
 
@@ -218,18 +228,18 @@
 		spark(user, 5)
 		playsound(user.loc, "sparks", 50, 1)
 
-		user.loc = picked
+		user.forceMove(picked)
 		return PROJECTILE_FORCE_MISS
 	return 0
 
 /obj/item/clothing/suit/armor/reactive/attack_self(mob/user as mob)
 	src.active = !( src.active )
 	if (src.active)
-		user << "<span class='notice'>The reactive armor is now active.</span>"
+		to_chat(user, "<span class='notice'>The reactive armor is now active.</span>")
 		src.icon_state = "reactive"
 		src.item_state = "reactive"
 	else
-		user << "<span class='notice'>The reactive armor is now inactive.</span>"
+		to_chat(user, "<span class='notice'>The reactive armor is now inactive.</span>")
 		src.icon_state = "reactiveoff"
 		src.item_state = "reactiveoff"
 		src.add_fingerprint(user)
@@ -253,12 +263,13 @@
 	siemens_coefficient = 0.5
 	var/obj/item/clothing/accessory/holster/holster
 
-/obj/item/clothing/suit/armor/tactical/New()
-	..()
+/obj/item/clothing/suit/armor/tactical/Initialize()
+	. = ..()
 	holster = new()
+	holster.icon_state = null
 	holster.on_attached(src)	//its inside a suit, we set  this so it can be drawn from
 	QDEL_NULL(pockets)	//Tactical armour has internal holster instead of pockets, so we null this out
-	overlays.Cut()	// Remove the holster's overlay.
+	cut_overlays()	// Remove the holster's overlay.
 
 /obj/item/clothing/suit/armor/tactical/attackby(obj/item/W as obj, mob/user as mob)
 	..()
@@ -281,17 +292,17 @@
 		if(!holster.holstered)
 			var/obj/item/W = usr.get_active_hand()
 			if(!istype(W, /obj/item))
-				usr << "<span class='warning'>You need your gun equiped to holster it.</span>"
+				to_chat(usr, "<span class='warning'>You need your gun equiped to holster it.</span>")
 				return
 			holster.holster(W, usr)
 		else
-			usr << "<span class='warning'>There's already a gun in the holster, you need an empty hand to draw it.</span>"
+			to_chat(usr, "<span class='warning'>There's already a gun in the holster, you need an empty hand to draw it.</span>")
 			return
 	else
 		if(holster.holstered)
 			holster.unholster(usr)
 		else
-			usr << "<span class='warning'>There's no gun in the holster to draw.</span>"
+			to_chat(usr, "<span class='warning'>There's no gun in the holster to draw.</span>")
 
 
 //Non-hardsuit ERT armor.
@@ -336,8 +347,8 @@
 	allowed = list(/obj/item/weapon/gun,/obj/item/weapon/reagent_containers/spray/pepper,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/weapon/melee/baton,/obj/item/weapon/handcuffs,/obj/item/device/flashlight)
 	siemens_coefficient = 0.5
 
-/obj/item/clothing/suit/storage/vest/New()
-	..()
+/obj/item/clothing/suit/storage/vest/Initialize()
+	. = ..()
 	pockets.storage_slots = 2	//two slots
 
 /obj/item/clothing/suit/storage/vest/officer
@@ -479,8 +490,40 @@
 	icon_state = "ert_peacekeeper"
 	item_state = "ert_peacekeeper"
 
-//warden armor
+//unathi armor
 
+/obj/item/clothing/suit/armor/unathi
+	name = "unathi body armor"
+	desc = "An armored chestplate designated to be worn by an unathi, used commonly by the hegemony levies."
+	icon = 'icons/obj/unathi_items.dmi'
+	icon_state = "unathi_armor"
+	item_state = "unathi_armor"
+	contained_sprite = TRUE
+	species_restricted = list("Unathi")
+	armor = list(melee = 65, bullet = 30, laser = 50, energy = 10, bomb = 25, bio = 0, rad = 0)
+
+/obj/item/clothing/suit/armor/tajara
+	name = "amohdan swordsmen armor"
+	desc = "A suit of armor used by the traditional warriors of Amohhda."
+	icon = 'icons/obj/tajara_items.dmi'
+	icon_state = "amohdan_armor"
+	item_state = "amohdan_armor"
+	contained_sprite = TRUE
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
+	allowed = list(/obj/item/weapon/gun,/obj/item/weapon/material/sword)
+	flags_inv = HIDEJUMPSUIT|HIDETAIL
+	species_restricted = list("Tajara")
+	armor = list(melee = 60, bullet = 50, laser = 20, energy = 10, bomb = 5, bio = 0, rad = 0)
+
+//tau ceti foreign legion armor
+
+/obj/item/clothing/suit/storage/vest/legion
+	name = "foreign legion armored suit"
+	desc = "A set of cheap composite armor with elbow guards, shoulder and knee pads."
+	icon_state = "legion_armor"
+	item_state = "legion_armor"
+	body_parts_covered = UPPER_TORSO | LOWER_TORSO | LEGS | ARMS
+	armor = list(melee = 50, bullet = 30, laser = 30, energy = 15, bomb = 40, bio = 0, rad = 0)
 
 //All of the armor below is mostly unused
 

@@ -45,9 +45,9 @@
 	drop_type = "supermatter"
 
 /obj/machinery/power/supply_beacon/attackby(var/obj/item/weapon/W, var/mob/user)
-	if(!use_power && istype(W, /obj/item/weapon/wrench))
+	if(!use_power && W.iswrench())
 		if(!anchored && !connect_to_network())
-			user << "<span class='warning'>This device must be placed over an exposed cable.</span>"
+			to_chat(user, "<span class='warning'>This device must be placed over an exposed cable.</span>")
 			return
 		anchored = !anchored
 		user.visible_message("<span class='notice'>\The [user] [anchored ? "secures" : "unsecures"] \the [src].</span>")
@@ -59,13 +59,13 @@
 
 	if(expended)
 		use_power = 0
-		user << "<span class='warning'>\The [src] has used up its charge.</span>"
+		to_chat(user, "<span class='warning'>\The [src] has used up its charge.</span>")
 		return
 
 	if(anchored)
 		return use_power ? deactivate(user) : activate(user)
 	else
-		user << "<span class='warning'>You need to secure the beacon with a wrench first!</span>"
+		to_chat(user, "<span class='warning'>You need to secure the beacon with a wrench first!</span>")
 		return
 
 /obj/machinery/power/supply_beacon/attack_ai(var/mob/user)
@@ -76,12 +76,12 @@
 	if(expended)
 		return
 	if(surplus() < 500)
-		if(user) user << "<span class='notice'>The connected wire doesn't have enough current.</span>"
+		if(user) to_chat(user, "<span class='notice'>The connected wire doesn't have enough current.</span>")
 		return
 	set_light(3, 3, "#00CCAA")
 	icon_state = "beacon_active"
 	use_power = 1
-	if(user) user << "<span class='notice'>You activate the beacon. The supply drop will be dispatched soon.</span>"
+	if(user) to_chat(user, "<span class='notice'>You activate the beacon. The supply drop will be dispatched soon.</span>")
 
 /obj/machinery/power/supply_beacon/proc/deactivate(var/mob/user, var/permanent)
 	if(permanent)
@@ -92,7 +92,7 @@
 	set_light(0)
 	use_power = 0
 	target_drop_time = null
-	if(user) user << "<span class='notice'>You deactivate the beacon.</span>"
+	if(user) to_chat(user, "<span class='notice'>You deactivate the beacon.</span>")
 
 /obj/machinery/power/supply_beacon/Destroy()
 	if(use_power)
@@ -114,6 +114,6 @@
 		var/drop_x = src.x-2
 		var/drop_y = src.y-2
 		var/drop_z = src.z
-		command_announcement.Announce("Tau Ceti Rapid Fabrication priority supply request #[rand(1000,9999)]-[rand(100,999)] recieved. Shipment dispatched via ballistic supply pod for immediate delivery. Have a nice day.", "Thank You For Your Patronage")
+		command_announcement.Announce("Tau Ceti Rapid Fabrication priority supply request #[rand(1000,9999)]-[rand(100,999)] received. Shipment dispatched via ballistic supply pod for immediate delivery. Have a nice day.", "Thank You For Your Patronage")
 		spawn(rand(100,300))
 			new /datum/random_map/droppod/supply(null, drop_x, drop_y, drop_z, supplied_drop = drop_type) // Splat.

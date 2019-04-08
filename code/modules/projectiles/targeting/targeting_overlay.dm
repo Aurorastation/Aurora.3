@@ -7,6 +7,7 @@
 	density = 0
 	opacity = 0
 	layer = FLY_LAYER
+	appearance_flags = NO_CLIENT_COLOR
 	simulated = 0
 	mouse_opacity = 0
 
@@ -17,7 +18,7 @@
 	var/lock_time = 0          // When -will- we lock on?
 	var/active =    0          // Is our owner intending to take hostages?
 	var/target_permissions = 0 // Permission bitflags.
-
+	var/aimcooldown			   // How long untill we can re-aim?
 /obj/aiming_overlay/New(var/newowner)
 	..()
 	owner = newowner
@@ -72,9 +73,10 @@
 		else
 			return
 
-	owner << "<span class='[use_span]'>[aiming_at ? "\The [aiming_at] is" : "Your targets are"] [message].</span>"
+	var/a_certain_scientific_railgun = (aiming_at ? "\The [aiming_at] is" : "Your targets are")
+	to_chat(owner, "<span class='[use_span]'> [a_certain_scientific_railgun] [message].</span>")
 	if(aiming_at)
-		aiming_at << "<span class='[use_span]'>You are [message].</span>"
+		to_chat(aiming_at, "<span class='[use_span]'>You are [message].</span>")
 
 /obj/aiming_overlay/process()
 	if(!owner)
@@ -110,15 +112,15 @@ obj/aiming_overlay/proc/update_aiming_deferred()
 	var/cancel_aim = 1
 
 	if(!(aiming_with in owner) || (istype(owner, /mob/living/carbon/human) && (owner.l_hand != aiming_with && owner.r_hand != aiming_with)))
-		owner << "<span class='warning'>You must keep hold of your weapon!</span>"
+		to_chat(owner, "<span class='warning'>You must keep hold of your weapon!</span>")
 	else if(!aiming_at || !istype(aiming_at.loc, /turf))
-		owner << "<span class='warning'>You have lost sight of your target!</span>"
+		to_chat(owner, "<span class='warning'>You have lost sight of your target!</span>")
 	else if(owner.incapacitated() || owner.lying || owner.restrained())
-		owner << "<span class='warning'>You must be conscious and standing to keep track of your target!</span>"
+		to_chat(owner, "<span class='warning'>You must be conscious and standing to keep track of your target!</span>")
 	else if(aiming_at.alpha == 0 || (aiming_at.invisibility > owner.see_invisible))
-		owner << "<span class='warning'>Your target has become invisible!</span>"
+		to_chat(owner, "<span class='warning'>Your target has become invisible!</span>")
 	else if(!(aiming_at in view(owner)))
-		owner << "<span class='warning'>Your target is too far away to track!</span>"
+		to_chat(owner, "<span class='warning'>Your target is too far away to track!</span>")
 	else
 		cancel_aim = 0
 
@@ -133,18 +135,20 @@ obj/aiming_overlay/proc/update_aiming_deferred()
 			owner.set_dir(get_dir(get_turf(owner), get_turf(src)))
 
 /obj/aiming_overlay/proc/aim_at(var/mob/target, var/obj/thing)
+	if (aimcooldown > world.time)
+		return
 
 	if(!owner)
 		return
 
 	if(owner.incapacitated())
-		owner << "<span class='warning'>You cannot aim a gun in your current state.</span>"
+		to_chat(owner, "<span class='warning'>You cannot aim a gun in your current state.</span>")
 		return
 	if(owner.lying)
-		owner << "<span class='warning'>You cannot aim a gun while prone.</span>"
+		to_chat(owner, "<span class='warning'>You cannot aim a gun while prone.</span>")
 		return
 	if(owner.restrained())
-		owner << "<span class='warning'>You cannot aim a gun while handcuffed.</span>"
+		to_chat(owner, "<span class='warning'>You cannot aim a gun while handcuffed.</span>")
 		return
 
 	if(aiming_at)
@@ -157,14 +161,16 @@ obj/aiming_overlay/proc/update_aiming_deferred()
 
 	if(owner.client)
 		owner.client.add_gun_icons()
-	target << "<span class='danger'>You now have a gun pointed at you. No sudden moves!</span>"
+	to_chat(target, "<span class='danger'>You now have a gun pointed at you. No sudden moves!</span>")
 	aiming_with = thing
 	aiming_at = target
 	if(istype(aiming_with, /obj/item/weapon/gun))
 		playsound(get_turf(owner), 'sound/weapons/TargetOn.ogg', 50,1)
 
+	admin_attack_log(owner, aiming_at, "\The [owner] is aiming at \the [aiming_at] with \the [aiming_with].", "\The [owner] is aiming at \the [aiming_at] with \the [aiming_with].", "\The [owner] is aiming at \the [aiming_at] with \the [aiming_with].")
+
 	forceMove(get_turf(target))
-	processing_objects |= src
+	START_PROCESSING(SSprocessing, src)
 
 	aiming_at.aimed |= src
 	toggle_active(1)
@@ -174,6 +180,9 @@ obj/aiming_overlay/proc/update_aiming_deferred()
 	moved_event.register(owner, src, /obj/aiming_overlay/proc/update_aiming)
 	moved_event.register(aiming_at, src, /obj/aiming_overlay/proc/target_moved)
 	destroyed_event.register(aiming_at, src, /obj/aiming_overlay/proc/cancel_aiming)
+
+/obj/aiming_overlay/proc/aim_cooldown(var/seconds)
+	aimcooldown = world.time + seconds SECONDS
 
 /obj/aiming_overlay/update_icon()
 	if(locked)
@@ -194,15 +203,16 @@ obj/aiming_overlay/proc/update_aiming_deferred()
 
 	if(owner.client)
 		if(active)
-			owner << "<span class='notice'>You will now aim rather than fire.</span>"
+			to_chat(owner, "<span class='notice'>You will now aim rather than fire.</span>")
 			owner.client.add_gun_icons()
 		else
-			owner << "<span class='notice'>You will no longer aim rather than fire.</span>"
+			to_chat(owner, "<span class='notice'>You will no longer aim rather than fire.</span>")
 			owner.client.remove_gun_icons()
 
 /obj/aiming_overlay/proc/cancel_aiming(var/no_message = 0)
 	if(!aiming_with || !aiming_at)
 		return
+	admin_attack_log(owner, aiming_at, "\The [owner] is no longer aiming at \the [aiming_at] with \the [aiming_with].", "\The [owner] is no longer aiming at \the [aiming_at] with \the [aiming_with].", "\The [owner] is no longer aiming at \the [aiming_at] with \the [aiming_with].")
 	if(istype(aiming_with, /obj/item/weapon/gun))
 		playsound(get_turf(owner), 'sound/weapons/TargetOff.ogg', 50,1)
 	if(!no_message)
@@ -217,8 +227,9 @@ obj/aiming_overlay/proc/update_aiming_deferred()
 
 	aiming_with = null
 	loc = null
-	processing_objects -= src
+	STOP_PROCESSING(SSprocessing, src)
 
 /obj/aiming_overlay/proc/target_moved()
 	update_aiming()
 	trigger(TARGET_CAN_MOVE)
+

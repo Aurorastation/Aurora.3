@@ -16,6 +16,10 @@
 		if(M.has_brain_worms())
 			return //Borer stuff - RR
 
+		if(istype(M, /mob/living/carbon/human/apparition))
+			visible_message("<span class='caution'>\The [src] doesn't seem to affect [M] in any way.</span>")
+			return
+
 		if(istype(M, /mob/living/silicon/robot))
 			var/mob/living/silicon/robot/Robot = M
 			if(Robot.mmi)
@@ -73,7 +77,7 @@
 				H.name += " [pick(last_names)]"
 				H.real_name = H.name
 
-				H.set_species(randomize)
+				addtimer(CALLBACK(H, /mob/living/carbon/human.proc/set_species, randomize), 0)
 				H.universal_speak = 1
 				var/datum/preferences/A = new() //Randomize appearance for the human
 				A.randomize_appearance_for(H)
@@ -88,10 +92,10 @@
 			else
 				new_mob.key = M.key
 
-			new_mob << "<span class='warning'>Your form morphs into that of \a [lowertext(randomize)].</span>"
+			to_chat(new_mob, "<span class='warning'>Your form morphs into that of \a [lowertext(randomize)].</span>")
 
 			qdel(M)
 			return
 		else
-			M << "<span class='warning'>Your form morphs into that of \a [lowertext(randomize)].</span>"
+			to_chat(M, "<span class='warning'>Your form morphs into that of \a [lowertext(randomize)].</span>")
 			return

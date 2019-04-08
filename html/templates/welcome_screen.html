@@ -6,18 +6,23 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<!-- Bootstrap -->
 		<link href="bootstrap.min.css" rel="stylesheet" media="screen">
-        <style media="screen">
-            .nav-tabs>li.updated>a, .nav-tabs>li.updated>a:hover, .nav-tabs>li.updated>a:focus {
-                background-color: #fcf8e3;
-            }
-        </style>
+		<style media="screen">
+			.nav-tabs>li.updated>a, .nav-tabs>li.updated>a:hover, .nav-tabs>li.updated>a:focus {
+				background-color: #fcf8e3;
+			}
+
+			.hiddenRow {
+				padding: 0 !important;
+			}
+		</style>
 	</head>
 	<body>
 		<div class="container-fluid">
 			<nav>
-				<ul class="nav nav-tabs" id="myTab" role="tablist">
+				<ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
 					<li role="presentation" class="active" id="home-tab"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Home</a></li>
 					<li role="presentation" id="motd-tab"><a href="#motd" aria-controls="motd" role="tab" data-toggle="tab">Announcements</a></li>
+					<li role="presentation" id="testmerges-tab"><a href="#testmerges" aria-controls="testmerges" role="tab" data-toggle="tab">Test Merges</a></li>
 					<li role="presentation" id="memo-tab"><a href="#memo" aria-controls="memo" role="tab" data-toggle="tab">Staff Memos</a></li>
 					<li role="presentation" id="note-tab"><a href="#note" aria-controls="note" role="tab" data-toggle="tab">Notifications</a></li>
 					<li role="presentation"><a href="#webint">My Profile</a></li>
@@ -31,22 +36,23 @@
 							<h1>Welcome to Aurorastation!</h1>
 						</center>
 						<p>
-							Aurorastation is a SS13 heavy roleplay server with antagonists enabled, that's been running since 2013. We utilize a customized build of the Baystation12 codebase, which can be found <a href="?JSlink=github">here, on Github.</a>
+							Aurorastation is a SS13 heavy roleplay server with antagonists enabled that has been running since 2013. We utilize a customized build of the Baystation12 codebase, which can be found <a href="?JSlink=github">here, on Github.</a>
 						</p>
 						<p>
-							New players should take care to read <a href="?JSlink=rules">the rules.</a> Specially if you're new to roleplay. Should any questions arise, you are expected to adminhelp (F1) them and ask!
+							New players should take care to read <a href="?JSlink=rules">the rules,</a> especially if you're new to roleplay. Should any questions arise, you are expected to adminhelp (F1) them and ask!
 						</p>
 						<p>
 							Further information about the server can be found at the following places:
 							<br>
 							<ul>
 								<li><a href="?JSlink=forums">The forums</a> - For whitelist applications, announcements, general discussion, etcetera.</li>
-								<li><a href="?JSlink=wiki">The wiki</a> - Primarily for lore reference, and gameplay guides. Note that the Baystation12 wiki linked there can be referenced for general mechanics.</li>
+								<li><a href="?JSlink=wiki">The wiki</a> - Primarily for lore reference, and gameplay guides.</li>
 								<li><a href="?JSlink=webint">The web-interface</a> - A custom website which adds additional functionality to the game. Anything from syndicate contracts, to reviewing your whitelists, bans, etcetera.</li>
 							</ul>
 						</p>
 					</div>
 					<div role="tabpanel" class="tab-pane" id="motd"><div class="row"></div></div>
+					<div role="tabpanel" class="tab-pane" id="testmerges"></div>
 					<div role="tabpanel" class="tab-pane" id="memo"></div>
 					<div role="tabpanel" class="tab-pane" id="note"><div class="alert alert-info" id="note-placeholder">You do not have any notifications to show.</div></div>
 				</div>
@@ -163,10 +169,14 @@
 				window.location = command;
 			});
 
+
 			// Operations before closing.
 			$(window).unload(function() {
-				window.location = '?JSlink=updateHashes;' + jQuery.param(hashesToUpdate);
+				try {
+					window.location = '?JSlink=updateHashes;' + jQuery.param(hashesToUpdate);
+				} catch (e) { }
 			});
+
 
 			var edat = getCookie('E-DAT');
 			if (!edat)

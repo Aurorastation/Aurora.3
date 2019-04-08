@@ -1,6 +1,7 @@
 #define LIGHTING_INTERVAL       1     // Frequency, in 1/10ths of a second, of the lighting process.
 
 #define LIGHTING_HEIGHT         1 // height off the ground of light sources on the pseudo-z-axis, you should probably leave this alone
+#define LIGHTING_Z_FACTOR       10 // Z diff is multiplied by this and LIGHTING_HEIGHT to get the final height of a light source. Affects how much darker A Z light gets with each level transitioned.
 #define LIGHTING_ROUND_VALUE    1 / 200 //Value used to round lumcounts, values smaller than 1/255 don't matter (if they do, thanks sinking points), greater values will make lighting less precise, but in turn increase performance, VERY SLIGHTLY.
 
 #define LIGHTING_ICON 'icons/effects/lighting_overlay.dmi' // icon used for lighting shading effects
@@ -10,6 +11,17 @@
 #define LIGHTING_TRANSPARENT_ICON_STATE "blank"
 
 #define LIGHTING_SOFT_THRESHOLD 0.001 // If the max of the lighting lumcounts of each spectrum drops below this, disable luminosity on the lighting overlays.
+#define LIGHTING_BLOCKED_FACTOR 0.5	// How much the range of a directional light will be reduced while facing a wall.
+
+// If defined, instant updates will be used whenever server load permits. Otherwise queued updates are always used.
+#define USE_INTELLIGENT_LIGHTING_UPDATES
+
+// If defined, lighting corners will 'bleed' luminosity to corners above them to simulate cross-Z lighting upwards. Downwards Z-lighting will continue to work with this disabled.
+#define USE_CORNER_ZBLEED
+
+#define TURF_IS_DYNAMICALLY_LIT(T) (isturf(T) && T:dynamic_lighting && T:loc:dynamic_lighting)
+// mostly identical to above, but doesn't make sure T is valid first. Should only be used by lighting code.
+#define TURF_IS_DYNAMICALLY_LIT_UNSAFE(T) (T:dynamic_lighting && T:loc:dynamic_lighting)
 
 // If I were you I'd leave this alone.
 #define LIGHTING_BASE_MATRIX \
@@ -68,19 +80,25 @@
 #define LIGHT_COLOR_BROWN      "#966432" //Clear brown, mostly dim. rgb(150, 100, 50)
 #define LIGHT_COLOR_ORANGE     "#FA9632" //Mostly pure orange. rgb(250, 150, 50)
 #define LIGHT_COLOR_PURPLE     "#A97FAA" //Soft purple. rgb(169, 127, 170)
+#define LIGHT_COLOR_VIOLET     "#B43CB8" //Deep purple. rgb(180, 60, 184)
+#define LIGHT_COLOR_SCARLET    "#E85656" //Light red. rgb(232, 86, 86)
 
 //These ones aren't a direct colour like the ones above, because nothing would fit
 #define LIGHT_COLOR_FIRE       "#FAA019" //Warm orange color, leaning strongly towards yellow. rgb(250, 160, 25)
+#define LIGHT_COLOR_LAVA       "#C48A18" //Very warm yellow, leaning slightly towards orange. rgb(196, 138, 24)
 #define LIGHT_COLOR_FLARE      "#FA644B" //Bright, non-saturated red. Leaning slightly towards pink for visibility. rgb(250, 100, 75)
 #define LIGHT_COLOR_SLIME_LAMP "#AFC84B" //Weird color, between yellow and green, very slimy. rgb(175, 200, 75)
 #define LIGHT_COLOR_TUNGSTEN   "#FAE1AF" //Extremely diluted yellow, close to skin color (for some reason). rgb(250, 225, 175)
 #define LIGHT_COLOR_HALOGEN    "#F0FAFA" //Barely visible cyan-ish hue, as the doctor prescribed. rgb(240, 250, 250)
+#define LIGHT_COLOR_EMERGENCY  "#FF3232" //Red color used by emergency lighting. rgb(255, 50, 50)
 
 //Defines for lighting status, see power/lighting.dm
 #define LIGHT_OK     0
 #define LIGHT_EMPTY  1
 #define LIGHT_BROKEN 2
 #define LIGHT_BURNED 3
+
+#define LIGHT_EMERGENCY_POWER_USE 0.2 //How much power emergency lights will consume per tick
 
 // Some angle presets for directional lighting.
 #define LIGHT_OMNI null
@@ -106,3 +124,18 @@
 
 // Just so we can avoid unneeded proc calls when profiling is disabled.
 #define L_PROF(O,T) if (lighting_profiling) {lprof_write(O,T);}
+
+// -- Ambient Occlusion --
+
+// Not handled by the lighting engine, but related. Controls the alpha of the ambient occlusion effect on opaque atoms and openturfs.
+#define WALL_AO_ALPHA 80
+
+#define AO_UPDATE_NONE 0
+#define AO_UPDATE_OVERLAY 1
+#define AO_UPDATE_REBUILD 2
+
+// If ao_neighbors equals this, no AO shadows are present.
+#define AO_ALL_NEIGHBORS 1910
+
+// If defined, integrate with the lighting engine and use its opacity value. Otherwise a simple turf opacity check is used. This may cause visual artifacts with opaque non-square movables.
+//#define AO_USE_LIGHTING_OPACITY

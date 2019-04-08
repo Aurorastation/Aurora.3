@@ -5,6 +5,8 @@
 /area
 	// Turrets use this list to see if individual power/lethal settings are allowed
 	var/list/turret_controls = list()
+	var/list/turrets
+
 
 /obj/machinery/turretid
 	name = "turret control panel"
@@ -16,6 +18,7 @@
 	var/enabled = 0
 	var/lethal = 0
 	var/locked = 1
+	var/egun = 1 //if the control panel can switch lethal and stun modes
 	var/area/control_area //can be area name, path or nothing.
 
 	var/check_arrest = 1	//checks if the perp is set to arrest
@@ -27,6 +30,8 @@
 	var/ailock = 0 	//Silicons cannot use this
 
 	req_access = list(access_ai_upload)
+
+	 // list of turrets under control
 
 /obj/machinery/turretid/stun
 	enabled = 1
@@ -44,7 +49,7 @@
 			A.turret_controls -= src
 	return ..()
 
-/obj/machinery/turretid/Initialize()
+/obj/machinery/turretid/Initialize(mapload)
 	. = ..()
 	if(!control_area)
 		control_area = get_area(src)
@@ -61,15 +66,23 @@
 		else
 			control_area = null
 
-	power_change() //Checks power and initial settings
+	if (!mapload)
+		power_change() //Checks power and initial settings
+		turretModes()
+	else
+		return INITIALIZE_HINT_LATELOAD
+
+/obj/machinery/turretid/LateInitialize()
+	power_change()
+	turretModes()
 
 /obj/machinery/turretid/proc/isLocked(mob/user)
 	if(ailock && issilicon(user))
-		user << "<span class='notice'>There seems to be a firewall preventing you from accessing this device.</span>"
+		to_chat(user, "<span class='notice'>There seems to be a firewall preventing you from accessing this device.</span>")
 		return 1
 
 	if(locked && !issilicon(user))
-		user << "<span class='notice'>Access denied.</span>"
+		to_chat(user, "<span class='notice'>Access denied.</span>")
 		return 1
 
 	return 0
@@ -87,16 +100,16 @@
 	if(istype(W, /obj/item/weapon/card/id)||istype(W, /obj/item/device/pda))
 		if(src.allowed(usr))
 			if(emagged)
-				user << "<span class='notice'>The turret control is unresponsive.</span>"
+				to_chat(user, "<span class='notice'>The turret control is unresponsive.</span>")
 			else
 				locked = !locked
-				user << "<span class='notice'>You [ locked ? "lock" : "unlock"] the panel.</span>"
+				to_chat(user, "<span class='notice'>You [ locked ? "lock" : "unlock"] the panel.</span>")
 		return
 	return ..()
 
 /obj/machinery/turretid/emag_act(var/remaining_charges, var/mob/user)
 	if(!emagged)
-		user << "<span class='danger'>You short out the turret controls' access analysis module.</span>"
+		to_chat(user, "<span class='danger'>You short out the turret controls' access analysis module.</span>")
 		emagged = 1
 		locked = 0
 		ailock = 0
@@ -121,6 +134,7 @@
 	data["enabled"] = enabled
 	data["is_lethal"] = 1
 	data["lethal"] = lethal
+	data["can_switch"] = egun
 
 	if(data["access"])
 		var/settings[0]
@@ -163,9 +177,21 @@
 			check_anomalies = value
 
 		updateTurrets()
+		update_icon()
 		return 1
 
 /obj/machinery/turretid/proc/updateTurrets()
+	var/datum/turret_checks/TC = getState()
+	if(istype(control_area))
+		for (var/obj/machinery/porta_turret/aTurret in control_area.turrets)
+			if (aTurret.lethal == lethal || aTurret.egun)
+				TC.enabled = enabled
+				aTurret.setState(TC)
+			else
+				TC.enabled = 0
+				aTurret.setState(TC)
+
+/obj/machinery/turretid/proc/getState()
 	var/datum/turret_checks/TC = new
 	TC.enabled = enabled
 	TC.lethal = lethal
@@ -177,10 +203,27 @@
 	TC.check_anomalies = check_anomalies
 	TC.ailock = ailock
 
-	if(istype(control_area))
-		for (var/obj/machinery/porta_turret/aTurret in control_area)
-			aTurret.setState(TC)
+	return TC
 
+/obj/machinery/turretid/proc/turretModes()
+	if (!istype(control_area))
+		return
+	var/one_mode = 0 // Is there general one mode only turret
+	var/both_mode = 0 // Is there both mode turrets
+	for (var/obj/machinery/porta_turret/aTurret in control_area.turrets)
+		// If turret only has lethal mode - lock switching modes
+		if(!aTurret.egun)
+			one_mode = 1
+			egun = 0
+		else
+			both_mode = 1
+	// If there is a turret with lethal mode only, and turret with both modes. Disable turrets with lethality that is not same as current control setting.
+	if(both_mode && one_mode)
+		egun = 1
+	else if (LAZYLEN(control_area.turrets)) // If we just have turrets with one mode, ensure that panel's lethal variable is same as Turrets.
+		var/obj/machinery/porta_turret/aTurret = control_area.turrets[1]
+		lethal = aTurret.lethal
+		updateTurrets()
 	update_icon()
 
 /obj/machinery/turretid/power_change()

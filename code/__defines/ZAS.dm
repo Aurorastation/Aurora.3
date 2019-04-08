@@ -7,6 +7,7 @@
 #define BLOCKED 3
 
 #define ZONE_MIN_SIZE 14 //zones with less than this many turfs will always merge, even if the connection is not direct
+#define EDGE_KNOCKDOWN_MAX_DISTANCE 16	// Maximum distance between an airflow origin and a movable before knockdown no longer applies.
 
 #define CANPASS_ALWAYS 1
 #define CANPASS_DENSITY 2
@@ -16,6 +17,10 @@
 #define TURF_HAS_VALID_ZONE(T) (istype(T, /turf/simulated) && T:zone && !T:zone:invalid)
 
 #ifdef MULTIZAS
+
+var/list/csrfz_check = list(NORTHEAST, NORTHWEST, SOUTHEAST, SOUTHWEST, NORTHUP, EASTUP, WESTUP, SOUTHUP, NORTHDOWN, EASTDOWN, WESTDOWN, SOUTHDOWN)
+var/list/gzn_check = list(NORTH, SOUTH, EAST, WEST, UP, DOWN)
+
 #define ATMOS_CANPASS_TURF(ret,A,B) \
 	if (A.blocks_air & AIR_BLOCKED || B.blocks_air & AIR_BLOCKED) { \
 		ret = BLOCKED; \
@@ -65,6 +70,9 @@
 		}\
 	}
 #else
+
+var/list/csrfz_check = list(NORTHEAST, NORTHWEST, SOUTHEAST, SOUTHWEST)
+var/list/gzn_check = list(NORTH, SOUTH, EAST, WEST)
 
 #define ATMOS_CANPASS_TURF(ret,A,B) \
 	if (A.blocks_air & AIR_BLOCKED || B.blocks_air & AIR_BLOCKED) { \

@@ -156,7 +156,7 @@ var/global/list/default_medbay_channels = list(
 	var/obj/item/weapon/card/id/I = GetIdCard()
 	return has_access(list(), req_one_accesses, I ? I.GetAccess() : list())
 
-/mob/dead/observer/has_internal_radio_channel_access(var/list/req_one_accesses)
+/mob/abstract/observer/has_internal_radio_channel_access(var/list/req_one_accesses)
 	return can_admin_interact()
 
 /obj/item/device/radio/proc/text_wires()
@@ -232,7 +232,6 @@ var/global/list/default_medbay_channels = list(
 	var/datum/radio_frequency/connection = null
 	if(channel && channels && channels.len > 0)
 		if (channel == "department")
-			//world << "DEBUG: channel=\"[channel]\" switching to \"[channels[1]]\""
 			channel = channels[1]
 		connection = secure_radio_connections[channel]
 	else
@@ -290,7 +289,7 @@ var/global/list/default_medbay_channels = list(
 		actually transmit large mass. Headsets are the only radio devices capable
 		of sending subspace transmissions to the Communications Satellite.
 
-		A headset sends a signal to a subspace listener/reciever elsewhere in space,
+		A headset sends a signal to a subspace listener/receiver elsewhere in space,
 		the signal gets processed and logged, and an audible transmission gets sent
 		to each individual headset.
 	*/
@@ -512,7 +511,7 @@ var/global/list/default_medbay_channels = list(
 			return -1
 	if (!on)
 		return -1
-	if (!freq) //recieved on main frequency
+	if (!freq) //received on main frequency
 		if (!listening)
 			return -1
 	else
@@ -546,7 +545,7 @@ var/global/list/default_medbay_channels = list(
 /obj/item/device/radio/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	..()
 	user.set_machine(src)
-	if (!( istype(W, /obj/item/weapon/screwdriver) ))
+	if (!( W.isscrewdriver() ))
 		return
 	b_stat = !( b_stat )
 	if(!istype(src, /obj/item/device/radio/beacon))
@@ -599,10 +598,10 @@ var/global/list/default_medbay_channels = list(
 /obj/item/device/radio/borg/attackby(obj/item/weapon/W as obj, mob/user as mob)
 //	..()
 	user.set_machine(src)
-	if (!( istype(W, /obj/item/weapon/screwdriver) || (istype(W, /obj/item/device/encryptionkey/ ))))
+	if (!( W.isscrewdriver() || (istype(W, /obj/item/device/encryptionkey/ ))))
 		return
 
-	if(istype(W, /obj/item/weapon/screwdriver))
+	if(W.isscrewdriver())
 		if(keyslot)
 
 
@@ -614,23 +613,22 @@ var/global/list/default_medbay_channels = list(
 			if(keyslot)
 				var/turf/T = get_turf(user)
 				if(T)
-					keyslot.loc = T
+					keyslot.forceMove(T)
 					keyslot = null
 
 			recalculateChannels()
-			user << "You pop out the encryption key in the radio!"
+			to_chat(user, "You pop out the encryption key in the radio!")
 
 		else
-			user << "This radio doesn't have any encryption keys!"
+			to_chat(user, "This radio doesn't have any encryption keys!")
 
 	if(istype(W, /obj/item/device/encryptionkey/))
 		if(keyslot)
-			user << "The radio can't hold another key!"
+			to_chat(user, "The radio can't hold another key!")
 			return
 
 		if(!keyslot)
-			user.drop_item()
-			W.loc = src
+			user.drop_from_inventory(W,src)
 			keyslot = W
 
 		recalculateChannels()
@@ -677,9 +675,9 @@ var/global/list/default_medbay_channels = list(
 		if(enable_subspace_transmission != subspace_transmission)
 			subspace_transmission = !subspace_transmission
 			if(subspace_transmission)
-				usr << "<span class='notice'>Subspace Transmission is enabled</span>"
+				to_chat(usr, "<span class='notice'>Subspace Transmission is enabled</span>")
 			else
-				usr << "<span class='notice'>Subspace Transmission is disabled</span>"
+				to_chat(usr, "<span class='notice'>Subspace Transmission is disabled</span>")
 
 			if(subspace_transmission == 0)//Simple as fuck, clears the channel list to prevent talking/listening over them if subspace transmission is disabled
 				channels = list()
@@ -692,10 +690,10 @@ var/global/list/default_medbay_channels = list(
 			shut_up = !shut_up
 			if(shut_up)
 				canhear_range = 0
-				usr << "<span class='notice'>Loadspeaker disabled.</span>"
+				to_chat(usr, "<span class='notice'>Loadspeaker disabled.</span>")
 			else
 				canhear_range = 3
-				usr << "<span class='notice'>Loadspeaker enabled.</span>"
+				to_chat(usr, "<span class='notice'>Loadspeaker enabled.</span>")
 		. = 1
 
 	if(.)

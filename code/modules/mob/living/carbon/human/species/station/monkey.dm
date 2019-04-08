@@ -33,6 +33,8 @@
 	brute_mod = 1.5
 	burn_mod = 1.5
 	fall_mod = 0.5
+	grab_mod = 2
+	natural_climbing = 1
 
 	spawn_flags = IS_RESTRICTED
 
@@ -68,6 +70,8 @@
 	base_color = "#333333"
 	tail = "farwatail"
 	holder_type = /obj/item/weapon/holder/monkey/farwa
+
+	move_trail = /obj/effect/decal/cleanable/blood/tracks/paw
 
 /datum/species/monkey/tajaran/get_random_name()
 	return "farwa ([rand(100,999)])" // HACK HACK HACK, oh lords of coding please forgive me!
@@ -113,6 +117,8 @@
 	reagent_tag = IS_UNATHI
 	holder_type = /obj/item/weapon/holder/monkey/stok
 	fall_mod = 0.75
+
+	move_trail = /obj/effect/decal/cleanable/blood/tracks/claw
 
 /datum/species/monkey/bug
 	name = "V'krexi"

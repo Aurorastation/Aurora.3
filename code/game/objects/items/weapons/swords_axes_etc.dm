@@ -4,13 +4,6 @@
  *		Classic Baton
  */
 
-/*
- * Banhammer
- */
-/obj/item/weapon/banhammer/attack(mob/M as mob, mob/user as mob)
-	M << "<font color='red'><b> You have been banned FOR NO REISIN by [user]</b></font>"
-	user << "<font color='red'> You have <b>BANNED</b> [M]</font>"
-	playsound(loc, 'sound/effects/adminhelp.ogg', 15)
 
 /*
  * Classic Baton
@@ -26,7 +19,7 @@
 
 /obj/item/weapon/melee/classic_baton/attack(mob/M as mob, mob/living/user as mob, var/target_zone)
 	if ((CLUMSY in user.mutations) && prob(50))
-		user << "<span class='warning'>You club yourself over the head.</span>"
+		to_chat(user, "<span class='warning'>You club yourself over the head.</span>")
 		user.Weaken(3 * force)
 		if(ishuman(user))
 			var/mob/living/carbon/human/H = user
@@ -93,7 +86,7 @@
 /obj/item/weapon/melee/telebaton/attack(mob/target as mob, mob/living/user as mob, var/target_zone)
 	if(on)
 		if ((CLUMSY in user.mutations) && prob(50))
-			user << "<span class='warning'>You club yourself over the head.</span>"
+			to_chat(user, "<span class='warning'>You club yourself over the head.</span>")
 			user.Weaken(3 * force)
 			if(ishuman(user))
 				var/mob/living/carbon/human/H = user
@@ -102,9 +95,12 @@
 				user.take_organ_damage(2*force)
 			return
 		if(..() == 1)
-			playsound(src.loc, "swing_hit", 50, 1, -1)
-			if(target_zone == "r_leg" || target_zone == "l_leg")
-				target.Weaken(5) //nerfed, because yes.
-			return
+			if(user.a_intent == I_DISARM)
+				if(ishuman(target))
+					var/mob/living/carbon/human/T = target
+					var/armor = T.run_armor_check(target_zone,"melee")
+
+					T.apply_damage(40, HALLOSS, target_zone, armor)
+		return
 	else
 		return ..()

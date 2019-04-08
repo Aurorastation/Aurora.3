@@ -3,12 +3,20 @@
 	endWhen 		= 900
 
 	var/list/spawned_carp = list()
-	var/list/spawned_dweller = list()
+
+	var/list/despawn_turfs = list(
+		/turf/space,
+		/turf/simulated/floor/asteroid,
+		/turf/simulated/open,
+		/turf/simulated/floor/reinforced/airless	// Station roof.
+	)
+
 	ic_name = "biological entities"
 
 /datum/event/carp_migration/setup()
 	announceWhen = rand(40, 60)
 	endWhen = rand(600,1200)
+	despawn_turfs = typecacheof(despawn_turfs)
 
 /datum/event/carp_migration/announce()
 	var/announcement = ""
@@ -30,6 +38,7 @@
 		spawn_fish(rand(1, 3), 1, 2)	//1 to 6 carp, alone or in pairs
 
 /datum/event/carp_migration/proc/spawn_fish(var/num_groups, var/group_size_min=3, var/group_size_max=5)
+	set waitfor = FALSE
 	var/list/spawn_locations = list()
 
 	for(var/obj/effect/landmark/C in landmarks_list)
@@ -44,13 +53,16 @@
 		for (var/j = 1, j <= group_size, j++)
 			if(prob(99))
 				var/mob/living/simple_animal/hostile/carp/carp = new(spawn_locations[i])
-				spawned_carp += SOFTREF(carp)
+				spawned_carp += WEAKREF(carp)
 			else
 				var/mob/living/simple_animal/hostile/carp/shark/carp = new(spawn_locations[i])
-				spawned_carp += SOFTREF(carp)
+				spawned_carp += WEAKREF(carp)
+
+			CHECK_TICK
 		i++
 
 /datum/event/carp_migration/proc/spawn_caverndweller(var/num_groups, var/group_size_min=2, var/group_size_max=3)
+	set waitfor = FALSE
 	var/list/spawn_locations = list()
 
 	for(var/obj/effect/landmark/C in landmarks_list)
@@ -62,13 +74,14 @@
 	var/i = 1
 	while (i <= num_groups)
 		var/group_size = rand(group_size_min, group_size_max)
-		for (var/j = 1, j <= group_size, j++)
-			var/mob/living/simple_animal/hostile/retaliate/cavern_dweller/dweller = new(spawn_locations[i])
-			spawned_dweller += SOFTREF(dweller)
+		for (var/j in 1 to group_size)
+			new /mob/living/simple_animal/hostile/retaliate/cavern_dweller(spawn_locations[i])
+			CHECK_TICK
 		i++
 
 /datum/event/carp_migration/end()
 	for (var/carp_ref in spawned_carp)
-		var/mob/living/simple_animal/hostile/carp/fish = locate(carp_ref)
-		if (fish && istype(fish.loc, /turf/space) && prob(50))
+		var/datum/weakref/carp_weakref = carp_ref
+		var/mob/living/simple_animal/hostile/carp/fish = carp_weakref.resolve()
+		if (fish && prob(50) && is_type_in_typecache(fish.loc, despawn_turfs))
 			qdel(fish)

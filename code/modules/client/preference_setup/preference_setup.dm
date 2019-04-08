@@ -7,6 +7,16 @@
 #define SQL_CHARACTER	0x1
 #define SQL_PREFERENCES	0x2
 
+// General-purpose helper for drawing a colored box.
+#define HTML_RECT(color) "&nbsp;<div style=\"display:inline;height:10px;width:30px;background:'[color || "#FFFFFF"]'\"></div>&nbsp;"
+
+// A bit of a hack to allow unit testing of category items.
+#ifdef UNIT_TEST
+#	define PREF_CLIENT_CKEY ""
+#else
+#	define PREF_CLIENT_CKEY pref.client.ckey
+#endif
+
 /datum/category_group/player_setup_category/general_preferences
 	name = "General"
 	sort_order = 1

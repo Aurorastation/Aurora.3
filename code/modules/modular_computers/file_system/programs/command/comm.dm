@@ -13,10 +13,17 @@
 	required_access_download = access_heads
 	requires_ntnet = 1
 	size = 12
-	usage_flags = PROGRAM_CONSOLE
+	usage_flags = PROGRAM_CONSOLE | PROGRAM_LAPTOP
 	network_destination = "station long-range communication array"
 	var/datum/comm_message_listener/message_core = new
+	var/intercept = 0
+	var/can_call_shuttle = 0 //If calling the shuttle should be available from this console
 	color = LIGHT_COLOR_BLUE
+
+/datum/computer_file/program/comm/New(intercept_printing = 0, shuttle_call = 0)
+	. = ..()
+	intercept = intercept_printing
+	can_call_shuttle = shuttle_call
 
 /datum/computer_file/program/comm/clone()
 	var/datum/computer_file/program/comm/temp = ..()
@@ -47,6 +54,8 @@
 		data["emagged"] = program.computer_emagged
 		data["net_comms"] = !!program.get_signal(NTNET_COMMUNICATION) //Double !! is needed to get 1 or 0 answer
 		data["net_syscont"] = !!program.get_signal(NTNET_SYSTEMCONTROL)
+		var/datum/computer_file/program/comm/P = program
+		data["message_printing_intercepts"] = P.intercept
 		if(program.computer)
 			data["have_printer"] = !!program.computer.nano_printer
 		else
@@ -56,17 +65,20 @@
 		data["net_comms"] = 1
 		data["net_syscont"] = 1
 		data["have_printer"] = 0
+		data["message_printing_intercepts"] = 0
 
+	data["can_call_shuttle"] = can_call_shuttle()
 	data["message_line1"] = msg_line1
 	data["message_line2"] = msg_line2
 	data["state"] = current_status
 	data["isAI"] = issilicon(usr)
 	data["authenticated"] = is_autenthicated(user)
-	data["boss_short"] = boss_short
+	data["boss_short"] = current_map.boss_short
 	data["current_security_level"] = security_level
 	data["current_security_level_title"] = num2seclevel(security_level)
 
 	data["def_SEC_LEVEL_DELTA"] = SEC_LEVEL_DELTA
+	data["def_SEC_LEVEL_YELLOW"] = SEC_LEVEL_YELLOW
 	data["def_SEC_LEVEL_BLUE"] = SEC_LEVEL_BLUE
 	data["def_SEC_LEVEL_GREEN"] = SEC_LEVEL_GREEN
 
@@ -104,6 +116,13 @@
 		return P.message_core
 	return global_message_listener
 
+/datum/nano_module/program/comm/proc/can_call_shuttle()
+	if(program)
+		var/datum/computer_file/program/comm/P = program
+		return P.can_call_shuttle
+	else
+		return 0
+
 /datum/nano_module/program/comm/Topic(href, href_list)
 	if(..())
 		return 1
@@ -122,7 +141,7 @@
 				else
 					crew_announcement.announcer = "Unknown"
 				if(announcment_cooldown)
-					usr << "Please allow at least one minute to pass between announcements"
+					to_chat(usr, "Please allow at least one minute to pass between announcements")
 					SSnanoui.update_uis(src)
 					return
 				var/input = input(usr, "Please write a message to announce to the station crew.", "Priority Announcement") as null|text
@@ -138,7 +157,7 @@
 				if(program)
 					if(is_autenthicated(user) && program.computer_emagged && !issilicon(usr) && ntn_comm)
 						if(centcomm_message_cooldown)
-							usr << "<span class='warning'>Arrays recycling. Please stand by.</span>"
+							to_chat(usr, "<span class='warning'>Arrays recycling. Please stand by.</span>")
 							SSnanoui.update_uis(src)
 							return
 						var/input = sanitize(input(usr, "Please choose a message to transmit to \[ABNORMAL ROUTING CORDINATES\] via quantum entanglement.  Please be aware that this process is very expensive, and abuse will lead to... termination. Transmission does not guarantee a response. There is a 30 second delay before you may send another message, be clear, full and concise.", "To abort, send an empty message.", "") as null|text)
@@ -146,7 +165,7 @@
 							SSnanoui.update_uis(src)
 							return
 						Syndicate_announce(input, usr)
-						usr << "<span class='notice'>Message transmitted.</span>"
+						to_chat(usr, "<span class='notice'>Message transmitted.</span>")
 						log_say("[key_name(usr)] has made an illegal announcement: [input]",ckey=key_name(usr))
 						centcomm_message_cooldown = 1
 						spawn(300)//30 second cooldown
@@ -154,25 +173,25 @@
 			else if(href_list["target"] == "regular")
 				if(is_autenthicated(user) && !issilicon(usr) && ntn_comm)
 					if(centcomm_message_cooldown)
-						usr << "<span class='warning'>Arrays recycling. Please stand by.</span>"
+						to_chat(usr, "<span class='warning'>Arrays recycling. Please stand by.</span>")
 						SSnanoui.update_uis(src)
 						return
 					if(!is_relay_online())//Contact Centcom has a check, Syndie doesn't to allow for Traitor funs.
-						usr <<"<span class='warning'>No Emergency Bluespace Relay detected. Unable to transmit message.</span>"
+						to_chat(usr, "<span class='warning'>No Emergency Bluespace Relay detected. Unable to transmit message.</span>")
 						SSnanoui.update_uis(src)
 						return
-					var/input = sanitize(input("Please choose a message to transmit to [boss_short] via quantum entanglement.  Please be aware that this process is very expensive, and abuse will lead to... termination.  Transmission does not guarantee a response. There is a 30 second delay before you may send another message, be clear, full and concise.", "To abort, send an empty message.", "") as null|text)
+					var/input = sanitize(input("Please choose a message to transmit to [current_map.boss_short] via quantum entanglement.  Please be aware that this process is very expensive, and abuse will lead to... termination.  Transmission does not guarantee a response. There is a 30 second delay before you may send another message, be clear, full and concise.", "To abort, send an empty message.", "") as null|text)
 					if(!input || !can_still_topic())
 						SSnanoui.update_uis(src)
 						return
 					Centcomm_announce(input, usr)
-					usr << "<span class='notice'>Message transmitted.</span>"
-					log_say("[key_name(usr)] has made an IA [boss_short] announcement: [input]",ckey=key_name(usr))
+					to_chat(usr, "<span class='notice'>Message transmitted.</span>")
+					log_say("[key_name(usr)] has made an IA [current_map.boss_short] announcement: [input]",ckey=key_name(usr))
 					centcomm_message_cooldown = 1
 					spawn(300) //30 second cooldown
 						centcomm_message_cooldown = 0
 		if("shuttle")
-			if(is_autenthicated(user) && ntn_cont)
+			if(is_autenthicated(user) && ntn_cont && can_call_shuttle())
 				if(href_list["target"] == "call")
 					var/confirm = alert("Are you sure you want to call the shuttle?", name, "No", "Yes")
 					if(confirm == "Yes" && can_still_topic())
@@ -193,11 +212,11 @@
 						if(can_still_topic())
 							msg_line2 = linput
 					if("message")
-						post_status("message", msg_line1, msg_line2)
+						post_display_status("message", msg_line1, msg_line2)
 					if("alert")
-						post_status("alert", href_list["alert"])
+						post_display_status("alert", href_list["alert"])
 					else
-						post_status(href_list["target"])
+						post_display_status(href_list["target"])
 
 		if("setalert")
 			if(is_autenthicated(user) && !issilicon(usr) && ntn_cont && ntn_comm)
@@ -207,7 +226,7 @@
 					var/old_level = security_level
 					if(!current_level) current_level = SEC_LEVEL_GREEN
 					if(current_level < SEC_LEVEL_GREEN) current_level = SEC_LEVEL_GREEN
-					if(current_level > SEC_LEVEL_BLUE) current_level = SEC_LEVEL_BLUE //Cannot engage delta with this
+					if(current_level > SEC_LEVEL_BLUE) current_level = SEC_LEVEL_BLUE
 					set_security_level(current_level)
 					if(security_level != old_level)
 						log_game("[key_name(usr)] has changed the security level to [get_security_level()].",ckey=key_name(usr))
@@ -217,8 +236,10 @@
 								feedback_inc("alert_comms_green",1)
 							if(SEC_LEVEL_BLUE)
 								feedback_inc("alert_comms_blue",1)
+							if(SEC_LEVEL_YELLOW)
+								feedback_inc("alert_comms_yellow",1)
 			else
-				usr << "You press button, but red light flashes and nothing happens." //This should never happen
+				to_chat(usr, "You press button, but red light flashes and nothing happens.") //This should never happen)
 			current_status = STATE_DEFAULT
 		if("viewmessage")
 			if(is_autenthicated(user) && ntn_comm)
@@ -235,33 +256,16 @@
 			if(is_autenthicated(user) && ntn_comm)
 				if(program && program.computer && program.computer.nano_printer)
 					if(!program.computer.nano_printer.print_text(current_viewing_message["contents"],current_viewing_message["title"]))
-						usr << "<span class='notice'>Hardware error: Printer was unable to print the file. It may be out of paper.</span>"
+						to_chat(usr, "<span class='notice'>Hardware error: Printer was unable to print the file. It may be out of paper.</span>")
 					else
 						program.computer.visible_message("<span class='notice'>\The [program.computer] prints out paper.</span>")
+		if("toggleintercept")
+			if(is_autenthicated(user) && ntn_comm)
+				if(program && program.computer && program.computer.nano_printer)
+					var/datum/computer_file/program/comm/P = program
+					P.intercept = !P.intercept
 
 	SSnanoui.update_uis(src)
-
-/datum/nano_module/program/comm/proc/post_status(var/command, var/data1, var/data2)
-
-	var/datum/radio_frequency/frequency = SSradio.return_frequency(1435)
-
-	if(!frequency) return
-
-
-	var/datum/signal/status_signal = new
-	status_signal.source = src
-	status_signal.transmission_method = 1
-	status_signal.data["command"] = command
-
-	switch(command)
-		if("message")
-			status_signal.data["msg1"] = data1
-			status_signal.data["msg2"] = data2
-			log_admin("STATUS: [key_name(usr)] set status screen message with [src]: [data1] [data2]",ckey=key_name(usr))
-		if("alert")
-			status_signal.data["picture_state"] = data1
-
-	frequency.post_signal(src, status_signal)
 
 #undef STATE_DEFAULT
 #undef STATE_MESSAGELIST
@@ -289,15 +293,12 @@ var/last_message_id = 0
 	for (var/datum/comm_message_listener/l in comm_message_listeners)
 		l.Add(message)
 
-	//Old console support
-	for (var/obj/machinery/computer/communications/comm in SSmachinery.processing_machines)
-		if (!(comm.stat & (BROKEN | NOPOWER)) && comm.prints_intercept)
-			var/obj/item/weapon/paper/intercept = new /obj/item/weapon/paper( comm.loc )
-			intercept.name = message_title
-			intercept.info = message_text
+	for (var/obj/item/modular_computer/computer in get_listeners_by_type("modular_computers", /obj/item/modular_computer))
+		if(computer && computer.working && !!computer.nano_printer)
+			var/datum/computer_file/program/comm/C = locate(/datum/computer_file/program/comm) in computer.hard_drive.stored_files
+			if(C && C.intercept)
+				computer.nano_printer.print_text(message_text, message_title)
 
-			comm.messagetitle.Add(message_title)
-			comm.messagetext.Add(message_text)
 
 /datum/comm_message_listener
 	var/list/messages
@@ -312,3 +313,133 @@ var/last_message_id = 0
 
 /datum/comm_message_listener/proc/Remove(var/list/message)
 	messages -= list(message)
+/*
+Command action procs
+*/
+/proc/post_display_status(var/command, var/data1, var/data2)
+
+	var/datum/radio_frequency/frequency = SSradio.return_frequency(1435)
+
+	if(!frequency) return
+
+
+	var/datum/signal/status_signal = new
+	status_signal.source = src
+	status_signal.transmission_method = 1
+	status_signal.data["command"] = command
+
+	switch(command)
+		if("message")
+			status_signal.data["msg1"] = data1
+			status_signal.data["msg2"] = data2
+			log_admin("STATUS: [key_name(usr)] set status screen message with [src]: [data1] [data2]")
+		if("alert")
+			status_signal.data["picture_state"] = data1
+
+	frequency.post_signal(src, status_signal)
+
+//Returns 1 if recalled 0 if not
+/proc/cancel_call_proc(var/mob/user)
+	if (!(ROUND_IS_STARTED) || !emergency_shuttle.can_recall())
+		return 0
+	if((SSticker.mode.name == "blob")||(SSticker.mode.name == "Meteor"))
+		return 0
+
+	if(!emergency_shuttle.going_to_centcom()) //check that shuttle isn't already heading to centcomm
+		emergency_shuttle.recall()
+		log_game("[key_name(user)] has recalled the shuttle.",key_name(user))
+		message_admins("[key_name_admin(user)] has recalled the shuttle.", 1)
+		return 1
+	return 0
+
+
+/proc/is_relay_online()
+    for(var/obj/machinery/bluespacerelay/M in SSmachinery.all_machines)
+        if(M.stat == 0)
+            return 1
+    return 0
+
+//Returns 1 if called 0 if not
+/proc/call_shuttle_proc(var/mob/user)
+	if ((!(ROUND_IS_STARTED) || !emergency_shuttle.location()))
+		return 0
+
+	if(!universe.OnShuttleCall(usr))
+		to_chat(user, "<span class='notice'>Cannot establish a bluespace connection.</span>")
+		return 0
+
+	if(deathsquad.deployed)
+		to_chat(user, "[current_map.boss_short] will not allow the shuttle to be called. Consider all contracts terminated.")
+		return 0
+
+	if(emergency_shuttle.deny_shuttle)
+		to_chat(user, "The emergency shuttle may not be sent at this time. Please try again later.")
+		return 0
+
+	if(world.time < 6000) // Ten minute grace period to let the game get going without lolmetagaming. -- TLE
+		to_chat(user, "The emergency shuttle is refueling. Please wait another [round((6000-world.time)/600)] minute\s before trying again.")
+		return 0
+
+	if(emergency_shuttle.going_to_centcom())
+		to_chat(user, "The emergency shuttle may not be called while returning to [current_map.boss_short].")
+		return 0
+
+	if(emergency_shuttle.online())
+		to_chat(user, "The emergency shuttle is already on its way.")
+		return 0
+
+	if(SSticker.mode.name == "blob")
+		to_chat(user, "Under directive 7-10, [station_name()] is quarantined until further notice.")
+		return 0
+
+	emergency_shuttle.call_evac()
+	log_game("[key_name(user)] has called the shuttle.",ckey=key_name(user))
+	message_admins("[key_name_admin(user)] has called the shuttle.", 1)
+
+	return 1
+
+/proc/init_shift_change(var/mob/user, var/force = 0)
+	if ((!(ROUND_IS_STARTED) || !emergency_shuttle.location()))
+		return
+
+	if(emergency_shuttle.going_to_centcom())
+		to_chat(user, "The shuttle may not be called while returning to [current_map.boss_short].")
+		return
+
+	if(emergency_shuttle.online())
+		to_chat(user, "The shuttle is already on its way.")
+		return
+
+	// if force is 0, some things may stop the shuttle call
+	if(!force)
+		if(emergency_shuttle.deny_shuttle)
+			to_chat(user, "[current_map.boss_short] does not currently have a shuttle available in your sector. Please try again later.")
+			return
+
+		if(deathsquad.deployed == 1)
+			to_chat(user, "[current_map.boss_short] will not allow the shuttle to be called. Consider all contracts terminated.")
+			return
+
+		if(world.time < 54000) // 30 minute grace period to let the game get going
+			to_chat(user, "The shuttle is refueling. Please wait another [round((54000-world.time)/60)] minutes before trying again.")
+			return
+
+		if(SSticker.mode.auto_recall_shuttle)
+			//New version pretends to call the shuttle but cause the shuttle to return after a random duration.
+			emergency_shuttle.auto_recall = 1
+
+		if(SSticker.mode.name == "blob" || SSticker.mode.name == "epidemic")
+			to_chat(user, "Under directive 7-10, [station_name()] is quarantined until further notice.")
+			return
+
+	emergency_shuttle.call_transfer()
+
+	//delay events in case of an autotransfer
+	if (!user)
+		SSevents.delay_events(EVENT_LEVEL_MODERATE, 10200) //17 minutes
+		SSevents.delay_events(EVENT_LEVEL_MAJOR, 10200)
+
+	log_game("[user? key_name(user) : "Autotransfer"] has called the shuttle.")
+	message_admins("[user? key_name_admin(user) : "Autotransfer"] has called the shuttle.", 1)
+
+	return

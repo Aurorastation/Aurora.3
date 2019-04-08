@@ -1,4 +1,4 @@
-#define M_UNDER "Male underwear" 
+#define M_UNDER "Male underwear"
 #define F_UNDER "Female underwear"
 #define M_SOCKS "Male socks"
 #define F_SOCKS "Female socks"
@@ -15,7 +15,7 @@
 	src.add_fingerprint(user)
 	var/mob/living/carbon/human/H = user
 	if(!ishuman(user) || (H.species && !(H.species.appearance_flags & HAS_UNDERWEAR)) && !(H.species.appearance_flags & HAS_SOCKS))
-		user << "<span class='warning'>Sadly there's nothing in here for you to wear.</span>"
+		to_chat(user, "<span class='warning'>Sadly there's nothing in here for you to wear.</span>")
 		return 0
 
 
@@ -54,12 +54,12 @@
 			if(F_UNDER)
 				H.underwear = selection[pick]
 
-		H.update_body(1)
+		H.update_underwear(TRUE)
 
 	return 1
 
-#undef M_UNDER 
-#undef F_UNDER 
-#undef M_SOCKS 
-#undef F_SOCKS 
-#undef U_SHIRT 
+#undef M_UNDER
+#undef F_UNDER
+#undef M_SOCKS
+#undef F_SOCKS
+#undef U_SHIRT

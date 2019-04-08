@@ -3,11 +3,6 @@
 	icon = 'icons/obj/weapons.dmi'
 	hitsound = "swing_hit"
 
-/obj/item/weapon/Bump(mob/M as mob)
-	spawn(0)
-		..()
-	return
-
 //Called when the user alt-clicks on something with this item in their active hand
 //this function is designed to be overridden by individual weapons
 /obj/item/weapon/proc/alt_attack(var/atom/target, var/mob/user)

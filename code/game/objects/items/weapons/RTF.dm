@@ -23,16 +23,16 @@ var/malftransformermade = 0
 		return
 
 	if(malftransformermade)
-		user << "There is already a transformer machine made!"
+		to_chat(user, "There is already a transformer machine made!")
 		return
 
 	playsound(src.loc, 'sound/machines/click.ogg', 10, 1)
 	var/used_energy = 100
-	user << "Fabricating machine..."
+	to_chat(user, "Fabricating machine...")
 	if(do_after(user, 30 SECONDS, act_target = src))
 		var/obj/product = new /obj/machinery/transformer
 		malftransformermade = 1
-		product.loc = get_turf(A)
+		product.forceMove(get_turf(A))
 
 	if(isrobot(user))
 		var/mob/living/silicon/robot/R = user

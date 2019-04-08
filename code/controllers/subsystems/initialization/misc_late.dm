@@ -1,5 +1,4 @@
 // This subsystem loads later in the init process. Not last, but after most major things are done.
-// We sort the area list here because SSatoms needs to run first.
 
 /datum/controller/subsystem/misc_late
 	name = "Late Miscellaneous Init"
@@ -7,9 +6,6 @@
 	flags = SS_NO_FIRE | SS_NO_DISPLAY
 
 /datum/controller/subsystem/misc_late/Initialize(timeofday)
-	// Generate the area list.
-	resort_all_areas()
-
 	var/turf/picked
 	// Setup the teleport locs.
 	for (var/thing in all_areas)
@@ -40,14 +36,9 @@
 	if (config.fastboot)
 		admin_notice("<span class='notice'><b>Fastboot is enabled; some features may not be available.</b></span>", R_DEBUG)
 
-	..(timeofday, TRUE)
+	populate_code_phrases()
 
-/proc/resort_all_areas()
-	all_areas = list()
-	for (var/area/A in world)
-		all_areas += A
-
-	sortTim(all_areas, /proc/cmp_name_asc)
+	..(timeofday)
 
 /proc/sorted_add_area(area/A)
 	all_areas += A

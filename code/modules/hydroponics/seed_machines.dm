@@ -17,7 +17,7 @@
 	if(genes.len)
 		var/choice = alert(user, "Are you sure you want to wipe the disk?", "Xenobotany Data", "No", "Yes")
 		if(src && user && genes && choice && choice == "Yes" && user.Adjacent(get_turf(src)))
-			user << "You wipe the disk data."
+			to_chat(user, "You wipe the disk data.")
 			name = initial(name)
 			desc = initial(name)
 			genes = list()
@@ -75,55 +75,53 @@
 	if(eject_disk)
 		eject_disk = 0
 		if(loaded_disk)
-			loaded_disk.loc = get_turf(src)
+			loaded_disk.forceMove(get_turf(src))
 			visible_message("\icon[src] [src] beeps and spits out [loaded_disk].")
 			loaded_disk = null
 
 /obj/machinery/botany/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	if(istype(W,/obj/item/seeds))
 		if(seed)
-			user << "There is already a seed loaded."
+			to_chat(user, "There is already a seed loaded.")
 			return
 		var/obj/item/seeds/S =W
 		if(S.seed && S.seed.get_trait(TRAIT_IMMUTABLE) > 0)
-			user << "That seed is not compatible with our genetics technology."
+			to_chat(user, "That seed is not compatible with our genetics technology.")
 		else
-			user.drop_from_inventory(W)
-			W.loc = src
+			user.drop_from_inventory(W,src)
 			seed = W
-			user << "You load [W] into [src]."
+			to_chat(user, "You load [W] into [src].")
 		return
 
-	if(istype(W,/obj/item/weapon/screwdriver))
+	if(W.isscrewdriver())
 		open = !open
-		user << "<span class='notice'>You [open ? "open" : "close"] the maintenance panel.</span>"
+		to_chat(user, "<span class='notice'>You [open ? "open" : "close"] the maintenance panel.</span>")
 		return
 
 	if(open)
-		if(istype(W, /obj/item/weapon/crowbar))
+		if(W.iscrowbar())
 			dismantle()
 			return
 
 	if(istype(W,/obj/item/weapon/disk/botany))
 		if(loaded_disk)
-			user << "There is already a data disk loaded."
+			to_chat(user, "There is already a data disk loaded.")
 			return
 		else
 			var/obj/item/weapon/disk/botany/B = W
 
 			if(B.genes && B.genes.len)
 				if(!disk_needs_genes)
-					user << "That disk already has gene data loaded."
+					to_chat(user, "That disk already has gene data loaded.")
 					return
 			else
 				if(disk_needs_genes)
-					user << "That disk does not have any gene data loaded."
+					to_chat(user, "That disk does not have any gene data loaded.")
 					return
 
-			user.drop_from_inventory(W)
-			W.loc = src
+			user.drop_from_inventory(W,src)
 			loaded_disk = W
-			user << "You load [W] into [src]."
+			to_chat(user, "You load [W] into [src].")
 
 		return
 	..()
@@ -184,7 +182,7 @@
 
 	if(href_list["eject_packet"])
 		if(!seed) return
-		seed.loc = get_turf(src)
+		seed.forceMove(get_turf(src))
 
 		if(seed.seed.name == "new line" || isnull(SSplants.seeds[seed.seed.name]))
 			seed.seed.uid = SSplants.seeds.len + 1
@@ -198,7 +196,7 @@
 
 	if(href_list["eject_disk"])
 		if(!loaded_disk) return
-		loaded_disk.loc = get_turf(src)
+		loaded_disk.forceMove(get_turf(src))
 		visible_message("\icon[src] [src] beeps and spits out [loaded_disk].")
 		loaded_disk = null
 

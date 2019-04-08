@@ -13,6 +13,7 @@
 	var/damtype = "brute"
 	var/force = 0
 	var/armor_penetration = 0
+	var/noslice = 0 // To make it not able to slice things.
 
 	var/being_shocked = 0
 
@@ -23,8 +24,8 @@
 	var/icon_species_in_hand = 0//If 1, we will use the species tag even for rendering this item in the left/right hand.
 
 	var/equip_slot = 0
+
 /obj/Destroy()
-	processing_objects -= src
 	STOP_PROCESSING(SSprocessing, src)
 	return ..()
 
@@ -44,7 +45,7 @@
 /obj/CanUseTopic(var/mob/user, var/datum/topic_state/state)
 	if(user.CanUseObjTopic(src))
 		return ..()
-	user << "<span class='danger'>\icon[src]Access Denied!</span>"
+	to_chat(user, "<span class='danger'>\icon[src]Access Denied!</span>")
 	return STATUS_CLOSE
 
 /mob/living/silicon/CanUseObjTopic(var/obj/O)
@@ -173,7 +174,12 @@
 /obj/proc/see_emote(mob/M as mob, text, var/emote_type)
 	return
 
-/obj/proc/tesla_act(var/power)
+/obj/proc/tesla_act(var/power, var/melt = FALSE)
+	if(melt)
+		visible_message(span("danger", "\The [src] melts down until ashes are left!"))
+		new /obj/effect/decal/cleanable/ash(loc)
+		qdel(src)
+		return
 	being_shocked = 1
 	var/power_bounced = power / 2
 	tesla_zap(src, 3, power_bounced)
@@ -216,3 +222,9 @@
 //This is useful for setting special behaviour for built items that shouldn't apply to those spawned at roundstart
 /obj/proc/Created()
 	return
+
+/obj/proc/animate_shake()
+	var/init_px = pixel_x
+	var/shake_dir = pick(-1, 1)
+	animate(src, transform = turn(matrix(), 8*shake_dir), pixel_x = init_px + 2*shake_dir, time = 1)
+	animate(transform = null, pixel_x = init_px, time = 6, easing = ELASTIC_EASING)

@@ -84,7 +84,7 @@ var/const/tk_maxrange = 15
 /obj/item/tk_grab/dropped(mob/user as mob)
 	if(focus && user && loc != user && loc != user.loc) // drop_item() gets called when you tk-attack a table/closet with an item
 		if(focus.Adjacent(loc))
-			focus.loc = loc
+			focus.forceMove(loc)
 	loc = null
 	QDEL_IN(src, 1)
 	return
@@ -124,7 +124,7 @@ var/const/tk_maxrange = 15
 		if(8 to tk_maxrange)
 			user.setMoveCooldown(10)
 		else
-			user << "<span class='notice'>Your mind won't reach that far.</span>"
+			to_chat(user, "<span class='notice'>Your mind won't reach that far.</span>")
 			return
 
 	if(!focus)
@@ -175,7 +175,6 @@ var/const/tk_maxrange = 15
 	QDEL_IN(O, 5)
 
 /obj/item/tk_grab/update_icon()
-	overlays.Cut()
+	cut_overlays()
 	if(focus && focus.icon && focus.icon_state)
-		overlays += icon(focus.icon,focus.icon_state)
-	return
+		add_overlay(image(focus.icon, focus.icon_state))

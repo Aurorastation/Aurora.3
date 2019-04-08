@@ -8,7 +8,7 @@
 	title_desc = "Buy spells using your available spell slots. Artefacts may also be bought however their cost is permanent."
 	book_desc = "A general wizard's spellbook. All its spells are easy to use but hard to master."
 	book_flags = CAN_MAKE_CONTRACTS
-	max_uses = 5
+	max_uses = 8
 
 	spells = list(/spell/targeted/projectile/magic_missile = 							1,
 							/spell/targeted/projectile/dumbfire/fireball = 			1,
@@ -16,7 +16,7 @@
 							/spell/aoe_turf/smoke = 					1,
 							/spell/targeted/genetic/blind = 			   	1,
 							/spell/targeted/subjugation = 					1,
-							/spell/targeted/mind_transfer = 				1,
+							/spell/targeted/mindcontrol =					2,
 							/spell/aoe_turf/conjure/forcewall = 			        1,
 							/spell/aoe_turf/blink = 					1,
 							/spell/area_teleport = 						1,

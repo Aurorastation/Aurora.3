@@ -4,7 +4,7 @@ Program-based computers, designed to replace computer3 project and eventually mo
 
 1. Basic information
 Program based computers will allow you to do multiple things from single computer. Each computer will have programs, with more being downloadable from NTNet (stationwide network with wireless coverage)
-if user has apropriate ID card access. It will be possible to hack the computer by using an emag on it - the emag will have to be completely new and will be consumed on use, but it will
+if user has appropriate ID card access. It will be possible to hack the computer by using an emag on it - the emag will have to be completely new and will be consumed on use, but it will
 lift ALL locks on ALL installed programs, and allow download of programs even if your ID doesn't have access to them. Computers will have hard drives that can store files.
 Files can be programs (datum/computer_file/program/ subtype) or data files (datum/computer_file/data/ subtypes). Program for sending files will be available that will allow transfer via NTNet.
 NTNet coverage will be limited to station's Z level, but better network card (=more expensive and higher power use) will allow usage everywhere. Hard drives will have limited capacity for files

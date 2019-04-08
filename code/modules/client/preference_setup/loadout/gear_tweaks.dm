@@ -7,6 +7,9 @@
 /datum/gear_tweak/proc/get_default()
 	return
 
+/datum/gear_tweak/proc/get_random()
+	return get_default()
+
 /datum/gear_tweak/proc/tweak_gear_data(var/metadata, var/datum/gear_data)
 	return
 
@@ -31,6 +34,9 @@ var/datum/gear_tweak/color/gear_tweak_free_color_choice = new()
 
 /datum/gear_tweak/color/get_default()
 	return valid_colors ? valid_colors[1] : COLOR_GRAY
+
+/datum/gear_tweak/color/get_random()
+	return valid_colors ? pick(valid_colors) : COLOR_GRAY
 
 /datum/gear_tweak/color/get_metadata(var/user, var/metadata)
 	if(valid_colors)
@@ -58,6 +64,9 @@ Path adjustment
 
 /datum/gear_tweak/path/get_default()
 	return valid_paths[1]
+
+/datum/gear_tweak/path/get_random()
+	return pick(valid_paths)
 
 /datum/gear_tweak/path/get_metadata(var/user, var/metadata)
 	return input(user, "Choose a type.", "Character Preference", metadata) as null|anything in valid_paths
@@ -110,13 +119,12 @@ Content adjustment
 			continue
 		else
 			path = 	contents[metadata[i]]
-		new path(I)
+		if(path)
+			new path(I)
 
 /*
 Reagents adjustment
 */
-
-
 /datum/gear_tweak/reagents
 	var/list/valid_reagents
 

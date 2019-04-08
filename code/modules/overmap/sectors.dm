@@ -22,7 +22,7 @@ var/global/list/map_sectors = list()
 //===================================================================================
 /obj/effect/mapinfo/
 	name = "map info metaobject"
-	icon = 'icons/mob/screen1.dmi'
+	icon = 'icons/mob/screen/generic.dmi'
 	icon_state = "x2"
 	invisibility = 101
 	var/obj_type		//type of overmap object it spawns
@@ -62,7 +62,7 @@ var/global/list/map_sectors = list()
 	map_z = data.zlevel
 	name = data.name
 	always_known = data.known
-	if (data.icon != 'icons/mob/screen1.dmi')
+	if (data.icon != 'icons/mob/screen/generic.dmi')
 		icon = data.icon
 		icon_state = data.icon_state
 	if(data.desc)

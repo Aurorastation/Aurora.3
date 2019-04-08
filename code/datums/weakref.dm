@@ -1,9 +1,5 @@
-/datum
-	var/datum/weakref/weakref
-
 /datum/weakref
 	var/ref
-
 
 /datum/weakref/New(datum/D)
 	ref = SOFTREF(D)

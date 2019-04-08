@@ -1,0 +1,170 @@
+<div>
+{{:helper.link('Main', 'cart', {'page' : 'overview_main'}, null)}}
+</div>
+<br>
+<br>
+{{if data.page == "overview_main"}}
+	<table>
+    <tr>
+        <th>Order ID</th>
+        <th>Customer</th>
+        <th>Price</th>
+        <th>Actions</th>
+    </tr>
+    {{props data.order_list}}
+		<tr>
+			<td>{{:value.order_id}}</td>
+            <td>{{:value.ordered_by}}</td>
+            <td>{{:value.price}}</td>
+            <td>
+                {{:helper.link('Details', 'close', {'order_overview' : value.order_id, 'page': 'order_overview'}, null)}}
+            </td>
+		</tr>
+    {{/props}}
+	</table>
+    </div>
+{{else data.page == "order_overview"}}
+    <div class="statusDisplay" style="min-height: 100px;">
+        <div class="item">
+            <div class="itemContent" style="width: 100%;">
+                <table>
+                    <tr>
+                        <td colspan="2"><h3>Order No: {{:data.order_details.order_id}}</h3></td>
+                    </tr>
+					<tr>
+                        <td><b>Tracking Code:</b></td>
+                        <td>{{:data.order_details.tracking_code}}</td>
+                    </tr>
+                    <tr>
+                        <td><b>Price (Customer):</b></td>
+                        <td>{{:data.order_details.price_customer}}</td>
+                    </tr>
+                    <tr>
+                        <td><b>Price (Cargo):</b></td>
+                        <td>{{:data.order_details.price_cargo}}</td>
+                    </tr>
+                    <tr>
+                        <td><b>Item Value:</b></td>
+                        <td>{{:data.order_details.price}}</td>
+                    </tr>
+                    <tr>
+                        <td><b>Shipment Cost:</b></td>
+                        <td>{{:data.order_details.shipment_cost}}</td>
+                    </tr>
+                    <tr>
+                        <td><b>Shipment Status:</b></td>
+                        <td>{{:data.order_details.status_pretty}}</td>
+                    </tr>
+                    <tr>
+                        <td><b>Customer:</b></td>
+                        <td>{{:data.order_details.ordered_by}}</td>
+                    </tr>
+                    {{if data.order_details.authorized_by}}
+                    <tr>
+                        <td><b>Authorized By:</b></td>
+                        <td>{{:data.order_details.authorized_by}}</td>
+                    </tr>
+                    {{/if}}
+                    {{if data.order_details.time_submitted}}
+                    <tr>
+                        <td><b>Submitted at:</b></td>
+                        <td>{{:data.order_details.time_submitted}}</td>
+                    </tr>
+                    {{/if}}
+                    {{if data.order_details.time_approved}}
+                    <tr>
+                        <td><b>Approved at:</b></td>
+                        <td>{{:data.order_details.time_approved}}</td>
+                    </tr>
+                    {{/if}}
+                    {{if data.order_details.time_shipped}}
+                    <tr>
+                        <td><b>Shipped at:</b></td>
+                        <td>{{:data.order_details.time_shipped}}</td>
+                    </tr>
+                    {{/if}}
+                    {{if data.order_details.time_paid}}
+                    <tr>
+                        <td><b>Paid at:</b></td>
+                        <td>{{:data.order_details.time_paid}}</td>
+                    </tr>
+                    {{/if}}
+                </table>
+            </div>
+        </div>
+    </div>
+    <div>{{:helper.link('Go to payment Page', 'cart', {'order_payment' : data.order_details.order_id, 'page': 'order_payment'}, null)}}</div>
+	<table width="100%">
+        <tr>
+            <th>Item Name</th>
+            <th>Supplier</th>
+            <th>Price</th>
+        </tr>
+    {{props data.order_details.items}}
+		<tr>
+			<td>{{:value.name}}</td>
+            <td>{{:value.supplier_name}}</td>
+            <td>{{:value.price}}</td>
+		</tr>
+    {{/props}}
+	</table>
+{{else data.page == "order_payment"}}
+    <div class="statusDisplay" style="min-height: 100px;">
+        <div class="item">
+            <div class="itemContent" style="width: 100%;">
+                <table>
+                    <tr>
+                        <td colspan="2"><h3>Order No: {{:data.order_details.order_id}}</h3></td>
+                    </tr>
+                    <tr>
+                        <td><b>Price:</b></td>
+                        <td>{{:data.order_details.price_customer}}</td>
+                    </tr>
+                    <tr>
+                        <td><b>Customer:</b></td>
+                        <td>{{:data.order_details.ordered_by}}</td>
+                    </tr>
+                    <tr>
+                        <td><b>Cardholer:</b></td>
+                        <td>{{:data.id_owner}}</td>
+                    </tr>
+                    {{if data.status_message }}
+                        <tr>
+                            <td><b>Status Message:</b></td>
+                            <td>{{:data.status_message}}</td>
+                        </tr>
+                    {{/if}}
+                </table>
+            </div>
+        </div>
+    </div>
+
+    {{if data.order_details.status == "shipped"}}
+        <div>{{:helper.link('Confirm Delivery and Pay', 'cart', {'deliver' : 'true'}, null)}}</div>
+    {{else data.order_details.status == "delivered"}}
+        <div><b>The order has already been delivered</b></div>
+    {{else}}
+        {{if data.order_details.needs_payment}}
+            <div>{{:helper.link('Pay', 'play', {'deliver' : 'true'}, null)}}</div>
+        {{else}}
+            <div><b>The order has already been paid, but not shipped</b></div>
+        {{/if}}
+    {{/if}}
+
+	<table width="100%">
+        <tr>
+            <th>Item Name</th>
+            <th>Supplier</th>
+            <th>Price</th>
+        </tr>
+    {{props data.order_details.items}}
+		<tr>
+			<td>{{:value.name}}</td>
+            <td>{{:value.supplier_name}}</td>
+            <td>{{:value.price}}</td>
+		</tr>
+    {{/props}}
+	</table>
+{{else}}
+    else
+{{/if}}

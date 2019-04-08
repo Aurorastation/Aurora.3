@@ -10,16 +10,16 @@
 		if(target_zone == "eyes")
 
 			if(!H.organs_by_name["head"])
-				user << "<span class='warning'>\The [H] doesn't have a head.</span>"
+				to_chat(user, "<span class='warning'>\The [H] doesn't have a head.</span>")
 				return
 			if(!H.has_eyes())
-				user << "<span class='warning'>\The [H] doesn't have any eyes.</span>"
+				to_chat(user, "<span class='warning'>\The [H] doesn't have any eyes.</span>")
 				return
 			if(H.glasses)
-				user << "<span class='warning'>\The [H] is already wearing somethign on their eyes.</span>"
+				to_chat(user, "<span class='warning'>\The [H] is already wearing somethign on their eyes.</span>")
 				return
 			if(H.head && (H.head.body_parts_covered & FACE))
-				user << "<span class='warning'>Remove their [H.head] first.</span>"
+				to_chat(user, "<span class='warning'>Remove their [H.head] first.</span>")
 				return
 			user.visible_message("<span class='danger'>\The [user] begins taping over \the [H]'s eyes!</span>")
 
@@ -30,23 +30,26 @@
 			if(!H || !src || !H.organs_by_name["head"] || !H.has_eyes() || H.glasses || (H.head && (H.head.body_parts_covered & FACE)))
 				return
 
+			playsound(src, 'sound/items/tape.ogg',25)
 			user.visible_message("<span class='danger'>\The [user] has taped up \the [H]'s eyes!</span>")
 			H.equip_to_slot_or_del(new /obj/item/clothing/glasses/sunglasses/blindfold/tape(H), slot_glasses)
 			H.update_inv_glasses()
 
 		else if(target_zone == "mouth" || target_zone == "head")
 			if(!H.organs_by_name["head"])
-				user << "<span class='warning'>\The [H] doesn't have a head.</span>"
+				to_chat(user, "<span class='warning'>\The [H] doesn't have a head.</span>")
 				return
 			if(!H.check_has_mouth())
-				user << "<span class='warning'>\The [H] doesn't have a mouth.</span>"
+				to_chat(user, "<span class='warning'>\The [H] doesn't have a mouth.</span>")
 				return
 			if(H.wear_mask)
-				user << "<span class='warning'>\The [H] is already wearing a mask.</span>"
+				to_chat(user, "<span class='warning'>\The [H] is already wearing a mask.</span>")
 				return
 			if(H.head && (H.head.body_parts_covered & FACE))
-				user << "<span class='warning'>Remove their [H.head] first.</span>"
+				to_chat(user, "<span class='warning'>Remove their [H.head] first.</span>")
 				return
+
+			playsound(src, 'sound/items/tape.ogg',25)
 			user.visible_message("<span class='danger'>\The [user] begins taping up \the [H]'s mouth!</span>")
 
 			if(!do_after(user, 30))
@@ -56,11 +59,13 @@
 			if(!H || !src || !H.organs_by_name["head"] || !H.check_has_mouth() || H.wear_mask || (H.head && (H.head.body_parts_covered & FACE)))
 				return
 
+			playsound(src, 'sound/items/tape.ogg',25)
 			user.visible_message("<span class='danger'>\The [user] has taped up \the [H]'s mouth!</span>")
 			H.equip_to_slot_or_del(new /obj/item/clothing/mask/muzzle/tape(H), slot_wear_mask)
 			H.update_inv_wear_mask()
 
 		else if(target_zone == "r_hand" || target_zone == "l_hand")
+			playsound(src, 'sound/items/tape.ogg',25)
 			var/obj/item/weapon/handcuffs/cable/tape/T = new(user)
 			if(!T.place_handcuffs(H, user))
 				user.unEquip(T)
@@ -74,6 +79,7 @@
 	if(!istype(W, /obj/item/weapon/paper))
 		return
 	user.drop_from_inventory(W)
+	//TODO: Possible animation? No clue
 	var/obj/item/weapon/ducttape/tape = new(get_turf(src))
 	tape.attach(W)
 	user.put_in_hands(tape)
@@ -107,8 +113,8 @@
 	if(!stuck)
 		return
 
-	user << "You remove \the [initial(name)] from [stuck]."
-
+	to_chat(user, "You remove \the [initial(name)] from [stuck].")
+	//TODO: Find out what the fuck is going on here
 	user.drop_from_inventory(src)
 	stuck.forceMove(get_turf(src))
 	user.put_in_hands(stuck)
@@ -128,22 +134,22 @@
 	if(target_turf != source_turf)
 		dir_offset = get_dir(source_turf, target_turf)
 		if(!(dir_offset in cardinal))
-			user << "You cannot reach that from here."		// can only place stuck papers in cardinal directions, to
+			to_chat(user, "You cannot reach that from here.")		// can only place stuck papers in cardinal directions, to)
 			return											// reduce papers around corners issue.
 
-	user.drop_from_inventory(src)
-	forceMove(source_turf)
+	user.drop_from_inventory(src,source_turf)
+	playsound(src, 'sound/items/tape.ogg',25)
 
 	if(params)
-		var/list/mouse_control = params2list(params)
+		var/list/mouse_control = mouse_safe_xy(params)
 		if(mouse_control["icon-x"])
-			pixel_x = text2num(mouse_control["icon-x"]) - 16
+			pixel_x = mouse_control["icon-x"] - 16
 			if(dir_offset & EAST)
 				pixel_x += 32
 			else if(dir_offset & WEST)
 				pixel_x -= 32
 		if(mouse_control["icon-y"])
-			pixel_y = text2num(mouse_control["icon-y"]) - 16
+			pixel_y = mouse_control["icon-y"] - 16
 			if(dir_offset & NORTH)
 				pixel_y += 32
 			else if(dir_offset & SOUTH)

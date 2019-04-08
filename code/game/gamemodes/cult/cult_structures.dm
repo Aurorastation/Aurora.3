@@ -2,18 +2,19 @@
 	density = 1
 	anchored = 1
 	icon = 'icons/obj/cult.dmi'
+	appearance_flags = NO_CLIENT_COLOR
 
 /obj/structure/cult/cultify()
 	return
 
 /obj/structure/cult/talisman
-	name = "Altar"
+	name = "altar"
 	desc = "A bloodstained altar dedicated to Nar-Sie"
 	icon_state = "talismanaltar"
 
 
 /obj/structure/cult/forge
-	name = "Daemon forge"
+	name = "daemon forge"
 	desc = "A forge used in crafting the unholy weapons used by the armies of Nar-Sie"
 	icon_state = "forge"
 
@@ -49,7 +50,7 @@
 */
 
 /obj/structure/cult/pylon
-	name = "Pylon"
+	name = "pylon"
 	desc = "A floating crystal that hums with an unearthly energy"
 	description_antag  = "A pylon can be upgraded into a magical defensive turret that shoots anyone opposing the cult\
 	</br>Upgrading a pylon requires a sacrifice. Bring it a small organic creature, like a monkey or mouse. Use the creature on the pylon, or drag and drop to present it.\
@@ -118,13 +119,13 @@
 	if (damagetaken)
 		switch (damagetaken)
 			if (1 to 8)
-				user << "It has very faint hairline fractures."
+				to_chat(user, "It has very faint hairline fractures.")
 			if (8 to 20)
-				user << "It has several cracks across its surface."
+				to_chat(user, "It has several cracks across its surface.")
 			if (20 to 30)
-				user << "It is chipped and deeply cracked, it may shatter with much more pressure."
+				to_chat(user, "It is chipped and deeply cracked, it may shatter with much more pressure.")
 			if (30 to INFINITY)
-				user << "It is almost cleaved in two, the pylon looks like it will fall to shards under its own weight."
+				to_chat(user, "It is almost cleaved in two, the pylon looks like it will fall to shards under its own weight.")
 
 
 /obj/structure/cult/pylon/Move()
@@ -208,9 +209,9 @@
 //If user is not cultist, then speaks cult-y gibberish
 /obj/structure/cult/pylon/proc/speak_to(var/mob/user, var/message)
 	if (iscult(user) || (/datum/language/cultcommon in user.languages))
-		user << "A voice speaks into your mind, [span("cult","\"<I>[message]</I>\"")]"
+		to_chat(user, "A voice speaks into your mind, <span class='cult'><i>[message]</i></span>")
 	else
-		user << "A voice speaks into your mind, [span("cult","\"<I>[lang.scramble(message)]</I>\"")]"
+		to_chat(user, "A voice speaks into your mind, <span class='cult'><i>[lang.scramble(message)]</i></span>")
 
 
 //Todo: Replace the messages here with better ones. Should display a proper message to cultists
@@ -220,7 +221,7 @@
 		return 0
 
 	if (isbroken)
-		user << "The pylon lies silent."
+		to_chat(user, "The pylon lies silent.")
 		return 0
 
 	if (pylonmode != 0)
@@ -236,7 +237,7 @@
 		return
 
 	var/types = victim.find_type()
-	if ((!(types & TYPE_ORGANIC)) || ((types & TYPE_WIERD)))
+	if ((!(types & TYPE_ORGANIC)) || ((types & TYPE_WEIRD)))
 		//Invalid sacrifice. Display a message and return
 		speak_to(user, "This soulless automaton cannot satisfy our hunger. We yearn for life essence, it must have a soul.")
 		return
@@ -245,7 +246,7 @@
 	sacrificer = user
 	//Sacrifice accepted, display message here
 	speak_to(user, "Your sacrifice has been deemed worthy, and accepted. End its life now, and liberate its soul, to seal our contract...")
-	sacrifice << span("danger", "You feel an invisible force grip your soul, as you're drawn inexorably towards the pylon. Every part of you screams to flee from here!")
+	to_chat(sacrifice, span("danger", "You feel an invisible force grip your soul, as you're drawn inexorably towards the pylon. Every part of you screams to flee from here!"))
 
 	if (istype(sacrifice.loc,/obj/item/weapon/holder))
 		var/obj/item/weapon/holder/H = sacrifice.loc
@@ -391,7 +392,7 @@
 		A = new /obj/item/projectile/beam/cult(loc)
 		playsound(loc, 'sound/weapons/laserdeep.ogg', 65, 1)
 	A.ignore = sacrificer
-	A.launch(target)
+	A.launch_projectile(target)
 	next_shot = world.time + shot_delay
 	A = null //So projectiles can GC
 	spawn(shot_delay+1)
@@ -401,7 +402,7 @@
 
 /obj/structure/cult/pylon/attack_hand(mob/M as mob)
 	if (M.a_intent == "help")
-		M << "The pylon feels warm to the touch...."
+		to_chat(M, "The pylon feels warm to the touch....")
 	else
 		attackpylon(M, 4, M)
 
@@ -434,7 +435,7 @@
 	return ..()
 
 /obj/structure/cult/pylon/bullet_act(var/obj/item/projectile/Proj)
-	attackpylon(user, Proj.damage, Proj)
+	attackpylon(Proj.firer, Proj.damage, Proj)
 
 //Explosions will usually cause instant shattering, or heavy damage
 //Class 3 or lower blast is sometimes survivable. 2 or higher will always shatter
@@ -448,8 +449,11 @@
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 	if (istype(source, /obj/item))
 		var/obj/item/I = source
+		if(istype(I, /obj/item/weapon/nullrod))
+			shatter()
+			return
 		if (I.damtype != BRUTE)
-			user << "You swing at the pylon to no effect."
+			to_chat(user, "You swing at the pylon to no effect.")
 			return
 
 	if (istype(source, /obj/item/projectile))
@@ -485,15 +489,15 @@
 			shatter()
 		else
 			if (user && !ranged)
-				user << "You hit the pylon!"
+				to_chat(user, "You hit the pylon!")
 			playsound(get_turf(src), 'sound/effects/Glasshit.ogg', 75, 1)
 	else
 		if(prob(damagetaken))
 			if (user)
-				user << "You pulverize what was left of the pylon!"
+				to_chat(user, "You pulverize what was left of the pylon!")
 			qdel(src)
 		else if (user && !ranged)
-			user << "You hit the pylon!"
+			to_chat(user, "You hit the pylon!")
 		playsound(get_turf(src), 'sound/effects/Glasshit.ogg', 75, 1)
 
 	start_process()
@@ -533,14 +537,14 @@
 /obj/structure/cult/pylon/proc/repair(mob/user as mob)
 	if(isbroken)
 		if(user)
-			user << span("notice","You weave forgotten magic, summoning the shards of the crystal and knitting them anew, until it hovers flawless once more.")
+			to_chat(user, span("notice","You weave forgotten magic, summoning the shards of the crystal and knitting them anew, until it hovers flawless once more."))
 		isbroken = 0
 		density = 1
 	else if (damagetaken > 0)
-		user << span("notice","You meld the crystal lattice back into integrity, sealing over the cracks until they never were.")
+		to_chat(user, span("notice","You meld the crystal lattice back into integrity, sealing over the cracks until they never were."))
 
 	else
-		user << span("notice","The crystal lights up at your touch.")
+		to_chat(user, span("notice","The crystal lights up at your touch."))
 
 	process_interval = 1 //Wake up the crystal
 	notarget = 0
@@ -573,19 +577,9 @@
 
 //============================================
 /obj/structure/cult/tome
-	name = "Desk"
+	name = "desk"
 	desc = "A desk covered in arcane manuscripts and tomes in unknown languages. Looking at the text makes your skin crawl"
 	icon_state = "tomealtar"
-
-//sprites for this no longer exist	-Pete
-//(they were stolen from another game anyway)
-/*
-/obj/structure/cult/pillar
-	name = "Pillar"
-	desc = "This should not exist"
-	icon_state = "pillar"
-	icon = 'magic_pillar.dmi'
-*/
 
 /obj/effect/gateway
 	name = "gateway"
@@ -597,14 +591,10 @@
 	anchored = 1.0
 	var/spawnable = null
 
-/obj/effect/gateway/Bumped(mob/M as mob|obj)
-	spawn(0)
-		return
+/obj/effect/gateway/CollidedWith(mob/M)
 	return
 
 /obj/effect/gateway/Crossed(AM as mob|obj)
-	spawn(0)
-		return
 	return
 
 /obj/effect/gateway/active
@@ -624,6 +614,7 @@
 		/mob/living/simple_animal/hostile/creature/cult,
 		/mob/living/simple_animal/hostile/faithless/cult
 	)
+	appearance_flags = NO_CLIENT_COLOR
 
 /obj/effect/gateway/active/cult/cultify()
 	return
@@ -636,48 +627,11 @@
 	new thing(src.loc)
 	qdel(src)
 
-/obj/effect/gateway/active/Crossed(var/atom/A)
-	if(!istype(A, /mob/living))
-		return
-
-	var/mob/living/M = A
-
-	if(M.stat != DEAD)
-		if(M.transforming)
-			return
-		if(M.has_brain_worms())
-			return //Borer stuff - RR
-
-		if(iscult(M)) return
-		if(!ishuman(M) && !isrobot(M)) return
-
-		M.transforming = 1
-		M.canmove = 0
-		M.icon = null
-		M.overlays.len = 0
-		M.invisibility = 101
-
-		if(istype(M, /mob/living/silicon/robot))
-			var/mob/living/silicon/robot/Robot = M
-			if(Robot.mmi)
-				qdel(Robot.mmi)
-		else
-			for(var/obj/item/W in M)
-				if(istype(W, /obj/item/weapon/implant))
-					qdel(W)
-					continue
-				W.layer = initial(W.layer)
-				W.loc = M.loc
-				W.dropped(M)
-
-		var/mob/living/new_mob = new /mob/living/simple_animal/corgi(A.loc)
-		new_mob.a_intent = I_HURT
-		if(M.mind)
-			M.mind.transfer_to(new_mob)
-		else
-			new_mob.key = M.key
-
-		new_mob << "<B>Your form morphs into that of a corgi.</B>"	//Because we don't have cluwnes
+/obj/effect/gateway/attackby(var/obj/item/I, var/mob/user)
+	..()
+	if(istype(I, /obj/item/weapon/nullrod))
+		to_chat(user, "<span class='notice'>You touch \the [src] with \the [I], closing the path to the otherworld.</span>")
+		qdel(src)
 
 /obj/effect/testtrans
 	icon = 'icons/obj/cult.dmi'

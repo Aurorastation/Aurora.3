@@ -4,7 +4,7 @@
 /obj/structure/bed/nest
 	name = "alien nest"
 	desc = "It's a gruesome pile of thick, sticky resin shaped like a nest."
-	icon = 'icons/mob/alien.dmi'
+	icon = 'icons/mob/npc/alien.dmi'
 	icon_state = "nest"
 	var/health = 100
 
@@ -62,7 +62,7 @@
 			"<span class='warning'>[user.name] drenches you in a foul-smelling resin, trapping you in the [src]!</span>",\
 			"<span class='notice'>You hear squelching...</span>")
 	M.buckled = src
-	M.loc = src.loc
+	M.forceMove(src.loc)
 	M.set_dir(src.dir)
 	M.update_canmove()
 	M.pixel_y = 6

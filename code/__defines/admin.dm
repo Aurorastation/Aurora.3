@@ -1,5 +1,5 @@
 // A set of constants used to determine which type of mute an admin wishes to apply.
-// Please read and understand the muting/automuting stuff before changing these. MUTE_IC_AUTO, etc. = (MUTE_IC << 1)
+// Please read and understand the muting/automuting stuff before changing these. MUTE_IC_AUTO, etc. = (MUTE_Ito_chat(C, 1))
 // Therefore there needs to be a gap between the flags for the automute flags.
 #define MUTE_IC        0x1
 #define MUTE_OOC       0x2
@@ -41,3 +41,13 @@
 #define R_CCIAA         0x8000 //higher than this will overflow
 
 #define R_MAXPERMISSION 0x8000 // This holds the maximum value for a permission. It is used in iteration, so keep it updated.
+
+// ticket statuses
+#define TICKET_CLOSED   0
+#define TICKET_OPEN     1
+#define TICKET_ASSIGNED 2
+
+// adminhelp status
+#define NOT_ADMINHELPED     0
+#define ADMINHELPED         1
+#define ADMINHELPED_DISCORD 2

@@ -3,8 +3,8 @@
 	density = 1
 	icon = 'icons/obj/atmos.dmi'
 	icon_state = "sheater0"
-	name = "space heater"
-	desc = "Made by Space Amish using traditional space techniques, this heater is guaranteed not to set the station on fire."
+	name = "space A/C"
+	desc = "Made by Space Amish using traditional space techniques, this A/C unit can heat or cool a room to your liking."
 	var/obj/item/weapon/cell/cell
 	var/on = 0
 	var/set_temperature = T0C + 50	//K
@@ -26,11 +26,11 @@
 /obj/machinery/space_heater/examine(mob/user)
 	..(user)
 
-	user << "The heater is [on ? "on" : "off"] and the hatch is [panel_open ? "open" : "closed"]."
+	to_chat(user, "The heater is [on ? "on" : "off"] and the hatch is [panel_open ? "open" : "closed"].")
 	if(panel_open)
-		user << "The power cell is [cell ? "installed" : "missing"]."
+		to_chat(user, "The power cell is [cell ? "installed" : "missing"].")
 	else
-		user << "The charge meter reads [cell ? round(cell.percent(),1) : 0]%"
+		to_chat(user, "The charge meter reads [cell ? round(cell.percent(),1) : 0]%")
 	return
 
 /obj/machinery/space_heater/powered()
@@ -50,23 +50,22 @@
 	if(istype(I, /obj/item/weapon/cell))
 		if(panel_open)
 			if(cell)
-				user << "There is already a power cell inside."
+				to_chat(user, "There is already a power cell inside.")
 				return
 			else
 				// insert cell
 				var/obj/item/weapon/cell/C = usr.get_active_hand()
 				if(istype(C))
-					user.drop_item()
+					user.drop_from_inventory(C,src)
 					cell = C
-					C.loc = src
 					C.add_fingerprint(usr)
 
 					user.visible_message("<span class='notice'>[user] inserts a power cell into [src].</span>", "<span class='notice'>You insert the power cell into [src].</span>")
 					power_change()
 		else
-			user << "The hatch must be open to insert a power cell."
+			to_chat(user, "The hatch must be open to insert a power cell.")
 			return
-	else if(istype(I, /obj/item/weapon/screwdriver))
+	else if(I.isscrewdriver())
 		panel_open = !panel_open
 		user.visible_message("<span class='notice'>[user] [panel_open ? "opens" : "closes"] the hatch on the [src].</span>", "<span class='notice'>You [panel_open ? "open" : "close"] the hatch on the [src].</span>")
 		update_icon()
@@ -139,9 +138,8 @@
 				if(panel_open && !cell)
 					var/obj/item/weapon/cell/C = usr.get_active_hand()
 					if(istype(C))
-						usr.drop_item()
+						usr.drop_from_inventory(C,src)
 						cell = C
-						C.loc = src
 						C.add_fingerprint(usr)
 						power_change()
 						usr.visible_message("<span class='notice'>[usr] inserts \the [C] into \the [src].</span>", "<span class='notice'>You insert \the [C] into \the [src].</span>")

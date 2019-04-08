@@ -98,7 +98,7 @@
 		if(!allow_items) return
 
 		if(frozen_items.len == 0)
-			user << "<span class='notice'>There is nothing to recover from storage.</span>"
+			to_chat(user, "<span class='notice'>There is nothing to recover from storage.</span>")
 			return
 
 		var/obj/item/I = input(usr, "Please choose which object to retrieve.","Object recovery",null) as null|anything in frozen_items
@@ -106,10 +106,10 @@
 			return
 
 		if(!(I in frozen_items))
-			user << "<span class='notice'>\The [I] is no longer in storage.</span>"
+			to_chat(user, "<span class='notice'>\The [I] is no longer in storage.</span>")
 			return
 
-		visible_message("<span class='notice'>The console beeps happily as it disgorges \the [I].</span>", 3)
+		visible_message("<span class='notice'>The console beeps happily as it disgorges \the [I].</span>", range = 3)
 
 		I.forceMove(get_turf(src))
 		frozen_items -= I
@@ -118,10 +118,10 @@
 		if(!allow_items) return
 
 		if(frozen_items.len == 0)
-			user << "<span class='notice'>There is nothing to recover from storage.</span>"
+			to_chat(user, "<span class='notice'>There is nothing to recover from storage.</span>")
 			return
 
-		visible_message("<span class='notice'>The console beeps happily as it disgorges the desired objects.</span>", 3)
+		visible_message("<span class='notice'>The console beeps happily as it disgorges the desired objects.</span>", range = 3)
 
 		for(var/obj/item/I in frozen_items)
 			I.forceMove(get_turf(src))
@@ -249,7 +249,7 @@
 /obj/machinery/cryopod/machinery_process()
 	if(occupant)
 		//Allow a ten minute gap between entering the pod and actually despawning.
-		if(world.time - time_entered < time_till_despawn)
+		if((world.time - time_entered < time_till_despawn) && occupant.ckey)
 			return
 
 		if(!occupant.client && occupant.stat<2) //Occupant is living and has no client.
@@ -279,8 +279,7 @@
 /obj/machinery/cryopod/proc/despawn_occupant()
 	//Drop all items into the pod.
 	for(var/obj/item/W in occupant)
-		occupant.drop_from_inventory(W)
-		W.forceMove(src)
+		occupant.drop_from_inventory(W,src)
 
 		if(W.contents.len) //Make sure we catch anything not handled by qdel() on the items.
 			for(var/obj/item/O in W.contents)
@@ -313,50 +312,51 @@
 		else
 			if(control_computer && control_computer.allow_items)
 				control_computer.frozen_items += W
-				W.loc = null
+				W.forceMove(null)
 			else
 				W.forceMove(src.loc)
 
 	icon_state = base_icon_state
 
 	global_announcer.autosay("[occupant.real_name], [occupant.mind.role_alt_title], [on_store_message]", "[on_store_name]")
-	visible_message("<span class='notice'>\The [initial(name)] hums and hisses as it moves [occupant.real_name] into storage.</span>", 3)
+	visible_message("<span class='notice'>\The [initial(name)] hums and hisses as it moves [occupant.real_name] into storage.</span>")
 
 	// Let SSjobs handle the rest.
 	SSjobs.DespawnMob(occupant)
 
 	set_occupant(null)
 
-/obj/machinery/cryopod/attackby(var/obj/item/weapon/G as obj, var/mob/user as mob)
+/obj/machinery/cryopod/attackby(var/obj/item/weapon/grab/G, var/mob/user as mob)
 
-	if(istype(G, /obj/item/weapon/grab))
+	if(istype(G))
 
 		if(occupant)
-			user << "<span class='notice'>\The [src] is in use.</span>"
+			to_chat(user, "<span class='notice'>\The [src] is in use.</span>")
 			return
 
-		if(!ismob(G:affecting))
+		if(!ismob(G.affecting))
 			return
 
-		if(!check_occupant_allowed(G:affecting))
+		if(!check_occupant_allowed(G.affecting))
 			return
 
 		var/willing = null //We don't want to allow people to be forced into despawning.
-		var/mob/M = G:affecting
+		var/mob/M = G.affecting
 
 		if(M.client)
+			var/originalloc = M.loc
 			if(alert(M,"Would you like to enter long-term storage?",,"Yes","No") == "Yes")
-				if(!M || !G || !G:affecting) return
+				if(!M || !G || !G.affecting || M.loc != originalloc) return
 				willing = 1
 		else
 			willing = 1
 
 		if(willing)
 
-			visible_message("[user] starts putting [G:affecting:name] into \the [name].", 3)
+			user.visible_message("<span class='notice'>[user] starts putting [G.affecting] into [src].</span>", "<span class='notice'>You start putting [G.affecting] into [src].</span>", range = 3)
 
 			if(do_after(user, 20))
-				if(!M || !G || !G:affecting) return
+				if(!M || !G || !G.affecting) return
 
 				M.forceMove(src)
 
@@ -366,8 +366,8 @@
 
 			icon_state = occupied_icon_state
 
-			M << "<span class='notice'>[on_enter_occupant_message]</span>"
-			M << "<span class='notice'><b>If you ghost, log out or close your client now, your character will shortly be permanently removed from the round.</b></span>"
+			to_chat(M, "<span class='notice'>[on_enter_occupant_message]</span>")
+			to_chat(M, "<span class='notice'><b>If you ghost, log out or close your client now, your character will shortly be permanently removed from the round.</b></span>")
 			set_occupant(M)
 			time_entered = world.time
 
@@ -385,49 +385,50 @@
 	if(!check_occupant_allowed(O))
 		return
 	if(occupant)
-		user << "<span class='notice'>\The [src] is in use.</span>"
+		to_chat(user, "<span class='notice'>\The [src] is in use.</span>")
 		return
 	var/mob/living/L = O
 
 	if(L.stat == DEAD)
-		user << "<span class='notice'>Dead people can not be put into stasis.</span>"
+		to_chat(user, "<span class='notice'>Dead people can not be put into stasis.</span>")
 		return
 	for(var/mob/living/carbon/slime/M in range(1,L))
 		if(M.Victim == L)
-			usr << "[L.name] will not fit into the cryo pod because they have a slime latched onto their head."
+			to_chat(usr, "[L.name] will not fit into the cryo pod because they have a slime latched onto their head.")
 			return
 
 	var/willing = null //We don't want to allow people to be forced into despawning.
 
 	if(L.client)
+		var/originalloc = L.loc
 		if(alert(L,"Would you like to enter stasis?",,"Yes","No") == "Yes")
-			if(!L) return
+			if(!L || L.loc != originalloc) return
 			willing = 1
 	else
 		willing = 1
 
 	if(willing)
 		if(L == user)
-			visible_message("[user] starts climbing into \the [name].", 3)
+			user.visible_message("<span class='notice'>[user] starts climbing into [src].</span>", "<span class='notice'>You start climbing into [src].</span>", range = 3)
 		else
-			visible_message("[user] starts putting [L] into \the [name].", 3)
+			user.visible_message("<span class='notice'>[user] starts putting [L] into [src].</span>", "<span class='notice'>You start putting [L] into [src].</span>", range = 3)
 
 		if(do_after(user, 20))
 			if(!L) return
 
-			L.loc = src
+			L.forceMove(src)
 
 			if(L.client)
 				L.client.perspective = EYE_PERSPECTIVE
 				L.client.eye = src
 		else
-			user << "<span class='notice'>You stop [L == user ? "climbing into" : "putting [L] into"] \the [name].</span>"
+			to_chat(user, "<span class='notice'>You stop [L == user ? "climbing into" : "putting [L] into"] \the [name].</span>")
 			return
 
 		icon_state = occupied_icon_state
 
-		L << "<span class='notice'>You feel cool air surround you. You go numb as your senses turn inward.</span>"
-		L << "<span class='notice'><b>If you ghost, log out or close your client now, your character will shortly be permanently removed from the round.</b></span>"
+		to_chat(L, "<span class='notice'>You feel cool air surround you. You go numb as your senses turn inward.</span>")
+		to_chat(L, "<span class='notice'><b>If you ghost, log out or close your client now, your character will shortly be permanently removed from the round.</b></span>")
 		occupant = L
 		time_entered = world.time
 
@@ -473,15 +474,15 @@
 		return
 
 	if(src.occupant)
-		usr << "<span class='notice'><B>\The [src] is in use.</B></span>"
+		to_chat(usr, "<span class='notice'><B>\The [src] is in use.</B></span>")
 		return
 
 	for(var/mob/living/carbon/slime/M in range(1,usr))
 		if(M.Victim == usr)
-			usr << "You're too busy getting your life sucked out of you."
+			to_chat(usr, "You're too busy getting your life sucked out of you.")
 			return
 
-	visible_message("[usr] starts climbing into \the [src].", 3)
+	usr.visible_message("<span class='notice'>[usr] starts climbing into [src].</span>", "<span class='notice'>You start climbing into [src].</span>", range = 3)
 
 	if(do_after(usr, 20))
 
@@ -489,7 +490,7 @@
 			return
 
 		if(src.occupant)
-			usr << "<span class='notice'><B>\The [src] is in use.</B></span>"
+			to_chat(usr, "<span class='notice'><B>\The [src] is in use.</B></span>")
 			return
 
 		usr.stop_pulling()
@@ -500,8 +501,8 @@
 
 		icon_state = occupied_icon_state
 
-		usr << "<span class='notice'>[on_enter_occupant_message]</span>"
-		usr << "<span class='notice'><b>If you ghost, log out or close your client now, your character will shortly be permanently removed from the round.</b></span>"
+		to_chat(usr, "<span class='notice'>[on_enter_occupant_message]</span>")
+		to_chat(usr, "<span class='notice'><b>If you ghost, log out or close your client now, your character will shortly be permanently removed from the round.</b></span>")
 
 		time_entered = world.time
 

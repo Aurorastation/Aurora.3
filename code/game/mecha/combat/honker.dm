@@ -17,8 +17,8 @@
 	var/squeak = 0
 
 
-/obj/mecha/combat/honker/New()
-	..()
+/obj/mecha/combat/honker/Initialize()
+	.= ..()
 	var/obj/item/mecha_parts/mecha_equipment/ME = new /obj/item/mecha_parts/mecha_equipment/weapon/honker
 	ME.attach(src)
 	ME = new /obj/item/mecha_parts/mecha_equipment/weapon/ballistic/missile_rack/banana_mortar
@@ -47,45 +47,45 @@
 
 /obj/item/mecha_parts/mecha_equipment/weapon/honker
 	name = "\improper HoNkER BlAsT 5000"
+	desc = "Equipment for clown exosuits. Spreads fun and joy to everyone around. Honk!"
 	icon_state = "mecha_honker"
 	energy_drain = 200
 	equip_cooldown = 150
 	range = MELEE|RANGED
-	can_attach(obj/mecha/combat/honker/M as obj)
-		if(!istype(M))
-			return 0
-		return ..()
-	action(target)
-		if(!chassis)
-			return 0
-		if(energy_drain && chassis.get_charge() < energy_drain)
-			return 0
-		if(!equip_ready)
-			return 0
-		playsound(chassis, 'sound/items/AirHorn.ogg', 100, 1)
-		chassis.occupant_message("<font color='red' size='5'>HONK</font>")
-		for(var/mob/living/carbon/M in ohearers(6, chassis))
-			if(istype(M, /mob/living/carbon/human))
-				var/mob/living/carbon/human/H = M
-				if(istype(H.l_ear, /obj/item/clothing/ears/earmuffs) || istype(H.r_ear, /obj/item/clothing/ears/earmuffs))
-					continue
-			M << "<font color='red' size='7'>HONK</font>"
-			M.sleeping = 0
-			M.stuttering += 20
-			M.ear_deaf += 30
-			M.Weaken(3)
-			if(prob(30))
-				M.Stun(10)
-				M.Paralyse(4)
-			else
-				M.make_jittery(500)
-		chassis.use_power(energy_drain)
-		log_message("Honked from [src.name]. HONK!")
-		do_after_cooldown()
-		return
+	required_type = list(/obj/mecha/combat/honker)
+
+/obj/item/mecha_parts/mecha_equipment/weapon/honker/action(target)
+	if(!chassis)
+		return 0
+	if(energy_drain && chassis.get_charge() < energy_drain)
+		return 0
+	if(!equip_ready)
+		return 0
+	playsound(chassis, 'sound/items/AirHorn.ogg', 100, 1)
+	chassis.occupant_message("<font color='red' size='5'>HONK</font>")
+	for(var/mob/living/carbon/M in ohearers(6, chassis))
+		if(istype(M, /mob/living/carbon/human))
+			var/mob/living/carbon/human/H = M
+			if(istype(H.l_ear, /obj/item/clothing/ears/earmuffs) || istype(H.r_ear, /obj/item/clothing/ears/earmuffs))
+				continue
+		to_chat(M, "<font color='red' size='7'>HONK</font>")
+		M.sleeping = 0
+		M.stuttering += 20
+		M.ear_deaf += 30
+		M.Weaken(3)
+		if(prob(30))
+			M.Stun(10)
+			M.Paralyse(4)
+		else
+			M.make_jittery(500)
+	chassis.use_power(energy_drain)
+	log_message("Honked from [src.name]. HONK!")
+	do_after_cooldown()
+	return
 
 /obj/item/mecha_parts/mecha_equipment/weapon/ballistic/missile_rack/banana_mortar
-	name = "Banana Mortar"
+	name = "banana mortar"
+	desc = "Equipment for clown exosuits. Launches banana peels."
 	icon_state = "mecha_bananamrtr"
 	projectile = /obj/item/weapon/bananapeel
 	fire_sound = 'sound/items/bikehorn.ogg'
@@ -93,17 +93,15 @@
 	missile_speed = 1.5
 	projectile_energy_cost = 100
 	equip_cooldown = 20
-
-	can_attach(obj/mecha/combat/honker/M as obj)
-		if(!istype(M))
-			return 0
-		return ..()
+	required_type = list(/obj/mecha/combat/honker)
 
 /obj/item/mecha_parts/mecha_equipment/weapon/ballistic/missile_rack/banana_mortar/mousetrap_mortar
-	name = "Mousetrap Mortar"
+	name = "mousetrap mortar"
+	desc = "Equipment for clown exosuits. Launches armed mousetraps."
 	icon_state = "mecha_mousetrapmrtr"
 	projectile = /obj/item/device/assembly/mousetrap
 	equip_cooldown = 10
+	required_type = list(/obj/mecha/combat/honker)
 
 /obj/item/mecha_parts/mecha_equipment/weapon/ballistic/missile_rack/banana_mortar/mousetrap_mortar/Fire(atom/movable/AM, atom/target, turf/aimloc)
 	var/obj/item/device/assembly/mousetrap/M = AM

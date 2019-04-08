@@ -22,20 +22,16 @@
 	var/weld_power_use = 2300	// power used per point of brute damage repaired. 2.3 kW ~ about the same power usage of a handheld arc welder
 	var/wire_power_use = 500	// power used per point of burn damage repaired.
 
+	component_types = list(
+		/obj/item/weapon/circuitboard/recharge_station,
+		/obj/item/weapon/stock_parts/manipulator = 2,
+		/obj/item/weapon/stock_parts/capacitor = 2,
+		/obj/item/weapon/cell/high,
+		/obj/item/stack/cable_coil{amount = 5}
+	)
+
 /obj/machinery/recharge_station/Initialize()
 	. = ..()
-
-	component_parts = list()
-	component_parts += new /obj/item/weapon/circuitboard/recharge_station(src)
-	component_parts += new /obj/item/weapon/stock_parts/manipulator(src)
-	component_parts += new /obj/item/weapon/stock_parts/manipulator(src)
-	component_parts += new /obj/item/weapon/stock_parts/capacitor(src)
-	component_parts += new /obj/item/weapon/stock_parts/capacitor(src)
-	component_parts += new /obj/item/weapon/cell/high(src)
-	component_parts += new /obj/item/stack/cable_coil(src, 5)
-
-	RefreshParts()
-
 	update_icon()
 
 /obj/machinery/recharge_station/proc/has_cell_power()
@@ -107,13 +103,13 @@
 	else if(ishuman(occupant))
 		var/mob/living/carbon/human/H = occupant
 		if(!isnull(H.internal_organs_by_name["cell"]) && H.nutrition < H.max_nutrition)
-			H.nutrition = min(H.nutrition+10, H.max_nutrition)
+			H.adjustNutritionLoss(-10)
 			cell.use(7000/H.max_nutrition*10)
 
 
 /obj/machinery/recharge_station/examine(mob/user)
 	..(user)
-	user << "The charge meter reads: [round(chargepercentage())]%"
+	to_chat(user, "The charge meter reads: [round(chargepercentage())]%")
 
 /obj/machinery/recharge_station/proc/chargepercentage()
 	if(!cell)
@@ -138,9 +134,9 @@
 	if(!occupant)
 		if(default_deconstruction_screwdriver(user, O))
 			return
-		if(default_deconstruction_crowbar(user, O))
+		else if(default_deconstruction_crowbar(user, O))
 			return
-		if(default_part_replacement(user, O))
+		else if(default_part_replacement(user, O))
 			return
 
 	..()
@@ -151,9 +147,9 @@
 	var/cap_rating = 0
 
 	for(var/obj/item/weapon/stock_parts/P in component_parts)
-		if(istype(P, /obj/item/weapon/stock_parts/capacitor))
+		if(iscapacitor(P))
 			cap_rating += P.rating
-		if(istype(P, /obj/item/weapon/stock_parts/manipulator))
+		else if(ismanipulator(P))
 			man_rating += P.rating
 	cell = locate(/obj/item/weapon/cell) in component_parts
 
@@ -204,7 +200,7 @@
 	if(icon_update_tick == 0)
 		build_overlays()
 
-/obj/machinery/recharge_station/Bumped(var/mob/living/silicon/robot/R)
+/obj/machinery/recharge_station/CollidedWith(var/mob/living/silicon/robot/R)
 	go_in(R)
 
 /obj/machinery/recharge_station/proc/go_in(var/mob/M)
@@ -266,7 +262,7 @@
 	if (istype(C, /mob/living/silicon/robot))
 		var/mob/living/silicon/robot/R = C
 		if (!user.Adjacent(R) || !Adjacent(user))
-			user << span("danger", "You need to get closer if you want to put [C] into that charger!")
+			to_chat(user, span("danger", "You need to get closer if you want to put [C] into that charger!"))
 			return
 		user.face_atom(src)
 		user.visible_message(span("danger","[user] starts hauling [C] into the recharging unit!"), span("danger","You start hauling and pushing [C] into the recharger. This might take a while..."), "You hear heaving and straining")
@@ -275,8 +271,8 @@
 				user.visible_message(span("notice","After a great effort, [user] manages to get [C] into the recharging unit!"))
 				return 1
 			else
-				user << span("danger","Failed loading [C] into the charger. Please ensure that [C] has a power cell and is not buckled down, and that the charger is functioning.")
+				to_chat(user, span("danger","Failed loading [C] into the charger. Please ensure that [C] has a power cell and is not buckled down, and that the charger is functioning."))
 		else
-			user << span("danger","Cancelled loading [C] into the charger. You and [C] must stay still!")
+			to_chat(user, span("danger","Cancelled loading [C] into the charger. You and [C] must stay still!"))
 		return
 	return ..()

@@ -1,19 +1,15 @@
-#define SECOND *10
-#define SECONDS *10
-
-#define MINUTE *600
-#define MINUTES *600
-
 var/roundstart_hour = 0
+var/round_start_time
+
 //Returns the world time in english
 /proc/worldtime2text(time = world.time, timeshift = 1)
 	if(!roundstart_hour) roundstart_hour = rand(0, 23)
-	return timeshift ? time2text(time+(36000*roundstart_hour), "hh:mm") : time2text(time, "hh:mm")
+	return timeshift ? time2text(time+(roundstart_hour HOURS), "hh:mm") : time2text(time, "hh:mm")
 
 /proc/worldtime2hours()
 	if (!roundstart_hour)
 		worldtime2text()
-	. = text2num(time2text(world.time + (36000 * roundstart_hour), "hh"))
+	. = text2num(time2text(world.time + (roundstart_hour HOURS), "hh"))
 
 /proc/worlddate2text()
 	return num2text(game_year) + "-" + time2text(world.timeofday, "MM-DD")
@@ -33,29 +29,27 @@ var/roundstart_hour = 0
 		//else
 			//return 1
 
-var/next_duration_update = 0
-var/last_round_duration = 0
-/proc/round_duration()
-	if(last_round_duration && world.time < next_duration_update)
-		return last_round_duration
+var/real_round_start_time
+/proc/get_round_duration() //Real time since round has started, in ticks.
+	return real_round_start_time ? (REALTIMEOFDAY - real_round_start_time) : 0
 
-	var/mills = world.time // 1/10 of a second, not real milliseconds but whatever
-	//var/secs = ((mills % 36000) % 600) / 10 //Not really needed, but I'll leave it here for refrence.. or something
-	var/mins = round((mills % 36000) / 600)
-	var/hours = round(mills / 36000)
+/proc/get_round_duration_formatted()
+	var/duration = get_round_duration()
+	var/hour = "[ round(duration / ( 1 HOUR) ) ]"
+	var/minute = "[ round(duration / (1 MINUTE) ) % 60 ]"
+	if(length(hour) == 1)
+		hour = "0" + hour
+	if(length(minute) == 1)
+		minute = "0" + minute
 
-	mins = mins < 10 ? add_zero(mins, 1) : mins
-	hours = hours < 10 ? add_zero(hours, 1) : hours
-
-	last_round_duration = "[hours]:[mins]"
-	next_duration_update = world.time + 1 MINUTES
-	return last_round_duration
+	return "[hour]:[minute]"
 
 /var/midnight_rollovers = 0
 /var/rollovercheck_last_timeofday = 0
 /proc/update_midnight_rollover()
 	if (world.timeofday < rollovercheck_last_timeofday) //TIME IS GOING BACKWARDS!
-		return midnight_rollovers++
+		midnight_rollovers += 1
+	rollovercheck_last_timeofday = world.timeofday
 	return midnight_rollovers
 
 //returns timestamp in a sql and ISO 8601 friendly format

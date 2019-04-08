@@ -16,14 +16,18 @@
 
 ///Process_Grab()
 ///Called by client/Move()
-///Checks to see if you are grabbing anything and if moving will affect your grab.
+///Checks to see if you are grabbing or being grabbed by anything and if moving will affect your grab.
 /client/proc/Process_Grab()
+	if(isliving(mob)) //if we are being grabbed
+		var/mob/living/L = mob
+		if(!L.canmove && L.grabbed_by.len)
+			L.resist() //shortcut for resisting grabs
 	for(var/obj/item/weapon/grab/G in list(mob.l_hand, mob.r_hand))
 		G.reset_kill_state() //no wandering across the station/asteroid while choking someone
 
 /obj/item/weapon/grab
 	name = "grab"
-	icon = 'icons/mob/screen1.dmi'
+	icon = 'icons/mob/screen/generic.dmi'
 	icon_state = "reinforce"
 	flags = 0
 	var/obj/screen/grab/hud = null
@@ -206,12 +210,12 @@
 			shift = -10
 			adir = assailant.dir
 			affecting.set_dir(assailant.dir)
-			affecting.loc = assailant.loc
+			affecting.forceMove(assailant.loc)
 		if(GRAB_KILL)
 			shift = 0
 			adir = 1
 			affecting.set_dir(SOUTH) //face up
-			affecting.loc = assailant.loc
+			affecting.forceMove(assailant.loc)
 
 	switch(adir)
 		if(NORTH)
@@ -231,10 +235,17 @@
 		return
 	if(!assailant.canClick())
 		return
-	if(world.time < (last_action + UPGRADE_COOLDOWN))
-		return
 	if(!assailant.canmove || assailant.lying)
 		qdel(src)
+		return
+
+	var/grab_coeff = 1
+	if(ishuman(affecting))
+		var/mob/living/carbon/human/H = affecting
+		if(H.species)
+			grab_coeff = H.species.grab_mod
+
+	if(world.time < (last_action + (UPGRADE_COOLDOWN * grab_coeff)))
 		return
 
 	last_action = world.time
@@ -253,7 +264,7 @@
 		hud.icon_state = "reinforce1"
 	else if(state < GRAB_NECK)
 		if(isslime(affecting))
-			assailant << "<span class='notice'>You squeeze [affecting], but nothing interesting happens.</span>"
+			to_chat(assailant, "<span class='notice'>You squeeze [affecting], but nothing interesting happens.</span>")
 			return
 
 		assailant.visible_message("<span class='warning'>[assailant] has reinforced \his grip on [affecting] (now neck)!</span>")
@@ -311,7 +322,7 @@
 			switch(assailant.a_intent)
 				if(I_HELP)
 					if(force_down)
-						assailant << "<span class='warning'>You are no longer pinning [affecting] to the ground.</span>"
+						to_chat(assailant, "<span class='warning'>You are no longer pinning [affecting] to the ground.</span>")
 						force_down = 0
 						return
 					inspect_organ(affecting, assailant, hit_zone)

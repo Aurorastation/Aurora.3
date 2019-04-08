@@ -32,13 +32,13 @@
 	if(hardware && (hardware.owner == src))
 		msg += "<br>"
 		msg += hardware.get_examine_desc()
-	user << msg
+	to_chat(user, msg)
 	user.showLaws(src)
 	return
 
 /mob/proc/showLaws(var/mob/living/silicon/S)
 	return
 
-/mob/dead/observer/showLaws(var/mob/living/silicon/S)
+/mob/abstract/observer/showLaws(var/mob/living/silicon/S)
 	if(antagHUD || is_admin(src))
 		S.laws.show_laws(src)

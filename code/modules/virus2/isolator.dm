@@ -32,12 +32,11 @@
 	var/obj/item/weapon/reagent_containers/syringe/S = O
 
 	if(sample)
-		user << "\The [src] is already loaded."
+		to_chat(user, "\The [src] is already loaded.")
 		return
 
 	sample = S
-	user.drop_item()
-	S.loc = src
+	user.drop_from_inventory(S,src)
 
 	user.visible_message("[user] adds \a [O] to \the [src]!", "You add \a [O] to \the [src]!")
 	SSnanoui.update_uis(src)
@@ -72,9 +71,10 @@
 						if (ID in virusDB)
 							R = virusDB[ID]
 
-						var/mob/living/carbon/human/D = B.data["donor"]
+						var/datum/weakref/A = B.data["donor"]
+						var/mob/living/carbon/human/D = A.resolve()
 						pathogen_pool.Add(list(list(\
-							"name" = "[D.get_species()] [B.name]", \
+							"name" = "[D ? D.get_species() : "unknown"] [B.name]", \
 							"dna" = B.data["blood_DNA"], \
 							"unique_id" = V.uniqueID, \
 							"reference" = "\ref[V]", \
@@ -162,7 +162,7 @@
 		return 1
 
 	if (href_list["eject"])
-		sample.loc = src.loc
+		sample.forceMove(src.loc)
 		sample = null
 		update_icon()
 		return 1
@@ -188,8 +188,9 @@
 			info += "<hr>"
 
 			for(var/datum/reagent/blood/B in sample.reagents.reagent_list)
-				var/mob/living/carbon/human/D = B.data["donor"]
-				info += "<large><u>[D.get_species()] [B.name]:</u></large><br>[B.data["blood_DNA"]]<br>"
+				var/datum/weakref/A = B.data["donor"]
+				var/mob/living/carbon/human/D = A.resolve()
+				info += "<large><u>[D ? D.get_species() : "unknown"] [B.name]:</u></large><br>[B.data["blood_DNA"]]<br>"
 
 				var/list/virus = B.data["virus2"]
 				info += "<u>Pathogens:</u> <br>"

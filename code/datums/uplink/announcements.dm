@@ -11,9 +11,9 @@
 
 /datum/uplink_item/abstract/announcements/fake_centcom/New()
 	..()
-	name = "[command_name()] Update Announcement"
+	name = "[current_map.boss_name] Update Announcement"
 	item_cost = round(DEFAULT_TELECRYSTAL_AMOUNT / 2)
-	desc = "Causes a falsified [command_name()] Update. Triggers immediately after supplying additional data."
+	desc = "Causes a falsified [current_map.boss_name] Update. Triggers immediately after supplying additional data."
 
 /datum/uplink_item/abstract/announcements/fake_centcom/extra_args(var/mob/user)
 	var/title = sanitize(input("Enter your announcement title.", "Announcement Title") as null|text)
@@ -25,7 +25,7 @@
 	return list("title" = title, "message" = message)
 
 /datum/uplink_item/abstract/announcements/fake_centcom/get_goods(var/obj/item/device/uplink/U, var/loc, var/mob/user, var/list/args)
-	command_announcement.Announce(args["message"], args["title"])
+	command_announcement.Announce(args["message"], args["title"], do_newscast=1, do_print=1)
 	return 1
 
 /datum/uplink_item/abstract/announcements/fake_crew_arrival
@@ -104,7 +104,7 @@
 			cooldown = 0
 		return 1
 	else
-		loc << "<span class='danger'>This service is on cooldown! Try again in a bit!</span>"
+		to_chat(loc, "<span class='danger'>This service is on cooldown! Try again in a bit!</span>")
 		return 0
 
 /datum/uplink_item/abstract/announcements/fake_radiation
@@ -122,5 +122,5 @@
 			cooldown = 0
 		return 1
 	else
-		loc << "<span class='danger'>This service is on cooldown! Try again in a bit!</span>"
+		to_chat(loc, "<span class='danger'>This service is on cooldown! Try again in a bit!</span>")
 		return 0

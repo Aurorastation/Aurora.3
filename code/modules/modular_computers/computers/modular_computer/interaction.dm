@@ -62,8 +62,10 @@
 
 	for(var/datum/computer_file/program/P in idle_threads)
 		P.event_idremoved(1)
-
-	card_slot.stored_card.forceMove(get_turf(src))
+	if(ishuman(user))
+		user.put_in_hands(card_slot.stored_card)
+	else
+		card_slot.stored_card.forceMove(get_turf(src))
 	card_slot.stored_card = null
 	update_uis()
 	to_chat(user, "You remove the card from \the [src]")
@@ -88,12 +90,15 @@
 		to_chat(user, "There is no intellicard connected to \the [src].")
 		return
 
-	ai_slot.stored_card.forceMove(get_turf(src))
+	if(ishuman(user))
+		user.put_in_hands(ai_slot.stored_card)
+	else
+		ai_slot.stored_card.forceMove(get_turf(src))
 	ai_slot.stored_card = null
 	ai_slot.update_power_usage()
 	update_uis()
 
-/obj/item/modular_computer/attack_ghost(var/mob/dead/observer/user)
+/obj/item/modular_computer/attack_ghost(var/mob/abstract/observer/user)
 	if(enabled)
 		ui_interact(user)
 	else if(check_rights(R_ADMIN, 0, user))
@@ -128,9 +133,8 @@
 		if(card_slot.stored_card)
 			to_chat(user, "You try to insert \the [I] into \the [src], but it's ID card slot is occupied.")
 			return
-		user.drop_from_inventory(I)
+		user.drop_from_inventory(I,src)
 		card_slot.stored_card = I
-		I.forceMove(src)
 		update_uis()
 		to_chat(user, "You insert \the [I] into \the [src].")
 		return
@@ -148,7 +152,7 @@
 			try_install_component(user, C)
 		else
 			to_chat(user, "This component is too large for \the [src].")
-	if(istype(W, /obj/item/weapon/wrench))
+	if(W.iswrench())
 		var/list/components = get_all_components()
 		if(components.len)
 			to_chat(user, "Remove all components from \the [src] before disassembling it.")
@@ -157,12 +161,12 @@
 		playsound(user, 'sound/items/Ratchet.ogg', 100, 1)
 		if (do_after(user, 20))
 			new /obj/item/stack/material/steel(get_turf(src.loc), steel_sheet_cost)
-			src.visible_message("\The [user] disassembles \the [src].", 
+			src.visible_message("\The [user] disassembles \the [src].",
 				"You disassemble \the [src].",
 				"You hear a ratchet.")
 			qdel(src)
 		return
-	if(istype(W, /obj/item/weapon/weldingtool))
+	if(W.iswelder())
 		var/obj/item/weapon/weldingtool/WT = W
 		if(!WT.isOn())
 			to_chat(user, "\The [W] is off.")
@@ -179,7 +183,7 @@
 			to_chat(user, "You repair \the [src].")
 		return
 
-	if(istype(W, /obj/item/weapon/screwdriver))
+	if(W.isscrewdriver())
 		var/list/all_components = get_all_components()
 		if(!all_components.len)
 			to_chat(user, "This device doesn't have any components installed.")

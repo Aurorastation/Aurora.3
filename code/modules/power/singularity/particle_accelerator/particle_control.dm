@@ -94,7 +94,7 @@
 
 	if(href_list["togglep"])
 		if(!wires.IsIndexCut(PARTICLE_TOGGLE_WIRE))
-			src.toggle_power()
+			src.toggle_power(usr)
 	else if(href_list["scan"])
 		src.part_scan()
 
@@ -212,11 +212,11 @@
 	return 0
 
 
-/obj/machinery/particle_accelerator/control_box/proc/toggle_power()
+/obj/machinery/particle_accelerator/control_box/proc/toggle_power(mob/user)
 	src.active = !src.active
-	investigate_log("turned [active?"<font color='red'>ON</font>":"<font color='green'>OFF</font>"] by [usr ? usr.key : "outside forces"]","singulo")
-	message_admins("PA Control Computer turned [active ?"ON":"OFF"] by [key_name(usr, usr.client)](<A HREF='?_src_=holder;adminmoreinfo=\ref[usr]'>?</A>) in ([x],[y],[z] - <A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[x];Y=[y];Z=[z]'>JMP</a>)",0,1)
-	log_game("PA Control Computer turned [active ?"ON":"OFF"] by [usr.ckey]([usr]) in ([x],[y],[z])",ckey=key_name(usr))
+	investigate_log("turned [active?"<font color='red'>ON</font>":"<font color='green'>OFF</font>"] by [user ? user.key : "outside forces"]","singulo")
+	message_admins("PA Control Computer turned [active ?"ON":"OFF"] by [key_name(user, TRUE, highlight_special = TRUE)] in ([x],[y],[z] - <A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[x];Y=[y];Z=[z]'>JMP</a>)",0,1)
+	log_game("PA Control Computer turned [active ?"ON":"OFF"] by [key_name(user)] in ([x],[y],[z])",ckey=key_name(user))
 	if(src.active)
 		update_use_power(2)
 		for(var/obj/structure/particle_accelerator/part in connected_parts)

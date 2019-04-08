@@ -2,16 +2,18 @@
 	name = "shambling horror"
 	desc = "A monstrous creature, made of twisted flesh and bone."
 	speak_emote = list("gibbers")
-	icon = 'icons/mob/animal.dmi'
-	icon_state = "horror"
-	icon_living = "horror"
-	icon_dead = "horror_dead"
+	icon = 'icons/mob/npc/animal.dmi'
+	icon_state = "abomination"
+	icon_living = "abomination"
+	icon_dead = "abomination_dead"
 	stop_automated_movement = 1
-	universal_speak =1
+	universal_speak = 1
 	universal_understand = 1
 
 	mob_swap_flags = HUMAN|SIMPLE_ANIMAL|SLIME|MONKEY
 	mob_push_flags = ALLMOBS
+
+	tameable = FALSE
 
 	response_help  = "pets"
 	response_disarm = "shoves"
@@ -34,23 +36,29 @@
 	min_oxy = 0
 	max_co2 = 0
 	max_tox = 0
-	
+
 	var/is_devouring = FALSE
-	
+
 /mob/living/simple_animal/hostile/true_changeling/Initialize()
 	. = ..()
 	if(prob(25))
+		icon_state = "horror"
+		icon_living = "horror"
+		icon_dead = "horror_dead"
+	else if(prob(25))
 		icon_state = "horror_alt"
 		icon_living = "horror_alt"
-	
+		icon_dead = "horror_alt_dead"
+
+
 /mob/living/simple_animal/hostile/true_changeling/Life()
 	..()
 	adjustBruteLoss(-10) //it will slowly heal brute damage, making fire/laser a stronger option
-	
+
 /mob/living/simple_animal/hostile/true_changeling/mind_initialize()
 	..()
 	mind.assigned_role = "Changeling"
-	
+
 /mob/living/simple_animal/hostile/true_changeling/death(gibbed)
 	..()
 	if(!gibbed)
@@ -72,15 +80,15 @@
 		return
 
 	if(src.is_devouring)
-		src << "<span class='warning'>We are already feasting on something!</span>"
+		to_chat(src, "<span class='warning'>We are already feasting on something!</span>")
 		return 0
 
 	if(!health)
-		src << "<span class='notice'>We are dead, we cannot use any abilities!</span>"
+		to_chat(src, "<span class='notice'>We are dead, we cannot use any abilities!</span>")
 		return
 
 	if(last_special > world.time)
-		src << "<span class='warning'>We must wait a little while before we can use this ability again!</span>"
+		to_chat(src, "<span class='warning'>We must wait a little while before we can use this ability again!</span>")
 		return
 
 	src.visible_message("<span class='warning'>[src] begins ripping apart and feasting on [target]!</span>")
@@ -89,7 +97,7 @@
 	target.adjustBruteLoss(35)
 
 	if(!do_after(src,150))
-		src<< "<span class='warning'>You need to wait longer to devour \the [target]!</span>"
+		to_chat(src, "<span class='warning'>You need to wait longer to devour \the [target]!</span>")
 		src.is_devouring = FALSE
 		return 0
 
@@ -98,7 +106,7 @@
 	target.adjustBruteLoss(35)
 
 	if(!do_after(src,150))
-		src<< "<span class='warning'>You need to wait longer to devour \the [target]!</span>"
+		to_chat(src, "<span class='warning'>You need to wait longer to devour \the [target]!</span>")
 		src.is_devouring = FALSE
 		return 0
 
@@ -110,14 +118,14 @@
 	last_special = world.time + 100
 	src.is_devouring = FALSE
 	return
-	
+
 /mob/living/simple_animal/hostile/true_changeling/verb/dart(mob/living/target as mob in oview())
 	set name = "Launch Bone Dart"
 	set desc = "Launches a Bone Dart at a target."
 	set category = "Changeling"
 
 	if(!health)
-		usr << "<span class='notice'>We are dead, we cannot use any abilities!</span>"
+		to_chat(usr, "<span class='notice'>We are dead, we cannot use any abilities!</span>")
 		return
 
 	if(last_special > world.time)
@@ -129,5 +137,5 @@
 
 	playsound(src.loc, 'sound/weapons/bloodyslice.ogg', 50, 1)
 	var/obj/item/weapon/bone_dart/A = new /obj/item/weapon/bone_dart(usr.loc)
-	A.throw_at(target, 10, 20, user)
+	A.throw_at(target, 10, 20, usr)
 	add_logs(src, target, "launched a bone dart at")

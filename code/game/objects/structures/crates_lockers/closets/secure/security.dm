@@ -9,6 +9,7 @@
 	icon_off = "capsecureoff"
 
 	fill()
+		//Appearance
 		if(prob(50))
 			new /obj/item/weapon/storage/backpack/captain(src)
 		else
@@ -18,17 +19,18 @@
 		new /obj/item/clothing/head/caphat/cap(src)
 		new /obj/item/clothing/under/rank/captain(src)
 		new /obj/item/clothing/suit/storage/vest(src)
-		new /obj/item/weapon/cartridge/captain(src)
+		new /obj/item/clothing/gloves/captain(src)
 		new /obj/item/clothing/head/helmet(src)
 		new /obj/item/clothing/shoes/brown(src)
-		new /obj/item/device/radio/headset/heads/captain(src)
-		new /obj/item/clothing/gloves/captain(src)
-		new /obj/item/weapon/gun/energy/pistol(src)
-		new /obj/item/device/flash(src)
-		new /obj/item/weapon/melee/telebaton(src)
 		new /obj/item/clothing/under/dress/dress_cap(src)
 		new /obj/item/clothing/head/caphat/formal(src)
 		new /obj/item/clothing/under/captainformal(src)
+		//Tools
+		new /obj/item/device/radio/headset/heads/captain(src)
+		new /obj/item/weapon/cartridge/captain(src)
+		new /obj/item/weapon/gun/energy/pistol(src)
+		new /obj/item/device/flash(src)
+		new /obj/item/weapon/melee/telebaton(src)
 
 /obj/structure/closet/secure_closet/captains2
 	name = "captain's attire"
@@ -68,13 +70,16 @@
 
 	fill()
 		..()
+		//Supply
+		new /obj/item/weapon/storage/box/ids(src)
+		new /obj/item/weapon/storage/box/ids( src )
+		//Appearance
 		new /obj/item/clothing/glasses/sunglasses(src)
 		new /obj/item/clothing/suit/storage/vest(src)
 		new /obj/item/clothing/head/helmet(src)
+		//Tools
 		new /obj/item/weapon/cartridge/hop(src)
 		new /obj/item/device/radio/headset/heads/hop(src)
-		new /obj/item/weapon/storage/box/ids(src)
-		new /obj/item/weapon/storage/box/ids( src )
 		new /obj/item/weapon/gun/energy/pistol(src)
 		new /obj/item/weapon/gun/projectile/sec/flash(src)
 		new /obj/item/device/flash(src)
@@ -98,11 +103,11 @@
 		new /obj/item/clothing/under/lawyer/black(src)
 		new /obj/item/clothing/under/lawyer/red(src)
 		new /obj/item/clothing/under/lawyer/oldman(src)
+		new /obj/item/clothing/under/rank/head_of_personnel_whimsy(src)
 		new /obj/item/clothing/shoes/brown(src)
 		new /obj/item/clothing/shoes/black(src)
 		new /obj/item/clothing/shoes/leather(src)
 		new /obj/item/clothing/shoes/white(src)
-		new /obj/item/clothing/under/rank/head_of_personnel_whimsy(src)
 		new /obj/item/clothing/head/caphat/hop(src)
 
 /obj/structure/closet/secure_closet/hos
@@ -117,32 +122,39 @@
 
 	fill()
 		..()
+		//Supply
+		new /obj/item/weapon/storage/box/flashbangs(src)
+		//Appearance
 		new /obj/item/weapon/storage/backpack/security(src)
 		new /obj/item/weapon/storage/backpack/satchel_sec(src)
-
-		new /obj/item/clothing/head/helmet/HoS(src)
-		new /obj/item/clothing/suit/storage/vest/hos(src)
 		new /obj/item/clothing/under/rank/head_of_security/jensen(src)
 		new /obj/item/clothing/under/rank/head_of_security/corp(src)
-		new /obj/item/clothing/suit/armor/hos/jensen(src)
+		new /obj/item/clothing/suit/storage/toggle/armor/hos/jensen(src)
 		new /obj/item/clothing/suit/armor/hos(src)
+		new /obj/item/clothing/suit/storage/vest/hos(src)
 		new /obj/item/clothing/head/helmet/HoS/dermal(src)
-		new /obj/item/weapon/cartridge/hos(src)
-		new /obj/item/device/radio/headset/heads/hos(src)
-		new /obj/item/clothing/glasses/sunglasses/sechud(src)
-		new /obj/item/taperoll/police(src)
-		new /obj/item/weapon/shield/riot/tact(src)
-		new /obj/item/weapon/storage/box/flashbangs(src)
-		new /obj/item/weapon/storage/belt/security(src)
-		new /obj/item/device/flash(src)
-		new /obj/item/weapon/melee/baton/loaded(src)
-		new /obj/item/weapon/gun/energy/pistol(src)
-		new /obj/item/clothing/accessory/holster/waist(src)
-		new /obj/item/weapon/melee/telebaton(src)
+		new /obj/item/clothing/head/helmet/HoS(src)
 		new /obj/item/clothing/head/beret/sec/hos(src)
 		new /obj/item/clothing/accessory/badge/hos(src)
-		new /obj/item/ammo_magazine/tranq(src)
+		//Tools
+		new /obj/item/weapon/cartridge/hos(src)
+		new /obj/item/device/radio/headset/heads/hos(src)
+		new /obj/item/weapon/storage/box/tranquilizer(src)
+		new /obj/item/clothing/glasses/sunglasses/sechud(src)
+		new /obj/item/clothing/glasses/sunglasses/sechud/head(src)
+		new /obj/item/weapon/shield/riot/tact(src)
+		new /obj/item/weapon/melee/baton/loaded(src)
+		new /obj/item/weapon/melee/telebaton(src)
+		new /obj/item/weapon/gun/energy/pistol(src)
+		new /obj/item/taperoll/police(src)
+		new /obj/item/device/flash(src)
 		new /obj/item/device/holowarrant(src)
+		new /obj/item/device/breath_analyzer(src)
+		//Belts
+		new /obj/item/clothing/accessory/holster/waist(src)
+		new /obj/item/weapon/storage/belt/security(src)
+
+
 
 /obj/structure/closet/secure_closet/hos2
 	name = "head of security's attire"
@@ -155,17 +167,22 @@
 	icon_off = "hossecureoff"
 
 	fill()
+		//Appearance
 		new /obj/item/weapon/storage/backpack/security(src)
 		new /obj/item/weapon/storage/backpack/satchel_sec(src)
-		new /obj/item/clothing/head/helmet/HoS(src)
-		new /obj/item/clothing/suit/storage/vest/hos(src)
 		new /obj/item/clothing/under/rank/head_of_security/jensen(src)
 		new /obj/item/clothing/under/rank/head_of_security/corp(src)
+		new /obj/item/clothing/suit/storage/vest/hos(src)
+		new /obj/item/clothing/head/beret/sec/hos(src)
+		new /obj/item/clothing/head/helmet/HoS(src)
+		//Tools
+		new /obj/item/clothing/glasses/sunglasses/sechud/aviator(src)
 		new /obj/item/device/radio/headset/heads/hos(src)
-		new /obj/item/clothing/glasses/sunglasses/sechud(src)
+		//Belts
 		new /obj/item/weapon/storage/belt/security(src)
 		new /obj/item/clothing/accessory/holster/waist(src)
-		new /obj/item/clothing/head/beret/sec/hos(src)
+
+		new /obj/item/device/breath_analyzer(src)
 
 /obj/structure/closet/secure_closet/warden
 	name = "warden's locker"
@@ -179,6 +196,12 @@
 
 
 	fill()
+		//Supply
+		new /obj/item/weapon/storage/box/holobadge(src)
+		new /obj/item/weapon/storage/box/ids(src)
+		new /obj/item/weapon/storage/box/flashbangs(src)
+		new /obj/item/weapon/storage/box/teargas(src)
+		//Appearance
 		if(prob(50))
 			new /obj/item/weapon/storage/backpack/security(src)
 		else
@@ -188,23 +211,23 @@
 		new /obj/item/clothing/under/rank/warden/corp(src)
 		new /obj/item/clothing/suit/armor/vest/warden(src)
 		new /obj/item/clothing/suit/armor/vest/warden/commissar(src)
+		new /obj/item/clothing/head/beret/sec/warden(src)
 		new /obj/item/clothing/head/helmet/warden(src)
 		new /obj/item/clothing/head/helmet/warden/commissar(src)
 		new /obj/item/clothing/head/helmet(src)
+		new /obj/item/clothing/accessory/badge/warden(src)
+		//Tools
 		new /obj/item/weapon/cartridge/security(src)
 		new /obj/item/device/radio/headset/headset_sec(src)
+		new /obj/item/clothing/glasses/sunglasses/sechud/aviator(src)
 		new /obj/item/clothing/glasses/sunglasses/sechud(src)
 		new /obj/item/taperoll/police(src)
-		new /obj/item/weapon/storage/box/flashbangs(src)
-		new /obj/item/weapon/storage/box/teargas(src)
-		new /obj/item/weapon/storage/belt/security(src)
 		new /obj/item/weapon/reagent_containers/spray/pepper(src)
 		new /obj/item/weapon/melee/baton/loaded(src)
 		new /obj/item/weapon/gun/energy/pistol(src)
-		new /obj/item/weapon/storage/box/holobadge(src)
-		new /obj/item/clothing/head/beret/sec/warden(src)
-		new /obj/item/clothing/accessory/badge/warden(src)
-		new /obj/item/weapon/storage/box/ids(src)
+		//Belts
+		new /obj/item/weapon/storage/belt/security(src)
+		new /obj/item/clothing/accessory/storage/black_vest(src)
 
 
 /obj/structure/closet/secure_closet/security_cadet
@@ -218,21 +241,24 @@
 	icon_off = "seccadetoff"
 
 	fill()
+		//Appearance
 		if(prob(50))
 			new /obj/item/weapon/storage/backpack/security(src)
 		else
 			new /obj/item/weapon/storage/backpack/satchel_sec(src)
+		new /obj/item/clothing/head/beret/sec(src)
+		new /obj/item/clothing/under/rank/security2(src)
+		//Tools
 		new /obj/item/device/radio/headset/headset_sec(src)
-		new /obj/item/weapon/storage/belt/security(src)
 		new /obj/item/device/flash(src)
 		new /obj/item/weapon/reagent_containers/spray/pepper(src)
 		new /obj/item/taperoll/police(src)
 		new /obj/item/device/hailer(src)
-		new /obj/item/clothing/accessory/storage/black_vest(src)
-		new /obj/item/clothing/head/beret/sec(src)
-		new /obj/item/clothing/under/rank/security2(src)
 		new /obj/item/device/holowarrant(src)
 		new /obj/item/device/flashlight/flare(src)
+		//Belts
+		new /obj/item/clothing/accessory/storage/black_vest(src)
+		new /obj/item/weapon/storage/belt/security(src)
 
 /obj/structure/closet/secure_closet/security
 	name = "security officer's locker"
@@ -245,28 +271,34 @@
 	icon_off = "secoff"
 
 	fill()
+		//Appearance
 		if(prob(50))
 			new /obj/item/weapon/storage/backpack/security(src)
 		else
 			new /obj/item/weapon/storage/backpack/satchel_sec(src)
-		new /obj/random/handgun(src)
+		new /obj/item/clothing/head/soft/sec/corp(src)
+		new /obj/item/clothing/under/rank/security/corp(src)
 		new /obj/item/clothing/suit/storage/vest/officer(src)
 		new /obj/item/clothing/head/helmet(src)
+		//Tools
 		new /obj/item/device/radio/headset/headset_sec(src)
-		new /obj/item/weapon/storage/belt/security(src)
+		new /obj/item/clothing/glasses/sunglasses/sechud/aviator(src)
+		new /obj/item/clothing/glasses/sunglasses/sechud(src)
+		new /obj/item/ammo_magazine/c45m/rubber(src)
+		new /obj/random/handgun(src)
+		new /obj/item/weapon/gun/energy/taser(src)
 		new /obj/item/device/flash(src)
 		new /obj/item/weapon/reagent_containers/spray/pepper(src)
 		new /obj/item/weapon/melee/baton/loaded(src)
-		new /obj/item/clothing/glasses/sunglasses/sechud(src)
 		new /obj/item/taperoll/police(src)
 		new /obj/item/device/hailer(src)
-		new /obj/item/clothing/accessory/storage/black_vest(src)
-		new /obj/item/clothing/head/soft/sec/corp(src)
-		new /obj/item/clothing/under/rank/security/corp(src)
-		new /obj/item/weapon/gun/energy/taser(src)
-		new /obj/item/ammo_magazine/c45m/rubber(src)
 		new /obj/item/device/holowarrant(src)
 		new /obj/item/device/flashlight/flare(src)
+		new /obj/item/weapon/handcuffs(src)
+		//Belts
+		new /obj/item/clothing/accessory/storage/black_vest(src)
+		new /obj/item/weapon/storage/belt/security(src)
+
 
 /obj/structure/closet/secure_closet/security/cargo
 
@@ -298,45 +330,55 @@
 
 
 /obj/structure/closet/secure_closet/detective
-	name = "detective's cabinet"
+	name = "detective's locker"
 	req_access = list(access_detective)
-	icon_state = "cabinetdetective_locked"
-	icon_closed = "cabinetdetective"
-	icon_locked = "cabinetdetective_locked"
-	icon_opened = "cabinetdetective_open"
-	icon_broken = "cabinetdetective_broken"
-	icon_off = "cabinetdetective_broken"
-	storage_capacity = 45 //such a big closet deserves a little more capacity
+	icon_state = "sec1"
+	icon_closed = "sec"
+	icon_locked = "sec1"
+	icon_opened = "secopen"
+	icon_broken = "secbroken"
+	icon_off = "secoff"
 
 	fill()
+		//Appearance
+		new /obj/item/clothing/suit/storage/toggle/det_jacket(src)
 		new /obj/item/clothing/under/det(src)
 		new /obj/item/clothing/under/det/black(src)
 		new /obj/item/clothing/under/det/slob(src)
-		new /obj/item/clothing/suit/storage/det_trench(src)
-		new /obj/item/clothing/suit/storage/det_trench/technicolor(src)
 		new /obj/item/clothing/gloves/black(src)
-		new /obj/item/clothing/head/det(src)
-		new /obj/item/clothing/head/det/technicolor(src)
 		new /obj/item/clothing/shoes/brown(src)
+		//Tools
 		new /obj/item/device/radio/headset/headset_sec(src)
 		new /obj/item/clothing/suit/storage/vest/detective(src)
 		new /obj/item/ammo_magazine/c38(src)
 		new /obj/item/ammo_magazine/c38(src)
-		new /obj/item/taperoll/police(src)
 		new /obj/item/weapon/gun/projectile/revolver/detective(src)
+		new /obj/item/taperoll/police(src)
+		//Belts
 		new /obj/item/clothing/accessory/holster/armpit(src)
 
-/obj/structure/closet/secure_closet/detective/update_icon()
-	if(broken)
-		icon_state = icon_broken
-	else
-		if(!opened)
-			if(locked)
-				icon_state = icon_locked
+/obj/structure/closet/secure_closet/detective/attackby(obj/item/weapon/W as obj, mob/user as mob)
+	if(opened)
+		if(istype(W, /obj/item/weapon/grab))
+			var/obj/item/weapon/grab/G = W
+			if(large)
+				MouseDrop_T(G.affecting, user)	//act like they were dragged onto the closet
 			else
-				icon_state = icon_closed
+				to_chat(user, "<span class='notice'>The locker is too small to stuff [G.affecting] into!</span>")
+		else if(isrobot(user))
+			return
+		else if(W.loc != user) // This should stop mounted modules ending up outside the module.
+			return
+		user.drop_from_inventory(W,loc)
+	else if(!opened)
+		if(istype(W, /obj/item/weapon/melee/energy/blade))//Attempt to cut open locker if locked
+			if(emag_act(INFINITY, user, "<span class='danger'>The locker has been sliced open by [user] with \an [W]</span>!", "<span class='danger'>You hear metal being sliced and sparks flying.</span>"))
+				spark(src, 5)
+				playsound(loc, 'sound/weapons/blade1.ogg', 50, 1)
+				playsound(loc, "sparks", 50, 1)
 		else
-			icon_state = icon_opened
+			togglelock(user)//Attempt to lock locker if closed
+
 
 /obj/structure/closet/secure_closet/csi
 	name = "forensic technician's locker"
@@ -349,17 +391,19 @@
 	icon_off = "secoff"
 
 	fill()
+		//Appearance
+		new /obj/item/clothing/gloves/black(src)
+		new /obj/item/clothing/suit/storage/forensics/blue(src)
+		new /obj/item/clothing/suit/storage/forensics/red(src)
+		new /obj/item/clothing/suit/storage/vest/csi(src)
 		new /obj/item/clothing/under/det(src)
 		new /obj/item/clothing/under/det/black(src)
 		new /obj/item/clothing/under/det/slob(src)
 		new /obj/item/clothing/under/det/forensics(src)
-		new /obj/item/clothing/suit/storage/forensics/blue(src)
-		new /obj/item/clothing/suit/storage/forensics/red(src)
-		new /obj/item/clothing/suit/storage/vest/csi(src)
-		new /obj/item/clothing/gloves/black(src)
 		new /obj/item/clothing/shoes/brown(src)
-		new /obj/item/weapon/storage/box/evidence(src)
+		//Tools
 		new /obj/item/device/radio/headset/headset_sec(src)
+		new /obj/item/weapon/storage/box/evidence(src)
 		new /obj/item/device/flash(src)
 		new /obj/item/taperoll/police(src)
 
@@ -397,13 +441,15 @@
 
 	fill()
 		..()
+		//Appearance
+		new /obj/item/clothing/head/powdered_wig (src)
 		new /obj/item/clothing/shoes/brown(src)
+		new /obj/item/clothing/suit/judgerobe (src)
+		//Tools
 		new /obj/item/weapon/paper/Court (src)
 		new /obj/item/weapon/paper/Court (src)
 		new /obj/item/weapon/paper/Court (src)
 		new /obj/item/weapon/pen (src)
-		new /obj/item/clothing/suit/judgerobe (src)
-		new /obj/item/clothing/head/powdered_wig (src)
 		new /obj/item/weapon/storage/briefcase(src)
 
 /obj/structure/closet/secure_closet/wall

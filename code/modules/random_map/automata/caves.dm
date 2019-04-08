@@ -1,11 +1,8 @@
-#define GET_BELOW_OR_NULL(atom, z) \
-	(!(z > world.maxz || z > 17 || z < 2) && z_levels & (1 << (z - 2))) ? get_step(atom, DOWN) : null
-
 /datum/random_map/automata/cave_system
 	iterations = 5
 	descriptor = "moon caves"
 	wall_type =  /turf/simulated/mineral
-	floor_type = /turf/simulated/floor/asteroid
+	floor_type = /turf/simulated/floor/asteroid/ash/rocky
 	target_turf_type = /turf/unsimulated/mask
 	var/mineral_sparse =  /turf/simulated/mineral/random
 	var/mineral_rich = /turf/simulated/mineral/random/high_chance
@@ -96,18 +93,18 @@
 	game_log("ASGEN", "Applied [num_applied] turfs.")
 
 /datum/random_map/automata/cave_system/high_yield
-    descriptor = "high yield caves"
-    wall_type = /turf/simulated/mineral
-    mineral_sparse =  /turf/simulated/mineral/random/high_chance
-    mineral_rich = /turf/simulated/mineral/random/higher_chance
+	descriptor = "high yield caves"
+	wall_type = /turf/simulated/mineral
+	mineral_sparse =  /turf/simulated/mineral/random/high_chance
+	mineral_rich = /turf/simulated/mineral/random/higher_chance
 
 /datum/random_map/automata/cave_system/chasms
-    descriptor = "chasm caverns"
-    wall_type =  /turf/unsimulated/mask
-    floor_type = /turf/simulated/open/airless
-    target_turf_type = /turf/unsimulated/chasm_mask
-    mineral_sparse =  /turf/unsimulated/mask
-    mineral_rich = /turf/unsimulated/mask
+	descriptor = "chasm caverns"
+	wall_type =  /turf/unsimulated/mask
+	floor_type = /turf/simulated/open/airless
+	target_turf_type = /turf/unsimulated/chasm_mask
+	mineral_sparse =  /turf/unsimulated/mask
+	mineral_rich = /turf/unsimulated/mask
 
 /datum/random_map/automata/cave_system/chasms/apply_to_map()
 	if(!origin_x) origin_x = 1
@@ -131,7 +128,7 @@
 			if(EMPTY_CHAR)
 				new_path = mineral_rich
 			if(FLOOR_CHAR)
-				var/turf/below = GET_BELOW_OR_NULL(T, T.z)
+				var/turf/below = GET_BELOW(T)
 				if(below)
 					var/area/below_area = below.loc		// Let's just assume that the turf is not in nullspace.
 					if(below_area.station_area)
@@ -158,11 +155,9 @@
 	return
 
 /datum/random_map/automata/cave_system/chasms/surface
-    descriptor = "chasm surface"
-    wall_type =  /turf/simulated/floor/asteroid
-    floor_type = /turf/simulated/open/airless
-    target_turf_type = /turf/unsimulated/chasm_mask
-    mineral_sparse =  /turf/simulated/floor/asteroid
-    mineral_rich = /turf/simulated/floor/asteroid
-
-#undef GET_BELOW_OR_NULL
+	descriptor = "chasm surface"
+	wall_type = /turf/simulated/floor/asteroid/ash
+	floor_type = /turf/simulated/open/airless
+	target_turf_type = /turf/unsimulated/chasm_mask
+	mineral_sparse = /turf/simulated/floor/asteroid/ash
+	mineral_rich = /turf/simulated/floor/asteroid/ash

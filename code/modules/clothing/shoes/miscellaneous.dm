@@ -24,6 +24,9 @@
 	siemens_coefficient = 0.5
 	can_hold_knife = 1
 
+/obj/item/clothing/shoes/swat/ert
+	species_restricted = null
+
 /obj/item/clothing/shoes/combat //Basically SWAT shoes combined with galoshes.
 	name = "combat boots"
 	desc = "When you REALLY want to turn up the heat."
@@ -46,13 +49,16 @@
 	species_restricted = null
 	body_parts_covered = 0
 
-	wizard_garb = 1
-
 /obj/item/clothing/shoes/sandal/marisa
 	desc = "A pair of magic, black shoes."
 	name = "magic shoes"
 	icon_state = "black"
 	body_parts_covered = FEET
+
+/obj/item/clothing/shoes/sandal/flipflop
+	name = "flip flops"
+	desc = "A pair of foam flip flops. For those not afraid to show a little ankle."
+	icon_state = "thongsandal"
 
 /obj/item/clothing/shoes/clown_shoes
 	desc = "The prankster's standard-issue clowning shoes. Damn they're huge!"
@@ -74,12 +80,13 @@
 		playsound(src, "clownstep", 20, 1)
 
 /obj/item/clothing/shoes/cult
-	name = "boots"
-	desc = "A pair of boots worn by the followers of Nar-Sie."
+	name = "ragged boots"
+	desc = "A ragged, dusty pair of boots."
 	icon_state = "cult"
 	item_state = "cult"
 	force = 5
 	siemens_coefficient = 0
+	armor = list(melee = 50, bullet = 30, laser = 50,energy = 20, bomb = 25, bio = 10, rad = 0)
 
 	cold_protection = FEET
 	min_cold_protection_temperature = SHOE_MIN_COLD_PROTECTION_TEMPERATURE
@@ -123,3 +130,92 @@
 	icon_state = "flippers"
 	item_flags = NOSLIP
 	slowdown = SHOES_SLOWDOWN+1
+
+/obj/item/clothing/shoes/footwraps
+	name = "cloth footwraps"
+	desc = "A roll of treated canvas used for wrapping clawed feet."
+	icon_state = "clothwrap"
+	item_state = "clothwrap"
+	w_class = 2
+	species_restricted = null
+
+/obj/item/clothing/shoes/winter_old
+	name = "winter boots"
+	desc = "Boots lined with 'synthetic' animal fur."
+	icon_state = "winterboots_old"
+	cold_protection = FEET|LEGS
+	min_cold_protection_temperature = SHOE_MIN_COLD_PROTECTION_TEMPERATURE
+	heat_protection = FEET|LEGS
+	max_heat_protection_temperature = SHOE_MAX_HEAT_PROTECTION_TEMPERATURE
+
+/obj/item/clothing/shoes/cowboy
+	name = "cowboy boots"
+	desc = "Lacking a durasteel horse to ride."
+	icon_state = "cowboy"
+
+/obj/item/clothing/shoes/cowboy/classic
+	name = "classic cowboy boots"
+	desc = "A classic looking pair of durable cowboy boots."
+	icon_state = "cowboy_classic"
+
+/obj/item/clothing/shoes/cowboy/snakeskin
+	name = "snakeskin cowboy boots"
+	desc = "A pair of cowboy boots made from python skin."
+	icon_state = "cowboy_snakeskin"
+
+/obj/item/clothing/shoes/heels
+	name = "high heels"
+	desc = "A pair of high-heeled shoes. Fancy!"
+	icon_state = "heels"
+
+/obj/item/clothing/shoes/winter
+	name = "winter boots"
+	desc = "A pair of heavy winter boots made out of animal furs, reaching up to the knee."
+	icon_state = "winterboots"
+	item_state = "winterboots"
+	cold_protection = FEET|LEGS
+	min_cold_protection_temperature = SHOE_MIN_COLD_PROTECTION_TEMPERATURE
+	heat_protection = FEET|LEGS
+	max_heat_protection_temperature = SHOE_MAX_HEAT_PROTECTION_TEMPERATURE
+	armor = list(melee = 10, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 10, rad = 0)
+	siemens_coefficient = 0.9
+	can_hold_knife = 1
+
+/obj/item/clothing/shoes/caligae
+	name = "caligae"
+	desc = "The standard Unathi marching footwear. Made of leather and rubber, with heavy hob-nailed soles, their unique design allows for improved traction and protection, leading to them catching on with other species."
+	description_fluff = "These traditional Unathi footwear have remained relatively unchanged in principle, with improved materials and construction being the only notable change. Originally used for warriors, they became widespread for their comfort and durability. Some are worn with socks, for warmth. Although made for the Unathi anatomy, they have picked up popularity among other species."
+	icon_state = "caligae"
+	item_state = "caligae"
+	force = 5
+	armor = list(melee = 10, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0, rad = 0)
+	body_parts_covered = FEET|LEGS
+	species_restricted = null
+	sprite_sheets = list(
+		"Tajara" = 'icons/mob/species/tajaran/shoes.dmi',
+		"Unathi" = 'icons/mob/species/unathi/shoes.dmi')
+
+/obj/item/clothing/shoes/caligae/white
+	name = "white caligae"
+	desc = "The standard Unathi marching footwear. Made of leather and rubber, with heavy hob-nailed soles, their unique design allows for improved traction and protection. This one has white socks."
+	icon_state = "whitecaligae"
+	item_state = "whitecaligae"
+
+/obj/item/clothing/shoes/caligae/grey
+	name = "grey caligae"
+	desc = "The standard Unathi marching footwear. Made of leather and rubber, with heavy hob-nailed soles, their unique design allows for improved traction and protection. This one has grey socks."
+	icon_state = "greycaligae"
+	item_state = "greycaligae"
+
+/obj/item/clothing/shoes/caligae/black
+	name = "black caligae"
+	desc = "The standard Unathi marching footwear. Made of leather and rubber, with heavy hob-nailed soles, their unique design allows for improved traction and protection. This one has black socks."
+	icon_state = "blackcaligae"
+	item_state = "blackcaligae"
+
+/obj/item/clothing/shoes/caligae/armor
+	name = "leather caligae"
+	desc = "The standard Unathi marching footwear. These are made for heavier conditions, featuring tough and waterproof eel-leather covering, offering far greater protection."
+	description_fluff = "These traditional Unathi footwear have remained relatively unchanged in principle, with improved materials and construction being the only notable change. This pair is reinforced with leather of the Zazehal, a Moghesian species of eel that can grow up to twenty five feet long. Typically, Zazehal Festivals are thrown every month of the warm season in which Unathi strew freshly killed birds across the shoreline and collect these creatures with baskets. The fungi that grow on their skin is harvested and used as an exotic seasoning, and their skin is used for its' incredibly durable, shark-like leather."
+	icon_state = "eelcaligae"
+	armor = list(melee = 40, bullet = 0, laser = 0, energy = 15, bomb = 20, bio = 0, rad = 20)

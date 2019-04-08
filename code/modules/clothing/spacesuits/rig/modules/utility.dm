@@ -41,6 +41,20 @@
 
 	device_type = /obj/item/device/healthanalyzer
 
+	category = MODULE_MEDICAL
+
+/obj/item/rig_module/device/healthscanner/vitalscanner
+	name = "integrated vitals tracker"
+	desc = "A hardsuit-mounted vitals tracker."
+	interface_name = "vitals tracker"
+	interface_desc = "Shows an informative health readout of the user."
+
+	usable = 1
+	selectable = 0
+
+	category = MODULE_GENERAL
+
+
 /obj/item/rig_module/device/drill
 	name = "hardsuit diamond drill mount"
 	desc = "A very heavy diamond-tipped drill."
@@ -55,6 +69,8 @@
 
 	device_type = /obj/item/weapon/pickaxe/diamonddrill
 
+	category = MODULE_UTILITY
+
 /obj/item/rig_module/device/basicdrill
 	name = "hardsuit drill mount"
 	desc = "A very heavy basic drill."
@@ -67,6 +83,8 @@
 
 	device_type = /obj/item/weapon/pickaxe/drill
 
+	category = MODULE_UTILITY
+
 /obj/item/rig_module/device/anomaly_scanner
 	name = "hardsuit anomaly scanner"
 	desc = "You think it's called an Elder Sarsparilla or something."
@@ -78,6 +96,8 @@
 	selectable = 0
 	device_type = /obj/item/device/ano_scanner
 
+	category = MODULE_UTILITY
+
 /obj/item/rig_module/device/orescanner
 	name = "ore scanner module"
 	desc = "A clunky old ore scanner."
@@ -88,6 +108,8 @@
 	usable = 1
 	selectable = 0
 	device_type = /obj/item/weapon/mining_scanner
+
+	category = MODULE_UTILITY
 
 /obj/item/rig_module/device/rcd
 	name = "RCD mount"
@@ -101,6 +123,8 @@
 	construction_time = 1000
 
 	device_type = /obj/item/weapon/rcd/mounted
+
+	category = MODULE_UTILITY
 
 /obj/item/rig_module/device/New()
 	..()
@@ -147,17 +171,20 @@
 	interface_desc = "Dispenses loaded chemicals directly into the wearer's bloodstream."
 
 	charges = list(
-		list("tricordrazine", "tricordrazine", 0, 80),
-		list("tramadol",      "tramadol",      0, 80),
-		list("dexalin plus",  "dexalinp",      0, 80),
-		list("antibiotics",   "spaceacillin",  0, 80),
-		list("antitoxins",    "anti_toxin",    0, 80),
-		list("nutrients",     "glucose",     0, 80),
-		list("hyronalin",     "hyronalin",     0, 80),
-		list("radium",        "radium",        0, 80)
+		list("tricordrazine", "tricordrazine",        0, 80),
+		list("tramadol",      "tramadol",             0, 80),
+		list("dexalin plus",  "dexalinp",             0, 80),
+		list("antibiotics",   "spaceacillin",         0, 80),
+		list("antitoxins",    "anti_toxin",           0, 80),
+		list("nutrients",     "glucose",              0, 80),
+		list("hydration",     "potassium_hydrophoro", 0, 80),
+		list("hyronalin",     "hyronalin",            0, 80),
+		list("radium",        "radium",               0, 80)
 		)
 
 	var/max_reagent_volume = 80 //Used when refilling.
+
+	category = MODULE_HEAVY_COMBAT
 
 /obj/item/rig_module/chem_dispenser/ninja
 	interface_desc = "Dispenses loaded chemicals directly into the wearer's bloodstream. This variant is made to be extremely light and flexible."
@@ -170,9 +197,12 @@
 		list("antibiotics",   "spaceacillin",  0, 20),
 		list("antitoxins",    "anti_toxin",    0, 20),
 		list("nutrients",     "glucose",     0, 80),
+		list("hydration",     "potassium_hydrophoro", 0, 80),
 		list("hyronalin",     "hyronalin",     0, 20),
 		list("radium",        "radium",        0, 20)
 		)
+
+	category = MODULE_UTILITY
 
 /obj/item/rig_module/chem_dispenser/accepts_item(var/obj/item/input_item, var/mob/living/user)
 
@@ -180,7 +210,7 @@
 		return 0
 
 	if(!input_item.reagents || !input_item.reagents.total_volume)
-		user << "\The [input_item] is empty."
+		to_chat(user, "\The [input_item] is empty.")
 		return 0
 
 	// Magical chemical filtration system, do not question it.
@@ -202,9 +232,9 @@
 				break
 
 	if(total_transferred)
-		user << "<font color='blue'>You transfer [total_transferred] units into the suit reservoir.</font>"
+		to_chat(user, "<font color='blue'>You transfer [total_transferred] units into the suit reservoir.</font>")
 	else
-		user << "<span class='danger'>None of the reagents seem suitable.</span>"
+		to_chat(user, "<span class='danger'>None of the reagents seem suitable.</span>")
 	return 1
 
 /obj/item/rig_module/chem_dispenser/engage(atom/target)
@@ -215,7 +245,7 @@
 	var/mob/living/carbon/human/H = holder.wearer
 
 	if(!charge_selected)
-		H << "<span class='danger'>You have not selected a chemical type.</span>"
+		to_chat(H, "<span class='danger'>You have not selected a chemical type.</span>")
 		return 0
 
 	var/datum/rig_charge/charge = charges[charge_selected]
@@ -225,7 +255,7 @@
 
 	var/chems_to_use = 10
 	if(charge.charges <= 0)
-		H << "<span class='danger'>Insufficient chems!</span>"
+		to_chat(H, "<span class='danger'>Insufficient chems!</span>")
 		return 0
 	else if(charge.charges < chems_to_use)
 		chems_to_use = charge.charges
@@ -239,13 +269,17 @@
 	else
 		target_mob = H
 
+	if(!H.Adjacent(target_mob))
+		to_chat(H, "<span class='danger'>You are not close enough to inject them!</span>")
+		return 0
+
 	if(target_mob != H)
-		H << "<span class='danger'>You inject [target_mob] with [chems_to_use] unit\s of [charge.display_name].</span>"
+		to_chat(H, "<span class='danger'>You inject [target_mob] with [chems_to_use] unit\s of [charge.display_name].</span>")
 
 	if(target_mob.is_physically_disabled())
 		target_mob.reagents.add_reagent(charge.display_name, chems_to_use)
 	else
-		target_mob << "<span class='danger'>You feel a rushing in your veins as [chems_to_use] unit\s of [charge.display_name] [chems_to_use == 1 ? "is" : "are"] injected.</span>"
+		to_chat(target_mob, "<span class='danger'>You feel a rushing in your veins as [chems_to_use] unit\s of [charge.display_name] [chems_to_use == 1 ? "is" : "are"] injected.</span>")
 		target_mob.reagents.add_reagent(charge.display_name, chems_to_use)
 
 	charge.charges -= chems_to_use
@@ -262,11 +296,49 @@
 		list("synaptizine",   "synaptizine",   0, 30),
 		list("hyperzine",     "hyperzine",     0, 30),
 		list("oxycodone",     "oxycodone",     0, 30),
-		list("nutrients",     "glucose",     0, 80)
+		list("nutrients",     "glucose",     0, 80),
+		list("hydration",     "potassium_hydrophoro", 0, 80)
 		)
 
 	interface_name = "combat chem dispenser"
 	interface_desc = "Dispenses loaded chemicals directly into the bloodstream."
+
+	category = MODULE_LIGHT_COMBAT
+
+/obj/item/rig_module/chem_dispenser/vaurca
+
+	name = "vaurca combat chemical injector"
+	desc = "A complex web of tubing and needles suitable for vaurcan hardsuit use."
+
+	charges = list(
+		list("synaptizine",   "synaptizine",   0, 30),
+		list("hyperzine",     "hyperzine",     0, 30),
+		list("oxycodone",     "oxycodone",     0, 30),
+		list("phoron",     "phoron",     0, 60),
+		list("kois",     "k'ois paste",     0, 80),
+		list("hydration",     "potassium_hydrophoro", 0, 80)
+		)
+
+	interface_name = "vaurca combat chem dispenser"
+	interface_desc = "Dispenses loaded chemicals directly into the bloodstream."
+
+
+	category = MODULE_VAURCA
+
+/obj/item/rig_module/chem_dispenser/offworlder
+
+	name = "chemical injector"
+	desc = "A complex web of tubing and needles suitable for hardsuit use."
+
+	charges = list(
+		list("dexalin",   "dexalin",   0, 5),
+		list("inaprovaline",     "inaprovaline",     0, 5)
+		)
+
+	interface_name = "chem dispenser"
+	interface_desc = "Dispenses loaded chemicals directly into the bloodstream."
+
+	category = MODULE_GENERAL
 
 
 /obj/item/rig_module/chem_dispenser/injector
@@ -281,6 +353,8 @@
 
 	interface_name = "mounted chem injector"
 	interface_desc = "Dispenses loaded chemicals via an arm-mounted injector."
+
+	category = MODULE_MEDICAL
 
 /obj/item/rig_module/chem_dispenser/injector/paramedic //downgraded version
 
@@ -309,6 +383,8 @@
 
 	var/obj/item/voice_changer/voice_holder
 
+	category = MODULE_SPECIAL
+
 /obj/item/rig_module/voice/New()
 	..()
 	voice_holder = new(src)
@@ -332,17 +408,17 @@
 		if("Enable")
 			active = 1
 			voice_holder.active = 1
-			usr << "<font color='blue'>You enable the speech synthesiser.</font>"
+			to_chat(usr, "<font color='blue'>You enable the speech synthesiser.</font>")
 		if("Disable")
 			active = 0
 			voice_holder.active = 0
-			usr << "<font color='blue'>You disable the speech synthesiser.</font>"
+			to_chat(usr, "<font color='blue'>You disable the speech synthesiser.</font>")
 		if("Set Name")
 			var/raw_choice = sanitize(input(usr, "Please enter a new name.")  as text|null, MAX_NAME_LEN)
 			if(!raw_choice)
 				return 0
 			voice_holder.voice = raw_choice
-			usr << "<font color='blue'>You are now mimicking <B>[voice_holder.voice]</B>.</font>"
+			to_chat(usr, "<font color='blue'>You are now mimicking <B>[voice_holder.voice]</B>.</font>")
 	return 1
 
 /obj/item/rig_module/maneuvering_jets
@@ -368,6 +444,8 @@
 	interface_desc = "An inbuilt EVA maneuvering system that runs off the rig air supply."
 
 	var/obj/item/weapon/tank/jetpack/rig/jets
+
+	category = MODULE_GENERAL
 
 /obj/item/rig_module/maneuvering_jets/engage()
 	if(!..())
@@ -427,6 +505,8 @@
 	selectable = 0
 	device_type = /obj/item/weapon/paper_bin
 
+	category = MODULE_GENERAL
+
 /obj/item/rig_module/device/paperdispenser/engage(atom/target)
 
 	if(!..() || !device)
@@ -446,6 +526,8 @@
 	usable = 1
 	device_type = /obj/item/weapon/pen/multi
 
+	category = MODULE_GENERAL
+
 /obj/item/rig_module/device/stamp
 	name = "mounted internal affairs stamp"
 	desc = "DENIED."
@@ -456,6 +538,8 @@
 	usable = 1
 	var/iastamp
 	var/deniedstamp
+
+	category = MODULE_GENERAL
 
 /obj/item/rig_module/device/stamp/New()
 	..()
@@ -470,10 +554,10 @@
 	if(!target)
 		if(device == iastamp)
 			device = deniedstamp
-			holder.wearer << "<span class='notice'>Switched to denied stamp.</span>"
+			to_chat(holder.wearer, "<span class='notice'>Switched to denied stamp.</span>")
 		else if(device == deniedstamp)
 			device = iastamp
-			holder.wearer << "<span class='notice'>Switched to internal affairs stamp.</span>"
+			to_chat(holder.wearer, "<span class='notice'>Switched to internal affairs stamp.</span>")
 		return 1
 
 /obj/item/rig_module/device/decompiler
@@ -484,6 +568,8 @@
 	interface_desc = "Eats trash like no one's business."
 
 	device_type = /obj/item/weapon/matter_decompiler
+
+	category = MODULE_GENERAL
 
 /obj/item/rig_module/actuators
 	name = "leg actuators"
@@ -516,6 +602,8 @@
 							// Such as leaping faster, or grappling targets.
 	var/leapDistance = 4	// Determines how far the actuators allow you to leap (radius, inclusive).
 
+	category = MODULE_GENERAL
+
 /obj/item/rig_module/actuators/combat
 	name = "military grade leg actuators"
 	desc = "A set of high-powered hydraulic actuators, for improved traversal of multilevelled areas."
@@ -525,6 +613,8 @@
 	leapDistance = 7
 
 	use_power_cost = 10
+
+	category = MODULE_LIGHT_COMBAT
 
 /obj/item/rig_module/actuators/engage(var/atom/target)
 	if (!..())
@@ -631,3 +721,95 @@
 		H.forceMove(leapEnd)
 
 		return 1
+
+
+/obj/item/rig_module/cooling_unit
+	name = "mounted cooling unit"
+	toggleable = 1
+	origin_tech = list(TECH_MAGNET = 2, TECH_MATERIAL = 2, TECH_ENGINEERING = 3)
+	interface_name = "mounted cooling unit"
+	interface_desc = "A heat sink with liquid cooled radiator."
+	icon_state = "suitcooler"
+	var/charge_consumption = 1
+	var/max_cooling = 12
+	var/thermostat = T20C
+
+	category = MODULE_GENERAL
+
+/obj/item/rig_module/cooling_unit/process()
+	if(!active)
+		return passive_power_cost
+
+	var/mob/living/carbon/human/H = holder.wearer
+
+	var/temp_adj = min(H.bodytemperature - thermostat, max_cooling)
+
+	if (temp_adj < 0.5)
+		return passive_power_cost
+
+	H.bodytemperature -= temp_adj
+	active_power_cost = round((temp_adj/max_cooling)*charge_consumption)
+	return active_power_cost
+
+/obj/item/rig_module/boring
+	name = "burrowing lasers"
+	desc = "A set of precise boring lasers designed to carve a hole beneath the user."
+	icon_state = "actuators"
+	interface_name = "boring laser"
+	interface_desc = "Allows you to burrow to the z-level below."
+
+	disruptive = 1
+
+	use_power_cost = 5
+	module_cooldown = 25
+
+	usable = 1
+
+	category = MODULE_VAURCA
+
+/obj/item/rig_module/boring/engage()
+	if (!..())
+		return 0
+
+	playsound(src,'sound/magic/lightningbolt.ogg',60,1)
+	var/turf/T = get_turf(holder.wearer)
+	if(istype(T, /turf/simulated))
+		if(istype(T, /turf/simulated/mineral) || istype(T, /turf/simulated/wall) || istype(T, /turf/simulated/shuttle))
+			T.ChangeTurf(T.baseturf)
+		else
+			T.ChangeTurf(/turf/space)
+
+
+
+var/global/list/lattice_users = list()
+
+/obj/item/rig_module/lattice
+	name = "neural lattice"
+	desc = "A probing mind collar that synchronizes the subject's pain receptors with all other neural lattices on the local grid."
+	icon_state = "actuators"
+	interface_name = "neural lattice"
+	interface_desc = "Synchronize neural lattice to reduce pain."
+
+	disruptive = 0
+
+	toggleable = 1
+	confined_use = 1
+
+	category = MODULE_VAURCA
+
+/obj/item/rig_module/lattice/activate()
+	if (!..())
+		return 0
+
+	var/mob/living/carbon/human/H = holder.wearer
+	to_chat(H, "<span class='notice'>Neural lattice engaged. Pain receptors altered.</span>")
+	lattice_users.Add(H)
+
+/obj/item/rig_module/lattice/deactivate()
+	if (!..())
+		return 0
+
+	var/mob/living/carbon/human/H = holder.wearer
+	to_chat(H, "<span class='notice'>Neural lattice disengaged. Pain receptors restored.</span>")
+	lattice_users.Remove(H)
+

@@ -31,7 +31,7 @@ var/CURRENT_TICKLIMIT = TICK_LIMIT_RUNNING
 	var/init_time
 	var/tickdrift = 0
 
-	var/sleep_delta
+	var/sleep_delta = 1
 
 	var/make_runtime = 0
 
@@ -110,12 +110,13 @@ var/CURRENT_TICKLIMIT = TICK_LIMIT_RUNNING
 				else
 					msg += "\t [varname] = [varval]\n"
 	log_mc(msg)
-	
+
 	var/datum/controller/subsystem/BadBoy = Master.last_type_processed
 	var/FireHim = FALSE
 	if(istype(BadBoy))
 		msg = null
-		switch(++BadBoy.failure_strikes)
+		LAZYINITLIST(BadBoy.failure_strikes)
+		switch(++BadBoy.failure_strikes[BadBoy.type])
 			if(2)
 				msg = "The [BadBoy.name] subsystem was the last to fire for 2 controller restarts. It will be recovered now and disabled if it happens again."
 				FireHim = TRUE
@@ -123,7 +124,7 @@ var/CURRENT_TICKLIMIT = TICK_LIMIT_RUNNING
 				msg = "The [BadBoy.name] subsystem seems to be destabilizing the MC and will be offlined."
 				BadBoy.flags |= SS_NO_FIRE
 		if(msg)
-			admin_notice("<span class='danger'>[msg]</span>", R_DEBUG | R_DEV)				
+			admin_notice("<span class='danger'>[msg]</span>", R_DEBUG | R_DEV)
 			log_mc(msg)
 
 	if (istype(Master.subsystems))
@@ -146,7 +147,7 @@ var/CURRENT_TICKLIMIT = TICK_LIMIT_RUNNING
 	if(init_sss)
 		init_subtypes(/datum/controller/subsystem, subsystems)
 
-	world.log << "Initializing subsystems..."
+	world.log <<  "Initializing subsystems..."
 	log_mc("Initializing subsystems...")
 
 	initializing = TRUE
@@ -171,7 +172,7 @@ var/CURRENT_TICKLIMIT = TICK_LIMIT_RUNNING
 	var/msg = "Initializations complete within [time] second[time == 1 ? "" : "s"]!"
 	log_mc(msg)
 	admin_notice(span("danger", msg), R_DEBUG)
-	world.log << msg
+	world.log <<  msg
 
 	// Sort subsystems by display setting for easy access.
 	sortTim(subsystems, /proc/cmp_subsystem_display)
@@ -179,8 +180,12 @@ var/CURRENT_TICKLIMIT = TICK_LIMIT_RUNNING
 #ifndef UNIT_TEST
 	world.sleep_offline = 1
 #endif
+
+	world.TgsInitializationComplete()
 	world.tick_lag = config.Ticklag
+
 	var/initialized_tod = REALTIMEOFDAY
+
 	sleep(1)
 	initializations_finished_with_no_players_logged_in = initialized_tod < REALTIMEOFDAY - 10
 	// Loop.
@@ -265,35 +270,44 @@ var/CURRENT_TICKLIMIT = TICK_LIMIT_RUNNING
 
 	iteration = 1
 	var/error_level = 0
-	var/sleep_delta = 0
+	var/sleep_delta = 1
 	var/list/subsystems_to_check
 	//the actual loop.
 	while (1)
 		tickdrift = max(0, MC_AVERAGE_FAST(tickdrift, (((REALTIMEOFDAY - init_timeofday) - (world.time - init_time)) / world.tick_lag)))
+		var/starting_tick_usage = world.tick_usage
 		if (processing <= 0)
 			CURRENT_TICKLIMIT = TICK_LIMIT_RUNNING
 			sleep(10)
 			continue
 
-		//if there are mutiple sleeping procs running before us hogging the cpu, we have to run later
-		//	because sleeps are processed in the order received, so longer sleeps are more likely to run first
-		if (world.tick_usage > TICK_LIMIT_MC)
-			sleep_delta += 2
-			CURRENT_TICKLIMIT = TICK_LIMIT_RUNNING - (TICK_LIMIT_RUNNING * 0.5)
-			sleep(world.tick_lag * (processing + sleep_delta))
+		//Anti-tick-contention heuristics:
+		//if there are mutiple sleeping procs running before us hogging the cpu, we have to run later.
+		//	(because sleeps are processed in the order received, longer sleeps are more likely to run first)
+		if (starting_tick_usage > TICK_LIMIT_MC)
+			sleep_delta *= 2
+			CURRENT_TICKLIMIT = TICK_LIMIT_RUNNING * 0.5
+			sleep(world.tick_lag * (processing * sleep_delta))
 			continue
 
-		sleep_delta = MC_AVERAGE_FAST(sleep_delta, 0)
-		if (last_run + (world.tick_lag * processing) > world.time)
-			sleep_delta += 1
-		if (world.tick_usage > (TICK_LIMIT_MC*0.5))
+		//Byond resumed us late. assume it might have to do the same next tick
+		if (last_run + CEILING(world.tick_lag * (processing * sleep_delta), world.tick_lag) < world.time)
 			sleep_delta += 1
 
+		sleep_delta = MC_AVERAGE_FAST(sleep_delta, 1) //decay sleep_delta
+
+		if (starting_tick_usage > (TICK_LIMIT_MC*0.75)) //we ran 3/4 of the way into the tick
+			sleep_delta += 1
+
+		// debug
 		if (make_runtime)
 			var/datum/controller/subsystem/SS
 			SS.can_fire = 0
+
+		// Check the failsafe's still alive.
 		if (!Failsafe || (Failsafe.processing_interval > 0 && (Failsafe.lasttick+(Failsafe.processing_interval*5)) < world.time))
 			new/datum/controller/failsafe() // (re)Start the failsafe.
+
 		if (!queue_head || !(iteration % 3))
 			if (round_started)
 				subsystems_to_check = normalsubsystems
@@ -301,6 +315,7 @@ var/CURRENT_TICKLIMIT = TICK_LIMIT_RUNNING
 				subsystems_to_check = lobbysubsystems
 		else
 			subsystems_to_check = tickersubsystems
+
 		if (CheckQueue(subsystems_to_check) <= 0)
 			if (!SoftReset(tickersubsystems, normalsubsystems, lobbysubsystems))
 				log_mc("SoftReset() failed, crashing")
@@ -331,10 +346,11 @@ var/CURRENT_TICKLIMIT = TICK_LIMIT_RUNNING
 		iteration++
 		last_run = world.time
 		src.sleep_delta = MC_AVERAGE_FAST(src.sleep_delta, sleep_delta)
-		CURRENT_TICKLIMIT = TICK_LIMIT_RUNNING - (TICK_LIMIT_RUNNING * 0.25) //reserve the tail 1/4 of the next tick for the mc.
-		sleep(world.tick_lag * (processing + sleep_delta))
+		CURRENT_TICKLIMIT = TICK_LIMIT_RUNNING
+		if (processing * sleep_delta <= world.tick_lag)
+			CURRENT_TICKLIMIT -= (TICK_LIMIT_RUNNING * 0.25) //reserve the tail 1/4 of the next tick for the mc if we plan on running next tick
 
-
+		sleep(world.tick_lag * (processing * sleep_delta))
 
 
 // This is what decides if something should run.
@@ -361,7 +377,7 @@ var/CURRENT_TICKLIMIT = TICK_LIMIT_RUNNING
 		if (SS_flags & SS_NO_FIRE)
 			subsystemstocheck -= SS
 			continue
-		if (!(SS_flags & SS_TICKER) && (SS_flags & SS_KEEP_TIMING) && SS.last_fire + (SS.wait * 0.75) > world.time)
+		if ((SS_flags & (SS_TICKER|SS_KEEP_TIMING)) == SS_KEEP_TIMING && SS.last_fire + (SS.wait * 0.75) > world.time)
 			continue
 		SS.enqueue()
 	. = 1
@@ -428,7 +444,7 @@ var/CURRENT_TICKLIMIT = TICK_LIMIT_RUNNING
 			if (!(queue_node_flags & SS_TICKER))
 				ran_non_ticker = TRUE
 			ran = TRUE
-			
+
 			queue_node_paused = (queue_node.state == SS_PAUSED || queue_node.state == SS_PAUSING)
 			last_type_processed = queue_node
 

@@ -9,19 +9,19 @@
 		return //how did they get here?
 
 	if(!ROUND_IS_STARTED)
-		src << "<span class='warning'>The game hasn't started yet!</span>"
+		to_chat(src,"<span class='warning'>The game hasn't started yet!</span>")
 		return
 
-	if(istype(mob, /mob/new_player))
-		src << "<span class='warning'>You can't be in the lobby to join as a duty officer.</span>"
+	if(istype(mob, /mob/abstract/new_player))
+		to_chat(src,"<span class='warning'>You can't be in the lobby to join as a duty officer.</span>")
 		return
 
 	if (alert(usr, "Do you want to cancel or proceed?", "Are you sure?", "Proceed", "Cancel") == "Cancel")
-		src << "<span class='notice'>Cancelled.</span>"
+		to_chat(src,"<span class='notice'>Cancelled.</span>")
 		return
 
 	if(mob.mind && mob.mind.special_role == "CCIA Agent")
-		src << "<span class='warning'>You are already a CCIA Agent.</span>"
+		to_chat(src,"<span class='warning'>You are already a CCIA Agent.</span>")
 		verbs += /client/proc/returntobody
 		return
 
@@ -30,93 +30,97 @@
 		holder.original_mob = mob
 		wasLiving = 1
 
-	for (var/obj/effect/landmark/L in landmarks_list)
-		if(L.name == "CCIAAgent")
-			var/new_name = input(usr, "Pick a name","Name") as text
-			var/mob/living/carbon/human/M = new(null)
-
-			M.check_dna(M)
-
-			M.real_name = new_name
-			M.name = new_name
-			M.age = input("Enter your characters age:","Num") as num
-			if(!M.age)
-				M.age = rand(35,50)
-			if(M.age < 33 || M.age > 60)
-				src << "<span class='warning'>The age you selected was not in a valid range for a Duty Officer.</span>"
-				if(M.age < 33)
-					M.age = 33
-				else
-					M.age = 60
-				src << "<span class='warning'>Your age has been set to [M.age].</span>"
-
-			M.dna.ready_dna(M)
-
-			//Creates mind stuff.
-			M.mind = new
-			M.mind.current = M
-			M.mind.original = M
-			if(wasLiving)
-				M.mind.admin_mob_placeholder = mob
-			M.mind.assigned_role = "Central Command Internal Affairs Agent"
-			M.mind.special_role = "CCIA Agent"
-			M.loc = L.loc
-			M.key = key
-
-			M.change_appearance(APPEARANCE_ALL, M.loc, check_species_whitelist = 1)
-
-			if(wasLiving)
-				clear_cciaa_job(holder.original_mob)
-				spawn(1)
-					holder.original_mob.key = "@[key]"
-
-			M.equip_to_slot_or_del(new /obj/item/clothing/under/rank/centcom_officer(M), slot_w_uniform)
-			M.equip_to_slot_or_del(new /obj/item/clothing/shoes/laceup(M), slot_shoes)
-			M.equip_to_slot_or_del(new /obj/item/clothing/gloves/white(M), slot_gloves)
-			M.equip_to_slot_or_del(new /obj/item/device/radio/headset/ert/ccia(M), slot_l_ear)
-			M.equip_to_slot_or_del(new /obj/item/clothing/glasses/sunglasses/sechud(M), slot_glasses)
-			M.equip_to_slot_or_del(new /obj/item/clothing/head/beret/centcom/officer(M), slot_head)
-			M.equip_to_slot_or_del(new /obj/item/weapon/reagent_containers/spray/pepper(M), slot_l_store)
-			M.equip_to_slot_or_del(new /obj/item/device/taperecorder/cciaa(M), slot_r_store)
-
-			var/obj/item/clothing/suit/storage/toggle/internalaffairs/suit = new(M)
-			suit.name = "central command internal affairs jacket"
-			M.equip_to_slot_or_del(suit, slot_wear_suit)
-
-			var/obj/item/weapon/storage/backpack/satchel/bag = new(M)
-			bag.name = "officer's leather satchel"
-			bag.desc = "A well cared for leather satchel for Nanotrasen officers."
-			M.equip_to_slot_or_del(bag, slot_back)
-			if(M.backbag == 1)
-				M.equip_to_slot_or_del(new /obj/item/weapon/stamp/centcomm(M), slot_in_backpack)
-
-			var /obj/item/weapon/storage/lockbox/lockbox = new(M)
-			lockbox.req_access = list(access_cent_captain)
-			lockbox.name = "CCIA agent briefcase"
-			lockbox.desc = "A smart looking briefcase with a NT logo on the side"
-			lockbox.storage_slots = 8
-			lockbox.max_storage_space = 16
-			M.equip_to_slot_or_del(lockbox, slot_l_hand)
-
-			var/obj/item/device/pda/central/pda = new(M)
-			pda.owner = M.real_name
-			pda.ownjob = "Central Command Internal Affairs Agent"
-			pda.name = "PDA-[M.real_name] ([pda.ownjob])"
-
-			M.equip_to_slot_or_del(pda, slot_belt)
-
-			M.implant_loyalty(M, 1)
-
-			var/obj/item/weapon/card/id/centcom/W = new(M)
-			W.name = "[M.real_name]'s ID Card"
-			W.item_state = "id_inv"
-			W.access = get_all_accesses() + get_centcom_access("CCIA Agent")
-			W.assignment = "Central Command Internal Affairs Agent"
-			W.registered_name = M.real_name
-			M.equip_to_slot_or_del(W, slot_wear_id)
-
-			verbs += /client/proc/returntobody
+	var/obj/effect/landmark/L
+	for (var/obj/effect/landmark/landmark in landmarks_list)
+		if(landmark.name == "CCIAAgent")
+			L = landmark
 			break
+
+	if (!L)
+		return
+
+	var/new_name = input(usr, "Pick a name","Name") as text
+	var/mob/living/carbon/human/M = new(null)
+
+	M.check_dna(M)
+
+	M.real_name = new_name
+	M.name = new_name
+	M.age = input("Enter your characters age:","Num") as num
+	if(!M.age)
+		M.age = rand(35,50)
+	if(M.age < 33 || M.age > 60)
+		to_chat(src,"<span class='warning'>The age you selected was not in a valid range for a Duty Officer.</span>")
+		if(M.age < 33)
+			M.age = 33
+		else
+			M.age = 60
+		to_chat(src,"<span class='warning'>Your age has been set to [M.age].</span>")
+
+	M.dna.ready_dna(M)
+
+	M.mind = new
+	M.mind.current = M
+	M.mind.original = M
+	if(wasLiving)
+		M.mind.admin_mob_placeholder = mob
+	M.mind.assigned_role = "Central Command Internal Affairs Agent"
+	M.mind.special_role = "CCIA Agent"
+	M.forceMove(L.loc)
+	M.key = key
+
+	M.change_appearance(APPEARANCE_ALL, M.loc, check_species_whitelist = 1)
+
+	if(wasLiving)
+		clear_cciaa_job(holder.original_mob)
+		addtimer(CALLBACK(holder.original_mob, /mob/.proc/invalidate_key_tmr), 1)
+
+	M.equip_to_slot_or_del(new /obj/item/clothing/under/rank/centcom_officer(M), slot_w_uniform)
+	M.equip_to_slot_or_del(new /obj/item/clothing/shoes/laceup(M), slot_shoes)
+	M.equip_to_slot_or_del(new /obj/item/clothing/gloves/white(M), slot_gloves)
+	M.equip_to_slot_or_del(new /obj/item/device/radio/headset/ert/ccia(M), slot_l_ear)
+	M.equip_to_slot_or_del(new /obj/item/clothing/glasses/sunglasses/sechud(M), slot_glasses)
+	M.equip_to_slot_or_del(new /obj/item/clothing/head/beret/centcom/officer(M), slot_head)
+	M.equip_to_slot_or_del(new /obj/item/weapon/reagent_containers/spray/pepper(M), slot_l_store)
+	M.equip_to_slot_or_del(new /obj/item/device/taperecorder/cciaa(M), slot_r_store)
+
+	var/obj/item/clothing/suit/storage/toggle/internalaffairs/suit = new(M)
+	suit.name = "central command internal affairs jacket"
+	M.equip_to_slot_or_del(suit, slot_wear_suit)
+
+	var/obj/item/weapon/storage/backpack/satchel/bag = new(M)
+	bag.name = "officer's leather satchel"
+	bag.desc = "A well cared for leather satchel for Nanotrasen officers."
+	M.equip_to_slot_or_del(bag, slot_back)
+	if(M.backbag == 1)
+		M.equip_to_slot_or_del(new /obj/item/weapon/stamp/centcomm(M), slot_in_backpack)
+
+	var /obj/item/weapon/storage/lockbox/lockbox = new(M)
+	lockbox.req_access = list(access_cent_captain)
+	lockbox.name = "CCIA agent briefcase"
+	lockbox.desc = "A smart looking briefcase with a NT logo on the side"
+	lockbox.storage_slots = 8
+	lockbox.max_storage_space = 16
+	M.equip_to_slot_or_del(lockbox, slot_l_hand)
+
+	var/obj/item/device/pda/central/pda = new(M)
+	pda.owner = M.real_name
+	pda.ownjob = "Central Command Internal Affairs Agent"
+	pda.name = "PDA-[M.real_name] ([pda.ownjob])"
+
+	M.equip_to_slot_or_del(pda, slot_belt)
+
+	M.implant_loyalty(M, 1)
+
+	var/obj/item/weapon/card/id/centcom/W = new(M)
+	W.name = "[M.real_name]'s ID Card"
+	W.item_state = "id_inv"
+	W.access = get_all_accesses() | get_centcom_access("CCIA Agent")
+	W.assignment = "Central Command Internal Affairs Agent"
+	W.registered_name = M.real_name
+	M.equip_to_slot_or_del(W, slot_wear_id)
+
+	verbs += /client/proc/returntobody
 
 /client/proc/returntobody()
 	set name = "Return to mob"
@@ -125,7 +129,7 @@
 
 	if(!check_rights(0))		return
 
-	if(!mob.mind || mob.mind.special_role != "CCIA Agent")
+	if (!mob.mind || !(mob.mind.special_role in list("CCIA Agent", "ERT Commander")))
 		verbs -= /client/proc/returntobody
 		return
 
@@ -151,7 +155,7 @@
 		return
 
 	if(!is_type_in_list(A,centcom_areas))
-		src << "<span class='warning'>You need to be back at central to do this.</span>"
+		to_chat(src, "<span class='warning'>You need to be back at central to do this.</span>")
 		return
 
 	if(holder.original_mob)
@@ -200,11 +204,11 @@
 	set category = "Special Verbs"
 
 	if (!check_rights(R_ADMIN|R_CCIAA|R_FUN))
-		usr << "<span class='warning'>You do not have enough powers to do this.</span>"
+		to_chat(usr, "<span class='warning'>You do not have enough powers to do this.</span>")
 		return
 
 	if (!department)
-		usr << "<span class='warning'>No target department specified!</span>"
+		to_chat(usr, "<span class='warning'>No target department specified!</span>")
 		return
 
 	var/obj/machinery/photocopier/faxmachine/fax = null
@@ -215,26 +219,26 @@
 			break
 
 	if (!fax)
-		usr << "<span class='warning'>Couldn't find a fax machine to send this to!</span>"
+		to_chat(usr, "<span class='warning'>Couldn't find a fax machine to send this to!</span>")
 		return
 
 	//todo: sanitize
 	var/input = input(usr, "Please enter a message to reply to via secure connection. NOTE: BBCode does not work, but HTML tags do! Use <br> for line breaks.", "Outgoing message from Centcomm", "") as message|null
 	if (!input)
-		usr << "<span class='warning'>Cancelled.</span>"
+		to_chat(usr, "<span class='warning'>Cancelled.</span>")
 		return
 
 	var/customname = input(usr, "Pick a title for the report", "Title") as text|null
 	if (!customname)
-		usr << "<span class='warning'>Cancelled.</span>"
+		to_chat(usr, "<span class='warning'>Cancelled.</span>")
 		return
-	var/announce = alert(user, "Do you wish to announce the fax being sent?", "Announce Fax", "Yes", "No")
+	var/announce = alert(usr, "Do you wish to announce the fax being sent?", "Announce Fax", "Yes", "No")
 	if(announce == "Yes")
 		announce = 1
 
 	// Create the reply message
 	var/obj/item/weapon/paper/P = new /obj/item/weapon/paper( null ) //hopefully the null loc won't cause trouble for us
-	P.name = "[command_name()] - [customname]"
+	P.name = "[current_map.boss_name] - [customname]"
 	P.info = input
 	P.update_icon()
 
@@ -244,18 +248,18 @@
 	if(!P.stamped)
 		P.stamped = new
 	P.stamped += /obj/item/weapon/stamp
-	P.overlays += stampoverlay
+	P.add_overlay(stampoverlay)
 	P.stamps += "<HR><i>This paper has been stamped by the Central Command Quantum Relay.</i>"
 
-	if(fax.recievefax(P))
+	if(fax.receivefax(P))
 		if(announce == 1)
 			command_announcement.Announce("A fax has been sent to the [department] fax machine.", "Fax Sent")
-		usr << "<span class='notice'>Message transmitted successfully.</span>"
+		to_chat(usr, "<span class='notice'>Message transmitted successfully.</span>")
 		log_and_message_admins("sent a fax message to the [department] fax machine. (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[fax.x];Y=[fax.y];Z=[fax.z]'>JMP</a>)")
 
 		sent_faxes += P
 	else
-		usr << "<span class='warning'>Message reply failed.</span>"
+		to_chat(usr, "<span class='warning'>Message reply failed.</span>")
 		qdel(P)
 	return
 
@@ -265,7 +269,7 @@
 	set category = "Special Verbs"
 
 	if (!check_rights(R_ADMIN|R_CCIAA|R_FUN))
-		usr << "<span class='warning'>You do not have enough powers to do this.</span>"
+		to_chat(usr, "<span class='warning'>You do not have enough powers to do this.</span>")
 		return
 
 	var/data = "<center><a href='?_src_=holder;CentcommFaxReply=1'>Send New Fax</a></center>"
@@ -301,6 +305,6 @@
 		return
 
 	message_admins("[key_name_admin(src)] accessed file: [path]")
-	usr << run( file(path) )
+	to_chat(usr, run( file(path) ))
 	feedback_add_details("admin_verb","DOGL") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 	return

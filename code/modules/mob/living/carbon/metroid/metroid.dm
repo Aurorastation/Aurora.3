@@ -1,6 +1,6 @@
 /mob/living/carbon/slime
 	name = "baby slime"
-	icon = 'icons/mob/slimes.dmi'
+	icon = 'icons/mob/npc/slimes.dmi'
 	icon_state = "grey baby slime"
 	pass_flags = PASSTABLE
 	var/is_adult = 0
@@ -101,10 +101,14 @@
 
 	return tally + config.slime_delay
 
-/mob/living/carbon/slime/Bump(atom/movable/AM as mob|obj, yes)
-	if ((!(yes) || now_pushing))
+/mob/living/carbon/slime/proc/reset_atkcooldown()
+	Atkcool = FALSE
+
+/mob/living/carbon/slime/Collide(atom/movable/AM as mob|obj, yes)
+	if (now_pushing)
 		return
-	now_pushing = 1
+
+	now_pushing = TRUE
 
 	if(isobj(AM) && !client && powerlevel > 0)
 		var/probab = 10
@@ -120,9 +124,8 @@
 				if(nutrition <= get_hunger_nutrition() && !Atkcool)
 					if (is_adult || prob(5))
 						UnarmedAttack(AM)
-						Atkcool = 1
-						spawn(45)
-							Atkcool = 0
+						Atkcool = TRUE
+						addtimer(CALLBACK(src, .proc/reset_atkcooldown), 45)
 
 	if(ismob(AM))
 		var/mob/tmob = AM
@@ -130,16 +133,16 @@
 		if(is_adult)
 			if(istype(tmob, /mob/living/carbon/human))
 				if(prob(90))
-					now_pushing = 0
+					now_pushing = FALSE
 					return
 		else
 			if(istype(tmob, /mob/living/carbon/human))
-				now_pushing = 0
+				now_pushing = FALSE
 				return
 
-	now_pushing = 0
+	now_pushing = FALSE
 
-	..()
+	. = ..()
 
 /mob/living/carbon/slime/Allow_Spacemove()
 	return 1
@@ -272,7 +275,7 @@
 
 			G.synch()
 
-			LAssailant = M
+			LAssailant = WEAKREF(M)
 
 			playsound(loc, 'sound/weapons/thudswoosh.ogg', 50, 1, -1)
 			visible_message("<span class='warning'>[M] has grabbed [src] passively!</span>")
@@ -311,7 +314,7 @@
 	if(W.force > 0)
 		attacked += 10
 		if(prob(25))
-			user << "<span class='danger'>[W] passes right through [src]!</span>"
+			to_chat(user, "<span class='danger'>[W] passes right through [src]!</span>")
 			return
 		if(Discipline && prob(50)) // wow, buddy, why am I getting attacked??
 			Discipline = 0
@@ -376,7 +379,7 @@
 	return
 
 /mob/living/carbon/slime/proc/gain_nutrition(var/amount)
-	nutrition += amount
+	adjustNutritionLoss(-10)
 	if(prob(amount * 2)) // Gain around one level per 50 nutrition
 		powerlevel++
 		if(powerlevel > 10)

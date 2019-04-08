@@ -16,11 +16,11 @@
 	buckle_lying = 1
 
 	// BubbleWrap
-/obj/machinery/atmospherics/pipe/simple/heat_exchanging/New()
-		..()
-		initialize_directions_he = initialize_directions	// The auto-detection from /pipe is good enough for a simple HE pipe
-	// BubbleWrap END
-		color = "#404040" //we don't make use of the fancy overlay system for colours, use this to set the default.
+/obj/machinery/atmospherics/pipe/simple/heat_exchanging/Initialize()
+	. = ..()
+	initialize_directions_he = initialize_directions	// The auto-detection from /pipe is good enough for a simple HE pipe
+// BubbleWrap END
+	color = "#404040" //we don't make use of the fancy overlay system for colours, use this to set the default.
 
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging/atmos_init()
 	normalize_dir()
@@ -46,8 +46,7 @@
 		qdel(src)
 		return
 
-	update_icon()
-	return
+	queue_icon_update()
 
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging/machinery_process()
 	if(!parent)
@@ -111,20 +110,20 @@
 	minimum_temperature_difference = 300
 	thermal_conductivity = WALL_HEAT_TRANSFER_COEFFICIENT
 
-	// BubbleWrap
-/obj/machinery/atmospherics/pipe/simple/heat_exchanging/junction/New()
-	.. ()
-	switch ( dir )
-		if ( SOUTH )
+// BubbleWrap
+/obj/machinery/atmospherics/pipe/simple/heat_exchanging/junction/Initialize()
+	. = ..()
+	switch (dir)
+		if (SOUTH)
 			initialize_directions = NORTH
 			initialize_directions_he = SOUTH
-		if ( NORTH )
+		if (NORTH)
 			initialize_directions = SOUTH
 			initialize_directions_he = NORTH
-		if ( EAST )
+		if (EAST)
 			initialize_directions = WEST
 			initialize_directions_he = EAST
-		if ( WEST )
+		if (WEST)
 			initialize_directions = EAST
 			initialize_directions_he = WEST
 	// BubbleWrap END
@@ -134,14 +133,14 @@
 		if(target.initialize_directions & get_dir(target,src))
 			node1 = target
 			break
+
 	for(var/obj/machinery/atmospherics/pipe/simple/heat_exchanging/target in get_step(src,initialize_directions_he))
 		if(target.initialize_directions_he & get_dir(target,src))
 			node2 = target
 			break
 
-	if(!node1&&!node2)
+	if(!node1 && !node2)
 		qdel(src)
 		return
 
-	update_icon()
-	return
+	queue_icon_update()

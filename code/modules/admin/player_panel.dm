@@ -258,7 +258,7 @@
 				else
 					M_job = "Living"
 
-			else if(istype(M,/mob/new_player))
+			else if(istype(M,/mob/abstract/new_player))
 				M_job = "New player"
 
 			else if(isobserver(M))
@@ -339,7 +339,7 @@
 			dat += "<td>[M.real_name]</td>"
 		else if(istype(M, /mob/living/silicon/pai))
 			dat += "<td>pAI</td>"
-		else if(istype(M, /mob/new_player))
+		else if(istype(M, /mob/abstract/new_player))
 			dat += "<td>New Player</td>"
 		else if(isobserver(M))
 			dat += "<td>Ghost</td>"
@@ -392,7 +392,7 @@
 	if (SSticker.current_state >= GAME_STATE_PLAYING)
 		var/dat = "<html><head><title>Round Status</title></head><body><h1><B>Round Status</B></h1>"
 		dat += "Current Game Mode: <B>[SSticker.mode.name]</B><BR>"
-		dat += "Round Duration: <B>[round(world.time / 36000)]:[add_zero(world.time / 600 % 60, 2)]:[world.time / 100 % 6][world.time / 100 % 10]</B><BR>"
+		dat += "Round Duration: [get_round_duration_formatted()]"
 		dat += "<B>Emergency shuttle</B><BR>"
 		if (!emergency_shuttle.online())
 			dat += "<a href='?src=\ref[src];call_shuttle=1'>Call Shuttle</a><br>"

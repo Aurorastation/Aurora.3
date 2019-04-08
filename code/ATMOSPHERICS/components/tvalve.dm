@@ -46,9 +46,9 @@
 /obj/machinery/atmospherics/tvalve/hide(var/i)
 	update_underlays()
 
-/obj/machinery/atmospherics/tvalve/New()
+/obj/machinery/atmospherics/tvalve/Initialize()
 	initialize_directions()
-	..()
+	. = ..()
 
 /obj/machinery/atmospherics/tvalve/proc/initialize_directions()
 	switch(dir)
@@ -303,7 +303,7 @@
 	if(!powered())
 		return
 	if(!src.allowed(user))
-		user << "<span class='warning'>Access denied.</span>"
+		to_chat(user, "<span class='warning'>Access denied.</span>")
 		return
 	..()
 
@@ -342,19 +342,19 @@
 				go_to_side()
 
 /obj/machinery/atmospherics/tvalve/attackby(var/obj/item/weapon/W as obj, var/mob/user as mob)
-	if (!istype(W, /obj/item/weapon/wrench))
+	if (!W.iswrench())
 		return ..()
 	if (istype(src, /obj/machinery/atmospherics/tvalve/digital))
-		user << "<span class='warning'>You cannot unwrench \the [src], it's too complicated.</span>"
+		to_chat(user, "<span class='warning'>You cannot unwrench \the [src], it's too complicated.</span>")
 		return 1
 	var/datum/gas_mixture/int_air = return_air()
 	var/datum/gas_mixture/env_air = loc.return_air()
 	if ((int_air.return_pressure()-env_air.return_pressure()) > 2*ONE_ATMOSPHERE)
-		user << "<span class='warnng'>You cannot unwrench \the [src], it too exerted due to internal pressure.</span>"
+		to_chat(user, "<span class='warnng'>You cannot unwrench \the [src], it too exerted due to internal pressure.</span>")
 		add_fingerprint(user)
 		return 1
 	playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
-	user << "<span class='notice'>You begin to unfasten \the [src]...</span>"
+	to_chat(user, "<span class='notice'>You begin to unfasten \the [src]...</span>")
 	if (do_after(user, 40, act_target = src))
 		user.visible_message( \
 			"<span class='notice'>\The [user] unfastens \the [src].</span>", \
@@ -443,7 +443,7 @@
 	if(!powered())
 		return
 	if(!src.allowed(user))
-		user << "<span class='warning'>Access denied.</span>"
+		to_chat(user, "<span class='warning'>Access denied.</span>")
 		return
 	..()
 

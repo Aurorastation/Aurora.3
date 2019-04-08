@@ -29,9 +29,9 @@
 
 		if(0)
 			// State 0
-			if(iswrench(W) && isturf(src.loc))
+			if(W.iswrench() && isturf(src.loc))
 				playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
-				user << "You wrench the assembly into place."
+				to_chat(user, "You wrench the assembly into place.")
 				anchored = 1
 				state = 1
 				update_icon()
@@ -40,16 +40,16 @@
 
 		if(1)
 			// State 1
-			if(iswelder(W))
+			if(W.iswelder())
 				if(weld(W, user))
-					user << "You weld the assembly securely into place."
+					to_chat(user, "You weld the assembly securely into place.")
 					anchored = 1
 					state = 2
 				return
 
-			else if(iswrench(W))
+			else if(W.iswrench())
 				playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
-				user << "You unattach the assembly from its place."
+				to_chat(user, "You unattach the assembly from its place.")
 				anchored = 0
 				update_icon()
 				state = 0
@@ -57,19 +57,19 @@
 
 		if(2)
 			// State 2
-			if(iscoil(W))
+			if(W.iscoil())
 				var/obj/item/stack/cable_coil/C = W
 				if(C.use(2))
-					user << "<span class='notice'>You add wires to the assembly.</span>"
+					to_chat(user, "<span class='notice'>You add wires to the assembly.</span>")
 					state = 3
 				else
-					user << "<span class='warning'>You need 2 coils of wire to wire the assembly.</span>"
+					to_chat(user, "<span class='warning'>You need 2 coils of wire to wire the assembly.</span>")
 				return
 
-			else if(iswelder(W))
+			else if(W.iswelder())
 
 				if(weld(W, user))
-					user << "You unweld the assembly from its place."
+					to_chat(user, "You unweld the assembly from its place.")
 					state = 1
 					anchored = 1
 				return
@@ -77,17 +77,17 @@
 
 		if(3)
 			// State 3
-			if(isscrewdriver(W))
+			if(W.isscrewdriver())
 				playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, 1)
 
 				var/input = sanitize(input(usr, "Which networks would you like to connect this camera to? Separate networks with a comma. No Spaces!\nFor example: Station,Security,Secret", "Set Network", camera_network ? camera_network : NETWORK_STATION))
 				if(!input)
-					usr << "No input found please hang up and try your call again."
+					to_chat(usr, "No input found please hang up and try your call again.")
 					return
 
 				var/list/tempnetwork = text2list(input, ",")
 				if(tempnetwork.len < 1)
-					usr << "No network found please hang up and try your call again."
+					to_chat(usr, "No network found please hang up and try your call again.")
 					return
 
 				var/area/camera_area = get_area(src)
@@ -96,7 +96,7 @@
 
 				state = 4
 				var/obj/machinery/camera/C = new(src.loc)
-				src.loc = C
+				src.forceMove(C)
 				C.assembly = src
 
 				C.auto_turn()
@@ -115,29 +115,29 @@
 							break
 				return
 
-			else if(iswirecutter(W))
+			else if(W.iswirecutter())
 
 				new/obj/item/stack/cable_coil(get_turf(src), 2)
 				playsound(src.loc, 'sound/items/Wirecutter.ogg', 50, 1)
-				user << "You cut the wires from the circuits."
+				to_chat(user, "You cut the wires from the circuits.")
 				state = 2
 				return
 
 	// Upgrades!
 	if(is_type_in_list(W, possible_upgrades) && !is_type_in_list(W, upgrades)) // Is a possible upgrade and isn't in the camera already.
-		user << "You attach \the [W] into the assembly inner circuits."
+		to_chat(user, "You attach \the [W] into the assembly inner circuits.")
 		upgrades += W
 		user.remove_from_mob(W)
-		W.loc = src
+		W.forceMove(src)
 		return
 
 	// Taking out upgrades
-	else if(iscrowbar(W) && upgrades.len)
+	else if(W.iscrowbar() && upgrades.len)
 		var/obj/U = locate(/obj) in upgrades
 		if(U)
-			user << "You unattach an upgrade from the assembly."
+			to_chat(user, "You unattach an upgrade from the assembly.")
 			playsound(src.loc, 'sound/items/Crowbar.ogg', 50, 1)
-			U.loc = get_turf(src)
+			U.forceMove(get_turf(src))
 			upgrades -= U
 		return
 
@@ -160,7 +160,7 @@
 	if(!WT.isOn())
 		return 0
 
-	user << "<span class='notice'>You start to weld the [src]..</span>"
+	to_chat(user, "<span class='notice'>You start to weld the [src]..</span>")
 	playsound(src.loc, 'sound/items/Welder.ogg', 50, 1)
 	WT.eyecheck(user)
 	busy = 1

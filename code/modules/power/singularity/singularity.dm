@@ -10,6 +10,7 @@
 	layer = 6
 	light_power = -100 //eats all light
 	unacidable = 1 //Don't comment this out.
+	appearance_flags = NO_CLIENT_COLOR
 
 	var/current_size = 1
 	var/allowed_size = 1
@@ -39,6 +40,7 @@
 
 	..()
 	START_PROCESSING(SScalamity, src)
+	SScalamity.singularities += src
 	for(var/obj/machinery/power/singularity_beacon/singubeacon in SSmachinery.processing_machines)
 		if(singubeacon.active)
 			target = singubeacon
@@ -46,6 +48,7 @@
 
 /obj/singularity/Destroy()
 	STOP_PROCESSING(SScalamity, src)
+	SScalamity.singularities -= src
 	return ..()
 
 /obj/singularity/attack_hand(mob/user as mob)
@@ -70,11 +73,15 @@
 /obj/singularity/bullet_act(obj/item/projectile/P)
 	return 0 //Will there be an impact? Who knows. Will we see it? No.
 
-/obj/singularity/Bump(atom/A)
-	consume(A)
+/obj/singularity/Collide(atom/A)
+	. = ..()
+	if (A)
+		consume(A)
 
-/obj/singularity/Bumped(atom/A)
-	consume(A)
+/obj/singularity/CollidedWith(atom/movable/AM)
+	. = ..()
+	if (AM)
+		consume(AM)
 
 /obj/singularity/process()
 	eat()
@@ -234,7 +241,7 @@
 			event_chance = 25 //Events will fire off more often.
 			if(chained)
 				overlays = "chain_s9"
-			visible_message("<span class='sinister'><font size='3'>You witness the creation of a destructive force that cannot possibly be stopped by human hands.</font></span>")
+			visible_message("<span class='danger'><font size='3'>You witness the creation of a destructive force that cannot possibly be stopped by human hands.</font></span>")
 
 	if (current_size == allowed_size)
 		investigate_log("<font color='red'>grew to size [current_size].</font>", I_SINGULO)
@@ -448,11 +455,11 @@
 			if (istype(M,/mob/living/carbon/human))
 				var/mob/living/carbon/human/H = M
 				if(istype(H.glasses,/obj/item/clothing/glasses/meson) && current_size != 11)
-					H << "<span class=\"notice\">You look directly into The [src.name], good thing you had your protective eyewear on!</span>"
+					to_chat(H, "<span class=\"notice\">You look directly into The [src.name], good thing you had your protective eyewear on!</span>")
 					return
 				else
-					H << "<span class=\"warning\">You look directly into The [src.name], but your eyewear does absolutely nothing to protect you from it!</span>"
-		M << "<span class='danger'>You look directly into The [src.name] and feel [current_size == 11 ? "helpless" : "weak"].</span>"
+					to_chat(H, "<span class=\"warning\">You look directly into The [src.name], but your eyewear does absolutely nothing to protect you from it!</span>")
+		to_chat(M, "<span class='danger'>You look directly into The [src.name] and feel [current_size == 11 ? "helpless" : "weak"].</span>")
 		M.apply_effect(3, STUN)
 		for(var/mob/O in viewers(M, null))
 			O.show_message(text("<span class='danger'>[] stares blankly at The []!</span>", M, src), 1)
@@ -467,11 +474,11 @@
 	for(var/mob/living/M in view(10, src.loc))
 		if(prob(67))
 			M.apply_effect(rand(energy), IRRADIATE, blocked = M.getarmor(null, "rad"))
-			M << "<span class=\"warning\">You hear an uneartly ringing, then what sounds like a shrilling kettle as you are washed with a wave of heat.</span>"
-			M << "<span class=\"notice\">Miraculously, it fails to kill you.</span>"
+			to_chat(M, "<span class=\"warning\">You hear an uneartly ringing, then what sounds like a shrilling kettle as you are washed with a wave of heat.</span>")
+			to_chat(M, "<span class=\"notice\">Miraculously, it fails to kill you.</span>")
 		else
-			M << "<span class=\"danger\">You hear an uneartly ringing, then what sounds like a shrilling kettle as you are washed with a wave of heat.</span>"
-			M << "<span class=\"danger\">You don't even have a moment to react as you are reduced to ashes by the intense radiation.</span>"
+			to_chat(M, "<span class=\"danger\">You hear an uneartly ringing, then what sounds like a shrilling kettle as you are washed with a wave of heat.</span>")
+			to_chat(M, "<span class=\"danger\">You don't even have a moment to react as you are reduced to ashes by the intense radiation.</span>")
 			M.dust()
 	return
 
@@ -486,15 +493,15 @@
 	move_self = 0
 	switch (current_size)
 		if(1)
-			overlays += image('icons/obj/singularity.dmi',"chain_s1")
+			add_overlay(image('icons/obj/singularity.dmi',"chain_s1"))
 		if(3)
-			overlays += image('icons/effects/96x96.dmi',"chain_s3")
+			add_overlay(image('icons/effects/96x96.dmi',"chain_s3"))
 		if(5)
-			overlays += image('icons/effects/160x160.dmi',"chain_s5")
+			add_overlay(image('icons/effects/160x160.dmi',"chain_s5"))
 		if(7)
-			overlays += image('icons/effects/224x224.dmi',"chain_s7")
+			add_overlay(image('icons/effects/224x224.dmi',"chain_s7"))
 		if(9)
-			overlays += image('icons/effects/288x288.dmi',"chain_s9")
+			add_overlay(image('icons/effects/288x288.dmi',"chain_s9"))
 
 /obj/singularity/proc/on_release()
 	chained = 0

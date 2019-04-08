@@ -1,4 +1,4 @@
-// Attempts to install the hardware into apropriate slot.
+// Attempts to install the hardware into appropriate slot.
 /obj/item/modular_computer/proc/try_install_component(var/mob/living/user, var/obj/item/weapon/computer_hardware/H, var/found = 0)
 	// "USB" flash drive.
 	if(istype(H, /obj/item/weapon/computer_hardware/hard_drive/portable))
@@ -61,8 +61,7 @@
 	if(found)
 		to_chat(user, "You install \the [H] into \the [src]")
 		H.holder2 = src
-		user.drop_from_inventory(H)
-		H.forceMove(src)
+		user.drop_from_inventory(H,src)
 		update_icon()
 
 // Uninstalls component. Found and Critical vars may be passed by parent types, if they have additional hardware.

@@ -130,7 +130,7 @@
 	can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 		if(..())
 			var/obj/item/organ/external/affected = target.get_organ(target_zone)
-			if(istype(tool,/obj/item/weapon/weldingtool))
+			if(tool.iswelder())
 				var/obj/item/weapon/weldingtool/welder = tool
 				if(!welder.isOn() || !welder.remove_fuel(1,user))
 					return 0
@@ -170,7 +170,7 @@
 			if(limb_can_operate)
 				if(istype(C))
 					if(!C.get_amount() >= 3)
-						user << "<span class='danger'>You need three or more cable pieces to repair this damage.</span>"
+						to_chat(user, "<span class='danger'>You need three or more cable pieces to repair this damage.</span>")
 						return SURGERY_FAILURE
 					C.use(3)
 				return 1
@@ -245,6 +245,9 @@
 					user.visible_message("<span class='notice'>[user] repairs [target]'s [I.name] with [tool].</span>", \
 					"<span class='notice'>You repair [target]'s [I.name] with [tool].</span>" )
 					I.damage = 0
+					var/obj/item/organ/brain/sponge = target.internal_organs_by_name["brain"]
+					if(sponge && istype(I, sponge))
+						target.cure_all_traumas()
 
 	fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 
@@ -382,23 +385,27 @@
 			return 0
 
 		if(!M.brainmob || !M.brainmob.client || !M.brainmob.ckey || M.brainmob.stat >= DEAD)
-			user << "<span class='danger'>That brain is not usable.</span>"
+			to_chat(user, "<span class='danger'>That brain is not usable.</span>")
 			return SURGERY_FAILURE
 
 		if(!(affected.status & ORGAN_ROBOT))
-			user << "<span class='danger'>You cannot install a computer brain into a meat skull.</span>"
+			to_chat(user, "<span class='danger'>You cannot install a computer brain into a meat skull.</span>")
+			return SURGERY_FAILURE
+
+		if(!target.isSynthetic())
+			to_chat(user, "<span class='danger'>You cannot install a computer brain into an organic body.</span>")
 			return SURGERY_FAILURE
 
 		if(!target.species)
-			user << "<span class='danger'>You have no idea what species this person is. Report this on the bug tracker.</span>"
+			to_chat(user, "<span class='danger'>You have no idea what species this person is. Report this on the bug tracker.</span>")
 			return SURGERY_FAILURE
 
 		if(!target.species.has_organ["brain"])
-			user << "<span class='danger'>You're pretty sure [target.species.name_plural] don't normally have a brain.</span>"
+			to_chat(user, "<span class='danger'>You're pretty sure [target.species.name_plural] don't normally have a brain.</span>")
 			return SURGERY_FAILURE
 
 		if(!isnull(target.internal_organs["brain"]))
-			user << "<span class='danger'>Your subject already has a brain.</span>"
+			to_chat(user, "<span class='danger'>Your subject already has a brain.</span>")
 			return SURGERY_FAILURE
 
 		return 1
@@ -417,8 +424,7 @@
 		var/obj/item/device/mmi/M = tool
 		var/obj/item/organ/mmi_holder/holder = new(target, 1)
 		target.internal_organs_by_name["brain"] = holder
-		user.drop_from_inventory(tool)
-		tool.loc = holder
+		user.drop_from_inventory(tool,holder)
 		holder.stored_mmi = tool
 		holder.update_from_mmi()
 

@@ -1,21 +1,4 @@
 // PRESETS
-var/global/list/station_networks = list(
-	NETWORK_CIVILIAN_EAST,
-	NETWORK_CIVILIAN_WEST,
-	NETWORK_COMMAND,
-	NETWORK_ENGINE,
-	NETWORK_ENGINEERING,
-	NETWORK_ENGINEERING_OUTPOST,
-	NETWORK_STATION,
-	NETWORK_MEDICAL,
-	NETWORK_MINE,
-	NETWORK_RESEARCH,
-	NETWORK_RESEARCH_OUTPOST,
-	NETWORK_ROBOTS,
-	NETWORK_PRISON,
-	NETWORK_SECURITY
-)
-
 var/global/list/engineering_networks = list(
 	NETWORK_ENGINE,
 	NETWORK_ENGINEERING,
@@ -33,6 +16,18 @@ var/global/list/engineering_networks = list(
 
 /obj/machinery/camera/network/civilian_west
 	network = list(NETWORK_CIVILIAN_WEST)
+
+/obj/machinery/camera/network/civilian_main
+	network = list(NETWORK_CIVILIAN_MAIN)
+
+/obj/machinery/camera/network/civilian_surface
+	network = list(NETWORK_CIVILIAN_SURFACE)
+
+/obj/machinery/camera/network/supply
+	network = list(NETWORK_SUPPLY)
+
+/obj/machinery/camera/network/service
+	network = list(NETWORK_SERVICE)
 
 /obj/machinery/camera/network/command
 	network = list(NETWORK_COMMAND)

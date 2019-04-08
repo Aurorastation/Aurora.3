@@ -4,8 +4,8 @@
 //Note that this proc does NOT do MMI related stuff!
 /mob/proc/change_mob_type(var/new_type = null, var/turf/location = null, var/new_name = null as text, var/delete_old_mob = 0 as num, var/subspecies)
 
-	if(istype(src,/mob/new_player))
-		usr << "<span class='warning'>cannot convert players who have not entered yet.</span>"
+	if(istype(src,/mob/abstract/new_player))
+		to_chat(usr, "<span class='warning'>cannot convert players who have not entered yet.</span>")
 		return
 
 	if(!new_type)
@@ -15,11 +15,11 @@
 		new_type = text2path(new_type)
 
 	if( !ispath(new_type) )
-		usr << "Invalid type path (new_type = [new_type]) in change_mob_type(). Contact a coder."
+		to_chat(usr, "Invalid type path (new_type = [new_type]) in change_mob_type(). Contact a coder.")
 		return
 
-	if( new_type == /mob/new_player )
-		usr << "<span class='warning'>cannot convert into a new_player mob type.</span>"
+	if( new_type == /mob/abstract/new_player )
+		to_chat(usr, "<span class='warning'>cannot convert into a new_player mob type.</span>")
 		return
 
 	var/mob/M
@@ -29,7 +29,7 @@
 		M = new new_type( src.loc )
 
 	if(!M || !ismob(M))
-		usr << "Type path is not a mob (new_type = [new_type]) in change_mob_type(). Contact a coder."
+		to_chat(usr, "Type path is not a mob (new_type = [new_type]) in change_mob_type(). Contact a coder.")
 		qdel(M)
 		return
 

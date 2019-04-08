@@ -16,10 +16,10 @@
 	item_state = null
 	w_class = 1
 
-/obj/item/clothing/mask/muzzle/New()
-    ..()
-    say_messages = list("Mmfph!", "Mmmf mrrfff!", "Mmmf mnnf!")
-    say_verbs = list("mumbles", "says")
+/obj/item/clothing/mask/muzzle/Initialize()
+	. = ..()
+	say_messages = list("Mmfph!", "Mmmf mrrfff!", "Mmmf mnnf!")
+	say_verbs = list("mumbles", "says")
 
 // Clumsy folks can't take the mask off themselves.
 /obj/item/clothing/mask/muzzle/attack_hand(mob/user as mob)
@@ -38,6 +38,9 @@
 	gas_transfer_coefficient = 0.90
 	permeability_coefficient = 0.01
 	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 60, rad = 0)
+	down_gas_transfer_coefficient = 1
+	down_body_parts_covered = null
+	adjustable = TRUE
 
 /obj/item/clothing/mask/fakemoustache
 	name = "fake moustache"
@@ -116,11 +119,11 @@
 	w_class = 2
 	siemens_coefficient = 0.9
 
-/obj/item/clothing/mask/horsehead/New()
-    ..()
-    // The horse mask doesn't cause voice changes by default, the wizard spell changes the flag as necessary
-    say_messages = list("NEEIIGGGHHHH!", "NEEEIIIIGHH!", "NEIIIGGHH!", "HAAWWWWW!", "HAAAWWW!")
-    say_verbs = list("whinnies", "neighs", "says")
+/obj/item/clothing/mask/horsehead/Initialize()
+	. = ..()
+	// The horse mask doesn't cause voice changes by default, the wizard spell changes the flag as necessary
+	say_messages = list("NEEIIGGGHHHH!", "NEEEIIIIGHH!", "NEIIIGGHH!", "HAAWWWWW!", "HAAAWWW!")
+	say_verbs = list("whinnies", "neighs", "says")
 
 /obj/item/clothing/mask/ai
 	name = "camera MIU"
@@ -129,9 +132,10 @@
 	item_state = "s-ninja"
 	flags_inv = HIDEFACE
 	body_parts_covered = 0
-	var/mob/eye/aiEye/eye
+	var/mob/abstract/eye/aiEye/eye
 
-/obj/item/clothing/mask/ai/New()
+/obj/item/clothing/mask/ai/Initialize()
+	. = ..()
 	eye = new(src)
 
 /obj/item/clothing/mask/ai/equipped(var/mob/user, var/slot)
@@ -152,3 +156,13 @@
 
 		eye.owner.eyeobj = null
 		eye.owner = null
+
+/obj/item/clothing/mask/offworlder/veil
+	name = "starveil"
+	desc = "A thin holographic veil meant to cover the face, intended to block out light."
+	icon_state = "starveil"
+	item_state = "starveil"
+	w_class = 2
+	body_parts_covered = FACE
+	down_body_parts_covered = null
+	adjustable = TRUE

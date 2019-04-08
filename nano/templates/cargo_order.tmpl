@@ -1,0 +1,150 @@
+<div>
+{{:helper.link('Order', 'gear', {'page' : 'main'}, null)}}
+{{:helper.link('Tracking', 'gear', {'page' : 'tracking'}, null)}}
+</div>
+<br><br>
+{{if data.page == "main" || data.page == "item_details"}}
+	<div class="statusDisplay" style="min-height: 100px;">
+		<div class="item">
+			<div class="itemContent" style="width: 100%;">
+				<table>
+					<tr>
+						<td><b>Welcome:</b></td>
+						<td>{{:data.username}}</td>
+					</tr>
+					{{if data.status_message}}
+					<tr>
+						<td><b>Status:</b></td>
+						<td>{{:data.status_message}}</td>
+					</tr>
+					{{/if}}
+					<tr>
+						<td><h3>Order</h3></td>
+					</tr>
+					<tr>
+						<td><b>Items:</b></td>
+						<td>{{:data.order_item_count}}</td>
+					</tr>
+					<tr>
+						<td><b>Price:</b></td>
+						<td>{{:data.order_value}} Credits</td>
+					</tr>
+					<tr>
+						<td>{{:helper.link('Details', 'cart', {'page' : 'order'}, null)}}</td>
+						<td>{{:helper.link('Clear', 'cancel', {'clear_order' : 'clear_order'}, null)}} {{:helper.link("Submit Order", 'play', {'submit_order' : 'submit_order'}, null)}}</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+{{/if}}
+{{if data.page == "main"}}
+    <div class="item">
+        <div>
+            {{props data.cargo_categories}}
+                {{:helper.link(value.display_name, value.icon, {'select_category' : value.name}, (data.selected_category == value.name) ? 'selected' : null)}}                
+            {{/props}}
+        </div>
+    </div>
+    <hr>
+    <div>
+		<table>
+		{{for data.category_items}}
+			<tr>
+				<td><b>{{:value.name}}</b></td>
+			</tr>
+			<tr>
+				<td><i>{{:value.description}}</i></td>
+			</tr>
+			<tr>
+				<td>Shipped by: {{:value.supplier_data.name}}</td>
+			</tr>
+			<tr>
+				<td>
+					{{if value.supplier_data.available && value.price_adjusted > 0}}				
+						{{:helper.link(value.price_adjusted, 'gear', {'add_item' : value.id}, null)}}
+					{{else}}
+						{{:helper.link(value.name + " /Unavailable/", 'gear', null, "disabled")}}
+					{{/if}}	
+				</td>
+			</tr>
+			<tr><td><hr></td></tr>
+		{{/for}}
+		</table>
+    </div>
+{{else data.page == "order"}}
+    <br>
+	<table width="100%">
+        <tr>
+            <th>Name</th>
+            <th>Supplier</th>
+            <th>Price</th>
+			<th></th>
+        </tr>
+    {{props data.order_items}}
+		<tr>
+			<td>{{:value.name}}</td>
+            <td>{{:value.supplier_name}}</td>
+            <td>{{:value.price}}</td>
+			<td>{{:helper.link('Delete', 'close', {'remove_item' : value.item_id}, null)}}</td>
+		</tr>
+    {{/props}}
+		<tr>
+			<td>Crate Fee</td>
+			<td>NT Supply Department</td>
+			<td>{{:data.crate_fee}}</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>Handling Fee</td>
+			<td>Cargo</td>
+			<td>{{:data.handling_fee}}</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td colspawn="4">Additional Shuttle Fees may apply</td>
+		</tr>
+	</table>
+	<td>{{:helper.link("Submit Order", 'play', {'submit_order' : 'submit_order'}, null)}}</td>
+	
+    <td>{{:helper.link('Return', 'gear', {'page' : 'main'}, null)}}</td>
+{{else data.page == "tracking"}}
+	<div class='item'>
+	    <h2>Tracking Data</h2>
+	</div>
+	<div class='item'>
+        <div class='itemLabel'>
+            Order ID:
+        </div>
+        <div class='itemContent'>
+            {{:helper.link(data.tracking_id, 'pencil', {'trackingid' : '1'})}}
+        </div>
+	</div>
+	<div class='item'>
+        <div class='itemLabel'>
+            Tracking Code:
+        </div>
+        <div class='itemContent'>
+            {{:helper.link(data.tracking_code, 'pencil', {'trackingcode' : '1'})}}
+        </div>
+	</div>
+	<div class='item'>
+	    <h2>Order Data</h2>
+	</div>
+	{{if data.tracking_status == "Success"}}
+	<div class="statusDisplay" style="min-height: 100px;">
+		<div class="item">
+			<div class="itemContent" style="width: 100%;">
+				{{:data.tracked_order_report}}
+			</div>
+		</div>
+	</div>
+	{{else}}
+        <div class='itemLabel'>
+            Tracking Status:
+        </div>
+        <div class='itemContent'>
+            {{:data.tracking_status}}
+        </div>
+    {{/if}}
+{{/if}}

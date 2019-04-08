@@ -1,5 +1,5 @@
 /datum/reagents/metabolism
-	var/metabolism_class //CHEM_TOUCH, CHEM_INGEST, or CHEM_BLOOD
+	var/metabolism_class //CHEM_TOUCH, CHEM_INGEST, CHEM_BREATHE, or CHEM_BLOOD
 	var/mob/living/carbon/parent
 
 /datum/reagents/metabolism/New(var/max = 100, mob/living/carbon/parent_mob, var/met_class)
@@ -20,4 +20,5 @@
 
 	for(var/datum/reagent/current in reagent_list)
 		current.on_mob_life(parent, metabolism_type, metabolism_class)
+
 	update_total()

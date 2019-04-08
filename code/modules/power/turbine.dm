@@ -62,7 +62,7 @@
 /obj/machinery/compressor/machinery_process()
 	if(!starter)
 		return
-	overlays.Cut()
+	cut_overlays()
 	if(stat & BROKEN)
 		return
 	if(!turbine)
@@ -89,13 +89,13 @@
 
 
 	if(rpm>50000)
-		overlays += image('icons/obj/pipes.dmi', "comp-o4", FLY_LAYER)
+		add_overlay(image('icons/obj/pipes.dmi', "comp-o4", FLY_LAYER))
 	else if(rpm>10000)
-		overlays += image('icons/obj/pipes.dmi', "comp-o3", FLY_LAYER)
+		add_overlay(image('icons/obj/pipes.dmi', "comp-o3", FLY_LAYER))
 	else if(rpm>2000)
-		overlays += image('icons/obj/pipes.dmi', "comp-o2", FLY_LAYER)
+		add_overlay(image('icons/obj/pipes.dmi', "comp-o2", FLY_LAYER))
 	else if(rpm>500)
-		overlays += image('icons/obj/pipes.dmi', "comp-o1", FLY_LAYER)
+		add_overlay(image('icons/obj/pipes.dmi', "comp-o1", FLY_LAYER))
 	 //TODO: DEFERRED
 
 /obj/machinery/power/turbine/New()
@@ -120,7 +120,7 @@
 /obj/machinery/power/turbine/machinery_process()
 	if(!compressor.starter)
 		return
-	overlays.Cut()
+	cut_overlays()
 	if(stat & BROKEN)
 		return
 	if(!compressor)
@@ -141,8 +141,7 @@
 		outturf.assume_air(removed)
 
 	if(lastgen > 100)
-		overlays += image('icons/obj/pipes.dmi', "turb-o", FLY_LAYER)
-
+		add_overlay(image('icons/obj/pipes.dmi', "turb-o", FLY_LAYER))
 
 	for(var/mob/M in viewers(1, src))
 		if ((M.client && M.machine == src))
@@ -182,7 +181,7 @@
 		return
 	if (usr.IsAdvancedToolUser())
 		if(!istype(usr, /mob/living/silicon/ai))
-			usr << "<span class='warning'>You don't have the dexterity to do this!</span>"
+			to_chat(usr, "<span class='warning'>You don't have the dexterity to do this!</span>")
 			return
 
 	if (( usr.machine==src && ((get_dist(src, usr) <= 1) && istype(src.loc, /turf))) || (istype(usr, /mob/living/silicon/ai)))
@@ -226,41 +225,6 @@
 		for(var/obj/machinery/door/blast/P in SSmachinery.all_machines)
 			if(P.id == id)
 				doors += P
-
-/*
-/obj/machinery/computer/turbine_computer/attackby(I as obj, user as mob)
-	if(istype(I, /obj/item/weapon/screwdriver))
-		playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, 1)
-		if(do_after(user, 20))
-			if (src.stat & BROKEN)
-				user << "\blue The broken glass falls out."
-				var/obj/structure/computerframe/A = new /obj/structure/computerframe( src.loc )
-				new /obj/item/weapon/material/shard( src.loc )
-				var/obj/item/weapon/circuitboard/turbine_control/M = new /obj/item/weapon/circuitboard/turbine_control( A )
-				for (var/obj/C in src)
-					C.loc = src.loc
-				M.id = src.id
-				A.circuit = M
-				A.state = 3
-				A.icon_state = "3"
-				A.anchored = 1
-				qdel(src)
-			else
-				user << "\blue You disconnect the monitor."
-				var/obj/structure/computerframe/A = new /obj/structure/computerframe( src.loc )
-				var/obj/item/weapon/circuitboard/turbine_control/M = new /obj/item/weapon/circuitboard/turbine_control( A )
-				for (var/obj/C in src)
-					C.loc = src.loc
-				M.id = src.id
-				A.circuit = M
-				A.state = 4
-				A.icon_state = "4"
-				A.anchored = 1
-				qdel(src)
-	else
-		src.attack_hand(user)
-	return
-*/
 
 /obj/machinery/computer/turbine_computer/attack_hand(var/mob/user as mob)
 	user.machine = src

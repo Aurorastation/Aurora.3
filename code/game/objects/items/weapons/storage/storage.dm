@@ -16,25 +16,25 @@
 	name = "storage"
 	icon = 'icons/obj/storage.dmi'
 	w_class = 3
-	var/list/can_hold = list() //List of objects which this item can store (if set, it can't store anything else)
-	var/list/cant_hold = list() //List of objects which this item can't store (in effect only if can_hold isn't set)
+	var/list/can_hold  //List of objects which this item can store (if set, it can't store anything else)
+	var/list/cant_hold //List of objects which this item can't store (in effect only if can_hold isn't set)
 	var/list/is_seeing //List of mobs which are currently seeing the contents of this item's storage
 	var/max_w_class = 3 //Max size of objects that this object can store (in effect only if can_hold isn't set)
 	var/max_storage_space = 8 //The sum of the storage costs of all the items in this storage item.
-	var/storage_slots = null //The number of storage slots in this container.
-	var/obj/screen/storage/boxes = null
-	var/obj/screen/storage/storage_start = null //storage UI
-	var/obj/screen/storage/storage_continue = null
-	var/obj/screen/storage/storage_end = null
-	var/obj/screen/storage/stored_start = null
-	var/obj/screen/storage/stored_continue = null
-	var/obj/screen/storage/stored_end = null
-	var/obj/screen/close/closer = null
+	var/storage_slots //The number of storage slots in this container.
+	var/obj/screen/storage/boxes
+	var/obj/screen/storage/storage_start //storage UI
+	var/obj/screen/storage/storage_continue
+	var/obj/screen/storage/storage_end
+	var/obj/screen/storage/stored_start
+	var/obj/screen/storage/stored_continue
+	var/obj/screen/storage/stored_end
+	var/obj/screen/close/closer
 	var/use_to_pickup	//Set this to make it possible to use this item in an inverse way, so you can have the item in your hand and click items on the floor to pick them up.
 	var/display_contents_with_number	//Set this to make the storage item group contents of the same type and display them as a number.
 	var/allow_quick_empty	//Set this variable to allow the object to have the 'empty' verb, which dumps all the contents on the floor.
 	var/allow_quick_gather	//Set this variable to allow the object to have the 'toggle mode' verb, which quickly collects all items from a tile.
-	var/collection_mode = 1;  //0 = pick one at a time, 1 = pick all on tile
+	var/collection_mode = 1  //0 = pick one at a time, 1 = pick all on tile
 	var/use_sound = "rustle"	//sound played when used. null for no sound.
 
 /obj/item/weapon/storage/Destroy()
@@ -80,26 +80,22 @@
 		switch(over_object.name)
 			if("r_hand")
 				usr.u_equip(src)
-				usr.put_in_r_hand(src)
+				usr.put_in_r_hand(src,FALSE)
 			if("l_hand")
 				usr.u_equip(src)
-				usr.put_in_l_hand(src)
+				usr.put_in_l_hand(src,FALSE)
 		src.add_fingerprint(usr)
 
 
 /obj/item/weapon/storage/proc/return_inv()
-
-	var/list/L = list(  )
-
-	L += src.contents
+	. = contents.Copy()
 
 	for(var/obj/item/weapon/storage/S in src)
-		L += S.return_inv()
+		. += S.return_inv()
 	for(var/obj/item/weapon/gift/G in src)
-		L += G.gift
+		. += G.gift
 		if (istype(G.gift, /obj/item/weapon/storage))
-			L += G.gift:return_inv()
-	return L
+			. += G.gift:return_inv()
 
 /obj/item/weapon/storage/proc/show_to(mob/user as mob)
 	if(user.s_active != src)
@@ -143,7 +139,7 @@
 
 /obj/item/weapon/storage/proc/open(mob/user as mob)
 	if (use_sound)
-		playsound(src.loc, src.use_sound, 50, 1, -5)
+		playsound(src.loc, src.use_sound, 50, 0, -5)
 
 	orient2hud(user)
 	if (user.s_active)
@@ -314,31 +310,31 @@
 		return 0 //Means the item is already in the storage item
 	if(storage_slots != null && contents.len >= storage_slots)
 		if(!stop_messages)
-			usr << "<span class='notice'>[src] is full, make some space.</span>"
+			to_chat(usr, "<span class='notice'>[src] is full, make some space.</span>")
 		return 0 //Storage item is full
 
 	if(W.anchored)
 		return 0
 
-	if(can_hold.len)
+	if(LAZYLEN(can_hold))
 		if(!is_type_in_list(W, can_hold))
 			if(!stop_messages && ! istype(W, /obj/item/weapon/hand_labeler))
-				usr << "<span class='notice'>[src] cannot hold \the [W].</span>"
+				to_chat(usr, "<span class='notice'>[src] cannot hold \the [W].</span>")
 			return 0
 		var/max_instances = can_hold[W.type]
-		if(max_instances && instances_of_type_in_list(W, contents) >= max_instances)
+		if(max_instances && instances_of_type_in_list(W, contents, TRUE) >= max_instances)
 			if(!stop_messages && !istype(W, /obj/item/weapon/hand_labeler))
-				usr << "<span class='notice'>[src] has no more space specifically for \the [W].</span>"
+				to_chat(usr, "<span class='notice'>[src] has no more space specifically for \the [W].</span>")
 			return 0
 
-	if(cant_hold.len && is_type_in_list(W, cant_hold))
+	if(LAZYLEN(cant_hold) && is_type_in_list(W, cant_hold))
 		if(!stop_messages)
-			usr << "<span class='notice'>[src] cannot hold [W].</span>"
+			to_chat(usr, "<span class='notice'>[src] cannot hold [W].</span>")
 		return 0
 
 	if (max_w_class != null && W.w_class > max_w_class)
 		if(!stop_messages)
-			usr << "<span class='notice'>[W] is too long for this [src].</span>"
+			to_chat(usr, "<span class='notice'>[W] is too long for this [src].</span>")
 		return 0
 
 	var/total_storage_space = W.get_storage_cost()
@@ -347,12 +343,12 @@
 
 	if(total_storage_space > max_storage_space)
 		if(!stop_messages)
-			usr << "<span class='notice'>[src] is too full, make some space.</span>"
+			to_chat(usr, "<span class='notice'>[src] is too full, make some space.</span>")
 		return 0
 
 	if(W.w_class >= src.w_class && (istype(W, /obj/item/weapon/storage)))
 		if(!stop_messages)
-			usr << "<span class='notice'>[src] cannot hold [W] as it's a storage item of the same size.</span>"
+			to_chat(usr, "<span class='notice'>[src] cannot hold [W] as it's a storage item of the same size.</span>")
 		return 0 //To prevent the stacking of same sized storage items.
 
 	return 1
@@ -360,33 +356,51 @@
 //This proc handles items being inserted. It does not perform any checks of whether an item can or can't be inserted. That's done by can_be_inserted()
 //The stop_warning parameter will stop the insertion message from being displayed. It is intended for cases where you are inserting multiple items at once,
 //such as when picking up all the items on a tile with one click.
-/obj/item/weapon/storage/proc/handle_item_insertion(obj/item/W as obj, prevent_warning = 0)
+/obj/item/weapon/storage/proc/handle_item_insertion(obj/item/W as obj, prevent_warning = 0, mob/user = usr)
 	if(!istype(W)) return 0
-	if(usr)
-		usr.prepare_for_slotmove(W)
-		usr.update_icons()	//update our overlays
+	if(user)
+		user.prepare_for_slotmove(W)
 	W.forceMove(src)
 	W.on_enter_storage(src)
-	if(usr)
-		if (usr.client && usr.s_active != src)
-			usr.client.screen -= W
-		W.dropped(usr)
-		add_fingerprint(usr)
+	if(user)
+		W.dropped(user)
+		add_fingerprint(user)
 
 		if(!prevent_warning)
-			for(var/mob/M in viewers(usr, null))
+			for(var/mob/M in viewers(user, null))
 				if (M == usr)
-					usr << "<span class='notice'>You put \the [W] into [src].</span>"
+					to_chat(usr, "<span class='notice'>You put \the [W] into [src].</span>")
 				else if (M in range(1)) //If someone is standing close enough, they can tell what it is...
-					M.show_message("<span class='notice'>\The [usr] puts [W] into [src].</span>")
+					M.show_message("<span class='notice'>\The [user] puts [W] into [src].</span>")
 				else if (W && W.w_class >= 3) //Otherwise they can only see large or normal items from a distance...
-					M.show_message("<span class='notice'>\The [usr] puts [W] into [src].</span>")
+					M.show_message("<span class='notice'>\The [user] puts [W] into [src].</span>")
 
-		src.orient2hud(usr)
-		if(usr.s_active)
-			usr.s_active.show_to(usr)
-	update_icon()
+		orient2hud(user)
+		if(user.s_active)
+			user.s_active.show_to(user)
+	queue_icon_update()
 	return 1
+
+// This is for inserting more than one thing at a time, you should call handle_storage_deferred after all the items have been inserted.
+/obj/item/weapon/storage/proc/handle_item_insertion_deferred(obj/item/W, mob/user)
+	if (!istype(W))
+		return FALSE
+
+	if (user)
+		user.prepare_for_slotmove(W)
+
+	W.forceMove(src)
+	W.on_enter_storage(src)
+	if (user)
+		W.dropped(user)
+
+/obj/item/weapon/storage/proc/handle_storage_deferred(mob/user)
+	add_fingerprint(user)
+	user.update_icons()
+	orient2hud(user)
+	if (user.s_active)
+		user.s_active.show_to(user)
+	queue_icon_update()
 
 //Call this proc to handle the removal of an item from the storage item. The item will be moved to the atom sent as new_target
 /obj/item/weapon/storage/proc/remove_from_storage(obj/item/W as obj, atom/new_location)
@@ -408,9 +422,9 @@
 			W.layer = 20
 		else
 			W.layer = initial(W.layer)
-		W.loc = new_location
+		W.forceMove(new_location)
 	else
-		W.loc = get_turf(src)
+		W.forceMove(get_turf(src))
 
 	if(usr)
 		src.orient2hud(usr)
@@ -422,6 +436,45 @@
 	update_icon()
 	return 1
 
+/obj/item/weapon/storage/proc/remove_from_storage_deferred(obj/item/W, atom/new_location, mob/user)
+	if (!istype(W))
+		return FALSE
+
+	// fuck if I know.
+	for(var/mob/M in range(1, src.loc))
+		if (M.s_active == src)
+			if (M.client)
+				M.client.screen -= W
+
+	if (new_location)
+		if (ismob(loc))
+			W.dropped(user)
+		if (ismob(new_location))
+			W.layer = 20
+		else
+			W.layer = initial(W.layer)
+
+		W.forceMove(new_location)
+	else
+		W.forceMove(get_turf(src))
+
+	if (W.maptext)
+		W.maptext = ""
+
+	W.on_exit_storage(src)
+
+	return TRUE
+
+/obj/item/weapon/storage/proc/post_remove_from_storage_deferred(atom/oldloc, mob/user)
+	orient2hud(user)
+	if (user.s_active)
+		user.s_active.show_to(user)
+
+	// who knows what the fuck this does
+	if (istype(src, /obj/item/weapon/storage/fancy))
+		update_icon(1)
+	else
+		update_icon()
 
 //This proc is called when you want to place an item into the storage item.
 //Its a safe proc for adding things to the storage that does the necessary checks. Object will not be moved if it fails
@@ -450,7 +503,7 @@
 					remove_from_storage(L, T)
 					qdel(L)
 		if(amt_inserted)
-			user << "You inserted [amt_inserted] light\s into \the [LP.name]. You have [LP.uses] light\s remaining."
+			to_chat(user, "You inserted [amt_inserted] light\s into \the [LP.name]. You have [LP.uses] light\s remaining.")
 			return
 
 	if(!can_be_inserted(W))
@@ -460,7 +513,7 @@
 		var/obj/item/weapon/tray/T = W
 		if(T.current_weight > 0)
 			T.spill(user)
-			user << "<span class='warning'>Trying to place a loaded tray into [src] was a bad idea.</span>"
+			to_chat(user, "<span class='warning'>Trying to place a loaded tray into [src] was a bad idea.</span>")
 			return
 
 	W.add_fingerprint(user)
@@ -498,9 +551,9 @@
 	collection_mode = !collection_mode
 	switch (collection_mode)
 		if(1)
-			usr << "[src] now picks up all items in a tile at once."
+			to_chat(usr, "[src] now picks up all items in a tile at once.")
 		if(0)
-			usr << "[src] now picks up one item at a time."
+			to_chat(usr, "[src] now picks up one item at a time.")
 
 
 /obj/item/weapon/storage/verb/quick_empty()
@@ -513,9 +566,11 @@
 	var/turf/T = get_turf(src)
 	hide_from(usr)
 	for(var/obj/item/I in contents)
-		remove_from_storage(I, T)
+		remove_from_storage_deferred(I, T, usr)
 
 		CHECK_TICK
+
+	post_remove_from_storage_deferred(loc, usr)
 
 // Override this to fill the storage object with stuff.
 /obj/item/weapon/storage/proc/fill()
@@ -589,7 +644,7 @@
 /obj/item/weapon/storage/proc/make_exact_fit()
 	storage_slots = contents.len
 
-	can_hold.Cut()
+	can_hold = list()
 	max_w_class = 0
 	max_storage_space = 0
 	for(var/obj/item/I in src)

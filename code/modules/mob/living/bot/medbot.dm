@@ -5,7 +5,7 @@
 	req_one_access = list(access_medical, access_robotics)
 
 	var/skin = null //Set to "tox", "ointment" or "o2" for the other two firstaid kits.
-	botcard_access = list(access_medical, access_morgue, access_surgery, access_chemistry, access_virology, access_genetics)
+	botcard_access = list(access_medical, access_morgue, access_surgery, access_pharmacy, access_virology, access_genetics)
 
 	//AI vars
 	var/frustration = 0
@@ -34,47 +34,44 @@
 	QDEL_NULL(reagent_glass)
 	return ..()
 
-/mob/living/bot/medbot/Life()
+/mob/living/bot/medbot/think()
 	..()
-
 	if(!on)
 		return
 
-	if(!client)
+	if(vocal && prob(1))
+		var/message = pick("Radar, put a mask on!", "There's always a catch, and it's the best there is.", "I knew it, I should've been a plastic surgeon.", "What kind of medbay is this? Everyone's dropping like dead flies.", "Delicious!")
+		say(message)
 
-		if(vocal && prob(1))
-			var/message = pick("Radar, put a mask on!", "There's always a catch, and it's the best there is.", "I knew it, I should've been a plastic surgeon.", "What kind of medbay is this? Everyone's dropping like dead flies.", "Delicious!")
-			say(message)
-
-		if(patient)
-			if(Adjacent(patient))
-				if(!currently_healing)
-					INVOKE_ASYNC(src, .proc/UnarmedAttack, patient)
-			else
-				if(path.len && (get_dist(patient, path[path.len]) > 2)) // We have a path, but it's off
-					path = list()
-				if(!path.len && (get_dist(src, patient) > 1))
-					spawn(0)
-						path = AStar(loc, get_turf(patient), /turf/proc/CardinalTurfsWithAccess, /turf/proc/Distance, 0, 30, id = botcard)
-						if(!path)
-							path = list()
-				if(path.len)
-					step_to(src, path[1])
-					path -= path[1]
-					++frustration
-				if(get_dist(src, patient) > 7 || frustration > 8)
-					patient = null
+	if(patient)
+		if(Adjacent(patient))
+			if(!currently_healing)
+				INVOKE_ASYNC(src, .proc/UnarmedAttack, patient)
 		else
-			for(var/mob/living/carbon/human/H in view(7, src)) // Time to find a patient!
-				if(valid_healing_target(H))
-					patient = H
-					frustration = 0
-					if(last_newpatient_speak + 300 < world.time)
-						var/message = pick("Hey, [H.name]! Hold on, I'm coming.", "Wait [H.name]! I want to help!", "[H.name], you appear to be injured!")
-						say(message)
-						custom_emote(1, "points at [H.name].")
-						last_newpatient_speak = world.time
-					break
+			if(path.len && (get_dist(patient, path[path.len]) > 2)) // We have a path, but it's off
+				path = list()
+			if(!path.len && (get_dist(src, patient) > 1))
+				spawn(0)
+					path = AStar(loc, get_turf(patient), /turf/proc/CardinalTurfsWithAccess, /turf/proc/Distance, 0, 30, id = botcard)
+					if(!path)
+						path = list()
+			if(path.len)
+				step_to(src, path[1])
+				path -= path[1]
+				++frustration
+			if(get_dist(src, patient) > 7 || frustration > 8)
+				patient = null
+	else
+		for(var/mob/living/carbon/human/H in view(7, src)) // Time to find a patient!
+			if(valid_healing_target(H))
+				patient = H
+				frustration = 0
+				if(last_newpatient_speak + 300 < world.time)
+					var/message = pick("Hey, [H.name]! Hold on, I'm coming.", "Wait [H.name]! I want to help!", "[H.name], you appear to be injured!")
+					say(message)
+					custom_emote(1, "points at [H.name].")
+					last_newpatient_speak = world.time
+				break
 
 /mob/living/bot/medbot/UnarmedAttack(var/mob/living/carbon/human/H, var/proximity)
 	if(!..())
@@ -126,7 +123,7 @@
 
 /mob/living/bot/medbot/attack_hand(var/mob/user)
 	if (!has_ui_access(user))
-		user << "<span class='warning'>The unit's interface refuses to unlock!</span>"
+		to_chat(user, "<span class='warning'>The unit's interface refuses to unlock!</span>")
 		return
 
 	var/dat
@@ -168,16 +165,15 @@
 /mob/living/bot/medbot/attackby(var/obj/item/O, var/mob/user)
 	if(istype(O, /obj/item/weapon/reagent_containers/glass))
 		if(locked)
-			user << "<span class='notice'>You cannot insert a beaker because the panel is locked.</span>"
+			to_chat(user, "<span class='notice'>You cannot insert a beaker because the panel is locked.</span>")
 			return
 		if(!isnull(reagent_glass))
-			user << "<span class='notice'>There is already a beaker loaded.</span>"
+			to_chat(user, "<span class='notice'>There is already a beaker loaded.</span>")
 			return
 
-		user.drop_item()
-		O.loc = src
+		user.drop_from_inventory(O,src)
 		reagent_glass = O
-		user << "<span class='notice'>You insert [O].</span>"
+		to_chat(user, "<span class='notice'>You insert [O].</span>")
 		return 1
 	else
 		..()
@@ -189,7 +185,7 @@
 	add_fingerprint(usr)
 
 	if (!has_ui_access(usr))
-		usr << "<span class='warning'>Insufficient permissions.</span>"
+		to_chat(usr, "<span class='warning'>Insufficient permissions.</span>")
 		return
 
 	if (href_list["power"])
@@ -219,10 +215,10 @@
 
 	else if (href_list["eject"] && (!isnull(reagent_glass)))
 		if(!locked)
-			reagent_glass.loc = get_turf(src)
+			reagent_glass.forceMove(get_turf(src))
 			reagent_glass = null
 		else
-			usr << "<span class='notice'>You cannot eject the beaker because the panel is locked.</span>"
+			to_chat(usr, "<span class='notice'>You cannot eject the beaker because the panel is locked.</span>")
 
 	else if (href_list["togglevoice"] && (!locked || issilicon(usr)))
 		vocal = !vocal
@@ -237,7 +233,7 @@
 	. = ..()
 	if(!emagged)
 		if(user)
-			user << "<span class='warning'>You short out [src]'s reagent synthesis circuits.</span>"
+			to_chat(user, "<span class='warning'>You short out [src]'s reagent synthesis circuits.</span>")
 		visible_message("<span class='warning'>[src] buzzes oddly!</span>")
 		flick("medibot_spark", src)
 		patient = null
@@ -260,7 +256,7 @@
 		new /obj/item/robot_parts/l_arm(Tsec)
 
 	if(reagent_glass)
-		reagent_glass.loc = Tsec
+		reagent_glass.forceMove(Tsec)
 		reagent_glass = null
 
 	spark(src, 3, alldirs)
@@ -276,6 +272,9 @@
 
 /mob/living/bot/medbot/proc/valid_healing_target(var/mob/living/carbon/human/H)
 	if(H.stat == DEAD) // He's dead, Jim
+		return null
+
+	if(isipc(H))
 		return null
 
 	if(H in ignored)
@@ -303,7 +302,7 @@
 	if((H.getToxLoss() >= heal_threshold) && (!H.reagents.has_reagent(treatment_tox)))
 		return treatment_tox
 
-	for(var/datum/disease/D in H.viruses)
+	for(var/datum/disease2/disease/D in H.virus2)
 		if (!H.reagents.has_reagent(treatment_virus))
 			return treatment_virus // STOP DISEASE FOREVER
 
@@ -315,7 +314,7 @@
 		return
 
 	if(contents.len >= 1)
-		user << "<span class='notice'>You need to empty [src] out first.</span>"
+		to_chat(user, "<span class='notice'>You need to empty [src] out first.</span>")
 		return
 
 	var/obj/item/weapon/firstaid_arm_assembly/A = new /obj/item/weapon/firstaid_arm_assembly
@@ -328,8 +327,7 @@
 
 	qdel(S)
 	user.put_in_hands(A)
-	user << "<span class='notice'>You add the robot arm to the first aid kit.</span>"
-	user.drop_from_inventory(src)
+	to_chat(user, "<span class='notice'>You add the robot arm to the first aid kit.</span>")
 	qdel(src)
 
 /obj/item/weapon/firstaid_arm_assembly
@@ -353,30 +351,29 @@
 		var/t = sanitizeSafe(input(user, "Enter new robot name", name, created_name), MAX_NAME_LEN)
 		if(!t)
 			return
-		if(!in_range(src, usr) && loc != usr)
+		if(!in_range(src, user) && loc != user)
 			return
 		created_name = t
 	else
 		switch(build_step)
 			if(0)
 				if(istype(W, /obj/item/device/healthanalyzer))
-					user.drop_item()
+					user.drop_from_inventory(W,get_turf(src))
 					qdel(W)
 					build_step++
-					user << "<span class='notice'>You add the health sensor to [src].</span>"
+					to_chat(user, "<span class='notice'>You add the health sensor to [src].</span>")
 					name = "First aid/robot arm/health analyzer assembly"
 					add_overlay("na_scanner")
 					return 1
 
 			if(1)
 				if(isprox(W))
-					user.drop_item()
+					user.drop_from_inventory(W,get_turf(src))
 					qdel(W)
-					user << "<span class='notice'>You complete the Medibot! Beep boop.</span>"
+					to_chat(user, "<span class='notice'>You complete the Medibot! Beep boop.</span>")
 					var/turf/T = get_turf(src)
 					var/mob/living/bot/medbot/S = new /mob/living/bot/medbot(T)
 					S.skin = skin
 					S.name = created_name
-					user.drop_from_inventory(src)
 					qdel(src)
 					return 1

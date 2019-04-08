@@ -20,10 +20,17 @@
             <div class="itemLabelWide">
                 Lethal Mode:
             </div>
-            <div class="itemContentNarrow">
+			{{if data.can_switch}}
+				<div class="itemContentNarrow">
                 {{:helper.link('On', null, {'command' : 'lethal', 'value' : 1},  data.lethal ?'redButton' : null)}}
                 {{:helper.link('Off',null, {'command' : 'lethal', 'value' : 0}, !data.lethal ? 'selected' : null)}}
-            </div>
+				</div>
+			{{else}}
+				<div class="itemContentNarrow">
+			    {{:helper.link('On', null, null, 'disabled')}}
+                {{:helper.link('Off',null, null, 'disabled')}}
+            	</div>
+			{{/if}}
         </div>	
     {{/if}}
     

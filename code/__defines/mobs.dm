@@ -84,6 +84,7 @@
 #define APPEARANCE_EYE_COLOR 0x100
 #define APPEARANCE_ALL_HAIR (APPEARANCE_HAIR|APPEARANCE_HAIR_COLOR|APPEARANCE_FACIAL_HAIR|APPEARANCE_FACIAL_HAIR_COLOR)
 #define APPEARANCE_ALL       0xFFFF
+#define APPEARANCE_PLASTICSURGERY (APPEARANCE_ALL & ~APPEARANCE_RACE)
 
 // Click cooldown
 #define DEFAULT_ATTACK_COOLDOWN 8 //Default timeout for aggressive actions
@@ -100,9 +101,7 @@
 #define INV_R_HAND_DEF_ICON 'icons/mob/items/righthand.dmi'
 #define INV_W_UNIFORM_DEF_ICON 'icons/mob/uniform.dmi'
 #define INV_ACCESSORIES_DEF_ICON 'icons/mob/ties.dmi'
-#define INV_SUIT_DEF_ICON 'icons/mob/ties.dmi'
 #define INV_SUIT_DEF_ICON 'icons/mob/suit.dmi'
-#define MAX_SUPPLIED_LAW_NUMBER 50
 
 // NT's alignment towards the character
 #define COMPANY_LOYAL 			"Loyal"
@@ -117,7 +116,6 @@
 #define GHOSTS_ALL_HEAR 1
 #define ONLY_GHOSTS_IN_VIEW 0
 
-
 // Defines mob sizes, used by lockers and to determine what is considered a small sized mob, etc.
 #define MOB_LARGE  		16
 #define MOB_MEDIUM 		9
@@ -125,13 +123,33 @@
 #define MOB_TINY 		4
 #define MOB_MINISCULE	1
 
-// Gluttony levels.
-#define GLUT_TINY 1       // Eat anything tiny and smaller
-#define GLUT_SMALLER 2    // Eat anything smaller than we are
-#define GLUT_ANYTHING 3   // Eat anything, ever
+#define BASE_MAX_NUTRITION	600
+#define HUNGER_FACTOR		0.04 // Factor of how fast mob nutrition decreases over time.
 
-#define BASE_MAX_NUTRITION	400
-#define HUNGER_FACTOR		0.05 // Factor of how fast mob nutrition decreases. Moved here from chemistry define
+#define BASE_MAX_HYDRATION  800
+#define THIRST_FACTOR       0.02 // Factor of how fast mob hydration decreases over time.
+
+#define CREW_MINIMUM_HYDRATION CREW_HYDRATION_SLIGHTLYTHIRSTY	// The minimum amount of nutrition a crewmember will spawn with, represented as a percentage
+#define CREW_MAXIMUM_HYDRATION CREW_HYDRATION_HYDRATED	// Same as above, but maximum.
+
+#define CREW_MINIMUM_NUTRITION CREW_NUTRITION_FULL	// The minimum amount of nutrition a crewmember will spawn with, represented as a percentage.
+#define CREW_MAXIMUM_NUTRITION CREW_NUTRITION_OVEREATEN	// Same as above, but maximum.
+
+//Note that all of this is relative to nutrition/max nutrition
+#define CREW_NUTRITION_OVEREATEN 0.8
+#define CREW_NUTRITION_FULL 0.4
+#define CREW_NUTRITION_SLIGHTLYHUNGRY 0.3
+#define CREW_NUTRITION_HUNGRY 0.2
+#define CREW_NUTRITION_VERYHUNGRY 0.1
+#define CREW_NUTRITION_STARVING 0
+
+//Note that all of this is relative to hydration/max hydration
+#define CREW_HYDRATION_OVERHYDRATED 1.01 //Overhydration can't occur.
+#define CREW_HYDRATION_HYDRATED 0.4
+#define CREW_HYDRATION_SLIGHTLYTHIRSTY 0.3
+#define CREW_HYDRATION_THIRSTY 0.2
+#define CREW_HYDRATION_VERYTHIRSTY 0.1
+#define CREW_HYDRATION_DEHYDRATED 0
 
 #define TINT_NONE 0
 #define TINT_MODERATE 1
@@ -142,8 +160,6 @@
 #define FLASH_PROTECTION_NONE 0
 #define FLASH_PROTECTION_MODERATE 1
 #define FLASH_PROTECTION_MAJOR 2
-#define ANIMAL_SPAWN_DELAY round(config.respawn_delay / 6)
-#define DRONE_SPAWN_DELAY  round(config.respawn_delay / 3)
 
 #define ANIMAL_SPAWN_DELAY round(config.respawn_delay / 6)
 #define DRONE_SPAWN_DELAY  round(config.respawn_delay / 3)
@@ -176,19 +192,17 @@
 #define RESPAWN_ANIMAL 3000
 #define RESPAWN_MINISYNTH 6000
 
-//Flags for the eat_types variable, a bitfield of what can or can't be eaten
-//Note that any given mob can be more than one type
-#define TYPE_ORGANIC	1//Almost any creature under /mob/living/carbon and most simple animals
-#define	TYPE_SYNTHETIC	2//Everything under /mob/living/silicon, plus IPCs, viscerators
-#define TYPE_HUMANOID	4//Humans, skrell, unathi, tajara, vaurca, diona, IPC, vox
-#define TYPE_WIERD		8//Slimes, constructs, demons, and other creatures of a magical or bluespace nature.
+// Flags for the eat_types variable, a bitfield of what can or can't be eaten
+// Note that any given mob can be more than one type
+#define TYPE_ORGANIC      1	// Almost any creature under /mob/living/carbon and most simple animals
+#define TYPE_SYNTHETIC    2	// Everything under /mob/living/silicon, plus IPCs, viscerators
+#define TYPE_HUMANOID     4	// Humans, skrell, unathi, tajara, vaurca, diona, IPC, vox
+#define TYPE_WEIRD        8	// Slimes, constructs, demons, and other creatures of a magical or bluespace nature.
+#define TYPE_INCORPOREAL 16 // Mobs that don't really have any physical form to them.
 
 // Maximum number of chickens allowed at once.
 // If the number of chickens on the map exceeds this, laid eggs will not hatch.
 #define MAX_CHICKENS 50
-
-#define CREW_MINIMUM_NUTRITION 50	// The minimum amount of nutrition a crewmember will spawn with.
-#define CREW_MAXIMUM_NUTRITION 100	// Same as above, but maximum.
 
 //carbon taste sensitivity defines, used in mob/living/carbon/proc/ingest
 #define TASTE_HYPERSENSITIVE 3 //anything below 5%
@@ -199,3 +213,39 @@
 
 //helper for inverting armor blocked values into a multiplier
 #define BLOCKED_MULT(blocked) max(1 - (blocked/100), 0)
+
+// Prosthetic organ defines.
+#define PROSTHETIC_IPC "Hephaestus Integrated Limb"
+#define PROSTHETIC_HK "Hephaestus Vulcanite Limb"
+#define PROSTHETIC_IND "Hephaestus Industrial Limb"
+#define PROSTHETIC_SYNTHSKIN "Human Synthskin"
+#define PROSTHETIC_BC "Bishop Cybernetics"
+#define PROSTHETIC_ZH "Zeng-Hu Pharmaceuticals"
+#define PROSTHETIC_HI "Hephaestus Industries"
+#define PROSTHETIC_XMG "Xion Manufacturing Group"
+#define PROSTHETIC_DIONA "Unknown Model"
+#define PROSTHETIC_AUTAKH "Aut'akh Manufactured"
+
+//Brain Damage defines
+#define BRAIN_DAMAGE_MILD 10
+#define BRAIN_DAMAGE_SEVERE 40
+
+#define BRAIN_TRAUMA_MILD /datum/brain_trauma/mild
+#define BRAIN_TRAUMA_SEVERE /datum/brain_trauma/severe
+#define BRAIN_TRAUMA_SPECIAL /datum/brain_trauma/special
+
+#define CURE_CRYSTAL "crystal"
+#define CURE_SOLITUDE "solitude"
+#define CURE_HYPNOSIS "hypnosis"
+#define CURE_SURGERY "surgery"
+#define CURE_ADMIN "all"
+
+
+//defines that includes the species and all of their subspecies, to be used in loadout and job restrictions
+#define HUMAN_SPECIES list("Human", "Off-Worlder Human")
+#define UNATHI_SPECIES list("Unathi", "Aut'akh Unathi")
+#define TAJARA_SPECIES list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
+#define SKRELL_SPECIES list("Skrell")
+#define VAURCA_SPECIES list("Vaurca Worker", "Vaurca Warrior", "Vaurca Breeder", "Vaurca Warform")
+#define DIONA_SPECIES list("Diona")
+#define IPC_SPECIES list("Baseline Frame", "Shell Frame", "Hephaestus G1 Industrial Frame", "Hunter-Killer", "Hephaestus G2 Industrial Frame", "Xion Industrial Frame", "Zeng-Hu Mobility Frame", "Bishop Accessory Frame", "Unbranded Frame")

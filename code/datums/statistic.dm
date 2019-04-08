@@ -1,7 +1,7 @@
 /datum/statistic
 	var/name
 	var/key
-	var/write_to_database = FALSE
+	var/write_to_db = FALSE
 	var/broadcast_at_roundend = TRUE
 
 /datum/statistic/proc/set_value()
@@ -58,20 +58,52 @@
 /datum/statistic/numeric/openturf_falls
 	name = "Human Open Space Falls"
 	key = "openturf_human_falls"
-	write_to_database = TRUE
+	write_to_db = TRUE
 
 /datum/statistic/numeric/openturf_deaths
 	name = "Human Open Space Fatalities"
 	key = "openturf_human_deaths"
-	write_to_database = TRUE
+	write_to_db = TRUE
 
 /datum/statistic/numeric/gibbings
 	name = "Gibbings"
 	key = "gibs"
+	write_to_db = TRUE
 
 /datum/statistic/numeric/clonings
 	name = "Clones Produced"
 	key = "clones"
+	write_to_db = TRUE
+
+/datum/statistic/numeric/people_hung
+	name = "People Hung"
+	key = "hangings"
+	write_to_db = TRUE
+
+/datum/statistic/numeric/self_slaps
+	name = "Total Self-slaps"
+	key = "selfslap"
+	write_to_db = TRUE
+
+/datum/statistic/numeric/ai_doors
+	name = "Doors Opened by AI"
+	key = "AI_DOOR"
+	write_to_db = TRUE
+
+/datum/statistic/numeric/messes
+	name = "Total Janitor Tears"
+	key = "messes_made"
+	write_to_db = TRUE
+
+/datum/statistic/numeric/swirlies
+	name = "Swirlies Given"
+	key = "swirlies"
+	write_to_db = TRUE
+
+/datum/statistic/numeric/mule_victims
+	name = "MULE Victims"
+	key = "mule_victims"
+	write_to_db = TRUE
 
 /datum/statistic/grouped/most_deaths
 	name = "Most Overall Deaths (by ckey)"

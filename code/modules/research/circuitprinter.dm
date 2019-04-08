@@ -21,15 +21,12 @@ using metal and glass, it uses glass and reagents (usually sulphuric acid).
 	idle_power_usage = 30
 	active_power_usage = 2500
 
-/obj/machinery/r_n_d/circuit_imprinter/Initialize()
-	. = ..()
-	component_parts = list()
-	component_parts += new /obj/item/weapon/circuitboard/circuit_imprinter(src)
-	component_parts += new /obj/item/weapon/stock_parts/matter_bin(src)
-	component_parts += new /obj/item/weapon/stock_parts/manipulator(src)
-	component_parts += new /obj/item/weapon/reagent_containers/glass/beaker(src)
-	component_parts += new /obj/item/weapon/reagent_containers/glass/beaker(src)
-	RefreshParts()
+	component_types = list(
+		/obj/item/weapon/circuitboard/circuit_imprinter,
+		/obj/item/weapon/stock_parts/matter_bin,
+		/obj/item/weapon/stock_parts/manipulator,
+		/obj/item/weapon/reagent_containers/glass/beaker = 2
+	)
 
 /obj/machinery/r_n_d/circuit_imprinter/machinery_process()
 	..()
@@ -108,7 +105,7 @@ using metal and glass, it uses glass and reagents (usually sulphuric acid).
 
 /obj/machinery/r_n_d/circuit_imprinter/attackby(var/obj/item/O as obj, var/mob/user as mob)
 	if(busy)
-		user << "<span class='notice'>\The [src] is busy. Please wait for completion of previous operation.</span>"
+		to_chat(user, "<span class='notice'>\The [src] is busy. Please wait for completion of previous operation.</span>")
 		return 1
 	if(default_deconstruction_screwdriver(user, O))
 		if(linked_console)
@@ -120,21 +117,21 @@ using metal and glass, it uses glass and reagents (usually sulphuric acid).
 	if(default_part_replacement(user, O))
 		return
 	if(panel_open)
-		user << "<span class='notice'>You can't load \the [src] while it's opened.</span>"
+		to_chat(user, "<span class='notice'>You can't load \the [src] while it's opened.</span>")
 		return 1
 	if(!linked_console)
-		user << "\The [src] must be linked to an R&D console first."
+		to_chat(user, "\The [src] must be linked to an R&D console first.")
 		return 1
 	if(O.is_open_container())
 		return 0
 	if(!istype(O, /obj/item/stack/material))
-		user << "<span class='notice'>You cannot insert this item into \the [src]!</span>"
+		to_chat(user, "<span class='notice'>You cannot insert this item into \the [src]!</span>")
 		return 1
 	if(stat)
 		return 1
 
 	if(TotalMaterials() + SHEET_MATERIAL_AMOUNT > max_material_storage)
-		user << "<span class='notice'>\The [src]'s material bin is full. Please remove material before adding more.</span>"
+		to_chat(user, "<span class='notice'>\The [src]'s material bin is full. Please remove material before adding more.</span>")
 		return 1
 
 	var/obj/item/stack/material/stack = O
@@ -155,7 +152,7 @@ using metal and glass, it uses glass and reagents (usually sulphuric acid).
 	if(t)
 		if(do_after(usr, 16))
 			if(stack.use(amount))
-				user << "<span class='notice'>You add [amount] sheets to \the [src].</span>"
+				to_chat(user, "<span class='notice'>You add [amount] sheets to \the [src].</span>")
 				materials[t] += amount * SHEET_MATERIAL_AMOUNT
 	busy = 0
 	updateUsrDialog()
@@ -204,7 +201,7 @@ using metal and glass, it uses glass and reagents (usually sulphuric acid).
 
 	if(D.build_path)
 		var/obj/new_item = D.Fabricate(src, src)
-		new_item.loc = loc
+		new_item.forceMove(loc)
 		if(mat_efficiency != 1) // No matter out of nowhere
 			if(new_item.matter && new_item.matter.len > 0)
 				for(var/i in new_item.matter)

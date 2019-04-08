@@ -38,8 +38,11 @@
 	var/datum/browser/menu = new( null, "brig_timer", "Brig Timer", 400, 300 )
 
 /obj/machinery/door_timer/Initialize()
-	. = ..()
+	..()
 
+	return INITIALIZE_HINT_LATELOAD
+
+/obj/machinery/door_timer/LateInitialize()
 	for(var/obj/machinery/door/window/brigdoor/M in SSmachinery.all_machines)
 		if (M.id == src.id)
 			targets += M
@@ -204,7 +207,6 @@
 	// Used for the 'time left' display
 	var/second = round(timeleft() % 60)
 	var/minute = round((timeleft() - second) / 60)
-
 	. = "<h2>Timer System:</h2>"
 	. += "<b>Controls [src.id]</b><hr>"
 
@@ -212,7 +214,8 @@
 		. += "Insert a Securty Incident Report to load a criminal sentence<br>"
 	else
 		// Time Left display (uses releasetime)
-		. += "<b>Criminal</b>: [incident.criminal]\t"
+		var/obj/item/weapon/card/id/card = incident.card.resolve()
+		. += "<b>Criminal</b>: [card]\t"
 		. += "<a href='?src=\ref[src];button=menu_mode;menu_choice=menu_charges'>Charges</a><br>"
 		. += "<b>Sentence</b>: [add_zero( "[minute]", 2 )]:[add_zero( "[second]", 2 )]\t"
 		// Start/Stop timer
@@ -260,50 +263,48 @@
 
 	return .
 
-/obj/machinery/door_timer/attackby(obj/item/O as obj, user as mob)
+/obj/machinery/door_timer/attackby(obj/item/O as obj, var/mob/user as mob)
 	if( istype( O, /obj/item/weapon/paper/incident ))
 		if( !incident )
 			if( import( O, user ))
-				usr.drop_item()
-				O.loc = src
-
 				ping( "\The [src] pings, \"Successfully imported incident report!\"" )
-				qdel( O )
+				user.drop_from_inventory(O,get_turf(src))
+				qdel(O)
 				src.updateUsrDialog()
 		else
-			user <<  "<span class='alert'>\The [src] buzzes, \"There's already an active sentence!\"</span>"
+			to_chat(user,  "<span class='alert'>\The [src] buzzes, \"There's already an active sentence!\"</span>")
 		return
 	else if( istype( O, /obj/item/weapon/paper ))
-		user <<  "<span class='alert'>\The [src] buzzes, \"This console only accepts authentic incident reports. Copies are invalid.\"</span>"
+		to_chat(user,  "<span class='alert'>\The [src] buzzes, \"This console only accepts authentic incident reports. Copies are invalid.\"</span>")
 		return
 
 	..()
 
 /obj/machinery/door_timer/proc/import( var/obj/item/weapon/paper/incident/I, var/user )
 	if( !istype( I ))
-		user <<  "<span class='alert'>\The [src] buzzes, \"Could not import the incident report.\"</span>"
+		to_chat(user,  "<span class='alert'>\The [src] buzzes, \"Could not import the incident report.\"</span>")
 		return 0
 
 	if( !istype( I.incident ))
-		user <<  "<span class='alert'>\The [src] buzzes, \"Report has no incident encoded!\"</span>"
+		to_chat(user,  "<span class='alert'>\The [src] buzzes, \"Report has no incident encoded!\"</span>")
 		return 0
 
 	if( !I.sentence )
-		user <<  "<span class='alert'>\The [src] buzzes, \"Report does not contain a guilty sentence!\"</span>"
+		to_chat(user,  "<span class='alert'>\The [src] buzzes, \"Report does not contain a guilty sentence!\"</span>")
 		return 0
 
 	var/datum/crime_incident/crime = I.incident
 
 	if( !istype( crime.criminal ))
-		user <<  "<span class='alert'>\The [src] buzzes, \"Report has no criminal encoded!\"</span>"
+		to_chat(user,  "<span class='alert'>\The [src] buzzes, \"Report has no criminal encoded!\"</span>")
 		return 0
 
 	if( !crime.brig_sentence )
-		user <<  "<span class='alert'>\The [src] buzzes, \"Report had no brig sentence.\"</span>"
+		to_chat(user,  "<span class='alert'>\The [src] buzzes, \"Report had no brig sentence.\"</span>")
 		return 0
 
 	if( crime.brig_sentence >= PERMABRIG_SENTENCE )
-		user <<  "<span class='alert'>\The [src] buzzes, \"The criminal has a HUT sentence and needs to be detained until transfer.\"</span>"
+		to_chat(user,  "<span class='alert'>\The [src] buzzes, \"The criminal has a HUT sentence and needs to be detained until transfer.\"</span>")
 		return 0
 
 	var/addtime = timetoset
@@ -407,7 +408,7 @@
 		var/image/ID = image('icons/obj/status_display.dmi', icon_state=char)
 		ID.pixel_x = -(d-1)*5 + px
 		ID.pixel_y = py
-		I.overlays += ID
+		I.add_overlay(ID)
 	return I
 
 

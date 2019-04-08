@@ -14,25 +14,25 @@
 	var/delay = 10
 	req_access = list(access_rd) //Only the R&D can change server settings.
 
+	component_types = list(
+		/obj/item/weapon/circuitboard/rdserver,
+		/obj/item/weapon/stock_parts/scanning_module,
+		/obj/item/stack/cable_coil = 2
+	)
+
 /obj/machinery/r_n_d/server/Destroy()
 	griefProtection()
 	return ..()
 
 /obj/machinery/r_n_d/server/RefreshParts()
 	var/tot_rating = 0
-	for(var/obj/item/weapon/stock_parts/SP in src)
+
+	for(var/obj/item/weapon/stock_parts/SP in component_parts)
 		tot_rating += SP.rating
 	idle_power_usage /= max(1, tot_rating)
 
 /obj/machinery/r_n_d/server/Initialize()
 	. = ..()
-	component_parts = list()
-	component_parts += new /obj/item/weapon/circuitboard/rdserver(src)
-	component_parts += new /obj/item/weapon/stock_parts/scanning_module(src)
-	component_parts += new /obj/item/stack/cable_coil(src)
-	component_parts += new /obj/item/stack/cable_coil(src)
-	RefreshParts()
-
 	setup()
 
 /obj/machinery/r_n_d/server/proc/setup()
@@ -169,7 +169,7 @@
 	add_fingerprint(usr)
 	usr.set_machine(src)
 	if(!allowed(usr) && !emagged)
-		usr << "<span class='warning'>You do not have the required access level</span>"
+		to_chat(usr, "<span class='warning'>You do not have the required access level</span>")
 		return
 
 	if(href_list["main"])
@@ -297,7 +297,7 @@
 	if(!emagged)
 		playsound(src.loc, 'sound/effects/sparks4.ogg', 75, 1)
 		emagged = 1
-		user << "<span class='notice'>You you disable the security protocols.</span>"
+		to_chat(user, "<span class='notice'>You you disable the security protocols.</span>")
 		src.updateUsrDialog()
 		return 1
 

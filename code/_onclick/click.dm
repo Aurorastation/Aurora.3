@@ -16,8 +16,6 @@
 	Note that this proc can be overridden, and is in the case of screen objects.
 */
 
-
-
 /atom/Click(location,control,params)
 	if(src)
 		usr.ClickOn(src, params)
@@ -46,7 +44,7 @@
 
 	next_click = world.time + 1
 
-	if(client.buildmode)
+	if(client && client.buildmode)
 		build_click(src, client.buildmode, params, A)
 		return
 
@@ -61,10 +59,7 @@
 		ShiftClickOn(A)
 		return 0
 	if(modifiers["alt"]) // alt and alt-gr (rightalt)
-		if (modifiers["right"])
-			AltRightClickOn(A)
-		else
-			AltClickOn(A)
+		AltClickOn(A)
 		return
 	if(modifiers["ctrl"])
 		CtrlClickOn(A)
@@ -82,7 +77,7 @@
 		if(!locate(/turf) in list(A, A.loc)) // Prevents inventory from being drilled
 			return
 		var/obj/mecha/M = loc
-		return M.click_action(A, src)
+		return M.click_action(A, src, params)
 
 	if(restrained())
 		setClickCooldown(10)
@@ -130,8 +125,7 @@
 	// A is a turf or is on a turf, or in something on a turf (pen in a box); but not something in something on a turf (pen in a box in a backpack)
 	sdepth = A.storage_depth_turf()
 	if(isturf(A) || isturf(A.loc) || (sdepth != -1 && sdepth <= 1))
-		if(A.Adjacent(src)) // see adjacent.dm
-			setMoveCooldown(5)
+		if(A.Adjacent(src) || (W && W.attack_can_reach(src, A, W.reach)) ) // see adjacent.dm
 
 			if(W)
 				// Return 1 in attackby() to prevent afterattack() effects (when safely moving items for example)
@@ -177,7 +171,7 @@
 
 /mob/living/UnarmedAttack(var/atom/A, var/proximity_flag)
 	if(!Master.round_started)
-		src << "You cannot attack people before the game has started."
+		to_chat(src, "You cannot attack people before the game has started.")
 		return 0
 
 	if(stat)
@@ -196,7 +190,7 @@
 /mob/proc/RangedAttack(var/atom/A, var/params)
 	if(!mutations.len) return
 	if((LASER in mutations) && a_intent == I_HURT)
-		LaserEyes(A) // moved into a proc below
+		LaserEyes(A, params) // moved into a proc below
 	else if(TK in mutations)
 		switch(get_dist(src,A))
 			if(1 to 5) // not adjacent may mean blocked by window
@@ -239,6 +233,7 @@
 /mob/proc/ShiftClickOn(var/atom/A)
 	A.ShiftClick(src)
 	return
+
 /atom/proc/ShiftClick(var/mob/user)
 	if(user.client && user.client.eye == user)
 		user.examinate(src)
@@ -251,6 +246,7 @@
 /mob/proc/CtrlClickOn(var/atom/A)
 	A.CtrlClick(src)
 	return
+
 /atom/proc/CtrlClick(var/mob/user)
 	return
 
@@ -276,9 +272,6 @@
 			user.client.statpanel = "Turf"
 	return 1
 
-
-
-
 /mob/proc/TurfAdjacent(var/turf/T)
 	return T.AdjacentQuick(src)
 
@@ -294,57 +287,32 @@
 	return
 
 /*
-	Special Rightclick procs!
-	set_context_menu_enabled is called by a macro defined in skin.dmf.
-	It disables the menu when alt is pressed, and re-enables it when alt is released
-	This allows us to do alt+rightclick to achieve something without opening the menu.
-	These could also be duplicated/expanded as desired to suppress the menu with shift/ctrl as well
-
-*/
-client/verb/set_context_menu_enabled(Enable as num)
-	set hidden = TRUE, instant = TRUE
-	if(Enable) show_popup_menus = TRUE
-	else show_popup_menus = FALSE
-
-/mob/proc/AltRightClickOn(var/atom/A)
-	A.AltRightClick(src)
-	return
-
-/atom/proc/AltRightClick(var/mob/user)
-	user.pointed(src)
-
-
-
-
-
-
-/*
 	Misc helpers
 
 	Laser Eyes: as the name implies, handles this since nothing else does currently
 	face_atom: turns the mob towards what you clicked on
 */
-/mob/proc/LaserEyes(atom/A)
+/mob/proc/LaserEyes(atom/A, params)
 	return
 
-/mob/living/LaserEyes(atom/A)
+/mob/living/LaserEyes(atom/A, params)
 	setClickCooldown(4)
 	var/turf/T = get_turf(src)
-
+	src.visible_message("<span class='danger'>\The [src]'s eyes flare with ruby light!</span>")
 	var/obj/item/projectile/beam/LE = new (T)
-	LE.muzzle_type = /obj/effect/projectile/eyelaser/muzzle
-	LE.tracer_type = /obj/effect/projectile/eyelaser/tracer
-	LE.impact_type = /obj/effect/projectile/eyelaser/impact
+	LE.muzzle_type = /obj/effect/projectile/muzzle/eyelaser
+	LE.tracer_type = /obj/effect/projectile/tracer/eyelaser
+	LE.impact_type = /obj/effect/projectile/impact/eyelaser
 	playsound(usr.loc, 'sound/weapons/wave.ogg', 75, 1)
-	LE.launch(A)
+	LE.launch_projectile(A, zone_sel? zone_sel.selecting : null, src, params)
 
-/mob/living/carbon/human/LaserEyes()
-	if(nutrition>0)
-		..()
-		nutrition = max(nutrition - rand(1,5),0)
-		handle_regular_hud_updates()
-	else
-		src << "<span class='warning'>You're out of energy!  You need food!</span>"
+/mob/living/carbon/human/LaserEyes(atom/A, params)
+	if(nutrition <= 0)
+		to_chat(src, "<span class='warning'>You're out of energy!  You need food!</span>")
+		return
+	..()
+	adjustNutritionLoss(rand(1,5))
+	handle_regular_hud_updates()
 
 // Simple helper to face what you clicked on, in case it should be needed in more than one place
 /mob/proc/face_atom(var/atom/A)

@@ -14,6 +14,19 @@
 	var/stored_name
 	var/badge_string = "Corporate Security"
 
+/obj/item/clothing/accessory/badge/press
+	name = "corporate press pass"
+	desc = "A corporate reporter's pass, emblazoned with the NanoTrasen logo."
+	icon_state = "pressbadge"
+	item_state = "pbadge"
+	badge_string = "Corporate Reporter"
+
+/obj/item/clothing/accessory/badge/press/independent
+	name = "press pass"
+	desc = "A freelance journalist's pass."
+	icon_state = "pressbadge-i"
+	badge_string = "Freelance Journalist"
+
 /obj/item/clothing/accessory/badge/old
 	name = "faded badge"
 	desc = "A faded security badge, backed with leather."
@@ -26,7 +39,7 @@
 /obj/item/clothing/accessory/badge/attack_self(mob/user as mob)
 
 	if(!stored_name)
-		user << "You polish your badge fondly, shining up the surface."
+		to_chat(user, "You polish your badge fondly, shining up the surface.")
 		set_name(user.real_name)
 		return
 
@@ -54,17 +67,17 @@
 
 /obj/item/clothing/accessory/badge/holo/attack_self(mob/user as mob)
 	if(!stored_name)
-		user << "Waving around a holobadge before swiping an ID would be pretty pointless."
+		to_chat(user, "Waving around a holobadge before swiping an ID would be pretty pointless.")
 		return
 	return ..()
 
 /obj/item/clothing/accessory/badge/holo/emag_act(var/remaining_charges, var/mob/user)
 	if (emagged)
-		user << "<span class='danger'>\The [src] is already cracked.</span>"
+		to_chat(user, "<span class='danger'>\The [src] is already cracked.</span>")
 		return
 	else
 		emagged = 1
-		user << "<span class='danger'>You crack the holobadge security checks.</span>"
+		to_chat(user, "<span class='danger'>You crack the holobadge security checks.</span>")
 		return 1
 
 /obj/item/clothing/accessory/badge/holo/attackby(var/obj/item/O as obj, var/mob/user as mob)
@@ -79,10 +92,10 @@
 			id_card = pda.id
 
 		if(access_security in id_card.access || emagged)
-			user << "You imprint your ID details onto the badge."
+			to_chat(user, "You imprint your ID details onto the badge.")
 			set_name(user.real_name)
 		else
-			user << "[src] rejects your insufficient access rights."
+			to_chat(user, "[src] rejects your insufficient access rights.")
 		return
 	..()
 

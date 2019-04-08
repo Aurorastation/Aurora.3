@@ -76,10 +76,10 @@
 				can_grab = 0
 		if(can_grab)
 			src.visible_message("<span class='danger'>Tendrils lash out from \the [src] and drag \the [victim] in!</span>")
-			victim.loc = src.loc
+			victim.forceMove(src.loc)
 
 	//entangling people
 	if(victim.loc == src.loc)
 		buckle_mob(victim)
 		victim.set_dir(pick(cardinal))
-		victim << "<span class='danger'>Tendrils [pick("wind", "tangle", "tighten")] around you!</span>"
+		to_chat(victim, "<span class='danger'>Tendrils tighten around you!</span>")

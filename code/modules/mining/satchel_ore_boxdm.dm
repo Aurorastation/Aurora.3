@@ -16,13 +16,15 @@
 		src.contents += W
 	if (istype(W, /obj/item/weapon/storage))
 		var/obj/item/weapon/storage/S = W
-		S.hide_from(usr)
+		S.hide_from(user)
 		for(var/obj/item/weapon/ore/O in S.contents)
-			S.remove_from_storage(O, src) //This will move the item to this item's contents
+			S.remove_from_storage_deferred(O, src, user) //This will move the item to this item's contents
 
 			CHECK_TICK
 
-		user << span("notice", "You empty the satchel into the box.")
+		S.post_remove_from_storage_deferred(loc, user)
+
+		to_chat(user, span("notice", "You empty the satchel into the box."))
 
 	update_ore_count()
 
@@ -40,8 +42,8 @@
 			stored_ore[O.name] = 1
 
 /obj/structure/ore_box/examine(mob/user)
-	user << "That's an [src]."
-	user << desc
+	to_chat(user, "That's an [src].")
+	to_chat(user, desc)
 
 	// Borgs can now check contents too.
 	if((!istype(user, /mob/living/carbon/human)) && (!istype(user, /mob/living/silicon/robot)))
@@ -53,16 +55,16 @@
 	add_fingerprint(user)
 
 	if(!contents.len)
-		user << "It is empty."
+		to_chat(user, "It is empty.")
 		return
 
 	if(world.time > last_update + 10)
 		update_ore_count()
 		last_update = world.time
 
-	user << "It holds:"
+	to_chat(user, "It holds:")
 	for(var/ore in stored_ore)
-		user << "- [stored_ore[ore]] [ore]"
+		to_chat(user, "- [stored_ore[ore]] [ore]")
 	return
 
 
@@ -72,33 +74,33 @@
 	set src in view(1)
 
 	if(!istype(usr, /mob/living/carbon/human)) //Only living, intelligent creatures with hands can empty ore boxes.
-		usr << "<span class='warning'>You are physically incapable of emptying the ore box.</span>"
+		to_chat(usr, "<span class='warning'>You are physically incapable of emptying the ore box.</span>")
 		return
 
 	if( usr.stat || usr.restrained() )
 		return
 
 	if(!Adjacent(usr)) //You can only empty the box if you can physically reach it
-		usr << "You cannot reach the ore box."
+		to_chat(usr, "You cannot reach the ore box.")
 		return
 
 	add_fingerprint(usr)
 
 	if(contents.len < 1)
-		usr << "<span class='warning'>The ore box is empty</span>"
+		to_chat(usr, "<span class='warning'>The ore box is empty</span>")
 		return
 
 	for (var/obj/item/weapon/ore/O in contents)
 		contents -= O
-		O.loc = src.loc
-	usr << "<span class='notice'>You empty the ore box</span>"
+		O.forceMove(src.loc)
+	to_chat(usr, "<span class='notice'>You empty the ore box</span>")
 
 	return
 
 /obj/structure/ore_box/ex_act(severity)
 	if(severity == 1.0 || (severity < 3.0 && prob(50)))
 		for (var/obj/item/weapon/ore/O in contents)
-			O.loc = src.loc
+			O.forceMove(src.loc)
 			O.ex_act(severity++)
 
 			CHECK_TICK

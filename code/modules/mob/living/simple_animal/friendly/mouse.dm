@@ -1,9 +1,9 @@
 /mob/living/simple_animal/mouse
 	name = "mouse"
 	real_name = "mouse"
-	desc = "It's a small rodent, often seen hiding in maintenance areas and making a nuisance of itself."
+	desc = "It's a small, disgusting rodent, often found being annoying, and aiding in the spread of disease."
 
-	icon = 'icons/mob/mouse.dmi'
+	icon = 'icons/mob/npc/mouse.dmi'
 	icon_state = "mouse_gray"
 	item_state = "mouse_gray"
 	icon_living = "mouse_gray"
@@ -19,22 +19,22 @@
 	'sound/effects/creatures/mouse_squeaks_3.ogg',
 	'sound/effects/creatures/mouse_squeaks_4.ogg')
 	var/last_softsqueak = null//Used to prevent the same soft squeak twice in a row
-	var/squeals = 5//Spam control. You people are why we cant have nice things >:(
-	var/maxSqueals = 5//SPAM PROTECTION
+	var/squeals = 5//Spam control.
+	var/maxSqueals = 2//SPAM PROTECTION
 	var/last_squealgain = 0// #TODO-FUTURE: Remove from life() once something else is created
-
+	var/squeakcooldown = 0
 	pass_flags = PASSTABLE
 	speak_chance = 5
 	turns_per_move = 5
 	see_in_dark = 6
 	maxHealth = 5
 	health = 5
-	meat_type = /obj/item/weapon/reagent_containers/food/snacks/meat
+	meat_type = /obj/item/weapon/reagent_containers/food/snacks/meat/mice
 	response_help  = "pets"
 	response_disarm = "gently pushes aside"
-	response_harm   = "stamps on"
+	response_harm   = "stomps on"
 	density = 0
-	meat_amount = 1
+	meat_amount = 1 // Mice are small so you will get less meat
 	var/body_color //brown, gray and white, leave blank for random
 	layer = MOB_LAYER
 	mob_size = MOB_MINISCULE
@@ -79,21 +79,25 @@
 	else
 		if ((world.time - timeofdeath) > decompose_time)
 			dust()
-			
+
 /mob/living/simple_animal/mouse/Destroy()
 	SSmob.all_mice -= src
-		
+
 	return ..()
-	
+
 //Pixel offsetting as they scamper around
 /mob/living/simple_animal/mouse/Move()
 	if(..())
 		if (prob(50))
-			pixel_x += rand(-2,2)
-			pixel_x = Clamp(pixel_x, -10, 10)
+			var/new_pixelx = pixel_x
+			new_pixelx += rand(-2,2)
+			new_pixelx = Clamp(new_pixelx, -10, 10)
+			animate(src, pixel_x = new_pixelx, time = 0.5)
 		else
-			pixel_y += rand(-2,2)
-			pixel_y = Clamp(pixel_y, -4, 14)
+			var/new_pixely = pixel_y
+			new_pixely += rand(-2,2)
+			new_pixely = Clamp(new_pixely, -4, 14)
+			animate(src, pixel_y = new_pixely, time = 0.5)
 
 /mob/living/simple_animal/mouse/Initialize()
 	. = ..()
@@ -152,6 +156,10 @@
 //This is triggered when a mob steps on an NPC mouse, or manually by a playermouse
 /mob/living/simple_animal/mouse/proc/squeak(var/manual = 1)
 	if (stat == CONSCIOUS)
+		if (squeakcooldown > world.time)
+			return
+		squeakcooldown = world.time + 2 SECONDS
+
 		playsound(src, 'sound/effects/mousesqueek.ogg', 70, 1)
 		if (manual)
 			log_say("[key_name(src)] squeaks! ",ckey=key_name(src))
@@ -165,6 +173,11 @@
 		var/sound = pick(new_squeaks)
 
 		last_softsqueak = sound
+
+		if (squeakcooldown > world.time)
+			return
+
+		squeakcooldown = world.time + 2 SECONDS
 		playsound(src, sound, 5, 1, -4.6)
 
 		if (manual)
@@ -175,12 +188,17 @@
 //Triggered manually, when a mouse dies, or rarely when its stepped on
 /mob/living/simple_animal/mouse/proc/squeak_loud(var/manual = 0)
 	if (stat == CONSCIOUS)
+		if (squeakcooldown > world.time)
+			return
+
+		squeakcooldown = world.time + 4 SECONDS
+
 		if (squeals > 0 || !manual)
 			playsound(src, 'sound/effects/creatures/mouse_squeak_loud.ogg', 50, 1)
 			squeals --
 			log_say("[key_name(src)] squeals! ",ckey=key_name(src))
 		else
-			src << "<span class='warning'>Your hoarse mousey throat can't squeal just now, stop and take a breath!</span>"
+			to_chat(src, "<span class='warning'>Your hoarse mousey throat can't squeal just now, stop and take a breath!</span>")
 
 
 //Wrapper verbs for the squeak functions
@@ -188,10 +206,8 @@
 	set name = "Squeal!"
 	set category = "Abilities"
 
-	if (usr.client.handle_spam_prevention(null, MUTE_IC))
-		return
-	else if (usr.client.prefs.muted & MUTE_IC)
-		usr << "<span class='danger'>You are muted from IC emotes.</span>"
+	if (usr.client.prefs.muted & MUTE_IC)
+		to_chat(usr, "<span class='danger'>You are muted from IC emotes.</span>")
 		return
 
 	squeak_loud(1)
@@ -200,10 +216,8 @@
 	set name = "Soft Squeaking"
 	set category = "Abilities"
 
-	if (usr.client.handle_spam_prevention(null, MUTE_IC))
-		return
-	else if (usr.client.prefs.muted & MUTE_IC)
-		usr << "<span class='danger'>You are muted from IC emotes.</span>"
+	if (usr.client.prefs.muted & MUTE_IC)
+		to_chat(usr, "<span class='danger'>You are muted from IC emotes.</span>")
 		return
 
 	squeak_soft(1)
@@ -212,10 +226,8 @@
 	set name = "Squeak"
 	set category = "Abilities"
 
-	if (usr.client.handle_spam_prevention(null, MUTE_IC))
-		return
-	else if (usr.client.prefs.muted & MUTE_IC)
-		usr << "<span class='danger'>You are muted from IC emotes.</span>"
+	if (usr.client.prefs.muted & MUTE_IC)
+		to_chat(usr, "<span class='danger'>You are muted from IC emotes.</span>")
 		return
 
 	squeak(1)
@@ -225,13 +237,13 @@
 	if( ishuman(AM) )
 		if(!stat)
 			var/mob/M = AM
-			M << "<span class='notice'>\icon[src] Squeek!</span>"
+			to_chat(M, "<span class='notice'>\icon[src] Squeek!</span>")
 			poke(1) //Wake up if stepped on
 			if (prob(95))
 				squeak(0)
 			else
 				squeak_loud(0)//You trod on its tail
-				
+
 	if(!health)
 		return
 
@@ -258,7 +270,7 @@
 	..()
 
 /mob/living/simple_animal/mouse/dust()
-	..(anim = "dust_[body_color]", remains = /obj/effect/decal/remains/mouse, iconfile = 'icons/mob/mouse.dmi')
+	..(anim = "dust_[body_color]", remains = /obj/effect/decal/remains/mouse, iconfile = 'icons/mob/npc/mouse.dmi')
 
 
 /*
@@ -283,7 +295,6 @@
 	icon_rest = "mouse_brown_sleep"
 	holder_type = /obj/item/weapon/holder/mouse/brown
 
-//TOM IS ALIVE! SQUEEEEEEEE~K :)
 /mob/living/simple_animal/mouse/brown/Tom
 	name = "Tom"
 	real_name = "Tom"

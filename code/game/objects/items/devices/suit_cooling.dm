@@ -33,7 +33,7 @@
 	. = ..()
 	START_PROCESSING(SSprocessing, src)
 	cell = new celltype(src)
-	
+
 /obj/item/device/suit_cooling_unit/Destroy()
 	STOP_PROCESSING(SSprocessing, src)
 	QDEL_NULL(cell)
@@ -57,7 +57,7 @@
 
 	var/mob/living/carbon/human/H = loc
 
-	var/efficiency = 1 - H.get_pressure_weakness()		//you need to have a good seal for effective cooling
+	var/efficiency = !!(H.species.flags & ACCEPTS_COOLER) || 1 - H.get_pressure_weakness()		//you need to have a good seal for effective cooling; some species can directly connect to the cooler, so get a free 100% efficiency here
 	var/env_temp = get_environment_temperature()		//wont save you from a fire
 	var/temp_adj = min(H.bodytemperature - max(thermostat, env_temp), max_cooling)
 
@@ -72,7 +72,7 @@
 
 	if(cell.charge <= 0)
 		turn_off()
-		
+
 	update_icon()
 
 /obj/item/device/suit_cooling_unit/proc/get_environment_temperature()
@@ -127,12 +127,12 @@
 		if(ishuman(user))
 			user.put_in_hands(cell)
 		else
-			cell.loc = get_turf(loc)
+			cell.forceMove(get_turf(loc))
 
 		cell.add_fingerprint(user)
 		cell.update_icon()
 
-		user << "You remove the [src.cell]."
+		to_chat(user, "You remove the [src.cell].")
 		src.cell = null
 		update_icon()
 		return
@@ -143,28 +143,27 @@
 	else
 		turn_on()
 		if (on)
-			user << "You switch on the [src]."
+			to_chat(user, "You switch on the [src].")
 
 /obj/item/device/suit_cooling_unit/attackby(obj/item/weapon/W as obj, mob/user as mob)
-	if (istype(W, /obj/item/weapon/screwdriver))
+	if (W.isscrewdriver())
 		if(cover_open)
 			cover_open = 0
-			user << "You screw the panel into place."
+			to_chat(user, "You screw the panel into place.")
 		else
 			cover_open = 1
-			user << "You unscrew the panel."
+			to_chat(user, "You unscrew the panel.")
 		update_icon()
 		return
 
 	if (istype(W, /obj/item/weapon/cell))
 		if(cover_open)
 			if(cell)
-				user << "There is a [cell] already installed here."
+				to_chat(user, "There is a [cell] already installed here.")
 			else
-				user.drop_item()
-				W.loc = src
+				user.drop_from_inventory(W,src)
 				cell = W
-				user << "You insert the [cell]."
+				to_chat(user, "You insert the [cell].")
 		update_icon()
 		return
 
@@ -204,26 +203,26 @@
 
 	if (on)
 		if (attached_to_suit(src.loc))
-			user << "It's switched on and running."
-		else if (istype(src.loc, /mob/living/carbon/human))
-			var/mob/living/carbon/human/H = src.loc
-			if (H.get_species() == "Industrial Frame")
-				user << "It's switched on and running, connected to the cooling systems of [H]."
+			to_chat(user, "It's switched on and running.")
+		else if (ishuman(loc))
+			var/mob/living/carbon/human/H = loc
+			if (H.species.flags & ACCEPTS_COOLER)
+				to_chat(user, "It's switched on and running, connected to the cooling systems of [H].")
 		else
-			user << "It's switched on, but not attached to anything."
+			to_chat(user, "It's switched on, but not attached to anything.")
 	else
-		user << "It is switched off."
+		to_chat(user, "It is switched off.")
 
 	if (cover_open)
 		if(cell)
-			user << "The panel is open, exposing the [cell]."
+			to_chat(user, "The panel is open, exposing the [cell].")
 		else
-			user << "The panel is open."
+			to_chat(user, "The panel is open.")
 
 	if (cell)
-		user << "The charge meter reads [round(cell.percent())]%."
+		to_chat(user, "The charge meter reads [round(cell.percent())]%.")
 	else
-		user << "It doesn't have a power cell installed."
+		to_chat(user, "It doesn't have a power cell installed.")
 
 /obj/item/device/suit_cooling_unit/improved //those should come with a better powercell
 	celltype = /obj/item/weapon/cell/high

@@ -69,6 +69,7 @@
 #define ui_gun4 "EAST-3:24,SOUTH+2:7"
 
 //Upper-middle right (damage indicators)
+#define ui_up_hint "EAST-1:28,NORTH-1:29"
 #define ui_toxin "EAST-1:28,NORTH-2:27"
 #define ui_fire "EAST-1:28,NORTH-3:25"
 #define ui_oxygen "EAST-1:28,NORTH-4:23"
@@ -79,11 +80,13 @@
 #define ui_alien_oxygen "EAST-1:28,NORTH-4:25"
 
 //Middle right (status indicators)
-#define ui_nutrition "EAST-1:28,CENTER-2:11"
+#define ui_nutrition "EAST-0:4,CENTER-2:11"
+#define ui_hydration "EAST-1:20,CENTER-2:11"
 #define ui_temp "EAST-1:28,CENTER-1:13"
 #define ui_health "EAST-1:28,CENTER:15"
 #define ui_internal "EAST-1:28,CENTER+1:17"
-									//borgs
+
+//borgs
 #define ui_borg_health "EAST-1:28,CENTER-1:13" //borgs have the health display where humans have the pressure damage indicator.
 #define ui_alien_health "EAST-1:28,CENTER-1:13" //aliens have the health display where humans have the pressure damage indicator.
 
@@ -141,3 +144,5 @@
 #define ui_ai_pda_log "SOUTH:6,WEST+9:16"
 #define ui_ai_take_picture "SOUTH:6,WEST+10:16"
 #define ui_ai_view_images "SOUTH:6,WEST+11:16"
+#define ui_ai_move_up "SOUTH:6,WEST+12:16"
+#define ui_ai_move_down "SOUTH:6,WEST+13:16"

@@ -5,8 +5,8 @@
 /obj/item/weapon/reagent_containers/glass/replenishing
 	var/spawning_id
 
-/obj/item/weapon/reagent_containers/glass/replenishing/New()
-	..()
+/obj/item/weapon/reagent_containers/glass/replenishing/Initialize()
+	. = ..()
 	START_PROCESSING(SSprocessing, src)
 	spawning_id = pick("blood","holywater","lube","stoxin","ethanol","ice","glycerol","fuel","cleaner")
 
@@ -24,7 +24,8 @@
 	var/last_twitch = 0
 	var/max_stored_messages = 100
 
-/obj/item/clothing/mask/gas/poltergeist/New()
+/obj/item/clothing/mask/gas/poltergeist/Initialize()
+	. = ..()
 	START_PROCESSING(SSprocessing, src)
 	listening_objects += src
 
@@ -65,11 +66,11 @@
 
 /obj/item/weapon/vampiric/New()
 	..()
-	processing_objects.Add(src)
+	START_PROCESSING(SSprocessing, src)
 	listening_objects += src
 
 /obj/item/weapon/vampiric/Destroy()
-	processing_objects.Remove(src)
+	STOP_PROCESSING(SSprocessing, src)
 	listening_objects -= src
 	return ..()
 
@@ -144,7 +145,7 @@
 
 		var/target = pick(M.organs_by_name)
 		M.apply_damage(rand(5, 10), BRUTE, target)
-		M << "<span class='warning'>The skin on your [parse_zone(target)] feels like it's ripping apart, and a stream of blood flies out.</span>"
+		to_chat(M, "<span class='warning'>The skin on your [parse_zone(target)] feels like it's ripping apart, and a stream of blood flies out.</span>")
 		var/obj/effect/decal/cleanable/blood/splatter/animated/B = new(M.loc)
 		B.target_turf = pick(range(1, src))
 		B.blood_DNA = list()
@@ -158,11 +159,11 @@
 
 /obj/effect/decal/cleanable/blood/splatter/animated/New()
 	..()
-	processing_objects.Add(src)
+	START_PROCESSING(SSprocessing, src)
 	loc_last_process = src.loc
 
 /obj/effect/decal/cleanable/blood/splatter/animated/Destroy()
-	processing_objects.Remove(src)
+	STOP_PROCESSING(SSprocessing, src)
 	return ..()
 
 /obj/effect/decal/cleanable/blood/splatter/animated/process()
@@ -192,15 +193,15 @@
 	density = 1
 
 /obj/effect/shadow_wight/New()
-	processing_objects.Add(src)
+	START_PROCESSING(SSprocessing, src)
 
 /obj/effect/shadow_wight/Destroy()
-	processing_objects.Remove(src)
+	STOP_PROCESSING(SSprocessing, src)
 	return ..()
 
 /obj/effect/shadow_wight/process()
 	if(src.loc)
-		src.loc = get_turf(pick(orange(1,src)))
+		src.forceMove(get_turf(pick(orange(1,src))))
 		var/mob/living/carbon/M = locate() in src.loc
 		if(M)
 			playsound(src.loc, pick('sound/hallucinations/behind_you1.ogg',\
@@ -220,7 +221,8 @@
 			M.sleeping = max(M.sleeping,rand(5,10))
 			src.loc = null
 	else
-		processing_objects.Remove(src)
+		STOP_PROCESSING(SSprocessing, src)
 
-/obj/effect/shadow_wight/Bump(var/atom/obstacle)
-	obstacle << "<span class='warning'>You feel a chill run down your spine!</span>"
+/obj/effect/shadow_wight/Collide(var/atom/obstacle)
+	. = ..()
+	to_chat(obstacle, "<span class='warning'>You feel a chill run down your spine!</span>")

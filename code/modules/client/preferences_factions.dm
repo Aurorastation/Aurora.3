@@ -21,7 +21,10 @@ var/global/list/citizenship_choices = list(
 	"People's Republic of Adhomai",
 	"Izweski Hegemony",
 	"Zo'ra Hive",
-	"K'lax Hive"
+	"K'lax Hive",
+	"Empire of Dominia",
+	"New Kingdom of Adhomai",
+	"Democratic People's Republic of Adhomai"
 	)
 
 var/global/list/home_system_choices = list(
@@ -31,7 +34,8 @@ var/global/list/home_system_choices = list(
 	"Epsilon Eridani",
 	"Jargon",
 	"S'rand'marr ",
-	"Uueoa-Esa"
+	"Uueoa-Esa",
+	"X'yr Vharn'p"
 	)
 
 var/global/list/faction_choices = list(
@@ -61,5 +65,6 @@ var/global/list/religion_choices = list(
 	"S'rendarr & Messa",
 	"Ma'ta'ke",
 	"Th'akh",
-	"Sk'akh"
+	"Sk'akh",
+	"Moroz Holy Tribunal"
 	)

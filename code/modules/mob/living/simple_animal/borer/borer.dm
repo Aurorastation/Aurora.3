@@ -18,6 +18,8 @@
 	attacktext = "nipped"
 	friendly = "prods"
 	wander = 0
+	maxHealth = 40
+	health = 40
 	pass_flags = PASSTABLE
 	universal_understand = 1
 	holder_type = /obj/item/weapon/holder/borer
@@ -62,16 +64,16 @@
 			if(host.reagents.has_reagent("sugar"))
 				if(!docile)
 					if(controlling)
-						host << "<span class='notice'>You feel the soporific flow of sugar in your host's blood, lulling you into docility.</span>"
+						to_chat(host, "<span class='notice'>You feel the soporific flow of sugar in your host's blood, lulling you into docility.</span>")
 					else
-						src << "<span class='notice'>You feel the soporific flow of sugar in your host's blood, lulling you into docility.</span>"
+						to_chat(src, "<span class='notice'>You feel the soporific flow of sugar in your host's blood, lulling you into docility.</span>")
 					docile = 1
 			else
 				if(docile)
 					if(controlling)
-						host << "<span class='notice'>You shake off your lethargy as the sugar leaves your host's blood.</span>"
+						to_chat(host, "<span class='notice'>You shake off your lethargy as the sugar leaves your host's blood.</span>")
 					else
-						src << "<span class='notice'>You shake off your lethargy as the sugar leaves your host's blood.</span>"
+						to_chat(src, "<span class='notice'>You shake off your lethargy as the sugar leaves your host's blood.</span>")
 					docile = 0
 
 			if(chemicals < 250)
@@ -79,14 +81,14 @@
 			if(controlling)
 
 				if(docile)
-					host << "<span class='notice'>You are feeling far too docile to continue controlling your host...</span>"
+					to_chat(host, "<span class='notice'>You are feeling far too docile to continue controlling your host...</span>")
 					host.release_control()
 					return
 
 				if(prob(5))
-					host.adjustBrainLoss(rand(1,2))
+					host.adjustBrainLoss(rand(1,2), 55)
 
-				if(prob(host.brainloss/20))
+				if(prob(host.getBrainLoss()/20))
 					host.say("*[pick(list("blink","blink_r","choke","aflap","drool","twitch","twitch_s","gasp"))]")
 
 /mob/living/simple_animal/borer/Stat()
@@ -159,7 +161,7 @@
 	if(host.mind)
 		borers.remove_antagonist(host.mind)
 
-	src.loc = get_turf(host)
+	src.forceMove(get_turf(host))
 
 	reset_view(null)
 	machine = null

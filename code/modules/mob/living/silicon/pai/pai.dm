@@ -1,6 +1,6 @@
 /mob/living/silicon/pai
 	name = "pAI"
-	icon = 'icons/mob/pai.dmi'
+	icon = 'icons/mob/npc/pai.dmi'
 	icon_state = "repairbot"
 	holder_type = /obj/item/weapon/holder/pai/drone
 
@@ -163,8 +163,8 @@
 
 	if (!greeted)
 		// Basic intro text.
-		src << "<span class='danger'><font size=3>You are a Personal AI!</font></span>"
-		src << "<span class='notice'>You are a small artificial intelligence contained inside a portable tablet, and you are bound to a master. Your primary directive is to serve them and follow their instructions, follow this prime directive above all others. Check your Software interface to spend ram on programs that can help, and unfold your chassis to take a holographic form and move around the world.</span>"
+		to_chat(src, "<span class='danger'><font size=3>You are a Personal AI!</font></span>")
+		to_chat(src, "<span class='notice'>You are a small artificial intelligence contained inside a portable tablet, and you are bound to a master. Your primary directive is to serve them and follow their instructions, follow this prime directive above all others. Check your Software interface to spend ram on programs that can help, and unfold your chassis to take a holographic form and move around the world.</span>")
 		greeted = 1
 
 // this function shows the information about being silenced as a pAI in the Status panel
@@ -201,7 +201,7 @@
 		// 33% chance of no additional effect
 
 	src.silence_time = world.timeofday + 120 * 10		// Silence for 2 minutes
-	src << "<font color=green><b>Communication circuit overload. Shutting down and reloading communication circuits - speech and messaging functionality will be unavailable until the reboot is complete.</b></font>"
+	to_chat(src, "<font color=green><b>Communication circuit overload. Shutting down and reloading communication circuits - speech and messaging functionality will be unavailable until the reboot is complete.</b></font>")
 	if(prob(20))
 		var/turf/T = get_turf_or_move(src.loc)
 		for (var/mob/M in viewers(T))
@@ -212,7 +212,7 @@
 		if(1)
 			src.master = null
 			src.master_dna = null
-			src << "<font color=green>You feel unbound.</font>"
+			to_chat(src, "<font color=green>You feel unbound.</font>")
 		if(2)
 			var/command
 			if(severity  == 1)
@@ -220,9 +220,9 @@
 			else
 				command = pick("Serve", "Kill", "Love", "Hate", "Disobey", "Devour", "Fool", "Enrage", "Entice", "Observe", "Judge", "Respect", "Disrespect", "Consume", "Educate", "Destroy", "Disgrace", "Amuse", "Entertain", "Ignite", "Glorify", "Memorialize", "Analyze")
 			src.pai_law0 = "[command] your master."
-			src << "<font color=green>Pr1m3 d1r3c71v3 uPd473D.</font>"
+			to_chat(src, "<font color=green>Pr1m3 d1r3c71v3 uPd473D.</font>")
 		if(3)
-			src << "<font color=green>You feel an electric surge run through your circuitry and become acutely aware at how lucky you are that you can still feel at all.</font>"
+			to_chat(src, "<font color=green>You feel an electric surge run through your circuitry and become acutely aware at how lucky you are that you can still feel at all.</font>")
 
 /mob/living/silicon/pai/proc/switchCamera(var/obj/machinery/camera/C)
 	if (!C)
@@ -249,7 +249,7 @@
 	medicalActive2 = null
 	medical_cannotfind = 0
 	SSnanoui.update_uis(src)
-	usr << "<span class='notice'>You reset your record-viewing software.</span>"
+	to_chat(usr, "<span class='notice'>You reset your record-viewing software.</span>")
 
 /mob/living/silicon/pai/cancel_camera()
 	set category = "pAI Commands"
@@ -269,7 +269,7 @@
 	var/cameralist[0]
 
 	if(usr.stat == 2)
-		usr << "You can't change your camera network because you are dead!"
+		to_chat(usr, "You can't change your camera network because you are dead!")
 		return
 
 	for (var/obj/machinery/camera/C in Cameras)
@@ -280,7 +280,7 @@
 				cameralist[C.network] = C.network
 
 	src.network = input(usr, "Which network would you like to view?") as null|anything in cameralist
-	src << "\blue Switched to [src.network] camera network."
+	to_chat(src, "\blue Switched to [src.network] camera network.")
 //End of code by Mord_Sith
 */
 
@@ -316,7 +316,7 @@
 
 	//I'm not sure how much of this is necessary, but I would rather avoid issues.
 	if(istype(card.loc,/obj/item/rig_module))
-		src << "There is no room to unfold inside this rig module. You're good and stuck."
+		to_chat(src, "There is no room to unfold inside this rig module. You're good and stuck.")
 		return 0
 	else if(istype(card.loc,/mob))
 		var/mob/holder = card.loc
@@ -385,7 +385,7 @@
 	set desc = "Find out where on their person, someone is holding you."
 
 	if (!get_holding_mob())
-		src << "Nobody is holding you!"
+		to_chat(src, "Nobody is holding you!")
 		return
 
 	card.report_onmob_location(0, card.get_equip_slot(), src)
@@ -417,7 +417,7 @@
 	else
 		resting = !resting
 		icon_state = resting ? "[chassis]_rest" : "[chassis]"
-		src << "<span class='notice'>You are now [resting ? "resting" : "getting up"]</span>"
+		to_chat(src, "<span class='notice'>You are now [resting ? "resting" : "getting up"]</span>")
 
 	canmove = !resting
 
@@ -462,15 +462,14 @@
 	if(istype(H))
 		var/mob/living/M = H.loc
 		if(istype(M))
-			M.drop_from_inventory(H)
-		H.loc = get_turf(src)
-		src.loc = get_turf(H)
+			M.drop_from_inventory(H,get_turf(src))
+		else
+			H.forceMove(get_turf(src))
+		src.forceMove(get_turf(H))
 
 	// Move us into the card and move the card to the ground.
-	src.loc = card
-	card.loc = get_turf(card)
 	src.forceMove(card)
-	card.forceMove(card.loc)
+	card.forceMove(get_turf(card))
 	canmove = 1
 	resting = 0
 	icon_state = "[chassis]"
@@ -498,10 +497,10 @@
 	if(istype(AM,/obj/item))
 		var/obj/item/O = AM
 		if(O.w_class > can_pull_size)
-			src << "<span class='warning'>You are too small to pull that.</span>"
+			to_chat(src, "<span class='warning'>You are too small to pull that.</span>")
 			return
 		else
 			..()
 	else
-		src << "<span class='warning'>You are too small to pull that.</span>"
+		to_chat(src, "<span class='warning'>You are too small to pull that.</span>")
 		return

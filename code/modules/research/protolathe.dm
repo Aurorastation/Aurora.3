@@ -16,17 +16,12 @@
 	var/mat_efficiency = 1
 	var/speed = 1
 
-/obj/machinery/r_n_d/protolathe/Initialize()
-	. = ..()
-	component_parts = list()
-	component_parts += new /obj/item/weapon/circuitboard/protolathe(src)
-	component_parts += new /obj/item/weapon/stock_parts/matter_bin(src)
-	component_parts += new /obj/item/weapon/stock_parts/matter_bin(src)
-	component_parts += new /obj/item/weapon/stock_parts/manipulator(src)
-	component_parts += new /obj/item/weapon/stock_parts/manipulator(src)
-	component_parts += new /obj/item/weapon/reagent_containers/glass/beaker(src)
-	component_parts += new /obj/item/weapon/reagent_containers/glass/beaker(src)
-	RefreshParts()
+	component_types = list(
+		/obj/item/weapon/circuitboard/protolathe,
+		/obj/item/weapon/stock_parts/matter_bin = 2,
+		/obj/item/weapon/stock_parts/manipulator = 2,
+		/obj/item/weapon/reagent_containers/glass/beaker = 2
+	)
 
 /obj/machinery/r_n_d/protolathe/machinery_process()
 	..()
@@ -104,7 +99,7 @@
 
 /obj/machinery/r_n_d/protolathe/attackby(var/obj/item/O as obj, var/mob/user as mob)
 	if(busy)
-		user << "<span class='notice'>\The [src] is busy. Please wait for completion of previous operation.</span>"
+		to_chat(user, "<span class='notice'>\The [src] is busy. Please wait for completion of previous operation.</span>")
 		return 1
 	if(default_deconstruction_screwdriver(user, O))
 		if(linked_console)
@@ -118,19 +113,19 @@
 	if(O.is_open_container())
 		return 1
 	if(panel_open)
-		user << "<span class='notice'>You can't load \the [src] while it's opened.</span>"
+		to_chat(user, "<span class='notice'>You can't load \the [src] while it's opened.</span>")
 		return 1
 	if(!linked_console)
-		user << "<span class='notice'>\The [src] must be linked to an R&D console first!</span>"
+		to_chat(user, "<span class='notice'>\The [src] must be linked to an R&D console first!</span>")
 		return 1
 	if(!istype(O, /obj/item/stack/material))
-		user << "<span class='notice'>You cannot insert this item into \the [src]!</span>"
+		to_chat(user, "<span class='notice'>You cannot insert this item into \the [src]!</span>")
 		return 1
 	if(stat)
 		return 1
 
 	if(TotalMaterials() + SHEET_MATERIAL_AMOUNT > max_material_storage)
-		user << "<span class='notice'>\The [src]'s material bin is full. Please remove material before adding more.</span>"
+		to_chat(user, "<span class='notice'>\The [src]'s material bin is full. Please remove material before adding more.</span>")
 		return 1
 
 	var/obj/item/stack/material/stack = O
@@ -154,7 +149,7 @@
 	if(t)
 		if(do_after(user, 16))
 			if(stack.use(amount))
-				user << "<span class='notice'>You add [amount] sheets to \the [src].</span>"
+				to_chat(user, "<span class='notice'>You add [amount] sheets to \the [src].</span>")
 				materials[t] += amount * SHEET_MATERIAL_AMOUNT
 	busy = 0
 	updateUsrDialog()
@@ -204,7 +199,7 @@
 
 	if(D.build_path)
 		var/obj/new_item = D.Fabricate(src, src)
-		new_item.loc = loc
+		new_item.forceMove(loc)
 		if(mat_efficiency != 1) // No matter out of nowhere
 			if(new_item.matter && new_item.matter.len > 0)
 				for(var/i in new_item.matter)

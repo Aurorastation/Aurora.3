@@ -28,13 +28,13 @@
 
 		new /obj/structure/ladder/mobile(A)
 
-		user.drop_item()
+		user.drop_from_inventory(src,get_turf(src))
 		qdel(src)
 
 	else if (istype(A, /turf/simulated/floor))        //Place onto Floor
 		var/turf/upper_loc = GetAbove(A)
 		if (!upper_loc || !isopenturf(upper_loc))
-			user << "<span class='notice'>There is something above. You can't deploy!</span>"
+			to_chat(user, "<span class='notice'>There is something above. You can't deploy!</span>")
 			return
 		user.visible_message("<span class='warning'>[user] begins deploying \the [src] on \the [A].</span>",
 			"<span class='warning'>You begin to deploy \the [src] on \the [A].</span>")
@@ -46,7 +46,7 @@
 
 		new /obj/structure/ladder/mobile(upper_loc)
 
-		user.drop_item()
+		user.drop_from_inventory(src,get_turf(src))
 		qdel(src)
 
 /obj/item/weapon/ladder_mobile/afterattack(atom/A, mob/user,proximity)

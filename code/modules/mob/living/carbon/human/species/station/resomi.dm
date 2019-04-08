@@ -31,7 +31,7 @@
 	mob_size = MOB_SMALL
 	holder_type = /obj/item/weapon/holder/human
 	short_sighted = 1
-	gluttonous = GLUT_TINY
+	gluttonous = TRUE
 
 	spawn_flags = IS_RESTRICTED
 	appearance_flags = HAS_HAIR_COLOR | HAS_SKIN_COLOR | HAS_EYE_COLOR

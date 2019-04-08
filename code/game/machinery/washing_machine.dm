@@ -31,7 +31,7 @@
 		return
 
 	if( state != 4 )
-		usr << "The washing machine cannot run in this state."
+		to_chat(usr, "The washing machine cannot run in this state.")
 		return
 
 	if( locate(/mob,contents) )
@@ -66,22 +66,18 @@
 
 	sleep(20)
 	if(state in list(1,3,6) )
-		usr.loc = src.loc
+		usr.forceMove(src.loc)
 
 
 /obj/machinery/washing_machine/update_icon()
 	icon_state = "wm_[state][panel]"
 
 /obj/machinery/washing_machine/attackby(obj/item/weapon/W as obj, mob/user as mob)
-	/*if(istype(W,/obj/item/weapon/screwdriver))
-		panel = !panel
-		user << "<span class='notice'>You [panel ? "open" : "close"] the [src]'s maintenance panel</span>"*/
 	if(istype(W,/obj/item/weapon/pen/crayon) || istype(W,/obj/item/weapon/stamp))
 		if( state in list(	1, 3, 6 ) )
 			if(!crayon)
-				user.drop_item()
+				user.drop_from_inventory(W,src)
 				crayon = W
-				crayon.loc = src
 			else
 				..()
 		else
@@ -90,7 +86,7 @@
 		if( (state == 1) && hacked)
 			var/obj/item/weapon/grab/G = W
 			if(ishuman(G.assailant) && iscorgi(G.affecting))
-				G.affecting.loc = src
+				G.affecting.forceMove(src)
 				qdel(G)
 				state = 3
 		else
@@ -106,51 +102,50 @@
 
 		//YES, it's hardcoded... saves a var/can_be_washed for every single clothing item.
 		if ( istype(W,/obj/item/clothing/suit/space ) )
-			user << "This item does not fit."
+			to_chat(user, "This item does not fit.")
 			return
 		if ( istype(W,/obj/item/clothing/suit/syndicatefake ) )
-			user << "This item does not fit."
+			to_chat(user, "This item does not fit.")
 			return
 //		if ( istype(W,/obj/item/clothing/suit/powered ) )
-//			user << "This item does not fit."
+//			to_chat(user, "This item does not fit.")
 //			return
 		if ( istype(W,/obj/item/clothing/suit/cyborg_suit ) )
-			user << "This item does not fit."
+			to_chat(user, "This item does not fit.")
 			return
 		if ( istype(W,/obj/item/clothing/suit/bomb_suit ) )
-			user << "This item does not fit."
+			to_chat(user, "This item does not fit.")
 			return
 		if ( istype(W,/obj/item/clothing/suit/armor ) )
-			user << "This item does not fit."
+			to_chat(user, "This item does not fit.")
 			return
 		if ( istype(W,/obj/item/clothing/suit/armor ) )
-			user << "This item does not fit."
+			to_chat(user, "This item does not fit.")
 			return
 		if ( istype(W,/obj/item/clothing/mask/gas ) )
-			user << "This item does not fit."
+			to_chat(user, "This item does not fit.")
 			return
 		if ( istype(W,/obj/item/clothing/mask/smokable/cigarette ) )
-			user << "This item does not fit."
+			to_chat(user, "This item does not fit.")
 			return
 		if ( istype(W,/obj/item/clothing/head/syndicatefake ) )
-			user << "This item does not fit."
+			to_chat(user, "This item does not fit.")
 			return
 //		if ( istype(W,/obj/item/clothing/head/powered ) )
-//			user << "This item does not fit."
+//			to_chat(user, "This item does not fit.")
 //			return
 		if ( istype(W,/obj/item/clothing/head/helmet ) )
-			user << "This item does not fit."
+			to_chat(user, "This item does not fit.")
 			return
 
 		if(contents.len < 5)
 			if ( state in list(1, 3) )
-				user.drop_item()
-				W.loc = src
+				user.drop_from_inventory(W,src)
 				state = 3
 			else
-				user << "<span class='notice'>You can't put the item in right now.</span>"
+				to_chat(user, "<span class='notice'>You can't put the item in right now.</span>")
 		else
-			user << "<span class='notice'>The washing machine is full.</span>"
+			to_chat(user, "<span class='notice'>The washing machine is full.</span>")
 	else
 		..()
 	update_icon()
@@ -162,17 +157,17 @@
 		if(2)
 			state = 1
 			for(var/atom/movable/O in contents)
-				O.loc = src.loc
+				O.forceMove(src.loc)
 		if(3)
 			state = 4
 		if(4)
 			state = 3
 			for(var/atom/movable/O in contents)
-				O.loc = src.loc
+				O.forceMove(src.loc)
 			crayon = null
 			state = 1
 		if(5)
-			user << "<span class='warning'>The [src] is busy.</span>"
+			to_chat(user, "<span class='warning'>The [src] is busy.</span>")
 		if(6)
 			state = 7
 		if(7)
@@ -182,7 +177,7 @@
 					var/mob/M = locate(/mob,contents)
 					M.gib()
 			for(var/atom/movable/O in contents)
-				O.loc = src.loc
+				O.forceMove(src.loc)
 			crayon = null
 			state = 1
 

@@ -4,8 +4,8 @@
 	icon = 'icons/obj/coatrack.dmi'
 	icon_state = "coatrack0"
 	var/obj/item/clothing/suit/coat
-	var/list/allowed = list(/obj/item/clothing/suit/storage/toggle/labcoat, /obj/item/clothing/suit/storage/det_trench, 
-							/obj/item/clothing/suit/storage/forensics, /obj/item/clothing/suit/storage/trench)
+	var/list/allowed = list(/obj/item/clothing/suit/storage/toggle/labcoat, /obj/item/clothing/suit/storage/toggle/det_trench,
+							/obj/item/clothing/suit/storage/forensics, /obj/item/clothing/suit/storage/toggle/trench)
 
 /obj/structure/coatrack/attack_hand(mob/user as mob)
 	if (!ishuman(user))
@@ -21,7 +21,7 @@
 		coat = null
 		update_icon()
 
-/obj/structure/coatrack/attackby(obj/item/weapon/W as obj, mob/user as mob)
+/obj/structure/coatrack/attackby(obj/item/W as obj, mob/user as mob)
 	var/can_hang = 0
 	if(is_type_in_list(W, allowed))
 		can_hang = 1
@@ -31,7 +31,7 @@
 		user.drop_from_inventory(coat, src)
 		update_icon()
 	else
-		user << "<span class='notice'>You cannot hang [W] on [src]</span>"
+		to_chat(user, "<span class='notice'>You cannot hang [W] on [src]</span>")
 		return ..()
 
 /obj/structure/coatrack/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
@@ -42,7 +42,7 @@
 	if (can_hang && !coat)
 		src.visible_message("[mover] lands on \the [src].")
 		coat = mover
-		coat.loc = src
+		coat.forceMove(src)
 		update_icon()
 		return 0
 	else
@@ -51,4 +51,9 @@
 /obj/structure/coatrack/update_icon()
 	cut_overlays()
 	if (coat)
+		if(istype(coat, /obj/item/clothing/suit/storage/toggle))
+			var/obj/item/clothing/suit/storage/toggle/T = coat
+			if(T.icon_state == T.icon_open) // avoid icon conflicts
+				T.icon_state = T.icon_closed
+				T.item_state = T.icon_closed
 		add_overlay("coat_[coat.icon_state]")

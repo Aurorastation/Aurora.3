@@ -1,0 +1,8 @@
+#define WEBHOOK_ADMIN_PM "g_apm"
+#define WEBHOOK_ADMIN_PM_IMPORTANT "g_apm_a"
+#define WEBHOOK_ADMIN "g_admin"
+#define WEBHOOK_ADMIN_IMPORTANT "g_admin_a"
+#define WEBHOOK_CCIAA_EMERGENCY_MESSAGE "cciaa_emergency"
+#define WEBHOOK_ALERT_NO_ADMINS "alert_noadmins"
+#define WEBHOOK_ROUNDEND "roundend"
+#define WEBHOOK_ROUNDSTART "roundstart"

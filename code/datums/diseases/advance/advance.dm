@@ -38,6 +38,7 @@ var/list/advance_cures = 	list(
 	// NEW VARS
 
 	var/list/symptoms = list() // The symptoms of the disease.
+	var/list/properties = list() // List of properties
 	var/id = ""
 	var/processing = 0
 
@@ -167,8 +168,7 @@ var/list/advance_cures = 	list(
 	return generated
 
 /datum/disease/advance/proc/Refresh(var/new_name = 0)
-	//world << "[src.name] \ref[src] - REFRESH!"
-	var/list/properties = GenerateProperties()
+	GenerateProperties()
 	AssignProperties(properties)
 
 	if(!archive_diseases[GetDiseaseID()])
@@ -187,8 +187,6 @@ var/list/advance_cures = 	list(
 		CRASH("We did not have any symptoms before generating properties.")
 		return
 
-	var/list/properties = list("resistance" = 1, "stealth" = 1, "stage_rate" = 1, "transmittable" = 1, "severity" = 1)
-
 	for(var/datum/symptom/S in symptoms)
 
 		properties["resistance"] += S.resistance
@@ -196,8 +194,6 @@ var/list/advance_cures = 	list(
 		properties["stage_rate"] += S.stage_speed
 		properties["transmittable"] += S.transmittable
 		properties["severity"] = max(properties["severity"], S.level) // severity is based on the highest level symptom
-
-	return properties
 
 // Assign the properties that are in the list.
 /datum/disease/advance/proc/AssignProperties(var/list/properties = list())
@@ -232,7 +228,6 @@ var/list/advance_cures = 	list(
 			spread = "Blood"
 
 	spread_type = spread_id
-	//world << "Setting spread type to [spread_id]/[spread]"
 
 /datum/disease/advance/proc/SetSeverity(var/level_sev)
 
@@ -258,11 +253,10 @@ var/list/advance_cures = 	list(
 /datum/disease/advance/proc/GenerateCure(var/list/properties = list())
 	if(properties && properties.len)
 		var/res = Clamp(properties["resistance"] - (symptoms.len / 2), 1, advance_cures.len)
-		//world << "Res = [res]"
 		cure_id = advance_cures[res]
 
 		// Get the cure name from the cure_id
-		var/datum/reagent/D = chemical_reagents_list[cure_id]
+		var/datum/reagent/D = SSchemistry.chemical_reagents[cure_id]
 		cure = D.name
 
 
@@ -297,7 +291,7 @@ var/list/advance_cures = 	list(
 	for(var/datum/symptom/S in symptoms)
 		L += S.id
 	L = sortList(L) // Sort the list so it doesn't matter which order the symptoms are in.
-	var/result = list2text(L, ":")
+	var/result = jointext(L, ":")
 	id = result
 	return result
 
@@ -329,9 +323,6 @@ var/list/advance_cures = 	list(
 
 // Mix a list of advance diseases and return the mixed result.
 /proc/Advance_Mix(var/list/D_list)
-
-	//world << "Mixing!!!!"
-
 	var/list/diseases = list()
 
 	for(var/datum/disease/advance/A in D_list)
@@ -354,8 +345,7 @@ var/list/advance_cures = 	list(
 		var/datum/disease/advance/D2 = pick(diseases)
 		D2.Mix(D1)
 
-	 // Should be only 1 entry left, but if not let's only return a single entry
-	//world << "END MIXING!!!!!"
+	// Should be only 1 entry left, but if not let's only return a single entry
 	var/datum/disease/advance/to_return = pick(diseases)
 	to_return.Refresh(1)
 	return to_return
@@ -413,11 +403,23 @@ var/list/advance_cures = 	list(
 			name_symptoms += S.name
 		message_admins("[key_name_admin(user)] has triggered a custom virus outbreak of [D.name]! It has these symptoms: [english_list(name_symptoms)]")
 
+/datum/disease/advance/proc/totalStageSpeed()
+	return properties["stage_rate"]
+
+/datum/disease/advance/proc/totalStealth()
+	return properties["stealth"]
+
+/datum/disease/advance/proc/totalResistance()
+	return properties["resistance"]
+
+/datum/disease/advance/proc/totalTransmittable()
+	return properties["transmittable"]
+
 /*
 /mob/verb/test()
 
 	for(var/datum/disease/D in SSdisease.processing)
-		src << "<a href='?_src_=vars;Vars=\ref[D]'>[D.name] - [D.holder]</a>"
+		to_chat(src, "<a href='?_src_=vars;Vars=\ref[D]'>[D.name] - [D.holder]</a>")
 */
 
 #undef RANDOM_STARTING_LEVEL

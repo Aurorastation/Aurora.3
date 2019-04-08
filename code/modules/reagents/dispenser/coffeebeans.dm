@@ -1,7 +1,8 @@
-/obj/item/weapon/reagent_containers/chem_disp_cartridge/coffee_beans
+/obj/item/weapon/reagent_containers/chem_disp_cartridge/espresso
 	name = "A jar of Coffee Beans "
 	desc = "This goes into a coffee maker!"
 	label = "Spesscafe Dark Blend"
+	icon = 'icons/obj/drinks.dmi'
 	icon_state = "coffeejar"
 
 	w_class = 3
@@ -11,5 +12,5 @@
 	possible_transfer_amounts = list(20, 40)
 	unacidable = 1
 
-	spawn_reagent = "black_coffee"
+	spawn_reagent = "espresso"
 

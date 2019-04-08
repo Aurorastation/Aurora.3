@@ -36,7 +36,7 @@
 	if(isnull(val)) val = 0
 	switch(val)
 		if(0 to 4)
-			return /turf/simulated/floor/beach/water/ocean
+			return /turf/simulated/floor/beach/water
 		else
 			return /turf/simulated/floor/snow
 

@@ -1,19 +1,20 @@
 //Skrell space gear. Sleek like a wetsuit.
-/obj/item/clothing/head/helmet/space/skrell
+/obj/item/clothing/head/helmet/space/void/skrell
 	name = "skrellian helmet"
 	desc = "Smoothly contoured and polished to a shine. Still looks like a fishbowl."
 	armor = list(melee = 20, bullet = 20, laser = 50,energy = 50, bomb = 50, bio = 100, rad = 100)
 	max_heat_protection_temperature = SPACE_SUIT_MAX_HEAT_PROTECTION_TEMPERATURE
 	species_restricted = list("Skrell","Human")
 	siemens_coefficient = 0.4
+	refittable = FALSE
 
-/obj/item/clothing/head/helmet/space/skrell/white
+/obj/item/clothing/head/helmet/space/void/skrell/white
 	icon_state = "skrell_helmet_white"
 
-/obj/item/clothing/head/helmet/space/skrell/black
+/obj/item/clothing/head/helmet/space/void/skrell/black
 	icon_state = "skrell_helmet_black"
 
-/obj/item/clothing/suit/space/skrell
+/obj/item/clothing/suit/space/void/skrell
 	name = "skrellian voidsuit"
 	desc = "Seems like a wetsuit with reinforced plating seamlessly attached to it. Very chic."
 	armor = list(melee = 20, bullet = 20, laser = 50,energy = 50, bomb = 50, bio = 100, rad = 100)
@@ -22,12 +23,13 @@
 	max_heat_protection_temperature = SPACE_SUIT_MAX_HEAT_PROTECTION_TEMPERATURE
 	species_restricted = list("Skrell","Human")
 	siemens_coefficient = 0.4
+	refittable = FALSE
 
-/obj/item/clothing/suit/space/skrell/white
+/obj/item/clothing/suit/space/void/skrell/white
 	icon_state = "skrell_suit_white"
 	item_state = "skrell_suit_white"
 
-/obj/item/clothing/suit/space/skrell/black
+/obj/item/clothing/suit/space/void/skrell/black
 	icon_state = "skrell_suit_black"
 	item_state = "skrell_suit_black"
 
@@ -156,21 +158,21 @@
 		item_flags &= ~NOSLIP
 		magpulse = 0
 		canremove = 1
-		user << "You relax your deathgrip on the flooring."
+		to_chat(user, "You relax your deathgrip on the flooring.")
 	else
 		//make sure these can only be used when equipped.
 		if(!ishuman(user))
 			return
 		var/mob/living/carbon/human/H = user
 		if (H.shoes != src)
-			user << "You will have to put on the [src] before you can do that."
+			to_chat(user, "You will have to put on the [src] before you can do that.")
 			return
 
 		item_flags |= NOSLIP
 		magpulse = 1
 		canremove = 0	//kinda hard to take off magclaws when you are gripping them tightly.
-		user << "You dig your claws deeply into the flooring, bracing yourself."
-		user << "It would be hard to take off the [src] without relaxing your grip first."
+		to_chat(user, "You dig your claws deeply into the flooring, bracing yourself.")
+		to_chat(user, "It would be hard to take off the [src] without relaxing your grip first.")
 	user.update_action_buttons()
 
 //In case they somehow come off while enabled.
@@ -185,7 +187,7 @@
 /obj/item/clothing/shoes/magboots/vox/examine(mob/user)
 	..(user)
 	if (magpulse)
-		user << "It would be hard to take these off without relaxing your grip first." //theoretically this message should only be seen by the wearer when the claws are equipped.
+		to_chat(user, "It would be hard to take these off without relaxing your grip first.") //theoretically this message should only be seen by the wearer when the claws are equipped.)
 
 // Type C Spacesuit (vaccuum suit, low pressure armour)
 // Can't be equipped by any other species.
@@ -232,7 +234,7 @@
 	item_state = "magboots"
 	icon_state = "magboots"
 
-	species_restricted = list("Vaurca Breeder")
+	species_restricted = list("Vaurca Breeder","Vaurca Warform")
 	sprite_sheets = list(
 		"Vaurca Breeder" = 'icons/mob/species/breeder/shoes.dmi'
 		)
@@ -244,22 +246,22 @@
 		item_flags &= ~NOSLIP
 		magpulse = 0
 		canremove = 1
-		user << "You relax your deathgrip on the flooring."
+		to_chat(user, "You relax your deathgrip on the flooring.")
 	else
 		//make sure these can only be used when equipped.
 		if(!ishuman(user))
 			return
 		var/mob/living/carbon/human/H = user
 		if (H.shoes != src)
-			user << "You will have to put on the [src] before you can do that."
+			to_chat(user, "You will have to put on the [src] before you can do that.")
 			return
 
 
 		item_flags |= NOSLIP
 		magpulse = 1
 		canremove = 0	//kinda hard to take off magclaws when you are gripping them tightly.
-		user << "You dig your claws deeply into the flooring, bracing yourself."
-		user << "It would be hard to take off the [src] without relaxing your grip first."
+		to_chat(user, "You dig your claws deeply into the flooring, bracing yourself.")
+		to_chat(user, "It would be hard to take off the [src] without relaxing your grip first.")
 
 //In case they somehow come off while enabled.
 /obj/item/clothing/shoes/magboots/typec/dropped(mob/user as mob)
@@ -273,13 +275,13 @@
 /obj/item/clothing/shoes/magboots/typec/examine(mob/user)
 	..(user)
 	if (magpulse)
-		user << "It would be hard to take these off without relaxing your grip first." //theoretically this message should only be seen by the wearer when the claws are equipped.
+		to_chat(user, "It would be hard to take these off without relaxing your grip first.") //theoretically this message should only be seen by the wearer when the claws are equipped.)
 
 
 //ZZODDAA
 /obj/item/clothing/gloves/yellow/typec
 	icon = 'icons/mob/species/breeder/inventory/items.dmi'
-	desc = "A set of form-fitting carapace gauntlets. They appear to be fitted with some robust hydralics."
+	desc = "A set of form-fitting carapace gauntlets. They appear to be fitted with some robust hydraulics."
 	name = "carapace gauntlets"
 	w_class = 5.0
 	icon_state = "forceglove"

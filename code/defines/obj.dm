@@ -11,8 +11,8 @@
 		switch(alert("Travel back to ss13?",,"Yes","No"))
 			if("Yes")
 				if(user.z != src.z)	return
-				user.loc.loc.Exited(user)
-				user.loc = pick(latejoin)
+				user.loc.loc.Exited(user) //what the fuck is this
+				user.forceMove(pick(latejoin))
 			if("No")
 				return
 
@@ -155,26 +155,10 @@ var/global/ManifestJSON
 	var/damage = 0.0
 	var/range = 10.0
 
-
-/obj/effect/list_container
-	name = "list container"
-
-/obj/effect/list_container/mobl
-	name = "mobl"
-	var/master = null
-
-	var/list/container = list(  )
-
 /obj/effect/projection
 	name = "Projection"
 	desc = "This looks like a projection of something."
 	anchored = 1.0
-
-
-/obj/effect/shut_controller
-	name = "shut controller"
-	var/moving = null
-	var/list/parts = list(  )
 
 /obj/structure/showcase
 	name = "Showcase"
@@ -204,13 +188,6 @@ var/global/ManifestJSON
 	afterattack(atom/target as mob|obj|turf|area, mob/user as mob)
 		user.drop_item()
 		src.throw_at(target, throw_range, throw_speed, user)
-
-/obj/effect/stop
-	var/victim = null
-	icon_state = "empty"
-	name = "Geas"
-	desc = "You can't resist."
-	// name = ""
 
 /obj/effect/spawner
 	name = "object spawner"

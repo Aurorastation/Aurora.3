@@ -17,7 +17,7 @@
 	if (!istype(src,/datum/admins))
 		src = usr.client.holder
 	if (!istype(src,/datum/admins))
-		usr << "Error: you are not an admin!"
+		to_chat(usr, "Error: you are not an admin!")
 		return
 
 	var/response = input(usr, "Are you sure? This will start up the engine with selected gas as coolant.", "Engine setup") as null|anything in list("N2", "CO2", "PH", "Abort")
@@ -105,7 +105,7 @@
 	invisibility = 101
 	anchored = 1
 	density = 0
-	icon = 'icons/mob/screen1.dmi'
+	icon = 'icons/mob/screen/generic.dmi'
 	icon_state = "x2"
 
 /obj/effect/engine_setup/proc/activate(var/last = 0)
@@ -233,7 +233,7 @@
 				P.mode = ATM_CO2
 				break
 			else
-				log_and_message_admins("## WARNING: Inapropriate filter coolant type set at [x] [y] [z]!")
+				log_and_message_admins("## WARNING: Inappropriate filter coolant type set at [x] [y] [z]!")
 				return SETUP_WARNING
 		F.rebuild_filtering_list()
 

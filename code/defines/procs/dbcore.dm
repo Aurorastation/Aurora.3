@@ -128,7 +128,7 @@ DBQuery/proc/Execute(var/list/argument_list = null, var/pass_not_found = 0, sql_
 
 	var/error = ErrorMsg()
 	if (error)
-		error("SQL Error: '[error]'")
+		log_debug("SQL Error: '[error]'",SEVERITY_ERROR)
 		// This is hacky and should probably be changed
 		if (error == "MySQL server has gone away")
 			log_game("MySQL connection drop detected, attempting to reconnect.")
@@ -204,7 +204,11 @@ DBQuery/proc/SetConversion(column,conversion)
 */
 /DBQuery/proc/parseArguments(var/query_to_parse = null, var/list/argument_list)
 	if (!query_to_parse || !argument_list || !argument_list.len)
+#ifdef UNIT_TEST
+		error("SQL ARGPARSE: Invalid arguments sent.")
+#else
 		log_debug("SQL ARGPARSE: Invalid arguments sent.")
+#endif
 		return null
 
 	var/parsed = ""
@@ -219,7 +223,7 @@ DBQuery/proc/SetConversion(column,conversion)
 	for (var/key in argument_list)
 		var/argument = argument_list[key]
 		if (istext(argument))
-			cache[key] = "[dbcon.Quote(argument)]"
+			cache[key] = "[db_connection.Quote(argument)]"
 		else if (isnum(argument))
 			cache[key] = "[argument]"
 		else if (istype(argument, /list))
@@ -227,7 +231,11 @@ DBQuery/proc/SetConversion(column,conversion)
 		else if (isnull(argument))
 			cache[key] = "NULL"
 		else
+#ifdef UNIT_TEST
+			error("SQL ARGPARSE: Cannot identify argument! [key]. Argument: [argument]")
+#else
 			log_debug("SQL ARGPARSE: Cannot identify argument! [key]. Argument: [argument]")
+#endif
 			return null
 
 	while (1)
@@ -241,8 +249,13 @@ DBQuery/proc/SetConversion(column,conversion)
 				if (cache[curr_arg])
 					parsed += cache[curr_arg]
 				else
+#ifdef UNIT_TEST
+					error("SQL ARGPARSE: Unpopulated argument found in an SQL query.")
+					error("SQL ARGPARSE: [curr_arg]. Query: [query_to_parse]")
+#else
 					log_debug("SQL ARGPARSE: Unpopulated argument found in an SQL query.")
 					log_debug("SQL ARGPARSE: [curr_arg]. Query: [query_to_parse]")
+#endif
 					return null
 
 				pos = search + 1
@@ -273,7 +286,7 @@ DBQuery/proc/SetConversion(column,conversion)
 		if (isnum(argument[i]))
 			text += "[argument[i]]"
 		else
-			text += dbcon.Quote(argument[i])
+			text += db_connection.Quote(argument[i])
 
 		if (i != count)
 			text += ", "

@@ -87,13 +87,13 @@ proc/GetAnomalySusceptibility(var/mob/living/carbon/human/H)
 	if(!H || !istype(H))
 		return 1
 
-	var/protected = 0
-
 	//anomaly suits give best protection, but excavation suits are almost as good
 	if(istype(H.back,/obj/item/weapon/rig/hazmat))
 		var/obj/item/weapon/rig/hazmat/rig = H.back
 		if(rig.suit_is_deployed() && !rig.offline)
-			protected += 1
+			return 0 //<- Maximum level of protection achieved.
+
+	var/protected = 0
 
 	if(istype(H.wear_suit,/obj/item/clothing/suit/bio_suit/anomaly))
 		protected += 0.6
@@ -108,8 +108,16 @@ proc/GetAnomalySusceptibility(var/mob/living/carbon/human/H)
 	//latex gloves and science goggles also give a bit of bonus protection
 	if(istype(H.gloves,/obj/item/clothing/gloves/latex))
 		protected += 0.1
-
+	/*
+	If you have Anomaly Suit, Anomaly Hood, Latex Gloves AND Science Goggles, you will have
+		0.6 + 0.3 + 0.1 + 0.1 = 1.1
+	maximum protection level. The CLAMP01 instruction make sure that "protected" will be
+	always in 0..1 range boundaries.
+	*/
 	if(istype(H.glasses,/obj/item/clothing/glasses/science))
-		protected += 0.1
+		protected += 0.1 //<- In case of full not-Anomaly clothing, you'll have 0.5 + 0.2 + 0.1 + 0.1 = 0.9 maximum protection level.
+
+	//As said before, in case of a value of 1.1, "protected" will be setted to 1.
+	protected = CLAMP01(protected)
 
 	return 1 - protected

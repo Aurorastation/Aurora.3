@@ -2,14 +2,14 @@
 
 /datum/controller/subsystem
 	// Metadata; you should define these.
-	name = "fire coderbus" //name of the subsystem
-	var/init_order = SS_INIT_MISC		//order of initialization. Higher numbers are initialized first, lower numbers later. Can be decimal and negative values.
-	var/wait = 20			//time to wait (in deciseconds) between each call to fire(). Must be a positive integer.
-	var/priority = 50		//When mutiple subsystems need to run in the same tick, higher priority subsystems will run first and be given a higher share of the tick before MC_TICK_CHECK triggers a sleep
+	name = "fire coderbus"              //name of the subsystem
+	var/init_order = SS_INIT_MISC       //order of initialization. Higher numbers are initialized first, lower numbers later. Can be decimal and negative values.
+	var/wait = 20                       //time to wait between each call to fire(). Must be a positive integer. In ticks if SS_TICKER, deciseconds otherwise.
+	var/priority = SS_PRIORITY_DEFAULT  //When mutiple subsystems need to run in the same tick, higher priority subsystems will run first and be given a higher share of the tick before MC_TICK_CHECK triggers a sleep.
 
-	var/flags = 0			//see MC.dm in __DEFINES Most flags must be set on world start to take full effect. (You can also restart the mc to force them to process again)
+	var/flags = 0			//see master_controller.dm in __defines. Most flags must be set on world start to take full effect. (You can also restart the mc to force them to process again)
 
-	//set to 0 to prevent fire() calls, mostly for admin use or subsystems that may be resumed later
+	//set to 0 to prevent fire() calls, mostly for admin use.
 	//	use the SS_NO_FIRE flag instead for systems that never fire to keep it from even being added to the list
 	var/can_fire = TRUE
 	// Similar to can_fire, but intended explicitly for subsystems that are asleep. Using this var instead of can_fire
@@ -17,30 +17,30 @@
 	var/suspended = FALSE
 
 	// Bookkeeping variables; probably shouldn't mess with these.
-	var/last_fire = 0		//last world.time we called fire()
-	var/next_fire = 0		//scheduled world.time for next fire()
-	var/cost = 0			//average time to execute
-	var/tick_usage = 0		//average tick usage
-	var/tick_overrun = 0	//average tick overrun
-	var/state = SS_IDLE		//tracks the current state of the ss, running, paused, etc.
-	var/paused_ticks = 0	//ticks this ss is taking to run right now.
-	var/paused_tick_usage	//total tick_usage of all of our runs while pausing this run
-	var/ticks = 1			//how many ticks does this ss take to run on avg.
-	var/times_fired = 0		//number of times we have called fire()
-	var/queued_time = 0		//time we entered the queue, (for timing and priority reasons)
-	var/queued_priority 	//we keep a running total to make the math easier, if priority changes mid-fire that would break our running total, so we store it here
-	
-	// Subsystem startup accounting.
-	var/init_state = FALSE
-	var/init_time = 0
-	var/init_start = 0
-	var/init_finish
-	
+	var/last_fire = 0     //last world.time we called fire()
+	var/next_fire = 0     //scheduled world.time for next fire()
+	var/cost = 0          //average time to execute
+	var/tick_usage = 0    //average tick usage
+	var/tick_overrun = 0  //average tick overrun
+	var/state = SS_IDLE   //tracks the current state of the ss, running, paused, etc.
+	var/paused_ticks = 0  //ticks this ss is taking to run right now.
+	var/paused_tick_usage //total tick_usage of all of our runs while pausing this run
+	var/ticks = 1         //how many ticks does this ss take to run on avg.
+	var/times_fired = 0   //number of times we have called fire()
+	var/queued_time = 0   //time we entered the queue, (for timing and priority reasons)
+	var/queued_priority   //we keep a running total to make the math easier, if priority changes mid-fire that would break our running total, so we store it here
+
+	// Subsystem startup accounting - these variables cannot be trusted if the subsystem has crashed and been Recover()'d.
+	var/init_state = SS_INITSTATE_NONE // The current initialization state of this SS - this might be invalid if the subsystem has been Recover()'d.
+	var/init_time = 0                  // How long the subsystem took to initialize, in seconds.
+	var/init_start = 0                 // What timeofday did we start initializing?
+	var/init_finish                    // What timeofday did we finish initializing?
+
 	//linked list stuff for the queue
 	var/datum/controller/subsystem/queue_next
 	var/datum/controller/subsystem/queue_prev
 
-	var/static/failure_strikes = 0 //How many times we suspect this subsystem has crashed the MC, 3 strikes and you're out!
+	var/static/list/failure_strikes  //How many times we suspect a subsystem type has crashed the MC, 3 strikes and you're out! This is an assoc list indexed by type.
 
 // Used to initialize the subsystem BEFORE the map has loaded
 /datum/controller/subsystem/New()
@@ -167,13 +167,12 @@
 	init_state = SS_INITSTATE_DONE
 
 //used to initialize the subsystem AFTER the map has loaded
-/datum/controller/subsystem/Initialize(start_timeofday, silent = FALSE)
+/datum/controller/subsystem/Initialize(start_timeofday)
 	var/time = (REALTIMEOFDAY - start_timeofday) / 10
 	init_time = time
 	var/msg = "Initialized [name] subsystem within [time] second[time == 1 ? "" : "s"]!"
-	if (!silent)
-		admin_notice(span("danger", msg), R_DEBUG)
-	world.log << "SS Init: [msg]"
+	admin_notice(span("danger", msg), R_DEBUG)
+	world.log <<  "SS Init: [msg]"
 	log_ss_init(msg)
 	return time
 

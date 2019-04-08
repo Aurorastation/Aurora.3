@@ -8,6 +8,7 @@
 	var/list/part = null // Order of args is important for installing robolimbs.
 	var/sabotaged = 0 //Emagging limbs can have repercussions when installed as prosthetics.
 	var/model_info
+	var/linked_frame = "Unbranded Frame"
 	dir = SOUTH
 
 /obj/item/robot_parts/set_dir()
@@ -21,6 +22,7 @@
 		if(R)
 			name = "[R.company] [initial(name)]"
 			desc = "[R.desc]"
+			linked_frame = R.linked_frame
 			if(icon_state in icon_states(R.icon))
 				icon = R.icon
 	else
@@ -69,6 +71,7 @@
 	part = list("head")
 	var/obj/item/device/flash/flash1 = null
 	var/obj/item/device/flash/flash2 = null
+	var/law_manager = TRUE
 
 /obj/item/robot_parts/robot_suit
 	name = "endoskeleton"
@@ -115,126 +118,142 @@
 		var/obj/item/stack/material/M = W
 		if (M.use(1))
 			var/obj/item/weapon/secbot_assembly/ed209_assembly/B = new /obj/item/weapon/secbot_assembly/ed209_assembly
-			B.loc = get_turf(src)
-			user << "<span class='notice'>You armed the robot frame.</span>"
+			B.forceMove(get_turf(src))
+			to_chat(user, "<span class='notice'>You armed the robot frame.</span>")
 			if (user.get_inactive_hand()==src)
 				user.remove_from_mob(src)
 				user.put_in_inactive_hand(B)
 			qdel(src)
 		else
-			user << "<span class='warning'>You need one sheet of metal to arm the robot frame.</span>"
+			to_chat(user, "<span class='warning'>You need one sheet of metal to arm the robot frame.</span>")
 	if(istype(W, /obj/item/robot_parts/l_leg))
 		if(src.l_leg)	return
-		user.drop_item()
-		W.loc = src
+		user.drop_from_inventory(W,src)
 		src.l_leg = W
 		src.updateicon()
 
 	if(istype(W, /obj/item/robot_parts/r_leg))
 		if(src.r_leg)	return
-		user.drop_item()
-		W.loc = src
+		user.drop_from_inventory(W,src)
 		src.r_leg = W
 		src.updateicon()
 
 	if(istype(W, /obj/item/robot_parts/l_arm))
 		if(src.l_arm)	return
-		user.drop_item()
-		W.loc = src
+		user.drop_from_inventory(W,src)
 		src.l_arm = W
 		src.updateicon()
 
 	if(istype(W, /obj/item/robot_parts/r_arm))
 		if(src.r_arm)	return
-		user.drop_item()
-		W.loc = src
+		user.drop_from_inventory(W,src)
 		src.r_arm = W
 		src.updateicon()
 
 	if(istype(W, /obj/item/robot_parts/chest))
 		if(src.chest)	return
 		if(W:wires && W:cell)
-			user.drop_item()
-			W.loc = src
+			user.drop_from_inventory(W,src)
 			src.chest = W
 			src.updateicon()
 		else if(!W:wires)
-			user << "<span class='warning'>You need to attach wires to it first!</span>"
+			to_chat(user, "<span class='warning'>You need to attach wires to it first!</span>")
 		else
-			user << "<span class='warning'>You need to attach a cell to it first!</span>"
+			to_chat(user, "<span class='warning'>You need to attach a cell to it first!</span>")
 
 	if(istype(W, /obj/item/robot_parts/head))
 		if(src.head)	return
 		if(W:flash2 && W:flash1)
-			user.drop_item()
-			W.loc = src
+			user.drop_from_inventory(W,src)
 			src.head = W
 			src.updateicon()
 		else
-			user << "<span class='warning'>You need to attach a flash to it first!</span>"
+			to_chat(user, "<span class='warning'>You need to attach a flash to it first!</span>")
 
 	if(istype(W, /obj/item/device/mmi))
 		var/obj/item/device/mmi/M = W
 		if(check_completion())
 			if(!istype(loc,/turf))
-				user << "<span class='warning'>You can't put \the [W] in, the frame has to be standing on the ground to be perfectly precise.</span>"
+				to_chat(user, "<span class='warning'>You can't put \the [W] in, the frame has to be standing on the ground to be perfectly precise.</span>")
 				return
 			if(!M.brainmob)
-				user << "<span class='warning'>Sticking an empty [W] into the frame would sort of defeat the purpose.</span>"
+				to_chat(user, "<span class='warning'>Sticking an empty [W] into the frame would sort of defeat the purpose.</span>")
 				return
 			if(!M.brainmob.key)
 				var/ghost_can_reenter = 0
 				if(M.brainmob.mind)
-					for(var/mob/dead/observer/G in player_list)
+					for(var/mob/abstract/observer/G in player_list)
 						if(G.can_reenter_corpse && G.mind == M.brainmob.mind)
 							ghost_can_reenter = 1
 							break
 				if(!ghost_can_reenter)
-					user << "<span class='notice'>\The [W] is completely unresponsive; there's no point.</span>"
+					to_chat(user, "<span class='notice'>\The [W] is completely unresponsive; there's no point.</span>")
 					return
 
 			if(M.brainmob.stat == DEAD)
-				user << "<span class='warning'>Sticking a dead [W] into the frame would sort of defeat the purpose.</span>"
+				to_chat(user, "<span class='warning'>Sticking a dead [W] into the frame would sort of defeat the purpose.</span>")
 				return
 
-			if(jobban_isbanned(M.brainmob, "Cyborg"))
-				user << "<span class='warning'>This [W] does not seem to fit.</span>"
+			if(!src.head.law_manager)
+
+				if(!is_alien_whitelisted(M.brainmob, "Baseline Frame") && config.usealienwhitelist)
+					to_chat(user, "<span class='warning'>\The [W] does not seem to fit.</span>")
+					return
+
+				var/mob/living/carbon/human/new_shell = new(get_turf(loc), src.chest.linked_frame)
+				src.forceMove(new_shell) //so people won't mess around with the chassis until it is deleted
+				M.brainmob.mind.transfer_to(new_shell)
+				qdel(M)
+				var/newname = sanitizeSafe(input(new_shell,"Enter a name, or leave blank for the default name.", "Name change","") as text, MAX_NAME_LEN)
+				if(!newname)
+					var/datum/language/L = all_languages[new_shell.species.default_language]
+					newname = L.get_random_name()
+				new_shell.real_name = newname
+				new_shell.name = new_shell.real_name
+				new_shell.change_appearance(APPEARANCE_ALL_HAIR | APPEARANCE_SKIN | APPEARANCE_EYE_COLOR, new_shell.loc, new_shell)
+				qdel(src)
 				return
 
-			var/mob/living/silicon/robot/O = new /mob/living/silicon/robot(get_turf(loc), TRUE)
-			if(!O)	return
+			else
 
-			user.drop_item()
+				if(jobban_isbanned(M.brainmob, "Cyborg"))
+					to_chat(user, "<span class='warning'>\The [W] does not seem to fit.</span>")
+					return
 
-			O.mmi = W
-			O.invisibility = 0
-			O.custom_name = created_name
-			O.updatename("Default")
+				var/mob/living/silicon/robot/O = new /mob/living/silicon/robot(get_turf(loc), TRUE)
+				if(!O)	return
 
-			M.brainmob.mind.transfer_to(O)
+				user.drop_item() //TODO: Look into this.
 
-			if(O.mind && O.mind.special_role)
-				O.mind.store_memory("In case you look at this after being borged, the objectives are only here until I find a way to make them not show up for you, as I can't simply delete them without screwing up round-end reporting. --NeoFite")
+				O.mmi = W
+				O.invisibility = 0
+				O.custom_name = created_name
+				O.updatename("Default")
 
-			O.job = "Cyborg"
+				M.brainmob.mind.transfer_to(O)
 
-			O.cell = chest.cell
-			O.cell.loc = O
-			W.loc = O//Should fix cybros run time erroring when blown up. It got deleted before, along with the frame.
+				if(O.mind && O.mind.special_role)
+					O.mind.store_memory("In case you look at this after being borged, the objectives are only here until I find a way to make them not show up for you, as I can't simply delete them without screwing up round-end reporting. --NeoFite")
 
-			// Since we "magically" installed a cell, we also have to update the correct component.
-			if(O.cell)
-				var/datum/robot_component/cell_component = O.components["power cell"]
-				cell_component.wrapped = O.cell
-				cell_component.installed = 1
+				O.job = "Cyborg"
 
-			feedback_inc("cyborg_birth",1)
-			callHook("borgify", list(O))
-			O.Namepick()
+				O.cell = chest.cell
+				O.cell.forceMove(O)
+				W.forceMove(O)//Should fix cybros run time erroring when blown up. It got deleted before, along with the frame.
 
-			qdel(src)
+				// Since we "magically" installed a cell, we also have to update the correct component.
+				if(O.cell)
+					var/datum/robot_component/cell_component = O.components["power cell"]
+					cell_component.wrapped = O.cell
+					cell_component.installed = 1
+
+				feedback_inc("cyborg_birth",1)
+				callHook("borgify", list(O))
+				O.Namepick()
+
+				qdel(src)
 		else
-			user << "<span class='warning'>The MMI must go in after everything else!</span>"
+			to_chat(user, "<span class='warning'>The MMI must go in after everything else!</span>")
 
 	if (istype(W, /obj/item/weapon/pen))
 		var/t = sanitizeSafe(input(user, "Enter new robot name", src.name, src.created_name), MAX_NAME_LEN)
@@ -251,40 +270,50 @@
 	..()
 	if(istype(W, /obj/item/weapon/cell))
 		if(src.cell)
-			user << "<span class='warning'>You have already inserted a cell!</span>"
+			to_chat(user, "<span class='warning'>You have already inserted a cell!</span>")
 			return
 		else
-			user.drop_item()
-			W.loc = src
+			user.drop_from_inventory(W,src)
 			src.cell = W
-			user << "<span class='notice'>You insert the cell!</span>"
-	if(istype(W, /obj/item/stack/cable_coil))
+			to_chat(user, "<span class='notice'>You insert the cell!</span>")
+	if(W.iscoil())
 		if(src.wires)
-			user << "<span class='warning'>You have already inserted wire!</span>"
+			to_chat(user, "<span class='warning'>You have already inserted wire!</span>")
 			return
 		else
 			var/obj/item/stack/cable_coil/coil = W
 			coil.use(1)
 			src.wires = 1.0
-			user << "<span class='notice'>You insert the wire!</span>"
+			to_chat(user, "<span class='notice'>You insert the wire!</span>")
 	return
 
 /obj/item/robot_parts/head/attackby(obj/item/W as obj, mob/user as mob)
 	..()
+	if(W.ismultitool())
+		if(law_manager)
+			to_chat(user, "<span class='notice'>You disable the lawing circuits on \the [src].</span>")
+			law_manager = FALSE
+		else
+			to_chat(user, "<span class='notice'>You enable the lawing circuits on \the [src].</span>")
+			law_manager = TRUE
+
 	if(istype(W, /obj/item/device/flash))
 		if(istype(user,/mob/living/silicon/robot))
 			var/current_module = user.get_active_hand()
 			if(current_module == W)
-				user << "<span class='warning'>How do you propose to do that?</span>"
+				to_chat(user, "<span class='warning'>How do you propose to do that?</span>")
 				return
 			else
 				add_flashes(W,user)
 		else
 			add_flashes(W,user)
 	else if(istype(W, /obj/item/weapon/stock_parts/manipulator))
-		user << "<span class='notice'>You install some manipulators and modify the head, creating a functional spider-bot!</span>"
+		to_chat(user, "<span class='notice'>You install some manipulators and modify the head, creating a functional spider-bot!</span>")
+
+
+
 		new /mob/living/simple_animal/spiderbot(get_turf(loc))
-		user.drop_item()
+		user.drop_from_inventory(W,get_turf(loc))
 		qdel(W)
 		qdel(src)
 		return
@@ -292,24 +321,53 @@
 
 /obj/item/robot_parts/head/proc/add_flashes(obj/item/W as obj, mob/user as mob) //Made into a seperate proc to avoid copypasta
 	if(src.flash1 && src.flash2)
-		user << "<span class='notice'>You have already inserted the eyes!</span>"
+		to_chat(user, "<span class='notice'>You have already inserted the eyes!</span>")
 		return
 	else if(src.flash1)
-		user.drop_item()
-		W.loc = src
+		user.drop_from_inventory(W,src)
 		src.flash2 = W
-		user << "<span class='notice'>You insert the flash into the eye socket!</span>"
+		to_chat(user, "<span class='notice'>You insert the flash into the eye socket!</span>")
 	else
-		user.drop_item()
-		W.loc = src
+		user.drop_from_inventory(W,src)
 		src.flash1 = W
-		user << "<span class='notice'>You insert the flash into the eye socket!</span>"
+		to_chat(user, "<span class='notice'>You insert the flash into the eye socket!</span>")
 
 
 /obj/item/robot_parts/emag_act(var/remaining_charges, var/mob/user)
 	if(sabotaged)
-		user << "<span class='warning'>[src] is already sabotaged!</span>"
+		to_chat(user, "<span class='warning'>[src] is already sabotaged!</span>")
 	else
-		user << "<span class='warning'>You short out the safeties.</span>"
+		to_chat(user, "<span class='warning'>You short out the safeties.</span>")
 		sabotaged = 1
 		return 1
+
+//branded chest, to be used in ipc ressurection
+
+/obj/item/robot_parts/chest/bishop
+	name = "Bishop cybernetics torso"
+	model_info = 1
+	linked_frame = "Bishop Accessory Frame"
+
+/obj/item/robot_parts/chest/hephaestus
+	name = "Hephaestus industries torso"
+	linked_frame = "Hephaestus G2 Industrial Frame"
+
+/obj/item/robot_parts/chest/zenghu
+	name = "Zeng-Hu pharmaceuticals torso"
+	linked_frame = "Zeng-Hu Mobility Frame"
+
+/obj/item/robot_parts/chest/synthskin
+	name = "Human synthskin torso"
+	linked_frame = "Shell Frame"
+
+/obj/item/robot_parts/chest/xion
+	name = "Xion manufacturing group torso"
+	linked_frame = "Xion Industrial Frame"
+
+/obj/item/robot_parts/chest/ipc
+	name = "Hephaestus integrated torso"
+	linked_frame = "Baseline Frame"
+
+/obj/item/robot_parts/chest/industrial
+	name = "Hephaestus industrial torso"
+	linked_frame = "Hephaestus G1 Industrial Frame"

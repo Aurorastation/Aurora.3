@@ -5,7 +5,7 @@
 	icon = 'icons/obj/computer.dmi'
 
 	icon_screen = "explosive"
-	light_color = "#a91515"
+	light_color = LIGHT_COLOR_ORANGE
 	req_access = list(access_armory)
 	circuit = /obj/item/weapon/circuitboard/prisoner
 	var/id = 0.0
@@ -30,9 +30,9 @@
 		else if(screen == 1)
 			dat += "<HR>Chemical Implants<BR>"
 			var/turf/Tr = null
-			for(var/obj/item/weapon/implant/chem/C in world)
+			for(var/obj/item/weapon/implant/chem/C in implants)
 				Tr = get_turf(C)
-				if((Tr) && (Tr.z != src.z))	continue//Out of range
+				if(Tr && !isStationLevel(Tr.z))	continue//Out of range
 				if(!C.implanted) continue
 				dat += "[C.imp_in.name] | Remaining Units: [C.reagents.total_volume] | Inject: "
 				dat += "<A href='?src=\ref[src];inject1=\ref[C]'>(<font color=red>(1)</font>)</A>"
@@ -40,13 +40,13 @@
 				dat += "<A href='?src=\ref[src];inject10=\ref[C]'>(<font color=red>(10)</font>)</A><BR>"
 				dat += "********************************<BR>"
 			dat += "<HR>Tracking Implants<BR>"
-			for(var/obj/item/weapon/implant/tracking/T in world)
+			for(var/obj/item/weapon/implant/tracking/T in implants)
 				Tr = get_turf(T)
-				if((Tr) && (Tr.z != src.z))	continue//Out of range
+				if(Tr && !isStationLevel(Tr.z))	continue//Out of range
 				if(!T.implanted) continue
 				var/loc_display = "Unknown"
 				var/mob/living/carbon/M = T.imp_in
-				if((M.z in config.station_levels) && !istype(M.loc, /turf/space))
+				if(isStationLevel(M.z) && !istype(M.loc, /turf/space))
 					var/turf/mob_loc = get_turf(M)
 					loc_display = mob_loc.loc
 				if(T.malfunction)
@@ -89,7 +89,7 @@
 				if(src.allowed(usr))
 					screen = !screen
 				else
-					usr << "Unauthorized Access."
+					to_chat(usr, "Unauthorized Access.")
 
 			else if(href_list["warn"])
 				var/warning = sanitize(input(usr,"Message:","Enter your message here!",""))
@@ -97,7 +97,7 @@
 				var/obj/item/weapon/implant/I = locate(href_list["warn"])
 				if((I)&&(I.imp_in))
 					var/mob/living/carbon/R = I.imp_in
-					R << "<span class='notice'>You hear a voice in your head saying: '[warning]'</span>"
+					to_chat(R, "<span class='notice'>You hear a voice in your head saying: '[warning]'</span>")
 
 			src.add_fingerprint(usr)
 		src.updateUsrDialog()

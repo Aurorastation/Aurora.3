@@ -74,7 +74,7 @@
 		..()
 
 /obj/item/stack/material/attackby(var/obj/item/W, var/mob/user)
-	if(istype(W,/obj/item/stack/cable_coil))
+	if(W.iscoil())
 		material.build_wired_product(user, W, src)
 		return
 	else if(istype(W, /obj/item/stack/rods))
@@ -92,6 +92,7 @@
 	name = "sandstone brick"
 	icon_state = "sheet-sandstone"
 	default_type = "sandstone"
+	icon_has_variants = TRUE
 
 /obj/item/stack/material/marble
 	name = "marble brick"
@@ -112,6 +113,7 @@
 	name = "solid phoron"
 	icon_state = "sheet-phoron"
 	default_type = "phoron"
+	icon_has_variants = TRUE
 
 /obj/item/stack/material/plastic
 	name = "plastic"
@@ -123,17 +125,20 @@
 	name = "gold"
 	icon_state = "sheet-gold"
 	default_type = "gold"
+	icon_has_variants = TRUE
 
 /obj/item/stack/material/silver
 	name = "silver"
 	icon_state = "sheet-silver"
 	default_type = "silver"
+	icon_has_variants = TRUE
 
 //Valuable resource, cargo can sell it.
 /obj/item/stack/material/platinum
 	name = "platinum"
 	icon_state = "sheet-adamantine"
 	default_type = "platinum"
+	icon_has_variants = TRUE
 
 //Extremely valuable to Research.
 /obj/item/stack/material/mhydrogen
@@ -207,7 +212,6 @@
 	singular_name = "borosilicate glass sheet"
 	icon_state = "sheet-phoronglass"
 	default_type = "borosilicate glass"
-	icon_has_variants = FALSE
 
 /obj/item/stack/material/glass/phoronrglass
 	name = "reinforced borosilicate glass"
@@ -215,4 +219,15 @@
 	singular_name = "reinforced borosilicate glass sheet"
 	icon_state = "sheet-phoronrglass"
 	default_type = "reinforced borosilicate glass"
-	icon_has_variants = FALSE
+
+/obj/item/stack/material/bronze
+	name = "bronze"
+	icon_state = "sheet-brass"
+	default_type = "bronze"
+	icon_has_variants = TRUE
+
+/obj/item/stack/material/titanium
+	name = "titanium"
+	icon_state = "sheet-titanium"
+	default_type = "titanium"
+	icon_has_variants = TRUE

@@ -75,12 +75,15 @@ var/intercom_range_display_status = 0
 	var/list/obj/machinery/camera/CL = list()
 
 	for(var/obj/machinery/camera/C in cameranet.cameras)
-		CL += C
+		if (isturf(C.loc))
+			CL += C
 
 	var/output = {"<B>CAMERA ANNOMALITIES REPORT</B><HR>
 <B>The following annomalities have been detected. The ones in red need immediate attention: Some of those in black may be intentional.</B><BR><ul>"}
 
 	for(var/obj/machinery/camera/C1 in CL)
+		if(C1.c_tag == null)
+			output += "<li><font color='red'>null c_tag for sec camera at \[[C1.x], [C1.y], [C1.z]\] ([C1.loc.loc])</font></li>"
 		for(var/obj/machinery/camera/C2 in CL)
 			if(C1 != C2)
 				if(C1.c_tag == C2.c_tag)
@@ -99,7 +102,6 @@ var/intercom_range_display_status = 0
 						break
 				if(!window_check)
 					output += "<li><font color='red'>Camera not connected to wall at \[[C1.x], [C1.y], [C1.z]\] ([C1.loc.loc]) Network: [C1.network]</color></li>"
-
 	output += "</ul>"
 	usr << browse(output,"window=airreport;size=1000x500")
 	feedback_add_details("admin_verb","mCRP") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
@@ -125,46 +127,47 @@ var/intercom_range_display_status = 0
 	feedback_add_details("admin_verb","mIRD") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 var/list/debug_verbs = list (
-        /client/proc/do_not_use_these
-        ,/client/proc/camera_view
-        ,/client/proc/sec_camera_report
-        ,/client/proc/intercom_view
-        ,/client/proc/Cell
-        ,/client/proc/atmosscan
-        ,/client/proc/powerdebug
-        ,/client/proc/count_objects_on_z_level
-        ,/client/proc/count_objects_all
-        ,/client/proc/cmd_assume_direct_control
-        ,/client/proc/jump_to_dead_group
-        ,/client/proc/startSinglo
-        ,/client/proc/ticklag
-        ,/client/proc/cmd_admin_grantfullaccess
-        ,/client/proc/kaboom
-        ,/client/proc/splash
-        ,/client/proc/cmd_admin_areatest
-        ,/client/proc/cmd_admin_rejuvenate
-        ,/datum/admins/proc/show_traitor_panel
-        ,/client/proc/print_jobban_old
-        ,/client/proc/print_jobban_old_filter
-        ,/client/proc/forceEvent
-        ,/client/proc/break_all_air_groups
-        ,/client/proc/regroup_all_air_groups
-        ,/client/proc/kill_pipe_processing
-        ,/client/proc/kill_air_processing
-        ,/client/proc/disable_communication
-        ,/client/proc/disable_movement
-        ,/client/proc/Zone_Info
-        ,/client/proc/Test_ZAS_Connection
-        //,/client/proc/ZoneTick
-        ,/client/proc/rebootAirMaster
-        ,/client/proc/hide_debug_verbs
-        ,/client/proc/testZAScolors
-        ,/client/proc/testZAScolors_remove
-        ,/datum/admins/proc/setup_supermatter
-		,/client/proc/atmos_toggle_debug
-		,/client/proc/spawn_tanktransferbomb
-		,/client/proc/get_bad_fdoors
-		,/client/proc/get_bad_doors
+	/client/proc/do_not_use_these
+	,/client/proc/camera_view
+	,/client/proc/sec_camera_report
+	,/client/proc/intercom_view
+	,/client/proc/Cell
+	,/client/proc/atmosscan
+	,/client/proc/powerdebug
+	,/client/proc/count_objects_on_z_level
+	,/client/proc/count_objects_all
+	,/client/proc/cmd_assume_direct_control
+	,/client/proc/jump_to_dead_group
+	,/client/proc/startSinglo
+	,/client/proc/ticklag
+	,/client/proc/cmd_admin_grantfullaccess
+	,/client/proc/kaboom
+	,/client/proc/splash
+	,/client/proc/cmd_admin_areatest
+	,/client/proc/cmd_admin_rejuvenate
+	,/datum/admins/proc/show_traitor_panel
+	,/client/proc/print_jobban_old
+	,/client/proc/print_jobban_old_filter
+	,/client/proc/forceEvent
+	,/client/proc/break_all_air_groups
+	,/client/proc/regroup_all_air_groups
+	,/client/proc/kill_pipe_processing
+	,/client/proc/kill_air_processing
+	,/client/proc/disable_communication
+	,/client/proc/disable_movement
+	,/client/proc/Zone_Info
+	,/client/proc/Test_ZAS_Connection
+	//,/client/proc/ZoneTick
+	,/client/proc/rebootAirMaster
+	,/client/proc/hide_debug_verbs
+	,/client/proc/testZAScolors
+	,/client/proc/testZAScolors_remove
+	,/datum/admins/proc/setup_supermatter
+	,/client/proc/atmos_toggle_debug
+	,/client/proc/spawn_tanktransferbomb
+	,/client/proc/get_bad_fdoors
+	,/client/proc/get_bad_doors
+	,/client/proc/analyze_openturf
 	)
 
 
@@ -220,7 +223,7 @@ var/list/debug_verbs = list (
 	var/turf/simulated/location = get_turf(usr)
 
 	if(!istype(location, /turf/simulated)) // We're in space, let's not cause runtimes.
-		usr << "<span class='warning'>this debug tool cannot be used from space</span>"
+		to_chat(usr, "<span class='warning'>this debug tool cannot be used from space</span>")
 		return
 
 	var/icon/red = new('icons/misc/debug_group.dmi', "red")		//created here so we don't have to make thousands of these.
@@ -228,11 +231,11 @@ var/list/debug_verbs = list (
 	var/icon/blue = new('icons/misc/debug_group.dmi', "blue")
 
 	if(!usedZAScolors)
-		usr << "ZAS Test Colors"
-		usr << "Green = Zone you are standing in"
-		usr << "Blue = Connected zone to the zone you are standing in"
-		usr << "Yellow = A zone that is connected but not one adjacent to your connected zone"
-		usr << "Red = Not connected"
+		to_chat(usr, "ZAS Test Colors")
+		to_chat(usr, "Green = Zone you are standing in")
+		to_chat(usr, "Blue = Connected zone to the zone you are standing in")
+		to_chat(usr, "Yellow = A zone that is connected but not one adjacent to your connected zone")
+		to_chat(usr, "Red = Not connected")
 		usedZAScolors = 1
 
 	testZAScolors_zones += location.zone
@@ -308,17 +311,8 @@ var/list/debug_verbs = list (
 				if(B.z == num_level)
 					count++
 					atom_list += A
-	/*
-	var/atom/temp_atom
-	for(var/i = 0; i <= (atom_list.len/10); i++)
-		var/line = ""
-		for(var/j = 1; j <= 10; j++)
-			if(i*10+j <= atom_list.len)
-				temp_atom = atom_list[i*10+j]
-				line += " no.[i+10+j]@\[[temp_atom.x], [temp_atom.y], [temp_atom.z]\]; "
-		world << line*/
 
-	world << "There are [count] objects of type [type_path] on z-level [num_level]"
+	to_world("There are [count] objects of type [type_path] on z-level [num_level]")
 	feedback_add_details("admin_verb","mOBJZ") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /client/proc/count_objects_all()
@@ -335,17 +329,8 @@ var/list/debug_verbs = list (
 	for(var/atom/A in world)
 		if(istype(A,type_path))
 			count++
-	/*
-	var/atom/temp_atom
-	for(var/i = 0; i <= (atom_list.len/10); i++)
-		var/line = ""
-		for(var/j = 1; j <= 10; j++)
-			if(i*10+j <= atom_list.len)
-				temp_atom = atom_list[i*10+j]
-				line += " no.[i+10+j]@\[[temp_atom.x], [temp_atom.y], [temp_atom.z]\]; "
-		world << line*/
 
-	world << "There are [count] objects of type [type_path] in the game world"
+	to_world("There are [count] objects of type [type_path] in the game world")
 	feedback_add_details("admin_verb","mOBJ") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 
@@ -364,7 +349,7 @@ var/global/prevent_airgroup_regroup = 0
 	set category = "Mapping"
 	set name = "Regroup All Airgroups Attempt"
 
-	usr << "<span class='warning'>Proc disabled.</span>"
+	to_chat(usr, "<span class='warning'>Proc disabled.</span>")
 
 	/*prevent_airgroup_regroup = 0
 	for(var/datum/air_group/AG in SSair.air_groups)
@@ -375,7 +360,7 @@ var/global/prevent_airgroup_regroup = 0
 	set category = "Mapping"
 	set name = "Kill pipe processing"
 
-	usr << "<span class='warning'>Proc disabled.</span>"
+	to_chat(usr, "<span class='warning'>Proc disabled.</span>")
 
 	/*pipe_processing_killed = !pipe_processing_killed
 	if(pipe_processing_killed)
@@ -387,7 +372,7 @@ var/global/prevent_airgroup_regroup = 0
 	set category = "Mapping"
 	set name = "Kill air processing"
 
-	usr << "<span class='warning'>Proc disabled.</span>"
+	to_chat(usr, "<span class='warning'>Proc disabled.</span>")
 
 //This proc is intended to detect lag problems relating to communication procs
 var/global/say_disabled = 0
@@ -395,7 +380,7 @@ var/global/say_disabled = 0
 	set category = "Mapping"
 	set name = "Disable all communication verbs"
 
-	usr << "<span class='warning'>Proc disabled.</span>"
+	to_chat(usr, "<span class='warning'>Proc disabled.</span>")
 
 	/*say_disabled = !say_disabled
 	if(say_disabled)
@@ -410,7 +395,7 @@ var/global/movement_disabled_exception //This is the client that calls the proc,
 	set category = "Mapping"
 	set name = "Disable all movement"
 
-	usr << "<span class='warning'>Proc disabled.</span>"
+	to_chat(usr, "<span class='warning'>Proc disabled.</span>")
 
 	/*movement_disabled = !movement_disabled
 	if(movement_disabled)
@@ -426,7 +411,7 @@ var/global/movement_disabled_exception //This is the client that calls the proc,
 	for(var/obj/machinery/door/airlock/A in world)
 		var/turf/T = get_turf(A)
 		if(istype(T, /turf/space) || istype(T, /turf/simulated/floor/asteroid) || isopenturf(T) || T.density)
-			usr << "Airlock [A] with bad turf at ([A.x],[A.y],[A.z]) in [T.loc]."
+			to_chat(usr, "Airlock [A] with bad turf at ([A.x],[A.y],[A.z]) in [T.loc].")
 
 /client/proc/get_bad_fdoors()
 	set category = "Mapping"
@@ -438,4 +423,4 @@ var/global/movement_disabled_exception //This is the client that calls the proc,
 		for(var/obj/machinery/door/firedoor/FD in T)
 			firelock_increment += 1
 		if(firelock_increment > 1)
-			usr << "Double firedoor [F] at ([F.x],[F.y],[F.z]) in [T.loc]."
+			to_chat(usr, "Double firedoor [F] at ([F.x],[F.y],[F.z]) in [T.loc].")

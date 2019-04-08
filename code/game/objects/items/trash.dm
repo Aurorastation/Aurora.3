@@ -4,11 +4,14 @@
 //Added by Jack Rost
 /obj/item/trash
 	icon = 'icons/obj/trash.dmi'
-	w_class = 2.0
-	desc = "This is rubbish."
+	w_class = 1.0
+	desc = "General waste material, refuse or litter. Dispose responsibly."
+
+/obj/item/trash/attack(mob/M as mob, mob/living/user as mob)
+	return
 
 /obj/item/trash/koisbar
-	name = "K'ois Bar Wrapper"
+	name = "\improper K'ois Bar Wrapper"
 	icon_state = "koisbar"
 
 /obj/item/trash/raisins
@@ -32,7 +35,7 @@
 	icon_state = "popcorn"
 
 /obj/item/trash/sosjerky
-	name = "Scaredy's Private Reserve Beef Jerky"
+	name = "\improper Scaredy's Private Reserve Beef Jerky"
 	icon_state = "sosjerky"
 
 /obj/item/trash/syndi_cakes
@@ -40,7 +43,7 @@
 	icon_state = "syndi_cakes"
 
 /obj/item/trash/waffles
-	name = "waffles"
+	name = "square tray"
 	icon_state = "waffles"
 
 /obj/item/trash/plate
@@ -75,26 +78,55 @@
 /obj/item/trash/tastybread
 	name = "bread tube"
 	icon_state = "tastybread"
-	
+
 /obj/item/trash/meatsnack
 	name = "mo'gunz meat pie"
 	icon_state = "meatsnack-used"
 
 /obj/item/trash/maps
-	name = "map salty ham"
+	name = "maps salty ham"
 	icon_state = "maps-used"
-	
+
 /obj/item/trash/nathisnack
-	name = "nathi-snack corned beef"
+	name = "razi-snack corned beef"
 	icon_state = "cbeef-used"
 
 /obj/item/trash/brownies
-	name = "brownie tray"
+	name = "square tray"
 	icon_state = "brownies"
 
 /obj/item/trash/snacktray
 	name = "snacktray"
 	icon_state = "snacktray"
 
-/obj/item/trash/attack(mob/M as mob, mob/living/user as mob)
-	return
+/obj/item/trash/dipbowl
+	name = "dip bowl"
+	icon_state = "dipbowl"
+
+/obj/item/trash/chipbasket
+	name = "empty basket"
+	icon_state = "chipbasket_empty"
+
+/obj/item/trash/uselessplastic
+	name = "useless plastic"
+	icon_state = "useless_plastic"
+
+/obj/item/trash/can
+	name = "used can"
+	icon_state = "can-used"
+
+/obj/item/trash/tuna
+	name = "\improper Tuna Snax"
+	icon_state = "tuna"
+
+/obj/item/trash/skrellsnacks
+	name = "\improper SkrellSnax"
+	icon_state = "skrellsnacks"
+
+/obj/item/trash/space_twinkie
+	name = "space twinkie"
+	icon_state = "space_twinkie"
+
+/obj/item/trash/grease //used for generic plattered food. example is lasagna.
+	name = "square tray"
+	icon_state = "grease"

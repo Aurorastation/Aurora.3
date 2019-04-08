@@ -4,8 +4,6 @@ var/list/gamemode_cache = list()
 	var/server_name = null				// server name (for world name / status)
 	var/server_suffix = 0				// generate numeric suffix based on server port
 
-	var/list/lobby_screens = list("title") // Which lobby screens are available
-
 	var/log_ooc = 0						// log OOC channel
 	var/log_access = 0					// log login/logout
 	var/log_say = 0						// log client say
@@ -20,7 +18,7 @@ var/list/gamemode_cache = list()
 	var/log_pda = 0						// log pda messages
 	var/log_hrefs = 0					// logs all links clicked in-game. Could be used for debugging and tracking down exploits
 	var/log_runtime = 0					// logs world.log to a file
-	var/log_world_output = 0			// log world.log << messages
+	var/log_world_output = 0			// log world.log <<  messages
 	var/sql_enabled = 1					// for sql switching
 	var/allow_admin_ooccolor = 0		// Allows admins with relevant permissions to have their own ooc colour
 	var/allow_vote_restart = 0 			// allow votes to restart
@@ -48,7 +46,6 @@ var/list/gamemode_cache = list()
 	var/popup_admin_pm = 0				//adminPMs to non-admins show in a pop-up 'reply' window when set to 1.
 	var/Ticklag = 0.4
 	var/Tickcomp = 0
-	var/list/resource_urls = null
 	var/antag_hud_allowed = 0			// Ghosts can turn on Antagovision to see a HUD of who is the bad guys this round.
 	var/antag_hud_restricted = 0                    // Ghosts that turn on Antagovision cannot rejoin the round.
 	var/list/mode_names = list()
@@ -75,6 +72,7 @@ var/list/gamemode_cache = list()
 	var/automute_on = 0					//enables automuting/spam prevention
 	var/macro_trigger = 5				// The grace period between messages before it's counted as abusing a macro.
 	var/jobs_have_minimal_access = 0	//determines whether jobs use minimal access or expanded access.
+	var/override_map
 
 	var/cult_ghostwriter = 1               //Allows ghosts to write in blood in cult rounds...
 	var/cult_ghostwriter_req_cultists = 10 //...so long as this many cultists are active.
@@ -106,6 +104,7 @@ var/list/gamemode_cache = list()
 	var/alert_desc_green = "All threats to the station have passed. Security may not have weapons visible, privacy laws are once again fully enforced."
 	var/alert_desc_blue_upto = "The station has received reliable information about possible hostile activity on the station. Security staff may have weapons visible, random searches are permitted."
 	var/alert_desc_blue_downto = "The immediate threat has passed. Security may no longer have weapons drawn at all times, but may continue to have them visible. Random searches are still allowed."
+	var/alert_desc_yellow_to = "The station is now under an elevated alert status due to a confirmed biological hazard. All crew are to follow command instruction in order to ensure a safe return to standard operations."
 	var/alert_desc_red_upto = "There is an immediate serious threat to the station. Security may have weapons unholstered at all times. Random searches are allowed and advised."
 	var/alert_desc_red_downto = "The self-destruct mechanism has been deactivated, there is still however an immediate serious threat to the station. Security may have weapons unholstered at all times, random searches are allowed and advised."
 	var/alert_desc_delta = "The station's self-destruct mechanism has been engaged. All crew are instructed to obey all instructions given by heads of staff. Any violations of these orders can be punished by death. This is not a drill."
@@ -138,6 +137,9 @@ var/list/gamemode_cache = list()
 
 	var/welder_vision = 1
 	var/generate_asteroid = 0
+	var/dungeon_chance = 0
+
+
 	var/no_click_cooldown = 0
 
 	//Used for modifying movement speed for mobs.
@@ -160,13 +162,14 @@ var/list/gamemode_cache = list()
 	var/ban_legacy_system = 0	//Defines whether the server uses the legacy banning system with the files in /data or the SQL system. Config option in config.txt
 	var/use_age_restriction_for_jobs = 0 //Do jobs use account age restrictions? --requires database
 	var/use_age_restriction_for_antags = 0 //Do antags use account age restrictions? --requires database
+	var/age_restrictions_from_file = 0 // Are hardcoded values used or config ones?
 	var/sql_stats = 0			//Do we record round statistics on the database (deaths, round reports, population, etcetera) or not?
 	var/sql_whitelists = 0		//Defined whether the server uses an SQL based whitelist system, or the legacy one with two .txts. Config option in config.txt
 	var/sql_saves = 0			//Defines whether the server uses an SQL based character and preference saving system. Config option in config.txt
 
 	var/simultaneous_pm_warning_timeout = 100
 
-	var/use_recursive_explosions = 0 //Defines whether the server uses recursive or circular explosions.
+	var/use_spreading_explosions = 0 //Defines whether the server uses iterative or circular explosions.
 
 	var/assistant_maint = 0 //Do assistants get maint access?
 	var/gateway_delay = 18000 //How long the gateway takes before it activates. Default is half an hour.
@@ -181,12 +184,6 @@ var/list/gamemode_cache = list()
 	var/use_discord_pins = 0
 	var/python_path = "python" //Path to the python executable.  Defaults to "python" on windows and "/usr/bin/env python2" on unix
 	var/use_overmap = 0
-
-	var/list/station_levels = list(3, 4, 5, 6, 7)				// Defines which Z-levels the station exists on.
-	var/list/admin_levels= list(1)					// Defines which Z-levels which are for admin functionality, for example including such areas as Central Command and the Syndicate Shuttle
-	var/list/contact_levels = list(3, 4, 5, 6)			// Defines which Z-levels which, for example, a Code Red announcement may affect
-	var/list/player_levels = list(2, 3, 4, 5, 6, 7, 8)	// Defines all Z-levels a character can typically reach
-	var/list/sealed_levels = list() 				// Defines levels that do not allow random transit at the edges.
 
 	// Event settings
 	var/expected_round_length = 3 * 60 * 60 * 10 // 3 hours
@@ -226,6 +223,7 @@ var/list/gamemode_cache = list()
 	var/client_error_message = ""
 	var/client_warn_version = 0
 	var/client_warn_message = ""
+	var/list/client_blacklist_version = list()
 
 	//Mark-up enabling
 	var/allow_chat_markup = 0
@@ -270,7 +268,31 @@ var/list/gamemode_cache = list()
 	var/sun_accuracy = 8
 	var/sun_target_z = 7
 
-/datum/configuration/New()
+	var/cargo_load_items_from = "json"
+	var/merchant_chance = 20 //Chance, in percentage, of the merchant job slot being open at round start
+
+	var/show_game_type_odd = 1 // If the check gamemode probability verb is enabled or not
+
+	var/openturf_starlight_permitted = FALSE
+
+	var/iterative_explosives_z_threshold = 10
+	var/iterative_explosives_z_multiplier = 0.75
+
+	var/ticket_reminder_period = 0
+
+	var/rounds_until_hard_restart = -1 // Changes how often a hard restart will be executed.
+
+	var/ert_base_chance = 10
+	var/ert_green_inc = 1
+	var/ert_yellow_inc = 1
+	var/ert_blue_inc = 2
+	var/ert_red_inc = 3
+	var/ert_delta_inc = 10
+	var/ert_scaling_factor = 1
+	var/ert_scaling_factor_antag = 1
+	var/ert_scaling_factor_dead = 2
+
+/datum/configuration/proc/setup_antag_datums()
 	var/list/L = typesof(/datum/game_mode) - /datum/game_mode
 	for (var/T in L)
 		// I wish I didn't have to instance the game modes in order to look up
@@ -283,10 +305,10 @@ var/list/gamemode_cache = list()
 				src.modes += M.config_tag
 				src.mode_names[M.config_tag] = M.name
 				src.probabilities_secret[M.config_tag] = M.probability
-				if (M.votable)
+				if (M.config_tag in current_map.allowed_gamemodes)
 					src.votable_modes += M.config_tag
 	src.votable_modes += ROUNDTYPE_STR_SECRET
-	votable_modes += ROUNDTYPE_STR_MIXED_SECRET
+//	votable_modes += ROUNDTYPE_STR_MIXED_SECRET
 
 /datum/configuration/proc/load(filename, type = "config") //the type can also be game_options, in which case it uses a different switch. not making it separate to not copypaste code - Urist
 	var/list/Lines = file2list(filename)
@@ -315,9 +337,6 @@ var/list/gamemode_cache = list()
 
 		if(type == "config")
 			switch (name)
-				if ("resource_urls")
-					config.resource_urls = text2list(value, " ")
-
 				if ("admin_legacy_system")
 					config.admin_legacy_system = 1
 
@@ -330,11 +349,14 @@ var/list/gamemode_cache = list()
 				if ("use_age_restriction_for_antags")
 					config.use_age_restriction_for_antags = 1
 
+				if ("load_age_restrictions_from_file")
+					config.age_restrictions_from_file = 1
+
 				if ("jobs_have_minimal_access")
 					config.jobs_have_minimal_access = 1
 
-				if ("use_recursive_explosions")
-					use_recursive_explosions = 1
+				if ("use_spreading_explosions")
+					use_spreading_explosions = 1
 
 				if ("log_ooc")
 					config.log_ooc = 1
@@ -386,6 +408,9 @@ var/list/gamemode_cache = list()
 
 				if ("log_runtime")
 					config.log_runtime = text2num(value)
+
+				if ("dungeon_chance")
+					config.dungeon_chance = text2num(value)
 
 				if ("generate_asteroid")
 					config.generate_asteroid = 1
@@ -587,6 +612,9 @@ var/list/gamemode_cache = list()
 				if("alert_green")
 					config.alert_desc_green = value
 
+				if("alert_yellow")
+					config.alert_desc_yellow_to = value
+
 				if("alert_delta")
 					config.alert_desc_delta = value
 
@@ -681,21 +709,6 @@ var/list/gamemode_cache = list()
 				if("use_overmap")
 					config.use_overmap = 1
 
-				if("station_levels")
-					config.station_levels = text2numlist(value, ";")
-
-				if("admin_levels")
-					config.admin_levels = text2numlist(value, ";")
-
-				if("contact_levels")
-					config.contact_levels = text2numlist(value, ";")
-
-				if("player_levels")
-					config.player_levels = text2numlist(value, ";")
-
-				if("sealed_levels")
-					config.sealed_levels = text2numlist(value, ";")
-
 				if("expected_round_length")
 					config.expected_round_length = MinutesToTicks(text2num(value))
 
@@ -733,6 +746,9 @@ var/list/gamemode_cache = list()
 					value = text2num(value)
 					config.starlight = value >= 0 ? value : 0
 
+				if("openturf_starlight")
+					openturf_starlight_permitted = TRUE
+
 				if("ert_species")
 					config.ert_species = text2list(value, ";")
 					if(!config.ert_species.len)
@@ -769,6 +785,9 @@ var/list/gamemode_cache = list()
 				if("client_warn_message")
 					config.client_warn_message = value
 
+				if("client_blacklist_version")
+					config.client_blacklist_version = splittext(value, ";")
+
 				if("allow_chat_markup")
 					config.allow_chat_markup = 1
 
@@ -779,9 +798,6 @@ var/list/gamemode_cache = list()
 					var/list/values = text2list(value, " ")
 					if(values.len > 0)
 						language_prefixes = values
-
-				if ("lobby_screens")
-					config.lobby_screens = text2list(value, ";")
 
 				if("delist_when_no_admins")
 					config.delist_when_no_admins = 1
@@ -829,9 +845,54 @@ var/list/gamemode_cache = list()
 				if("access_warn_vms")
 					access_warn_vms = text2num(value)
 
+				if("cargo_load_items_from")
+					cargo_load_items_from = value
+
 				if("fastboot")
 					fastboot = TRUE
-					world.log << "Fastboot is ENABLED."
+					world.log <<  "Fastboot is ENABLED."
+
+				if("merchant_chance")
+					config.merchant_chance = text2num(value)
+
+				if("force_map")
+					override_map = value
+
+				if ("explosion_z_threshold")
+					iterative_explosives_z_threshold = text2num(value)
+
+				if ("explosion_z_mult")
+					iterative_explosives_z_multiplier = text2num(value)
+
+				if("show_game_type_odd")
+					config.show_game_type_odd = 1
+
+				if ("ticket_reminder_period")
+					ticket_reminder_period = text2num(value)
+					if (ticket_reminder_period < 1)
+						ticket_reminder_period = 0
+
+				if ("rounds_until_hard_restart")
+					rounds_until_hard_restart = text2num(value)
+
+				if ("ert_base_chance")
+					ert_base_chance = text2num(value)
+				if ("ert_green_inc")
+					ert_green_inc = text2num(value)
+				if ("ert_yellow_inc")
+					ert_yellow_inc = text2num(value)
+				if ("ert_blue_inc")
+					ert_blue_inc = text2num(value)
+				if ("ert_red_inc")
+					ert_red_inc = text2num(value)
+				if ("ert_delta_inc")
+					ert_delta_inc = text2num(value)
+				if ("ert_scaling_factor")
+					ert_scaling_factor = text2num(value)
+				if ("ert_scaling_factor_antag")
+					ert_scaling_factor_antag = text2num(value)
+				if ("ert_scaling_factor_dead")
+					ert_scaling_factor_dead = text2num(value)
 
 				else
 					log_misc("Unknown setting in configuration: '[name]'")
@@ -942,6 +1003,8 @@ var/list/gamemode_cache = list()
 	return gamemode_cache["extended"]
 
 /datum/configuration/proc/get_runnable_modes(secret_type = ROUNDTYPE_STR_SECRET)
+	log_debug("GAMEMODE: Checking runnable modes with secret_type set to [secret_type]...")
+
 	var/list/probabilities = config.probabilities_secret
 
 	if (secret_type == ROUNDTYPE_STR_MIXED_SECRET)
@@ -955,8 +1018,25 @@ var/list/gamemode_cache = list()
 	var/list/runnable_modes = list()
 	for(var/game_mode in gamemode_cache)
 		var/datum/game_mode/M = gamemode_cache[game_mode]
-		if(M && M.can_start() && probabilities[M.config_tag] && probabilities[M.config_tag] > 0)
-			runnable_modes |= M
+		if(!M)
+			log_debug("GAMEMODE: ERROR: [M] does not exist!")
+			continue
+
+		var/can_start = M.can_start()
+		if(can_start != GAME_FAILURE_NONE)
+			log_debug("GAMEMODE: [M.name] cannot start! Reason: [can_start]")
+			continue
+
+		if(!probabilities[M.config_tag])
+			log_debug("GAMEMODE: ERROR: [M.name] does not have a config associated with it!")
+			continue
+
+		if(probabilities[M.config_tag] <= 0)
+			log_debug("GAMEMODE: ERROR: [M.name] has a probability equal or less than 0!")
+			continue
+
+		runnable_modes |= M
+
 	return runnable_modes
 
 /datum/configuration/proc/post_load()

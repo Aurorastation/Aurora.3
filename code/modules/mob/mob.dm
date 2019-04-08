@@ -16,6 +16,9 @@
 		mind.handle_mob_deletion(src)
 	for(var/infection in viruses)
 		qdel(infection)
+	for(var/cc in client_colors)
+		qdel(cc)
+	client_colors = null
 	viruses.Cut()
 
 	//Added this to prevent nonliving mobs from ghostising
@@ -32,6 +35,8 @@
 	if (istype(src.loc, /atom/movable))
 		var/atom/movable/AM = src.loc
 		LAZYREMOVE(AM.contained_mobs, src)
+
+	MOB_STOP_THINKING(src)
 
 	return ..()
 
@@ -52,6 +57,7 @@
 	healths = null
 	throw_icon = null
 	nutrition_icon = null
+	hydration_icon = null
 	pressure = null
 	damageoverlay = null
 	pain = null
@@ -61,13 +67,16 @@
 	spell_masters = null
 	zone_sel = null
 
-/mob/New()
+/mob/Initialize()
+	. = ..()
 	mob_list += src
 	if(stat == DEAD)
 		dead_mob_list += src
 	else
 		living_mob_list += src
-	..()
+
+	if (!ckey && mob_thinks)
+		MOB_START_THINKING(src)
 
 /mob/proc/show_message(msg, type, alt, alt_type)//Message, type of message (1 or 2), alternative message, alt message type (1 or 2)
 
@@ -90,9 +99,9 @@
 					return
 	// Added voice muffling for Issue 41.
 	if(stat == UNCONSCIOUS || sleeping > 0)
-		src << "<I>... You can almost hear someone talking ...</I>"
+		to_chat(src, "<I>... You can almost hear someone talking ...</I>")
 	else
-		src << msg
+		to_chat(src, msg)
 	return
 
 // Show a message to all mobs and objects in sight of this one
@@ -101,10 +110,10 @@
 // self_message (optional) is what the src mob sees  e.g. "You do something!"
 // blind_message (optional) is what blind people will hear e.g. "You hear something!"
 
-/mob/visible_message(var/message, var/self_message, var/blind_message)
+/mob/visible_message(var/message, var/self_message, var/blind_message, var/range = world.view)
 	var/list/messageturfs = list()//List of turfs we broadcast to.
 	var/list/messagemobs = list()//List of living mobs nearby who can hear it, and distant ghosts who've chosen to hear it
-	for (var/turf in view(world.view, get_turf(src)))
+	for (var/turf in view(range, get_turf(src)))
 		messageturfs += turf
 
 	for(var/A in player_list)
@@ -113,7 +122,7 @@
 			warning("Null or QDELETED object [DEBUG_REF(M)] found in player list! Removing.")
 			player_list -= M
 			continue
-		if (!M.client || istype(M, /mob/new_player))
+		if (!M.client || istype(M, /mob/abstract/new_player))
 			continue
 		if(get_turf(M) in messageturfs)
 			messagemobs += M
@@ -198,9 +207,6 @@
 	return 0
 
 /mob/proc/Life()
-//	if(organStructure)
-//		organStructure.ProcessOrgans()
-	//handle_typing_indicator() //You said the typing indicator would be fine. The test determined that was a lie.
 	return
 
 #define UNBUCKLED 0
@@ -286,9 +292,10 @@
 /mob/verb/examinate(atom/A as mob|obj|turf in view())
 	set name = "Examine"
 	set category = "IC"
-
+	if(!A)
+		return
 	if((is_blind(src) || usr.stat) && !isobserver(src))
-		src << "<span class='notice'>Something is there but you can't see it.</span>"
+		to_chat(src, "<span class='notice'>Something is there but you can't see it.</span>")
 		return 1
 
 	face_atom(A)
@@ -319,7 +326,11 @@
 /mob/proc/clear_point()
 	QDEL_NULL(pointing_effect)
 
-/mob/proc/ret_grab(obj/effect/list_container/mobl/L as obj, flag)
+/datum/mobl	// I have no idea what the fuck this is, but it's better for it to be a datum than an /obj/effect.
+	var/list/container = list()
+	var/master
+
+/mob/proc/ret_grab(datum/mobl/L, flag)
 	if ((!( istype(l_hand, /obj/item/weapon/grab) ) && !( istype(r_hand, /obj/item/weapon/grab) )))
 		if (!( L ))
 			return null
@@ -327,26 +338,24 @@
 			return L.container
 	else
 		if (!( L ))
-			L = new /obj/effect/list_container/mobl( null )
+			L = new /datum/mobl
 			L.container += src
 			L.master = src
 		if (istype(l_hand, /obj/item/weapon/grab))
 			var/obj/item/weapon/grab/G = l_hand
-			if (!( L.container.Find(G.affecting) ))
+			if (!(L.container.Find(G.affecting)))
 				L.container += G.affecting
 				if (G.affecting)
 					G.affecting.ret_grab(L, 1)
 		if (istype(r_hand, /obj/item/weapon/grab))
 			var/obj/item/weapon/grab/G = r_hand
-			if (!( L.container.Find(G.affecting) ))
+			if (!(L.container.Find(G.affecting)))
 				L.container += G.affecting
 				if (G.affecting)
 					G.affecting.ret_grab(L, 1)
 		if (!( flag ))
 			if (L.master == src)
-				var/list/temp = list(  )
-				temp += L.container
-				//L = null
+				var/list/temp = L.container.Copy()
 				qdel(L)
 				return temp
 			else
@@ -372,24 +381,13 @@
 			update_inv_r_hand()
 	return
 
-/*
-/mob/verb/dump_source()
-
-	var/master = "<PRE>"
-	for(var/t in typesof(/area))
-		master += text("[]\n", t)
-		//Foreach goto(26)
-	src << browse(master)
-	return
-*/
-
 /mob/verb/memory()
 	set name = "Notes"
 	set category = "IC"
 	if(mind)
 		mind.show_memory(src)
 	else
-		src << "The game appears to have misplaced your mind datum, so we can't show you your notes."
+		to_chat(src, "The game appears to have misplaced your mind datum, so we can't show you your notes.")
 
 /mob/verb/add_memory(msg as message)
 	set name = "Add Note"
@@ -400,7 +398,7 @@
 	if(mind)
 		mind.store_memory(msg)
 	else
-		src << "The game appears to have misplaced your mind datum, so we can't show you your notes."
+		to_chat(src, "The game appears to have misplaced your mind datum, so we can't show you your notes.")
 
 /mob/proc/store_memory(msg as message, popup, sane = 1)
 	msg = copytext(msg, 1, MAX_MESSAGE_LEN)
@@ -419,7 +417,7 @@
 /mob/proc/update_flavor_text()
 	set src in usr
 	if(usr != src)
-		usr << "No."
+		to_chat(usr, "No.")
 	var/msg = sanitize(input(usr,"Set the flavor text in your 'examine' verb. Can also be used for OOC notes about your character.","Flavor Text",html_decode(flavor_text)) as message|null, extra = 0)
 
 	if(msg != null)
@@ -427,8 +425,8 @@
 
 /mob/proc/warn_flavor_changed()
 	if(flavor_text && flavor_text != "") // don't spam people that don't use it!
-		src << "<h2 class='alert'>OOC Warning:</h2>"
-		src << "<span class='alert'>Your flavor text is likely out of date! <a href='byond://?src=\ref[src];flavor_change=1'>Change</a></span>"
+		to_chat(src, "<h2 class='alert'>OOC Warning:</h2>")
+		to_chat(src, "<span class='alert'>Your flavor text is likely out of date! <a href='byond://?src=\ref[src];flavor_change=1'>Change</a></span>")
 
 /mob/proc/print_flavor_text()
 	if (flavor_text && flavor_text != "")
@@ -453,22 +451,22 @@
 		return//This shouldnt happen
 
 	if (!( config.abandon_allowed ))
-		usr << "<span class='notice'>Respawn is disabled.</span>"
+		to_chat(usr, "<span class='notice'>Respawn is disabled.</span>")
 		return
 	if (stat != DEAD)
-		usr << "<span class='notice'><B>You must be dead to use this!</B></span>"
+		to_chat(usr, "<span class='notice'><B>You must be dead to use this!</B></span>")
 		return
 	if (SSticker.mode && SSticker.mode.deny_respawn) //BS12 EDIT
-		usr << "<span class='notice'>Respawn is disabled for this roundtype.</span>"
+		to_chat(usr, "<span class='notice'>Respawn is disabled for this roundtype.</span>")
 		return
 	else if(!MayRespawn(1, CREW))
 		return
 
-	usr << "You can respawn now, enjoy your new life!"
+	to_chat(usr, "You can respawn now, enjoy your new life!")
 
 	log_game("[usr.name]/[usr.key] used abandon mob.",ckey=key_name(usr))
 
-	usr << "<span class='notice'><B>Make sure to play a different character, and please roleplay correctly!</B></span>"
+	to_chat(usr, "<span class='notice'><B>Make sure to play a different character, and please roleplay correctly!</B></span>")
 
 	if(!client)
 		log_game("[usr.key] AM failed due to disconnect.",ckey=key_name(usr))
@@ -480,7 +478,12 @@
 
 	announce_ghost_joinleave(client, 0)
 
-	var/mob/new_player/M = new /mob/new_player()
+	// Run this here to null out death timers for the next go.
+
+	var/mob/abstract/new_player/M = new /mob/abstract/new_player()
+
+	M.reset_death_timers()
+
 	if(!client)
 		log_game("[usr.key] AM failed due to disconnect.",ckey=key_name(usr))
 		qdel(M)
@@ -509,8 +512,8 @@
 
 	if(client.holder && (client.holder.rights & R_ADMIN))
 		is_admin = 1
-	else if(stat != DEAD || istype(src, /mob/new_player))
-		usr << "<span class='notice'>You must be observing to use this!</span>"
+	else if(stat != DEAD || istype(src, /mob/abstract/new_player))
+		to_chat(usr, "<span class='notice'>You must be observing to use this!</span>")
 		return
 
 	if(is_admin && stat == DEAD)
@@ -644,22 +647,22 @@
 		return
 
 	if (AM.anchored)
-		src << "<span class='warning'>It won't budge!</span>"
+		to_chat(src, "<span class='warning'>It won't budge!</span>")
 		return
 
 	var/mob/M = null
 	if(ismob(AM))
 		M = AM
 		if(!can_pull_mobs || !can_pull_size)
-			src << "<span class='warning'>It won't budge!</span>"
+			to_chat(src, "<span class='warning'>It won't budge!</span>")
 			return
 
 		if((mob_size < M.mob_size) && (can_pull_mobs != MOB_PULL_LARGER))
-			src << "<span class='warning'>It won't budge!</span>"
+			to_chat(src, "<span class='warning'>It won't budge!</span>")
 			return
 
 		if((mob_size == M.mob_size) && (can_pull_mobs == MOB_PULL_SMALLER))
-			src << "<span class='warning'>It won't budge!</span>"
+			to_chat(src, "<span class='warning'>It won't budge!</span>")
 			return
 
 		// If your size is larger than theirs and you have some
@@ -674,7 +677,7 @@
 	else if(isobj(AM))
 		var/obj/I = AM
 		if(!can_pull_size || can_pull_size < I.w_class)
-			src << "<span class='warning'>It won't budge!</span>"
+			to_chat(src, "<span class='warning'>It won't budge!</span>")
 			return
 
 	if(pulling)
@@ -693,7 +696,7 @@
 	if(ishuman(AM))
 		var/mob/living/carbon/human/H = AM
 		if(H.pull_damage())
-			src << "<span class='danger'>Pulling \the [H] in their current condition would probably be a bad idea.</span>"
+			to_chat(src, "<span class='danger'>Pulling \the [H] in their current condition would probably be a bad idea.</span>")
 
 	//Attempted fix for people flying away through space when cuffed and dragged.
 	if(M)
@@ -710,9 +713,13 @@
 	return stat == DEAD
 
 /mob/proc/is_mechanical()
-	if(mind && (mind.assigned_role == "Cyborg" || mind.assigned_role == "AI"))
-		return 1
-	return istype(src, /mob/living/silicon) || get_species() == "Baseline Frame" || get_species() == "Shell Frame" || get_species() == "Industrial Frame"
+	return FALSE
+
+/mob/living/silicon/is_mechanical()
+	return TRUE
+
+/mob/living/carbon/human/is_mechanical()
+	return species && (species.flags & IS_MECHANICAL)
 
 /mob/proc/is_ready()
 	return client && !!mind
@@ -723,7 +730,7 @@
 /mob/proc/see(message)
 	if(!is_active())
 		return 0
-	src << message
+	to_chat(src, message)
 	return 1
 
 /mob/proc/show_viewers(message)
@@ -737,8 +744,9 @@
 	if(.)
 		if(statpanel("Status") && SSticker.current_state != GAME_STATE_PREGAME)
 			stat("Game ID", game_id)
+			stat("Map", current_map.full_name)
 			stat("Station Time", worldtime2text())
-			stat("Round Duration", round_duration())
+			stat("Round Duration", get_round_duration_formatted())
 			stat("Last Transfer Vote", SSvote.last_transfer_vote ? time2text(SSvote.last_transfer_vote, "hh:mm") : "Never")
 
 		if(client.holder)
@@ -754,7 +762,7 @@
 			if(statpanel("MC"))
 				stat("CPU:", world.cpu)
 				stat("Tick Usage:", world.tick_usage)
-				stat("Instances:", world.contents.len)
+				stat("Instances:", num2text(world.contents.len, 7))
 				if (config.fastboot)
 					stat(null, "FASTBOOT ENABLED")
 				if(Master)
@@ -977,6 +985,9 @@
 /mob/proc/flash_weak_pain()
 	flick("weak_pain",pain)
 
+/mob/proc/Jitter(amount)
+	jitteriness = max(jitteriness,amount,0)
+
 /mob/proc/get_visible_implants(var/class = 0)
 	var/list/visible_implants = list()
 	for(var/obj/item/O in embedded)
@@ -998,11 +1009,11 @@ mob/proc/yank_out_object()
 	usr.setClickCooldown(20)
 
 	if(usr.stat == 1)
-		usr << "You are unconscious and cannot do that!"
+		to_chat(usr, "You are unconscious and cannot do that!")
 		return
 
 	if(usr.restrained())
-		usr << "You are restrained and cannot do that!"
+		to_chat(usr, "You are restrained and cannot do that!")
 		return
 
 	var/mob/S = src
@@ -1016,17 +1027,17 @@ mob/proc/yank_out_object()
 	valid_objects = get_visible_implants(0)
 	if(!valid_objects.len)
 		if(self)
-			src << "You have nothing stuck in your body that is large enough to remove."
+			to_chat(src, "You have nothing stuck in your body that is large enough to remove.")
 		else
-			U << "[src] has nothing stuck in their wounds that is large enough to remove."
+			to_chat(U, "[src] has nothing stuck in their wounds that is large enough to remove.")
 		return
 
 	var/obj/item/weapon/selection = input("What do you want to yank out?", "Embedded objects") in valid_objects
 
 	if(self)
-		src << "<span class='warning'>You attempt to get a good grip on [selection] in your body.</span>"
+		to_chat(src, "<span class='warning'>You attempt to get a good grip on [selection] in your body.</span>")
 	else
-		U << "<span class='warning'>You attempt to get a good grip on [selection] in [S]'s body.</span>"
+		to_chat(U, "<span class='warning'>You attempt to get a good grip on [selection] in [S]'s body.</span>")
 
 	if(!do_after(U, 30))
 		return
@@ -1087,6 +1098,7 @@ mob/proc/yank_out_object()
 	handle_silent()
 	handle_drugged()
 	handle_slurring()
+	handle_tarded()
 
 /mob/living/proc/handle_stunned()
 	if(stunned)
@@ -1118,6 +1130,11 @@ mob/proc/yank_out_object()
 		slurring = max(slurring-1, 0)
 	return slurring
 
+/mob/living/proc/handle_tarded()
+	if(tarded)
+		tarded = max(tarded-1, 0)
+	return tarded
+
 /mob/living/proc/handle_paralysed() // Currently only used by simple_animal.dm, treated as a special case in other mobs
 	if(paralysis)
 		AdjustParalysis(-1)
@@ -1148,9 +1165,9 @@ mob/proc/yank_out_object()
 	set_face_dir(dir)
 
 	if(!facing_dir)
-		usr << "You are now not facing anything."
+		to_chat(usr, "You are now not facing anything.")
 	else
-		usr << "You are now facing [dir2text(facing_dir)]."
+		to_chat(usr, "You are now facing [dir2text(facing_dir)].")
 
 /mob/proc/set_face_dir(var/newdir)
 	if(newdir == facing_dir)
@@ -1164,14 +1181,14 @@ mob/proc/yank_out_object()
 		set_dir(dir)
 		facing_dir = dir
 
-/mob/set_dir()
+/mob/set_dir(ndir)
 	if(facing_dir)
 		if(!canface() || lying || buckled || restrained())
 			facing_dir = null
 		else if(dir != facing_dir)
 			return ..(facing_dir)
 	else
-		return ..()
+		return ..(ndir)
 
 /mob/forceMove(atom/dest)
 	var/atom/movable/AM
@@ -1184,6 +1201,14 @@ mob/proc/yank_out_object()
 		LAZYREMOVE(AM.contained_mobs, src)
 
 	. = ..()
+
+	if (!contained_mobs)	// If this is true, the parent will have already called the client hook.
+		update_client_hook(loc)
+
+/mob/Move()
+	. = ..()
+	if (. && !contained_mobs && client)
+		update_client_hook(loc)
 
 /mob/verb/northfaceperm()
 	set hidden = 1
@@ -1264,3 +1289,47 @@ mob/proc/yank_out_object()
 //Helper proc for figuring out if the active hand (or given hand) is usable.
 /mob/proc/can_use_hand()
 	return 1
+
+/client/proc/check_has_body_select()
+	return mob && mob.hud_used && istype(mob.zone_sel, /obj/screen/zone_sel)
+
+/client/verb/body_toggle_head()
+	set name = "body-toggle-head"
+	set hidden = 1
+	toggle_zone_sel(list("head","eyes","mouth"))
+
+/client/verb/body_r_arm()
+	set name = "body-r-arm"
+	set hidden = 1
+	toggle_zone_sel(list("r_arm","r_hand"))
+
+/client/verb/body_l_arm()
+ 	set name = "body-l-arm"
+ 	set hidden = 1
+ 	toggle_zone_sel(list("l_arm","l_hand"))
+
+/client/verb/body_chest()
+ 	set name = "body-chest"
+ 	set hidden = 1
+ 	toggle_zone_sel(list("chest"))
+
+/client/verb/body_groin()
+ 	set name = "body-groin"
+ 	set hidden = 1
+ 	toggle_zone_sel(list("groin"))
+
+/client/verb/body_r_leg()
+ 	set name = "body-r-leg"
+ 	set hidden = 1
+ 	toggle_zone_sel(list("r_leg","r_foot"))
+
+/client/verb/body_l_leg()
+ 	set name = "body-l-leg"
+ 	set hidden = 1
+ 	toggle_zone_sel(list("l_leg","l_foot"))
+
+/client/proc/toggle_zone_sel(list/zones)
+	if(!check_has_body_select())
+		return
+	var/obj/screen/zone_sel/selector = mob.zone_sel
+	selector.set_selected_zone(next_in_list(mob.zone_sel.selecting,zones))

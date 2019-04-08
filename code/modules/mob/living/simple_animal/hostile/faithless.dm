@@ -14,6 +14,8 @@
 	health = 80
 	environment_smash = 2
 
+	tameable = FALSE
+
 	harm_intent_damage = 10
 	melee_damage_lower = 15
 	melee_damage_upper = 15
@@ -33,6 +35,8 @@
 
 	faction = "faithless"
 
+	flying = TRUE
+
 /mob/living/simple_animal/hostile/faithless/Allow_Spacemove(var/check_drift = 0)
 	return 1
 
@@ -49,17 +53,9 @@
 			L.Weaken(3)
 			L.visible_message("<span class='danger'>\the [src] knocks down \the [L]!</span>")
 
-/mob/living/simple_animal/hostile/faithless/can_fall()
-	return FALSE
-
-/mob/living/simple_animal/hostile/faithless/can_ztravel()
-	return TRUE
-
-/mob/living/simple_animal/hostile/faithless/CanAvoidGravity()
-	return TRUE
-
 /mob/living/simple_animal/hostile/faithless/cult
 	faction = "cult"
+	appearance_flags = NO_CLIENT_COLOR
 
 /mob/living/simple_animal/hostile/faithless/cult/cultify()
 	return
@@ -82,8 +78,7 @@
 	harm_intent_damage = 0
 	melee_damage_lower = 25
 	melee_damage_upper = 25
-	var/list/darkform_spells = list(/spell/targeted/ethereal_jaunt/shift,
-									/spell/aoe_turf/conjure/forcewall/lesser)
+	var/list/darkform_spells = list(/spell/aoe_turf/conjure/forcewall/lesser)
 
 /mob/living/simple_animal/hostile/faithless/wizard/Initialize()
 	. = ..()

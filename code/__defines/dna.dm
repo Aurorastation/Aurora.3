@@ -31,11 +31,17 @@
 #define mSmallsize     110 // Table climbing.
 
 // disabilities
-#define NEARSIGHTED 0x1
-#define EPILEPSY    0x2
-#define COUGHING    0x4
-#define TOURETTES   0x8
-#define NERVOUS     0x10
+#define NEARSIGHTED 1
+#define EPILEPSY    2
+#define COUGHING    4
+#define TOURETTES   8
+#define STUTTER     16
+#define DUMB            32
+#define MONKEYLIKE      64 //sets IsAdvancedToolUser to FALSE
+#define PACIFIST        128
+#define UNINTELLIGIBLE  256
+#define GERTIE 512
+#define ASTHMA 1024
 
 // sdisabilities
 #define BLIND 0x1
@@ -56,7 +62,7 @@ var/COUGHBLOCK    = 0
 var/GLASSESBLOCK  = 0
 var/EPILEPSYBLOCK = 0
 var/TWITCHBLOCK   = 0
-var/NERVOUSBLOCK  = 0
+var/STUTTERBLOCK  = 0
 var/MONKEYBLOCK   = STRUCDNASIZE
 
 var/BLOCKADD = 0

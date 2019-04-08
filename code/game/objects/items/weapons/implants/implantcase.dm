@@ -35,17 +35,17 @@
 		if(!src.imp)	return
 		if(!src.imp.allow_reagents)	return
 		if(src.imp.reagents.total_volume >= src.imp.reagents.maximum_volume)
-			user << "<span class='warning'>\The [src] is full.</span>"
+			to_chat(user, "<span class='warning'>\The [src] is full.</span>")
 		else
 			var/trans = I.reagents.trans_to_obj(src.imp, 5)
 			if (trans > 0)
-				user << "<span class='notice'>You inject [trans] units of the solution. The syringe now contains [I.reagents.total_volume] units.</span>"
+				to_chat(user, "<span class='notice'>You inject [trans] units of the solution. The syringe now contains [I.reagents.total_volume] units.</span>")
 	else if (istype(I, /obj/item/weapon/implanter))
 		var/obj/item/weapon/implanter/M = I
 		if (M.imp)
 			if ((src.imp || M.imp.implanted))
 				return
-			M.imp.loc = src
+			M.imp.forceMove(src)
 			src.imp = M.imp
 			M.imp = null
 			src.update()
@@ -54,7 +54,7 @@
 			if (src.imp)
 				if (M.imp)
 					return
-				src.imp.loc = M
+				src.imp.forceMove(M)
 				M.imp = src.imp
 				src.imp = null
 				update()

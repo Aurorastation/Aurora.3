@@ -8,6 +8,9 @@
 	icon = 'icons/obj/playing_cards.dmi'
 	var/list/cards = list()
 
+/obj/item/weapon/deck/proc/generate_deck() //the procs that creates the cards
+	return
+
 /obj/item/weapon/deck/holder
 	name = "card box"
 	desc = "A small leather case to show how classy you are compared to everyone else."
@@ -18,9 +21,11 @@
 	desc = "A simple deck of playing cards."
 	icon_state = "deck"
 
-/obj/item/weapon/deck/cards/New()
-	..()
+/obj/item/weapon/deck/Initialize()
+	. = ..()
+	generate_deck()
 
+/obj/item/weapon/deck/cards/generate_deck()
 	var/datum/playingcard/P
 	for(var/suit in list("spades","clubs","diamonds","hearts"))
 
@@ -57,7 +62,7 @@
 		for(var/datum/playingcard/P in H.cards)
 			cards += P
 		qdel(O)
-		user << "You place your cards on the bottom of \the [src]."
+		to_chat(user, "You place your cards on the bottom of \the [src].")
 		return
 	..()
 
@@ -76,7 +81,7 @@
 	var/mob/living/carbon/user = usr
 
 	if(!cards.len)
-		usr << "There are no cards in the deck."
+		to_chat(usr, "There are no cards in the deck.")
 		return
 
 	var/obj/item/weapon/hand/H
@@ -95,7 +100,7 @@
 	cards -= P
 	H.update_icon()
 	user.visible_message("\The [user] draws a card.")
-	user << "It's the [P]."
+	to_chat(user, "It's the [P].")
 
 /obj/item/weapon/deck/verb/deal_card()
 
@@ -107,7 +112,7 @@
 	if(usr.stat || !Adjacent(usr)) return
 
 	if(!cards.len)
-		usr << "There are no cards in the deck."
+		to_chat(usr, "There are no cards in the deck.")
 		return
 
 	var/list/players = list()
@@ -140,7 +145,6 @@
 		for(var/datum/playingcard/P in cards)
 			H.cards += P
 		H.concealed = src.concealed
-		user.drop_from_inventory(src,user.loc)
 		qdel(src)
 		H.update_icon()
 		return
@@ -164,7 +168,7 @@
 	if(!ishuman(over) || !(over in viewers(3))) return
 
 	if(!cards.len)
-		usr << "There are no cards in the deck."
+		to_chat(usr, "There are no cards in the deck.")
 		return
 
 	deal_at(usr, over)
@@ -185,11 +189,10 @@
 
 	H.cards += cards
 	cards.Cut();
-	user.drop_item()
-	qdel(src)
-
+	user.drop_from_inventory(src,get_turf(src))
 	H.update_icon()
 	user.put_in_active_hand(H)
+	qdel(src)
 
 /obj/item/weapon/hand
 	name = "hand of cards"
@@ -224,7 +227,7 @@
 	H.update_icon()
 	src.update_icon()
 	usr.visible_message("\The [usr] plays \the [discarding].")
-	H.loc = get_step(usr,usr.dir)
+	H.forceMove(get_step(usr,usr.dir))
 
 	if(!cards.len)
 		qdel(src)
@@ -237,9 +240,9 @@
 /obj/item/weapon/hand/examine(mob/user)
 	..(user)
 	if((!concealed || src.loc == user) && cards.len)
-		user << "It contains: "
+		to_chat(user, "It contains: ")
 		for(var/datum/playingcard/P in cards)
-			user << "The [P.name]."
+			to_chat(user, "The [P.name].")
 
 /obj/item/weapon/hand/update_icon(var/direction = 0)
 
@@ -253,15 +256,14 @@
 		name = "a playing card"
 		desc = "A playing card."
 
-	overlays.Cut()
-
+	cut_overlays()
 
 	if(cards.len == 1)
 		var/datum/playingcard/P = cards[1]
 		var/image/I = new(src.icon, (concealed ? "[P.back_icon]" : "[P.card_icon]") )
 		I.pixel_x += (-5+rand(10))
 		I.pixel_y += (-5+rand(10))
-		overlays += I
+		add_overlay(I)
 		return
 
 	var/offset = Floor(20/cards.len)
@@ -293,7 +295,7 @@
 			else
 				I.pixel_x = -7+(offset*i)
 		I.transform = M
-		overlays += I
+		add_overlay(I)
 		i++
 
 /obj/item/weapon/hand/dropped(mob/user as mob)

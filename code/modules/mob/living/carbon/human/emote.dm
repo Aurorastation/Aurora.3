@@ -1,6 +1,5 @@
 /mob/living/carbon/human/emote(var/act,var/m_type=1,var/message = null)
 	var/param = null
-
 	if (findtext(act, "-", 1, null))
 		var/t1 = findtext(act, "-", 1, null)
 		param = copytext(act, t1 + 1, length(act) + 1)
@@ -72,7 +71,7 @@
 
 			if (src.client)
 				if (client.prefs.muted & MUTE_IC)
-					src << "<span class='danger'>You cannot send IC messages (muted).</span>"
+					to_chat(src, "<span class='danger'>You cannot send IC messages (muted).</span>")
 					return
 			if (stat)
 				return
@@ -112,9 +111,19 @@
 		if ("clap")
 			if (!src.restrained())
 				message = "claps."
+				playsound(loc, 'sound/effects/clap.ogg', 50, 1)
 				m_type = 2
 				if(miming)
 					m_type = 1
+
+		if ("golfclap")
+			if (!src.restrained())
+				message = "claps, clearly unimpressed."
+				playsound(loc, 'sound/effects/golfclap.ogg', 50, 1)
+				m_type = 2
+				if(miming)
+					m_type = 1
+
 		if ("flap")
 			if (!src.restrained())
 				message = "flaps [get_visible_gender() == MALE ? "his" : get_visible_gender() == FEMALE ? "her" : "their"] wings."
@@ -294,6 +303,58 @@
 				else
 					message = "makes a weak noise."
 					m_type = 2
+
+		if("slap", "slaps")
+			m_type = 1
+			if(!restrained())
+				var/M = null
+				if(param)
+					for(var/mob/A in view(1, null))
+						if(param == A.name)
+							M = A
+							break
+				if(M)
+
+					playsound(loc, 'sound/effects/snap.ogg', 50, 1)
+					var/show_ssd
+					var/mob/living/carbon/human/H
+					if(ishuman(src))
+						H = src
+						show_ssd = H.species.show_ssd
+					if(H && show_ssd && !H.client && !H.teleop)
+						if(H.bg)
+							to_chat(H, span("danger", "You sense some disturbance to your physical body!"))
+						else
+							message = "<span class='danger'>slaps [M] across the face, but they do not respond... Maybe they have S.S.D?</span>"
+					else if(H.client && H.willfully_sleeping)
+						message = "<span class='danger'>slaps [M] across the face, waking them up. Ouch!</span>"
+						H.sleeping = 0
+						H.willfully_sleeping = 0
+					else
+						message = "<span class='danger'>slaps [M] across the face. Ouch!</span>"
+				else
+					message = "<span class='danger'>slaps [get_visible_gender() == MALE ? "himself" : get_visible_gender() == FEMALE ? "herself" : "themselves"]!</span>"
+					playsound(loc, 'sound/effects/snap.ogg', 50, 1)
+					SSfeedback.IncrementSimpleStat("selfslap")
+
+		if("snap", "snaps")
+			m_type = 2
+			var/mob/living/carbon/human/H = src
+			var/obj/item/organ/external/L = H.get_organ("l_hand")
+			var/obj/item/organ/external/R = H.get_organ("r_hand")
+			var/left_hand_good = 0
+			var/right_hand_good = 0
+			if(L && (!(L.status & ORGAN_DESTROYED)) && (!(L.status & ORGAN_BROKEN)))
+				left_hand_good = 1
+			if(R && (!(R.status & ORGAN_DESTROYED)) && (!(R.status & ORGAN_BROKEN)))
+				right_hand_good = 1
+
+			if(!left_hand_good && !right_hand_good)
+				to_chat(usr, "You need at least one hand in good working order to snap your fingers.")
+				return
+
+			message = "snaps [get_visible_gender() == MALE ? "his" : get_visible_gender() == FEMALE ? "her" : "their"] fingers."
+			playsound(loc, 'sound/effects/fingersnap.ogg', 50, 1, -3)
 
 		if ("laugh")
 			if(miming)
@@ -538,7 +599,6 @@
 				else
 					message = "makes a very loud noise."
 					m_type = 2
-
 		if("swish")
 			src.animate_tail_once()
 
@@ -556,7 +616,7 @@
 
 		if("beep")
 			if (!isipc(src))
-				src << span("notice", "You're not a machine!")
+				to_chat(src, span("notice", "You're not a Machine!"))
 			else
 				var/M = null
 				if(param)
@@ -576,7 +636,7 @@
 
 		if("ping")
 			if (!isipc(src))
-				src << span("notice", "You're not a machine!")
+				to_chat(src, span("notice", "You're not a machine!"))
 			else
 				var/M = null
 				if(param)
@@ -596,7 +656,7 @@
 
 		if("buzz")
 			if (!isipc(src))
-				src << span("notice", "You're not a machine!")
+				to_chat(src, span("notice", "You're not a machine!"))
 			else
 				var/M = null
 				if(param)
@@ -614,15 +674,37 @@
 				playsound(src.loc, 'sound/machines/buzz-sigh.ogg', 50, 0)
 				m_type = 1
 
+		if("chirp")
+			if(!is_diona(src))
+				to_chat(src, "<span class='warning'>You are not a Diona!</span>")
+				return
+			message = "<B>The [src.name]</B> chirps!"
+			playsound(src.loc, 'sound/misc/nymphchirp.ogg', 50, 0)
+			m_type = 2
+
+		if("chirp_song")
+			if(!is_diona(src))
+				to_chat(src, "<span class='warning'>You are not a Diona!</span>")
+				return
+			message = "<B>The [src.name]</B> chirps a song!"
+			for(var/mob/living/carbon/alien/diona/D in src)
+				playsound(src.loc, 'sound/misc/nymphchirp.ogg', pick(list(5, 10, 20, 40)), 0)
+				sleep(pick(list(5, 10, 15, 20)))
+			m_type = 2
+
+		if("vomit")
+			if (!check_has_mouth(src))
+				to_chat(src, "<span class='warning'>You are unable to vomit.</span>")
+				return
+			delayed_vomit()
+			return
+
+
 		if ("help")
-			src << {"blink, blink_r, blush, bow-(none)/mob, burp, choke, chuckle, clap, collapse, cough,
-cry, custom, deathgasp, drool, eyebrow, frown, gasp, giggle, groan, grumble, handshake, hug-(none)/mob, glare-(none)/mob,
-grin, laugh, look-(none)/mob, moan, mumble, nod, pale, point-atom, raise, salute, shake, shiver, shrug,
-sigh, signal-#1-10, smile, sneeze, sniff, snore, stare-(none)/mob, tremble, twitch, twitch_s, whimper,
-wink, yawn, swish, sway/wag, fastsway/qwag, stopsway/swag, beep, ping, buzz"}
+			to_chat(src, "blink, blink_r, blush, bow-(none)/mob, burp, choke, chuckle, clap, golfclap, collapse, cough, cry, custom, deathgasp, drool, eyebrow, frown, gasp, giggle, groan, grumble, handshake, hug-(none)/mob, glare-(none)/mob, grin, laugh, look-(none)/mob, moan, mumble, nod, pale, point-atom, raise, salute, shake, shiver, shrug, sigh, signal-#1-10, smile, sneeze, sniff, snore, stare-(none)/mob, tremble, twitch, twitch_s, whimper, wink, yawn, swish, sway/wag, fastsway/qwag, stopsway/swag, beep, ping, buzz, slap, snap, vomit")
 
 		else
-			src << span("notice", "Unusable emote '[act]'. Say *help for a list.")
+			to_chat(src, span("notice", "Unusable emote '[act]'. Say *help for a list."))
 
 
 

@@ -21,7 +21,7 @@ var/datum/controller/subsystem/nightlight/SSnightlight
 
 	fire(FALSE, FALSE)
 
-	..(timeofday, silent = TRUE)
+	..()
 
 /datum/controller/subsystem/nightlight/stat_entry()
 	..("A:[isactive] T:[worldtime2hours()] DT:[config.nl_start] NT:[config.nl_finish] D:[disable_type]")

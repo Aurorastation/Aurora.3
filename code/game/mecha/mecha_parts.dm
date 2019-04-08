@@ -243,6 +243,11 @@
 	//construction_cost = list(DEFAULT_WALL_MATERIAL=20000,"phoron"=10000)
 	origin_tech = list(TECH_MATERIAL = 5, TECH_BLUESPACE = 3, TECH_MAGNET = 3)
 
+/obj/item/mecha_parts/part/phazon_armour
+	name="Phazon Armour Plates"
+	icon_state = "phazon_armor"
+	origin_tech = list(TECH_MATERIAL = 5, TECH_BLUESPACE = 5, TECH_MAGNET = 5)
+
 ///////// Odysseus
 
 
@@ -294,3 +299,43 @@
 	origin_tech = list(TECH_MATERIAL = 3, TECH_ENGINEERING = 3)
 	construction_time = 200
 	construction_cost = list(DEFAULT_WALL_MATERIAL=15000)*/
+
+
+//////////// HERMES
+
+/obj/item/mecha_parts/chassis/hermes
+	name = "Hermes Chassis"
+
+	Initialize()
+		..()
+		construct = new /datum/construction/mecha/hermes_chassis(src)
+
+/obj/item/mecha_parts/part/hermes_torso
+	name="Hermes Torso"
+	icon_state = "hermes_harness"
+	origin_tech = list(TECH_DATA = 2, TECH_MATERIAL = 3, TECH_BIO = 3, TECH_ENGINEERING = 3)
+
+/obj/item/mecha_parts/part/hermes_head
+	name="Hermes Head"
+	icon_state = "hermes_head"
+	origin_tech = list(TECH_DATA = 2, TECH_MATERIAL = 3, TECH_MAGNET = 3, TECH_ENGINEERING = 3)
+
+/obj/item/mecha_parts/part/hermes_left_arm
+	name="Hermes Left Arm"
+	icon_state = "hermes_l_arm"
+	origin_tech = list(TECH_DATA = 2, TECH_MATERIAL = 3, TECH_ENGINEERING = 3)
+
+/obj/item/mecha_parts/part/hermes_right_arm
+	name="Hermes Right Arm"
+	icon_state = "hermes_r_arm"
+	origin_tech = list(TECH_DATA = 2, TECH_MATERIAL = 3, TECH_ENGINEERING = 3)
+
+/obj/item/mecha_parts/part/hermes_left_leg
+	name="Hermes Left Leg"
+	icon_state = "hermes_l_leg"
+	origin_tech = list(TECH_DATA = 2, TECH_MATERIAL = 3, TECH_ENGINEERING = 3)
+
+/obj/item/mecha_parts/part/hermes_right_leg
+	name="Hermes Right Leg"
+	icon_state = "hermes_r_leg"
+	origin_tech = list(TECH_DATA = 2, TECH_MATERIAL = 3, TECH_ENGINEERING = 3)

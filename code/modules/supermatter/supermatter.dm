@@ -91,6 +91,7 @@
 	var/obj/item/device/radio/radio
 
 	var/debug = 0
+	var/last_message_time = -100 //for message
 
 /obj/machinery/power/supermatter/Initialize()
 	. = ..()
@@ -158,6 +159,10 @@
 		if((damage > emergency_point) && !public_alert)
 			radio.autosay("WARNING: SUPERMATTER CRYSTAL DELAMINATION IMMINENT!", "Supermatter Monitor")
 			public_alert = 1
+			for(var/mob/M in player_list)
+				var/turf/T = get_turf(M)
+				if(T && !istype(M, /mob/abstract/new_player) && !isdeaf(M))
+					sound_to(M, 'sound/effects/nuclearsiren.ogg')
 		else if(safe_warned && public_alert)
 			radio.autosay(alert_msg, "Supermatter Monitor")
 			public_alert = 0
@@ -166,8 +171,8 @@
 /obj/machinery/power/supermatter/get_transit_zlevel()
 	//don't send it back to the station -- most of the time
 	if(prob(99))
-		var/list/candidates = accessible_z_levels.Copy()
-		for(var/zlevel in config.station_levels)
+		var/list/candidates = current_map.accessible_z_levels.Copy()
+		for(var/zlevel in current_map.station_levels)
 			candidates.Remove("[zlevel]")
 		candidates.Remove("[src.z]")
 
@@ -265,6 +270,8 @@
 	for(var/mob/living/carbon/human/l in view(src, min(7, round(sqrt(power/6))))) // If they can see it without mesons on.  Bad on them.
 		if(!istype(l.glasses, /obj/item/clothing/glasses/meson) && !l.is_diona() && !l.isSynthetic())
 			l.hallucination = max(0, min(200, l.hallucination + power * config_hallucination_power * sqrt( 1 / max(1,get_dist(l, src)) ) ) )
+			if(prob(15))
+				l.cure_all_traumas(cure_type = CURE_HYPNOSIS)
 
 	//adjusted range so that a power of 170 (pretty high) results in 9 tiles, roughly the distance from the core to the engine monitoring room.
 	//note that the rads given at the maximum range is a constant 0.2 - as power increases the maximum range merely increases.
@@ -276,6 +283,11 @@
 		if (!(l in oview(rad_range, src)) && !(l in range(src, round(rad_range * 2/3))))
 			continue
 		l.apply_effect(rads, IRRADIATE, blocked = l.getarmor(null, "rad"))
+		if(l.is_diona())
+			l.adjustToxLoss(-rads)
+			if(last_message_time + 800 < world.time) // Not to spam message
+				to_chat(l, "<span class='notice'>You can feel an extreme level of energy which flows throught your body and makes you regenerate very fast.</span>")
+	last_message_time = world.time
 
 	power -= (power/DECAY_FACTOR)**3		//energy losses due to radiation
 
@@ -359,10 +371,12 @@
 	user.apply_effect(150, IRRADIATE, blocked = user.getarmor(null, "rad"))
 
 
-/obj/machinery/power/supermatter/Bumped(atom/AM as mob|obj)
+/obj/machinery/power/supermatter/CollidedWith(atom/AM as mob|obj)
 	if(!AM.simulated)
 		return
 	if(istype(AM, /obj/effect))
+		return
+	if(isprojectile(AM))
 		return
 	if(istype(AM, /mob/living))
 		AM.visible_message("<span class=\"warning\">\The [AM] slams into \the [src] inducing a resonance... \his body starts to glow and catch flame before flashing into ash.</span>",\

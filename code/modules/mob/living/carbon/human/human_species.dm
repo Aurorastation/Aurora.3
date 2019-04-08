@@ -2,11 +2,10 @@
 	real_name = "Test Dummy"
 	status_flags = GODMODE|CANPUSH
 
-/mob/living/carbon/human/dummy/mannequin/New(location, ...)
-    ..()
-    if (!initialized)
-        args[1] = TRUE
-        SSatoms.InitAtom(src, args)
+/mob/living/carbon/human/dummy/mannequin
+	mob_thinks = FALSE
+
+INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy/mannequin)
 
 /mob/living/carbon/human/dummy/mannequin/Initialize()
 	. = ..()
@@ -21,7 +20,7 @@
 	. = ..(mapload, "Resomi")
 
 /mob/living/carbon/human/skrell/Initialize(mapload)
-	h_style = "Skrell Male Tentacles"
+	h_style = "Skrell Average Tentacles"
 	. = ..(mapload, "Skrell")
 
 /mob/living/carbon/human/tajaran/Initialize(mapload)
@@ -48,42 +47,29 @@
 	h_style = "blue IPC screen"
 	. = ..(mapload, "Baseline Frame")
 
-/mob/living/carbon/human/monkey
-	mob_size = 2.6//Based on howler monkey, rough real world equivilant to on-mob sprite size
-
 /mob/living/carbon/human/monkey/Initialize(mapload)
 	. = ..(mapload, "Monkey")
-
-/mob/living/carbon/human/farwa
-	mob_size = 2.6//Roughly the same size as monkey
 
 /mob/living/carbon/human/farwa/Initialize(mapload)
 	. = ..(mapload, "Farwa")
 
-/mob/living/carbon/human/neaera
-	mob_size = 2.6//Roughly the same size as monkey
-
 /mob/living/carbon/human/neaera/Initialize(mapload)
 	. = ..(mapload, "Neaera")
 
-/mob/living/carbon/human/stok
-	mob_size = 2.6//Roughly the same size as monkey
-
 /mob/living/carbon/human/stok/Initialize(mapload)
 	. = ..(mapload, "Stok")
-
-/mob/living/carbon/human/bug
-	mob_size = 2.6//Roughly the same size as monkey
 
 /mob/living/carbon/human/bug/Initialize(mapload)
 	. = ..(mapload, "V'krexi")
 	src.gender = FEMALE
 
 /mob/living/carbon/human/type_a/Initialize(mapload)
+	h_style = "Classic Antennae"
 	. = ..(mapload, "Vaurca Worker")
 	src.gender = NEUTER
 
 /mob/living/carbon/human/type_b/Initialize(mapload)
+	h_style = "Classic Antennae"
 	. = ..(mapload, "Vaurca Warrior")
 	src.gender = NEUTER
 
@@ -94,11 +80,42 @@
 /mob/living/carbon/human/type_c
 	layer = 5
 
+/mob/living/carbon/human/type_big/Initialize(mapload)
+	. = ..(mapload, "Vaurca Warform")
+	src.gender = NEUTER
+	src.mutations.Add(HULK)
+
+/mob/living/carbon/human/type_big
+	layer = 5
+
+/mob/living/carbon/human/msai_tajara/Initialize(mapload)
+	h_style = "Tajaran Ears"
+	. = ..(mapload, "M'sai Tajara")
+
+/mob/living/carbon/human/zhankhazan_tajara/Initialize(mapload)
+	h_style = "Tajaran Ears"
+	. = ..(mapload, "Zhan-Khazan Tajara")
+
 /mob/living/carbon/human/industrial/Initialize(mapload)
-	..(mapload, "Industrial Frame")
+	. = ..(mapload, "Hephaestus G1 Industrial Frame")
 
 /mob/living/carbon/human/shell/Initialize(mapload)
-	..(mapload, "Shell Frame")
+	. = ..(mapload, "Shell Frame")
+
+/mob/living/carbon/human/industrial_hephaestus/Initialize(mapload)
+	. = ..(mapload, "Hephaestus G2 Industrial Frame")
+
+/mob/living/carbon/human/industrial_xion/Initialize(mapload)
+	. = ..(mapload, "Xion Industrial Frame")
+
+/mob/living/carbon/human/industrial_zenghu/Initialize(mapload)
+	. = ..(mapload, "Zeng-Hu Mobility Frame")
+
+/mob/living/carbon/human/industrial_bishop/Initialize(mapload)
+	. = ..(mapload, "Bishop Accessory Frame")
+
+/mob/living/carbon/human/unbranded_frame/Initialize(mapload)
+	. = ..(mapload, "Unbranded Frame")
 
 /mob/living/carbon/human/terminator/Initialize(mapload)
 	. = ..(mapload, "Hunter-Killer")
@@ -130,3 +147,57 @@
 
 /mob/living/carbon/human/terminator
 	mob_size = 30
+
+/mob/living/carbon/human/golem/Initialize(mapload)
+	. = ..(mapload, "Coal Golem")
+
+/mob/living/carbon/human/iron_golem/Initialize(mapload)
+	. = ..(mapload, "Iron Golem")
+
+/mob/living/carbon/human/bronze_golem/Initialize(mapload)
+	. = ..(mapload, "Bronze Golem")
+
+/mob/living/carbon/human/steel_golem/Initialize(mapload)
+	. = ..(mapload, "Steel Golem")
+
+/mob/living/carbon/human/plasteel_golem/Initialize(mapload)
+	. = ..(mapload, "Plasteel Golem")
+
+/mob/living/carbon/human/titanium_golem/Initialize(mapload)
+	. = ..(mapload, "Titanium Golem")
+
+/mob/living/carbon/human/cloth_golem/Initialize(mapload)
+	. = ..(mapload, "Cloth Golem")
+
+/mob/living/carbon/human/cardboard_golem/Initialize(mapload)
+	. = ..(mapload, "Cardboard Golem")
+
+/mob/living/carbon/human/glass_golem/Initialize(mapload)
+	. = ..(mapload, "Glass Golem")
+
+/mob/living/carbon/human/phoron_golem/Initialize(mapload)
+	. = ..(mapload, "Phoron Golem")
+
+/mob/living/carbon/human/mhydrogen_golem/Initialize(mapload)
+	. = ..(mapload, "Metallic Hydrogen Golem")
+
+/mob/living/carbon/human/wood_golem/Initialize(mapload)
+	. = ..(mapload, "Wood Golem")
+
+/mob/living/carbon/human/diamond_golem/Initialize(mapload)
+	. = ..(mapload, "Diamond Golem")
+
+/mob/living/carbon/human/sand_golem/Initialize(mapload)
+	. = ..(mapload, "Sand Golem")
+
+/mob/living/carbon/human/uranium_golem/Initialize(mapload)
+	. = ..(mapload, "Uranium Golem")
+
+/mob/living/carbon/human/homunculus/Initialize(mapload)
+	. = ..(mapload, "Homunculus")
+
+/mob/living/carbon/human/adamantine_golem/Initialize(mapload)
+	. = ..(mapload, "Adamantine Golem")
+
+/mob/living/carbon/human/autakh/Initialize(mapload)
+	. = ..(mapload, "Aut'akh Unathi")

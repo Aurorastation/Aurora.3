@@ -9,7 +9,7 @@ var/global/universe_has_ended = 0
 
 /datum/universal_state/supermatter_cascade/OnShuttleCall(var/mob/user)
 	if(user)
-		user << "<span class='sinister'>All you hear on the frequency is static and panicked screaming. There will be no shuttle call today.</span>"
+		to_chat(user, "<span class='danger'>All you hear on the frequency is static and panicked screaming. There will be no shuttle call today.</span>")
 	return 0
 
 /datum/universal_state/supermatter_cascade/OnTurfChange(var/turf/T)
@@ -36,11 +36,11 @@ var/global/universe_has_ended = 0
 
 // Apply changes when entering state
 /datum/universal_state/supermatter_cascade/OnEnter()
-	set background = 1
+	SSgarbage.disable()
 
-	world << "<span class='sinister' style='font-size:22pt'>You are blinded by a brilliant flash of energy.</span>"
+	to_world("<span class='danger' style='font-size:22pt'>You are blinded by a brilliant flash of energy.</span>")
 
-	world << sound('sound/effects/cascade.ogg')
+	to_world(sound('sound/effects/cascade.ogg'))
 
 	for(var/mob/M in player_list)
 		flick("e_flash", M.flash)
@@ -56,8 +56,6 @@ var/global/universe_has_ended = 0
 
 	// Disable Nar-Sie.
 	cult.allow_narsie = 0
-
-	SSgarbage.collection_timeout = 20 MINUTES	// Yeah, no point trying to hard-del stuff at this point.
 
 	PlayerSet()
 
@@ -76,7 +74,7 @@ There's been a galaxy-wide electromagnetic pulse.  All of our systems are heavil
 
 You have five minutes before the universe collapses. Good l\[\[###!!!-
 
-AUTOMATED ALERT: Link to [command_name()] lost.
+AUTOMATED ALERT: Link to [current_map.boss_name] lost.
 
 The access requirements on the Asteroid Shuttles' consoles have now been revoked.
 	"}
@@ -88,7 +86,7 @@ The access requirements on the Asteroid Shuttles' consoles have now been revoked
 			C.req_one_access = list()
 
 /datum/universal_state/supermatter_cascade/proc/end_universe()
-	SSticker.station_explosion_cinematic(0,null) // TODO: Custom cinematic
+	SSticker.station_explosion_cinematic(0, null, current_map.player_levels) // TODO: Custom cinematic
 	universe_has_ended = 1
 
 /datum/universal_state/supermatter_cascade/proc/AreaSet()
@@ -96,7 +94,7 @@ The access requirements on the Asteroid Shuttles' consoles have now been revoked
 		if(!istype(A,/area) || istype(A, /area/space) || istype(A,/area/beach))
 			continue
 
-		A.updateicon()
+		A.queue_icon_update()
 		CHECK_TICK
 
 /datum/universal_state/supermatter_cascade/OverlayAndAmbientSet()
@@ -105,7 +103,7 @@ The access requirements on the Asteroid Shuttles' consoles have now been revoked
 		if(istype(T, /turf/space))
 			T.add_overlay("end01")
 		else
-			if (!(T.z in config.admin_levels))
+			if (!(T.z in current_map.admin_levels))
 				T.underlays += "end01"
 		CHECK_TICK
 
@@ -113,7 +111,7 @@ The access requirements on the Asteroid Shuttles' consoles have now been revoked
 		if (!C.active)
 			continue
 
-		if (!(C.z in config.admin_levels))
+		if (!(C.z in current_map.admin_levels))
 			C.update_lumcount(0.15, 0.15, 0.5)
 		CHECK_TICK
 

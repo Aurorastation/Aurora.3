@@ -14,7 +14,8 @@
 	..()
 	pixel_x = rand(-5, 5)
 	pixel_y = rand(-5, 5)
-
+	create_reagents(10)
+	reagents.add_reagent("bluespace_dust", blink_range)
 
 /obj/item/bluespace_crystal/attack_self(mob/user)
 	user.visible_message("<span class='warning'>[user] crushes [src]!</span>", "<span class='danger'>You crush [src]!</span>")

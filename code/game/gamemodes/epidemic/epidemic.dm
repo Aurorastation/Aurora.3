@@ -15,7 +15,7 @@
 ///////////////////////////////////////////////////////////////////////////////
 /datum/game_mode/epidemic/pre_setup()
 	doctors = 0
-	for(var/mob/new_player/player in world)
+	for(var/mob/abstract/new_player/player in world)
 		if(player.mind.assigned_role in list("Chief Medical Officer","Medical Doctor"))
 			doctors++
 			break
@@ -48,13 +48,13 @@
 	//New message handling won't hurt if someone enables epidemic
 	post_comm_message("Cent. Com. CONFIDENTIAL REPORT", intercepttext)
 
-	world << sound('sound/AI/commandreport.ogg')
+	to_world(sound('sound/AI/commandreport.ogg'))
 
 	// add an extra law to the AI to make sure it cooperates with the heads
 	var/extra_law = "Crew authorized to know of pathogen [virus_name]'s existence are: Heads of command. Do not allow unauthorized personnel to gain knowledge of [virus_name]. Aid authorized personnel in quarantining and neutrlizing the outbreak. This law overrides all other laws."
-	for(var/mob/living/silicon/ai/M in world)
+	for(var/mob/living/silicon/ai/M in silicon_mob_list)
 		M.add_ion_law(extra_law)
-		M << "<span class='danger'>[extra_law]</span>"
+		to_chat(M, "<span class='danger'>[extra_law]</span>")
 
 /datum/game_mode/epidemic/proc/announce_to_kill_crew()
 	var/intercepttext = "<FONT size = 3 color='red'><B>CONFIDENTIAL REPORT</B></FONT><HR>"
@@ -63,7 +63,7 @@
 
 	post_comm_message("Cent. Com. CONFIDENTIAL REPORT", intercepttext)
 
-	world << sound('sound/AI/commandreport.ogg')
+	to_world(sound('sound/AI/commandreport.ogg'))
 
 
 /datum/game_mode/epidemic/post_setup()
@@ -72,14 +72,14 @@
 
 	// scan the crew for possible infectees
 	var/list/crew = list()
-	for(var/mob/living/carbon/human/H in world) if(H.client)
+	for(var/mob/living/carbon/human/H in human_mob_list) if(H.client)
 		// heads should not be infected
 		if(H.mind.assigned_role in command_positions) continue
 		crew += H
 
 	if(crew.len < 2)
-		world << "<span class='danger'>There aren't enough players for this mode!</span>"
-		world << "<span class='danger'>Rebooting world in 5 seconds.</span>"
+		to_world("<span class='danger'>There aren't enough players for this mode!</span>")
+		to_world("<span class='danger'>Rebooting world in 5 seconds.</span>")
 
 		sleep(50)
 		world.Reboot()
@@ -140,7 +140,7 @@
 /datum/game_mode/epidemic/check_win()
 	var/alive = 0
 	var/sick = 0
-	for(var/mob/living/carbon/human/H in world)
+	for(var/mob/living/carbon/human/H in human_mob_list)
 		if(H.key && H.stat != 2) alive++
 		if(H.virus2.len && H.stat != 2) sick++
 
@@ -164,13 +164,13 @@
 ///////////////////////////////////////////
 /datum/game_mode/epidemic/proc/crew_lose()
 	SSticker.mode:explosion_in_progress = 1
-	for(var/mob/M in world)
+	for(var/mob/M in mob_list)
 		if(M.client)
-			M << 'sound/machines/Alarm.ogg'
-	world << "<span class='notice'><b>Incoming missile detected.. Impact in 10..</b></span>"
+			to_chat(M, 'sound/machines/Alarm.ogg')
+	to_world("<span class='notice'><b>Incoming missile detected.. Impact in 10..</b></span>")
 	for (var/i=9 to 1 step -1)
 		sleep(10)
-		world << "<span class='notice'><b>[i]..</b></span>"
+		to_world("<span class='notice'><b>[i]..</b></span>")
 	sleep(10)
 	enter_allowed = 0
 	SSticker.station_explosion_cinematic(0,null)
@@ -187,9 +187,9 @@
 /datum/game_mode/epidemic/declare_completion()
 	if(finished == 1)
 		feedback_set_details("round_end_result","win - epidemic cured")
-		world << "<font size = 3><span class='danger'>The virus outbreak was contained! The crew wins!</span></font>"
+		to_world("<font size = 3><span class='danger'>The virus outbreak was contained! The crew wins!</span></font>")
 	else if(finished == 2)
 		feedback_set_details("round_end_result","loss - rev heads killed")
-		world << "<font size = 3><span class='danger'>The crew succumbed to the epidemic!</span></font>"
+		to_world("<font size = 3><span class='danger'>The crew succumbed to the epidemic!</span></font>")
 	..()
 	return 1

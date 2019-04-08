@@ -16,7 +16,7 @@
 	var/germ_level = GERM_LEVEL_AMBIENT // The higher the germ level, the more germ on the atom.
 	var/simulated = 1 //filter for actions - used by lighting overlays
 	var/fluorescent // Shows up under a UV light.
-	
+
 	///Chemistry.
 	var/datum/reagents/reagents = null
 
@@ -26,6 +26,8 @@
 
 	//Detective Work, used for the duplicate data points kept in the scanners
 	var/list/original_atom
+
+	var/gfi_layer_rotation = GFI_ROTATION_DEFAULT
 
 /atom/proc/reveal_blood()
 	return
@@ -52,7 +54,9 @@
 /atom/proc/on_reagent_change()
 	return
 
-/atom/proc/Bumped(AM as mob|obj)
+// This is called when AM collides with us.
+/atom/proc/CollidedWith(atom/movable/AM)
+	set waitfor = FALSE
 	return
 
 // Convenience proc to see if a container is open for chemistry handling
@@ -134,8 +138,8 @@
 		else
 			f_name += "oil-stained [name][infix]."
 
-	user << "\icon[src] That's [f_name] [suffix]"
-	user << desc
+	to_chat(user, "\icon[src] That's [f_name] [suffix]")
+	to_chat(user, desc)
 
 	return distance == -1 || (get_dist(src, user) <= distance)
 
@@ -149,7 +153,16 @@
 	. = new_dir != dir
 	dir = new_dir
 
+	// Lighting
+	if (.)
+		var/datum/light_source/L
+		for (var/thing in light_sources)
+			L = thing
+			if (L.light_angle)
+				L.source_atom.update_light()
+
 /atom/proc/ex_act()
+	set waitfor = FALSE
 	return
 
 /atom/proc/emag_act(var/remaining_charges, var/mob/user, var/emag_source)
@@ -226,10 +239,9 @@
 
 		//Deal with gloves the pass finger/palm prints.
 		if(!ignoregloves)
-			if(H.gloves != src)
-				if(prob(75) && istype(H.gloves, /obj/item/clothing/gloves/latex))
-					return 0
-				else if(H.gloves && !istype(H.gloves, /obj/item/clothing/gloves/latex))
+			if(istype(H.gloves, /obj/item/clothing/gloves) && H.gloves != src)
+				var/obj/item/clothing/gloves/G = H.gloves
+				if(!prob(G.fingerprint_chance))
 					return 0
 
 		//More adminstuffz
@@ -364,7 +376,7 @@
 		cur_y = y_arr.Find(src.z)
 		if(cur_y)
 			break
-//	world << "X = [cur_x]; Y = [cur_y]"
+
 	if(cur_x && cur_y)
 		return list("x"=cur_x,"y"=cur_y)
 	else
@@ -427,3 +439,17 @@
 
 /atom/proc/change_area_name(var/oldname, var/newname)
 	name = replacetext(name,oldname,newname)
+
+/atom/movable/proc/dropInto(var/atom/destination)
+	while(istype(destination))
+		var/atom/drop_destination = destination.onDropInto(src)
+		if(!istype(drop_destination) || drop_destination == destination)
+			return forceMove(destination)
+		destination = drop_destination
+	return forceMove(null)
+
+/atom/proc/onDropInto(var/atom/movable/AM)
+	return // If onDropInto returns null, then dropInto will forceMove AM into us.
+
+/atom/movable/onDropInto(var/atom/movable/AM)
+	return loc // If onDropInto returns something, then dropInto will attempt to drop AM there.

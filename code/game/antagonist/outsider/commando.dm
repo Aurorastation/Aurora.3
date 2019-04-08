@@ -6,7 +6,7 @@ var/datum/antagonist/deathsquad/mercenary/commandos
 	role_text = "Syndicate Commando"
 	role_text_plural = "Commandos"
 	welcome_text = "You are in the employ of a criminal syndicate hostile to corporate interests."
-	id_type = /obj/item/weapon/card/id/centcom/ERT
+	id_type = /obj/item/weapon/card/id/ert
 
 	hard_cap = 4
 	hard_cap_round = 8
@@ -46,7 +46,7 @@ var/datum/antagonist/deathsquad/mercenary/commandos
 	syndie_belt.contents += new /obj/item/weapon/grenade/frag
 	syndie_belt.contents += new /obj/item/weapon/plastique
 	player.equip_to_slot_or_del(syndie_belt, slot_belt)
-	
+
 	var/obj/item/weapon/rig/merc/mercrig = new(get_turf(player))
 	mercrig.seal_delay = 0
 	player.put_in_hands(mercrig)
@@ -64,12 +64,17 @@ var/datum/antagonist/deathsquad/mercenary/commandos
 		if(player.internal)
 			player.internals.icon_state = "internal1"
 		else
-			player << "<span class='danger'>You forgot to turn on your internals! Quickly, toggle the valve!</span>"
+			to_chat(player, "<span class='danger'>You forgot to turn on your internals! Quickly, toggle the valve!</span>")
 
 	var/obj/item/weapon/card/id/id = create_id("Commando", player)
 	id.access |= get_all_accesses()
 	id.icon_state = "centcom"
 	create_radio(SYND_FREQ, player)
 	player.faction = "syndicate"
+
+	//gives them a martial art as well
+
+	var/datum/martial_art/sol_combat/F = new/datum/martial_art/sol_combat(null)
+	F.teach(player)
 
 	return 1

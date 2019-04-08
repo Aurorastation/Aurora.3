@@ -2,20 +2,20 @@
 	return
 
 /obj/item/organ/external/proc/compile_icon()
-	overlays.Cut()
+	cut_overlays()
 	 // This is a kludge, only one icon has more than one generation of children though.
 	for(var/obj/item/organ/external/organ in contents)
 		if(organ.children && organ.children.len)
 			for(var/obj/item/organ/external/child in organ.children)
 				add_overlay(child.mob_icon)
 
-		overlays |= organ.mob_icon
+		add_overlay(organ.mob_icon)
 
 /obj/item/organ/external/proc/sync_colour_to_human(var/mob/living/carbon/human/human)
 	s_tone = null
 	skin_color = null
 	hair_color = null
-	if(status & ORGAN_ROBOT && !(isipc(human)))
+	if(status & ORGAN_ROBOT && !(isipc(human)) && !(isautakh(human)))
 		return
 	if(species && human.species && species.name != human.species.name)
 		return
@@ -39,12 +39,7 @@
 
 /obj/item/organ/external/head/sync_colour_to_human(var/mob/living/carbon/human/human)
 	..()
-	var/obj/item/organ/eyes/eyes
-	if (species.vision_organ)
-		eyes = owner.internal_organs_by_name[species.vision_organ]
-	else
-		eyes = owner.internal_organs_by_name["eyes"]
-
+	var/obj/item/organ/eyes/eyes = owner.get_eyes()
 	if(eyes)
 		eyes.update_colour()
 
@@ -57,8 +52,8 @@
 	cut_overlays()
 	if(!owner || !owner.species)
 		return
-	if(owner.species.has_organ["eyes"] || (owner.species.vision_organ && owner.species.has_organ[species.vision_organ]))
-		var/obj/item/organ/eyes/eyes = owner.internal_organs_by_name["eyes"] || owner.internal_organs_by_name[species.vision_organ]
+	if(owner.species.has_organ[owner.species.vision_organ])
+		var/obj/item/organ/eyes/eyes = owner.get_eyes()
 		if(eyes && species.eyes)
 			var/eyecolor
 			if (eyes.eye_colour)
@@ -68,11 +63,11 @@
 
 			var/icon/eyes_icon = SSicon_cache.human_eye_cache[cache_key]
 			if (!eyes_icon)
-				eyes_icon = new/icon('icons/mob/human_face.dmi', species.eyes)
+				eyes_icon = new/icon(species.eyes_icons, species.eyes)
 				if(eyecolor)
-					eyes_icon.Blend(eyecolor, ICON_ADD)
+					eyes_icon.Blend(eyecolor, species.eyes_icon_blend)
 				else
-					eyes_icon.Blend(rgb(128,0,0), ICON_ADD)
+					eyes_icon.Blend(rgb(128,0,0), species.eyes_icon_blend)
 
 				SSicon_cache.human_eye_cache[cache_key] = eyes_icon
 
@@ -82,31 +77,41 @@
 	if(owner.lip_style && (species && (species.appearance_flags & HAS_LIPS)))
 		var/icon/lip_icon = SSicon_cache.human_lip_cache["[owner.lip_style]"]
 		if (!lip_icon)
-			lip_icon = new/icon('icons/mob/human_face.dmi', "lips_[owner.lip_style]_s")
+			lip_icon = new/icon('icons/mob/human_face/lips.dmi', "[owner.lip_style]")
 			SSicon_cache.human_lip_cache["[owner.lip_style]"] = lip_icon
 
 		add_overlay(lip_icon)
 		mob_icon.Blend(lip_icon, ICON_OVERLAY)
 
-	for(var/M in markings)
-		var/datum/sprite_accessory/marking/mark_style = markings[M]["datum"]
-		var/m_color = markings[M]["color"]
-		var/cache_key = "[mark_style.icon]-[mark_style.icon_state]-[limb_name]-[m_color]"
-
-		var/icon/finished_icon = SSicon_cache.markings_cache[cache_key]
-		if (!finished_icon)
-			finished_icon = new/icon("icon" = mark_style.icon, "icon_state" = "[mark_style.icon_state]-[limb_name]")
-			finished_icon.Blend(m_color, ICON_ADD)
-			SSicon_cache.markings_cache[cache_key] = finished_icon
-
-		add_overlay(finished_icon) //So when it's not on your body, it has icons
-		mob_icon.Blend(finished_icon, ICON_OVERLAY) //So when it's on your body, it has icons
+	apply_markings()
 
 	add_overlay(owner.generate_hair_icon())
 
 	compile_overlays()
 
 	return mob_icon
+
+/obj/item/organ/external/proc/apply_markings(restrict_to_robotic = FALSE)
+	if (!cached_markings)
+		update_marking_cache()
+
+	if (LAZYLEN(cached_markings))
+		for(var/M in cached_markings)
+			var/datum/sprite_accessory/marking/mark_style = cached_markings[M]["datum"]
+			if (restrict_to_robotic && !mark_style.is_painted)
+				continue
+
+			var/m_color = cached_markings[M]["color"]
+			var/cache_key = "[mark_style.icon]-[mark_style.icon_state]-[limb_name]-[m_color]"
+
+			var/icon/finished_icon = SSicon_cache.markings_cache[cache_key]
+			if (!finished_icon)
+				finished_icon = new/icon("icon" = mark_style.icon, "icon_state" = "[mark_style.icon_state]-[limb_name]")
+				finished_icon.Blend(m_color, mark_style.icon_blend_mode)
+				SSicon_cache.markings_cache[cache_key] = finished_icon
+
+			add_overlay(finished_icon) //So when it's not on your body, it has icons
+			mob_icon.Blend(finished_icon, ICON_OVERLAY) //So when it's on your body, it has icons
 
 /obj/item/organ/external/proc/get_icon(var/skeletal)
 
@@ -118,6 +123,7 @@
 		mob_icon = new /icon(force_icon, "[icon_name][gendered_icon ? "_[gender]" : ""]")
 		if(painted && skin_color)
 			mob_icon.Blend(skin_color, ICON_ADD)
+		apply_markings(restrict_to_robotic = TRUE)
 	else
 		if(!dna)
 			mob_icon = new /icon('icons/mob/human_races/r_human.dmi', "[icon_name][gendered_icon ? "_[gender]" : ""]")
@@ -152,20 +158,7 @@
 				else if(skin_color)
 					mob_icon.Blend(skin_color, ICON_ADD)
 
-			//Body markings, does not include head, duplicated (sadly) above.
-			for(var/M in markings)
-				var/datum/sprite_accessory/marking/mark_style = markings[M]["datum"]
-				var/m_color = markings[M]["color"]
-				var/cache_key = "[mark_style.icon]-[mark_style.icon_state]-[limb_name]-[m_color]"
-
-				var/icon/finished_icon = SSicon_cache.markings_cache[cache_key]
-				if (!finished_icon)
-					finished_icon = new/icon("icon" = mark_style.icon, "icon_state" = "[mark_style.icon_state]-[limb_name]")
-					finished_icon.Blend(m_color, ICON_ADD)
-					SSicon_cache.markings_cache[cache_key] = finished_icon
-
-				add_overlay(finished_icon) //So when it's not on your body, it has icons
-				mob_icon.Blend(finished_icon, ICON_OVERLAY) //So when it's on your body, it has icons
+			apply_markings()
 
 			if(body_hair && hair_color)
 				var/list/limb_icon_cache = SSicon_cache.body_hair_cache
@@ -176,7 +169,6 @@
 					limb_icon_cache[cache_key] = I
 				mob_icon.Blend(limb_icon_cache[cache_key], ICON_OVERLAY)
 
-	dir = EAST
 	icon = mob_icon
 
 	return mob_icon
@@ -189,3 +181,37 @@
 		damage_state = n_is
 		return 1
 	return 0
+
+// This is NOT safe for caching the organ's own icon, it's only meant to be used for the mob icon cache.
+/obj/item/organ/external/proc/get_mob_cache_key()
+	var/list/keyparts = list()
+	if (is_stump())
+		keyparts += "stump"
+	else if (status & ORGAN_ROBOT)
+		keyparts += "robot:[model || "nomodel"]"
+	else if (status & ORGAN_DEAD)
+		keyparts += "dead"
+	else
+		keyparts += "norm"
+
+	keyparts += "[species.race_key]"
+	keyparts += "[dna.GetUIState(DNA_UI_GENDER)]"
+	keyparts += "[dna.GetUIValue(DNA_UI_SKIN_TONE)]"
+	if (skin_color)
+		keyparts += "[skin_color]"
+	if (body_hair && hair_color)
+		keyparts += "[hair_color]"
+
+	if (!cached_markings)
+		update_marking_cache()
+
+	for (var/marking in cached_markings)
+		keyparts += "[marking][cached_markings[marking]["color"]]"
+
+	. = keyparts.Join("_")
+
+/obj/item/organ/external/proc/update_marking_cache()
+	if (LAZYLEN(genetic_markings))
+		LAZYADD(cached_markings, genetic_markings)
+	if (LAZYLEN(temporary_markings))
+		LAZYADD(cached_markings, temporary_markings)

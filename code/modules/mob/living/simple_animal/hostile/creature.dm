@@ -1,7 +1,7 @@
 /mob/living/simple_animal/hostile/creature
 	name = "creature"
 	desc = "A sanity-destroying otherthing."
-	icon = 'icons/mob/critter.dmi'
+	icon = 'icons/mob/npc/critter.dmi'
 	speak_emote = list("gibbers")
 	icon_state = "otherthing"
 	icon_living = "otherthing"
@@ -15,6 +15,8 @@
 	faction = "creature"
 	speed = 4
 	mob_size = 14
+
+	tameable = FALSE
 
 /mob/living/simple_animal/hostile/creature/cult
 	faction = "cult"
@@ -30,6 +32,7 @@
 	minbodytemp = 0
 
 	supernatural = 1
+	appearance_flags = NO_CLIENT_COLOR
 
 /mob/living/simple_animal/hostile/creature/cult/cultify()
 	return

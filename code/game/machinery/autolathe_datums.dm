@@ -259,7 +259,7 @@
 	name = "ammunition (9mm rubber top mounted)"
 	path = /obj/item/ammo_magazine/mc9mmt/rubber
 	category = "Arms and Ammunition"
-	
+
 /datum/autolathe/recipe/detective_revolver_rubber
 	name = "ammunition (.38, rubber)"
 	path = /obj/item/ammo_magazine/c38/rubber
@@ -388,7 +388,7 @@
 
 /datum/autolathe/recipe/tacknife
 	name = "tactical knife"
-	path = /obj/item/weapon/material/hatchet/tacknife
+	path = /obj/item/weapon/material/knife/tacknife
 	hidden = 1
 	category = "Arms and Ammunition"
 
@@ -397,7 +397,7 @@
 	path = /obj/item/ammo_casing/shotgun/stunshell
 	hidden = 1
 	category = "Arms and Ammunition"
-	
+
 /datum/autolathe/recipe/clip_boltaction
 	name = "ammunition clip (7.62mm)"
 	path = /obj/item/ammo_magazine/boltaction
@@ -434,9 +434,9 @@
 	hidden = 1
 	category = "Devices and Components"
 
-/datum/autolathe/recipe/beartrap
+/datum/autolathe/recipe/trap
 	name = "mechanical trap"
-	path = /obj/item/weapon/beartrap
+	path = /obj/item/weapon/trap
 	hidden = 1
 	category = "Devices and Components"
 
@@ -451,3 +451,8 @@
 	path = /obj/item/weapon/handcuffs
 	hidden = 1
 	category = "General"
+
+/datum/autolathe/recipe/emergency_cell
+	name = "miniature cell"
+	path = /obj/item/weapon/cell/device/emergency_light/empty
+	category = "Engineering"

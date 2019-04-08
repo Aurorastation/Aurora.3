@@ -44,38 +44,16 @@
 			return 1
 	return 0
 
-/proc/is_type_in_oview(var/type, var/dist = 0, var/center = src)
-	if (!ispath(type))
-		CRASH("Not a valid type in 'is_type_in_oview()'")
-	if (!isnum(dist))
-		CRASH("Not a valid dist in 'is_type_in_oview()'")
-	if (!isloc(center))
-		CRASH("Not a valid center in 'is_type_in_oview()'")
-	var/list/atoms = oview(dist, center)
-	for (var/A in atoms)
-		if (istype(A, type))
-			return 1
-	return 0
-
-/proc/is_type_in_view(var/type, var/dist = 0, var/center = src)
-	if (!ispath(type))
-		CRASH("Not a valid type in 'is_type_in_view()'")
-	if (!isnum(dist))
-		CRASH("Not a valid dist in 'is_type_in_view()'")
-	if (!isloc(center))
-		CRASH("Not a valid center in 'is_type_in_view()'")
-	var/list/atoms = view(dist, center)
-	for (var/A in atoms)
-		if (istype(A, type))
-			return 1
-	return 0
-
-/proc/instances_of_type_in_list(var/atom/A, var/list/L)
-	var/instances = 0
-	for(var/type in L)
-		if(istype(A, type))
-			instances++
-	return instances
+/proc/instances_of_type_in_list(atom/A, list/L, strict = FALSE)
+	. = 0
+	if (strict)
+		for (var/type in L)
+			if (type == A.type)
+				.++
+	else
+		for(var/type in L)
+			if(istype(A, type))
+				.++
 
 //Removes any null entries from the list
 //Returns TRUE if the list had nulls, FALSE otherwise
@@ -317,6 +295,40 @@
 	for(var/path in subtypesof(prototype))
 		L += new path()
 	return L
+
+//returns a new list with only atoms that are in typecache L
+/proc/typecache_filter_list(list/atoms, list/typecache)
+	. = list()
+	for(var/thing in atoms)
+		var/atom/A = thing
+		if (typecache[A.type])
+			. += A
+
+/proc/typecache_filter_list_reverse(list/atoms, list/typecache)
+	. = list()
+	for(var/thing in atoms)
+		var/atom/A = thing
+		if(!typecache[A.type])
+			. += A
+
+/proc/typecache_filter_multi_list_exclusion(list/atoms, list/typecache_include, list/typecache_exclude)
+	. = list()
+	for(var/thing in atoms)
+		var/atom/A = thing
+		if(typecache_include[A.type] && !typecache_exclude[A.type])
+			. += A
+
+/proc/range_in_typecache(dist, center, list/typecache)
+	for (var/thing in range(dist, center))
+		var/atom/A = thing
+		if (typecache[A.type])
+			return TRUE
+
+/proc/typecache_first_match(list/target, list/typecache)
+	for (var/thing in target)
+		var/datum/D = thing
+		if (typecache[D.type])
+			return D
 
 //Like typesof() or subtypesof(), but returns a typecache instead of a list
 /proc/typecacheof(path, ignore_root_path, only_root_path = FALSE)

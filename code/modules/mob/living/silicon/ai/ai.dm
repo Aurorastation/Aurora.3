@@ -81,6 +81,7 @@ var/list/ai_verbs_default = list(
 	var/errored = 0								// Set to 1 if runtime error occurs. Only way of this happening i can think of is admin fucking up with varedit.
 	var/bombing_core = 0						// Set to 1 if core auto-destruct is activated
 	var/bombing_station = 0						// Set to 1 if station nuke auto-destruct is activated
+	var/bombing_time = 1200							// How much time is remaining for the nuke
 	var/override_CPUStorage = 0					// Bonus/Penalty CPU Storage. For use by admins/testers.
 	var/override_CPURate = 0					// Bonus/Penalty CPU generation rate. For use by admins/testers.
 	var/list/cameraRecords = list()				//For storing what is shown to the cameras
@@ -145,17 +146,18 @@ var/list/ai_verbs_default = list(
 		add_ai_verbs(src)
 
 	//Languages
-	add_language("Robot Talk", 1)
-	add_language("Ceti Basic", 1)
-	add_language("Sol Common", 0)
+	add_language(LANGUAGE_ROBOT, 1)
+	add_language(LANGUAGE_TCB, 1)
+	add_language(LANGUAGE_SOL_COMMON, 0)
 	add_language(LANGUAGE_UNATHI, 0)
 	add_language(LANGUAGE_SIIK_MAAS, 0)
 	add_language(LANGUAGE_SKRELLIAN, 0)
-	add_language("Tradeband", 1)
+	add_language(LANGUAGE_TRADEBAND, 1)
 	add_language(LANGUAGE_GUTTER, 0)
 	add_language(LANGUAGE_VAURCA, 0)
-	add_language("Rootsong", 0)
+	add_language(LANGUAGE_ROOTSONG, 0)
 	add_language(LANGUAGE_EAL, 1)
+	add_language(LANGUAGE_YA_SSA, 0)
 
 	if(!safety)//Only used by AIize() to successfully spawn an AI.
 		if (!B)//If there is no player/brain inside.
@@ -189,12 +191,12 @@ var/list/ai_verbs_default = list(
 	new /obj/machinery/ai_powersupply(src)
 
 /mob/living/silicon/ai/proc/on_mob_init()
-	src << "<B>You are playing the station's AI. The AI cannot move, but can interact with many objects while viewing them (through cameras).</B>"
-	src << "<B>To look at other parts of the station, click on yourself to get a camera menu.</B>"
-	src << "<B>While observing through a camera, you can use most (networked) devices which you can see, such as computers, APCs, intercoms, doors, etc.</B>"
-	src << "To use something, simply click on it."
-	src << "Use say [get_language_prefix()]b to speak to your cyborgs through binary. Use say :h to speak from an active holopad."
-	src << "For department channels, use the following say commands:"
+	to_chat(src, "<B>You are playing the station's AI. The AI cannot move, but can interact with many objects while viewing them (through cameras).</B>")
+	to_chat(src, "<B>To look at other parts of the station, click on yourself to get a camera menu.</B>")
+	to_chat(src, "<B>While observing through a camera, you can use most (networked) devices which you can see, such as computers, APCs, intercoms, doors, etc.</B>")
+	to_chat(src, "To use something, simply click on it.")
+	to_chat(src, "Use say [get_language_prefix()]b to speak to your cyborgs through binary. Use say :h to speak from an active holopad.")
+	to_chat(src, "For department channels, use the following say commands:")
 
 	var/radio_text = ""
 	for(var/i = 1 to common_radio.channels.len)
@@ -204,11 +206,11 @@ var/list/ai_verbs_default = list(
 		if(i != common_radio.channels.len)
 			radio_text += ", "
 
-	src << radio_text
+	to_chat(src, radio_text)
 
 	if (malf && !(mind in malf.current_antagonists))
 		show_laws()
-		src << "<b>These laws may be changed by other players, or by you being the traitor.</b>"
+		to_chat(src, "<b>These laws may be changed by other players, or by you being the traitor.</b>")
 
 	job = "AI"
 	setup_icon()
@@ -277,6 +279,12 @@ var/list/ai_verbs_default = list(
 		aiPDA.ownjob = "AI"
 		aiPDA.owner = pickedName
 		aiPDA.name = pickedName + " (" + aiPDA.ownjob + ")"
+
+	//Set the ID Name
+	if(idcard)
+		idcard.registered_name = pickedName
+		idcard.assignment = "AI"
+		idcard.update_name()
 
 	setup_icon() //this is because the ai custom name is related to the ai name, so, we just call the setup icon after someone named their ai
 
@@ -347,7 +355,7 @@ var/list/ai_verbs_default = list(
 	set name = "Examine"
 
 	if((is_blind(src) || usr.stat) && !isobserver(src))
-		src << "<span class='notice'>Your optical sensors appear to be malfunctioning.</span>"
+		to_chat(src, "<span class='notice'>Your optical sensors appear to be malfunctioning.</span>")
 		return 1
 
 	face_atom(A)
@@ -362,7 +370,7 @@ var/list/ai_verbs_default = list(
 		return
 
 	if(message_cooldown)
-		src << "Please allow one minute to pass between announcements."
+		to_chat(src, "Please allow one minute to pass between announcements.")
 		return
 	var/input = input(usr, "Please write a message to announce to the station crew.", "A.I. Announcement")
 	if(!input)
@@ -391,11 +399,8 @@ var/list/ai_verbs_default = list(
 	if(confirm == "Yes")
 		call_shuttle_proc(src)
 
-	// hack to display shuttle timer
 	if(emergency_shuttle.online())
-		var/obj/machinery/computer/communications/C = locate() in SSmachinery.processing_machines
-		if(C)
-			C.post_status("shuttle")
+		post_display_status("shuttle")
 
 /mob/living/silicon/ai/proc/ai_recall_shuttle()
 	set category = "AI Commands"
@@ -419,17 +424,17 @@ var/list/ai_verbs_default = list(
 	if(check_unable(AI_CHECK_WIRELESS))
 		return
 	if(!is_relay_online())
-		usr <<"<span class='warning'>No Emergency Bluespace Relay detected. Unable to transmit message.</span>"
+		to_chat(usr, "<span class='warning'>No Emergency Bluespace Relay detected. Unable to transmit message.</span>")
 		return
 	if(emergency_message_cooldown)
-		usr << "<span class='warning'>Arrays recycling. Please stand by.</span>"
+		to_chat(usr, "<span class='warning'>Arrays recycling. Please stand by.</span>")
 		return
-	var/input = sanitize(input(usr, "Please choose a message to transmit to [boss_short] via quantum entanglement.  Please be aware that this process is very expensive, and abuse will lead to... termination.  Transmission does not guarantee a response. There is a 30 second delay before you may send another message, be clear, full and concise.", "To abort, send an empty message.", ""))
+	var/input = sanitize(input(usr, "Please choose a message to transmit to [current_map.boss_short] via quantum entanglement.  Please be aware that this process is very expensive, and abuse will lead to... termination.  Transmission does not guarantee a response. There is a 30 second delay before you may send another message, be clear, full and concise.", "To abort, send an empty message.", ""))
 	if(!input)
 		return
 	Centcomm_announce(input, usr)
-	usr << "<span class='notice'>Message transmitted.</span>"
-	log_say("[key_name(usr)] has made an IA [boss_short] announcement: [input]",ckey=key_name(usr))
+	to_chat(usr, "<span class='notice'>Message transmitted.</span>")
+	log_say("[key_name(usr)] has made an AI [current_map.boss_short] announcement: [input]",ckey=key_name(usr))
 	emergency_message_cooldown = 1
 	spawn(300)
 		emergency_message_cooldown = 0
@@ -471,7 +476,7 @@ var/list/ai_verbs_default = list(
 			if(H)
 				H.attack_ai(src) //may as well recycle
 			else
-				src << "<span class='notice'>Unable to locate the holopad.</span>"
+				to_chat(src, "<span class='notice'>Unable to locate the holopad.</span>")
 
 	if (href_list["track"])
 		var/mob/target = locate(href_list["track"]) in mob_list
@@ -479,13 +484,13 @@ var/list/ai_verbs_default = list(
 		if(target && (!istype(target, /mob/living/carbon/human) || html_decode(href_list["trackname"]) == target:get_face_name()))
 			ai_actual_track(target)
 		else
-			src << "<span class='warning'>System error. Cannot locate [html_decode(href_list["trackname"])].</span>"
+			to_chat(src, "<span class='warning'>System error. Cannot locate [html_decode(href_list["trackname"])].</span>")
 		return
 	if (href_list["readcapturedpaper"]) //Yep stolen from admin faxes
 		var/entry = text2num(href_list["readcapturedpaper"])
 		if(!entry || !cameraRecords.len) return
 		if(!cameraRecords[entry])
-			src << "<span class='notice'>Unable to locate visual entry.</span>"
+			to_chat(src, "<span class='notice'>Unable to locate visual entry.</span>")
 			return
 		var/info = cameraRecords[entry]
 		src << browse(text("<HTML><HEAD><TITLE>[]</TITLE></HEAD><BODY><TT>[]</TT></BODY></HTML>", info[1], info[2]), text("window=[]", html_encode(info[1])))
@@ -568,7 +573,7 @@ var/list/ai_verbs_default = list(
 		if(network in C.network)
 			eyeobj.setLoc(get_turf(C))
 			break
-	src << "<span class='notice'>Switched to [network] camera network.</span>"
+	to_chat(src, "<span class='notice'>Switched to [network] camera network.</span>")
 //End of code by Mord_Sith
 
 /mob/living/silicon/ai/proc/ai_statuschange()
@@ -594,16 +599,32 @@ var/list/ai_verbs_default = list(
 	if(alert("Would you like to select a hologram based on a crew member or switch to unique avatar?",,"Crew Member","Unique")=="Crew Member")
 
 		var/personnel_list[] = list()
+		var/current_mobs = list()
 
+		for(var/mob/living/carbon/human/H in human_mob_list)
+			current_mobs[H.real_name] = H
 		for(var/datum/data/record/t in data_core.locked)//Look in data core locked.
 			personnel_list["[t.fields["name"]]: [t.fields["rank"]]"] = t.fields["image"]//Pull names, rank, and image.
+			if(current_mobs[t.fields["name"]])
+				personnel_list["[t.fields["name"]]: [t.fields["rank"]]"] = list("mob" = current_mobs[t.fields["name"]], "image" = t.fields["image"])
 
 		if(personnel_list.len)
 			input = input("Select a crew member:") as null|anything in personnel_list
-			var/icon/character_icon = personnel_list[input]
+			var/selection = personnel_list[input]
+			var/icon/character_icon
+			if(selection && istype(selection, /list))
+				var/mob/living/carbon/human/H = selection["mob"]
+				if (H.near_camera())
+					character_icon = new('icons/mob/human.dmi', "blank")
+					for(var/renderdir in cardinal)
+						character_icon.Insert(getHologramIcon(getFlatIcon(H, renderdir, always_use_defdir=1)), dir = renderdir)
+				else
+					character_icon = getHologramIcon(icon(selection["image"]))
+			if(selection && istype(selection, /icon))
+				character_icon = getHologramIcon(icon(selection))
 			if(character_icon)
-				qdel(holo_icon)//Clear old icon so we're not storing it in memory.
-				holo_icon = getHologramIcon(icon(character_icon))
+				qdel(holo_icon) // Clear old icon so we're not storing it in memory.
+				holo_icon = character_icon
 		else
 			alert("No suitable records found. Aborting.")
 
@@ -635,7 +656,7 @@ var/list/ai_verbs_default = list(
 		return
 
 	camera_light_on = !camera_light_on
-	src << "Camera lights [camera_light_on ? "activated" : "deactivated"]."
+	to_chat(src, "Camera lights [camera_light_on ? "activated" : "deactivated"].")
 	if(!camera_light_on)
 		if(camera)
 			camera.set_light(0)
@@ -676,7 +697,7 @@ var/list/ai_verbs_default = list(
 		var/obj/item/weapon/aicard/card = W
 		card.grab_ai(src, user)
 
-	else if(istype(W, /obj/item/weapon/wrench))
+	else if(W.iswrench())
 		if(anchored)
 			user.visible_message("<span class='notice'>\The [user] starts to unbolt \the [src] from the plating...</span>")
 			if(!do_after(user,40))
@@ -704,7 +725,7 @@ var/list/ai_verbs_default = list(
 	if(check_unable(AI_CHECK_RADIO))
 		return
 
-	src << "Accessing Subspace Transceiver control..."
+	to_chat(src, "Accessing Subspace Transceiver control...")
 	if (src.aiRadio)
 		src.aiRadio.interact(src)
 
@@ -720,22 +741,22 @@ var/list/ai_verbs_default = list(
 	set desc = "Toggles hologram movement based on moving with your virtual eye."
 
 	hologram_follow = !hologram_follow
-	usr << "<span class='info'>Your hologram will now [hologram_follow ? "follow" : "no longer follow"] you.</span>"
+	to_chat(usr, "<span class='info'>Your hologram will now [hologram_follow ? "follow" : "no longer follow"] you.</span>")
 
 /mob/living/silicon/ai/proc/check_unable(var/flags = 0, var/feedback = 1)
 	if(stat == DEAD)
-		if(feedback) src << "<span class='warning'>You are dead!</span>"
+		if(feedback) to_chat(src, "<span class='warning'>You are dead!</span>")
 		return 1
 
 	if(aiRestorePowerRoutine)
-		if(feedback) src << "<span class='warning'>You lack power!</span>"
+		if(feedback) to_chat(src, "<span class='warning'>You lack power!</span>")
 		return 1
 
 	if((flags & AI_CHECK_WIRELESS) && src.control_disabled)
-		if(feedback) src << "<span class='warning'>Wireless control is disabled!</span>"
+		if(feedback) to_chat(src, "<span class='warning'>Wireless control is disabled!</span>")
 		return 1
 	if((flags & AI_CHECK_RADIO) && src.aiRadio.disabledAi)
-		if(feedback) src << "<span class='warning'>System Error - Transceiver Disabled!</span>"
+		if(feedback) to_chat(src, "<span class='warning'>System Error - Transceiver Disabled!</span>")
 		return 1
 	return 0
 
@@ -754,7 +775,7 @@ var/list/ai_verbs_default = list(
 	set category = "AI Commands"
 
 	multitool_mode = !multitool_mode
-	src << "<span class='notice'>Multitool mode: [multitool_mode ? "E" : "Dise"]ngaged</span>"
+	to_chat(src, "<span class='notice'>Multitool mode: [multitool_mode ? "E" : "Dise"]ngaged</span>")
 
 /mob/living/silicon/ai/updateicon()
 	if(!selected_sprite) selected_sprite = default_ai_icon

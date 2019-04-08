@@ -10,7 +10,7 @@
 	examine(mob/user)
 		..(user)
 		if(armed)
-			user << "It looks like it's armed."
+			to_chat(user, "It looks like it's armed.")
 
 	update_icon()
 		if(armed)
@@ -44,7 +44,8 @@
 					if(!H.gloves)
 						H.apply_effect(250/(target.mob_size*(target.mob_size*0.25)), AGONY)
 		if (!(types & TYPE_SYNTHETIC))
-			target.apply_damage(rand(6,14), BRUTE, def_zone = zone, used_weapon = src)
+			target.apply_damage(rand(6,14), AGONY, def_zone = zone, used_weapon = src)
+			target.apply_damage(rand(1,3), BRUTE, def_zone = zone, used_weapon = src)
 
 	playsound(target.loc, 'sound/effects/snap.ogg', 50, 1)
 	layer = MOB_LAYER - 0.2
@@ -55,9 +56,9 @@
 
 /obj/item/device/assembly/mousetrap/attack_self(mob/living/user as mob)
 	if(!armed)
-		user << "<span class='notice'>You arm [src].</span>"
+		to_chat(user, "<span class='notice'>You arm [src].</span>")
 	else
-		if(((user.getBrainLoss() >= 60 || (CLUMSY in user.mutations)) && prob(50)))
+		if(((CLUMSY in user.mutations) || (DUMB in user.mutations)) && prob(50))
 			var/which_hand = "l_hand"
 			if(!user.hand)
 				which_hand = "r_hand"
@@ -65,7 +66,7 @@
 			user.visible_message("<span class='warning'>[user] accidentally sets off [src], breaking their fingers.</span>", \
 								 "<span class='warning'>You accidentally trigger [src]!</span>")
 			return
-		user << "<span class='notice'>You disarm [src].</span>"
+		to_chat(user, "<span class='notice'>You disarm [src].</span>")
 	armed = !armed
 	update_icon()
 	playsound(user.loc, 'sound/weapons/handcuffs.ogg', 30, 1, -3)
@@ -73,7 +74,7 @@
 
 /obj/item/device/assembly/mousetrap/attack_hand(mob/living/user as mob)
 	if(armed)
-		if(((user.getBrainLoss() >= 60 || CLUMSY in user.mutations)) && prob(50))
+		if(((CLUMSY in user.mutations) || (DUMB in user.mutations)) && prob(50))
 			var/which_hand = "l_hand"
 			if(!user.hand)
 				which_hand = "r_hand"
@@ -127,4 +128,4 @@
 		return
 
 	layer = TURF_LAYER+0.2
-	usr << "<span class='notice'>You hide [src].</span>"
+	to_chat(usr, "<span class='notice'>You hide [src].</span>")

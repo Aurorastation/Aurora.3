@@ -50,6 +50,7 @@
 	var/bantype = "Syndicate"               // Ban to check when spawning this antag.
 	var/suspicion_chance = 50               // Prob of being on the initial Command report
 	var/flags = 0                           // Various runtime options.
+	var/db_log_id = null                    // ID of the db entry used to track that antagonist
 
 	// Used for setting appearance.
 	var/list/valid_species =       list("Unathi","Tajara","Skrell","Human")
@@ -77,7 +78,7 @@
 		role_type = id
 
 	cur_max = hard_cap
-	get_starting_locations()
+
 	if(!role_text_plural)
 		role_text_plural = role_text
 	if(config.protect_roles_from_antagonist)
@@ -98,7 +99,7 @@
 	// Prune restricted status. Broke it up for readability.
 	// Note that this is done before jobs are handed out.
 	for(var/datum/mind/player in SSticker.mode.get_players_for_role(role_type, id))
-		if(ghosts_only && !istype(player.current, /mob/dead))
+		if(ghosts_only && !istype(player.current, /mob/abstract))
 			log_debug("[key_name(player)] is not eligible to become a [role_text]: Only ghosts may join as this role!")
 		else if(!allow_animals && isanimal(player.current))
 			log_debug("[key_name(player)] is not eligible to become a [role_text]: Simple animals cannot be this role!")
@@ -183,7 +184,7 @@
 	if(player.special_role)
 		log_debug("[player.key] was selected for [role_text] by lottery, but they already have a special role.")
 		return 0
-	if(!(flags & ANTAG_OVERRIDE_JOB) && (!player.current || istype(player.current, /mob/new_player)))
+	if(!(flags & ANTAG_OVERRIDE_JOB) && (!player.current || istype(player.current, /mob/abstract/new_player)))
 		log_debug("[player.key] was selected for [role_text] by lottery, but they have not joined the game.")
 		return 0
 
@@ -218,6 +219,8 @@
 		if(flags & ANTAG_OVERRIDE_JOB)
 			player.assigned_role = null
 		player.special_role = null
-		player.current.client.verbs -= /client/proc/aooc
+
+		if (!check_rights(R_ADMIN|R_MOD|R_CCIAA, 0, player.current))
+			player.current.client.verbs -= /client/proc/aooc
 	pending_antagonists.Cut()
 	candidates.Cut()

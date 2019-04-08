@@ -4,7 +4,7 @@
 /obj/machinery/door/airlock
 	var/id_tag
 	var/frequency
-	var/tmp/shockedby = list()
+	var/tmp/shockedby
 	var/tmp/datum/radio_frequency/radio_connection
 	var/tmp/cur_command = null	//the command the door is currently attempting to complete
 	var/tmp/waiting_for_roundstart
@@ -129,13 +129,12 @@
 	if(!surpress_send) send_status()
 
 
-/obj/machinery/door/airlock/Bumped(atom/AM)
-	..(AM)
+/obj/machinery/door/airlock/CollidedWith(atom/AM)
+	. = ..()
 	if(istype(AM, /obj/mecha))
 		var/obj/mecha/mecha = AM
 		if(density && radio_connection && mecha.occupant && (src.allowed(mecha.occupant) || src.check_access_list(mecha.operation_req_access)))
 			send_status(1)
-	return
 
 /obj/machinery/door/airlock/proc/set_frequency(new_frequency)
 	SSradio.remove_object(src, frequency)
@@ -274,7 +273,7 @@
 /obj/machinery/access_button/attack_hand(mob/user)
 	add_fingerprint(usr)
 	if(!allowed(user))
-		user << "<span class='warning'>Access Denied</span>"
+		to_chat(user, "<span class='warning'>Access Denied</span>")
 
 	else if(radio_connection)
 		var/datum/signal/signal = new
@@ -313,6 +312,6 @@
 /obj/machinery/door/airlock/proc/command(var/new_command)
 	cur_command = new_command
 
-	//if there's no power, recieve the signal but just don't do anything. This allows airlocks to continue to work normally once power is restored
+	//if there's no power, receive the signal but just don't do anything. This allows airlocks to continue to work normally once power is restored
 	if(arePowerSystemsOn())
 		INVOKE_ASYNC(src, .proc/execute_current_command)

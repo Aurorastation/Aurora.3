@@ -25,7 +25,7 @@
 
 	var/damage = W.force / 4.0
 
-	if(istype(W, /obj/item/weapon/weldingtool))
+	if(W.iswelder())
 		var/obj/item/weapon/weldingtool/WT = W
 
 		if(WT.remove_fuel(0, user))
@@ -64,7 +64,7 @@
 		return 1
 	else if(istype(mover, /mob/living))
 		if(prob(50))
-			mover << "<span class='warning'>You get stuck in \the [src] for a moment.</span>"
+			to_chat(mover, "<span class='warning'>You get stuck in \the [src] for a moment.</span>")
 			return 0
 	else if(istype(mover, /obj/item/projectile))
 		return prob(30)
@@ -148,9 +148,9 @@
 	STOP_PROCESSING(SSprocessing, src)
 	return ..()
 
-/obj/effect/spider/spiderling/Bump(atom/user)
+/obj/effect/spider/spiderling/Collide(atom/user)
 	if(istype(user, /obj/structure/table))
-		src.loc = user.loc
+		forceMove(user.loc)
 	else
 		..()
 
@@ -192,7 +192,7 @@
 							return
 
 						if(prob(50))
-							src.visible_message("<span class='notice'>You hear something squeezing through the ventilation ducts.</span>",2)
+							visible_message("<span class='notice'>You hear something squeezing through the ventilation ducts.</span>", range = 2)
 						sleep(travel_time)
 
 						if(!exit_vent || exit_vent.welded)

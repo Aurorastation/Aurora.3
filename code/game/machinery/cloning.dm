@@ -43,18 +43,16 @@
 	var/eject_wait = 0 //Don't eject them as soon as they are created fuckkk
 	var/biomass = CLONE_BIOMASS * 3
 
+	component_types = list(
+		/obj/item/weapon/circuitboard/clonepod,
+		/obj/item/weapon/stock_parts/manipulator = 2,
+		/obj/item/weapon/stock_parts/scanning_module = 2,
+		/obj/item/weapon/stock_parts/console_screen,
+		/obj/item/stack/cable_coil{amount = 2}
+	)
+
 /obj/machinery/clonepod/Initialize()
 	. = ..()
-	component_parts = list()
-	component_parts += new /obj/item/weapon/circuitboard/clonepod(src)
-	component_parts += new /obj/item/weapon/stock_parts/manipulator(src)
-	component_parts += new /obj/item/weapon/stock_parts/manipulator(src)
-	component_parts += new /obj/item/weapon/stock_parts/scanning_module(src)
-	component_parts += new /obj/item/weapon/stock_parts/scanning_module(src)
-	component_parts += new /obj/item/weapon/stock_parts/console_screen(src)
-	component_parts += new /obj/item/stack/cable_coil(src, 2)
-
-	RefreshParts()
 	update_icon()
 	set_expansion(/datum/expansion/multitool, new/datum/expansion/multitool/store(src))
 
@@ -71,7 +69,7 @@
 /obj/machinery/clonepod/attack_hand(var/mob/user)
 	if((stat & NOPOWER) || !occupant || occupant.stat == DEAD)
 		return
-	user << "Current clone cycle is [round(GetCloneReadiness())]% complete."
+	to_chat(user, "Current clone cycle is [round(GetCloneReadiness())]% complete.")
 
 //Clonepod
 
@@ -89,7 +87,7 @@
 		if(ckey(clonemind.key) != R.ckey)
 			return 0
 	else
-		for(var/mob/dead/observer/G in player_list)
+		for(var/mob/abstract/observer/G in player_list)
 			if(G.ckey == R.ckey)
 				if(G.can_reenter_corpse)
 					break
@@ -112,7 +110,7 @@
 
 	//Get the clone body ready
 	H.setCloneLoss(H.maxHealth * (100 - config.health_threshold_crit) / 100) // We want to put them exactly at the crit level, so we deal this much clone damage
-	H.adjustBrainLoss(50) // Even if healed to full health, it will have some brain damage
+	H.adjustBrainLoss(50, 55) // Even if healed to full health, it will have some brain damage
 	H.Paralyse(4)
 
 	//Here let's calculate their health so the pod doesn't immediately eject them!!!
@@ -120,7 +118,7 @@
 
 	clonemind.transfer_to(H)
 	H.ckey = R.ckey
-	H << "<span class='notice'><b>Consciousness slowly creeps over you as your body regenerates.</b><br><i>So this is what cloning feels like?</i></span>"
+	to_chat(H, "<span class='notice'><b>Consciousness slowly creeps over you as your body regenerates.</b><br><i>So this is what cloning feels like?</i></span>")
 
 	// -- Mode/mind specific stuff goes here
 	callHook("clone", list(H))
@@ -212,7 +210,7 @@
 		return
 
 	return
-	
+
 //Let's unlock this early I guess.  Might be too early, needs tweaking.
 /obj/machinery/clonepod/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	if(isnull(occupant))
@@ -224,25 +222,25 @@
 			return
 	if(istype(W, /obj/item/weapon/card/id)||istype(W, /obj/item/device/pda))
 		if(!check_access(W))
-			user << "<span class='warning'>Access Denied.</span>"
+			to_chat(user, "<span class='warning'>Access Denied.</span>")
 			return
 		if((!locked) || (isnull(occupant)))
 			return
 		if((occupant.health < -20) && (occupant.stat != 2))
-			user << "<span class='warning'>Access Refused.</span>"
+			to_chat(user, "<span class='warning'>Access Refused.</span>")
 			return
 		else
 			locked = 0
-			user << "System unlocked."
+			to_chat(user, "System unlocked.")
 	else if(istype(W, /obj/item/weapon/reagent_containers/food/snacks/meat))
-		user << "<span class='notice'>\The [src] processes \the [W].</span>"
+		to_chat(user, "<span class='notice'>\The [src] processes \the [W].</span>")
 		biomass += 50
-		user.drop_item()
+		user.drop_from_inventory(W,src)
 		qdel(W)
 		return
-	else if(istype(W, /obj/item/weapon/wrench))
+	else if(W.iswrench())
 		if(locked && (anchored || occupant))
-			user << "<span class='warning'>Can not do that while [src] is in use.</span>"
+			to_chat(user, "<span class='warning'>Can not do that while [src] is in use.</span>")
 		else
 			if(anchored)
 				anchored = 0
@@ -261,7 +259,7 @@
 /obj/machinery/clonepod/emag_act(var/remaining_charges, var/mob/user)
 	if(isnull(occupant))
 		return NO_EMAG_ACT
-	user << "You force an emergency ejection."
+	to_chat(user, "You force an emergency ejection.")
 	locked = 0
 	go_out()
 	return 1
@@ -280,8 +278,9 @@
 /obj/machinery/clonepod/RefreshParts()
 	..()
 	var/rating = 0
+
 	for(var/obj/item/weapon/stock_parts/P in component_parts)
-		if(istype(P, /obj/item/weapon/stock_parts/scanning_module) || istype(P, /obj/item/weapon/stock_parts/manipulator))
+		if(isscanner(P) || ismanipulator(P))
 			rating += P.rating
 
 	heal_level = rating * 10 - 20
@@ -314,7 +313,7 @@
 	if(occupant.client)
 		occupant.client.eye = occupant.client.mob
 		occupant.client.perspective = MOB_PERSPECTIVE
-	occupant.loc = loc
+	occupant.forceMove(loc)
 	eject_wait = 0 //If it's still set somehow.
 	domutcheck(occupant) //Waiting until they're out before possible transforming.
 	occupant = null
@@ -348,21 +347,21 @@
 	switch(severity)
 		if(1.0)
 			for(var/atom/movable/A as mob|obj in src)
-				A.loc = loc
+				A.forceMove(loc)
 				ex_act(severity)
 			qdel(src)
 			return
 		if(2.0)
 			if(prob(50))
 				for(var/atom/movable/A as mob|obj in src)
-					A.loc = loc
+					A.forceMove(loc)
 					ex_act(severity)
 				qdel(src)
 				return
 		if(3.0)
 			if(prob(25))
 				for(var/atom/movable/A as mob|obj in src)
-					A.loc = loc
+					A.forceMove(loc)
 					ex_act(severity)
 				qdel(src)
 				return
@@ -447,11 +446,11 @@
 
 /obj/item/weapon/disk/data/attack_self(mob/user as mob)
 	read_only = !read_only
-	user << "You flip the write-protect tab to [read_only ? "protected" : "unprotected"]."
+	to_chat(user, "You flip the write-protect tab to [read_only ? "protected" : "unprotected"].")
 
 /obj/item/weapon/disk/data/examine(mob/user)
 	..(user)
-	user << text("The write-protect tab is set to [read_only ? "protected" : "unprotected"].")
+	to_chat(user, text("The write-protect tab is set to [read_only ? "protected" : "unprotected"]."))
 	return
 
 /*

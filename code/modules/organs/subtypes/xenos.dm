@@ -53,7 +53,7 @@
 /obj/item/organ/xenos/hivenode/removed(var/mob/living/user)
 	if(owner && ishuman(owner))
 		var/mob/living/carbon/human/H = owner
-		H << "<span class='alium'>You feel your connection to the hivemind fray and fade away...</span>"
+		to_chat(H, "<span class='alium'>You feel your connection to the hivemind fray and fade away...</span>")
 		H.remove_language("Hivemind")
 		if(H.mind && H.species.get_bodytype() != "Xenomorph")
 			xenomorphs.remove_antagonist(H.mind)
@@ -65,7 +65,7 @@
 		var/mob/living/carbon/human/H = owner
 		H.add_language("Hivemind")
 		if(H.mind && H.species.get_bodytype() != "Xenomorph")
-			H << "<span class='alium'>You feel a sense of pressure as a vast intelligence meshes with your thoughts...</span>"
+			to_chat(H, "<span class='alium'>You feel a sense of pressure as a vast intelligence meshes with your thoughts...</span>")
 			xenomorphs.add_antagonist_mind(H.mind,1, xenomorphs.faction_role_text, xenomorphs.faction_welcome)
 
 // Skeleton limbs.
@@ -104,3 +104,24 @@
 	name = "skull"
 	dislocated = -1
 	vital = 0
+
+//vox organs
+
+/obj/item/organ/heart/vox
+	icon_state = "vox_heart"
+	dead_icon = "vox_heart"
+
+/obj/item/organ/lungs/vox
+	name = "air capillary sack"
+	icon_state = "vox_lung"
+
+/obj/item/organ/kidneys/vox
+	name = "filtration bladder"
+	icon_state = "lungs"
+	color = "#99ccff"
+	parent_organ = "chest"
+
+/obj/item/organ/liver/vox
+	name = "waste tract"
+	parent_organ = "chest"
+	color = "#0033cc"

@@ -28,19 +28,14 @@
 	var/radio_filter_in
 
 	var/welded = 0
-	//no_special_init = TRUE
 
 /obj/machinery/atmospherics/unary/vent_scrubber/on
 	use_power = 1
 	icon_state = "map_scrubber_on"
 
-/obj/machinery/atmospherics/unary/vent_scrubber/New()
-	..()
-	air_contents.volume = ATMOS_DEFAULT_VOLUME_FILTER
-
-
 /obj/machinery/atmospherics/unary/vent_scrubber/Initialize()
 	. = ..()
+	air_contents.volume = ATMOS_DEFAULT_VOLUME_FILTER
 
 	initial_loc = get_area(loc)
 	area_uid = initial_loc.uid
@@ -52,8 +47,6 @@
 	radio_filter_out = frequency==initial(frequency)?(RADIO_TO_AIRALARM):null
 	if (frequency)
 		set_frequency(frequency)
-	
-	atmos_init()
 
 /obj/machinery/atmospherics/unary/vent_scrubber/atmos_init()
 	..()
@@ -78,7 +71,7 @@
 		icon_state = "on"
 	else
 		icon_state = "in"
-		
+
 /obj/machinery/atmospherics/unary/vent_scrubber/update_underlays()
 	if(..())
 		underlays.Cut()
@@ -120,7 +113,7 @@
 		"filter_n2o" = ("sleeping_agent" in scrubbing_gas),
 		"sigtype" = "status"
 	)
-	
+
 	var/area/A = get_area(src)
 	if(!A.air_scrub_names[id_tag])
 		var/new_name = "[A.name] Air Scrubber #[A.air_scrub_names.len+1]"
@@ -260,22 +253,22 @@
 		update_icon()
 
 /obj/machinery/atmospherics/unary/vent_scrubber/attackby(var/obj/item/weapon/W as obj, var/mob/user as mob)
-	if (istype(W, /obj/item/weapon/wrench))
+	if (W.iswrench())
 		if (!(stat & NOPOWER) && use_power)
-			user << "<span class='warning'>You cannot unwrench \the [src], turn it off first.</span>"
+			to_chat(user, "<span class='warning'>You cannot unwrench \the [src], turn it off first.</span>")
 			return 1
 		var/turf/T = src.loc
 		if (node && node.level==1 && isturf(T) && !T.is_plating())
-			user << "<span class='warning'>You must remove the plating first.</span>"
+			to_chat(user, "<span class='warning'>You must remove the plating first.</span>")
 			return 1
 		var/datum/gas_mixture/int_air = return_air()
 		var/datum/gas_mixture/env_air = loc.return_air()
 		if ((int_air.return_pressure()-env_air.return_pressure()) > 2*ONE_ATMOSPHERE)
-			user << "<span class='warning'>You cannot unwrench \the [src], it is too exerted due to internal pressure.</span>"
+			to_chat(user, "<span class='warning'>You cannot unwrench \the [src], it is too exerted due to internal pressure.</span>")
 			add_fingerprint(user)
 			return 1
 		playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
-		user << "<span class='notice'>You begin to unfasten \the [src]...</span>"
+		to_chat(user, "<span class='notice'>You begin to unfasten \the [src]...</span>")
 		if (do_after(user, 40, act_target = src))
 			user.visible_message( \
 				"<span class='notice'>\The [user] unfastens \the [src].</span>", \
@@ -285,12 +278,12 @@
 			qdel(src)
 		return 1
 
-	if(istype(W, /obj/item/weapon/weldingtool))
+	if(W.iswelder())
 		var/obj/item/weapon/weldingtool/WT = W
 		if (!WT.welding)
-			user << "<span class='danger'>\The [WT] must be turned on!</span>"
+			to_chat(user, "<span class='danger'>\The [WT] must be turned on!</span>")
 		else if (WT.remove_fuel(0,user))
-			user << "<span class='notice'>Now welding \the [src].</span>"
+			to_chat(user, "<span class='notice'>Now welding \the [src].</span>")
 			if(do_after(user, 20, act_target = src))
 				if(!src || !WT.isOn()) return
 				playsound(src.loc, 'sound/items/Welder2.ogg', 50, 1)
@@ -303,23 +296,23 @@
 					welded = 0
 					update_icon()
 			else
-				user << "<span class='notice'>You fail to complete the welding.</span>"
+				to_chat(user, "<span class='notice'>You fail to complete the welding.</span>")
 		else
-			user << "<span class='warning'>You need more welding fuel to complete this task.</span>"
+			to_chat(user, "<span class='warning'>You need more welding fuel to complete this task.</span>")
 		return 1
 	return ..()
 
 /obj/machinery/atmospherics/unary/vent_scrubber/examine(mob/user)
 	if(..(user, 1))
-		user << "A small gauge in the corner reads [round(last_flow_rate, 0.1)] L/s; [round(last_power_draw)] W"
+		to_chat(user, "A small gauge in the corner reads [round(last_flow_rate, 0.1)] L/s; [round(last_power_draw)] W")
 	else
-		user << "You are too far away to read the gauge."
+		to_chat(user, "You are too far away to read the gauge.")
 	if(welded)
-		user << "It seems welded shut."
+		to_chat(user, "It seems welded shut.")
 
 /obj/machinery/atmospherics/unary/vent_scrubber/Destroy()
 	if(initial_loc)
 		initial_loc.air_scrub_info -= id_tag
 		initial_loc.air_scrub_names -= id_tag
-	
+
 	return ..()

@@ -7,7 +7,7 @@
 	var/spell/targeted/projectile/carried
 
 	penetrating = 0
-	kill_count = 10 //set by the duration of the spell
+	range = 10 //set by the duration of the spell
 
 	var/proj_trail = 0 //if it leaves a trail
 	var/proj_trail_lifespan = 0 //deciseconds
@@ -21,7 +21,7 @@
 	carried = null
 	return ..()
 
-/obj/item/projectile/spell_projectile/ex_act()
+/obj/item/projectile/spell_projectile/ex_act(var/severity = 2.0)
 	return
 
 /obj/item/projectile/spell_projectile/before_move()
@@ -43,7 +43,7 @@
 		qdel(src)
 	return
 
-/obj/item/projectile/spell_projectile/Bump(var/atom/A)
+/obj/item/projectile/spell_projectile/Collide(atom/A)
 	if(loc && carried)
 		prox_cast(carried.choose_prox_targets(user = carried.holder, spell_holder = src))
 	return 1

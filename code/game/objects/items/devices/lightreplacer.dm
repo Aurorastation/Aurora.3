@@ -32,11 +32,6 @@
 //
 // The explosion cannot insta-kill anyone with 30% or more health.
 
-#define LIGHT_OK 0
-#define LIGHT_EMPTY 1
-#define LIGHT_BROKEN 2
-#define LIGHT_BURNED 3
-
 
 /obj/item/device/lightreplacer
 
@@ -78,36 +73,36 @@
 
 /obj/item/device/lightreplacer/examine(mob/user)
 	if(..(user, 2))
-		user << "It has [uses] lights remaining."
+		to_chat(user, "It has [uses] lights remaining.")
 		if (store_broken)
-			user << "It is storing [stored()]/[max_stored] broken lights."
+			to_chat(user, "It is storing [stored()]/[max_stored] broken lights.")
 
 /obj/item/device/lightreplacer/attackby(obj/item/W, mob/user)
 	if(istype(W, /obj/item/stack/material) && W.get_material_name() == "glass")
 		var/obj/item/stack/G = W
 		if(uses >= max_uses)
-			user << "<span class='warning'>[src.name] is full.</span>"
+			to_chat(user, "<span class='warning'>[src.name] is full.</span>")
 			return
 		else if(G.use(5))
 			AddUses(2)
 			if (prob(50))
 				AddUses(1)
-			user << "<span class='notice'>You insert five pieces of glass into the [src.name]. You have [uses] lights remaining.</span>"
+			to_chat(user, "<span class='notice'>You insert five pieces of glass into the [src.name]. You have [uses] lights remaining.</span>")
 			return
 		else
-			user << "<span class='warning'>You need 5 sheets of glass to replace lights.</span>"
+			to_chat(user, "<span class='warning'>You need 5 sheets of glass to replace lights.</span>")
 
 	if(istype(W, /obj/item/weapon/light))
 		var/obj/item/weapon/light/L = W
 		if(L.status == 0) // LIGHT OKAY
 			if(uses < max_uses)
 				AddUses(1)
-				user << "You insert \the [L.name] into \the [src.name]. You have [uses] light\s remaining."
-				user.drop_item()
+				to_chat(user, "You insert \the [L.name] into \the [src.name]. You have [uses] light\s remaining.")
+				user.drop_from_inventory(L,get_turf(src))
 				qdel(L)
 				return
 		else
-			user << "You need a working light."
+			to_chat(user, "You need a working light.")
 			return
 
 
@@ -116,7 +111,7 @@
 		if (box_contains_lights(target))
 			load_lights_from_box(target, user)
 		else
-			user << "This box has no bulbs in it!"
+			to_chat(user, "This box has no bulbs in it!")
 
 
 /obj/item/device/lightreplacer/proc/box_contains_lights(var/obj/item/weapon/storage/box/box)
@@ -138,20 +133,20 @@
 				break
 
 		if (!bulb)
-			user << "<span class='warning'>There are no more working lights left in the box!</span>"
+			to_chat(user, "<span class='warning'>There are no more working lights left in the box!</span>")
 			return
 
 		if (do_after(user, load_interval, needhand = 0) && boxstartloc == box.loc && ourstartloc == src.loc)
 			uses++
-			user << "<span class='notice'>Light loaded: [uses]/[max_uses]</span>"
+			to_chat(user, "<span class='notice'>Light loaded: [uses]/[max_uses]</span>")
 			playsound(src.loc, 'sound/machines/click.ogg', 20, 1)
 			box.remove_from_storage(bulb,get_turf(box))
 			qdel(bulb)
 		else
-			user << "<span class='warning'>You need to keep the [src] close to the box!</span>"
+			to_chat(user, "<span class='warning'>You need to keep the [src] close to the box!</span>")
 			return
 
-	user << "<span class='notice'>The [src]'s refill light shines a solid green, indicating it's full and ready to go!</span>"
+	to_chat(user, "<span class='notice'>The [src]'s refill light shines a solid green, indicating it's full and ready to go!</span>")
 
 /obj/item/device/lightreplacer/proc/stored()
 	var/count = 0
@@ -161,18 +156,11 @@
 	return count
 
 /obj/item/device/lightreplacer/attack_self(mob/user)
-	/* // This would probably be a bit OP. If you want it though, uncomment the code.
-	if(isrobot(user))
-		var/mob/living/silicon/robot/R = user
-		if(R.emagged)
-			src.Emag()
-			usr << "You shortcircuit the [src]."
-			return
-	*/
-	usr << "It has [uses] lights remaining."
+	to_chat(usr, "It has [uses] lights remaining.")
 
 /obj/item/device/lightreplacer/update_icon()
-	icon_state = "lightreplacer[emagged]"
+	if(emagged)
+		add_overlay("emagged")
 
 
 /obj/item/device/lightreplacer/proc/Use(var/mob/user)
@@ -196,7 +184,7 @@
 	if(target.status != LIGHT_OK)
 		if(CanUse(U))
 			if(!Use(U)) return
-			U << "<span class='notice'>You replace the [target.fitting] with the [src].</span>"
+			to_chat(U, "<span class='notice'>You replace the [target.fitting] with the [src].</span>")
 
 			if(target.status != LIGHT_EMPTY)
 
@@ -208,6 +196,7 @@
 				L1.brightness_color = target.brightness_color
 				L1.switchcount = target.switchcount
 				target.switchcount = 0
+				target.inserted_light = L1.type
 				L1.update()
 
 				target.status = LIGHT_EMPTY
@@ -216,9 +205,9 @@
 				if (store_broken)
 					if (stored() < max_stored)
 						L1.forceMove(src)
-						U << "<span class='notice'>\The [src] neatly sucks the broken [target.fitting] into its internal storage. Now storing [stored()]/[max_stored] broken bulbs</span>"
+						to_chat(U, "<span class='notice'>\The [src] neatly sucks the broken [target.fitting] into its internal storage. Now storing [stored()]/[max_stored] broken bulbs</span>")
 					else
-						U << "<span class='danger'>\The [src] tries to suck up the broken [target.fitting] but it has no more space. Empty it into the trash!</span>"
+						to_chat(U, "<span class='danger'>\The [src] tries to suck up the broken [target.fitting] but it has no more space. Empty it into the trash!</span>")
 
 			var/obj/item/weapon/light/L2 = new target.light_type()
 
@@ -228,19 +217,19 @@
 			target.brightness_range = L2.brightness_range
 			target.brightness_power = L2.brightness_power
 			target.brightness_color = L2.brightness_color
-			target.on = target.has_power()
+			target.inserted_light = L2.type
 			target.update()
 			qdel(L2)
 
-			if(target.on && target.rigged)
+			if(!target.stat && target.rigged)
 				target.explode()
 			return
 
 		else
-			U << failmsg
+			to_chat(U, failmsg)
 			return
 	else
-		U << "There is a working [target.fitting] already inserted."
+		to_chat(U, "There is a working [target.fitting] already inserted.")
 		return
 
 /obj/item/device/lightreplacer/emag_act(var/remaining_charges, var/mob/user)
@@ -258,8 +247,3 @@
 		return 1
 	else
 		return 0
-
-#undef LIGHT_OK
-#undef LIGHT_EMPTY
-#undef LIGHT_BROKEN
-#undef LIGHT_BURNED

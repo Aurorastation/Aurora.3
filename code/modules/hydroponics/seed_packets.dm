@@ -60,7 +60,7 @@ var/global/list/plant_seed_sprites = list()
 /obj/item/seeds/examine(mob/user)
 	..(user)
 	if(seed && !seed.roundstart)
-		user << "It's tagged as variety #[seed.uid]."
+		to_chat(user, "It's tagged as variety #[seed.uid].")
 
 /obj/item/seeds/cutting
 	name = "cuttings"
@@ -107,6 +107,9 @@ var/global/list/plant_seed_sprites = list()
 
 /obj/item/seeds/berryseed
 	seed_type = "berries"
+
+/obj/item/seeds/blueberryseed
+	seed_type = "blueberries"
 
 /obj/item/seeds/glowberryseed
 	seed_type = "glowberries"
@@ -161,6 +164,9 @@ var/global/list/plant_seed_sprites = list()
 
 /obj/item/seeds/amanitamycelium
 	seed_type = "amanita"
+
+/obj/item/seeds/panocelium
+	seed_type = "panocelium"
 
 /obj/item/seeds/angelmycelium
 	seed_type = "destroyingangel"
@@ -247,37 +253,40 @@ var/global/list/plant_seed_sprites = list()
 	seed_type = "grass"
 
 /obj/item/seeds/cocoapodseed
-	seed_type = "cocoa"
+	seed_type = "cacao"
 
 /obj/item/seeds/cherryseed
 	seed_type = "cherry"
 
-/obj/item/seeds/tobaccoseed
-	seed_type = "tobacco"
-
 /obj/item/seeds/kudzuseed
 	seed_type = "kudzu"
 
-/obj/item/seeds/jurlmah
-	seed_type = "jurlmah"
-
-/obj/item/seeds/amauri
-	seed_type = "amauri"
-
-/obj/item/seeds/gelthi
-	seed_type = "gelthi"
-
-/obj/item/seeds/vale
-	seed_type = "vale"
-
-/obj/item/seeds/surik
-	seed_type = "surik"
-
-/obj/item/seeds/telriis
-	seed_type = "telriis"
-
-/obj/item/seeds/thaadra
-	seed_type = "thaadra"
-
 /obj/item/seeds/koisspore
 	seed_type = "koisspore"
+
+/obj/item/seeds/blackkois
+	seed_type = "blackkois"
+
+/obj/item/seeds/earthenroot
+	seed_type = "earthenroot"
+
+/obj/item/seeds/nifberries
+	seed_type = "nifberries"
+
+/obj/item/seeds/tobaccoseed
+	seed_type = "tobacco"
+
+/obj/item/seeds/finetobacco
+	seed_type = "finetobacco"
+
+/obj/item/seeds/peppercornseed
+	seed_type = "peppercorn"
+
+/obj/item/seeds/garlicseed
+	seed_type = "garlic"
+
+/obj/item/seeds/onionseed
+	seed_type = "onion"
+
+/obj/item/seeds/ghostmushroomseed
+	seed_type = "ghostmushroom"

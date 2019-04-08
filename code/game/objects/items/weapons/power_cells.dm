@@ -40,8 +40,8 @@
 	maxcharge = 500
 	matter = list(DEFAULT_WALL_MATERIAL = 700, "glass" = 40)
 
-/obj/item/weapon/cell/crap/empty/New()
-	..()
+/obj/item/weapon/cell/crap/empty/Initialize()
+	. = ..()
 	charge = 0
 
 /obj/item/weapon/cell/secborg
@@ -50,8 +50,8 @@
 	maxcharge = 600	//600 max charge / 100 charge per shot = six shots
 	matter = list(DEFAULT_WALL_MATERIAL = 700, "glass" = 40)
 
-/obj/item/weapon/cell/secborg/empty/New()
-	..()
+/obj/item/weapon/cell/secborg/empty/Initialize()
+	. = ..()
 	charge = 0
 
 /obj/item/weapon/cell/apc
@@ -74,8 +74,8 @@
 	maxcharge = 15000
 	matter = list(DEFAULT_WALL_MATERIAL = 700, "glass" = 70)
 
-/obj/item/weapon/cell/high/empty/New()
-	..()
+/obj/item/weapon/cell/high/empty/Initialize()
+	. = ..()
 	charge = 0
 
 /obj/item/weapon/cell/super
@@ -85,8 +85,8 @@
 	maxcharge = 20000
 	matter = list(DEFAULT_WALL_MATERIAL = 700, "glass" = 70)
 
-/obj/item/weapon/cell/super/empty/New()
-	..()
+/obj/item/weapon/cell/super/empty/Initialize()
+	. = ..()
 	charge = 0
 
 /obj/item/weapon/cell/hyper
@@ -96,8 +96,8 @@
 	maxcharge = 30000
 	matter = list(DEFAULT_WALL_MATERIAL = 700, "glass" = 80)
 
-/obj/item/weapon/cell/hyper/empty/New()
-	..()
+/obj/item/weapon/cell/hyper/empty/Initialize()
+	. = ..()
 	charge = 0
 
 /obj/item/weapon/cell/infinite
@@ -127,7 +127,19 @@
 	name = "charged slime core"
 	desc = "A yellow slime core infused with phoron, it crackles with power."
 	origin_tech = list(TECH_POWER = 2, TECH_BIO = 4)
-	icon = 'icons/mob/slimes.dmi' //'icons/obj/harvest.dmi'
+	icon = 'icons/mob/npc/slimes.dmi' //'icons/obj/harvest.dmi'
 	icon_state = "yellow slime extract" //"potato_battery"
 	maxcharge = 10000
 	matter = null
+
+
+/obj/item/weapon/cell/device/emergency_light
+	name = "miniature power cell"
+	desc = "A small power cell intended for use with emergency lighting."
+	maxcharge = 120	//Emergency lights use 0.2 W per tick, meaning ~10 minutes of emergency power from a cell
+	w_class = ITEMSIZE_TINY
+	matter = list("glass" = 20)
+
+/obj/item/weapon/cell/device/emergency_light/empty/Initialize()
+	. = ..()
+	charge = 0

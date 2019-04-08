@@ -119,19 +119,37 @@
 
 // Can't think of a good name, this proc will recalculate the has_opaque_atom variable.
 /turf/proc/recalc_atom_opacity()
+#ifdef AO_USE_LIGHTING_OPACITY
+	var/old = has_opaque_atom
+#endif
+
 	has_opaque_atom = FALSE
-	for (var/atom/A in src.contents + src) // Loop through every movable atom on our tile PLUS ourselves (we matter too...)
-		if (A.opacity)
-			has_opaque_atom = TRUE
-			return 	// No need to continue if we find something opaque.
+	if (opacity)
+		has_opaque_atom = TRUE
+	else
+		for (var/thing in src) // Loop through every movable atom on our tile
+			var/atom/movable/A = thing
+			if (A.opacity)
+				has_opaque_atom = TRUE
+				break 	// No need to continue if we find something opaque.
+
+#ifdef AO_USE_LIGHTING_OPACITY
+	if (old != has_opaque_atom)
+		regenerate_ao()
+#endif
 
 // If an opaque movable atom moves around we need to potentially update visibility.
 /turf/Entered(atom/movable/Obj, atom/OldLoc)
 	. = ..()
 
-	if (Obj && Obj.opacity)
+	if (Obj && Obj.opacity && !has_opaque_atom)
 		has_opaque_atom = TRUE // Make sure to do this before reconsider_lights(), incase we're on instant updates. Guaranteed to be on in this case.
 		reconsider_lights()
+
+#ifdef AO_USE_LIGHTING_OPACITY
+		// Hook for AO.
+		regenerate_ao()
+#endif
 
 /turf/Exited(atom/movable/Obj, atom/newloc)
 	. = ..()
@@ -177,36 +195,3 @@
 			continue
 
 		corners[i] = new/datum/lighting_corner(src, LIGHTING_CORNER_DIAGONAL[i])
-
-/turf/ChangeTurf(turf/N, tell_universe = TRUE, force_lighting_update = FALSE)
-	if (!SSlighting)
-		return ..()
-
-	var/old_opacity = opacity
-	var/old_dynamic_lighting = dynamic_lighting
-	var/list/old_affecting_lights = affecting_lights
-	var/old_lighting_overlay = lighting_overlay
-	var/list/old_corners = corners
-
-	. = ..()
-
-	recalc_atom_opacity()
-	lighting_overlay = old_lighting_overlay
-	if (lighting_overlay && lighting_overlay.loc != src)
-		// This is a hack, but I can't figure out why the fuck they're not on the correct turf in the first place.
-		lighting_overlay.forceMove(src, harderforce = TRUE)
-		
-	affecting_lights = old_affecting_lights
-	corners = old_corners
-
-	if ((old_opacity != opacity) || (dynamic_lighting != old_dynamic_lighting) || force_lighting_update)
-		reconsider_lights()
-
-	if (dynamic_lighting != old_dynamic_lighting)
-		if (dynamic_lighting)
-			lighting_build_overlay()
-		else
-			lighting_clear_overlay()
-
-	for (var/turf/space/S in RANGE_TURFS(1, src))
-		S.update_starlight()

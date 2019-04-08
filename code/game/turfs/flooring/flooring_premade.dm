@@ -29,6 +29,8 @@
 	icon_state = "grass0"
 	initial_flooring = /decl/flooring/grass
 	footstep_sound = "grassstep"
+	diggable = TRUE
+	mudpit = TRUE
 
 /turf/simulated/floor/carpet/blue
 	name = "blue carpet"
@@ -91,6 +93,7 @@
 	icon = 'icons/turf/flooring/cult.dmi'
 	icon_state = "cult"
 	initial_flooring = /decl/flooring/reinforced/cult
+	appearance_flags = NO_CLIENT_COLOR
 
 /turf/simulated/floor/cult/cultify()
 	return
@@ -196,52 +199,70 @@
 	temperature = TCMB
 
 // Placeholders
+
 /turf/simulated/floor/airless/lava
-/turf/simulated/floor/light
+	name = "lava"
+	icon = 'icons/turf/flooring/lava.dmi'
+	icon_state = "lava"
+
+/turf/simulated/floor/ice
+	name = "ice"
+	icon = 'icons/turf/snow.dmi'
+	icon_state = "ice"
+
 /turf/simulated/floor/snow
+	name = "snow"
+	icon = 'icons/turf/snow.dmi'
+	icon_state = "snow"
 	footstep_sound = "gravelstep"
+	diggable = TRUE
+
+/turf/simulated/floor/snow/Initialize()
+	. = ..()
+	icon_state = pick("snow[rand(1,12)]","snow0")
+
 /turf/simulated/floor/plating/snow
+	icon = 'icons/turf/snow.dmi'
+	icon_state = "snowplating"
 	footstep_sound = "gravelstep"
 
 /turf/simulated/floor/airless/ceiling
 	icon_state = "asteroidplating"
 	baseturf = /turf/space
 
-/turf/simulated/floor/beach
-	name = "beach"
-	icon = 'icons/misc/beach.dmi'
-	footstep_sound = "sandstep"
+/turf/simulated/floor/light
 
-/turf/simulated/floor/beach/sand
-	name = "sand"
-	icon_state = "sand"
+/turf/simulated/floor/silver
+	name = "silver floor"
+	icon = 'icons/turf/flooring/tiles.dmi'
+	icon_state = "silver"
+	initial_flooring = /decl/flooring/silver
 
-/turf/simulated/floor/beach/sand/desert
-	icon_state = "desert"
+/turf/simulated/floor/gold
+	name = "golden floor"
+	icon = 'icons/turf/flooring/tiles.dmi'
+	icon_state = "gold"
+	initial_flooring = /decl/flooring/gold
 
-/turf/simulated/floor/beach/coastline
-	name = "coastline"
-	icon = 'icons/misc/beach2.dmi'
-	icon_state = "sandwater"
-	footstep_sound = "waterstep"
+/turf/simulated/floor/uranium
+	name = "uranium floor"
+	icon = 'icons/turf/flooring/tiles.dmi'
+	icon_state = "uranium"
+	initial_flooring =/decl/flooring/uranium
 
-/turf/simulated/floor/beach/water
-	name = "water"
-	icon_state = "water"
-	footstep_sound = "waterstep"
-	var/watertype = "water5"
+/turf/simulated/floor/phoron
+	name = "phoron floor"
+	icon = 'icons/turf/flooring/tiles.dmi'
+	icon_state = "plasma"
+	initial_flooring = /decl/flooring/phoron
 
-/turf/simulated/floor/beach/water/update_dirt()
-	return	// Water doesn't become dirty
+/turf/simulated/floor/diamond
+	name = "diamond floor"
+	icon = 'icons/turf/flooring/tiles.dmi'
+	icon_state = "diamond"
+	initial_flooring = /decl/flooring/diamond
 
-/turf/simulated/floor/beach/water/ocean
-	icon_state = "seadeep"
-
-/turf/simulated/floor/beach/water/pool
-	icon_state = "pool"
-	watertype = "poolwater"
-
-/turf/simulated/floor/beach/water/Initialize()
-	. = ..()
-	if(add_overlay(image("icon"='icons/misc/beach.dmi',"icon_state"="[watertype]","layer"=MOB_LAYER+0.1)))
-		icon_state = "pool1"
+/turf/simulated/floor/vaurca
+	name = "alien floor"
+	icon = 'icons/turf/flooring/misc.dmi'
+	icon_state = "vaurca"

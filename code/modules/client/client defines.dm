@@ -26,7 +26,7 @@
 	var/area			= null
 	var/time_died_as_mouse = 0
 
-	var/adminhelped = 0
+	var/adminhelped = NOT_ADMINHELPED
 
 		///////////////
 		//SOUND STUFF//
@@ -37,7 +37,6 @@
 		////////////
 		//SECURITY//
 		////////////
-	var/next_allowed_topic_time = 10
 	var/info_sent = 0
 	// comment out the line below when debugging locally to enable the options & messages menu
 	//control_freak = 1
@@ -59,7 +58,7 @@
 	var/account_age = -1							// Age on the BYOND account in days.
 	var/account_join_date = null					// Date of the BYOND account creation in ISO 8601 format.
 
-	preload_rsc = 0 // This is 0 so we can set it to an URL once the player logs in and have them download the resources from a different server.
+	preload_rsc = 1
 
 		////////////
 		//PARALLAX//

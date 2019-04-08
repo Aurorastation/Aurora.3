@@ -17,12 +17,16 @@
 		if((locate(/obj/effect/plant) in floor.contents) || (locate(/obj/effect/dead_plant) in floor.contents) )
 			continue
 		if(floor.density)
-			if(!isnull(seed.chems["pacid"]))
+			if(seed && seed.chems["pacid"])
 				addtimer(CALLBACK(floor, /atom/.proc/ex_act, 3), rand(5, 25))
 			continue
 		if(!Adjacent(floor) || !floor.Enter(src))
 			continue
 		neighbors |= floor
+
+	if (neighbors.len)
+		SSplants.add_plant(src)
+
 	// Update all of our friends.
 	var/turf/T = get_turf(src)
 	for(var/obj/effect/plant/neighbor in range(1,src))
@@ -70,7 +74,11 @@
 
 	if(sampled)
 		//Should be between 2-7 for given the default range of values for TRAIT_PRODUCTION
-		var/chance = max(1, round(30/seed.get_trait(TRAIT_PRODUCTION)))
+		var/chance
+		if(!seed.get_trait(TRAIT_PRODUCTION))
+			chance = 1
+		else
+			chance = max(1, round(30/seed.get_trait(TRAIT_PRODUCTION)))
 		if(prob(chance))
 			sampled = 0
 
@@ -78,14 +86,15 @@
 		//spread to 1-3 adjacent turfs depending on yield trait.
 		var/max_spread = between(1, round(seed.get_trait(TRAIT_YIELD)*3/14), 3)
 		
-		addtimer(CALLBACK(src, .proc/do_spread, spread_chance, max_spread), 1)
+		do_spread(spread_chance, max_spread)
 
 	// We shouldn't have spawned if the controller doesn't exist.
 	check_health()
-	if(neighbors.len || health != max_health)
-		START_PROCESSING(SSplants, src)
+	if(neighbors.len || health != max_health || buckled_mob || !is_mature())
+		SSplants.add_plant(src)
 
 /obj/effect/plant/proc/do_spread(spread_chance, max_spread)
+	set waitfor = FALSE
 	for(var/i in 1 to max_spread)
 		if(prob(spread_chance))
 			sleep(rand(3,5))
@@ -101,8 +110,8 @@
 				neighbor.neighbors -= target_turf
 
 /obj/effect/plant/proc/do_move(turf/target, obj/effect/plant/child)
-	child.loc = target
-	child.update_icon()
+	child.forceMove(target)
+	child.queue_icon_update()
 
 /obj/effect/plant/proc/die_off()
 	// Kill off our plant.
@@ -113,8 +122,8 @@
 			continue
 		for(var/obj/effect/plant/neighbor in check_turf.contents)
 			neighbor.neighbors |= check_turf
-			START_PROCESSING(SSplants, neighbor)
+			SSplants.add_plant(neighbor)
 
-	QDEL_IN(src, 1)
+	qdel(src)
 
 #undef NEIGHBOR_REFRESH_TIME

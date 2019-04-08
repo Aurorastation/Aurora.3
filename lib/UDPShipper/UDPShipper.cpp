@@ -19,7 +19,6 @@
 
 #define EXTERN_DLL_EXPORT extern "C" __declspec(dllexport)
 
-#include "stdafx.h"
 #include <fstream>
 
 #include "boost/asio.hpp"

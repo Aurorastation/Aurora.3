@@ -9,7 +9,8 @@
 		the omniscience of the AI and rival the most hardened weapons your station is capable of. Tread lightly and \
 		only hope this unknown assassin isn't here for you."
 	config_tag = "ninja"
-	required_players = 1
+	required_players = 2
+	max_players = 15
 	required_enemies = 1
 	end_on_antag_death = 1
 	antag_tags = list(MODE_NINJA)

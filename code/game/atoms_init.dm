@@ -1,9 +1,10 @@
 /atom
 	var/initialized = FALSE
+	var/update_icon_on_init	// Default to 'no'.
 
 /atom/New(loc, ...)
-	// For the (currently unused) DMM Suite.
-	if(_preloader && (src.type == _preloader.target_path))//in case the instanciated atom is creating other atoms in New()
+	// For the DMM Suite.
+	if(use_preloader && (type == _preloader.target_path))//in case the instanciated atom is creating other atoms in New()
 		_preloader.load(src)
 
 	//. = ..() //uncomment if you are dumb enough to add a /datum/New() proc
@@ -31,6 +32,14 @@
 		var/turf/T = loc
 		T.has_opaque_atom = TRUE // No need to recalculate it in this case, it's guaranteed to be on afterwards anyways.
 
+#ifdef AO_USE_LIGHTING_OPACITY
+		if (!mapload)
+			T.regenerate_ao()
+#endif
+
+	if (update_icon_on_init)
+		queue_icon_update()
+
 	return INITIALIZE_HINT_NORMAL
 
 //called if Initialize returns INITIALIZE_HINT_LATELOAD
@@ -43,7 +52,6 @@
 	Initialize(FALSE)
 
 /atom/Destroy(force = FALSE)
-	. = ..()
 	if (reagents)
 		QDEL_NULL(reagents)
 
@@ -57,3 +65,5 @@
 			var/datum/orbit/O = thing
 			if (O.orbiter)
 				O.orbiter.stop_orbit()
+
+	return ..()

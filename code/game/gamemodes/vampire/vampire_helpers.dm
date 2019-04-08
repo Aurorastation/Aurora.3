@@ -14,10 +14,12 @@
 
 	verbs += new/datum/game_mode/vampire/verb/vampire_help
 
-	for (var/datum/power/vampire/P in vampirepowers)
-		if (!P.blood_cost)
-			if (!(P in mind.vampire.purchased_powers))
+	for(var/datum/power/vampire/P in vampirepowers)
+		if(!(P in mind.vampire.purchased_powers))
+			if(!P.blood_cost)
 				mind.vampire.add_power(mind, P, 0)
+		else if(P.isVerb && P.verbpath)
+			verbs += P.verbpath
 
 	return 1
 
@@ -76,7 +78,7 @@
 	if (!mind.vampire)
 		return 0
 
-	if ((mind.vampire.status & VAMP_FULLPOWER) && !(T.mind.vampire && (T.mind.vampire.status & VAMP_FULLPOWER)))
+	if ((mind.vampire.status & VAMP_FULLPOWER) && !(T.mind && T.mind.vampire && (T.mind.vampire.status & VAMP_FULLPOWER)))
 		return 1
 
 	if (T.mind)
@@ -92,6 +94,11 @@
 	if (isipc(T))
 		if (notify)
 			to_chat(src, "<span class='warning'>You lack the power interact with mechanical constructs.</span>")
+		return 0
+
+	if(is_special_character(T) && (!(T.mind.vampire.status & VAMP_ISTHRALL)))
+		if (notify)
+			to_chat(src, "<span class='warning'>\The [T]'s mind is too strong to be affected by our powers!</span>")
 		return 0
 
 	if (account_loyalty_implant)
@@ -175,12 +182,8 @@
 
 		if (next_alert && message)
 			if (!vampire.last_frenzy_message || vampire.last_frenzy_message + next_alert < world.time)
-				to_chat(usr, message)
+				to_chat(src, message)
 				vampire.last_frenzy_message = world.time
-
-	// Remove one point per every life() tick.
-	if (vampire.frenzy > 0)
-		vampire.frenzy--
 
 /mob/proc/vampire_start_frenzy(var/force_frenzy = 0)
 	var/datum/vampire/vampire = mind.vampire
@@ -218,6 +221,7 @@
 		visible_message("<span class='danger'>[src.name]'s eyes no longer glow with violent rage, their form reverting to resemble that of a normal human's.</span>", "<span class='danger'>The beast within you retreats. You gain control over your body once more.</span>")
 
 		verbs -= /mob/living/carbon/human/proc/grapple
+		regenerate_icons()
 
 // Removes all vampire powers.
 /mob/proc/remove_vampire_powers()
@@ -238,6 +242,10 @@
 
 	if (mind.vampire.blood_usable < 10)
 		mind.vampire.frenzy += 2
+	else if (mind.vampire.frenzy > 0)
+		mind.vampire.frenzy = max(0, mind.vampire.frenzy -= Clamp(mind.vampire.blood_usable * 0.1, 1, 10))
+
+	mind.vampire.frenzy = min(mind.vampire.frenzy, 450)
 
 	vampire_check_frenzy()
 

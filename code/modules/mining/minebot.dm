@@ -7,7 +7,7 @@
 	health = 45
 	pass_flags = PASSTABLE
 	req_access = list(access_mining, access_robotics)
-	idcard_type = /obj/item/weapon/card/id/synthetic/minedrone
+	idcard_type = /obj/item/weapon/card/id/minedrone
 	speed = -1
 	range_limit = 0
 	var/health_upgrade
@@ -51,7 +51,7 @@
 	if(!jetpack)
 		jetpack = new /obj/item/weapon/tank/jetpack/carbondioxide/synthetic(src)
 
-	flavor_text = "It's a tiny little mining drone. The casing is stamped with an corporate logo and the subscript: '[company_name] Automated Pickaxe!'"
+	flavor_text = "It's a tiny little mining drone. The casing is stamped with an corporate logo and the subscript: '[current_map.company_name] Automated Pickaxe!'"
 	playsound(src.loc, 'sound/machines/twobeep.ogg', 50, 0)
 
 /mob/living/silicon/robot/drone/mining/request_player()
@@ -61,15 +61,15 @@
 	G.request_player(src, "Someone is attempting to reboot a mining drone.", 30 SECONDS)
 
 /mob/living/silicon/robot/drone/mining/welcome_drone()
-	src << "<b>You are a mining drone, a tiny-brained robotic industrial machine</b>."
-	src << "You have little individual will, some personality, and no drives or urges other than your laws and the art of mining."
-	src << "Remember, <b>you DO NOT take orders from the AI.</b>"
-	src << "Use <b>say ;Hello</b> to talk to other drones and <b>say Hello</b> to speak silently to your nearby fellows."
+	to_chat(src, "<b>You are a mining drone, a tiny-brained robotic industrial machine</b>.")
+	to_chat(src, "You have little individual will, some personality, and no drives or urges other than your laws and the art of mining.")
+	to_chat(src, "Remember, <b>you DO NOT take orders from the AI.</b>")
+	to_chat(src, "Use <b>say ;Hello</b> to talk to other drones and <b>say Hello</b> to speak silently to your nearby fellows.")
 
 /mob/living/silicon/robot/drone/mining/attackby(var/obj/item/weapon/W, var/mob/user)
 
 	if(istype(W, /obj/item/borg/upgrade/))
-		user << "<span class='danger'>\The [src] is not compatible with \the [W].</span>"
+		to_chat(user, "<span class='danger'>\The [src] is not compatible with \the [W].</span>")
 		return
 
 	else if (istype(W, /obj/item/weapon/card/id)||istype(W, /obj/item/device/pda))
@@ -78,11 +78,11 @@
 		if(choice=="Reboot")
 
 			if(!config.allow_drone_spawn || emagged || health < -maxHealth) //It's dead, Dave.
-				user << "<span class='danger'>The interface is fried, and a distressing burned smell wafts from the robot's interior. You're not rebooting this one.</span>"
+				to_chat(user, "<span class='danger'>The interface is fried, and a distressing burned smell wafts from the robot's interior. You're not rebooting this one.</span>")
 				return
 
 			if(!allowed(usr))
-				user << "<span class='danger'>Access denied.</span>"
+				to_chat(user, "<span class='danger'>Access denied.</span>")
 				return
 
 			user.visible_message("<span class='danger'>\The [user] swipes \his ID card through \the [src], attempting to reboot it.</span>", "<span class='danger'>>You swipe your ID card through \the [src], attempting to reboot it.</span>")
@@ -92,7 +92,7 @@
 		else
 			var/obj/item/weapon/card/id/ID = W
 			if(!allowed(usr))
-				user << "<span class='danger'>Access denied.</span>"
+				to_chat(user, "<span class='danger'>Access denied.</span>")
 				return
 
 			user.visible_message("<span class='danger'>\The [user] swipes \his ID card through \the [src], recycling it into points.</span>", "<span class='danger'>>You swipe your ID card through \the [src], recycling it into points.</span>")
@@ -120,12 +120,12 @@
 
 	var/input = sanitize(input(usr, "Please enter a message to print out. NOTE: BBCode does not work.", "Print readout", "") as message|null)
 	if (!input)
-		usr << "<span class='warning'>Cancelled.</span>"
+		to_chat(usr, "<span class='warning'>Cancelled.</span>")
 		return
 
 	var/customname = input(usr, "Pick a title for the report", "Title") as text|null
 	if (!customname)
-		usr << "<span class='warning'>Cancelled.</span>"
+		to_chat(usr, "<span class='warning'>Cancelled.</span>")
 		return
 
 	var/status_report
@@ -140,7 +140,7 @@
 			status_report = "System status unknown."
 
 	// Create the reply message
-	usr << "<span class='warning'>You begin printing the message.</span>"
+	to_chat(usr, "<span class='warning'>You begin printing the message.</span>")
 	if(do_after(src,20))
 		var/obj/item/weapon/paper/P = new /obj/item/weapon/paper(src.loc)
 		P.name = "mining report - [customname]"
@@ -151,7 +151,7 @@
 	<font size = \"1\">[status_report]</font><br>
 	<center><img src = barcode[rand(0, 3)].png></center></center>"}
 		P.update_icon()
-		visible_message("\icon[src] <span class = 'notice'>The [usr] pings, \"[P.name] ready for review\", and happily disgorges a small printout.</span>", 2)
+		visible_message("\icon[src] <span class = 'notice'>The [usr] pings, \"[P.name] ready for review\", and happily disgorges a small printout.</span>", range = 2)
 		playsound(src.loc, 'sound/machines/ping.ogg', 50, 0)
 
 /**********************Minebot Upgrades**********************/
@@ -169,14 +169,14 @@
 
 /obj/item/device/mine_bot_ugprade/proc/upgrade_bot(var/mob/living/silicon/robot/drone/mining/M, mob/user)
 	if(M.melee_upgrade)
-		user << "[src] already has a drill upgrade installed!"
+		to_chat(user, "[src] already has a drill upgrade installed!")
 		return
 	M.modtype = initial(M.modtype)
 	M.uneq_all()
 	qdel(M.module)
 	M.module = null
 	if(M.ranged_upgrade)
-		new /obj/item/weapon/robot_module/mining_drone/drillandplasmacutter(M)
+		new /obj/item/weapon/robot_module/mining_drone/drillandka(M)
 	else
 		new /obj/item/weapon/robot_module/mining_drone/drill(M)
 	M.module.rebuild()
@@ -190,7 +190,7 @@
 
 /obj/item/device/mine_bot_ugprade/health/upgrade_bot(var/mob/living/silicon/robot/drone/mining/M, mob/user)
 	if(M.health_upgrade)
-		user << "[src] already has a reinforced chassis!"
+		to_chat(user, "[src] already has a reinforced chassis!")
 		return
 	M.maxHealth = 100
 	M.health += 55
@@ -200,41 +200,24 @@
 	M.health_upgrade = 1
 	qdel(src)
 
-/obj/item/device/mine_bot_ugprade/plasma
-	name = "minebot plasma cutter upgrade"
+/obj/item/device/mine_bot_ugprade/ka
+	name = "minebot kinetic accelerator upgrade"
 
-/obj/item/device/mine_bot_ugprade/plasma/upgrade_bot(var/mob/living/silicon/robot/drone/mining/M, mob/user)
+/obj/item/device/mine_bot_ugprade/ka/upgrade_bot(var/mob/living/silicon/robot/drone/mining/M, mob/user)
 	if(M.ranged_upgrade)
-		user << "[src] already has a plasma cutter upgrade installed!"
+		to_chat(user, "[src] already has a KA upgrade installed!")
 		return
 	M.modtype = initial(M.modtype)
 	M.uneq_all()
 	qdel(M.module)
 	M.module = null
 	if(M.melee_upgrade)
-		new /obj/item/weapon/robot_module/mining_drone/drillandplasmacutter(M)
+		new /obj/item/weapon/robot_module/mining_drone/drillandka(M)
 	else
-		new /obj/item/weapon/robot_module/mining_drone/plasmacutter(M)
+		new /obj/item/weapon/robot_module/mining_drone/ka(M)
 	M.ranged_upgrade = 1
 	M.module.rebuild()
 	M.recalculate_synth_capacities()
-	if(!M.jetpack)
-		M.jetpack = new /obj/item/weapon/tank/jetpack/carbondioxide/synthetic(src)
-	qdel(src)
-
-/obj/item/device/mine_bot_ugprade/thermal
-	name = "minebot thermal drill upgrade"
-
-/obj/item/device/mine_bot_ugprade/thermal/upgrade_bot(var/mob/living/silicon/robot/drone/mining/M, mob/user)
-	if(M.drill_upgrade)
-		user << "[src] already has a thermal drill!"
-		return
-	if(M.emagged == 1)
-		return 0
-
-	M.emagged = 1
-	M.fakeemagged = 1
-	M.drill_upgrade = 1
 	if(!M.jetpack)
 		M.jetpack = new /obj/item/weapon/tank/jetpack/carbondioxide/synthetic(src)
 	qdel(src)

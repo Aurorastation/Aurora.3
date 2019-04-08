@@ -80,7 +80,7 @@
 		return 0
 	return 1
 
-/obj/item/mecha_parts/mecha_equipment/proc/action(atom/target)
+/obj/item/mecha_parts/mecha_equipment/proc/action(atom/target, mob/user, params)
 	return
 
 /obj/item/mecha_parts/mecha_equipment/proc/can_attach(obj/mecha/M as obj)
@@ -99,7 +99,7 @@
 /obj/item/mecha_parts/mecha_equipment/proc/attach(obj/mecha/M as obj)
 	M.equipment += src
 	chassis = M
-	src.loc = M
+	src.forceMove(M)
 	M.log_message("[src] initialized.")
 	if(!M.selected)
 		M.selected = src

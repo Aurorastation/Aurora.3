@@ -16,9 +16,9 @@
 			var/mob/living/carbon/human/H = user
 			var/obj/item/organ/O = H.internal_organs_by_name[pick("eyes","appendix","kidneys","liver", "heart", "lungs", "brain")]
 			if(O == null)
-				user << span("notice", "You can't make any sense of the arcane glyphs. . . maybe you should try again.")
+				to_chat(user, span("notice", "You can't make any sense of the arcane glyphs. . . maybe you should try again."))
 			else
-				user << span("alert", "As you stumble over the arcane glyphs, you feel a twisting sensation in [O]!")
+				to_chat(user, span("alert", "As you stumble over the arcane glyphs, you feel a twisting sensation in [O]!"))
 				user.visible_message("<span class='danger'>A flash of smoke pours out of [user]'s orifices!</span>")
 				playsound(user, 'sound/magic/lightningshock.ogg', 40, 1)
 				var/datum/effect/effect/system/smoke_spread/smoke = new /datum/effect/effect/system/smoke_spread()
@@ -75,7 +75,7 @@
 	smoke.start()
 	var/list/L = list()
 	for(var/turf/T in get_area_turfs(thearea.type))
-		if(!T.density)
+		if(!T.density && !T.is_hole)
 			var/clear = 1
 			for(var/obj/O in T)
 				if(O.density)
@@ -85,7 +85,7 @@
 				L+=T
 
 	if(!L.len)
-		user <<"The spell matrix was unable to locate a suitable teleport destination for an unknown reason. Sorry."
+		to_chat(user, "The spell matrix was unable to locate a suitable teleport destination for an unknown reason. Sorry.")
 		return
 
 	if(user && user.buckled)
@@ -103,7 +103,7 @@
 			break
 
 	if(!success)
-		user.loc = pick(L)
+		user.forceMove(pick(L))
 
 	smoke.start()
 	src.uses -= 1

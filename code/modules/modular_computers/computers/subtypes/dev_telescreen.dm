@@ -19,7 +19,7 @@
 	is_holographic = TRUE
 
 /obj/item/modular_computer/telescreen/attackby(var/obj/item/weapon/W as obj, var/mob/user as mob)
-	if(istype(W, /obj/item/weapon/crowbar))
+	if(W.iscrowbar())
 		if(anchored)
 			shutdown_computer()
 			anchored = FALSE

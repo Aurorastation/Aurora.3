@@ -7,6 +7,15 @@
 	caliber = "357"
 	ammo_type = /obj/item/ammo_casing/a357
 	matter = list(DEFAULT_WALL_MATERIAL = 1260)
+	max_ammo = 8
+	multiple_sprites = 1
+
+/obj/item/ammo_magazine/a454
+	name = "speed loader (.454)"
+	icon_state = "T38"
+	caliber = "454"
+	ammo_type = /obj/item/ammo_casing/a454
+	matter = list(DEFAULT_WALL_MATERIAL = 1260)
 	max_ammo = 7
 	multiple_sprites = 1
 
@@ -22,7 +31,7 @@
 /obj/item/ammo_magazine/c38/rubber
 	name = "speed loader (.38 rubber)"
 	ammo_type = /obj/item/ammo_casing/c38/rubber
-	
+
 /obj/item/ammo_magazine/c38/emp
 	name = "speed loader (.38 haywire)"
 	ammo_type = /obj/item/ammo_casing/c38/emp
@@ -72,23 +81,31 @@
 /obj/item/ammo_magazine/c45m/flash
 	name = "magazine (.45 flash)"
 	ammo_type = /obj/item/ammo_casing/c45/flash
-	
-/obj/item/ammo_magazine/t40
+
+/obj/item/ammo_magazine/mc10mm
 	name = "magazine (10mm)"
 	icon_state = "5.56"
 	mag_type = MAGAZINE
-	ammo_type = /obj/item/ammo_casing/t40
+	ammo_type = /obj/item/ammo_casing/c10mm
 	matter = list(DEFAULT_WALL_MATERIAL = 475) //metal costs are very roughly based around 1 .45 casing = 75 metal
 	caliber = "10mm"
 	max_ammo = 12
 	multiple_sprites = 1
 
-/obj/item/ammo_magazine/t40/empty
+/obj/item/ammo_magazine/mc10mm/empty
 	initial_ammo = 0
 
-/obj/item/ammo_magazine/t40/rubber
+/obj/item/ammo_magazine/mc10mm/rubber
 	name = "magazine (10mm rubber)"
-	ammo_type = /obj/item/ammo_casing/t40/rubber
+	ammo_type = /obj/item/ammo_casing/c10mm/rubber
+
+/obj/item/ammo_magazine/mc10mm/leyon
+	name = "ammo clip (10mm)"
+	icon_state = "10mmclip"
+	mag_type = SPEEDLOADER
+	matter = list(DEFAULT_WALL_MATERIAL = 1800)
+	max_ammo = 5
+	multiple_sprites = 1
 
 /obj/item/ammo_magazine/mc9mm
 	name = "magazine (9mm)"
@@ -118,7 +135,7 @@
 
 /obj/item/ammo_magazine/c9mm/empty
 	initial_ammo = 0
-	
+
 /obj/item/ammo_magazine/mc9mmt
 	name = "top mounted magazine (9mm)"
 	icon_state = "9mmt"
@@ -159,7 +176,7 @@
 	mag_type = MAGAZINE
 	caliber = "10mm"
 	matter = list(DEFAULT_WALL_MATERIAL = 1500)
-	ammo_type = /obj/item/ammo_casing/t40
+	ammo_type = /obj/item/ammo_casing/c10mm
 	max_ammo = 20
 	multiple_sprites = 1
 
@@ -228,19 +245,6 @@
 /obj/item/ammo_magazine/trodpack/empty
 	initial_ammo = 0
 
-/obj/item/ammo_magazine/tranq
-	name = "tranquilizer darts (.50 cal PPS)"
-	icon_state = "incendiaryshot_box"
-	origin_tech = list(TECH_COMBAT = 2)
-	mag_type = SINGLE_CASING
-	caliber = "PPS"
-	matter = list(DEFAULT_WALL_MATERIAL = 4500)
-	ammo_type = /obj/item/ammo_casing/tranq
-	max_ammo = 4
-
-/obj/item/ammo_magazine/tranq/empty
-	initial_ammo = 0
-
 /obj/item/ammo_magazine/a762
 	name = "magazine box (7.62mm)"
 	icon_state = "a762"
@@ -273,6 +277,11 @@
 	matter = list(DEFAULT_WALL_MATERIAL = 1800)
 	max_ammo = 5
 	multiple_sprites = 1
+
+/obj/item/ammo_magazine/boltaction/vintage
+	name = "vintage stripper clip"
+	ammo_type = /obj/item/ammo_casing/vintage
+	caliber = "vintage"
 
 /obj/item/ammo_magazine/c45uzi
 	name = "stick magazine (.45)"
@@ -308,46 +317,6 @@
 	matter = list(DEFAULT_WALL_MATERIAL = 3750)
 	caliber = ".45"
 	max_ammo = 50
-
-//shotguns boxes things from old code
-
-/obj/item/ammo_magazine/shotgun
-	name = "ammunition box (slug)"
-	icon_state = "lethalshellshot_box"
-	origin_tech = list(TECH_COMBAT = 2)
-	ammo_type = /obj/item/ammo_casing/shotgun
-	max_ammo = 8
-	caliber = "shotgun"
-	matter = list("metal" = 2880)
-
-/obj/item/ammo_magazine/shotgun/shell
-	name = "ammunition box (shell)"
-	icon_state = "lethalslug_box"
-	ammo_type = /obj/item/ammo_casing/shotgun/pellet
-
-/obj/item/ammo_magazine/shotgun/stun
-	name = "ammunition box (stun shells)"
-	icon_state = "stunshot_box"
-	ammo_type = /obj/item/ammo_casing/shotgun/stunshell
-	matter = list(DEFAULT_WALL_MATERIAL = 2880, "glass" = 5760)
-
-/obj/item/ammo_magazine/shotgun/beanbag
-	name = "ammunition box (beanbag shells)"
-	icon_state = "beanshot_box"
-	ammo_type = /obj/item/ammo_casing/shotgun/beanbag
-	matter = list(DEFAULT_WALL_MATERIAL = 1440)
-
-/obj/item/ammo_magazine/shotgun/incendiary
-	name = "ammunition box (incendiary shells)"
-	icon_state = "incendiaryshot_box"
-	ammo_type = /obj/item/ammo_casing/shotgun/incendiary
-	matter = list(DEFAULT_WALL_MATERIAL = 3600)
-
-/obj/item/ammo_magazine/shotgun/emp
-	name = "ammunition box (haywire shells)"
-	icon_state = "empshot_box"
-	ammo_type = /obj/item/ammo_casing/shotgun/emp
-	matter = list(DEFAULT_WALL_MATERIAL = 3600, "uranium" = 1600)
 
 /obj/item/ammo_magazine/caps
 	name = "speed loader (caps)"
@@ -431,3 +400,25 @@
 	icon_state = "csms"
 	ammo_type = /obj/item/ammo_casing/shotgun/stunshell
 	matter = list(DEFAULT_WALL_MATERIAL = 2880, "glass" = 5760)
+
+/obj/item/ammo_magazine/minigun
+	name = "minigun magazine box (7.62mm)"
+	icon_state = "a762"
+	mag_type = MAGAZINE
+	caliber = "a762"
+	ammo_type = /obj/item/ammo_casing/a762
+	max_ammo = 1000
+
+/obj/item/ammo_magazine/gauss
+	name = "tungsten slug box"
+	icon_state = "slugbox"
+	mag_type = MAGAZINE
+	caliber = "gauss"
+	ammo_type = /obj/item/ammo_casing/gauss
+	max_ammo = 7
+	multiple_sprites = 1
+
+/obj/item/ammo_magazine/gauss/emp
+	name = "ion slug box"
+	icon_state = "empslugbox"
+	ammo_type = /obj/item/ammo_casing/gauss/emp

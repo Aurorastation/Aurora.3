@@ -11,8 +11,8 @@
 	var/datum/seed/seed
 	var/potency = -1
 
-/obj/item/weapon/reagent_containers/food/snacks/grown/New(loca, planttype)
-	..()
+/obj/item/weapon/reagent_containers/food/snacks/grown/Initialize(loca, planttype)
+	. = ..()
 	if(!dried_type)
 		dried_type = type
 	src.pixel_x = rand(-5.0, 5)
@@ -26,7 +26,7 @@
 		return
 
 	if(!SSplants)
-		world << "<span class='danger'>Plant controller does not exist and [src] requires it. Aborting.</span>"
+		to_world("<span class='danger'>Plant controller does not exist and [src] requires it. Aborting.</span>")
 		qdel(src)
 		return
 
@@ -50,10 +50,10 @@
 		if(reagent_data && reagent_data.len)
 			var/rtotal = reagent_data[1]
 			var/list/data = list()
-			if(rid == "nutriment")
-				data += "[seed.seed_name]"
 			if(reagent_data.len > 1 && potency > 0)
 				rtotal += round(potency/reagent_data[2])
+			if(rid == "nutriment")
+				data[seed.seed_name] = max(1,rtotal)
 			reagents.add_reagent(rid,max(1,rtotal),data)
 	update_desc()
 	if(reagents.total_volume > 0)
@@ -64,7 +64,7 @@
 	if(!seed)
 		return
 	if(!SSplants)
-		world << "<span class='danger'>Plant controller does not exist and [src] requires it. Aborting.</span>"
+		to_world("<span class='danger'>Plant controller does not exist and [src] requires it. Aborting.</span>")
 		qdel(src)
 		return
 
@@ -157,7 +157,7 @@
 					return
 
 			M.stop_pulling()
-			M << "<span class='notice'>You slipped on the [name]!</span>"
+			to_chat(M, "<span class='notice'>You slipped on the [name]!</span>")
 			playsound(src.loc, 'sound/misc/slip.ogg', 50, 1, -3)
 			M.Stun(8)
 			M.Weaken(5)
@@ -173,11 +173,11 @@
 /obj/item/weapon/reagent_containers/food/snacks/grown/attackby(var/obj/item/weapon/W, var/mob/user)
 
 	if(seed)
-		if(seed.get_trait(TRAIT_PRODUCES_POWER) && istype(W, /obj/item/stack/cable_coil))
+		if(seed.get_trait(TRAIT_PRODUCES_POWER) && W.iscoil())
 			var/obj/item/stack/cable_coil/C = W
 			if(C.use(5))
 				//TODO: generalize this.
-				user << "<span class='notice'>You add some cable to the [src.name] and slide it inside the battery casing.</span>"
+				to_chat(user, "<span class='notice'>You add some cable to the [src.name] and slide it inside the battery casing.</span>")
 				var/obj/item/weapon/cell/potato/pocell = new /obj/item/weapon/cell/potato(get_turf(user))
 				if(src.loc == user && !(user.l_hand && user.r_hand) && istype(user,/mob/living/carbon/human))
 					user.put_in_hands(pocell)
@@ -185,7 +185,7 @@
 				pocell.charge = pocell.maxcharge
 				qdel(src)
 				return
-		else if(W.sharp)
+		else if(W.sharp && !W.noslice)
 			if(seed.kitchen_tag == "pumpkin") // Ugggh these checks are awful.
 				user.show_message("<span class='notice'>You carve a face into [src]!</span>", 1)
 				new /obj/item/clothing/head/pumpkinhead (user.loc)
@@ -194,6 +194,7 @@
 			else if(seed.chems)
 				if(istype(W,/obj/item/weapon/material/hatchet) && !isnull(seed.chems["woodpulp"]))
 					user.show_message("<span class='notice'>You make planks out of \the [src]!</span>", 1)
+					playsound(loc, 'sound/effects/woodcutting.ogg', 50, 1)
 					var/flesh_colour = seed.get_trait(TRAIT_FLESH_COLOUR)
 					if(!flesh_colour) flesh_colour = seed.get_trait(TRAIT_PRODUCT_COLOUR)
 					for(var/i=0,i<2,i++)
@@ -205,27 +206,27 @@
 							if(G.amount>=G.max_amount)
 								continue
 							G.attackby(NG, user)
-						user << "You add the newly-formed wood to the stack. It now contains [NG.amount] planks."
+						to_chat(user, "You add the newly-formed wood to the stack. It now contains [NG.amount] planks.")
 					qdel(src)
 					return
 				else if(!isnull(seed.chems["potato"]))
-					user << "You slice \the [src] into sticks."
+					to_chat(user, "You slice \the [src] into sticks.")
 					new /obj/item/weapon/reagent_containers/food/snacks/rawsticks(get_turf(src))
 					qdel(src)
 					return
 				else if(!isnull(seed.chems["carrotjuice"]))
-					user << "You slice \the [src] into sticks."
+					to_chat(user, "You slice \the [src] into sticks.")
 					new /obj/item/weapon/reagent_containers/food/snacks/carrotfries(get_turf(src))
 					qdel(src)
 					return
 				else if(!isnull(seed.chems["soymilk"]))
-					user << "You roughly chop up \the [src]."
+					to_chat(user, "You roughly chop up \the [src].")
 					new /obj/item/weapon/reagent_containers/food/snacks/soydope(get_turf(src))
 					qdel(src)
 					return
 				else if(seed.get_trait(TRAIT_FLESH_COLOUR))
 					if (reagents.total_volume)
-						user << "You slice up \the [src]."
+						to_chat(user, "You slice up \the [src].")
 						var/slices = rand(3,5)
 						var/reagents_to_transfer = reagents.total_volume/slices
 						for(var/i=0;i<slices;i++)
@@ -248,8 +249,7 @@
 			return
 		if(prob(35))
 			if(user)
-				user << "<span class='danger'>\The [src] has fallen to bits.</span>"
-				user.drop_from_inventory(src)
+				to_chat(user, "<span class='danger'>\The [src] has fallen to bits.</span>")
 			qdel(src)
 
 /obj/item/weapon/reagent_containers/food/snacks/grown/attack_self(mob/user as mob)
@@ -280,12 +280,12 @@
 				if(NG.amount>=NG.max_amount)
 					continue
 				NG.attackby(G, user)
-			user << "You add the newly-formed grass to the stack. It now contains [G.amount] tiles."
+			to_chat(user, "You add the newly-formed grass to the stack. It now contains [G.amount] tiles.")
 		qdel(src)
 		return
 
 	if(seed.get_trait(TRAIT_SPREAD) > 0)
-		user << "<span class='notice'>You plant the [src.name].</span>"
+		to_chat(user, "<span class='notice'>You plant the [src.name].</span>")
 		new /obj/machinery/portable_atmospherics/hydroponics/soil/invisible(get_turf(user),src.seed)
 		qdel(src)
 		return
@@ -296,13 +296,13 @@
 			if("shand")
 				var/obj/item/stack/medical/bruise_pack/tajaran/poultice = new /obj/item/stack/medical/bruise_pack/tajaran(user.loc)
 				poultice.heal_brute = potency
-				user << "<span class='notice'>You mash the leaves into a poultice.</span>"
+				to_chat(user, "<span class='notice'>You mash the leaves into a poultice.</span>")
 				qdel(src)
 				return
 			if("mtear")
 				var/obj/item/stack/medical/ointment/tajaran/poultice = new /obj/item/stack/medical/ointment/tajaran(user.loc)
 				poultice.heal_burn = potency
-				user << "<span class='notice'>You mash the petals into a poultice.</span>"
+				to_chat(user, "<span class='notice'>You mash the petals into a poultice.</span>")
 				qdel(src)
 				return
 	*/
@@ -320,14 +320,6 @@
 		reagents.remove_any(rand(1,3)) //Todo, make it actually remove the reagents the seed uses.
 		seed.do_thorns(H,src)
 		seed.do_sting(H,src,pick("r_hand","l_hand"))
-
-// Predefined types for placing on the map.
-
-/obj/item/weapon/reagent_containers/food/snacks/grown/mushroom/libertycap
-	plantname = "libertycap"
-
-/obj/item/weapon/reagent_containers/food/snacks/grown/ambrosiavulgaris
-	plantname = "ambrosia"
 
 /obj/item/weapon/reagent_containers/food/snacks/fruit_slice
 	name = "fruit slice"

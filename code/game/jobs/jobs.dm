@@ -23,14 +23,13 @@ var/const/SCIENTIST			=(1<<1)
 var/const/CHEMIST			=(1<<2)
 var/const/CMO				=(1<<3)
 var/const/DOCTOR			=(1<<4)
-var/const/GENETICIST		=(1<<5)
-var/const/VIROLOGIST		=(1<<6)
-var/const/PSYCHIATRIST		=(1<<7)
-var/const/ROBOTICIST		=(1<<8)
-var/const/XENOBIOLOGIST		=(1<<9)
-var/const/PARAMEDIC			=(1<<10)
-var/const/INTERN_MED		=(1<<11)
-var/const/INTERN_SCI		=(1<<12)
+var/const/VIROLOGIST		=(1<<5)
+var/const/PSYCHIATRIST		=(1<<6)
+var/const/ROBOTICIST		=(1<<7)
+var/const/XENOBIOLOGIST		=(1<<8)
+var/const/PARAMEDIC			=(1<<9)
+var/const/INTERN_MED		=(1<<10)
+var/const/INTERN_SCI		=(1<<11)
 
 var/const/CIVILIAN			=(1<<2)
 
@@ -47,7 +46,9 @@ var/const/LAWYER			=(1<<9)
 var/const/CHAPLAIN			=(1<<10)
 var/const/CLOWN				=(1<<11)
 var/const/MIME				=(1<<12)
-var/const/ASSISTANT			=(1<<13)
+var/const/MERCHANT			=(1<<13)
+var/const/JOURNALIST		=(1<<14)
+var/const/ASSISTANT			=(1<<15)
 
 
 var/list/assistant_occupations = list() //Leaving this on one line stops Travis complaining ~Scopes
@@ -59,7 +60,11 @@ var/list/command_positions = list(
 	"Head of Security",
 	"Chief Engineer",
 	"Research Director",
-	"Chief Medical Officer"
+	"Chief Medical Officer",
+	"Governor",
+	"Commander",
+	"Chief Constable",
+	"NanoTrasen Representative"
 )
 
 
@@ -75,16 +80,15 @@ var/list/medical_positions = list(
 	"Chief Medical Officer",
 	"Medical Doctor",
 	"Psychiatrist",
-	"Chemist",
+	"Pharmacist",
 	"Paramedic",
-	"Nursing Intern"
+	"Medical Resident"
 )
 
 
 var/list/science_positions = list(
 	"Research Director",
 	"Scientist",
-	"Geneticist",	//Part of both medical and science
 	"Roboticist",
 	"Xenobiologist",
 	"Lab Assistant"
@@ -105,6 +109,7 @@ var/list/civilian_positions = list(
 	"Chef",
 	"Janitor",
 	"Librarian",
+	"Corporate Reporter",
 	"Chaplain",
 	"Assistant"
 )
@@ -119,11 +124,11 @@ var/list/security_positions = list(
 	"Security Cadet"
 )
 
-
 var/list/nonhuman_positions = list(
 	"AI",
 	"Cyborg",
-	"pAI"
+	"pAI",
+	"Merchant"
 )
 
 /proc/guest_jobbans(var/job)

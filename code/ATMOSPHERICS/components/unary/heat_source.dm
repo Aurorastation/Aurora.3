@@ -20,18 +20,16 @@
 	var/set_temperature = T20C	//thermostat
 	var/heating = 0		//mainly for icon updates
 
-/obj/machinery/atmospherics/unary/heater/New()
-	..()
+	component_types = list(
+		/obj/item/weapon/circuitboard/unary_atmos/heater,
+		/obj/item/weapon/stock_parts/matter_bin,
+		/obj/item/weapon/stock_parts/capacitor = 2,
+		/obj/item/stack/cable_coil{amount = 5}
+	)
+
+/obj/machinery/atmospherics/unary/heater/Initialize()
 	initialize_directions = dir
-
-	component_parts = list()
-	component_parts += new /obj/item/weapon/circuitboard/unary_atmos/heater(src)
-	component_parts += new /obj/item/weapon/stock_parts/matter_bin(src)
-	component_parts += new /obj/item/weapon/stock_parts/capacitor(src)
-	component_parts += new /obj/item/weapon/stock_parts/capacitor(src)
-	component_parts += new /obj/item/stack/cable_coil(src, 5)
-
-	RefreshParts()
+	. = ..()
 
 /obj/machinery/atmospherics/unary/heater/atmos_init()
 	if(node)
@@ -143,11 +141,10 @@
 	..()
 	var/cap_rating = 0
 	var/bin_rating = 0
-
 	for(var/obj/item/weapon/stock_parts/P in component_parts)
-		if(istype(P, /obj/item/weapon/stock_parts/capacitor))
+		if(iscapacitor(P))
 			cap_rating += P.rating
-		if(istype(P, /obj/item/weapon/stock_parts/matter_bin))
+		else if(ismatterbin(P))
 			bin_rating += P.rating
 
 	max_power_rating = initial(max_power_rating) * cap_rating / 2
@@ -172,4 +169,4 @@
 /obj/machinery/atmospherics/unary/heater/examine(mob/user)
 	..(user)
 	if(panel_open)
-		user << "The maintenance hatch is open."
+		to_chat(user, "The maintenance hatch is open.")

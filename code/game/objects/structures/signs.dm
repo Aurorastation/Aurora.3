@@ -21,8 +21,8 @@
 	return
 
 /obj/structure/sign/attackby(obj/item/tool as obj, mob/user as mob)	//deconstruction
-	if(istype(tool, /obj/item/weapon/screwdriver) && !istype(src, /obj/structure/sign/double))
-		user << "You unfasten the sign with your [tool]."
+	if(tool.isscrewdriver() && !istype(src, /obj/structure/sign/double))
+		to_chat(user, "You unfasten the sign with your [tool].")
 		unfasten()
 	else ..()
 
@@ -31,6 +31,7 @@
 	S.name = name
 	S.desc = desc
 	S.icon_state = icon_state
+	S.icon = icon
 	//var/icon/I = icon('icons/obj/decals.dmi', icon_state)
 	//S.icon = I.Scale(24, 24)
 	S.sign_state = icon_state
@@ -44,7 +45,7 @@
 	var/sign_state = ""
 
 /obj/item/sign/attackby(obj/item/tool as obj, mob/user as mob)	//construction
-	if(istype(tool, /obj/item/weapon/screwdriver) && isturf(user.loc))
+	if(tool.isscrewdriver() && isturf(user.loc))
 		var/direction = input("In which direction?", "Select direction.") in list("North", "East", "South", "West", "Cancel")
 		if(direction == "Cancel") return
 		var/obj/structure/sign/S = new(user.loc)
@@ -61,7 +62,7 @@
 		S.name = name
 		S.desc = desc
 		S.icon_state = sign_state
-		user << "You fasten \the [S] with your [tool]."
+		to_chat(user, "You fasten \the [S] with your [tool].")
 		qdel(src)
 	else ..()
 
@@ -130,11 +131,6 @@
 	desc = "A warning sign which reads 'NO SMOKING'."
 	icon_state = "nosmoking2"
 
-/obj/structure/sign/redcross
-	name = "medbay"
-	desc = "The Intergalactic symbol of Medical institutions. You'll probably get help here."
-	icon_state = "redcross"
-
 /obj/structure/sign/greencross
 	name = "medbay"
 	desc = "The Intergalactic symbol of Medical institutions. You'll probably get help here."
@@ -149,6 +145,10 @@
 	name = "\improper AI developers plaque"
 	desc = "Next to the extremely long list of names and job titles, there is a drawing of a little child. The child appears to be retarded. Beneath the image, someone has scratched the word \"PACKETS\""
 	icon_state = "kiddieplaque"
+
+/obj/structure/sign/kiddieplaque/janitor
+	desc = "A humble wooden plaque. In simple lettering begin the words: \"Primum non sordes\"."
+	name = "\improper Janitorial Oath"
 
 /obj/structure/sign/atmosplaque
 	name = "\improper FEA atmospherics division plaque"
@@ -175,11 +175,23 @@
 	desc = "A warning sign which reads 'CHEMISTRY'."
 	icon_state = "chemistry1"
 
+/obj/structure/sign/pharmacy
+	name = "\improper Pharmacy"
+	desc = "A warning sign which reads 'PHARMACY'."
+	icon_state = "pharmacy1"
+
 /obj/structure/sign/botany
 	name = "\improper HYDROPONICS"
 	desc = "A warning sign which reads 'HYDROPONICS'."
 	icon_state = "hydro1"
 
+
+/obj/structure/sign/patients_only
+	name = "\improper PATIENTS ONLY"
+	desc = "A big blue sign that reads 'PATIENTS ONLY'. Underneath you can read: 'Authorized personnel only. Tresspassers will be prosecuted by the ISD.'"
+	icon_state = "patients_only"
+
+//Location and direction signs
 /obj/structure/sign/directions
 	name = "direction sign"
 	desc = "A direction sign, claiming to know the way."
@@ -235,13 +247,29 @@
 	desc = "A multi-coloured direction sign, pointing out in which all main departments are located."
 	icon_state = "direction_all"
 
+/obj/structure/sign/meeting_point
+	name = "\improper EMERGENCY MEETING POINT"
+	desc = "A green sign which depicts a group of people in the middle of the sign, being pointed at by arrows."
+	icon_state = "meeting_point"
 
+/obj/structure/sign/emerg_exit
+	name = "\improper EMERGENCY EXIT"
+	desc = "A green sign pointing towards an emergency exit."
+	icon_state = "emerg_exit"
+
+/obj/structure/sign/emerg_exitZ
+	name = "\improper EMERGENCY LADDER"
+	desc = "A green sign that depicts a person climbing the ladder towards the arrow's direction, pointing at the emergency exit."
+	icon_state = "emerg_exitZ"
+
+
+//Christmas
 /obj/structure/sign/christmas/lights
 	name = "Christmas lights"
 	desc = "Flashy."
 	icon = 'icons/obj/christmas.dmi'
 	icon_state = "xmaslights"
-	layer = 5
+	layer = 4.9
 
 /obj/structure/sign/christmas/wreath
 	name = "wreath"
@@ -249,3 +277,317 @@
 	icon = 'icons/obj/christmas.dmi'
 	icon_state = "doorwreath"
 	layer = 5
+
+/obj/structure/sign/flag/blank
+	name = "blank banner"
+	desc = "A blank blue flag."
+	icon_state = "flag"
+
+/obj/structure/sign/flag/blank/left
+	icon_state = "flag_l"
+
+/obj/structure/sign/flag/blank/right
+	icon_state = "flag_r"
+
+/obj/structure/sign/flag/sol
+	name = "Sol Alliance flag"
+	desc = "The bright blue flag of the Alliance of Sovereign Solarian Nations."
+	icon_state = "solgov"
+
+/obj/structure/sign/flag/sol/left
+	icon_state = "solgov_l"
+
+/obj/structure/sign/flag/sol/right
+	icon_state = "solgov_r"
+
+/obj/item/weapon/flag/sol
+	name = "Sol Alliance flag"
+	desc = "The bright blue flag of the Alliance of Sovereign Solarian Nations."
+	flag_path = "solgov"
+
+/obj/item/weapon/flag/sol/l
+	flag_size = 1
+
+/obj/structure/sign/flag/dominia
+	name = "Dominian Empire flag"
+	desc = "The Imperial Standard of Emperor Boleslaw Keeser of Dominia."
+	icon_state = "dominia"
+
+/obj/structure/sign/flag/dominia/left
+	icon_state = "dominia_l"
+
+/obj/structure/sign/flag/dominia/right
+	icon_state = "dominia_r"
+
+/obj/item/weapon/flag/dominia
+	name = "Dominian Empire flag"
+	desc = "The Imperial Standard of Emperor Boleslaw Keeser of Dominia."
+	flag_path = "dominia"
+
+/obj/item/weapon/flag/dominia/l
+	flag_size = 1
+
+/obj/structure/sign/flag/elyra
+	name = "Elyran flag"
+	desc = "The hopeful colors of the Serene Republic of Elyra."
+	icon_state = "elyra"
+
+/obj/structure/sign/flag/elyra/left
+	icon_state = "elyra_l"
+
+/obj/structure/sign/flag/elyra/right
+	icon_state = "elyra_r"
+
+/obj/item/weapon/flag/elyra
+	name = "Elyran flag"
+	desc = "The hopeful colors of the Serene Republic of Elyra."
+	flag_path = "elyra"
+
+/obj/item/weapon/flag/elyra/l
+	flag_size = 1
+
+/obj/structure/sign/flag/hegemony
+	name = "Hegemony flag"
+	desc = "The feudal standard of the Izweski Hegemony."
+	icon_state = "izweski"
+
+/obj/structure/sign/flag/hegemony/left
+	icon_state = "izweski_l"
+
+/obj/structure/sign/flag/hegemony/right
+	icon_state = "izweski_r"
+
+/obj/item/weapon/flag/hegemony
+	name = "Hegemony flag"
+	desc = "The feudal standard of the Izweski Hegemony."
+	flag_path = "izweski"
+
+/obj/item/weapon/flag/hegemony/l
+	flag_size = 1
+
+/obj/structure/sign/flag/jargon
+	name = "Jargon Federation flag"
+	desc = "The insignia of the Jargon Federation."
+	icon_state = "jargon"
+
+/obj/structure/sign/flag/jargon/left
+	icon_state = "jargon_l"
+
+/obj/structure/sign/flag/jargon/right
+	icon_state = "jargon_r"
+
+/obj/item/weapon/flag/jargon
+	name = "Jargon Federation flag"
+	desc = "The insignia of the Jargon Federation"
+	flag_path = "jargon"
+
+/obj/item/weapon/flag/jargon/l
+	flag_size = 1
+
+/obj/structure/sign/flag/nanotrasen
+	name = "NanoTrasen Corporation flag"
+	desc = "The logo of NanoTrasen on a flag."
+	icon_state = "nanotrasen"
+
+/obj/structure/sign/flag/nanotrasen/left
+	icon_state = "nanotrasen_l"
+
+/obj/structure/sign/flag/nanotrasen/right
+	icon_state = "nanotrasen_r"
+
+/obj/item/weapon/flag/nanotrasen
+	name = "NanoTrasen Corporation flag"
+	desc = "The logo of NanoTrasen on a flag."
+	flag_path = "nanotrasen"
+
+/obj/item/weapon/flag/nanotrasen/l
+	flag_size = 1
+
+/obj/structure/sign/flag/eridani
+	name = "Eridani Corporate Federation flag"
+	desc = "The logo of the Eridani Corporate Federation on a flag."
+	icon_state = "eridani"
+
+/obj/structure/sign/flag/eridani/left
+	icon_state = "eridani_l"
+
+/obj/structure/sign/flag/eridani/right
+	icon_state = "eridani_r"
+
+/obj/item/weapon/flag/eridani
+	name = "Eridani Corporate Federation flag"
+	desc = "The logo of the Eridani Corporate Federation on a flag."
+	flag_path = "eridani"
+
+/obj/item/weapon/flag/eridani/l
+	flag_size = 1
+
+/obj/structure/sign/flag/vaurca
+	name = "Sedantis flag"
+	desc = "The emblem of Sedantis on a flag, emblematic of Vaurca longing."
+	icon_state = "sedantis"
+
+/obj/structure/sign/flag/vaurca/left
+	icon_state = "sedantis_l"
+
+/obj/structure/sign/flag/vaurca/right
+	icon_state = "sedantis_r"
+
+/obj/item/weapon/flag/vaurca
+	name = "Sedantis flag"
+	desc = "The emblem of Sedantis on a flag, emblematic of Vaurca longing."
+	flag_path = "sedantis"
+
+/obj/item/weapon/flag/vaurca/l
+	flag_size = 1
+
+/obj/structure/sign/flag/america
+	name = "Old World flag"
+	desc = "The banner of an ancient nation, its glory old."
+	icon_state = "oldglory"
+
+/obj/structure/sign/flag/america/left
+	icon_state = "oldglory_l"
+
+/obj/structure/sign/flag/america/right
+	icon_state = "oldglory_r"
+
+/obj/item/weapon/flag/america
+	name = "Old World flag"
+	desc = "The banner of an ancient nation, its glory old."
+	flag_path = "oldglory"
+
+/obj/item/weapon/flag/america/l
+	flag_size = 1
+
+/obj/item/weapon/flag/dpra
+	name = "Democratic People's Republic of Adhomai flag"
+	desc = "The black flag of the Democratic People's Republic of Adhomai."
+	flag_path = "dpra"
+
+/obj/item/weapon/flag/dpra/l
+	flag_size = 1
+
+/obj/structure/sign/flag/dpra
+	name = "Democratic People's Republic of Adhomai flag"
+	desc = "The banner of an ancient nation, its glory old."
+	icon_state = "dpra"
+
+/obj/structure/sign/flag/dpra/left
+	icon_state = "dpra_l"
+
+/obj/structure/sign/flag/dpra/right
+	icon_state = "dpra_r"
+
+/obj/item/weapon/flag/pra
+	name = "People's Republic of Adhomai flag"
+	desc = "The tajaran flag of the People's Republic of Adhomai."
+	flag_path = "pra"
+
+/obj/item/weapon/flag/pra/l
+	flag_size = 1
+
+/obj/structure/sign/flag/pra
+	name = "People's Republic of Adhomai flag"
+	desc = "The banner of an ancient nation, its glory old."
+	icon_state = "pra"
+
+/obj/structure/sign/flag/pra/left
+	icon_state = "pra_l"
+
+/obj/structure/sign/flag/pra/right
+	icon_state = "pra_r"
+
+/obj/item/weapon/flag
+	name = "boxed flag"
+	desc = "A flag neatly folded into a wooden container."
+	icon = 'icons/obj/decals.dmi'
+	icon_state = "flag_boxed"
+	var/flag_path
+	var/flag_size = 0
+
+/obj/item/weapon/flag/afterattack(var/atom/A, var/mob/user, var/adjacent, var/clickparams)
+	if (!adjacent)
+		return
+
+	var/turf/W = A
+	if (!iswall(W) || !isturf(user.loc))
+		to_chat(user, "<span class='warning'>You can't place this here!</span>")
+		return
+
+	var/placement_dir = get_dir(user, W)
+	if (!(placement_dir in cardinal))
+		to_chat(user, "<span class='warning'>You must stand directly in front of the wall you wish to place that on.</span>")
+		return
+
+	var/obj/structure/sign/flag/P = new(user.loc)
+
+	switch(placement_dir)
+		if(NORTH)
+			P.pixel_y = 32
+		if(SOUTH)
+			P.pixel_y = -32
+		if(EAST)
+			P.pixel_x = 32
+		if(WEST)
+			P.pixel_x = -32
+
+	P.dir = placement_dir
+	if(flag_size)
+		P.icon_state = "[flag_path]_l"
+		var/obj/structure/sign/flag/P2 = new(user.loc)
+		P2.icon_state = "[flag_path]_r"
+		P2.dir = P.dir
+		switch(P2.dir)
+			if(NORTH)
+				P2.pixel_y = P.pixel_y
+				P2.pixel_x = 32
+			if(SOUTH)
+				P2.pixel_y = P.pixel_y
+				P2.pixel_x = 32
+			if(EAST)
+				P2.pixel_x = P.pixel_x
+				P2.pixel_y = -32
+			if(WEST)
+				P2.pixel_x = P.pixel_x
+				P2.pixel_y = 32
+		P2.name = name
+		P2.desc = desc
+	else
+		P.icon_state = "[flag_path]"
+	P.name = name
+	P.desc = desc
+	qdel(src)
+
+
+/obj/structure/sign/flag/attack_hand(mob/user as mob)
+
+
+	if(alert("Do you want to rip \the [src] from the wall?","You think...","Yes","No") == "Yes")
+
+		if(!do_after(user, 2 SECONDS, act_target = src))
+			return 0
+
+
+		visible_message("<span class='warning'>\The [user] rips \the [src] in a single, decisive motion!</span>" )
+		playsound(src.loc, 'sound/items/poster_ripped.ogg', 100, 1)
+		icon_state = "poster_ripped"
+		name = "ripped poster"
+		desc = "You can't make out anything from the flag's original print. It's ruined."
+		add_fingerprint(user)
+
+/obj/structure/sign/flag/attackby(obj/item/weapon/W as obj, mob/user as mob)
+	..()
+
+	if(istype(W, /obj/item/weapon/flame/lighter))
+
+		visible_message("<span class='warning'>\The [user] starts to burn \the [src] down!</span>")
+
+		if(!do_after(user, 2 SECONDS, act_target = src))
+			return 0
+		visible_message("<span class='warning'>\The [user] burns \the [src] down!</span>")
+		playsound(src.loc, 'sound/items/zippo_on.ogg', 100, 1)
+		new /obj/effect/decal/cleanable/ash(src.loc)
+
+		qdel(src)
+

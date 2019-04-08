@@ -24,9 +24,9 @@
 			shuttle.launch(src)
 			for (var/thing in current_mobs)
 				var/mob/living/carbon/human/M = locate(thing)
-				if (istype(M) && M.odin_despawn_timer)
-					deltimer(M.odin_despawn_timer)
-					M.odin_despawn_timer = null
+				if (istype(M) && M.centcomm_despawn_timer)
+					deltimer(M.centcomm_despawn_timer)
+					M.centcomm_despawn_timer = null
 
 			current_mobs.Cut()
 	else
@@ -64,6 +64,10 @@
 	if(istype(A,/obj/machinery/nuclearbomb))
 		return 1
 	if(istype(A,/obj/item/device/radio/beacon))
+		return 1
+	if(istype(A,/obj/item/phylactery))
+		return 1
+	if(istype(A,/obj/effect/decal/wizard_mark))
 		return 1
 
 	for(var/i=1, i<=A.contents.len, i++)

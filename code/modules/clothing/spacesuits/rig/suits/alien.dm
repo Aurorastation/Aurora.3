@@ -16,6 +16,8 @@
 
 	allowed = list(/obj/item/weapon/gun,/obj/item/device/flashlight,/obj/item/weapon/tank,/obj/item/device/suit_cooling_unit,/obj/item/weapon/melee/baton,/obj/item/weapon/melee/energy)
 
+	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT
+
 /obj/item/weapon/rig/unathi/fancy
 	name = "breacher chassis control module"
 	desc = "An authentic Unathi breacher chassis. Huge, bulky and absurdly heavy. It must be like wearing a tank."
@@ -26,6 +28,7 @@
 	slowdown = 4
 	vision_restriction = TINT_NONE
 
+	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT | MODULE_SPECIAL
 
 /obj/item/clothing/head/helmet/space/rig/unathi
 	species_restricted = list("Unathi")
@@ -35,3 +38,49 @@
 
 /obj/item/clothing/shoes/magboots/rig/unathi
 	species_restricted = list("Unathi")
+
+
+
+/obj/item/weapon/rig/vaurca
+	name = "combat exoskeleton control module"
+	desc = "An ancient piece of equipment from a bygone age, This highly advanced Vaurcan technology rarely sees use outside of a battlefield."
+	suit_type = "combat exoskeleton"
+	icon_state = "vaurca_rig"
+	armor = list(melee = 65, bullet = 65, laser = 100, energy = 100, bomb = 90, bio = 100, rad = 80)
+	vision_restriction = 0
+	slowdown = 2
+	offline_slowdown = 3
+
+	chest_type = /obj/item/clothing/suit/space/rig/vaurca
+	helm_type = /obj/item/clothing/head/helmet/space/rig/vaurca
+	boot_type = /obj/item/clothing/shoes/magboots/rig/vaurca
+	air_type =   /obj/item/weapon/tank/phoron
+
+	allowed = list(/obj/item/weapon/gun,/obj/item/device/flashlight,/obj/item/weapon/tank,/obj/item/device/suit_cooling_unit,/obj/item/weapon/melee/baton,/obj/item/weapon/melee/energy)
+
+	initial_modules = list(
+		/obj/item/rig_module/actuators/combat,
+		/obj/item/rig_module/vision/thermal,
+		/obj/item/rig_module/device/flash,
+		/obj/item/rig_module/chem_dispenser/vaurca,
+		/obj/item/rig_module/boring,
+		/obj/item/rig_module/lattice,
+		/obj/item/rig_module/maneuvering_jets
+
+		)
+	
+	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT | MODULE_VAURCA
+
+/obj/item/weapon/rig/vaurca/minimal
+	initial_modules = list(/obj/item/rig_module/chem_dispenser/vaurca)
+
+/obj/item/clothing/head/helmet/space/rig/vaurca
+	species_restricted = list("Vaurca")
+	light_overlay = "helmet_light_dual_green"
+	light_color = "#3e7c3e"
+
+/obj/item/clothing/suit/space/rig/vaurca
+	species_restricted = list("Vaurca")
+
+/obj/item/clothing/shoes/magboots/rig/vaurca
+	species_restricted = list("Vaurca")

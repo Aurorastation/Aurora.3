@@ -24,9 +24,9 @@
 		var/atom/A = D
 		if(A.icon && A.icon_state)
 			sprite = icon(A.icon, A.icon_state)
-			usr << browse_rsc(sprite, "view_vars_sprite.png")
+			to_chat(usr, browse_rsc(sprite, "view_vars_sprite.png"))
 
-	usr << browse_rsc('code/js/view_variables.js', "view_variables.js")
+	to_chat(usr, browse_rsc('code/js/view_variables.js', "view_variables.js"))
 
 	var/html = {"
 		<html>
@@ -150,7 +150,7 @@
 	else
 		vtext = "[value]"
 
-	return "<span class=value>[vtext]</span>[list2text(extra)]"
+	return "<span class=value>[vtext]</span>[jointext(extra, "")]"
 
 /proc/make_view_variables_var_entry(datum/D, varname, value, level=0)
 	var/ecm = null

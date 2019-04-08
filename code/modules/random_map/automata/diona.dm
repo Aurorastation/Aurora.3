@@ -24,6 +24,7 @@
 	name = "alien vines"
 	desc = "Thick, heavy vines of some sort."
 	icon_state = "vines3"
+	density = 0
 	var/growth = 0
 
 /obj/structure/diona/vines/proc/spread()

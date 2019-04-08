@@ -5,6 +5,7 @@
 	permeability_coefficient = 0.05
 	item_flags = NOSLIP
 	slowdown = SHOES_SLOWDOWN+1
+	species_restricted = null
 
 /obj/item/clothing/shoes/jackboots
 	name = "jackboots"
@@ -32,3 +33,10 @@
 	armor = list(melee = 40, bullet = 0, laser = 0, energy = 15, bomb = 20, bio = 0, rad = 20)
 	siemens_coefficient = 0.7
 	can_hold_knife = 1
+
+/obj/item/clothing/shoes/workboots/toeless
+	name = "toe-less workboots"
+	desc = "A pair of toeless work boots designed for use in industrial settings. Modified for species whose toes have claws."
+	icon_state = "workbootstoeless"
+	item_state = "workbootstoeless"
+	species_restricted = null

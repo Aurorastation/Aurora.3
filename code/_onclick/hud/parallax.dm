@@ -21,7 +21,7 @@
 	var/parallax_speed = 0
 
 /obj/screen/plane_master
-	appearance_flags = PLANE_MASTER
+	appearance_flags = PLANE_MASTER | NO_CLIENT_COLOR
 	screen_loc = "CENTER,CENTER"
 
 /obj/screen/plane_master/parallax_master
@@ -46,7 +46,7 @@
 
 /obj/screen/plane_master/parallax_spacemaster/New()
 	..()
-	overlays += image(icon = 'icons/mob/screen1.dmi', icon_state = "blank")
+	overlays += image(icon = 'icons/mob/screen/generic.dmi', icon_state = "blank")
 	if(universe)
 		universe.convert_parallax(src)
 
@@ -87,12 +87,12 @@
 
 /datum/hud/proc/update_parallax()
 	var/client/C = mymob.client
-	if(C.prefs.parallax_togs & PARALLAX_SPACE)
+	if(C.prefs.toggles_secondary & PARALLAX_SPACE)
 		for(var/obj/screen/parallax/bgobj in C.parallax)
 			C.screen |= bgobj
 		C.screen |= C.parallax_master
 		C.screen |= C.parallax_spacemaster
-		if(C.prefs.parallax_togs & PARALLAX_DUST)
+		if(C.prefs.toggles_secondary & PARALLAX_DUST)
 			C.parallax_dustmaster.color = list(
 			1,0,0,0,
 			0,1,0,0,
@@ -111,8 +111,8 @@
 	var/client/C = mymob.client
 	if(!SSparallax.parallax_initialized)
 		return
-	
-	if (C.prefs.parallax_togs & PARALLAX_IS_STATIC)
+
+	if (C.prefs.toggles_secondary & PARALLAX_IS_STATIC)
 		return
 
 	//ACTUALLY MOVING THE PARALLAX
@@ -259,6 +259,7 @@
 	LAZYCLEARLIST(parallax)
 	LAZYCLEARLIST(parallax_movable)
 
+#undef GRID_WIDTH
 #undef PARALLAX4_ICON_NUMBER
 #undef PARALLAX3_ICON_NUMBER
 #undef PARALLAX2_ICON_NUMBER

@@ -54,9 +54,13 @@ var/datum/controller/subsystem/emergency_shuttle/emergency_shuttle
 			set_launch_countdown(SHUTTLE_LEAVETIME)	//get ready to return
 
 			if (evac)
-				priority_announcement.Announce("The Emergency Shuttle has docked with the station. You have approximately [round(estimate_launch_time()/60,1)] minutes to board the Emergency Shuttle.", new_sound = 'sound/AI/emergencyshuttledock.ogg')
+				priority_announcement.Announce(replacetext(current_map.emergency_shuttle_docked_message, "%ETD%", round(estimate_launch_time()/60,1)), new_sound = 'sound/AI/emergencyshuttledock.ogg')
 			else
-				priority_announcement.Announce("The scheduled Crew Transfer Shuttle to [dock_name] has docked with the station. It will depart in approximately [round(emergency_shuttle.estimate_launch_time()/60,1)] minutes.", new_sound = 'sound/AI/shuttledock.ogg')
+				var/list/fields = list(
+					"%ETA%" = round(emergency_shuttle.estimate_launch_time()/60,1),
+					"%dock%" = current_map.dock_name
+				)
+				priority_announcement.Announce(replacemany(current_map.shuttle_docked_message, fields), new_sound = 'sound/AI/shuttledock.ogg')
 
 		//arm the escape pods
 		if (evac)
@@ -85,7 +89,7 @@ var/datum/controller/subsystem/emergency_shuttle/emergency_shuttle
 	shuttle.move_time = SHUTTLE_TRANSIT_DURATION
 
 	evac = 1
-	priority_announcement.Announce("An emergency evacuation shuttle has been called. It will arrive in approximately [round(estimate_arrival_time()/60)] minutes.", new_sound = 'sound/AI/emergencyshuttlecalled.ogg')
+	priority_announcement.Announce(replacetext(current_map.emergency_shuttle_called_message, "%ETA%", round(estimate_arrival_time()/60)), new_sound = 'sound/AI/emergencyshuttlecalled.ogg')
 	for(var/area/A in all_areas)
 		if(istype(A, /area/hallway))
 			A.readyalert()
@@ -102,7 +106,11 @@ var/datum/controller/subsystem/emergency_shuttle/emergency_shuttle
 	//reset the shuttle transit time if we need to
 	shuttle.move_time = SHUTTLE_TRANSIT_DURATION
 
-	priority_announcement.Announce("A crew transfer to [dock_name] has been scheduled. The shuttle has been called. It will arrive in approximately [round(estimate_arrival_time()/60)] minutes.", new_sound = 'sound/AI/shuttlecalled.ogg')
+	var/list/replacements = list(
+		"%ETA%" = round(estimate_arrival_time()/60),
+		"%dock%" = current_map.dock_name
+	)
+	priority_announcement.Announce(replacemany(current_map.shuttle_called_message, replacements), new_sound = 'sound/AI/shuttlecalled.ogg')
 
 //recalls the shuttle
 /datum/controller/subsystem/emergency_shuttle/proc/recall()
@@ -112,14 +120,14 @@ var/datum/controller/subsystem/emergency_shuttle/emergency_shuttle
 	shuttle.cancel_launch(src)
 
 	if (evac)
-		priority_announcement.Announce("The emergency shuttle has been recalled.", new_sound = 'sound/AI/emergencyshuttlerecalled.ogg')
+		priority_announcement.Announce(current_map.emergency_shuttle_recall_message, new_sound = 'sound/AI/emergencyshuttlerecalled.ogg')
 
 		for(var/area/A in all_areas)
 			if(istype(A, /area/hallway))
 				A.readyreset()
 		evac = 0
 	else
-		priority_announcement.Announce("The scheduled crew transfer has been cancelled.", new_sound = 'sound/AI/shuttlerecalled.ogg')
+		priority_announcement.Announce(current_map.shuttle_recall_message, new_sound = 'sound/AI/shuttlerecalled.ogg')
 
 /datum/controller/subsystem/emergency_shuttle/proc/can_call()
 	if (!universe.OnShuttleCall(null))

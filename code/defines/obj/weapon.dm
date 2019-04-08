@@ -34,10 +34,15 @@
 	throwforce = 0
 	throw_speed = 4
 	throw_range = 20
+	flags = OPENCONTAINER
+	var/key_data
 
 /obj/item/weapon/soap/nanotrasen
 	desc = "A NanoTrasen-brand bar of soap. Smells of phoron."
 	icon_state = "soapnt"
+
+/obj/item/weapon/soap/plant
+	desc = "A green bar of soap. Smells like dirt and plants."
 
 /obj/item/weapon/soap/deluxe
 	icon_state = "soapdeluxe"
@@ -87,6 +92,171 @@
 	matter = list(DEFAULT_WALL_MATERIAL = 50)
 	attack_verb = list("bludgeoned", "whacked", "disciplined", "thrashed")
 
+/obj/item/weapon/cane/attack(mob/living/target, mob/living/carbon/human/user, target_zone = "chest")
+
+	if(!(istype(target) && istype(user)))
+		return ..()
+
+	var/targetIsHuman = ishuman(target)
+	var/mob/living/carbon/human/targetashuman = target
+	var/wasselfattack = 0
+	var/verbtouse = pick(attack_verb)
+	var/punct = "!"
+	var/class = "warning"
+	var/soundname = "swing_hit"
+	var/armorpercent = 0
+	var/wasblocked = 0
+	var/shoulddisarm = 0
+	var/damagetype = HALLOSS
+	var/chargedelay = 4 // 4 half frames = 2 seconds
+
+	if(targetIsHuman && targetashuman == user)
+		wasselfattack = 1
+
+	if (user.intent == I_HURT)
+		target_zone = get_zone_with_miss_chance(target_zone, target) //Vary the attack
+		damagetype = BRUTE
+
+	if (targetIsHuman)
+		var/mob/living/carbon/human/targethuman = target
+		armorpercent = targethuman.run_armor_check(target_zone,"melee")
+		wasblocked = targethuman.check_shields(force, src, user, target_zone, null) //returns 1 if it's a block
+
+	var/damageamount = force
+
+	switch(user.a_intent)
+		if(I_HELP)
+			class = "notice"
+			punct = "."
+			soundname = 0
+			if (target_zone == "head" || target_zone == "eyes" || target_zone == "mouth")
+				verbtouse = pick("tapped")
+			else
+				verbtouse = pick("tapped","poked","prodded","touched")
+			damageamount = 0
+		if(I_DISARM)
+			verbtouse = pick("smacked","slapped")
+			soundname = "punch"
+			if(targetIsHuman)
+				user.visible_message("<span class='[class]'>[user] flips [user.get_pronoun(1)] [name]...</span>", "<span class='[class]'>You flip the [name], preparing a disarm...</span>")
+				if (do_mob(user,target,chargedelay,display_progress=0))
+					if(!wasblocked && damageamount)
+						var/chancemod = (100 - armorpercent)*0.05*damageamount // Lower chance if lower damage + high armor. Base chance is 50% at 10 damage.
+						if(target_zone == "l_hand" || target_zone == "l_arm")
+							if (prob(chancemod) && target.l_hand && target.l_hand != src)
+								shoulddisarm = 1
+						else if(target_zone == "r_hand" || target_zone == "r_arm")
+							if (prob(chancemod) && target.r_hand && target.r_hand != src)
+								shoulddisarm = 2
+						else
+							if (prob(chancemod*0.5) && target.l_hand && target.l_hand != src)
+								shoulddisarm = 1
+							if (prob(chancemod*0.5) && target.r_hand && target.r_hand != src)
+								shoulddisarm += 2
+				else
+					user.visible_message("<span class='[class]'>[user] flips [user.get_pronoun(1)] [name] back to it's original position.</span>", "<span class='[class]'>You flip the [name] back to it's original position.</span>")
+					return 0
+			damageamount *= 0.25
+		if(I_GRAB)
+			verbtouse = pick("hooked")
+			soundname = "punch"
+			if(targetIsHuman)
+				user.visible_message("<span class='[class]'>[user] flips [user.get_pronoun(1)] [name]...</span>", "<span class='[class]'>You flip the [name], preparing a grab...</span>")
+				if (do_mob(user,target,chargedelay,display_progress=0))
+					if(!wasblocked && damageamount)
+						user.start_pulling(target)
+					else
+						verbtouse = pick("awkwardly tries to hook","fails to grab")
+				else
+					user.visible_message("<span class='[class]'>[user] flips [user.get_pronoun(1)] [name] back to it's original position.</span>", "<span class='[class]'>You flip the [name] back to it's original position.</span>")
+					return 0
+			else
+				soundname = "punch"
+			damageamount *= 0.1
+
+	// Damage Logs
+	/////////////////////////
+	user.lastattacked = target
+	target.lastattacker = user
+	if(!no_attack_log)
+		user.attack_log += "\[[time_stamp()]\]<font color='red'> Attacked [target.name] ([target.ckey]) with [name] (INTENT: [uppertext(user.a_intent)]) (DAMTYE: [uppertext(damagetype)])</font>"
+		target.attack_log += "\[[time_stamp()]\]<font color='orange'> Attacked by [user.name] ([user.ckey]) with [name] (INTENT: [uppertext(user.a_intent)]) (DAMTYE: [uppertext(damagetype)])</font>"
+		msg_admin_attack("[key_name(user, highlight_special = 1)] attacked [key_name(target, highlight_special = 1)] with [name] (INTENT: [uppertext(user.a_intent)]) (DAMTYE: [uppertext(damagetype)]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(target) )
+	/////////////////////////
+
+	var/washit = 0
+	var/endmessage1st
+	var/endmessage3rd
+
+	if(!target_zone || get_dist(user,target) > 1) //Dodged
+		endmessage1st = "Your [name] was dodged by [target]"
+		endmessage3rd = "[target] dodged the [name]"
+		soundname = "sound/weapons/punchmiss.ogg"
+	else if(wasblocked) // Blocked by Shield
+		endmessage1st = "Your [name] was blocked by [target]"
+		endmessage3rd = "[target] blocks the [name]"
+		soundname = "sound/weapons/punchmiss.ogg"
+	else
+
+		washit = 1
+		var/noun = "[target]"
+		var/selfnoun = "your"
+
+		if(shoulddisarm)
+			if(wasselfattack)
+				selfnoun = "your grip"
+				noun = "[target.get_pronoun(1)] grip"
+			else
+				noun = "[target]'s grip"
+				selfnoun = noun
+		if (targetIsHuman && shoulddisarm != 3) // Query: Can non-humans hold objects in hands?
+			var/mob/living/carbon/human/targethuman = target
+			var/obj/item/organ/external/O = targethuman.get_organ(target_zone)
+			if (O.is_stump())
+				if(wasselfattack)
+					selfnoun = "your missing [O.name]"
+					noun = "[target.get_pronoun(1)] missing [O.name]"
+				else
+					noun = "[target]'s missing [O.name]"
+					selfnoun = noun
+			else
+				if(wasselfattack)
+					selfnoun = "your [O.name]"
+					noun = "[target.get_pronoun(1)] [O.name]"
+				else
+					noun = "[target]'s [O.name]"
+					selfnoun = noun
+
+		switch(shoulddisarm)
+			if(1)
+				endmessage1st = "You [verbtouse] the [target.l_hand.name] out of [selfnoun]"
+				endmessage3rd = "[user] [verbtouse] the [target.l_hand.name] out of [noun]"
+				target.drop_l_hand()
+			if(2)
+				endmessage1st = "You [verbtouse] the [target.r_hand.name] out of [selfnoun]"
+				endmessage3rd = "[user] [verbtouse] the [target.r_hand.name] out of [noun]"
+				target.drop_r_hand()
+			if(3)
+				endmessage1st = "You [verbtouse] both the [target.r_hand.name] and the [target.l_hand.name] out of [selfnoun]"
+				endmessage3rd = "[user] [verbtouse] both the [target.r_hand.name] and the [target.l_hand.name] out of [noun]"
+				target.drop_l_hand()
+				target.drop_r_hand()
+			else
+				endmessage1st = "You [verbtouse] [selfnoun] with the [name]"
+				endmessage3rd = "[user] [verbtouse] [noun] with the [name]"
+
+	if(damageamount > 0) // Poking will no longer do damage until there is some fix that makes it so that 0.0001 HALLOS doesn't cause bleed.
+		target.standard_weapon_hit_effects(src, user, damageamount, armorpercent, target_zone)
+
+	user.visible_message("<span class='[class]'>[endmessage3rd][punct]</span>", "<span class='[class]'>[endmessage1st][punct]</span>")
+	user.do_attack_animation(target)
+	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
+
+	if(soundname)
+		playsound(src.loc, soundname, 50, 1, -1)
+
+	return washit
+
 /obj/item/weapon/cane/concealed
 	var/concealed_blade
 
@@ -116,7 +286,7 @@
 		user.visible_message("<span class='warning'>[user] has sheathed \a [W] into \his [src]!</span>", "You sheathe \the [W] into \the [src].")
 		playsound(user.loc, 'sound/weapons/blade_sheath.ogg', 50, 1)
 		user.drop_from_inventory(W)
-		W.loc = src
+		W.forceMove(src)
 		src.concealed_blade = W
 		update_icon()
 	else
@@ -159,6 +329,10 @@
 	item_state = "gift"
 	w_class = 4.0
 
+/obj/item/weapon/gift/random_pixel/Initialize()
+	pixel_x = rand(-16,16)
+	pixel_y = rand(-16,16)
+
 /obj/item/weapon/legcuffs
 	name = "legcuffs"
 	desc = "Use this to keep prisoners in line."
@@ -187,19 +361,19 @@
 /obj/item/weapon/caution/attack_self(mob/user as mob)
     if(src.icon_state == "caution")
         src.icon_state = "caution_blinking"
-        user << "You turn the sign on."
+        to_chat(user, "You turn the sign on.")
     else
         src.icon_state = "caution"
-        user << "You turn the sign off."
+        to_chat(user, "You turn the sign off.")
 
 /obj/item/weapon/caution/AltClick()
 	if(!usr || usr.stat || usr.lying || usr.restrained() || !Adjacent(usr))	return
 	if(src.icon_state == "caution")
 		src.icon_state = "caution_blinking"
-		usr << "You turn the sign on."
+		to_chat(usr, "You turn the sign on.")
 	else
 		src.icon_state = "caution"
-		usr << "You turn the sign off."
+		to_chat(usr, "You turn the sign off.")
 
 /obj/item/weapon/caution/cone
 	desc = "This cone is trying to warn you of something!"
@@ -322,11 +496,10 @@
 	matter = list(DEFAULT_WALL_MATERIAL = 50, "glass" = 50)
 
 /obj/item/weapon/module/power_control/attackby(var/obj/item/weapon/W as obj, var/mob/user as mob)
-	if (istype(W, /obj/item/device/multitool))
+	if (W.ismultitool())
 		var/obj/item/weapon/circuitboard/ghettosmes/newcircuit = new/obj/item/weapon/circuitboard/ghettosmes(user.loc)
 		qdel(src)
 		user.put_in_hands(newcircuit)
-
 
 /obj/item/weapon/module/id_auth
 	name = "\improper ID authentication module"
@@ -359,7 +532,7 @@
 		if (C.bugged && C.status)
 			cameras.Add(C)
 	if (length(cameras) == 0)
-		usr << "<span class='warning'>No bugged functioning cameras found.</span>"
+		to_chat(usr, "<span class='warning'>No bugged functioning cameras found.</span>")
 		return
 
 	var/list/friendly_cameras = new/list()
@@ -406,14 +579,12 @@
 	icon_state = "neuralbroke"
 
 /obj/item/weapon/neuralbroke/attackby(obj/item/weapon/W as obj, mob/user as mob)
-	if(istype(W,/obj/item/weapon/screwdriver))
+	if(W.isscrewdriver())
 		new /obj/item/device/encryptionkey/hivenet(user.loc)
 		playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, 1)
-		user << "You bypass the fried security chip and extract the encryption key."
-		user << "The fried neural socket crumbles away like dust."
+		to_chat(user, "You bypass the fried security chip and extract the encryption key.")
+		to_chat(user, "The fried neural socket crumbles away like dust.")
 		qdel(src)
-
-///////////////////////////////////////Stock Parts /////////////////////////////////
 
 /obj/item/weapon/storage/part_replacer
 	name = "rapid part exchange device"
@@ -431,202 +602,19 @@
 	max_w_class = 3
 	max_storage_space = 100
 
-/obj/item/weapon/stock_parts
-	name = "stock part"
-	desc = "What?"
-	gender = PLURAL
-	icon = 'icons/obj/stock_parts.dmi'
-	w_class = 2.0
-	var/rating = 1
-
-/obj/item/weapon/stock_parts/New()
-	src.pixel_x = rand(-5.0, 5)
-	src.pixel_y = rand(-5.0, 5)
-	..()
-
-
-//Rank 1
-
-/obj/item/weapon/stock_parts/console_screen
-	name = "console screen"
-	desc = "Used in the construction of computers and other devices with a interactive console."
-	icon_state = "screen"
-	origin_tech = list(TECH_MATERIAL = 1)
-	matter = list("glass" = 200)
-
-/obj/item/weapon/stock_parts/capacitor
-	name = "capacitor"
-	desc = "A basic capacitor used in the construction of a variety of devices."
-	icon_state = "capacitor"
-	origin_tech = list(TECH_POWER = 1)
-	matter = list(DEFAULT_WALL_MATERIAL = 50,"glass" = 50)
-
-/obj/item/weapon/stock_parts/scanning_module
-	name = "scanning module"
-	desc = "A compact, high resolution scanning module used in the construction of certain devices."
-	icon_state = "scan_module"
-	origin_tech = list(TECH_MAGNET = 1)
-	matter = list(DEFAULT_WALL_MATERIAL = 50,"glass" = 20)
-
-/obj/item/weapon/stock_parts/manipulator
-	name = "micro-manipulator"
-	desc = "A tiny little manipulator used in the construction of certain devices."
-	icon_state = "micro_mani"
-	origin_tech = list(TECH_MATERIAL = 1, TECH_DATA = 1)
-	matter = list(DEFAULT_WALL_MATERIAL = 30)
-
-/obj/item/weapon/stock_parts/micro_laser
-	name = "micro-laser"
-	desc = "A tiny laser used in certain devices."
-	icon_state = "micro_laser"
-	origin_tech = list(TECH_MAGNET = 1)
-	matter = list(DEFAULT_WALL_MATERIAL = 10,"glass" = 20)
-
-/obj/item/weapon/stock_parts/matter_bin
-	name = "matter bin"
-	desc = "A container for hold compressed matter awaiting re-construction."
-	icon_state = "matter_bin"
-	origin_tech = list(TECH_MATERIAL = 1)
-	matter = list(DEFAULT_WALL_MATERIAL = 80)
-
-//Rank 2
-
-/obj/item/weapon/stock_parts/capacitor/adv
-	name = "advanced capacitor"
-	desc = "An advanced capacitor used in the construction of a variety of devices."
-	origin_tech = list(TECH_POWER = 3)
-	rating = 2
-	matter = list(DEFAULT_WALL_MATERIAL = 50,"glass" = 50)
-
-/obj/item/weapon/stock_parts/scanning_module/adv
-	name = "advanced scanning module"
-	desc = "A compact, high resolution scanning module used in the construction of certain devices."
-	icon_state = "scan_module"
-	origin_tech = list(TECH_MAGNET = 3)
-	rating = 2
-	matter = list(DEFAULT_WALL_MATERIAL = 50,"glass" = 20)
-
-/obj/item/weapon/stock_parts/manipulator/nano
-	name = "nano-manipulator"
-	desc = "A tiny little manipulator used in the construction of certain devices."
-	icon_state = "nano_mani"
-	origin_tech = list(TECH_MATERIAL = 3, TECH_DATA = 2)
-	rating = 2
-	matter = list(DEFAULT_WALL_MATERIAL = 30)
-
-/obj/item/weapon/stock_parts/micro_laser/high
-	name = "high-power micro-laser"
-	desc = "A tiny laser used in certain devices."
-	icon_state = "high_micro_laser"
-	origin_tech = list(TECH_MAGNET = 3)
-	rating = 2
-	matter = list(DEFAULT_WALL_MATERIAL = 10,"glass" = 20)
-
-/obj/item/weapon/stock_parts/matter_bin/adv
-	name = "advanced matter bin"
-	desc = "A container for hold compressed matter awaiting re-construction."
-	icon_state = "advanced_matter_bin"
-	origin_tech = list(TECH_MATERIAL = 3)
-	rating = 2
-	matter = list(DEFAULT_WALL_MATERIAL = 80)
-
-//Rating 3
-
-/obj/item/weapon/stock_parts/capacitor/super
-	name = "super capacitor"
-	desc = "A super-high capacity capacitor used in the construction of a variety of devices."
-	origin_tech = list(TECH_POWER = 5, TECH_MATERIAL = 4)
-	rating = 3
-	matter = list(DEFAULT_WALL_MATERIAL = 50,"glass" = 50)
-
-/obj/item/weapon/stock_parts/scanning_module/phasic
-	name = "phasic scanning module"
-	desc = "A compact, high resolution phasic scanning module used in the construction of certain devices."
-	origin_tech = list(TECH_MAGNET = 5)
-	rating = 3
-	matter = list(DEFAULT_WALL_MATERIAL = 50,"glass" = 20)
-
-/obj/item/weapon/stock_parts/manipulator/pico
-	name = "pico-manipulator"
-	desc = "A tiny little manipulator used in the construction of certain devices."
-	icon_state = "pico_mani"
-	origin_tech = list(TECH_MATERIAL = 5, TECH_DATA = 2)
-	rating = 3
-	matter = list(DEFAULT_WALL_MATERIAL = 30)
-
-/obj/item/weapon/stock_parts/micro_laser/ultra
-	name = "ultra-high-power micro-laser"
-	icon_state = "ultra_high_micro_laser"
-	desc = "A tiny laser used in certain devices."
-	origin_tech = list(TECH_MAGNET = 5)
-	rating = 3
-	matter = list(DEFAULT_WALL_MATERIAL = 10,"glass" = 20)
-
-/obj/item/weapon/stock_parts/matter_bin/super
-	name = "super matter bin"
-	desc = "A container for hold compressed matter awaiting re-construction."
-	icon_state = "super_matter_bin"
-	origin_tech = list(TECH_MATERIAL = 5)
-	rating = 3
-	matter = list(DEFAULT_WALL_MATERIAL = 80)
-
-// Subspace stock parts
-
-/obj/item/weapon/stock_parts/subspace/ansible
-	name = "subspace ansible"
-	icon_state = "subspace_ansible"
-	desc = "A compact module capable of sensing extradimensional activity."
-	origin_tech = list(TECH_DATA = 3, TECH_MAGNET = 5 ,TECH_MATERIAL = 4, TECH_BLUESPACE = 2)
-	matter = list(DEFAULT_WALL_MATERIAL = 30,"glass" = 10)
-
-/obj/item/weapon/stock_parts/subspace/filter
-	name = "hyperwave filter"
-	icon_state = "hyperwave_filter"
-	desc = "A tiny device capable of filtering and converting super-intense radiowaves."
-	origin_tech = list(TECH_DATA = 4, TECH_MAGNET = 2)
-	matter = list(DEFAULT_WALL_MATERIAL = 30,"glass" = 10)
-
-/obj/item/weapon/stock_parts/subspace/amplifier
-	name = "subspace amplifier"
-	icon_state = "subspace_amplifier"
-	desc = "A compact micro-machine capable of amplifying weak subspace transmissions."
-	origin_tech = list(TECH_DATA = 3, TECH_MAGNET = 4, TECH_MATERIAL = 4, TECH_BLUESPACE = 2)
-	matter = list(DEFAULT_WALL_MATERIAL = 30,"glass" = 10)
-
-/obj/item/weapon/stock_parts/subspace/treatment
-	name = "subspace treatment disk"
-	icon_state = "treatment_disk"
-	desc = "A compact micro-machine capable of stretching out hyper-compressed radio waves."
-	origin_tech = list(TECH_DATA = 3, TECH_MAGNET = 2, TECH_MATERIAL = 5, TECH_BLUESPACE = 2)
-	matter = list(DEFAULT_WALL_MATERIAL = 30,"glass" = 10)
-
-/obj/item/weapon/stock_parts/subspace/analyzer
-	name = "subspace wavelength analyzer"
-	icon_state = "wavelength_analyzer"
-	desc = "A sophisticated analyzer capable of analyzing cryptic subspace wavelengths."
-	origin_tech = list(TECH_DATA = 3, TECH_MAGNETS = 4, TECH_MATERIAL = 4, TECH_BLUESPACE = 2)
-	matter = list(DEFAULT_WALL_MATERIAL = 30,"glass" = 10)
-
-/obj/item/weapon/stock_parts/subspace/crystal
-	name = "ansible crystal"
-	icon_state = "ansible_crystal"
-	desc = "A crystal made from pure glass used to transmit laser databursts to subspace."
-	origin_tech = list(TECH_MAGNET = 4, TECH_MATERIAL = 4, TECH_BLUESPACE = 2)
-	matter = list("glass" = 50)
-
-/obj/item/weapon/stock_parts/subspace/transmitter
-	name = "subspace transmitter"
-	icon_state = "subspace_transmitter"
-	desc = "A large piece of equipment used to open a window into the subspace dimension."
-	origin_tech = list(TECH_MAGNET = 5, TECH_MATERIAL = 5, TECH_BLUESPACE = 3)
-	matter = list(DEFAULT_WALL_MATERIAL = 50)
-
 /obj/item/weapon/ectoplasm
 	name = "ectoplasm"
 	desc = "spooky"
 	gender = PLURAL
 	icon = 'icons/obj/wizard.dmi'
 	icon_state = "ectoplasm"
+
+/obj/item/weapon/anomaly_core
+	name = "anomaly core"
+	desc = "An advanced bluespace device, little is known about its applications, meriting research into its purpose."
+	icon = 'icons/obj/objects.dmi'
+	icon_state = "anomaly_core"
+	origin_tech = list(TECH_MAGNET = 6, TECH_MATERIAL = 7, TECH_BLUESPACE = 8)
 
 /obj/item/weapon/research
 	name = "research debugging device"

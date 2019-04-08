@@ -15,6 +15,18 @@
 	path = /obj/item/weapon/storage/secure/briefcase/money
 	desc = "A briefcase with 10,000 untraceable credits for funding your sneaky activities."
 
+/datum/uplink_item/item/tools/firingpin //todo, make this a special syndicate one instead of just a normal one?
+	name = "Firing Pin"
+	item_cost = 2
+	path = /obj/item/device/firing_pin
+	desc = "A Syndicate-branded Firing pin - It should be compatible with nearly every weapon onboard."
+
+/datum/uplink_item/item/tools/surge
+	name = "IPC surge prevention module"
+	item_cost = 12
+	path = /obj/item/stack/nanopaste/surge
+	desc = "An internal module that allow operative IPC frames to be protected from EMP pulse. The device has limited use that varies between two to five pulses"
+
 /datum/uplink_item/item/tools/clerical
 	name = "Morphic Clerical Kit"
 	item_cost = 3
@@ -26,9 +38,9 @@
 	path = /obj/item/weapon/plastique
 
 /datum/uplink_item/item/tools/heavy_vest
-	name = "Heavy Armor Vest"
+	name = "Heavy Armor Kit"
 	item_cost = 4
-	path = /obj/item/clothing/suit/storage/vest/merc
+	path = /obj/item/weapon/storage/box/syndie_kit/armor
 
 /datum/uplink_item/item/tools/encryptionkey_radio
 	name = "Encrypted Radio Channel Key"
@@ -86,7 +98,7 @@
 	name = "Hacked Supply Beacon (DANGER!)"
 	item_cost = 14
 	path = /obj/item/supply_beacon
-	
+
 /datum/uplink_item/item/tools/advancedpinpointer
 	name = "Advanced pinpointer"
 	item_cost = 15
@@ -97,3 +109,37 @@
 	name = "Syndicate Cyborg Teleporter"
 	item_cost = 35
 	path = /obj/item/weapon/antag_spawner/borg_tele
+
+/datum/uplink_item/item/tools/heatpatch
+	name = "HUDPatch, Thermal"
+	item_cost = 6
+	path = /obj/item/clothing/glasses/eyepatch/hud/thermal
+
+/datum/uplink_item/item/tools/nightpatch
+	name = "HUDPatch, Night-Vision"
+	item_cost = 4
+	path = /obj/item/clothing/glasses/eyepatch/hud/night
+
+/datum/uplink_item/item/tools/aviatortherm
+	name = "Aviators, Thermal"
+	item_cost = 6
+	path = /obj/item/clothing/glasses/thermal/aviator
+	desc = "A pair of thermal-vision glasses disguised as aviator shades."
+
+/datum/uplink_item/item/tools/aviatornight
+	name = "Aviators, Night-Vision"
+	item_cost = 4
+	path = /obj/item/clothing/glasses/night/aviator
+	desc = "A pair of night-vision glasses disguised as aviator shades."
+	
+/datum/uplink_item/item/tools/suit_cooling_unit
+	name = "Portable suit cooling unit"
+	item_cost = 4
+	path = /obj/item/device/suit_cooling_unit/improved
+	desc = "A suit cooling unit with a high capacity power cell."
+
+/datum/uplink_item/item/tools/rig_cooling_unit
+	name = "mounted suit cooling unit"
+	item_cost = 8
+	path = /obj/item/rig_module/cooling_unit
+	desc = "A mounted suit cooling unit for use with rigs."

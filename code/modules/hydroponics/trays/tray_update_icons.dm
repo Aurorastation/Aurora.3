@@ -30,7 +30,7 @@
 			if(!seed.growth_stages)
 				seed.update_growth_stages()
 			if(!seed.growth_stages)
-				world << "<span class='danger'>Seed type [seed.get_trait(TRAIT_PLANT_ICON)] cannot find a growth stage value.</span>"
+				to_world("<span class='danger'>Seed type [seed.get_trait(TRAIT_PLANT_ICON)] cannot find a growth stage value.</span>")
 				return
 			var/overlay_stage = 1
 			if(age >= seed.get_trait(TRAIT_MATURATION))
@@ -68,22 +68,24 @@
 			add_overlay("over_lowwater3")
 		if(nutrilevel <= 2)
 			add_overlay("over_lownutri3")
-		if(weedlevel >= 5 || pestlevel >= 5 || toxins >= 40)
+		if(pestlevel >= 5 || toxins >= 40) // Hydroponics trays no longer face issues with weeds. GET OUTTA HERE.
 			add_overlay("over_alert3")
 		if(harvest)
 			add_overlay("over_harvest3")
 
 	// Update bioluminescence.
 	if(seed && seed.get_trait(TRAIT_BIOLUM))
+		var/pwr
+		if(seed.get_trait(TRAIT_BIOLUM_PWR) == 0)
+			pwr = seed.get_trait(TRAIT_BIOLUM)
+		else
+			pwr = seed.get_trait(TRAIT_BIOLUM_PWR)
 		var/clr
 		if(seed.get_trait(TRAIT_BIOLUM_COLOUR))
 			clr = seed.get_trait(TRAIT_BIOLUM_COLOUR)
-		var/val = round(seed.get_trait(TRAIT_POTENCY)/10)
-		if (val != last_biolum)
-			last_biolum = val
-			set_light(val, l_color = clr)
+		set_light(seed.get_trait(TRAIT_POTENCY)/10, pwr, clr)
 		return
-	
+
 	if (last_biolum)
 		set_light(0)
 		last_biolum = null

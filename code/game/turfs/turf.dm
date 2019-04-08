@@ -14,7 +14,7 @@
 	var/heat_capacity = 1
 
 	//Properties for both
-	var/temperature = T20C      // Initial turf temperature.
+	var/temperature      // Initial turf temperature.
 	var/blocks_air = 0          // Does this turf contain air/let air through?
 
 	// General properties.
@@ -32,8 +32,11 @@
 	var/roof_type = null // The turf type we spawn as a roof.
 	var/tmp/roof_flags = 0
 
+	var/movement_cost = 0 // How much the turf slows down movement, if any.
+
 // Parent code is duplicated in here instead of ..() for performance reasons.
-/turf/Initialize()
+// There's ALSO a copy of this in mine_turfs.dm!
+/turf/Initialize(mapload, ...)
 	if (initialized)
 		crash_with("Warning: [src]([type]) initialized multiple times!")
 
@@ -43,7 +46,8 @@
 		Entered(AM)
 
 	turfs += src
-
+	if(!temperature)
+		temperature = current_map.regular_turf_temperature
 	if(dynamic_lighting)
 		luminosity = 0
 	else
@@ -58,14 +62,20 @@
 	if (opacity)
 		has_opaque_atom = TRUE
 
+	if (mapload && permit_ao)
+		queue_ao()
+
 	var/area/A = loc
 
 	if(!baseturf)
 		// Hard-coding this for performance reasons.
-		baseturf = A.base_turf || base_turf_by_z["[z]"] || /turf/space
+		baseturf = A.base_turf || current_map.base_turf_by_z["[z]"] || /turf/space
 
 	if (A.flags & SPAWN_ROOF)
 		spawn_roof()
+
+	if (flags & MIMIC_BELOW)
+		setup_zmimic(mapload)
 
 	return INITIALIZE_HINT_NORMAL
 
@@ -78,12 +88,21 @@
 
 	cleanup_roof()
 
+	if (ao_queued)
+		SSocclusion.queue -= src
+		ao_queued = 0
+
+	if (flags & MIMIC_BELOW)
+		cleanup_zmimic()
+
+	if (bound_overlay)
+		QDEL_NULL(bound_overlay)
+
 	..()
 	return QDEL_HINT_IWILLGC
 
 /turf/proc/get_smooth_underlay_icon(mutable_appearance/underlay_appearance, turf/asking_turf, adjacency_dir)
-	underlay_appearance.icon = icon
-	underlay_appearance.icon_state = icon_state
+	underlay_appearance.appearance = src
 	underlay_appearance.dir = adjacency_dir
 	return TRUE
 
@@ -115,7 +134,7 @@
 
 /turf/Enter(atom/movable/mover as mob|obj, atom/forget as mob|obj|turf|area)
 	if(movement_disabled && usr.ckey != movement_disabled_exception)
-		usr << "<span class='warning'>Movement is admin-disabled.</span>" //This is to identify lag problems
+		to_chat(usr, "<span class='warning'>Movement is admin-disabled.</span>") //This is to identify lag problems)
 		return
 
 	..()
@@ -127,79 +146,95 @@
 	for(var/obj/obstacle in mover.loc)
 		if(!(obstacle.flags & ON_BORDER) && (mover != obstacle) && (forget != obstacle))
 			if(!obstacle.CheckExit(mover, src))
-				mover.Bump(obstacle, 1)
+				mover.Collide(obstacle)
 				return 0
 
 	//Now, check objects to block exit that are on the border
 	for(var/obj/border_obstacle in mover.loc)
 		if((border_obstacle.flags & ON_BORDER) && (mover != border_obstacle) && (forget != border_obstacle))
 			if(!border_obstacle.CheckExit(mover, src))
-				mover.Bump(border_obstacle, 1)
+				mover.Collide(border_obstacle)
 				return 0
 
 	//Next, check objects to block entry that are on the border
 	for(var/obj/border_obstacle in src)
 		if(border_obstacle.flags & ON_BORDER)
 			if(!border_obstacle.CanPass(mover, mover.loc, 1, 0) && (forget != border_obstacle))
-				mover.Bump(border_obstacle, 1)
+				mover.Collide(border_obstacle)
 				return 0
 
 	//Then, check the turf itself
 	if (!src.CanPass(mover, src))
-		mover.Bump(src, 1)
+		mover.Collide(src)
 		return 0
 
 	//Finally, check objects/mobs to block entry that are not on the border
 	for(var/atom/movable/obstacle in src)
 		if(!(obstacle.flags & ON_BORDER))
 			if(!obstacle.CanPass(mover, mover.loc, 1, 0) && (forget != obstacle))
-				mover.Bump(obstacle, 1)
+				mover.Collide(obstacle)
 				return 0
 	return 1 //Nothing found to block so return success!
 
 var/const/enterloopsanity = 100
-/turf/Entered(atom/atom as mob|obj)
 
+/turf/Entered(atom/movable/AM)
 	if(movement_disabled)
-		usr << "<span class='warning'>Movement is admin-disabled.</span>" //This is to identify lag problems
-		return
-	..()
-
-	if(!istype(atom, /atom/movable))
+		to_chat(usr, "<span class='warning'>Movement is admin-disabled.</span>") //This is to identify lag problems)
 		return
 
-	var/atom/movable/A = atom
+	ASSERT(istype(AM))
 
-	if(ismob(A))
-		var/mob/M = A
+	if(ismob(AM))
+		var/mob/M = AM
 		if(!M.lastarea)
 			M.lastarea = get_area(M.loc)
-		if(M.lastarea.has_gravity == 0)
+		if(M.lastarea.has_gravity() == 0)
 			inertial_drift(M)
 
 		// Footstep SFX logic moved to human_movement.dm - Move().
 
-		else if(!istype(src, /turf/space))
+		else if (type != /turf/space)
 			M.inertia_dir = 0
 			M.make_floating(0)
+
 	..()
+
 	var/objects = 0
-	if(A && (A.flags & PROXMOVE) && A.simulated)
-		for(var/atom/movable/thing in range(1))
-			if(objects > enterloopsanity) break
+	if(AM && (AM.flags & PROXMOVE) && AM.simulated)
+		for(var/atom/movable/oAM in range(1))
+			if(objects > enterloopsanity)
+				break
 			objects++
-			spawn(0)
-				if(A)
-					A.HasProximity(thing, 1)
-					if ((thing && A) && (thing.flags & PROXMOVE))
-						thing.HasProximity(A, 1)
-	return
+
+			if (oAM.simulated)
+				AM.proximity_callback(oAM)
+
+/atom/movable/proc/proximity_callback(atom/movable/AM)
+	set waitfor = FALSE
+	sleep(0)
+	HasProximity(AM, TRUE)
+	if (!QDELETED(AM) && !QDELETED(src) && (AM.flags & PROXMOVE))
+		AM.HasProximity(src, TRUE)
 
 /turf/proc/adjacent_fire_act(turf/simulated/floor/source, temperature, volume)
 	return
 
 /turf/proc/is_plating()
 	return 0
+
+/turf/proc/can_have_cabling()
+	return FALSE
+
+/turf/proc/can_lay_cable()
+	return can_have_cabling()
+
+/turf/attackby(obj/item/C, mob/user)
+	if (can_lay_cable() && C.iscoil())
+		var/obj/item/stack/cable_coil/coil = C
+		coil.turf_place(src, user)
+	else
+		..()
 
 /turf/proc/inertial_drift(atom/movable/A as mob|obj)
 	if(!(A.last_move))	return
@@ -278,9 +313,9 @@ var/const/enterloopsanity = 100
 				var/obj/effect/rune/R = O
 				// Only show message for visible runes
 				if (R.visibility)
-					user << "<span class='warning'>No matter how well you wash, the bloody symbols remain!</span>"
+					to_chat(user, "<span class='warning'>No matter how well you wash, the bloody symbols remain!</span>")
 	else
-		user << "<span class='warning'>\The [source] is too dry to wash that.</span>"
+		to_chat(user, "<span class='warning'>\The [source] is too dry to wash that.</span>")
 	source.reagents.trans_to_turf(src, 1, 10)	//10 is the multiplier for the reaction effect. probably needed to wet the floor properly.
 
 /turf/proc/update_blood_overlays()
@@ -319,4 +354,71 @@ var/const/enterloopsanity = 100
 		if (!above || isopenturf(above))
 			return
 
-		above.ChangeTurf(/turf/simulated/open)
+		above.ChangeToOpenturf()
+
+/turf/proc/AdjacentTurfsRanged()
+	var/static/list/allowed = typecacheof(list(
+		/obj/structure/table,
+		/obj/structure/closet,
+		/obj/machinery/constructable_frame,
+		/obj/structure/target_stake,
+		/obj/structure/cable,
+		/obj/structure/disposalpipe,
+		/obj/machinery,
+		/mob
+	))
+
+	var/L[] = new()
+	for(var/turf/simulated/t in oview(src,1))
+		var/add = 1
+		if(t.density)
+			add = 0
+		if(add && LinkBlocked(src,t))
+			add = 0
+		if(add && TurfBlockedNonWindow(t))
+			add = 0
+			for(var/obj/O in t)
+				if(!O.density)
+					add = 1
+					break
+				if(istype(O, /obj/machinery/door))
+					//not sure why this doesn't fire on LinkBlocked()
+					add = 0
+					break
+				if(is_type_in_typecache(O, allowed))
+					add = 1
+					break
+				if(!add)
+					break
+		if(add)
+			L.Add(t)
+	return L
+
+
+/turf/MouseDrop_T(atom/movable/O as mob|obj, mob/user as mob)
+	var/turf/T = get_turf(user)
+	var/area/A = T.loc
+	if((istype(A) && !(A.has_gravity())) || (istype(T,/turf/space)))
+		return
+	if(istype(O, /obj/screen))
+		return
+	if(user.restrained() || user.stat || user.stunned || user.paralysis || !user.lying)
+		return
+	if((!(istype(O, /atom/movable)) || O.anchored || !Adjacent(user) || !Adjacent(O) || !user.Adjacent(O)))
+		return
+	if(!isturf(O.loc) || !isturf(user.loc))
+		return
+	if(isanimal(user) && O != user)
+		return
+	if(ishuman(user))
+		var/mob/living/carbon/human/H = user
+		var/has_right_hand = TRUE
+		var/obj/item/organ/external/rhand = H.organs_by_name["r_hand"]
+		if(!rhand || rhand.is_stump())
+			has_right_hand = FALSE
+		var/obj/item/organ/external/lhand = H.organs_by_name["l_hand"]
+		if(!lhand || lhand.is_stump())
+			if(!has_right_hand)
+				return
+	if (do_after(user, 25 + (5 * user.weakened)) && !(user.stat))
+		step_towards(O, src)
