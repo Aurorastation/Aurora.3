@@ -180,6 +180,7 @@
 	handle_paralysed()
 	update_canmove()
 	handle_supernatural()
+	autoseek_food = nutrition / max_nutrition <= 0.05 ? TRUE : initial(autoseek_food)
 	process_food()
 
 	//Movement

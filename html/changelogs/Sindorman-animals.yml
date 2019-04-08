@@ -41,5 +41,6 @@ changes:
   - tweak: "Simple mobs hunger values were rebalance to be more realistic. Mobs affected: cats, corgies, foxes, dogs, mice. Most animals would last 30-40 minutes, with exception of mice being 20 minutes. Mice king values progress as it levles up."
   - tweak: "Simple mobs max nutrition values were reworked. No longer you need to feed IAN 6 steaks until its full."
   - tweak: "Mob size values have been changed to more logical for following mobs: cat, corgi, fox, dog, pug."
+  - tweak: "When simple mobs nutrition is 5% or less, they will start seeking food. Even guarded dogs(because they are starving)."
   - bugfix: "Penny's rest sprites have been fixed and work now."
   - tweak: "Starving simple mobs will try and steal food from people's hands instead of begging. They will still beg if they are just hungry."
