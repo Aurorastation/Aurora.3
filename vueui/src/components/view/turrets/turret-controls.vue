@@ -4,15 +4,10 @@
       Behaviour controls are {{locked ? "locked" : "unlocked"}}.
     </div>
     <div v-if="access">
-      <div class="item">
-        <div class="itemLabelWide">
-          Turret Status:
-        </div>
-        <div class="itemContentNarrow">
+      <vui-item label="Turret Status:" :balance="0.4">
           <vui-button :params="{'command' : 'enable', 'value' : 1}" :class="{'redButton': enabled}">Enabled</vui-button>
           <vui-button :params="{'command' : 'enable', 'value' : 0}" :class="{'selected': !enabled}">Disalbed</vui-button>
-        </div>
-      </div>	
+      </vui-item>
 
       <div v-if="is_lethal">
         <div class="item">
@@ -26,7 +21,7 @@
             </div>
           </div>
 
-          <div v-if-else>
+          <div v-else>
             <div class="itemContentNarrow">
               <vui-button :class="{'disabled': lethal}">On</vui-button>
               <vui-button :class="{'disabled': !lethal}">Off</vui-button>
@@ -34,17 +29,13 @@
           </div>
         </div>	
       </div>
-      <div class="item">
+      
         <div v-for="setting in settings">
-          <div class="itemLabelWide">
-            {{setting}}
-          </div>
-          <div class="itemContentNarrow">
-            <vui-button :params="{'command' : setting.setting, 'value' : 1}" :class="{'selected': setting.value}">On</vui-button>
-            <vui-button :params="{'command' : setting.setting, 'value' : 0}" :class="{'selected': !setting.value}">Off</vui-button>
-          </div>
+          <vui-item label=:setting.name :balance="0.4">
+              <vui-button :params="{'command' : setting.setting, 'value' : 1}" :class="{'selected': setting.value}">On</vui-button>
+              <vui-button :params="{'command' : setting.setting, 'value' : 0}" :class="{'selected': !setting.value}">Off</vui-button>
+          </vui-item>
         </div>
-      </div>
     </div>
   </div>
 </template>
