@@ -858,8 +858,9 @@
 /area/adhomai/fortress)
 "zg" = (
 /obj/structure/closet/cabinet,
-/obj/item/weapon/gun/projectile/automatic/tommygun,
 /obj/item/ammo_magazine/tommymag,
+/obj/item/ammo_magazine/tommymag,
+/obj/item/weapon/gun/projectile/automatic/tommygun/adhomai,
 /turf/simulated/floor/tiled/dark,
 /area/adhomai/village/police)
 "zh" = (
