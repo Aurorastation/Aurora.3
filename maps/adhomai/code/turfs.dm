@@ -92,3 +92,15 @@
 
 /turf/simulated/mineral/random/adhomai/higher_chance/surface
 	actual_icon = 'icons/adhomai/icy_wall.dmi'
+
+/turf/simulated/floor/adhomai/desert
+	name = "desert sand"
+	desc = "Uncomfortably gritty, and it gets everywhere."
+	icon_state = "asteroid"
+	icon = 'icons/turf/flooring/asteroid.dmi'
+	footstep_sound = "gravelstep"
+
+/turf/simulated/floor/adhomai/desert/Initialize()
+	. = ..()
+	if(prob(10))
+		add_overlay("asteroid[rand(0,9)]")

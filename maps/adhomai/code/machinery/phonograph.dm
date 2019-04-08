@@ -18,5 +18,8 @@
 		new/datum/track("The Same Song", 'maps/adhomai/sound/thesamesong.ogg')
 	)
 
-/obj/machinery/media/jukebox/phonograph/update_icon()
-	return
+/obj/machinery/media/jukebox/record/update_icon()
+	cut_overlays()
+	icon_state = state_base
+	if(playing)
+		add_overlay("[state_base]-running")

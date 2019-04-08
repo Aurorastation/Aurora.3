@@ -12,6 +12,7 @@
 	fruit = list("apple" = 1)
 	reagents = list("pacid" = 5) //It dissolves the carapace. Still poisonous, though.
 	items = list(/obj/item/weapon/reagent_containers/food/snacks/meat/dionanymph)
+	appliance = OVEN | POT
 	result = /obj/item/weapon/reagent_containers/food/snacks/dionaroast
 	reagent_mix = RECIPE_REAGENT_REPLACE //No eating polyacid
 
@@ -21,6 +22,7 @@
 	reagents = list("honey" = 5, "spacespice" = 2, "blackpepper" = 1)
 	items = list(/obj/item/weapon/reagent_containers/food/snacks/meat)
 	reagent_mix = RECIPE_REAGENT_REPLACE
+	appliance = OVEN | POT
 	result = /obj/item/weapon/reagent_containers/food/snacks/ribplate
 
 
@@ -227,6 +229,7 @@
 	appliance = OVEN
 	reagents = list("milk" = 5, "egg" = 9, "flour" = 10)
 	items = list(/obj/item/weapon/reagent_containers/food/snacks/cheesewedge)
+	appliance = OVEN | POT
 	result = /obj/item/weapon/reagent_containers/food/snacks/sliceable/quiche
 	reagent_mix = RECIPE_REAGENT_REPLACE //No raw egg in finished product, protein after cooking causes magic meatballs otherwise
 
@@ -237,6 +240,7 @@
 	items = list(
 		/obj/item/weapon/reagent_containers/food/snacks/flatbread
 	)
+	appliance = OVEN | POT
 	result = /obj/item/weapon/reagent_containers/food/snacks/tajaran_bread
 	reagent_mix = RECIPE_REAGENT_REPLACE
 
@@ -248,6 +252,7 @@
 		/obj/item/weapon/reagent_containers/food/snacks/tajaran_bread,
 		/obj/item/weapon/reagent_containers/food/snacks/tajaran_bread
 	)
+	appliance = OVEN | POT
 	result = /obj/item/weapon/reagent_containers/food/snacks/hardbread
 
 //Baked sweets:
@@ -557,6 +562,7 @@
 		/obj/item/weapon/reagent_containers/food/snacks/meatball,
 		/obj/item/weapon/reagent_containers/food/snacks/cheesewedge
 	)
+	appliance = OVEN | POT
 	result = /obj/item/weapon/reagent_containers/food/snacks/meat_pocket
 	result_quantity = 2
 
