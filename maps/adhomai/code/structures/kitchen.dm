@@ -16,7 +16,7 @@
 	icon_state = "woodkeg"
 	amount_per_transfer_from_this = 10
 
-/obj/structure/reagent_dispensers/messakeg/Initialize()
+/obj/structure/reagent_dispensers/winekeg/Initialize()
 	. = ..()
 	reagents.add_reagent("wine",capacity)
 
