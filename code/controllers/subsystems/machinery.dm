@@ -51,6 +51,8 @@
 		ADD_TO_RDATUMS(OVEN, R)
 		ADD_TO_RDATUMS(CANDYMAKER, R)
 		ADD_TO_RDATUMS(CEREALMAKER, R)
+		ADD_TO_RDATUMS(POT, R)
+		ADD_TO_RDATUMS(SKEWER, R)
 		if (!added)
 			log_debug("SSmachinery: warning: type '[type]' does not have a valid machine type.")
 			qdel(R)

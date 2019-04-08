@@ -2506,6 +2506,8 @@
 #include "maps\adhomai\code\clothing\shoes.dm"
 #include "maps\adhomai\code\clothing\suit.dm"
 #include "maps\adhomai\code\clothing\uniform.dm"
+#include "maps\adhomai\code\cooking\recipes_pot.dm"
+#include "maps\adhomai\code\cooking\recipes_skewer.dm"
 #include "maps\adhomai\code\events\animal_migration.dm"
 #include "maps\adhomai\code\events\drop_pod.dm"
 #include "maps\adhomai\code\events\meteor_chuncks.dm"

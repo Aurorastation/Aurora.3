@@ -1,6 +1,10 @@
 /obj/item/weapon/gun/projectile/shotgun/pump/rifle/nka
+	icon = 'icons/adhomai/guns.dmi'
+	icon_state = "rifletrooper"
+	item_state = "rifletrooper"
 	desc = "A cheap ballistic rifle often found in the hands of tajaran soldiers."
 	accuracy = -1
+	contained_sprite = TRUE
 
 /obj/item/weapon/gun/projectile/shotgun/pump/rifle/nka/scoped
 	desc = "A cheap ballistic rifle often found in the hands of tajaran soldiers. This one has been outfitted with a telescopic sight."
@@ -29,7 +33,8 @@
 	desc = "A semi-automatic ballistic rifle issued to the Royal Grenadiers."
 	icon = 'icons/adhomai/guns.dmi'
 	icon_state = "rifle"
-	item_state = "moistnugget"
+	item_state = "rifle"
+	contained_sprite = TRUE
 	w_class = 4
 	load_method = SINGLE_CASING|SPEEDLOADER
 	max_shells = 5
@@ -99,3 +104,78 @@
 		icon_state = "constable_gun"
 	else
 		icon_state = "constable_gun-empty"
+
+/obj/item/weapon/gun/projectile/colt/nka
+	name = "handgun"
+	desc = "A reliable sidearm issued to members of the Royal Army."
+	icon = 'icons/adhomai/guns.dmi'
+	icon_state = "nka"
+
+/obj/item/weapon/gun/projectile/colt/nka/update_icon()
+	..()
+	if(ammo_magazine && ammo_magazine.stored_ammo.len)
+		icon_state = "nka"
+	else
+		icon_state = "nka-e"
+
+
+/obj/item/ammo_casing/rpg
+	name = "rocket-propelled grenade"
+	desc = "A high explosive designed to be fired from a launcher."
+	icon = 'icons/adhomai/guns.dmi'
+	icon_state = "rpg"
+	projectile_type = /obj/item/projectile/bullet/cannon
+	caliber = "rpg"
+
+
+/obj/item/weapon/gun/projectile/rocket
+	name = "anti-tank launcher"
+	desc = "A cheap metal tube with a high-explosive warhead attached to the end."
+	icon = 'icons/adhomai/guns.dmi'
+	icon_state = "rocket"
+	item_state = "rocket"
+	contained_sprite = TRUE
+	w_class = 4
+	load_method = SINGLE_CASING
+	max_shells = 1
+	caliber = "rpg"
+	ammo_type = /obj/item/ammo_casing/rpg
+	fire_sound = 'sound/weapons/rocketlaunch.ogg'
+	accuracy = -1
+	recoil = 3
+
+	recoil_wielded = 1
+	accuracy_wielded = 1
+
+	action_button_name = "Wield rifle"
+
+/obj/item/weapon/gun/projectile/rocket/update_icon()
+	..()
+	if(loaded.len)
+		icon_state = "rocket"
+	else
+		icon_state = "rocket_empty"
+
+/obj/item/weapon/gun/projectile/rocket/can_wield()
+	return TRUE
+
+/obj/item/weapon/gun/projectile/rocket/ui_action_click()
+	if(src in usr)
+		toggle_wield(usr)
+
+/obj/item/weapon/gun/projectile/rocket/verb/wield_rifle()
+	set name = "Wield rifle"
+	set category = "Object"
+	set src in usr
+
+	toggle_wield(usr)
+
+
+/obj/item/weapon/gun/projectile/automatic/tommygun/adhomai
+	name = "submachine gun"
+	desc = "A popular personal defense weapon, manufactured by Royal Firearms Industries."
+	icon = 'icons/adhomai/guns.dmi'
+	icon_state = "tommygun"
+	item_state = "tommygun"
+	contained_sprite = TRUE
+	w_class = 3

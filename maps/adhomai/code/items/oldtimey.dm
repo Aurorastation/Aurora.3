@@ -130,3 +130,9 @@
 
 /obj/structure/window/classic/update_nearby_icons()
 	return
+
+/obj/machinery/appliance/cooker/oven/adhomai
+	name = "potbelly stove"
+	desc = "Borscht is ready."
+	icon = 'icons/adhomai/structures.dmi'
+	icon_state = "ovenopen"

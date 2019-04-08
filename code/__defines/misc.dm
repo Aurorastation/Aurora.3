@@ -308,6 +308,8 @@ Will print: "/mob/living/carbon/human/death" (you can optionally embed it in a s
 #define OVEN				0x4
 #define CANDYMAKER			0x8
 #define CEREALMAKER			0x10
+#define POT					0x20
+#define SKEWER				0x40
 
 // MultiZAS directions.
 #define NORTHUP (NORTH|UP)

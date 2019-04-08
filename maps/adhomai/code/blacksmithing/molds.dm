@@ -29,6 +29,11 @@
 	name = "knife mold"
 	outcome = /obj/item/weapon/material/kitchen/utensil/knife
 
+/obj/item/mold/pot
+	name = "pot mold"
+	needed_ammount = 3
+	outcome = /obj/item/weapon/reagent_containers/cooking_container/fire/pot
+
 /obj/item/mold/shovel
 	name = "shovel mold"
 	icon_state = "mold_shovel"

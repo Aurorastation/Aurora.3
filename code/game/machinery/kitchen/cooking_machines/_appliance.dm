@@ -264,8 +264,8 @@
 		CI = new /datum/cooking_item/(CC)
 		I.forceMove(src)
 		cooking_objs.Add(CI)
-		user.visible_message("<span class='notice'>\The [user] puts \the [I] into \the [src].</span>")
 		if (CC.check_contents() == 0)//If we're just putting an empty container in, then dont start any processing.
+			user.visible_message("<span class='notice'>\The [user] puts \the [I] into \the [src].</span>")
 			return
 	else
 		if (CI && istype(CI))
