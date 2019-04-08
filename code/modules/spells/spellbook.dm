@@ -52,10 +52,10 @@ var/list/artefact_feedback = list(/obj/structure/closet/wizard/armor = 		"HS",
 			var/active_hand = H.hand
 			to_chat(user, "<span class='warning'>You feel unimaginable agony as your eyes pour over millenia of forbidden knowledge!</span>")
 			user.show_message("<b>[user]</b> screams in horror!",2)
-			H.adjust_fire_stacks(2)
-			H.IgniteMob()
-			H.updatehealth()
 			H.ChangeToHusk()
+			H.adjust_fire_stacks(0, H.fire_stacks)
+			H.IgniteMob(2)
+			H.updatehealth()
 			user.drop_item()
 			playsound(user, 'sound/hallucinations/i_see_you2.ogg', 100, 1)
 			if(active_hand)

@@ -8,8 +8,10 @@
 	var/obj/machinery/body_scanconsole/connected
 	var/list/allowed_species = list(
 		"Human",
+		"Off-Worlder Human",
 		"Skrell",
 		"Unathi",
+		"Aut'akh Unathi",
 		"Tajara",
 		"M'sai Tajara",
 		"Zhan-Khazan Tajara",

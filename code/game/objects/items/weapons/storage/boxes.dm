@@ -26,6 +26,7 @@
 	desc = "It's just an ordinary box."
 	icon_state = "box"
 	item_state = "syringe_kit"
+	use_sound = 'sound/items/storage/box.ogg'
 	var/foldable = /obj/item/stack/material/cardboard	// BubbleWrap - if set, can be folded (when empty) into a sheet of cardboard
 	var/maxHealth = 20	//health is already defined
 
@@ -96,6 +97,7 @@
 		return
 	// Now make the cardboard
 	to_chat(user, "<span class='notice'>You fold [src] flat.</span>")
+	playsound(src.loc, 'sound/items/storage/boxfold.ogg', 30, 1)
 	new src.foldable(get_turf(src))
 	qdel(src)
 
