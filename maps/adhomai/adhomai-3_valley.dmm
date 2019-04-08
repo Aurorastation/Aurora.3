@@ -6549,6 +6549,7 @@
 /obj/item/mold/knife,
 /obj/item/mold,
 /obj/item/mold/ring,
+/obj/item/mold/pot,
 /turf/simulated/floor/wood,
 /area/adhomai/village/blacksmith)
 "SW" = (
