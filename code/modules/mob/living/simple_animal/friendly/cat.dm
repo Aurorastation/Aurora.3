@@ -33,6 +33,7 @@
 	seek_speed = 5
 	pass_flags = PASSTABLE
 	possession_candidate = 1
+	butchering_products = list(/obj/item/stack/material/animalhide/cat = 2)
 
 /mob/living/simple_animal/cat/think()
 	//MICE!
@@ -294,4 +295,5 @@
 	item_state = "penny"
 	icon_living = "penny"
 	icon_dead = "penny_dead"
+	icon_rest = "penny_rest"
 	holder_type = /obj/item/weapon/holder/cat/penny

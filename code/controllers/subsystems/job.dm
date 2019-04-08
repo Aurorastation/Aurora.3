@@ -88,6 +88,9 @@
 		if(jobban_isbanned(player, rank))
 			return FALSE
 
+		if(player.client.prefs.species in job.species_blacklist)
+			return FALSE
+
 		var/position_limit = job.total_positions
 		if(!latejoin)
 			position_limit = job.spawn_positions
@@ -131,7 +134,7 @@
 		if(!job)
 			continue
 
-		if(istype(job, GetJob("Assistant"))) // We don't want to give him assistant, that's boring!
+		if(istype(job, GetJob(current_map.assistant_job))) // We don't want to give him assistant, that's boring!
 			continue
 
 		if(job in command_positions) //If you want a command position, select it!
@@ -245,7 +248,7 @@
 	Debug("AC1, Candidates: [assistant_candidates.len]")
 	for(var/mob/abstract/new_player/player in assistant_candidates)
 		Debug("AC1 pass, Player: [player]")
-		AssignRole(player, "Assistant")
+		AssignRole(player, current_map.assistant_job)
 		assistant_candidates -= player
 	Debug("DO, AC1 end")
 
@@ -305,7 +308,7 @@
 	for(var/mob/abstract/new_player/player in unassigned)
 		if(player.client.prefs.alternate_option == BE_ASSISTANT)
 			Debug("AC2 Assistant located, Player: [player]")
-			AssignRole(player, "Assistant")
+			AssignRole(player, current_map.assistant_job)
 
 	//For ones returning to lobby
 	for(var/mob/abstract/new_player/player in unassigned)

@@ -23,6 +23,9 @@
 	heat_capacity = 10000
 	var/lava = 0
 
+	var/diggable = FALSE
+	var/mudpit = FALSE
+
 /turf/simulated/floor/is_plating()
 	return !flooring
 

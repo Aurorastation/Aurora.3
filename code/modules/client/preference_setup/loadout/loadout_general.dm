@@ -141,3 +141,15 @@
 /datum/gear/battlemonsters
 	display_name = "battlemonsters starter deck"
 	path = /obj/item/battle_monsters/wrapped
+
+/datum/gear/lantern
+	display_name = "lantern"
+	path = /obj/item/device/flashlight/lantern
+	allowed_maps = list("adhomai")
+	cost = 0
+
+/datum/gear/internals
+	display_name = "internals box"
+	path = /obj/item/weapon/storage/box/double_tank
+	allowed_maps = list("adhomai")
+	cost = 0

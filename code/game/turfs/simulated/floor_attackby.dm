@@ -3,6 +3,19 @@
 	if(!C || !user)
 		return 0
 
+	if(diggable && istype(C,/obj/item/weapon/shovel))
+		visible_message("<span class='notice'>\The [user] starts digging \the [src]</span>")
+		if(do_after(user, 50))
+			if(!diggable)
+				return
+			to_chat(user,"<span class='notice'>You dig a deep pit.</span>")
+			new /obj/structure/pit(src)
+			diggable = FALSE
+			return
+		else
+			to_chat(user,"<span class='notice'>You stop shoveling.</span>")
+			return
+
 	if(flooring)
 		if(C.iscrowbar())
 			if(broken || burnt)

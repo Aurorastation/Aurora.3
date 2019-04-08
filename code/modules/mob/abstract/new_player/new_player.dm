@@ -275,6 +275,10 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 	if(!job)	return 0
 	if(!job.is_position_available()) return 0
 	if(jobban_isbanned(src,rank))	return 0
+
+	if(src.client.prefs.species in job.species_blacklist)
+		return FALSE
+
 	return 1
 
 

@@ -60,15 +60,16 @@ var/list/gear_datums = list()
 	var/mob/preference_mob = preference_mob()
 	for(var/gear_name in gear_datums)
 		var/datum/gear/G = gear_datums[gear_name]
-		if(max_cost && G.cost > max_cost)
-			continue
-		if(G.whitelisted && preference_mob)
-			for(var/species in G.whitelisted)
-				if(is_alien_whitelisted(preference_mob, global.all_species[species]))
-					. += gear_name
-					break
-		else
-			.+= gear_name
+		if(current_map.path in G.allowed_maps)
+			if(max_cost && G.cost > max_cost)
+				continue
+			if(G.whitelisted && preference_mob)
+				for(var/species in G.whitelisted)
+					if(is_alien_whitelisted(preference_mob, global.all_species[species]))
+						. += gear_name
+						break
+			else
+				.+= gear_name
 
 /datum/category_item/player_setup_item/loadout/sanitize_character(var/sql_load = 0)
 	if (sql_load)
@@ -220,6 +221,7 @@ var/list/gear_datums = list()
 	var/whitelisted        //Term to check the whitelist for..
 	var/sort_category = "General"
 	var/list/gear_tweaks = list() //List of datums which will alter the item after it has been spawned.
+	var/list/allowed_maps = list("aurora", "exodus", "adhomai")//List of maps where this loadout is available
 
 /datum/gear/New()
 	..()

@@ -103,6 +103,7 @@
 	var/tameable = TRUE //if you can tame it, used by the dociler for now
 
 	var/flying = FALSE //if they can fly, which stops them from falling down and allows z-space travel
+	var/list/butchering_products = list()	//if anything else is created when butchering this creature, like bones and leather
 
 /mob/living/simple_animal/proc/beg(var/atom/thing, var/atom/holder)
 	visible_emote("gazes longingly at [holder]'s [thing]",0)
@@ -400,7 +401,7 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 		poke()
 
 	else if(meat_type && (stat == DEAD))	//if the animal has a meat, and if it is dead.
-		if(istype(O, /obj/item/weapon/material/knife) || istype(O, /obj/item/weapon/material/kitchen/utensil/knife)|| istype(O, /obj/item/weapon/material/hatchet))
+		if(istype(O, /obj/item/weapon/material/knife) || istype(O, /obj/item/weapon/material/kitchen/utensil/knife) || istype(O, /obj/item/weapon/material/hatchet))
 			harvest(user)
 	else
 		attacked_with_item(O, user)
@@ -527,6 +528,13 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 			var/obj/item/meat = new meat_type(get_turf(src))
 			if (meat.name == "meat")
 				meat.name = "[src.name] [meat.name]"
+
+		if(butchering_products)
+			for(var/path in butchering_products)
+				var/number = butchering_products[path]
+				for(var/i in 1 to number)
+					new path(get_turf(src))
+
 		if(issmall(src))
 			user.visible_message("<span class='danger'>[user] chops up \the [src]!</span>")
 			new/obj/effect/decal/cleanable/blood/splatter(get_turf(src))

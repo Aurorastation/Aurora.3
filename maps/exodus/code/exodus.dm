@@ -49,6 +49,12 @@
 	player_levels = list(1, 3, 4, 5, 6)
 	accessible_z_levels = list("1" = 5, "3" = 10, "4" = 15, "5" = 10, "6" = 60)
 
+	allowed_jobs = list(/datum/job/captain, /datum/job/hop, /datum/job/assistant, /datum/job/bartender, /datum/job/chef, /datum/job/hydro, /datum/job/qm, /datum/job/cargo_tech,
+						/datum/job/mining, /datum/job/janitor, /datum/job/journalist, /datum/job/librarian, /datum/job/lawyer, /datum/job/chaplain, /datum/job/chief_engineer,
+						/datum/job/engineer, /datum/job/atmos, /datum/job/intern_eng, /datum/job/cmo, /datum/job/doctor, /datum/job/pharmacist, /datum/job/psychiatrist, /datum/job/paramedic,
+						/datum/job/intern_med, /datum/job/rd, /datum/job/scientist, /datum/job/xenobiologist, /datum/job/roboticist, /datum/job/intern_sci, /datum/job/hos,
+						/datum/job/warden, /datum/job/detective, /datum/job/forensics, /datum/job/officer, /datum/job/intern_sec, /datum/job/ai, /datum/job/cyborg)
+
 /datum/map/exodus/generate_asteroid()
 	new /datum/random_map/automata/cave_system(null, 13, 32, 5, 217, 223)
 	new /datum/random_map/noise/ore(null, 13, 32, 5, 217, 223)

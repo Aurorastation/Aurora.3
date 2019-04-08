@@ -174,13 +174,13 @@
 
 	primitive_form = "Farwa"
 
-	spawn_flags = CAN_JOIN | IS_WHITELISTED
+	spawn_flags = CAN_JOIN
 	appearance_flags = HAS_HAIR_COLOR | HAS_LIPS | HAS_UNDERWEAR | HAS_SKIN_COLOR | HAS_EYE_COLOR
 
 	flesh_color = "#AFA59E"
 	base_color = "#333333"
 
-	reagent_tag = IS_TAJARA
+	reagent_tag = CAN_JOIN | IS_WHITELISTED
 
 	heat_discomfort_level = 292
 	heat_discomfort_strings = list(
@@ -196,6 +196,8 @@
 
 /datum/species/tajaran/before_equip(var/mob/living/carbon/human/H)
 	. = ..()
+	if(current_map.path == "adhomai")
+		return
 	var/obj/item/clothing/shoes/sandal/S = new /obj/item/clothing/shoes/sandal(H)
 	if(H.equip_to_slot_or_del(S,slot_shoes))
 		S.autodrobe_no_remove = 1

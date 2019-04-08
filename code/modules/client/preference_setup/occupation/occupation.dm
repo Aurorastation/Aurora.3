@@ -18,6 +18,9 @@
 	S["job_engsec_high"]	>> pref.job_engsec_high
 	S["job_engsec_med"]		>> pref.job_engsec_med
 	S["job_engsec_low"]		>> pref.job_engsec_low
+	S["job_adhomai_high"]	>> pref.job_adhomai_high
+	S["job_adhomai_med"]	>> pref.job_adhomai_med
+	S["job_adhomai_low"]	>> pref.job_adhomai_low
 	S["player_alt_titles"]	>> pref.player_alt_titles
 
 /datum/category_item/player_setup_item/occupation/save_character(var/savefile/S)
@@ -31,6 +34,9 @@
 	S["job_engsec_high"]	<< pref.job_engsec_high
 	S["job_engsec_med"]		<< pref.job_engsec_med
 	S["job_engsec_low"]		<< pref.job_engsec_low
+	S["job_adhomai_high"]	<< pref.job_adhomai_high
+	S["job_adhomai_med"]	<< pref.job_adhomai_med
+	S["job_adhomai_low"]	<< pref.job_adhomai_low
 	S["player_alt_titles"]	<< pref.player_alt_titles
 
 /datum/category_item/player_setup_item/occupation/gather_load_query()
@@ -69,7 +75,10 @@
 		"job_medsci_low" = pref.job_medsci_low,
 		"job_engsec_high" = pref.job_engsec_high,
 		"job_engsec_med" = pref.job_engsec_med,
-		"job_engsec_low" = pref.job_engsec_low
+		"job_engsec_low" = pref.job_engsec_low,
+		"job_adhomai_high" = pref.job_adhomai_high,
+		"job_adhomai_med" = pref.job_adhomai_med,
+		"job_adhomai_low" = pref.job_adhomai_low
 	)
 
 	return list(
@@ -99,6 +108,9 @@
 			pref.job_engsec_high	= 0
 			pref.job_engsec_med 	= 0
 			pref.job_engsec_low 	= 0
+			pref.job_adhomai_high	= 0
+			pref.job_adhomai_med 	= 0
+			pref.job_adhomai_low 	= 0
 		else
 			for (var/preference in jobs)
 				try
@@ -117,6 +129,9 @@
 	pref.job_engsec_high   = sanitize_integer(text2num(pref.job_engsec_high), 0, 65535, initial(pref.job_engsec_high))
 	pref.job_engsec_med    = sanitize_integer(text2num(pref.job_engsec_med), 0, 65535, initial(pref.job_engsec_med))
 	pref.job_engsec_low    = sanitize_integer(text2num(pref.job_engsec_low), 0, 65535, initial(pref.job_engsec_low))
+	pref.job_adhomai_high   = sanitize_integer(text2num(pref.job_adhomai_high), 0, 65535, initial(pref.job_adhomai_high))
+	pref.job_adhomai_med    = sanitize_integer(text2num(pref.job_adhomai_med), 0, 65535, initial(pref.job_adhomai_med))
+	pref.job_adhomai_low    = sanitize_integer(text2num(pref.job_adhomai_low), 0, 65535, initial(pref.job_adhomai_low))
 
 	if (!pref.player_alt_titles)
 		pref.player_alt_titles = new()
@@ -162,7 +177,7 @@
 		else if (ban_reason)
 			dat += "<del>[rank]</del></td><td><b> \[<a href='?src=\ref[user.client];view_jobban=\ref[rank];'>BANNED</a>]</b></td></tr>"
 			continue
-		if((pref.job_civilian_low & ASSISTANT) && (rank != "Assistant"))
+		if((pref.job_civilian_low & ASSISTANT) && (rank != current_map.assistant_job))
 			dat += "<font color=orange>[rank]</font></td><td></td></tr>"
 			continue
 		if((rank in command_positions) || (rank == "AI"))//Bold head jobs
@@ -174,7 +189,7 @@
 
 		dat += "<a href='?src=\ref[src];set_job=[rank]'>"
 
-		if(rank == "Assistant")//Assistant is special
+		if(rank == current_map.assistant_job)//Assistant is special
 			if(pref.job_civilian_low & ASSISTANT)
 				dat += " <font color=green>\[Yes]</font>"
 			else
@@ -251,7 +266,7 @@
 	if(!job)
 		return 0
 
-	if(role == "Assistant")
+	if(role == current_map.assistant_job)
 		if(pref.job_civilian_low & job.flag)
 			pref.job_civilian_low &= ~job.flag
 		else
@@ -276,14 +291,17 @@
 			pref.job_civilian_high = 0
 			pref.job_medsci_high = 0
 			pref.job_engsec_high = 0
+			pref.job_adhomai_high = 0
 			return 1
 		if(2)//Set current highs to med, then reset them
 			pref.job_civilian_med |= pref.job_civilian_high
 			pref.job_medsci_med |= pref.job_medsci_high
 			pref.job_engsec_med |= pref.job_engsec_high
+			pref.job_adhomai_med |= pref.job_adhomai_high
 			pref.job_civilian_high = 0
 			pref.job_medsci_high = 0
 			pref.job_engsec_high = 0
+			pref.job_adhomai_high = 0
 
 	switch(job.department_flag)
 		if(CIVILIAN)
@@ -316,6 +334,16 @@
 					pref.job_engsec_low &= ~job.flag
 				else
 					pref.job_engsec_low |= job.flag
+		if(ADHOMAI)
+			switch(level)
+				if(2)
+					pref.job_adhomai_high = job.flag
+					pref.job_adhomai_med &= ~job.flag
+				if(3)
+					pref.job_adhomai_med |= job.flag
+					pref.job_adhomai_low &= ~job.flag
+				else
+					pref.job_adhomai_low |= job.flag
 	return 1
 
 /datum/category_item/player_setup_item/occupation/proc/ResetJobs()
@@ -330,6 +358,10 @@
 	pref.job_engsec_high = 0
 	pref.job_engsec_med = 0
 	pref.job_engsec_low = 0
+
+	pref.job_adhomai_high = 0
+	pref.job_adhomai_med = 0
+	pref.job_adhomai_low = 0
 
 	pref.player_alt_titles.Cut()
 
@@ -363,4 +395,12 @@
 					return job_engsec_med
 				if(3)
 					return job_engsec_low
+		if(ADHOMAI)
+			switch(level)
+				if(1)
+					return job_adhomai_high
+				if(2)
+					return job_adhomai_med
+				if(3)
+					return job_adhomai_low
 	return 0

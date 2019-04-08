@@ -43,7 +43,8 @@
 /datum/gear/head/beret/eng
 	display_name = "beret, engie-orange"
 	path = /obj/item/clothing/head/beret/engineering
-	allowed_roles = list("Station Engineer","Atmospheric Technician","Chief Engineer","Engineering Apprentice")
+	allowed_roles = list(ENGINEERING_ROLES)
+	allowed_maps = list("aurora", "exodus")
 
 /datum/gear/head/beret/purp
 	display_name = "beret, purple"
@@ -52,32 +53,38 @@
 /datum/gear/head/beret/sec
 	display_name = "beret, security"
 	path = /obj/item/clothing/head/beret/sec
-	allowed_roles = list("Security Officer", "Head of Security", "Warden", "Security Cadet", "Detective", "Forensic Technician")
+	allowed_roles = list(SECURITY_ROLES)
+	allowed_maps = list("aurora", "exodus")
 
 /datum/gear/head/beret/warden
 	display_name = "beret, security (warden)"
 	path = /obj/item/clothing/head/beret/sec/warden
 	allowed_roles = list("Head of Security", "Warden")
+	allowed_maps = list("aurora", "exodus")
 
 /datum/gear/head/beret/hos
 	display_name = "beret, security (head of security)"
 	path = /obj/item/clothing/head/beret/sec/hos
 	allowed_roles = list("Head of Security")
+	allowed_maps = list("aurora", "exodus")
 
 /datum/gear/head/corp
 	display_name = "cap, corporate (security)"
 	path = /obj/item/clothing/head/soft/sec/corp
-	allowed_roles = list("Security Officer","Head of Security", "Warden", "Security Cadet", "Detective", "Forensic Technician",)
+	allowed_roles = list(SECURITY_ROLES)
+	allowed_maps = list("aurora", "exodus")
 
 /datum/gear/head/sec
 	display_name = "cap, security"
 	path = /obj/item/clothing/head/soft/sec
-	allowed_roles = list("Security Officer", "Head of Security", "Warden", "Security Cadet", "Detective", "Forensic Technician",)
+	allowed_roles = list(SECURITY_ROLES)
+	allowed_maps = list("aurora", "exodus")
 
 /datum/gear/head/hardhat
 	display_name = "hardhat selection"
 	path = /obj/item/clothing/head/hardhat
-	allowed_roles = list("Station Engineer", "Atmospheric Technician", "Chief Engineer", "Engineering Apprentice")
+	allowed_roles = list(ENGINEERING_ROLES)
+	allowed_maps = list("aurora", "exodus")
 
 /datum/gear/head/hardhat/New()
 	..()
@@ -168,7 +175,7 @@
 /datum/gear/head/surgical
 	display_name = "surgical cap selection"
 	path = /obj/item/clothing/head/surgery/blue
-	allowed_roles = list("Scientist", "Chief Medical Officer", "Medical Doctor", "Geneticist", "Pharmacist", "Paramedic", "Medical Resident", "Xenobiologist", "Roboticist", "Research Director", "Forensic Technician")
+	allowed_roles = list(MEDICAL_ROLES, SCIENCE_ROLES, "Physician", "Forensic Technician")
 
 /datum/gear/head/surgical/New()
 	..()
@@ -207,8 +214,17 @@
 /datum/gear/head/iacberet
 	display_name = "IAC Beret"
 	path = /obj/item/clothing/head/soft/iacberet
-	allowed_roles = list("Chief Medical Officer", "Medical Doctor", "Pharmacist", "Paramedic", "Medical Resident")
+	allowed_roles = list(MEDICAL_ROLES, "Physician")
 
 /datum/gear/head/tcflberet
 	display_name = "Tau Ceti Foreign Legion dress beret"
 	path = /obj/item/clothing/head/legion_beret
+
+/datum/gear/head/helmet/tank
+	display_name = "padded cap"
+	path = /obj/item/clothing/head/helmet/tank
+	allowed_roles = list(ARMED_ROLES)
+
+/datum/gear/head/helmet/tank/New()
+	..()
+	gear_tweaks = list(gear_tweak_free_color_choice)

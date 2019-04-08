@@ -25,6 +25,7 @@
 	var/default_material = null // Set this to something else if you want material attributes on init.
 	var/material_armor_modifer = 1 // Adjust if you want seperate types of armor made from the same material to have different protectiveness (e.g. makeshift vs real armor)
 	var/refittable = TRUE // If false doesn't let the clothing be refit in suit cyclers
+	var/list/starting_accessories
 
 
 /obj/item/clothing/Initialize(var/mapload, var/material_key)
@@ -33,6 +34,10 @@
 		material_key = default_material
 	if(material_key) // May still be null if a material was not specified as a default.
 		set_material(material_key)
+	if(starting_accessories)
+		for(var/T in starting_accessories)
+			var/obj/item/clothing/accessory/tie = new T(src)
+			src.attach_accessory(null, tie)
 
 /obj/item/clothing/Destroy()
 	STOP_PROCESSING(SSprocessing, src)

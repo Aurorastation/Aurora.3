@@ -23,6 +23,7 @@
 	maxHealth = 40
 	melee_damage_lower = 1
 	melee_damage_upper = 5
+	butchering_products = list(/obj/item/stack/material/animalhide = 3)
 	var/datum/reagents/udder = null
 
 /mob/living/simple_animal/hostile/retaliate/goat/Initialize()
@@ -113,6 +114,7 @@
 	beg_for_food = 0
 	var/datum/reagents/udder = null
 	mob_size = 20//based on mass of holstein fresian dairy cattle, what the sprite is based on
+	butchering_products = list(/obj/item/stack/material/animalhide = 8)
 
 /mob/living/simple_animal/cow/Initialize()
 	. = ..()
@@ -234,9 +236,9 @@
 	. = ..()
 	if(!body_color)
 		body_color = pick( list("brown","black","white") )
-	icon_state = "chicken_[body_color]"
-	icon_living = "chicken_[body_color]"
-	icon_dead = "chicken_[body_color]_dead"
+	icon_state = "[icon_state]_[body_color]"
+	icon_living = "[icon_state]_[body_color]"
+	icon_dead = "[icon_state]_[body_color]_dead"
 	pixel_x = rand(-6, 6)
 	pixel_y = rand(0, 10)
 	chicken_count += 1

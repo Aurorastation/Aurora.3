@@ -131,6 +131,8 @@
 	recipes += new/datum/stack_recipe("wooden bucket", /obj/item/weapon/reagent_containers/glass/bucket/wood, 2, time = 4, one_per_turf = 0, on_floor = 0)
 	recipes += new/datum/stack_recipe("shaft", /obj/item/weapon/material/shaft, 10, time = 25, one_per_turf = 0, on_floor = 0)
 	recipes += new/datum/stack_recipe("buckler donut", /obj/item/weapon/material/woodenshield, 20, time = 25, one_per_turf = 0, on_floor = 0)
+	recipes += new/datum/stack_recipe("bonfire", /obj/structure/bonfire, 8, time = 25, one_per_turf = 1, on_floor = 1)
+	recipes += new/datum/stack_recipe("torch", /obj/item/device/flashlight/flare/torch, 2, time = 15, one_per_turf = 0, on_floor = 0)
 
 /material/cardboard/generate_recipes()
 	..()

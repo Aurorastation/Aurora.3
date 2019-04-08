@@ -210,6 +210,8 @@ datum/preferences
 					job_flag = job_medsci_high
 				if(ENGSEC)
 					job_flag = job_engsec_high
+				if(ADHOMAI)
+					job_flag = job_adhomai_high
 			if(job.flag == job_flag)
 				previewJob = job
 				break

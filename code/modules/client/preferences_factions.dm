@@ -22,7 +22,9 @@ var/global/list/citizenship_choices = list(
 	"Izweski Hegemony",
 	"Zo'ra Hive",
 	"K'lax Hive",
-	"Empire of Dominia"
+	"Empire of Dominia",
+	"New Kingdom of Adhomai",
+	"Democratic People's Republic of Adhomai"
 	)
 
 var/global/list/home_system_choices = list(

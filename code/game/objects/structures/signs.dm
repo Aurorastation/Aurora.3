@@ -31,6 +31,7 @@
 	S.name = name
 	S.desc = desc
 	S.icon_state = icon_state
+	S.icon = icon
 	//var/icon/I = icon('icons/obj/decals.dmi', icon_state)
 	//S.icon = I.Scale(24, 24)
 	S.sign_state = icon_state

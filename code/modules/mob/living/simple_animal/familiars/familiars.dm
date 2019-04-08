@@ -73,6 +73,7 @@
 
 	flying = TRUE
 
+
 /mob/living/simple_animal/familiar/pike/Allow_Spacemove(var/check_drift = 0)
 	return 1
 
@@ -134,6 +135,10 @@
 	density = 0
 	wizardy_spells = list(/spell/aoe_turf/smoke)
 
+	meat_type = /obj/item/weapon/reagent_containers/food/snacks/meat
+	meat_amount = 6
+	butchering_products = list(/obj/item/stack/material/animalhide = 3)
+
 
 /mob/living/simple_animal/familiar/pet //basically variants of normal animals with spells.
 	icon = 'icons/mob/npc/animal.dmi'
@@ -172,6 +177,9 @@
 	density = 0
 
 	wizardy_spells = list(/spell/targeted/subjugation)
+
+	meat_type = /obj/item/weapon/reagent_containers/food/snacks/meat
+	butchering_products = list(/obj/item/stack/material/animalhide/cat = 2)
 
 
 /mob/living/simple_animal/mouse/familiar

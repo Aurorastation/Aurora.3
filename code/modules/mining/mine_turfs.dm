@@ -386,6 +386,15 @@ var/list/mineral_can_smooth_with = list(
 				excavate_find(prob(5), finds[1])
 
 	//Add some rubble,  you did just clear out a big chunk of rock.
+	if(prob(25))
+		var/datum/reagents/R = new/datum/reagents(100)
+		R.my_atom = src
+		R.add_reagent("stone_dust",100)
+		var/datum/effect/effect/system/smoke_spread/chem/S = new("stone_dust")
+		S.show_log = 0
+		S.set_up(R, 10, 0, src, 40)
+		S.start()
+		qdel(R)
 
 	ChangeTurf(mined_turf)
 

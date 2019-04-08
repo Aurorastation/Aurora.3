@@ -29,6 +29,8 @@
 	icon_state = "grass0"
 	initial_flooring = /decl/flooring/grass
 	footstep_sound = "grassstep"
+	diggable = TRUE
+	mudpit = TRUE
 
 /turf/simulated/floor/carpet/blue
 	name = "blue carpet"
@@ -213,6 +215,7 @@
 	icon = 'icons/turf/snow.dmi'
 	icon_state = "snow"
 	footstep_sound = "gravelstep"
+	diggable = TRUE
 
 /turf/simulated/floor/snow/Initialize()
 	. = ..()

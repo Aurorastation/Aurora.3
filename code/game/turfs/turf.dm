@@ -14,7 +14,7 @@
 	var/heat_capacity = 1
 
 	//Properties for both
-	var/temperature = T20C      // Initial turf temperature.
+	var/temperature      // Initial turf temperature.
 	var/blocks_air = 0          // Does this turf contain air/let air through?
 
 	// General properties.
@@ -46,7 +46,8 @@
 		Entered(AM)
 
 	turfs += src
-
+	if(!temperature)
+		temperature = current_map.regular_turf_temperature
 	if(dynamic_lighting)
 		luminosity = 0
 	else

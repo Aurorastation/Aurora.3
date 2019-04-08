@@ -53,8 +53,8 @@
 	explosion(loc, 0, 2, 2, 3)
 	qdel(src)
 
-/obj/item/weapon/landmine/Crossed(AM as mob|obj)
-	if(deployed)
+/obj/item/weapon/landmine/Crossed(AM as mob|obj, var/ignore_deployment = FALSE)
+	if(deployed || ignore_deployment)
 		if(isliving(AM))
 			var/mob/living/L = AM
 			if(L.mob_size >= 5)
