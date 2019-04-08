@@ -1090,7 +1090,7 @@ var/list/admin_verbs_cciaa = list(
 	set name = "We Need Your Vote Global"
 	set desc = "Tells everyone that their vote is needed."
 
-	for (var/mob/T as mob in mob_list)
+	for (var/mob/T in mob_list)
 		to_chat(T, "<br><center><span class='notice'><b><font size=4>We need. Your vote.</font></b></span></center><br>")
 		sound_to(T, 'sound/admin/Serithi/weneedvote.ogg')
 
