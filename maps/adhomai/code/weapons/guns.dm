@@ -1,10 +1,8 @@
 /obj/item/weapon/gun/projectile/shotgun/pump/rifle/nka
 	icon = 'icons/adhomai/guns.dmi'
-	icon_state = "rifletrooper"
-	item_state = "rifletrooper"
+	icon_state = "bolt"
 	desc = "A cheap ballistic rifle often found in the hands of tajaran soldiers."
 	accuracy = -1
-	contained_sprite = TRUE
 
 /obj/item/weapon/gun/projectile/shotgun/pump/rifle/nka/scoped
 	desc = "A cheap ballistic rifle often found in the hands of tajaran soldiers. This one has been outfitted with a telescopic sight."
@@ -33,8 +31,7 @@
 	desc = "A semi-automatic ballistic rifle issued to the Royal Grenadiers."
 	icon = 'icons/adhomai/guns.dmi'
 	icon_state = "rifle"
-	item_state = "rifle"
-	contained_sprite = TRUE
+	item_state = "moistnugget"
 	w_class = 4
 	load_method = SINGLE_CASING|SPEEDLOADER
 	max_shells = 5
@@ -106,7 +103,6 @@
 		icon_state = "constable_gun-empty"
 
 /obj/item/weapon/gun/projectile/colt/nka
-	name = "handgun"
 	desc = "A reliable sidearm issued to members of the Royal Army."
 	icon = 'icons/adhomai/guns.dmi'
 	icon_state = "nka"
@@ -176,6 +172,4 @@
 	desc = "A popular personal defense weapon, manufactured by Royal Firearms Industries."
 	icon = 'icons/adhomai/guns.dmi'
 	icon_state = "tommygun"
-	item_state = "tommygun"
-	contained_sprite = TRUE
 	w_class = 3

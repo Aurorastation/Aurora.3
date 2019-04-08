@@ -10,27 +10,7 @@
 	climbable = TRUE
 
 /obj/structure/window/sandbag/attack_hand(var/mob/user as mob)
-	if (locate(src) in get_step(user, user.dir))
-		if (input(user, "Dismantle this sandbag?", "Dismantle Sandbag", "Yes", list("Yes", "No")) == "Yes")
-			visible_message("<span class='danger'>[user] starts dismantling the sandbag wall.</span>", "<span class='danger'>You start dismantling the sandbag wall.</span>")
-			if (do_after(user, 200, src))
-				visible_message("<span class='danger'>[user] finishes dismantling the sandbag wall.</span>", "<span class='danger'>You finish dismantling the sandbag wall.</span>")
-				var/turf = get_turf(src)
-				/* it takes 6 sandbags to make a full sandbag.
-				  * so:
-				    * give people 4 to 6 sandbags back for full sandbags
-				    * give people the amount of sandbags (-1 or -0) back
-				     * that it took them to make the structure in the first
-				     * place
-				*/
-				if (!istype(src, /obj/structure/window/sandbag/incomplete))
-					for (var/v in TRUE to rand(4,6))
-						new /obj/item/weapon/sandbag(turf)
-				else
-					var/obj/structure/window/sandbag/incomplete/I = src
-					for (var/v in TRUE to (1 + pick(I.progress-1, I.progress)))
-						new /obj/item/weapon/sandbag(turf)
-				qdel(src)
+	return
 
 /obj/structure/window/sandbag/ex_act(severity)
 	switch(severity)
