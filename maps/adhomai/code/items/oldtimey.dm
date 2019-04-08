@@ -130,18 +130,3 @@
 
 /obj/structure/window/classic/update_nearby_icons()
 	return
-
-/obj/machinery/media/jukebox/record
-	name = "record player"
-	desc = "Play that funky music..."
-	icon = 'icons/adhomai/structures.dmi'
-	icon_state = "record"
-	state_base = "record"
-
-	anchored = 1
-
-/obj/machinery/media/jukebox/record/update_icon()
-	cut_overlays()
-	icon_state = state_base
-	if(playing)
-		add_overlay("[state_base]-running")
