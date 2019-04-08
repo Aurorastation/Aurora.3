@@ -1081,7 +1081,7 @@ var/list/admin_verbs_cciaa = list(
 	set name = "Shuttle Here Global"
 	set desc = "Tells everyone that the shuttle is here."
 
-	for (var/mob/T as mob in mob_list)
+	for (var/mob/T in mob_list)
 		to_chat(T, "<br><center><span class='notice'><b><font size=4>Have no fear, the shuttle is here.</font></b></span></center><br>")
 		sound_to(T, 'sound/admin/Serithi/Shuttlehere.ogg')
 
