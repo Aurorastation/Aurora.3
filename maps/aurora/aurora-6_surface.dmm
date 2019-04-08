@@ -13787,6 +13787,9 @@
 	icon_state = "corner_white_diagonal";
 	dir = 4
 	},
+/obj/item/device/radio/intercom{
+	pixel_x = -32
+	},
 /turf/simulated/floor/tiled,
 /area/crew_quarters/locker)
 "zq" = (
@@ -14037,18 +14040,21 @@
 /turf/simulated/floor/asteroid/ash,
 /area/shuttle/transport1/station)
 "zS" = (
-/obj/machinery/washing_machine,
-/obj/item/device/radio/intercom{
-	pixel_x = -32
-	},
-/obj/machinery/camera/network/civilian_surface{
-	c_tag = "Surface - Locker Rooms Washing";
-	dir = 4
-	},
 /obj/effect/floor_decal/corner/blue/diagonal,
 /obj/effect/floor_decal/corner/white/diagonal{
 	icon_state = "corner_white_diagonal";
 	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled,
 /area/crew_quarters/locker)
@@ -14061,12 +14067,15 @@
 /turf/simulated/floor/tiled,
 /area/crew_quarters/locker)
 "zU" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 5
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 6
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 1
 	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /turf/simulated/floor/tiled,
 /area/crew_quarters/locker)
 "zV" = (
@@ -14080,6 +14089,11 @@
 	d1 = 2;
 	d2 = 4;
 	icon_state = "2-4"
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled,
 /area/crew_quarters/locker)
@@ -18375,6 +18389,15 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/arrivals)
+"IY" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/camera/network/civilian_surface{
+	c_tag = "Surface - Civillian Escape Pods"
+	},
+/turf/simulated/floor/tiled,
+/area/hallway/secondary/exit/pods)
 "IZ" = (
 /obj/structure/disposalpipe/down{
 	icon_state = "pipe-d";
@@ -21181,6 +21204,22 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/arrivals)
+"XB" = (
+/obj/machinery/door/airlock/glass,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/tiled,
+/area/crew_quarters/locker)
 "XC" = (
 /obj/structure/cable/green{
 	d1 = 4;
@@ -21229,6 +21268,19 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/arrivals)
+"XU" = (
+/obj/machinery/washing_machine,
+/obj/effect/floor_decal/corner/blue/diagonal,
+/obj/effect/floor_decal/corner/white/diagonal{
+	icon_state = "corner_white_diagonal";
+	dir = 4
+	},
+/obj/machinery/camera/network/civilian_surface{
+	c_tag = "Surface - Locker Rooms Washing";
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/crew_quarters/locker)
 "Ye" = (
 /obj/machinery/light,
 /obj/structure/flora/pottedplant/random,
@@ -42790,7 +42842,7 @@ Pm
 Pm
 Pm
 Pm
-LT
+IY
 RY
 NV
 aw
@@ -44846,7 +44898,7 @@ sU
 tt
 uO
 uO
-uO
+XB
 uO
 uO
 tt
@@ -45104,7 +45156,7 @@ tt
 uO
 zp
 zS
-zp
+XU
 uO
 tu
 sU
@@ -45360,7 +45412,7 @@ xp
 tt
 uO
 zq
-zT
+zS
 zT
 uO
 tt
@@ -45617,7 +45669,7 @@ uO
 uO
 uO
 zr
-zT
+zS
 Ap
 uO
 sU
@@ -45874,7 +45926,7 @@ xq
 yn
 yS
 zs
-wu
+zW
 wu
 wu
 Ds
@@ -46131,7 +46183,7 @@ wu
 wu
 wu
 zt
-wu
+zW
 wu
 AN
 sU
