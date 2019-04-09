@@ -7,7 +7,7 @@
 	if(istype(running_code))
 		running_code.kill()
 
-	running_code = ntsl2.new_program(code, src, usr.ckey)
+	running_code = ntsl2.new_program(code, src, usr)
 	if(!istype(running_code))
 		errors += "The code failed to compile."
 	return errors

@@ -190,7 +190,7 @@
 
 /proc/log_ntsl(text, severity = SEVERITY_NOTICE, ckey = "")
 	game_log("NTSL", text)
-	send_gelf_log(text, "[time_stamp()]: [text]", SEVERITY_NOTICE, "NTSL", additional_data = list("_ckey" = ckey))
+	send_gelf_log(text, "[time_stamp()]: [text]", severity, "NTSL", additional_data = list("_ckey" = ckey))
 
 /proc/log_unit_test(text)
 	world.log <<  "## UNIT_TEST ##: [text]"

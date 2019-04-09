@@ -16,11 +16,11 @@
 	for(var/datum/ntsl_program/P in programs)
 		P.kill()
 
-/datum/NTSL_interpreter/proc/new_program(var/code, var/computer, var/ckey)
+/datum/NTSL_interpreter/proc/new_program(var/code, var/computer, var/mob/user)
 	if(!connected)
 		return 0
 
-	log_ntsl(code, istype(computer, /datum/TCS_Compiler/) ? SEVERITY_ALERT : SEVERITY_NOTICE, ckey)
+	log_ntsl("[user.name]/[user.key] uploaded script to [computer] : [code]", istype(computer, /datum/TCS_Compiler/) ? SEVERITY_ALERT : SEVERITY_NOTICE, user.ckey)
 	var/program_id = send(list(action="new_program", code=code, ref = "\ref[computer]"))
 	if(connected) // Because both new program and error can send 0.
 		var/datum/ntsl_program/P = new(program_id)
