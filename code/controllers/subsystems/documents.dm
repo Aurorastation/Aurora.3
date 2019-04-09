@@ -44,28 +44,28 @@ var/datum/controller/subsystem/docs/SSdocs
 		subtotal -= docs[doc].chance
 		if (subtotal <= 0)
 			return docs[doc]
-	return 0
+	return null
 
 //Pick a document by one tag
 /datum/controller/subsystem/docs/proc/pick_document_by_tag(var/tag)
 	if(!docs_by_tags[tag])
-		return 0
+		return null
 	var/subtotal = rand() * src.total_by_tags[tag]
 	for (var/doc in docs_by_tags[tag])
 		subtotal -= docs_by_tags[tag][doc].chance
 		if (subtotal <= 0)
 			return docs_by_tags[tag][doc]
-	return 0
+	return null
 
 //Pick a document by any tag from a list of tags. Weighted.
 /datum/controller/subsystem/docs/proc/pick_document_by_any_tag(var/list/tags)
 	if(!istype(tags) || !tags.len)
-		return 0
+		return null
 	var/total_chance = 0
 	var/tag_sublist = list()
 	for(var/t in tags)
 		if(!total_by_tags[t])
-			return
+			return null
 		total_chance += total_by_tags[t]
 		tag_sublist += docs_by_tags[t]
 	var/subtotal = total_chance * rand()
@@ -73,7 +73,7 @@ var/datum/controller/subsystem/docs/SSdocs
 		subtotal -= tag_sublist[doc].chance
 		if(subtotal <= 0)
 			return tag_sublist[doc]
-	return 0
+	return null
 
 //Pick a document by multiple tags that it must have.
 /datum/controller/subsystem/docs/proc/pick_document_by_tags(var/list/tags)
@@ -82,7 +82,7 @@ var/datum/controller/subsystem/docs/SSdocs
 	var/list/tag_sublist = docs_by_tags[pick(tags)] // the list cannot start off as empty
 	for(var/t in tags)
 		if(!docs_by_tags[t])
-			return 0
+			return null
 		tag_sublist &= docs_by_tags[t]
 	log_ss("docs", "Tag sublist has length [tag_sublist.len].")
 	var/subtotal = 0
@@ -93,7 +93,7 @@ var/datum/controller/subsystem/docs/SSdocs
 		subtotal -= tag_sublist[doc].chance
 		if (subtotal <= 0)
 			return tag_sublist[doc]
-	return 0
+	return null
 /*
 	Loading Data
 */
@@ -127,6 +127,7 @@ var/datum/controller/subsystem/docs/SSdocs
 					json_decode(document_query.item[5]))
 			catch(var/exception/ec)
 				log_debug("SSdocs: Error when loading document: [ec]")
+	return 1
 
 //Loads the document data from JSON
 /datum/controller/subsystem/docs/proc/load_from_json()
@@ -135,7 +136,7 @@ var/datum/controller/subsystem/docs/SSdocs
 		docsconfig = json_decode(return_file_text("config/docs.json"))
 	catch(var/exception/ej)
 		log_debug("SSdocs: Warning: Could not load config, as docs.json is missing - [ej]")
-		return
+		return 0
 
 	//Reset the currently loaded data
 	reset_docs()
@@ -174,7 +175,7 @@ var/datum/controller/subsystem/docs/SSdocs
 
 	//Add the document to the docs list
 	docs[dd.name] = dd
-	src.total_docs += dd.chance
+	total_docs += dd.chance
 	return dd
 
 /datum/docs_document
@@ -198,7 +199,7 @@ var/datum/controller/subsystem/docs/SSdocs
 /obj/random/document/post_spawn(var/obj/item/weapon/paper/spawned)
 	if(!istype(spawned))
 		return
-	var/list/total_tags = src.tags | list(SSDOCS_MEDIUM_PAPER)
+	var/list/total_tags = tags | list(SSDOCS_MEDIUM_PAPER)
 	var/datum/docs_document/doc
 	if(total_tags.len == 1)
 		doc = SSdocs.pick_document_by_tag(total_tags[1])
