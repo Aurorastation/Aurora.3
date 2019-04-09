@@ -321,3 +321,27 @@
 	//Final step. Cook function just cooks batter for now.
 	for (var/obj/item/weapon/reagent_containers/food/snacks/S in CI.container)
 		S.cook()
+
+/obj/structure/bonfire/stove
+	name = "stove"
+	desc = "A potbelly stove. How'd that get here."
+	icon = 'icons/adhomai/fireplace.dmi'
+	icon_state = "stove"
+	pixel_x = -16
+	safe = TRUE
+
+/obj/structure/bonfire/stove/update_icon()
+	cut_overlays()
+	if(on_fire)
+		switch(fuel)
+			if(0 to 500)
+				add_overlay("stove_fire0")
+			if(500 to 1000)
+				add_overlay("stove_fire1")
+			if(1000 to 1500)
+				add_overlay("stove_fire2")
+			if(1500 to 1700)
+				add_overlay("stove_fire3")
+			if(1700 to 2000)
+				add_overlay("stove_fire4")
+		add_overlay("stove_glow")
