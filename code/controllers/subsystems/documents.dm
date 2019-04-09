@@ -201,16 +201,15 @@ var/datum/controller/subsystem/docs/SSdocs
 		return
 	var/list/total_tags = tags | list(SSDOCS_MEDIUM_PAPER)
 	var/datum/docs_document/doc
-	if(total_tags.len == 1)
+	if (total_tags.len == 1)
 		doc = SSdocs.pick_document_by_tag(total_tags[1])
-		if(!istype(doc))
-			log_ss("docs","pick_document_by_tag returned null paper!")
-			return
 	else
-		doc = SSdocs.pick_document_by_tags(total_tags)
-		if(!istype(doc))
-			log_ss("docs","pick_document_by_tags returned null paper!")
-			return
+		doc = SSdoc.pick_document_by_tags(total_tags)
+
+	if (!istype(doc))
+		log_ss("docs","Null paper acquired in post_spawn!")
+		return null
+
 	log_ss("docs","Document [doc.name] successfully spawned!")
 	var/obj/item/weapon/paper/P = spawned
 	P.set_content(doc.title, doc.content)
