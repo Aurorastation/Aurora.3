@@ -35,7 +35,7 @@
 		if(istype(F))
 			var/oldtext = html_decode(F.stored_data)
 			oldtext = replacetext(oldtext, "\[editorbr\]", "\n")
-			running = ntsl2.new_program(oldtext, src)
+			running = ntsl2.new_program(oldtext, src, usr.ckey)
 			if(istype(running))
 				running.name = href_list["PRG_execfile"]
 
