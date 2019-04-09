@@ -322,14 +322,14 @@
 	for (var/obj/item/weapon/reagent_containers/food/snacks/S in CI.container)
 		S.cook()
 
-/obj/structure/bonfire/stove
+/obj/structure/bonfire/fireplace/stove
 	name = "stove"
 	desc = "A potbelly stove. How'd that get here."
-	icon = 'icons/adhomai/fireplace.dmi'
-	icon_state = "stove"
+	icon = 'icons/adhomai/structures.dmi'
+	icon_state = "ovenclosed_off"
 	safe = TRUE
 
-/obj/structure/bonfire/stove/update_icon()
+/obj/structure/bonfire/fireplace/stove/update_icon()
 	cut_overlays()
 	if(on_fire)
 		switch(fuel)
