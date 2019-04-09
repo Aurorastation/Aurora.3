@@ -15,8 +15,8 @@
 
 /obj/item/weapon/disk/botany/attack_self(var/mob/user as mob)
 	if(genes.len)
-		var/choice = alert(user, "Are you sure you want to wipe the disk?", "Xenobotany Data", "No", "Yes")
-		if(src && user && genes && choice && choice == "Yes" && user.Adjacent(get_turf(src)))
+		var/choice = alert(user, "Are you sure you want to wipe the disk?", "Xenobotany Data", "Wipe", "Cancel")
+		if(src && user && genes && choice == "Wipe" && user.Adjacent(get_turf(src)))
 			to_chat(user, "You wipe the disk data.")
 			name = initial(name)
 			desc = initial(name)

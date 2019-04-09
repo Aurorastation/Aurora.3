@@ -55,7 +55,7 @@ var/datum/admin_secrets/admin_secrets = new()
 
 /datum/admin_secret_item/proc/can_execute(var/mob/user)
 	if(can_view(user))
-		if(!warn_before_use || alert("Execute the command '[name]'?", name, "No","Yes") == "Yes")
+		if(!warn_before_use || alert("Execute the command '[name]'?", name, "Execute", "Cancel") == "Execute")
 			return 1
 	return 0
 

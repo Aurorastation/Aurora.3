@@ -193,12 +193,12 @@
 		if("shuttle")
 			if(is_autenthicated(user) && ntn_cont && can_call_shuttle())
 				if(href_list["target"] == "call")
-					var/confirm = alert("Are you sure you want to call the shuttle?", name, "No", "Yes")
-					if(confirm == "Yes" && can_still_topic())
+					var/confirm = alert("Are you sure you want to call the shuttle?", name, "Call Shuttle", "Cancel")
+					if(confirm == "Call Shuttle" && can_still_topic())
 						call_shuttle_proc(usr)
 				if(href_list["target"] == "cancel" && !issilicon(usr))
-					var/confirm = alert("Are you sure you want to cancel the shuttle?", name, "No", "Yes")
-					if(confirm == "Yes" && can_still_topic())
+					var/confirm = alert("Are you sure you want to cancel the shuttle?", name, "Cancel Shuttle", "No")
+					if(confirm == "Cancel Shuttle" && can_still_topic())
 						cancel_call_proc(usr)
 		if("setstatus")
 			if(is_autenthicated(user) && ntn_cont)
@@ -221,8 +221,8 @@
 		if("setalert")
 			if(is_autenthicated(user) && !issilicon(usr) && ntn_cont && ntn_comm)
 				var/current_level = text2num(href_list["target"])
-				var/confirm = alert("Are you sure you want to change alert level to [num2seclevel(current_level)]?", name, "No", "Yes")
-				if(confirm == "Yes" && can_still_topic())
+				var/confirm = alert("Are you sure you want to change alert level to [num2seclevel(current_level)]?", name, "Change Alert", "Cancel")
+				if(confirm == "Change Alert" && can_still_topic())
 					var/old_level = security_level
 					if(!current_level) current_level = SEC_LEVEL_GREEN
 					if(current_level < SEC_LEVEL_GREEN) current_level = SEC_LEVEL_GREEN

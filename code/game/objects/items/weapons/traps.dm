@@ -157,7 +157,7 @@
 
 /obj/item/weapon/trap/animal/update_icon()
 	icon = initial(icon)
-	icon_state = "[icon_base][deployed]"	
+	icon_state = "[icon_base][deployed]"
 	var/datum/L = captured ? captured.resolve() : null
 	if (!L)
 		deployed = FALSE
@@ -169,7 +169,6 @@
 	if(isliving(L))
 		var/mutable_appearance/MA = new(L)
 		MA.layer = FLOAT_LAYER
-		MA.plane = FLOAT_PLANE	
 		underlays.Cut()
 		underlays += MA
 
@@ -196,7 +195,7 @@
 		else if (istype(L, /obj/effect/spider/spiderling))
 			var/obj/effect/spider/spiderling/S = L
 			to_chat(user, "<span class='notice'>\The [src] has [S] and it is alive.</span>")
-		
+
 	else
 		to_chat(user, "<span class='notice'>\The [src] is empty.</span>")
 
@@ -305,7 +304,7 @@
 		return
 
 	if(deployed)
-		var/open = alert("Do you want to open the cage and free what is inside?",,"No","Yes")
+		var/open = alert("Do you want to open the cage and free what is inside?",,"Open","Cancel")
 
 		if(open == "No")
 			return

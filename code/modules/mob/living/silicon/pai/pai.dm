@@ -373,7 +373,7 @@
 
 		icon_state = possible_chassis[choice]
 		holder_type = pai_holder_types[choice]
-		finalized = alert("Look at your sprite. Is this what you wish to use?",,"No","Yes")
+		finalized = alert("Look at your sprite. Is this what you wish to use?",,"Yes","No")
 
 	chassis = possible_chassis[choice]
 	verbs -= /mob/living/silicon/pai/proc/choose_chassis

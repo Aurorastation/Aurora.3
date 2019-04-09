@@ -7,7 +7,7 @@
 		return
 	feedback_add_details("admin_verb","CP") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
-	if(alert("WARNING: This command should not be run on a live server. Do you want to continue?", "Check Piping", "No", "Yes") == "No")
+	if(alert("WARNING: This command should not be run on a live server. Do you want to continue?", "Check Piping", "Execute", "Cancel") == "Cancel")
 		return
 
 	to_chat(usr, "Checking for disconnected pipes...")

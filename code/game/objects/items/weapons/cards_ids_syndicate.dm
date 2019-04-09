@@ -163,7 +163,7 @@
 					to_chat(user, "<span class='notice'>Sex changed to '[new_sex]'.</span>")
 					. = 1
 			if("Factory Reset")
-				if(alert("This will factory reset the card, including access and owner. Continue?", "Factory Reset", "No", "Yes") == "Yes" && CanUseTopic(user, state))
+				if(alert("This will factory reset the card, including access and owner. Continue?", "Factory Reset", "Reset", "Cancel") == "Reset" && CanUseTopic(user, state))
 					age = initial(age)
 					access = syndicate_access.Copy()
 					assignment = initial(assignment)

@@ -162,7 +162,7 @@
 	if(!spawn_path)
 		return
 
-	if(alert("Do you wish the mob to have a player?",,"No","Yes") == "No")
+	if(alert("Do you wish the mob to have a player?",,"Yes","No") == "No")
 		var/spawn_count = input("How many mobs do you wish the pod to contain?", "Drop Pod Selection", null) as num
 		if(spawn_count <= 0)
 			return
@@ -196,7 +196,7 @@
 				var/datum/antagonist/A = all_antag_types[antag_type]
 				A.equip(spawned_mob)
 
-	if(alert("Are you SURE you wish to deploy this drop pod? It will cause a sizable explosion and gib anyone underneath it.",,"No","Yes") == "No")
+	if(alert("Are you SURE you wish to deploy this drop pod? It will cause a sizable explosion and gib anyone underneath it.",,"Drop","Cancel") == "Cancel")
 		if(spawned_mob)
 			qdel(spawned_mob)
 		if(spawned_mobs.len)

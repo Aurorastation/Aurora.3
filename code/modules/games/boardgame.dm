@@ -31,8 +31,7 @@
 		src.examine(M)
 
 /obj/item/weapon/board/attack_self(mob/user)
-	var/choice = alert("Do you want to throw everything off the [src]?", null, "No", "Yes")
-	if(choice == "Yes")
+	if(alert("Do you want to throw everything off the [src]?", null, "Flip Table", "Cancel") == "Flip Table")
 		for(var/obj/item/weapon/checker/c in src.contents)
 			c.forceMove(get_turf(src.loc))
 		num = 0

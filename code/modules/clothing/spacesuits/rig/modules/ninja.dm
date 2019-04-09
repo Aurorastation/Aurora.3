@@ -211,7 +211,7 @@
 		engage(1)
 
 /obj/item/rig_module/self_destruct/engage(var/skip_check)
-	if(!skip_check && usr && alert(usr, "Are you sure you want to push that button?", "Self-destruct", "No", "Yes") == "No")
+	if(!skip_check && usr && alert(usr, "Are you sure you want to push that button?", "Self-destruct", "Explode","Cancel") == "Explode")
 		return
 	explosion(get_turf(src), explosion_values[1], explosion_values[2], explosion_values[3], explosion_values[4])
 	if(holder && holder.wearer)
