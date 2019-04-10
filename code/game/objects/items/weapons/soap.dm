@@ -38,32 +38,32 @@
 
 /obj/item/weapon/soap/water_soap
 	name = "Soap"
-	desc = "Smells wet."
+	desc = "Smells of chlorine."
 	icon_state = "water_soap"
 
 /obj/item/weapon/soap/fire_soap
 	name = "Soap"
-	desc = "Smells warm."
+	desc = "Smells like burnt charcoal."
 	icon_state = "fire_soap"
 
 /obj/item/weapon/soap/rainbow_soap
 	name = "Soap"
-	desc = "Smells like unicorns and magic."
+	desc = "Smells sweet."
 	icon_state = "rainbow_soap"
 
 /obj/item/weapon/soap/diamond_soap
 	name = "Soap"
-	desc = "Smells of expenses."
+	desc = "Smells of saffron."
 	icon_state = "diamond_soap"
 
 /obj/item/weapon/soap/uranium_soap
 	name = "Soap"
-	desc = "Smells like explosions."
+	desc = "Doesn't smell... it's glowing though."
 	icon_state = "uranium_soap"
 
 /obj/item/weapon/soap/silver_soap
 	name = "Soap"
-	desc = "Smells like surfing."
+	desc = "Smells bitter."
 	icon_state = "silver_soap"
 
 /obj/item/weapon/soap/brown_soap
@@ -78,7 +78,7 @@
 
 /obj/item/weapon/soap/grey_soap
 	name = "Soap"
-	desc = "Smells like rain."
+	desc = "Smells like acid."
 	icon_state = "grey_soap"
 
 /obj/item/weapon/soap/pink_soap
@@ -93,7 +93,7 @@
 
 /obj/item/weapon/soap/blue_soap
 	name = "Soap"
-	desc = "What smells like blue?..."
+	desc = "Smells like lilies."
 	icon_state = "blue_soap"
 
 /obj/item/weapon/soap/cyan_soap
@@ -103,12 +103,12 @@
 
 /obj/item/weapon/soap/green_soap
 	name = "Soap"
-	desc = "Smells like radioactive waste."
+	desc = "Smells like a freshly mowed lawn."
 	icon_state = "green_soap"
 
 /obj/item/weapon/soap/yellow_soap
 	name = "Soap"
-	desc = "Smells like sun flowers."
+	desc = "Smells like sunflowers."
 	icon_state = "yellow_soap"
 
 /obj/item/weapon/soap/orange_soap
@@ -118,33 +118,13 @@
 
 /obj/item/weapon/soap/red_soap
 	name = "Soap"
-	desc = "Smells like my last victim..."
+	desc = "Smells like blood."
 	icon_state = "red_soap"
 
 /obj/item/weapon/soap/golden_soap
 	name = "Soap"
-	desc = "Smells like glory."
+	desc = "Smells like butter."
 	icon_state = "golden_soap"
-
-/obj/item/weapon/soap/irish_soap
-	name = "Soap"
-	desc = "Smells like hops."
-	icon_state = "irish_soap"
-
-/obj/item/weapon/soap/swedish_soap
-	name = "Soap"
-	desc = "Smells like free college and high taxes."
-	icon_state = "swedish_soap"
-
-/obj/item/weapon/soap/american_soap
-	name = "Soap"
-	desc = "Smells like freedom."
-	icon_state = "american_soap"
-
-/obj/item/weapon/soap/british_soap
-	name = "Soap"
-	desc = "Smells like tea."
-	icon_state = "british_soap"
 
 /obj/random/soap/
 	name = "Random Soap"
