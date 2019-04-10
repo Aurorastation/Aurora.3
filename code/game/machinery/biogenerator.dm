@@ -226,7 +226,7 @@
 			name = "Monkey Cube",
 			class = "Special",
 			object = /obj/item/weapon/reagent_containers/food/snacks/monkeycube/wrapped,
-			cost = 250,
+			cost = 500,
 			amount = list(1,2,3,4,5),
 			emag = 0
 		),
@@ -234,7 +234,7 @@
 			name = "Stok Cube",
 			class = "Special",
 			object = /obj/item/weapon/reagent_containers/food/snacks/monkeycube/wrapped/stokcube,
-			cost = 250,
+			cost = 500,
 			amount = list(1,2,3,4,5),
 			emag = 0
 		),
@@ -242,7 +242,7 @@
 			name = "Farwa Cube",
 			class = "Special",
 			object = /obj/item/weapon/reagent_containers/food/snacks/monkeycube/wrapped/farwacube,
-			cost = 250,
+			cost = 500,
 			amount = list(1,2,3,4,5),
 			emag = 0
 		),
@@ -250,7 +250,7 @@
 			name = "Neaera Cube",
 			class = "Special",
 			object = /obj/item/weapon/reagent_containers/food/snacks/monkeycube/wrapped/neaeracube,
-			cost = 250,
+			cost = 500,
 			amount = list(1,2,3,4,5),
 			emag = 0
 		),
@@ -258,7 +258,7 @@
 			name = "V'krexi Cube",
 			class = "Special",
 			object = /obj/item/weapon/reagent_containers/food/snacks/monkeycube/wrapped/vkrexicube,
-			cost = 250,
+			cost = 500,
 			amount = list(1,2,3,4,5),
 			emag = 0
 		),
