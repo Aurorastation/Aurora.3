@@ -222,6 +222,46 @@
 			amount = list(1,2,3,4,5),
 			emag = 0
 		),
+		"monkey" = list(
+			name = "Monkey Cube",
+			class = "Special",
+			object = /obj/item/weapon/reagent_containers/food/snacks/monkeycube/wrapped,
+			cost = 250,
+			amount = list(1,2,3,4,5),
+			emag = 0
+		),
+		"stok" = list(
+			name = "Stok Cube",
+			class = "Special",
+			object = /obj/item/weapon/reagent_containers/food/snacks/monkeycube/wrapped/stokcube,
+			cost = 250,
+			amount = list(1,2,3,4,5),
+			emag = 0
+		),
+		"farwa" = list(
+			name = "Farwa Cube",
+			class = "Special",
+			object = /obj/item/weapon/reagent_containers/food/snacks/monkeycube/wrapped/farwacube,
+			cost = 250,
+			amount = list(1,2,3,4,5),
+			emag = 0
+		),
+		"neaera" = list(
+			name = "Neaera Cube",
+			class = "Special",
+			object = /obj/item/weapon/reagent_containers/food/snacks/monkeycube/wrapped/neaeracube,
+			cost = 250,
+			amount = list(1,2,3,4,5),
+			emag = 0
+		),
+		"cazador" = list(
+			name = "V'krexi Cube",
+			class = "Special",
+			object = /obj/item/weapon/reagent_containers/food/snacks/monkeycube/wrapped/vkrexicube,
+			cost = 250,
+			amount = list(1,2,3,4,5),
+			emag = 0
+		),
 		// Antag Items (Emag)
 		"bruise_pack" = list(
 			name = "Bruise Pack",
