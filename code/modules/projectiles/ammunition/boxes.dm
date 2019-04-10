@@ -258,7 +258,7 @@
 
 
 /obj/item/ammo_magazine/g11/sniper
-	name = "battle rifle magazine(S Brand)"
+	name = "battle rifle magazine (S Brand)"
 	icon_state = "g11mag"
 	mag_type = MAGAZINE
 	caliber = "A4.75x33"
