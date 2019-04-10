@@ -6243,8 +6243,8 @@
 /obj/item/weapon/reagent_containers/pill/escitalopram,
 /obj/item/weapon/reagent_containers/pill/escitalopram,
 /obj/item/weapon/reagent_containers/syringe,
-/obj/item/weapon/soap,
 /obj/item/clothing/mask/muzzle,
+/obj/random/soap,
 /turf/simulated/floor/tiled/dark,
 /area/medical/psych)
 "lc" = (

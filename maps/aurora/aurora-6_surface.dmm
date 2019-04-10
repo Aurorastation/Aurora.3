@@ -19791,10 +19791,10 @@
 	icon_state = "shower";
 	dir = 4
 	},
-/obj/item/weapon/soap,
 /obj/machinery/door/window/westleft{
 	dir = 4
 	},
+/obj/random/soap,
 /turf/simulated/floor/tiled/freezer,
 /area/crew_quarters/toilet)
 "Uz" = (
