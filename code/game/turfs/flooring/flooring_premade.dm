@@ -209,6 +209,8 @@
 	name = "ice"
 	icon = 'icons/turf/snow.dmi'
 	icon_state = "ice"
+	wet_type = 1
+	wet_amount = 10
 
 /turf/simulated/floor/snow
 	name = "snow"

@@ -1162,7 +1162,7 @@
 	set_trait(TRAIT_PRODUCT_COLOUR,"#378C61")
 	set_trait(TRAIT_PLANT_COLOUR,"#378C61")
 	set_trait(TRAIT_PLANT_ICON,"tree5")
-	set_trait(TRAIT_IDEAL_HEAT, 283)
+	set_trait(TRAIT_IDEAL_HEAT, 253)
 	set_trait(TRAIT_NUTRIENT_CONSUMPTION, 0.15)
 
 /datum/seed/mtear
@@ -1182,7 +1182,7 @@
 	set_trait(TRAIT_PRODUCT_COLOUR,"#4CC5C7")
 	set_trait(TRAIT_PLANT_COLOUR,"#4CC789")
 	set_trait(TRAIT_PLANT_ICON,"bush7")
-	set_trait(TRAIT_IDEAL_HEAT, 283)
+	set_trait(TRAIT_IDEAL_HEAT, 253)
 	set_trait(TRAIT_NUTRIENT_CONSUMPTION, 0.15)
 
 // Alien weeds.
@@ -1222,6 +1222,7 @@
 	set_trait(TRAIT_PRODUCT_COLOUR,"#87CEEB")
 	set_trait(TRAIT_PLANT_COLOUR,"#4D8F53")
 	set_trait(TRAIT_PLANT_ICON,"alien2")
+	set_trait(TRAIT_IDEAL_HEAT, 253)
 	set_trait(TRAIT_WATER_CONSUMPTION, 8)
 
 /datum/seed/nifberries
@@ -1244,6 +1245,7 @@
 	set_trait(TRAIT_PLANT_COLOUR,"#4D8F53")
 	set_trait(TRAIT_PLANT_ICON,"bush4")
 	set_trait(TRAIT_WATER_CONSUMPTION, 6)
+	set_trait(TRAIT_IDEAL_HEAT, 253)
 	set_trait(TRAIT_NUTRIENT_CONSUMPTION, 0.15)
 
 /datum/seed/tobacco
@@ -1333,3 +1335,47 @@
 	set_trait(TRAIT_PRODUCT_COLOUR,"#ffeedd")
 	set_trait(TRAIT_PLANT_ICON,"stalk")
 	set_trait(TRAIT_WATER_CONSUMPTION, 5)
+
+/datum/seed/mushroom/nfrihi
+	name = "nfrihi"
+	seed_name = "blizzard ears"
+	seed_noun = "nodes"
+	display_name = "blizzard ear stalks"
+	mutants = null
+	chems = list("flour" = list(10,10))
+	splat_type = /obj/effect/plant
+	kitchen_tag = "nfrihi"
+
+/datum/seed/mushroom/nfrihi/setup_traits()
+	..()
+	set_trait(TRAIT_MATURATION,4)
+	set_trait(TRAIT_PRODUCTION,1)
+	set_trait(TRAIT_YIELD,4)
+	set_trait(TRAIT_POTENCY,1)
+	set_trait(TRAIT_PRODUCT_ICON,"nfrihi")
+	set_trait(TRAIT_PRODUCT_COLOUR,"#DBDA72")
+	set_trait(TRAIT_PLANT_COLOUR,"#31331c")
+	set_trait(TRAIT_PLANT_ICON,"nfrihi")
+	set_trait(TRAIT_WATER_CONSUMPTION, 6)
+	set_trait(TRAIT_IDEAL_HEAT, 253)
+	set_trait(TRAIT_LIGHT_TOLERANCE, 6)
+
+/datum/seed/nmshaan
+	name = "nmshaan"
+	seed_name = "sugar tree"
+	display_name = "sugar trees"
+	seed_noun = "seeds"
+	mutants = null
+	chems = list("sugar" = list(2,10))
+	kitchen_tag = "nmshaan"
+
+/datum/seed/nmshaan/setup_traits()
+	..()
+	set_trait(TRAIT_MATURATION,7)
+	set_trait(TRAIT_PRODUCTION,2)
+	set_trait(TRAIT_YIELD,2)
+	set_trait(TRAIT_PRODUCT_ICON,"nmshaan")
+	set_trait(TRAIT_PRODUCT_COLOUR,"#c6c6c6")
+	set_trait(TRAIT_PLANT_COLOUR,"#31331c")
+	set_trait(TRAIT_PLANT_ICON,"nmshaan")
+	set_trait(TRAIT_IDEAL_HEAT, 253)

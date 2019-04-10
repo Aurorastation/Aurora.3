@@ -62,3 +62,15 @@
 	for(var/i=1; i <= startswith; i++)
 		new /obj/item/weapon/reagent_containers/food/snacks/pineapple_ring(src)
 	update_icon()
+
+/obj/item/weapon/storage/box/burialurn/wooden
+	name = "wooden burial urn"
+	desc = "A wooden urn. Almost looks kind of like a bucket, lid and all."
+	icon_state = "woodenburialurn"
+	can_hold = list(/obj/item/organ)
+
+/obj/item/weapon/storage/box/burialurn
+	name = "burial urn"
+	desc = "A burial urn. Moderately higher quality."
+	icon_state = "burialurn"
+	can_hold = list(/obj/item/organ)

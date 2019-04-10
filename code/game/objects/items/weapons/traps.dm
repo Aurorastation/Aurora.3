@@ -157,7 +157,7 @@
 
 /obj/item/weapon/trap/animal/update_icon()
 	icon = initial(icon)
-	icon_state = "[icon_base][deployed]"	
+	icon_state = "[icon_base][deployed]"
 	var/datum/L = captured ? captured.resolve() : null
 	if (!L)
 		deployed = FALSE
@@ -169,7 +169,7 @@
 	if(isliving(L))
 		var/mutable_appearance/MA = new(L)
 		MA.layer = FLOAT_LAYER
-		MA.plane = FLOAT_PLANE	
+		MA.plane = FLOAT_PLANE
 		underlays.Cut()
 		underlays += MA
 
@@ -196,7 +196,7 @@
 		else if (istype(L, /obj/effect/spider/spiderling))
 			var/obj/effect/spider/spiderling/S = L
 			to_chat(user, "<span class='notice'>\The [src] has [S] and it is alive.</span>")
-		
+
 	else
 		to_chat(user, "<span class='notice'>\The [src] is empty.</span>")
 
@@ -603,7 +603,7 @@
 	allowed_mobs = list(
 						/mob/living/simple_animal/cat, /mob/living/simple_animal/corgi, /mob/living/simple_animal/hostile/diyaab, /mob/living/carbon/human/monkey, /mob/living/simple_animal/penguin, /mob/living/simple_animal/crab,
 						/mob/living/simple_animal/chicken, /mob/living/simple_animal/yithian, /mob/living/carbon/alien/diona, /mob/living/silicon/robot/drone, /mob/living/silicon/pai,
-						/mob/living/simple_animal/spiderbot, /mob/living/simple_animal/hostile/tree)
+						/mob/living/simple_animal/spiderbot, /mob/living/simple_animal/hostile/tree, /mob/living/simple_animal/ice_tunneler)
 
 /obj/item/weapon/trap/animal/large
 	name = "large trap"
@@ -624,7 +624,7 @@
 	allowed_mobs = list(
 						/mob/living/simple_animal/hostile/retaliate/goat, /mob/living/simple_animal/cow, /mob/living/simple_animal/corgi/fox,
 						/mob/living/simple_animal/hostile/carp, /mob/living/simple_animal/hostile/bear, /mob/living/simple_animal/hostile/alien, /mob/living/simple_animal/hostile/giant_spider,
-						/mob/living/simple_animal/hostile/commanded/dog, /mob/living/simple_animal/hostile/retaliate/cavern_dweller, /mob/living/carbon/human/)
+						/mob/living/simple_animal/hostile/commanded/dog, /mob/living/simple_animal/hostile/retaliate/cavern_dweller, /mob/living/carbon/human/, /mob/living/simple_animal/hostile/retaliate/rafama)
 
 /obj/item/weapon/trap/animal/large/attack_hand(mob/user as mob)
 	return

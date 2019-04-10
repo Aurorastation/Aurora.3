@@ -53,8 +53,8 @@
 	l_pocket = /obj/item/weapon/storage/wallet/medium
 	belt = /obj/item/weapon/gun/projectile/colt
 	backpack_contents = list(
-		/obj/item/weapon/key/soldier = 2
-	)
+		/obj/item/weapon/key/soldier = 2,
+		/obj/item/clothing/accessory/holster/armpit = 1)
 
 /datum/job/levy
 	title = "Levy"
