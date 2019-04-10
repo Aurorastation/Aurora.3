@@ -327,6 +327,7 @@
 	desc = "A potbelly stove. How'd that get here."
 	icon = 'icons/adhomai/structures.dmi'
 	icon_state = "ovenclosed_off"
+	pixel_x = 0
 	safe = TRUE
 
 /obj/structure/bonfire/fireplace/stove/update_icon()
