@@ -50,7 +50,7 @@
 	projectile_type = /obj/item/projectile/bullet/rifle/caseless445m
 
 /obj/item/ammo_casing/caseless475
-	desc = "caseless round."
+	desc = "caseless round"
 	icon_state = "trod"
 	caliber = "A4.75x33 Caseless"
 	projectile_type = /obj/item/projectile/bullet/rifle/caseless475
