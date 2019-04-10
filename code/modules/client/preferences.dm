@@ -287,7 +287,7 @@ datum/preferences
 	else if(href_list["delete"])
 		if (!config.sql_saves)
 			return 0
-		if (alert(usr, "This will permanently delete the character you have loaded. Are you sure?", "Delete Character", "Delete","Cancel") == "Delete")
+		if (alert(usr, "This will permanently delete the character you have loaded. Are you sure?", "Delete Character", "Cancel","Delete") == "Delete")
 			delete_character_sql(usr.client)
 	else
 		return 0
