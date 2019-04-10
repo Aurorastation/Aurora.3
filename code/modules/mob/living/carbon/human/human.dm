@@ -1459,7 +1459,7 @@
 /mob/living/carbon/human/slip(var/slipped_on, stun_duration=8)
 	if((species.flags & NO_SLIP) || (shoes && (shoes.item_flags & NOSLIP)))
 		return 0
-	..(slipped_on,stun_duration)
+	. = ..(slipped_on,stun_duration)
 
 /mob/living/carbon/human/proc/undislocate()
 	set category = "Object"

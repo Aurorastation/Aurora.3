@@ -89,6 +89,14 @@
 	name = "[name] (Wielded)"
 	update_icon()
 
+/obj/item/weapon/pickaxe/update_icon()
+		..()
+		if(wielded)
+				item_state = "[initial(icon_state)]-wielded"
+		else
+				item_state = initial(item_state)
+		update_held_icon()
+
 /obj/item/weapon/pickaxe/mob_can_equip(M as mob, slot)
 	//Cannot equip wielded items.
 	if(wielded)

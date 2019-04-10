@@ -824,6 +824,21 @@
 	holder.del_reagent("napalm")
 	return
 
+/datum/chemical_reaction/zoragel
+	name = "Inert Gel"
+	id = "zoragel"
+	result = "zoragel"
+	required_reagents = list("sacid" = 1, "aluminum" = 1, "sugar" = 1, "surfactant" = 3)
+	result_amount = 1
+
+/datum/chemical_reaction/zorafire
+	name = "Zo'rane Fire"
+	id = "greekfire"
+	result = "greekfire"
+	required_reagents = list("nitroglycerin" = 2, "pyrosilicate" = 2, "phoron" = 3, "zoragel" = 3)
+	result_amount = 1
+	log_is_important = 1
+
 /datum/chemical_reaction/chemsmoke
 	name = "Chemsmoke"
 	id = "chemsmoke"
