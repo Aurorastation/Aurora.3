@@ -7,11 +7,75 @@
 	var/global/global_uid = 0
 	var/uid
 	var/holomap_color	// Color of this area on the holomap. Must be a hex color (as string) or null.
+	var/fire = null
+	var/atmosalm = 0
+	var/poweralm = 1
+	var/party = null
+	level = null
+	name = "Unknown"
+	icon = 'icons/turf/areas.dmi'
+	icon_state = "unknown"
+	layer = 10
+	luminosity = 0
+	mouse_opacity = 0
+	var/lightswitch = 1
+
+	var/eject = null
+
+	var/requires_power = 1
+	var/always_unpowered = 0	//this gets overriden to 1 for space in area/New()
+
+	var/power_equip = 1
+	var/power_light = 1
+	var/power_environ = 1
+	var/used_equip = 0
+	var/used_light = 0
+	var/used_environ = 0
+	var/alwaysgravity = 0
+	var/nevergravity = 0
+
+	var/has_gravity = 1
+	var/obj/machinery/power/apc/apc = null
+//	var/list/lights				// list of all lights on this area
+	var/list/all_doors = list()		//Added by Strumpetplaya - Alarm Change - Contains a list of doors adjacent to this area
+	var/air_doors_activated = 0
+	var/list/ambience = list(
+		'sound/ambience/ambigen1.ogg',
+		'sound/ambience/ambigen3.ogg',
+		'sound/ambience/ambigen4.ogg',
+		'sound/ambience/ambigen5.ogg',
+		'sound/ambience/ambigen6.ogg',
+		'sound/ambience/ambigen7.ogg',
+		'sound/ambience/ambigen8.ogg',
+		'sound/ambience/ambigen9.ogg',
+		'sound/ambience/ambigen10.ogg',
+		'sound/ambience/ambigen11.ogg',
+		'sound/ambience/ambigen12.ogg',
+		'sound/ambience/ambigen14.ogg'
+	)
+	var/list/forced_ambience = null
+	var/loop_ambience = TRUE
+	var/sound_env = STANDARD_STATION
+	var/turf/base_turf //The base turf type of the area, which can be used to override the z-level's base turf
+	var/no_light_control = 0		// if 1, lights in area cannot be toggled with light controller
+	var/allow_nightmode = 0	// if 1, lights in area will be darkened by the night mode controller
+	var/station_area = 0
+	var/centcomm_area = 0
+	var/has_weird_power = FALSE	// If TRUE, SSmachinery will not use the inlined power checks and will call powered() and use_power() on this area.
+
+// Don't move this to Initialize(). Things in here need to run before SSatoms does.
+/area/New()
+	// DMMS hook - Required for areas to work properly.
+	if (!areas_by_type[type])
+		areas_by_type[type] = src
+	// Atmos code needs this, so we need to make sure this is done by the time they init.
+	uid = ++global_uid
+	. = ..()
 
 /area/Initialize(mapload)
 	icon_state = "white"
 	layer = 10
-	uid = ++global_uid
+
 	blend_mode = BLEND_MULTIPLY
 
 	if(!requires_power)
@@ -26,6 +90,7 @@
 
 	if(centcomm_area)
 		centcom_areas[src] = TRUE
+		alwaysgravity = 1
 
 	if(station_area)
 		the_station_areas[src] = TRUE
@@ -40,9 +105,6 @@
 
 	. = ..()
 
-/area/proc/get_contents()
-	return contents
-
 /area/proc/get_cameras()
 	. = list()
 	for (var/thing in SSmachinery.all_cameras)
@@ -50,7 +112,7 @@
 		if (!isturf(C.loc))
 			continue
 
-		if (C.loc.loc == src)
+		if (C.loc.loc == src) //what the fuck is this
 			. += C
 
 /area/proc/atmosalert(danger_level, var/alarm_source)
@@ -86,8 +148,7 @@
 				if(E.operating)
 					E.nextstate = FIREDOOR_CLOSED
 				else if(!E.density)
-					spawn(0)
-						E.close()
+					INVOKE_ASYNC(E, /obj/machinery/door/.proc/close)
 
 /area/proc/air_doors_open()
 	if(air_doors_activated)
@@ -97,73 +158,64 @@
 				if(E.operating)
 					E.nextstate = FIREDOOR_OPEN
 				else if(E.density)
-					spawn(0)
-						E.open()
-
+					INVOKE_ASYNC(E, /obj/machinery/door/.proc/open)
 
 /area/proc/fire_alert()
 	if(!fire)
 		fire = 1	//used for firedoor checks
-		updateicon()
+		update_icon()
 		mouse_opacity = 0
 		for(var/obj/machinery/door/firedoor/D in all_doors)
 			if(!D.blocked)
 				if(D.operating)
 					D.nextstate = FIREDOOR_CLOSED
 				else if(!D.density)
-					spawn()
-						D.close()
+					INVOKE_ASYNC(D, /obj/machinery/door/.proc/close)
 
 /area/proc/fire_reset()
 	if (fire)
 		fire = 0	//used for firedoor checks
-		updateicon()
+		update_icon()
 		mouse_opacity = 0
 		for(var/obj/machinery/door/firedoor/D in all_doors)
 			if(!D.blocked)
 				if(D.operating)
 					D.nextstate = FIREDOOR_OPEN
 				else if(D.density)
-					spawn(0)
-					D.open()
+					INVOKE_ASYNC(D, /obj/machinery/door/.proc/open)
 
 /area/proc/readyalert()
 	if(!eject)
 		eject = 1
-		updateicon()
-	return
+		update_icon()
 
 /area/proc/readyreset()
 	if(eject)
 		eject = 0
-		updateicon()
-	return
+		update_icon()
 
 /area/proc/partyalert()
-	if (!( party ))
+	if (!party)
 		party = 1
-		updateicon()
+		update_icon()
 		mouse_opacity = 0
-	return
 
 /area/proc/partyreset()
 	if (party)
 		party = 0
 		mouse_opacity = 0
-		updateicon()
-		for(var/obj/machinery/door/firedoor/D in src)
+		update_icon()
+		for(var/obj/machinery/door/firedoor/D in all_doors)
 			if(!D.blocked)
 				if(D.operating)
 					D.nextstate = FIREDOOR_OPEN
 				else if(D.density)
-					spawn(0)
-					D.open()
-	return
+					INVOKE_ASYNC(D, /obj/machinery/door/.proc/open)
 
 #define DO_PARTY(COLOR) animate(color = COLOR, time = 0.5 SECONDS, easing = QUAD_EASING)
 
-/area/proc/updateicon()
-	if ((fire || eject || party) && (!requires_power||power_environ) && !istype(src, /area/space))//If it doesn't require power, can still activate this proc.
+/area/update_icon()
+	if ((fire || eject || party) && (!requires_power||power_environ) && !istype(src, /area/space)) //If it doesn't require power, can still activate this proc.
 		if(fire && !eject && !party)		// FIRE
 			color = "#ff9292"
 			animate(src)	// stop any current animations.
@@ -223,7 +275,7 @@
 	for(var/obj/machinery/M in src)	// for each machine in the area
 		M.power_change()			// reverify power status (to update icons etc.)
 	if (fire || eject || party)
-		updateicon()
+		update_icon()
 
 /area/proc/usage(var/chan)
 	var/used = 0
@@ -255,17 +307,17 @@
 
 var/list/mob/living/forced_ambiance_list = new
 
-/area/Entered(A)
-	if(!istype(A,/mob/living))	return
+/area/Entered(mob/living/L)
+	if(!istype(L,/mob/living) || !ROUND_IS_STARTED)
+		return
 
-	var/mob/living/L = A
 	if(!L.ckey)	return
 
 	if(!L.lastarea)
 		L.lastarea = get_area(L.loc)
 	var/area/newarea = get_area(L.loc)
 	var/area/oldarea = L.lastarea
-	if((oldarea.has_gravity == 0) && (newarea.has_gravity == 1) && (L.m_intent == "run")) // Being ready when you change areas gives you a chance to avoid falling all together.
+	if((oldarea.has_gravity() == 0) && (newarea.has_gravity() == 1) && (L.m_intent == "run")) // Being ready when you change areas gives you a chance to avoid falling all together.
 		thunk(L)
 		L.update_floating( L.Check_Dense_Object() )
 
@@ -287,12 +339,12 @@ var/list/mob/living/forced_ambiance_list = new
 
 	if(!L.client.ambience_playing)
 		L.client.ambience_playing = 1
-		L << sound('sound/ambience/shipambience.ogg', repeat = 1, wait = 0, volume = 35, channel = 2)
+		L << sound('sound/ambience/shipambience.ogg', repeat = loop_ambience, wait = 0, volume = 35, channel = 2)
 
 	if(forced_ambience)
 		if(forced_ambience.len)
 			forced_ambiance_list |= L
-			L << sound(pick(forced_ambience), repeat = 1, wait = 0, volume = 25, channel = 1)
+			L << sound(pick(forced_ambience), repeat = loop_ambience, wait = 0, volume = 25, channel = 1)
 		else
 			L << sound(null, channel = 1)
 	else if(src.ambience.len && prob(35))
@@ -301,12 +353,14 @@ var/list/mob/living/forced_ambiance_list = new
 			L << sound(sound, repeat = 0, wait = 0, volume = 25, channel = 1)
 			L.client.played = world.time
 
-/area/proc/gravitychange(var/gravitystate = 0, var/area/A)
-	A.has_gravity = gravitystate
+/area/proc/gravitychange(var/gravitystate = 0)
+	has_gravity = gravitystate
 
-	for(var/mob/M in A)
-		if(has_gravity)
+	for(var/mob/M in src)
+		if(has_gravity())
 			thunk(M)
+		else
+			to_chat(M, span("notice", "The sudden lack of gravity makes you feel weightless and float cluelessly!"))
 		M.update_floating( M.Check_Dense_Object() )
 
 /area/proc/thunk(mob)
@@ -324,7 +378,7 @@ var/list/mob/living/forced_ambiance_list = new
 		else
 			H.AdjustStunned(1)
 			H.AdjustWeakened(1)
-		mob << "<span class='notice'>The sudden appearance of gravity makes you fall to the floor!</span>"
+		to_chat(mob, "<span class='notice'>The sudden appearance of gravity makes you fall to the floor!</span>")
 
 /area/proc/prison_break()
 	for(var/obj/machinery/power/apc/temp_apc in src)
@@ -335,6 +389,10 @@ var/list/mob/living/forced_ambiance_list = new
 		temp_windoor.open()
 
 /area/proc/has_gravity()
+	if(alwaysgravity)
+		return TRUE
+	if(nevergravity)
+		return FALSE
 	return has_gravity
 
 /area/space/has_gravity()
@@ -350,32 +408,45 @@ var/list/mob/living/forced_ambiance_list = new
 
 //A useful proc for events.
 //This returns a random area of the station which is meaningful. Ie, a room somewhere
-
-/proc/random_station_area()
+/proc/random_station_area(var/filter_players = FALSE)
 	var/list/possible = list()
 	for(var/Y in the_station_areas)
-		for(var/areapath in typesof(Y))
-			var/area/A = locate(areapath)
-			if(!A)
-				continue
-			if(!(A.z in config.station_levels))
-				continue
-			if (istype(A, /area/shuttle))
-				continue
-			if (istype(A, /area/solar) || findtext(A.name, "solar"))
-				continue
-			if (istype(A, /area/constructionsite))
+		if(!Y)
+			continue
+		var/area/A = Y
+		if(!(A.z in current_map.station_levels))
+			continue
+		if (istype(A, /area/shuttle))
+			continue
+		if (istype(A, /area/solar) || findtext(A.name, "solar"))
+			continue
+		if (istype(A, /area/constructionsite))
+			continue
+		if (istype(A, /area/turbolift))
+			continue
+		if (istype(A, /area/mine))
+			continue
+
+		//Although hostile mobs instadying to turrets is fun
+		//If there's no AI they'll just be hit with stunbeams all day and spam the attack logs.
+		if (istype(A, /area/turret_protected) || LAZYLEN(A.turret_controls))
+			continue
+
+		if(filter_players)
+			var/should_continue = FALSE
+			for(var/mob/living/carbon/human/H in human_mob_list)
+				if(!H.client)
+					continue
+				if(A == get_area(H))
+					should_continue = TRUE
+					break
+
+			if(should_continue)
 				continue
 
-			//Although hostile mobs instadying to turrets is fun
-			//If there's no AI they'll just be hit with stunbeams all day and spam the attack logs.
-			if (istype(A, /area/turret_protected))
-				continue
-
-			possible.Add(A)
+		possible += A
 
 	return pick(possible)
-
 
 /area/proc/random_space()
 	var/list/turfs = list()

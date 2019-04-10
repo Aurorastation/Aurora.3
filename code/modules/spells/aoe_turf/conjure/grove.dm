@@ -61,7 +61,7 @@
 	chems = list("bicaridine" = list(3,7), "dermaline" = list(3,7), "anti_toxin" = list(3,7), "tricordrazine" = list(3,7), "alkysine" = list(1,2), "imidazoline" = list(1,2), "peridaxon" = list(4,5))
 	kitchen_tag = "berries"
 
-/datum/seed/merlin_tear/New()
+/datum/seed/merlin_tear/setup_traits()
 	..()
 	set_trait(TRAIT_PLANT_ICON,"bush5")
 	set_trait(TRAIT_PRODUCT_ICON,"berry")

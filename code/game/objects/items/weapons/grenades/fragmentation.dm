@@ -15,7 +15,7 @@ proc/fragem(var/source,var/fragx,var/fragy,var/light_dam,var/flash_dam,var/p_dam
 		P.shot_from = source
 		P.name = "[source]'s shrapnel"
 
-		P.launch(T)
+		P.launch_projectile(T)
 
 		if(can_cover)
 			for(var/mob/living/M in O)
@@ -28,7 +28,7 @@ proc/fragem(var/source,var/fragx,var/fragy,var/light_dam,var/flash_dam,var/p_dam
 
 //Fragmentation grenade projectile
 /obj/item/projectile/bullet/pellet/fragment
-	damage = 15
+	damage = 10
 	range_step = 2
 
 	base_spread = 0 //causes it to be treated as a shrapnel explosion instead of cone
@@ -43,8 +43,8 @@ proc/fragem(var/source,var/fragx,var/fragy,var/light_dam,var/flash_dam,var/p_dam
 	desc = "A military fragmentation grenade, designed to explode in a deadly shower of fragments."
 	icon_state = "frag"
 
-	var/num_fragments = 100  //total number of fragments produced by the grenade
-	var/fragment_damage = 15
+	var/num_fragments = 70  //total number of fragments produced by the grenade
+	var/fragment_damage = 10
 	var/damage_step = 2      //projectiles lose a fragment each time they travel this distance. Can be a non-integer.
 	var/explosion_size = 3   //size of the center explosion
 

@@ -9,7 +9,6 @@
 		message_admins("Admin [key_name_admin(usr)] is debugging the [antag.role_text] template.")
 
 /var/list/controller_debug_list = list(
-	"Jobs",
 	"Configuration",
 	"Cameras",
 	"Gas Data",

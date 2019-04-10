@@ -11,7 +11,7 @@
 	icon_state = "bullet"
 	damage = 5
 	agony = 10
-	kill_count = 15 //if the shell hasn't hit anything after travelling this far it just explodes.
+	range = 15 //if the shell hasn't hit anything after travelling this far it just explodes.
 	var/flash_range = 0
 	var/brightness = 7
 	var/light_duration = 5
@@ -106,9 +106,9 @@
 	damage = 60
 	damage_type = BRUTE
 	pass_flags = PASSTABLE | PASSGLASS | PASSGRILLE
-	kill_count = 100
+	range = 100
 	embed = 0
-	step_delay = 3
+	speed = 8
 	light_range = 4
 	light_color = "#b5ff5b"
 
@@ -125,65 +125,66 @@
 	src.transform = M
 	..()
 
-/obj/item/projectile/energy/bfg/process()
-	var/first_step = 1
-
-	spawn while(src && src.loc)
-		if(kill_count-- < 1)
-			on_impact(src.loc) //for any final impact behaviours
-			qdel(src)
-			return
-		if((!( current ) || loc == current))
-			current = locate(min(max(x + xo, 1), world.maxx), min(max(y + yo, 1), world.maxy), z)
-		if((x == 1 || x == world.maxx || y == 1 || y == world.maxy))
-			qdel(src)
-			return
-
-		trajectory.increment()	// increment the current location
-		location = trajectory.return_location(location)		// update the locally stored location data
-
-		if(!location)
-			qdel(src)	// if it's left the world... kill it
-			return
-
-		before_move()
-		Move(location.return_turf())
-
-		if(!bumped && !isturf(original))
-			if(loc == get_turf(original))
-				if(!(original in permutated))
-					if(Bump(original))
-						return
-
-		if(first_step)
-			muzzle_effect(effect_transform)
-			first_step = 0
-		else if(!bumped)
-			tracer_effect(effect_transform)
-
-		for(var/turf/T in range(1,src))
-			if(T.density)
-				T.ex_act(2)
-				playsound(src.loc, 'sound/magic/LightningShock.ogg', 75, 1)
-
-		for(var/obj/O in range(1,src))
-			if(O.density)
-				O.ex_act(2)
-				playsound(src.loc, 'sound/magic/LightningShock.ogg', 75, 1)
-
-		for(var/mob/living/M in range(1,src))
-			if(M == src.firer) //for the sake of courtesy we will not target our master)
-				continue
+/obj/item/projectile/energy/bfg/after_move()
+	for(var/a in range(1, src))
+		if(isliving(a) && a != firer)
+			var/mob/living/M = a
+			if(M.stat == DEAD)
+				M.gib()
 			else
-				if(M.stat == DEAD)
-					M.gib()
-				else
-					M.apply_damage(60, BRUTE, "head")
-				playsound(src.loc, 'sound/magic/LightningShock.ogg', 75, 1)
-		if(!hitscan)
-			sleep(step_delay)	//add delay between movement iterations if it's not a hitscan weapon
+				M.apply_damage(60, BRUTE, "head")
+			playsound(src, 'sound/magic/LightningShock.ogg', 75, 1)
+		else if(isturf(a) || isobj(a))
+			var/atom/A = a
+			if(!A.density)
+				continue
+			A.ex_act(2)
+			playsound(src, 'sound/magic/LightningShock.ogg', 75, 1)
 
+/obj/item/projectile/energy/tesla
+	name = "tesla bolt"
+	icon = 'icons/effects/effects.dmi'
+	icon_state = "lightning1"
+	damage = 10
+	damage_type = BURN
+	pass_flags = PASSTABLE | PASSGRILLE
+	range = 40
+	embed = 0
+	speed = 1.5
+	light_range = 5
+	light_color = "#b5ff5b"
 
+/obj/item/projectile/energy/tesla/on_impact(atom/target)
+	. = ..()
+	if(isliving(target))
+		tesla_zap(target, 3, 5000)
+
+/obj/item/projectile/energy/gravitydisabler
+	name = "gravity disabler"
+	icon = 'icons/obj/projectiles.dmi'
+	icon_state = "bluespace"
+	damage = 0
+	damage_type = BRUTE
+	pass_flags = PASSTABLE | PASSGRILLE
+	range = 10
+	embed = 0
+	speed = 2
+	light_range = 4
+	light_color = "#b5ff5b"
+
+/obj/item/projectile/energy/gravitydisabler/on_impact(atom/target)
+	. = ..()
+	var/area/A = get_area(target)
+	if(A && A.has_gravity())
+		A.gravitychange(FALSE)
+		addtimer(CALLBACK(src, .proc/turnongravity), 150)
+
+	if(istype(target, /obj/machinery/gravity_generator/main))
+		var/obj/machinery/gravity_generator/main/T = target
+		T.eshutoff()
+
+/obj/item/projectile/energy/gravitydisabler/proc/turnongravity(var/area/A)
+	A.gravitychange(TRUE)
 
 /obj/item/projectile/energy/bee
 	name = "bees"
@@ -209,23 +210,17 @@
 
 /obj/item/projectile/energy/blaster
 	name = "blaster bolt"
-	icon_state = "laser"
+	icon_state = "heavybolt"
+	damage = 30
 	check_armour = "laser"
-	damage = 15
 	damage_type = BURN
 	pass_flags = PASSTABLE | PASSGLASS | PASSGRILLE
-	embed = 0
-	incinerate = 2
+	muzzle_type = /obj/effect/projectile/muzzle/bolt
 
-/*/obj/item/projectile/energy/flamer
-	name = "promethium"
-	icon_state = "fire"
-	check_armour = "energy"
-	kill_count = 25
-	damage = 10
-	damage_type = BURN
-	pass_flags = PASSTABLE
-	step_delay = 2
-	kill_count = 75
-	embed = 0
-	incinerate = 10*/
+/obj/item/projectile/energy/blaster/heavy
+	damage = 35
+
+/obj/item/projectile/energy/blaster/incendiary
+	icon_state = "laser"
+	damage = 15
+	incinerate = 2

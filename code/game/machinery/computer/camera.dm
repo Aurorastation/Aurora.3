@@ -14,7 +14,7 @@
 
 /obj/machinery/computer/security/Initialize()
 	if(!network)
-		network = station_networks.Copy()
+		network = current_map.station_networks.Copy()
 	. = ..()
 	if(network.len)
 		current_network = network[1]
@@ -98,7 +98,7 @@
 
 /obj/machinery/computer/security/attack_hand(var/mob/user as mob)
 	if (src.z > 6)
-		user << "<span class='danger'>Unable to establish a connection:</span> You're too far away from the station!"
+		to_chat(user, "<span class='danger'>Unable to establish a connection:</span> You're too far away from the station!")
 		return
 	if(stat & (NOPOWER|BROKEN))	return
 
@@ -142,7 +142,17 @@
 		jump_to = locate() in A
 	else if(isturf(A))
 		var/best_dist = INFINITY
-		for(var/obj/machinery/camera/camera in get_area(A))
+		var/check_area = get_area(A)
+
+		if (!check_area)
+			return
+
+		for(var/cc in SSmachinery.all_cameras)
+			var/obj/machinery/camera/camera = cc
+			if(!camera.loc)
+				continue
+			if (camera.loc.loc != check_area)
+				continue
 			if(!camera.can_use())
 				continue
 			if(!can_access_camera(camera))
@@ -195,8 +205,9 @@
 	if(istype(usr.machine,/obj/machinery/computer/security))
 		var/obj/machinery/computer/security/console = usr.machine
 		console.jump_on_click(usr,src)
+
 //Camera control: arrow keys.
-/mob/Move(n,direct)
+/mob/living/Move(n,direct)
 	if(istype(machine,/obj/machinery/computer/security))
 		var/obj/machinery/computer/security/console = machine
 		var/turf/T = get_turf(console.current_camera)

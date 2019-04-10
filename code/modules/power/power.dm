@@ -122,7 +122,7 @@
 //almost never called, overwritten by all power machines but terminal and generator
 /obj/machinery/power/attackby(obj/item/weapon/W, mob/user)
 
-	if(istype(W, /obj/item/stack/cable_coil))
+	if(W.iscoil())
 
 		var/obj/item/stack/cable_coil/coil = W
 
@@ -254,7 +254,7 @@
 
 //remove the old powernet and replace it with a new one throughout the network.
 /proc/propagate_network(var/obj/O, var/datum/powernet/PN)
-	//world.log << "propagating new network"
+	//world.log <<  "propagating new network"
 	var/list/worklist = list()
 	var/list/found_machines = list()
 	var/index = 1
@@ -316,17 +316,12 @@
 //power_source is a source of electricity, can be powercell, area, apc, cable, powernet or null
 //source is an object caused electrocuting (airlock, grille, etc)
 //No animations will be performed by this proc.
-/proc/electrocute_mob(mob/living/carbon/M as mob, var/power_source, var/obj/source, var/siemens_coeff = 1.0)
+/proc/electrocute_mob(mob/living/carbon/M as mob, var/power_source, var/obj/source, var/siemens_coeff = 1.0, var/contact_zone = "hand")
 
 	if (!M)
 		return 0
 	if(istype(M.loc,/obj/mecha))
 		return 0	//feckin mechs are dumb
-	var/mob/living/carbon/human/H = null
-	if (ishuman(M))
-		H = M //20/1/16 Insulation (vaurca)
-		if(isvaurca(H))
-			return 0
 	var/area/source_area
 	if(istype(power_source,/area))
 		source_area = power_source
@@ -356,10 +351,15 @@
 	//If following checks determine user is protected we won't alarm for long.
 	if(PN)
 		PN.trigger_warning(5)
+	var/mob/living/carbon/human/H
+	if(ishuman(M))
+		H = M
 	if(H)
 		if(H.species.siemens_coefficient == 0)
 			return
-		if(H.gloves)
+		if(isvaurca(H)) //natural vaurca insulation
+			return
+		if(H.gloves && contact_zone == "hand")
 			var/obj/item/clothing/gloves/G = H.gloves
 			if(G.siemens_coefficient == 0)	return 0		//to avoid spamming with insulated glvoes on
 
@@ -383,7 +383,17 @@
 	else
 		power_source = cell
 		shock_damage = cell_damage
-	var/drained_hp = M.electrocute_act(shock_damage, source, siemens_coeff) //zzzzzzap!
+	var/drained_hp
+	var/touchy_hand
+	if(contact_zone == "hand")
+		if(M.hand)
+			touchy_hand = "r_hand"
+		else
+			touchy_hand = "l_hand"
+	if(!touchy_hand)
+		drained_hp = M.electrocute_act(shock_damage, source, siemens_coeff, ground_zero = contact_zone) //zzzzzzap!
+	else
+		drained_hp = M.electrocute_act(shock_damage, source, siemens_coeff, ground_zero = touchy_hand) //zzzzzzap!
 	var/drained_energy = drained_hp*20
 
 	if (source_area)

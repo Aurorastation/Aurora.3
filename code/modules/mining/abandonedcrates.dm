@@ -29,10 +29,9 @@
 			new/obj/item/weapon/reagent_containers/food/snacks/grown/ambrosiadeus(src)
 			new/obj/item/weapon/flame/lighter/zippo(src)
 		if(6 to 10)
-			new/obj/item/weapon/pickaxe/drill(src)
-			new/obj/item/device/taperecorder(src)
-			new/obj/item/clothing/suit/space(src)
-			new/obj/item/clothing/head/helmet/space(src)
+			new/obj/random/custom_ka(src)
+			new/obj/random/custom_ka(src)
+			new/obj/random/custom_ka(src)
 		if(11 to 15)
 			new/obj/item/weapon/reagent_containers/glass/beaker/bluespace(src)
 		if(16 to 20)
@@ -95,16 +94,18 @@
 			new/obj/item/weapon/pickaxe/gold(src)
 		if(81 to 82)
 			new/obj/item/weapon/gun/energy/plasmacutter(src)
-		if(83 to 84)
+		if(83) // Rarest things, some are unobtainble otherwise, some are just robust,  1% each
+			new/obj/random/prebuilt_ka(src)
+		if(84)
 			new/obj/item/toy/katana(src)
 		if(85)
 			new/obj/item/seeds/random(src)
-		if(86) // Rarest things, some are unobtainble otherwise, some are just robust,  1% each
+		if(86)
 			new/obj/item/weed_extract(src)
 		if(87)
 			new/obj/item/xenos_claw(src)
 		if(88)
-			new/obj/item/weapon/gun/projectile/boltaction(src)
+			new/obj/item/weapon/gun/projectile/shotgun/pump/rifle(src)
 			new/obj/item/ammo_magazine/boltaction(src)
 			new/obj/item/clothing/under/soviet(src)
 			new/obj/item/clothing/head/ushanka(src)
@@ -113,7 +114,7 @@
 		if(90)
 			new/obj/item/organ/heart(src)
 		if(91)
-			new/obj/item/device/soulstone(src)
+			new/obj/item/poppet(src)
 		if(92)
 			new/obj/item/weapon/material/sword/katana(src)
 		if(93)
@@ -149,9 +150,9 @@
 			new/obj/item/clothing/mask/luchador(src)
 		if(100)
 			new/obj/item/weapon/gun/projectile/tanto(src)
-			new/obj/item/ammo_magazine/t40(src)
-			new/obj/item/ammo_magazine/t40(src)
-			new/obj/item/ammo_magazine/t40/rubber(src)
+			new/obj/item/ammo_magazine/mc10mm(src)
+			new/obj/item/ammo_magazine/mc10mm(src)
+			new/obj/item/ammo_magazine/mc10mm/rubber(src)
 			new/obj/item/clothing/under/rank/dispatch(src)
 			new/obj/item/clothing/accessory/badge/old(src)
 			new/obj/item/clothing/head/helmet/formalcaptain(src)
@@ -160,29 +161,29 @@
 	if(!locked)
 		return
 
-	user << "<span class='notice'>The crate is locked with a Deca-code lock.</span>"
+	to_chat(user, "<span class='notice'>The crate is locked with a Deca-code lock.</span>")
 	var/input = input(user, "Enter [codelen] digits.", "Deca-Code Lock", "") as text
 	if(!Adjacent(user))
 		return
 
 	if(input == null || length(input) != codelen)
-		user << "<span class='notice'>You leave the crate alone.</span>"
+		to_chat(user, "<span class='notice'>You leave the crate alone.</span>")
 	else if(check_input(input))
-		user << "<span class='notice'>The crate unlocks!</span>"
+		to_chat(user, "<span class='notice'>The crate unlocks!</span>")
 		playsound(user, 'sound/machines/lockreset.ogg', 50, 1)
 		set_locked(0)
 	else
 		visible_message("<span class='warning'>A red light on \the [src]'s control panel flashes briefly.</span>")
 		attempts--
 		if (attempts == 0)
-			user << "<span class='danger'>The crate's anti-tamper system activates!</span>"
+			to_chat(user, "<span class='danger'>The crate's anti-tamper system activates!</span>")
 			var/turf/T = get_turf(src.loc)
 			explosion(T, 0, 0, 1, 2)
 			qdel(src)
 
 /obj/structure/closet/crate/secure/loot/emag_act(var/remaining_charges, var/mob/user)
 	if (locked)
-		user << "<span class='notice'>The crate unlocks!</span>"
+		to_chat(user, "<span class='notice'>The crate unlocks!</span>")
 		locked = 0
 
 /obj/structure/closet/crate/secure/loot/proc/check_input(var/input)
@@ -199,12 +200,12 @@
 
 /obj/structure/closet/crate/secure/loot/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	if(locked)
-		if (istype(W, /obj/item/device/multitool)) // Greetings Urist McProfessor, how about a nice game of cows and bulls?
-			user << "<span class='notice'>DECA-CODE LOCK ANALYSIS:</span>"
+		if (W.ismultitool()) // Greetings Urist McProfessor, how about a nice game of cows and bulls?
+			to_chat(user, "<span class='notice'>DECA-CODE LOCK ANALYSIS:</span>")
 			if (attempts == 1)
-				user << "<span class='warning'>* Anti-Tamper system will activate on the next failed access attempt.</span>"
+				to_chat(user, "<span class='warning'>* Anti-Tamper system will activate on the next failed access attempt.</span>")
 			else
-				user << "<span class='notice'>* Anti-Tamper system will activate after [src.attempts] failed access attempts.</span>"
+				to_chat(user, "<span class='notice'>* Anti-Tamper system will activate after [src.attempts] failed access attempts.</span>")
 			if(lastattempt.len)
 				var/bulls = 0
 				var/cows = 0
@@ -216,6 +217,6 @@
 					else if(lastattempt[i] in code_contents)
 						++cows
 					code_contents -= lastattempt[i]
-				user << "<span class='notice'>Last code attempt had [bulls] correct digits at correct positions and [cows] correct digits at incorrect positions.</span>"
+				to_chat(user, "<span class='notice'>Last code attempt had [bulls] correct digits at correct positions and [cows] correct digits at incorrect positions.</span>")
 			return
 	..()

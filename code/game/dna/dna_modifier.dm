@@ -52,17 +52,14 @@
 	var/obj/item/weapon/reagent_containers/glass/beaker = null
 	var/opened = 0
 
-/obj/machinery/dna_scannernew/Initialize()
-	. = ..()
-	component_parts = list()
-	component_parts += new /obj/item/weapon/circuitboard/clonescanner(src)
-	component_parts += new /obj/item/weapon/stock_parts/scanning_module(src)
-	component_parts += new /obj/item/weapon/stock_parts/manipulator(src)
-	component_parts += new /obj/item/weapon/stock_parts/micro_laser(src)
-	component_parts += new /obj/item/weapon/stock_parts/console_screen(src)
-	component_parts += new /obj/item/stack/cable_coil(src)
-	component_parts += new /obj/item/stack/cable_coil(src)
-	RefreshParts()
+	component_types = list(
+		/obj/item/weapon/circuitboard/clonescanner,
+		/obj/item/weapon/stock_parts/scanning_module,
+		/obj/item/weapon/stock_parts/manipulator,
+		/obj/item/weapon/stock_parts/micro_laser,
+		/obj/item/weapon/stock_parts/console_screen,
+		/obj/item/stack/cable_coil = 2
+	)
 
 /obj/machinery/dna_scannernew/relaymove(mob/user as mob)
 	if (user.stat)
@@ -86,11 +83,11 @@
 /obj/machinery/dna_scannernew/proc/eject_occupant()
 	src.go_out()
 	for(var/obj/O in src)
-		if((!istype(O,/obj/item/weapon/reagent_containers)) && (!istype(O,/obj/item/weapon/circuitboard/clonescanner)) && (!istype(O,/obj/item/weapon/stock_parts)) && (!istype(O,/obj/item/stack/cable_coil)))
-			O.loc = get_turf(src)//Ejects items that manage to get in there (exluding the components)
+		if((!istype(O,/obj/item/weapon/reagent_containers)) && (!istype(O,/obj/item/weapon/circuitboard/clonescanner)) && (!istype(O,/obj/item/weapon/stock_parts)) && (!O.iscoil()))
+			O.forceMove(get_turf(src))//Ejects items that manage to get in there (exluding the components)
 	if(!occupant)
 		for(var/mob/M in src)//Failsafe so you can get mobs out
-			M.loc = get_turf(src)
+			M.forceMove(get_turf(src))
 
 /obj/machinery/dna_scannernew/verb/move_inside()
 	set src in oview(1)
@@ -100,18 +97,18 @@
 	if (usr.stat != 0)
 		return
 	if (!ishuman(usr) && !issmall(usr)) //Make sure they're a mob that has dna
-		usr << "<span class='notice'>Try as you might, you can not climb up into the scanner.</span>"
+		to_chat(usr, "<span class='notice'>Try as you might, you can not climb up into the scanner.</span>")
 		return
 	if (src.occupant)
-		usr << "<span class='warning'>The scanner is already occupied!</span>"
+		to_chat(usr, "<span class='warning'>The scanner is already occupied!</span>")
 		return
 	if (usr.abiotic())
-		usr << "<span class='warning'>The subject cannot have abiotic items on.</span>"
+		to_chat(usr, "<span class='warning'>The subject cannot have abiotic items on.</span>")
 		return
 	usr.stop_pulling()
 	usr.client.perspective = EYE_PERSPECTIVE
 	usr.client.eye = src
-	usr.loc = src
+	usr.forceMove(src)
 	src.occupant = usr
 	src.icon_state = "scanner_1"
 	src.add_fingerprint(usr)
@@ -120,12 +117,11 @@
 /obj/machinery/dna_scannernew/attackby(var/obj/item/weapon/item as obj, var/mob/user as mob)
 	if(istype(item, /obj/item/weapon/reagent_containers/glass))
 		if(beaker)
-			user << "<span class='warning'>A beaker is already loaded into the machine.</span>"
+			to_chat(user, "<span class='warning'>A beaker is already loaded into the machine.</span>")
 			return
 
 		beaker = item
-		user.drop_item()
-		item.loc = src
+		user.drop_from_inventory(item,src)
 		user.visible_message("\The [user] adds \a [item] to \the [src]!", "You add \a [item] to \the [src]!")
 		return
 	else if (!istype(item, /obj/item/weapon/grab))
@@ -134,10 +130,10 @@
 	if (!ismob(G.affecting))
 		return
 	if (src.occupant)
-		user << "<span class='warning'>The scanner is already occupied!</span>"
+		to_chat(user, "<span class='warning'>The scanner is already occupied!</span>")
 		return
 	if (G.affecting.abiotic())
-		user << "<span class='warning'>The subject cannot have abiotic items on.</span>"
+		to_chat(user, "<span class='warning'>The subject cannot have abiotic items on.</span>")
 		return
 	put_in(G.affecting)
 	src.add_fingerprint(user)
@@ -148,7 +144,7 @@
 	if(M.client)
 		M.client.perspective = EYE_PERSPECTIVE
 		M.client.eye = src
-	M.loc = src
+	M.forceMove(src)
 	src.occupant = M
 	src.icon_state = "scanner_1"
 
@@ -159,9 +155,9 @@
 		|| locate(/obj/machinery/computer/cloning, get_step(src, WEST)))
 
 		if(!M.client && M.mind)
-			for(var/mob/dead/observer/ghost in player_list)
+			for(var/mob/abstract/observer/ghost in player_list)
 				if(ghost.mind == M.mind)
-					ghost << "<b><font color = #330033><font size = 3>Your corpse has been placed into a cloning scanner. Return to your body if you want to be resurrected/cloned!</b> (Verbs -> Ghost -> Re-enter corpse)</font></font>"
+					to_chat(ghost, "<b><font color = #330033><font size = 3>Your corpse has been placed into a cloning scanner. Return to your body if you want to be resurrected/cloned!</b> (Verbs -> Ghost -> Re-enter corpse)</font></font>")
 					break
 	return
 
@@ -171,7 +167,7 @@
 	if (src.occupant.client)
 		src.occupant.client.eye = src.occupant.client.mob
 		src.occupant.client.perspective = MOB_PERSPECTIVE
-	src.occupant.loc = src.loc
+	src.occupant.forceMove(src.loc)
 	src.occupant = null
 	src.icon_state = "scanner_0"
 	return
@@ -180,7 +176,7 @@
 	switch(severity)
 		if(1.0)
 			for(var/atom/movable/A as mob|obj in src)
-				A.loc = src.loc
+				A.forceMove(src.loc)
 				ex_act(severity)
 				//Foreach goto(35)
 			//SN src = null
@@ -189,7 +185,7 @@
 		if(2.0)
 			if (prob(50))
 				for(var/atom/movable/A as mob|obj in src)
-					A.loc = src.loc
+					A.forceMove(src.loc)
 					ex_act(severity)
 					//Foreach goto(108)
 				//SN src = null
@@ -198,7 +194,7 @@
 		if(3.0)
 			if (prob(25))
 				for(var/atom/movable/A as mob|obj in src)
-					A.loc = src.loc
+					A.forceMove(src.loc)
 					ex_act(severity)
 					//Foreach goto(181)
 				//SN src = null
@@ -237,10 +233,9 @@
 /obj/machinery/computer/scan_consolenew/attackby(obj/item/I as obj, mob/user as mob)
 	if (istype(I, /obj/item/weapon/disk/data)) //INSERT SOME diskS
 		if (!src.disk)
-			user.drop_item()
-			I.loc = src
+			user.drop_from_inventory(I,src)
 			src.disk = I
-			user << "You insert [I]."
+			to_chat(user, "You insert [I].")
 			SSnanoui.update_uis(src) // update all UIs attached to src
 			return
 	else
@@ -635,7 +630,7 @@
 	if(href_list["ejectBeaker"])
 		if(connected.beaker)
 			var/obj/item/weapon/reagent_containers/glass/B = connected.beaker
-			B.loc = connected.loc
+			B.forceMove(connected.loc)
 			connected.beaker = null
 		return 1
 
@@ -660,7 +655,7 @@
 		if (bufferOption == "ejectDisk")
 			if (!src.disk)
 				return
-			src.disk.loc = get_turf(src)
+			src.disk.forceMove(get_turf(src))
 			src.disk = null
 			return 1
 
@@ -764,7 +759,7 @@
 					I.buf = buf
 				waiting_for_user_input=0
 				if(success)
-					I.loc = src.loc
+					I.forceMove(src.loc)
 					I.name += " ([buf.name])"
 					//src.temphtml = "Injector created."
 					src.injector_ready = 0

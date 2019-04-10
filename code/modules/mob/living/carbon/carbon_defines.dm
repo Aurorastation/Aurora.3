@@ -4,8 +4,6 @@
 	//stomach contents redefined at mob/living level, removed from here
 	var/list/datum/disease2/disease/virus2 = list()
 	var/list/antibodies = list()
-	var/last_eating = 0 	//Not sure what this does... I found it hidden in food.dm
-
 
 	var/analgesic = 0 // when this is set, the mob isn't affected by shock or pain
 					  // life should decrease this by 1 every tick
@@ -21,11 +19,18 @@
 	var/intoxication = 0//Units of alcohol in their system
 	var/datum/reagents/metabolism/bloodstr = null
 	var/datum/reagents/metabolism/touching = null
+	var/datum/reagents/metabolism/breathing = null
 
 	var/pulse = PULSE_NORM	//current pulse level
-	var/light_energy //Used by diona. Stored light energy
 
 	//these two help govern taste. The first is the last time a taste message was shown to the plaer.
 	//the second is the message in question.
 	var/last_taste_time = 0
 	var/last_taste_text = ""
+
+	var/last_smell_time = 0
+	var/last_smell_text = ""
+
+	var/coughedtime = null // should only be useful for carbons as the only thing using it has a carbon arg.
+
+	var/willfully_sleeping = 0

@@ -351,7 +351,7 @@ Turf and target are seperate in case you want to teleport some distance from a t
 				break
 		if(newname)
 			break	//That's a suitable name!
-		src << "Sorry, that [role]-name wasn't appropriate, please try another. It's possibly too long/short, has bad characters or is already taken."
+		to_chat(src, "Sorry, that [role]-name wasn't appropriate, please try another. It's possibly too long/short, has bad characters or is already taken.")
 
 	if(!newname)	//we'll stick with the oldname then
 		return
@@ -360,8 +360,6 @@ Turf and target are seperate in case you want to teleport some distance from a t
 		if(isAI(src))
 			var/mob/living/silicon/ai/A = src
 			oldname = null//don't bother with the records update crap
-			//world << "<b>[newname] is the AI!</b>"
-			//world << sound('sound/AI/newAI.ogg')
 			// Set eyeobj name
 			A.SetName(newname)
 
@@ -462,7 +460,7 @@ Turf and target are seperate in case you want to teleport some distance from a t
 		if (M.real_name && M.real_name != M.name)
 			name += " \[[M.real_name]\]"
 		if (M.stat == 2)
-			if(istype(M, /mob/dead/observer/))
+			if(istype(M, /mob/abstract/observer/))
 				name += " \[ghost\]"
 			else
 				name += " \[dead\]"
@@ -474,7 +472,7 @@ Turf and target are seperate in case you want to teleport some distance from a t
 /proc/sortmobs()
 	var/list/moblist = list()
 	var/list/sortmob = sortAtom(mob_list)
-	for(var/mob/eye/M in sortmob)
+	for(var/mob/abstract/eye/M in sortmob)
 		moblist.Add(M)
 	for(var/mob/living/silicon/ai/M in sortmob)
 		moblist.Add(M)
@@ -488,9 +486,9 @@ Turf and target are seperate in case you want to teleport some distance from a t
 		moblist.Add(M)
 	for(var/mob/living/carbon/alien/M in sortmob)
 		moblist.Add(M)
-	for(var/mob/dead/observer/M in sortmob)
+	for(var/mob/abstract/observer/M in sortmob)
 		moblist.Add(M)
-	for(var/mob/new_player/M in sortmob)
+	for(var/mob/abstract/new_player/M in sortmob)
 		moblist.Add(M)
 	for(var/mob/living/carbon/slime/M in sortmob)
 		moblist.Add(M)
@@ -646,110 +644,88 @@ proc/GaussRandRound(var/sigma,var/roundto)
 
 	else return get_step(ref, base_dir)
 
-/proc/do_mob(mob/user , mob/target, delay = 30, numticks = 10, needhand = TRUE, display_progress = TRUE) //This is quite an ugly solution but i refuse to use the old request system.
+/proc/do_mob(mob/user, mob/target, delay = 30, needhand = TRUE, display_progress = TRUE, datum/callback/extra_checks) //This is quite an ugly solution but i refuse to use the old request system.
 	if(!user || !target)
 		return 0
+
 	var/user_loc = user.loc
 	var/target_loc = target.loc
 	var/holding = user.get_active_hand()
-	var/delayfraction = round(delay/numticks)
-	var/image/progbar
-	if(user && user.client && (user.client.prefs.parallax_togs & PROGRESS_BARS) && display_progress)
-		if(!progbar)
-			progbar = image(icon = 'icons/effects/doafter_icon.dmi', loc = target, icon_state = "prog_bar_0")
-			progbar.layer = 21
-			progbar.pixel_z = WORLD_ICON_SIZE
-			progbar.appearance_flags = RESET_TRANSFORM
-	for (var/i = 1 to numticks)
-		if(user && user.client && (user.client.prefs.parallax_togs & PROGRESS_BARS) && progbar && display_progress)
-			progbar.icon_state = "prog_bar_[round(((i / numticks) * 100), 10)]"
-			user.client.images |= progbar
-		sleep(delayfraction)
-		if(!user || !target)
-			if(progbar)
-				progbar.icon_state = "prog_bar_stopped"
-				spawn(2)
-					if(user && user.client)
-						user.client.images -= progbar
-					if(progbar)
-						progbar.loc = null
-			return 0
-		if (user.loc != user_loc || target.loc != target_loc || (needhand && user.get_active_hand() != holding) || user.stat || user.weakened || user.stunned)
-			if(progbar)
-				progbar.icon_state = "prog_bar_stopped"
-				spawn(2)
-					if(user && user.client)
-						user.client.images -= progbar
-					if(progbar)
-						progbar.loc = null
-			return 0
-	if(user && user.client)
-		user.client.images -= progbar
-	if(progbar)
-		progbar.loc = null
-	return 1
 
-/proc/do_after(mob/user as mob, delay as num, numticks = 10, needhand = TRUE, atom/movable/act_target = null, use_user_turf = FALSE, display_progress = TRUE)
+	var/datum/progressbar/progbar
+	if (display_progress && user.client && (user.client.prefs.toggles_secondary & PROGRESS_BARS))
+		progbar = new(user, delay, target)
+
+	var/endtime = world.time + delay
+	var/starttime = world.time
+
+	. = 1
+
+	while (world.time < endtime)
+		stoplag(1)
+		if (progbar)
+			progbar.update(world.time - starttime)
+
+		if(QDELETED(user) || QDELETED(target))
+			. = 0
+			break
+
+		if (user.loc != user_loc || target.loc != target_loc || (needhand && user.get_active_hand() != holding) || user.stat || user.weakened || user.stunned || (extra_checks && !extra_checks.Invoke()))
+			. = 0
+			break
+
+	if (progbar)
+		qdel(progbar)
+
+/proc/do_after(mob/user as mob, delay as num, needhand = TRUE, atom/movable/act_target = null, use_user_turf = FALSE, display_progress = TRUE, datum/callback/extra_checks)
 	if(!user || isnull(user))
-		return 0
-	if(numticks == 0)
 		return 0
 
 	if (!act_target)
 		act_target = user
 
-	var/delayfraction = round(delay/numticks)
 	var/Location
 	if(use_user_turf)	//When this is true, do_after() will check whether the user's turf has changed, rather than the user's loc.
 		Location = get_turf(user)
 	else
 		Location = user.loc
+
 	var/holding = user.get_active_hand()
-	var/image/progbar
-	if(user && user.client && (user.client.prefs.parallax_togs & PROGRESS_BARS) && act_target && display_progress)
-		if(!progbar)
-			progbar = image(icon = 'icons/effects/doafter_icon.dmi', loc = act_target, icon_state = "prog_bar_0")
-			progbar.pixel_z = WORLD_ICON_SIZE
-			progbar.layer = 21
-			progbar.appearance_flags = RESET_COLOR | RESET_TRANSFORM
-	for (var/i = 1 to numticks)
-		if(user && user.client && (user.client.prefs.parallax_togs & PROGRESS_BARS) && act_target && display_progress)
-			if(!progbar)
-				progbar = image(icon = 'icons/effects/doafter_icon.dmi', loc = act_target, icon_state = "prog_bar_0")
-				progbar.pixel_z = WORLD_ICON_SIZE
-				progbar.layer = 21
-				progbar.appearance_flags = RESET_COLOR | RESET_TRANSFORM
-			progbar.icon_state = "prog_bar_[round(((i / numticks) * 100), 10)]"
-			user.client.images |= progbar
-		sleep(delayfraction)
+
+	var/datum/progressbar/progbar
+	if (display_progress && user.client && (user.client.prefs.toggles_secondary & PROGRESS_BARS))
+		progbar = new(user, delay, act_target)
+
+	var/endtime = world.time + delay
+	var/starttime = world.time
+
+	. = 1
+
+	while (world.time < endtime)
+		stoplag(1)
+		if (progbar)
+			progbar.update(world.time - starttime)
+
 		var/user_loc_to_check
 		if(use_user_turf)
 			user_loc_to_check = get_turf(user)
 		else
 			user_loc_to_check = user.loc
-		if (!user || user.stat || user.weakened || user.stunned || !(user_loc_to_check == Location))
-			if(progbar)
-				progbar.icon_state = "prog_bar_stopped"
-				spawn(2)
-					if(user && user.client)
-						user.client.images -= progbar
-					if(progbar)
-						progbar.loc = null
-			return 0
+
+		if (!user || user.stat || user.weakened || user.stunned || (use_user_turf >= 0 && user_loc_to_check != Location))
+			. = 0
+			break
+
 		if(needhand && !(user.get_active_hand() == holding))	//Sometimes you don't want the user to have to keep their active hand
-			if(progbar)
-				progbar.icon_state = "prog_bar_stopped"
-				spawn(2)
-					if(user && user.client)
-						user.client.images -= progbar
-					if(progbar)
-						progbar.loc = null
-			return 0
-	if(user && user.client)
-		user.client.images -= progbar
-	if(progbar)
-		progbar.loc = null
-	return 1
+			. = 0
+			break
+
+		if (extra_checks && !extra_checks.Invoke())
+			. = 0
+			break
+
+	if (progbar)
+		qdel(progbar)
 
 //Takes: Anything that could possibly have variables and a varname to check.
 //Returns: 1 if found, 0 if not.
@@ -849,46 +825,6 @@ var/global/list/common_tools = list(
 		return 1
 	return 0
 
-/proc/iswrench(O)
-	if(istype(O, /obj/item/weapon/wrench))
-		return 1
-	return 0
-
-/proc/iswelder(O)
-	if(istype(O, /obj/item/weapon/weldingtool))
-		return 1
-	return 0
-
-/proc/iscoil(O)
-	if(istype(O, /obj/item/stack/cable_coil))
-		return 1
-	return 0
-
-/proc/iswirecutter(O)
-	if(istype(O, /obj/item/weapon/wirecutters))
-		return 1
-	return 0
-
-/proc/isscrewdriver(O)
-	if(istype(O, /obj/item/weapon/screwdriver))
-		return 1
-	return 0
-
-/proc/ismultitool(O)
-	if(istype(O, /obj/item/device/multitool))
-		return 1
-	return 0
-
-/proc/iscrowbar(O)
-	if(istype(O, /obj/item/weapon/crowbar))
-		return 1
-	return 0
-
-/proc/iswire(O)
-	if(istype(O, /obj/item/stack/cable_coil))
-		return 1
-	return 0
-
 proc/is_hot(obj/item/W as obj)
 	switch(W.type)
 		if(/obj/item/weapon/weldingtool)
@@ -940,9 +876,9 @@ proc/is_hot(obj/item/W as obj)
 	if(W.sharp) return 1
 	return ( \
 		W.sharp													  || \
-		istype(W, /obj/item/weapon/screwdriver)                   || \
+		W.isscrewdriver()                   || \
 		istype(W, /obj/item/weapon/pen)                           || \
-		istype(W, /obj/item/weapon/weldingtool)					  || \
+		W.iswelder()					  || \
 		istype(W, /obj/item/weapon/flame/lighter/zippo)			  || \
 		istype(W, /obj/item/weapon/flame/match)            		  || \
 		istype(W, /obj/item/clothing/mask/smokable/cigarette) 		      || \
@@ -991,45 +927,57 @@ proc/is_hot(obj/item/W as obj)
 /*
 Checks if that loc and dir has a item on the wall
 */
-var/list/WALLITEMS = list(
-	"/obj/machinery/power/apc", "/obj/machinery/alarm", "/obj/item/device/radio/intercom",
-	"/obj/structure/extinguisher_cabinet", "/obj/structure/reagent_dispensers/peppertank",
-	"/obj/machinery/status_display", "/obj/machinery/requests_console", "/obj/machinery/light_switch", "/obj/effect/sign",
-	"/obj/machinery/newscaster", "/obj/machinery/firealarm", "/obj/structure/noticeboard", "/obj/machinery/door_control",
-	"/obj/machinery/computer/security/telescreen", "/obj/machinery/embedded_controller/radio/simple_vent_controller",
-	"/obj/item/weapon/storage/secure/safe", "/obj/machinery/door_timer", "/obj/machinery/flasher", "/obj/machinery/keycard_auth",
-	"/obj/structure/mirror", "/obj/structure/closet/fireaxecabinet", "/obj/machinery/computer/security/telescreen/entertainment"
-	)
+var/list/wall_items = typecacheof(list(
+	/obj/machinery/power/apc,
+	/obj/machinery/alarm,
+	/obj/item/device/radio/intercom,
+	/obj/structure/extinguisher_cabinet,
+	/obj/structure/reagent_dispensers/peppertank,
+	/obj/machinery/status_display,
+	/obj/machinery/requests_console,
+	/obj/machinery/light_switch,
+	/obj/machinery/newscaster,
+	/obj/machinery/firealarm,
+	/obj/structure/noticeboard,
+	/obj/machinery/computer/security/telescreen,
+	/obj/machinery/embedded_controller/radio/airlock,
+	/obj/item/weapon/storage/secure/safe,
+	/obj/machinery/door_timer,
+	/obj/machinery/flasher,
+	/obj/machinery/keycard_auth,
+	/obj/structure/mirror,
+	/obj/structure/fireaxecabinet,
+	/obj/machinery/computer/security/telescreen/entertainment,
+	/obj/machinery/station_map,
+	/obj/structure/sign
+))
+
 /proc/gotwallitem(loc, dir)
 	for(var/obj/O in loc)
-		for(var/item in WALLITEMS)
-			if(istype(O, text2path(item)))
-				//Direction works sometimes
-				if(O.dir == dir)
-					return 1
+		if (is_type_in_typecache(O, global.wall_items))
+			//Direction works sometimes
+			if(O.dir == dir)
+				return 1
 
-				//Some stuff doesn't use dir properly, so we need to check pixel instead
-				switch(dir)
-					if(SOUTH)
-						if(O.pixel_y > 10)
-							return 1
-					if(NORTH)
-						if(O.pixel_y < -10)
-							return 1
-					if(WEST)
-						if(O.pixel_x > 10)
-							return 1
-					if(EAST)
-						if(O.pixel_x < -10)
-							return 1
-
+			//Some stuff doesn't use dir properly, so we need to check pixel instead
+			switch(dir)
+				if(SOUTH)
+					if(O.pixel_y > 10)
+						return 1
+				if(NORTH)
+					if(O.pixel_y < -10)
+						return 1
+				if(WEST)
+					if(O.pixel_x > 10)
+						return 1
+				if(EAST)
+					if(O.pixel_x < -10)
+						return 1
 
 	//Some stuff is placed directly on the wallturf (signs)
 	for(var/obj/O in get_step(loc, dir))
-		for(var/item in WALLITEMS)
-			if(istype(O, text2path(item)))
-				if(O.pixel_x == 0 && O.pixel_y == 0)
-					return 1
+		if (is_type_in_typecache(O, global.wall_items) && O.pixel_x == 0 && O.pixel_y == 0)
+			return 1
 	return 0
 
 /proc/format_text(text)
@@ -1050,7 +998,7 @@ var/list/WALLITEMS = list(
 			if(length(temp_col )<2)
 				temp_col  = "0[temp_col]"
 			colour += temp_col
-	return colour
+	return "#[colour]"
 
 
 
@@ -1138,19 +1086,22 @@ var/list/WALLITEMS = list(
 
 //Increases delay as the server gets more overloaded,
 //as sleeps aren't cheap and sleeping only to wake up and sleep again is wasteful
-#define DELTA_CALC max(((max(world.tick_usage, world.cpu) / 100) * max(Master.sleep_delta,1)), 1)
+#define DELTA_CALC max(((max(world.tick_usage, world.cpu) / 100) * max(Master.sleep_delta-1,1)), 1)
 
-/proc/stoplag()
+/proc/stoplag(initial_delay)
 	// If we're initializing, our tick limit might be over 100 (testing config), but stoplag() penalizes procs that go over.
 	// 	Unfortunately, this penalty slows down init a *lot*. So, we disable it during boot and lobby, when relatively few things should be calling this.
-	if (!Master || Master.initializing || !Master.round_started)	
+	if (!Master || Master.initializing || !Master.round_started)
 		sleep(world.tick_lag)
 		return 1
 
+	if (!initial_delay)
+		initial_delay = world.tick_lag
+
 	. = 0
-	var/i = 1
+	var/i = DS2TICKS(initial_delay)
 	do
-		. += round(i*DELTA_CALC)
+		. += Ceiling(i*DELTA_CALC)
 		sleep(i*world.tick_lag*DELTA_CALC)
 		i *= 2
 	while (world.tick_usage > min(TICK_LIMIT_TO_RUN, CURRENT_TICKLIMIT))
@@ -1166,34 +1117,78 @@ var/list/WALLITEMS = list(
 
 
 
-#define NOT_FLAG(flag) (!(flag & use_flags)) 
+#define NOT_FLAG(flag) (!(flag & use_flags))
 #define HAS_FLAG(flag) (flag & use_flags)
 
 // Checks if user can use this object. Set use_flags to customize what checks are done.
 // Returns 0 if they can use it, a value representing why they can't if not.
 // Flags are in `code/__defines/misc.dm`
-/atom/proc/use_check(mob/user, use_flags = 0)
+/atom/proc/use_check(mob/user, use_flags = 0, show_messages = FALSE)
 	. = 0
 	if (NOT_FLAG(USE_ALLOW_NONLIVING) && !isliving(user))
+		// No message for ghosts.
 		return USE_FAIL_NONLIVING
 
 	if (NOT_FLAG(USE_ALLOW_NON_ADJACENT) && !Adjacent(user))
+		if (show_messages)
+			to_chat(user, "<span class='notice'>You're too far away from [src] to do that.</span>")
 		return USE_FAIL_NON_ADJACENT
 
 	if (NOT_FLAG(USE_ALLOW_DEAD) && user.stat == DEAD)
+		if (show_messages)
+			to_chat(user, "<span class='notice'>How do you expect to do that when you're dead?</span>")
 		return USE_FAIL_DEAD
 
 	if (NOT_FLAG(USE_ALLOW_INCAPACITATED) && (user.incapacitated()))
+		if (show_messages)
+			to_chat(user, "<span class='notice'>You cannot do that in your current state.</span>")
 		return USE_FAIL_INCAPACITATED
 
 	if (NOT_FLAG(USE_ALLOW_NON_ADV_TOOL_USR) && !user.IsAdvancedToolUser())
+		if (show_messages)
+			to_chat(user, "<span class='notice'>You don't know how to operate [src].</span>")
 		return USE_FAIL_NON_ADV_TOOL_USR
 
 	if (HAS_FLAG(USE_DISALLOW_SILICONS) && issilicon(user))
+		if (show_messages)
+			to_chat(user, "<span class='notice'>How do you propose doing that without hands?</span>")
 		return USE_FAIL_IS_SILICON
 
 	if (HAS_FLAG(USE_FORCE_SRC_IN_USER) && !(src in user))
+		if (show_messages)
+			to_chat(user, "<span class='notice'>You need to be holding [src] to do that.</span>")
 		return USE_FAIL_NOT_IN_USER
+
+/obj/proc/iswrench()
+	return FALSE
+
+/obj/proc/isscrewdriver()
+	return FALSE
+
+/obj/proc/iswirecutter()
+	return FALSE
+
+/obj/proc/ismultitool()
+	return FALSE
+
+/obj/proc/iscrowbar()
+	return FALSE
+
+/obj/proc/iswelder()
+	return FALSE
+
+/obj/proc/iscoil()
+	return FALSE
 
 #undef NOT_FLAG
 #undef HAS_FLAG
+
+//Prevents robots dropping their modules.
+/proc/dropsafety(var/atom/movable/A)
+	if (istype(A.loc, /mob/living/silicon))
+		return 0
+
+	else if (istype(A.loc, /obj/item/rig_module))
+		return 0
+	return 1
+

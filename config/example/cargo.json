@@ -1,0 +1,83 @@
+{
+	"categories": {
+		"security": {
+			"name": "security",
+			"display_name": "Security",
+			"description": "Security Items",
+			"icon": "person",
+			"price_modifier": 1
+		},
+		"engineering": {
+			"name": "engineering",
+			"display_name": "Engineering",
+			"description": "Engineering Items",
+			"icon": "wrench",
+			"price_modifier": 1
+		}
+	},
+	"suppliers": {
+		"nanotrasen": {
+			"name": "Nano Trasen",
+			"description": "Your default supplier.",
+			"tag_line": "For all your station supplies.",
+			"shuttle_time": 100,
+			"shuttle_price": 500,
+			"available": 1,
+			"price_modifier": 1
+		},
+		"einsteinengines": {
+			"name": "Einstein Engies",
+			"description": "Manufacturer of high tech engineering equipment.",
+			"tag_line": "Everything your engineers need and more.",
+			"shuttle_time": 200,
+			"shuttle_price": 200,
+			"available": 1,
+			"price_modifier": 1
+		},
+		"weaponsco": {
+			"name": "Weapons Co",
+			"description": "Mass producing weapons. Nothing too fancy, but cheap.",
+			"tag_line": "Need to shoot stuff badly ? - We got you covered.",
+			"shuttle_time": 300,
+			"shuttle_price": 300,
+			"available": 1,
+			"price_modifier": 1
+		}
+	},
+	"items": {
+		".45 Pistol": {
+			"name": ".45 Pistol",
+			"supplier": "weaponsco",
+			"description": "A standard sidearm, found pretty much everywhere humans are. Uses .45 rounds.",
+            "categories": ["medical", "security", "engineering", "civilian"],
+            "price": 100,
+			"items": {
+				".45 Pistol": {
+                    "path": "/obj/item/weapon/gun/projectile/sec",
+					"vars": []
+				}
+			},
+			"access": 3,
+			"container_type": "crate",
+            "groupable": 1,
+            "item_mul": 1
+		},
+		"/obj/item/clothing/gloves/yellow": {
+            "name": "Insulated Gloves",
+            "supplier": "einsteinengines",
+			"description": "Rubber Insulated Gloves",
+            "categories": ["engineering"],
+            "price": 20,
+			"items": {
+				"Insulated Gloves": {
+                    "path": "/obj/item/clothing/gloves/yellow",
+					"vars": []
+				}
+			},
+			"access": 10,
+			"container_type": "crate",
+            "groupable": 1,
+            "item_mul": 2
+		}
+	}
+}

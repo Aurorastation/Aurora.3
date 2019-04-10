@@ -3,6 +3,10 @@
 	if(!network)
 		return 0
 
+	. = current_map.get_network_access(network)
+	if (.)
+		return
+
 	switch(network)
 		if(NETWORK_THUNDER)
 			return 0
@@ -14,7 +18,7 @@
 			return access_research
 		if(NETWORK_MINE,NETWORK_SUPPLY,NETWORK_CIVILIAN_WEST,NETWORK_EXPEDITION,NETWORK_CALYPSO,NETWORK_POD)
 			return access_mailsorting // Cargo office - all cargo staff should have access here.
-		if(NETWORK_COMMAND,NETWORK_TELECOM)
+		if(NETWORK_COMMAND,NETWORK_TELECOM,NETWORK_CIVILIAN_EAST,NETWORK_CIVILIAN_MAIN,NETWORK_CIVILIAN_SURFACE,NETWORK_SERVICE)
 			return access_heads
 		if(NETWORK_CRESCENT,NETWORK_ERT)
 			return access_cent_specops
@@ -45,11 +49,13 @@
 	data["current_network"] = current_network
 
 	var/list/all_networks[0]
-	for(var/network in station_networks)
-		all_networks.Add(list(list(
-							"tag" = network,
-							"has_access" = can_access_network(user, get_camera_access(network))
-							)))
+	for(var/network in current_map.station_networks)
+		all_networks += list(
+			list(
+				"tag" = network,
+				"has_access" = can_access_network(user, get_camera_access(network))
+			)
+		)
 
 	all_networks = modify_networks_list(all_networks)
 
@@ -98,7 +104,7 @@
 		if(can_access_network(usr, get_camera_access(href_list["switch_network"])))
 			current_network = href_list["switch_network"]
 		else
-			to_chat(usr, "\The [nano_host()] shows an \"Network Access Denied\" error message.")
+			to_chat(usr, "\The [ui_host()] shows an \"Network Access Denied\" error message.")
 		return 1
 
 	else if(href_list["reset"])
@@ -119,7 +125,7 @@
 		return 1
 
 	set_current(C)
-	user.machine = nano_host()
+	user.machine = ui_host()
 	user.reset_view(current_camera)
 	check_eye(user)
 	return 1

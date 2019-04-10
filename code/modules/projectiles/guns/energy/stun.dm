@@ -5,12 +5,17 @@
 	item_state = null	//so the human update icon uses the icon_state instead.
 	fire_sound = 'sound/weapons/Taser.ogg'
 	max_shots = 5
+	accuracy = 1 // More of a buff to secborgs and mounted taser users.
 	projectile_type = /obj/item/projectile/energy/electrode
+	can_turret = 1
+	turret_sprite_set = "carbine"
+	turret_is_lethal = 0
 
 /obj/item/weapon/gun/energy/taser/mounted
 	name = "mounted taser gun"
 	self_recharge = 1
 	use_external_power = 1
+	can_turret = 0
 
 /obj/item/weapon/gun/energy/taser/mounted/cyborg
 	name = "taser gun"
@@ -44,6 +49,12 @@
 	max_shots = 5
 	self_recharge = 1
 	charge_meter = 0
+	can_turret = 1
+	turret_sprite_set = "crossbow"
+	charge_failure_message = "'s charging socket was removed to make room for a minaturized reactor."
+
+/obj/item/weapon/gun/energy/crossbow/get_cell()
+	return DEVICE_NO_CELL
 
 /obj/item/weapon/gun/energy/crossbow/ninja
 	name = "energy dart thrower"
@@ -58,4 +69,4 @@
 	item_state = "crossbow"
 	matter = list(DEFAULT_WALL_MATERIAL = 200000)
 	projectile_type = /obj/item/projectile/energy/bolt/large
-	
+

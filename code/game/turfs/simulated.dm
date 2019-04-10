@@ -1,6 +1,7 @@
 /turf/simulated
 	name = "station"
-	var/wet = 0
+	var/wet_type = 0
+	var/wet_amount = 0
 	var/image/wet_overlay = null
 
 	//Mining resources (for the large drills).
@@ -18,26 +19,38 @@
 
 	roof_type = /turf/simulated/floor/airless/ceiling
 
-/turf/simulated/proc/wet_floor(var/wet_val = 1)
-	if(wet_val < wet)
-		return
+/turf/simulated/proc/wet_floor(var/apply_type = WET_TYPE_WATER, var/amount = 1)
 
-	if(!wet)
-		wet = wet_val
+	//Wet type:
+	//WET_TYPE_WATER = water
+	//WET_TYPE_LUBE = lube
+	//WET_TYPE_ICE = ice
+
+	if(!wet_type)
+		wet_type = apply_type
+	else if(apply_type != wet_type)
+		if(apply_type == WET_TYPE_WATER && wet_type == WET_TYPE_LUBE)
+			wet_type = WET_TYPE_WATER
+		else if(apply_type == WET_TYPE_ICE && (wet_type == WET_TYPE_WATER || wet_type == WET_TYPE_LUBE))
+			wet_type = apply_type
+
+	if(wet_amount <= 0)
+		wet_amount = 0 //Just in case
+
+	if(!wet_overlay)
 		wet_overlay = image('icons/effects/water.dmi',src,"wet_floor")
 		add_overlay(wet_overlay, TRUE)
+
+	wet_amount += amount
 
 	unwet_timer = addtimer(CALLBACK(src, .proc/unwet_floor), 120 SECONDS, TIMER_UNIQUE | TIMER_OVERRIDE | TIMER_STOPPABLE)
 
 /turf/simulated/proc/unwet_floor()
-	--wet
-	if (wet < 1)
-		wet = 0
-		if(wet_overlay)
-			cut_overlay(wet_overlay, TRUE)
-			wet_overlay = null
-	else
-		unwet_timer = addtimer(CALLBACK(src, .proc/unwet_floor), 120 SECONDS, TIMER_UNIQUE | TIMER_STOPPABLE)
+	wet_amount = 0
+	wet_type = 0
+	if(wet_overlay)
+		cut_overlay(wet_overlay, TRUE)
+		wet_overlay = null
 
 /turf/simulated/clean_blood()
 	for(var/obj/effect/decal/cleanable/blood/B in contents)
@@ -70,11 +83,38 @@
 
 /turf/simulated/Entered(atom/A, atom/OL)
 	if(movement_disabled && usr.ckey != movement_disabled_exception)
-		usr << "<span class='danger'>Movement is admin-disabled.</span>" //This is to identify lag problems
+		to_chat(usr, "<span class='danger'>Movement is admin-disabled.</span>") //This is to identify lag problems)
 		return
+
+
 
 	if (istype(A,/mob/living))
 		var/mob/living/M = A
+
+		if(src.wet_type && src.wet_amount)
+
+			if(M.buckled || (src.wet_type == 1 && M.m_intent == "walk"))
+				return
+
+			//Water
+			var/slip_dist = 1
+			var/slip_stun = 6
+			var/floor_type = "wet"
+
+			switch(src.wet_type)
+				if(WET_TYPE_LUBE) // Lube
+					floor_type = "slippery"
+					slip_dist = 4
+					slip_stun = 10
+				if(WET_TYPE_ICE) // Ice
+					floor_type = "icy"
+					slip_stun = 4
+
+			if(M.slip("the [floor_type] floor",slip_stun) && slip_dist)
+				for (var/i in 1 to slip_dist)
+					sleep(1)
+					step(M, M.dir)
+
 		if(M.lying)
 			return ..()
 
@@ -104,40 +144,15 @@
 					bloodcolor = H.feet_blood_color
 					H.track_blood--
 
-			if (bloodDNA)
-				src.AddTracks(/obj/effect/decal/cleanable/blood/tracks/footprints,bloodDNA,H.dir,0,bloodcolor) // Coming
+			if(bloodDNA)
+				src.AddTracks(H.species.get_move_trail(H),bloodDNA,H.dir,0,bloodcolor) // Coming
 				var/turf/simulated/from = get_step(H,reverse_direction(H.dir))
 				if(istype(from) && from)
-					from.AddTracks(/obj/effect/decal/cleanable/blood/tracks/footprints,bloodDNA,0,H.dir,bloodcolor) // Going
+					from.AddTracks(H.species.get_move_trail(H),bloodDNA,0,H.dir,bloodcolor) // Going
 
 				bloodDNA = null
 
-		if(src.wet)
-
-			if(M.buckled || (src.wet == 1 && M.m_intent == "walk"))
-				return
-
-			var/slip_dist = 1
-			var/slip_stun = 6
-			var/floor_type = "wet"
-
-			switch(src.wet)
-				if(2) // Lube
-					floor_type = "slippery"
-					slip_dist = 4
-					slip_stun = 10
-				if(3) // Ice
-					floor_type = "icy"
-					slip_stun = 4
-
-			if(M.slip("the [floor_type] floor",slip_stun))
-				for(var/i = 0;i<slip_dist;i++)
-					step(M, M.dir)
-					sleep(1)
-			else
-				M.inertia_dir = 0
-		else
-			M.inertia_dir = 0
+		M.inertia_dir = 0
 
 	..()
 
@@ -167,11 +182,13 @@
 		new /obj/effect/decal/cleanable/blood/oil(src)
 
 /turf/simulated/Destroy()
-	//Yeah, we're just going to rebuild the whole thing.
-	//Despite this being called a bunch during explosions,
-	//the zone will only really do heavy lifting once.
 	if (zone)
-		zone.rebuild()
+		// Try to remove it gracefully first.
+		if (can_safely_remove_from_zone())
+			c_copy_air()
+			zone.remove(src)
+		else	// Can't remove it safely, just rebuild the entire thing.
+			zone.rebuild()
 
 	// Letting this timer continue to exist can cause runtimes, so we delete it.
 	if (unwet_timer)

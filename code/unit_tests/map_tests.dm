@@ -17,57 +17,36 @@ datum/unit_test/apc_area_test/start_test()
 	var/list/bad_areas = list()
 	var/area_test_count = 0
 
+	if (!current_map)
+		return
+
 	// This is formatted strangely because it fails the indentation test if it's formatted properly.
 	// ¯\_(ツ)_/¯
-	var/list/exempt_areas = typesof(/area/space
-		,/area/syndicate_station
-		,/area/skipjack_station
-		,/area/solar
-		,/area/shuttle
-		,/area/holodeck
-		,/area/supply/station
-		,/area/wizard_station
-		,/area/tdome
-		,/area/centcom
-		,/area/syndicate_mothership
-		,/area/beach
-		,/area/prison
-		,/area/supply/dock
-	)
+	var/list/exempt_areas = typecacheof(current_map.ut_environ_exempt_areas)
+	var/list/exempt_from_atmos = typecacheof(current_map.ut_atmos_exempt_areas)
+	var/list/exempt_from_apc = typecacheof(current_map.ut_apc_exempt_areas)
 
-	var/list/exempt_from_atmos = typesof(/area/maintenance
-		,/area/storage
-		,/area/engineering/atmos/storage
-		,/area/rnd/test_area
-		,/area/construction
-		,/area/server
-	)
-
-	var/list/exempt_from_apc = typesof(/area/construction
-		,/area/medical/genetics
-	)
-
-	for(var/area/A in world)
-		if(A.z in config.station_levels && !(A.type in exempt_areas))
+	for(var/area/A in typecache_filter_list_reverse(all_areas, exempt_areas))
+		if(A.z in current_map.station_levels)
 			area_test_count++
 			var/area_good = 1
 			var/bad_msg = "[ascii_red]--------------- [A.name]([A.type])"
 
 
-			if(isnull(A.apc) && !(A.type in exempt_from_apc))
+			if(!A.apc && !is_type_in_typecache(A, exempt_from_apc))
 				log_unit_test("[bad_msg] lacks an APC.[ascii_reset]")
 				area_good = 0
 
-			if(!A.air_scrub_info.len && !(A.type in exempt_from_atmos))
+			if(!A.air_scrub_info.len && !is_type_in_typecache(A, exempt_from_atmos))
 				log_unit_test("[bad_msg] lacks an Air scrubber.[ascii_reset]")
 				area_good = 0
 
-			if(!A.air_vent_info.len && !(A.type in exempt_from_atmos))
+			if(!A.air_vent_info.len && !is_type_in_typecache(A, exempt_from_atmos))
 				log_unit_test("[bad_msg] lacks an Air vent.[ascii_reset]")
 				area_good = 0
 
 			if(!area_good)
-				bad_areas.Add(A)
+				bad_areas += A
 
 	if(bad_areas.len)
 		fail("\[[bad_areas.len]/[area_test_count]\]Some areas lacked APCs, Air Scrubbers, or Air vents.")
@@ -91,7 +70,7 @@ datum/unit_test/wire_test/start_test()
 
 	for(C in world)
 		T = get_turf(C)
-		if(T && T.z in config.station_levels)
+		if(T && T.z in current_map.station_levels)
 			cable_turfs |= get_turf(C)
 
 	for(T in cable_turfs)
@@ -153,7 +132,7 @@ datum/unit_test/wire_test/start_test()
 	var/ladders_blocked = 0
 
 	for (var/obj/structure/ladder/ladder in world)
-		if (ladder.z in config.admin_levels)
+		if (ladder.z in current_map.admin_levels)
 			continue
 
 		ladders_total++
@@ -183,6 +162,106 @@ datum/unit_test/wire_test/start_test()
 
 #undef BLOCKED_UP
 #undef BLOCKED_DOWN
+
+/datum/unit_test/bad_doors
+	name = "MAP: Check for bad doors"
+
+/datum/unit_test/bad_doors/start_test()
+	var/checks = 0
+	var/failed_checks = 0
+	for(var/obj/machinery/door/airlock/A in world)
+		var/turf/T = get_turf(A)
+		checks++
+		if(istype(T, /turf/space) || istype(T, /turf/simulated/floor/asteroid) || isopenturf(T) || T.density)
+			failed_checks++
+			log_unit_test("Airlock [A] with bad turf at ([A.x],[A.y],[A.z]) in [T.loc].")
+	
+	if(failed_checks)
+		fail("\[[failed_checks] / [checks]\] Some doors had improper turfs below them.")
+	else
+		pass("All \[[checks]\] doors have proper turfs below them.")
+	
+	return 1
+
+/datum/unit_test/bad_firedoors
+	name = "MAP: Check for bad firedoors"
+
+/datum/unit_test/bad_firedoors/start_test()
+	var/checks = 0
+	var/failed_checks = 0
+	for(var/obj/machinery/door/firedoor/F in world)
+		var/turf/T = get_turf(F)
+		checks++
+		var/firelock_increment = 0
+		for(var/obj/machinery/door/firedoor/FD in T)
+			firelock_increment += 1
+		if(firelock_increment > 1)
+			failed_checks++
+			log_unit_test("Double firedoor [F] at ([F.x],[F.y],[F.z]) in [T.loc].")
+		else if(istype(T, /turf/space) || istype(T, /turf/simulated/floor/asteroid) || isopenturf(T) || T.density)
+			failed_checks++
+			log_unit_test("Firedoor with bad turf at ([F.x],[F.y],[F.z]) in [T.loc].")
+	
+	if(failed_checks)
+		fail("\[[failed_checks] / [checks]\] Some firedoors were doubled up or had bad turfs below them.")
+	else
+		pass("All \[[checks]\] firedoors have proper turfs below them and are not doubled up.")
+
+	return 1
+
+/datum/unit_test/bad_piping
+	name = "MAP: Check for bad piping"
+
+/datum/unit_test/bad_piping/start_test()
+	set background = 1
+	var/checks = 0
+	var/failed_checks = 0
+
+	//all plumbing - yes, some things might get stated twice, doesn't matter.
+	for (var/obj/machinery/atmospherics/plumbing in world)
+		if(!(plumbing.z in current_map.station_levels))
+			continue
+		checks++
+		if (plumbing.nodealert)
+			failed_checks++
+			log_unit_test("Unconnected [plumbing.name] located at [plumbing.x],[plumbing.y],[plumbing.z] ([get_area(plumbing.loc)])")
+
+	//Manifolds
+	for (var/obj/machinery/atmospherics/pipe/manifold/pipe in world)
+		if(!(pipe.z in current_map.station_levels))
+			continue
+		checks++
+		if (!pipe.node1 || !pipe.node2 || !pipe.node3)
+			failed_checks++
+			log_unit_test("Unconnected [pipe.name] located at [pipe.x],[pipe.y],[pipe.z] ([get_area(pipe.loc)])")
+
+	//Pipes
+	for (var/obj/machinery/atmospherics/pipe/simple/pipe in world)
+		if(!(pipe.z in current_map.station_levels))
+			continue
+		checks++
+		if (!pipe.node1 || !pipe.node2)
+			failed_checks++
+			log_unit_test("Unconnected [pipe.name] located at [pipe.x],[pipe.y],[pipe.z] ([get_area(pipe.loc)])")
+	
+	next_turf:
+		for(var/turf/T in turfs)
+			for(var/dir in cardinal)
+				var/list/connect_types = list(1 = 0, 2 = 0, 3 = 0)
+				for(var/obj/machinery/atmospherics/pipe in T)
+					checks++
+					if(dir & pipe.initialize_directions)
+						for(var/connect_type in pipe.connect_types)
+							connect_types[connect_type] += 1
+						if(connect_types[1] > 1 || connect_types[2] > 1 || connect_types[3] > 1)
+							log_unit_test("Overlapping pipe ([pipe.name]) located at [T.x],[T.y],[T.z] ([get_area(T)])")
+							continue next_turf
+	if(failed_checks)
+		fail("\[[failed_checks] / [checks]\] Some pipes are not properly connected or doubled up.")
+	else
+		pass("All \[[checks]\] pipes are properly connected and not doubled up.")
+
+	return 1
 
 #undef SUCCESS
 #undef FAILURE

@@ -13,14 +13,13 @@
 	if(!padding_material && istype(W, /obj/item/assembly/shock_kit))
 		var/obj/item/assembly/shock_kit/SK = W
 		if(!SK.status)
-			user << "<span class='notice'>\The [SK] is not ready to be attached!</span>"
+			to_chat(user, "<span class='notice'>\The [SK] is not ready to be attached!</span>")
 			return
-		user.drop_item()
 		var/obj/structure/bed/chair/e_chair/E = new (src.loc, material.name)
 		playsound(src.loc, 'sound/items/Deconstruct.ogg', 50, 1)
 		E.set_dir(dir)
 		E.part = SK
-		SK.loc = E
+		user.drop_from_inventory(SK,E)
 		SK.master = E
 		qdel(src)
 
@@ -66,7 +65,7 @@
 		add_overlay(stool_cache[cache_key])
 
 /obj/structure/bed/chair/set_dir()
-	..()
+	. = ..()
 	if(buckled_mob)
 		buckled_mob.set_dir(dir)
 
@@ -129,12 +128,12 @@
 	return
 
 /obj/structure/bed/chair/office/attackby(obj/item/weapon/W as obj, mob/user as mob)
-	if(istype(W,/obj/item/stack) || istype(W, /obj/item/weapon/wirecutters))
+	if(istype(W,/obj/item/stack) || W.iswirecutter())
 		return
 	..()
 
 /obj/structure/bed/chair/office/Move()
-	..()
+	. = ..()
 	if(buckled_mob)
 		var/mob/living/occupant = buckled_mob
 		occupant.buckled = null
@@ -144,13 +143,14 @@
 			if (propelled)
 				for (var/mob/O in src.loc)
 					if (O != occupant)
-						Bump(O)
+						Collide(O)
 			else
 				unbuckle_mob()
 
-/obj/structure/bed/chair/office/Bump(atom/A)
-	..()
-	if(!buckled_mob)	return
+/obj/structure/bed/chair/office/Collide(atom/A)
+	. = ..()
+	if(!buckled_mob)
+		return
 
 	if(propelled)
 		var/mob/living/occupant = unbuckle_mob()
@@ -201,7 +201,7 @@
 	return
 
 /obj/structure/bed/chair/wood/attackby(obj/item/weapon/W as obj, mob/user as mob)
-	if(istype(W,/obj/item/stack) || istype(W, /obj/item/weapon/wirecutters))
+	if(istype(W,/obj/item/stack) || W.iswirecutter())
 		return
 	..()
 

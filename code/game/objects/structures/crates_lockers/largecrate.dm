@@ -6,11 +6,11 @@
 	density = 1
 
 /obj/structure/largecrate/attack_hand(mob/user as mob)
-	user << "<span class='notice'>You need a crowbar to pry this open!</span>"
+	to_chat(user, "<span class='notice'>You need a crowbar to pry this open!</span>")
 	return
 
 /obj/structure/largecrate/attackby(obj/item/weapon/W as obj, mob/user as mob)
-	if(istype(W, /obj/item/weapon/crowbar))
+	if(W.iscrowbar())
 		new /obj/item/stack/material/wood(src)
 		var/turf/T = get_turf(src)
 		for(var/atom/movable/AM in contents)
@@ -34,7 +34,7 @@
 	icon_state = "mulecrate"
 
 /obj/structure/largecrate/hoverpod/attackby(obj/item/weapon/W as obj, mob/user as mob)
-	if(istype(W, /obj/item/weapon/crowbar))
+	if(W.iscrowbar())
 		var/obj/item/mecha_parts/mecha_equipment/ME
 		var/obj/mecha/working/hoverpod/H = new (loc)
 
@@ -77,13 +77,13 @@
 	name = "chicken crate"
 	held_count = 5
 	held_type = /mob/living/simple_animal/chick
-	
+
 /obj/structure/largecrate/animal/dog
 	name = "dog carrier"
 	held_type = /mob/living/simple_animal/hostile/commanded/dog
-	
+
 /obj/structure/largecrate/animal/dog/amaskan
 	held_type = /mob/living/simple_animal/hostile/commanded/dog/amaskan
-	
+
 /obj/structure/largecrate/animal/dog/pug
 	held_type = /mob/living/simple_animal/hostile/commanded/dog/pug

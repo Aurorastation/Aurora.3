@@ -1,5 +1,5 @@
-/var/datum/announcement/priority/priority_announcement = new(do_log = 0)
-/var/datum/announcement/priority/command/command_announcement = new(do_log = 0, do_newscast = 1)
+/var/datum/announcement/priority/priority_announcement
+/var/datum/announcement/priority/command/command_announcement
 
 /datum/announcement
 	var/title = "Attention"
@@ -7,30 +7,32 @@
 	var/log = 0
 	var/sound
 	var/newscast = 0
+	var/print = 0
 	var/channel_name = "Station Announcements"
 	var/announcement_type = "Announcement"
 
-/datum/announcement/New(var/do_log = 0, var/new_sound = null, var/do_newscast = 0)
+/datum/announcement/New(var/do_log = 0, var/new_sound = null, var/do_newscast = 0, var/do_print = 0)
 	sound = new_sound
 	log = do_log
 	newscast = do_newscast
+	print = do_print
 
-/datum/announcement/priority/New(var/do_log = 1, var/new_sound = 'sound/misc/notice2.ogg', var/do_newscast = 0)
-	..(do_log, new_sound, do_newscast)
+/datum/announcement/priority/New(var/do_log = 1, var/new_sound = 'sound/misc/notice2.ogg', var/do_newscast = 0, var/do_print = 0)
+	..(do_log, new_sound, do_newscast, do_print)
 	title = "Priority Announcement"
 	announcement_type = "Priority Announcement"
 
-/datum/announcement/priority/command/New(var/do_log = 1, var/new_sound = 'sound/misc/notice2.ogg', var/do_newscast = 0)
-	..(do_log, new_sound, do_newscast)
-	title = "[command_name()] Update"
-	announcement_type = "[command_name()] Update"
+/datum/announcement/priority/command/New(var/do_log = 1, var/new_sound = 'sound/misc/notice2.ogg', var/do_newscast = 0, var/do_print = 0)
+	..(do_log, new_sound, do_newscast, do_print)
+	title = "[current_map.boss_name] Update"
+	announcement_type = "[current_map.boss_name] Update"
 
-/datum/announcement/priority/security/New(var/do_log = 1, var/new_sound = 'sound/misc/notice2.ogg', var/do_newscast = 0)
-	..(do_log, new_sound, do_newscast)
+/datum/announcement/priority/security/New(var/do_log = 1, var/new_sound = 'sound/misc/notice2.ogg', var/do_newscast = 0, var/do_print = 0)
+	..(do_log, new_sound, do_newscast, do_print)
 	title = "Security Announcement"
 	announcement_type = "Security Announcement"
 
-/datum/announcement/proc/Announce(var/message as text, var/new_title = "", var/new_sound = null, var/do_newscast = newscast, var/msg_sanitized = 0)
+/datum/announcement/proc/Announce(var/message as text, var/new_title = "", var/new_sound = null, var/do_newscast = newscast, var/msg_sanitized = 0, var/do_print = 0)
 	if(!message)
 		return
 	var/message_title = new_title ? new_title : title
@@ -43,42 +45,44 @@
 	Message(message, message_title)
 	if(do_newscast)
 		NewsCast(message, message_title)
+	if(do_print)
+		post_comm_message(message_title, message)
 	Sound(message_sound)
 	Log(message, message_title)
 
 datum/announcement/proc/Message(message as text, message_title as text)
 	for(var/mob/M in player_list)
-		if(!istype(M,/mob/new_player) && !isdeaf(M))
-			M << "<h2 class='alert'>[title]</h2>"
-			M << "<span class='alert'>[message]</span>"
+		if(!istype(M,/mob/abstract/new_player) && !isdeaf(M))
+			to_chat(M, "<h2 class='alert'>[title]</h2>")
+			to_chat(M, "<span class='alert'>[message]</span>")
 			if (announcer)
-				M << "<span class='alert'> -[html_encode(announcer)]</span>"
+				to_chat(M, "<span class='alert'> -[html_encode(announcer)]</span>")
 
 datum/announcement/minor/Message(message as text, message_title as text)
-	world << "<b>[message]</b>"
+	to_world("<b>[message]</b>")
 
 datum/announcement/priority/Message(message as text, message_title as text)
-	world << "<h1 class='alert'>[message_title]</h1>"
-	world << "<span class='alert'>[message]</span>"
+	to_world("<h1 class='alert'>[message_title]</h1>")
+	to_world("<span class='alert'>[message]</span>")
 	if(announcer)
-		world << "<span class='alert'> -[html_encode(announcer)]</span>"
-	world << "<br>"
+		to_world("<span class='alert'> -[html_encode(announcer)]</span>")
+	to_world("<br>")
 
 datum/announcement/priority/command/Message(message as text, message_title as text)
 	var/command
-	command += "<h1 class='alert'>[command_name()] Update</h1>"
+	command += "<h1 class='alert'>[current_map.boss_name] Update</h1>"
 	if (message_title)
 		command += "<br><h2 class='alert'>[message_title]</h2>"
 
 	command += "<br><span class='alert'>[message]</span><br>"
 	command += "<br>"
 	for(var/mob/M in player_list)
-		if(!istype(M,/mob/new_player) && !isdeaf(M))
-			M << command
+		if(!istype(M,/mob/abstract/new_player) && !isdeaf(M))
+			to_chat(M, command)
 
 datum/announcement/priority/security/Message(message as text, message_title as text)
-	world << "<font size=4 color='red'>[message_title]</font>"
-	world << "<font color='red'>[message]</font>"
+	to_world("<font size=4 color='red'>[message_title]</font>")
+	to_world("<font color='red'>[message]</font>")
 
 datum/announcement/proc/NewsCast(message as text, message_title as text)
 	if(!newscast)
@@ -96,15 +100,15 @@ datum/announcement/proc/PlaySound(var/message_sound)
 	if(!message_sound)
 		return
 	for(var/mob/M in player_list)
-		if(!istype(M,/mob/new_player) && !isdeaf(M))
-			M << message_sound
+		if(!istype(M,/mob/abstract/new_player) && !isdeaf(M) && (M.client.prefs.asfx_togs & ASFX_VOX))
+			to_chat(M, message_sound)
 
 datum/announcement/proc/Sound(var/message_sound)
 	PlaySound(message_sound)
 
 datum/announcement/priority/Sound(var/message_sound)
 	if(message_sound)
-		world << message_sound
+		to_world(message_sound)
 
 datum/announcement/priority/command/Sound(var/message_sound)
 	PlaySound(message_sound)
@@ -115,6 +119,8 @@ datum/announcement/proc/Log(message as text, message_title as text)
 		message_admins("[key_name_admin(usr)] has made \a [announcement_type].", 1)
 
 /proc/GetNameAndAssignmentFromId(var/obj/item/weapon/card/id/I)
+	if(!I)
+		return "Unknown"
 	// Format currently matches that of newscaster feeds: Registered Name (Assigned Rank)
 	return I.assignment ? "[I.registered_name] ([I.assignment])" : I.registered_name
 

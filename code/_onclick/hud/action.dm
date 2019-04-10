@@ -2,6 +2,7 @@
 #define AB_SPELL 2
 #define AB_INNATE 3
 #define AB_GENERIC 4
+#define AB_ITEM_USE_ICON 5
 
 #define AB_CHECK_RESTRAINED 1
 #define AB_CHECK_STUNNED 2
@@ -19,7 +20,7 @@
 	var/processing = 0
 	var/active = 0
 	var/obj/screen/movable/action_button/button = null
-	var/button_icon = 'icons/mob/actions.dmi'
+	var/button_icon = 'icons/obj/action_buttons/actions.dmi'
 	var/button_icon_state = "default"
 	var/background_icon_state = "bg_default"
 	var/mob/living/owner
@@ -31,6 +32,9 @@
 	if(owner)
 		Remove(owner)
 	return ..()
+
+/datum/action/proc/SetTarget(var/atom/Target)
+	target = Target
 
 /datum/action/proc/Grant(mob/living/T)
 	if(owner)
@@ -57,7 +61,7 @@
 	if(!Checks())
 		return
 	switch(action_type)
-		if(AB_ITEM)
+		if(AB_ITEM, AB_ITEM_USE_ICON)
 			if(target)
 				var/obj/item/item = target
 				item.ui_action_click()
@@ -133,7 +137,7 @@
 	icon = owner.button_icon
 	icon_state = owner.background_icon_state
 
-	overlays.Cut()
+	cut_overlays()
 	var/image/img
 	if(owner.action_type == AB_ITEM && owner.target)
 		var/obj/item/I = owner.target
@@ -142,7 +146,7 @@
 		img = image(owner.button_icon,src,owner.button_icon_state)
 	img.pixel_x = 0
 	img.pixel_y = 0
-	overlays += img
+	add_overlay(img)
 
 	if(!owner.IsAvailable())
 		color = rgb(128,0,0,128)
@@ -152,7 +156,7 @@
 //Hide/Show Action Buttons ... Button
 /obj/screen/movable/action_button/hide_toggle
 	name = "Hide Buttons"
-	icon = 'icons/mob/actions.dmi'
+	icon = 'icons/obj/action_buttons/actions.dmi'
 	icon_state = "bg_default"
 	var/hidden = 0
 
@@ -177,10 +181,8 @@
 	return
 
 /obj/screen/movable/action_button/hide_toggle/UpdateIcon()
-	overlays.Cut()
-	var/image/img = image(icon,src,hidden?"show":"hide")
-	overlays += img
-	return
+	cut_overlays()
+	add_overlay(hidden ? "show" : "hide")
 
 //This is the proc used to update all the action buttons. Properly defined in /mob/living/
 /mob/proc/update_action_buttons()
@@ -218,6 +220,16 @@
 
 /datum/action/item_action/hands_free
 	check_flags = AB_CHECK_ALIVE|AB_CHECK_INSIDE
+
+/datum/action/item_action/organ
+	action_type = AB_ITEM_USE_ICON
+	button_icon = 'icons/obj/action_buttons/organs.dmi'
+
+/datum/action/item_action/organ/SetTarget(var/atom/Target)
+	. = ..()
+	var/obj/item/organ/O = target
+	if(istype(O))
+		O.refresh_action_button()
 
 #undef AB_WEST_OFFSET
 #undef AB_NORTH_OFFSET

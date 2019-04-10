@@ -1,13 +1,11 @@
 //#define TESTING
-#if DM_VERSION < 511
-#error Your version of BYOND is too old to compile the code. At least BYOND 511 is required.
+#if DM_VERSION < 512
+#error Your version of BYOND is too old to compile the code. At least BYOND 512 is required.
 #endif
 
 
 // Items that ask to be called every cycle.
 var/global/datum/datacore/data_core = null
-var/global/list/all_areas                = list()
-var/global/list/processing_objects       = list()
 var/global/list/processing_power_items   = list()
 var/global/list/med_hud_users            = list() // List of all entities using a medical HUD.
 var/global/list/sec_hud_users            = list() // List of all entities using a security HUD.
@@ -26,18 +24,10 @@ var/global/list/global_map = null
 // Noises made when hit while typing.
 var/list/hit_appends = list("-OOF", "-ACK", "-UGH", "-HRNK", "-HURGH", "-GLORF")
 
-
 var/diary               = null
 var/diary_runtime  = null
 var/diary_date_string = null
 var/href_logfile        = null
-var/station_name        = "NSS Aurora"
-var/station_short       = "Aurora"
-var/const/dock_name     = "NTCC Odin"
-var/const/boss_name     = "Central Command"
-var/const/boss_short    = "Centcom"
-var/const/company_name  = "NanoTrasen"
-var/const/company_short = "NT"
 var/game_version        = "Aurorastation"
 var/changelog_hash      = ""
 var/game_year           = (text2num(time2text(world.realtime, "YYYY")) + 442)
@@ -60,15 +50,17 @@ var/list/wizardstart     = list()
 var/turf/newplayer_start = null
 
 //Spawnpoints.
-var/list/latejoin         = list()
-var/list/latejoin_gateway = list()
-var/list/latejoin_cryo    = list()
-var/list/latejoin_cyborg  = list()
+var/list/latejoin          = list()
+var/list/latejoin_gateway  = list()
+var/list/latejoin_cryo     = list()
+var/list/latejoin_cyborg   = list()
+var/list/latejoin_merchant = list()
 var/list/kickoffsloc = list()
 
 var/list/prisonwarp         = list() // Prisoners go to these
 var/list/holdingfacility    = list() // Captured people go here
 var/list/xeno_spawn         = list() // Aliens spawn at at these.
+var/list/asteroid_spawn     = list() // Asteroid "Dungeons" spawn at these.
 var/list/tdome1             = list()
 var/list/tdome2             = list()
 var/list/tdomeobserve       = list()
@@ -78,7 +70,7 @@ var/list/prisonwarped       = list() // List of players already warped.
 var/list/ninjastart         = list()
 
 var/list/cardinal    = list(NORTH, SOUTH, EAST, WEST)
-var/list/cornerdirs  = list(NORTHEAST, NORTHWEST, SOUTHEAST, SOUTHWEST)
+var/list/cornerdirs  = list(NORTHWEST, SOUTHEAST, NORTHEAST, SOUTHWEST)
 var/list/alldirs     = list(NORTH, SOUTH, EAST, WEST, NORTHEAST, NORTHWEST, SOUTHEAST, SOUTHWEST)
 var/list/reverse_dir = list( // reverse_dir[dir] = reverse of dir
 	 2,  1,  3,  8, 10,  9, 11,  4,  6,  5,  7, 12, 14, 13, 15, 32, 34, 33, 35, 40, 42,
@@ -123,7 +115,7 @@ var/list/robot_module_types = list(
 	"Construction",
 	"Medical",
 	"Rescue",
-	"Miner",
+	"Mining",
 	"Custodial",
 	"Service",
 	"Clerical",
@@ -159,11 +151,6 @@ var/max_explosion_range = 14
 var/global/obj/item/device/radio/intercom/global_announcer = new(null)
 
 var/list/station_departments = list("Command", "Medical", "Engineering", "Science", "Security", "Cargo", "Civilian")
-
-var/global/const/TICKS_IN_DAY = 864000
-var/global/const/TICKS_IN_HOUR = 36000
-var/global/const/TICKS_IN_SECOND = 10
-
 
 //List of exosuit tracking beacons, to save performance
 var/global/list/exo_beacons = list()

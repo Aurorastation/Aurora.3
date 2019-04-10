@@ -9,13 +9,13 @@ mob/proc/airflow_stun()
 	if(last_airflow_stun > world.time - vsc.airflow_stun_cooldown)	return 0
 
 	if(!(status_flags & CANSTUN) && !(status_flags & CANWEAKEN))
-		src << "<span class='notice'>You stay upright as the air rushes past you.</span>"
+		to_chat(src, "<span class='notice'>You stay upright as the air rushes past you.</span>")
 		return 0
 	if(buckled)
-		src << "<span class='notice'>Air suddenly rushes past you!</span>"
+		to_chat(src, "<span class='notice'>Air suddenly rushes past you!</span>")
 		return 0
 	if(!lying)
-		src << "<span class='warning'>The sudden rush of air knocks you over!</span>"
+		to_chat(src, "<span class='warning'>The sudden rush of air knocks you over!</span>")
 	Weaken(5)
 	last_airflow_stun = world.time
 
@@ -43,7 +43,7 @@ mob/check_airflow_movable(n)
 		return 0
 	return 1
 
-mob/dead/observer/check_airflow_movable()
+mob/abstract/observer/check_airflow_movable()
 	return 0
 
 mob/living/silicon/check_airflow_movable()
@@ -85,14 +85,6 @@ obj/item/check_airflow_movable(n)
 	have been moved to SSairflow.
 
 */
-
-/atom/movable/Bump(atom/A)
-	if(airflow_speed > 0 && airflow_dest)
-		airflow_hit(A)
-	else
-		airflow_speed = 0
-		airflow_time = 0
-		. = ..()
 
 atom/movable/proc/airflow_hit(atom/A)
 	airflow_speed = 0
@@ -141,13 +133,21 @@ mob/living/carbon/human/airflow_hit(atom/A)
 		Stun(round(airflow_speed * vsc.airflow_stun/2))
 	. = ..()
 
-zone/proc/movables()
+zone/proc/movables(list/origins)
 	. = list()
-	for(var/turf/T in contents)
-		CHECK_TICK
+	if (!origins || !origins.len)
+		return
 
-		for(var/aa in T)
-			var/atom/movable/A = aa
-			if(!A.simulated || A.anchored || istype(A, /obj/effect) || istype(A, /mob/eye))
-				continue
-			. += A
+	var/static/list/movables_tcache = typecacheof(list(/obj/effect, /mob/abstract))
+
+	var/atom/movable/AM
+	for (var/testing_turf in contents)
+		for (var/am in testing_turf)
+			AM = am
+			if (AM.simulated && !AM.anchored && !movables_tcache[AM.type])
+				for (var/source_turf in origins)
+					if (get_dist(testing_turf, source_turf) <= EDGE_KNOCKDOWN_MAX_DISTANCE)
+						.[AM] = TRUE
+						break
+
+					CHECK_TICK

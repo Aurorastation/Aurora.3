@@ -3,6 +3,11 @@
 	..(user, infix = custom_infix)
 
 	var/msg = ""
+
+	msg += "\n"
+	msg += describe_all_modules() // describe modules
+	msg += "\n"
+
 	msg += "<span class='warning'>"
 	if (src.getBruteLoss())
 		if (src.getBruteLoss() < 75)
@@ -38,6 +43,6 @@
 			pose = addtext(pose,".") //Makes sure all emotes end with a period.
 		msg += "\nIt [pose]"
 
-	user << msg
+	to_chat(user, msg)
 	user.showLaws(src)
 	return

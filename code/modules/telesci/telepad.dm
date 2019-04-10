@@ -10,16 +10,13 @@
 	active_power_usage = 5000
 	var/efficiency
 
-/obj/machinery/telepad/Initialize()
-	. = ..()
-	component_parts = list()
-	component_parts += new /obj/item/weapon/circuitboard/telesci_pad(null)
-	component_parts += new /obj/item/bluespace_crystal/artificial(null)
-	component_parts += new /obj/item/bluespace_crystal/artificial(null)
-	component_parts += new /obj/item/weapon/stock_parts/capacitor(null)
-	component_parts += new /obj/item/weapon/stock_parts/console_screen(null)
-	component_parts += new /obj/item/stack/cable_coil(null, 1)
-	RefreshParts()
+	component_types = list(
+		/obj/item/weapon/circuitboard/telesci_pad,
+		/obj/item/bluespace_crystal/artificial = 2,
+		/obj/item/weapon/stock_parts/capacitor,
+		/obj/item/weapon/stock_parts/console_screen,
+		/obj/item/stack/cable_coil{amount = 1}
+	)
 
 /obj/machinery/telepad/RefreshParts()
 	var/E
@@ -32,13 +29,13 @@
 		return
 
 	if(panel_open)
-		if(istype(I, /obj/item/device/multitool))
+		if(I.ismultitool())
 			var/obj/item/device/multitool/M = I
 			M.buffer = src
-			user << "<span class='caution'>You save the data in the [I.name]'s buffer.</span>"
+			to_chat(user, "<span class='caution'>You save the data in the [I.name]'s buffer.</span>")
 	else
-		if(istype(I, /obj/item/device/multitool))
-			user << "<span class='caution'>You should open [src]'s maintenance panel first.</span>"
+		if(I.ismultitool())
+			to_chat(user, "<span class='caution'>You should open [src]'s maintenance panel first.</span>")
 
 	default_deconstruction_crowbar(user, I)
 
@@ -62,27 +59,27 @@
 	var/stage = 0
 
 /obj/machinery/telepad_cargo/attackby(obj/item/weapon/W, mob/user, params)
-	if(istype(W, /obj/item/weapon/wrench))
+	if(W.iswrench())
 		anchored = 0
 		playsound(src, 'sound/items/Ratchet.ogg', 50, 1)
 		if(anchored)
 			anchored = 0
-			user << "<span class='caution'>\The [src] can now be moved.</span>"
+			to_chat(user, "<span class='caution'>\The [src] can now be moved.</span>")
 		else if(!anchored)
 			anchored = 1
-			user << "<span class='caution'>\The [src] is now secured.</span>"
-	if(istype(W, /obj/item/weapon/screwdriver))
+			to_chat(user, "<span class='caution'>\The [src] is now secured.</span>")
+	if(W.isscrewdriver())
 		if(stage == 0)
 			playsound(src, 'sound/items/Screwdriver.ogg', 50, 1)
-			user << "<span class='caution'>You unscrew the telepad's tracking beacon.</span>"
+			to_chat(user, "<span class='caution'>You unscrew the telepad's tracking beacon.</span>")
 			stage = 1
 		else if(stage == 1)
 			playsound(src, 'sound/items/Screwdriver.ogg', 50, 1)
-			user << "<span class='caution'>You screw in the telepad's tracking beacon.</span>"
+			to_chat(user, "<span class='caution'>You screw in the telepad's tracking beacon.</span>")
 			stage = 0
-	if(istype(W, /obj/item/weapon/weldingtool) && stage == 1)
+	if(W.iswelder() && stage == 1)
 		playsound(src, 'sound/items/Welder.ogg', 50, 1)
-		user << "<span class='caution'>You disassemble the telepad.</span>"
+		to_chat(user, "<span class='caution'>You disassemble the telepad.</span>")
 		new /obj/item/stack/material/steel(get_turf(src))
 		new /obj/item/stack/material/glass(get_turf(src))
 		qdel(src)
@@ -98,7 +95,7 @@
 
 /obj/item/device/telepad_beacon/attack_self(mob/user)
 	if(user)
-		user << "<span class='caution'>Locked In</span>"
+		to_chat(user, "<span class='caution'>Locked In</span>")
 		new /obj/machinery/telepad_cargo(user.loc)
 		playsound(src, 'sound/effects/pop.ogg', 100, 1, 1)
 		qdel(src)
@@ -126,7 +123,7 @@
 
 /obj/item/weapon/rcs/examine(mob/user)
 	..()
-	user << "There are [rcharges] charge\s left."
+	to_chat(user, "There are [rcharges] charge\s left.")
 
 /obj/item/weapon/rcs/process()
 	if(rcharges > 10)
@@ -142,14 +139,14 @@
 		if(mode == 0)
 			mode = 1
 			playsound(src.loc, 'sound/effects/pop.ogg', 50, 0)
-			user << "<span class='caution'>The telepad locator has become uncalibrated.</span>"
+			to_chat(user, "<span class='caution'>The telepad locator has become uncalibrated.</span>")
 		else
 			mode = 0
 			playsound(src.loc, 'sound/effects/pop.ogg', 50, 0)
-			user << "<span class='caution'>You calibrate the telepad locator.</span>"
+			to_chat(user, "<span class='caution'>You calibrate the telepad locator.</span>")
 
 /obj/item/weapon/rcs/attackby(var/obj/item/O, var/mob/user)
 	if (istype(O, /obj/item/weapon/card/emag) && !emagged)
 		emagged = 1
 		spark(src, 5, alldirs)
-		user << "<span class='caution'>You emag the RCS. Click on it to toggle between modes.</span>"
+		to_chat(user, "<span class='caution'>You emag the RCS. Click on it to toggle between modes.</span>")

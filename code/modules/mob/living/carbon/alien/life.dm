@@ -29,7 +29,7 @@
 
 	var/rads = total_radiation/25
 	apply_radiation(rads*-1)
-	nutrition += rads
+	adjustNutritionLoss(-rads)
 	heal_overall_damage(rads,rads)
 	adjustOxyLoss(-(rads))
 	adjustToxLoss(-(rads))
@@ -99,7 +99,7 @@
 		see_in_dark = 8
 		see_invisible = SEE_INVISIBLE_LEVEL_TWO
 	else if (stat != 2 && is_ventcrawling == 0)
-		if (species.vision_flags)
+		if (species && species.vision_flags)
 			sight = species.vision_flags
 		else
 			sight &= ~(SEE_TURFS|SEE_MOBS|SEE_OBJS)
@@ -159,7 +159,7 @@
 		adjustFireLoss((environment.temperature - (T0C+66))/5) // Might be too high, check in testing.
 		if (fire) fire.icon_state = "fire2"
 		if(prob(20))
-			src << "<span class='danger'>You feel a searing heat!</span>"
+			to_chat(src, "<span class='danger'>You feel a searing heat!</span>")
 	else
 		if (fire) fire.icon_state = "fire0"
 

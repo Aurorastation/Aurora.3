@@ -553,6 +553,11 @@ proc/BlendHSV(hsv1, hsv2, amount)
 	amount<0 or amount>1 are allowed
  */
 proc/BlendRGB(rgb1, rgb2, amount)
+	var/cachekey = "[rgb1]_[rgb2]_[amount]"
+	. = SSicon_cache.rgb_blend_cache[cachekey]
+	if (.)
+		return
+
 	var/list/RGB1 = ReadRGB(rgb1)
 	var/list/RGB2 = ReadRGB(rgb2)
 
@@ -566,7 +571,8 @@ proc/BlendRGB(rgb1, rgb2, amount)
 	var/b = round(RGB1[3] + (RGB2[3] - RGB1[3]) * amount, 1)
 	var/alpha = usealpha ? round(RGB1[4] + (RGB2[4] - RGB1[4]) * amount, 1) : null
 
-	return isnull(alpha) ? rgb(r, g, b) : rgb(r, g, b, alpha)
+	. = isnull(alpha) ? rgb(r, g, b) : rgb(r, g, b, alpha)
+	SSicon_cache.rgb_blend_cache[cachekey] = .
 
 proc/BlendRGBasHSV(rgb1, rgb2, amount)
 	return HSVtoRGB(RGBtoHSV(rgb1), RGBtoHSV(rgb2), amount)
@@ -743,8 +749,36 @@ as a single icon. Useful for when you want to manipulate an icon via the above a
 		if(I == copy) // 'I' is an /image based on the object being flattened.
 			curblend = BLEND_OVERLAY
 			add = icon(I:icon, I:icon_state, I:dir)
+			// This checks for a silent failure mode of the icon routine. If the requested dir
+			// doesn't exist in this icon state it returns a 32x32 icon with 0 alpha.
+			if (I:dir != SOUTH && add.Width() == 32 && add.Height() == 32)
+				// Check every pixel for blank (computationally expensive, but the process is limited
+				// by the amount of film on the station, only happens when we hit something that's
+				// turned, and bails at the very first pixel it sees.
+				var/blankpixel;
+				for(var/y;y<=32;y++)
+					for(var/x;x<32;x++)
+						blankpixel = isnull(add.GetPixel(x,y))
+						if(!blankpixel)
+							break
+					if(!blankpixel)
+						break
+				// If we ALWAYS returned a null (which happens when GetPixel encounters something with alpha 0)
+				if (blankpixel)
+					// Pull the default direction.
+					add = icon(I:icon, I:icon_state)
 		else // 'I' is an appearance object.
-			add = getFlatIcon(new/image(I), curdir, curicon, curstate, curblend, TRUE)
+			if (istype(A,/atom))
+				var/atom/At = A
+				if (At.gfi_layer_rotation == GFI_ROTATION_DEFDIR)
+					add = getFlatIcon(new/image(I), curdir, curicon, curstate, curblend, TRUE)
+				else if (At.gfi_layer_rotation == GFI_ROTATION_OVERDIR)
+					var/image/Im = I
+					add = getFlatIcon(new/image(I), Im.dir, curicon, curstate, curblend, TRUE)
+				else
+					add = getFlatIcon(new/image(I), curdir, curicon, curstate, curblend, always_use_defdir)
+			else
+				add = getFlatIcon(new/image(I), curdir, curicon, curstate, curblend, always_use_defdir)
 
 		// Find the new dimensions of the flat icon to fit the added overlay
 		addX1 = min(flatX1, I:pixel_x+1)
@@ -758,8 +792,15 @@ as a single icon. Useful for when you want to manipulate an icon via the above a
 			flatX1=addX1;flatX2=addX2
 			flatY1=addY1;flatY2=addY2
 
+		var/iconmode
+		if(I in A.overlays)
+			iconmode = ICON_OVERLAY
+		else if(I in A.underlays)
+			iconmode = ICON_UNDERLAY
+		else
+			iconmode = blendMode2iconMode(curblend)
 		// Blend the overlay into the flattened icon
-		flat.Blend(add, blendMode2iconMode(curblend), I:pixel_x + 2 - flatX1, I:pixel_y + 2 - flatY1)
+		flat.Blend(add, iconmode, I:pixel_x + 2 - flatX1, I:pixel_y + 2 - flatY1)
 
 	if(A.color)
 		flat.Blend(A.color, ICON_MULTIPLY)
@@ -862,8 +903,8 @@ proc/generate_image(var/tx as num, var/ty as num, var/tz as num, var/range as nu
 				if(!suppress_errors)
 					return
 
-	return generate_image_from_turfs(turfstocapture, range, cap_mode, user, lighting)
-	
+	return generate_image_from_turfs(locate(tx, ty, tz), turfstocapture, range, cap_mode, user, lighting)
+
 /proc/generate_image_from_turfs(turf/topleft, list/turf/turfstocapture, range as num, cap_mode = CAPTURE_MODE_PARTIAL, mob/living/user, lighting = TRUE)
 	var/tx = topleft.x
 	var/ty = topleft.y
@@ -875,7 +916,7 @@ proc/generate_image(var/tx as num, var/ty as num, var/tz as num, var/range as nu
 			if(istype(A, /atom/movable/lighting_overlay)) //Special case for lighting
 				continue
 
-			if(A.invisibility) 
+			if(A.invisibility)
 				continue
 
 			atoms += A

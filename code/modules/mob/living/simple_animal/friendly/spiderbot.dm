@@ -54,45 +54,44 @@
 	if(istype(O, /obj/item/device/mmi))
 		var/obj/item/device/mmi/B = O
 		if(src.mmi)
-			user << "<span class='warning'>There's already a brain in [src]!</span>"
+			to_chat(user, "<span class='warning'>There's already a brain in [src]!</span>")
 			return
 		if(!B.brainmob)
-			user << "<span class='warning'>Sticking an empty MMI into the frame would sort of defeat the purpose.</span>"
+			to_chat(user, "<span class='warning'>Sticking an empty MMI into the frame would sort of defeat the purpose.</span>")
 			return
 		if(!B.brainmob.key)
 			var/ghost_can_reenter = 0
 			if(B.brainmob.mind)
-				for(var/mob/dead/observer/G in player_list)
+				for(var/mob/abstract/observer/G in player_list)
 					if(G.can_reenter_corpse && G.mind == B.brainmob.mind)
 						ghost_can_reenter = 1
 						break
 			if(!ghost_can_reenter)
-				user << "<span class='notice'>[O] is completely unresponsive; there's no point.</span>"
+				to_chat(user, "<span class='notice'>[O] is completely unresponsive; there's no point.</span>")
 				return
 
 		if(B.brainmob.stat == DEAD)
-			user << "<span class='warning'>[O] is dead. Sticking it into the frame would sort of defeat the purpose.</span>"
+			to_chat(user, "<span class='warning'>[O] is dead. Sticking it into the frame would sort of defeat the purpose.</span>")
 			return
 
 		if(jobban_isbanned(B.brainmob, "Cyborg"))
-			user << "<span class='warning'>\The [O] does not seem to fit.</span>"
+			to_chat(user, "<span class='warning'>\The [O] does not seem to fit.</span>")
 			return
 
-		user << "<span class='notice'>You install \the [O] in \the [src]!</span>"
+		to_chat(user, "<span class='notice'>You install \the [O] in \the [src]!</span>")
 
 		if(istype(O, /obj/item/device/mmi/digital))
 			positronic = 1
 			add_language("Robot Talk")
 
-		user.drop_item()
 		src.mmi = O
 		src.transfer_personality(O)
 
-		O.loc = src
+		user.drop_from_inventory(O,src)
 		src.update_icon()
 		return 1
 
-	if (istype(O, /obj/item/weapon/weldingtool))
+	if (O.iswelder())
 		var/obj/item/weapon/weldingtool/WT = O
 		if (WT.remove_fuel(0))
 			if(health < maxHealth)
@@ -102,13 +101,13 @@
 				add_fingerprint(user)
 				src.visible_message("<span class='notice'>\The [user] has spot-welded some of the damage to \the [src]!</span>")
 			else
-				user << "<span class='warning'>\The [src] is undamaged!</span>"
+				to_chat(user, "<span class='warning'>\The [src] is undamaged!</span>")
 		else
-			user << "<span class='danger'>You need more welding fuel for this task!</span>"
+			to_chat(user, "<span class='danger'>You need more welding fuel for this task!</span>")
 			return
 	else if(istype(O, /obj/item/weapon/card/id)||istype(O, /obj/item/device/pda))
 		if (!mmi)
-			user << "<span class='danger'>There's no reason to swipe your ID - \the [src] has no brain to remove.</span>"
+			to_chat(user, "<span class='danger'>There's no reason to swipe your ID - \the [src] has no brain to remove.</span>")
 			return 0
 
 		var/obj/item/weapon/card/id/id_card
@@ -120,14 +119,14 @@
 			id_card = pda.id
 
 		if(access_robotics in id_card.access)
-			user << "<span class='notice'>You swipe your access card and pop the brain out of \the [src].</span>"
+			to_chat(user, "<span class='notice'>You swipe your access card and pop the brain out of \the [src].</span>")
 			eject_brain()
 			if(held_item)
-				held_item.loc = src.loc
+				held_item.forceMove(src.loc)
 				held_item = null
 			return 1
 		else
-			user << "<span class='danger'>You swipe your card with no effect.</span>"
+			to_chat(user, "<span class='danger'>You swipe your card with no effect.</span>")
 			return 0
 
 	else
@@ -135,12 +134,12 @@
 
 /mob/living/simple_animal/spiderbot/emag_act(var/remaining_charges, var/mob/user)
 	if (emagged)
-		user << "<span class='warning'>[src] is already overloaded - better run.</span>"
+		to_chat(user, "<span class='warning'>[src] is already overloaded - better run.</span>")
 		return 0
 	else
-		user << "<span class='notice'>You short out the security protocols and overload [src]'s cell, priming it to explode in a short time.</span>"
-		spawn(100)	src << "<span class='danger'>Your cell seems to be outputting a lot of power...</span>"
-		spawn(200)	src << "<span class='danger'>Internal heat sensors are spiking! Something is badly wrong with your cell!</span>"
+		to_chat(user, "<span class='notice'>You short out the security protocols and overload [src]'s cell, priming it to explode in a short time.</span>")
+		spawn(100)	to_chat(src, "<span class='danger'>Your cell seems to be outputting a lot of power...</span>")
+		spawn(200)	to_chat(src, "<span class='danger'>Internal heat sensors are spiking! Something is badly wrong with your cell!</span>")
 		spawn(300)	src.explode()
 
 /mob/living/simple_animal/spiderbot/proc/transfer_personality(var/obj/item/device/mmi/M as obj)
@@ -172,7 +171,7 @@
 	if(mmi)
 		var/turf/T = get_turf(loc)
 		if(T)
-			mmi.loc = T
+			mmi.forceMove(T)
 		if(mind)	mind.transfer_to(mmi.brainmob)
 		mmi = null
 		real_name = initial(real_name)
@@ -203,7 +202,7 @@
 		camera.status = 0
 
 	if (held_item)
-		held_item.loc = src.loc
+		held_item.forceMove(src.loc)
 		held_item = null
 
 	eject_brain()
@@ -221,7 +220,7 @@
 		return
 
 	if(!held_item)
-		usr << "<span class='warning'>You have nothing to drop!</span>"
+		to_chat(usr, "<span class='warning'>You have nothing to drop!</span>")
 		return 0
 
 	if(istype(held_item, /obj/item/weapon/grenade))
@@ -229,7 +228,7 @@
 			"<span class='danger'>You launch \the [held_item]!</span>", \
 			"You hear a skittering noise and a thump!")
 		var/obj/item/weapon/grenade/G = held_item
-		G.loc = src.loc
+		G.forceMove(src.loc)
 		G.prime()
 		held_item = null
 		return 1
@@ -238,7 +237,7 @@
 		"<span class='notice'>You drop \the [held_item].</span>", \
 		"You hear a skittering noise and a soft thump.")
 
-	held_item.loc = src.loc
+	held_item.forceMove(src.loc)
 	held_item = null
 	return 1
 
@@ -253,7 +252,7 @@
 		return -1
 
 	if(held_item)
-		src << "<span class='warning'>You are already holding \the [held_item]</span>"
+		to_chat(src, "<span class='warning'>You are already holding \the [held_item]</span>")
 		return 1
 
 	var/list/items = list()
@@ -267,21 +266,21 @@
 		for(var/obj/item/I in view(1, src))
 			if(selection == I)
 				held_item = selection
-				selection.loc = src
+				selection.forceMove(src)
 				visible_message("<span class='notice'>\The [src] scoops up \the [held_item].</span>", \
 					"<span class='notice'>You grab \the [held_item].</span>", \
 					"You hear a skittering noise and a clink.")
 				return held_item
-		src << "<span class='warning'>\The [selection] is too far away.</span>"
+		to_chat(src, "<span class='warning'>\The [selection] is too far away.</span>")
 		return 0
 
-	src << "<span class='warning'>There is nothing of interest to take.</span>"
+	to_chat(src, "<span class='warning'>There is nothing of interest to take.</span>")
 	return 0
 
 /mob/living/simple_animal/spiderbot/examine(mob/user)
 	..(user)
 	if(src.held_item)
-		user << "It is carrying \icon[src.held_item] \a [src.held_item]."
+		to_chat(user, "It is carrying \icon[src.held_item] \a [src.held_item].")
 
 /mob/living/simple_animal/spiderbot/cannot_use_vents()
 	return

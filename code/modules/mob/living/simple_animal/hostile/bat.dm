@@ -1,7 +1,7 @@
 /mob/living/simple_animal/hostile/scarybat
 	name = "space bats"
 	desc = "A swarm of cute little blood sucking bats that looks pretty upset."
-	icon = 'icons/mob/bats.dmi'
+	icon = 'icons/mob/npc/bats.dmi'
 	icon_state = "bat"
 	icon_living = "bat"
 	icon_dead = "bat_dead"
@@ -37,6 +37,8 @@
 	environment_smash = 1
 
 	faction = "scarybat"
+	flying = TRUE
+	butchering_products = list(/obj/item/stack/material/animalhide = 1)
 	var/mob/living/owner
 
 /mob/living/simple_animal/hostile/scarybat/Initialize(mapload, mob/living/L as mob)
@@ -69,18 +71,11 @@
 			L.Stun(1)
 			L.visible_message("<span class='danger'>\the [src] scares \the [L]!</span>")
 
-/mob/living/simple_animal/hostile/scarybat/can_fall()
-	return FALSE
-
-/mob/living/simple_animal/hostile/scarybat/can_ztravel()
-	return TRUE
-
-/mob/living/simple_animal/hostile/scarybat/CanAvoidGravity()
-	return TRUE
-
 /mob/living/simple_animal/hostile/scarybat/cult
 	faction = "cult"
 	supernatural = 1
+	tameable = FALSE
+	appearance_flags = NO_CLIENT_COLOR
 
 /mob/living/simple_animal/hostile/scarybat/cult/cultify()
 	return
@@ -89,11 +84,3 @@
 	..()
 	check_horde()
 
-/mob/living/simple_animal/hostile/scarybat/can_fall()
-	return FALSE
-
-/mob/living/simple_animal/hostile/scarybat/can_ztravel()
-	return TRUE
-
-/mob/living/simple_animal/hostile/scarybat/CanAvoidGravity()
-	return TRUE

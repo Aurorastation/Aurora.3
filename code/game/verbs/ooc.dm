@@ -4,35 +4,32 @@
 	set category = "OOC"
 
 	if(say_disabled)	//This is here to try to identify lag problems
-		usr << "<span class='warning'>Speech is currently admin-disabled.</span>"
+		to_chat(usr, "<span class='warning'>Speech is currently admin-disabled.</span>")
 		return
 
 	if(!mob)	return
 	if(IsGuestKey(key))
-		src << "Guests may not use OOC."
+		to_chat(src, "Guests may not use OOC.")
 		return
 
 	msg = sanitize(msg)
 	if(!msg)	return
 
 	if(!(prefs.toggles & CHAT_OOC))
-		src << "<span class='warning'>You have OOC muted.</span>"
+		to_chat(src, "<span class='warning'>You have OOC muted.</span>")
 		return
 
 	if(!holder)
 		if(!config.ooc_allowed)
-			src << "<span class='danger'>OOC is globally muted.</span>"
+			to_chat(src, "<span class='danger'>OOC is globally muted.</span>")
 			return
 		if(!config.dooc_allowed && (mob.stat == DEAD))
-			usr << "<span class='danger'>OOC for dead mobs has been turned off.</span>"
-			return
-		if(prefs.muted & MUTE_OOC)
-			src << "<span class='danger'>You cannot use OOC (muted).</span>"
+			to_chat(usr, "<span class='danger'>OOC for dead mobs has been turned off.</span>")
 			return
 		if(handle_spam_prevention(msg,MUTE_OOC))
 			return
 		if(findtext(msg, "byond://"))
-			src << "<B>Advertising other servers is not allowed.</B>"
+			to_chat(src, "<B>Advertising other servers is not allowed.</B>")
 			log_admin("[key_name(src)] has attempted to advertise in OOC: [msg]",ckey=key_name(src))
 			message_admins("[key_name_admin(src)] has attempted to advertise in OOC: [msg]")
 			return
@@ -61,9 +58,9 @@
 					else
 						display_name = holder.fakekey
 			if(holder && !holder.fakekey && (holder.rights & R_ADMIN) && config.allow_admin_ooccolor && (src.prefs.ooccolor != initial(src.prefs.ooccolor))) // keeping this for the badmins
-				target << "<font color='[src.prefs.ooccolor]'><span class='ooc'>" + create_text_tag("ooc", "OOC:", target) + " <EM>[display_name]:</EM> <span class='message'>[msg]</span></span></font>"
+				to_chat(target, "<font color='[src.prefs.ooccolor]'><span class='ooc'>" + create_text_tag("ooc", "OOC:", target) + " <EM>[display_name]:</EM> <span class='message'>[msg]</span></span></font>")
 			else
-				target << "<span class='ooc'><span class='[ooc_style]'>" + create_text_tag("ooc", "OOC:", target) + " <EM>[display_name]:</EM> <span class='message'>[msg]</span></span></span>"
+				to_chat(target, "<span class='ooc'><span class='[ooc_style]'>" + create_text_tag("ooc", "OOC:", target) + " <EM>[display_name]:</EM> <span class='message'>[msg]</span></span></span>")
 
 /client/verb/looc(msg as text)
 	set name = "LOOC"
@@ -71,14 +68,14 @@
 	set category = "OOC"
 
 	if(say_disabled)	//This is here to try to identify lag problems
-		usr << "<span class='danger'>Speech is currently admin-disabled.</span>"
+		to_chat(usr, "<span class='danger'>Speech is currently admin-disabled.</span>")
 		return
 
 	if(!mob)
 		return
 
 	if(IsGuestKey(key))
-		src << "Guests may not use OOC."
+		to_chat(src, "Guests may not use OOC.")
 		return
 
 	msg = sanitize(msg)
@@ -87,23 +84,20 @@
 		return
 
 	if(!(prefs.toggles & CHAT_LOOC))
-		src << "<span class='danger'>You have LOOC muted.</span>"
+		to_chat(src, "<span class='danger'>You have LOOC muted.</span>")
 		return
 
 	if(!holder)
 		if(!config.looc_allowed)
-			src << "<span class='danger'>LOOC is globally muted.</span>"
+			to_chat(src, "<span class='danger'>LOOC is globally muted.</span>")
 			return
 		if(!config.dooc_allowed && (mob.stat == DEAD))
-			usr << "<span class='danger'>OOC for dead mobs has been turned off.</span>"
-			return
-		if(prefs.muted & MUTE_OOC)
-			src << "<span class='danger'>You cannot use OOC (muted).</span>"
+			to_chat(usr, "<span class='danger'>OOC for dead mobs has been turned off.</span>")
 			return
 		if(handle_spam_prevention(msg, MUTE_OOC))
 			return
 		if(findtext(msg, "byond://"))
-			src << "<B>Advertising other servers is not allowed.</B>"
+			to_chat(src, "<B>Advertising other servers is not allowed.</B>")
 			log_admin("[key_name(src)] has attempted to advertise in OOC: [msg]",ckey=key_name(src))
 			message_admins("[key_name_admin(src)] has attempted to advertise in OOC: [msg]")
 			return
@@ -118,7 +112,7 @@
 		messageturfs += turf
 
 	for(var/mob/M in player_list)
-		if (!M.client || istype(M, /mob/new_player))
+		if (!M.client || istype(M, /mob/abstract/new_player))
 			continue
 		if(get_turf(M) in messageturfs)
 			messagemobs += M
@@ -147,4 +141,14 @@
 			if(target.mob in messagemobs)
 				prefix = ""
 			if((target.mob in messagemobs) || display_remote)
-				target << "<span class='ooc'><span class='looc'>" + create_text_tag("looc", "LOOC:", target) + " <span class='prefix'>[prefix]</span><EM>[display_name][admin_stuff]:</EM> <span class='message'>[msg]</span></span></span>"
+				to_chat(target, "<span class='ooc'><span class='looc'>" + create_text_tag("looc", "LOOC:", target) + " <span class='prefix'>[prefix]</span><EM>[display_name][admin_stuff]:</EM> <span class='message'>[msg]</span></span></span>")
+
+/client/verb/stop_all_sounds()
+	set name = "Stop all sounds"
+	set desc = "Stop all sounds that are currently playing."
+	set category = "OOC"
+
+	if(!mob)
+		return
+
+	mob << sound(null)

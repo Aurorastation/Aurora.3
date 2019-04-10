@@ -47,16 +47,16 @@ var/list/all_supply_groups = list("Operations","Security","Hospitality","Enginee
 	name = "Illegal weapons crate"
 	num_contained = 2
 	contains = list(/obj/item/weapon/gun/projectile/automatic/mini_uzi,
-					/obj/item/weapon/gun/projectile/boltaction,
+					/obj/item/weapon/gun/projectile/shotgun/pump/rifle,
 					/obj/item/weapon/gun/projectile/silenced,
 					/obj/item/weapon/gun/projectile/pirate,
 					/obj/item/weapon/gun/projectile/revolver/derringer,
 					/obj/item/weapon/gun/projectile/dragunov,
 					/obj/item/weapon/gun/energy/retro)
-	cost = 60
+	cost = 120
 	containertype = /obj/structure/closet/crate
 	containername = "crate"
-	hidden = 1
+	contraband = 1
 	group = "Security"
 
 /datum/supply_packs/forensics

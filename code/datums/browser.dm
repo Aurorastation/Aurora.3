@@ -121,6 +121,12 @@
 			onclose(user, window_id, ref)
 			break
 
+/datum/browser/proc/update(var/force_open = 0, var/use_onclose = 1)
+	if(force_open)
+		open(use_onclose)
+	else
+		send_output(user, get_content(), "[window_id].browser")
+
 /datum/browser/proc/close()
 	user << browse(null, "window=[window_id]")
 
@@ -137,7 +143,7 @@
 		dir = "default"
 
 	var/filename = "[ckey("[icon]_[icon_state]_[dir]")].png"
-	src << browse_rsc(I, filename)
+	to_chat(src, browse_rsc(I, filename))
 	return filename
 	*/
 
@@ -164,8 +170,6 @@
 
 	winset(user, windowid, "on-close=\".windowclose [param]\"")
 
-	//world << "OnClose [user]: [windowid] : ["on-close=\".windowclose [param]\""]"
-
 
 // the on-close client verb
 // called when a browser popup window is closed after registering with proc/onclose()
@@ -176,11 +180,9 @@
 	set hidden = 1						// hide this verb from the user's panel
 	set name = ".windowclose"			// no autocomplete on cmd line
 
-	//world << "windowclose: [atomref]"
 	if(atomref!="null")				// if passed a real atomref
 		var/hsrc = locate(atomref)	// find the reffed atom
 		if(hsrc)
-			//world << "[src] Topic [href] [hsrc]"
 			usr = src.mob
 			src.Topic("close=1", list("close"="1"), hsrc)	// this will direct to the atom's
 			return										// Topic() proc via client.Topic()
@@ -188,6 +190,5 @@
 	// no atomref specified (or not found)
 	// so just reset the user mob's machine var
 	if(src && src.mob)
-		//world << "[src] was [src.mob.machine], setting to null"
 		src.mob.unset_machine()
 	return

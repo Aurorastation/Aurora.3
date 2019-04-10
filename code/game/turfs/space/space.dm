@@ -10,29 +10,16 @@
 
 	temperature = T20C
 	thermal_conductivity = OPEN_HEAT_TRANSFER_COEFFICIENT
-
-	var/static/list/dust_cache
-	
 //	heat_capacity = 700000 No.
 	is_hole = TRUE
 
-/turf/space/proc/build_dust_cache()
-	LAZYINITLIST(dust_cache)
-	for (var/i in 0 to 25)
-		var/image/im = image('icons/turf/space_parallax1.dmi',"[i]")
-		im.plane = PLANE_SPACE_DUST
-		im.alpha = 80
-		im.blend_mode = BLEND_ADD
-		dust_cache["[i]"] = im
+	permit_ao = FALSE
 
 // Copypaste of parent for performance.
 /turf/space/Initialize()
-	icon_state = "[((x + y) ^ ~(x * y) + z) % 25]"
-	if (!dust_cache)
-		build_dust_cache()
-
-	add_overlay(dust_cache[icon_state])
-	update_starlight()
+	appearance = SSicon_cache.space_cache["[((x + y) ^ ~(x * y) + z) % 25]"]
+	if (config.starlight)
+		update_starlight()
 
 	if (initialized)
 		crash_with("Warning: [src]([type]) initialized multiple times!")
@@ -41,14 +28,14 @@
 
 	for(var/atom/movable/AM as mob|obj in src)
 		src.Entered(AM)
-		
+
 	turfs += src
 
 	if(dynamic_lighting)
 		luminosity = 0
 	else
 		luminosity = 1
-	
+
 	return INITIALIZE_HINT_NORMAL
 
 /turf/space/is_space()
@@ -59,6 +46,12 @@
 	for(var/obj/O in src)
 		O.hide(0)
 
+/turf/space/can_have_cabling()
+	if (locate(/obj/structure/lattice/catwalk) in src)
+		return 1
+
+	return 0
+
 /turf/space/proc/update_starlight()
 	if(config.starlight)
 		for (var/T in RANGE_TURFS(1, src))
@@ -68,7 +61,8 @@
 			set_light(config.starlight)
 			return
 
-		set_light(0)
+		if (light_range)
+			set_light(0)
 
 /turf/space/attackby(obj/item/C as obj, mob/user as mob)
 
@@ -78,7 +72,7 @@
 			return
 		var/obj/item/stack/rods/R = C
 		if (R.use(1))
-			user << "<span class='notice'>Constructing support lattice ...</span>"
+			to_chat(user, "<span class='notice'>Constructing support lattice ...</span>")
 			playsound(src, 'sound/weapons/Genhit.ogg', 50, 1)
 			ReplaceWithLattice()
 		return
@@ -95,15 +89,15 @@
 			ChangeTurf(/turf/simulated/floor/airless)
 			return
 		else
-			user << "<span class='warning'>The plating is going to need some support.</span>"
-	return
+			to_chat(user, "<span class='warning'>The plating is going to need some support.</span>")
 
+	..(C, user)
 
 // Ported from unstable r355
 
 /turf/space/Entered(atom/movable/A as mob|obj)
 	if(movement_disabled)
-		usr << "<span class='warning'>Movement is admin-disabled.</span>" //This is to identify lag problems
+		to_chat(usr, "<span class='warning'>Movement is admin-disabled.</span>") //This is to identify lag problems)
 		return
 	..()
 	if ((!(A) || src != A.loc))	return
@@ -137,13 +131,7 @@
 		next_x = (--cur_x||global_map.len)
 		y_arr = global_map[next_x]
 		target_z = y_arr[cur_y]
-/*
-		//debug
-		world << "Src.z = [src.z] in global map X = [cur_x], Y = [cur_y]"
-		world << "Target Z = [target_z]"
-		world << "Next X = [next_x]"
-		//debug
-*/
+
 		if(target_z)
 			A.z = target_z
 			A.x = world.maxx - 2
@@ -162,13 +150,7 @@
 		next_x = (++cur_x > global_map.len ? 1 : cur_x)
 		y_arr = global_map[next_x]
 		target_z = y_arr[cur_y]
-/*
-		//debug
-		world << "Src.z = [src.z] in global map X = [cur_x], Y = [cur_y]"
-		world << "Target Z = [target_z]"
-		world << "Next X = [next_x]"
-		//debug
-*/
+
 		if(target_z)
 			A.z = target_z
 			A.x = 3
@@ -186,13 +168,7 @@
 		y_arr = global_map[cur_x]
 		next_y = (--cur_y||y_arr.len)
 		target_z = y_arr[next_y]
-/*
-		//debug
-		world << "Src.z = [src.z] in global map X = [cur_x], Y = [cur_y]"
-		world << "Next Y = [next_y]"
-		world << "Target Z = [target_z]"
-		//debug
-*/
+
 		if(target_z)
 			A.z = target_z
 			A.y = world.maxy - 2
@@ -211,13 +187,7 @@
 		y_arr = global_map[cur_x]
 		next_y = (++cur_y > y_arr.len ? 1 : cur_y)
 		target_z = y_arr[next_y]
-/*
-		//debug
-		world << "Src.z = [src.z] in global map X = [cur_x], Y = [cur_y]"
-		world << "Next Y = [next_y]"
-		world << "Target Z = [target_z]"
-		//debug
-*/
+
 		if(target_z)
 			A.z = target_z
 			A.y = 3

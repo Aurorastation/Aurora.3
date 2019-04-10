@@ -22,7 +22,7 @@
 			if(istype(A, D))
 				accept = 1
 		if(!accept)
-			user << "[A] doesn't fit into \the [src]."
+			to_chat(user, "[A] doesn't fit into \the [src].")
 			return
 		var/mob/L = A
 		user.visible_message("<span class='notice'>[user] scoops [L] into \the [src].</span>", "<span class='notice'>You scoop [L] into \the [src].</span>")
@@ -43,21 +43,21 @@
 	switch(contains)
 		if(1)
 			for(var/obj/O in src)
-				O.loc = user.loc
-			user << "<span class='notice'>You take money out of \the [src].</span>"
+				O.forceMove(user.loc)
+			to_chat(user, "<span class='notice'>You take money out of \the [src].</span>")
 			contains = 0
 			update_icon()
 			return
 		if(2)
 			for(var/mob/M in src)
-				M.loc = user.loc
+				M.forceMove(user.loc)
 				user.visible_message("<span class='notice'>[user] releases [M] from \the [src].</span>", "<span class='notice'>You release [M] from \the [src].</span>")
 			contains = 0
 			update_icon()
 			return
 		if(3)
 			for(var/obj/effect/spider/spiderling/S in src)
-				S.loc = user.loc
+				S.forceMove(user.loc)
 				user.visible_message("<span class='notice'>[user] releases [S] from \the [src].</span>", "<span class='notice'>You release [S] from \the [src].</span>")
 				START_PROCESSING(SSprocessing, S) // They can grow after being let out though
 			contains = 0
@@ -72,13 +72,12 @@
 			return
 		var/obj/item/weapon/spacecash/S = W
 		user.visible_message("<span class='notice'>[user] puts [S.worth] [S.worth > 1 ? "credits" : "credit"] into \the [src].</span>")
-		user.drop_from_inventory(S)
-		S.forceMove(src)
+		user.drop_from_inventory(S,src)
 		update_icon()
 
 /obj/item/glass_jar/update_icon() // Also updates name and desc
 	underlays.Cut()
-	overlays.Cut()
+	cut_overlays()
 	switch(contains)
 		if(0)
 			name = initial(name)
@@ -96,7 +95,11 @@
 					underlays += A
 		if(2)
 			for(var/mob/M in src)
-				var/image/victim = image(M.icon, M.icon_state)
+				var/image/victim = new()
+				victim.appearance = M
+				victim.layer = FLOAT_LAYER
+				victim.plane = FLOAT_PLANE
+				victim.pixel_x = 0
 				victim.pixel_y = 6
 				underlays += victim
 				name = "glass jar with [M]"
@@ -108,3 +111,15 @@
 				name = "glass jar with [S]"
 				desc = "A small jar with [S] inside."
 	return
+
+/obj/item/glass_jar/peter/
+	name = "Peter's Jar"
+/obj/item/glass_jar/peter/Initialize()
+	. = ..()
+	var/obj/effect/spider/spiderling/S = new
+	S.name = "Peter"
+	S.desc = "The journalist's pet spider, Peter. It has a miniature camera around its neck and seems to glow faintly."
+	S.forceMove(src)
+	contains = 3
+	STOP_PROCESSING(SSprocessing, S)
+	update_icon()

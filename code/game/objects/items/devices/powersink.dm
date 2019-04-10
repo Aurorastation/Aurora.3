@@ -4,7 +4,7 @@
 	name = "power sink"
 	desc = "A nulling power sink which drains energy from electrical systems."
 	icon_state = "powersink0"
-	item_state = "electronic"
+	item_state = "powersink0"
 	w_class = 4.0
 	flags = CONDUCT
 	throwforce = 5
@@ -32,7 +32,7 @@
 	return ..()
 
 /obj/item/device/powersink/attackby(var/obj/item/I, var/mob/user)
-	if(istype(I, /obj/item/weapon/screwdriver))
+	if(I.isscrewdriver())
 		if(mode == 0)
 			var/turf/T = loc
 			if(isturf(T) && !!T.is_plating())
@@ -57,6 +57,7 @@
 			visible_message("<span class='notice'>\The [user] detaches \the [src] from the cable!</span>")
 			set_light(0)
 			icon_state = "powersink0"
+			item_state = "powersink0"
 
 			return
 	else
@@ -73,6 +74,7 @@
 			visible_message("<span class='notice'>\The [user] activates \the [src]!</span>")
 			mode = 2
 			icon_state = "powersink1"
+			item_state = "powersink1"
 			START_PROCESSING(SSprocessing, src)
 			processing_power_items += src
 		if(2)  //This switch option wasn't originally included. It exists now. --NeoFite
@@ -80,6 +82,7 @@
 			mode = 1
 			set_light(0)
 			icon_state = "powersink0"
+			item_state = "powersink0"
 			STOP_PROCESSING(SSprocessing, src)
 			processing_power_items -= src
 

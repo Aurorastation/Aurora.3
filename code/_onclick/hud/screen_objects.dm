@@ -8,10 +8,11 @@
 */
 /obj/screen
 	name = ""
-	icon = 'icons/mob/screen1.dmi'
+	icon = 'icons/mob/screen/generic.dmi'
 	layer = 20.0
 	unacidable = 1
 	var/obj/master = null	//A reference to the object in the slot. Grabs or items, generally.
+	appearance_flags = NO_CLIENT_COLOR
 
 /obj/screen/Destroy(force = FALSE)
 	master = null
@@ -164,10 +165,15 @@
 		update_icon()
 	return 1
 
-/obj/screen/zone_sel/update_icon()
-	overlays.Cut()
-	overlays += image('icons/mob/zone_sel.dmi', "[selecting]")
+/obj/screen/zone_sel/proc/set_selected_zone(bodypart)
+	var/old_selecting = selecting
+	selecting = bodypart
+	if(old_selecting != selecting)
+		update_icon()
 
+/obj/screen/zone_sel/update_icon()
+	cut_overlays()
+	add_overlay(image('icons/mob/zone_sel.dmi', "[selecting]"))
 
 /obj/screen/Click(location, control, params)
 	if(!usr)	return 1
@@ -194,196 +200,6 @@
 				var/mob/living/L = usr
 				L.resist()
 
-		if("mov_intent")
-
-			var/list/modifiers = params2list(params)
-			//This is here instead of outside the switch to save adding overhead. its not used for any other UI icons right now
-			//If its needed in future for other UI icons, then move it up to above the switch
-
-			if(iscarbon(usr))
-				var/mob/living/carbon/C = usr
-				if (modifiers["alt"])
-					C.set_walk_speed()
-					return
-
-				if(C.legcuffed)
-					C << "<span class='notice'>You are legcuffed! You cannot run until you get [C.legcuffed] removed!</span>"
-					C.m_intent = "walk"	//Just incase
-					C.hud_used.move_intent.icon_state = "walking"
-					return 1
-				switch(usr.m_intent)
-					if("run")
-						usr.m_intent = "walk"
-					if("walk")
-						usr.m_intent = "run"
-			update_move_icon(usr)
-		if("m_intent")
-			if(!usr.m_int)
-				switch(usr.m_intent)
-					if("run")
-						usr.m_int = "13,14"
-					if("walk")
-						usr.m_int = "14,14"
-					if("face")
-						usr.m_int = "15,14"
-			else
-				usr.m_int = null
-		if("walk")
-			usr.m_intent = "walk"
-			usr.m_int = "14,14"
-		if("face")
-			usr.m_intent = "face"
-			usr.m_int = "15,14"
-		if("run")
-			usr.m_intent = "run"
-			usr.m_int = "13,14"
-		if("Reset Machine")
-			usr.unset_machine()
-		if("internal")
-			if(iscarbon(usr))
-				var/mob/living/carbon/C = usr
-				if(!C.stat && !C.stunned && !C.paralysis && !C.restrained())
-					if(C.internal)
-						C.internal = null
-						C << "<span class='notice'>No longer running on internals.</span>"
-						if(C.internals)
-							C.internals.icon_state = "internal0"
-					else
-
-						var/no_mask
-						if(!(C.wear_mask && C.wear_mask.item_flags & AIRTIGHT))
-							var/mob/living/carbon/human/H = C
-							if(!(H.head && H.head.item_flags & AIRTIGHT))
-								no_mask = 1
-
-						if(no_mask)
-							C << "<span class='notice'>You are not wearing a suitable mask or helmet.</span>"
-							return 1
-						else
-							var/list/nicename = null
-							var/list/tankcheck = null
-							var/breathes = "oxygen"    //default, we'll check later
-							var/list/contents = list()
-							var/from = "on"
-
-							if(ishuman(C))
-								var/mob/living/carbon/human/H = C
-								breathes = H.species.breath_type
-								nicename = list ("suit", "back", "belt", "right hand", "left hand", "left pocket", "right pocket")
-								tankcheck = list (H.s_store, C.back, H.belt, C.r_hand, C.l_hand, H.l_store, H.r_store)
-								if(H.species.has_organ["phoron reserve tank"])
-									var/obj/item/organ/vaurca/preserve/preserve = H.internal_organs_by_name["phoron reserve tank"]
-									if(preserve && preserve.air_contents)
-										from = "in"
-										nicename |= "sternum"
-										tankcheck |= preserve
-
-							else
-								nicename = list("right hand", "left hand", "back")
-								tankcheck = list(C.r_hand, C.l_hand, C.back)
-
-							// Rigs are a fucking pain since they keep an air tank in nullspace.
-							if(istype(C.back,/obj/item/weapon/rig))
-								var/obj/item/weapon/rig/rig = C.back
-								if(rig.air_supply)
-									from = "in"
-									nicename |= "hardsuit"
-									tankcheck |= rig.air_supply
-
-							for(var/i=1, i<tankcheck.len+1, ++i)
-								if(istype(tankcheck[i], /obj/item/weapon/tank))
-									var/obj/item/weapon/tank/t = tankcheck[i]
-									if (!isnull(t.manipulated_by) && t.manipulated_by != C.real_name && findtext(t.desc,breathes))
-										contents.Add(t.air_contents.total_moles)	//Someone messed with the tank and put unknown gasses
-										continue					//in it, so we're going to believe the tank is what it says it is
-									switch(breathes)
-																		//These tanks we're sure of their contents
-										if("nitrogen") 							//So we're a bit more picky about them.
-
-											if(t.air_contents.gas["nitrogen"] && !t.air_contents.gas["oxygen"])
-												contents.Add(t.air_contents.gas["nitrogen"])
-											else
-												contents.Add(0)
-
-										if ("oxygen")
-											if(t.air_contents.gas["oxygen"] && !t.air_contents.gas["phoron"])
-												contents.Add(t.air_contents.gas["oxygen"])
-											else
-												contents.Add(0)
-
-										// No races breath this, but never know about downstream servers.
-										if ("carbon dioxide")
-											if(t.air_contents.gas["carbon_dioxide"] && !t.air_contents.gas["phoron"])
-												contents.Add(t.air_contents.gas["carbon_dioxide"])
-											else
-												contents.Add(0)
-
-										if ("phoron")
-											if(t.air_contents.gas["carbon_dioxide"] && !t.air_contents.gas["nitrogen"])
-												contents.Add(t.air_contents.gas["phoron"])
-											else
-												contents.Add(0)
-
-								if(istype(tankcheck[i], /obj/item/organ/vaurca/preserve))
-									var/obj/item/organ/vaurca/preserve/t = tankcheck[i]
-									if (!isnull(t.manipulated_by) && t.manipulated_by != C.real_name && findtext(t.desc,breathes))
-										contents.Add(t.air_contents.total_moles)	//Someone messed with the tank and put unknown gasses
-										continue					//in it, so we're going to believe the tank is what it says it is
-									switch(breathes)
-																		//These tanks we're sure of their contents
-										if("nitrogen") 							//So we're a bit more picky about them.
-
-											if(t.air_contents.gas["nitrogen"] && !t.air_contents.gas["oxygen"])
-												contents.Add(t.air_contents.gas["nitrogen"])
-											else
-												contents.Add(0)
-
-										if ("oxygen")
-											if(t.air_contents.gas["oxygen"] && !t.air_contents.gas["phoron"])
-												contents.Add(t.air_contents.gas["oxygen"])
-											else
-												contents.Add(0)
-
-										// No races breath this, but never know about downstream servers.
-										if ("carbon dioxide")
-											if(t.air_contents.gas["carbon_dioxide"] && !t.air_contents.gas["phoron"])
-												contents.Add(t.air_contents.gas["carbon_dioxide"])
-											else
-												contents.Add(0)
-
-										if ("phoron")
-											if(t.air_contents.gas["phoron"] && !t.air_contents.gas["nitrogen"])
-												contents.Add(t.air_contents.gas["phoron"])
-											else
-												contents.Add(0)
-
-								if(!(istype(tankcheck[i], /obj/item/organ/vaurca/preserve)) & !(istype(tankcheck[i], /obj/item/weapon/tank)))
-									//no tank so we set contents to 0
-									contents.Add(0)
-
-							//Alright now we know the contents of the tanks so we have to pick the best one.
-
-							var/best = 0
-							var/bestcontents = 0
-							for(var/i=1, i <  contents.len + 1 , ++i)
-								if(!contents[i])
-									continue
-								if(contents[i] > bestcontents)
-									best = i
-									bestcontents = contents[i]
-
-							//We've determined the best container now we set it as our internals
-
-							if(best)
-								C << "<span class='notice'>You are now running on internals from [tankcheck[best]] [from] your [nicename[best]].</span>"
-								C.internal = tankcheck[best]
-
-
-							if(C.internal)
-								if(C.internals)
-									C.internals.icon_state = "internal1"
-							else
-								C << "<span class='notice'>You don't have a[breathes=="oxygen" ? "n oxygen" : addtext(" ",breathes)] tank.</span>"
 		if("act_intent")
 			usr.a_intent_change("right")
 		if(I_HELP)
@@ -408,6 +224,15 @@
 			if(usr.client)
 				usr.client.drop_item()
 
+		if("up hint")
+			var/turf/T = GetAbove(usr)
+			if (!T)
+				to_chat(usr, "<span class='notice'>There is nothing above you!</span>")
+			else if (T.is_hole)
+				to_chat(usr, "<span class='notice'>There's no roof above your head! You can see up!</span>")
+			else
+				to_chat(usr, "<span class='notice'>You see a ceiling staring back at you.</span>")
+
 		if("module")
 			if(isrobot(usr))
 				var/mob/living/silicon/robot/R = usr
@@ -423,7 +248,7 @@
 					R.hud_used.toggle_show_robot_modules()
 					return 1
 				else
-					R << "You haven't selected a module yet."
+					to_chat(R, "You haven't selected a module yet.")
 
 		if("radio")
 			if(issilicon(usr))
@@ -439,95 +264,8 @@
 					R.uneq_active()
 					R.hud_used.update_robot_modules_display()
 				else
-					R << "You haven't selected a module yet."
+					to_chat(R, "You haven't selected a module yet.")
 
-		if("module1")
-			if(istype(usr, /mob/living/silicon/robot))
-				usr:toggle_module(1)
-
-		if("module2")
-			if(istype(usr, /mob/living/silicon/robot))
-				usr:toggle_module(2)
-
-		if("module3")
-			if(istype(usr, /mob/living/silicon/robot))
-				usr:toggle_module(3)
-		if("AI Core")
-			if(isAI(usr))
-				var/mob/living/silicon/ai/AI = usr
-				AI.view_core()
-
-		if("Show Camera List")
-			if(isAI(usr))
-				var/mob/living/silicon/ai/AI = usr
-				var/camera = input(AI) in AI.get_camera_list()
-				AI.ai_camera_list(camera)
-
-		if("Track With Camera")
-			if(isAI(usr))
-				var/mob/living/silicon/ai/AI = usr
-				var/target_name = input(AI) in AI.trackable_mobs()
-				AI.ai_camera_track(target_name)
-
-		if("Toggle Camera Light")
-			if(isAI(usr))
-				var/mob/living/silicon/ai/AI = usr
-				AI.toggle_camera_light()
-
-		if("Crew Monitoring")
-			if(isAI(usr))
-				var/mob/living/silicon/ai/AI = usr
-				AI.subsystem_crew_monitor()
-
-		if("Show Crew Manifest")
-			if(isAI(usr))
-				var/mob/living/silicon/ai/AI = usr
-				AI.show_station_manifest()
-
-		if("Show Alerts")
-			if(isAI(usr))
-				var/mob/living/silicon/ai/AI = usr
-				AI.subsystem_alarm_monitor()
-
-		if("Announcement")
-			if(isAI(usr))
-				var/mob/living/silicon/ai/AI = usr
-				AI.ai_announcement()
-
-		if("Call Emergency Shuttle")
-			if(isAI(usr))
-				var/mob/living/silicon/ai/AI = usr
-				AI.ai_call_shuttle()
-
-		if("State Laws")
-			if(isAI(usr))
-				var/mob/living/silicon/ai/AI = usr
-				AI.subsystem_law_manager()
-
-		if("PDA - Send Message")
-			if(isAI(usr))
-				var/mob/living/silicon/ai/AI = usr
-				AI.aiPDA.cmd_send_pdamesg(usr)
-
-		if("PDA - Show Message Log")
-			if(isAI(usr))
-				var/mob/living/silicon/ai/AI = usr
-				AI.aiPDA.cmd_show_message_log(usr)
-
-		if("Take Image")
-			if(isAI(usr))
-				var/mob/living/silicon/ai/AI = usr
-				AI.aiCamera.toggle_camera_mode()
-
-		if("View Images")
-			if(isAI(usr))
-				var/mob/living/silicon/ai/AI = usr
-				AI.aiCamera.viewpictures()
-
-		if("Set Sensor Augmentation")
-			if(isAI(usr))
-				var/mob/living/silicon/ai/AI = usr
-				AI.sensor_mode()
 		else
 			return 0
 	return 1
@@ -560,24 +298,50 @@
 				usr.update_inv_r_hand(0)
 	return 1
 
-
-
-
+/obj/screen/movement_intent
+	name = "mov_intent"
+	screen_loc = ui_movi
+	layer = 20
 
 //This updates the run/walk button on the hud
-/obj/screen/proc/update_move_icon(var/mob/living/user)
-	switch(name)
-		if("mov_intent")
-			overlays.Cut()
-			switch(user.m_intent)
-				if("run")//When in run mode, the button will have a flashing coloured overlay which gives a visual indicator of stamina
-					icon_state = "running"
-					if (user.max_stamina != -1)//If max stamina is -1, this species doesnt use stamina. no overlay for them
-						var/image/holder = image('icons/mob/screen1.dmi', src, "run_overlay")
-						var/staminaportion = user.stamina / user.max_stamina
-						holder.color = percentage_to_colour(staminaportion)
-						holder.blend_mode = BLEND_MULTIPLY
-						overlays += holder
+/obj/screen/movement_intent/proc/update_move_icon(var/mob/living/user)
+	if (!user.client)
+		return
 
-				if("walk")
-					icon_state = "walking"
+	if (user.max_stamina == -1 || user.stamina == user.max_stamina)
+		if (user.stamina_bar)
+			QDEL_NULL(user.stamina_bar)
+	else
+		if (!user.stamina_bar)
+			user.stamina_bar = new(user, user.max_stamina, src)
+
+		user.stamina_bar.update(user.stamina)
+
+	if (user.m_intent == "run")
+		icon_state = "running"
+	else
+		icon_state = "walking"
+
+/obj/screen/movement_intent/Click(location, control, params)
+	if(!usr)
+		return 1
+	var/list/modifiers = params2list(params)
+
+	if(iscarbon(usr))
+		var/mob/living/carbon/C = usr
+		if (modifiers["alt"])
+			C.set_walk_speed()
+			return
+
+		if(C.legcuffed)
+			to_chat(C, "<span class='notice'>You are legcuffed! You cannot run until you get [C.legcuffed] removed!</span>")
+			C.m_intent = "walk"	//Just incase
+			C.hud_used.move_intent.icon_state = "walking"
+			return 1
+		switch(usr.m_intent)
+			if("run")
+				usr.m_intent = "walk"
+			if("walk")
+				usr.m_intent = "run"
+
+		update_move_icon(usr)

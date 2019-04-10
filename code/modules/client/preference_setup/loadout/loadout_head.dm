@@ -43,7 +43,8 @@
 /datum/gear/head/beret/eng
 	display_name = "beret, engie-orange"
 	path = /obj/item/clothing/head/beret/engineering
-	allowed_roles = list("Station Engineer","Atmospheric Technician","Chief Engineer","Engineering Apprentice")
+	allowed_roles = list(ENGINEERING_ROLES)
+	allowed_maps = list("aurora", "exodus")
 
 /datum/gear/head/beret/purp
 	display_name = "beret, purple"
@@ -52,32 +53,38 @@
 /datum/gear/head/beret/sec
 	display_name = "beret, security"
 	path = /obj/item/clothing/head/beret/sec
-	allowed_roles = list("Security Officer", "Head of Security", "Warden", "Security Cadet", "Detective", "Forensic Technician")
+	allowed_roles = list(SECURITY_ROLES)
+	allowed_maps = list("aurora", "exodus")
 
 /datum/gear/head/beret/warden
 	display_name = "beret, security (warden)"
 	path = /obj/item/clothing/head/beret/sec/warden
 	allowed_roles = list("Head of Security", "Warden")
+	allowed_maps = list("aurora", "exodus")
 
 /datum/gear/head/beret/hos
 	display_name = "beret, security (head of security)"
 	path = /obj/item/clothing/head/beret/sec/hos
 	allowed_roles = list("Head of Security")
+	allowed_maps = list("aurora", "exodus")
 
 /datum/gear/head/corp
 	display_name = "cap, corporate (security)"
 	path = /obj/item/clothing/head/soft/sec/corp
-	allowed_roles = list("Security Officer","Head of Security", "Warden", "Security Cadet", "Detective", "Forensic Technician",)
+	allowed_roles = list(SECURITY_ROLES)
+	allowed_maps = list("aurora", "exodus")
 
 /datum/gear/head/sec
 	display_name = "cap, security"
 	path = /obj/item/clothing/head/soft/sec
-	allowed_roles = list("Security Officer", "Head of Security", "Warden", "Security Cadet", "Detective", "Forensic Technician",)
+	allowed_roles = list(SECURITY_ROLES)
+	allowed_maps = list("aurora", "exodus")
 
 /datum/gear/head/hardhat
 	display_name = "hardhat selection"
 	path = /obj/item/clothing/head/hardhat
-	allowed_roles = list("Station Engineer", "Atmospheric Technician", "Chief Engineer", "Engineering Apprentice")
+	allowed_roles = list(ENGINEERING_ROLES)
+	allowed_maps = list("aurora", "exodus")
 
 /datum/gear/head/hardhat/New()
 	..()
@@ -89,8 +96,24 @@
 	gear_tweaks += new/datum/gear_tweak/path(hardhat)
 
 /datum/gear/head/hairflower
-	display_name = "hair flower pin, red"
-	path = /obj/item/clothing/head/hairflower
+	display_name = "hair flower pin (colorable)"
+	path = /obj/item/clothing/head/pin/flower/white
+
+/datum/gear/head/hairflower/New()
+	..()
+	gear_tweaks = list(gear_tweak_free_color_choice)
+
+/datum/gear/head/pin
+	display_name = "pin selection"
+	path = /obj/item/clothing/head/pin
+
+/datum/gear/head/pin/New()
+	..()
+	var/list/pins = list()
+	for(var/pin in typesof(/obj/item/clothing/head/pin))
+		var/obj/item/clothing/head/pin/pin_type = pin
+		pins[initial(pin_type.name)] = pin_type
+	gear_tweaks += new/datum/gear_tweak/path(sortAssoc(pins))
 
 /datum/gear/head/hats
 	display_name = "hat selection"
@@ -104,16 +127,14 @@
 	hats["hat, fez"] = /obj/item/clothing/head/fez
 	hats["hat, tophat"] = /obj/item/clothing/head/that
 	hats["hat, feather trilby"] = /obj/item/clothing/head/feathertrilby
-	hats["hat, fedora"] = /obj/item/clothing/head/fedora
+	hats["hat, black fedora"] = /obj/item/clothing/head/fedora
+	hats["hat, brown fedora"] = /obj/item/clothing/head/fedora/brown
+	hats["hat, grey fedora"] = /obj/item/clothing/head/fedora/grey
 	hats["hat, beaver"] = /obj/item/clothing/head/beaverhat
 	hats["hat, cowboy"] = /obj/item/clothing/head/cowboy
 	hats["hat, wide-brimmed cowboy"] = /obj/item/clothing/head/cowboy/wide
 	hats["hat, sombrero"] = /obj/item/clothing/head/sombrero
 	gear_tweaks += new/datum/gear_tweak/path(hats)
-
-/datum/gear/head/philosopher_wig
-	display_name = "natural philosopher wig"
-	path = /obj/item/clothing/head/philosopher_wig
 
 /datum/gear/head/hijab
 	display_name = "hijab selection"
@@ -131,7 +152,7 @@
 	hijab["white hijab"] = /obj/item/clothing/head/hijab/white
 
 	gear_tweaks += new/datum/gear_tweak/path(hijab)
-	
+
 /datum/gear/head/turban
 	display_name = "turban selection"
 	path = /obj/item/clothing/head/turban
@@ -148,13 +169,13 @@
 	turbans["red turban"] = /obj/item/clothing/head/turban/red
 	turbans["white turban"] = /obj/item/clothing/head/turban/white
 	turbans["yellow turban"] = /obj/item/clothing/head/turban/yellow
-	
+
 	gear_tweaks += new/datum/gear_tweak/path(turbans)
 
 /datum/gear/head/surgical
 	display_name = "surgical cap selection"
 	path = /obj/item/clothing/head/surgery/blue
-	allowed_roles = list("Scientist", "Chief Medical Officer", "Medical Doctor", "Geneticist", "Chemist", "Paramedic", "Nursing Intern", "Xenobiologist", "Roboticist", "Research Director", "Forensic Technician")
+	allowed_roles = list(MEDICAL_ROLES, SCIENCE_ROLES, "Physician", "Forensic Technician")
 
 /datum/gear/head/surgical/New()
 	..()
@@ -164,3 +185,46 @@
 	surgical["surgical cap, green"] = /obj/item/clothing/head/surgery/green
 	surgical["surgical cap, black"] = /obj/item/clothing/head/surgery/black
 	gear_tweaks += new/datum/gear_tweak/path(surgical)
+
+/datum/gear/head/headbando
+	display_name = "basic headband"
+	path = /obj/item/clothing/head/headbando
+
+/datum/gear/head/headbando/New()
+	..()
+	gear_tweaks = list(gear_tweak_free_color_choice)
+
+/datum/gear/head/beanie
+	display_name = "beanie"
+	path = /obj/item/clothing/head/beanie
+
+/datum/gear/head/beanie/New()
+	..()
+	gear_tweaks = list(gear_tweak_free_color_choice)
+
+/datum/gear/head/loose_beanie
+	display_name = "loose beanie"
+	path = /obj/item/clothing/head/beanie_loose
+
+/datum/gear/head/loose_beanie/New()
+	..()
+	gear_tweaks = list(gear_tweak_free_color_choice)
+
+
+/datum/gear/head/iacberet
+	display_name = "IAC Beret"
+	path = /obj/item/clothing/head/soft/iacberet
+	allowed_roles = list(MEDICAL_ROLES, "Physician")
+
+/datum/gear/head/tcflberet
+	display_name = "Tau Ceti Foreign Legion dress beret"
+	path = /obj/item/clothing/head/legion_beret
+
+/datum/gear/head/helmet/tank
+	display_name = "padded cap"
+	path = /obj/item/clothing/head/helmet/tank
+	allowed_roles = list(ARMED_ROLES)
+
+/datum/gear/head/helmet/tank/New()
+	..()
+	gear_tweaks = list(gear_tweak_free_color_choice)

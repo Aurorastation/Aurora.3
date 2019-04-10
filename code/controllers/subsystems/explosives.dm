@@ -1,16 +1,21 @@
+#define EXPLFX_BOTH 3
+#define EXPLFX_SOUND 2
+#define EXPLFX_SHAKE 1
+#define EXPLFX_NONE 0
+
 var/datum/controller/subsystem/explosives/SSexplosives
 
 // yes, let's move the laggiest part of the game to a process
 // nothing could go wrong -- Lohikar
 /datum/controller/subsystem/explosives
 	name = "Explosives"
-	wait = 5
+	wait = 1
 	flags = SS_NO_INIT | SS_BACKGROUND | SS_POST_FIRE_TIMING
 	priority = SS_PRIORITY_EXPLOSIVES
 
 	suspended = TRUE	// Start disabled, explosions will wake us if need be.
 
-	var/list/work_queue
+	var/list/work_queue = list()
 	var/ticks_without_work = 0
 	var/list/explosion_turfs
 	var/explosion_in_progress
@@ -20,7 +25,6 @@ var/datum/controller/subsystem/explosives/SSexplosives
 
 /datum/controller/subsystem/explosives/New()
 	NEW_SS_GLOBAL(SSexplosives)
-	LAZYINITLIST(work_queue)
 
 /datum/controller/subsystem/explosives/Recover()
 	work_queue = SSexplosives.work_queue
@@ -53,8 +57,8 @@ var/datum/controller/subsystem/explosives/SSexplosives
 	for (var/A in work_queue)
 		var/datum/explosiondata/data = A
 
-		if (data.is_rec)
-			explosion_rec(data.epicenter, data.rec_pow)
+		if (data.spreading)
+			explosion_iter(data.epicenter, data.rec_pow, data.z_transfer)
 		else
 			explosion(data)
 
@@ -71,8 +75,8 @@ var/datum/controller/subsystem/explosives/SSexplosives
 	var/z_transfer = data.z_transfer
 	var/power = data.rec_pow
 
-	if(config.use_recursive_explosions)
-		explosion_rec(epicenter, power)
+	if(data.spreading)
+		explosion_iter(epicenter, power, z_transfer)
 		return
 
 	var/start = world.timeofday
@@ -82,9 +86,9 @@ var/datum/controller/subsystem/explosives/SSexplosives
 	// Handles recursive propagation of explosions.
 	if(devastation_range > 2 || heavy_impact_range > 2)
 		if(HasAbove(epicenter.z) && z_transfer & UP)
-			global.explosion(GetAbove(epicenter), max(0, devastation_range - 2), max(0, heavy_impact_range - 2), max(0, light_impact_range - 2), max(0, flash_range - 2), 0, UP)
+			global.explosion(GetAbove(epicenter), max(0, devastation_range - 2), max(0, heavy_impact_range - 2), max(0, light_impact_range - 2), max(0, flash_range - 2), 0, UP, spreading = FALSE)
 		if(HasBelow(epicenter.z) && z_transfer & DOWN)
-			global.explosion(GetAbove(epicenter), max(0, devastation_range - 2), max(0, heavy_impact_range - 2), max(0, light_impact_range - 2), max(0, flash_range - 2), 0, DOWN)
+			global.explosion(GetAbove(epicenter), max(0, devastation_range - 2), max(0, heavy_impact_range - 2), max(0, light_impact_range - 2), max(0, flash_range - 2), 0, DOWN, spreading = FALSE)
 
 	var/max_range = max(devastation_range, heavy_impact_range, light_impact_range, flash_range)
 
@@ -174,7 +178,12 @@ var/datum/controller/subsystem/explosives/SSexplosives
 	var/y0 = epicenter.y
 	var/z0 = epicenter.z
 
-	for(var/turf/T in trange(max_range, epicenter))
+	for(var/thing in RANGE_TURFS(max_range, epicenter))
+		var/turf/T = thing
+		if (!T)
+			CHECK_TICK
+			continue
+
 		var/dist = sqrt((T.x - x0)**2 + (T.y - y0)**2)
 
 		if (dist < devastation_range)
@@ -184,6 +193,7 @@ var/datum/controller/subsystem/explosives/SSexplosives
 		else if (dist < light_impact_range)
 			dist = 3
 		else
+			CHECK_TICK
 			continue
 
 		T.ex_act(dist)
@@ -198,83 +208,191 @@ var/datum/controller/subsystem/explosives/SSexplosives
 
 	var/took = (world.timeofday-start)/10
 	//You need to press the DebugGame verb to see these now....they were getting annoying and we've collected a fair bit of data. Just -test- changes  to explosion code using this please so we can compare
-	if(Debug2)	world.log << "## DEBUG: Explosion([x0],[y0],[z0])(d[devastation_range],h[heavy_impact_range],l[light_impact_range]): Took [took] seconds."
+	if(Debug2)	world.log <<  "## DEBUG: Explosion([x0],[y0],[z0])(d[devastation_range],h[heavy_impact_range],l[light_impact_range]: Took [took] seconds."
 
-	//Machines which report explosions.
-	for(var/i,i<=doppler_arrays.len,i++)
-		var/obj/machinery/doppler_array/Array = doppler_arrays[i]
-		if(Array)
-			Array.sense_explosion(x0,y0,z0,devastation_range,heavy_impact_range,light_impact_range,took)
+// All the vars used on the turf should be on unsimulated turfs too, we just don't care about those generally.
+#define SEARCH_DIR(dir) \
+	search_direction = dir;\
+	search_turf = get_step(current_turf, search_direction);\
+	if (istype(search_turf, /turf/simulated)) {\
+		turf_queue += search_turf;\
+		dir_queue += search_direction;\
+		power_queue += current_power;\
+	}
 
-// Handle a recursive explosion.
-/datum/controller/subsystem/explosives/proc/explosion_rec(turf/epicenter, power)
-	if(power <= 0) return
+// Handle an iterative explosion.
+/datum/controller/subsystem/explosives/proc/explosion_iter(turf/epicenter, power, z_transfer)
+	if(power <= 0)
+		return
+
 	epicenter = get_turf(epicenter)
-	if(!epicenter) return
+	if(!epicenter)
+		return
 
 	message_admins("Explosion with size ([power]) in area [epicenter.loc.name] ([epicenter.x],[epicenter.y],[epicenter.z])")
 	log_game("Explosion with size ([power]) in area [epicenter.loc.name] ")
 
-	playsound(epicenter, 'sound/effects/explosionfar.ogg', 100, 1, round(power*2,1) )
-	playsound(epicenter, "explosion", 100, 1, round(power,1) )
+	log_debug("iexpl: Beginning discovery phase.")
+	var/time = world.time
 
-	explosion_in_progress = 1
-	explosion_turfs = list()
+	explosion_in_progress = TRUE
+	var/list/act_turfs = list()
+	act_turfs[epicenter] = power
 
-	explosion_turfs[epicenter] = power
+	power -= epicenter.explosion_resistance
+	for (var/obj/O in epicenter)
+		if (O.explosion_resistance)
+			power -= O.explosion_resistance
 
-	//This steap handles the gathering of turfs which will be ex_act() -ed in the next step. It also ensures each turf gets the maximum possible amount of power dealt to it.
-	for(var/direction in cardinal)
-		var/turf/T = get_step(epicenter, direction)
-		explosion_spread(T, power - epicenter.explosion_resistance, direction)
+	if (power >= config.iterative_explosives_z_threshold)
+		if ((z_transfer & UP) && HasAbove(epicenter.z))
+			var/datum/explosiondata/data = new
+			data.epicenter = GetAbove(epicenter)
+			data.rec_pow = power * config.iterative_explosives_z_multiplier
+			data.z_transfer = UP
+			data.spreading = TRUE
+			queue(data)
+
+		if ((z_transfer & DOWN) && HasBelow(epicenter.z))
+			var/datum/explosiondata/data = new
+			data.epicenter = GetBelow(epicenter)
+			data.rec_pow = power * config.iterative_explosives_z_multiplier
+			data.z_transfer = DOWN
+			data.spreading = TRUE
+			queue(data)
+
+	// These three lists must always be the same length.
+	var/list/turf_queue = list(epicenter, epicenter, epicenter, epicenter)
+	var/list/dir_queue = list(NORTH, SOUTH, EAST, WEST)
+	var/list/power_queue = list(power, power, power, power)
+
+	var/turf/simulated/current_turf
+	var/turf/search_turf
+	var/origin_direction
+	var/search_direction
+	var/current_power
+	var/index = 1
+	while (index <= turf_queue.len)
+		current_turf = turf_queue[index]
+		origin_direction = dir_queue[index]
+		current_power = power_queue[index]
+		++index
+
+		if (!istype(current_turf) || current_power <= 0)
+			CHECK_TICK
+			continue
+
+		if (act_turfs[current_turf] >= current_power && current_turf != epicenter)
+			CHECK_TICK
+			continue
+
+		act_turfs[current_turf] = current_power
+		current_power -= current_turf.explosion_resistance
+
+		// Attempt to shortcut on empty tiles: if a turf only has a LO on it, we don't need to check object resistance. Some turfs might not have LOs, so we need to check it actually has one.
+		if (current_turf.contents.len > !!current_turf.lighting_overlay)
+			for (var/thing in current_turf)
+				var/atom/movable/AM = thing
+				if (AM.simulated && AM.explosion_resistance)
+					current_power -= AM.explosion_resistance
+
+		if (current_power <= 0)
+			CHECK_TICK
+			continue
+
+		SEARCH_DIR(origin_direction)
+		SEARCH_DIR(turn(origin_direction, 90))
+		SEARCH_DIR(turn(origin_direction, -90))
+
 		CHECK_TICK
 
-	//This step applies the ex_act effects for the explosion, as planned in the previous step.
-	for(var/turf/T in explosion_turfs)
-		if(explosion_turfs[T] <= 0)
+	log_debug("iexpl: Discovery completed in [(world.time-time)/10] seconds.")
+	log_debug("iexpl: Beginning SFX phase.")
+	time = world.time
+
+	var/volume = 10 + (power * 20)
+
+	var/frequency = get_rand_frequency()
+	var/close_dist = round(power + world.view - 2, 1)
+
+	var/sound/explosion_sound = sound(get_sfx("explosion"))
+
+	for (var/thing in player_list)
+		var/mob/M = thing
+		var/reception = EXPLFX_BOTH
+
+		var/turf/T = isturf(M.loc) ? M.loc : get_turf(M)
+
+		if (!T)
+			CHECK_TICK
 			continue
-		if(!T)
+
+		if (!ARE_Z_CONNECTED(T.z, epicenter.z))
+			CHECK_TICK
+			continue
+
+		if (T.type == /turf/space)	// Equality is faster than istype.
+			reception = EXPLFX_NONE
+
+			for (var/turf/simulated/THING in RANGE_TURFS(1, M))
+				reception |= EXPLFX_SHAKE
+				break
+
+			if (!reception)
+				CHECK_TICK
+				continue
+
+		var/dist = get_dist(M, epicenter) || 1
+		if ((reception & EXPLFX_SOUND) && M.ear_deaf <= 0)
+			if (dist <= close_dist)
+				M.playsound_local(epicenter, explosion_sound, min(100, volume), 1, frequency, falloff = 5)
+				//You hear a far explosion if you're outside the blast radius. Small bombs shouldn't be heard all over the station.
+			else
+				volume = M.playsound_local(epicenter, 'sound/effects/explosionfar.ogg', volume, 1, frequency, usepressure = 0, falloff = 1000)
+
+		if ((reception & EXPLFX_SHAKE) && volume > 0)
+			shake_camera(M, min(30, max(2,(power*2) / dist)), min(3.5, ((power/3) / dist)),0.05)
+			//Maximum duration is 3 seconds, and max strength is 3.5
+			//Becuse values higher than those just get really silly
+
+		CHECK_TICK
+
+	log_debug("iexpl: SFX phase completed in [(world.time-time)/10] seconds.")
+	log_debug("iexpl: Beginning application phase.")
+	time = world.time
+
+	var/turf_tally = 0
+	var/movable_tally = 0
+	for (var/thing in act_turfs)
+		var/turf/T = thing
+		if (act_turfs[T] <= 0)
+			CHECK_TICK
 			continue
 
 		//Wow severity looks confusing to calculate... Fret not, I didn't leave you with any additional instructions or help. (just kidding, see the line under the calculation)
-		var/severity = 4 - round(max(min( 3, ((explosion_turfs[T] - T.explosion_resistance) / (max(3,(power/3)))) ) ,1), 1)								//sanity			effective power on tile				divided by either 3 or one third the total explosion power
-								//															One third because there are three power levels and I
-								//															want each one to take up a third of the crater
-		var/x = T.x
-		var/y = T.y
-		var/z = T.z
-		T.ex_act(severity)
-		if(!T)
-			T = locate(x,y,z)
-		for(var/atom/A in T)
-			A.ex_act(severity)
+		var/severity = 4 - round(max(min( 3, ((act_turfs[T] - T.explosion_resistance) / (max(3,(power/3)))) ) ,1), 1)
+		//sanity			effective power on tile				divided by either 3 or one third the total explosion power
+		//															One third because there are three power levels and I
+		//															want each one to take up a third of the crater
+
+		if (T.simulated)
+			T.ex_act(severity)
+		if (T.contents.len > !!T.lighting_overlay)
+			for (var/subthing in T)
+				var/atom/movable/AM = subthing
+				if (AM.simulated)
+					AM.ex_act(severity)
+					movable_tally++
+				CHECK_TICK
+		else
 			CHECK_TICK
 
-	explosion_in_progress = 0
+		turf_tally++
 
-// A proc used by recursive explosions. (The actually recursive bit.)
-/datum/controller/subsystem/explosives/proc/explosion_spread(turf/s, power, direction)
-	CHECK_TICK
-	if (istype(s, /turf/unsimulated))
-		return
-	if(power <= 0)
-		return
+	explosion_in_progress = FALSE
+	log_debug("iexpl: Application completed in [(world.time-time)/10] seconds; processed [turf_tally] turfs and [movable_tally] movables.")
 
-	if(explosion_turfs[s] >= power)
-		return //The turf already sustained and spread a power greated than what we are dealing with. No point spreading again.
-	explosion_turfs[s] = power
-
-	var/spread_power = power - s.explosion_resistance //This is the amount of power that will be spread to the tile in the direction of the blast
-	for(var/obj/O in s)
-		if(O.explosion_resistance)
-			spread_power -= O.explosion_resistance
-
-	var/turf/T = get_step(s, direction)
-	explosion_spread(T, spread_power, direction)
-	T = get_step(s, turn(direction,90))
-	explosion_spread(T, spread_power, turn(direction,90))
-	T = get_step(s, turn(direction,-90))
-	explosion_spread(T, spread_power, turn(direction,90))
+#undef SEARCH_DIR
 
 // Add an explosion to the queue for processing.
 /datum/controller/subsystem/explosives/proc/queue(var/datum/explosiondata/data)
@@ -299,5 +417,10 @@ var/datum/controller/subsystem/explosives/SSexplosives
 	var/flash_range
 	var/adminlog
 	var/z_transfer
-	var/is_rec
+	var/spreading
 	var/rec_pow
+
+#undef EXPLFX_BOTH
+#undef EXPLFX_SOUND
+#undef EXPLFX_SHAKE
+#undef EXPLFX_NONE

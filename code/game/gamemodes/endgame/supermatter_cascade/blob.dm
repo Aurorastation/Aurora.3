@@ -72,7 +72,7 @@
 	if(Adjacent(user))
 		return attack_hand(user)
 	else
-		user << "<span class = \"warning\">What the fuck are you doing?</span>"
+		to_chat(user, "<span class = \"warning\">What the fuck are you doing?</span>")
 	return
 
 // /vg/: Don't let ghosts fuck with this.
@@ -98,11 +98,11 @@
 
 	playsound(src, 'sound/effects/supermatter.ogg', 50, 1)
 
-	user.drop_from_inventory(W)
+	user.drop_from_inventory(W,src)
 	Consume(W)
 
 
-/turf/unsimulated/wall/supermatter/Bumped(atom/AM as mob|obj)
+/turf/unsimulated/wall/supermatter/CollidedWith(atom/AM)
 	if (!AM.simulated)
 		return ..()
 
@@ -120,7 +120,7 @@
 
 
 /turf/unsimulated/wall/supermatter/proc/Consume(var/mob/living/user)
-	if(istype(user,/mob/dead/observer))
+	if(istype(user,/mob/abstract/observer))
 		return
 
 	qdel(user)

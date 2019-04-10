@@ -15,7 +15,6 @@
 	var/overload_coeff = 2
 	wreckage = /obj/effect/decal/mecha_wreckage/gygax
 	internal_damage_threshold = 35
-	max_equip = 3
 
 /obj/mecha/combat/gygax/dark
 	desc = "A lightweight exosuit used by Heavy Asset Protection. A significantly upgraded Gygax security mech."
@@ -28,11 +27,10 @@
 	max_temperature = 45000
 	overload_coeff = 1
 	wreckage = /obj/effect/decal/mecha_wreckage/gygax/dark
-	max_equip = 4
 	step_energy_drain = 5
 
-/obj/mecha/combat/gygax/dark/New()
-	..()
+/obj/mecha/combat/gygax/dark/Initialize()
+	.= ..()
 	var/obj/item/mecha_parts/mecha_equipment/ME = new /obj/item/mecha_parts/mecha_equipment/weapon/ballistic/scattershot
 	ME.attach(src)
 	ME = new /obj/item/mecha_parts/mecha_equipment/weapon/ballistic/missile_rack/flashbang/clusterbang
@@ -40,6 +38,8 @@
 	ME = new /obj/item/mecha_parts/mecha_equipment/teleporter
 	ME.attach(src)
 	ME = new /obj/item/mecha_parts/mecha_equipment/tesla_energy_relay
+	ME.attach(src)
+	ME = new /obj/item/mecha_parts/mecha_equipment/repair_droid
 	ME.attach(src)
 	return
 

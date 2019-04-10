@@ -7,9 +7,8 @@
 	charge_max = 100
 	spell_flags = 0
 	range = 0
-	cast_sound = null
 	cast_sound = 'sound/magic/ForceWall.ogg'
-	
+
 	hud_state = "wiz_shield"
 
 /spell/aoe_turf/conjure/forcewall/mime
@@ -28,7 +27,7 @@
 
 /obj/effect/forcefield
 	desc = "A space wizard's magic wall."
-	name = "FORCEWALL"
+	name = "forcewall"
 	icon = 'icons/effects/effects.dmi'
 	icon_state = "m_shield"
 	anchored = 1.0
@@ -42,6 +41,12 @@
 		for(var/mob/M in T)
 			Proj.on_hit(M,M.bullet_act(Proj, def_zone))
 	return
+
+/obj/effect/forcefield/attackby(var/obj/item/I, var/mob/user)
+	..()
+	if(istype(I, /obj/item/weapon/nullrod))
+		to_chat(user, "<span class='notice'>\the [src] dissipates at the touch of the \the [I].</span>")
+		qdel(src)
 
 /obj/effect/forcefield/mime
 	icon_state = "empty"

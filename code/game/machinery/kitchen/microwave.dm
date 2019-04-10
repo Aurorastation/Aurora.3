@@ -56,7 +56,7 @@
 
 /obj/machinery/microwave/attackby(var/obj/item/O as obj, var/mob/user as mob)
 	if(src.broken > 0)
-		if(src.broken == 2 && istype(O, /obj/item/weapon/screwdriver)) // If it's broken and they're using a screwdriver
+		if(src.broken == 2 && O.isscrewdriver()) // If it's broken and they're using a screwdriver
 			user.visible_message( \
 				"<span class='notice'>\The [user] starts to fix part of the microwave.</span>", \
 				"<span class='notice'>You start to fix part of the microwave.</span>" \
@@ -67,7 +67,7 @@
 					"<span class='notice'>You have fixed part of the microwave.</span>" \
 				)
 				src.broken = 1 // Fix it a bit
-		else if(src.broken == 1 && istype(O, /obj/item/weapon/wrench)) // If it's broken and they're doing the wrench
+		else if(src.broken == 1 && O.iswrench()) // If it's broken and they're doing the wrench
 			user.visible_message( \
 				"<span class='notice'>\The [user] starts to fix part of the microwave.</span>", \
 				"<span class='notice'>You start to fix part of the microwave.</span>" \
@@ -82,10 +82,10 @@
 				src.dirty = 0 // just to be sure
 				src.flags = OPENCONTAINER
 		else
-			user << "<span class='warning'>It's broken!</span>"
+			to_chat(user, "<span class='warning'>It's broken!</span>")
 			return 1
 	else if(src.dirty==100) // The microwave is all dirty so can't be used!
-		if(istype(O, /obj/item/weapon/reagent_containers/spray/cleaner)) // If they're trying to clean it then let them
+		if(istype(O, /obj/item/weapon/reagent_containers/spray/cleaner) || istype(O, /obj/item/weapon/soap)) // If they're trying to clean it then let them
 			user.visible_message( \
 				"<span class='notice'>\The [user] starts to clean the microwave.</span>", \
 				"<span class='notice'>You start to clean the microwave.</span>" \
@@ -100,11 +100,11 @@
 				src.icon_state = "mw"
 				src.flags = OPENCONTAINER
 		else //Otherwise bad luck!!
-			user << "<span class='warning'>It's dirty!</span>"
+			to_chat(user, "<span class='warning'>It's dirty!</span>")
 			return 1
 	else if(is_type_in_list(O,acceptable_items))
 		if (contents.len>=max_n_of_items)
-			user << "<span class='warning'>This [src] is full of ingredients, you cannot put more.</span>"
+			to_chat(user, "<span class='warning'>This [src] is full of ingredients, you cannot put more.</span>")
 			return 1
 		if(istype(O, /obj/item/stack) && O:get_amount() > 1) // This is bad, but I can't think of how to change it
 			var/obj/item/stack/S = O
@@ -116,8 +116,7 @@
 			return
 		else
 		//	user.remove_from_mob(O)	//This just causes problems so far as I can tell. -Pete
-			user.drop_item()
-			O.loc = src
+			user.drop_from_inventory(O,src)
 			user.visible_message( \
 				"<span class='notice'>\The [user] has added \the [O] to \the [src].</span>", \
 				"<span class='notice'>You add \the [O] to \the [src].</span>")
@@ -130,14 +129,14 @@
 			return 1
 		for (var/datum/reagent/R in O.reagents.reagent_list)
 			if (!(R.id in acceptable_reagents))
-				user << "<span class='warning'>Your [O] contains components unsuitable for cookery.</span>"
+				to_chat(user, "<span class='warning'>Your [O] contains components unsuitable for cookery.</span>")
 				return 1
 		return
 	else if(istype(O,/obj/item/weapon/grab))
 		var/obj/item/weapon/grab/G = O
-		user << "<span class='warning'>This is ridiculous. You can not fit \the [G.affecting] in this [src].</span>"
+		to_chat(user, "<span class='warning'>This is ridiculous. You can not fit \the [G.affecting] in this [src].</span>")
 		return 1
-	else if(istype(O,/obj/item/weapon/crowbar))
+	else if(O.iscrowbar())
 		user.visible_message( \
 			"<span class='notice'>\The [user] begins [src.anchored ? "unsecuring" : "securing"] the microwave.</span>", \
 			"<span class='notice'>You attempt to [src.anchored ? "unsecure" : "secure"] the microwave.</span>"
@@ -149,10 +148,10 @@
 			)
 			src.anchored = !src.anchored
 		else
-			user << "<span class='notice'>You decide not to do that.</span>"
+			to_chat(user, "<span class='notice'>You decide not to do that.</span>")
 	else
 
-		user << "<span class='warning'>You have no idea what you can cook with this [O].</span>"
+		to_chat(user, "<span class='warning'>You have no idea what you can cook with this [O].</span>")
 	..()
 	src.updateUsrDialog()
 
@@ -259,7 +258,7 @@
 			wzhzhzh(16)
 			muck_finish()
 			cooked = fail()
-			cooked.loc = src.loc
+			cooked.forceMove(src.loc)
 			return
 		else if (has_extra_item())
 			if (!wzhzhzh(16))
@@ -267,7 +266,7 @@
 				return
 			broke()
 			cooked = fail()
-			cooked.loc = src.loc
+			cooked.forceMove(src.loc)
 			return
 		else
 			if (!wzhzhzh(40))
@@ -275,7 +274,7 @@
 				return
 			stop()
 			cooked = fail()
-			cooked.loc = src.loc
+			cooked.forceMove(src.loc)
 			return
 	else
 		var/halftime = round((recipe.time*4)/10/2)
@@ -285,7 +284,7 @@
 		if (!wzhzhzh(halftime))
 			abort()
 			cooked = fail()
-			cooked.loc = src.loc
+			cooked.forceMove(src.loc)
 			return
 
 
@@ -300,7 +299,7 @@
 			cooked_items += things
 			//Move cooked things to the buffer so they're not considered as ingredients
 			for (var/atom/movable/AM in things)
-				AM.loc = temp
+				AM.forceMove(temp)
 
 			valid = 0
 			recipe = select_recipe(RECIPE_LIST(appliancetype),src)
@@ -310,7 +309,7 @@
 
 		for (var/r in cooked_items)
 			var/atom/movable/R = r
-			R.loc = src //Move everything from the buffer back to the container
+			R.forceMove(src) //Move everything from the buffer back to the container
 
 		qdel(temp)//Delete buffer object
 		temp = null
@@ -369,7 +368,7 @@
 		src.dirty++
 	src.reagents.clear_reagents()
 	if (message)
-		usr << "<span class='notice'>You dispose of the microwave contents.</span>"
+		to_chat(usr, "<span class='notice'>You dispose of the microwave contents.</span>")
 	src.updateUsrDialog()
 
 /obj/machinery/microwave/proc/muck_start()
@@ -426,6 +425,23 @@
 			dispose()
 	return
 
+/obj/machinery/microwave/verb/Eject()
+	set src in oview(1)
+	set category = "Object"
+	set name = "Eject content"
+	usr.visible_message(
+	"<span class='notice'>[usr] is trying to open [src] to take out its content.</span>" ,
+	"<span class='notice'>You are trying to open [src] to take out its content</span>"
+	)
+
+	if (!do_after(usr, 1 SECONDS, act_target = src))
+		return
+
+	usr.visible_message(
+	"<span class='notice'>[usr] opened [src] and has taken out [english_list(contents)].</span>" ,
+	"<span class='notice'>You have opened [src] and taken out [english_list(contents)].</span>"
+	)
+	dispose()
 
 /obj/machinery/microwave/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
 	if (!mover)

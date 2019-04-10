@@ -7,24 +7,31 @@
 	icon_dead = "brownbear_dead"
 	icon_gib = "brownbear_gib"
 
-	health = 75
-	maxHealth = 75
+	health = 100
+	maxHealth = 100
 
 	density = 1
 
 	attacktext = "swatted"
-	melee_damage_lower = 10
-	melee_damage_upper = 10
+	melee_damage_lower = 25
+	melee_damage_upper = 25
 
 	min_oxy = 5
 	max_co2 = 5
 	max_tox = 2 //We tuff bear
+
+	mob_size = 17
 
 	response_help = "pets"
 	response_harm = "hits"
 	response_disarm = "pushes"
 
 	known_commands = list("stay", "stop", "attack", "follow", "dance", "boogie", "boogy")
+
+	tameable = FALSE
+
+	meat_type = /obj/item/weapon/reagent_containers/food/snacks/bearmeat
+	butchering_products = list(/obj/item/clothing/head/bearpelt = 1)
 
 /mob/living/simple_animal/hostile/commanded/bear/hit_with_weapon(obj/item/O, mob/living/user, var/effective_force, var/hit_zone)
 	. = ..()

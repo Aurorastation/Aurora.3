@@ -142,7 +142,7 @@
 	max_brig_time = 25
 
 /datum/law/med_severity/excessive_force
-	name = "i218 - Severe Use of Excessive Force"
+	name = "i218 - Use of Excessive Force"
 	desc = "To put a victim in critical state in defense of yourself or others, or seriously injuring a suspect while attempting to detain them. This includes pulling them when they have open wounds."
 	id = "i218"
 
@@ -156,3 +156,19 @@
 
 	min_brig_time = 10
 	max_brig_time = 25
+
+/datum/law/med_severity/fraud
+	name = "i220 - Fraud"
+	desc = "To steal or use deliberate deception in order to obtain credits from someone. Applies to amounts greater than 500 credits. For lesser amounts, see i102 - Petty Theft. For items of equivalent value, see i215 - Grand Theft."
+	id = "i220"
+
+	min_brig_time = 15
+	max_brig_time = 20
+
+/datum/law/med_severity/gross_negligence
+	name = "i221 - Gross Negligence"
+	desc = "To display a severe lack of diligence or disregard for safe conduct, which causes or will cause serious harm to people or property."
+	id = "i221"
+
+	min_brig_time = 15
+	max_brig_time = 20

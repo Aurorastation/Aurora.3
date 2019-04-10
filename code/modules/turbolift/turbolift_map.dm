@@ -15,13 +15,8 @@
 
 	var/list/areas_to_use = list()
 
-/obj/turbolift_map_holder/Destroy()
-	global.turbolifts -= src
-	return ..()
-
 /obj/turbolift_map_holder/Initialize()
 	..()
-	global.turbolifts += src
 
 	// Create our system controller.
 	var/datum/turbolift/lift = new()
@@ -160,9 +155,10 @@
 
 				// Clear out contents.
 				if(clear_objects)
-					for(var/atom/movable/thing in checking.contents)
-						if(thing.simulated)
-							qdel(thing)
+					for(var/thing in checking.contents)
+						var/atom/movable/AM = thing
+						if(AM.simulated)
+							qdel(AM)
 
 				if(tx >= ux && tx <= ex && ty >= uy && ty <= ey)
 					floor_turfs += checking
@@ -196,20 +192,21 @@
 		panel_ext.set_dir(udir)
 		cfloor.ext_panel = panel_ext
 
-        // Place lights
-		var/turf/placing1 = locate(light_x1, light_y1, cz)
-		var/turf/placing2 = locate(light_x2, light_y2, cz)
-		var/obj/machinery/light/light1 = new(placing1, light)
-		var/obj/machinery/light/light2 = new(placing2, light)
-		if(udir == NORTH || udir == SOUTH)
-			light1.set_dir(WEST)
-			light2.set_dir(EAST)
-		else
-			light1.set_dir(SOUTH)
-			light2.set_dir(NORTH)
+		if (clear_objects)	// If we're clearing objects, we're going to need to place lights since they can't be mapped in.
+			// Place lights
+			var/turf/placing1 = locate(light_x1, light_y1, cz)
+			var/turf/placing2 = locate(light_x2, light_y2, cz)
+			var/obj/machinery/light/light1 = new(placing1, light)
+			var/obj/machinery/light/light2 = new(placing2, light)
+			if(udir == NORTH || udir == SOUTH)
+				light1.set_dir(WEST)
+				light2.set_dir(EAST)
+			else
+				light1.set_dir(SOUTH)
+				light2.set_dir(NORTH)
 
-		light1.no_z_overlay = 1
-		light2.no_z_overlay = 1
+			light1.no_z_overlay = 1
+			light2.no_z_overlay = 1
 
 		// Update area.
 		if(az > areas_to_use.len)

@@ -2,6 +2,7 @@
 // parent class for pipes //
 ////////////////////////////
 /obj/machinery/atmospherics/pipe/zpipe
+	icon = 'icons/atmos/pipes.dmi'
 	icon_state = "up"
 	var/ptype	// What direction of pipe this is. Used for icons.
 
@@ -19,7 +20,7 @@
 	var/maximum_pressure = 70*ONE_ATMOSPHERE
 	var/fatigue_pressure = 55*ONE_ATMOSPHERE
 	alert_pressure = 55*ONE_ATMOSPHERE
-	
+
 	var/travel_verbname = "UNDEFINED"
 	var/travel_direction_verb = "UNDEFINED"
 	var/travel_direction_name = "UNDEFINED"
@@ -27,9 +28,7 @@
 
 	level = 1
 
-/obj/machinery/atmospherics/pipe/zpipe/New()
-	..()
-
+/obj/machinery/atmospherics/pipe/zpipe/Initialize()
 	icon = null
 
 	switch(dir)
@@ -49,19 +48,21 @@
 			initialize_directions = EAST
 		if(SOUTHWEST)
 			initialize_directions = SOUTH
-	
+
+	. = ..()
+
 
 /obj/machinery/atmospherics/pipe/zpipe/Entered(mob/living/M)
 	if(istype(M))
-		M << span("notice", "You are in a vertical pipe section. Use [travel_verbname] from the IC menu to [travel_direction_verb] a level.")
+		to_chat(M, span("notice", "You are in a vertical pipe section. Use [travel_verbname] from the IC menu to [travel_direction_verb] a level."))
 		. = ..()
 
 /obj/machinery/atmospherics/pipe/zpipe/hide(var/i)
 	if(istype(loc, /turf/simulated))
 		invisibility = i ? 101 : 0
-	update_icon()
+	queue_icon_update()
 
-/obj/machinery/atmospherics/pipe/up/machinery_process()
+/obj/machinery/atmospherics/pipe/zpipe/machinery_process()
 	if(!parent) //This should cut back on the overhead calling build_network thousands of times per cycle
 		..()
 	else
@@ -276,3 +277,13 @@
 	color = PIPE_COLOR_RED
 /obj/machinery/atmospherics/pipe/zpipe/down/red
 	color = PIPE_COLOR_RED
+
+/obj/machinery/atmospherics/pipe/zpipe/up/yellow
+	color = PIPE_COLOR_YELLOW
+/obj/machinery/atmospherics/pipe/zpipe/down/yellow
+	color = PIPE_COLOR_YELLOW
+
+/obj/machinery/atmospherics/pipe/zpipe/up/blue
+	color = PIPE_COLOR_BLUE
+/obj/machinery/atmospherics/pipe/zpipe/down/blue
+	color = PIPE_COLOR_BLUE

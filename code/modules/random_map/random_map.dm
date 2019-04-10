@@ -26,6 +26,7 @@ var/global/list/map_count = list()
 
 	// Storage for the final iteration of the map.
 	var/list/map = list()           // Actual map.
+	var/tmp/map_len = 0
 
 	// If set, all sleep(-1) calls will be skipped.
 	// Test to see if rand_seed() can be used reliably.
@@ -100,23 +101,28 @@ var/global/list/map_count = list()
 	if(!user)
 		user = world
 
-	var/dat = "<code>+------+<br>"
+	map_len = map.len
+
+	var/list/dat = "<code>+------+<br>"
 	for(var/x = 1, x <= limit_x, x++)
 		for(var/y = 1, y <= limit_y, y++)
-			var/current_cell = get_map_cell(x,y)
-			if(current_cell)
-				dat += get_map_char(map[current_cell])
+			var/tmp_cell
+			TRANSLATE_AND_VERIFY_COORD_MLEN(x, y, map_len)
+			if(tmp_cell)
+				dat += get_map_char(map[tmp_cell])
 		dat += "<br>"
-	user << "[dat]+------+</code>"
+	dat += "+------+</code>"
+	to_chat(user, dat.Join())
 
 /datum/random_map/proc/set_map_size()
 	map = list()
 	map.len = limit_x * limit_y
 
 /datum/random_map/proc/seed_map()
+	map_len = map.len
 	for(var/x = 1, x <= limit_x, x++)
 		for(var/y = 1, y <= limit_y, y++)
-			var/current_cell = get_map_cell(x,y)
+			var/current_cell = TRANSLATE_COORD(x, y)	// Coordinate cannot be invalid here, so use the faster no-validate one.
 			if(prob(initial_wall_cell))
 				map[current_cell] = WALL_CHAR
 			else
@@ -125,7 +131,7 @@ var/global/list/map_count = list()
 /datum/random_map/proc/clear_map()
 	for(var/x = 1, x <= limit_x, x++)
 		for(var/y = 1, y <= limit_y, y++)
-			map[get_map_cell(x,y)] = 0
+			map[TRANSLATE_COORD(x, y)] = 0
 
 /datum/random_map/proc/generate()
 	seed_map()
@@ -154,23 +160,26 @@ var/global/list/map_count = list()
 	if(!origin_y) origin_y = 1
 	if(!origin_z) origin_z = 1
 
+	map_len = map.len
+
 	for(var/x = 1, x <= limit_x, x++)
 		for(var/y = 1, y <= limit_y, y++)
-			if(!priority_process) 
+			if(!priority_process)
 				CHECK_TICK
 			apply_to_turf(x,y)
 
 /datum/random_map/proc/apply_to_turf(var/x,var/y)
-	var/current_cell = get_map_cell(x,y)
-	if(!current_cell)
+	var/tmp_cell
+	TRANSLATE_AND_VERIFY_COORD_MLEN(x, y, map_len)
+	if(!tmp_cell)
 		return 0
 	var/turf/T = locate((origin_x-1)+x,(origin_y-1)+y,origin_z)
 	if(!T || (target_turf_type && !istype(T,target_turf_type)))
 		return 0
-	var/newpath = get_appropriate_path(map[current_cell])
+	var/newpath = get_appropriate_path(map[tmp_cell])
 	if(newpath)
 		T.ChangeTurf(newpath)
-	get_additional_spawns(map[current_cell],T,get_spawn_dir(x, y))
+	get_additional_spawns(map[tmp_cell],T,get_spawn_dir(x, y))
 	return T
 
 /datum/random_map/proc/get_spawn_dir()

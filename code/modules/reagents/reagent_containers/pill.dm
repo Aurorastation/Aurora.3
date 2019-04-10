@@ -19,13 +19,12 @@
 
 	attack(mob/M as mob, mob/user as mob, def_zone)
 		//TODO: replace with standard_feed_mob() call.
-		
+
 		if(M == user)
 			if(!M.can_eat(src))
 				return
 
-			M << "<span class='notice'>You swallow \the [src].</span>"
-			M.drop_from_inventory(src) //icon update
+			to_chat(M, "<span class='notice'>You swallow \the [src].</span>")
 			if(reagents.total_volume)
 				reagents.trans_to_mob(M, reagents.total_volume, CHEM_INGEST)
 			qdel(src)
@@ -41,7 +40,6 @@
 			if(!do_mob(user, M))
 				return
 
-			user.drop_from_inventory(src) //icon update
 			user.visible_message("<span class='warning'>[user] forces [M] to swallow \the [src].</span>")
 
 			var/contained = reagentlist()
@@ -58,13 +56,12 @@
 		return 0
 
 	afterattack(obj/target, mob/user, proximity)
-		if(!proximity) return
 
-		if(target.is_open_container() && target.reagents)
+		if(proximity && target.is_open_container() && target.reagents)
 			if(!target.reagents.total_volume)
-				user << "<span class='notice'>[target] is empty. Can't dissolve \the [src].</span>"
+				to_chat(user, "<span class='notice'>[target] is empty. Can't dissolve \the [src].</span>")
 				return
-			user << "<span class='notice'>You dissolve \the [src] in [target].</span>"
+			to_chat(user, "<span class='notice'>You dissolve \the [src] in [target].</span>")
 
 			user.attack_log += text("\[[time_stamp()]\] <font color='red'>Spiked \a [target] with a pill. Reagents: [reagentlist()]</font>")
 			msg_admin_attack("[user.name] ([user.ckey]) spiked \a [target] with a pill. Reagents: [reagentlist()] (INTENT: [uppertext(user.a_intent)]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(target))
@@ -74,8 +71,9 @@
 				O.show_message("<span class='warning'>[user] puts something in \the [target].</span>", 1)
 
 			qdel(src)
+			return
 
-		return
+		. = ..()
 
 ////////////////////////////////////////////////////////////////////////////////
 /// Pills. END
@@ -86,64 +84,64 @@
 	name = "Anti-toxins pill"
 	desc = "Neutralizes many common toxins."
 	icon_state = "pill17"
-	New()
-		..()
+	Initialize()
+		. = ..()
 		reagents.add_reagent("anti_toxin", 25)
 
 /obj/item/weapon/reagent_containers/pill/tox
 	name = "Toxins pill"
 	desc = "Highly toxic."
 	icon_state = "pill5"
-	New()
-		..()
+	Initialize()
+		. = ..()
 		reagents.add_reagent("toxin", 50)
 
 /obj/item/weapon/reagent_containers/pill/cyanide
 	name = "Cyanide pill"
 	desc = "Don't swallow this."
 	icon_state = "pill5"
-	New()
-		..()
+	Initialize()
+		. = ..()
 		reagents.add_reagent("cyanide", 50)
 
 /obj/item/weapon/reagent_containers/pill/adminordrazine
 	name = "Adminordrazine pill"
 	desc = "It's magic. We don't have to explain it."
 	icon_state = "pill16"
-	New()
-		..()
+	Initialize()
+		. = ..()
 		reagents.add_reagent("adminordrazine", 50)
 
 /obj/item/weapon/reagent_containers/pill/stox
 	name = "Sleeping pill"
 	desc = "Commonly used to treat insomnia."
 	icon_state = "pill8"
-	New()
-		..()
+	Initialize()
+		. = ..()
 		reagents.add_reagent("stoxin", 15)
 
 /obj/item/weapon/reagent_containers/pill/kelotane
 	name = "Kelotane pill"
 	desc = "Used to treat burns."
 	icon_state = "pill11"
-	New()
-		..()
+	Initialize()
+		. = ..()
 		reagents.add_reagent("kelotane", 15)
 
 /obj/item/weapon/reagent_containers/pill/paracetamol
 	name = "Paracetamol pill"
 	desc = "Tylenol! A painkiller for the ages. Chewables!"
 	icon_state = "pill8"
-	New()
-		..()
+	Initialize()
+		. = ..()
 		reagents.add_reagent("paracetamol", 15)
 
 /obj/item/weapon/reagent_containers/pill/tramadol
 	name = "Tramadol pill"
 	desc = "A simple painkiller."
 	icon_state = "pill8"
-	New()
-		..()
+	Initialize()
+		. = ..()
 		reagents.add_reagent("tramadol", 15)
 
 
@@ -151,81 +149,88 @@
 	name = "Methylphenidate pill"
 	desc = "Improves the ability to concentrate."
 	icon_state = "pill8"
-	New()
-		..()
+	Initialize()
+		. = ..()
 		reagents.add_reagent("methylphenidate", 15)
 
-/obj/item/weapon/reagent_containers/pill/citalopram
-	name = "Citalopram pill"
+/obj/item/weapon/reagent_containers/pill/escitalopram
+	name = "Escitalopram pill"
 	desc = "Mild anti-depressant."
 	icon_state = "pill8"
-	New()
-		..()
-		reagents.add_reagent("citalopram", 15)
+	Initialize()
+		. = ..()
+		reagents.add_reagent("escitalopram", 15)
 
+/obj/item/weapon/reagent_containers/pill/escitalopram
+	name = "Escitalopram pill"
+	desc = "Mild anti-depressant."
+	icon_state = "pill8"
+	Initialize()
+		. = ..()
+		reagents.add_reagent("escitalopram", 15)
 
 /obj/item/weapon/reagent_containers/pill/inaprovaline
 	name = "Inaprovaline pill"
 	desc = "Used to stabilize patients."
 	icon_state = "pill20"
-	New()
-		..()
+	Initialize()
+		. = ..()
 		reagents.add_reagent("inaprovaline", 30)
 
 /obj/item/weapon/reagent_containers/pill/dexalin
 	name = "Dexalin pill"
 	desc = "Used to treat oxygen deprivation."
 	icon_state = "pill16"
-	New()
-		..()
+	Initialize()
+		. = ..()
 		reagents.add_reagent("dexalin", 15)
 
 /obj/item/weapon/reagent_containers/pill/dexalin_plus
 	name = "Dexalin Plus pill"
 	desc = "Used to treat extreme oxygen deprivation."
 	icon_state = "pill8"
-	New()
-		..()
+	Initialize()
+		. = ..()
 		reagents.add_reagent("dexalinp", 15)
 
 /obj/item/weapon/reagent_containers/pill/dermaline
 	name = "Dermaline pill"
 	desc = "Used to treat burn wounds."
 	icon_state = "pill12"
-	New()
-		..()
+	Initialize()
+		. = ..()
 		reagents.add_reagent("dermaline", 15)
 
 /obj/item/weapon/reagent_containers/pill/dylovene
 	name = "Dylovene pill"
 	desc = "A broad-spectrum anti-toxin."
 	icon_state = "pill13"
-	New()
-		..()
+	Initialize()
+		. = ..()
 		reagents.add_reagent("anti_toxin", 15)
 
 /obj/item/weapon/reagent_containers/pill/inaprovaline
 	name = "Inaprovaline pill"
 	desc = "Used to stabilize patients."
 	icon_state = "pill20"
-	New()
-		..()
+	Initialize()
+		. = ..()
 		reagents.add_reagent("inaprovaline", 30)
 
 /obj/item/weapon/reagent_containers/pill/bicaridine
 	name = "Bicaridine pill"
 	desc = "Used to treat physical injuries."
 	icon_state = "pill18"
-	New()
-		..()
+	Initialize()
+		. = ..()
 		reagents.add_reagent("bicaridine", 20)
 
 /obj/item/weapon/reagent_containers/pill/happy
 	name = "Happy pill"
 	desc = "Happy happy joy joy!"
 	icon_state = "pill18"
-	New()
-		..()
+	Initialize()
+		. = ..()
 		reagents.add_reagent("space_drugs", 15)
 		reagents.add_reagent("sugar", 15)
 
@@ -233,8 +238,8 @@
 	name = "Zoom pill"
 	desc = "Zoooom!"
 	icon_state = "pill18"
-	New()
-		..()
+	Initialize()
+		. = ..()
 		reagents.add_reagent("impedrezene", 10)
 		reagents.add_reagent("synaptizine", 5)
 		reagents.add_reagent("hyperzine", 5)
@@ -243,6 +248,25 @@
 	name = "Spaceacillin pill"
 	desc = "Contains antiviral agents."
 	icon_state = "pill19"
-	New()
-		..()
+	Initialize()
+		. = ..()
 		reagents.add_reagent("spaceacillin", 15)
+
+/obj/item/weapon/reagent_containers/pill/bio_vitamin
+	name = "Vitamin pill"
+	desc = "Contains a meal's worth of nutrients."
+	icon_state = "pill11"
+	Initialize()
+		. = ..()
+		reagents.add_reagent("nutriment", 20)
+		reagents.add_reagent(pick("banana","berryjuice","grapejuice","lemonjuice","limejuice","orangejuice","watermelonjuice"),1)
+		//Would be absolutely retarded to grind the biogenerator for juices.
+
+/obj/item/weapon/reagent_containers/pill/rmt
+	name = "RMT pill"
+	desc = "Contains chemical rampantly used by those seeking to remedy the effects of prolonged zero-gravity adaptations."
+	icon_state = "pill19"
+
+/obj/item/weapon/reagent_containers/pill/rmt/Initialize()
+	. = ..()
+	reagents.add_reagent("rmt", 15)

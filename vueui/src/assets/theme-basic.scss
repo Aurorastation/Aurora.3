@@ -1,0 +1,41 @@
+.theme-basic {
+    .button, button, input[type=submit], input[type=button], input[type=reset], input[disabled] {
+        display: inline;
+        background: none;
+        border: none;
+        border-radius: 0;
+        color: #0000ee;
+        padding: 0.1em 0 0 0;
+        border-bottom:1px solid #0000ee;
+        &:hover {
+            background: none;
+            color: #551a8b;
+            border-bottom:1px solid #551a8b;
+        }
+        &:active {
+            color: #ee0000;
+            border-bottom:1px solid #ee0000;
+        }
+    }
+}
+
+.theme-basic-dark {
+    @extend .theme-basic;
+    color: white;
+    background: black;
+    .button, button, input[type=submit], input[type=button], input[type=reset], input[disabled] {
+        color: #FFFF11;
+        border-bottom:1px solid #FFFF11;
+        &:hover {
+            color: #AAE574;
+            border-bottom:1px solid #AAE574;
+        }
+        &:active {
+            color: #11FFFF;
+            border-bottom:1px solid #11FFFF;
+        }
+    }
+    .uiTitleWrapper {
+        background-color: #464646;
+    }
+}

@@ -108,6 +108,13 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 			req_console_supplies -= department
 		if (departmentType & RC_INFO)
 			req_console_information -= department
+
+	if (LAZYLEN(alert_pdas))
+		for (var/pp in alert_pdas)
+			var/obj/item/device/pda/P = pp
+			P.linked_consoles -= src
+
+		alert_pdas.Cut()
 	return ..()
 
 /obj/machinery/requests_console/attack_hand(user as mob)
@@ -238,22 +245,23 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 	if(href_list["linkpda"])
 		var/obj/item/device/pda/pda = usr.get_active_hand()
 		if (!pda || !istype(pda))
-			usr << "<span class='warning'>You need to be holding a PDA to link it.</span>"
+			to_chat(usr, "<span class='warning'>You need to be holding a PDA to link it.</span>")
 		else if (pda in alert_pdas)
-			usr << "<span class='notice'>\The [pda] appears to be already linked.</span>"
+			to_chat(usr, "<span class='notice'>\The [pda] appears to be already linked.</span>")
 			//Update the name real quick.
 			alert_pdas[pda] = pda.name
 		else
+			LAZYADD(pda.linked_consoles, src)
 			alert_pdas += pda
 			alert_pdas[pda] = pda.name
-			usr << "<span class='notice'>You link \the [pda] to \the [src]. It will now ping upon the arrival of a fax to this machine.</span>"
+			to_chat(usr, "<span class='notice'>You link \the [pda] to \the [src]. It will now ping upon the arrival of a fax to this machine.</span>")
 
 	// Unlink a PDA.
 	if(href_list["unlink"])
 		var/obj/item/device/pda/pda = locate(href_list["unlink"])
 		if (pda && istype(pda))
 			if (pda in alert_pdas)
-				usr << "<span class='notice'>You unlink [alert_pdas[pda]] from \the [src]. It will no longer be notified of new faxes.</span>"
+				to_chat(usr, "<span class='notice'>You unlink [alert_pdas[pda]] from \the [src]. It will no longer be notified of new faxes.</span>")
 				alert_pdas -= pda
 
 	// Sort the forms.
@@ -317,7 +325,7 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 	// Toggle the paper bin lid.
 	if(href_list["setLid"])
 		lid = !lid
-		usr << "<span class='notice'>You [lid ? "open" : "close"] the lid.</span>"
+		to_chat(usr, "<span class='notice'>You [lid ? "open" : "close"] the lid.</span>")
 
 	updateUsrDialog()
 	return
@@ -337,7 +345,7 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 				announcement.announcer = ID.assignment ? "[ID.assignment] [ID.registered_name]" : ID.registered_name
 			else
 				reset_message()
-				user << "<span class='warning'>You are not authorized to send announcements.</span>"
+				to_chat(user, "<span class='warning'>You are not authorized to send announcements.</span>")
 			updateUsrDialog()
 	else if (istype(O, /obj/item/weapon/stamp))
 		if(inoperable(MAINT)) return
@@ -349,16 +357,16 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 		if(lid)	//More of that restocking business
 			var/obj/item/weapon/paper_bundle/C = O
 			paperstock += C.amount
-			user.drop_item(C)
+			user.drop_from_inventory(C,get_turf(src))
 			qdel(C)
 			for (var/mob/U in hearers(4, src.loc))
 				U.show_message(text("\icon[src] *The Requests Console beeps: 'Paper added.'"))
 		else
-			user << "<span class='notice'>I should open the lid to add more paper, or try faxing one paper at a time.</span>"
+			to_chat(user, "<span class='notice'>I should open the lid to add more paper, or try faxing one paper at a time.</span>")
 	else if (istype(O, /obj/item/weapon/paper))
 		if(lid)					//Stocking them papers
 			var/obj/item/weapon/paper/C = O
-			user.drop_item(C)
+			user.drop_from_inventory(C,get_turf(src))
 			qdel(C)
 			paperstock++
 			for (var/mob/U in hearers(4, src.loc))
@@ -405,7 +413,7 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 								img = image('icons/obj/bureaucracy.dmi', "paper_stamp-dots")
 							img.pixel_x = C.offset_x[j]
 							img.pixel_y = C.offset_y[j]
-							P.overlays += img
+							P.add_overlay(img)
 						P.set_content_unsafe(pname, info)
 						Console.print(P, 0, 'sound/machines/twobeep.ogg')
 						for (var/mob/player in hearers(4, Console.loc))

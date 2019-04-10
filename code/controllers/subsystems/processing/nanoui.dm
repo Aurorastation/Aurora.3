@@ -80,7 +80,7 @@ var/datum/controller/subsystem/processing/nanoui/SSnanoui
 	for (var/ui_key in obj_uis)
 		for (var/thing in obj_uis[ui_key])
 			var/datum/nanoui/ui = thing
-			if(ui && ui.src_object && ui.user && ui.src_object.nano_host())
+			if(ui && ui.src_object && ui.user && ui.src_object.ui_host())
 				ui.process(1)
 				.++
 
@@ -101,7 +101,7 @@ var/datum/controller/subsystem/processing/nanoui/SSnanoui
 	for (var/ui_key in obj_uis)
 		for (var/thing in obj_uis[ui_key])
 			var/datum/nanoui/ui = thing
-			if(ui && ui.src_object && ui.user && ui.src_object.nano_host())
+			if(ui && ui.src_object && ui.user && ui.src_object.ui_host())
 				ui.close()
 				.++
 

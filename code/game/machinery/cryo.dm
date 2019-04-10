@@ -30,7 +30,7 @@
 	var/turf/T = loc
 	T.contents += contents
 	if(beaker)
-		beaker.loc = get_step(loc, SOUTH) //Beaker is carefully ejected from the wreckage of the cryotube
+		beaker.forceMove(get_step(loc, SOUTH)) //Beaker is carefully ejected from the wreckage of the cryotube
 	return ..()
 
 /obj/machinery/atmospherics/unary/cryo_cell/atmos_init()
@@ -159,7 +159,7 @@
 
 	if(href_list["ejectBeaker"])
 		if(beaker)
-			beaker.loc = get_step(loc, SOUTH)
+			beaker.forceMove(get_step(loc, SOUTH))
 			beaker = null
 
 	if(href_list["ejectOccupant"])
@@ -173,34 +173,34 @@
 /obj/machinery/atmospherics/unary/cryo_cell/attackby(var/obj/item/weapon/G as obj, var/mob/user as mob)
 	if(istype(G, /obj/item/weapon/reagent_containers/glass))
 		if(beaker)
-			user << "<span class='warning'>A beaker is already loaded into the machine.</span>"
+			to_chat(user, "<span class='warning'>A beaker is already loaded into the machine.</span>")
 			return
 
 		beaker =  G
-		user.drop_item()
-		G.loc = src
+		user.drop_from_inventory(G,src)
 		user.visible_message("[user] adds \a [G] to \the [src]!", "You add \a [G] to \the [src]!")
 	else if(istype(G, /obj/item/weapon/grab))
+		var/obj/item/weapon/grab/grab = G
+		var/mob/living/L = grab.affecting
 
-		var/mob/living/L = G:affecting
-		visible_message("[user] starts putting [G:affecting] into the cryopod.", 3)
+		if (!istype(L))
+			return
 
-		if (do_mob(user, G:affecting, 30, needhand = 0))
+		user.visible_message("<span class='notice'>[user] starts putting [L] into [src].</span>", "<span class='notice'>You start putting [L] into [src].</span>", range = 3)
+
+		if (do_mob(user, L, 30, needhand = 0))
 			var/bucklestatus = L.bucklecheck(user)
 			if (!bucklestatus)//incase the patient got buckled during the delay
 				return
 			if (bucklestatus == 2)
 				var/obj/structure/LB = L.buckled
 				LB.user_unbuckle_mob(user)
-			if(!ismob(G:affecting))
-				return
-			for(var/mob/living/carbon/slime/M in range(1,G:affecting))
-				if(M.Victim == G:affecting)
-					usr << "[G:affecting:name] will not fit into the cryo because they have a slime latched onto their head."
+			for(var/mob/living/carbon/slime/M in range(1, L))
+				if(M.Victim == L)
+					to_chat(user, "[L] will not fit into the cryo because they have a slime latched onto their head.")
 					return
-			var/mob/M = G:affecting
-			if(put_mob(M))
-				visible_message("[user] puts [M.name] into the cryo cell.", 3)
+			if(put_mob(L))
+				user.visible_message("<span class='notice'>[user] puts [L] into [src].</span>", "<span class='notice'>You put [L] into [src].</span>", range = 3)
 				qdel(G)
 	return
 
@@ -212,7 +212,7 @@
 	var/mob/living/L = O
 	for(var/mob/living/carbon/slime/M in range(1,L))
 		if(M.Victim == L)
-			usr << "[L.name] will not fit into the cryo because they have a slime latched onto their head."
+			to_chat(usr, "[L.name] will not fit into the cryo because they have a slime latched onto their head.")
 			return
 
 	var/bucklestatus = L.bucklecheck(user)
@@ -221,18 +221,18 @@
 		return
 
 	if(L == user)
-		visible_message("[user] starts climbing into the cryopod.", 3)
+		user.visible_message("<span class='notice'>[user] starts climbing into [src].</span>", "<span class='notice'>You start climbing into [src].</span>", range = 3)
 	else
-		visible_message("[user] starts putting [L.name] into the cryopod.", 3)
+		user.visible_message("<span class='notice'>[user] starts putting [L] into the cryopod.</span>", "<span class='notice'>You start putting [L] into [src].</span>", range = 3)
 	if (do_mob(user, L, 30, needhand = 0))
 		if (bucklestatus == 2)
 			var/obj/structure/LB = L.buckled
 			LB.user_unbuckle_mob(user)
 		if(put_mob(L))
 			if(L == user)
-				visible_message("[user] climbs into the cryo cell.", 3)
+				user.visible_message("<span class='notice'>[user] climbs into [src].</span>", "<span class='notice'>You climb into [src].</span>", range = 3)
 			else
-				visible_message("[user] puts [L.name] into the cryo cell.", 3)
+				user.visible_message("<span class='notice'>[user] puts [L] into [src].</span>", "<span class='notice'>You put [L] into [src].</span>", range = 3)
 				if(user.pulling == L)
 					user.pulling = null
 
@@ -321,11 +321,11 @@
 	if(!( occupant ))
 		return
 	//for(var/obj/O in src)
-	//	O.loc = loc
+	//	O.forceMove(loc)
 	if (occupant.client)
 		occupant.client.eye = occupant.client.mob
 		occupant.client.perspective = MOB_PERSPECTIVE
-	occupant.loc = get_step(loc, SOUTH)	//this doesn't account for walls or anything, but i don't forsee that being a problem.
+	occupant.forceMove(get_step(loc, SOUTH))	//this doesn't account for walls or anything, but i don't forsee that being a problem.
 	if (occupant.bodytemperature < 261 && occupant.bodytemperature >= 70) //Patch by Aranclanos to stop people from taking burn damage after being ejected
 		occupant.bodytemperature = 261									  // Changed to 70 from 140 by Zuhayr due to reoccurance of bug.
 //	occupant.metabslow = 0
@@ -336,28 +336,28 @@
 	return
 /obj/machinery/atmospherics/unary/cryo_cell/proc/put_mob(mob/living/carbon/M as mob)
 	if (stat & (NOPOWER|BROKEN))
-		usr << "<span class='warning'>The cryo cell is not functioning.</span>"
+		to_chat(usr, "<span class='warning'>The cryo cell is not functioning.</span>")
 		return
 	if (!istype(M))
-		usr << "<span class='danger'>The cryo cell cannot handle such a lifeform!</span>"
+		to_chat(usr, "<span class='danger'>The cryo cell cannot handle such a lifeform!</span>")
 		return
 	if (occupant)
-		usr << "<span class='danger'>The cryo cell is already occupied!</span>"
+		to_chat(usr, "<span class='danger'>The cryo cell is already occupied!</span>")
 		return
 	if (M.abiotic())
-		usr << "<span class='warning'>Subject may not have abiotic items on.</span>"
+		to_chat(usr, "<span class='warning'>Subject may not have abiotic items on.</span>")
 		return
 	if(!node)
-		usr << "<span class='warning'>The cell is not correctly connected to its pipe network!</span>"
+		to_chat(usr, "<span class='warning'>The cell is not correctly connected to its pipe network!</span>")
 		return
 	if (M.client)
 		M.client.perspective = EYE_PERSPECTIVE
 		M.client.eye = src
 	M.stop_pulling()
-	M.loc = src
+	M.forceMove(src)
 	M.ExtinguishMob()
 	if(M.health > -100 && (M.health < 0 || M.sleeping))
-		M << "<span class='notice'><b>You feel a cold liquid surround you. Your skin starts to freeze up.</b></span>"
+		to_chat(M, "<span class='notice'><b>You feel a cold liquid surround you. Your skin starts to freeze up.</b></span>")
 	occupant = M
 	current_heat_capacity = HEAT_CAPACITY_HUMAN
 	update_use_power(2)
@@ -373,7 +373,7 @@
 	if(usr == occupant)//If the user is inside the tube...
 		if (usr.stat == 2)//and he's not dead....
 			return
-		usr << "<span class='notice'>Release sequence activated. This will take two minutes.</span>"
+		to_chat(usr, "<span class='notice'>Release sequence activated. This will take two minutes.</span>")
 		sleep(1200)
 		if(!src || !usr || !occupant || (occupant != usr)) //Check if someone's released/replaced/bombed him already
 			return
@@ -391,15 +391,15 @@
 	set src in oview(1)
 	for(var/mob/living/carbon/slime/M in range(1,usr))
 		if(M.Victim == usr)
-			usr << "You're too busy getting your life sucked out of you."
+			to_chat(usr, "You're too busy getting your life sucked out of you.")
 			return
 	if (usr.stat != 0)
 		return
-	visible_message("[usr] climbs into the cryo cell.", 3)
+	usr.visible_message("<span class='notice'>[usr] climbs into [src].</span>", "<span class='notice'>You climb into [src].</span>", range = 3)
 	put_mob(usr)
 	return
 
-/atom/proc/return_air_for_internal_lifeform()
+/atom/proc/return_air_for_internal_lifeform(var/mob/living/lifeform)
 	return return_air()
 
 /obj/machinery/atmospherics/unary/cryo_cell/return_air_for_internal_lifeform()

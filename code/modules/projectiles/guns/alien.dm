@@ -14,9 +14,10 @@
 	item_state = "spikethrower"
 	fire_sound_text = "a strange noise"
 	fire_sound = 'sound/weapons/bladeslice.ogg'
+	needspin = FALSE
 
-/obj/item/weapon/gun/launcher/spikethrower/New()
-	..()
+/obj/item/weapon/gun/launcher/spikethrower/Initialize()
+	. = ..()
 	last_regen = world.time
 
 /obj/item/weapon/gun/launcher/spikethrower/Destroy()
@@ -36,7 +37,7 @@
 
 /obj/item/weapon/gun/launcher/spikethrower/examine(mob/user)
 	..(user)
-	user << "It has [spikes] spike\s remaining."
+	to_chat(user, "It has [spikes] spike\s remaining.")
 
 /obj/item/weapon/gun/launcher/spikethrower/update_icon()
 	icon_state = "spikethrower[spikes]"
@@ -45,7 +46,7 @@
 	if(istype(user,/mob/living/carbon/human))
 		var/mob/living/carbon/human/H = user
 		if(H.species && H.species.name != "Vox" && H.species.name != "Vox Armalis")
-			user << "<span class='warning'>\The [src] does not respond to you!</span>"
+			to_chat(user, "<span class='warning'>\The [src] does not respond to you!</span>")
 			return 0
 	return ..()
 
@@ -73,6 +74,7 @@
 	cell_type = /obj/item/weapon/cell/super
 	fire_delay = 40
 	fire_sound = 'sound/effects/basscannon.ogg'
+	needspin = FALSE
 
 	var/mode = 1
 
@@ -87,7 +89,7 @@
 			if(H.species.name == "Vox Armalis")
 				..()
 				return
-		user << "<span class='warning'>\The [src] is far too large for you to pick up.</span>"
+		to_chat(user, "<span class='warning'>\The [src] is far too large for you to pick up.</span>")
 		return
 
 /obj/item/weapon/gun/energy/noisecannon/update_icon()

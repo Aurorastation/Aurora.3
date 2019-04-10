@@ -90,9 +90,11 @@ var/list/cleanbot_types // Going to use this to generate a list of types once th
 		return 1
 	return
 
+/mob/living/bot/cleanbot/proc/remove_from_ignore(path)
+	ignorelist -= path
+
 /mob/living/bot/cleanbot/Life()
 	..()
-
 	if(!on)
 		ignorelist = list()
 		return
@@ -117,16 +119,21 @@ var/list/cleanbot_types // Going to use this to generate a list of types once th
 		visible_message("Something flies out of [src]. He seems to be acting oddly.")
 		var/obj/effect/decal/cleanable/blood/gibs/gib = new /obj/effect/decal/cleanable/blood/gibs(loc)
 		ignorelist += gib
-		spawn(600)
-			ignorelist -= gib
+		addtimer(CALLBACK(src, .proc/remove_from_ignore, gib), 600)
 
+/mob/living/bot/cleanbot/think()
+	..()
+	if (!on)
+		return
 
 	if(pulledby) // Don't wiggle if someone pulls you
-		patrol_path = list()
+		patrol_path.Cut()
 		return
 
 	var/found_spot
-	if(!should_patrol) return
+	if(!should_patrol)
+		return
+
 	// This loop will progressively search outwards for /cleanables in view(), gradually to prevent excessively large view() calls when none are needed.
 	search_for: // We use the label so we can break out of this loop from within the next loop.
 		// Not breaking out of these loops properly is where the infinite loop was coming from before.
@@ -152,7 +159,6 @@ var/list/cleanbot_types // Going to use this to generate a list of types once th
 						else
 							target = null // Otherwise we want to try the next cleanable in view, if any.
 							D.clean_marked = null
-
 
 
 	if(!found_spot && !target) // No targets in range
@@ -187,8 +193,6 @@ var/list/cleanbot_types // Going to use this to generate a list of types once th
 			var/moved = step_towards(src, patrol_path[1])
 			if(moved)
 				patrol_path -= patrol_path[1]
-
-
 
 /mob/living/bot/cleanbot/UnarmedAttack(var/obj/effect/decal/cleanable/D, var/proximity)
 	if(!..())
@@ -247,7 +251,7 @@ var/list/cleanbot_types // Going to use this to generate a list of types once th
 
 /mob/living/bot/cleanbot/attack_hand(var/mob/user)
 	if (!has_ui_access(user) && !emagged)
-		user << "<span class='warning'>The unit's interface refuses to unlock!</span>"
+		to_chat(user, "<span class='warning'>The unit's interface refuses to unlock!</span>")
 		return
 
 	var/dat
@@ -273,7 +277,7 @@ var/list/cleanbot_types // Going to use this to generate a list of types once th
 	add_fingerprint(usr)
 
 	if (!has_ui_access(usr) && !emagged)
-		usr << "<span class='warning'>Insufficient permissions.</span>"
+		to_chat(usr, "<span class='warning'>Insufficient permissions.</span>")
 		return
 
 	switch(href_list["operation"])
@@ -287,24 +291,24 @@ var/list/cleanbot_types // Going to use this to generate a list of types once th
 			get_targets()
 		if("patrol")
 			should_patrol = !should_patrol
-			patrol_path = null
+			patrol_path = list()
 		if("freq")
 			var/freq = text2num(input("Select frequency for  navigation beacons", "Frequnecy", num2text(beacon_freq / 10))) * 10
 			if (freq > 0)
 				beacon_freq = freq
 		if("screw")
 			screwloose = !screwloose
-			usr << "<span class='notice'>You twiddle the screw.</span>"
+			to_chat(usr, "<span class='notice'>You twiddle the screw.</span>")
 		if("oddbutton")
 			oddbutton = !oddbutton
-			usr << "<span class='notice'>You press the weird button.</span>"
+			to_chat(usr, "<span class='notice'>You press the weird button.</span>")
 	attack_hand(usr)
 
 /mob/living/bot/cleanbot/emag_act(var/remaining_uses, var/mob/user)
 	. = ..()
 	if(!screwloose || !oddbutton)
 		if(user)
-			user << "<span class='notice'>The [src] buzzes and beeps.</span>"
+			to_chat(user, "<span class='notice'>The [src] buzzes and beeps.</span>")
 		oddbutton = 1
 		screwloose = 1
 		return 1
@@ -375,13 +379,12 @@ var/list/cleanbot_types // Going to use this to generate a list of types once th
 /obj/item/weapon/bucket_sensor/attackby(var/obj/item/O, var/mob/user)
 	..()
 	if(istype(O, /obj/item/robot_parts/l_arm) || istype(O, /obj/item/robot_parts/r_arm))
-		user.drop_item()
+		user.drop_from_inventory(O,get_turf(src))
 		qdel(O)
 		var/turf/T = get_turf(loc)
 		var/mob/living/bot/cleanbot/A = new /mob/living/bot/cleanbot(T)
 		A.name = created_name
-		user << "<span class='notice'>You add the robot arm to the bucket and sensor assembly. Beep boop!</span>"
-		user.drop_from_inventory(src)
+		to_chat(user, "<span class='notice'>You add the robot arm to the bucket and sensor assembly. Beep boop!</span>")
 		qdel(src)
 
 	else if(istype(O, /obj/item/weapon/pen))

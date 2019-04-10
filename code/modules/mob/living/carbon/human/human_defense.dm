@@ -10,11 +10,20 @@ emp_act
 
 /mob/living/carbon/human/bullet_act(var/obj/item/projectile/P, var/def_zone)
 
+	var/species_check = src.species.bullet_act(P, def_zone, src)
+
+	if(species_check)
+		return species_check
+
+	if(!is_physically_disabled())
+		if(martial_art && martial_art.deflection_chance)
+			if(prob(martial_art.deflection_chance))
+				src.visible_message("<span class='danger'>\The [src] deflects \the [P]!</span>")
+				return 0
+
 	def_zone = check_zone(def_zone)
 	if(!has_organ(def_zone))
 		return PROJECTILE_FORCE_MISS //if they don't have the organ in question then the projectile just passes by.
-
-	var/obj/item/organ/external/organ = get_organ()
 
 	//Shields
 	var/shield_check = check_shields(P.damage, P, null, def_zone, "the [P.name]")
@@ -25,14 +34,21 @@ emp_act
 			P.on_hit(src, 100, def_zone)
 			return 100
 
+	var/obj/item/organ/external/organ = get_organ(def_zone)
+
+	// Tell clothing we're wearing that it got hit by a bullet/laser/etc
+	var/list/clothing = get_clothing_list_organ(organ)
+	for(var/obj/item/clothing/C in clothing)
+		C.clothing_impact(P, P.damage)
+
 	//Shrapnel
-	if(P.can_embed())
+	if(!(species.flags & NO_EMBED) && P.can_embed())
 		var/armor = getarmor_organ(organ, "bullet")
 		if(prob(20 + max(P.damage - armor, -10)))
 			var/obj/item/weapon/SP = new P.shrapnel_type()
 			SP.name = (P.name != "shrapnel")? "[P.name] shrapnel" : "shrapnel"
 			SP.desc = "[SP.desc] It looks like it was fired from [P.shot_from]."
-			SP.loc = organ
+			SP.forceMove(organ)
 			organ.embed(SP)
 
 	return (..(P , def_zone))
@@ -45,7 +61,8 @@ emp_act
 
 	switch (def_zone)
 		if("head")
-			agony_amount *= 1.50
+			eye_blurry += min((rand(1,3) * (agony_amount/40)), 12)
+			confused = min(max(confused, 2 * (agony_amount/40)), 8)
 		if("l_hand", "r_hand")
 			var/c_hand
 			if (def_zone == "l_hand")
@@ -61,7 +78,7 @@ emp_act
 					emote("me", 1, "drops what they were holding, their [affected.name] malfunctioning!")
 				else
 					var/emote_scream = pick("screams in pain and ", "lets out a sharp cry and ", "cries out and ")
-					emote("me", 1, "[(species && species.flags & NO_PAIN) ? "" : emote_scream ]drops what they were holding in their [affected.name]!")
+					emote("me", 1, "[(!can_feel_pain()) ? "" : emote_scream ]drops what they were holding in their [affected.name]!")
 
 	..(stun_amount, agony_amount, def_zone)
 
@@ -100,6 +117,15 @@ emp_act
 			siemens_coefficient *= C.siemens_coefficient
 
 	return siemens_coefficient
+
+// Returns a list of clothing that is currently covering def_zone.
+/mob/living/carbon/human/proc/get_clothing_list_organ(var/obj/item/organ/external/def_zone, var/type)
+	var/list/results = list()
+	var/list/clothing_items = list(head, wear_mask, wear_suit, w_uniform, gloves, shoes)
+	for(var/obj/item/clothing/C in clothing_items)
+		if(istype(C) && (C.body_parts_covered & def_zone.body_part))
+			results.Add(C)
+	return results
 
 //this proc returns the armour value for a particular external organ.
 /mob/living/carbon/human/proc/getarmor_organ(var/obj/item/organ/external/def_zone, var/type)
@@ -140,6 +166,32 @@ emp_act
 	return 0
 
 /mob/living/carbon/human/emp_act(severity)
+	if(isipc(src))
+		var/obj/item/organ/surge/s = src.internal_organs_by_name["surge"]
+		if(!isnull(s))
+			if(s.surge_left >= 1)
+				playsound(src.loc, 'sound/magic/LightningShock.ogg', 25, 1)
+				s.surge_left -= 1
+				if(s.surge_left)
+					visible_message("<span class='warning'>[src] was not affected by EMP pulse.</span>", "<span class='warning'>Warning: EMP detected, integrated surge prevention module activated. There are [s.surge_left] preventions left.</span>")
+				else
+					s.broken = 1
+					s.icon_state = "surge_ipc_broken"
+					visible_message("<span class='warning'>[src] was not affected by EMP pulse.</span>", "<span class='warning'>Warning: EMP detected, integrated surge prevention module activated. The surge prevention module is fried, replacement recommended.</span>")
+				return 1
+			else if(s.surge_left == 0.5)
+				to_chat(src, "<span class='danger'>Warning: EMP detected, integrated surge prevention module is damaged and was unable to fully protect from EMP. Half of the damage taken. Replacement recommended.</span>")
+				for(var/obj/O in src)
+					if(!O)	continue
+					O.emp_act(severity * 2) // EMP act takes reverse numbers
+				for(var/obj/item/organ/external/O  in organs)
+					O.emp_act(severity)
+					for(var/obj/item/organ/I  in O.internal_organs)
+						if(I.robotic == 0)	continue
+						I.emp_act(severity * 2) // EMP act takes reverse numbers
+				return 1
+			else
+				to_chat(src, "<span class='danger'>Warning: EMP detected, integrated surge prevention module is fried and unable to protect from EMP. Replacement recommended.</span>")
 	for(var/obj/O in src)
 		if(!O)	continue
 		O.emp_act(severity)
@@ -151,6 +203,9 @@ emp_act
 	..()
 
 /mob/living/carbon/human/resolve_item_attack(obj/item/I, mob/living/user, var/target_zone)
+	if(check_attack_throat(I, user))
+		return null
+
 	if(user == src) // Attacking yourself can't miss
 		return target_zone
 
@@ -169,7 +224,7 @@ emp_act
 
 	var/obj/item/organ/external/affecting = get_organ(hit_zone)
 	if (!affecting || affecting.is_stump())
-		user << "<span class='danger'>They are missing that limb!</span>"
+		to_chat(user, "<span class='danger'>They are missing that limb!</span>")
 		return null
 
 	return hit_zone
@@ -190,6 +245,12 @@ emp_act
 	var/obj/item/organ/external/affecting = get_organ(hit_zone)
 	if(!affecting)
 		return 0
+
+	// Allow clothing to respond to being hit.
+	// This is done up here so that clothing damage occurs even if fully blocked.
+	var/list/clothing = get_clothing_list_organ(affecting)
+	for(var/obj/item/clothing/C in clothing)
+		C.clothing_impact(I, effective_force)
 
 	// Handle striking to cripple.
 	if(user.a_intent == I_DISARM)
@@ -266,12 +327,12 @@ emp_act
 /mob/living/carbon/human/emag_act(var/remaining_charges, mob/user, var/emag_source)
 	var/obj/item/organ/external/affecting = get_organ(user.zone_sel.selecting)
 	if(!affecting || !(affecting.status & ORGAN_ROBOT))
-		user << "<span class='warning'>That limb isn't robotic.</span>"
+		to_chat(user, "<span class='warning'>That limb isn't robotic.</span>")
 		return -1
 	if(affecting.sabotaged)
-		user << "<span class='warning'>[src]'s [affecting.name] is already sabotaged!</span>"
+		to_chat(user, "<span class='warning'>[src]'s [affecting.name] is already sabotaged!</span>")
 		return -1
-	user << "<span class='notice'>You sneakily slide [emag_source] into the dataport on [src]'s [affecting.name] and short out the safeties.</span>"
+	to_chat(user, "<span class='notice'>You sneakily slide [emag_source] into the dataport on [src]'s [affecting.name] and short out the safeties.</span>")
 	affecting.sabotaged = 1
 	return 1
 
@@ -373,7 +434,7 @@ emp_act
 				var/turf/T = near_wall(dir,2)
 
 				if(T)
-					src.loc = T
+					src.forceMove(T)
 					visible_message("<span class='warning'>[src] is pinned to the wall by [O]!</span>","<span class='warning'>You are pinned to the wall by [O]!</span>")
 					src.anchored = 1
 					src.pinned += O
@@ -457,3 +518,40 @@ emp_act
 		perm += perm_by_part[part]
 
 	return perm
+
+/mob/living/carbon/human/proc/grabbedby(mob/living/carbon/human/user,var/supress_message = 0)
+	if(user == src || anchored)
+		return 0
+	if(user.is_pacified())
+		to_chat(user, "<span class='notice'>You don't want to risk hurting [src]!</span>")
+		return 0
+
+	for(var/obj/item/weapon/grab/G in user.grabbed_by)
+		if(G.assailant == user)
+			to_chat(user, "<span class='notice'>You already grabbed [src].</span>")
+			return
+
+	if (!attempt_grab(user))
+		return
+
+	if(src.w_uniform)
+		src.w_uniform.add_fingerprint(src)
+
+	var/obj/item/weapon/grab/G = new /obj/item/weapon/grab(user, src)
+	if(buckled)
+		to_chat(user, "<span class='notice'>You cannot grab [src], \he is buckled in!</span>")
+	if(!G)	//the grab will delete itself in New if affecting is anchored
+		return
+	user.put_in_active_hand(G)
+	G.synch()
+	LAssailant = user
+
+	user.do_attack_animation(src)
+	playsound(loc, 'sound/weapons/thudswoosh.ogg', 50, 1, -1)
+	if(user.gloves && istype(user.gloves,/obj/item/clothing/gloves/force/syndicate)) //only antag gloves can do this for now
+		G.state = GRAB_AGGRESSIVE
+		G.icon_state = "grabbed1"
+		visible_message("<span class='warning'>[user] gets a strong grip on [src]!</span>")
+		return 1
+	visible_message("<span class='warning'>[user] has grabbed [src] passively!</span>")
+	return 1

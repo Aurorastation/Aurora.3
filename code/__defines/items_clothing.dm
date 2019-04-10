@@ -23,13 +23,13 @@
 #define SLOT_HOLSTER	0x8000 //16th bit - higher than this will overflow
 
 // Flags bitmasks.
-#define NOBLUDGEON         0x1    // When an item has this it produces no "X has been hit by Y with Z" message with the default handler.
+#define NOBLUDGEON         0x1   // When an item has this it produces no "X has been hit by Y with Z" message with the default handler.
 #define CONDUCT            0x2   // Conducts electricity. (metal etc.)
 #define ON_BORDER          0x4   // Item has priority to check when entering or leaving.
 #define NOBLOODY           0x8   // Used for items if they don't want to get a blood overlay.
-#define OPENCONTAINER      0x10 // Is an open container for chemistry purposes.
-#define PHORONGUARD        0x20 // Does not get contaminated by phoron.
-#define	NOREACT            0x40 // Reagents don't react inside this container.
+#define OPENCONTAINER      0x10  // Is an open container for chemistry purposes.
+#define PHORONGUARD        0x20  // Does not get contaminated by phoron.
+#define NOREACT            0x40  // Reagents don't react inside this container.
 #define PROXMOVE           0x80  // Does this object require proximity checking in Enter()?
 
 //Flags for items (equipment)
@@ -41,10 +41,11 @@
 #define FLEXIBLEMATERIAL       0x20 // At the moment, masks with this flag will not prevent eating even if they are covering your face.
 
 // Flags for pass_flags.
-#define PASSTABLE     0x1
-#define PASSGLASS     0x2
-#define PASSGRILLE    0x4
-#define PASSDOORHATCH 0x8
+#define PASSTABLE		0x1
+#define PASSGLASS		0x2
+#define PASSGRILLE		0x4
+#define PASSDOORHATCH	0x8
+#define PASSMOB			0x10
 
 // Bitmasks for the flags_inv variable. These determine when a piece of clothing hides another, i.e. a helmet hiding glasses.
 // WARNING: The following flags apply only to the external suit!
@@ -179,13 +180,13 @@
 #define       GLOVES_MIN_COLD_PROTECTION_TEMPERATURE 2.0 // For some gloves.
 #define         SHOE_MIN_COLD_PROTECTION_TEMPERATURE 2.0 // For shoes.
 
-#define  SPACE_SUIT_MAX_HEAT_PROTECTION_TEMPERATURE 5000  // These need better heat protect, but not as good heat protect as firesuits.
-#define    FIRESUIT_MAX_HEAT_PROTECTION_TEMPERATURE 30000 // What max_heat_protection_temperature is set to for firesuit quality headwear. MUST NOT BE 0.
-#define FIRE_HELMET_MAX_HEAT_PROTECTION_TEMPERATURE 30000 // For fire-helmet quality items. (Red and white hardhats)
-#define      HELMET_MAX_HEAT_PROTECTION_TEMPERATURE 600   // For normal helmets.
-#define       ARMOR_MAX_HEAT_PROTECTION_TEMPERATURE 600   // For armor.
-#define      GLOVES_MAX_HEAT_PROTECTION_TEMPERATURE 1500  // For some gloves.
-#define        SHOE_MAX_HEAT_PROTECTION_TEMPERATURE 1500  // For shoes.
+#define   SPACE_SUIT_MAX_HEAT_PROTECTION_TEMPERATURE 5000  // These need better heat protect, but not as good heat protect as firesuits.
+#define     FIRESUIT_MAX_HEAT_PROTECTION_TEMPERATURE 30000 // What max_heat_protection_temperature is set to for firesuit quality headwear. MUST NOT BE 0.
+#define  FIRE_HELMET_MAX_HEAT_PROTECTION_TEMPERATURE 30000 // For fire-helmet quality items. (Red and white hardhats)
+#define       HELMET_MAX_HEAT_PROTECTION_TEMPERATURE 600   // For normal helmets.
+#define        ARMOR_MAX_HEAT_PROTECTION_TEMPERATURE 600   // For armor.
+#define       GLOVES_MAX_HEAT_PROTECTION_TEMPERATURE 1500  // For some gloves.
+#define         SHOE_MAX_HEAT_PROTECTION_TEMPERATURE 1500  // For shoes.
 
 // Fire.
 #define FIRE_MIN_STACKS          -20

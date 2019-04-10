@@ -20,7 +20,7 @@
 	cell.charge = 1000 // 41minutes @ 200W
 
 /obj/machinery/floodlight/update_icon()
-	overlays.Cut()
+	cut_overlays()
 	icon_state = "flood[open ? "o" : ""][open && cell ? "b" : ""]0[on]"
 
 /obj/machinery/floodlight/machinery_process()
@@ -70,7 +70,7 @@
 		turn_off(1)
 	else
 		if(!turn_on(1))
-			user << "You try to turn on \the [src] but it does not work."
+			to_chat(user, "You try to turn on \the [src] but it does not work.")
 
 
 /obj/machinery/floodlight/attack_hand(mob/user as mob)
@@ -78,9 +78,9 @@
 		if(ishuman(user))
 			if(!user.get_active_hand())
 				user.put_in_hands(cell)
-				cell.loc = user.loc
+				cell.forceMove(user.loc)
 		else
-			cell.loc = loc
+			cell.forceMove(loc)
 
 		cell.add_fingerprint(user)
 		cell.update_icon()
@@ -88,7 +88,7 @@
 		src.cell = null
 		on = 0
 		set_light(0)
-		user << "You remove the power cell"
+		to_chat(user, "You remove the power cell")
 		update_icon()
 		return
 
@@ -96,41 +96,40 @@
 		turn_off(1)
 	else
 		if(!turn_on(1))
-			user << "You try to turn on \the [src] but it does not work."
+			to_chat(user, "You try to turn on \the [src] but it does not work.")
 
 	update_icon()
 
 
 /obj/machinery/floodlight/attackby(obj/item/weapon/W as obj, mob/user as mob)
-	if (istype(W, /obj/item/weapon/screwdriver))
+	if (W.isscrewdriver())
 		if (!open)
 			if(unlocked)
 				unlocked = 0
-				user << "You screw the battery panel in place."
+				to_chat(user, "You screw the battery panel in place.")
 			else
 				unlocked = 1
-				user << "You unscrew the battery panel."
+				to_chat(user, "You unscrew the battery panel.")
 
-	if (istype(W, /obj/item/weapon/crowbar))
+	if (W.iscrowbar())
 		if(unlocked)
 			if(open)
 				open = 0
 				overlays = null
-				user << "You crowbar the battery panel in place."
+				to_chat(user, "You crowbar the battery panel in place.")
 			else
 				if(unlocked)
 					open = 1
-					user << "You remove the battery panel."
+					to_chat(user, "You remove the battery panel.")
 
 	if (istype(W, /obj/item/weapon/cell))
 		if(open)
 			if(cell)
-				user << "There is a power cell already installed."
+				to_chat(user, "There is a power cell already installed.")
 			else
-				user.drop_item()
-				W.loc = src
+				user.drop_from_inventory(W,src)
 				cell = W
-				user << "You insert the power cell."
+				to_chat(user, "You insert the power cell.")
 	update_icon()
 
 /obj/item/weapon/floodlight_diy
@@ -141,7 +140,7 @@
 	item_state = "syringe_kit"
 
 /obj/item/weapon/floodlight_diy/attack_self(mob/user)
-	user << "<span class='notice'>You start piecing together the kit...</span>"
+	to_chat(user, "<span class='notice'>You start piecing together the kit...</span>")
 	if(do_after(user, 80))
 		var/obj/machinery/floodlight/R = new /obj/machinery/floodlight(user.loc)
 		user.visible_message("<span class='notice'>[user] assembles \a [R].\

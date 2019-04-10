@@ -31,26 +31,26 @@
 				M.weakened = max(M.weakened, 3)
 				cell.charge -= power_use
 				if(prob(5))
-					M << "<span class='notice'>[pick("You feel tingly.","You feel like floating.","It is hard to speak.","You can barely move.")]</span>"
+					to_chat(M, "<span class='notice'>[pick("You feel tingly.","You feel like floating.","It is hard to speak.","You can barely move.")]</span>")
 
 		if(field_type == "iron")
 			for(var/mob/living/silicon/M in T)
 				M.weakened = max(M.weakened, 3)
 				cell.charge -= power_use
 				if(prob(5))
-					M << "<span class='notice'>[pick("You feel tingly.","You feel like floating.","It is hard to speak.","You can barely move.")]</span>"
+					to_chat(M, "<span class='notice'>[pick("You feel tingly.","You feel like floating.","It is hard to speak.","You can barely move.")]</span>")
 
 		for(var/obj/item/I in T)
 			if(!suspension_field.contents.len)
 				suspension_field.icon_state = "energynet"
 				suspension_field.add_overlay("shield2")
-			I.loc = suspension_field
+			I.forceMove(suspension_field)
 
 		for(var/mob/living/simple_animal/M in T)
 			M.weakened = max(M.weakened, 3)
 			cell.charge -= power_use
 			if(prob(5))
-				M << "<span class='notice'>[pick("You feel tingly.","You feel like floating.","It is hard to speak.","You can barely move.")]</span>"
+				to_chat(M, "<span class='notice'>[pick("You feel tingly.","You feel like floating.","It is hard to speak.","You can barely move.")]</span>")
 
 		if(cell.charge <= 0)
 			deactivate()
@@ -120,7 +120,7 @@
 				if(anchored)
 					activate()
 				else
-					usr << "<span class='warning'>You are unable to activate [src] until it is properly secured on the ground.</span>"
+					to_chat(usr, "<span class='warning'>You are unable to activate [src] until it is properly secured on the ground.</span>")
 		else
 			deactivate()
 	if(href_list["select_field"])
@@ -128,22 +128,21 @@
 	else if(href_list["insertcard"])
 		var/obj/item/I = usr.get_active_hand()
 		if (istype(I, /obj/item/weapon/card))
-			usr.drop_item()
-			I.loc = src
+			usr.drop_from_inventory(I,src)
 			auth_card = I
 			if(attempt_unlock(I, usr))
-				usr << "<span class='info'>You insert [I], the console flashes \'<i>Access granted.</i>\'</span>"
+				to_chat(usr, "<span class='info'>You insert [I], the console flashes \'<i>Access granted.</i>\'</span>")
 			else
-				usr << "<span class='warning'>You insert [I], the console flashes \'<i>Access denied.</i>\'</span>"
+				to_chat(usr, "<span class='warning'>You insert [I], the console flashes \'<i>Access denied.</i>\'</span>")
 	else if(href_list["ejectcard"])
 		if(auth_card)
 			if(ishuman(usr))
-				auth_card.loc = usr.loc
+				auth_card.forceMove(usr.loc)
 				if(!usr.get_active_hand())
 					usr.put_in_hands(auth_card)
 				auth_card = null
 			else
-				auth_card.loc = loc
+				auth_card.forceMove(loc)
 				auth_card = null
 	else if(href_list["lock"])
 		locked = 1
@@ -157,23 +156,23 @@
 	if(!open)
 		interact(user)
 	else if(cell)
-		cell.loc = loc
+		cell.forceMove(loc)
 		cell.add_fingerprint(user)
 		cell.update_icon()
 
 		icon_state = "suspension0"
 		cell = null
-		user << "<span class='info'>You remove the power cell</span>"
+		to_chat(user, "<span class='info'>You remove the power cell</span>")
 
 /obj/machinery/suspension_gen/attackby(obj/item/weapon/W as obj, mob/user as mob)
-	if (istype(W, /obj/item/weapon/screwdriver))
+	if (W.isscrewdriver())
 		if(!open)
 			if(screwed)
 				screwed = 0
 			else
 				screwed = 1
-			user << "<span class='info'>You [screwed ? "screw" : "unscrew"] the battery panel.</span>"
-	else if (istype(W, /obj/item/weapon/crowbar))
+			to_chat(user, "<span class='info'>You [screwed ? "screw" : "unscrew"] the battery panel.</span>")
+	else if (W.iscrowbar())
 		if(!locked)
 			if(!screwed)
 				if(!suspension_field)
@@ -181,46 +180,45 @@
 						open = 0
 					else
 						open = 1
-					user << "<span class='info'>You crowbar the battery panel [open ? "open" : "in place"].</span>"
+					to_chat(user, "<span class='info'>You crowbar the battery panel [open ? "open" : "in place"].</span>")
 					icon_state = "suspension[open ? (cell ? "1" : "0") : "2"]"
 				else
-					user << "<span class='warning'>[src]'s safety locks are engaged, shut it down first.</span>"
+					to_chat(user, "<span class='warning'>[src]'s safety locks are engaged, shut it down first.</span>")
 			else
-				user << "<span class='warning'>Unscrew [src]'s battery panel first.</span>"
+				to_chat(user, "<span class='warning'>Unscrew [src]'s battery panel first.</span>")
 		else
-			user << "<span class='warning'>[src]'s security locks are engaged.</span>"
-	else if (istype(W, /obj/item/weapon/wrench))
+			to_chat(user, "<span class='warning'>[src]'s security locks are engaged.</span>")
+	else if (W.iswrench())
 		if(!suspension_field)
 			if(anchored)
 				anchored = 0
 			else
 				anchored = 1
-			user << "<span class='info'>You wrench the stabilising legs [anchored ? "into place" : "up against the body"].</span>"
+			to_chat(user, "<span class='info'>You wrench the stabilising legs [anchored ? "into place" : "up against the body"].</span>")
 			if(anchored)
 				desc = "It is resting securely on four stubby legs."
 			else
 				desc = "It has stubby legs bolted up against it's body for stabilising."
 		else
-			user << "<span class='warning'>You are unable to secure [src] while it is active!</span>"
+			to_chat(user, "<span class='warning'>You are unable to secure [src] while it is active!</span>")
 	else if (istype(W, /obj/item/weapon/cell))
 		if(open)
 			if(cell)
-				user << "<span class='warning'>There is a power cell already installed.</span>"
+				to_chat(user, "<span class='warning'>There is a power cell already installed.</span>")
 			else
-				user.drop_item()
-				W.loc = src
+				user.drop_from_inventory(W,src)
 				cell = W
-				user << "<span class='info'>You insert the power cell.</span>"
+				to_chat(user, "<span class='info'>You insert the power cell.</span>")
 				icon_state = "suspension1"
 	else if(istype(W, /obj/item/weapon/card))
 		var/obj/item/weapon/card/I = W
 		if(!auth_card)
 			if(attempt_unlock(I, user))
-				user << "<span class='info'>You swipe [I], the console flashes \'<i>Access granted.</i>\'</span>"
+				to_chat(user, "<span class='info'>You swipe [I], the console flashes \'<i>Access granted.</i>\'</span>")
 			else
-				user << "<span class='warning'>You swipe [I], console flashes \'<i>Access denied.</i>\'</span>"
+				to_chat(user, "<span class='warning'>You swipe [I], console flashes \'<i>Access denied.</i>\'</span>")
 		else
-			user << "<span class='warning'>Remove [auth_card] first.</span>"
+			to_chat(user, "<span class='warning'>Remove [auth_card] first.</span>")
 
 /obj/machinery/suspension_gen/proc/attempt_unlock(var/obj/item/weapon/card/C, var/mob/user)
 	if(!open)
@@ -286,7 +284,7 @@
 	icon_state = "suspension3"
 
 	for(var/obj/item/I in T)
-		I.loc = suspension_field
+		I.forceMove(suspension_field)
 		collected++
 
 	if(collected)
@@ -304,7 +302,7 @@
 	var/turf/T = get_turf(suspension_field)
 
 	for(var/mob/M in T)
-		M << "<span class='info'>You no longer feel like floating.</span>"
+		to_chat(M, "<span class='info'>You no longer feel like floating.</span>")
 		M.weakened = min(M.weakened, 3)
 
 	src.visible_message("<span class='notice'>\icon[src] [src] deactivates with a gentle shudder.</span>")
@@ -323,7 +321,7 @@
 	set category = "Object"
 
 	if(anchored)
-		usr << "<span class='warning'>You cannot rotate [src], it has been firmly fixed to the floor.</span>"
+		to_chat(usr, "<span class='warning'>You cannot rotate [src], it has been firmly fixed to the floor.</span>")
 	else
 		set_dir(turn(dir, 90))
 
@@ -333,7 +331,7 @@
 	set category = "Object"
 
 	if(anchored)
-		usr << "<span class='warning'>You cannot rotate [src], it has been firmly fixed to the floor.</span>"
+		to_chat(usr, "<span class='warning'>You cannot rotate [src], it has been firmly fixed to the floor.</span>")
 	else
 		set_dir(turn(dir, -90))
 
@@ -346,5 +344,5 @@
 
 /obj/effect/suspension_field/Destroy()
 	for(var/obj/I in src)
-		I.loc = src.loc
+		I.forceMove(src.loc)
 	return ..()

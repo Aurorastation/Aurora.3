@@ -1,6 +1,7 @@
 /obj/item/organ
 	name = "organ"
 	icon = 'icons/obj/surgery.dmi'
+	default_action_type = /datum/action/item_action/organ
 	var/dead_icon
 	var/mob/living/carbon/human/owner = null
 	var/status = 0
@@ -27,6 +28,19 @@
 
 	var/force_skintone = FALSE		// If true, icon generation will skip is-robotic checks. Used for synthskin limbs.
 
+	var/list/organ_verbs	//verb that are added when you gain the organ
+
+	var/robotic_name
+	var/robotic_sprite
+
+	var/robotize_type		// If set, this organ type will automatically be roboticized with this manufacturer.
+
+/obj/item/organ/New(loc, ...)
+	..()
+	if (!initialized && istype(loc, /mob/living/carbon/human/dummy/mannequin))
+		args[1] = TRUE
+		SSatoms.InitAtom(src, args)
+
 /obj/item/organ/Destroy()
 	STOP_PROCESSING(SSprocessing, src)
 	if(!owner)
@@ -42,17 +56,24 @@
 				owner.organs -= src
 			if(owner.organs_by_name)
 				owner.organs_by_name -= src
-				
-	owner = null 
+
+	owner = null
 	QDEL_NULL(dna)
 
 	return ..()
 
+/obj/item/organ/proc/refresh_action_button()
+	return action
+
+/obj/item/organ/attack_self(var/mob/user)
+	return (owner && loc == owner && owner == user)
+
 /obj/item/organ/proc/update_health()
 	return
 
-/obj/item/organ/New(var/mob/living/carbon/holder, var/internal)
-	..(holder)
+/obj/item/organ/Initialize(mapload, internal)
+	. = ..()
+	var/mob/living/carbon/holder = loc
 	create_reagents(5)
 	if(!max_damage)
 		max_damage = min_broken_damage * 2
@@ -91,7 +112,7 @@
 	damage = max_damage
 	status |= ORGAN_DEAD
 	STOP_PROCESSING(SSprocessing, src)
-	if(dead_icon)
+	if(dead_icon && !robotic)
 		icon_state = dead_icon
 	if(owner && vital)
 		owner.death()
@@ -125,7 +146,7 @@
 			create_reagents(5)
 
 		var/datum/reagent/blood/B = locate(/datum/reagent/blood) in reagents.reagent_list
-		if(B && prob(40))
+		if(B && !(status & ORGAN_ROBOT) && prob(40))
 			reagents.remove_reagent("blood",0.1)
 			if (isturf(loc))
 				blood_splatter(src,B,1)
@@ -152,7 +173,7 @@
 /obj/item/organ/examine(mob/user)
 	..(user)
 	if(status & ORGAN_DEAD)
-		user << "<span class='notice'>The decay has set in.</span>"
+		to_chat(user, "<span class='notice'>The decay has set in.</span>")
 
 /obj/item/organ/proc/handle_germ_effects()
 	//** Handle the effects of infections
@@ -207,7 +228,7 @@
 	damage = 0
 
 /obj/item/organ/proc/is_damaged()
-	return damage > 0
+	return damage >= 1 // Not zero because honestly who gives a shit about 0.01 organ damage
 
 /obj/item/organ/proc/is_bruised()
 	return damage >= min_bruised_damage
@@ -265,6 +286,10 @@
 	src.status &= ~ORGAN_CUT_AWAY
 	src.status |= ORGAN_ROBOT
 	src.status |= ORGAN_ASSISTED
+	if(robotic_name)
+		name = robotic_name
+	if(robotic_sprite)
+		icon_state = robotic_sprite
 
 /obj/item/organ/proc/mechassist() //Used to add things like pacemakers, etc
 	robotize()
@@ -272,24 +297,33 @@
 	robotic = 1
 	min_bruised_damage = 15
 	min_broken_damage = 35
+	if(!robotize_type)
+		name = initial(name)
+		icon_state = initial(icon_state)
 
 /obj/item/organ/emp_act(severity)
-	if(!(status & ORGAN_ROBOT))
+	if(!(status & ORGAN_ASSISTED))
 		return
+
+	var/organ_fragility = 0.5
+
+	if((status & ORGAN_ROBOT))	//fully robotic organs take the normal emp damage, assited ones only suffer half of it
+		organ_fragility = 1
+
 	switch (severity)
 		if (1.0)
-			take_damage(rand(7,20) * emp_coeff)
-			return
+			take_damage(rand(7,20) * emp_coeff * organ_fragility)
 		if (2.0)
-			take_damage(rand(3,7) * emp_coeff)
-			return
+			take_damage(rand(3,7) * emp_coeff * organ_fragility)
 		if(3.0)
-			take_damage(rand(3) * emp_coeff)
+			take_damage(rand(3) * emp_coeff * organ_fragility)
 
 /obj/item/organ/proc/removed(var/mob/living/user)
 
 	if(!istype(owner))
 		return
+
+	action_button_name = null
 
 	owner.internal_organs_by_name[organ_tag] = null
 	owner.internal_organs_by_name -= organ_tag
@@ -316,6 +350,7 @@
 			msg_admin_attack("[user.name] ([user.ckey]) removed a vital organ ([src]) from [owner.name] ([owner.ckey]) (INTENT: [uppertext(user.a_intent)]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(owner))
 		owner.death()
 
+	owner.update_action_buttons()
 	owner = null
 
 /obj/item/organ/proc/replaced(var/mob/living/carbon/human/target,var/obj/item/organ/external/affected)
@@ -334,13 +369,15 @@
 		transplant_data["blood_DNA"] =  transplant_blood.data["blood_DNA"]
 
 	owner = target
-	loc = owner
+	action_button_name = initial(action_button_name)
+	src.forceMove(owner)
 	STOP_PROCESSING(SSprocessing, src)
 	target.internal_organs |= src
 	affected.internal_organs |= src
 	target.internal_organs_by_name[organ_tag] = src
 	if(robotic)
-		status |= ORGAN_ROBOT
+		robotize()
+	owner.update_action_buttons()
 
 /obj/item/organ/eyes/replaced(var/mob/living/carbon/human/target)
 
@@ -352,34 +389,26 @@
 		target.update_eyes()
 	..()
 
-/obj/item/organ/proc/bitten(mob/user)
+/obj/item/organ/attack(var/mob/target, var/mob/user)
 
-	if(robotic)
+	if(robotic || !istype(target) || !istype(user) || (user != target && user.a_intent == I_HELP))
+		return ..()
+
+	if(alert("Do you really want to use this organ as food? It will be useless for anything else afterwards.",,"No.","Yes.") == "No.")
+		to_chat(user, "<span class='notice'>You successfully repress your cannibalistic tendencies.</span>")
 		return
-
-	user << "<span class='notice'>You take an experimental bite out of \the [src].</span>"
-	var/datum/reagent/blood/B = locate(/datum/reagent/blood) in reagents.reagent_list
-	blood_splatter(src,B,1)
 
 	user.drop_from_inventory(src)
 	var/obj/item/weapon/reagent_containers/food/snacks/organ/O = new(get_turf(src))
 	O.name = name
-	O.icon = icon
-	O.icon_state = icon_state
-
-	// Pass over the blood.
+	O.appearance = src
 	reagents.trans_to(O, reagents.total_volume)
-
-	if(fingerprints) O.fingerprints = fingerprints.Copy()
-	if(fingerprintshidden) O.fingerprintshidden = fingerprintshidden.Copy()
-	if(fingerprintslast) O.fingerprintslast = fingerprintslast
-
+	if(fingerprints)
+		O.fingerprints = fingerprints.Copy()
+	if(fingerprintshidden)
+		O.fingerprintshidden = fingerprintshidden.Copy()
+	if(fingerprintslast)
+		O.fingerprintslast = fingerprintslast
 	user.put_in_active_hand(O)
 	qdel(src)
-
-/obj/item/organ/attack_self(mob/user as mob)
-
-	// Convert it to an edible form, yum yum.
-	if(!robotic && user.a_intent == "help" && user.zone_sel.selecting == "mouth")
-		bitten(user)
-		return
+	target.attackby(O, user)

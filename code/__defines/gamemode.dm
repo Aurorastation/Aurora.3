@@ -3,11 +3,17 @@
 #define GAME_STATE_PLAYING		3
 #define GAME_STATE_FINISHED		4
 
+#define GAME_FAILURE_NONE                  0x0 //WHAT'S THIS????
+#define GAME_FAILURE_NO_ANTAGS             0x1
+#define GAME_FAILURE_NO_PLAYERS            0x2
+#define GAME_FAILURE_TOO_MANY_PLAYERS      0x4
+
 // Security levels.
 #define SEC_LEVEL_GREEN 0
-#define SEC_LEVEL_BLUE  1
-#define SEC_LEVEL_RED   2
-#define SEC_LEVEL_DELTA 3
+#define SEC_LEVEL_YELLOW 1
+#define SEC_LEVEL_BLUE  2
+#define SEC_LEVEL_RED   3
+#define SEC_LEVEL_DELTA 4
 
 #define BE_PLANT "BE_PLANT"
 #define BE_SYNTH "BE_SYNTH"
@@ -25,6 +31,7 @@
 #define ANTAG_RANDSPAWN         0x100 // Potentially randomly spawns due to events.
 #define ANTAG_VOTABLE           0x200 // Can be voted as an additional antagonist before roundstart.
 #define ANTAG_SET_APPEARANCE    0x400 // Causes antagonists to use an appearance modifier on spawn.
+#define ANTAG_RANDOM_EXCEPTED   0x800 // If a game mode randomly selects antag types, antag types with this flag should be excluded.
 
 // Mode/antag template macros.
 #define MODE_BORER "borer"
@@ -34,7 +41,6 @@
 #define MODE_COMMANDO "commando"
 #define MODE_DEATHSQUAD "deathsquad"
 #define MODE_ERT "ert"
-#define MODE_ACTOR "actor"
 #define MODE_MERCENARY "mercenary"
 #define MODE_NINJA "ninja"
 #define MODE_RAIDER "raider"
@@ -45,11 +51,11 @@
 #define MODE_MONKEY "monkey"
 #define MODE_RENEGADE "renegade"
 #define MODE_REVOLUTIONARY "revolutionary"
-#define MODE_LOYALIST "loyalist"
 #define MODE_MALFUNCTION "malf"
 #define MODE_TRAITOR "traitor"
 #define MODE_VAMPIRE "vampire"
 #define MODE_THRALL "thrall"
+#define MODE_LEGION "tau ceti foreign legion"
 
 #define DEFAULT_TELECRYSTAL_AMOUNT 25
 

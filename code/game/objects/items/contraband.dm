@@ -40,8 +40,8 @@
 		list("impedrezene" = 15)						= 2,
 		list("zombiepowder" = 10)						= 1)
 
-/obj/item/weapon/reagent_containers/glass/beaker/vial/random/New()
-	..()
+/obj/item/weapon/reagent_containers/glass/beaker/vial/random/Initialize()
+	. = ..()
 	if(is_open_container())
 		flags ^= OPENCONTAINER
 
@@ -54,4 +54,16 @@
 		names += R.name
 
 	desc = "Contains [english_list(names)]."
+	update_icon()
+
+
+/obj/item/weapon/reagent_containers/glass/beaker/vial/venenum
+	flags = 0
+
+/obj/item/weapon/reagent_containers/glass/beaker/vial/venenum/Initialize()
+	. = ..()
+	if(is_open_container())
+		flags ^= OPENCONTAINER
+	reagents.add_reagent("venenum",volume)
+	desc = "Contains venenum."
 	update_icon()

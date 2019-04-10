@@ -32,6 +32,8 @@
 #define NETWORK_CRESCENT "Crescent"
 #define NETWORK_CIVILIAN_EAST "Civilian East"
 #define NETWORK_CIVILIAN_WEST "Civilian West"
+#define NETWORK_CIVILIAN_MAIN "Civilian Main"
+#define NETWORK_CIVILIAN_SURFACE "Civilian Surface"
 #define NETWORK_COMMAND "Command"
 #define NETWORK_ENGINE "Engine"
 #define NETWORK_ENGINEERING "Engineering"
@@ -52,6 +54,7 @@
 #define NETWORK_ALARM_POWER "Power Alarms"
 #define NETWORK_ALARM_FIRE "Fire Alarms"
 #define NETWORK_SUPPLY "Supply"
+#define NETWORK_SERVICE "Service"
 #define NETWORK_EXPEDITION "Expedition"
 #define NETWORK_CALYPSO "Calypso"
 #define NETWORK_POD "General Utility Pod"
@@ -68,7 +71,7 @@ var/list/restricted_camera_networks = list(NETWORK_ERT,NETWORK_MERCENARY,"Secret
 #define STAGE_FIVE	9
 #define STAGE_SUPER	11
 
-// NanoUI flags
+// Interaction flags 
 #define STATUS_INTERACTIVE 2 // GREEN Visability
 #define STATUS_UPDATE 1 // ORANGE Visability
 #define STATUS_DISABLED 0 // RED Visability

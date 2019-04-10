@@ -57,3 +57,5 @@
 #define TRAIT_BIOLUM_COLOUR        37
 #define TRAIT_IMMUTABLE            38
 #define TRAIT_FLESH_COLOUR         39
+#define TRAIT_SPOROUS              40
+#define TRAIT_BIOLUM_PWR           41

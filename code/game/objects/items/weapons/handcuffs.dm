@@ -25,7 +25,7 @@
 		return
 
 	if ((CLUMSY in user.mutations) && prob(50))
-		user << "<span class='warning'>Uh ... how do those things work?!</span>"
+		to_chat(user, "<span class='warning'>Uh ... how do those things work?!</span>")
 		place_handcuffs(user, user)
 		return
 
@@ -45,11 +45,11 @@
 		return 0
 
 	if (!H.has_organ_for_slot(slot_handcuffed))
-		user << "<span class='danger'>\The [H] needs at least two wrists before you can cuff them together!</span>"
+		to_chat(user, "<span class='danger'>\The [H] needs at least two wrists before you can cuff them together!</span>")
 		return 0
 
 	if(istype(H.gloves,/obj/item/clothing/gloves/rig) && !elastic) // Can't cuff someone who's in a deployed hardsuit.
-		user << "<span class='danger'>\The [src] won't fit around \the [H.gloves]!</span>"
+		to_chat(user, "<span class='danger'>\The [src] won't fit around \the [H.gloves]!</span>")
 		return 0
 
 	user.visible_message("<span class='danger'>\The [user] is attempting to put [cuff_type] on \the [H]!</span>")
@@ -71,20 +71,19 @@
 	// Apply cuffs.
 	var/obj/item/weapon/handcuffs/cuffs = src
 	if(dispenser)
-		cuffs = new(get_turf(user))
+		cuffs = new(target)
 	else
-		user.drop_from_inventory(cuffs)
-	cuffs.loc = target
+		user.drop_from_inventory(cuffs,target)
 	target.handcuffed = cuffs
 	target.update_inv_handcuffed()
 	return 1
 
-var/last_chew = 0
 /mob/living/carbon/human/RestrainedClickOn(var/atom/A)
 	if (A != src) return ..()
-	if (last_chew + 26 > world.time) return
+
 
 	var/mob/living/carbon/human/H = A
+	if (H.last_chew + 26 > world.time) return
 	if (!H.handcuffed) return
 	if (H.a_intent != I_HURT) return
 	if (H.zone_sel.selecting != "mouth") return
@@ -146,7 +145,7 @@ var/last_chew = 0
 		if (R.use(1))
 			var/obj/item/weapon/material/wirerod/W = new(get_turf(user))
 			user.put_in_hands(W)
-			user << "<span class='notice'>You wrap the cable restraint around the top of the rod.</span>"
+			to_chat(user, "<span class='notice'>You wrap the cable restraint around the top of the rod.</span>")
 			qdel(src)
 			update_icon(user)
 

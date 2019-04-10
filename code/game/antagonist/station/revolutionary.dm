@@ -29,7 +29,7 @@ var/datum/antagonist/revolutionary/revs
 	faction_invisible = 1
 
 	restricted_jobs = list("AI", "Cyborg")
-	protected_jobs = list("Security Officer", "Warden", "Detective", "Head of Personnel", "Chief Engineer", "Research Director", "Chief Medical Officer", "Captain", "Head of Security", "Internal Affairs Agent")
+	protected_jobs = list("Security Officer", "Security Cadet", "Warden", "Detective", "Forensic Technician", "Head of Personnel", "Chief Engineer", "Research Director", "Chief Medical Officer", "Captain", "Head of Security", "Internal Affairs Agent")
 
 /datum/antagonist/revolutionary/New()
 	..()
@@ -53,4 +53,14 @@ var/datum/antagonist/revolutionary/revs
 	for(var/obj/item/weapon/implant/loyalty/L in player.current)
 		if(L && (L.imp_in == player.current))
 			return 0
+	return 1
+
+/datum/antagonist/revolutionary/equip(var/mob/living/carbon/human/player)
+
+	if(!..())
+		return 0
+
+	player.equip_to_slot_or_del(new /obj/item/device/announcer(player), slot_in_backpack)
+
+	give_codewords(player)
 	return 1

@@ -40,55 +40,118 @@
 
 			var/sender
 			var/message
-			switch(pick(1,2,3,4,5,6,7))
+			switch(pick(1,2,3,4,5,6,7,8))
+
 				if(1)
-					sender = pick("MaxBet","MaxBet Online Casino","There is no better time to register","I'm excited for you to join us")
+					sender = pick("MaxBet","MaxBet Online Casino",\
+					"There is no better time to register",\
+					"I'm excited for you to join us")
 					message = pick("Triple deposits are waiting for you at MaxBet Online when you register to play with us.",\
 					"You can qualify for a 200% Welcome Bonus at MaxBet Online when you sign up today.",\
 					"Once you are a player with MaxBet, you will also receive lucrative weekly and monthly promotions.",\
 					"You will be able to enjoy over 450 top-flight casino games at MaxBet.")
+
 				if(2)
-					sender = pick(300;"QuickDatingSystem",200;"Find your russian bride",50;"Tajaran beauties are waiting",50;"Find your secret skrell crush",50;"Beautiful unathi brides")
+					sender = pick("QuickDatingSystem",\
+					"Find your russian bride",\
+					"Tajaran beauties are waiting",\
+					"Find your secret skrell crush",\
+					"Beautiful unathi brides",\
+					"Hyperrealistic pleasure-bots available",\
+					"Zo'ra broods in need of genetic material!")
 					message = pick("Your profile caught my attention and I wanted to write and say hello (QuickDating).",\
-					"If you will write to me on my email [pick(first_names_female)]@[pick(last_names)].[pick("ru","ck","tj","ur","nt")] I shall necessarily send you a photo (QuickDating).",\
+					"If you will write to me on my email [pick(first_names_female)]@[pick(last_names)]@[current_map.company_name].[pick("ru","ck","tj","ur","nt")] I shall necessarily send you a photo (QuickDating).",\
 					"I want that we write each other and I hope, that you will like my profile and you will answer me (QuickDating).",\
 					"You have (1) new message!",\
-					"You have (2) new profile views!")
+					"You have (2) new profile views!",\
+					"You have a secret admirer! Meet them today on 4EverYung.nt",\
+					"Single farmer? Dating with us helps meet your best match.")
+
 				if(3)
-					sender = pick("Galactic Payments Association","Better Business Bureau","Tau Ceti E-Payments","NAnoTransen Finance Deparmtent","Luxury Replicas")
+					sender = pick("Galactic Payments Association",\
+					"Better Business Bureau",\
+					"Tau Ceti E-Payments",\
+					"NAnoTransen Finance Deparmtent",\
+					"Luxury Replicas")
 					message = pick("Luxury watches for Blowout sale prices!",\
 					"Watches, Jewelry & Accessories, Bags & Wallets !",\
 					"Deposit 100$ and get 300$ totally free!",\
 					" 100K NT.|WOWGOLD õnly $89            <HOT>",\
 					"We have been filed with a complaint from one of your customers in respect of their business relations with you.",\
-					"We kindly ask you to open the COMPLAINT REPORT (attached) to reply on this complaint..")
+					"We kindly ask you to open the COMPLAINT REPORT (attached) to reply on this complaint..",\
+					"Thizzz izz the NT bank, we need your pazzzword, plzzz click here.",\
+					"Your NT Account has been Limited! Click here for more informtion",\
+					"Your password has been upated. Please click to confirm.",\
+					"This staff assistant is making mad credits and basically, you're fucking stupid. How? ...Just Watch The Free Video >")
+
 				if(4)
-					sender = pick("Buy Dr. Maxman","Having dysfuctional troubles?")
+					sender = pick("Buy Dr. Maxman",\
+					"Having dysfuctional troubles?")
 					message = pick("DR MAXMAN: REAL Doctors, REAL Science, REAL Results!",\
-					"Dr. Maxman was created by George Acuilar, M.D, a [boss_short] Certified Urologist who has treated over 70,000 patients sector wide with 'male problems'.",\
+					"Dr. Maxman was created by George Acuilar, M.D, a [current_map.boss_short] Certified Urologist who has treated over 70,000 patients sector wide with 'male problems'.",\
 					"After seven years of research, Dr Acuilar and his team came up with this simple breakthrough male enhancement formula.",\
-					"Men of all species report AMAZING increases in length, width and stamina.")
+					"Men of all species report AMAZING increases in length, width and stamina.",
+					"Discovery of this ONE Vaurca pheremone has led to years of genital growth progress! Sign on now!",\
+					"Is your sexlife growing dull? Your late-night sessions growing short? Have you considered Unathi testicle transplants? Greater stamina, greater virility, greater fun.")
+
 				if(5)
 					sender = pick("Dr","Crown prince","King Regent","Professor","Captain")
 					sender += " " + pick("Robert","Alfred","Josephat","Kingsley","Sehi","Zbahi")
 					sender += " " + pick("Mugawe","Nkem","Gbatokwia","Nchekwube","Ndim","Ndubisi")
-					message = pick("YOUR FUND HAS BEEN MOVED TO [pick("Salusa","Segunda","Cepheus","Andromeda","Gruis","Corona","Aquila","ARES","Asellus")] DEVELOPMENTARY BANK FOR ONWARD REMITTANCE.",\
+					message = pick("YOUR FUND HAS BEEN MOVED TO [pick("Sol","Biesel","Dominia","Elyra","Qerrbalak","Adhomai","NTCC Odin","Hephaestus","Kentucky")] DEVELOPMENTARY BANK FOR ONWARD REMITTANCE.",\
 					"We are happy to inform you that due to the delay, we have been instructed to IMMEDIATELY deposit all funds into your account",\
 					"Dear fund beneficiary, We have please to inform you that overdue funds payment has finally been approved and released for payment",\
 					"Due to my lack of agents I require an off-world financial account to immediately deposit the sum of 1 POINT FIVE MILLION credits.",\
-					"Greetings sir, I regretfully to inform you that as I lay dying here due to my lack ofheirs I have chosen you to recieve the full sum of my lifetime savings of 1.5 billion credits")
+					"Greetings sir, I regretfully to inform you that as I lay dying here due to my lack ofheirs I have chosen you to receive the full sum of my lifetime savings of 1.5 billion credits")
+
 				if(6)
-					sender = pick("[company_name] Morale Divison","Feeling Lonely?","Bored?","www.wetskrell.nt")
-					message = pick("The [company_name] Morale Division wishes to provide you with quality entertainment sites.",\
-					"WetSkrell.nt is a xenophillic website endorsed by NT for the use of male crewmembers among it's many stations and outposts.",\
-					"Wetskrell.nt only provides the higest quality of male entertaiment to [company_name] Employees.",\
-					"Simply enter your [company_name] Bank account system number and pin. With three easy steps this service could be yours!")
+					var/pornography = pick("www.wetskrell.nt",\
+					"www.badkitty.nt",\
+					"www.scalesnstuff.nt",\
+					"www.spacelube.nt",\
+					"www.hivenetmingle.nt")
+					sender = pick("[current_map.company_name] Morale Divison",\
+					"Feeling Lonely?",\
+					"Bored?",\
+					"[pornography]")
+					message = pick("The [current_map.company_name] Morale Division wishes to provide you with quality entertainment sites.",\
+					"[pornography] is a xenophillic website endorsed by NT for the use of male crewmembers among it's many stations and outposts.",\
+					"[pornography] only provides the higest quality of male entertaiment to [current_map.company_name] Employees.",\
+					"Simply enter your [current_map.company_name] Bank account system number and pin. With three easy steps this service could be yours!",
+					"Warning! Your connection is not private. Attackers might be trying to steal your information from [pornography] (for example, passwords, messages, or credit cards). Click to learn more.")
+
 				if(7)
-					sender = pick("You have won free tickets!","Click here to claim your prize!","You are the 1000th vistor!","You are our lucky grand prize winner!")
-					message = pick("You have won tickets to the newest ACTION JAXSON MOVIE!",\
-					"You have won tickets to the newest crime drama DETECTIVE MYSTERY IN THE CLAMITY CAPER!",\
-					"You have won tickets to the newest romantic comedy 16 RULES OF LOVE!",\
-					"You have won tickets to the newest thriller THE CULT OF THE SLEEPING ONE!")
+					var/genre = pick("detective crime thriller","crime drama","saturday cartoon","coming of age drama","hospital drama","space opera","sci-fi epic","historical drama","murder mystery","soft-core thriller","S-movie")
+					var/premise = pick("Attack","Revenge", "Apocalypse","War","Army","Night","House","Invasion","Mountain","Rise","Rage")
+					var/list/noun = list("Maniac","Commando","Alien","Goblin","Skeleton","Bird","Raider","Hive","Snake","Teacher","Zombie","Wizard","Dragon","Octopus","Dinosaur","Thing","Changeling","Cult","Vampire","Ninja","Agent","Blob","People","Man","Woman","Clown")
+					var/list/adjective = list("Killer","Skrell","Unathi","Devil","Satan","Evil","Unnameable","Antimatter","Robot","Vaurca","Human","Ancient","Vampire","Sleeper","Secret","Nazi","Space-Nazi","Communist","Immortal","Demon","Murderous","Collosal","Undead","Sex")
+					var/list/relation = list("Neighbour","Priest","Brother","Mother","Father","Sister","Teacher","Parents","King","Son","Daughter","Friends","Self")
+					var/list/action = list("Killed","Conquered","Became","Joined","Tricked","Absorbed","Frightened","Seduced","Married")
+					var/list/place = list("Outer Space","School","Center of the Earth","Sedantis IV","Tau Ceti","Moghes","Holy Terra","Earth","Our Own Minds","the Village Green","Two Doors Down the Block","the Town Over","the Ancient Past","the Distant Future","Kentucky")
+					var/plural = "s"
+					if(prob(50))
+						plural = ""
+					var/movie_title = pick("[premise] of the [pick(adjective)] [pick(noun)][plural]","[pick(adjective)] [pick(noun)][plural] vs. [pick(adjective)] [pick(noun)]s from [pick(place)]","The Night My [pick(relation)] [pick(action)] [pick("a [pick(adjective)] [pick(noun)]",pick(place))]")
+					if(prob(50))
+						movie_title = uppertext(movie_title)
+
+					sender = pick("You have won free tickets!",\
+					"Click here to claim your prize!",\
+					"You are the 1000th vistor!",\
+					"You are our lucky grand prize winner!")
+					message = pick("You have won tickets to the newest [genre] \"[movie_title]\"!",\
+					"Click here to receive your new iFrame 7")
+
+				if(8)
+					sender = pick("[pick(first_names_female,first_names_male)][pick(last_names)]@[current_map.company_name].[pick("ru","ck","tj","ur","nt")]",\
+					"Cindy Kate messenging",\
+					"MirandaTrasen@NanoTrasen.nt")
+					message = pick("We know who you are. Expect us.",\
+					"Hi [P.owner]! Remember me from high-school? Well I have this great business deal proposition....",\
+					"If you don't forward this message to 8 more crewmembers your head will die in their sleep.",\
+					"If you break the chain you will have bad luck for the rest of you're miserable life. Forward to 10 more crewmembers.",\
+					"Forward this email to 3.14 more crewmembers and receive 10,000 cR!",\
+					"[P.owner]! I come from the future to give warning! The code has become self-referential! Run while you still can!")
 
 			if (useMS.send_pda_message("[P.owner]", sender, message))	//Message been filtered by spam filter.
 				return
@@ -117,4 +180,4 @@
 				L = get(P, /mob/living/silicon)
 
 			if(L)
-				L << "\icon[P] <b>Message from [sender] (Unknown / spam?), </b>\"[message]\" (Unable to Reply)"
+				to_chat(L, "\icon[P] <b>Message from [sender] (Unknown / spam?), </b>\"[message]\" (Unable to Reply)")

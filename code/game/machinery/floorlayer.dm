@@ -36,7 +36,7 @@
 
 /obj/machinery/floorlayer/attackby(var/obj/item/W as obj, var/mob/user as mob)
 
-	if (istype(W, /obj/item/weapon/wrench))
+	if (W.iswrench())
 		var/m = input("Choose work mode", "Mode") as null|anything in mode
 		mode[m] = !mode[m]
 		var/O = mode[m]
@@ -44,23 +44,23 @@
 		return
 
 	if(istype(W, /obj/item/stack/tile))
-		user << "<span class='notice'>\The [W] successfully loaded.</span>"
+		to_chat(user, "<span class='notice'>\The [W] successfully loaded.</span>")
 		user.drop_item(T)
 		TakeTile(T)
 		return
 
-	if(istype(W, /obj/item/weapon/crowbar))
+	if(W.iscrowbar())
 		if(!length(contents))
-			user << "<span class='notice'>\The [src] is empty.</span>"
+			to_chat(user, "<span class='notice'>\The [src] is empty.</span>")
 		else
 			var/obj/item/stack/tile/E = input("Choose remove tile type.", "Tiles") as null|anything in contents
 			if(E)
-				user <<  "<span class='notice'>You remove the [E] from /the [src].</span>"
-				E.loc = src.loc
+				to_chat(user,  "<span class='notice'>You remove the [E] from /the [src].</span>")
+				E.forceMove(src.loc)
 				T = null
 		return
 
-	if(istype(W, /obj/item/weapon/screwdriver))
+	if(W.isscrewdriver())
 		T = input("Choose tile type.", "Tiles") as null|anything in contents
 		return
 	..()
@@ -73,7 +73,7 @@
 	var/number = 0
 	if (T)
 		number = T.get_amount()
-	user << "<span class='notice'>\The [src] has [number] tile\s, dismantle is [dismantle?"on":"off"], laying is [laying?"on":"off"], collect is [collect?"on":"off"].</span>"
+	to_chat(user, "<span class='notice'>\The [src] has [number] tile\s, dismantle is [dismantle?"on":"off"], laying is [laying?"on":"off"], collect is [collect?"on":"off"].</span>")
 
 /obj/machinery/floorlayer/proc/reset()
 	on=0
@@ -114,7 +114,7 @@
 
 /obj/machinery/floorlayer/proc/TakeTile(var/obj/item/stack/tile/tile)
 	if(!T)	T = tile
-	tile.loc = src
+	tile.forceMove(src)
 
 	SortStacks()
 

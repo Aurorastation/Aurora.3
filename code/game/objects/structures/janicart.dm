@@ -42,17 +42,17 @@
 	if(..(user, 1))
 		if (mybucket)
 			var/contains = mybucket.reagents.total_volume
-			user << "\icon[src] The bucket contains [contains] unit\s of liquid!"
+			to_chat(user, "\icon[src] The bucket contains [contains] unit\s of liquid!")
 		else
-			user << "\icon[src] There is no bucket mounted on it!"
+			to_chat(user, "\icon[src] There is no bucket mounted on it!")
 	//everything else is visible, so doesn't need to be mentioned
 
 
 /obj/structure/janitorialcart/MouseDrop_T(atom/movable/O as mob|obj, mob/living/user as mob)
 	if (istype(O, /obj/structure/mopbucket) && !mybucket)
-		O.loc = src
+		O.forceMove(src)
 		mybucket = O
-		user << "You mount the [O] on the janicart."
+		to_chat(user, "You mount the [O] on the janicart.")
 		update_icon()
 	else
 		..()
@@ -65,14 +65,13 @@
 	var/obj/I = usr.get_active_hand()
 	if(istype(I, /obj/item/weapon/mop))
 		if(!mymop)
-			usr.drop_item()
+			usr.drop_from_inventory(I,src)
 			mymop = I
-			I.forceMove(src)
 			update_icon()
 			updateUsrDialog()
-			usr << "<span class='notice'>You put [I] into [src].</span>"
+			to_chat(usr, "<span class='notice'>You put [I] into [src].</span>")
 		else
-			usr << "<span class='notice'>The cart already has a mop attached</span>"
+			to_chat(usr, "<span class='notice'>The cart already has a mop attached</span>")
 		return
 	else if(istype(I, /obj/item/weapon/reagent_containers) && mybucket)
 		var/obj/item/weapon/reagent_containers/C = I
@@ -88,54 +87,51 @@
 		if (mybucket)
 			if(I.reagents.total_volume < I.reagents.maximum_volume)
 				if(mybucket.reagents.total_volume < 1)
-					user << "<span class='notice'>[mybucket] is empty!</span>"
+					to_chat(user, "<span class='notice'>[mybucket] is empty!</span>")
 				else
 					mybucket.reagents.trans_to_obj(I, 5)	//
-					user << "<span class='notice'>You wet [I] in [mybucket].</span>"
+					to_chat(user, "<span class='notice'>You wet [I] in [mybucket].</span>")
 					playsound(loc, 'sound/effects/slosh.ogg', 25, 1)
 			else
-				user << "<span class='notice'>[I] can't absorb anymore liquid!</span>"
+				to_chat(user, "<span class='notice'>[I] can't absorb anymore liquid!</span>")
 		else
-			user << "<span class='notice'>There is no bucket mounted here to dip [I] into!</span>"
+			to_chat(user, "<span class='notice'>There is no bucket mounted here to dip [I] into!</span>")
 		return 1
 
 	else if(istype(I, /obj/item/weapon/reagent_containers/spray) && !myspray)
-		user.drop_item()
+		user.drop_from_inventory(I,src)
 		myspray = I
-		I.forceMove(src)
 		update_icon()
 		updateUsrDialog()
-		user << "<span class='notice'>You put [I] into [src].</span>"
+		to_chat(user, "<span class='notice'>You put [I] into [src].</span>")
 		return 1
 
 	else if(istype(I, /obj/item/device/lightreplacer) && !myreplacer)
-		user.drop_item()
+		user.drop_from_inventory(I,src)
 		myreplacer = I
-		I.forceMove(src)
 		update_icon()
 		updateUsrDialog()
-		user << "<span class='notice'>You put [I] into [src].</span>"
+		to_chat(user, "<span class='notice'>You put [I] into [src].</span>")
 		return 1
 
 	else if(istype(I, /obj/item/weapon/storage/bag/trash) && !mybag)
-		user.drop_item()
+		user.drop_from_inventory(I,src)
 		mybag = I
 		I.forceMove(src)
 		update_icon()
 		updateUsrDialog()
-		user << "<span class='notice'>You put [I] into [src].</span>"
+		to_chat(user, "<span class='notice'>You put [I] into [src].</span>")
 		return 1
 
 	else if(istype(I, /obj/item/weapon/caution))
 		if(signs < 4)
-			user.drop_item()
-			I.forceMove(src)
+			user.drop_from_inventory(I,src)
 			signs++
 			update_icon()
 			updateUsrDialog()
-			user << "<span class='notice'>You put [I] into [src].</span>"
+			to_chat(user, "<span class='notice'>You put [I] into [src].</span>")
 		else
-			user << "<span class='notice'>[src] can't hold any more signs.</span>"
+			to_chat(user, "<span class='notice'>[src] can't hold any more signs.</span>")
 		return 1
 
 	else if(mybag)
@@ -143,7 +139,7 @@
 		//This return will prevent afterattack from executing if the object goes into the trashbag,
 		//This prevents dumb stuff like splashing the cart with the contents of a container, after putting said container into trash
 
-	else if (!has_items && (istype(I, /obj/item/weapon/wrench) || istype(I, /obj/item/weapon/weldingtool) || istype(I, /obj/item/weapon/gun/energy/plasmacutter)))
+	else if (!has_items && (I.iswrench() || I.iswelder() || istype(I, /obj/item/weapon/gun/energy/plasmacutter)))
 		dismantle(user)
 		return
 	..()
@@ -242,29 +238,29 @@
 			if("garbage")
 				if(mybag)
 					user.put_in_hands(mybag)
-					user << "<span class='notice'>You take [mybag] from [src].</span>"
+					to_chat(user, "<span class='notice'>You take [mybag] from [src].</span>")
 					mybag = null
 			if("mop")
 				if(mymop)
 					user.put_in_hands(mymop)
-					user << "<span class='notice'>You take [mymop] from [src].</span>"
+					to_chat(user, "<span class='notice'>You take [mymop] from [src].</span>")
 					mymop = null
 			if("spray")
 				if(myspray)
 					user.put_in_hands(myspray)
-					user << "<span class='notice'>You take [myspray] from [src].</span>"
+					to_chat(user, "<span class='notice'>You take [myspray] from [src].</span>")
 					myspray = null
 			if("replacer")
 				if(myreplacer)
 					user.put_in_hands(myreplacer)
-					user << "<span class='notice'>You take [myreplacer] from [src].</span>"
+					to_chat(user, "<span class='notice'>You take [myreplacer] from [src].</span>")
 					myreplacer = null
 			if("sign")
 				if(signs)
 					var/obj/item/weapon/caution/Sign = locate() in src
 					if(Sign)
 						user.put_in_hands(Sign)
-						user << "<span class='notice'>You take \a [Sign] from [src].</span>"
+						to_chat(user, "<span class='notice'>You take \a [Sign] from [src].</span>")
 						signs--
 					else
 						warning("[src] signs ([signs]) didn't match contents")
@@ -272,7 +268,7 @@
 			if("bucket")
 				if(mybucket)
 					mybucket.forceMove(get_turf(user))
-					user << "<span class='notice'>You unmount [mybucket] from [src].</span>"
+					to_chat(user, "<span class='notice'>You unmount [mybucket] from [src].</span>")
 					mybucket = null
 
 	update_icon()
@@ -303,129 +299,3 @@
 	if(signs)
 		add_overlay("cart_sign[signs]")
 		has_items = 1
-
-
-//old style retardo-cart
-/obj/structure/bed/chair/janicart
-	name = "janicart"
-	icon = 'icons/obj/vehicles.dmi'
-	icon_state = "pussywagon"
-	anchored = 1
-	density = 1
-	flags = OPENCONTAINER
-	//copypaste sorry
-	var/amount_per_transfer_from_this = 5 //shit I dunno, adding this so syringes stop runtime erroring. --NeoFite
-	var/obj/item/weapon/storage/bag/trash/mybag	= null
-	var/callme = "pimpin' ride"	//how do people refer to it?
-
-
-/obj/structure/bed/chair/janicart/New()
-	create_reagents(100)
-
-
-/obj/structure/bed/chair/janicart/examine(mob/user)
-	if(!..(user, 1))
-		return
-
-	user << "\icon[src] This [callme] contains [reagents.total_volume] unit\s of water!"
-	if(mybag)
-		user << "\A [mybag] is hanging on the [callme]."
-
-
-/obj/structure/bed/chair/janicart/attackby(obj/item/I, mob/user)
-	if(istype(I, /obj/item/weapon/mop))
-		if(reagents.total_volume > 1)
-			reagents.trans_to_obj(I, 2)
-			user << "<span class='notice'>You wet [I] in the [callme].</span>"
-			playsound(loc, 'sound/effects/slosh.ogg', 25, 1)
-		else
-			user << "<span class='notice'>This [callme] is out of water!</span>"
-	else if(istype(I, /obj/item/key))
-		user << "Hold [I] in one of your hands while you drive this [callme]."
-	else if(istype(I, /obj/item/weapon/storage/bag/trash))
-		user << "<span class='notice'>You hook the trashbag onto the [callme].</span>"
-		user.drop_item()
-		I.loc = src
-		mybag = I
-
-
-/obj/structure/bed/chair/janicart/attack_hand(mob/user)
-	if(mybag)
-		mybag.loc = get_turf(user)
-		user.put_in_hands(mybag)
-		mybag = null
-	else
-		..()
-
-
-/obj/structure/bed/chair/janicart/relaymove(mob/user, direction)
-	if(user.stat || user.stunned || user.weakened || user.paralysis)
-		unbuckle_mob()
-	if(istype(user.l_hand, /obj/item/key) || istype(user.r_hand, /obj/item/key))
-		step(src, direction)
-		update_mob()
-	else
-		user << "<span class='notice'>You'll need the keys in one of your hands to drive this [callme].</span>"
-
-
-/obj/structure/bed/chair/janicart/Move()
-	..()
-	if(buckled_mob)
-		if(buckled_mob.buckled == src)
-			buckled_mob.loc = loc
-
-
-/obj/structure/bed/chair/janicart/post_buckle_mob(mob/living/M)
-	update_mob()
-	return ..()
-
-
-/obj/structure/bed/chair/janicart/unbuckle_mob()
-	var/mob/living/M = ..()
-	if(M)
-		M.pixel_x = 0
-		M.pixel_y = 0
-	return M
-
-
-/obj/structure/bed/chair/janicart/set_dir()
-	..()
-	if(buckled_mob)
-		if(buckled_mob.loc != loc)
-			buckled_mob.buckled = null //Temporary, so Move() succeeds.
-			buckled_mob.buckled = src //Restoring
-
-	update_mob()
-
-
-/obj/structure/bed/chair/janicart/proc/update_mob()
-	if(buckled_mob)
-		buckled_mob.set_dir(dir)
-		switch(dir)
-			if(SOUTH)
-				buckled_mob.pixel_x = 0
-				buckled_mob.pixel_y = 7
-			if(WEST)
-				buckled_mob.pixel_x = 13
-				buckled_mob.pixel_y = 7
-			if(NORTH)
-				buckled_mob.pixel_x = 0
-				buckled_mob.pixel_y = 4
-			if(EAST)
-				buckled_mob.pixel_x = -13
-				buckled_mob.pixel_y = 7
-
-
-/obj/structure/bed/chair/janicart/bullet_act(var/obj/item/projectile/Proj)
-	if(buckled_mob)
-		if(prob(85))
-			return buckled_mob.bullet_act(Proj)
-	visible_message("<span class='warning'>[Proj] ricochets off the [callme]!</span>")
-
-
-/obj/item/key
-	name = "key"
-	desc = "A keyring with a small steel key, and a pink fob reading \"Pussy Wagon\"."
-	icon = 'icons/obj/vehicles.dmi'
-	icon_state = "keys"
-	w_class = 1

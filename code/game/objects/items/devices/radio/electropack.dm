@@ -14,7 +14,7 @@
 
 /obj/item/device/radio/electropack/attack_hand(mob/user as mob)
 	if(src == user.back)
-		user << "<span class='notice'>You need help taking this off!</span>"
+		to_chat(user, "<span class='notice'>You need help taking this off!</span>")
 		return
 	..()
 
@@ -22,18 +22,16 @@
 	..()
 	if(istype(W, /obj/item/clothing/head/helmet))
 		if(!b_stat)
-			user << "<span class='notice'>[src] is not ready to be attached!</span>"
+			to_chat(user, "<span class='notice'>[src] is not ready to be attached!</span>")
 			return
 		var/obj/item/assembly/shock_kit/A = new /obj/item/assembly/shock_kit( user )
 		A.icon = 'icons/obj/assemblies.dmi'
 
-		user.drop_from_inventory(W)
-		W.loc = A
+		user.drop_from_inventory(W,A)
 		W.master = A
 		A.part1 = W
 
-		user.drop_from_inventory(src)
-		loc = A
+		user.drop_from_inventory(src,A)
 		master = A
 		A.part2 = src
 
@@ -92,7 +90,7 @@
 				sleep(50)
 				if(M)
 					M.moved_recently = 0
-		M << "<span class='danger'>You feel a sharp shock!</span>"
+		to_chat(M, "<span class='danger'>You feel a sharp shock!</span>")
 		spark(M, 3)
 
 		M.Weaken(10)

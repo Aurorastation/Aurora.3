@@ -49,7 +49,7 @@
 	if(!all_predicates_true(list(holder, user), interact_predicates))
 		return STATUS_CLOSE
 
-	var/datum/host = holder.nano_host()
+	var/datum/host = holder.ui_host()
 	return user.default_can_use_topic(host)
 
 /datum/expansion/multitool/Topic(href, href_list)
@@ -82,7 +82,7 @@
 	if(M.get_buffer() == buffer && buffer)
 		receive_buffer(M, buffer, user)
 	else if(!buffer)
-		user << "<span class='warning'>Unable to acquire data from the buffered object. Purging from memory.</span>"
+		to_chat(user, "<span class='warning'>Unable to acquire data from the buffered object. Purging from memory.</span>")
 	return MT_REFRESH
 
 /datum/expansion/multitool/proc/receive_buffer(var/obj/item/device/multitool/M, var/atom/buffer, var/mob/user)

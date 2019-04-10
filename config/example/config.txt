@@ -5,6 +5,7 @@
 ALERT_GREEN All threats to the station have passed. Security may not have weapons visible, privacy laws are once again fully enforced.
 ALERT_BLUE_UPTO The station has received reliable information about possible hostile activity on the station. Security staff may have weapons visible, random searches are permitted.
 ALERT_BLUE_DOWNTO The immediate threat has passed. Security may no longer have weapons drawn at all times, but may continue to have them visible. Random searches are still allowed.
+ALERT_YELLOW_TO The station is now under an elevated alert status due to a confirmed biological hazard. All crew are to follow command instruction in order to ensure a safe return to standard operations.
 ALERT_RED_UPTO There is an immediate serious threat to the station. Security may have weapons unholstered at all times. Random searches are allowed and advised.
 ALERT_RED_DOWNTO The self-destruct mechanism has been deactivated, there is still however an immediate serious threat to the station. Security may have weapons unholstered at all times, random searches are allowed and advised.
 ALERT_DELTA The station's self-destruct mechanism has been engaged. All crew are instructed to obey all instructions given by heads of staff. Any violations of these orders can be punished by death. This is not a drill.
@@ -29,8 +30,17 @@ JOBS_HAVE_MINIMAL_ACCESS
 ## Non-automatic antagonist recruitment, such as being converted to cultism is not affected. Has the same database requirements and notes as USE_AGE_RESTRICTION_FOR_JOBS.
 #USE_AGE_RESTRICTION_FOR_ANTAGS
 
-## Unhash this to use recursive explosions, keep it hashed to use circle explosions. Recursive explosions react to walls, airlocks and blast doors, making them look a lot cooler than the boring old circular explosions. They require more CPU and are (as of january 2013) experimental
-#USE_RECURSIVE_EXPLOSIONS
+## Unhash to enable loading of age restrictions from age_restrictions.txt.
+#LOAD_AGE_RESTRICTIONS_FROM_FILE
+
+## Unhash this to use iterative explosions, keep it hashed to use circle explosions. Iterative explosions react to walls, airlocks and blast doors, making them look a lot cooler than the boring old circular explosions. They require more CPU, but are generally better to use.
+#USE_SPREADING_EXPLOSIONS
+
+# The power of explosion required for it to cross Z-levels.
+#EXPLOSION_Z_THRESHOLD 10
+
+# What to multiply power by when crossing Z-levels.
+#EXPLOSION_Z_MULT 0.75
 
 ## log OOC channel
 LOG_OOC
@@ -114,13 +124,39 @@ PROBABILITY S MERCENARY 1
 PROBABILITY S WIZARD 1
 PROBABILITY S CHANGELING 1
 PROBABILITY S CULT 1
+PROBABILITY S NINJA 1
+PROBABILITY S HEIST 1
+PROBABILITY S VAMPIRE 1
 PROBABILITY S EXTEND-A-TRAITORMONGOUS 6
+PROBABILITY S CONFLUX 1
+PROBABILITY S CROSSFIRE 1
+PROBABILITY S PARANOIA 1
+PROBABILITY S UPRISING 1
+PROBABILITY S VISITORS 1
+PROBABILITY S INTRIGUE 1
+PROBABILITY S SIEGE 1
+PROBABILITY S EXTENDED 1
+PROBABILITY S INFILTRATION 1
+PROBABILITY S VEILPARTY 1
+PROBABILITY S FEEDING 1
+PROBABILITY S TRAITORLING 1
+PROBABILITY S CORRUPTION 1
+
 PROBABILITY MS CONFLUX 1
 PROBABILITY MS CROSSFIRE 1
 PROBABILITY MS PARANOIA 1
 PROBABILITY MS UPRISING 1
 PROBABILITY MS VISITORS 1
+PROBABILITY MS INTRIGUE 1
+PROBABILITY MS SIEGE 1
 PROBABILITY MS EXTENDED 1
+PROBABILITY MS INFILTRATION 1
+PROBABILITY MS VEILPARTY 1
+PROBABILITY MS FEEDING 1
+PROBABILITY MS TRAITORLING 1
+
+## If the game type odds are showed in the check gamemode probability verb.
+SHOW_GAME_TYPE_ODD
 
 ## Hash out to disable random events during the round.
 ALLOW_RANDOM_EVENTS
@@ -242,7 +278,7 @@ GUEST_BAN
 ##Remove the # mark infront of this to forbid admins from posssessing the singularity.
 #FORBID_SINGULO_POSSESSION
 
-## Remove the # to show a popup 'reply to' window to every non-admin that recieves an adminPM.
+## Remove the # to show a popup 'reply to' window to every non-admin that receives an adminPM.
 ## The intention is to make adminPMs more visible. (although I fnd popups annoying so this defaults to off)
 #POPUP_ADMIN_PM
 
@@ -303,21 +339,6 @@ CHARACTER_SLOTS 10
 ## Uncomment to use overmap system for zlevel travel
 #USE_OVERMAP
 
-## Defines which Z-levels the station exists on. Only set if you need to change the defaults.
-#STATION_LEVELS 3;4;5;6;7
-
-## Defines which Z-levels are used for admin functionality, such as Central Command and the Syndicate Shuttle. Only set if you need to change the defaults.
-#ADMIN_LEVELS 1
-
-## Defines which Z-levels which, for example, a Code Red announcement may affect. Only set if you need to change the defaults.
-#CONTACT_LEVELS 3;4;5;6
-
-## Defines all Z-levels a character can typically reach. Only set if you need to change the defaults.
-#PLAYER_LEVELS 2;3;4;5;6;7;8
-
-## Defines which levels cannot be left via touching map borders. Only set if you need to change the defaults.
-#SEALED_LEVELS
-
 ## Expected round length in minutes
 EXPECTED_ROUND_LENGTH 180
 
@@ -370,6 +391,12 @@ EVENT_CUSTOM_START_MAJOR 80;100
 ## Strength of ambient star light. Set to 0 or less to turn off. A value of 1 is unlikely to have a noticeable effect in most lighting systems.
 STARLIGHT 0
 
+## If defined, starlight applies to open space turfs as well. Causes a significant number of lighting updates at round-start, may increase server's memory usage.
+#OPENTURF_STARLIGHT
+
+## Chance, in percentage, of the merchant job slot being open at round start
+MERCHANT_CHANCE 20
+
 ## Defines which races are allowed to join as ERT, in singular form. If unset, defaults to only human. Casing matters, separate using ;
 ## Example races include: Human, Tajara, Skrell, Unathi
 # ERT_SPECIES Human;Skrell;Unathi
@@ -380,6 +407,9 @@ STARLIGHT 0
 
 ## Enable asteroid tunnel/cave generation. Will behave strangely if turned off with a map that expects it on.
 # GENERATE_ASTEROID
+
+## Enable asteroid dungeon generation. The value preceding is the chance for a dungeon slot to be occupied.
+# DUNGEON_CHANCE 25
 
 ## Uncomment to enable organ decay outside of a body or storage item.
 #ORGANS_CAN_DECAY
@@ -410,16 +440,15 @@ STARLIGHT 0
 #CLIENT_ERROR_MESSAGE Your version of BYOND is not supported. Please upgrade.
 #CLIENT_WARN_VERSION 510
 #CLIENT_WARN_MESSAGE BYOND is really close to releasing 510 beta as a stable release, please take time to try it out. Reports are that the client preforms better then the version you are using, and also handles network lag better. Shortly after it's release we will end up using 510 client features and you will be forced to update.
+## These versions are never permitted to join. Only works if the server is compiled in and running 512.
+## Keep the list semi-colon separated, in format of MAJOR.MINOR;MAJOR.MINOR
+#CLIENT_BLACKLIST_VERSION 123.4567
 
 ## Uncomment to enable simple Skype/Discord style markup over OOC, LOOC, and say.
 #ALLOW_CHAT_MARKUP
 
 ## Default language prefix keys, separated with spaces. Only single character keys are supported. If unset, defaults to , # and -
 # DEFAULT_LANGUAGE_PREFIXES , # -
-
-## A ; separated list of lobby screens to randomly pick from. The listed screens must exist as icon states in '/icons/misc/title.dmi'.
-## Defaults to 'title' if left unset.
-# LOBBY_SCREENS title
 
 ## Uncomment to enable the antag contest!
 #ANTAG_CONTEST_ENABLED
@@ -476,3 +505,29 @@ LOG_GELF_PORT 12201
 
 # Enables fastboot - some features not essential to testing (like sunlight) will be disabled to speed up server boot. Should not be used on production servers.
 FASTBOOT
+
+# Where to load the cargo items from. json or sql
+CARGO_LOAD_ITEMS_FROM json
+
+
+# Forces the maploader to load the specified map path. Valid options: aurora, runtime
+FORCE_MAP aurora
+
+# Reminds ticket handlers/all admin staff of not-closed tickets after this many SECONDS.
+#TICKET_REMINDER_PERIOD 600
+
+# If using TGS, counts how many regularly TGS hard restarts the server process.
+# -1 - never do this.
+# 0 - do this after every round.
+# n - do this every n rounds.
+#ROUNDS_UNTIL_HARD_RESTART -1
+
+ERT_BASE_CHANCE 10
+ERT_GREEN_INC 1
+ERT_YELLOW_INC 1
+ERT_BLUE_INC 2
+ERT_RED_INC 3
+ERT_DELTA_INC 10
+ERT_SCALING_FACTOR 1
+ERT_SCALING_FACTOR_ANTAG 1
+ERT_SCALING_FACTOR_DEAD 2

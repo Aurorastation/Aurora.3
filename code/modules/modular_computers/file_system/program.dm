@@ -33,8 +33,8 @@
 	computer = null
 	. = ..()
 
-/datum/computer_file/program/nano_host()
-	return computer.nano_host()
+/datum/computer_file/program/ui_host()
+	return computer.ui_host()
 
 /datum/computer_file/program/clone()
 	var/datum/computer_file/program/temp = ..()
@@ -62,7 +62,7 @@
 /datum/computer_file/program/proc/is_supported_by_hardware(var/hardware_flag = 0, var/loud = 0, var/mob/user = null)
 	if(!(hardware_flag & usage_flags))
 		if(loud && computer && user)
-			user << "<span class='danger'>\The [computer] flashes an \"Hardware Error - Incompatible software\" warning.</span>"
+			to_chat(user, "<span class='danger'>\The [computer] flashes an \"Hardware Error - Incompatible software\" warning.</span>")
 		return 0
 	return 1
 
@@ -98,25 +98,25 @@
 	var/obj/item/weapon/card/id/I = user.GetIdCard()
 	if(!I)
 		if(loud)
-			user << "<span class='danger'>\The [computer] flashes an \"RFID Error - Unable to scan ID\" warning.</span>"
+			to_chat(user, "<span class='danger'>\The [computer] flashes an \"RFID Error - Unable to scan ID\" warning.</span>")
 		return 0
 
 	if(check_type == PROGRAM_ACCESS_ONE) //Check for single access
 		if(access_to_check in I.access)
 			return 1
 		else if(loud)
-			user << "<span class='danger'>\The [computer] flashes an \"Access Denied\" warning.</span>"
+			to_chat(user, "<span class='danger'>\The [computer] flashes an \"Access Denied\" warning.</span>")
 	else if(check_type == PROGRAM_ACCESS_LIST_ONE)
 		for(var/check in access_to_check) //Loop through all the accesse's to check
 			if(check in I.access) //Success on first match
 				return 1
 		if(loud)
-			user << "<span class='danger'>\The [computer] flashes an \"Access Denied\" warning.</span>"
+			to_chat(user, "<span class='danger'>\The [computer] flashes an \"Access Denied\" warning.</span>")
 	else if(check_type == PROGRAM_ACCESS_LIST_ALL)
 		for(var/check in access_to_check) //Loop through all the accesse's to check
 			if(!check in I.access) //Fail on first miss
 				if(loud)
-					user << "<span class='danger'>\The [computer] flashes an \"Access Denied\" warning.</span>"
+					to_chat(user, "<span class='danger'>\The [computer] flashes an \"Access Denied\" warning.</span>")
 				return 0
 	else // Should never happen - So fail silently
 		return 0
@@ -146,25 +146,25 @@
 	var/obj/item/weapon/card/id/I = user.GetIdCard()
 	if(!I)
 		if(loud)
-			user << "<span class='danger'>\The [computer] flashes an \"RFID Error - Unable to scan ID\" warning.</span>"
+			to_chat(user, "<span class='danger'>\The [computer] flashes an \"RFID Error - Unable to scan ID\" warning.</span>")
 		return 0
 
 	if(check_type == PROGRAM_ACCESS_ONE) //Check for single access
 		if(access_to_check in I.access)
 			return 1
 		else if(loud)
-			user << "<span class='danger'>\The [computer] flashes an \"Access Denied\" warning.</span>"
+			to_chat(user, "<span class='danger'>\The [computer] flashes an \"Access Denied\" warning.</span>")
 	else if(check_type == PROGRAM_ACCESS_LIST_ONE)
 		for(var/check in access_to_check) //Loop through all the accesse's to check
 			if(check in I.access) //Success on first match
 				return 1
 		if(loud)
-			user << "<span class='danger'>\The [computer] flashes an \"Access Denied\" warning.</span>"
+			to_chat(user, "<span class='danger'>\The [computer] flashes an \"Access Denied\" warning.</span>")
 	else if(check_type == PROGRAM_ACCESS_LIST_ALL)
 		for(var/check in access_to_check) //Loop through all the accesse's to check
 			if(!check in I.access) //Fail on first miss
 				if(loud)
-					user << "<span class='danger'>\The [computer] flashes an \"Access Denied\" warning.</span>"
+					to_chat(user, "<span class='danger'>\The [computer] flashes an \"Access Denied\" warning.</span>")
 				return 0
 	else // Should never happen - So fail silently
 		return 0

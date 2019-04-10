@@ -15,7 +15,7 @@ var/datum/antagonist/raider/raiders
 	hard_cap_round = 10
 	initial_spawn_req = 4
 	initial_spawn_target = 6
-	
+
 	faction = "syndicate"
 
 	id_type = /obj/item/weapon/card/id/syndicate
@@ -41,8 +41,9 @@ var/datum/antagonist/raider/raiders
 
 	var/list/raider_glasses = list(
 		/obj/item/clothing/glasses/thermal,
-		/obj/item/clothing/glasses/thermal/plain/eyepatch,
-		/obj/item/clothing/glasses/thermal/plain/monocle
+		/obj/item/clothing/glasses/eyepatch/hud/thermal,
+		/obj/item/clothing/glasses/thermal/plain/monocle,
+		/obj/item/clothing/glasses/thermal/aviator
 		)
 
 	var/list/raider_helmets = list(
@@ -57,23 +58,23 @@ var/datum/antagonist/raider/raiders
 		/obj/item/clothing/suit/pirate,
 		/obj/item/clothing/suit/hgpirate,
 		/obj/item/clothing/suit/storage/toggle/bomber,
-		/obj/item/clothing/suit/storage/leather_jacket,
+		/obj/item/clothing/suit/storage/toggle/leather_jacket,
 		/obj/item/clothing/suit/storage/toggle/brown_jacket,
-		/obj/item/clothing/suit/storage/toggle/hoodie,
-		/obj/item/clothing/suit/storage/toggle/hoodie/black,
 		/obj/item/clothing/suit/unathi/mantle,
-		/obj/item/clothing/suit/poncho
+		/obj/item/clothing/accessory/poncho,
+		/obj/item/clothing/suit/storage/hooded/wintercoat/hoodie/grey
 		)
 
 	var/list/raider_guns = list(
 		/obj/item/weapon/gun/energy/rifle/laser,
 		/obj/item/weapon/gun/energy/rifle/laser/xray,
+		/obj/item/weapon/gun/energy/rifle/icelance,
 		/obj/item/weapon/gun/energy/retro,
 		/obj/item/weapon/gun/energy/xray,
 		/obj/item/weapon/gun/energy/mindflayer,
 		/obj/item/weapon/gun/energy/toxgun,
 		/obj/item/weapon/gun/energy/stunrevolver,
-		/obj/item/weapon/gun/energy/ionrifle,
+		/obj/item/weapon/gun/energy/rifle/ionrifle,
 		/obj/item/weapon/gun/energy/taser,
 		/obj/item/weapon/gun/energy/crossbow/largecrossbow,
 		/obj/item/weapon/gun/launcher/crossbow,
@@ -91,7 +92,7 @@ var/datum/antagonist/raider/raiders
 		/obj/item/weapon/gun/projectile/shotgun/doublebarrel,
 		/obj/item/weapon/gun/projectile/shotgun/doublebarrel/pellet,
 		/obj/item/weapon/gun/projectile/shotgun/doublebarrel/sawn,
-		/obj/item/weapon/gun/projectile/boltaction,
+		/obj/item/weapon/gun/projectile/shotgun/pump/rifle,
 		/obj/item/weapon/gun/projectile/colt,
 		/obj/item/weapon/gun/projectile/sec,
 		/obj/item/weapon/gun/projectile/pistol,
@@ -99,8 +100,11 @@ var/datum/antagonist/raider/raiders
 		/obj/item/weapon/gun/projectile/revolver,
 		/obj/item/weapon/gun/projectile/revolver/deckard,
 		/obj/item/weapon/gun/projectile/revolver/derringer,
+		/obj/item/weapon/gun/projectile/revolver/lemat,
+		/obj/item/weapon/gun/projectile/contender,
 		/obj/item/weapon/gun/projectile/pirate,
-		/obj/item/weapon/gun/projectile/tanto
+		/obj/item/weapon/gun/projectile/tanto,
+		/obj/item/weapon/gun/projectile/shotgun/pump/rifle/vintage
 		)
 
 
@@ -191,8 +195,8 @@ var/datum/antagonist/raider/raiders
 		else
 			win_msg += "<B>The Raiders were repelled!</B>"
 
-	world << "<span class='danger'><font size = 3>[win_type] [win_group] victory!</font></span>"
-	world << "[win_msg]"
+	to_world("<span class='danger'><font size = 3>[win_type] [win_group] victory!</font></span>")
+	to_world("[win_msg]")
 	feedback_set_details("round_end_result","heist - [win_type] [win_group]")
 
 /datum/antagonist/raider/proc/is_raider_crew_safe()
@@ -245,6 +249,8 @@ var/datum/antagonist/raider/raiders
 	spawn_money(rand(50,150)*10,W)
 	create_radio(RAID_FREQ, player)
 
+	give_codewords(player)
+
 	return 1
 
 /datum/antagonist/raider/proc/equip_weapons(var/mob/living/carbon/human/player)
@@ -261,14 +267,14 @@ var/datum/antagonist/raider/raiders
 		if(!(primary.slot_flags & SLOT_HOLSTER))
 			holster = new new_holster(T)
 			holster.holstered = secondary
-			secondary.loc = holster
+			secondary.forceMove(holster)
 		else
 			player.equip_to_slot_or_del(secondary, slot_belt)
 
 	if(primary.slot_flags & SLOT_HOLSTER)
 		holster = new new_holster(T)
 		holster.holstered = primary
-		primary.loc = holster
+		primary.forceMove(holster)
 	else if(!player.belt && (primary.slot_flags & SLOT_BELT))
 		player.equip_to_slot_or_del(primary, slot_belt)
 	else if(!player.back && (primary.slot_flags & SLOT_BACK))

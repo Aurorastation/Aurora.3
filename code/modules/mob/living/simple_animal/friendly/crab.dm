@@ -11,7 +11,7 @@
 	emote_see = list("clacks")
 	speak_chance = 1
 	turns_per_move = 5
-	meat_type = /obj/item/weapon/reagent_containers/food/snacks/meat
+	meat_type = /obj/item/weapon/reagent_containers/food/snacks/crabmeat
 	response_help  = "pets"
 	response_disarm = "gently pushes aside"
 	response_harm   = "stomps"
@@ -23,7 +23,7 @@
 	var/obj/item/inventory_mask
 	possession_candidate = 1
 
-/mob/living/simple_animal/crab/Life()
+/mob/living/simple_animal/crab/think()
 	..()
 	//CRAB movement
 	if(!ckey && !stat)

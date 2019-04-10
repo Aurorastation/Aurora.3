@@ -19,7 +19,7 @@
 		get_scooped(H)
 		return
 	else if(H.a_intent == "grab" && hat && !(H.l_hand && H.r_hand))
-		hat.loc = get_turf(src)
+		hat.forceMove(get_turf(src))
 		H.put_in_hands(hat)
 		H.visible_message("<span class='danger'>\The [H] removes \the [src]'s [hat].</span>")
 		hat = null
@@ -30,7 +30,7 @@
 /mob/living/carbon/alien/diona/attackby(var/obj/item/weapon/W, var/mob/user)
 	if(user.a_intent == "help" && istype(W, /obj/item/clothing/head))
 		if(hat)
-			user << "<span class='warning'>\The [src] is already wearing \the [hat].</span>"
+			to_chat(user, "<span class='warning'>\The [src] is already wearing \the [hat].</span>")
 			return
 		user.unEquip(W)
 		wear_hat(W)

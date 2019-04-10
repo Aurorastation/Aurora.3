@@ -77,6 +77,24 @@
 		{{/if}}
 	</div>
 
+	<div class="item">
+		<div class="itemLabel">
+			Power Cell charge status:
+		</div>
+		<div class="itemContent">
+			<div class="statusValue">
+			{{if data.charge_mode == 1}}
+				APC's power cell will be fully charged in {{:data.time}}
+			{{else data.charge_mode == 2}}
+				APC's power cell input and output are equal
+			{{else}}
+				APC's power cell will run out of charge in {{:data.time}}
+			{{/if}}
+				
+			</div>
+		</div>
+	</div>
+
 	{{if data.powerCellStatus != null}}
 		<div class="item">
 			<div class="itemLabel">
@@ -109,6 +127,23 @@
 		</div>
 		<div class="itemContent"; style="width: 105px">
 			{{:helper.link('On', 'night', {'lmode' : 'on'}, data.lightingMode ? 'selected' : null)}}{{:helper.link('Off', 'close', {'lmode' : 'off'}, data.lightingMode ? null : 'selected')}}
+		</div>
+	</div>
+	<div class="item">
+		<div class="itemLabel">
+			Emergency Lighting:
+		</div>
+		<div class="itemContent"; style="width: 105px">
+		{{if data.locked && !data.siliconUser}}
+				{{if data.emergencyMode}}
+					On
+				{{else}}
+					Off
+				{{/if}}
+			</div>
+		{{else}}
+			{{:helper.link(data.emergencyMode ? 'On' : 'Off', 'lightbulb', {'emergency_lights' : data.emergencyMode ? 'on' : 'off'}, null)}}
+			{{/if}}
 		</div>
 	</div>
 

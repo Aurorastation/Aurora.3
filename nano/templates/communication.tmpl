@@ -7,11 +7,13 @@
 			{{:helper.link('Send an emergency message to ' + data.boss_short, null, {'action' : 'message', 'target' : 'regular'}, data.isAI || !data.net_comms ? 'disabled' : null)}}
 		{{/if}} </div>
 		<div class=item>{{:helper.link('Change alert level', null, {'action' : 'sw_menu', 'target' : 5}, data.isAI || !data.net_syscont || !data.net_comms ? 'disabled' : null)}} </div>
-		<div class=item>{{if data.have_shuttle && data.have_shuttle_called}}
-			{{:helper.link('Cancel Shuttle Call', null, {'action' : 'shuttle', 'target' : 'cancel'}, data.isAI || !data.net_syscont ? 'disabled' : null)}}
-		{{else data.have_shuttle && !data.have_shuttle_called}}
-			{{:helper.link('Call Emergency Shuttle', null, {'action' : 'shuttle', 'target' : 'call'}, !data.net_syscont ? 'disabled' : null)}}
-		{{/if}} </div>
+		{{if data.can_call_shuttle}}
+			<div class=item>{{if data.have_shuttle && data.have_shuttle_called}}
+				{{:helper.link('Cancel Shuttle Call', null, {'action' : 'shuttle', 'target' : 'cancel'}, data.isAI || !data.net_syscont ? 'disabled' : null)}}
+			{{else data.have_shuttle && !data.have_shuttle_called}}
+				{{:helper.link('Call Emergency Shuttle', null, {'action' : 'shuttle', 'target' : 'call'}, !data.net_syscont ? 'disabled' : null)}}
+			{{/if}} </div>
+		{{/if}}
 		<div class=item>{{:helper.link('Set Status Display', null, {'action' : 'sw_menu', 'target' : 4}, !data.net_syscont ? 'disabled' : null)}} </div>
 		<div class=item>{{:helper.link('Message List', null, {'action' : 'sw_menu', 'target' : 2}, !data.net_comms ? 'disabled' : null)}} </div>
 	{{else data.state === 2}}
@@ -21,6 +23,8 @@
 		{{empty}}
 			<div class=item>There are no messages.</div>
 		{{/for}}
+		<div class=item>{{if data.have_printer}}{{:helper.link( !data.message_printing_intercepts ? 'Enable report printing' : 'Disable report printing', null, {'action' : 'toggleintercept'})}}{{/if}}</div>
+		<hr>
 		<div class=item>{{:helper.link('Back', null, {'action' : 'sw_menu', 'target' : 1})}}</div>
 	{{else data.state === 3}}
 		<div class=item><b>Title:</b> {{:data.message_current.title}}</div>
@@ -52,6 +56,7 @@
 			<div class=item><font color='red'><b>The self-destruct mechanism is active. Find a way to deactivate the mechanism to lower the alert level or evacuate.</b></font></div>
 		{{else}}
 			<div class=item>Set status: </div>
+			<div class=item>{{:helper.link('Yellow', null, {'action' : 'setalert', 'target' : data.def_SEC_LEVEL_YELLOW}, data.current_security_level === data.def_SEC_LEVEL_YELLOW || data.isAI ? 'disabled' : null)}} </div>
 			<div class=item>{{:helper.link('Blue', null, {'action' : 'setalert', 'target' : data.def_SEC_LEVEL_BLUE}, data.current_security_level === data.def_SEC_LEVEL_BLUE || data.isAI ? 'disabled' : null)}} </div>
 			<div class=item>{{:helper.link('Green', null, {'action' : 'setalert', 'target' : data.def_SEC_LEVEL_GREEN}, data.current_security_level === data.def_SEC_LEVEL_GREEN || data.isAI ? 'disabled' : null)}} </div>
 		{{/if}}

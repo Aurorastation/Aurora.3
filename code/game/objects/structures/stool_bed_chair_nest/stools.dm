@@ -112,17 +112,16 @@
 	qdel(src)
 
 /obj/item/weapon/stool/attackby(obj/item/weapon/W as obj, mob/user as mob)
-	if(istype(W, /obj/item/weapon/wrench))
+	if(W.iswrench())
 		playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
 		dismantle()
 		qdel(src)
 	else if(istype(W,/obj/item/stack))
 		if(padding_material)
-			user << "\The [src] is already padded."
+			to_chat(user, "\The [src] is already padded.")
 			return
 		var/obj/item/stack/C = W
 		if(C.get_amount() < 1) // How??
-			user.drop_from_inventory(C)
 			qdel(C)
 			return
 		var/padding_type //This is awful but it needs to be like this until tiles are given a material var.
@@ -133,20 +132,20 @@
 			if(M.material && (M.material.flags & MATERIAL_PADDING))
 				padding_type = "[M.material.name]"
 		if(!padding_type)
-			user << "You cannot pad \the [src] with that."
+			to_chat(user, "You cannot pad \the [src] with that.")
 			return
 		C.use(1)
 		if(!istype(src.loc, /turf))
 			user.drop_from_inventory(src)
-			src.loc = get_turf(src)
-		user << "You add padding to \the [src]."
+			src.forceMove(get_turf(src))
+		to_chat(user, "You add padding to \the [src].")
 		add_padding(padding_type)
 		return
-	else if (istype(W, /obj/item/weapon/wirecutters))
+	else if (W.iswirecutter())
 		if(!padding_material)
-			user << "\The [src] has no padding to remove."
+			to_chat(user, "\The [src] has no padding to remove.")
 			return
-		user << "You remove the padding from \the [src]."
+		to_chat(user, "You remove the padding from \the [src].")
 		playsound(src, 'sound/items/Wirecutter.ogg', 100, 1)
 		remove_padding()
 	else

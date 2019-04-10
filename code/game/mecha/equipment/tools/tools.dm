@@ -1,5 +1,6 @@
 /obj/item/mecha_parts/mecha_equipment/tool/hydraulic_clamp
 	name = "hydraulic clamp"
+	desc = "Equipment for engineering exosuits. Lifts objects and loads them into cargo."
 	icon_state = "mecha_clamp"
 	equip_cooldown = 15
 	energy_drain = 10
@@ -19,6 +20,50 @@
 	//loading
 	if(istype(target,/obj))
 		var/obj/O = target
+		var/T = chassis.loc
+		if(istype(target, /obj/item/weapon/ore))
+			var/obj/mecha/working/chass = chassis // Since hydraulic clamp can only be installed on working mechs, no need to check for type.
+			var/obj/structure/ore_box/ore_box
+			if(chass)
+				ore_box = locate(/obj/structure/ore_box) in chass.cargo
+			if(ore_box)
+				var/list/stuff = range(chassis,1)
+				var/obj/item/weapon/ore/t = (locate(/obj/item/weapon/ore) in stuff)
+				if(t && do_after_cooldown())
+					if(T == chassis.loc && src == chassis.selected)
+						for(var/obj/item/weapon/ore/ore in stuff)
+							if(get_dir(chassis,ore)&chassis.dir)
+								ore.Move(ore_box)
+						chassis.visible_message("<span class='notice'>\The [chassis] picks up ore from the ground all around.</span>")
+						playsound(src.loc, 'sound/mecha/hydraulic.ogg', 50, 1, -1)
+						set_ready_state(0)
+						chassis.use_power(energy_drain)
+						do_after_cooldown()
+						return
+					else
+						occupant_message("<span class='warning'>You must hold still while handling objects.</span>")
+						return
+			else
+				occupant_message("You lift [target] and start to load it into cargo compartment.")
+				chassis.visible_message("[chassis] lifts [target] and starts to load it into cargo compartment.")
+				playsound(src.loc, 'sound/mecha/hydraulic.ogg', 50, 1, -1)
+				set_ready_state(0)
+				chassis.use_power(energy_drain)
+				O.anchored = 1
+				if(do_after_cooldown())
+					if(T == chassis.loc && src == chassis.selected)
+						cargo_holder.cargo += O
+						O.forceMove(chassis)
+						O.anchored = 0
+						occupant_message("<span class='notice'>[target] succesfully loaded.</span>")
+						log_message("Loaded [O]. Cargo compartment capacity: [cargo_holder.cargo_capacity - cargo_holder.cargo.len]")
+						do_after_cooldown()
+						return
+					else
+						occupant_message("<span class='warning'>You must hold still while handling objects.</span>")
+						O.anchored = initial(O.anchored)
+						return
+
 		if(O.buckled_mob)
 			return
 		if(locate(/mob/living) in O)
@@ -33,14 +78,14 @@
 
 		occupant_message("You lift [target] and start to load it into cargo compartment.")
 		chassis.visible_message("[chassis] lifts [target] and starts to load it into cargo compartment.")
+		playsound(src.loc, 'sound/mecha/hydraulic.ogg', 50, 1, -1)
 		set_ready_state(0)
 		chassis.use_power(energy_drain)
 		O.anchored = 1
-		var/T = chassis.loc
 		if(do_after_cooldown(target))
 			if(T == chassis.loc && src == chassis.selected)
 				cargo_holder.cargo += O
-				O.loc = chassis
+				O.forceMove(chassis)
 				O.anchored = 0
 				occupant_message("<span class='notice'>[target] succesfully loaded.</span>")
 				log_message("Loaded [O]. Cargo compartment capacity: [cargo_holder.cargo_capacity - cargo_holder.cargo.len]")
@@ -69,7 +114,7 @@
 
 /obj/item/mecha_parts/mecha_equipment/tool/drill
 	name = "drill"
-	desc = "This is the drill that'll pierce the heavens! (Can be attached to: Combat and Engineering Exosuits)"
+	desc = "Equipment for engineering and combat exosuits. This is the drill that'll pierce the heavens!"
 	icon_state = "mecha_drill"
 	equip_cooldown = 30
 	energy_drain = 10
@@ -86,6 +131,7 @@
 	chassis.use_power(energy_drain)
 	chassis.visible_message("<span class='danger'>\The [chassis] starts to drill \the [target]</span>", "<span class='warning'>You hear a large drill.</span>")
 	occupant_message("<span class='danger'>You start to drill \the [target]</span>")
+	playsound(src.loc, 'sound/mecha/mechdrill.ogg', 50, 1, -1)
 	var/T = chassis.loc
 	var/C = target.loc	//why are these backwards? we may never know -Pete
 	if(do_after_cooldown(target))
@@ -103,7 +149,10 @@
 						M.GetDrilled()
 				log_message("Drilled through \the [target]")
 				if(locate(/obj/item/mecha_parts/mecha_equipment/tool/hydraulic_clamp) in chassis.equipment)
-					var/obj/structure/ore_box/ore_box = locate(/obj/structure/ore_box) in chassis:cargo
+					var/obj/mecha/working/chass = chassis // Since hydraulic clamp can only be installed on working mechs, no need to check for type.
+					var/obj/structure/ore_box/ore_box
+					if(chass)
+						ore_box = locate(/obj/structure/ore_box) in chass.cargo
 					if(ore_box)
 						for(var/obj/item/weapon/ore/ore in range(chassis,1))
 							if(get_dir(chassis,ore)&chassis.dir)
@@ -114,7 +163,10 @@
 						M.gets_dug()
 				log_message("Drilled through \the [target]")
 				if(locate(/obj/item/mecha_parts/mecha_equipment/tool/hydraulic_clamp) in chassis.equipment)
-					var/obj/structure/ore_box/ore_box = locate(/obj/structure/ore_box) in chassis:cargo
+					var/obj/mecha/working/chass = chassis // Since hydraulic clamp can only be installed on working mechs, no need to check for type.
+					var/obj/structure/ore_box/ore_box
+					if(chass)
+						ore_box = locate(/obj/structure/ore_box) in chass.cargo
 					if(ore_box)
 						for(var/obj/item/weapon/ore/ore in range(chassis,1))
 							if(get_dir(chassis,ore)&chassis.dir)
@@ -126,8 +178,7 @@
 
 /obj/item/mecha_parts/mecha_equipment/tool/drill/diamonddrill
 	name = "diamond drill"
-	desc = "This is an upgraded version of the drill that'll pierce the heavens! (Can be attached to: Combat and Engineering Exosuits)"
-	icon_state = "mecha_diamond_drill"
+	desc = "Equipment for engineering and combat exosuits. This is an upgraded version of the drill that'll pierce the heavens!"
 	origin_tech = list(TECH_MATERIAL = 4, TECH_ENGINEERING = 3)
 	equip_cooldown = 20
 	force = 15
@@ -141,6 +192,7 @@
 	chassis.use_power(energy_drain)
 	chassis.visible_message("<span class='danger'>\The [chassis] starts to drill \the [target]</span>", "<span class='warning'>You hear a large drill.</span>")
 	occupant_message("<span class='danger'>You start to drill \the [target]</span>")
+	playsound(src.loc, 'sound/mecha/mechdrill.ogg', 50, 1, -1)
 	var/T = chassis.loc
 	var/C = target.loc	//why are these backwards? we may never know -Pete
 	if(do_after_cooldown(target))
@@ -156,7 +208,10 @@
 						M.GetDrilled()
 				log_message("Drilled through \the [target]")
 				if(locate(/obj/item/mecha_parts/mecha_equipment/tool/hydraulic_clamp) in chassis.equipment)
-					var/obj/structure/ore_box/ore_box = locate(/obj/structure/ore_box) in chassis:cargo
+					var/obj/mecha/working/chass = chassis // Since hydraulic clamp can only be installed on working mechs, no need to check for type.
+					var/obj/structure/ore_box/ore_box
+					if(chass)
+						ore_box = locate(/obj/structure/ore_box) in chass.cargo
 					if(ore_box)
 						for(var/obj/item/weapon/ore/ore in range(chassis,1))
 							if(get_dir(chassis,ore)&chassis.dir)
@@ -166,7 +221,10 @@
 					M.gets_dug()
 				log_message("Drilled through \the [target]")
 				if(locate(/obj/item/mecha_parts/mecha_equipment/tool/hydraulic_clamp) in chassis.equipment)
-					var/obj/structure/ore_box/ore_box = locate(/obj/structure/ore_box) in chassis:cargo
+					var/obj/mecha/working/chass = chassis // Since hydraulic clamp can only be installed on working mechs, no need to check for type.
+					var/obj/structure/ore_box/ore_box
+					if(chass)
+						ore_box = locate(/obj/structure/ore_box) in chass.cargo
 					if(ore_box)
 						for(var/obj/item/weapon/ore/ore in range(target,1))
 							ore.Move(ore_box)
@@ -177,7 +235,7 @@
 
 /obj/item/mecha_parts/mecha_equipment/tool/extinguisher
 	name = "extinguisher"
-	desc = "Exosuit-mounted extinguisher (Can be attached to: Engineering exosuits)"
+	desc = "Equipment for engineering exosuits. A rapid-firing high capacity fire extinguisher."
 	icon_state = "mecha_exting"
 	equip_cooldown = 5
 	energy_drain = 0
@@ -190,7 +248,7 @@
 /obj/item/mecha_parts/mecha_equipment/tool/extinguisher/New()
 	reagents = new/datum/reagents(max_water)
 	reagents.my_atom = src
-	reagents.add_reagent("water", max_water)
+	reagents.add_reagent("monoammoniumphosphate", max_water)
 	..()
 	return
 
@@ -199,7 +257,7 @@
 	if(get_dist(chassis, target)>2) return
 	set_ready_state(0)
 	if(do_after_cooldown(target))
-		if( istype(target, /obj/structure/reagent_dispensers/watertank) && get_dist(chassis,target) <= 1)
+		if( istype(target, /obj/structure/reagent_dispensers) && get_dist(chassis,target) <= 1)
 			var/obj/o = target
 			var/amount = o.reagents.trans_to_obj(src, 200)
 			occupant_message("<span class='notice'>[amount] units transferred into internal tank.</span>")
@@ -251,7 +309,7 @@
 
 /obj/item/mecha_parts/mecha_equipment/tool/rcd
 	name = "mounted RCD"
-	desc = "An exosuit-mounted Rapid Construction Device. (Can be attached to: Any exosuit)"
+	desc = "An exosuit-mounted Rapid Construction Device."
 	icon_state = "mecha_rcd"
 	origin_tech = list(TECH_MATERIAL = 4, TECH_BLUESPACE = 3, TECH_MAGNET = 4, TECH_POWER = 4)
 	equip_cooldown = 10
@@ -355,18 +413,20 @@
 	name = "teleporter"
 	desc = "An exosuit module that allows exosuits to teleport to any position in view."
 	icon_state = "mecha_teleport"
-	origin_tech = list(TECH_BLUESPACE = 10)
+	origin_tech = list(TECH_BLUESPACE = 5)
 	equip_cooldown = 150
 	energy_drain = 1000
 	range = RANGED
 
 /obj/item/mecha_parts/mecha_equipment/teleporter/action(atom/target)
+
 	if(!action_checks(target) || src.loc.z == 2) return
 	var/turf/T = get_turf(target)
 	if(T)
 		set_ready_state(0)
 		chassis.use_power(energy_drain)
-		do_teleport(chassis, T, 4)
+		do_teleport(chassis, T)
+		spark(T, 5, alldirs)
 		do_after_cooldown()
 	return
 
@@ -546,7 +606,7 @@
 
 
 /obj/item/mecha_parts/mecha_equipment/armor_booster/anticcw_armor_booster //what is that noise? A BAWWW from TK mutants.
-	name = "\improper CCW armor booster"
+	name = "close-combat armor booster"
 	desc = "Close-combat armor booster. Boosts exosuit armor against armed melee attacks. Requires energy to operate."
 	icon_state = "mecha_abooster_ccw"
 	origin_tech = list(TECH_MATERIAL = 3)
@@ -569,7 +629,7 @@
 
 
 /obj/item/mecha_parts/mecha_equipment/armor_booster/antiproj_armor_booster
-	name = "\improper RW armor booster"
+	name = "ranged-weaponry armor booster"
 	desc = "Ranged-weaponry armor booster. Boosts exosuit armor against ranged attacks. Completely blocks taser shots, but requires energy to operate."
 	icon_state = "mecha_abooster_proj"
 	origin_tech = list(TECH_MATERIAL = 4)
@@ -829,7 +889,7 @@
 	if(isnull(result))
 		user.visible_message("[user] tries to shove [weapon] into [src]. What a dumb-ass.","<span class='warning'>[fuel] traces minimal. [weapon] cannot be used as fuel.</span>")
 	else if(!result)
-		user << "Unit is full."
+		to_chat(user, "Unit is full.")
 	else
 		user.visible_message("[user] loads [src] with [fuel].","[result] unit\s of [fuel] successfully loaded.")
 	return
@@ -906,6 +966,7 @@
 //This is pretty much just for the death-ripley so that it is harmless
 /obj/item/mecha_parts/mecha_equipment/tool/safety_clamp
 	name = "\improper KILL CLAMP"
+	desc = "Equipment for engineering exosuits. Lifts objects and loads them into cargo."
 	icon_state = "mecha_clamp"
 	equip_cooldown = 15
 	energy_drain = 0
@@ -964,6 +1025,145 @@
 		do_after_cooldown()
 	return 1
 
+/obj/item/mecha_parts/mecha_equipment/tool/cable_layer
+	name = "cable layer"
+	desc = "Equipment for engineering exosuits. Lays cable along the exosuit's path."
+	icon_state = "mecha_wire"
+	var/datum/mecha_event/event
+	var/turf/old_turf
+	var/obj/structure/cable/last_piece
+	var/obj/item/stack/cable_coil/cable
+	var/max_cable = 1000
+	required_type = /obj/mecha/working
+
+/obj/item/mecha_parts/mecha_equipment/tool/cable_layer/New()
+	cable = new(src)
+	cable.amount = 0
+	..()
+
+/obj/item/mecha_parts/mecha_equipment/tool/cable_layer/attach()
+	..()
+	event = chassis.events.addEvent("onMove",src,"layCable")
+	return
+
+/obj/item/mecha_parts/mecha_equipment/tool/cable_layer/detach()
+	chassis.events.clearEvent("onMove",event)
+	return ..()
+
+/obj/item/mecha_parts/mecha_equipment/tool/cable_layer/destroy()
+	chassis.events.clearEvent("onMove",event)
+	return ..()
+
+/obj/item/mecha_parts/mecha_equipment/tool/cable_layer/action(var/obj/item/stack/cable_coil/target)
+	if(!action_checks(target))
+		return
+	var/result = load_cable(target)
+	var/message
+	if(isnull(result))
+		message = "<font color='red'>Unable to load [target] - no cable found.</font>"
+	else if(!result)
+		message = "Reel is full."
+	else
+		message = "[result] meters of cable successfully loaded."
+		send_byjax(chassis.occupant,"exosuit.browser","\ref[src]",src.get_equip_info())
+	occupant_message(message)
+	return
+
+/obj/item/mecha_parts/mecha_equipment/tool/cable_layer/Topic(href,href_list)
+	..()
+	if(href_list["toggle"])
+		set_ready_state(!equip_ready)
+		occupant_message("[src] [equip_ready?"dea":"a"]ctivated.")
+		log_message("[equip_ready?"Dea":"A"]ctivated.")
+		return
+	if(href_list["cut"])
+		if(cable && cable.amount)
+			var/m = round(input(chassis.occupant,"Please specify the length of cable to cut","Cut cable",min(cable.amount,30)) as num, 1)
+			m = min(m, cable.amount)
+			if(m)
+				use_cable(m)
+				var/obj/item/stack/cable_coil/CC = new (get_turf(chassis))
+				CC.amount = m
+		else
+			occupant_message("There's no more cable on the reel.")
+	return
+
+/obj/item/mecha_parts/mecha_equipment/tool/cable_layer/get_equip_info()
+	var/output = ..()
+	if(output)
+		return "[output] \[Cable: [cable ? cable.amount : 0] m\][(cable && cable.amount) ? "- <a href='?src=\ref[src];toggle=1'>[!equip_ready?"Dea":"A"]ctivate</a>|<a href='?src=\ref[src];cut=1'>Cut</a>" : null]"
+	return
+
+/obj/item/mecha_parts/mecha_equipment/tool/cable_layer/proc/load_cable(var/obj/item/stack/cable_coil/CC)
+	if(istype(CC) && CC.amount)
+		var/cur_amount = cable? cable.amount : 0
+		var/to_load = max(max_cable - cur_amount,0)
+		if(to_load)
+			to_load = min(CC.amount, to_load)
+			if(!cable)
+				cable = new(src)
+				cable.amount = 0
+			cable.amount += to_load
+			CC.use(to_load)
+			return to_load
+		else
+			return 0
+	return
+
+/obj/item/mecha_parts/mecha_equipment/tool/cable_layer/proc/use_cable(amount)
+	if(!cable || cable.amount<1)
+		set_ready_state(1)
+		occupant_message("Cable depleted, [src] deactivated.")
+		log_message("Cable depleted, [src] deactivated.")
+		return
+	if(cable.amount < amount)
+		occupant_message("No enough cable to finish the task.")
+		return
+	cable.use(amount)
+	update_equip_info()
+	return 1
+
+/obj/item/mecha_parts/mecha_equipment/tool/cable_layer/proc/reset()
+	last_piece = null
+
+/obj/item/mecha_parts/mecha_equipment/tool/cable_layer/proc/dismantleFloor(var/turf/new_turf)
+	if(istype(new_turf, /turf/simulated/floor))
+		var/turf/simulated/floor/T = new_turf
+		if(!T.is_plating())
+			T.make_plating(!(T.broken || T.burnt))
+	return new_turf.is_plating()
+
+/obj/item/mecha_parts/mecha_equipment/tool/cable_layer/proc/layCable(var/turf/new_turf)
+	if(equip_ready || !istype(new_turf) || !dismantleFloor(new_turf))
+		return reset()
+	var/fdirn = turn(chassis.dir,180)
+	for(var/obj/structure/cable/LC in new_turf)		// check to make sure there's not a cable there already
+		if(LC.d1 == fdirn || LC.d2 == fdirn)
+			return reset()
+	if(!use_cable(1))
+		return reset()
+	var/obj/structure/cable/NC = new(new_turf)
+	NC.cableColor("red")
+	NC.d1 = 0
+	NC.d2 = fdirn
+	NC.updateicon()
+
+	var/datum/powernet/PN
+	if(last_piece && last_piece.d2 != chassis.dir)
+		last_piece.d1 = min(last_piece.d2, chassis.dir)
+		last_piece.d2 = max(last_piece.d2, chassis.dir)
+		last_piece.updateicon()
+		PN = last_piece.powernet
+
+	if(!PN)
+		PN = new()
+	PN.add_cable(NC)
+	NC.mergeConnectedNetworks(NC.d2)
+
+	//NC.mergeConnectedNetworksOnTurf()
+	last_piece = NC
+	return 1
+
 /obj/item/mecha_parts/mecha_equipment/tool/passenger
 	name = "passenger compartment"
 	desc = "A mountable passenger compartment for exo-suits. Rather cramped."
@@ -979,7 +1179,7 @@
 /obj/item/mecha_parts/mecha_equipment/tool/passenger/destroy()
 	for(var/atom/movable/AM in src)
 		AM.forceMove(get_turf(src))
-		AM << "<span class='danger'>You tumble out of the destroyed [src.name]!</span>"
+		to_chat(AM, "<span class='danger'>You tumble out of the destroyed [src.name]!</span>")
 	return ..()
 
 /obj/item/mecha_parts/mecha_equipment/tool/passenger/Exit(atom/movable/O)
@@ -996,9 +1196,9 @@
 			log_message("[user] boarded.")
 			occupant_message("[user] boarded.")
 		else if(src.occupant != user)
-			user << "<span class='warning'>[src.occupant] was faster. Try better next time, loser.</span>"
+			to_chat(user, "<span class='warning'>[src.occupant] was faster. Try better next time, loser.</span>")
 	else
-		user << "You stop entering the exosuit."
+		to_chat(user, "You stop entering the exosuit.")
 
 /obj/item/mecha_parts/mecha_equipment/tool/passenger/verb/eject()
 	set name = "Eject"
@@ -1008,7 +1208,7 @@
 
 	if(usr != occupant)
 		return
-	occupant << "You climb out from \the [src]."
+	to_chat(occupant, "You climb out from \the [src].")
 	go_out()
 	occupant_message("[occupant] disembarked.")
 	log_message("[occupant] disembarked.")
@@ -1065,18 +1265,18 @@
 		return
 
 	if (!isturf(usr.loc))
-		usr << "<span class='danger'>You can't reach the passenger compartment from here.</span>"
+		to_chat(usr, "<span class='danger'>You can't reach the passenger compartment from here.</span>")
 		return
 
 	if(iscarbon(usr))
 		var/mob/living/carbon/C = usr
 		if(C.handcuffed)
-			usr << "<span class='danger'>Kinda hard to climb in while handcuffed don't you think?</span>"
+			to_chat(usr, "<span class='danger'>Kinda hard to climb in while handcuffed don't you think?</span>")
 			return
 
 	for(var/mob/living/carbon/slime/M in range(1,usr))
 		if(M.Victim == usr)
-			usr << "<span class='danger'>You're too busy getting your life sucked out of you.</span>"
+			to_chat(usr, "<span class='danger'>You're too busy getting your life sucked out of you.</span>")
 			return
 
 	//search for a valid passenger compartment
@@ -1096,13 +1296,13 @@
 	//didn't find anything
 	switch (feedback)
 		if (OCCUPIED)
-			usr << "<span class='danger'>The passenger compartment is already occupied!</span>"
+			to_chat(usr, "<span class='danger'>The passenger compartment is already occupied!</span>")
 		if (LOCKED)
-			usr << "<span class='warning'>The passenger compartment hatch is locked!</span>"
+			to_chat(usr, "<span class='warning'>The passenger compartment hatch is locked!</span>")
 		if (OCCUPIED|LOCKED)
-			usr << "<span class='danger'>All of the passenger compartments are already occupied or locked!</span>"
+			to_chat(usr, "<span class='danger'>All of the passenger compartments are already occupied or locked!</span>")
 		if (0)
-			usr << "<span class='warning'>\The [src] doesn't have a passenger compartment.</span>"
+			to_chat(usr, "<span class='warning'>\The [src] doesn't have a passenger compartment.</span>")
 
 #undef LOCKED
 #undef OCCUPIED

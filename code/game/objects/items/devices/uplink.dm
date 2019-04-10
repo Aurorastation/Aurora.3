@@ -19,7 +19,7 @@ A list of items and costs is stored under the datum of every game mode, alongsid
 	var/datum/mind/uplink_owner = null
 	var/used_TC = 0
 
-/obj/item/device/uplink/nano_host()
+/obj/item/device/uplink/ui_host()
 	return loc
 
 /obj/item/device/uplink/New(var/location, var/datum/mind/owner, var/telecrystals = DEFAULT_TELECRYSTAL_AMOUNT)
@@ -38,7 +38,7 @@ A list of items and costs is stored under the datum of every game mode, alongsid
 
  1. All obj/item 's have a hidden_uplink var. By default it's null. Give the item one with "new(src)", it must be in it's contents. Feel free to add "uses".
 
- 2. Code in the triggers. Use check_trigger for this, I recommend closing the item's menu with "usr << browse(null, "window=windowname") if it returns true.
+ 2. Code in the triggers. Use check_trigger for this, I recommend closing the item's menu with "user << browse(null, "window=windowname") if it returns true.)
  The var/value is the value that will be compared with the var/target. If they are equal it will activate the menu.
 
  3. If you want the menu to stay until the users locks his uplink, add an active_uplink_check(mob/user as mob) in your interact/attack_hand proc.
@@ -303,7 +303,7 @@ A list of items and costs is stored under the datum of every game mode, alongsid
 // I placed this here because of how relevant it is.
 // You place this in your uplinkable item to check if an uplink is active or not.
 // If it is, it will display the uplink menu and return 1, else it'll return false.
-// If it returns true, I recommend closing the item's normal menu with "user << browse(null, "window=name")"
+// If it returns true, I recommend closing the item's normal menu with "user << browse(null, "window=name")")
 /obj/item/proc/active_uplink_check(mob/user as mob)
 	// Activates the uplink if it's active
 	if(src.hidden_uplink)
@@ -318,16 +318,16 @@ A list of items and costs is stored under the datum of every game mode, alongsid
 // Includes normal radio uplink, multitool uplink,
 // implant uplink (not the implant tool) and a preset headset uplink.
 
-/obj/item/device/radio/uplink/New()
-	hidden_uplink = new(src)
+/obj/item/device/radio/uplink/New(var/loc, var/mind)
+	hidden_uplink = new(src, mind)
 	icon_state = "radio"
 
 /obj/item/device/radio/uplink/attack_self(mob/user as mob)
 	if(hidden_uplink)
 		hidden_uplink.trigger(user)
 
-/obj/item/device/multitool/uplink/New()
-	hidden_uplink = new(src)
+/obj/item/device/multitool/uplink/New(var/loc, var/mind)
+	hidden_uplink = new(src, mind)
 
 /obj/item/device/multitool/uplink/attack_self(mob/user as mob)
 	if(hidden_uplink)
@@ -336,9 +336,9 @@ A list of items and costs is stored under the datum of every game mode, alongsid
 /obj/item/device/radio/headset/uplink
 	traitor_frequency = 1445
 
-/obj/item/device/radio/headset/uplink/New()
+/obj/item/device/radio/headset/uplink/New(var/loc, var/mind)
 	..()
-	hidden_uplink = new(src)
+	hidden_uplink = new(src, mind)
 	hidden_uplink.uses = DEFAULT_TELECRYSTAL_AMOUNT
 
 /*
@@ -353,12 +353,56 @@ A list of items and costs is stored under the datum of every game mode, alongsid
 	flags = CONDUCT
 	w_class = 2
 
-/obj/item/device/contract_uplink/New()
+/obj/item/device/contract_uplink/New(var/loc, var/mind)
 	..()
-	hidden_uplink = new(src)
+	hidden_uplink = new(src, mind)
 	hidden_uplink.uses = 0
 	hidden_uplink.nanoui_menu = 3
 
 /obj/item/device/contract_uplink/attack_self(mob/user as mob)
+	if (hidden_uplink)
+		hidden_uplink.trigger(user)
+
+
+//for revs to create their own central command reports
+/obj/item/device/announcer
+	name = "relay positioning device"
+	icon = 'icons/obj/device.dmi'
+	icon_state = "locator"
+	description_antag = "This device allows you to create a single central command report. It has only one use."
+	w_class = 2
+
+/obj/item/device/announcer/attack_self(mob/user as mob)
+	if(!player_is_antag(user.mind))
+		return
+
+	var/title = sanitize(input("Enter your announcement title.", "Announcement Title") as null|text)
+	if(!title)
+		return
+
+	var/message = sanitize(input("Enter your announcement message.", "Announcement Title") as null|text)
+	if(!message)
+		return
+
+	command_announcement.Announce("[message]", title, new_sound = 'sound/AI/commandreport.ogg', msg_sanitized = 1);
+	discord_bot.send_to_cciaa("Announcer - Fake announcement:`[title]` - `[message]`, sent by [user]!")
+	qdel(src)
+
+//ninja
+/obj/item/device/ninja_uplink
+	name = "infiltrator uplink"
+	desc = "A small device used for access to a restricted cache of specialized items."
+	icon = 'icons/obj/radio.dmi'
+	icon_state = "radio"
+	flags = CONDUCT
+	w_class = 2
+
+/obj/item/device/ninja_uplink/New(var/loc, var/mind)
+	..()
+	hidden_uplink = new(src, mind)
+	hidden_uplink.uses = DEFAULT_TELECRYSTAL_AMOUNT
+	hidden_uplink.nanoui_menu = 1
+
+/obj/item/device/ninja_uplink/attack_self(mob/user as mob)
 	if (hidden_uplink)
 		hidden_uplink.trigger(user)

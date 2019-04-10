@@ -2,8 +2,9 @@
 	name = "limb stump"
 	icon_name = ""
 	dislocated = -1
+	can_be_maimed = FALSE
 
-/obj/item/organ/external/stump/New(var/mob/living/carbon/holder, var/internal, var/obj/item/organ/external/limb)
+/obj/item/organ/external/stump/Initialize(mapload, var/internal, var/obj/item/organ/external/limb)
 	if(istype(limb))
 		limb_name = limb.limb_name
 		body_part = limb.body_part
@@ -11,7 +12,7 @@
 		joint = limb.joint
 		parent_organ = limb.parent_organ
 		wounds = limb.wounds
-	..(holder, internal)
+	. = ..(mapload, internal)
 	if(istype(limb))
 		max_damage = limb.max_damage
 		if((limb.status & ORGAN_ROBOT) && (!parent || (parent.status & ORGAN_ROBOT)))

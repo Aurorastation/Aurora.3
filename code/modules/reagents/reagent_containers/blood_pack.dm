@@ -2,18 +2,19 @@
 	name = "blood packs bags"
 	desc = "This box contains blood packs."
 	icon_state = "sterile"
-	New()
-		..()
-		new /obj/item/weapon/reagent_containers/blood/empty(src)
-		new /obj/item/weapon/reagent_containers/blood/empty(src)
-		new /obj/item/weapon/reagent_containers/blood/empty(src)
-		new /obj/item/weapon/reagent_containers/blood/empty(src)
-		new /obj/item/weapon/reagent_containers/blood/empty(src)
-		new /obj/item/weapon/reagent_containers/blood/empty(src)
-		new /obj/item/weapon/reagent_containers/blood/empty(src)
+
+/obj/item/weapon/storage/box/bloodpacks/fill()
+	..()
+	new /obj/item/weapon/reagent_containers/blood/empty(src)
+	new /obj/item/weapon/reagent_containers/blood/empty(src)
+	new /obj/item/weapon/reagent_containers/blood/empty(src)
+	new /obj/item/weapon/reagent_containers/blood/empty(src)
+	new /obj/item/weapon/reagent_containers/blood/empty(src)
+	new /obj/item/weapon/reagent_containers/blood/empty(src)
+	new /obj/item/weapon/reagent_containers/blood/empty(src)
 
 /obj/item/weapon/reagent_containers/blood
-	name = "BloodPack"
+	name = "blood pack"
 	desc = "Contains blood used for transfusion."
 	icon = 'icons/obj/bloodpack.dmi'
 	icon_state = "empty"
@@ -21,28 +22,33 @@
 
 	var/blood_type = null
 	var/vampire_marks = null
+	var/being_feed = FALSE
 
-	New()
-		..()
-		if(blood_type != null)
-			name = "BloodPack [blood_type]"
-			reagents.add_reagent("blood", 200, list("donor"=null,"viruses"=null,"blood_DNA"=null,"blood_type"=blood_type,"resistances"=null,"trace_chem"=null))
-			update_icon()
-
-	on_reagent_change()
+/obj/item/weapon/reagent_containers/blood/Initialize()
+	. = ..()
+	if(blood_type != null)
+		name = "blood pack [blood_type]"
+		reagents.add_reagent("blood", 200, list("donor"=null,"viruses"=null,"blood_DNA"=null,"blood_type"=blood_type,"resistances"=null,"trace_chem"=null))
 		update_icon()
 
+/obj/item/weapon/reagent_containers/blood/on_reagent_change()
 	update_icon()
-		var/percent = round((reagents.total_volume / volume) * 100)
-		switch(percent)
-			if(0 to 9)			icon_state = "empty"
-			if(10 to 50) 		icon_state = "half"
-			if(51 to INFINITY)	icon_state = "full"
+
+/obj/item/weapon/reagent_containers/blood/update_icon()
+	var/percent = round((reagents.total_volume / volume) * 100)
+	switch(percent)
+		if(0 to 9)			icon_state = "empty"
+		if(10 to 50) 		icon_state = "half"
+		if(51 to INFINITY)	icon_state = "full"
 
 /obj/item/weapon/reagent_containers/blood/attack(mob/living/carbon/human/M as mob, mob/living/carbon/human/user as mob, var/target_zone)
 	if (user == M && (user.mind.vampire))
+		if (being_feed)
+			to_chat(user, "<span class='notice'>You are already feeding on \the [src].</span>")
+			return
 		if (reagents.get_reagent_amount("blood"))
 			user.visible_message("<span class='warning'>[user] raises \the [src] up to their mouth and bites into it.</span>", "<span class='notice'>You raise \the [src] up to your mouth and bite into it, starting to drain its contents.<br>You need to stand still.</span>")
+			being_feed = TRUE
 			vampire_marks = TRUE
 			if (!LAZYLEN(src.other_DNA))
 				LAZYADD(src.other_DNA, M.dna.unique_enzymes)
@@ -56,33 +62,33 @@
 				user.mind.vampire.blood_usable += blood_taken
 
 				if (blood_taken)
-					user << "<span class='notice'>You have accumulated [user.mind.vampire.blood_usable] [user.mind.vampire.blood_usable > 1 ? "units" : "unit"] of usable blood. It tastes quite stale.</span>"
+					to_chat(user, "<span class='notice'>You have accumulated [user.mind.vampire.blood_usable] [user.mind.vampire.blood_usable > 1 ? "units" : "unit"] of usable blood. It tastes quite stale.</span>")
 
 				if (reagents.get_reagent_amount("blood") < 1)
 					break
 			user.visible_message("<span class='warning'>[user] licks \his fangs dry, lowering \the [src].</span>", "<span class='notice'>You lick your fangs clean of the tasteless blood.</span>")
-
+			being_feed = FALSE
 	else
 		..()
 
 /obj/item/weapon/reagent_containers/blood/examine(mob/user, distance = 2)
 	if (..() && vampire_marks)
-		user << "<span class='warning'>There are teeth marks on it.</span>"
+		to_chat(user, "<span class='warning'>There are teeth marks on it.</span>")
 	return
 
 /obj/item/weapon/reagent_containers/blood/attackby(obj/item/weapon/P as obj, mob/user as mob)
 	..()
 	if (istype(P, /obj/item/weapon/pen))
-		if (reagents.get_reagent_amount("blood") && name != "Empty BloodPack") //Stops people mucking with bloodpacks that are filled
-			usr << "<span class='notice'>You can't relabel [name] until it is empty!</span>"
+		if (reagents.get_reagent_amount("blood") && name != "empty blood pack") //Stops people mucking with bloodpacks that are filled
+			to_chat(usr, "<span class='notice'>You can't relabel [name] until it is empty!</span>")
 			return
 		var/blood_name = input(usr, "What blood type would you like to label it as?", "Blood Types") in list("A+", "A-", "B+", "B-", "O+", "O-", "AB+", "AB-", "Cancel")
 		if (blood_name == "Cancel") return
 		var/obj/item/i = usr.get_active_hand()
 		if (!istype(i, /obj/item/weapon/pen) || !in_range(user, src)) return //Checks to see if pen is still held or bloodback is in range
-		name = "BloodPack [blood_name]"
+		name = "blood pack [blood_name]"
 		desc = "Contains blood used for transfusion."
-		usr << "<span class='notice'>You label the blood pack as [blood_name].</span>"
+		to_chat(usr, "<span class='notice'>You label the blood pack as [blood_name].</span>")
 		return
 
 	if (istype(P, /obj/item/weapon/) && P.sharp == 1)
@@ -102,6 +108,7 @@
 				for (var/j = 0, j < strength - 1, j++) //The number of separate splatters
 					spray_loop:
 						var/direction = pick(alldirs)
+						var/target
 						for (var/i = 1, i < strength, i++) //The distance the splatters will travel from random direction
 							switch (direction)
 								if (NORTH)
@@ -167,17 +174,17 @@
 	blood_type = "O-"
 
 /obj/item/weapon/reagent_containers/blood/empty
-	name = "Empty BloodPack"
+	name = "empty blood pack"
 	desc = "Seems pretty useless... Maybe if there were a way to fill it?"
 	icon_state = "empty"
 
 /obj/item/weapon/reagent_containers/blood/ripped
-	name = "Ripped BloodPack"
+	name = "ripped blood pack"
 	desc = "It's torn up and useless."
 	icon = 'icons/obj/bloodpack.dmi'
 	icon_state = "ripped"
 	volume = 0
 
 /obj/item/weapon/reagent_containers/blood/ripped/attackby(obj/item/weapon/P as obj, mob/user as mob)
-	user << "<span class='warning'>You can't do anything further with this.</span>"
+	to_chat(user, "<span class='warning'>You can't do anything further with this.</span>")
 	return

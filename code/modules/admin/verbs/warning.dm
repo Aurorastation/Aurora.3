@@ -11,7 +11,7 @@
 
 	establish_db_connection(dbcon)
 	if (!dbcon.IsConnected())
-		usr << "<font color='red'>Error: warn(): Database Connection failed, reverting to legacy systems.</font>"
+		to_chat(usr, "<font color='red'>Error: warn(): Database Connection failed, reverting to legacy systems.</font>")
 		usr.client.warn_legacy(warned_ckey)
 		return
 
@@ -50,7 +50,7 @@
 
 	feedback_add_details("admin_verb", "WARN-DB")
 	if (C)
-		C << "<font color='red'><BIG><B>You have been warned by an administrator.</B></BIG><br>Click <a href='byond://?src=\ref[src];warnview=1'>here</a> to review and acknowledge them!</font>"
+		to_chat(C, "<font color='red'><BIG><B>You have been warned by an administrator.</B></BIG><br>Click <a href='byond://?src=\ref[src];warnview=1'>here</a> to review and acknowledge them!</font>")
 
 	message_admins("[key_name_admin(src)] has warned [warned_ckey] for: [warning_reason].")
 
@@ -63,7 +63,7 @@
 
 /client/proc/warn_legacy(warned_ckey)
 	if (!warned_ckey)
-		usr << "<font color='red'>Error: warn_legacy(): No ckey passed!</font>"
+		to_chat(usr, "<font color='red'>Error: warn_legacy(): No ckey passed!</font>")
 		return
 
 	var/datum/preferences/D
@@ -72,14 +72,14 @@
 	else	D = preferences_datums[warned_ckey]
 
 	if(!D)
-		src << "<font color='red'>Error: warn_legacy(): No such ckey found.</font>"
+		to_chat(src, "<font color='red'>Error: warn_legacy(): No such ckey found.</font>")
 		return
 
 	if(++D.warns >= MAX_WARNS)					//uh ohhhh...you'reee iiiiin trouuuubble O:)
 		ban_unban_log_save("[ckey] warned [warned_ckey], resulting in a [AUTOBANTIME] minute autoban.")
 		if(C)
 			message_admins("[key_name_admin(src)] has warned [key_name_admin(C)] resulting in a [AUTOBANTIME] minute ban.")
-			C << "<font color='red'><BIG><B>You have been autobanned due to a warning by [ckey].</B></BIG><br>This is a temporary ban, it will be removed in [AUTOBANTIME] minutes.</font>"
+			to_chat(C, "<font color='red'><BIG><B>You have been autobanned due to a warning by [ckey].</B></BIG><br>This is a temporary ban, it will be removed in [AUTOBANTIME] minutes.</font>")
 			qdel(C)
 		else
 			message_admins("[key_name_admin(src)] has warned [warned_ckey] resulting in a [AUTOBANTIME] minute ban.")
@@ -87,7 +87,7 @@
 		feedback_inc("ban_warn",1)
 	else
 		if(C)
-			C << "<font color='red'><BIG><B>You have been warned by an administrator.</B></BIG><br>Further warnings will result in an autoban.</font>"
+			to_chat(C, "<font color='red'><BIG><B>You have been warned by an administrator.</B></BIG><br>Further warnings will result in an autoban.</font>")
 			message_admins("[key_name_admin(src)] has warned [key_name_admin(C)]. They have [MAX_WARNS-D.warns] strikes remaining.")
 		else
 			message_admins("[key_name_admin(src)] has warned [warned_ckey] (DC). They have [MAX_WARNS-D.warns] strikes remaining.")
@@ -102,7 +102,7 @@
  */
 
 /client/verb/warnings_check()
-	set name = "My warnings"
+	set name = "Warnings and Notifications"
 	set category = "OOC"
 	set desc = "Display warnings issued to you."
 
@@ -115,7 +115,48 @@
 		alert("Connection to the SQL database lost. Aborting. Please alert an Administrator or a member of staff.")
 		return
 
-	var/dat = "<div align='center'><h3>Warnings received</h3></div><br>"
+	var/dat = ""
+
+	//
+	// Notifications
+	//
+
+	var/DBQuery/notification_query = dbcon.NewQuery({"SELECT
+		id, message, created_by
+	FROM ss13_player_notifications
+	WHERE
+		acked_at IS NULL
+		AND ckey = :ckey:
+		AND type IN ('player_greeting','player_greeting_chat')
+	"})
+	notification_query.Execute(list("ckey" = ckey))
+
+	var/notification_header=0
+	while(notification_query.NextRow())
+		if(!notification_header)
+			notification_header=1
+			dat += "<div align='center'><h3>Pending Notifications</h3></div><br>"
+			dat += "<table width='90%' bgcolor='#e3e3e3' cellpadding='5' cellspacing='0' align='center'>"
+			dat += "<tr>"
+			dat += "<th width='20%'>ADMIN</th>"
+			dat += "<th width='60%'>TEXT</th>"
+			dat += "<th width='20%'>ACKNOWLEDGE</th>"
+			dat += "</tr>"
+
+		dat += "<tr bgcolor='90ee90' align='center'>"
+		dat += "<td>[notification_query.item[3]]</td>"
+		dat += "<td>[notification_query.item[2]]</td>"
+		dat += "<td><b>(<a href='byond://?src=\ref[src];notifacknowledge=[notification_query.item[1]]'>Acknowledge Notification</a>)</b></td>"
+		dat += "</tr>"
+
+	if(notification_header)
+		dat += "</table>"
+
+	//
+	// Warnings
+	//
+
+	dat += "<div align='center'><h3>Warnings Received</h3></div><br>"
 
 	dat += "<table width='90%' bgcolor='#e3e3e3' cellpadding='5' cellspacing='0' align='center'>"
 	dat += "<tr>"
@@ -179,6 +220,23 @@
 
 	var/DBQuery/query = dbcon.NewQuery("UPDATE ss13_warnings SET acknowledged = 1 WHERE id = :warning_id:;")
 	query.Execute(list("warning_id" = warning_id))
+
+	warnings_check()
+
+/client/proc/notifications_acknowledge(var/id)
+	if(!id)
+		error("Error: Argument ID for notificaton acknowledgement not supplied.")
+		return
+
+	if (!establish_db_connection(dbcon))
+		error("Error: Unable to establish db connection during notification acknowledgement.")
+		return
+
+	var/DBQuery/query = dbcon.NewQuery({"UPDATE ss13_player_notifications
+	SET acked_by = :ckey:, acked_at = NOW()
+	WHERE id = :id: AND ckey = :ckey:
+	"})
+	query.Execute(list("ckey" = src.ckey, "id" = id))
 
 	warnings_check()
 
@@ -334,6 +392,50 @@
 	usr << browse(dat, "window=lookupwarns;size=900x500")
 	feedback_add_details("admin_verb","WARN-LKUP")
 
+//Admin Proc to add a new User Notification
+/client/proc/notification_add()
+	set category = "Admin"
+	set name = "Add Notification"
+
+	if(!check_rights(R_ADMIN|R_MOD|R_DEV|R_CCIAA))
+		return
+
+	if (!establish_db_connection(dbcon))
+		error("Error: Unable to establish db connection while adding a notification.")
+		return
+
+	var/ckey = ckey(input(usr, "What ckey?", "Enter a ckey"))
+	if(!ckey)
+		to_chat(usr,"You need to specify a ckey.")
+		return
+
+	//Validate ckey
+	var/DBQuery/validatequery = dbcon.NewQuery("SELECT id FROM ss13_player WHERE ckey = :ckey:")
+	validatequery.Execute(list("ckey" = ckey))
+
+	if (validatequery.RowCount() == 0)
+		to_chat(usr, "Could not find a player with that ckey.")
+		return
+	else if (validatequery.RowCount() != 1)
+		to_chat(usr, "Found more than one player with this ckey. This should not happen, please inform the server maintainers.")
+		return
+
+	var/list/types=list("player_greeting","player_greeting_chat","admin","ccia")
+	var/type = input(usr, "Which Type?", "Choose a type", "") as null|anything in (types)
+	if(!type)
+		to_chat(usr,"You need to specify a type.")
+		return
+
+	var/message = sanitize(input(usr,"Notification Message", "Specify a notification message"))
+	if(!message)
+		to_chat(usr,"You need to specify a notification message.")
+		return
+
+	var/DBQuery/addquery = dbcon.NewQuery("INSERT INTO ss13_player_notifications (`ckey`, `type`, `message`, `created_by`) VALUES (:ckey:, :type:, :message:, :a_ckey:)")
+	addquery.Execute(list("ckey" = ckey, "type" = type, "message" = message, "a_ckey" = usr.ckey))
+	to_chat(usr,"Notification added.")
+
+
 /*
  * A proc for editing and deleting warnings issued
  */
@@ -362,12 +464,12 @@
 		count++
 
 	if (count == 0)
-		usr << "<span class='warning'>Database update failed due to a warning id not being present in the database.</span>"
+		to_chat(usr, "<span class='warning'>Database update failed due to a warning id not being present in the database.</span>")
 		error("Database update failed due to a warning id not being present in the database.")
 		return
 
 	if (count > 1)
-		usr << "<span class='warning'>Database update failed due to multiple warnings having the same ID. Contact the database admin.</span>"
+		to_chat(usr, "<span class='warning'>Database update failed due to multiple warnings having the same ID. Contact the database admin.</span>")
 		error("Database update failed due to multiple warnings having the same ID. Contact the database admin.")
 		return
 
@@ -380,14 +482,14 @@
 				message_admins("<span class='notice'>[key_name_admin(usr)] deleted one of [ckey]'s warnings.</span>")
 				log_admin("[key_name(usr)] deleted one of [ckey]'s warnings.", admin_key=key_name(usr), ckey=ckey)
 			else
-				usr << "Cancelled"
+				to_chat(usr, "Cancelled")
 				return
 
 		if ("editReason")
 			query_details["new_reason"] = input("Edit this warning's reason.", "New Reason", reason, null) as null|text
 
 			if(!query_details["new_reason"] || query_details["new_reason"] == reason)
-				usr << "Cancelled"
+				to_chat(usr, "Cancelled")
 				return
 
 			var/DBQuery/reason_query = dbcon.NewQuery("UPDATE ss13_warnings SET reason = :new_reason:, edited = 1, lasteditor = :a_ckey:, lasteditdate = NOW() WHERE id = :warning_id:")
@@ -400,7 +502,7 @@
 			query_details["new_notes"] = input("Edit this warning's notes.", "New Notes", notes, null) as null|text
 
 			if(!query_details["new_notes"] || query_details["new_notes"] == notes)
-				usr << "Cancelled"
+				to_chat(usr, "Cancelled")
 				return
 
 			var/DBQuery/notes_query = dbcon.NewQuery("UPDATE ss13_warnings SET notes = :new_notes:, edited = 1, lasteditor = :a_ckey:, lasteditdate = NOW() WHERE id = :warning_id:")

@@ -1,20 +1,6 @@
 //conveyor2 is pretty much like the original, except it supports corners, but not diverters.
 //note that corner pieces transfer stuff clockwise when running forward, and anti-clockwise backwards.
 
-/datum/wifi/sender/conveyor/proc/set_dir(direction)
-	for (var/datum/wifi/receiver/conveyor/C in connected_devices)
-		C.direction_change(direction)
-
-/datum/wifi/receiver/conveyor/proc/direction_change(direction)
-	var/obj/machinery/conveyor/C = parent
-	C.operating = direction
-	C.setmove()
-
-/datum/wifi/receiver/conveyor/switch/direction_change(direction)
-	var/obj/machinery/conveyor_switch/S = parent
-	S.position = direction
-	S.update()
-
 /obj/machinery/conveyor
 	icon = 'icons/obj/recycling.dmi'
 	icon_state = "conveyor0"
@@ -27,10 +13,12 @@
 	var/forwards		// this is the default (forward) direction, set by the map dir
 	var/backwards		// hopefully self-explanatory
 	var/movedir			// the actual direction to move stuff in
+	var/reversed		// se to 1 if the belt is reversed
 
 	var/list/affecting	// the list of all items that will be moved this ptick
 	var/id = ""			// the control ID	- must match controller ID
-	var/datum/wifi/receiver/conveyor/antenna
+
+	var/listener/antenna
 
 /obj/machinery/conveyor/centcom_auto
 	id = "round_end_belt"
@@ -49,7 +37,7 @@
 		backwards = turn(dir, 180)
 
 	if(on)
-		operating = 1
+		operating = reversed ? -1 : 1
 		setmove()
 
 	if (id)
@@ -119,14 +107,17 @@
 	if (!anchored && simulated && has_gravity(src))
 		step(src, move_dir)
 
+/obj/effect/conveyor_act()
+	return
+
 // attack with item, place item on conveyor
 /obj/machinery/conveyor/attackby(var/obj/item/I, mob/user)
-	if(istype(I, /obj/item/weapon/crowbar))
+	if(I.iscrowbar())
 		if(!(stat & BROKEN))
 			var/obj/item/conveyor_construct/C = new/obj/item/conveyor_construct(src.loc)
 			C.id = id
 			transfer_fingerprints_to(C)
-		user << "<span class='notice'>You remove the conveyor belt.</span>"
+		to_chat(user, "<span class='notice'>You remove the conveyor belt.</span>")
 		qdel(src)
 		return
 	if(isrobot(user))	return //Carn: fix for borgs dropping their modules on conveyor belts
@@ -210,24 +201,11 @@
 
 	anchored = 1
 
-	var/datum/wifi/receiver/conveyor/switch/receiver
-	var/datum/wifi/sender/conveyor/transmitter
-
-
 /obj/machinery/conveyor_switch/Initialize(mapload, newid)
 	. = ..()
 	if(!id)
 		id = newid
 	update()
-
-	if (id)
-		receiver = new(id, src)
-		transmitter = new(id, src)
-
-/obj/machinery/conveyor_switch/Destroy()
-	QDEL_NULL(receiver)
-	QDEL_NULL(transmitter)
-	return ..()
 
 // update the icon depending on the position
 
@@ -242,7 +220,7 @@
 // attack with hand, switch position
 /obj/machinery/conveyor_switch/attack_hand(mob/user)
 	if(!allowed(user))
-		user << "<span class='warning'>Access denied.</span>"
+		to_chat(user, "<span class='warning'>Access denied.</span>")
 		return
 
 	if(position == 0)
@@ -259,14 +237,24 @@
 	operated = 1
 	update()
 
-	transmitter.set_dir(position)
+	for (var/thing in GET_LISTENERS(id))
+		var/listener/L = thing
+		var/obj/machinery/conveyor/C = L.target
+		if (istype(C))
+			C.operating = C.reversed ? position * - 1 : position
+			C.setmove()
+		else
+			var/obj/machinery/conveyor_switch/S = L.target
+			if (istype(S))
+				S.position = position
+				S.update()
 
 /obj/machinery/conveyor_switch/attackby(obj/item/I, mob/user, params)
-	if(istype(I, /obj/item/weapon/crowbar))
+	if(I.iscrowbar())
 		var/obj/item/conveyor_switch_construct/C = new/obj/item/conveyor_switch_construct(src.loc)
 		C.id = id
 		transfer_fingerprints_to(C)
-		user << "<span class='notice'>You deattach the conveyor switch.</span>"
+		to_chat(user, "<span class='notice'>You deattach the conveyor switch.</span>")
 		qdel(src)
 
 /obj/machinery/conveyor_switch/oneway
@@ -283,7 +271,17 @@
 	operated = 1
 	update()
 
-	transmitter.set_dir(position)
+	for (var/thing in GET_LISTENERS(id))
+		var/listener/L = thing
+		var/obj/machinery/conveyor/C = L.target
+		if (istype(C))
+			C.operating = C.reversed ? position * - 1 : position
+			C.setmove()
+		else
+			var/obj/machinery/conveyor_switch/S = L.target
+			if (istype(S))
+				S.position = position
+				S.update()
 
 //
 // CONVEYOR CONSTRUCTION STARTS HERE
@@ -300,7 +298,7 @@
 /obj/item/conveyor_construct/attackby(obj/item/I, mob/user, params)
 	..()
 	if(istype(I, /obj/item/conveyor_switch_construct))
-		user << "<span class='notice'>You link the switch to the conveyor belt assembly.</span>"
+		to_chat(user, "<span class='notice'>You link the switch to the conveyor belt assembly.</span>")
 		var/obj/item/conveyor_switch_construct/C = I
 		id = C.id
 
@@ -341,7 +339,7 @@
 			found = 1
 			break
 	if(!found)
-		user << "\icon[src]<span class=notice>The conveyor switch did not detect any linked conveyor belts in range.</span>"
+		to_chat(user, "\icon[src]<span class=notice>The conveyor switch did not detect any linked conveyor belts in range.</span>")
 		return
 	var/obj/machinery/conveyor_switch/NC = new/obj/machinery/conveyor_switch(A, id)
 	transfer_fingerprints_to(NC)

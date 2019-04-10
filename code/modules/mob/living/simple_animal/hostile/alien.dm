@@ -1,7 +1,7 @@
 /mob/living/simple_animal/hostile/alien
 	name = "alien hunter"
 	desc = "Hiss!"
-	icon = 'icons/mob/alien.dmi'
+	icon = 'icons/mob/npc/alien.dmi'
 	icon_state = "alienh_running"
 	icon_living = "alienh_running"
 	icon_dead = "alien_l"
@@ -35,6 +35,9 @@
 	heat_damage_per_tick = 20
 	mob_size = 10
 
+	tameable = FALSE
+	attack_emote = "growls at"
+	smart = TRUE
 
 /mob/living/simple_animal/hostile/alien/drone
 	name = "alien drone"
@@ -77,7 +80,7 @@
 
 /mob/living/simple_animal/hostile/alien/queen/large
 	name = "alien empress"
-	icon = 'icons/mob/alienqueen.dmi'
+	icon = 'icons/mob/npc/alienqueen.dmi'
 	icon_state = "queen_s"
 	icon_living = "queen_s"
 	icon_dead = "queen_dead"

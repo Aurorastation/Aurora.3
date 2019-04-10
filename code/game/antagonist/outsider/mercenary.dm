@@ -46,6 +46,7 @@ var/datum/antagonist/mercenary/mercs
 	if(player.backbag == 3) player.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack/satchel_syndie(player), slot_back)
 	if(player.backbag == 4) player.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack/satchel(player), slot_back)
 	if(player.backbag == 5) player.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack/duffel/syndie(player), slot_back)
+	if(player.backbag == 6) player.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack/messenger/syndie(player), slot_back)
 	player.equip_to_slot_or_del(new /obj/item/weapon/storage/box/engineer(player.back), slot_in_backpack)
 	player.equip_to_slot_or_del(new /obj/item/weapon/reagent_containers/pill/cyanide(player), slot_in_backpack)
 
@@ -57,4 +58,6 @@ var/datum/antagonist/mercenary/mercs
 
 	create_id("Mercenary", player)
 	create_radio(SYND_FREQ, player)
+
+	give_codewords(player)
 	return 1

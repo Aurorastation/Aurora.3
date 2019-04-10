@@ -6,7 +6,7 @@
 	extended_desc = "Program for programming employee ID cards to access parts of the station."
 	required_access_run = access_change_ids
 	required_access_download = access_change_ids
-	usage_flags = PROGRAM_CONSOLE
+	usage_flags = PROGRAM_CONSOLE | PROGRAM_LAPTOP
 	requires_ntnet = 0
 	size = 8
 	color = LIGHT_COLOR_BLUE
@@ -144,7 +144,7 @@
 								contents += "  [get_access_desc(A)]"
 
 						if(!computer.nano_printer.print_text(contents,"access report"))
-							usr << "<span class='notice'>Hardware error: Printer was unable to print the file. It may be out of paper.</span>"
+							to_chat(usr, "<span class='notice'>Hardware error: Printer was unable to print the file. It may be out of paper.</span>")
 							return
 						else
 							computer.visible_message("<span class='notice'>\The [computer] prints out paper.</span>")
@@ -154,7 +154,7 @@
 									[data_core ? data_core.get_manifest(0) : ""]
 									"}
 					if(!computer.nano_printer.print_text(contents,text("crew manifest ([])", worldtime2text())))
-						usr << "<span class='notice'>Hardware error: Printer was unable to print the file. It may be out of paper.</span>"
+						to_chat(usr, "<span class='notice'>Hardware error: Printer was unable to print the file. It may be out of paper.</span>")
 						return
 					else
 						computer.visible_message("<span class='notice'>\The [computer] prints out paper.</span>")
@@ -163,11 +163,11 @@
 				if(id_card)
 					data_core.manifest_modify(id_card.registered_name, id_card.assignment)
 				computer.proc_eject_id(user)
-		if("terminate")
+		if("suspend")
 			if(computer && can_run(user, 1))
-				id_card.assignment = "Terminated"
+				id_card.assignment = "Suspended"
 				remove_nt_access(id_card)
-				callHook("terminate_employee", list(id_card))
+				callHook("suspend_employee", list(id_card))
 		if("edit")
 			if(computer && can_run(user, 1))
 				if(href_list["name"])
@@ -199,10 +199,10 @@
 								jobdatum = J
 								break
 						if(!jobdatum)
-							usr << "<span class='warning'>No log exists for this job: [t1]</span>"
+							to_chat(usr, "<span class='warning'>No log exists for this job: [t1]</span>")
 							return
 
-						access = jobdatum.get_access()
+						access = jobdatum.get_access(t1)
 
 					remove_nt_access(id_card)
 					apply_access(id_card, access)

@@ -19,7 +19,6 @@ var/warrant_uid = 0
 	available_on_ntnet = 1
 	required_access_download = access_hos
 	required_access_run = access_security
-	usage_flags = PROGRAM_ALL
 	nanomodule_path = /datum/nano_module/program/digitalwarrant/
 
 /datum/nano_module/program/digitalwarrant/
@@ -75,7 +74,7 @@ var/warrant_uid = 0
 		return
 	var/obj/item/weapon/card/id/I = user.GetIdCard()
 	if(!istype(I) || !I.registered_name || !(access_armory in I.access) || issilicon(user))
-		to_chat(user, "Authentication error: Unable to locate ID with apropriate access to allow this operation.")
+		to_chat(user, "Authentication error: Unable to locate ID with appropriate access to allow this operation.")
 		return
 
 	if(href_list["addwarrant"])

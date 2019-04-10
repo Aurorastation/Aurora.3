@@ -1,3 +1,5 @@
+#ifdef ENABLE_SUNLIGHT
+
 /var/datum/controller/subsystem/sunlight/SSsunlight
 
 /datum/controller/subsystem/sunlight
@@ -29,7 +31,7 @@
 
 	var/thing
 	var/turf/T
-	for (thing in block(locate(1, 1, config.sun_target_z), locate(world.maxx, world.maxy, config.sun_target_z)))
+	for (thing in Z_ALL_TURFS(config.sun_target_z))
 		T = thing
 		if (!(T.x % config.sun_accuracy) && !(T.y % config.sun_accuracy))
 			light_points += new /atom/movable/sunobj(thing)
@@ -41,15 +43,11 @@
 
 /datum/controller/subsystem/sunlight/proc/set_overall_light(...)
 	. = 0
-	SSlighting.force_queued = TRUE
 	for (var/thing in light_points)
 		var/atom/movable/AM = thing
 		AM.set_light(arglist(args))
 		.++
 		CHECK_TICK
-
-	if (!SSlighting.force_override)
-		SSlighting.force_queued = FALSE
 
 /datum/controller/subsystem/sunlight/proc/apply_sun_state(datum/sun_state/S)
 	log_debug("sunlight: Applying preset [S].")
@@ -100,3 +98,5 @@
 /datum/sun_state/blue
 	name = "Blue"
 	color = LIGHT_COLOR_BLUE
+
+#endif

@@ -84,7 +84,7 @@
 		secondary_effect.process()
 
 	if(pulledby)
-		Bumped(pulledby)
+		CollidedWith(pulledby)
 
 	//if either of our effects rely on environmental factors, work that out
 	var/trigger_cold = 0
@@ -185,19 +185,19 @@
 
 /obj/machinery/artifact/attack_hand(var/mob/user as mob)
 	if (get_dist(user, src) > 1)
-		user << "<span class='warning'>You can't reach [src] from here.</span>"
+		to_chat(user, "<span class='warning'>You can't reach [src] from here.</span>")
 		return
 	if(ishuman(user) && user:gloves)
-		user << "<b>You touch [src]</b> with your gloved hands, [pick("but nothing of note happens","but nothing happens","but nothing interesting happens","but you notice nothing different","but nothing seems to have happened")]."
+		to_chat(user, "<b>You touch [src]</b> with your gloved hands, [pick("but nothing of note happens","but nothing happens","but nothing interesting happens","but you notice nothing different","but nothing seems to have happened")].")
 		return
 
 	src.add_fingerprint(user)
 
 	if(my_effect.trigger == TRIGGER_TOUCH)
-		user << "<b>You touch [src].</b>"
+		to_chat(user, "<b>You touch [src].</b>")
 		my_effect.ToggleActivate()
 	else
-		user << "<b>You touch [src],</b> [pick("but nothing of note happens","but nothing happens","but nothing interesting happens","but you notice nothing different","but nothing seems to have happened")]."
+		to_chat(user, "<b>You touch [src],</b> [pick("but nothing of note happens","but nothing happens","but nothing interesting happens","but you notice nothing different","but nothing seems to have happened")].")
 
 	if(prob(25) && secondary_effect && secondary_effect.trigger == TRIGGER_TOUCH)
 		secondary_effect.ToggleActivate(0)
@@ -235,14 +235,14 @@
 			istype(W,/obj/item/weapon/melee/energy) ||\
 			istype(W,/obj/item/weapon/melee/cultblade) ||\
 			istype(W,/obj/item/weapon/card/emag) ||\
-			istype(W,/obj/item/device/multitool))
+			W.ismultitool())
 		if (my_effect.trigger == TRIGGER_ENERGY)
 			my_effect.ToggleActivate()
 		if(secondary_effect && secondary_effect.trigger == TRIGGER_ENERGY && prob(25))
 			secondary_effect.ToggleActivate(0)
 
 	else if (istype(W,/obj/item/weapon/flame) && W:lit ||\
-			istype(W,/obj/item/weapon/weldingtool) && W:welding)
+			W.iswelder() && W:welding)
 		if(my_effect.trigger == TRIGGER_HEAT)
 			my_effect.ToggleActivate()
 		if(secondary_effect && secondary_effect.trigger == TRIGGER_HEAT && prob(25))
@@ -254,7 +254,7 @@
 		if(secondary_effect && secondary_effect.trigger == TRIGGER_FORCE && prob(25))
 			secondary_effect.ToggleActivate(0)
 
-/obj/machinery/artifact/Bumped(M as mob|obj)
+/obj/machinery/artifact/CollidedWith(M as mob|obj)
 	..()
 	if(istype(M,/obj))
 		if(M:throwforce >= 10)
@@ -280,7 +280,7 @@
 			warn = 1
 
 		if(warn)
-			M << "<b>You accidentally touch [src].</b>"
+			to_chat(M, "<b>You accidentally touch [src].</b>")
 	..()
 
 /obj/machinery/artifact/bullet_act(var/obj/item/projectile/P)

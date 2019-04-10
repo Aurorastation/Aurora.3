@@ -16,8 +16,10 @@
 	use_power = 0
 	idle_power_usage = 5			// Power used when turned on, but not processing anything
 	active_power_usage = 1000		// Power used when turned on and actively cooking something
+	var/initalactive_power_usage = 1000
 
 	var/cooking_power  = 1
+	var/inital_cooking_power  = 1
 	var/max_contents = 1			// Maximum number of things this appliance can simultaneously cook
 	var/on_icon						// Icon state used when cooking.
 	var/off_icon					// Icon state used when not cooking.
@@ -39,11 +41,19 @@
 
 	var/combine_first = 0//If 1, this appliance will do combinaiton cooking before checking recipes
 
+	component_types = list(
+			/obj/item/weapon/circuitboard/cooking,
+			/obj/item/weapon/stock_parts/capacitor = 3,
+			/obj/item/weapon/stock_parts/scanning_module,
+			/obj/item/weapon/stock_parts/matter_bin = 2
+		)
+
 /obj/machinery/appliance/Initialize()
 	. = ..()
 	if(output_options.len)
 		verbs += /obj/machinery/appliance/proc/choose_output
-
+	inital_cooking_power = cooking_power
+	initalactive_power_usage = active_power_usage
 /obj/machinery/appliance/Destroy()
 	for (var/a in cooking_objs)
 		var/datum/cooking_item/CI = a
@@ -64,9 +74,9 @@
 		for (var/a in cooking_objs)
 			var/datum/cooking_item/CI = a
 			string += "-\a [CI.container.label(null, CI.combine_target)], [report_progress(CI)]</br>"
-		usr << string
+		to_chat(usr, string)
 	else
-		usr << span("notice","It is empty.")
+		to_chat(usr, span("notice","It is empty."))
 
 /obj/machinery/appliance/proc/report_progress(var/datum/cooking_item/CI)
 	if (!CI || !CI.max_cookwork)
@@ -110,14 +120,14 @@
 		return
 
 	if (!user.IsAdvancedToolUser())
-		user << "You lack the dexterity to do that!"
+		to_chat(user, "You lack the dexterity to do that!")
 		return
 
 	if (user.stat || user.restrained() || user.incapacitated())
 		return
 
 	if (!Adjacent(user) && !issilicon(user))
-		user << "You can't reach [src] from here."
+		to_chat(user, "You can't reach [src] from here.")
 		return
 
 	if (stat & POWEROFF)//Its turned off
@@ -145,14 +155,14 @@
 		return
 
 	if (!usr.IsAdvancedToolUser())
-		usr << "You lack the dexterity to do that!"
+		to_chat(usr, "You lack the dexterity to do that!")
 		return
 
 	if (usr.stat || usr.restrained() || usr.incapacitated())
 		return
 
 	if (!Adjacent(usr) && !issilicon(usr))
-		usr << "You can't adjust the [src] from this distance, get closer!"
+		to_chat(usr, "You can't adjust the [src] from this distance, get closer!")
 		return
 
 	if(output_options.len)
@@ -161,10 +171,10 @@
 			return
 		if(choice == "Default")
 			selected_option = null
-			usr << "<span class='notice'>You decide not to make anything specific with \the [src].</span>"
+			to_chat(usr, "<span class='notice'>You decide not to make anything specific with \the [src].</span>")
 		else
 			selected_option = choice
-			usr << "<span class='notice'>You prepare \the [src] to make \a [selected_option] with the next thing you put in. Try putting several ingredients in a container!</span>"
+			to_chat(usr, "<span class='notice'>You prepare \the [src] to make \a [selected_option] with the next thing you put in. Try putting several ingredients in a container!</span>")
 
 //Handles all validity checking and error messages for inserting things
 /obj/machinery/appliance/proc/can_insert(var/obj/item/I, var/mob/user)
@@ -176,18 +186,18 @@
 	if(istype(G))
 
 		if(!can_cook_mobs)
-			user << "<span class='warning'>That's not going to fit.</span>"
+			to_chat(user, "<span class='warning'>That's not going to fit.</span>")
 			return 0
 
 		if(!isliving(G.affecting))
-			user << "<span class='warning'>You can't cook that.</span>"
+			to_chat(user, "<span class='warning'>You can't cook that.</span>")
 			return 0
 
 		return 2
 
 
 	if (!has_space(I))
-		user << "<span class='warning'>There's no room in [src] for that!</span>"
+		to_chat(user, "<span class='warning'>There's no room in [src] for that!</span>")
 		return 0
 
 
@@ -197,16 +207,16 @@
 	// We're trying to cook something else. Check if it's valid.
 	var/obj/item/weapon/reagent_containers/food/snacks/check = I
 	if(istype(check) && islist(check.cooked) && (cook_type in check.cooked))
-		user << "<span class='warning'>\The [check] has already been [cook_type].</span>"
+		to_chat(user, "<span class='warning'>\The [check] has already been [cook_type].</span>")
 		return 0
 	else if(istype(check, /obj/item/weapon/reagent_containers/glass))
-		user << "<span class='warning'>That would probably break [src].</span>"
+		to_chat(user, "<span class='warning'>That would probably break [src].</span>")
 		return 0
 	else if(istype(check, /obj/item/weapon/disk/nuclear))
-		user << "<span class='warning'>You can't cook that.</span>"
+		to_chat(user, "<span class='warning'>You can't cook that.</span>")
 		return 0
 	else if(!istype(check) && !istype(check, /obj/item/weapon/holder))
-		user << "<span class='warning'>That's not edible.</span>"
+		to_chat(user, "<span class='warning'>That's not edible.</span>")
 		return 0
 
 	return 1
@@ -221,14 +231,19 @@
 
 /obj/machinery/appliance/attackby(var/obj/item/I, var/mob/user)
 	if(!cook_type || (stat & (BROKEN)))
-		user << "<span class='warning'>\The [src] is not working.</span>"
+		to_chat(user, "<span class='warning'>\The [src] is not working.</span>")
 		return
 
 	var/result = can_insert(I, user)
-	if (!result)
-		return
+	if(!result)
+		if(default_deconstruction_screwdriver(user, I))
+			return
+		else if(default_part_replacement(user, I))
+			return
+		else
+			return
 
-	if (result == 2)
+	if(result == 2)
 		var/obj/item/weapon/grab/G = I
 		if (G && istype(G) && G.affecting)
 			cook_mob(G.affecting, user)
@@ -249,8 +264,8 @@
 		CI = new /datum/cooking_item/(CC)
 		I.forceMove(src)
 		cooking_objs.Add(CI)
-		user.visible_message("<span class='notice'>\The [user] puts \the [I] into \the [src].</span>")
 		if (CC.check_contents() == 0)//If we're just putting an empty container in, then dont start any processing.
+			user.visible_message("<span class='notice'>\The [user] puts \the [I] into \the [src].</span>")
 			return
 	else
 		if (CI && istype(CI))
@@ -376,20 +391,20 @@
 		var/obj/temp = new /obj(src) //To prevent infinite loops, all results will be moved into a temporary location so they're not considered as inputs for other recipes
 
 		for (var/atom/movable/AM in results)
-			AM.loc = temp
+			AM.forceMove(temp)
 
 		//making multiple copies of a recipe from one container. For example, tons of fries
 		while (select_recipe(RECIPE_LIST(appliancetype), C) == recipe)
 			var/list/TR = list()
 			TR += recipe.make_food(C)
 			for (var/atom/movable/AM in TR) //Move results to buffer
-				AM.loc = temp
+				AM.forceMove(temp)
 			results += TR
 
 
 		for (var/r in results)
 			var/obj/item/weapon/reagent_containers/food/snacks/R = r
-			R.loc = C //Move everything from the buffer back to the container
+			R.forceMove(C) //Move everything from the buffer back to the container
 			R.cooked |= cook_type
 
 		QDEL_NULL(temp) //delete buffer object
@@ -459,7 +474,7 @@
 	//Filling overlay
 	var/image/I = image(result.icon, "[result.icon_state]_filling")
 	I.color = totalcolour
-	result.overlays += I
+	result.add_overlay(I)
 	result.filling_color = totalcolour
 
 	//Set the name.
@@ -619,7 +634,7 @@
 /datum/cooking_item
 	var/max_cookwork
 	var/cookwork
-	var/overcook_mult = 3
+	var/overcook_mult = 5
 	var/result_type = 0
 	var/obj/item/weapon/reagent_containers/cooking_container/container = null
 	var/combine_target = null
@@ -649,3 +664,26 @@
 	oil = 0
 	combine_target = null
 	//Container is not reset
+
+/obj/machinery/appliance/RefreshParts()
+	..()
+	var/scan_rating = 0
+	var/cap_rating = 0
+
+	for(var/obj/item/weapon/stock_parts/P in component_parts)
+		if(isscanner(P))
+			scan_rating += P.rating
+		else if(iscapacitor(P))
+			cap_rating += P.rating
+
+	active_power_usage = initalactive_power_usage - scan_rating*10
+	cooking_power = inital_cooking_power + (scan_rating+cap_rating)/10
+
+/obj/item/weapon/circuitboard/cooking
+	name = "kitchen appliance circuitry"
+	desc = "The circuitboard for many kitchen appliances. Not of much use."
+	origin_tech = list(TECH_MAGNET = 2, TECH_ENGINEERING = 2)
+	req_components = list(
+							"/obj/item/weapon/stock_parts/capacitor" = 3,
+							"/obj/item/weapon/stock_parts/scanning_module" = 1,
+							"/obj/item/weapon/stock_parts/matter_bin" = 2)

@@ -15,13 +15,14 @@
 		var/cache_key = "[alpha]-[color]-[dir]-[icon_state]-[layer]"
 		if(!floor_decals[cache_key])
 			var/image/I = image(icon = src.icon, icon_state = src.icon_state, dir = src.dir)
-			I.layer = T.layer
 			I.color = src.color
 			I.alpha = src.alpha
 			floor_decals[cache_key] = I
 		if(!T.decals) T.decals = list()
 		T.decals |= floor_decals[cache_key]
 		T.add_overlay(floor_decals[cache_key])
+		if(desc)
+			T.desc += "<br>There is \a [src] on it with the following inscription:<br><i>[desc]</i>"
 
 	qdel(src)
 
@@ -254,13 +255,16 @@
 /obj/effect/floor_decal/industrial/hatch/yellow
 	color = "#CFCF55"
 
+/obj/effect/floor_decal/industrial/hatch/red
+	color = "#990C0C"
+
 /obj/effect/floor_decal/industrial/outline
 	name = "white outline"
 	icon_state = "outline"
 
 /obj/effect/floor_decal/industrial/outline/blue
-	name = "blue outline"
-	color = "#00B8B2"
+	name = "cyan outline"
+	color = "#b6efe1"
 
 /obj/effect/floor_decal/industrial/outline/yellow
 	name = "yellow outline"
@@ -269,6 +273,10 @@
 /obj/effect/floor_decal/industrial/outline/grey
 	name = "grey outline"
 	color = "#808080"
+
+/obj/effect/floor_decal/industrial/outline/red
+	name = "red outline"
+	color = "#990C0C"
 
 /obj/effect/floor_decal/industrial/loading
 	name = "loading area"

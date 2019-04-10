@@ -25,7 +25,7 @@ var/datum/controller/subsystem/processing/SSprocessing
 	while(current_run.len)
 		var/datum/thing = current_run[current_run.len]
 		current_run.len--
-		if(thing)
+		if(!QDELETED(thing))
 			if (thing.process() == PROCESS_KILL)
 				stop_processing(thing)
 		else
@@ -36,7 +36,3 @@ var/datum/controller/subsystem/processing/SSprocessing
 // Helper so PROCESS_KILL works.
 /datum/controller/subsystem/processing/proc/stop_processing(datum/D)
 	STOP_PROCESSING(src, D)
-
-/datum/var/isprocessing = 0
-/datum/proc/process()
-	return PROCESS_KILL

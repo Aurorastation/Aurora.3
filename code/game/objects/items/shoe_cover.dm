@@ -10,8 +10,8 @@
 
 	if (istype(A, /obj/item/clothing/shoes) && get_dist(src,A) <= 1)
 		var/obj/item/clothing/shoes/S = A
-		user << "You attahed the [src] to [S] making movement silent"
+		to_chat(user, "You attahed the [src] to [S] making movement silent")
 		S.silent = 1
 		S.desc += " They appear to have some type of fabric soles"
-		user.drop_from_inventory(src)
+		user.drop_from_inventory(src,A)
 		qdel(src)

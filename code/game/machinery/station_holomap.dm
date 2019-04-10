@@ -12,6 +12,7 @@
 	light_color = "#64C864"
 	light_power = 1
 	light_range = 2
+	gfi_layer_rotation = GFI_ROTATION_DEFDIR
 
 	var/light_power_on = 1
 	var/light_range_on = 2
@@ -28,7 +29,7 @@
 	var/datum/station_holomap/holomap_datum
 
 /obj/machinery/station_map/Destroy()
-	SSminimap.station_holomaps -= src
+	SSholomap.station_holomaps -= src
 	stopWatching()
 	QDEL_NULL(holomap_datum)
 	return ..()
@@ -37,12 +38,12 @@
 	. = ..()
 	holomap_datum = new()
 	original_zLevel = loc.z
-	SSminimap.station_holomaps += src
+	SSholomap.station_holomaps += src
 	flags |= ON_BORDER // Why? It doesn't help if its not density
 	bogus = FALSE
 	var/turf/T = get_turf(src)
 	original_zLevel = T.z
-	if(!("[HOLOMAP_EXTRA_STATIONMAP]_[original_zLevel]" in SSminimap.extra_minimaps))
+	if(!("[HOLOMAP_EXTRA_STATIONMAP]_[original_zLevel]" in SSholomap.extra_minimaps))
 		bogus = TRUE
 		holomap_datum.initialize_holomap_bogus()
 		update_icon()
@@ -50,11 +51,12 @@
 
 	holomap_datum.initialize_holomap(T, reinit = TRUE)
 
-	small_station_map = image(SSminimap.extra_minimaps["[HOLOMAP_EXTRA_STATIONMAPSMALL]_[original_zLevel]"], dir = dir)
+	small_station_map = image(SSholomap.extra_minimaps["[HOLOMAP_EXTRA_STATIONMAPSMALL]_[original_zLevel]"], dir = dir)
 	small_station_map.layer = LIGHTING_LAYER + 0.1
 
 	floor_markings = image('icons/obj/machines/stationmap.dmi', "decal_station_map")
 	floor_markings.dir = src.dir
+	floor_markings.layer = ON_TURF_LAYER
 	update_icon()
 
 /obj/machinery/station_map/attack_hand(var/mob/user)
@@ -67,11 +69,11 @@
 	startWatching(user)
 
 // Let people bump up against it to watch
-/obj/machinery/station_map/Bumped(var/atom/movable/AM)
+/obj/machinery/station_map/CollidedWith(var/atom/movable/AM)
 	if(!watching_mob && isliving(AM) && AM.loc == loc)
 		startWatching(AM)
 
-// In order to actually get Bumped() we need to block movement.  We're (visually) on a wall, so people
+// In order to actually get CollidedWith() we need to block movement.  We're (visually) on a wall, so people
 // couldn't really walk into us anyway.  But in reality we are on the turf in front of the wall, so bumping
 // against where we seem is actually trying to *exit* our real loc
 /obj/machinery/station_map/CheckExit(atom/movable/mover as mob|obj, turf/target as turf)
@@ -152,7 +154,7 @@
 		if(bogus)
 			holomap_datum.initialize_holomap_bogus()
 		else
-			small_station_map.icon = SSminimap.extra_minimaps["[HOLOMAP_EXTRA_STATIONMAPSMALL]_[original_zLevel]"]
+			small_station_map.icon = SSholomap.extra_minimaps["[HOLOMAP_EXTRA_STATIONMAPSMALL]_[original_zLevel]"]
 			add_overlay(small_station_map)
 			holomap_datum.initialize_holomap(get_turf(src))
 
@@ -199,7 +201,7 @@
 
 /datum/station_holomap/proc/initialize_holomap(turf/T, isAI = null, mob/user = null, reinit = FALSE)
 	if(!station_map || reinit)
-		station_map = image(SSminimap.extra_minimaps["[HOLOMAP_EXTRA_STATIONMAP]_[T.z]"])
+		station_map = image(SSholomap.extra_minimaps["[HOLOMAP_EXTRA_STATIONMAP]_[T.z]"])
 	if(!cursor || reinit)
 		cursor = image('icons/misc/holomap_markers.dmi', "you")
 	if(!legend || reinit)

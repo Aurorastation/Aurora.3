@@ -35,6 +35,8 @@
 	faction = "syndicate"
 	status_flags = CANPUSH
 
+	tameable = FALSE
+
 /mob/living/simple_animal/hostile/syndicate/death()
 	..()
 	if(corpse)
@@ -70,7 +72,7 @@
 			visible_message("<span class='danger'>[src] blocks the [O] with its shield!</span>")
 		//user.do_attack_animation(src)
 	else
-		usr << "<span class='warning'>This weapon is ineffective, it does no damage.</span>"
+		to_chat(usr, "<span class='warning'>This weapon is ineffective, it does no damage.</span>")
 		visible_message("<span class='warning'>[user] gently taps [src] with the [O].</span>")
 
 
@@ -105,9 +107,10 @@
 /mob/living/simple_animal/hostile/syndicate/ranged
 	ranged = 1
 	rapid = 1
+	smart = TRUE
 	icon_state = "syndicateranged"
 	icon_living = "syndicateranged"
-	casingtype = /obj/item/ammo_casing/t40
+	casingtype = /obj/item/ammo_casing/c10mm
 	projectilesound = 'sound/weapons/Gunshot_light.ogg'
 	projectiletype = /obj/item/projectile/bullet/pistol/medium
 
@@ -137,7 +140,7 @@
 /mob/living/simple_animal/hostile/viscerator
 	name = "viscerator"
 	desc = "A small, twin-bladed machine capable of inflicting very deadly lacerations."
-	icon = 'icons/mob/critter.dmi'
+	icon = 'icons/mob/npc/critter.dmi'
 	icon_state = "viscerator_attack"
 	icon_living = "viscerator_attack"
 	pass_flags = PASSTABLE
@@ -159,6 +162,11 @@
 	max_n2 = 0
 	minbodytemp = 0
 
+	tameable = FALSE
+
+	flying = TRUE
+	attack_emote = "buzzes at"
+
 /mob/living/simple_animal/hostile/viscerator/death()
 	..(null,"is smashed into pieces!")
 	var/T = get_turf(src)
@@ -166,11 +174,12 @@
 	spark(T, 3, alldirs)
 	qdel(src)
 
-/mob/living/simple_animal/hostile/viscerator/can_fall()
-	return FALSE
+/mob/living/simple_animal/hostile/viscerator/proc/wakeup()
+	stance = HOSTILE_STANCE_IDLE
 
-/mob/living/simple_animal/hostile/viscerator/can_ztravel()
-	return TRUE
-
-/mob/living/simple_animal/hostile/viscerator/CanAvoidGravity()
-	return TRUE
+/mob/living/simple_animal/hostile/viscerator/emp_act(severity)
+	LoseTarget()
+	stance = HOSTILE_STANCE_TIRED
+	addtimer(CALLBACK(src, .proc/wakeup), 150)
+	if(severity == 1.0)
+		apply_damage(5)

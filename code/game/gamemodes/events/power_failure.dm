@@ -4,7 +4,8 @@
 		command_announcement.Announce("Abnormal activity detected in [station_name()]'s powernet. As a precautionary measure, the station's power will be shut off for an indeterminate duration.", "Critical Power Failure", new_sound = 'sound/AI/poweroff.ogg')
 
 	for(var/obj/machinery/power/smes/buildable/S in SSpower.smes_units)
-		S.energy_fail(rand(15 * severity,30 * severity))
+		if(!S.is_critical)
+			S.energy_fail(rand(15 * severity,30 * severity))
 
 
 	for(var/obj/machinery/power/apc/C in SSmachinery.processing_machines)
@@ -17,7 +18,7 @@
 	if(announce)
 		command_announcement.Announce("Power has been restored to [station_name()]. We apologize for the inconvenience.", "Power Systems Nominal", new_sound = 'sound/AI/poweron.ogg')
 	for(var/obj/machinery/power/apc/C in SSmachinery.processing_machines)
-		if(C.cell && (C.z in config.station_levels))
+		if(C.cell && (C.z in current_map.station_levels))
 			C.cell.charge = C.cell.maxcharge
 	for(var/obj/machinery/power/smes/S in SSpower.smes_units)
 		var/area/current_area = get_area(S)

@@ -10,7 +10,8 @@
 	flags =  CONDUCT
 	slot_flags = 0
 	origin_tech = list(TECH_COMBAT = 8, TECH_MATERIAL = 5)
-	fire_sound = 'sound/effects/bang.ogg'
+	fire_sound = 'sound/weapons/rocketlaunch.ogg'
+	needspin = FALSE
 
 	release_force = 15
 	throw_distance = 30
@@ -20,18 +21,17 @@
 /obj/item/weapon/gun/launcher/rocket/examine(mob/user)
 	if(!..(user, 2))
 		return
-	user << "<span class='notice'>[rockets.len] / [max_rockets] rockets.</span>"
+	to_chat(user, "<span class='notice'>[rockets.len] / [max_rockets] rockets.</span>")
 
 /obj/item/weapon/gun/launcher/rocket/attackby(obj/item/I as obj, mob/user as mob)
 	if(istype(I, /obj/item/ammo_casing/rocket))
 		if(rockets.len < max_rockets)
-			user.drop_item()
-			I.loc = src
+			user.drop_from_inventory(I,src)
 			rockets += I
-			user << "<span class='notice'>You put the rocket in [src].</span>"
-			user << "<span class='notice'>[rockets.len] / [max_rockets] rockets.</span>"
+			to_chat(user, "<span class='notice'>You put the rocket in [src].</span>")
+			to_chat(user, "<span class='notice'>[rockets.len] / [max_rockets] rockets.</span>")
 		else
-			usr << "<span class='warning'>[src] cannot hold more rockets.</span>"
+			to_chat(usr, "<span class='warning'>[src] cannot hold more rockets.</span>")
 
 /obj/item/weapon/gun/launcher/rocket/consume_next_projectile()
 	if(rockets.len)

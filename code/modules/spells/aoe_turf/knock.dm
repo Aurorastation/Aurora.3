@@ -49,9 +49,9 @@
 		for(var/obj/machinery/door/door in T.contents)
 			spawn door.cultify()
 
-	for(var/obj/O in range(1,user))
+	for(var/obj/O in range(1, holder))
 		O.cultify()
-	for(var/turf/T in range(1,user))
+	for(var/turf/T in range(1, holder))
 		var/atom/movable/overlay/animation = new /atom/movable/overlay(T)
 		animation.name = "conjure"
 		animation.density = 0
@@ -65,7 +65,6 @@
 		else
 			animation.icon_state = "cultfloor"
 			flick("cultfloor",animation)
-		spawn(10)
-			qdel(animation)
+		QDEL_IN(animation, 10)
 		T.cultify()
 	return

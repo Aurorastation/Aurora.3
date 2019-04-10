@@ -15,10 +15,15 @@
 	use_power = 1
 	idle_power_usage = 15
 	active_power_usage = 200 //builtin health analyzer, dialysis machine, injectors.
-
+	component_types = list(
+			/obj/item/weapon/circuitboard/sleeper,
+			/obj/item/weapon/stock_parts/capacitor = 2,
+			/obj/item/weapon/stock_parts/scanning_module = 2,
+			/obj/item/weapon/stock_parts/console_screen,
+			/obj/item/weapon/reagent_containers/glass/beaker/large
+		)
 /obj/machinery/sleeper/Initialize()
 	. = ..()
-	beaker = new /obj/item/weapon/reagent_containers/glass/beaker/large(src)
 	update_icon()
 
 /obj/machinery/sleeper/machinery_process()
@@ -39,6 +44,21 @@
 
 /obj/machinery/sleeper/update_icon()
 	icon_state = "sleeper_[occupant ? "1" : "0"]"
+
+/obj/machinery/sleeper/RefreshParts()
+	..()
+	var/scan_rating = 0
+	var/cap_rating = 0
+
+	for(var/obj/item/weapon/stock_parts/P in component_parts)
+		if(isscanner(P))
+			scan_rating += P.rating
+		else if(iscapacitor(P))
+			cap_rating += P.rating
+
+	beaker = locate(/obj/item/weapon/reagent_containers/glass/beaker) in component_parts
+
+	active_power_usage = 200 - (cap_rating + scan_rating)*2
 
 /obj/machinery/sleeper/attack_hand(var/mob/user)
 	if(..())
@@ -99,7 +119,7 @@
 		return 1
 
 	if(usr == occupant)
-		usr << "<span class='warning'>You can't reach the controls from the inside.</span>"
+		to_chat(usr, "<span class='warning'>You can't reach the controls from the inside.</span>")
 		return
 
 	add_fingerprint(usr)
@@ -126,11 +146,10 @@
 	if(istype(I, /obj/item/weapon/reagent_containers/glass))
 		if(!beaker)
 			beaker = I
-			user.drop_item()
-			I.loc = src
+			user.drop_from_inventory(I,src)
 			user.visible_message("<span class='notice'>\The [user] adds \a [I] to \the [src].</span>", "<span class='notice'>You add \a [I] to \the [src].</span>")
 		else
-			user << "<span class='warning'>\The [src] has a beaker already.</span>"
+			to_chat(user, "<span class='warning'>\The [src] has a beaker already.</span>")
 		return
 	else if(istype(I, /obj/item/weapon/grab))
 
@@ -138,14 +157,14 @@
 		var/mob/living/L = G.affecting
 
 		if(!istype(L))
-			user << "<span class='warning'>\The machine won't accept that.</span>"
+			to_chat(user, "<span class='warning'>\The machine won't accept that.</span>")
 			return
 
-		visible_message("[user] starts putting [G.affecting] into the [src].", 3)
+		user.visible_message("<span class='notice'>[user] starts putting [G.affecting] into [src].</span>", "<span class='notice'>You start putting [G.affecting] into [src].</span>", range = 3)
 
 		if (do_mob(user, G.affecting, 20, needhand = 0))
 			if(occupant)
-				user << "<span class='warning'>\The [src] is already occupied.</span>"
+				to_chat(user, "<span class='warning'>\The [src] is already occupied.</span>")
 				return
 			var/bucklestatus = L.bucklecheck(user)
 
@@ -161,7 +180,12 @@
 			update_icon()
 			qdel(G)
 			return
+	else if(I.isscrewdriver())
+		to_chat(user, "You [panel_open ? "open" : "close"] the maintenance panel.")
+		panel_open = !panel_open
 
+	else if(default_part_replacement(user, I))
+		return
 /obj/machinery/sleeper/MouseDrop_T(var/mob/target, var/mob/user)
 	if(user.stat || user.lying || !Adjacent(user) || !target.Adjacent(user)|| !ishuman(target))
 		return
@@ -195,7 +219,7 @@
 	if(stat & (BROKEN|NOPOWER))
 		return
 	if(occupant)
-		user << "<span class='warning'>\The [src] is already occupied.</span>"
+		to_chat(user, "<span class='warning'>\The [src] is already occupied.</span>")
 		return
 
 	if(M == user)
@@ -205,13 +229,13 @@
 
 	if(do_after(user, 20))
 		if(occupant)
-			user << "<span class='warning'>\The [src] is already occupied.</span>"
+			to_chat(user, "<span class='warning'>\The [src] is already occupied.</span>")
 			return
 		M.stop_pulling()
 		if(M.client)
 			M.client.perspective = EYE_PERSPECTIVE
 			M.client.eye = src
-		M.loc = src
+		M.forceMove(src)
 		update_use_power(2)
 		occupant = M
 		update_icon()
@@ -222,19 +246,19 @@
 	if(occupant.client)
 		occupant.client.eye = occupant.client.mob
 		occupant.client.perspective = MOB_PERSPECTIVE
-	occupant.loc = loc
+	occupant.forceMove(loc)
 	occupant = null
-	for(var/atom/movable/A in src) // In case an object was dropped inside or something
+	for(var/atom/movable/A in (contents - component_parts)) // In case an object was dropped inside or something
 		if(A == beaker)
 			continue
-		A.loc = loc
+		A.forceMove(loc)
 	update_use_power(1)
 	update_icon()
 	toggle_filter()
 
 /obj/machinery/sleeper/proc/remove_beaker()
 	if(beaker)
-		beaker.loc = loc
+		beaker.forceMove(loc)
 		beaker = null
 		toggle_filter()
 
@@ -246,8 +270,8 @@
 		if(occupant.reagents.get_reagent_amount(chemical) + amount <= 20)
 			use_power(amount * CHEM_SYNTH_ENERGY)
 			occupant.reagents.add_reagent(chemical, amount)
-			user << "Occupant now has [occupant.reagents.get_reagent_amount(chemical)] units of [available_chemicals[chemical]] in their bloodstream."
+			to_chat(user, "Occupant now has [occupant.reagents.get_reagent_amount(chemical)] units of [available_chemicals[chemical]] in their bloodstream.")
 		else
-			user << "The subject has too many chemicals."
+			to_chat(user, "The subject has too many chemicals.")
 	else
-		user << "There's no suitable occupant in \the [src]."
+		to_chat(user, "There's no suitable occupant in \the [src].")

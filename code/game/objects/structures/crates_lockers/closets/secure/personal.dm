@@ -15,7 +15,10 @@
 	name = "patient's closet"
 
 /obj/structure/closet/secure_closet/personal/patient/fill()
-	new /obj/item/clothing/under/color/white( src )
+	if(prob(50))
+		new /obj/item/clothing/under/medical_gown(src)
+	else
+		new /obj/item/clothing/under/medical_gown/white(src)
 	new /obj/item/clothing/shoes/white( src )
 
 
@@ -45,46 +48,51 @@
 
 
 /obj/structure/closet/secure_closet/personal/attackby(obj/item/weapon/W as obj, mob/user as mob)
-	if (src.opened)
+	if (opened)
 		if (istype(W, /obj/item/weapon/grab))
-			src.MouseDrop_T(W:affecting, user)      //act like they were dragged onto the closet
-		user.drop_item()
-		if (W) W.forceMove(src.loc)
+			MouseDrop_T(W:affecting, user)      //act like they were dragged onto the closet
+		if(W)
+			user.drop_from_inventory(W,loc)
+		else
+			user.drop_item()
 	else if(W.GetID())
+		if(user.loc == src)
+			to_chat(user, "<span class='notice'>You can't reach the lock from inside.</span>")
+			return
 		var/obj/item/weapon/card/id/I = W.GetID()
 
-		if(src.broken)
-			user << "<span class='warning'>It appears to be broken.</span>"
+		if(broken)
+			to_chat(user, "<span class='warning'>It appears to be broken.</span>")
 			return
 		if(!I || !I.registered_name)	return
-		if(src.allowed(user) || !src.registered_name || (istype(I) && (src.registered_name == I.registered_name)))
+		if(allowed(user) || !registered_name || (istype(I) && (registered_name == I.registered_name)))
 			//they can open all lockers, or nobody owns this, or they own this locker
-			src.locked = !( src.locked )
-			if(src.locked)	src.icon_state = src.icon_locked
-			else	src.icon_state = src.icon_closed
+			locked = !( locked )
+			if(locked)	icon_state = icon_locked
+			else	icon_state = icon_closed
 
-			if(!src.registered_name)
-				src.registered_name = I.registered_name
-				src.desc = "Owned by [I.registered_name]."
+			if(!registered_name)
+				registered_name = I.registered_name
+				desc = "Owned by [I.registered_name]."
 		else
-			user << "<span class='warning'>Access Denied</span>"
+			to_chat(user, "<span class='warning'>Access Denied</span>")
 	else if(istype(W, /obj/item/weapon/melee/energy/blade))
 		if(emag_act(INFINITY, user, "The locker has been sliced open by [user] with \an [W]!", "You hear metal being sliced and sparks flying."))
 			W:spark_system.queue()
-			playsound(src.loc, 'sound/weapons/blade1.ogg', 50, 1)
-			playsound(src.loc, "sparks", 50, 1)
+			playsound(loc, 'sound/weapons/blade1.ogg', 50, 1)
+			playsound(loc, "sparks", 50, 1)
 	else
-		user << "<span class='warning'>Access Denied</span>"
+		to_chat(user, "<span class='warning'>Access Denied</span>")
 	return
-	
+
 /obj/structure/closet/secure_closet/personal/emag_act(var/remaining_charges, var/mob/user, var/visual_feedback, var/audible_feedback)
 	if(!broken)
 		broken = 1
 		locked = 0
 		desc = "It appears to be broken."
-		icon_state = src.icon_broken
+		icon_state = icon_broken
 		if(visual_feedback)
-			visible_message("<span class='warning'>[visual_feedback]</span>", "<span class='warning'>[audible_feedback]</span>")	
+			visible_message("<span class='warning'>[visual_feedback]</span>", "<span class='warning'>[audible_feedback]</span>")
 		return 1
 
 /obj/structure/closet/secure_closet/personal/verb/reset()
@@ -94,17 +102,17 @@
 	if(!usr.canmove || usr.stat || usr.restrained()) // Don't use it if you're not able to! Checks for stuns, ghost and restrain
 		return
 	if(ishuman(usr))
-		src.add_fingerprint(usr)
-		if (src.locked || !src.registered_name)
-			usr << "<span class='warning'>You need to unlock it first.</span>"
-		else if (src.broken)
-			usr << "<span class='warning'>It appears to be broken.</span>"
+		add_fingerprint(usr)
+		if (locked || !registered_name)
+			to_chat(usr, "<span class='warning'>You need to unlock it first.</span>")
+		else if (broken)
+			to_chat(usr, "<span class='warning'>It appears to be broken.</span>")
 		else
-			if (src.opened)
-				if(!src.close())
+			if (opened)
+				if(!close())
 					return
-			src.locked = 1
-			src.icon_state = src.icon_locked
-			src.registered_name = null
-			src.desc = "It's a secure locker for personnel. The first card swiped gains control."
+			locked = 1
+			icon_state = icon_locked
+			registered_name = null
+			desc = "It's a secure locker for personnel. The first card swiped gains control."
 	return

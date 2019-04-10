@@ -22,7 +22,7 @@
 	return list("ss13_characters" = list("be_special_role", "id" = 1, "ckey" = 1))
 
 /datum/category_item/player_setup_item/antagonism/candidacy/gather_save_parameters()
-	return list("be_special_role" = list2params(pref.be_special_role), "id" = pref.current_character, "ckey" = pref.client.ckey)
+	return list("be_special_role" = list2params(pref.be_special_role), "id" = pref.current_character, "ckey" = PREF_CLIENT_CKEY)
 
 /datum/category_item/player_setup_item/antagonism/candidacy/sanitize_character(var/sql_load = 0)
 	if (sql_load)
@@ -37,22 +37,24 @@
 			pref.be_special_role -= role
 
 /datum/category_item/player_setup_item/antagonism/candidacy/content(var/mob/user)
-	. += "<b>Special Role Availability:</b><br>"
-	. += "<table>"
+	var/list/dat = list(
+		"<b>Special Role Availability:</b><br>",
+		"<table>"
+	)
 	var/is_global_banned = jobban_isbanned(preference_mob(), "Antagonist")
 	for(var/antag_type in all_antag_types)
 		var/datum/antagonist/antag = all_antag_types[antag_type]
-		. += "<tr><td>[antag.role_text]: </td><td>"
+		dat += "<tr><td>[antag.role_text]: </td><td>"
 		var/ban_reason = jobban_isbanned(preference_mob(), antag.bantype)
 		if(ban_reason == "AGE WHITELISTED")
-			. += "<span class='danger'>\[IN [player_old_enough_for_role(preference_mob(), antag.bantype)] DAYS\]</span><br>"
+			dat += "<span class='danger'>\[IN [player_old_enough_for_role(preference_mob(), antag.bantype)] DAYS\]</span><br>"
 		else if(is_global_banned || ban_reason)
-			. += "<span class='danger'>\[<a href='?src=\ref[user.client];view_jobban=[is_global_banned ? "Antagonist" : "[antag.bantype]"];'>BANNED</a>\]</span><br>"
+			dat += "<span class='danger'>\[<a href='?src=\ref[user.client];view_jobban=[is_global_banned ? "Antagonist" : "[antag.bantype]"];'>BANNED</a>\]</span><br>"
 		else if(antag.role_type in pref.be_special_role)
-			. += "<b>Yes</b> / <a href='?src=\ref[src];del_special=[antag.role_type]'>No</a></br>"
+			dat += "<b>Yes</b> / <a href='?src=\ref[src];del_special=[antag.role_type]'>No</a></br>"
 		else
-			. += "<a href='?src=\ref[src];add_special=[antag.role_type]'>Yes</a> / <b>No</b></br>"
-		. += "</td></tr>"
+			dat += "<a href='?src=\ref[src];add_special=[antag.role_type]'>Yes</a> / <b>No</b></br>"
+		dat += "</td></tr>"
 
 	var/list/ghost_traps = get_ghost_traps()
 	for(var/ghost_trap_key in ghost_traps)
@@ -60,7 +62,7 @@
 		if(!ghost_trap.list_as_special_role)
 			continue
 
-		. += "<tr><td>[(ghost_trap.ghost_trap_role)]: </td><td>"
+		dat += "<tr><td>[(ghost_trap.ghost_trap_role)]: </td><td>"
 		var/ban_state = banned_from_ghost_role(preference_mob(), ghost_trap)
 		if(ban_state == AGEBAN)
 			var/age_to_beat = 0
@@ -68,15 +70,17 @@
 				age_to_beat = player_old_enough_for_role(preference_mob(), A)
 				if (age_to_beat)
 					break
-			. += "<span class='danger'>\[IN [age_to_beat] DAYS\]</span><br>"
+			dat += "<span class='danger'>\[IN [age_to_beat] DAYS\]</span><br>"
 		else if (ban_state == RANBAN)
-			. += "<span class='danger'>\[<a href='?src=\ref[user.client];view_jobban=[ghost_trap];'>BANNED</a>\]</span><br>"
+			dat += "<span class='danger'>\[<a href='?src=\ref[user.client];view_jobban=[ghost_trap];'>BANNED</a>\]</span><br>"
 		else if(ghost_trap.pref_check in pref.be_special_role)
-			. += "<b>Yes</b> / <a href='?src=\ref[src];del_special=[ghost_trap.pref_check]'>No</a></br>"
+			dat += "<b>Yes</b> / <a href='?src=\ref[src];del_special=[ghost_trap.pref_check]'>No</a></br>"
 		else
-			. += "<a href='?src=\ref[src];add_special=[ghost_trap.pref_check]'>Yes</a> / <b>No</b></br>"
-		. += "</td></tr>"
-	. += "</table>"
+			dat += "<a href='?src=\ref[src];add_special=[ghost_trap.pref_check]'>Yes</a> / <b>No</b></br>"
+		dat += "</td></tr>"
+	dat += "</table>"
+
+	. = dat.Join()
 
 /datum/category_item/player_setup_item/proc/banned_from_ghost_role(var/mob, var/datum/ghosttrap/ghost_trap)
 	for(var/ban_type in ghost_trap.ban_checks)

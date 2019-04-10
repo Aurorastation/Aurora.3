@@ -4,6 +4,7 @@
 	icon = 'icons/obj/flamethrower.dmi'
 	icon_state = "flamethrowerbase"
 	item_state = "flamethrower_0"
+	var/fire_sound = 'sound/weapons/flamethrower.ogg'
 	flags = CONDUCT
 	force = 3.0
 	throwforce = 10.0
@@ -29,13 +30,13 @@
 		qdel(igniter)
 	if(ptank)
 		qdel(ptank)
-	
+
 	return ..()
 
 
 /obj/item/weapon/flamethrower/process()
 	if(!lit)
-		processing_objects.Remove(src)
+		STOP_PROCESSING(SSprocessing, src)
 		return null
 	var/turf/location = loc
 	if(istype(location, /mob/))
@@ -71,24 +72,24 @@
 
 /obj/item/weapon/flamethrower/attackby(obj/item/W as obj, mob/user as mob)
 	if(user.stat || user.restrained() || user.lying)	return
-	if(iswrench(W) && !status)//Taking this apart
+	if(W.iswrench() && !status)//Taking this apart
 		var/turf/T = get_turf(src)
 		if(weldtool)
-			weldtool.loc = T
+			weldtool.forceMove(T)
 			weldtool = null
 		if(igniter)
-			igniter.loc = T
+			igniter.forceMove(T)
 			igniter = null
 		if(ptank)
-			ptank.loc = T
+			ptank.forceMove(T)
 			ptank = null
 		new /obj/item/stack/rods(T)
 		qdel(src)
 		return
 
-	if(isscrewdriver(W) && igniter && !lit)
+	if(W.isscrewdriver() && igniter && !lit)
 		status = !status
-		user << "<span class='notice'>[igniter] is now [status ? "secured" : "unsecured"]!</span>"
+		to_chat(user, "<span class='notice'>[igniter] is now [status ? "secured" : "unsecured"]!</span>")
 		update_icon()
 		return
 
@@ -96,19 +97,17 @@
 		var/obj/item/device/assembly/igniter/I = W
 		if(I.secured)	return
 		if(igniter)		return
-		user.drop_item()
-		I.loc = src
+		user.drop_from_inventory(I,src)
 		igniter = I
 		update_icon()
 		return
 
 	if(istype(W,/obj/item/weapon/tank/phoron))
 		if(ptank)
-			user << "<span class='notice'>There appears to already be a phoron tank loaded in [src]!</span>"
+			to_chat(user, "<span class='notice'>There appears to already be a phoron tank loaded in [src]!</span>")
 			return
-		user.drop_item()
+		user.drop_from_inventory(W,src)
 		ptank = W
-		W.loc = src
 		update_icon()
 		return
 
@@ -124,7 +123,7 @@
 	if(user.stat || user.restrained() || user.lying)	return
 	user.set_machine(src)
 	if(!ptank)
-		user << "<span class='notice'>Attach a phoron tank first!</span>"
+		to_chat(user, "<span class='notice'>Attach a phoron tank first!</span>")
 		return
 	var/dat = text("<TT><B>Flamethrower (<A HREF='?src=\ref[src];light=1'>[lit ? "<font color='red'>Lit</font>" : "Unlit"]</a>)</B><BR>\n Tank Pressure: [ptank.air_contents.return_pressure()]<BR>\nAmount to throw: <A HREF='?src=\ref[src];amount=-100'>-</A> <A HREF='?src=\ref[src];amount=-10'>-</A> <A HREF='?src=\ref[src];amount=-1'>-</A> [throw_amount] <A HREF='?src=\ref[src];amount=1'>+</A> <A HREF='?src=\ref[src];amount=10'>+</A> <A HREF='?src=\ref[src];amount=100'>+</A><BR>\n<A HREF='?src=\ref[src];remove=1'>Remove phorontank</A> - <A HREF='?src=\ref[src];close=1'>Close</A></TT>")
 	user << browse(dat, "window=flamethrower;size=600x300")
@@ -145,7 +144,7 @@
 		if(!status)	return
 		lit = !lit
 		if(lit)
-			processing_objects.Add(src)
+			START_PROCESSING(SSprocessing, src)
 	if(href_list["amount"])
 		throw_amount = throw_amount + text2num(href_list["amount"])
 		throw_amount = max(50, min(5000, throw_amount))
@@ -167,6 +166,7 @@
 /obj/item/weapon/flamethrower/proc/flame_turf(turflist)
 	if(!lit || operating)	return
 	operating = 1
+	playsound(src, fire_sound, 70, 1)
 	for(var/turf/T in turflist)
 		if(T.density || istype(T, /turf/space))
 			break
@@ -190,7 +190,7 @@
 	//Transfer 5% of current tank air contents to turf
 	var/datum/gas_mixture/air_transfer = ptank.air_contents.remove_ratio(0.02*(throw_amount/100))
 	//air_transfer.toxins = air_transfer.toxins * 5 // This is me not comprehending the air system. I realize this is retarded and I could probably make it work without fucking it up like this, but there you have it. -- TLE
-	new/obj/effect/decal/cleanable/liquid_fuel/flamethrower_fuel(target,air_transfer.gas["phoron"],get_dir(loc,target))
+	new/obj/effect/decal/cleanable/liquid_fuel/flamethrower_fuel(target,air_transfer.gas["phoron"]*15,get_dir(loc,target))
 	air_transfer.gas["phoron"] = 0
 	target.assume_air(air_transfer)
 	//Burn it based on transfered gas

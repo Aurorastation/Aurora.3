@@ -21,16 +21,16 @@
 /obj/item/weapon/syringe_cartridge/attackby(obj/item/I, mob/user)
 	if(istype(I, /obj/item/weapon/reagent_containers/syringe))
 		syringe = I
-		user << "<span class='notice'>You carefully insert [syringe] into [src].</span>"
+		to_chat(user, "<span class='notice'>You carefully insert [syringe] into [src].</span>")
 		user.remove_from_mob(syringe)
-		syringe.loc = src
+		syringe.forceMove(src)
 		sharp = 1
 		name = "syringe dart"
 		update_icon()
 
 /obj/item/weapon/syringe_cartridge/attack_self(mob/user)
 	if(syringe)
-		user << "<span class='notice'>You remove [syringe] from [src].</span>"
+		to_chat(user, "<span class='notice'>You remove [syringe] from [src].</span>")
 		user.put_in_hands(syringe)
 		syringe = null
 		sharp = initial(sharp)
@@ -51,9 +51,9 @@
 			var/mob/living/L = hit_atom
 			//unfortuately we don't know where the dart will actually hit, since that's done by the parent.
 			if(L.can_inject() && syringe.reagents)
-				var/reagent_log = syringe.reagents.get_reagents()
+				var/datum/reagent/reagent_log = syringe.reagents.get_reagents()
 				syringe.reagents.trans_to_mob(L, 15, CHEM_BLOOD)
-				admin_inject_log(thrower, L, src, reagent_log, 15, violent=1)
+				admin_inject_log(thrower, L, src, reagent_log, reagent_log.get_temperature(), 15, violent=1)
 
 		syringe.break_syringe(iscarbon(hit_atom)? hit_atom : null)
 		syringe.update_icon()
@@ -76,6 +76,8 @@
 	recoil = 0
 	release_force = 10
 	throw_distance = 10
+
+	needspin = FALSE
 
 	var/list/darts = list()
 	var/max_darts = 1
@@ -105,10 +107,10 @@
 /obj/item/weapon/gun/launcher/syringe/attack_hand(mob/living/user as mob)
 	if(user.get_inactive_hand() == src)
 		if(!darts.len)
-			user << "<span class='warning'>[src] is empty.</span>"
+			to_chat(user, "<span class='warning'>[src] is empty.</span>")
 			return
 		if(next)
-			user << "<span class='warning'>[src]'s cover is locked shut.</span>"
+			to_chat(user, "<span class='warning'>[src]'s cover is locked shut.</span>")
 			return
 		var/obj/item/weapon/syringe_cartridge/C = darts[1]
 		darts -= C
@@ -121,10 +123,10 @@
 	if(istype(A, /obj/item/weapon/syringe_cartridge))
 		var/obj/item/weapon/syringe_cartridge/C = A
 		if(darts.len >= max_darts)
-			user << "<span class='warning'>[src] is full!</span>"
+			to_chat(user, "<span class='warning'>[src] is full!</span>")
 			return
 		user.remove_from_mob(C)
-		C.loc = src
+		C.forceMove(src)
 		darts += C //add to the end
 		user.visible_message("[user] inserts \a [C] into [src].", "<span class='notice'>You insert \a [C] into [src].</span>")
 	else

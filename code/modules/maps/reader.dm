@@ -29,21 +29,21 @@ var/global/dmm_suite/preloader/_preloader = new
  * 2) Read the map line by line, parsing the result (using parse_grid)
  *
  */
-/dmm_suite/load_map(dmm_file as file, x_offset as num, y_offset as num, z_offset as num, cropMap as num, measureOnly as num, no_changeturf as num)
+/dmm_suite/load_map(dmm_file as file, x_offset as num, y_offset as num, z_offset as num, cropMap as num, measureOnly as num, no_changeturf as num, lower_crop_x as num,  lower_crop_y as num, upper_crop_x as num, upper_crop_y as num)
 	//How I wish for RAII
 	Master.StartLoadingMap()
 	space_key = null
 	#ifdef TESTING
 	turfsSkipped = 0
 	#endif
-	. = load_map_impl(dmm_file, x_offset, y_offset, z_offset, cropMap, measureOnly, no_changeturf)
+	. = load_map_impl(dmm_file, x_offset, y_offset, z_offset, cropMap, measureOnly, no_changeturf, lower_crop_x, upper_crop_x, lower_crop_y, upper_crop_y)
 	#ifdef TESTING
 	if(turfsSkipped)
 		testing("Skipped loading [turfsSkipped] default turfs")
 	#endif
 	Master.StopLoadingMap()
 
-/dmm_suite/proc/load_map_impl(dmm_file, x_offset, y_offset, z_offset, cropMap, measureOnly, no_changeturf)
+/dmm_suite/proc/load_map_impl(dmm_file, x_offset, y_offset, z_offset, cropMap, measureOnly, no_changeturf, x_lower = -INFINITY, x_upper = INFINITY, y_lower = -INFINITY, y_upper = INFINITY)
 	var/tfile = dmm_file//the map file we're creating
 	if(isfile(tfile))
 		tfile = file2text(tfile)
@@ -60,6 +60,7 @@ var/global/dmm_suite/preloader/_preloader = new
 	var/key_len = 0
 
 	var/stored_index = 1
+
 	while(dmmRegex.Find(tfile, stored_index))
 		stored_index = dmmRegex.next
 
@@ -81,7 +82,12 @@ var/global/dmm_suite/preloader/_preloader = new
 			if(!key_len)
 				throw EXCEPTION("Coords before model definition in DMM")
 
-			var/xcrdStart = text2num(dmmRegex.group[3]) + x_offset - 1
+			var/curr_x = text2num(dmmRegex.group[3])
+
+			if(curr_x < x_lower || curr_x > x_upper)
+				continue
+
+			var/xcrdStart = curr_x + x_offset - 1
 			//position of the currently processed square
 			var/xcrd
 			var/ycrd = text2num(dmmRegex.group[4]) + y_offset - 1
@@ -94,9 +100,9 @@ var/global/dmm_suite/preloader/_preloader = new
 				else
 					world.maxz = zcrd //create a new z_level if needed
 				if(!no_changeturf)
-					WARNING("Z-level expansion occurred without no_changeturf set, this may cause problems when /turf/AfterChange is called")
+					WARNING("Z-level expansion occurred without no_changeturf set, this may cause problems when /turf/post_change is called.")
 
-			bounds[MAP_MINX] = min(bounds[MAP_MINX], xcrdStart)
+			bounds[MAP_MINX] = min(bounds[MAP_MINX], Clamp(xcrdStart, x_lower, x_upper))
 			bounds[MAP_MINZ] = min(bounds[MAP_MINZ], zcrd)
 			bounds[MAP_MAXZ] = max(bounds[MAP_MAXZ], zcrd)
 
@@ -113,15 +119,15 @@ var/global/dmm_suite/preloader/_preloader = new
 			if(gridLines.len && gridLines[gridLines.len] == "")
 				gridLines.Cut(gridLines.len) // Remove only one blank line at the end.
 
-			bounds[MAP_MINY] = min(bounds[MAP_MINY], ycrd)
+			bounds[MAP_MINY] = min(bounds[MAP_MINY], Clamp(ycrd, y_lower, y_upper))
 			ycrd += gridLines.len - 1 // Start at the top and work down
 
 			if(!cropMap && ycrd > world.maxy)
 				if(!measureOnly)
 					world.maxy = ycrd // Expand Y here.  X is expanded in the loop below
-				bounds[MAP_MAXY] = max(bounds[MAP_MAXY], ycrd)
+				bounds[MAP_MAXY] = max(bounds[MAP_MAXY], Clamp(ycrd, y_lower, y_upper))
 			else
-				bounds[MAP_MAXY] = max(bounds[MAP_MAXY], min(ycrd, world.maxy))
+				bounds[MAP_MAXY] = max(bounds[MAP_MAXY], Clamp(min(ycrd, world.maxy), y_lower, y_upper))
 
 			var/maxx = xcrdStart
 			if(measureOnly)
@@ -129,9 +135,15 @@ var/global/dmm_suite/preloader/_preloader = new
 					maxx = max(maxx, xcrdStart + length(line) / key_len - 1)
 			else
 				for(var/line in gridLines)
+					if((ycrd - y_offset + 1) < y_lower || (ycrd - y_offset + 1) > y_upper)				//Reverse operation and check if it is out of bounds of cropping.
+						--ycrd
+						continue
 					if(ycrd <= world.maxy && ycrd >= 1)
 						xcrd = xcrdStart
 						for(var/tpos = 1 to length(line) - key_len + 1 step key_len)
+							if((xcrd - x_offset + 1) < x_lower || (xcrd - x_offset + 1) > x_upper)			//Same as above.
+								++xcrd
+								continue								//X cropping.
 							if(xcrd > world.maxx)
 								if(cropMap)
 									break
@@ -154,7 +166,7 @@ var/global/dmm_suite/preloader/_preloader = new
 							++xcrd
 					--ycrd
 
-			bounds[MAP_MAXX] = max(bounds[MAP_MAXX], cropMap ? min(maxx, world.maxx) : maxx)
+			bounds[MAP_MAXX] = Clamp(max(bounds[MAP_MAXX], cropMap ? min(maxx, world.maxx) : maxx), x_lower, x_upper)
 
 		CHECK_TICK
 
@@ -171,7 +183,7 @@ var/global/dmm_suite/preloader/_preloader = new
 
 /**
  * Fill a given tile with its area/turf/objects/mobs
- * Variable model is one full map line (e.g /turf/unsimulated/wall{icon_state = "rock"},/area/mine/explored)
+ * Variable model is one full map line (e.g /turf/unsimulated/wall{icon_state = "rock"}, /area/mine/explored)
  *
  * WORKING :
  *
@@ -201,7 +213,6 @@ var/global/dmm_suite/preloader/_preloader = new
 		members = cached[1]
 		members_attributes = cached[2]
 	else
-
 		/////////////////////////////////////////////////////////
 		//Constructing members and corresponding variables lists
 		////////////////////////////////////////////////////////
@@ -224,10 +235,11 @@ var/global/dmm_suite/preloader/_preloader = new
 
 			if(!atom_def) // Skip the item if the path does not exist.  Fix your crap, mappers!
 				continue
-			members.Add(atom_def)
+
+			members += atom_def
 
 			//transform the variables in text format into a list (e.g {var1="derp"; var2; var3=7} => list(var1="derp", var2, var3=7))
-			var/list/fields = list()
+			var/list/fields
 
 			if(variables_start)//if there's any variable
 				full_def = copytext(full_def,variables_start+1,length(full_def))//removing the last '}'
@@ -260,9 +272,7 @@ var/global/dmm_suite/preloader/_preloader = new
 			space_key = model_key
 			return
 
-
 		modelCache[model] = list(members, members_attributes)
-
 
 	////////////////
 	//Instanciation
@@ -274,17 +284,15 @@ var/global/dmm_suite/preloader/_preloader = new
 	//first instance the /area and remove it from the members list
 	index = members.len
 	if(members[index] != /area/template_noop)
-		var/atom/instance
-		_preloader.setup(members_attributes[index])//preloader for assigning  set variables on atom creation
 		var/atype = members[index]
-		for(var/area/A in world)
-			if(A.type == atype)
-				instance = A
-				break
+		var/atom/instance = areas_by_type[atype]
+		var/list/attr = members_attributes[index]
+		if (LAZYLEN(attr))
+			_preloader.setup(attr)//preloader for assigning  set variables on atom creation
 		if(!instance)
 			instance = new atype(null)
 		if(crds)
-			instance.contents.Add(crds)
+			instance.contents += crds
 
 		if(use_preloader && instance)
 			_preloader.load(instance)
@@ -292,7 +300,7 @@ var/global/dmm_suite/preloader/_preloader = new
 	//then instance the /turf and, if multiple tiles are presents, simulates the DMM underlays piling effect
 
 	var/first_turf_index = 1
-	while(!ispath(members[first_turf_index],/turf)) //find first /turf object in members
+	while(!ispath(members[first_turf_index], /turf)) //find first /turf object in members
 		first_turf_index++
 
 	//turn off base new Initialization until the whole thing is loaded
@@ -323,11 +331,12 @@ var/global/dmm_suite/preloader/_preloader = new
 
 //Instance an atom at (x,y,z) and gives it the variables in attributes
 /dmm_suite/proc/instance_atom(path,list/attributes, turf/crds, no_changeturf)
-	_preloader.setup(attributes, path)
+	if (LAZYLEN(attributes))
+		_preloader.setup(attributes, path)
 
 	if(crds)
 		if(!no_changeturf && ispath(path, /turf))
-			. = crds.ChangeTurf(path, TRUE)
+			. = crds.ChangeTurf(path, FALSE, TRUE)
 		else
 			. = create_atom(path, crds)//first preloader pass
 
@@ -343,7 +352,7 @@ var/global/dmm_suite/preloader/_preloader = new
 /dmm_suite/proc/create_atom(path, crds)
 	set waitfor = FALSE
 	. = new path (crds)
-	
+
 //text trimming (both directions) helper proc
 //optionally removes quotes before and after the text (for variable name)
 /dmm_suite/proc/trim_text(what as text,trim_quotes=0)
@@ -367,15 +376,47 @@ var/global/dmm_suite/preloader/_preloader = new
 
 	return next_delimiter
 
+/dmm_suite/proc/readlistitem(text as text, is_key = FALSE)
+	//Check for string
+	if(findtext(text,"\"",1,2))
+		. = copytext(text,2,findtext(text,"\"",3,0))
+
+	//Check for number
+	// Keys cannot safely be numbers. This implementation will return null if
+	// an assoc key is a number.
+	else if(!is_key && isnum(text2num(text)))
+		. = text2num(text)
+
+	//Check for null
+	else if(text == "null")
+		. = null
+
+	//Check for list
+	else if(copytext(text,1,6) == "list(")
+		. = readlist(copytext(text,6,length(text)))
+
+	//Check for file
+	else if(copytext(text,1,2) == "'")
+		. = file(copytext(text,2,length(text)))
+
+	//Check for path
+	else if(ispath(text2path(text)))
+		. = text2path(text)
+
+	// Associative keys are fed in without quotation marks.
+	// So if none of the other cases apply, return simply the string that was given.
+	// This case is also triggered for item values. So I guess we're also looking for text.
+	else if(is_key || istext(text))
+		. = text
 
 //build a list from variables in text form (e.g {var1="derp"; var2; var3=7} => list(var1="derp", var2, var3=7))
 //return the filled list
 /dmm_suite/proc/readlist(text as text, delimiter=",")
-
 	var/list/to_return = list()
 
 	var/position
 	var/old_position = 1
+	var/list_index = 1
 
 	do
 		//find next delimiter that is not within  "..."
@@ -387,37 +428,14 @@ var/global/dmm_suite/preloader/_preloader = new
 		var/trim_left = trim_text(copytext(text,old_position,(equal_position ? equal_position : position)),1)//the name of the variable, must trim quotes to build a BYOND compliant associatives list
 		old_position = position + 1
 
-		if(equal_position)//associative var, so do the association
+		if(equal_position) //associative var, so do the association
 			var/trim_right = trim_text(copytext(text,equal_position+1,position))//the content of the variable
-
-			//Check for string
-			if(findtext(trim_right,"\"",1,2))
-				trim_right = copytext(trim_right,2,findtext(trim_right,"\"",3,0))
-
-			//Check for number
-			else if(isnum(text2num(trim_right)))
-				trim_right = text2num(trim_right)
-
-			//Check for null
-			else if(trim_right == "null")
-				trim_right = null
-
-			//Check for list
-			else if(copytext(trim_right,1,5) == "list")
-				trim_right = readlist(copytext(trim_right,6,length(trim_right)))
-
-			//Check for file
-			else if(copytext(trim_right,1,2) == "'")
-				trim_right = file(copytext(trim_right,2,length(trim_right)))
-
-			//Check for path
-			else if(ispath(text2path(trim_right)))
-				trim_right = text2path(trim_right)
-
-			to_return[trim_left] = trim_right
-
-		else//simple var
-			to_return[trim_left] = null
+			trim_left = readlistitem(trim_left, TRUE) // Assoc vars can be anything that isn't a num!
+			to_return[trim_left] = readlistitem(trim_right)
+			list_index++
+		else if (length(trim_left))	//simple var
+			to_return.len++
+			to_return[list_index++] = readlistitem(trim_left)
 
 	while(position != 0)
 
@@ -437,7 +455,7 @@ var/global/dmm_suite/preloader/_preloader = new
 	var/target_path
 
 /dmm_suite/preloader/proc/setup(list/the_attributes, path)
-	if(the_attributes.len)
+	if(LAZYLEN(the_attributes))
 		use_preloader = TRUE
 		attributes = the_attributes
 		target_path = path
@@ -452,6 +470,8 @@ var/global/dmm_suite/preloader/_preloader = new
 
 /area/template_noop
 	name = "Area Passthrough"
+	icon_state = "space"
 
 /turf/template_noop
 	name = "Turf Passthrough"
+	icon_state = "noop"

@@ -45,10 +45,10 @@
 			if(!user in assignedUsers)
 				assignedUsers += user
 			else
-				user << "<span class='notice'>The device beeps and flashes \"Already Registered\".</span>"
+				to_chat(user, "<span class='notice'>The device beeps and flashes \"Already Registered\".</span>")
 			return
 		else
-			user << "<span class='notice'>The device beeps and appears to shutdown.</span>"
+			to_chat(user, "<span class='notice'>The device beeps and appears to shutdown.</span>")
 			return
 	if(istype(W, /obj/item/weapon/paper))
 		var/obj/item/weapon/paper/P = W
@@ -60,11 +60,11 @@
 		return
 	var/case = input(usr, "Enter case name","Case Name") as null|text
 	if(!case || case == "")
-		usr  << "<span class='notice'>The device beeps and flashes \"No data entered, Aborting\".</span>"
+		to_chat(usr, "<span class='notice'>The device beeps and flashes \"No data entered, Aborting\".</span>")
 		return
 	var/reference = input(usr, "Enter reference","Reference") as null|text
 	if(!reference || reference == "")
-		usr  << "<span class='notice'>The device beeps and flashes \"No data entered, Aborting\".</span>"
+		to_chat(usr, "<span class='notice'>The device beeps and flashes \"No data entered, Aborting\".</span>")
 		return
 
 	var/date_string = time2text(world.realtime, "YYYY_MM_DD")
@@ -91,7 +91,7 @@
 	iLogFile << "[P.info]"
 	iLogFile << "[P.stamps]"
 	iLogFile = null
-	usr  << "<span class='notice'>The device beeps and flashes \"Writing to [fileName]\".</span>"
+	to_chat(usr, "<span class='notice'>The device beeps and flashes \"Writing to [fileName]\".</span>")
 	return
 
 /obj/item/device/taperecorder/cciaa/record()
@@ -99,21 +99,21 @@
 	set category = "Recorder"
 
 	if(!usr.client.holder && !(usr.client.holder.rights & R_CCIAA))
-		usr  << "<span class='notice'>The device beeps and flashes \"Unauthorised user.\".</span>"
+		to_chat(usr, "<span class='notice'>The device beeps and flashes \"Unauthorised user.\".</span>")
 		return
 	if(usr.stat)
 		return
 	if(recording)
-		usr  << "<span class='notice'>The device beeps and flashes \"Already recording, Aborting\".</span>"
+		to_chat(usr, "<span class='notice'>The device beeps and flashes \"Already recording, Aborting\".</span>")
 		return
 
 	var/case = input(usr, "Enter case name","Case Name") as null|text
 	if(!case || case == "")
-		usr  << "<span class='notice'>The device beeps and flashes \"No data entered, Aborting\".</span>"
+		to_chat(usr, "<span class='notice'>The device beeps and flashes \"No data entered, Aborting\".</span>")
 		return
 	var/interviewee = input(usr, "Enter interviewee name","Interviewee Name") as null|text
 	if(!interviewee || interviewee == "")
-		usr  << "<span class='notice'>The device beeps and flashed \"No data entered, Aborting\".</span>"
+		to_chat(usr, "<span class='notice'>The device beeps and flashed \"No data entered, Aborting\".</span>")
 		return
 
 	var/date_string = time2text(world.realtime, "YYYY_MM_DD")
@@ -142,7 +142,7 @@
 
 	recording = 1
 	icon_state = "taperecorderrecording"
-	usr  << "<span class='notice'>The device beeps and flashes \"Writing to [fileName]\".</span>"
+	to_chat(usr, "<span class='notice'>The device beeps and flashes \"Writing to [fileName]\".</span>")
 
 	return
 
@@ -153,10 +153,10 @@
 	if(usr.stat)
 		return
 	if(!usr.client.holder && !(usr.client.holder.rights & R_CCIAA))
-		usr  << "<span class='notice'>The device beeps and flashes \"Unauthorised user.\".</span>"
+		to_chat(usr, "<span class='notice'>The device beeps and flashes \"Unauthorised user.\".</span>")
 		return
 	if(!recording)
-		usr  << "<span class='notice'>The device beeps and flashes \"Not recording, Aborting\".</span>"
+		to_chat(usr, "<span class='notice'>The device beeps and flashes \"Not recording, Aborting\".</span>")
 		return
 
 	recording = 0
@@ -165,7 +165,7 @@
 	sLogFile << "Recorder stopped: [get_time()]"
 	sLogFile << "--------------------------------"
 	sLogFile = null
-	usr  << "<span class='notice'>The device beeps and flashes \"Recording stopped log saved.\".</span>"
+	to_chat(usr, "<span class='notice'>The device beeps and flashes \"Recording stopped log saved.\".</span>")
 	icon_state = "taperecorderidle"
 
 	return
@@ -177,10 +177,10 @@
 	if(usr.stat)
 		return
 	if(!usr.client.holder && !(usr.client.holder.rights & R_CCIAA))
-		usr  << "<span class='notice'>The device beeps and flashes \"Unauthorised user\".</span>"
+		to_chat(usr, "<span class='notice'>The device beeps and flashes \"Unauthorised user\".</span>")
 		return
 	if(recording)
-		usr  << "<span class='notice'>The device beeps and flashes \"Device recording, Aborting\".</span>"
+		to_chat(usr, "<span class='notice'>The device beeps and flashes \"Device recording, Aborting\".</span>")
 		return
 
 	var/path = usr.client.browse_files("data/dutylogs/")
@@ -204,7 +204,7 @@
 	var/pname = "[firstLine]"
 	var/info = "[dat]"
 	P.set_content_unsafe(pname, info)
-	P.loc = get_turf(src.loc)
+	P.forceMove(get_turf(src.loc))
 
 	return
 
@@ -215,21 +215,21 @@
 	if(usr.stat)
 		return
 	if(!usr.client.holder && !(usr.client.holder.rights & R_CCIAA))
-		usr  << "<span class='notice'>The device beeps and flashes \"Unauthorised user.\".</span>"
+		to_chat(usr, "<span class='notice'>The device beeps and flashes \"Unauthorised user.\".</span>")
 		return
 	if(!recording)
-		usr  << "<span class='notice'>The device beeps and flashes \"Not recording, Aborting\".</span>"
+		to_chat(usr, "<span class='notice'>The device beeps and flashes \"Not recording, Aborting\".</span>")
 		return
 
 	if(!paused)
 		sLogFile << "--------------------------------"
 		sLogFile << "Recorder paused at: [get_time()]"
-		usr  << "<span class='notice'>The device beeps and flashes \"Recording resumed\".</span>"
+		to_chat(usr, "<span class='notice'>The device beeps and flashes \"Recording resumed\".</span>")
 		paused = 1
 	else
 		sLogFile << "Recorder resumed at: [get_time()]"
 		sLogFile << "--------------------------------"
-		usr << "<span class='notice'>The device beeps and flashes \"Recording paused\".</span>"
+		to_chat(usr, "<span class='notice'>The device beeps and flashes \"Recording paused\".</span>")
 		paused = 0
 	return
 

@@ -5,6 +5,9 @@ The current alert level is:
 {{if data.alertLevel == 'blue'}}
 	<span style='color: rgb(13, 186, 212);font-weight: bold;'>Blue</span>
 {{/if}}
+{{if data.alertLevel == 'yellow'}}
+	<span style='color: rgb(225, 225, 125);font-weight: bold;'>Yellow</span>
+{{/if}}
 {{if data.alertLevel == 'red'}}
 	<span class='bad'>Red</span>
 {{/if}}

@@ -28,7 +28,7 @@
 	for (var/dir in cardinal)
 		src.output = locate(/obj/machinery/mineral/output, get_step(src, dir))
 		if(src.output) break
-	processing_objects.Add(src)
+	START_PROCESSING(SSprocessing, src)
 
 /obj/machinery/mineral/mint/machinery_process()
 	if ( src.input)
@@ -115,7 +115,7 @@
 	usr.set_machine(src)
 	src.add_fingerprint(usr)
 	if(processing==1)
-		usr << "<span class='notice'>The machine is processing.</span>"
+		to_chat(usr, "<span class='notice'>The machine is processing.</span>")
 		return
 	if(href_list["choose"])
 		chosen = href_list["choose"]

@@ -6,9 +6,7 @@
 	desc = "For all your occult needs!"
 	icon_state = "deck_tarot"
 
-/obj/item/weapon/deck/tarot/New()
-	..()
-
+/obj/item/weapon/deck/tarot/generate_deck()
 	var/datum/playingcard/P
 	for(var/name in list("Fool","Magician","High Priestess","Empress","Emperor","Hierophant","Lovers","Chariot","Strength","Hermit","Wheel of Fortune","Justice","Hanged Man","Death","Temperance","Devil","Tower","Star","Moon","Sun","Judgement","World"))
 		P = new()
@@ -36,4 +34,5 @@
 		newcards += P
 		cards -= P
 	cards = newcards
+	playsound(src.loc, 'sound/items/cardshuffle.ogg', 100, 1, -4)
 	user.visible_message("\The [user] shuffles [src].")

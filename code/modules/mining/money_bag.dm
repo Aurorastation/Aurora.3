@@ -48,16 +48,17 @@
 
 /obj/item/weapon/moneybag/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	..()
+	//TODO: Check this code
 	if (istype(W, /obj/item/weapon/coin))
 		var/obj/item/weapon/coin/C = W
-		user << "<span class='notice'>You add the [C.name] into the bag.</span>"
+		to_chat(user, "<span class='notice'>You add the [C.name] into the bag.</span>")
 		usr.drop_item()
 		contents += C
 	if (istype(W, /obj/item/weapon/moneybag))
 		var/obj/item/weapon/moneybag/C = W
 		for (var/obj/O in C.contents)
 			contents += O;
-		user << "<span class='notice'>You empty the [C.name] into the bag.</span>"
+		to_chat(user, "<span class='notice'>You empty the [C.name] into the bag.</span>")
 	return
 
 /obj/item/weapon/moneybag/Topic(href, href_list)
@@ -82,7 +83,7 @@
 				COIN = locate(/obj/item/weapon/coin/uranium,src.contents)
 		if(!COIN)
 			return
-		COIN.loc = src.loc
+		COIN.forceMove(src.loc)
 	return
 
 

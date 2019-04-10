@@ -12,7 +12,7 @@ var/global/list/rnwords = list("ire","ego","nahlizet","certum","veri","jatkaa","
 	if(!cultwords["travel"])
 		runerandom()
 	for (var/word in engwords)
-		usr << "[cultwords[word]] is [word]"
+		to_chat(usr, "[cultwords[word]] is [word]")
 
 /proc/runerandom() //randomizes word meaning
 	var/list/runewords=rnwords
@@ -27,7 +27,7 @@ var/global/list/rnwords = list("ire","ego","nahlizet","certum","veri","jatkaa","
 	icon_state = "1"
 	var/visibility = 0
 	unacidable = 1
-	layer = TURF_LAYER
+	layer = AO_LAYER
 
 
 	var/word1
@@ -65,117 +65,116 @@ var/global/list/rnwords = list("ire","ego","nahlizet","certum","veri","jatkaa","
 
 // self other technology - Communication rune  //was other hear blood
 // join hide technology - stun rune. Rune color: bright pink.
-	New()
-		..()
-		blood_image = image(loc = src)
-		blood_image.override = 1
-		for(var/mob/living/silicon/ai/AI in player_list)
-			if(AI.client)
-				AI.client.images += blood_image
-		rune_list.Add(src)
 
-	Destroy()
-		for(var/mob/living/silicon/ai/AI in player_list)
-			if(AI.client)
-				AI.client.images -= blood_image
-		qdel(blood_image)
-		blood_image = null
-		rune_list.Remove(src)
-		return ..()
+/obj/effect/rune/Initialize()
+	. = ..()
+	blood_image = image(loc = src)
+	blood_image.override = 1
+	for(var/mob/living/silicon/ai/AI in player_list)
+		if(AI.client)
+			AI.client.images += blood_image
+	rune_list += src
 
-	examine(mob/user)
-		..()
-		if(iscultist(user))
-			user << "This spell circle reads: <i>[word1] [word2] [word3]</i>."
+/obj/effect/rune/Destroy()
+	for(var/mob/living/silicon/ai/AI in player_list)
+		if(AI.client)
+			AI.client.images -= blood_image
+	qdel(blood_image)
+	blood_image = null
+	rune_list -= src
+	return ..()
+
+/obj/effect/rune/examine(mob/user)
+	..()
+	if(iscultist(user))
+		to_chat(user, "This spell circle reads: <i>[word1] [word2] [word3]</i>.")
+
+/obj/effect/rune/attackby(I as obj, user as mob)
+	if(istype(I, /obj/item/weapon/book/tome) && iscultist(user))
+		to_chat(user, "<span class='notice'>You retrace your steps, carefully undoing the lines of the rune.</span>")
+		qdel(src)
+		return
+	else if(istype(I, /obj/item/weapon/nullrod))
+		to_chat(user, "<span class='notice'>You disrupt the vile magic with the deadening field of \the [I]!</span>")
+		qdel(src)
+		return
+	return
 
 
-	attackby(I as obj, user as mob)
-		if(istype(I, /obj/item/weapon/book/tome) && iscultist(user))
-			user << "You retrace your steps, carefully undoing the lines of the rune."
-			qdel(src)
-			return
-		else if(istype(I, /obj/item/weapon/nullrod))
-			user << "<span class='notice'>You disrupt the vile magic with the deadening field of the null rod!</span>"
-			qdel(src)
-			return
+/obj/effect/rune/attack_hand(var/mob/living/user)
+	if(!iscultist(user))
+		to_chat(user, "<span class='notice'>You can't mouth the arcane scratchings without fumbling over them.</span>")
+		return
+	if(istype(user.wear_mask, /obj/item/clothing/mask/muzzle))
+		to_chat(user, "<span class='warning'>You are unable to speak the words of the rune.</span>")
+		return
+	if(!word1 || !word2 || !word3 || prob(user.getBrainLoss()))
+		return fizzle(user)
+	//if(!src.visibility)
+		//src.visibility=1
+	if(word1 == cultwords["travel"] && word2 == cultwords["self"])
+		return teleport(user,src.word3)
+	if(word1 == cultwords["see"] && word2 == cultwords["blood"] && word3 == cultwords["hell"])
+		return tomesummon(user)
+	if(word1 == cultwords["hell"] && word2 == cultwords["destroy"] && word3 == cultwords["other"])
+		return armor(user)
+	if(word1 == cultwords["join"] && word2 == cultwords["blood"] && word3 == cultwords["self"])
+		return convert(user)
+	if(word1 == cultwords["hell"] && word2 == cultwords["join"] && word3 == cultwords["self"])
+		return tearreality(user)
+	if(word1 == cultwords["destroy"] && word2 == cultwords["see"] && word3 == cultwords["technology"])
+		return emp(user, src.loc,3)
+	if(word1 == cultwords["travel"] && word2 == cultwords["blood"] && word3 == cultwords["self"])
+		return drain(user)
+	if(word1 == cultwords["see"] && word2 == cultwords["hell"] && word3 == cultwords["join"])
+		return seer(user)
+	if(word1 == cultwords["blood"] && word2 == cultwords["join"] && word3 == cultwords["hell"])
+		return raise(user)
+	if(word1 == cultwords["hide"] && word2 == cultwords["see"] && word3 == cultwords["blood"])
+		return obscure(user, 4)
+	if(word1 == cultwords["hell"] && word2 == cultwords["travel"] && word3 == cultwords["self"])
+		return ajourney(user)
+	if(word1 == cultwords["blood"] && word2 == cultwords["see"] && word3 == cultwords["travel"])
+		return manifest(user)
+	if(word1 == cultwords["hell"] && word2 == cultwords["technology"] && word3 == cultwords["join"])
+		return talisman(user)
+	if(word1 == cultwords["hell"] && word2 == cultwords["blood"] && word3 == cultwords["join"])
+		return sacrifice(user)
+	if(word1 == cultwords["blood"] && word2 == cultwords["see"] && word3 == cultwords["hide"])
+		return revealrunes(user, src)
+	if(word1 == cultwords["destroy"] && word2 == cultwords["travel"] && word3 == cultwords["self"])
+		return wall(user)
+	if(word1 == cultwords["travel"] && word2 == cultwords["technology"] && word3 == cultwords["other"])
+		return freedom(user)
+	if(word1 == cultwords["join"] && word2 == cultwords["other"] && word3 == cultwords["self"])
+		return cultsummon(user)
+	if(word1 == cultwords["hide"] && word2 == cultwords["other"] && word3 == cultwords["see"])
+		return deafen(user)
+	if(word1 == cultwords["destroy"] && word2 == cultwords["see"] && word3 == cultwords["other"])
+		return blind(user)
+	if(word1 == cultwords["destroy"] && word2 == cultwords["see"] && word3 == cultwords["blood"])
+		return bloodboil(user)
+	if(word1 == cultwords["self"] && word2 == cultwords["other"] && word3 == cultwords["technology"])
+		return communicate(user)
+	if(word1 == cultwords["travel"] && word2 == cultwords["other"])
+		return itemport(user, src.word3)
+	if(word1 == cultwords["join"] && word2 == cultwords["hide"] && word3 == cultwords["technology"])
+		return runestun(user)
+	else
+		return fizzle(user)
+
+
+/obj/effect/rune/proc/fizzle(var/mob/living/user)
+	if(istype(src,/obj/effect/rune))
+		user.say(pick("Hakkrutju gopoenjim.", "Nherasai pivroiashan.", "Firjji prhiv mazenhor.", "Tanah eh wakantahe.", "Obliyae na oraie.", "Miyf hon vnor'c.", "Wakabai hij fen juswix."))
+	else
+		user.whisper(pick("Hakkrutju gopoenjim.", "Nherasai pivroiashan.", "Firjji prhiv mazenhor.", "Tanah eh wakantahe.", "Obliyae na oraie.", "Miyf hon vnor'c.", "Wakabai hij fen juswix."))
+		for (var/mob/V in viewers(src))
+			V.show_message("<span class='warning'>The markings pulse with a small burst of light, then fall dark.</span>", 3, "<span class='warning'>You hear a faint fizzle.</span>", 2)
 		return
 
-
-	attack_hand(mob/living/user as mob)
-		if(!iscultist(user))
-			user << "You can't mouth the arcane scratchings without fumbling over them."
-			return
-		if(istype(user.wear_mask, /obj/item/clothing/mask/muzzle))
-			user << "You are unable to speak the words of the rune."
-			return
-		if(!word1 || !word2 || !word3 || prob(user.getBrainLoss()))
-			return fizzle()
-//		if(!src.visibility)
-//			src.visibility=1
-		if(word1 == cultwords["travel"] && word2 == cultwords["self"])
-			return teleport(src.word3)
-		if(word1 == cultwords["see"] && word2 == cultwords["blood"] && word3 == cultwords["hell"])
-			return tomesummon()
-		if(word1 == cultwords["hell"] && word2 == cultwords["destroy"] && word3 == cultwords["other"])
-			return armor()
-		if(word1 == cultwords["join"] && word2 == cultwords["blood"] && word3 == cultwords["self"])
-			return convert()
-		if(word1 == cultwords["hell"] && word2 == cultwords["join"] && word3 == cultwords["self"])
-			return tearreality()
-		if(word1 == cultwords["destroy"] && word2 == cultwords["see"] && word3 == cultwords["technology"])
-			return emp(src.loc,3)
-		if(word1 == cultwords["travel"] && word2 == cultwords["blood"] && word3 == cultwords["self"])
-			return drain()
-		if(word1 == cultwords["see"] && word2 == cultwords["hell"] && word3 == cultwords["join"])
-			return seer()
-		if(word1 == cultwords["blood"] && word2 == cultwords["join"] && word3 == cultwords["hell"])
-			return raise()
-		if(word1 == cultwords["hide"] && word2 == cultwords["see"] && word3 == cultwords["blood"])
-			return obscure(4)
-		if(word1 == cultwords["hell"] && word2 == cultwords["travel"] && word3 == cultwords["self"])
-			return ajourney()
-		if(word1 == cultwords["blood"] && word2 == cultwords["see"] && word3 == cultwords["travel"])
-			return manifest()
-		if(word1 == cultwords["hell"] && word2 == cultwords["technology"] && word3 == cultwords["join"])
-			return talisman()
-		if(word1 == cultwords["hell"] && word2 == cultwords["blood"] && word3 == cultwords["join"])
-			return sacrifice()
-		if(word1 == cultwords["blood"] && word2 == cultwords["see"] && word3 == cultwords["hide"])
-			return revealrunes(src)
-		if(word1 == cultwords["destroy"] && word2 == cultwords["travel"] && word3 == cultwords["self"])
-			return wall()
-		if(word1 == cultwords["travel"] && word2 == cultwords["technology"] && word3 == cultwords["other"])
-			return freedom()
-		if(word1 == cultwords["join"] && word2 == cultwords["other"] && word3 == cultwords["self"])
-			return cultsummon()
-		if(word1 == cultwords["hide"] && word2 == cultwords["other"] && word3 == cultwords["see"])
-			return deafen()
-		if(word1 == cultwords["destroy"] && word2 == cultwords["see"] && word3 == cultwords["other"])
-			return blind()
-		if(word1 == cultwords["destroy"] && word2 == cultwords["see"] && word3 == cultwords["blood"])
-			return bloodboil()
-		if(word1 == cultwords["self"] && word2 == cultwords["other"] && word3 == cultwords["technology"])
-			return communicate()
-		if(word1 == cultwords["travel"] && word2 == cultwords["other"])
-			return itemport(src.word3)
-		if(word1 == cultwords["join"] && word2 == cultwords["hide"] && word3 == cultwords["technology"])
-			return runestun()
-		else
-			return fizzle()
-
-
-	proc
-		fizzle()
-			if(istype(src,/obj/effect/rune))
-				usr.say(pick("Hakkrutju gopoenjim.", "Nherasai pivroiashan.", "Firjji prhiv mazenhor.", "Tanah eh wakantahe.", "Obliyae na oraie.", "Miyf hon vnor'c.", "Wakabai hij fen juswix."))
-			else
-				usr.whisper(pick("Hakkrutju gopoenjim.", "Nherasai pivroiashan.", "Firjji prhiv mazenhor.", "Tanah eh wakantahe.", "Obliyae na oraie.", "Miyf hon vnor'c.", "Wakabai hij fen juswix."))
-			for (var/mob/V in viewers(src))
-				V.show_message("<span class='warning'>The markings pulse with a small burst of light, then fall dark.</span>", 3, "<span class='warning'>You hear a faint fizzle.</span>", 2)
-			return
-
-		check_icon()
-			icon = get_uristrune_cult(word1, word2, word3)
+/obj/effect/rune/proc/check_icon()
+	icon = get_uristrune_cult(word1, word2, word3)
 
 /obj/item/weapon/book/tome
 	name = "arcane tome"
@@ -185,7 +184,6 @@ var/global/list/rnwords = list("ire","ego","nahlizet","certum","veri","jatkaa","
 	throw_range = 5
 	w_class = 2.0
 	unique = 1
-	var/notedat = ""
 	var/tomedat = ""
 	var/list/words = list("ire" = "ire", "ego" = "ego", "nahlizet" = "nahlizet", "certum" = "certum", "veri" = "veri", "jatkaa" = "jatkaa", "balaq" = "balaq", "mgar" = "mgar", "karazet" = "karazet", "geeri" = "geeri")
 
@@ -286,230 +284,174 @@ var/global/list/rnwords = list("ire","ego","nahlizet","certum","veri","jatkaa","
 				"}
 
 
-	Topic(href,href_list[])
-		if (src.loc == usr)
-			var/number = text2num(href_list["number"])
-			if (usr.stat|| usr.restrained())
-				return
-			switch(href_list["action"])
-				if("clear")
-					words[words[number]] = words[number]
-				if("change")
-					words[words[number]] = input("Enter the translation for [words[number]]", "Word notes") in engwords
-					for (var/w in words)
-						if ((words[w] == words[words[number]]) && (w != words[number]))
-							words[w] = w
-			notedat = {"
-						<br><b>Word translation notes</b> <br>
-						[words[1]] is <a href='byond://?src=\ref[src];number=1;action=change'>[words[words[1]]]</A> <A href='byond://?src=\ref[src];number=1;action=clear'>Clear</A><BR>
-						[words[2]] is <A href='byond://?src=\ref[src];number=2;action=change'>[words[words[2]]]</A> <A href='byond://?src=\ref[src];number=2;action=clear'>Clear</A><BR>
-						[words[3]] is <a href='byond://?src=\ref[src];number=3;action=change'>[words[words[3]]]</A> <A href='byond://?src=\ref[src];number=3;action=clear'>Clear</A><BR>
-						[words[4]] is <a href='byond://?src=\ref[src];number=4;action=change'>[words[words[4]]]</A> <A href='byond://?src=\ref[src];number=4;action=clear'>Clear</A><BR>
-						[words[5]] is <a href='byond://?src=\ref[src];number=5;action=change'>[words[words[5]]]</A> <A href='byond://?src=\ref[src];number=5;action=clear'>Clear</A><BR>
-						[words[6]] is <a href='byond://?src=\ref[src];number=6;action=change'>[words[words[6]]]</A> <A href='byond://?src=\ref[src];number=6;action=clear'>Clear</A><BR>
-						[words[7]] is <a href='byond://?src=\ref[src];number=7;action=change'>[words[words[7]]]</A> <A href='byond://?src=\ref[src];number=7;action=clear'>Clear</A><BR>
-						[words[8]] is <a href='byond://?src=\ref[src];number=8;action=change'>[words[words[8]]]</A> <A href='byond://?src=\ref[src];number=8;action=clear'>Clear</A><BR>
-						[words[9]] is <a href='byond://?src=\ref[src];number=9;action=change'>[words[words[9]]]</A> <A href='byond://?src=\ref[src];number=9;action=clear'>Clear</A><BR>
-						[words[10]] is <a href='byond://?src=\ref[src];number=10;action=change'>[words[words[10]]]</A> <A href='byond://?src=\ref[src];number=10;action=clear'>Clear</A><BR>
-						"}
-			usr << browse("[notedat]", "window=notes")
-//		call(/obj/item/weapon/book/tome/proc/edit_notes)()
+/obj/item/weapon/book/tome/Initialize()
+	. = ..()
+	if(!cultwords["travel"])
+		runerandom()
+	for(var/V in cultwords)
+		words[cultwords[V]] = V
+
+
+
+/obj/item/weapon/book/tome/attack(mob/living/M as mob, mob/living/user as mob)
+
+	M.attack_log += text("\[[time_stamp()]\] <font color='orange'>Has had the [name] used on them by [user.name] ([user.ckey])</font>")
+	user.attack_log += text("\[[time_stamp()]\] <font color='red'>Used [name] on [M.name] ([M.ckey])</font>")
+	msg_admin_attack("[key_name_admin(user)] used [name] on [M.name] ([M.ckey]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(M))
+
+	if(isobserver(M))
+		var/mob/abstract/observer/D = M
+		D.manifest(user)
+		return
+
+	if(!istype(M))
+		return
+
+	if(!iscultist(user))
+		return ..()
+
+	if(iscultist(M))
+		return
+
+	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
+	M.take_organ_damage(0,rand(5,20)) //really lucky - 5 hits for a crit
+	for(var/mob/O in viewers(M, null))
+		O.show_message("<span class='warning'>\The [user] beats \the [M] with \the [src]!</span>", 1)
+	to_chat(M, "<span class='danger'>You feel searing heat inside!</span>")
+
+
+/obj/item/weapon/book/tome/attack_self(mob/living/user as mob)
+
+	if(!user.canmove || user.stat || user.restrained())
+		return
+
+	if(!cultwords["travel"])
+		runerandom()
+
+	if(iscultist(user))
+		var/C = 0
+		for(var/obj/effect/rune/N in rune_list)
+			C++
+
+		if (!istype(user.loc,/turf))
+			to_chat(user, "<span class='warning'>You do not have enough space to write a proper rune.</span>")
+			return
+
+		var/turf/T = get_turf(user)
+
+		if (T.is_hole || T.is_space())
+			to_chat(user, "<span class='warning'>You are unable to write a rune here.</span>")
+			return
+
+		if(locate(/obj/effect/rune) in user.loc)
+			to_chat(user,  "<span class='warning'>There is already a rune in this location.</span>")
+			return
+
+		if (C>=26 + runedec + cult.current_antagonists.len) //including the useless rune at the secret room, shouldn't count against the limit of 25 runes - Urist
+			alert("The cloth of reality can't take that much of a strain. Remove some runes first!")
+			return
+
 		else
-			usr << browse(null, "window=notes")
-			return
-
-
-//	proc/edit_notes()     FUCK IT. Cant get it to work properly. - K0000
-//		world << "its been called! [usr]"
-//		notedat = {"
-//		<br><b>Word translation notes</b> <br>
-//			[words[1]] is <a href='byond://?src=\ref[src];number=1;action=change'>[words[words[1]]]</A> <A href='byond://?src=\ref[src];number=1;action=clear'>Clear</A><BR>
-//			[words[2]] is <A href='byond://?src=\ref[src];number=2;action=change'>[words[words[2]]]</A> <A href='byond://?src=\ref[src];number=2;action=clear'>Clear</A><BR>
-//			[words[3]] is <a href='byond://?src=\ref[src];number=3;action=change'>[words[words[3]]]</A> <A href='byond://?src=\ref[src];number=3;action=clear'>Clear</A><BR>
-//			[words[4]] is <a href='byond://?src=\ref[src];number=4;action=change'>[words[words[4]]]</A> <A href='byond://?src=\ref[src];number=4;action=clear'>Clear</A><BR>
-//			[words[5]] is <a href='byond://?src=\ref[src];number=5;action=change'>[words[words[5]]]</A> <A href='byond://?src=\ref[src];number=5;action=clear'>Clear</A><BR>
-//			[words[6]] is <a href='byond://?src=\ref[src];number=6;action=change'>[words[words[6]]]</A> <A href='byond://?src=\ref[src];number=6;action=clear'>Clear</A><BR>
-//			[words[7]] is <a href='byond://?src=\ref[src];number=7;action=change'>[words[words[7]]]</A> <A href='byond://?src=\ref[src];number=7;action=clear'>Clear</A><BR>
-//			[words[8]] is <a href='byond://?src=\ref[src];number=8;action=change'>[words[words[8]]]</A> <A href='byond://?src=\ref[src];number=8;action=clear'>Clear</A><BR>
-//			[words[9]] is <a href='byond://?src=\ref[src];number=9;action=change'>[words[words[9]]]</A> <A href='byond://?src=\ref[src];number=9;action=clear'>Clear</A><BR>
-//			[words[10]] is <a href='byond://?src=\ref[src];number=10;action=change'>[words[words[10]]]</A> <A href='byond://?src=\ref[src];number=10;action=clear'>Clear</A><BR>
-//					"}
-//		usr << "whatev"
-//		usr << browse(null, "window=tank")
-
-	attack(mob/living/M as mob, mob/living/user as mob)
-
-		M.attack_log += text("\[[time_stamp()]\] <font color='orange'>Has had the [name] used on them by [user.name] ([user.ckey])</font>")
-		user.attack_log += text("\[[time_stamp()]\] <font color='red'>Used [name] on [M.name] ([M.ckey])</font>")
-		msg_admin_attack("[key_name_admin(user)] used [name] on [M.name] ([M.ckey]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(M))
-
-		if(istype(M,/mob/dead))
-			var/mob/dead/D = M
-			D.manifest(user)
-			return
-		if(!istype(M))
-			return
-		if(!iscultist(user))
-			return ..()
-		if(iscultist(M))
-			return
-		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-		M.take_organ_damage(0,rand(5,20)) //really lucky - 5 hits for a crit
-		for(var/mob/O in viewers(M, null))
-			O.show_message("<span class='warning'>\The [user] beats \the [M] with \the [src]!</span>", 1)
-		M << "<span class='danger'>You feel searing heat inside!</span>"
-
-
-	attack_self(mob/living/user as mob)
-		usr = user
-		if(!usr.canmove || usr.stat || usr.restrained())
-			return
-
-		if(!cultwords["travel"])
-			runerandom()
-		if(iscultist(user))
-			var/C = 0
-			for(var/obj/effect/rune/N in world)
-				C++
-			if (!istype(user.loc,/turf))
-				user << "<span class='warning'>You do not have enough space to write a proper rune.</span>"
-				return
-
-			if (C>=26 + runedec + cult.current_antagonists.len) //including the useless rune at the secret room, shouldn't count against the limit of 25 runes - Urist
-				alert("The cloth of reality can't take that much of a strain. Remove some runes first!")
-				return
-			else
-				switch(alert("You open the tome",,"Read it","Scribe a rune", "Notes")) //Fuck the "Cancel" option. Rewrite the whole tome interface yourself if you want it to work better. And input() is just ugly. - K0000
-					if("Cancel")
+			switch(alert("You open the tome",,"Read it","Scribe a rune", "Cancel"))
+				if("Cancel")
+					return
+				if("Read it")
+					if(user.get_active_hand() != src)
 						return
-					if("Read it")
-						if(usr.get_active_hand() != src)
-							return
-						user << browse("[tomedat]", "window=Arcane Tome")
-						return
-					if("Notes")
-						if(usr.get_active_hand() != src)
-							return
-						notedat = {"
-					<br><b>Word translation notes</b> <br>
-					[words[1]] is <a href='byond://?src=\ref[src];number=1;action=change'>[words[words[1]]]</A> <A href='byond://?src=\ref[src];number=1;action=clear'>Clear</A><BR>
-					[words[2]] is <A href='byond://?src=\ref[src];number=2;action=change'>[words[words[2]]]</A> <A href='byond://?src=\ref[src];number=2;action=clear'>Clear</A><BR>
-					[words[3]] is <a href='byond://?src=\ref[src];number=3;action=change'>[words[words[3]]]</A> <A href='byond://?src=\ref[src];number=3;action=clear'>Clear</A><BR>
-					[words[4]] is <a href='byond://?src=\ref[src];number=4;action=change'>[words[words[4]]]</A> <A href='byond://?src=\ref[src];number=4;action=clear'>Clear</A><BR>
-					[words[5]] is <a href='byond://?src=\ref[src];number=5;action=change'>[words[words[5]]]</A> <A href='byond://?src=\ref[src];number=5;action=clear'>Clear</A><BR>
-					[words[6]] is <a href='byond://?src=\ref[src];number=6;action=change'>[words[words[6]]]</A> <A href='byond://?src=\ref[src];number=6;action=clear'>Clear</A><BR>
-					[words[7]] is <a href='byond://?src=\ref[src];number=7;action=change'>[words[words[7]]]</A> <A href='byond://?src=\ref[src];number=7;action=clear'>Clear</A><BR>
-					[words[8]] is <a href='byond://?src=\ref[src];number=8;action=change'>[words[words[8]]]</A> <A href='byond://?src=\ref[src];number=8;action=clear'>Clear</A><BR>
-					[words[9]] is <a href='byond://?src=\ref[src];number=9;action=change'>[words[words[9]]]</A> <A href='byond://?src=\ref[src];number=9;action=clear'>Clear</A><BR>
-					[words[10]] is <a href='byond://?src=\ref[src];number=10;action=change'>[words[words[10]]]</A> <A href='byond://?src=\ref[src];number=10;action=clear'>Clear</A><BR>
-					"}
-//						call(/obj/item/weapon/book/tome/proc/edit_notes)()
-						user << browse("[notedat]", "window=notes")
-						return
-			if(usr.get_active_hand() != src)
-				return
+					user << browse("[tomedat]", "window=Arcane Tome")
+					return
+		if(isipc(user))
+			to_chat(user, "<span class='notice'>You cannot draw runes, as you have no blood.</span>")
+			return
 
-			var/list/dictionary = list (
-				"convert" = list("join","blood","self"),
-				"wall" = list("destroy","travel","self"),
-				"blood boil" = list("destroy","see","blood"),
-				"blood drain" = list("travel","blood","self"),
-				"raise dead" = list("blood","join","hell"),
-				"summon narsie" = list("hell","join","self"),
-				"communicate" = list("self","other","technology"),
-				"emp" = list("destroy","see","technology"),
-				"manifest" = list("blood","see","travel"),
-				"summon tome" = list("see","blood","hell"),
-				"see invisible" = list("see","hell","join"),
-				"hide" = list("hide","see","blood"),
-				"reveal" = list("blood","see","hide"),
-				"astral journey" = list("hell","travel","self"),
-				"imbue" = list("hell","technology","join"),
-				"sacrifice" = list("hell","blood","join"),
-				"summon cultist" = list("join","other","self"),
-				"free cultist" = list("travel","technology","other"),
-				"deafen" = list("hide","other","see"),
-				"blind" = list("destroy","see","other"),
-				"stun" = list("join","hide","technology"),
-				"armor" = list("hell","destroy","other"),
-				"teleport" = list("travel","self"),
-				"teleport other" = list("travel","other")
+		if(user.get_active_hand() != src)
+			return
+
+		var/list/static/dictionary = list (
+			"convert" = list("join","blood","self"),
+			"wall" = list("destroy","travel","self"),
+			"blood boil" = list("destroy","see","blood"),
+			"blood drain" = list("travel","blood","self"),
+			"raise dead" = list("blood","join","hell"),
+			"summon narsie" = list("hell","join","self"),
+			"communicate" = list("self","other","technology"),
+			"emp" = list("destroy","see","technology"),
+			"manifest" = list("blood","see","travel"),
+			"summon tome" = list("see","blood","hell"),
+			"see invisible" = list("see","hell","join"),
+			"hide" = list("hide","see","blood"),
+			"reveal" = list("blood","see","hide"),
+			"astral journey" = list("hell","travel","self"),
+			"imbue" = list("hell","technology","join"),
+			"sacrifice" = list("hell","blood","join"),
+			"summon cultist" = list("join","other","self"),
+			"free cultist" = list("travel","technology","other"),
+			"deafen" = list("hide","other","see"),
+			"blind" = list("destroy","see","other"),
+			"stun" = list("join","hide","technology"),
+			"armor" = list("hell","destroy","other"),
+			"teleport" = list("travel","self"),
+			"teleport other" = list("travel","other")
 			)
 
-			var/list/english = list()
+		var/list/english = list()
 
-			var/list/scribewords = list("none")
+		var/list/scribewords = list("none")
 
-			for (var/entry in words)
-				if (words[entry] != entry)
-					english += list(words[entry] = entry)
+		for (var/entry in words)
+			if (words[entry] != entry)
+				english += list(words[entry] = entry)
 
-			for (var/entry in dictionary)
-				var/list/required = dictionary[entry]
-				if (length(english&required) == required.len)
-					scribewords += entry
+		for (var/entry in dictionary)
+			scribewords += entry
 
-			var/chosen_rune = null
+		var/chosen_rune = null
 
-			if(usr)
-				chosen_rune = input ("Choose a rune to scribe.") in scribewords
-				if (!chosen_rune)
-					return
-				if (chosen_rune == "none")
-					user << "<span class='notice'>You decide against scribing a rune, perhaps you should take this time to study your notes.</span>"
-					return
-				if (chosen_rune == "teleport")
-					dictionary[chosen_rune] += input ("Choose a destination word") in english
-				if (chosen_rune == "teleport other")
-					dictionary[chosen_rune] += input ("Choose a destination word") in english
-
-			if(usr.get_active_hand() != src)
+		if(user)
+			chosen_rune = input ("Choose a rune to scribe.") in scribewords
+			if (!chosen_rune)
 				return
+			if (chosen_rune == "none")
+				to_chat(user, "<span class='notice'>You decide against scribing a rune, perhaps you should take this time to study your notes.</span>")
+				return
+			if (chosen_rune == "teleport")
+				dictionary[chosen_rune] += input ("Choose a destination word") in english
+			if (chosen_rune == "teleport other")
+				dictionary[chosen_rune] += input ("Choose a destination word") in english
 
-			for (var/mob/V in viewers(src))
-				V.show_message("<span class='danger'>\The [user] slices open a finger and begins to chant and paint symbols on the floor.</span>", 3, "<span class='danger'>You hear chanting.</span>", 2)
-			user << "<span class='danger'>You slice open one of your fingers and begin drawing a rune on the floor whilst chanting the ritual that binds your life essence with the dark arcane energies flowing through the surrounding world.</span>"
-			user.take_overall_damage((rand(9)+1)/10) // 0.1 to 1.0 damage
-			if(do_after(user, 50))
-				var/area/A = get_area(user)
-				log_and_message_admins("created \an [chosen_rune] rune at \the [A.name] - [user.loc.x]-[user.loc.y]-[user.loc.z].")
-				if(usr.get_active_hand() != src)
-					return
-				var/mob/living/carbon/human/H = user
-				var/obj/effect/rune/R = new /obj/effect/rune(user.loc)
-				user << "<span class='notice'>You finish drawing the arcane markings of the Geometer.</span>"
-				var/list/required = dictionary[chosen_rune]
-				R.word1 = english[required[1]]
-				R.word2 = english[required[2]]
-				R.word3 = english[required[3]]
-				R.check_icon()
-				R.blood_DNA = list()
-				R.blood_DNA[H.dna.unique_enzymes] = H.dna.b_type
-			return
-		else
-			user << "The book seems full of illegible scribbles. Is this a joke?"
+		if(user.get_active_hand() != src)
 			return
 
-	attackby(obj/item/weapon/book/tome/T as obj, mob/living/user as mob)
-		if(istype(T, /obj/item/weapon/book/tome)) // sanity check to prevent a runtime error
-			switch(alert("Copy the runes from your tome?",,"Copy", "Cancel"))
-				if("cancel")
-					return
-	//		var/list/nearby = viewers(1,src) //- Fuck this as well. No clue why this doesnt work. -K0000
-	//			if (T.loc != user)
-	//				return
-	//		for(var/mob/M in nearby)
-	//			if(M == user)
-			for(var/entry in words)
-				words[entry] = T.words[entry]
-			user << "You copy the translation notes from your tome."
+		for (var/mob/V in viewers(src))
+			V.show_message("<span class='danger'>\The [user] slices open a finger and begins to chant and paint symbols on the floor.</span>", 3, "<span class='danger'>You hear chanting.</span>", 2)
+		to_chat(user, "<span class='danger'>You slice open one of your fingers and begin drawing a rune on the floor whilst chanting the ritual that binds your life essence with the dark arcane energies flowing through the surrounding world.</span>")
+		user.take_overall_damage((rand(9)+1)/10) // 0.1 to 1.0 damage
+		if(do_after(user, 50))
+			var/area/A = get_area(user)
+			log_and_message_admins("created \an [chosen_rune] rune at \the [A.name] - [user.loc.x]-[user.loc.y]-[user.loc.z].")
+			if(user.get_active_hand() != src)
+				return
+			var/mob/living/carbon/human/H = user
+			var/obj/effect/rune/R = new /obj/effect/rune(user.loc)
+			to_chat(user, "<span class='notice'>You finish drawing the arcane markings of the Geometer.</span>")
+			var/list/required = dictionary[chosen_rune]
+			R.word1 = english[required[1]]
+			R.word2 = english[required[2]]
+			R.word3 = english[required[3]]
+			R.check_icon()
+			R.blood_DNA = list()
+			R.blood_DNA[H.dna.unique_enzymes] = H.dna.b_type
+		return
+	else
+		to_chat(user, "<span class='notice'>The book seems full of illegible scribbles.</span>")
+		return
 
-
-	examine(mob/user)
-		if(!iscultist(user))
-			user << "An old, dusty tome with frayed edges and a sinister looking cover."
-		else
-			user << "The scriptures of Nar-Sie, The One Who Sees, The Geometer of Blood. Contains the details of every ritual his followers could think of. Most of these are useless, though."
+/obj/item/weapon/book/tome/examine(mob/user)
+	..(user)
+	if(!iscultist(user))
+		desc = "An old, dusty tome with frayed edges and a sinister looking cover."
+	else
+		desc = "The scriptures of Nar-Sie, The One Who Sees, The Geometer of Blood. Contains the details of every ritual his followers could think of. Most of these are useless, though."
 
 /obj/item/weapon/book/tome/cultify()
 	return
@@ -518,19 +460,16 @@ var/global/list/rnwords = list("ire","ego","nahlizet","certum","veri","jatkaa","
 	w_class = 2.0
 	var/cultistsonly = 1
 	attack_self(mob/user as mob)
-		if(src.cultistsonly && !iscultist(usr))
+		if(src.cultistsonly && !iscultist(user))
 			return
 		if(!cultwords["travel"])
 			runerandom()
 		if(user)
 			var/r
 			if (!istype(user.loc,/turf))
-				user << "<span class='notice'>You do not have enough space to write a proper rune.</span>"
+				to_chat(user, "<span class='warning'>You do not have enough space to write a proper rune.</span>")
 			var/list/runes = list("teleport", "itemport", "tome", "armor", "convert", "tear in reality", "emp", "drain", "seer", "raise", "obscure", "reveal", "astral journey", "manifest", "imbue talisman", "sacrifice", "wall", "freedom", "cultsummon", "deafen", "blind", "bloodboil", "communicate", "stun")
 			r = input("Choose a rune to scribe", "Rune Scribing") in runes //not cancellable.
-			if(locate(/obj/effect/rune) in user.loc)
-				user << "<span class='warning'>There is already a rune in this location.</span>"
-				return
 
 			var/obj/effect/rune/R = new /obj/effect/rune(user.loc)
 			if(istype(user, /mob/living/carbon/human))
@@ -543,152 +482,106 @@ var/global/list/rnwords = list("ire","ego","nahlizet","certum","veri","jatkaa","
 				if("teleport")
 					var/list/words = list("ire", "ego", "nahlizet", "certum", "veri", "jatkaa", "balaq", "mgar", "karazet", "geeri")
 					var/beacon
-					if(usr)
+					if(user)
 						beacon = input("Select the last rune", "Rune Scribing") in words
 					R.word1=cultwords["travel"]
 					R.word2=cultwords["self"]
 					R.word3=beacon
-					R.loc = user.loc
-					R.check_icon()
 				if("itemport")
 					var/list/words = list("ire", "ego", "nahlizet", "certum", "veri", "jatkaa", "balaq", "mgar", "karazet", "geeri")
 					var/beacon
-					if(usr)
+					if(user)
 						beacon = input("Select the last rune", "Rune Scribing") in words
 					R.word1=cultwords["travel"]
 					R.word2=cultwords["other"]
 					R.word3=beacon
-					R.loc = user.loc
-					R.check_icon()
 				if("tome")
 					R.word1=cultwords["see"]
 					R.word2=cultwords["blood"]
 					R.word3=cultwords["hell"]
-					R.loc = user.loc
-					R.check_icon()
 				if("armor")
 					R.word1=cultwords["hell"]
 					R.word2=cultwords["destroy"]
 					R.word3=cultwords["other"]
-					R.loc = user.loc
-					R.check_icon()
 				if("convert")
 					R.word1=cultwords["join"]
 					R.word2=cultwords["blood"]
 					R.word3=cultwords["self"]
-					R.loc = user.loc
-					R.check_icon()
 				if("tear in reality")
 					R.word1=cultwords["hell"]
 					R.word2=cultwords["join"]
 					R.word3=cultwords["self"]
-					R.loc = user.loc
-					R.check_icon()
 				if("emp")
 					R.word1=cultwords["destroy"]
 					R.word2=cultwords["see"]
 					R.word3=cultwords["technology"]
-					R.loc = user.loc
-					R.check_icon()
 				if("drain")
 					R.word1=cultwords["travel"]
 					R.word2=cultwords["blood"]
 					R.word3=cultwords["self"]
-					R.loc = user.loc
-					R.check_icon()
 				if("seer")
 					R.word1=cultwords["see"]
 					R.word2=cultwords["hell"]
 					R.word3=cultwords["join"]
-					R.loc = user.loc
-					R.check_icon()
 				if("raise")
 					R.word1=cultwords["blood"]
 					R.word2=cultwords["join"]
 					R.word3=cultwords["hell"]
-					R.loc = user.loc
-					R.check_icon()
 				if("obscure")
 					R.word1=cultwords["hide"]
 					R.word2=cultwords["see"]
 					R.word3=cultwords["blood"]
-					R.loc = user.loc
-					R.check_icon()
 				if("astral journey")
 					R.word1=cultwords["hell"]
 					R.word2=cultwords["travel"]
 					R.word3=cultwords["self"]
-					R.loc = user.loc
-					R.check_icon()
 				if("manifest")
 					R.word1=cultwords["blood"]
 					R.word2=cultwords["see"]
 					R.word3=cultwords["travel"]
-					R.loc = user.loc
-					R.check_icon()
 				if("imbue talisman")
 					R.word1=cultwords["hell"]
 					R.word2=cultwords["technology"]
 					R.word3=cultwords["join"]
-					R.loc = user.loc
-					R.check_icon()
 				if("sacrifice")
 					R.word1=cultwords["hell"]
 					R.word2=cultwords["blood"]
 					R.word3=cultwords["join"]
-					R.loc = user.loc
-					R.check_icon()
 				if("reveal")
 					R.word1=cultwords["blood"]
 					R.word2=cultwords["see"]
 					R.word3=cultwords["hide"]
-					R.loc = user.loc
-					R.check_icon()
 				if("wall")
 					R.word1=cultwords["destroy"]
 					R.word2=cultwords["travel"]
 					R.word3=cultwords["self"]
-					R.loc = user.loc
-					R.check_icon()
 				if("freedom")
 					R.word1=cultwords["travel"]
 					R.word2=cultwords["technology"]
 					R.word3=cultwords["other"]
-					R.loc = user.loc
-					R.check_icon()
 				if("cultsummon")
 					R.word1=cultwords["join"]
 					R.word2=cultwords["other"]
 					R.word3=cultwords["self"]
-					R.loc = user.loc
-					R.check_icon()
 				if("deafen")
 					R.word1=cultwords["hide"]
 					R.word2=cultwords["other"]
 					R.word3=cultwords["see"]
-					R.loc = user.loc
-					R.check_icon()
 				if("blind")
 					R.word1=cultwords["destroy"]
 					R.word2=cultwords["see"]
 					R.word3=cultwords["other"]
-					R.loc = user.loc
-					R.check_icon()
 				if("bloodboil")
 					R.word1=cultwords["destroy"]
 					R.word2=cultwords["see"]
 					R.word3=cultwords["blood"]
-					R.loc = user.loc
-					R.check_icon()
 				if("communicate")
 					R.word1=cultwords["self"]
 					R.word2=cultwords["other"]
 					R.word3=cultwords["technology"]
-					R.loc = user.loc
-					R.check_icon()
 				if("stun")
 					R.word1=cultwords["join"]
 					R.word2=cultwords["hide"]
 					R.word3=cultwords["technology"]
-					R.loc = user.loc
-					R.check_icon()
+			R.forceMove(user.loc)
+			R.check_icon()

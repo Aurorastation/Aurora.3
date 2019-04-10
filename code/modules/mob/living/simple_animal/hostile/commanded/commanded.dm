@@ -4,42 +4,51 @@
 	melee_damage_lower = 0
 	melee_damage_upper = 0
 	density = 0
+	var/short_name = null
 	var/list/command_buffer = list()
 	var/list/known_commands = list("stay", "stop", "attack", "follow")
 	var/mob/master = null //undisputed master. Their commands hold ultimate sway and ultimate power.
 	var/list/allowed_targets = list() //WHO CAN I KILL D:
 	var/retribution = 1 //whether or not they will attack us if we attack them like some kinda dick.
+	var/list/sad_emote = list("whimpers")
+
+/mob/living/simple_animal/hostile/commanded/Initialize()
+	..()
+	if(!short_name)
+		short_name = name
 
 /mob/living/simple_animal/hostile/commanded/hear_say(var/message, var/verb = "says", var/datum/language/language = null, var/alt_name = "", var/italics = 0, var/mob/speaker = null, var/sound/speech_sound, var/sound_vol)
-	if((speaker in friends) || speaker == master)
+	if(thinking_enabled && !stat && ((speaker in friends) || speaker == master))
 		command_buffer.Add(speaker)
 		command_buffer.Add(lowertext(html_decode(message)))
 	return 0
 
 /mob/living/simple_animal/hostile/commanded/hear_radio(var/message, var/verb="says", var/datum/language/language=null, var/part_a, var/part_b, var/part_c, var/mob/speaker = null, var/hard_to_hear = 0)
-	if((speaker in friends) || speaker == master)
+	if(thinking_enabled && !stat && ((speaker in friends) || speaker == master))
 		command_buffer.Add(speaker)
 		command_buffer.Add(lowertext(html_decode(message)))
 	return 0
 
-/mob/living/simple_animal/hostile/commanded/Life()
+/mob/living/simple_animal/hostile/commanded/think()
 	while(command_buffer.len > 0)
 		var/mob/speaker = command_buffer[1]
 		var/text = command_buffer[2]
 		var/filtered_name = lowertext(html_decode(name))
-		if(dd_hasprefix(text,filtered_name) || dd_hasprefix(text,"everyone") || dd_hasprefix(text, "everybody")) //in case somebody wants to command 8 bears at once.
+		var/filtered_short = lowertext(html_decode(short_name))
+		if(dd_hasprefix(text,filtered_name) || dd_hasprefix(text,filtered_short) || dd_hasprefix(text,"everyone") || dd_hasprefix(text, "everybody")) //in case somebody wants to command 8 bears at once.
 			var/substring = copytext(text,length(filtered_name)+1) //get rid of the name.
 			listen(speaker,substring)
 		command_buffer.Remove(command_buffer[1],command_buffer[2])
-	. = ..()
-	if(.)
-		switch(stance)
-			if(COMMANDED_FOLLOW)
-				follow_target()
-			if(COMMANDED_STOP)
-				commanded_stop()
+	..()
+	switch(stance)
+		if(COMMANDED_FOLLOW)
+			follow_target()
+		if(COMMANDED_STOP)
+			commanded_stop()
 
-
+/mob/living/simple_animal/hostile/commanded/on_think_disabled()
+	..()
+	command_buffer.Cut()
 
 /mob/living/simple_animal/hostile/commanded/FindTarget(var/new_stance = HOSTILE_STANCE_ATTACK)
 	if(!allowed_targets.len)
@@ -47,7 +56,7 @@
 	var/mode = "specific"
 	if(allowed_targets[1] == "everyone") //we have been given the golden gift of murdering everything. Except our master, of course. And our friends. So just mostly everyone.
 		mode = "everyone"
-	for(var/atom/A in ListTargets(10))
+	for(var/atom/A in targets)
 		var/mob/M = null
 		if(A == src)
 			continue
@@ -133,8 +142,7 @@
 		allowed_targets = list("everyone")//everyone? EVERYONE
 		return 1
 
-	var/list/targets = get_targets_by_name(text)
-	allowed_targets += targets
+	allowed_targets += get_targets_by_name(text)
 	if(emote_hear && emote_hear.len)
 		audible_emote("[pick(emote_hear)].",0)
 	return targets.len != 0
@@ -182,6 +190,13 @@
 /mob/living/simple_animal/hostile/commanded/hit_with_weapon(obj/item/O, mob/living/user, var/effective_force, var/hit_zone)
 	//if they attack us, we want to kill them. None of that "you weren't given a command so free kill" bullshit.
 	. = ..()
+
+	// We forgive our master
+	if(user == master)
+		stance = HOSTILE_STANCE_IDLE
+		target_mob = null
+		audible_emote("[pick(sad_emote)].",0)
+		return
 	if(!. && retribution)
 		stance = HOSTILE_STANCE_ATTACK
 		target_mob = user
@@ -192,9 +207,57 @@
 
 /mob/living/simple_animal/hostile/commanded/attack_hand(mob/living/carbon/human/M as mob)
 	..()
+
+	// We forgive our master
+	if(M == master)
+		stance = HOSTILE_STANCE_IDLE
+		target_mob = null
+		if(M.a_intent == I_HURT)
+			audible_emote("[pick(sad_emote)].",0)
+			return
+
 	if(M.a_intent == I_HURT && retribution) //assume he wants to hurt us.
+
 		target_mob = M
 		allowed_targets += M
 		stance = HOSTILE_STANCE_ATTACK
 		if(M in friends)
 			friends -= M
+
+/mob/living/simple_animal/hostile/commanded/attack_generic(var/mob/user, var/damage, var/attack_message)
+	..()
+
+	// We forgive our master
+	if(user == master)
+		target_mob = null
+		stance = HOSTILE_STANCE_IDLE
+		audible_emote("[pick(sad_emote)].",0)
+
+/mob/living/simple_animal/hostile/commanded/bullet_act(var/obj/item/projectile/P, var/def_zone)
+	..()
+
+	// We forgive our master
+	if (ismob(P.firer) && P.firer == master)
+		target_mob = null
+		stance = HOSTILE_STANCE_IDLE
+		audible_emote("[pick(sad_emote)].",0)
+
+/mob/living/simple_animal/hostile/commanded/attackby(var/obj/item/O, var/mob/user)
+	..()
+
+	// We forgive our master
+	if(user == master)
+		target_mob = null
+		stance = HOSTILE_STANCE_IDLE
+		audible_emote("[pick(sad_emote)].",0)
+
+/mob/living/simple_animal/hostile/commanded/hitby(atom/movable/AM as mob|obj,var/speed = THROWFORCE_SPEED_DIVISOR)//Standardization and logging -Sieve
+	..()
+
+	if(istype(AM,/obj/))
+		var/obj/O = AM
+		if(ismob(O.thrower))
+			if(O.thrower == master)
+				target_mob = null
+				stance = HOSTILE_STANCE_IDLE
+				audible_emote("[pick(sad_emote)].",0)

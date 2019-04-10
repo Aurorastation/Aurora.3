@@ -140,7 +140,7 @@ nanoui is used to open and update nano browser uis
   * @return nothing
   */
 /datum/nanoui/proc/update_status(var/push_update = 0)
-	var/obj/host = src_object.nano_host()
+	var/obj/host = src_object.ui_host()
 	var/new_status = host.CanUseTopic(user, state)
 	if(master_ui)
 		new_status = min(new_status, master_ui.status)
@@ -187,7 +187,7 @@ nanoui is used to open and update nano browser uis
 			"showMap" = show_map,
 			"mapName" = "Aurora",
 			"mapZLevel" = map_z_level,
-			"mapZLevels" = map_levels,
+			"mapZLevels" = current_map.map_levels,
 			"user" = list("name" = user.name)
 		)
 	return config_data
@@ -365,7 +365,7 @@ nanoui is used to open and update nano browser uis
 		<script type='text/javascript'>
 			function receiveUpdateData(jsonString)
 			{
-				// We need both jQuery and NanoStateManager to be able to recieve data
+				// We need both jQuery and NanoStateManager to be able to receive data
 				// At the moment any data received before those libraries are loaded will be lost
 				if (typeof NanoStateManager != 'undefined' && typeof jQuery != 'undefined')
 				{
@@ -468,8 +468,8 @@ nanoui is used to open and update nano browser uis
 
 	var/list/send_data = get_send_data(data)
 
-	//user << list2json(data) // used for debugging
-	user << output(list2params(list(json_encode(send_data))),"[window_id].browser:receiveUpdateData")
+	//to_chat(user, list2json(data) // used for debugging)
+	to_chat(user, output(list2params(list(json_encode(send_data))),"[window_id].browser:receiveUpdateData"))
 
  /**
   * This Topic() proc is called whenever a user clicks on a link within a Nano UI
@@ -491,7 +491,7 @@ nanoui is used to open and update nano browser uis
 
 	if(href_list["mapZLevel"])
 		var/map_z = (text2num(href_list["mapZLevel"]))
-		if(map_z in map_levels)
+		if(map_z in current_map.map_levels)
 			set_map_z_level(map_z)
 			map_update = 1
 		else

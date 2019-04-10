@@ -16,9 +16,15 @@ var/list/datum/power/changeling/powerinstances = list()
 
 /datum/power/changeling/absorb_dna
 	name = "Absorb DNA"
-	desc = "Permits us to syphon the DNA from a human. They become one with us, and we become stronger."
+	desc = "Permits us to syphon some of the DNA from a another sentient creature. They will take some genetic damage as a result of our extraction. Does not work on other changelings."
 	genomecost = 0
 	verbpath = /mob/proc/changeling_absorb_dna
+
+/datum/power/changeling/extract_dna
+	name = "Full DNA Extraction"
+	desc = "Permits us to forcibly absorb a massive quantity DNA from another sentient creature. They will perish during the process, and we become stronger, especially if they were another changeling."
+	genomecost = 0
+	verbpath = /mob/proc/changeling_extract_dna
 
 /datum/power/changeling/transform
 	name = "Transform"
@@ -85,17 +91,9 @@ var/list/datum/power/changeling/powerinstances = list()
 	genomecost = 1
 	verbpath = /mob/proc/changeling_mimicvoice
 
-/datum/power/changeling/extractdna
-	name = "Extract DNA"
-	desc = "We stealthily sting a target and extract the DNA from them."
-	helptext = "Will give you the DNA of your target, allowing you to transform into them. Does not count towards absorb objectives."
-	genomecost = 2
-	allowduringlesserform = 1
-	verbpath = /mob/proc/changeling_extract_dna_sting
-
 /datum/power/changeling/transformation_sting
 	name = "Transformation Sting"
-	desc = "We silently sting a human, injecting a retrovirus that forces them to transform into another."
+	desc = "We silently sting a dead human, injecting a retrovirus that forces them to transform into another."
 	helptext = "Does not provide a warning to others. The victim will transform much like a changeling would."
 	genomecost = 3
 	verbpath = /mob/proc/changeling_transformation_sting
@@ -488,23 +486,22 @@ var/list/datum/power/changeling/powerinstances = list()
 
 
 	for (var/datum/power/changeling/P in powerinstances)
-		//world << "[P] - [Pname] = [P.name == Pname ? "True" : "False"]"
 		if(P.name == Pname)
 			Thepower = P
 			break
 
 
 	if(Thepower == null)
-		M.current << "This is awkward.  Changeling power purchase failed, please report this bug to a coder!"
+		to_chat(M.current, "This is awkward.  Changeling power purchase failed, please report this bug to a coder!")
 		return
 
 	if(Thepower in purchasedpowers)
-		M.current << "We have already evolved this ability!"
+		to_chat(M.current, "We have already evolved this ability!")
 		return
 
 
 	if(geneticpoints < Thepower.genomecost)
-		M.current << "We cannot evolve this... yet.  We must acquire more DNA."
+		to_chat(M.current, "We cannot evolve this... yet.  We must acquire more DNA.")
 		return
 
 	geneticpoints -= Thepower.genomecost

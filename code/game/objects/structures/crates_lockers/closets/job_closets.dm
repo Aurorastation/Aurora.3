@@ -19,7 +19,12 @@
 	new /obj/item/clothing/head/that(src)
 	new /obj/item/device/radio/headset/headset_service(src)
 	new /obj/item/device/radio/headset/headset_service(src)
-	new /obj/item/clothing/head/hairflower
+	new /obj/item/clothing/head/pin/flower(src)
+	new /obj/item/clothing/head/pin/flower/pink(src)
+	new /obj/item/clothing/head/pin/flower/yellow(src)
+	new /obj/item/clothing/head/pin/flower/blue(src)
+	new /obj/item/clothing/head/pin/pink(src)
+	new /obj/item/clothing/head/pin/magnetic(src)
 	new /obj/item/clothing/under/sl_suit(src)
 	new /obj/item/clothing/under/sl_suit(src)
 	new /obj/item/clothing/under/rank/bartender(src)
@@ -45,7 +50,6 @@
 	new /obj/item/clothing/under/waiter(src)
 	new /obj/item/device/radio/headset/headset_service(src)
 	new /obj/item/device/radio/headset/headset_service(src)
-	new /obj/item/clothing/suit/storage/toggle/hoodie(src)
 	new /obj/item/weapon/storage/box/gloves(src)
 	new /obj/item/weapon/storage/box/mousetraps(src)
 	new /obj/item/clothing/under/rank/chef(src)
@@ -66,7 +70,6 @@
 	new /obj/item/weapon/cartridge/janitor(src)
 	new /obj/item/clothing/gloves/black(src)
 	new /obj/item/clothing/head/soft/purple(src)
-	new /obj/item/clothing/head/beret/purple(src)
 	new /obj/item/device/flashlight(src)
 	new /obj/item/weapon/caution(src)
 	new /obj/item/weapon/caution(src)
@@ -81,6 +84,8 @@
 	new /obj/item/weapon/grenade/chem_grenade/cleaner(src)
 	new /obj/item/weapon/grenade/chem_grenade/cleaner(src)
 	new /obj/item/weapon/reagent_containers/spray/cleaner(src)
+	new /obj/item/weapon/reagent_containers/glass/rag(src)
+	new /obj/item/weapon/soap/nanotrasen(src)
 
 /*
  * Lawyer

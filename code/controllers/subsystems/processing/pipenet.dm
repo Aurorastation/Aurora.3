@@ -9,7 +9,7 @@ var/datum/controller/subsystem/processing/pipenet/SSpipenet
 	NEW_SS_GLOBAL(SSpipenet)
 
 /datum/controller/subsystem/processing/pipenet/Initialize(timeofday)
-	for (var/obj/machinery/atmospherics/machine in SSmachinery.processing_machines)
+	for (var/obj/machinery/atmospherics/machine in SSmachinery.all_machines)
 		machine.build_network()
 
 		CHECK_TICK

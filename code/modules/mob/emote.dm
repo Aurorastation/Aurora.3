@@ -3,7 +3,7 @@
 //m_type == 2 --> audible
 /mob/proc/custom_emote(var/m_type=1,var/message = null, var/log_emote = 1)
 	if(usr && stat || !use_me && usr == src)
-		src << "You are unable to emote."
+		to_chat(src, "You are unable to emote.")
 		return
 
 	var/muzzled = istype(src.wear_mask, /obj/item/clothing/mask/muzzle)
@@ -25,20 +25,19 @@
 		if (log_emote)
 			log_emote("[name]/[key] : [message]",ckey=key_name(key))
 
-
 /mob/proc/emote_dead(var/message)
 
 	if(client.prefs.muted & MUTE_DEADCHAT)
-		src << "<span class='danger'>You cannot send deadchat emotes (muted).</span>"
+		to_chat(src, "<span class='danger'>You cannot send deadchat emotes (muted).</span>")
 		return
 
 	if(!(client.prefs.toggles & CHAT_DEAD))
-		src << "<span class='danger'>You have deadchat muted.</span>"
+		to_chat(src, "<span class='danger'>You have deadchat muted.</span>")
 		return
 
 	if(!src.client.holder)
 		if(!config.dsay_allowed)
-			src << "<span class='danger'>Deadchat is globally muted.</span>"
+			to_chat(src, "<span class='danger'>Deadchat is globally muted.</span>")
 			return
 
 
@@ -62,10 +61,10 @@
 		messageturfs += turf
 
 	for(var/mob/M in player_list)
-		if (!M.client || istype(M, /mob/new_player))
+		if (!M.client || istype(M, /mob/abstract/new_player))
 			continue
 		if(get_turf(M) in messageturfs)
-			if (istype(M, /mob/dead/observer))
+			if (istype(M, /mob/abstract/observer))
 				messagemobs_neardead += M
 				continue
 			else if (istype(M, /mob/living) && !(type == 2 && (sdisabilities & DEAF || ear_deaf)))

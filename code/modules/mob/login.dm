@@ -24,18 +24,20 @@
 						log_access("Notice: [key_name(src)] has the same [matches] as [key_name(M)] (no longer logged in).",ckey=key_name(src))
 
 /mob/Login()
-
 	player_list |= src
 	update_Login_details()
-	world.update_status()
+	SSfeedback.update_status()
 
-	client.images = null				//remove the images such as AIs being unable to see runes
-	client.screen = null				//remove hud items just in case
-	if(hud_used)	qdel(hud_used)		//remove the hud objects
+	client.images.Cut()				//remove the images such as AIs being unable to see runes
+	client.screen.Cut()				//remove hud items just in case
+	if(hud_used)
+		qdel(hud_used)		//remove the hud objects
 	hud_used = new /datum/hud(src)
 
+	disconnect_time = null
 	next_move = 1
 	sight |= SEE_SELF
+	disconnect_time = null
 	..()
 
 	if(loc && !isturf(loc))
@@ -47,3 +49,6 @@
 
 	//set macro to normal incase it was overriden (like cyborg currently does)
 	winset(src, null, "mainwindow.macro=macro hotkey_toggle.is-checked=false input.focus=true input.background-color=#D3B5B5")
+	MOB_STOP_THINKING(src)
+
+	update_client_color()

@@ -53,19 +53,23 @@ var/list/gear_datums = list()
 	return list("ss13_characters" = list("gear", "id" = 1, "ckey" = 1))
 
 /datum/category_item/player_setup_item/loadout/gather_save_parameters()
-	return list("gear" = json_encode(pref.gear), "id" = pref.current_character, "ckey" = pref.client.ckey)
+	return list("gear" = json_encode(pref.gear), "id" = pref.current_character, "ckey" = PREF_CLIENT_CKEY)
 
 /datum/category_item/player_setup_item/loadout/proc/valid_gear_choices(var/max_cost)
 	. = list()
 	var/mob/preference_mob = preference_mob()
 	for(var/gear_name in gear_datums)
 		var/datum/gear/G = gear_datums[gear_name]
-
-		if(G.whitelisted && !is_alien_whitelisted(preference_mob, all_species[G.whitelisted]))
-			continue
-		if(max_cost && G.cost > max_cost)
-			continue
-		. += gear_name
+		if(current_map.path in G.allowed_maps)
+			if(max_cost && G.cost > max_cost)
+				continue
+			if(G.whitelisted && preference_mob)
+				for(var/species in G.whitelisted)
+					if(is_alien_whitelisted(preference_mob, global.all_species[species]))
+						. += gear_name
+						break
+			else
+				.+= gear_name
 
 /datum/category_item/player_setup_item/loadout/sanitize_character(var/sql_load = 0)
 	if (sql_load)
@@ -89,16 +93,16 @@ var/list/gear_datums = list()
 	var/total_cost = 0
 	for(var/gear_name in pref.gear)
 		if(!gear_datums[gear_name])
-			preference_mob << "<span class='warning'>You cannot have more than one of the \the [gear_name]</span>"
+			to_chat(preference_mob, "<span class='warning'>You cannot have more than one of the \the [gear_name]</span>")
 			pref.gear -= gear_name
 		else if(!(gear_name in valid_gear_choices()))
-			preference_mob << "<span class='warning'>You cannot take \the [gear_name] as you are not whitelisted for the species.</span>"
+			to_chat(preference_mob, "<span class='warning'>You cannot take \the [gear_name] as you are not whitelisted for the species.</span>")
 			pref.gear -= gear_name
 		else
 			var/datum/gear/G = gear_datums[gear_name]
 			if(total_cost + G.cost > MAX_GEAR_COST)
 				pref.gear -= gear_name
-				preference_mob << "<span class='warning'>You cannot afford to take \the [gear_name]</span>"
+				to_chat(preference_mob, "<span class='warning'>You cannot afford to take \the [gear_name]</span>")
 			else
 				total_cost += G.cost
 
@@ -217,6 +221,7 @@ var/list/gear_datums = list()
 	var/whitelisted        //Term to check the whitelist for..
 	var/sort_category = "General"
 	var/list/gear_tweaks = list() //List of datums which will alter the item after it has been spawned.
+	var/list/allowed_maps = list("aurora", "exodus", "adhomai")//List of maps where this loadout is available
 
 /datum/gear/New()
 	..()
@@ -235,8 +240,23 @@ var/list/gear_datums = list()
 /datum/gear/proc/spawn_item(var/location, var/metadata)
 	var/datum/gear_data/gd = new(path, location)
 	for(var/datum/gear_tweak/gt in gear_tweaks)
-		gt.tweak_gear_data(metadata["[gt]"], gd)
+		if(metadata["[gt]"])
+			gt.tweak_gear_data(metadata["[gt]"], gd)
+		else
+			gt.tweak_gear_data(gt.get_default(), gd)
 	var/item = new gd.path(gd.location)
 	for(var/datum/gear_tweak/gt in gear_tweaks)
-		gt.tweak_item(item, metadata["[gt]"])
+		if(metadata["[gt]"])
+			gt.tweak_item(item, metadata["[gt]"])
+		else
+			gt.tweak_item(item, gt.get_default())
+	return item
+
+/datum/gear/proc/spawn_random(var/location)
+	var/datum/gear_data/gd = new(path, location)
+	for(var/datum/gear_tweak/gt in gear_tweaks)
+		gt.tweak_gear_data(gt.get_random(), gd)
+	var/item = new gd.path(gd.location)
+	for(var/datum/gear_tweak/gt in gear_tweaks)
+		gt.tweak_item(item, gt.get_random())
 	return item

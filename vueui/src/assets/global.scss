@@ -1,0 +1,151 @@
+@import 'icons.scss';
+@import 'theme-basic.scss';
+@import 'theme-nano.scss';
+
+.dark-theme {
+    color: #ffffff;
+}
+
+// A global stylesheet to make all thing look decent
+body {
+    font-size: 14px;
+    margin: 0px;
+    padding: 8px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+code {
+    font-family: 'Courier New', Courier, monospace;
+}
+
+input, textarea, button, select, .button {
+    box-sizing: border-box;
+    padding: 4px 6px;
+    border: 1px solid black;
+    border-radius: 4px;
+    display: inline-block;
+}
+
+.button, button, input[type=submit], input[type=button], input[type=reset], input[disabled] {
+    user-select: none;
+    background-color: #d8d8d8;
+    cursor: pointer;
+    padding: 2px 4px;
+    vertical-align: top;
+    &:hover {
+        background-color: #b2deee;
+    }
+    .uiIcon16 {
+        margin: 0;
+    }
+    * {
+        vertical-align: top;
+    }
+}
+
+.hidden {
+    display: none;
+}
+
+.itemGroup {
+    border: 1px solid #e9c183;
+    background: #2c2c2c;
+    padding: 4px;
+}
+
+.item {
+    width: 100%;
+}
+
+.itemContentNarrow {
+    width: 30%;
+}
+
+.itemContent {
+    width: 69%;
+}
+
+.itemLabelNarrow, .itemLabel, .itemLabelWide, .itemLabelWider, .itemLabelWidest, .itemContentNarrow, .itemContent {
+    display: inline-block
+}
+
+.itemLabelNarrow {
+    width: 20%;
+}
+
+.itemLabel {
+    width: 30%;
+    vertical-align: middle;
+}
+
+.itemLabelWide {
+    width: 45%;
+}
+
+.itemLabelWider {
+    width: 69%;
+}
+
+.itemLabelWidest {
+    width: 100%;
+}
+
+.itemContentWide {
+    width: 79%;
+}
+
+.itemContentSmall {
+    width: 33%;
+}
+
+.itemContentMedium {
+    width: 55%;
+}
+
+.notice {
+    background: #ffac4e;
+    color: #000000;
+    font-style: italic;
+    font-weight: bold;
+    padding: 3px 4px;
+    margin: 4px 0px;
+}
+
+.displayBar {
+    display: inline-block;
+    background: #ffffff;
+    margin: 0 5px 0 0;
+    border: 1px solid #cecece;
+    overflow: hidden;
+    width: 236px;
+    height: 16px;
+    vertical-align: text-bottom;
+    .displayBarFill {
+        width: 0%;
+        height: 100%;
+        background: #acacac;
+        overflow: hidden;
+        float: left;
+        color: #000000;
+    }
+    &.good .displayBarFill {
+        background: #5fe42b;
+    }
+    &.average .displayBarFill {
+        background: #ff8000;
+    }
+    &.bad .displayBarFill {
+        background: #ff2323;
+    }
+    &.highlight .displayBarFill {
+        background: #9dc7d6;
+    }
+}
+
+.uiTitleFluff {
+    display: none;
+}
+
+.csserror {
+    display: none;
+}

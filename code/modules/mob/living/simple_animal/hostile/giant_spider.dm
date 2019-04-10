@@ -7,7 +7,7 @@
 //basic spider mob, these generally guard nests
 /mob/living/simple_animal/hostile/giant_spider
 	name = "giant spider"
-	desc = "Furry and black, it makes you shudder to look at it. This one has deep red eyes."
+	desc = "Furry and brown, it makes you shudder to look at it. This one has deep red eyes."
 	icon_state = "guard"
 	icon_living = "guard"
 	icon_dead = "guard_dead"
@@ -36,9 +36,12 @@
 	speed = 3
 	mob_size = 6
 
+	attack_emote = "skitters toward"
+	butchering_products = list(/obj/item/stack/material/animalhide = 3)
+
 //nursemaids - these create webs and eggs
 /mob/living/simple_animal/hostile/giant_spider/nurse
-	desc = "Furry and black, it makes you shudder to look at it. This one has brilliant green eyes."
+	desc = "Furry and beige, it makes you shudder to look at it. This one has brilliant green eyes."
 	icon_state = "nurse"
 	icon_living = "nurse"
 	icon_dead = "nurse_dead"
@@ -50,6 +53,8 @@
 	var/atom/cocoon_target
 	poison_type = "stoxin"
 	var/fed = 0
+
+	butchering_products = list(/obj/item/stack/material/animalhide = 2)
 
 //hunters have the most poison and move the fastest, so they can find prey
 /mob/living/simple_animal/hostile/giant_spider/hunter
@@ -64,8 +69,11 @@
 	poison_per_bite = 5
 	move_to_delay = 4
 
+	butchering_products = list(/obj/item/stack/material/animalhide = 2)
+
 /mob/living/simple_animal/hostile/giant_spider/Initialize(mapload, atom/parent)
 	get_light_and_color(parent)
+	target_type_validator_map[/obj/effect/energy_field] = CALLBACK(src, .proc/validator_e_field)
 	. = ..()
 
 /mob/living/simple_animal/hostile/giant_spider/AttackingTarget()
@@ -87,9 +95,9 @@
 			if(!(O.status & (ORGAN_ROBOT|ORGAN_ADV_ROBOT)) && !O.cannot_amputate)
 				var/eggs = new /obj/effect/spider/eggcluster(O, src)
 				O.implants += eggs
-				H << "<span class='warning'>The [src] injects something into your [O.name]!</span>"
+				to_chat(H, "<span class='warning'>The [src] injects something into your [O.name]!</span>")
 
-/mob/living/simple_animal/hostile/giant_spider/Life()
+/mob/living/simple_animal/hostile/giant_spider/think()
 	..()
 	if(!stat)
 		if(stance == HOSTILE_STANCE_IDLE)
@@ -106,15 +114,22 @@
 	stop_automated_movement = 0
 	walk(src, 0)
 
-/mob/living/simple_animal/hostile/giant_spider/nurse/Life()
+/mob/living/simple_animal/hostile/giant_spider/proc/validator_e_field(var/obj/effect/energy_field/E, var/atom/current)
+	if(isliving(current)) // We prefer mobs over anything else
+		return FALSE
+	if(get_dist(src, E) < get_dist(src, current))
+		return TRUE
+	else
+		return FALSE
+
+/mob/living/simple_animal/hostile/giant_spider/nurse/think()
 	..()
 	if(!stat)
 		if(stance == HOSTILE_STANCE_IDLE)
-			var/list/can_see = view(src, 10)
 			//30% chance to stop wandering and do something
 			if(!busy && prob(30))
 				//first, check for potential food nearby to cocoon
-				for(var/mob/living/C in can_see)
+				for(var/mob/living/C in view(src, world.view))
 					if(C.stat)
 						cocoon_target = C
 						busy = MOVING_TO_TARGET
@@ -140,8 +155,7 @@
 						addtimer(CALLBACK(src, .proc/finalize_eggs), 50, TIMER_UNIQUE)
 					else
 						//fourthly, cocoon any nearby items so those pesky pinkskins can't use them
-						for(var/obj/O in can_see)
-
+						for(var/obj/O in view(src, world.view))
 							if(O.anchored)
 								continue
 
@@ -202,6 +216,7 @@
 					large_cocoon = 1
 					fed++
 					src.visible_message("<span class='warning'>\The [src] sticks a proboscis into \the [cocoon_target] and sucks a viscous substance out.</span>")
+					playsound(get_turf(src), 'sound/effects/lingabsorbs.ogg', 50, 1)
 					M.forceMove(C)
 					C.pixel_x = M.pixel_x
 					C.pixel_y = M.pixel_y

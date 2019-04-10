@@ -107,6 +107,19 @@ Class Procs:
 	var/idle_power_usage = 0
 	var/active_power_usage = 0
 	var/power_channel = EQUIP //EQUIP, ENVIRON or LIGHT
+	/* List of types that should be spawned as component_parts for this machine.
+		Structure:
+			type -> num_objects
+
+		num_objects is optional, and will be treated as 1 if omitted.
+
+		example:
+		component_types = list(
+			/obj/foo/bar,
+			/obj/baz = 2
+		)
+	*/
+	var/list/component_types
 	var/list/component_parts = null //list of all the parts used to build it, if made from certain kinds of frames.
 	var/uid
 	var/panel_open = 0
@@ -115,11 +128,26 @@ Class Procs:
 	var/printing = 0 // Is this machine currently printing anything?
 	var/tmp/machinery_processing = FALSE	// Are we process()ing in SSmachinery?
 	var/has_special_power_checks = FALSE	// If true, call auto_use_power instead of doing it all in SSmachinery.
+	var/clicksound //played sound on usage
+	var/clickvol = 40 //volume
 
-/obj/machinery/Initialize(mapload, d=0)
+/obj/machinery/Initialize(mapload, d = 0, populate_components = TRUE)
 	. = ..()
 	if(d)
 		set_dir(d)
+
+	if (populate_components && component_types)
+		component_parts = list()
+		for (var/type in component_types)
+			var/count = component_types[type]
+			if (count > 1)
+				for (var/i in 1 to count)
+					component_parts += new type(src)
+			else
+				component_parts += new type(src)
+
+		if(component_parts.len)
+			RefreshParts()
 
 	add_machine(src)
 
@@ -131,15 +159,10 @@ Class Procs:
 				qdel(A)
 			else // Otherwise we assume they were dropped to the ground during deconstruction, and were not removed from the component_parts list by deconstruction code.
 				component_parts -= A
-	if(contents) // The same for contents.
-		for(var/atom/A in contents)
-			qdel(A)
+
 	return ..()
 
-/obj/machinery/proc/machinery_process()
-	. = process()
-
-/obj/machinery/process()//If you dont use process or power why are you here
+/obj/machinery/proc/machinery_process()	//If you dont use process or power why are you here
 	if(!(use_power || idle_power_usage || active_power_usage))
 		return PROCESS_KILL
 
@@ -208,6 +231,8 @@ Class Procs:
 
 /obj/machinery/CouldUseTopic(var/mob/user)
 	..()
+	if(istype (user, /mob/living/carbon))
+		playsound(src, clicksound, clickvol)
 	user.set_machine(src)
 
 /obj/machinery/CouldNotUseTopic(var/mob/user)
@@ -231,7 +256,7 @@ Class Procs:
 		return 1
 	if ( ! (istype(usr, /mob/living/carbon/human) || \
 			istype(usr, /mob/living/silicon)))
-		usr << "<span class='warning'>You don't have the dexterity to do this!</span>"
+		to_chat(usr, "<span class='warning'>You don't have the dexterity to do this!</span>")
 		return 1
 /*
 	//distance checks are made by atom/proc/DblClick
@@ -244,15 +269,14 @@ Class Procs:
 			visible_message("<span class='warning'>[H] stares cluelessly at [src] and drools.</span>")
 			return 1
 		else if(prob(H.getBrainLoss()))
-			user << "<span class='warning'>You momentarily forget how to use [src].</span>"
+			to_chat(user, "<span class='warning'>You momentarily forget how to use [src].</span>")
 			return 1
 
 	src.add_fingerprint(user)
 
 	return ..()
 
-/obj/machinery/proc/RefreshParts() //Placeholder proc for machines that are built using frames.
-	return
+/obj/machinery/proc/RefreshParts()
 
 /obj/machinery/proc/assign_uid()
 	uid = gl_uid
@@ -275,6 +299,13 @@ Class Procs:
 
 	state(text, "blue")
 	playsound(src.loc, 'sound/machines/pingx3.ogg', 50, 0)
+
+/obj/machinery/proc/buzz(text=null)
+	if (!text)
+		text = "\The [src] buzzes."
+
+	state(text, "blue")
+	playsound(src.loc, 'sound/machines/buzz-sigh.ogg', 50, 0) //TODO: Check if that one is the correct sound
 
 /obj/machinery/proc/shock(mob/user, prb)
 	if(inoperable())
@@ -305,15 +336,16 @@ Class Procs:
 		return 0
 	playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, 1)
 	panel_open = !panel_open
-	user << "<span class='notice'>You [panel_open ? "open" : "close"] the maintenance hatch of [src].</span>"
+	to_chat(user, "<span class='notice'>You [panel_open ? "open" : "close"] the maintenance hatch of [src].</span>")
 	update_icon()
 	return 1
 
 /obj/machinery/proc/default_part_replacement(var/mob/user, var/obj/item/weapon/storage/part_replacer/R)
 	if(!istype(R))
 		return 0
-	if(!component_parts)
+	if(!LAZYLEN(component_parts))
 		return 0
+
 	if(panel_open)
 		var/obj/item/weapon/circuitboard/CB = locate(/obj/item/weapon/circuitboard) in component_parts
 		var/P
@@ -331,8 +363,8 @@ Class Procs:
 						R.handle_item_insertion(G, 1)
 						component_parts -= G
 						component_parts += B
-						B.loc = src
-						user << "<span class='notice'>[G.name] replaced with [B.name].</span>"
+						B.forceMove(src)
+						to_chat(user, "<span class='notice'>[G.name] replaced with [B.name].</span>")
 						break
 		for(var/obj/item/weapon/stock_parts/A in component_parts)
 			for(var/D in CB.req_components)
@@ -347,15 +379,15 @@ Class Procs:
 						R.handle_item_insertion(A, 1)
 						component_parts -= A
 						component_parts += B
-						B.loc = src
-						user << "<span class='notice'>[A.name] replaced with [B.name].</span>"
+						B.forceMove(src)
+						to_chat(user, "<span class='notice'>[A.name] replaced with [B.name].</span>")
 						break
-		update_icon()
 		RefreshParts()
+		update_icon()
 	else
-		user << "<span class='notice'>Following parts detected in the machine:</span>"
+		to_chat(user, "<span class='notice'>Following parts detected in the machine:</span>")
 		for(var/var/obj/item/C in component_parts)
-			user << "<span class='notice'>    [C.name]</span>"
+			to_chat(user, "<span class='notice'>    [C.name]</span>")
 	return 1
 
 /obj/machinery/proc/dismantle()
@@ -365,7 +397,7 @@ Class Procs:
 	M.state = 2
 	M.icon_state = "box_1"
 	for(var/obj/I in component_parts)
-		I.loc = loc
+		I.forceMove(loc)
 	qdel(src)
 	return 1
 

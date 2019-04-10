@@ -58,10 +58,6 @@ var/global/list/datum/dna/gene/dna_genes[0]
 // Used for genes that check for value rather than a binary on/off.
 #define GENE_ALWAYS_ACTIVATE 1
 
-// Skip checking if it's already active.
-// Used for genes that check for value rather than a binary on/off.
-#define GENE_ALWAYS_ACTIVATE 1
-
 /datum/dna
 	// READ-ONLY, GETS OVERWRITTEN
 	// DO NOT FUCK WITH THESE OR BYOND WILL EAT YOUR FACE
@@ -156,8 +152,8 @@ var/global/list/datum/dna/gene/dna_genes[0]
 
 	body_markings.Cut()
 	for(var/obj/item/organ/external/E in character.organs)
-		if(E.markings.len)
-			body_markings[E.limb_name] = E.markings.Copy()
+		if(LAZYLEN(E.genetic_markings))
+			body_markings[E.limb_name] = E.genetic_markings.Copy()
 
 	UpdateUI()
 

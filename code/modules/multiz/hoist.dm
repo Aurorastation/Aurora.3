@@ -28,17 +28,7 @@
 	return // no, bad
 
 /obj/effect/hoist_hook/MouseDrop_T(atom/movable/AM,mob/user)
-	var/canuse = use_check(user, USE_DISALLOW_SILICONS)
-	if(canuse) // to cut it down from 4+ return statements to just 1
-		switch(canuse)
-			if(USE_FAIL_INCAPACITATED)
-				to_chat(user, span("warning", "You can't do that while incapacitated!"))
-			if(USE_FAIL_NONLIVING)
-				to_chat(user, span("warning", "You can't do that while dead."))
-			if(USE_FAIL_IS_SILICON)
-				to_chat(user, span("notice", "You need hands for that."))
-			if(USE_FAIL_NON_ADV_TOOL_USR)
-				to_chat(user, span("warning", "You stare cluelessly at \the [src]."))
+	if (use_check(user, USE_DISALLOW_SILICONS))
 		return
 
 	if (!AM.simulated || AM.anchored)

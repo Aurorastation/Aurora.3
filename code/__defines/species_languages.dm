@@ -1,13 +1,19 @@
 // Species flags.
-#define NO_BLOOD          0x1    // Vessel var is not filled with blood, cannot bleed out.
-#define NO_BREATHE        0x2    // Cannot suffocate or take oxygen loss.
-#define NO_SCAN           0x4    // Cannot be scanned in a DNA machine/genome-stolen.
-#define NO_PAIN           0x8    // Cannot suffer halloss/recieves deceptive health indicator.
-#define NO_SLIP           0x10   // Cannot fall over.
-#define NO_POISON         0x20   // Cannot not suffer toxloss.
-#define IS_PLANT          0x40   // Is a treeperson.
-#define NO_MINOR_CUT      0x80   // Can step on broken glass with no ill-effects. Either thick skin (diona/vox), cut resistant (slimes) or incorporeal (shadows)
-// unused: 0x8000 - higher than this will overflow
+#define NO_BLOOD             1    // Vessel var is not filled with blood, cannot bleed out.
+#define NO_BREATHE           2    // Cannot suffocate or take oxygen loss.
+#define NO_SCAN              4    // Cannot be scanned in a DNA machine/genome-stolen.
+#define NO_PAIN              8    // Cannot suffer halloss/receives deceptive health indicator.
+#define NO_SLIP             16    // Cannot fall over.
+#define NO_POISON           32    // Cannot not suffer toxloss.
+#define IS_PLANT            64    // Is a treeperson.
+#define NO_EMBED            128    // Can not have shrapnel or any object embedded into its body
+#define IS_MECHANICAL       256    // Is a robot.
+#define ACCEPTS_COOLER      512    // Can wear suit coolers and have them work without a suit.
+#define NO_CHUBBY           1024   // Cannot be visibly fat from nutrition type.
+// unused: 0x8000(32768) - higher than this will overflow
+
+// Base flags for IPCs.
+#define IS_IPC (NO_BREATHE|NO_SCAN|NO_BLOOD|NO_PAIN|NO_POISON|IS_MECHANICAL|NO_CHUBBY)
 
 // Species spawn flags
 #define IS_WHITELISTED    0x1    // Must be whitelisted to play.
@@ -33,6 +39,9 @@
 #define LANGUAGE_SIIK_MAAS "Siik'maas"
 #define LANGUAGE_SIIK_TAJR "Siik'tajr"
 #define LANGUAGE_SIGN_TAJARA "Nal'rasan"
+#define LANGUAGE_YA_SSA "Ya'ssa"
+#define LANGUAGE_DELVAHII "Delvahhi"
+#define LANGUAGE_SIIK_TAU "Siik'Tau"
 #define LANGUAGE_SKRELLIAN "Nral'Malic"
 #define LANGUAGE_RESOMI "Resomi"
 #define LANGUAGE_ROOTSONG "Rootsong"
@@ -53,6 +62,7 @@
 #define LANGUAGE_TERMINATOR "Hephaestus Darkcomms"	// HKs.
 
 // Lesser-form Languages
+#define LANGUAGE_GIBBERING "Gibbering"			// alberyk
 #define LANGUAGE_CHIMPANZEE "Chimpanzee"	// human
 #define LANGUAGE_NEAERA "Neaera"			// skrell
 #define LANGUAGE_STOK "Stok"				// unathi
@@ -74,3 +84,4 @@
 #define INNATE       64  // All mobs can be assumed to speak and understand this language. (audible emotes)
 #define NO_TALK_MSG  128 // Do not show the "\The [speaker] talks into \the [radio]" message
 #define NO_STUTTER   256 // No stuttering, slurring, or other speech problems
+#define TCOMSSIM     512 // Can be synthesized in tcoms

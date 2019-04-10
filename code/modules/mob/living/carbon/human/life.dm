@@ -71,9 +71,6 @@
 		//Random events (vomiting etc)
 		handle_random_events()
 
-		//stuff in the stomach
-		handle_stomach()//This function is in devour.dm
-
 		handle_shock()
 
 		handle_pain()
@@ -82,14 +79,15 @@
 
 		handle_heartbeat()
 
+		handle_brain_damage()
+
 		//Handles regenerating stamina if we have sufficient air and no oxyloss
 		handle_stamina()
 
 		if (is_diona())
 			diona_handle_light(DS)
 
-		if(!client)
-			species.handle_npc(src)
+		handle_shared_dreaming()
 
 	handle_stasis_bag()
 
@@ -104,6 +102,10 @@
 	if(mind && mind.vampire)
 		handle_vampire()
 
+/mob/living/carbon/human/think()
+	..()
+	species.handle_npc(src)
+
 /mob/living/carbon/human/proc/handle_some_updates()
 	if(life_tick > 5 && timeofdeath && (timeofdeath < 5 || world.time - timeofdeath > 6000))	//We are long dead, or we're junk mobs spawned like the clowns on the clown shuttle
 		return 0
@@ -117,7 +119,6 @@
 // Returns 0 (equals 0 %) if sealed in an undamaged suit, 1 if unprotected (equals 100%).
 // Suitdamage can modifiy this in 10% steps.
 /mob/living/carbon/human/proc/get_pressure_weakness()
-
 	var/pressure_adjustment_coefficient = 1 // Assume no protection at first.
 
 	if(wear_suit && (wear_suit.item_flags & STOPPRESSUREDAMAGE) && head && (head.item_flags & STOPPRESSUREDAMAGE)) // Complete set of pressure-proof suit worn, assume fully sealed.
@@ -130,9 +131,6 @@
 				pressure_adjustment_coefficient += S.damage * 0.1
 
 	pressure_adjustment_coefficient = min(1,max(pressure_adjustment_coefficient,0)) // So it isn't less than 0 or larger than 1.
-
-	if(src.get_species() == "Industrial Frame")
-		pressure_adjustment_coefficient = 0 // woo, back-mounted cooling!
 
 	return pressure_adjustment_coefficient
 
@@ -168,7 +166,7 @@
 	//Vision
 	var/obj/item/organ/vision
 	if(species.vision_organ)
-		vision = internal_organs_by_name[species.vision_organ]
+		vision =  internal_organs_by_name[species.vision_organ] || organs_by_name[species.vision_organ]
 
 	if (!vision)
 		if (species.vision_organ) // if they should have eyes but don't, they can't see
@@ -186,14 +184,14 @@
 	else
 		//blindness
 		if(!(sdisabilities & BLIND))
-			if(equipment_tint_total >= TINT_BLIND)	// Covered eyes, heal faster
+			if(!src.is_diona() && equipment_tint_total >= TINT_BLIND)	// Covered eyes, heal faster
 				eye_blurry = max(eye_blurry-2, 0)
 			else
 				eye_blurry = max(eye_blurry-1, 0)
 
 	if (disabilities & EPILEPSY)
 		if ((prob(1) && paralysis < 1))
-			src << "<span class='warning'>You have a seizure!</span>"
+			to_chat(src, "<span class='warning'>You have a seizure!</span>")
 			for(var/mob/O in viewers(src, null))
 				if(O == src)
 					continue
@@ -206,6 +204,11 @@
 			spawn( 0 )
 				emote("cough")
 				return
+
+	if((disabilities & ASTHMA) && getOxyLoss() >= 10)
+		if(prob(5))
+			emote("cough")
+
 	if (disabilities & TOURETTES)
 		speech_problem_flag = 1
 		if ((prob(10) && paralysis <= 1))
@@ -224,7 +227,7 @@
 				pixel_x = old_x
 				pixel_y = old_y
 				return
-	if (disabilities & NERVOUS)
+	if (disabilities & STUTTER)
 		speech_problem_flag = 1
 		if (prob(10))
 			stuttering = max(10, stuttering)
@@ -242,31 +245,32 @@
 
 	if(stat != DEAD)
 		var/rn = rand(0, 200)
-		if(getBrainLoss() >= 5)
+		var/bloss = getBrainLoss()
+		if(bloss >= 5)
 			if(0 <= rn && rn <= 3)
 				custom_pain("Your head feels numb and painful.")
-		if(getBrainLoss() >= 15)
+		if(bloss >= 15)
 			if(4 <= rn && rn <= 6) if(eye_blurry <= 0)
-				src << "<span class='warning'>It becomes hard to see for some reason.</span>"
+				to_chat(src, "<span class='warning'>It becomes hard to see for some reason.</span>")
 				eye_blurry = 10
-		if(getBrainLoss() >= 35)
+		if(bloss >= 35)
 			if(7 <= rn && rn <= 9) if(get_active_hand())
-				src << "<span class='danger'>Your hand won't respond properly, you drop what you're holding!</span>"
+				to_chat(src, "<span class='danger'>Your hand won't respond properly, you drop what you're holding!</span>")
 				drop_item()
-		if(getBrainLoss() >= 45)
+		if(bloss >= 45)
 			if(10 <= rn && rn <= 12)
 				if(prob(50))
-					src << "<span class='danger'>You suddenly black out!</span>"
+					to_chat(src, "<span class='danger'>You suddenly black out!</span>")
 					Paralyse(10)
 				else if(!lying)
-					src << "<span class='danger'>Your legs won't respond properly, you fall down!</span>"
+					to_chat(src, "<span class='danger'>Your legs won't respond properly, you fall down!</span>")
 					Weaken(10)
 
 /mob/living/carbon/human/proc/handle_stasis_bag()
 	// Handle side effects from stasis bag
 	if(in_stasis)
 		// First off, there's no oxygen supply, so the mob will slowly take brain damage
-		adjustBrainLoss(0.1)
+		adjustOxyLoss(0.1)
 
 		// Next, the method to induce stasis has some adverse side-effects, manifesting
 		// as cloneloss
@@ -291,7 +295,6 @@
 
 	total_radiation = Clamp(total_radiation,0,100)
 
-	// #TODO-MERGE: Check vaurca and IPC radiation management
 	if (total_radiation)
 		//var/obj/item/organ/diona/nutrients/rad_organ = locate() in internal_organs
 		if(src.is_diona())
@@ -308,13 +311,13 @@
 				total_radiation -= 1 * RADIATION_SPEED_COEFFICIENT
 				if(prob(5) && prob(100 * RADIATION_SPEED_COEFFICIENT))
 					src.apply_radiation(-5 * RADIATION_SPEED_COEFFICIENT)
-					src << "<span class='warning'>You feel weak.</span>"
+					to_chat(src, "<span class='warning'>You feel weak.</span>")
 					Weaken(3)
 					if(!lying)
 						emote("collapse")
 				if(prob(5) && prob(100 * RADIATION_SPEED_COEFFICIENT) && species.name == "Human") //apes go bald
 					if((h_style != "Bald" || f_style != "Shaved" ))
-						src << "<span class='warning'>Your hair falls out.</span>"
+						to_chat(src, "<span class='warning'>Your hair falls out.</span>")
 						h_style = "Bald"
 						f_style = "Shaved"
 						update_hair()
@@ -325,7 +328,7 @@
 				if(prob(5))
 					take_overall_damage(0, 5 * RADIATION_SPEED_COEFFICIENT, used_weapon = "Radiation Burns")
 				if(prob(1))
-					src << "<span class='warning'>You feel strange!</span>"
+					to_chat(src, "<span class='warning'>You feel strange!</span>")
 					adjustCloneLoss(5 * RADIATION_SPEED_COEFFICIENT)
 					emote("gasp")
 
@@ -410,15 +413,12 @@
 	// Lung damage increases the minimum safe pressure.
 	var/handle_lungs = 0
 	var/obj/item/organ/L = null
-	if(species.has_organ["lungs"] || species.has_organ["breathing apparatus"])
-		L = internal_organs_by_name["lungs"]
-		handle_lungs = 1
-	else if(species.has_organ["breathing apparatus"])
-		L = internal_organs_by_name["breathing apparatus"]
-		handle_lungs = 1
+	if (species.breathing_organ)
+		L = internal_organs_by_name[species.breathing_organ]
+		handle_lungs = TRUE
 
 	if (handle_lungs)
-		if(isnull(L))
+		if(!L)
 			safe_pressure_min = INFINITY //No lungs, how are you breathing?
 		else if(L.is_broken())
 			safe_pressure_min *= 1.5
@@ -493,7 +493,7 @@
 		if(exhaled_pp > safe_exhaled_max)
 			if (!co2_alert|| prob(15))
 				var/word = pick("extremely dizzy","short of breath","faint","confused")
-				src << "<span class='danger'>You feel [word].</span>"
+				to_chat(src, "<span class='danger'>You feel [word].</span>")
 
 			adjustOxyLoss(HUMAN_MAX_OXYLOSS)
 			co2_alert = 1
@@ -502,7 +502,7 @@
 		else if(exhaled_pp > safe_exhaled_max * 0.7)
 			if (!co2_alert || prob(1))
 				var/word = pick("dizzy","short of breath","faint","momentarily confused")
-				src << "<span class='warning'>You feel [word].</span>"
+				to_chat(src, "<span class='warning'>You feel [word].</span>")
 
 			//scale linearly from 0 to 1 between safe_exhaled_max and safe_exhaled_max*0.7
 			var/ratio = 1.0 - (safe_exhaled_max - exhaled_pp)/(safe_exhaled_max*0.3)
@@ -516,7 +516,7 @@
 		else if(exhaled_pp > safe_exhaled_max * 0.6)
 			if (prob(0.3))
 				var/word = pick("a little dizzy","short of breath")
-				src << "<span class='warning'>You feel [word].</span>"
+				to_chat(src, "<span class='warning'>You feel [word].</span>")
 
 		else
 			co2_alert = 0
@@ -543,7 +543,7 @@
 
 			// Enough to make us sleep as well
 			if(SA_pp > SA_sleep_min)
-				Sleeping(5)
+				Sleeping(10)
 
 		// There is sleeping gas in their lungs, but only a little, so give them a bit of a warning
 		else if(SA_pp > 0.15)
@@ -556,7 +556,10 @@
 		failed_last_breath = 1
 	else
 		failed_last_breath = 0
-		adjustOxyLoss(-5)
+		if(disabilities & ASTHMA)
+			adjustOxyLoss(rand(-5,0))
+		else
+			adjustOxyLoss(-5)
 
 
 	// Hot air hurts :(
@@ -564,10 +567,10 @@
 
 		if(breath.temperature <= species.cold_level_1)
 			if(prob(20))
-				src << "<span class='danger'>You feel your face freezing and icicles forming in your lungs!</span>"
+				to_chat(src, "<span class='danger'>You feel your face freezing and icicles forming in your lungs!</span>")
 		else if(breath.temperature >= species.heat_level_1)
 			if(prob(20))
-				src << "<span class='danger'>You feel your face burning and a searing heat in your lungs!</span>"
+				to_chat(src, "<span class='danger'>You feel your face burning and a searing heat in your lungs!</span>")
 
 		if(breath.temperature >= species.heat_level_1)
 			if(breath.temperature < species.heat_level_2)
@@ -603,7 +606,6 @@
 
 		if (temp_adj > BODYTEMP_HEATING_MAX) temp_adj = BODYTEMP_HEATING_MAX
 		if (temp_adj < BODYTEMP_COOLING_MAX) temp_adj = BODYTEMP_COOLING_MAX
-		//world << "Breath: [breath.temperature], [src]: [bodytemperature], Adjusting: [temp_adj]"
 		bodytemperature += temp_adj
 
 	else if(breath.temperature >= species.heat_discomfort_level)
@@ -768,21 +770,15 @@
 
 	if(bodytemperature < species.cold_level_1) //260.15 is 310.15 - 50, the temperature where you start to feel effects.
 		if(nutrition >= 2) //If we are very, very cold we'll use up quite a bit of nutriment to heat us up.
-			nutrition -= 2
+			adjustNutritionLoss(2)
 		var/recovery_amt = max((body_temperature_difference / BODYTEMP_AUTORECOVERY_DIVISOR), BODYTEMP_AUTORECOVERY_MINIMUM)
-		//world << "Cold. Difference = [body_temperature_difference]. Recovering [recovery_amt]"
-//				log_debug("Cold. Difference = [body_temperature_difference]. Recovering [recovery_amt]")
 		bodytemperature += recovery_amt
 	else if(species.cold_level_1 <= bodytemperature && bodytemperature <= species.heat_level_1)
 		var/recovery_amt = body_temperature_difference / BODYTEMP_AUTORECOVERY_DIVISOR
-		//world << "Norm. Difference = [body_temperature_difference]. Recovering [recovery_amt]"
-//				log_debug("Norm. Difference = [body_temperature_difference]. Recovering [recovery_amt]")
 		bodytemperature += recovery_amt
 	else if(bodytemperature > species.heat_level_1) //360.15 is 310.15 + 50, the temperature where you start to feel effects.
 		//We totally need a sweat system cause it totally makes sense...~
 		var/recovery_amt = min((body_temperature_difference / BODYTEMP_AUTORECOVERY_DIVISOR), -BODYTEMP_AUTORECOVERY_MINIMUM)	//We're dealing with negative numbers
-		//world << "Hot. Difference = [body_temperature_difference]. Recovering [recovery_amt]"
-//				log_debug("Hot. Difference = [body_temperature_difference]. Recovering [recovery_amt]")
 		bodytemperature += recovery_amt
 
 	//This proc returns a number made up of the flags for body parts which you are protected on. (such as HEAD, UPPER_TORSO, LOWER_TORSO, etc. See setup.dm for the full list)
@@ -912,13 +908,14 @@
 		if(touching) touching.metabolize()
 		if(ingested) ingested.metabolize()
 		if(bloodstr) bloodstr.metabolize()
+		if(breathing) breathing.metabolize()
 
 		if(CE_PAINKILLER in chem_effects)
 			analgesic = chem_effects[CE_PAINKILLER]
 
 		var/total_phoronloss = 0
 		for(var/obj/item/I in src)
-			if(I.contaminated)
+			if(I.contaminated && !(isvaurca(src) && src.species.has_organ["filtration bit"]))
 				total_phoronloss += vsc.plc.CONTAMINATION_LOSS
 		if(!(status_flags & GODMODE)) adjustToxLoss(total_phoronloss)
 
@@ -927,18 +924,41 @@
 
 	if(status_flags & GODMODE)	return 0	//godmode
 
+	if(species.light_dam)
+		var/light_amount = 0
+		if(isturf(loc))
+			var/turf/T = loc
+			light_amount = T.get_lumcount() * 10
+		if(light_amount > species.light_dam) //if there's enough light, start dying
+			take_overall_damage(5,5)
+		else //heal in the dark
+			heal_overall_damage(5,5)
 
-	// nutrition decrease
-	if (nutrition > 0 && stat != 2)
-		nutrition = max (0, nutrition - nutrition_loss)
+	// nutrition decrease over time
+	if(max_nutrition > 0)
+		if (nutrition > 0 && stat != 2)
+			adjustNutritionLoss(nutrition_loss * nutrition_attrition_rate)
 
-	if (nutrition > max_nutrition)
-		if(overeatduration < 600) //capped so people don't take forever to unfat
-			overeatduration++
-	else
-		if(overeatduration > 1)
-			overeatduration -= 2 //doubled the unfat rate
+		if (nutrition / max_nutrition > CREW_NUTRITION_OVEREATEN)
+			adjustNutritionLoss(1)
+			if(overeatduration < 600) //capped so people don't take forever to unfat
+				overeatduration++
+		else
+			if(overeatduration > 1)
+				overeatduration -= 2 //doubled the unfat rate
 
+	// hydration decrease over time
+	if(max_hydration > 0)
+		if (hydration > 0 && stat != 2)
+			adjustHydrationLoss(hydration_loss * hydration_attrition_rate)
+
+		if (hydration / max_hydration > CREW_HYDRATION_OVERHYDRATED)
+			adjustHydrationLoss(2)
+			if(overdrinkduration < 600) //capped so people don't take forever to undrink
+				overdrinkduration++
+		else
+			if(overdrinkduration > 1)
+				overdrinkduration -= 2 //doubled the undrink rate
 
 	// TODO: stomach and bloodstream organ.
 	if(!isSynthetic())
@@ -998,7 +1018,7 @@
 				qdel(a)
 
 		if(halloss > 100)
-			src << "<span class='warning'>[species.halloss_message_self]</span>"
+			to_chat(src, "<span class='warning'>[species.halloss_message_self]</span>")
 			src.visible_message("<B>[src]</B> [species.halloss_message].")
 			Paralyse(10)
 			setHalLoss(99)
@@ -1019,7 +1039,7 @@
 			handle_dreams()
 			if (mind)
 				//Are they SSD? If so we'll keep them asleep but work off some of that sleep var in case of stoxin or similar.
-				if(client || sleeping > 3)
+				if(client || sleeping > 3 || istype(bg))
 					AdjustSleeping(-1)
 			if( prob(2) && health && !hal_crit )
 				spawn(0)
@@ -1027,6 +1047,7 @@
 		//CONSCIOUS
 		else
 			stat = CONSCIOUS
+			willfully_sleeping = 0
 
 		// Check everything else.
 
@@ -1078,6 +1099,11 @@
 	return 1
 
 
+/mob/living/carbon/human
+	var/tmp/last_brute_overlay
+	var/tmp/last_frenzy_state
+	var/tmp/last_oxy_overlay
+
 /mob/living/carbon/human/handle_regular_hud_updates()
 	if(hud_updateflag) // update our mob's hud overlays, AKA what others see flaoting above our head
 		handle_hud_list()
@@ -1086,32 +1112,36 @@
 	if(!..())
 		return
 
-	damageoverlay.cut_overlays()
-
 	if(stat == UNCONSCIOUS)
 		//Critical damage passage overlay
 		if(health <= 0)
+			var/ovr = "passage0"
 			switch(health)
 				if(-20 to -10)
-					damageoverlay.add_overlay("passage1")
+					ovr = "passage1"
 				if(-30 to -20)
-					damageoverlay.add_overlay("passage2")
+					ovr = "passage2"
 				if(-40 to -30)
-					damageoverlay.add_overlay("passage3")
+					ovr = "passage3"
 				if(-50 to -40)
-					damageoverlay.add_overlay("passage4")
+					ovr = "passage4"
 				if(-60 to -50)
-					damageoverlay.add_overlay("passage5")
+					ovr = "passage5"
 				if(-70 to -60)
-					damageoverlay.add_overlay("passage6")
+					ovr = "passage6"
 				if(-80 to -70)
-					damageoverlay.add_overlay("passage7")
+					ovr = "passage7"
 				if(-90 to -80)
-					damageoverlay.add_overlay("passage8")
+					ovr = "passage8"
 				if(-95 to -90)
-					damageoverlay.add_overlay("passage9")
+					ovr = "passage9"
 				if(-INFINITY to -95)
-					damageoverlay.add_overlay("passage10")
+					ovr = "passage10"
+
+			if (ovr != last_brute_overlay)
+				damageoverlay.cut_overlay(last_brute_overlay)
+				damageoverlay.add_overlay(ovr)
+				last_brute_overlay = ovr
 	else
 		//Oxygen damage overlay
 		update_oxy_overlay()
@@ -1119,63 +1149,123 @@
 		// Vampire frenzy overlay.
 		if (mind.vampire)
 			if (mind.vampire.status & VAMP_FRENZIED)
-				damageoverlay.add_overlay("frenzyoverlay")
+				if (!last_frenzy_state)
+					damageoverlay.add_overlay("frenzyoverlay")
+					last_frenzy_state = TRUE
+			else if (last_frenzy_state)
+				damageoverlay.cut_overlay("frenzyoverlay")
+				last_frenzy_state = FALSE
+		else if (last_frenzy_state)
+			damageoverlay.cut_overlay("frenzyoverlay")
+			last_frenzy_state = FALSE
 
 		//Fire and Brute damage overlay (BSSR)
 		var/hurtdamage = src.getBruteLoss() + src.getFireLoss() + damageoverlaytemp
 		damageoverlaytemp = 0 // We do this so we can detect if someone hits us or not.
 		if(hurtdamage)
+			var/ovr
 			switch(hurtdamage)
 				if(10 to 25)
-					damageoverlay.add_overlay("brutedamageoverlay1")
+					ovr = "brutedamageoverlay1"
 				if(25 to 40)
-					damageoverlay.add_overlay("brutedamageoverlay2")
+					ovr = "brutedamageoverlay2"
 				if(40 to 55)
-					damageoverlay.add_overlay("brutedamageoverlay3")
+					ovr = "brutedamageoverlay3"
 				if(55 to 70)
-					damageoverlay.add_overlay("brutedamageoverlay4")
+					ovr = "brutedamageoverlay4"
 				if(70 to 85)
-					damageoverlay.add_overlay("brutedamageoverlay5")
+					ovr = "brutedamageoverlay5"
 				if(85 to INFINITY)
-					damageoverlay.add_overlay("brutedamageoverlay6")
+					ovr = "brutedamageoverlay6"
+
+			if (last_brute_overlay != ovr)
+				damageoverlay.cut_overlay(last_brute_overlay)
+				damageoverlay.add_overlay(ovr)
+				last_brute_overlay = ovr
+		else if (last_brute_overlay)
+			damageoverlay.cut_overlay(last_brute_overlay)
+			last_brute_overlay = null
 
 		update_health_display()
 
-		//Update hunger UI less often, its not important
-		if((life_tick % 3 == 0) && nutrition_icon)
-			var/nut_factor = max(1,nutrition) / max_nutrition
-			switch(nut_factor)
-				if(1 to INFINITY)				nutrition_icon.icon_state = "nutrition0"
-				if(0.75 to 1)					nutrition_icon.icon_state = "nutrition1"
-				if(0.5 to 0.75)					nutrition_icon.icon_state = "nutrition2"
-				if(0.25 to 0.5)					nutrition_icon.icon_state = "nutrition3"
-				else							nutrition_icon.icon_state = "nutrition4"
+		//Update hunger and thirst UI less often, its not important
+		if((life_tick % 3 == 0))
+			if(nutrition_icon)
+				var/nut_factor = max(0,min(nutrition / max_nutrition,1))
+				var/nut_icon = 5 //5 to 0, with 5 being lowest, 0 being highest
+				if(nut_factor >= CREW_NUTRITION_OVEREATEN)
+					nut_icon = 0
+				else if (nut_factor >= CREW_NUTRITION_FULL)
+					nut_icon = 1
+				else if (nut_factor >= CREW_NUTRITION_SLIGHTLYHUNGRY)
+					nut_icon = 2
+				else if (nut_factor >= CREW_NUTRITION_HUNGRY)
+					nut_icon = 3
+				else if (nut_factor >= CREW_NUTRITION_VERYHUNGRY )
+					nut_icon = 4
+				var/new_val = "nutrition[nut_icon]"
+				if (nutrition_icon.icon_state != new_val)
+					nutrition_icon.icon_state = new_val
+			if(hydration_icon)
+				var/hyd_factor = max(0,min(hydration / max_hydration,1))
+				var/hyd_icon = 5
+				if(hyd_factor >= CREW_HYDRATION_OVERHYDRATED)
+					hyd_icon = 0
+				else if(hyd_factor >= CREW_HYDRATION_HYDRATED)
+					hyd_icon = 1
+				else if(hyd_factor >= CREW_HYDRATION_SLIGHTLYTHIRSTY)
+					hyd_icon = 2
+				else if(hyd_factor >= CREW_HYDRATION_THIRSTY)
+					hyd_icon = 3
+				else if(hyd_factor >= CREW_HYDRATION_VERYTHIRSTY)
+					hyd_icon = 4
+				var/new_val = "thirst[hyd_icon]"
+				if (hydration_icon.icon_state != new_val)
+					hydration_icon.icon_state = new_val
 
 		if(pressure)
-			pressure.icon_state = "pressure[pressure_alert]"
+			var/new_pressure = "pressure[pressure_alert]"
+			if (pressure.icon_state != new_pressure)
+				pressure.icon_state = new_pressure
 
 		if(toxin)
-			if(hal_screwyhud == 4 || phoron_alert)	toxin.icon_state = "tox1"
-			else									toxin.icon_state = "tox0"
+			var/new_tox = (hal_screwyhud == 4 || phoron_alert) ? "tox1" : "tox0"
+			if (toxin.icon_state != new_tox)
+				toxin.icon_state = new_tox
+
 		if(oxygen)
-			if(hal_screwyhud == 3 || oxygen_alert)	oxygen.icon_state = "oxy1"
-			else									oxygen.icon_state = "oxy0"
+			var/new_oxy = (hal_screwyhud == 3 || oxygen_alert) ? "oxy1" : "oxy0"
+			if (oxygen.icon_state != new_oxy)
+				oxygen.icon_state = new_oxy
+
 		if(fire)
-			if(fire_alert)							fire.icon_state = "fire[fire_alert]" //fire_alert is either 0 if no alert, 1 for cold and 2 for heat.
-			else									fire.icon_state = "fire0"
+			//fire_alert is either 0 if no alert, 1 for cold and 2 for heat.
+			var/new_fire = fire_alert ? "fire[fire_alert]" : "fire0"
+			if (fire.icon_state != new_fire)
+				fire.icon_state = new_fire
 
 		if(bodytemp)
+			var/new_temp
 			if (!species)
 				switch(bodytemperature) //310.055 optimal body temp
-					if(370 to INFINITY)		bodytemp.icon_state = "temp4"
-					if(350 to 370)			bodytemp.icon_state = "temp3"
-					if(335 to 350)			bodytemp.icon_state = "temp2"
-					if(320 to 335)			bodytemp.icon_state = "temp1"
-					if(300 to 320)			bodytemp.icon_state = "temp0"
-					if(295 to 300)			bodytemp.icon_state = "temp-1"
-					if(280 to 295)			bodytemp.icon_state = "temp-2"
-					if(260 to 280)			bodytemp.icon_state = "temp-3"
-					else					bodytemp.icon_state = "temp-4"
+					if(370 to INFINITY)
+						new_temp = "temp4"
+					if(350 to 370)
+						new_temp = "temp3"
+					if(335 to 350)
+						new_temp = "temp2"
+					if(320 to 335)
+						new_temp = "temp1"
+					if(300 to 320)
+						new_temp = "temp0"
+					if(295 to 300)
+						new_temp = "temp-1"
+					if(280 to 295)
+						new_temp = "temp-2"
+					if(260 to 280)
+						new_temp = "temp-3"
+					else
+						new_temp = "temp-4"
 			else
 				//TODO: precalculate all of this stuff when the species datum is created
 				var/base_temperature = species.body_temperature
@@ -1187,29 +1277,33 @@
 					temp_step = (species.heat_level_1 - base_temperature)/4
 
 					if (bodytemperature >= species.heat_level_1)
-						bodytemp.icon_state = "temp4"
+						new_temp = "temp4"
 					else if (bodytemperature >= base_temperature + temp_step*3)
-						bodytemp.icon_state = "temp3"
+						new_temp = "temp3"
 					else if (bodytemperature >= base_temperature + temp_step*2)
-						bodytemp.icon_state = "temp2"
+						new_temp = "temp2"
 					else if (bodytemperature >= base_temperature + temp_step*1)
-						bodytemp.icon_state = "temp1"
+						new_temp = "temp1"
 					else
-						bodytemp.icon_state = "temp0"
+						new_temp = "temp0"
 
 				else if (bodytemperature < base_temperature)
 					temp_step = (base_temperature - species.cold_level_1)/4
 
 					if (bodytemperature <= species.cold_level_1)
-						bodytemp.icon_state = "temp-4"
+						new_temp = "temp-4"
 					else if (bodytemperature <= base_temperature - temp_step*3)
-						bodytemp.icon_state = "temp-3"
+						new_temp = "temp-3"
 					else if (bodytemperature <= base_temperature - temp_step*2)
-						bodytemp.icon_state = "temp-2"
+						new_temp = "temp-2"
 					else if (bodytemperature <= base_temperature - temp_step*1)
-						bodytemp.icon_state = "temp-1"
+						new_temp = "temp-1"
 					else
-						bodytemp.icon_state = "temp0"
+						new_temp = "temp0"
+
+			if (bodytemp.icon_state != new_temp)
+				bodytemp.icon_state = new_temp
+
 	return 1
 
 /mob/living/carbon/human/handle_random_events()
@@ -1227,7 +1321,7 @@
 	//0.1% chance of playing a scary sound to someone who's in complete darkness
 	if(isturf(loc) && rand(1,1000) == 1)
 		var/turf/T = loc
-		if(T.dynamic_lighting && T.get_lumcount() < 0.01)	// give a little bit of tolerance for near-dark areas.
+		if(T.get_lumcount() < 0.01)	// give a little bit of tolerance for near-dark areas.
 			playsound_local(src,pick(scarySounds),50, 1, -1)
 
 /mob/living/carbon/human/proc/handle_changeling()
@@ -1237,7 +1331,7 @@
 /mob/living/carbon/human/handle_shock()
 	..()
 	if(status_flags & GODMODE)	return 0	//godmode
-	if(species && species.flags & NO_PAIN) return
+	if(!can_feel_pain()) return
 
 	if(health < config.health_threshold_softcrit)// health 0 makes you immediately collapse
 		shock_stage = max(shock_stage, 61)
@@ -1252,7 +1346,8 @@
 		return
 
 	if(shock_stage == 10)
-		src << "<span class='danger'>[pick("It hurts so much", "You really need some painkillers", "Dear god, the pain")]!</span>"
+		var/painful = pick("It hurts so much", "You really need some painkillers", "Dear god, the pain")
+		to_chat(src, "<span class='danger'>[painful]!</span>")
 
 	if(shock_stage >= 30)
 		if(shock_stage == 30) emote("me",1,"is having trouble keeping their eyes open.")
@@ -1260,22 +1355,26 @@
 		stuttering = max(stuttering, 5)
 
 	if(shock_stage == 40)
-		src << "<span class='danger'>[pick("The pain is excruciating", "Please, just end the pain", "Your whole body is going numb")]!</span>"
+		var/painful = pick("The pain is excruciating", "Please, just end the pain", "Your whole body is going numb")
+		to_chat(src, "<span class='danger'>[painful]!</span>")
 
 	if (shock_stage >= 60)
 		if(shock_stage == 60) emote("me",1,"'s body becomes limp.")
 		if (prob(2))
-			src << "<span class='danger'>[pick("The pain is excruciating", "Please, just end the pain", "Your whole body is going numb")]!</span>"
+			var/painful = pick("The pain is excruciating", "Please, just end the pain", "Your whole body is going numb")
+			to_chat(src, "<span class='danger'>[painful]!</span>")
 			Weaken(20)
 
 	if(shock_stage >= 80)
 		if (prob(5))
-			src << "<span class='danger'>[pick("The pain is excruciating", "Please, just end the pain", "Your whole body is going numb")]!</span>"
+			var/painful = pick("The pain is excruciating", "Please, just end the pain", "Your whole body is going numb")
+			to_chat(src, "<span class='danger'>[painful]!</span>")
 			Weaken(20)
 
 	if(shock_stage >= 120)
 		if (prob(2))
-			src << "<span class='danger'>[pick("You black out", "You feel like you could die any moment now", "You're about to lose consciousness")]!</span>"
+			var/blacked = pick("You black out", "You feel like you could die any moment now", "You're about to lose consciousness")
+			to_chat(src, "<span class='danger'>[blacked]!</span>")
 			Paralyse(5)
 
 	if(shock_stage == 150)
@@ -1439,6 +1538,9 @@
 					if((R.fields["id"] == E.fields["id"]) && (R.fields["criminal"] == "*Arrest*"))
 						holder.icon_state = "hudwanted"
 						break
+					else if((R.fields["id"] == E.fields["id"]) && (R.fields["criminal"] == "Search"))
+						holder.icon_state = "hudsearch"
+						break
 					else if((R.fields["id"] == E.fields["id"]) && (R.fields["criminal"] == "Incarcerated"))
 						holder.icon_state = "hudprisoner"
 						break
@@ -1447,7 +1549,6 @@
 						break
 					else if((R.fields["id"] == E.fields["id"]) && (R.fields["criminal"] == "Released"))
 						holder.icon_state = "hudreleased"
-						break
 		hud_list[WANTED_HUD] = holder
 
 	if (  BITTEST(hud_updateflag, IMPLOYAL_HUD) \
@@ -1496,7 +1597,7 @@
 	return slurring
 
 /mob/living/carbon/human/handle_stunned()
-	if(species.flags & NO_PAIN)
+	if(!can_feel_pain())
 		stunned = 0
 		return 0
 	if(..())
@@ -1507,6 +1608,11 @@
 	if(..())
 		speech_problem_flag = 1
 	return stuttering
+
+/mob/living/carbon/human/handle_tarded()
+	if(..())
+		speech_problem_flag = 1
+	return tarded
 
 /mob/living/carbon/human/handle_fire()
 	if(..())
@@ -1560,21 +1666,28 @@
 	if (!exhaust_threshold) // Also quit if there's no exhaust threshold specified, because division by 0 is amazing.
 		return
 
-	if (failed_last_breath || oxyloss > exhaust_threshold)//Can't catch our breath if we're suffocating
+	if (failed_last_breath || (oxyloss + halloss) > exhaust_threshold)//Can't catch our breath if we're suffocating
+		flash_pain()
 		return
 
 	if (nutrition <= 0)
 		if (prob(1.5))
-			src << span("warning", "You feel hungry and exhausted, eat something to regain your energy!")
+			to_chat(src, span("warning", "You feel hungry and exhausted, eat something to regain your energy!"))
+		return
+
+	if (hydration <= 0)
+		if (prob(1.5))
+			to_chat(src, span("warning", "You feel thirsty and exhausted, drink something to regain your energy!"))
 		return
 
 	if (stamina != max_stamina)
 		//Any suffocation damage slows stamina regen.
 		//This includes oxyloss from low blood levels
-		var/regen = stamina_recovery * (1 - min(((oxyloss*2) / exhaust_threshold), 1))
+		var/regen = stamina_recovery * (1 - min(((oxyloss) / exhaust_threshold) + ((halloss) / exhaust_threshold), 1))
 		if (regen > 0)
 			stamina = min(max_stamina, stamina+regen)
-			nutrition = max(0, nutrition - stamina_recovery*0.18)
+			adjustNutritionLoss(stamina_recovery*0.09)
+			adjustHydrationLoss(stamina_recovery*0.32)
 			if (client)
 				hud_used.move_intent.update_move_icon(src)
 
@@ -1582,40 +1695,74 @@
 	if(!healths)
 		return
 
-	if (analgesic > 100)
-		healths.icon_state = "health_numb"
+	var/new_state
+	if (stat == DEAD)
+		new_state = "health7"
+	else if (analgesic > 100)
+		new_state = "health_numb"
 	else
 		switch(hal_screwyhud)
-			if(1)	healths.icon_state = "health6"
-			if(2)	healths.icon_state = "health7"
+			if(1)
+				new_state = "health6"
+			if(2)
+				new_state = "health7"
 			else
 				//switch(health - halloss)
 				switch(health - traumatic_shock)
-					if(100 to INFINITY)		healths.icon_state = "health0"
-					if(80 to 100)			healths.icon_state = "health1"
-					if(60 to 80)			healths.icon_state = "health2"
-					if(40 to 60)			healths.icon_state = "health3"
-					if(20 to 40)			healths.icon_state = "health4"
-					if(0 to 20)				healths.icon_state = "health5"
-					else					healths.icon_state = "health6"
+					if(100 to INFINITY)
+						new_state = "health0"
+					if(80 to 100)
+						new_state = "health1"
+					if(60 to 80)
+						new_state = "health2"
+					if(40 to 60)
+						new_state = "health3"
+					if(20 to 40)
+						new_state = "health4"
+					if(0 to 20)
+						new_state = "health5"
+					else
+						new_state = "health6"
+
+	if (healths.icon_state != new_state)
+		healths.icon_state = new_state
 
 /mob/living/carbon/human/proc/update_oxy_overlay()
+	var/new_oxy
 	if(oxyloss)
 		switch(oxyloss)
 			if(10 to 20)
-				damageoverlay.add_overlay("oxydamageoverlay1")
+				new_oxy = "oxydamageoverlay1"
 			if(20 to 25)
-				damageoverlay.add_overlay("oxydamageoverlay2")
+				new_oxy = "oxydamageoverlay2"
 			if(25 to 30)
-				damageoverlay.add_overlay("oxydamageoverlay3")
+				new_oxy = "oxydamageoverlay3"
 			if(30 to 35)
-				damageoverlay.add_overlay("oxydamageoverlay4")
+				new_oxy = "oxydamageoverlay4"
 			if(35 to 40)
-				damageoverlay.add_overlay("oxydamageoverlay5")
+				new_oxy = "oxydamageoverlay5"
 			if(40 to 45)
-				damageoverlay.add_overlay("oxydamageoverlay6")
+				new_oxy = "oxydamageoverlay6"
 			if(45 to INFINITY)
-				damageoverlay.add_overlay("oxydamageoverlay7")
+				new_oxy = "oxydamageoverlay7"
+
+		if (new_oxy != last_oxy_overlay)
+			damageoverlay.cut_overlay(last_oxy_overlay)
+			damageoverlay.add_overlay(new_oxy)
+			last_oxy_overlay = new_oxy
+	else if (last_oxy_overlay)
+		damageoverlay.cut_overlay(last_oxy_overlay)
+		last_oxy_overlay = null
+
+////////////////
+//BRAIN DAMAGE//
+////////////////
+
+/mob/living/carbon/human/proc/handle_brain_damage()
+	for(var/T in get_traumas())
+		var/datum/brain_trauma/BT = T
+		if(!BT.suppressed)
+			BT.on_life()
 
 #undef HUMAN_MAX_OXYLOSS
 #undef HUMAN_CRIT_MAX_OXYLOSS

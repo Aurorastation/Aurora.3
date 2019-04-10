@@ -1,6 +1,6 @@
 /obj/effect/portal
 	name = "portal"
-	desc = "Looks unstable. Best to test it with the clown."
+	desc = "Looks unstable. Best to test it carefully."
 	icon = 'icons/obj/stationobjs.dmi'
 	icon_state = "portal"
 	density = 1
@@ -10,7 +10,7 @@
 	var/creator = null
 	anchored = 1.0
 
-/obj/effect/portal/Bumped(mob/M as mob|obj)
+/obj/effect/portal/CollidedWith(mob/M as mob|obj)
 	set waitfor = FALSE
 	src.teleport(M)
 

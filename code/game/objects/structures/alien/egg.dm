@@ -1,4 +1,10 @@
+#define BURST 0
+#define BURSTING 1
+#define GROWING 2
+#define GROWN 3
+
 #define MAX_PROGRESS 100
+
 
 /obj/structure/alien/egg
 	desc = "It looks like a weird egg."
@@ -6,91 +12,85 @@
 	icon_state = "egg_growing"
 	density = 0
 	anchored = 1
+	var/status = GROWING //can be GROWING, GROWN or BURST; all mutually exclusive
 	var/progress = 0
 
-/obj/structure/alien/egg/New()
-	..()
-	processing_objects += src
+/obj/structure/alien/egg/Initialize()
+	. = ..()
+	START_PROCESSING(SSprocessing, src)
 
 /obj/structure/alien/egg/Destroy()
-	processing_objects -= src
+	STOP_PROCESSING(SSprocessing, src)
 	return ..()
-
-/obj/structure/alien/egg/CanUseTopic(var/mob/user)
-	return isobserver(user) ? STATUS_INTERACTIVE : STATUS_CLOSE
-
-/obj/structure/alien/egg/Topic(href, href_list)
-	if(..())
-		return 1
-
-	if(href_list["spawn"])
-		attack_ghost(usr)
 
 /obj/structure/alien/egg/process()
 	progress++
 	if(progress >= MAX_PROGRESS)
-		for(var/mob/M in dead_mob_list)
-			if(istype(M,/mob/dead) && M.client && M.client.prefs && (MODE_XENOMORPH in M.client.prefs.be_special_role))
-				M << "[ghost_follow_link(src, M)] <span class='notice'>An alien is ready to hatch! (<a href='byond://?src=\ref[src];spawn=1'>spawn</a>)</span>"
-		processing_objects -= src
+		Grow()
+		STOP_PROCESSING(SSprocessing, src)
 		update_icon()
 
-/obj/structure/alien/egg/update_icon()
-	if(progress == -1)
+/obj/structure/alien/egg/attack_hand(user as mob)
+	var/mob/living/carbon/M = user
+	if(!istype(M) || !(locate(/obj/item/organ/xenos/hivenode) in M.internal_organs))
+		return
+
+	switch(status)
+		if(BURST)
+			to_chat(user, "<span class='warning'>You clear the hatched egg.</span>")
+			qdel(src)
+			return
+		if(GROWING)
+			to_chat(user, "<span class='warning'>The child is not developed yet.</span>")
+			return
+		if(GROWN)
+			to_chat(user, "<span class='warning'>You retrieve the child.</span>")
+			Burst(0)
+			return
+
+/obj/structure/alien/egg/proc/GetFacehugger()
+	return locate(/obj/item/clothing/mask/facehugger) in contents
+
+/obj/structure/alien/egg/proc/Grow()
+	icon_state = "egg"
+	status = GROWN
+	new /obj/item/clothing/mask/facehugger(src)
+	return
+
+/obj/structure/alien/egg/proc/Burst(var/kill = 1) //drops and kills the hugger if any is remaining
+	if(status == GROWN || status == GROWING)
 		icon_state = "egg_hatched"
-	else if(progress < MAX_PROGRESS)
-		icon_state = "egg_growing"
+		flick("egg_opening", src)
+		status = BURSTING
+		addtimer(CALLBACK(src, .proc/givefacehugger, kill), 15)
+
+/obj/structure/alien/egg/proc/givefacehugger(var/kill = 1)
+	var/obj/item/clothing/mask/facehugger/child = GetFacehugger()
+	status = BURST
+	child.forceMove(get_turf(src))
+
+	if(kill && istype(child))
+		child.Die()
 	else
-		icon_state = "egg"
+		for(var/mob/M in range(1,src))
+			if(CanHug(M))
+				child.Attach(M)
+				break
 
-/obj/structure/alien/egg/attack_ghost(var/mob/dead/observer/user)
-	if(progress == -1) //Egg has been hatched.
-		return
+/obj/structure/alien/egg/HasProximity(atom/movable/AM as mob|obj)
+	if(status == GROWN)
+		if(!CanHug(AM))
+			return
 
-	if(progress < MAX_PROGRESS)
-		user << "\The [src] has not yet matured."
-		return
+		var/mob/living/carbon/C = AM
+		if(C.stat == CONSCIOUS && C.status_flags & XENO_HOST)
+			return
 
-	if(!user.MayRespawn(1))
-		return
+		Burst(0)
 
-	// Check for bans properly.
-	if(jobban_isbanned(user, "Xenomorph"))
-		user << "<span class='danger'>You are banned from playing a Xenomorph.</span>"
-		return
-
-	var/confirm = alert(user, "Are you sure you want to join as a Xenomorph larva?", "Become Larva", "No", "Yes")
-
-	if(!src || confirm != "Yes")
-		return
-
-	if(!user || !user.ckey)
-		return
-
-	if(progress == -1) //Egg has been hatched.
-		user << "Too slow..."
-		return
-
-	flick("egg_opening",src)
-	progress = -1 // No harvesting pls.
-	sleep(5)
-
-	if(!src || !user)
-		visible_message("<span class='alium'>\The [src] writhes with internal motion, but nothing comes out.</span>")
-		progress = MAX_PROGRESS // Someone else can have a go.
-		return // What a pain.
-
-	// Create the mob, transfer over key.
-	var/mob/living/carbon/alien/larva/larva = new(get_turf(src))
-	larva.ckey = user.ckey
-	spawn(-1)
-		if(user) qdel(user) // Remove the keyless ghost if it exists.
-
-	visible_message("<span class='alium'>\The [src] splits open with a wet slithering noise, and \the [larva] writhes free!</span>")
-
-	// Turn us into a hatched egg.
-	name = "hatched alien egg"
-	desc += " This one has hatched."
-	update_icon()
+#undef BURST
+#undef BURSTING
+#undef GROWING
+#undef GROWN
 
 #undef MAX_PROGRESS

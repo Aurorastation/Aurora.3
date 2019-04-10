@@ -36,15 +36,15 @@
 			if(!istype(D))
 				return
 
-			D << "<span class='danger'>You begin decompiling [M].</span>"
+			to_chat(D, "<span class='danger'>You begin decompiling [M].</span>")
 
 			if(!do_after(D,50))
-				D << "<span class='danger'>You need to remain still while decompiling such a large object.</span>"
+				to_chat(D, "<span class='danger'>You need to remain still while decompiling such a large object.</span>")
 				return
 
 			if(!M || !D) return
 
-			D << "<span class='danger'>You carefully and thoroughly decompile [M], storing as much of its resources as you can within yourself.</span>"
+			to_chat(D, "<span class='danger'>You carefully and thoroughly decompile [M], storing as much of its resources as you can within yourself.</span>")
 			qdel(M)
 			new/obj/effect/decal/cleanable/blood/oil(get_turf(src))
 
@@ -58,7 +58,7 @@
 				plastic.add_charge(1000)
 
 
-		else if(istype(M,/mob/living/simple_animal/lizard) || istype(M,/mob/living/simple_animal/mouse))
+		else if(istype(M,/mob/living/simple_animal/lizard) || (istype(M,/mob/living/simple_animal/mouse) && M.mob_size <= 2))
 			src.loc.visible_message("<span class='danger'>[src.loc] sucks [M] into its decompiler. There's a horrible crunching noise.</span>","<span class='danger'>It's a bit of a struggle, but you manage to suck [M] into your decompiler. It makes a series of visceral crunching noises.</span>")
 			new/obj/effect/decal/cleanable/blood/splatter(get_turf(src))
 			qdel(M)
@@ -130,9 +130,9 @@
 		grabbed_something = 1
 
 	if(grabbed_something)
-		user << "<span class='notice'>You deploy your decompiler and clear out the contents of \the [T].</span>"
+		to_chat(user, "<span class='notice'>You deploy your decompiler and clear out the contents of \the [T].</span>")
 	else
-		user << "<span class='danger'>Nothing on \the [T] is useful to you.</span>"
+		to_chat(user, "<span class='danger'>Nothing on \the [T] is useful to you.</span>")
 	return
 
 
@@ -142,7 +142,7 @@
 /mob/living/silicon/robot/drone/installed_modules()
 
 	if(weapon_lock)
-		src << "<span class='danger'>Weapon lock active, unable to use modules! Count:[weaponlock_time]</span>"
+		to_chat(src, "<span class='danger'>Weapon lock active, unable to use modules! Count:[weaponlock_time]</span>")
 		return
 
 	if(!module)
@@ -173,7 +173,8 @@
 		else
 			module_string += text("[O]: <A HREF=?src=\ref[src];act=\ref[O]>Activate</A><BR>")
 
-		if((istype(O,/obj/item/weapon) || istype(O,/obj/item/device)) && !(istype(O,/obj/item/stack/cable_coil)))
+		var/obj/item/I = O
+		if((istype(I,/obj/item/weapon) || istype(I,/obj/item/device)) && !(I.iscoil()))
 			tools += module_string
 		else
 			resources += module_string

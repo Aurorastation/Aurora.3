@@ -78,31 +78,31 @@
 	if(O.GetID())
 		if((has_master_access(O) || access_scanner.allowed(user)) && !open && !emagged)
 			locked = !locked
-			user << "<span class='notice'>Controls are now [locked ? "locked." : "unlocked."]</span>"
+			to_chat(user, "<span class='notice'>Controls are now [locked ? "locked." : "unlocked."]</span>")
 		else
 			if(emagged)
-				user << "<span class='warning'>ERROR</span>"
+				to_chat(user, "<span class='warning'>ERROR</span>")
 			if(open)
-				user << "<span class='warning'>Please close the access panel before locking it.</span>"
+				to_chat(user, "<span class='warning'>Please close the access panel before locking it.</span>")
 			else
-				user << "<span class='warning'>Access denied.</span>"
+				to_chat(user, "<span class='warning'>Access denied.</span>")
 		return
-	else if(istype(O, /obj/item/weapon/screwdriver))
+	else if(O.isscrewdriver())
 		if(!locked)
 			open = !open
-			user << "<span class='notice'>Maintenance panel is now [open ? "opened" : "closed"].</span>"
+			to_chat(user, "<span class='notice'>Maintenance panel is now [open ? "opened" : "closed"].</span>")
 		else
-			user << "<span class='notice'>You need to unlock the controls first.</span>"
+			to_chat(user, "<span class='notice'>You need to unlock the controls first.</span>")
 		return
-	else if(istype(O, /obj/item/weapon/weldingtool))
+	else if(O.iswelder())
 		if(health < maxHealth)
 			if(open)
 				health = min(maxHealth, health + 10)
 				user.visible_message("<span class='notice'>[user] repairs [src].</span>","<span class='notice'>You repair [src].</span>")
 			else
-				user << "<span class='notice'>Unable to repair with the maintenance panel closed.</span>"
+				to_chat(user, "<span class='notice'>Unable to repair with the maintenance panel closed.</span>")
 		else
-			user << "<span class='notice'>[src] does not need a repair.</span>"
+			to_chat(user, "<span class='notice'>[src] does not need a repair.</span>")
 		return
 	else
 		..()
@@ -117,13 +117,13 @@
 
 	..(message, null, verb)
 
-/mob/living/bot/Bump(var/atom/A)
+/mob/living/bot/Collide(atom/A)
 	if(on && botcard && istype(A, /obj/machinery/door))
 		var/obj/machinery/door/D = A
 		if(!istype(D, /obj/machinery/door/firedoor) && !istype(D, /obj/machinery/door/blast) && D.check_access(botcard))
 			D.open()
 	else
-		..()
+		. = ..()
 
 /mob/living/bot/emag_act(var/remaining_charges, var/mob/user)
 	return 0

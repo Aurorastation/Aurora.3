@@ -15,7 +15,6 @@
 		slot_l_hand_str = "caphat",
 		slot_r_hand_str = "caphat"
 		)
-	body_parts_covered = 0
 
 /obj/item/clothing/head/caphat/cap
 	name = "captain's cap"
@@ -39,7 +38,6 @@
 	desc = "It's hood that covers the head. It keeps you warm during the space winters."
 	icon_state = "chaplain_hood"
 	flags_inv = BLOCKHAIR
-	body_parts_covered = HEAD
 
 //Chaplain
 /obj/item/clothing/head/nun_hood
@@ -47,14 +45,12 @@
 	desc = "Maximum piety in this star system."
 	icon_state = "nun_hood"
 	flags_inv = BLOCKHAIR
-	body_parts_covered = HEAD
 
 //Mime
 /obj/item/clothing/head/beret
 	name = "beret"
 	desc = "A beret, an artists favorite headwear."
 	icon_state = "beret"
-	body_parts_covered = 0
 
 //berets
 /obj/item/clothing/head/beret/sec
@@ -96,7 +92,7 @@
 	name = "captains beret"
 	desc = "A white beret adorned with the shield - a silver kite shield with an engraved sword - of the NanoTrasen security forces."
 	icon_state = "centcomcaptain"
-  
+
 /obj/item/clothing/head/beret/centcom/commander
 	name = "commanders beret"
 	desc = "A white beret adorned with the crest of an ERT detachment. Worn by commanders of Nanotrasen response teams."
@@ -138,7 +134,6 @@
 	allowed = list(/obj/item/weapon/reagent_containers/food/snacks/candy_corn, /obj/item/weapon/pen)
 	armor = list(melee = 50, bullet = 5, laser = 25,energy = 10, bomb = 0, bio = 0, rad = 0)
 	siemens_coefficient = 0.7
-	body_parts_covered = 0
 
 /obj/item/clothing/head/det/grey
 	icon_state = "detective2"
@@ -146,24 +141,25 @@
 
 /obj/item/clothing/head/det/technicolor
 	desc = "A 23rd-century fedora. It's fibres are hyper-absorbent."
-	icon = 'icons/obj/clothing/coloured_detective_coats.dmi'
+	icon = 'icons/obj/clothing/coloured_detective_hats.dmi'
 	icon_state = "hat_detective_black"
 	item_state = "hat_detective_black"
 	var/hat_color
 	contained_sprite = 1
 
-/obj/item/clothing/head/det/technicolor/New()
+/obj/item/clothing/head/det/technicolor/Initialize()
 	if(prob(5))
 		var/list/colors = list("yellow"=2,"red"=1,"white"=1,"orange"=1,"purple"=1,"green"=1,"blue"=1 )
 		var/color = pickweight(colors)
 		icon_state = "hat_detective_[color]"
 		item_state = "hat_detective_[color]"
-	..()
+	. = ..()
 
 /obj/item/clothing/head/det/technicolor/attackby(obj/item/weapon/O as obj, mob/user as mob)
 	if(istype(O, /obj/item/weapon/reagent_containers/glass/paint))
 		var/obj/item/weapon/reagent_containers/glass/paint/P = O
 		hat_color = P.paint_type
+		name = "[hat_color] fedora"
 		user.visible_message("<span class='warning'>[user] soaks \the [src] into [P]!</span>")
 		icon_state = "hat_detective_[hat_color]"
 		item_state = "hat_detective_[hat_color]"

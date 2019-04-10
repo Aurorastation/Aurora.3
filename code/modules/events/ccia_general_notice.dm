@@ -19,4 +19,4 @@
 
 /datum/event/ccia_general_notice/announce()
 	if(announce)
-		command_announcement.Announce("[reportbody]", reporttitle, new_sound = 'sound/AI/commandreport.ogg', msg_sanitized = 1);
+		command_announcement.Announce("[reportbody]", reporttitle, new_sound = 'sound/AI/commandreport.ogg', msg_sanitized = 1, do_newscast=1, do_print=1);

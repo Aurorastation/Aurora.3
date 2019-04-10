@@ -15,7 +15,7 @@
 
 /obj/item/weapon/computer_hardware/attackby(var/obj/item/W as obj, var/mob/living/user as mob)
 	// Multitool. Runs diagnostics
-	if(istype(W, /obj/item/device/multitool))
+	if(W.ismultitool())
 		to_chat(user, "***** DIAGNOSTICS REPORT *****")
 		diagnostics(user)
 		to_chat(user, "******************************")
@@ -31,7 +31,7 @@
 			damage = 0
 		return 1
 	// Cable coil. Works as repair method, but will probably require multiple applications and more cable.
-	if(istype(S, /obj/item/stack/cable_coil))
+	if(S.iscoil())
 		if(!damage)
 			to_chat(user, "\The [src] doesn't seem to require repairs.")
 			return 1
@@ -46,11 +46,12 @@
 /obj/item/weapon/computer_hardware/proc/diagnostics(var/mob/user)
 	to_chat(user, "Hardware Integrity Test... (Corruption: [damage]/[max_damage]) [damage > damage_failure ? "FAIL" : damage > damage_malfunction ? "WARN" : "PASS"]")
 
-/obj/item/weapon/computer_hardware/New(var/obj/L)
-	w_class = hardware_size
-	if(istype(L, /obj/item/modular_computer))
-		holder2 = L
-		return
+/obj/item/weapon/computer_hardware/Initialize()
+    . = ..()
+    w_class = hardware_size
+    if(istype(loc, /obj/item/modular_computer))
+        holder2 = loc
+        return .
 
 /obj/item/weapon/computer_hardware/Destroy()
 	holder2 = null

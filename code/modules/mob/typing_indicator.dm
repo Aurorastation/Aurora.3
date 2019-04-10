@@ -17,7 +17,10 @@ mob/var/obj/effect/decal/typing_indicator
 	if(client && !stat)
 		typing_indicator.invisibility  = invisibility
 		if(client.prefs.toggles & SHOW_TYPING)
-			overlays -= typing_indicator
+			if (ATOM_USING_SSOVERLAY(src))
+				cut_overlay(typing_indicator)
+			else
+				overlays -= typing_indicator
 		else
 			if(state)
 				if(!typing)
@@ -85,7 +88,7 @@ mob/var/obj/effect/decal/typing_indicator
 	set desc = "Toggles showing an indicator when you are typing emote or say message."
 	prefs.toggles ^= SHOW_TYPING
 	prefs.save_preferences()
-	src << "You will [(prefs.toggles & SHOW_TYPING) ? "no longer" : "now"] display a typing indicator."
+	to_chat(src, "You will [(prefs.toggles & SHOW_TYPING) ? "no longer" : "now"] display a typing indicator.")
 
 	// Clear out any existing typing indicator.
 	if(prefs.toggles & SHOW_TYPING)

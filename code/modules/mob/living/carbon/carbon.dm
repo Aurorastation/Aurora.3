@@ -3,6 +3,7 @@
 	bloodstr = new/datum/reagents/metabolism(1000, src, CHEM_BLOOD)
 	ingested = new/datum/reagents/metabolism(1000, src, CHEM_INGEST)
 	touching = new/datum/reagents/metabolism(1000, src, CHEM_TOUCH)
+	breathing = new/datum/reagents/metabolism(1000, src, CHEM_BREATHE)
 	reagents = bloodstr
 
 	. = ..()
@@ -28,15 +29,19 @@
 	bloodstr.clear_reagents()
 	ingested.clear_reagents()
 	touching.clear_reagents()
+	breathing.clear_reagents()
 	..()
 
 /mob/living/carbon/Move(NewLoc, direct)
 	. = ..()
+
 	if(.)
-		if(src.nutrition && src.stat != 2)
-			src.nutrition -= nutrition_loss*0.1//Multiplication is faster than division
-			if(src.m_intent == "run")
-				src.nutrition -= nutrition_loss*0.1
+		if(src.stat != 2)
+			if(src.nutrition)
+				adjustNutritionLoss(nutrition_loss*0.1)
+			if(src.hydration)
+				adjustHydrationLoss(hydration_loss*0.1)
+
 		if((FAT in src.mutations) && src.m_intent == "run" && src.bodytemperature <= 360)
 			src.bodytemperature += 2
 
@@ -66,7 +71,7 @@
 
 				if(prob(src.getBruteLoss() - 50))
 					for(var/atom/movable/A in stomach_contents)
-						A.loc = loc
+						A.forceMove(loc)
 						LAZYREMOVE(stomach_contents, A)
 					src.gib()
 
@@ -74,7 +79,7 @@
 	for(var/mob/M in src)
 		if(M in src.stomach_contents)
 			LAZYREMOVE(src.stomach_contents, M)
-		M.loc = src.loc
+		M.forceMove(src.loc)
 		for(var/mob/N in viewers(src, null))
 			if(N.client)
 				N.show_message(text("<span class='danger'>[M] bursts out of [src]!</span>"), 2)
@@ -84,6 +89,35 @@
 	if(!istype(M, /mob/living/carbon)) return
 	if (!M.can_use_hand())
 		return
+
+	if(M.a_intent != I_HELP)
+		var/action
+		switch(a_intent)
+			if(I_GRAB)
+				action = "grabbed"
+			if(I_DISARM)
+				action = "pushed"
+			if(I_HURT)
+				action = "punched"
+		var/t_him = "it"
+		if (src.gender == MALE)
+			t_him = "him"
+		else if (src.gender == FEMALE)
+			t_him = "her"
+		var/show_ssd
+		var/mob/living/carbon/human/H
+		if(ishuman(src))
+			H = src
+			show_ssd = H.species.show_ssd
+		if(H && show_ssd && !client && !teleop)
+			if(H.bg)
+				to_chat(H, span("danger", "You sense some disturbance to your physical body!"))
+			else
+				visible_message("<span class='notice'>[M] [action] [src], but they do not respond... Maybe they have S.S.D?</span>")
+		else if(client && willfully_sleeping)
+			visible_message("<span class='notice'>[M] [action] [src] waking [t_him] up!</span>")
+			sleeping = 0
+			willfully_sleeping = 0
 
 	for(var/datum/disease/D in viruses)
 
@@ -99,7 +133,7 @@
 
 	return
 
-/mob/living/carbon/electrocute_act(var/shock_damage, var/obj/source, var/siemens_coeff = 1.0, var/def_zone = null, var/tesla_shock = 0)
+/mob/living/carbon/electrocute_act(var/shock_damage, var/obj/source, var/siemens_coeff = 1.0, var/def_zone = null, var/tesla_shock = 0, var/ground_zero)
 	if(status_flags & GODMODE)	return 0	//godmode
 	if (!tesla_shock)
 		shock_damage *= siemens_coeff
@@ -133,9 +167,9 @@
 /mob/living/carbon/swap_hand()
 	var/obj/item/item_in_hand = src.get_active_hand()
 	if(item_in_hand) //this segment checks if the item in your hand is twohanded.
-		if(istype(item_in_hand,/obj/item/weapon/material/twohanded))
+		if(istype(item_in_hand,/obj/item/weapon/material/twohanded) || istype(item_in_hand,/obj/item/weapon/gun) || istype(item_in_hand,/obj/item/weapon/pickaxe))
 			if(item_in_hand:wielded == 1)
-				usr << "<span class='warning'>Your other hand is too busy holding the [item_in_hand.name]</span>"
+				to_chat(usr, "<span class='warning'>Your other hand is too busy holding the [item_in_hand.name]</span>")
 				return
 	src.hand = !( src.hand )
 	if(hud_used.l_hand_hud_object && hud_used.r_hand_hud_object)
@@ -225,21 +259,14 @@
 			else
 				M.visible_message("<span class='warning'>[M] tries to pat out [src]'s flames!</span>",
 				"<span class='warning'>You try to pat out [src]'s flames! Hot!</span>")
-				if(do_mob(M, src, 15))
-					src.fire_stacks -= 0.5
-					if (prob(10) && (M.fire_stacks <= 0))
-						M.fire_stacks += 1
-					M.IgniteMob()
-					if (M.on_fire)
+				if(do_mob(M, src, 1.5 SECONDS))
+					if (M.IgniteMob(prob(10)))
 						M.visible_message("<span class='danger'>The fire spreads from [src] to [M]!</span>",
 						"<span class='danger'>The fire spreads to you as well!</span>")
 					else
-						src.fire_stacks -= 0.5 //Less effective than stop, drop, and roll - also accounting for the fact that it takes half as long.
-						if (src.fire_stacks <= 0)
+						if (src.ExtinguishMob(1))
 							M.visible_message("<span class='warning'>[M] successfully pats out [src]'s flames.</span>",
 							"<span class='warning'>You successfully pat out [src]'s flames.</span>")
-							src.ExtinguishMob()
-							src.fire_stacks = 0
 		else
 			var/t_him = "it"
 			if (src.gender == MALE)
@@ -251,11 +278,16 @@
 				H.w_uniform.add_fingerprint(M)
 
 			var/show_ssd
-			var/mob/living/carbon/human/H = src
-			if(istype(H)) show_ssd = H.species.show_ssd
-			if(show_ssd && !client && !teleop)
-				M.visible_message("<span class='notice'>[M] shakes [src] trying to wake [t_him] up!</span>", \
-				"<span class='notice'>You shake [src], but they do not respond... Maybe they have S.S.D?</span>")
+			var/mob/living/carbon/human/H
+			if(ishuman(src))
+				H = src
+				show_ssd = H.species.show_ssd
+			if(H && show_ssd && !client && !teleop)
+				if(H.bg)
+					to_chat(H, span("warning", "You sense some disturbance to your physical body, like someone is trying to wake you up."))
+				else
+					M.visible_message("<span class='notice'>[M] shakes [src] trying to wake [t_him] up!</span>", \
+										"<span class='notice'>You shake [src], but they do not respond... Maybe they have S.S.D?</span>")
 			else if(lying || src.sleeping)
 				src.sleeping = max(0,src.sleeping-5)
 				if(src.sleeping == 0)
@@ -263,17 +295,12 @@
 				M.visible_message("<span class='notice'>[M] shakes [src] trying to wake [t_him] up!</span>", \
 									"<span class='notice'>You shake [src] trying to wake [t_him] up!</span>")
 			else
-				var/mob/living/carbon/human/hugger = M
-				if(istype(hugger))
-					hugger.species.hug(hugger,src)
+				var/mob/living/carbon/human/tapper = M
+				if(istype(tapper))
+					tapper.species.tap(tapper,src)
 				else
-					M.visible_message("<span class='notice'>[M] hugs [src] to make [t_him] feel better!</span>", \
-								"<span class='notice'>You hug [src] to make [t_him] feel better!</span>")
-				if(M.fire_stacks >= (src.fire_stacks + 3))
-					src.fire_stacks += 1
-					M.fire_stacks -= 1
-				if(M.on_fire)
-					src.IgniteMob()
+					M.visible_message("<span class='notice'>[M] taps [src] to get their attention!</span>", \
+								"<span class='notice'>You tap [src] to get their attention!</span>")
 			AdjustParalysis(-3)
 			AdjustStunned(-3)
 			AdjustWeakened(-3)
@@ -372,17 +399,18 @@
 	set category = "IC"
 
 	if(usr.sleeping)
-		usr << "<span class='warning'>You are already sleeping</span>"
+		to_chat(usr, "<span class='warning'>You are already sleeping</span>")
 		return
 	if(alert(src,"You sure you want to sleep for a while?","Sleep","Yes","No") == "Yes")
+		willfully_sleeping = 1
 		usr.sleeping = 20 //Short nap
 
-/mob/living/carbon/Bump(var/atom/movable/AM, yes)
-	if(now_pushing || !yes)
+/mob/living/carbon/Collide(atom/A)
+	if(now_pushing)
 		return
-	..()
-	if(istype(AM, /mob/living/carbon) && prob(10))
-		src.spread_disease_to(AM, "Contact")
+	. = ..()
+	if(istype(A, /mob/living/carbon) && prob(10))
+		src.spread_disease_to(A, "Contact")
 
 /mob/living/carbon/cannot_use_vents()
 	return
@@ -391,7 +419,7 @@
 	if(buckled)
 		return 0
 	stop_pulling()
-	src << "<span class='warning'>You slipped on [slipped_on]!</span>"
+	to_chat(src, "<span class='warning'>You slipped on [slipped_on]!</span>")
 	playsound(src.loc, 'sound/misc/slip.ogg', 50, 1, -3)
 	Stun(stun_duration)
 	Weaken(Floor(stun_duration/2))
@@ -410,3 +438,25 @@
 	if(!species)
 		return null
 	return species.default_language ? all_languages[species.default_language] : null
+
+/mob/living/carbon/is_berserk()
+	return (CE_BERSERK in chem_effects)
+
+/mob/living/carbon/is_pacified()
+	if(disabilities & PACIFIST)
+		return TRUE
+	if(CE_PACIFIED in chem_effects)
+		return TRUE
+
+/mob/living/carbon/proc/get_metabolism(metabolism)
+	return metabolism
+
+/mob/living/carbon/proc/can_feel_pain()
+	if (species && (species.flags & NO_PAIN))
+		return FALSE
+	if (is_berserk())
+		return FALSE
+	if (analgesic > 100)
+		return FALSE
+
+	return TRUE

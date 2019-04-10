@@ -52,6 +52,3 @@
 		canmove = 0
 
 	return canmove
-
-/mob/living/carbon/brain/binarycheck()
-	return istype(loc, /obj/item/device/mmi/digital)

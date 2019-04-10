@@ -55,8 +55,8 @@
 	origin_tech = list(TECH_ILLEGAL = 3)
 	var/global/list/clothing_choices
 
-/obj/item/clothing/under/chameleon/New()
-	..()
+/obj/item/clothing/under/chameleon/Initialize()
+	. = ..()
 	if(!clothing_choices)
 		var/blocked = list(src.type, /obj/item/clothing/under/gimmick, /obj/item/clothing/under/rank/centcom_officer/bst)//Prevent infinite loops and bad jumpsuits.
 		clothing_choices = generate_chameleon_choices(/obj/item/clothing/under, blocked)
@@ -92,8 +92,8 @@
 	body_parts_covered = 0
 	var/global/list/clothing_choices
 
-/obj/item/clothing/head/chameleon/New()
-	..()
+/obj/item/clothing/head/chameleon/Initialize()
+	. = ..()
 	if(!clothing_choices)
 		var/blocked = list(src.type, /obj/item/clothing/head/justice,)//Prevent infinite loops and bad hats.
 		clothing_choices = generate_chameleon_choices(/obj/item/clothing/head, blocked)
@@ -128,8 +128,8 @@
 	origin_tech = list(TECH_ILLEGAL = 3)
 	var/global/list/clothing_choices
 
-/obj/item/clothing/suit/chameleon/New()
-	..()
+/obj/item/clothing/suit/chameleon/Initialize()
+	. = ..()
 	if(!clothing_choices)
 		var/blocked = list(src.type, /obj/item/clothing/suit/cyborg_suit, /obj/item/clothing/suit/justice, /obj/item/clothing/suit/greatcoat)
 		clothing_choices = generate_chameleon_choices(/obj/item/clothing/suit, blocked)
@@ -163,8 +163,8 @@
 	origin_tech = list(TECH_ILLEGAL = 3)
 	var/global/list/clothing_choices
 
-/obj/item/clothing/shoes/chameleon/New()
-	..()
+/obj/item/clothing/shoes/chameleon/Initialize()
+	. = ..()
 	if(!clothing_choices)
 		var/blocked = list(src.type, /obj/item/clothing/shoes/syndigaloshes, /obj/item/clothing/shoes/cyborg, /obj/item/clothing/shoes/black/bst)//prevent infinite loops and bad shoes.
 		clothing_choices = generate_chameleon_choices(/obj/item/clothing/shoes, blocked)
@@ -241,9 +241,9 @@
 	desc = "It looks like a pair of gloves, but it seems to have a small dial inside."
 	origin_tech = list(TECH_ILLEGAL = 3)
 	var/global/list/clothing_choices
-	
-/obj/item/clothing/gloves/chameleon/New()
-	..()
+
+/obj/item/clothing/gloves/chameleon/Initialize()
+	. = ..()
 	if(!clothing_choices)
 		var/blocked = list(src.type, /obj/item/clothing/gloves/swat/bst)
 		clothing_choices = generate_chameleon_choices(/obj/item/clothing/gloves, blocked)
@@ -278,8 +278,8 @@
 	origin_tech = list(TECH_ILLEGAL = 3)
 	var/global/list/clothing_choices
 
-/obj/item/clothing/mask/chameleon/New()
-	..()
+/obj/item/clothing/mask/chameleon/Initialize()
+	. = ..()
 	if(!clothing_choices)
 		clothing_choices = generate_chameleon_choices(/obj/item/clothing/mask, list(src.type))
 
@@ -313,8 +313,8 @@
 	origin_tech = list(TECH_ILLEGAL = 3)
 	var/list/global/clothing_choices
 
-/obj/item/clothing/glasses/chameleon/New()
-	..()
+/obj/item/clothing/glasses/chameleon/Initialize()
+	. = ..()
 	if(!clothing_choices)
 		var/blocked = list(src.type, /obj/item/clothing/glasses/sunglasses/bst)
 		clothing_choices = generate_chameleon_choices(/obj/item/clothing/glasses, blocked)
@@ -357,15 +357,14 @@
 	var/obj/item/projectile/copy_projectile
 	var/global/list/gun_choices
 
-/obj/item/weapon/gun/energy/chameleon/New()
-	..()
+/obj/item/weapon/gun/energy/chameleon/Initialize()
+	. = ..()
 
 	if(!gun_choices)
 		gun_choices = list()
 		for(var/gun_type in typesof(/obj/item/weapon/gun/) - src.type)
 			var/obj/item/weapon/gun/G = gun_type
 			src.gun_choices[initial(G.name)] = gun_type
-	return
 
 /obj/item/weapon/gun/energy/chameleon/consume_next_projectile()
 	var/obj/item/projectile/P = ..()
@@ -375,7 +374,7 @@
 		P.icon_state = initial(copy_projectile.icon_state)
 		P.pass_flags = initial(copy_projectile.pass_flags)
 		P.hitscan = initial(copy_projectile.hitscan)
-		P.step_delay = initial(copy_projectile.step_delay)
+		P.range = initial(copy_projectile.range)
 		P.muzzle_type = initial(copy_projectile.muzzle_type)
 		P.tracer_type = initial(copy_projectile.tracer_type)
 		P.impact_type = initial(copy_projectile.impact_type)

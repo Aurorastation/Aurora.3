@@ -8,15 +8,15 @@
 	malfunction_probability = 1
 	origin_tech = list(TECH_POWER = 1, TECH_ENGINEERING = 1)
 	var/battery_rating = 750
-	var/obj/item/weapon/cell/battery = null
+	var/obj/item/weapon/cell/battery
 
 /obj/item/weapon/computer_hardware/battery_module/advanced
 	name = "advanced battery"
 	desc = "An advanced power cell, often used in most laptops. It is too large to be fitted into smaller devices. It's rating is 1100."
 	icon_state = "battery_advanced"
 	origin_tech = list(TECH_POWER = 2, TECH_ENGINEERING = 2)
-	hardware_size = 3
 	battery_rating = 1100
+	hardware_size = 2
 
 /obj/item/weapon/computer_hardware/battery_module/super
 	name = "super battery"
@@ -51,24 +51,27 @@
 // This is not intended to be obtainable in-game. Intended for adminbus and debugging purposes.
 /obj/item/weapon/computer_hardware/battery_module/lambda
 	name = "lambda coil"
-	desc = "A very complex device that creates it's own bluespace dimension. This dimension may be used to store massive amounts of energy."
+	desc = "A very complex device that creates its own bluespace dimension. This dimension may be used to store massive amounts of energy."
 	icon_state = "battery_lambda"
 	hardware_size = 1
 	battery_rating = 1000000
-/obj/item/weapon/computer_hardware/battery_module/lambda/New()
-	..()
+
+/obj/item/weapon/computer_hardware/battery_module/lambda/Initialize()
+	. = ..()
 	battery = new/obj/item/weapon/cell/infinite(src)
 
 /obj/item/weapon/computer_hardware/battery_module/diagnostics(var/mob/user)
 	..()
-	user << "Internal battery charge: [battery.charge]/[battery.maxcharge] CU"
+	to_chat(user, "Internal battery charge: [battery.charge]/[battery.maxcharge] mAh")
 
-/obj/item/weapon/computer_hardware/battery_module/New()
-	battery = new/obj/item/weapon/cell(src)
-	battery.maxcharge = battery_rating
+/obj/item/weapon/computer_hardware/battery_module/Initialize()
+	. = ..()
+	battery = new/obj/item/weapon/cell/device/variable(src, battery_rating)
 	battery.charge = 0
-	..()
 
 /obj/item/weapon/computer_hardware/battery_module/proc/charge_to_full()
 	if(battery)
 		battery.charge = battery.maxcharge
+
+/obj/item/weapon/computer_hardware/battery_module/get_cell()
+	return battery

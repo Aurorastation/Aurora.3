@@ -17,6 +17,7 @@
 	req_access = list(access_syndicate)
 	faction = "syndicate"
 	braintype = "Cyborg"
+	no_pda = TRUE
 
 /mob/living/silicon/robot/syndicate/init()
 	..()
@@ -60,11 +61,13 @@
 //syndicate borg gear
 
 /obj/item/weapon/gun/energy/mountedsmg
-	name = "mounted SMG"
-	desc = "A cyborg mounted sub machine gun, it can print more bullets over time."
-	icon_state = "lawgiver" //placeholder for now
-	item_state = "lawgiver"
+	name = "mounted submachine gun"
+	desc = "A cyborg mounted submachine gun, it can print more bullets over time."
+	icon = 'icons/obj/robot_items.dmi'
+	icon_state = "smg"
+	item_state = "smg"
 	fire_sound = 'sound/weapons/Gunshot_light.ogg'
+	charge_meter = 0
 	max_shots = 20
 	charge_cost = 100
 	projectile_type = /obj/item/projectile/bullet/pistol
@@ -72,10 +75,11 @@
 	use_external_power = 1
 	recharge_time = 5
 	sel_mode = 1
+	needspin = FALSE
 	firemodes = list(
-		list(mode_name="semiauto",       burst=1, fire_delay=0,    move_delay=null, burst_accuracy=null, dispersion=null),
-		list(mode_name="3-round bursts", burst=3, fire_delay=null, move_delay=4,    burst_accuracy=list(0,-1,-1),       dispersion=list(0.0, 0.6, 1.0)),
-		list(mode_name="short bursts",   burst=5, fire_delay=null, move_delay=4,    burst_accuracy=list(0,-1,-1,-2,-2), dispersion=list(0.6, 1.0, 1.0, 1.0, 1.2))
+		list(mode_name="semiauto",       burst=1, fire_delay=0,    move_delay=null, burst_accuracy=null, dispersion=list(0)),
+		list(mode_name="3-round bursts", burst=3, fire_delay=null, move_delay=4,    burst_accuracy=list(0,-1,-1),       dispersion=list(0, 15, 15)),
+		list(mode_name="short bursts",   burst=5, fire_delay=null, move_delay=4,    burst_accuracy=list(0,-1,-1,-2,-2), dispersion=list(0, 15, 15, 18, 18, 20))
 		)
 
 /obj/item/weapon/gun/energy/crossbow/cyborg
@@ -89,11 +93,36 @@
 	name = "grenade launcher"
 	desc = "A bulky pump-action grenade launcher. Loaded with 3 frag grenades."
 
-/obj/item/weapon/gun/launcher/grenade/cyborg/New()
-	..()
+/obj/item/weapon/gun/launcher/grenade/cyborg/Initialize()
+	. = ..()
 
 	grenades = list(
-			new /obj/item/weapon/grenade/frag(src),
-			new /obj/item/weapon/grenade/frag(src),
-			new /obj/item/weapon/grenade/frag(src)
-			)
+		new /obj/item/weapon/grenade/frag(src),
+		new /obj/item/weapon/grenade/frag(src),
+		new /obj/item/weapon/grenade/frag(src)
+	)
+
+/obj/item/weapon/robot_emag
+	desc = "It's a card with a magnetic strip attached to some circuitry, this one is modified to be used by a cyborg."
+	name = "cryptographic sequencer"
+	icon = 'icons/obj/card.dmi'
+	icon_state = "emag"
+
+/obj/item/weapon/robot_emag/afterattack(var/atom/target, var/mob/living/user, proximity) //possible spaghetti code, but should work
+	if(!target)
+		return
+	if(!proximity)
+		return
+
+	else if(istype(target,/obj/))
+		var/obj/O = target
+		O.add_fingerprint(user)
+		O.emag_act(1,user,src)
+		log_and_message_admins("emmaged \an [O].")
+		if(isrobot(user))
+			var/mob/living/silicon/robot/R = user
+			if(R.cell)
+				R.cell.use(350)
+		return 1
+
+	return 0

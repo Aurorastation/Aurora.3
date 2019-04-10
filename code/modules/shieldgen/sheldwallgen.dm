@@ -28,13 +28,13 @@
 
 /obj/machinery/shieldwallgen/attack_hand(mob/user as mob)
 	if(state != 1)
-		user << "<span class='warning'>The shield generator needs to be firmly secured to the floor first.</span>"
+		to_chat(user, "<span class='warning'>The shield generator needs to be firmly secured to the floor first.</span>")
 		return 1
 	if(src.locked && !istype(user, /mob/living/silicon))
-		user << "<span class='warning'>The controls are locked!</span>"
+		to_chat(user, "<span class='warning'>The controls are locked!</span>")
 		return 1
 	if(power != 1)
-		user << "<span class='warning'>The shield generator needs to be powered by wire underneath.</span>"
+		to_chat(user, "<span class='warning'>The shield generator needs to be powered by wire underneath.</span>")
 		return 1
 
 	if(src.active >= 1)
@@ -58,6 +58,9 @@
 		power = 0
 		return 0
 	var/turf/T = src.loc
+	if (!istype(T))
+		power = 0
+		return 0
 
 	var/obj/structure/cable/C = T.get_cable_node()
 	var/datum/powernet/PN
@@ -106,7 +109,7 @@
 				"You hear heavy droning fade out")
 			icon_state = "Shield_Gen"
 			src.active = 0
-			for(var/dir in list(1,2,4,8)) 
+			for(var/dir in list(1,2,4,8))
 				cleanup(dir)
 
 /obj/machinery/shieldwallgen/proc/setup_field(var/NSEW = 0)
@@ -154,31 +157,31 @@
 
 
 /obj/machinery/shieldwallgen/attackby(obj/item/W, mob/user)
-	if(istype(W, /obj/item/weapon/wrench))
+	if(W.iswrench())
 		if(active)
-			user << "Turn off the field generator first."
+			to_chat(user, "Turn off the field generator first.")
 			return
 
 		else if(state == 0)
 			state = 1
 			playsound(src.loc, 'sound/items/Ratchet.ogg', 75, 1)
-			user << "You secure the external reinforcing bolts to the floor."
+			to_chat(user, "You secure the external reinforcing bolts to the floor.")
 			src.anchored = 1
 			return
 
 		else if(state == 1)
 			state = 0
 			playsound(src.loc, 'sound/items/Ratchet.ogg', 75, 1)
-			user << "You undo the external reinforcing bolts."
+			to_chat(user, "You undo the external reinforcing bolts.")
 			src.anchored = 0
 			return
 
 	if(istype(W, /obj/item/weapon/card/id)||istype(W, /obj/item/device/pda))
 		if (src.allowed(user))
 			src.locked = !src.locked
-			user << "Controls are now [src.locked ? "locked." : "unlocked."]"
+			to_chat(user, "Controls are now [src.locked ? "locked." : "unlocked."]")
 		else
-			user << "<span class='warning'>Access denied.</span>"
+			to_chat(user, "<span class='warning'>Access denied.</span>")
 
 	else
 		src.add_fingerprint(user)

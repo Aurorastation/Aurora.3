@@ -33,6 +33,8 @@
 	faction = "russian"
 	status_flags = CANPUSH
 
+	tameable = FALSE
+
 
 /mob/living/simple_animal/hostile/russian/ranged
 	icon_state = "russianranged"
@@ -43,7 +45,7 @@
 	projectiletype = /obj/item/projectile/bullet
 	projectilesound = 'sound/weapons/Gunshot.ogg'
 	casingtype = /obj/item/ammo_casing/a357
-
+	smart = TRUE
 
 /mob/living/simple_animal/hostile/russian/death()
 	..()

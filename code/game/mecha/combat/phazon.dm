@@ -1,5 +1,5 @@
 /obj/mecha/combat/phazon
-	desc = "An exosuit which can only be described as 'WTF?'."
+	desc = "The pinnacle of scientific research and pride of Nanotrasen, it uses cutting edge bluespace technology and expensive materials."
 	name = "Phazon"
 	icon_state = "phazon"
 	initial_icon = "phazon"
@@ -21,21 +21,21 @@
 	max_equip = 4
 
 
-/obj/mecha/combat/phazon/New()
-	..()
+/obj/mecha/combat/phazon/equipped/Initialize()
+	.= ..()
 	var/obj/item/mecha_parts/mecha_equipment/ME = new /obj/item/mecha_parts/mecha_equipment/tool/rcd
 	ME.attach(src)
 	ME = new /obj/item/mecha_parts/mecha_equipment/gravcatapult
 	ME.attach(src)
 	return
 
-/obj/mecha/combat/phazon/Bump(var/atom/obstacle)
+/obj/mecha/combat/phazon/Collide(var/atom/obstacle)
 	if(phasing && get_charge()>=phasing_energy_drain)
 		spawn()
 			if(can_move)
 				can_move = 0
 				flick("phazon-phase", src)
-				src.loc = get_step(src,src.dir)
+				src.forceMove(get_step(src,src.dir))
 				src.use_power(phasing_energy_drain)
 				sleep(step_in*3)
 				can_move = 1

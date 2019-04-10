@@ -29,18 +29,17 @@
 
 /obj/machinery/computer/sentencing/attackby(obj/item/O as obj, user as mob)
 	if( istype( O, /obj/item/weapon/paper/incident ) && menu_screen == "import_incident" )
-		usr.drop_item()
-		O.loc = src
+		usr.drop_from_inventory(O,src)
 
 		if( import( O ))
 			ping( "\The [src] pings, \"Successfully imported incident report!\"" )
 			menu_screen = "incident_report"
 		else
-			user << "<span class='alert'>Could not import incident report.</span>"
+			to_chat(user, "<span class='alert'>Could not import incident report.</span>")
 
 		qdel( O )
 	else if( istype( O, /obj/item/weapon/paper ) && menu_screen == "import_incident" )
-		user << "<span class='alert'>This console only accepts authentic incident reports. Copies are invalid.</span>"
+		to_chat(user, "<span class='alert'>This console only accepts authentic incident reports. Copies are invalid.</span>")
 
 	..()
 
@@ -96,7 +95,6 @@
 
 /obj/machinery/computer/sentencing/proc/incident_report()
 	. = ""
-
 	if( !istype( incident ))
 		. += "There was an error loading the incident, please <a href='?src=\ref[src];button=change_menu;choice=main_menu'>Try Again</a>"
 		return .
@@ -106,8 +104,9 @@
 	. += "<tr>"
 	. += "<th>Convict:</th>"
 	. += "<td><a href='?src=\ref[src];button=change_criminal;'>"
-	if( incident.criminal )
-		. += "[incident.criminal]"
+	if( istype(incident.card) )
+		var/obj/item/weapon/card/id/card = incident.card.resolve()
+		. += "[card]"
 	else
 		. += "None"
 	. += "</a></td>"
@@ -162,7 +161,7 @@
 	. += "<br><hr>"
 	. += "<center>"
 	. += "<a href='?src=\ref[src];button=render_guilty'>Render Guilty</a>"
-	//  . += "<a href='?src=\ref[src];button=render_guilty_fine'>Render Guilty - Fine</a>"
+	. += "<a href='?src=\ref[src];button=render_guilty_fine'>Render Guilty - Fine</a>"
 	. += "</center>"
 
 	return .
@@ -191,8 +190,9 @@
 
 	. += "<tr><th colspan='2'>Convict</th></tr>"
 	. += "<tr><td colspan='2'><center>"
-	if( incident.criminal )
-		. += "[incident.criminal]"
+	if( istype(incident.card) )
+		var/obj/item/weapon/card/id/card = incident.card.resolve()
+		. += "[card]"
 	else
 		. += "None"
 	. += "</center></td></tr>"
@@ -367,8 +367,8 @@
 		. += "<tr>"
 		. += "<td><b>[L.name]</b></td>"
 		. += "<td><i>[L.desc]</i></td>"
-		. += "<td>[L.min_brig_time] - [L.max_brig_time] minutes</td>"
-		. += "<td>[L.min_fine]-[L.max_fine]cR</td>"
+		. += "<td>[L.get_brig_time_string()]</td>"
+		. += "<td>[L.get_fine_string()]</td>"
 		. += "<td><a href='?src=\ref[src];button=add_charge;law=\ref[L]'>Charge</a></td>"
 		. += "</tr>"
 
@@ -397,8 +397,8 @@
 		. += "<tr>"
 		. += "<td><b>[L.name]</b></td>"
 		. += "<td><i>[L.desc]</i></td>"
-		. += "<td>[L.min_brig_time] - [L.max_brig_time] minutes</td>"
-		. += "<td>[L.min_fine]-[L.max_fine]cR</td>"
+		. += "<td>[L.get_brig_time_string()]</td>"
+		. += "<td>[L.get_fine_string()]</td>"
 		. += "<td><a href='?src=\ref[src];button=add_charge;law=\ref[L]'>Charge</a></td>"
 		. += "</tr>"
 
@@ -426,7 +426,7 @@
 		. += "<tr>"
 		. += "<td><b>[L.name]</b></td>"
 		. += "<td><i>[L.desc]</i></td>"
-		. += "<td>[L.min_brig_time] - [L.max_brig_time] minutes</td>"
+		. += "<td>[L.get_brig_time_string()]</td>"
 		. += "<td><a href='?src=\ref[src];button=add_charge;law=\ref[L]'>Charge</a></td>"
 		. += "</tr>"
 
@@ -435,7 +435,8 @@
 	return .
 
 /obj/machinery/computer/sentencing/proc/render_innocent( var/mob/user )
-	ping( "\The [src] pings, \"[incident.criminal] has been found innocent of the accused crimes!\"" )
+	var/obj/item/weapon/card/id/card = incident.card.resolve()
+	ping( "\The [src] pings, \"[card] has been found innocent of the accused crimes!\"" )
 
 	qdel( incident )
 	incident = null
@@ -443,7 +444,7 @@
 
 /obj/machinery/computer/sentencing/proc/render_guilty( var/mob/living/user )
 	if( !incident )
-		user << "<span class='alert'>There is no active case!</span>"
+		to_chat(user, "<span class='alert'>There is no active case!</span>")
 		return
 
 	if( !istype( user ))
@@ -452,41 +453,69 @@
 	var/error = print_incident_report()
 
 	if( error )
-		user << "<span class='alert'>[error]</span>"
+		to_chat(user, "<span class='alert'>[error]</span>")
 		return
 
-	incident.renderGuilty( user )
-
+	print_incident_overview(incident.renderGuilty(user, 0))
+	var/obj/item/weapon/card/id/card = incident.card.resolve()
 	if( incident.brig_sentence < PERMABRIG_SENTENCE)
-		ping( "\The [src] pings, \"[incident.criminal] has been found guilty of their crimes!\"" )
+		ping( "\The [src] pings, \"[card.registered_name] has been found guilty of their crimes!\"" )
 	else
-		pingx3( "\The [src] pings, \"[incident.criminal] has been found guilty of their crimes and earned a HuT Sentence\"" )
+		pingx3( "\The [src] pings, \"[card.registered_name] has been found guilty of their crimes and earned a HuT Sentence\"" )
 
 	incident = null
 	menu_screen = "main_menu"
 
-// /obj/machinery/computer/sentencing/proc/render_guilty_fine( var/mob/living/user, var/obj/item/weapon/card/id/C )
-// 	if( !incident )
-// 		user << "<span class='alert'>There is no active case!</span>"
-// 		return
-//
-// 	if( !istype( user ))
-// 		return
-//
-// 	var/error = print_incident_report()
-//
-// 	if( error )
-// 		user << "<span class='alert'>[error]</span>"
-// 		return
-//
-// 	//TODO: Try to charge the criminal if not return and print error message
-//
-// 	incident.renderGuilty( user )
-//
-// 	ping( "\The [src] pings, \"[incident.criminal] has been fined for their crimes!\"" )
-//
-// 	incident = null
-// 	menu_screen = "main_menu"
+/obj/machinery/computer/sentencing/proc/render_guilty_fine( var/mob/living/user )
+	if(!incident)
+		to_chat(user, "<span class='alert'>There is no active case!</span>")
+		return
+
+	if(!istype(user))
+		return
+
+	if(incident.fine <= 0)
+		buzz("\The [src] buzzes, \"No fine has been entered!\"")
+		return
+
+	//Lets check if there is a felony amongst the crimes
+	for(var/datum/law/L in incident.charges)
+		if(L.felony)
+			buzz("\The [src] buzzes, \"The crimes are too severe to apply a fine!\"")
+		if(!L.can_fine())
+			buzz("\The [src] buzzes, \"It is not possible to fine for [L.name]\"")
+			return
+
+	//Try to resole the security account first
+	var/datum/money_account/security_account = SSeconomy.get_department_account("Security")
+	if(!security_account)
+		buzz("\The [src] buzzes, \"Could not get security account!\"")
+		return
+
+	var/obj/item/weapon/card/id/card = incident.card.resolve()
+	//Let´s get the account of the suspect and verify they have enough money
+	var/datum/money_account/suspect_account = SSeconomy.get_account(card.associated_account_number)
+	if(!suspect_account)
+		buzz("\The [src] buzzes, \"Could not get suspect account!\"")
+		return
+
+	if(suspect_account.money < incident.fine)
+		buzz("\The [src] buzzes, \"There is not enough money in the account to pay the fine!\"")
+		return
+
+	SSeconomy.charge_to_account(suspect_account.account_number,security_account.owner_name,"Incident: [incident.UID]","Sentencing Console",-incident.fine)
+	SSeconomy.charge_to_account(security_account.account_number,suspect_account.owner_name,"Incident: [incident.UID]Fine","Sentencing Console",incident.fine)
+	print_incident_overview(incident.renderGuilty(user,1))
+
+	ping("\The [src] pings, \"[card.registered_name] has been fined for their crimes!\"")
+
+	incident = null
+	menu_screen = "main_menu"
+
+/obj/machinery/computer/sentencing/proc/print_incident_overview(var/text)
+	var/obj/item/weapon/paper/P = new /obj/item/weapon/paper
+	P.set_content_unsafe("Incident Summary",text)
+	print(P)
 
 /obj/machinery/computer/sentencing/proc/print_incident_report( var/sentence = 1 )
 	var/error = incident.missingSentenceReq()
@@ -528,18 +557,20 @@
 			if( istype( C ))
 				if( incident && C.mob )
 					incident.criminal = C.mob
-					ping( "\The [src] pings, \"Convict [C.mob] verified.\"" )
+					incident.card = WEAKREF(C)
+					ping( "\The [src] pings, \"Convict [C] verified.\"" )
 			else if( incident.criminal )
 				ping( "\The [src] pings, \"Convict cleared.\"" )
 				incident.criminal = null
+				incident.card = null
 		if( "change_brig" )
 			if( !incident )
 				return
 			var/number = input( usr, "Enter a number between [incident.getMinBrigSentence()] and [incident.getMaxBrigSentence()] minutes", "Brig Sentence", 0) as num
 			if( number < incident.getMinBrigSentence() )
-				usr << "<span class='alert'>The entered sentence was less than the minimum sentence!</span>"
+				to_chat(usr, "<span class='alert'>The entered sentence was less than the minimum sentence!</span>")
 			else if( number > incident.getMaxBrigSentence() )
-				usr << "<span class='alert'>The entered sentence was greater than the maximum sentence!</span>"
+				to_chat(usr, "<span class='alert'>The entered sentence was greater than the maximum sentence!</span>")
 			else
 				incident.brig_sentence = number
 
@@ -548,9 +579,9 @@
 				return
 			var/number = input( usr, "Enter a number between [incident.getMinFine()] and [incident.getMaxFine()] credits", "Fine", 0) as num
 			if( number < incident.getMinFine() )
-				usr << "<span class='alert'>The entered sentence was less than the minimum sentence!</span>"
+				to_chat(usr, "<span class='alert'>The entered sentence was less than the minimum sentence!</span>")
 			else if( number > incident.getMaxFine() )
-				usr << "<span class='alert'>The entered sentence was greater than the maximum sentence!</span>"
+				to_chat(usr, "<span class='alert'>The entered sentence was greater than the maximum sentence!</span>")
 			else
 				incident.fine = number
 
@@ -558,7 +589,7 @@
 			var/error = print_incident_report( 0 )
 
 			if( error )
-				usr << "<span class='alert'>[error]</span>"
+				to_chat(usr, "<span class='alert'>[error]</span>")
 			else
 				incident = null
 				menu_screen = "main_menu"
@@ -572,7 +603,7 @@
 					if( !error )
 						ping( "\The [src] pings, \"[title] [C.mob] verified.\"" )
 					else
-						usr << "<span class='alert'>\The [src] buzzes, \"[error]\"</span>"
+						to_chat(usr, "<span class='alert'>\The [src] buzzes, \"[error]\"</span>")
 			else
 				ping( "\The [src] pings, \"[title] cleared.\"" )
 				incident.arbiters[title] = null
@@ -626,24 +657,19 @@
 			if( incident_notes != null )
 				incident.notes = incident_notes
 		if( "render_guilty" )
+			if( !incident )
+				return
 			if( !incident.notes )
 				if( alert("No incident notes were added. Adding a short description of the incident is highly recommended. Do you still want to continue with the print?",,"Yes","No") == "No" )
 					return
 			render_guilty( usr )
-		// if( "render_guilty_fine")
-		// 	//Check for the notes
-		// 	if( !incident.notes )
-		// 		if( alert("No incident notes were added. Adding a short description of the incident is highly recommended. Do you still want to continue with the print?",,"Yes","No") == "No" )
-		// 			return
-		// 	//Get the ID Card
-		// 	var/obj/item/weapon/card/id/C = usr.get_active_hand()
-		// 	if( istype( C ))
-		// 		if( incident && C.mob )
-		// 			render_guilty_fine( usr, C)
-		// 		else
-		// 			usr << "<span class='alert'>\The [src] buzzes, \"ID card not tied to a NanoTrasen Employee!\"</span>"
-		// 	else
-		// 		usr << "<span class='alert'>\The [src] buzzes, \"The suspects ID is required to fine them\"</span>"
+		if( "render_guilty_fine" )
+			//Check for the notes
+			if( !incident.notes )
+				if( alert("No incident notes were added. Adding a short description of the incident is highly recommended. Do you still want to continue with the print?",,"Yes","No") == "No" )
+					return
+			//Get the ID Card
+			render_guilty_fine( usr )
 
 	add_fingerprint(usr)
 	updateUsrDialog()

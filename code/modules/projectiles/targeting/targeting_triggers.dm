@@ -9,6 +9,9 @@
 				AO.update_aiming_deferred()
 
 /obj/aiming_overlay/proc/trigger(var/perm)
+	if(owner && owner.client && (owner.client.prefs.toggles_secondary & SAFETY_CHECK) && owner.a_intent != I_HURT) //Check this first to save time.
+		to_chat(owner, "You refrain from firing, as you aren't on harm intent.")
+		return
 	if(!owner || !aiming_with || !aiming_at || !locked)
 		return
 	if(perm && (target_permissions & perm))
@@ -20,6 +23,11 @@
 	var/obj/item/weapon/gun/G = aiming_with
 	if(istype(G))
 		G.Fire(aiming_at, owner)
+	cancel_aiming()//if you can't remove it, nerf it
+	aim_cooldown(3)
+	toggle_active()
+	if (owner.client)
+		owner.client.remove_gun_icons()
 
 /mob/living/ClickOn(var/atom/A, var/params)
 	. = ..()

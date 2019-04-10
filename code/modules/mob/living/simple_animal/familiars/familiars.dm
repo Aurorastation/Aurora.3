@@ -28,7 +28,7 @@
 /mob/living/simple_animal/familiar/carcinus
 	name = "crab"
 	desc = "A small crab said to be made of stone and starlight."
-	icon = 'icons/mob/animal.dmi'
+	icon = 'icons/mob/npc/animal.dmi'
 	icon_state = "evilcrab"
 	icon_living = "evilcrab"
 	icon_dead = "evilcrab_dead"
@@ -48,11 +48,11 @@
 /mob/living/simple_animal/familiar/pike
 	name = "space pike"
 	desc = "A bigger, more magical cousin of the space carp."
-
-	icon = 'icons/mob/spaceshark.dmi'
+	icon = 'icons/mob/npc/spaceshark.dmi'
 	icon_state = "shark"
 	icon_living = "shark"
 	icon_dead = "shark_dead"
+	icon_rest = "shark_rest"
 	pixel_x = -16
 
 	speak_emote = list("gnashes")
@@ -71,17 +71,11 @@
 
 	wizardy_spells = list(/spell/aoe_turf/conjure/forcewall)
 
+	flying = TRUE
+
+
 /mob/living/simple_animal/familiar/pike/Allow_Spacemove(var/check_drift = 0)
 	return 1
-
-/mob/living/simple_animal/familiar/pike/can_fall()
-	return FALSE
-
-/mob/living/simple_animal/familiar/pike/can_ztravel()
-	return TRUE
-
-/mob/living/simple_animal/familiar/pike/CanAvoidGravity()
-	return TRUE
 
 /mob/living/simple_animal/familiar/horror
 	name = "horror"
@@ -89,6 +83,18 @@
 	icon = 'icons/mob/mob.dmi'
 	icon_state = "horror"
 	icon_living = "horror"
+	icon_dead = "horror_dead"
+
+/mob/living/simple_animal/familiar/horror/Initialize()
+	. = ..()
+	if(prob(25))
+		icon_state = "horror_alt"
+		icon_living = "horror_alt"
+		icon_dead = "horror_alt_dead"
+	else if(prob(25))
+		icon_state = "abomination"
+		icon_living = "abomination"
+		icon_dead = "abomination_dead"
 
 	speak_emote = list("moans", "groans")
 
@@ -129,11 +135,13 @@
 	density = 0
 	wizardy_spells = list(/spell/aoe_turf/smoke)
 
-
+	meat_type = /obj/item/weapon/reagent_containers/food/snacks/meat
+	meat_amount = 6
+	butchering_products = list(/obj/item/stack/material/animalhide = 3)
 
 
 /mob/living/simple_animal/familiar/pet //basically variants of normal animals with spells.
-	icon = 'icons/mob/animal.dmi'
+	icon = 'icons/mob/npc/animal.dmi'
 
 /mob/living/simple_animal/familiar/pet/MouseDrop(atom/over_object)
 	var/mob/living/carbon/H = over_object
@@ -144,9 +152,6 @@
 		return
 	else
 		return ..()
-
-
-
 
 /mob/living/simple_animal/familiar/pet/cat
 	name = "black cat"
@@ -172,6 +177,9 @@
 	density = 0
 
 	wizardy_spells = list(/spell/targeted/subjugation)
+
+	meat_type = /obj/item/weapon/reagent_containers/food/snacks/meat
+	butchering_products = list(/obj/item/stack/material/animalhide/cat = 2)
 
 
 /mob/living/simple_animal/mouse/familiar

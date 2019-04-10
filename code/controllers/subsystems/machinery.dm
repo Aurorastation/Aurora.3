@@ -1,3 +1,5 @@
+#define MACHINERY_GO_TO_NEXT if (no_mc_tick) { CHECK_TICK; } else if (MC_TICK_CHECK) { return; } else { continue; }
+
 /var/datum/controller/subsystem/machinery/SSmachinery
 
 /datum/controller/subsystem/machinery
@@ -18,6 +20,7 @@
 
 	var/list/all_cameras = list()
 	var/list/all_status_displays = list()	// Note: This contains both ai_status_display and status_display.
+	var/list/gravity_generators = list()
 
 	var/rcon_update_queued = FALSE
 	var/powernet_update_queued = FALSE
@@ -48,6 +51,8 @@
 		ADD_TO_RDATUMS(OVEN, R)
 		ADD_TO_RDATUMS(CANDYMAKER, R)
 		ADD_TO_RDATUMS(CEREALMAKER, R)
+		ADD_TO_RDATUMS(POT, R)
+		ADD_TO_RDATUMS(SKEWER, R)
 		if (!added)
 			log_debug("SSmachinery: warning: type '[type]' does not have a valid machine type.")
 			qdel(R)
@@ -107,23 +112,47 @@
 				log_debug("SSmachinery: Type '[M.type]' slept during machinery_process().")
 				slept_in_process[M.type] = TRUE
 
-		if (M.use_power)
+		// I'm sorry.
+		if (M.use_power && isturf(M.loc))
 			powerusers_this_tick++
 			if (M.has_special_power_checks)
 				M.auto_use_power()
 			else
-				var/area/A = M.loc ? M.loc.loc : null
-				if (isarea(A))
-					var/chan = M.power_channel
-					if (A.powered(chan))
-						var/usage = 0
-						switch (M.use_power)
-							if (1)
-								usage = M.idle_power_usage
-							if (2)
-								usage = M.active_power_usage
+				var/area/A = M.loc.loc
+				var/chan = M.power_channel
+				if ((A.has_weird_power && !A.powered(chan)))
+					MACHINERY_GO_TO_NEXT
+				if (A.requires_power)
+					if (A.always_unpowered)
+						MACHINERY_GO_TO_NEXT
+					switch (chan)
+						if (EQUIP)
+							if (!A.power_equip)
+								MACHINERY_GO_TO_NEXT
+						if (LIGHT)
+							if (!A.power_light)
+								MACHINERY_GO_TO_NEXT
+						if (ENVIRON)
+							if (!A.power_environ)
+								MACHINERY_GO_TO_NEXT
+						else	// ?!
+							log_debug("SSmachinery: Type '[M.type]' has insane channel [chan] (expected value in range 1-3).")
+							M.use_power = FALSE
+							MACHINERY_GO_TO_NEXT
 
-						A.use_power(usage, chan)
+				if (A.has_weird_power)
+					A.use_power(M.use_power == 2 ? M.active_power_usage : M.idle_power_usage, chan)
+				else
+					switch (chan)
+						if (EQUIP)
+							A.used_equip += M.use_power == 2 ? M.active_power_usage : M.idle_power_usage
+						if (LIGHT)
+							A.used_light += M.use_power == 2 ? M.active_power_usage : M.idle_power_usage
+						if (ENVIRON)
+							A.used_environ += M.use_power == 2 ? M.active_power_usage : M.idle_power_usage
+						else // ?!
+							log_debug("SSmachinery: Type '[M.type]' has insane channel [chan] (expected value in range 1-3).")
+							M.use_power = FALSE
 
 		if (no_mc_tick)
 			CHECK_TICK
@@ -197,3 +226,5 @@
 
 	if (remove_from_global)
 		SSmachinery.all_machines -= M
+
+#undef MACHINERY_GO_TO_NEXT

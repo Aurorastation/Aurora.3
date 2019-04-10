@@ -74,7 +74,7 @@
 		// todo: fix this shit
 		if(rig.speech && rig.speech.voice_holder && rig.speech.voice_holder.active && rig.speech.voice_holder.voice)
 			voice_sub = rig.speech.voice_holder.voice
-	else
+	if(!voice_sub)
 		for(var/obj/item/gear in list(wear_mask,wear_suit,head))
 			if(!gear)
 				continue
@@ -125,11 +125,15 @@
 
 	return verb
 
-/mob/living/carbon/human/handle_speech_problems(var/message, var/verb)
+/mob/living/carbon/human/handle_speech_problems(var/message, var/verb, var/message_mode)
+	message = handle_speech_muts(message,verb)
+	for(var/datum/brain_trauma/trauma in get_traumas())
+		if(!trauma.suppressed)
+			message = trauma.on_say(message)
 	if(silent || (sdisabilities & MUTE))
 		message = ""
 		speech_problem_flag = 1
-	else if(istype(wear_mask, /obj/item/clothing/mask))
+	else if(!src.is_diona() && istype(wear_mask, /obj/item/clothing/mask))
 		var/obj/item/clothing/mask/M = wear_mask
 		if(M.voicechange)
 			message = pick(M.say_messages)
@@ -153,10 +157,13 @@
 				message = uppertext(message)
 				verb = "yells loudly"
 
-	var/list/returns[3]
+	var/list/returns[4]
 	returns[1] = message
 	returns[2] = verb
 	returns[3] = speech_problem_flag
+	returns[4] = world.view
+
+	returns = species.handle_speech_problems(src, returns, message, verb, message_mode)
 	return returns
 
 /mob/living/carbon/human/handle_message_mode(message_mode, message, verb, speaking, used_radios, alt_name)
@@ -213,8 +220,101 @@
 					used_radios += r_ear
 
 /mob/living/carbon/human/handle_speech_sound()
-	if(species.speech_sounds && prob(species.speech_chance))
-		var/list/returns[2]
-		returns[1] = sound(pick(species.speech_sounds))
-		returns[2] = 50
-	return ..()
+	var/list/returns = ..()
+	returns = species.handle_speech_sound(src, returns)
+	return returns
+
+/mob/living/carbon/human/hear_say(var/message, var/verb = "says", var/datum/language/language = null, var/alt_name = "",var/italics = 0, var/mob/speaker = null)
+	for(var/T in get_traumas())
+		var/datum/brain_trauma/trauma = T
+		if(!trauma.suppressed)
+			message = trauma.on_hear(message, verb, language, alt_name, italics, speaker)
+	..()
+
+/mob/living/carbon/human/proc/handle_speech_muts(var/message, var/verb)
+	if(message)
+		if(disabilities & TOURETTES)
+			var/prefix=copytext(message,1,2)
+			if(prefix == ";")
+				message = copytext(message,2)
+			else if(prefix in list(":","#"))
+				prefix += copytext(message,2,3)
+				message = copytext(message,3)
+			else
+				prefix=""
+
+			var/list/words = splittext(message," ")
+			for(var/i=1;i<=words.len;i++)
+				var/cword = pick(words)
+				words.Remove(cword)
+				if(prob(50))
+					if(prob(50))
+						message = replacetext(message,"[cword]","[pick("SHIT", "PISS", "FUCK", "CUNT", "COCKSUCKER", "MOTHERFUCKER", "TITS")]")
+					else
+						message = replacetext(message,"[cword]","[cword] [pick("SHIT", "PISS", "FUCK", "CUNT", "COCKSUCKER", "MOTHERFUCKER", "TITS")] ")
+			message ="[prefix] [message]"
+
+		if(disabilities & GERTIE)
+			var/compassing = pick("north","south","east","west")
+			var/stational = pick("fore","aft","port","starboard")
+			var/directional = pick("up","down","left","right")
+			var/motional = pick("in","out","above","below")
+			message = replacetext(message,"north"," [compassing] ")
+			message = replacetext(message,"south"," [compassing] ")
+			message = replacetext(message,"east"," [compassing] ")
+			message = replacetext(message,"west"," [compassing] ")
+			message = replacetext(message,"fore"," [stational] ")
+			message = replacetext(message,"aft"," [stational] ")
+			message = replacetext(message,"port"," [stational] ")
+			message = replacetext(message,"starboard"," [stational] ")
+			message = replacetext(message,"up"," [directional] ")
+			message = replacetext(message,"down"," [directional] ")
+			message = replacetext(message,"left"," [directional] ")
+			message = replacetext(message,"right"," [directional] ")
+			message = replacetext(message,"in"," [motional] ")
+			message = replacetext(message,"out"," [motional] ")
+			message = replacetext(message,"above"," [motional] ")
+			message = replacetext(message,"below"," [motional] ")
+		if(disabilities & UNINTELLIGIBLE)
+			var/prefix=copytext(message,1,2)
+			if(prefix == ";")
+				message = copytext(message,2)
+			else if(prefix in list(":","#"))
+				prefix += copytext(message,2,3)
+				message = copytext(message,3)
+			else
+				prefix=""
+
+			var/list/words = splittext(message," ")
+			var/list/rearranged = list()
+			for(var/i=1;i<=words.len;i++)
+				var/cword = pick(words)
+				words.Remove(cword)
+				var/suffix = copytext(cword,length(cword)-1,length(cword))
+				while(length(cword)>0 && suffix in list(".",",",";","!",":","?"))
+					cword  = copytext(cword,1              ,length(cword)-1)
+					suffix = copytext(cword,length(cword)-1,length(cword)  )
+				if(length(cword))
+					rearranged += cword
+			message ="[prefix][jointext(rearranged," ")]"
+		if(losebreath>=5) //Gasping is a mutation, right?
+			var/prefix=copytext(message,1,2)
+			if(prefix == ";")
+				message = copytext(message,2)
+			else if(prefix in list(":","#"))
+				prefix += copytext(message,2,3)
+				message = copytext(message,3)
+			else
+				prefix=""
+
+			var/list/words = splittext(message," ")
+			if (prob(50))
+				if (words.len>1)
+					var/gasppoint = rand(2, words.len)
+					words.Cut(gasppoint)
+				words[words.len] = "[words[words.len]]..."
+				emote("gasp")
+
+
+			message = "[prefix][jointext(words," ")]"
+	return message

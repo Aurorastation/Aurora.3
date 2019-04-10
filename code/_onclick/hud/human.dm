@@ -1,7 +1,7 @@
 /mob/living/carbon/human/instantiate_hud(var/datum/hud/HUD, var/ui_style, var/ui_color, var/ui_alpha)
 	HUD.human_hud(ui_style, ui_color, ui_alpha, src)
 
-/datum/hud/proc/human_hud(var/ui_style='icons/mob/screen1_White.dmi', var/ui_color = "#ffffff", var/ui_alpha = 255, var/mob/living/carbon/human/target)
+/datum/hud/proc/human_hud(var/ui_style='icons/mob/screen/white.dmi', var/ui_color = "#ffffff", var/ui_alpha = 255, var/mob/living/carbon/human/target)
 	var/datum/hud_data/hud_data
 	if(!istype(target))
 		hud_data = new()
@@ -124,12 +124,9 @@
 		//end intent small hud objects
 
 	if(hud_data.has_m_intent)
-		using = new /obj/screen()
-		using.name = "mov_intent"
+		using = new /obj/screen/movement_intent()
 		using.icon = ui_style
 		using.icon_state = (mymob.m_intent == "run" ? "running" : "walking")
-		using.screen_loc = ui_movi
-		using.layer = 20
 		using.color = ui_color
 		using.alpha = ui_alpha
 		src.adding += using
@@ -238,11 +235,8 @@
 		hud_elements |= mymob.pullin
 
 	if(hud_data.has_internals)
-		mymob.internals = new /obj/screen()
+		mymob.internals = new /obj/screen/internals()
 		mymob.internals.icon = ui_style
-		mymob.internals.icon_state = "internal0"
-		mymob.internals.name = "internal"
-		mymob.internals.screen_loc = ui_internal
 		hud_elements |= mymob.internals
 
 	if(hud_data.has_warnings)
@@ -297,9 +291,25 @@
 		mymob.nutrition_icon.name = "nutrition"
 		mymob.nutrition_icon.screen_loc = ui_nutrition
 		hud_elements |= mymob.nutrition_icon
+		
+	if(hud_data.has_hydration)
+		mymob.hydration_icon = new /obj/screen()
+		mymob.hydration_icon.icon = ui_style
+		mymob.hydration_icon.icon_state = "thirst0"
+		mymob.hydration_icon.name = "thirst"
+		mymob.hydration_icon.screen_loc = ui_hydration
+		hud_elements |= mymob.hydration_icon
+
+	if(hud_data.has_up_hint)
+		mymob.up_hint = new /obj/screen()
+		mymob.up_hint.icon = ui_style
+		mymob.up_hint.icon_state = "uphint0"
+		mymob.up_hint.name = "up hint"
+		mymob.up_hint.screen_loc = ui_up_hint
+		hud_elements |= mymob.up_hint
 
 	mymob.blind = new /obj/screen()
-	mymob.blind.icon = 'icons/mob/screen1_full.dmi'
+	mymob.blind.icon = 'icons/mob/screen/full.dmi'
 	mymob.blind.icon_state = "blackimageoverlay"
 	mymob.blind.name = " "
 	mymob.blind.screen_loc = "1,1"
@@ -308,7 +318,7 @@
 	hud_elements |= mymob.blind
 
 	mymob.damageoverlay = new /obj/screen()
-	mymob.damageoverlay.icon = 'icons/mob/screen1_full.dmi'
+	mymob.damageoverlay.icon = 'icons/mob/screen/full.dmi'
 	mymob.damageoverlay.icon_state = "oxydamageoverlay0"
 	mymob.damageoverlay.name = "dmg"
 	mymob.damageoverlay.screen_loc = "1,1"
@@ -331,8 +341,8 @@
 	mymob.zone_sel.icon = ui_style
 	mymob.zone_sel.color = ui_color
 	mymob.zone_sel.alpha = ui_alpha
-	mymob.zone_sel.overlays.Cut()
-	mymob.zone_sel.overlays += image('icons/mob/zone_sel.dmi', "[mymob.zone_sel.selecting]")
+	mymob.zone_sel.cut_overlays()
+	mymob.zone_sel.add_overlay(image('icons/mob/zone_sel.dmi', "[mymob.zone_sel.selecting]"))
 	hud_elements |= mymob.zone_sel
 
 	//Handle the gun settings buttons

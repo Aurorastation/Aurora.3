@@ -11,8 +11,26 @@
 
 	has_fine_manipulation = 0
 	siemens_coefficient = 0
-	gluttonous = GLUT_ANYTHING
+	gluttonous = TRUE
+	mouth_size = 15	// Should be larger than any human-type.
+	allowed_eat_types = TYPE_ORGANIC | TYPE_SYNTHETIC | TYPE_HUMANOID
+	mob_size = 14
 	fall_mod = 0
+	grab_mod = 4
+
+	has_limbs = list(
+		"chest" =  list("path" = /obj/item/organ/external/chest/unbreakable),
+		"groin" =  list("path" = /obj/item/organ/external/groin/unbreakable),
+		"head" =   list("path" = /obj/item/organ/external/head/unbreakable),
+		"l_arm" =  list("path" = /obj/item/organ/external/arm/unbreakable),
+		"r_arm" =  list("path" = /obj/item/organ/external/arm/right/unbreakable),
+		"l_leg" =  list("path" = /obj/item/organ/external/leg/unbreakable),
+		"r_leg" =  list("path" = /obj/item/organ/external/leg/right/unbreakable),
+		"l_hand" = list("path" = /obj/item/organ/external/hand/unbreakable),
+		"r_hand" = list("path" = /obj/item/organ/external/hand/right/unbreakable),
+		"l_foot" = list("path" = /obj/item/organ/external/foot/unbreakable),
+		"r_foot" = list("path" = /obj/item/organ/external/foot/right/unbreakable)
+		)
 
 	eyes = "blank_eyes"
 
@@ -20,11 +38,13 @@
 	sprint_speed_factor = 2
 	sprint_cost_factor = 0.80
 	stamina_recovery = 5
+	natural_climbing = 1
+	climb_coeff = 0.1
 
 	virus_immune = 1
 
 	brute_mod = 0.25 // Hardened carapace.
-	burn_mod = 2    // Weak to fire.
+	burn_mod = 1.75    // Weak to fire.
 
 	warning_low_pressure = 50
 	hazard_low_pressure = -1
@@ -33,7 +53,7 @@
 	cold_level_2 = -1
 	cold_level_3 = -1
 
-	flags =  NO_BREATHE | NO_SCAN | NO_PAIN | NO_SLIP | NO_POISON | NO_MINOR_CUT
+	flags =  NO_BREATHE | NO_SCAN | NO_PAIN | NO_SLIP | NO_POISON | NO_EMBED
 	spawn_flags = IS_RESTRICTED
 
 	reagent_tag = IS_XENOS
@@ -53,6 +73,8 @@
 
 	vision_flags = DEFAULT_SIGHT | SEE_MOBS
 
+	darksight = 8
+
 	has_organ = list(
 		"heart" =           /obj/item/organ/heart,
 		"brain" =           /obj/item/organ/brain/xeno,
@@ -64,6 +86,12 @@
 	bump_flag = ALIEN
 	swap_flags = ~HEAVY
 	push_flags = (~HEAVY) ^ ROBOT
+
+	move_trail = /obj/effect/decal/cleanable/blood/tracks/claw
+
+	max_nutrition_factor = -1
+
+	max_hydration_factor = -1
 
 	var/alien_number = 0
 	var/caste_name = "creature" // Used to update alien name.
@@ -83,7 +111,7 @@
 
 	return 0
 
-/datum/species/xenos/hug(var/mob/living/carbon/human/H,var/mob/living/target)
+/datum/species/xenos/tap(var/mob/living/carbon/human/H,var/mob/living/target)
 	H.visible_message("<span class='notice'>[H] caresses [target] with its scythe-like arm.</span>", \
 					"<span class='notice'>You caress [target] with your scythe-like arm.</span>")
 
@@ -106,11 +134,11 @@
 	var/datum/gas_mixture/environment = T.return_air()
 	if(!environment) return
 
-	var/obj/effect/plant/plant = locate() in T
-	if((environment.gas["phoron"] > 0 || (plant && plant.seed && plant.seed.name == "xenomorph")) && !regenerate(H))
-		var/obj/item/organ/xenos/plasmavessel/P = H.internal_organs_by_name["plasma vessel"]
-		P.stored_plasma += weeds_plasma_rate
-		P.stored_plasma = min(max(P.stored_plasma,0),P.max_plasma)
+	if(environment.gas["phoron"] > 0 || locate(/obj/structure/alien/weeds) in T)
+		if(!regenerate(H))
+			var/obj/item/organ/xenos/plasmavessel/P = H.internal_organs_by_name["plasma vessel"]
+			P.stored_plasma += weeds_plasma_rate
+			P.stored_plasma = min(max(P.stored_plasma,0),P.max_plasma)
 	..()
 
 /datum/species/xenos/proc/regenerate(var/mob/living/carbon/human/H)
@@ -127,7 +155,7 @@
 		H.adjustOxyLoss(-heal_rate)
 		H.adjustToxLoss(-heal_rate)
 		if (prob(5))
-			H << "<span class='alium'>You feel a soothing sensation come over you...</span>"
+			to_chat(H, "<span class='alium'>You feel a soothing sensation come over you...</span>")
 		return 1
 
 	//next internal organs
@@ -135,7 +163,7 @@
 		if(I.damage > 0)
 			I.damage = max(I.damage - heal_rate, 0)
 			if (prob(5))
-				H << "<span class='alium'>You feel a soothing sensation within your [I.parent_organ]...</span>"
+				to_chat(H, "<span class='alium'>You feel a soothing sensation within your [I.parent_organ]...</span>")
 			return 1
 
 	//next mend broken bones, approx 10 ticks each
@@ -143,7 +171,7 @@
 		if (E.status & ORGAN_BROKEN)
 			if (prob(mend_prob))
 				if (E.mend_fracture())
-					H << "<span class='alium'>You feel something mend itself inside your [E.name].</span>"
+					to_chat(H, "<span class='alium'>You feel something mend itself inside your [E.name].</span>")
 			return 1
 
 	return 0
@@ -177,7 +205,8 @@
 		/mob/living/carbon/human/proc/transfer_plasma,
 		/mob/living/carbon/human/proc/evolve,
 		/mob/living/carbon/human/proc/resin,
-		/mob/living/carbon/human/proc/corrosive_acid
+		/mob/living/carbon/human/proc/corrosive_acid,
+		/mob/living/carbon/human/proc/darkness_eyes
 		)
 
 /datum/species/xenos/drone/handle_post_spawn(var/mob/living/carbon/human/H)
@@ -219,7 +248,8 @@
 		/mob/living/carbon/human/proc/leap,
 		/mob/living/carbon/human/proc/psychic_whisper,
 		/mob/living/proc/devour,
-		/mob/living/carbon/human/proc/regurgitate
+		/mob/living/carbon/human/proc/regurgitate,
+		/mob/living/carbon/human/proc/darkness_eyes
 		)
 
 /datum/species/xenos/sentinel
@@ -249,7 +279,8 @@
 		/mob/living/carbon/human/proc/regurgitate,
 		/mob/living/carbon/human/proc/transfer_plasma,
 		/mob/living/carbon/human/proc/corrosive_acid,
-		/mob/living/carbon/human/proc/neurotoxin
+		/mob/living/carbon/human/proc/neurotoxin,
+		/mob/living/carbon/human/proc/darkness_eyes
 		)
 
 /datum/species/xenos/queen
@@ -287,8 +318,9 @@
 		/mob/living/carbon/human/proc/transfer_plasma,
 		/mob/living/carbon/human/proc/corrosive_acid,
 		/mob/living/carbon/human/proc/neurotoxin,
+		/mob/living/carbon/human/proc/gut,
 		/mob/living/carbon/human/proc/resin,
-		/mob/living/carbon/human/proc/xeno_infest
+		/mob/living/carbon/human/proc/darkness_eyes
 		)
 
 /datum/species/xenos/queen/handle_login_special(var/mob/living/carbon/human/H)
@@ -303,7 +335,7 @@
 
 /datum/hud_data/alien
 
-	icon = 'icons/mob/screen1_alien.dmi'
+	icon = 'icons/mob/screen/alien.dmi'
 	has_a_intent =  1
 	has_m_intent =  1
 	has_warnings =  1
@@ -313,6 +345,7 @@
 	has_resist =    1
 	has_pressure =  0
 	has_nutrition = 0
+	has_hydration = 0
 	has_bodytemp =  0
 	has_internals = 0
 

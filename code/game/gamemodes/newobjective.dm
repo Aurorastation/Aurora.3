@@ -177,7 +177,7 @@
 				if(!killobjectives.len)
 					continue
 				var/datum/objective/assassinate/objective = pickweight(killobjectives)
-				world << objective
+				to_world(objective)
 				for(1 to 10)
 					if(objective.points + total_weight <= 100 || !killobjectives.len)
 						break
@@ -1286,7 +1286,7 @@ datum
 				if (ticker)
 					var/n_p = 1 //autowin
 					if (ticker.current_state == GAME_STATE_SETTING_UP)
-						for(var/mob/new_player/P in mob_list)
+						for(var/mob/abstract/new_player/P in mob_list)
 							if(P.client && P.ready && P.mind!=owner)
 								n_p ++
 					else if (ticker.current_state == GAME_STATE_PLAYING)

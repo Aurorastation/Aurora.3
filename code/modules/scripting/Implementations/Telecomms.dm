@@ -61,6 +61,21 @@
 		interpreter.SetVar("EAST" 	, 	EAST)			// EAST  (4)
 		interpreter.SetVar("WEST" 	, 	WEST)			// WEST  (8)
 
+		//Language macros
+		interpreter.SetVar("L_BASIC",	LANGUAGE_TCB)
+		interpreter.SetVar("L_SOL",	    LANGUAGE_SOL_COMMON)
+		interpreter.SetVar("L_TRADE",	LANGUAGE_TRADEBAND)
+		interpreter.SetVar("L_GUTTER",	LANGUAGE_GUTTER)
+		interpreter.SetVar("L_SIIKTAU", LANGUAGE_SIIK_TAU)
+		interpreter.SetVar("L_MAAS",	LANGUAGE_SIIK_MAAS)
+		interpreter.SetVar("L_YASSA",	LANGUAGE_YA_SSA)
+		interpreter.SetVar("L_DELVAHII",LANGUAGE_DELVAHII)
+		interpreter.SetVar("L_DIONAEA", LANGUAGE_ROOTSONG)
+		interpreter.SetVar("L_UNATHI",  LANGUAGE_UNATHI)
+		interpreter.SetVar("L_SKRELL",  LANGUAGE_SKRELLIAN)
+		interpreter.SetVar("L_VAURCA",  LANGUAGE_VAURCA)
+		interpreter.SetVar("L_MACHINE", LANGUAGE_EAL)
+
 		// Channel macros
 		interpreter.SetVar("$common",	PUB_FREQ)
 		interpreter.SetVar("$science",	SCI_FREQ)
@@ -72,12 +87,13 @@
 
 		// Signal data
 
-		interpreter.SetVar("$content", 	signal.data["message"])
-		interpreter.SetVar("$freq"   , 	signal.frequency)
-		interpreter.SetVar("$source" , 	signal.data["name"])
-		interpreter.SetVar("$job"    , 	signal.data["job"])
-		interpreter.SetVar("$sign"   ,	signal)
-		interpreter.SetVar("$pass"	 ,  !(signal.data["reject"])) // if the signal isn't rejected, pass = 1; if the signal IS rejected, pass = 0
+		interpreter.SetVar("$content"  , signal.data["message"])
+		interpreter.SetVar("$freq"     , signal.frequency)
+		interpreter.SetVar("$source"   , signal.data["name"])
+		interpreter.SetVar("$job"      , signal.data["job"])
+		interpreter.SetVar("$language" , signal.data["language"])
+		interpreter.SetVar("$sign"     , signal)
+		interpreter.SetVar("$pass"     , !(signal.data["reject"])) // if the signal isn't rejected, pass = 1; if the signal IS rejected, pass = 0
 
 		// Set up the script procs
 
@@ -89,8 +105,9 @@
 					@param frequency:	Frequency to broadcast to
 					@param source:		The name of the source you wish to imitate. Must be stored in stored_names list.
 					@param job:			The name of the job.
+					@param language:	The language used for the broadcast
 		*/
-		interpreter.SetProc("broadcast", "tcombroadcast", signal, list("message", "freq", "source", "job"))
+		interpreter.SetProc("broadcast", "tcombroadcast", signal, list("message", "freq", "source", "job", "language"))
 
 		/*
 			-> Store a value permanently to the server machine (not the actual game hosting machine, the ingame machine)
@@ -220,7 +237,7 @@ datum/signal
 				S.memory[address] = value
 
 
-	proc/tcombroadcast(var/message, var/freq, var/source, var/job)
+	proc/tcombroadcast(var/message, var/freq, var/source, var/job, var/language)
 
 		var/datum/signal/newsign = new
 		var/obj/machinery/telecomms/server/S = data["server"]
@@ -243,6 +260,13 @@ datum/signal
 		if(!job)
 			job = "?"
 
+		if(!language || language == "")
+			language = LANGUAGE_TCB
+		
+		var/datum/language/L = all_languages[language]
+		if(!L || !(L.flags & TCOMSSIM))
+			L = all_languages[LANGUAGE_TCB]
+
 		newsign.data["mob"] = null
 		newsign.data["mobtype"] = /mob/living/carbon/human
 		if(source in S.stored_names)
@@ -253,6 +277,7 @@ datum/signal
 		newsign.data["job"] = job
 		newsign.data["compression"] = 0
 		newsign.data["message"] = message
+		newsign.data["language"] = L
 		newsign.data["type"] = 2 // artificial broadcast
 		if(!isnum(freq))
 			freq = text2num(freq)

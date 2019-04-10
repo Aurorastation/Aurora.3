@@ -35,14 +35,13 @@
 
 /obj/item/weapon/anodevice/New()
 	..()
-	processing_objects.Add(src)
+	START_PROCESSING(SSprocessing, src)
 
 /obj/item/weapon/anodevice/attackby(var/obj/I as obj, var/mob/user as mob)
 	if(istype(I, /obj/item/weapon/anobattery))
 		if(!inserted_battery)
-			user << "<span class='notice'>You insert the battery.</span>"
-			user.drop_item()
-			I.loc = src
+			to_chat(user, "<span class='notice'>You insert the battery.</span>")
+			user.drop_from_inventory(I,src)
 			inserted_battery = I
 			UpdateSprite()
 	else
@@ -103,7 +102,7 @@
 					if(interval > 0)
 						//apply the touch effect to the holder
 						if(holder)
-							holder << "the \icon[src] [src] held by [holder] shudders in your grasp."
+							to_chat(holder, "the \icon[src] [src] held by [holder] shudders in your grasp.")
 						else
 							src.loc.visible_message("the \icon[src] [src] shudders.")
 						inserted_battery.battery_effect.DoEffectTouch(holder)
@@ -172,7 +171,7 @@
 		activated = 0
 	if(href_list["ejectbattery"])
 		shutdown_emission()
-		inserted_battery.loc = get_turf(src)
+		inserted_battery.forceMove(get_turf(src))
 		inserted_battery = null
 		UpdateSprite()
 	if(href_list["close"])
@@ -191,7 +190,7 @@
 	icon_state = "anodev[round(p,25)]"
 
 /obj/item/weapon/anodevice/Destroy()
-	processing_objects.Remove(src)
+	STOP_PROCESSING(SSprocessing, src)
 	return ..()
 
 /obj/item/weapon/anodevice/attack(mob/living/M as mob, mob/living/user as mob, def_zone)

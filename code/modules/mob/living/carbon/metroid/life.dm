@@ -12,12 +12,12 @@
 		if(is_ventcrawling == 0) // Stops sight returning to normal if inside a vent
 			sight = initial(sight)
 
-		if (!client)
-			handle_targets()
-			if (!AIproc)
-				spawn()
-					handle_AI()
-			handle_speech_and_mood()
+/mob/living/carbon/slime/think()
+	..()
+	handle_targets()
+	if (!AIproc)
+		handle_AI()
+	handle_speech_and_mood()
 
 /mob/living/carbon/slime/handle_environment(datum/gas_mixture/environment)
 	if(!environment)
@@ -80,6 +80,7 @@
 	if(touching) touching.metabolize()
 	if(ingested) ingested.metabolize()
 	if(bloodstr) bloodstr.metabolize()
+	if(breathing) breathing.metabolize()
 
 	if(CE_PAINKILLER in chem_effects)
 		analgesic = chem_effects[CE_PAINKILLER]
@@ -158,16 +159,16 @@
 /mob/living/carbon/slime/proc/handle_nutrition()
 
 	if (prob(15))
-		nutrition -= 1 + is_adult
+		adjustNutritionLoss(1 + is_adult)
 
 	if(nutrition <= 0)
 		nutrition = 0
 		adjustToxLoss(rand(1,3))
 		if (client && prob(5))
-			src << "<span class='danger'>You are starving!</span>"
+			to_chat(src, "<span class='danger'>You are starving!</span>")
 
 	else if (nutrition >= get_grow_nutrition() && amount_grown < 10)
-		nutrition -= 20
+		adjustNutritionLoss(20)
 		amount_grown++
 
 /mob/living/carbon/slime/proc/handle_targets()
@@ -220,13 +221,16 @@
 				if(isslime(L) || L.stat == DEAD) // Ignore other slimes and dead mobs
 					continue
 
+				if(isskrell(L)) // we do not attack skrell - lore reason.
+					continue
+
 				if(L in Friends) // No eating friends!
 					continue
 
 				if(issilicon(L) && (rabid || attacked)) // They can't eat silicons, but they can glomp them in defence
 					targets += L // Possible target found!
 
-				if(istype(L, /mob/living/carbon/human)) //Ignore slime(wo)men
+				if(ishuman(L)) //Ignore slime(wo)men
 					var/mob/living/carbon/human/H = L
 					if(H.species.name == "Slime")
 						continue
@@ -279,6 +283,9 @@
 				step(src, pick(cardinal))
 
 /mob/living/carbon/slime/proc/handle_AI()  // the master AI process
+
+	if(Victim && Victim.stat & DEAD)
+		Victim = null
 
 	if(stat == DEAD || client || Victim) return // If we're dead or have a client, we don't need AI, if we're feeding, we continue feeding
 	AIproc = 1

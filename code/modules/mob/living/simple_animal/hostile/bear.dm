@@ -14,7 +14,7 @@
 	emote_hear = list("grumbles","grawls")
 	emote_see = list("stares ferociously", "stomps")
 	speak_chance = 10
-	turns_per_move = 7
+	turns_per_move = 10
 	see_in_dark = 6
 	meat_type = /obj/item/weapon/reagent_containers/food/snacks/bearmeat
 	response_help  = "pets"
@@ -22,10 +22,11 @@
 	response_harm   = "hits"
 	stop_automated_movement_when_pulled = 0
 	maxHealth = 80
-	melee_damage_lower = 16
-	melee_damage_upper = 24
+	melee_damage_lower = 10
+	melee_damage_upper = 18
 	break_stuff_probability = 80
 	mob_size = 17
+	butchering_products = list(/obj/item/clothing/head/bearpelt = 1)
 	var/safety //used to prevent infinite loops
 	var/turns_since_hit = 0//If the bear chases someone too long without hitting them, it will try to change to another nearby target instead
 
@@ -64,7 +65,7 @@
 	var/stance_step = 0
 
 	faction = "russian"
-	
+
 	var/always_space_mode = FALSE	// If true, bear will always be in BEARMODE_SPACE, regardless of surroundings.
 
 
@@ -80,18 +81,13 @@
 	. = ..()
 	update_bearmode()
 
-/mob/living/simple_animal/hostile/bear/harvest()
-	new /obj/item/clothing/head/bearpelt(get_turf(src))
-	..()
-
-
 /mob/living/simple_animal/hostile/bear/proc/set_stance(var/input)
 	var/previous = stance
 	stance = input
 	if (stance != previous)
 		stance_step = 0
 
-/mob/living/simple_animal/hostile/bear/Life()
+/mob/living/simple_animal/hostile/bear/think()
 	. =..()
 	safety = 0
 	if (stat != CONSCIOUS)
@@ -99,7 +95,6 @@
 
 	if (life_tick % 5 == 0)
 		update_bearmode()
-
 
 	//This covers cases where the bear is damaged by things it can't detect.
 	//Most notably, security bots, beepsky kept murdering them without resistance
@@ -111,7 +106,6 @@
 		anger = max(0, anger-1)
 
 	switch(stance)
-
 		if(HOSTILE_STANCE_TIRED)
 			stop_automated_movement = 1
 			stance_step++
@@ -145,9 +139,6 @@
 			else
 				stance_step--
 
-
-
-
 			if (anger && found_mob)
 				instant_aggro()//If we're angry and someone is nearby, skip waiting and charge them
 
@@ -166,7 +157,6 @@
 				tire_out()
 				return
 
-
 			//If we're having no luck attacking our current target
 			if (target_mob && !Adjacent(target_mob) && turns_since_hit > 3)
 				LoseTarget()
@@ -174,7 +164,6 @@
 				set_dir(get_dir(src,target_mob))
 
 	health_last_tick = health
-
 
 //Causes the bear to find and start attacking the nearest target.
 //This will overwrite any existing target if a different one is closer
@@ -204,7 +193,7 @@
 
 				if(!L.client)
 					continue
-					
+
 				if(L.stat == CONSCIOUS)
 					if (dist < nearest_dist)
 						nearest_target = L
@@ -296,7 +285,7 @@
 		if (health < healthbefore)
 			instant_aggro()
 
-/mob/living/simple_animal/hostile/bear/ex_act()
+/mob/living/simple_animal/hostile/bear/ex_act(var/severity = 2.0)
 	var/healthbefore = health
 	..()
 	spawn(1)
@@ -461,7 +450,7 @@
 	else if (forcechange)
 		MoveToTarget()
 
-/mob/living/simple_animal/hostile/bear/spatial/Life()
+/mob/living/simple_animal/hostile/bear/spatial/think()
 	..()
 	if (stat != CONSCIOUS)
 		return
@@ -482,7 +471,6 @@
 		if (focus_time % tactical_delay == 0)
 			teleport_tactical(target_mob)
 
-
 	//Teleport away from other bears
 	for (var/mob/living/simple_animal/hostile/bear/bear in view(world.view, get_turf(src)))
 		if (bear != src && bear.stat != DEAD)
@@ -497,7 +485,7 @@
 //Used to move to a new part of the station when it sees another bear, or it hasnt found any prey
 /mob/living/simple_animal/hostile/bear/spatial/proc/teleport()
 	if (stat == CONSCIOUS)
-		var/area/A = random_station_area()
+		var/area/A = random_station_area(TRUE) //Don't teleport to areas with players in them.
 		var/turf/target = A.random_space()
 
 		teleport_to(target)

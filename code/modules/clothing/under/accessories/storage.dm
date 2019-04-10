@@ -7,8 +7,8 @@
 	var/obj/item/weapon/storage/internal/hold
 	w_class = 3.0
 
-/obj/item/clothing/accessory/storage/New()
-	..()
+/obj/item/clothing/accessory/storage/Initialize()
+	. = ..()
 	hold = new/obj/item/weapon/storage/internal(src)
 	hold.storage_slots = slots
 	hold.max_storage_space = 12
@@ -37,7 +37,7 @@
 	..()
 
 /obj/item/clothing/accessory/storage/attack_self(mob/user as mob)
-	user << "<span class='notice'>You empty [src].</span>"
+	to_chat(user, "<span class='notice'>You empty [src].</span>")
 	var/turf/T = get_turf(src)
 	hold.hide_from(usr)
 	for(var/obj/item/I in hold.contents)
@@ -60,7 +60,7 @@
 	desc = "Worn brownish synthcotton vest with lots of pockets to unload your hands."
 	icon_state = "vest_brown"
 	slots = 5
-	
+
 /obj/item/clothing/accessory/storage/white_vest
 	name = "white webbing vest"
 	desc = "Durable white synthcotton vest with lots of pockets to carry essentials."
@@ -96,14 +96,32 @@
 	icon_state = "unathiharness2"
 	slots = 2
 
-/obj/item/clothing/accessory/storage/knifeharness/New()
-	..()
+/obj/item/clothing/accessory/storage/knifeharness/Initialize()
+	. = ..()
 	hold.max_storage_space = 4
-	hold.can_hold = list(/obj/item/weapon/material/hatchet/unathiknife,\
-	/obj/item/weapon/material/kitchen/utensil/knife,\
-	/obj/item/weapon/material/kitchen/utensil/knife/plastic,\
-	/obj/item/weapon/material/knife,\
-	/obj/item/weapon/material/knife/ritual)
+	hold.can_hold = list(
+		/obj/item/weapon/material/hatchet/unathiknife,
+		/obj/item/weapon/material/kitchen/utensil/knife,
+		/obj/item/weapon/material/kitchen/utensil/knife/plastic,
+		/obj/item/weapon/material/knife,
+		/obj/item/weapon/material/knife/ritual
+	)
 
 	new /obj/item/weapon/material/hatchet/unathiknife(hold)
 	new /obj/item/weapon/material/hatchet/unathiknife(hold)
+
+/obj/item/clothing/accessory/storage/bayonet
+	name = "bayonet sheath"
+	desc = "A leather sheath designated to hold a bayonet."
+	icon_state = "holster_machete"
+	slots = 1
+
+/obj/item/clothing/accessory/storage/bayonet/Initialize()
+	. = ..()
+	hold.max_storage_space = 4
+	hold.max_w_class = 3
+	hold.can_hold = list(
+		/obj/item/weapon/material/knife/bayonet
+	)
+
+	new /obj/item/weapon/material/knife/bayonet(hold)

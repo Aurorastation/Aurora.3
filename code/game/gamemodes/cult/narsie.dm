@@ -43,8 +43,8 @@ var/global/list/narsie_list = list()
 /obj/singularity/narsie/large/New()
 	..()
 	if(announce)
-		world << "<font size='15' color='red'><b>[uppertext(name)] HAS RISEN</b></font>"
-		world << sound('sound/effects/wind/wind_5_1.ogg')
+		to_world("<font size='15' color='red'><b>[uppertext(name)] HAS RISEN</b></font>")
+		to_world(sound('sound/effects/narsie.ogg'))
 
 	narsie_spawn_animation()
 
@@ -80,18 +80,19 @@ var/global/list/narsie_list = list()
 			if(M.status_flags & GODMODE)
 				continue
 			if(!iscultist(M))
-				M << "<span class='danger'>You feel your sanity crumble away in an instant as you gaze upon [src.name]...</span>"
+				to_chat(M, "<span class='danger'>You feel your sanity crumble away in an instant as you gaze upon [src.name]...</span>")
 				M.apply_effect(3, STUN)
 
 
-/obj/singularity/narsie/large/Bump(atom/A)
+/obj/singularity/narsie/large/Collide(atom/A)
+	. = ..()
 	if(!cause_hell) return
 	if(isturf(A))
 		narsiewall(A)
 	else if(istype(A, /obj/structure/cult))
 		qdel(A)
 
-/obj/singularity/narsie/large/Bumped(atom/A)
+/obj/singularity/narsie/large/CollidedWith(atom/A)
 	if(!cause_hell) return
 	if(isturf(A))
 		narsiewall(A)
@@ -323,7 +324,7 @@ var/global/list/narsie_list = list()
 		acquire(pick(cultists))
 		return
 		//no living cultists, pick a living human instead.
-	for(var/mob/dead/observer/ghost in player_list)
+	for(var/mob/abstract/observer/ghost in player_list)
 		if(!ghost.client)
 			continue
 		var/turf/pos = get_turf(ghost)
@@ -338,13 +339,13 @@ var/global/list/narsie_list = list()
 /obj/singularity/narsie/proc/acquire(const/mob/food)
 	var/capname = uppertext(name)
 
-	target << "<span class='notice'><b>[capname] HAS LOST INTEREST IN YOU.</b></span>"
+	to_chat(target, "<span class='notice'><b>[capname] HAS LOST INTEREST IN YOU.</b></span>")
 	target = food
 
 	if (ishuman(target))
-		target << "<span class='danger'>[capname] HUNGERS FOR YOUR SOUL.</span>"
+		to_chat(target, "<span class='danger'>[capname] HUNGERS FOR YOUR SOUL.</span>")
 	else
-		target << "<span class='danger'>[capname] HAS CHOSEN YOU TO LEAD HIM TO HIS NEXT MEAL.</span>"
+		to_chat(target, "<span class='danger'>[capname] HAS CHOSEN YOU TO LEAD HIM TO HIS NEXT MEAL.</span>")
 
 /obj/singularity/narsie/on_capture()
 	chained = 1
@@ -379,7 +380,7 @@ var/global/list/narsie_list = list()
 	grav_pull = 0
 
 /obj/singularity/narsie/wizard/eat()
-	for (var/turf/T in trange(consume_range, src))
+	for (var/turf/T in RANGE_TURFS(consume_range, src))
 		consume(T)
 
 /obj/singularity/narsie/proc/narsie_spawn_animation()

@@ -29,11 +29,11 @@
 	toggle_secure()
 		secured = !secured
 		if(secured)
-			processing_objects.Add(src)
+			START_PROCESSING(SSprocessing, src)
 		else
 			on = 0
 			if(first)	qdel(first)
-			processing_objects.Remove(src)
+			STOP_PROCESSING(SSprocessing, src)
 		update_icon()
 		return secured
 
@@ -68,9 +68,7 @@
 				I.vis_spread(visible)
 				spawn(0)
 					if(I)
-						//world << "infra: setting limit"
 						I.limit = 8
-						//world << "infra: processing beam \ref[I]"
 						I.process()
 					return
 		return
@@ -176,11 +174,9 @@
 	return
 
 /obj/effect/beam/i_beam/proc/vis_spread(v)
-	//world << "i_beam \ref[src] : vis_spread"
 	visible = v
 	spawn(0)
 		if(next)
-			//world << "i_beam \ref[src] : is next [next.type] \ref[next], calling spread"
 			next.vis_spread(v)
 		return
 	return
@@ -202,47 +198,38 @@
 		invisibility = 0
 
 
-	//world << "now [src.left] left"
 	var/obj/effect/beam/i_beam/I = new /obj/effect/beam/i_beam(loc)
 	I.master = master
 	I.density = 1
 	I.set_dir(dir)
-	//world << "created new beam \ref[I] at [I.x] [I.y] [I.z]"
 	step(I, I.dir)
 
 	if(I)
-		//world << "step worked, now at [I.x] [I.y] [I.z]"
 		if(!(next))
-			//world << "no next"
 			I.density = 0
-			//world << "spreading"
 			I.vis_spread(visible)
 			next = I
 			spawn(0)
-				//world << "limit = [limit] "
 				if((I && limit > 0))
 					I.limit = limit - 1
-					//world << "calling next process"
 					I.process()
 				return
 		else
-			//world << "is a next: \ref[next], deleting beam \ref[I]"
 			qdel(I)
 	else
-		//world << "step failed, deleting \ref[next]"
 		qdel(next)
 	spawn(10)
 		process()
 		return
 	return
 
-/obj/effect/beam/i_beam/Bump()
+/obj/effect/beam/i_beam/Collide()
+	. = ..()
 	qdel(src)
-	return
 
-/obj/effect/beam/i_beam/Bumped()
+/obj/effect/beam/i_beam/CollidedWith()
+	..()
 	hit()
-	return
 
 /obj/effect/beam/i_beam/Crossed(atom/movable/AM as mob|obj)
 	if(istype(AM, /obj/effect/beam))

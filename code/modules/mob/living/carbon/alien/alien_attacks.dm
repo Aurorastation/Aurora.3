@@ -15,7 +15,7 @@
 		if (I_GRAB)
 			if (M == src)
 				return
-			var/obj/item/weapon/grab/G = new /obj/item/weapon/grab( M, M, src )
+			var/obj/item/weapon/grab/G = new /obj/item/weapon/grab( M, src )
 
 			M.put_in_active_hand(G)
 
@@ -23,7 +23,7 @@
 			G.affecting = src
 			G.synch()
 
-			LAssailant = M
+			LAssailant = WEAKREF(M)
 
 			playsound(loc, 'sound/weapons/thudswoosh.ogg', 50, 1, -1)
 			for(var/mob/O in viewers(src, null))

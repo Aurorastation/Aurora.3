@@ -2,10 +2,16 @@
 	name = "energy carbine"
 	desc = "An energy-based carbine with two settings: Stun and kill."
 	icon_state = "energystun100"
-	item_state = null	//so the human update icon uses the icon_state instead.
+	item_state = null	// so the human update icon uses the icon_state instead.
 	fire_sound = 'sound/weapons/Taser.ogg'
 	slot_flags = SLOT_BELT
+	accuracy = 1
 	max_shots = 10
+	can_turret = 1
+	secondary_projectile_type = /obj/item/projectile/beam
+	secondary_fire_sound = 'sound/weapons/Laser.ogg'
+	can_switch_modes = 1
+	turret_is_lethal = 0
 
 	projectile_type = /obj/item/projectile/beam/stun
 	origin_tech = list(TECH_COMBAT = 3, TECH_MAGNET = 2)
@@ -22,6 +28,7 @@
 	name = "mounted energy gun"
 	self_recharge = 1
 	use_external_power = 1
+	can_turret = 0
 
 /obj/item/weapon/gun/energy/gun/nuclear
 	name = "advanced energy gun"
@@ -32,7 +39,9 @@
 	force = 8 //looks heavier than a pistol
 	self_recharge = 1
 	modifystate = null
-	var/reliability = 95
+	reliability = 95
+	turret_sprite_set = "nuclear"
+	charge_failure_message = "'s charging socket was removed to make room for a minaturized reactor."
 
 	firemodes = list(
 		list(mode_name="stun", projectile_type=/obj/item/projectile/beam/stun, fire_sound='sound/weapons/Taser.ogg'),
@@ -41,28 +50,34 @@
 
 	var/lightfail = 0
 
+/obj/item/weapon/gun/energy/gun/nuclear/get_cell()
+	return DEVICE_NO_CELL
 
-/obj/item/weapon/gun/energy/gun/nuclear/proc/failcheck()
-	lightfail = 0
-	if (prob(src.reliability)) return 1 //No failure
-	if (prob(src.reliability))
-		for (var/mob/living/M in range(0,src)) //Only a minor failure, enjoy your radiation if you're in the same tile or carrying it
-			if (src in M.contents)
-				M << "<span class='warning'>Your gun feels pleasantly warm for a moment.</span>"
-			else
-				M << "<span class='warning'>You feel a warm sensation.</span>"
-			M.apply_effect(rand(3,120), IRRADIATE)
-		lightfail = 1
+/obj/item/weapon/gun/energy/gun/nuclear/small_fail(var/mob/user)
+	for (var/mob/living/M in range(0,src)) //Only a minor failure, enjoy your radiation if you're in the same tile or carrying it
+		if (M == user)
+			to_chat(M, "<span class='warning'>Your gun feels pleasantly warm for a moment.</span>")
+		else
+			to_chat(M, "<span class='warning'>You feel a warm sensation.</span>")
+		M.apply_effect(rand(3,120), IRRADIATE)
+	return
+
+/obj/item/weapon/gun/energy/gun/nuclear/medium_fail(var/mob/user)
+	if(prob(50))
+		critical_fail(user)
 	else
-		for (var/mob/living/M in range(rand(1,4),src)) //Big failure, TIME FOR RADIATION BITCHES
-			if (src in M.contents)
-				M << "<span class='danger'>Your gun's reactor overloads!</span>"
-			M << "<span class='warning'>You feel a wave of heat wash over you.</span>"
-			M.apply_effect(300, IRRADIATE)
-		crit_fail = 1 //break the gun so it stops recharging
-		self_recharge = FALSE
-		update_icon()
-	return 0
+		small_fail(user)
+	return
+
+/obj/item/weapon/gun/energy/gun/nuclear/critical_fail(var/mob/user)
+	to_chat(user, "<span class='danger'>Your gun's reactor overloads!</span>")
+	for (var/mob/living/M in range(rand(1,4),src))
+		to_chat(M, "<span class='warning'>You feel a wave of heat wash over you.</span>")
+		M.apply_effect(300, IRRADIATE)
+	crit_fail = 1 //break the gun so it stops recharging
+	self_recharge = FALSE
+	update_icon()
+	return
 
 /obj/item/weapon/gun/energy/gun/nuclear/proc/update_charge()
 	if (crit_fail)
@@ -86,9 +101,9 @@
 /obj/item/weapon/gun/energy/gun/nuclear/proc/update_mode()
 	var/datum/firemode/current_mode = firemodes[sel_mode]
 	switch(current_mode.name)
-		if("stun") 
+		if("stun")
 			add_overlay("nucgun-stun")
-		if("lethal") 
+		if("lethal")
 			add_overlay("nucgun-kill")
 /*
 /obj/item/weapon/gun/energy/gun/nuclear/emp_act(severity)
@@ -110,6 +125,12 @@
 	slot_flags = SLOT_BELT|SLOT_HOLSTER
 	max_shots = 5
 	fire_delay = 4
+	can_turret = 1
+	secondary_projectile_type = /obj/item/projectile/beam/pistol
+	secondary_fire_sound = 'sound/weapons/Laser.ogg'
+	can_switch_modes = 1
+	turret_sprite_set = "carbine"
+	turret_is_lethal = 0
 
 	projectile_type = /obj/item/projectile/beam/stun
 	origin_tech = list(TECH_COMBAT = 3, TECH_MAGNET = 2)

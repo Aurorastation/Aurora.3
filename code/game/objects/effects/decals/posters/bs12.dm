@@ -316,9 +316,9 @@
 
 /datum/poster/bay_64
 	icon_state = "bsposter64"
-	name = "N.S.S Exodus"
+	name = "N.S.S. Exodus"
 	desc = "This poster is a picture of the famous N.S.S. Exodus."
-	
+
 /datum/poster/bay_65
 	icon_state = "bsposter65"
 	name = "Importance of Plasma"

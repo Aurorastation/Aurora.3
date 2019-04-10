@@ -25,16 +25,16 @@
 	var/manufacturer = null
 	var/sync_message = ""
 
+	component_types = list(
+		/obj/item/weapon/circuitboard/mechfab,
+		/obj/item/weapon/stock_parts/matter_bin = 2,
+		/obj/item/weapon/stock_parts/manipulator,
+		/obj/item/weapon/stock_parts/micro_laser,
+		/obj/item/weapon/stock_parts/console_screen
+	)
+
 /obj/machinery/mecha_part_fabricator/Initialize()
 	. = ..()
-	component_parts = list()
-	component_parts += new /obj/item/weapon/circuitboard/mechfab(src)
-	component_parts += new /obj/item/weapon/stock_parts/matter_bin(src)
-	component_parts += new /obj/item/weapon/stock_parts/matter_bin(src)
-	component_parts += new /obj/item/weapon/stock_parts/manipulator(src)
-	component_parts += new /obj/item/weapon/stock_parts/micro_laser(src)
-	component_parts += new /obj/item/weapon/stock_parts/console_screen(src)
-	RefreshParts()
 
 	files = new /datum/research(src) //Setup the research data holder.
 	manufacturer = basic_robolimb.company
@@ -68,12 +68,15 @@
 
 /obj/machinery/mecha_part_fabricator/RefreshParts()
 	res_max_amount = 0
+
 	for(var/obj/item/weapon/stock_parts/matter_bin/M in component_parts)
 		res_max_amount += M.rating * 100000 // 200k -> 600k
 	var/T = 0
+
 	for(var/obj/item/weapon/stock_parts/manipulator/M in component_parts)
 		T += M.rating
 	mat_efficiency = 1 - (T - 1) / 4 // 1 -> 0.5
+
 	for(var/obj/item/weapon/stock_parts/micro_laser/M in component_parts) // Not resetting T is intended; speed is affected by both
 		T += M.rating
 	speed = T / 2 // 1 -> 3
@@ -103,10 +106,10 @@
 	data["buildable"] = get_build_options()
 	data["category"] = category
 	data["categories"] = categories
-	if(all_robolimbs)
+	if(chargen_robolimbs )
 		var/list/T = list()
-		for(var/A in all_robolimbs)
-			var/datum/robolimb/R = all_robolimbs[A]
+		for(var/A in chargen_robolimbs )
+			var/datum/robolimb/R = chargen_robolimbs [A]
 			T += list(list("id" = A, "company" = R.company))
 		data["manufacturers"] = T
 		data["manufacturer"] = manufacturer
@@ -138,7 +141,7 @@
 			category = href_list["category"]
 
 	if(href_list["manufacturer"])
-		if(href_list["manufacturer"] in all_robolimbs)
+		if(href_list["manufacturer"] in chargen_robolimbs )
 			manufacturer = href_list["manufacturer"]
 
 	if(href_list["eject"])
@@ -153,7 +156,7 @@
 
 /obj/machinery/mecha_part_fabricator/attackby(var/obj/item/I, var/mob/user)
 	if(busy)
-		user << "<span class='notice'>\The [src] is busy. Please wait for completion of previous operation.</span>"
+		to_chat(user, "<span class='notice'>\The [src] is busy. Please wait for completion of previous operation.</span>")
 		return 1
 	if(default_deconstruction_screwdriver(user, I))
 		return
@@ -196,10 +199,10 @@
 				materials[material] += amnt
 				stack.use(1)
 				count++
-			user << "You insert [count] [sname] into the fabricator."
+			to_chat(user, "You insert [count] [sname] into the fabricator.")
 			update_busy()
 	else
-		user << "The fabricator cannot hold more [sname]."
+		to_chat(user, "The fabricator cannot hold more [sname].")
 
 /obj/machinery/mecha_part_fabricator/MouseDrop_T(mob/living/carbon/human/target as mob, mob/user as mob)
 	if (!istype(target) || target.buckled || get_dist(user, src) > 1 || get_dist(user, target) > 1 || user.stat || istype(user, /mob/living/silicon/ai))
@@ -250,7 +253,7 @@
 			sleep(15)
 			visible_message("\icon[src] <b>[src]</b> beeps: \"User DB corrupted \[Code 0x00FA\]. Truncating data structure...\"")
 			sleep(30)
-			visible_message("\icon[src] <b>[src]</b> beeps: \"User DB truncated. Please contact your [company_name] system operator for future assistance.\"")
+			visible_message("\icon[src] <b>[src]</b> beeps: \"User DB truncated. Please contact your [current_map.company_name] system operator for future assistance.\"")
 			req_access = null
 			emagged = 1
 			return 1

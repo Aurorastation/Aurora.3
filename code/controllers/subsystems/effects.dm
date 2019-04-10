@@ -7,7 +7,7 @@ var/datum/controller/subsystem/effects/SSeffects
 	priority = SS_PRIORITY_EFFECTS
 
 	var/list/datum/effect_system/effect_systems = list()	// The effect-spawning objects. Shouldn't be many of these.
-	var/list/obj/visual_effect/visuals	= list()	// The visible component of an effect. May be created without an effect object.
+	var/list/obj/effect/visual/visuals	= list()	// The visible component of an effect. May be created without an effect object.
 
 	var/tmp/list/processing_effects = list()
 	var/tmp/list/processing_visuals = list()
@@ -49,7 +49,7 @@ var/datum/controller/subsystem/effects/SSeffects
 
 	// Most often these will be continuing to tick, so assume that we're going to keep poking the effect.
 	while (current_visuals.len)
-		var/obj/visual_effect/V = current_visuals[current_visuals.len]
+		var/obj/effect/visual/V = current_visuals[current_visuals.len]
 		current_visuals.len--
 
 		if (QDELETED(V) || !V.isprocessing)

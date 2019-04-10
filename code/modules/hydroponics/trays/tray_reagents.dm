@@ -99,8 +99,8 @@
 	amount_per_transfer_from_this = 10
 	volume = 60
 
-/obj/item/weapon/reagent_containers/glass/fertilizer/New()
-	..()
+/obj/item/weapon/reagent_containers/glass/fertilizer/Initialize()
+	. = ..()
 
 	src.pixel_x = rand(-5.0, 5)
 	src.pixel_y = rand(-5.0, 5)

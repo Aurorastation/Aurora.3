@@ -6,10 +6,12 @@
 
 [![Krihelimeter](http://www.krihelinator.xyz/badge/Aurorastation/Aurora.3)](http://www.krihelinator.xyz/repositories/Aurorastation/Aurora.3)
 
+[![Build Status](https://api.travis-ci.org/Aurorastation/Aurora.3.svg?branch=master)](https://travis-ci.org/Aurorastation/Aurora.3)
+
 ---
 
 ### LICENSE
-Aurorastation is licensed under the GNU Affero General Public License version 3, which can be found in full in LICENSE-AGPL3.txt.
+Aurorastation is licensed under the GNU Affero General Public License version 3, which can be found in full in LICENSE.
 
 Commits with a git authorship date prior to `1420675200 +0000` (2015/01/08 00:00) are licensed under the GNU General Public License version 3, which can be found in full in LICENSE-GPL3.txt.
 

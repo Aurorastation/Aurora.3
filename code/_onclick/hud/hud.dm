@@ -55,7 +55,7 @@ var/list/global_huds
 	// Station maps work by setting it as an images location before sending to client, not
 	// actually changing the icon or icon state of the screen object itself!
 	// Why do they work this way? I don't know really, that is how /vg/ designed them, but since they DO
-	// work this way, we can take advantage of their immutability by making them part of 
+	// work this way, we can take advantage of their immutability by making them part of
 	// the global_hud (something we have and /vg/ doesn't) instead of an instance per mob.
 	holomap = new /obj/screen()
 	holomap.name = "holomap"
@@ -132,7 +132,7 @@ var/list/global_huds
 	var/obj/screen/r_hand_hud_object
 	var/obj/screen/l_hand_hud_object
 	var/obj/screen/action_intent
-	var/obj/screen/move_intent
+	var/obj/screen/movement_intent/move_intent
 
 	var/list/adding
 	var/list/other
@@ -271,11 +271,11 @@ datum/hud/New(mob/owner)
 	set hidden = 1
 
 	if(!hud_used)
-		usr << "<span class='warning'>This mob type does not use a HUD.</span>"
+		to_chat(usr, "<span class='warning'>This mob type does not use a HUD.</span>")
 		return
 
 	if(!ishuman(src))
-		usr << "<span class='warning'>Inventory hiding is currently only supported for human mobs, sorry.</span>"
+		to_chat(usr, "<span class='warning'>Inventory hiding is currently only supported for human mobs, sorry.</span>")
 		return
 
 	if(!client) return

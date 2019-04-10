@@ -22,7 +22,7 @@
 
 	air_contents.volume = volume
 	air_contents.temperature = T20C
-	
+
 	var/obj/machinery/atmospherics/portables_connector/port = locate() in loc
 	if(port)
 		connect(port)
@@ -103,30 +103,29 @@
 		if (src.holding)
 			return
 		var/obj/item/weapon/tank/T = W
-		user.drop_item()
-		T.loc = src
+		user.drop_from_inventory(T,src)
 		src.holding = T
 		update_icon()
 		return
 
-	else if (istype(W, /obj/item/weapon/wrench))
+	else if (W.iswrench())
 		if(connected_port)
 			disconnect()
-			user << "<span class='notice'>You disconnect \the [src] from the port.</span>"
+			to_chat(user, "<span class='notice'>You disconnect \the [src] from the port.</span>")
 			update_icon()
 			return
 		else
 			var/obj/machinery/atmospherics/portables_connector/possible_port = locate(/obj/machinery/atmospherics/portables_connector/) in loc
 			if(possible_port)
 				if(connect(possible_port))
-					user << "<span class='notice'>You connect \the [src] to the port.</span>"
+					to_chat(user, "<span class='notice'>You connect \the [src] to the port.</span>")
 					update_icon()
 					return
 				else
-					user << "<span class='notice'>\The [src] failed to connect to the port.</span>"
+					to_chat(user, "<span class='notice'>\The [src] failed to connect to the port.</span>")
 					return
 			else
-				user << "<span class='notice'>Nothing happens.</span>"
+				to_chat(user, "<span class='notice'>Nothing happens.</span>")
 				return
 
 	else if ((istype(W, /obj/item/device/analyzer)) && Adjacent(user))
@@ -155,27 +154,26 @@
 /obj/machinery/portable_atmospherics/powered/attackby(obj/item/I, mob/user)
 	if(istype(I, /obj/item/weapon/cell))
 		if(cell)
-			user << "There is already a power cell installed."
+			to_chat(user, "There is already a power cell installed.")
 			return
 
 		var/obj/item/weapon/cell/C = I
 
-		user.drop_item()
+		user.drop_from_inventory(C,src)
 		C.add_fingerprint(user)
 		cell = C
-		C.loc = src
 		user.visible_message("<span class='notice'>[user] opens the panel on [src] and inserts [C].</span>", "<span class='notice'>You open the panel on [src] and insert [C].</span>")
 		power_change()
 		return
 
-	if(istype(I, /obj/item/weapon/screwdriver))
+	if(I.isscrewdriver())
 		if(!cell)
-			user << "<span class='warning'>There is no power cell installed.</span>"
+			to_chat(user, "<span class='warning'>There is no power cell installed.</span>")
 			return
 
 		user.visible_message("<span class='notice'>[user] opens the panel on [src] and removes [cell].</span>", "<span class='notice'>You open the panel on [src] and remove [cell].</span>")
 		cell.add_fingerprint(user)
-		cell.loc = src.loc
+		cell.forceMove(src.loc)
 		cell = null
 		power_change()
 		return

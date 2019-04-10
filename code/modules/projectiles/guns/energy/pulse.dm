@@ -8,7 +8,14 @@
 	fire_sound='sound/weapons/Laser.ogg'
 	projectile_type = /obj/item/projectile/beam
 	sel_mode = 2
+	accuracy = 1
 	max_shots = 10
+	can_turret = 1
+	secondary_projectile_type = /obj/item/projectile/beam/pulse
+	secondary_fire_sound = 'sound/weapons/pulse.ogg'
+	can_switch_modes = 0
+	turret_sprite_set = "pulse"
+	turret_is_lethal = 1
 
 	firemodes = list(
 		list(mode_name="stun", projectile_type=/obj/item/projectile/beam/stun, fire_sound='sound/weapons/Taser.ogg', fire_delay=null, charge_cost=null),
@@ -17,10 +24,12 @@
 		)
 
 /obj/item/weapon/gun/energy/pulse/mounted
+	name = "mounted pulse carbine"
 	charge_cost = 400
 	self_recharge = 1
 	use_external_power = 1
 	recharge_time = 10
+	can_turret = 0
 
 /obj/item/weapon/gun/energy/pulse/pistol
 	name = "pulse pistol"

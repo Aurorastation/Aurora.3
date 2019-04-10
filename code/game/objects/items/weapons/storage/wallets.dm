@@ -30,7 +30,9 @@
 		/obj/item/weapon/reagent_containers/hypospray/autoinjector,
 		/obj/item/weapon/screwdriver,
 		/obj/item/weapon/stamp,
-		/obj/item/device/paicard)
+		/obj/item/device/paicard,
+		/obj/item/fluff,
+		/obj/item/weapon/key)
 	slot_flags = SLOT_ID
 
 	var/obj/item/weapon/card/id/front_id = null
@@ -121,3 +123,38 @@
 		new item2_type(src)
 	if(item3_type)
 		new item3_type(src)
+
+/obj/item/weapon/storage/wallet/poor/fill()
+	..()
+	new /obj/item/weapon/spacecash/c10 (src)
+	new /obj/item/weapon/spacecash/c20 (src)
+	new /obj/item/weapon/spacecash/c50 (src)
+	if (prob(25))
+		new /obj/item/weapon/spacecash/c100 (src)
+
+	new /obj/item/weapon/coin/iron (src)
+	new /obj/item/weapon/coin/iron (src)
+
+/obj/item/weapon/storage/wallet/medium/fill()
+	..()
+	new /obj/item/weapon/spacecash/c20 (src)
+	new /obj/item/weapon/spacecash/c50 (src)
+	new /obj/item/weapon/spacecash/c50 (src)
+	new /obj/item/weapon/spacecash/c100 (src)
+	if (prob(25))
+		new /obj/item/weapon/spacecash/c200 (src)
+
+	new /obj/item/weapon/coin/silver (src)
+	new /obj/item/weapon/coin/silver (src)
+
+/obj/item/weapon/storage/wallet/rich/fill()
+	..()
+	new /obj/item/weapon/spacecash/c100 (src)
+	new /obj/item/weapon/spacecash/c200 (src)
+	new /obj/item/weapon/spacecash/c200 (src)
+	new /obj/item/weapon/spacecash/c500 (src)
+	if (prob(20))
+		new /obj/item/weapon/spacecash/c1000 (src)
+
+	new /obj/item/weapon/coin/gold (src)
+	new /obj/item/weapon/coin/gold (src)

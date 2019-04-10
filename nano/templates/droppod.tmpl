@@ -1,0 +1,14 @@
+{{:helper.syndicateMode()}}
+<H2><span class="white">Welcome Operative.</span></H2>
+
+<H2>Please select your launch target:</H2>
+{{if data.used}}
+    Pod Status: <span class="bad">Nonoperational</span></H2>
+{{else}}
+    Pod Status: <span class="good">Operational</span></H2>
+    {{:helper.link('Arrivals', 'gear', {'fire' : 'arrivals'})}}<br><br>
+    {{:helper.link('Cargo', 'gear', {'fire' : 'cargo'})}}<br><br>
+    {{:helper.link('Telecommunications', 'gear', {'fire' : 'tcoms'})}}<br><br>
+    {{:helper.link('Command Escape', 'gear', {'fire' : 'commandescape'})}}<br><br>
+{{/if}}
+

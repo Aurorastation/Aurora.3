@@ -39,15 +39,12 @@
 			/obj/item/weapon/reagent_containers/chem_disp_cartridge/dexalin_p,
 			/obj/item/weapon/reagent_containers/chem_disp_cartridge/tricord,
 			/obj/item/weapon/reagent_containers/chem_disp_cartridge/dylovene,
-			/obj/item/weapon/reagent_containers/chem_disp_cartridge/synaptizine,
 			/obj/item/weapon/reagent_containers/chem_disp_cartridge/hyronalin,
 			/obj/item/weapon/reagent_containers/chem_disp_cartridge/arithrazine,
 			/obj/item/weapon/reagent_containers/chem_disp_cartridge/alkysine,
 			/obj/item/weapon/reagent_containers/chem_disp_cartridge/imidazoline,
 			/obj/item/weapon/reagent_containers/chem_disp_cartridge/peridaxon,
 			/obj/item/weapon/reagent_containers/chem_disp_cartridge/bicaridine,
-			/obj/item/weapon/reagent_containers/chem_disp_cartridge/hyperzine,
-			/obj/item/weapon/reagent_containers/chem_disp_cartridge/rezadone,
 			/obj/item/weapon/reagent_containers/chem_disp_cartridge/spaceacillin,
 			/obj/item/weapon/reagent_containers/chem_disp_cartridge/ethylredox,
 			/obj/item/weapon/reagent_containers/chem_disp_cartridge/sleeptox,
@@ -68,21 +65,23 @@
 	spawn_cartridges = list(
 			/obj/item/weapon/reagent_containers/chem_disp_cartridge/water,
 			/obj/item/weapon/reagent_containers/chem_disp_cartridge/ice,
-			/obj/item/weapon/reagent_containers/chem_disp_cartridge/coffee,
+			/obj/item/weapon/reagent_containers/chem_disp_cartridge/coffee{temperature_override = 369},
 			/obj/item/weapon/reagent_containers/chem_disp_cartridge/cream,
-			/obj/item/weapon/reagent_containers/chem_disp_cartridge/tea,
+			/obj/item/weapon/reagent_containers/chem_disp_cartridge/tea{temperature_override = 349},
 			/obj/item/weapon/reagent_containers/chem_disp_cartridge/icetea,
 			/obj/item/weapon/reagent_containers/chem_disp_cartridge/cola,
 			/obj/item/weapon/reagent_containers/chem_disp_cartridge/smw,
 			/obj/item/weapon/reagent_containers/chem_disp_cartridge/dr_gibb,
 			/obj/item/weapon/reagent_containers/chem_disp_cartridge/spaceup,
+			/obj/item/weapon/reagent_containers/chem_disp_cartridge/brownstar,
 			/obj/item/weapon/reagent_containers/chem_disp_cartridge/tonic,
 			/obj/item/weapon/reagent_containers/chem_disp_cartridge/sodawater,
 			/obj/item/weapon/reagent_containers/chem_disp_cartridge/lemon_lime,
 			/obj/item/weapon/reagent_containers/chem_disp_cartridge/sugar,
 			/obj/item/weapon/reagent_containers/chem_disp_cartridge/orange,
 			/obj/item/weapon/reagent_containers/chem_disp_cartridge/lime,
-			/obj/item/weapon/reagent_containers/chem_disp_cartridge/watermelon
+			/obj/item/weapon/reagent_containers/chem_disp_cartridge/watermelon,
+			/obj/item/weapon/reagent_containers/chem_disp_cartridge/clean_kois
 		)
 
 /obj/machinery/chemical_dispenser/bar_alc
@@ -107,12 +106,32 @@
 			/obj/item/weapon/reagent_containers/chem_disp_cartridge/wine,
 			/obj/item/weapon/reagent_containers/chem_disp_cartridge/vodka,
 			/obj/item/weapon/reagent_containers/chem_disp_cartridge/gin,
+			/obj/item/weapon/reagent_containers/chem_disp_cartridge/champagne,
 			/obj/item/weapon/reagent_containers/chem_disp_cartridge/rum,
 			/obj/item/weapon/reagent_containers/chem_disp_cartridge/tequila,
 			/obj/item/weapon/reagent_containers/chem_disp_cartridge/vermouth,
 			/obj/item/weapon/reagent_containers/chem_disp_cartridge/cognac,
 			/obj/item/weapon/reagent_containers/chem_disp_cartridge/ale,
 			/obj/item/weapon/reagent_containers/chem_disp_cartridge/mead
+		)
+
+/obj/machinery/chemical_dispenser/coffeemaster
+	name = "Coffee Master 3000"
+	desc = "The only thing that can get some workers though the day, a coffee maker on steroids!"
+	icon_state = "coffee_master"
+	ui_title = "Coffee Master 3000"
+	accept_drinking = 1
+	density = 0
+
+/obj/machinery/chemical_dispenser/coffeemaster/full
+	spawn_cartridges = list(
+			/obj/item/weapon/reagent_containers/chem_disp_cartridge/coffee{temperature_override = 369},
+			/obj/item/weapon/reagent_containers/chem_disp_cartridge/espresso{temperature_override = 369},
+			/obj/item/weapon/reagent_containers/chem_disp_cartridge/cream,
+			/obj/item/weapon/reagent_containers/chem_disp_cartridge/sugar,
+			/obj/item/weapon/reagent_containers/chem_disp_cartridge/milk,
+			/obj/item/weapon/reagent_containers/chem_disp_cartridge/soymilk,
+			/obj/item/weapon/reagent_containers/chem_disp_cartridge/water{temperature_override = 373}
 		)
 
 /obj/machinery/chemical_dispenser/coffee
@@ -124,5 +143,5 @@
 
 /obj/machinery/chemical_dispenser/coffee/full
 	spawn_cartridges = list(
-			/obj/item/weapon/reagent_containers/chem_disp_cartridge/coffee_beans
+			/obj/item/weapon/reagent_containers/chem_disp_cartridge/espresso{temperature_override = 369.15}
 		)

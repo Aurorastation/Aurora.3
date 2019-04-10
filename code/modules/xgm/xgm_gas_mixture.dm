@@ -295,14 +295,16 @@
 			. += gas[g]
 
 //Copies gas and temperature from another gas_mixture.
-/datum/gas_mixture/proc/copy_from(const/datum/gas_mixture/sample)
+// If fast is TRUE, use a less accurate method that doesn't involve list iteraton.
+/datum/gas_mixture/proc/copy_from(const/datum/gas_mixture/sample, fast = FALSE)
 	gas = sample.gas.Copy()
 	temperature = sample.temperature
-
-	update_values()
+	if (fast)
+		total_moles = sample.total_moles
+	else
+		update_values()
 
 	return 1
-
 
 //Checks if we are within acceptable range of another gas_mixture to suspend processing or merge.
 /datum/gas_mixture/proc/compare(const/datum/gas_mixture/sample, var/vacuum_exception = 0)
@@ -436,8 +438,10 @@
 		temp_avg = (temperature * full_heat_capacity + other.temperature * s_full_heat_capacity) / (full_heat_capacity + s_full_heat_capacity)
 
 	//WOOT WOOT TOUCH THIS AND YOU ARE A RETARD.
-	if(sharing_lookup_table.len >= connecting_tiles) //6 or more interconnecting tiles will max at 42% of air moved per tick.
+	if(connecting_tiles && (sharing_lookup_table.len >= connecting_tiles)) //6 or more interconnecting tiles will max at 42% of air moved per tick.
 		ratio = sharing_lookup_table[connecting_tiles]
+	else if(!connecting_tiles)
+		ratio = 1
 	//WOOT WOOT TOUCH THIS AND YOU ARE A RETARD
 
 	for(var/g in avg_gas)

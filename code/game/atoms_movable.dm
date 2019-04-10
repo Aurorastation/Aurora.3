@@ -37,29 +37,23 @@
 			pulledby.pulling = null
 		pulledby = null
 
-/atom/movable/Bump(var/atom/A, yes)
-	if(src.throwing)
-		src.throw_impact(A)
-		src.throwing = 0
+// This is called when this atom is prevented from moving by atom/A.
+/atom/movable/proc/Collide(atom/A)
+	if(airflow_speed > 0 && airflow_dest)
+		airflow_hit(A)
+	else
+		airflow_speed = 0
+		airflow_time = 0
 
-	spawn(0)
-		if ((A && yes))
-			A.last_bumped = world.time
-			A.Bumped(src)
-		return
-	..()
-	return
+	if (throwing)
+		throwing = FALSE
+		. = TRUE
+		if (!QDELETED(A))
+			throw_impact(A)
+			A.CollidedWith(src)
 
-/atom/movable/proc/forceMove(atom/destination)
-	if(destination)
-		if(loc)
-			loc.Exited(src)
-		loc = destination
-		loc.Entered(src)
-		update_client_hook(loc)
-		return 1
-	update_client_hook(loc)
-	return 0
+	else if (!QDELETED(A))
+		A.CollidedWith(src)
 
 //called when src is thrown into hit_atom
 /atom/movable/proc/throw_impact(atom/hit_atom, var/speed)
@@ -129,7 +123,7 @@
 
 
 
-		while(src && target &&((((src.x < target.x && dx == EAST) || (src.x > target.x && dx == WEST)) && dist_travelled < range) || (a && a.has_gravity == 0)  || istype(src.loc, /turf/space)) && src.throwing && istype(src.loc, /turf))
+		while(src && target &&((((src.x < target.x && dx == EAST) || (src.x > target.x && dx == WEST)) && dist_travelled < range) || (a && a.has_gravity() == 0)  || istype(src.loc, /turf/space)) && src.throwing && istype(src.loc, /turf))
 			// only stop when we've gone the whole distance (or max throw range) and are on a non-space tile, or hit something, or hit the end of the map, or someone picks it up
 			if(error < 0)
 				var/atom/step = get_step(src, dy)
@@ -158,7 +152,7 @@
 			a = get_area(src.loc)
 	else
 		var/error = dist_y/2 - dist_x
-		while(src && target &&((((src.y < target.y && dy == NORTH) || (src.y > target.y && dy == SOUTH)) && dist_travelled < range) || (a && a.has_gravity == 0)  || istype(src.loc, /turf/space)) && src.throwing && istype(src.loc, /turf))
+		while(src && target &&((((src.y < target.y && dy == NORTH) || (src.y > target.y && dy == SOUTH)) && dist_travelled < range) || (a && a.has_gravity() == 0)  || istype(src.loc, /turf/space)) && src.throwing && istype(src.loc, /turf))
 			// only stop when we've gone the whole distance (or max throw range) and are on a non-space tile, or hit something, or hit the end of the map, or someone picks it up
 			if(error < 0)
 				var/atom/step = get_step(src, dx)
@@ -218,7 +212,7 @@
 	return
 
 /atom/movable/proc/touch_map_edge()
-	if(z in config.sealed_levels)
+	if(z in current_map.sealed_levels)
 		return
 
 	if(config.use_overmap)
@@ -252,17 +246,9 @@
 		spawn(0)
 			if(loc) loc.Entered(src)
 
-//This list contains the z-level numbers which can be accessed via space travel and the percentile chances to get there.
-var/list/accessible_z_levels = list("8" = 5, "9" = 10, "7" = 15, "2" = 60)
-
 //by default, transition randomly to another zlevel
 /atom/movable/proc/get_transit_zlevel()
-	var/list/candidates = accessible_z_levels.Copy()
-	candidates.Remove("[src.z]")
-
-	if(!candidates.len)
-		return null
-	return text2num(pickweight(candidates))
+	return current_map.get_transit_zlevel()
 
 // Parallax stuff.
 
@@ -282,26 +268,43 @@ var/list/accessible_z_levels = list("8" = 5, "9" = 10, "7" = 15, "2" = 60)
 	if (. && hud_used && client && get_turf(client.eye) == destination)
 		hud_used.update_parallax_values()
 
+// Core movement hooks & procs.
+/atom/movable/proc/forceMove(atom/destination)
+	if(destination)
+		if(loc)
+			loc.Exited(src)
+		loc = destination
+		loc.Entered(src)
+		if (contained_mobs)
+			update_client_hook(loc)
+		return 1
+	if (contained_mobs)
+		update_client_hook(loc)
+	return 0
 
-// Movement hooks.
 /atom/movable/Move()
 	var/old_loc = loc
 	. = ..()
 	if (.)
 		// Events.
-		moved_event.raise_event(src, old_loc, loc)
+		if (moved_event.listeners_assoc[src])
+			moved_event.raise_event(src, old_loc, loc)
 
 		// Parallax.
-		update_client_hook()
+		if (contained_mobs)
+			update_client_hook(loc)
 
 		// Lighting.
-		var/datum/light_source/L
-		var/thing
-		for (thing in light_sources)
-			L = thing
-			L.source_atom.update_light()
+		if (light_sources)
+			var/datum/light_source/L
+			var/thing
+			for (thing in light_sources)
+				L = thing
+				L.source_atom.update_light()
 
 		// Openturf.
 		if (bound_overlay)
 			// The overlay will handle cleaning itself up on non-openspace turfs.
 			bound_overlay.forceMove(get_step(src, UP))
+			if (bound_overlay.dir != dir)
+				bound_overlay.set_dir(dir)

@@ -1,11 +1,13 @@
-#define BUCKET_LEN (world.fps*1*60) //how many ticks should we keep in the bucket. (1 minutes worth)
+#define BUCKET_LEN (round(10*(60/world.tick_lag), 1)) //how many ticks should we keep in the bucket. (1 minutes worth)
 #define BUCKET_POS(timer) (round((timer.timeToRun - SStimer.head_offset) / world.tick_lag) + 1)
+#define TIMER_ID_MAX (2**24) //max float with integer precision
+
 var/datum/controller/subsystem/timer/SStimer
 
 /datum/controller/subsystem/timer
 	name = "Timer"
 	wait = 1 //SS_TICKER subsystem, so wait is in ticks
-	init_order = 1
+	priority = SS_PRIORITY_TIMER
 
 	flags = SS_FIRE_IN_LOBBY|SS_TICKER|SS_NO_INIT
 
@@ -28,12 +30,13 @@ var/datum/controller/subsystem/timer/SStimer
 	var/static/bucket_auto_reset = TRUE
 
 	var/static/times_flushed = 0
+	var/static/times_crashed = 0
 
 /datum/controller/subsystem/timer/New()
 	NEW_SS_GLOBAL(SStimer)
 
 /datum/controller/subsystem/timer/stat_entry(msg)
-	..("B:[bucket_count] P:[length(processing)] H:[length(hashes)] C:[length(clienttime_timers)]")
+	..("B:[bucket_count] P:[length(processing)] H:[length(hashes)] C:[length(clienttime_timers)][times_crashed ? " F:[times_crashed]" : ""]")
 
 /datum/controller/subsystem/timer/fire(resumed = FALSE)
 	var/lit = last_invoke_tick
@@ -47,6 +50,7 @@ var/datum/controller/subsystem/timer/SStimer
 	if(lit && lit < last_check && last_invoke_warning < last_check)
 		last_invoke_warning = world.time
 		var/msg = "No regular timers processed in the last [TIMER_NO_INVOKE_WARNING] ticks[bucket_auto_reset ? ", resetting buckets" : ""]!"
+		times_crashed++
 		message_admins(msg)
 		WARNING(msg)
 		if(bucket_auto_reset)
@@ -216,7 +220,6 @@ var/datum/controller/subsystem/timer/SStimer
 	timer_id_dict |= SStimer.timer_id_dict
 	bucket_list |= SStimer.bucket_list
 
-/datum/var/list/active_timers
 /datum/timedevent
 	var/id
 	var/datum/callback/callBack
@@ -233,18 +236,23 @@ var/datum/controller/subsystem/timer/SStimer
 	var/static/nextid = 1
 
 /datum/timedevent/New(datum/callback/callBack, timeToRun, flags, hash)
-	id = nextid++
+	id = TIMER_ID_NULL
 	src.callBack = callBack
 	src.timeToRun = timeToRun
 	src.flags = flags
 	src.hash = hash
-
-	name = "Timer: [id]: TTR: [timeToRun], Flags: [jointext(bitfield2list(flags, list("TIMER_UNIQUE", "TIMER_OVERRIDE", "TIMER_CLIENT_TIME", "TIMER_STOPPABLE", "TIMER_NO_HASH_WAIT")), ", ")], callBack: \ref[callBack], callBack.object: [callBack.object]\ref[callBack.object]([getcallingtype()]), callBack.delegate:[callBack.delegate]([callBack.arguments ? callBack.arguments.Join(", ") : ""])"
-
+	
 	if (flags & TIMER_UNIQUE)
 		SStimer.hashes[hash] = src
 	if (flags & TIMER_STOPPABLE)
-		SStimer.timer_id_dict["timerid[id]"] = src
+		do
+			if (nextid >= TIMER_ID_MAX)
+				nextid = 1
+			id = nextid++
+		while(SStimer.timer_id_dict["timerid" + num2text(id, 8)])
+		SStimer.timer_id_dict["timerid" + num2text(id, 8)] = src
+
+	name = "Timer: " + num2text(id, 8) + ", TTR: [timeToRun], Flags: [jointext(bitfield2list(flags, list("TIMER_UNIQUE", "TIMER_OVERRIDE", "TIMER_CLIENT_TIME", "TIMER_STOPPABLE", "TIMER_NO_HASH_WAIT")), ", ")], callBack: \ref[callBack], callBack.object: [callBack.object]\ref[callBack.object]([getcallingtype()]), callBack.delegate:[callBack.delegate]([callBack.arguments ? callBack.arguments.Join(", ") : ""])"
 
 	if (callBack.object != GLOBAL_PROC)
 		LAZYADD(callBack.object.active_timers, src)
@@ -351,9 +359,18 @@ var/datum/controller/subsystem/timer/SStimer
 
 /proc/addtimer(datum/callback/callback, wait, flags)
 	if (!callback)
-		return
+		CRASH("addtimer called without a callback")
+
+	if (wait < 0)
+		crash_with("addtimer called with a negative wait. Converting to 0")
+
+	if (callback.object != GLOBAL_PROC && QDELETED(callback.object) && !QDESTROYING(callback.object))
+		crash_with("addtimer called with a callback assigned to a qdeleted object. In the future such timers will not be supported and may refuse to run or run with a 0 wait")
 
 	wait = max(wait, 0)
+
+	if(wait >= INFINITY)
+		CRASH("Attempted to create timer with INFINITY delay")
 
 	var/hash
 
@@ -392,6 +409,8 @@ var/datum/controller/subsystem/timer/SStimer
 /proc/deltimer(id)
 	if (!id)
 		return FALSE
+	if (id == TIMER_ID_NULL)
+		CRASH("Tried to delete a null timerid. Use the TIMER_STOPPABLE flag.")
 	if (!istext(id))
 		if (istype(id, /datum/timedevent))
 			qdel(id)

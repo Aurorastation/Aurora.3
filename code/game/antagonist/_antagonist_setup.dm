@@ -14,20 +14,6 @@
    - To skip equipping with appropriate gear, supply a positive third argument.
 */
 
-// Antagonist datum flags.
-#define ANTAG_OVERRIDE_JOB        1 // Assigned job is set to MODE when spawning.
-#define ANTAG_OVERRIDE_MOB        2 // Mob is recreated from datum mob_type var when spawning.
-#define ANTAG_CLEAR_EQUIPMENT     4 // All preexisting equipment is purged.
-#define ANTAG_CHOOSE_NAME         8 // Antagonists are prompted to enter a name.
-#define ANTAG_IMPLANT_IMMUNE     16 // Cannot be loyalty implanted.
-#define ANTAG_SUSPICIOUS         32 // Shows up on roundstart report.
-#define ANTAG_HAS_LEADER         64 // Generates a leader antagonist.
-#define ANTAG_HAS_NUKE          128 // Will spawn a nuke at supplied location.
-#define ANTAG_RANDSPAWN         256 // Potentially randomly spawns due to events.
-#define ANTAG_VOTABLE           512 // Can be voted as an additional antagonist before roundstart.
-#define ANTAG_SET_APPEARANCE   1024 // Causes antagonists to use an appearance modifier on spawn.
-#define ANTAG_RANDOM_EXCEPTED  2048 // If a game mode randomly selects antag types, antag types with this flag should be excluded.
-
 // Globals.
 var/global/list/all_antag_types = list()
 var/global/list/all_antag_spawnpoints = list()
@@ -70,7 +56,7 @@ var/global/list/bantype_to_antag_age = list()
 
 		// Set up age restrictions for the different antag bantypes.
 		if (!bantype_to_antag_age[A.bantype])
-			if (config.age_restrictions[lowertext(A.bantype)])
+			if (config.age_restrictions_from_file && config.age_restrictions[lowertext(A.bantype)])
 				bantype_to_antag_age[lowertext(A.bantype)] = config.age_restrictions[lowertext(A.bantype)]
 			else
 				bantype_to_antag_age[A.bantype] = 0
@@ -91,3 +77,11 @@ var/global/list/bantype_to_antag_age = list()
 		if(player in antag.pending_antagonists)
 			return 1
 	return 0
+
+/**
+ * This must be called after map loading is done!
+ */
+/proc/populate_antag_spawns()
+	for (var/T in all_antag_types)
+		var/datum/antagonist/A = all_antag_types[T]
+		A.get_starting_locations()

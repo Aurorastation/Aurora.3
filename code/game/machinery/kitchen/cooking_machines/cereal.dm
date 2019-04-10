@@ -41,7 +41,7 @@
 
 		var/image/food_image = image(I.icon, I.icon_state)
 		food_image.color = I.color
-		food_image.overlays += I.overlays
+		food_image.add_overlay(I.overlays)
 		food_image.transform *= 0.7 - (num * 0.05)
 		food_image.pixel_x = rand(-2,2)
 		food_image.pixel_y = rand(-3,5)

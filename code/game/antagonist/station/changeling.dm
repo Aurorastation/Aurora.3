@@ -5,12 +5,22 @@
 	bantype = "changeling"
 	feedback_tag = "changeling_objective"
 	restricted_jobs = list("AI", "Cyborg", "Head of Security", "Captain", "Internal Affairs Agent")
-	protected_jobs = list("Security Officer", "Warden", "Detective")
-	restricted_species = list("Baseline Frame","Shell Frame","Industrial Frame")
-	welcome_text = "Use say \"#g message\" to communicate with your fellow changelings. Remember: you get all of their absorbed DNA if you absorb them."
+
+	protected_jobs = list("Security Officer", "Security Cadet", "Warden", "Detective", "Forensic Technician")
+	restricted_species = list(
+		"Baseline Frame",
+		"Shell Frame",
+		"Hephaestus G1 Industrial Frame",
+		"Hephaestus G2 Industrial Frame",
+		"Xion Industrial Frame",
+		"Zeng-Hu Mobility Frame",
+		"Bishop Accessory Frame"
+	)
+
+	welcome_text = "Use say \"#g message\" to communicate with your fellow changelings. Remember: you get all of their absorbed DNA if you perform a Full DNA Extraction them."
 	flags = ANTAG_SUSPICIOUS | ANTAG_RANDSPAWN | ANTAG_VOTABLE
 	antaghud_indicator = "hudchangeling"
-	
+
 	faction = "Changeling"
 
 /datum/antagonist/changeling/get_special_objective_text(var/datum/mind/player)

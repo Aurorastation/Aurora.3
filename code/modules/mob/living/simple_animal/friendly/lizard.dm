@@ -1,7 +1,7 @@
 /mob/living/simple_animal/lizard
 	name = "Lizard"
 	desc = "It's a hissy little lizard. Is it related to Unathi?"
-	icon = 'icons/mob/critter.dmi'
+	icon = 'icons/mob/npc/critter.dmi'
 	icon_state = "lizard"
 	icon_living = "lizard"
 	icon_dead = "lizard-dead"
@@ -19,6 +19,7 @@
 	holder_type = /obj/item/weapon/holder/lizard
 	density = 0
 	seek_speed = 0.75
+	butchering_products = list(/obj/item/stack/material/animalhide/lizard = 2)
 
 	var/decompose_time = 18000
 
@@ -40,7 +41,7 @@
 		..()
 
 /mob/living/simple_animal/lizard/death()
-	.=..()
+	. = ..()
 	desc = "It doesn't hiss anymore."
 
 /mob/living/simple_animal/lizard/dust()

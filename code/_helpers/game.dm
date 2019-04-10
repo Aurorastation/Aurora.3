@@ -12,17 +12,17 @@
 /proc/is_on_same_plane_or_station(var/z1, var/z2)
 	if(z1 == z2)
 		return 1
-	if((z1 in config.station_levels) &&	(z2 in config.station_levels))
+	if((z1 in current_map.station_levels) &&	(z2 in current_map.station_levels))
 		return 1
 	return 0
 
 /proc/max_default_z_level()
 	var/max_z = 0
-	for(var/z in config.station_levels)
+	for(var/z in current_map.station_levels)
 		max_z = max(z, max_z)
-	for(var/z in config.admin_levels)
+	for(var/z in current_map.admin_levels)
 		max_z = max(z, max_z)
-	for(var/z in config.player_levels)
+	for(var/z in current_map.player_levels)
 		max_z = max(z, max_z)
 	return max_z
 
@@ -61,10 +61,10 @@
 	return heard
 
 /proc/isPlayerLevel(var/level)
-	return level in config.player_levels
+	return level in current_map.player_levels
 
 /proc/isAdminLevel(var/level)
-	return level in config.admin_levels
+	return level in current_map.admin_levels
 
 /proc/isNotAdminLevel(var/level)
 	return !isAdminLevel(level)
@@ -98,14 +98,6 @@
 
 	//turfs += centerturf
 	return atoms
-
-/proc/trange(rad = 0, turf/centre = null) //alternative to range (ONLY processes turfs and thus less intensive)
-	if(!centre)
-		return
-
-	var/turf/x1y1 = locate(((centre.x-rad)<1 ? 1 : centre.x-rad),((centre.y-rad)<1 ? 1 : centre.y-rad),centre.z)
-	var/turf/x2y2 = locate(((centre.x+rad)>world.maxx ? world.maxx : centre.x+rad),((centre.y+rad)>world.maxy ? world.maxy : centre.y+rad),centre.z)
-	return block(x1y1,x2y2)
 
 /proc/get_dist_euclidian(atom/Loc1 as turf|mob|obj,atom/Loc2 as turf|mob|obj)
 	var/dx = Loc1.x - Loc2.x
@@ -234,7 +226,7 @@
 			var/turf/ear = get_turf(M)
 			if(ear)
 				// Ghostship is magic: Ghosts can hear radio chatter from anywhere
-				if(speaker_coverage[ear] || (istype(M, /mob/dead/observer) && (M.client) && (M.client.prefs.toggles & CHAT_GHOSTRADIO)))
+				if(speaker_coverage[ear] || (istype(M, /mob/abstract/observer) && (M.client) && (M.client.prefs.toggles & CHAT_GHOSTRADIO)))
 					. += M
 	return .
 
@@ -346,7 +338,7 @@ proc/isInSight(var/atom/A, var/atom/B)
 	var/list/candidates = list() //List of candidate KEYS to assume control of the new larva ~Carn
 	var/i = 0
 	while(candidates.len <= 0 && i < 5)
-		for(var/mob/dead/observer/G in player_list)
+		for(var/mob/abstract/observer/G in player_list)
 			if(((G.client.inactivity/10)/60) <= buffer + i) // the most active players are more likely to become an alien
 				if(!(G.mind && G.mind.current && G.mind.current.stat != DEAD))
 					candidates += G.key
@@ -359,7 +351,7 @@ proc/isInSight(var/atom/A, var/atom/B)
 	var/list/candidates = list() //List of candidate KEYS to assume control of the new larva ~Carn
 	var/i = 0
 	while(candidates.len <= 0 && i < 5)
-		for(var/mob/dead/observer/G in player_list)
+		for(var/mob/abstract/observer/G in player_list)
 			if(MODE_XENOMORPH in G.client.prefs.be_special_role)
 				if(((G.client.inactivity/10)/60) <= ALIEN_SELECT_AFK_BUFFER + i) // the most active players are more likely to become an alien
 					if(!(G.mind && G.mind.current && G.mind.current.stat != DEAD))
@@ -549,7 +541,10 @@ datum/projectile_data
 	return seconds * 10
 
 /proc/round_is_spooky(var/spookiness_threshold = config.cult_ghostwriter_req_cultists)
-	return (cult.current_antagonists.len > spookiness_threshold)
+	if(enabled_spooking)
+		return 1
+	else
+		return (cult.current_antagonists.len > spookiness_threshold)
 
 /proc/remove_images_from_clients(image/I, list/show_to)
 	for(var/client/C in show_to)

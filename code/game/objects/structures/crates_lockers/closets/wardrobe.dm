@@ -29,7 +29,11 @@
 	new /obj/item/clothing/head/beret/sec/alt(src)
 	new /obj/item/clothing/head/beret/sec/alt(src)
 	new /obj/item/clothing/head/beret/sec/alt(src)
-	new /obj/item/device/radio/headset/headset_sec(src)
+	new /obj/item/clothing/shoes/jackboots(src)
+	new /obj/item/clothing/shoes/jackboots(src)
+	new /obj/item/clothing/shoes/jackboots(src)
+	new /obj/item/clothing/shoes/jackboots/unathi(src)
+
 	return
 
 /obj/structure/closet/wardrobe/pink
@@ -86,6 +90,8 @@
 	new /obj/item/weapon/storage/fancy/candle_box(src)
 	new /obj/item/weapon/storage/fancy/candle_box(src)
 	new /obj/item/weapon/deck/tarot(src)
+	new /obj/item/device/radio/headset/headset_service(src)
+	new /obj/item/weapon/spirit_board(src)
 	return
 
 
@@ -271,19 +277,19 @@
 	return
 
 
-/obj/structure/closet/wardrobe/chemistry_white
-	name = "chemistry wardrobe"
+/obj/structure/closet/wardrobe/pharmacy_white
+	name = "pharmacy wardrobe"
 	icon_state = "white"
 	icon_closed = "white"
 
-/obj/structure/closet/wardrobe/chemistry_white/fill()
+/obj/structure/closet/wardrobe/pharmacy_white/fill()
 	..()
-	new /obj/item/clothing/under/rank/chemist(src)
-	new /obj/item/clothing/under/rank/chemist(src)
+	new /obj/item/clothing/under/rank/pharmacist(src)
+	new /obj/item/clothing/under/rank/pharmacist(src)
 	new /obj/item/clothing/shoes/white(src)
 	new /obj/item/clothing/shoes/white(src)
-	new /obj/item/clothing/suit/storage/toggle/labcoat/chemist(src)
-	new /obj/item/clothing/suit/storage/toggle/labcoat/chemist(src)
+	new /obj/item/clothing/suit/storage/toggle/labcoat/pharmacist(src)
+	new /obj/item/clothing/suit/storage/toggle/labcoat/pharmacist(src)
 	return
 
 
@@ -314,8 +320,8 @@
 	new /obj/item/clothing/under/rank/virologist(src)
 	new /obj/item/clothing/shoes/white(src)
 	new /obj/item/clothing/shoes/white(src)
-	new /obj/item/clothing/suit/storage/toggle/labcoat/virologist(src)
-	new /obj/item/clothing/suit/storage/toggle/labcoat/virologist(src)
+	new /obj/item/clothing/suit/storage/toggle/labcoat/biochemist(src)
+	new /obj/item/clothing/suit/storage/toggle/labcoat/biochemist(src)
 	new /obj/item/clothing/mask/surgical(src)
 	new /obj/item/clothing/mask/surgical(src)
 	return
@@ -373,9 +379,9 @@
 	new /obj/item/clothing/under/color/green(src)
 	new /obj/item/clothing/under/color/orange(src)
 	new /obj/item/clothing/under/color/pink(src)
-	new /obj/item/clothing/under/dress/plaid_blue(src)
-	new /obj/item/clothing/under/dress/plaid_red(src)
-	new /obj/item/clothing/under/dress/plaid_purple(src)
+	new /obj/item/clothing/under/skirt/plaid_blue(src)
+	new /obj/item/clothing/under/skirt/plaid_red(src)
+	new /obj/item/clothing/under/skirt/plaid_purple(src)
 	new /obj/item/clothing/shoes/blue(src)
 	new /obj/item/clothing/shoes/yellow(src)
 	new /obj/item/clothing/shoes/green(src)

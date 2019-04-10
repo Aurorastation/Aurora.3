@@ -14,12 +14,12 @@
 	add_overlay(image(icon = 'icons/obj/furniture.dmi', icon_state = "w_overlay", layer = FLY_LAYER))
 
 /obj/structure/bed/chair/wheelchair/set_dir()
-	..()
+	. = ..()
 	if(buckled_mob)
 		buckled_mob.set_dir(dir)
 
 /obj/structure/bed/chair/wheelchair/attackby(obj/item/weapon/W as obj, mob/user as mob)
-	if(istype(W, /obj/item/weapon/wrench) || istype(W,/obj/item/stack) || istype(W, /obj/item/weapon/wirecutters))
+	if(W.iswrench() || istype(W,/obj/item/stack) || W.iswirecutter())
 		return
 	..()
 
@@ -29,7 +29,7 @@
 		if(user==pulling)
 			pulling = null
 			user.pulledby = null
-			user << "<span class='warning'>You lost your grip!</span>"
+			to_chat(user, "<span class='warning'>You lost your grip!</span>")
 		return
 	if(buckled_mob && pulling && user == buckled_mob)
 		if(pulling.stat || pulling.stunned || pulling.weakened || pulling.paralysis || pulling.lying || pulling.restrained())
@@ -47,10 +47,10 @@
 		if(user==pulling)
 			return
 	if(pulling && (get_dir(src.loc, pulling.loc) == direction))
-		user << "<span class='warning'>You cannot go there.</span>"
+		to_chat(user, "<span class='warning'>You cannot go there.</span>")
 		return
 	if(pulling && buckled_mob && (buckled_mob == user))
-		user << "<span class='warning'>You cannot drive while being pushed.</span>"
+		to_chat(user, "<span class='warning'>You cannot drive while being pushed.</span>")
 		return
 
 	// Let's roll
@@ -85,7 +85,7 @@
 	driving = 0
 
 /obj/structure/bed/chair/wheelchair/Move()
-	..()
+	. = ..()
 	if(buckled_mob)
 		var/mob/living/occupant = buckled_mob
 		if(!driving)
@@ -96,12 +96,12 @@
 				if (propelled)
 					for (var/mob/O in src.loc)
 						if (O != occupant)
-							Bump(O)
+							Collide(O)
 				else
 					unbuckle_mob()
 			if (pulling && (get_dist(src, pulling) > 1))
 				pulling.pulledby = null
-				pulling << "<span class='warning'>You lost your grip!</span>"
+				to_chat(pulling, "<span class='warning'>You lost your grip!</span>")
 				pulling = null
 		else
 			if (occupant && (src.loc != occupant.loc))
@@ -118,7 +118,7 @@
 	if(in_range(src, user))
 		if(!ishuman(user))	return
 		if(user == buckled_mob)
-			user << "<span class='warning'>You realize you are unable to push the wheelchair you sit in.</span>"
+			to_chat(user, "<span class='warning'>You realize you are unable to push the wheelchair you sit in.</span>")
 			return
 		if(!pulling)
 			pulling = user
@@ -126,16 +126,17 @@
 			if(user.pulling)
 				user.stop_pulling()
 			user.set_dir(get_dir(user, src))
-			user << "You grip \the [name]'s handles."
+			to_chat(user, "You grip \the [name]'s handles.")
 		else
-			usr << "You let go of \the [name]'s handles."
+			to_chat(usr, "You let go of \the [name]'s handles.")
 			pulling.pulledby = null
 			pulling = null
 		return
 
-/obj/structure/bed/chair/wheelchair/Bump(atom/A)
-	..()
-	if(!buckled_mob)	return
+/obj/structure/bed/chair/wheelchair/Collide(atom/A)
+	. = ..()
+	if(!buckled_mob)
+		return
 
 	if(propelled || (pulling && (pulling.a_intent == I_HURT)))
 		var/mob/living/occupant = unbuckle_mob()

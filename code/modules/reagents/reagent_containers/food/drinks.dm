@@ -9,74 +9,77 @@
 	flags = OPENCONTAINER
 	amount_per_transfer_from_this = 5
 	volume = 50
+	var/shaken = 0
 
-	on_reagent_change()
-		return
+/obj/item/weapon/reagent_containers/food/drinks/on_reagent_change()
+	return
 
-	attack_self(mob/user as mob)
-		if(!is_open_container())
+/obj/item/weapon/reagent_containers/food/drinks/feed_sound(var/mob/user)
+	playsound(user.loc, 'sound/items/drink.ogg', rand(10, 50), 1)
+
+/obj/item/weapon/reagent_containers/food/drinks/self_feed_message(var/mob/user)
+	to_chat(user, "<span class='notice'>You drink from \the [src].</span>")
+
+/obj/item/weapon/reagent_containers/food/drinks/attack_self(mob/user as mob)
+	if(!is_open_container())
+		if(user.a_intent == I_HURT && !shaken)
+			shaken = 1
+			user.visible_message("[user] shakes \the [src]!", "You shake \the [src]!")
+			playsound(loc,'sound/items/Shaking_Soda_Can.ogg', rand(10,50), 1)
+			return
+		if(shaken)
+			boom(user)
+		else
 			open(user)
 
-	proc/open(mob/user)
-		playsound(loc,'sound/effects/canopen.ogg', rand(10,50), 1)
-		user << "<span class='notice'>You open [src] with an audible pop!</span>"
-		flags |= OPENCONTAINER
+/obj/item/weapon/reagent_containers/food/drinks/proc/open(mob/user as mob)
+	playsound(loc,'sound/effects/canopen.ogg', rand(10,50), 1)
+	user.visible_message("[user] opens the [src].", "You open \the [src] with an audible pop!", "You can hear a pop,")
+	flags |= OPENCONTAINER
 
-	attack(mob/M as mob, mob/user as mob, def_zone)
-		if(force && !(flags & NOBLUDGEON) && user.a_intent == I_HURT)
-			return ..()
+/obj/item/weapon/reagent_containers/food/drinks/proc/boom(mob/user as mob)
+	user.visible_message("<span class='danger'>\The [src] explodes all over [user] as they open it!</span>","<span class='danger'>\The [src] explodes all over you as you open it!</span>","You can hear a soda can explode.")
+	playsound(loc,'sound/items/Soda_Burst.ogg', rand(20,50), 1)
+	QDEL_NULL(reagents)
+	flags |= OPENCONTAINER
+	shaken = 0
 
-		if(standard_feed_mob(user, M))
-			return
-
-		return 0
-
-	afterattack(obj/target, mob/user, proximity)
-		if(!proximity) return
-
-		if(standard_dispenser_refill(user, target))
-			return
-		if(standard_pour_into(user, target))
-			return
+/obj/item/weapon/reagent_containers/food/drinks/attack(mob/M as mob, mob/user as mob, def_zone)
+	if(force && !(flags & NOBLUDGEON) && user.a_intent == I_HURT)
 		return ..()
+	return 0
 
-	standard_feed_mob(var/mob/user, var/mob/target)
-		if(!is_open_container())
-			user << "<span class='notice'>You need to open [src]!</span>"
-			return 1
-		return ..()
+/obj/item/weapon/reagent_containers/food/drinks/standard_feed_mob(var/mob/user, var/mob/target)
+	if(!is_open_container())
+		to_chat(user, "<span class='notice'>You need to open \the [src]!</span>")
+		return 1
+	return ..()
 
-	standard_dispenser_refill(var/mob/user, var/obj/structure/reagent_dispensers/target)
-		if(!is_open_container())
-			user << "<span class='notice'>You need to open [src]!</span>"
-			return 1
-		return ..()
+/obj/item/weapon/reagent_containers/food/drinks/standard_dispenser_refill(var/mob/user, var/obj/structure/reagent_dispensers/target)
+	if(!is_open_container())
+		to_chat(user, "<span class='notice'>You need to open \the [src]!</span>")
+		return 1
+	return ..()
 
-	standard_pour_into(var/mob/user, var/atom/target)
-		if(!is_open_container())
-			user << "<span class='notice'>You need to open [src]!</span>"
-			return 1
-		return ..()
+/obj/item/weapon/reagent_containers/food/drinks/standard_pour_into(var/mob/user, var/atom/target)
+	if(!is_open_container())
+		to_chat(user, "<span class='notice'>You need to open \the [src]!</span>")
+		return 1
+	return ..()
 
-	self_feed_message(var/mob/user)
-		user << "<span class='notice'>You swallow a gulp from \the [src].</span>"
-
-	feed_sound(var/mob/user)
-		playsound(user.loc, 'sound/items/drink.ogg', rand(10, 50), 1)
-
-	examine(mob/user)
-		if(!..(user, 1))
-			return
-		if(!reagents || reagents.total_volume == 0)
-			user << "<span class='notice'>\The [src] is empty!</span>"
-		else if (reagents.total_volume <= volume * 0.25)
-			user << "<span class='notice'>\The [src] is almost empty!</span>"
-		else if (reagents.total_volume <= volume * 0.66)
-			user << "<span class='notice'>\The [src] is half full!</span>"
-		else if (reagents.total_volume <= volume * 0.90)
-			user << "<span class='notice'>\The [src] is almost full!</span>"
-		else
-			user << "<span class='notice'>\The [src] is full!</span>"
+/obj/item/weapon/reagent_containers/food/drinks/examine(mob/user)
+	if(!..(user, 1))
+		return
+	if(!reagents || reagents.total_volume == 0)
+		to_chat(user, "<span class='notice'>\The [src] is empty!</span>")
+	else if (reagents.total_volume <= volume * 0.25)
+		to_chat(user, "<span class='notice'>\The [src] is almost empty!</span>")
+	else if (reagents.total_volume <= volume * 0.66)
+		to_chat(user, "<span class='notice'>\The [src] is half full!</span>")
+	else if (reagents.total_volume <= volume * 0.90)
+		to_chat(user, "<span class='notice'>\The [src] is almost full!</span>")
+	else
+		to_chat(user, "<span class='notice'>\The [src] is full!</span>")
 
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -107,8 +110,8 @@
 	icon_state = "milk"
 	item_state = "carton"
 	center_of_mass = list("x"=16, "y"=9)
-	New()
-		..()
+	Initialize()
+		. = ..()
 		reagents.add_reagent("milk", 50)
 
 /obj/item/weapon/reagent_containers/food/drinks/soymilk
@@ -117,8 +120,8 @@
 	icon_state = "soymilk"
 	item_state = "carton"
 	center_of_mass = list("x"=16, "y"=9)
-	New()
-		..()
+	Initialize()
+		. = ..()
 		reagents.add_reagent("soymilk", 50)
 
 /obj/item/weapon/reagent_containers/food/drinks/coffee
@@ -126,9 +129,18 @@
 	desc = "Careful, the beverage you're about to enjoy is extremely hot."
 	icon_state = "coffee"
 	center_of_mass = list("x"=15, "y"=10)
-	New()
-		..()
+	Initialize()
+		. = ..()
 		reagents.add_reagent("coffee", 30)
+
+/obj/item/weapon/reagent_containers/food/drinks/coffee/pslatte
+	name = "Seasonal Pumpkin Spice Latte"
+	desc = "A limited edition pumpkin spice coffee drink!"
+	icon_state = "psl_vended"
+	center_of_mass = list("x"=15, "y"=10)
+	Initialize()
+		. = ..()
+		reagents.add_reagent("sadpslatte", 30)
 
 /obj/item/weapon/reagent_containers/food/drinks/tea
 	name = "Duke purple tea"
@@ -136,8 +148,8 @@
 	icon_state = "teacup"
 	item_state = "coffee"
 	center_of_mass = list("x"=16, "y"=14)
-	New()
-		..()
+	Initialize()
+		. = ..()
 		reagents.add_reagent("tea", 30)
 
 /obj/item/weapon/reagent_containers/food/drinks/ice
@@ -145,8 +157,8 @@
 	desc = "Careful, cold ice, do not chew."
 	icon_state = "coffee"
 	center_of_mass = list("x"=15, "y"=10)
-	New()
-		..()
+	Initialize()
+		. = ..()
 		reagents.add_reagent("ice", 30)
 
 /obj/item/weapon/reagent_containers/food/drinks/h_chocolate
@@ -155,8 +167,8 @@
 	icon_state = "hot_coco"
 	item_state = "coffee"
 	center_of_mass = list("x"=15, "y"=13)
-	New()
-		..()
+	Initialize()
+		. = ..()
 		reagents.add_reagent("hot_coco", 30)
 
 /obj/item/weapon/reagent_containers/food/drinks/dry_ramen
@@ -164,8 +176,8 @@
 	desc = "Just add 10ml water, self heats! A taste that reminds you of your school years."
 	icon_state = "ramen"
 	center_of_mass = list("x"=16, "y"=11)
-	New()
-		..()
+	Initialize()
+		. = ..()
 		reagents.add_reagent("dry_ramen", 30)
 
 
@@ -176,8 +188,8 @@
 	possible_transfer_amounts = null
 	volume = 10
 	center_of_mass = list("x"=16, "y"=12)
-	New()
-		..()
+	Initialize()
+		. = ..()
 	on_reagent_change()
 		if(reagents.total_volume)
 			icon_state = "water_cup"

@@ -57,6 +57,73 @@
 			return 1
 	return 1
 
+/obj/structure/table/Crossed(var/atom/movable/am as mob|obj)
+	..()
+	if(ishuman(am))
+		var/mob/living/carbon/human/H = am
+		if(H.a_intent != I_HELP || H.m_intent == "run")
+			throw_things(H)
+		else if(H.is_diona() || H.species.get_bodytype() == "Heavy Machine")
+			throw_things(H)
+	else if((isliving(am) && !issmall(am)) || isslime(am))
+		throw_things(am)
+
+/obj/structure/table/proc/throw_things(var/mob/living/user)
+	var/list/targets = list(get_step(src,dir),get_step(src,turn(dir, 45)),get_step(src,turn(dir, -45)))
+	var/turf/T = get_turf(src)
+	var/anything_moved = FALSE
+	for (var/obj/item/I in T)
+		if (I.simulated && !I.anchored)
+			INVOKE_ASYNC(I, /atom/movable/.proc/throw_at, pick(targets), 1, 1)
+			anything_moved = TRUE
+		CHECK_TICK
+
+	if (user && anything_moved)
+		user.visible_message(
+		"<span class='notice'>[user] kicks everything off [src].</span>",
+		"<span class='notice'>You kick everything off [src].</span>"
+		)
+
+
+/obj/structure/table/structure_shaken()
+	..()
+	throw_things()
+
+
+/obj/structure/table/do_climb(var/mob/living/user)
+	if (!can_climb(user))
+		return
+
+	user.visible_message(
+	"<span class='warning'>[user] starts climbing onto \the [src]!</span>",
+	"<span class='warning'>You start climbing onto \the [src]!</span>"
+	)
+	LAZYADD(climbers, user)
+
+	if(!do_after(user,50))
+		LAZYREMOVE(climbers, user)
+		return
+
+	if (!can_climb(user, post_climb_check=1))
+		LAZYREMOVE(climbers, user)
+		return
+
+	user.forceMove(get_turf(src))
+
+	if (get_turf(user) == get_turf(src))
+		user.visible_message(
+		"<span class='warning'>[user] climbs onto \the [src]!</span>",
+		"<span class='warning'>You climb onto \the [src]!</span>"
+		)
+		if(ishuman(user))
+			var/mob/living/carbon/human/H = user
+			if(H.a_intent != I_HELP || H.m_intent == "run")
+				throw_things(H)
+			else if(H.is_diona() || H.species.get_bodytype() == "Heavy Machine")
+				throw_things(H)
+		else if(!issmall(user) || isslime(user))
+			throw_things(user)
+	LAZYREMOVE(climbers, user)
 
 /obj/structure/table/MouseDrop_T(obj/O as obj, mob/user as mob)
 
@@ -80,7 +147,9 @@
 			var/mob/living/M = G.affecting
 			var/obj/occupied = turf_is_crowded()
 			if(occupied)
-				user << "<span class='danger'>There's \a [occupied] in the way.</span>"
+				to_chat(user, "<span class='danger'>There's \a [occupied] in the way.</span>")
+				return
+			if(!user.Adjacent(M))
 				return
 			if (G.state < GRAB_AGGRESSIVE)
 				if(user.a_intent == I_HURT)
@@ -102,10 +171,10 @@
 							M.apply_damage(10, BRUTE, "head", blocked)
 							M.standard_weapon_hit_effects(S, G.assailant, 10, blocked, "head")
 				else
-					user << "<span class='danger'>You need a better grip to do that!</span>"
+					to_chat(user, "<span class='danger'>You need a better grip to do that!</span>")
 					return
 			else
-				G.affecting.loc = src.loc
+				G.affecting.forceMove(src.loc)
 				G.affecting.Weaken(rand(2,4))
 				visible_message("<span class='danger'>[G.assailant] puts [G.affecting] on \the [src].</span>")
 			qdel(W)
@@ -123,7 +192,7 @@
 		return
 
 	if(can_plate && !material)
-		user << "<span class='warning'>There's nothing to put \the [W] on! Try adding plating to \the [src] first.</span>"
+		to_chat(user, "<span class='warning'>There's nothing to put \the [W] on! Try adding plating to \the [src] first.</span>")
 		return
 
 	user.drop_item(src.loc)

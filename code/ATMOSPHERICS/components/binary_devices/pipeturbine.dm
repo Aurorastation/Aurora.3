@@ -1,5 +1,3 @@
-#define ADIABATIC_EXPONENT 0.667 //Actually adiabatic exponent - 1.
-
 /obj/machinery/atmospherics/pipeturbine
 	name = "turbine"
 	desc = "A gas turbine. Converting pressure into energy since 1884."
@@ -10,8 +8,8 @@
 
 	var/efficiency = 0.4
 	var/kin_energy = 0
-	var/datum/gas_mixture/air_in = new
-	var/datum/gas_mixture/air_out = new
+	var/datum/gas_mixture/air_in
+	var/datum/gas_mixture/air_out
 	var/volume_ratio = 0.2
 	var/kin_loss = 0.001
 
@@ -20,9 +18,10 @@
 	var/datum/pipe_network/network1
 	var/datum/pipe_network/network2
 
-	New()
-		..()
+	Initialize()
+		air_in = new
 		air_in.volume = 200
+		air_out = new
 		air_out.volume = 800
 		volume_ratio = air_in.volume / (air_in.volume + air_out.volume)
 		switch(dir)
@@ -34,6 +33,7 @@
 				initialize_directions = NORTH|SOUTH
 			if(WEST)
 				initialize_directions = NORTH|SOUTH
+		. = ..()
 
 	Destroy()
 		loc = null
@@ -86,9 +86,9 @@
 			add_overlay("hi-turb")
 
 	attackby(obj/item/weapon/W as obj, mob/user as mob)
-		if(istype(W, /obj/item/weapon/wrench))
+		if(W.iswrench())
 			anchored = !anchored
-			user << "<span class='notice'>You [anchored ? "secure" : "unsecure"] the bolts holding \the [src] to the floor.</span>"
+			to_chat(user, "<span class='notice'>You [anchored ? "secure" : "unsecure"] the bolts holding \the [src] to the floor.</span>")
 
 			if(anchored)
 				if(dir & (NORTH|SOUTH))
@@ -234,10 +234,13 @@
 	var/kin_to_el_ratio = 0.1	//How much kinetic energy will be taken from turbine and converted into electricity
 	var/obj/machinery/atmospherics/pipeturbine/turbine
 
-	New()
+	Initialize()
 		..()
-		spawn(1)
-			updateConnection()
+		return INITIALIZE_HINT_LATELOAD
+
+	LateInitialize()
+		..()
+		updateConnection()
 
 	proc/updateConnection()
 		turbine = null
@@ -257,10 +260,10 @@
 
 
 	attackby(obj/item/weapon/W as obj, mob/user as mob)
-		if(istype(W, /obj/item/weapon/wrench))
+		if(W.iswrench())
 			anchored = !anchored
 			turbine = null
-			user << "<span class='notice'>You [anchored ? "secure" : "unsecure"] the bolts holding \the [src] to the floor.</span>"
+			to_chat(user, "<span class='notice'>You [anchored ? "secure" : "unsecure"] the bolts holding \the [src] to the floor.</span>")
 			updateConnection()
 		else
 			..()

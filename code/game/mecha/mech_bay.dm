@@ -11,18 +11,12 @@
 	var/charge = 45
 	var/repair = 0
 
-/obj/machinery/mech_recharger/Initialize()
-	. = ..()
-	component_parts = list()
-
-	component_parts += new /obj/item/weapon/circuitboard/mech_recharger(src)
-	component_parts += new /obj/item/weapon/stock_parts/capacitor(src)
-	component_parts += new /obj/item/weapon/stock_parts/capacitor(src)
-	component_parts += new /obj/item/weapon/stock_parts/scanning_module(src)
-	component_parts += new /obj/item/weapon/stock_parts/manipulator(src)
-	component_parts += new /obj/item/weapon/stock_parts/manipulator(src)
-
-	RefreshParts()
+	component_types = list(
+		/obj/item/weapon/circuitboard/mech_recharger,
+		/obj/item/weapon/stock_parts/capacitor = 2,
+		/obj/item/weapon/stock_parts/scanning_module,
+		/obj/item/weapon/stock_parts/manipulator = 2
+	)
 
 /obj/machinery/mech_recharger/Crossed(var/obj/mecha/M)
 	. = ..()
@@ -38,13 +32,14 @@
 	..()
 	charge = 0
 	repair = -5
+
 	for(var/obj/item/weapon/stock_parts/P in component_parts)
-		if(istype(P, /obj/item/weapon/stock_parts/capacitor))
+		if(iscapacitor(P))
 			charge += P.rating * 20
-		if(istype(P, /obj/item/weapon/stock_parts/scanning_module))
+		else if(isscanner(P))
 			charge += P.rating * 5
 			repair += P.rating
-		if(istype(P, /obj/item/weapon/stock_parts/manipulator))
+		else if(ismanipulator(P))
 			repair += P.rating * 2
 
 /obj/machinery/mech_recharger/machinery_process()
@@ -89,6 +84,7 @@
 		return
 	if(M.cell)
 		M.occupant_message("<span class='notice'>Now charging...</span>")
+		playsound(M, 'sound/mecha/powerup.ogg', 50, 1)
 		charging = M
 	return
 
