@@ -326,15 +326,16 @@
 	name = "stove"
 	desc = "A potbelly stove. How'd that get here."
 	icon = 'icons/adhomai/structures.dmi'
-	icon_state = "ovenclosed_off"
+	icon_state = "ovenopen"
 	pixel_x = 0
 	safe = TRUE
 
 /obj/structure/bonfire/fireplace/stove/update_icon()
 	cut_overlays()
 	if(on_fire)
+		icon_state = "ovenclosed_on"
 		switch(fuel)
-			if(0 to 500)
+			if(1 to 500)
 				add_overlay("stove_fire0")
 			if(500 to 1000)
 				add_overlay("stove_fire1")
@@ -345,3 +346,8 @@
 			if(1700 to 2000)
 				add_overlay("stove_fire4")
 		add_overlay("stove_glow")
+	else if(fuel >= 1)
+		icon_state = "ovenclosed_off"
+
+	if(fuel == 0)
+		icon_state = "ovenopen"
