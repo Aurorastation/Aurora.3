@@ -329,6 +329,7 @@
 	icon_state = "ovenopen"
 	pixel_x = 0
 	safe = TRUE
+	density = 1
 
 /obj/structure/bonfire/fireplace/stove/update_icon()
 	cut_overlays()
