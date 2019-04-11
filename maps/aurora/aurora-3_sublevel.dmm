@@ -72,13 +72,6 @@
 /obj/effect/floor_decal/industrial/outline/grey,
 /turf/simulated/floor/reinforced/oxygen,
 /area/engineering/atmos)
-"aao" = (
-/obj/structure/grille,
-/obj/machinery/atmospherics/pipe/simple/visible/black{
-	dir = 4
-	},
-/turf/simulated/wall/r_wall,
-/area/engineering/atmos)
 "aap" = (
 /obj/machinery/air_sensor{
 	frequency = 1441;
@@ -6989,7 +6982,9 @@
 "anV" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/cobweb,
-/obj/effect/decal/cleanable/spiderling_remains,
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark{
 	name = "cooled dark floor";
 	temperature = 278
@@ -6998,7 +6993,9 @@
 "anW" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/cobweb2,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark{
 	name = "cooled dark floor";
 	temperature = 278
@@ -7569,9 +7566,6 @@
 	pixel_x = 32;
 	pixel_y = 0
 	},
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 1
-	},
 /obj/machinery/light/small/emergency{
 	icon_state = "bulb1";
 	dir = 4
@@ -7581,6 +7575,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
+/obj/machinery/atmospherics/pipe/simple/visible/universal,
 /turf/simulated/floor/tiled/dark{
 	name = "cooled dark floor";
 	temperature = 278
@@ -7942,6 +7937,13 @@
 	pixel_x = 25;
 	pixel_y = 0
 	},
+/obj/machinery/atmospherics/binary/pump{
+	dir = 2;
+	icon_state = "map_on";
+	name = "Distro to Canisters";
+	target_pressure = 150;
+	use_power = 1
+	},
 /turf/simulated/floor/tiled/dark{
 	name = "cooled dark floor";
 	temperature = 278
@@ -8253,6 +8255,7 @@
 	req_access = list(16)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor/tiled/dark{
 	name = "cooled dark floor";
 	temperature = 278
@@ -8756,12 +8759,12 @@
 	},
 /area/turret_protected/ai)
 "apX" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 10;
-	icon_state = "intact"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden{
+	dir = 4;
+	icon_state = "map"
 	},
 /turf/simulated/floor/tiled/dark{
 	name = "cooled dark floor";
@@ -9374,6 +9377,13 @@
 	d2 = 4;
 	icon_state = "2-4"
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	icon_state = "intact-supply";
+	dir = 6
+	},
+/obj/machinery/light/small/emergency{
+	dir = 1
+	},
 /turf/simulated/floor/plating{
 	roof_type = null
 	},
@@ -9385,19 +9395,8 @@
 	icon_state = "4-8";
 	pixel_x = 0
 	},
-/turf/simulated/floor/plating{
-	roof_type = null
-	},
-/area/maintenance/engsublevel)
-"aqR" = (
-/obj/machinery/light/small/emergency{
-	dir = 1
-	},
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8";
-	pixel_x = 0
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
 	},
 /turf/simulated/floor/plating{
 	roof_type = null
@@ -9414,6 +9413,9 @@
 	icon_state = "4-8";
 	pixel_x = 0
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
 /turf/simulated/floor/plating{
 	roof_type = null
 	},
@@ -9424,9 +9426,6 @@
 	d2 = 4;
 	icon_state = "1-4"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 5
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
@@ -9436,6 +9435,7 @@
 	icon_state = "4-8";
 	pixel_x = 0
 	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /turf/simulated/floor/plating,
 /area/maintenance/engsublevel)
 "aqU" = (
@@ -9814,12 +9814,31 @@
 /area/mine/unexplored)
 "arz" = (
 /obj/machinery/atmospherics/pipe/zpipe/up/black,
+/obj/machinery/atmospherics/binary/pump{
+	dir = 8;
+	icon_state = "map_on";
+	name = "Distro to Canisters";
+	target_pressure = 150;
+	use_power = 1
+	},
+/obj/effect/floor_decal/industrial/warning{
+	icon_state = "warning";
+	dir = 1
+	},
 /turf/simulated/floor/plating{
 	roof_type = null
 	},
 /area/maintenance/engsublevel)
 "arA" = (
 /obj/machinery/atmospherics/pipe/zpipe/up/green,
+/obj/machinery/atmospherics/pipe/simple/visible/universal{
+	icon_state = "map_universal";
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/warning{
+	icon_state = "warning";
+	dir = 5
+	},
 /turf/simulated/floor/plating{
 	roof_type = null
 	},
@@ -9828,7 +9847,10 @@
 /obj/structure/cable{
 	d1 = 1;
 	d2 = 2;
-	icon_state = "1-2";
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9;
 	pixel_y = 0
 	},
 /turf/simulated/floor/plating{
@@ -9978,30 +10000,40 @@
 /area/mine/unexplored)
 "asa" = (
 /obj/machinery/atmospherics/pipe/simple/visible/black,
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8";
+	pixel_x = 0
+	},
+/obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/plating{
 	roof_type = null
 	},
 /area/maintenance/engsublevel)
 "asb" = (
-/obj/structure/cable{
-	d1 = 2;
-	d2 = 4;
-	icon_state = "2-4"
-	},
 /obj/machinery/atmospherics/pipe/simple/visible/green,
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8";
+	pixel_x = 0
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 6
+	},
 /turf/simulated/floor/plating{
 	roof_type = null
 	},
 /area/maintenance/engsublevel)
 "asc" = (
-/obj/machinery/light/small/emergency{
-	icon_state = "bulb1";
-	dir = 4
-	},
 /obj/structure/cable{
 	d1 = 1;
 	d2 = 8;
 	icon_state = "1-8"
+	},
+/obj/structure/sign/drop{
+	pixel_x = 32
 	},
 /turf/simulated/floor/plating{
 	roof_type = null
@@ -10057,10 +10089,6 @@
 /area/maintenance/engsublevel)
 "asn" = (
 /obj/structure/lattice/catwalk,
-/obj/structure/cable{
-	d1 = 32;
-	icon_state = "11-1"
-	},
 /obj/machinery/atmospherics/pipe/zpipe/down/green{
 	dir = 1
 	},
@@ -22358,6 +22386,8 @@
 /area/medical/medbay4)
 "aSL" = (
 /obj/structure/closet/secure_closet/medical3,
+/obj/item/clothing/gloves/latex/tajara,
+/obj/item/clothing/gloves/latex/unathi,
 /turf/simulated/floor/tiled,
 /area/medical/medbay4)
 "aSM" = (
@@ -22913,6 +22943,8 @@
 	dir = 4;
 	icon_state = "tube1"
 	},
+/obj/item/clothing/gloves/latex/tajara,
+/obj/item/clothing/gloves/latex/unathi,
 /turf/simulated/floor/tiled,
 /area/medical/medbay4)
 "aUE" = (
@@ -27424,6 +27456,19 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology/xenoflora_hazard)
+"cbH" = (
+/obj/machinery/atmospherics/portables_connector{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/warning{
+	icon_state = "warning";
+	dir = 10
+	},
+/obj/machinery/portable_atmospherics/canister/air/airlock,
+/turf/simulated/floor/plating{
+	roof_type = null
+	},
+/area/maintenance/engsublevel)
 "cdr" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 8;
@@ -27545,6 +27590,17 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/medical/quarantineaccess)
+"cvs" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/spiderling_remains,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark{
+	name = "cooled dark floor";
+	temperature = 278
+	},
+/area/turret_protected/ai)
 "cyD" = (
 /obj/structure/flora/ausbushes/leafybush,
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -27721,10 +27777,6 @@
 	pixel_y = 5;
 	req_access = list(66);
 	specialfunctions = 4
-	},
-/obj/structure/cable/green{
-	d2 = 8;
-	icon_state = "0-8"
 	},
 /turf/simulated/floor/tiled,
 /area/medical/patient_wing_post2)
@@ -28848,6 +28900,21 @@
 /obj/machinery/hologram/holopad,
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology/xenoflora_hazard)
+"gCl" = (
+/obj/structure/cable{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden{
+	dir = 4;
+	icon_state = "map"
+	},
+/obj/effect/floor_decal/industrial/warning,
+/turf/simulated/floor/plating{
+	roof_type = null
+	},
+/area/maintenance/engsublevel)
 "gDH" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -30758,6 +30825,18 @@
 	},
 /turf/simulated/floor/tiled,
 /area/medical/patient_wing_post2)
+"nHQ" = (
+/obj/machinery/atmospherics/portables_connector{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 9
+	},
+/obj/machinery/portable_atmospherics/canister/air/airlock,
+/turf/simulated/floor/plating{
+	roof_type = null
+	},
+/area/maintenance/engsublevel)
 "nIs" = (
 /obj/machinery/power/apc{
 	dir = 4;
@@ -31696,6 +31775,7 @@
 "rEN" = (
 /obj/machinery/atmospherics/binary/pump{
 	dir = 1;
+	icon_state = "map_on";
 	name = "Distro to Canisters";
 	target_pressure = 150;
 	use_power = 1
@@ -32009,6 +32089,19 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/medical/quarantineaccess)
+"sUD" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden{
+	dir = 1;
+	icon_state = "map"
+	},
+/obj/effect/floor_decal/industrial/warning{
+	icon_state = "warning";
+	dir = 1
+	},
+/turf/simulated/floor/plating{
+	roof_type = null
+	},
+/area/maintenance/engsublevel)
 "sXz" = (
 /turf/simulated/wall/r_wall,
 /area/maintenance/medsublevel)
@@ -32720,6 +32813,18 @@
 /obj/machinery/atmospherics/pipe/simple/visible/yellow,
 /turf/simulated/floor/tiled,
 /area/rnd/xenoarch_atrium)
+"vdr" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/cable{
+	d1 = 32;
+	icon_state = "11-1"
+	},
+/obj/machinery/atmospherics/pipe/zpipe/down{
+	icon_state = "down";
+	dir = 1
+	},
+/turf/simulated/open,
+/area/maintenance/engsublevel)
 "vfl" = (
 /obj/structure/cable{
 	d2 = 8;
@@ -33521,6 +33626,7 @@
 "xtB" = (
 /obj/machinery/atmospherics/binary/pump{
 	dir = 2;
+	icon_state = "map_on";
 	name = "Distro to Canisters";
 	target_pressure = 150;
 	use_power = 1
@@ -45064,10 +45170,10 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
+akx
+akx
+akx
+akx
 aaa
 aaa
 aaa
@@ -45321,11 +45427,11 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+akx
+nHQ
+cbH
+akx
+akx
 aaa
 aaa
 aaa
@@ -45579,9 +45685,9 @@ aaa
 aaa
 aaa
 akx
-akx
-akx
-akx
+sUD
+gCl
+vdr
 akx
 aaa
 aaa
@@ -46863,7 +46969,7 @@ aaa
 aaa
 aaa
 akx
-aqR
+aqQ
 akx
 aaa
 aaa
@@ -59413,7 +59519,7 @@ aaa
 aac
 aad
 aad
-aao
+aad
 aad
 aad
 aae
@@ -87976,7 +88082,7 @@ alY
 alY
 anb
 alY
-amz
+cvs
 aoz
 aoX
 alY
