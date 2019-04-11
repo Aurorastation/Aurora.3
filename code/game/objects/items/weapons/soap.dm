@@ -23,8 +23,9 @@
 /obj/item/weapon/soap/deluxe
 	icon_state = "soapdeluxe"
 
-/obj/item/weapon/soap/deluxe/New()
-	..()
+/obj/item/weapon/soap/deluxe/Initialize()
+
+	. = ..()
 	desc = "A deluxe Waffle Co. brand bar of soap. Smells of [pick("lavender", "vanilla", "strawberry", "chocolate" ,"space")]."
 
 /obj/item/weapon/soap/syndie
@@ -38,7 +39,7 @@
 
 /obj/item/weapon/soap/water_soap
 	name = "Soap"
-	desc = "Smells of chlorine."
+	desc = "Smells like chlorine."
 	icon_state = "water_soap"
 
 /obj/item/weapon/soap/fire_soap
@@ -53,7 +54,7 @@
 
 /obj/item/weapon/soap/diamond_soap
 	name = "Soap"
-	desc = "Smells of saffron."
+	desc = "Smells like saffron."
 	icon_state = "diamond_soap"
 
 /obj/item/weapon/soap/uranium_soap
@@ -78,7 +79,7 @@
 
 /obj/item/weapon/soap/grey_soap
 	name = "Soap"
-	desc = "Smells like acid."
+	desc = "Smells acidic."
 	icon_state = "grey_soap"
 
 /obj/item/weapon/soap/pink_soap
@@ -88,7 +89,7 @@
 
 /obj/item/weapon/soap/purple_soap
 	name = "Soap"
-	desc = "Smells like lavender."
+	desc = "Smells like wisteria."
 	icon_state = "purple_soap"
 
 /obj/item/weapon/soap/blue_soap
@@ -118,7 +119,7 @@
 
 /obj/item/weapon/soap/red_soap
 	name = "Soap"
-	desc = "Smells like blood."
+	desc = "Smells like cherries."
 	icon_state = "red_soap"
 
 /obj/item/weapon/soap/golden_soap
@@ -131,29 +132,29 @@
 	desc = "This is a random soap."
 	icon = 'icons/obj/soap.dmi'
 	icon_state = "soap"
-	item_to_spawn()
-		return pick(prob(1);/obj/item/weapon/soap, \
-					prob(1);/obj/item/weapon/soap/nanotrasen, \
-					prob(1);/obj/item/weapon/soap/deluxe,\
-					prob(1);/obj/item/weapon/soap/space_soap,\
-					prob(1);/obj/item/weapon/soap/space_soap,\
-					prob(1);/obj/item/weapon/soap/water_soap,\
-					prob(1);/obj/item/weapon/soap/fire_soap,\
-					prob(1);/obj/item/weapon/soap/rainbow_soap,\
-					prob(1);/obj/item/weapon/soap/diamond_soap,\
-					prob(1);/obj/item/weapon/soap/uranium_soap,\
-					prob(1);/obj/item/weapon/soap/silver_soap,\
-					prob(1);/obj/item/weapon/soap/brown_soap,\
-					prob(1);/obj/item/weapon/soap/white_soap,\
-					prob(1);/obj/item/weapon/soap/grey_soap,\
-					prob(1);/obj/item/weapon/soap/pink_soap,\
-					prob(1);/obj/item/weapon/soap/purple_soap,\
-					prob(1);/obj/item/weapon/soap/blue_soap,\
-					prob(1);/obj/item/weapon/soap/cyan_soap,\
-					prob(1);/obj/item/weapon/soap/green_soap,\
-					prob(1);/obj/item/weapon/soap/yellow_soap,\
-					prob(1);/obj/item/weapon/soap/orange_soap,\
-					prob(1);/obj/item/weapon/soap/red_soap,\
-					prob(1);/obj/item/weapon/soap/golden_soap
 
+/obj/random/soap/item_to_spawn()
+		return pick(/obj/item/weapon/soap, \
+					/obj/item/weapon/soap/nanotrasen, \
+					/obj/item/weapon/soap/deluxe,\
+					/obj/item/weapon/soap/space_soap,\
+					/obj/item/weapon/soap/space_soap,\
+					/obj/item/weapon/soap/water_soap,\
+					/obj/item/weapon/soap/fire_soap,\
+					/obj/item/weapon/soap/rainbow_soap,\
+					/obj/item/weapon/soap/diamond_soap,\
+					/obj/item/weapon/soap/uranium_soap,\
+					/obj/item/weapon/soap/silver_soap,\
+					/obj/item/weapon/soap/brown_soap,\
+					/obj/item/weapon/soap/white_soap,\
+					/obj/item/weapon/soap/grey_soap,\
+					/obj/item/weapon/soap/pink_soap,\
+					/obj/item/weapon/soap/purple_soap,\
+					/obj/item/weapon/soap/blue_soap,\
+					/obj/item/weapon/soap/cyan_soap,\
+					/obj/item/weapon/soap/green_soap,\
+					/obj/item/weapon/soap/yellow_soap,\
+					/obj/item/weapon/soap/orange_soap,\
+					/obj/item/weapon/soap/red_soap,\
+					/obj/item/weapon/soap/golden_soap,\
 )
