@@ -1563,6 +1563,36 @@
 		body_parts = list("l_leg","r_leg","l_arm","r_arm","chest","groin","head")
 		species_allowed = list("Vaurca")
 
+	skr_led_vshort
+		name = "Tentacle LEDs (Very Short)"
+		icon_state = "skr_led_vshort"
+		body_parts = list("head")
+		species_allowed = list("Skrell")
+
+	skr_led_short
+		name = "Tentacle LEDs (Short)"
+		icon_state = "skr_led_short"
+		body_parts = list("head")
+		species_allowed = list("Skrell")
+
+	skr_led_med
+		name = "Tentacle LEDs (Medium)"
+		icon_state = "skr_led_med"
+		body_parts = list("head")
+		species_allowed = list("Skrell")
+
+	skr_led_long
+		name = "Tentacle LEDs (Long)"
+		icon_state = "skr_led_long"
+		body_parts = list("head")
+		species_allowed = list("Skrell")
+
+	skr_tears
+		name = "Tear Stains"
+		icon_state = "skr_led_long"
+		body_parts = list("head")
+		species_allowed = list("Skrell")
+		do_colouration = 0
 // Branded IPC markings - disabled for now, some layering issues.
 /*
 	bishop
