@@ -1311,17 +1311,17 @@
 	},
 /obj/structure/window/reinforced,
 /obj/structure/table/rack,
-/obj/item/device/radio,
-/obj/item/device/radio,
-/obj/item/device/radio,
-/obj/item/device/radio,
-/obj/item/device/radio,
-/obj/item/device/radio,
-/obj/item/device/radio,
-/obj/item/device/radio,
-/obj/item/device/radio,
-/obj/item/device/radio,
+/obj/item/device/radio/adhomai/nka,
+/obj/item/device/radio/adhomai/nka,
+/obj/item/device/radio/adhomai/nka,
+/obj/item/device/radio/adhomai/nka,
+/obj/item/device/radio/adhomai/nka,
+/obj/item/device/radio/adhomai/nka,
+/obj/item/device/radio/adhomai/nka,
+/obj/item/device/radio/adhomai/nka,
 /obj/effect/floor_decal/industrial/outline/red,
+/obj/item/device/radio/adhomai/nka,
+/obj/item/device/radio/adhomai/nka,
 /turf/simulated/floor/tiled/dark,
 /area/adhomai/fortress)
 "ge" = (
@@ -1759,6 +1759,7 @@
 "iJ" = (
 /obj/structure/table/wood,
 /obj/effect/decal/cleanable/dirt,
+/obj/item/weapon/flame/lighter/adhomian/nka,
 /turf/simulated/floor/tiled/dark,
 /area/adhomai/fortress)
 "iL" = (
@@ -2287,7 +2288,7 @@
 /obj/structure/closet/crate/large,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/item/device/binoculars,
-/obj/item/device/radio,
+/obj/item/device/radio/adhomai/nka,
 /obj/item/weapon/pickaxe,
 /turf/simulated/floor/tiled/dark,
 /area/adhomai/fortress)
@@ -3043,8 +3044,8 @@
 /turf/simulated/floor/wood,
 /area/adhomai/fortress)
 "qF" = (
-/obj/vehicle/bike,
 /obj/effect/decal/cleanable/blood/oil,
+/obj/vehicle/bike/snowmobile,
 /turf/simulated/floor/tiled/dark,
 /area/adhomai/fortress)
 "qH" = (
@@ -3334,6 +3335,11 @@
 "sO" = (
 /turf/simulated/wall/wood,
 /area/adhomai/village/court)
+"sP" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/closet/coffin/sarcophagus,
+/turf/simulated/floor/tiled/dark,
+/area/adhomai/fortress)
 "sQ" = (
 /obj/structure/curtain/open/bed{
 	pixel_y = 32
@@ -3444,10 +3450,7 @@
 /turf/simulated/floor/asteroid/ash/adhomai,
 /area/adhomai)
 "tH" = (
-/obj/vehicle/bike{
-	icon_state = "bike_off";
-	dir = 1
-	},
+/obj/vehicle/bike/snowmobile,
 /turf/simulated/floor/tiled/dark,
 /area/adhomai/village/police)
 "tI" = (
@@ -3716,8 +3719,8 @@
 	dir = 6
 	},
 /obj/structure/table/standard,
-/obj/item/weapon/cautery,
-/obj/item/weapon/hemostat,
+/obj/item/weapon/cautery/adhomai,
+/obj/item/weapon/retractor/adhomai,
 /turf/simulated/floor/tiled/white,
 /area/adhomai/village/medical)
 "vF" = (
@@ -3790,7 +3793,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/adhomai/fortress)
 "wk" = (
-/obj/vehicle/bike,
+/obj/vehicle/bike/snowmobile,
 /turf/simulated/floor/tiled/dark,
 /area/adhomai/fortress)
 "wp" = (
@@ -3827,10 +3830,8 @@
 	dir = 6
 	},
 /obj/structure/table/standard,
-/obj/item/weapon/circular_saw{
-	pixel_y = 8
-	},
-/obj/item/weapon/scalpel,
+/obj/item/weapon/circular_saw/adhomai,
+/obj/item/weapon/scalpel/adhomai,
 /turf/simulated/floor/tiled/white,
 /area/adhomai/village/medical)
 "wA" = (
@@ -3843,7 +3844,7 @@
 "wB" = (
 /obj/structure/table/wood,
 /obj/item/device/flashlight/lantern,
-/obj/item/device/radio,
+/obj/item/device/radio/adhomai/nka,
 /obj/item/device/gps,
 /turf/simulated/floor/wood,
 /area/adhomai/fortress)
@@ -3960,11 +3961,6 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/closet/cabinet,
 /obj/item/weapon/storage/box/chess_kit,
-/turf/simulated/floor/tiled/dark,
-/area/adhomai/fortress)
-"xv" = (
-/obj/structure/largecrate/animal/chick,
-/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/adhomai/fortress)
 "xw" = (
@@ -4235,6 +4231,11 @@
 "zn" = (
 /turf/simulated/floor/plating,
 /area/adhomai/village/court)
+"zo" = (
+/obj/structure/table/steel,
+/obj/item/device/radio/intercom/basestation/adhomai/nka,
+/turf/simulated/floor/tiled/dark,
+/area/adhomai/fortress)
 "zw" = (
 /obj/structure/bed/chair/wood/adhomai,
 /obj/effect/landmark/start{
@@ -4767,7 +4768,7 @@
 /area/adhomai/fortress)
 "Dg" = (
 /obj/item/weapon/material/ashtray/bronze,
-/obj/item/device/radio,
+/obj/item/device/radio/adhomai/nka,
 /obj/structure/table/wood,
 /turf/simulated/floor/carpet,
 /area/adhomai/village/mayor)
@@ -6356,6 +6357,12 @@
 	},
 /turf/simulated/floor/carpet,
 /area/adhomai/village)
+"Oi" = (
+/obj/machinery/light/small{
+	dir = 4
+	},
+/turf/simulated/floor/wood,
+/area/adhomai/fortress)
 "Oj" = (
 /obj/effect/floor_decal/carpet{
 	icon_state = "carpet_edges";
@@ -6483,6 +6490,13 @@
 "OZ" = (
 /turf/simulated/floor/tiled/dark,
 /area/adhomai/village/court)
+"Pe" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/simple_door/adhomai/iron{
+	initial_lock_value = "soldier"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/adhomai/fortress)
 "Pi" = (
 /obj/structure/sink{
 	dir = 8;
@@ -6608,7 +6622,7 @@
 	dir = 1
 	},
 /obj/structure/table/standard,
-/obj/item/weapon/retractor,
+/obj/item/weapon/hemostat/adhomai,
 /turf/simulated/floor/tiled/white,
 /area/adhomai/village/medical)
 "PX" = (
@@ -7051,11 +7065,6 @@
 	icon_state = "hydrofloor"
 	},
 /area/adhomai/village)
-"Tf" = (
-/obj/structure/table/wood,
-/obj/item/weapon/storage/firstaid,
-/turf/simulated/floor/tiled/dark,
-/area/adhomai/fortress)
 "Th" = (
 /obj/effect/floor_decal/corner/paleblue{
 	icon_state = "corner_white";
@@ -7288,11 +7297,11 @@
 	dir = 5
 	},
 /obj/structure/table/standard,
-/obj/item/weapon/bonesetter,
 /obj/item/weapon/bonegel,
 /obj/machinery/light/small{
 	dir = 1
 	},
+/obj/item/weapon/bonesetter/adhomai,
 /turf/simulated/floor/tiled/white,
 /area/adhomai/village/medical)
 "Uy" = (
@@ -7660,6 +7669,11 @@
 /obj/effect/landmark/start{
 	name = "Supply Officer"
 	},
+/turf/simulated/floor/tiled/dark,
+/area/adhomai/fortress)
+"XR" = (
+/obj/structure/table/wood,
+/obj/item/weapon/reagent_containers/food/drinks/flask/canteen/adhomian/nka,
 /turf/simulated/floor/tiled/dark,
 /area/adhomai/fortress)
 "XV" = (
@@ -47022,7 +47036,7 @@ yX
 yX
 yX
 pE
-xv
+dY
 lh
 ig
 Jl
@@ -47279,8 +47293,8 @@ Vp
 JW
 yX
 lC
+sP
 dY
-xv
 ZW
 dY
 um
@@ -49334,7 +49348,7 @@ op
 Sh
 Vp
 Vp
-eS
+XR
 eS
 LM
 Sh
@@ -50615,7 +50629,7 @@ eS
 Vp
 Vp
 Sh
-Sh
+Pe
 Sh
 Sh
 Sh
@@ -51644,7 +51658,7 @@ Vp
 Sh
 fk
 mk
-Tf
+eS
 Vp
 Vp
 eY
@@ -56778,7 +56792,7 @@ yX
 Cm
 wB
 zP
-zP
+Oi
 Qr
 mk
 ME
@@ -58320,7 +58334,7 @@ yX
 EC
 Vp
 Vp
-KB
+zo
 mk
 mk
 qM

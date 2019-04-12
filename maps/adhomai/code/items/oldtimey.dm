@@ -227,6 +227,6 @@
 
 /obj/item/weapon/flame/lighter/adhomian/nka
 	name = "standard issue ligther"
-	desc =  "The standard issue leather wrapped lighter of the Imperial Adhomian Army. It depicts the suns eclipsing in a silver embossing."
+	desc = "The standard issue leather wrapped lighter of the Imperial Adhomian Army. It depicts the suns eclipsing in a silver embossing."
 	icon = 'icons/adhomai/items.dmi'
 	icon_state = "lighter_nka"

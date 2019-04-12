@@ -739,11 +739,6 @@
 /obj/structure/bed/chair/wood/adhomai,
 /turf/simulated/floor/tiled/dark,
 /area/adhomai/village/townhall)
-"tH" = (
-/obj/structure/closet/gmcloset,
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/cult,
-/area/adhomai/village/temple)
 "tL" = (
 /obj/structure/cult/talisman,
 /turf/simulated/floor/cult,
@@ -888,7 +883,9 @@
 "Aa" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/table/wood,
-/obj/item/weapon/reagent_containers/glass/bucket/wood,
+/obj/item/weapon/storage/box/burialurn,
+/obj/item/weapon/storage/box/burialurn,
+/obj/item/weapon/storage/box/burialurn,
 /turf/simulated/floor/cult,
 /area/adhomai/village/temple)
 "Ah" = (
@@ -1044,9 +1041,7 @@
 /turf/simulated/floor/cult,
 /area/adhomai/village/temple)
 "IW" = (
-/obj/structure/simple_door/cell{
-	initial_lock_value = "cell"
-	},
+/obj/structure/barricade/bars,
 /turf/simulated/floor/plating,
 /area/adhomai/fortress)
 "Jg" = (
@@ -1184,6 +1179,12 @@
 /obj/structure/coatrack,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
+/area/adhomai/fortress)
+"RZ" = (
+/obj/structure/simple_door/cell{
+	initial_lock_value = "soldier"
+	},
+/turf/simulated/floor/plating,
 /area/adhomai/fortress)
 "Sm" = (
 /obj/structure/morgue{
@@ -34042,7 +34043,7 @@ aj
 am
 an
 WZ
-IW
+RZ
 aI
 aI
 aI
@@ -35070,7 +35071,7 @@ aj
 db
 al
 WZ
-IW
+RZ
 aI
 aI
 aI
@@ -36098,7 +36099,7 @@ aj
 ao
 al
 WZ
-IW
+RZ
 au
 au
 ax
@@ -37126,7 +37127,7 @@ aj
 ao
 ap
 WZ
-IW
+RZ
 aI
 aI
 PO
@@ -44907,7 +44908,7 @@ ae
 ae
 ae
 QL
-tH
+Aa
 rI
 rI
 rI

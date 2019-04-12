@@ -22393,6 +22393,15 @@
 	icon_state = "wood_siding1"
 	},
 /area/centcom/spawning)
+"XO" = (
+/obj/structure/table/rack,
+/obj/item/weapon/shovel,
+/obj/item/weapon/shovel,
+/obj/item/weapon/shovel,
+/obj/item/weapon/shovel,
+/obj/item/weapon/shovel,
+/turf/simulated/floor/tiled/dark,
+/area/pra_base)
 "XP" = (
 /obj/machinery/airlock_sensor{
 	frequency = 1380;
@@ -23257,13 +23266,6 @@
 "ZI" = (
 /turf/template_noop,
 /area/centcom/holding)
-"ZJ" = (
-/obj/structure/table/rack,
-/obj/item/clothing/glasses/night,
-/obj/item/clothing/glasses/night,
-/obj/item/clothing/glasses/night,
-/turf/simulated/floor/tiled/dark,
-/area/pra_base)
 "ZK" = (
 /turf/unsimulated/chasm_mask,
 /area/centcom/holding)
@@ -23437,15 +23439,11 @@
 /obj/item/ammo_magazine/tommymag,
 /obj/item/ammo_magazine/tommymag,
 /obj/item/ammo_magazine/tommymag,
-/obj/item/ammo_magazine/tommymag,
-/obj/item/weapon/gun/projectile/automatic/tommygun,
-/obj/item/weapon/gun/projectile/automatic/tommygun,
-/obj/item/weapon/gun/projectile/automatic/tommygun,
-/obj/item/weapon/gun/projectile/automatic/tommygun,
-/obj/item/weapon/gun/projectile/automatic/tommygun,
-/obj/item/weapon/gun/projectile/automatic/tommygun,
-/obj/item/weapon/gun/projectile/automatic/tommygun,
-/obj/item/weapon/gun/projectile/automatic/tommygun,
+/obj/item/weapon/gun/projectile/automatic/tommygun/adhomai,
+/obj/item/weapon/gun/projectile/automatic/tommygun/adhomai,
+/obj/item/weapon/gun/projectile/automatic/tommygun/adhomai,
+/obj/item/weapon/gun/projectile/automatic/tommygun/adhomai,
+/obj/item/weapon/gun/projectile/automatic/tommygun/adhomai,
 /turf/simulated/floor/tiled/dark,
 /area/pra_base)
 "ZY" = (
@@ -58736,7 +58734,7 @@ Zr
 km
 YP
 Yu
-ZJ
+YY
 Zr
 Yd
 Yl
@@ -59763,8 +59761,8 @@ Yn
 YT
 km
 XS
-YY
 YJ
+XO
 Zr
 XZ
 Yp
