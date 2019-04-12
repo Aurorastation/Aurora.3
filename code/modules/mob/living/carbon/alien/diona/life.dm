@@ -1,6 +1,9 @@
 //Dionaea regenerate health and nutrition in light.
 
 /mob/living/carbon/alien/diona/handle_environment(datum/gas_mixture/environment)
+	if (environment && consume_nutrition_from_air)
+		environment.remove(diona_handle_air(get_dionastats(), pressure))
+
 	if (stat != DEAD)
 		diona_handle_light(DS)
 
