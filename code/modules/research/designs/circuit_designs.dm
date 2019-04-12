@@ -610,7 +610,7 @@
 
 /datum/design/circuit/hacker_target
 	name = "cybersuit rig control and targeting board"
-	id = "hacker_rig"
+	id = "hacker_rig_target"
 	req_tech = list(TECH_DATA = 6, TECH_COMBAT = 3, TECH_ILLEGAL = 3)
 	build_path = /obj/item/weapon/circuitboard/rig_assembly/illegal/targeting/hacker
 	sort_string = "WAAAP"

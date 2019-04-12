@@ -1352,6 +1352,7 @@
 #include "code\modules\clothing\under\xenos\resomi.dm"
 #include "code\modules\clothing\under\xenos\tajara.dm"
 #include "code\modules\clothing\under\xenos\unathi.dm"
+#include "code\modules\clothing\under\xenos\vaurca.dm"
 #include "code\modules\construction\airlocks.dm"
 #include "code\modules\construction\buttons.dm"
 #include "code\modules\custom_ka\barrels.dm"
