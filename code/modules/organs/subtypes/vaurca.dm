@@ -368,34 +368,34 @@ obj/item/organ/vaurca/neuralsocket/process()
 			T.assume_air(leaked_gas)
 
 /obj/item/organ/external/chest/vaurca
-	cannot_break = FALSE
+	cannot_break = TRUE
 
 /obj/item/organ/external/groin/vaurca
-	cannot_break = FALSE
+	cannot_break = TRUE
 
 /obj/item/organ/external/arm/vaurca
-	cannot_break = FALSE
+	cannot_break = TRUE
 
 /obj/item/organ/external/arm/right/vaurca
-	cannot_break = FALSE
+	cannot_break = TRUE
 
 /obj/item/organ/external/leg/vaurca
-	cannot_break = FALSE
+	cannot_break = TRUE
 
 /obj/item/organ/external/leg/right/vaurca
-	cannot_break = FALSE
+	cannot_break = TRUE
 
 /obj/item/organ/external/foot/vaurca
-	cannot_break = FALSE
+	cannot_break = TRUE
 
 /obj/item/organ/external/foot/right/vaurca
-	cannot_break = FALSE
+	cannot_break = TRUE
 
 /obj/item/organ/external/hand/vaurca
-	cannot_break = FALSE
+	cannot_break = TRUE
 
 /obj/item/organ/external/hand/right/vaurca
-	cannot_break = FALSE
+	cannot_break = TRUE
 
 /obj/item/organ/external/head/vaurca
-	cannot_break = FALSE
+	cannot_break = TRUE
