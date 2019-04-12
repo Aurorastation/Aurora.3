@@ -751,6 +751,20 @@ datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
 		"eyes"                = /obj/item/organ/eyes/vaurca
 	)
 
+	has_limbs = list(
+		"chest" =  list("path" = /obj/item/organ/external/chest/vaurca),
+		"groin" =  list("path" = /obj/item/organ/external/groin/vaurca),
+		"head" =   list("path" = /obj/item/organ/external/head/vaurca),
+		"l_arm" =  list("path" = /obj/item/organ/external/arm/vaurca),
+		"r_arm" =  list("path" = /obj/item/organ/external/arm/right/vaurca),
+		"l_leg" =  list("path" = /obj/item/organ/external/leg/vaurca),
+		"r_leg" =  list("path" = /obj/item/organ/external/leg/right/vaurca),
+		"l_hand" = list("path" = /obj/item/organ/external/hand/vaurca),
+		"r_hand" = list("path" = /obj/item/organ/external/hand/right/vaurca),
+		"l_foot" = list("path" = /obj/item/organ/external/foot/vaurca),
+		"r_foot" = list("path" = /obj/item/organ/external/foot/right/vaurca)
+		)
+
 	default_h_style = "Classic Antennae"
 
 	move_trail = /obj/effect/decal/cleanable/blood/tracks/claw
