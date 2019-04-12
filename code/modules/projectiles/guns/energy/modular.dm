@@ -44,6 +44,15 @@
 	to_chat(user, "You disassemble \the [src].")
 	disassemble(user)
 
+/obj/item/weapon/gun/energy/laser/prototype/update_icon()
+	..()
+	if(origin_chassis == CHASSIS_LARGE)
+		if(wielded)
+			item_state = "heavyprotogun_wielded"
+		else
+			item_state = "heavyprotogun"
+	update_held_icon()
+
 /obj/item/weapon/gun/energy/laser/prototype/proc/reset_vars()
 	burst = initial(burst)
 	reliability = initial(reliability)
@@ -70,10 +79,12 @@
 			gun_type = CHASSIS_MEDIUM
 			slot_flags = SLOT_BELT | SLOT_BACK
 			item_state = "energystun"
+			action_button_name = "Wield rifle"
 		if(CHASSIS_LARGE)
 			gun_type = CHASSIS_LARGE
 			slot_flags = SLOT_BACK
-			item_state = "lasercannon"
+			item_state = "heavyprotogun"
+			action_button_name = "Wield rifle"
 
 	if(capacitor.reliability - capacitor.condition <= 0)
 		if(prob(66))
