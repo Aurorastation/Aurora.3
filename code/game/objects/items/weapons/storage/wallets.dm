@@ -2,7 +2,7 @@
 	name = "wallet"
 	desc = "It can hold a few small and personal things."
 	storage_slots = 10
-	icon_state = "wallet_cat"
+	icon_state = "wallet"
 	w_class = 2
 	max_w_class = 2
 	can_hold = list(
@@ -55,27 +55,25 @@
 			update_icon()
 
 /obj/item/weapon/storage/wallet/update_icon()
-	if(icon_state == "wallet_cat")
-		return
-	else if(icon_state == "wallet")
-		if(front_id)
-			switch(front_id.icon_state)
-				if("id")
-					icon_state = "walletid"
-					return
-				if("guest")
-					icon_state = "walletid"
-					return
-				if("silver")
-					icon_state = "walletid_silver"
-					return
-				if("gold")
-					icon_state = "walletid_gold"
-					return
-				if("centcom")
-					icon_state = "walletid_centcom"
-					return
-		icon_state = "wallet"
+
+	if(front_id)
+		switch(front_id.icon_state)
+			if("id")
+				icon_state = "walletid"
+				return
+			if("guest")
+				icon_state = "walletid"
+				return
+			if("silver")
+				icon_state = "walletid_silver"
+				return
+			if("gold")
+				icon_state = "walletid_gold"
+				return
+			if("centcom")
+				icon_state = "walletid_centcom"
+				return
+	icon_state = "wallet"
 
 
 /obj/item/weapon/storage/wallet/GetID()

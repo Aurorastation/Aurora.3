@@ -1,6 +1,6 @@
 /obj/item/weapon/gun/projectile/shotgun/pump/rifle/nka
 	icon = 'icons/adhomai/guns.dmi'
-	icon_state = "moistnugget"
+	icon_state = "bolt"
 	desc = "A cheap ballistic rifle often found in the hands of tajaran soldiers."
 	accuracy = -1
 
