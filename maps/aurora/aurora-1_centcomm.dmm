@@ -23892,11 +23892,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/centcom/legion)
-"bbc" = (
-/obj/item/clothing/accessory/legion,
-/obj/structure/table/reinforced,
-/turf/simulated/floor/tiled/dark,
-/area/centcom/legion)
 "bbd" = (
 /obj/structure/table/reinforced,
 /obj/item/device/megaphone,
@@ -23910,13 +23905,17 @@
 	icon_state = "tube1";
 	dir = 1
 	},
+/obj/item/clothing/accessory/legion{
+	step_x = 0;
+	step_y = 0
+	},
 /turf/simulated/floor/tiled/dark,
 /area/centcom/legion)
 "bbe" = (
 /obj/structure/table/wood,
 /obj/item/weapon/storage/fancy/cigar,
-/obj/item/weapon/flame/lighter/zippo,
-/turf/simulated/floor/wood,
+/obj/item/clothing/mask/smokable/pipe,
+/turf/simulated/floor/carpet/blue,
 /area/centcom/legion)
 "bbf" = (
 /obj/machinery/portable_atmospherics/canister/air,
@@ -23935,19 +23934,11 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/centcom/legion)
-"bbi" = (
-/obj/structure/bed/chair/comfy/black{
-	dir = 4
-	},
-/turf/simulated/floor/wood,
-/area/centcom/legion)
 "bbj" = (
-/obj/structure/table/wood,
-/obj/machinery/button/remote/blast_door{
-	id = "tcfl";
-	name = "Heavy Support"
+/obj/structure/bed/chair/comfy/brown{
+	dir = 1
 	},
-/turf/simulated/floor/wood,
+/turf/simulated/floor/carpet/blue,
 /area/centcom/legion)
 "bbk" = (
 /obj/structure/table/reinforced,
@@ -23974,10 +23965,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/centcom/legion)
 "bbm" = (
-/obj/machinery/light/small{
-	dir = 1
-	},
-/turf/simulated/floor/wood,
+/obj/structure/bed/chair/comfy/black,
+/turf/simulated/floor/carpet/blue,
 /area/centcom/legion)
 "bbn" = (
 /obj/item/mecha_parts/mecha_equipment/tesla_energy_relay,
@@ -23990,11 +23979,6 @@
 /obj/item/mecha_parts/mecha_equipment/repair_droid,
 /obj/structure/table/reinforced/steel,
 /turf/simulated/floor/tiled/dark,
-/area/centcom/legion)
-"bbo" = (
-/obj/structure/table/wood,
-/obj/item/device/flashlight/lamp,
-/turf/simulated/floor/wood,
 /area/centcom/legion)
 "bbp" = (
 /obj/machinery/shieldwallgen,
@@ -24017,11 +24001,12 @@
 /area/centcom/legion)
 "bbs" = (
 /obj/machinery/door/airlock/centcom{
-	name = "High Command";
+	name = "Commandant Office";
 	req_access = list(108,109)
 	},
 /obj/machinery/door/blast/regular{
-	id = "tcfl"
+	id = "tcfl";
+	name = "Heavy Support"
 	},
 /turf/simulated/floor/wood,
 /area/centcom/legion)
@@ -24064,7 +24049,8 @@
 /area/centcom/legion)
 "bbx" = (
 /obj/machinery/door/blast/regular{
-	id = "tcfl"
+	id = "tcfl";
+	name = "Heavy Support"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/centcom/legion)
@@ -24239,10 +24225,6 @@
 "bbM" = (
 /obj/machinery/computer/shuttle_control/legion,
 /turf/simulated/floor/tiled/dark,
-/area/centcom/legion)
-"bbN" = (
-/obj/machinery/computer/shuttle_control/legion,
-/turf/simulated/floor/wood,
 /area/centcom/legion)
 "bbO" = (
 /obj/machinery/door/airlock/external{
@@ -24443,6 +24425,12 @@
 	icon_state = "wood_siding1"
 	},
 /area/centcom/spawning)
+"eEQ" = (
+/obj/machinery/light/small{
+	dir = 1
+	},
+/turf/simulated/floor/carpet/blue,
+/area/centcom/legion)
 "eSC" = (
 /obj/machinery/atm{
 	pixel_x = -26
@@ -24455,6 +24443,40 @@
 /obj/machinery/chem_master,
 /turf/simulated/floor/tiled/dark,
 /area/centcom/legion)
+"pzH" = (
+/turf/simulated/floor/carpet/blue,
+/area/centcom/legion)
+"woq" = (
+/obj/structure/closet{
+	icon_closed = "cabinet_closed";
+	icon_opened = "cabinet_open";
+	icon_state = "cabinet_closed"
+	},
+/obj/item/clothing/accessory/holster/hip,
+/obj/item/clothing/accessory/legion{
+	step_x = 0;
+	step_y = 0
+	},
+/obj/item/weapon/storage/belt/security/tactical,
+/obj/item/weapon/melee/baton/loaded,
+/obj/item/device/flash,
+/obj/item/weapon/storage/box/flashbangs,
+/obj/item/ammo_magazine/a357,
+/obj/item/ammo_magazine/a357,
+/obj/item/ammo_magazine/a357,
+/obj/item/clothing/head/legion_beret,
+/obj/item/clothing/under/legion,
+/obj/item/device/radio/headset/legion,
+/obj/item/weapon/storage/backpack/legion,
+/obj/item/weapon/handcuffs,
+/obj/item/weapon/handcuffs,
+/obj/item/weapon/gun/projectile/revolver,
+/turf/simulated/floor/carpet/blue,
+/area/centcom/legion)
+"wwV" = (
+/obj/machinery/computer/shuttle_control/legion,
+/turf/simulated/floor/carpet/blue,
+/area/centcom/legion)
 "xjq" = (
 /obj/machinery/light,
 /obj/structure/curtain,
@@ -24463,6 +24485,43 @@
 	dir = 2
 	},
 /area/centcom/spawning)
+"xzA" = (
+/obj/structure/table/wood,
+/obj/machinery/button/remote/blast_door{
+	id = "tcfl-c";
+	name = "Office Exterior";
+	pixel_y = 6
+	},
+/obj/machinery/button/remote/blast_door{
+	id = "tcfl";
+	name = "Heavy Support";
+	pixel_y = -3
+	},
+/turf/simulated/floor/carpet/blue,
+/area/centcom/legion)
+"xOM" = (
+/obj/machinery/door/airlock/centcom{
+	name = "Commandant Office";
+	req_access = list(108,109)
+	},
+/obj/machinery/door/blast/regular{
+	dir = 4;
+	id = "tcfl-c";
+	name = "Cmdt Office"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/centcom/legion)
+"yiB" = (
+/obj/machinery/door/airlock/centcom{
+	name = "Commandant Office";
+	req_access = list(108,109)
+	},
+/obj/machinery/door/blast/regular{
+	id = "tcfl-c";
+	name = "Cmdt Office"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/centcom/legion)
 
 (1,1,1) = {"
 aaa
@@ -25589,7 +25648,7 @@ ahM
 ahM
 ahM
 ahM
-aaM
+ahM
 aaM
 aaM
 aaM
@@ -25844,9 +25903,9 @@ asK
 aZD
 aZD
 aZD
+aZD
 asK
 ahM
-aaM
 aaM
 aaM
 aaM
@@ -26101,14 +26160,14 @@ asK
 baq
 baD
 baz
+baA
 asK
 ahM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
+ahM
+ahM
+ahM
+ahM
+ahM
 aaM
 aaM
 aaM
@@ -26357,15 +26416,15 @@ asU
 aZD
 asU
 asU
-baA
+asU
+asU
+asK
+asK
+aZD
+asK
+aZD
 asK
 ahM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
 aaM
 aaM
 aaM
@@ -26614,15 +26673,15 @@ asU
 baa
 asU
 asU
-baB
+asU
+asU
+xOM
+asU
+asU
+asU
+asU
 asK
 ahM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
 aaM
 aaM
 aaM
@@ -26871,15 +26930,15 @@ asU
 aZD
 asU
 asU
-baC
+asU
+asU
 asK
+asK
+asK
+asK
+asU
+aZD
 ahM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
 aaM
 aaM
 aaM
@@ -27128,17 +27187,17 @@ asU
 asK
 bbd
 bar
-bbc
+baC
+baB
+asK
+ahM
+ahM
+asK
+asU
 asK
 ahM
 ahM
 ahM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
 aaM
 aaM
 aaM
@@ -27389,12 +27448,12 @@ aZD
 asK
 asK
 asK
-ahM
-ahM
-ahM
-ahM
-ahM
-ahM
+asK
+asK
+yiB
+asK
+asK
+asK
 ahM
 aaM
 aaM
@@ -27646,11 +27705,11 @@ asU
 asU
 haj
 asK
-asK
-aZD
-aZD
-aZD
-asK
+baP
+baP
+baP
+baP
+baP
 asK
 ahM
 aaM
@@ -27903,12 +27962,12 @@ asU
 asU
 baR
 asK
+eEQ
+xzA
+pzH
 baP
 baP
-bbi
-baP
-baP
-asK
+aZD
 ahM
 aaM
 aaM
@@ -28163,8 +28222,8 @@ asK
 bbm
 bbe
 bbj
-bbo
-bbN
+baP
+baP
 aZD
 ahM
 aaM
@@ -28417,9 +28476,9 @@ asU
 asU
 baT
 asK
-baP
-baP
-baP
+pzH
+wwV
+pzH
 baP
 baP
 aZD
@@ -28674,9 +28733,9 @@ baE
 baQ
 baU
 asK
-baP
-baP
-baP
+woq
+pzH
+pzH
 baP
 baP
 asK
