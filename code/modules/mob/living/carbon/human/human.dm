@@ -126,9 +126,13 @@
 				stat("Tank Pressure", internal.air_contents.return_pressure())
 				stat("Distribution Pressure", internal.distribute_pressure)
 
+		var/obj/item/organ/coolantpump/CP = internal_organs_by_name["coolant pump"]
 		var/obj/item/organ/xenos/plasmavessel/P = internal_organs_by_name["plasma vessel"]
 		if(P)
 			stat(null, "Phoron Stored: [P.stored_plasma]/[P.max_plasma]")
+		if(CP)
+			stat(null, "Coolant Stored: [CP.coolantamount]/[CP.coolantbaseamount]")
+			stat(null, "Coolant Use Rate: [CP.coolantuserate]%")
 
 		if(back && istype(back,/obj/item/weapon/rig))
 			var/obj/item/weapon/rig/suit = back

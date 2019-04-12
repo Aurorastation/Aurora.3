@@ -991,6 +991,11 @@
 
 	if(stat == DEAD) return
 
+	var/mob/living/carbon/human/H = src
+	if(!H.internal_organs_by_name["diagnostics unit"])
+		to_chat(src, "<span class='warning'>Diagnostic Unit not installed</span>")
+		return
+
 	to_chat(src, "<span class='notice'>Performing self-diagnostic, please wait...</span>")
 	if (do_after(src, 10))
 		var/output = "<span class='notice'>Self-Diagnostic Results:\n</span>"

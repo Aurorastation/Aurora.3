@@ -195,6 +195,111 @@
 	robotize()
 	. = ..()
 
+/obj/item/organ/diagnosticsunit
+	name = "diagnostics unit"
+	organ_tag = "diagnostics unit"
+	parent_organ = "head"
+	icon = 'icons/obj/robot_component.dmi'
+	icon_state = "diagnostics_unit"
+	vital = 0
+	emp_coeff = 0.1
+
+/obj/item/organ/diagnosticsunit/Initialize()
+	robotize()
+	. = ..()
+
+
+/obj/item/organ/coolantpump
+	name = "coolant pump"
+	organ_tag = "coolant pump"
+	parent_organ = "chest"
+	icon = 'icons/obj/robot_component.dmi'
+	icon_state = "coolantpump"
+	vital = 0
+	emp_coeff = 0.1
+	var/coolantbaseamount = 200
+	var/coolantdangeramount = 50
+	var/coolantuserate = 0.5
+	var/coolantamount = 200
+	var/pumphealth = 150
+	var/installed = 0
+	var/burn_cooldown = 0
+
+/obj/item/organ/coolantpump/Initialize()
+	START_PROCESSING(SSfast_process, src)
+	robotize()
+	. = ..()
+
+/obj/item/organ/coolantpump/proc/coolant_check()
+	var/mob/living/carbon/human/H = owner
+	if(!H) 
+		return
+	var/obj/item/organ/external/O = pick(H.organs)
+	if(world.time < burn_cooldown)
+		return
+	else
+		if(coolantamount <= 0)
+			burn_cooldown = world.time+300
+			sleep(200)
+			to_chat(H, "<span class='danger'>You're [O.name] begins to slowly glow red hot</span>")
+			if(prob(80))
+				H.apply_damage(10,BURN,O)
+			else
+				H.apply_damage(20,BURN,O)
+		if(pumphealth <= 0 )
+			burn_cooldown = world.time+300
+			to_chat(H, "<span class='danger'>Critical melt down! Pump integrity at [pumphealth]% </span>")
+			H.IgniteMob(15)
+			H.bodytemperature += 200
+
+	
+
+/obj/item/organ/coolantpump/process()
+	var/mob/living/carbon/human/H = owner
+
+	if(owner.m_intent == "run" || (H.bodytemperature <= H.species.cold_level_1 || (H.bodytemperature >= H.species.heat_level_1)))
+		coolantamount -= coolantuserate / 10
+	if(owner.m_intent == "run" || (H.bodytemperature <= H.species.cold_level_2 || (H.bodytemperature >= H.species.heat_level_2)))
+		coolantamount -= coolantuserate / 3
+	if(owner.m_intent == "run" || (H.bodytemperature <= H.species.cold_level_3 || (H.bodytemperature >= H.species.heat_level_3)))
+		coolantamount -= coolantuserate *2
+	coolantamount = max(coolantamount, 0)
+	coolant_check()
+
+/obj/item/organ/coolant_pump/removed(var/mob/living/carbon/human/target)
+	to_chat(target, "<span class='warning'>Your entire body shuts down, leaving you lifeless.</span>")
+	target.update_canmove()
+
+
+/obj/item/organ/coolant_pump/replaced(var/mob/living/carbon/human/target)
+	to_chat(target, "<span class='warning'>You feel a cool sensation overcome you.</span>")
+	target.update_canmove()
+
+
+/obj/item/organ/coolantpump/attackby(var/obj/I as obj, var/mob/user as mob)
+	if(istype(I, /obj/item/stack/nanopaste))
+		var/choice = alert("What do you want to do with the nanopaste?","Coolant Pump","Fix coolant gasket")
+		if(choice == "Fix coolant gasket")
+			var/obj/item/stack/nanopaste/N = I
+			var/amount_used = min(N.get_amount(), 10 - pumphealth / 10)
+			N.use(amount_used)
+			pumphealth = round(pumphealth + amount_used * 10)
+			return
+	if(istype(I, /obj/item/weapon/reagent_containers) && I.reagents)
+		for (var/datum/reagent/R in I.reagents.reagent_list)
+			if (coolantamount >= coolantbaseamount)
+				to_chat(user, "<span class='info'>You can't put anymore coolant into the [src].</span>")
+				return
+			if (istype(R, /datum/reagent/coolant))
+				var/obj/item/weapon/reagent_containers/glass/G = I
+				var/amount_transferred = min(I.reagents.maximum_volume - I.reagents.total_volume, G.reagents.total_volume)
+				G.reagents.trans_to(src, amount_transferred)
+				I.reagents.remove_reagent(R.id, amount_transferred)
+				coolantamount += amount_transferred
+				to_chat(user, "<span class='info'>You empty [amount_transferred]u of coolant into [src].</span>")
+				coolant_check()
+
+
 /obj/item/organ/cell/terminator
 	name = "shielded microbattery"
 	desc = "A small, powerful cell for use in fully prosthetic bodies. Equipped with a Faraday shield."

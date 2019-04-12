@@ -187,7 +187,9 @@
 		"brain" = /obj/item/organ/mmi_holder/posibrain/terminator,
 		"shielded cell" = /obj/item/organ/cell/terminator,
 		"optics" = /obj/item/organ/eyes/optical_sensor/terminator,
-		"data core" = /obj/item/organ/data
+		"data core" = /obj/item/organ/data,
+		"diagnostics unit" = /obj/item/organ/diagnosticsunit,
+		"coolant pump" = /obj/item/organ/coolantpump
 	)
 
 	has_limbs = list(

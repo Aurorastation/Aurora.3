@@ -9,6 +9,7 @@
 	var/searching = 0
 	var/askDelay = 10 * 60 * 1
 	req_access = list(access_robotics)
+	var/damageamount = 60
 	locked = 0
 	mecha = null//This does not appear to be used outside of reference in mecha.dm.
 
@@ -81,3 +82,36 @@
 	..()
 	src.brainmob.name = "[pick(list("PBU","HIU","SINA","ARMA","OSI"))]-[rand(100, 999)]"
 	src.brainmob.real_name = src.brainmob.name
+
+
+/obj/item/device/mmi/digital/posibrain/proc/healthcheck()
+	if(damageamount <=0)
+		playsound(loc, 'sound/items/countdown.ogg', 125, 1)
+		sleep(20)
+		playsound(loc, 'sound/effects/alert.ogg', 125, 1)
+		sleep(10)
+		new /obj/effect/gibspawner/robot(src.loc)
+		qdel(src)
+	return
+
+/obj/item/device/mmi/digital/posibrain/bullet_act(var/obj/item/projectile/Proj)
+
+	if(!Proj.nodamage)
+		switch(Proj.damage_type)
+			if(BRUTE)
+				healthcheck()
+				damageamount -= (rand(5,10))
+			if(BURN)
+				healthcheck()
+				damageamount -= (rand(25,30))
+
+/obj/item/device/mmi/digital/posibrain/attackby(obj/item/weapon/O as obj, mob/user as mob, params)
+
+	if (istype(O, /obj/item/weapon) && user.a_intent == "harm")
+		healthcheck()
+		damageamount -= (rand(5,8))
+
+	if (istype(O, /obj/item/weapon/weldingtool) && user.a_intent == "harm")
+		healthcheck()
+		damageamount -= (rand(10,20))
+

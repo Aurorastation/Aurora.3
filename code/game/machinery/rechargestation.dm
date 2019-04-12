@@ -10,6 +10,7 @@
 	has_special_power_checks = TRUE
 	var/mob/occupant = null
 	var/obj/item/weapon/cell/cell = null
+	var/obj/item/weapon/reagent_containers/glass/beaker/beaker = null
 	var/icon_update_tick = 0	// Used to rebuild the overlay only once every 10 ticks
 	var/charging = 0
 	var/charging_efficiency = 0.85//Multiplier applied to all operations of giving power to cells, represents entropy. Efficiency increases with upgrades
@@ -27,12 +28,14 @@
 		/obj/item/weapon/stock_parts/manipulator = 2,
 		/obj/item/weapon/stock_parts/capacitor = 2,
 		/obj/item/weapon/cell/high,
+		/obj/item/weapon/reagent_containers/glass/beaker,
 		/obj/item/stack/cable_coil{amount = 5}
 	)
 
 /obj/machinery/recharge_station/Initialize()
 	. = ..()
 	update_icon()
+	beaker.reagents.add_reagent("coolant", 60)
 
 /obj/machinery/recharge_station/proc/has_cell_power()
 	return cell && cell.percent() > 0
@@ -102,9 +105,21 @@
 			R.adjustFireLoss(-wire_rate)
 	else if(ishuman(occupant))
 		var/mob/living/carbon/human/H = occupant
+		var/obj/item/organ/coolantpump/CP = H.internal_organs_by_name["coolant pump"]
 		if(!isnull(H.internal_organs_by_name["cell"]) && H.nutrition < H.max_nutrition)
 			H.adjustNutritionLoss(-10)
 			cell.use(7000/H.max_nutrition*10)
+		if(!CP)
+			return
+		else
+			if(beaker)
+				for (var/datum/reagent/R in beaker.reagents.reagent_list)
+					if(beaker.reagents.total_volume <= 0 || (CP.coolantamount >= CP.coolantbaseamount))
+						return
+					if (istype(R, /datum/reagent/coolant))
+						CP.coolantamount += CP.coolantuserate * 2
+						beaker.reagents.remove_reagent(R.id, CP.coolantuserate * 2)
+					
 
 
 /obj/machinery/recharge_station/examine(mob/user)
@@ -138,6 +153,17 @@
 			return
 		else if(default_part_replacement(user, O))
 			return
+		if(istype(O, /obj/item/weapon/reagent_containers) && O.reagents)
+			for (var/datum/reagent/R in O.reagents.reagent_list)
+				if (istype(R, /datum/reagent/coolant))
+					var/obj/item/weapon/reagent_containers/glass/G = O
+					var/amount_transferred = min(O.reagents.maximum_volume - O.reagents.total_volume, G.reagents.total_volume)
+					G.reagents.trans_to(beaker, amount_transferred)
+					O.reagents.remove_reagent(R.id, amount_transferred)
+					to_chat(user, "<span class='info'>You empty [amount_transferred]u of coolant into [src].</span>")
+				else
+					to_chat(user, "<span class='info'>The [src] does not accept that type of liquid.</span>")
+					return
 
 	..()
 
@@ -152,6 +178,7 @@
 		else if(ismanipulator(P))
 			man_rating += P.rating
 	cell = locate(/obj/item/weapon/cell) in component_parts
+	beaker = locate(/obj/item/weapon/reagent_containers/glass/beaker) in component_parts
 
 	charging_efficiency = 0.85 + 0.015 * cap_rating
 	charging_power = 30000 + 12000 * cap_rating
