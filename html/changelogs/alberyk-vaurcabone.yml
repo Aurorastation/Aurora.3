@@ -1,0 +1,6 @@
+author: Alberyk
+
+delete-after: True
+
+changes: 
+  - tweak: "The vaurca species does not have bones anymore, making them immune to fractures."
