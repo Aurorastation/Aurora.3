@@ -34,3 +34,18 @@
 
 /obj/item/weapon/card/id/papers/update_name()
     name = "[src.registered_name]'s documents"
+
+/obj/item/weapon/card/id/papers/dat()
+	var/dat = ("<table><tr><td>")
+	dat += text("Name: []</A><BR>", registered_name)
+	dat += text("Sex: []</A><BR>\n", sex)
+	dat += text("Age: []</A><BR>\n", age)
+	dat += text("Citizenship: []</A><BR>\n", citizenship)
+	dat += text("Religion: []</A><BR>\n", religion)
+	dat += text("Rank: []</A><BR>\n", assignment)
+	if(mining_points)
+		dat += text("Ore Redemption Points: []<BR><BR>\n", mining_points)
+	if(front && side)
+		dat +="<td align = center valign = top>Photo:<br><img src=front.png height=128 width=128 border=4><img src=side.png height=128 width=128 border=4></td>"
+	dat += "</tr></table>"
+	return dat

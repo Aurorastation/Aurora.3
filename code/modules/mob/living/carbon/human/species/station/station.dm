@@ -277,6 +277,9 @@
 		/datum/unarmed_attack/kick,
 		/datum/unarmed_attack/diona
 	)
+	inherent_verbs = list(
+		/mob/living/carbon/human/proc/consume_nutrition_from_air
+	)
 	//primitive_form = "Nymph"
 	slowdown = 7
 	rarity_value = 4

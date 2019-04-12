@@ -4,6 +4,7 @@
 	icon = 'icons/adhomai/structures.dmi'
 	icon_state = "record"
 	state_base = "record"
+	anchored = TRUE
 	tracks = list(
 		new/datum/track("Catgroove", 'maps/adhomai/sound/catgroove.ogg'),
 		new/datum/track("Lay Down", 'maps/adhomai/sound/laydown.ogg'),
