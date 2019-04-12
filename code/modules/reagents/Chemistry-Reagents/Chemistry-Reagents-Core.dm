@@ -227,6 +227,12 @@
 			var/obj/machinery/light/L = O
 			L.brightness_color = initial(L.brightness_color)
 			L.update()
+		else if(istype(O, /obj/item/stack/material/hairlesshide) && (volume >= 120)) // you need a decent amount of water to wash a whole hide, use a bucket or something
+			var/obj/item/stack/material/hairlesshide/HH = O
+			var/obj/item/stack/material/wetleather/WL = new(O.loc)
+			WL.amount = HH.amount
+			qdel(HH)
+			return
 		else if(istype(O, /obj/item/weapon/reagent_containers/food/snacks/monkeycube))
 			var/obj/item/weapon/reagent_containers/food/snacks/monkeycube/cube = O
 			if(!cube.wrapped)
