@@ -1209,7 +1209,7 @@ I said no!
 	result = /obj/item/weapon/reagent_containers/food/snacks/blt
 
 /datum/recipe/tajaran_stew
-	fruit = list("nifberries" = 2, "mushroom" = 1, "mtear" = 1)
+	fruit = list("nifberries" = 2, "nfrihi" = 1, "mtear" = 1)
 	reagents = list("water" = 10)
 	items = list(
 		/obj/item/weapon/reagent_containers/food/snacks/meat/adhomai,

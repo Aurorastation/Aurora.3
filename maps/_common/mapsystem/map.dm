@@ -127,7 +127,8 @@
 		'sound/music/traitor.ogg',
 		'sound/music/title2.ogg',
 		'sound/music/clouds.s3m',
-		'sound/music/space_oddity.ogg'
+		'sound/music/space_oddity.ogg',
+		'sound/music/thats-my-horse.ogg'
 	)
 
 /datum/map/New()

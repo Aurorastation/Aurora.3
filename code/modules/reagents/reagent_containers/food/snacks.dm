@@ -5168,8 +5168,8 @@
 	trash = /obj/item/trash/snack_bowl
 
 /obj/item/weapon/reagent_containers/food/snacks/tajaran_stew
-	name = "nav'twir stew"
-	desc = "An adhomian stew, made with nav'twir meat and native plants."
+	name = "adhomian stew"
+	desc = "An adhomian stew, made with native flora and fauna."
 	icon_state = "tajaran_stew"
 	bitesize = 2
 	nutriment_desc = list("sweetness" = 2)

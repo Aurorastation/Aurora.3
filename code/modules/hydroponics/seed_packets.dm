@@ -290,3 +290,9 @@ var/global/list/plant_seed_sprites = list()
 
 /obj/item/seeds/ghostmushroomseed
 	seed_type = "ghostmushroom"
+
+/obj/item/seeds/nfrihi
+	seed_type = "nfrihi"
+
+/obj/item/seeds/nmshaan
+	seed_type = "nmshaan"

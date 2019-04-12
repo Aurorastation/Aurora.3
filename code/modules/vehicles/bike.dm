@@ -163,3 +163,12 @@
 	brute_dam_coeff = 0.4
 
 	bike_icon = "speeder"
+
+/obj/vehicle/bike/snowmobile
+	name = "snowmobile"
+	desc = "A snowmobile. Obviously better on snow, than cleared land."
+	icon_state = "snow_on"
+
+	bike_icon = "snow"
+	land_speed = 1 // Snowmobile. Land = snow on Adhomai.
+	space_speed = 5 // Snowmobile. Space = dirt paths, on Adhomai. Still somewhat quick on dirt. Designed to transport you to snow, instead of solely on dirt.

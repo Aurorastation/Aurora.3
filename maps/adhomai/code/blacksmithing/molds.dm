@@ -111,7 +111,7 @@
 /obj/item/mold/armor
 	name = "armor mold"
 	outcome = /obj/item/clothing/suit/armor/nka
-	needed_ammount = 3
+	needed_ammount = 7
 
 /obj/item/mold/bat
 	name = "bat mold"
@@ -134,4 +134,10 @@
 	name = "helmet mold"
 	icon_state = "mold_shovel"
 	outcome = /obj/item/clothing/head/helmet/nka
-	needed_ammount = 10
+	needed_ammount = 3
+
+/obj/item/mold/urn
+	name = "urn mold"
+	icon_state = "urn_mold"
+	outcome = /obj/item/weapon/storage/box/burialurn
+	needed_ammount = 3
