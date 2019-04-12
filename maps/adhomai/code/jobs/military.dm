@@ -25,8 +25,9 @@
 	gloves = /obj/item/clothing/gloves/brown/tajara
 	backpack_contents = list(
 		/obj/item/weapon/key/soldier = 1,
-		/obj/item/weapon/key/armory = 1
-	)
+		/obj/item/weapon/key/armory = 1,
+		/obj/item/weapon/reagent_containers/food/drinks/flask/canteen/adhomian/nka = 1,
+		/obj/item/weapon/flame/lighter/adhomian/nka = 1)
 
 /datum/job/supply_officer
 	title = "Supply Officer"
@@ -51,10 +52,12 @@
 	shoes = /obj/item/clothing/shoes/jackboots/unathi
 	r_pocket = /obj/item/weapon/key/armory
 	l_pocket = /obj/item/weapon/storage/wallet/medium
-	belt = /obj/item/weapon/gun/projectile/colt
+	belt = /obj/item/weapon/gun/projectile/colt/nka
 	backpack_contents = list(
 		/obj/item/weapon/key/soldier = 2,
-		/obj/item/clothing/accessory/holster/armpit = 1)
+		/obj/item/clothing/accessory/holster/armpit = 1,
+		/obj/item/weapon/reagent_containers/food/drinks/flask/canteen/adhomian/nka = 1,
+		/obj/item/weapon/flame/lighter/adhomian/nka = 1)
 
 /datum/job/levy
 	title = "Levy"
@@ -76,6 +79,9 @@
 	shoes = /obj/item/clothing/shoes/tajara
 	head = /obj/item/clothing/head/nka
 	r_pocket = /obj/item/weapon/key/soldier
+	backpack_contents = list(
+		/obj/item/weapon/reagent_containers/food/drinks/flask/canteen/adhomian/nka = 1,
+		/obj/item/weapon/flame/lighter/adhomian/nka = 1)
 
 /datum/job/grenadier
 	title = "Royal Grenadier"
@@ -106,9 +112,11 @@
 	l_pocket = /obj/item/weapon/storage/wallet/medium
 	belt = /obj/item/weapon/storage/belt/security/tactical/nka
 	backpack_contents = list(
-							/obj/item/ammo_magazine/boltaction = 2,
-							/obj/item/weapon/grenade/frag/nka = 3,
-							/obj/item/clothing/accessory/storage/bayonet = 1)
+		/obj/item/ammo_magazine/boltaction = 2,
+		/obj/item/weapon/grenade/frag/nka = 3,
+		/obj/item/clothing/accessory/storage/bayonet = 1,
+		/obj/item/weapon/reagent_containers/food/drinks/flask/canteen/adhomian/nka = 1,
+		/obj/item/weapon/flame/lighter/adhomian/nka = 1)
 
 /datum/job/sharpshooter
 	title = "Sharpshooter"
@@ -130,6 +138,9 @@
 	uniform = /obj/item/clothing/under/uniform/sharpshooter
 	l_hand = /obj/item/weapon/gun/projectile/shotgun/pump/rifle/nka/scoped
 	l_pocket = /obj/item/weapon/storage/wallet/medium
+	backpack_contents = list(
+		/obj/item/weapon/reagent_containers/food/drinks/flask/canteen/adhomian/nka = 1,
+		/obj/item/weapon/flame/lighter/adhomian/nka = 1)
 
 /datum/job/combatengineer
 	title = "Combat Engineer"
@@ -152,9 +163,11 @@
 	uniform = /obj/item/clothing/under/uniform/combat_engineer
 	back = /obj/item/weapon/storage/backpack/satchel/engineer
 	l_pocket = /obj/item/weapon/storage/wallet/medium
-	belt = /obj/item/weapon/pickaxe
+	belt = /obj/item/weapon/pickaxe/drill/mattock
 	backpack_contents = list(
-							/obj/item/weapon/landmine = 3,
-							/obj/item/weapon/landmine/frag = 2,
-							/obj/item/weapon/crowbar = 1,
-							/obj/item/device/gps = 1)
+		/obj/item/weapon/landmine = 3,
+		/obj/item/weapon/landmine/frag = 2,
+		/obj/item/weapon/crowbar = 1,
+		/obj/item/device/gps = 1,
+		/obj/item/weapon/reagent_containers/food/drinks/flask/canteen/adhomian/nka = 1,
+		/obj/item/weapon/flame/lighter/adhomian/nka = 1)

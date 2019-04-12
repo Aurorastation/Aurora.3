@@ -136,3 +136,85 @@
 	desc = "Borscht is ready."
 	icon = 'icons/adhomai/structures.dmi'
 	icon_state = "ovenopen"
+
+/obj/item/weapon/retractor/adhomai
+	icon = 'icons/adhomai/items.dmi'
+	icon_state =  "retractor-old"
+
+/obj/item/weapon/bonesetter/adhomai
+	icon = 'icons/adhomai/items.dmi'
+	icon_state =  "retractor-old"
+
+/obj/item/weapon/hemostat/adhomai
+	icon = 'icons/adhomai/items.dmi'
+	icon_state =  "hemostat-old"
+
+/obj/item/weapon/scalpel/adhomai
+	icon = 'icons/adhomai/items.dmi'
+	icon_state =  "scalpel-old"
+
+/obj/item/weapon/cautery/adhomai
+	icon = 'icons/adhomai/items.dmi'
+	icon_state =  "cautery-old"
+
+/obj/item/weapon/circular_saw/adhomai
+	name = "Bonesaw"
+	desc = "A bonesaw. It's ready."
+	icon = 'icons/adhomai/items.dmi'
+	icon_state =  "saw-old"
+
+/obj/item/weapon/storage/surgicalkit/regular/adhomai
+	name = "surgical kit"
+	desc = "A field surgical kit. It's perfect for amputations and bullet removals. Everything a dying cat needs but never wanted."
+	icon = 'icons/adhomai/items.dmi'
+	icon_state = "surgery"
+
+/obj/item/weapon/storage/surgicalkit/regular/adhomai/fill()
+	new /obj/item/weapon/bonesetter/adhomai(src)
+	new /obj/item/weapon/hemostat/adhomai(src)
+	new /obj/item/weapon/retractor/adhomai(src)
+	new /obj/item/weapon/scalpel/adhomai(src)
+	new /obj/item/weapon/cautery/adhomai(src)
+	new /obj/item/weapon/circular_saw/adhomai(src)
+	return
+
+/obj/item/weapon/pickaxe/drill/mattock
+	name = "mattock"
+	desc = "It's a mattock."
+	icon = 'icons/adhomai/items.dmi'
+	icon_state = "mattock"
+	item_state = "pickaxe"
+	drill_verb = "excavating"
+	autodrill = 0
+	drill_sound = 'sound/weapons/chisel1.ogg'
+	can_wield = 1
+	excavation_amount = 30
+	wielded = 0
+	force_unwielded = 5.0
+	force_wielded = 15.0
+	digspeed_unwielded = 30
+	digspeed_wielded = 10
+
+/obj/item/device/radio/intercom/basestation/adhomai/nka
+	name = "basestation"
+	desc = "An old basestation. Military in design."
+	icon = 'icons/adhomai/radios.dmi'
+	icon_state = "nka-base"
+
+/obj/item/device/radio/adhomai/nka
+	name = "handheld"
+	desc = "An old radio, probably designed to link to a nearby basestation."
+	icon = 'icons/adhomai/radios.dmi'
+	icon_state = "nka"
+
+/obj/item/device/radio/intercom/basestation/adhomai/pra
+	name = "basestation"
+	desc = "An old basestation. Military in design."
+	icon = 'icons/adhomai/radios.dmi'
+	icon_state = "pra-base"
+
+/obj/item/device/radio/adhomai/pra
+	name = "handheld"
+	desc = "An old radio, probably designed to link to a nearby basestation."
+	icon = 'icons/adhomai/radios.dmi'
+	icon_state = "pra"
