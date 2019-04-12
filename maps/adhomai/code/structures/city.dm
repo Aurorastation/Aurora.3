@@ -60,3 +60,9 @@
 	desc = "A guidance sign which reads 'EXAM ROOM'."
 	icon_state = "examroom"
 	icon = 'icons/adhomai/structures.dmi'
+
+/obj/structure/adhomai/loudspeaker
+	name = "\improper loudspeaker"
+	desc = "A speaker. Quite loud. Almost too clever, isn't it."
+	icon = 'icons/adhomai/radios.dmi'
+	icon_state = "loudspeaker"
