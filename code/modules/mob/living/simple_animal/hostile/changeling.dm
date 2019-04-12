@@ -26,14 +26,7 @@
 	mob_size = 25
 	environment_smash = 2
 	attacktext = "mangled"
-	attack_sound = list(
-	'sound/effects/gore/chop1.ogg',
-	'sound/effects/gore/chop2.ogg',
-	'sound/effects/gore/chop3.ogg',
-	'sound/effects/gore/chop4.ogg',
-	'sound/effects/gore/chop5.ogg',
-	'sound/effects/gore/chop6.ogg',
-	)
+	attack_sound = "chop"
 
 	see_in_dark = 8
 	see_invisible = SEE_INVISIBLE_NOLIGHTING

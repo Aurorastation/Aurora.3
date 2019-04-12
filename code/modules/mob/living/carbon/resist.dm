@@ -117,6 +117,7 @@
 			buckle_message_user = " and unbuckle yourself"
 			buckle_message_other = " and to unbuckle themself"
 			buckled.user_unbuckle_mob(src)
+			playsound(loc, 'sound/effects/buckle_undo.ogg', 50, 1)
 
 		if(violent_removal)
 			var/obj/item/organ/external/E = H.get_organ(pick("l_arm","r_arm"))

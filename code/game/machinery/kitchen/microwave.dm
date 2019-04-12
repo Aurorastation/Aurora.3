@@ -17,6 +17,7 @@
 	var/global/list/acceptable_reagents // List of the reagents you can put in
 	var/global/max_n_of_items = 20
 	var/appliancetype = MICROWAVE
+	var/datum/looping_sound/microwave/soundloop
 
 // see code/modules/food/recipes_microwave.dm for recipes
 
@@ -28,6 +29,7 @@
 	. = ..()
 	reagents = new/datum/reagents(100)
 	reagents.my_atom = src
+	soundloop = new(list(src), FALSE)
 	if (mapload)
 		addtimer(CALLBACK(src, .proc/setup_recipes), 0)
 	else
@@ -229,7 +231,13 @@
 	onclose(user, "microwave")
 	return
 
+/obj/machinery/microwave/proc/turn_on()
+	visible_message("\The [src] turns on.", "<span class='italics'>You hear a microwave humming.</span>")
+	operating = TRUE
 
+	set_light(1.5)
+	soundloop.start()
+	update_icon()
 
 /***********************************
 *   Microwave Menu Handling/Cooking

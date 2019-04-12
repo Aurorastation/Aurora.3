@@ -146,6 +146,7 @@
 /obj/machinery/shower/Initialize()
 	. = ..()
 	create_reagents(2)
+	soundloop = new(list(src), FALSE)
 
 //add heat controls? when emagged, you can freeze to death in it?
 
@@ -164,8 +165,11 @@
 		if (M.loc == loc)
 			wash(M)
 			process_heat(M)
+			soundloop.start()
 		for (var/atom/movable/G in src.loc)
 			G.clean_blood()
+	else
+		soundloop.stop()
 
 /obj/machinery/shower/attackby(obj/item/I as obj, mob/user as mob)
 	if(I.type == /obj/item/device/analyzer)

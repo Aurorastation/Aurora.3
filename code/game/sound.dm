@@ -234,6 +234,14 @@ var/list/chop_sound = list(
 	'sound/effects/gore/chop6.ogg',
 	)
 
+var/drill_sound = list (
+	'sound/items/pickaxe/mine1.ogg',
+	'sound/items/pickaxe/mine2.ogg',
+	'sound/items/pickaxe/mine3.ogg',
+	'sound/items/pickaxe/mine4.ogg'
+	)
+
+
 //var/list/gun_sound = list('sound/weapons/Gunshot.ogg', 'sound/weapons/Gunshot2.ogg','sound/weapons/Gunshot3.ogg','sound/weapons/Gunshot4.ogg')
 
 /proc/playsound(atom/source, soundin, vol as num, vary, extrarange as num, falloff, is_global, usepressure = 1, environment = -1, is_ambience = FALSE, is_footstep = FALSE)
@@ -401,4 +409,5 @@ var/list/chop_sound = list(
 			if ("casing_sound") soundin = pick(casing_sound)
 			if ("trauma") soundin = pick(trauma_sound)
 			if ("chop") soundin = pick(chop_sound)
+			if ("drill_sound") soundin = pick(drill_sound)
 	return soundin

@@ -52,7 +52,7 @@
 	load_method = SINGLE_CASING|SPEEDLOADER
 	ammo_type = /obj/item/ammo_casing/shotgun/beanbag
 	handle_casings = HOLD_CASINGS
-	fire_sound = 'sound/weapons/shotgun.ogg'
+	fire_sound = 'sound/weapons/gunshot/shotgun.ogg'
 	var/recentpump = 0 // to prevent spammage
 	var/pump_fail_msg = "<span class='warning'>You cannot rack the shotgun without gripping it with both hands!</span>"
 	var/pump_snd = 'sound/weapons/shotgunpump.ogg'
@@ -138,7 +138,7 @@
 	caliber = "shotgun"
 	origin_tech = list(TECH_COMBAT = 3, TECH_MATERIAL = 1)
 	ammo_type = /obj/item/ammo_casing/shotgun/beanbag
-	fire_sound = 'sound/weapons/shotgun.ogg'
+	fire_sound = 'sound/weapons/gunshot/shotgun.ogg'
 
 	burst_delay = 0
 	firemodes = list(

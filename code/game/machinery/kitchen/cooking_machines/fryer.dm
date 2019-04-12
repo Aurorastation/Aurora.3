@@ -10,6 +10,7 @@
 	cooked_sound = 'sound/machines/ding.ogg'
 	appliancetype = FRYER
 	active_power_usage = 12 KILOWATTS
+	var/datum/looping_sound/deep_fryer/fry_loop
 
 	optimal_power = 0.35
 
@@ -27,13 +28,13 @@
 	var/datum/reagents/oil
 	var/optimal_oil = 9000//90 litres of cooking oil
 
-
 /obj/machinery/appliance/cooker/fryer/examine(var/mob/user)
 	if (..())//no need to duplicate adjacency check
 		to_chat(user, "Oil Level: [oil.total_volume]/[optimal_oil]")
 
 /obj/machinery/appliance/cooker/fryer/Initialize()
 	. = ..()
+	fry_loop = new(list(src), FALSE)
 	oil = new/datum/reagents(optimal_oil * 1.25, src)
 	var/variance = rand()*0.15
 	//Fryer is always a little below full, but its usually negligible
@@ -81,8 +82,10 @@
 /obj/machinery/appliance/cooker/fryer/update_icon()
 	if (cooking)
 		icon_state = on_icon
+		fry_loop.start()
 	else
 		icon_state = off_icon
+		fry_loop.stop()
 	..()
 
 

@@ -4,7 +4,7 @@
 	icon_state = "moistnugget"
 	item_state = "moistnugget"
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
-	fire_sound = 'sound/weapons/rifleshot.ogg'
+	fire_sound = 'sound/weapons/gunshot/rifleshot.ogg'
 	caliber = "a762"
 	ammo_type = /obj/item/ammo_casing/a762
 	max_shells = 5
@@ -111,7 +111,7 @@
 	icon_state = "springfield"
 	icon_state = "springfield"
 	origin_tech = list(TECH_COMBAT = 1, TECH_MATERIAL = 3)
-	fire_sound = 'sound/weapons/rifleshot.ogg'
+	fire_sound = 'sound/weapons/gunshot/rifleshot.ogg'
 	slot_flags = SLOT_BACK
 	load_method = SINGLE_CASING|SPEEDLOADER
 	handle_casings = HOLD_CASINGS

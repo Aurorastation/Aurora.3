@@ -18,7 +18,7 @@
 	scoped_accuracy = 4
 	var/bolt_open = 0
 
-	fire_sound = 'sound/weapons/Gunshot_DMR.ogg'
+	fire_sound = 'sound/weapons/gunshot/DMR.ogg'
 
 	recoil_wielded = 2
 	accuracy_wielded = -1
@@ -110,7 +110,7 @@
 	caliber = "PPS"
 	recoil = 1
 	silenced = 1
-	fire_sound = 'sound/weapons/Gunshot_light.ogg'
+	fire_sound = 'sound/weapons/gunshot/gunshot_light.ogg'
 	max_shells = 4
 	ammo_type = null
 	accuracy = -3

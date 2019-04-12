@@ -58,12 +58,7 @@
 	var/digspeed //moving the delay to an item var so R&D can make improved picks. --NEO
 	origin_tech = list(TECH_MATERIAL = 1, TECH_ENGINEERING = 1)
 	attack_verb = list("hit", "pierced", "sliced", "attacked")
-	var/drill_sound = list ('sound/items/pickaxe/mine1.ogg',
-							'sound/items/pickaxe/mine2.ogg',
-							'sound/items/pickaxe/mine3.ogg',
-							'sound/items/pickaxe/mine4.ogg'
-	)
-
+	var/drill_sound = "drill_sound"
 	var/drill_verb = "excavating"
 	var/autodrill = 0 //pickaxes must be manually swung to mine, drills can mine rocks via bump
 	sharp = 1
