@@ -15234,6 +15234,7 @@
 	d2 = 8;
 	icon_state = "1-8"
 	},
+/obj/item/weapon/storage/fancy/crayons/chalkbox,
 /turf/simulated/floor/tiled,
 /area/storage/tools)
 "Cb" = (
