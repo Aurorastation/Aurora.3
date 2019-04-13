@@ -27,8 +27,8 @@
 	color = "#FFFFFF"
 	var/colorName = "whitec"
 
-/obj/item/weapon/pen/drafting/afterattack(atom/target, mob/user, proximity)
-	if (!proximity || !istype(target, /turf/simulated/floor))
+/obj/item/weapon/pen/drafting/afterattack(turf/target, mob/user, proximity)
+	if (!proximity || !istype(target, /turf/simulated) || target.density || target.is_hole)
 		return
 
 	to_chat(user, "You start marking a line on [target].")
