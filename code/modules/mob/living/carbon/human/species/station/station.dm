@@ -471,10 +471,6 @@
 	body_temperature = null
 	passive_temp_gain = 10  // This should cause IPCs to stabilize at ~80 C in a 20 C environment.
 
-	inherent_verbs = list(
-		/mob/living/carbon/human/proc/self_diagnostics
-	)
-
 	flags = IS_IPC
 	appearance_flags = HAS_SKIN_COLOR | HAS_HAIR_COLOR
 	spawn_flags = CAN_JOIN | IS_WHITELISTED

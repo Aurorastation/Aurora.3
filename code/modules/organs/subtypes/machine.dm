@@ -201,10 +201,62 @@
 	parent_organ = "head"
 	icon = 'icons/obj/robot_component.dmi'
 	icon_state = "diagnostics_unit"
+	action_button_name = "Use diagnostics unit"
 	vital = 0
 	emp_coeff = 0.1
+	var/diagnosticshp = 10  // A very very fragile piece of equipment
+
+/obj/item/organ/diagnosticsunit/refresh_action_button()
+	. = ..()
+	if(.)
+		action.button_icon_state = "diagnostics_unit"
+		if(action.button)
+			action.button.UpdateIcon()
+
+
+/obj/item/organ/diagnosticsunit/attack_self(var/mob/user)
+	. = ..()
+
+	if(.)
+		var/mob/living/carbon/human/H = owner
+
+		if(diagnosticshp <= 0)
+			to_chat(H, "<span class='danger'>\The [src] shudders and sparks, unable to change its sensors!</span>")
+			return
+		else
+
+			to_chat(H, "<span class='notice'>Performing self-diagnostic, please wait...</span>")
+			if (do_after(H, 10))
+				var/output = "<span class='notice'>Self-Diagnostic Results:\n</span>"
+
+				output += "Internal Temperature: [convert_k2c(H.bodytemperature)] Degrees Celsius\n"
+
+				output += "Current Charge Level: [H.nutrition]\n"
+
+				var/toxDam = H.getToxLoss()
+				if(toxDam)
+					output += "Blood Toxicity: <span class='warning'>[toxDam > 25 ? "Severe" : "Moderate"]</span>. Seek medical facilities for cleanup.\n"
+				else
+					output += "Blood Toxicity: <span style='color:green;'>OK</span>\n"
+
+				for(var/obj/item/organ/external/EO in H.organs)
+					if(EO.brute_dam || EO.burn_dam)
+						output += "[EO.name] - <span class='warning'>[EO.burn_dam + EO.brute_dam > ROBOLIMB_SELF_REPAIR_CAP ? "Heavy Damage" : "Light Damage"]</span>\n"
+					else
+						output += "[EO.name] - <span style='color:green;'>OK</span>\n"
+
+				for(var/obj/item/organ/IO in H.internal_organs)
+					if(IO.damage)
+						output += "[IO.name] - <span class='warning'>[IO.damage > 10 ? "Heavy Damage" : "Light Damage"]</span>\n"
+					else
+						output += "[IO.name] - <span style='color:green;'>OK</span>\n"
+
+				to_chat(H, output)
+
+
 
 /obj/item/organ/diagnosticsunit/Initialize()
+	START_PROCESSING(SSfast_process, src)
 	robotize()
 	. = ..()
 
@@ -217,18 +269,79 @@
 	icon_state = "coolantpump"
 	vital = 0
 	emp_coeff = 0.1
-	var/coolantbaseamount = 200
-	var/coolantdangeramount = 50
+	action_button_name = "Expunge/Fill Coolant Pump"
+	var/coolantbaseamount = 100
 	var/coolantuserate = 0.5
-	var/coolantamount = 200
-	var/pumphealth = 150
-	var/installed = 0
+	var/coolantamount = 100
+	var/pumphealth = 50
 	var/burn_cooldown = 0
+	var/dmg_cooldown = 0
+
+/obj/item/organ/coolantpump/refresh_action_button()
+	. = ..()
+	if(.)
+		action.button_icon_state = "expungefill"
+		if(action.button)
+			action.button.UpdateIcon()
+
+/obj/item/organ/coolantpump/attack_self(var/mob/user)
+	. = ..()
+	var/mob/living/carbon/human/H = owner
+	if(.)
+
+
+		if(pumphealth <= 0)
+			to_chat(owner, "<span class='danger'>\The [src] is far too damaged to be used</span>")
+			return
+
+		owner.last_special = world.time + 100
+		var/list/expungefill = list("Use Coolant Reserves", "Fill Coolant From Enviroment", "Cancel")
+
+		var/coolantmode = input("Select Coolant Operation.", "Coolant Pump Integrated System") as null|anything in expungefill
+
+		switch(coolantmode)
+			if("Use Coolant Reserves")
+				var/datum/reagents/R = new/datum/reagents(15)
+				R.my_atom = H.loc
+				var/coolant = "coolant"
+				R.add_reagent(coolant, 15)
+				var/datum/effect/effect/system/smoke_spread/chem/smoke = new
+				smoke.set_up(R, 10, 0, H.loc, 4)
+				visible_message("<span class='warning'>[H] emmits a large cloud of coolant.</span>", "<span class='warning'>You quickly expunge coolant outwards, cooling yourself.</span>")
+				playsound(H.loc, 'sound/effects/smoke.ogg', 50, 1, -3)
+				smoke.start()
+				coolantamount -= (rand(20,25))
+				H.bodytemperature -= (rand(80,120))
+				qdel(R)
+				return
+			if("Fill Coolant From Enviroment")
+				if(coolantamount >= coolantbaseamount)
+					return
+				else
+					to_chat(H, "<span class='warning'>Remain still while enviroment pump engages.....</span>")
+					if (do_after(H, 10))
+						playsound(H.loc, 'sound/effects/smoke.ogg', 50, 1, -3)
+						coolantamount += (rand(15,20))
+						H.bodytemperature += (rand(200,250))
+						return
+
 
 /obj/item/organ/coolantpump/Initialize()
 	START_PROCESSING(SSfast_process, src)
 	robotize()
 	. = ..()
+
+/obj/item/organ/coolantpump/proc/damage_check()
+	var/mob/living/carbon/human/H = owner
+	var/obj/item/organ/external/UB = H.organs_by_name["chest"]
+	if(!H) 
+		return
+	if(UB.brute_dam >= 10 )
+		if(world.time < burn_cooldown)
+			return
+		else
+			dmg_cooldown = world.time+350
+			pumphealth -= 0.9
 
 /obj/item/organ/coolantpump/proc/coolant_check()
 	var/mob/living/carbon/human/H = owner
@@ -249,7 +362,6 @@
 		if(pumphealth <= 0 )
 			burn_cooldown = world.time+300
 			to_chat(H, "<span class='danger'>Critical melt down! Pump integrity at [pumphealth]% </span>")
-			H.IgniteMob(15)
 			H.bodytemperature += 200
 
 	
@@ -257,11 +369,14 @@
 /obj/item/organ/coolantpump/process()
 	var/mob/living/carbon/human/H = owner
 
+	if(coolantamount >= coolantbaseamount)
+		coolantamount = coolantbaseamount
+
 	if(owner.m_intent == "run" || (H.bodytemperature <= H.species.cold_level_1 || (H.bodytemperature >= H.species.heat_level_1)))
 		coolantamount -= coolantuserate / 10
-	if(owner.m_intent == "run" || (H.bodytemperature <= H.species.cold_level_2 || (H.bodytemperature >= H.species.heat_level_2)))
+	if(H.bodytemperature <= H.species.cold_level_2 || (H.bodytemperature >= H.species.heat_level_2))
 		coolantamount -= coolantuserate / 3
-	if(owner.m_intent == "run" || (H.bodytemperature <= H.species.cold_level_3 || (H.bodytemperature >= H.species.heat_level_3)))
+	if(H.bodytemperature <= H.species.cold_level_3 || (H.bodytemperature >= H.species.heat_level_3))
 		coolantamount -= coolantuserate *2
 	coolantamount = max(coolantamount, 0)
 	coolant_check()

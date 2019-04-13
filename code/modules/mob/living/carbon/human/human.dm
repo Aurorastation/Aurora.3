@@ -133,6 +133,7 @@
 		if(CP)
 			stat(null, "Coolant Stored: [CP.coolantamount]/[CP.coolantbaseamount]")
 			stat(null, "Coolant Use Rate: [CP.coolantuserate]%")
+			stat(null, "Chassis Temperature: [src.bodytemperature]%")
 
 		if(back && istype(back,/obj/item/weapon/rig))
 			var/obj/item/weapon/rig/suit = back
