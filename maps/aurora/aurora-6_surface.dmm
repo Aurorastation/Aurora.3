@@ -10413,6 +10413,7 @@
 /obj/structure/table/standard,
 /obj/item/weapon/storage/fancy/crayons,
 /obj/item/weapon/storage/fancy/crayons,
+/obj/item/weapon/storage/fancy/crayons/chalkbox,
 /turf/simulated/floor/tiled,
 /area/storage/primary)
 "sZ" = (
