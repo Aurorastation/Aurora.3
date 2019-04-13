@@ -44,12 +44,10 @@ var/mob/living/carbon/human/alcohol_clumsy = 0
 			to_chat(src,"<span class='warning'>You feel uncoordinated and unsteady on your feet!</span>")
 		confused = max(confused, 10)
 		slurring = max(slurring, 50)
-		if (!alcohol_clumsy && !(CLUMSY in mutations))
-			mutations.Add(CLUMSY)
+		if (!alcohol_clumsy)
 			alcohol_clumsy = 1
 	else if (alcohol_clumsy)
 		to_chat(src,"<span class='notice'>You feel more sober and steady.</span>")
-		mutations.Remove(CLUMSY)
 		alcohol_clumsy = 0
 
 	if(bac > INTOX_VOMIT*SR)
