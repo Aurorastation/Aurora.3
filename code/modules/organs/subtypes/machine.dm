@@ -271,11 +271,12 @@
 	emp_coeff = 0.1
 	action_button_name = "Expunge/Fill Coolant Pump"
 	var/coolantbaseamount = 100
-	var/coolantuserate = 0.5
+	var/coolantuserate = 0.9
 	var/coolantamount = 100
 	var/pumphealth = 50
 	var/burn_cooldown = 0
 	var/dmg_cooldown = 0
+	var/coolant = /datum/reagent/coolant
 
 /obj/item/organ/coolantpump/refresh_action_button()
 	. = ..()
@@ -289,7 +290,6 @@
 	var/mob/living/carbon/human/H = owner
 	if(.)
 
-
 		if(pumphealth <= 0)
 			to_chat(owner, "<span class='danger'>\The [src] is far too damaged to be used</span>")
 			return
@@ -300,20 +300,25 @@
 		var/coolantmode = input("Select Coolant Operation.", "Coolant Pump Integrated System") as null|anything in expungefill
 
 		switch(coolantmode)
+		
 			if("Use Coolant Reserves")
-				var/datum/reagents/R = new/datum/reagents(15)
-				R.my_atom = H.loc
-				var/coolant = "coolant"
-				R.add_reagent(coolant, 15)
-				var/datum/effect/effect/system/smoke_spread/chem/smoke = new
-				smoke.set_up(R, 10, 0, H.loc, 4)
-				visible_message("<span class='warning'>[H] emmits a large cloud of coolant.</span>", "<span class='warning'>You quickly expunge coolant outwards, cooling yourself.</span>")
-				playsound(H.loc, 'sound/effects/smoke.ogg', 50, 1, -3)
-				smoke.start()
-				coolantamount -= (rand(20,25))
-				H.bodytemperature -= (rand(80,120))
-				qdel(R)
-				return
+				if(coolantamount <= 0)
+					to_chat(owner, "<span class='danger'>\The [src] is far too damaged to be used</span>")
+					return
+				else
+
+					var/datum/reagents/R = new/datum/reagents(15)
+					R.my_atom = H.loc
+					R.add_reagent(coolant, 15)
+					var/datum/effect/effect/system/smoke_spread/chem/smoke = new
+					smoke.set_up(R, 10, 0, H.loc, 4)
+					visible_message("<span class='warning'>[H] emmits a large cloud of coolant.</span>", "<span class='warning'>You quickly expunge coolant outwards, cooling yourself.</span>")
+					playsound(H.loc, 'sound/effects/smoke.ogg', 50, 1, -3)
+					smoke.start()
+					coolantamount -= (rand(20,25))
+					H.bodytemperature -= (rand(80,120))
+					qdel(R)
+					return
 			if("Fill Coolant From Enviroment")
 				if(coolantamount >= coolantbaseamount)
 					return
@@ -373,11 +378,11 @@
 		coolantamount = coolantbaseamount
 
 	if(owner.m_intent == "run" || (H.bodytemperature <= H.species.cold_level_1 || (H.bodytemperature >= H.species.heat_level_1)))
-		coolantamount -= coolantuserate / 10
+		coolantamount -= coolantuserate * 2
 	if(H.bodytemperature <= H.species.cold_level_2 || (H.bodytemperature >= H.species.heat_level_2))
-		coolantamount -= coolantuserate / 3
+		coolantamount -= coolantuserate * 4
 	if(H.bodytemperature <= H.species.cold_level_3 || (H.bodytemperature >= H.species.heat_level_3))
-		coolantamount -= coolantuserate *2
+		coolantamount -= coolantuserate * 6
 	coolantamount = max(coolantamount, 0)
 	coolant_check()
 
