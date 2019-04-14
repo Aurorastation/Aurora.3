@@ -1457,7 +1457,9 @@
 	return 0
 
 /mob/living/carbon/human/slip(var/slipped_on, stun_duration=8)
-	if((species.flags & NO_SLIP) || (shoes && (shoes.item_flags & NOSLIP)))
+	if((shoes && (shoes.item_flags & NOSLIP)))
+		return 0
+	if(species.flags & NO_SLIP && (!shoes))
 		return 0
 	. = ..(slipped_on,stun_duration)
 
