@@ -23,7 +23,7 @@
 
 //I would prefer to rename this to attack(), but that would involve touching hundreds of files.
 /obj/item/weapon/bee_smoker/resolve_attackby(atom/A, mob/user)
-	if (istype(A, /obj/structure/reagent_dispensers/fueltank) && get_dist(src,A) <= 1)
+	if (istype(A, /obj/structure/sink))
 		A.reagents.trans_to_obj(src, max_fuel)
 		to_chat(user, "<span class='notice'>Smoker refilled!</span>")
 		playsound(src.loc, 'sound/effects/refill.ogg', 50, 1, -6)
@@ -57,11 +57,11 @@
 
 /obj/item/weapon/bee_smoker/proc/remove_fuel(var/amount = 1, var/mob/M = null)
 	if(get_fuel() >= amount)
-		reagents.remove_reagent("fuel", amount)
+		reagents.remove_reagent("water", amount)
 		return 1
 	else
 		if(M)
-			to_chat(M, "<span class='notice'>You need more welding fuel to complete this task.</span>")
+			to_chat(M, "<span class='notice'>You need more water to complete this task.</span>")
 		return 0
 
 /obj/item/weapon/bee_smoker/proc/smoke_at(var/atom/A)
