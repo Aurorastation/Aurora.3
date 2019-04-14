@@ -1,0 +1,6 @@
+author: Alberyk
+
+delete-after: True
+
+changes: 
+  - tweak: "Species that are naturally immune to sliping can only now make use of that ability by being shoeless."
