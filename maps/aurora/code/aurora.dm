@@ -3,7 +3,7 @@
 	full_name = "NSS Aurora"
 	path = "aurora"
 
-	lobby_screens = list("aurora_asteroid", "aurora_postcard")
+	lobby_screens = list("blueshift")
 
 	station_levels = list(3, 4, 5, 6, 7)
 	admin_levels = list(1)
