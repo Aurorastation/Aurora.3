@@ -142,7 +142,7 @@
 			to_chat(A, "<span class='warning'>[A.martial_art.no_guns_message]</span>")
 			return 0
 
-	if((CLUMSY in M.mutations) && prob(40)) //Clumsy handling
+	if((M.is_clumsy()) && prob(40)) //Clumsy handling
 		var/obj/P = consume_next_projectile()
 		if(P)
 			if(process_projectile(P, user, user, pick("l_foot", "r_foot")))
