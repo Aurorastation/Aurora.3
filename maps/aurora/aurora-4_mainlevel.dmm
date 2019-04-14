@@ -5823,6 +5823,11 @@
 	pixel_x = 4;
 	pixel_y = -4
 	},
+/obj/machinery/camera/motion/security{
+	c_tag = "Vault - Core";
+	dir = 4;
+	icon_state = "camera"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/security/nuke_storage)
 "alk" = (
