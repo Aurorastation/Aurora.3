@@ -1154,9 +1154,10 @@
 
 /datum/seed/shand/setup_traits()
 	..()
+	set_trait(TRAIT_HARVEST_REPEAT,1)
 	set_trait(TRAIT_MATURATION,3)
 	set_trait(TRAIT_PRODUCTION,5)
-	set_trait(TRAIT_YIELD,4)
+	set_trait(TRAIT_YIELD,3)
 	set_trait(TRAIT_POTENCY,10)
 	set_trait(TRAIT_PRODUCT_ICON,"alien3")
 	set_trait(TRAIT_PRODUCT_COLOUR,"#378C61")
@@ -1371,6 +1372,7 @@
 
 /datum/seed/nmshaan/setup_traits()
 	..()
+	set_trait(TRAIT_HARVEST_REPEAT,1)
 	set_trait(TRAIT_MATURATION,7)
 	set_trait(TRAIT_PRODUCTION,2)
 	set_trait(TRAIT_YIELD,2)
