@@ -141,7 +141,7 @@
 				else
 					crew_announcement.announcer = "Unknown"
 				if(announcment_cooldown)
-					usr << "Please allow at least one minute to pass between announcements"
+					to_chat(usr, "Please allow at least one minute to pass between announcements")
 					SSnanoui.update_uis(src)
 					return
 				var/input = input(usr, "Please write a message to announce to the station crew.", "Priority Announcement") as null|text
@@ -157,7 +157,7 @@
 				if(program)
 					if(is_autenthicated(user) && program.computer_emagged && !issilicon(usr) && ntn_comm)
 						if(centcomm_message_cooldown)
-							usr << "<span class='warning'>Arrays recycling. Please stand by.</span>"
+							to_chat(usr, "<span class='warning'>Arrays recycling. Please stand by.</span>")
 							SSnanoui.update_uis(src)
 							return
 						var/input = sanitize(input(usr, "Please choose a message to transmit to \[ABNORMAL ROUTING CORDINATES\] via quantum entanglement.  Please be aware that this process is very expensive, and abuse will lead to... termination. Transmission does not guarantee a response. There is a 30 second delay before you may send another message, be clear, full and concise.", "To abort, send an empty message.", "") as null|text)
@@ -165,7 +165,7 @@
 							SSnanoui.update_uis(src)
 							return
 						Syndicate_announce(input, usr)
-						usr << "<span class='notice'>Message transmitted.</span>"
+						to_chat(usr, "<span class='notice'>Message transmitted.</span>")
 						log_say("[key_name(usr)] has made an illegal announcement: [input]",ckey=key_name(usr))
 						centcomm_message_cooldown = 1
 						spawn(300)//30 second cooldown
@@ -173,11 +173,11 @@
 			else if(href_list["target"] == "regular")
 				if(is_autenthicated(user) && !issilicon(usr) && ntn_comm)
 					if(centcomm_message_cooldown)
-						usr << "<span class='warning'>Arrays recycling. Please stand by.</span>"
+						to_chat(usr, "<span class='warning'>Arrays recycling. Please stand by.</span>")
 						SSnanoui.update_uis(src)
 						return
 					if(!is_relay_online())//Contact Centcom has a check, Syndie doesn't to allow for Traitor funs.
-						usr <<"<span class='warning'>No Emergency Bluespace Relay detected. Unable to transmit message.</span>"
+						to_chat(usr, "<span class='warning'>No Emergency Bluespace Relay detected. Unable to transmit message.</span>")
 						SSnanoui.update_uis(src)
 						return
 					var/input = sanitize(input("Please choose a message to transmit to [current_map.boss_short] via quantum entanglement.  Please be aware that this process is very expensive, and abuse will lead to... termination.  Transmission does not guarantee a response. There is a 30 second delay before you may send another message, be clear, full and concise.", "To abort, send an empty message.", "") as null|text)
@@ -185,7 +185,7 @@
 						SSnanoui.update_uis(src)
 						return
 					Centcomm_announce(input, usr)
-					usr << "<span class='notice'>Message transmitted.</span>"
+					to_chat(usr, "<span class='notice'>Message transmitted.</span>")
 					log_say("[key_name(usr)] has made an IA [current_map.boss_short] announcement: [input]",ckey=key_name(usr))
 					centcomm_message_cooldown = 1
 					spawn(300) //30 second cooldown
@@ -239,7 +239,7 @@
 							if(SEC_LEVEL_YELLOW)
 								feedback_inc("alert_comms_yellow",1)
 			else
-				usr << "You press button, but red light flashes and nothing happens." //This should never happen
+				to_chat(usr, "You press button, but red light flashes and nothing happens.") //This should never happen)
 			current_status = STATE_DEFAULT
 		if("viewmessage")
 			if(is_autenthicated(user) && ntn_comm)
@@ -256,7 +256,7 @@
 			if(is_autenthicated(user) && ntn_comm)
 				if(program && program.computer && program.computer.nano_printer)
 					if(!program.computer.nano_printer.print_text(current_viewing_message["contents"],current_viewing_message["title"]))
-						usr << "<span class='notice'>Hardware error: Printer was unable to print the file. It may be out of paper.</span>"
+						to_chat(usr, "<span class='notice'>Hardware error: Printer was unable to print the file. It may be out of paper.</span>")
 					else
 						program.computer.visible_message("<span class='notice'>\The [program.computer] prints out paper.</span>")
 		if("toggleintercept")
@@ -365,31 +365,31 @@ Command action procs
 		return 0
 
 	if(!universe.OnShuttleCall(usr))
-		user << "<span class='notice'>Cannot establish a bluespace connection.</span>"
+		to_chat(user, "<span class='notice'>Cannot establish a bluespace connection.</span>")
 		return 0
 
 	if(deathsquad.deployed)
-		user << "[current_map.boss_short] will not allow the shuttle to be called. Consider all contracts terminated."
+		to_chat(user, "[current_map.boss_short] will not allow the shuttle to be called. Consider all contracts terminated.")
 		return 0
 
 	if(emergency_shuttle.deny_shuttle)
-		user << "The emergency shuttle may not be sent at this time. Please try again later."
+		to_chat(user, "The emergency shuttle may not be sent at this time. Please try again later.")
 		return 0
 
 	if(world.time < 6000) // Ten minute grace period to let the game get going without lolmetagaming. -- TLE
-		user << "The emergency shuttle is refueling. Please wait another [round((6000-world.time)/600)] minute\s before trying again."
+		to_chat(user, "The emergency shuttle is refueling. Please wait another [round((6000-world.time)/600)] minute\s before trying again.")
 		return 0
 
 	if(emergency_shuttle.going_to_centcom())
-		user << "The emergency shuttle may not be called while returning to [current_map.boss_short]."
+		to_chat(user, "The emergency shuttle may not be called while returning to [current_map.boss_short].")
 		return 0
 
 	if(emergency_shuttle.online())
-		user << "The emergency shuttle is already on its way."
+		to_chat(user, "The emergency shuttle is already on its way.")
 		return 0
 
 	if(SSticker.mode.name == "blob")
-		user << "Under directive 7-10, [station_name()] is quarantined until further notice."
+		to_chat(user, "Under directive 7-10, [station_name()] is quarantined until further notice.")
 		return 0
 
 	emergency_shuttle.call_evac()
@@ -403,25 +403,25 @@ Command action procs
 		return
 
 	if(emergency_shuttle.going_to_centcom())
-		user << "The shuttle may not be called while returning to [current_map.boss_short]."
+		to_chat(user, "The shuttle may not be called while returning to [current_map.boss_short].")
 		return
 
 	if(emergency_shuttle.online())
-		user << "The shuttle is already on its way."
+		to_chat(user, "The shuttle is already on its way.")
 		return
 
 	// if force is 0, some things may stop the shuttle call
 	if(!force)
 		if(emergency_shuttle.deny_shuttle)
-			user << "[current_map.boss_short] does not currently have a shuttle available in your sector. Please try again later."
+			to_chat(user, "[current_map.boss_short] does not currently have a shuttle available in your sector. Please try again later.")
 			return
 
 		if(deathsquad.deployed == 1)
-			user << "[current_map.boss_short] will not allow the shuttle to be called. Consider all contracts terminated."
+			to_chat(user, "[current_map.boss_short] will not allow the shuttle to be called. Consider all contracts terminated.")
 			return
 
 		if(world.time < 54000) // 30 minute grace period to let the game get going
-			user << "The shuttle is refueling. Please wait another [round((54000-world.time)/60)] minutes before trying again."
+			to_chat(user, "The shuttle is refueling. Please wait another [round((54000-world.time)/60)] minutes before trying again.")
 			return
 
 		if(SSticker.mode.auto_recall_shuttle)
@@ -429,7 +429,7 @@ Command action procs
 			emergency_shuttle.auto_recall = 1
 
 		if(SSticker.mode.name == "blob" || SSticker.mode.name == "epidemic")
-			user << "Under directive 7-10, [station_name()] is quarantined until further notice."
+			to_chat(user, "Under directive 7-10, [station_name()] is quarantined until further notice.")
 			return
 
 	emergency_shuttle.call_transfer()

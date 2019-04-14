@@ -350,7 +350,7 @@ Turf and target are seperate in case you want to teleport some distance from a t
 				break
 		if(newname)
 			break	//That's a suitable name!
-		src << "Sorry, that [role]-name wasn't appropriate, please try another. It's possibly too long/short, has bad characters or is already taken."
+		to_chat(src, "Sorry, that [role]-name wasn't appropriate, please try another. It's possibly too long/short, has bad characters or is already taken.")
 
 	if(!newname)	//we'll stick with the oldname then
 		return
@@ -1130,32 +1130,32 @@ var/list/wall_items = typecacheof(list(
 
 	if (NOT_FLAG(USE_ALLOW_NON_ADJACENT) && !Adjacent(user))
 		if (show_messages)
-			user << "<span class='notice'>You're too far away from [src] to do that.</span>"
+			to_chat(user, "<span class='notice'>You're too far away from [src] to do that.</span>")
 		return USE_FAIL_NON_ADJACENT
 
 	if (NOT_FLAG(USE_ALLOW_DEAD) && user.stat == DEAD)
 		if (show_messages)
-			user << "<span class='notice'>How do you expect to do that when you're dead?</span>"
+			to_chat(user, "<span class='notice'>How do you expect to do that when you're dead?</span>")
 		return USE_FAIL_DEAD
 
 	if (NOT_FLAG(USE_ALLOW_INCAPACITATED) && (user.incapacitated()))
 		if (show_messages)
-			user << "<span class='notice'>You cannot do that in your current state.</span>"
+			to_chat(user, "<span class='notice'>You cannot do that in your current state.</span>")
 		return USE_FAIL_INCAPACITATED
 
 	if (NOT_FLAG(USE_ALLOW_NON_ADV_TOOL_USR) && !user.IsAdvancedToolUser())
 		if (show_messages)
-			user << "<span class='notice'>You don't know how to operate [src].</span>"
+			to_chat(user, "<span class='notice'>You don't know how to operate [src].</span>")
 		return USE_FAIL_NON_ADV_TOOL_USR
 
 	if (HAS_FLAG(USE_DISALLOW_SILICONS) && issilicon(user))
 		if (show_messages)
-			user << "<span class='notice'>How do you propose doing that without hands?</span>"
+			to_chat(user, "<span class='notice'>How do you propose doing that without hands?</span>")
 		return USE_FAIL_IS_SILICON
 
 	if (HAS_FLAG(USE_FORCE_SRC_IN_USER) && !(src in user))
 		if (show_messages)
-			user << "<span class='notice'>You need to be holding [src] to do that.</span>"
+			to_chat(user, "<span class='notice'>You need to be holding [src] to do that.</span>")
 		return USE_FAIL_NOT_IN_USER
 
 /obj/proc/iswrench()

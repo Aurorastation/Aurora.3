@@ -269,7 +269,7 @@ main ui datum.
 /datum/vueui/proc/push_change(var/list/ndata)
 	if(ndata && status > STATUS_DISABLED)
 		src.data = ndata
-	user << output(list2params(list(generate_data_json())),"[windowid].browser:receiveUIState")
+	to_chat(user, output(list2params(list(generate_data_json())),"[windowid].browser:receiveUIState"))
 
 /**
   * Check for change and push that change of data

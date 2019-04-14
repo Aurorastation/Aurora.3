@@ -136,57 +136,57 @@
 	..()
 	for(var/mob/living/target in targets)
 		if(isundead(target))
-			user << "This spell can't affect the undead."
+			to_chat(user, "This spell can't affect the undead.")
 			return 0
 
 		if(isipc(target))
-			user << "This spell can't affect non-organics."
+			to_chat(user, "This spell can't affect non-organics.")
 			return 0
 
 		if(!ishuman(target))
-			user << "<span class='warning'>\The [target]'s body is not complex enough to require healing of this kind.</span>"
+			to_chat(user, "<span class='warning'>\The [target]'s body is not complex enough to require healing of this kind.</span>")
 			return 0
 
 		var/mob/living/carbon/human/H = target
 		var/obj/item/organ/external/E = H.get_organ(user.zone_sel.selecting)
 
 		if(!E || E.is_stump())
-			user << "<span class='warning'>They are missing that limb.</span>"
+			to_chat(user, "<span class='warning'>They are missing that limb.</span>")
 			return 0
 
 		if(E.robotic >= ORGAN_ROBOT)
-			user << "<span class='warning'>That limb is prosthetic.</span>"
+			to_chat(user, "<span class='warning'>That limb is prosthetic.</span>")
 			return 0
 
 		user.visible_message("<span class='notice'>\The [user] rests a hand on \the [target]'s [E.name].</span>")
-		target << "<span class='notice'>A healing warmth suffuses you.</span>"
+		to_chat(target, "<span class='notice'>A healing warmth suffuses you.</span>")
 
 		for(var/datum/wound/W in E.wounds)
 			if(W.internal)
-				user << "<span class='notice'>You painstakingly mend the torn veins in \the [E], stemming the internal bleeding.</span>"
+				to_chat(user, "<span class='notice'>You painstakingly mend the torn veins in \the [E], stemming the internal bleeding.</span>")
 				E.wounds -= W
 				E.update_damages()
 				return 1
 
 			if(W.bleeding())
-				user << "<span class='notice'>You knit together severed veins and broken flesh, stemming the bleeding.</span>"
+				to_chat(user, "<span class='notice'>You knit together severed veins and broken flesh, stemming the bleeding.</span>")
 				W.bleed_timer = 0
 				E.status &= ~ORGAN_BLEEDING
 				return 1
 
 		if(E.status & ORGAN_BROKEN)
-			user << "<span class='notice'>You coax shattered bones to come together and fuse, mending the break.</span>"
+			to_chat(user, "<span class='notice'>You coax shattered bones to come together and fuse, mending the break.</span>")
 			E.status &= ~ORGAN_BROKEN
 			E.stage = 0
 			return 1
 
 		for(var/obj/item/organ/I in E.internal_organs)
 			if(I.robotic < ORGAN_ROBOT && I.damage > 0)
-				user << "<span class='notice'>You encourage the damaged tissue of \the [I] to repair itself.</span>"
+				to_chat(user, "<span class='notice'>You encourage the damaged tissue of \the [I] to repair itself.</span>")
 				I.damage = max(0, I.damage - rand(3,5))
 				return 1
 
-		user << "<span class='notice'>You can find nothing within \the [target]'s [E.name] to mend.</span>"
+		to_chat(user, "<span class='notice'>You can find nothing within \the [target]'s [E.name] to mend.</span>")
 		return 1
 
 /spell/targeted/resurrection
@@ -214,33 +214,33 @@
 
 	for(var/mob/living/target in targets)
 		if(target.stat != DEAD && !(target.status_flags & FAKEDEATH))
-			user << "<span class='warning'>\The [target] is still alive!</span>"
+			to_chat(user, "<span class='warning'>\The [target] is still alive!</span>")
 			return 0
 
 		if(isundead(target))
-			user << "This spell can't affect the undead."
+			to_chat(user, "This spell can't affect the undead.")
 			return 0
 
 		if(isipc(target))
-			user << "This spell can't affect non-organics."
+			to_chat(user, "This spell can't affect non-organics.")
 			return 0
 
 		if((world.time - target.timeofdeath) > 3000)
-			user << "<span class='warning'>\The [target]'s soul is too far away from your grasp.</span>"
+			to_chat(user, "<span class='warning'>\The [target]'s soul is too far away from your grasp.</span>")
 			return 0
 
 		user.visible_message("<span class='notice'>\The [user] waves their hands over \the [target]'s body...</span>")
 
 		if(!do_after(user, 30, target, 0, 1))
-			user << "<span class='warning'>Your concentration is broken!</span>"
+			to_chat(user, "<span class='warning'>Your concentration is broken!</span>")
 			return 0
 
 		for(var/mob/abstract/observer/ghost in dead_mob_list)
 			if(ghost.mind && ghost.mind.current == target && ghost.client)
-				ghost << "<span class='notice'>Your body has been revived, <b>Re-Enter Corpse</b> to return to it.</span>"
+				to_chat(ghost, "<span class='notice'>Your body has been revived, <b>Re-Enter Corpse</b> to return to it.</span>")
 				break
 
-		target << "<span class='warning'>Eternal rest is stolen from you, you are cast back into the world of the living!</span>"
+		to_chat(target, "<span class='warning'>Eternal rest is stolen from you, you are cast back into the world of the living!</span>")
 		target.visible_message("<span class='notice'>\The [target] shudders violently!</span>")
 
 		if(target.status_flags & FAKEDEATH)

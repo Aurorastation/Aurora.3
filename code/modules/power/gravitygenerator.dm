@@ -199,14 +199,14 @@
 	switch(broken_state)
 		if(GRAV_NEEDS_SCREWDRIVER)
 			if(I.isscrewdriver())
-				user << "<span class='notice'>You secure the screws of the framework.</span>"
+				to_chat(user, "<span class='notice'>You secure the screws of the framework.</span>")
 				playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, 1)
 				broken_state++
 		if(GRAV_NEEDS_WELDING)
 			if(I.iswelder())
 				var/obj/item/weapon/weldingtool/WT = I
 				if(WT.remove_fuel(1, user))
-					user << "<span class='notice'>You mend the damaged framework.</span>"
+					to_chat(user, "<span class='notice'>You mend the damaged framework.</span>")
 					playsound(src.loc, 'sound/items/Welder2.ogg', 50, 1)
 					broken_state++
 		if(GRAV_NEEDS_PLASTEEL)
@@ -214,14 +214,14 @@
 				var/obj/item/stack/material/plasteel/PS = I
 				if(PS.amount >= 10)
 					PS.use(10)
-					user << "<span class='notice'>You add the plating to the framework.</span>"
+					to_chat(user, "<span class='notice'>You add the plating to the framework.</span>")
 					playsound(src.loc, 'sound/machines/click.ogg', 75, 1)
 					broken_state++
 				else
-					user << "<span class='notice'>You need 10 sheets of plasteel.</span>"
+					to_chat(user, "<span class='notice'>You need 10 sheets of plasteel.</span>")
 		if(GRAV_NEEDS_WRENCH)
 			if(I.iswrench())
-				user << "<span class='notice'>You secure the plating to the framework.</span>"
+				to_chat(user, "<span class='notice'>You secure the plating to the framework.</span>")
 				playsound(src.loc, 'sound/items/Ratchet.ogg', 75, 1)
 				set_fix()
 		else
@@ -229,11 +229,11 @@
 	if(I.iscrowbar())
 		if(backpanelopen)
 			playsound(src.loc, 'sound/items/Crowbar.ogg', 50, 1)
-			user << "<span class='notice'>You replace the back panel.</span>"
+			to_chat(user, "<span class='notice'>You replace the back panel.</span>")
 			backpanelopen = 0
 		else
 			playsound(src.loc, 'sound/items/Crowbar.ogg', 50, 1)
-			user << "<span class='notice'>You open the back panel.</span>"
+			to_chat(user, "<span class='notice'>You open the back panel.</span>")
 			backpanelopen = 1
 
 	if(old_broken_state != broken_state)
@@ -289,8 +289,9 @@
 
 /obj/machinery/gravity_generator/main/power_change()
 	..()
+	breaker = (stat & NOPOWER) ? FALSE : TRUE
+	set_power()
 	investigate_log("has [stat & NOPOWER ? "lost" : "regained"] power.", "gravity")
-	breaker = 0
 
 /obj/machinery/gravity_generator/main/proc/eshutoff()
 	if(charge_count > 0)
@@ -335,6 +336,7 @@
 // Set the state of the gravity.
 /obj/machinery/gravity_generator/main/proc/set_state(var/new_state)
 	charging_state = POWER_IDLE
+	var/gravity_changed = (on != new_state)
 	on = new_state
 	use_power = on ? 2 : 1
 	// Sound the alert if gravity was just enabled or disabled.
@@ -354,7 +356,7 @@
 			message_admins("The gravity generator was brought offline with no backup generator. (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[x];Y=[y];Z=[z]'>[area.name]</a>)")
 
 	update_icon()
-	update_list()
+	update_list(gravity_changed)
 	src.updateUsrDialog()
 	if(alert)
 		shake_everyone()
@@ -423,17 +425,17 @@
 				shake_camera(M, 5, 1)
 				M.playsound_local(our_turf, 'sound/effects/alert.ogg', 100, 1, 0.5)
 
-/obj/machinery/gravity_generator/main/proc/update_list()
+/obj/machinery/gravity_generator/main/proc/update_list(var/gravity_changed = FALSE)
 	var/turf/T = get_turf(src.loc)
 	if(T)
 		if(!SSmachinery.gravity_generators)
 			SSmachinery.gravity_generators = list()
 
-		if(on)
+		if(on && gravity_changed)
 			for(var/area/A in localareas)
 				A.gravitychange(TRUE)
 			SSmachinery.gravity_generators += src
-		else
+		else if (!on)
 			for(var/area/A in localareas)
 				A.gravitychange(FALSE)
 			SSmachinery.gravity_generators -= src

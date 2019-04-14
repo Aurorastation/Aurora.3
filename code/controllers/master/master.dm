@@ -147,7 +147,7 @@ var/CURRENT_TICKLIMIT = TICK_LIMIT_RUNNING
 	if(init_sss)
 		init_subtypes(/datum/controller/subsystem, subsystems)
 
-	world.log << "Initializing subsystems..."
+	world.log <<  "Initializing subsystems..."
 	log_mc("Initializing subsystems...")
 
 	initializing = TRUE
@@ -172,7 +172,7 @@ var/CURRENT_TICKLIMIT = TICK_LIMIT_RUNNING
 	var/msg = "Initializations complete within [time] second[time == 1 ? "" : "s"]!"
 	log_mc(msg)
 	admin_notice(span("danger", msg), R_DEBUG)
-	world.log << msg
+	world.log <<  msg
 
 	// Sort subsystems by display setting for easy access.
 	sortTim(subsystems, /proc/cmp_subsystem_display)
