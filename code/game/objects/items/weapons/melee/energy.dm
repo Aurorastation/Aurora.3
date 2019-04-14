@@ -60,7 +60,7 @@
 		user.visible_message("<span class='danger'>\The [user] parries [attack_text] with \the [src]!</span>")
 
 		spark(src, 5)
-		playsound(user.loc, 'sound/weapons/blade1.ogg', 50, 1)
+		playsound(user.loc, 'sound/weapons/blade.ogg', 50, 1)
 		return 1
 	else
 
@@ -76,7 +76,7 @@
 
 			if(prob(base_block_chance))
 				spark(src, 5)
-				playsound(user.loc, 'sound/weapons/blade1.ogg', 50, 1)
+				playsound(user.loc, 'sound/weapons/blade.ogg', 50, 1)
 				shield_power -= round(damage/4)
 
 				if(shield_power <= 0)

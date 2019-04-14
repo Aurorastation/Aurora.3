@@ -360,8 +360,6 @@
 	icon_state = "rubberducky"
 	item_state = "rubberducky"
 
-
-
 /obj/structure/sink
 	name = "sink"
 	icon = 'icons/obj/watercloset.dmi'
@@ -401,6 +399,7 @@
 		return
 
 	to_chat(usr, "<span class='notice'>You start washing your hands.</span>")
+	playsound(src.loc, 'sound/effects/sink_fill.ogg', 25, 1)
 
 	busy = 1
 	sleep(40)
@@ -440,6 +439,7 @@
 				RG.reagents.add_reagent("water", min(RG.volume - RG.reagents.total_volume, amount_per_transfer_from_this))
 				to_chat(oviewers(3, usr), "<span class='notice'>[usr] fills \the [RG] using \the [src].</span>")
 				to_chat(usr, "<span class='notice'>You fill \the [RG] using \the [src].</span>")
+				playsound(src.loc, 'sound/effects/sink_fill.ogg', 25, 1)
 			if ("Empty")
 				if(!RG.reagents.total_volume)
 					to_chat(usr, "<span class='warning'>\The [RG] is already empty.</span>")
@@ -448,6 +448,7 @@
 				var/empty_amount = RG.reagents.trans_to(src, RG.amount_per_transfer_from_this)
 				to_chat(oviewers(3, usr), "<span class='notice'>[usr] empties [empty_amount]u of \the [RG] into \the [src].</span>")
 				to_chat(usr, "<span class='notice'>You empty [empty_amount]u of \the [RG] into \the [src].</span>")
+				playsound(src.loc, 'sound/effects/sink_empty.ogg', 25, 1)
 		return
 
 	// Filling/empying Syringes

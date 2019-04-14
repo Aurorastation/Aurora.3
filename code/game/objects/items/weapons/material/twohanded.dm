@@ -416,13 +416,13 @@
 	var/FuelToRemove = 0.1 //0.1 Every 0.1 seconds
 	if(cutting)
 		FuelToRemove = 1
-		playsound(loc, 'sound/weapons/chainsawloop2.ogg', 25, 0, 30)
+		playsound(loc, 'sound/weapons/saw/chainsawloop2.ogg', 25, 0, 30)
 		if(prob(75))
 			spark(src, 3, alldirs)
 			if(prob(25))
 				eyecheck(2,loc)
 	else
-		playsound(loc, 'sound/weapons/chainsawloop.ogg', 25, 0, 30)
+		playsound(loc, 'sound/weapons/saw/chainsawloop1.ogg', 25, 0, 30)
 
 	RemoveFuel(FuelToRemove)
 
@@ -433,7 +433,7 @@
 /obj/item/weapon/material/twohanded/chainsaw/attack(mob/M as mob, mob/living/user as mob)
 	. = ..()
 	if(powered)
-		playsound(loc, "sound/weapons/chainsword.ogg", 25, 0, 30)
+		playsound(loc, "sound/weapons/saw/chainsword.ogg", 25, 0, 30)
 		RemoveFuel(3)
 
 /obj/item/weapon/material/twohanded/chainsaw/afterattack(obj/O as obj, mob/user as mob, proximity)
@@ -452,7 +452,7 @@
 			)
 
 			user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-			playsound(loc, "sound/weapons/chainsword.ogg", 25, 0, 30)
+			playsound(loc, "sound/weapons/saw/chainsword.ogg", 25, 0, 30)
 			RemoveFuel(3)
 
 	. = ..()
@@ -494,7 +494,7 @@
 			if(i == max)
 				PowerUp(user)
 			else
-				playsound(loc, 'sound/weapons/chainsawpull.ogg', 50, 0, 15)
+				playsound(loc, 'sound/weapons/saw/chainsawpull.ogg', 50, 0, 15)
 				if(!do_after(user, 2 SECONDS, act_target = user))
 					break
 

@@ -793,14 +793,19 @@
 
 /obj/item/weapon/storage/box/matches/attackby(obj/item/weapon/flame/match/W as obj, mob/user as mob)
 	if(istype(W) && !W.lit && !W.burnt)
-		W.lit = 1
-		W.damtype = "burn"
-		W.icon_state = "match_lit"
-		START_PROCESSING(SSprocessing, W)
-		playsound(src.loc, 'sound/items/match.ogg', 60, 1, -4)
-		user.visible_message("<span class='notice'>[user] strikes the match on the matchbox.</span>")
+		if(prob(25))
+			playsound(src.loc, 'sound/items/cigs_lighters/matchstick_lit.ogg', 25, 0, -1)
+			user.visible_message("<span class='notice'>[user] manages to light the match on the matchbox.</span>")
+			W.lit = 1
+			W.damtype = "burn"
+			W.icon_state = "match_lit"
+			START_PROCESSING(SSprocessing, W)
+		else
+			user.visible_message("<span class='notice'>[user] strikes the match on the matchbox.</span>")
+			playsound(src.loc, 'sound/items/cigs_lighters/matchstick_hit.ogg', 25, 0, -1)
 	W.update_icon()
 	return
+
 
 /obj/item/weapon/storage/box/autoinjectors
 	name = "box of empty injectors"

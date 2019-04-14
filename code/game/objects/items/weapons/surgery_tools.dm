@@ -57,7 +57,7 @@
 	desc = "You can drill using this item. You dig?"
 	icon = 'icons/obj/surgery.dmi'
 	icon_state = "drill"
-	hitsound = 'sound/weapons/circsawhit.ogg'
+	hitsound = 'sound/weapons/saw/circsawhit.ogg'
 	matter = list(DEFAULT_WALL_MATERIAL = 15000, "glass" = 10000)
 	flags = CONDUCT
 	force = 15.0
@@ -123,7 +123,7 @@
 	desc = "For heavy duty cutting."
 	icon = 'icons/obj/surgery.dmi'
 	icon_state = "saw3"
-	hitsound = 'sound/weapons/circsawhit.ogg'
+	hitsound = 'sound/weapons/saw/circsawhit.ogg'
 	flags = CONDUCT
 	force = 15.0
 	w_class = 3

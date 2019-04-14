@@ -111,7 +111,7 @@
 		if ("clap")
 			if (!src.restrained())
 				message = "claps."
-				playsound(loc, 'sound/effects/clap.ogg', 50, 1)
+				playsound(loc, 'sound/emotes/clap.ogg', 50, 1)
 				m_type = 2
 				if(miming)
 					m_type = 1
@@ -119,7 +119,7 @@
 		if ("golfclap")
 			if (!src.restrained())
 				message = "claps, clearly unimpressed."
-				playsound(loc, 'sound/effects/golfclap.ogg', 50, 1)
+				playsound(loc, 'sound/emotes/clap_golf.ogg', 50, 1)
 				m_type = 2
 				if(miming)
 					m_type = 1
@@ -153,6 +153,11 @@
 			else
 				if (!muzzled)
 					message = "chuckles."
+					if(get_visible_gender() == MALE)
+						playsound(loc, "sound/voice/emotes/male_laugh[rand(1,3)].ogg", 50, 1)
+
+					else
+						playsound(loc, "sound/voice/emotes/female_laugh[rand(1,3)].ogg", 50, 1)
 					m_type = 2
 				else
 					message = "makes a noise."
@@ -180,6 +185,11 @@
 			else
 				if (!muzzled)
 					message = "coughs!"
+					if(get_visible_gender() == MALE)
+						playsound(loc, "sound/voice/emotes/male_cough[rand(1,6)].ogg", 50, 1)
+
+					else
+						playsound(loc, "sound/voice/emotes/female_cough[rand(1,6)].ogg", 50, 1)
 					m_type = 2
 				else
 					message = "makes a strong noise."
@@ -224,6 +234,11 @@
 			else
 				if (!muzzled)
 					message = "giggles."
+					if(get_visible_gender() == MALE)
+						playsound(loc, "sound/voice/emotes/male_giggle[rand(1,2)].ogg", 50, 1)
+
+					else
+						playsound(loc, "sound/voice/emotes/female_giggle[rand(1,2)].ogg", 50, 1)
 					m_type = 2
 				else
 					message = "makes a noise."
@@ -287,6 +302,11 @@
 			else
 				if (!muzzled)
 					message = "cries."
+					if(get_visible_gender() == MALE)
+						playsound(loc, "sound/voice/emotes/male_cry[rand(1,2)].ogg", 50, 1)
+
+					else
+						playsound(loc, "sound/voice/emotes/female_cry[rand(1,2)].ogg", 50, 1)
 					m_type = 2
 				else
 					message = "makes a weak noise. [get_visible_gender() == MALE ? "He" : get_visible_gender() == FEMALE ? "She" : "They"] [get_visible_gender() == NEUTER ? "frown" : "frowns"]."
@@ -299,6 +319,11 @@
 			else
 				if (!muzzled)
 					message = "sighs."
+					if(get_visible_gender() == MALE)
+						playsound(loc, "sound/voice/emotes/sigh_male.ogg", 50, 1)
+
+					else
+						playsound(loc, "sound/voice/emotes/sigh_female.ogg", 50, 1)
 					m_type = 2
 				else
 					message = "makes a weak noise."
@@ -354,7 +379,7 @@
 				return
 
 			message = "snaps [get_visible_gender() == MALE ? "his" : get_visible_gender() == FEMALE ? "her" : "their"] fingers."
-			playsound(loc, 'sound/effects/fingersnap.ogg', 50, 1, -3)
+			playsound(loc, 'sound/emotes/fingersnap.ogg', 50, 1, -3)
 
 		if ("laugh")
 			if(miming)
@@ -363,6 +388,11 @@
 			else
 				if (!muzzled)
 					message = "laughs."
+					if(get_visible_gender() == MALE)
+						playsound(loc, "sound/voice/emotes/male_laugh[rand(1,5)].ogg", 50, 1)
+
+					else
+						playsound(loc, "sound/voice/emotes/female_laugh[rand(1,5)].ogg", 50, 1)
 					m_type = 2
 				else
 					message = "makes a noise."
@@ -370,6 +400,11 @@
 
 		if ("mumble")
 			message = "mumbles!"
+			if(get_visible_gender() == MALE)
+				playsound(loc, "sound/voice/emotes/mumble_male.ogg", 50, 1)
+
+			else
+				playsound(loc, "sound/voice/emotes/mumble_female.ogg", 50, 1)
 			m_type = 2
 			if(miming)
 				m_type = 1
@@ -417,6 +452,7 @@
 					m_type = 1
 				else
 					message = "says, \"[M], please. He had a family.\" [src.name] takes a drag from a cigarette and blows his name out in smoke."
+					playsound(loc, 'sound/items/cigs_lighters/inhale.ogg', 50, 1)
 					m_type = 2
 
 		if ("point")
@@ -486,6 +522,12 @@
 			else
 				if (!muzzled)
 					message = "sneezes."
+					if(get_visible_gender() == MALE)
+						playsound(loc, "sound/voice/emotes/sneeze_male[rand(1,2)].ogg", 50, 1)
+
+					else
+						playsound(loc, "sound/voice/emotes/sneeze_female[rand(1,2)].ogg", 50, 1)
+
 					m_type = 2
 				else
 					message = "makes a strange noise."
@@ -493,6 +535,7 @@
 
 		if ("sniff")
 			message = "sniffs."
+			playsound(loc, 'sound/emotes/sniff.ogg', 50, 1)
 			m_type = 2
 			if(miming)
 				m_type = 1
@@ -516,6 +559,11 @@
 			else
 				if (!muzzled)
 					message = "whimpers."
+					if(get_visible_gender() == MALE)
+						playsound(loc, "sound/voice/emotes/whimper_male[rand(1,2)].ogg", 50, 1)
+
+					else
+						playsound(loc, "sound/voice/emotes/whimper_female[rand(1,2)].ogg", 50, 1)
 					m_type = 2
 				else
 					message = "makes a weak noise."
@@ -528,6 +576,11 @@
 		if ("yawn")
 			if (!muzzled)
 				message = "yawns."
+				if(get_visible_gender() == MALE)
+					playsound(loc, "sound/voice/emotes/male_yawn[rand(1,2)].ogg", 50, 1)
+
+				else
+					playsound(loc, "sound/voice/emotes/female_yawn[rand(1,3)].ogg", 50, 1)
 				m_type = 2
 				if(miming)
 					m_type = 1
@@ -595,6 +648,11 @@
 			else
 				if (!muzzled)
 					message = "screams!"
+					if(get_visible_gender() == MALE)
+						playsound(loc, "sound/voice/emotes/male_scream[rand(1,2)].ogg", 50, 1)
+
+					else
+						playsound(loc, "sound/voice/emotes/female_scream[rand(1,2)].ogg", 50, 1)
 					m_type = 2
 				else
 					message = "makes a very loud noise."
@@ -699,9 +757,42 @@
 			delayed_vomit()
 			return
 
+		if ("hem")
+			if(miming)
+				message = "acts out a cough."
+				m_type = 1
+			else
+				if (!muzzled)
+					message = "hems."
+					if(get_visible_gender() == MALE)
+						playsound(loc, "sound/voice/emotes/hem_male.ogg", 50, 1)
+
+					else
+						playsound(loc, "sound/voice/emotes/hem_female.ogg", 50, 1)
+					m_type = 2
+				else
+					message = "makes a noise."
+					m_type = 2
+
+		if ("throatclear")
+			if(miming)
+				message = "acts clearing [get_visible_gender() == MALE ? "his" : get_visible_gender() == FEMALE ? "her" : "their"] throat."
+				m_type = 1
+			else
+				if (!muzzled)
+					message = "clears [get_visible_gender() == MALE ? "his" : get_visible_gender() == FEMALE ? "her" : "their"] throat."
+					if(get_visible_gender() == MALE)
+						playsound(loc, "sound/voice/emotes/throatclear_male.ogg", 50, 1)
+
+					else
+						playsound(loc, "sound/voice/emotes/throatclear_female.ogg", 50, 1)
+					m_type = 2
+				else
+					message = "makes a noise."
+					m_type = 2
 
 		if ("help")
-			to_chat(src, "blink, blink_r, blush, bow-(none)/mob, burp, choke, chuckle, clap, golfclap, collapse, cough, cry, custom, deathgasp, drool, eyebrow, frown, gasp, giggle, groan, grumble, handshake, hug-(none)/mob, glare-(none)/mob, grin, laugh, look-(none)/mob, moan, mumble, nod, pale, point-atom, raise, salute, shake, shiver, shrug, sigh, signal-#1-10, smile, sneeze, sniff, snore, stare-(none)/mob, tremble, twitch, twitch_s, whimper, wink, yawn, swish, sway/wag, fastsway/qwag, stopsway/swag, beep, ping, buzz, slap, snap, vomit")
+			to_chat(src, "blink, blink_r, blush, bow-(none)/mob, burp, choke, chuckle, clap, golfclap, collapse, cough, cry, custom, deathgasp, drool, eyebrow, frown, gasp, giggle, groan, grumble, handshake, hug-(none)/mob, glare-(none)/mob, grin, laugh, look-(none)/mob, moan, mumble, nod, pale, point-atom, raise, salute, shake, shiver, shrug, sigh, signal-#1-10, smile, sneeze, sniff, snore, stare-(none)/mob, tremble, twitch, twitch_s, whimper, wink, yawn, swish, sway/wag, fastsway/qwag, stopsway/swag, beep, ping, buzz, slap, snap, vomit, hem, throatclear")
 
 		else
 			to_chat(src, span("notice", "Unusable emote '[act]'. Say *help for a list."))

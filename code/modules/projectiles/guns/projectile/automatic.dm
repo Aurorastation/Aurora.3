@@ -49,7 +49,7 @@
 	caliber = "10mm"
 	origin_tech = list(TECH_COMBAT = 5, TECH_MATERIAL = 2, TECH_ILLEGAL = 8)
 	slot_flags = SLOT_BELT|SLOT_BACK
-	fire_sound = 'sound/weapons/gunshot_pistol.ogg'
+	fire_sound = 'sound/weapons/gunshot/gunshot_pistol.ogg'
 	load_method = MAGAZINE
 	magazine_type = /obj/item/ammo_magazine/a10mm
 	allowed_magazines = list(/obj/item/ammo_magazine/a10mm)
@@ -74,7 +74,7 @@
 	origin_tech = list(TECH_COMBAT = 5, TECH_MATERIAL = 2)
 	slot_flags = SLOT_BELT
 	ammo_type = "/obj/item/ammo_casing/c9mmr"
-	fire_sound = 'sound/weapons/gunshot_pistol.ogg'
+	fire_sound = 'sound/weapons/gunshot/gunshot_pistol.ogg'
 	load_method = MAGAZINE
 	magazine_type = /obj/item/ammo_magazine/mc9mmt/rubber
 	allowed_magazines = list(/obj/item/ammo_magazine/mc9mmt)
@@ -100,7 +100,7 @@
 	origin_tech = list(TECH_COMBAT = 6, TECH_MATERIAL = 1, TECH_ILLEGAL = 4)
 	slot_flags = SLOT_BACK
 	load_method = MAGAZINE
-	fire_sound = 'sound/weapons/rifleshot.ogg'
+	fire_sound = 'sound/weapons/gunshot/gunshot_rifle.ogg'
 	magazine_type = /obj/item/ammo_magazine/c762
 	allowed_magazines = list(/obj/item/ammo_magazine/c762)
 
@@ -165,7 +165,7 @@
 	caliber = "a556"
 	origin_tech = list(TECH_COMBAT = 8, TECH_MATERIAL = 3)
 	ammo_type = "/obj/item/ammo_casing/a556"
-	fire_sound = 'sound/weapons/rifleshot.ogg'
+	fire_sound = 'sound/weapons/gunshot/gunshot_rifle.ogg'
 	slot_flags = SLOT_BACK
 	load_method = MAGAZINE
 	magazine_type = /obj/item/ammo_magazine/a556
@@ -245,7 +245,7 @@
 	slot_flags = SLOT_BACK
 	ammo_type = "/obj/item/ammo_casing/a762"
 	allowed_magazines = list(/obj/item/ammo_magazine/a762)
-	fire_sound = 'sound/weapons/gunshot_saw.ogg'
+	fire_sound = 'sound/weapons/gunshot/gunshot_saw.ogg'
 	load_method = MAGAZINE
 	magazine_type = /obj/item/ammo_magazine/a762
 
@@ -355,7 +355,7 @@
 	force = 30
 	caliber = "flechette"
 	slot_flags = SLOT_BELT|SLOT_BACK
-	fire_sound = 'sound/weapons/Gunshot_DMR.ogg'
+	fire_sound = 'sound/weapons/gunshot/gunshot_dmr.ogg'
 	load_method = MAGAZINE
 	magazine_type = /obj/item/ammo_magazine/flechette
 	allowed_magazines = list(/obj/item/ammo_magazine/flechette,/obj/item/ammo_magazine/flechette/explosive)
@@ -422,7 +422,7 @@
 	auto_eject = 1
 	auto_eject_sound = 'sound/weapons/smg_empty_alarm.ogg'
 	recoil = 3
-	fire_sound = 'sound/weapons/shotgun_shoot.ogg'
+	fire_sound = 'sound/weapons/gunshot/gunshot_shotgun.ogg'
 
 	accuracy = -2
 	fire_delay = 10
