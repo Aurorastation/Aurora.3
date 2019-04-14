@@ -582,7 +582,7 @@
 			else
 				perpname = src.name
 			var/datum/record/general/R = SSrecords.find_record("name", perpname)
-			if(istype(R) && istype(R.security)),
+			if(istype(R) && istype(R.security))
 				if(hasHUD(usr, "security"))
 					read = 1
 					if(R.security.comments.len > 0)

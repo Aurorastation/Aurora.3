@@ -164,10 +164,10 @@
 			"bot" = nonhuman_positions
 		)
 
-	for(var/datum/data/record/t in data_core.general)
-		var/name = t.fields["name"]
-		var/rank = t.fields["rank"]
-		var/real_rank = make_list_rank(t.fields["real_rank"])
+	for(var/datum/record/general/R in SSrecords.records)
+		var/name = R.name
+		var/rank = R.rank
+		var/real_rank = make_list_rank(R.real_rank)
 
 		var/department = 0
 		for(var/k in set_names)
