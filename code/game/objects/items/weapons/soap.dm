@@ -4,7 +4,7 @@
 	name = "soap"
 	desc = "A cheap bar of soap. Doesn't smell."
 	gender = PLURAL
-	icon = 'icons/obj/soap.dmi'
+	icon = 'icons/obj/items.dmi'
 	icon_state = "soap"
 	w_class = 2.0
 	throwforce = 0
@@ -130,7 +130,7 @@
 /obj/random/soap/
 	name = "Random Soap"
 	desc = "This is a random soap."
-	icon = 'icons/obj/soap.dmi'
+	icon = 'icons/obj/items.dmi'
 	icon_state = "soap"
 
 /obj/random/soap/item_to_spawn()
