@@ -1,4 +1,4 @@
-/obj/machinery/biogenerator/adhomai/biogenerator
+/obj/machinery/biogenerator/adhomai
 	name = "biogenerator"
 	desc = "A commercial biogenerator. Lower powered but produces the basic array of needed gardening tools and equipment."
 	biorecipies = list(
