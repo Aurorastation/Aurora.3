@@ -48,10 +48,10 @@
 		char_infraction_query.Execute(list("char_id" = pref.current_character))
 
 		while(char_infraction_query.NextRow())
-			var/datum/char_infraction/infraction = new()
+			var/datum/record/char_infraction/infraction = new()
 			infraction.db_id = text2num(char_infraction_query.item[1])
 			infraction.char_id = text2num(char_infraction_query.item[2])
-			infraction.UID = char_infraction_query.item[3]
+			infraction.id = char_infraction_query.item[3]
 			infraction.datetime = char_infraction_query.item[4]
 			infraction.notes = char_infraction_query.item[5]
 			infraction.charges = json_decode(char_infraction_query.item[6])
@@ -67,9 +67,10 @@
 		"<b>Incident Information</b><br>",
 		"The following incidents are on file for your character<br>"
 	)
-	for (var/datum/char_infraction/I in pref.incidents)
+	for (var/In in pref.incidents)
+		var/datum/record/char_infraction/I = In
 		dat += "<hr>"
-		dat += "UID: [I.UID]<br>"
+		dat += "UID: [I.id]<br>"
 		dat += "Date/Time: [I.datetime]<br>"
 		dat += "Charges: "
 		for (var/L in I.charges)
@@ -95,7 +96,8 @@
 		if(!search_incident || !CanUseTopic(user) || confirm == "No")
 			return TOPIC_NOACTION
 
-		for(var/datum/char_infraction/I in pref.incidents)
+		for(var/In in pref.incidents)
+			var/datum/record/char_infraction/I = In
 			if(I.db_id == search_incident && I.char_id == pref.current_character)
 				I.deleteFromDB("user")
 				qdel(I)
