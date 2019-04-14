@@ -194,6 +194,7 @@
 	force_wielded = 15.0
 	digspeed_unwielded = 30
 	digspeed_wielded = 10
+	contained_sprite = 1
 
 /obj/item/device/radio/intercom/basestation/adhomai/nka
 	name = "basestation"
