@@ -3621,7 +3621,7 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/highsecurity{
 	id_tag = "bunker1";
-	name = "Unlabeled Secure Airlock";
+	name = "Command Teleporter Maintenance";
 	req_access = list(19)
 	},
 /turf/simulated/floor/plating,
@@ -5279,9 +5279,7 @@
 /turf/simulated/floor/plating,
 /area/engineering/engine_waste)
 "akm" = (
-/obj/machinery/atmospherics/pipe/manifold/visible/black{
-	dir = 4
-	},
+/obj/machinery/atmospherics/binary/pump/high_power,
 /turf/simulated/floor/plating,
 /area/engineering/engine_waste)
 "akn" = (
@@ -5299,8 +5297,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 1
 	},
 /turf/simulated/floor/plating,
 /area/engineering/engine_waste)
@@ -5826,16 +5824,17 @@
 	pixel_x = 4;
 	pixel_y = -4
 	},
+/obj/machinery/camera/motion/security{
+	c_tag = "Vault - Core";
+	dir = 4;
+	icon_state = "camera"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/security/nuke_storage)
 "alk" = (
 /turf/simulated/wall/r_wall,
 /area/engineering/engine_room)
 "all" = (
-/obj/machinery/atmospherics/binary/pump{
-	dir = 1;
-	name = "Waste Pump"
-	},
 /obj/structure/window/reinforced{
 	dir = 8
 	},
@@ -5846,13 +5845,16 @@
 	req_access = null;
 	req_one_access = list(11,24)
 	},
+/obj/machinery/atmospherics/binary/pump/high_power{
+	icon_state = "map_off";
+	dir = 1
+	},
 /turf/simulated/floor/plating,
 /area/engineering/engine_waste)
 "alm" = (
 /obj/machinery/atmospherics/pipe/simple/visible/black{
 	dir = 5
 	},
-/obj/machinery/meter,
 /obj/machinery/door/window/brigdoor/westleft{
 	dir = 1;
 	icon_state = "leftsecure";
@@ -5863,9 +5865,6 @@
 /turf/simulated/floor/plating,
 /area/engineering/engine_waste)
 "aln" = (
-/obj/machinery/atmospherics/portables_connector{
-	dir = 8
-	},
 /obj/structure/window/reinforced{
 	dir = 4
 	},
@@ -5877,6 +5876,9 @@
 	req_access = null;
 	req_one_access = list(11,24)
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/universal{
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/engineering/engine_waste)
 "alo" = (
@@ -5886,6 +5888,10 @@
 	pixel_x = 24
 	},
 /obj/structure/cable,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	icon_state = "intact-scrubbers";
+	dir = 9
+	},
 /turf/simulated/floor/plating,
 /area/engineering/engine_waste)
 "alp" = (
@@ -12466,15 +12472,7 @@
 "awC" = (
 /obj/structure/table/wood,
 /obj/item/weapon/paper_bin,
-/obj/item/weapon/pen{
-	pixel_x = 5;
-	pixel_y = 5
-	},
-/obj/item/weapon/pen/blue{
-	pixel_x = 1;
-	pixel_y = 1
-	},
-/obj/item/weapon/pen/red,
+/obj/item/weapon/pen/multi,
 /turf/simulated/floor/carpet,
 /area/lawoffice)
 "awD" = (
@@ -14527,23 +14525,6 @@
 /obj/machinery/firealarm/east,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/starboard)
-"azY" = (
-/obj/structure/table/reinforced/steel,
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 4
-	},
-/obj/random/telecrystals{
-	pixel_x = 4;
-	pixel_y = 4
-	},
-/obj/random/telecrystals{
-	pixel_x = -4;
-	pixel_y = 4
-	},
-/obj/random/telecrystals,
-/turf/simulated/floor/tiled/dark,
-/area/security/nuke_storage)
 "azZ" = (
 /obj/random/junk,
 /obj/structure/cable/green{
@@ -16445,24 +16426,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/starboard)
-"aDa" = (
-/obj/machinery/light/small/emergency,
-/obj/machinery/camera/motion/security{
-	c_tag = "Vault - Vault";
-	dir = 1;
-	icon_state = "camera"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/security/nuke_storage)
-"aDb" = (
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/obj/machinery/light/small/emergency,
-/turf/simulated/floor/tiled/dark,
-/area/security/nuke_storage)
 "aDc" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -52771,7 +52734,7 @@
 /area/maintenance/medbay)
 "bLR" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/filingcabinet/medical,
+/obj/structure/filingcabinet,
 /turf/simulated/floor/carpet/blue,
 /area/maintenance/medbay)
 "bLS" = (
@@ -65221,6 +65184,10 @@
 	},
 /turf/simulated/floor/plating,
 /area/rnd/chemistry)
+"fUO" = (
+/obj/machinery/atmospherics/pipe/manifold4w/visible/black,
+/turf/simulated/floor/plating,
+/area/engineering/engine_waste)
 "fXR" = (
 /obj/structure/table/standard,
 /obj/item/clothing/head/beret/sec{
@@ -66156,6 +66123,12 @@
 /obj/structure/table/rack,
 /turf/simulated/floor/tiled/white,
 /area/maintenance/research_port)
+"ljA" = (
+/obj/machinery/atmospherics/portables_connector{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/engineering/engine_waste)
 "lnw" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
@@ -80662,8 +80635,8 @@ aab
 ahi
 ahV
 aiQ
-ajC
 akl
+ajD
 all
 amn
 anw
@@ -80919,7 +80892,7 @@ aab
 ahi
 ahW
 aiR
-ajD
+fUO
 akm
 alm
 amo
@@ -81176,7 +81149,7 @@ aab
 ahi
 ahV
 aiS
-ajC
+ljA
 akn
 aln
 amo
@@ -107906,8 +107879,8 @@ aiN
 aiN
 aiN
 aiN
-aiO
 aiN
+aiO
 aiN
 aiN
 aiN
@@ -108163,8 +108136,8 @@ aiN
 aiN
 aiN
 aiN
-aiO
 aiN
+aiO
 aiN
 aiN
 aiN
@@ -108418,7 +108391,7 @@ acV
 ahT
 aiN
 aiN
-aiO
+aiN
 aiO
 aiO
 aiO
@@ -108673,14 +108646,14 @@ agd
 agB
 adk
 ahT
-aiO
+aiN
+aiN
 aiO
 aiO
 alf
 alj
 amh
 aom
-azY
 aiO
 aiO
 aiO
@@ -108930,14 +108903,14 @@ age
 aeS
 adl
 ahT
-aiO
+aiN
+aiN
 aiO
 aki
 aoo
 ame
 alg
 aon
-aDa
 aiO
 apE
 aoo
@@ -109189,12 +109162,12 @@ acV
 ahT
 aiO
 aiO
+aiO
 akj
 aoo
 aoo
 ano
 aop
-ase
 aqM
 ase
 ase
@@ -109444,14 +109417,14 @@ age
 aeS
 acV
 ahT
-aiO
+aiN
+aiN
 aiO
 amL
 aoo
 alh
 amf
 apB
-aDb
 aqN
 amP
 aoo
@@ -109701,13 +109674,13 @@ xOq
 adl
 adJ
 ahT
-aiO
+aiN
+aiN
 aiO
 aiO
 ali
 amg
 anq
-apC
 apC
 aiO
 aiO
@@ -109960,10 +109933,10 @@ afG
 ahT
 aiN
 aiN
+aiN
 aiO
 aiO
 ciu
-aiO
 aiO
 aiO
 aiO
@@ -110219,8 +110192,8 @@ aiN
 aiN
 aiN
 aiN
-ciu
 aiN
+ciu
 aiN
 aiN
 aiN
@@ -110476,8 +110449,8 @@ aiN
 aiN
 aiN
 aiN
-ciu
 aiN
+ciu
 aiN
 aiN
 aiN
@@ -110733,8 +110706,8 @@ agD
 agD
 agD
 agD
-amj
 agD
+amj
 agD
 agD
 agD
@@ -110990,8 +110963,8 @@ aah
 aah
 aah
 aah
+aah
 amk
-anr
 anr
 anr
 anr

@@ -320,11 +320,11 @@
 		new /obj/item/weapon/reagent_containers/pill/escitalopram( src )
 		new /obj/item/weapon/reagent_containers/pill/escitalopram( src )
 
-/obj/item/weapon/storage/pill_bottle/rtm
-	name = "bottle of RTM pills"
+/obj/item/weapon/storage/pill_bottle/rmt
+	name = "bottle of RMT pills"
 	desc = "Contains pills used to remedy the effects of prolonged zero-gravity adaptations."
 
-/obj/item/weapon/storage/pill_bottle/rtm/fill()
+/obj/item/weapon/storage/pill_bottle/rmt/fill()
 	..()
 	new /obj/item/weapon/reagent_containers/pill/rmt(src)
 	new /obj/item/weapon/reagent_containers/pill/rmt(src)

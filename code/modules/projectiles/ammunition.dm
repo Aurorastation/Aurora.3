@@ -123,6 +123,7 @@
 	to_chat(user, "<span class='notice'>You empty [src].</span>")
 	for(var/obj/item/ammo_casing/C in stored_ammo)
 		C.forceMove(user.loc)
+		playsound(C, "sound/weapons/casingdrop[rand(1,5)].ogg", 50, 1)
 		C.set_dir(pick(alldirs))
 	stored_ammo.Cut()
 	update_icon()
