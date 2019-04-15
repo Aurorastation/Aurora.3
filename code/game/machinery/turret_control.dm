@@ -156,8 +156,8 @@
 
 	ui = SSvueui.get_open_ui(user, src)
 	if (!ui)
-		ui = new(user, src, "turrets-turret-controls", 625, 425, "Turret Controls", generate_data(user))
-		ui.open()
+		ui = new(user, src, "turrets-control", 625, 425, "Turret Controls", generate_data(user))
+	ui.open()
 
 /obj/machinery/turretid/Topic(href, href_list)
 	if(..())
