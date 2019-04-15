@@ -47,6 +47,12 @@
 /area/centcom/holding
 	name = "\improper Holding Facility"
 
+/area/centcom/checkpoint/fore
+	name = "\improper Fore Checkpoint"
+
+/area/centcom/checkpoint/aft
+	name = "\improper Aft Checkpoint"
+
 /area/centcom/legion
 	name = "\improper Tau Ceti Foreign Legion Base"
 
