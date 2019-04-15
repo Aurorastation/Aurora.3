@@ -58,6 +58,8 @@
 	var/range_limit = 1
 
 	holder_type = /obj/item/weapon/holder/drone
+	//Allow drones to pull disposal pipes
+	var/list/pull_list = list(/obj/structure/disposalconstruct)
 
 /mob/living/silicon/robot/drone/can_be_possessed_by(var/mob/abstract/observer/possessor)
 	if(!istype(possessor) || !possessor.client || !possessor.ckey)
@@ -326,6 +328,37 @@
 	to_chat(src, "You have no individual will, no personality, and no drives or urges other than your laws.")
 	to_chat(src, "Remember,  you are <b>lawed against interference with the crew</b>. Also remember, <b>you DO NOT take orders from the AI.</b>")
 	to_chat(src, "Use <b>say ;Hello</b> to talk to other drones and <b>say Hello</b> to speak silently to your nearby fellows.")
+
+//Custom pulling proc to account for unique pulling abilities
+/mob/living/silicon/robot/drone/start_pulling(var/atom/movable/AM)
+	if(!AM) return
+	for(var/A in pull_list)
+		if(istype(AM, A))
+			if(pulling)
+				var/pulling_old = pulling
+				stop_pulling()
+				// Are we pulling the same thing twice? Just stop pulling.
+				if(pulling_old == AM)
+					return
+
+			src.pulling = AM
+			AM.pulledby = src
+
+			if(pullin)
+				pullin.icon_state = "pull1"
+				return
+			return
+	if(istype(AM, /obj/item))
+		var/obj/item/O = AM
+		if(O.w_class > can_pull_size)
+			to_chat(src, "<span class='warning'>You are too small to pull that.</span>")
+			return
+	else
+		if(!can_pull_mobs)
+			to_chat(src, "<span class='warning'>You are too small to pull that.</span>")
+			return
+	..()
+
 
 /mob/living/silicon/robot/drone/add_robot_verbs()
 	src.verbs |= silicon_subsystems
