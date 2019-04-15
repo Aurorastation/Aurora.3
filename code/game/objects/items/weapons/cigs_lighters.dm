@@ -547,7 +547,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 			lit = 1
 			icon_state = "[base_state]on"
 			item_state = "[base_state]on"
-			playsound(src.loc, activation_sound, 75, 1)
+			playsound(src.loc, pick(activation_sound), 75, 1)
 			if(istype(src, /obj/item/weapon/flame/lighter/zippo) )
 				user.visible_message("<span class='notice'>Without even breaking stride, [user] flips open and lights [src] in one smooth movement.</span>")
 			else
