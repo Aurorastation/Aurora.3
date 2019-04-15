@@ -1459,7 +1459,7 @@
 /mob/living/carbon/human/slip(var/slipped_on, stun_duration=8)
 	if((species.flags & NO_SLIP) || (shoes && (shoes.item_flags & NOSLIP)))
 		return 0
-	..(slipped_on,stun_duration)
+	. = ..(slipped_on,stun_duration)
 
 /mob/living/carbon/human/proc/undislocate()
 	set category = "Object"
@@ -1600,3 +1600,15 @@
 
 /mob/living/carbon/human/get_metabolism(metabolism)
 	return ..() * (species ? species.metabolism_mod : 1)
+
+/mob/living/carbon/human/is_clumsy()
+	if(CLUMSY in mutations)
+		return TRUE
+
+	var/bac = get_blood_alcohol()
+	var/SR = species.ethanol_resistance
+
+	if(bac > INTOX_REACTION*SR)
+		return TRUE
+
+	return FALSE

@@ -99,23 +99,24 @@
 			to_chat(user, "<span class='warning'>[src] is out of charge.</span>")
 	add_fingerprint(user)
 
-/obj/item/weapon/melee/baton/attack(mob/M, mob/user, var/hit_zone)
-	if(status && (CLUMSY in user.mutations) && prob(50))
+/obj/item/weapon/melee/baton/attack(mob/living/L, mob/user, var/hit_zone)
+	if(!L) return
+
+	if(status && (user.is_clumsy()) && prob(50))
 		to_chat(user, "<span class='danger'>You accidentally hit yourself with the [src]!</span>")
 		user.Weaken(30)
 		deductcharge(hitcost)
 		return
 
-	if(isrobot(M))
+	if(isrobot(L))
 		..()
 		return
 
 	var/agony = agonyforce
 	var/stun = stunforce
-	var/mob/living/L = M
 
 	if(user.is_pacified())
-		to_chat(user, "<span class='notice'>You don't want to risk hurting [M]!</span>")
+		to_chat(user, "<span class='notice'>You don't want to risk hurting [L]!</span>")
 		return 0
 
 	var/target_zone = check_zone(hit_zone)
@@ -134,7 +135,7 @@
 		//we can't really extract the actual hit zone from ..(), unfortunately. Just act like they attacked the area they intended to.
 	else
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-		user.do_attack_animation(M)
+		user.do_attack_animation(L)
 		//copied from human_defense.dm - human defence code should really be refactored some time.
 		if (ishuman(L))
 			user.lastattacked = L	//are these used at all, if we have logs?
@@ -151,15 +152,16 @@
 			var/obj/item/organ/external/affecting = H.get_organ(target_zone)
 			if (affecting)
 				if(!status)
-					L.visible_message("<span class='warning'>[L] has been prodded in the [affecting.name] with [src] by [user]. Luckily it was off.</span>")
+					L.visible_message("<span class='warning'>[L] has been prodded in the [affecting.name] with \the [src] by [user]. Luckily it was off.</span>")
 					return 1
 				else
-					H.visible_message("<span class='danger'>[L] has been prodded in the [affecting.name] with [src] by [user]!</span>")
+					H.visible_message("<span class='danger'>[L] has been prodded in the [affecting.name] with \the [src] by [user]!</span>")
+					var/intent = "(INTENT: [user? uppertext(user.a_intent) : "N/A"])"
+					admin_attack_log(user, L, "was stunned by this mob with [src] [intent]", "stunned this mob with [src] [intent]", "stunned with [src] \the")
 					if(!sheathed)
 						H.electrocute_act(force * 2, src, ground_zero = target_zone)
-
-		if(isslime(M))
-			var/mob/living/carbon/slime/S =  M
+		if(isslime(L))
+			var/mob/living/carbon/slime/S =  L
 			if(!status)
 				L.visible_message("<span class='warning'>[S] has been prodded with \the [src] by [user]. Too bad it was off.</span>")
 				return 1
@@ -173,16 +175,15 @@
 
 		else
 			if(!status)
-				L.visible_message("<span class='warning'>[L] has been prodded with [src] by [user]. Luckily it was off.</span>")
+				L.visible_message("<span class='warning'>[L] has been prodded with \the [src] by [user]. Luckily it was off.</span>")
 				return 1
 			else
-				L.visible_message("<span class='danger'>[L] has been prodded with [src] by [user]!</span>")
+				L.visible_message("<span class='danger'>[L] has been prodded with \the [src] by [user]!</span>")
 
 	//stun effects
 	L.stun_effect_act(stun, agony, target_zone, src)
 
 	playsound(loc, 'sound/weapons/Egloves.ogg', 50, 1, -1)
-	msg_admin_attack("[key_name_admin(user)] stunned [key_name_admin(L)] with the [src] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(L))
 
 	if(status)
 		deductcharge(hitcost)

@@ -31,10 +31,6 @@
 	pda = /obj/item/device/pda/merchant
 	r_pocket = /obj/item/device/price_scanner
 
-	backpack_contents = list(
-		/obj/item/weapon/storage/box/evidence = 1
-	)
-
 /datum/job/merchant/announce(mob/living/carbon/human/H)
 	to_chat(H,"You are a merchant heading to the [station_name()] to make profit, your main objective is to sell and trade with the crew.")
 
