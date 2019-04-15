@@ -224,12 +224,12 @@
 
 	if(data["access"])
 		var/settings[0]
-		settings[++settings.len] = list("category" = "Neutralize All Non-Synthetics", "setting" = "check_synth", "value" = check_synth, "ref" = "\ref[src]")
-		settings[++settings.len] = list("category" = "Check Weapon Authorization", "setting" = "check_weapons", "value" = check_weapons, "ref" = "\ref[src]")
-		settings[++settings.len] = list("category" = "Check Security Records", "setting" = "check_records", "value" = check_records, "ref" = "\ref[src]")
-		settings[++settings.len] = list("category" = "Check Arrest Status", "setting" = "check_arrest", "value" = check_arrest, "ref" = "\ref[src]")
-		settings[++settings.len] = list("category" = "Check Access Authorization", "setting" = "check_access", "value" = check_access, "ref" = "\ref[src]")
-		settings[++settings.len] = list("category" = "Check misc. Lifeforms", "setting" = "check_anomalies", "value" = check_anomalies, "ref" = "\ref[src]")
+		settings[++settings.len] = list("category" = "Neutralize All Non-Synthetics", "setting" = "check_synth", "value" = check_synth)
+		settings[++settings.len] = list("category" = "Check Weapon Authorization", "setting" = "check_weapons", "value" = check_weapons)
+		settings[++settings.len] = list("category" = "Check Security Records", "setting" = "check_records", "value" = check_records)
+		settings[++settings.len] = list("category" = "Check Arrest Status", "setting" = "check_arrest", "value" = check_arrest)
+		settings[++settings.len] = list("category" = "Check Access Authorization", "setting" = "check_access", "value" = check_access)
+		settings[++settings.len] = list("category" = "Check misc. Lifeforms", "setting" = "check_anomalies", "value" = check_anomalies)
 		data["settings"] = settings
 	return data
 
