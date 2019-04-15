@@ -276,7 +276,7 @@
 	var/pumphealth = 50
 	var/burn_cooldown = 0
 	var/dmg_cooldown = 0
-	var/coolant = /datum/reagent/coolant
+	var/failure_timer = FALSE
 
 /obj/item/organ/coolantpump/refresh_action_button()
 	. = ..()
@@ -290,44 +290,48 @@
 	var/mob/living/carbon/human/H = owner
 	if(.)
 
+
 		if(pumphealth <= 0)
-			to_chat(owner, "<span class='danger'>\The [src] is far too damaged to be used</span>")
+			to_chat(H, "<span class='danger'>\The [src] is far too damaged to be used</span>")
 			return
 
-		owner.last_special = world.time + 100
 		var/list/expungefill = list("Use Coolant Reserves", "Fill Coolant From Enviroment", "Cancel")
 
 		var/coolantmode = input("Select Coolant Operation.", "Coolant Pump Integrated System") as null|anything in expungefill
 
 		switch(coolantmode)
-		
+
+
 			if("Use Coolant Reserves")
 				if(coolantamount <= 0)
-					to_chat(owner, "<span class='danger'>\The [src] is far too damaged to be used</span>")
+					to_chat(H, "<span class='danger'>\The [src] is empty!</span>") // Out of coolant
 					return
 				else
 
 					var/datum/reagents/R = new/datum/reagents(15)
 					R.my_atom = H.loc
-					R.add_reagent(coolant, 15)
+					R.add_reagent(/datum/reagent/lube, 15)
 					var/datum/effect/effect/system/smoke_spread/chem/smoke = new
 					smoke.set_up(R, 10, 0, H.loc, 4)
 					visible_message("<span class='warning'>[H] emmits a large cloud of coolant.</span>", "<span class='warning'>You quickly expunge coolant outwards, cooling yourself.</span>")
 					playsound(H.loc, 'sound/effects/smoke.ogg', 50, 1, -3)
 					smoke.start()
-					coolantamount -= (rand(20,25))
+					R.set_temperature(H.bodytemperature)
+					coolantamount -= (rand(15,20))
 					H.bodytemperature -= (rand(80,120))
 					qdel(R)
 					return
 			if("Fill Coolant From Enviroment")
 				if(coolantamount >= coolantbaseamount)
+					to_chat(H, "<span class='danger'>\The [src] is full already!</span>")
 					return
 				else
+
 					to_chat(H, "<span class='warning'>Remain still while enviroment pump engages.....</span>")
 					if (do_after(H, 10))
 						playsound(H.loc, 'sound/effects/smoke.ogg', 50, 1, -3)
 						coolantamount += (rand(15,20))
-						H.bodytemperature += (rand(200,250))
+						H.bodytemperature += (rand(120,160))
 						return
 
 
@@ -346,28 +350,33 @@
 			return
 		else
 			dmg_cooldown = world.time+350
-			pumphealth -= 0.9
+			pumphealth -= 0.3
 
 /obj/item/organ/coolantpump/proc/coolant_check()
 	var/mob/living/carbon/human/H = owner
 	if(!H) 
 		return
-	var/obj/item/organ/external/O = pick(H.organs)
-	if(world.time < burn_cooldown)
+	if(coolantamount <= 0 || (pumphealth <= 0) && !failure_timer)
+		addtimer(CALLBACK(src, .proc/coolant_failure), rand(50, 80))
+		failure_timer = TRUE
+
+/obj/item/organ/coolantpump/proc/coolant_failure()
+	var/mob/living/carbon/human/H = owner
+	if(!H) 
 		return
-	else
-		if(coolantamount <= 0)
-			burn_cooldown = world.time+300
-			sleep(200)
-			to_chat(H, "<span class='danger'>You're [O.name] begins to slowly glow red hot</span>")
-			if(prob(80))
-				H.apply_damage(10,BURN,O)
-			else
-				H.apply_damage(20,BURN,O)
-		if(pumphealth <= 0 )
-			burn_cooldown = world.time+300
-			to_chat(H, "<span class='danger'>Critical melt down! Pump integrity at [pumphealth]% </span>")
-			H.bodytemperature += 200
+	var/obj/item/organ/external/O = pick(H.organs)
+	if(coolantamount <= 0)
+		to_chat(H, "<span class='danger'>You feel you should fill up your coolant</span>")
+		to_chat(H, "<span class='danger'>You're [O.name] begins to slowly glow red hot</span>")
+		if(prob(80))
+			H.apply_damage(10,BURN,O)
+		else
+			H.apply_damage(20,BURN,O)
+		
+	if(pumphealth <= 0 )
+		to_chat(H, "<span class='danger'>Critical melt down! Pump integrity at [pumphealth]% </span>")
+		H.bodytemperature += 200
+	failure_timer = FALSE
 
 	
 
@@ -377,7 +386,7 @@
 	if(coolantamount >= coolantbaseamount)
 		coolantamount = coolantbaseamount
 
-	if(owner.m_intent == "run" || (H.bodytemperature <= H.species.cold_level_1 || (H.bodytemperature >= H.species.heat_level_1)))
+	if(H.bodytemperature <= H.species.cold_level_1 || (H.bodytemperature >= H.species.heat_level_1))
 		coolantamount -= coolantuserate * 2
 	if(H.bodytemperature <= H.species.cold_level_2 || (H.bodytemperature >= H.species.heat_level_2))
 		coolantamount -= coolantuserate * 4
@@ -418,6 +427,8 @@
 				coolantamount += amount_transferred
 				to_chat(user, "<span class='info'>You empty [amount_transferred]u of coolant into [src].</span>")
 				coolant_check()
+
+
 
 
 /obj/item/organ/cell/terminator

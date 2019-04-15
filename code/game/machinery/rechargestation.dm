@@ -111,14 +111,13 @@
 			cell.use(7000/H.max_nutrition*10)
 		if(!CP)
 			return
-		else
-			if(beaker)
-				for (var/datum/reagent/R in beaker.reagents.reagent_list)
-					if(beaker.reagents.total_volume <= 0 || (CP.coolantamount >= CP.coolantbaseamount))
-						return
-					if (istype(R, /datum/reagent/coolant))
-						CP.coolantamount += CP.coolantuserate * 2
-						beaker.reagents.remove_reagent(R.id, CP.coolantuserate * 2)
+		else if(beaker)
+			for (var/datum/reagent/R in beaker.reagents.reagent_list)
+				if(beaker.reagents.total_volume <= 0 || (CP.coolantamount >= CP.coolantbaseamount))
+					return
+				if (istype(R, /datum/reagent/coolant))
+					CP.coolantamount += 2
+					beaker.reagents.remove_reagent(R.id, 2)
 					
 
 
