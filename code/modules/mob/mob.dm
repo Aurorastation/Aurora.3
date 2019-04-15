@@ -675,12 +675,10 @@
 			M.LAssailant = usr
 
 	else if(isobj(AM))
-		//Let maintenance drones pull disposal pipe
-		if(!(istype(src, /mob/living/silicon/robot/drone) && istype(AM,/obj/structure/disposalconstruct)))
-			var/obj/I = AM
-			if(!can_pull_size || can_pull_size < I.w_class)
-				to_chat(src, "<span class='warning'>It won't budge!</span>")
-				return
+		var/obj/I = AM
+		if(!can_pull_size || can_pull_size < I.w_class)
+			to_chat(src, "<span class='warning'>It won't budge!</span>")
+			return
 
 	if(pulling)
 		var/pulling_old = pulling
