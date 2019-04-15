@@ -52,16 +52,16 @@
 
 
 /obj/item/weapon/bee_smoker/proc/get_fuel()
-	return reagents.get_reagent_amount("fuel")
+	return reagents.get_reagent_amount("woodpulp")
 
 
 /obj/item/weapon/bee_smoker/proc/remove_fuel(var/amount = 1, var/mob/M = null)
 	if(get_fuel() >= amount)
-		reagents.remove_reagent("water", amount)
+		reagents.remove_reagent("woodpulp", amount)
 		return 1
 	else
 		if(M)
-			to_chat(M, "<span class='notice'>You need more water to complete this task.</span>")
+			to_chat(M, "<span class='notice'>You need more fuel to complete this task.</span>")
 		return 0
 
 /obj/item/weapon/bee_smoker/proc/smoke_at(var/atom/A)
