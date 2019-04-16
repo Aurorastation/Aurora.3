@@ -265,6 +265,7 @@
 
 	if(href_list["attack"])
 		supply_cost = list()
+		playsound(loc, 'sound/arcade/raid.ogg', 50, 1, extrarange = -3, falloff = 10)
 		if(prob(17*settlers.len))
 			event_desc = "An empty husk of a station now, all its resources stripped for use in your travels."
 			event_info = "You've successfully raided the spaceport!<br>"
