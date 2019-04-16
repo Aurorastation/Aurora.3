@@ -132,7 +132,6 @@
 		new /obj/item/clothing/suit/storage/toggle/armor/hos/jensen(src)
 		new /obj/item/clothing/suit/armor/hos(src)
 		new /obj/item/clothing/suit/storage/vest/hos(src)
-		new /obj/item/clothing/head/helmet/HoS/dermal(src)
 		new /obj/item/clothing/head/helmet/HoS(src)
 		new /obj/item/clothing/head/beret/sec/hos(src)
 		new /obj/item/clothing/accessory/badge/hos(src)

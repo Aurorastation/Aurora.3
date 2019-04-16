@@ -5824,6 +5824,11 @@
 	pixel_x = 4;
 	pixel_y = -4
 	},
+/obj/machinery/camera/motion/security{
+	c_tag = "Vault - Core";
+	dir = 4;
+	icon_state = "camera"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/security/nuke_storage)
 "alk" = (
@@ -14520,23 +14525,6 @@
 /obj/machinery/firealarm/east,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/starboard)
-"azY" = (
-/obj/structure/table/reinforced/steel,
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 4
-	},
-/obj/random/telecrystals{
-	pixel_x = 4;
-	pixel_y = 4
-	},
-/obj/random/telecrystals{
-	pixel_x = -4;
-	pixel_y = 4
-	},
-/obj/random/telecrystals,
-/turf/simulated/floor/tiled/dark,
-/area/security/nuke_storage)
 "azZ" = (
 /obj/random/junk,
 /obj/structure/cable/green{
@@ -16438,24 +16426,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/starboard)
-"aDa" = (
-/obj/machinery/light/small/emergency,
-/obj/machinery/camera/motion/security{
-	c_tag = "Vault - Vault";
-	dir = 1;
-	icon_state = "camera"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/security/nuke_storage)
-"aDb" = (
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/obj/machinery/light/small/emergency,
-/turf/simulated/floor/tiled/dark,
-/area/security/nuke_storage)
 "aDc" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -107911,8 +107881,8 @@ aiN
 aiN
 aiN
 aiN
-aiO
 aiN
+aiO
 aiN
 aiN
 aiN
@@ -108168,8 +108138,8 @@ aiN
 aiN
 aiN
 aiN
-aiO
 aiN
+aiO
 aiN
 aiN
 aiN
@@ -108423,7 +108393,7 @@ acV
 ahT
 aiN
 aiN
-aiO
+aiN
 aiO
 aiO
 aiO
@@ -108678,14 +108648,14 @@ agd
 agB
 adk
 ahT
-aiO
+aiN
+aiN
 aiO
 aiO
 alf
 alj
 amh
 aom
-azY
 aiO
 aiO
 aiO
@@ -108935,14 +108905,14 @@ age
 aeS
 adl
 ahT
-aiO
+aiN
+aiN
 aiO
 aki
 aoo
 ame
 alg
 aon
-aDa
 aiO
 apE
 aoo
@@ -109194,12 +109164,12 @@ acV
 ahT
 aiO
 aiO
+aiO
 akj
 aoo
 aoo
 ano
 aop
-ase
 aqM
 ase
 ase
@@ -109449,14 +109419,14 @@ age
 aeS
 acV
 ahT
-aiO
+aiN
+aiN
 aiO
 amL
 aoo
 alh
 amf
 apB
-aDb
 aqN
 amP
 aoo
@@ -109706,13 +109676,13 @@ xOq
 adl
 adJ
 ahT
-aiO
+aiN
+aiN
 aiO
 aiO
 ali
 amg
 anq
-apC
 apC
 aiO
 aiO
@@ -109965,10 +109935,10 @@ afG
 ahT
 aiN
 aiN
+aiN
 aiO
 aiO
 ciu
-aiO
 aiO
 aiO
 aiO
@@ -110224,8 +110194,8 @@ aiN
 aiN
 aiN
 aiN
-ciu
 aiN
+ciu
 aiN
 aiN
 aiN
@@ -110481,8 +110451,8 @@ aiN
 aiN
 aiN
 aiN
-ciu
 aiN
+ciu
 aiN
 aiN
 aiN
@@ -110738,8 +110708,8 @@ agD
 agD
 agD
 agD
-amj
 agD
+amj
 agD
 agD
 agD
@@ -110995,8 +110965,8 @@ aah
 aah
 aah
 aah
+aah
 amk
-anr
 anr
 anr
 anr
