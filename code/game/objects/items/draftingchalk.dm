@@ -1,6 +1,6 @@
 /obj/effect/decal/cleanable/draftingchalk
 	name = "chalk marking"
-	desc = "A line drawn in a white chalk."
+	desc = "A line drawn in a chalk."
 	icon = 'icons/obj/smooth/chalkline-smooth.dmi'
 	icon_state = "preview"
 	color = "#FFFFFF"
