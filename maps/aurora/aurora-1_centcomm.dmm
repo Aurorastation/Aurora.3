@@ -24395,10 +24395,6 @@
 /obj/structure/sign/poster,
 /turf/unsimulated/wall/riveted,
 /area/centcom/living)
-"geh" = (
-/obj/effect/wingrille_spawn/reinforced/crescent,
-/turf/space,
-/area/centcom/legion)
 "gDh" = (
 /obj/machinery/telecomms/receiver/preset_cent,
 /turf/unsimulated/floor{
@@ -27126,9 +27122,9 @@ asU
 asU
 asK
 asK
-geh
+aZD
 asK
-geh
+aZD
 asK
 ahM
 aaM
@@ -27386,7 +27382,7 @@ asU
 asU
 epB
 asU
-geh
+aZD
 ahM
 aaM
 aaM
@@ -27900,7 +27896,7 @@ ahM
 ahM
 asK
 asU
-geh
+aZD
 ahM
 ahM
 ahM
@@ -28673,7 +28669,7 @@ hFe
 eiE
 baP
 baP
-geh
+aZD
 ahM
 aaM
 aaM
