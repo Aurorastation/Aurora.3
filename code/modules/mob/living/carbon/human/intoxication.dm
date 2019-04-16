@@ -1,5 +1,3 @@
-var/mob/living/carbon/human/alcohol_clumsy = 0
-
 //This proc handles the effects of being intoxicated. Removal of intoxication is done elswhere: By the liver, in organ_internal.dm
 /mob/living/carbon/human/proc/handle_intoxication()
 
@@ -44,11 +42,6 @@ var/mob/living/carbon/human/alcohol_clumsy = 0
 			to_chat(src,"<span class='warning'>You feel uncoordinated and unsteady on your feet!</span>")
 		confused = max(confused, 10)
 		slurring = max(slurring, 50)
-		if (!alcohol_clumsy)
-			alcohol_clumsy = 1
-	else if (alcohol_clumsy)
-		to_chat(src,"<span class='notice'>You feel more sober and steady.</span>")
-		alcohol_clumsy = 0
 
 	if(bac > INTOX_VOMIT*SR)
 		slurring = max(slurring, 75)

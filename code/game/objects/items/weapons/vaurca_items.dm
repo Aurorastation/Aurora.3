@@ -25,11 +25,12 @@
 	icon_state = "skrell_mask"
 	item_state = "skrell_mask"
 
-/obj/item/clothing/mask/breath/vaurca/shaper
+/obj/item/clothing/head/shaper
 	name = "shaper helmet"
-	desc = "Commonly worn by Preimmients, these robes are meant to catch pheromones, obfuscating hive affiliation."
+	desc = "A mirrored helm commonly worn by Preimmients. The helm masks the visage of its wearer, symbolically and literally  blinding them to all but the path set in front of them."
 	icon_state = "shaper_helmet"
 	item_state = "shaper_helmet"
+	species_restricted = list("Vaurca")
 
 /obj/item/weapon/melee/energy/vaurca
 	name = "thermal knife"
