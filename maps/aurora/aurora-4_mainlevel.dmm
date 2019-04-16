@@ -3578,7 +3578,7 @@
 	},
 /obj/machinery/door/window/westleft,
 /obj/structure/curtain/open/shower,
-/obj/item/weapon/soap,
+/obj/random/soap,
 /turf/simulated/floor/tiled/freezer,
 /area/security/main)
 "aha" = (
@@ -19053,6 +19053,7 @@
 /area/bridge)
 "aHd" = (
 /obj/structure/curtain/open/shower,
+/obj/random/soap,
 /turf/simulated/floor/tiled/freezer,
 /area/crew_quarters/captain)
 "aHe" = (
@@ -22964,8 +22965,8 @@
 	pixel_x = 0;
 	pixel_y = 0
 	},
-/obj/item/weapon/soap/nanotrasen,
 /obj/structure/curtain/open/shower,
+/obj/random/soap,
 /turf/simulated/floor/tiled/freezer,
 /area/security/prison)
 "aNw" = (
@@ -66154,6 +66155,7 @@
 	pixel_x = 0;
 	pixel_y = 0
 	},
+/obj/random/soap,
 /turf/simulated/floor/tiled/freezer,
 /area/maintenance/medbay)
 "lrT" = (
