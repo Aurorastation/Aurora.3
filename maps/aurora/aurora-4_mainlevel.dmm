@@ -65536,6 +65536,10 @@
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/plating,
 /area/maintenance/medbay)
+"hPs" = (
+/obj/structure/closet/crate/autakh,
+/turf/simulated/floor/tiled/dark,
+/area/assembly/robotics)
 "hRJ" = (
 /obj/machinery/alarm{
 	dir = 8;
@@ -92750,7 +92754,7 @@ baE
 bfX
 baE
 biD
-bkO
+hPs
 biD
 bmr
 bnP
