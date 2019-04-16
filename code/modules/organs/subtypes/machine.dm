@@ -273,10 +273,11 @@
 	var/coolantbaseamount = 100
 	var/coolantuserate = 0.9
 	var/coolantamount = 100
-	var/pumphealth = 50
+	var/pumphealth = 30
 	var/burn_cooldown = 0
 	var/dmg_cooldown = 0
 	var/failure_timer = FALSE
+	var/pumpdmg_timer = FALSE
 
 /obj/item/organ/coolantpump/refresh_action_button()
 	. = ..()
@@ -310,9 +311,9 @@
 
 					var/datum/reagents/R = new/datum/reagents(15)
 					R.my_atom = H.loc
-					R.add_reagent(/datum/reagent/lube, 15)
+					R.add_reagent("coolant", 2)
 					var/datum/effect/effect/system/smoke_spread/chem/smoke = new
-					smoke.set_up(R, 10, 0, H.loc, 4)
+					smoke.set_up(R, 5, 0, H.loc, 4)
 					visible_message("<span class='warning'>[H] emmits a large cloud of coolant.</span>", "<span class='warning'>You quickly expunge coolant outwards, cooling yourself.</span>")
 					playsound(H.loc, 'sound/effects/smoke.ogg', 50, 1, -3)
 					smoke.start()
@@ -340,25 +341,20 @@
 	robotize()
 	. = ..()
 
-/obj/item/organ/coolantpump/proc/damage_check()
+
+
+
+/obj/item/organ/coolantpump/proc/coolant_check()
 	var/mob/living/carbon/human/H = owner
 	var/obj/item/organ/external/UB = H.organs_by_name["chest"]
 	if(!H) 
 		return
-	if(UB.brute_dam >= 10 )
-		if(world.time < burn_cooldown)
-			return
-		else
-			dmg_cooldown = world.time+350
-			pumphealth -= 0.3
-
-/obj/item/organ/coolantpump/proc/coolant_check()
-	var/mob/living/carbon/human/H = owner
-	if(!H) 
-		return
-	if(coolantamount <= 0 || (pumphealth <= 0) && !failure_timer)
-		addtimer(CALLBACK(src, .proc/coolant_failure), rand(50, 80))
+	if((coolantamount <= 0 || pumphealth <= 0) && !failure_timer)
+		addtimer(CALLBACK(src, .proc/coolant_failure), rand(100, 150))
 		failure_timer = TRUE
+	if((UB.brute_dam >= 20 ) && !pumpdmg_timer)
+		addtimer(CALLBACK(src, .proc/damage_pump), rand(100, 150))
+		pumpdmg_timer = TRUE
 
 /obj/item/organ/coolantpump/proc/coolant_failure()
 	var/mob/living/carbon/human/H = owner
@@ -366,7 +362,6 @@
 		return
 	var/obj/item/organ/external/O = pick(H.organs)
 	if(coolantamount <= 0)
-		to_chat(H, "<span class='danger'>You feel you should fill up your coolant</span>")
 		to_chat(H, "<span class='danger'>You're [O.name] begins to slowly glow red hot</span>")
 		if(prob(80))
 			H.apply_damage(10,BURN,O)
@@ -378,7 +373,14 @@
 		H.bodytemperature += 200
 	failure_timer = FALSE
 
-	
+/obj/item/organ/coolantpump/proc/damage_pump()
+	var/mob/living/carbon/human/H = owner
+	var/obj/item/organ/external/UB = H.organs_by_name["chest"]
+	if(!H) 
+		return
+	if(UB.brute_dam >= 20 )
+		pumphealth -= 0.4
+	pumpdmg_timer = FALSE
 
 /obj/item/organ/coolantpump/process()
 	var/mob/living/carbon/human/H = owner
