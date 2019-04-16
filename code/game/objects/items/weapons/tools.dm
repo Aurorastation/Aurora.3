@@ -89,7 +89,7 @@
 		return ..()
 	if(target_zone != "eyes" && target_zone != "head")
 		return ..()
-	if((CLUMSY in user.mutations) && prob(50))
+	if((user.is_clumsy()) && prob(50))
 		M = user
 	return eyestab(M,user)
 

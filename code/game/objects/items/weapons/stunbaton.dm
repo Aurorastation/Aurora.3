@@ -102,7 +102,7 @@
 /obj/item/weapon/melee/baton/attack(mob/living/L, mob/user, var/hit_zone)
 	if(!L) return
 
-	if(status && (CLUMSY in user.mutations) && prob(50))
+	if(status && (user.is_clumsy()) && prob(50))
 		to_chat(user, "<span class='danger'>You accidentally hit yourself with the [src]!</span>")
 		user.Weaken(30)
 		deductcharge(hitcost)
