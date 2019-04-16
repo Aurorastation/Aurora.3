@@ -391,9 +391,9 @@
 
 /datum/species/diona/equip_later_gear(var/mob/living/carbon/human/H)
 	if(istype(H.get_equipped_item(slot_back), /obj/item/weapon/storage/backpack))
-		H.equip_to_slot_or_del(new /obj/item/device/flashlight/flare((H.back), slot_in_backpack))
+		H.equip_to_slot_or_del(new /obj/item/device/flashlight/flare(H.back), slot_in_backpack)
 	else
-		H.equip_to_slot_or_del(new /obj/item/device/flashlight/flare((H), slot_r_hand))
+		H.equip_to_slot_or_del(new /obj/item/device/flashlight/flare(H), slot_r_hand)
 
 /datum/species/diona/handle_post_spawn(var/mob/living/carbon/human/H)
 	H.gender = NEUTER
@@ -770,10 +770,9 @@ datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
 
 /datum/species/bug/equip_later_gear(var/mob/living/carbon/human/H)
 	if(istype(H.get_equipped_item(slot_back), /obj/item/weapon/storage/backpack))
-		H.equip_to_slot_or_del(new /obj/item/weapon/storage/box/vaurca((H.back), slot_in_backpack))
+		H.equip_to_slot_or_del(new /obj/item/weapon/reagent_containers/inhaler/phoron_special(H.back), slot_in_backpack)
 	else
-		H.equip_to_slot_or_del(new /obj/item/weapon/storage/box/vaurca((H), slot_r_hand))
-
+		H.equip_to_slot_or_del(new /obj/item/weapon/reagent_containers/inhaler/phoron_special(H), slot_r_hand)
 
 /datum/species/bug/handle_post_spawn(var/mob/living/carbon/human/H)
 	H.gender = NEUTER
