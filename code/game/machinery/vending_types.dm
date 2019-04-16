@@ -486,7 +486,7 @@
 		/obj/item/seeds/towermycelium = 3,
 		/obj/item/seeds/watermelonseed = 3,
 		/obj/item/seeds/wheatseed = 3,
-		/obj/item/seeds/whitebeetseed = 3
+		/obj/item/seeds/whitebeetseed = 3,
 		/obj/item/seeds/nfrihi = 2,
 		/obj/item/seeds/nmshaan = 2
 	)
