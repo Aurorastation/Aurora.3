@@ -23,10 +23,12 @@
 
 //I would prefer to rename this to attack(), but that would involve touching hundreds of files.
 /obj/item/weapon/bee_smoker/resolve_attackby(atom/A, mob/user)
-	if (istype(A, /obj/structure/sink))
-		A.reagents.trans_to_obj(src, max_fuel)
-		to_chat(user, "<span class='notice'>Smoker refilled!</span>")
-		playsound(src.loc, 'sound/effects/refill.ogg', 50, 1, -6)
+	if (istype(A, /obj/item/weapon/reagent_containers/glass))
+		if (A.reagents.has_reagent("woodpulp", 1))
+			A.reagents.trans_to_obj(src, max_fuel)
+			to_chat(user, "<span class='notice'>Smoker refilled!</span>")
+			playsound(src.loc, 'sound/effects/refill.ogg', 50, 1, -6)
+		return 1
 	else if (istype(A, /obj/machinery/beehive/))
 		var/obj/machinery/beehive/B = A
 		if(B.closed)
