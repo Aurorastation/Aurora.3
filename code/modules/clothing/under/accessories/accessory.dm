@@ -313,12 +313,6 @@
 	icon_state = "zebrascarf"
 	item_state = "zebrascarf"
 
-/obj/item/clothing/accessory/scarf/offworlder
-	name = "pioneer's scarf"
-	desc = "Usually a treasured item, these spider-silk scarves are seen passed down by generations of expeditionaries."
-	icon_state = "pioneer_scarf"
-	item_state = "pioneer_scarf"
-
 /obj/item/clothing/accessory/chaps
 	name = "brown chaps"
 	desc = "A pair of loose, brown leather chaps."
