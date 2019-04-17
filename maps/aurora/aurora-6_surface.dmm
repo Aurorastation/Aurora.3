@@ -15576,6 +15576,10 @@
 /area/crew_quarters/toilet)
 "CS" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/structure/table/standard,
+/obj/item/weapon/reagent_containers/toothpaste,
+/obj/item/weapon/reagent_containers/toothbrush/red,
+/obj/item/weapon/reagent_containers/toothbrush,
 /turf/simulated/floor/tiled/freezer,
 /area/crew_quarters/toilet)
 "CU" = (
