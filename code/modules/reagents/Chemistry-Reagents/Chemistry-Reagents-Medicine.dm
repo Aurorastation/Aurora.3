@@ -1080,7 +1080,7 @@
 	description = "A mixture of several high-energy amino acids, based on the secretions and saliva of V'krexi larvae."
 	reagent_state = LIQUID
 	color = "#bcd827"
-	metabolism = REM * 0.8
+	metabolism = 0.4 * REM
 	overdose = 20
 	data = 0
 	taste_description = "bitterness"
