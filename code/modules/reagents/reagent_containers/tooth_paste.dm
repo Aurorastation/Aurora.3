@@ -48,7 +48,7 @@
 	return
 
 /obj/item/weapon/reagent_containers/toothbrush/self_feed_message(var/mob/user)
-	user.visible_message("<span class='notice'>\The [user] brushes [user.get_pronoun(1)] teeth with \the [src]</span>","<span class='notice'>You brush your teeh with \the [src]</span>")
+	user.visible_message("<span class='notice'>\The [user] brushes [user.get_pronoun(1)] teeth with \the [src]</span>","<span class='notice'>You brush your teeth with \the [src]</span>")
 
 /obj/item/weapon/reagent_containers/toothbrush/other_feed_message_start(var/mob/user, var/mob/target)
 	user.visible_message("<span class='warning'>[user] is trying to brush \the [target]'s teeth \the [src]!</span>")
