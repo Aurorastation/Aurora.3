@@ -2165,6 +2165,7 @@
 #include "code\modules\reagents\reagent_containers\pill.dm"
 #include "code\modules\reagents\reagent_containers\spray.dm"
 #include "code\modules\reagents\reagent_containers\syringes.dm"
+#include "code\modules\reagents\reagent_containers\tooth_paste.dm"
 #include "code\modules\reagents\reagent_containers\food\cans.dm"
 #include "code\modules\reagents\reagent_containers\food\condiment.dm"
 #include "code\modules\reagents\reagent_containers\food\drinks.dm"
