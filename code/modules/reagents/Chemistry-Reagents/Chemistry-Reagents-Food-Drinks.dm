@@ -1595,10 +1595,11 @@
 /datum/reagent/drink/toothpaste
 	name = "Toothpaste"
 	id = "toothpaste"
-	description = "A chemical commonly used in dental care."
+	description = "A paste commonly used in oral hygiene."
 	reagent_state = LIQUID
 	color = "#b1eae8"
 	taste_description = "toothpaste"
+	overdose = REAGENTS_OVERDOSE
 	var/strength = 50
 
 	glass_icon_state = "toothpaste"
