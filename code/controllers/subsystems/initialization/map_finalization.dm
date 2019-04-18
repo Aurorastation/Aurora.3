@@ -77,3 +77,31 @@
 	log_ss("map_finalization","Loaded [dungeons_placed] asteroid dungeons in [(world.time - start_time)/10] seconds.")
 
 	qdel(maploader)
+
+/proc/create_space_ruin(var/X, var/Y, var/Z)
+	var/map_directory = "maps/space_ruins/"
+	var/list/files = flist(map_directory)
+	var/start_time = world.time
+	var/static/dmm_suite/maploader = new
+
+	if(length(files) <= 0)
+		log_ss("map_finalization","There are no space ruin map.")
+		return
+
+	var/chosen_ruin = pick(files)
+
+	if(!dd_hassuffix(chosen_ruin,".dmm"))
+		files -= chosen_ruin
+		log_ss("map_finalization","ALERT: [chosen_ruin] is not a .dmm file! Skipping!")
+
+	var/map_file = file("[map_directory][chosen_ruin]")
+
+	if(isfile(map_file))
+		log_ss("map_finalization","Loading space ruin '[chosen_ruin]' at coordinates [X], [Y], [Z].")
+		maploader.load_map(map_file,X,Y,Z)
+
+	else
+		log_ss("map_finalization","ERROR: Something weird happened with the file: [chosen_ruin].")
+
+	log_ss("map_finalization","Loaded [chosen_ruin] space ruin in [(world.time - start_time)/10] seconds.")
+	qdel(maploader)
