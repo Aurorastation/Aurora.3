@@ -451,3 +451,9 @@
 	path = /obj/item/weapon/handcuffs
 	hidden = 1
 	category = "General"
+
+/datum/autolathe/recipe/implanter
+	name = "implanter"
+	path = /obj/item/weapon/implanter
+	hidden = 1
+	category = "Medical"
