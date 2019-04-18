@@ -170,7 +170,7 @@
 
 /obj/item/clothing/suit/vaurca/shaper
 	name = "shaper robes"
-	desc = "A fashionable robe tailored for nonhuman proportions, this one is blue and golden."
+	desc = "Commonly worn by Preimmients, these robes are meant to catch pheromones, obfuscating hive affiliation."
 	icon_state = "shaper_robes"
 	item_state = "shaper_robes"
 	species_restricted = list("Vaurca")
