@@ -107,6 +107,18 @@
 /mob/living/simple_animal/proc/beg(var/atom/thing, var/atom/holder)
 	visible_emote("gazes longingly at [holder]'s [thing]",0)
 
+/mob/living/simple_animal/proc/steal_food(var/obj/item/weapon/reagent_containers/food/snacks/F, var/mob/living/carbon/human/H)
+	if(!F || !H)
+		return
+	H.visible_message(
+						span("warning", "\the [src] grabs \the [F] with its teeth and steals it from \the [H] hands. Taking a bite and dropping it on the floor."),
+						span("warning", "\the [src] grabs \the [F] with its teeth and steals it from your hands. Taking a bite and dropping it on the floor.")
+	)
+	H.drop_from_inventory(F)
+	UnarmedAttack(F)
+	if (get_turf(F) == loc)
+		set_dir(pick(NORTH, SOUTH, EAST, WEST, NORTH, NORTH))//Face a random direction when eating, but mostly upwards
+
 /mob/living/simple_animal/proc/update_nutrition_stats()
 	nutrition_step = mob_size * 0.03 * metabolic_factor
 	bite_factor = mob_size * 0.3
@@ -599,22 +611,8 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 						if (get_turf(movement_target) == loc)
 							set_dir(pick(NORTH, SOUTH, EAST, WEST, NORTH, NORTH))//Face a random direction when eating, but mostly upwards
 					else if(ishuman(movement_target.loc) && Adjacent(get_turf(movement_target.loc)) && (prob(10) || nutrition / max_nutrition <= 0.25))
-						var/mob/living/carbon/human/H = movement_target.loc
-						var/obj/item/weapon/reagent_containers/food/snacks/F = null
-						if(istype(H.l_hand, /obj/item/weapon/reagent_containers/food/snacks))
-							F = H.l_hand
-
-						else if(istype(H.r_hand, /obj/item/weapon/reagent_containers/food/snacks))
-							F = H.r_hand
 						if(nutrition / max_nutrition <= 0.25)
-							H.visible_message(
-												span("warning", "\the [src] grabs \the [F] with its teeth and steals it from \the [H] hands. Taking a bite and dropping it on the floor."),
-												span("warning", "\the [src] grabs \the [F] with its teeth and steals it from your hands. Taking a bite and dropping it on the floor.")
-							)
-							H.drop_from_inventory(F)
-							UnarmedAttack(F)
-							if (get_turf(F) == loc)
-								set_dir(pick(NORTH, SOUTH, EAST, WEST, NORTH, NORTH))//Face a random direction when eating, but mostly upwards
+							steal_food(movement_target, movement_target.loc)
 						else
 							beg(movement_target, movement_target.loc)
 			else
