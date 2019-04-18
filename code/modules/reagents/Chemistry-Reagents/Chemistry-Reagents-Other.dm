@@ -824,4 +824,3 @@
 /datum/reagent/bottle_lightning/touch_turf(var/turf/T)
 	if(volume >= 5)
 		tesla_zap(T, 6, 1500)
-
