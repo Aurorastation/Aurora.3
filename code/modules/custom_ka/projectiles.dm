@@ -103,5 +103,5 @@
 
 	if(new_aoe > 0)
 		for(var/new_target in orange(new_aoe, target_turf))
-			src.Collide(new_target, 0, damage_scale * 0.75)
+			src.Collide(new_target, 0, min(damage_scale - damage_scale * get_dist(new_target, target_turf) * 0.25, 0))
 			CHECK_TICK
