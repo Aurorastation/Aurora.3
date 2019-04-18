@@ -627,7 +627,7 @@
 	var/pressure = environment.return_pressure()
 	var/adjusted_pressure = calculate_affecting_pressure(pressure)
 
-	if (is_diona())
+	if (consume_nutrition_from_air)
 		environment.remove(diona_handle_air(get_dionastats(), pressure))
 
 	//Check for contaminants before anything else because we don't want to skip it.
