@@ -23,7 +23,7 @@
 
 //I would prefer to rename this to attack(), but that would involve touching hundreds of files.
 /obj/item/weapon/bee_smoker/resolve_attackby(atom/A, mob/user)
-	if (istype(A, /obj/item/weapon/reagent_containers/glass))
+	if (istype(A, /obj/structure/reagent_dispensers/woodpulp))
 		if (A.reagents.has_reagent("woodpulp", 1))
 			A.reagents.trans_to_obj(src, max_fuel)
 			to_chat(user, "<span class='notice'>Smoker refilled!</span>")
