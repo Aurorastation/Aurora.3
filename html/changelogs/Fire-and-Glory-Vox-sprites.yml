@@ -41,3 +41,4 @@ changes:
   - imageadd: "Added sprites for when a Vox wears security vests. And ported Vox military jackets and suit jackets."
   - imageadd: "Ported Paradise sprites for when a Vox uses a welding helmet."
   - imageadd: "Ported Paradise Vox eyepatches and modified various eyewear."
+  - tweak: "When Vox wear tactical gas masks the sprite will default to a normal gas mask instead of a breath mask."
