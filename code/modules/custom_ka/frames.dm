@@ -9,7 +9,7 @@
 	capacity_increase = 3
 	mod_limit_increase = 2
 	origin_tech = list(TECH_MATERIAL = 1,TECH_ENGINEERING = 1)
-	slot_flags = SLOT_BELT|SLOT_BACK
+	slot_flags = SLOT_BELT
 
 /obj/item/weapon/gun/custom_ka/frame02
 	name = "light kinetic accelerator frame"
