@@ -1,5 +1,6 @@
 /obj/item/weapon/implanter
 	name = "implanter"
+	desc = "A feared device with a sharp needle designed to press subdermal implants painlessly beneath the skin"
 	icon = 'icons/obj/items.dmi'
 	icon_state = "implanter0"
 	item_state = "syringe_0"
