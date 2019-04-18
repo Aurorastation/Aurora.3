@@ -4,4 +4,4 @@ delete-after: true
 
 changes:
   - rscadd: "Adds the implanter to protolathe with corsponding material value and research."
-  - rscadd: "Adds debugger to autolathe."
+  - rscadd: "Adds debugger to cargo for 100 credits"
