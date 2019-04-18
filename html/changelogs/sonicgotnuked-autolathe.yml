@@ -1,0 +1,7 @@
+author: SonicGotNuked
+
+delete-after: true
+
+changes:
+  - rscadd: "Adds implanter to autolathe with corsponding material value."
+  - rscadd: "Adds debugger to autolathe."
