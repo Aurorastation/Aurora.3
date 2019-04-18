@@ -154,3 +154,12 @@
 	materials = list(DEFAULT_WALL_MATERIAL = 3000, "phoron" = 3000, "diamond" = 500)
 	build_path = /obj/item/weapon/reagent_containers/personal_inhaler_cartridge/bluespace
 	sort_string = "MBCAE"
+	
+/datum/design/item/medical/implanter
+	name = "Implanter"
+	desc = "A device used to painlessly inject subdermal implants beneath the skin."
+	id = "implanter"
+	req_tech = list(TECH_MATERIAL = 3, TECH_BIO = 4)
+	materials = list(DEFAULT_WALL_MATERIAL = 1500, "glass" = 750)
+	build_path = /obj/item/weapon/implanter
+	sort_string = "MBCAF"
