@@ -113,7 +113,7 @@
 	energy_drain = 40
 	projectiles_per_shot = 1
 	equip_cooldown = 15
-	projectile = /obj/item/projectile/kinetic
+	projectile = /obj/item/projectile/kinetic/mech
 	fire_sound = 'sound/weapons/Kenetic_accel.ogg'
 	required_type = list(/obj/mecha/combat, /obj/mecha/working/hoverpod/combatpod, /obj/mecha/working/ripley)
 
@@ -130,4 +130,4 @@
 	projectiles_per_shot = 3
 	fire_cooldown = 3
 	equip_cooldown = 30
-	projectile = /obj/item/projectile/kinetic
+	projectile = /obj/item/projectile/kinetic/mech/burst
