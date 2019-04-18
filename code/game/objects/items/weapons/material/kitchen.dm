@@ -29,7 +29,7 @@
 
 	if(user.a_intent != I_HELP)
 		if(target_zone == "head" || target_zone == "eyes")
-			if((CLUMSY in user.mutations) && prob(50))
+			if((user.is_clumsy()) && prob(50))
 				M = user
 			return eyestab(M,user)
 		else
@@ -101,7 +101,7 @@
 	unbreakable = 1
 
 /obj/item/weapon/material/kitchen/utensil/knife/attack(target as mob, mob/living/user as mob, var/target_zone)
-	if ((CLUMSY in user.mutations) && prob(50))
+	if ((user.is_clumsy()) && prob(50))
 		to_chat(user, "<span class='warning'>You accidentally cut yourself with \the [src].</span>")
 		user.take_organ_damage(20)
 		return
@@ -124,7 +124,7 @@
 	thrown_force_divisor = 1 // as above
 
 /obj/item/weapon/material/kitchen/rollingpin/attack(mob/living/M as mob, mob/living/user as mob, var/target_zone)
-	if ((CLUMSY in user.mutations) && prob(50))
+	if ((user.is_clumsy()) && prob(50))
 		to_chat(user, "<span class='warning'>\The [src] slips out of your hand and hits your head.</span>")
 		user.drop_from_inventory(src)
 		user.take_organ_damage(10)

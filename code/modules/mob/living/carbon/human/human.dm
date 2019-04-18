@@ -1602,3 +1602,15 @@
 
 /mob/living/carbon/human/get_metabolism(metabolism)
 	return ..() * (species ? species.metabolism_mod : 1)
+
+/mob/living/carbon/human/is_clumsy()
+	if(CLUMSY in mutations)
+		return TRUE
+
+	var/bac = get_blood_alcohol()
+	var/SR = species.ethanol_resistance
+	if(SR>0)
+		if(bac > INTOX_REACTION*SR)
+			return TRUE
+
+	return FALSE
