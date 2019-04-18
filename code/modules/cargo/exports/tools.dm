@@ -99,3 +99,9 @@
 	cost = 60
 	unit_name = "compressed matter cartridge"
 	export_types = list(/obj/item/weapon/rcd_ammo)
+	
+/datum/export/debugger
+	cost = 100
+	unit_name = "Debugger"
+	export_types = list(/obj/item/device/debugger)
+	
