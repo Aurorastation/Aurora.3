@@ -74,7 +74,8 @@
 
 // This proc is used when one hostile mob targets another hostile mob.
 /mob/living/simple_animal/hostile/proc/being_targeted(var/mob/living/simple_animal/hostile/H)
-	if(!H || target_mob == H) return
+	if(!H || target_mob == H)
+		return
 	target_mob = H
 	FoundTarget()
 	stance = HOSTILE_STANCE_ATTACKING
