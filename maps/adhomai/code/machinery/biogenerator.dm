@@ -33,6 +33,14 @@
 			cost = 200,
 			amount = list(1,2,3,4,5),
 			emag = 0
+		),
+		"cardboard" = list(
+			name = "Cardboard",
+			class = "Construction",
+			object = /obj/item/stack/material/cardboard,
+			cost = 50,
+			amount = list(1,5,10,25,50),
+			emag = 0
 		)
 
 	)
