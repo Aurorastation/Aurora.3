@@ -319,6 +319,11 @@
 	name = "portable suit cooling unit"
 	path = /obj/item/device/suit_cooling_unit
 	category = "Engineering"
+	
+/datum/autolathe/recipe/debugger
+	name = "debugger"
+	path = /obj/item/device/debugger
+	category = "Engineering"
 
 /datum/autolathe/recipe/flamethrower
 	name = "flamethrower"
