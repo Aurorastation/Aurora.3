@@ -56215,6 +56215,8 @@
 	},
 /obj/item/weapon/storage/fancy/candle_box,
 /obj/item/weapon/storage/fancy/candle_box,
+/obj/item/weapon/reagent_containers/toothpaste,
+/obj/item/weapon/reagent_containers/toothpaste,
 /turf/simulated/floor/wood,
 /area/crew_quarters/bar)
 "bTq" = (
