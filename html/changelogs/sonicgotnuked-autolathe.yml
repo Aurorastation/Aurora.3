@@ -3,5 +3,5 @@ author: SonicGotNuked
 delete-after: true
 
 changes:
-  - rscadd: "Adds implanter to autolathe with corsponding material value."
+  - rscadd: "Adds the implanter to protolathe with corsponding material value and research."
   - rscadd: "Adds debugger to autolathe."
