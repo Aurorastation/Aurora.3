@@ -1,0 +1,5 @@
+author: Menown
+delete-after: True
+changes: 
+  - bugfix: "Fixed bugged hand location on Suns Priest robes. Fixed missing cloak portions on gruff cloak, between legs."
+  - tweak: "Changed laborer's outfit. More defined buttons, brass suspender clips, crossback suspenders. Added sleeves to Suns Sister's robe."
