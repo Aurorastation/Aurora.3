@@ -319,11 +319,6 @@
 	name = "portable suit cooling unit"
 	path = /obj/item/device/suit_cooling_unit
 	category = "Engineering"
-	
-/datum/autolathe/recipe/debugger
-	name = "debugger"
-	path = /obj/item/device/debugger
-	category = "Engineering"
 
 /datum/autolathe/recipe/flamethrower
 	name = "flamethrower"
@@ -461,9 +456,3 @@
 	name = "miniature cell"
 	path = /obj/item/weapon/cell/device/emergency_light/empty
 	category = "Engineering"
-	
-/datum/autolathe/recipe/implanter
-	name = "implanter"
-	path = /obj/item/weapon/implanter
-	hidden = 1
-	category = "Medical"
