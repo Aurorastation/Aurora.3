@@ -102,6 +102,6 @@
 	
 /datum/export/debugger
 	cost = 100
-	unit_name = "Debugger"
+	unit_name = "debugger"
 	export_types = list(/obj/item/device/debugger)
 	
