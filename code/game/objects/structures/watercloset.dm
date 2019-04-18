@@ -412,7 +412,7 @@
 		user:update_inv_gloves()
 	for(var/mob/V in viewers(src, null))
 		V.show_message("<span class='notice'>[user] washes their hands using \the [src].</span>")
-
+		playsound(src.loc, 'sound/effects/sink_empty.ogg', 25, 1)
 
 /obj/structure/sink/attackby(obj/item/O as obj, mob/user as mob)
 	if(busy)

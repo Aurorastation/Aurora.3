@@ -11,6 +11,7 @@
 	var/material/material
 	var/perunit
 	var/apply_colour //temp pending icon rewrite
+	drop_sound = 'sound/items/drop/axe.ogg'
 
 /obj/item/stack/material/Initialize()
 	. = ..()
@@ -176,17 +177,20 @@
 	name = "wooden plank"
 	icon_state = "sheet-wood"
 	default_type = "wood"
+	drop_sound = 'sound/items/drop/wooden.ogg'
 
 /obj/item/stack/material/cloth
 	name = "cloth"
 	icon_state = "sheet-cloth"
 	default_type = "cloth"
 	icon_has_variants = TRUE
+	drop_sound = 'sound/items/drop/clothing.ogg'
 
 /obj/item/stack/material/cardboard
 	name = "cardboard"
 	icon_state = "sheet-card"
 	default_type = "cardboard"
+	drop_sound = 'sound/items/drop/box.ogg'
 
 /obj/item/stack/material/leather
 	name = "leather"
@@ -194,6 +198,7 @@
 	icon_state = "sheet-leather"
 	default_type = "leather"
 	icon_has_variants = TRUE
+	drop_sound = 'sound/items/drop/clothing.ogg'
 
 /obj/item/stack/material/glass
 	name = "glass"

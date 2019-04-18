@@ -188,6 +188,7 @@
 	attack_verb = list("attacked", "chopped", "cleaved", "torn", "cut")
 	applies_material_colour = 0
 	can_embed = 0
+	drop_sound = 'sound/items/drop/axe.ogg'
 
 /obj/item/weapon/material/twohanded/fireaxe/afterattack(atom/A, mob/user, proximity)
 	if(!proximity) return
