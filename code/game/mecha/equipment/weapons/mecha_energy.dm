@@ -114,7 +114,7 @@
 	projectiles_per_shot = 1
 	equip_cooldown = 15
 	var/damage = 40
-	var/aoe = 7
+	var/aoe = 5
 	projectile = /obj/item/projectile/kinetic
 	fire_sound = 'sound/weapons/Kenetic_accel.ogg'
 	required_type = list(/obj/mecha/combat, /obj/mecha/working/hoverpod/combatpod, /obj/mecha/working/ripley)
