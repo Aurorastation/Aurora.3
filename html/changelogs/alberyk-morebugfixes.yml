@@ -1,7 +1,0 @@
-author: Alberyk
-
-delete-after: True
-
-changes: 
-  - bugfix: "Vaurca and diona should now get their survivals items."
-  - bugfix: "The ESS helmet should now offer welding protection."
