@@ -38,4 +38,6 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
-  - imageadd: "Added sprites for when a Vox wears security or mercenary vests, plus warden jacket, as well as when they use a welding helmet."
+  - imageadd: "Added sprites for when a Vox wears security vests. And ported Vox military jackets and suit jackets."
+  - imageadd: "Ported Paradise sprites for when a Vox uses a welding helmet."
+  - imageadd: "Ported Paradise Vox eyepatches and modified various eyewear."
