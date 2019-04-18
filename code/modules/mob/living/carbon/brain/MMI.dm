@@ -34,40 +34,7 @@
 
 	attackby(var/obj/item/O as obj, var/mob/user as mob)
 		if(istype(O,/obj/item/organ/brain) && !brainmob) //Time to stick a brain in it --NEO
-			var/obj/item/organ/brain/B = O
-			if(B.health <= 0)
-				to_chat(user, "<span class='warning'>That brain is well and truly dead.</span>")
-				return
-			else if(!B.lobotomized && B.can_lobotomize)
-				to_chat(user, "<span class='warning'>The brain won't fit until you perform a lobotomy!</span>")
-				return
-			else if(!B.can_lobotomize)
-				to_chat(user, "<span class='warning'>The [B] is incompatible with [src]!</span>")
-			else if(!B.brainmob)
-				to_chat(user, "<span class='warning'>You aren't sure where this brain came from, but you're pretty sure it's a useless brain.</span>")
-				return
-
-			user.visible_message("<span class='notice'>[user] sticks \a [B] into \the [src].</span>")
-
-			brainmob = B.brainmob
-			B.brainmob = null
-			brainmob.forceMove(src)
-			brainmob.container = src
-			brainmob.stat = 0
-			dead_mob_list -= brainmob//Update dem lists
-			living_mob_list += brainmob
-
-
-			brainobj = B
-			user.drop_from_inventory(brainobj,src)
-
-			name = "Man-Machine Interface: [brainmob.real_name]"
-			icon_state = "mmi_full"
-
-			locked = 1
-
-			feedback_inc("cyborg_mmis_filled",1)
-
+			to_chat(user, "<span class='warning'>That brain is well and truly dead.</span>")
 			return
 
 		if((istype(O,/obj/item/weapon/card/id)||istype(O,/obj/item/device/pda)) && brainmob)
