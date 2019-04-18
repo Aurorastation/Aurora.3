@@ -545,3 +545,6 @@
 
 /datum/species/proc/equip_later_gear(var/mob/living/carbon/human/H) //this handles anything not covered by survival gear, it is only called after everything else is equiped to the mob
 	return
+
+/datum/species/proc/get_cloning_variant()
+	return name
