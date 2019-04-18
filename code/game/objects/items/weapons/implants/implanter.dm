@@ -6,7 +6,7 @@
 	throw_speed = 1
 	throw_range = 5
 	w_class = 2.0
-	material = list(DEFAULT_WALL_MATERIAL = 200,"glass" = 75)
+	matter = list(DEFAULT_WALL_MATERIAL = 200,"glass" = 75)
 	var/obj/item/weapon/implant/imp = null
 
 /obj/item/weapon/implanter/attack_self(var/mob/user)
