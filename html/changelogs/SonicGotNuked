@@ -1,0 +1,5 @@
+author: SonicGotNuked
+delete-after: True
+
+  - rscadd: "Added the implanter to the autolathe."
+  - rscadd: "Added the debugger to the autolathe."
