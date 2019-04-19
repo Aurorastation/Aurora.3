@@ -38,6 +38,6 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
-  - tweak: "Maintenance drones can now pull disposal pipe."
-  - tweak: "Maintenance drones can now hold atmospherics pipe."
-  - tweak: "Maintenance drones can now access the rooftop solars."
+  - tweak: "Maintenance drones can now pull disposal pipes."
+  - tweak: "Maintenance drones can now hold atmospherics pipes."
+  - maptweak: "Maintenance drones can now access the rooftop solars."
