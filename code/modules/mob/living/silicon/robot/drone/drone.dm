@@ -41,6 +41,8 @@
 
 	can_pull_size = 3
 	can_pull_mobs = MOB_PULL_SMALLER
+	//Allow drones to pull disposal pipes
+	var/list/pull_list = list(/obj/structure/disposalconstruct)
 
 	mob_bump_flag = SIMPLE_ANIMAL
 	//mob_swap_flags = SIMPLE_ANIMAL
@@ -58,8 +60,6 @@
 	var/range_limit = 1
 
 	holder_type = /obj/item/weapon/holder/drone
-	//Allow drones to pull disposal pipes
-	var/list/pull_list = list(/obj/structure/disposalconstruct)
 
 /mob/living/silicon/robot/drone/can_be_possessed_by(var/mob/abstract/observer/possessor)
 	if(!istype(possessor) || !possessor.client || !possessor.ckey)
@@ -331,7 +331,9 @@
 
 //Custom pulling proc to account for unique pulling abilities
 /mob/living/silicon/robot/drone/start_pulling(var/atom/movable/AM)
-	if(!AM) return
+	if(!AM)
+		return
+
 	for(var/A in pull_list)
 		if(istype(AM, A))
 			if(pulling)
