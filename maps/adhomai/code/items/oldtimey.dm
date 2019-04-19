@@ -194,6 +194,7 @@
 	force_wielded = 15.0
 	digspeed_unwielded = 30
 	digspeed_wielded = 10
+	contained_sprite = 1
 
 /obj/item/device/radio/intercom/basestation/adhomai/nka
 	name = "basestation"
@@ -230,3 +231,20 @@
 	desc = "The standard issue leather wrapped lighter of the Imperial Adhomian Army. It depicts the suns eclipsing in a silver embossing."
 	icon = 'icons/adhomai/items.dmi'
 	icon_state = "lighter_nka"
+
+/obj/item/weapon/material/scythe
+	name = "hand-scythe"
+	desc = "A small curved gardening and farming tool. A symbol of communist governments everywhere."
+	icon = 'icons/adhomai/items.dmi'
+	icon_state = "hand-scythe"
+	item_state = "hand_scythe"
+	contained_sprite = 1
+	w_class = 2
+
+/obj/item/weapon/wirecutters/clippers/trimmers
+	name = "trimmers"
+	desc = "Large pair of shears. Real descriptive."
+	icon = 'icons/adhomai/items.dmi'
+	icon_state = "hedget"
+	item_state = "hedget"
+	contained_sprite = 1

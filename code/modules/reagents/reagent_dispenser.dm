@@ -336,3 +336,14 @@
 /obj/structure/reagent_dispensers/cookingoil/bullet_act(var/obj/item/projectile/Proj)
 	if(Proj.get_structure_damage())
 		ex_act(2.0)
+
+/obj/structure/reagent_dispensers/woodpulp
+	name = "wood pulp tank"
+	desc = "A tank filled with a lot of wood pulp, probably an organic fuel source."
+	icon = 'icons/obj/objects.dmi'
+	icon_state = "lubetank"
+	amount_per_transfer_from_this = 10
+
+/obj/structure/reagent_dispensers/woodpulp/Initialize()
+	. = ..()
+	reagents.add_reagent("woodpulp",capacity)

@@ -133,6 +133,7 @@
 	recipes += new/datum/stack_recipe("buckler donut", /obj/item/weapon/material/woodenshield, 20, time = 25, one_per_turf = 0, on_floor = 0)
 	recipes += new/datum/stack_recipe("bonfire", /obj/structure/bonfire, 8, time = 25, one_per_turf = 1, on_floor = 1)
 	recipes += new/datum/stack_recipe("torch", /obj/item/device/flashlight/flare/torch, 2, time = 15, one_per_turf = 0, on_floor = 0)
+	recipes += new/datum/stack_recipe("skewer", /obj/item/weapon/reagent_containers/cooking_container/fire/skewer, 1, 4, 20)
 
 /material/cardboard/generate_recipes()
 	..()
@@ -186,3 +187,8 @@
 /material/diamond/generate_recipes()
 	..()
 	recipes += new/datum/stack_recipe("diamond floor tile", /turf/simulated/floor/diamond, 1, 4, 20)
+
+/material/iron/generate_recipes()
+	..()
+	recipes += new/datum/stack_recipe("cooking pot", /obj/item/weapon/reagent_containers/cooking_container/fire/pot, 3)
+	recipes += new/datum/stack_recipe("stove", /obj/structure/bonfire/fireplace/stove, 20, time = 25, one_per_turf = 1, on_floor = 1)
