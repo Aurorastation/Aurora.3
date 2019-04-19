@@ -19083,10 +19083,7 @@
 /turf/simulated/floor/carpet,
 /area/crew_quarters/captain)
 "aHh" = (
-/obj/machinery/atm{
-	dir = 1;
-	pixel_y = -33
-	},
+/obj/structure/displaycase,
 /turf/simulated/floor/carpet,
 /area/crew_quarters/captain)
 "aHi" = (
