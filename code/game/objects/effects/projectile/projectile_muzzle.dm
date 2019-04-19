@@ -7,7 +7,7 @@
 	light_color = LIGHT_COLOR_RED
 
 /obj/effect/projectile/muzzle/laser/blue
-	icon_state = "muzzle_laser_blue"
+	icon_state = "muzzle_blue"
 	light_color = LIGHT_COLOR_BLUE
 
 /obj/effect/projectile/muzzle/disabler
@@ -71,3 +71,7 @@
 
 /obj/effect/projectile/muzzle/gauss
 	icon_state = "muzzle_gauss"
+
+/obj/effect/projectile/muzzle/bfg
+	icon_state = "muzzle_bfg"
+	light_color = LIGHT_COLOR_GREEN

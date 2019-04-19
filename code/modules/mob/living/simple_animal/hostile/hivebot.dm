@@ -1,39 +1,59 @@
 #define NORMAL 1
 #define RANGED 2
 #define RAPID  3
-#define STRONG 4
 
-/obj/item/projectile/bullet/pistol/hivebotbullet
-	name = "hivebot bullet"
+/obj/item/projectile/bullet/pistol/hivebotspike
+	name = "spike"
 	damage = 10
+	sharp = 1
 	embed = 0
-	sharp = 0
-	irradiate = 20
 
-/obj/item/projectile/beam/hivebotlaser
-	name = "toxic beam"
+/obj/item/projectile/bullet/pistol/hivebotspike/needle
+	name = "needle"
+	damage = 5
+
+/obj/item/projectile/beam/hivebotdischarge
+	name = "electrical discharge"
+	damage = 3
+	damage_type = HALLOSS
+	taser_effect = 1
+	agony = 30
+	nodamage = 1
+	muzzle_type = /obj/effect/projectile/muzzle/stun
+	tracer_type = /obj/effect/projectile/tracer/stun
+	impact_type = /obj/effect/projectile/impact/stun
+
+/obj/item/projectile/beam/hivebotbeam
+	name = "toxic particle burst"
 	damage = 7
 	damage_type = TOX
-	irradiate = 20
-	stun = 3
+	irradiate = 30
 	weaken = 3
 	stutter = 3
-	muzzle_type = /obj/effect/projectile/muzzle/xray
-	tracer_type = /obj/effect/projectile/tracer/xray
-	impact_type = /obj/effect/projectile/impact/xray
+	muzzle_type = /obj/effect/projectile/muzzle/bfg
+	tracer_type = /obj/effect/projectile/tracer/bfg
+	impact_type = /obj/effect/projectile/impact/bfg
+
+/obj/item/projectile/beam/hivebotincendiary
+	name = "archaic energy cutter"
+	damage = 5
+	incinerate = 3
+	muzzle_type = /obj/effect/projectile/muzzle/laser/blue
+	tracer_type = /obj/effect/projectile/tracer/laser/blue
+	impact_type = /obj/effect/projectile/impact/laser/blue
 
 /mob/living/simple_animal/hostile/hivebot
 	name = "Hivebot"
-	desc = "A small robot"
+	desc = "A primitive in design, hovering robot, with some menacing looking blades jutting out from it. It bears no manufacturer markings of any kind."
 	icon = 'icons/mob/npc/hivebot.dmi'
 	icon_state = "hivebot"
 	health = 15
 	maxHealth = 15
-	melee_damage_lower = 2
-	melee_damage_upper = 3
+	melee_damage_lower = 4
+	melee_damage_upper = 5
 	attacktext = "slashed"
-	projectilesound = 'sound/weapons/Gunshot.ogg'
-	projectiletype = /obj/item/projectile/bullet/pistol/hivebotbullet
+	projectilesound = 'sound/weapons/bladeslice.ogg'
+	projectiletype = /obj/item/projectile/bullet/pistol/hivebotspike
 	faction = "hivebot"
 	min_oxy = 0
 	max_oxy = 0
@@ -51,23 +71,17 @@
 
 /mob/living/simple_animal/hostile/hivebot/range
 	name = "Hivebot"
-	desc = "A smallish robot, this one is armed!"
+	desc = "A primitive in design, hovering robot, with a simple looking launcher sticking out of it. It bears no manufacturer markings of any kind."
+	icon_state = "hivebotranged"
 	ranged = 1
 	smart = TRUE
 
 /mob/living/simple_animal/hostile/hivebot/range/rapid
+	projectiletype = /obj/item/projectile/bullet/pistol/hivebotspike/needle
 	rapid = 1
 
-/mob/living/simple_animal/hostile/hivebot/range/strong
-	name = "Armored Hivebot"
-	desc = "A robot, this one is armed and looks tough!"
-	icon_state = "hivebotstrong"
-	health = 90
-	maxHealth = 90
-
 /mob/living/simple_animal/hostile/hivebot/death()
-	..()
-	visible_message("<b>[src]</b> blows apart!")
+	..(null,"blows apart!")
 	var/T = get_turf(src)
 	new /obj/effect/gibspawner/robot(T)
 	spark(T, 3, alldirs)
@@ -92,21 +106,22 @@
 		apply_damage(5)
 
 /mob/living/simple_animal/hostile/hivebotbeacon
-	name = "Beacon"
-	desc = "Some odd beacon thing"
+	name = "Hivebot beacon"
+	desc = "An odd and primitive looking machine. It emanates of strange and powerful energies. It bears no manufacturer markings of any kind."
 	icon = 'icons/mob/npc/hivebot.dmi'
 	icon_state = "hivebotbeacon_active"
 	icon_living = "hivebotbeacon_active"
-	health = 200
-	maxHealth = 200
-	projectilesound = 'sound/weapons/laser3.ogg'
-	projectiletype = /obj/item/projectile/beam/hivebotlaser
+	health = 150
+	maxHealth = 150
+	projectilesound = 'sound/weapons/taser2.ogg'
+	projectiletype = /obj/item/projectile/beam/hivebotdischarge
 	status_flags = 0
 	anchored = 1
 	stop_automated_movement = 1
 	faction = "hivebot"
 	ranged = 1
 	smart = 1
+	rapid = 1
 	min_oxy = 0
 	max_oxy = 0
 	min_tox = 0
@@ -116,18 +131,28 @@
 	min_n2 = 0
 	max_n2 = 0
 	minbodytemp = 0
-	speed = -1
-	var/bot_type = NORMAL // type of bot, 1 is normal, 2 is ranged, 3 is rapid ranged, 4 is ranged/strong.
-	var/bot_amt = 10
-	var/spawn_delay = 600
+	speed = -10
+	var/bot_type = NORMAL // type of bot, 1 is normal, 2 is ranged, 3 is rapid ranged
+	var/bot_amt = 32
+	var/spawn_delay = 10
 	var/activated = 0
 	attack_emote = "focuses on"
+	var/
+
+/mob/living/simple_animal/hostile/hivebotbeacon/toxic
+	projectiletype = /obj/item/projectile/beam/hivebotbeam
+	projectilesound = 'sound/weapons/laser3.ogg'
+	rapid = 0
+
+/mob/living/simple_animal/hostile/hivebotbeacon/incendiary
+	projectiletype = /obj/item/projectile/beam/hivebotincendiary
+	projectilesound = 'sound/weapons/resonator_blast.ogg'
+	rapid = 0
 
 /mob/living/simple_animal/hostile/hivebotbeacon/death()
-	..()
-	visible_message("<b>The Beacon</b> blows apart and erupts in a cloud of noxious smoke!")
+	..(null,"blows apart and erupts in a cloud of noxious smoke!"
 	var/datum/effect/effect/system/smoke_spread/S = new /datum/effect/effect/system/smoke_spread()
-	S.set_up(5, 0, src.loc)
+	S.set_up(10, 0, src.loc)
 	S.start()
 	new /obj/effect/decal/cleanable/greenglow(src.loc)
 	var/T = get_turf(src)
@@ -197,17 +222,12 @@
 			new /mob/living/simple_animal/hostile/hivebot/range(get_turf(src))
 		if(RAPID)
 			new /mob/living/simple_animal/hostile/hivebot/range/rapid(get_turf(src))
-		if(STRONG)
-			new /mob/living/simple_animal/hostile/hivebot/range/strong(get_turf(src))
 
 	if(prob(30))
 		if(prob(70))
-			if(prob(60))
-				bot_type = RANGED
-			else
-				bot_type = RAPID
+			bot_type = RANGED
 		else
-			bot_type = STRONG
+			bot_type = RAPID
 	else
 		bot_type = NORMAL
 	bot_amt--
@@ -224,4 +244,3 @@
 #undef NORMAL
 #undef RANGED
 #undef RAPID
-#undef STRONG
