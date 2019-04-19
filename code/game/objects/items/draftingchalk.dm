@@ -12,8 +12,6 @@
 	. = ..()
 	if (mapload)
 		queue_smooth(src)
-		for (var/obj/effect/decal/cleanable/draftingchalk/C in orange(1, src))
-			queue_smooth(C)
 	else
 		smooth_icon(src)
 		for (var/obj/effect/decal/cleanable/draftingchalk/C in orange(1, src))
