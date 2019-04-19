@@ -389,7 +389,7 @@
 		)
 
 /obj/item/weapon/storage/belt/sabre/AltClick(mob/user)
-	if(!usr || usr.stat || usr.lying || usr.restrained() || !Adjacent(usr))
+	if (use_check(user, USE_DISALLOW_SILICONS))
 		return
 	if(length(contents))
 		var/obj/item/I = contents[1]
@@ -406,7 +406,7 @@
 	if(contents.len)
 		icon_state += "-redsabre"
 		item_state += "-redsabre"
-	if(loc && istype(loc, /mob/living))
+	if(istype(loc, /mob/living))
 		var/mob/living/L = loc
 		L.regenerate_icons()
 	..()

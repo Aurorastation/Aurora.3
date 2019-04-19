@@ -161,14 +161,12 @@
 	applies_material_colour = 0
 	slot_flags = 0
 
-/obj/item/weapon/material/sword/captain_sword/on_exit_storage(obj/item/weapon/storage/S)
-	..()
-	var/obj/item/weapon/storage/belt/sabre/B = S
-	if(istype(B))
-		playsound(B, 'sound/items/unsheath.ogg', 25, 1)
+/obj/item/weapon/material/sword/captain_sword/on_enter_storage(obj/item/weapon/storage/belt/sabre/B)
+    ..()
+    if(istype(B))
+        playsound(B, 'sound/items/sheath.ogg', 25, 1)
 
-/obj/item/weapon/material/sword/captain_sword/on_enter_storage(obj/item/weapon/storage/S)
-	..()
-	var/obj/item/weapon/storage/belt/sabre/B = S
-	if(istype(B))
-		playsound(B, 'sound/items/sheath.ogg', 25, 1)
+/obj/item/weapon/material/sword/captain_sword/on_exit_storage(obj/item/weapon/storage/belt/sabre/B)
+    ..()
+    if(istype(B))
+        playsound(B, 'sound/items/unsheath.ogg', 25, 1)
