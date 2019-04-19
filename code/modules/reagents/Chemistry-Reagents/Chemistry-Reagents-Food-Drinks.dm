@@ -1628,8 +1628,8 @@
 	glass_center_of_mass = list("x"=7, "y"=8)
 
 /datum/reagent/drink/toothpaste/waterfresh
-	name = "Waterflesh"
-	id = "waterflesh"
+	name = "Waterfresh"
+	id = "waterfresh"
 	description = "A concoction of toothpaste and mouthwash, for when you need to show your pearly whites."
 	strength = 40
 	taste_description = "bubble bath"

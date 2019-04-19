@@ -3177,10 +3177,10 @@
 	result_amount = 3
 	required_reagents = list("mintsyrup" = 1, "ice" = 1, "toothpaste" = 1)
 
-/datum/chemical_reaction/waterflesh
-	name = "Waterflesh"
-	id = "waterflesh"
-	result = "waterflesh"
+/datum/chemical_reaction/waterfresh
+	name = "Waterfresh"
+	id = "waterfresh"
+	result = "waterfresh"
 	result_amount = 3
 	required_reagents = list("tonic" = 1, "sodawater" = 1, "toothpaste" = 1)
 
