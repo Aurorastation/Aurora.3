@@ -656,7 +656,7 @@
 	name = "poppies"
 	seed_name = "poppy"
 	display_name = "poppies"
-	chems = list("nutriment" = list(1,20), "bicaridine" = list(1,10))
+	chems = list("nutriment" = list(1,20), "oxycodone" = list(1,10))
 	kitchen_tag = "poppy"
 
 /datum/seed/flower/poppy/setup_traits()
@@ -1154,9 +1154,10 @@
 
 /datum/seed/shand/setup_traits()
 	..()
-	set_trait(TRAIT_MATURATION,3)
+	set_trait(TRAIT_HARVEST_REPEAT,1)
+	set_trait(TRAIT_MATURATION,8)
 	set_trait(TRAIT_PRODUCTION,5)
-	set_trait(TRAIT_YIELD,4)
+	set_trait(TRAIT_YIELD,3)
 	set_trait(TRAIT_POTENCY,10)
 	set_trait(TRAIT_PRODUCT_ICON,"alien3")
 	set_trait(TRAIT_PRODUCT_COLOUR,"#378C61")
@@ -1164,6 +1165,8 @@
 	set_trait(TRAIT_PLANT_ICON,"tree5")
 	set_trait(TRAIT_IDEAL_HEAT, 253)
 	set_trait(TRAIT_NUTRIENT_CONSUMPTION, 0.15)
+	set_trait(TRAIT_WATER_CONSUMPTION, 4)
+	set_trait(TRAIT_IDEAL_LIGHT, 3)
 
 /datum/seed/mtear
 	name = "mtear"
@@ -1174,7 +1177,7 @@
 
 /datum/seed/mtear/setup_traits()
 	..()
-	set_trait(TRAIT_MATURATION,3)
+	set_trait(TRAIT_MATURATION,8)
 	set_trait(TRAIT_PRODUCTION,5)
 	set_trait(TRAIT_YIELD,4)
 	set_trait(TRAIT_POTENCY,10)
@@ -1184,6 +1187,8 @@
 	set_trait(TRAIT_PLANT_ICON,"bush7")
 	set_trait(TRAIT_IDEAL_HEAT, 253)
 	set_trait(TRAIT_NUTRIENT_CONSUMPTION, 0.15)
+	set_trait(TRAIT_WATER_CONSUMPTION, 4)
+	set_trait(TRAIT_IDEAL_LIGHT, 3)
 
 // Alien weeds.
 /datum/seed/xenomorph
@@ -1223,7 +1228,8 @@
 	set_trait(TRAIT_PLANT_COLOUR,"#4D8F53")
 	set_trait(TRAIT_PLANT_ICON,"alien2")
 	set_trait(TRAIT_IDEAL_HEAT, 253)
-	set_trait(TRAIT_WATER_CONSUMPTION, 8)
+	set_trait(TRAIT_WATER_CONSUMPTION, 4)
+	set_trait(TRAIT_IDEAL_LIGHT, 3)
 
 /datum/seed/nifberries
 	name = "nifberries"
@@ -1236,7 +1242,7 @@
 	..()
 	set_trait(TRAIT_HARVEST_REPEAT,1)
 	set_trait(TRAIT_JUICY,1)
-	set_trait(TRAIT_MATURATION,5)
+	set_trait(TRAIT_MATURATION,8)
 	set_trait(TRAIT_PRODUCTION,5)
 	set_trait(TRAIT_YIELD,2)
 	set_trait(TRAIT_POTENCY,10)
@@ -1244,7 +1250,8 @@
 	set_trait(TRAIT_PRODUCT_COLOUR,"#C4AE7A")
 	set_trait(TRAIT_PLANT_COLOUR,"#4D8F53")
 	set_trait(TRAIT_PLANT_ICON,"bush4")
-	set_trait(TRAIT_WATER_CONSUMPTION, 6)
+	set_trait(TRAIT_WATER_CONSUMPTION, 4)
+	set_trait(TRAIT_IDEAL_LIGHT, 3)
 	set_trait(TRAIT_IDEAL_HEAT, 253)
 	set_trait(TRAIT_NUTRIENT_CONSUMPTION, 0.15)
 
@@ -1348,7 +1355,7 @@
 
 /datum/seed/mushroom/nfrihi/setup_traits()
 	..()
-	set_trait(TRAIT_MATURATION,4)
+	set_trait(TRAIT_MATURATION,6)
 	set_trait(TRAIT_PRODUCTION,1)
 	set_trait(TRAIT_YIELD,4)
 	set_trait(TRAIT_POTENCY,1)
@@ -1356,9 +1363,9 @@
 	set_trait(TRAIT_PRODUCT_COLOUR,"#DBDA72")
 	set_trait(TRAIT_PLANT_COLOUR,"#31331c")
 	set_trait(TRAIT_PLANT_ICON,"nfrihi")
-	set_trait(TRAIT_WATER_CONSUMPTION, 6)
+	set_trait(TRAIT_WATER_CONSUMPTION, 4)
+	set_trait(TRAIT_IDEAL_LIGHT, 3)
 	set_trait(TRAIT_IDEAL_HEAT, 253)
-	set_trait(TRAIT_LIGHT_TOLERANCE, 6)
 
 /datum/seed/nmshaan
 	name = "nmshaan"
@@ -1371,11 +1378,14 @@
 
 /datum/seed/nmshaan/setup_traits()
 	..()
-	set_trait(TRAIT_MATURATION,7)
-	set_trait(TRAIT_PRODUCTION,2)
+	set_trait(TRAIT_HARVEST_REPEAT,1)
+	set_trait(TRAIT_MATURATION,9)
+	set_trait(TRAIT_PRODUCTION,5)
 	set_trait(TRAIT_YIELD,2)
 	set_trait(TRAIT_PRODUCT_ICON,"nmshaan")
 	set_trait(TRAIT_PRODUCT_COLOUR,"#c6c6c6")
 	set_trait(TRAIT_PLANT_COLOUR,"#31331c")
 	set_trait(TRAIT_PLANT_ICON,"nmshaan")
 	set_trait(TRAIT_IDEAL_HEAT, 253)
+	set_trait(TRAIT_WATER_CONSUMPTION, 4)
+	set_trait(TRAIT_IDEAL_LIGHT, 3)

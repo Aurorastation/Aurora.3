@@ -991,6 +991,12 @@
 		if(alien != IS_TAJARA && prob(5))
 			H.delayed_vomit()
 
+/datum/reagent/drink/milk/fatshouter
+	name = "Fatshouter's Milk"
+	id = "fatshouter_milk"
+	description = "An opaque white liquid produced by the mammary glands of mammals, probably the fatshouter from Adhomai."
+	taste_description = "fatty milk"
+
 /datum/reagent/drink/milk/beetle
 	name = "Hakhma Milk"
 	id = "beetle_milk"
