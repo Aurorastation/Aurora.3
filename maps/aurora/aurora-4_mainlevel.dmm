@@ -16588,10 +16588,11 @@
 /turf/simulated/floor/carpet,
 /area/crew_quarters/captain)
 "aDu" = (
-/obj/machinery/atm{
-	pixel_y = 32
-	},
 /obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/structure/sword_rack/sabre{
+	pixel_w = -1;
+	pixel_y = 25
+	},
 /mob/living/simple_animal/corgi/fox/Chauncey,
 /turf/simulated/floor/carpet,
 /area/crew_quarters/captain)
@@ -19082,7 +19083,10 @@
 /turf/simulated/floor/carpet,
 /area/crew_quarters/captain)
 "aHh" = (
-/obj/structure/displaycase,
+/obj/machinery/atm{
+	dir = 1;
+	pixel_y = -33
+	},
 /turf/simulated/floor/carpet,
 /area/crew_quarters/captain)
 "aHi" = (
@@ -19092,6 +19096,7 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
+/obj/machinery/light,
 /turf/simulated/floor/carpet,
 /area/crew_quarters/captain)
 "aHj" = (

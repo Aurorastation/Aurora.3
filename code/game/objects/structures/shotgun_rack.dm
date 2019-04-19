@@ -37,6 +37,47 @@
 		rack_shotgun = null
 		icon_state = "shotgun_rack"
 
+
+/obj/structure/sword_rack
+	name = "sword rack"
+	desc = "A handsome wooden rack designed to store an Officer's sabre."
+	icon = 'icons/obj/shotgunrack.dmi'
+	icon_state = "sword_rack"
+	anchored = 1
+	density = 0
+
+	var/obj/item/weapon/storage/belt/sabre/rack_sheath
+
+/obj/structure/sword_rack/attackby(obj/item/O, mob/user)
+	if(isrobot(user))
+		return
+	if(istype(O, /obj/item/weapon/storage/belt/sabre))
+		if(!rack_sheath)
+			user.unEquip(O)
+			O.forceMove(src)
+			rack_sheath = O
+			to_chat(user, "<span class='notice'>You place \the [O] in \the [src].</span>")
+			icon_state = "sword_rack_sabre"
+
+/obj/structure/sword_rack/attack_hand(mob/user)
+	if(isrobot(user))
+		return
+	if (!user.can_use_hand())
+		return
+	if(rack_sheath)
+		user.put_in_hands(rack_sheath)
+		to_chat(user, "<span class='notice'>You take \the [rack_sheath] from \the [src].</span>")
+		rack_sheath = null
+		icon_state = "sword_rack"
+
+/obj/structure/sword_rack/attack_tk(mob/user)
+	if(rack_sheath)
+		rack_sheath.forceMove(loc)
+		to_chat(user, "<span class='notice'>You telekinetically remove \the [rack_sheath] from \the [src].</span>")
+		rack_sheath = null
+		icon_state = "sword_rack"
+
+
 //premade types
 
 /obj/structure/shotgun_rack/double
@@ -74,3 +115,10 @@
 /obj/structure/shotgun_rack/improvised/Initialize()
 	. = ..()
 	rack_shotgun = new/obj/item/weapon/gun/projectile/shotgun/improvised(src)
+
+/obj/structure/sword_rack/sabre
+	icon_state = "sword_rack_sabre"
+
+/obj/structure/sword_rack/sabre/Initialize()
+	. = ..()
+	rack_sheath = new/obj/item/weapon/storage/belt/sabre(src)

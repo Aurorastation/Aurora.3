@@ -373,3 +373,45 @@
  	name = "yellow fannypack"
  	icon_state = "fannypack_yellow"
  	item_state = "fannypack_yellow"
+
+/obj/item/weapon/storage/belt/sabre
+	name = "sabre sheath"
+	desc = "An ornate sheath designed to hold an officer's blade.."
+	icon_state = "sheath"
+	item_state = "sheath"
+	storage_slots = 1
+	w_class = 4
+	max_w_class = 4
+	attack_verb = list("struck", "bashed", "disciplined")
+	use_sound = null
+	can_hold = list(
+		/obj/item/weapon/material/sword/captain_sword
+		)
+
+/obj/item/weapon/storage/belt/sabre/AltClick(mob/user)
+	if(!usr || usr.stat || usr.lying || usr.restrained() || !Adjacent(usr))
+		return
+	if(length(contents))
+		var/obj/item/I = contents[1]
+		user.visible_message("[user] takes [I] out of [src].", "<span class='notice'>You take [I] out of [src].</span>")
+		user.put_in_hands(I)
+		playsound(user.loc, 'sound/items/unsheath.ogg', 25, 1)
+		update_icon()
+	else
+		to_chat(user, "[src] is empty.")
+
+/obj/item/weapon/storage/belt/sabre/update_icon()
+	icon_state = "sheath"
+	item_state = "sheath"
+	if(contents.len)
+		icon_state += "-redsabre"
+		item_state += "-redsabre"
+	if(loc && istype(loc, /mob/living))
+		var/mob/living/L = loc
+		L.regenerate_icons()
+	..()
+
+/obj/item/weapon/storage/belt/sabre/New()
+	..()
+	new /obj/item/weapon/material/sword/captain_sword(src)
+	update_icon()

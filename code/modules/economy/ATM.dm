@@ -32,6 +32,7 @@ log transactions
 	var/obj/item/weapon/card/held_card
 	var/editing_security_level = 0
 	var/view_screen = NO_SCREEN
+	appearance_flags = TILE_BOUND
 
 /obj/machinery/atm/Initialize()
 	. = ..()
