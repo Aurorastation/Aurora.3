@@ -10,7 +10,7 @@
 	var/damage_s
 	var/aoe_s
 
-/obj/item/projectile/kinetic/mech/
+/obj/item/projectile/kinetic/mech
 	damage = 40
 	aoe = 5
 
