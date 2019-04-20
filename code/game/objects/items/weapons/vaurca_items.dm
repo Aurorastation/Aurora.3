@@ -25,6 +25,15 @@
 	icon_state = "skrell_mask"
 	item_state = "skrell_mask"
 
+/obj/item/clothing/head/shaper
+	name = "shaper helmet"
+	desc = "A mirrored helm commonly worn by Preimmients. The helm masks the visage of its wearer, symbolically and literally  blinding them to all but the path set in front of them."
+	icon = 'icons/obj/vaurca_items.dmi'
+	icon_state = "shaper_helmet"
+	item_state = "shaper_helmet"
+	contained_sprite = TRUE
+	species_restricted = list("Vaurca")
+
 /obj/item/weapon/melee/energy/vaurca
 	name = "thermal knife"
 	desc = "A Vaurcae-designed combat knife with a thermal energy blade designed for close-quarter encounters."

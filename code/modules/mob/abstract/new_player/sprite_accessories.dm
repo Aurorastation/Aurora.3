@@ -1563,6 +1563,13 @@
 		body_parts = list("l_leg","r_leg","l_arm","r_arm","chest","groin","head")
 		species_allowed = list("Vaurca")
 
+	skr_tears
+		name = "Tear Stains"
+		icon_state = "skr_tears"
+		body_parts = list("head")
+		species_allowed = list("Skrell")
+		do_colouration = 0
+
 // Branded IPC markings - disabled for now, some layering issues.
 /*
 	bishop
