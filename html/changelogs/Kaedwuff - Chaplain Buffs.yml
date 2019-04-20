@@ -20,14 +20,10 @@
 #   spellcheck (typo fixes)
 #   experiment
 #   balance
-#   admin
-#   backend
-#   security
-#   refactor
 #################################
 
 # Your name.  
-author: Ferner
+author: Kaedwuff
 
 # Optional: Remove this file after generating master changelog.  Useful for PR changelogs that won't get used again.
 delete-after: True
@@ -38,5 +34,6 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
-  - maptweak: "Added back latex gloves to the kitchen along with a kitchen clothing closet. Added a photocopier, a recharger and xeno-latex gloves to medical. The central hallway signs now point out the actual way to medical."
-  - rscdel: "Removed a bunch of unconnected pipes and cables around the map. Fixed the cooling pipes and research maintenance exterior airlocks. Added missing scrubbers and vents to the custodial closet, surface bridge, SAT chamber. Added distro to canister pumps to some airlocks missing them. Removed duplicate apc in research maintenance."
+  - tweak: "Null staves may now be mounted on the back of ponchos."
+  - rscadd: "Obsidian items can be reassembled into new shapes at will. Chaplains start with an unassembled null item instead of a magic box."
+  - rscadd: "Added aspergillum to the chaplain's office."

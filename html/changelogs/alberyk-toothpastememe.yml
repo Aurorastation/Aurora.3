@@ -1,0 +1,7 @@
+author: Alberyk
+
+delete-after: True
+
+changes: 
+  - rscadd: "Added toothpaste and toothbrush."
+  - rscadd: "Added a couple of vaurcan drinks related to toothpaste."
