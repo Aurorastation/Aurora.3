@@ -70,6 +70,7 @@
 	tameable = FALSE
 	flying = 1
 	attack_emote = "focuses on"
+	var/linked_parent = null
 
 /mob/living/simple_animal/hostile/hivebot/range
 	name = "Hivebot"
@@ -81,6 +82,12 @@
 /mob/living/simple_animal/hostile/hivebot/range/rapid
 	projectiletype = /obj/item/projectile/bullet/pistol/hivebotspike/needle
 	rapid = 1
+
+//Creates a reference to its parent beacon on init.
+/mob/living/simple_animal/hostile/hivebot/Initialize(mapload,mob/living/simple_animal/hostile/hivebot/hivebotbeacon)
+	if(hivebotbeacon)
+		linked_parent = hivebotbeacon
+	.=..()
 
 /mob/living/simple_animal/hostile/hivebot/death()
 	..(null,"blows apart!")
@@ -136,6 +143,9 @@
 	speed = -10
 	var/bot_type = NORMAL // type of bot, 1 is normal, 2 is ranged, 3 is rapid ranged
 	var/bot_amt = 32
+	var/list/linked_bots = list()
+	var/latest_child = null
+	var/total_bots = 0
 	var/spawn_delay = 600
 	var/activated = 0
 	attack_emote = "focuses on"
@@ -203,6 +213,7 @@
 		S.start()
 		new /obj/effect/decal/cleanable/greenglow(src.loc)
 		qdel(src)
+		return
 
 	if(activated != 1)
 		icon_state = "hivebotbeacon_raising"
@@ -218,11 +229,12 @@
 
 	switch(bot_type)
 		if(NORMAL)
-			new /mob/living/simple_animal/hostile/hivebot(get_turf(src))
+			latest_child = new /mob/living/simple_animal/hostile/hivebot(get_turf(src), src)
 		if(RANGED)
-			new /mob/living/simple_animal/hostile/hivebot/range(get_turf(src))
+			latest_child = new /mob/living/simple_animal/hostile/hivebot/range(get_turf(src), src)
 		if(RAPID)
-			new /mob/living/simple_animal/hostile/hivebot/range/rapid(get_turf(src))
+			latest_child = new /mob/living/simple_animal/hostile/hivebot/range/rapid(get_turf(src), src)
+	linked_bots += latest_child //Adds the spawned hivebot to the list of the beacon's children.
 
 	if(prob(30))
 		if(prob(70))
