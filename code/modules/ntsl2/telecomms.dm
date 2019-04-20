@@ -18,20 +18,6 @@
 		running_code.cycle(10000)
 		update_code()
 
-/datum/TCS_Compiler/ntsl2/proc/format_content(var/content)
-	var/old = ""
-	while(content != old)
-		old = content
-		// Although big and scary, this is a rather simple regex.
-		// Securely turns all forms of <b></b> (But HTML encoded) into their actual tag counterpart.
-		// As this doesn't allow flexibilty further than the predetermined tags (b, i, s, u), and no additions
-		// This is secure. It also checks for matching tags.
-		content = replacetext(content, regex("&lt;b&gt;((?:(?!&lt;b&gt;).)*?)&lt;/b&gt;"), "<b>$1</b>")
-		content = replacetext(content, regex("&lt;i&gt;((?:(?!&lt;i&gt;).)*?)&lt;/i&gt;"), "<i>$1</i>")
-		content = replacetext(content, regex("&lt;u&gt;((?:(?!&lt;u&gt;).)*?)&lt;/u&gt;"), "<u>$1</u>")
-		content = replacetext(content, regex("&lt;s&gt;((?:(?!&lt;s&gt;).)*?)&lt;/s&gt;"), "<s>$1</s>")
-	return content
-
 /datum/TCS_Compiler/ntsl2/proc/update_code()
 	if(istype(running_code))
 		running_code.cycle(10000)
@@ -44,7 +30,7 @@
 					var/datum/language/L = all_languages[dat["language"]]
 					if(!L || !(L.flags & TCOMSSIM))
 						L = all_languages[LANGUAGE_TCB]
-					sig.data["message"] = format_content(html_encode(dat["content"]))
+					sig.data["message"] = dat["content"]
 					sig.frequency = text2num(dat["freq"]) || PUB_FREQ
 					sig.data["name"] = html_encode(dat["source"])
 					sig.data["realname"] = html_encode(dat["source"])
