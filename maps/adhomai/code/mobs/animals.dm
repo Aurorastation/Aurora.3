@@ -65,7 +65,7 @@
 	. = ..()
 	if(stat == CONSCIOUS)
 		if(udder && prob(5))
-			udder.add_reagent("adhomai_milk", rand(5, 10))
+			udder.add_reagent("fatshouter_milk", rand(5, 10))
 
 /mob/living/simple_animal/hostile/retaliate/rafama
 	name = "steed of Mata'ke"
