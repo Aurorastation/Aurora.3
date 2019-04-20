@@ -120,6 +120,7 @@
 			add_overlay("papershredder4")
 		if(10)
 			add_overlay("papershredder5")
+	update_icon()
 
 /obj/item/weapon/shreddedp/attackby(var/obj/item/W as obj, var/mob/user)
 	if(istype(W, /obj/item/weapon/flame/lighter))

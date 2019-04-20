@@ -75,7 +75,7 @@
 		to_chat(user, "<span class='danger'>You don't have the dexterity to do this!</span>")
 		return
 
-	if ((CLUMSY in user.mutations) && prob(50))
+	if ((user.is_clumsy()) && prob(50))
 		to_chat(user, "<span class='danger'>The rod slips out of your hand and hits your head.</span>")
 		user.take_organ_damage(10)
 		user.Paralyse(20)

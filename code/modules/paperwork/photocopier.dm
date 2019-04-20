@@ -106,12 +106,15 @@ VUEUI_MONITOR_VARS(/obj/machinery/photocopier, photocopiermonitor)
 			copyitem = O
 			to_chat(user, "<span class='notice'>You insert \the [O] into \the [src].</span>")
 			flick(insert_anim, src)
+			playsound(loc, 'sound/bureaucracy/scan.ogg', 75, 1)
 			SSvueui.check_uis_for_change(src)
 		else
 			to_chat(user, "<span class='notice'>There is already something in \the [src].</span>")
 	else if(istype(O, /obj/item/device/toner))
 		if(toner <= 10) //allow replacing when low toner is affecting the print darkness
 			to_chat(user, "<span class='notice'>You insert \the [O] into \the [src].</span>")
+			flick("photocopier_toner", src)
+			playsound(loc, 'sound/effects/Switch1.ogg', 50, 1)
 			var/obj/item/device/toner/T = O
 			toner += T.toner_amount
 			user.drop_from_inventory(O,get_turf(src))
@@ -119,6 +122,8 @@ VUEUI_MONITOR_VARS(/obj/machinery/photocopier, photocopiermonitor)
 			SSvueui.check_uis_for_change(src)
 		else
 			to_chat(user, "<span class='notice'>This cartridge is not yet ready for replacement! Use up the rest of the toner.</span>")
+			flick("photocopier_notoner", src)
+			playsound(loc, 'sound/machines/buzz-two.ogg', 75, 1)
 	else if(O.iswrench())
 		playsound(loc, 'sound/items/Ratchet.ogg', 50, 1)
 		anchored = !anchored
@@ -180,12 +185,13 @@ VUEUI_MONITOR_VARS(/obj/machinery/photocopier, photocopiermonitor)
 	if(toner == 0)
 		visible_message("<span class='notice'>A red light on \the [src] flashes, indicating that it is out of toner.</span>")
 		flick("photocopier_notoner", src)
+		playsound(loc, 'sound/machines/buzz-two.ogg', 75, 1)
 		return
 
 	c.set_content_unsafe(pname, info)
 	if (print)
-		src.print(c, use_sound, 'sound/bureaucracy/print.ogg', delay)
 		flick("photocopier_print", src)
+		src.print(c, use_sound, 'sound/bureaucracy/print.ogg', delay)
 	return c
 
 /obj/machinery/photocopier/proc/photocopy(var/obj/item/weapon/photo/photocopy)
@@ -207,7 +213,7 @@ VUEUI_MONITOR_VARS(/obj/machinery/photocopier, photocopiermonitor)
 		toner = 0
 		visible_message("<span class='notice'>A red light on \the [src] flashes, indicating that it is out of toner.</span>")
 		flick("photocopier_notoner", src)
-
+		playsound(loc, 'sound/machines/buzz-two.ogg', 75, 1)
 	return p
 
 //If need_toner is 0, the copies will still be lightened when low on toner, however it will not be prevented from printing. TODO: Implement print queues for fax machines and get rid of need_toner
@@ -217,7 +223,10 @@ VUEUI_MONITOR_VARS(/obj/machinery/photocopier, photocopiermonitor)
 		if(toner <= 0 && need_toner)
 			toner = 0
 			visible_message("<span class='notice'>A red light on \the [src] flashes, indicating that it is out of toner.</span>")
+			flick("photocopier_notoner", src)
+			playsound(loc, 'sound/machines/buzz-two.ogg', 75, 1)
 			break
+
 
 		if(istype(W, /obj/item/weapon/paper))
 			W = copy(W)
@@ -236,5 +245,6 @@ VUEUI_MONITOR_VARS(/obj/machinery/photocopier, photocopiermonitor)
 
 /obj/item/device/toner
 	name = "toner cartridge"
+	desc = "A high-definition toner for colour photocopying and printer machines. Good thing it's a business expense."
 	icon_state = "tonercartridge"
 	var/toner_amount = 30
