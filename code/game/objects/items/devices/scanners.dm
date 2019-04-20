@@ -33,7 +33,7 @@ BREATH ANALYZER
 	return
 
 /proc/health_scan_mob(var/mob/living/M, var/mob/living/user, var/visible_msg, var/ignore_clumsiness, var/show_limb_damage = TRUE)
-	if ( ((CLUMSY in user.mutations) || (DUMB in user.mutations)) && prob(50))
+	if ( ((user.is_clumsy()) || (DUMB in user.mutations)) && prob(50))
 		to_chat(user, text("<span class='warning'>You try to analyze the floor's vitals!</span>"))
 		for(var/mob/O in viewers(M, null))
 			O.show_message("<span class='warning'>\The [user] has analyzed the floor's vitals!</span>", 1)
@@ -419,7 +419,7 @@ BREATH ANALYZER
 		to_chat(user,"<span class='warning'>You can't find a way to use \the [src] on [H]!</span>")
 		return
 
-	if ( ((CLUMSY in user.mutations) || (DUMB in user.mutations)) && prob(20))
+	if ( ((user.is_clumsy()) || (DUMB in user.mutations)) && prob(20))
 		to_chat(user,"<span class='danger'>Your hand slips from clumsiness!</span>")
 		eyestab(H,user)
 		to_chat(user,"<span class='danger'>Alert: No breathing detected.</span>")
