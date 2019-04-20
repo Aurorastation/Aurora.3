@@ -946,8 +946,8 @@
 	materials = list(DEFAULT_WALL_MATERIAL = 30000, "glass" = 12500, "silver" = 3500, "gold" = 3500, "uranium" = 5550, "diamond" = 7500)
 
 /datum/design/rig/hacker
-	name = "light suit control module assembly"
-	desc = "An assembly for a lighter, less armoured rig suit."
+	name = "cybersuit control module assembly"
+	desc = "An assembly for an advanced powered armour suit with many cyberwarfare enhancements. Comes with built-in insulated gloves for safely tampering with electronics."
 	id = "rig_hacker"
 	build_path = /obj/item/rig_assembly/combat/illegal/hacker
 	req_tech = list(TECH_MATERIAL = 4, TECH_ENGINEERING = 3, TECH_MAGNET = 2, TECH_POWER = 3, TECH_COMBAT = 3, TECH_ILLEGAL = 3)
