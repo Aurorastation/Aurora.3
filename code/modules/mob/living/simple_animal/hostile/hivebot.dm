@@ -134,10 +134,9 @@
 	speed = -10
 	var/bot_type = NORMAL // type of bot, 1 is normal, 2 is ranged, 3 is rapid ranged
 	var/bot_amt = 32
-	var/spawn_delay = 10
+	var/spawn_delay = 600
 	var/activated = 0
 	attack_emote = "focuses on"
-	var/
 
 /mob/living/simple_animal/hostile/hivebotbeacon/toxic
 	projectiletype = /obj/item/projectile/beam/hivebotbeam
@@ -150,7 +149,7 @@
 	rapid = 0
 
 /mob/living/simple_animal/hostile/hivebotbeacon/death()
-	..(null,"blows apart and erupts in a cloud of noxious smoke!"
+	..(null,"blows apart and erupts in a cloud of noxious smoke!")
 	var/datum/effect/effect/system/smoke_spread/S = new /datum/effect/effect/system/smoke_spread()
 	S.set_up(10, 0, src.loc)
 	S.start()
