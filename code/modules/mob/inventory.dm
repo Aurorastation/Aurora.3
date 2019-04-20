@@ -185,26 +185,21 @@ var/list/slot_equipment_priority = list( \
 	return drop_from_inventory(r_hand, target)
 
 //Drops the item in our active hand. TODO: rename this to drop_active_hand or something
-/mob/proc/drop_item(var/atom/Target)
+
+/mob/proc/drop_item(var/atom/target)
+	if (istype(target, /obj/item))
+		addtimer(CALLBACK(.proc/make_item_drop_sound, src, target), 1)
 	if(hand)
-		make_item_drop_sound()
-		return drop_l_hand(Target)
+		return drop_l_hand(target)
 	else
-		make_item_drop_sound()
-		return drop_r_hand(Target)
+		return drop_r_hand(target)
 
-/mob/proc/make_item_drop_sound()
-	var/obj/item/I = get_active_hand()
-	spawn (1)
-		if(!I)
-			return
-		if(I.drop_sound)
-			playsound(I, I.drop_sound, 25, 0)
+/mob/proc/make_item_drop_sound(obj/item/target)
+	if (QDELETED(target))
+		return
 
-/obj/item/throw_impact(atom/hit_atom)
-	..()
-	if(drop_sound)
-		playsound(src, drop_sound, 50, 0)
+	if (target.drop_sound)
+		playsound(target, target.drop_sound, 25, 0)
 
 /*
 	Removes the object from any slots the mob might have, calling the appropriate icon update proc.

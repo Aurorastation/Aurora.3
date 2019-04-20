@@ -1,9 +1,15 @@
 //Standard Rings
+
+/obj/item/clothing/ring
+	name = "generic ring"
+	desc = "Torus shaped finger decoration."
+	icon_state = "material"
+	drop_sound = 'sound/items/drop/ring.ogg'
+
 /obj/item/clothing/ring/engagement
 	name = "engagement ring"
 	desc = "An engagement ring. It certainly looks expensive."
 	icon_state = "diamond"
-	drop_sound = 'sound/items/drop/ring.ogg'
 
 /obj/item/clothing/ring/engagement/afterattack(atom/A, mob/user as mob, proximity)
 	if(!proximity)

@@ -45,6 +45,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	origin_tech = list(TECH_MATERIAL = 1)
 	slot_flags = SLOT_EARS
 	attack_verb = list("burnt", "singed")
+	drop_sound = null
 
 /obj/item/weapon/flame/match/process()
 	if(isliving(loc))
@@ -99,6 +100,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	var/ignitermes = "USER lights NAME with FLAME"
 	var/initial_volume = 0
 	var/burn_rate = 0
+	drop_sound = 'sound/items/cigs_lighters/cig_snuff.ogg'
 
 /obj/item/clothing/mask/smokable/Initialize()
 	. = ..()

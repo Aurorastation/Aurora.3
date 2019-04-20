@@ -16,6 +16,7 @@
 	amount_per_transfer_from_this = 300
 	possible_transfer_amounts = null
 	volume = 300
+	drop_sound = 'sound/items/drop/gascan.ogg'
 
 /obj/item/weapon/reagent_containers/extinguisher_refill/attackby(var/obj/O as obj, var/mob/user as mob)
 

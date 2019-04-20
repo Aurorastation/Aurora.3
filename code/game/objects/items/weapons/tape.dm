@@ -4,6 +4,7 @@
 	icon = 'icons/obj/bureaucracy.dmi'
 	icon_state = "taperoll"
 	w_class = 1
+	drop_sound = 'sound/items/drop/box.ogg'
 
 /obj/item/weapon/tape_roll/attack(var/mob/living/carbon/human/H, var/mob/user, var/target_zone)
 	if(istype(H))

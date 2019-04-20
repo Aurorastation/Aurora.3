@@ -108,6 +108,8 @@
 	var/cooling_temperature = T0C + 5 //Best temp for soda.
 	var/heating_temperature = T0C + 57 //Best temp for coffee.
 
+	var/vending_sound = "machines/vending_drop.ogg"
+
 /obj/machinery/vending/Initialize()
 	. = ..()
 	wires = new(src)
@@ -209,10 +211,12 @@
 			var/obj/item/weapon/spacecash/ewallet/C = W
 			paid = pay_with_ewallet(C)
 			handled = 1
+			playsound(user.loc, 'sound/machines/id_swipe.ogg', 100, 1)
 		else if (istype(W, /obj/item/weapon/spacecash))
 			var/obj/item/weapon/spacecash/C = W
 			paid = pay_with_cash(C, user)
 			handled = 1
+			playsound(user.loc, 'sound/machines/id_swipe.ogg', 100, 1)
 
 		if(paid)
 			src.vend(currently_vending, usr)
@@ -608,7 +612,7 @@
 	if (src.icon_vend) //Show the vending animation if needed
 		flick(src.icon_vend,src)
 	spawn(src.vend_delay)
-		playsound(src.loc, 'sound/machines/vending.ogg', 35, 1)
+		playsound(src.loc, "sound/[vending_sound]", 100, 1)
 		var/obj/vended = new R.product_path(get_turf(src))
 		src.status_message = ""
 		src.status_error = 0

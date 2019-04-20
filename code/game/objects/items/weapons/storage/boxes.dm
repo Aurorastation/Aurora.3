@@ -29,6 +29,7 @@
 	use_sound = 'sound/items/storage/box.ogg'
 	var/foldable = /obj/item/stack/material/cardboard	// BubbleWrap - if set, can be folded (when empty) into a sheet of cardboard
 	var/maxHealth = 20	//health is already defined
+	drop_sound = 'sound/items/drop/box.ogg'
 
 /obj/item/weapon/storage/box/Initialize()
 	. = ..()
@@ -801,7 +802,6 @@
 			W.icon_state = "match_lit"
 			START_PROCESSING(SSprocessing, W)
 		else
-			user.visible_message("<span class='notice'>[user] strikes the match on the matchbox.</span>")
 			playsound(src.loc, 'sound/items/cigs_lighters/matchstick_hit.ogg', 25, 0, -1)
 	W.update_icon()
 	return

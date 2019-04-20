@@ -91,6 +91,8 @@
 	var/tmp/mob/living/last_moved_mob //Used to fire faster at more than one person.
 	var/tmp/lock_time = -100
 
+	drop_sound = 'sound/items/drop/gun.ogg'
+
 /obj/item/weapon/gun/Initialize(mapload)
 	. = ..()
 	for(var/i in 1 to firemodes.len)

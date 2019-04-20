@@ -121,6 +121,7 @@
 
 /obj/structure/flora/pottedplant/attack_hand(mob/user)
 	user.visible_message("[user] begins digging around inside of \the [src].", "You begin digging around in \the [src], searching it.")
+	playsound(loc, 'sound/effects/plantshake.ogg', 50, 1)
 	if(do_after(user, 40, act_target = src))
 		if(!stored_item)
 			to_chat(user,"<span class='notice'>There is nothing hidden in [src].</span>")

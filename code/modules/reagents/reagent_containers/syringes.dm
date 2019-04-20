@@ -25,6 +25,7 @@
 	var/visible_name = "a syringe"
 	var/time = 30
 	center_of_mass = null
+	drop_sound = 'sound/items/drop/glass.ogg'
 
 /obj/item/weapon/reagent_containers/syringe/on_reagent_change()
 	update_icon()

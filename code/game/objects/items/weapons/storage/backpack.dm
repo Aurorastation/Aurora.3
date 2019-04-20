@@ -25,6 +25,7 @@
 	max_w_class = 3
 	max_storage_space = 28
 	var/species_restricted = list("exclude","Vaurca Breeder","Vaurca Warform")
+	drop_sound = 'sound/items/drop/backpack.ogg'
 
 /obj/item/weapon/storage/backpack/mob_can_equip(M as mob, slot)
 

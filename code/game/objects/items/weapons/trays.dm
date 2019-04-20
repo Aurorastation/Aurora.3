@@ -20,6 +20,7 @@
 	var/list/carrying = list() // List of things on the tray. - Doohl
 	var/max_carry = 20
 	var/current_weight = 0
+	drop_sound = 'sound/items/trayhit1.ogg'
 
 	var/safedrop = 0//Used to tell when we should or shouldn't spill if the tray is dropped.
 	//Safedrop is set true when throwing, because it will spill on impact. And when placing on a table
