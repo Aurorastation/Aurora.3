@@ -38,4 +38,4 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
-  - maptweak: "Replaced the hydroponics closets in Xenoflora with newly added xenobotany ones."
+  - maptweak: "Replaced the hydroponics closets in Xenoflora with newly added xenobotany ones.  The new closets will contain the gas masks and watertanks instead of being mapped in. Added a distro to trays pump in xenobotany."
