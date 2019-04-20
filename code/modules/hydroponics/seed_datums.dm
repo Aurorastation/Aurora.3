@@ -1333,3 +1333,21 @@
 	set_trait(TRAIT_PRODUCT_COLOUR,"#ffeedd")
 	set_trait(TRAIT_PLANT_ICON,"stalk")
 	set_trait(TRAIT_WATER_CONSUMPTION, 5)
+
+/datum/seed/dyn
+	name = "dyn"
+	seed_name = "dyn"
+	display_name = "dyn bush"
+	mutants = null
+	chems = list("tea" = list(2,2), "dylovene" = list(0,1))
+	kitchen_tag = "dyn"
+
+/datum/seed/dyn/setup_traits()
+	..()
+	set_trait(TRAIT_MATURATION,10)
+	set_trait(TRAIT_PRODUCTION,10)
+	set_trait(TRAIT_YIELD,3)
+	set_trait(TRAIT_POTENCY,10)
+	set_trait(TRAIT_PRODUCT_ICON,"leaves")
+	set_trait(TRAIT_PRODUCT_COLOUR,"#00e0e0")
+	set_trait(TRAIT_PLANT_ICON,"bush8")
