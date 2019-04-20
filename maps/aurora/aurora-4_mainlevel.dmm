@@ -56692,7 +56692,8 @@
 /obj/structure/table/wood,
 /obj/item/weapon/pen,
 /obj/item/weapon/reagent_containers/food/drinks/bottle/holywater,
-/obj/item/weapon/nullrod/itembox,
+/obj/item/weapon/reagent_containers/spray/aspergillum,
+/obj/item/weapon/nullrod/obsidianshards,
 /turf/simulated/floor/carpet,
 /area/chapel/office)
 "bUq" = (
