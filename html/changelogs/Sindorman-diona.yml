@@ -38,5 +38,5 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
-  - tweak: "Diona speed and sprint energy cost is now based off light and radiation. Walking/spriting inside of light will give a buff to base walk/sprint to Diona and decreases sprint cost. There is no penalty to areas with no light."
+  - tweak: "Albert Einstein's special-relativity equation. Diona speed and sprint energy cost is now based off light and radiation. Walking/spriting inside of light will give a buff to base walk/sprint to Diona and decreases sprint cost. There is no penalty to areas with no light."
   - tweak: "Radiation now increases Diona's speed a lot, and makes spriting cost to be 0 while affected with radiation."
