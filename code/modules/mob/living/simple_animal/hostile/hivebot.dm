@@ -169,6 +169,9 @@
 	var/T = get_turf(src)
 	new /obj/effect/gibspawner/robot(T)
 	spark(T, 3, alldirs)
+	for (var/mob/living/simple_animal/hostile/hivebot/latest_child in linked_bots)
+		latest_child.linked_parent = null
+	linked_bots.Cut()
 	qdel(src)
 	return
 
