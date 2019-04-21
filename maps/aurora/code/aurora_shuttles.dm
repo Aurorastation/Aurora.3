@@ -156,3 +156,15 @@
 	shuttle.area_station = locate(/area/shuttle/legion/station)
 	shuttles["Tau Ceti Foreign Legion"] = shuttle
 	START_PROCESSING(shuttle_controller, shuttle)
+
+	//Away Site shuttle.
+
+	shuttle = new()
+	shuttle.location = 0
+	shuttle.warmup_time = 10
+	shuttle.area_station = locate(/area/shuttle/research_shuttle)
+	shuttle.area_offsite = locate(/area/shuttle/research_shuttle/away)
+	shuttle.docking_controller_tag = "science_shuttle"
+	shuttle.dock_target_station = "science_bridge"
+	shuttles["Research Away Shuttle"] = shuttle
+	START_PROCESSING(shuttle_controller, shuttle)

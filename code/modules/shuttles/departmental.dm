@@ -20,3 +20,7 @@
 	name = "merchant shuttle control console"
 	req_access = list(access_merchant)
 	shuttle_tag = "Merchant"
+
+/obj/machinery/computer/shuttle_control/research_away_shuttle
+	name = "research shuttle control console"
+	shuttle_tag = "Research Away Shuttle"
