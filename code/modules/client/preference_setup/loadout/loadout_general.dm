@@ -141,3 +141,15 @@
 /datum/gear/battlemonsters
 	display_name = "battlemonsters starter deck"
 	path = /obj/item/battle_monsters/wrapped
+
+/datum/gear/toothpaste
+	display_name = "toothpaste and toothbrush"
+	path = /obj/item/weapon/storage/box/toothpaste
+
+/datum/gear/toothpaste/New()
+	..()
+	var/toothpaste = list()
+	toothpaste["toothpaste and blue toothbrush"] = /obj/item/weapon/storage/box/toothpaste
+	toothpaste["toothpaste and green toothbrush"] = /obj/item/weapon/storage/box/toothpaste/green
+	toothpaste["toothpaste and red toothbrush"] = /obj/item/weapon/storage/box/toothpaste/red
+	gear_tweaks += new/datum/gear_tweak/path(toothpaste)
