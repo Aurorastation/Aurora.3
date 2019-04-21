@@ -17,7 +17,7 @@
 	damage = 3
 	damage_type = HALLOSS
 	taser_effect = 1
-	agony = 30
+	agony = 20
 	nodamage = 1
 	muzzle_type = /obj/effect/projectile/muzzle/stun
 	tracer_type = /obj/effect/projectile/tracer/stun
@@ -28,9 +28,8 @@
 	damage = 9
 	damage_type = TOX
 	irradiate = 30
-	weaken = 3
 	stutter = 3
-	eyeblur = 1
+	eyeblur = 0
 	muzzle_type = /obj/effect/projectile/muzzle/bfg
 	tracer_type = /obj/effect/projectile/tracer/bfg
 	impact_type = /obj/effect/projectile/impact/bfg
@@ -38,8 +37,7 @@
 /obj/item/projectile/beam/hivebotincendiary
 	name = "archaic energy welder"
 	damage = 5
-	incinerate = 2
-	eyeblur = 0
+	incinerate = 1
 	muzzle_type = /obj/effect/projectile/muzzle/laser/blue
 	tracer_type = /obj/effect/projectile/tracer/laser/blue
 	impact_type = /obj/effect/projectile/impact/laser/blue
@@ -87,11 +85,13 @@
 /mob/living/simple_animal/hostile/hivebot/Initialize(mapload,mob/living/simple_animal/hostile/hivebot/hivebotbeacon)
 	if(hivebotbeacon)
 		linked_parent = hivebotbeacon
+		linked_parent.existing_bots += 1
 	.=..()
 
 /mob/living/simple_animal/hostile/hivebot/death()
 	..(null,"blows apart!")
 	if(linked_parent)
+		linked_parent.existing_bots -= 1
 		linked_parent.linked_bots -= src
 	var/T = get_turf(src)
 	new /obj/effect/gibspawner/robot(T)
@@ -114,7 +114,7 @@
 	stance = HOSTILE_STANCE_TIRED
 	addtimer(CALLBACK(src, .proc/wakeup), 150)
 	if(severity == 1.0)
-		apply_damage(5)
+		apply_damage(10)
 
 /mob/living/simple_animal/hostile/hivebotbeacon
 	name = "Hivebot beacon"
@@ -122,13 +122,13 @@
 	icon = 'icons/mob/npc/hivebot.dmi'
 	icon_state = "hivebotbeacon_active"
 	icon_living = "hivebotbeacon_active"
-	health = 150
-	maxHealth = 150
+	health = 200
+	maxHealth = 200
 	projectilesound = 'sound/weapons/taser2.ogg'
 	projectiletype = /obj/item/projectile/beam/hivebotdischarge
 	status_flags = 0
 	anchored = 1
-	stop_automated_movement = 1
+	wander = 0
 	faction = "hivebot"
 	ranged = 1
 	smart = 1
@@ -144,10 +144,11 @@
 	minbodytemp = 0
 	speed = -10
 	var/bot_type = NORMAL // type of bot, 1 is normal, 2 is ranged, 3 is rapid ranged
-	var/bot_amt = 32
+	var/bot_amt = 32 //Number of total bots that are spawned before the beacon disappears completely.
+	var/max_bots = 16 //Number of bots linked to this beacon specifically that can exist, before spawning more is halted.
 	var/list/linked_bots = list()
 	var/latest_child = null
-	var/total_bots = 0
+	var/existing_bots = 0
 	var/spawn_delay = 600
 	var/activated = 0
 	attack_emote = "focuses on"
@@ -164,8 +165,8 @@
 
 /mob/living/simple_animal/hostile/hivebotbeacon/death()
 	..(null,"blows apart and erupts in a cloud of noxious smoke!")
-	var/datum/effect/effect/system/smoke_spread/S = new /datum/effect/effect/system/smoke_spread()
-	S.set_up(10, 0, src.loc)
+	var/datum/effect/effect/system/smoke_spread/S = new /datum/effect/effect/system/smoke_spread
+	S.set_up(5, 0, src.loc)
 	S.start()
 	new /obj/effect/decal/cleanable/greenglow(src.loc)
 	var/T = get_turf(src)
@@ -180,11 +181,12 @@
 /mob/living/simple_animal/hostile/hivebotbeacon/think()
 	. =..()
 	if(stance != HOSTILE_STANCE_IDLE && activated == 0)
-		visible_message("<span class='warning'>\ [src] radiates with energy!</span>")
+		visible_message("<span class='warning'>\ [src] suddenly activates!</span>")
 		icon_state = "hivebotbeacon_raising"
 		spawn(16)
 		icon_state = "hivebotbeacon_active"
 		activated = 1
+		warpbots()
 	else
 		if(activated == 1)
 			icon_state = "hivebotbeacon_active"
@@ -227,9 +229,13 @@
 		sleep(4)
 		activated = 1
 
+	if(existing_bots >= max_bots)
+		addtimer(CALLBACK(src, .proc/warpbots), spawn_delay)
+		return
+
 	visible_message("<span class='warning'>\ [src] radiates with energy!</span>")
 	var/datum/effect/effect/system/smoke_spread/S = new /datum/effect/effect/system/smoke_spread()
-	S.set_up(1, 0, src.loc)
+	S.set_up(5, 0, src.loc, 10)
 	S.start()
 
 	switch(bot_type)
