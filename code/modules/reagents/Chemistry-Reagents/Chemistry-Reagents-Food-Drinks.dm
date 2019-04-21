@@ -933,6 +933,45 @@
 	glass_name = "glass of onion juice"
 	glass_desc = "Juice from an onion, for when you need to cry."
 
+/datum/reagent/drink/dynjuice
+	name = "Dyn Juice"
+	id = "dynjuice"
+	description = "Juice from a dyn leaf. Good for you, but normally not consumed undiluted."
+	taste_description = "astringent menthol"
+	color = "#00e0e0"
+
+	glass_icon_state = "dynjuice"
+	glass_name = "glass of dyn juice"
+	glass_desc = "Juice from a dyn leaf. Good for you, but normally not consumed undiluted."
+
+/datum/reagent/drink/dynjuice/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
+	..()
+	M.adjustToxLoss(-0.5 * removed)
+
+
+/datum/reagent/drink/dynjuice/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+		M.adjustToxLoss(-0.5 * removed)
+
+/datum/reagent/drink/dynjuice/hot
+	name = "Dyn Tea"
+	id = "dyntea"
+	taste_description = "peppermint water"
+	description = "An old-fashioned, but traditional Skrell drink with documented medicinal properties."
+
+	glass_icon_state = "dyntea"
+	glass_name = "cup of dyn tea"
+	glass_desc = "An old-fashioned, but traditional Skrell drink with documented medicinal properties."
+
+/datum/reagent/drink/dynjuice/cold
+	name = "Dyn Ice Tea"
+	id = "dynade"
+	taste_description = "fizzy mint tea"
+	description = "A modern spin on an old formula, popular among Skrell youngsters. Good for you."
+
+	glass_icon_state = "dynade"
+	glass_name = "glass of dyn ice tea"
+	glass_desc = "A modern spin on an old formula, popular among Skrell youngsters. Good for you."
+
 // Everything else
 
 /datum/reagent/drink/milk
@@ -4019,4 +4058,3 @@
 	description = "A delicious seasonal flavoring."
 	color = "#AE771C"
 	taste_description = "autumn bliss"
-

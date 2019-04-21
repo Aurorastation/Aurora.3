@@ -1339,8 +1339,8 @@
 	seed_name = "dyn"
 	display_name = "dyn bush"
 	mutants = null
-	chems = list("tea" = list(2,2), "dylovene" = list(0,1))
-	kitchen_tag = "dyn"
+	chems = list("dynjuice" = list(2,2), "dylovene" = list(0,1))
+	kitchen_tag = "dyn leaf"
 
 /datum/seed/dyn/setup_traits()
 	..()

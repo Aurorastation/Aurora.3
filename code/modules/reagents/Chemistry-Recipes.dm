@@ -2959,6 +2959,20 @@
 	required_reagents = list("wine" = 4, "vodka" = 2, "sodawater" = 3, "radium" = 1 )
 	result_amount = 10
 
+/datum/chemical_reaction/dynhot
+	name = "Dyn Tea"
+	id = "dynhot"
+	result = "dyntea"
+	required_reagents = list("dynjuice" = 1, "water" = 4)
+	result_amount = 5
+
+/datum/chemical_reaction/dyncold
+	name = "Dyn Ice Tea"
+	id = "dyncold"
+	result = "dynade"
+	required_reagents = list("dynjuice" = 1, "ice" = 2, "sodawater" = 2)
+	result_amount = 5
+
 //transmutation
 
 /datum/chemical_reaction/transmutation_silver
