@@ -70,7 +70,7 @@
 	tameable = FALSE
 	flying = 1
 	attack_emote = "focuses on"
-	var/linked_parent = null
+	var/mob/living/simple_animal/hostile/hivebotbeacon/linked_parent = null
 
 /mob/living/simple_animal/hostile/hivebot/range
 	name = "Hivebot"
@@ -91,6 +91,8 @@
 
 /mob/living/simple_animal/hostile/hivebot/death()
 	..(null,"blows apart!")
+	if(linked_parent)
+		linked.parent.linked_bots -= src
 	var/T = get_turf(src)
 	new /obj/effect/gibspawner/robot(T)
 	spark(T, 3, alldirs)
