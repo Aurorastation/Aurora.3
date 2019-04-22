@@ -936,6 +936,16 @@
 /obj/structure/closet,
 /turf/simulated/floor/plating,
 /area/maintenance/security_starboard)
+"abX" = (
+/obj/structure/table/wood,
+/obj/item/weapon/paper_bin,
+/obj/item/weapon/pen,
+/obj/item/device/radio/intercom{
+	pixel_y = -26
+	},
+/obj/item/weapon/book/manual/ntsl2,
+/turf/simulated/floor/wood,
+/area/library)
 "abZ" = (
 /obj/structure/cable/green{
 	d2 = 4;
@@ -54984,15 +54994,6 @@
 /obj/machinery/light,
 /turf/simulated/floor/wood,
 /area/library)
-"bQS" = (
-/obj/structure/table/wood,
-/obj/item/weapon/paper_bin,
-/obj/item/weapon/pen,
-/obj/item/device/radio/intercom{
-	pixel_y = -26
-	},
-/turf/simulated/floor/wood,
-/area/library)
 "bQT" = (
 /obj/machinery/lapvend,
 /obj/machinery/alarm{
@@ -56215,6 +56216,8 @@
 	},
 /obj/item/weapon/storage/fancy/candle_box,
 /obj/item/weapon/storage/fancy/candle_box,
+/obj/item/weapon/reagent_containers/toothpaste,
+/obj/item/weapon/reagent_containers/toothpaste,
 /turf/simulated/floor/wood,
 /area/crew_quarters/bar)
 "bTq" = (
@@ -56691,7 +56694,8 @@
 /obj/structure/table/wood,
 /obj/item/weapon/pen,
 /obj/item/weapon/reagent_containers/food/drinks/bottle/holywater,
-/obj/item/weapon/nullrod/itembox,
+/obj/item/weapon/reagent_containers/spray/aspergillum,
+/obj/item/weapon/nullrod/obsidianshards,
 /turf/simulated/floor/carpet,
 /area/chapel/office)
 "bUq" = (
@@ -95637,7 +95641,7 @@ bON
 bPx
 bPU
 bPT
-bQS
+abX
 bIT
 bNn
 bSi

@@ -222,7 +222,9 @@ var/list/admin_verbs_debug = list(
 	/client/proc/reset_openturf,
 	/datum/admins/proc/capture_map,
 	/client/proc/global_ao_regenerate,
-	/client/proc/add_client_color
+	/client/proc/add_client_color,
+	/client/proc/connect_ntsl,
+	/client/proc/disconnect_ntsl
 	)
 
 var/list/admin_verbs_paranoid_debug = list(

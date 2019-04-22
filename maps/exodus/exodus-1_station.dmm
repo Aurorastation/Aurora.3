@@ -61564,13 +61564,11 @@
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology/xenoflora_storage)
 "cfG" = (
-/obj/structure/closet/secure_closet/hydroponics{
-	req_access = list(47)
-	},
 /obj/effect/floor_decal/corner/lime{
 	icon_state = "corner_white";
 	dir = 5
 	},
+/obj/structure/closet/secure_closet/xenobotany,
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology/xenoflora_storage)
 "cfH" = (
