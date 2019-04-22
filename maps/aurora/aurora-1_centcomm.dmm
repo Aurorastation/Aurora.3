@@ -17967,7 +17967,7 @@
 /obj/item/weapon/tank/oxygen,
 /obj/item/clothing/shoes/magboots,
 /obj/item/clothing/shoes/magboots,
-/obj/item/weapon/rig/light/stealth,
+/obj/item/weapon/rig/hazard/equipped,
 /turf/simulated/shuttle/plating,
 /area/skipjack_station/start)
 "aOq" = (
@@ -18004,6 +18004,7 @@
 /obj/item/weapon/storage/belt/utility/full,
 /obj/item/device/multitool,
 /obj/item/device/multitool,
+/obj/item/weapon/rig/industrial/equipped,
 /turf/simulated/shuttle/plating,
 /area/skipjack_station/start)
 "aOv" = (
@@ -18034,7 +18035,7 @@
 /obj/item/weapon/tank/oxygen,
 /obj/item/clothing/shoes/magboots,
 /obj/item/clothing/shoes/magboots,
-/obj/item/weapon/rig/light/hacker,
+/obj/item/weapon/rig/eva/equipped,
 /turf/simulated/shuttle/plating,
 /area/skipjack_station/start)
 "aOy" = (
@@ -18462,7 +18463,7 @@
 /obj/structure/table/rack,
 /obj/item/device/suit_cooling_unit/improved,
 /obj/item/device/suit_cooling_unit/improved,
-/obj/item/weapon/rig/industrial/syndicate,
+/obj/item/weapon/rig/industrial/equipped,
 /obj/item/weapon/pickaxe/jackhammer,
 /obj/item/weapon/pickaxe/jackhammer,
 /obj/item/weapon/pickaxe/jackhammer,
