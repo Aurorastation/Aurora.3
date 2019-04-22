@@ -2962,14 +2962,14 @@
 /datum/chemical_reaction/dynhot
 	name = "Dyn Tea"
 	id = "dynhot"
-	result = "dyntea"
+	result = "dynhot"
 	required_reagents = list("dynjuice" = 1, "water" = 4)
 	result_amount = 5
 
 /datum/chemical_reaction/dyncold
 	name = "Dyn Ice Tea"
 	id = "dyncold"
-	result = "dynade"
+	result = "dyncold"
 	required_reagents = list("dynjuice" = 1, "ice" = 2, "sodawater" = 2)
 	result_amount = 5
 

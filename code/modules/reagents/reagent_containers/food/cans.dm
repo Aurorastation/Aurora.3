@@ -274,5 +274,5 @@
 
 /obj/item/weapon/reagent_containers/food/drinks/cans/dyn/Initialize()
 	. = ..()
-	reagents.add_reagent("dynade", 30)
+	reagents.add_reagent("dyncold", 30)
 

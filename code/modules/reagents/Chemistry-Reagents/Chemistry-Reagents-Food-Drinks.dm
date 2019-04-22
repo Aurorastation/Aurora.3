@@ -954,21 +954,21 @@
 
 /datum/reagent/drink/dynjuice/hot
 	name = "Dyn Tea"
-	id = "dyntea"
+	id = "dynhot"
 	taste_description = "peppermint water"
 	description = "An old-fashioned, but traditional Skrell drink with documented medicinal properties."
 
-	glass_icon_state = "dyntea"
+	glass_icon_state = "dynhot"
 	glass_name = "cup of dyn tea"
 	glass_desc = "An old-fashioned, but traditional Skrell drink with documented medicinal properties."
 
 /datum/reagent/drink/dynjuice/cold
 	name = "Dyn Ice Tea"
-	id = "dynade"
+	id = "dyncold"
 	taste_description = "fizzy mint tea"
 	description = "A modern spin on an old formula, popular among Skrell youngsters. Good for you."
 
-	glass_icon_state = "dynade"
+	glass_icon_state = "dyncold"
 	glass_name = "glass of dyn ice tea"
 	glass_desc = "A modern spin on an old formula, popular among Skrell youngsters. Good for you."
 
