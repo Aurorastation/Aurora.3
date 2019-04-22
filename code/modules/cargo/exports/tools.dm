@@ -101,7 +101,7 @@
 	export_types = list(/obj/item/weapon/rcd_ammo)
 	
 /datum/export/debugger
-	cost = 100
+	cost = 75
 	unit_name = "debugger"
 	export_types = list(/obj/item/device/debugger)
 	
