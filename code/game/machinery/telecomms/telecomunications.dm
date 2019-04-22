@@ -488,7 +488,7 @@ var/global/list/obj/machinery/telecomms/telecomms_list = list()
 
 	var/list/memory = list()	// stored memory
 	var/rawcode = ""	// the code to compile (raw text)
-	var/datum/TCS_Compiler/Compiler	// the compiler that compiles and runs the code
+	var/datum/TCS_Compiler/ntsl2/Compiler	// the compiler that compiles and runs the code
 	var/autoruncode = 0		// 1 if the code is set to run every time a signal is picked up
 
 	var/encryption = "null" // encryption key: ie "password"
@@ -582,6 +582,11 @@ var/global/list/obj/machinery/telecomms/telecomms_list = list()
 				relay_information(signal, "/obj/machinery/telecomms/broadcaster")
 
 
+/obj/machinery/telecomms/server/machinery_process()
+	. = ..()
+	if(Compiler)
+		Compiler.update_code()
+
 /obj/machinery/telecomms/server/proc/setcode(var/t)
 	if(t)
 		if(istext(t))
@@ -589,7 +594,10 @@ var/global/list/obj/machinery/telecomms/telecomms_list = list()
 
 /obj/machinery/telecomms/server/proc/compile()
 	if(Compiler)
-		return Compiler.Compile(rawcode)
+		var/er = Compiler.Compile(rawcode)
+		if(istype(Compiler.running_code))
+			Compiler.running_code.S = src
+		return er
 
 /obj/machinery/telecomms/server/proc/update_logs()
 	// start deleting the very first log entry

@@ -50,6 +50,10 @@
 	icon_state = "medbay3"
 	ambience = list('sound/ambience/signal.ogg')
 
+/area/medical/upperlevel
+	name = "\improper Medical - Upper-Level Hallway"
+	icon_state = "medbay2"
+
 /area/crew_quarters/medbreak
 	name = "\improper Medical - Break Room"
 	icon_state = "medbay3"
@@ -119,14 +123,30 @@
 	name = "\improper Medical - Virology Access"
 	icon_state = "virology"
 
+/area/medical/virologytesting
+	name = "\improper Medical Sublevel - Virology Testing"
+	icon_state = "virology"
+
+/area/medical/quarantine
+	name = "\improper Medical Sublevel - Quarantine Ward"
+	icon_state = "virology"
+
+/area/medical/quarantineaccess
+	name = "\improper Medical Sublevel - Quarantine Access"
+	icon_state = "virology"
+
+/area/medical/quarantineautopsy
+	name = "\improper Medical Sublevel - Quarantine Autopsy"
+	icon_state = "virology"
+
 /area/medical/morgue
 	name = "\improper Medical - Long-term Morgue"
 	icon_state = "morgue"
 	ambience = list('sound/ambience/ambimo1.ogg','sound/ambience/ambimo2.ogg','sound/music/main.ogg')
 
-/area/medical/chemistry
-	name = "\improper Medical - Chemistry"
-	icon_state = "chem"
+/area/medical/pharmacy
+	name = "\improper Medical - Pharmacy"
+	icon_state = "phar"
 
 /area/medical/surgery
 	name = "\improper Medical - Operating Theatre"

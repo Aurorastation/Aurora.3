@@ -26,6 +26,7 @@
 	desc = "It's just an ordinary box."
 	icon_state = "box"
 	item_state = "syringe_kit"
+	use_sound = 'sound/items/storage/box.ogg'
 	var/foldable = /obj/item/stack/material/cardboard	// BubbleWrap - if set, can be folded (when empty) into a sheet of cardboard
 	var/maxHealth = 20	//health is already defined
 
@@ -71,9 +72,9 @@
 	..()
 	if (health < maxHealth)
 		if (health >= (maxHealth * 0.5))
-			user << span("warning", "It is slightly torn.")
+			to_chat(user, span("warning", "It is slightly torn."))
 		else
-			user << span("danger", "It is full of tears and holes.")
+			to_chat(user, span("danger", "It is full of tears and holes."))
 
 // BubbleWrap - A box can be folded up to make card
 /obj/item/weapon/storage/box/attack_self(mob/user as mob)
@@ -95,7 +96,8 @@
 	if ( !found )	// User is too far away
 		return
 	// Now make the cardboard
-	user << "<span class='notice'>You fold [src] flat.</span>"
+	to_chat(user, "<span class='notice'>You fold [src] flat.</span>")
+	playsound(src.loc, 'sound/items/storage/boxfold.ogg', 30, 1)
 	new src.foldable(get_turf(src))
 	qdel(src)
 
@@ -1119,3 +1121,22 @@
 	..()
 	for(var/i in 1 to 8)
 		new /obj/item/ammo_casing/tranq(src)
+
+/obj/item/weapon/storage/box/toothpaste
+	can_hold = list(/obj/item/weapon/reagent_containers/toothpaste,
+					/obj/item/weapon/reagent_containers/toothbrush)
+
+/obj/item/weapon/storage/box/toothpaste/fill()
+	new /obj/item/weapon/reagent_containers/toothpaste(src)
+	new /obj/item/weapon/reagent_containers/toothbrush(src)
+	make_exact_fit()
+
+/obj/item/weapon/storage/box/toothpaste/green/fill()
+	new /obj/item/weapon/reagent_containers/toothpaste(src)
+	new /obj/item/weapon/reagent_containers/toothbrush/green(src)
+	make_exact_fit()
+
+/obj/item/weapon/storage/box/toothpaste/red/fill()
+	new /obj/item/weapon/reagent_containers/toothpaste(src)
+	new /obj/item/weapon/reagent_containers/toothbrush/red(src)
+	make_exact_fit()

@@ -14,12 +14,12 @@
 
 	if(src.icon_state == initial(icon_state))
 		src.icon_state = "[icon_state]_r"
-		user << "You roll up \the [src]."
+		to_chat(user, "You roll up \the [src].")
 		body_parts_covered = HEAD
 		flags_inv = BLOCKHAIR
 	else
 		src.icon_state = initial(icon_state)
-		user << "You lower \the [src]."
+		to_chat(user, "You lower \the [src].")
 		flags_inv = HIDEFACE|BLOCKHAIR
 		body_parts_covered = HEAD|FACE|EYES
 
