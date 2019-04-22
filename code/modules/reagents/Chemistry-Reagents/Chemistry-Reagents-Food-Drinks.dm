@@ -950,7 +950,7 @@
 
 
 /datum/reagent/drink/dynjuice/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-		M.adjustToxLoss(-0.5 * removed)
+	M.adjustToxLoss(-0.5 * removed)
 
 /datum/reagent/drink/dynjuice/hot
 	name = "Dyn Tea"
