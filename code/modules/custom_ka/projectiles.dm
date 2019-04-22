@@ -31,8 +31,8 @@
 		if(isliving(A)) //Never do more than 15 damage to a living being per shot.
 			damage = min(damage, 50)
 
-	aoe_s = aoe_s
-	damage_s = damage_s
+	
+	damage_s = damage
 	. = ..()
 
 /obj/item/projectile/kinetic/on_impact(var/atom/A)
