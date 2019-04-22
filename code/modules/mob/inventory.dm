@@ -188,7 +188,7 @@ var/list/slot_equipment_priority = list( \
 
 /mob/proc/drop_item(var/atom/target)
 	if (istype(target, /obj/item))
-		addtimer(CALLBACK(.proc/make_item_drop_sound, src, target), 1)
+		addtimer(CALLBACK(src, .proc/make_item_drop_sound, target), 1)
 	if(hand)
 		return drop_l_hand(target)
 	else
