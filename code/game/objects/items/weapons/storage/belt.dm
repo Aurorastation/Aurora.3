@@ -347,7 +347,7 @@
 	new /obj/item/weapon/material/hatchet(src)
 	new /obj/item/weapon/reagent_containers/glass/fertilizer/rh(src)
 	new /obj/item/weapon/reagent_containers/spray/plantbgone(src)
-	new new /obj/item/weapon/wirecutters/clippers(src)
+	new /obj/item/weapon/wirecutters/clippers(src)
 
 /obj/item/weapon/storage/belt/bandolier
 	name = "bandolier"
