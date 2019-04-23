@@ -7,6 +7,8 @@
 	check_armour = "bomb"
 	range = 5
 	var/pressure_decrease = 0.25
+
+	// Two variables below are use only to transfer damage scale and aoe variable between parent Collide proc and other procs
 	var/damage_s
 	var/aoe_s = 1
 
@@ -28,7 +30,7 @@
 		else
 			damage *= max(1 - (environment.return_pressure()/100)*0.75,0)
 			damage_s = damage
-		if(isliving(A)) //Never do more than 15 damage to a living being per shot.
+		if(isliving(A)) //Never do more than 50 damage to a living being per shot.
 			damage = min(damage, 50)
 
 	
@@ -55,6 +57,6 @@
 	if(new_aoe > 0)
 		for(var/new_target in orange(new_aoe, target_turf))
 			aoe_s = 0
-			damage_s = min(damage_scale - damage_scale * get_dist(new_target, target_turf) * 0.25, 0)
+			damage_s = max(damage_scale - damage_scale * get_dist(new_target, target_turf) * 0.25, 0)
 			src.Collide(new_target)
 			CHECK_TICK
