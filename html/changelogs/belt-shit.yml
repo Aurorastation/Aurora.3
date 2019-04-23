@@ -4,4 +4,4 @@ delete-after: True
 
 changes: 
   - rscadd: "Adds a new hydroponics belt to store and easily access your floral utilities."
-  - rscdel: "Removes the cleaning chemgrenade restriction on the janitor belt, now janitor belts can store all the chemical grenades. Don't make me regret this"
+  - rscdel: "Removes the cleaning chemgrenade restriction on the janitor belt, now janitor belts can store all the chemical grenades. Don't make me regret this."
