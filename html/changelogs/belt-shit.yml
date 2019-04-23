@@ -1,4 +1,6 @@
-author: SonicGotNuked
+ author: SonicGotNuked
+
 delete-after: True
 
-  - rscadd: "Adds the hydroponics belt for quality of life."
+changes: 
+  - rscadd: "Adds a new hydroponics belt to store and easily access your floral utilities."
