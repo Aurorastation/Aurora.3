@@ -824,6 +824,21 @@
 	holder.del_reagent("napalm")
 	return
 
+/datum/chemical_reaction/zoragel
+	name = "Inert Gel"
+	id = "zoragel"
+	result = "zoragel"
+	required_reagents = list("sacid" = 1, "aluminum" = 1, "sugar" = 1, "surfactant" = 3)
+	result_amount = 1
+
+/datum/chemical_reaction/zorafire
+	name = "Zo'rane Fire"
+	id = "greekfire"
+	result = "greekfire"
+	required_reagents = list("nitroglycerin" = 2, "pyrosilicate" = 2, "phoron" = 3, "zoragel" = 3)
+	result_amount = 1
+	log_is_important = 1
+
 /datum/chemical_reaction/chemsmoke
 	name = "Chemsmoke"
 	id = "chemsmoke"
@@ -3154,3 +3169,31 @@
 	result = "rmt"
 	result_amount = 1
 	required_reagents = list("potassium" = 1, "inaprovaline" = 1)
+
+/datum/chemical_reaction/cold_gate
+	name = "Cold Gate"
+	id = "cold_gate"
+	result = "cold_gate"
+	result_amount = 3
+	required_reagents = list("mintsyrup" = 1, "ice" = 1, "toothpaste" = 1)
+
+/datum/chemical_reaction/waterfresh
+	name = "Waterfresh"
+	id = "waterfresh"
+	result = "waterfresh"
+	result_amount = 3
+	required_reagents = list("tonic" = 1, "sodawater" = 1, "toothpaste" = 1)
+
+/datum/chemical_reaction/sedantian_firestorm
+	name = "Sedantian Firestorm"
+	id = "sedantian_firestorm"
+	result = "sedantian_firestorm"
+	result_amount = 2
+	required_reagents = list("phoron" = 1, "toothpaste" = 1)
+
+/datum/chemical_reaction/kois_odyne
+	name = "Kois Odyne"
+	id = "kois_odyne"
+	result = "kois_odyne"
+	result_amount = 3
+	required_reagents = list("tonic" = 1, "koispaste" = 1, "toothpaste" = 1)
