@@ -41,7 +41,7 @@
 	spill(user, M.loc)
 
 	//Note: Added a robot check to all stun/weaken procs, beccause weakening a robot causes its active modules to bug out
-	if((CLUMSY in user.mutations) && prob(50))              //What if he's a clown?
+	if((user.is_clumsy()) && prob(50))              //What if he's a clown?
 		to_chat(M, "<span class='warning'>You accidentally slam yourself with the [src]!</span>")
 		if (!issilicon(M))
 			M.Weaken(1)
