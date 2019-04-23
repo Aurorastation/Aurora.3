@@ -113,6 +113,5 @@
 
 /obj/item/weapon/storage/fancy/crayons/chalkbox/update_icon()
 	cut_overlays()
-	add_overlay("chalkbox")
 	for(var/obj/item/weapon/pen/drafting/chalk in contents)
 		add_overlay("[chalk.colorName]")
