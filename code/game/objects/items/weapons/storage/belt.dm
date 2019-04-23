@@ -320,9 +320,9 @@
 	storage_slots = 9
 	w_class = 3
 	m_w_class = 4
-	//max_storage_space = 16 *Can't decide, storage space could allow this to become the new medical belt meta. Leaving disabled to avoide green belt doctors
+//	max_storage_space = 16 *Can't decide, storage space could allow this to become the new medical belt meta. Leaving disabled to avoide green belt doctors
 	can_hold = list(
-		/obj/item/weapon/reagent_containers/glass/bottle,
+		/obj/item/weapon/reagent_containers/glass,
 		/obj/item/weapon/grenade/chem_grenade, //weed killer grenades mostly, or water-pottassium if you grow the bannanas!
 		/obj/item/weapon/bee_smoker, //will this ever get used? Probally not.
 		/obj/item/weapon/plantspray/pests,
@@ -337,7 +337,17 @@
 		/obj/item/device/analyzer/plant_analyzer,
 		/obj/item/clothing/gloves/botanic_leather,
 		)
-	
+/obj/item/weapon/storage/belt/hydro/full/fill()
+	..()
+	new /obj/item/weapon/plantspray/pests(src)
+	new /obj/item/weapon/material/minihoe(src)
+	new /obj/item/weapon/storage/bag/plants(src)
+	new /obj/item/clothing/gloves/botanic_leather(src)
+	new /obj/item/device/analyzer/plant_analyzer(src)
+	new /obj/item/weapon/material/hatchet(src)
+	new /obj/item/weapon/reagent_containers/glass/fertilizer/rh(src)
+	new /obj/item/weapon/reagent_containers/spray/plantbgone(src)
+	new new /obj/item/weapon/wirecutters/clippers(src)
 
 /obj/item/weapon/storage/belt/bandolier
 	name = "bandolier"
