@@ -111,7 +111,7 @@
 		/obj/item/device/antibody_scanner
 		)
 
-/obj/item/weapon/storage/medical/emt
+/obj/item/weapon/storage/belt/medical/emt
 	name = "EMT utility belt"
 	desc = "A sturdy black webbing belt with attached pouches."
 	icon_state = "emsbelt"
