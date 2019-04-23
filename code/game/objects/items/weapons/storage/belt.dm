@@ -111,7 +111,7 @@
 		/obj/item/device/antibody_scanner
 		)
 
-/obj/item/weapon/storage/belt/medical/emt
+/obj/item/weapon/storage/medical/emt
 	name = "EMT utility belt"
 	desc = "A sturdy black webbing belt with attached pouches."
 	icon_state = "emsbelt"
@@ -311,6 +311,33 @@
 		/obj/item/weapon/rrf,
 		/obj/item/weapon/gun/custom_ka
 		)
+
+/obj/item/weapon/storage/belt/hydro
+	name = "hydrobelt"
+	desc = "A utility belt to store and provide easy access to your floral utilities."
+	icon_state = "growbelt"
+	item_state = "growbelt"
+	storage_slots = 9
+	w_class = 3
+	m_w_class = 4
+	//max_storage_space = 16 *Can't decide, storage space could allow this to become the new medical belt meta. Leaving disabled to avoide green belt doctors
+	can_hold = list(
+		/obj/item/weapon/reagent_containers/glass/bottle,
+		/obj/item/weapon/grenade/chem_grenade, //weed killer grenades mostly, or water-pottassium if you grow the bannanas!
+		/obj/item/weapon/bee_smoker, //will this ever get used? Probally not.
+		/obj/item/weapon/plantspray/pests,
+		/obj/item/weapon/storage/bag/plants, 
+		/obj/item/weapon/reagent_containers/food/snacks/grown,
+		/obj/item/seeds,
+		/obj/item/weapon/grown, 
+		/obj/item/weapon/material/minihoe,
+		/obj/item/weapon/material/hatchet,
+		/obj/item/weapon/wirecutters,
+		/obj/item/weapon/reagent_containers/spray, //includes if you ever wish to get a spraybottle full of other chemicals, Like water
+		/obj/item/device/analyzer/plant_analyzer,
+		/obj/item/clothing/gloves/botanic_leather,
+		)
+	
 
 /obj/item/weapon/storage/belt/bandolier
 	name = "bandolier"
