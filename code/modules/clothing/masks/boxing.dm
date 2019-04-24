@@ -30,6 +30,12 @@
 	desc = "Designed to both hide identities and keep your face comfy and warm."
 	icon_state = "swatclava"
 
+/obj/item/clothing/mask/balaclava/military
+	name = "military balaclava"
+	desc = "Designed to both hide identities and keep your face comfy and warm."
+	icon_state = "balaclava"
+	item_state = "milclava"
+
 /obj/item/clothing/mask/balaclava/iacmask
 	name = "IAC balaclava"
 	desc = "Designed to keep the user warm and sterile in hostile enviroments."
