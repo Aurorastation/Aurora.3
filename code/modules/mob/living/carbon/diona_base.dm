@@ -50,10 +50,12 @@ var/list/diona_banned_languages = list(
 	DS.last_location = loc
 	if(light_amount)
 		adjustNutritionLoss(-light_amount) // regenerate our nutrition from light.
-	move_delay_mod = max(initial(move_delay_mod) - light_amount * 1.5, 0)
-	species.sprint_cost_factor = max(min(initial(species.sprint_cost_factor), initial(species.sprint_cost_factor) - light_amount * DIONA_LIGHT_COEFICIENT), 0)
+	move_delay_mod = min(initial(move_delay_mod) - light_amount * 1.5, 0)
+	sprint_speed_factor = initial(sprint_speed_factor)
+	sprint_cost_factor = Clamp(initial(sprint_cost_factor) - light_amount * DIONA_LIGHT_COEFICIENT, 0, initial(sprint_cost_factor))
 	if (total_radiation)
 		move_delay_mod = max(move_delay_mod * total_radiation * 3, -7)
+		sprint_speed_factor = 0.75
 		sprint_cost_factor = 0
 
 /mob/living/carbon/proc/diona_handle_radiation(var/datum/dionastats/DS)
