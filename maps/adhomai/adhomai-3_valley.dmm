@@ -315,6 +315,9 @@
 /obj/structure/table/wood,
 /turf/simulated/floor/tiled/steel,
 /area/adhomai/village/foundry)
+"bA" = (
+/turf/simulated/floor/asteroid/ash/adhomai,
+/area/adhomai/village)
 "bD" = (
 /obj/structure/bed/chair/wood/adhomai{
 	icon_state = "tajchair";
@@ -322,6 +325,16 @@
 	},
 /turf/simulated/floor/wood,
 /area/adhomai/village/court)
+"bE" = (
+/obj/structure/closet/cabinet,
+/obj/item/mold/fork,
+/obj/item/mold/knife,
+/obj/item/mold,
+/obj/item/mold/ring,
+/obj/item/mold/pot,
+/obj/item/mold/urn,
+/turf/simulated/floor/wood,
+/area/adhomai/village/blacksmith)
 "bG" = (
 /turf/unsimulated/mask,
 /area/adhomai)
@@ -359,13 +372,6 @@
 	},
 /turf/simulated/floor/wood,
 /area/adhomai/village/shop)
-"bQ" = (
-/turf/simulated/floor/asteroid/ash/adhomai,
-/area/adhomai/village)
-"bS" = (
-/obj/structure/flora/ausbushes/genericbush,
-/turf/unsimulated/mask/adhomai,
-/area/adhomai)
 "bV" = (
 /obj/structure/table/wood,
 /obj/structure/curtain/open/bed{
@@ -434,6 +440,10 @@
 /obj/structure/toilet,
 /turf/simulated/floor/tiled/white,
 /area/adhomai/village)
+"cg" = (
+/obj/machinery/portable_atmospherics/hydroponics/soil,
+/turf/simulated/floor/asteroid/ash/adhomai,
+/area/adhomai)
 "cj" = (
 /obj/structure/barricade,
 /turf/simulated/floor/snow,
@@ -457,10 +467,6 @@
 /obj/structure/curtain/open/shower,
 /obj/machinery/shower,
 /turf/simulated/floor/tiled/white,
-/area/adhomai/village)
-"cy" = (
-/obj/structure/curtain/open/bed,
-/turf/simulated/floor/wood,
 /area/adhomai/village)
 "cz" = (
 /obj/structure/closet/crate/freezer{
@@ -601,6 +607,15 @@
 	},
 /turf/simulated/floor/wood,
 /area/adhomai/village/townhall)
+"dx" = (
+/obj/effect/floor_decal/corner/paleblue/diagonal,
+/obj/structure/sink{
+	dir = 8;
+	icon_state = "sink";
+	pixel_x = -12
+	},
+/turf/simulated/floor/tiled/white,
+/area/adhomai/village/medical)
 "dz" = (
 /turf/simulated/floor/ice,
 /area/adhomai)
@@ -689,6 +704,12 @@
 /obj/structure/bed/chair/wood/adhomai,
 /turf/simulated/floor/wood,
 /area/adhomai/village)
+"eg" = (
+/obj/machinery/light/small{
+	dir = 4
+	},
+/turf/simulated/floor/asteroid/ash/adhomai,
+/area/adhomai/village)
 "ei" = (
 /obj/structure/toilet{
 	icon_state = "toilet00";
@@ -729,10 +750,6 @@
 /obj/item/hoist_kit,
 /turf/simulated/floor/tiled/steel,
 /area/adhomai/village/foundry)
-"ev" = (
-/obj/structure/flora/ausbushes/genericbush,
-/turf/simulated/floor/asteroid/ash/adhomai,
-/area/adhomai)
 "ew" = (
 /obj/structure/bed/chair/wood/adhomai,
 /turf/simulated/floor/carpet,
@@ -749,6 +766,12 @@
 "eC" = (
 /turf/simulated/floor/lino,
 /area/adhomai/village/police)
+"eD" = (
+/obj/machinery/light/small{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/freezer,
+/area/adhomai/village)
 "eE" = (
 /obj/machinery/light/small{
 	dir = 8
@@ -756,17 +779,6 @@
 /obj/structure/closet,
 /turf/simulated/floor/lino,
 /area/adhomai/village/medical)
-"eF" = (
-/obj/structure/curtain/open/bed{
-	pixel_x = -32
-	},
-/obj/effect/decal/cleanable/dirt,
-/obj/structure/table/wood,
-/obj/item/weapon/reagent_containers/cooking_container/fire/pot,
-/obj/item/weapon/reagent_containers/cooking_container/fire/pot,
-/obj/item/weapon/reagent_containers/cooking_container/fire/pot,
-/turf/simulated/floor/wood,
-/area/adhomai/village)
 "eG" = (
 /obj/effect/landmark{
 	name = "Observer-Start"
@@ -999,11 +1011,11 @@
 /obj/item/ammo_magazine/boltaction,
 /turf/simulated/floor/tiled/dark,
 /area/adhomai/fortress)
-"fU" = (
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/turf/simulated/open,
+"fS" = (
+/obj/structure/table/wood,
+/obj/item/watertank,
+/obj/item/watertank,
+/turf/simulated/floor/wood,
 /area/adhomai/village)
 "fV" = (
 /obj/structure/simple_door/adhomai/iron{
@@ -1150,6 +1162,16 @@
 /obj/structure/barricade/bars,
 /turf/simulated/floor/plating,
 /area/adhomai/village/court)
+"gU" = (
+/obj/structure/table/wood,
+/obj/item/seeds/nmshaan,
+/obj/item/seeds/nmshaan,
+/obj/item/seeds/nifberries,
+/obj/item/seeds/nifberries,
+/obj/item/seeds/shandseed,
+/obj/item/seeds/shandseed,
+/turf/simulated/floor/wood,
+/area/adhomai/village)
 "gV" = (
 /turf/simulated/floor/wood,
 /area/adhomai/village/court)
@@ -1176,6 +1198,10 @@
 /obj/item/weapon/storage/briefcase,
 /turf/simulated/floor/carpet,
 /area/adhomai/village/court)
+"hd" = (
+/obj/item/weapon/stool/padded,
+/turf/simulated/floor/asteroid/ash/adhomai,
+/area/adhomai)
 "he" = (
 /obj/structure/table/wood,
 /obj/structure/sign/adhomai/paiting/nuke{
@@ -1196,12 +1222,18 @@
 "hj" = (
 /turf/simulated/floor/carpet,
 /area/adhomai/village)
-"hk" = (
-/obj/structure/table/wood,
-/obj/item/watertank,
-/obj/item/watertank,
+"hm" = (
+/obj/structure/simple_door/adhomai/wood{
+	initial_lock_value = "bar"
+	},
 /turf/simulated/floor/wood,
-/area/adhomai/village)
+/area/adhomai/village/blacksmith)
+"hp" = (
+/obj/structure/sink/well{
+	density = 1
+	},
+/turf/simulated/floor/snow,
+/area/adhomai)
 "hr" = (
 /obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
@@ -1328,6 +1360,10 @@
 	},
 /turf/simulated/floor/carpet,
 /area/adhomai/village)
+"ii" = (
+/obj/structure/flora/grass/brown,
+/turf/simulated/floor/asteroid/ash/adhomai,
+/area/adhomai/village)
 "in" = (
 /obj/structure/table/wood,
 /obj/machinery/media/jukebox/phonograph,
@@ -1351,10 +1387,6 @@
 /obj/structure/table/wood,
 /turf/simulated/floor/carpet,
 /area/adhomai/village/mayor)
-"ir" = (
-/obj/structure/curtain/medical,
-/turf/simulated/floor/lino,
-/area/adhomai/village/medical)
 "is" = (
 /obj/machinery/light{
 	dir = 4;
@@ -1381,6 +1413,10 @@
 	},
 /turf/simulated/floor/wood,
 /area/adhomai/village/shop)
+"iA" = (
+/obj/item/weapon/stool/padded,
+/turf/simulated/floor/snow,
+/area/adhomai)
 "iD" = (
 /obj/machinery/light{
 	icon_state = "tube1";
@@ -1403,12 +1439,6 @@
 /obj/item/weapon/flame/lighter/adhomian/nka,
 /turf/simulated/floor/tiled/dark,
 /area/adhomai/fortress)
-"iK" = (
-/obj/effect/landmark{
-	name = "animalspawn"
-	},
-/turf/simulated/floor/asteroid/ash/adhomai,
-/area/adhomai)
 "iL" = (
 /obj/structure/simple_door/adhomai/wood{
 	initial_lock_value = "mayor"
@@ -1488,6 +1518,14 @@
 /obj/structure/flora/pottedplant/random,
 /turf/simulated/floor/wood,
 /area/adhomai/village/mayor)
+"iY" = (
+/obj/machinery/portable_atmospherics/hydroponics/soil,
+/obj/machinery/light{
+	icon_state = "tube1";
+	dir = 1
+	},
+/turf/simulated/floor/asteroid/ash/adhomai,
+/area/adhomai/village)
 "iZ" = (
 /obj/structure/bed/chair/wood/adhomai,
 /turf/simulated/floor/carpet,
@@ -1516,6 +1554,18 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/adhomai/village)
+"jf" = (
+/obj/structure/table/rack,
+/obj/item/weapon/shovel/spade,
+/obj/item/weapon/material/minihoe,
+/obj/item/weapon/material/scythe,
+/obj/item/weapon/wirecutters/clippers,
+/obj/item/seeds/nfrihi,
+/obj/item/seeds/mtearseed,
+/obj/item/seeds/shandseed,
+/obj/item/seeds/nifberries,
+/turf/simulated/floor/asteroid/ash/adhomai,
+/area/adhomai)
 "jg" = (
 /obj/structure/sink{
 	pixel_y = 15
@@ -1717,6 +1767,10 @@
 	},
 /turf/simulated/floor/snow,
 /area/adhomai)
+"jY" = (
+/obj/structure/flora/ausbushes/genericbush,
+/turf/simulated/floor/asteroid/ash/adhomai,
+/area/adhomai)
 "jZ" = (
 /obj/structure/toilet{
 	icon_state = "toilet00";
@@ -1729,12 +1783,6 @@
 	name = "Commoner"
 	},
 /turf/simulated/floor/asteroid/ash/adhomai,
-/area/adhomai)
-"kf" = (
-/obj/structure/sign/adhomai/shop{
-	pixel_y = 32
-	},
-/turf/simulated/floor/snow,
 /area/adhomai)
 "kg" = (
 /obj/structure/closet/cabinet,
@@ -1784,13 +1832,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/adhomai/fortress)
-"kx" = (
-/obj/structure/closet/crate{
-	desc = "A simple metal footlocker.";
-	name = "footlocker"
-	},
-/turf/simulated/floor/wood,
-/area/adhomai/village)
 "kz" = (
 /obj/structure/telegraphy/mayor,
 /turf/simulated/floor/wood,
@@ -1803,10 +1844,6 @@
 /mob/living/simple_animal/mouse/gray,
 /turf/simulated/floor/tiled/dark,
 /area/adhomai/fortress)
-"kE" = (
-/mob/living/simple_animal/ice_tunneler,
-/turf/simulated/floor/asteroid/ash/adhomai,
-/area/adhomai/village)
 "kH" = (
 /obj/machinery/button/crematorium{
 	_wifi_id = "chapel_crema";
@@ -1837,33 +1874,22 @@
 /obj/item/weapon/storage/toolbox/mechanical,
 /turf/simulated/floor/tiled/dark,
 /area/adhomai/fortress)
-"kR" = (
-/obj/structure/table/wood,
-/obj/item/weapon/reagent_containers/glass/bucket/wood,
-/turf/simulated/floor/asteroid/ash/adhomai,
-/area/adhomai)
 "kS" = (
 /obj/structure/window/classic/reinforced,
 /turf/simulated/floor/wood,
 /area/adhomai/village/townhall)
 "kU" = (
-/obj/structure/bed/chair/wood/adhomai{
-	icon_state = "tajchair";
-	dir = 1
+/obj/structure/sign/double/painting/mountain{
+	pixel_y = 32
 	},
-/obj/machinery/light/small,
 /turf/simulated/floor/wood,
-/area/adhomai/village/medical)
+/area/adhomai/village)
 "ld" = (
 /obj/structure/closet/cabinet,
 /obj/item/mold/butterflyblade,
 /obj/item/mold/butterflyhandle,
 /turf/simulated/floor/wood,
 /area/adhomai/village/blacksmith)
-"lg" = (
-/obj/structure/sink/puddle,
-/turf/simulated/floor/snow,
-/area/adhomai)
 "lh" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/window/reinforced,
@@ -1883,6 +1909,14 @@
 /obj/structure/table/stone/marble,
 /turf/simulated/floor/tiled/dark,
 /area/adhomai/village/temple)
+"lq" = (
+/obj/machinery/light{
+	icon_state = "tube1";
+	dir = 2
+	},
+/obj/machinery/portable_atmospherics/hydroponics/soil,
+/turf/simulated/floor/asteroid/ash/adhomai,
+/area/adhomai/village)
 "ls" = (
 /obj/structure/bookcase/libraryspawn/religion,
 /turf/simulated/floor/carpet,
@@ -1907,6 +1941,14 @@
 "lA" = (
 /turf/simulated/floor/tiled/dark,
 /area/adhomai/village/shop)
+"lB" = (
+/obj/structure/bed/chair/wood/adhomai{
+	icon_state = "tajchair";
+	dir = 1
+	},
+/obj/machinery/light/small,
+/turf/simulated/floor/wood,
+/area/adhomai/village/medical)
 "lC" = (
 /obj/structure/closet/crate/large,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -1915,6 +1957,10 @@
 /obj/item/weapon/pickaxe,
 /turf/simulated/floor/tiled/dark,
 /area/adhomai/fortress)
+"lE" = (
+/obj/machinery/honey_extractor,
+/turf/simulated/floor/asteroid/ash/adhomai,
+/area/adhomai)
 "lG" = (
 /obj/structure/curtain/open/bed{
 	pixel_x = 32
@@ -1926,11 +1972,19 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
 /area/adhomai/fortress)
+"lL" = (
+/obj/machinery/portable_atmospherics/hydroponics/soil,
+/turf/simulated/floor/asteroid/ash/adhomai,
+/area/adhomai/village)
 "lM" = (
 /obj/structure/table/wood,
 /obj/item/weapon/deck/cards,
 /turf/simulated/floor/wood,
 /area/adhomai/village/foundry)
+"lP" = (
+/obj/structure/simple_door/adhomai/wood,
+/turf/simulated/floor/carpet/blue,
+/area/adhomai/village)
 "lU" = (
 /turf/simulated/wall/wood,
 /area/adhomai/village/medical)
@@ -1981,6 +2035,10 @@
 /obj/structure/filingcabinet/chestdrawer,
 /turf/simulated/floor/wood,
 /area/adhomai/village/medical)
+"mo" = (
+/obj/structure/curtain/open/bed,
+/turf/simulated/floor/wood,
+/area/adhomai/village)
 "mr" = (
 /obj/structure/table/rack,
 /obj/machinery/door/window/northleft{
@@ -1998,17 +2056,6 @@
 /obj/item/ammo_casing/rpg,
 /turf/simulated/floor/tiled/dark,
 /area/adhomai/fortress)
-"ms" = (
-/obj/structure/curtain/open/bed{
-	pixel_y = -32
-	},
-/obj/structure/curtain/open/bed{
-	pixel_x = -32
-	},
-/obj/structure/table/wood,
-/obj/machinery/media/jukebox/phonograph,
-/turf/simulated/floor/wood,
-/area/adhomai/village)
 "mt" = (
 /obj/machinery/light/small{
 	dir = 1
@@ -2056,19 +2103,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/adhomai/village/temple)
-"mH" = (
-/obj/machinery/light/small{
-	dir = 4;
-	pixel_y = 0
-	},
-/obj/structure/curtain/open/bed{
-	pixel_y = 32
-	},
-/obj/structure/closet/crate/bin{
-	name = "garbage bin"
-	},
-/turf/simulated/floor/wood,
-/area/adhomai/village/medical)
 "mM" = (
 /obj/structure/table/wood,
 /obj/item/weapon/reagent_containers/food/drinks/bottle/holywater,
@@ -2095,6 +2129,11 @@
 /obj/structure/table/stone/marble,
 /turf/simulated/floor/wood,
 /area/adhomai/village/shop)
+"mV" = (
+/obj/item/weapon/staff/broom,
+/obj/structure/closet/crate/bin,
+/turf/simulated/floor/asteroid/ash/adhomai,
+/area/adhomai/village)
 "mZ" = (
 /obj/structure/bonfire/fireplace{
 	dir = 8
@@ -2190,6 +2229,12 @@
 "nT" = (
 /turf/simulated/floor/carpet,
 /area/adhomai/village/townhall)
+"nU" = (
+/obj/structure/simple_door/adhomai/wood{
+	initial_lock_value = "medical"
+	},
+/turf/simulated/floor/wood,
+/area/adhomai/village/medical)
 "oc" = (
 /obj/structure/window/reinforced{
 	icon_state = "rwindow";
@@ -2209,6 +2254,10 @@
 /obj/item/weapon/storage/box/matches,
 /turf/simulated/floor/wood,
 /area/adhomai/village/temple)
+"of" = (
+/obj/structure/flora/ausbushes/grassybush,
+/turf/unsimulated/mask/adhomai,
+/area/adhomai)
 "og" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/item/weapon/caution/cone,
@@ -2246,15 +2295,6 @@
 	},
 /turf/simulated/floor/carpet,
 /area/adhomai/village/townhall)
-"ot" = (
-/obj/structure/curtain/open/bed{
-	pixel_y = -32
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/turf/simulated/open,
-/area/adhomai/village)
 "ou" = (
 /obj/structure/bed/chair/wood/adhomai{
 	icon_state = "tajchair";
@@ -2266,31 +2306,24 @@
 	},
 /turf/simulated/floor/wood,
 /area/adhomai/village/court)
-"ov" = (
-/obj/structure/table/rack,
-/obj/item/weapon/shovel/spade,
-/obj/item/weapon/material/minihoe,
-/obj/item/weapon/material/scythe,
-/obj/item/weapon/wirecutters/clippers,
-/obj/item/seeds/nfrihi,
-/obj/item/seeds/mtearseed,
-/obj/item/seeds/shandseed,
-/obj/item/seeds/nifberries,
-/turf/simulated/floor/asteroid/ash/adhomai,
-/area/adhomai)
 "ow" = (
 /obj/structure/closet/cabinet,
 /obj/item/weapon/storage/belt/archaeology,
 /obj/item/weapon/storage/box/excavation,
 /turf/simulated/floor/wood,
 /area/adhomai/village)
-"ox" = (
-/obj/structure/bed,
-/obj/machinery/light/small{
-	dir = 4
-	},
-/obj/item/weapon/bedsheet,
-/turf/simulated/floor/wood,
+"oz" = (
+/obj/structure/closet/crate/freezer,
+/obj/item/weapon/reagent_containers/food/condiment/flour,
+/obj/item/weapon/reagent_containers/food/condiment/flour,
+/obj/item/weapon/reagent_containers/food/condiment/barbecue,
+/obj/item/weapon/reagent_containers/food/condiment/enzyme,
+/obj/item/weapon/reagent_containers/food/condiment/saltshaker,
+/obj/item/weapon/reagent_containers/food/condiment/spacespice,
+/obj/item/weapon/reagent_containers/food/condiment/sugar,
+/obj/item/weapon/reagent_containers/food/condiment/peppermill,
+/obj/item/weapon/storage/fancy/egg_box,
+/turf/simulated/floor/tiled/freezer,
 /area/adhomai/village)
 "oB" = (
 /obj/item/weapon/reagent_containers/glass/bucket,
@@ -2303,12 +2336,6 @@
 "oC" = (
 /turf/simulated/open,
 /area/adhomai/village/townhall)
-"oF" = (
-/obj/structure/simple_door/adhomai/wood{
-	initial_lock_value = "bar"
-	},
-/turf/simulated/floor/wood,
-/area/adhomai/village)
 "oG" = (
 /obj/structure/bed/chair/wood/adhomai{
 	icon_state = "tajchair";
@@ -2389,10 +2416,10 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/adhomai/village/townhall)
-"ps" = (
-/obj/machinery/washing_machine,
-/turf/simulated/floor/wood,
-/area/adhomai/village)
+"pt" = (
+/obj/structure/table/wood,
+/turf/simulated/floor/asteroid/ash/adhomai,
+/area/adhomai)
 "pu" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/cobweb,
@@ -2438,10 +2465,6 @@
 /obj/item/weapon/reagent_containers/food/drinks/bottle/holywater,
 /turf/simulated/floor/wood,
 /area/adhomai/village/temple)
-"pI" = (
-/obj/structure/flora/pottedplant,
-/turf/simulated/floor/wood,
-/area/adhomai/village)
 "pJ" = (
 /obj/structure/table/wood,
 /obj/machinery/light/small{
@@ -2469,6 +2492,10 @@
 "pU" = (
 /turf/simulated/floor/wood,
 /area/adhomai/village/townhall)
+"pV" = (
+/obj/machinery/smartfridge/drying_rack/adhomai,
+/turf/simulated/floor/asteroid/ash/adhomai,
+/area/adhomai)
 "pW" = (
 /obj/structure/bed/chair/wood/adhomai,
 /obj/structure/curtain/open/bed{
@@ -2534,6 +2561,14 @@
 /obj/item/weapon/stool/padded,
 /turf/simulated/floor/wood,
 /area/adhomai/village)
+"qs" = (
+/obj/structure/table/wood,
+/obj/item/weapon/material/twohanded/pike/pitchfork,
+/obj/machinery/light/small{
+	dir = 8
+	},
+/turf/simulated/floor/asteroid/ash/adhomai,
+/area/adhomai/village)
 "qC" = (
 /obj/structure/closet/cabinet,
 /obj/item/clothing/under/uniform/hand/fancy,
@@ -2555,6 +2590,17 @@
 /obj/item/weapon/shovel,
 /turf/simulated/floor/wood,
 /area/adhomai/village/temple)
+"qJ" = (
+/obj/structure/curtain/open/bed{
+	pixel_y = -32
+	},
+/obj/structure/curtain/open/bed{
+	pixel_x = -32
+	},
+/obj/structure/table/wood,
+/obj/machinery/media/jukebox/phonograph,
+/turf/simulated/floor/wood,
+/area/adhomai/village)
 "qM" = (
 /obj/structure/table/steel,
 /obj/structure/window/reinforced{
@@ -2567,6 +2613,12 @@
 /obj/item/weapon/tape_roll,
 /turf/simulated/floor/tiled/dark,
 /area/adhomai/fortress)
+"qN" = (
+/obj/structure/table/wood,
+/obj/item/weapon/paper_bin,
+/obj/item/weapon/pen,
+/turf/simulated/floor/wood,
+/area/adhomai/village)
 "qO" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/floodlight,
@@ -2575,6 +2627,10 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/adhomai/fortress)
+"qQ" = (
+/obj/structure/simple_door/adhomai/wood,
+/turf/simulated/wall/wood,
+/area/space)
 "qS" = (
 /obj/structure/table/wood,
 /obj/item/weapon/paper_bin,
@@ -2604,6 +2660,11 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/adhomai/fortress)
+"rg" = (
+/obj/structure/flora/pottedplant,
+/obj/machinery/light/small,
+/turf/simulated/floor/carpet/blue,
+/area/adhomai/village)
 "ri" = (
 /obj/structure/curtain/open/bed{
 	pixel_x = 32
@@ -2627,10 +2688,6 @@
 	},
 /turf/simulated/floor/wood,
 /area/adhomai/village/shop)
-"rr" = (
-/obj/structure/flora/ausbushes/lavendergrass,
-/turf/unsimulated/mask/adhomai,
-/area/adhomai)
 "rs" = (
 /obj/structure/table/steel,
 /turf/simulated/floor/wood,
@@ -2653,6 +2710,13 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/adhomai/village/medical)
+"ry" = (
+/obj/structure/flora/pottedplant,
+/obj/machinery/light/small{
+	dir = 4
+	},
+/turf/simulated/floor/wood,
+/area/adhomai/village)
 "rz" = (
 /obj/effect/floor_decal/corner/green/diagonal,
 /obj/structure/table/wood,
@@ -2689,6 +2753,14 @@
 /obj/structure/bedsheetbin,
 /turf/simulated/floor/tiled/dark,
 /area/adhomai/village/temple)
+"rM" = (
+/obj/structure/sink/kitchen{
+	dir = 4;
+	icon_state = "sink_alt";
+	pixel_x = -21
+	},
+/turf/simulated/floor/lino,
+/area/adhomai/village)
 "rP" = (
 /obj/machinery/light{
 	dir = 8;
@@ -2716,22 +2788,10 @@
 	},
 /turf/simulated/floor/carpet,
 /area/adhomai/village/townhall)
-"rZ" = (
-/obj/machinery/light{
-	dir = 8;
-	icon_state = "tube1";
-	pixel_y = 0
-	},
-/turf/simulated/floor/asteroid/ash/adhomai,
-/area/adhomai/village)
 "sa" = (
 /obj/structure/flora/pottedplant/random,
 /turf/simulated/floor/wood,
 /area/adhomai/village/mayor)
-"sh" = (
-/obj/structure/flora/grass/both,
-/turf/unsimulated/mask/adhomai,
-/area/adhomai)
 "sl" = (
 /obj/structure/flora/pottedplant/random,
 /obj/machinery/light{
@@ -2798,13 +2858,11 @@
 /obj/structure/morgue,
 /turf/simulated/floor/tiled/freezer,
 /area/adhomai/village/medical)
-"sG" = (
-/obj/structure/table/rack,
-/obj/item/weapon/towel,
-/obj/item/weapon/towel,
-/obj/item/weapon/soap,
-/obj/item/weapon/soap,
-/turf/simulated/floor/tiled/white,
+"sF" = (
+/obj/machinery/light/small{
+	dir = 4
+	},
+/turf/simulated/floor/lino,
 /area/adhomai/village)
 "sL" = (
 /obj/structure/pit/closed/grave,
@@ -2847,12 +2905,6 @@
 /obj/structure/simple_door/adhomai/wood,
 /turf/simulated/floor/wood,
 /area/adhomai/village)
-"sX" = (
-/obj/structure/table/wood,
-/obj/item/weapon/wirecutters/clippers,
-/obj/item/weapon/wirecutters/clippers,
-/turf/simulated/floor/wood,
-/area/adhomai/village)
 "tc" = (
 /obj/machinery/light/small{
 	dir = 1
@@ -2892,12 +2944,6 @@
 /obj/item/device/flashlight/lamp/green,
 /turf/simulated/floor/wood,
 /area/adhomai/village/townhall)
-"tw" = (
-/obj/structure/sign/double/painting/mountain{
-	pixel_y = 32
-	},
-/turf/simulated/floor/wood,
-/area/adhomai/village)
 "ty" = (
 /obj/structure/simple_door/adhomai/iron{
 	initial_lock_value = "merchant"
@@ -2911,11 +2957,6 @@
 	},
 /turf/simulated/floor/lino,
 /area/adhomai/village/police)
-"tA" = (
-/obj/machinery/portable_atmospherics/hydroponics/soil,
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/asteroid/ash/adhomai,
-/area/adhomai/village)
 "tE" = (
 /obj/item/weapon/reagent_containers/glass/bucket/wood,
 /turf/simulated/floor/asteroid/ash/adhomai,
@@ -2950,10 +2991,6 @@
 /obj/structure/table/standard,
 /turf/simulated/floor/lino,
 /area/adhomai/village/mayor)
-"tL" = (
-/obj/machinery/honey_extractor,
-/turf/simulated/floor/asteroid/ash/adhomai,
-/area/adhomai)
 "tN" = (
 /obj/structure/bed/chair/wood/adhomai,
 /turf/simulated/floor/tiled/dark,
@@ -3053,9 +3090,13 @@
 /turf/simulated/floor/tiled/dark,
 /area/adhomai/fortress)
 "uz" = (
-/obj/machinery/portable_atmospherics/hydroponics/soil,
-/turf/simulated/floor/asteroid/ash/adhomai,
-/area/adhomai)
+/obj/structure/table/rack,
+/obj/item/weapon/towel,
+/obj/item/weapon/towel,
+/obj/item/weapon/soap,
+/obj/item/weapon/soap,
+/turf/simulated/floor/tiled/white,
+/area/adhomai/village)
 "uB" = (
 /obj/item/weapon/pen,
 /obj/structure/table/wood,
@@ -3067,15 +3108,6 @@
 	},
 /turf/simulated/floor/lino,
 /area/adhomai/village/shop)
-"uG" = (
-/obj/structure/curtain/open/bed{
-	pixel_x = -32
-	},
-/obj/structure/bed/chair/comfy/brown{
-	dir = 4
-	},
-/turf/simulated/floor/carpet/blue,
-/area/adhomai/village)
 "uJ" = (
 /obj/structure/bed,
 /obj/effect/landmark/start{
@@ -3108,13 +3140,16 @@
 /obj/item/weapon/storage/field_ration/nka/army,
 /turf/simulated/floor/tiled/dark,
 /area/adhomai/fortress)
-"uX" = (
-/obj/machinery/light/small{
-	dir = 8
+"uZ" = (
+/obj/structure/curtain/open/bed{
+	pixel_y = -32
 	},
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/asteroid/ash/adhomai,
-/area/adhomai)
+/obj/item/weapon/stool/padded,
+/obj/item/weapon/stool/padded,
+/obj/item/weapon/stool/padded,
+/obj/item/weapon/stool/padded,
+/turf/simulated/floor/wood,
+/area/adhomai/village)
 "ve" = (
 /obj/structure/table/rack,
 /obj/structure/window/reinforced{
@@ -3134,11 +3169,6 @@
 /obj/effect/floor_decal/industrial/outline/red,
 /turf/simulated/floor/tiled/dark,
 /area/adhomai/fortress)
-"vg" = (
-/obj/effect/floor_decal/corner/paleblue/diagonal,
-/obj/machinery/iv_drip,
-/turf/simulated/floor/tiled/white,
-/area/adhomai/village/medical)
 "vj" = (
 /obj/structure/closet/crate,
 /obj/item/weapon/towel/random,
@@ -3156,10 +3186,6 @@
 "vn" = (
 /turf/simulated/floor/lino,
 /area/adhomai/village/shop)
-"vr" = (
-/obj/structure/flora/grass/brown,
-/turf/simulated/floor/asteroid/ash/adhomai,
-/area/adhomai/village)
 "vy" = (
 /obj/structure/coatrack,
 /turf/simulated/floor/wood,
@@ -3193,31 +3219,16 @@
 	dir = 4
 	},
 /area/adhomai/village/townhall)
-"vN" = (
-/obj/structure/curtain/open/bed{
-	pixel_x = -32
-	},
-/obj/structure/table/wood,
-/obj/item/weapon/material/ashtray,
-/turf/simulated/floor/wood,
-/area/adhomai/village)
 "vO" = (
 /obj/structure/closet/crate,
 /obj/item/weapon/storage/field_ration/nka/army,
 /obj/effect/decal/cleanable/cobweb2,
 /turf/simulated/floor/tiled/dark,
 /area/adhomai/fortress)
-"vR" = (
-/obj/structure/closet/crate/freezer{
-	name = "Seafood"
-	},
-/obj/item/weapon/storage/box/clams,
-/obj/item/weapon/storage/box/clams,
-/obj/item/weapon/storage/box/clams,
-/obj/item/weapon/storage/box/clams,
-/obj/item/weapon/storage/box/clams,
-/obj/item/weapon/storage/box/clams,
-/turf/simulated/floor/tiled/freezer,
+"vU" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/bonfire/fireplace/stove,
+/turf/simulated/floor/wood,
 /area/adhomai/village)
 "vW" = (
 /obj/structure/simple_door/adhomai/iron{
@@ -3234,6 +3245,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/adhomai/fortress)
+"wd" = (
+/obj/structure/table/wood,
+/obj/item/weapon/reagent_containers/glass/bucket/wood,
+/obj/item/weapon/reagent_containers/glass/bucket/wood,
+/turf/simulated/floor/asteroid/ash/adhomai,
+/area/adhomai/village)
 "we" = (
 /obj/structure/bookcase/libraryspawn/nonfiction,
 /obj/machinery/light{
@@ -3350,6 +3367,10 @@
 /obj/machinery/light/small,
 /turf/simulated/floor/wood,
 /area/adhomai/village/police)
+"wV" = (
+/mob/living/simple_animal/cow/fatshouter,
+/turf/simulated/floor/asteroid/ash/adhomai,
+/area/adhomai/village)
 "wW" = (
 /obj/structure/table/stone/marble,
 /obj/item/device/radio/phone,
@@ -3427,12 +3448,6 @@
 /obj/item/clothing/accessory/stethoscope,
 /turf/simulated/floor/lino,
 /area/adhomai/village/medical)
-"xA" = (
-/obj/structure/table/wood,
-/obj/item/weapon/reagent_containers/glass/bucket/wood,
-/obj/item/weapon/reagent_containers/glass/bucket/wood,
-/turf/simulated/floor/asteroid/ash/adhomai,
-/area/adhomai/village)
 "xB" = (
 /obj/structure/table/rack,
 /obj/item/weapon/razor,
@@ -3472,12 +3487,6 @@
 	icon_state = "hydrofloor"
 	},
 /area/adhomai/village/mayor)
-"xS" = (
-/obj/machinery/light/small{
-	dir = 4
-	},
-/turf/simulated/floor/lino,
-/area/adhomai/village)
 "xT" = (
 /obj/effect/floor_decal/corner/green/diagonal,
 /obj/structure/window/classic/reinforced,
@@ -3523,6 +3532,10 @@
 	},
 /turf/simulated/floor/lino,
 /area/adhomai/village/medical)
+"yj" = (
+/obj/machinery/appliance/cooker/oven,
+/turf/simulated/floor/lino,
+/area/adhomai/village)
 "ym" = (
 /obj/structure/bedsheetbin,
 /obj/structure/table/standard,
@@ -3572,22 +3585,6 @@
 /obj/structure/closet/coffin/sarcophagus,
 /turf/simulated/floor/wood,
 /area/adhomai/village/temple)
-"yD" = (
-/obj/structure/table/wood,
-/obj/item/bee_pack,
-/obj/item/bee_pack,
-/obj/item/bee_pack,
-/obj/item/bee_pack,
-/turf/simulated/floor/asteroid/ash/adhomai,
-/area/adhomai)
-"yE" = (
-/obj/machinery/portable_atmospherics/hydroponics/soil,
-/turf/simulated/floor/asteroid/ash/adhomai,
-/area/adhomai/village)
-"yF" = (
-/obj/structure/reagent_dispensers/messakeg,
-/turf/simulated/floor/tiled/freezer,
-/area/adhomai/village)
 "yG" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /obj/structure/table/standard,
@@ -3669,19 +3666,10 @@
 /obj/item/weapon/storage/box/cups,
 /turf/simulated/floor/wood,
 /area/adhomai/village/medical)
-"ze" = (
-/obj/structure/simple_door/adhomai/wood,
-/turf/simulated/floor/carpet/blue,
-/area/adhomai/village)
 "zf" = (
 /obj/structure/table/wood,
 /turf/simulated/floor/carpet,
 /area/adhomai/village/townhall)
-"zh" = (
-/obj/item/weapon/staff/broom,
-/obj/structure/closet/crate/bin,
-/turf/simulated/floor/asteroid/ash/adhomai,
-/area/adhomai/village)
 "zj" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced{
@@ -3704,6 +3692,10 @@
 /obj/item/device/radio/intercom/basestation/adhomai/nka,
 /turf/simulated/floor/tiled/dark,
 /area/adhomai/fortress)
+"zs" = (
+/mob/living/simple_animal/ice_tunneler,
+/turf/simulated/floor/asteroid/ash/adhomai,
+/area/adhomai/village)
 "zw" = (
 /obj/structure/bed/chair/wood/adhomai,
 /obj/effect/landmark/start{
@@ -3711,18 +3703,27 @@
 	},
 /turf/simulated/floor/wood,
 /area/adhomai/village/police)
+"zy" = (
+/obj/structure/table/stone/marble,
+/obj/effect/decal/cleanable/blood,
+/turf/simulated/floor/wood,
+/area/adhomai/village)
 "zB" = (
 /obj/structure/bookcase/libraryspawn/reference,
 /turf/simulated/floor/carpet,
 /area/adhomai/village/townhall)
+"zC" = (
+/obj/structure/sign/adhomai/hotel{
+	desc = "A tavern, place to eat, drink, and take a load off, all in one.";
+	name = "Tavern";
+	pixel_y = 32
+	},
+/turf/simulated/floor/snow,
+/area/adhomai)
 "zK" = (
 /obj/structure/table/wood,
 /turf/simulated/floor/wood,
 /area/adhomai/village)
-"zM" = (
-/obj/structure/flora/ausbushes/grassybush,
-/turf/unsimulated/mask/adhomai,
-/area/adhomai)
 "zO" = (
 /obj/structure/curtain/open/bed{
 	pixel_y = -32
@@ -3735,6 +3736,15 @@
 "zP" = (
 /turf/simulated/floor/wood,
 /area/adhomai/fortress)
+"zQ" = (
+/obj/machinery/computer/cryopod{
+	pixel_x = -32
+	},
+/obj/machinery/cryopod{
+	dir = 1
+	},
+/turf/simulated/floor/wood,
+/area/crew_quarters/sleep/cryo)
 "zR" = (
 /obj/structure/table/wood,
 /obj/effect/floor_decal/spline/plain,
@@ -3762,19 +3772,30 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/adhomai/village/temple)
+"zV" = (
+/obj/structure/curtain/open/bed{
+	pixel_x = -32
+	},
+/obj/structure/bed/chair/comfy/brown{
+	dir = 4
+	},
+/turf/simulated/floor/carpet/blue,
+/area/adhomai/village)
 "zX" = (
 /turf/simulated/open,
 /area/adhomai/village/police)
-"Aa" = (
-/obj/structure/flora/grass/green,
-/turf/unsimulated/mask/adhomai,
-/area/adhomai)
 "Ab" = (
 /obj/structure/sign/poster{
 	pixel_y = 32
 	},
 /turf/simulated/floor/tiled/dark,
 /area/adhomai/fortress)
+"Ag" = (
+/obj/structure/sign/adhomai/shop{
+	pixel_y = 32
+	},
+/turf/simulated/floor/snow,
+/area/adhomai)
 "Ai" = (
 /obj/machinery/light{
 	dir = 2;
@@ -3783,10 +3804,30 @@
 	},
 /turf/simulated/floor/wood,
 /area/adhomai/village/townhall)
+"Ao" = (
+/obj/structure/bed,
+/obj/machinery/light/small{
+	dir = 4
+	},
+/obj/item/weapon/bedsheet,
+/turf/simulated/floor/wood,
+/area/adhomai/village)
+"Ar" = (
+/obj/structure/bed/chair/office/light,
+/turf/simulated/floor/wood,
+/area/adhomai/village/medical)
 "Ax" = (
 /obj/structure/bed/chair/wood/adhomai,
 /turf/simulated/floor/carpet,
 /area/adhomai/village)
+"Ay" = (
+/obj/structure/flora/pottedplant,
+/turf/simulated/floor/wood,
+/area/adhomai/village)
+"AA" = (
+/obj/structure/flora/grass/green,
+/turf/unsimulated/mask/adhomai,
+/area/adhomai)
 "AB" = (
 /obj/machinery/button/remote/blast_door{
 	id = "bike";
@@ -3799,6 +3840,17 @@
 /obj/item/weapon/weldingtool,
 /turf/simulated/floor/tiled/dark,
 /area/adhomai/village/police)
+"AC" = (
+/obj/structure/closet/cabinet,
+/obj/item/mold/pike,
+/obj/item/mold/shield,
+/obj/item/mold/bat,
+/obj/item/mold/armor,
+/obj/item/mold/halberd,
+/obj/item/mold/helmet,
+/obj/item/mold/sword,
+/turf/simulated/floor/wood,
+/area/adhomai/village/blacksmith)
 "AD" = (
 /obj/machinery/light/small,
 /turf/simulated/floor/wood,
@@ -3872,16 +3924,6 @@
 /obj/effect/floor_decal/industrial/outline/red,
 /turf/simulated/floor/tiled/dark,
 /area/adhomai/fortress)
-"Ba" = (
-/obj/machinery/bodyscanner{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/white,
-/area/adhomai/village/medical)
-"Bb" = (
-/obj/machinery/beehive,
-/turf/simulated/floor/asteroid/ash/adhomai,
-/area/adhomai)
 "Bc" = (
 /obj/structure/bed,
 /obj/effect/landmark/start{
@@ -3934,6 +3976,16 @@
 	},
 /turf/simulated/floor/snow,
 /area/adhomai)
+"Bm" = (
+/obj/structure/bed/chair/wood/adhomai{
+	icon_state = "tajchair";
+	dir = 1
+	},
+/obj/effect/landmark/start{
+	name = "Commoner"
+	},
+/turf/simulated/floor/wood,
+/area/adhomai/village/medical)
 "Br" = (
 /obj/machinery/light/small{
 	dir = 1
@@ -3941,12 +3993,18 @@
 /turf/simulated/floor/tiled/freezer,
 /area/adhomai/village/medical)
 "Bs" = (
-/obj/structure/table/wood,
-/obj/item/weapon/material/minihoe,
-/obj/item/weapon/material/minihoe,
-/obj/item/weapon/material/scythe,
-/obj/item/weapon/material/scythe,
-/turf/simulated/floor/wood,
+/obj/structure/closet/crate/freezer{
+	name = "Meat Storage"
+	},
+/obj/item/weapon/reagent_containers/food/snacks/meat/adhomai,
+/obj/item/weapon/reagent_containers/food/snacks/meat/adhomai,
+/obj/item/weapon/reagent_containers/food/snacks/meat/adhomai,
+/obj/item/weapon/reagent_containers/food/snacks/meat/adhomai,
+/obj/item/weapon/reagent_containers/food/snacks/meat/adhomai,
+/obj/item/weapon/reagent_containers/food/snacks/meat/adhomai,
+/obj/item/weapon/reagent_containers/food/snacks/meat/adhomai,
+/obj/item/weapon/reagent_containers/food/snacks/meat/adhomai,
+/turf/simulated/floor/tiled/freezer,
 /area/adhomai/village)
 "Bu" = (
 /obj/structure/window/sandbag,
@@ -3989,6 +4047,10 @@
 /obj/structure/flora/pottedplant/random,
 /turf/simulated/floor/tiled/dark,
 /area/adhomai/village/townhall)
+"BD" = (
+/obj/machinery/washing_machine,
+/turf/simulated/floor/wood,
+/area/adhomai/village)
 "BH" = (
 /obj/structure/bed,
 /obj/effect/landmark/start{
@@ -4027,6 +4089,23 @@
 /obj/effect/floor_decal/industrial/outline/red,
 /turf/simulated/floor/tiled/dark,
 /area/adhomai/fortress)
+"BL" = (
+/obj/structure/curtain/open/bed{
+	pixel_x = -32
+	},
+/obj/structure/table/wood,
+/obj/item/weapon/reagent_containers/cooking_container/fire/skewer,
+/obj/item/weapon/reagent_containers/cooking_container/fire/skewer,
+/turf/simulated/floor/wood,
+/area/adhomai/village)
+"BM" = (
+/obj/structure/curtain/medical,
+/turf/simulated/floor/lino,
+/area/adhomai/village/medical)
+"BQ" = (
+/obj/structure/reagent_dispensers/messakeg,
+/turf/simulated/floor/tiled/freezer,
+/area/adhomai/village)
 "BV" = (
 /obj/structure/table/rack,
 /obj/structure/window/reinforced,
@@ -4098,9 +4177,9 @@
 	},
 /turf/simulated/floor/wood,
 /area/adhomai/village/temple)
-"Cy" = (
-/mob/living/simple_animal/cow/fatshouter,
-/turf/simulated/floor/asteroid/ash/adhomai,
+"Cz" = (
+/obj/machinery/biogenerator/adhomai,
+/turf/simulated/floor/wood,
 /area/adhomai/village)
 "CA" = (
 /obj/item/weapon/trap/animal/large,
@@ -4132,16 +4211,6 @@
 /obj/structure/window/classic/reinforced,
 /turf/simulated/floor/lino,
 /area/adhomai/village/court)
-"CM" = (
-/obj/structure/table/wood,
-/obj/item/weapon/reagent_containers/glass/bucket,
-/obj/item/weapon/reagent_containers/glass/bucket,
-/turf/simulated/floor/wood,
-/area/adhomai/village)
-"CO" = (
-/obj/structure/flora/tree/pine,
-/turf/simulated/floor/asteroid/ash/adhomai,
-/area/adhomai)
 "CU" = (
 /obj/structure/bonfire/fireplace{
 	dir = 4
@@ -4177,6 +4246,13 @@
 /obj/effect/floor_decal/industrial/outline/red,
 /turf/simulated/floor/tiled/dark,
 /area/adhomai/fortress)
+"CZ" = (
+/obj/structure/closet/crate{
+	desc = "A simple metal footlocker.";
+	name = "footlocker"
+	},
+/turf/simulated/floor/wood,
+/area/adhomai/village)
 "Dc" = (
 /obj/structure/simple_door/adhomai/iron{
 	initial_lock_value = "captain"
@@ -4184,10 +4260,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/adhomai/fortress)
 "Df" = (
-/obj/structure/table/stone/marble,
-/obj/effect/decal/cleanable/blood,
-/turf/simulated/floor/wood,
-/area/adhomai/village)
+/obj/structure/flora/ausbushes/fullgrass,
+/turf/unsimulated/mask/adhomai,
+/area/adhomai)
 "Dg" = (
 /obj/item/weapon/material/ashtray/bronze,
 /obj/item/device/radio/adhomai/nka,
@@ -4204,12 +4279,37 @@
 	icon_state = "hydrofloor"
 	},
 /area/adhomai/village/mayor)
-"Dt" = (
-/obj/structure/sign/greencross/adhomai{
-	pixel_x = -32
+"Do" = (
+/obj/structure/closet/crate/freezer{
+	name = "Seafood"
 	},
-/turf/simulated/floor/snow,
-/area/adhomai)
+/obj/item/weapon/storage/box/clams,
+/obj/item/weapon/storage/box/clams,
+/obj/item/weapon/storage/box/clams,
+/obj/item/weapon/storage/box/clams,
+/obj/item/weapon/storage/box/clams,
+/obj/item/weapon/storage/box/clams,
+/turf/simulated/floor/tiled/freezer,
+/area/adhomai/village)
+"Ds" = (
+/obj/structure/curtain/open/bed{
+	pixel_y = -32
+	},
+/obj/structure/bed/chair/wood/adhomai{
+	icon_state = "tajchair";
+	dir = 1
+	},
+/turf/simulated/floor/wood,
+/area/adhomai/village)
+"Dv" = (
+/obj/structure/curtain/open/bed{
+	pixel_y = -32
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/turf/simulated/open,
+/area/adhomai/village)
 "Dw" = (
 /obj/structure/table/wood,
 /obj/effect/floor_decal/spline/plain{
@@ -4259,11 +4359,15 @@
 "DA" = (
 /turf/simulated/wall/iron,
 /area/adhomai)
-"DE" = (
-/obj/structure/table/rack,
-/obj/item/weapon/material/axe,
-/obj/item/weapon/material/axe,
-/turf/simulated/floor/wood,
+"DB" = (
+/obj/structure/table/wood,
+/obj/item/weapon/reagent_containers/cooking_container/fire/pot,
+/obj/item/weapon/reagent_containers/cooking_container/fire/pot,
+/obj/item/weapon/reagent_containers/cooking_container/fire/pot,
+/obj/item/weapon/reagent_containers/cooking_container/fire/skewer,
+/obj/item/weapon/reagent_containers/cooking_container/fire/skewer,
+/obj/item/weapon/reagent_containers/cooking_container/fire/skewer,
+/turf/simulated/floor/lino,
 /area/adhomai/village)
 "DK" = (
 /obj/structure/window/sandbag{
@@ -4287,10 +4391,6 @@
 	},
 /turf/simulated/floor/wood,
 /area/adhomai/village/temple)
-"DN" = (
-/obj/machinery/biogenerator/adhomai,
-/turf/simulated/floor/wood,
-/area/adhomai/village)
 "DP" = (
 /obj/item/weapon/reagent_containers/food/drinks/shaker,
 /obj/structure/curtain/open/bed{
@@ -4335,6 +4435,12 @@
 /obj/machinery/appliance/cooker/oven/adhomai,
 /turf/simulated/floor/lino,
 /area/adhomai/village/mayor)
+"DY" = (
+/obj/structure/sign/greencross/adhomai{
+	pixel_x = -32
+	},
+/turf/simulated/floor/snow,
+/area/adhomai)
 "DZ" = (
 /obj/structure/simple_door/adhomai/wood{
 	initial_lock_value = "mayor"
@@ -4368,6 +4474,10 @@
 /obj/effect/floor_decal/industrial/outline/red,
 /turf/simulated/floor/tiled/dark,
 /area/adhomai/fortress)
+"Ec" = (
+/obj/structure/simple_door/adhomai/wood,
+/turf/simulated/floor/asteroid/ash/adhomai,
+/area/adhomai/village)
 "Ei" = (
 /obj/machinery/portable_atmospherics/canister/oxygen,
 /turf/simulated/floor/wood,
@@ -4507,20 +4617,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
 /area/adhomai/fortress)
-"EX" = (
-/obj/structure/closet/crate/freezer{
-	name = "Meat Storage"
-	},
-/obj/item/weapon/reagent_containers/food/snacks/meat/adhomai,
-/obj/item/weapon/reagent_containers/food/snacks/meat/adhomai,
-/obj/item/weapon/reagent_containers/food/snacks/meat/adhomai,
-/obj/item/weapon/reagent_containers/food/snacks/meat/adhomai,
-/obj/item/weapon/reagent_containers/food/snacks/meat/adhomai,
-/obj/item/weapon/reagent_containers/food/snacks/meat/adhomai,
-/obj/item/weapon/reagent_containers/food/snacks/meat/adhomai,
-/obj/item/weapon/reagent_containers/food/snacks/meat/adhomai,
-/turf/simulated/floor/tiled/freezer,
-/area/adhomai/village)
 "Fa" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /turf/simulated/floor/tiled/white,
@@ -4551,6 +4647,17 @@
 /obj/structure/simple_door/adhomai/wood,
 /turf/simulated/floor/wood,
 /area/adhomai/village/townhall)
+"Fu" = (
+/obj/structure/window/classic/reinforced,
+/turf/simulated/floor/asteroid/ash/adhomai,
+/area/adhomai/village)
+"Fy" = (
+/obj/effect/floor_decal/corner/green/diagonal,
+/obj/machinery/body_scanconsole{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/adhomai/village/medical)
 "FA" = (
 /obj/structure/bed/chair/wood/adhomai{
 	icon_state = "tajchair";
@@ -4594,9 +4701,13 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
 /area/adhomai/fortress)
-"FV" = (
-/obj/structure/flora/grass/brown,
-/turf/simulated/floor/asteroid/ash/adhomai,
+"FT" = (
+/obj/structure/flora/ausbushes/genericbush,
+/turf/unsimulated/mask/adhomai,
+/area/adhomai)
+"FU" = (
+/obj/structure/flora/grass/both,
+/turf/unsimulated/mask/adhomai,
 /area/adhomai)
 "FW" = (
 /obj/structure/sign/adhomai/paiting{
@@ -4702,18 +4813,11 @@
 	},
 /turf/simulated/floor/lino,
 /area/adhomai/village/shop)
-"Gz" = (
-/obj/structure/closet/crate/freezer,
-/obj/item/weapon/reagent_containers/food/condiment/flour,
-/obj/item/weapon/reagent_containers/food/condiment/flour,
-/obj/item/weapon/reagent_containers/food/condiment/barbecue,
-/obj/item/weapon/reagent_containers/food/condiment/enzyme,
-/obj/item/weapon/reagent_containers/food/condiment/saltshaker,
-/obj/item/weapon/reagent_containers/food/condiment/spacespice,
-/obj/item/weapon/reagent_containers/food/condiment/sugar,
-/obj/item/weapon/reagent_containers/food/condiment/peppermill,
-/obj/item/weapon/storage/fancy/egg_box,
-/turf/simulated/floor/tiled/freezer,
+"GG" = (
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/turf/simulated/open,
 /area/adhomai/village)
 "GJ" = (
 /obj/structure/window/reinforced,
@@ -4729,10 +4833,6 @@
 	},
 /turf/simulated/floor/wood,
 /area/adhomai/village/blacksmith)
-"GW" = (
-/obj/structure/flora/grass/brown,
-/turf/unsimulated/mask/adhomai,
-/area/adhomai)
 "He" = (
 /turf/simulated/floor/tiled/ramp/bottom{
 	icon_state = "rampbot";
@@ -4754,14 +4854,6 @@
 /obj/structure/smelter,
 /turf/simulated/floor/wood,
 /area/adhomai/village/blacksmith)
-"Hq" = (
-/obj/machinery/light/small,
-/obj/structure/table/wood,
-/obj/item/weapon/wrench,
-/obj/item/weapon/crowbar,
-/obj/item/weapon/screwdriver,
-/turf/simulated/floor/wood,
-/area/adhomai/village)
 "Ht" = (
 /obj/structure/sign/examroom/adhomai,
 /turf/simulated/wall/wood,
@@ -4811,28 +4903,11 @@
 	},
 /turf/simulated/floor/wood,
 /area/adhomai/village/shop)
-"HN" = (
-/obj/structure/table/wood,
-/obj/machinery/light/small{
-	dir = 8
-	},
-/turf/simulated/floor/lino,
-/area/adhomai/village)
 "HP" = (
 /obj/structure/closet/crate,
 /obj/item/weapon/storage/field_ration/nka/army,
 /turf/simulated/floor/tiled/dark,
 /area/adhomai/fortress)
-"Ia" = (
-/obj/structure/table/wood,
-/obj/item/weapon/reagent_containers/cooking_container/fire/pot,
-/obj/item/weapon/reagent_containers/cooking_container/fire/pot,
-/obj/item/weapon/reagent_containers/cooking_container/fire/pot,
-/obj/item/weapon/reagent_containers/cooking_container/fire/skewer,
-/obj/item/weapon/reagent_containers/cooking_container/fire/skewer,
-/obj/item/weapon/reagent_containers/cooking_container/fire/skewer,
-/turf/simulated/floor/lino,
-/area/adhomai/village)
 "Ib" = (
 /turf/simulated/wall/iron,
 /area/adhomai/fortress/outpost)
@@ -4915,6 +4990,12 @@
 	},
 /turf/simulated/floor/tiled/freezer,
 /area/adhomai/fortress)
+"Iu" = (
+/obj/structure/simple_door/adhomai/wood{
+	initial_lock_value = "bar"
+	},
+/turf/simulated/floor/wood,
+/area/adhomai/village)
 "IB" = (
 /obj/structure/window/sandbag{
 	icon_state = "sandbag";
@@ -4925,6 +5006,10 @@
 	dir = 4
 	},
 /turf/simulated/floor/snow,
+/area/adhomai)
+"ID" = (
+/obj/structure/reagent_dispensers/woodpulp,
+/turf/simulated/floor/asteroid/ash/adhomai,
 /area/adhomai)
 "IF" = (
 /obj/structure/table/wood,
@@ -4958,10 +5043,6 @@
 	},
 /turf/simulated/floor/tiled/freezer,
 /area/adhomai/fortress)
-"IM" = (
-/obj/structure/simple_door/adhomai/wood,
-/turf/simulated/floor/asteroid/ash/adhomai,
-/area/adhomai/village)
 "IN" = (
 /obj/structure/table/rack,
 /obj/item/weapon/material/axe,
@@ -4972,12 +5053,10 @@
 /obj/structure/table/steel,
 /turf/simulated/floor/wood,
 /area/adhomai/village/blacksmith)
-"IT" = (
-/obj/machinery/light/small{
-	dir = 4
-	},
+"IP" = (
+/obj/structure/flora/tree/pine,
 /turf/simulated/floor/asteroid/ash/adhomai,
-/area/adhomai/village)
+/area/adhomai)
 "IV" = (
 /obj/machinery/light/small{
 	dir = 1
@@ -4995,21 +5074,6 @@
 /obj/item/weapon/storage/firstaid/regular/adhomai,
 /turf/simulated/floor/tiled/dark,
 /area/adhomai/fortress)
-"IX" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/structure/bonfire/fireplace/stove,
-/turf/simulated/floor/wood,
-/area/adhomai/village)
-"IY" = (
-/obj/structure/table/wood,
-/obj/item/seeds/nmshaan,
-/obj/item/seeds/nmshaan,
-/obj/item/seeds/nifberries,
-/obj/item/seeds/nifberries,
-/obj/item/seeds/shandseed,
-/obj/item/seeds/shandseed,
-/turf/simulated/floor/wood,
-/area/adhomai/village)
 "IZ" = (
 /obj/structure/window/reinforced{
 	dir = 1
@@ -5025,6 +5089,26 @@
 /obj/effect/floor_decal/industrial/outline/red,
 /turf/simulated/floor/tiled/dark,
 /area/adhomai/fortress)
+"Jd" = (
+/obj/structure/sign/double/painting/mountain/right{
+	pixel_y = 32
+	},
+/obj/item/weapon/storage/box/chess_kit,
+/obj/structure/closet/crate{
+	desc = "A simple metal footlocker.";
+	name = "footlocker"
+	},
+/obj/item/weapon/storage/box/checkers_kit,
+/obj/item/weapon/deck/cards,
+/obj/item/weapon/deck/cards,
+/obj/item/weapon/dice/d10,
+/obj/item/weapon/dice/d100,
+/obj/item/weapon/dice/d12,
+/obj/item/weapon/dice/d20,
+/obj/item/weapon/dice/d4,
+/obj/item/weapon/dice/d8,
+/turf/simulated/floor/wood,
+/area/adhomai/village)
 "Jf" = (
 /obj/structure/banner/sunbro,
 /turf/simulated/wall/iron,
@@ -5057,14 +5141,6 @@
 /obj/machinery/floodlight,
 /turf/simulated/floor/tiled/dark,
 /area/adhomai/fortress)
-"Jo" = (
-/obj/machinery/light{
-	icon_state = "tube1";
-	dir = 2
-	},
-/obj/machinery/portable_atmospherics/hydroponics/soil,
-/turf/simulated/floor/asteroid/ash/adhomai,
-/area/adhomai/village)
 "Jv" = (
 /obj/machinery/light{
 	dir = 8;
@@ -5078,10 +5154,6 @@
 	dir = 8
 	},
 /turf/simulated/floor/wood,
-/area/adhomai/village)
-"Jy" = (
-/obj/structure/barricade/chainlink,
-/turf/simulated/floor/asteroid/ash/adhomai,
 /area/adhomai/village)
 "JB" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -5120,6 +5192,12 @@
 /obj/structure/simple_door/adhomai/wood,
 /turf/simulated/floor/wood,
 /area/adhomai/village/temple)
+"JK" = (
+/obj/machinery/bodyscanner{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/white,
+/area/adhomai/village/medical)
 "JM" = (
 /turf/simulated/floor/tiled/freezer,
 /area/adhomai/village/medical)
@@ -5158,19 +5236,6 @@
 /obj/machinery/merchant_pad,
 /turf/simulated/floor/wood,
 /area/adhomai/village/shop)
-"Kh" = (
-/obj/structure/sign/adhomai/shop{
-	pixel_w = 32
-	},
-/turf/simulated/floor/snow,
-/area/adhomai)
-"Kj" = (
-/obj/structure/flora/pottedplant,
-/obj/machinery/light/small{
-	dir = 4
-	},
-/turf/simulated/floor/wood,
-/area/adhomai/village)
 "Kl" = (
 /obj/structure/table/wood,
 /turf/simulated/floor/carpet,
@@ -5181,12 +5246,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/adhomai/village/police)
-"Ko" = (
-/obj/structure/table/wood,
-/obj/item/weapon/paper_bin,
-/obj/item/weapon/pen,
-/turf/simulated/floor/wood,
-/area/adhomai/village)
 "Ky" = (
 /obj/structure/simple_door/adhomai/wood{
 	initial_lock_value = "mayor"
@@ -5198,16 +5257,6 @@
 	icon_state = "hydrofloor"
 	},
 /area/adhomai/village/mayor)
-"KA" = (
-/obj/structure/closet/cabinet,
-/obj/item/mold/pike,
-/obj/item/mold/shield,
-/obj/item/mold/bat,
-/obj/item/mold/armor,
-/obj/item/mold/halberd,
-/obj/item/mold/helmet,
-/turf/simulated/floor/wood,
-/area/adhomai/village/blacksmith)
 "KB" = (
 /obj/structure/table/steel,
 /turf/simulated/floor/tiled/dark,
@@ -5239,6 +5288,15 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/adhomai/fortress)
+"KN" = (
+/obj/structure/closet/crate/bin{
+	name = "garbage bin"
+	},
+/obj/machinery/light/small{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/white,
+/area/adhomai/village)
 "KR" = (
 /obj/structure/table/wood,
 /obj/item/weapon/material/kitchen/utensil/spoon,
@@ -5252,6 +5310,12 @@
 /obj/item/device/flashlight/lantern,
 /turf/simulated/floor/wood,
 /area/adhomai/village/temple)
+"KV" = (
+/obj/structure/table/wood,
+/obj/structure/window/reinforced,
+/obj/item/device/radio/phone,
+/turf/simulated/floor/wood,
+/area/adhomai/village/medical)
 "KY" = (
 /obj/structure/table/wood,
 /turf/simulated/floor/wood,
@@ -5274,6 +5338,11 @@
 /obj/item/device/flashlight/lantern,
 /turf/simulated/floor/wood,
 /area/adhomai/village)
+"Ld" = (
+/obj/structure/table/wood,
+/obj/item/weapon/reagent_containers/glass/bucket/wood,
+/turf/simulated/floor/asteroid/ash/adhomai,
+/area/adhomai)
 "Lf" = (
 /obj/structure/bed/chair/wood/adhomai{
 	icon_state = "tajchair";
@@ -5307,14 +5376,6 @@
 /obj/structure/table/wood,
 /turf/simulated/floor/wood,
 /area/adhomai/village/mayor)
-"Lp" = (
-/obj/structure/sink/kitchen{
-	dir = 4;
-	icon_state = "sink_alt";
-	pixel_x = -21
-	},
-/turf/simulated/floor/lino,
-/area/adhomai/village)
 "Lr" = (
 /obj/structure/bed/chair/wood/adhomai{
 	icon_state = "tajchair";
@@ -5389,6 +5450,11 @@
 	},
 /turf/simulated/floor/carpet,
 /area/adhomai/village/townhall)
+"LS" = (
+/obj/structure/table/wood,
+/obj/item/device/radio/phone,
+/turf/simulated/floor/lino,
+/area/adhomai/village)
 "LT" = (
 /obj/structure/table/wood,
 /turf/simulated/floor/tiled/dark,
@@ -5399,6 +5465,16 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/adhomai/village/medical)
+"LY" = (
+/obj/effect/landmark{
+	name = "animalspawn"
+	},
+/turf/simulated/floor/asteroid/ash/adhomai,
+/area/adhomai)
+"Me" = (
+/obj/structure/bonfire/fireplace/stove,
+/turf/simulated/floor/lino,
+/area/adhomai/village)
 "Mg" = (
 /obj/structure/sink/kitchen{
 	pixel_y = 24
@@ -5432,6 +5508,10 @@
 	},
 /turf/simulated/floor/carpet,
 /area/adhomai/village/mayor)
+"Mn" = (
+/obj/machinery/beehive,
+/turf/simulated/floor/asteroid/ash/adhomai,
+/area/adhomai)
 "Mp" = (
 /obj/structure/bed/chair/comfy/brown{
 	icon_state = "comfychair_preview";
@@ -5460,6 +5540,10 @@
 /obj/item/weapon/grenade/frag/nka,
 /turf/simulated/floor/tiled/dark,
 /area/adhomai/fortress)
+"Mw" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/asteroid/ash/adhomai,
+/area/adhomai)
 "Mz" = (
 /turf/simulated/wall/iron,
 /area/adhomai/village/temple)
@@ -5476,22 +5560,19 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/adhomai/fortress)
-"MH" = (
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/asteroid/ash/adhomai,
-/area/adhomai)
 "MK" = (
 /obj/effect/floor_decal/corner/green/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/adhomai/village/medical)
-"ML" = (
+"MM" = (
+/obj/machinery/atmospherics/pipe/vent,
+/turf/simulated/floor/tiled/white,
+/area/adhomai/village)
+"MN" = (
 /obj/structure/table/wood,
-/obj/item/seeds/nfrihi,
-/obj/item/seeds/mtearseed,
-/obj/item/seeds/mtearseed,
-/obj/item/seeds/nfrihi,
-/obj/item/seeds/earthenroot,
-/obj/item/seeds/earthenroot,
+/obj/effect/decal/cleanable/dirt,
+/obj/item/weapon/pickaxe,
+/obj/item/weapon/material/axe,
 /turf/simulated/floor/wood,
 /area/adhomai/village)
 "MQ" = (
@@ -5526,13 +5607,6 @@
 	},
 /turf/simulated/floor/wood,
 /area/adhomai/village/police)
-"Nd" = (
-/obj/effect/floor_decal/corner/green/diagonal,
-/obj/machinery/body_scanconsole{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/white,
-/area/adhomai/village/medical)
 "Nf" = (
 /obj/structure/window/sandbag{
 	icon_state = "sandbag";
@@ -5544,12 +5618,6 @@
 	},
 /turf/simulated/floor/snow,
 /area/adhomai)
-"Ng" = (
-/obj/structure/simple_door/adhomai/wood{
-	initial_lock_value = "medical"
-	},
-/turf/space,
-/area/adhomai/village/medical)
 "Nh" = (
 /obj/item/weapon/reagent_containers/glass/bucket,
 /obj/structure/table/wood,
@@ -5576,6 +5644,24 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
 /area/adhomai/fortress)
+"Nl" = (
+/obj/structure/table/wood,
+/obj/structure/window/reinforced,
+/obj/item/weapon/paper_bin,
+/obj/item/weapon/pen,
+/turf/simulated/floor/wood,
+/area/adhomai/village/medical)
+"Nm" = (
+/obj/structure/curtain/open/bed{
+	pixel_x = -32
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/table/wood,
+/obj/item/weapon/reagent_containers/cooking_container/fire/pot,
+/obj/item/weapon/reagent_containers/cooking_container/fire/pot,
+/obj/item/weapon/reagent_containers/cooking_container/fire/pot,
+/turf/simulated/floor/wood,
+/area/adhomai/village)
 "Nn" = (
 /obj/effect/decal/cleanable/cobweb,
 /obj/effect/decal/cleanable/dirt,
@@ -5598,6 +5684,10 @@
 /obj/item/device/toner,
 /turf/simulated/floor/carpet,
 /area/adhomai/village/shop)
+"Nv" = (
+/obj/structure/flora/ausbushes/lavendergrass,
+/turf/unsimulated/mask/adhomai,
+/area/adhomai)
 "NC" = (
 /obj/structure/coatrack,
 /turf/simulated/floor/lino,
@@ -5613,6 +5703,13 @@
 	dir = 8
 	},
 /turf/simulated/floor/snow,
+/area/adhomai)
+"NU" = (
+/obj/structure/table/wood,
+/obj/machinery/light/small{
+	dir = 4
+	},
+/turf/simulated/floor/asteroid/ash/adhomai,
 /area/adhomai)
 "NW" = (
 /obj/structure/bed/chair/wood/adhomai{
@@ -5642,8 +5739,11 @@
 /obj/effect/decal/remains/mouse,
 /turf/simulated/floor/tiled/dark,
 /area/adhomai/fortress)
-"NZ" = (
-/obj/machinery/smartfridge/drying_rack/adhomai,
+"Oa" = (
+/obj/structure/closet/crate/trashcart{
+	desc = "A wagon.";
+	name = "wagon"
+	},
 /turf/simulated/floor/asteroid/ash/adhomai,
 /area/adhomai)
 "Ob" = (
@@ -5710,10 +5810,6 @@
 /obj/item/weapon/reagent_containers/food/drinks/drinkingglass,
 /turf/simulated/floor/wood,
 /area/adhomai/village)
-"Os" = (
-/obj/machinery/appliance/cooker/oven,
-/turf/simulated/floor/lino,
-/area/adhomai/village)
 "Ox" = (
 /obj/structure/table/wood,
 /obj/effect/floor_decal/corner/green/diagonal,
@@ -5778,17 +5874,6 @@
 /obj/item/weapon/ladder_mobile,
 /turf/simulated/floor/wood,
 /area/adhomai/village)
-"OU" = (
-/obj/structure/closet/crate{
-	desc = "A simple metal footlocker.";
-	name = "footlocker"
-	},
-/obj/machinery/alarm{
-	name = "Thermostat";
-	pixel_y = 20
-	},
-/turf/simulated/floor/wood,
-/area/adhomai/village)
 "OV" = (
 /obj/structure/bed,
 /obj/effect/landmark/start{
@@ -5812,6 +5897,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/adhomai/fortress)
+"Pf" = (
+/obj/machinery/light/small{
+	dir = 8
+	},
+/turf/simulated/floor/asteroid/ash/adhomai,
+/area/adhomai)
 "Pi" = (
 /obj/structure/sink{
 	dir = 8;
@@ -5835,6 +5926,10 @@
 /obj/item/weapon/material/kitchen/rollingpin,
 /turf/simulated/floor/carpet,
 /area/adhomai/village/shop)
+"Ps" = (
+/obj/structure/sink/puddle,
+/turf/simulated/floor/snow,
+/area/adhomai)
 "Pu" = (
 /obj/structure/bed/chair/wood/adhomai{
 	icon_state = "tajchair";
@@ -5852,13 +5947,22 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/adhomai/village/temple)
+"Pw" = (
+/obj/machinery/light{
+	dir = 8;
+	icon_state = "tube1";
+	pixel_y = 0
+	},
+/turf/simulated/floor/asteroid/ash/adhomai,
+/area/adhomai/village)
 "PA" = (
 /obj/structure/anvil,
 /turf/simulated/floor/wood,
 /area/adhomai/village/blacksmith)
-"PB" = (
-/obj/machinery/atmospherics/pipe/vent,
-/turf/simulated/floor/tiled/white,
+"PC" = (
+/obj/machinery/portable_atmospherics/hydroponics/soil,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/asteroid/ash/adhomai,
 /area/adhomai/village)
 "PD" = (
 /obj/structure/window/reinforced{
@@ -5875,6 +5979,14 @@
 /obj/effect/floor_decal/industrial/outline/red,
 /turf/simulated/floor/tiled/dark,
 /area/adhomai/fortress)
+"PE" = (
+/obj/structure/curtain/open/bed{
+	pixel_x = -32
+	},
+/obj/structure/table/wood,
+/obj/item/weapon/material/ashtray,
+/turf/simulated/floor/wood,
+/area/adhomai/village)
 "PJ" = (
 /obj/machinery/light/small{
 	dir = 8
@@ -5898,26 +6010,6 @@
 /obj/item/weapon/storage/firstaid/regular/adhomai,
 /turf/simulated/floor/tiled/dark,
 /area/adhomai/fortress)
-"PW" = (
-/obj/structure/sign/double/painting/mountain/right{
-	pixel_y = 32
-	},
-/obj/item/weapon/storage/box/chess_kit,
-/obj/structure/closet/crate{
-	desc = "A simple metal footlocker.";
-	name = "footlocker"
-	},
-/obj/item/weapon/storage/box/checkers_kit,
-/obj/item/weapon/deck/cards,
-/obj/item/weapon/deck/cards,
-/obj/item/weapon/dice/d10,
-/obj/item/weapon/dice/d100,
-/obj/item/weapon/dice/d12,
-/obj/item/weapon/dice/d20,
-/obj/item/weapon/dice/d4,
-/obj/item/weapon/dice/d8,
-/turf/simulated/floor/wood,
-/area/adhomai/village)
 "PX" = (
 /obj/structure/noticeboard{
 	pixel_x = -32;
@@ -6008,6 +6100,10 @@
 	},
 /turf/simulated/floor/wood,
 /area/adhomai/village/townhall)
+"QD" = (
+/obj/structure/flora/grass/brown,
+/turf/simulated/floor/asteroid/ash/adhomai,
+/area/adhomai)
 "QE" = (
 /obj/machinery/media/jukebox,
 /turf/simulated/floor/wood,
@@ -6044,14 +6140,6 @@
 /obj/item/weapon/material/hatchet/butch,
 /turf/simulated/floor/wood,
 /area/adhomai/village)
-"QT" = (
-/obj/structure/sign/adhomai/hotel{
-	desc = "A tavern, place to eat, drink, and take a load off, all in one.";
-	name = "Tavern";
-	pixel_y = 32
-	},
-/turf/simulated/floor/snow,
-/area/adhomai)
 "QU" = (
 /obj/item/weapon/stool/padded,
 /obj/machinery/light/small{
@@ -6067,10 +6155,14 @@
 	},
 /turf/simulated/floor/wood,
 /area/adhomai/village/temple)
-"QY" = (
-/obj/item/weapon/stool/padded,
-/turf/simulated/floor/snow,
-/area/adhomai)
+"Rb" = (
+/obj/structure/table/wood,
+/obj/machinery/light/small{
+	dir = 1
+	},
+/obj/structure/bedsheetbin,
+/turf/simulated/floor/wood,
+/area/adhomai/village)
 "Rc" = (
 /obj/structure/sink{
 	dir = 8;
@@ -6093,13 +6185,6 @@
 /area/adhomai/village/temple)
 "Rm" = (
 /turf/unsimulated/mask/adhomai,
-/area/adhomai)
-"Rn" = (
-/obj/structure/table/wood,
-/obj/item/weapon/bee_smoker,
-/obj/item/weapon/bee_net,
-/obj/item/weapon/crowbar,
-/turf/simulated/floor/asteroid/ash/adhomai,
 /area/adhomai)
 "Rp" = (
 /obj/structure/filingcabinet/security,
@@ -6202,9 +6287,9 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
 /area/adhomai/fortress)
-"Sl" = (
-/obj/structure/table/wood,
-/turf/simulated/floor/asteroid/ash/adhomai,
+"Sn" = (
+/obj/structure/flora/grass/brown,
+/turf/unsimulated/mask/adhomai,
 /area/adhomai)
 "Sp" = (
 /obj/structure/bonfire/fireplace,
@@ -6250,10 +6335,11 @@
 /obj/item/clothing/suit/apron/brown,
 /turf/simulated/floor/wood,
 /area/adhomai/village/blacksmith)
-"SC" = (
-/obj/structure/table/wood,
-/obj/structure/closet/crate,
-/turf/simulated/floor/asteroid/ash/adhomai,
+"SA" = (
+/obj/structure/table/rack,
+/obj/item/weapon/material/axe,
+/obj/item/weapon/material/axe,
+/turf/simulated/floor/wood,
 /area/adhomai/village)
 "SF" = (
 /obj/structure/table/rack,
@@ -6288,14 +6374,18 @@
 	},
 /turf/simulated/floor/wood,
 /area/adhomai/village/temple)
-"SM" = (
-/obj/structure/closet/cabinet,
-/obj/item/mold/fork,
-/obj/item/mold/knife,
-/obj/item/mold,
-/obj/item/mold/ring,
-/turf/simulated/floor/wood,
-/area/adhomai/village/blacksmith)
+"SQ" = (
+/obj/structure/sink{
+	dir = 8;
+	icon_state = "sink";
+	pixel_x = -12;
+	pixel_y = 5
+	},
+/obj/structure/mirror{
+	pixel_x = -32
+	},
+/turf/simulated/floor/tiled/white,
+/area/adhomai/village)
 "SW" = (
 /obj/structure/closet/cabinet,
 /obj/item/blueprints,
@@ -6366,6 +6456,9 @@
 /obj/item/weapon/gun/launcher/crossbow,
 /obj/effect/floor_decal/industrial/outline/red,
 /obj/effect/decal/cleanable/cobweb2,
+/obj/item/stack/rods{
+	amount = 20
+	},
 /turf/simulated/floor/tiled/dark,
 /area/adhomai/fortress)
 "TB" = (
@@ -6374,14 +6467,16 @@
 /obj/item/weapon/storage/field_ration/nka/army,
 /turf/simulated/floor/tiled/dark,
 /area/adhomai/fortress)
-"TC" = (
-/obj/item/weapon/stool/padded,
-/turf/simulated/floor/asteroid/ash/adhomai,
-/area/adhomai)
 "TD" = (
 /obj/structure/table/wood,
 /turf/simulated/floor/carpet,
 /area/adhomai/village/mayor)
+"TG" = (
+/obj/structure/table/wood,
+/obj/item/weapon/reagent_containers/glass/bucket,
+/obj/item/weapon/reagent_containers/glass/bucket,
+/turf/simulated/floor/wood,
+/area/adhomai/village)
 "TK" = (
 /obj/structure/table/rack,
 /turf/simulated/floor/carpet,
@@ -6430,16 +6525,6 @@
 	},
 /turf/simulated/floor/wood,
 /area/adhomai/village/blacksmith)
-"TW" = (
-/obj/structure/flora/ausbushes/fullgrass,
-/turf/unsimulated/mask/adhomai,
-/area/adhomai)
-"Uc" = (
-/obj/structure/simple_door/adhomai/iron{
-	initial_lock_value = "bar"
-	},
-/turf/simulated/floor/tiled/freezer,
-/area/adhomai/village)
 "Ue" = (
 /obj/structure/telegraphy,
 /turf/simulated/floor/wood,
@@ -6508,6 +6593,13 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/adhomai/village/shop)
+"Ut" = (
+/obj/machinery/light/small{
+	dir = 8
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/asteroid/ash/adhomai,
+/area/adhomai)
 "Uu" = (
 /obj/structure/bed/chair/wood/adhomai{
 	icon_state = "tajchair";
@@ -6565,14 +6657,14 @@
 	},
 /turf/simulated/floor/lino,
 /area/adhomai/village/shop)
-"UJ" = (
+"UK" = (
 /obj/structure/table/wood,
-/obj/machinery/light/small{
-	dir = 1
-	},
-/obj/structure/bedsheetbin,
-/turf/simulated/floor/wood,
-/area/adhomai/village)
+/obj/item/bee_pack,
+/obj/item/bee_pack,
+/obj/item/bee_pack,
+/obj/item/bee_pack,
+/turf/simulated/floor/asteroid/ash/adhomai,
+/area/adhomai)
 "UM" = (
 /mob/living/simple_animal/hostile/geist,
 /turf/simulated/floor/snow,
@@ -6583,14 +6675,6 @@
 /obj/machinery/light/small,
 /turf/simulated/floor/tiled/dark,
 /area/adhomai/fortress)
-"UP" = (
-/obj/structure/reagent_dispensers/woodpulp,
-/turf/simulated/floor/asteroid/ash/adhomai,
-/area/adhomai)
-"UQ" = (
-/obj/structure/bonfire/fireplace/stove,
-/turf/simulated/floor/lino,
-/area/adhomai/village)
 "UU" = (
 /obj/structure/curtain/open/bed{
 	pixel_y = -32
@@ -6600,12 +6684,26 @@
 	},
 /turf/simulated/floor/wood,
 /area/adhomai/village/court)
+"UX" = (
+/obj/structure/table/wood,
+/obj/item/weapon/material/minihoe,
+/obj/item/weapon/material/minihoe,
+/obj/item/weapon/material/scythe,
+/obj/item/weapon/material/scythe,
+/turf/simulated/floor/wood,
+/area/adhomai/village)
 "Va" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/bedsheetbin,
 /obj/structure/table/wood,
 /turf/simulated/floor/tiled/dark,
 /area/adhomai/fortress)
+"Ve" = (
+/obj/structure/table/wood,
+/obj/item/weapon/wirecutters/clippers,
+/obj/item/weapon/wirecutters/clippers,
+/turf/simulated/floor/wood,
+/area/adhomai/village)
 "Vn" = (
 /obj/structure/table/wood,
 /obj/item/weapon/folder/yellow,
@@ -6624,6 +6722,12 @@
 "Vp" = (
 /turf/simulated/floor/tiled/dark,
 /area/adhomai/fortress)
+"Vq" = (
+/obj/structure/simple_door/adhomai/iron{
+	initial_lock_value = "bar"
+	},
+/turf/simulated/floor/tiled/freezer,
+/area/adhomai/village)
 "Vs" = (
 /obj/structure/table/rack,
 /obj/item/weapon/towel,
@@ -6634,12 +6738,14 @@
 /obj/structure/window/reinforced,
 /turf/simulated/floor/tiled/freezer,
 /area/adhomai/fortress)
-"Vu" = (
-/obj/machinery/light/small{
-	dir = 8
-	},
-/turf/simulated/floor/asteroid/ash/adhomai,
-/area/adhomai)
+"Vw" = (
+/obj/machinery/light/small,
+/obj/structure/table/wood,
+/obj/item/weapon/wrench,
+/obj/item/weapon/crowbar,
+/obj/item/weapon/screwdriver,
+/turf/simulated/floor/wood,
+/area/adhomai/village)
 "VD" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced{
@@ -6656,18 +6762,15 @@
 /obj/machinery/appliance/cooker/oven/adhomai,
 /turf/simulated/floor/wood,
 /area/adhomai/village)
-"VJ" = (
-/obj/structure/window/classic/reinforced,
-/turf/simulated/floor/asteroid/ash/adhomai,
-/area/adhomai/village)
-"VL" = (
-/obj/structure/curtain/open/bed{
-	pixel_y = -32
+"VO" = (
+/obj/structure/closet/crate{
+	desc = "A simple metal footlocker.";
+	name = "footlocker"
 	},
-/obj/item/weapon/stool/padded,
-/obj/item/weapon/stool/padded,
-/obj/item/weapon/stool/padded,
-/obj/item/weapon/stool/padded,
+/obj/machinery/alarm{
+	name = "Thermostat";
+	pixel_y = 20
+	},
 /turf/simulated/floor/wood,
 /area/adhomai/village)
 "VP" = (
@@ -6707,20 +6810,6 @@
 	},
 /turf/simulated/floor/wood,
 /area/adhomai/village/court)
-"Wb" = (
-/obj/structure/flora/pottedplant,
-/obj/machinery/light/small,
-/turf/simulated/floor/carpet/blue,
-/area/adhomai/village)
-"Wc" = (
-/obj/structure/curtain/open/bed{
-	pixel_x = -32
-	},
-/obj/structure/table/wood,
-/obj/item/weapon/reagent_containers/cooking_container/fire/skewer,
-/obj/item/weapon/reagent_containers/cooking_container/fire/skewer,
-/turf/simulated/floor/wood,
-/area/adhomai/village)
 "We" = (
 /obj/structure/curtain/open/shower,
 /obj/machinery/shower{
@@ -6753,12 +6842,6 @@
 "Wm" = (
 /turf/simulated/wall/iron,
 /area/adhomai/village/police)
-"Wn" = (
-/obj/machinery/light/small{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/freezer,
-/area/adhomai/village)
 "Wq" = (
 /obj/structure/table/rack,
 /obj/machinery/door/window/northleft{
@@ -6778,16 +6861,6 @@
 /obj/item/weapon/pen/blue,
 /turf/simulated/floor/wood,
 /area/adhomai/village)
-"Wt" = (
-/obj/structure/bed/chair/wood/adhomai{
-	icon_state = "tajchair";
-	dir = 1
-	},
-/obj/effect/landmark/start{
-	name = "Commoner"
-	},
-/turf/simulated/floor/wood,
-/area/adhomai/village/medical)
 "Wu" = (
 /obj/structure/table/wood,
 /obj/machinery/cell_charger,
@@ -6802,12 +6875,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
 /area/adhomai/fortress)
-"Wy" = (
-/obj/structure/simple_door/adhomai/wood{
-	initial_lock_value = "blacksmith"
-	},
-/turf/simulated/floor/wood,
-/area/adhomai/village/blacksmith)
 "Wz" = (
 /obj/structure/bed/chair/comfy/brown,
 /obj/effect/floor_decal/carpet{
@@ -6819,6 +6886,12 @@
 	},
 /turf/simulated/floor/carpet,
 /area/adhomai/village/mayor)
+"WD" = (
+/obj/structure/sign/adhomai/shop{
+	pixel_w = 32
+	},
+/turf/simulated/floor/snow,
+/area/adhomai)
 "WG" = (
 /obj/item/weapon/key/mayor,
 /obj/item/weapon/key/mayor,
@@ -6871,18 +6944,25 @@
 /obj/structure/table/wood,
 /turf/simulated/floor/wood,
 /area/adhomai/village/mayor)
-"Xa" = (
-/obj/structure/closet/crate/bin{
-	name = "garbage bin"
-	},
-/obj/machinery/light/small{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/white,
-/area/adhomai/village)
+"Xb" = (
+/obj/structure/table/wood,
+/obj/item/weapon/bee_smoker,
+/obj/item/weapon/bee_net,
+/obj/item/weapon/crowbar,
+/turf/simulated/floor/asteroid/ash/adhomai,
+/area/adhomai)
 "Xd" = (
 /turf/simulated/wall/iron,
 /area/adhomai/village/shop)
+"Xh" = (
+/obj/structure/curtain/open/bed{
+	pixel_y = 32
+	},
+/obj/structure/closet/crate/bin{
+	name = "garbage bin"
+	},
+/turf/simulated/floor/wood,
+/area/adhomai/village/medical)
 "Xi" = (
 /mob/living/simple_animal/mouse/white,
 /turf/simulated/floor/tiled/dark,
@@ -6903,11 +6983,11 @@
 /area/adhomai/village/blacksmith)
 "Xx" = (
 /obj/structure/table/wood,
-/obj/structure/window/reinforced,
-/obj/item/weapon/paper_bin,
-/obj/item/weapon/pen,
-/turf/simulated/floor/wood,
-/area/adhomai/village/medical)
+/obj/machinery/light/small{
+	dir = 8
+	},
+/turf/simulated/floor/lino,
+/area/adhomai/village)
 "XF" = (
 /obj/structure/bonfire/fireplace{
 	pixel_x = 0
@@ -6964,6 +7044,10 @@
 /obj/item/device/radio/phone,
 /turf/simulated/floor/wood,
 /area/adhomai/village/police)
+"Ya" = (
+/obj/structure/barricade/chainlink,
+/turf/simulated/floor/asteroid/ash/adhomai,
+/area/adhomai/village)
 "Yc" = (
 /obj/structure/table/wood,
 /obj/item/weapon/storage/fancy/cigar,
@@ -6984,19 +7068,6 @@
 	},
 /turf/simulated/floor/wood,
 /area/adhomai/village/police)
-"Yl" = (
-/obj/structure/sink/well{
-	density = 1
-	},
-/turf/simulated/floor/snow,
-/area/adhomai)
-"Yn" = (
-/obj/structure/table/wood,
-/obj/effect/decal/cleanable/dirt,
-/obj/item/weapon/pickaxe,
-/obj/item/weapon/material/axe,
-/turf/simulated/floor/wood,
-/area/adhomai/village)
 "Yp" = (
 /obj/structure/bed,
 /obj/machinery/light/small{
@@ -7010,27 +7081,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/wood,
 /area/adhomai/village)
-"Yr" = (
-/obj/structure/simple_door/adhomai/wood,
-/turf/simulated/wall/wood,
-/area/adhomai/village/medical)
-"Ys" = (
-/obj/structure/curtain/open/bed{
-	pixel_y = -32
-	},
-/obj/structure/bed/chair/wood/adhomai{
-	icon_state = "tajchair";
-	dir = 1
-	},
-/turf/simulated/floor/wood,
-/area/adhomai/village)
-"Yt" = (
-/obj/structure/table/wood,
-/obj/machinery/light/small{
-	dir = 4
-	},
-/turf/simulated/floor/asteroid/ash/adhomai,
-/area/adhomai)
 "Yu" = (
 /obj/structure/table/wood,
 /obj/structure/window/reinforced{
@@ -7050,12 +7100,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/wood,
 /area/adhomai/village)
-"YC" = (
-/obj/structure/table/wood,
-/obj/structure/window/reinforced,
-/obj/item/device/radio/phone,
-/turf/simulated/floor/wood,
-/area/adhomai/village/medical)
 "YG" = (
 /obj/structure/bed/chair/wood/adhomai{
 	icon_state = "tajchair";
@@ -7069,14 +7113,6 @@
 "YJ" = (
 /turf/simulated/floor/lino,
 /area/adhomai/village/medical)
-"YK" = (
-/obj/structure/table/wood,
-/obj/item/weapon/material/twohanded/pike/pitchfork,
-/obj/machinery/light/small{
-	dir = 8
-	},
-/turf/simulated/floor/asteroid/ash/adhomai,
-/area/adhomai/village)
 "YQ" = (
 /obj/machinery/mineral/processing_unit_console{
 	pixel_y = 32
@@ -7088,6 +7124,16 @@
 /obj/item/device/flashlight/lamp/green,
 /turf/simulated/floor/carpet,
 /area/adhomai/village/townhall)
+"YS" = (
+/obj/structure/table/wood,
+/obj/item/seeds/nfrihi,
+/obj/item/seeds/mtearseed,
+/obj/item/seeds/mtearseed,
+/obj/item/seeds/nfrihi,
+/obj/item/seeds/earthenroot,
+/obj/item/seeds/earthenroot,
+/turf/simulated/floor/wood,
+/area/adhomai/village)
 "YV" = (
 /obj/item/weapon/stool/padded,
 /obj/effect/landmark/start{
@@ -7164,18 +7210,6 @@
 /obj/machinery/light/small,
 /turf/simulated/floor/wood,
 /area/adhomai/village/medical)
-"Zp" = (
-/obj/structure/sink{
-	dir = 8;
-	icon_state = "sink";
-	pixel_x = -12;
-	pixel_y = 5
-	},
-/obj/structure/mirror{
-	pixel_x = -32
-	},
-/turf/simulated/floor/tiled/white,
-/area/adhomai/village)
 "Zq" = (
 /obj/structure/closet/cabinet,
 /obj/item/stack/material/bronze{
@@ -7203,13 +7237,6 @@
 /obj/item/device/flashlight/lamp,
 /turf/simulated/floor/wood,
 /area/adhomai/village/shop)
-"Zv" = (
-/obj/structure/bed/chair/wood/adhomai{
-	icon_state = "tajchair";
-	dir = 1
-	},
-/turf/simulated/floor/wood,
-/area/adhomai/village/medical)
 "Zy" = (
 /obj/structure/table/rack,
 /obj/item/clothing/head/helmet/nka,
@@ -7251,6 +7278,11 @@
 	icon_state = "hydrofloor"
 	},
 /area/adhomai/village/mayor)
+"ZK" = (
+/obj/effect/floor_decal/corner/paleblue/diagonal,
+/obj/machinery/iv_drip,
+/turf/simulated/floor/tiled/white,
+/area/adhomai/village/medical)
 "ZM" = (
 /obj/structure/simple_door/adhomai/wood{
 	initial_lock_value = "medical"
@@ -7268,18 +7300,15 @@
 /obj/item/weapon/paper_bin,
 /turf/simulated/floor/wood,
 /area/adhomai/village/blacksmith)
-"ZQ" = (
-/obj/machinery/portable_atmospherics/hydroponics/soil,
-/obj/machinery/light{
-	icon_state = "tube1";
-	dir = 1
-	},
-/turf/simulated/floor/asteroid/ash/adhomai,
-/area/adhomai/village)
 "ZS" = (
 /obj/item/weapon/mop,
 /obj/item/weapon/reagent_containers/glass/bucket,
 /turf/simulated/floor/wood,
+/area/adhomai/village)
+"ZV" = (
+/obj/structure/table/wood,
+/obj/structure/closet/crate,
+/turf/simulated/floor/asteroid/ash/adhomai,
 /area/adhomai/village)
 "ZW" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -14047,7 +14076,7 @@ ae
 ae
 ae
 ae
-iK
+LY
 ae
 ae
 ae
@@ -14301,7 +14330,7 @@ ae
 ae
 aa
 aa
-FV
+QD
 ae
 ae
 ae
@@ -16351,7 +16380,7 @@ Rm
 Rm
 Rm
 aa
-ev
+jY
 DR
 EH
 uh
@@ -37148,11 +37177,11 @@ Rm
 Rm
 Rm
 Rm
-sh
+FU
 Rm
 Rm
 Rm
-TW
+Df
 Rm
 Rm
 Rm
@@ -37392,11 +37421,11 @@ aa
 aa
 Rm
 Rm
-sh
+FU
 Rm
 Rm
 Rm
-TW
+Df
 Rm
 Rm
 Rm
@@ -37660,7 +37689,7 @@ Rm
 Rm
 Rm
 Rm
-rr
+Nv
 Rm
 Rm
 Rm
@@ -37904,7 +37933,7 @@ Rm
 Rm
 Rm
 Rm
-rr
+Nv
 Rm
 Rm
 Rm
@@ -37923,9 +37952,9 @@ Rm
 Rm
 Rm
 Rm
-Aa
+AA
 Rm
-TW
+Df
 Rm
 Rm
 Rm
@@ -38167,18 +38196,18 @@ Rm
 Rm
 Rm
 Rm
-Aa
+AA
 Rm
-TW
-Rm
-Rm
+Df
 Rm
 Rm
 Rm
 Rm
-GW
 Rm
-bS
+Rm
+Sn
+Rm
+FT
 Rm
 Rm
 Rm
@@ -38420,11 +38449,9 @@ Rm
 Rm
 Rm
 Rm
-GW
+Sn
 Rm
-bS
-Rm
-Rm
+FT
 Rm
 Rm
 Rm
@@ -38442,7 +38469,9 @@ Rm
 Rm
 Rm
 Rm
-rr
+Rm
+Rm
+Nv
 Rm
 Rm
 Rm
@@ -39189,7 +39218,7 @@ ab
 ab
 ab
 aa
-bS
+FT
 Rm
 Rm
 Rm
@@ -39710,7 +39739,7 @@ Rm
 Rm
 Rm
 Rm
-GW
+Sn
 Rm
 Rm
 Rm
@@ -40222,7 +40251,7 @@ Rm
 Rm
 Rm
 Rm
-TW
+Df
 Rm
 Rm
 Rm
@@ -40241,7 +40270,7 @@ Rm
 Rm
 Rm
 Rm
-TW
+Df
 Rm
 Rm
 Rm
@@ -41246,7 +41275,7 @@ oJ
 ab
 aa
 Rm
-rr
+Nv
 Rm
 Rm
 Rm
@@ -41763,11 +41792,11 @@ Rm
 Rm
 Rm
 Rm
-sh
+FU
 Rm
 Rm
 Rm
-TW
+Df
 Rm
 Rm
 Rm
@@ -42028,7 +42057,7 @@ Rm
 Rm
 Rm
 Rm
-zM
+of
 Rm
 Rm
 Rm
@@ -42275,7 +42304,7 @@ ab
 aa
 Rm
 Rm
-rr
+Nv
 Rm
 Rm
 Rm
@@ -42538,7 +42567,7 @@ Rm
 Rm
 Rm
 Rm
-Aa
+AA
 Rm
 cV
 aa
@@ -42787,13 +42816,13 @@ ao
 dI
 ab
 aa
-rr
+Nv
 Rm
-rr
+Nv
 Rm
 Rm
 Rm
-GW
+Sn
 Rm
 Rm
 Rm
@@ -44096,7 +44125,7 @@ rk
 pn
 LU
 MK
-Nd
+Fy
 lU
 aa
 Rm
@@ -44340,7 +44369,7 @@ aa
 lU
 Fa
 Fa
-Fa
+dx
 lU
 Qj
 YJ
@@ -44353,7 +44382,7 @@ rk
 pn
 lU
 MK
-Ba
+JK
 lU
 aa
 Rm
@@ -44596,7 +44625,7 @@ Rm
 aa
 lU
 Fa
-vg
+ZK
 Fa
 lU
 xy
@@ -45377,7 +45406,7 @@ yg
 WU
 WU
 AT
-mH
+Xh
 mc
 lU
 MK
@@ -45528,9 +45557,9 @@ aa
 DR
 Tv
 AE
-Wc
-eF
-IX
+BL
+Nm
+vU
 DR
 aa
 Rm
@@ -45629,12 +45658,12 @@ lU
 lU
 lU
 lU
-ir
-ir
+BM
+BM
 lU
 lU
 lU
-Ng
+nU
 lU
 lU
 lU
@@ -45872,7 +45901,7 @@ ae
 ae
 cW
 Rm
-bS
+FT
 Rm
 Rm
 Rm
@@ -45889,10 +45918,10 @@ lU
 pn
 pn
 pn
-YC
+KV
 OH
 pn
-Zv
+zQ
 lU
 aa
 aa
@@ -46145,11 +46174,11 @@ aa
 lU
 tc
 pn
-pn
+Ar
 ub
 pn
 pn
-kU
+lB
 lU
 aa
 Rm
@@ -46403,10 +46432,10 @@ lU
 hC
 hC
 mm
-Xx
+Nl
 zd
 pn
-Wt
+Bm
 lU
 aa
 Rm
@@ -46558,7 +46587,7 @@ CA
 Yy
 Yq
 yo
-Yn
+MN
 DR
 DR
 aa
@@ -46664,7 +46693,7 @@ lU
 lU
 Jh
 lU
-Yr
+qQ
 aa
 Rm
 Rm
@@ -46920,7 +46949,7 @@ aa
 aa
 aa
 ae
-Dt
+DY
 aa
 aa
 Rm
@@ -47328,7 +47357,7 @@ sW
 EH
 EH
 EH
-Df
+zy
 EH
 bV
 Hi
@@ -48614,7 +48643,7 @@ ae
 ae
 ae
 ae
-uz
+cg
 cj
 aa
 Rm
@@ -48871,7 +48900,7 @@ ae
 ae
 ae
 ae
-uz
+cg
 cj
 Rm
 Rm
@@ -49125,9 +49154,9 @@ Rm
 Rm
 aa
 cj
-ov
-uz
-uz
+jf
+cg
+cg
 tE
 cj
 Rm
@@ -49757,8 +49786,8 @@ IO
 Sx
 Cu
 ES
-KA
-SM
+AC
+bE
 Cu
 aa
 aa
@@ -50269,7 +50298,7 @@ vB
 vB
 vB
 vB
-Wy
+hm
 vB
 vB
 vB
@@ -50779,13 +50808,13 @@ ae
 aa
 Cu
 Cu
-Wy
+hm
 Cu
 Cu
 Cu
 Cu
 Cu
-Wy
+hm
 Cu
 Cu
 aa
@@ -51809,7 +51838,7 @@ Cu
 GT
 LF
 vB
-Wy
+hm
 vB
 KY
 vB
@@ -52584,7 +52613,7 @@ Cu
 Cu
 Cu
 Cu
-Wy
+hm
 Cu
 Cu
 aa
@@ -52839,9 +52868,9 @@ aa
 jX
 aa
 Yd
+aa
+aa
 ae
-aa
-aa
 aa
 aa
 aa
@@ -54111,7 +54140,7 @@ aa
 aa
 ae
 ae
-Kh
+WD
 aa
 aa
 aa
@@ -55914,7 +55943,7 @@ yP
 XV
 ap
 Xd
-kf
+Ag
 ae
 ae
 ae
@@ -60532,12 +60561,12 @@ DR
 DR
 DR
 DR
-vN
+PE
 cm
 aE
 aI
-uG
-ms
+zV
+qJ
 Hi
 aa
 aa
@@ -60785,8 +60814,8 @@ Rm
 Rm
 Rm
 DR
-yF
-Wn
+BQ
+eD
 jV
 DR
 aB
@@ -61042,11 +61071,11 @@ Rm
 Rm
 Rm
 DR
-yF
+BQ
 aZ
 jV
 DR
-tw
+kU
 aE
 aE
 aE
@@ -61299,11 +61328,11 @@ Rm
 Rm
 Rm
 DR
-Gz
+oz
 aZ
-vR
+Do
 DR
-PW
+Jd
 EH
 EH
 EH
@@ -61317,19 +61346,19 @@ ae
 ae
 aa
 DR
-VJ
-VJ
+Fu
+Fu
 DR
-VJ
-VJ
+Fu
+Fu
 DR
 aa
 DR
-VJ
-VJ
+Fu
+Fu
 DR
-VJ
-VJ
+Fu
+Fu
 DR
 aa
 Rm
@@ -61556,16 +61585,16 @@ Rm
 Rm
 Rm
 DR
-Gz
+oz
 aZ
-EX
+Bs
 DR
 cZ
 KE
 EH
 EH
-Kj
-VL
+ry
+uZ
 Hi
 aa
 aa
@@ -61573,21 +61602,21 @@ ae
 ae
 ae
 aa
-VJ
-yE
-bQ
-rZ
-bQ
-yE
-VJ
+Fu
+lL
+bA
+Pw
+bA
+lL
+Fu
 aa
-VJ
-yE
-bQ
-rZ
+Fu
+lL
+bA
+Pw
 cY
-yE
-VJ
+lL
+Fu
 aa
 Rm
 Rm
@@ -61814,7 +61843,7 @@ Rm
 Rm
 DR
 DR
-Uc
+Vq
 DR
 DR
 DR
@@ -61830,21 +61859,21 @@ ae
 ae
 ae
 cR
-VJ
-yE
-bQ
-bQ
-bQ
-yE
-VJ
+Fu
+lL
+bA
+bA
+bA
+lL
+Fu
 aa
-VJ
-yE
-bQ
-bQ
+Fu
+lL
+bA
+bA
 cY
-yE
-VJ
+lL
+Fu
 aa
 Rm
 Rm
@@ -62060,7 +62089,7 @@ Rm
 Rm
 Rm
 Rm
-sh
+FU
 Rm
 Rm
 Rm
@@ -62073,35 +62102,35 @@ Rm
 DR
 aG
 aG
-Lp
-HN
+rM
+Xx
 qn
 EH
 EH
 az
 zK
-Ys
+Ds
 Hi
 aa
 ae
 ae
 ae
 aa
-VJ
-yE
-bQ
-bQ
+Fu
+lL
+bA
+bA
 cY
-yE
-VJ
+lL
+Fu
 aa
-VJ
-yE
+Fu
+lL
 cY
 cY
-bQ
-yE
-VJ
+bA
+lL
+Fu
 aa
 Rm
 Rm
@@ -62308,7 +62337,7 @@ Rm
 Rm
 Rm
 Rm
-sh
+FU
 Rm
 Rm
 Rm
@@ -62328,7 +62357,7 @@ Rm
 Rm
 Rm
 DR
-Os
+yj
 aG
 aG
 ce
@@ -62338,27 +62367,27 @@ EH
 EH
 aE
 aE
-ze
+lP
 ae
 ae
 ae
 ae
 aa
-VJ
-yE
-bQ
-bQ
+Fu
+lL
+bA
+bA
 cY
-tA
-VJ
+PC
+Fu
 aa
-VJ
-yE
+Fu
+lL
 cY
 cY
-bQ
-yE
-VJ
+bA
+lL
+Fu
 aa
 Rm
 Rm
@@ -62585,7 +62614,7 @@ Rm
 Rm
 Rm
 DR
-UQ
+Me
 aG
 aG
 ce
@@ -62594,28 +62623,28 @@ EH
 EH
 EH
 aE
-Wb
+rg
 DR
-QT
+zC
 ae
 ae
 ae
 aa
-VJ
-yE
-bQ
-bQ
-bQ
-yE
-VJ
+Fu
+lL
+bA
+bA
+bA
+lL
+Fu
 aa
-VJ
-yE
-bQ
-bQ
-bQ
-yE
-VJ
+Fu
+lL
+bA
+bA
+bA
+lL
+Fu
 aa
 Rm
 Rm
@@ -62842,36 +62871,36 @@ Rm
 Rm
 Rm
 DR
-Ia
+DB
 aG
 aG
-ce
+LS
 qn
 EH
 EH
 EH
 aE
 aE
-ze
+lP
 ae
 ae
 ae
 ae
 aa
 DR
-ZQ
-bQ
-bQ
-bQ
-Jo
+iY
+bA
+bA
+bA
+lq
 DR
 aa
 DR
-ZQ
-bQ
+iY
+bA
 cY
-bQ
-Jo
+bA
+lq
 DR
 aa
 Rm
@@ -63102,34 +63131,34 @@ DR
 aY
 aG
 aG
-xS
+sF
 EH
 EH
 EH
 EH
-fU
-ot
+GG
+Dv
 Hi
 Yd
 ae
 ae
 ae
 aa
-VJ
-yE
+Fu
+lL
 cY
 cY
-bQ
-yE
-VJ
+bA
+lL
+Fu
 aa
-VJ
-yE
-bQ
-bQ
+Fu
+lL
+bA
+bA
 cY
-yE
-VJ
+lL
+Fu
 aa
 Rm
 Rm
@@ -63337,7 +63366,7 @@ Rm
 Rm
 Rm
 Rm
-GW
+Sn
 Rm
 Rm
 Rm
@@ -63358,10 +63387,10 @@ DR
 DR
 DR
 DR
-oF
+Iu
 DR
 DR
-cy
+mo
 DR
 DR
 DR
@@ -63372,21 +63401,21 @@ ae
 ae
 ae
 aa
-VJ
-tA
-bQ
+Fu
+PC
+bA
 cY
 cY
-yE
-VJ
+lL
+Fu
 aa
-VJ
-yE
-bQ
+Fu
+lL
+bA
 cY
-bQ
-yE
-VJ
+bA
+lL
+Fu
 aa
 Rm
 Rm
@@ -63611,15 +63640,15 @@ Rm
 Rm
 Rm
 DR
-ps
+BD
 ZS
 DR
 EH
 EH
 DR
-pI
+Ay
 EH
-oF
+Iu
 EH
 hW
 Hi
@@ -63629,21 +63658,21 @@ ae
 ae
 ae
 aa
-VJ
-tA
-bQ
-bQ
+Fu
+PC
+bA
+bA
 cY
-yE
-VJ
+lL
+Fu
 aa
-VJ
-yE
-bQ
+Fu
+lL
+bA
 cY
-bQ
-yE
-VJ
+bA
+lL
+Fu
 aa
 Rm
 Rm
@@ -63868,16 +63897,16 @@ Rm
 Rm
 Rm
 DR
-UJ
+Rb
 EH
-cy
+mo
 EH
-kx
+CZ
 DR
 EH
 EH
 DR
-OU
+VO
 hW
 Hi
 aa
@@ -63886,21 +63915,21 @@ ae
 ae
 ae
 aa
-VJ
-tA
-bQ
-bQ
+Fu
+PC
+bA
+bA
 cY
-yE
-VJ
+lL
+Fu
 aa
-VJ
-yE
-bQ
-bQ
+Fu
+lL
+bA
+bA
 cY
-yE
-VJ
+lL
+Fu
 aa
 Rm
 Rm
@@ -64110,7 +64139,7 @@ Rm
 Rm
 Rm
 Rm
-sh
+FU
 Rm
 Rm
 Rm
@@ -64125,7 +64154,7 @@ Rm
 Rm
 Rm
 DR
-Ko
+qN
 qn
 DR
 EH
@@ -64134,7 +64163,7 @@ DR
 EH
 EH
 DR
-ox
+Ao
 hW
 Hi
 aa
@@ -64143,21 +64172,21 @@ ae
 ae
 ae
 aa
-VJ
-yE
-bQ
-bQ
+Fu
+lL
+bA
+bA
 cY
-tA
-VJ
+PC
+Fu
 aa
-VJ
-yE
+Fu
+lL
 cY
 cY
 cY
-yE
-VJ
+lL
+Fu
 aa
 Rm
 Rm
@@ -64364,7 +64393,7 @@ Rm
 Rm
 Rm
 Rm
-TW
+Df
 Rm
 Rm
 Rm
@@ -64401,19 +64430,19 @@ ae
 ae
 aa
 DR
-VJ
+Fu
 DR
-IM
+Ec
 DR
-VJ
+Fu
 DR
-NZ
+pV
 DR
-VJ
+Fu
 DR
-IM
+Ec
 DR
-VJ
+Fu
 DR
 aa
 aa
@@ -64642,12 +64671,12 @@ aa
 aa
 aa
 DR
-sG
-PB
+uz
+MM
 DR
 EH
 EH
-oF
+Iu
 EH
 hW
 Hi
@@ -64658,18 +64687,18 @@ ae
 ae
 ae
 ae
-MH
-uX
+Mw
+Ut
 ae
-Vu
+Pf
 ae
-MH
-MH
+Mw
+Mw
 ae
 ae
-Vu
+Pf
 ae
-Vu
+Pf
 ae
 aa
 aa
@@ -64905,7 +64934,7 @@ DR
 EH
 EH
 DR
-OU
+VO
 hW
 Hi
 aa
@@ -64916,11 +64945,11 @@ ae
 ae
 ae
 ae
-MH
-MH
+Mw
+Mw
 ae
-MH
-MH
+Mw
+Mw
 ae
 ae
 ae
@@ -64932,9 +64961,9 @@ ae
 ae
 aa
 Hi
-DE
+SA
 EH
-Bs
+UX
 DR
 aa
 Rm
@@ -65135,7 +65164,7 @@ Rm
 Rm
 Rm
 Rm
-rr
+Nv
 Rm
 Rm
 Rm
@@ -65162,7 +65191,7 @@ DR
 EH
 EH
 DR
-ox
+Ao
 hW
 Hi
 aa
@@ -65182,16 +65211,16 @@ aa
 aa
 ae
 ae
-Yl
-QY
+hp
+iA
 ae
 ae
 ae
 ae
 DR
-DN
+Cz
 EH
-sX
+Ve
 DR
 aa
 Rm
@@ -65428,7 +65457,7 @@ Rm
 aa
 DR
 DR
-VJ
+Fu
 DR
 DR
 aa
@@ -65439,7 +65468,7 @@ aa
 aa
 ae
 ae
-QY
+iA
 aa
 aa
 ae
@@ -65448,7 +65477,7 @@ ae
 sW
 EH
 EH
-Hq
+Vw
 DR
 aa
 Rm
@@ -65658,7 +65687,7 @@ Rm
 Rm
 Rm
 Rm
-sh
+FU
 Rm
 Rm
 Rm
@@ -65675,7 +65704,7 @@ EH
 EH
 EH
 EH
-oF
+Iu
 EH
 hW
 Hi
@@ -65684,9 +65713,9 @@ Rm
 Rm
 cR
 DR
-kE
-bQ
-vr
+zs
+bA
+ii
 DR
 aa
 ae
@@ -65705,7 +65734,7 @@ ae
 DR
 aT
 EH
-CM
+TG
 DR
 aa
 Rm
@@ -65933,7 +65962,7 @@ aB
 EH
 EH
 DR
-OU
+VO
 hW
 Hi
 aa
@@ -65941,9 +65970,9 @@ Rm
 Rm
 aa
 DR
-vr
-kE
-bQ
+ii
+zs
+bA
 DR
 ae
 ae
@@ -65960,9 +65989,9 @@ aa
 aa
 aa
 Hi
-IY
-ML
-hk
+gU
+YS
+fS
 DR
 aa
 Rm
@@ -66190,18 +66219,18 @@ DR
 EH
 EH
 DR
-ox
+Ao
 hW
 Hi
 aa
 Rm
 Rm
 aa
-VJ
-bQ
-vr
-bQ
-IM
+Fu
+bA
+ii
+bA
+Ec
 ae
 ae
 ae
@@ -66423,7 +66452,7 @@ Rm
 Rm
 Rm
 Rm
-TW
+Df
 Rm
 Rm
 Rm
@@ -66442,7 +66471,7 @@ Rm
 Rm
 DR
 ag
-Zp
+SQ
 DR
 EH
 AD
@@ -66455,9 +66484,9 @@ Rm
 Rm
 aa
 DR
-kE
-bQ
-bQ
+zs
+bA
+bA
 DR
 ae
 aa
@@ -66467,9 +66496,9 @@ aa
 aa
 ae
 ae
-Sl
-Yt
-Sl
+pt
+NU
+pt
 aa
 aa
 aa
@@ -66698,12 +66727,12 @@ Rm
 Rm
 Rm
 DR
-Xa
+KN
 ei
 DR
 EH
 EH
-oF
+Iu
 EH
 hW
 Hi
@@ -66712,9 +66741,9 @@ Rm
 Rm
 aa
 DR
-vr
-bQ
-vr
+ii
+bA
+ii
 DR
 aa
 aa
@@ -66722,8 +66751,8 @@ ae
 aa
 aa
 DR
-IM
-IM
+Ec
+Ec
 DR
 DR
 DR
@@ -66961,7 +66990,7 @@ DR
 tq
 EH
 DR
-OU
+VO
 hW
 Hi
 aa
@@ -66970,7 +66999,7 @@ Rm
 aa
 DR
 DR
-VJ
+Fu
 DR
 DR
 aa
@@ -66979,17 +67008,17 @@ ae
 aa
 aa
 DR
-bQ
-bQ
-bQ
-bQ
-bQ
+bA
+bA
+bA
+bA
+bA
 cY
 cY
-zh
-xA
-YK
-SC
+mV
+wd
+qs
+ZV
 DR
 aa
 Rm
@@ -67218,7 +67247,7 @@ DR
 zK
 Tt
 DR
-ox
+Ao
 hW
 Hi
 aa
@@ -67231,22 +67260,22 @@ aa
 aa
 aa
 aa
-UP
+ID
 ae
 aa
 aa
 DR
-bQ
-bQ
+bA
+bA
 cY
 cY
-bQ
-bQ
+bA
+bA
 cY
 cY
-bQ
-bQ
-bQ
+bA
+bA
+bA
 DR
 aa
 Rm
@@ -67487,23 +67516,23 @@ aa
 aa
 cj
 cj
-tL
-UP
+lE
+ID
 ae
 aa
 aa
 DR
 cY
-bQ
+bA
 DR
-Jy
-Jy
-Jy
-IM
-IM
-Jy
-Jy
-Jy
+Ya
+Ya
+Ya
+Ec
+Ec
+Ya
+Ya
+Ya
 DR
 aa
 Rm
@@ -67711,7 +67740,7 @@ Rm
 Rm
 Rm
 Rm
-sh
+FU
 Rm
 Rm
 Rm
@@ -67742,8 +67771,8 @@ dz
 dz
 aa
 cj
-kR
-kR
+Ld
+Ld
 ae
 ae
 ae
@@ -67751,16 +67780,16 @@ aa
 aa
 DR
 cY
-bQ
+bA
 DR
-bQ
-bQ
-Cy
-bQ
-bQ
-bQ
-bQ
-bQ
+bA
+bA
+wV
+bA
+bA
+bA
+bA
+bA
 DR
 aa
 Rm
@@ -67999,8 +68028,8 @@ dA
 dz
 aa
 cj
-TC
-TC
+hd
+hd
 ae
 ae
 ae
@@ -68010,14 +68039,14 @@ DR
 cY
 cY
 DR
-bQ
-Cy
-bQ
-bQ
-bQ
-bQ
-Cy
-bQ
+bA
+wV
+bA
+bA
+bA
+bA
+wV
+bA
 DR
 aa
 Rm
@@ -68260,21 +68289,21 @@ ae
 ae
 ae
 ae
-ae
+Oa
 aa
 aa
 DR
 cY
-bQ
+bA
 DR
-bQ
-IT
-bQ
-bQ
-bQ
-Cy
-IT
-bQ
+bA
+eg
+bA
+bA
+bA
+wV
+eg
+bA
 DR
 aa
 Rm
@@ -68487,7 +68516,7 @@ Rm
 Rm
 Rm
 Rm
-sh
+FU
 Rm
 Rm
 Rm
@@ -68516,13 +68545,13 @@ cj
 ae
 ae
 ae
-Rn
+Xb
 aa
 aa
 aa
 DR
-IM
-IM
+Ec
+Ec
 DR
 DR
 DR
@@ -68770,10 +68799,10 @@ aa
 aa
 aa
 cj
-Bb
+Mn
 ae
 ae
-yD
+UK
 aa
 cj
 cj
@@ -69027,7 +69056,7 @@ Rm
 Rm
 Rm
 cj
-Bb
+Mn
 ae
 ae
 cj
@@ -69037,7 +69066,7 @@ aa
 aa
 ae
 ae
-lg
+Ps
 aa
 cX
 aa
@@ -69249,7 +69278,7 @@ Rm
 Rm
 Rm
 Rm
-sh
+FU
 Rm
 Rm
 Rm
@@ -69284,9 +69313,9 @@ Rm
 Rm
 Rm
 cj
-CO
-Bb
-Bb
+IP
+Mn
+Mn
 cj
 aa
 cj
@@ -69794,7 +69823,7 @@ dz
 dz
 dz
 Rm
-TW
+Df
 Rm
 Rm
 Rm
@@ -71563,7 +71592,7 @@ Rm
 Rm
 Rm
 Rm
-sh
+FU
 Rm
 Rm
 Rm
@@ -71591,7 +71620,7 @@ dz
 dz
 dz
 Rm
-TW
+Df
 Rm
 Rm
 Rm
@@ -72340,7 +72369,7 @@ Rm
 Rm
 Rm
 Rm
-sh
+FU
 Rm
 Rm
 Rm
