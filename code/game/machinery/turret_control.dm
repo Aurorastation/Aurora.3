@@ -153,14 +153,21 @@ VUEUI_MONITOR_VARS(/obj/machinery/turretid, turretvarmonitor)
 	VUEUI_SET_CHECK(data["turrets"], turrets, ., data)
 
 	if(!isLocked(user))
+		var/usedSettings = list(
+			"check_synth" = "Neutralize All Non-Synthetics",
+			"check_weapons" = "Check Weapon Authorization",
+			"check_records" = "Check Security Records",
+			"check_arrest" ="Check Arrest Status",
+			"check_access" = "Check Access Authorization",
+			"check_anomalies" = "Check misc. Lifeforms"
+		)
 		var/settings[0]
-		settings[++settings.len] = list("category" = "Neutralize All Non-Synthetics", "setting" = "check_synth", "value" = check_synth)
-		settings[++settings.len] = list("category" = "Check Weapon Authorization", "setting" = "check_weapons", "value" = check_weapons)
-		settings[++settings.len] = list("category" = "Check Security Records", "setting" = "check_records", "value" = check_records)
-		settings[++settings.len] = list("category" = "Check Arrest Status", "setting" = "check_arrest", "value" = check_arrest)
-		settings[++settings.len] = list("category" = "Check Access Authorization", "setting" = "check_access", "value" = check_access)
-		settings[++settings.len] = list("category" = "Check misc. Lifeforms", "setting" = "check_anomalies", "value" = check_anomalies)
-		VUEUI_SET_CHECK(data["settings"], settings, ., data)
+		for(var/v in usedSettings)
+			var/name = usedSettings[v]
+			VUEUI_SET_CHECK_IFNOTSET(settings[v], list(), ., data)
+			settings[v]["category"] = name
+			VUEUI_SET_CHECK(settings[v]["value"], vars[v], ., data)
+		data["settings"] = settings
 
 /obj/machinery/turretid/ui_interact(mob/user, ui_key = "main", var/datum/vueui/ui = null, var/force_open = 1)
 
