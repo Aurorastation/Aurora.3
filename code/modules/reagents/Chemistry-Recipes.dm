@@ -1732,6 +1732,13 @@
 		new /obj/item/weapon/reagent_containers/food/snacks/spreads/butter(location)
 	return
 
+/datum/chemical_reaction/butter/fatshouter
+	name = "Butter"
+	id = "butter"
+	result = null
+	required_reagents = list("fatshouter_milk" = 20, "sodiumchloride" = 1)
+	result_amount = 1
+
 /*
 	Todo in future:
 		Cornmeal batter for corndogs
