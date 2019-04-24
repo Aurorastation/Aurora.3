@@ -177,7 +177,6 @@ BLIND     // can't see anything
 	item_flags = AIRTIGHT
 	unacidable = 1
 
-
 /obj/item/clothing/glasses/eyepatch
 	name = "eyepatch"
 	desc = "Yarr."
