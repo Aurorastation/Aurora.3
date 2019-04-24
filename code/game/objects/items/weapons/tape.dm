@@ -93,7 +93,7 @@
 	w_class = 1
 	layer = 4
 	anchored = 1 //it's sticky, no you cant move it
-
+	drop_sound = null
 	var/obj/item/weapon/stuck = null
 
 /obj/item/weapon/ducttape/New()

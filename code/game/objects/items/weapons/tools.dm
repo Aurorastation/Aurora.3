@@ -154,7 +154,7 @@
 	var/base_iconstate = "welder"//These are given an _on/_off suffix before being used
 	var/base_itemstate = "welder"
 	contained_sprite = 1
-	drop_sound = 'sound/items/drop/sword.ogg'
+	drop_sound = 'sound/items/drop/scrap.ogg'
 
 	//Amount of OUCH when it's thrown
 	force = 3.0
@@ -543,6 +543,7 @@
 	origin_tech = list(TECH_ENGINEERING = 1)
 	matter = list(DEFAULT_WALL_MATERIAL = 50)
 	attack_verb = list("attacked", "bashed", "battered", "bludgeoned", "whacked")
+	drop_sound = 'sound/items/drop/sword.ogg'
 
 /obj/item/weapon/crowbar/iscrowbar()
 	return TRUE
