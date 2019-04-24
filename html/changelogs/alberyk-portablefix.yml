@@ -1,0 +1,6 @@
+author: Alberyk
+
+delete-after: True
+
+changes: 
+  - tweak: "Research cyborg's portable destructive analyzer can now only load items with research tech."
