@@ -195,7 +195,7 @@
 	w_class = 3.0
 	amount_per_transfer_from_this = 20
 	possible_transfer_amounts = list(10,20,30,60,120)
-	volume = 120
+	volume = 600
 	flags = OPENCONTAINER
 	unacidable = 0
 
@@ -238,6 +238,8 @@ obj/item/weapon/reagent_containers/glass/bucket/wood
 	icon_state = "woodbucket"
 	item_state = "woodbucket"
 	matter = list("wood" = 50)
+	volume = 1200
+	w_class = 4.0
 
 /obj/item/weapon/reagent_containers/glass/bucket/wood/attackby(var/obj/D, mob/user as mob)
 	if(isprox(D))

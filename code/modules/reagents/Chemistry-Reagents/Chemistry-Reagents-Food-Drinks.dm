@@ -371,6 +371,11 @@
 	color = "#FFFF00"
 	taste_description = "honey"
 
+/datum/reagent/nutriment/honey/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+	M.drowsyness = max(0, M.drowsyness - 6 * removed)
+	M.hallucination = max(0, M.hallucination - 9 * removed)
+	M.adjustToxLoss(-1 * removed)
+
 /datum/reagent/nutriment/flour
 	name = "flour"
 	id = "flour"

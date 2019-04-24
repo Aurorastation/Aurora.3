@@ -78,6 +78,9 @@
 	outfit = /datum/outfit/job/adhomai/barkeeper
 
 	account_allowed = FALSE
+	alt_outfits = list(
+		"Innkeeper"=/datum/outfit/job/adhomai/bartender/innkeeper
+		)
 
 /datum/outfit/job/adhomai/barkeeper
 	name = "Barkeeper"
@@ -89,6 +92,17 @@
 	backpack_contents = list(
 		/obj/item/weapon/reagent_containers/food/drinks/bottle/messa_mead = 2,
 		/obj/item/weapon/storage/box/beanbags = 1
+	)
+	l_pocket = /obj/item/weapon/storage/wallet/medium
+
+/datum/outfit/job/adhomai/bartender/innkeeper
+	name = "Innkeeper"
+	allow_backbag_choice = TRUE
+
+	r_pocket = /obj/item/weapon/key/inn
+	belt = /obj/item/weapon/gun/projectile/revolver/derringer
+	backpack_contents = list(
+		/obj/item/ammo_magazine/a357 = 2
 	)
 	l_pocket = /obj/item/weapon/storage/wallet/medium
 
