@@ -2519,6 +2519,8 @@
 #include "maps\adhomai\code\jobs\civillian.dm"
 #include "maps\adhomai\code\jobs\job.dm"
 #include "maps\adhomai\code\jobs\military.dm"
+#include "maps\adhomai\code\machinery\biogenerator.dm"
+#include "maps\adhomai\code\machinery\kitchen_machinery.dm"
 #include "maps\adhomai\code\machinery\phonograph.dm"
 #include "maps\adhomai\code\mobs\animals.dm"
 #include "maps\adhomai\code\mobs\geist.dm"
