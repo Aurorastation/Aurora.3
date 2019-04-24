@@ -486,7 +486,8 @@
 		"optics"  = /obj/item/organ/eyes/optical_sensor,
 		"ipc tag" = /obj/item/organ/ipc_tag,
 		"diagnostics unit" = /obj/item/organ/diagnosticsunit,
-		"coolant pump" = /obj/item/organ/coolantpump
+		"coolant pump" = /obj/item/organ/coolantpump,
+		"calibration system" = /obj/item/organ/powercontrolunit
 	)
 
 	vision_organ = "optics"

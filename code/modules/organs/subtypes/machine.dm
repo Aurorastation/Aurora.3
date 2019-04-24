@@ -83,6 +83,7 @@
 		to_chat(owner, "<span class='danger'>%#/ERR: Power leak detected!$%^/</span>")
 
 
+
 /obj/item/organ/surge
 	name = "surge preventor"
 	desc = "A small device that give immunity to EMP for few pulses."
@@ -274,8 +275,6 @@
 	var/coolantuserate = 0.9
 	var/coolantamount = 100
 	var/pumphealth = 30
-	var/burn_cooldown = 0
-	var/dmg_cooldown = 0
 	var/failure_timer = FALSE
 	var/pumpdmg_timer = FALSE
 
@@ -398,13 +397,16 @@
 	coolant_check()
 
 /obj/item/organ/coolant_pump/removed(var/mob/living/carbon/human/target)
-	to_chat(target, "<span class='warning'>Your entire body shuts down, leaving you lifeless.</span>")
-	target.update_canmove()
+	var/mob/living/carbon/human/H = target
+	to_chat(H, "<span class='warning'>Your entire body shuts down, leaving you lifeless.</span>")
+	H.Weaken(120)
 
 
 /obj/item/organ/coolant_pump/replaced(var/mob/living/carbon/human/target)
+	var/mob/living/carbon/human/H = owner
 	to_chat(target, "<span class='warning'>You feel a cool sensation overcome you.</span>")
 	target.update_canmove()
+	H.Weaken(0)
 
 
 /obj/item/organ/coolantpump/attackby(var/obj/I as obj, var/mob/user as mob)
@@ -430,6 +432,220 @@
 				to_chat(user, "<span class='info'>You empty [amount_transferred]u of coolant into [src].</span>")
 				coolant_check()
 
+
+
+/obj/item/organ/powercontrolunit
+	name = "central power calibration system"
+	organ_tag = "calibration system"
+	parent_organ = "head"
+	icon = 'icons/obj/robot_component.dmi'
+	icon_state = "navmesh"
+	vital = 0
+	emp_coeff = 0.1
+	action_button_name = "Re-Build Powernet"
+	var/calibrated = 1
+	var/powernetinteg = 10
+	var/powernetglitch_timer = FALSE
+
+/obj/item/organ/powercontrolunit/refresh_action_button()
+	. = ..()
+	if(.)
+		action.button_icon_state = "rebuildmesh"
+		if(action.button)
+			action.button.UpdateIcon()
+
+/obj/item/organ/powercontrolunit/attack_self(var/mob/user)
+	. = ..()
+	var/mob/living/carbon/human/H = owner
+	if(.)
+
+
+		var/list/calibrateoptions = list("Re-Build Powernet", "View Powernet integrity", "Cancel")
+
+		var/calibrationmode = input("Select Powernet Operation.", "Hephaestus Industries Nav-Mesh OS V1.22") as null|anything in calibrateoptions
+
+		var/integprecent = powernetinteg * 10
+
+		switch(calibrationmode)
+
+
+			if("View Powernet integrity")
+				to_chat(H, "<span class='warning'>\The [src] is at [integprecent]%</span>")
+				if(calibrated == 0)
+					to_chat(H, "<span class='warning'>Calibration is reccomended</span>")
+				return
+			if("Re-Build Powernet")
+				if(calibrated == 1)
+					to_chat(H, "<span class='warning'>\The [src]'s powernet is already intact!</span>")
+					return
+
+				if(powernetinteg == 0)
+					to_chat(H, "<span class='warning'>\The [src]'s powernet is broken or missing!</span>")
+					return
+				else
+
+					to_chat(H, "<span class='warning'>Remain still while powernet rebuilds.....</span>")
+					if (do_after(H, 50))
+						calibrated = 1
+						to_chat(H, "<span class='notice'>\The [src]'s powernet is rebuilt!</span>")
+						H.confused = 0
+						H.drowsyness = 0
+						return
+
+
+/obj/item/organ/powercontrolunit/Initialize()
+	START_PROCESSING(SSfast_process, src)
+	calibrated = 1
+	robotize()
+	. = ..()
+
+
+
+
+/obj/item/organ/powercontrolunit/proc/calibration_check()
+	var/mob/living/carbon/human/H = owner
+	if(!H) 
+		return
+	if((calibrated == 0 && !powernetglitch_timer))
+		addtimer(CALLBACK(src, .proc/calibration_failure), rand(20, 60))
+		powernetglitch_timer = TRUE
+
+/obj/item/organ/powercontrolunit/proc/calibration_failure()
+	var/mob/living/carbon/human/H = owner
+	if(!H) 
+		return
+	if(calibrated <= 0)
+		H.confused += 9
+		H.drowsyness += 2
+	powernetglitch_timer = FALSE
+
+/obj/item/organ/powercontrolunit/proc/calibration_dmgcheck()
+	var/mob/living/carbon/human/H = owner
+	var/obj/item/organ/NV = H.internal_organs_by_name["calibration system"]
+	var/obj/item/organ/external/UB = H.organs_by_name["head"]
+	if(!H) 
+		return
+	if(UB.brute_dam >= 10 )
+		calibrated = 0		
+	if(UB.brute_dam >= 28)
+		powernetinteg = 0
+		name = "broken power calibration system"
+		icon_state = "camera_broken"
+		H.Weaken(6)
+		NV.forceMove(H.loc)
+
+/obj/item/organ/powercontrolunit/process()
+	calibration_check()
+	calibration_dmgcheck()
+
+
+
+
+
+
+/*
+##You know this is illegal you know?##
+##Illegal Parts should go under this section, this includes terminator parts##
+*/
+
+/obj/item/organ/augment
+	is_augment = 1
+
+/obj/item/organ/augment/integratedtesla
+	name = "tesla unit"
+	organ_tag = "tesla unit"
+	parent_organ = "groin"
+	icon = 'icons/obj/robot_component.dmi'
+	icon_state = "surge"
+	action_button_name = "Emmit Tesla Arc"
+	vital = 0
+	emp_coeff = 0.1
+	var/obj/item/weapon/cell/teslacell
+	var/celldischarge = 1000
+
+/obj/item/organ/augment/integratedtesla/Initialize()
+	START_PROCESSING(SSfast_process, src)
+	robotize()
+	. = ..()
+
+/obj/item/organ/augment/integratedtesla/refresh_action_button()
+	. = ..()
+	if(.)
+		action.button_icon_state = "teslaunit"
+		if(action.button)
+			action.button.UpdateIcon()
+
+/obj/item/organ/augment/integratedtesla/get_cell()
+	return teslacell
+
+/obj/item/organ/augment/integratedtesla/proc/teslacelldeduct(var/chargeremoveal)
+	if(teslacell)
+		if(teslacell.checked_use(chargeremoveal))
+			return 1
+		else
+			status = 0
+			return 0
+	return null
+
+/obj/item/organ/augment/integratedtesla/attackby(obj/item/weapon/W, mob/user)
+	if(istype(W, /obj/item/weapon/cell))
+		if(!teslacell)
+			user.drop_from_inventory(W,src)
+			teslacell = W
+			to_chat(user, "<span class='notice'>You install a cell in [src].</span>")
+		else
+			to_chat(user, "<span class='notice'>[src] already has a cell.</span>")
+
+	else if(W.isscrewdriver())
+		if(teslacell)
+			teslacell.update_icon()
+			teslacell.forceMove(get_turf(src))
+			teslacell = null
+			to_chat(user, "<span class='notice'>You remove the cell from the [src].</span>")
+			return
+		..()
+	return
+
+/obj/item/organ/augment/integratedtesla/attack_self(var/mob/user)
+	. = ..()
+	var/mob/living/carbon/human/H = owner
+	if(.)
+
+
+		var/list/teslasettings = list("Emmit Tesla", "Set Tesla Volts", "Cancel")
+
+		var/teslamode = input("Select tesla Operation.", "Uncle Kalvins Zapp-A-Do(TM)") as null|anything in teslasettings
+
+
+		switch(teslamode)
+
+
+			if("Emmit Tesla")
+				if(teslacell && teslacell.charge > celldischarge)
+					var/turf/T = get_turf(owner)
+					if(!T.density)
+						for(var/mob/A in T)
+							playsound(loc, "sparks", 75, 1, -1)
+							tesla_zap(T, 6, celldischarge)
+							tesla_zap(owner, 6, celldischarge)
+							tesla_zap(A, 3, celldischarge)
+							update_icon()
+					for (var/obj/machinery/power/apc/APC in range(25, T))
+						for (var/obj/item/weapon/cell/B in APC.contents)
+							B.charge += celldischarge
+					for (var/mob/living/silicon/robot/M in range(6, T))
+						for (var/obj/item/weapon/cell/D in M.contents)
+							D.charge += celldischarge
+					teslacelldeduct(celldischarge)
+					H.nutrition -= celldischarge
+			if("Set Tesla Volts")
+				var/teslainput = input(owner, "Enter Tesla output.", "Uncle Kalvins Zapp-A-Do(TM)", "") as text
+				if(teslainput > teslacell.charge)
+					to_chat(H, "<span class='warning'>\The [src]'s input is higher then the cells charge!</span>")
+					return
+				else
+					celldischarge = teslainput
+					to_chat(H, "<span class='notice'>The Tesla output is now at [celldischarge]</span>")
 
 
 

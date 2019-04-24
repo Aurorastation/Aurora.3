@@ -1017,7 +1017,9 @@ Note that amputating the affected organ does in fact remove the infection from t
 	return !is_dislocated() && !(status & (ORGAN_MUTATED|ORGAN_DEAD))
 
 /obj/item/organ/external/proc/is_malfunctioning()
-	return ((status & ORGAN_ROBOT) && (brute_dam + burn_dam) >= 10 && prob(brute_dam + burn_dam))
+	return ((status & ORGAN_ROBOT) && (brute_dam + burn_dam) >= 30 && prob(brute_dam + burn_dam))
+
+
 
 /obj/item/organ/external/proc/embed(var/obj/item/weapon/W, var/silent = 0, var/supplied_message)
 	if(!owner || loc != owner)

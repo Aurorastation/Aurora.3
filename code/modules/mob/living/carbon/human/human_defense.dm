@@ -167,40 +167,43 @@ emp_act
 
 /mob/living/carbon/human/emp_act(severity)
 	if(isipc(src))
-		var/obj/item/organ/surge/s = src.internal_organs_by_name["surge"]
-		if(!isnull(s))
-			if(s.surge_left >= 1)
-				playsound(src.loc, 'sound/magic/LightningShock.ogg', 25, 1)
-				s.surge_left -= 1
-				if(s.surge_left)
-					visible_message("<span class='warning'>[src] was not affected by EMP pulse.</span>", "<span class='warning'>Warning: EMP detected, integrated surge prevention module activated. There are [s.surge_left] preventions left.</span>")
+		if(src.species == "Hunter-Killer")
+			return
+		else
+			var/obj/item/organ/surge/s = src.internal_organs_by_name["surge"]
+			if(!isnull(s))
+				if(s.surge_left >= 1)
+					playsound(src.loc, 'sound/magic/LightningShock.ogg', 25, 1)
+					s.surge_left -= 1
+					if(s.surge_left)
+						visible_message("<span class='warning'>[src] was not affected by EMP pulse.</span>", "<span class='warning'>Warning: EMP detected, integrated surge prevention module activated. There are [s.surge_left] preventions left.</span>")
+					else
+						s.broken = 1
+						s.icon_state = "surge_ipc_broken"
+						visible_message("<span class='warning'>[src] was not affected by EMP pulse.</span>", "<span class='warning'>Warning: EMP detected, integrated surge prevention module activated. The surge prevention module is fried, replacement recommended.</span>")
+					return 1
+				else if(s.surge_left == 0.5)
+					to_chat(src, "<span class='danger'>Warning: EMP detected, integrated surge prevention module is damaged and was unable to fully protect from EMP. Half of the damage taken. Replacement recommended.</span>")
+					for(var/obj/O in src)
+						if(!O)	continue
+						O.emp_act(severity * 2) // EMP act takes reverse numbers
+					for(var/obj/item/organ/external/O  in organs)
+						O.emp_act(severity)
+						for(var/obj/item/organ/I  in O.internal_organs)
+							if(I.robotic == 0)	continue
+							I.emp_act(severity * 2) // EMP act takes reverse numbers
+					return 1
 				else
-					s.broken = 1
-					s.icon_state = "surge_ipc_broken"
-					visible_message("<span class='warning'>[src] was not affected by EMP pulse.</span>", "<span class='warning'>Warning: EMP detected, integrated surge prevention module activated. The surge prevention module is fried, replacement recommended.</span>")
-				return 1
-			else if(s.surge_left == 0.5)
-				to_chat(src, "<span class='danger'>Warning: EMP detected, integrated surge prevention module is damaged and was unable to fully protect from EMP. Half of the damage taken. Replacement recommended.</span>")
-				for(var/obj/O in src)
-					if(!O)	continue
-					O.emp_act(severity * 2) // EMP act takes reverse numbers
-				for(var/obj/item/organ/external/O  in organs)
-					O.emp_act(severity)
-					for(var/obj/item/organ/I  in O.internal_organs)
-						if(I.robotic == 0)	continue
-						I.emp_act(severity * 2) // EMP act takes reverse numbers
-				return 1
-			else
-				to_chat(src, "<span class='danger'>Warning: EMP detected, integrated surge prevention module is fried and unable to protect from EMP. Replacement recommended.</span>")
-	for(var/obj/O in src)
-		if(!O)	continue
-		O.emp_act(severity)
-	for(var/obj/item/organ/external/O  in organs)
-		O.emp_act(severity)
-		for(var/obj/item/organ/I  in O.internal_organs)
-			if(I.robotic == 0)	continue
-			I.emp_act(severity)
-	..()
+					to_chat(src, "<span class='danger'>Warning: EMP detected, integrated surge prevention module is fried and unable to protect from EMP. Replacement recommended.</span>")
+		for(var/obj/O in src)
+			if(!O)	continue
+			O.emp_act(severity)
+		for(var/obj/item/organ/external/O  in organs)
+			O.emp_act(severity)
+			for(var/obj/item/organ/I  in O.internal_organs)
+				if(I.robotic == 0)	continue
+				I.emp_act(severity)
+		..()
 
 /mob/living/carbon/human/resolve_item_attack(obj/item/I, mob/living/user, var/target_zone)
 	if(check_attack_throat(I, user))

@@ -188,7 +188,9 @@
 		"optics" = /obj/item/organ/eyes/optical_sensor/terminator,
 		"data core" = /obj/item/organ/data,
 		"diagnostics unit" = /obj/item/organ/diagnosticsunit,
-		"coolant pump" = /obj/item/organ/coolantpump
+		"coolant pump" = /obj/item/organ/coolantpump,
+		"calibration system" = /obj/item/organ/powercontrolunit,
+		"tesla unit" = /obj/item/organ/augment/integratedtesla
 	)
 
 	has_limbs = list(
@@ -401,6 +403,7 @@
 		"l_foot" = list("path" = /obj/item/organ/external/foot/unbranded),
 		"r_foot" = list("path" = /obj/item/organ/external/foot/right/unbranded)
 	)
+
 
 /datum/species/machine/unbranded/get_light_color(mob/living/carbon/human/H)
 	if (istype(H))
