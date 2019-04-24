@@ -73,6 +73,7 @@
 	spawn_positions = 2
 	supervisors = "the governor"
 	selection_color = "#ddddff"
+	alt_titles = list("Innkeeper")
 
 	outfit = /datum/outfit/job/adhomai/barkeeper
 
