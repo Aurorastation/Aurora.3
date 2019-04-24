@@ -5180,6 +5180,20 @@
 	reagents.add_reagent("protein", 4)
 	reagents.add_reagent("water", 4)
 
+/obj/item/weapon/reagent_containers/food/snacks/tajaran_chowder
+	name = "adhomian stew"
+	desc = "An adhomian clam chowder, made with clams, and typically butter from a fatshouter's milk."
+	icon_state = "tajaran_soup"
+	bitesize = 2
+	nutriment_desc = list("hearty seafood and butter" = 2)
+	nutriment_amt = 4
+
+/obj/item/weapon/reagent_containers/food/snacks/tajaran_chowder/Initialize()
+	. = ..()
+	reagents.add_reagent("protein", 4)
+	reagents.add_reagent("water", 4)
+	reagents.add_reagent("sodiumchloride", 2)
+
 /obj/item/weapon/reagent_containers/food/snacks/adhomian_can
 	name = "canned fatshouters meat"
 	desc = "A piece of salted fatshouter's meat stored inside a metal can."
