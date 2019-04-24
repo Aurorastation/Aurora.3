@@ -27,7 +27,7 @@
 #################################
 
 # Your name.  
-author: WowzewoW (credits to mattroks101 for original dropsound code, lighter sounds. Also Valve Software for their sounds)
+author: WowzewoW (credits to mattroks101 for original dropsound code, lighter sounds, Valve Software and Freesound.com.)
 
 # Optional: Remove this file after generating master changelog.  Useful for PR changelogs that won't get used again.
 delete-after: True
@@ -42,4 +42,4 @@ changes:
   - soundadd: "adds new lighter and cig sounds"
   - soundadd: "tweaks some existing sounds"
   - soundadd: "changes announcement sounds to something more pleasant"
-  - soundadd: "new sink noises"
+  - soundadd: "new sink, roller, and chemical dispense sound."
