@@ -28,6 +28,7 @@
 	mob_size = 2.5
 	scan_range = 3//less aggressive about stealing food
 	metabolic_factor = 0.75
+	max_nutrition = 60
 	density = 0
 	var/mob/living/simple_animal/mouse/mousetarget = null
 	seek_speed = 5
@@ -294,4 +295,5 @@
 	item_state = "penny"
 	icon_living = "penny"
 	icon_dead = "penny_dead"
+	icon_rest = "penny_rest"
 	holder_type = /obj/item/weapon/holder/cat/penny
