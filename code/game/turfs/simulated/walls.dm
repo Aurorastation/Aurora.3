@@ -169,6 +169,8 @@
 	if(!no_product)
 		if(reinf_material)
 			reinf_material.place_dismantled_girder(src, reinf_material)
+		if(istype(src, /turf/simulated/wall/wood/adhomai))
+			new /obj/structure/girder/wood/adhomai(get_turf(src))
 		else
 			material.place_dismantled_girder(src)
 		material.place_dismantled_product(src,devastated)
