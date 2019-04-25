@@ -143,7 +143,7 @@
 	icon_state = "sandbag-item"
 	icon = 'icons/adhomai/sandbag.dmi'
 	w_class = TRUE
-	var/sand_amount = FALSE
+	var/sand_amount = 1
 
 /obj/structure/window/sandbag/incomplete/check_cover(obj/item/projectile/P, turf/from)
 	return prob(..() * round(progress/maxProgress))
