@@ -10,6 +10,7 @@
 	throw_range = 4
 	throwforce = 10
 	w_class = 2
+	var/static/list/nullchoices
 
 /obj/item/weapon/nullrod/nullstaff
 	name = "null staff"
@@ -31,32 +32,40 @@
 	icon_state = "nullathame"
 	item_state = "nullathame"
 
-/obj/item/weapon/nullrod/itembox
-	name = "null item box"
-	desc = "A box to safe keep your religious items. What item did you bring to work today?"
-	icon = 'icons/obj/storage.dmi'
-	icon_state = "box"
-	item_state = "box"
+/obj/item/weapon/nullrod/obsidianshards
+	name = "Obsidian Shards"
+	desc = "A loose pile of obsidian shards, waiting to be assembled into a religious focus."
+	icon_state = "nullshards"
+	item_state = "nullshards"
 
-/obj/item/weapon/nullrod/itembox/attack_self(mob/user as mob)
-	if(..()) return
+/obj/item/weapon/nullrod/Initialize()
+	. = ..()
+	if(!nullchoices)
+		var/blocked = list(src.type, /obj/item/weapon/nullrod/nullorb) + typesof(/obj/item/weapon/nullrod/fluff)
+		nullchoices = generate_chameleon_choices(/obj/item/weapon/nullrod, blocked)
 
-	var/selection = input("Pick a null item type.") in list("Rod","Staff", /*"Orb",*/ "Athame")
-	switch(selection)
-		if ("Rod")
-			new /obj/item/weapon/nullrod(user.loc)
-			to_chat(user, "<span class='notice'>A simple obsidian rod, a classic. Rods like these are seen in the hands of religious folks all across the galaxy.</span>")
-		if ("Staff")
-			new /obj/item/weapon/nullrod/nullstaff(user.loc)
-			to_chat(user, "<span class='notice'>A simple staff, a popular choice amongst shamans and wise men. You doubt this will fit in your bag, but you can put it on your back.</span>")
-		if ("Orb")
-			new /obj/item/weapon/nullrod/nullorb(user.loc)
-		if ("Athame")
-			new /obj/item/weapon/nullrod/nullathame(user.loc)
-			to_chat(user, "<span class='notice'>An athame, a ritualistic dagger. It's blade is curved and ornate, yet it is rather blunt.</span>")
-	to_chat(user, "<span class='notice'>You take your [selection] from the box, and throw the empty box away.</span>")
-	qdel(src)
-	return
+/obj/item/weapon/nullrod/verb/change()
+	set name = "Reassemble"
+	set category = "Obsidian Relics"
+	set src in usr
+
+	if (use_check(usr, USE_FORCE_SRC_IN_USER))
+		return
+
+	var/picked = input("What form would you like your obsidian relic to take?", "Reassembling your obsidian relic") as null|anything in nullchoices
+
+	if (use_check(usr, USE_FORCE_SRC_IN_USER))
+		return
+
+	if(!ispath(nullchoices[picked]))
+		return
+
+	disguise(nullchoices[picked])
+
+	if (ismob(src.loc))
+		var/mob/M = src.loc
+		M.update_inv_r_hand(FALSE)
+		M.update_inv_l_hand()
 
 /obj/item/weapon/nullrod/attack(mob/M as mob, mob/living/user as mob) //Paste from old-code to decult with a null rod.
 
@@ -72,7 +81,7 @@
 		to_chat(user, "<span class='danger'>You don't have the dexterity to do this!</span>")
 		return
 
-	if ((CLUMSY in user.mutations) && prob(50))
+	if ((user.is_clumsy()) && prob(50))
 		to_chat(user, "<span class='danger'>The rod slips out of your hand and hits your head.</span>")
 		user.take_organ_damage(10)
 		user.Paralyse(20)
@@ -86,7 +95,7 @@
 				var/choice = alert(K,"Do you want to give up your goal?","Become cleansed","Resist","Give in")
 				switch(choice)
 					if("Resist")
-						K.visible_message("<span class='warning'>The gaze in [K]'s eyes remains determined.</span>", "<span class='notice'>You turn away from the light, remaining true to your dark lord. <b>Anathema!</b></span>")
+						K.visible_message("<span class='warning'>The gaze in [K]'s eyes remains determined.</span>", "<span class='notice'>You turn away from the light, remaining true to the Geometer!</span>")
 						K.say("*scream")
 						K.take_overall_damage(5, 15)
 					if("Give in")
@@ -123,6 +132,21 @@
 	if (istype(A, /turf/simulated/floor))
 		to_chat(user, "<span class='notice'>You hit the floor with the [src].</span>")
 		call(/obj/effect/rune/proc/revealrunes)(src)
+
+/obj/item/weapon/reagent_containers/spray/aspergillum/AltClick()
+	return
+
+/obj/item/weapon/reagent_containers/spray/aspergillum
+	name = "aspergillum"
+	desc = "A ceremonial item for sprinkling holy water, or other liquids, on a subject. It has two sacred bells attached."
+	icon = 'icons/obj/weapons.dmi'
+	icon_state = "aspergillum"
+	item_state = "aspergillum"
+	amount_per_transfer_from_this = 5
+	possible_transfer_amounts = null
+	spray_size = 1
+	volume = 10
+	spray_sound = 'sound/effects/jingle.ogg'
 
 /obj/item/weapon/energy_net
 	name = "energy net"

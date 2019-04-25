@@ -1,0 +1,30 @@
+{{if data.error}}
+	<h2>An error has occured and this program can not continue.</h2>
+	Additional information: {{:data.error}}<br>
+	<i>Please try again. If the problem persists contact your system administrator for assistance.</i>
+	{{:helper.link('Restart program', null, { "PRG_closefile" : 1 })}}
+{{else data.running}}
+	{{:helper.link('Refresh', null, { "PRG_refresh" : 1 })}} {{:helper.link('Exit', null, { "PRG_closefile" : 1 })}}
+	<h2>{{:data.running}}</h2>
+	<div class="item">
+		<div class="itemContent" style="width: 100%; font-family: monospace; line-height:8pt; font-size:8pt; text-align:center;">
+			{{:data.terminal}}
+		</div>
+	</div>
+{{else}}
+	<h2>Available files:</h2>
+	<table>
+		<tr><th>File name
+		<th>File type
+		<th>File size (GQ)
+		<th>Operations
+		{{for data.files}}
+			<tr><td>{{:value.name}}
+			<td>.{{:value.type}}
+			<td>{{:value.size}}GQ
+			<td>
+				{{:helper.link('EXEC', null, { "PRG_execfile" : value.name })}}
+		{{/for}}
+	</table>
+	
+{{/if}}
