@@ -54,7 +54,8 @@
 	l_pocket = /obj/item/weapon/storage/wallet/medium
 	belt = /obj/item/weapon/gun/projectile/colt/nka
 	backpack_contents = list(
-		/obj/item/weapon/key/soldier = 2,
+		/obj/item/weapon/key/soldier = 1,
+		/obj/item/weapon/key/cell = 1,
 		/obj/item/clothing/accessory/holster/armpit = 1,
 		/obj/item/weapon/reagent_containers/food/drinks/flask/canteen/adhomian/nka = 1,
 		/obj/item/weapon/flame/lighter/adhomian/nka = 1)

@@ -6,13 +6,14 @@
 	faction = "Station"
 	total_positions = -1
 	spawn_positions = -1
-	supervisors = "the governor"
+	supervisors = "the laws of the land"
 	selection_color = "#ddddff"
-	alt_titles = list("Lumberjack","Farmer")
+	alt_titles = list("Lumberjack","Farmer", "Farmhand", "Migrant", "Tourist", "Steward", "Laborer", "Entertainer", "Herbalist", "Sculptor")
 	outfit = /datum/outfit/job/adhomai/commoner
 	alt_outfits = list(
 		"Lumberjack"=/datum/outfit/job/adhomai/commoner/lumberjack,
-		"Farmer"=/datum/outfit/job/adhomai/commoner/farmer
+		"Farmer"=/datum/outfit/job/adhomai/commoner/farmer,
+		"Sculptor"=/datum/outfit/job/adhomai/commoner/sculptor
 		)
 	is_assistant = TRUE
 
@@ -34,6 +35,14 @@
 	r_pocket = /obj/item/weapon/material/minihoe
 	l_hand = /obj/item/weapon/reagent_containers/glass/bucket
 
+/datum/outfit/job/adhomai/commoner/sculptor
+	name = "Sculptor"
+	backpack_contents = list(
+	/obj/item/weapon/storage/box/excavation = 1,
+	/obj/item/weapon/autochisel/chisel = 1
+	)
+
+
 /datum/job/mayor
 	title = "Governor"
 	flag = MAYOR
@@ -46,6 +55,7 @@
 	supervisors = "the King"
 	selection_color = "#dddddd"
 	req_admin_notify = TRUE
+	alt_titles = list("Mayor")
 
 	outfit = /datum/outfit/job/adhomai/mayor
 
@@ -114,8 +124,9 @@
 	faction = "Station"
 	total_positions = 1
 	spawn_positions = 1
-	supervisors = "the governor"
+	supervisors = "the laws of the land"
 	selection_color = "#ddddff"
+	alt_titles = list("Outdoorsman", "Tanner", "Furrier")
 
 	outfit = /datum/outfit/job/adhomai/hunter
 
@@ -135,12 +146,12 @@
 	department = "Village"
 	department_flag = ADHOMAI
 	faction = "Station"
-	total_positions = 1
-	spawn_positions = 1
-	supervisors = "the governor"
+	total_positions = 5
+	spawn_positions = 5
+	supervisors = "the laws of the Gods and Men"
 	selection_color = "#ddddff"
 
-	alt_titles = list("Missionary")
+	alt_titles = list("Missionary", "Investigator", "Sun Sister", "Sun Daughter", "Priest of S'rrendar", "Sapling", "Mistling", "Suns Penitent")
 	outfit = /datum/outfit/job/adhomai/priest
 
 	account_allowed = FALSE
@@ -172,12 +183,16 @@
 	faction = "Station"
 	total_positions = 1
 	spawn_positions = 1
-	supervisors = "the governor"
+	supervisors = "the laws of the land, and possibly an ethical code"
 	selection_color = "#ddddff"
+	alt_titles = list("IAC Field Doctor")
 
 	outfit = /datum/outfit/job/adhomai/physician
 
 	account_allowed = FALSE
+	alt_outfits = list(
+		"IAC Field Doctor"=/datum/outfit/job/adhomai/physician/iacfielddoctor
+		)
 
 /datum/outfit/job/adhomai/physician
 	name = "Physician"
@@ -190,6 +205,29 @@
 	r_pocket = /obj/item/weapon/key/medical
 	l_pocket = /obj/item/weapon/storage/wallet/rich
 
+/datum/outfit/job/adhomai/physician/iacfielddoctor
+	name = "IAC Field Doctor"
+	allow_backbag_choice = TRUE
+
+	uniform = /obj/item/clothing/under/rank/iacjumpsuit
+	suit = /obj/item/clothing/suit/storage/hooded/wintercoat/medical/iac
+	shoes = /obj/item/clothing/shoes/winter
+	head = /obj/item/clothing/head/soft/iacberet
+	suit_store = /obj/item/device/healthanalyzer
+	r_pocket = /obj/item/weapon/key/medical
+	l_pocket = /obj/item/weapon/storage/wallet/rich
+	backpack_contents = list(
+		/obj/item/weapon/reagent_containers/hypospray = 1,
+		/obj/item/weapon/storage/firstaid/adv = 1,
+		/obj/item/clothing/glasses/hud/health = 1,
+		/obj/item/weapon/storage/firstaid/regular = 1,
+		/obj/item/weapon/storage/box/gloves = 1
+		)
+	backpack = /obj/item/weapon/storage/backpack/medic
+	satchel = /obj/item/weapon/storage/backpack/satchel_med
+	dufflebag = /obj/item/weapon/storage/backpack/duffel/med
+	messengerbag = /obj/item/weapon/storage/backpack/messenger/med
+
 /datum/job/nurse
 	title = "Nurse"
 	flag = NURSE
@@ -198,8 +236,13 @@
 	faction = "Station"
 	total_positions = 2
 	spawn_positions = 2
-	supervisors = "the physician"
+	supervisors = "the attending doctor or physician"
 	selection_color = "#ddddff"
+	alt_titles = list("IAC Volunteer")
+	alt_outfits = list(
+		"IAC Volunteer"=/datum/outfit/job/adhomai/nurse/iacvolunteer
+		)
+
 
 	outfit = /datum/outfit/job/adhomai/nurse
 
@@ -222,6 +265,26 @@
 
 	return TRUE
 
+/datum/outfit/job/adhomai/nurse/iacvolunteer
+	name = "IAC Volunteer"
+	allow_backbag_choice = TRUE
+
+	uniform = /obj/item/clothing/under/rank/iacjumpsuit
+	suit = /obj/item/clothing/suit/storage/hooded/wintercoat/medical/iac
+	head = /obj/item/clothing/head/soft/iacberet
+	shoes = /obj/item/clothing/shoes/winter
+	r_pocket = /obj/item/weapon/key/medical
+	l_pocket = /obj/item/weapon/storage/wallet/medium
+	backpack_contents = list(
+		/obj/item/weapon/storage/firstaid/regular = 1,
+		/obj/item/weapon/storage/box/gloves = 1)
+
+	backpack = /obj/item/weapon/storage/backpack/medic
+	satchel = /obj/item/weapon/storage/backpack/satchel_med
+	dufflebag = /obj/item/weapon/storage/backpack/duffel/med
+	messengerbag = /obj/item/weapon/storage/backpack/messenger/med
+
+
 /datum/job/prospector
 	title = "Prospector"
 	flag = PROSPECTOR
@@ -230,8 +293,9 @@
 	faction = "Station"
 	total_positions = 4
 	spawn_positions = 4
-	supervisors = "the governor"
+	supervisors = "the laws of the land"
 	selection_color = "#ddddff"
+	alt_titles = list("Miner", "Surveyor", "Drill Technician", "Geological Specialist", "Spelunker")
 
 	outfit = /datum/outfit/job/adhomai/prospector
 
@@ -254,8 +318,9 @@
 	faction = "Station"
 	total_positions = 1
 	spawn_positions = 1
-	supervisors = "the governor"
+	supervisors = "the laws of the land"
 	selection_color = "#ddddff"
+	alt_titles = list("Craftsman", "Architect")
 
 	outfit = /datum/outfit/job/adhomai/blacksmith
 
@@ -278,7 +343,7 @@
 	faction = "Station"
 	total_positions = 1
 	spawn_positions = 1
-	supervisors = "the governor"
+	supervisors = "the laws of the land, and whatever institution or code drives you"
 	selection_color = "#ddddff"
 
 	outfit = /datum/outfit/job/adhomai/archeologist
@@ -313,8 +378,9 @@
 	faction = "Station"
 	total_positions = 1
 	spawn_positions = 1
-	supervisors = "the governor"
+	supervisors = "the laws of the land"
 	selection_color = "#ddddff"
+	alt_titles = list("Shopkeep")
 
 	outfit = /datum/outfit/job/adhomai/trader
 
@@ -341,7 +407,7 @@
 	faction = "Station"
 	total_positions = 1
 	spawn_positions = 1
-	supervisors = "the governor"
+	supervisors = "the city governance"
 	selection_color = "#dddddd"
 	req_admin_notify = TRUE
 	species_blacklist = list("Zhan-Khazan Tajara", HUMAN_SPECIES, UNATHI_SPECIES, SKRELL_SPECIES, VAURCA_SPECIES, DIONA_SPECIES, IPC_SPECIES)

@@ -117,6 +117,10 @@
 	item_state = "coatmedical"
 	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 50, rad = 0)
 
+/obj/item/clothing/suit/storage/hooded/wintercoat/medical/iac
+	name = "IAC Winter Coat"
+	desc = "A winter coat, standard for IAC personnel on frozen shitholes."
+
 /obj/item/clothing/suit/storage/hooded/wintercoat/science
 	name = "science winter coat"
 	icon_state = "coatscience"
