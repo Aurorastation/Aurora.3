@@ -102,6 +102,11 @@
 	new src.foldable(get_turf(src))
 	qdel(src)
 
+/obj/item/weapon/storage/backpack/attackby(obj/item/weapon/W as obj, mob/user as mob)
+	if (src.use_sound)
+		playsound(src.loc, src.use_sound, 50, 1, -5)
+	..()
+
 /obj/item/weapon/storage/box/survival
 	autodrobe_no_remove = 1
 
