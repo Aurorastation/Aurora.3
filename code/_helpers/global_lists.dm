@@ -1,5 +1,5 @@
 var/list/clients = list()							//list of all clients
-var/list/admins = list()							//list of all clients whom are admins
+var/list/staff = list()							//list of all clients whom are admins
 var/list/directory = list()							//list of all ckeys with associated client
 
 //Since it didn't really belong in any other category, I'm putting this here
