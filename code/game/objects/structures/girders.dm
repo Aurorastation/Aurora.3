@@ -119,7 +119,7 @@
 				if(!src) return
 				to_chat(user, "<span class='notice'>You unsecured the support struts!</span>")
 				state = 1
-		else if(anchored && !reinf_material || !istype(src, /obj/structure/girder/wood/adhomai))
+		else if(anchored && !reinf_material && !istype(src, /obj/structure/girder/wood/adhomai))
 			playsound(src.loc, 'sound/items/Screwdriver.ogg', 100, 1)
 			reinforcing = !reinforcing
 			to_chat(user, "<span class='notice'>\The [src] can now be [reinforcing? "reinforced" : "constructed"]!</span>")
