@@ -253,6 +253,12 @@
 	color = "#EDB91F"
 	taste_description = "cheese"
 
+/datum/reagent/nutriment/protein/cheese/fatshouter // moo
+	name = "fatshouter cheese"
+	id = "fatshouter_cheese"
+	color = "#EDB91F"
+	taste_description = "strong cheese"
+
 //Fats
 //=========================
 /datum/reagent/nutriment/triglyceride
