@@ -17,7 +17,6 @@
 	var/brute_mod = 1
 	var/burn_mod = 1
 
-	var/robotize_type		// If set, this organ type will automatically be roboticized with this manufacturer.
 	var/augment_capacity = 0// Number of augments this organ can hold.
 
 	var/icon_name = null
@@ -141,9 +140,10 @@
 				var/obj/item/organ/augment/AUG = W
 				if(((body_part in AUG.install_locations) || !AUG.install_locations) && AUG.installation_instructions(src))
 					user.visible_message("<span class='danger'><b>[user]</b> installs [W] into [src]!</span>")
-					AUG.online = 1
 					augment_capacity--
+					user.drop_item(AUG)
 					AUG.forceMove(src)
+					AUG.online = 1
 					return
 
 			if(W.iswirecutter())

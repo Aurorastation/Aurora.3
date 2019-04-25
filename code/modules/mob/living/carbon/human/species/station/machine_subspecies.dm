@@ -160,7 +160,7 @@
 	body_temperature = null
 	passive_temp_gain = 0
 
-	flags = IS_IPC | ACCEPTS_COOLER
+	flags = IS_IPC | ACCEPTS_COOLER | NO_EMBED
 	spawn_flags = IS_RESTRICTED
 	appearance_flags = HAS_HAIR_COLOR
 	vision_flags = DEFAULT_SIGHT | SEE_MOBS
@@ -173,7 +173,9 @@
 	inherent_verbs = list(
 		/mob/living/carbon/human/proc/self_destruct,
 		/mob/living/carbon/human/proc/detonate_flechettes,
-		/mob/living/carbon/human/proc/state_laws
+		/mob/living/carbon/human/proc/state_laws,
+		/mob/living/carbon/human/proc/detach_limb,
+		/mob/living/carbon/human/proc/attach_limb
 	)
 
 	has_organ = list(

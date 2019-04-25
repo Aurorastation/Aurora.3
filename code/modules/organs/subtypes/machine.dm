@@ -548,8 +548,6 @@
 ##Illegal Parts should go under this section, this includes terminator parts##
 */
 
-/obj/item/organ/augment
-	is_augment = 1
 
 /obj/item/organ/augment/integratedtesla
 	name = "tesla unit"
@@ -560,6 +558,7 @@
 	action_button_name = "Emmit Tesla Arc"
 	vital = 0
 	emp_coeff = 0.1
+	install_locations = list(ARM_LEFT, ARM_RIGHT, HEAD)
 	var/obj/item/weapon/cell/teslacell
 	var/celldischarge = 1000
 
@@ -638,8 +637,10 @@
 							D.charge += celldischarge
 					teslacelldeduct(celldischarge)
 					H.nutrition -= celldischarge
+				else
+					return
 			if("Set Tesla Volts")
-				var/teslainput = input(owner, "Enter Tesla output.", "Uncle Kalvins Zapp-A-Do(TM)", "") as text
+				var/teslainput = input(owner, "Enter Tesla output.", "Uncle Kalvins Zapp-A-Do(TM)", "") as num
 				if(teslainput > teslacell.charge)
 					to_chat(H, "<span class='warning'>\The [src]'s input is higher then the cells charge!</span>")
 					return

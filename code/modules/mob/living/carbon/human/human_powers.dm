@@ -913,7 +913,7 @@
 		to_chat(src,"<span class='warning'>You can only detach robotic limbs.</span>")
 		return
 
-	if(E.robotize_type != PROSTHETIC_AUTAKH)
+	if(E.robotize_type != PROSTHETIC_AUTAKH && !isipc(src))
 		to_chat(src,"<span class='warning'>Your body fails to interface with this alien technology.</span>")
 		return
 
@@ -957,7 +957,7 @@
 			to_chat(src,"<span class='warning'>You are unable to interface with organic matter.</span>")
 			return
 
-		if(O.robotize_type != PROSTHETIC_AUTAKH)
+		if(O.robotize_type != PROSTHETIC_AUTAKH && !isipc(src))
 			to_chat(src,"<span class='warning'>Your body fails to interface with this alien technology.</span>")
 			return
 
