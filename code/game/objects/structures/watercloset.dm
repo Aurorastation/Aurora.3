@@ -141,10 +141,16 @@
 	var/mobpresent = 0		//true if there is a mob on the shower's loc, this is to ease process()
 	var/is_washing = 0
 	var/list/temperature_settings = list("normal" = 310, "boiling" = T0C+100, "freezing" = T0C)
+	var/datum/looping_sound/showering/soundloop
 
 /obj/machinery/shower/Initialize()
 	. = ..()
 	create_reagents(2)
+	soundloop = new(list(src), FALSE)
+
+/obj/machinery/shower/Destroy()
+	QDEL_NULL(soundloop)
+	return ..()
 
 //add heat controls? when emagged, you can freeze to death in it?
 
@@ -184,6 +190,7 @@
 		qdel(mymist)
 
 	if(on)
+		soundloop.start()
 		add_overlay(image('icons/obj/watercloset.dmi', src, "water", MOB_LAYER + 1, dir))
 		if(temperature_settings[watertemp] < T20C)
 			return //no mist for cold water
@@ -193,6 +200,7 @@
 					ismist = 1
 					mymist = new /obj/effect/mist(loc)
 		else
+			soundloop.stop()
 			ismist = 1
 			mymist = new /obj/effect/mist(loc)
 	else if(ismist)

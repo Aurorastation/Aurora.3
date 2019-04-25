@@ -108,7 +108,7 @@
 	var/cooling_temperature = T0C + 5 //Best temp for soda.
 	var/heating_temperature = T0C + 57 //Best temp for coffee.
 
-	var/vending_sound = "machines/vending_drop.ogg"
+	var/vending_sound = "machines/vending/vending_drop.ogg"
 
 /obj/machinery/vending/Initialize()
 	. = ..()
