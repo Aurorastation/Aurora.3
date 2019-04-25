@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="TurretIn">
     <vui-item label="Turret Status:" :balance="0.4">
       <vui-button :params="{'turret' : 'enable', 'value' : 1, 'turret_ref': turret.ref}" :class="{'red': turret.settings.enabled}">Enabled</vui-button>
       <vui-button :params="{'turret' : 'enable', 'value' : 0, 'turret_ref': turret.ref}" :class="{'selected': !turret.settings.enabled}">Disabled</vui-button>
@@ -25,3 +25,9 @@ export default {
   }
 }
 </script>
+
+<style lang="scss">
+.TurretIn {
+  background-color: #D3D3D3;
+}
+</style>

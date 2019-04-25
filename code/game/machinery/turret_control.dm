@@ -127,12 +127,6 @@
 
 	ui_interact(user)
 
-VUEUI_MONITOR_VARS(/obj/machinery/turretid, turretvarmonitor)
-	watch_var("locked", "locked")
-	watch_var("enabled", "enabled")
-	watch_var("lethal", "lethal")
-	watch_var("egun", "can_switch")
-
 /obj/machinery/turretid/vueui_data_change(var/list/data, var/mob/user, var/datum/vueui/ui, var/list/newdata)
 	. = ..()
 	data = . || data
