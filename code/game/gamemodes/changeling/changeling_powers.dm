@@ -144,12 +144,17 @@ var/global/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","E
 	if(!changeling)	return
 
 	if(changeling.isabsorbing)
-		to_chat(src, "<span class='warning'>We are already absorbing!</span>")
+		to_chat(src, "<span class='warning'>We are already engaged in an absorption!</span>")
 		return
 
 	var/mob/living/carbon/human/T = input(usr, "Who are we extracting from?", "Target selection") in typecache_filter_list(oview(1), typecacheof(/mob/living/carbon/human))|null
 	if (!T)
 		return
+	
+	if(changeling.isabsorbing)
+		to_chat(src, "<span class='warning'>We are already engaged in an absorption!</span>")
+		return
+
 	if(!istype(T))
 		to_chat(src, "<span class='warning'>[T] is not compatible with our biology.</span>")
 		return
