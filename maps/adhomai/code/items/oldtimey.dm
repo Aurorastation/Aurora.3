@@ -227,7 +227,7 @@
 	icon_state = "canteen_nka"
 
 /obj/item/weapon/flame/lighter/adhomian/nka
-	name = "standard issue ligther"
+	name = "standard issue lighter"
 	desc = "The standard issue leather wrapped lighter of the Imperial Adhomian Army. It depicts the suns eclipsing in a silver embossing."
 	icon = 'icons/adhomai/items.dmi'
 	icon_state = "lighter_nka"
@@ -248,3 +248,13 @@
 	icon_state = "hedget"
 	item_state = "hedget"
 	contained_sprite = 1
+
+/obj/item/weapon/autochisel/chisel
+	name = "chisel"
+	icon = 'icons/obj/xenoarchaeology.dmi'
+	icon_state = "pick_hand"
+	item_state = "syringe_0"
+	w_class = 2
+	origin_tech = list(TECH_MATERIAL = 1)
+	desc = "A modern chisel. For the aspiring sculptor!"
+
