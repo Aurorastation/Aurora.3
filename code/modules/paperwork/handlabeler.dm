@@ -33,6 +33,7 @@
 	var/label = null
 	var/labels_left = 30
 	var/mode = 0	//off or on.
+	matter = list(DEFAULT_WALL_MATERIAL = 120, "glass" = 80)
 
 /obj/item/weapon/hand_labeler/attack()
 	return
