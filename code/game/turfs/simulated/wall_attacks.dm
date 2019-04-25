@@ -236,6 +236,9 @@
 			if (!istype(src, /turf/simulated/wall))
 				return
 
+			if (istype(src, /turf/simulated/wall/wood/adhomai))
+				return
+
 			to_chat(user, "<span class='notice'>You remove the outer plating.</span>")
 			dismantle_wall()
 			user.visible_message("<span class='warning'>The wall was torn open by [user]!</span>")
@@ -303,7 +306,7 @@
 					to_chat(user, "<span class='notice'>You pry off the cover.</span>")
 					return
 			if(2)
-				if (W.iswrench())
+				if (W.iswrench() && !istype(src, /turf/simulated/wall/wood/adhomai))
 					to_chat(user, "<span class='notice'>You start loosening the anchoring bolts which secure the support rods to their frame.</span>")
 					playsound(src, 'sound/items/Ratchet.ogg', 100, 1)
 					if(!do_after(user,40) || !istype(src, /turf/simulated/wall) || construction_stage != 2)
@@ -347,6 +350,15 @@
 	if(istype(W,/obj/item/frame))
 		var/obj/item/frame/F = W
 		F.try_build(src)
+		return
+
+	if(istype(src, /turf/simulated/wall/wood/adhomai))
+		if(W.iscrowbar())
+			(do_after(user,25))
+			to_chat(user, "<span class='danger'>You pry the boards off the wall!</span>")
+			user.visible_message("<span class='warning'>The boards covering the wall have been torn off by [user]!</span>")
+			playsound(src, 'sound/items/Crowbar.ogg', 100, 1)
+			dismantle_wall()
 		return
 
 	else if(!istype(W,/obj/item/weapon/rcd) && !istype(W, /obj/item/weapon/reagent_containers))

@@ -82,3 +82,6 @@
 
 /turf/simulated/wall/wood/Initialize(mapload)
 	. = ..(mapload,"wood")
+
+/turf/simulated/wall/wood/adhomai/Initialize(mapload)
+	. = ..(mapload,"wood")
