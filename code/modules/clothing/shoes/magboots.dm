@@ -36,6 +36,7 @@
 		force = 3
 		if(icon_base) icon_state = "[icon_base]0"
 		to_chat(user, "You disable the mag-pulse traction system.")
+		magnetic = 0
 	else
 		item_flags |= NOSLIP
 		magpulse = 1
@@ -44,6 +45,7 @@
 		if(icon_base) icon_state = "[icon_base]1"
 		playsound(get_turf(src), 'sound/effects/magnetclamp.ogg', 20)
 		to_chat(user, "You enable the mag-pulse traction system.")
+		magnetic = 1
 	user.update_inv_shoes()	//so our mob-overlays update
 	user.update_action_buttons()
 

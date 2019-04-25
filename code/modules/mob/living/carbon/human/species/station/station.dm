@@ -449,8 +449,6 @@
 
 	hud_type = /datum/hud_data/ipc
 
-	brute_mod = 1.0
-	burn_mod = 1.2
 	show_ssd = "flashing a 'system offline' glyph on their monitor"
 	death_message = "gives one shrill beep before falling lifeless."
 	knockout_message = "encounters a hardware fault and suddenly reboots!"
@@ -762,6 +760,20 @@ datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
 		"kidneys"             = /obj/item/organ/kidneys/vaurca,
 		"brain"               = /obj/item/organ/brain/vaurca,
 		"eyes"                = /obj/item/organ/eyes/vaurca
+	)
+
+	has_limbs = list(
+		"chest" =  list("path" = /obj/item/organ/external/chest/vaurca),
+		"groin" =  list("path" = /obj/item/organ/external/groin/vaurca),
+		"head" =   list("path" = /obj/item/organ/external/head/vaurca),
+		"l_arm" =  list("path" = /obj/item/organ/external/arm/vaurca),
+		"r_arm" =  list("path" = /obj/item/organ/external/arm/right/vaurca),
+		"l_leg" =  list("path" = /obj/item/organ/external/leg/vaurca),
+		"r_leg" =  list("path" = /obj/item/organ/external/leg/right/vaurca),
+		"l_hand" = list("path" = /obj/item/organ/external/hand/vaurca),
+		"r_hand" = list("path" = /obj/item/organ/external/hand/right/vaurca),
+		"l_foot" = list("path" = /obj/item/organ/external/foot/vaurca),
+		"r_foot" = list("path" = /obj/item/organ/external/foot/right/vaurca)
 	)
 
 	default_h_style = "Classic Antennae"

@@ -113,8 +113,10 @@
 /mob/living/carbon/human/Check_Shoegrip(checkSpecies = TRUE)
 	if(checkSpecies && (species.flags & NO_SLIP))
 		return 1
-	if(shoes && (shoes.item_flags & NOSLIP) && istype(shoes, /obj/item/clothing/shoes/magboots))  //magboots + dense_object = no floating
-		return 1
+	if(shoes && (shoes.item_flags & NOSLIP) && istype(shoes, /obj/item/clothing/shoes))  //magboots + dense_object = no floating
+		var/obj/item/clothing/shoes/S = shoes
+		if(S.magnetic)
+			return 1
 	return 0
 
 /mob/living/carbon/human/set_dir(var/new_dir)
