@@ -60,3 +60,12 @@
 	desc = "A guidance sign which reads 'EXAM ROOM'."
 	icon_state = "examroom"
 	icon = 'icons/adhomai/structures.dmi'
+
+/obj/structure/ore_box/adhomai
+	name = "minecart"
+	desc = "An old minecart. Smells like wood and dust."
+	icon = 'icons/adhomai/structures.dmi'
+	icon_state = "minecart"
+
+/obj/vehicle/train/cargo/engine/mining/Move(var/turf/destination)
+	return ((locate(/obj/structure/track) in destination)) ? ..() : FALSE

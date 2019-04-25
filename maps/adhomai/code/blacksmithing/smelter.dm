@@ -87,6 +87,31 @@
 		addtimer(CALLBACK(src, .proc/smelt, current_mold, I.material), 3 MINUTES)
 		return
 
+	if (istype(W, /obj/item/weapon/ore) && (!istype(W, /obj/item/weapon/ore/coal)))
+		var/obj/item/weapon/ore/I = W
+
+		if(smelting)
+			to_chat(user, "<span class='warning'>\The [src] is already smelting something.</span>")
+			return
+
+		if(!fuel)
+			to_chat(user, "<span class='warning'>\The [src] has no fuel left.</span>")
+			return
+
+		if(!current_mold)
+			to_chat(user, "<span class='warning'>\The [src] has no mold inside of it.</span>")
+			return
+
+		if(!istype(current_mold,/obj/item/mold/ingot))
+			return
+
+		fuel--
+		to_chat(user, "<span class='notice'>You add \the [I] to \the [src].</span>")
+		smelting = TRUE
+		update_flame()
+		addtimer(CALLBACK(src, .proc/smelt, current_mold, I.material), 1 MINUTES)
+		qdel(W)
+
 /obj/structure/smelter/proc/smelt(var/obj/item/mold/target_mold, var/target_material)
 	if(!target_mold)
 		return

@@ -68,3 +68,10 @@
 	icon_state = "halberd_head"
 	use_material = TRUE
 	result = /obj/item/weapon/material/twohanded/pike/halberd
+
+/obj/item/weapon/material/blacksmith_piece/blacksmith_hammer
+	name = "hammer head"
+	desc = "A hammer head. Not the fish. That'd be weird."
+	icon_state = "hammer_rh"
+	use_material = TRUE
+	result = /obj/item/weapon/material/blacksmith_hammer

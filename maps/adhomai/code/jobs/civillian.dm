@@ -13,7 +13,8 @@
 	alt_outfits = list(
 		"Lumberjack"=/datum/outfit/job/adhomai/commoner/lumberjack,
 		"Farmer"=/datum/outfit/job/adhomai/commoner/farmer,
-		"Sculptor"=/datum/outfit/job/adhomai/commoner/sculptor
+		"Sculptor"=/datum/outfit/job/adhomai/commoner/sculptor,
+		"Herbalist"=/datum/outfit/job/adhomai/commoner/herbalist
 		)
 	is_assistant = TRUE
 
@@ -34,6 +35,14 @@
 	belt = /obj/item/weapon/storage/bag/plants
 	r_pocket = /obj/item/weapon/material/minihoe
 	l_hand = /obj/item/weapon/reagent_containers/glass/bucket
+
+/datum/outfit/job/adhomai/commoner/herbalist
+	name = "Herbalist"
+
+	belt = /obj/item/weapon/storage/bag/plants
+	r_pocket = /obj/item/weapon/material/minihoe
+	l_hand = /obj/item/weapon/reagent_containers/glass/bucket
+	r_hand = /obj/item/weapon/wirecutters/clippers
 
 /datum/outfit/job/adhomai/commoner/sculptor
 	name = "Sculptor"
@@ -81,7 +90,7 @@
 	faction = "Station"
 	total_positions = 2
 	spawn_positions = 2
-	supervisors = "the governor"
+	supervisors = "the laws of the land"
 	selection_color = "#ddddff"
 	alt_titles = list("Innkeeper")
 
