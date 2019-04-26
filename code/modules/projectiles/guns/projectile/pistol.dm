@@ -307,3 +307,16 @@
 		icon_state = "leyon"
 	else
 		icon_state = "leyon-e"
+
+/obj/item/weapon/gun/projectile/pistol/sol
+	name = "service pistol"
+	desc = "A very old service pistol. Branded at the grip with the old emblem of the Sol Alliance, hand-made by Necropolis."
+	icon_state = "m8"
+	item_state = "pistol"
+
+/obj/item/weapon/gun/projectile/pistol/sol/update_icon()
+	..()
+	if(ammo_magazine)
+		icon_state = "m8"
+	else
+		icon_state = "m8-empty"

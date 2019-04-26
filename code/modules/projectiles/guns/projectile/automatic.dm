@@ -152,6 +152,30 @@
 		item_state = (ammo_magazine)? "arifle" : "arifle-empty"
 	update_held_icon()
 
+/obj/item/weapon/gun/projectile/automatic/rifle/sol
+	name = "battle rifle"
+	desc = "A powerful battle rifle, the M469 is a highly accurate skirmishing firearm of Necropolis make which is chambered in 7.62."
+	icon_state = "battlerifle"
+	item_state = "battlerifle"
+	origin_tech = list(TECH_COMBAT = 6, TECH_MATERIAL = 3, TECH_ILLEGAL = 2)
+	magazine_type = /obj/item/ammo_magazine/c762/sol
+	allowed_magazines = list(/obj/item/ammo_magazine/c762/sol)
+	auto_eject = 1
+	auto_eject_sound = 'sound/weapons/smg_empty_alarm.ogg'
+
+/obj/item/weapon/gun/projectile/automatic/rifle/sol/update_icon()
+	..()
+	if(ammo_magazine)
+		icon_state = "battlerifle"
+	else
+		icon_state = "battlerifle-empty"
+	if(wielded)
+		item_state = "battlerifle-wielded"
+	else
+		item_state = "battlerifle"
+	update_held_icon()
+	return
+
 /datum/firemode/z8
 	var/use_launcher = 0
 
