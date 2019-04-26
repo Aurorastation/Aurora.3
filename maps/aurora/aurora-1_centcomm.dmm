@@ -17967,7 +17967,9 @@
 /obj/item/weapon/tank/oxygen,
 /obj/item/clothing/shoes/magboots,
 /obj/item/clothing/shoes/magboots,
-/obj/item/weapon/rig/hazard/equipped,
+/obj/item/weapon/rig/hazard/equipped{
+	req_access = newlist()
+	},
 /turf/simulated/shuttle/plating,
 /area/skipjack_station/start)
 "aOq" = (
@@ -18035,7 +18037,9 @@
 /obj/item/weapon/tank/oxygen,
 /obj/item/clothing/shoes/magboots,
 /obj/item/clothing/shoes/magboots,
-/obj/item/weapon/rig/eva/equipped,
+/obj/item/weapon/rig/eva/equipped{
+	req_access = newlist()
+	},
 /turf/simulated/shuttle/plating,
 /area/skipjack_station/start)
 "aOy" = (
