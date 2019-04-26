@@ -4,6 +4,9 @@
 	icon_state = "warpdrive"
 	density = TRUE
 	anchored = TRUE
+	light_color = "#6C6CFF"
+	light_power = 4
+	light_range = 3
 
 /obj/structure/warp_drive/attack_hand(var/mob/user)
 	do_teleport(user, get_turf(user), 8, asoundin = 'sound/effects/phasein.ogg')
