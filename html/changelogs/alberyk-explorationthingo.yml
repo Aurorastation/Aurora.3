@@ -1,0 +1,7 @@
+author: Alberyk, Kyres1
+
+delete-after: True
+
+changes: 
+  - rscadd: "Added an exploration shuttle at the surface, allowing the crew to visit some away sites."
+  - rscadd: "Replaced the derelict with a random space ruins system, allowing for different maps each round."
