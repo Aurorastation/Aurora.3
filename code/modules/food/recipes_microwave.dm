@@ -1219,7 +1219,7 @@ I said no!
 	result = /obj/item/weapon/reagent_containers/food/snacks/tajaran_stew
 
 /datum/recipe/spicy_clams
-	fruit = list("chili" = 1, "cabbage" = 1)
+	fruit = list("nifberries" = 1)
 	reagents = list("blackpepper" = 1, "spacespice" = 1)
 	items = list(
 		/obj/item/weapon/reagent_containers/food/snacks/clam,
@@ -1227,6 +1227,17 @@ I said no!
 	)
 	appliance = MICROWAVE | POT
 	result = /obj/item/weapon/reagent_containers/food/snacks/spicy_clams
+
+/datum/recipe/tajaran_chowder
+	fruit = list("nfrihi" = 1)
+	reagents = list("blackpepper" = 1, "sodiumchloride" = 1, "spacespice" = 2)
+	items = list(
+		/obj/item/weapon/reagent_containers/food/snacks/clam,
+		/obj/item/weapon/reagent_containers/food/snacks/clam,
+		/obj/item/weapon/reagent_containers/food/snacks/spreads
+	)
+	appliance = MICROWAVE | POT
+	result = /obj/item/weapon/reagent_containers/food/snacks/tajaran_chowder
 
 /datum/recipe/earthenroot_soup
 	fruit = list("earthenroot" = 2)

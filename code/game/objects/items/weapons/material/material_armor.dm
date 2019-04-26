@@ -65,6 +65,21 @@ Protectiveness | Armor %
 		else
 			to_chat(user, "<span class='notice'>You need more wire for that.</span>")
 			return
+
+	if(istype(O, /obj/item/stack/leather_strips))
+		var/obj/item/stack/leather_strips/S = O
+		if(wired)
+			to_chat(user, "<span class='warning'>This already has straps on it.</span>")
+			return
+		if(S.use(20))
+			to_chat(user, "<span class='notice'>You loop together the strips with \the [src]..</span>")
+			wired = TRUE
+			icon_state = "[initial(icon_state)]_wired"
+			return
+		else
+			to_chat(user, "<span class='notice'>You need more strips for that.</span>")
+			return
+
 	if(istype(O, /obj/item/weapon/material/armor_plating))
 		var/obj/item/weapon/material/armor_plating/second_plate = O
 		if(!wired && !second_plate.wired)

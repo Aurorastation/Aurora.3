@@ -53,7 +53,7 @@
 	var/obj/item/weapon/reagent_containers/glass/G = O
 	if(stat == CONSCIOUS && istype(G) && G.is_open_container())
 		user.visible_message("<span class='notice'>[user] milks [src] using \the [O].</span>")
-		var/transfered = udder.trans_id_to(G, "adhomai_milk", rand(5,10))
+		var/transfered = udder.trans_id_to(G, "fatshouter_milk", rand(5,10))
 		if(G.reagents.total_volume >= G.volume)
 			to_chat(user, "<span class='warning'>The [O] is full.</span>")
 		if(!transfered)

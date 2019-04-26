@@ -253,6 +253,12 @@
 	color = "#EDB91F"
 	taste_description = "cheese"
 
+/datum/reagent/nutriment/protein/cheese/fatshouter // moo
+	name = "fatshouter cheese"
+	id = "fatshouter_cheese"
+	color = "#EDB91F"
+	taste_description = "strong cheese"
+
 //Fats
 //=========================
 /datum/reagent/nutriment/triglyceride
@@ -370,6 +376,11 @@
 	nutriment_factor = 10
 	color = "#FFFF00"
 	taste_description = "honey"
+
+/datum/reagent/nutriment/honey/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+	M.drowsyness = max(0, M.drowsyness - 6 * removed)
+	M.hallucination = max(0, M.hallucination - 9 * removed)
+	M.adjustToxLoss(-1 * removed)
 
 /datum/reagent/nutriment/flour
 	name = "flour"

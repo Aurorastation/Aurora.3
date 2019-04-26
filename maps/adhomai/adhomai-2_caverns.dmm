@@ -142,27 +142,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/adhomai/fortress)
-"aL" = (
-/turf/simulated/wall/wood,
-/area/adhomai/village/bar)
-"aM" = (
-/obj/structure/reagent_dispensers/messakeg,
-/turf/simulated/floor/wood,
-/area/adhomai/village/bar)
-"aN" = (
-/turf/simulated/floor/wood,
-/area/adhomai/village/bar)
-"aO" = (
-/obj/structure/stairs/east,
-/turf/simulated/floor/wood,
-/area/adhomai/village/bar)
-"aP" = (
-/obj/machinery/light/small{
-	dir = 8
-	},
-/obj/structure/reagent_dispensers/messakeg,
-/turf/simulated/floor/wood,
-/area/adhomai/village/bar)
 "aQ" = (
 /obj/machinery/floodlight,
 /turf/simulated/floor/asteroid/basalt/adhomai,
@@ -483,11 +462,6 @@
 /obj/structure/stairs/east,
 /turf/simulated/floor/tiled/dark,
 /area/adhomai/village/townhall)
-"cs" = (
-/obj/item/weapon/storage/box/lights/mixed,
-/obj/structure/table/wood,
-/turf/simulated/floor/wood,
-/area/adhomai/village/bar)
 "ct" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/item/weapon/storage/box/lights/mixed,
@@ -551,10 +525,24 @@
 /obj/item/weapon/storage/belt/bandolier,
 /turf/simulated/floor/tiled/dark,
 /area/adhomai/village/police)
+"du" = (
+/obj/item/weapon/stool/padded,
+/turf/simulated/floor/holofloor/wood,
+/area/adhomai/village/bar)
 "dv" = (
 /obj/structure/stairs/east,
 /turf/simulated/floor/tiled/dark,
 /area/adhomai/village/police)
+"dz" = (
+/turf/simulated/floor/asteroid/basalt,
+/area/adhomai/cavern)
+"dK" = (
+/obj/item/weapon/melee/vaurca/rock{
+	desc = "A slightly pulsing rock, possessing some form of bioluminescent fungi covering it.";
+	name = "pulsing rock"
+	},
+/turf/simulated/lava,
+/area/adhomai/cavern)
 "eh" = (
 /obj/structure/table/wood,
 /obj/structure/bedsheetbin,
@@ -609,6 +597,10 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/adhomai/village/townhall)
+"lj" = (
+/obj/structure/stairs/east,
+/turf/simulated/floor/asteroid/basalt/adhomai,
+/area/adhomai/cavern)
 "lr" = (
 /obj/structure/table/wood,
 /turf/simulated/floor/tiled/dark,
@@ -651,6 +643,9 @@
 /obj/random/sarcophagus,
 /turf/simulated/floor/cult,
 /area/adhomai/cavern)
+"nv" = (
+/turf/simulated/floor/holofloor/wood,
+/area/adhomai/village/bar)
 "nH" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/random/sarcophagus,
@@ -708,6 +703,14 @@
 /obj/effect/decal/cleanable/cobweb,
 /turf/simulated/floor/plating,
 /area/adhomai/fortress)
+"rq" = (
+/obj/structure/stairs/north,
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 4
+	},
+/turf/simulated/floor/holofloor/wood,
+/area/adhomai/village/bar)
 "rI" = (
 /turf/simulated/floor/cult,
 /area/adhomai/village/temple)
@@ -726,6 +729,9 @@
 /obj/structure/cult/tome,
 /turf/simulated/floor/cult,
 /area/adhomai/cavern)
+"sp" = (
+/turf/simulated/wall/wood/adhomai,
+/area/adhomai/village/bar)
 "sr" = (
 /obj/structure/table/wood,
 /turf/simulated/floor/tiled/dark,
@@ -928,6 +934,12 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/adhomai/fortress)
+"CC" = (
+/obj/structure/simple_door/adhomai/wood{
+	initial_lock_value = "bar"
+	},
+/turf/simulated/floor/holofloor/wood,
+/area/adhomai/village/bar)
 "CK" = (
 /obj/structure/table/wood,
 /obj/item/weapon/storage/toolbox/mechanical,
@@ -983,6 +995,13 @@
 /obj/item/weapon/handcuffs,
 /turf/simulated/floor/tiled/dark,
 /area/adhomai/fortress)
+"Fh" = (
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 4
+	},
+/turf/simulated/floor/holofloor/wood,
+/area/adhomai/village/bar)
 "FH" = (
 /obj/machinery/light/small{
 	dir = 4;
@@ -1089,6 +1108,10 @@
 /obj/item/weapon/pen/blue,
 /turf/simulated/floor/tiled/dark,
 /area/adhomai/village/townhall)
+"LE" = (
+/obj/item/weapon/stool/padded,
+/turf/simulated/floor/carpet/blue,
+/area/adhomai/village/bar)
 "LS" = (
 /obj/structure/closet,
 /obj/structure/window/reinforced{
@@ -1194,6 +1217,14 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/cult,
 /area/adhomai/village/temple)
+"SE" = (
+/obj/structure/window/classic/reinforced,
+/turf/simulated/floor/holofloor/wood,
+/area/adhomai/village/bar)
+"SF" = (
+/obj/machinery/light/small,
+/turf/simulated/floor/holofloor/wood,
+/area/adhomai/village/bar)
 "SG" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/table/wood,
@@ -7883,7 +7914,7 @@ aa
 aa
 aa
 aa
-aa
+lj
 aa
 aa
 aa
@@ -39721,11 +39752,11 @@ ae
 ae
 aa
 aa
-aL
-aL
-aL
-aL
-aL
+ae
+ae
+ae
+ae
+ae
 ae
 ae
 ae
@@ -39978,11 +40009,11 @@ ae
 ae
 aa
 aa
-aL
-aM
-aP
-aM
-aL
+ae
+ae
+ae
+ae
+ae
 ae
 ae
 ae
@@ -40235,11 +40266,11 @@ ae
 ae
 aa
 aa
-aL
-aN
-aN
-aN
-aL
+ae
+ae
+ae
+ae
+ae
 ae
 ae
 ae
@@ -40492,11 +40523,11 @@ ae
 ae
 aa
 aa
-aL
-aM
-aN
-cs
-aL
+ae
+ae
+ae
+ae
+ae
 ae
 ae
 ae
@@ -40749,11 +40780,11 @@ ae
 ae
 aa
 aa
-aL
-aN
-aN
-cs
-aL
+ae
+ae
+ae
+ae
+ae
 ae
 ae
 ae
@@ -41006,11 +41037,11 @@ ae
 ae
 aa
 aa
-aL
-aN
-aN
-aN
-aL
+ae
+ae
+ae
+ae
+ae
 ae
 ae
 ae
@@ -41263,11 +41294,11 @@ ae
 ae
 aa
 aa
-aL
-aO
-aM
-aM
-aL
+ae
+ae
+ae
+ae
+ae
 ae
 ae
 ae
@@ -41520,11 +41551,11 @@ ae
 ae
 aa
 aa
-aL
-aL
-aL
-aL
-aL
+ae
+ae
+ae
+ae
+ae
 ae
 ae
 ae
@@ -53865,9 +53896,9 @@ ae
 ae
 ae
 ae
-ae
-ae
-ae
+bT
+bT
+bT
 ae
 ae
 ae
@@ -54122,9 +54153,9 @@ ae
 ae
 ae
 ae
-ae
-ae
-ae
+bT
+bT
+bT
 ae
 ae
 ae
@@ -54376,13 +54407,13 @@ ae
 ae
 ae
 ae
-ae
-ae
-ae
-ae
-ae
-ae
-ae
+dz
+bT
+dK
+bT
+bT
+bT
+dK
 ae
 ae
 ae
@@ -54633,14 +54664,14 @@ ae
 ae
 ae
 ae
-ae
-ae
-ae
-ae
-ae
-ae
-ae
-ae
+dz
+bT
+bT
+bT
+bT
+bT
+bT
+bT
 ae
 ae
 ae
@@ -54890,14 +54921,14 @@ ae
 ae
 ae
 ae
-ae
-ae
-ae
-ae
-ae
-ae
-ae
-ae
+bT
+bT
+bT
+bT
+bT
+bT
+dz
+bT
 ae
 ae
 ae
@@ -55147,14 +55178,14 @@ ae
 ae
 ae
 ae
-ae
-ae
-ae
-ae
-ae
-ae
-ae
-ae
+dK
+bT
+bT
+bT
+bT
+bT
+dz
+bT
 ae
 ae
 ae
@@ -55404,13 +55435,13 @@ ae
 ae
 ae
 ae
-ae
-ae
-ae
-ae
-ae
-ae
-ae
+dz
+bT
+bT
+bT
+dK
+bT
+dz
 ae
 ae
 ae
@@ -55662,12 +55693,12 @@ ae
 ae
 ae
 ae
-ae
-ae
-ae
-ae
-ae
-ae
+dz
+bT
+bT
+bT
+dz
+dz
 ae
 ae
 ae
@@ -55919,11 +55950,11 @@ ae
 ae
 ae
 ae
-ae
-ae
-ae
-ae
-ae
+dz
+dz
+dz
+dz
+dz
 ae
 ae
 ae
@@ -56176,10 +56207,10 @@ ae
 ae
 ae
 ae
-ae
-ae
-ae
-ae
+dz
+dz
+dz
+dz
 ae
 ae
 ae
@@ -56432,13 +56463,13 @@ ae
 ae
 ae
 ae
-ae
-ae
-ae
-ae
-ae
-ae
-ae
+sp
+sp
+SE
+SE
+sp
+sp
+sp
 ae
 ae
 ae
@@ -56689,13 +56720,13 @@ ae
 ae
 ae
 ae
-ae
-ae
-ae
-ae
-ae
-ae
-ae
+sp
+du
+du
+du
+du
+du
+sp
 ae
 ae
 ae
@@ -56946,17 +56977,17 @@ ae
 ae
 ae
 ae
-ae
-ae
-ae
-ae
-ae
-ae
-ae
-ae
-ae
-ae
-ae
+sp
+du
+du
+du
+du
+du
+sp
+sp
+sp
+sp
+sp
 ae
 ae
 ae
@@ -57203,17 +57234,17 @@ ae
 ae
 ae
 ae
-ae
-ae
-ae
-ae
-ae
-ae
-ae
-ae
-ae
-ae
-ae
+sp
+du
+LE
+LE
+LE
+du
+sp
+rq
+Fh
+SF
+sp
 ae
 ae
 ae
@@ -57460,17 +57491,17 @@ ae
 ae
 ae
 ae
-ae
-ae
-ae
-ae
-ae
-ae
-ae
-ae
-ae
-ae
-ae
+sp
+du
+LE
+LE
+LE
+du
+CC
+nv
+nv
+nv
+sp
 ae
 ae
 ae
@@ -57717,17 +57748,17 @@ ae
 ae
 ae
 ae
-ae
-ae
-ae
-ae
-ae
-ae
-ae
-ae
-ae
-ae
-ae
+sp
+du
+LE
+LE
+LE
+du
+sp
+sp
+sp
+sp
+sp
 ae
 ae
 ae
@@ -57974,13 +58005,13 @@ ae
 ae
 ae
 ae
-ae
-ae
-ae
-ae
-ae
-ae
-ae
+sp
+du
+LE
+LE
+LE
+du
+sp
 ae
 ae
 ae
@@ -58231,13 +58262,13 @@ ae
 ae
 ae
 ae
-ae
-ae
-ae
-ae
-ae
-ae
-ae
+sp
+du
+du
+du
+du
+du
+sp
 ae
 ae
 ae
@@ -58488,13 +58519,13 @@ ae
 ae
 ae
 ae
-ae
-ae
-ae
-ae
-ae
-ae
-ae
+sp
+du
+du
+du
+du
+du
+sp
 ae
 ae
 ae
@@ -58745,13 +58776,13 @@ ae
 ae
 ae
 ae
-ae
-ae
-ae
-ae
-ae
-ae
-ae
+sp
+du
+du
+du
+du
+du
+sp
 ae
 ae
 ae
@@ -59002,13 +59033,13 @@ ae
 ae
 ae
 ae
-ae
-ae
-ae
-ae
-ae
-ae
-ae
+sp
+du
+du
+du
+du
+du
+sp
 ae
 ae
 ae
@@ -59259,13 +59290,13 @@ ae
 ae
 ae
 ae
-ae
-ae
-ae
-ae
-ae
-ae
-ae
+sp
+sp
+sp
+sp
+sp
+sp
+sp
 ae
 ae
 ae

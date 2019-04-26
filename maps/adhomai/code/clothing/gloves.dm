@@ -7,8 +7,7 @@
 	armor = list(melee = 50, bullet = 50, laser = 15, energy = 10, bomb = 25, bio = 0, rad = 0)
 	siemens_coefficient = 0.5
 	force = 5
-	punch_force = 10
-	sharp = 1
+	punch_force = 5
 	species_restricted = list("Tajara")
 	body_parts_covered = HANDS|ARMS
 	contained_sprite = TRUE
@@ -17,4 +16,6 @@
 	desc = "A pair of armored gauntlets, commonly used by the Royal Grenadiers."
 	icon_state = "roygrenarms"
 	item_state = "roygrenarms"
+	punch_force = 10
+	sharp = 1
 	armor = list(melee = 70, bullet = 70, laser = 20, energy = 10, bomb = 25, bio = 0, rad = 0)
