@@ -35,6 +35,9 @@
 	belt = /obj/item/weapon/storage/bag/plants
 	r_pocket = /obj/item/weapon/material/minihoe
 	l_hand = /obj/item/weapon/reagent_containers/glass/bucket
+	backpack_contents = list(
+	/obj/item/weapon/shovel = 1
+	)
 
 /datum/outfit/job/adhomai/commoner/herbalist
 	name = "Herbalist"
@@ -43,6 +46,9 @@
 	r_pocket = /obj/item/weapon/material/minihoe
 	l_hand = /obj/item/weapon/reagent_containers/glass/bucket
 	r_hand = /obj/item/weapon/wirecutters/clippers
+	backpack_contents = list(
+	/obj/item/weapon/shovel/spade = 1
+	)
 
 /datum/outfit/job/adhomai/commoner/sculptor
 	name = "Sculptor"
@@ -135,7 +141,7 @@
 	spawn_positions = 1
 	supervisors = "the laws of the land"
 	selection_color = "#ddddff"
-	alt_titles = list("Outdoorsman", "Tanner", "Furrier")
+	alt_titles = list("Outdoorsman", "Tanner", "Furrier", "Hermit")
 
 	outfit = /datum/outfit/job/adhomai/hunter
 
@@ -329,7 +335,7 @@
 	spawn_positions = 1
 	supervisors = "the laws of the land"
 	selection_color = "#ddddff"
-	alt_titles = list("Craftsman", "Architect")
+	alt_titles = list("Craftsman")
 
 	outfit = /datum/outfit/job/adhomai/blacksmith
 

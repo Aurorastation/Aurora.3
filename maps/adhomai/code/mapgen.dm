@@ -14,7 +14,7 @@
 
 /datum/random_map/automata/meteor_chunk
 	descriptor = "meteor chunk"
-	wall_type =  /turf/simulated/mineral/random/adhomai/higher_chance
+	wall_type =  /turf/simulated/mineral/random/adhomai/higher_chance/meteor
 	floor_type = /turf/simulated/floor/snow
 
 /datum/random_map/noise/tundra/adhomai

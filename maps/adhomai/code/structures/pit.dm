@@ -55,6 +55,7 @@
 	name = "mound"
 	desc = "Some things are better left buried."
 	open = FALSE
+	opacity = 1
 	for(var/atom/movable/A in src.loc)
 		if(!A.anchored && A != user)
 			A.forceMove(src)
@@ -102,6 +103,7 @@ obj/structure/pit/Crossed(AM as mob|obj)
 	name = "mound"
 	desc = "Some things are better left buried."
 	open = FALSE
+	opacity = 1
 
 /obj/structure/pit/closed/Initialize()
 	. = ..()
