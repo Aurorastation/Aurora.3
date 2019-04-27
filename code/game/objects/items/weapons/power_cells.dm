@@ -146,7 +146,7 @@
 
 /obj/item/weapon/cell/proto
 	name = "proto power cell"
-	desc = "A heavy-duty reliable military-grade power cell. Doesn’t look to fit any modern standards."
+	desc = "A heavy-duty reliable military-grade power cell. Doesn't look to fit any modern standards."
 	icon_state = "proto"
 	maxcharge = 25000
 	origin_tech = list(TECH_POWER = 6)
