@@ -204,7 +204,7 @@ var/datum/controller/subsystem/docs/SSdocs
 	if (total_tags.len == 1)
 		doc = SSdocs.pick_document_by_tag(total_tags[1])
 	else
-		doc = SSdoc.pick_document_by_tags(total_tags)
+		doc = SSdocs.pick_document_by_tags(total_tags)
 
 	if (!istype(doc))
 		log_ss("docs","Null paper acquired in post_spawn!")
