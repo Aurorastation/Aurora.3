@@ -525,7 +525,10 @@
 	var/sprint_charge_factor = 0.65
 
 datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
-	H.gender = NEUTER
+	if(!H.species == "Shell Frame")
+		H.gender = NEUTER
+	else
+		return
 	. = ..()
 	check_tag(H, H.client)
 
