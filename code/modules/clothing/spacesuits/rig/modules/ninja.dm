@@ -34,6 +34,8 @@
 	suit_overlay_active =   "stealth_active"
 	suit_overlay_inactive = "stealth_inactive"
 
+	category = MODULE_SPECIAL
+
 /obj/item/rig_module/stealth_field/activate()
 
 	if(!..())
@@ -81,6 +83,8 @@
 	interface_name = "VOID-shift bluespace phase projector"
 	interface_desc = "An advanced teleportation system. It is capable of pinpoint precision or random leaps forward."
 
+	category = MODULE_SPECIAL
+
 /obj/item/rig_module/teleporter/proc/phase_in(var/mob/M,var/turf/T)
 
 	if(!M || !T)
@@ -127,7 +131,7 @@
 		to_chat(H, "<span class='warning'>You cannot teleport to a location with solid objects.</span>")
 		return 0
 
-	if(T.z != H.z || get_dist(T, get_turf(H)) > world.view)
+	if((T.z != H.z || get_dist(T, get_turf(H)) > world.view) && target)
 		to_chat(H, "<span class='warning'>You cannot teleport to such a distant object.</span>")
 		return 0
 
@@ -160,6 +164,8 @@
 	fabrication_type = /obj/item/weapon/energy_net
 	use_power_cost = 60
 
+	category = MODULE_SPECIAL
+
 /obj/item/rig_module/fabricator/energy_net/engage(atom/target)
 
 	if(holder && holder.wearer)
@@ -182,6 +188,8 @@
 	interface_name = "dead man's switch"
 	interface_desc = "An integrated self-destruct module. When the wearer dies, so does the surrounding area. Do not press this button."
 	var/list/explosion_values = list(3,4,5,6)
+
+	category = MODULE_SPECIAL
 
 /obj/item/rig_module/self_destruct/small
 	explosion_values = list(1,2,3,4)
@@ -228,6 +236,8 @@
 	interface_desc = "A highly experimental system that augments the hardsuit's existing EM shielding."
 	var/protection_amount = 30
 
+	category = MODULE_SPECIAL
+
 /obj/item/rig_module/emp_shielding/activate()
 	if(!..())
 		return
@@ -254,6 +264,8 @@
 	interface_name = "emergency power generator"
 	interface_desc = "A high yield power generating device that takes a long time to recharge."
 	var/generation_ammount = 1500
+
+	category = MODULE_SPECIAL
 
 /obj/item/rig_module/emergency_powergenerator/engage()
 	if(!..())
@@ -282,3 +294,5 @@
 	interface_desc = "A complex uprade that allows the user to apply an EMAG effect to certain objects. High power cost."
 
 	device_type = /obj/item/weapon/robot_emag
+
+	category = MODULE_SPECIAL

@@ -532,6 +532,10 @@ ERT_SCALING_FACTOR 1
 ERT_SCALING_FACTOR_ANTAG 1
 ERT_SCALING_FACTOR_DEAD 2
 
+# NTSL2+ Connection Info
+NTSL_HOSTNAME localhost
+NTSL_PORT 1945
+
 # Specifies where to load random documents from. Valid values: sql, json
 DOCS_LOAD_DOCS_FROM sql
 # Specifies where random document images are hosted at. Valid format is "https://cdn.aurorastation.org/images/", trailing slash included.
