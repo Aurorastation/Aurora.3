@@ -15,22 +15,22 @@
 
 /datum/bounty/item/mech/ripley
 	name = "APLU \"Ripley\""
-	reward = 13000
+	reward = 2500
 	wanted_types = list(/obj/mecha/working/ripley)
 
 /datum/bounty/item/mech/odysseus
 	name = "Odysseus"
-	reward = 11000
+	reward = 2700
 	wanted_types = list(/obj/mecha/medical/odysseus)
 
 /datum/bounty/item/mech/gygax
 	name = "Gygax"
-	reward = 28000
+	reward = 4500
 	wanted_types = list(/obj/mecha/combat/gygax)
 
 /datum/bounty/item/mech/durand
 	name = "Durand"
-	reward = 20000
+	reward = 4000
 	wanted_types = list(/obj/mecha/combat/durand)
 
 /*
