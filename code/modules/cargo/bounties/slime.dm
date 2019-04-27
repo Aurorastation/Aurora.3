@@ -4,7 +4,7 @@
 /datum/bounty/item/slime/New()
 	..()
 	description = "%COMPNAME's science lead is hunting for the rare and exotic [name]. A bounty has been offered for finding it."
-	reward += rand(0, 4) * 500
+	reward += rand(0, 4) * 200
 
 /datum/bounty/item/slime/green
 	name = "Green Slime Extract"

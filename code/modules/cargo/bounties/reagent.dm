@@ -31,7 +31,7 @@
 
 /datum/bounty/reagent/simple_drink
 	name = "Simple Drink"
-	reward = 1500
+	reward = 150
 
 /datum/bounty/reagent/simple_drink/New()
 	// Don't worry about making this comprehensive. It doesn't matter if some drinks are skipped.
@@ -95,12 +95,12 @@
 	wanted_reagent = new reagent_type
 	name = wanted_reagent.name
 	description = "%BOSSSHORT is offering a reward for talented bartenders. Ship a container of [name] to claim the prize."
-	reward += rand(0, 4) * 500
+	reward += rand(0, 4) * 50
 	..()
 
 /datum/bounty/reagent/chemical
 	name = "Chemical"
-	reward = 4000
+	reward = 500
 	required_volume = 30
 
 /datum/bounty/reagent/chemical/New()
@@ -109,16 +109,13 @@
 		/datum/reagent/leporazine,\
 		/datum/reagent/clonexadone,\
 		/datum/reagent/rezadone,\
-		/datum/reagent/space_drugs,\
 		/datum/reagent/thermite,\
 		/datum/reagent/nutriment/honey,\
-		/datum/reagent/frostoil,\
-		/datum/reagent/slimejelly,\
-		/datum/reagent/toxin/cyanide)
+		/datum/reagent/frostoil)
 
 	var/reagent_type = pick(possible_reagents)
 	wanted_reagent = new reagent_type
 	name = wanted_reagent.name
 	description = "%BOSSSHORT is in desperate need of the chemical [name]. Ship a container of it to be rewarded."
-	reward += rand(0, 4) * 500
+	reward += rand(0, 4) * 50
 	..()

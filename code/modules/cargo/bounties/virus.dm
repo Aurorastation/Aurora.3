@@ -10,7 +10,7 @@
 		stat_value *= -1
 	name = "Virus ([stat_name] of [stat_value])"
 	description = "%COMPNAME is interested in a virus with a [stat_name] stat of exactly [stat_value]. %BOSSSHORT will pay handsomely for such a virus."
-	reward += rand(0, 4) * 500
+	reward += rand(0, 4) * 250
 	..()
 
 /datum/bounty/virus/completion_string()

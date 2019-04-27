@@ -10,7 +10,7 @@
 		stat_value *= -1
 	name = "Weapon ([stat_name] of [stat_value])"
 	description = "[current_map.company_name] is interested in a laser prototype with a [stat_name] stat [stat_comparison] [stat_value]. [current_map.boss_name] will pay handsomely for such a weapon."
-	reward += rand(0, 4) * 500
+	reward += rand(0, 4) * 250
 	..()
 
 /datum/bounty/weapon_prototype/completion_string()
