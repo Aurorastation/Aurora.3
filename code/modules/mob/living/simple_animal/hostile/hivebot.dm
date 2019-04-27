@@ -157,6 +157,7 @@
 	var/existing_bots = 0
 	var/spawn_delay = 300
 	var/activated = 0
+	var/snoozing = 0 //If set to 1, it will be prevented from spawning bots, unless it spots an enemy.
 	attack_emote = "focuses on"
 
 /mob/living/simple_animal/hostile/hivebotbeacon/toxic
@@ -201,6 +202,7 @@
 		spawn(16)
 		icon_state = "hivebotbeacon_active"
 		activated = 1
+		snoozing = 0
 	else
 		if(activated == 1)
 			icon_state = "hivebotbeacon_active"
@@ -208,12 +210,15 @@
 /mob/living/simple_animal/hostile/hivebotbeacon/emp_act(severity)
 	LoseTarget()
 	stance = HOSTILE_STANCE_TIRED
-	addtimer(CALLBACK(src, .proc/wakeup), 150)
+	addtimer(CALLBACK(src, .proc/wakeup), 200)
 	if(severity == 1.0)
-		apply_damage(100)
+		apply_damage(80)
+	icon_state = "hivebotbeacon_off"
+	activated = -1
 
 /mob/living/simple_animal/hostile/hivebotbeacon/proc/wakeup()
 	stance = HOSTILE_STANCE_IDLE
+	activated = 0
 
 /mob/living/simple_animal/hostile/hivebotbeacon/proc/warpbots()
 	if(!bot_amt)
@@ -230,11 +235,14 @@
 		return
 
 	if(activated != 1)
-		icon_state = "hivebotbeacon_raising"
-		sleep(16)
-		icon_state = "hivebotbeacon_active"
-		sleep(4)
-		activated = 1
+		if(activated == -1)
+			return
+		else
+			icon_state = "hivebotbeacon_raising"
+			sleep(16)
+			icon_state = "hivebotbeacon_active"
+			sleep(4)
+			activated = 1
 
 	if(existing_bots < max_bots)
 		visible_message("<span class='warning'>\ [src] radiates with energy!</span>")
@@ -260,8 +268,9 @@
 /mob/living/simple_animal/hostile/hivebotbeacon/Life()
 	..()
 	if(stat == 0)
-		if(prob(2))
-			warpbots()
+		if(snoozing == 0)
+			if(prob(2))
+				warpbots()
 
 #undef NORMAL
 #undef RANGED
