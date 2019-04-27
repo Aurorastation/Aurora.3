@@ -35,6 +35,7 @@
 /obj/machinery/recharge_station/Initialize()
 	. = ..()
 	update_icon()
+	beaker = new/obj/item/weapon/reagent_containers/glass/beaker(src)
 	beaker.reagents.add_reagent("coolant", 60)
 
 /obj/machinery/recharge_station/proc/has_cell_power()
