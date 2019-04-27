@@ -921,6 +921,12 @@
 /mob/living/simple_animal/hostile/carp,
 /turf/simulated/floor/asteroid/ash,
 /area/space)
+"co" = (
+/obj/machinery/mech_recharger,
+/obj/effect/floor_decal/corner/black/diagonal,
+/obj/mecha/working/ripley/shire,
+/turf/simulated/floor/tiled/dark,
+/area/derelict/ship)
 "cp" = (
 /obj/effect/decal/cleanable/blood,
 /obj/effect/floor_decal/corner/black/diagonal,
@@ -2002,6 +2008,12 @@
 /obj/machinery/cryopod/robot,
 /turf/simulated/floor/greengrid,
 /area/derelict/ship)
+"fI" = (
+/obj/structure/table/reinforced/steel,
+/obj/effect/floor_decal/corner/black/diagonal,
+/obj/item/weapon/cell/proto,
+/turf/simulated/floor/tiled/dark,
+/area/derelict/ship)
 "fJ" = (
 /obj/structure/table/glass,
 /obj/random/powercell,
@@ -2280,9 +2292,13 @@
 /turf/simulated/floor/tiled/white,
 /area/derelict/ship)
 "gx" = (
-/obj/machinery/appliance/cooker/grill,
-/obj/effect/floor_decal/corner/brown/diagonal,
-/turf/simulated/floor/tiled/white,
+/obj/structure/closet/cabinet,
+/obj/effect/floor_decal/industrial/outline,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/item/weapon/cell/proto,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "gy" = (
 /obj/structure/closet/secure_closet/freezer/meat,
@@ -2569,12 +2585,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "hg" = (
-/obj/structure/closet/cabinet,
-/obj/effect/floor_decal/industrial/outline,
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/dark,
+/obj/structure/table/reinforced/steel,
+/obj/item/weapon/cell/proto,
+/turf/simulated/floor/tiled/steel,
 /area/derelict/ship)
 "hh" = (
 /obj/structure/closet/crate/loot,
@@ -4106,6 +4119,11 @@
 "lx" = (
 /obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor/tiled/steel,
+/area/derelict/ship)
+"ly" = (
+/obj/structure/table/rack,
+/obj/item/weapon/cell/proto,
+/turf/simulated/floor,
 /area/derelict/ship)
 "lz" = (
 /obj/structure/table/reinforced/steel,
@@ -31929,7 +31947,7 @@ aa
 aa
 aY
 gQ
-hg
+gx
 hn
 hL
 bp
@@ -31951,7 +31969,7 @@ kJ
 cQ
 kY
 kY
-kY
+co
 bs
 cQ
 ay
@@ -32139,7 +32157,7 @@ aa
 aa
 aa
 aa
-aa
+cC
 aa
 aa
 aa
@@ -32900,7 +32918,7 @@ aa
 aa
 aa
 aa
-aa
+cC
 aa
 aa
 aa
@@ -33743,7 +33761,7 @@ bs
 ay
 gf
 ay
-ko
+hg
 kp
 kp
 kJ
@@ -33948,7 +33966,7 @@ aa
 aa
 aa
 aa
-aa
+cC
 aa
 aa
 aa
@@ -34237,7 +34255,7 @@ bs
 fY
 gh
 gh
-gx
+gh
 ay
 gG
 gG
@@ -36506,7 +36524,7 @@ bO
 bT
 ay
 aa
-aa
+cC
 aa
 aa
 aa
@@ -39183,7 +39201,7 @@ nI
 ay
 av
 ni
-fC
+ly
 nl
 ay
 oy
@@ -45505,7 +45523,7 @@ aa
 aa
 ci
 cj
-cs
+fI
 cu
 cj
 cB
@@ -48135,7 +48153,7 @@ aa
 aa
 aa
 aa
-aa
+cC
 aa
 aa
 aa
