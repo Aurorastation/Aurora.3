@@ -268,9 +268,8 @@
 /mob/living/simple_animal/hostile/hivebotbeacon/Life()
 	..()
 	if(stat == 0)
-		if(snoozing == 0)
-			if(prob(2))
-				warpbots()
+		if((!snoozing) && (prob(2)))
+			warpbots()
 
 #undef NORMAL
 #undef RANGED
