@@ -40,5 +40,5 @@ delete-after: True
 changes: 
   - bugfix: "Modular computers and laptops health values have been reduced drastically to work properly. Now shootign computer with shotgun will break its screen. And explosions will blow them up."
   - imageadd: "Modular computers/laptops/telescreens/tablets now have broken icon states with animations."
-  - bugfix: "Timer SS update is fixed."
+  - backend: "Timer SS update is fixed."
   - bugfix: "can_use default paramt is now set to display message why mobs cannot use something."
