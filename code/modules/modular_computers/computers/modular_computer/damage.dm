@@ -33,6 +33,7 @@
 
 	if(damage >= max_damage)
 		break_apart()
+	update_icon()
 
 // Stronger explosions cause serious damage to internal components
 // Minor explosions are mostly mitigitated by casing.

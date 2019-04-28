@@ -6,6 +6,7 @@
 	icon_state_unpowered = "laptop-open"
 	icon = 'icons/obj/modular_laptop.dmi'
 	icon_state = "laptop-open"
+	icon_state_broken = "laptop-broken"
 	base_idle_power_usage = 25
 	base_active_power_usage = 200
 	max_hardware_size = 2
@@ -31,4 +32,7 @@
 		..()
 	else
 		cut_overlays()
-		icon_state = icon_state_closed
+		if(damage >= broken_damage)
+			icon_state = icon_state_broken + "-closed"
+		else
+			icon_state = icon_state_closed
