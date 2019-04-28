@@ -90,19 +90,19 @@
 /mob/living/simple_animal/hostile/hivebot/Initialize(mapload,mob/living/simple_animal/hostile/hivebot/hivebotbeacon)
 	if(hivebotbeacon)
 		linked_parent = hivebotbeacon
-		linked_parent.existing_bots += 1
 	.=..()
 
 /mob/living/simple_animal/hostile/hivebot/death()
 	..(null,"blows apart!")
-	if(linked_parent)
-		linked_parent.existing_bots -= 1
-		linked_parent.linked_bots -= src
 	var/T = get_turf(src)
 	new /obj/effect/gibspawner/robot(T)
 	spark(T, 1, alldirs)
 	qdel(src)
-	return
+
+/mob/living/simple_animal/hostile/hivebot/Destroy()
+	..()
+	if(linked_parent)
+		linked_parent.linked_bots -= src
 
 /mob/living/simple_animal/hostile/hivebot/think()
 	. =..()
@@ -153,8 +153,6 @@
 	var/bot_amt = 48 //Number of total bots that are spawned before the beacon disappears completely.
 	var/max_bots = 16 //Number of bots linked to this beacon specifically that can exist, before spawning more is halted.
 	var/list/linked_bots = list()
-	var/latest_child = null
-	var/existing_bots = 0
 	var/spawn_delay = 300
 	var/activated = 0
 	var/snoozing = 0 //If set to 1, it will be prevented from spawning bots, unless it spots an enemy.
@@ -170,13 +168,15 @@
 	projectilesound = 'sound/weapons/plasma_cutter.ogg'
 	rapid = 0
 
-/mob/living/simple_animal/hostile/hivebotbeacon/New()
-	..()
-	var/datum/effect/effect/system/smoke_spread/S = new /datum/effect/effect/system/smoke_spread()
-	S.set_up(5, 0, src.loc)
-	S.start()
+/mob/living/simple_animal/hostile/hivebotbeacon/Initialize(mapload)
+	.=..()
+	if(!mapload)
+		var/datum/effect/effect/system/smoke_spread/S = new /datum/effect/effect/system/smoke_spread()
+		S.set_up(5, 0, src.loc)
+		S.start()
+
 	icon_state = "hivebotbeacon_off"
-	visible_message("<span class='danger'>\ [src] warps in!</span>")
+	visible_message("<span class='danger'>[src] warps in!</span>")
 	playsound(src.loc, 'sound/effects/EMPulse.ogg', 25, 1)
 
 /mob/living/simple_animal/hostile/hivebotbeacon/death()
@@ -188,24 +188,31 @@
 	var/T = get_turf(src)
 	new /obj/effect/gibspawner/robot(T)
 	spark(T, 3, alldirs)
+	qdel(src)
+	return
+
+/mob/living/simple_animal/hostile/hivebotbeacon/Destroy()
+	..()
 	for (var/mob/living/simple_animal/hostile/hivebot/latest_child in linked_bots)
 		latest_child.linked_parent = null
 	linked_bots.Cut()
-	qdel(src)
-	return
+	var/datum/effect/effect/system/smoke_spread/S = new /datum/effect/effect/system/smoke_spread()
+	S.set_up(5, 0, src.loc)
+	S.start()
 
 /mob/living/simple_animal/hostile/hivebotbeacon/think()
 	. =..()
 	if(stance != HOSTILE_STANCE_IDLE && activated == 0)
-		visible_message("<span class='warning'>\ [src] suddenly activates!</span>")
+		visible_message("<span class='warning'>[src] suddenly activates!</span>")
 		icon_state = "hivebotbeacon_raising"
-		spawn(16)
+		addtimer(CALLBACK(src, .proc/reset_activation), 16)
+	else if(activated == 1)
 		icon_state = "hivebotbeacon_active"
-		activated = 1
-		snoozing = 0
-	else
-		if(activated == 1)
-			icon_state = "hivebotbeacon_active"
+
+/mob/living/simple_animal/hostile/hivebotbeacon/proc/reset_activation()
+	icon_state = "hivebotbeacon_active"
+	activated = 1
+	snoozing = 0
 
 /mob/living/simple_animal/hostile/hivebotbeacon/emp_act(severity)
 	LoseTarget()
@@ -222,15 +229,12 @@
 
 /mob/living/simple_animal/hostile/hivebotbeacon/proc/warpbots()
 	if(!bot_amt)
-		visible_message("<b>The Beacon</b> disappears in a cloud of smoke!")
+		visible_message("<span class='danger'>[src] disappears in a cloud of smoke!</span>")
 		playsound(src.loc, 'sound/effects/teleport.ogg', 25, 1)
+		new /obj/effect/decal/cleanable/greenglow(src.loc)
 		var/datum/effect/effect/system/smoke_spread/S = new /datum/effect/effect/system/smoke_spread()
 		S.set_up(5, 0, src.loc)
 		S.start()
-		for (var/mob/living/simple_animal/hostile/hivebot/latest_child in linked_bots)
-			latest_child.linked_parent = null
-		linked_bots.Cut()
-		new /obj/effect/decal/cleanable/greenglow(src.loc)
 		qdel(src)
 		return
 
@@ -244,8 +248,9 @@
 			sleep(4)
 			activated = 1
 
-	if(existing_bots < max_bots)
-		visible_message("<span class='warning'>\ [src] radiates with energy!</span>")
+	if(linked_bots.len < max_bots)
+		visible_message("<span class='warning'>[src] radiates with energy!</span>")
+		var/mob/living/simple_animal/hostile/hivebot/latest_child
 		switch(bot_type)
 			if(NORMAL)
 				latest_child = new /mob/living/simple_animal/hostile/hivebot(get_turf(src), src)
@@ -262,7 +267,7 @@
 		else
 			bot_type = NORMAL
 		bot_amt--
-	if(bot_amt>0 && existing_bots<max_bots)
+	if(bot_amt>0 && linked_bots.len < max_bots)
 		addtimer(CALLBACK(src, .proc/warpbots), spawn_delay)
 
 /mob/living/simple_animal/hostile/hivebotbeacon/Life()
