@@ -2830,7 +2830,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 
 /obj/item/clothing/ring/engagement/fluff/james_ring //James' Wedding Ring - James Campbell - valwyn
 	name = "wedding ring"
-	desc = "A golden wedding ring. \"Our love is Written in the stars\" is engraved on it"
+	desc = "A golden wedding ring. \"Our love is written in the stars\" is engraved on it."
 	icon_state = "magic"
 
 
