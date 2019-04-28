@@ -1129,7 +1129,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 	if(issilicon(usr))
 		return
 
-	switch (use_check(usr, USE_FORCE_SRC_IN_USER))
+	switch (use_check(usr, USE_FORCE_SRC_IN_USER, FALSE))
 		if (USE_ALLOW_DEAD,USE_ALLOW_INCAPACITATED)
 			to_chat(usr, "<span class='notice'>You cannot do this in your current state.</span>")
 		if (USE_SUCCESS)
@@ -1145,7 +1145,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 	if(issilicon(usr))
 		return
 
-	switch (use_check(usr, USE_DISALLOW_SILICONS))
+	switch (use_check(usr, USE_DISALLOW_SILICONS, FALSE))
 		if (USE_FAIL_DEAD,USE_FAIL_INCAPACITATED)
 			to_chat(usr, "<span class='notice'>You cannot do this in your current state.</span>")
 
@@ -1170,7 +1170,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 	if(issilicon(usr))
 		return
 
-	switch (use_check(usr, USE_DISALLOW_SILICONS))
+	switch (use_check(usr, USE_DISALLOW_SILICONS, FALSE))
 		if (USE_FAIL_DEAD,USE_FAIL_INCAPACITATED)
 			to_chat(usr, "<span class='notice'>You cannot do this in your current state.</span>")
 		if (USE_SUCCESS)
