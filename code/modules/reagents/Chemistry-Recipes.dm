@@ -1644,13 +1644,11 @@
 		new /obj/item/weapon/reagent_containers/food/snacks/sliceable/cheesewheel(location)
 	return
 
-/datum/chemical_reaction/cheesewheel/fatshouter
-	name = "Cheesewheel"
-	id = "cheesewheel"
-	result = null
-	required_reagents = list("fatshouter_milk" = 40)
-	catalysts = list("enzyme" = 5)
-	result_amount = 1
+/datum/chemical_reaction/cheesewheel/on_reaction(var/datum/reagents/holder, var/created_volume)
+	var/location = get_turf(holder.my_atom)
+	for(var/i = 1, i <= created_volume, i++)
+		new /obj/item/weapon/reagent_containers/food/snacks/sliceable/cheesewheel(location)
+	return
 
 /datum/chemical_reaction/meatball
 	name = "Meatball"
