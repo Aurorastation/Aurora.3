@@ -94,16 +94,19 @@
 	icon_state = "sheet-sandstone"
 	default_type = "sandstone"
 	icon_has_variants = TRUE
+	drop_sound = 'sound/items/drop/boots.ogg'
 
 /obj/item/stack/material/marble
 	name = "marble brick"
 	icon_state = "sheet-marble"
 	default_type = "marble"
+	drop_sound = 'sound/items/drop/boots.ogg'
 
 /obj/item/stack/material/diamond
 	name = "diamond"
 	icon_state = "sheet-diamond"
 	default_type = "diamond"
+	drop_sound = 'sound/items/drop/glass.ogg'
 
 /obj/item/stack/material/uranium
 	name = "uranium"
@@ -115,6 +118,7 @@
 	icon_state = "sheet-phoron"
 	default_type = "phoron"
 	icon_has_variants = TRUE
+	drop_sound = 'sound/items/drop/glass.ogg'
 
 /obj/item/stack/material/plastic
 	name = "plastic"
@@ -205,6 +209,7 @@
 	icon_state = "sheet-glass"
 	default_type = "glass"
 	icon_has_variants = TRUE
+	drop_sound = 'sound/items/drop/glass.ogg'
 
 /obj/item/stack/material/glass/reinforced
 	name = "reinforced glass"
