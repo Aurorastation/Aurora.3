@@ -13,8 +13,6 @@
 	max_hardware_size = 2
 	steel_sheet_cost = 10
 	light_strength = 4
-	max_damage = 300
-	broken_damage = 150
 	w_class = 5
 	is_holographic = TRUE
 
