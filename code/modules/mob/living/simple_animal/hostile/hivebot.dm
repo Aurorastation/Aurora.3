@@ -181,9 +181,6 @@
 
 /mob/living/simple_animal/hostile/hivebotbeacon/death()
 	..(null,"blows apart and erupts in a cloud of noxious smoke!")
-	var/datum/effect/effect/system/smoke_spread/S = new /datum/effect/effect/system/smoke_spread
-	S.set_up(5, 0, src.loc)
-	S.start()
 	new /obj/effect/decal/cleanable/greenglow(src.loc)
 	var/T = get_turf(src)
 	new /obj/effect/gibspawner/robot(T)
@@ -192,13 +189,13 @@
 	return
 
 /mob/living/simple_animal/hostile/hivebotbeacon/Destroy()
-	..()
 	for (var/mob/living/simple_animal/hostile/hivebot/latest_child in linked_bots)
 		latest_child.linked_parent = null
 	linked_bots.Cut()
 	var/datum/effect/effect/system/smoke_spread/S = new /datum/effect/effect/system/smoke_spread()
 	S.set_up(5, 0, src.loc)
 	S.start()
+	.=..()
 
 /mob/living/simple_animal/hostile/hivebotbeacon/think()
 	. =..()
@@ -232,9 +229,6 @@
 		visible_message("<span class='danger'>[src] disappears in a cloud of smoke!</span>")
 		playsound(src.loc, 'sound/effects/teleport.ogg', 25, 1)
 		new /obj/effect/decal/cleanable/greenglow(src.loc)
-		var/datum/effect/effect/system/smoke_spread/S = new /datum/effect/effect/system/smoke_spread()
-		S.set_up(5, 0, src.loc)
-		S.start()
 		qdel(src)
 		return
 
