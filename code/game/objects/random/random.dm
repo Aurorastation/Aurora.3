@@ -183,15 +183,15 @@
 		/obj/item/weapon/storage/pill_bottle/zoom = 2,
 		/obj/item/weapon/reagent_containers/glass/beaker/vial/random/toxin = 1,
 		/obj/item/weapon/contraband/poster = 5,
-		/obj/item/weapon/material/butterfly = 2,
+		/obj/item/weapon/material/knife/butterfly = 2,
 		/obj/item/weapon/material/butterflyblade = 3,
 		/obj/item/weapon/material/butterflyhandle = 3,
 		/obj/item/weapon/material/wirerod = 3,
 		/obj/item/weapon/melee/baton/cattleprod = 1,
-		/obj/item/weapon/material/hatchet/tacknife = 1,
+		/obj/item/weapon/material/knife/tacknife = 1,
 		/obj/item/weapon/material/kitchen/utensil/knife/boot = 2,
 		/obj/item/weapon/storage/secure/briefcase/money = 1,
-		/obj/item/weapon/material/butterfly/switchblade = 1,
+		/obj/item/weapon/material/knife/butterfly/switchblade = 1,
 		/obj/item/weapon/reagent_containers/syringe/drugs = 1,
 		/obj/item/weapon/reagent_containers/food/snacks/grown/mushroom/libertycap = 2,
 		/obj/item/weapon/reagent_containers/food/snacks/grown/ambrosiavulgaris = 2,
@@ -307,15 +307,22 @@
 	icon = 'icons/obj/toy.dmi'
 	icon_state = "nymphplushie"
 	spawnlist = list(
-		/obj/structure/plushie/ian,
-		/obj/structure/plushie/drone,
-		/obj/structure/plushie/carp,
-		/obj/structure/plushie/beepsky,
-		/obj/structure/plushie/ivancarp,
+		/obj/item/toy/plushie/ian,
+		/obj/item/toy/plushie/drone,
+		/obj/item/toy/plushie/carp,
+		/obj/item/toy/plushie/beepsky,
+		/obj/item/toy/plushie/ivancarp,
 		/obj/item/toy/plushie/nymph,
 		/obj/item/toy/plushie/mouse,
 		/obj/item/toy/plushie/kitten,
-		/obj/item/toy/plushie/lizard
+		/obj/item/toy/plushie/lizard,
+		/obj/item/toy/plushie/farwa,
+		/obj/item/toy/plushie/squid/green,
+		/obj/item/toy/plushie/squid/mint,
+		/obj/item/toy/plushie/squid/blue,
+		/obj/item/toy/plushie/squid/orange,
+		/obj/item/toy/plushie/squid/yellow,
+		/obj/item/toy/plushie/squid/pink
 	)
 
 /obj/random/smalltank
@@ -357,7 +364,7 @@
 		/obj/item/weapon/storage/backpack/hydroponics = 3,
 		/obj/item/weapon/storage/backpack/genetics = 3,
 		/obj/item/weapon/storage/backpack/virology = 3,
-		/obj/item/weapon/storage/backpack/chemistry = 3,
+		/obj/item/weapon/storage/backpack/pharmacy = 3,
 		/obj/item/weapon/storage/backpack/cloak = 2,
 		/obj/item/weapon/storage/backpack/syndie = 1,
 		/obj/item/weapon/storage/backpack/wizard = 1,
@@ -366,7 +373,7 @@
 		/obj/item/weapon/storage/backpack/satchel_eng = 3,
 		/obj/item/weapon/storage/backpack/satchel_med = 3,
 		/obj/item/weapon/storage/backpack/satchel_vir = 3,
-		/obj/item/weapon/storage/backpack/satchel_chem = 3,
+		/obj/item/weapon/storage/backpack/satchel_pharm = 3,
 		/obj/item/weapon/storage/backpack/satchel_gen = 3,
 		/obj/item/weapon/storage/backpack/satchel_tox = 3,
 		/obj/item/weapon/storage/backpack/satchel_sec = 3,
@@ -387,11 +394,11 @@
 		/obj/item/weapon/storage/backpack/duffel/tox = 3,
 		/obj/item/weapon/storage/backpack/duffel/sec = 3,
 		/obj/item/weapon/storage/backpack/duffel/gen = 3,
-		/obj/item/weapon/storage/backpack/duffel/chem = 3,
+		/obj/item/weapon/storage/backpack/duffel/pharm = 3,
 		/obj/item/weapon/storage/backpack/duffel/syndie = 1,
 		/obj/item/weapon/storage/backpack/duffel/wizard = 1,
 		/obj/item/weapon/storage/backpack/messenger = 2,
-		/obj/item/weapon/storage/backpack/messenger/chem = 2,
+		/obj/item/weapon/storage/backpack/messenger/pharm = 2,
 		/obj/item/weapon/storage/backpack/messenger/med = 2,
 		/obj/item/weapon/storage/backpack/messenger/viro = 2,
 		/obj/item/weapon/storage/backpack/messenger/tox = 2,
@@ -670,6 +677,7 @@
 	icon_state = "gift3"
 	problist = list(
 		/obj/item/clothing/glasses/meson = 1,
+		/obj/item/weapon/trap/animal = 0.8,
 		/obj/item/clothing/glasses/meson/prescription = 0.7,
 		/obj/item/clothing/glasses/material = 0.8,
 		/obj/item/clothing/glasses/sunglasses = 1.5,
@@ -729,7 +737,7 @@
 		/obj/item/clothing/shoes/clown_shoes = 0.1,
 		/obj/item/clothing/shoes/winter = 0.3,
 		/obj/item/clothing/suit/storage/hazardvest = 1,
-		/obj/item/clothing/suit/storage/leather_jacket/nanotrasen = 0.7,
+		/obj/item/clothing/suit/storage/toggle/leather_jacket/nanotrasen = 0.7,
 		/obj/item/clothing/suit/ianshirt = 0.5,
 		/obj/item/clothing/suit/syndicatefake = 0.6,
 		/obj/item/clothing/suit/imperium_monk = 0.4,
@@ -748,8 +756,8 @@
 		/obj/item/toy/balloon = 0.4,
 		/obj/item/weapon/haircomb = 0.5,
 		/obj/item/weapon/lipstick = 0.6,
-		/obj/item/weapon/material/knife/hook = 0.3,
-		/obj/item/weapon/material/hatchet/tacknife = 0.4,
+		/obj/item/weapon/material/hook = 0.3,
+		/obj/item/weapon/material/knife/tacknife = 0.4,
 		/obj/item/weapon/storage/fancy/cigarettes = 1.2,
 		/obj/item/weapon/storage/fancy/cigarettes/dromedaryco = 0.8,
 		/obj/item/weapon/storage/fancy/cigarettes/killthroat = 0.3,
@@ -896,6 +904,7 @@
 		/obj/item/trash/tastybread= 0.75,
 		/obj/item/trash/meatsnack = 0.5,
 		/obj/item/trash/maps = 0.5,
+		/obj/item/trash/tuna = 0.5,
 		/obj/effect/decal/cleanable/ash = 1.5,
 		/obj/effect/decal/cleanable/dirt = 2,
 		/obj/effect/decal/cleanable/flour = 1,
@@ -945,7 +954,6 @@
 		/obj/item/weapon/material/sword/katana,
 		/obj/item/weapon/material/sword/rapier,
 		/obj/item/weapon/material/sword/longsword,
-		/obj/item/weapon/material/sword/trench,
 		/obj/item/weapon/material/sword/sabre,
 		/obj/item/weapon/material/sword/axe,
 		/obj/item/weapon/material/sword/khopesh,
@@ -998,7 +1006,10 @@
 		/obj/item/eightball								= 11,
 		/obj/item/eightball/haunted						= 1,
 		/obj/item/eightball/broken						= 1,
-		/obj/item/weapon/spirit_board					= 5
+		/obj/item/weapon/spirit_board					= 5,
+		/obj/item/device/laser_pointer						= 1
+
+
 	)
 
 /obj/random/arcade/orion
@@ -1017,6 +1028,7 @@
 		/obj/item/toy/syndicateballoon					= 10,
 		/obj/item/toy/nanotrasenballoon					= 5,
 		/obj/item/toy/katana							= 11,
+		/obj/random/plushie								= 55,
 		/obj/item/weapon/storage/belt/champion			= 11,
 		/obj/item/weapon/pen/invisible					= 10,
 		/obj/item/weapon/grenade/fake					= 7,

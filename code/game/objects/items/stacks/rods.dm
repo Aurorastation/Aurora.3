@@ -7,7 +7,9 @@ var/global/list/datum/stack_recipe/rod_recipes = list(
 	new /datum/stack_recipe("screwdriver", /obj/item/weapon/screwdriver, 1, time = 12),
 	new /datum/stack_recipe("wrench", /obj/item/weapon/wrench, 1, time = 6),
 	new /datum/stack_recipe("spade", /obj/item/weapon/shovel/spade, 2, time = 12),
-	new /datum/stack_recipe("bolt", /obj/item/weapon/arrow, 1, time = 6)
+	new /datum/stack_recipe("bolt", /obj/item/weapon/arrow, 1, time = 6),
+	new /datum/stack_recipe("small animal trap", /obj/item/weapon/trap/animal, 6, time = 10),
+	new /datum/stack_recipe("medium animal trap", /obj/item/weapon/trap/animal/medium, 12, time = 20)
 )
 
 /obj/item/stack/rods
@@ -50,11 +52,11 @@ var/global/list/datum/stack_recipe/rod_recipes = list(
 
 /obj/item/stack/rods/attackby(obj/item/W as obj, mob/user as mob)
 	..()
-	if (iswelder(W))
+	if (W.iswelder())
 		var/obj/item/weapon/weldingtool/WT = W
 
 		if(get_amount() < 2)
-			user << "<span class='warning'>You need at least two rods to do this.</span>"
+			to_chat(user, "<span class='warning'>You need at least two rods to do this.</span>")
 			return
 
 		if(WT.remove_fuel(0,user))

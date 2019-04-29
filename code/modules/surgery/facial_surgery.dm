@@ -21,7 +21,7 @@
 /datum/surgery_step/generic/prepare_face
 	allowed_tools = list(
 	/obj/item/weapon/retractor = 100,
-	/obj/item/weapon/material/hatchet/tacknife = 75
+	/obj/item/weapon/material/knife/tacknife = 75
 	)
 
 	min_duration = 90
@@ -68,8 +68,9 @@
 
 	end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 		var/obj/item/organ/external/head/head = target.get_organ(target_zone)
-		if(head.disfigured)
+		if(head.disfigured || (HUSK in target.mutations))
 			head.disfigured = FALSE
+			target.mutations.Remove(HUSK)
 			user.visible_message("[user] successfully restores [target]'s appearance!", "<span class='notice'>You successfully restore [target]'s appearance.</span>")
 
 		var/getName = sanitize(input(user, "What is your patient's new identity?", "Name change") as null|text, MAX_NAME_LEN)
@@ -167,7 +168,7 @@
 /datum/surgery_step/robotics/face/prepare_face
 	allowed_tools = list(
 	/obj/item/weapon/retractor = 100,
-	/obj/item/weapon/material/hatchet/tacknife = 75
+	/obj/item/weapon/material/knife/tacknife = 75
 	)
 
 	min_duration = 90

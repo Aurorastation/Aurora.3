@@ -94,7 +94,7 @@ var/global/list/additional_antag_types = list()
 			message_admins("Admin [key_name_admin(usr)] is debugging the [antag.role_text] template.")
 	else if(href_list["remove_antag_type"])
 		if(antag_tags && (href_list["remove_antag_type"] in antag_tags))
-			usr << "Cannot remove core mode antag type."
+			to_chat(usr, "Cannot remove core mode antag type.")
 			return
 		var/datum/antagonist/antag = all_antag_types[href_list["remove_antag_type"]]
 		if(antag_templates && antag_templates.len && antag && (antag in antag_templates) && (antag.id in additional_antag_types))
@@ -124,9 +124,11 @@ var/global/list/additional_antag_types = list()
 		usr.client.holder.show_game_mode(usr)
 
 /datum/game_mode/proc/announce() //to be called when round starts
-	world << "<B>The current game mode is [capitalize(name)]!</B>"
-	if(round_description) world << "[round_description]"
-	if(round_autoantag) world << "Antagonists will be added to the round automagically as needed."
+	to_world("<B>The current game mode is [capitalize(name)]!</B>")
+	if(round_description)
+		to_world("[round_description]")
+	if(round_autoantag)
+		to_world("Antagonists will be added to the round automagically as needed.")
 	if(antag_templates && antag_templates.len)
 		var/antag_summary = "<b>Possible antagonist types:</b> "
 		var/i = 1
@@ -140,7 +142,7 @@ var/global/list/additional_antag_types = list()
 			i++
 		antag_summary += "."
 		if(antag_templates.len > 1 && !SSticker.hide_mode)
-			world << "[antag_summary]"
+			to_world("[antag_summary]")
 		else
 			message_admins("[antag_summary]")
 
@@ -386,7 +388,7 @@ var/global/list/additional_antag_types = list()
 		text += "There were <b>no survivors</b> (<b>[ghosts] ghosts</b>)."
 
 		discord_text += "There were **no survivors** ([ghosts] ghosts)."
-	world << text
+	to_world(text)
 
 	discord_bot.send_to_announce(discord_text)
 	post_webhook_event(WEBHOOK_ROUNDEND, list("survivours"=surviving_total, "escaped"=escaped_total, "ghosts"=ghosts, "gamemode"=name, "gameid"=game_id, "antags"=antag_text))
@@ -557,7 +559,7 @@ var/global/list/additional_antag_types = list()
 	//New message handling
 	post_comm_message("Cent. Com. Status Summary", intercepttext)
 
-	world << sound('sound/AI/commandreport.ogg')
+	to_world(sound('sound/AI/commandreport.ogg'))
 
 /datum/game_mode/proc/get_players_for_role(var/role, var/antag_id)
 	var/list/players = list()
@@ -675,7 +677,7 @@ proc/display_roundstart_logout_report()
 
 	for(var/mob/M in mob_list)
 		if(M.client && M.client.holder)
-			M << msg
+			to_chat(M, msg)
 
 proc/get_nt_opposed()
 	var/list/dudes = list()
@@ -691,13 +693,7 @@ proc/get_nt_opposed()
 //Announces objectives/generic antag text.
 /proc/show_generic_antag_text(var/datum/mind/player)
 	if(player.current)
-		player.current << \
-		"You are an antagonist! <font color=blue>Within the rules,</font> \
-		try to act as an opposing force to the crew. Further RP and try to make sure \
-		other players have <i>fun</i>! If you are confused or at a loss, always adminhelp, \
-		and before taking extreme actions, please try to also contact the administration! \
-		Think through your actions and make the roleplay immersive! <b>Please remember all \
-		rules aside from those without explicit exceptions apply to antagonists.</b>"
+		to_chat(player.current, "You are an antagonist! <font color=blue>Within the rules,</font> try to act as an opposing force to the crew. Further RP and try to make sure other players have <i>fun</i>! If you are confused or at a loss, always adminhelp, and before taking extreme actions, please try to also contact the administration! Think through your actions and make the roleplay immersive! <b>Please remember all rules aside from those without explicit exceptions apply to antagonists.</b>")
 
 /proc/show_objectives(var/datum/mind/player)
 
@@ -708,9 +704,9 @@ proc/get_nt_opposed()
 		return
 
 	var/obj_count = 1
-	player.current << "<span class='notice'>Your current objectives:</span>"
+	to_chat(player.current, "<span class='notice'>Your current objectives:</span>")
 	for(var/datum/objective/objective in player.objectives)
-		player.current << "<B>Objective #[obj_count]</B>: [objective.explanation_text]"
+		to_chat(player.current, "<B>Objective #[obj_count]</B>: [objective.explanation_text]")
 		obj_count++
 
 /mob/verb/check_round_info()
@@ -718,17 +714,17 @@ proc/get_nt_opposed()
 	set category = "OOC"
 
 	if(!SSticker.mode)
-		usr << "Something is terribly wrong; there is no gametype."
+		to_chat(usr, "Something is terribly wrong; there is no gametype.")
 		return
 
 	if(!SSticker.hide_mode)
-		usr << "<b>The roundtype is [capitalize(SSticker.mode.name)]</b>"
+		to_chat(usr, "<b>The roundtype is [capitalize(SSticker.mode.name)]</b>")
 		if(SSticker.mode.round_description)
-			usr << "<i>[SSticker.mode.round_description]</i>"
+			to_chat(usr, "<i>[SSticker.mode.round_description]</i>")
 		if(SSticker.mode.extended_round_description)
-			usr << "[SSticker.mode.extended_round_description]"
+			to_chat(usr, "[SSticker.mode.extended_round_description]")
 	else
-		usr << "<i>Shhhh</i>. It's a secret."
+		to_chat(usr, "<i>Shhhh</i>. It's a secret.")
 	return
 
 /mob/verb/check_gamemode_probability()

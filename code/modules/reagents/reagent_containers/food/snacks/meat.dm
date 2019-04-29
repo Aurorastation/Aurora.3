@@ -18,7 +18,7 @@
 		new /obj/item/weapon/reagent_containers/food/snacks/rawcutlet(src)
 		new /obj/item/weapon/reagent_containers/food/snacks/rawcutlet(src)
 		new /obj/item/weapon/reagent_containers/food/snacks/rawcutlet(src)
-		user << "You cut the meat into thin strips."
+		to_chat(user, "You cut the meat into thin strips.")
 		qdel(src)
 	else
 		..()
@@ -91,3 +91,24 @@
 	name = "snow strider meat"
 	desc = "A slab of nav'twir's meat, an animal native from Adhomai."
 	icon_state = "adhomai_meat"
+
+/obj/item/weapon/reagent_containers/food/snacks/meat/mice
+	name = "mice meat"
+	icon_state = "chickenbreast"
+	desc = "You have reached the epitome of poorness: eating the station's vermin."
+
+
+/obj/item/weapon/reagent_containers/food/snacks/meat/mice/Initialize()
+	. = ..()
+	reagents.add_reagent("protein", 5)
+	reagents.add_reagent("rattoxin", 1)
+	src.bitesize = 1.5
+
+/obj/item/weapon/reagent_containers/food/snacks/meat/dionanymph
+	name = "diona nymph meat"
+	desc = "A slab of weird green meat."
+	icon_state = "plantmeat"
+
+/obj/item/weapon/reagent_containers/food/snacks/meat/dionanymph/Initialize()
+	. = ..()
+	reagents.add_reagent("protein", 6)

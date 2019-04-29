@@ -6,42 +6,20 @@
 	name = "Memetic Anomaly"
 	config_tag = "meme"
 	required_players = 3
-	//restricted_jobs = list("AI", "Cyborg")
-	//recommended_enemies = 2 // need at least a meme and a host
 	votable = 0 // temporarily disable this mode for voting
 	end_on_antag_death = 1
 
 	var/var/list/datum/mind/first_hosts = list()
 	var/var/list/assigned_hosts = list()
-/* no objectives
-	var/const/prob_int_murder_target = 50 // intercept names the assassination target half the time
-	var/const/prob_right_murder_target_l = 25 // lower bound on probability of naming right assassination target
-	var/const/prob_right_murder_target_h = 50 // upper bound on probability of naimg the right assassination target
-
-	var/const/prob_int_item = 50 // intercept names the theft target half the time
-	var/const/prob_right_item_l = 25 // lower bound on probability of naming right theft target
-	var/const/prob_right_item_h = 50 // upper bound on probability of naming the right theft target
-
-	var/const/prob_int_sab_target = 50 // intercept names the sabotage target half the time
-	var/const/prob_right_sab_target_l = 25 // lower bound on probability of naming right sabotage target
-	var/const/prob_right_sab_target_h = 50 // upper bound on probability of naming right sabotage target
-
-	var/const/prob_right_killer_l = 25 //lower bound on probability of naming the right operative
-	var/const/prob_right_killer_h = 50 //upper bound on probability of naming the right operative
-	var/const/prob_right_objective_l = 25 //lower bound on probability of determining the objective correctly
-	var/const/prob_right_objective_h = 50 //upper bound on probability of determining the objective correctly
-*/
-	//var/const/waittime_l = 600 //lower bound on time before intercept arrives (in tenths of seconds)
-	//var/const/waittime_h = 1800 //upper bound on time before intercept arrives (in tenths of seconds)
 
 /datum/game_mode/meme/announce()
-	world << "<B>The current game mode is - Meme!</B>"
-	world << "<B>An unknown creature has infested the mind of a crew member. Find and destroy it by any means necessary.</B>"
+	to_world("<B>The current game mode is - Meme!</B>")
+	to_world("<B>An unknown creature has infested the mind of a crew member. Find and destroy it by any means necessary.</B>")
 
 /datum/game_mode/meme/can_start()
-	
+
 	. = ..()
-	
+
 	if(. != "true")
 		return .
 
@@ -104,31 +82,9 @@
 	..()
 	return
 
-/* no objectives
-/datum/game_mode/proc/forge_meme_objectives(var/datum/mind/meme, var/datum/mind/first_host)
-	if (config.objectives_disabled)
-		return
-
-	// meme always needs to attune X hosts
-	var/datum/objective/meme_attune/attune_objective = new
-	attune_objective.owner = meme
-	attune_objective.gen_amount_goal(3,6)
-	meme.objectives += attune_objective
-
-	// generate some random objectives, use standard traitor objectives
-	var/job = first_host.assigned_role
-
-	for(var/datum/objective/o in SelectObjectives(job, meme))
-		o.owner = meme
-		meme.objectives += o
-
-	greet_meme(meme)
-
-	return
-*/
 /datum/game_mode/proc/greet_meme(var/datum/mind/meme, var/you_are=1)
 	if (you_are)
-		meme.current << "<span class='danger'>You are a meme!</span>"
+		to_chat(meme.current, "<span class='danger'>You are a meme!</span>")
 	show_objectives(meme)
 	return
 

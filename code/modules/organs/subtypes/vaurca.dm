@@ -21,15 +21,39 @@
 /obj/item/organ/eyes/vaurca
 	icon_state = "eyes_vaurca"
 
+/obj/item/organ/eyes/vaurca/flash_act()
+	if(!owner)
+		return
+
+	to_chat(owner, "<span class='warning'>Your eyes burn with the intense light of the flash!</span>")
+	owner.Weaken(10)
+	take_damage(rand(10, 11))
+
+	if(damage > 12)
+		owner.eye_blurry += rand(3,6)
+
+	if(damage >= min_broken_damage)
+		owner.sdisabilities |= BLIND
+
+	else if(damage >= min_bruised_damage)
+		owner.eye_blind = 5
+		owner.eye_blurry = 5
+		owner.disabilities |= NEARSIGHTED
+		addtimer(CALLBACK(owner, /mob/.proc/reset_nearsighted), 100)
+
 /obj/item/organ/kidneys/vaurca/robo
 	icon_state = "kidney_vaurca"
 	organ_tag = "mechanical kidneys"
 	robotic = 2
+	robotic_name = null
+	robotic_sprite = null
 
 /obj/item/organ/liver/vaurca/robo
 	icon_state = "liver_vaurca"
 	organ_tag = "mechanical liver"
 	robotic = 2
+	robotic_name = null
+	robotic_sprite = null
 
 /obj/item/organ/liver/vaurca
 	icon_state = "liver_vaurca"
@@ -62,23 +86,23 @@ obj/item/organ/vaurca/neuralsocket/process()
 	if (is_broken())
 		if (all_languages[LANGUAGE_VAURCA] in owner.languages)
 			owner.remove_language(LANGUAGE_VAURCA)
-			owner << "<span class='warning'>Your mind suddenly grows dark as the unity of the Hive is torn from you.</span>"
+			to_chat(owner, "<span class='warning'>Your mind suddenly grows dark as the unity of the Hive is torn from you.</span>")
 	else
 		if (!(all_languages[LANGUAGE_VAURCA] in owner.languages))
 			owner.add_language(LANGUAGE_VAURCA)
-			owner << "<span class='notice'> Your mind expands, and your thoughts join the unity of the Hivenet.</span>"
+			to_chat(owner, "<span class='notice'> Your mind expands, and your thoughts join the unity of the Hivenet.</span>")
 	..()
 
 /obj/item/organ/vaurca/neuralsocket/replaced(var/mob/living/carbon/human/target)
 	if (!(all_languages[LANGUAGE_VAURCA] in owner.languages))
 		owner.add_language(LANGUAGE_VAURCA)
-		owner << "<span class='notice'> Your mind expands, and your thoughts join the unity of the Hivenet.</span>"
+		to_chat(owner, "<span class='notice'> Your mind expands, and your thoughts join the unity of the Hivenet.</span>")
 	..()
 
 /obj/item/organ/vaurca/neuralsocket/removed(var/mob/living/carbon/human/target)
 	if(all_languages[LANGUAGE_VAURCA] in target.languages)
 		target.remove_language(LANGUAGE_VAURCA)
-		target << "<span class='warning'>Your mind suddenly grows dark as the unity of the Hive is torn from you.</span>"
+		to_chat(target, "<span class='warning'>Your mind suddenly grows dark as the unity of the Hive is torn from you.</span>")
 	..()
 
 /obj/item/organ/vaurca/preserve
@@ -133,7 +157,7 @@ obj/item/organ/vaurca/neuralsocket/process()
 				descriptive = "room temperature"
 			else
 				descriptive = "cold"
-		user << "<span class='notice'>\The [src] feels [descriptive].</span>"
+		to_chat(user, "<span class='notice'>\The [src] feels [descriptive].</span>")
 
 /obj/item/organ/vaurca/preserve/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	..()
@@ -146,14 +170,14 @@ obj/item/organ/vaurca/neuralsocket/process()
 		manipulated_by = user.real_name			//This person is aware of the contents of the tank.
 		var/total_moles = air_contents.total_moles
 
-		user << "<span class='notice'>Results of analysis of \icon[icon]</span>"
+		to_chat(user, "<span class='notice'>Results of analysis of \icon[icon]</span>")
 		if (total_moles>0)
-			user << "<span class='notice'>Pressure: [round(pressure,0.1)] kPa</span>"
+			to_chat(user, "<span class='notice'>Pressure: [round(pressure,0.1)] kPa</span>")
 			for(var/g in air_contents.gas)
-				user << "<span class='notice'>[gas_data.name[g]]: [(round(air_contents.gas[g] / total_moles) * 100)]%</span>"
-			user << "<span class='notice'>Temperature: [round(air_contents.temperature-T0C)]&deg;C</span>"
+				to_chat(user, "<span class='notice'>[gas_data.name[g]]: [(round(air_contents.gas[g] / total_moles) * 100)]%</span>")
+			to_chat(user, "<span class='notice'>Temperature: [round(air_contents.temperature-T0C)]&deg;C</span>")
 		else
-			user << "<span class='notice'>Tank is empty!</span>"
+			to_chat(user, "<span class='notice'>Tank is empty!</span>")
 		src.add_fingerprint(user)
 	else if (istype(W,/obj/item/latexballon))
 		var/obj/item/latexballon/LB = W
@@ -239,7 +263,7 @@ obj/item/organ/vaurca/neuralsocket/process()
 			if(location.internal == src)
 				location.internal = null
 				location.internals.icon_state = "internal0"
-				usr << "<span class='notice'>You close the tank release valve.</span>"
+				to_chat(usr, "<span class='notice'>You close the tank release valve.</span>")
 				if (location.internals)
 					location.internals.icon_state = "internal0"
 			else
@@ -254,11 +278,11 @@ obj/item/organ/vaurca/neuralsocket/process()
 
 				if(can_open_valve)
 					location.internal = src
-					usr << "<span class='notice'>You open \the [src] valve.</span>"
+					to_chat(usr, "<span class='notice'>You open \the [src] valve.</span>")
 					if (location.internals)
 						location.internals.icon_state = "internal1"
 				else
-					usr << "<span class='notice'>You need something to connect to \the [src].</span>"
+					to_chat(usr, "<span class='notice'>You need something to connect to \the [src].</span>")
 
 	src.add_fingerprint(usr)
 	return 1
@@ -282,7 +306,7 @@ obj/item/organ/vaurca/neuralsocket/process()
 
 	var/tank_pressure = air_contents.return_pressure()
 	if((tank_pressure < distribute_pressure) && prob(5))
-		owner << "<span class='warning'>There is a buzzing in your [parent_organ].</span>"
+		to_chat(owner, "<span class='warning'>There is a buzzing in your [parent_organ].</span>")
 
 	var/moles_needed = distribute_pressure*volume_to_return/(R_IDEAL_GAS_EQUATION*air_contents.temperature)
 
@@ -342,3 +366,36 @@ obj/item/organ/vaurca/neuralsocket/process()
 				return
 			var/datum/gas_mixture/leaked_gas = air_contents.remove_ratio(0.25)
 			T.assume_air(leaked_gas)
+
+/obj/item/organ/external/chest/vaurca
+	cannot_break = TRUE
+
+/obj/item/organ/external/groin/vaurca
+	cannot_break = TRUE
+
+/obj/item/organ/external/arm/vaurca
+	cannot_break = TRUE
+
+/obj/item/organ/external/arm/right/vaurca
+	cannot_break = TRUE
+
+/obj/item/organ/external/leg/vaurca
+	cannot_break = TRUE
+
+/obj/item/organ/external/leg/right/vaurca
+	cannot_break = TRUE
+
+/obj/item/organ/external/foot/vaurca
+	cannot_break = TRUE
+
+/obj/item/organ/external/foot/right/vaurca
+	cannot_break = TRUE
+
+/obj/item/organ/external/hand/vaurca
+	cannot_break = TRUE
+
+/obj/item/organ/external/hand/right/vaurca
+	cannot_break = TRUE
+
+/obj/item/organ/external/head/vaurca
+	cannot_break = TRUE

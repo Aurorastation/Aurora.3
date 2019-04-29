@@ -106,7 +106,7 @@
 		slot_r_hand_str = "atmos_helm"
 		)
 	armor = list(melee = 40, bullet = 5, laser = 20,energy = 5, bomb = 35, bio = 100, rad = 50)
-	max_heat_protection_temperature = FIRE_HELMET_MAX_HEAT_PROTECTION_TEMPERATURE
+	max_heat_protection_temperature = FIRE_HELMET_MAX_HEAT_PROTECTION_TEMPERATURE + 10000 // It is a suit designed for fire, enclosed
 	light_overlay = "helmet_light_dual"
 
 /obj/item/clothing/suit/space/void/atmos
@@ -119,7 +119,7 @@
 		slot_r_hand_str = "atmos_hardsuit"
 	)
 	armor = list(melee = 40, bullet = 5, laser = 20,energy = 5, bomb = 35, bio = 100, rad = 50)
-	max_heat_protection_temperature = FIRESUIT_MAX_HEAT_PROTECTION_TEMPERATURE
+	max_heat_protection_temperature = FIRESUIT_MAX_HEAT_PROTECTION_TEMPERATURE + 10000 // It is a suit designed for fire, enclosed
 
 //Head of Security
 /obj/item/clothing/head/helmet/space/void/hos

@@ -19,7 +19,7 @@
 	set category = "Object"
 
 	if(show_above_suit == -1)
-		usr << "<span class='notice'>\The [src] cannot be worn above your suit!</span>"
+		to_chat(usr, "<span class='notice'>\The [src] cannot be worn above your suit!</span>")
 		return
 	show_above_suit = !show_above_suit
 	update_icon()
@@ -145,7 +145,7 @@
 		/obj/item/weapon/melee,
 		/obj/item/weapon/gun/projectile/sec,
 		/obj/item/taperoll/police,
-		/obj/item/weapon/material/sword/trench,
+		/obj/item/weapon/material/knife/trench,
 		/obj/item/weapon/shield/energy,
 		/obj/item/weapon/shield/riot/tact,
 		/obj/item/device/holowarrant
@@ -214,7 +214,7 @@
 		/obj/item/weapon/plastique,
 		/obj/item/weapon/gun/projectile/pistol,
 		/obj/item/weapon/gun/energy/crossbow,
-		/obj/item/weapon/material/sword/trench,
+		/obj/item/weapon/material/knife/trench,
 		/obj/item/ammo_casing/a145,
 		/obj/item/device/radio/uplink,
 		/obj/item/weapon/card/emag,

@@ -1,10 +1,5 @@
 /mob/living/silicon/robot/drone/say(var/message)
 	if(local_transmit)
-		if (src.client)
-			if(client.prefs.muted & MUTE_IC)
-				src << "You cannot send IC messages (muted)."
-				return 0
-
 		message = sanitize(message)
 
 		if (stat == 2)
@@ -31,7 +26,7 @@
 
 		for(var/mob/living/silicon/D in listeners)
 			if(D.client && D.local_transmit)
-				D << "<b>[src]</b> transmits, \"[message]\""
+				to_chat(D, "<b>[src]</b> transmits, \"[message]\"")
 
 		for (var/mob/M in player_list)
 			if (isnull(M.client))
@@ -39,6 +34,6 @@
 			if (istype(M, /mob/abstract/new_player))
 				continue
 			else if(M.stat == 2 &&  M.client.prefs.toggles & CHAT_GHOSTEARS)
-				M << "<b>[src]</b> transmits, \"[message]\""
+				to_chat(M, "<b>[src]</b> transmits, \"[message]\"")
 		return 1
 	return ..(message, 0)

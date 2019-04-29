@@ -50,7 +50,7 @@
 
 	to_chat(T, "<span class='warning'>You are unable to resist or even move. Your mind blanks as you're being fed upon.</span>")
 
-	playsound(src.loc, 'sound/effects/drain_blood.ogg', 50, 1)
+	playsound(src.loc, 'sound/effects/drain_blood_new.ogg', 50, 1)
 
 	T.paralysis = 3400
 
@@ -679,6 +679,10 @@
 		return
 
 	var/mob/living/carbon/human/T = G.affecting
+	if(isipc(T))
+		to_chat(src, "<span class='warning'>[T] is not a creature you can enthrall.</span>")
+		return
+
 	if (!istype(T))
 		to_chat(src, "<span class='warning'>[T] is not a creature you can enthrall.</span>")
 		return

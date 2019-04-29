@@ -9,7 +9,6 @@
 	spawn_positions = 1
 	supervisors = "the captain"
 	selection_color = "#ffddff"
-	idtype = /obj/item/weapon/card/id/silver
 	req_admin_notify = 1
 	economic_modifier = 15
 	access = list(access_rd, access_heads, access_tox, access_genetics, access_morgue, access_eva, access_external_airlocks,
@@ -22,23 +21,24 @@
 			            access_RC_announce, access_keycard_auth, access_tcomsat, access_gateway, access_xenoarch, access_network, access_maint_tunnels)
 	minimal_player_age = 14
 	ideal_character_age = 50
+	outfit = /datum/outfit/job/rd
 
-	bag_type = /obj/item/weapon/storage/backpack/toxins
-	satchel_type = /obj/item/weapon/storage/backpack/satchel_tox
-	duffel_type = /obj/item/weapon/storage/backpack/duffel/tox
-	messenger_bag_type = /obj/item/weapon/storage/backpack/messenger/tox
+/datum/outfit/job/rd
+	name = "Research Director"
+	jobtype = /datum/job/rd
 
-	equip(var/mob/living/carbon/human/H)
-		if(!H)
-			return FALSE
-		H.equip_to_slot_or_del(new /obj/item/device/radio/headset/heads/rd(H), slot_l_ear)
-		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/brown(H), slot_shoes)
-		H.equip_to_slot_or_del(new /obj/item/clothing/under/rank/research_director(H), slot_w_uniform)
-		H.equip_to_slot_or_del(new /obj/item/device/pda/heads/rd(H), slot_belt)
-		H.equip_to_slot_or_del(new /obj/item/weapon/clipboard(H), slot_l_hand)
-		H.equip_to_slot_or_del(new /obj/item/clothing/suit/storage/toggle/labcoat(H), slot_wear_suit)
-		return TRUE
+	uniform = /obj/item/clothing/under/rank/research_director
+	suit = /obj/item/clothing/suit/storage/toggle/labcoat/science
+	shoes = /obj/item/clothing/shoes/brown
+	l_ear = /obj/item/device/radio/headset/heads/rd
+	pda = /obj/item/device/pda/heads/rd
+	id = /obj/item/weapon/card/id/silver
+	l_hand = /obj/item/weapon/clipboard
 
+	backpack = /obj/item/weapon/storage/backpack/toxins
+	satchel = /obj/item/weapon/storage/backpack/satchel_tox
+	dufflebag = /obj/item/weapon/storage/backpack/duffel/tox
+	messengerbag = /obj/item/weapon/storage/backpack/messenger/tox
 
 
 /datum/job/scientist
@@ -57,21 +57,22 @@
 	alt_titles = list("Xenoarcheologist", "Anomalist", "Phoron Researcher")
 
 	minimal_player_age = 14
+	outfit = /datum/outfit/job/scientist
 
-	bag_type = /obj/item/weapon/storage/backpack/toxins
-	satchel_type = /obj/item/weapon/storage/backpack/satchel_tox
-	duffel_type = /obj/item/weapon/storage/backpack/duffel/tox
-	messenger_bag_type = /obj/item/weapon/storage/backpack/messenger/tox
+/datum/outfit/job/scientist
+	name = "Scientist"
+	jobtype = /datum/job/scientist
 
-	equip(var/mob/living/carbon/human/H)
-		if(!H)
-			return FALSE
-		H.equip_to_slot_or_del(new /obj/item/device/radio/headset/headset_sci(H), slot_l_ear)
-		H.equip_to_slot_or_del(new /obj/item/clothing/under/rank/scientist(H), slot_w_uniform)
-		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/white(H), slot_shoes)
-		H.equip_to_slot_or_del(new /obj/item/device/pda/science(H), slot_belt)
-		H.equip_to_slot_or_del(new /obj/item/clothing/suit/storage/toggle/labcoat/science(H), slot_wear_suit)
-		return TRUE
+	uniform = /obj/item/clothing/under/rank/scientist
+	suit = /obj/item/clothing/suit/storage/toggle/labcoat/science
+	shoes = /obj/item/clothing/shoes/white
+	l_ear = /obj/item/device/radio/headset/headset_sci
+	pda = /obj/item/device/pda/science
+
+	backpack = /obj/item/weapon/storage/backpack/toxins
+	satchel = /obj/item/weapon/storage/backpack/satchel_tox
+	dufflebag = /obj/item/weapon/storage/backpack/duffel/tox
+	messengerbag = /obj/item/weapon/storage/backpack/messenger/tox
 
 /datum/job/xenobiologist
 	title = "Xenobiologist"
@@ -90,21 +91,11 @@
 
 	minimal_player_age = 14
 
-	bag_type = /obj/item/weapon/storage/backpack/toxins
-	satchel_type = /obj/item/weapon/storage/backpack/satchel_tox
-	duffel_type = /obj/item/weapon/storage/backpack/duffel/tox
-	messenger_bag_type = /obj/item/weapon/storage/backpack/messenger/tox
+	outfit = /datum/outfit/job/scientist/xenobiologist
 
-	equip(var/mob/living/carbon/human/H)
-		if(!H)
-			return FALSE
-		H.equip_to_slot_or_del(new /obj/item/device/radio/headset/headset_sci(H), slot_l_ear)
-		H.equip_to_slot_or_del(new /obj/item/clothing/under/rank/scientist(H), slot_w_uniform)
-		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/white(H), slot_shoes)
-		H.equip_to_slot_or_del(new /obj/item/device/pda/science(H), slot_belt)
-		H.equip_to_slot_or_del(new /obj/item/clothing/suit/storage/toggle/labcoat/science(H), slot_wear_suit)
-
-		return TRUE
+/datum/outfit/job/scientist/xenobiologist
+	name = "Xenobiologist"
+	jobtype = /datum/job/xenobiologist
 
 /datum/job/roboticist
 	title = "Roboticist"
@@ -123,13 +114,46 @@
 
 	minimal_player_age = 7
 
-	equip(var/mob/living/carbon/human/H)
-		if(!H)
-			return FALSE
-		H.equip_to_slot_or_del(new /obj/item/device/radio/headset/headset_sci(H), slot_l_ear)
-		H.equip_to_slot_or_del(new /obj/item/clothing/under/rank/roboticist(H), slot_w_uniform)
-		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/black(H), slot_shoes)
-		H.equip_to_slot_or_del(new /obj/item/device/pda/roboticist(H), slot_l_store)
-		H.equip_to_slot_or_del(new /obj/item/weapon/storage/belt/utility/full(H), slot_belt)
-		H.equip_to_slot_or_del(new /obj/item/clothing/suit/storage/toggle/labcoat(H), slot_wear_suit)
-		return TRUE
+	outfit = /datum/outfit/job/roboticist
+
+/datum/outfit/job/roboticist
+	name = "Roboticist"
+	jobtype = /datum/job/roboticist
+
+	uniform = /obj/item/clothing/under/rank/roboticist
+	suit = /obj/item/clothing/suit/storage/toggle/labcoat
+	shoes = /obj/item/clothing/shoes/black
+	l_ear = /obj/item/device/radio/headset/headset_sci
+	pda = /obj/item/device/pda/roboticist
+	belt = /obj/item/weapon/storage/belt/utility/full
+
+	backpack = /obj/item/weapon/storage/backpack/toxins
+	satchel = /obj/item/weapon/storage/backpack/satchel_tox
+	dufflebag = /obj/item/weapon/storage/backpack/duffel/tox
+	messengerbag = /obj/item/weapon/storage/backpack/messenger/tox
+
+/datum/job/intern_sci
+	title = "Lab Assistant"
+	flag = INTERN_SCI
+	department_flag = MEDSCI
+	faction = "Station"
+	total_positions = 2
+	spawn_positions = 2
+	supervisors = "the Research Director"
+	selection_color = "#ffeeff"
+	access = list(access_research, access_tox)
+	minimal_access = list(access_research, access_tox)
+	outfit = /datum/outfit/job/intern_sci
+
+/datum/outfit/job/intern_sci
+	name = "Lab Assistant"
+	jobtype = /datum/job/intern_sci
+
+	uniform = /obj/item/clothing/under/rank/scientist
+	shoes = /obj/item/clothing/shoes/white
+	l_ear = /obj/item/device/radio/headset/headset_sci
+
+	backpack = /obj/item/weapon/storage/backpack/toxins
+	satchel = /obj/item/weapon/storage/backpack/satchel_tox
+	dufflebag = /obj/item/weapon/storage/backpack/duffel/tox
+	messengerbag = /obj/item/weapon/storage/backpack/messenger/tox

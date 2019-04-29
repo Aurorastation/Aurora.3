@@ -11,7 +11,7 @@
 	appliance = OVEN
 	fruit = list("apple" = 1)
 	reagents = list("pacid" = 5) //It dissolves the carapace. Still poisonous, though.
-	items = list(/obj/item/weapon/holder/diona)
+	items = list(/obj/item/weapon/reagent_containers/food/snacks/meat/dionanymph)
 	result = /obj/item/weapon/reagent_containers/food/snacks/dionaroast
 	reagent_mix = RECIPE_REAGENT_REPLACE //No eating polyacid
 
@@ -239,6 +239,16 @@
 	)
 	result = /obj/item/weapon/reagent_containers/food/snacks/tajaran_bread
 	reagent_mix = RECIPE_REAGENT_REPLACE
+
+/datum/recipe/hardbread
+	appliance = OVEN
+	reagents = list("spacespice" = 1)
+	items = list(
+		/obj/item/weapon/reagent_containers/food/snacks/tajaran_bread,
+		/obj/item/weapon/reagent_containers/food/snacks/tajaran_bread,
+		/obj/item/weapon/reagent_containers/food/snacks/tajaran_bread
+	)
+	result = /obj/item/weapon/reagent_containers/food/snacks/hardbread
 
 //Baked sweets:
 //---------------

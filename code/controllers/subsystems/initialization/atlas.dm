@@ -29,7 +29,7 @@ var/datum/controller/subsystem/atlas/SSatlas
 /datum/controller/subsystem/atlas/Initialize(timeofday)
 	// Quick sanity check.
 	if (world.maxx != WORLD_MIN_SIZE || world.maxy != WORLD_MIN_SIZE || world.maxz != 1)
-		world << "<span class='warning'>WARNING: Suspected pre-compiled map: things may break horribly!</span>"
+		to_world("<span class='warning'>WARNING: Suspected pre-compiled map: things may break horribly!</span>")
 		log_ss("atlas", "-- WARNING: Suspected pre-compiled map! --")
 
 	maploader = new
@@ -138,7 +138,7 @@ var/datum/controller/subsystem/atlas/SSatlas
 
 	admin_departments = list(
 		"[current_map.boss_name]",
-		"[current_map.system_name] Government", 
+		"[current_map.system_name] Government",
 		"Supply"
 	)
 
@@ -157,7 +157,7 @@ var/datum/controller/subsystem/atlas/SSatlas
 /datum/controller/subsystem/atlas/proc/OnMapload(datum/callback/callback)
 	if (!istype(callback))
 		CRASH("Invalid callback.")
-	
+
 	mapload_callbacks += callback
 
 /datum/controller/subsystem/atlas/proc/setup_spawnpoints()
@@ -184,7 +184,7 @@ var/datum/controller/subsystem/atlas/SSatlas
 
 	if (world.name != sname)
 		world.name = sname
-		world.log << "Set world.name to [sname]."
+		world.log <<  "Set world.name to [sname]."
 
 /proc/system_name()
 	ASSERT(current_map)

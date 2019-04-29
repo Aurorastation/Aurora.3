@@ -17,6 +17,7 @@
 	var/list/spray_sizes = list(1,3)
 	volume = 250
 	var/safety = 0
+	var/spray_sound = 'sound/effects/spray2.ogg'
 
 /obj/item/weapon/reagent_containers/spray/Initialize()
 	. = ..()
@@ -26,7 +27,7 @@
 	if(!usr || usr.stat || usr.lying || usr.restrained() || !Adjacent(usr))	return
 	safety = !safety
 	playsound(src.loc, 'sound/weapons/empty.ogg', 50, 1)
-	usr << "<span class = 'notice'>You twist the locking cap on the end of the nozzle. \The [src] is now [safety ? "locked" : "unlocked"].</span>"
+	to_chat(usr, "<span class = 'notice'>You twist the locking cap on the end of the nozzle. \The [src] is now [safety ? "locked" : "unlocked"].</span>")
 
 
 /obj/item/weapon/reagent_containers/spray/afterattack(atom/A as mob|obj, mob/user as mob, proximity)
@@ -51,17 +52,17 @@
 			return
 
 	if(reagents.total_volume < amount_per_transfer_from_this)
-		user << "<span class='notice'>\The [src] is empty!</span>"
+		to_chat(user, "<span class='notice'>\The [src] is empty!</span>")
 		return
 
 	if(safety)
 		playsound(src.loc, 'sound/weapons/empty.ogg', 25, 1)
-		user << "<span class='notice'>The safety is on!</span>"
+		to_chat(user, "<span class='notice'>The safety is on!</span>")
 		return
 
 	Spray_at(A, user, proximity)
 
-	playsound(src.loc, 'sound/effects/spray2.ogg', 50, 1, -6)
+	playsound(src.loc, spray_sound, 50, 1, -6)
 
 	if(reagents.has_reagent("sacid"))
 		message_admins("[key_name_admin(user)] fired sulphuric acid from \a [src].")
@@ -95,11 +96,11 @@
 		return
 	amount_per_transfer_from_this = next_in_list(amount_per_transfer_from_this, possible_transfer_amounts)
 	spray_size = next_in_list(spray_size, spray_sizes)
-	user << "<span class='notice'>You adjusted the pressure nozzle. You'll now use [amount_per_transfer_from_this] units per spray.</span>"
+	to_chat(user, "<span class='notice'>You adjusted the pressure nozzle. You'll now use [amount_per_transfer_from_this] units per spray.</span>")
 
 /obj/item/weapon/reagent_containers/spray/examine(mob/user)
 	if(..(user, 0) && loc == user)
-		user << "[round(reagents.total_volume)] units left."
+		to_chat(user, "[round(reagents.total_volume)] units left.")
 	return
 
 /obj/item/weapon/reagent_containers/spray/verb/empty()
@@ -111,7 +112,7 @@
 	if (alert(usr, "Are you sure you want to empty that?", "Empty Bottle:", "Yes", "No") != "Yes")
 		return
 	if(isturf(usr.loc))
-		usr << "<span class='notice'>You empty \the [src] onto the floor.</span>"
+		to_chat(usr, "<span class='notice'>You empty \the [src] onto the floor.</span>")
 		reagents.splash(usr.loc, reagents.total_volume)
 
 //space cleaner
@@ -153,19 +154,19 @@
 
 /obj/item/weapon/reagent_containers/spray/pepper/examine(mob/user)
 	if(..(user, 1))
-		user << "The safety is [safety ? "on" : "off"]."
+		to_chat(user, "The safety is [safety ? "on" : "off"].")
 
 /obj/item/weapon/reagent_containers/spray/pepper/AltClick()
 	return //No altclick functionality for pepper spray
 
 /obj/item/weapon/reagent_containers/spray/pepper/attack_self(var/mob/user)
 	safety = !safety
-	user << "<span class = 'notice'>You switch the safety [safety ? "on" : "off"].</span>"
+	to_chat(user, "<span class = 'notice'>You switch the safety [safety ? "on" : "off"].</span>")
 	playsound(src.loc, 'sound/weapons/empty.ogg', 50, 1)
 
 /obj/item/weapon/reagent_containers/spray/pepper/Spray_at(atom/A as mob|obj, mob/user)
 	if(safety)
-		user << "<span class = 'warning'>The safety is on!</span>"
+		to_chat(user, "<span class = 'warning'>The safety is on!</span>")
 		return
 	..()
 

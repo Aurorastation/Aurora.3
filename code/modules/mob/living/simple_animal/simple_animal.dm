@@ -1,6 +1,6 @@
 /mob/living/simple_animal
 	name = "animal"
-	icon = 'icons/mob/animal.dmi'
+	icon = 'icons/mob/npc/animal.dmi'
 	health = 20
 	maxHealth = 20
 
@@ -107,6 +107,23 @@
 /mob/living/simple_animal/proc/beg(var/atom/thing, var/atom/holder)
 	visible_emote("gazes longingly at [holder]'s [thing]",0)
 
+/mob/living/simple_animal/proc/steal_food(var/obj/item/weapon/reagent_containers/food/snacks/F, var/mob/living/carbon/human/H)
+	if(!F || !H)
+		return
+	H.visible_message(
+						span("warning", "\the [src] grabs \the [F] with its teeth and steals it from \the [H] hands. Taking a bite and dropping it on the floor."),
+						span("warning", "\the [src] grabs \the [F] with its teeth and steals it from your hands. Taking a bite and dropping it on the floor.")
+	)
+	H.drop_from_inventory(F)
+	UnarmedAttack(F)
+	if (get_turf(F) == loc)
+		set_dir(pick(NORTH, SOUTH, EAST, WEST, NORTH, NORTH))//Face a random direction when eating, but mostly upwards
+
+/mob/living/simple_animal/proc/update_nutrition_stats()
+	nutrition_step = mob_size * 0.03 * metabolic_factor
+	bite_factor = mob_size * 0.3
+	max_nutrition *= 1 + (nutrition_step*4)//Max nutrition scales faster than costs, so bigger creatures eat less often
+
 /mob/living/simple_animal/Initialize()
 	. = ..()
 	seek_move_delay = (1 / seek_speed) * 10	//number of ds between moves
@@ -115,9 +132,7 @@
 	verbs -= /mob/verb/observe
 	health = maxHealth
 	if (mob_size)
-		nutrition_step = mob_size * 0.03 * metabolic_factor
-		bite_factor = mob_size * 0.3
-		max_nutrition *= 1 + (nutrition_step*4)//Max nutrition scales faster than costs, so bigger creatures eat less often
+		update_nutrition_stats()
 		reagents = new/datum/reagents(stomach_size_mult*mob_size, src)
 	else
 		reagents = new/datum/reagents(20, src)
@@ -148,17 +163,17 @@
 
 	if (hunger_enabled)
 		if (!nutrition)
-			user << "<span class='danger'>It looks starving!</span>"
+			to_chat(user, "<span class='danger'>It looks starving!</span>")
 		else if (nutrition < max_nutrition *0.5)
-			user << "<span class='notice'>It looks hungry.</span>"
+			to_chat(user, "<span class='notice'>It looks hungry.</span>")
 		else if ((reagents.total_volume > 0 && nutrition > max_nutrition *0.75) || nutrition > max_nutrition *0.9)
-			user << "It looks full and contented."
+			to_chat(user, "It looks full and contented.")
 	if (stat == DEAD)
-		user << "<span class='danger'>It looks dead.</span>"
+		to_chat(user, "<span class='danger'>It looks dead.</span>")
 	if (health < maxHealth * 0.5)
-		user << "<span class='danger'>It looks badly wounded.</span>"
+		to_chat(user, "<span class='danger'>It looks badly wounded.</span>")
 	else if (health < maxHealth)
-		user << "<span class='warning'>It looks wounded.</span>"
+		to_chat(user, "<span class='warning'>It looks wounded.</span>")
 
 
 /mob/living/simple_animal/Life()
@@ -177,6 +192,7 @@
 	handle_paralysed()
 	update_canmove()
 	handle_supernatural()
+	autoseek_food = nutrition / max_nutrition <= 0.05 ? TRUE : initial(autoseek_food)
 	process_food()
 
 	//Movement
@@ -292,7 +308,7 @@
 			adjustNutritionLoss(nutrition_step)//Bigger animals get hungry faster
 		else
 			if (prob(3))
-				src << "You feel hungry..."
+				to_chat(src, "You feel hungry...")
 
 
 		if (!reagents || !reagents.total_volume)
@@ -400,13 +416,16 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 		poke()
 
 	else if(meat_type && (stat == DEAD))	//if the animal has a meat, and if it is dead.
-		if(istype(O, /obj/item/weapon/material/knife) || istype(O, /obj/item/weapon/material/kitchen/utensil/knife ))
+		if(istype(O, /obj/item/weapon/material/knife) || istype(O, /obj/item/weapon/material/kitchen/utensil/knife)|| istype(O, /obj/item/weapon/material/hatchet))
 			harvest(user)
 	else
 		attacked_with_item(O, user)
 
 //TODO: refactor mob attackby(), attacked_by(), and friends.
 /mob/living/simple_animal/proc/attacked_with_item(var/obj/item/O, var/mob/user)
+	if(istype(O, /obj/item/weapon/trap/animal))
+		O.attack(src, user)
+		return
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 	if(!O.force)
 		visible_message("<span class='notice'>[user] gently taps [src] with \the [O].</span>")
@@ -424,7 +443,7 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 		apply_damage(damage, O.damtype, used_weapon = "[O.name]")
 		poke(1)
 	else
-		usr << "<span class='danger'>This weapon is ineffective, it does no damage.</span>"
+		to_chat(usr, "<span class='danger'>This weapon is ineffective, it does no damage.</span>")
 		poke()
 
 	visible_message("<span class='danger'>\The [src] has been attacked with the [O] by [user].</span>")
@@ -591,8 +610,11 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 						UnarmedAttack(movement_target)
 						if (get_turf(movement_target) == loc)
 							set_dir(pick(NORTH, SOUTH, EAST, WEST, NORTH, NORTH))//Face a random direction when eating, but mostly upwards
-					else if(ishuman(movement_target.loc) && Adjacent(src, get_turf(movement_target)) && prob(10))
-						beg(movement_target, movement_target.loc)
+					else if(ishuman(movement_target.loc) && Adjacent(get_turf(movement_target.loc)) && (prob(10) || nutrition / max_nutrition <= 0.25))
+						if(nutrition / max_nutrition <= 0.25)
+							steal_food(movement_target, movement_target.loc)
+						else
+							beg(movement_target, movement_target.loc)
 			else
 				scan_interval = max(min_scan_interval, min(scan_interval+1, max_scan_interval))//If nothing is happening, ian's scanning frequency slows down to save processing
 
@@ -655,7 +677,7 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 	else
 		fall_asleep()
 
-	src << span("notice","You are now [resting ? "resting" : "getting up"]")
+	to_chat(src, span("notice","You are now [resting ? "resting" : "getting up"]"))
 
 	update_icons()
 

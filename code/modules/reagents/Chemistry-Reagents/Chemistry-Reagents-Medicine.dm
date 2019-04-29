@@ -1080,8 +1080,8 @@
 	description = "A mixture of several high-energy amino acids, based on the secretions and saliva of V'krexi larvae."
 	reagent_state = LIQUID
 	color = "#bcd827"
-	metabolism = 0.6
-	overdose = 5
+	metabolism = 0.4 * REM
+	overdose = 20
 	data = 0
 	taste_description = "bitterness"
 	metabolism_min = 0.5
@@ -1107,7 +1107,7 @@
 	M.make_dizzy(10)
 
 	if (prob(10))
-		M << pick("You feel nauseous", "Ugghh....", "Your stomach churns uncomfortably", "You feel like you're about to throw up", "You feel queasy","You feel pressure in your abdomen")
+		to_chat(M, pick("You feel nauseous", "Ugghh....", "Your stomach churns uncomfortably", "You feel like you're about to throw up", "You feel queasy","You feel pressure in your abdomen"))
 
 	if (prob(dose))
 		M.vomit()
@@ -1254,7 +1254,7 @@
 
 /datum/reagent/ipecac/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
 	if (prob(10+dose))
-		M << pick("You feel nauseous", "Ugghh....", "Your stomach churns uncomfortably", "You feel like you're about to throw up", "You feel queasy","You feel pressure in your abdomen")
+		to_chat(M, pick("You feel nauseous", "Ugghh....", "Your stomach churns uncomfortably", "You feel like you're about to throw up", "You feel queasy","You feel pressure in your abdomen"))
 
 	if (prob(dose))
 		M.vomit()
@@ -1349,6 +1349,16 @@
 			var/mob/living/carbon/human/H = M
 			H.delayed_vomit()
 
+/datum/reagent/coagulant
+	name = "Coagulant"
+	id = "coagulant"
+	description = "A chemical that can temporarily stop the blood loss caused by internal wounds."
+	reagent_state = LIQUID
+	color = "#8b0000"
+	overdose = REAGENTS_OVERDOSE
+	taste_description = "bitterness"
+	fallback_specific_heat = 1
+
 //Secret Chems
 /datum/reagent/elixir
 	name = "Elixir of Life"
@@ -1377,3 +1387,12 @@
 /datum/reagent/pacifier/affect_blood(var/mob/living/carbon/H, var/alien, var/removed)
 	H.add_chemical_effect(CE_PACIFIED, 1)
 
+/datum/reagent/rmt
+	name = "Regenerative-Muscular Tissue Supplements"
+	id = "rmt"
+	description = "A chemical rampantly used by those seeking to remedy the effects of prolonged zero-gravity adaptations."
+	reagent_state = LIQUID
+	color = "#AA8866"
+	metabolism = 0.5 * REM
+	taste_description = "sourness"
+	fallback_specific_heat = 1

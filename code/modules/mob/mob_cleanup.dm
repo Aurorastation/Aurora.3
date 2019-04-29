@@ -12,22 +12,17 @@ Put (mob/proc)s here that are in dire need of a code cleanup.
 
 // This proc has some procs that should be extracted from it. I believe we can develop some helper procs from it - Rockdtben
 /mob/proc/contract_disease(var/datum/disease/virus, var/skip_this = 0, var/force_species_check=1, var/spread_type = -5)
-	//world << "Contract_disease called by [src] with virus [virus]"
 	if(stat >=2)
-		//world << "He's dead jim."
 		return
 	if(istype(virus, /datum/disease/advance))
-		//world << "It's an advance virus."
 		var/datum/disease/advance/A = virus
 		if(A.GetDiseaseID() in resistances)
-			//world << "It resisted us!"
 			return
 		if(count_by_type(viruses, /datum/disease/advance) >= 3)
 			return
 
 	else
 		if(src.resistances.Find(virus.type))
-			//world << "Normal virus and resisted"
 			return
 
 
@@ -45,9 +40,6 @@ Put (mob/proc)s here that are in dire need of a code cleanup.
 		if(fail) return
 
 	if(skip_this == 1)
-		//world << "infectin"
-		//if(src.virus)				< -- this used to replace the current disease. Not anymore!
-			//src.virus.cure(0)
 		var/datum/disease/v = new virus.type(1, virus, 0)
 		src.viruses += v
 		v.affected_mob = src
@@ -56,26 +48,8 @@ Put (mob/proc)s here that are in dire need of a code cleanup.
 		if(v.can_carry && prob(5))
 			v.carrier = 1
 		return
-	//world << "Not skipping."
-	//if(src.virus) //
-		//return //
 
-
-/*
-	var/list/clothing_areas	= list()
-	var/list/covers = list(UPPER_TORSO,LOWER_TORSO,LEGS,FEET,ARMS,HANDS)
-	for(var/Covers in covers)
-		clothing_areas[Covers] = list()
-
-	for(var/obj/item/clothing/Clothing in src)
-		if(Clothing)
-			for(var/Covers in covers)
-				if(Clothing&Covers)
-					clothing_areas[Covers] += Clothing
-
-*/
 	if(prob(15/virus.permeability_mod)) return //the power of immunity compels this disease! but then you forgot resistances
-	//world << "past prob()"
 	var/obj/item/clothing/Cl = null
 	var/passed = 1
 
@@ -143,51 +117,12 @@ Put (mob/proc)s here that are in dire need of a code cleanup.
 					Cl = H.shoes
 					passed = prob((Cl.permeability_coefficient*100) - 1)
 			else
-				src << "Something strange's going on, something's wrong."
-
-			/*if("feet")
-				if(H.shoes && istype(H.shoes, /obj/item/clothing/))
-					Cl = H.shoes
-					passed = prob(Cl.permeability_coefficient*100)
-					//
-					world << "Shoes pass [passed]"
-			*/		//
+				to_chat(src, "Something strange's going on, something's wrong.")
 
 	if(!passed && spread_type == AIRBORNE && !internals)
 		passed = (prob((50*virus.permeability_mod) - 1))
 
 	if(passed)
-		//world << "Infection in the mob [src]. YAY"
-
-
-/*
-	var/score = 0
-	if(istype(src, /mob/living/carbon/human))
-		if(src:gloves) score += 5
-		if(istype(src:wear_suit, /obj/item/clothing/suit/space)) score += 10
-		if(istype(src:wear_suit, /obj/item/clothing/suit/bio_suit)) score += 10
-		if(istype(src:head, /obj/item/clothing/head/helmet/space)) score += 5
-		if(istype(src:head, /obj/item/clothing/head/bio_hood)) score += 5
-	if(wear_mask)
-		score += 5
-		if((istype(src:wear_mask, /obj/item/clothing/mask) || istype(src:wear_mask, /obj/item/clothing/mask/surgical)) && !internal)
-			score += 5
-		if(internal)
-			score += 5
-	if(score > 20)
-		return
-	else if(score == 20 && prob(95))
-		return
-	else if(score >= 15 && prob(75))
-		return
-	else if(score >= 10 && prob(55))
-		return
-	else if(score >= 5 && prob(35))
-		return
-	else if(prob(15))
-		return
-	else*/
-
 		var/datum/disease/v = new virus.type(1, virus, 0)
 		src.viruses += v
 		v.affected_mob = src
@@ -195,5 +130,3 @@ Put (mob/proc)s here that are in dire need of a code cleanup.
 		v.holder = src
 		if(v.can_carry && prob(5))
 			v.carrier = 1
-		return
-	return

@@ -10,7 +10,7 @@
 	contained_sprite = 1
 
 /obj/item/clothing/mask/breath/vaurca/adjust_mask(mob/user)
-	user << "This mask is too tight to adjust."
+	to_chat(user, "This mask is too tight to adjust.")
 	return
 
 /obj/item/clothing/mask/breath/vaurca/expression
@@ -24,6 +24,15 @@
 	desc = "A mask that allows emotively challenged aliens to convey facial expressions. This one depicts a skrell."
 	icon_state = "skrell_mask"
 	item_state = "skrell_mask"
+
+/obj/item/clothing/head/shaper
+	name = "shaper helmet"
+	desc = "A mirrored helm commonly worn by Preimmients. The helm masks the visage of its wearer, symbolically and literally  blinding them to all but the path set in front of them."
+	icon = 'icons/obj/vaurca_items.dmi'
+	icon_state = "shaper_helmet"
+	item_state = "shaper_helmet"
+	contained_sprite = TRUE
+	species_restricted = list("Vaurca")
 
 /obj/item/weapon/melee/energy/vaurca
 	name = "thermal knife"
@@ -55,7 +64,7 @@
 		var/mob/living/carbon/human/H = user
 		H.update_inv_l_hand()
 		H.update_inv_r_hand()
-	user << "<span class='notice'>\The [src] is now energised.</span>"
+	to_chat(user, "<span class='notice'>\The [src] is now energised.</span>")
 
 /obj/item/weapon/melee/energy/vaurca/deactivate(mob/living/user)
 	..()
@@ -66,7 +75,7 @@
 		var/mob/living/carbon/human/H = user
 		H.update_inv_l_hand()
 		H.update_inv_r_hand()
-	user << "<span class='notice'>\The [src] is de-energised.</span>"
+	to_chat(user, "<span class='notice'>\The [src] is de-energised.</span>")
 
 /obj/item/vaurca/box
 	name = "puzzle box"
@@ -78,46 +87,46 @@
 /obj/item/vaurca/box/attack_self(mob/user as mob)
 
 	if(isvaurca(user))
-		user << "<span class='notice'>You are familiar with the box's solution, and open it to reveal an ancient thing. How tedious.</span>"
+		to_chat(user, "<span class='notice'>You are familiar with the box's solution, and open it to reveal an ancient thing. How tedious.</span>")
 		var/obj/item/weapon/archaeological_find/X = new /obj/item/weapon/archaeological_find
 		user.remove_from_mob(src)
 		user.put_in_hands(X)
 		qdel(src)
 
 	else if(isipc(user))
-		user << "<span class='notice'>You analyze the box's markings, and begin to calculate with robotic efficiency every possible combination. (You must stand still to complete the puzzle box.)</span>"
+		to_chat(user, "<span class='notice'>You analyze the box's markings, and begin to calculate with robotic efficiency every possible combination. (You must stand still to complete the puzzle box.)</span>")
 		if(do_after(user, 100))
-			user << "<span class='notice'>Calculations complete. You begin to brute-force the box with a mechanical determination.</span>"
+			to_chat(user, "<span class='notice'>Calculations complete. You begin to brute-force the box with a mechanical determination.</span>")
 			if(do_after(user, 600))
-				user << "<span class='notice'>After a minute of brute-force puzzle solving, the box finally opens to reveal an ancient thing.</span>"
+				to_chat(user, "<span class='notice'>After a minute of brute-force puzzle solving, the box finally opens to reveal an ancient thing.</span>")
 				var/obj/item/weapon/archaeological_find/X = new /obj/item/weapon/archaeological_find
 				user.remove_from_mob(src)
 				user.put_in_hands(X)
 				qdel(src)
 
 	else if(isvox(user))
-		user << "<span class='notice'>You are surprised to recognize the markings of the Apex, the Masters! You know this thing... (You must stand still to complete the puzzle box.)</span>"
+		to_chat(user, "<span class='notice'>You are surprised to recognize the markings of the Apex, the Masters! You know this thing... (You must stand still to complete the puzzle box.)</span>")
 		if(do_after(user, 100))
-			user << "<span class='notice'>After a few seconds of remembering, you input the solution to the riddle - a lovely riddle indeed - and open the box to reveal an ancient thing.</span>"
+			to_chat(user, "<span class='notice'>After a few seconds of remembering, you input the solution to the riddle - a lovely riddle indeed - and open the box to reveal an ancient thing.</span>")
 			var/obj/item/weapon/archaeological_find/X = new /obj/item/weapon/archaeological_find
 			user.remove_from_mob(src)
 			user.put_in_hands(X)
 			qdel(src)
 
 	else
-		user << "<span class='notice'>You stare at the box for a few seconds, trying to even comprehend what you're looking at... (You must stand still to complete the puzzle box.)</span>"
+		to_chat(user, "<span class='notice'>You stare at the box for a few seconds, trying to even comprehend what you're looking at... (You must stand still to complete the puzzle box.)</span>")
 		if(do_after(user, 60))
-			user << "<span class = 'notice'>After a few more seconds, you hesitantly turn the first piece of the puzzle box.</span>"
+			to_chat(user, "<span class = 'notice'>After a few more seconds, you hesitantly turn the first piece of the puzzle box.</span>")
 			if(do_after(user,30))
-				user << "<span class = 'notice'>After nothing bad happens, you dive into the puzzle with a feeling of confidence!</span>"
+				to_chat(user, "<span class = 'notice'>After nothing bad happens, you dive into the puzzle with a feeling of confidence!</span>")
 				if(do_after(user,200))
-					user << "<span class = 'notice'>Twenty seconds pass, and suddenly you're feeling a lot less confident. You struggle on...</span>"
+					to_chat(user, "<span class = 'notice'>Twenty seconds pass, and suddenly you're feeling a lot less confident. You struggle on...</span>")
 					if(do_after(user,100))
-						user << "<span class='notice'>You blink, and suddenly you've lost your place, your thoughts, your mind...</span>"
+						to_chat(user, "<span class='notice'>You blink, and suddenly you've lost your place, your thoughts, your mind...</span>")
 						if(do_after(user,20))
-							user << "<span class='notice'>You find yourself again, and get back to turning pieces. At this point it is just randomly.</span>"
+							to_chat(user, "<span class='notice'>You find yourself again, and get back to turning pieces. At this point it is just randomly.</span>")
 							if(do_after(user,600))
-								user << "<span class='notice'>A minute goes by, and with one final turn the box looks just like it did when you started. Fucking bugs.</span>"
+								to_chat(user, "<span class='notice'>A minute goes by, and with one final turn the box looks just like it did when you started. Fucking bugs.</span>")
 
 /obj/item/weapon/melee/vaurca/navcomp
 	name = "navcomp coordinate archive"
@@ -317,7 +326,7 @@
 		var/mob/living/carbon/human/H = user
 		H.update_inv_l_hand()
 		H.update_inv_r_hand()
-	user << "<span class='notice'>\The [src] is now energised.</span>"
+	to_chat(user, "<span class='notice'>\The [src] is now energised.</span>")
 
 /obj/item/weapon/melee/energy/vaurca_zweihander/deactivate(mob/living/user)
 	..()
@@ -328,7 +337,7 @@
 		var/mob/living/carbon/human/H = user
 		H.update_inv_l_hand()
 		H.update_inv_r_hand()
-	user << "<span class='notice'>\The [src] is de-energised.</span>"
+	to_chat(user, "<span class='notice'>\The [src] is de-energised.</span>")
 
 /obj/item/weapon/gun/launcher/crossbow/vaurca
 	name = "gauss rifle"
@@ -397,10 +406,10 @@
 	if(bolt)
 		if(tension < max_tension)
 			if(do_after(M, 5 * tension))
-				M << "<span class='warning'>You pump [src], charging the magnetic coils.</span>"
+				to_chat(M, "<span class='warning'>You pump [src], charging the magnetic coils.</span>")
 				tension++
 		else
-			M << "<span class='notice'>\The [src]'s magnetic coils are at maximum charge.</span>"
+			to_chat(M, "<span class='notice'>\The [src]'s magnetic coils are at maximum charge.</span>")
 		return
 	var/obj/item/next
 	if(belt.len)
@@ -409,13 +418,13 @@
 		if(next)
 			belt -= next //Remove grenade from loaded list.
 			bolt = next
-			M << "<span class='warning'>You pump [src], loading \a [next] into the chamber.</span>"
+			to_chat(M, "<span class='warning'>You pump [src], loading \a [next] into the chamber.</span>")
 		else
-			M << "<span class='warning'>You pump [src], but the magazine is empty.</span>"
+			to_chat(M, "<span class='warning'>You pump [src], but the magazine is empty.</span>")
 
 /obj/item/weapon/gun/launcher/crossbow/vaurca/proc/load(obj/item/W, mob/user)
 	if(belt.len >= belt_size)
-		user << "<span class='warning'>[src] is full.</span>"
+		to_chat(user, "<span class='warning'>[src] is full.</span>")
 		return
 	user.remove_from_mob(W)
 	W.forceMove(src)
@@ -429,7 +438,7 @@
 		user.put_in_hands(R)
 		user.visible_message("[user] removes \a [R] from [src].", "<span class='notice'>You remove \a [R] from [src].</span>")
 	else
-		user << "<span class='warning'>[src] is empty.</span>"
+		to_chat(user, "<span class='warning'>[src] is empty.</span>")
 
 /obj/item/weapon/gun/launcher/crossbow/vaurca/attackby(obj/item/I, mob/user)
 	if(istype(I, /obj/item/weapon/arrow))

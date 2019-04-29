@@ -18,8 +18,8 @@
 	response_disarm = "bops"
 	response_harm   = "kicks"
 	see_in_dark = 5
-	mob_size = 5
-	max_nutrition = 250	//Dogs are insatiable eating monsters. This scales with their mob size too
+	mob_size = 3.5
+	max_nutrition = 80	//Dogs are insatiable eating monsters. This scales with their mob size too
 	stomach_size_mult = 30
 	seek_speed = 6
 	possession_candidate = 1
@@ -32,7 +32,6 @@
 /mob/living/simple_animal/corgi/Initialize()
 	. = ..()
 	nutrition = max_nutrition * 0.3	//Ian doesn't start with a full belly so will be hungry at roundstart
-	nutrition_step = mob_size * 0.12
 
 //IAN! SQUEEEEEEEEE~
 /mob/living/simple_animal/corgi/Ian
@@ -114,7 +113,7 @@
 //pupplies cannot wear anything.
 /mob/living/simple_animal/corgi/puppy/Topic(href, href_list)
 	if(href_list["remove_inv"] || href_list["add_inv"])
-		usr << "<span class='warning'>You can't fit this on [src]</span>"
+		to_chat(usr, "<span class='warning'>You can't fit this on [src]</span>")
 		return
 	..()
 
@@ -136,7 +135,7 @@
 //Lisa already has a cute bow!
 /mob/living/simple_animal/corgi/Lisa/Topic(href, href_list)
 	if(href_list["remove_inv"] || href_list["add_inv"])
-		usr << "<span class='warning'>[src] already has a cute bow!</span>"
+		to_chat(usr, "<span class='warning'>[src] already has a cute bow!</span>")
 		return
 	..()
 
