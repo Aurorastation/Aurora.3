@@ -7,8 +7,8 @@
 	check_armour = "bomb"
 	range = 5
 	var/pressure_decrease = 0.25
-
 	var/aoe_s = 1 // aoe scale
+	var/damage_rock = 0
 
 /obj/item/projectile/kinetic/mech
 	damage = 40
@@ -40,7 +40,7 @@
 	var/turf/target_turf = get_turf(target)
 	if(istype(target_turf, /turf/simulated/mineral))
 		var/turf/simulated/mineral/M = target_turf
-		M.kinetic_hit(damage, dir)
+		M.kinetic_hit(damage_rock, dir)
 
 	new /obj/effect/overlay/temp/kinetic_blast(target_turf)
 

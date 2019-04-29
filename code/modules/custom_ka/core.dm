@@ -228,7 +228,7 @@
 
 	installed_cell.stored_charge -= cost_increase
 
-	var/obj/item/projectile/shot_projectile
+	var/obj/item/projectile/kinetic/shot_projectile
 	//Send fire events
 	if(installed_cell)
 		installed_cell.on_fire(src)
@@ -241,6 +241,7 @@
 	shot_projectile.damage = damage_increase
 	shot_projectile.range = range_increase
 	shot_projectile.aoe = aoe_increase
+	shot_projectile.damage_rock = damage_increase
 	return shot_projectile
 
 /obj/item/weapon/gun/custom_ka/Initialize()
