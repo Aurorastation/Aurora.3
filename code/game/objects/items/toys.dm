@@ -927,3 +927,79 @@
 	w_class = ITEMSIZE_TINY
 	force = 1
 	throwforce = 1
+
+
+/obj/item/toy/segwayconstructionkit
+	name = "segway construction kit"
+	desc = "Now with 200% more screws!."
+	icon = 'icons/obj/toy.dmi'
+	icon_state = "segwaykit"
+	var/stage = 0
+	var/segwayresult = /obj/vehicle/segway
+	anchored = 1
+
+
+/obj/item/toy/segwayconstructionkit/attackby(obj/item/weapon/W as obj, mob/user as mob)
+	switch(stage)
+		if(0)
+			if(W.isscrewdriver())
+				to_chat(user, "<span class='notice'>You screw open the panel of the [src]!</span>")
+				stage++
+				return
+		if(1)
+			if(W.isscrewdriver())
+				to_chat(user, "<span class='notice'>You unscrew open the panel of the [src]!</span>")
+				stage--
+				return
+			if(W.iscoil())
+				var/obj/item/stack/cable_coil/C = W
+				if (C.get_amount() < 5)
+					to_chat(user, "<span class='warning'>You need five lengths of cable to add them to the [src].</span>")
+					return
+				playsound(src.loc, 'sound/items/Deconstruct.ogg', 50, 1)
+				to_chat(user, "<span class='notice'>You start to add cables to the [src].</span>")
+				if(do_after(user, 20) && stage == 1)
+					if(C.use(5))
+						to_chat(user, "<span class='notice'>You add cables to the [src].</span>")
+						stage++
+		if(2)
+			if(W.iswirecutter())
+				to_chat(user, "<span class='notice'>You remove cables from the [src].</span>")
+				var/obj/item/stack/cable_coil/A = new /obj/item/stack/cable_coil( user.loc )
+				A.amount = 5
+				stage--
+				return
+
+			if(istype(W,/obj/item/weapon/cell))
+				if(istype(W,/obj/item/weapon/cell/super))
+					to_chat(user, "<span class='notice'>You add a super powered cell for better speed!.</span>")
+					src.segwayresult = /obj/vehicle/segway/civilian
+					user.drop_item(W)
+					W.forceMove(src)
+					stage++
+				else
+					user.drop_item(W)
+					W.forceMove(src)
+					to_chat(user, "<span class='notice'>You add a cell to the [src].</span>")
+					stage++
+		if(3)
+			if(W.iscrowbar())
+				for(var/obj/item/weapon/cell/CE in contents)
+					CE.forceMove(get_turf(src))
+					to_chat(user, "<span class='notice'>You remove the [CE] from the [src].</span>")
+					stage--
+			if(W.isscrewdriver())
+				to_chat(user, "<span class='notice'>You close the panel of the [src]!</span>")
+				stage++
+				return
+		if(4)
+			if(W.isscrewdriver())
+				to_chat(user, "<span class='notice'>You open the panel of the [src]!</span>")
+				stage--
+				return
+			if(W.ismultitool())
+				var/obj/vehicle/segway/S = new segwayresult(src.loc)
+				new /obj/item/weapon/key/segwaykey(get_turf(S))
+				to_chat(user, "<span class='notice'>You finish building the segway!</span>")
+				qdel(src)
+
