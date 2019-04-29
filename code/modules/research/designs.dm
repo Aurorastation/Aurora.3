@@ -226,6 +226,15 @@ other types of metals and chemistry for reagents).
 	build_path = /obj/item/weapon/storage/backpack/holding
 	sort_string = "VAEAA"
 
+/datum/design/item/segway_kit
+	name = "segway construction kit"
+	desc = "Now with 200% more screws!"
+	id = "segway_kit"
+	req_tech = list(TECH_ENGINEERING = 4, TECH_MATERIAL = 4)
+	materials = list(DEFAULT_WALL_MATERIAL = 1000, "glass" = 500)
+	build_path = /obj/item/toy/segwayconstructionkit
+	sort_string = "VAEAB"
+
 /datum/design/item/bluespace_crystal
 	name = "Artificial Bluespace Crystal"
 	desc = "An artificially made bluespace crystal."
