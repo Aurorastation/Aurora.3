@@ -4523,7 +4523,7 @@
 /area/derelict/ship)
 "mL" = (
 /turf/simulated/floor,
-/area/shuttle/research_shuttle/away)
+/area/shuttle/research/outpost)
 "mM" = (
 /obj/machinery/vending/tacticool,
 /turf/simulated/floor/tiled/dark,

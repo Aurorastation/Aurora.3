@@ -485,7 +485,7 @@
 /area/derelict/ship)
 "bw" = (
 /turf/space,
-/area/shuttle/research_shuttle/away)
+/area/shuttle/research/outpost)
 "bx" = (
 /obj/structure/window/reinforced,
 /obj/structure/window/reinforced{

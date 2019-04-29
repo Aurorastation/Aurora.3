@@ -1049,7 +1049,7 @@
 /area/derelict/ship)
 "cS" = (
 /turf/space,
-/area/shuttle/research_shuttle/away)
+/area/shuttle/research/outpost)
 
 (1,1,1) = {"
 ab

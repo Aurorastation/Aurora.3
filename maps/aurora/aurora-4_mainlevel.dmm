@@ -10709,7 +10709,7 @@
 	icon_state = "corner_white_full";
 	dir = 1
 	},
-/obj/item/modular_computer/console/preset/command,
+/obj/machinery/computer/shuttle_control/research_away_shuttle,
 /turf/simulated/floor/tiled,
 /area/bridge)
 "atE" = (

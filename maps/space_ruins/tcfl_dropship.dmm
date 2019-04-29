@@ -769,7 +769,7 @@
 /area/derelict)
 "cM" = (
 /turf/simulated/floor/plating,
-/area/shuttle/research_shuttle/away)
+/area/shuttle/research/outpost)
 "cN" = (
 /obj/effect/floor_decal/industrial/warning{
 	icon_state = "warning";
@@ -783,7 +783,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/plating,
-/area/shuttle/research_shuttle/away)
+/area/shuttle/research/outpost)
 "cP" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 5

@@ -3974,7 +3974,7 @@
 /area/derelict/ship)
 "ju" = (
 /turf/simulated/floor,
-/area/shuttle/research_shuttle/away)
+/area/shuttle/research/outpost)
 "jv" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4

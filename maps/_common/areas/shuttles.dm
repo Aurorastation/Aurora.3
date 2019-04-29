@@ -205,11 +205,15 @@
 
 /area/shuttle/research/station
 	icon_state = "shuttle2"
+	flags = RAD_SHIELDED | SPAWN_ROOF
+	base_turf = /turf/simulated/floor/asteroid/ash
 	station_area = 1
 
 /area/shuttle/research/outpost
 	icon_state = "shuttle"
-	station_area = 1
+	station_area = 0
+	flags = RAD_SHIELDED
+	base_turf = /turf/space
 
 /area/shuttle/legion/centcom
 	name = "\improper Foreign Legion Shuttle"
@@ -223,21 +227,4 @@
 	icon_state = "shuttlegrn2"
 	base_turf = /turf/simulated/floor/asteroid/ash
 	station_area = 1
-
-/area/shuttle/research_shuttle
-	name = "\improper Research Shuttle"
-	flags = RAD_SHIELDED | SPAWN_ROOF
-	icon_state = "purple"
-	base_turf = /turf/simulated/floor/asteroid/ash
-	station_area = 1
-
-/area/shuttle/research_shuttle/away
-	name = "\improper Away Site"
-	flags = RAD_SHIELDED
-	base_turf = /turf/space
-	station_area = 0
-
-/area/shuttle/research_shuttle/transit
-	name = "\improper Research Shuttle Transit"
-	centcomm_area = 1
 
