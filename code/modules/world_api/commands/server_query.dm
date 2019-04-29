@@ -25,6 +25,8 @@
 
 	for(var/S in staff)
 		var/client/C = S
+		if(C.holder.fakekey)
+			continue
 		if(C.holder.rights & (R_MOD|R_ADMIN))
 			s["admins"]++
 
