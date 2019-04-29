@@ -1228,102 +1228,152 @@ Follow by example and make good judgement based on length which list to include 
 		name = "Long Unathi Spines"
 		icon_state = "unathi_longspines"
 		species_allowed = list("Unathi")
+		length = 0
+		chatname = "Spines"
 
 		una_spines_short
 			name = "Short Unathi Spines"
 			icon_state = "unathi_shortspines"
+			length = 0
+			chatname = "Spines"
 
 		una_frills_long
 			name = "Long Unathi Frills"
 			icon_state = "unathi_longfrills"
+			length = 0
+			chatname = "Frills"
 
 		una_frills_short
 			name = "Short Unathi Frills"
 			icon_state = "unathi_shortfrills"
+			length = 0
+			chatname = "Frills"
 
 		una_horns
 			name = "Unathi Horns"
 			icon_state = "unathi_simplehorn"
+			length = 6
+			chatname = "Horns"
 
 		una_bighorns
 			name = "Unathi Big Horns"
 			icon_state = "unathi_bighorn"
+			length = 6
+			chatname = "Horns"
 
 		una_smallhorns
 			name = "Unathi Small Horns"
 			icon_state = "unathi_smallhorn"
+			length = 6
+			chatname = "Horns"
 
 		una_swepthorns
 			name = "Unathi Swept-Forward Horns"
 			icon_state = "unathi_swepthorn"
+			length = 0
+			chatname = "Horns"
 
 		una_sidefrills
 			name = "Unathi Side Frills"
 			icon_state = "unathi_sidefrills"
+			length = 0
+			chatname = "Frills"
 
 		una_mohawk
 			name = "Unathi Mohawk"
 			icon_state = "unathi_mohawk"
+			length = 6
+			chatname = "Mohawk"
 
 		una_drachorn
 			name = "Unathi Draconic Horns"
 			icon_state = "unathi_drachorn"
+			length = 6
+			chatname = "Horns"
 
 		una_lowerhorn
 			name = "Unathi Lower Horns"
 			icon_state = "unathi_lowerhorn"
+			length = 6
+			chatname = "Horns"
 
 		una_spikehorn
 			name = "Unathi Spike Horns"
 			icon_state = "unathi_spikehorn"
+			length = 6
+			chatname = "Spiked Horns"
 
 		una_shorthorn
 			name = "Unathi Short Horns"
 			icon_state = "unathi_shorthorn"
+			length = 6
+			chatname = "Horns"
 
 		una_curlhorn
 			name = "Unathi Curled Horns"
 			icon_state = "unathi_curledhorn"
+			length = 6
+			chatname = "Horns"
 
 		una_ramhornshort
 			name = "Unathi Short Ram Horns"
 			icon_state = "unathi_ramhorn"
+			length = 6
+			chatname = "Horns"
 
 		una_ramhornlong
 			name = "Unathi Long Ram Horns"
 			icon_state = "unathi_ramhorn2"
+			length = 6
+			chatname = "Horns"
 
 		una_chinhorn
 			name = "Unathi Chin Horn"
 			icon_state = "unathi_chinhorns"
+			length = 0
+			chatname = "Horns"
 
 		una_hornadorns
 			name = "Unathi Horn Adorns"
 			icon_state = "unathi_hornadorns"
+			length = 0
+			chatname = "Horns"
 
 		una_dorsalfrill
 			name = "Unathi Dorsal Frill"
 			icon_state = "unathi_dorsalfrill"
+			length = 0
+			chatname = "Frills"
 
 		una_aquaticfrill
 			name = "Unathi Aquatic Frills"
 			icon_state = "unathi_aquaticfrills"
+			length = 0
+			chatname = "Frills"
 
 		una_longfrill
 			name = "Unathi Long Frills"
 			icon_state = "unathi_longfrills"
+			length = 0
+			chatname = "Frills"
 
 		una_shortfrill
 			name = "Unathi Short Frills"
 			icon_state = "unathi_shortfrills"
+			length = 0
+			chatname = "Frills"
 
 		una_longdorsal
 			name = "Unathi Long Dorsal Frill"
 			icon_state = "unathi_longdorsal"
+			length = 0
+			chatname = "Frills"
 
 		una_dracfrills
 			name = "Unathi Draconic Frills"
 			icon_state = "unathi_dracfrills"
+			length = 0
+			chatname = "Frills"
 
 //skrell tentacles
 
