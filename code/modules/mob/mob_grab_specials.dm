@@ -162,7 +162,7 @@
 	var/hairchatname = hair_style.chatname
 	for(var/obj/item/protection in list(target.head, target.wear_mask))
 		if(protection && (protection.body_parts_covered & HEAD))
-			assailant << "<span class='danger'>You can't tug their hair while something is covering it!</span>"
+			to_chat(assailant, "<span class='warning'>You can't tug their hair while something is covering it!.</span>")
 			return
 	switch(hair_style.length)
 		if(0)
