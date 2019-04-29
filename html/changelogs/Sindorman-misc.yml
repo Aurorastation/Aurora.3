@@ -42,3 +42,4 @@ changes:
   - imageadd: "Modular computers/laptops/telescreens/tablets now have broken icon states with animations."
   - backend: "Timer SS update is fixed."
   - bugfix: "can_use default paramt is now set to display message why mobs cannot use something."
+  - bugfix: "KAs AOE now damage rocks as it used to. With full damage no matter the distance from epicenter."
