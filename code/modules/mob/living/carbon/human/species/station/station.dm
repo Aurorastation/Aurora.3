@@ -275,6 +275,9 @@
 		/datum/unarmed_attack/kick,
 		/datum/unarmed_attack/diona
 	)
+	inherent_verbs = list(
+		/mob/living/carbon/human/proc/consume_nutrition_from_air
+	)
 	//primitive_form = "Nymph"
 	slowdown = 7
 	rarity_value = 4
@@ -388,9 +391,9 @@
 
 /datum/species/diona/equip_later_gear(var/mob/living/carbon/human/H)
 	if(istype(H.get_equipped_item(slot_back), /obj/item/weapon/storage/backpack))
-		H.equip_to_slot_or_del(new /obj/item/device/flashlight/flare((H.back), slot_in_backpack))
+		H.equip_to_slot_or_del(new /obj/item/device/flashlight/flare(H.back), slot_in_backpack)
 	else
-		H.equip_to_slot_or_del(new /obj/item/device/flashlight/flare((H), slot_r_hand))
+		H.equip_to_slot_or_del(new /obj/item/device/flashlight/flare(H), slot_r_hand)
 
 /datum/species/diona/handle_post_spawn(var/mob/living/carbon/human/H)
 	H.gender = NEUTER
@@ -751,6 +754,20 @@ datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
 		"eyes"                = /obj/item/organ/eyes/vaurca
 	)
 
+	has_limbs = list(
+		"chest" =  list("path" = /obj/item/organ/external/chest/vaurca),
+		"groin" =  list("path" = /obj/item/organ/external/groin/vaurca),
+		"head" =   list("path" = /obj/item/organ/external/head/vaurca),
+		"l_arm" =  list("path" = /obj/item/organ/external/arm/vaurca),
+		"r_arm" =  list("path" = /obj/item/organ/external/arm/right/vaurca),
+		"l_leg" =  list("path" = /obj/item/organ/external/leg/vaurca),
+		"r_leg" =  list("path" = /obj/item/organ/external/leg/right/vaurca),
+		"l_hand" = list("path" = /obj/item/organ/external/hand/vaurca),
+		"r_hand" = list("path" = /obj/item/organ/external/hand/right/vaurca),
+		"l_foot" = list("path" = /obj/item/organ/external/foot/vaurca),
+		"r_foot" = list("path" = /obj/item/organ/external/foot/right/vaurca)
+		)
+
 	default_h_style = "Classic Antennae"
 
 	move_trail = /obj/effect/decal/cleanable/blood/tracks/claw
@@ -767,10 +784,9 @@ datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
 
 /datum/species/bug/equip_later_gear(var/mob/living/carbon/human/H)
 	if(istype(H.get_equipped_item(slot_back), /obj/item/weapon/storage/backpack))
-		H.equip_to_slot_or_del(new /obj/item/weapon/storage/box/vaurca((H.back), slot_in_backpack))
+		H.equip_to_slot_or_del(new /obj/item/weapon/reagent_containers/inhaler/phoron_special(H.back), slot_in_backpack)
 	else
-		H.equip_to_slot_or_del(new /obj/item/weapon/storage/box/vaurca((H), slot_r_hand))
-
+		H.equip_to_slot_or_del(new /obj/item/weapon/reagent_containers/inhaler/phoron_special(H), slot_r_hand)
 
 /datum/species/bug/handle_post_spawn(var/mob/living/carbon/human/H)
 	H.gender = NEUTER
