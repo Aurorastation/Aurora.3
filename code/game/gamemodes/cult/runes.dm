@@ -195,7 +195,7 @@ var/list/sacrificed = list()
 		return fizzle(user)
 
 	var/turf/T = get_turf(src)
-	f(!(T.z in current_map.station_levels))
+	if(!(T.z in current_map.station_levels))
 		to_chat(user, "<span class='warning'>You are too far from the station, Nar'sie can not be summoned here.</span>")
 		return fizzle(user)
 
