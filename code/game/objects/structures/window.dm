@@ -494,6 +494,9 @@
 	smooth = SMOOTH_TRUE
 	can_be_unanchored = TRUE
 
+/obj/structure/window/shuttle/blue
+	icon = 'icons/obj/smooth/shuttle_window_blue.dmi'
+
 /obj/structure/window/shuttle/crescent
 	desc = "It looks rather strong."
 

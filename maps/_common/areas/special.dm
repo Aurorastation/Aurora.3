@@ -47,18 +47,16 @@
 /area/centcom/holding
 	name = "\improper Holding Facility"
 
-
-/area/centcom/extraction_shuttle
-	name = "\improper Escape Pods Retrival Shuttle"
+/area/centcom/legion_base
+	name = "\improper BLV The Tower, Deck 1"
 	icon_state = "centcom"
 	requires_power = 0
 	no_light_control = 1
 	base_turf = /turf/simulated/shuttle/floor
 	centcomm_area = 1
 
-/area/centcom/legion
-	name = "\improper Tau Ceti Foreign Legion Base"
-
+/area/centcom/legion_base/hangar5
+	name = "\improper BLV The Tower, Hangar 5"
 
 //SYNDICATES
 

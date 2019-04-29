@@ -26,6 +26,9 @@
 		/obj/machinery/door/airlock/centcom,
 		/turf/unsimulated/wall/fakepdoor
 	)
+/turf/unsimulated/wall/darkshuttlewall
+	icon = 'icons/turf/shuttle.dmi'
+	icon_state = "wall3"
 
 /turf/unsimulated/wall/fakepdoor
 	icon = 'icons/obj/doors/rapid_pdoor.dmi'

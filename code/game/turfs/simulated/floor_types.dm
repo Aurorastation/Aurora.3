@@ -35,6 +35,8 @@
 		/obj/machinery/door/unpowered/shuttle,
 		/obj/structure/shuttle/engine/propulsion
 	)
+/turf/simulated/shuttle/wall/blue
+	icon = 'icons/turf/smooth/shuttle_wall_blue.dmi'
 
 /turf/simulated/shuttle/wall/dark
 	icon = 'icons/turf/shuttle.dmi'

@@ -402,6 +402,27 @@
 /obj/item/weapon/flag/nanotrasen/l
 	flag_size = 1
 
+/obj/structure/sign/flag/biesel
+	name = "Republic of Biesel flag"
+	desc = "The colours and symbols of the Republic of Biesel."
+	icon_state = "biesel"
+
+/obj/structure/sign/flag/biesel/left
+	icon_state = "biesel_l"
+
+/obj/structure/sign/flag/biesel/right
+	icon_state = "biesel_r"
+
+/obj/item/weapon/flag/biesel
+	name = "Republic of Biesel flag"
+	desc = "The flag representing the Republic of Biesel."
+	flag_path = "biesel"
+
+/obj/item/weapon/flag/biesel/l
+	name = "Large Republic of Biesel flag"
+	flag_size = 1
+
+
 /obj/structure/sign/flag/eridani
 	name = "Eridani Corporate Federation flag"
 	desc = "The logo of the Eridani Corporate Federation on a flag."
