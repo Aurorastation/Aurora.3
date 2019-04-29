@@ -199,12 +199,12 @@
 
 	if (within_jamming_range(speaker))
 		// The user thinks that the message got through.
-		speaker << msg
+		to_chat(speaker, msg)
 		return
 
 	for(var/mob/player in player_list)
 		if(istype(player,/mob/abstract/observer) || ((src in player.languages && !within_jamming_range(player)) || check_special_condition(player)))
-			player << msg
+			to_chat(player, msg)
 
 /datum/language/bug/check_special_condition(var/mob/other)
 	if(istype(other, /mob/living/silicon))
@@ -296,7 +296,7 @@
 	exclaim_verb = "trills"
 	colour = "alien"
 	key = "v"
-	flags = WHITELISTED
+	flags = RESTRICTED
 	space_chance = 50
 	syllables = list(
 			"ca", "ra", "ma", "sa", "na", "ta", "la", "sha", "scha", "a", "a",

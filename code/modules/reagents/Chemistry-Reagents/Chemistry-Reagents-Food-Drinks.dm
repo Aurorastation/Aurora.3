@@ -149,7 +149,7 @@
 	//We'll assume that the batter isnt going to be regurgitated and eaten by someone else. Only show this once
 	if (data["cooked"] != 1)
 		if (!messaged)
-			M << "Ugh, this raw [name] tastes disgusting."
+			to_chat(M, "Ugh, this raw [name] tastes disgusting.")
 			nutriment_factor *= 0.5
 			messaged = 1
 
@@ -353,7 +353,7 @@
 		M.take_organ_damage(0, removed * 1.5 * dfactor)
 		data["temperature"] -= (6 * removed) / (1 + volume*0.1)//Cools off as it burns you
 		if (lastburnmessage+100 < world.time	)
-			M << span("danger", "Searing hot oil burns you, wash it off quick!")
+			to_chat(M, span("danger", "Searing hot oil burns you, wash it off quick!"))
 			lastburnmessage = world.time
 
 
@@ -586,12 +586,12 @@
 			return
 	if(dose < agony_dose)
 		if(prob(5) || dose == metabolism) //dose == metabolism is a very hacky way of forcing the message the first time this procs
-			M << discomfort_message
+			to_chat(M, discomfort_message)
 	else
 		M.apply_effect(agony_amount, AGONY, 0)
 		if(prob(5))
 			M.custom_emote(2, "[pick("dry heaves!","coughs!","splutters!")]")
-			M << "<span class='danger'>You feel like your insides are burning!</span>"
+			to_chat(M, "<span class='danger'>You feel like your insides are burning!</span>")
 	if(istype(M, /mob/living/carbon/slime))
 		M.bodytemperature += rand(0, 15) + slime_temp_adj
 	holder.remove_reagent("frostoil", 5)
@@ -675,7 +675,7 @@
 		if(!H.can_feel_pain())
 			return
 	if(dose == metabolism)
-		M << "<span class='danger'>You feel like your insides are burning!</span>"
+		to_chat(M, "<span class='danger'>You feel like your insides are burning!</span>")
 	else
 		M.apply_effect(4, AGONY, 0)
 		if(prob(5))
@@ -974,6 +974,33 @@
 	glass_icon_state = "glass_white"
 	glass_name = "glass of soy milk"
 	glass_desc = "White and nutritious soy goodness!"
+
+/datum/reagent/drink/milk/adhomai
+	name = "Fermented Fatshouters Milk"
+	id = "adhomai_milk"
+	description = "A tajaran made fermented dairy product, traditionally consumed by nomadic population of Adhomai."
+	taste_description = "sour milk"
+
+	glass_name = "glass of fermented fatshouters milk"
+	glass_desc = "A tajaran made fermented dairy product, traditionally consumed by nomadic population of Adhomai."
+
+/datum/reagent/drink/milk/adhomai/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
+	..()
+	if(ishuman(M))
+		var/mob/living/carbon/human/H = M
+		if(alien != IS_TAJARA && prob(5))
+			H.delayed_vomit()
+
+/datum/reagent/drink/milk/beetle
+	name = "Hakhma Milk"
+	id = "beetle_milk"
+	description = "A milky substance extracted from the brood sac of the viviparous Hakhma, often consumed by Offworlders and Scarabs."
+	nutrition = 4
+	color = "#FFF8AD"
+	taste_description = "alien milk"
+
+	glass_name = "glass of hakhma milk"
+	glass_desc = "A milky substance extracted from the brood sac of the viviparous Hakhma, often consumed by Offworlders and Scarabs."
 
 /datum/reagent/drink/tea
 	name = "Tea"
@@ -1564,6 +1591,79 @@
 	glass_icon_state = "meatshake"
 	glass_name = "Meatshake"
 	glass_desc = "Blended meat and cream for those who want crippling health issues down the road. Has two straws for sharing! Perfect for dates!"
+
+/datum/reagent/drink/toothpaste
+	name = "Toothpaste"
+	id = "toothpaste"
+	description = "A paste commonly used in oral hygiene."
+	reagent_state = LIQUID
+	color = "#b1eae8"
+	taste_description = "toothpaste"
+	overdose = REAGENTS_OVERDOSE
+	var/strength = 50
+
+	glass_icon_state = "toothpaste"
+	glass_name = "glass of toothpaste"
+	glass_desc = "Dentists recommend drinking zero glasses a day, and instead brushing normally."
+	glass_center_of_mass = list("x"=7, "y"=8)
+
+/datum/reagent/drink/toothpaste/affect_ingest(var/mob/living/carbon/human/M, var/alien, var/removed)
+
+	if(!istype(M))
+		return
+
+	if(alien == IS_VAURCA)
+		M.intoxication += (strength / 100) * removed * 3.5
+
+/datum/reagent/drink/toothpaste/cold_gate
+	name = "Cold Gate"
+	id = "cold_gate"
+	description = "A C'thur Favorite, guaranteed to make even the bloodiest of warriors mandibles shimmer."
+	strength = 25
+	taste_description = "mint"
+
+	glass_icon_state = "cold_gate"
+	glass_name = "glass of Cold Gate"
+	glass_desc = "A C'thur Favorite, guaranteed to make even the bloodiest of warriors mandibles shimmer."
+	glass_center_of_mass = list("x"=7, "y"=8)
+
+/datum/reagent/drink/toothpaste/waterfresh
+	name = "Waterfresh"
+	id = "waterfresh"
+	description = "A concoction of toothpaste and mouthwash, for when you need to show your pearly whites."
+	strength = 40
+	taste_description = "bubble bath"
+
+	glass_icon_state = "waterfresh"
+	glass_name = "glass of Waterfresh"
+	glass_desc = "A concoction of toothpaste and mouthwash, for when you need to show your pearly whites. Toothbrush Included."
+	glass_center_of_mass = list("x"=7, "y"=8)
+
+/datum/reagent/drink/toothpaste/sedantian_firestorm
+	name = "Sedantian Firestorm"
+	id = "sedantian_firestorm"
+	description = "Florinated phoron, is the drink suppose to be on fire?"
+	strength = 80
+	taste_description = "melting asphalt"
+	adj_temp = 25
+	default_temperature = T0C + 60
+
+	glass_icon_state = "sedantian_firestorm"
+	glass_name = "glass of Sedantian Firestorm"
+	glass_desc = "Florinated phoron, is the drink suppose to be on fire?"
+	glass_center_of_mass = list("x"=7, "y"=8)
+
+/datum/reagent/drink/toothpaste/kois_odyne
+	name = "Kois Odyne"
+	id = "kois_odyne"
+	description = "A favourite among the younger vaurca, born from an accident involving nanopaste and the repair of internal augments."
+	strength = 60
+	taste_description = "chalk"
+
+	glass_icon_state = "kois_odyne"
+	glass_name = "glass of Kois Odyne"
+	glass_desc = "A favourite among the younger vaurca, born from an accident involving nanopaste and the repair of internal augments."
+	glass_center_of_mass = list("x"=7, "y"=8)
 
 /* Alcohol */
 
@@ -3241,12 +3341,12 @@
 				return
 		if(dose < agony_dose)
 			if(prob(5) || dose == metabolism)
-				M << discomfort_message
+				to_chat(M, discomfort_message)
 		else
 			M.apply_effect(agony_amount, AGONY, 0)
 			if(prob(5))
 				M.custom_emote(2, "[pick("dry heaves!","coughs!","splutters!")]")
-				M << "<span class='danger'>You feel like your insides are burning!</span>"
+				to_chat(M, "<span class='danger'>You feel like your insides are burning!</span>")
 		if(istype(M, /mob/living/carbon/slime))
 			M.bodytemperature += rand(0, 15) + slime_temp_adj
 		holder.remove_reagent("frostoil", 2)
@@ -3467,7 +3567,7 @@
 /datum/reagent/alcohol/winter_offensive
 	name = "Winter Offensive"
 	id = "winter_offensive"
-	description = "An alcoholic tajaran cocktail, named after a less than successful military campaign."
+	description = "An alcoholic tajaran cocktail, named after the famous military campaign."
 	color = "#664300"
 	strength = 15
 	taste_description = "oily gin"
@@ -3475,7 +3575,26 @@
 
 	glass_icon_state = "winter_offensive"
 	glass_name = "glass of Winter Offensive"
-	glass_desc = "Proven to be more successful than the campaign."
+	glass_desc = "An alcoholic tajaran cocktail, named after the famous military campaign."
+
+/datum/reagent/alcohol/mountain_marauder
+	name = "Mountain Marauder"
+	id = "mountain_marauder"
+	description = "An adhomian beverage made from fermented fatshouters milk and victory gin."
+	color = "#DFDFDF"
+	strength = 15
+	taste_description = "alcoholic sour milk"
+
+	glass_icon_state = "mountain_marauder"
+	glass_name = "glass of Mountain Marauder"
+	glass_desc = "An adhomian beverage made from fermented fatshouters milk and victory gin."
+
+/datum/reagent/alcohol/mountain_marauder/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
+	..()
+	if(ishuman(M))
+		var/mob/living/carbon/human/H = M
+		if(alien != IS_TAJARA && prob(5))
+			H.delayed_vomit()
 
 // Skrellian drinks
 //====================
@@ -3762,7 +3881,7 @@
 	description = "Zo'ra Soda, cherry edition. All good drinks come in cherry."
 	color = "#102000"
 	adj_sleepy = -2
-	caffeine = 0.2
+	caffeine = 0.4
 	taste_description = "electric cherry"
 
 /datum/reagent/drink/zorasoda/phoron
@@ -3771,7 +3890,7 @@
 	description = "Reported to taste nothing like phoron, but everything like grapes."
 	color = "#863333"
 	adj_sleepy = -2
-	caffeine = 0.2
+	caffeine = 0.4
 	taste_description = "electric grape"
 
 /datum/reagent/drink/zorasoda/kois
@@ -3780,7 +3899,7 @@
 	description = "Whoever approved this in marketing needs to be drawn and quartered."
 	color = "#dcd9cd"
 	adj_sleepy = -2
-	caffeine = 0.2
+	caffeine = 0.4
 	taste_description = "sugary cabbage"
 
 /datum/reagent/drink/zorasoda/kois/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
@@ -3794,7 +3913,7 @@
 	description = "It feels like someone is just driving a freezing cold spear through the bottom of your mouth."
 	color = "#365000"
 	adj_sleepy = -3
-	caffeine = 0.3
+	caffeine = 0.6
 	taste_description = "a full-body bite into an acidic lemon"
 
 /datum/reagent/drink/zorasoda/hozm/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
@@ -3810,7 +3929,7 @@
 	description = "The 'diet' version of High Energy Zorane Might, still tastes like a cloud of stinging polytrinic bees."
 	color = "#100800"
 	adj_sleepy = -3
-	caffeine = 0.1
+	caffeine = 0.4
 	taste_description = "fizzy nettles"
 
 /datum/reagent/drink/zorasoda/venomgrass/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
@@ -3824,7 +3943,7 @@
 	description = "An orange, cream soda. It's a wonder it got here."
 	color = "#E78108"
 	adj_sleepy = -3
-	caffeine = 0.2
+	caffeine = 0.4
 	unaffected_species = IS_MACHINE
 	taste_description = "orange cream"
 
@@ -3839,7 +3958,7 @@
 	description = "A raspberry concoction you're pretty sure is already on recall."
 	color = "#0000CD"
 	adj_sleepy = -3
-	caffeine = 0.2
+	caffeine = 0.4
 	taste_description = "flat raspberry"
 
 /datum/reagent/drink/zorasoda/cthur/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
@@ -3866,7 +3985,7 @@
 		M.make_jittery(5)
 	else if(alien != IS_DIONA)
 		if (prob(10+dose))
-			M << pick("You feel nauseous", "Ugghh....", "Your stomach churns uncomfortably", "You feel like you're about to throw up", "You feel queasy","You feel pressure in your abdomen")
+			to_chat(M, pick("You feel nauseous", "Ugghh....", "Your stomach churns uncomfortably", "You feel like you're about to throw up", "You feel queasy","You feel pressure in your abdomen"))
 
 		if (prob(dose))
 			M.vomit()
@@ -3877,7 +3996,7 @@
 	description = "It looks of mucus, but tastes like Heaven."
 	color = "#FFFF00"
 	adj_sleepy = -3
-	caffeine = 0.2
+	caffeine = 0.3
 	taste_description = "a reassuring spectrum of color"
 
 /datum/reagent/drink/zorasoda/jelly/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)

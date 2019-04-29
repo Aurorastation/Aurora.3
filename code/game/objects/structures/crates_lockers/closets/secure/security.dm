@@ -132,7 +132,6 @@
 		new /obj/item/clothing/suit/storage/toggle/armor/hos/jensen(src)
 		new /obj/item/clothing/suit/armor/hos(src)
 		new /obj/item/clothing/suit/storage/vest/hos(src)
-		new /obj/item/clothing/head/helmet/HoS/dermal(src)
 		new /obj/item/clothing/head/helmet/HoS(src)
 		new /obj/item/clothing/head/beret/sec/hos(src)
 		new /obj/item/clothing/accessory/badge/hos(src)
@@ -364,7 +363,7 @@
 			if(large)
 				MouseDrop_T(G.affecting, user)	//act like they were dragged onto the closet
 			else
-				user << "<span class='notice'>The locker is too small to stuff [G.affecting] into!</span>"
+				to_chat(user, "<span class='notice'>The locker is too small to stuff [G.affecting] into!</span>")
 		else if(isrobot(user))
 			return
 		else if(W.loc != user) // This should stop mounted modules ending up outside the module.

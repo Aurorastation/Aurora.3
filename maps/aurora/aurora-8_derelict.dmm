@@ -7022,7 +7022,7 @@
 /turf/template_noop,
 /area/template_noop)
 "uy" = (
-/obj/item/weapon/soap/nanotrasen,
+/obj/random/soap,
 /turf/template_noop,
 /area/template_noop)
 "uz" = (

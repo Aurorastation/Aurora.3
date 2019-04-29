@@ -31,7 +31,7 @@
 		user.put_in_active_hand(gift)
 		src.gift.add_fingerprint(user)
 	else
-		user << "<span class='warning'>The gift was empty!</span>"
+		to_chat(user, "<span class='warning'>The gift was empty!</span>")
 	qdel(src)
 	return
 
@@ -42,16 +42,16 @@
 /obj/effect/spresent/relaymove(mob/user as mob)
 	if (user.stat)
 		return
-	user << "<span class='warning'>You can't move.</span>"
+	to_chat(user, "<span class='warning'>You can't move.</span>")
 
 /obj/effect/spresent/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	..()
 
 	if (!W.iswirecutter())
-		user << "<span class='warning'>I need wirecutters for that.</span>"
+		to_chat(user, "<span class='warning'>I need wirecutters for that.</span>")
 		return
 
-	user << "<span class='notice'>You cut open the present.</span>"
+	to_chat(user, "<span class='notice'>You cut open the present.</span>")
 
 	for(var/mob/M in src) //Should only be one but whatever.
 		M.forceMove(src.loc)
@@ -128,12 +128,12 @@
 /obj/item/weapon/wrapping_paper/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	..()
 	if (!( locate(/obj/structure/table, src.loc) ))
-		user << "<span class='warning'>You MUST put the paper on a table!</span>"
+		to_chat(user, "<span class='warning'>You MUST put the paper on a table!</span>")
 	if (W.w_class < 4)
 		if ((istype(user.l_hand, /obj/item/weapon/wirecutters) || istype(user.r_hand, /obj/item/weapon/wirecutters)))
 			var/a_used = 2 ** (src.w_class - 1)
 			if (src.amount < a_used)
-				user << "<span class='warning'>You need more paper!</span>"
+				to_chat(user, "<span class='warning'>You need more paper!</span>")
 				return
 			else
 				if(istype(W, /obj/item/smallDelivery) || istype(W, /obj/item/weapon/gift)) //No gift wrapping gifts!
@@ -155,15 +155,15 @@
 				qdel(src)
 				return
 		else
-			user << "<span class='warning'>You need scissors!</span>"
+			to_chat(user, "<span class='warning'>You need scissors!</span>")
 	else
-		user << "<span class='warning'>The object is FAR too large!</span>"
+		to_chat(user, "<span class='warning'>The object is FAR too large!</span>")
 	return
 
 
 /obj/item/weapon/wrapping_paper/examine(mob/user)
 	if(..(user, 1))
-		user << text("There is about [] square units of paper left!", src.amount)
+		to_chat(user, text("There is about [] square units of paper left!", src.amount))
 
 /obj/item/weapon/wrapping_paper/attack(mob/target as mob, mob/user as mob)
 	if (!istype(target, /mob/living/carbon/human)) return
@@ -185,9 +185,9 @@
 			msg_admin_attack("[key_name_admin(user)] used [src] to wrap [key_name_admin(H)] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(H))
 
 		else
-			user << "<span class='warning'>You need more paper.</span>"
+			to_chat(user, "<span class='warning'>You need more paper.</span>")
 	else
-		user << "They are moving around too much. A straightjacket would help."
+		to_chat(user, "They are moving around too much. A straightjacket would help.")
 
 /*
  * Xmas Gifts
@@ -292,7 +292,7 @@
 	var/atom/movable/I = new gift_type(get_turf(M))
 	M.remove_from_mob(src)
 	M.put_in_hands(I)
-	M << "<span class='notice'>You open the gift, revealing your new [I.name]! Just what you always wanted!</span>"
+	to_chat(M, "<span class='notice'>You open the gift, revealing your new [I.name]! Just what you always wanted!</span>")
 	qdel(src)
 	return
 
@@ -361,7 +361,7 @@
 	M.remove_from_mob(src)
 	if (!M.put_in_hands(I))
 		M.forceMove(get_turf(src))
-	M << "<span class='notice'>You open the gift, revealing your new [I.name]! Just what you always wanted!</span>"
+	to_chat(M, "<span class='notice'>You open the gift, revealing your new [I.name]! Just what you always wanted!</span>")
 	qdel(src)
 	return
 
@@ -387,8 +387,8 @@
 		/mob/living/carbon/human/monkey/nupnup,
 		/obj/item/weapon/xmasgift/medium,
 		/obj/item/weapon/tank/jetpack,
-		/obj/structure/plushie/drone,
-		/obj/structure/plushie/ivancarp,
+		/obj/item/toy/plushie/drone,
+		/obj/item/toy/plushie/ivancarp,
 		/obj/item/weapon/grenade/spawnergrenade/vaurca,
 		/obj/item/weapon/ore/coal,
 		/obj/item/weapon/ore/coal,
@@ -404,6 +404,6 @@
 	var/atom/movable/I = new gift_type(get_turf(M))
 	M.remove_from_mob(src)
 	M.put_in_hands(I)
-	M << "<span class='notice'>You open the gift, revealing your new [I.name]! Just what you always wanted!</span>"
+	to_chat(M, "<span class='notice'>You open the gift, revealing your new [I.name]! Just what you always wanted!</span>")
 	qdel(src)
 	return

@@ -11,6 +11,8 @@
 	item_state = "analyzer"
 	var/form_title
 	var/last_data
+	matter = list(DEFAULT_WALL_MATERIAL = 80,"glass" = 20)
+	origin_tech = list(TECH_MAGNET = 1, TECH_BIO = 1)
 
 /obj/item/device/analyzer/plant_analyzer/proc/print_report_verb()
 	set name = "Print Plant Report"
@@ -29,7 +31,7 @@
 
 /obj/item/device/analyzer/plant_analyzer/proc/print_report(var/mob/living/user)
 	if(!last_data)
-		user << "There is no scan data to print."
+		to_chat(user, "There is no scan data to print.")
 		return
 	var/obj/item/weapon/paper/P = new /obj/item/weapon/paper(get_turf(src))
 	P.set_content_unsafe("paper - [form_title]", "[last_data]")
@@ -73,7 +75,7 @@
 		grown_reagents = H.reagents
 
 	if(!grown_seed)
-		user << "<span class='danger'>[src] can tell you nothing about \the [target].</span>"
+		to_chat(user, "<span class='danger'>[src] can tell you nothing about \the [target].</span>")
 		return
 
 	form_title = "[grown_seed.seed_name] (#[grown_seed.uid])"

@@ -102,27 +102,27 @@
 
 
 /mob/living/carbon/human/adjustBruteLoss(var/amount)
-	amount *= brute_mod
 	if(amount > 0)
+		amount *= brute_mod
 		take_overall_damage(amount, 0)
 	else
 		heal_overall_damage(-amount, 0)
 	BITSET(hud_updateflag, HEALTH_HUD)
 
 /mob/living/carbon/human/adjustFireLoss(var/amount)
-	amount *= burn_mod
 	if(amount > 0)
+		amount *= burn_mod
 		take_overall_damage(0, amount)
 	else
 		heal_overall_damage(0, -amount)
 	BITSET(hud_updateflag, HEALTH_HUD)
 
 /mob/living/carbon/human/proc/adjustBruteLossByPart(var/amount, var/organ_name, var/obj/damage_source = null)
-	amount *= brute_mod
 	if (organ_name in organs_by_name)
 		var/obj/item/organ/external/O = get_organ(organ_name)
 
 		if(amount > 0)
+			amount *= brute_mod
 			O.take_damage(amount, 0, sharp=is_sharp(damage_source), edge=has_edge(damage_source), used_weapon=damage_source)
 		else
 			//if you don't want to heal robot organs, they you will have to check that yourself before using this proc.
@@ -131,11 +131,11 @@
 	BITSET(hud_updateflag, HEALTH_HUD)
 
 /mob/living/carbon/human/proc/adjustFireLossByPart(var/amount, var/organ_name, var/obj/damage_source = null)
-	amount *= burn_mod
 	if (organ_name in organs_by_name)
 		var/obj/item/organ/external/O = get_organ(organ_name)
 
 		if(amount > 0)
+			amount *= burn_mod
 			O.take_damage(0, amount, sharp=is_sharp(damage_source), edge=has_edge(damage_source), used_weapon=damage_source)
 		else
 			//if you don't want to heal robot organs, they you will have to check that yourself before using this proc.
@@ -187,21 +187,21 @@
 			if (candidates.len)
 				var/obj/item/organ/external/O = pick(candidates)
 				O.mutate()
-				src << "<span class = 'notice'>Something is not right with your [O.name]...</span>"
+				to_chat(src, "<span class = 'notice'>Something is not right with your [O.name]...</span>")
 				return
 	else
 		if (prob(heal_prob))
 			for (var/obj/item/organ/external/O in organs)
 				if (O.status & ORGAN_MUTATED)
 					O.unmutate()
-					src << "<span class = 'notice'>Your [O.name] is shaped normally again.</span>"
+					to_chat(src, "<span class = 'notice'>Your [O.name] is shaped normally again.</span>")
 					return
 
 	if (getCloneLoss() < 1)
 		for (var/obj/item/organ/external/O in organs)
 			if (O.status & ORGAN_MUTATED)
 				O.unmutate()
-				src << "<span class = 'notice'>Your [O.name] is shaped normally again.</span>"
+				to_chat(src, "<span class = 'notice'>Your [O.name] is shaped normally again.</span>")
 	BITSET(hud_updateflag, HEALTH_HUD)
 
 // Defined here solely to take species flags into account without having to recast at mob/living level.
@@ -214,7 +214,9 @@
 	if(species.flags & NO_BREATHE)
 		oxyloss = 0
 	else
-		amount = amount*species.oxy_mod
+		if(amount > 0)
+			amount *= species.oxy_mod
+
 		if(getOxyLoss() + amount >=  abs(config.health_threshold_crit)) //start taking brain damage if they go into crit from oxyloss
 			adjustBrainLoss(amount,55) //this brain damage won't be lethal)
 		..(amount)
@@ -231,12 +233,11 @@
 	return ..()
 
 /mob/living/carbon/human/adjustToxLoss(var/amount)
-	if(species && species.toxins_mod)
-		amount = amount*species.toxins_mod
+	if(species && species.toxins_mod && amount > 0)
+		amount *= species.toxins_mod
 	if(species.flags & NO_POISON)
 		toxloss = 0
 	else
-		amount = amount*species.toxins_mod
 		..(amount)
 
 /mob/living/carbon/human/setToxLoss(var/amount)
@@ -392,7 +393,7 @@ This function restores all organs.
 	//visible_message("Hit debug. [damage] | [damagetype] | [def_zone] | [blocked] | [sharp] | [used_weapon]")
 	if (src.invisibility == INVISIBILITY_LEVEL_TWO && back && (istype(back, /obj/item/weapon/rig)))
 		if (damage > 0)
-			src << "<span class='danger'>You are now visible.</span>"
+			to_chat(src, "<span class='danger'>You are now visible.</span>")
 			src.invisibility = 0
 
 	//Handle other types of damage
@@ -423,12 +424,14 @@ This function restores all organs.
 	switch(damagetype)
 		if(BRUTE)
 			damageoverlaytemp = 20
-			damage = damage*species.brute_mod
+			if(damage > 0)
+				damage *= species.brute_mod
 			if(organ.take_damage(damage, 0, sharp, edge, used_weapon))
 				UpdateDamageIcon()
 		if(BURN)
 			damageoverlaytemp = 20
-			damage = damage*species.burn_mod
+			if(damage > 0)
+				damage *= species.burn_mod
 			if(organ.take_damage(0, damage, sharp, edge, used_weapon))
 				UpdateDamageIcon()
 

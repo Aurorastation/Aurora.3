@@ -14,8 +14,8 @@
 	var/fake = FALSE
 
 /obj/item/weapon/grenade/proc/clown_check(var/mob/living/user)
-	if((CLUMSY in user.mutations) && prob(50))
-		user << "<span class='warning'>Huh? How does this thing work?</span>"
+	if((user.is_clumsy()) && prob(50))
+		to_chat(user, "<span class='warning'>Huh? How does this thing work?</span>")
 
 		activate(user)
 		add_fingerprint(user)
@@ -27,17 +27,17 @@
 /obj/item/weapon/grenade/examine(mob/user)
 	if(..(user, 0))
 		if(det_time > 1)
-			user << "The timer is set to [det_time/10] seconds."
+			to_chat(user, "The timer is set to [det_time/10] seconds.")
 			return
 		if(det_time == null)
 			return
-		user << "\The [src] is set for instant detonation."
+		to_chat(user, "\The [src] is set for instant detonation.")
 
 
 /obj/item/weapon/grenade/attack_self(mob/user as mob)
 	if(!active)
 		if(clown_check(user))
-			user << "<span class='warning'>You prime \the [name]! [det_time/10] seconds!</span>"
+			to_chat(user, "<span class='warning'>You prime \the [name]! [det_time/10] seconds!</span>")
 
 			activate(user)
 			add_fingerprint(user)

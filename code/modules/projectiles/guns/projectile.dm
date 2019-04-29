@@ -78,7 +78,7 @@
 		return 0
 	if(!is_jammed && jam_chance)
 		if(prob(jam_chance))
-			user << "<span class='danger'>\The [src] jams!</span>"
+			to_chat(user, "<span class='danger'>\The [src] jams!</span>")
 			is_jammed = 1
 	return 1
 
@@ -100,6 +100,7 @@
 			qdel(chambered)
 		if(EJECT_CASINGS) //eject casing onto ground.
 			chambered.forceMove(get_turf(src))
+			playsound(chambered, "sound/weapons/casingdrop[rand(1,5)].ogg", 50, 1)
 		if(CYCLE_CASINGS) //cycle the casing back to the end.
 			if(ammo_magazine)
 				ammo_magazine.stored_ammo += chambered
@@ -181,6 +182,7 @@
 			if(T)
 				for(var/obj/item/ammo_casing/C in loaded)
 					C.forceMove(T)
+					playsound(C, "sound/weapons/casingdrop[rand(1,5)].ogg", 50, 1)
 					count++
 				loaded.Cut()
 			if(count)
@@ -191,7 +193,7 @@
 			user.put_in_hands(C)
 			user.visible_message("[user] removes \a [C] from [src].", "<span class='notice'>You remove \a [C] from [src].</span>")
 	else
-		user << "<span class='warning'>[src] is empty.</span>"
+		to_chat(user, "<span class='warning'>[src] is empty.</span>")
 	update_icon()
 
 /obj/item/weapon/gun/projectile/attackby(var/obj/item/A as obj, mob/user as mob)
@@ -200,7 +202,7 @@
 
 /obj/item/weapon/gun/projectile/attack_self(mob/user as mob)
 	if(is_jammed)
-		user << "<span class='notice'>\The [user] unjams \the [src]!</span>"
+		to_chat(user, "<span class='notice'>\The [user] unjams \the [src]!</span>")
 		if(do_after(user, 5))
 			playsound(src.loc, 'sound/weapons/empty.ogg', 100, 1)
 			is_jammed = 0
@@ -233,10 +235,10 @@
 /obj/item/weapon/gun/projectile/examine(mob/user)
 	..(user)
 	if(is_jammed)
-		user << "<span class='warning'>It looks jammed.</span>"
+		to_chat(user, "<span class='warning'>It looks jammed.</span>")
 	if(ammo_magazine)
-		user << "It has \a [ammo_magazine] loaded."
-	user << "Has [getAmmo()] round\s remaining."
+		to_chat(user, "It has \a [ammo_magazine] loaded.")
+	to_chat(user, "Has [getAmmo()] round\s remaining.")
 	return
 
 /obj/item/weapon/gun/projectile/proc/getAmmo()

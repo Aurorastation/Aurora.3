@@ -41,8 +41,8 @@
 	spill(user, M.loc)
 
 	//Note: Added a robot check to all stun/weaken procs, beccause weakening a robot causes its active modules to bug out
-	if((CLUMSY in user.mutations) && prob(50))              //What if he's a clown?
-		M << "<span class='warning'>You accidentally slam yourself with the [src]!</span>"
+	if((user.is_clumsy()) && prob(50))              //What if he's a clown?
+		to_chat(M, "<span class='warning'>You accidentally slam yourself with the [src]!</span>")
 		if (!issilicon(M))
 			M.Weaken(1)
 		user.take_organ_damage(2)
@@ -92,7 +92,7 @@
 			break
 
 	if(protected)
-		M << "<span class='warning'>You get slammed in the face with the tray, against your mask!</span>"
+		to_chat(M, "<span class='warning'>You get slammed in the face with the tray, against your mask!</span>")
 		if(prob(33) && !issilicon(M))
 			src.add_blood(H)
 			if (H.wear_mask)
@@ -122,7 +122,7 @@
 			return
 
 	else if (!issilicon(M))//No eye or head protection, tough luck!
-		M << "<span class='danger'>You get slammed in the face with the tray!</span>"
+		to_chat(M, "<span class='danger'>You get slammed in the face with the tray!</span>")
 		if(prob(33))
 			src.add_blood(M)
 			var/turf/location = H.loc
@@ -208,7 +208,7 @@
 		else if ( addedSomething )
 			usr.visible_message("<span class='notice'>[user] loads [addedSomething] items onto their service tray.</span>")
 		else
-			user << "The tray is full or there's nothing valid here"
+			to_chat(user, "The tray is full or there's nothing valid here")
 			return 1
 		return 0//This prevents the alt-click from doing any farther actions
 	return 1
@@ -226,12 +226,12 @@
 				var/remaining = max_carry - current_weight
 				if (remaining >= I.w_class)
 					load_item(I,user)
-					if (messages)user << "You place [I] on the tray"
+					if (messages)to_chat(user, "You place [I] on the tray")
 					return 1
 				else
 					if (messages)
-						user << "The tray can't take that much weight"
-		if (!match && messages)user << "That item isn't suitable for a tray"
+						to_chat(user, "The tray can't take that much weight")
+		if (!match && messages)to_chat(user, "That item isn't suitable for a tray")
 	return 0
 
 
@@ -251,7 +251,7 @@
 	set src in view(1)
 
 	if (!istype(loc,/turf))//check that we're not being held by a mob
-		usr << "Place the tray down first!"
+		to_chat(usr, "Place the tray down first!")
 		return
 	else
 		var/turf/dropspot = loc
@@ -266,7 +266,7 @@
 
 /obj/item/weapon/tray/proc/unload_at_loc(var/turf/dropspot = null, var/mob/user)
 	if (!istype(loc,/turf) && !dropspot)//check that we're not being held by a mob
-		user << "Place the tray down first!"
+		to_chat(user, "Place the tray down first!")
 		return
 	else
 		if (!dropspot)

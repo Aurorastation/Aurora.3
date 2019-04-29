@@ -6,6 +6,7 @@
 	throw_speed = 1
 	throw_range = 5
 	w_class = 2.0
+	matter = list(DEFAULT_WALL_MATERIAL = 320, "glass" = 800)
 	var/obj/item/weapon/implant/imp = null
 
 /obj/item/weapon/implanter/attack_self(var/mob/user)
@@ -13,7 +14,7 @@
 		return ..()
 	imp.forceMove(get_turf(src))
 	user.put_in_hands(imp)
-	user << "<span class='notice'>You remove \the [imp] from \the [src].</span>"
+	to_chat(user, "<span class='notice'>You remove \the [imp] from \the [src].</span>")
 	name = "implanter"
 	imp = null
 	update()
@@ -54,7 +55,7 @@
 
 						BITSET(H.hud_updateflag, IMPLOYAL_HUD)
 					if(istype(src.imp, /obj/item/weapon/implanter/loyalty))
-						M << "<span class ='notice'You feel a sudden surge of loyalty to [current_map.company_name]!</span>"
+						to_chat(M, "<span class ='notice'You feel a sudden surge of loyalty to [current_map.company_name]!</span>")
 
 				src.imp = null
 				update()
@@ -113,7 +114,7 @@
 	var/obj/item/weapon/implant/compressed/c = imp
 	if (!c)	return
 	if (c.scanned == null)
-		user << "Please scan an object with the implanter first."
+		to_chat(user, "Please scan an object with the implanter first.")
 		return
 	..()
 
@@ -123,7 +124,7 @@
 	if(istype(A,/obj/item) && imp)
 		var/obj/item/weapon/implant/compressed/c = imp
 		if (c.scanned)
-			user << "<span class='warning'>Something is already scanned inside the implant!</span>"
+			to_chat(user, "<span class='warning'>Something is already scanned inside the implant!</span>")
 			return
 		c.scanned = A
 		if(istype(A.loc,/mob/living/carbon/human))
@@ -157,16 +158,16 @@
 		return
 
 	if (!ipc_tag)
-		user << "<span class ='warning'>[src] is empty!</span>"
+		to_chat(user, "<span class ='warning'>[src] is empty!</span>")
 		return
 
 	var/mob/living/carbon/human/H = M
 	if (!H.species || !isipc(H) || !H.organs_by_name["head"])
-		user << "<span class = 'warning'>You cannot use this on a non-synthetic organism!</span>"
+		to_chat(user, "<span class = 'warning'>You cannot use this on a non-synthetic organism!</span>")
 		return
 
 	if (H.internal_organs_by_name["ipc tag"])
-		user << "<span class = 'warning'>[H] is already tagged!</span>"
+		to_chat(user, "<span class = 'warning'>[H] is already tagged!</span>")
 		return
 
 	for (var/mob/O in viewers(M, null))
@@ -179,7 +180,7 @@
 	user.show_message("<span class = 'warning'>You implanted the implant into [M].</span>")
 
 	ipc_tag.replaced(H, H.organs_by_name["head"])
-	
+
 	ipc_tag = null
 
 	update()

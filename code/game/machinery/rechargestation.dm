@@ -109,7 +109,7 @@
 
 /obj/machinery/recharge_station/examine(mob/user)
 	..(user)
-	user << "The charge meter reads: [round(chargepercentage())]%"
+	to_chat(user, "The charge meter reads: [round(chargepercentage())]%")
 
 /obj/machinery/recharge_station/proc/chargepercentage()
 	if(!cell)
@@ -262,7 +262,7 @@
 	if (istype(C, /mob/living/silicon/robot))
 		var/mob/living/silicon/robot/R = C
 		if (!user.Adjacent(R) || !Adjacent(user))
-			user << span("danger", "You need to get closer if you want to put [C] into that charger!")
+			to_chat(user, span("danger", "You need to get closer if you want to put [C] into that charger!"))
 			return
 		user.face_atom(src)
 		user.visible_message(span("danger","[user] starts hauling [C] into the recharging unit!"), span("danger","You start hauling and pushing [C] into the recharger. This might take a while..."), "You hear heaving and straining")
@@ -271,8 +271,8 @@
 				user.visible_message(span("notice","After a great effort, [user] manages to get [C] into the recharging unit!"))
 				return 1
 			else
-				user << span("danger","Failed loading [C] into the charger. Please ensure that [C] has a power cell and is not buckled down, and that the charger is functioning.")
+				to_chat(user, span("danger","Failed loading [C] into the charger. Please ensure that [C] has a power cell and is not buckled down, and that the charger is functioning."))
 		else
-			user << span("danger","Cancelled loading [C] into the charger. You and [C] must stay still!")
+			to_chat(user, span("danger","Cancelled loading [C] into the charger. You and [C] must stay still!"))
 		return
 	return ..()

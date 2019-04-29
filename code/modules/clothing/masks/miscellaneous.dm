@@ -156,3 +156,19 @@
 
 		eye.owner.eyeobj = null
 		eye.owner = null
+
+/obj/item/clothing/mask/offworlder
+	name = "pioneer's scarf"
+	desc = "Usually a treasured item, these spider-silk scarves are seen passed down by generations of expeditionaries."
+	icon_state = "pioneer_scarf"
+	item_state = "pioneer_scarf"
+	w_class = 2
+	body_parts_covered = FACE
+
+/obj/item/clothing/mask/offworlder/veil
+	name = "starveil"
+	desc = "A thin holographic veil meant to cover the face, intended to block out light."
+	icon_state = "starveil"
+	item_state = "starveil"
+	down_body_parts_covered = null
+	adjustable = TRUE

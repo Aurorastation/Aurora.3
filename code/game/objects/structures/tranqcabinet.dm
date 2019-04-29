@@ -20,7 +20,7 @@
 			user.remove_from_mob(O)
 			contents += O
 			has_tranq = O
-			user << "<span class='notice'>You place [O] in [src].</span>"
+			to_chat(user, "<span class='notice'>You place [O] in [src].</span>")
 		else
 			opened = !opened
 	else
@@ -35,7 +35,7 @@
 		return
 	if(has_tranq)
 		user.put_in_hands(has_tranq)
-		user << "<span class='notice'>You take [has_tranq] from [src].</span>"
+		to_chat(user, "<span class='notice'>You take [has_tranq] from [src].</span>")
 		has_tranq = null
 		opened = 1
 	else
@@ -45,7 +45,7 @@
 /obj/structure/tranqcabinet/attack_tk(mob/user)
 	if(has_tranq)
 		has_tranq.forceMove(loc)
-		user << "<span class='notice'>You telekinetically remove [has_tranq] from [src].</span>"
+		to_chat(user, "<span class='notice'>You telekinetically remove [has_tranq] from [src].</span>")
 		has_tranq = null
 		opened = 1
 	else

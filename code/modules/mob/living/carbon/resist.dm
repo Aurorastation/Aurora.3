@@ -1,22 +1,24 @@
-
 /mob/living/carbon/process_resist()
 
 	//drop && roll
 	if(on_fire && !buckled)
-		fire_stacks -= 1.2
+		var/obj/effect/decal/cleanable/foam/extinguisher_foam = locate() in src.loc
+		var/extra = 0
+		if(extinguisher_foam)
+			extra = extinguisher_foam.amount * 1.5
+		ExtinguishMob(1.2 + extra)
 		Weaken(3)
 		spin(32,2)
 		visible_message(
 			"<span class='danger'>[src] rolls on the floor, trying to put themselves out!</span>",
 			"<span class='notice'>You stop, drop, and roll!</span>"
 			)
-		sleep(30)
+		sleep(3 SECONDS)
 		if(fire_stacks <= 0)
 			visible_message(
 				"<span class='danger'>[src] has successfully extinguished themselves!</span>",
 				"<span class='notice'>You extinguish yourself.</span>"
 				)
-			ExtinguishMob()
 		return
 
 	..()
@@ -79,10 +81,10 @@
 	//If you are handcuffed with actual handcuffs... Well what do I know, maybe someone will want to handcuff you with toilet paper in the future...
 	if(istype(HC))
 		breakouttime = HC.breakouttime
-	
+
 	if(buckled)
 		breakouttime += 600 //If you are buckled, it takes a minute longer, but you are unbuckled and uncuffed instantly
-	
+
 	displaytime = breakouttime / 600 //Minutes
 
 	var/mob/living/carbon/human/H = src
@@ -115,7 +117,7 @@
 			buckle_message_user = " and unbuckle yourself"
 			buckle_message_other = " and to unbuckle themself"
 			buckled.user_unbuckle_mob(src)
-		
+
 		if(violent_removal)
 			var/obj/item/organ/external/E = H.get_organ(pick("l_arm","r_arm"))
 			var/dislocate_message = ""
@@ -209,7 +211,7 @@
 		update_inv_handcuffed()
 
 /mob/living/carbon/proc/break_legcuffs()
-	src << "<span class='warning'>You attempt to break your legcuffs. (This will take around 5 seconds and you need to stand still)</span>"
+	to_chat(src, "<span class='warning'>You attempt to break your legcuffs. (This will take around 5 seconds and you need to stand still)</span>")
 	visible_message("<span class='danger'>[src] is trying to break the legcuffs!</span>")
 
 	if(do_after(src, 50))
