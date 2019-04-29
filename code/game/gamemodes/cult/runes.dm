@@ -32,7 +32,7 @@ var/list/sacrificed = list()
 		qdel(src)
 
 	var/turf/T = get_turf(user)
-	f(!(T.z in current_map.station_levels))
+	if(!(T.z in current_map.station_levels))
 		to_chat(user, "<span class='warning'>You are too far from the station, Nar'sie is unable to reach you here.</span>")
 		return fizzle(user)
 
