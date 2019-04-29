@@ -84,7 +84,7 @@
 		)
 
 	appearance_flags = HAS_HAIR_COLOR | HAS_UNDERWEAR | HAS_SKIN_COLOR | HAS_EYE_COLOR
-	flags = NO_CHUBBY | NO_SCAN
+	flags = NO_CHUBBY
 
 	flesh_color = "#575757"
 	base_color = "#575757"
@@ -120,3 +120,6 @@
 	if (eyes)
 		var/eyegb = rgb(eyes.eye_colour[1], eyes.eye_colour[2], eyes.eye_colour[3])
 		return eyegb
+
+/datum/species/unathi/autakh/get_cloning_variant()
+	return "Unathi"
