@@ -3521,10 +3521,6 @@
 /obj/machinery/microwave,
 /turf/simulated/floor/tiled/white,
 /area/derelict/ship)
-"il" = (
-/obj/machinery/appliance/cooker/grill,
-/turf/simulated/floor/tiled/white,
-/area/derelict/ship)
 "im" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass_mining,
@@ -4248,22 +4244,6 @@
 /obj/structure/grille,
 /turf/simulated/floor,
 /area/derelict/ship)
-"kp" = (
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 8
-	},
-/obj/structure/grille,
-/obj/machinery/door/firedoor,
-/turf/simulated/shuttle/wall/dark,
-/area/derelict/ship)
 "kq" = (
 /obj/structure/closet/jcloset,
 /turf/simulated/floor,
@@ -4279,19 +4259,6 @@
 	},
 /obj/structure/grille,
 /turf/simulated/floor,
-/area/derelict/ship)
-"ks" = (
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 8
-	},
-/obj/structure/grille,
-/obj/machinery/door/firedoor,
-/turf/simulated/shuttle/wall/dark,
 /area/derelict/ship)
 "kt" = (
 /obj/structure/reagent_dispensers/watertank,
@@ -31920,8 +31887,8 @@ ar
 bd
 bi
 ar
-kp
-ks
+bd
+bi
 ar
 ar
 ar
@@ -38322,7 +38289,7 @@ ar
 hJ
 cG
 cG
-il
+ds
 ar
 iz
 iF
