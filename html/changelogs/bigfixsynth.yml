@@ -39,7 +39,6 @@ delete-after: True
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
   - bugfix: "Fixed cult armor hiding shoes."
-  - bugfix: "Fixed Dragos synth sprite due to complaints of the flicker."
   - bugfix: "Fixed shell ipc gender issues."
   - bugfix: "Fixed some oversights in clerical borgs, removed there stamp at direction of synth lore dev."
 
