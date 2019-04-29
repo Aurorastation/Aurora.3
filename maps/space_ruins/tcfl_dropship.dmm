@@ -12,7 +12,6 @@
 	dir = 1
 	},
 /obj/structure/grille,
-/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/derelict)
 "ad" = (
@@ -26,7 +25,6 @@
 	dir = 1
 	},
 /obj/structure/grille,
-/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/derelict)
 "ae" = (
@@ -43,7 +41,6 @@
 	dir = 1
 	},
 /obj/structure/grille,
-/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/derelict)
 "ag" = (
@@ -53,7 +50,6 @@
 	dir = 1
 	},
 /obj/structure/grille,
-/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/derelict)
 "ah" = (
@@ -66,7 +62,6 @@
 	dir = 1
 	},
 /obj/structure/grille,
-/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/derelict)
 "ai" = (
@@ -76,7 +71,6 @@
 	dir = 4
 	},
 /obj/structure/grille,
-/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/derelict)
 "aj" = (
@@ -103,7 +97,6 @@
 	dir = 8
 	},
 /obj/structure/grille,
-/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/derelict)
 "ao" = (
@@ -117,7 +110,6 @@
 	},
 /obj/structure/grille,
 /obj/structure/grille,
-/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/derelict)
 "ap" = (
@@ -131,7 +123,6 @@
 	dir = 8
 	},
 /obj/structure/grille,
-/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/derelict)
 "aq" = (
@@ -201,23 +192,6 @@
 /obj/structure/computerframe,
 /turf/simulated/floor/tiled/dark,
 /area/derelict)
-"aA" = (
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 1
-	},
-/obj/structure/grille,
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/plating,
-/area/derelict)
 "aB" = (
 /obj/structure/table/steel,
 /obj/item/weapon/melee/telebaton,
@@ -268,7 +242,6 @@
 	icon_state = "rwindow";
 	dir = 1
 	},
-/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/derelict)
 "aI" = (
@@ -319,7 +292,6 @@
 /area/derelict)
 "aQ" = (
 /obj/structure/window/reinforced,
-/obj/machinery/door/firedoor,
 /obj/structure/grille/broken,
 /turf/simulated/floor/plating,
 /area/derelict)
@@ -347,8 +319,6 @@
 "aW" = (
 /obj/item/weapon/ore/uranium,
 /obj/effect/decal/cleanable/greenglow,
-/obj/machinery/door/firedoor,
-/obj/machinery/door/firedoor,
 /obj/structure/inflatable,
 /turf/simulated/floor/plating,
 /area/derelict)
@@ -359,7 +329,6 @@
 	},
 /obj/item/weapon/material/shard,
 /obj/effect/decal/cleanable/greenglow,
-/obj/machinery/door/firedoor,
 /obj/structure/inflatable,
 /turf/simulated/floor/plating,
 /area/derelict)
@@ -411,7 +380,6 @@
 	icon_state = "small"
 	},
 /obj/effect/decal/cleanable/greenglow,
-/obj/machinery/door/firedoor,
 /obj/structure/inflatable,
 /turf/simulated/floor/plating,
 /area/derelict)
@@ -455,19 +423,6 @@
 /obj/item/weapon/material/shard,
 /turf/template_noop,
 /area/template_noop)
-"bq" = (
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 8
-	},
-/obj/structure/grille,
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/plating,
-/area/derelict)
 "br" = (
 /obj/structure/table/steel,
 /obj/machinery/chemical_dispenser/bar_alc,
@@ -494,7 +449,6 @@
 "bw" = (
 /obj/item/weapon/arrow/rod,
 /obj/effect/decal/cleanable/greenglow,
-/obj/machinery/door/firedoor,
 /obj/structure/grille/broken,
 /obj/structure/inflatable,
 /turf/simulated/floor/plating,
@@ -576,7 +530,6 @@
 	desc = "A thick door emblazoned with Tau Ceti Foreign Legion markings.";
 	name = "Bridge"
 	},
-/obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/dark,
 /area/derelict)
 "bO" = (
@@ -603,7 +556,6 @@
 /obj/machinery/door/airlock/vault/bolted{
 	name = "Emergency Armory"
 	},
-/obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/dark,
 /area/derelict)
 "bU" = (
@@ -632,7 +584,6 @@
 	name = "Forward Deck";
 	req_access = list(25)
 	},
-/obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
 /area/derelict)
 "bY" = (
@@ -666,7 +617,6 @@
 /area/derelict)
 "ce" = (
 /obj/machinery/door/airlock/maintenance,
-/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/derelict)
 "cf" = (
@@ -686,7 +636,6 @@
 /turf/simulated/floor/tiled,
 /area/derelict)
 "cj" = (
-/obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/centcom{
 	desc = "A thick door emblazoned with Tau Ceti Foreign Legion markings.";
 	name = "Fore Battery"
@@ -703,7 +652,6 @@
 	desc = "A thick door emblazoned with Tau Ceti Foreign Legion markings.";
 	name = "Civilian Sector"
 	},
-/obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
 /area/derelict)
 "cm" = (
@@ -712,10 +660,6 @@
 /area/derelict)
 "cn" = (
 /obj/structure/inflatable/door,
-/turf/simulated/floor/tiled,
-/area/derelict)
-"co" = (
-/obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
 /area/derelict)
 "cp" = (
@@ -727,7 +671,6 @@
 	desc = "A thick door emblazoned with Tau Ceti Foreign Legion markings.";
 	name = "Civilian Suit Storage"
 	},
-/obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
 /area/derelict)
 "cr" = (
@@ -739,14 +682,8 @@
 /turf/simulated/wall/r_wall,
 /area/derelict)
 "ct" = (
-/obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass,
 /turf/simulated/floor/plating,
-/area/derelict)
-"cu" = (
-/obj/machinery/door/firedoor,
-/obj/effect/decal/cleanable/blood,
-/turf/simulated/floor/tiled,
 /area/derelict)
 "cv" = (
 /obj/item/weapon/material/shard{
@@ -764,7 +701,6 @@
 /obj/item/weapon/arrow/rod,
 /obj/item/device/batterer,
 /obj/effect/decal/cleanable/greenglow,
-/obj/machinery/door/firedoor,
 /obj/structure/inflatable,
 /turf/simulated/floor/plating,
 /area/derelict)
@@ -801,7 +737,6 @@
 	icon_state = "small"
 	},
 /obj/effect/decal/cleanable/greenglow,
-/obj/machinery/door/firedoor,
 /obj/structure/grille/broken,
 /obj/structure/inflatable,
 /turf/simulated/floor/plating,
@@ -871,7 +806,6 @@
 	},
 /obj/structure/window/reinforced,
 /obj/structure/grille,
-/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/derelict)
 "cT" = (
@@ -1000,7 +934,6 @@
 /turf/simulated/floor/plating,
 /area/derelict)
 "du" = (
-/obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/engineering,
 /turf/simulated/floor/tiled,
 /area/derelict)
@@ -1024,7 +957,6 @@
 /obj/machinery/door/airlock{
 	name = "Restroom"
 	},
-/obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/white,
 /area/derelict)
 "dA" = (
@@ -1034,7 +966,6 @@
 /obj/machinery/door/airlock{
 	name = "Unisex Restrooms"
 	},
-/obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/white,
 /area/derelict)
 "dC" = (
@@ -1079,7 +1010,6 @@
 	},
 /obj/structure/window/reinforced,
 /obj/structure/grille,
-/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/derelict)
 "dJ" = (
@@ -1123,24 +1053,6 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
-/area/derelict)
-"dQ" = (
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 1
-	},
-/obj/structure/grille,
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/plating,
 /area/derelict)
 "dR" = (
 /obj/structure/bedsheetbin,
@@ -1269,7 +1181,6 @@
 	dir = 1
 	},
 /obj/machinery/door/blast/shutters/open,
-/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/derelict)
 "el" = (
@@ -1277,7 +1188,6 @@
 	desc = "A thick door emblazoned with Tau Ceti Foreign Legion markings.";
 	name = "Hangar Checkpoint"
 	},
-/obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/dark,
 /area/derelict)
 "em" = (
@@ -1325,7 +1235,6 @@
 /area/derelict)
 "ev" = (
 /obj/machinery/door/airlock/medical,
-/obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/white,
 /area/derelict)
 "ew" = (
@@ -1470,7 +1379,6 @@
 /area/derelict)
 "eP" = (
 /obj/machinery/door/unpowered/shuttle,
-/obj/machinery/door/firedoor,
 /turf/simulated/floor/carpet,
 /area/derelict)
 "eQ" = (
@@ -1548,11 +1456,6 @@
 	},
 /obj/structure/grille,
 /turf/simulated/floor/plating,
-/area/derelict)
-"fc" = (
-/obj/machinery/door/firedoor,
-/obj/effect/decal/cleanable/blood/oil,
-/turf/simulated/floor/tiled,
 /area/derelict)
 "fd" = (
 /obj/structure/closet/crate/large,
@@ -1697,12 +1600,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/derelict)
-"fv" = (
-/obj/effect/decal/remains/robot,
-/obj/machinery/door/firedoor,
-/obj/effect/decal/cleanable/blood/oil,
-/turf/simulated/floor/tiled,
-/area/derelict)
 "fw" = (
 /obj/structure/firedoor_assembly,
 /turf/simulated/floor/tiled,
@@ -1719,7 +1616,6 @@
 	},
 /obj/structure/grille,
 /obj/structure/grille,
-/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/derelict)
 "fy" = (
@@ -1780,11 +1676,6 @@
 	},
 /obj/machinery/vending/assist,
 /turf/simulated/floor/tiled/dark,
-/area/derelict)
-"fI" = (
-/obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/maintenance,
-/turf/simulated/floor/plating,
 /area/derelict)
 "fJ" = (
 /obj/structure/window/reinforced{
@@ -28403,7 +28294,7 @@ ae
 ae
 dy
 aS
-co
+aS
 aS
 aS
 aS
@@ -28413,11 +28304,11 @@ cl
 aS
 aS
 aS
-fc
+cc
 aS
 cb
 aS
-fv
+ck
 aS
 aS
 bS
@@ -28643,10 +28534,10 @@ ab
 ab
 ae
 ae
-aA
-bq
-bq
-bq
+eA
+eD
+eD
+eD
 ap
 ae
 ae
@@ -28660,7 +28551,7 @@ cl
 dv
 aS
 aS
-co
+aS
 ci
 aS
 aS
@@ -28670,7 +28561,7 @@ ae
 eE
 aS
 aS
-co
+aS
 aS
 cc
 aS
@@ -28678,7 +28569,7 @@ fw
 cb
 aS
 aS
-fI
+ce
 fM
 fO
 fP
@@ -29953,15 +29844,15 @@ eo
 ey
 ae
 ae
-dQ
+fh
 ae
 ae
 ae
-dQ
+fh
 ae
 ae
 ae
-dQ
+fh
 ae
 ae
 ae
@@ -32238,7 +32129,7 @@ ab
 ac
 ap
 ae
-aA
+eA
 ap
 ae
 ae
@@ -35589,7 +35480,7 @@ ae
 ae
 ae
 ae
-co
+aS
 ae
 as
 cP
@@ -37410,10 +37301,10 @@ ae
 ce
 ae
 ae
-dQ
+fh
 ae
 ae
-dQ
+fh
 ae
 ae
 ae
@@ -37646,7 +37537,7 @@ as
 bZ
 ae
 aS
-co
+aS
 aS
 aS
 aS
@@ -37903,7 +37794,7 @@ bD
 bZ
 cj
 aS
-cu
+ci
 aS
 aS
 aS
@@ -38669,7 +38560,7 @@ ab
 bo
 aU
 bJ
-bq
+eD
 ap
 ae
 bc
@@ -39196,23 +39087,23 @@ dk
 aI
 ae
 ae
-dQ
+fh
 ae
-dQ
+fh
 ae
-dQ
+fh
 ae
-dQ
+fh
 ae
-dQ
+fh
 ae
-dQ
+fh
 ae
-dQ
+fh
 ae
-dQ
+fh
 ae
-dQ
+fh
 ae
 ae
 ae
