@@ -27,7 +27,7 @@
 		var/client/C = S
 		if(C.holder.fakekey)
 			continue
-		if(C.holder.rights & (R_MOD|R_ADMIN))
+		if(C.holder.rights & R_BAN) // we are doing R_BAN to not count retired admins, since they get R_MOD and R_ADMIN but not R_BAN.
 			s["admins"]++
 
 	statuscode = 200
