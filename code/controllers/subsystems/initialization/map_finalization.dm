@@ -109,30 +109,35 @@
 
 /proc/create_space_ruin_report(var/ruin_name)
 
-	var/ruintext = "<center><img src = ntlogo.png></center><BR><FONT size = 3><BR><B>Icarus Reading Report</B><HR>"
+	var/ruintext = "<center><img src = ntlogo.png><BR><h2><BR><B>Icarus Reading Report</h2></B></FONT size><HR></center>"
 	ruintext += "<B><font face='Courier New'>The Icarus sensors located a away site with the possible characteristics:</B><br>"
 
 	switch(ruin_name)
 		if("crashed_freighter")
-			ruintext += "<B>Lifeform signals.</B><HR>"
+			ruintext += "Lifeform signals.<br>"
 
 		if("derelict" || "nt_cloneship")
-			ruintext += "<B>NanoTrasen infrastructure.</B><HR>"
+			ruintext += "NanoTrasen infrastructure.<br>"
 
 		if("pra_blockade_runner")
-			ruintext += "<B>Large biomass signals.</B><HR>"
+			ruintext += "Large biomass signals.<br>"
 
 		if("sol_frigate")
-			ruintext += "<B>Warp signal.</B><HR>"
+			ruintext += "Warp signal.<br>"
 
 		else
-			ruintext += "<B>Unrecognizable signals.</B><HR>"
+			ruintext += "Unrecognizable signals.<br>"
 
 	if(prob(20))
-		ruintext += "<B>Mineral concentration.</B><HR>"
+		ruintext += "Mineral concentration.<br>"
 
 	if(prob(20))
-		ruintext += "<B>Bluespace signals.</B><HR>"
+		ruintext += "Bluespace signals.<br>"
+
+	if(prob(20))
+		ruintext += "Artificial intelligence signals.<br>"
+
+	ruintext += "<HR>"
 
 	ruintext += "<B><font face='Courier New'>This reading has been detected within shuttle range of the [current_map.station_name] and deemed safe for survey by [current_map.company_name] personnel. \
 	The designated research director, or a captain level decision may determine the goal of any missions to this site. On-site command is deferred to any nearby command staff.</B><br>"

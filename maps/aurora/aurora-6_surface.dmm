@@ -14473,7 +14473,7 @@
 	dir = 6
 	},
 /obj/effect/landmark{
-	name = "Space Ruin paper"
+	name = "Space Ruin Paper"
 	},
 /turf/simulated/floor/tiled,
 /area/shuttle/research/station)
