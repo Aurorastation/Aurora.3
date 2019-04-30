@@ -80,6 +80,9 @@
 "ak" = (
 /obj/structure/table/steel,
 /obj/item/weapon/gun/energy/blaster/carbine,
+/obj/machinery/light/colored{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark,
 /area/derelict)
 "al" = (
@@ -577,6 +580,7 @@
 /obj/item/weapon/gun/energy/blaster,
 /obj/item/ammo_magazine/gauss,
 /obj/item/ammo_magazine/gauss,
+/obj/machinery/light/colored,
 /turf/simulated/floor/tiled/dark,
 /area/derelict)
 "bX" = (
@@ -821,6 +825,9 @@
 /obj/item/weapon/wrench,
 /obj/random/tech_supply,
 /obj/random/tech_supply,
+/obj/machinery/light/colored{
+	dir = 4
+	},
 /turf/simulated/floor/tiled,
 /area/derelict)
 "cW" = (
@@ -942,6 +949,9 @@
 /area/derelict)
 "dw" = (
 /obj/structure/closet/crate/radiation,
+/obj/machinery/light/colored{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/dark,
 /area/derelict)
 "dx" = (
@@ -1069,6 +1079,7 @@
 /area/derelict)
 "dU" = (
 /obj/effect/decal/cleanable/vomit,
+/obj/machinery/light/small,
 /turf/simulated/floor/tiled/white,
 /area/derelict)
 "dV" = (
@@ -1201,6 +1212,9 @@
 /area/derelict)
 "eo" = (
 /obj/structure/bed/roller,
+/obj/machinery/light/colored{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/white,
 /area/derelict)
 "ep" = (
@@ -1292,6 +1306,9 @@
 /obj/structure/table/steel,
 /obj/item/weapon/storage/fancy/crayons,
 /obj/item/weapon/storage/fancy/crayons,
+/obj/machinery/light/colored{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/white,
 /area/derelict)
 "eD" = (
@@ -1437,6 +1454,9 @@
 	icon_closed = "cabinet_closed";
 	icon_opened = "cabinet_open";
 	icon_state = "cabinet_closed"
+	},
+/obj/machinery/light/colored{
+	dir = 4
 	},
 /turf/simulated/floor/carpet,
 /area/derelict)
@@ -1621,6 +1641,9 @@
 "fy" = (
 /obj/effect/decal/remains,
 /obj/item/clothing/ring/engagement,
+/obj/machinery/light/colored{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/dark,
 /area/derelict)
 "fz" = (
@@ -1686,6 +1709,9 @@
 /area/derelict)
 "fK" = (
 /obj/machinery/floodlight,
+/obj/machinery/light/colored{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/derelict)
 "fL" = (
@@ -1712,6 +1738,117 @@
 "fP" = (
 /obj/structure/shuttle/engine/propulsion,
 /turf/simulated/wall/r_wall,
+/area/derelict)
+"gO" = (
+/obj/machinery/light/colored{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/derelict)
+"he" = (
+/obj/machinery/light/colored{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/derelict)
+"nC" = (
+/obj/structure/computerframe,
+/obj/machinery/light/colored{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/derelict)
+"pt" = (
+/obj/machinery/light/colored,
+/turf/simulated/floor/tiled,
+/area/derelict)
+"rr" = (
+/obj/effect/decal/cleanable/blood/gibs/robot,
+/obj/machinery/light/colored{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/derelict)
+"rJ" = (
+/obj/machinery/light/colored{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/derelict)
+"sb" = (
+/obj/random/junk,
+/obj/machinery/light/colored{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/derelict)
+"vw" = (
+/obj/machinery/light/colored{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/derelict)
+"Bv" = (
+/obj/structure/table/steel,
+/obj/machinery/light/colored{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/derelict)
+"DD" = (
+/obj/machinery/light/colored{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/derelict)
+"Ho" = (
+/obj/machinery/light/colored,
+/turf/simulated/floor/tiled/white,
+/area/derelict)
+"IR" = (
+/obj/machinery/light/colored{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/white,
+/area/derelict)
+"Ph" = (
+/obj/machinery/drone_fabricator/derelict,
+/obj/machinery/light/colored{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/derelict)
+"RO" = (
+/obj/machinery/deployable/barrier,
+/obj/machinery/light/colored{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/derelict)
+"Tv" = (
+/obj/machinery/light/colored{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/derelict)
+"TI" = (
+/obj/structure/computerframe,
+/obj/machinery/light/colored{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/derelict)
+"XO" = (
+/obj/effect/decal/remains/robot,
+/obj/effect/decal/cleanable/blood/oil,
+/obj/machinery/light/colored{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/derelict)
+"Zk" = (
+/obj/machinery/light/colored,
+/turf/simulated/floor/tiled/dark,
 /area/derelict)
 
 (1,1,1) = {"
@@ -28302,7 +28439,7 @@ aT
 aS
 cl
 aS
-aS
+rJ
 aS
 cc
 aS
@@ -28541,7 +28678,7 @@ eD
 ap
 ae
 ae
-ck
+XO
 cb
 aS
 aS
@@ -28550,23 +28687,23 @@ aS
 cl
 dv
 aS
-aS
+DD
 aS
 ci
 aS
 aS
-aS
+DD
 aS
 ae
 eE
 aS
 aS
 aS
-aS
+DD
 cc
 aS
 fw
-cb
+rr
 aS
 aS
 ce
@@ -28800,7 +28937,7 @@ ae
 ca
 aT
 aS
-aS
+DD
 ci
 cT
 dc
@@ -29311,7 +29448,7 @@ bu
 aS
 aT
 ae
-aS
+gO
 cc
 cq
 aS
@@ -29320,7 +29457,7 @@ cU
 dd
 dl
 ae
-dA
+IR
 dA
 dS
 ae
@@ -29818,10 +29955,10 @@ ab
 ab
 ab
 ae
+gO
 aS
 aS
-aS
-aS
+DD
 bL
 bQ
 ae
@@ -30854,7 +30991,7 @@ ae
 ae
 ae
 ae
-aS
+pt
 ae
 cA
 cK
@@ -31382,12 +31519,12 @@ as
 as
 as
 as
-as
+he
 as
 eB
 bG
 bG
-bG
+RO
 fd
 ae
 ae
@@ -32385,7 +32522,7 @@ ab
 ac
 ai
 aq
-aj
+TI
 aB
 aM
 aj
@@ -32396,9 +32533,9 @@ ae
 bS
 aS
 aS
-aS
+pt
 ae
-as
+Tv
 cN
 by
 by
@@ -32417,7 +32554,7 @@ cM
 cM
 by
 fg
-as
+Zk
 ae
 by
 fx
@@ -33160,11 +33297,11 @@ aw
 aD
 aO
 aC
-as
+Zk
 ae
 bF
 as
-as
+Zk
 ae
 aS
 ci
@@ -33931,7 +34068,7 @@ az
 aF
 aP
 as
-as
+Zk
 ae
 bF
 as
@@ -34182,7 +34319,7 @@ ab
 ab
 ab
 ae
-al
+Bv
 as
 as
 as
@@ -34452,7 +34589,7 @@ bN
 aZ
 aS
 aS
-aS
+pt
 ae
 as
 cN
@@ -34698,7 +34835,7 @@ ab
 ah
 an
 aq
-aj
+nC
 aG
 al
 aj
@@ -34711,7 +34848,7 @@ aS
 aS
 aS
 ae
-as
+Tv
 cN
 by
 by
@@ -34730,7 +34867,7 @@ by
 by
 by
 fg
-as
+Zk
 ae
 by
 af
@@ -35744,19 +35881,19 @@ as
 as
 dg
 as
-as
+vw
 dF
 dN
 dN
 dN
 dN
 ei
+vw
 as
 as
 as
 as
-as
-as
+vw
 as
 ae
 ae
@@ -35994,7 +36131,7 @@ ae
 bl
 bl
 ae
-aS
+pt
 ae
 cC
 cC
@@ -36512,7 +36649,7 @@ aS
 ae
 as
 as
-as
+Zk
 ae
 dr
 by
@@ -36780,7 +36917,7 @@ aS
 ci
 ek
 as
-as
+Zk
 ae
 eg
 by
@@ -37536,7 +37673,7 @@ bP
 as
 bZ
 ae
-aS
+gO
 aS
 aS
 aS
@@ -37548,7 +37685,7 @@ aS
 aT
 aS
 ci
-aS
+pt
 ae
 er
 dA
@@ -37564,7 +37701,7 @@ fy
 as
 fC
 as
-fC
+Ph
 dF
 ae
 ae
@@ -37812,7 +37949,7 @@ dA
 dS
 eN
 eW
-dA
+Ho
 ae
 fk
 aS
@@ -38328,7 +38465,7 @@ eO
 eX
 fb
 ae
-aS
+gO
 aS
 dv
 as
@@ -38572,7 +38709,7 @@ cp
 dj
 di
 ae
-aS
+gO
 aS
 aS
 aS
@@ -38831,21 +38968,21 @@ ae
 ae
 cd
 aS
+DD
 aS
-aS
-aT
+sb
 aS
 ae
 aS
+DD
 aS
-aS
-aS
+DD
 aS
 ae
 aS
 aS
 fu
-as
+vw
 as
 fF
 fF
