@@ -1,8 +1,16 @@
 /obj/item/weapon/gun/projectile/shotgun/pump/rifle/nka
+	name = "service rifle"
 	icon = 'icons/adhomai/guns.dmi'
 	icon_state = "bolt"
-	desc = "A cheap ballistic rifle often found in the hands of tajaran soldiers."
+	item_state = "bolt"
+	desc = "The standard issue rifle of the levy Alam'ard."
 	accuracy = -1
+	has_wield_state = TRUE
+	contained_sprite = TRUE
+
+/obj/item/ammo_magazine/boltaction
+	name = "loaded stripper clip"
+	desc = "A stripper clip issued to members of the Imperial Adhomian Army."
 
 /obj/item/weapon/gun/projectile/shotgun/pump/rifle/nka/scoped
 	desc = "A cheap ballistic rifle often found in the hands of tajaran soldiers. This one has been outfitted with a telescopic sight."
@@ -94,6 +102,7 @@
 	desc = "A cheap revolver produced by the Royal Firearms industries, commonly issued to constables. Uses .38-Special rounds."
 	icon = 'icons/adhomai/guns.dmi'
 	icon_state = "constable_gun"
+	contained_sprite = TRUE
 
 /obj/item/weapon/gun/projectile/revolver/detective/constable/update_icon()
 	..()
@@ -102,18 +111,35 @@
 	else
 		icon_state = "constable_gun-empty"
 
-/obj/item/weapon/gun/projectile/colt/nka
-	desc = "A reliable sidearm issued to members of the Royal Army."
+/obj/item/weapon/gun/projectile/nka
+	name = "service automatic"
+	desc = "A reliable sidearm issued to members of the Imperial Adhomian Army."
 	icon = 'icons/adhomai/guns.dmi'
 	icon_state = "nka"
+	ammo_type = /obj/item/ammo_casing/a357
+	contained_sprite = TRUE
 
 /obj/item/weapon/gun/projectile/colt/nka/update_icon()
 	..()
 	if(ammo_magazine && ammo_magazine.stored_ammo.len)
 		icon_state = "nka"
 	else
-		icon_state = "nka-e"
+		icon_state = "nka-empty"
 
+/obj/item/ammo_magazine/nka
+	name = "ammunition magazine"
+	desc = "A reliable sidearm magazine issued to members of the Imperial Adhomian Army."
+	icon = 'icons/adhomai/guns.dmi'
+	icon_state = "ammo"
+	max_ammo = 5
+	initial_ammo = 5
+
+/obj/item/ammo_magazine/c45m/nka/empty
+	name = "ammunition magazine"
+	desc = "A reliable sidearm magazine issued to members of the Imperial Adhomian Army."
+	icon = 'icons/adhomai/guns.dmi'
+	ammo_type = /obj/item/ammo_casing/a357
+	initial_ammo = 0
 
 /obj/item/ammo_casing/rpg
 	name = "rocket-propelled grenade"

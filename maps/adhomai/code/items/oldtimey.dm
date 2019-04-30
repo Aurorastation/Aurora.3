@@ -180,20 +180,20 @@
 
 /obj/item/weapon/pickaxe/drill/mattock
 	name = "mattock"
-	desc = "It's a mattock."
+	desc = "It's a mattock. Has a point for digging and entrenching. Very useful."
 	icon = 'icons/adhomai/items.dmi'
 	icon_state = "mattock"
-	item_state = "pickaxe"
+	item_state = "mattock"
 	drill_verb = "excavating"
 	autodrill = 0
 	drill_sound = 'sound/weapons/chisel1.ogg'
 	can_wield = 1
-	excavation_amount = 30
+	excavation_amount = 14
 	wielded = 0
 	force_unwielded = 5.0
 	force_wielded = 15.0
-	digspeed_unwielded = 30
-	digspeed_wielded = 10
+	digspeed_unwielded = 160
+	digspeed_wielded = 80
 	contained_sprite = 1
 
 /obj/item/device/radio/intercom/basestation/adhomai/nka

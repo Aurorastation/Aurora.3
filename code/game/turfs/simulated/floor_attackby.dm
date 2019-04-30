@@ -3,7 +3,7 @@
 	if(!C || !user)
 		return 0
 
-	if(diggable && istype(C,/obj/item/weapon/shovel))
+	if(diggable && (istype(C,/obj/item/weapon/shovel) || istype(C,/obj/item/weapon/pickaxe/drill/mattock)))
 		visible_message("<span class='notice'>\The [user] starts digging \the [src]</span>")
 		if(do_after(user, 50))
 			if(!diggable)

@@ -15,8 +15,8 @@
 	response_help  = "pets"
 	response_disarm = "shoves"
 	response_harm   = "harmlessly punches"
-	maxHealth = 1000
-	health = 1000
+	maxHealth = 400
+	health = 400
 	harm_intent_damage = 0
 	melee_damage_lower = 30
 	melee_damage_upper = 30

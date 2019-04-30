@@ -184,7 +184,7 @@
 		wall_fake = 1
 
 	var/turf/Tsrc = get_turf(src)
-	if(!istype(Tsrc, /obj/structure/girder/wood/adhomai))
+	if(istype(Tsrc, /obj/structure/girder/wood/adhomai))
 		Tsrc.ChangeTurf(/turf/simulated/wall/wood/adhomai)
 		return 1
 	Tsrc.ChangeTurf(/turf/simulated/wall)

@@ -89,6 +89,7 @@
 	gender = NEUTER
 	body_parts_covered = null
 	fingerprint_chance = 100
+	var/undergloves = 1
 
 /obj/item/clothing/gloves/watch/verb/checktime()
 	set category = "Object"

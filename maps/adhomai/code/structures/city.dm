@@ -67,5 +67,5 @@
 	icon = 'icons/adhomai/structures.dmi'
 	icon_state = "minecart"
 
-/obj/vehicle/train/cargo/engine/mining/Move(var/turf/destination)
+/obj/structure/ore_box/adhomai/engine/mining/Move(var/turf/destination)
 	return ((locate(/obj/structure/track) in destination)) ? ..() : FALSE

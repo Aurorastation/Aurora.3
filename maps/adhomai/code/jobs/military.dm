@@ -21,13 +21,14 @@
 	shoes = /obj/item/clothing/shoes/jackboots/unathi
 	r_pocket = /obj/item/weapon/key/hand
 	l_pocket = /obj/item/weapon/storage/wallet/rich
-	back = /obj/item/weapon/storage/backpack/satchel
 	gloves = /obj/item/clothing/gloves/brown/tajara
 	backpack_contents = list(
 		/obj/item/weapon/key/soldier = 1,
 		/obj/item/weapon/key/armory = 1,
 		/obj/item/weapon/reagent_containers/food/drinks/flask/canteen/adhomian/nka = 1,
 		/obj/item/weapon/flame/lighter/adhomian/nka = 1)
+	backpack = /obj/item/weapon/storage/backpack/satchel/grenadier/levy
+	satchel = /obj/item/weapon/storage/backpack/satchel/engineer/levy
 
 /datum/job/supply_officer
 	title = "Supply Officer"
@@ -53,12 +54,15 @@
 	r_pocket = /obj/item/weapon/key/armory
 	l_pocket = /obj/item/weapon/storage/wallet/medium
 	belt = /obj/item/weapon/gun/projectile/colt/nka
+	suit = /obj/item/clothing/suit/armor/tactical/nka
 	backpack_contents = list(
 		/obj/item/weapon/key/soldier = 1,
 		/obj/item/weapon/key/cell = 1,
 		/obj/item/clothing/accessory/holster/armpit = 1,
 		/obj/item/weapon/reagent_containers/food/drinks/flask/canteen/adhomian/nka = 1,
 		/obj/item/weapon/flame/lighter/adhomian/nka = 1)
+	backpack = /obj/item/weapon/storage/backpack/satchel/grenadier/levy
+	satchel = /obj/item/weapon/storage/backpack/satchel/engineer/levy
 
 /datum/job/levy
 	title = "Levy"
@@ -84,6 +88,9 @@
 		/obj/item/weapon/reagent_containers/food/drinks/flask/canteen/adhomian/nka = 1,
 		/obj/item/weapon/flame/lighter/adhomian/nka = 1)
 
+	backpack = /obj/item/weapon/storage/backpack/satchel/grenadier/levy
+	satchel = /obj/item/weapon/storage/backpack/satchel/engineer/levy
+
 /datum/job/grenadier
 	title = "Royal Grenadier"
 	flag = GRENADIER
@@ -101,14 +108,13 @@
 
 /datum/outfit/job/adhomai/military/grenadier
 	name = "Royal Grenadier"
-	allow_backbag_choice = FALSE
+	allow_backbag_choice = TRUE
 
 	uniform = /obj/item/clothing/under/uniform/grenadier
 	head = /obj/item/clothing/head/helmet/nka/grenadier
 	shoes = /obj/item/clothing/shoes/armored_boots/grenadier
 	gloves = /obj/item/clothing/gloves/grenadier/armored
-	suit = /obj/item/clothing/suit/armor/nka/grenadier
-	back = /obj/item/weapon/storage/backpack/satchel/grenadier
+	suit = /obj/item/clothing/suit/armor/tactical/nka/grenadier
 	suit_store = /obj/item/weapon/gun/projectile/grenadier
 	l_pocket = /obj/item/weapon/storage/wallet/medium
 	belt = /obj/item/weapon/storage/belt/security/tactical/nka
@@ -118,6 +124,8 @@
 		/obj/item/clothing/accessory/storage/bayonet = 1,
 		/obj/item/weapon/reagent_containers/food/drinks/flask/canteen/adhomian/nka = 1,
 		/obj/item/weapon/flame/lighter/adhomian/nka = 1)
+	backpack = /obj/item/weapon/storage/backpack/satchel/engineer/grenadier
+	satchel = /obj/item/weapon/storage/backpack/satchel/grenadier
 
 /datum/job/sharpshooter
 	title = "Sharpshooter"
@@ -134,14 +142,17 @@
 
 /datum/outfit/job/adhomai/military/sharpshooter
 	name = "Sharpshooter"
-	allow_backbag_choice = FALSE
+	allow_backbag_choice = TRUE
 
 	uniform = /obj/item/clothing/under/uniform/sharpshooter
 	l_hand = /obj/item/weapon/gun/projectile/shotgun/pump/rifle/nka/scoped
 	l_pocket = /obj/item/weapon/storage/wallet/medium
+	suit = /obj/item/clothing/suit/armor/tactical/nka
 	backpack_contents = list(
 		/obj/item/weapon/reagent_containers/food/drinks/flask/canteen/adhomian/nka = 1,
 		/obj/item/weapon/flame/lighter/adhomian/nka = 1)
+	backpack = /obj/item/weapon/storage/backpack/satchel/grenadier/levy
+	satchel = /obj/item/weapon/storage/backpack/satchel/engineer/levy
 
 /datum/job/combatengineer
 	title = "Combat Engineer"
@@ -160,15 +171,18 @@
 
 /datum/outfit/job/adhomai/military/combatengineer
 	name = "Combat Engineer"
+	allow_backbag_choice = TRUE
 
 	uniform = /obj/item/clothing/under/uniform/combat_engineer
-	back = /obj/item/weapon/storage/backpack/satchel/engineer
 	l_pocket = /obj/item/weapon/storage/wallet/medium
-	belt = /obj/item/weapon/pickaxe/drill/mattock
+	suit = /obj/item/clothing/suit/armor/tactical/nka
+	belt = /obj/item/weapon/storage/belt/utility/full
 	backpack_contents = list(
 		/obj/item/weapon/landmine = 3,
 		/obj/item/weapon/landmine/frag = 2,
-		/obj/item/weapon/crowbar = 1,
+		/obj/item/weapon/pickaxe/drill/mattock = 1,
 		/obj/item/device/gps = 1,
 		/obj/item/weapon/reagent_containers/food/drinks/flask/canteen/adhomian/nka = 1,
 		/obj/item/weapon/flame/lighter/adhomian/nka = 1)
+	satchel = /obj/item/weapon/storage/backpack/satchel/grenadier/engineering
+	backpack = /obj/item/weapon/storage/backpack/satchel/engineer

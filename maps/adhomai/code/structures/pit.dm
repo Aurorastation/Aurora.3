@@ -9,7 +9,7 @@
 	var/open = TRUE
 
 /obj/structure/pit/attackby(obj/item/W, mob/user)
-	if(( istype(W,/obj/item/weapon/shovel)  || istype(W,/obj/item/weapon/pickaxe/drill/mattock)) )
+	if(istype(W,/obj/item/weapon/shovel)  || istype(W,/obj/item/weapon/pickaxe/drill/mattock))
 		visible_message("<span class='notice'>\The [user] starts [open ? "filling" : "digging open"] \the [src]</span>")
 		if( do_after(user, 50) )
 			visible_message("<span class='notice'>\The [user] [open ? "fills" : "digs open"] \the [src]!</span>")
@@ -47,6 +47,7 @@
 	name = "pit"
 	desc = "Watch your step, partner."
 	open = TRUE
+	opacity = 0
 	for(var/atom/movable/A in src)
 		A.forceMove(src.loc)
 	update_icon()
