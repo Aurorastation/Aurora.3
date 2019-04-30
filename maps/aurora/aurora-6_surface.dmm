@@ -14472,6 +14472,9 @@
 	icon_state = "corner_white";
 	dir = 6
 	},
+/obj/effect/landmark{
+	name = "Space Ruin paper"
+	},
 /turf/simulated/floor/tiled,
 /area/shuttle/research/station)
 "AH" = (

@@ -45667,6 +45667,9 @@
 	},
 /obj/item/weapon/pen,
 /obj/effect/floor_decal/corner/grey/diagonal,
+/obj/effect/landmark{
+	name = "Space Ruin Paper"
+	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/rdoffice)
 "byA" = (

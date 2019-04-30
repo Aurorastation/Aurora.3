@@ -104,4 +104,42 @@
 		log_ss("map_finalization","ERROR: Something weird happened with the file: [chosen_ruin].")
 
 	log_ss("map_finalization","Loaded [chosen_ruin] space ruin in [(world.time - start_time)/10] seconds.")
+	create_space_ruin_report("chosen_ruin")
 	qdel(maploader)
+
+/proc/create_space_ruin_report(var/ruin_name)
+
+	var/ruintext = "<center><img src = ntlogo.png></center><BR><FONT size = 3><BR><B>Icarus Reading Report</B><HR>"
+	ruintext += "<B><font face='Courier New'>The Icarus sensors located a away site with the possible characteristics:</B><br>"
+
+	switch(ruin_name)
+		if("crashed_freighter")
+			ruintext += "<B>Lifeform signals.</B><HR>"
+
+		if("derelict" || "nt_cloneship")
+			ruintext += "<B>NanoTrasen infrastructure.</B><HR>"
+
+		if("pra_blockade_runner")
+			ruintext += "<B>Large biomass signals.</B><HR>"
+
+		if("sol_frigate")
+			ruintext += "<B>Warp signal.</B><HR>"
+
+		else
+			ruintext += "<B>Unrecognizable signals.</B><HR>"
+
+	if(prob(20))
+		ruintext += "<B>Mineral concentration.</B><HR>"
+
+	if(prob(20))
+		ruintext += "<B>Bluespace signals.</B><HR>"
+
+	ruintext += "<B><font face='Courier New'>This reading has been detected within shuttle range of the [current_map.station_name] and deemed safe for survey by [current_map.company_name] personnel. \
+	The designated research director, or a captain level decision may determine the goal of any missions to this site. On-site command is deferred to any nearby command staff.</B><br>"
+
+	for(var/obj/effect/landmark/C in landmarks_list)
+		if(C.name == "Space Ruin Paper")
+			var/obj/item/weapon/paper/P = new /obj/item/weapon/paper(get_turf(C))
+			P.name = "Icarus reading report"
+			P.info = ruintext
+			P.update_icon()
