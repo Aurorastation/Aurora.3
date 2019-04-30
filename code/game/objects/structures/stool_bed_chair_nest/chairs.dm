@@ -185,6 +185,11 @@
 	icon_state = "bridge"
 	anchored = 1
 
+/obj/structure/bed/chair/office/bridge/legion
+	name = "legion pilot seat"
+	desc = "A standard bridge chair. an insignia representing the Tau Ceti Foreign Legion has been plastered to the back of it."
+	icon_state = "legion_shuttle"
+
 /obj/structure/bed/chair/office/Initialize()
 	. = ..()
 	var/image/I = image(icon, "[icon_state]_over")
