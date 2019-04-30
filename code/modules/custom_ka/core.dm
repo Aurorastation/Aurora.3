@@ -241,7 +241,7 @@
 	shot_projectile.damage = damage_increase
 	shot_projectile.range = range_increase
 	shot_projectile.aoe = aoe_increase
-	shot_projectile.damage_rock = damage_increase
+	shot_projectile.base_damage = damage_increase
 	return shot_projectile
 
 /obj/item/weapon/gun/custom_ka/Initialize()
