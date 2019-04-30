@@ -18201,14 +18201,14 @@
 /turf/simulated/floor/tiled,
 /area/quartermaster/loading)
 "HU" = (
-/obj/structure/bed/chair{
-	dir = 4
-	},
 /obj/machinery/light{
 	icon_state = "tube1";
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/mauve/full,
+/obj/structure/bed/chair/shuttle{
+	dir = 4
+	},
 /turf/simulated/floor/tiled,
 /area/shuttle/research/station)
 "HV" = (
@@ -19644,11 +19644,11 @@
 /turf/simulated/floor/tiled,
 /area/shuttle/research/station)
 "MU" = (
-/obj/structure/bed/chair{
-	dir = 4
-	},
 /obj/effect/floor_decal/corner/mauve/full,
 /obj/structure/closet/walllocker/emerglocker/south,
+/obj/structure/bed/chair/shuttle{
+	dir = 4
+	},
 /turf/simulated/floor/tiled,
 /area/shuttle/research/station)
 "Nd" = (
@@ -19968,8 +19968,7 @@
 /turf/simulated/floor/tiled,
 /area/shuttle/research/station)
 "Pb" = (
-/obj/structure/bed/chair/office/bridge{
-	icon_state = "bridge";
+/obj/structure/bed/chair/shuttle{
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
@@ -20050,9 +20049,6 @@
 /turf/simulated/floor/tiled,
 /area/bridge/levela)
 "PL" = (
-/obj/structure/bed/chair{
-	dir = 8
-	},
 /obj/effect/floor_decal/corner/mauve/full{
 	icon_state = "corner_white_full";
 	dir = 4
@@ -20061,6 +20057,9 @@
 /obj/item/device/radio/intercom{
 	name = "Station Intercom (General)";
 	pixel_y = -29
+	},
+/obj/structure/bed/chair/shuttle{
+	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/shuttle/research/station)
@@ -20275,12 +20274,12 @@
 /turf/simulated/floor/plating,
 /area/shuttle/research/station)
 "Rv" = (
-/obj/structure/bed/chair{
-	dir = 8
-	},
 /obj/effect/floor_decal/corner/lime/full{
 	icon_state = "corner_white_full";
 	dir = 1
+	},
+/obj/structure/bed/chair/shuttle{
+	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/shuttle/research/station)
@@ -20373,14 +20372,14 @@
 /turf/simulated/floor/plating,
 /area/shuttle/research/station)
 "Sy" = (
-/obj/structure/bed/chair{
-	dir = 8
-	},
 /obj/effect/floor_decal/corner/mauve/full{
 	icon_state = "corner_white_full";
 	dir = 1
 	},
 /obj/structure/closet/walllocker/emerglocker/north,
+/obj/structure/bed/chair/shuttle{
+	dir = 8
+	},
 /turf/simulated/floor/tiled,
 /area/shuttle/research/station)
 "SI" = (
@@ -20523,9 +20522,6 @@
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/aft)
 "UF" = (
-/obj/structure/bed/chair{
-	dir = 8
-	},
 /obj/machinery/light{
 	dir = 2;
 	icon_state = "tube1";
@@ -20533,6 +20529,9 @@
 	},
 /obj/effect/floor_decal/corner/lime/full{
 	dir = 4
+	},
+/obj/structure/bed/chair/shuttle{
+	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/shuttle/research/station)
@@ -21673,9 +21672,6 @@
 /turf/simulated/floor/tiled,
 /area/bridge/levela)
 "YM" = (
-/obj/structure/bed/chair{
-	dir = 4
-	},
 /obj/effect/floor_decal/corner/mauve/full{
 	icon_state = "corner_white_full";
 	dir = 8
@@ -21684,18 +21680,21 @@
 	c_tag = "Research Shuttle - Main Section";
 	dir = 4
 	},
+/obj/structure/bed/chair/shuttle{
+	dir = 4
+	},
 /turf/simulated/floor/tiled,
 /area/shuttle/research/station)
 "YR" = (
-/obj/structure/bed/chair{
-	dir = 4
-	},
 /obj/effect/floor_decal/corner/mauve/full{
 	icon_state = "corner_white_full";
 	dir = 8
 	},
 /obj/machinery/light{
 	dir = 1
+	},
+/obj/structure/bed/chair/shuttle{
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/shuttle/research/station)
