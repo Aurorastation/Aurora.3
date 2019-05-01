@@ -317,6 +317,8 @@
 	name = "\improper Foreign Legion Shuttle"
 	flags = RAD_SHIELDED | SPAWN_ROOF
 	icon_state = "shuttlegrn"
+	requires_power = 0
+	no_light_control = 1
 	centcomm_area = 1
 
 /area/shuttle/legion/centcom
@@ -332,5 +334,5 @@
 /area/shuttle/legion/transit
 	name = "\improper Hyperspace"
 	icon_state = "shuttle"
-	base_turf = /turf/unsimulated/floor
+	base_turf = /turf/space
 	centcomm_area = 1
