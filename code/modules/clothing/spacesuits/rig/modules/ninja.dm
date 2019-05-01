@@ -20,7 +20,7 @@
 	disruptive = 0
 	confined_use = 1
 
-	use_power_cost = 50
+	use_power_cost = 150
 	active_power_cost = 5
 	passive_power_cost = 0
 	module_cooldown = 30
