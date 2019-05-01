@@ -51,31 +51,6 @@
 "am" = (
 /turf/simulated/floor/asteroid/ash,
 /area/derelict/ship)
-"an" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 1
-	},
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 8
-	},
-/obj/machinery/door/firedoor,
-/turf/template_noop,
-/area/derelict/ship)
-"ao" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 1
-	},
-/turf/template_noop,
-/area/derelict/ship)
 "ap" = (
 /turf/simulated/floor,
 /area/derelict/ship)
@@ -113,23 +88,6 @@
 /area/derelict/ship)
 "at" = (
 /turf/simulated/wall,
-/area/derelict/ship)
-"au" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 1
-	},
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 8
-	},
-/obj/machinery/door/firedoor,
-/turf/template_noop,
 /area/derelict/ship)
 "av" = (
 /obj/structure/grille,
@@ -31225,7 +31183,7 @@ ad
 af
 af
 am
-au
+aw
 ai
 ap
 ap
@@ -35333,7 +35291,7 @@ af
 af
 af
 ad
-an
+aV
 al
 am
 am
@@ -35590,7 +35548,7 @@ af
 af
 af
 ad
-ao
+ay
 al
 al
 al
