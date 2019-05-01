@@ -42,13 +42,14 @@
 	description = "Gets a list of connected staffmembers"
 
 /datum/topic_command/get_stafflist/run_command(queryparams)
-	var/list/staff = list()
-	for (var/client/C in staff)
-		staff[C] = C.holder.rank
+	var/list/l_staff = list()
+	for (var/s in staff)
+		var/client/C = s
+		l_staff[C] = C.holder.rank
 
 	statuscode = 200
 	response = "Staff list fetched"
-	data = staff
+	data = l_staff
 	return TRUE
 
 //Char Names
