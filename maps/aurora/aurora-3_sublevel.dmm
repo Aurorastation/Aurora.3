@@ -27324,6 +27324,12 @@
 	icon_state = "asteroidplating"
 	},
 /area/mine/unexplored)
+"brp" = (
+/obj/machinery/atmospherics/binary/pump{
+	dir = 2
+	},
+/turf/simulated/floor/tiled/dark,
+/area/rnd/xenobiology/xenoflora)
 "brs" = (
 /obj/structure/bookcase/libraryspawn/religion,
 /turf/simulated/floor/carpet,
@@ -27774,11 +27780,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology/xenoflora_hazard)
-"cZC" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/turf/simulated/wall/r_wall,
-/area/rnd/xenobiology/xenoflora)
 "daI" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4;
@@ -28575,6 +28576,11 @@
 	},
 /turf/simulated/floor/plating,
 /area/rnd/xenoarch_atrium)
+"fxJ" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/wall/r_wall,
+/area/rnd/xenobiology/xenoflora)
 "fzF" = (
 /obj/structure/table/steel,
 /obj/item/device/flashlight/lamp,
@@ -33204,12 +33210,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/medsublevel)
-"wsd" = (
-/obj/machinery/atmospherics/binary/pump{
-	dir = 2
-	},
-/turf/simulated/floor/tiled/dark,
-/area/rnd/xenobiology/xenoflora)
 "wtT" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -53420,7 +53420,7 @@ aBD
 aBZ
 aCK
 aDy
-cZC
+fxJ
 aFE
 aCO
 eUn
@@ -54188,7 +54188,7 @@ mZC
 cHa
 kKw
 kju
-wsd
+brp
 aEs
 aDB
 aEs

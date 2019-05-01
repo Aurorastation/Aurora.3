@@ -65547,6 +65547,10 @@
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/plating,
 /area/maintenance/medbay)
+"hPs" = (
+/obj/structure/closet/crate/autakh,
+/turf/simulated/floor/tiled/dark,
+/area/assembly/robotics)
 "hRJ" = (
 /obj/machinery/alarm{
 	dir = 8;
@@ -66942,10 +66946,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/rnd/telesci)
-"pBP" = (
-/obj/structure/closet/crate/autakh,
-/turf/simulated/floor/tiled/dark,
-/area/assembly/robotics)
 "pFt" = (
 /obj/effect/floor_decal/corner/mauve/full{
 	icon_state = "corner_white_full";
@@ -92785,7 +92785,7 @@ baE
 bfX
 baE
 biD
-pBP
+hPs
 biD
 bmr
 bnP
