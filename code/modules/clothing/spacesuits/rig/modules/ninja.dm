@@ -21,7 +21,7 @@
 	confined_use = 1
 
 	use_power_cost = 50
-	active_power_cost = 10
+	active_power_cost = 5
 	passive_power_cost = 0
 	module_cooldown = 30
 
@@ -65,7 +65,7 @@
 
 	for(var/mob/O in oviewers(H))
 		O.show_message("[H.name] appears from thin air!",1)
-	playsound(get_turf(H), 'sound/effects/stealthoff.ogg', 75, 1)
+	playsound(get_turf(H), 'sound/effects/stealthoff.ogg', 10, 1)
 
 
 /obj/item/rig_module/teleporter
