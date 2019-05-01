@@ -163,7 +163,7 @@
 	name = "tomato"
 	seed_name = "tomato"
 	display_name = "tomato plant"
-	mutants = list("bluetomato","bloodtomato")
+	mutants = list("bluetomato","bloodtomato") // no killer :(
 	chems = list("nutriment" = list(1,10), "tomatojuice" = list(10,10))
 	kitchen_tag = "tomato"
 

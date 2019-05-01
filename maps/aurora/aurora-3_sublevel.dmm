@@ -14244,34 +14244,12 @@
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenobiology/xenoflora)
 "aBD" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 6
-	},
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/turf/simulated/floor/tiled/dark,
-/area/rnd/xenobiology/xenoflora)
-"aBE" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/effect/floor_decal/corner/green{
-	icon_state = "corner_white";
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark,
-/area/rnd/xenobiology/xenoflora)
-"aBF" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/effect/floor_decal/corner/green{
-	icon_state = "corner_white";
-	dir = 1
-	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenobiology/xenoflora)
 "aBG" = (
@@ -14777,12 +14755,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenobiology/xenoflora)
 "aCJ" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 10
-	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 1
-	},
 /obj/structure/cable/green{
 	d1 = 2;
 	d2 = 4;
@@ -14800,12 +14772,15 @@
 /obj/machinery/atmospherics/pipe/simple/visible{
 	dir = 4
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenobiology/xenoflora)
 "aCK" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 9
-	},
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 8;
@@ -14814,17 +14789,17 @@
 /obj/machinery/atmospherics/pipe/simple/visible{
 	dir = 4
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenobiology/xenoflora)
 "aCL" = (
 /obj/machinery/atmospherics/pipe/simple/visible{
 	dir = 4
-	},
-/turf/simulated/floor/tiled/dark,
-/area/rnd/xenobiology/xenoflora)
-"aCM" = (
-/obj/machinery/atmospherics/pipe/manifold/visible{
-	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenobiology/xenoflora)
@@ -15305,14 +15280,15 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/green,
-/obj/machinery/atmospherics/portables_connector{
-	dir = 8
+/obj/machinery/atmospherics/binary/pump{
+	dir = 8;
+	icon_state = "map_on";
+	name = "Distro to Trays";
+	use_power = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenobiology/xenoflora)
 "aDx" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
@@ -15323,11 +15299,13 @@
 	dir = 10
 	},
 /obj/structure/disposalpipe/junction,
+/obj/machinery/atmospherics/pipe/simple/visible/blue{
+	icon_state = "intact";
+	dir = 10
+	},
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenobiology/xenoflora)
 "aDy" = (
-/obj/item/clothing/mask/gas/alt,
-/obj/item/clothing/mask/gas/alt,
 /obj/effect/floor_decal/corner/green{
 	icon_state = "corner_white";
 	dir = 10
@@ -15338,8 +15316,8 @@
 	network = list("Research Outpost")
 	},
 /obj/structure/closet/crate/hydroponics/prespawned,
-/obj/item/watertank,
-/obj/item/watertank,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenobiology/xenoflora)
 "aDz" = (
@@ -15355,7 +15333,8 @@
 /area/rnd/xenobiology/xenoflora)
 "aDA" = (
 /obj/machinery/atmospherics/binary/pump{
-	dir = 8
+	dir = 8;
+	name = "Trays to Scrubbers"
 	},
 /obj/effect/floor_decal/corner/green{
 	icon_state = "corner_white";
@@ -15744,13 +15723,12 @@
 /area/rnd/xenobiology/xenoflora)
 "aEu" = (
 /obj/structure/disposalpipe/segment,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2"
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/universal,
 /turf/simulated/floor/tiled/ramp/bottom{
 	icon_state = "rampbot";
 	dir = 1
@@ -16312,18 +16290,15 @@
 	dir = 1;
 	icon_state = "pipe-c"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 5
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 5
-	},
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 4;
 	icon_state = "1-4"
 	},
 /obj/machinery/firealarm/south,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
+	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology/xenoflora)
 "aFE" = (
@@ -16331,19 +16306,19 @@
 	dir = 2;
 	icon_state = "pipe-c"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 10
-	},
 /obj/structure/cable/green{
 	d1 = 2;
 	d2 = 8;
 	icon_state = "2-8"
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 1
-	},
 /obj/machinery/light{
 	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology/xenoflora)
@@ -23361,7 +23336,10 @@
 	dir = 1
 	},
 /obj/machinery/atmospherics/binary/pump{
-	dir = 8
+	dir = 8;
+	icon_state = "map_on";
+	name = "Hazardous Specimens Inlet";
+	use_power = 1
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology/xenoflora_hazard)
@@ -27796,6 +27774,11 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology/xenoflora_hazard)
+"cZC" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/wall/r_wall,
+/area/rnd/xenobiology/xenoflora)
 "daI" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4;
@@ -28665,9 +28648,6 @@
 /turf/simulated/floor/tiled,
 /area/rnd/xenoarch_atrium)
 "gaJ" = (
-/obj/structure/closet/secure_closet/hydroponics{
-	req_access = list(47)
-	},
 /obj/effect/floor_decal/corner/green{
 	icon_state = "corner_white";
 	dir = 10
@@ -28676,6 +28656,7 @@
 	icon_state = "spline_plain";
 	dir = 4
 	},
+/obj/structure/closet/secure_closet/xenobotany,
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenobiology/xenoflora)
 "ged" = (
@@ -29503,7 +29484,8 @@
 	icon_state = "1-8"
 	},
 /obj/machinery/atmospherics/binary/pump{
-	dir = 4
+	dir = 4;
+	name = "Hazardous Specimens Outlet"
 	},
 /obj/structure/disposalpipe/segment{
 	dir = 8;
@@ -29760,9 +29742,7 @@
 /turf/simulated/floor/tiled,
 /area/outpost/research/anomaly_storage)
 "kju" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 8
-	},
+/obj/machinery/atmospherics/portables_connector,
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenobiology/xenoflora)
 "ksm" = (
@@ -30647,13 +30627,11 @@
 /turf/simulated/floor/plating,
 /area/rnd/xenobiology/xenoflora_hazard)
 "nkZ" = (
-/obj/structure/closet/secure_closet/hydroponics{
-	req_access = list(47)
-	},
 /obj/effect/floor_decal/corner/green{
 	icon_state = "corner_white";
 	dir = 10
 	},
+/obj/structure/closet/secure_closet/xenobotany,
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenobiology/xenoflora)
 "noC" = (
@@ -33226,6 +33204,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/medsublevel)
+"wsd" = (
+/obj/machinery/atmospherics/binary/pump{
+	dir = 2
+	},
+/turf/simulated/floor/tiled/dark,
+/area/rnd/xenobiology/xenoflora)
 "wtT" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -53436,7 +53420,7 @@ aBD
 aBZ
 aCK
 aDy
-kJR
+cZC
 aFE
 aCO
 eUn
@@ -53689,7 +53673,7 @@ aba
 kJR
 aAq
 nyX
-aBE
+wbE
 aCa
 aCL
 aDz
@@ -53946,7 +53930,7 @@ aba
 hob
 aAp
 kKf
-aBF
+uMH
 aCb
 aCL
 aDA
@@ -54204,8 +54188,8 @@ mZC
 cHa
 kKw
 kju
-kKw
-aCM
+wsd
+aEs
 aDB
 aEs
 eBJ

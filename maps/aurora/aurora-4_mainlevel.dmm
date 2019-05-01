@@ -15716,7 +15716,9 @@
 /turf/simulated/floor/tiled,
 /area/engineering/storage)
 "aBV" = (
-/obj/machinery/vending/tool,
+/obj/machinery/vending/tool{
+	random_itemcount = 0
+	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/light{
 	dir = 4;
@@ -66940,6 +66942,10 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/rnd/telesci)
+"pBP" = (
+/obj/structure/closet/crate/autakh,
+/turf/simulated/floor/tiled/dark,
+/area/assembly/robotics)
 "pFt" = (
 /obj/effect/floor_decal/corner/mauve/full{
 	icon_state = "corner_white_full";
@@ -92779,7 +92785,7 @@ baE
 bfX
 baE
 biD
-bkO
+pBP
 biD
 bmr
 bnP

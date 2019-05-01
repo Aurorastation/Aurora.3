@@ -3920,7 +3920,7 @@
 	description = "Zo'ra Soda, cherry edition. All good drinks come in cherry."
 	color = "#102000"
 	adj_sleepy = -2
-	caffeine = 0.2
+	caffeine = 0.4
 	taste_description = "electric cherry"
 
 /datum/reagent/drink/zorasoda/phoron
@@ -3929,7 +3929,7 @@
 	description = "Reported to taste nothing like phoron, but everything like grapes."
 	color = "#863333"
 	adj_sleepy = -2
-	caffeine = 0.2
+	caffeine = 0.4
 	taste_description = "electric grape"
 
 /datum/reagent/drink/zorasoda/kois
@@ -3938,7 +3938,7 @@
 	description = "Whoever approved this in marketing needs to be drawn and quartered."
 	color = "#dcd9cd"
 	adj_sleepy = -2
-	caffeine = 0.2
+	caffeine = 0.4
 	taste_description = "sugary cabbage"
 
 /datum/reagent/drink/zorasoda/kois/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
@@ -3952,7 +3952,7 @@
 	description = "It feels like someone is just driving a freezing cold spear through the bottom of your mouth."
 	color = "#365000"
 	adj_sleepy = -3
-	caffeine = 0.3
+	caffeine = 0.6
 	taste_description = "a full-body bite into an acidic lemon"
 
 /datum/reagent/drink/zorasoda/hozm/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
@@ -3968,7 +3968,7 @@
 	description = "The 'diet' version of High Energy Zorane Might, still tastes like a cloud of stinging polytrinic bees."
 	color = "#100800"
 	adj_sleepy = -3
-	caffeine = 0.1
+	caffeine = 0.4
 	taste_description = "fizzy nettles"
 
 /datum/reagent/drink/zorasoda/venomgrass/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
@@ -3982,7 +3982,7 @@
 	description = "An orange, cream soda. It's a wonder it got here."
 	color = "#E78108"
 	adj_sleepy = -3
-	caffeine = 0.2
+	caffeine = 0.4
 	unaffected_species = IS_MACHINE
 	taste_description = "orange cream"
 
@@ -3997,7 +3997,7 @@
 	description = "A raspberry concoction you're pretty sure is already on recall."
 	color = "#0000CD"
 	adj_sleepy = -3
-	caffeine = 0.2
+	caffeine = 0.4
 	taste_description = "flat raspberry"
 
 /datum/reagent/drink/zorasoda/cthur/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
@@ -4035,7 +4035,7 @@
 	description = "It looks of mucus, but tastes like Heaven."
 	color = "#FFFF00"
 	adj_sleepy = -3
-	caffeine = 0.2
+	caffeine = 0.3
 	taste_description = "a reassuring spectrum of color"
 
 /datum/reagent/drink/zorasoda/jelly/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
