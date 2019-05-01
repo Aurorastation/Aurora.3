@@ -1,0 +1,5 @@
+author: Skull132
+delete-after: True
+
+changes:
+  - tweak: "Modified the text shown during a failed cult conversion attempt. It no longer tells you to valid-hunt!"
