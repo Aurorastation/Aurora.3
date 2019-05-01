@@ -206,7 +206,8 @@
 		/obj/item/weapon/paper_bundle,
 		/obj/item/weapon/card/id,
 		/obj/item/weapon/book,
-		/obj/item/weapon/newspaper
+		/obj/item/weapon/newspaper,
+		/obj/item/weapon/stamp
 		)
 
 /obj/item/weapon/gripper/research //A general usage gripper, used for toxins/robotics/xenobio/etc
