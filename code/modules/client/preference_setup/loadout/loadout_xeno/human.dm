@@ -44,10 +44,6 @@
 	display_name = "neckbrace"
 	path = /obj/item/clothing/accessory/offworlder/bracer/neckbrace
 
-/datum/gear/accessory/offworlder/scarf
-	display_name = "pioneer scarf"
-	path = /obj/item/clothing/accessory/scarf/offworlder
-
 /datum/gear/accessory/offworlder_armband
 	display_name = "exo-stellar ribbon selection"
 	path = /obj/item/clothing/accessory/armband/offworlder
@@ -76,14 +72,13 @@
 	..()
 	gear_tweaks = list(gear_tweak_free_color_choice)
 
-/datum/gear/mask/offworlder/veil
+/datum/gear/mask/offworlder/overmask/veil
 	display_name = "starveil"
 	path = /obj/item/clothing/mask/offworlder/veil
 
-/datum/gear/mask/offworlder/veil/New()
-	..()
-	gear_tweaks = list(gear_tweak_free_color_choice)
-
+/datum/gear/mask/offworlder/overmask/scarf
+	display_name = "pioneer scarf"
+	path = /obj/item/clothing/mask/offworlder
 
 /datum/gear/gloves/offworlder
 	display_name = "starmitts"

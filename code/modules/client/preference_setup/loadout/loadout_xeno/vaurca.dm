@@ -27,9 +27,15 @@
 	display_name = "skrell expression mask"
 	path = /obj/item/clothing/mask/breath/vaurca/expression/skrell
 
-/datum/gear/mask/vaurca_expression/shaper
+/datum/gear/head/shaper
 	display_name = "shaper helmet"
-	path = /obj/item/clothing/mask/breath/vaurca/shaper
+	path = /obj/item/clothing/head/shaper
+	whitelisted = list("Vaurca Worker", "Vaurca Warrior")
+	sort_category = "Xenowear - Vaurca"
+
+/datum/gear/head/shaper/New()
+	..()
+	gear_tweaks = list(gear_tweak_free_color_choice)
 
 /datum/gear/cape
 	display_name = "tunnel cloak"

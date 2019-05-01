@@ -89,7 +89,7 @@
 		return ..()
 	if(target_zone != "eyes" && target_zone != "head")
 		return ..()
-	if((CLUMSY in user.mutations) && prob(50))
+	if((user.is_clumsy()) && prob(50))
 		M = user
 	return eyestab(M,user)
 
@@ -577,7 +577,8 @@
 		"crowbar",
 		"screwdriver",
 		"wrench",
-		"wirecutters"
+		"wirecutters",
+		"multitool"
 		)
 	var/current_tool = 1
 
@@ -603,6 +604,9 @@
 
 /obj/item/combitool/iscrowbar()
 	return tools[current_tool] == "crowbar"
+
+/obj/item/combitool/ismultitool()
+	return tools[current_tool] == "multitool"
 
 /obj/item/combitool/proc/update_tool()
 	icon_state = "[initial(icon_state)]-[tools[current_tool]]"
