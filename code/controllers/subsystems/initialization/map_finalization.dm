@@ -110,7 +110,7 @@
 /proc/create_space_ruin_report(var/ruin_name)
 
 	var/ruintext = "<center><img src = ntlogo.png><BR><h2><BR><B>Icarus Reading Report</h2></B></FONT size><HR></center>"
-	ruintext += "<B><font face='Courier New'>The Icarus sensors located a away site with the possible characteristics:</B><br>"
+	ruintext += "<B><font face='Courier New'>The Icarus sensors located a away site with the possible characteristics:</font></B><br>"
 
 	switch(ruin_name)
 		if("crashed_freighter")
@@ -140,7 +140,7 @@
 	ruintext += "<HR>"
 
 	ruintext += "<B><font face='Courier New'>This reading has been detected within shuttle range of the [current_map.station_name] and deemed safe for survey by [current_map.company_name] personnel. \
-	The designated research director, or a captain level decision may determine the goal of any missions to this site. On-site command is deferred to any nearby command staff.</B><br>"
+	The designated research director, or a captain level decision may determine the goal of any missions to this site. On-site command is deferred to any nearby command staff.</font></B><br>"
 
 	for(var/obj/effect/landmark/C in landmarks_list)
 		if(C.name == "Space Ruin Paper")
