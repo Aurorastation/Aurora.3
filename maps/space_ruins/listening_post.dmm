@@ -1048,8 +1048,8 @@
 /turf/simulated/floor/lino,
 /area/derelict/ship)
 "cS" = (
-/turf/space,
-/area/shuttle/research/outpost)
+/turf/template_noop,
+/area/shuttle/research/away)
 
 (1,1,1) = {"
 ab

@@ -19643,7 +19643,7 @@
 	icon_state = "corner_white";
 	dir = 5
 	},
-/obj/machinery/computer/shuttle_control/research_away_shuttle,
+/obj/machinery/computer/shuttle_control/research,
 /turf/simulated/floor/tiled,
 /area/shuttle/research/station)
 "MU" = (

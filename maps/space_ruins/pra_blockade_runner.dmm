@@ -1,7 +1,7 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "aa" = (
-/turf/space,
-/area/space)
+/turf/template_noop,
+/area/template_noop)
 "ab" = (
 /turf/simulated/mineral,
 /area/mine/unexplored)
@@ -9,7 +9,7 @@
 /turf/simulated/wall/diona,
 /area/mine/unexplored)
 "ad" = (
-/turf/space,
+/turf/template_noop,
 /turf/simulated/floor/diona,
 /area/mine/unexplored)
 "ae" = (
@@ -138,7 +138,7 @@
 /area/derelict/ship)
 "at" = (
 /obj/structure/diona,
-/turf/space,
+/turf/template_noop,
 /area/mine/unexplored)
 "au" = (
 /turf/simulated/wall/diona,
@@ -444,12 +444,12 @@
 /turf/simulated/wall/diona,
 /area/derelict/ship)
 "bh" = (
-/turf/space,
+/turf/template_noop,
 /obj/structure/diona,
 /turf/simulated/floor/diona,
 /area/derelict/ship)
 "bi" = (
-/turf/space,
+/turf/template_noop,
 /obj/structure/lattice,
 /obj/structure/diona,
 /turf/simulated/floor/diona,
@@ -492,7 +492,7 @@
 /turf/simulated/wall/diona,
 /area/derelict/ship)
 "bp" = (
-/turf/space,
+/turf/template_noop,
 /obj/structure/lattice,
 /obj/structure/diona,
 /obj/effect/decal/remains,
@@ -627,7 +627,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "bI" = (
-/turf/space,
+/turf/template_noop,
 /obj/structure/lattice,
 /obj/structure/diona,
 /obj/item/clothing/suit/storage/hooded/tajaran,
@@ -781,7 +781,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "ch" = (
-/turf/space,
+/turf/template_noop,
 /obj/structure/lattice,
 /obj/structure/diona,
 /obj/random/voidsuit,
@@ -841,7 +841,7 @@
 /turf/simulated/floor/asteroid/ash,
 /area/mine/unexplored)
 "cr" = (
-/turf/space,
+/turf/template_noop,
 /obj/structure/diona,
 /turf/simulated/floor/diona,
 /area/mine/unexplored)
@@ -891,7 +891,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "cA" = (
-/turf/space,
+/turf/template_noop,
 /obj/structure/lattice,
 /obj/structure/diona,
 /obj/structure/diona,
@@ -971,7 +971,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "cM" = (
-/turf/space,
+/turf/template_noop,
 /obj/structure/diona,
 /obj/effect/decal/remains,
 /turf/simulated/floor/diona,
@@ -1877,7 +1877,7 @@
 /turf/simulated/floor/tiled/white,
 /area/derelict/ship)
 "eY" = (
-/turf/space,
+/turf/template_noop,
 /obj/structure/shuttle/engine/propulsion,
 /turf/simulated/floor/diona,
 /area/derelict/ship)
@@ -1947,7 +1947,7 @@
 /area/derelict/ship)
 "fj" = (
 /turf/simulated/floor/asteroid/ash,
-/area/shuttle/research/outpost)
+/area/shuttle/research/away)
 "fk" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/table/standard,

@@ -7933,8 +7933,8 @@
 /turf/simulated/floor/airless,
 /area/derelict/hallway/southwest)
 "FM" = (
-/turf/space,
-/area/shuttle/research/outpost)
+/turf/template_noop,
+/area/shuttle/research/away)
 
 (1,1,1) = {"
 aa

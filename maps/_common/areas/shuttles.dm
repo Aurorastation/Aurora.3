@@ -211,8 +211,11 @@
 
 /area/shuttle/research/outpost
 	icon_state = "shuttle"
+	base_turf = /turf/space
+
+/area/shuttle/research/away
+	icon_state = "shuttle"
 	station_area = 0
-	flags = RAD_SHIELDED
 	base_turf = /turf/space
 
 /area/shuttle/legion/centcom

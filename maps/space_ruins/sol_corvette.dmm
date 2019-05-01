@@ -484,8 +484,8 @@
 /turf/simulated/floor,
 /area/derelict/ship)
 "bw" = (
-/turf/space,
-/area/shuttle/research/outpost)
+/turf/template_noop,
+/area/shuttle/research/away)
 "bx" = (
 /obj/structure/window/reinforced,
 /obj/structure/window/reinforced{

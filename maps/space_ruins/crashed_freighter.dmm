@@ -3132,7 +3132,7 @@
 /area/derelict/ship)
 "hW" = (
 /turf/simulated/floor,
-/area/shuttle/research/outpost)
+/area/shuttle/research/away)
 "hX" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4

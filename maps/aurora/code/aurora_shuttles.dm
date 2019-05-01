@@ -163,8 +163,8 @@
 	shuttle.location = 0
 	shuttle.warmup_time = 10
 	shuttle.area_station = locate(/area/shuttle/research/station)
-	shuttle.area_offsite = locate(/area/shuttle/research/outpost)
+	shuttle.area_offsite = locate(/area/shuttle/research/away)
 	shuttle.docking_controller_tag = "science_shuttle"
 	shuttle.dock_target_station = "science_bridge"
-	shuttles["Research Away Shuttle"] = shuttle
+	shuttles["Research"] = shuttle
 	START_PROCESSING(shuttle_controller, shuttle)
