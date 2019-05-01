@@ -432,7 +432,8 @@ var/datum/controller/subsystem/vote/SSvote
 				var/admin_number_present = 0
 				var/admin_number_afk = 0
 
-				for (var/client/X in admins)
+				for (var/s in staff)
+					var/client/X = s
 					if (X.holder.rights & R_ADMIN)
 						admin_number_present++
 						if (X.is_afk())

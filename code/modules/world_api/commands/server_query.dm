@@ -21,12 +21,13 @@
 
 	s["players"] = clients.len
 	s["admins"] = 0
+	s["staff"] = staff.len
 
-	for(var/client/C in clients)
-		if(C.holder)
-			if(C.holder.fakekey)
-				continue
-
+	for(var/S in staff)
+		var/client/C = S
+		if(C.holder.fakekey)
+			continue
+		if(C.holder.rights & R_BAN) // we are doing R_BAN to not count retired admins, since they get R_MOD and R_ADMIN but not R_BAN.
 			s["admins"]++
 
 	statuscode = 200
@@ -42,7 +43,7 @@
 
 /datum/topic_command/get_stafflist/run_command(queryparams)
 	var/list/staff = list()
-	for (var/client/C in admins)
+	for (var/client/C in staff)
 		staff[C] = C.holder.rank
 
 	statuscode = 200
