@@ -79,7 +79,7 @@
 	account_allowed = FALSE
 	alt_outfits = list(
 		"Culinary Services"=/datum/outfit/job/adhomai/military/culinaryservices,
-		"Forward Scout"=/datum/outfit/job/adhomai/military/forwardscout,
+		"Forward Scouting"=/datum/outfit/job/adhomai/military/forwardscouting,
 		"Medical Services"=/datum/outfit/job/adhomai/military/medicalservices
 		)
 
@@ -97,8 +97,8 @@
 		/obj/item/weapon/reagent_containers/glass/beaker/bowl = 2
 		)
 
-/datum/outfit/job/adhomai/military/forwardscout
-	name = "Forward Scout"
+/datum/outfit/job/adhomai/military/forwardscouting
+	name = "Forward Scouting"
 	r_hand = /obj/item/device/binoculars
 	l_pocket = /obj/item/device/gps
 
@@ -239,8 +239,8 @@
 	backpack = /obj/item/weapon/storage/backpack/satchel/engineer
 
 /datum/job/amohdanswordsman
-	title = "Amohdan Swordman"
-	flag = COMBATENGINEER
+	title = "Amohdan Swordsman"
+	flag = AMOHDANSWORDSMAN
 	department = "Imperial Army"
 	department_flag = ADHOMAI
 	faction = "Station"

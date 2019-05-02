@@ -9,7 +9,7 @@
 	contained_sprite = TRUE
 
 /obj/item/ammo_magazine/boltaction/nka
-	name = "loaded stripper clip"
+	name = "stripper clip"
 	desc = "A stripper clip issued to members of the Imperial Adhomian Army."
 
 /obj/item/weapon/gun/projectile/shotgun/pump/rifle/nka/scoped
