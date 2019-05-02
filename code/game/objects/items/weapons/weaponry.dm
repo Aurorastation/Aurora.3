@@ -49,12 +49,12 @@
 	set category = "Obsidian Relics"
 	set src in usr
 
-	if (use_check(usr, USE_FORCE_SRC_IN_USER))
+	if (use_check_and_message(usr, USE_FORCE_SRC_IN_USER))
 		return
 
 	var/picked = input("What form would you like your obsidian relic to take?", "Reassembling your obsidian relic") as null|anything in nullchoices
 
-	if (use_check(usr, USE_FORCE_SRC_IN_USER))
+	if (use_check_and_message(usr, USE_FORCE_SRC_IN_USER))
 		return
 
 	if(!ispath(nullchoices[picked]))

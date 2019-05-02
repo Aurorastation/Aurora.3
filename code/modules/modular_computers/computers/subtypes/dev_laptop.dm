@@ -17,7 +17,7 @@
 	var/icon_state_closed = "laptop-closed"
 
 /obj/item/modular_computer/laptop/AltClick()
-	if (use_check(usr, show_messages = FALSE)) return
+	if (use_check(usr)) return
 	// Prevents carrying of open laptops inhand.
 	// While they work inhand, i feel it'd make tablets lose some of their high-mobility advantage they have over laptops now.
 	if(!istype(loc, /turf/))

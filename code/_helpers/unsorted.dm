@@ -1123,7 +1123,7 @@ var/list/wall_items = typecacheof(list(
 // Checks if user can use this object. Set use_flags to customize what checks are done.
 // Returns 0 if they can use it, a value representing why they can't if not.
 // Flags are in `code/__defines/misc.dm`
-/atom/proc/use_check(mob/user, use_flags = 0, show_messages = TRUE)
+/atom/proc/use_check(mob/user, use_flags = 0, show_messages = FALSE)
 	. = 0
 	if (NOT_FLAG(USE_ALLOW_NONLIVING) && !isliving(user))
 		// No message for ghosts.
@@ -1158,6 +1158,9 @@ var/list/wall_items = typecacheof(list(
 		if (show_messages)
 			to_chat(user, "<span class='notice'>You need to be holding [src] to do that.</span>")
 		return USE_FAIL_NOT_IN_USER
+
+/atom/proc/use_check_and_message(mob/user, use_flags = 0, show_messages = TRUE)
+	..()
 
 /obj/proc/iswrench()
 	return FALSE

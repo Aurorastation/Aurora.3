@@ -595,7 +595,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 	var/datum/nanoui/ui = SSnanoui.get_open_ui(user, src, "main")
 	var/mob/living/U = usr
 	//Looking for master was kind of pointless since PDAs don't appear to have one.)
-	if(use_check(usr)) // Need to allow silicons here.
+	if(use_check_and_message(usr)) // Need to allow silicons here.
 		U.unset_machine()
 		if(ui)
 			ui.close()
@@ -1024,7 +1024,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 	if (last_text && world.time < last_text + 5)
 		return
 
-	if(use_check(U))
+	if(use_check_and_message(U))
 		return
 
 	last_text = world.time
@@ -1129,7 +1129,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 	if(issilicon(usr))
 		return
 
-	switch (use_check(usr, USE_FORCE_SRC_IN_USER, FALSE))
+	switch (use_check(usr, USE_FORCE_SRC_IN_USER))
 		if (USE_ALLOW_DEAD,USE_ALLOW_INCAPACITATED)
 			to_chat(usr, "<span class='notice'>You cannot do this in your current state.</span>")
 		if (USE_SUCCESS)
@@ -1145,7 +1145,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 	if(issilicon(usr))
 		return
 
-	switch (use_check(usr, USE_DISALLOW_SILICONS, FALSE))
+	switch (use_check(usr, USE_DISALLOW_SILICONS))
 		if (USE_FAIL_DEAD,USE_FAIL_INCAPACITATED)
 			to_chat(usr, "<span class='notice'>You cannot do this in your current state.</span>")
 
@@ -1170,7 +1170,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 	if(issilicon(usr))
 		return
 
-	switch (use_check(usr, USE_DISALLOW_SILICONS, FALSE))
+	switch (use_check(usr, USE_DISALLOW_SILICONS))
 		if (USE_FAIL_DEAD,USE_FAIL_INCAPACITATED)
 			to_chat(usr, "<span class='notice'>You cannot do this in your current state.</span>")
 		if (USE_SUCCESS)
