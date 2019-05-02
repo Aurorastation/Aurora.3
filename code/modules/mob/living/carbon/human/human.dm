@@ -1607,8 +1607,8 @@
 
 	var/bac = get_blood_alcohol()
 	var/SR = species.ethanol_resistance
-
-	if(bac > INTOX_REACTION*SR)
-		return TRUE
+	if(SR>0)
+		if(bac > INTOX_REACTION*SR)
+			return TRUE
 
 	return FALSE
