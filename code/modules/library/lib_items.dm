@@ -217,7 +217,6 @@
 		user.visible_message("[user] opens a book titled \"[src.title]\" and begins reading intently.")
 		playsound(loc, 'sound/bureaucracy/bookopen.ogg', 50, 1)
 		onclose(user, "book")
-		playsound(loc, 'sound/bureaucracy/bookclose.ogg', 50, 1)
 	else
 		to_chat(user, "This book is completely blank!")
 
