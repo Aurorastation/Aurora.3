@@ -336,6 +336,7 @@
 		/obj/item/device/analyzer/plant_analyzer,
 		/obj/item/clothing/gloves/botanic_leather,
 		)
+		
 /obj/item/weapon/storage/belt/hydro/full/fill()
 	..()
 	new /obj/item/weapon/plantspray/pests(src)
