@@ -320,7 +320,6 @@
 	storage_slots = 9
 	w_class = 3
 	max_w_class = 4
-//	max_storage_space = 16 *Can't decide, storage space could allow this to become the new medical belt meta. Leaving disabled to avoide green belt doctors
 	can_hold = list(
 		/obj/item/weapon/reagent_containers/glass,
 		/obj/item/weapon/grenade/chem_grenade, //weed killer grenades mostly, or water-pottassium if you grow the bannanas!
