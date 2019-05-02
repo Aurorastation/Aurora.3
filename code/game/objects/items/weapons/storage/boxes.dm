@@ -26,9 +26,9 @@
 	desc = "It's just an ordinary box."
 	icon_state = "box"
 	item_state = "syringe_kit"
-	use_sound = 'sound/items/storage/box.ogg'
 	var/foldable = /obj/item/stack/material/cardboard	// BubbleWrap - if set, can be folded (when empty) into a sheet of cardboard
 	var/maxHealth = 20	//health is already defined
+	use_sound = 'sound/items/storage/box.ogg'
 	drop_sound = 'sound/items/drop/box.ogg'
 
 /obj/item/weapon/storage/box/Initialize()

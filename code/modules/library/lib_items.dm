@@ -201,6 +201,7 @@
 	var/title		 // The real name of the book.
 	var/carved = 0	 // Has the book been hollowed out for use as a secret storage item?
 	var/obj/item/store	//What's in the book?
+	drop_sound = 'sound/bureaucracy/bookclose.ogg'
 
 /obj/item/weapon/book/attack_self(var/mob/user as mob)
 	if(carved)
