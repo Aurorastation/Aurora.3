@@ -298,9 +298,10 @@
 
 			if(silenced)
 				playsound(src, fire_sound, 10, 1)
+				playsound(src, "sound/weapons/casingdrop3.ogg", 50, 1)
 			else
 				playsound(src, fire_sound, 50, 1)
-
+				playsound(src, "sound/weapons/casingdrop3.ogg", 50, 1)
 			if (muzzle_flash)
 				set_light(muzzle_flash)
 				addtimer(CALLBACK(src, /atom/.proc/set_light, 0), 2, TIMER_UNIQUE | TIMER_OVERRIDE)

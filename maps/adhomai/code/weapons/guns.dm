@@ -8,7 +8,7 @@
 	has_wield_state = TRUE
 	contained_sprite = TRUE
 
-/obj/item/ammo_magazine/boltaction
+/obj/item/ammo_magazine/boltaction/nka
 	name = "loaded stripper clip"
 	desc = "A stripper clip issued to members of the Imperial Adhomian Army."
 
@@ -23,6 +23,7 @@
 	can_sawoff = FALSE
 	has_wield_state = TRUE
 	contained_sprite = TRUE
+	load_method = SINGLE_CASING
 
 /obj/item/weapon/gun/projectile/shotgun/pump/rifle/nka/scoped/verb/scope()
 	set category = "Object"
@@ -39,7 +40,7 @@
 	desc = "A semi-automatic ballistic rifle issued to the Royal Grenadiers."
 	icon = 'icons/adhomai/guns.dmi'
 	icon_state = "rifle"
-	item_state = "moistnugget"
+	item_state = "bolt"
 	w_class = 4
 	load_method = SINGLE_CASING|SPEEDLOADER
 	max_shells = 5
@@ -51,6 +52,7 @@
 	accuracy = -1
 	recoil = 3
 	fire_delay = 5
+	jam_chance = 2
 
 	recoil_wielded = 1
 	accuracy_wielded = 1
@@ -84,6 +86,7 @@
 	icon_state = "pra_rifle"
 	item_state = "pra_rifle"
 	contained_sprite = TRUE
+	jam_chance = 5
 
 /obj/item/weapon/gun/projectile/automatic/rifle/pra/update_icon()
 	..()
@@ -102,6 +105,7 @@
 	desc = "A cheap revolver produced by the Royal Firearms industries, commonly issued to constables. Uses .38-Special rounds."
 	icon = 'icons/adhomai/guns.dmi'
 	icon_state = "constable_gun"
+	item_state = "gun"
 	contained_sprite = TRUE
 
 /obj/item/weapon/gun/projectile/revolver/detective/constable/update_icon()
@@ -113,13 +117,21 @@
 
 /obj/item/weapon/gun/projectile/nka
 	name = "service automatic"
-	desc = "A reliable sidearm issued to members of the Imperial Adhomian Army."
+	desc = "A somewhat reliable, open bolt sidearm issued to members of the Imperial Adhomian Army."
 	icon = 'icons/adhomai/guns.dmi'
 	icon_state = "nka"
-	ammo_type = /obj/item/ammo_casing/a357
+	ammo_type = /obj/item/ammo_casing/c38
 	contained_sprite = TRUE
+	magazine_type = /obj/item/ammo_magazine/nka
+	allowed_magazines = list(/obj/item/ammo_magazine/nka)
+	auto_eject = 1
+	jam_chance = 10
+	caliber = "38"
+	accuracy = 1
+	fire_sound = 'sound/weapons/Gunshot_light.ogg'
+	load_method = MAGAZINE
 
-/obj/item/weapon/gun/projectile/colt/nka/update_icon()
+/obj/item/weapon/gun/projectile/nka/update_icon()
 	..()
 	if(ammo_magazine && ammo_magazine.stored_ammo.len)
 		icon_state = "nka"
@@ -128,18 +140,15 @@
 
 /obj/item/ammo_magazine/nka
 	name = "ammunition magazine"
-	desc = "A reliable sidearm magazine issued to members of the Imperial Adhomian Army."
+	desc = "A somewhat reliable sidearm magazine issued to members of the Imperial Adhomian Army."
 	icon = 'icons/adhomai/guns.dmi'
 	icon_state = "ammo"
 	max_ammo = 5
-	initial_ammo = 5
-
-/obj/item/ammo_magazine/c45m/nka/empty
-	name = "ammunition magazine"
-	desc = "A reliable sidearm magazine issued to members of the Imperial Adhomian Army."
-	icon = 'icons/adhomai/guns.dmi'
-	ammo_type = /obj/item/ammo_casing/a357
-	initial_ammo = 0
+	ammo_type = /obj/item/ammo_casing/c38
+	matter = list(DEFAULT_WALL_MATERIAL = 100)
+	caliber = "38"
+	multiple_sprites = 1
+	mag_type = MAGAZINE
 
 /obj/item/ammo_casing/rpg
 	name = "rocket-propelled grenade"
@@ -199,3 +208,37 @@
 	icon = 'icons/adhomai/guns.dmi'
 	icon_state = "tommygun"
 	w_class = 3
+	jam_chance = 7
+
+/obj/item/weapon/gun/projectile/kt_76
+	name = "KT-76 service pistol"
+	desc = "A more reliable, clip-fed sidearm issued to officers and survival personnel of the Imperial Adhomian Army."
+	icon = 'icons/adhomai/guns.dmi'
+	icon_state = "kt_76"
+	ammo_type = /obj/item/ammo_casing/c38
+	contained_sprite = TRUE
+	caliber = "38"
+	accuracy = 1
+	jam_chance = 1
+	max_shells = 9
+	fire_sound = 'sound/weapons/Gunshot_light.ogg'
+	load_method = SINGLE_CASING|SPEEDLOADER
+
+/obj/item/weapon/gun/projectile/kt_76/update_icon()
+	..()
+	if(loaded.len)
+		icon_state = "kt_76"
+	else
+		icon_state = "kt_76-empty"
+
+/obj/item/ammo_magazine/nka/kt_76
+	name = ".38 stripper clip"
+	desc = "A reliable sidearm magazine issued to members of the Imperial Adhomian Army."
+	icon = 'icons/adhomai/guns.dmi'
+	icon_state = "ammo2"
+	max_ammo = 9
+	ammo_type = /obj/item/ammo_casing/c38
+	matter = list(DEFAULT_WALL_MATERIAL = 100)
+	caliber = "38"
+	multiple_sprites = 1
+	mag_type = SPEEDLOADER

@@ -1,8 +1,18 @@
-/turf/unsimulated/wall/blizzard
+/obj/effect/overlay/blizzard
 	name = "blizzard"
 	desc = "A thick snow storm."
 	icon = 'icons/adhomai/turfs.dmi'
 	icon_state = "blizzard"
+	density = 0
+	layer = 5
+	opacity = 1
+
+/obj/effect/overlay/blizzard/heavy
+	name = "heavy blizzard"
+	desc = "A thick snow storm."
+	icon = 'icons/adhomai/turfs.dmi'
+	icon_state = "blizzard"
+	density = 1
 
 /turf/unsimulated/mask/adhomai
 	name = "adhomaimask"

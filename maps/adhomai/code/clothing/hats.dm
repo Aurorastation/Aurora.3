@@ -74,3 +74,11 @@
 	icon_state = "explorer_hat"
 	item_state = "explorer_hat"
 	contained_sprite = TRUE
+
+/obj/item/clothing/head/chefhat/nka
+	name = "royal toque blanche"
+	desc = "A white toque blanche, There are gilded fabrics sewn into the top of it."
+	icon = 'icons/adhomai/clothing.dmi'
+	icon_state = "cook_hat"
+	item_state = "cook_hat"
+	contained_sprite = TRUE

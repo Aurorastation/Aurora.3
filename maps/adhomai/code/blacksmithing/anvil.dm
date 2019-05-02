@@ -55,6 +55,7 @@
 
 		blacksmithing = TRUE
 		user.visible_message("<span class='notice'>\The [user] hammers \the [src]!</span>")
+		playsound(src.loc, 'maps/adhomai/sound/anvil.ogg', 50, 1, -3)
 		if(do_after(user, 160, act_target = src))
 			current_mold.create_result(get_turf(src))
 			to_chat(user, "<span class='warning'>You finish your creation.</span>")

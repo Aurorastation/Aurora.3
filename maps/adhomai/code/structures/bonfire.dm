@@ -119,6 +119,7 @@
 
 	if(!fuel)
 		extinguish()
+		playsound()
 
 	if(istype(loc, /turf))
 		var/turf/T = loc
@@ -130,6 +131,7 @@
 
 	check_light()
 	heat()
+	playsound(src.loc, 'maps/adhomai/sound/fireplace.ogg', 50, 1, -3)
 
 /obj/structure/bonfire/proc/extinguish()
 	on_fire = FALSE

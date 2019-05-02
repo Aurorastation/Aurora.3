@@ -83,3 +83,11 @@
 	item_state = "chief_constable"
 	contained_sprite = TRUE
 	body_parts_covered = UPPER_TORSO|ARMS
+
+/obj/item/clothing/suit/chef/nka
+	name = "royal cooking coat"
+	desc = "A royal cooking niform, it has gilded buttons on its cuffs and ranking epaulets don its shoulders."
+	icon = 'icons/adhomai/clothing.dmi'
+	icon_state = "cook_coat"
+	item_state = "cook_coat"
+	contained_sprite = TRUE
