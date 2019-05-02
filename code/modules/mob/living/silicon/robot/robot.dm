@@ -374,6 +374,13 @@
 		updatename()
 		updateicon()
 
+/mob/living/silicon/robot/verb/toggle_panel_lock()
+	set name = "Toggle Panel Lock"
+	set category = "Robot Commands"
+	if(!opened && has_power && do_after(usr, 60) && !opened && has_power)
+		to_chat(src, "You [locked ? "un" : ""]lock your panel.")
+		locked = !locked
+
 // this verb lets cyborgs see the stations manifest
 /mob/living/silicon/robot/verb/cmd_station_manifest()
 	set category = "Robot Commands"
