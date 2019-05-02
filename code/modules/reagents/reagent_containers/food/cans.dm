@@ -266,3 +266,14 @@
 /obj/item/weapon/reagent_containers/food/drinks/cans/beetle_milk/Initialize()
 	. = ..()
 	reagents.add_reagent("beetle_milk", 30)
+
+/obj/item/weapon/reagent_containers/food/drinks/cans/dyn
+	name = "Cooling Breeze"
+	desc = "The most refreshing thing you can find on the market, based on a Skrell medicinal plant. No salt or sugar. "
+	icon_state = "dyncan"
+	center_of_mass = list("x"=16, "y"=10)
+
+/obj/item/weapon/reagent_containers/food/drinks/cans/dyn/Initialize()
+	. = ..()
+	reagents.add_reagent("dyncold", 30)
+

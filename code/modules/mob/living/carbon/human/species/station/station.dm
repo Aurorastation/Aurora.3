@@ -427,6 +427,7 @@
 	age_min = 1
 	age_max = 30
 	economic_modifier = 3
+	var/neuter_ipc = TRUE
 
 	blurb = "IPCs are, quite simply, \"Integrated Positronic Chassis.\" In this scenario, 'positronic' implies that the chassis possesses a positronic processing core (or positronic brain), meaning that an IPC must be positronic to be considered an IPC. The Baseline model is more of a category - the long of the short is that they represent all unbound synthetic units. Baseline models cover anything that is not an Industrial chassis or a Shell chassis. They can be custom made or assembly made. The most common feature of the Baseline model is a simple design, skeletal or semi-humanoid, and ordinary atmospheric diffusion cooling systems."
 
@@ -525,7 +526,8 @@
 	var/sprint_charge_factor = 0.65
 
 datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
-	H.gender = NEUTER
+	if (neuter_ipc)
+		H.gender = NEUTER
 	. = ..()
 	check_tag(H, H.client)
 

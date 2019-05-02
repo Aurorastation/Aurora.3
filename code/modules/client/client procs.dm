@@ -338,7 +338,7 @@
 	//Admin Authorisation
 	holder = admin_datums[ckey]
 	if(holder)
-		admins += src
+		staff += src
 		holder.owner = src
 
 	log_client_to_db()
@@ -425,7 +425,7 @@
 	ticket_panels -= src
 	if(holder)
 		holder.owner = null
-		admins -= src
+		staff -= src
 	directory -= ckey
 	clients -= src
 	SSassets.handle_disconnect(src)
