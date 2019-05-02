@@ -38,5 +38,5 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
-  - imageadd: "Added new in-hand sprites as well as added wielded sprites (provided by Kyres1) for kinetic accelerators."
+  - imageadd: "Added new in-hand sprites as well as added wielded sprites for kinetic accelerators, provided by Kyres1."
   - tweak: "Ultra-heavy kinetic accelerators can no longer be equipped in the belt slot."
