@@ -543,6 +543,12 @@
 	},
 /turf/simulated/lava,
 /area/adhomai/cavern)
+"dP" = (
+/obj/structure/table/wood,
+/obj/item/weapon/reagent_containers/glass/rag,
+/obj/item/weapon/reagent_containers/glass/rag,
+/turf/simulated/floor/holofloor/wood,
+/area/adhomai/village/bar)
 "eh" = (
 /obj/structure/table/wood,
 /obj/structure/bedsheetbin,
@@ -555,6 +561,10 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/closet/coffin/sarcophagus/treasure,
 /turf/simulated/floor/cult,
+/area/adhomai/cavern)
+"gR" = (
+/obj/structure/smelter,
+/turf/simulated/mineral/adhomai,
 /area/adhomai/cavern)
 "ia" = (
 /obj/structure/table/reinforced/steel,
@@ -646,6 +656,11 @@
 "nv" = (
 /turf/simulated/floor/holofloor/wood,
 /area/adhomai/village/bar)
+"nx" = (
+/obj/structure/table/wood,
+/obj/machinery/chemical_dispenser/bar_alc/full,
+/turf/simulated/floor/holofloor/wood,
+/area/adhomai/village/bar)
 "nH" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/random/sarcophagus,
@@ -686,6 +701,12 @@
 /obj/item/weapon/reagent_containers/glass/bucket/wood,
 /turf/simulated/floor/cult,
 /area/adhomai/village/temple)
+"qj" = (
+/obj/machinery/light/small{
+	dir = 4
+	},
+/turf/simulated/floor/holofloor/wood,
+/area/adhomai/village/bar)
 "qn" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/closet/coffin/sarcophagus,
@@ -945,6 +966,12 @@
 /obj/item/weapon/storage/toolbox/mechanical,
 /turf/simulated/floor/tiled/dark,
 /area/adhomai/fortress)
+"CM" = (
+/obj/structure/sign/double/painting/mountain{
+	pixel_y = 32
+	},
+/turf/simulated/floor/holofloor/wood,
+/area/adhomai/village/bar)
 "CP" = (
 /obj/effect/decal/cleanable/cobweb2{
 	icon_state = "spiderling";
@@ -1109,7 +1136,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/adhomai/village/townhall)
 "LE" = (
-/obj/item/weapon/stool/padded,
 /turf/simulated/floor/carpet/blue,
 /area/adhomai/village/bar)
 "LS" = (
@@ -1198,6 +1224,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/adhomai/village/townhall)
+"RG" = (
+/obj/structure/sign/double/painting/mountain/right{
+	pixel_y = 32
+	},
+/turf/simulated/floor/holofloor/wood,
+/area/adhomai/village/bar)
 "RQ" = (
 /obj/structure/coatrack,
 /obj/effect/decal/cleanable/dirt,
@@ -1253,6 +1285,11 @@
 "TS" = (
 /turf/simulated/floor/tiled/dark,
 /area/adhomai/village/police)
+"TW" = (
+/obj/structure/table/wood,
+/obj/item/weapon/storage/box/drinkingglasses,
+/turf/simulated/floor/holofloor/wood,
+/area/adhomai/village/bar)
 "TZ" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/light/small{
@@ -1260,6 +1297,11 @@
 	},
 /turf/simulated/floor/cult,
 /area/adhomai/village/temple)
+"Us" = (
+/obj/structure/table/wood,
+/obj/machinery/media/jukebox/phonograph,
+/turf/simulated/floor/holofloor/wood,
+/area/adhomai/village/bar)
 "Uy" = (
 /obj/machinery/light/small{
 	dir = 4
@@ -1277,6 +1319,10 @@
 	},
 /turf/simulated/floor/cult,
 /area/adhomai/village/temple)
+"UZ" = (
+/obj/structure/table/wood,
+/turf/simulated/floor/holofloor/wood,
+/area/adhomai/village/bar)
 "Vg" = (
 /obj/machinery/light/small,
 /obj/effect/decal/cleanable/dirt,
@@ -5345,7 +5391,7 @@ ab
 ab
 ae
 ae
-ab
+gR
 ab
 ab
 ab
@@ -5604,7 +5650,7 @@ ab
 ab
 ab
 aa
-ac
+aa
 aa
 aa
 ab
@@ -56722,10 +56768,10 @@ ae
 ae
 sp
 du
+UZ
+UZ
 du
-du
-du
-du
+nv
 sp
 ae
 ae
@@ -56979,10 +57025,10 @@ ae
 ae
 sp
 du
+UZ
+UZ
 du
-du
-du
-du
+SF
 sp
 sp
 sp
@@ -57235,11 +57281,11 @@ ae
 ae
 ae
 sp
-du
+nv
 LE
 LE
 LE
-du
+nv
 sp
 rq
 Fh
@@ -57492,11 +57538,11 @@ ae
 ae
 ae
 sp
-du
+CM
 LE
 LE
 LE
-du
+nv
 CC
 nv
 nv
@@ -57749,11 +57795,11 @@ ae
 ae
 ae
 sp
-du
+RG
 LE
 LE
 LE
-du
+nv
 sp
 sp
 sp
@@ -58006,11 +58052,11 @@ ae
 ae
 ae
 sp
-du
+nv
 LE
 LE
 LE
-du
+SF
 sp
 ae
 ae
@@ -58267,7 +58313,7 @@ du
 du
 du
 du
-du
+nv
 sp
 ae
 ae
@@ -58520,11 +58566,11 @@ ae
 ae
 ae
 sp
-du
-du
-du
-du
-du
+dP
+UZ
+UZ
+UZ
+nv
 sp
 ae
 ae
@@ -58777,11 +58823,11 @@ ae
 ae
 ae
 sp
-du
-du
-du
-du
-du
+TW
+nv
+nv
+Us
+nv
 sp
 ae
 ae
@@ -59034,11 +59080,11 @@ ae
 ae
 ae
 sp
-du
-du
-du
-du
-du
+nx
+qj
+nv
+qj
+nv
 sp
 ae
 ae
