@@ -19,6 +19,5 @@
     my_client.authed = TRUE
     my_client.ckey = ckey(nckey)
     if(istype(my_client.mob, /mob/abstract/unauthed))
-        my_client.mob = my_client.InitClient(new /mob/abstract/new_player())
-    else
-        my_client.InitClient(my_client.mob)
+        my_client.mob = new /mob/abstract/new_player()
+    my_client.InitClient()

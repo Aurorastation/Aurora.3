@@ -363,9 +363,10 @@
 		return m
 		//Do auth shit
 	else
-		return src.InitClient(..())
+		. = ..()
+		src.InitClient()
 
-/client/proc/InitClient(var/mob/m)
+/client/proc/InitClient()
 	to_chat(src, "<span class='alert'>If the title screen is black, resources are still downloading. Please be patient until the title screen appears.</span>")
 	//Admin Authorisation
 	holder = admin_datums[ckey]
@@ -404,8 +405,6 @@
 	prefs.client = src					// Safety reasons here.
 	prefs.last_ip = address				//these are gonna be used for banning
 	prefs.last_id = computer_id			//these are gonna be used for banning
-
-	. = m	//calls mob.Login()
 
 	if(holder)
 		add_admin_verbs()
