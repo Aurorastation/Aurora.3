@@ -442,3 +442,20 @@ other types of metals and chemistry for reagents).
 	materials = list(DEFAULT_WALL_MATERIAL = 5000, "glass" = 2500)
 	build_path = /obj/item/device/pin_extractor
 	sort_string = "VCBAA"
+
+/datum/design/item/plant_analyzer
+	name = "plant analyzer"
+	desc = "A hand-held plant scanner for hydroponicists and xenobotanists."
+	id = "plant_analyzer"
+	req_tech = list(TECH_MAGNET = 2, TECH_BIO = 3)
+	materials = list(DEFAULT_WALL_MATERIAL = 80,"glass" = 20)
+	build_path = /obj/item/device/analyzer/plant_analyzer
+	sort_string = "VCBAB"
+
+/datum/design/item/implanter
+	name = "implanter"
+	desc = "A specialized syringe for inserting implants to subjects."
+	req_tech = list(TECH_ILLEGAL = 2, TECH_BIO = 5)
+	materials = list(DEFAULT_WALL_MATERIAL = 320, "glass" = 800)
+	build_path = /obj/item/weapon/implanter
+	sort_string = "VCBAC"

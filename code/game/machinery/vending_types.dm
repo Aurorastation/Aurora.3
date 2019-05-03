@@ -69,6 +69,7 @@
 		/obj/item/weapon/reagent_containers/food/drinks/bottle/tomatojuice = 4,
 		/obj/item/weapon/reagent_containers/food/drinks/bottle/limejuice = 4,
 		/obj/item/weapon/reagent_containers/food/drinks/bottle/lemonjuice = 4,
+		/obj/item/weapon/reagent_containers/food/drinks/bottle/dynjuice = 4,
 		/obj/item/weapon/reagent_containers/food/drinks/cans/grape_juice = 6,
 		/obj/item/weapon/reagent_containers/food/drinks/bottle/cream = 4,
 		/obj/item/weapon/reagent_containers/food/drinks/cans/tonic = 8,
@@ -180,15 +181,15 @@
 		/obj/item/weapon/reagent_containers/food/snacks/candy = 15,
 		/obj/item/weapon/reagent_containers/food/drinks/dry_ramen = 20,
 		/obj/item/weapon/reagent_containers/food/snacks/chips = 17,
-		/obj/item/weapon/reagent_containers/food/snacks/sosjerky = 120,
-		/obj/item/weapon/reagent_containers/food/snacks/no_raisin = 112,
+		/obj/item/weapon/reagent_containers/food/snacks/sosjerky = 20,
+		/obj/item/weapon/reagent_containers/food/snacks/no_raisin = 12,
 		/obj/item/weapon/reagent_containers/food/snacks/spacetwinkie = 15,
 		/obj/item/weapon/reagent_containers/food/snacks/cheesiehonkers = 15,
 		/obj/item/weapon/reagent_containers/food/snacks/tastybread = 18,
 		/obj/item/weapon/reagent_containers/food/snacks/skrellsnacks = 40,
 		/obj/item/weapon/reagent_containers/food/snacks/meatsnack = 22,
 		/obj/item/weapon/reagent_containers/food/snacks/maps = 23,
-		/obj/item/weapon/reagent_containers/food/snacks/nathisnack = 124,
+		/obj/item/weapon/reagent_containers/food/snacks/nathisnack = 24,
 		/obj/item/weapon/reagent_containers/food/snacks/koisbar_clean = 60
 	)
 
@@ -206,6 +207,7 @@
 		/obj/item/weapon/reagent_containers/food/drinks/cans/root_beer = 10,
 		/obj/item/weapon/reagent_containers/food/drinks/cans/starkist = 10,
 		/obj/item/weapon/reagent_containers/food/drinks/cans/waterbottle = 10,
+		/obj/item/weapon/reagent_containers/food/drinks/cans/dyn = 10,
 		/obj/item/weapon/reagent_containers/food/drinks/cans/space_up = 10,
 		/obj/item/weapon/reagent_containers/food/drinks/cans/iced_tea = 10,
 		/obj/item/weapon/reagent_containers/food/drinks/cans/grape_juice = 10,
@@ -220,11 +222,12 @@
 		/obj/item/weapon/reagent_containers/food/drinks/cans/cola = 15,
 		/obj/item/weapon/reagent_containers/food/drinks/cans/space_mountain_wind = 11,
 		/obj/item/weapon/reagent_containers/food/drinks/cans/dr_gibb = 16,
-		/obj/item/weapon/reagent_containers/food/drinks/cans/root_beer = 113,
+		/obj/item/weapon/reagent_containers/food/drinks/cans/root_beer = 13,
 		/obj/item/weapon/reagent_containers/food/drinks/cans/starkist = 15,
 		/obj/item/weapon/reagent_containers/food/drinks/cans/waterbottle = 12,
+		/obj/item/weapon/reagent_containers/food/drinks/cans/dyn = 18,
 		/obj/item/weapon/reagent_containers/food/drinks/cans/space_up = 15,
-		/obj/item/weapon/reagent_containers/food/drinks/cans/iced_tea = 113,
+		/obj/item/weapon/reagent_containers/food/drinks/cans/iced_tea = 13,
 		/obj/item/weapon/reagent_containers/food/drinks/cans/grape_juice = 16,
 		/obj/item/weapon/reagent_containers/food/drinks/cans/koispunch = 50,
 		/obj/item/weapon/reagent_containers/food/drinks/cans/beetle_milk = 5
@@ -486,7 +489,8 @@
 		/obj/item/seeds/towermycelium = 3,
 		/obj/item/seeds/watermelonseed = 3,
 		/obj/item/seeds/wheatseed = 3,
-		/obj/item/seeds/whitebeetseed = 3
+		/obj/item/seeds/whitebeetseed = 3,
+		/obj/item/seeds/dynseed = 2
 	)
 	contraband = list(
 		/obj/item/seeds/ambrosiavulgarisseed = 3,
@@ -541,7 +545,8 @@
 		/obj/item/seeds/towermycelium = 20,
 		/obj/item/seeds/watermelonseed = 30,
 		/obj/item/seeds/wheatseed = 20,
-		/obj/item/seeds/whitebeetseed = 20
+		/obj/item/seeds/whitebeetseed = 20,
+		/obj/item/seeds/dynseed = 80
 	)
 	restock_items = 1
 	random_itemcount = 0

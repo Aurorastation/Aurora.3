@@ -1122,6 +1122,7 @@
 	for(var/i in 1 to 8)
 		new /obj/item/ammo_casing/tranq(src)
 
+
 /obj/item/weapon/storage/box/secradios
 	name = "box of security headsets"
 	desc = "A box of NanoTrasen ISD short-range radio headsets."
@@ -1135,3 +1136,23 @@
 	new /obj/item/device/radio/headset/headset_sec(src)
 	new /obj/item/device/radio/headset/headset_sec(src)
 	new /obj/item/device/radio/headset/headset_sec(src)
+
+
+/obj/item/weapon/storage/box/toothpaste
+	can_hold = list(/obj/item/weapon/reagent_containers/toothpaste,
+					/obj/item/weapon/reagent_containers/toothbrush)
+
+/obj/item/weapon/storage/box/toothpaste/fill()
+	new /obj/item/weapon/reagent_containers/toothpaste(src)
+	new /obj/item/weapon/reagent_containers/toothbrush(src)
+	make_exact_fit()
+
+/obj/item/weapon/storage/box/toothpaste/green/fill()
+	new /obj/item/weapon/reagent_containers/toothpaste(src)
+	new /obj/item/weapon/reagent_containers/toothbrush/green(src)
+	make_exact_fit()
+
+/obj/item/weapon/storage/box/toothpaste/red/fill()
+	new /obj/item/weapon/reagent_containers/toothpaste(src)
+	new /obj/item/weapon/reagent_containers/toothbrush/red(src)
+	make_exact_fit()

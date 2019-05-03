@@ -15,7 +15,8 @@
 	var/image/cross = image('icons/obj/storage.dmi',"bible")
 	msg = "<span class='notice'>\icon[cross] <b><font color=purple>PRAY: </font>[key_name(src, 1)] (<A HREF='?_src_=holder;adminmoreinfo=\ref[src]'>?</A>) (<A HREF='?_src_=holder;adminplayeropts=\ref[src]'>PP</A>) (<A HREF='?_src_=vars;Vars=\ref[src]'>VV</A>) (<A HREF='?_src_=holder;subtlemessage=\ref[src]'>SM</A>) ([admin_jump_link(src, src)]) (<A HREF='?_src_=holder;secretsadmin=check_antagonist'>CA</A>) (<A HREF='?_src_=holder;adminspawncookie=\ref[src]'>SC</a>):</b> [msg]</span>"
 
-	for(var/client/C in admins)
+	for(var/s in staff)
+		var/client/C = s
 		if(C.holder.rights & (R_ADMIN|R_MOD|R_FUN))
 			if(C.prefs.toggles & CHAT_PRAYER)
 				to_chat(C, msg)
@@ -31,7 +32,8 @@
 	var/cciaa_present = 0
 	var/cciaa_afk = 0
 
-	for(var/client/C in admins)
+	for(var/s in staff)
+		var/client/C = s
 		if(R_ADMIN & C.holder.rights)
 			to_chat(C, msg_admin)
 		else if (R_CCIAA & C.holder.rights)
@@ -55,6 +57,7 @@
 
 /proc/Syndicate_announce(var/msg, var/mob/Sender)
 	msg = "<span class='notice'><b><font color=crimson>ILLEGAL:</font>[key_name(Sender, 1)] (<A HREF='?_src_=holder;adminplayeropts=\ref[Sender]'>PP</A>) (<A HREF='?_src_=vars;Vars=\ref[Sender]'>VV</A>) (<A HREF='?_src_=holder;subtlemessage=\ref[Sender]'>SM</A>) ([admin_jump_link(Sender, src)]) (<A HREF='?_src_=holder;secretsadmin=check_antagonist'>CA</A>) (<A HREF='?_src_=holder;BlueSpaceArtillery=\ref[Sender]'>BSA</A>) (<A HREF='?_src_=holder;SyndicateReply=\ref[Sender]'>RPLY</A>):</b> [msg]</span>"
-	for(var/client/C in admins)
+	for(var/s in staff)
+		var/client/C = s
 		if(R_ADMIN & C.holder.rights)
 			to_chat(C, msg)
