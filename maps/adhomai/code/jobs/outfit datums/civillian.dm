@@ -71,8 +71,8 @@
 //HUNTER
 /datum/outfit/job/adhomai/hunter
 	name = "Hunter"
-	belt = /obj/item/weapon/storage/belt/bandolier/nka
 	suit = /obj/item/clothing/suit/armor/hunter
+	r_hand = /obj/item/weapon/storage/box/clip_pouch
 	l_hand = /obj/item/weapon/gun/projectile/shotgun/pump/rifle/nka/scoped
 	l_pocket = /obj/item/weapon/storage/wallet/medium
 

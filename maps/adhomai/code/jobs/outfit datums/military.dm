@@ -111,7 +111,6 @@
 	allow_backbag_choice = TRUE
 
 	uniform = /obj/item/clothing/under/uniform/sharpshooter
-	belt = /obj/item/weapon/storage/belt/bandolier/nka
 	l_pocket = /obj/item/weapon/storage/wallet/medium
 	suit_store = /obj/item/weapon/gun/projectile/shotgun/pump/rifle/nka/scoped
 	backpack_contents = list(
@@ -120,7 +119,8 @@
 		/obj/item/ammo_magazine/boltaction/nka = 1,
 		/obj/item/ammo_magazine/nka/kt_76 = 1,
 		/obj/item/weapon/gun/projectile/nka/kt_76 = 1,
-		/obj/item/device/binoculars/high_power = 1)
+		/obj/item/device/binoculars/high_power = 1,
+		/obj/item/weapon/storage/box/clip_pouch = 1)
 	backpack = /obj/item/weapon/storage/backpack/satchel/grenadier/levy
 	satchel = /obj/item/weapon/storage/backpack/satchel/engineer/levy
 

@@ -8,7 +8,7 @@
 	spawn_positions = -1
 	supervisors = "the laws of the land"
 	selection_color = "#ddddff"
-	alt_titles = list("Lumberjack","Farmer", "Farmhand", "Migrant", "Tourist", "Steward", "Laborer", "Entertainer", "Herbalist", "Sculptor")
+	alt_titles = list("Lumberjack","Farmer", "Farmhand", "Migrant", "Vagrant", "Tourist", "Steward", "Laborer", "Entertainer", "Herbalist", "Sculptor")
 	outfit = /datum/outfit/job/adhomai/commoner
 	alt_outfits = list(
 		"Lumberjack"=/datum/outfit/job/adhomai/commoner/lumberjack,
