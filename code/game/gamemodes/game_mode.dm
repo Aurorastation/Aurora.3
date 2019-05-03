@@ -230,7 +230,10 @@ var/global/list/additional_antag_types = list()
 	refresh_event_modifiers()
 
 	spawn (ROUNDSTART_LOGOUT_REPORT_TIME)
-		display_roundstart_logout_report()
+		var/logout_report = get_logout_report()
+		for(var/mob/M in mob_list)
+			if(check_rights(R_MOD|R_ADMIN,0,M))
+				to_chat(M, logout_report)
 
 	spawn (rand(waittime_l, waittime_h))
 		send_intercept()
@@ -634,8 +637,8 @@ var/global/list/additional_antag_types = list()
 //////////////////////////
 //Reports player logouts//
 //////////////////////////
-proc/display_roundstart_logout_report()
-	var/msg = "<span class='notice'><b>Roundstart logout report</b>\n\n"
+proc/get_logout_report()
+	var/msg = "<span class='notice'><b>Logout report</b>\n\n"
 	for(var/mob/living/L in mob_list)
 
 		if(L.ckey)
@@ -674,10 +677,15 @@ proc/display_roundstart_logout_report()
 						continue //Ghosted while alive
 
 	msg += "</span>" // close the span from right at the top
+	return msg
 
-	for(var/mob/M in mob_list)
-		if(M.client && M.client.holder)
-			to_chat(M, msg)
+/client/proc/print_logout_report()
+	set category = "Admin"
+	set name = "Print Logout Report"
+
+	if(!check_rights(R_ADMIN|R_MOD))
+		return
+	to_chat(src,get_logout_report())	
 
 proc/get_nt_opposed()
 	var/list/dudes = list()
