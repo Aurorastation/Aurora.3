@@ -89,7 +89,7 @@
 							'sound/effects/radio4.ogg')
 
 	if(!isobserver(src))
-		playsound(loc, 'sound/effects/radio_chatter.ogg', 25, 0, -1)//They won't always be able to read the message, but the sound will play regardless.
+		playsound(loc, pick(radio_sound), 15, 0, -1)
 	if(!client)
 		return
 
