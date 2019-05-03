@@ -7,6 +7,7 @@
 	density = FALSE
 	anchored = TRUE
 	var/open = TRUE
+	var/mob/occupant = null
 
 /obj/structure/pit/attackby(obj/item/W, mob/user)
 	if(istype(W,/obj/item/weapon/shovel)  || istype(W,/obj/item/weapon/pickaxe/drill/mattock))
@@ -30,6 +31,9 @@
 				var/obj/item/stack/material/wood/plank = W
 				plank.use(1)
 				new/obj/structure/gravemarker(src.loc)
+				for(var/mob/living/M in src.contents)
+					if(M.stat == DEAD)
+						SSjobs.DespawnMob(M)
 			else
 				to_chat(user, "<span class='notice'>You stop making a grave marker.</span>")
 		return

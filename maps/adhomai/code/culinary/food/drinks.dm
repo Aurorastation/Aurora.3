@@ -45,3 +45,9 @@
 	result = "srrendar_tea"
 	result_amount = 20
 	required_reagents = list("bicaridine" = 3, "nicotine" = 3, "water" = 9)
+
+/datum/reagent/water/saltwater
+	name = "Salt Water"
+	id = "salt_water"
+	description = "A ubiquitous chemical substance that is composed of hydrogen and oxygen. Kinda salty."
+	taste_description = "salty water"

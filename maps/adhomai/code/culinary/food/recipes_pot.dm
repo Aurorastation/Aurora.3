@@ -40,3 +40,8 @@
 	reagents = list("fatshouter_milk" = 40, "sodiumchloride" = 2)
 	appliance = POT
 	result = /obj/item/weapon/reagent_containers/food/snacks/sliceable/cheesewheel/fatshouter
+
+/datum/recipe/purifiedwater
+	reagents = list("salt_water")
+	appliance = POT
+	result = /obj/item/weapon/reagent_containers/food/snacks/coarsesalt

@@ -9,30 +9,30 @@
 	siemens_coefficient = 0.7
 
 /obj/item/clothing/under/uniform/levy
-	starting_accessories = list(/obj/item/clothing/accessory/levy_coat, /obj/item/clothing/accessory/epaulette)
+	starting_accessories = list(/obj/item/clothing/accessory/levy_coat, /obj/item/clothing/accessory/epaulette, /obj/item/clothing/accessory/storage/bayonet)
 
 /obj/item/clothing/under/uniform/grenadier
 	name = "royal grenadier uniform"
 	desc = "A robust military uniform issued to the Royal Grenadiers."
 	icon_state = "roygrencombat"
 	item_state = "roygrencombat"
-	starting_accessories = list(/obj/item/clothing/accessory/levy_coat, /obj/item/clothing/accessory/epaulette/grenadier)
+	starting_accessories = list(/obj/item/clothing/accessory/levy_coat, /obj/item/clothing/accessory/epaulette/grenadier, /obj/item/clothing/accessory/storage/bayonet)
 
 /obj/item/clothing/under/uniform/combat_engineer
-	starting_accessories = list(/obj/item/clothing/accessory/levy_coat, /obj/item/clothing/accessory/epaulette/engineer)
+	starting_accessories = list(/obj/item/clothing/accessory/levy_coat, /obj/item/clothing/accessory/epaulette/engineer, /obj/item/clothing/accessory/storage/bayonet)
 
 /obj/item/clothing/under/uniform/sharpshooter
-	starting_accessories = list(/obj/item/clothing/accessory/levy_coat, /obj/item/clothing/accessory/epaulette/sharpshooter)
+	starting_accessories = list(/obj/item/clothing/accessory/levy_coat, /obj/item/clothing/accessory/epaulette/sharpshooter, /obj/item/clothing/accessory/storage/bayonet)
 
 /obj/item/clothing/under/uniform/supply
-	starting_accessories = list(/obj/item/clothing/accessory/levy_coat, /obj/item/clothing/accessory/epaulette/supply)
+	starting_accessories = list(/obj/item/clothing/accessory/levy_coat, /obj/item/clothing/accessory/epaulette/supply, /obj/item/clothing/accessory/storage/bayonet)
 
 /obj/item/clothing/under/uniform/hand
 	name = "officer uniform"
 	desc = "A service military uniform issued to the officers of the Imperial Army."
 	icon_state = "captain"
 	item_state = "captain"
-	starting_accessories = list(/obj/item/clothing/accessory/levy_coat/officer, /obj/item/clothing/accessory/epaulette/commander)
+	starting_accessories = list(/obj/item/clothing/accessory/levy_coat/officer, /obj/item/clothing/accessory/epaulette/commander, /obj/item/clothing/accessory/storage/bayonet)
 
 /obj/item/clothing/under/uniform/hand/fancy
 	name = "officer dress uniform"

@@ -30,7 +30,7 @@
 
 	command_spawn_enabled = FALSE
 
-	allowed_jobs = list(/datum/job/commander, /datum/job/supply_officer, /datum/job/levy, /datum/job/grenadier, /datum/job/sharpshooter,/datum/job/combatengineer,
+	allowed_jobs = list(/datum/job/commander, /datum/job/supply_officer, /datum/job/levy, /datum/job/grenadier, /datum/job/sharpshooter,/datum/job/combatengineer, /datum/job/amohdanswordsman,
 					/datum/job/commoner, /datum/job/mayor, /datum/job/barkeeper, /datum/job/hunter, /datum/job/priest, /datum/job/physician, /datum/job/nurse,
 					/datum/job/prospector, /datum/job/blacksmith, /datum/job/chief_constable, /datum/job/constable, /datum/job/archeologist, /datum/job/trader)
 
@@ -62,7 +62,7 @@
 		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Republican Invasion",			/datum/event/mob_spawner,			250)
 	)
 
-	possible_lobby_tracks = list('sound/music/thats-my-horse.ogg')
+	possible_lobby_tracks = list('sound/music/thats-my-horse.ogg', 'maps/adhomai/sound/everybodywantstocat.ogg')
 
 
 /datum/map/adhomai/generate_asteroid()

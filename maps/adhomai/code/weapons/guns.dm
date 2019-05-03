@@ -1,28 +1,22 @@
+// RIFLES
 /obj/item/weapon/gun/projectile/shotgun/pump/rifle/nka
 	name = "service rifle"
-	icon = 'icons/adhomai/guns.dmi'
+	icon = 'icons/adhomai/weapons/guns.dmi'
 	icon_state = "bolt"
 	item_state = "bolt"
+	contained_sprite = TRUE
 	desc = "The standard issue rifle of the levy Alam'ard."
 	accuracy = -1
+	can_sawoff = FALSE
 	has_wield_state = TRUE
-	contained_sprite = TRUE
-
-/obj/item/ammo_magazine/boltaction/nka
-	name = "stripper clip"
-	desc = "A stripper clip issued to members of the Imperial Adhomian Army."
 
 /obj/item/weapon/gun/projectile/shotgun/pump/rifle/nka/scoped
+	name = "scoped service rifle"
 	desc = "A cheap ballistic rifle often found in the hands of tajaran soldiers. This one has been outfitted with a telescopic sight."
-	accuracy = -1
-	icon = 'icons/adhomai/guns.dmi'
 	icon_state = "scope"
 	item_state = "scope"
 	scoped_accuracy = 3
 	can_bayonet = FALSE
-	can_sawoff = FALSE
-	has_wield_state = TRUE
-	contained_sprite = TRUE
 	load_method = SINGLE_CASING
 
 /obj/item/weapon/gun/projectile/shotgun/pump/rifle/nka/scoped/verb/scope()
@@ -38,18 +32,23 @@
 /obj/item/weapon/gun/projectile/grenadier
 	name = "semi-automatic rifle"
 	desc = "A semi-automatic ballistic rifle issued to the Royal Grenadiers."
-	icon = 'icons/adhomai/guns.dmi'
-	icon_state = "rifle"
-	item_state = "bolt"
+	icon = 'icons/adhomai/weapons/guns.dmi'
+	icon_state = "semi"
+	item_state = "semi"
+	contained_sprite = TRUE
 	w_class = 4
-	load_method = SINGLE_CASING|SPEEDLOADER
+	load_method = MAGAZINE
 	max_shells = 5
 	caliber = "a762"
 	origin_tech = list(TECH_COMBAT = 4, TECH_MATERIAL = 2)
 	slot_flags = SLOT_BACK
-	ammo_type = /obj/item/ammo_casing/a762
+	ammo_type = /obj/item/ammo_casing/a762/nka
+	magazine_type = /obj/item/ammo_magazine/boltaction/nka/enbloc
+	allowed_magazines = list(/obj/item/ammo_magazine/boltaction/nka/enbloc)
 	fire_sound = 'sound/weapons/rifleshot.ogg'
+	auto_eject_sound = 'maps/adhomai/sound/ping.ogg'
 	accuracy = -1
+	auto_eject = 1
 	recoil = 3
 	fire_delay = 5
 	jam_chance = 2
@@ -77,12 +76,9 @@
 
 	toggle_wield(usr)
 
-/obj/item/weapon/gun/projectile/shotgun/doublebarrel/sawn/bean
-	ammo_type = /obj/item/ammo_casing/shotgun/beanbag
-
 /obj/item/weapon/gun/projectile/automatic/rifle/pra
 	desc = "An automatic rifle issued to the forces of the Republican Army."
-	icon = 'icons/adhomai/guns.dmi'
+	icon = 'icons/adhomai/weapons/guns.dmi'
 	icon_state = "pra_rifle"
 	item_state = "pra_rifle"
 	contained_sprite = TRUE
@@ -97,31 +93,14 @@
 		item_state = (ammo_magazine)? "pra_rifle" : "pra_rifle-empty"
 	update_held_icon()
 
-/obj/item/weapon/gun/energy/lawgiver/nka
-	name = "\improper Lawbringer Mk I"
-	desc = "A prototype firearm produced by the Grrmhrvar Industries. It has multiple voice-activated firing modes."
-
-/obj/item/weapon/gun/projectile/revolver/detective/constable
-	desc = "A cheap revolver produced by the Royal Firearms industries, commonly issued to constables. Uses .38-Special rounds."
-	icon = 'icons/adhomai/guns.dmi'
-	icon_state = "constable_gun"
-	item_state = "gun"
-	contained_sprite = TRUE
-
-/obj/item/weapon/gun/projectile/revolver/detective/constable/update_icon()
-	..()
-	if(loaded.len)
-		icon_state = "constable_gun"
-	else
-		icon_state = "constable_gun-empty"
-
+// PISTOLS AND REVOLVERS
 /obj/item/weapon/gun/projectile/nka
 	name = "service automatic"
 	desc = "A somewhat reliable, open bolt sidearm issued to members of the Imperial Adhomian Army."
-	icon = 'icons/adhomai/guns.dmi'
+	icon = 'icons/adhomai/weapons/guns.dmi'
 	icon_state = "nka"
-	ammo_type = /obj/item/ammo_casing/c38
 	contained_sprite = TRUE
+	ammo_type = /obj/item/ammo_casing/c38/nka
 	magazine_type = /obj/item/ammo_magazine/nka
 	allowed_magazines = list(/obj/item/ammo_magazine/nka)
 	auto_eject = 1
@@ -138,31 +117,42 @@
 	else
 		icon_state = "nka-empty"
 
-/obj/item/ammo_magazine/nka
-	name = "ammunition magazine"
-	desc = "A somewhat reliable sidearm magazine issued to members of the Imperial Adhomian Army."
-	icon = 'icons/adhomai/guns.dmi'
-	icon_state = "ammo"
-	max_ammo = 5
-	ammo_type = /obj/item/ammo_casing/c38
-	matter = list(DEFAULT_WALL_MATERIAL = 100)
-	caliber = "38"
-	multiple_sprites = 1
-	mag_type = MAGAZINE
+/obj/item/weapon/gun/projectile/nka/kt_76
+	name = "KT-76 service pistol"
+	desc = "A more reliable, clip-fed sidearm issued to officers and survival personnel of the Imperial Adhomian Army."
+	icon_state = "kt_76"
+	jam_chance = 1
+	max_shells = 10
+	load_method = SINGLE_CASING|SPEEDLOADER
 
-/obj/item/ammo_casing/rpg
-	name = "rocket-propelled grenade"
-	desc = "A high explosive designed to be fired from a launcher."
-	icon = 'icons/adhomai/guns.dmi'
-	icon_state = "rpg"
-	projectile_type = /obj/item/projectile/bullet/cannon
-	caliber = "rpg"
+/obj/item/weapon/gun/projectile/nka/kt_76/update_icon()
+	..()
+	if(loaded.len)
+		icon_state = "kt_76"
+	else
+		icon_state = "kt_76-empty"
 
+/obj/item/weapon/gun/projectile/revolver/detective/constable
+	desc = "A cheap revolver produced by the Royal Firearms industries, commonly issued to constables. Uses .38-Special rounds."
+	icon = 'icons/adhomai/weapons/guns.dmi'
+	icon_state = "constable_gun"
+	item_state = "gun"
+	contained_sprite = TRUE
+	ammo_type = /obj/item/ammo_casing/c38/nka
+	allowed_magazines = list(/obj/item/ammo_magazine/nka)
 
+/obj/item/weapon/gun/projectile/revolver/detective/constable/update_icon()
+	..()
+	if(loaded.len)
+		icon_state = "constable_gun"
+	else
+		icon_state = "constable_gun-empty"
+
+// EXPLOSIVES
 /obj/item/weapon/gun/projectile/rocket
 	name = "anti-tank launcher"
 	desc = "A cheap metal tube with a high-explosive warhead attached to the end."
-	icon = 'icons/adhomai/guns.dmi'
+	icon = 'icons/adhomai/weapons/guns.dmi'
 	icon_state = "rocket"
 	item_state = "rocket"
 	contained_sprite = TRUE
@@ -201,44 +191,16 @@
 
 	toggle_wield(usr)
 
-
+// MACHINE GUNS
 /obj/item/weapon/gun/projectile/automatic/tommygun/adhomai
 	name = "submachine gun"
 	desc = "A popular personal defense weapon, manufactured by Royal Firearms Industries."
-	icon = 'icons/adhomai/guns.dmi'
+	icon = 'icons/adhomai/weapons/guns.dmi'
 	icon_state = "tommygun"
 	w_class = 3
 	jam_chance = 7
 
-/obj/item/weapon/gun/projectile/kt_76
-	name = "KT-76 service pistol"
-	desc = "A more reliable, clip-fed sidearm issued to officers and survival personnel of the Imperial Adhomian Army."
-	icon = 'icons/adhomai/guns.dmi'
-	icon_state = "kt_76"
-	ammo_type = /obj/item/ammo_casing/c38
-	contained_sprite = TRUE
-	caliber = "38"
-	accuracy = 1
-	jam_chance = 1
-	max_shells = 9
-	fire_sound = 'sound/weapons/Gunshot_light.ogg'
-	load_method = SINGLE_CASING|SPEEDLOADER
-
-/obj/item/weapon/gun/projectile/kt_76/update_icon()
-	..()
-	if(loaded.len)
-		icon_state = "kt_76"
-	else
-		icon_state = "kt_76-empty"
-
-/obj/item/ammo_magazine/nka/kt_76
-	name = ".38 stripper clip"
-	desc = "A reliable sidearm magazine issued to members of the Imperial Adhomian Army."
-	icon = 'icons/adhomai/guns.dmi'
-	icon_state = "ammo2"
-	max_ammo = 9
-	ammo_type = /obj/item/ammo_casing/c38
-	matter = list(DEFAULT_WALL_MATERIAL = 100)
-	caliber = "38"
-	multiple_sprites = 1
-	mag_type = SPEEDLOADER
+//ENERGY GUNS
+/obj/item/weapon/gun/energy/lawgiver/nka
+	name = "\improper Lawbringer Mk I"
+	desc = "A prototype firearm produced by the Grrmhrvar Industries. It has multiple voice-activated firing modes."

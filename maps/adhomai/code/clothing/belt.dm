@@ -5,11 +5,18 @@
 	icon_state = "nkacombat"
 	item_state = "nkacombat"
 	contained_sprite = TRUE
+	can_hold = list(
+		/obj/item/weapon/storage/box/clip_pouch,
+		/obj/item/device/flashlight,
+		/obj/item/weapon/grenade,
+		/obj/item/stack/medical/bruise_pack/adhomai,
+		/obj/item/stack/medical/ointment/adhomai
+		)
 
 /obj/item/weapon/storage/belt/bandolier/nka
 	name = "rifle bandolier"
 	desc = "A pocketed belt designated to hold rifle cartridges."
-	can_hold = list(/obj/item/ammo_casing/a762)
+	can_hold = list(/obj/item/ammo_casing/a762/nka)
 	var/amount = 30
 	var/list/cartridges = new/list()
 
@@ -43,12 +50,12 @@
 	if(amount >= 1)
 		amount--
 
-		var/obj/item/ammo_casing/a762/P
+		var/obj/item/ammo_casing/a762/nka/P
 		if(cartridges.len > 0)
 			P = cartridges[cartridges.len]
 			cartridges.Remove(P)
 		else
-			P = new /obj/item/ammo_casing/a762
+			P = new /obj/item/ammo_casing/a762/nka
 
 		P.forceMove(user.loc)
 		user.put_in_hands(P)
@@ -61,8 +68,8 @@
 
 
 /obj/item/weapon/storage/belt/bandolier/nka/attackby(obj/item/weapon/O as obj, mob/user as mob)
-	if(istype(O, /obj/item/ammo_casing/a762))
-		var/obj/item/ammo_casing/a762/i = O
+	if(istype(O, /obj/item/ammo_casing/a762/nka))
+		var/obj/item/ammo_casing/a762/nka/i = O
 		user.drop_from_inventory(i,src)
 		to_chat(user, "<span class='notice'>You put [i] in [src].</span>")
 		cartridges.Add(i)

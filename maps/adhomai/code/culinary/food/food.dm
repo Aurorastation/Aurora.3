@@ -15,3 +15,17 @@
 	filling_color = "#fffff0"
 	bitesize = 2
 	center_of_mass = list("x"=16, "y"=10)
+
+/obj/item/weapon/reagent_containers/food/snacks/coarsesalt
+	name = "coarse salt"
+	desc = "A lot of coarse salt."
+	filling_color = "#FFFFFF"
+	icon_state = "wishsoup"
+	trash = /obj/item/trash/snack_bowl
+	nutriment_desc = list("sodiumchloride", 5)
+	bitesize = 3
+	w_class = 1
+
+/obj/item/weapon/reagent_containers/food/snacks/coarsesalt/Initialize()
+	. = ..()
+	reagents.add_reagent("sodiumchloride", 5)
