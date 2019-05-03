@@ -186,20 +186,20 @@
 			src.state = GRAB_PASSIVE
 
 		if(5)
-			if(prob(67))
+			if(prob(77))
 				visible_message("<span class='danger'>[assailant] has [target] grasped by their [hairchatname], however suddenly it slips from  [assailant]'s hand!</span>")
 				src.state = GRAB_PASSIVE
-				playsound(target.loc, 'sound/misc/slip.ogg', 50, 1, -3)
 			else
 				visible_message("<span class='danger'>[assailant] violently tugs [target]'s [hairchatname]!</span>")
 				target.apply_damage(10, HALLOSS)
 				src.state = GRAB_AGGRESSIVE
 
 		if(6)
-			if(prob(77))
+			if(prob(67))
 				visible_message("<span class='danger'>[assailant] has [target] grasped by their [hairchatname], however suddenly it slips from  [assailant]'s hand!</span>")
 				src.state = GRAB_PASSIVE
+				playsound(target.loc, 'sound/misc/slip.ogg', 50, 1, -3)
 			else
 				visible_message("<span class='danger'>[assailant] violently tugs [target]'s [hairchatname]!</span>")
-				target.apply_damage(5, HALLOSS)
+				target.apply_damage(15, HALLOSS)
 				src.state = GRAB_AGGRESSIVE

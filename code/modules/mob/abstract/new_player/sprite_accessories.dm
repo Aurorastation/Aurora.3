@@ -47,6 +47,14 @@
 Before you add any new hairstyles, make sure to define them in dna.dm in defines.
 Follow by example and make good judgement based on length which list to include it in - Drago
 
+0- No hair
+1- Medium/semi short hair
+2- Average Hair
+3- Longish Hair
+4- Very long hair
+5- Unathi Horns
+6- Skrell Tentacles
+
 
 */
 
@@ -65,16 +73,19 @@ Follow by example and make good judgement based on length which list to include 
 	short
 		name = "Short Hair"	  // try to capatilize the names please~
 		icon_state = "hair_a" // you do not need to define _s or _l sub-states, game automatically does this for you
+		length = 0
 
 	short2
 		name = "Short Hair 2"
 		icon_state = "hair_shorthair3"
 		chatname = "Short Hair"
+		length = 0
 
 	cut
 		name = "Cut Hair"
 		icon_state = "hair_c"
 		chatname = "Short Hair"
+		length = 0
 
 	flair
 		name = "Flaired Hair"
@@ -216,7 +227,7 @@ Follow by example and make good judgement based on length which list to include 
 	parted
 		name = "Parted"
 		icon_state = "hair_parted"
-		length = 2
+		length = 1
 		chatname = "Parted Hair"
 
 	pompadour
@@ -236,13 +247,13 @@ Follow by example and make good judgement based on length which list to include 
 	bedhead
 		name = "Bedhead"
 		icon_state = "hair_bedhead"
-		length = 2
+		length = 1
 		chatname = "Bedhead Hair"
 
 	bedhead2
 		name = "Bedhead 2"
 		icon_state = "hair_bedheadv2"
-		length = 2
+		length = 1
 		chatname = "Bedhead Hair"
 
 	beehive
@@ -291,29 +302,34 @@ Follow by example and make good judgement based on length which list to include 
 		gender = MALE
 		species_allowed = list("Human","Unathi")
 		chatname = "Short Hair"
+		length = 0
 
 	crew
 		name = "Crewcut"
 		icon_state = "hair_crewcut"
 		gender = MALE
 		chatname = "Short Hair"
+		length = 0
 
 	combover
 		name = "Combover"
 		icon_state = "hair_combover"
 		gender = MALE
 		chatname = "Short Hair"
+		length = 0
 
 	reversemohawk
 		name = "Reverse Mohawk"
 		icon_state = "hair_reversemohawk"
 		gender = MALE
 		chatname = "Mohawk"
+		length = 1
 
 	devillock
 		name = "Devil Lock"
 		icon_state = "hair_devilock"
 		chatname = "Devil Locks"
+		length = 0
 
 	dreadlocks
 		name = "Dreadlocks"
@@ -362,11 +378,13 @@ Follow by example and make good judgement based on length which list to include 
 		icon_state = "hair_sargeant"
 		gender = MALE
 		chatname = "Short Hair"
+		length = 0
 
 	emo
 		name = "Emo"
 		icon_state = "hair_emo"
 		chatname = "Short Hair"
+		length = 0
 
 	longemo
 		name = "Long Emo"
@@ -379,16 +397,19 @@ Follow by example and make good judgement based on length which list to include 
 		name = "Emo Fringe"
 		icon_state = "hair_emofringe"
 		chatname = "Fringed Hair"
+		length = 1
 
 	shortovereye
 		name = "Overeye Short"
 		icon_state = "hair_shortovereye"
 		chatname = "Short Hair"
+		length = 0
 
 	veryshortovereyealternate
 		name = "Overeye Very Short, Alternate"
 		icon_state = "hair_veryshortovereye"
 		chatname = "Short Hair"
+		length = 0
 
 	longovereye
 		name = "Overeye Long"
@@ -426,12 +447,13 @@ Follow by example and make good judgement based on length which list to include 
 		icon_state = "hair_gelled"
 		gender = FEMALE
 		chatname = "Gelled Back Hair"
+		length = 2
 
 	gentle
 		name = "Gentle"
 		icon_state = "hair_gentle"
 		gender = FEMALE
-		length = 2
+		length = 1
 		chatname = "Gentle Hair"
 		
 
@@ -460,18 +482,21 @@ Follow by example and make good judgement based on length which list to include 
 		icon_state = "hair_himecut"
 		gender = FEMALE
 		chatname = "Hime Cut Hair"
+		length = 0
 
 	himecut_alt
 		name = "Hime Cut Alt"
 		icon_state = "hair_himecut_alt"
 		gender = FEMALE
 		chatname = "Hime Cut Hair"
+		length = 0
 
 	shorthime
 		name = "Short Hime Cut"
 		icon_state = "hair_shorthime"
 		gender = FEMALE
 		chatname = "Hime Cut Hair"
+		length = 0
 
 	grandebraid
 		name = "Grande Braid"
@@ -547,6 +572,7 @@ Follow by example and make good judgement based on length which list to include 
 		icon_state = "hair_thefamilyman"
 		gender = MALE
 		chatname = "Short Hair"
+		length = 0
 
 	mahdrills
 		name = "Drillruru"
@@ -580,14 +606,14 @@ Follow by example and make good judgement based on length which list to include 
 		name = "Chrono"
 		icon_state = "hair_toriyama"
 		gender = MALE
-		length = 3
+		length = 4
 		name = "Spiked Hair"
 
 	vegeta
 		name = "Vegeta"
 		icon_state = "hair_toriyama2"
 		gender = MALE
-		length = 3
+		length = 4
 		name = "Spiked Hair"
 
 	cia
@@ -595,18 +621,21 @@ Follow by example and make good judgement based on length which list to include 
 		icon_state = "hair_cia"
 		gender = MALE
 		chatname = "Short Hair"
+		length = 0
 
 	mulder
 		name = "Mulder"
 		icon_state = "hair_mulder"
 		gender = MALE
 		chatname = "Short Hair"
+		length = 0
 
 	scully
 		name = "Scully"
 		icon_state = "hair_scully"
 		gender = FEMALE
 		chatname = "Short Hair"
+		length = 0
 
 	wheeler
 		name = "Wheeler"
@@ -626,6 +655,7 @@ Follow by example and make good judgement based on length which list to include 
 		icon_state = "hair_joestar"
 		gender = MALE
 		chatname = "Short Hair"
+		length = 0
 
 	volaju
 		name = "Volaju"
@@ -1252,19 +1282,19 @@ Follow by example and make good judgement based on length which list to include 
 		una_horns
 			name = "Unathi Horns"
 			icon_state = "unathi_simplehorn"
-			length = 6
+			length = 5
 			chatname = "Horns"
 
 		una_bighorns
 			name = "Unathi Big Horns"
 			icon_state = "unathi_bighorn"
-			length = 6
+			length = 5
 			chatname = "Horns"
 
 		una_smallhorns
 			name = "Unathi Small Horns"
 			icon_state = "unathi_smallhorn"
-			length = 6
+			length = 5
 			chatname = "Horns"
 
 		una_swepthorns
@@ -1282,49 +1312,49 @@ Follow by example and make good judgement based on length which list to include 
 		una_mohawk
 			name = "Unathi Mohawk"
 			icon_state = "unathi_mohawk"
-			length = 6
+			length = 5
 			chatname = "Mohawk"
 
 		una_drachorn
 			name = "Unathi Draconic Horns"
 			icon_state = "unathi_drachorn"
-			length = 6
+			length = 5
 			chatname = "Horns"
 
 		una_lowerhorn
 			name = "Unathi Lower Horns"
 			icon_state = "unathi_lowerhorn"
-			length = 6
+			length = 5
 			chatname = "Horns"
 
 		una_spikehorn
 			name = "Unathi Spike Horns"
 			icon_state = "unathi_spikehorn"
-			length = 6
+			length = 5
 			chatname = "Spiked Horns"
 
 		una_shorthorn
 			name = "Unathi Short Horns"
 			icon_state = "unathi_shorthorn"
-			length = 6
+			length = 5
 			chatname = "Horns"
 
 		una_curlhorn
 			name = "Unathi Curled Horns"
 			icon_state = "unathi_curledhorn"
-			length = 6
+			length = 5
 			chatname = "Horns"
 
 		una_ramhornshort
 			name = "Unathi Short Ram Horns"
 			icon_state = "unathi_ramhorn"
-			length = 6
+			length = 5
 			chatname = "Horns"
 
 		una_ramhornlong
 			name = "Unathi Long Ram Horns"
 			icon_state = "unathi_ramhorn2"
-			length = 6
+			length = 5
 			chatname = "Horns"
 
 		una_chinhorn
@@ -1382,25 +1412,25 @@ Follow by example and make good judgement based on length which list to include 
 		name = "Skrell Short Tentacles"
 		icon_state = "skrell_hair_m"
 		species_allowed = list("Skrell")
-		length = 5
+		length = 6
 		chatname = "Short Tentacles"
 
 		skr_tentacle_f
 			name = "Skrell Average Tentacles"
 			icon_state = "skrell_hair_f"
-			length = 5
+			length = 6
 			chatname = "Average Tentacles"
 
 		skr_tentacle_short
 			name = "Skrell Very Short Tentacles"
 			icon_state = "veryshort_s"
-			length = 5
+			length = 6
 			chatname = "Short Tentacles"
 
 		skr_tentacle_long
 			name = "Skrell Very Long Tentacles"
 			icon_state = "verylong_s"
-			length = 5
+			length = 6
 			chatname = "Very Long Tentacles"
 
 
