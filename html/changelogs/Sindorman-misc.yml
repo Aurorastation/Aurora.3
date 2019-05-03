@@ -42,4 +42,4 @@ changes:
   - imageadd: "Modular computers/laptops/telescreens/tablets now have broken icon states with animations."
   - backend: "Timer SS update is fixed."
   - bugfix: "KAs AOE now damage rocks as it used to. With full damage no matter the distance from epicenter."
-  - bugfix: "Fixes gravity failure error. By making sure gravity generator is added to the SSmachinery.gravity_generators list during initialization."
+  - bugfix: "Fixes gravity failure error. Also fixes gravity generator UI being stuck in malfunction state. By making sure gravity generator is added to the SSmachinery.gravity_generators list during initialization."
