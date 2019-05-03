@@ -84,7 +84,7 @@
 	. = ..()
 	setup_parts()
 	middle.add_overlay("activated")
-	update_list()
+	update_list(TRUE)
 	addtimer(CALLBACK(src, .proc/round_startset), 100)
 
 /obj/machinery/gravity_generator/main/station/proc/round_startset()
@@ -131,7 +131,7 @@
 	log_debug("Gravity Generator Destroyed")
 	investigate_log("was destroyed!", "gravity")
 	on = 0
-	update_list()
+	update_list(TRUE)
 	for(var/obj/machinery/gravity_generator/part/O in parts)
 		O.main_part = null
 		qdel(O)
