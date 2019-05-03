@@ -204,7 +204,6 @@
 	icon_state = "diagnostics_unit"
 	action_button_name = "Use diagnostics unit"
 	vital = 0
-	emp_coeff = 0.1
 	var/diagnosticshp = 10  // A very very fragile piece of equipment
 
 /obj/item/organ/diagnosticsunit/refresh_action_button()
@@ -441,7 +440,6 @@
 	icon = 'icons/obj/robot_component.dmi'
 	icon_state = "navmesh"
 	vital = 0
-	emp_coeff = 0.1
 	action_button_name = "Re-Build Powernet"
 	var/calibrated = 1
 	var/powernetinteg = 10
@@ -558,7 +556,7 @@
 	organ_tag = "shielded cell"
 	parent_organ = "chest"
 	vital = 1
-	emp_coeff = 0.1
+	emp_coeff = 0
 
 /obj/item/organ/cell/Initialize()
 	robotize()
@@ -568,70 +566,70 @@
 	dislocated = -1
 	can_intake_reagents = 0
 	encased = "reinforced support frame"
-	emp_coeff = 0.5
+	emp_coeff = 0
 	robotize_type = PROSTHETIC_HK
 
 /obj/item/organ/eyes/optical_sensor/terminator
-	emp_coeff = 0.5
+	emp_coeff = 0
 
 /obj/item/organ/external/chest/terminator
 	dislocated = -1
 	encased = "reinforced support frame"
-	emp_coeff = 0.5
+	emp_coeff = 0
 	robotize_type = PROSTHETIC_HK
 
 /obj/item/organ/external/groin/terminator
 	dislocated = -1
 	encased = "reinforced support frame"
-	emp_coeff = 0.5
+	emp_coeff = 0
 	robotize_type = PROSTHETIC_HK
 
 /obj/item/organ/external/arm/terminator
 	dislocated = -1
 	encased = "reinforced support frame"
-	emp_coeff = 0.5
+	emp_coeff = 0
 	robotize_type = PROSTHETIC_HK
 
 /obj/item/organ/external/arm/right/terminator
 	dislocated = -1
 	encased = "reinforced support frame"
-	emp_coeff = 0.5
+	emp_coeff = 0
 	robotize_type = PROSTHETIC_HK
 
 /obj/item/organ/external/leg/terminator
 	dislocated = -1
 	encased = "reinforced support frame"
-	emp_coeff = 0.5
+	emp_coeff = 0
 	robotize_type = PROSTHETIC_HK
 
 /obj/item/organ/external/leg/right/terminator
 	dislocated = -1
 	encased = "reinforced support frame"
-	emp_coeff = 0.5
+	emp_coeff = 0
 	robotize_type = PROSTHETIC_HK
 
 /obj/item/organ/external/foot/terminator
 	dislocated = -1
 	encased = "reinforced support frame"
-	emp_coeff = 0.5
+	emp_coeff = 0
 	robotize_type = PROSTHETIC_HK
 
 /obj/item/organ/external/foot/right/terminator
 	dislocated = -1
 	encased = "reinforced support frame"
-	emp_coeff = 0.5
+	emp_coeff = 0
 	robotize_type = PROSTHETIC_HK
 
 /obj/item/organ/external/hand/terminator
 	dislocated = -1
 	encased = "reinforced support frame"
-	emp_coeff = 0.5
+	emp_coeff = 0
 	robotize_type = PROSTHETIC_HK
 
 /obj/item/organ/external/hand/right/terminator
 	dislocated = -1
 	encased = "reinforced support frame"
-	emp_coeff = 0.5
+	emp_coeff = 0
 	robotize_type = PROSTHETIC_HK
 
 //////////////
