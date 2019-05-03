@@ -20,7 +20,12 @@
 	If you have any  questions about this stuff feel free to ask. ~Carn
 	*/
 /client/Topic(href, href_list, hsrc)
-	if(!usr || usr != mob || !authed)	//stops us calling Topic for somebody else's client. Also helps prevent usr=null
+	if(!usr || usr != mob)	//stops us calling Topic for somebody else's client. Also helps prevent usr=null
+		return
+
+	if(!authed)
+		if(href_list["authaction"] in list("guest", "forums")) // Protection
+			..()
 		return
 
 	// asset_cache
