@@ -39,6 +39,27 @@
 	item_state = "marine_fatigue"
 	contained_sprite = 1
 
+/obj/item/clothing/under/rank/fatigues/Initialize()
+	.=..()
+	rolled_sleeves = 0
+
+/obj/item/clothing/under/rank/fatigues/rollsleeves()
+	set name = "Roll Up Sleeves"
+	set category = "Object"
+	set src in usr
+
+	if (use_check(usr, USE_DISALLOW_SILICONS))
+		return
+
+	rolled_sleeves = !rolled_sleeves
+	if(rolled_sleeves)
+		body_parts_covered &= ~(ARMS|HANDS)
+		item_state = "[item_state]_r_s"
+	else
+		body_parts_covered = initial(body_parts_covered)
+		item_state = initial(item_state)
+	update_clothing_icon()
+
 /obj/item/clothing/under/rank/service //navy personnel service unniform
 	name = "sol navy service uniform"
 	desc = "Military looking service uniform issued to Sol Alliance navy members."

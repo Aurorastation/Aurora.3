@@ -47,7 +47,7 @@
 	name = "Syndicate Operative"
 
 	suit = /obj/item/clothing/suit/space/void/merc
-	belt = /obj/item/weapon/storage/belt/military
+	belt = /obj/item/weapon/storage/belt/military/red
 	head = /obj/item/clothing/head/helmet/space/void/merc
 	mask = /obj/item/clothing/mask/gas/syndicate
 	l_ear = /obj/item/device/radio/headset/syndicate
@@ -240,7 +240,7 @@
 
 /datum/outfit/admin/pirate
 	name = "Pirate"
-	
+
 	uniform = /obj/item/clothing/under/pirate
 	shoes = /obj/item/clothing/shoes/brown
 	head = /obj/item/clothing/head/bandana
@@ -250,7 +250,7 @@
 
 /datum/outfit/admin/spacepirate
 	name = "Space Pirate"
-	
+
 	uniform = /obj/item/clothing/under/pirate
 	suit = /obj/item/clothing/suit/space/pirate
 	shoes = /obj/item/clothing/shoes/brown
@@ -341,7 +341,7 @@
 
 /datum/outfit/admin/random_employee
 	name = "Random Employee"
-	
+
 /datum/outfit/admin/random_employee/pre_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
 	if(!visualsOnly)
@@ -399,7 +399,7 @@
 				/datum/gear/eyes/glasses/fakesun
 			))
 			H.equip_or_collect(new path(), slot_glasses)
-		
+
 		if(prob(20)) //Equip some gloves
 			var/datum/gear/G = gear_datums["gloves selection"]
 			H.equip_or_collect(G.spawn_random(), slot_gloves)
