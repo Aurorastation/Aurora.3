@@ -233,8 +233,8 @@ var/global/list/additional_antag_types = list()
 		var/logout_report = get_logout_report()
 		for(var/s in staff)
 			var/client/C = s
-			if(check_rights(R_MOD|R_ADMIN,0,C))
-				to_chat(M, logout_report)
+			if(check_rights(R_MOD|R_ADMIN,0,C.mob))
+				to_chat(C.mob, logout_report)
 
 	spawn (rand(waittime_l, waittime_h))
 		send_intercept()
