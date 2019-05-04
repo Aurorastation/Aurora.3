@@ -187,17 +187,16 @@
 		return TRUE
 
 	var/mob/abstract/unauthed/una = unauthed[queryparams["clienttoken"]]
-	if(!istype(una) || !una.my_client)
+	if(!istype(una) || !una.client)
 		statuscode = 500
 		response = "Somethnig went horribly wrong."
 		return TRUE
 	
-
-	una.ClientLogin(queryparams["key"])
 	statuscode = 200
 	response = "Client has been authenticated sucessfully."
 	data = list(
-		"address" = una.my_client.address,
-		"cid" = una.my_client.computer_id,
-		"ckey" = una.my_client.ckey
+		"address" = una.client.address,
+		"cid" = una.client.computer_id,
+		"ckey" = una.client.ckey
 	)
+	una.ClientLogin(queryparams["key"])
