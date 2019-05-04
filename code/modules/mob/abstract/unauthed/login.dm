@@ -18,7 +18,7 @@
 	if(config.guests_allowed)
 		uihtml += "<a href='?src=\ref[src];authaction=guest'>Login as guest</a>"
 	if(config.webint_url)
-		uihtml += "<a href='?src=\ref[src];authaction=forums'>Login over forums</a>"
+		uihtml += "<a href='?src=\ref[src];authaction=forums'>Login via forums</a>"
 	if(!config.guests_allowed && config.webint_url)
 		src.OpenForumAuthWindow()
 	show_browser(src, uihtml, "window=auth;size=300x300;border=0;can_close=0;can_resize=0;can_minimize=0;titlebar=1")
