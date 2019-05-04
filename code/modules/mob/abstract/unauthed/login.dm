@@ -11,14 +11,25 @@
 /mob/abstract/unauthed/Login()
     update_Login_details()
     to_chat(src, "<span class='danger'><b>You need to authenticate before you can continue.</b></span>")
-    token = md5("[client.ckey][world.time]")
+    token = md5("[client.ckey][client.computer_id][world.time]")
     unauthed[token] = src
     my_client = client
     client.verbs -= typesof(/client/verb)
     var/uihtml = "<html><head><style>body * {display: block;text-align:center;margin: 14px 0;font-size:24px;text-decoration:none;font-family:Segoe UI,Frutiger,Frutiger Linotype,Dejavu Sans,Helvetica Neue,Arial,sans-serif;}</style></head><body><p>Please select:</p>"
+    var/authmethods = 0
     if(config.guests_allowed)
         uihtml += "<a href='?src=\ref[src];authaction=guest'>Login as guest</a>"
-    uihtml += "<a href='?src=\ref[src];authaction=forums'>Login over forums</a>"
+        authmethods += 1
+    if(config.webint_url)
+        uihtml += "<a href='?src=\ref[src];authaction=forums'>Login over forums</a>"
+        authmethods += 1
+    if(authmethods == 0)
+        src.Del()
+    if(authmethods == 1)
+        if(config.guests_allowed)
+            src.ClientLogin(null)
+        if(config.webint_url)
+            src.OpenForumAuthWindow()
     src << browse(uihtml, "window=auth;size=300x300;border=0;can_close=0;can_resize=0;can_minimize=0;titlebar=1")
 
 /mob/abstract/unauthed/proc/ClientLogin(var/newkey)
@@ -38,5 +49,8 @@
         if("guest")
             src.ClientLogin(null)
         if("forums")
-            world << "[token] - [my_client.ckey]"
+            src.OpenForumAuthWindow()
+
+/mob/abstract/unauthed/proc/OpenForumAuthWindow()
+    src << link("[config.webint_url]server/auth?token=[token]")
 

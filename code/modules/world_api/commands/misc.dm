@@ -170,3 +170,34 @@
 	response = "Poll data fetched"
 	data = poll_data
 	return TRUE
+
+// Authenticates client from external system
+/datum/topic_command/auth_client
+	name = "auth_client"
+	description = "Authenticates client from external system."
+	params = list(
+		"key" = list("name"="key","desc"="Verfiied key for to be set for client","type"="str","req"=0),
+		"clienttoken" = list("name"="clienttoken","desc"="Token for indetifying unique client","type"="str","req"=1),
+	)
+
+/datum/topic_command/auth_client/run_command(queryparams)
+	if(!queryparams["clienttoken"] in unauthed)
+		statuscode = 404
+		response = "Client with such token is not found."
+		return TRUE
+
+	var/mob/abstract/unauthed/una = unauthed[queryparams["clienttoken"]]
+	if(!istype(una) || !una.my_client)
+		statuscode = 500
+		response = "Somethnig went horribly wrong."
+		return TRUE
+	
+
+	una.ClientLogin(queryparams["key"])
+	statuscode = 200
+	response = "Client has been authenticated sucessfully."
+	data = list(
+		"address" = una.my_client.address,
+		"cid" = una.my_client.computer_id,
+		"ckey" = una.my_client.ckey
+	)
