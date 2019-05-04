@@ -69,6 +69,7 @@
 		/obj/item/weapon/reagent_containers/food/drinks/bottle/tomatojuice = 4,
 		/obj/item/weapon/reagent_containers/food/drinks/bottle/limejuice = 4,
 		/obj/item/weapon/reagent_containers/food/drinks/bottle/lemonjuice = 4,
+		/obj/item/weapon/reagent_containers/food/drinks/bottle/dynjuice = 4,
 		/obj/item/weapon/reagent_containers/food/drinks/cans/grape_juice = 6,
 		/obj/item/weapon/reagent_containers/food/drinks/bottle/cream = 4,
 		/obj/item/weapon/reagent_containers/food/drinks/cans/tonic = 8,
@@ -206,6 +207,7 @@
 		/obj/item/weapon/reagent_containers/food/drinks/cans/root_beer = 10,
 		/obj/item/weapon/reagent_containers/food/drinks/cans/starkist = 10,
 		/obj/item/weapon/reagent_containers/food/drinks/cans/waterbottle = 10,
+		/obj/item/weapon/reagent_containers/food/drinks/cans/dyn = 10,
 		/obj/item/weapon/reagent_containers/food/drinks/cans/space_up = 10,
 		/obj/item/weapon/reagent_containers/food/drinks/cans/iced_tea = 10,
 		/obj/item/weapon/reagent_containers/food/drinks/cans/grape_juice = 10,
@@ -223,6 +225,7 @@
 		/obj/item/weapon/reagent_containers/food/drinks/cans/root_beer = 13,
 		/obj/item/weapon/reagent_containers/food/drinks/cans/starkist = 15,
 		/obj/item/weapon/reagent_containers/food/drinks/cans/waterbottle = 12,
+		/obj/item/weapon/reagent_containers/food/drinks/cans/dyn = 18,
 		/obj/item/weapon/reagent_containers/food/drinks/cans/space_up = 15,
 		/obj/item/weapon/reagent_containers/food/drinks/cans/iced_tea = 13,
 		/obj/item/weapon/reagent_containers/food/drinks/cans/grape_juice = 16,
@@ -486,7 +489,8 @@
 		/obj/item/seeds/towermycelium = 3,
 		/obj/item/seeds/watermelonseed = 3,
 		/obj/item/seeds/wheatseed = 3,
-		/obj/item/seeds/whitebeetseed = 3
+		/obj/item/seeds/whitebeetseed = 3,
+		/obj/item/seeds/dynseed = 2
 	)
 	contraband = list(
 		/obj/item/seeds/ambrosiavulgarisseed = 3,
@@ -541,7 +545,8 @@
 		/obj/item/seeds/towermycelium = 20,
 		/obj/item/seeds/watermelonseed = 30,
 		/obj/item/seeds/wheatseed = 20,
-		/obj/item/seeds/whitebeetseed = 20
+		/obj/item/seeds/whitebeetseed = 20,
+		/obj/item/seeds/dynseed = 80
 	)
 	restock_items = 1
 	random_itemcount = 0
