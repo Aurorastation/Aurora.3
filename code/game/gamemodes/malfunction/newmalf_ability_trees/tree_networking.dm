@@ -230,7 +230,7 @@
 			sleep(duration/5)
 			if(!user || user.stat == DEAD)
 				return
-			command_announcement.Announce("Info: Abnormal network activity detected. Ongoing hacking attempts detcted. Automatic countermeasures activated. Trace activated.", "Network Monitoring")
+			command_announcement.Announce("Info: Abnormal network activity detected. Ongoing hacking attempts detected. Automatic countermeasures activated. Trace activated.", "Network Monitoring")
 			sleep(duration/5)
 			if(!user || user.stat == DEAD)
 				return

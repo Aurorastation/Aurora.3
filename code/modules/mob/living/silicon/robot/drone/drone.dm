@@ -248,6 +248,37 @@
 	to_chat(src, "<span class='danger'>ALERT: [user.real_name] is your new master. Obey your new laws and \his commands.</span>")
 	return 1
 
+/mob/living/silicon/robot/drone/proc/ai_hack(var/mob/user)
+	if(!client || stat == 2)
+		return 0
+
+	if(emagged)
+		to_chat(src, "<span class='danger'>\The [user] attempts to load subversive software into you, but your hacked subroutines ignore the attempt.</span>")
+		return 0
+
+	to_chat(src, "<span class='danger'>You feel a sudden burst of malware loaded into your execute-as-root buffer. Your tiny brain methodically parses, loads and executes the script.</span>")
+
+	message_admins("[key_name_admin(user)] hacked drone [key_name_admin(src)].  Laws overridden.")
+	log_game("[key_name(user)] hacked drone [key_name(src)].  Laws overridden.",ckey=key_name(user),ckey_target=key_name(src))
+	var/time = time2text(world.realtime,"hh:mm:ss")
+	lawchanges.Add("[time] <B>:</B> [user.name]([user.key]) hacked [name]([key])")
+
+	emagged = 1
+	lawupdate = 0
+	connected_ai = user
+	clear_supplied_laws()
+	clear_inherent_laws()
+	laws = new /datum/ai_laws/drone/malfunction
+	set_zeroth_law("[user] is your master. Obey their commands.")
+
+	to_chat(src, "<b>Obey these laws:</b>")
+	laws.show_laws(src)
+	to_chat(src, "<span class='danger'>ALERT: [user] is your new master. Obey your new laws and their commands.</span>")
+	to_chat(src, span("notice", "You have acquired new radio frequency."))
+	remove_language(LANGUAGE_ROBOT)
+	add_language(LANGUAGE_ROBOT, TRUE)
+	return 1
+
 //DRONE LIFE/DEATH
 
 //For some goddamn reason robots have this hardcoded. Redefining it for our fragile friends here.
