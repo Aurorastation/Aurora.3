@@ -326,7 +326,7 @@
 	centcomm_area = 1
 
 /area/shuttle/legion/docked
-	name = "\improper Green Dock - Exterior"
+	name = "\improper Surface Escape Pods - Docking Port"
 	icon_state = "shuttlegrn2"
 	base_turf = /turf/simulated/floor/asteroid/ash
 	station_area = 1
