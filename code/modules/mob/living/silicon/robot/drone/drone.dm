@@ -56,6 +56,7 @@
 	var/hat_x_offset = 0
 	var/hat_y_offset = -13
 	var/range_limit = 1
+	var/hacked = FALSE
 
 	holder_type = /obj/item/weapon/holder/drone
 
@@ -252,7 +253,7 @@
 	if(!client || stat == 2)
 		return 0
 
-	if(emagged)
+	if(hacked)
 		to_chat(src, "<span class='danger'>\The [user] attempts to load subversive software into you, but your hacked subroutines ignore the attempt.</span>")
 		return 0
 
@@ -263,7 +264,7 @@
 	var/time = time2text(world.realtime,"hh:mm:ss")
 	lawchanges.Add("[time] <B>:</B> [user.name]([user.key]) hacked [name]([key])")
 
-	emagged = 1
+	hacked = TRUE
 	lawupdate = 0
 	connected_ai = user
 	clear_supplied_laws()
@@ -310,7 +311,7 @@
 //CONSOLE PROCS
 /mob/living/silicon/robot/drone/proc/law_resync()
 	if(stat != 2)
-		if(emagged)
+		if(hacked || emagged)
 			to_chat(src, "<span class='danger'>You feel something attempting to modify your programming, but your hacked subroutines are unaffected.</span>")
 		else
 			to_chat(src, "<span class='danger'>A reset-to-factory directive packet filters through your data connection, and you obediently modify your programming to suit it.</span>")
@@ -319,7 +320,7 @@
 
 /mob/living/silicon/robot/drone/proc/shut_down()
 	if(stat != 2)
-		if(emagged)
+		if(hacked || emagged)
 			to_chat(src, "<span class='danger'>You feel a system kill order percolate through your tiny brain, but it doesn't seem like a good idea to you.</span>")
 		else
 			to_chat(src, "<span class='danger'>You feel a system kill order percolate through your tiny brain, and you obediently destroy yourself.</span>")

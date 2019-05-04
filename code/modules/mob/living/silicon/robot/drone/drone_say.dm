@@ -1,5 +1,5 @@
 /mob/living/silicon/robot/drone/say(var/message)
-	if(emagged)
+	if(hacked)
 		..(message)
 		return
 	if(local_transmit)
