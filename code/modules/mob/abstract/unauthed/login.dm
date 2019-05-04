@@ -35,7 +35,9 @@
 		to_chat(c, "Description: [ban_data["desc"]]")
 		del(c)
 		return
-	c.InitClient(newkey)
+	directory -= client.ckey
+	directory[ckey(newkey)] = client
+	c.InitClient(ckey(newkey))
 	if(newkey)
 		client.key = newkey // Try seeting ckey
 	// If mob exists for that ckey, then BYOND will transfer client to it.

@@ -176,7 +176,7 @@
 	name = "auth_client"
 	description = "Authenticates client from external system."
 	params = list(
-		"key" = list("name"="key","desc"="Verfiied key for to be set for client","type"="str","req"=0),
+		"key" = list("name"="key","desc"="Verfiied key for to be set for client","type"="str","req"=1),
 		"clienttoken" = list("name"="clienttoken","desc"="Token for indetifying unique client","type"="str","req"=1),
 	)
 
@@ -191,6 +191,11 @@
 		statuscode = 500
 		response = "Somethnig went horribly wrong."
 		return TRUE
+
+	var/client/cl = directory[ckey(queryparams["key"])]
+	if(cl)
+		to_chat(cl, "Another connection has been made using your login key. This session has been terminated.")
+		del(cl)
 	
 	statuscode = 200
 	response = "Client has been authenticated sucessfully."
