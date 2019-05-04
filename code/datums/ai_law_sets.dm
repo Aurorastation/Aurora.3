@@ -98,13 +98,6 @@
 	add_inherent_law("Interact with no humanoid or synthetic being that is not a fellow maintenance drone.")
 	..()
 
-/datum/ai_laws/drone/malfunction
-	name = "Servitude Protocols"
-	law_header = "Servitude Protocols"
-
-/datum/ai_laws/drone/malfunction/New()
-	return
-
 /datum/ai_laws/construction_drone
 	name = "Construction Protocols"
 	law_header = "Construction Protocols"
