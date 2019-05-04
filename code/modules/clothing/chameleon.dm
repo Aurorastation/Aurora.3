@@ -160,6 +160,7 @@
 	icon_state = "black"
 	item_state = "black"
 	desc = "They're comfy black shoes, with clever cloaking technology built in. It seems to have a small dial on the back of each shoe."
+	silent = 1
 	origin_tech = list(TECH_ILLEGAL = 3)
 	var/global/list/clothing_choices
 
