@@ -14,7 +14,6 @@
 	unauthed[token] = src
 	client.verbs -= typesof(/client/verb)
 	var/uihtml = "<html><head><style>body * {display: block;text-align:center;margin: 14px 0;font-size:24px;text-decoration:none;font-family:Segoe UI,Frutiger,Frutiger Linotype,Dejavu Sans,Helvetica Neue,Arial,sans-serif;}</style></head><body><p>Please select:</p>"
-	var/authmethods = 0
 	if(config.guests_allowed)
 		uihtml += "<a href='?src=\ref[src];authaction=guest'>Login as guest</a>"
 	if(config.webint_url)
