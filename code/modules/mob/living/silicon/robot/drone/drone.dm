@@ -237,6 +237,7 @@
 	lawchanges.Add("[time] <B>:</B> [user.name]([user.key]) emagged [name]([key])")
 
 	emagged = 1
+	hacked = FALSE
 	lawupdate = 0
 	connected_ai = null
 	clear_supplied_laws()
