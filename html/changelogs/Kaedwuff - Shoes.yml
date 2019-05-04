@@ -38,5 +38,5 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
-  - tweak: "All soft and cloth footwear no longer clicks on the floor as you move. Certainy spooky or traitorous footwear is also affected by this."
+  - tweak: "All soft and cloth footwear no longer clicks on the floor as you move. Certainy spooky or traitorous footwear is also affected by this. You may now stalk people in bunny slippers."
   - tweak: "After a lawsuit involving accusations of carcinogenics used in the manufacturing process, all white shoes have been recalled.  The new brand of white shoes is no longer resistant to chemical spills, and are made of 0% asbestos."
