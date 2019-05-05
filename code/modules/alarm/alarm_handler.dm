@@ -18,7 +18,7 @@
 	if(!(origin && source))
 		return
 
-	if (!origin.z in current_map.station_levels)
+	if (!(origin.z in current_map.station_levels))
 		return
 
 	origin = origin.get_alarm_origin()
