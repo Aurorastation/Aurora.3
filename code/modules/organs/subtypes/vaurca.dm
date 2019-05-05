@@ -367,75 +367,46 @@ obj/item/organ/vaurca/neuralsocket/process()
 			var/datum/gas_mixture/leaked_gas = air_contents.remove_ratio(0.25)
 			T.assume_air(leaked_gas)
 
-<<<<<<< HEAD
-
-
-
-
-
 /obj/item/organ/external/chest/vaurca
 	augment_capacity = 1
+	cannot_break = TRUE
 
 /obj/item/organ/external/groin/vaurca
 	augment_capacity = 1
-
-/obj/item/organ/external/arm/vaurca
-	augment_capacity = 1
-
-/obj/item/organ/external/arm/right/vaurca
-	augment_capacity = 1
-
-/obj/item/organ/external/leg/vaurca
-	augment_capacity = 1
-
-/obj/item/organ/external/leg/right/vaurca
-	augment_capacity = 1
-
-/obj/item/organ/external/foot/vaurca
-	augment_capacity = 1
-
-/obj/item/organ/external/foot/right/vaurca
-	augment_capacity = 1
-
-/obj/item/organ/external/hand/vaurca
-	augment_capacity = 1
-
-/obj/item/organ/external/hand/right/vaurca
-	augment_capacity = 1
-
-/obj/item/organ/external/head/vaurca
-	augment_capacity = 1
-=======
-/obj/item/organ/external/chest/vaurca
-	cannot_break = TRUE
-
-/obj/item/organ/external/groin/vaurca
 	cannot_break = TRUE
 
 /obj/item/organ/external/arm/vaurca
+	augment_capacity = 1
 	cannot_break = TRUE
 
 /obj/item/organ/external/arm/right/vaurca
+	augment_capacity = 1
 	cannot_break = TRUE
 
 /obj/item/organ/external/leg/vaurca
+	augment_capacity = 1
 	cannot_break = TRUE
 
 /obj/item/organ/external/leg/right/vaurca
+	augment_capacity = 1
 	cannot_break = TRUE
 
 /obj/item/organ/external/foot/vaurca
+	augment_capacity = 1
 	cannot_break = TRUE
 
 /obj/item/organ/external/foot/right/vaurca
+	augment_capacity = 1
 	cannot_break = TRUE
 
 /obj/item/organ/external/hand/vaurca
+	augment_capacity = 1
 	cannot_break = TRUE
 
 /obj/item/organ/external/hand/right/vaurca
+	augment_capacity = 1
 	cannot_break = TRUE
 
 /obj/item/organ/external/head/vaurca
+	augment_capacity = 1
 	cannot_break = TRUE
->>>>>>> upstream-master
