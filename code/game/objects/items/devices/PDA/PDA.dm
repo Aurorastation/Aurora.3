@@ -595,7 +595,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 	var/datum/nanoui/ui = SSnanoui.get_open_ui(user, src, "main")
 	var/mob/living/U = usr
 	//Looking for master was kind of pointless since PDAs don't appear to have one.)
-	if(use_check(usr)) // Need to allow silicons here.
+	if(use_check_and_message(usr)) // Need to allow silicons here.
 		U.unset_machine()
 		if(ui)
 			ui.close()
@@ -1025,7 +1025,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 	if (last_text && world.time < last_text + 5)
 		return
 
-	if(use_check(U))
+	if(use_check_and_message(U))
 		return
 
 	last_text = world.time

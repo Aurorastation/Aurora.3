@@ -598,7 +598,7 @@
 /obj/item/clothing/mask/proc/adjust_mask(mob/user)
 	if(!adjustable)
 		return
-	if(use_check(user))
+	if(use_check_and_message(user))
 		return
 
 	hanging = !hanging

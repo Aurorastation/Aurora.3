@@ -13,3 +13,4 @@
 /obj/item/modular_computer/tablet/Initialize()
 	. = ..()
 	icon_state += pick("", "-blue", "-green", "-red", "-brown")
+	icon_state_broken = icon_state

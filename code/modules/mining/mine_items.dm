@@ -1099,7 +1099,7 @@ var/list/total_extraction_beacons = list()
 	origin_tech = list(TECH_MAGNET = 4, TECH_ENGINEERING = 3)
 
 /obj/item/weapon/oremagnet/attack_self(mob/user)
-	if (use_check(user))
+	if (use_check_and_message(user))
 		return
 
 	toggle_on(user)

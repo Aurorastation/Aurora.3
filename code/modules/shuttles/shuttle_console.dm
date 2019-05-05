@@ -1,6 +1,5 @@
 /obj/machinery/computer/shuttle_control
 	name = "shuttle control console"
-	icon = 'icons/obj/computer.dmi'
 
 	light_color = LIGHT_COLOR_CYAN
 	icon_screen = "shuttle"

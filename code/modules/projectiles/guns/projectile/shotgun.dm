@@ -120,6 +120,14 @@
 	ammo_type = /obj/item/ammo_casing/shotgun
 	fire_sound = 'sound/weapons/gunshot/gunshot_shotgun.ogg'
 
+/obj/item/weapon/gun/projectile/shotgun/pump/combat/sol
+	name = "naval shotgun"
+	desc = "A Malella-type 12-gauge breaching shotgun commonly found in the hands of the Sol Alliance. Made by Necropolis Industries."
+	icon_state = "malella"
+	item_state = "malella"
+	origin_tech = list(TECH_COMBAT = 6, TECH_MATERIAL = 3, TECH_ILLEGAL = 2)
+	ammo_type = /obj/item/ammo_casing/shotgun/pellet
+
 /obj/item/weapon/gun/projectile/shotgun/doublebarrel
 	name = "double-barreled shotgun"
 	desc = "A true classic."
