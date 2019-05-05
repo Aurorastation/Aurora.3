@@ -146,7 +146,7 @@ datum/preferences
 
 
 
-/datum/preferences/New(client/C, var/tmpckey)
+/datum/preferences/New(client/C)
 	new_setup()
 
 	if(istype(C))
@@ -155,10 +155,6 @@ datum/preferences
 			load_path(C.ckey)
 			load_preferences()
 			load_and_update_character()
-	else if (tmpckey)
-		load_path(tmpckey)
-		load_preferences()
-		load_and_update_character()
 
 /datum/preferences/proc/load_and_update_character(var/slot)
 	load_character(slot)

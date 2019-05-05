@@ -357,26 +357,25 @@
 		//Do auth shit
 	else
 		. = ..()
+		src.InitPerfs()
 		src.InitClient()
-		src.InitClientLate()
 
-/client/proc/InitClient(var/tmp_ckey)
-	if(!tmp_ckey)
-		tmp_ckey = ckey
-	to_chat(src, "<span class='alert'>If the title screen is black, resources are still downloading. Please be patient until the title screen appears.</span>")
+/client/proc/InitPerfs()
 
 	//preferences datum - also holds some persistant data for the client (because we may as well keep these datums to a minimum)
-	prefs = preferences_datums[tmp_ckey]
+	prefs = preferences_datums[ckey]
 	if(!prefs)
-		prefs = new /datum/preferences(null, tmp_ckey)
-		preferences_datums[tmp_ckey] = prefs
+		prefs = new /datum/preferences(src)
+		preferences_datums[ckey] = prefs
 
 		prefs.gather_notifications(src)
 	prefs.client = src					// Safety reasons here.
 	prefs.last_ip = address				//these are gonna be used for banning
 	prefs.last_id = computer_id			//these are gonna be used for banning
 
-/client/proc/InitClientLate()
+/client/proc/InitClient()
+	to_chat(src, "<span class='alert'>If the title screen is black, resources are still downloading. Please be patient until the title screen appears.</span>")
+
 	//Admin Authorisation
 	holder = admin_datums[ckey]
 	if(holder)
