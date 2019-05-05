@@ -9,7 +9,6 @@
 /turf/simulated/wall/diona,
 /area/mine/unexplored)
 "ad" = (
-/turf/template_noop,
 /turf/simulated/floor/diona,
 /area/mine/unexplored)
 "ae" = (
@@ -137,12 +136,7 @@
 	},
 /area/derelict/ship)
 "at" = (
-/obj/structure/diona,
 /turf/template_noop,
-/area/mine/unexplored)
-"au" = (
-/turf/simulated/wall/diona,
-/turf/simulated/floor/diona,
 /area/mine/unexplored)
 "av" = (
 /obj/effect/decal/cleanable/dirt,
@@ -444,14 +438,10 @@
 /turf/simulated/wall/diona,
 /area/derelict/ship)
 "bh" = (
-/turf/template_noop,
-/obj/structure/diona,
 /turf/simulated/floor/diona,
 /area/derelict/ship)
 "bi" = (
-/turf/template_noop,
 /obj/structure/lattice,
-/obj/structure/diona,
 /turf/simulated/floor/diona,
 /area/derelict/ship)
 "bj" = (
@@ -487,14 +477,8 @@
 	icon_state = "floor7"
 	},
 /area/derelict/ship)
-"bo" = (
-/obj/structure/diona,
-/turf/simulated/wall/diona,
-/area/derelict/ship)
 "bp" = (
-/turf/template_noop,
 /obj/structure/lattice,
-/obj/structure/diona,
 /obj/effect/decal/remains,
 /turf/simulated/floor/diona,
 /area/derelict/ship)
@@ -627,9 +611,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "bI" = (
-/turf/template_noop,
 /obj/structure/lattice,
-/obj/structure/diona,
 /obj/item/clothing/suit/storage/hooded/tajaran,
 /obj/effect/decal/cleanable/blood,
 /turf/simulated/floor/diona,
@@ -645,7 +627,6 @@
 	icon_state = "spline_fancy";
 	dir = 6
 	},
-/obj/structure/diona,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/holofloor/wood,
@@ -684,10 +665,6 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/closet/crate/freezer/rations,
 /turf/simulated/floor/tiled/dark,
-/area/derelict/ship)
-"bR" = (
-/obj/structure/diona,
-/turf/simulated/floor,
 /area/derelict/ship)
 "bS" = (
 /obj/effect/floor_decal/corner/black/diagonal,
@@ -783,7 +760,6 @@
 "ch" = (
 /turf/template_noop,
 /obj/structure/lattice,
-/obj/structure/diona,
 /obj/random/voidsuit,
 /turf/simulated/floor/diona,
 /area/derelict/ship)
@@ -793,7 +769,6 @@
 	icon_state = "spline_fancy";
 	dir = 6
 	},
-/obj/structure/diona,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/holofloor/wood,
 /area/derelict/ship)
@@ -840,11 +815,6 @@
 "cq" = (
 /turf/simulated/floor/asteroid/ash,
 /area/mine/unexplored)
-"cr" = (
-/turf/template_noop,
-/obj/structure/diona,
-/turf/simulated/floor/diona,
-/area/mine/unexplored)
 "cs" = (
 /obj/item/clothing/under/tajaran,
 /obj/effect/decal/cleanable/blood,
@@ -852,7 +822,6 @@
 /turf/simulated/floor/holofloor/wood,
 /area/derelict/ship)
 "ct" = (
-/obj/structure/diona,
 /obj/effect/decal/remains,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/holofloor/wood,
@@ -889,13 +858,6 @@
 /obj/machinery/portable_atmospherics/canister/oxygen,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
-/area/derelict/ship)
-"cA" = (
-/turf/template_noop,
-/obj/structure/lattice,
-/obj/structure/diona,
-/obj/structure/diona,
-/turf/simulated/floor/diona,
 /area/derelict/ship)
 "cB" = (
 /obj/effect/decal/cleanable/molten_item,
@@ -971,8 +933,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "cM" = (
-/turf/template_noop,
-/obj/structure/diona,
 /obj/effect/decal/remains,
 /turf/simulated/floor/diona,
 /area/mine/unexplored)
@@ -983,15 +943,6 @@
 /area/derelict/ship)
 "cO" = (
 /obj/effect/decal/cleanable/blood,
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/holofloor/wood,
-/area/derelict/ship)
-"cP" = (
-/obj/effect/floor_decal/spline/fancy/wood{
-	icon_state = "spline_fancy";
-	dir = 1
-	},
-/obj/structure/diona,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/holofloor/wood,
 /area/derelict/ship)
@@ -1020,7 +971,6 @@
 /area/derelict/ship)
 "cT" = (
 /obj/effect/floor_decal/spline/fancy/wood,
-/obj/structure/diona,
 /turf/simulated/floor/holofloor/wood,
 /area/derelict/ship)
 "cU" = (
@@ -1877,7 +1827,6 @@
 /turf/simulated/floor/tiled/white,
 /area/derelict/ship)
 "eY" = (
-/turf/template_noop,
 /obj/structure/shuttle/engine/propulsion,
 /turf/simulated/floor/diona,
 /area/derelict/ship)
@@ -1986,6 +1935,11 @@
 /turf/simulated/shuttle/floor{
 	icon_state = "floor7"
 	},
+/area/derelict/ship)
+"tY" = (
+/turf/template_noop,
+/obj/structure/lattice,
+/turf/simulated/floor/diona,
 /area/derelict/ship)
 
 (1,1,1) = {"
@@ -29863,9 +29817,9 @@ ac
 ac
 ac
 ac
-cr
-cr
-cr
+ad
+ad
+ad
 cM
 ac
 ac
@@ -30118,7 +30072,7 @@ bg
 bg
 bg
 bg
-bo
+bg
 bh
 bi
 bi
@@ -30371,15 +30325,15 @@ ac
 ac
 ac
 bg
-bo
+bg
 bh
 bh
 bh
 ch
-bi
-bR
-cA
-bi
+tY
+af
+tY
+tY
 cN
 cT
 ae
@@ -30880,21 +30834,21 @@ ac
 ac
 ac
 ac
-au
+ad
 ac
 ac
 ac
 bi
 bq
 bJ
-bR
+af
 cb
 aS
 ae
 ct
 cC
 ae
-cP
+aH
 cU
 ae
 ak
@@ -31136,8 +31090,8 @@ ac
 ac
 ac
 ac
-au
-au
+ad
+ad
 ad
 ac
 ac
