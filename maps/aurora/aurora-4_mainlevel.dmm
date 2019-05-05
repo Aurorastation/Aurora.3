@@ -64905,6 +64905,11 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/plating,
 /area/maintenance/medbay)
+"elB" = (
+/obj/structure/table/wood/gamblingtable,
+/obj/item/weapon/storage/fancy/crayons/chalkbox,
+/turf/simulated/floor/tiled,
+/area/engineering/foyer)
 "eoJ" = (
 /obj/random/plushie,
 /turf/simulated/floor/plating,
@@ -87887,7 +87892,7 @@ aCa
 aDU
 aFJ
 aHL
-aHL
+elB
 aLb
 aMS
 aOH

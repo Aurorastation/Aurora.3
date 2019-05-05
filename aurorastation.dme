@@ -740,6 +740,7 @@
 #include "code\game\objects\items\bodybag.dm"
 #include "code\game\objects\items\contraband.dm"
 #include "code\game\objects\items\crayons.dm"
+#include "code\game\objects\items\draftingchalk.dm"
 #include "code\game\objects\items\eightball.dm"
 #include "code\game\objects\items\glassjar.dm"
 #include "code\game\objects\items\latexballoon.dm"
