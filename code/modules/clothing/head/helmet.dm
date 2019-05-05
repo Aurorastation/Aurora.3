@@ -72,7 +72,7 @@
 	action_button_name = "Toggle Visor"
 
 /obj/item/clothing/head/helmet/riot/attack_self(mob/user as mob)
-	if (use_check(user))
+	if (use_check_and_message(user))
 		return
 
 	if(src.icon_state == initial(icon_state))
@@ -124,7 +124,7 @@
 	action_button_name = "Toggle Visor"
 
 /obj/item/clothing/head/helmet/swat/peacekeeper/attack_self(mob/user as mob)
-	if (use_check(user))
+	if (use_check_and_message(user))
 		return
 
 	if(src.icon_state == initial(icon_state))
