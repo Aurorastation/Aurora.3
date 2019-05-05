@@ -2138,7 +2138,11 @@
 	d2 = 4;
 	icon_state = "2-4"
 	},
-/obj/machinery/atmospherics/pipe/simple/visible,
+/obj/machinery/atmospherics/binary/pump/on{
+	dir = 2;
+	name = "Distro to Canister";
+	target_pressure = 150
+	},
 /turf/simulated/floor/plating,
 /area/maintenance/solarmaint)
 "ew" = (
