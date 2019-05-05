@@ -12,7 +12,7 @@
 
 /obj/item/ammo_magazine/a454
 	name = "speed loader (.454)"
-	icon_state = "T38"
+	icon_state = "a454"
 	caliber = "454"
 	ammo_type = /obj/item/ammo_casing/a454
 	matter = list(DEFAULT_WALL_MATERIAL = 1260)
