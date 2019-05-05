@@ -10,13 +10,13 @@
 	set desc = "Information about the contest."
 
 	if (!config.antag_contest_enabled)
-		src << "<span class='warning'>The contest isn't running yet!</span>"
+		to_chat(src, "<span class='warning'>The contest isn't running yet!</span>")
 		return
 
 	var/help = file2text('ingame_manuals/antag_contest.html')
 
 	if (!help)
-		src << "<span class='warning'>Unable to open the document required! Please contact administration or a coder!</span>"
+		to_chat(src, "<span class='warning'>Unable to open the document required! Please contact administration or a coder!</span>")
 		return
 
 	src << browse(help, "window=antag_contest_help;size=600x500")
@@ -27,11 +27,11 @@
 	set desc = "Displays information to you about your characters, and their standings."
 
 	if (!config.antag_contest_enabled)
-		src << "<span class='warning'>The contest isn't running yet!</span>"
+		to_chat(src, "<span class='warning'>The contest isn't running yet!</span>")
 		return
 
 	if (!establish_db_connection(dbcon))
-		src << "<span class='warning'>Failed to establish SQL connection! Contact a member of staff!</span>"
+		to_chat(src, "<span class='warning'>Failed to establish SQL connection! Contact a member of staff!</span>")
 		return
 
 	var/DBQuery/character_query = dbcon.NewQuery("SELECT id, name FROM ss13_characters WHERE ckey = :ckey: AND deleted_at IS NULL")
@@ -42,7 +42,7 @@
 		char_ids[character_query.item[1]] = list("name" = character_query.item[2], "assigned" = 0, "side_str" = "Independent", "side_int" = INDEP)
 
 	if (!char_ids.len)
-		src << "<span class='warning'>Something went horribly wrong! Apparently you don't have any saved characters?</span>"
+		to_chat(src, "<span class='warning'>Something went horribly wrong! Apparently you don't have any saved characters?</span>")
 		return
 
 	var/DBQuery/participation_query = dbcon.NewQuery("SELECT character_id, contest_faction FROM ss13_contest_participants WHERE character_id IN :char_ids:")
@@ -77,15 +77,15 @@
 	set desc = "Lets you choose a contest type objective!"
 
 	if (!config.antag_contest_enabled)
-		src << "<span class='warning'>The contest isn't running yet!</span>"
+		to_chat(src, "<span class='warning'>The contest isn't running yet!</span>")
 		return
 
 	if (!src.mob || !isliving(src.mob))
-		src << "<span class='warning'>Invalid mob type to participate!</span>"
+		to_chat(src, "<span class='warning'>Invalid mob type to participate!</span>")
 		return
 
 	if (!(src.mob.mind.special_role in list("Traitor", "Mercenary", "Raider")))
-		src << "<span class='warning'>You do not have a valid role! You must be a traitor, mercenary, or a raider for these to be usable! Contact an admin if you need assignment.</span>"
+		to_chat(src, "<span class='warning'>You do not have a valid role! You must be a traitor, mercenary, or a raider for these to be usable! Contact an admin if you need assignment.</span>")
 		return
 
 	if (src.mob.mind.objectives.len >= 3)
@@ -95,11 +95,11 @@
 				uncompleted_objectives++
 
 		if (uncompleted_objectives >= 3)
-			src << span("warning", "You have [uncompleted_objectives] uncompleted objectives underway right now. Please finish them before requesting new ones.")
+			to_chat(src, span("warning", "You have [uncompleted_objectives] uncompleted objectives underway right now. Please finish them before requesting new ones."))
 			return
 
 	if (!establish_db_connection(dbcon))
-		src << "<span class='warning'>Failed to establish SQL connection! Contact a member of staff!</span>"
+		to_chat(src, "<span class='warning'>Failed to establish SQL connection! Contact a member of staff!</span>")
 		return
 
 	var/DBQuery/part_check = dbcon.NewQuery("SELECT contest_faction FROM ss13_contest_participants WHERE character_id = :char_id: AND player_ckey = :ckey:")
@@ -109,7 +109,7 @@
 		var/list/available_objs
 		var/side = input("Are you pro-synth or anti-synth?", "Choose wisely") as null|anything in list("Pro-synth", "Anti-synth")
 		if (!side)
-			src << "<span class='notice'>Cancelled.</span>"
+			to_chat(src, "<span class='notice'>Cancelled.</span>")
 			return
 
 		var/list/faction_data = contest_faction_data(part_check.item[1])
@@ -126,13 +126,13 @@
 			available_objs = list("Assassinate Pro-Synth Supporter", "Sabotage Robotics", "Fire a Synth", "Brig a Synth", "Harm a Synth")
 
 		if (!available_objs)
-			src << "<span class='warning'>No objectives were found for you! This is odd!</span>"
+			to_chat(src, "<span class='warning'>No objectives were found for you! This is odd!</span>")
 			return
 
 		var/choice = input("Select objective type:", "Select Objective") as null|anything in available_objs
 
 		if (!choice)
-			src << "<span class='warning'>Cancelled.</span>"
+			to_chat(src, "<span class='warning'>Cancelled.</span>")
 			return
 
 		var/datum/objective/competition/new_objective
@@ -207,18 +207,18 @@
 				return
 
 		if (failed_target)
-			src << "<span class='warning'>Objective selection failed! No valid targets found!</span>"
+			to_chat(src, "<span class='warning'>Objective selection failed! No valid targets found!</span>")
 			qdel(new_objective)
 			return
 
 		if (!new_objective.owner)
 			new_objective.owner = src.mob.mind
 		src.mob.mind.objectives += new_objective
-		src << "<span class='notice'>New objective assigned! Have fun, and roleplay well!</span>"
+		to_chat(src, "<span class='notice'>New objective assigned! Have fun, and roleplay well!</span>")
 		log_admin("CONTEST: [key_name(src)] has assigned themselves an objective: [new_objective.type].", ckey=key_name(src))
 		return
 	else
-		src << "<span class='warning'>This character hasn't been set up to participate! Consult an admin or change this yourself!</span>"
+		to_chat(src, "<span class='warning'>This character hasn't been set up to participate! Consult an admin or change this yourself!</span>")
 		return
 
 /client/proc/process_contest_topic(var/list/href)
@@ -231,17 +231,17 @@
 	switch (href["contest_action"])
 		if ("modify")
 			if (!href["char_id"])
-				src << "<span class='warning'>Ouch, bad link.</span>"
+				to_chat(src, "<span class='warning'>Ouch, bad link.</span>")
 				return
 
 			if (!establish_db_connection(dbcon))
-				src << "<span class='warning'>Failed to establish SQL connection! Contact a member of staff!</span>"
+				to_chat(src, "<span class='warning'>Failed to establish SQL connection! Contact a member of staff!</span>")
 				return
 
 			var/choice = input("Choose your side:", "Contest Side") as null|anything in contest_factions
 
 			if (!choice || contest_factions[choice] == href["current_side"])
-				src << "<span class='notice'>Cancelled</span>"
+				to_chat(src, "<span class='notice'>Cancelled</span>")
 				return
 
 			var/list/sql_args = list("ckey" = src.ckey, "char_id" = href["char_id"], "new_side" = contest_factions[choice])
@@ -255,10 +255,10 @@
 			query.Execute(sql_args)
 
 			if (query.ErrorMsg())
-				src << "<span class='danger'>SQL query ran into an error and was cancelled! Please contact a developer to troubleshoot the logs!</span>"
+				to_chat(src, "<span class='danger'>SQL query ran into an error and was cancelled! Please contact a developer to troubleshoot the logs!</span>")
 				return
 			else
-				src << "<span class='notice'>Successfully updated your character's alliegence!</span>"
+				to_chat(src, "<span class='notice'>Successfully updated your character's alliegence!</span>")
 				src.contest_my_characters()
 				return
 

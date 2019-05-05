@@ -49,12 +49,12 @@
 			if (!istype(C.mob, /mob/abstract))
 				if (C.is_afk(inactivity_threshold))
 					log_access("AFK: [key_name(C)]")
-					C << span("warning", "You have been inactive for more than [config.kick_inactive] minute\s and have been disconnected.")
+					to_chat(C, span("warning", "You have been inactive for more than [config.kick_inactive] minute\s and have been disconnected."))
 					qdel(C)
 
 	// Handle population polling.
 	if (config.sql_enabled && config.sql_stats)
-		var/admincount = admins.len
+		var/admincount = staff.len
 		var/playercount = 0
 		for(var/mob/M in player_list)
 			if(M.client)

@@ -24,7 +24,7 @@
 			if(!M.can_eat(src))
 				return
 
-			M << "<span class='notice'>You swallow \the [src].</span>"
+			to_chat(M, "<span class='notice'>You swallow \the [src].</span>")
 			if(reagents.total_volume)
 				reagents.trans_to_mob(M, reagents.total_volume, CHEM_INGEST)
 			qdel(src)
@@ -59,9 +59,9 @@
 
 		if(proximity && target.is_open_container() && target.reagents)
 			if(!target.reagents.total_volume)
-				user << "<span class='notice'>[target] is empty. Can't dissolve \the [src].</span>"
+				to_chat(user, "<span class='notice'>[target] is empty. Can't dissolve \the [src].</span>")
 				return
-			user << "<span class='notice'>You dissolve \the [src] in [target].</span>"
+			to_chat(user, "<span class='notice'>You dissolve \the [src] in [target].</span>")
 
 			user.attack_log += text("\[[time_stamp()]\] <font color='red'>Spiked \a [target] with a pill. Reagents: [reagentlist()]</font>")
 			msg_admin_attack("[user.name] ([user.ckey]) spiked \a [target] with a pill. Reagents: [reagentlist()] (INTENT: [uppertext(user.a_intent)]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(target))
@@ -261,3 +261,12 @@
 		reagents.add_reagent("nutriment", 20)
 		reagents.add_reagent(pick("banana","berryjuice","grapejuice","lemonjuice","limejuice","orangejuice","watermelonjuice"),1)
 		//Would be absolutely retarded to grind the biogenerator for juices.
+
+/obj/item/weapon/reagent_containers/pill/rmt
+	name = "RMT pill"
+	desc = "Contains chemical rampantly used by those seeking to remedy the effects of prolonged zero-gravity adaptations."
+	icon_state = "pill19"
+
+/obj/item/weapon/reagent_containers/pill/rmt/Initialize()
+	. = ..()
+	reagents.add_reagent("rmt", 15)

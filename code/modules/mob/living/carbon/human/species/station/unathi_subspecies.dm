@@ -53,7 +53,8 @@
 		/mob/living/proc/devour,
 		/mob/living/carbon/human/proc/regurgitate,
 		/mob/living/carbon/human/proc/detach_limb,
-		/mob/living/carbon/human/proc/attach_limb
+		/mob/living/carbon/human/proc/attach_limb,
+		/mob/living/carbon/human/proc/self_diagnostics
 	)
 
 	has_organ = list(
@@ -82,12 +83,11 @@
 		"r_foot" = list("path" = /obj/item/organ/external/foot/right/autakh)
 		)
 
-
-	spawn_flags = IS_RESTRICTED
 	appearance_flags = HAS_HAIR_COLOR | HAS_UNDERWEAR | HAS_SKIN_COLOR | HAS_EYE_COLOR
-	flags = NO_CHUBBY | NO_SCAN
+	flags = NO_CHUBBY
 
 	flesh_color = "#575757"
+	base_color = "#575757"
 
 	heat_discomfort_level = 290
 	heat_discomfort_strings = list(
@@ -120,3 +120,6 @@
 	if (eyes)
 		var/eyegb = rgb(eyes.eye_colour[1], eyes.eye_colour[2], eyes.eye_colour[3])
 		return eyegb
+
+/datum/species/unathi/autakh/get_cloning_variant()
+	return "Unathi"

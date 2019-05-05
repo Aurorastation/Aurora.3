@@ -245,3 +245,34 @@
 /obj/item/weapon/reagent_containers/food/drinks/cans/zorajelly/Initialize()
 	. = ..()
 	reagents.add_reagent("zora_jelly", 30)
+
+/obj/item/weapon/reagent_containers/food/drinks/cans/adhomai_milk
+	name = "fermented fatshouters milk"
+	desc = "A can of fermented fatshouters milk, imported from Adhomai."
+	icon_state = "milk_can"
+	center_of_mass = list("x"=16, "y"=10)
+
+/obj/item/weapon/reagent_containers/food/drinks/cans/adhomai_milk/Initialize()
+	. = ..()
+	reagents.add_reagent("adhomai_milk", 30)
+
+/obj/item/weapon/reagent_containers/food/drinks/cans/beetle_milk
+	name = "\improper Hakhma Milk"
+	desc = "A can of Hakhma beetle milk, sourced from Scarab and Drifter communities."
+	icon_state = "beetlemilk"
+	center_of_mass = list("x"=16, "y"=10)
+
+/obj/item/weapon/reagent_containers/food/drinks/cans/beetle_milk/Initialize()
+	. = ..()
+	reagents.add_reagent("beetle_milk", 30)
+
+/obj/item/weapon/reagent_containers/food/drinks/cans/dyn
+	name = "Cooling Breeze"
+	desc = "The most refreshing thing you can find on the market, based on a Skrell medicinal plant. No salt or sugar. "
+	icon_state = "dyncan"
+	center_of_mass = list("x"=16, "y"=10)
+
+/obj/item/weapon/reagent_containers/food/drinks/cans/dyn/Initialize()
+	. = ..()
+	reagents.add_reagent("dyncold", 30)
+

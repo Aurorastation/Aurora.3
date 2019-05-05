@@ -3,27 +3,24 @@
 	set name = "Pray"
 
 	if(say_disabled)	//This is here to try to identify lag problems
-		usr << "<span class='warning'>Speech is currently admin-disabled.</span>"
+		to_chat(usr, "<span class='warning'>Speech is currently admin-disabled.</span>")
 		return
 
 	msg = sanitize(msg)
 	if(!msg)	return
 
-	if(usr.client)
-		if(usr.client.prefs.muted & MUTE_PRAY)
-			usr << "<span class='warning'>You cannot pray (muted).</span>"
-			return
-		if(src.client.handle_spam_prevention(msg,MUTE_PRAY))
-			return
+	if(client && client.handle_spam_prevention(msg,MUTE_PRAY))
+		return
 
 	var/image/cross = image('icons/obj/storage.dmi',"bible")
 	msg = "<span class='notice'>\icon[cross] <b><font color=purple>PRAY: </font>[key_name(src, 1)] (<A HREF='?_src_=holder;adminmoreinfo=\ref[src]'>?</A>) (<A HREF='?_src_=holder;adminplayeropts=\ref[src]'>PP</A>) (<A HREF='?_src_=vars;Vars=\ref[src]'>VV</A>) (<A HREF='?_src_=holder;subtlemessage=\ref[src]'>SM</A>) ([admin_jump_link(src, src)]) (<A HREF='?_src_=holder;secretsadmin=check_antagonist'>CA</A>) (<A HREF='?_src_=holder;adminspawncookie=\ref[src]'>SC</a>):</b> [msg]</span>"
 
-	for(var/client/C in admins)
+	for(var/s in staff)
+		var/client/C = s
 		if(C.holder.rights & (R_ADMIN|R_MOD|R_FUN))
 			if(C.prefs.toggles & CHAT_PRAYER)
-				C << msg
-	usr << "Your prayers have been received by the gods."
+				to_chat(C, msg)
+	to_chat(usr, "Your prayers have been received by the gods.")
 
 	feedback_add_details("admin_verb","PR") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 	log_admin("PRAYER: [key_name(src)]: [msg]")
@@ -35,17 +32,18 @@
 	var/cciaa_present = 0
 	var/cciaa_afk = 0
 
-	for(var/client/C in admins)
+	for(var/s in staff)
+		var/client/C = s
 		if(R_ADMIN & C.holder.rights)
-			C << msg_admin
+			to_chat(C, msg_admin)
 		else if (R_CCIAA & C.holder.rights)
 			cciaa_present++
 			if (C.is_afk())
 				cciaa_afk++
 
-			C << msg_cciaa
+			to_chat(C, msg_cciaa)
 
-	discord_bot.send_to_cciaa("Emergency message from the station: `[msg]`, sent by [Sender]!")
+	discord_bot.send_to_cciaa("Emergency message from the station: `[msg]`, sent by [Sender]! Gamemode: [SSticker.mode]")
 
 	var/discord_msg = "[cciaa_present] agents online."
 	if (cciaa_present)
@@ -59,6 +57,7 @@
 
 /proc/Syndicate_announce(var/msg, var/mob/Sender)
 	msg = "<span class='notice'><b><font color=crimson>ILLEGAL:</font>[key_name(Sender, 1)] (<A HREF='?_src_=holder;adminplayeropts=\ref[Sender]'>PP</A>) (<A HREF='?_src_=vars;Vars=\ref[Sender]'>VV</A>) (<A HREF='?_src_=holder;subtlemessage=\ref[Sender]'>SM</A>) ([admin_jump_link(Sender, src)]) (<A HREF='?_src_=holder;secretsadmin=check_antagonist'>CA</A>) (<A HREF='?_src_=holder;BlueSpaceArtillery=\ref[Sender]'>BSA</A>) (<A HREF='?_src_=holder;SyndicateReply=\ref[Sender]'>RPLY</A>):</b> [msg]</span>"
-	for(var/client/C in admins)
+	for(var/s in staff)
+		var/client/C = s
 		if(R_ADMIN & C.holder.rights)
-			C << msg
+			to_chat(C, msg)

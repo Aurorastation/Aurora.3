@@ -35,7 +35,7 @@
 		set_slowdown()
 		force = 3
 		if(icon_base) icon_state = "[icon_base]0"
-		user << "You disable the mag-pulse traction system."
+		to_chat(user, "You disable the mag-pulse traction system.")
 		magnetic = 0
 	else
 		item_flags |= NOSLIP
@@ -44,7 +44,7 @@
 		force = 5
 		if(icon_base) icon_state = "[icon_base]1"
 		playsound(get_turf(src), 'sound/effects/magnetclamp.ogg', 20)
-		user << "You enable the mag-pulse traction system."
+		to_chat(user, "You enable the mag-pulse traction system.")
 		magnetic = 1
 	user.update_inv_shoes()	//so our mob-overlays update
 	user.update_action_buttons()
@@ -61,7 +61,7 @@
 	if(H.shoes)
 		shoes = H.shoes
 		if(shoes.overshoes)
-			user << "You are unable to wear \the [src] as \the [H.shoes] are in the way."
+			to_chat(user, "You are unable to wear \the [src] as \the [H.shoes] are in the way.")
 			shoes = null
 			return 0
 		H.drop_from_inventory(shoes,src)	//Remove the old shoes so you can put on the magboots.
@@ -73,7 +73,7 @@
 		return 0
 
 	if (shoes)
-		user << "You slip \the [src] on over \the [shoes]."
+		to_chat(user, "You slip \the [src] on over \the [shoes].")
 	set_slowdown()
 	wearer = H
 	return 1
@@ -92,4 +92,4 @@
 	var/state = "disabled"
 	if(item_flags & NOSLIP)
 		state = "enabled"
-	user << "Its mag-pulse traction system appears to be [state]."
+	to_chat(user, "Its mag-pulse traction system appears to be [state].")

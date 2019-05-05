@@ -43,7 +43,6 @@ STOCK_ITEM_RARE(hardsuit, 0.75)
 		/obj/item/weapon/rig/ert/engineer = 0.1,
 		/obj/item/weapon/rig/ert/medical = 0.15,
 		/obj/item/weapon/rig/ert/security = 0.075,
-		/obj/item/weapon/rig/ert/assetprotection = 0.05,
 		/obj/item/weapon/rig/light = 0.5,
 		/obj/item/weapon/rig/light/hacker = 0.8,
 		/obj/item/weapon/rig/light/stealth = 0.5,

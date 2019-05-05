@@ -48,6 +48,8 @@ var/list/diona_banned_languages = list(
 	diona_handle_lightmessages(DS)
 
 	DS.last_location = loc
+	if(light_amount)
+		adjustNutritionLoss(-light_amount) // regenerate our nutrition from light.
 
 /mob/living/carbon/proc/diona_handle_radiation(var/datum/dionastats/DS)
 	//Converts radiation to stored energy if its needed, and gives messages related to radiation
@@ -61,19 +63,6 @@ var/list/diona_banned_languages = list(
 
 	radiation -= 0.5 //Radiation is gradually wasted if its not used for something
 
-
-//This proc handles when diona take damage from being in darkness
-/mob/living/carbon/proc/diona_darkness_damage(var/severity, var/datum/dionastats/DS)
-	adjustBruteLoss(severity*DS.trauma_factor)
-	adjustHalLoss(severity*DS.pain_factor, 1)
-	DS.stored_energy = 0 //We reset the energy back to zero after calculating the damage. dont want it to go negative
-
-	//If the diona in question is a gestalt, then all the nymphs inside it will suffer damage too
-	if (DS.dionatype == DIONA_WORKER)
-		for(var/mob/living/carbon/alien/diona/D in src)
-			D.adjustBruteLoss(severity*DS.trauma_factor*0.5)
-
-
 #define diona_max_pressure 100 //kpa, Highest pressure that has an effect
 #define diona_nutrition_factor 0.5 //nutrients we gain per proc at max pressure
 /mob/living/carbon/proc/diona_handle_air(var/datum/dionastats/DS, var/pressure)
@@ -86,6 +75,11 @@ var/list/diona_banned_languages = list(
 	if (DS.nutrient_organ)
 		if (DS.nutrient_organ.is_broken())
 			return 0
+	
+	if (consume_nutrition_from_air && (nutrition / max_nutrition > 0.25))
+		to_chat(src, span("notice", "You feel like you have replanished enough of nutrition to stay alive. Consuming more makes you feel gross."))
+		consume_nutrition_from_air = !consume_nutrition_from_air
+		return
 
 	var/plus= (min(pressure,diona_max_pressure)  / diona_max_pressure)* diona_nutrition_factor
 	if (DS.nutrient_organ)
@@ -96,6 +90,17 @@ var/list/diona_banned_languages = list(
 	adjustNutritionLoss(-plus)
 
 	return plus*7 //The return value is the number of moles to remove from the local environment
+
+//This proc handles when diona take damage from being in darkness
+/mob/living/carbon/proc/diona_darkness_damage(var/severity, var/datum/dionastats/DS)
+	adjustBruteLoss(severity*DS.trauma_factor)
+	adjustHalLoss(severity*DS.pain_factor, 1)
+	DS.stored_energy = 0 //We reset the energy back to zero after calculating the damage. dont want it to go negative
+
+	//If the diona in question is a gestalt, then all the nymphs inside it will suffer damage too
+	if (DS.dionatype == DIONA_WORKER)
+		for(var/mob/living/carbon/alien/diona/D in src)
+			D.adjustBruteLoss(severity*DS.trauma_factor*0.5)
 
 /mob/living/carbon/proc/diona_handle_temperature(var/datum/dionastats/DS)
 	if (bodytemperature < TEMP_REGEN_STOP)

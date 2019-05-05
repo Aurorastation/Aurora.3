@@ -4,6 +4,7 @@
 	short_name = "jak"
 	name_plural = "Shells"
 	bodytype = "Human"
+	neuter_ipc = FALSE
 
 	blurb = "IPCs with humanlike properties. Their focus is on service, civilian, and medical, but there are no \
 	job restrictions. Created in the late days of 2457, the Shell is a controversial IPC model equipped with a synthskin weave applied over its metal chassis \
@@ -63,7 +64,8 @@
 /datum/species/machine/shell/handle_death(var/mob/living/carbon/human/H)
 	return
 
-/datum/species/machine/shell/equip_survival_gear(var/mob/living/carbon/human/H)
+/datum/species/machine/shell/before_equip(var/mob/living/carbon/human/H)
+	. = ..()
 	check_tag(H, H.client)
 
 /datum/species/machine/industrial
@@ -172,7 +174,8 @@
 	inherent_verbs = list(
 		/mob/living/carbon/human/proc/self_destruct,
 		/mob/living/carbon/human/proc/detonate_flechettes,
-		/mob/living/carbon/human/proc/state_laws
+		/mob/living/carbon/human/proc/state_laws,
+		/mob/living/carbon/human/proc/self_diagnostics
 	)
 
 	has_organ = list(

@@ -84,10 +84,10 @@ obj/machinery/gateway/centerstation/process()
 	if(linked.len != 8)	return
 	if(!powered())		return
 	if(!awaygate)
-		user << "<span class='notice'>Error: No destination found.</span>"
+		to_chat(user, "<span class='notice'>Error: No destination found.</span>")
 		return
 	if(world.time < wait)
-		user << "<span class='notice'>Error: Warpspace triangulation in progress. Estimated time to completion: [round(((wait - world.time) / 10) / 60)] minutes.</span>"
+		to_chat(user, "<span class='notice'>Error: Warpspace triangulation in progress. Estimated time to completion: [round(((wait - world.time) / 10) / 60)] minutes.</span>")
 		return
 
 	for(var/obj/machinery/gateway/G in linked)
@@ -135,7 +135,7 @@ obj/machinery/gateway/centerstation/process()
 
 /obj/machinery/gateway/centerstation/attackby(obj/item/device/W as obj, mob/user as mob)
 	if(W.ismultitool())
-		user << "\black The gate is already calibrated, there is no work for you to do here."
+		to_chat(user, "\black The gate is already calibrated, there is no work for you to do here.")
 		return
 
 /////////////////////////////////////Away////////////////////////
@@ -188,7 +188,7 @@ obj/machinery/gateway/centerstation/process()
 	if(!ready)			return
 	if(linked.len != 8)	return
 	if(!stationgate)
-		user << "<span class='notice'>Error: No destination found.</span>"
+		to_chat(user, "<span class='notice'>Error: No destination found.</span>")
 		return
 
 	for(var/obj/machinery/gateway/G in linked)
@@ -223,7 +223,7 @@ obj/machinery/gateway/centerstation/process()
 	if(istype(M, /mob/living/carbon))
 		for(var/obj/item/weapon/implant/exile/E in M)//Checking that there is an exile implant in the contents
 			if(E.imp_in == M)//Checking that it's actually implanted vs just in their pocket
-				M << "\black The station gate has detected your exile implant and is blocking your entry."
+				to_chat(M, "\black The station gate has detected your exile implant and is blocking your entry.")
 				return
 	M.forceMove(get_step(stationgate.loc, SOUTH))
 	M.set_dir(SOUTH)
@@ -232,9 +232,9 @@ obj/machinery/gateway/centerstation/process()
 /obj/machinery/gateway/centeraway/attackby(obj/item/device/W as obj, mob/user as mob)
 	if(W.ismultitool())
 		if(calibrated)
-			user << "\black The gate is already calibrated, there is no work for you to do here."
+			to_chat(user, "\black The gate is already calibrated, there is no work for you to do here.")
 			return
 		else
-			user << "<span class='notice'><b>Recalibration successful!</b>: \black This gate's systems have been fine tuned.  Travel to this gate will now be on target.</span>"
+			to_chat(user, "<span class='notice'><b>Recalibration successful!</b>: \black This gate's systems have been fine tuned.  Travel to this gate will now be on target.</span>")
 			calibrated = 1
 			return

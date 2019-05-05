@@ -211,12 +211,12 @@ var/datum/controller/subsystem/vote/SSvote
 		if (mode == "crew_transfer")
 			if(config.vote_no_dead && usr && !usr.client.holder)
 				if (isnewplayer(usr))
-					usr << "<span class='warning'>You must be playing or have been playing to start a vote.</span>"
+					to_chat(usr, "<span class='warning'>You must be playing or have been playing to start a vote.</span>")
 					return 0
 				else if (isobserver(usr))
 					var/mob/abstract/observer/O = usr
 					if (O.started_as_observer)
-						usr << "<span class='warning'>You must be playing or have been playing to start a vote.</span>"
+						to_chat(usr, "<span class='warning'>You must be playing or have been playing to start a vote.</span>")
 						return 0
 		if(vote && vote >= 1 && vote <= choices.len)
 			if(current_votes[ckey])
@@ -236,12 +236,12 @@ var/datum/controller/subsystem/vote/SSvote
 			if (vote_type == "crew_transfer")
 				if (config.vote_no_dead && !usr.client.holder)
 					if (isnewplayer(usr))
-						usr << "<span class='warning'>You must be playing or have been playing to start a vote.</span>"
+						to_chat(usr, "<span class='warning'>You must be playing or have been playing to start a vote.</span>")
 						return 0
 					else if (isobserver(usr))
 						var/mob/abstract/observer/O = usr
 						if (O.started_as_observer)
-							usr << "<span class='warning'>You must be playing or have been playing to start a vote.</span>"
+							to_chat(usr, "<span class='warning'>You must be playing or have been playing to start a vote.</span>")
 							return 0
 
 				if (last_transfer_vote)
@@ -277,11 +277,11 @@ var/datum/controller/subsystem/vote/SSvote
 					choices.Add("Initiate Crew Transfer", "Continue The Round")
 				else
 					if (get_security_level() == "red" || get_security_level() == "delta")
-						initiator_key << "The current alert status is too high to call for a crew transfer!"
+						to_chat(initiator_key, "The current alert status is too high to call for a crew transfer!")
 						return 0
 					if(SSticker.current_state <= 2)
 						return 0
-						initiator_key << "The crew transfer button has been disabled!"
+						to_chat(initiator_key, "The crew transfer button has been disabled!")
 					question = "End the shift?"
 					choices.Add("Initiate Crew Transfer", "Continue The Round")
 			if("add_antagonist")
@@ -432,13 +432,14 @@ var/datum/controller/subsystem/vote/SSvote
 				var/admin_number_present = 0
 				var/admin_number_afk = 0
 
-				for (var/client/X in admins)
+				for (var/s in staff)
+					var/client/X = s
 					if (X.holder.rights & R_ADMIN)
 						admin_number_present++
 						if (X.is_afk())
 							admin_number_afk++
 						if (X.prefs.toggles & SOUND_ADMINHELP)
-							X << 'sound/effects/adminhelp.ogg'
+							to_chat(X, 'sound/effects/adminhelp.ogg')
 
 				if ((admin_number_present - admin_number_afk) <= 0)
 					initiate_vote("restart", usr.key)

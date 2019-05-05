@@ -165,7 +165,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 		if(ismob(loc))
 			var/mob/living/M = loc
 			if (!nomessage)
-				M << "<span class='notice'>Your [name] goes out.</span>"
+				to_chat(M, "<span class='notice'>Your [name] goes out.</span>")
 			M.remove_from_mob(src) //un-equip it so the overlays can update
 			M.update_inv_wear_mask(0)
 			M.update_inv_l_hand(0)
@@ -177,7 +177,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 		if(ismob(loc))
 			var/mob/living/M = loc
 			if (!nomessage)
-				M << "<span class='notice'>Your [name] goes out, and you empty the ash.</span>"
+				to_chat(M, "<span class='notice'>Your [name] goes out, and you empty the ash.</span>")
 			lit = 0
 			icon_state = icon_off
 			item_state = icon_off
@@ -248,12 +248,12 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	if(istype(glass)) //you can dip cigarettes into beakers
 		var/transfered = glass.reagents.trans_to_obj(src, chem_volume)
 		if(transfered)	//if reagents were transfered, show the message
-			user << "<span class='notice'>You dip \the [src] into \the [glass].</span>"
+			to_chat(user, "<span class='notice'>You dip \the [src] into \the [glass].</span>")
 		else			//if not, either the beaker was empty, or the cigarette was full
 			if(!glass.reagents.total_volume)
-				user << "<span class='notice'>[glass] is empty.</span>"
+				to_chat(user, "<span class='notice'>[glass] is empty.</span>")
 			else
-				user << "<span class='notice'>[src] is full.</span>"
+				to_chat(user, "<span class='notice'>[src] is full.</span>")
 
 /obj/item/clothing/mask/smokable/cigarette/attack_self(mob/user as mob)
 	if(lit == 1)
@@ -447,10 +447,10 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	if (istype(W, /obj/item/weapon/reagent_containers/food/snacks))
 		var/obj/item/weapon/reagent_containers/food/snacks/grown/G = W
 		if (!G.dry)
-			user << "<span class='notice'>[G] must be dried before you stuff it into [src].</span>"
+			to_chat(user, "<span class='notice'>[G] must be dried before you stuff it into [src].</span>")
 			return
 		if (burn_rate)
-			user << "<span class='notice'>[src] is already packed.</span>"
+			to_chat(user, "<span class='notice'>[src] is already packed.</span>")
 			return
 		if(G.reagents)
 			initial_volume = G.reagents.total_volume
@@ -532,7 +532,10 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 				if(prob(95))
 					user.visible_message("<span class='notice'>After a few attempts, [user] manages to light the [src].</span>")
 				else
-					user << "<span class='warning'>You burn yourself while lighting the lighter.</span>"
+
+					to_chat(user, "<span class='warning'>You burn yourself while lighting the lighter.</span>")
+					if(user.IgniteMob())
+						user.visible_message(span("danger","\The [user] accidentally sets themselves on fire!"))
 					if (user.l_hand == src)
 						user.apply_damage(2,BURN,"l_hand")
 					else
@@ -561,7 +564,9 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 /obj/item/weapon/flame/lighter/attack(mob/living/carbon/M as mob, mob/living/carbon/user as mob)
 	if(!istype(M, /mob))
 		return
-	M.IgniteMob()
+
+	if(lit && M.IgniteMob())
+		M.visible_message(span("danger","\The [user] ignites \the [M] with \the [src]!"))
 
 	if(istype(M.wear_mask, /obj/item/clothing/mask/smokable/cigarette) && user.zone_sel.selecting == "mouth" && lit)
 		var/obj/item/clothing/mask/smokable/cigarette/cig = M.wear_mask
@@ -575,10 +580,20 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	else
 		..()
 
+/obj/item/weapon/flame/lighter/throw_impact(mob/living/carbon/M as mob)
+	. = ..()
+	if(istype(M) && lit && M.IgniteMob())
+		M.visible_message(span("danger","\The [M] is ignited by \the [src]!"))
+
 /obj/item/weapon/flame/lighter/process()
 	var/turf/location = get_turf(src)
 	if(location)
 		location.hotspot_expose(700, 5)
+
+	if(lit && prob(10) && isliving(src.loc))
+		var/mob/living/M = src.loc
+		if(M.IgniteMob())
+			M.visible_message(span("danger","\The [M] is ignited by \the [src]!"))
 
 	if (istype(loc, /obj/item/weapon/storage))//A lighter shouldn't stay lit inside a closed container
 		lit = 0

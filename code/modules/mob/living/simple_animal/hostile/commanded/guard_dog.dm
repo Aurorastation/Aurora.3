@@ -3,7 +3,7 @@
 	short_name = "dog"
 	desc = "A dog trained to listen and obey its owner commands, this one is a german shepherd."
 
-	icon = 'icons/mob/dog.dmi'
+	icon = 'icons/mob/npc/dog.dmi'
 	icon_state = "german"
 	icon_living = "german"
 	icon_dead = "german_dead"
@@ -29,7 +29,7 @@
 	melee_damage_lower = 15
 	melee_damage_upper = 15
 
-	mob_size = 6
+	mob_size = 5
 
 	response_help = "pets"
 	response_harm = "hits"
@@ -38,6 +38,7 @@
 	hunger_enabled = 1 //so you can feed your dog or something
 	autoseek_food = 0
 	beg_for_food = 0
+	max_nutrition = 120
 
 	known_commands = list("stay", "stop", "attack", "follow")
 
@@ -62,7 +63,7 @@
 		. = 1 //already friends, but show success anyways
 
 	else
-		usr << "<span class='notice'>[src] ignores you.</span>"
+		to_chat(usr, "<span class='notice'>[src] ignores you.</span>")
 
 	return
 
@@ -88,7 +89,7 @@
 			return 1
 
 	else
-		usr << "<span class='notice'>[src] already has a name!</span>"
+		to_chat(usr, "<span class='notice'>[src] already has a name!</span>")
 		return
 
 /mob/living/simple_animal/hostile/commanded/dog/amaskan
@@ -125,7 +126,8 @@
 
 	density = 0
 
-	mob_size = 5
+	mob_size = 3.2
+	max_nutrition = 80
 
 	harm_intent_damage = 5
 	melee_damage_lower = 5
