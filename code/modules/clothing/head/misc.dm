@@ -1,5 +1,3 @@
-
-
 /obj/item/clothing/head/centhat
 	name = "\improper CentComm. hat"
 	icon_state = "centcom"
@@ -17,6 +15,7 @@
 	desc = "A nice hair pin."
 	slot_flags = SLOT_HEAD | SLOT_EARS
 	body_parts_covered = 0
+	drop_sound = 'sound/items/drop/ring.ogg'
 
 /obj/item/clothing/head/pin/pink
 	icon_state = "pinkpin"
@@ -173,6 +172,7 @@
 	item_state = "cardborg_h"
 	flags_inv = HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE
 	body_parts_covered = HEAD|FACE|EYES
+	drop_sound = 'sound/items/drop/box.ogg'
 
 /obj/item/clothing/head/justice
 	name = "justice hat"
@@ -463,6 +463,7 @@
 	icon_state = "sunflower_crown"
 	item_state = "sunflower_crown"
 	body_parts_covered = 0
+	drop_sound = 'sound/items/drop/herb.ogg'
 
 /obj/item/clothing/head/lavender_crown
 	name = "harebell crown"
@@ -470,6 +471,7 @@
 	icon_state = "lavender_crown"
 	item_state = "lavender_crown"
 	body_parts_covered = 0
+	drop_sound = 'sound/items/drop/herb.ogg'
 
 /obj/item/clothing/head/poppy_crown
 	name = "poppy crown"
@@ -477,6 +479,7 @@
 	icon_state = "poppy_crown"
 	item_state = "poppy_crown"
 	body_parts_covered = 0
+	drop_sound = 'sound/items/drop/herb.ogg'
 
 //golden beep stuff
 
@@ -486,6 +489,7 @@
 	icon_state = "cobalt_headchains"
 	item_state = "cobalt_headchains"
 	body_parts_covered = 0
+	drop_sound = 'sound/items/drop/accessory.ogg'
 
 /obj/item/clothing/head/headchain/emerald
 	name = "emerald head chains"
@@ -505,6 +509,7 @@
 	icon_state = "cobalt_crest"
 	item_state = "cobalt_crest"
 	body_parts_covered = 0
+	drop_sound = 'sound/items/drop/accessory.ogg'
 
 /obj/item/clothing/head/crest/emerald
 	name = "emerald head crest"
@@ -529,6 +534,7 @@
 	slot_flags = SLOT_HEAD | SLOT_EARS
 	body_parts_covered = 0
 	matter = list(DEFAULT_WALL_MATERIAL = 10)
+	drop_sound = 'sound/items/drop/scrap.ogg'
 
 /obj/item/clothing/head/antenna/straight
 	name = "straight antennae"

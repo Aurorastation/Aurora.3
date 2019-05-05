@@ -2,6 +2,7 @@
 	volume = 40 //just over one and a half cups
 	amount_per_transfer_from_this = 5
 	flags = 0 //starts closed
+	drop_sound = 'sound/items/drop/soda.ogg'
 
 //DRINKS
 

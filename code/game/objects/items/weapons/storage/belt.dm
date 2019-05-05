@@ -11,6 +11,7 @@
 	slot_flags = SLOT_BELT
 	attack_verb = list("whipped", "lashed", "disciplined")
 	sprite_sheets = list("Resomi" = 'icons/mob/species/resomi/belt.dmi')
+	drop_sound = 'sound/items/drop/leather.ogg'
 
 	var/show_above_suit = 0
 

@@ -312,6 +312,7 @@
 	attack_verb = list("attacked", "slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut")
 	hitsound = 'sound/weapons/bladeslice.ogg'
 	contained_sprite = 1
+	drop_sound = 'sound/items/drop/sword.ogg'
 
 /obj/item/weapon/sord
 	name = "\improper SORD"
