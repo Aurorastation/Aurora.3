@@ -322,7 +322,7 @@
 	centcomm_area = 1
 
 /area/shuttle/legion/centcom
-	base_turf = /turf/simulated/floor/tiled/dark
+	base_turf = /turf/unsimulated/floor
 	centcomm_area = 1
 
 /area/shuttle/legion/docked
