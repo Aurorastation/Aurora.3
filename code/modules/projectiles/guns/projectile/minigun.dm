@@ -56,7 +56,7 @@
 		to_chat(user, "<span class='warning'>\The [src] must be worn to deploy \the [gun]!</span>")
 		return
 
-	if(use_check(user))
+	if(use_check_and_message(user))
 		return
 
 	if(!gun)

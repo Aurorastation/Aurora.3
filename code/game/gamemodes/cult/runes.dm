@@ -175,7 +175,7 @@ var/list/sacrificed = list()
 			if(!cult.can_become_antag(target.mind) || jobban_isbanned(target, "cultist"))//putting jobban check here because is_convertable uses mind as argument
 				//waiting_for_input ensures this is only shown once, so they basically auto-resist from here on out. They still need to find a way to get off the freaking rune if they don't want to burn to death, though.
 				to_chat(target, "<span class='cult'>Your blood pulses. Your head throbs. The world goes red. All at once you are aware of a horrible, horrible truth. The veil of reality has been ripped away and in the festering wound left behind something sinister takes root.</span>")
-				to_chat(target, "<span class='danger'>And you were able to force it out of your mind. You now know the truth, there's something horrible out there, stop it and its minions at all costs.</span>")
+				to_chat(target, "<span class='danger'>And you were able to force it out of your mind. Though the memory of that dark, horrible vision will surely haunt you for decades to come.</span>")
 
 			else spawn()
 				var/choice = alert(target,"Do you want to join the cult?","Submit to Nar'Sie","Resist","Submit")

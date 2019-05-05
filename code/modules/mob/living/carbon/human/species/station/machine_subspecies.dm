@@ -4,6 +4,7 @@
 	short_name = "jak"
 	name_plural = "Shells"
 	bodytype = "Human"
+	neuter_ipc = FALSE
 
 	burn_mod = 1.2
 

@@ -577,7 +577,8 @@
 		"crowbar",
 		"screwdriver",
 		"wrench",
-		"wirecutters"
+		"wirecutters",
+		"multitool"
 		)
 	var/current_tool = 1
 
@@ -603,6 +604,9 @@
 
 /obj/item/combitool/iscrowbar()
 	return tools[current_tool] == "crowbar"
+
+/obj/item/combitool/ismultitool()
+	return tools[current_tool] == "multitool"
 
 /obj/item/combitool/proc/update_tool()
 	icon_state = "[initial(icon_state)]-[tools[current_tool]]"

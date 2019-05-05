@@ -81,14 +81,16 @@
 		a_ip = world.address
 
 	var/who
-	for(var/client/C in clients)
+	for(var/c in clients)
+		var/client/C = c
 		if(!who)
 			who = "[C]"
 		else
 			who += ", [C]"
 
 	var/adminwho
-	for(var/client/C in admins)
+	for(var/c in staff)
+		var/client/C = c
 		if(!adminwho)
 			adminwho = "[C]"
 		else

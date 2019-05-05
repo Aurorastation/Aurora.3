@@ -820,7 +820,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/airless,
-/area/mine/explored)
+/area/solar/auxport)
 "bT" = (
 /obj/structure/closet/secure_closet/personal,
 /obj/random/medical,
@@ -1858,7 +1858,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/airless,
-/area/mine/explored)
+/area/solar/auxport)
 "dU" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -1927,7 +1927,7 @@
 	},
 /obj/effect/floor_decal/industrial/warning/corner,
 /turf/simulated/floor/airless,
-/area/mine/explored)
+/area/solar/auxport)
 "ea" = (
 /obj/structure/cable/yellow{
 	d1 = 4;
@@ -1939,7 +1939,7 @@
 	},
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/airless,
-/area/mine/explored)
+/area/solar/auxport)
 "eb" = (
 /obj/effect/floor_decal/industrial/warning/corner{
 	icon_state = "warningcorner";
@@ -1961,7 +1961,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/airless,
-/area/mine/explored)
+/area/solar/auxport)
 "ed" = (
 /obj/effect/floor_decal/industrial/warning{
 	icon_state = "warning";
@@ -1999,7 +1999,7 @@
 	},
 /obj/effect/floor_decal/industrial/warning/corner,
 /turf/simulated/floor/airless,
-/area/mine/explored)
+/area/solar/auxport)
 "eh" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
@@ -2049,7 +2049,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/airless,
-/area/mine/explored)
+/area/solar/auxport)
 "em" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
@@ -2379,7 +2379,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/airless,
-/area/mine/explored)
+/area/solar/auxport)
 "eM" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -2417,7 +2417,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/airless,
-/area/mine/explored)
+/area/solar/auxport)
 "eO" = (
 /obj/structure/cable/yellow{
 	d1 = 2;
@@ -2450,7 +2450,7 @@
 	dir = 6
 	},
 /turf/simulated/floor/airless,
-/area/mine/explored)
+/area/solar/auxport)
 "eQ" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -2818,7 +2818,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/airless,
-/area/mine/explored)
+/area/solar/auxport)
 "fG" = (
 /obj/effect/floor_decal/industrial/warning{
 	icon_state = "warning";
