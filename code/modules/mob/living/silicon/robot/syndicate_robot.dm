@@ -66,7 +66,7 @@
 	icon = 'icons/obj/robot_items.dmi'
 	icon_state = "smg"
 	item_state = "smg"
-	fire_sound = 'sound/weapons/gunshot/gunshot_light.ogg'
+	fire_sound = 'sound/weapons/Gunshot_light.ogg'
 	charge_meter = 0
 	max_shots = 20
 	charge_cost = 100

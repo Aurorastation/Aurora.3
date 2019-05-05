@@ -961,7 +961,6 @@ var/global/list/obj/item/device/pda/PDAs = list()
 			var/mob/M = loc
 			M.put_in_hands(id)
 			to_chat(usr, "<span class='notice'>You remove the ID from the [name].</span>")
-			playsound(loc, 'sound/machines/id_swipe.ogg', 100, 1)
 		else
 			id.forceMove(get_turf(src))
 		id = null
@@ -1189,7 +1188,6 @@ var/global/list/obj/item/device/pda/PDAs = list()
 				if (cartridge.radio)
 					cartridge.radio.hostpda = null
 				to_chat(usr, "<span class='notice'>You remove \the [cartridge] from the [name].</span>")
-				playsound(loc, 'sound/machines/id_swipe.ogg', 100, 1)
 				cartridge = null
 
 /obj/item/device/pda/proc/id_check(mob/user as mob, choice as num)//To check for IDs; 1 for in-pda use, 2 for out of pda use.

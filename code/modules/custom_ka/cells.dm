@@ -14,7 +14,7 @@
 				else
 					to_chat(user,"You pump \the [src.loc].")
 				stored_charge = min(stored_charge + pump_restore,cell_increase)
-				playsound(src,'sound/weapons/kinetic_reload.ogg', 50, 0)
+				playsound(src,'sound/weapons/kenetic_reload.ogg', 50, 0)
 
 		is_pumping = FALSE
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)

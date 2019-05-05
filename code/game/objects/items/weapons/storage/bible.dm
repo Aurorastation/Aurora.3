@@ -7,8 +7,6 @@
 	w_class = 3.0
 	var/mob/affecting = null
 	var/deity_name = "Christ"
-	use_sound = 'sound/bureaucracy/bookopen.ogg'
-	drop_sound = 'sound/bureaucracy/bookclose.ogg'
 
 /obj/item/weapon/storage/bible/booze
 	name = "bible"

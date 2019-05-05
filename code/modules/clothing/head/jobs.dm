@@ -1,3 +1,4 @@
+
 //Bartender
 /obj/item/clothing/head/chefhat
 	name = "chef's hat"

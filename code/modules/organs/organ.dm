@@ -1,7 +1,6 @@
 /obj/item/organ
 	name = "organ"
 	icon = 'icons/obj/surgery.dmi'
-	drop_sound = 'sound/items/drop/flesh.ogg'
 	default_action_type = /datum/action/item_action/organ
 	var/dead_icon
 	var/mob/living/carbon/human/owner = null

@@ -42,7 +42,6 @@
 	if(user.get_inactive_hand() == src && fired_gun)
 		src.cut_overlay(bang_flag)
 		user.visible_message("<span class='notice'>\The [user] pushes the flag back into the barrel of \the [src.name].</span>", "<span class='notice'>You push the flag back into the barrel of \the [src.name].</span>")
-		playsound(src.loc, 'sound/weapons/TargetOff.ogg', 50,1)
 		fired_gun = 0
 	else
 		return ..()

@@ -18,7 +18,7 @@
 	handle_casings = CYCLE_CASINGS
 	load_method = SINGLE_CASING
 	needspin = FALSE
-	fire_sound = 'sound/weapons/gunshot/gunshot_shotgun2.ogg'
+	fire_sound = 'sound/weapons/shotgun.ogg'
 	var/fail_chance = 35
 
 /obj/item/weapon/gun/projectile/shotgun/improvised/special_check(var/mob/living/carbon/human/M)
@@ -149,7 +149,7 @@
 	caliber = ".45"
 	allowed_magazines = list(/obj/item/ammo_magazine/c45m)
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
-	fire_sound = 'sound/weapons/gunshot/gunshot_light.ogg'
+	fire_sound = 'sound/weapons/Gunshot_light.ogg'
 	load_method = MAGAZINE
 	jam_chance = 20
 	needspin = FALSE

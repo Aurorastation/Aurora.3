@@ -17,7 +17,7 @@
 	fire_delay = 0 	//delay after shooting before the gun can be used again
 	burst_delay = 2	//delay between shots, if firing in bursts
 	move_delay = 1
-	fire_sound = 'sound/weapons/kinetic_accel.ogg'
+	fire_sound = 'sound/weapons/Kenetic_accel.ogg'
 	fire_sound_text = "blast"
 	recoil = 0
 	silenced = 0
@@ -522,7 +522,7 @@
 	cell_increase = 0
 	capacity_increase = 0
 	mod_limit_increase = 0
-	var/fire_sound = 'sound/weapons/kinetic_accel.ogg'
+	var/fire_sound = 'sound/weapons/Kenetic_accel.ogg'
 	var/projectile_type = /obj/item/projectile/kinetic
 	origin_tech = list(TECH_MATERIAL = 2,TECH_ENGINEERING = 2,TECH_MAGNET = 2)
 

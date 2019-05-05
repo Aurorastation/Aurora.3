@@ -7,7 +7,7 @@
 	caliber = ".45"
 	accuracy = 1
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
-	fire_sound = 'sound/weapons/gunshot/gunshot_light.ogg'
+	fire_sound = 'sound/weapons/Gunshot_light.ogg'
 	load_method = MAGAZINE
 
 /obj/item/weapon/gun/projectile/colt/update_icon()
@@ -47,7 +47,7 @@
 	caliber = ".45"
 	accuracy = 1
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
-	fire_sound = 'sound/weapons/gunshot/gunshot_pistol.ogg'
+	fire_sound = 'sound/weapons/gunshot_pistol.ogg'
 	load_method = MAGAZINE
 
 /obj/item/weapon/gun/projectile/sec/update_icon()
@@ -103,7 +103,7 @@
 	caliber = "10mm"
 	accuracy = 1
 	origin_tech = list(TECH_COMBAT = 3, TECH_MATERIAL = 2)
-	fire_sound = 'sound/weapons/gunshot/gunshot_pistol.ogg'
+	fire_sound = 'sound/weapons/gunshot_pistol.ogg'
 	load_method = MAGAZINE
 	sel_mode = 1
 
@@ -195,7 +195,7 @@
 	caliber = "9mm"
 	silenced = 0
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2, TECH_ILLEGAL = 2)
-	fire_sound = 'sound/weapons/gunshot/gunshot_pistol.ogg'
+	fire_sound = 'sound/weapons/gunshot_pistol.ogg'
 	load_method = MAGAZINE
 	magazine_type = /obj/item/ammo_magazine/mc9mm
 	allowed_magazines = list(/obj/item/ammo_magazine/mc9mm)
@@ -292,7 +292,7 @@
 	ammo_type = /obj/item/ammo_casing/c10mm
 	max_shells = 5
 	origin_tech = list(TECH_COMBAT = 1, TECH_MATERIAL = 1)
-	fire_sound = 'sound/weapons/gunshot/gunshot_pistol.ogg'
+	fire_sound = 'sound/weapons/gunshot_pistol.ogg'
 	load_method = SINGLE_CASING|SPEEDLOADER
 
 /obj/item/weapon/gun/projectile/leyon/load_ammo(var/obj/item/A, mob/user)

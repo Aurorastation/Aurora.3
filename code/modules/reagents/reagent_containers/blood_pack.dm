@@ -23,7 +23,6 @@
 	var/blood_type = null
 	var/vampire_marks = null
 	var/being_feed = FALSE
-	drop_sound = 'sound/items/drop/food.ogg'
 
 /obj/item/weapon/reagent_containers/blood/Initialize()
 	. = ..()

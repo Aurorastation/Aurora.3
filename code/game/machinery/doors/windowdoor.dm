@@ -175,7 +175,7 @@
 		if(emag_act(10, user))
 			spark(src.loc, 5)
 			playsound(src.loc, "sparks", 50, 1)
-			playsound(src.loc, 'sound/weapons/blade.ogg', 50, 1)
+			playsound(src.loc, 'sound/weapons/blade1.ogg', 50, 1)
 			visible_message("<span class='warning'>The glass door was sliced open by [user]!</span>")
 		return 1
 

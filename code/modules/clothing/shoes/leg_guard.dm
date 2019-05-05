@@ -7,7 +7,6 @@
 	armor = list(melee = 50, bullet = 15, laser = 50, energy = 10, bomb = 25, bio = 0, rad = 0)
 	siemens_coefficient = 0.5
 	force = 3
-	drop_sound = 'sound/items/drop/boots.ogg'
 
 /obj/item/clothing/shoes/leg_guard/mob_can_equip(var/mob/living/carbon/human/H, slot, disable_warning = 0)
 	if(..()) //This will only run if no other problems occured when equiping.

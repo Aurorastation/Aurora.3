@@ -7,6 +7,7 @@
 	on_icon = "fryer_on"
 	off_icon = "fryer_off"
 	food_color = "#FFAD33"
+	cooked_sound = 'sound/machines/ding.ogg'
 	appliancetype = FRYER
 	active_power_usage = 12 KILOWATTS
 
@@ -25,7 +26,7 @@
 
 	var/datum/reagents/oil
 	var/optimal_oil = 9000//90 litres of cooking oil
-	var/datum/looping_sound/deep_fryer/fry_loop
+
 
 /obj/machinery/appliance/cooker/fryer/examine(var/mob/user)
 	if (..())//no need to duplicate adjacency check
@@ -41,7 +42,6 @@
 		//Sometimes the fryer will start with much less than full oil, significantly impacting efficiency until filled
 		variance = rand()*0.5
 	oil.add_reagent("cornoil", optimal_oil*(1 - variance))
-	fry_loop = new(list(src), FALSE)
 
 /obj/machinery/appliance/cooker/fryer/heat_up()
 	if (..())
@@ -81,10 +81,8 @@
 /obj/machinery/appliance/cooker/fryer/update_icon()
 	if (cooking)
 		icon_state = on_icon
-		fry_loop.start()
 	else
 		icon_state = off_icon
-		fry_loop.stop()
 	..()
 
 

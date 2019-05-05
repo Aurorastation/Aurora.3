@@ -137,7 +137,6 @@
 
 /obj/structure/bed/chair/office/Move()
 	. = ..()
-	playsound(src, 'sound/effects/roll.ogg', 100, 1)
 	if(buckled_mob)
 		var/mob/living/occupant = buckled_mob
 		occupant.buckled = null

@@ -12,7 +12,6 @@
 	throw_range = 20
 	flags = OPENCONTAINER
 	var/key_data
-	drop_sound = 'sound/misc/slip.ogg'
 
 /obj/item/weapon/soap/nanotrasen
 	desc = "A NanoTrasen-brand bar of soap. Smells of phoron."

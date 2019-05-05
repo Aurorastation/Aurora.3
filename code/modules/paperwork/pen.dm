@@ -22,7 +22,7 @@
 	throw_range = 15
 	matter = list(DEFAULT_WALL_MATERIAL = 10)
 	var/colour = "black"	//what colour the ink is!
-	drop_sound = 'sound/items/drop/accessory.ogg'
+
 
 /obj/item/weapon/pen/blue
 	desc = "An instrument for writing or drawing with ink. This one is in blue. Ironically used mostly by white-collar workers."

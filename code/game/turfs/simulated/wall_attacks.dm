@@ -149,7 +149,7 @@
 			spark(EB, 5)
 			to_chat(user, "<span class='notice'>You slash \the [src] with \the [EB]; the thermite ignites!</span>")
 			playsound(src, "sparks", 50, 1)
-			playsound(src, 'sound/weapons/blade.ogg', 50, 1)
+			playsound(src, 'sound/weapons/blade1.ogg', 50, 1)
 
 			thermitemelt(user)
 			return

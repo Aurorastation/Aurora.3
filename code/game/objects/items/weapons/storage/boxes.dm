@@ -26,10 +26,9 @@
 	desc = "It's just an ordinary box."
 	icon_state = "box"
 	item_state = "syringe_kit"
+	use_sound = 'sound/items/storage/box.ogg'
 	var/foldable = /obj/item/stack/material/cardboard	// BubbleWrap - if set, can be folded (when empty) into a sheet of cardboard
 	var/maxHealth = 20	//health is already defined
-	use_sound = 'sound/items/storage/box.ogg'
-	drop_sound = 'sound/items/drop/box.ogg'
 
 /obj/item/weapon/storage/box/Initialize()
 	. = ..()
@@ -101,11 +100,6 @@
 	playsound(src.loc, 'sound/items/storage/boxfold.ogg', 30, 1)
 	new src.foldable(get_turf(src))
 	qdel(src)
-
-/obj/item/weapon/storage/backpack/attackby(obj/item/weapon/W as obj, mob/user as mob)
-	if (src.use_sound)
-		playsound(src.loc, src.use_sound, 50, 1, -5)
-	..()
 
 /obj/item/weapon/storage/box/survival
 	autodrobe_no_remove = 1
@@ -799,18 +793,14 @@
 
 /obj/item/weapon/storage/box/matches/attackby(obj/item/weapon/flame/match/W as obj, mob/user as mob)
 	if(istype(W) && !W.lit && !W.burnt)
-		if(prob(25))
-			playsound(src.loc, 'sound/items/cigs_lighters/matchstick_lit.ogg', 25, 0, -1)
-			user.visible_message("<span class='notice'>[user] manages to light the match on the matchbox.</span>")
-			W.lit = 1
-			W.damtype = "burn"
-			W.icon_state = "match_lit"
-			START_PROCESSING(SSprocessing, W)
-		else
-			playsound(src.loc, 'sound/items/cigs_lighters/matchstick_hit.ogg', 25, 0, -1)
+		W.lit = 1
+		W.damtype = "burn"
+		W.icon_state = "match_lit"
+		START_PROCESSING(SSprocessing, W)
+		playsound(src.loc, 'sound/items/match.ogg', 60, 1, -4)
+		user.visible_message("<span class='notice'>[user] strikes the match on the matchbox.</span>")
 	W.update_icon()
 	return
-
 
 /obj/item/weapon/storage/box/autoinjectors
 	name = "box of empty injectors"

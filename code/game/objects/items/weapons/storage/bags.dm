@@ -24,7 +24,6 @@
 	use_to_pickup = 1
 	slot_flags = SLOT_BELT
 	var/use_deferred = TRUE
-	drop_sound = 'sound/items/drop/backpack.ogg'
 
 // -----------------------------
 //          Trash bag
@@ -41,7 +40,6 @@
 	max_storage_space = 56
 	can_hold = null // any
 	cant_hold = list(/obj/item/weapon/disk/nuclear)
-	drop_sound = 'sound/items/drop/wrapper.ogg'
 
 /obj/item/weapon/storage/bag/trash/update_icon()
 	if(contents.len == 0)
@@ -94,7 +92,6 @@
 	max_w_class = 2
 	can_hold = null // any
 	cant_hold = list(/obj/item/weapon/disk/nuclear)
-	drop_sound = 'sound/items/drop/wrapper.ogg'
 
 // -----------------------------
 //        Mining Satchel

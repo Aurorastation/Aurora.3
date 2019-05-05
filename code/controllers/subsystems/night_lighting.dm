@@ -53,12 +53,12 @@ var/datum/controller/subsystem/nightlight/SSnightlight
 		if (!isactive)
 			activate()
 			if (announce)
-				command_announcement.Announce("Good evening. The time is [worldtime2text()]. \n\nThe automated systems aboard the [station_name()] will now dim lighting in the public hallways in order to accommodate the circadian rhythm of some species.", "Automated Lighting System", new_sound = 'sound/misc/announcements/nightlight.ogg')
+				command_announcement.Announce("Good evening. The time is [worldtime2text()]. \n\nThe automated systems aboard the [station_name()] will now dim lighting in the public hallways in order to accommodate the circadian rhythm of some species.", "Automated Lighting System", new_sound = 'sound/misc/nightlight.ogg')
 	else
 		if (isactive)
 			deactivate()
 			if (announce)
-				command_announcement.Announce("Good morning. The time is [worldtime2text()]. \n\nThe automated systems aboard the [station_name()] will now return the public hallway lighting levels to normal.", "Automated Lighting System", new_sound = 'sound/misc/announcements/nightlight.ogg')
+				command_announcement.Announce("Good morning. The time is [worldtime2text()]. \n\nThe automated systems aboard the [station_name()] will now return the public hallway lighting levels to normal.", "Automated Lighting System", new_sound = 'sound/misc/nightlight.ogg')
 
 // 'whitelisted' areas are areas that have nightmode explicitly enabled
 

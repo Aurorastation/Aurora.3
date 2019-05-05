@@ -10,7 +10,7 @@
 	cost_increase = 1
 	cell_increase = 0
 	capacity_increase = -1
-	fire_sound = 'sound/weapons/kinetic_accel.ogg'
+	fire_sound = 'sound/weapons/Kenetic_accel.ogg'
 	projectile_type = /obj/item/projectile/kinetic
 	origin_tech = list(TECH_MATERIAL = 1,TECH_ENGINEERING = 1,TECH_MAGNET = 1, TECH_PHORON = 2)
 
@@ -26,7 +26,7 @@
 	cost_increase = 1
 	cell_increase = 0
 	capacity_increase = -2
-	fire_sound = 'sound/weapons/kinetic_accel.ogg'
+	fire_sound = 'sound/weapons/Kenetic_accel.ogg'
 	projectile_type = /obj/item/projectile/kinetic
 	origin_tech = list(TECH_MATERIAL = 1,TECH_ENGINEERING = 1,TECH_MAGNET = 3, TECH_PHORON = 2)
 
@@ -108,7 +108,7 @@
 	cell_increase = 0
 	capacity_increase = -2
 	aoe_increase = -100
-	fire_sound = 'sound/weapons/kinetic_accel.ogg'
+	fire_sound = 'sound/weapons/Kenetic_accel.ogg'
 	projectile_type = /obj/item/projectile/kinetic
 	origin_tech = list(TECH_MATERIAL = 1,TECH_ENGINEERING = 1,TECH_MAGNET = 3, TECH_PHORON = 2)
 

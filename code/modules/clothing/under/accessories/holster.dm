@@ -4,8 +4,8 @@
 	icon_state = "holster"
 	slot = "utility"
 	var/obj/item/holstered = null
-	var/sound_in = 'sound/weapons/holster/holsterin.ogg'
-	var/sound_out = 'sound/weapons/holster/holsterout.ogg'
+	var/sound_in = 'sound/items/holster/holsterin.ogg'
+	var/sound_out = 'sound/items/holster/holsterout.ogg'
 
 /obj/item/clothing/accessory/holster/proc/holster(var/obj/item/I, var/mob/living/user)
 	if(holstered && istype(user))
@@ -126,23 +126,23 @@
 
 /obj/item/clothing/accessory/holster/armpit
 	name = "armpit holster"
-	desc = "A worn-out handgun holster. Mostly seen in cheesy cop flicks, used to keep the actor's face in the shot."
+	desc = "A worn-out handgun holster. Perfect for concealed carry"
 	icon_state = "holster"
 
 /obj/item/clothing/accessory/holster/waist
 	name = "waist holster"
-	desc = "A handgun holster, made of expensive leather. Can possibly be concealed under a shirt, albeit a little archaic."
+	desc = "A handgun holster. Made of expensive leather."
 	icon_state = "holster"
 	overlay_state = "holster_low"
 
 /obj/item/clothing/accessory/holster/hip
 	name = "hip holster"
-	desc = "<i>No one dared to ask his business, no one dared to make a slip. The stranger there among them had a big iron on his hip.</i>"
+	desc = "A handgun holster slung low on the hip, draw pardner!"
 	icon_state = "holster_hip"
 
 /obj/item/clothing/accessory/holster/thigh
 	name = "thigh holster"
 	desc = "A drop leg holster made of a durable synthetic fiber."
 	icon_state = "holster_thigh"
-	sound_in = 'sound/weapons/holster/tactiholsterin.ogg'
-	sound_out = 'sound/weapons/holster/tactiholsterout.ogg'
+	sound_in = 'sound/items/holster/tactiholsterin.ogg'
+	sound_out = 'sound/items/holster/tactiholsterout.ogg'

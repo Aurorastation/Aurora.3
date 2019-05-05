@@ -25,7 +25,7 @@
 		if(user.a_intent == I_HURT && !shaken)
 			shaken = 1
 			user.visible_message("[user] shakes \the [src]!", "You shake \the [src]!")
-			playsound(loc,'sound/items/soda_shaking.ogg', rand(10,50), 1)
+			playsound(loc,'sound/items/Shaking_Soda_Can.ogg', rand(10,50), 1)
 			return
 		if(shaken)
 			boom(user)
@@ -39,7 +39,7 @@
 
 /obj/item/weapon/reagent_containers/food/drinks/proc/boom(mob/user as mob)
 	user.visible_message("<span class='danger'>\The [src] explodes all over [user] as they open it!</span>","<span class='danger'>\The [src] explodes all over you as you open it!</span>","You can hear a soda can explode.")
-	playsound(loc,'sound/items/soda_burst.ogg', rand(20,50), 1)
+	playsound(loc,'sound/items/Soda_Burst.ogg', rand(20,50), 1)
 	QDEL_NULL(reagents)
 	flags |= OPENCONTAINER
 	shaken = 0

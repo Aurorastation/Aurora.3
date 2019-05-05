@@ -156,7 +156,6 @@
 		var/label = href_list["dispense"]
 		if(cartridges[label] && container && container.is_open_container())
 			var/obj/item/weapon/reagent_containers/chem_disp_cartridge/C = cartridges[label]
-			playsound(src.loc, 'sound/machines/reagent_dispense.ogg', 25, 1)
 			C.reagents.trans_to(container, amount)
 
 	else if(href_list["ejectBeaker"])

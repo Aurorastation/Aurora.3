@@ -18,9 +18,7 @@
 
 /obj/item/weapon/reagent_containers/food/drinks/bottle/Initialize()
 	. = ..()
-	if(isGlass)
-		unacidable = 1
-		drop_sound = 'sound/items/drop/bottle.ogg'
+	if(isGlass) unacidable = 1
 
 /obj/item/weapon/reagent_containers/food/drinks/bottle/Destroy()
 	if(rag)

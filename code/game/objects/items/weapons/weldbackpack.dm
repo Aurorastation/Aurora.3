@@ -6,7 +6,6 @@
 	icon_state = "welderpack"
 	w_class = 4.0
 	var/max_fuel = 350
-	drop_sound = 'sound/items/drop/backpack.ogg'
 
 /obj/item/weapon/weldpack/New()
 	var/datum/reagents/R = new/datum/reagents(max_fuel) //Lotsa refills
