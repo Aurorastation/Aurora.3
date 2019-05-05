@@ -1,0 +1,7 @@
+author: Alberyk
+
+delete-after: True
+
+changes: 
+  - rscdel: "Removed the radio sound that played when speaking."
+  - rscdel: "Reverted the annoucement sounds to the old ones."
