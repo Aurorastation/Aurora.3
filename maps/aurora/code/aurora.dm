@@ -81,6 +81,4 @@
 /datum/map/aurora/finalize_load()
 	// generate an empty space Z
 	world.maxz++
-	// generate an empty space Z for the space ruin
-	world.maxz++
 	create_space_ruin(1,1,9)

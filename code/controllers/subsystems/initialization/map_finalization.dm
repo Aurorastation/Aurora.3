@@ -82,7 +82,6 @@
 	var/map_directory = "maps/space_ruins/"
 	var/list/files = flist(map_directory)
 	var/start_time = world.time
-	var/static/dmm_suite/maploader = new
 
 	if(length(files) <= 0)
 		log_ss("map_finalization","There are no space ruin map.")
@@ -94,18 +93,19 @@
 		files -= chosen_ruin
 		log_ss("map_finalization","ALERT: [chosen_ruin] is not a .dmm file! Skipping!")
 
-	var/map_file = file("[map_directory][chosen_ruin]")
+	var/map_file = "[map_directory][chosen_ruin]"
 
-	if(isfile(map_file))
+	if(fexists(map_file))
 		log_ss("map_finalization","Loading space ruin '[chosen_ruin]' at coordinates [X], [Y], [Z].")
-		maploader.load_map(map_file,X,Y,Z)
+		var/datum/map_template/T = new(map_file, "Space Ruin")
+		T.load_new_z()
 
 	else
 		log_ss("map_finalization","ERROR: Something weird happened with the file: [chosen_ruin].")
 
 	log_ss("map_finalization","Loaded [chosen_ruin] space ruin in [(world.time - start_time)/10] seconds.")
 	create_space_ruin_report("chosen_ruin")
-	qdel(maploader)
+
 
 /proc/create_space_ruin_report(var/ruin_name)
 

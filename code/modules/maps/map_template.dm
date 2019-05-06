@@ -29,6 +29,10 @@
 	                   locate(bounds[MAP_MAXX], bounds[MAP_MAXY], bounds[MAP_MAXZ])))
 		var/turf/B = L
 		atoms += B
+
+		if (TURF_IS_DYNAMICALLY_LIT_UNSAFE(B) && !B.lighting_overlay)
+			new /atom/movable/lighting_overlay(B)
+
 		for(var/A in B)
 			atoms += A
 			if(istype(A,/obj/structure/cable))
@@ -65,7 +69,7 @@
 	var/list/bounds = maploader.load_map(file(mappath), T.x, T.y, T.z, cropMap=TRUE)
 	if(!bounds)
 		return
-	
+
 	//initialize things that are normally initialized after map load
 	initTemplateBounds(bounds)
 
