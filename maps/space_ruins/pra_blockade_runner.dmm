@@ -193,7 +193,7 @@
 	icon_state = "rwindow";
 	dir = 1
 	},
-/turf/simulated/floor/holofloor/grass,
+/turf/simulated/floor/grass,
 /area/derelict/ship)
 "aC" = (
 /obj/effect/floor_decal/corner/black/diagonal,
@@ -220,7 +220,7 @@
 	dir = 4
 	},
 /obj/structure/window/reinforced,
-/turf/simulated/floor/holofloor/grass,
+/turf/simulated/floor/grass,
 /area/derelict/ship)
 "aG" = (
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -234,7 +234,7 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/command,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/holofloor/wood,
+/turf/simulated/floor/wood,
 /area/derelict/ship)
 "aH" = (
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -242,7 +242,7 @@
 	dir = 1
 	},
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/holofloor/wood,
+/turf/simulated/floor/wood,
 /area/derelict/ship)
 "aI" = (
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -254,7 +254,7 @@
 /obj/item/weapon/melee/whip,
 /obj/random/spacecash,
 /obj/random/spacecash,
-/turf/simulated/floor/holofloor/wood,
+/turf/simulated/floor/wood,
 /area/derelict/ship)
 "aJ" = (
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -263,7 +263,7 @@
 	},
 /obj/machinery/suit_cycler/captain,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/holofloor/wood,
+/turf/simulated/floor/wood,
 /area/derelict/ship)
 "aK" = (
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -272,7 +272,7 @@
 	},
 /obj/structure/computerframe,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/holofloor/wood,
+/turf/simulated/floor/wood,
 /area/derelict/ship)
 "aL" = (
 /obj/effect/floor_decal/corner/black/diagonal,
@@ -292,7 +292,7 @@
 	},
 /obj/structure/bed/chair/comfy/beige,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/holofloor/wood,
+/turf/simulated/floor/wood,
 /area/derelict/ship)
 "aO" = (
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -302,7 +302,7 @@
 /obj/structure/table/wood/gamblingtable,
 /obj/item/weapon/deck/cards,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/holofloor/wood,
+/turf/simulated/floor/wood,
 /area/derelict/ship)
 "aP" = (
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -313,7 +313,7 @@
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/holofloor/wood,
+/turf/simulated/floor/wood,
 /area/derelict/ship)
 "aQ" = (
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -325,16 +325,16 @@
 /obj/item/clothing/suit/storage/tajaran,
 /obj/item/clothing/suit/storage/tajaran/cloak/fancy,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/holofloor/wood,
+/turf/simulated/floor/wood,
 /area/derelict/ship)
 "aR" = (
 /obj/random/junk,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/holofloor/wood,
+/turf/simulated/floor/wood,
 /area/derelict/ship)
 "aS" = (
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/holofloor/wood,
+/turf/simulated/floor/wood,
 /area/derelict/ship)
 "aT" = (
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -343,7 +343,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/generic,
-/turf/simulated/floor/holofloor/wood,
+/turf/simulated/floor/wood,
 /area/derelict/ship)
 "aU" = (
 /obj/effect/floor_decal/corner/black/diagonal,
@@ -369,7 +369,7 @@
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/holofloor/wood,
+/turf/simulated/floor/wood,
 /area/derelict/ship)
 "aY" = (
 /obj/structure/bed/chair/comfy/blue{
@@ -377,7 +377,7 @@
 	dir = 1
 	},
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/holofloor/wood,
+/turf/simulated/floor/wood,
 /area/derelict/ship)
 "aZ" = (
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -385,7 +385,7 @@
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/holofloor/wood,
+/turf/simulated/floor/wood,
 /area/derelict/ship)
 "ba" = (
 /obj/structure/flora/pottedplant/random,
@@ -403,25 +403,25 @@
 /obj/structure/table/wood,
 /obj/item/clothing/glasses/sunglasses/big,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/holofloor/wood,
+/turf/simulated/floor/wood,
 /area/derelict/ship)
 "bc" = (
 /obj/structure/table/wood,
 /obj/item/weapon/paper_bin,
 /obj/item/weapon/pen,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/holofloor/wood,
+/turf/simulated/floor/wood,
 /area/derelict/ship)
 "bd" = (
 /obj/effect/floor_decal/spline/fancy/wood,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/generic,
-/turf/simulated/floor/holofloor/wood,
+/turf/simulated/floor/wood,
 /area/derelict/ship)
 "be" = (
 /obj/effect/floor_decal/spline/fancy/wood,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/holofloor/wood,
+/turf/simulated/floor/wood,
 /area/derelict/ship)
 "bf" = (
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -432,7 +432,7 @@
 /obj/structure/curtain/open/bed,
 /obj/item/weapon/bedsheet/rd,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/holofloor/wood,
+/turf/simulated/floor/wood,
 /area/derelict/ship)
 "bg" = (
 /turf/simulated/wall/diona,
@@ -460,7 +460,7 @@
 	},
 /obj/effect/decal/cleanable/generic,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/holofloor/wood,
+/turf/simulated/floor/wood,
 /area/derelict/ship)
 "bm" = (
 /obj/machinery/door/firedoor,
@@ -497,7 +497,7 @@
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock,
-/turf/simulated/floor/holofloor/wood,
+/turf/simulated/floor/wood,
 /area/derelict/ship)
 "bs" = (
 /turf/simulated/shuttle/floor{
@@ -516,13 +516,13 @@
 	},
 /obj/structure/flora/pottedplant/random,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/holofloor/wood,
+/turf/simulated/floor/wood,
 /area/derelict/ship)
 "bv" = (
 /obj/effect/floor_decal/spline/fancy/wood,
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/media/jukebox,
-/turf/simulated/floor/holofloor/wood,
+/turf/simulated/floor/wood,
 /area/derelict/ship)
 "bw" = (
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -548,7 +548,7 @@
 /obj/item/weapon/reagent_containers/food/snacks/lasagna,
 /obj/item/weapon/reagent_containers/food/snacks/lasagna,
 /obj/item/weapon/reagent_containers/food/snacks/lasagna,
-/turf/simulated/floor/holofloor/wood,
+/turf/simulated/floor/wood,
 /area/derelict/ship)
 "bx" = (
 /obj/machinery/firealarm/north,
@@ -629,7 +629,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/holofloor/wood,
+/turf/simulated/floor/wood,
 /area/derelict/ship)
 "bL" = (
 /obj/effect/floor_decal/corner/black/diagonal,
@@ -730,7 +730,7 @@
 /obj/item/weapon/gun/projectile/pirate,
 /obj/effect/decal/cleanable/blood,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/holofloor/wood,
+/turf/simulated/floor/wood,
 /area/derelict/ship)
 "cd" = (
 /obj/effect/floor_decal/corner/black/diagonal,
@@ -770,7 +770,7 @@
 	dir = 6
 	},
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/holofloor/wood,
+/turf/simulated/floor/wood,
 /area/derelict/ship)
 "cj" = (
 /turf/simulated/floor/asteroid/ash,
@@ -802,7 +802,7 @@
 "co" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/generic,
-/turf/simulated/floor/holofloor/wood,
+/turf/simulated/floor/wood,
 /area/derelict/ship)
 "cp" = (
 /obj/item/clothing/under/dress/tajaran,
@@ -810,7 +810,7 @@
 /obj/effect/decal/cleanable/blood,
 /obj/random/arcade,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/holofloor/wood,
+/turf/simulated/floor/wood,
 /area/derelict/ship)
 "cq" = (
 /turf/simulated/floor/asteroid/ash,
@@ -819,12 +819,12 @@
 /obj/item/clothing/under/tajaran,
 /obj/effect/decal/cleanable/blood,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/holofloor/wood,
+/turf/simulated/floor/wood,
 /area/derelict/ship)
 "ct" = (
 /obj/effect/decal/remains,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/holofloor/wood,
+/turf/simulated/floor/wood,
 /area/derelict/ship)
 "cu" = (
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -833,7 +833,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/generic,
-/turf/simulated/floor/holofloor/wood,
+/turf/simulated/floor/wood,
 /area/derelict/ship)
 "cv" = (
 /obj/machinery/door/firedoor,
@@ -868,7 +868,7 @@
 /obj/effect/floor_decal/spline/fancy/wood,
 /obj/item/clothing/suit/storage/tajaran/cloak,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/holofloor/wood,
+/turf/simulated/floor/wood,
 /area/derelict/ship)
 "cD" = (
 /obj/effect/floor_decal/spline/fancy/wood,
@@ -878,7 +878,7 @@
 	},
 /obj/effect/decal/cleanable/vomit,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/holofloor/wood,
+/turf/simulated/floor/wood,
 /area/derelict/ship)
 "cE" = (
 /obj/machinery/door/airlock,
@@ -944,7 +944,7 @@
 "cO" = (
 /obj/effect/decal/cleanable/blood,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/holofloor/wood,
+/turf/simulated/floor/wood,
 /area/derelict/ship)
 "cQ" = (
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -957,7 +957,7 @@
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock,
-/turf/simulated/floor/holofloor/wood,
+/turf/simulated/floor/wood,
 /area/derelict/ship)
 "cR" = (
 /obj/structure/filingcabinet/medical,
@@ -971,13 +971,13 @@
 /area/derelict/ship)
 "cT" = (
 /obj/effect/floor_decal/spline/fancy/wood,
-/turf/simulated/floor/holofloor/wood,
+/turf/simulated/floor/wood,
 /area/derelict/ship)
 "cU" = (
 /obj/effect/floor_decal/spline/fancy/wood,
 /obj/effect/decal/cleanable/dirt,
 /obj/random/junk,
-/turf/simulated/floor/holofloor/wood,
+/turf/simulated/floor/wood,
 /area/derelict/ship)
 "cV" = (
 /obj/effect/floor_decal/spline/fancy/wood,
@@ -987,7 +987,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/coatrack,
-/turf/simulated/floor/holofloor/wood,
+/turf/simulated/floor/wood,
 /area/derelict/ship)
 "cW" = (
 /obj/structure/barricade,

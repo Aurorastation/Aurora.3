@@ -1139,7 +1139,7 @@
 /area/derelict/ship)
 "cW" = (
 /obj/machinery/door/airlock/command,
-/turf/simulated/floor/holofloor/wood,
+/turf/simulated/floor/wood,
 /area/derelict/ship)
 "cX" = (
 /obj/effect/decal/cleanable/cobweb,
@@ -1169,10 +1169,10 @@
 /area/derelict/ship)
 "dc" = (
 /obj/structure/closet/sol/navy_dress,
-/turf/simulated/floor/holofloor/wood,
+/turf/simulated/floor/wood,
 /area/derelict/ship)
 "dd" = (
-/turf/simulated/floor/holofloor/wood,
+/turf/simulated/floor/wood,
 /area/derelict/ship)
 "de" = (
 /obj/structure/table/wood,
@@ -1180,12 +1180,12 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/turf/simulated/floor/holofloor/wood,
+/turf/simulated/floor/wood,
 /area/derelict/ship)
 "df" = (
 /obj/structure/table/wood,
 /obj/item/weapon/material/sword/sabre,
-/turf/simulated/floor/holofloor/wood,
+/turf/simulated/floor/wood,
 /area/derelict/ship)
 "dg" = (
 /obj/structure/grille,
@@ -1230,21 +1230,21 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/turf/simulated/floor/holofloor/wood,
+/turf/simulated/floor/wood,
 /area/derelict/ship)
 "dl" = (
 /obj/structure/table/wood,
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/turf/simulated/floor/holofloor/wood,
+/turf/simulated/floor/wood,
 /area/derelict/ship)
 "dm" = (
 /obj/structure/bed/chair/office/bridge{
 	icon_state = "bridge";
 	dir = 1
 	},
-/turf/simulated/floor/holofloor/wood,
+/turf/simulated/floor/wood,
 /area/derelict/ship)
 "dn" = (
 /obj/machinery/door/airlock/command,
@@ -1263,7 +1263,7 @@
 /area/template_noop)
 "dq" = (
 /obj/structure/window/reinforced,
-/turf/simulated/floor/holofloor/wood,
+/turf/simulated/floor/wood,
 /area/derelict/ship)
 "dr" = (
 /obj/machinery/deployable/barrier,
@@ -1292,11 +1292,11 @@
 "dw" = (
 /obj/structure/table/wood,
 /obj/item/weapon/storage/box/checkers_kit,
-/turf/simulated/floor/holofloor/wood,
+/turf/simulated/floor/wood,
 /area/derelict/ship)
 "dx" = (
 /obj/machinery/vending/boozeomat,
-/turf/simulated/floor/holofloor/wood,
+/turf/simulated/floor/wood,
 /area/derelict/ship)
 "dy" = (
 /obj/machinery/space_heater,
@@ -1307,7 +1307,7 @@
 	icon_state = "rwindow";
 	dir = 1
 	},
-/turf/simulated/floor/holofloor/wood,
+/turf/simulated/floor/wood,
 /area/derelict/ship)
 "dA" = (
 /obj/effect/decal/cleanable/cobweb2,
@@ -1330,20 +1330,20 @@
 /obj/structure/bed/chair/comfy/red{
 	dir = 4
 	},
-/turf/simulated/floor/holofloor/wood,
+/turf/simulated/floor/wood,
 /area/derelict/ship)
 "dF" = (
 /obj/structure/table/wood,
-/turf/simulated/floor/holofloor/wood,
+/turf/simulated/floor/wood,
 /area/derelict/ship)
 "dG" = (
 /obj/structure/closet/wardrobe/suit,
-/turf/simulated/floor/holofloor/wood,
+/turf/simulated/floor/wood,
 /area/derelict/ship)
 "dH" = (
 /obj/structure/bed/padded,
 /obj/structure/curtain/open/bed,
-/turf/simulated/floor/holofloor/wood,
+/turf/simulated/floor/wood,
 /area/derelict/ship)
 "dI" = (
 /obj/structure/grille,
@@ -1399,7 +1399,7 @@
 "dQ" = (
 /obj/structure/curtain/open/bed,
 /obj/structure/bed/padded,
-/turf/simulated/floor/holofloor/wood,
+/turf/simulated/floor/wood,
 /area/derelict/ship)
 "dR" = (
 /obj/machinery/door/airlock/command,
@@ -1483,7 +1483,7 @@
 "ed" = (
 /obj/structure/table/wood,
 /obj/item/device/flashlight/lamp,
-/turf/simulated/floor/holofloor/wood,
+/turf/simulated/floor/wood,
 /area/derelict/ship)
 "ee" = (
 /obj/structure/closet/firecloset,
@@ -1528,13 +1528,13 @@
 /obj/item/weapon/paper_bin,
 /obj/item/weapon/pen,
 /obj/random/pda_cart,
-/turf/simulated/floor/holofloor/wood,
+/turf/simulated/floor/wood,
 /area/derelict/ship)
 "em" = (
 /obj/structure/bed/chair/comfy/brown{
 	dir = 1
 	},
-/turf/simulated/floor/holofloor/wood,
+/turf/simulated/floor/wood,
 /area/derelict/ship)
 "en" = (
 /obj/structure/table/wood,
@@ -1599,17 +1599,17 @@
 /area/derelict/ship)
 "eA" = (
 /obj/machinery/photocopier,
-/turf/simulated/floor/holofloor/wood,
+/turf/simulated/floor/wood,
 /area/derelict/ship)
 "eB" = (
 /obj/machinery/light{
 	dir = 1
 	},
-/turf/simulated/floor/holofloor/wood,
+/turf/simulated/floor/wood,
 /area/derelict/ship)
 "eC" = (
 /obj/structure/flora/pottedplant/random,
-/turf/simulated/floor/holofloor/wood,
+/turf/simulated/floor/wood,
 /area/derelict/ship)
 "eD" = (
 /obj/structure/bed/chair/comfy,
@@ -1647,7 +1647,7 @@
 /area/derelict/ship)
 "eH" = (
 /obj/structure/bed/chair/office/light,
-/turf/simulated/floor/holofloor/wood,
+/turf/simulated/floor/wood,
 /area/derelict/ship)
 "eI" = (
 /obj/structure/table/wood,
@@ -1725,7 +1725,7 @@
 	icon_state = "officechair_white";
 	dir = 4
 	},
-/turf/simulated/floor/holofloor/wood,
+/turf/simulated/floor/wood,
 /area/derelict/ship)
 "eU" = (
 /obj/structure/table/wood,
@@ -1733,14 +1733,14 @@
 /obj/item/weapon/pen,
 /obj/item/weapon/pen,
 /obj/item/weapon/pen,
-/turf/simulated/floor/holofloor/wood,
+/turf/simulated/floor/wood,
 /area/derelict/ship)
 "eV" = (
 /obj/structure/table/wood,
 /obj/item/weapon/paper_bin,
 /obj/item/weapon/pen,
 /obj/item/weapon/pen,
-/turf/simulated/floor/holofloor/wood,
+/turf/simulated/floor/wood,
 /area/derelict/ship)
 "eW" = (
 /obj/structure/girder/reinforced,
@@ -1767,7 +1767,7 @@
 /obj/structure/bed/chair/office/light{
 	dir = 1
 	},
-/turf/simulated/floor/holofloor/wood,
+/turf/simulated/floor/wood,
 /area/derelict/ship)
 "fc" = (
 /obj/structure/window/reinforced{
@@ -1794,7 +1794,7 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/turf/simulated/floor/holofloor/wood,
+/turf/simulated/floor/wood,
 /area/derelict/ship)
 "ff" = (
 /obj/random/junk,
@@ -1817,7 +1817,7 @@
 "fi" = (
 /obj/structure/table/wood,
 /obj/machinery/recharger,
-/turf/simulated/floor/holofloor/wood,
+/turf/simulated/floor/wood,
 /area/derelict/ship)
 "fj" = (
 /obj/structure/table/wood,
@@ -1831,7 +1831,7 @@
 "fl" = (
 /obj/structure/table/wood,
 /obj/machinery/photocopier/faxmachine,
-/turf/simulated/floor/holofloor/wood,
+/turf/simulated/floor/wood,
 /area/derelict/ship)
 "fm" = (
 /obj/structure/window/reinforced,
@@ -5485,7 +5485,7 @@
 /obj/item/weapon/paper_bin,
 /obj/item/weapon/pen,
 /obj/item/weapon/gun/projectile/pistol/sol,
-/turf/simulated/floor/holofloor/wood,
+/turf/simulated/floor/wood,
 /area/derelict/ship)
 "pm" = (
 /obj/item/clothing/suit/space/void/sol,

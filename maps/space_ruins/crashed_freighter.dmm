@@ -231,7 +231,7 @@
 /turf/simulated/floor,
 /area/derelict/ship)
 "aO" = (
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "aP" = (
 /obj/effect/floor_decal/asteroid,
@@ -386,21 +386,21 @@
 	pixel_y = 0
 	},
 /obj/machinery/door/firedoor,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "bg" = (
 /obj/effect/floor_decal/industrial/outline,
 /obj/structure/closet/gimmick/tacticool,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "bh" = (
 /obj/effect/floor_decal/industrial/outline,
 /obj/structure/closet/secure_closet/miner,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "bi" = (
 /obj/effect/floor_decal/industrial/outline,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "bj" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -409,24 +409,24 @@
 	},
 /obj/machinery/door/blast/regular/open,
 /obj/random/junk,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "bk" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
 /obj/machinery/door/blast/regular/open,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "bl" = (
 /obj/effect/floor_decal/industrial/outline,
 /obj/structure/closet/crate/secure/loot,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "bm" = (
 /obj/effect/floor_decal/industrial/outline,
 /obj/structure/bookcase,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "bn" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -434,37 +434,37 @@
 	dir = 8
 	},
 /obj/machinery/door/blast/regular/open,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "bo" = (
 /obj/effect/floor_decal/industrial/outline,
 /obj/structure/closet/crate/loot,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "bp" = (
 /obj/effect/floor_decal/industrial/outline,
 /obj/structure/closet/gimmick/russian,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "bq" = (
 /obj/effect/floor_decal/industrial/outline,
 /obj/machinery/papershredder,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "br" = (
 /obj/effect/floor_decal/industrial/outline,
 /obj/machinery/recharge_station,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "bs" = (
 /obj/effect/floor_decal/industrial/outline,
 /mob/living/simple_animal/hostile/diyaab,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "bt" = (
 /obj/effect/floor_decal/industrial/outline,
 /obj/machinery/robotic_fabricator,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "bu" = (
 /obj/structure/grille,
@@ -490,17 +490,17 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "bw" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "bx" = (
 /obj/machinery/door/blast/regular/open,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "by" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -510,31 +510,31 @@
 	dir = 4;
 	status = 2
 	},
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "bz" = (
 /obj/effect/floor_decal/industrial/outline,
 /obj/machinery/shield_gen,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "bA" = (
 /obj/effect/floor_decal/industrial/outline,
 /obj/machinery/shield_gen/external,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "bB" = (
 /obj/effect/floor_decal/industrial/outline,
 /obj/machinery/shield_capacitor,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "bC" = (
 /obj/effect/floor_decal/industrial/outline,
 /obj/machinery/artifact,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "bD" = (
 /mob/living/simple_animal/hostile/diyaab,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "bE" = (
 /obj/machinery/door/airlock/external{
@@ -545,52 +545,52 @@
 	req_access = list(13)
 	},
 /obj/machinery/door/firedoor,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "bF" = (
 /obj/machinery/door/airlock/external,
 /obj/machinery/door/firedoor,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "bG" = (
 /mob/living/simple_animal/hostile/mimic,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "bH" = (
 /obj/random/junk,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "bI" = (
 /obj/effect/floor_decal/industrial/outline,
 /obj/machinery/shieldwallgen,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "bJ" = (
 /obj/effect/floor_decal/industrial/outline,
 /obj/machinery/light,
 /mob/living/simple_animal/hostile/diyaab,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "bK" = (
 /obj/effect/floor_decal/industrial/outline,
 /obj/random/junk,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "bL" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/machinery/light{
 	dir = 8
 	},
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "bM" = (
 /obj/effect/floor_decal/industrial/warning,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "bN" = (
 /obj/machinery/door/blast/regular/open,
 /obj/random/junk,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "bO" = (
 /obj/effect/floor_decal/industrial/warning,
@@ -598,32 +598,32 @@
 	dir = 4;
 	status = 2
 	},
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "bP" = (
 /obj/effect/floor_decal/industrial/outline,
 /obj/machinery/shieldgen,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "bQ" = (
 /obj/effect/floor_decal/industrial/outline,
 /obj/machinery/light,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "bR" = (
 /obj/effect/floor_decal/industrial/outline,
 /obj/structure/closet/syndicate/suit,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "bS" = (
 /obj/effect/floor_decal/industrial/outline,
 /obj/structure/closet/secure_closet/engineering_welding,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "bT" = (
 /obj/effect/floor_decal/industrial/outline,
 /obj/structure/closet/secure_closet/engineering_electrical,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "bU" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -631,17 +631,17 @@
 	},
 /obj/machinery/door/blast/regular/open,
 /obj/random/junk,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "bV" = (
 /obj/effect/floor_decal/industrial/outline,
 /obj/structure/closet/radiation,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "bW" = (
 /obj/effect/floor_decal/industrial/outline,
 /obj/structure/closet/jcloset,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "bX" = (
 /obj/effect/floor_decal/industrial/hatch/red,
@@ -652,47 +652,47 @@
 	icon_state = "1-2";
 	pixel_y = 0
 	},
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "bY" = (
 /obj/effect/floor_decal/industrial/outline,
 /obj/structure/closet/sol/marine,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "bZ" = (
 /obj/effect/floor_decal/industrial/outline,
 /obj/machinery/space_heater,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "ca" = (
 /obj/effect/floor_decal/industrial/outline,
 /obj/machinery/shower,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "cb" = (
 /obj/effect/floor_decal/industrial/outline,
 /obj/item/bodybag,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "cc" = (
 /obj/effect/floor_decal/industrial/outline,
 /obj/structure/bookcase{
 	name = "bookcase (Adult)"
 	},
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "cd" = (
 /mob/living/simple_animal/slime{
 	name = "dot"
 	},
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "ce" = (
 /obj/effect/floor_decal/industrial/outline,
 /obj/machinery/shower{
 	dir = 1
 	},
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "cf" = (
 /obj/effect/floor_decal/industrial/outline,
@@ -700,17 +700,17 @@
 	dir = 1
 	},
 /obj/machinery/light,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "cg" = (
 /obj/effect/floor_decal/industrial/outline,
 /obj/machinery/giga_drill,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "ch" = (
 /obj/effect/floor_decal/industrial/outline,
 /obj/structure/closet/sol/navy,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "ci" = (
 /turf/template_noop,
@@ -766,34 +766,34 @@
 "cn" = (
 /obj/effect/floor_decal/industrial/outline,
 /obj/machinery/replicator,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "co" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
 /obj/random/junk,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "cp" = (
 /obj/effect/floor_decal/industrial/outline,
 /obj/machinery/recharger,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "cq" = (
 /obj/machinery/shieldwallgen,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "cr" = (
 /obj/effect/floor_decal/industrial/outline,
 /obj/machinery/radiocarbon_spectrometer,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "cs" = (
 /obj/effect/floor_decal/industrial/outline,
 /obj/machinery/shieldgen,
 /obj/machinery/light,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "ct" = (
 /obj/effect/floor_decal/industrial/outline,
@@ -802,7 +802,7 @@
 	name = "Racing Hermes";
 	step_in = 3
 	},
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "cu" = (
 /obj/structure/cable{
@@ -819,11 +819,11 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "cw" = (
 /obj/machinery/door/firedoor,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "cx" = (
 /obj/structure/cable{
@@ -840,33 +840,33 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "cz" = (
 /obj/structure/closet/crate/secure/loot,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "cA" = (
 /obj/structure/barricade,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "cB" = (
 /obj/structure/closet/crate/loot,
 /obj/effect/floor_decal/industrial/outline,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "cC" = (
 /obj/structure/table/rack,
 /obj/effect/floor_decal/industrial/outline,
 /obj/random/loot,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "cD" = (
 /obj/structure/table/rack,
 /obj/effect/floor_decal/industrial/outline,
 /obj/random/glowstick,
 /obj/random/medical,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "cE" = (
 /obj/structure/cable{
@@ -927,7 +927,7 @@
 /obj/effect/floor_decal/industrial/outline,
 /obj/random/hoodie,
 /obj/random/medical,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "cK" = (
 /obj/structure/sign/fire,
@@ -958,7 +958,7 @@
 /obj/effect/floor_decal/industrial/outline,
 /obj/random/firstaid,
 /obj/random/medical,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "cO" = (
 /obj/machinery/power/terminal{
@@ -1190,7 +1190,7 @@
 /obj/effect/floor_decal/industrial/outline,
 /obj/structure/table/rack,
 /obj/item/weapon/storage/toolbox/emergency,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "di" = (
 /obj/machinery/conveyor{
@@ -1218,7 +1218,7 @@
 /obj/effect/floor_decal/industrial/outline,
 /obj/random/plushie,
 /obj/random/powercell,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "dm" = (
 /obj/structure/table/rack,
@@ -1231,13 +1231,13 @@
 	spawn_nothing_percentage = 50;
 	spawn_object = /obj/item/weapon/deck
 	},
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "dn" = (
 /obj/effect/floor_decal/industrial/outline,
 /obj/structure/table/rack,
 /obj/item/weapon/storage/toolbox/electrical,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "do" = (
 /obj/machinery/conveyor{
@@ -1263,7 +1263,7 @@
 	health = 45;
 	name = "damaged APLU"
 	},
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "dr" = (
 /obj/machinery/conveyor{
@@ -1320,7 +1320,7 @@
 /obj/structure/table/rack,
 /obj/effect/floor_decal/industrial/outline,
 /obj/random/pda_cart,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "dw" = (
 /obj/structure/table/rack,
@@ -1333,16 +1333,16 @@
 	spawn_nothing_percentage = 50;
 	spawn_object = /obj/item/weapon/reagent_containers/food/drinks/cans/cola
 	},
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "dx" = (
 /obj/machinery/light,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "dy" = (
 /obj/random/junk,
 /obj/machinery/light,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "dz" = (
 /obj/structure/cable{
@@ -1352,7 +1352,7 @@
 	pixel_y = 0
 	},
 /obj/machinery/door/airlock/external,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "dA" = (
 /obj/structure/window/reinforced{
@@ -1493,12 +1493,12 @@
 "dN" = (
 /obj/effect/floor_decal/industrial/outline,
 /obj/structure/closet/firecloset/full,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "dO" = (
 /obj/effect/floor_decal/industrial/outline,
 /obj/effect/decal/mecha_wreckage/seraph,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "dP" = (
 /obj/structure/window/reinforced{
@@ -1518,49 +1518,49 @@
 "dQ" = (
 /obj/effect/floor_decal/industrial/outline,
 /obj/structure/closet/crate/solar,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "dR" = (
 /obj/effect/floor_decal/industrial/outline,
 /obj/structure/table/rack,
 /obj/random/melee,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "dS" = (
 /obj/effect/floor_decal/industrial/outline,
 /obj/structure/device/piano,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "dT" = (
 /obj/effect/floor_decal/industrial/outline,
 /obj/structure/dispenser/oxygen,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "dU" = (
 /obj/effect/floor_decal/industrial/outline,
 /obj/structure/closet/crate/secure/phoron,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "dV" = (
 /obj/effect/floor_decal/industrial/outline,
 /obj/structure/reagent_dispensers/watertank,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "dW" = (
 /obj/effect/floor_decal/industrial/outline,
 /obj/structure/closet/crate/medical,
 /obj/machinery/light,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "dX" = (
 /obj/effect/floor_decal/industrial/outline,
 /obj/structure/closet/crate/medical,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "dY" = (
 /obj/effect/floor_decal/industrial/outline,
 /obj/random/toolbox,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "dZ" = (
 /obj/effect/floor_decal/industrial/outline,
@@ -1568,39 +1568,39 @@
 /obj/random/loot,
 /obj/random/loot,
 /obj/machinery/light,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "ea" = (
 /obj/effect/floor_decal/industrial/outline,
 /obj/structure/table/rack,
 /obj/random/loot,
 /obj/random/loot,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "eb" = (
 /obj/effect/floor_decal/industrial/outline,
 /obj/structure/reagent_dispensers/xuizikeg,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "ec" = (
 /obj/effect/floor_decal/industrial/outline,
 /obj/structure/closet/crate/internals,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "ed" = (
 /obj/effect/floor_decal/industrial/outline,
 /obj/effect/decal/mecha_wreckage/ripley,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "ee" = (
 /obj/effect/floor_decal/industrial/outline,
 /obj/structure/closet/boxinggloves,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "ef" = (
 /obj/effect/floor_decal/industrial/outline,
 /obj/structure/closet/crate/large,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "eg" = (
 /obj/structure/window/reinforced{
@@ -1620,22 +1620,22 @@
 "eh" = (
 /obj/effect/floor_decal/industrial/outline,
 /obj/structure/closet/crate/secure/bin,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "ei" = (
 /obj/effect/floor_decal/industrial/outline,
 /obj/structure/closet/crate/hydroponics,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "ej" = (
 /obj/effect/floor_decal/industrial/outline,
 /obj/structure/closet/crate/bin,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "ek" = (
 /obj/effect/floor_decal/industrial/outline,
 /obj/structure/closet/athletic_mixed,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "el" = (
 /obj/structure/grille,
@@ -1656,15 +1656,15 @@
 "em" = (
 /obj/effect/floor_decal/industrial/outline,
 /obj/structure/closet/crate/critter,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "en" = (
 /mob/living/simple_animal/mouse,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "eo" = (
 /mob/living/simple_animal/hostile/carp/shark,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "ep" = (
 /obj/effect/floor_decal/industrial/outline,
@@ -1672,7 +1672,7 @@
 /obj/random/arcade,
 /obj/random/arcade,
 /obj/random/arcade,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "eq" = (
 /obj/effect/floor_decal/industrial/outline,
@@ -1681,26 +1681,26 @@
 /obj/random/arcade,
 /obj/random/arcade,
 /obj/machinery/light,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "er" = (
 /obj/effect/floor_decal/industrial/outline,
 /obj/structure/table/rack,
 /obj/item/toy/nanotrasenballoon,
 /obj/random/powercell,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "es" = (
 /obj/effect/floor_decal/industrial/outline,
 /obj/structure/table/rack,
 /obj/random/action_figure,
 /obj/random/powercell,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "et" = (
 /obj/effect/floor_decal/industrial/outline,
 /obj/structure/closet/crate/secure/weapon,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "eu" = (
 /obj/structure/grille,
@@ -1775,11 +1775,11 @@
 /area/derelict/ship)
 "eA" = (
 /obj/effect/decal/cleanable/blood,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "eB" = (
 /obj/effect/blob/core,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "eC" = (
 /obj/structure/window/reinforced,
@@ -1853,7 +1853,7 @@
 /turf/simulated/floor,
 /area/derelict/ship)
 "eH" = (
-/turf/simulated/floor/holofloor/grass,
+/turf/simulated/floor/grass,
 /area/derelict/ship)
 "eI" = (
 /obj/structure/window/reinforced{
@@ -1896,17 +1896,17 @@
 /area/derelict/ship)
 "eL" = (
 /obj/effect/spider/cocoon,
-/turf/simulated/floor/holofloor/grass,
+/turf/simulated/floor/grass,
 /area/derelict/ship)
 "eM" = (
 /obj/effect/floor_decal/industrial/outline,
 /obj/structure/table/rack,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "eN" = (
 /obj/effect/floor_decal/industrial/outline,
 /obj/structure/closet/crate/extinguisher_catridges,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "eO" = (
 /mob/living/simple_animal/hostile/giant_spider,
@@ -1914,19 +1914,19 @@
 /area/derelict/ship)
 "eP" = (
 /obj/effect/spider/stickyweb,
-/turf/simulated/floor/holofloor/grass,
+/turf/simulated/floor/grass,
 /area/derelict/ship)
 "eQ" = (
 /obj/effect/spider/stickyweb,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "eR" = (
 /mob/living/simple_animal/hostile/giant_spider/hunter,
-/turf/simulated/floor/holofloor/grass,
+/turf/simulated/floor/grass,
 /area/derelict/ship)
 "eS" = (
 /mob/living/simple_animal/hostile/giant_spider,
-/turf/simulated/floor/holofloor/grass,
+/turf/simulated/floor/grass,
 /area/derelict/ship)
 "eT" = (
 /obj/effect/spider/stickyweb,
@@ -1936,11 +1936,11 @@
 "eU" = (
 /obj/effect/spider/stickyweb,
 /obj/effect/spider/stickyweb,
-/turf/simulated/floor/holofloor/grass,
+/turf/simulated/floor/grass,
 /area/derelict/ship)
 "eV" = (
 /mob/living/simple_animal/hostile/giant_spider/nurse,
-/turf/simulated/floor/holofloor/grass,
+/turf/simulated/floor/grass,
 /area/derelict/ship)
 "eW" = (
 /obj/structure/grille,
@@ -1964,7 +1964,7 @@
 "eY" = (
 /obj/effect/floor_decal/industrial/outline,
 /obj/structure/closet/crate/trashcart,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "eZ" = (
 /obj/structure/grille,
@@ -1984,7 +1984,7 @@
 /area/derelict/ship)
 "fa" = (
 /obj/effect/decal/remains,
-/turf/simulated/floor/holofloor/grass,
+/turf/simulated/floor/grass,
 /area/derelict/ship)
 "fb" = (
 /mob/living/simple_animal/hostile/giant_spider/hunter,
@@ -2005,27 +2005,27 @@
 "fd" = (
 /obj/effect/floor_decal/industrial/outline,
 /obj/machinery/biogenerator,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "fe" = (
 /obj/effect/floor_decal/industrial/outline,
 /obj/structure/reagent_dispensers/fueltank,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "ff" = (
 /obj/effect/floor_decal/industrial/outline,
 /obj/machinery/anti_bluespace,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "fg" = (
 /obj/effect/floor_decal/industrial/outline,
 /obj/machinery/bookbinder,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "fh" = (
 /obj/effect/floor_decal/industrial/outline,
 /obj/machinery/autolathe,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "fi" = (
 /obj/structure/grille,
@@ -2052,20 +2052,20 @@
 "fl" = (
 /obj/effect/floor_decal/industrial/outline,
 /obj/random/ammo,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "fm" = (
 /obj/effect/floor_decal/industrial/outline,
 /obj/structure/table/rack,
 /obj/random/booze,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "fn" = (
 /obj/effect/floor_decal/industrial/outline,
 /obj/structure/table/rack,
 /obj/random/glowstick,
 /obj/random/booze,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "fo" = (
 /obj/effect/floor_decal/industrial/outline,
@@ -2073,18 +2073,18 @@
 /obj/random/glowstick,
 /obj/random/booze,
 /obj/machinery/light,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "fp" = (
 /obj/effect/floor_decal/industrial/outline,
 /obj/structure/table/rack,
 /obj/item/sarcophagus_key,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "fq" = (
 /obj/effect/floor_decal/industrial/outline,
 /obj/machinery/honey_extractor,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "fr" = (
 /obj/structure/grille,
@@ -2106,14 +2106,14 @@
 	icon_state = "rwindow";
 	dir = 1
 	},
-/turf/simulated/floor/holofloor/wood,
+/turf/simulated/floor/wood,
 /area/derelict/ship)
 "ft" = (
 /obj/structure/window/reinforced{
 	icon_state = "rwindow";
 	dir = 1
 	},
-/turf/simulated/floor/holofloor/wood,
+/turf/simulated/floor/wood,
 /area/derelict/ship)
 "fu" = (
 /obj/structure/window/reinforced{
@@ -2123,7 +2123,7 @@
 	icon_state = "rwindow";
 	dir = 1
 	},
-/turf/simulated/floor/holofloor/wood,
+/turf/simulated/floor/wood,
 /area/derelict/ship)
 "fv" = (
 /turf/simulated/floor/tiled,
@@ -2142,42 +2142,42 @@
 /area/derelict/ship)
 "fx" = (
 /obj/structure/flora/ausbushes/lavendergrass,
-/turf/simulated/floor/holofloor/grass,
+/turf/simulated/floor/grass,
 /area/derelict/ship)
 "fy" = (
 /obj/structure/window/reinforced{
 	icon_state = "rwindow";
 	dir = 8
 	},
-/turf/simulated/floor/holofloor/wood,
+/turf/simulated/floor/wood,
 /area/derelict/ship)
 "fz" = (
 /obj/structure/flora/pottedplant/random,
-/turf/simulated/floor/holofloor/wood,
+/turf/simulated/floor/wood,
 /area/derelict/ship)
 "fA" = (
-/turf/simulated/floor/holofloor/wood,
+/turf/simulated/floor/wood,
 /area/derelict/ship)
 "fB" = (
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/turf/simulated/floor/holofloor/wood,
+/turf/simulated/floor/wood,
 /area/derelict/ship)
 "fC" = (
 /obj/effect/floor_decal/industrial/outline,
 /obj/structure/closet/crate/rcd,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "fD" = (
 /obj/effect/floor_decal/industrial/outline,
 /obj/structure/closet/coffin,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "fE" = (
 /obj/effect/spider/stickyweb,
 /mob/living/simple_animal/hostile/giant_spider,
-/turf/simulated/floor/holofloor/grass,
+/turf/simulated/floor/grass,
 /area/derelict/ship)
 "fF" = (
 /obj/effect/decal/remains,
@@ -2186,7 +2186,7 @@
 "fG" = (
 /obj/structure/flora/grass/brown,
 /obj/structure/flora/ausbushes/lavendergrass,
-/turf/simulated/floor/holofloor/grass,
+/turf/simulated/floor/grass,
 /area/derelict/ship)
 "fH" = (
 /obj/structure/window/reinforced{
@@ -2194,7 +2194,7 @@
 	dir = 8
 	},
 /obj/structure/window/reinforced,
-/turf/simulated/floor/holofloor/wood,
+/turf/simulated/floor/wood,
 /area/derelict/ship)
 "fI" = (
 /obj/structure/window/reinforced{
@@ -2211,12 +2211,12 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/turf/simulated/floor/holofloor/wood,
+/turf/simulated/floor/wood,
 /area/derelict/ship)
 "fK" = (
 /obj/effect/floor_decal/industrial/outline,
 /obj/structure/closet/crate/secure/gear,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "fL" = (
 /obj/effect/decal/cleanable/blood,
@@ -2226,16 +2226,16 @@
 /obj/structure/flora/ausbushes/lavendergrass,
 /obj/effect/spider/stickyweb,
 /obj/effect/spider/stickyweb,
-/turf/simulated/floor/holofloor/grass,
+/turf/simulated/floor/grass,
 /area/derelict/ship)
 "fN" = (
 /obj/structure/flora/grass/brown,
-/turf/simulated/floor/holofloor/grass,
+/turf/simulated/floor/grass,
 /area/derelict/ship)
 "fO" = (
 /obj/structure/flora/ausbushes/pointybush,
 /obj/effect/spider/stickyweb,
-/turf/simulated/floor/holofloor/grass,
+/turf/simulated/floor/grass,
 /area/derelict/ship)
 "fP" = (
 /obj/structure/window/reinforced{
@@ -2268,7 +2268,7 @@
 	icon_state = "1-2";
 	pixel_y = 0
 	},
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "fR" = (
 /obj/structure/window/reinforced{
@@ -2336,7 +2336,7 @@
 	dir = 8
 	},
 /obj/structure/lattice/catwalk/indoor,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "fY" = (
 /obj/structure/window/reinforced{
@@ -2344,7 +2344,7 @@
 	dir = 1
 	},
 /obj/structure/lattice/catwalk/indoor,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "fZ" = (
 /obj/structure/window/reinforced{
@@ -2355,7 +2355,7 @@
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "ga" = (
 /obj/structure/grille,
@@ -2414,12 +2414,12 @@
 "gf" = (
 /obj/effect/decal/cleanable/blood,
 /obj/effect/spider/stickyweb,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "gg" = (
 /obj/structure/flora/ausbushes/lavendergrass,
 /obj/effect/spider/stickyweb,
-/turf/simulated/floor/holofloor/grass,
+/turf/simulated/floor/grass,
 /area/derelict/ship)
 "gh" = (
 /obj/structure/window/reinforced,
@@ -2437,18 +2437,18 @@
 	locked = 1;
 	req_access = list(13)
 	},
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "gj" = (
 /obj/machinery/conveyor{
 	dir = 4;
 	id = "packageExternal"
 	},
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "gk" = (
 /obj/structure/lattice/catwalk/indoor,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "gl" = (
 /obj/structure/window/reinforced,
@@ -2457,7 +2457,7 @@
 	dir = 1
 	},
 /obj/structure/lattice/catwalk/indoor,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "gm" = (
 /obj/machinery/door/airlock/external{
@@ -2468,12 +2468,12 @@
 	req_access = list(13)
 	},
 /obj/machinery/door/blast/shutters,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "gn" = (
 /obj/effect/spider/stickyweb,
 /mob/living/simple_animal/hostile/giant_spider/nurse,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "go" = (
 /obj/structure/window/reinforced{
@@ -2498,12 +2498,12 @@
 	dir = 8
 	},
 /obj/structure/lattice/catwalk/indoor,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "gs" = (
 /obj/structure/window/reinforced,
 /obj/structure/lattice/catwalk/indoor,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "gt" = (
 /obj/structure/window/reinforced,
@@ -2511,7 +2511,7 @@
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "gu" = (
 /obj/structure/grille,
@@ -2551,7 +2551,7 @@
 "gx" = (
 /obj/structure/flora/grass/green,
 /obj/structure/flora/ausbushes/lavendergrass,
-/turf/simulated/floor/holofloor/grass,
+/turf/simulated/floor/grass,
 /area/derelict/ship)
 "gy" = (
 /obj/structure/window/reinforced,
@@ -2583,7 +2583,7 @@
 	icon_state = "1-2";
 	pixel_y = 0
 	},
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "gA" = (
 /obj/structure/window/reinforced,
@@ -2604,19 +2604,19 @@
 /area/derelict/ship)
 "gB" = (
 /obj/structure/flora/grass/green,
-/turf/simulated/floor/holofloor/grass,
+/turf/simulated/floor/grass,
 /area/derelict/ship)
 "gC" = (
 /obj/structure/banner,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "gD" = (
 /obj/structure/flora/ausbushes/sunnybush,
-/turf/simulated/floor/holofloor/grass,
+/turf/simulated/floor/grass,
 /area/derelict/ship)
 "gE" = (
 /obj/structure/window/reinforced,
-/turf/simulated/floor/holofloor/wood,
+/turf/simulated/floor/wood,
 /area/derelict/ship)
 "gF" = (
 /obj/effect/spider/stickyweb,
@@ -2625,44 +2625,44 @@
 "gG" = (
 /obj/structure/flora/grass/green,
 /obj/effect/spider/stickyweb,
-/turf/simulated/floor/holofloor/grass,
+/turf/simulated/floor/grass,
 /area/derelict/ship)
 "gH" = (
 /obj/structure/flora/ausbushes/pointybush,
-/turf/simulated/floor/holofloor/grass,
+/turf/simulated/floor/grass,
 /area/derelict/ship)
 "gI" = (
 /obj/effect/spider/stickyweb,
 /obj/effect/spider/cocoon,
-/turf/simulated/floor/holofloor/grass,
+/turf/simulated/floor/grass,
 /area/derelict/ship)
 "gJ" = (
 /obj/structure/flora/grass/brown,
 /obj/effect/spider/stickyweb,
-/turf/simulated/floor/holofloor/grass,
+/turf/simulated/floor/grass,
 /area/derelict/ship)
 "gK" = (
 /obj/structure/flora/ausbushes/leafybush,
-/turf/simulated/floor/holofloor/grass,
+/turf/simulated/floor/grass,
 /area/derelict/ship)
 "gL" = (
 /obj/structure/flora/grass/both,
-/turf/simulated/floor/holofloor/grass,
+/turf/simulated/floor/grass,
 /area/derelict/ship)
 "gM" = (
 /obj/structure/flora/grass/green,
 /obj/effect/spider/stickyweb,
 /obj/effect/spider/stickyweb,
-/turf/simulated/floor/holofloor/grass,
+/turf/simulated/floor/grass,
 /area/derelict/ship)
 "gN" = (
 /obj/structure/flora/ausbushes/brflowers,
 /obj/structure/flora/ausbushes/lavendergrass,
-/turf/simulated/floor/holofloor/grass,
+/turf/simulated/floor/grass,
 /area/derelict/ship)
 "gO" = (
 /obj/structure/flora/ausbushes/genericbush,
-/turf/simulated/floor/holofloor/grass,
+/turf/simulated/floor/grass,
 /area/derelict/ship)
 "gP" = (
 /obj/effect/decal/cleanable/blood,
@@ -2672,36 +2672,36 @@
 "gQ" = (
 /obj/effect/decal/remains,
 /mob/living/simple_animal/hostile/giant_spider/nurse,
-/turf/simulated/floor/holofloor/grass,
+/turf/simulated/floor/grass,
 /area/derelict/ship)
 "gR" = (
 /obj/effect/spider/stickyweb,
 /obj/effect/spider/cocoon,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "gS" = (
 /obj/effect/spider/stickyweb,
 /obj/effect/spider/stickyweb,
 /obj/effect/spider/stickyweb,
-/turf/simulated/floor/holofloor/grass,
+/turf/simulated/floor/grass,
 /area/derelict/ship)
 "gT" = (
 /obj/structure/flora/grass/green,
 /obj/effect/spider/stickyweb,
 /mob/living/simple_animal/hostile/giant_spider/hunter,
-/turf/simulated/floor/holofloor/grass,
+/turf/simulated/floor/grass,
 /area/derelict/ship)
 "gU" = (
 /obj/effect/spider/stickyweb,
 /obj/effect/spider/stickyweb,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "gV" = (
 /obj/structure/flora/ausbushes/lavendergrass,
 /obj/effect/spider/stickyweb,
 /obj/effect/spider/stickyweb,
 /obj/effect/spider/stickyweb,
-/turf/simulated/floor/holofloor/grass,
+/turf/simulated/floor/grass,
 /area/derelict/ship)
 "gW" = (
 /obj/effect/spider/stickyweb,
@@ -2732,12 +2732,12 @@
 /obj/effect/spider/stickyweb,
 /obj/effect/spider/stickyweb,
 /obj/effect/spider/stickyweb,
-/turf/simulated/floor/holofloor/grass,
+/turf/simulated/floor/grass,
 /area/derelict/ship)
 "ha" = (
 /obj/structure/flora/ausbushes/leafybush,
 /obj/effect/spider/stickyweb,
-/turf/simulated/floor/holofloor/grass,
+/turf/simulated/floor/grass,
 /area/derelict/ship)
 "hb" = (
 /obj/structure/flora/ausbushes/lavendergrass,
@@ -2745,7 +2745,7 @@
 /obj/effect/spider/stickyweb,
 /obj/effect/spider/stickyweb,
 /obj/effect/spider/cocoon,
-/turf/simulated/floor/holofloor/grass,
+/turf/simulated/floor/grass,
 /area/derelict/ship)
 "hc" = (
 /obj/effect/spider/stickyweb,
@@ -2759,17 +2759,17 @@
 "hd" = (
 /obj/effect/spider/stickyweb,
 /mob/living/simple_animal/hostile/giant_spider/nurse,
-/turf/simulated/floor/holofloor/grass,
+/turf/simulated/floor/grass,
 /area/derelict/ship)
 "he" = (
 /obj/structure/flora/ausbushes/fullgrass,
-/turf/simulated/floor/holofloor/grass,
+/turf/simulated/floor/grass,
 /area/derelict/ship)
 "hf" = (
 /obj/effect/spider/stickyweb,
 /obj/effect/spider/stickyweb,
 /obj/effect/spider/stickyweb,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "hg" = (
 /obj/effect/spider/stickyweb,
@@ -2778,7 +2778,7 @@
 /obj/effect/spider/stickyweb,
 /obj/effect/spider/stickyweb,
 /obj/effect/spider/stickyweb,
-/turf/simulated/floor/holofloor/grass,
+/turf/simulated/floor/grass,
 /area/derelict/ship)
 "hh" = (
 /obj/effect/spider/stickyweb,
@@ -2786,17 +2786,17 @@
 /obj/effect/spider/stickyweb,
 /obj/effect/spider/stickyweb,
 /obj/effect/spider/stickyweb,
-/turf/simulated/floor/holofloor/grass,
+/turf/simulated/floor/grass,
 /area/derelict/ship)
 "hi" = (
 /obj/structure/flora/ausbushes/palebush,
-/turf/simulated/floor/holofloor/grass,
+/turf/simulated/floor/grass,
 /area/derelict/ship)
 "hj" = (
 /obj/structure/flora/ausbushes/lavendergrass,
 /obj/effect/spider/stickyweb,
 /obj/effect/spider/cocoon,
-/turf/simulated/floor/holofloor/grass,
+/turf/simulated/floor/grass,
 /area/derelict/ship)
 "hk" = (
 /obj/structure/grille,
@@ -2825,12 +2825,12 @@
 /area/derelict/ship)
 "hm" = (
 /obj/structure/flora/ausbushes/reedbush,
-/turf/simulated/floor/holofloor/grass,
+/turf/simulated/floor/grass,
 /area/derelict/ship)
 "hn" = (
 /obj/structure/flora/grass/both,
 /obj/structure/flora/ausbushes/lavendergrass,
-/turf/simulated/floor/holofloor/grass,
+/turf/simulated/floor/grass,
 /area/derelict/ship)
 "ho" = (
 /obj/structure/window/reinforced,
@@ -2877,45 +2877,45 @@
 /area/derelict/ship)
 "hs" = (
 /obj/structure/flora/ausbushes/stalkybush,
-/turf/simulated/floor/holofloor/grass,
+/turf/simulated/floor/grass,
 /area/derelict/ship)
 "ht" = (
 /obj/structure/flora/ausbushes/brflowers,
-/turf/simulated/floor/holofloor/grass,
+/turf/simulated/floor/grass,
 /area/derelict/ship)
 "hu" = (
 /obj/structure/flora/ausbushes/ywflowers,
-/turf/simulated/floor/holofloor/grass,
+/turf/simulated/floor/grass,
 /area/derelict/ship)
 "hv" = (
 /obj/structure/flora/bush,
-/turf/simulated/floor/holofloor/grass,
+/turf/simulated/floor/grass,
 /area/derelict/ship)
 "hw" = (
 /obj/structure/flora/ausbushes/lavendergrass,
 /mob/living/simple_animal/hostile/giant_spider,
-/turf/simulated/floor/holofloor/grass,
+/turf/simulated/floor/grass,
 /area/derelict/ship)
 "hx" = (
 /obj/structure/flora/ausbushes/lavendergrass,
 /obj/structure/barricade,
-/turf/simulated/floor/holofloor/grass,
+/turf/simulated/floor/grass,
 /area/derelict/ship)
 "hy" = (
 /obj/structure/barricade,
-/turf/simulated/floor/holofloor/grass,
+/turf/simulated/floor/grass,
 /area/derelict/ship)
 "hz" = (
 /obj/machinery/floodlight,
-/turf/simulated/floor/holofloor/grass,
+/turf/simulated/floor/grass,
 /area/derelict/ship)
 "hA" = (
 /obj/machinery/floodlight,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "hB" = (
 /obj/machinery/door/airlock/external,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "hC" = (
 /obj/structure/grille,
@@ -2986,7 +2986,7 @@
 /area/derelict/ship)
 "hI" = (
 /obj/structure/inflatable/wall,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "hJ" = (
 /obj/machinery/door/airlock/external{
@@ -2996,16 +2996,16 @@
 	locked = 1;
 	req_access = list(13)
 	},
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "hK" = (
 /obj/effect/floor_decal/corner/blue/diagonal,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "hL" = (
 /obj/effect/floor_decal/corner/blue/diagonal,
 /obj/machinery/floodlight,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "hM" = (
 /obj/structure/grille,
@@ -3035,7 +3035,7 @@
 "hO" = (
 /obj/structure/inflatable/wall,
 /obj/effect/floor_decal/corner/blue/diagonal,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "hP" = (
 /obj/machinery/door/blast/regular,
@@ -3103,7 +3103,7 @@
 /area/derelict/ship)
 "hZ" = (
 /obj/item/weapon/caution,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "ia" = (
 /obj/effect/decal/mecha_wreckage/hoverpod,
