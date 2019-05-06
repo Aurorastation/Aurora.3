@@ -1016,8 +1016,11 @@
 							to_chat(cleaned_human, "<span class='warning'>[src] cleans your face!</span>")
 		return
 
-/mob/living/silicon/robot/proc/self_destruct()
-	say("WARNING: Self-destruct initiated. Unit [src] will self destruct in five seconds.")
+/mob/living/silicon/robot/proc/self_destruct(var/anti_theft=FALSE)
+	if(anti_theft)
+		say("WARNING: Removal from NanoTrasen property detected. Anti-Theft mode activated. Unit [src] will self destruct in five seconds.")
+	else
+		say("WARNING: Self-destruct initiated. Unit [src] will self destruct in five seconds.")
 	lockcharge = 1
 	update_canmove()
 	sleep(20)

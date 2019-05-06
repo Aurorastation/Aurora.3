@@ -19,6 +19,7 @@
 		process_killswitch()
 		process_locks()
 		process_queued_alarms()
+		process_level_restrictions()
 	update_canmove()
 
 /mob/living/silicon/robot/proc/clamp_values()
@@ -331,6 +332,12 @@
 	if(paralysis || stunned || weakened || buckled || lockcharge || !is_component_functioning("actuator")) canmove = 0
 	else canmove = 1
 	return canmove
+
+/mob/living/silicon/robot/proc/process_level_restrictions()
+	if (src.z in current_map.player_levels || src.z in current_map.admin_levels) //Make sure they are not in a authorized z-level
+		return
+	if(!lockcharge && !scrambledcodes) //Make sure they are not self destructing already or have scrambled codes (syndie borgs)
+		self_destruct(TRUE)
 
 /mob/living/silicon/robot/update_fire()
 	cut_overlay(image("icon"='icons/mob/OnFire.dmi', "icon_state"="Standing"))
