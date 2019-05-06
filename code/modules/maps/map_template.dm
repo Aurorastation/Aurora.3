@@ -45,7 +45,7 @@
 	var/x = round(world.maxx/2)
 	var/y = round(world.maxy/2)
 
-	var/list/bounds = maploader.load_map(file(mappath), x, y)
+	var/list/bounds = maploader.load_map(file(mappath), x, y, no_changeturf = TRUE)
 	if(!bounds)
 		return FALSE
 
