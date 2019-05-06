@@ -9,6 +9,7 @@
 	flags_inv = 0
 	siemens_coefficient = 0.9
 	light_wedge = LIGHT_WIDE
+	drop_sound = 'sound/items/drop/helm.ogg'
 
 /obj/item/clothing/head/hardhat/orange
 	icon_state = "hardhat0_orange"
