@@ -7,8 +7,8 @@
 	check_armour = "bomb"
 	range = 5
 	var/pressure_decrease = 0.25
-
 	var/aoe_s = 1 // aoe scale
+	var/base_damage = 0
 
 /obj/item/projectile/kinetic/mech
 	damage = 40
@@ -40,13 +40,13 @@
 	var/turf/target_turf = get_turf(target)
 	if(istype(target_turf, /turf/simulated/mineral))
 		var/turf/simulated/mineral/M = target_turf
-		M.kinetic_hit(damage, dir)
+		M.kinetic_hit(base_damage, dir)
 
 	new /obj/effect/overlay/temp/kinetic_blast(target_turf)
 
 	if(new_aoe > 0)
 		for(var/new_target in orange(new_aoe, target_turf))
 			aoe_s = 0
-			damage = max(initial(damage) - initial(damage) * get_dist(new_target, target_turf) * 0.25, 0)
+			damage = max(base_damage - base_damage * get_dist(new_target, target_turf) * 0.25, 0)
 			src.Collide(new_target)
 			CHECK_TICK

@@ -19,6 +19,7 @@
 	var/list/construction_options = list("One Direction", "Full Window")
 	default_type = "glass"
 	icon_has_variants = TRUE
+	drop_sound = 'sound/items/drop/glass.ogg'
 
 /obj/item/stack/material/glass/attack_self(mob/user as mob)
 	construct_window(user)

@@ -69,6 +69,7 @@
 		/obj/item/weapon/reagent_containers/food/drinks/bottle/tomatojuice = 4,
 		/obj/item/weapon/reagent_containers/food/drinks/bottle/limejuice = 4,
 		/obj/item/weapon/reagent_containers/food/drinks/bottle/lemonjuice = 4,
+		/obj/item/weapon/reagent_containers/food/drinks/bottle/dynjuice = 4,
 		/obj/item/weapon/reagent_containers/food/drinks/cans/grape_juice = 6,
 		/obj/item/weapon/reagent_containers/food/drinks/bottle/cream = 4,
 		/obj/item/weapon/reagent_containers/food/drinks/cans/tonic = 8,
@@ -105,6 +106,7 @@
 	product_ads = "Drink up!;Booze is good for you!;Alcohol is humanity's best friend.;Quite delighted to serve you!;Care for a nice, cold beer?;Nothing cures you like booze!;Have a sip!;Have a drink!;Have a beer!;Beer is good for you!;Only the finest alcohol!;Best quality booze since 2053!;Award-winning wine!;Maximum alcohol!;Man loves beer.;A toast for progress!"
 	req_access = list(access_bar)
 	random_itemcount = 0
+	vending_sound = "machines/vending/vending_cans.ogg"
 
 /obj/machinery/vending/assist
 	vend_id = "tools"
@@ -146,6 +148,7 @@
 		/obj/item/weapon/reagent_containers/food/drinks/h_chocolate = 22,
 		/obj/item/weapon/reagent_containers/food/snacks/donut/normal = 6
 	)
+	vending_sound = "machines/vending/vending_coffee.ogg"
 	cooling_temperature = T0C + 57 //Optimal coffee temperature
 	heating_temperature = T0C + 100 //ULTRA HOT COFFEE
 	temperature_setting = -1
@@ -206,6 +209,7 @@
 		/obj/item/weapon/reagent_containers/food/drinks/cans/root_beer = 10,
 		/obj/item/weapon/reagent_containers/food/drinks/cans/starkist = 10,
 		/obj/item/weapon/reagent_containers/food/drinks/cans/waterbottle = 10,
+		/obj/item/weapon/reagent_containers/food/drinks/cans/dyn = 10,
 		/obj/item/weapon/reagent_containers/food/drinks/cans/space_up = 10,
 		/obj/item/weapon/reagent_containers/food/drinks/cans/iced_tea = 10,
 		/obj/item/weapon/reagent_containers/food/drinks/cans/grape_juice = 10,
@@ -223,6 +227,7 @@
 		/obj/item/weapon/reagent_containers/food/drinks/cans/root_beer = 13,
 		/obj/item/weapon/reagent_containers/food/drinks/cans/starkist = 15,
 		/obj/item/weapon/reagent_containers/food/drinks/cans/waterbottle = 12,
+		/obj/item/weapon/reagent_containers/food/drinks/cans/dyn = 18,
 		/obj/item/weapon/reagent_containers/food/drinks/cans/space_up = 15,
 		/obj/item/weapon/reagent_containers/food/drinks/cans/iced_tea = 13,
 		/obj/item/weapon/reagent_containers/food/drinks/cans/grape_juice = 16,
@@ -230,6 +235,7 @@
 		/obj/item/weapon/reagent_containers/food/drinks/cans/beetle_milk = 5
 	)
 	idle_power_usage = 211 //refrigerator - believe it or not, this is actually the average power consumption of a refrigerated vending machine according to NRCan.
+	vending_sound = "machines/vending/vending_cans.ogg"
 	temperature_setting = -1
 
 //This one's from bay12
@@ -486,7 +492,8 @@
 		/obj/item/seeds/towermycelium = 3,
 		/obj/item/seeds/watermelonseed = 3,
 		/obj/item/seeds/wheatseed = 3,
-		/obj/item/seeds/whitebeetseed = 3
+		/obj/item/seeds/whitebeetseed = 3,
+		/obj/item/seeds/dynseed = 2
 	)
 	contraband = list(
 		/obj/item/seeds/ambrosiavulgarisseed = 3,
@@ -541,7 +548,8 @@
 		/obj/item/seeds/towermycelium = 20,
 		/obj/item/seeds/watermelonseed = 30,
 		/obj/item/seeds/wheatseed = 20,
-		/obj/item/seeds/whitebeetseed = 20
+		/obj/item/seeds/whitebeetseed = 20,
+		/obj/item/seeds/dynseed = 80
 	)
 	restock_items = 1
 	random_itemcount = 0
@@ -622,7 +630,7 @@
 
 /obj/machinery/vending/sovietsoda
 	name = "BODA"
-	desc = "An old sweet water vending machine,how did this end up here?"
+	desc = "An old sweet water vending machine, how did this end up here?"
 	icon_state = "sovietsoda"
 	vend_id = "cola"
 	product_ads = "For Tsar and Country.;Have you fulfilled your nutrition quota today?;Very nice!;We are simple people, for this is all we eat.;If there is a person, there is a problem. If there is no person, then there is no problem."
@@ -639,6 +647,7 @@
 	idle_power_usage = 211 //refrigerator - believe it or not, this is actually the average power consumption of a refrigerated vending machine according to NRCan.
 	random_itemcount = 0
 	temperature_setting = -1
+	vending_sound = "machines/vending/vending_cans.ogg"
 
 /obj/machinery/vending/tool
 	name = "YouTool"

@@ -142,7 +142,7 @@
 
 	if(.)
 		spark(user.loc, 5)
-		playsound(user.loc, 'sound/weapons/blade1.ogg', 50, 1)
+		playsound(user.loc, 'sound/weapons/blade.ogg', 50, 1)
 
 	//block as long as they are not directly behind us
 	var/bad_arc = reverse_direction(user.dir) //arc of directions from which we cannot block
@@ -150,7 +150,7 @@
 
 		if(prob(get_block_chance(user, damage, damage_source, attacker)))
 			spark(user.loc, 5)
-			playsound(user.loc, 'sound/weapons/blade1.ogg', 50, 1)
+			playsound(user.loc, 'sound/weapons/blade.ogg', 50, 1)
 			shield_power -= round(damage/4)
 
 			if(shield_power <= 0)

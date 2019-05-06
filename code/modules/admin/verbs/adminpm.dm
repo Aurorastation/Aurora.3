@@ -17,7 +17,8 @@
 		to_chat(src, "<font color='red'>Error: Admin-PM-Panel: Only administrators may use this command.</font>")
 		return
 	var/list/client/targets[0]
-	for(var/client/T)
+	for(var/p in player_list)
+		var/client/T = p
 		if(T.mob)
 			if(istype(T.mob, /mob/abstract/new_player))
 				targets["(New Player) - [T]"] = T
@@ -37,7 +38,7 @@
 //Fetching a message if needed. src is the sender and C is the target client
 
 /client/proc/cmd_admin_pm(var/client/C, var/msg = null, var/datum/ticket/ticket = null)
-	if(!istype(C,/client))
+	if(!istype(C, /client))
 		if(holder)	to_chat(src, "<font color='red'>Error: Private-Message: Client not found.</font>")
 		else		to_chat(src, "<font color='red'>Error: Private-Message: Client not found. They may have lost connection, so try using an adminhelp!</font>")
 		return
@@ -150,7 +151,8 @@
 	ticket.append_message(src.ckey, C.ckey, msg)
 
 	//we don't use message_admins here because the sender/receiver might get it too
-	for(var/client/X in admins)
+	for(var/s in staff)
+		var/client/X = s
 		//check client/X is an admin and isn't the sender or recipient
 		if(X == C || X == src)
 			continue
@@ -175,8 +177,9 @@
 	to_chat(src, "<span class='pm'><span class='out'>" + create_text_tag("pm_out_alt", "", src) + " to <span class='name'>Discord-[sender]</span>: <span class='message'>[msg]</span></span></span>")
 
 	log_admin("PM: [key_name(src)]->Discord-[sender]: [msg]")
-	for(var/client/X in admins)
-		if(X == src)
+	for(var/s in staff)
+		var/client/C = s
+		if(C == src)
 			continue
-		if(X.holder.rights & (R_ADMIN|R_MOD))
-			to_chat(X, "<span class='pm'><span class='other'>" + create_text_tag("pm_other", "PM:", X) + " <span class='name'>[key_name(src, X, 0)]</span> to <span class='name'>Discord-[sender]</span>: <span class='message'>[msg]</span></span></span>")
+		if(C.holder.rights & (R_ADMIN|R_MOD))
+			to_chat(C, "<span class='pm'><span class='other'>" + create_text_tag("pm_other", "PM:", C) + " <span class='name'>[key_name(src, C, 0)]</span> to <span class='name'>Discord-[sender]</span>: <span class='message'>[msg]</span></span></span>")

@@ -11,6 +11,7 @@
 	desc = "A delicate golden chain worn by skrell to decorate their head tails."
 	icon_state = "skrell_chain"
 	item_state = "skrell_chain"
+	drop_sound = 'sound/items/drop/accessory.ogg'
 
 /obj/item/clothing/ears/skrell/chain/silver
 	name = "silver headtail chains"
@@ -125,6 +126,7 @@
 	desc = "Golden metallic bands worn by skrell to adorn their head tails."
 	icon_state = "skrell_band"
 	item_state = "skrell_band"
+	drop_sound = 'sound/items/drop/accessory.ogg'
 
 /obj/item/clothing/ears/skrell/band/silver
 	name = "silver headtail bands"
