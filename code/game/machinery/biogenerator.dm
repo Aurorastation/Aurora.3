@@ -345,11 +345,11 @@
 				to_chat(user, "<span class='notice'>You empty \the [O] into \the [src].</span>")
 
 
-	else if(!istype(O, /obj/item/weapon/reagent_containers/food/snacks/grown))
+	else if(!istype(O, /obj/item/weapon/reagent_containers/food/snacks))
 		to_chat(user, "<span class='notice'>You cannot put this in \the [src].</span>")
 	else
 		var/i = 0
-		for(var/obj/item/weapon/reagent_containers/food/snacks/grown/G in contents)
+		for(var/obj/item/weapon/reagent_containers/food/snacks/G in contents)
 			i++
 		if(i >= capacity)
 			to_chat(user, "<span class='notice'>\The [src] is full! Activate it.</span>")
@@ -437,7 +437,7 @@
 		to_chat(usr, "<span class='notice'>The biogenerator is in the process of working.</span>")
 		return
 	var/S = 0
-	for(var/obj/item/weapon/reagent_containers/food/snacks/grown/I in contents)
+	for(var/obj/item/weapon/reagent_containers/food/snacks/I in contents)
 		S += 5
 		if(I.reagents.get_reagent_amount("nutriment") < 0.1)
 			points += 1

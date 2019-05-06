@@ -65,7 +65,7 @@
 	name = "minecart"
 	desc = "An old minecart. Smells like wood and dust."
 	icon = 'icons/adhomai/structures.dmi'
-	icon_state = "minecart"
+	icon_state = "miningcart"
 
 /obj/structure/ore_box/adhomai/Move(var/turf/destination)
 	return ((locate(/obj/structure/track) in destination)) ? ..() : FALSE

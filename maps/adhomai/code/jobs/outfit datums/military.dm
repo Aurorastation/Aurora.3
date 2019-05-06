@@ -35,13 +35,14 @@
 	uniform = /obj/item/clothing/under/tajaran/fancy
 	suit = /obj/item/clothing/suit/chef/nka
 	head = /obj/item/clothing/head/chefhat/nka
-	belt = /obj/item/weapon/storage/bag/plants
+	belt = /obj/item/weapon/material/hatchet/butch
 	l_hand = /obj/item/weapon/material/kitchen/rollingpin
-	r_hand = /obj/item/weapon/material/hatchet/butch
+	r_hand = /obj/item/weapon/storage/box/produce_box_adhomai
 	backpack_contents = list(
-		/obj/item/weapon/reagent_containers/cooking_container/fire/pot = 2,
-		/obj/item/weapon/tray = 1,
-		/obj/item/weapon/reagent_containers/glass/beaker/bowl = 2
+		/obj/item/weapon/reagent_containers/food/drinks/flask/canteen/adhomian/nka = 1,
+		/obj/item/weapon/flame/lighter/adhomian/nka = 1,
+		/obj/item/clothing/under/uniform/levy = 1,
+		/obj/item/clothing/head/nka = 1
 		)
 
 /datum/outfit/job/adhomai/military/forwardscouting
@@ -97,7 +98,7 @@
 	backpack_contents = list(
 		/obj/item/ammo_magazine/boltaction/nka/enbloc = 2,
 		/obj/item/weapon/grenade/frag/nka = 3,
-		/obj/item/clothing/accessory/storage/bayonet = 1,
+		/obj/item/weapon/grenade/chem_grenade/incendiary/nka = 2,
 		/obj/item/weapon/reagent_containers/food/drinks/flask/canteen/adhomian/nka = 1,
 		/obj/item/weapon/flame/lighter/adhomian/nka = 1,
 		/obj/item/ammo_magazine/nka/kt_76 = 1,
@@ -120,7 +121,7 @@
 		/obj/item/ammo_magazine/nka/kt_76 = 1,
 		/obj/item/weapon/gun/projectile/nka/kt_76 = 1,
 		/obj/item/device/binoculars/high_power = 1,
-		/obj/item/weapon/storage/box/clip_pouch = 1)
+		/obj/item/weapon/storage/box/clip_pouch/cartridge = 1)
 	backpack = /obj/item/weapon/storage/backpack/satchel/grenadier/levy
 	satchel = /obj/item/weapon/storage/backpack/satchel/engineer/levy
 
@@ -140,15 +141,15 @@
 	satchel = /obj/item/weapon/storage/backpack/satchel/grenadier/engineering
 	backpack = /obj/item/weapon/storage/backpack/satchel/engineer
 
-/datum/outfit/job/adhomai/military/amohdanswordsman
+/datum/outfit/job/adhomai/amohdanswordsman
 	name = "Amohdan Swordsman"
 	allow_backbag_choice = TRUE
 
 	uniform = /obj/item/clothing/under/tajaran/fancy
 	suit = /obj/item/clothing/suit/armor/tajara
-	suit_store = null
 	head = /obj/item/clothing/head/helmet/tajara
 	l_pocket = /obj/item/weapon/storage/wallet/medium
+	r_pocket = /obj/item/weapon/key/soldier
 	belt = /obj/item/weapon/material/sword/amohdan_sword/meteoric
 	backpack_contents = list(
 		/obj/item/weapon/reagent_containers/food/drinks/flask/canteen/adhomian/nka = 1,

@@ -21,8 +21,18 @@
 	icon_state = "traumakit"
 
 /obj/item/weapon/grenade/frag/nka
-	icon = 'icons/adhomai/items.dmi'
-	icon_state = "frag"
+	icon = 'icons/adhomai/weapons/explosives.dmi'
+	icon_state = "NKAFRAG"
+
+/obj/item/weapon/grenade/frag/pra
+	icon = 'icons/adhomai/weapons/explosives.dmi'
+	icon_state = "PRAFrag"
+
+/obj/item/weapon/grenade/chem_grenade/incendiary/nka
+	name = "incendiary grenade"
+	desc = "Incendiary Grenades commonly found in the hands of the Imperial Grenadiers."
+	icon = 'icons/adhomai/weapons/explosives.dmi'
+	icon_state = "NKAFIRE"
 
 /obj/item/weapon/grenade/smokebomb/nka
 	icon = 'icons/adhomai/items.dmi'
@@ -132,7 +142,7 @@
 	return
 
 /obj/machinery/appliance/cooker/oven/adhomai
-	name = "potbelly stove"
+	name = "old iron oven"
 	desc = "Borscht is ready."
 	icon = 'icons/adhomai/structures.dmi'
 	icon_state = "ovenopen"
@@ -248,6 +258,11 @@
 	icon_state = "hedget"
 	item_state = "hedget"
 	contained_sprite = 1
+
+/obj/item/weapon/wirecutters/clippers/trimmers/New()
+	if(prob(50))
+		return
+	..()
 
 /obj/item/weapon/autochisel/chisel
 	name = "chisel"

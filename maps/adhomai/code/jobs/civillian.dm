@@ -20,6 +20,7 @@
 
 	account_allowed = FALSE
 
+
 /datum/job/mayor
 	title = "Governor"
 	flag = MAYOR

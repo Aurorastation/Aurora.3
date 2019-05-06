@@ -22,6 +22,7 @@
 	path = /obj/item/clothing/suit/storage/tajaran
 	whitelisted = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
 	sort_category = "Xenowear - Tajara"
+	cost = 1
 
 /datum/gear/suit/tajara_coat/New()
 	..()
@@ -32,6 +33,7 @@
 	coat["gruff cloak"] = /obj/item/clothing/suit/storage/hooded/tajaran
 	coat["adhomian wool coat"] = /obj/item/clothing/suit/storage/tajaran/nomad
 	gear_tweaks += new/datum/gear_tweak/path(coat)
+
 
 /datum/gear/suit/tajara_priest
 	display_name = "tajaran priest robe selection"

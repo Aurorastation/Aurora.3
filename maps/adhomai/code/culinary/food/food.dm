@@ -29,3 +29,10 @@
 /obj/item/weapon/reagent_containers/food/snacks/coarsesalt/Initialize()
 	. = ..()
 	reagents.add_reagent("sodiumchloride", 5)
+
+/datum/chemical_reaction/butter/fatshouter
+	name = "Butter"
+	id = "butter"
+	result = null
+	required_reagents = list("fatshouter_milk" = 20, "sodiumchloride" = 3)
+	result_amount = 1

@@ -2,6 +2,7 @@
 /obj/item/weapon/gun/projectile/shotgun/pump/rifle/nka
 	name = "service rifle"
 	icon = 'icons/adhomai/weapons/guns.dmi'
+	ammo_type = /obj/item/ammo_casing/a762/nka
 	icon_state = "bolt"
 	item_state = "bolt"
 	contained_sprite = TRUE
@@ -36,6 +37,7 @@
 	icon_state = "semi"
 	item_state = "semi"
 	contained_sprite = TRUE
+	var/has_wield_state = TRUE
 	w_class = 4
 	load_method = MAGAZINE
 	max_shells = 5
@@ -68,6 +70,14 @@
 /obj/item/weapon/gun/projectile/grenadier/ui_action_click()
 	if(src in usr)
 		toggle_wield(usr)
+
+/obj/item/weapon/gun/projectile/grenadier/pump/update_icon()
+	..()
+	if(wielded && has_wield_state)
+		item_state = "[icon_state]-wielded"
+	else
+		item_state = "[icon_state]"
+	update_held_icon()
 
 /obj/item/weapon/gun/projectile/grenadier/verb/wield_rifle()
 	set name = "Wield rifle"

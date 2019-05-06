@@ -1073,6 +1073,16 @@
 		new /obj/random_produce(src)
 	make_exact_fit()
 
+/obj/item/weapon/storage/box/produce/adhomai
+	name = "produce box"
+	desc = "A large box of random, leftover produce."
+	icon_state = "largebox"
+
+/obj/item/weapon/storage/box/produce/adhomai/fill()
+	for(var/i in 1 to 12)
+		new /obj/random_produce(src)
+	make_exact_fit()
+
 
 /obj/item/weapon/storage/box/candy
 	name = "candy box"

@@ -6,7 +6,7 @@
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
 	fire_sound = 'sound/weapons/rifleshot.ogg'
 	caliber = "a762"
-	ammo_type = /obj/item/ammo_casing/a762
+	ammo_type = /obj/item/ammo_casing/a762/nka
 	max_shells = 5
 
 	pump_fail_msg = "<span class='warning'>You cannot work the rifle's bolt without gripping it with both hands!</span>"

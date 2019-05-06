@@ -34,6 +34,14 @@
 			amount = list(1,2,3,4,5),
 			emag = 0
 		),
+		"matchbox" = list(
+			name = "Matchbox",
+			class = "Items",
+			object = /obj/item/weapon/storage/box/matches,
+			cost = 10,
+			amount = list(1,2,3,4,5),
+			emag = 0
+		),
 		"cardboard" = list(
 			name = "Cardboard",
 			class = "Construction",

@@ -24,7 +24,7 @@
 	items = list(
 		/obj/item/weapon/reagent_containers/food/snacks/clam,
 		/obj/item/weapon/reagent_containers/food/snacks/clam,
-		/obj/item/weapon/reagent_containers/food/snacks/spreads
+		/obj/item/weapon/reagent_containers/food/snacks/spreads/butter
 	)
 	appliance = MICROWAVE | POT
 	result = /obj/item/weapon/reagent_containers/food/snacks/tajaran_chowder
