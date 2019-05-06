@@ -12,7 +12,7 @@
 	var/list/turfs = list()
 	if(subtypes)
 		var/list/cache = typecacheof(areatype)
-		for(var/V in all_areas)
+		for(var/V in the_station_areas)
 			var/area/A = V
 			if(!cache[A.type])
 				continue
@@ -29,7 +29,7 @@
 					else
 						turfs += T
 	else
-		for(var/V in all_areas)
+		for(var/V in the_station_areas)
 			var/area/A = V
 			if(A.type != areatype)
 				continue
