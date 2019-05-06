@@ -22,6 +22,8 @@
 		"9" = /turf/space
 	)
 
+	has_space_ruins = TRUE
+
 	station_name = "NSS Aurora"
 	station_short = "Aurora"
 	dock_name = "NTCC Odin"
@@ -81,4 +83,3 @@
 /datum/map/aurora/finalize_load()
 	// generate an empty space Z
 	world.maxz++
-	create_space_ruin(1,1,9)
