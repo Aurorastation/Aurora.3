@@ -176,7 +176,7 @@
 	name = "auth_client"
 	description = "Authenticates client from external system."
 	params = list(
-		"key" = list("name"="key","desc"="Verfiied key for to be set for client","type"="str","req"=1),
+		"key" = list("name"="key","desc"="Verified key to be set for client.","type"="str","req"=1),
 		"clienttoken" = list("name"="clienttoken","desc"="Token for indetifying unique client","type"="str","req"=1),
 	)
 
