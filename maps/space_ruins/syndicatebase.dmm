@@ -1231,21 +1231,6 @@
 	},
 /turf/simulated/floor,
 /area/derelict)
-"dk" = (
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/grille,
-/obj/machinery/door/firedoor,
-/turf/template_noop,
-/area/derelict)
 "dl" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
@@ -1583,19 +1568,6 @@
 /turf/simulated/floor/airless{
 	icon_state = "asteroidplating"
 	},
-/area/derelict)
-"ee" = (
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/grille,
-/obj/structure/window/reinforced,
-/obj/machinery/door/firedoor,
-/turf/template_noop,
 /area/derelict)
 "ef" = (
 /obj/machinery/light,
@@ -38036,11 +38008,11 @@ ag
 aG
 aG
 ag
-dk
-ee
+cg
+cq
 ag
-dk
-ee
+cg
+cq
 ag
 ag
 fH
