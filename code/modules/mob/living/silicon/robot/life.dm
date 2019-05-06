@@ -336,7 +336,7 @@
 /mob/living/silicon/robot/proc/process_level_restrictions()
 	if (src.z in current_map.player_levels || src.z in current_map.admin_levels) //Make sure they are not in a authorized z-level
 		return
-	if(!lockcharge && !scrambledcodes) //Make sure they are not self destructing already or have scrambled codes (syndie borgs)
+	if(!lockcharge && !scrambledcodes && !emagged) //Make sure they are not self destructing already or have scrambled codes (syndie borgs) or are emagged
 		self_destruct(TRUE)
 
 /mob/living/silicon/robot/update_fire()
