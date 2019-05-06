@@ -338,7 +338,7 @@
 	if (src.z in current_map.player_levels)
 		return
 	//If they are on centcom -> abort
-	if (istype(get_area(src), /area/centcom))
+	if (istype(get_area(src), /area/centcom) || istype(get_area(src), /area/shuttle/escape) || istype(get_area(src), /area/shuttle/arrival))
 		return
 	//Make sure they should not get blown
 	if (lockcharge || scrambledcodes || emagged)
