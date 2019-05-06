@@ -181,7 +181,7 @@
 	)
 
 /datum/topic_command/auth_client/run_command(queryparams)
-	if(!queryparams["clienttoken"] in unauthed)
+	if(!(queryparams["clienttoken"] in unauthed))
 		statuscode = 404
 		response = "Client with such token is not found."
 		return TRUE
