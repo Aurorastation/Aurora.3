@@ -200,11 +200,12 @@ var/list/slot_equipment_priority = list( \
         addtimer(CALLBACK(src, .proc/make_item_drop_sound, item_dropped), 1)
 
 /mob/proc/make_item_drop_sound(obj/item/I)
-    if(QDELETED(I))
-        return
+	if(QDELETED(I))
+		return
 
-    if(I.drop_sound)
-        playsound(I, I.drop_sound, 25, 0)
+	for(var/mob/M in player_list)
+		if(I.drop_sound && (M.client.prefs.asfx_togs & ASFX_DROP))
+			playsound(I, I.drop_sound, 25, 0)
 
 /*
 	Removes the object from any slots the mob might have, calling the appropriate icon update proc.
