@@ -225,16 +225,3 @@
 	prefs.toggles_secondary ^= SAFETY_CHECK //Held in Parallax because we don't want to deal with an SQL migration right now.
 	prefs.save_preferences()
 	to_chat(src, "You will [(prefs.toggles_secondary & SAFETY_CHECK) ? "no longer" : "now"] fire your weapon on intents other than harm.")
-
-/client/verb/Toggle_dropsounds()
-	set name = "Hear/Silence Drop Sounds"
-	set category = "Preferences"
-	set desc = "Toggles hearing dropping and throwing sound effects"
-
-	prefs.asfx_togs ^= ASFX_DROP
-	prefs.save_preferences()
-	if(prefs.asfx_togs & ASFX_DROP)
-		to_chat(src, "You will now hear dropping and throwing sounds.")
-	else
-		to_chat(src, "<font color='red'>You will no longer hear dropping and throwing sounds.</font>")
-		feedback_add_details("admin_verb","TSFXDS") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
