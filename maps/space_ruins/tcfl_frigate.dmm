@@ -2677,11 +2677,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
 /area/derelict/arrival)
-"gR" = (
-/obj/structure/table/steel,
-/obj/random,
-/turf/simulated/floor/carpet,
-/area/derelict/arrival)
 "gS" = (
 /obj/machinery/power/smes,
 /turf/simulated/floor,
@@ -30232,7 +30227,7 @@ gj
 dl
 fY
 cC
-gR
+eZ
 hj
 hI
 cC
