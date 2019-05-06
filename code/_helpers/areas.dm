@@ -12,11 +12,12 @@
 	var/list/turfs = list()
 	if(subtypes)
 		var/list/cache = typecacheof(areatype)
-		for(var/V in the_station_areas)
+		for(var/V in all_areas)
 			var/area/A = V
 			if(!cache[A.type])
 				continue
 			for(var/turf/T in A)
+				CHECK_TICK
 				if(target_z == 0 || target_z == T.z)
 					if (predicates && predicates.len)
 						var/predicates_true = TRUE
@@ -29,11 +30,12 @@
 					else
 						turfs += T
 	else
-		for(var/V in the_station_areas)
+		for(var/V in all_areas)
 			var/area/A = V
 			if(A.type != areatype)
 				continue
 			for(var/turf/T in A)
+				CHECK_TICK
 				if (target_z == 0 || target_z == T.z)
 					if (predicates && predicates.len)
 						var/predicates_true = TRUE
