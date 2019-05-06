@@ -4115,14 +4115,14 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/turf/simulated/floor/holofloor/lino,
+/turf/simulated/floor/lino,
 /area/derelict/arrival)
 "kG" = (
-/turf/simulated/floor/holofloor/lino,
+/turf/simulated/floor/lino,
 /area/derelict/arrival)
 "kH" = (
 /obj/machinery/door/firedoor,
-/turf/simulated/floor/holofloor/lino,
+/turf/simulated/floor/lino,
 /area/derelict/arrival)
 "kI" = (
 /obj/random/junk,
@@ -4229,20 +4229,20 @@
 "kZ" = (
 /obj/structure/mopbucket,
 /obj/item/weapon/mop,
-/turf/simulated/floor/holofloor/lino,
+/turf/simulated/floor/lino,
 /area/derelict/arrival)
 "la" = (
 /obj/effect/decal/cleanable/blood/oil,
-/turf/simulated/floor/holofloor/lino,
+/turf/simulated/floor/lino,
 /area/derelict/arrival)
 "lb" = (
 /obj/random/junk,
-/turf/simulated/floor/holofloor/lino,
+/turf/simulated/floor/lino,
 /area/derelict/arrival)
 "lc" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock,
-/turf/simulated/floor/holofloor/lino,
+/turf/simulated/floor/lino,
 /area/derelict/arrival)
 "ld" = (
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -4343,13 +4343,13 @@
 /area/derelict/arrival)
 "lr" = (
 /obj/structure/closet/firecloset,
-/turf/simulated/floor/holofloor/lino,
+/turf/simulated/floor/lino,
 /area/derelict/arrival)
 "ls" = (
 /obj/structure/curtain/open/bed,
 /obj/item/weapon/bedsheet,
 /obj/structure/bed,
-/turf/simulated/floor/holofloor/lino,
+/turf/simulated/floor/lino,
 /area/derelict/arrival)
 "lt" = (
 /obj/effect/floor_decal/spline/fancy/wood,
@@ -4409,11 +4409,11 @@
 /area/derelict/arrival)
 "lA" = (
 /obj/structure/barricade,
-/turf/simulated/floor/holofloor/lino,
+/turf/simulated/floor/lino,
 /area/derelict/arrival)
 "lB" = (
 /obj/structure/closet/emcloset,
-/turf/simulated/floor/holofloor/lino,
+/turf/simulated/floor/lino,
 /area/derelict/arrival)
 "lC" = (
 /obj/structure/closet/secure_closet/personal,
@@ -4424,7 +4424,7 @@
 /obj/item/clothing/head/legion_beret,
 /obj/item/clothing/head/cowboy,
 /obj/machinery/light/small,
-/turf/simulated/floor/holofloor/lino,
+/turf/simulated/floor/lino,
 /area/derelict/arrival)
 "lD" = (
 /obj/structure/closet/secure_closet/personal,
@@ -4434,7 +4434,7 @@
 /obj/item/weapon/storage/backpack/legion,
 /obj/item/clothing/head/legion_beret,
 /obj/machinery/light/small,
-/turf/simulated/floor/holofloor/lino,
+/turf/simulated/floor/lino,
 /area/derelict/arrival)
 "lE" = (
 /obj/structure/closet/secure_closet/personal,
@@ -4445,7 +4445,7 @@
 /obj/item/clothing/head/legion_beret,
 /obj/item/clothing/head/turban,
 /obj/machinery/light/small,
-/turf/simulated/floor/holofloor/lino,
+/turf/simulated/floor/lino,
 /area/derelict/arrival)
 "lF" = (
 /obj/structure/closet/secure_closet/personal,
@@ -4456,7 +4456,7 @@
 /obj/item/clothing/head/legion_beret,
 /obj/item/clothing/head/helmet/tank,
 /obj/machinery/light/small,
-/turf/simulated/floor/holofloor/lino,
+/turf/simulated/floor/lino,
 /area/derelict/arrival)
 "lG" = (
 /obj/machinery/door/firedoor,
@@ -4483,11 +4483,11 @@
 	dir = 4;
 	status = 2
 	},
-/turf/simulated/floor/holofloor/lino,
+/turf/simulated/floor/lino,
 /area/derelict/arrival)
 "lK" = (
 /obj/structure/bed/chair/comfy/teal,
-/turf/simulated/floor/holofloor/lino,
+/turf/simulated/floor/lino,
 /area/derelict/arrival)
 "lL" = (
 /obj/structure/closet/secure_closet/personal,
@@ -4500,7 +4500,7 @@
 /obj/machinery/light/small{
 	dir = 1
 	},
-/turf/simulated/floor/holofloor/lino,
+/turf/simulated/floor/lino,
 /area/derelict/arrival)
 "lM" = (
 /obj/structure/closet/secure_closet/personal,
@@ -4512,7 +4512,7 @@
 /obj/machinery/light/small{
 	dir = 1
 	},
-/turf/simulated/floor/holofloor/lino,
+/turf/simulated/floor/lino,
 /area/derelict/arrival)
 "lN" = (
 /obj/structure/closet/secure_closet/personal,
@@ -4525,7 +4525,7 @@
 /obj/machinery/light/small{
 	dir = 1
 	},
-/turf/simulated/floor/holofloor/lino,
+/turf/simulated/floor/lino,
 /area/derelict/arrival)
 "lO" = (
 /obj/structure/closet/secure_closet/personal,
@@ -4538,7 +4538,7 @@
 /obj/machinery/light/small{
 	dir = 1
 	},
-/turf/simulated/floor/holofloor/lino,
+/turf/simulated/floor/lino,
 /area/derelict/arrival)
 "lP" = (
 /obj/structure/closet/secure_closet/personal,
@@ -4551,7 +4551,7 @@
 /obj/machinery/light/small{
 	dir = 1
 	},
-/turf/simulated/floor/holofloor/lino,
+/turf/simulated/floor/lino,
 /area/derelict/arrival)
 "lQ" = (
 /obj/structure/bed/chair/office/dark{
@@ -4580,7 +4580,7 @@
 /obj/structure/table/wood,
 /obj/item/weapon/paper_bin,
 /obj/item/weapon/pen,
-/turf/simulated/floor/holofloor/lino,
+/turf/simulated/floor/lino,
 /area/derelict/arrival)
 "lU" = (
 /obj/structure/table/standard,
@@ -4616,7 +4616,7 @@
 /area/derelict/arrival)
 "lZ" = (
 /obj/machinery/door/airlock,
-/turf/simulated/floor/holofloor/lino,
+/turf/simulated/floor/lino,
 /area/derelict/arrival)
 "ma" = (
 /obj/structure/dispenser/oxygen,
@@ -4679,11 +4679,11 @@
 "mm" = (
 /obj/structure/reagent_dispensers/water_cooler,
 /obj/machinery/light,
-/turf/simulated/floor/holofloor/lino,
+/turf/simulated/floor/lino,
 /area/derelict/arrival)
 "mn" = (
 /obj/machinery/light,
-/turf/simulated/floor/holofloor/lino,
+/turf/simulated/floor/lino,
 /area/derelict/arrival)
 "mo" = (
 /obj/structure/table/standard,
