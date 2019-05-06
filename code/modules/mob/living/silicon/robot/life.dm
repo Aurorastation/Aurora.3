@@ -334,10 +334,16 @@
 	return canmove
 
 /mob/living/silicon/robot/proc/process_level_restrictions()
-	if (src.z in current_map.player_levels || src.z in current_map.admin_levels) //Make sure they are not in a authorized z-level
+	//If they are on a player level -> abort
+	if (src.z in current_map.player_levels)
 		return
-	if(!lockcharge && !scrambledcodes && !emagged) //Make sure they are not self destructing already or have scrambled codes (syndie borgs) or are emagged
-		self_destruct(TRUE)
+	//If they are on centcom -> abort
+	if (istype(get_area(src), /area/centcom))
+		return
+	//Make sure they should not get blown
+	if (lockcharge || scrambledcodes || emagged)
+		return
+	self_destruct(TRUE)
 
 /mob/living/silicon/robot/update_fire()
 	cut_overlay(image("icon"='icons/mob/OnFire.dmi', "icon_state"="Standing"))
