@@ -16,6 +16,7 @@
 
 /datum/gear/uniform/jumpsuit
 	display_name = "generic jumpsuits"
+	description = "A selection of generic colored jumpsuits."
 	path = /obj/item/clothing/under/color/grey
 
 /datum/gear/uniform/jumpsuit/New()
@@ -45,7 +46,8 @@
 
 /datum/gear/uniform/skirt
 	display_name = "skirt selection"
-	path = /obj/item/clothing/under/skirt/
+	description = "A selection of skirts."
+	path = /obj/item/clothing/under/skirt
 
 /datum/gear/uniform/skirt/New()
 	..()
@@ -59,6 +61,7 @@
 
 /datum/gear/uniform/suit
 	display_name = "suit selection"
+	description = "A selection of formal suits."
 	path = /obj/item/clothing/under/lawyer/bluesuit
 
 /datum/gear/uniform/suit/New()
@@ -100,6 +103,7 @@
 
 /datum/gear/uniform/dress
 	display_name = "dress selection"
+	description = "A selection of dresses."
 	path = /obj/item/clothing/under/sundress
 
 /datum/gear/uniform/dress/New()
@@ -132,7 +136,7 @@
 	allowed_roles = list("Captain")
 
 /datum/gear/uniform/customdress
-	display_name = "Evening gown"
+	display_name = "evening gown"
 	path = /obj/item/clothing/under/dress/dress_evening
 
 /datum/gear/uniform/customdress/New()
@@ -169,8 +173,23 @@
 	path = /obj/item/clothing/under/rank/head_of_security/navyblue
 	allowed_roles = list("Head of Security")
 
+/datum/gear/uniform/security_contractors
+	display_name = "security contractor uniform selection"
+	description = "A selection of security contractor related uniforms."
+	path = /obj/item/clothing/under/rank/security/necropolis
+	allowed_roles = list("Security Officer", "Warden", "Head of Security","Detective", "Forensic Technician", "Security Cadet")
+
+/datum/gear/uniform/security_contractors/New()
+	..()
+	var/uniform = list()
+	uniform["necropolis security uniform"] = /obj/item/clothing/under/rank/security/necropolis
+	uniform["idris security uniform"] = /obj/item/clothing/under/rank/security/idris
+	uniform["eridani PCM uniform"] = /obj/item/clothing/under/rank/security/eridani
+	gear_tweaks += new/datum/gear_tweak/path(uniform)
+
 /datum/gear/uniform/pants
 	display_name = "pants selection"
+	description = "A selection of pants."
 	path = /obj/item/clothing/under/pants
 
 /datum/gear/uniform/pants/New()
@@ -219,6 +238,7 @@
 
 /datum/gear/uniform/dominia
 	display_name = "dominia suit selection"
+	description = "A selection of dominian suits."
 	path = /obj/item/clothing/under/dominia
 
 /datum/gear/uniform/dominia/New()
@@ -240,3 +260,18 @@
 /datum/gear/uniform/miscellaneous/greensuit
 	display_name = "green formal uniform"
 	path = /obj/item/clothing/under/gov
+
+/datum/gear/uniform/contractors
+	display_name = "contractor uniform selection"
+	description = "A selection of contractor related uniforms."
+	path = /obj/item/clothing/under/rank/hephaestus
+
+/datum/gear/uniform/contractors/New()
+	..()
+	var/uniform = list()
+	uniform["hephaestus industries uniform"] = /obj/item/clothing/under/rank/hephaestus
+	uniform["necropolis industries uniform"] = /obj/item/clothing/under/rank/necropolis
+	uniform["idris industries uniform"] = /obj/item/clothing/under/rank/idris
+	uniform["einstein engines uniform"] = /obj/item/clothing/under/rank/einstein_engines
+	uniform["zheng-hu uniform uniform"] = /obj/item/clothing/under/rank/zheng
+	gear_tweaks += new/datum/gear_tweak/path(uniform)

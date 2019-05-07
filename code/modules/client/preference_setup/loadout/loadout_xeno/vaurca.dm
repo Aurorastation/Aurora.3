@@ -46,6 +46,7 @@
 
 /datum/gear/vaurca_robe
 	display_name = "hive cloak"
+	description = "A selection of vaurca colored hive cloaks."
 	path = /obj/item/clothing/suit/vaurca
 	cost = 1
 	whitelisted = list("Vaurca Worker", "Vaurca Warrior")
