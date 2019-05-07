@@ -184,7 +184,7 @@
 	var/uniform = list()
 	uniform["necropolis security uniform"] = /obj/item/clothing/under/rank/security/necropolis
 	uniform["idris security uniform"] = /obj/item/clothing/under/rank/security/idris
-	uniform["eridani PCM uniform"] = /obj/item/clothing/under/rank/security/eridani
+	uniform["eridani PMC uniform"] = /obj/item/clothing/under/rank/security/eridani
 	gear_tweaks += new/datum/gear_tweak/path(uniform)
 
 /datum/gear/uniform/pants
@@ -271,7 +271,7 @@
 	var/uniform = list()
 	uniform["hephaestus industries uniform"] = /obj/item/clothing/under/rank/hephaestus
 	uniform["necropolis industries uniform"] = /obj/item/clothing/under/rank/necropolis
-	uniform["idris industries uniform"] = /obj/item/clothing/under/rank/idris
+	uniform["idris incorporated uniform"] = /obj/item/clothing/under/rank/idris
 	uniform["einstein engines uniform"] = /obj/item/clothing/under/rank/einstein_engines
 	uniform["zheng-hu uniform uniform"] = /obj/item/clothing/under/rank/zheng
 	gear_tweaks += new/datum/gear_tweak/path(uniform)

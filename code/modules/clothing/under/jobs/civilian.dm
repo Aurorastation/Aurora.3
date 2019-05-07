@@ -187,7 +187,7 @@
 	worn_state = "necro"
 
 /obj/item/clothing/under/rank/idris
-	name = "idris industries uniform"
+	name = "idris incorporated uniform"
 	desc = "A uniform worn by Idris Incorporated employees and contractors."
 	icon_state = "idris"
 	worn_state = "idris"
