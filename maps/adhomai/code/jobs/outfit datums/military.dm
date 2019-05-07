@@ -9,8 +9,10 @@
 	backpack_contents = list(
 		/obj/item/weapon/key/soldier = 1,
 		/obj/item/weapon/key/armory = 1,
+		/obj/item/weapon/key/cell = 1,
 		/obj/item/weapon/reagent_containers/food/drinks/flask/canteen/adhomian/nka = 1,
-		/obj/item/weapon/flame/lighter/adhomian/nka = 1)
+		/obj/item/weapon/flame/lighter/adhomian/nka = 1
+		)
 	backpack = /obj/item/weapon/storage/backpack/satchel/grenadier/levy
 	satchel = /obj/item/weapon/storage/backpack/satchel/engineer/levy
 
@@ -26,7 +28,8 @@
 		/obj/item/clothing/accessory/holster/armpit = 1,
 		/obj/item/weapon/reagent_containers/food/drinks/flask/canteen/adhomian/nka = 1,
 		/obj/item/ammo_magazine/nka/kt_76 = 1,
-		/obj/item/weapon/gun/projectile/nka/kt_76 = 1)
+		/obj/item/weapon/gun/projectile/nka/kt_76 = 1
+		)
 	backpack = /obj/item/weapon/storage/backpack/satchel/engineer/levy
 	satchel = /obj/item/weapon/storage/backpack/satchel/grenadier/levy
 
@@ -34,15 +37,14 @@
 	name = "Culinary Services"
 	uniform = /obj/item/clothing/under/tajaran/fancy
 	suit = /obj/item/clothing/suit/chef/nka
+	suit_store = /obj/item/weapon/storage/bag/plants/produce/adhomai
+	belt = /obj/item/weapon/storage/belt/apron/nka
 	head = /obj/item/clothing/head/chefhat/nka
-	belt = /obj/item/weapon/material/hatchet/butch
 	l_hand = /obj/item/weapon/material/kitchen/rollingpin
-	r_hand = /obj/item/weapon/storage/box/produce_box_adhomai
+	r_hand = /obj/item/weapon/material/hatchet/butch
 	backpack_contents = list(
 		/obj/item/weapon/reagent_containers/food/drinks/flask/canteen/adhomian/nka = 1,
-		/obj/item/weapon/flame/lighter/adhomian/nka = 1,
-		/obj/item/clothing/under/uniform/levy = 1,
-		/obj/item/clothing/head/nka = 1
+		/obj/item/weapon/flame/lighter/adhomian/nka = 1
 		)
 
 /datum/outfit/job/adhomai/military/forwardscouting
@@ -103,7 +105,8 @@
 		/obj/item/weapon/flame/lighter/adhomian/nka = 1,
 		/obj/item/ammo_magazine/nka/kt_76 = 1,
 		/obj/item/weapon/gun/projectile/nka/kt_76 = 1,
-		/obj/item/martial_manual/tajara = 1)
+		/obj/item/martial_manual/tajara = 1
+		)
 	backpack = /obj/item/weapon/storage/backpack/satchel/engineer/grenadier
 	satchel = /obj/item/weapon/storage/backpack/satchel/grenadier
 
@@ -121,7 +124,9 @@
 		/obj/item/ammo_magazine/nka/kt_76 = 1,
 		/obj/item/weapon/gun/projectile/nka/kt_76 = 1,
 		/obj/item/device/binoculars/high_power = 1,
-		/obj/item/weapon/storage/box/clip_pouch/cartridge = 1)
+		/obj/item/weapon/storage/box/clip_pouch/cartridge = 1,
+		/obj/item/weapon/storage/box/clip_pouch = 1
+		)
 	backpack = /obj/item/weapon/storage/backpack/satchel/grenadier/levy
 	satchel = /obj/item/weapon/storage/backpack/satchel/engineer/levy
 
@@ -137,7 +142,8 @@
 		/obj/item/weapon/landmine/frag = 2,
 		/obj/item/weapon/pickaxe/drill/mattock = 1,
 		/obj/item/weapon/reagent_containers/food/drinks/flask/canteen/adhomian/nka = 1,
-		/obj/item/weapon/flame/lighter/adhomian/nka = 1)
+		/obj/item/weapon/flame/lighter/adhomian/nka = 1
+		)
 	satchel = /obj/item/weapon/storage/backpack/satchel/grenadier/engineering
 	backpack = /obj/item/weapon/storage/backpack/satchel/engineer
 
@@ -154,4 +160,5 @@
 	backpack_contents = list(
 		/obj/item/weapon/reagent_containers/food/drinks/flask/canteen/adhomian/nka = 1,
 		/obj/item/weapon/flame/lighter/adhomian/nka = 1,
-		/obj/item/martial_manual/tajara = 1)
+		/obj/item/martial_manual/tajara = 1
+		)

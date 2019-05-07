@@ -33,13 +33,12 @@
 		/obj/item/ammo_casing/a762/nka
 		)
 
-/obj/item/weapon/storage/box/produce_box_adhomai
-	name = "produce box"
-	desc = "A large box of random, leftover produce."
-	icon_state = "largebox"
+/obj/item/weapon/storage/bag/plants/produce/adhomai
+	name = "produce bag"
+	desc = "A large bag of random, leftover produce."
 	max_storage_space = 20
 
-/obj/item/weapon/storage/box/produce_box_adhomai/fill()
+/obj/item/weapon/storage/bag/plants/produce/adhomai/fill()
 	for(var/i in 1 to 20)
 		new /obj/random_produce_adhomai(src)
 	make_exact_fit()

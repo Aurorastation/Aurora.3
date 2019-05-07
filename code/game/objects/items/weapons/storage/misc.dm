@@ -73,4 +73,5 @@
 	name = "burial urn"
 	desc = "A burial urn. Moderately higher quality."
 	icon_state = "burialurn"
+	storage_slots = 100
 	can_hold = list(/obj/item/organ)

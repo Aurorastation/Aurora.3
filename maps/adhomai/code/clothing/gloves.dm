@@ -19,3 +19,11 @@
 	punch_force = 10
 	sharp = 1
 	armor = list(melee = 70, bullet = 70, laser = 20, energy = 10, bomb = 25, bio = 0, rad = 0)
+
+/obj/item/clothing/gloves/black/oven
+	desc = "Fire-resistant oven mitts. Bone apple tits."
+	name = "ovemitts"
+	icon = 'icons/adhomai/clothing.dmi'
+	icon_state = "ovenmitts"
+	item_state = "omitts"
+	species_restricted = null

@@ -541,6 +541,26 @@
 	new /obj/item/weapon/reagent_containers/food/drinks/drinkingglass(src)
 	new /obj/item/weapon/reagent_containers/food/drinks/drinkingglass(src)
 
+/obj/item/weapon/storage/box/utensils
+	name = "box of utensils"
+	desc = "It has a picture of a fork on it. It seems happy."
+	storage_slots = 12
+
+/obj/item/weapon/storage/box/utensils/fill()
+	..()
+	new /obj/item/weapon/material/kitchen/utensil/spoon(src)
+	new /obj/item/weapon/material/kitchen/utensil/spoon(src)
+	new /obj/item/weapon/material/kitchen/utensil/spoon(src)
+	new /obj/item/weapon/material/kitchen/utensil/spoon(src)
+	new /obj/item/weapon/material/kitchen/utensil/spoon(src)
+	new /obj/item/weapon/material/kitchen/utensil/spoon(src)
+	new /obj/item/weapon/material/kitchen/utensil/fork(src)
+	new /obj/item/weapon/material/kitchen/utensil/fork(src)
+	new /obj/item/weapon/material/kitchen/utensil/fork(src)
+	new /obj/item/weapon/material/kitchen/utensil/fork(src)
+	new /obj/item/weapon/material/kitchen/utensil/fork(src)
+	new /obj/item/weapon/material/kitchen/utensil/fork(src)
+
 /obj/item/weapon/storage/box/cdeathalarm_kit
 	name = "death alarm kit"
 	desc = "Box of stuff used to implant death alarms."

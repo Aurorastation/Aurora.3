@@ -377,12 +377,11 @@
 	safe = TRUE
 	density = 1
 
-	max_fuel = 3000
 /obj/structure/bonfire/fireplace/oven/update_icon()
 	cut_overlays()
 	if(on_fire)
 		switch(fuel)
-			if(1 to 3000)
+			if(1 to 2000)
 				icon_state = "ovenclosed_on"
 	else if(fuel >= 1)
 		icon_state = "ovenclosed_off"

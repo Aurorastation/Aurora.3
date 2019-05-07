@@ -5,9 +5,9 @@
 	var/produce_list = list( //When adding produce, use the .name variable of the /datum/seed/
 		"nifberries" = 2,
 		"nfrihi" = 2,
-		"nmshaan" = 1,
-		"mtear" = 2,
-		"earthenroot" = 2
+		"mtear" = 1,
+		"shand" = 1,
+		"earthenroot" = 1
 	)
 
 /obj/random_produce_adhomai/Initialize()

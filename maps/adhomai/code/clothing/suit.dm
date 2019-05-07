@@ -92,6 +92,5 @@
 	item_state = "cook_coat"
 	contained_sprite = TRUE
 	allowed = list(
-		/obj/item/weapon/material/kitchen/rollingpin,
-		/obj/item/weapon/material/hatchet/butch,
-		/obj/item/weapon/material/knife)
+		/obj/item/weapon/storage/bag/plants/produce/adhomai
+		)
