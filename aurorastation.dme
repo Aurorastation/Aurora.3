@@ -1300,6 +1300,7 @@
 #include "code\modules\clothing\shoes\leg_guard.dm"
 #include "code\modules\clothing\shoes\magboots.dm"
 #include "code\modules\clothing\shoes\miscellaneous.dm"
+#include "code\modules\clothing\shoes\vaurca.dm"
 #include "code\modules\clothing\spacesuits\alien.dm"
 #include "code\modules\clothing\spacesuits\breaches.dm"
 #include "code\modules\clothing\spacesuits\miscellaneous.dm"
