@@ -130,56 +130,6 @@
 /obj/machinery/door/airlock/engineering,
 /turf/simulated/floor,
 /area/derelict/ship)
-"aF" = (
-/obj/structure/cable{
-	d1 = 2;
-	d2 = 4;
-	icon_state = "2-4"
-	},
-/turf/simulated/floor,
-/area/derelict/ship)
-"aG" = (
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8";
-	pixel_x = 0
-	},
-/turf/simulated/floor,
-/area/derelict/ship)
-"aH" = (
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8";
-	pixel_x = 0
-	},
-/turf/simulated/wall/r_wall,
-/area/derelict/ship)
-"aI" = (
-/obj/structure/cable{
-	d1 = 2;
-	d2 = 8;
-	icon_state = "2-8"
-	},
-/turf/simulated/wall/r_wall,
-/area/derelict/ship)
-"aJ" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/turf/simulated/floor,
-/area/derelict/ship)
-"aK" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/turf/simulated/wall/r_wall,
-/area/derelict/ship)
 "aL" = (
 /obj/structure/lattice,
 /turf/template_noop,
@@ -234,7 +184,6 @@
 /area/derelict/ship)
 "aP" = (
 /obj/effect/decal/warning_stripes,
-/obj/structure/cable,
 /obj/structure/warp_drive,
 /turf/simulated/floor,
 /area/derelict/ship)
@@ -332,11 +281,6 @@
 /turf/simulated/floor,
 /area/derelict/ship)
 "ba" = (
-/obj/structure/cable{
-	d2 = 2;
-	icon_state = "0-2";
-	pixel_y = 0
-	},
 /obj/machinery/power/emitter{
 	icon_state = "emitter";
 	dir = 1
@@ -349,80 +293,9 @@
 	},
 /turf/simulated/floor,
 /area/derelict/ship)
-"bc" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 4;
-	icon_state = "1-4"
-	},
-/turf/simulated/floor,
-/area/derelict/ship)
-"bd" = (
-/obj/structure/cable{
-	d1 = 2;
-	d2 = 8;
-	icon_state = "2-8"
-	},
-/turf/simulated/floor,
-/area/derelict/ship)
 "be" = (
 /obj/machinery/light{
 	dir = 4
-	},
-/turf/simulated/floor,
-/area/derelict/ship)
-"bf" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/obj/machinery/door/airlock/vault/bolted{
-	desc = "A huge blast door of sorts with a clunky locking mechanism.";
-	name = "heavy blast door"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/derelict/ship)
-"bg" = (
-/obj/machinery/door/airlock/maintenance_hatch{
-	req_access = list(12)
-	},
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8";
-	pixel_x = 0
-	},
-/turf/simulated/floor,
-/area/derelict/ship)
-"bh" = (
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8";
-	pixel_x = 0
-	},
-/turf/simulated/floor/tiled/dark,
-/area/derelict/ship)
-"bi" = (
-/obj/structure/cable{
-	d1 = 2;
-	d2 = 8;
-	icon_state = "2-8"
-	},
-/obj/structure/cable{
-	icon_state = "1-8"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/derelict/ship)
-"bj" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/obj/machinery/door/airlock/maintenance_hatch{
-	req_access = list(12)
 	},
 /turf/simulated/floor,
 /area/derelict/ship)
@@ -431,44 +304,12 @@
 /turf/simulated/floor,
 /area/derelict/ship)
 "bl" = (
-/obj/structure/cable{
-	icon_state = "0-4";
-	d2 = 4
-	},
-/obj/structure/cable{
-	d1 = 2;
-	d2 = 4;
-	icon_state = "2-4"
-	},
 /obj/machinery/power/terminal{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
-"bm" = (
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8";
-	pixel_x = 0
-	},
-/obj/structure/cable{
-	icon_state = "1-8"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/derelict/ship)
-"bn" = (
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8";
-	pixel_x = 0
-	},
-/obj/structure/closet/radiation,
-/turf/simulated/floor/tiled/dark,
-/area/derelict/ship)
 "bo" = (
-/obj/structure/cable,
 /obj/machinery/power/apc/super{
 	dir = 8;
 	name = "west bump";
@@ -490,23 +331,9 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
-"br" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/derelict/ship)
 "bs" = (
 /obj/effect/floor_decal/corner/black/diagonal,
 /turf/simulated/floor/tiled/dark,
-/area/derelict/ship)
-"bt" = (
-/obj/structure/cable{
-	icon_state = "1-8"
-	},
-/turf/simulated/floor,
 /area/derelict/ship)
 "bu" = (
 /obj/item/weapon/storage/briefcase/inflatable,
@@ -521,18 +348,6 @@
 /area/derelict/ship)
 "bw" = (
 /obj/machinery/door/airlock/engineering,
-/turf/simulated/floor/tiled/dark,
-/area/derelict/ship)
-"bx" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/obj/machinery/light{
-	dir = 4;
-	status = 2
-	},
 /turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "by" = (
@@ -632,15 +447,6 @@
 /obj/structure/inflatable,
 /turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
-"bH" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/obj/effect/floor_decal/corner/black/diagonal,
-/turf/simulated/floor/tiled/dark,
-/area/derelict/ship)
 "bI" = (
 /obj/effect/floor_decal/corner/black/diagonal,
 /obj/machinery/light,
@@ -724,18 +530,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
-"bR" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/obj/effect/floor_decal/corner/black/diagonal,
-/obj/machinery/light{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/dark,
-/area/derelict/ship)
 "bS" = (
 /turf/simulated/floor,
 /area/template_noop)
@@ -760,60 +554,6 @@
 /area/derelict/ship)
 "bV" = (
 /obj/machinery/power/rtg/advanced,
-/obj/structure/cable{
-	icon_state = "0-4";
-	d2 = 4
-	},
-/turf/simulated/floor,
-/area/derelict/ship)
-"bW" = (
-/obj/machinery/power/rtg/advanced,
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8";
-	pixel_x = 0
-	},
-/obj/structure/cable{
-	icon_state = "0-4";
-	d2 = 4
-	},
-/turf/simulated/floor,
-/area/derelict/ship)
-"bX" = (
-/obj/machinery/power/rtg/advanced,
-/obj/structure/cable{
-	d1 = 2;
-	d2 = 8;
-	icon_state = "2-8"
-	},
-/obj/structure/cable{
-	d1 = 2;
-	d2 = 4;
-	icon_state = "2-4"
-	},
-/turf/simulated/floor,
-/area/derelict/ship)
-"bY" = (
-/obj/machinery/power/rtg/advanced,
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8";
-	pixel_x = 0
-	},
-/obj/structure/cable{
-	d2 = 8;
-	icon_state = "0-8"
-	},
-/turf/simulated/floor,
-/area/derelict/ship)
-"bZ" = (
-/obj/machinery/power/rtg/advanced,
-/obj/structure/cable{
-	d2 = 8;
-	icon_state = "0-8"
-	},
 /turf/simulated/floor,
 /area/derelict/ship)
 "ca" = (
@@ -995,18 +735,6 @@
 /mob/living/simple_animal/hostile/retaliate/malf_drone,
 /turf/template_noop,
 /area/template_noop)
-"cD" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/obj/machinery/door/airlock/vault/bolted{
-	desc = "A huge blast door of sorts with a clunky locking mechanism.";
-	name = "heavy blast door"
-	},
-/turf/simulated/floor,
-/area/derelict/ship)
 "cE" = (
 /obj/effect/decal/cleanable/blood/gibs,
 /obj/structure/bed/chair/office/bridge,
@@ -1016,47 +744,6 @@
 "cF" = (
 /obj/item/frame,
 /obj/structure/bed/chair/office/bridge,
-/obj/effect/floor_decal/corner/black/diagonal,
-/turf/simulated/floor/tiled/dark,
-/area/derelict/ship)
-"cG" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 4;
-	icon_state = "1-4"
-	},
-/obj/machinery/door/airlock/vault/bolted{
-	desc = "A huge blast door of sorts with a clunky locking mechanism.";
-	name = "heavy blast door"
-	},
-/turf/simulated/floor,
-/area/derelict/ship)
-"cH" = (
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8";
-	pixel_x = 0
-	},
-/obj/structure/closet/firecloset,
-/obj/effect/floor_decal/corner/black/diagonal,
-/turf/simulated/floor/tiled/dark,
-/area/derelict/ship)
-"cI" = (
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8";
-	pixel_x = 0
-	},
-/obj/structure/closet/emcloset,
-/obj/effect/floor_decal/corner/black/diagonal,
-/turf/simulated/floor/tiled/dark,
-/area/derelict/ship)
-"cJ" = (
-/obj/structure/cable{
-	icon_state = "1-8"
-	},
 /obj/effect/floor_decal/corner/black/diagonal,
 /turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
@@ -2329,63 +2016,6 @@
 /obj/structure/closet/emcloset,
 /turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
-"gF" = (
-/obj/structure/cable{
-	icon_state = "0-4";
-	d2 = 4
-	},
-/obj/machinery/power/rtg/advanced,
-/turf/simulated/floor,
-/area/derelict/ship)
-"gG" = (
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8";
-	pixel_x = 0
-	},
-/obj/structure/cable{
-	icon_state = "0-4";
-	d2 = 4
-	},
-/obj/machinery/power/rtg/advanced,
-/turf/simulated/floor,
-/area/derelict/ship)
-"gH" = (
-/obj/structure/cable{
-	d1 = 2;
-	d2 = 4;
-	icon_state = "2-4"
-	},
-/obj/structure/cable{
-	d1 = 2;
-	d2 = 8;
-	icon_state = "2-8"
-	},
-/turf/simulated/floor,
-/area/derelict/ship)
-"gI" = (
-/obj/structure/cable{
-	d2 = 8;
-	icon_state = "0-8"
-	},
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8";
-	pixel_x = 0
-	},
-/obj/machinery/power/rtg/advanced,
-/turf/simulated/floor,
-/area/derelict/ship)
-"gJ" = (
-/obj/structure/cable{
-	d2 = 8;
-	icon_state = "0-8"
-	},
-/obj/machinery/power/rtg/advanced,
-/turf/simulated/floor,
-/area/derelict/ship)
 "gK" = (
 /obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
@@ -2406,24 +2036,6 @@
 /obj/random/junk,
 /obj/effect/floor_decal/corner/black/diagonal,
 /turf/simulated/floor/tiled/dark,
-/area/derelict/ship)
-"gM" = (
-/obj/structure/cable{
-	d1 = 2;
-	d2 = 4;
-	icon_state = "2-4"
-	},
-/obj/structure/cable{
-	d1 = 2;
-	d2 = 8;
-	icon_state = "2-8"
-	},
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/turf/simulated/floor,
 /area/derelict/ship)
 "gN" = (
 /obj/random/junk,
@@ -3076,18 +2688,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
-"iy" = (
-/obj/machinery/door/airlock/vault/bolted{
-	desc = "A huge blast door of sorts with a clunky locking mechanism.";
-	name = "heavy blast door"
-	},
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/derelict/ship)
 "iz" = (
 /obj/structure/reagent_dispensers/water_cooler,
 /turf/simulated/floor/tiled/dark,
@@ -3253,14 +2853,6 @@
 /obj/structure/bed/chair,
 /turf/simulated/floor/tiled/white,
 /area/derelict/ship)
-"iZ" = (
-/obj/structure/cable{
-	d1 = 2;
-	d2 = 4;
-	icon_state = "2-4"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/derelict/ship)
 "ja" = (
 /obj/machinery/chem_heater,
 /turf/simulated/floor/tiled/white,
@@ -3403,80 +2995,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/derelict/ship)
-"jt" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 4;
-	icon_state = "1-4"
-	},
-/obj/effect/floor_decal/corner/black/diagonal,
-/turf/simulated/floor/tiled/dark,
-/area/derelict/ship)
-"ju" = (
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8";
-	pixel_x = 0
-	},
-/obj/machinery/door/firedoor,
-/obj/effect/floor_decal/corner/black/diagonal,
-/turf/simulated/floor/tiled/dark,
-/area/derelict/ship)
-"jv" = (
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8";
-	pixel_x = 0
-	},
-/obj/effect/floor_decal/corner/black/diagonal,
-/turf/simulated/floor/tiled/dark,
-/area/derelict/ship)
-"jw" = (
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8";
-	pixel_x = 0
-	},
-/obj/effect/floor_decal/corner/black/diagonal,
-/obj/machinery/light{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/dark,
-/area/derelict/ship)
-"jx" = (
-/obj/machinery/door/firedoor,
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8";
-	pixel_x = 0
-	},
-/obj/effect/floor_decal/corner/black/diagonal,
-/turf/simulated/floor/tiled/dark,
-/area/derelict/ship)
-"jy" = (
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8";
-	pixel_x = 0
-	},
-/obj/effect/floor_decal/corner/black/diagonal,
-/obj/item/weapon/caution,
-/turf/simulated/floor/tiled/dark,
-/area/derelict/ship)
-"jz" = (
-/obj/structure/cable{
-	d1 = 2;
-	d2 = 8;
-	icon_state = "2-8"
-	},
-/obj/effect/floor_decal/corner/black/diagonal,
-/turf/simulated/floor/tiled/dark,
-/area/derelict/ship)
 "jA" = (
 /obj/machinery/door/airlock/medical,
 /obj/machinery/door/firedoor,
@@ -3551,16 +3069,6 @@
 "jO" = (
 /obj/structure/plasticflaps/airtight,
 /obj/machinery/door/airlock/medical,
-/turf/simulated/floor/tiled/dark,
-/area/derelict/ship)
-"jP" = (
-/obj/machinery/door/firedoor,
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/obj/effect/floor_decal/corner/black/diagonal,
 /turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "jQ" = (
@@ -3682,15 +3190,6 @@
 	dir = 8
 	},
 /turf/simulated/floor,
-/area/derelict/ship)
-"kg" = (
-/obj/structure/cable{
-	d1 = 2;
-	d2 = 4;
-	icon_state = "2-4"
-	},
-/obj/effect/floor_decal/corner/black/diagonal,
-/turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "kh" = (
 /obj/structure/closet/firecloset,
@@ -3930,11 +3429,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "kR" = (
-/obj/structure/cable{
-	d2 = 2;
-	icon_state = "0-2";
-	pixel_y = 0
-	},
 /obj/machinery/power/terminal{
 	dir = 8
 	},
@@ -3988,15 +3482,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "lc" = (
-/obj/structure/cable{
-	icon_state = "0-4";
-	d2 = 4
-	},
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 4;
-	icon_state = "1-4"
-	},
 /obj/machinery/power/apc/super{
 	dir = 8;
 	name = "west bump";
@@ -4171,15 +3656,6 @@
 	icon_state = "rwindow";
 	dir = 1
 	},
-/turf/simulated/floor,
-/area/derelict/ship)
-"lJ" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/obj/machinery/door/airlock/engineering,
 /turf/simulated/floor,
 /area/derelict/ship)
 "lK" = (
@@ -5114,82 +4590,6 @@
 /obj/machinery/drone_fabricator/derelict,
 /turf/simulated/floor/tiled/steel,
 /area/derelict/ship)
-"ov" = (
-/obj/structure/cable{
-	d1 = 2;
-	d2 = 4;
-	icon_state = "2-4"
-	},
-/turf/simulated/floor/tiled/steel,
-/area/derelict/ship)
-"ow" = (
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8";
-	pixel_x = 0
-	},
-/turf/simulated/floor/tiled/steel,
-/area/derelict/ship)
-"ox" = (
-/obj/machinery/door/airlock/maintenance,
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8";
-	pixel_x = 0
-	},
-/turf/simulated/floor,
-/area/derelict/ship)
-"oy" = (
-/obj/machinery/door/airlock/external{
-	frequency = 1379;
-	icon_state = "door_locked";
-	id_tag = "civilian_eva_outer";
-	locked = 1;
-	name = "Engineering External Access";
-	req_access = list(13)
-	},
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8";
-	pixel_x = 0
-	},
-/turf/simulated/floor,
-/area/derelict/ship)
-"oz" = (
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 1
-	},
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8";
-	pixel_x = 0
-	},
-/turf/simulated/floor,
-/area/derelict/ship)
-"oA" = (
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 1
-	},
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8";
-	pixel_x = 0
-	},
-/obj/machinery/light{
-	dir = 1
-	},
-/obj/machinery/light,
-/turf/simulated/floor,
-/area/derelict/ship)
 "oB" = (
 /obj/structure/window/reinforced{
 	icon_state = "rwindow";
@@ -5238,27 +4638,9 @@
 	},
 /turf/simulated/floor,
 /area/derelict/ship)
-"oG" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/turf/simulated/floor/tiled/steel,
-/area/derelict/ship)
 "oH" = (
 /obj/structure/closet/secure_closet/engineering_personal,
 /turf/simulated/floor/tiled/steel,
-/area/derelict/ship)
-"oI" = (
-/obj/machinery/door/airlock/engineering,
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8";
-	pixel_x = 0
-	},
-/turf/simulated/floor,
 /area/derelict/ship)
 "oJ" = (
 /obj/structure/closet/secure_closet/engineering_welding,
@@ -5281,18 +4663,6 @@
 /obj/structure/window/reinforced,
 /turf/simulated/floor,
 /area/derelict/ship)
-"oL" = (
-/obj/machinery/power/terminal{
-	dir = 8
-	},
-/obj/structure/cable,
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/turf/simulated/floor,
-/area/derelict/ship)
 "oM" = (
 /obj/structure/closet/secure_closet/engineering_welding,
 /turf/simulated/floor/tiled/steel,
@@ -5313,33 +4683,9 @@
 /obj/item/stack/material/titanium,
 /turf/simulated/floor/tiled/steel,
 /area/derelict/ship)
-"oP" = (
-/obj/machinery/door/airlock/vault/bolted{
-	desc = "A huge blast door of sorts with a clunky locking mechanism.";
-	name = "heavy blast door"
-	},
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/turf/simulated/floor,
-/area/derelict/ship)
 "oQ" = (
 /obj/machinery/floorlayer,
 /turf/simulated/floor/tiled/steel,
-/area/derelict/ship)
-"oR" = (
-/obj/machinery/power/apc/super{
-	dir = 8;
-	name = "west bump";
-	pixel_x = -24
-	},
-/obj/machinery/power/terminal{
-	dir = 8
-	},
-/obj/structure/cable,
-/turf/simulated/floor,
 /area/derelict/ship)
 "oS" = (
 /obj/random/glowstick,
@@ -5352,38 +4698,6 @@
 "oU" = (
 /obj/structure/closet/crate/secure/large/reinforced,
 /turf/simulated/floor/tiled/steel,
-/area/derelict/ship)
-"oV" = (
-/obj/structure/cable{
-	icon_state = "0-4";
-	d2 = 4
-	},
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8";
-	pixel_x = 0
-	},
-/obj/machinery/power/rtg/advanced,
-/turf/simulated/floor,
-/area/derelict/ship)
-"oW" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 4;
-	icon_state = "1-4"
-	},
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 8;
-	icon_state = "1-8"
-	},
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/turf/simulated/floor,
 /area/derelict/ship)
 "oX" = (
 /obj/item/robot_parts/l_leg,
@@ -5434,19 +4748,6 @@
 	dir = 8
 	},
 /obj/structure/grille,
-/turf/simulated/floor,
-/area/derelict/ship)
-"pf" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 4;
-	icon_state = "1-4"
-	},
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 8;
-	icon_state = "1-8"
-	},
 /turf/simulated/floor,
 /area/derelict/ship)
 "pg" = (
@@ -5511,52 +4812,6 @@
 "pq" = (
 /obj/item/mecha_parts/chassis/phazon,
 /turf/simulated/floor/tiled/steel,
-/area/derelict/ship)
-"pr" = (
-/obj/structure/cable{
-	icon_state = "1-8"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/derelict/ship)
-"ps" = (
-/obj/machinery/light{
-	dir = 4;
-	status = 2
-	},
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/derelict/ship)
-"pt" = (
-/obj/effect/floor_decal/corner/black/diagonal,
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 4;
-	icon_state = "1-4"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/derelict/ship)
-"pu" = (
-/obj/effect/floor_decal/corner/black/diagonal,
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8";
-	pixel_x = 0
-	},
-/turf/simulated/floor/tiled/dark,
-/area/derelict/ship)
-"pv" = (
-/obj/effect/floor_decal/corner/black/diagonal,
-/obj/structure/cable{
-	d1 = 2;
-	d2 = 8;
-	icon_state = "2-8"
-	},
-/turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "pw" = (
 /obj/structure/table/reinforced/steel,
@@ -33997,15 +33252,15 @@ gh
 gh
 gw
 ay
-gF
-gF
-gF
-gF
-gF
-gF
-gF
-gF
-gF
+bV
+bV
+bV
+bV
+bV
+bV
+bV
+bV
+bV
 ay
 ay
 ay
@@ -34254,15 +33509,15 @@ gh
 gh
 gh
 ay
-gG
-gG
-gG
-gG
-gG
-gG
-gG
-gG
-gG
+bV
+bV
+bV
+bV
+bV
+bV
+bV
+bV
+bV
 ay
 ay
 ay
@@ -34511,20 +33766,20 @@ gh
 gh
 gy
 ay
-gH
-gM
-gM
-gM
-gM
-gM
-gM
-gM
-gM
-iy
-br
-iy
-bH
-jt
+av
+av
+av
+av
+av
+av
+av
+av
+av
+fQ
+bp
+fQ
+bs
+bs
 bs
 ay
 jS
@@ -34768,20 +34023,20 @@ gh
 gh
 gy
 ay
-gI
-gI
-gI
-gI
-gI
-gI
-gI
-gI
-gI
+bV
+bV
+bV
+bV
+bV
+bV
+bV
+bV
+bV
 ay
 ay
 ay
 et
-ju
+gS
 gS
 ay
 gf
@@ -35025,20 +34280,20 @@ gi
 gh
 gz
 ay
-gJ
-gJ
-gJ
-gJ
-gJ
-gJ
-gJ
-gJ
-gJ
+bV
+bV
+bV
+bV
+bV
+bV
+bV
+bV
+bV
 ay
 ay
 ay
 ji
-jv
+bs
 bs
 ay
 av
@@ -35295,7 +34550,7 @@ ay
 ay
 ay
 ee
-jv
+bs
 bs
 ay
 jT
@@ -35552,7 +34807,7 @@ ay
 ay
 ay
 ay
-jw
+dO
 bs
 et
 av
@@ -35562,19 +34817,19 @@ kf
 av
 ay
 kS
-bd
-aJ
-aJ
-aJ
-aJ
-lJ
-aJ
-aJ
-aJ
-aJ
-lJ
-bH
-jt
+av
+av
+av
+av
+av
+aE
+av
+av
+av
+av
+aE
+bs
+bs
 bs
 mB
 aL
@@ -35809,7 +35064,7 @@ bs
 bs
 gS
 bs
-jv
+bs
 bs
 ay
 av
@@ -35831,7 +35086,7 @@ kp
 kp
 et
 bs
-jv
+bs
 bs
 ay
 aL
@@ -36066,7 +35321,7 @@ bs
 cR
 gS
 bs
-jv
+bs
 bs
 ay
 jU
@@ -36088,7 +35343,7 @@ lP
 mj
 ay
 dO
-jv
+bs
 bs
 ay
 mF
@@ -36323,7 +35578,7 @@ ay
 ay
 ay
 dO
-jv
+bs
 bs
 ay
 ay
@@ -36345,7 +35600,7 @@ ay
 ay
 ay
 bs
-jv
+bs
 bs
 ay
 aL
@@ -36380,9 +35635,9 @@ kp
 kp
 ay
 av
-gF
-gF
-gF
+bV
+bV
+bV
 ay
 mE
 mG
@@ -36580,7 +35835,7 @@ bp
 hm
 ay
 bs
-jv
+bs
 bs
 ay
 ji
@@ -36602,7 +35857,7 @@ bs
 bs
 gS
 bs
-jv
+bs
 bs
 mC
 aL
@@ -36637,9 +35892,9 @@ kp
 oO
 ay
 av
-oV
-oV
-oV
+bV
+bV
+bV
 ay
 ay
 mE
@@ -36837,29 +36092,29 @@ bp
 bp
 eN
 bs
-jv
+bs
 bs
 ay
 bs
-kg
-bH
-jP
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-jP
-bH
-cJ
+bs
+bs
+gS
+bs
+bs
+bs
+bs
+bs
+bs
+bs
+bs
+bs
+bs
+bs
+bs
+bs
+gS
+bs
+bs
 bs
 gQ
 aL
@@ -36894,9 +36149,9 @@ kD
 ay
 ay
 ay
-oV
-oV
-oV
+bV
+bV
+bV
 av
 ay
 mE
@@ -37094,11 +36349,11 @@ bp
 ey
 ay
 bs
-jv
+bs
 bs
 ay
 bs
-jv
+bs
 bs
 gS
 bs
@@ -37145,15 +36400,15 @@ kp
 lP
 ne
 kp
-ov
-oG
-oG
-oP
-aJ
-oP
-oW
-oW
-pf
+kp
+kp
+kp
+ke
+av
+ke
+av
+av
+av
 av
 ay
 mE
@@ -37351,11 +36606,11 @@ bp
 iM
 ay
 gS
-jx
+gS
 gS
 ay
 gS
-jx
+gS
 gS
 ay
 ay
@@ -37402,15 +36657,15 @@ gf
 ay
 ay
 oo
-ow
+kp
 kp
 kD
 ay
 ay
 ay
-gI
-gI
-gI
+bV
+bV
+bV
 av
 ay
 mE
@@ -37608,11 +36863,11 @@ ay
 ay
 et
 bs
-jv
+bs
 bs
 ay
 bs
-jv
+bs
 bs
 ay
 fg
@@ -37659,15 +36914,15 @@ av
 oc
 ay
 oo
-ow
+kp
 kp
 kp
 nd
 ay
 av
-gI
-gI
-gI
+bV
+bV
+bV
 ay
 ay
 mE
@@ -37865,11 +37120,11 @@ ay
 ay
 ay
 bs
-jv
+bs
 bs
 ay
 bs
-jv
+bs
 bI
 ay
 eZ
@@ -37916,15 +37171,15 @@ av
 av
 ay
 op
-ow
+kp
 kp
 kp
 nd
 ay
 av
-gJ
-gJ
-gJ
+bV
+bV
+bV
 ay
 mE
 mG
@@ -38122,11 +37377,11 @@ ay
 ay
 ay
 dO
-jv
+bs
 bs
 ay
 bs
-jv
+bs
 bs
 ay
 eM
@@ -38173,7 +37428,7 @@ av
 od
 ay
 op
-ow
+kp
 kp
 kp
 oQ
@@ -38379,11 +37634,11 @@ iz
 iN
 ay
 bs
-jv
+bs
 bs
 ay
 bs
-jv
+bs
 bs
 ay
 eZ
@@ -38430,7 +37685,7 @@ gf
 ay
 ay
 oq
-ow
+kp
 oH
 oH
 nu
@@ -38636,11 +37891,11 @@ bp
 bp
 ay
 bs
-jv
+bs
 bs
 et
 bs
-jv
+bs
 bs
 ay
 ay
@@ -38687,7 +37942,7 @@ av
 av
 ay
 ay
-ox
+gf
 ay
 ay
 ay
@@ -38893,11 +38148,11 @@ iA
 bp
 ay
 bs
-jv
+bs
 bs
 ay
 bs
-jv
+bs
 bs
 ay
 hw
@@ -38944,7 +38199,7 @@ my
 av
 ol
 ay
-aG
+av
 ay
 mE
 mG
@@ -39150,11 +38405,11 @@ iB
 bp
 iU
 bs
-jv
+bs
 bs
 ay
 bs
-jv
+bs
 bI
 ay
 kE
@@ -39201,7 +38456,7 @@ ni
 ly
 nl
 ay
-oy
+nI
 ay
 mE
 mG
@@ -39328,10 +38583,10 @@ bb
 av
 bb
 ay
-aF
-aJ
-aJ
-bt
+av
+av
+av
+av
 ay
 aX
 ay
@@ -39407,11 +38662,11 @@ bp
 bp
 iV
 bs
-jy
+na
 bs
 ay
 bs
-jv
+bs
 bs
 ay
 ay
@@ -39458,7 +38713,7 @@ cP
 ay
 ay
 ay
-oz
+nJ
 ay
 mE
 mG
@@ -39585,7 +38840,7 @@ av
 av
 av
 ay
-bg
+aX
 ay
 ay
 ay
@@ -39664,11 +38919,11 @@ ay
 fQ
 ay
 dO
-jv
+bs
 bs
 ay
 gS
-jx
+gS
 gS
 ay
 hw
@@ -39715,7 +38970,7 @@ aY
 oe
 nx
 nx
-oz
+nJ
 nx
 mE
 mG
@@ -39842,7 +39097,7 @@ av
 av
 av
 ay
-bh
+bp
 bk
 ay
 bu
@@ -39861,15 +39116,15 @@ ay
 ay
 ay
 ay
-bW
-bW
-bW
-bW
-bW
-bW
-bW
-bW
-bW
+bV
+bV
+bV
+bV
+bV
+bV
+bV
+bV
+bV
 ay
 ay
 ay
@@ -39921,11 +39176,11 @@ cQ
 bs
 iW
 bs
-jv
+bs
 bs
 gS
 bs
-jv
+bs
 bs
 ay
 kF
@@ -39972,7 +39227,7 @@ nx
 nx
 nx
 nx
-oz
+nJ
 nx
 nx
 nx
@@ -40084,22 +39339,22 @@ aA
 av
 aD
 aE
-aF
-aJ
-aK
-aK
-aK
-aK
+av
+av
+ay
+ay
+ay
+ay
 aP
 aS
 aL
 aV
 ba
-bc
+av
 av
 av
 ay
-bh
+bp
 bl
 bo
 bp
@@ -40118,18 +39373,18 @@ ay
 ay
 ay
 ay
-bX
-bX
-bX
-bX
-bX
-bX
-bX
-bX
-bX
-cD
-aJ
-cG
+bV
+bV
+bV
+bV
+bV
+bV
+bV
+bV
+bV
+ke
+av
+ke
 bs
 bs
 bs
@@ -40178,11 +39433,11 @@ bs
 bs
 iW
 bs
-jz
-bH
-jP
-bH
-cJ
+bs
+bs
+gS
+bs
+bs
 bI
 ay
 kF
@@ -40229,7 +39484,7 @@ nx
 nx
 nx
 nx
-oA
+nK
 nx
 nx
 nx
@@ -40341,7 +39596,7 @@ az
 av
 aD
 ay
-aG
+av
 av
 ay
 aL
@@ -40352,41 +39607,41 @@ aT
 aL
 aV
 av
-bd
-aJ
-aJ
-bf
-bi
-bm
+av
+av
+av
+fQ
+bp
+bp
 bp
 bp
 bw
 bp
-iZ
-ps
-br
-br
-br
-pt
+bp
+bz
+bp
+bp
+bp
 bs
 bs
+bs
 ay
 ay
 ay
 ay
 ay
-bY
-bY
-bY
-bY
-bY
-bY
-bY
-bY
-bY
+bV
+bV
+bV
+bV
+bV
+bV
+bV
+bV
+bV
 ay
 ay
-aH
+ay
 bs
 bs
 bs
@@ -40486,7 +39741,7 @@ nx
 nx
 nx
 nx
-oz
+nJ
 nx
 nx
 nx
@@ -40598,7 +39853,7 @@ az
 av
 ay
 ay
-aG
+av
 av
 ay
 ay
@@ -40614,36 +39869,36 @@ av
 av
 ay
 ay
-bh
+bp
+bp
+bp
+ay
 bp
 bp
 ay
-bp
-bh
 ay
 ay
 ay
-ay
-pu
 bs
 bs
+bs
 ay
 ay
 ay
 ay
 ay
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
+bV
+bV
+bV
+bV
+bV
+bV
+bV
+bV
+bV
 ay
 ay
-cH
+ee
 bs
 bs
 bs
@@ -40743,7 +39998,7 @@ aY
 of
 nx
 nx
-oz
+nJ
 nx
 mE
 mG
@@ -40855,7 +40110,7 @@ az
 aA
 ay
 ay
-aG
+av
 av
 av
 ay
@@ -40871,19 +40126,19 @@ av
 be
 ay
 ay
-bn
+bv
 bq
 bv
 ay
 bp
-bh
+bp
 ay
 ay
 ay
 ay
-pu
 bs
 bs
+bs
 ay
 ay
 ay
@@ -40900,7 +40155,7 @@ ay
 ay
 ay
 ay
-cI
+ji
 bs
 bs
 bs
@@ -41000,7 +40255,7 @@ cP
 ay
 ay
 ay
-oz
+nJ
 ay
 mE
 mG
@@ -41112,10 +40367,10 @@ az
 av
 ay
 ay
-aG
 av
 av
 av
+av
 ay
 ay
 ay
@@ -41128,19 +40383,19 @@ ay
 ay
 ay
 ay
-aH
+ay
 ay
 ay
 ay
 bp
-bh
+bp
 ay
 ay
 ay
 ay
-pu
 bs
 bs
+bs
 ay
 ay
 ay
@@ -41157,7 +40412,7 @@ ay
 ay
 ay
 ay
-aH
+ay
 bs
 bs
 bs
@@ -41257,7 +40512,7 @@ ff
 av
 fD
 ay
-oy
+nI
 ay
 mE
 mG
@@ -41369,7 +40624,7 @@ az
 av
 ay
 ay
-aH
+ay
 av
 av
 av
@@ -41385,17 +40640,17 @@ av
 av
 av
 ay
-bh
 bp
 bp
 bp
 bp
-bh
+bp
+bp
 ay
 ay
 ay
 ay
-pu
+bs
 bs
 bI
 ay
@@ -41414,7 +40669,7 @@ ay
 ay
 ay
 ay
-aH
+ay
 bs
 bs
 bs
@@ -41514,7 +40769,7 @@ av
 av
 fD
 ay
-aG
+av
 ay
 mE
 mG
@@ -41626,52 +40881,52 @@ aA
 ay
 ay
 ay
-aI
-aK
-aJ
-aJ
-aJ
-aJ
-aJ
-aJ
-aJ
-aK
-aJ
-aJ
-aJ
-aJ
-aJ
-bj
-bi
-br
-br
-bx
-br
-pr
+ay
+ay
+av
+av
+av
+av
+av
+av
+av
+ay
+av
+av
+av
+av
+av
+aX
+bp
+bp
+bp
+bz
+bp
+bp
 ay
 ay
 ay
 ay
-pv
-bH
-bH
-bH
-bH
-bR
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bR
-bH
-bH
-bH
-cJ
+bs
+bs
+bs
+bs
+bs
+cQ
+bs
+bs
+bs
+bs
+bs
+bs
+bs
+bs
+bs
+cQ
+bs
+bs
+bs
+bs
 bs
 bs
 bs
@@ -41771,7 +41026,7 @@ av
 av
 ay
 ay
-ox
+gf
 ay
 ay
 ay
@@ -42028,7 +41283,7 @@ gf
 ay
 ay
 or
-aG
+av
 kp
 oo
 oo
@@ -42285,8 +41540,8 @@ av
 og
 ay
 or
-bd
-bc
+av
+av
 kp
 kp
 ay
@@ -42543,7 +41798,7 @@ oh
 ay
 ay
 ay
-oI
+aE
 ay
 ay
 ay
@@ -42800,8 +42055,8 @@ av
 ay
 lT
 lO
-aG
-bk
+av
+av
 ay
 ay
 kp
@@ -43057,9 +42312,9 @@ ay
 ay
 lT
 kp
-bd
-oL
-oR
+av
+av
+av
 ok
 kp
 kp

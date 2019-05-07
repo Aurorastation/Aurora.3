@@ -118,10 +118,6 @@
 /turf/simulated/floor/asteroid/ash,
 /area/derelict/ship)
 "aC" = (
-/obj/structure/cable{
-	icon_state = "0-4";
-	d2 = 4
-	},
 /obj/machinery/power/rtg/advanced,
 /obj/structure/alien/weeds,
 /turf/simulated/floor/airless{
@@ -129,42 +125,18 @@
 	},
 /area/derelict/ship)
 "aD" = (
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
 /obj/structure/alien/weeds,
 /turf/simulated/floor/airless{
 	icon_state = "asteroidplating"
 	},
 /area/derelict/ship)
 "aE" = (
-/obj/structure/cable{
-	icon_state = "0-2";
-	d2 = 2
-	},
-/obj/structure/cable{
-	d1 = 2;
-	d2 = 4;
-	icon_state = "2-4"
-	},
-/obj/structure/cable{
-	d1 = 2;
-	d2 = 8;
-	icon_state = "2-8"
-	},
 /obj/structure/alien/weeds/node,
 /turf/simulated/floor/airless{
 	icon_state = "asteroidplating"
 	},
 /area/derelict/ship)
 "aF" = (
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
 /obj/item/device/soulstone,
 /obj/structure/alien/weeds,
 /turf/simulated/floor/airless{
@@ -172,10 +144,6 @@
 	},
 /area/derelict/ship)
 "aG" = (
-/obj/structure/cable{
-	d2 = 8;
-	icon_state = "0-8"
-	},
 /obj/machinery/power/rtg/advanced,
 /turf/simulated/floor/airless{
 	icon_state = "asteroidplating"
@@ -198,33 +166,7 @@
 	},
 /turf/template_noop,
 /area/template_noop)
-"aL" = (
-/obj/structure/cable{
-	icon_state = "0-4";
-	d2 = 4
-	},
-/obj/machinery/power/rtg/advanced,
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/derelict/ship)
 "aM" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2";
-	pixel_y = 0
-	},
-/obj/structure/cable{
-	d1 = 2;
-	d2 = 4;
-	icon_state = "2-4"
-	},
-/obj/structure/cable{
-	d1 = 2;
-	d2 = 8;
-	icon_state = "2-8"
-	},
 /obj/structure/alien/weeds,
 /obj/structure/alien/weeds,
 /turf/simulated/floor/airless{
@@ -242,90 +184,16 @@
 /turf/simulated/shuttle/floor4/vox,
 /area/derelict/ship)
 "aP" = (
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
 /obj/structure/alien/weeds,
 /obj/item/mecha_parts/part/phazon_torso,
 /turf/simulated/floor/airless{
 	icon_state = "asteroidplating"
 	},
 /area/derelict/ship)
-"aQ" = (
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/machinery/power/rtg/advanced,
-/obj/structure/cable{
-	icon_state = "0-4";
-	d2 = 4
-	},
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/derelict/ship)
-"aR" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2";
-	pixel_y = 0
-	},
-/obj/structure/cable{
-	d1 = 2;
-	d2 = 4;
-	icon_state = "2-4"
-	},
-/obj/structure/cable{
-	d1 = 2;
-	d2 = 8;
-	icon_state = "2-8"
-	},
-/obj/structure/alien/weeds,
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/derelict/ship)
-"aS" = (
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/machinery/power/rtg/advanced,
-/obj/structure/cable{
-	d2 = 8;
-	icon_state = "0-8"
-	},
-/obj/structure/alien/weeds,
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/derelict/ship)
 "aT" = (
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
 /obj/effect/decal/remains,
 /obj/structure/alien/weeds,
 /mob/living/simple_animal/hostile/carp/shark,
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/derelict/ship)
-"aU" = (
-/obj/structure/cable{
-	d2 = 8;
-	icon_state = "0-8"
-	},
-/obj/machinery/power/rtg/advanced,
-/obj/structure/alien/weeds,
 /turf/simulated/floor/airless{
 	icon_state = "asteroidplating"
 	},
@@ -339,28 +207,8 @@
 /turf/simulated/shuttle/floor4/vox,
 /area/derelict/ship)
 "aX" = (
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
 /obj/structure/alien/weeds,
 /mob/living/simple_animal/hostile/carp/shark,
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/derelict/ship)
-"aY" = (
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/machinery/power/rtg/advanced,
-/obj/structure/cable{
-	d2 = 8;
-	icon_state = "0-8"
-	},
 /turf/simulated/floor/airless{
 	icon_state = "asteroidplating"
 	},
@@ -370,41 +218,9 @@
 /turf/simulated/floor/asteroid/ash,
 /area/derelict/ship)
 "ba" = (
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
 /obj/effect/decal/remains,
 /obj/structure/alien/weeds,
 /obj/structure/alien/weeds,
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/derelict/ship)
-"bb" = (
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/machinery/power/rtg/advanced,
-/obj/structure/cable{
-	icon_state = "0-4";
-	d2 = 4
-	},
-/obj/structure/alien/weeds,
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/derelict/ship)
-"bc" = (
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/structure/alien/weeds/node,
 /turf/simulated/floor/airless{
 	icon_state = "asteroidplating"
 	},
@@ -414,12 +230,6 @@
 /turf/simulated/floor/asteroid/ash,
 /area/derelict/ship)
 "be" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2";
-	pixel_y = 0
-	},
 /obj/machinery/door/airlock/vault/bolted{
 	desc = "A huge blast door of sorts with a clunky locking mechanism.";
 	name = "heavy blast door"
@@ -429,12 +239,6 @@
 	},
 /area/derelict/ship)
 "bf" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2";
-	pixel_y = 0
-	},
 /obj/effect/decal/warning_stripes,
 /obj/structure/alien/resin/membrane,
 /turf/simulated/floor/airless{
@@ -447,89 +251,14 @@
 	icon_state = "asteroidplating"
 	},
 /area/derelict/ship)
-"bi" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2";
-	pixel_y = 0
-	},
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/derelict/ship)
 "bj" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2";
-	pixel_y = 0
-	},
 /obj/structure/grille,
 /turf/simulated/floor/airless{
 	icon_state = "asteroidplating"
 	},
 /area/derelict/ship)
-"bk" = (
-/obj/structure/cable{
-	d1 = 2;
-	d2 = 4;
-	icon_state = "2-4"
-	},
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/derelict/ship)
-"bl" = (
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/derelict/ship)
 "bm" = (
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
 /obj/structure/barricade,
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/derelict/ship)
-"bn" = (
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/structure/boulder,
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/derelict/ship)
-"bo" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 8;
-	icon_state = "1-8"
-	},
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/derelict/ship)
-"bp" = (
-/obj/structure/boulder,
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2";
-	pixel_y = 0
-	},
 /turf/simulated/floor/airless{
 	icon_state = "asteroidplating"
 	},
@@ -543,12 +272,6 @@
 /turf/simulated/floor/asteroid/ash,
 /area/derelict/ship)
 "bs" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2";
-	pixel_y = 0
-	},
 /obj/item/weapon/ore/diamond,
 /turf/simulated/floor/airless{
 	icon_state = "asteroidplating"
@@ -608,41 +331,6 @@
 /obj/structure/table/standard,
 /turf/simulated/floor/lino,
 /area/derelict/ship)
-"bD" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 4;
-	icon_state = "1-4"
-	},
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/derelict/ship)
-"bE" = (
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/machinery/door/airlock/external,
-/turf/simulated/floor,
-/area/derelict/ship)
-"bF" = (
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/turf/simulated/floor,
-/area/derelict/ship)
-"bG" = (
-/obj/structure/cable{
-	d1 = 2;
-	d2 = 8;
-	icon_state = "2-8"
-	},
-/turf/simulated/floor,
-/area/derelict/ship)
 "bH" = (
 /obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
@@ -666,15 +354,6 @@
 "bK" = (
 /obj/structure/girder,
 /turf/simulated/floor/asteroid/ash,
-/area/derelict/ship)
-"bL" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2";
-	pixel_y = 0
-	},
-/turf/simulated/floor,
 /area/derelict/ship)
 "bM" = (
 /obj/machinery/door/airlock/glass,
@@ -713,16 +392,6 @@
 /obj/structure/extinguisher_cabinet,
 /turf/simulated/wall,
 /area/derelict/ship)
-"bR" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2";
-	pixel_y = 0
-	},
-/obj/machinery/door/airlock/external,
-/turf/simulated/floor,
-/area/derelict/ship)
 "bS" = (
 /obj/structure/sign/directions/dock,
 /turf/simulated/wall,
@@ -760,19 +429,6 @@
 /obj/structure/closet/secure_closet/miner,
 /turf/simulated/floor/lino,
 /area/derelict/ship)
-"ca" = (
-/obj/machinery/power/smes,
-/turf/simulated/floor,
-/area/derelict/ship)
-"cb" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2";
-	pixel_y = 0
-	},
-/turf/simulated/floor/tiled/dark,
-/area/derelict/ship)
 "cc" = (
 /turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
@@ -801,29 +457,6 @@
 /obj/item/weapon/stool/padded,
 /turf/simulated/floor/lino,
 /area/derelict/ship)
-"ci" = (
-/obj/machinery/power/terminal{
-	icon_state = "term";
-	dir = 1
-	},
-/obj/structure/cable{
-	icon_state = "0-4";
-	d2 = 4
-	},
-/obj/structure/cable{
-	icon_state = "0-2";
-	d2 = 2
-	},
-/turf/simulated/floor/tiled/dark,
-/area/derelict/ship)
-"cj" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 8;
-	icon_state = "1-8"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/derelict/ship)
 "ck" = (
 /obj/structure/table/standard,
 /obj/item/weapon/rrf,
@@ -851,23 +484,6 @@
 	status = 2
 	},
 /turf/simulated/floor/lino,
-/area/derelict/ship)
-"co" = (
-/obj/machinery/power/apc/super{
-	coverlocked = 0;
-	dir = 8;
-	environ = 0;
-	equipment = 0;
-	lighting = 0;
-	locked = 0;
-	name = "west bump";
-	pixel_x = -24
-	},
-/obj/machinery/power/terminal{
-	dir = 8
-	},
-/obj/structure/cable,
-/turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "cp" = (
 /obj/machinery/light{
@@ -35318,16 +34934,16 @@ Ed
 Ed
 Ed
 ak
-bk
-bi
-bi
-bi
-bp
-bp
-bi
+ax
+ax
+ax
+ax
+bg
+bg
+ax
 bs
-bi
-bD
+ax
+ax
 bK
 bQ
 bX
@@ -35575,7 +35191,7 @@ Ed
 Ed
 Ed
 ak
-bl
+ax
 ak
 ak
 ak
@@ -35584,7 +35200,7 @@ aB
 bq
 ak
 ak
-bl
+ax
 ak
 bO
 bY
@@ -35841,7 +35457,7 @@ Ed
 br
 ak
 bq
-bl
+ax
 ak
 bP
 bI
@@ -36076,10 +35692,10 @@ Ed
 ay
 ay
 ay
-aL
+aG
 aC
-aL
-aL
+aG
+aG
 aC
 ay
 ay
@@ -36089,7 +35705,7 @@ Ed
 Ed
 Ed
 Ed
-bl
+ax
 Ed
 Ed
 Ed
@@ -36098,7 +35714,7 @@ Ed
 Ed
 Ed
 ak
-bl
+ax
 bK
 bu
 bX
@@ -36332,13 +35948,13 @@ Ed
 ay
 ay
 ay
-aL
+aG
 aP
 aD
 aD
-bc
+aE
 aD
-aL
+aG
 ay
 ay
 ay
@@ -36346,7 +35962,7 @@ Ed
 Ed
 Ed
 Ed
-bl
+ax
 Ed
 Ed
 Ed
@@ -36355,7 +35971,7 @@ Ed
 Ed
 bt
 ak
-bl
+ax
 ak
 bO
 bZ
@@ -36596,14 +36212,14 @@ ba
 aD
 aD
 aD
-aL
+aG
 ay
 ay
 Ed
 Ed
 Ed
 Ed
-bn
+bg
 Ed
 Ed
 Ed
@@ -36612,7 +36228,7 @@ Ed
 ak
 ak
 ak
-bl
+ax
 ak
 bP
 bZ
@@ -36847,11 +36463,11 @@ ay
 ay
 aD
 aD
-aQ
-aQ
-bb
-aQ
-aQ
+aG
+aG
+aC
+aG
+aG
 aX
 aD
 ay
@@ -36860,7 +36476,7 @@ ay
 ay
 ay
 ay
-bl
+ax
 Ed
 Ed
 Ed
@@ -36869,7 +36485,7 @@ Ed
 ak
 bu
 bw
-bE
+bw
 bw
 bu
 bu
@@ -37104,20 +36720,20 @@ ay
 ay
 aE
 aM
-aR
-aR
-aR
-aR
-aR
-aR
-aR
+aD
+aD
+aD
+aD
+aD
+aD
+aD
 be
 bf
 be
-bi
-bi
+ax
+ax
 bj
-bo
+ax
 Ed
 Ed
 Ed
@@ -37126,12 +36742,12 @@ Ed
 ak
 bu
 bx
-bF
+bx
 bx
 bu
-ca
-ci
-co
+bx
+cc
+cc
 cc
 cc
 bP
@@ -37361,11 +36977,11 @@ ay
 ay
 aF
 aD
-aS
-aY
-aY
-aY
-aS
+aC
+aG
+aG
+aG
+aC
 aD
 aD
 ay
@@ -37383,11 +36999,11 @@ Ed
 ak
 bu
 by
-bG
-bL
-bR
-cb
-cj
+bx
+bx
+bw
+cc
+cc
 cc
 cc
 cy
@@ -37877,10 +37493,10 @@ ay
 aG
 aD
 aD
-bc
+aE
 aD
 aD
-aU
+aC
 ay
 ay
 ay
@@ -38132,11 +37748,11 @@ Ed
 ay
 ay
 ay
-aU
+aC
 aG
 aG
 aG
-aU
+aC
 ay
 ay
 ay

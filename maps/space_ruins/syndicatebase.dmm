@@ -1632,50 +1632,6 @@
 /area/derelict)
 "eo" = (
 /obj/machinery/power/rtg/advanced,
-/obj/structure/cable{
-	d2 = 2;
-	icon_state = "0-2";
-	pixel_y = 0
-	},
-/turf/simulated/floor,
-/area/derelict)
-"ep" = (
-/obj/machinery/power/apc{
-	dir = 1;
-	is_critical = 1;
-	name = "north bump";
-	pixel_x = 0;
-	pixel_y = 24
-	},
-/obj/machinery/power/terminal{
-	icon_state = "term";
-	dir = 1
-	},
-/obj/structure/cable{
-	icon_state = "0-4";
-	d2 = 4
-	},
-/turf/simulated/floor,
-/area/derelict)
-"eq" = (
-/obj/structure/cable{
-	d1 = 2;
-	d2 = 4;
-	icon_state = "2-4"
-	},
-/obj/structure/cable{
-	d1 = 2;
-	d2 = 8;
-	icon_state = "2-8"
-	},
-/turf/simulated/floor,
-/area/derelict)
-"er" = (
-/obj/machinery/power/terminal,
-/obj/structure/cable{
-	d2 = 8;
-	icon_state = "0-8"
-	},
 /turf/simulated/floor,
 /area/derelict)
 "es" = (
@@ -1697,37 +1653,6 @@
 	icon_state = "white"
 	},
 /area/derelict)
-"ev" = (
-/obj/machinery/power/rtg/advanced,
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 4;
-	icon_state = "1-4"
-	},
-/turf/simulated/floor,
-/area/derelict)
-"ew" = (
-/obj/machinery/power/rtg/advanced,
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 4;
-	icon_state = "1-4"
-	},
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/turf/simulated/floor,
-/area/derelict)
-"ex" = (
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/turf/simulated/floor,
-/area/derelict)
 "ey" = (
 /obj/machinery/chemical_dispenser/bar_soft/full{
 	pixel_x = 2;
@@ -1743,7 +1668,6 @@
 	},
 /area/derelict)
 "ez" = (
-/obj/machinery/power/smes,
 /obj/machinery/light{
 	dir = 4
 	},
@@ -2512,15 +2436,6 @@
 /obj/item/weapon/phone,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/wood,
-/area/derelict)
-"gB" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 8;
-	icon_state = "1-8"
-	},
-/obj/effect/decal/cleanable/liquid_fuel,
-/turf/simulated/floor,
 /area/derelict)
 "gC" = (
 /obj/machinery/door/airlock/hatch,
@@ -38248,7 +38163,7 @@ bn
 dD
 ag
 eo
-ev
+eo
 ag
 aB
 aB
@@ -38505,7 +38420,7 @@ dZ
 eh
 ag
 eo
-ew
+eo
 ag
 aB
 aB
@@ -38762,7 +38677,7 @@ cq
 ag
 ag
 eo
-ew
+eo
 ag
 aB
 gK
@@ -39018,8 +38933,8 @@ bn
 bn
 dI
 ag
-ep
-ex
+aj
+aj
 ag
 aB
 aB
@@ -39275,8 +39190,8 @@ go
 bn
 ei
 ag
-eq
-gB
+aj
+aj
 ag
 aB
 aB
@@ -39532,7 +39447,7 @@ dY
 ea
 dq
 ag
-er
+aj
 ez
 ag
 aB
