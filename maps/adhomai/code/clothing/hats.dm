@@ -76,8 +76,8 @@
 	contained_sprite = TRUE
 
 /obj/item/clothing/head/chefhat/nka
-	name = "royal toque blanche"
-	desc = "A white toque blanche, There are gilded fabrics sewn into the top of it."
+	name = "royal chef's hat"
+	desc = "A muted blue floppy shaped chef's hat, it possess a golden clasp in it, denoting a ranking."
 	icon = 'icons/adhomai/clothing.dmi'
 	icon_state = "cook_hat"
 	item_state = "cook_hat"

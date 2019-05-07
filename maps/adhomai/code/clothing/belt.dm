@@ -10,15 +10,17 @@
 		/obj/item/device/flashlight,
 		/obj/item/weapon/grenade,
 		/obj/item/stack/medical/bruise_pack/adhomai,
-		/obj/item/stack/medical/ointment/adhomai
+		/obj/item/stack/medical/ointment/adhomai,
+		/obj/item/weapon/reagent_containers/food/drinks/flask/canteen/adhomian/nka,
+		/obj/item/device/radio/adhomai/nka,
 		)
 
 /obj/item/weapon/storage/belt/apron/nka
 	name = "royal apron"
-	desc = "An apron with emblazoned sones on the left breast. Probably for all your cooking needs."
+	desc = "An apron with golden embroidery at the fringes of the bottom. Probably for all your cooking needs."
 	icon = 'icons/adhomai/clothing.dmi'
 	icon_state = "nkapron"
-	item_state = "nkapron_item"
+	item_state = "nkapron"
 	contained_sprite = TRUE
 	storage_slots = 9
 	allowed = list(

@@ -86,7 +86,7 @@
 
 /obj/item/clothing/suit/chef/nka
 	name = "royal cooking coat"
-	desc = "A royal cooking niform, it has gilded buttons on its cuffs and ranking epaulets don its shoulders."
+	desc = "A royal cooking niform, it has dark black buttons and ranking epaulets don its shoulders. Blue accents to the collar and fringes envoke the harmony of Adhomai and the Sibling Suns."
 	icon = 'icons/adhomai/clothing.dmi'
 	icon_state = "cook_coat"
 	item_state = "cook_coat"
