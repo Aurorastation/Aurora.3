@@ -15,7 +15,7 @@
 /obj/structure/grille,
 /obj/structure/lattice,
 /turf/simulated/floor/tiled/dark,
-/area/template_noop)
+/area/derelict/ship)
 "af" = (
 /obj/structure/lattice,
 /obj/structure/lattice,
@@ -23,20 +23,20 @@
 /obj/structure/lattice,
 /obj/structure/lattice,
 /turf/simulated/floor/tiled/dark,
-/area/template_noop)
+/area/derelict/ship)
 "ag" = (
 /obj/structure/lattice,
 /obj/structure/grille,
 /obj/structure/lattice,
 /obj/structure/lattice,
 /turf/simulated/floor/tiled/dark,
-/area/template_noop)
+/area/derelict/ship)
 "ah" = (
 /obj/structure/grille,
 /obj/structure/lattice,
 /obj/structure/lattice,
 /turf/simulated/floor/tiled/dark,
-/area/template_noop)
+/area/derelict/ship)
 "ai" = (
 /obj/structure/lattice,
 /obj/structure/lattice,
@@ -47,65 +47,62 @@
 /obj/item/weapon/storage/box/excavation,
 /obj/item/hoist_kit,
 /turf/simulated/floor/asteroid/ash,
-/area/template_noop)
+/area/derelict/ship)
 "ak" = (
 /turf/simulated/floor/asteroid/ash,
-/area/template_noop)
+/area/derelict/ship)
 "al" = (
 /obj/structure/lattice,
 /obj/structure/grille,
 /turf/simulated/floor/tiled/dark,
-/area/template_noop)
+/area/derelict/ship)
 "am" = (
 /obj/structure/lattice/catwalk,
 /turf/simulated/floor/bluegrid,
-/area/template_noop)
+/area/derelict/ship)
 "an" = (
 /obj/structure/grille,
 /turf/simulated/floor/tiled/dark,
-/area/template_noop)
+/area/derelict/ship)
 "ao" = (
 /obj/random/prebuilt_ka,
 /obj/structure/table/rack,
 /obj/item/mecha_parts/mecha_equipment/teleporter,
 /turf/simulated/floor/asteroid/ash,
-/area/template_noop)
+/area/derelict/ship)
 "ap" = (
 /obj/machinery/crystal,
 /turf/simulated/floor/tiled/dark,
-/area/template_noop)
+/area/derelict/ship)
 "aq" = (
 /obj/machinery/giga_drill,
 /turf/simulated/floor/asteroid/ash,
-/area/template_noop)
+/area/derelict/ship)
 "ar" = (
 /obj/mecha/working/ripley/mining,
 /turf/simulated/floor/asteroid/ash,
-/area/template_noop)
+/area/derelict/ship)
 "as" = (
 /obj/structure/closet/excavation,
 /turf/simulated/floor/asteroid/ash,
-/area/template_noop)
+/area/derelict/ship)
 "at" = (
 /obj/structure/lattice/catwalk,
 /turf/simulated/floor/tiled/dark,
-/area/template_noop)
+/area/derelict/ship)
 "au" = (
 /obj/machinery/shieldwallgen,
 /turf/simulated/floor/tiled/dark,
-/area/template_noop)
-"av" = (
-/turf/simulated/floor/tiled/dark,
-/area/template_noop)
+/area/derelict/ship)
 "aw" = (
 /obj/structure/ore_box,
 /turf/simulated/floor/asteroid/ash,
-/area/template_noop)
+/area/derelict/ship)
 "ax" = (
 /turf/simulated/floor/airless{
 	icon_state = "asteroidplating"
 	},
-/area/template_noop)
+/area/derelict/ship)
 "ay" = (
 /turf/simulated/wall/r_wall,
 /area/derelict/ship)
@@ -115,16 +112,12 @@
 /area/template_noop)
 "aA" = (
 /turf/simulated/wall/voxshuttle,
-/area/template_noop)
+/area/derelict/ship)
 "aB" = (
 /obj/structure/boulder,
 /turf/simulated/floor/asteroid/ash,
-/area/template_noop)
+/area/derelict/ship)
 "aC" = (
-/obj/structure/cable{
-	icon_state = "0-4";
-	d2 = 4
-	},
 /obj/machinery/power/rtg/advanced,
 /obj/structure/alien/weeds,
 /turf/simulated/floor/airless{
@@ -132,42 +125,18 @@
 	},
 /area/derelict/ship)
 "aD" = (
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
 /obj/structure/alien/weeds,
 /turf/simulated/floor/airless{
 	icon_state = "asteroidplating"
 	},
 /area/derelict/ship)
 "aE" = (
-/obj/structure/cable{
-	icon_state = "0-2";
-	d2 = 2
-	},
-/obj/structure/cable{
-	d1 = 2;
-	d2 = 4;
-	icon_state = "2-4"
-	},
-/obj/structure/cable{
-	d1 = 2;
-	d2 = 8;
-	icon_state = "2-8"
-	},
 /obj/structure/alien/weeds/node,
 /turf/simulated/floor/airless{
 	icon_state = "asteroidplating"
 	},
 /area/derelict/ship)
 "aF" = (
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
 /obj/item/device/soulstone,
 /obj/structure/alien/weeds,
 /turf/simulated/floor/airless{
@@ -175,10 +144,6 @@
 	},
 /area/derelict/ship)
 "aG" = (
-/obj/structure/cable{
-	d2 = 8;
-	icon_state = "0-8"
-	},
 /obj/machinery/power/rtg/advanced,
 /turf/simulated/floor/airless{
 	icon_state = "asteroidplating"
@@ -186,48 +151,22 @@
 /area/derelict/ship)
 "aH" = (
 /turf/simulated/shuttle/floor4/vox,
-/area/template_noop)
+/area/derelict/ship)
 "aI" = (
 /obj/item/clothing/shoes/magboots/vox,
 /turf/simulated/shuttle/floor4/vox,
-/area/template_noop)
+/area/derelict/ship)
 "aJ" = (
 /obj/item/weapon/material/shard,
 /turf/simulated/shuttle/floor4/vox,
-/area/template_noop)
+/area/derelict/ship)
 "aK" = (
 /obj/item/weapon/material/shard{
 	icon_state = "small"
 	},
 /turf/template_noop,
 /area/template_noop)
-"aL" = (
-/obj/structure/cable{
-	icon_state = "0-4";
-	d2 = 4
-	},
-/obj/machinery/power/rtg/advanced,
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/derelict/ship)
 "aM" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2";
-	pixel_y = 0
-	},
-/obj/structure/cable{
-	d1 = 2;
-	d2 = 4;
-	icon_state = "2-4"
-	},
-/obj/structure/cable{
-	d1 = 2;
-	d2 = 8;
-	icon_state = "2-8"
-	},
 /obj/structure/alien/weeds,
 /obj/structure/alien/weeds,
 /turf/simulated/floor/airless{
@@ -237,98 +176,24 @@
 "aN" = (
 /obj/item/organ/stack/vox,
 /turf/simulated/shuttle/floor4/vox,
-/area/template_noop)
+/area/derelict/ship)
 "aO" = (
 /obj/item/weapon/material/shard{
 	icon_state = "medium"
 	},
 /turf/simulated/shuttle/floor4/vox,
-/area/template_noop)
+/area/derelict/ship)
 "aP" = (
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
 /obj/structure/alien/weeds,
 /obj/item/mecha_parts/part/phazon_torso,
 /turf/simulated/floor/airless{
 	icon_state = "asteroidplating"
 	},
 /area/derelict/ship)
-"aQ" = (
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/machinery/power/rtg/advanced,
-/obj/structure/cable{
-	icon_state = "0-4";
-	d2 = 4
-	},
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/derelict/ship)
-"aR" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2";
-	pixel_y = 0
-	},
-/obj/structure/cable{
-	d1 = 2;
-	d2 = 4;
-	icon_state = "2-4"
-	},
-/obj/structure/cable{
-	d1 = 2;
-	d2 = 8;
-	icon_state = "2-8"
-	},
-/obj/structure/alien/weeds,
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/derelict/ship)
-"aS" = (
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/machinery/power/rtg/advanced,
-/obj/structure/cable{
-	d2 = 8;
-	icon_state = "0-8"
-	},
-/obj/structure/alien/weeds,
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/derelict/ship)
 "aT" = (
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
 /obj/effect/decal/remains,
 /obj/structure/alien/weeds,
 /mob/living/simple_animal/hostile/carp/shark,
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/derelict/ship)
-"aU" = (
-/obj/structure/cable{
-	d2 = 8;
-	icon_state = "0-8"
-	},
-/obj/machinery/power/rtg/advanced,
-/obj/structure/alien/weeds,
 /turf/simulated/floor/airless{
 	icon_state = "asteroidplating"
 	},
@@ -336,34 +201,14 @@
 "aV" = (
 /obj/item/clothing/mask/gas/swat/vox,
 /turf/simulated/shuttle/floor4/vox,
-/area/template_noop)
+/area/derelict/ship)
 "aW" = (
 /obj/item/weapon/gun/launcher/spikethrower,
 /turf/simulated/shuttle/floor4/vox,
-/area/template_noop)
+/area/derelict/ship)
 "aX" = (
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
 /obj/structure/alien/weeds,
 /mob/living/simple_animal/hostile/carp/shark,
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/derelict/ship)
-"aY" = (
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/machinery/power/rtg/advanced,
-/obj/structure/cable{
-	d2 = 8;
-	icon_state = "0-8"
-	},
 /turf/simulated/floor/airless{
 	icon_state = "asteroidplating"
 	},
@@ -371,13 +216,8 @@
 "aZ" = (
 /obj/item/weapon/rig/eva/equipped,
 /turf/simulated/floor/asteroid/ash,
-/area/template_noop)
+/area/derelict/ship)
 "ba" = (
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
 /obj/effect/decal/remains,
 /obj/structure/alien/weeds,
 /obj/structure/alien/weeds,
@@ -385,44 +225,11 @@
 	icon_state = "asteroidplating"
 	},
 /area/derelict/ship)
-"bb" = (
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/machinery/power/rtg/advanced,
-/obj/structure/cable{
-	icon_state = "0-4";
-	d2 = 4
-	},
-/obj/structure/alien/weeds,
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/derelict/ship)
-"bc" = (
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/structure/alien/weeds/node,
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/derelict/ship)
 "bd" = (
 /obj/machinery/floodlight,
 /turf/simulated/floor/asteroid/ash,
-/area/template_noop)
+/area/derelict/ship)
 "be" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2";
-	pixel_y = 0
-	},
 /obj/machinery/door/airlock/vault/bolted{
 	desc = "A huge blast door of sorts with a clunky locking mechanism.";
 	name = "heavy blast door"
@@ -432,12 +239,6 @@
 	},
 /area/derelict/ship)
 "bf" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2";
-	pixel_y = 0
-	},
 /obj/effect/decal/warning_stripes,
 /obj/structure/alien/resin/membrane,
 /turf/simulated/floor/airless{
@@ -449,93 +250,15 @@
 /turf/simulated/floor/airless{
 	icon_state = "asteroidplating"
 	},
-/area/template_noop)
-"bh" = (
-/turf/simulated/wall/r_wall,
-/area/template_noop)
-"bi" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2";
-	pixel_y = 0
-	},
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
 /area/derelict/ship)
 "bj" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2";
-	pixel_y = 0
-	},
 /obj/structure/grille,
 /turf/simulated/floor/airless{
 	icon_state = "asteroidplating"
 	},
 /area/derelict/ship)
-"bk" = (
-/obj/structure/cable{
-	d1 = 2;
-	d2 = 4;
-	icon_state = "2-4"
-	},
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/derelict/ship)
-"bl" = (
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/derelict/ship)
 "bm" = (
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
 /obj/structure/barricade,
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/derelict/ship)
-"bn" = (
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/structure/boulder,
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/derelict/ship)
-"bo" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 8;
-	icon_state = "1-8"
-	},
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/derelict/ship)
-"bp" = (
-/obj/structure/boulder,
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2";
-	pixel_y = 0
-	},
 /turf/simulated/floor/airless{
 	icon_state = "asteroidplating"
 	},
@@ -543,18 +266,12 @@
 "bq" = (
 /obj/item/weapon/ore/coal,
 /turf/simulated/floor/asteroid/ash,
-/area/template_noop)
+/area/derelict/ship)
 "br" = (
 /obj/item/weapon/pickaxe/diamond,
 /turf/simulated/floor/asteroid/ash,
-/area/template_noop)
+/area/derelict/ship)
 "bs" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2";
-	pixel_y = 0
-	},
 /obj/item/weapon/ore/diamond,
 /turf/simulated/floor/airless{
 	icon_state = "asteroidplating"
@@ -563,14 +280,14 @@
 "bt" = (
 /obj/effect/decal/mecha_wreckage/hoverpod,
 /turf/simulated/floor/asteroid/ash,
-/area/template_noop)
+/area/derelict/ship)
 "bu" = (
 /turf/simulated/wall,
 /area/derelict/ship)
 "bv" = (
 /obj/vehicle/bike,
 /turf/simulated/floor/asteroid/ash,
-/area/template_noop)
+/area/derelict/ship)
 "bw" = (
 /obj/machinery/door/airlock/external,
 /turf/simulated/floor,
@@ -614,41 +331,6 @@
 /obj/structure/table/standard,
 /turf/simulated/floor/lino,
 /area/derelict/ship)
-"bD" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 4;
-	icon_state = "1-4"
-	},
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/derelict/ship)
-"bE" = (
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/machinery/door/airlock/external,
-/turf/simulated/floor,
-/area/derelict/ship)
-"bF" = (
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/turf/simulated/floor,
-/area/derelict/ship)
-"bG" = (
-/obj/structure/cable{
-	d1 = 2;
-	d2 = 8;
-	icon_state = "2-8"
-	},
-/turf/simulated/floor,
-/area/derelict/ship)
 "bH" = (
 /obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
@@ -672,15 +354,6 @@
 "bK" = (
 /obj/structure/girder,
 /turf/simulated/floor/asteroid/ash,
-/area/template_noop)
-"bL" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2";
-	pixel_y = 0
-	},
-/turf/simulated/floor,
 /area/derelict/ship)
 "bM" = (
 /obj/machinery/door/airlock/glass,
@@ -719,16 +392,6 @@
 /obj/structure/extinguisher_cabinet,
 /turf/simulated/wall,
 /area/derelict/ship)
-"bR" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2";
-	pixel_y = 0
-	},
-/obj/machinery/door/airlock/external,
-/turf/simulated/floor,
-/area/derelict/ship)
 "bS" = (
 /obj/structure/sign/directions/dock,
 /turf/simulated/wall,
@@ -766,19 +429,6 @@
 /obj/structure/closet/secure_closet/miner,
 /turf/simulated/floor/lino,
 /area/derelict/ship)
-"ca" = (
-/obj/machinery/power/smes,
-/turf/simulated/floor,
-/area/derelict/ship)
-"cb" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2";
-	pixel_y = 0
-	},
-/turf/simulated/floor/tiled/dark,
-/area/derelict/ship)
 "cc" = (
 /turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
@@ -807,29 +457,6 @@
 /obj/item/weapon/stool/padded,
 /turf/simulated/floor/lino,
 /area/derelict/ship)
-"ci" = (
-/obj/machinery/power/terminal{
-	icon_state = "term";
-	dir = 1
-	},
-/obj/structure/cable{
-	icon_state = "0-4";
-	d2 = 4
-	},
-/obj/structure/cable{
-	icon_state = "0-2";
-	d2 = 2
-	},
-/turf/simulated/floor/tiled/dark,
-/area/derelict/ship)
-"cj" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 8;
-	icon_state = "1-8"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/derelict/ship)
 "ck" = (
 /obj/structure/table/standard,
 /obj/item/weapon/rrf,
@@ -857,23 +484,6 @@
 	status = 2
 	},
 /turf/simulated/floor/lino,
-/area/derelict/ship)
-"co" = (
-/obj/machinery/power/apc/super{
-	coverlocked = 0;
-	dir = 8;
-	environ = 0;
-	equipment = 0;
-	lighting = 0;
-	locked = 0;
-	name = "west bump";
-	pixel_x = -24
-	},
-/obj/machinery/power/terminal{
-	dir = 8
-	},
-/obj/structure/cable,
-/turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "cp" = (
 /obj/machinery/light{
@@ -923,7 +533,7 @@
 "cu" = (
 /obj/item/weapon/archaeological_find,
 /turf/simulated/floor/asteroid/ash,
-/area/template_noop)
+/area/derelict/ship)
 "cv" = (
 /obj/structure/table/standard,
 /obj/item/weapon/archaeological_find,
@@ -1050,6 +660,9 @@
 "cS" = (
 /turf/template_noop,
 /area/shuttle/research/away)
+"Ed" = (
+/turf/simulated/mineral/random/higher_chance,
+/area/derelict/ship)
 
 (1,1,1) = {"
 ab
@@ -28647,8 +28260,8 @@ ab
 ab
 ab
 ab
-ad
-ad
+Ed
+Ed
 ab
 ab
 ab
@@ -28884,9 +28497,9 @@ ab
 ab
 ab
 ab
-ad
-ad
-ad
+Ed
+Ed
+Ed
 ab
 ab
 ab
@@ -28903,10 +28516,10 @@ ab
 ab
 ab
 ab
-ad
-ad
-ad
-ad
+Ed
+Ed
+Ed
+Ed
 ab
 ab
 cS
@@ -29140,11 +28753,11 @@ ab
 ab
 ab
 ab
-ad
-ad
+Ed
+Ed
 aZ
-ad
-ad
+Ed
+Ed
 ab
 ab
 ab
@@ -29159,11 +28772,11 @@ ab
 ab
 ab
 ab
-ad
-ad
-ad
-ad
-ad
+Ed
+Ed
+Ed
+Ed
+Ed
 ab
 ab
 cS
@@ -29388,21 +29001,21 @@ ab
 ab
 ab
 ab
-ad
+Ed
 ab
 ab
 ab
 ab
 ab
 ab
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
 ab
 ab
 ab
@@ -29416,10 +29029,10 @@ ab
 ab
 ab
 ac
-ad
-ad
-ad
-ad
+Ed
+Ed
+Ed
+Ed
 ab
 ab
 ab
@@ -29644,38 +29257,38 @@ ab
 ab
 ab
 ab
-ad
-ad
-ad
+Ed
+Ed
+Ed
 ab
 ab
 ab
 ab
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
 ab
 ab
 ab
 ab
 ab
-ad
-ad
-ad
-ad
-ad
+Ed
+Ed
+Ed
+Ed
+Ed
 ac
 ac
 ac
-ad
-ad
+Ed
+Ed
 ab
 ab
 ab
@@ -29900,34 +29513,34 @@ ab
 ab
 ab
 ab
-ad
-ad
-ad
-ad
+Ed
+Ed
+Ed
+Ed
 ab
 ab
 ab
-ad
-ad
+Ed
+Ed
 ak
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
 ab
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
 ac
 ac
 ab
@@ -30157,35 +29770,35 @@ ab
 ab
 ab
 ab
-ad
-ad
-ad
-ad
-ad
+Ed
+Ed
+Ed
+Ed
+Ed
 ab
 ab
-ad
+Ed
 ak
 ak
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
 ac
 ab
 ab
@@ -30415,34 +30028,34 @@ ab
 ab
 ab
 ab
-ad
-ad
-ad
-ad
+Ed
+Ed
+Ed
+Ed
 ab
-ad
-ad
+Ed
+Ed
 ak
 aB
 aB
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
 ac
 ac
 ab
@@ -30672,35 +30285,35 @@ ab
 ab
 ab
 ab
-ad
-ad
-ad
-ad
-ad
-ad
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
 aw
 ak
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
 ac
 ab
 ab
@@ -30929,35 +30542,35 @@ ab
 ab
 ab
 ab
-ad
-ad
-ad
-ad
-ad
-ad
-ad
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
 ak
 aB
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
 ac
 ab
 ab
@@ -31195,26 +30808,26 @@ ak
 ak
 ak
 ak
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
 ac
 ab
 ab
@@ -31458,20 +31071,20 @@ ak
 ak
 ak
 ak
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
 ac
 ab
 ab
@@ -31719,16 +31332,16 @@ ak
 ak
 ak
 ak
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
 ac
 ab
 ab
@@ -31961,7 +31574,7 @@ am
 am
 am
 at
-av
+cc
 ak
 ak
 ak
@@ -31977,15 +31590,15 @@ ak
 ak
 ak
 ak
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
 ac
 ab
 ab
@@ -32218,8 +31831,8 @@ am
 ap
 am
 at
-av
-av
+cc
+cc
 ax
 ax
 ax
@@ -32234,16 +31847,16 @@ ax
 ax
 ax
 ax
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
 ab
 ab
 ab
@@ -32475,7 +32088,7 @@ am
 am
 am
 at
-av
+cc
 ak
 ak
 ak
@@ -32491,16 +32104,16 @@ ak
 ak
 ak
 ax
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
 ad
 ab
 ab
@@ -32748,17 +32361,17 @@ ak
 ak
 ak
 ax
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
 ab
 ab
 ab
@@ -33000,22 +32613,22 @@ ak
 ak
 bd
 bd
-ad
-ad
+Ed
+Ed
 ak
 ak
 ax
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
 ab
 ab
 ab
@@ -33251,28 +32864,28 @@ ak
 ak
 ak
 ak
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
 ak
 bg
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
 ab
 ab
 ab
@@ -33499,37 +33112,37 @@ ab
 ab
 ab
 ai
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
 aB
 bg
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
 ac
 ac
 ac
@@ -33756,37 +33369,37 @@ ab
 ab
 ab
 ac
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
 aB
 bg
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
 bu
 bA
 bH
@@ -34013,37 +33626,37 @@ ab
 ab
 ab
 ac
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
 ak
 ax
 ak
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
 bu
 bB
 bI
@@ -34270,37 +33883,37 @@ ab
 ab
 ab
 ac
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
 ak
 ax
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
 bu
 bC
 bJ
@@ -34528,36 +34141,36 @@ ab
 ab
 ac
 ac
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
 cu
-ad
-ad
+Ed
+Ed
 ax
 ax
 ax
-ad
-ad
-ad
-ad
-ad
-ad
-ad
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
 bu
 bA
 bH
@@ -34785,36 +34398,36 @@ ab
 ab
 ab
 ac
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
 ak
 ak
 ak
 ax
 ak
-ad
-ad
-ad
-ad
-ad
-ad
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
 bv
 ak
 ak
@@ -35043,35 +34656,35 @@ ab
 ab
 ab
 ac
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
 ak
 ak
 ax
 ak
 ak
 ak
-ad
-ad
-ad
-ad
+Ed
+Ed
+Ed
+Ed
 bv
 ak
 ak
@@ -35300,37 +34913,37 @@ ab
 ab
 ab
 ac
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
 ak
-bk
-bi
-bi
-bi
-bp
-bp
-bi
+ax
+ax
+ax
+ax
+bg
+bg
+ax
 bs
-bi
-bD
+ax
+ax
 bK
 bQ
 bX
@@ -35557,13 +35170,13 @@ ab
 ab
 ab
 ab
-ad
-ad
-ad
-ad
-ad
-ad
-ad
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
 ay
 ay
 ay
@@ -35571,14 +35184,14 @@ ay
 ay
 ay
 ay
-ad
-ad
-ad
-ad
-ad
-ad
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
 ak
-bl
+ax
 ak
 ak
 ak
@@ -35587,7 +35200,7 @@ aB
 bq
 ak
 ak
-bl
+ax
 ak
 bO
 bY
@@ -35814,12 +35427,12 @@ ab
 ab
 ab
 ab
-ad
-ad
-ad
-ad
-ad
-ad
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
 ay
 ay
 ay
@@ -35829,22 +35442,22 @@ ay
 ay
 ay
 ay
-ad
-ad
-ad
-ad
-ad
-ad
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
 bm
-ad
-ad
-ad
-ad
-ad
+Ed
+Ed
+Ed
+Ed
+Ed
 br
 ak
 bq
-bl
+ax
 ak
 bP
 bI
@@ -36071,37 +35684,37 @@ ab
 ab
 ab
 ab
-ad
-ad
-ad
-ad
-ad
+Ed
+Ed
+Ed
+Ed
+Ed
 ay
 ay
 ay
-aL
+aG
 aC
-aL
-aL
+aG
+aG
 aC
 ay
 ay
 ay
-ad
-ad
-ad
-ad
-ad
-bl
-ad
-ad
-ad
-ad
-ad
-ad
-ad
+Ed
+Ed
+Ed
+Ed
+Ed
+ax
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
 ak
-bl
+ax
 bK
 bu
 bX
@@ -36329,36 +35942,36 @@ ab
 ab
 ab
 ab
-ad
-ad
-ad
+Ed
+Ed
+Ed
 ay
 ay
 ay
-aL
+aG
 aP
 aD
 aD
-bc
+aE
 aD
-aL
+aG
 ay
 ay
 ay
-ad
-ad
-ad
-ad
-bl
-ad
-ad
-ad
-ad
-ad
-ad
+Ed
+Ed
+Ed
+Ed
+ax
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
 bt
 ak
-bl
+ax
 ak
 bO
 bZ
@@ -36585,10 +36198,10 @@ ab
 ab
 ab
 ab
-ad
-ad
-ad
-ad
+Ed
+Ed
+Ed
+Ed
 ay
 ay
 aC
@@ -36599,23 +36212,23 @@ ba
 aD
 aD
 aD
-aL
+aG
 ay
 ay
-ad
-ad
-ad
-ad
-bn
-ad
-ad
-ad
-ad
-ad
+Ed
+Ed
+Ed
+Ed
+bg
+Ed
+Ed
+Ed
+Ed
+Ed
 ak
 ak
 ak
-bl
+ax
 ak
 bP
 bZ
@@ -36840,39 +36453,39 @@ ab
 ab
 ab
 ab
-ad
-ad
-ad
-ad
-ad
-ad
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
 ay
 ay
 aD
 aD
-aQ
-aQ
-bb
-aQ
-aQ
+aG
+aG
+aC
+aG
+aG
 aX
 aD
 ay
 ay
 ay
-bh
-bh
-bh
-bl
-ad
-ad
-ad
-ad
-ad
+ay
+ay
+ay
+ax
+Ed
+Ed
+Ed
+Ed
+Ed
 ak
 bu
 bw
-bE
+bw
 bw
 bu
 bu
@@ -37096,45 +36709,45 @@ ab
 ab
 ab
 ab
-ad
-ad
-ad
-ad
-ad
-ad
-ad
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
 ay
 ay
 aE
 aM
-aR
-aR
-aR
-aR
-aR
-aR
-aR
+aD
+aD
+aD
+aD
+aD
+aD
+aD
 be
 bf
 be
-bi
-bi
+ax
+ax
 bj
-bo
-ad
-ad
-ad
-ad
-ad
+ax
+Ed
+Ed
+Ed
+Ed
+Ed
 ak
 bu
 bx
-bF
+bx
 bx
 bu
-ca
-ci
-co
+bx
+cc
+cc
 cc
 cc
 bP
@@ -37353,44 +36966,44 @@ ab
 ab
 ab
 ab
-ad
-ad
-ad
-ad
-ad
-ad
-ad
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
 ay
 ay
 aF
 aD
-aS
-aY
-aY
-aY
-aS
+aC
+aG
+aG
+aG
+aC
 aD
 aD
 ay
 ay
 ay
-bh
-bh
-bh
-ad
-ad
-ad
-ad
-ad
-ad
+ay
+ay
+ay
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
 ak
 bu
 by
-bG
-bL
-bR
-cb
-cj
+bx
+bx
+bw
+cc
+cc
 cc
 cc
 cy
@@ -37611,12 +37224,12 @@ ab
 ab
 ab
 ab
-ad
-ad
-ad
-ad
-ad
-ad
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
 ay
 ay
 aG
@@ -37630,16 +37243,16 @@ aD
 aG
 ay
 ay
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
 ak
 bu
 bz
@@ -37868,35 +37481,35 @@ ab
 ab
 ab
 ab
-ad
-ad
-ad
-ad
-ad
-ad
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
 ay
 ay
 ay
 aG
 aD
 aD
-bc
+aE
 aD
 aD
-aU
+aC
 ay
 ay
 ay
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
 ak
 bu
 bu
@@ -38125,36 +37738,36 @@ ab
 ab
 ab
 ab
-ad
-ad
-ad
-ad
-ad
-ad
-ad
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
 ay
 ay
 ay
-aU
+aC
 aG
 aG
 aG
-aU
+aC
 ay
 ay
 ay
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
 ad
 ac
 ac
@@ -38383,13 +37996,13 @@ ab
 ab
 ab
 ab
-ad
-ad
-ad
-ad
-ad
-ad
-ad
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
 ay
 ay
 ay
@@ -38399,19 +38012,19 @@ ay
 ay
 ay
 ay
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
 ad
 ac
 ac
@@ -38640,14 +38253,14 @@ ab
 ab
 ab
 ab
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
 ay
 ay
 ay
@@ -38655,20 +38268,20 @@ ay
 ay
 ay
 ay
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
 ad
 ac
 ac
@@ -38898,34 +38511,34 @@ ab
 ab
 ab
 ab
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
 ad
 ac
 ac
@@ -38933,9 +38546,9 @@ ac
 ac
 ab
 ab
-ad
-ad
-ad
+Ed
+Ed
+Ed
 ab
 ab
 ab
@@ -39156,44 +38769,44 @@ ab
 ab
 ab
 ab
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
 ad
 ac
 ac
 ac
 ac
-ad
-ad
-ad
-ad
-ad
-ad
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
 ab
 ab
 ab
@@ -39414,43 +39027,43 @@ ab
 ab
 ab
 ab
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
 ad
 ac
 ac
 ac
-ad
-ad
-ad
-ad
-ad
-ad
-ad
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
 ab
 ab
 ab
@@ -39671,44 +39284,44 @@ ab
 ab
 ab
 ab
-ad
-ad
-ad
-ad
-ad
-ad
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
 aA
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
 ad
 ac
 ac
 ac
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
 ab
 ab
 ab
@@ -39928,44 +39541,44 @@ ab
 ab
 ab
 ab
-ad
-ad
-ad
+Ed
+Ed
+Ed
 aA
 aA
-ad
-ad
+Ed
+Ed
 aA
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
 ad
 ac
 ac
 ac
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
 ab
 ab
 ab
@@ -40186,43 +39799,43 @@ ab
 ab
 ab
 ab
-ad
-ad
+Ed
+Ed
 aA
 aH
 aN
 aH
 aA
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
 ab
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
 ac
 ai
 ac
 ab
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
 ab
 ab
 ab
@@ -40443,27 +40056,27 @@ ab
 ab
 ab
 ab
-ad
-ad
+Ed
+Ed
 aA
 aH
 aO
 aV
 aA
-ad
-ad
-ad
-ad
-ad
-ad
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
 ab
 ab
 ab
 ab
 ab
-ad
-ad
-ad
+Ed
+Ed
+Ed
 ab
 ab
 ab
@@ -40472,13 +40085,13 @@ ab
 ab
 ab
 ab
-ad
-ad
-ad
-ad
-ad
-ad
-ad
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
 ab
 ab
 ab
@@ -40729,13 +40342,13 @@ ab
 ab
 ab
 ab
-ad
-ad
-ad
-ad
-ad
-ad
-ad
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
 ab
 ab
 ab
@@ -40986,13 +40599,13 @@ ab
 ab
 ab
 ab
-ad
-ad
-ad
-ad
-ad
-ad
-ad
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
 ab
 ab
 ab
@@ -41244,12 +40857,12 @@ ab
 ab
 ab
 ab
-ad
-ad
-ad
-ad
-ad
-ad
+Ed
+Ed
+Ed
+Ed
+Ed
+Ed
 ab
 ab
 ab
@@ -41502,9 +41115,9 @@ ab
 ab
 ab
 ab
-ad
-ad
-ad
+Ed
+Ed
+Ed
 ab
 ab
 ab

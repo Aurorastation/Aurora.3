@@ -61,21 +61,21 @@
 /turf/simulated/floor,
 /area/derelict/bridge)
 "ah" = (
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/bridge)
 "ai" = (
 /obj/machinery/light{
 	dir = 1
 	},
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/bridge)
 "aj" = (
 /obj/structure/table/reinforced/steel,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/bridge)
 "ak" = (
 /obj/structure/computerframe,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/bridge)
 "al" = (
 /obj/structure/grille,
@@ -91,7 +91,7 @@
 "am" = (
 /obj/structure/table/reinforced/steel,
 /obj/random/powercell,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/bridge)
 "an" = (
 /obj/structure/bed/chair/office/bridge{
@@ -106,18 +106,18 @@
 	icon_state = "bridge";
 	dir = 1
 	},
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/bridge)
 "ap" = (
 /turf/simulated/floor/tiled,
 /area/derelict/bridge)
 "aq" = (
 /obj/machinery/constructable_frame/machine_frame,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/bridge)
 "ar" = (
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/bridge)
 "as" = (
 /obj/random/junk,
@@ -142,7 +142,7 @@
 "av" = (
 /obj/structure/computerframe,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/bridge)
 "aw" = (
 /obj/effect/decal/cleanable/dirt,
@@ -206,21 +206,21 @@
 /area/derelict/bridge)
 "aA" = (
 /obj/machinery/light,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/bridge)
 "aB" = (
 /obj/effect/floor_decal/spline/plain{
 	icon_state = "spline_plain";
 	dir = 9
 	},
-/turf/simulated/floor/holofloor/wood,
+/turf/simulated/floor/wood,
 /area/derelict/bridge)
 "aC" = (
 /obj/effect/floor_decal/spline/plain{
 	icon_state = "spline_plain";
 	dir = 1
 	},
-/turf/simulated/floor/holofloor/wood,
+/turf/simulated/floor/wood,
 /area/derelict/bridge)
 "aD" = (
 /obj/effect/floor_decal/spline/plain{
@@ -231,14 +231,14 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/turf/simulated/floor/holofloor/wood,
+/turf/simulated/floor/wood,
 /area/derelict/bridge)
 "aE" = (
 /obj/effect/floor_decal/spline/plain{
 	icon_state = "spline_plain";
 	dir = 5
 	},
-/turf/simulated/floor/holofloor/wood,
+/turf/simulated/floor/wood,
 /area/derelict/bridge)
 "aF" = (
 /obj/effect/floor_decal/carpet{
@@ -261,7 +261,7 @@
 	dir = 1
 	},
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/bridge)
 "aH" = (
 /turf/simulated/floor/carpet,
@@ -283,21 +283,21 @@
 	icon_state = "spline_plain";
 	dir = 4
 	},
-/turf/simulated/floor/holofloor/tiled/ramp,
+/turf/simulated/floor/tiled/ramp,
 /area/derelict/bridge)
 "aL" = (
-/turf/simulated/floor/holofloor/wood,
+/turf/simulated/floor/wood,
 /area/derelict/bridge)
 "aM" = (
 /obj/structure/table/reinforced/steel,
-/turf/simulated/floor/holofloor/wood,
+/turf/simulated/floor/wood,
 /area/derelict/bridge)
 "aN" = (
 /obj/effect/floor_decal/spline/plain{
 	icon_state = "spline_plain";
 	dir = 8
 	},
-/turf/simulated/floor/holofloor/tiled/ramp,
+/turf/simulated/floor/tiled/ramp,
 /area/derelict/bridge)
 "aO" = (
 /obj/structure/grille,
@@ -332,14 +332,14 @@
 	icon_state = "spline_fancy";
 	dir = 10
 	},
-/turf/simulated/floor/holofloor/wood,
+/turf/simulated/floor/wood,
 /area/derelict/bridge)
 "aR" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	icon_state = "spline_fancy";
 	dir = 1
 	},
-/turf/simulated/floor/holofloor/wood,
+/turf/simulated/floor/wood,
 /area/derelict/bridge)
 "aS" = (
 /obj/machinery/papershredder,
@@ -355,22 +355,22 @@
 	icon_state = "spline_fancy";
 	dir = 5
 	},
-/turf/simulated/floor/holofloor/wood,
+/turf/simulated/floor/wood,
 /area/derelict/bridge)
 "aT" = (
 /obj/structure/flora/pottedplant/random,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/bridge)
 "aU" = (
 /obj/effect/floor_decal/corner/paleblue{
 	icon_state = "corner_white";
 	dir = 6
 	},
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/bridge)
 "aV" = (
 /obj/effect/floor_decal/corner/black/diagonal,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/bridge)
 "aW" = (
 /obj/effect/floor_decal/corner/black/diagonal,
@@ -378,7 +378,7 @@
 	icon_state = "spline_plain";
 	dir = 1
 	},
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/bridge)
 "aX" = (
 /obj/effect/floor_decal/corner/paleblue{
@@ -389,7 +389,7 @@
 	icon_state = "bridge";
 	dir = 8
 	},
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/bridge)
 "aY" = (
 /obj/structure/grille,
@@ -450,7 +450,7 @@
 	icon_state = "spline_fancy";
 	dir = 8
 	},
-/turf/simulated/floor/holofloor/wood,
+/turf/simulated/floor/wood,
 /area/derelict/bridge)
 "bf" = (
 /obj/machinery/photocopier,
@@ -458,7 +458,7 @@
 	icon_state = "spline_fancy";
 	dir = 4
 	},
-/turf/simulated/floor/holofloor/wood,
+/turf/simulated/floor/wood,
 /area/derelict/bridge)
 "bg" = (
 /obj/machinery/door/airlock/command,
@@ -467,7 +467,7 @@
 "bh" = (
 /obj/effect/floor_decal/corner/black/diagonal,
 /obj/item/weapon/stool/padded,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/bridge)
 "bi" = (
 /obj/machinery/newscaster,
@@ -478,7 +478,7 @@
 	icon_state = "spline_fancy";
 	dir = 4
 	},
-/turf/simulated/floor/holofloor/wood,
+/turf/simulated/floor/wood,
 /area/derelict/bridge)
 "bk" = (
 /obj/machinery/porta_turret,
@@ -492,7 +492,7 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/bridge)
 "bm" = (
 /obj/effect/floor_decal/corner/paleblue{
@@ -503,7 +503,7 @@
 	dir = 4;
 	status = 0
 	},
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/bridge)
 "bn" = (
 /obj/structure/filingcabinet/chestdrawer,
@@ -511,7 +511,7 @@
 	icon_state = "spline_fancy";
 	dir = 9
 	},
-/turf/simulated/floor/holofloor/wood,
+/turf/simulated/floor/wood,
 /area/derelict/bridge)
 "bo" = (
 /obj/structure/coatrack,
@@ -519,7 +519,7 @@
 	icon_state = "spline_fancy";
 	dir = 1
 	},
-/turf/simulated/floor/holofloor/wood,
+/turf/simulated/floor/wood,
 /area/derelict/bridge)
 "bp" = (
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -529,7 +529,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/turf/simulated/floor/holofloor/wood,
+/turf/simulated/floor/wood,
 /area/derelict/bridge)
 "bq" = (
 /obj/structure/table/reinforced/steel,
@@ -542,12 +542,12 @@
 	icon_state = "spline_fancy";
 	dir = 8
 	},
-/turf/simulated/floor/holofloor/wood,
+/turf/simulated/floor/wood,
 /area/derelict/bridge)
 "bs" = (
 /obj/structure/table/wood,
 /obj/item/device/flashlight/lamp,
-/turf/simulated/floor/holofloor/wood,
+/turf/simulated/floor/wood,
 /area/derelict/bridge)
 "bt" = (
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -555,14 +555,14 @@
 	dir = 4
 	},
 /obj/machinery/vending/cigarette,
-/turf/simulated/floor/holofloor/wood,
+/turf/simulated/floor/wood,
 /area/derelict/bridge)
 "bu" = (
 /obj/structure/table/wood,
 /obj/item/weapon/paper_bin,
 /obj/item/weapon/pen,
 /obj/item/clothing/mask/smokable/cigarette,
-/turf/simulated/floor/holofloor/wood,
+/turf/simulated/floor/wood,
 /area/derelict/bridge)
 "bv" = (
 /obj/structure/table/wood,
@@ -571,20 +571,20 @@
 	icon_state = "spline_fancy";
 	dir = 8
 	},
-/turf/simulated/floor/holofloor/wood,
+/turf/simulated/floor/wood,
 /area/derelict/bridge)
 "bw" = (
 /obj/structure/bed/chair/office/light{
 	icon_state = "officechair_white";
 	dir = 4
 	},
-/turf/simulated/floor/holofloor/wood,
+/turf/simulated/floor/wood,
 /area/derelict/bridge)
 "bx" = (
 /obj/structure/bed/chair/office/light{
 	dir = 1
 	},
-/turf/simulated/floor/holofloor/wood,
+/turf/simulated/floor/wood,
 /area/derelict/bridge)
 "by" = (
 /obj/structure/table/wood,
@@ -593,7 +593,7 @@
 	icon_state = "spline_fancy";
 	dir = 10
 	},
-/turf/simulated/floor/holofloor/wood,
+/turf/simulated/floor/wood,
 /area/derelict/bridge)
 "bz" = (
 /obj/structure/table/wood,
@@ -603,11 +603,11 @@
 	dir = 4
 	},
 /obj/item/weapon/storage/fancy/cigarettes,
-/turf/simulated/floor/holofloor/wood,
+/turf/simulated/floor/wood,
 /area/derelict/bridge)
 "bA" = (
 /obj/effect/floor_decal/spline/fancy/wood,
-/turf/simulated/floor/holofloor/wood,
+/turf/simulated/floor/wood,
 /area/derelict/bridge)
 "bB" = (
 /obj/structure/flora/pottedplant/random,
@@ -615,7 +615,7 @@
 	icon_state = "spline_fancy";
 	dir = 6
 	},
-/turf/simulated/floor/holofloor/wood,
+/turf/simulated/floor/wood,
 /area/derelict/bridge)
 "bC" = (
 /obj/structure/window/reinforced,
@@ -638,14 +638,14 @@
 "bD" = (
 /obj/structure/flora/pottedplant/random,
 /obj/effect/floor_decal/corner/black/diagonal,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/bridge)
 "bE" = (
 /obj/effect/floor_decal/corner/paleblue{
 	icon_state = "corner_white";
 	dir = 9
 	},
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/bridge)
 "bF" = (
 /obj/structure/curtain/open/bed,
@@ -704,7 +704,7 @@
 "bL" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/command,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/bridge)
 "bM" = (
 /obj/structure/table/wood,
@@ -720,7 +720,7 @@
 	icon_state = "spline_fancy";
 	dir = 8
 	},
-/turf/simulated/floor/holofloor/wood,
+/turf/simulated/floor/wood,
 /area/derelict/bridge)
 "bO" = (
 /obj/machinery/light{
@@ -739,12 +739,12 @@
 	dir = 6
 	},
 /obj/structure/flora/pottedplant/random,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/bridge)
 "bR" = (
 /obj/effect/floor_decal/corner/black/diagonal,
 /obj/machinery/light,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/bridge)
 "bS" = (
 /obj/effect/floor_decal/corner/paleblue{
@@ -752,14 +752,14 @@
 	dir = 9
 	},
 /obj/structure/flora/pottedplant/random,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/bridge)
 "bT" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	icon_state = "spline_fancy";
 	dir = 9
 	},
-/turf/simulated/floor/holofloor/wood,
+/turf/simulated/floor/wood,
 /area/derelict/bridge)
 "bU" = (
 /obj/effect/floor_decal/spline/fancy/wood/corner{
@@ -770,7 +770,7 @@
 	icon_state = "spline_fancy";
 	dir = 4
 	},
-/turf/simulated/floor/holofloor/wood,
+/turf/simulated/floor/wood,
 /area/derelict/bridge)
 "bV" = (
 /obj/structure/closet/medical_wall,
@@ -781,7 +781,7 @@
 	dir = 4;
 	status = 0
 	},
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/bridge)
 "bX" = (
 /obj/structure/bed/chair/office/light{
@@ -792,19 +792,19 @@
 	icon_state = "spline_fancy";
 	dir = 10
 	},
-/turf/simulated/floor/holofloor/wood,
+/turf/simulated/floor/wood,
 /area/derelict/bridge)
 "bY" = (
 /obj/structure/table/wood,
 /obj/item/weapon/paper_bin,
 /obj/item/weapon/pen,
 /obj/effect/floor_decal/spline/fancy/wood,
-/turf/simulated/floor/holofloor/wood,
+/turf/simulated/floor/wood,
 /area/derelict/bridge)
 "bZ" = (
 /obj/structure/flora/pottedplant/random,
 /obj/effect/floor_decal/spline/fancy/wood,
-/turf/simulated/floor/holofloor/wood,
+/turf/simulated/floor/wood,
 /area/derelict/bridge)
 "ca" = (
 /obj/structure/filingcabinet/chestdrawer,
@@ -812,7 +812,7 @@
 	icon_state = "spline_fancy";
 	dir = 6
 	},
-/turf/simulated/floor/holofloor/wood,
+/turf/simulated/floor/wood,
 /area/derelict/bridge)
 "cb" = (
 /obj/structure/computerframe,
@@ -833,16 +833,16 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/turf/simulated/floor/holofloor/wood,
+/turf/simulated/floor/wood,
 /area/derelict/bridge)
 "cf" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/command,
-/turf/simulated/floor/holofloor/wood,
+/turf/simulated/floor/wood,
 /area/derelict/bridge)
 "cg" = (
 /obj/structure/flora/pottedplant/random,
-/turf/simulated/floor/holofloor/wood,
+/turf/simulated/floor/wood,
 /area/derelict/bridge)
 "ch" = (
 /obj/machinery/light{
@@ -864,7 +864,7 @@
 /area/derelict/bridge)
 "ck" = (
 /obj/machinery/photocopier,
-/turf/simulated/floor/holofloor/wood,
+/turf/simulated/floor/wood,
 /area/derelict/bridge)
 "cl" = (
 /obj/machinery/anti_bluespace,
@@ -879,7 +879,7 @@
 /area/derelict/bridge)
 "cn" = (
 /obj/structure/bed/chair/office/light,
-/turf/simulated/floor/holofloor/wood,
+/turf/simulated/floor/wood,
 /area/derelict/bridge)
 "co" = (
 /obj/effect/floor_decal/industrial/warning/corner,
@@ -898,24 +898,24 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/turf/simulated/floor/holofloor/wood,
+/turf/simulated/floor/wood,
 /area/derelict/bridge)
 "cs" = (
 /obj/structure/table/wood,
-/turf/simulated/floor/holofloor/wood,
+/turf/simulated/floor/wood,
 /area/derelict/bridge)
 "ct" = (
 /obj/structure/bed/chair/office/light{
 	dir = 8
 	},
-/turf/simulated/floor/holofloor/wood,
+/turf/simulated/floor/wood,
 /area/derelict/bridge)
 "cu" = (
 /obj/machinery/light{
 	dir = 4;
 	status = 0
 	},
-/turf/simulated/floor/holofloor/wood,
+/turf/simulated/floor/wood,
 /area/derelict/bridge)
 "cv" = (
 /obj/machinery/constructable_frame/machine_frame,
@@ -942,7 +942,7 @@
 	dir = 9
 	},
 /obj/effect/floor_decal/industrial/hatch,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/bridge)
 "cy" = (
 /obj/machinery/door/window/northright,
@@ -950,7 +950,7 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/hatch,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/bridge)
 "cz" = (
 /obj/structure/window/reinforced{
@@ -994,7 +994,7 @@
 /area/derelict/bridge)
 "cH" = (
 /obj/machinery/door/blast/regular/open,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/bridge)
 "cI" = (
 /obj/machinery/door/blast/regular/open,
@@ -1003,18 +1003,13 @@
 "cJ" = (
 /obj/structure/table/wood,
 /obj/machinery/light,
-/turf/simulated/floor/holofloor/wood,
+/turf/simulated/floor/wood,
 /area/derelict/bridge)
 "cK" = (
 /turf/simulated/floor,
 /area/derelict/arrival)
 "cL" = (
 /obj/machinery/power/tracker,
-/obj/structure/cable{
-	d2 = 2;
-	icon_state = "0-2";
-	pixel_y = 0
-	},
 /turf/simulated/floor,
 /area/derelict/arrival)
 "cM" = (
@@ -1037,7 +1032,7 @@
 /area/derelict/arrival)
 "cN" = (
 /obj/machinery/door/firedoor,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/bridge)
 "cO" = (
 /obj/machinery/door/firedoor,
@@ -1045,36 +1040,6 @@
 /area/derelict/bridge)
 "cP" = (
 /obj/machinery/power/solar,
-/obj/structure/cable{
-	icon_state = "0-4";
-	d2 = 4
-	},
-/turf/simulated/floor,
-/area/derelict/arrival)
-"cQ" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 4;
-	icon_state = "1-4"
-	},
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 8;
-	icon_state = "2-8"
-	},
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/turf/simulated/floor,
-/area/derelict/arrival)
-"cR" = (
-/obj/machinery/power/solar,
-/obj/structure/cable{
-	d2 = 8;
-	icon_state = "0-8"
-	},
 /turf/simulated/floor,
 /area/derelict/arrival)
 "cS" = (
@@ -1102,33 +1067,33 @@
 "cW" = (
 /obj/structure/closet/firecloset,
 /obj/effect/decal/cleanable/cobweb,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/arrival)
 "cX" = (
 /obj/structure/closet/emcloset,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/arrival)
 "cY" = (
 /obj/machinery/door/firedoor,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/arrival)
 "cZ" = (
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/arrival)
 "da" = (
 /obj/effect/decal/cleanable/blood/oil,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/arrival)
 "db" = (
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/arrival)
 "dc" = (
 /turf/simulated/floor/tiled,
 /area/derelict/arrival)
 "dd" = (
 /obj/structure/closet/firecloset,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/arrival)
 "de" = (
 /obj/machinery/suit_storage_unit,
@@ -1152,28 +1117,6 @@
 /obj/random/loot,
 /turf/simulated/floor,
 /area/derelict/bridge)
-"di" = (
-/obj/machinery/power/smes,
-/turf/simulated/floor,
-/area/derelict/bridge)
-"dj" = (
-/obj/machinery/power/apc{
-	dir = 1;
-	name = "north bump";
-	pixel_x = 0;
-	pixel_y = 24
-	},
-/obj/machinery/power/terminal{
-	icon_state = "term";
-	dir = 1
-	},
-/obj/structure/cable{
-	d2 = 2;
-	icon_state = "0-2";
-	pixel_y = 0
-	},
-/turf/simulated/floor,
-/area/derelict/bridge)
 "dk" = (
 /obj/machinery/door/airlock/maintenance_hatch,
 /obj/machinery/door/firedoor,
@@ -1186,52 +1129,6 @@
 /obj/machinery/door/airlock/command,
 /turf/simulated/floor/carpet,
 /area/derelict/arrival)
-"dn" = (
-/obj/structure/cable{
-	d1 = 2;
-	d2 = 4;
-	icon_state = "2-4"
-	},
-/turf/simulated/floor/tiled,
-/area/derelict/arrival)
-"do" = (
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8";
-	pixel_x = 0
-	},
-/turf/simulated/floor/tiled,
-/area/derelict/arrival)
-"dp" = (
-/obj/machinery/door/firedoor,
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8";
-	pixel_x = 0
-	},
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled,
-/area/derelict/arrival)
-"dq" = (
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8";
-	pixel_x = 0
-	},
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled,
-/area/derelict/arrival)
-"dr" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 8;
-	icon_state = "2-8"
-	},
-/turf/simulated/floor/tiled,
-/area/derelict/arrival)
 "ds" = (
 /turf/simulated/floor,
 /area/derelict/bridge)
@@ -1242,30 +1139,6 @@
 	},
 /obj/structure/window/reinforced,
 /turf/template_noop,
-/area/derelict/bridge)
-"du" = (
-/obj/machinery/power/terminal{
-	icon_state = "term";
-	dir = 1
-	},
-/obj/structure/cable{
-	d2 = 2;
-	icon_state = "0-2";
-	pixel_y = 0
-	},
-/obj/structure/cable{
-	icon_state = "0-4";
-	d2 = 4
-	},
-/turf/simulated/floor,
-/area/derelict/bridge)
-"dv" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 8;
-	icon_state = "1-8"
-	},
-/turf/simulated/floor,
 /area/derelict/bridge)
 "dw" = (
 /obj/effect/spider/stickyweb,
@@ -1303,64 +1176,22 @@
 /obj/machinery/light/small,
 /turf/simulated/floor/carpet,
 /area/derelict/arrival)
-"dA" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled,
-/area/derelict/arrival)
 "dB" = (
 /obj/machinery/door/firedoor,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/arrival)
 "dC" = (
 /obj/machinery/light,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/arrival)
 "dD" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/light,
-/turf/simulated/floor/holofloor/tiled/dark,
-/area/derelict/arrival)
-"dE" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 4;
-	icon_state = "1-4"
-	},
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled,
-/area/derelict/arrival)
-"dF" = (
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8";
-	pixel_x = 0
-	},
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/arrival)
 "dG" = (
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8";
-	pixel_x = 0
-	},
 /obj/machinery/door/airlock/maintenance_hatch,
-/turf/simulated/floor,
-/area/derelict/bridge)
-"dH" = (
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8";
-	pixel_x = 0
-	},
 /turf/simulated/floor,
 /area/derelict/bridge)
 "dI" = (
@@ -1368,23 +1199,13 @@
 /obj/effect/spider/stickyweb,
 /turf/simulated/floor,
 /area/derelict/arrival)
-"dJ" = (
-/obj/machinery/door/firedoor,
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled,
-/area/derelict/arrival)
 "dK" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/light{
 	dir = 4;
 	status = 0
 	},
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/arrival)
 "dL" = (
 /obj/structure/grille,
@@ -1600,7 +1421,7 @@
 	dir = 4;
 	status = 0
 	},
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/arrival)
 "el" = (
 /obj/effect/floor_decal/corner/green{
@@ -1677,16 +1498,6 @@
 "es" = (
 /obj/structure/extinguisher_cabinet,
 /turf/simulated/wall/r_wall,
-/area/derelict/arrival)
-"et" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/obj/random/junk,
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled,
 /area/derelict/arrival)
 "eu" = (
 /obj/machinery/iv_drip,
@@ -1862,7 +1673,7 @@
 	dir = 4;
 	status = 0
 	},
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/arrival)
 "eL" = (
 /obj/machinery/light{
@@ -2074,7 +1885,7 @@
 "fq" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/blood/oil,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/arrival)
 "fr" = (
 /obj/machinery/door/firedoor,
@@ -2193,7 +2004,7 @@
 "fF" = (
 /obj/random/junk,
 /obj/machinery/door/firedoor,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/arrival)
 "fG" = (
 /obj/machinery/newscaster,
@@ -2284,7 +2095,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/arrival)
 "fS" = (
 /obj/machinery/light{
@@ -2411,7 +2222,7 @@
 "gi" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/door/firedoor,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/arrival)
 "gj" = (
 /obj/structure/table/steel,
@@ -2512,18 +2323,18 @@
 /area/derelict/arrival)
 "gs" = (
 /obj/structure/flora/pottedplant/random,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/arrival)
 "gt" = (
 /obj/random/junk,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/arrival)
 "gu" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/light{
 	dir = 1
 	},
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/arrival)
 "gv" = (
 /obj/machinery/door/firedoor,
@@ -2552,11 +2363,6 @@
 	locked = 1;
 	req_access = list(13)
 	},
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
 /turf/simulated/floor,
 /area/derelict/arrival)
 "gz" = (
@@ -2576,17 +2382,17 @@
 /obj/structure/bed/chair{
 	dir = 4
 	},
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/arrival)
 "gD" = (
 /obj/structure/bed/chair{
 	dir = 8
 	},
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/arrival)
 "gE" = (
 /obj/machinery/door/blast/regular,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/arrival)
 "gF" = (
 /obj/item/weapon/stool/padded,
@@ -2603,14 +2409,6 @@
 	dir = 8
 	},
 /obj/machinery/door/firedoor,
-/turf/simulated/floor,
-/area/derelict/arrival)
-"gH" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
 /turf/simulated/floor,
 /area/derelict/arrival)
 "gI" = (
@@ -2651,12 +2449,12 @@
 /area/derelict/arrival)
 "gM" = (
 /obj/effect/floor_decal/corner/black/diagonal,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/arrival)
 "gN" = (
 /obj/effect/floor_decal/corner/black/diagonal,
 /obj/machinery/light,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/arrival)
 "gO" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -2676,26 +2474,6 @@
 /obj/structure/filingcabinet/chestdrawer,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
-/area/derelict/arrival)
-"gR" = (
-/obj/structure/table/steel,
-/obj/random,
-/turf/simulated/floor/carpet,
-/area/derelict/arrival)
-"gS" = (
-/obj/machinery/power/smes,
-/turf/simulated/floor,
-/area/derelict/arrival)
-"gT" = (
-/obj/machinery/power/terminal{
-	dir = 8
-	},
-/obj/structure/cable{
-	d2 = 2;
-	icon_state = "0-2";
-	pixel_y = 0
-	},
-/turf/simulated/floor,
 /area/derelict/arrival)
 "gU" = (
 /obj/machinery/door/airlock/freezer,
@@ -2741,160 +2519,9 @@
 /obj/effect/floor_decal/industrial/loading,
 /turf/simulated/floor/tiled/red,
 /area/derelict/arrival)
-"hb" = (
-/obj/machinery/door/firedoor,
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/turf/simulated/floor,
-/area/derelict/arrival)
-"hc" = (
-/obj/machinery/door/firedoor,
-/obj/effect/spider/stickyweb,
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/turf/simulated/floor,
-/area/derelict/arrival)
 "hd" = (
 /obj/effect/spider/stickyweb,
 /obj/structure/girder,
-/turf/simulated/floor,
-/area/derelict/arrival)
-"he" = (
-/obj/structure/cable{
-	d1 = 2;
-	d2 = 4;
-	icon_state = "2-4"
-	},
-/turf/simulated/floor,
-/area/derelict/arrival)
-"hf" = (
-/obj/machinery/door/airlock/external{
-	frequency = 1379;
-	icon_state = "door_locked";
-	id_tag = "sl3o";
-	locked = 1;
-	req_access = list(13)
-	},
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8";
-	pixel_x = 0
-	},
-/turf/simulated/floor,
-/area/derelict/arrival)
-"hg" = (
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8";
-	pixel_x = 0
-	},
-/turf/simulated/floor,
-/area/derelict/arrival)
-"hh" = (
-/obj/machinery/door/blast/regular/open,
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8";
-	pixel_x = 0
-	},
-/turf/simulated/floor,
-/area/derelict/arrival)
-"hi" = (
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 1
-	},
-/obj/structure/grille,
-/obj/machinery/door/firedoor,
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8";
-	pixel_x = 0
-	},
-/turf/simulated/floor/plating,
-/area/derelict/arrival)
-"hj" = (
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8";
-	pixel_x = 0
-	},
-/turf/simulated/floor/carpet,
-/area/derelict/arrival)
-"hk" = (
-/obj/machinery/door/airlock/command,
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8";
-	pixel_x = 0
-	},
-/turf/simulated/floor/carpet,
-/area/derelict/arrival)
-"hl" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 8;
-	icon_state = "1-8"
-	},
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled,
-/area/derelict/arrival)
-"hm" = (
-/obj/machinery/power/apc{
-	dir = 8;
-	name = "west bump";
-	pixel_x = -24
-	},
-/obj/machinery/power/terminal{
-	dir = 8
-	},
-/obj/structure/cable{
-	icon_state = "0-4";
-	d2 = 4
-	},
-/turf/simulated/floor,
-/area/derelict/arrival)
-"hn" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 8;
-	icon_state = "1-8"
-	},
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/turf/simulated/floor,
-/area/derelict/bridge)
-"ho" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 8;
-	icon_state = "2-8"
-	},
-/obj/random/junk,
 /turf/simulated/floor,
 /area/derelict/arrival)
 "hp" = (
@@ -2942,20 +2569,20 @@
 "hx" = (
 /obj/vehicle/bike/speeder,
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/arrival)
 "hy" = (
 /obj/vehicle/bike/speeder,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/arrival)
 "hz" = (
 /obj/machinery/mech_recharger,
 /obj/mecha/working/ripley/combat,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/arrival)
 "hA" = (
 /obj/structure/table/rack,
@@ -2964,62 +2591,19 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/arrival)
 "hB" = (
 /obj/machinery/vending/assist,
 /obj/effect/decal/cleanable/cobweb2,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/arrival)
 "hC" = (
 /obj/machinery/power/solar_control/autostart,
-/obj/structure/cable{
-	d2 = 2;
-	icon_state = "0-2";
-	pixel_y = 0
-	},
 /turf/simulated/floor,
 /area/derelict/arrival)
 "hD" = (
 /obj/structure/dispenser,
-/turf/simulated/floor,
-/area/derelict/arrival)
-"hE" = (
-/obj/effect/spider/stickyweb,
-/obj/structure/cable{
-	d1 = 2;
-	d2 = 4;
-	icon_state = "2-4"
-	},
-/turf/simulated/floor,
-/area/derelict/arrival)
-"hF" = (
-/obj/effect/spider/stickyweb,
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8";
-	pixel_x = 0
-	},
-/turf/simulated/floor,
-/area/derelict/arrival)
-"hG" = (
-/obj/structure/grille,
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8";
-	pixel_x = 0
-	},
-/turf/simulated/floor,
-/area/derelict/arrival)
-"hH" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 8;
-	icon_state = "1-8"
-	},
-/obj/effect/decal/cleanable/greenglow,
 /turf/simulated/floor,
 /area/derelict/arrival)
 "hI" = (
@@ -3039,16 +2623,6 @@
 /obj/structure/table/steel,
 /obj/item/weapon/paper_bin,
 /turf/simulated/floor/carpet,
-/area/derelict/arrival)
-"hK" = (
-/obj/machinery/door/airlock/maintenance_hatch,
-/obj/machinery/door/firedoor,
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/turf/simulated/floor,
 /area/derelict/arrival)
 "hL" = (
 /obj/structure/window/reinforced{
@@ -3076,126 +2650,27 @@
 "hP" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/arrival)
 "hQ" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/arrival)
 "hR" = (
 /obj/random/powercell,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/arrival)
 "hS" = (
 /obj/random/junk,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/arrival)
 "hT" = (
 /obj/machinery/vending/robotics,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/holofloor/tiled/dark,
-/area/derelict/arrival)
-"hU" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 4;
-	icon_state = "1-4"
-	},
-/turf/simulated/floor,
-/area/derelict/arrival)
-"hV" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 8;
-	icon_state = "1-8"
-	},
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/obj/structure/cable{
-	d1 = 2;
-	d2 = 4;
-	icon_state = "2-4"
-	},
-/turf/simulated/floor,
-/area/derelict/arrival)
-"hW" = (
-/obj/machinery/door/airlock/maintenance_hatch,
-/obj/machinery/door/firedoor,
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8";
-	pixel_x = 0
-	},
-/turf/simulated/floor,
-/area/derelict/arrival)
-"hX" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 4;
-	icon_state = "1-4"
-	},
-/obj/structure/cable{
-	d1 = 2;
-	d2 = 8;
-	icon_state = "2-8"
-	},
-/turf/simulated/floor,
-/area/derelict/arrival)
-"hY" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 8;
-	icon_state = "1-8"
-	},
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 4;
-	icon_state = "1-4"
-	},
-/turf/simulated/floor,
-/area/derelict/arrival)
-"hZ" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 8;
-	icon_state = "1-8"
-	},
-/turf/simulated/floor,
-/area/derelict/arrival)
-"ia" = (
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8";
-	pixel_x = 0
-	},
-/mob/living/simple_animal/hostile/giant_spider,
-/turf/simulated/floor,
-/area/derelict/arrival)
-"ib" = (
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8";
-	pixel_x = 0
-	},
-/obj/random/junk,
-/turf/simulated/floor,
-/area/derelict/arrival)
-"ic" = (
-/obj/structure/cable{
-	d1 = 2;
-	d2 = 8;
-	icon_state = "2-8"
-	},
-/turf/simulated/floor,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/arrival)
 "id" = (
 /obj/structure/reagent_dispensers/beerkeg,
@@ -3206,19 +2681,10 @@
 /obj/effect/floor_decal/corner/black/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/derelict/arrival)
-"if" = (
-/obj/effect/floor_decal/corner/black/diagonal,
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/turf/simulated/floor/tiled/white,
-/area/derelict/arrival)
 "ig" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/floor_decal/corner/black/diagonal,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/arrival)
 "ih" = (
 /obj/structure/window/reinforced,
@@ -3245,20 +2711,11 @@
 /obj/machinery/mech_recharger,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/arrival)
 "il" = (
 /obj/structure/reagent_dispensers/fueltank,
-/turf/simulated/floor/holofloor/tiled/dark,
-/area/derelict/arrival)
-"im" = (
-/obj/machinery/power/solar,
-/obj/structure/cable{
-	d2 = 2;
-	icon_state = "0-2";
-	pixel_y = 0
-	},
-/turf/simulated/floor,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/arrival)
 "in" = (
 /obj/item/clothing/head/collectable/kitty,
@@ -3268,76 +2725,10 @@
 /obj/structure/girder,
 /turf/simulated/floor,
 /area/derelict/arrival)
-"ip" = (
-/obj/machinery/door/firedoor,
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8";
-	pixel_x = 0
-	},
-/turf/simulated/floor,
-/area/derelict/arrival)
-"iq" = (
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8";
-	pixel_x = 0
-	},
-/obj/random/loot,
-/turf/simulated/floor,
-/area/derelict/arrival)
-"ir" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 1
-	},
-/obj/machinery/door/firedoor,
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8";
-	pixel_x = 0
-	},
-/turf/simulated/floor,
-/area/derelict/arrival)
 "is" = (
 /obj/structure/table/standard,
 /obj/effect/floor_decal/corner/black/diagonal,
 /obj/machinery/chemical_dispenser/coffeemaster/full,
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8";
-	pixel_x = 0
-	},
-/turf/simulated/floor/tiled/white,
-/area/derelict/arrival)
-"it" = (
-/obj/effect/floor_decal/corner/black/diagonal,
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8";
-	pixel_x = 0
-	},
-/turf/simulated/floor/tiled/white,
-/area/derelict/arrival)
-"iu" = (
-/obj/effect/floor_decal/corner/black/diagonal,
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 8;
-	icon_state = "1-8"
-	},
 /turf/simulated/floor/tiled/white,
 /area/derelict/arrival)
 "iv" = (
@@ -3362,40 +2753,13 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/arrival)
 "iz" = (
 /obj/structure/table/rack,
 /obj/random/toolbox,
 /obj/item/mecha_parts/mecha_equipment/teleporter,
-/turf/simulated/floor/holofloor/tiled/dark,
-/area/derelict/arrival)
-"iA" = (
-/obj/machinery/power/tracker,
-/obj/structure/cable{
-	icon_state = "0-4";
-	d2 = 4
-	},
-/turf/simulated/floor,
-/area/derelict/arrival)
-"iB" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 8;
-	icon_state = "1-8"
-	},
-/obj/structure/cable{
-	d1 = 2;
-	d2 = 4;
-	icon_state = "2-4"
-	},
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8";
-	pixel_x = 0
-	},
-/turf/simulated/floor,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/arrival)
 "iC" = (
 /obj/structure/table/standard,
@@ -3417,25 +2781,20 @@
 /obj/random/tech_supply,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/arrival)
 "iG" = (
 /obj/structure/table/steel,
 /obj/random/tech_supply,
 /obj/item/mecha_parts/mecha_tracking,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/arrival)
 "iH" = (
 /obj/structure/table/rack,
 /obj/random/toolbox,
 /obj/item/mecha_parts/mecha_equipment/repair_droid,
-/turf/simulated/floor/holofloor/tiled/dark,
-/area/derelict/arrival)
-"iI" = (
-/obj/machinery/power/solar,
-/obj/structure/cable,
-/turf/simulated/floor,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/arrival)
 "iJ" = (
 /obj/machinery/suit_storage_unit/standard_unit,
@@ -3477,14 +2836,14 @@
 /obj/structure/table/steel,
 /obj/random/tool,
 /obj/random/tech_supply,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/arrival)
 "iR" = (
 /obj/structure/table/steel,
 /obj/random/tool,
 /obj/random/tech_supply,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/arrival)
 "iS" = (
 /obj/structure/table/steel,
@@ -3493,7 +2852,7 @@
 	dir = 4;
 	status = 0
 	},
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/arrival)
 "iT" = (
 /obj/structure/lattice,
@@ -3507,14 +2866,14 @@
 /area/derelict/arrival)
 "iV" = (
 /obj/machinery/door/window/southleft,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/arrival)
 "iW" = (
 /obj/structure/window/reinforced,
 /obj/structure/table/rack,
 /obj/item/weapon/tank/jetpack/oxygen,
 /obj/item/weapon/tank/oxygen,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/arrival)
 "iX" = (
 /obj/structure/window/reinforced,
@@ -3522,22 +2881,22 @@
 /obj/item/weapon/tank/jetpack/oxygen,
 /obj/item/weapon/tank/oxygen,
 /obj/random/toolbox,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/arrival)
 "iY" = (
 /obj/structure/window/reinforced,
 /obj/structure/table/rack,
 /obj/item/weapon/tank/jetpack/oxygen,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/arrival)
 "iZ" = (
 /obj/structure/dispenser/oxygen,
 /obj/structure/window/reinforced,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/arrival)
 "ja" = (
 /obj/structure/window/reinforced,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/arrival)
 "jb" = (
 /obj/structure/window/reinforced,
@@ -3558,12 +2917,12 @@
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/arrival)
 "jf" = (
 /obj/structure/flora/pottedplant/random,
 /obj/effect/decal/cleanable/cobweb2,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/arrival)
 "jg" = (
 /obj/machinery/door/airlock/maintenance_hatch,
@@ -3606,7 +2965,7 @@
 /area/derelict/arrival)
 "jk" = (
 /obj/structure/reagent_dispensers/extinguisher,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/arrival)
 "jl" = (
 /obj/structure/closet/firecloset,
@@ -3615,7 +2974,7 @@
 "jm" = (
 /obj/machinery/cell_charger,
 /obj/structure/table/reinforced/steel,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/arrival)
 "jn" = (
 /obj/machinery/door/firedoor,
@@ -3654,26 +3013,18 @@
 /area/derelict/arrival)
 "js" = (
 /obj/structure/closet/crate/internals,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/arrival)
 "jt" = (
 /obj/effect/decal/cleanable/cobweb2,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/arrival)
 "ju" = (
 /obj/structure/table/rack,
 /obj/random/powercell,
 /obj/random/powercell,
 /obj/random/powercell,
-/turf/simulated/floor/holofloor/tiled/dark,
-/area/derelict/arrival)
-"jv" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 8;
-	icon_state = "2-8"
-	},
-/turf/simulated/floor,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/arrival)
 "jw" = (
 /obj/effect/spider/stickyweb,
@@ -3734,27 +3085,6 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/red,
 /area/derelict/arrival)
-"jF" = (
-/obj/machinery/power/solar_control/autostart,
-/obj/structure/cable{
-	icon_state = "0-4";
-	d2 = 4
-	},
-/turf/simulated/floor,
-/area/derelict/arrival)
-"jG" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 8;
-	icon_state = "2-8"
-	},
-/turf/simulated/floor,
-/area/derelict/arrival)
 "jH" = (
 /obj/structure/window/reinforced{
 	icon_state = "rwindow";
@@ -3768,7 +3098,7 @@
 /area/derelict/arrival)
 "jI" = (
 /obj/machinery/door/window/northright,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/arrival)
 "jJ" = (
 /obj/structure/window/reinforced{
@@ -3779,7 +3109,7 @@
 /obj/item/weapon/tank/oxygen,
 /obj/random/toolbox,
 /obj/item/device/flashlight/flare,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/arrival)
 "jK" = (
 /obj/structure/window/reinforced{
@@ -3788,7 +3118,7 @@
 	},
 /obj/structure/table/rack,
 /obj/item/device/flashlight/flare,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/arrival)
 "jL" = (
 /obj/structure/window/reinforced{
@@ -3798,7 +3128,7 @@
 /obj/structure/table/rack,
 /obj/item/weapon/tank/oxygen,
 /obj/item/device/flashlight/flare,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/arrival)
 "jM" = (
 /obj/machinery/door/window/northright,
@@ -3809,14 +3139,14 @@
 	dir = 8
 	},
 /obj/machinery/door/blast/regular,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/arrival)
 "jO" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
 /obj/machinery/door/blast/regular,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/arrival)
 "jP" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -3857,7 +3187,7 @@
 "jT" = (
 /obj/structure/closet/emcloset,
 /obj/machinery/light,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/arrival)
 "jU" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -3891,7 +3221,7 @@
 	dir = 9
 	},
 /obj/machinery/door/firedoor,
-/turf/simulated/floor/holofloor/wood,
+/turf/simulated/floor/wood,
 /area/derelict/arrival)
 "jY" = (
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -3899,7 +3229,7 @@
 	dir = 1
 	},
 /obj/machinery/door/firedoor,
-/turf/simulated/floor/holofloor/wood,
+/turf/simulated/floor/wood,
 /area/derelict/arrival)
 "jZ" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -3928,32 +3258,6 @@
 	},
 /turf/simulated/floor/tiled/red,
 /area/derelict/arrival)
-"kd" = (
-/obj/machinery/door/firedoor,
-/obj/effect/spider/stickyweb,
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8";
-	pixel_x = 0
-	},
-/turf/simulated/floor,
-/area/derelict/arrival)
-"ke" = (
-/obj/effect/spider/stickyweb,
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8";
-	pixel_x = 0
-	},
-/obj/structure/cable{
-	d1 = 2;
-	d2 = 8;
-	icon_state = "2-8"
-	},
-/turf/simulated/floor,
-/area/derelict/arrival)
 "kf" = (
 /mob/living/simple_animal/hostile/giant_spider,
 /turf/simulated/floor,
@@ -3965,7 +3269,7 @@
 	},
 /obj/structure/table/wood,
 /obj/machinery/chemical_dispenser/bar_alc/full,
-/turf/simulated/floor/holofloor/wood,
+/turf/simulated/floor/wood,
 /area/derelict/arrival)
 "kh" = (
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -3973,11 +3277,11 @@
 	dir = 1
 	},
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/holofloor/wood,
+/turf/simulated/floor/wood,
 /area/derelict/arrival)
 "ki" = (
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/holofloor/wood,
+/turf/simulated/floor/wood,
 /area/derelict/arrival)
 "kj" = (
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -3985,7 +3289,7 @@
 	dir = 1
 	},
 /obj/structure/weightlifter,
-/turf/simulated/floor/holofloor/wood,
+/turf/simulated/floor/wood,
 /area/derelict/arrival)
 "kk" = (
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -3997,7 +3301,7 @@
 	dir = 1
 	},
 /obj/structure/weightlifter,
-/turf/simulated/floor/holofloor/wood,
+/turf/simulated/floor/wood,
 /area/derelict/arrival)
 "kl" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -4045,7 +3349,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/arrival)
 "ku" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -4053,29 +3357,20 @@
 	dir = 1
 	},
 /obj/machinery/door/firedoor,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/arrival)
 "kv" = (
 /obj/effect/floor_decal/industrial/warning{
 	icon_state = "warning";
 	dir = 1
 	},
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/arrival)
 "kw" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/turf/simulated/floor/holofloor/tiled/dark,
-/area/derelict/arrival)
-"kx" = (
-/obj/effect/spider/stickyweb,
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/turf/simulated/floor,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/arrival)
 "ky" = (
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -4084,19 +3379,19 @@
 	},
 /obj/structure/table/wood,
 /obj/machinery/chemical_dispenser/bar_soft/full,
-/turf/simulated/floor/holofloor/wood,
+/turf/simulated/floor/wood,
 /area/derelict/arrival)
 "kz" = (
 /obj/effect/decal/cleanable/generic,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/holofloor/wood,
+/turf/simulated/floor/wood,
 /area/derelict/arrival)
 "kA" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	icon_state = "spline_fancy";
 	dir = 4
 	},
-/turf/simulated/floor/holofloor/wood,
+/turf/simulated/floor/wood,
 /area/derelict/arrival)
 "kC" = (
 /obj/effect/floor_decal/industrial/outline/red,
@@ -4104,25 +3399,25 @@
 /area/derelict/arrival)
 "kD" = (
 /obj/effect/floor_decal/industrial/hatch/red,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/arrival)
 "kE" = (
 /obj/structure/mopbucket,
 /obj/item/weapon/mop,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/arrival)
 "kF" = (
 /obj/machinery/light{
 	dir = 1
 	},
-/turf/simulated/floor/holofloor/lino,
+/turf/simulated/floor/lino,
 /area/derelict/arrival)
 "kG" = (
-/turf/simulated/floor/holofloor/lino,
+/turf/simulated/floor/lino,
 /area/derelict/arrival)
 "kH" = (
 /obj/machinery/door/firedoor,
-/turf/simulated/floor/holofloor/lino,
+/turf/simulated/floor/lino,
 /area/derelict/arrival)
 "kI" = (
 /obj/random/junk,
@@ -4130,7 +3425,7 @@
 	dir = 4;
 	status = 0
 	},
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/arrival)
 "kJ" = (
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -4139,28 +3434,28 @@
 	},
 /obj/effect/floor_decal/spline/fancy/wood,
 /obj/structure/device/piano,
-/turf/simulated/floor/holofloor/wood,
+/turf/simulated/floor/wood,
 /area/derelict/arrival)
 "kK" = (
 /obj/effect/floor_decal/spline/fancy/wood,
 /obj/item/weapon/stool/padded,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/holofloor/wood,
+/turf/simulated/floor/wood,
 /area/derelict/arrival)
 "kL" = (
-/turf/simulated/floor/holofloor/wood,
+/turf/simulated/floor/wood,
 /area/derelict/arrival)
 "kM" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/holofloor/wood,
+/turf/simulated/floor/wood,
 /area/derelict/arrival)
 "kN" = (
 /obj/structure/table/wood,
 /obj/item/weapon/paper_bin,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/holofloor/wood,
+/turf/simulated/floor/wood,
 /area/derelict/arrival)
 "kO" = (
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -4169,7 +3464,7 @@
 	},
 /obj/structure/table/wood,
 /obj/item/device/flashlight/lamp,
-/turf/simulated/floor/holofloor/wood,
+/turf/simulated/floor/wood,
 /area/derelict/arrival)
 "kP" = (
 /obj/machinery/door/firedoor,
@@ -4195,54 +3490,44 @@
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/effect/floor_decal/industrial/warning,
 /obj/machinery/light,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/arrival)
 "kU" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/machinery/door/firedoor,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/arrival)
 "kV" = (
 /obj/effect/floor_decal/industrial/warning,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/arrival)
 "kW" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/arrival)
 "kX" = (
 /turf/simulated/wall/r_wall,
 /area/derelict/storage/engine_storage)
-"kY" = (
-/obj/machinery/door/airlock/maintenance_hatch,
-/obj/machinery/door/firedoor,
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/turf/simulated/floor,
-/area/derelict/storage/engine_storage)
 "kZ" = (
 /obj/structure/mopbucket,
 /obj/item/weapon/mop,
-/turf/simulated/floor/holofloor/lino,
+/turf/simulated/floor/lino,
 /area/derelict/arrival)
 "la" = (
 /obj/effect/decal/cleanable/blood/oil,
-/turf/simulated/floor/holofloor/lino,
+/turf/simulated/floor/lino,
 /area/derelict/arrival)
 "lb" = (
 /obj/random/junk,
-/turf/simulated/floor/holofloor/lino,
+/turf/simulated/floor/lino,
 /area/derelict/arrival)
 "lc" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock,
-/turf/simulated/floor/holofloor/lino,
+/turf/simulated/floor/lino,
 /area/derelict/arrival)
 "ld" = (
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -4253,13 +3538,13 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/turf/simulated/floor/holofloor/wood,
+/turf/simulated/floor/wood,
 /area/derelict/arrival)
 "le" = (
 /obj/item/weapon/stool/padded,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/holofloor/wood,
+/turf/simulated/floor/wood,
 /area/derelict/arrival)
 "lf" = (
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -4268,7 +3553,7 @@
 	},
 /obj/structure/table/wood,
 /obj/item/weapon/dice/d20,
-/turf/simulated/floor/holofloor/wood,
+/turf/simulated/floor/wood,
 /area/derelict/arrival)
 "lg" = (
 /obj/effect/floor_decal/corner/black/diagonal,
@@ -4276,17 +3561,8 @@
 	dir = 4;
 	status = 0
 	},
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/arrival)
-"lh" = (
-/obj/structure/grille,
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/turf/simulated/floor,
-/area/derelict/storage/engine_storage)
 "li" = (
 /obj/machinery/shower,
 /obj/structure/curtain/open/shower,
@@ -4313,11 +3589,11 @@
 	icon_state = "spline_fancy";
 	dir = 8
 	},
-/turf/simulated/floor/holofloor/wood,
+/turf/simulated/floor/wood,
 /area/derelict/arrival)
 "ln" = (
 /obj/structure/bed/chair/comfy/teal,
-/turf/simulated/floor/holofloor/wood,
+/turf/simulated/floor/wood,
 /area/derelict/arrival)
 "lo" = (
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -4327,29 +3603,21 @@
 /obj/structure/table/wood,
 /obj/effect/decal/cleanable/dirt,
 /obj/random/booze,
-/turf/simulated/floor/holofloor/wood,
+/turf/simulated/floor/wood,
 /area/derelict/arrival)
-"lp" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/turf/simulated/floor,
-/area/derelict/storage/engine_storage)
 "lq" = (
 /obj/effect/decal/cleanable/spiderling_remains,
 /turf/simulated/floor/tiled/freezer,
 /area/derelict/arrival)
 "lr" = (
 /obj/structure/closet/firecloset,
-/turf/simulated/floor/holofloor/lino,
+/turf/simulated/floor/lino,
 /area/derelict/arrival)
 "ls" = (
 /obj/structure/curtain/open/bed,
 /obj/item/weapon/bedsheet,
 /obj/structure/bed,
-/turf/simulated/floor/holofloor/lino,
+/turf/simulated/floor/lino,
 /area/derelict/arrival)
 "lt" = (
 /obj/effect/floor_decal/spline/fancy/wood,
@@ -4361,13 +3629,13 @@
 	icon_state = "comfychair_preview";
 	dir = 4
 	},
-/turf/simulated/floor/holofloor/wood,
+/turf/simulated/floor/wood,
 /area/derelict/arrival)
 "lu" = (
 /obj/effect/floor_decal/spline/fancy/wood,
 /obj/structure/table/wood/gamblingtable,
 /obj/item/weapon/deck/cards,
-/turf/simulated/floor/holofloor/wood,
+/turf/simulated/floor/wood,
 /area/derelict/arrival)
 "lv" = (
 /obj/effect/floor_decal/spline/fancy/wood,
@@ -4377,7 +3645,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/holofloor/wood,
+/turf/simulated/floor/wood,
 /area/derelict/arrival)
 "lw" = (
 /obj/effect/floor_decal/spline/fancy/wood,
@@ -4388,7 +3656,7 @@
 /obj/item/weapon/deck/holder,
 /obj/structure/table/wood,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/holofloor/wood,
+/turf/simulated/floor/wood,
 /area/derelict/arrival)
 "lx" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -4409,11 +3677,11 @@
 /area/derelict/arrival)
 "lA" = (
 /obj/structure/barricade,
-/turf/simulated/floor/holofloor/lino,
+/turf/simulated/floor/lino,
 /area/derelict/arrival)
 "lB" = (
 /obj/structure/closet/emcloset,
-/turf/simulated/floor/holofloor/lino,
+/turf/simulated/floor/lino,
 /area/derelict/arrival)
 "lC" = (
 /obj/structure/closet/secure_closet/personal,
@@ -4424,7 +3692,7 @@
 /obj/item/clothing/head/legion_beret,
 /obj/item/clothing/head/cowboy,
 /obj/machinery/light/small,
-/turf/simulated/floor/holofloor/lino,
+/turf/simulated/floor/lino,
 /area/derelict/arrival)
 "lD" = (
 /obj/structure/closet/secure_closet/personal,
@@ -4434,7 +3702,7 @@
 /obj/item/weapon/storage/backpack/legion,
 /obj/item/clothing/head/legion_beret,
 /obj/machinery/light/small,
-/turf/simulated/floor/holofloor/lino,
+/turf/simulated/floor/lino,
 /area/derelict/arrival)
 "lE" = (
 /obj/structure/closet/secure_closet/personal,
@@ -4445,7 +3713,7 @@
 /obj/item/clothing/head/legion_beret,
 /obj/item/clothing/head/turban,
 /obj/machinery/light/small,
-/turf/simulated/floor/holofloor/lino,
+/turf/simulated/floor/lino,
 /area/derelict/arrival)
 "lF" = (
 /obj/structure/closet/secure_closet/personal,
@@ -4456,15 +3724,10 @@
 /obj/item/clothing/head/legion_beret,
 /obj/item/clothing/head/helmet/tank,
 /obj/machinery/light/small,
-/turf/simulated/floor/holofloor/lino,
+/turf/simulated/floor/lino,
 /area/derelict/arrival)
 "lG" = (
 /obj/machinery/door/firedoor,
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
 /mob/living/simple_animal/hostile/giant_spider,
 /turf/simulated/floor,
 /area/derelict/storage/engine_storage)
@@ -4483,11 +3746,11 @@
 	dir = 4;
 	status = 2
 	},
-/turf/simulated/floor/holofloor/lino,
+/turf/simulated/floor/lino,
 /area/derelict/arrival)
 "lK" = (
 /obj/structure/bed/chair/comfy/teal,
-/turf/simulated/floor/holofloor/lino,
+/turf/simulated/floor/lino,
 /area/derelict/arrival)
 "lL" = (
 /obj/structure/closet/secure_closet/personal,
@@ -4500,7 +3763,7 @@
 /obj/machinery/light/small{
 	dir = 1
 	},
-/turf/simulated/floor/holofloor/lino,
+/turf/simulated/floor/lino,
 /area/derelict/arrival)
 "lM" = (
 /obj/structure/closet/secure_closet/personal,
@@ -4512,7 +3775,7 @@
 /obj/machinery/light/small{
 	dir = 1
 	},
-/turf/simulated/floor/holofloor/lino,
+/turf/simulated/floor/lino,
 /area/derelict/arrival)
 "lN" = (
 /obj/structure/closet/secure_closet/personal,
@@ -4525,7 +3788,7 @@
 /obj/machinery/light/small{
 	dir = 1
 	},
-/turf/simulated/floor/holofloor/lino,
+/turf/simulated/floor/lino,
 /area/derelict/arrival)
 "lO" = (
 /obj/structure/closet/secure_closet/personal,
@@ -4538,7 +3801,7 @@
 /obj/machinery/light/small{
 	dir = 1
 	},
-/turf/simulated/floor/holofloor/lino,
+/turf/simulated/floor/lino,
 /area/derelict/arrival)
 "lP" = (
 /obj/structure/closet/secure_closet/personal,
@@ -4551,7 +3814,7 @@
 /obj/machinery/light/small{
 	dir = 1
 	},
-/turf/simulated/floor/holofloor/lino,
+/turf/simulated/floor/lino,
 /area/derelict/arrival)
 "lQ" = (
 /obj/structure/bed/chair/office/dark{
@@ -4559,7 +3822,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/floor_decal/corner/black/diagonal,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/arrival)
 "lR" = (
 /obj/structure/bed/chair/office/dark,
@@ -4567,20 +3830,11 @@
 /obj/effect/floor_decal/corner/black/diagonal,
 /turf/simulated/floor/tiled/dark,
 /area/derelict/arrival)
-"lS" = (
-/obj/effect/decal/cleanable/spiderling_remains,
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/turf/simulated/floor,
-/area/derelict/storage/engine_storage)
 "lT" = (
 /obj/structure/table/wood,
 /obj/item/weapon/paper_bin,
 /obj/item/weapon/pen,
-/turf/simulated/floor/holofloor/lino,
+/turf/simulated/floor/lino,
 /area/derelict/arrival)
 "lU" = (
 /obj/structure/table/standard,
@@ -4590,25 +3844,25 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/arrival)
 "lV" = (
 /obj/structure/table/standard,
 /obj/item/device/camera,
 /obj/effect/floor_decal/corner/black/diagonal,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/arrival)
 "lW" = (
 /obj/structure/table/standard,
 /obj/effect/floor_decal/corner/black/diagonal,
 /obj/item/weapon/weldingtool/hugetank,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/arrival)
 "lX" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/floor_decal/corner/black/diagonal,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/arrival)
 "lY" = (
 /obj/machinery/light,
@@ -4616,38 +3870,38 @@
 /area/derelict/arrival)
 "lZ" = (
 /obj/machinery/door/airlock,
-/turf/simulated/floor/holofloor/lino,
+/turf/simulated/floor/lino,
 /area/derelict/arrival)
 "ma" = (
 /obj/structure/dispenser/oxygen,
 /obj/machinery/light{
 	dir = 1
 	},
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/arrival)
 "mb" = (
 /obj/structure/dispenser/oxygen,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/arrival)
 "mc" = (
 /obj/machinery/portable_atmospherics/canister/oxygen,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/arrival)
 "md" = (
 /obj/item/weapon/storage/backpack/legion,
 /obj/structure/table/standard,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/arrival)
 "me" = (
 /obj/structure/table/standard,
 /obj/item/device/suit_cooling_unit/improved,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/arrival)
 "mf" = (
 /obj/machinery/floodlight,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/arrival)
 "mg" = (
 /obj/structure/table/rack,
@@ -4656,7 +3910,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/arrival)
 "mi" = (
 /obj/item/toy/plushie/spider,
@@ -4679,11 +3933,11 @@
 "mm" = (
 /obj/structure/reagent_dispensers/water_cooler,
 /obj/machinery/light,
-/turf/simulated/floor/holofloor/lino,
+/turf/simulated/floor/lino,
 /area/derelict/arrival)
 "mn" = (
 /obj/machinery/light,
-/turf/simulated/floor/holofloor/lino,
+/turf/simulated/floor/lino,
 /area/derelict/arrival)
 "mo" = (
 /obj/structure/table/standard,
@@ -4694,7 +3948,7 @@
 /obj/structure/table/rack,
 /obj/random/toolbox,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/arrival)
 "mq" = (
 /obj/machinery/door/firedoor,
@@ -4702,67 +3956,10 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/red,
 /area/derelict/arrival)
-"mr" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 4;
-	icon_state = "1-4"
-	},
-/obj/random/junk,
-/turf/simulated/floor,
-/area/derelict/storage/engine_storage)
-"ms" = (
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8";
-	pixel_x = 0
-	},
-/turf/simulated/floor,
-/area/derelict/storage/engine_storage)
-"mt" = (
-/obj/structure/grille,
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8";
-	pixel_x = 0
-	},
-/turf/simulated/floor,
-/area/derelict/storage/engine_storage)
-"mu" = (
-/obj/machinery/door/firedoor,
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8";
-	pixel_x = 0
-	},
-/turf/simulated/floor,
-/area/derelict/storage/engine_storage)
-"mv" = (
-/obj/effect/spider/stickyweb,
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8";
-	pixel_x = 0
-	},
-/turf/simulated/floor,
-/area/derelict/storage/engine_storage)
-"mw" = (
-/obj/effect/spider/stickyweb,
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 8;
-	icon_state = "2-8"
-	},
-/turf/simulated/floor,
-/area/derelict/storage/engine_storage)
 "mx" = (
 /obj/item/device/floor_painter,
 /obj/structure/closet/crate,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/arrival)
 "my" = (
 /obj/structure/table/standard,
@@ -4777,15 +3974,6 @@
 /area/derelict/storage/engine_storage)
 "mB" = (
 /obj/machinery/door/firedoor,
-/turf/simulated/floor,
-/area/derelict/storage/engine_storage)
-"mC" = (
-/obj/effect/spider/stickyweb,
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
 /turf/simulated/floor,
 /area/derelict/storage/engine_storage)
 "mD" = (
@@ -4849,7 +4037,7 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/arrival)
 "mN" = (
 /obj/structure/table/standard,
@@ -4889,13 +4077,13 @@
 	dir = 4;
 	status = 0
 	},
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/arrival)
 "mT" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/arrival)
 "mU" = (
 /obj/machinery/light{
@@ -4938,7 +4126,7 @@
 /obj/structure/bed/chair/office/dark{
 	dir = 4
 	},
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/arrival)
 "nb" = (
 /obj/machinery/door/firedoor,
@@ -4946,7 +4134,7 @@
 /obj/machinery/door/window/eastright,
 /obj/item/weapon/paper_bin,
 /obj/item/weapon/pen,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/arrival)
 "nc" = (
 /obj/structure/closet/crate/internals,
@@ -4974,23 +4162,23 @@
 	},
 /obj/structure/window/reinforced,
 /obj/item/device/flashlight/lamp,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/arrival)
 "ng" = (
 /obj/structure/table/rack,
 /obj/item/weapon/tank/jetpack/oxygen,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/arrival)
 "nh" = (
 /obj/item/device/flashlight/flare,
 /obj/item/device/flashlight/flare,
 /obj/item/device/flashlight/flare,
 /obj/structure/closet/crate,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/arrival)
 "ni" = (
 /obj/structure/closet/crate/bin,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/arrival)
 "nj" = (
 /obj/structure/closet/crate/internals,
@@ -4998,7 +4186,7 @@
 	dir = 4;
 	status = 0
 	},
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/arrival)
 "nk" = (
 /obj/effect/decal/cleanable/spiderling_remains,
@@ -5099,19 +4287,19 @@
 "nA" = (
 /obj/structure/closet/crate/rcd,
 /obj/effect/floor_decal/corner/black/diagonal,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/arrival)
 "nB" = (
 /obj/structure/closet/crate/trashcart,
 /obj/effect/floor_decal/corner/black/diagonal,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/arrival)
 "nC" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/black/diagonal,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/arrival)
 "nD" = (
 /obj/structure/window/reinforced{
@@ -5139,70 +4327,12 @@
 /obj/machinery/portable_atmospherics/canister/oxygen,
 /turf/simulated/floor/reinforced,
 /area/derelict/arrival)
-"nH" = (
-/obj/effect/spider/stickyweb,
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 4;
-	icon_state = "1-4"
-	},
-/obj/random/junk,
-/turf/simulated/floor,
-/area/derelict/storage/engine_storage)
-"nI" = (
-/obj/machinery/door/airlock/maintenance_hatch,
-/obj/machinery/door/firedoor,
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8";
-	pixel_x = 0
-	},
-/turf/simulated/floor,
-/area/derelict/storage/engine_storage)
-"nJ" = (
-/obj/effect/spider/stickyweb,
-/obj/effect/spider/stickyweb,
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8";
-	pixel_x = 0
-	},
-/turf/simulated/floor,
-/area/derelict/storage/engine_storage)
 "nK" = (
 /obj/effect/spider/stickyweb,
 /obj/effect/spider/stickyweb,
 /obj/effect/spider/stickyweb,
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8";
-	pixel_x = 0
-	},
 /turf/simulated/floor,
 /area/derelict/storage/engine_storage)
-"nL" = (
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8";
-	pixel_x = 0
-	},
-/obj/effect/decal/cleanable/dirt,
-/obj/machinery/light,
-/turf/simulated/floor/tiled,
-/area/derelict/arrival)
-"nM" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 8;
-	icon_state = "2-8"
-	},
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled,
-/area/derelict/arrival)
 "nN" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/light,
@@ -5249,25 +4379,20 @@
 /turf/simulated/floor,
 /area/derelict/storage/engine_storage)
 "nW" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
 /obj/machinery/door/airlock/engineering,
 /obj/machinery/door/firedoor,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/storage/engine_storage)
 "nX" = (
 /obj/effect/floor_decal/corner/black/diagonal,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/storage/engine_storage)
 "nY" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/black/diagonal,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/storage/engine_storage)
 "nZ" = (
 /obj/structure/window/reinforced{
@@ -5301,28 +4426,18 @@
 "of" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/floor_decal/corner/black/diagonal,
-/turf/simulated/floor/holofloor/tiled/dark,
-/area/derelict/storage/engine_storage)
-"og" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/floor_decal/corner/black/diagonal,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/storage/engine_storage)
 "oh" = (
 /obj/structure/table/standard,
 /obj/random/tech_supply,
 /obj/effect/floor_decal/corner/black/diagonal,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/storage/engine_storage)
 "oi" = (
 /obj/structure/table/standard,
 /obj/effect/floor_decal/corner/black/diagonal,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/storage/engine_storage)
 "oj" = (
 /obj/effect/floor_decal/industrial/warning/corner{
@@ -5330,7 +4445,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/floor_decal/corner/black/diagonal,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/storage/engine_storage)
 "ok" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -5338,7 +4453,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/floor_decal/corner/black/diagonal,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/storage/engine_storage)
 "ol" = (
 /obj/random/junk,
@@ -5346,14 +4461,14 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/black/diagonal,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/storage/engine_storage)
 "om" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/black/diagonal,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/storage/engine_storage)
 "on" = (
 /obj/effect/floor_decal/industrial/warning/corner{
@@ -5361,12 +4476,12 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/black/diagonal,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/storage/engine_storage)
 "oo" = (
 /obj/structure/closet/crate/solar,
 /obj/effect/floor_decal/corner/black/diagonal,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/storage/engine_storage)
 "op" = (
 /obj/structure/shuttle/engine/router,
@@ -5376,7 +4491,7 @@
 /obj/structure/closet/emcloset,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/floor_decal/corner/black/diagonal,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/storage/engine_storage)
 "or" = (
 /obj/structure/table/standard,
@@ -5386,14 +4501,14 @@
 	},
 /obj/random/tech_supply,
 /obj/effect/floor_decal/corner/black/diagonal,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/storage/engine_storage)
 "os" = (
 /obj/structure/table/standard,
 /obj/effect/decal/cleanable/dirt,
 /obj/random/tech_supply,
 /obj/effect/floor_decal/corner/black/diagonal,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/storage/engine_storage)
 "ou" = (
 /obj/structure/table/reinforced/steel,
@@ -5405,136 +4520,30 @@
 /obj/structure/closet/hydrant,
 /turf/simulated/wall/r_wall,
 /area/derelict/storage/engine_storage)
-"ow" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 4;
-	icon_state = "1-4"
-	},
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/floor_decal/corner/black/diagonal,
-/turf/simulated/floor/holofloor/tiled/dark,
-/area/derelict/storage/engine_storage)
 "ox" = (
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8";
-	pixel_x = 0
-	},
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/floor_decal/corner/black/diagonal,
-/turf/simulated/floor/holofloor/tiled/dark,
-/area/derelict/storage/engine_storage)
-"oy" = (
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8";
-	pixel_x = 0
-	},
-/obj/random/junk,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/floor_decal/corner/black/diagonal,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/storage/engine_storage)
 "oz" = (
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8";
-	pixel_x = 0
-	},
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/door/airlock/engineering,
 /obj/machinery/door/firedoor,
-/turf/simulated/floor/holofloor/tiled/dark,
-/area/derelict/storage/engine_storage)
-"oA" = (
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8";
-	pixel_x = 0
-	},
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/floor_decal/corner/black/diagonal,
-/turf/simulated/floor/holofloor/tiled/dark,
-/area/derelict/storage/engine_storage)
-"oB" = (
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8";
-	pixel_x = 0
-	},
-/obj/structure/table/standard,
-/obj/effect/decal/cleanable/dirt,
-/obj/random/tech_supply,
-/obj/effect/floor_decal/corner/black/diagonal,
-/turf/simulated/floor/holofloor/tiled/dark,
-/area/derelict/storage/engine_storage)
-"oC" = (
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8";
-	pixel_x = 0
-	},
-/obj/effect/floor_decal/corner/black/diagonal,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/storage/engine_storage)
 "oD" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 8;
-	icon_state = "2-8"
-	},
 /obj/structure/table/rack,
 /obj/random/toolbox,
 /obj/effect/floor_decal/corner/black/diagonal,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/storage/engine_storage)
 "oE" = (
 /obj/structure/table/rack,
 /obj/effect/decal/cleanable/dirt,
 /obj/random/loot,
 /obj/effect/floor_decal/corner/black/diagonal,
-/turf/simulated/floor/holofloor/tiled/dark,
-/area/derelict/storage/engine_storage)
-"oF" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/obj/structure/table/rack,
-/obj/random/toolbox,
-/obj/effect/floor_decal/corner/black/diagonal,
-/turf/simulated/floor/holofloor/tiled/dark,
-/area/derelict/storage/engine_storage)
-"oG" = (
-/obj/machinery/power/terminal{
-	icon_state = "term";
-	dir = 1
-	},
-/obj/machinery/power/apc{
-	dir = 1;
-	name = "north bump";
-	pixel_x = 0;
-	pixel_y = 24
-	},
-/obj/structure/cable{
-	d2 = 2;
-	icon_state = "0-2";
-	pixel_y = 0
-	},
-/turf/simulated/floor,
-/area/derelict/storage/engine_storage)
-"oH" = (
-/obj/machinery/power/smes,
-/turf/simulated/floor,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/storage/engine_storage)
 "oI" = (
 /obj/structure/grille,
@@ -5575,11 +4584,6 @@
 /turf/simulated/floor,
 /area/derelict/storage/engine_storage)
 "oL" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
 /obj/structure/table/rack,
 /obj/machinery/light{
 	dir = 4;
@@ -5587,37 +4591,7 @@
 	},
 /obj/random/toolbox,
 /obj/effect/floor_decal/corner/black/diagonal,
-/turf/simulated/floor/holofloor/tiled/dark,
-/area/derelict/storage/engine_storage)
-"oM" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 8;
-	icon_state = "1-8"
-	},
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8";
-	pixel_x = 0
-	},
-/turf/simulated/floor,
-/area/derelict/bridge)
-"oN" = (
-/obj/machinery/power/terminal{
-	icon_state = "term";
-	dir = 1
-	},
-/obj/structure/cable{
-	d2 = 8;
-	icon_state = "0-8"
-	},
-/obj/structure/cable{
-	d2 = 2;
-	icon_state = "0-2";
-	pixel_y = 0
-	},
-/turf/simulated/floor,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/storage/engine_storage)
 "oO" = (
 /obj/effect/decal/cleanable/dirt,
@@ -5626,89 +4600,38 @@
 "oP" = (
 /obj/machinery/autolathe,
 /obj/effect/floor_decal/corner/black/diagonal,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/storage/engine_storage)
 "oQ" = (
 /obj/machinery/portable_atmospherics/powered/scrubber/huge,
 /obj/effect/floor_decal/corner/black/diagonal,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/storage/engine_storage)
 "oR" = (
 /obj/machinery/pipelayer,
 /obj/effect/floor_decal/corner/black/diagonal,
-/turf/simulated/floor/holofloor/tiled/dark,
-/area/derelict/storage/engine_storage)
-"oS" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 4;
-	icon_state = "1-4"
-	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 4
-	},
-/obj/effect/floor_decal/corner/black/diagonal,
-/turf/simulated/floor/holofloor/tiled/dark,
-/area/derelict/storage/engine_storage)
-"oT" = (
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8";
-	pixel_x = 0
-	},
-/obj/machinery/door/airlock/engineering,
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/holofloor/tiled/dark,
-/area/derelict/storage/engine_storage)
-"oU" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 4;
-	icon_state = "1-4"
-	},
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 8;
-	icon_state = "1-8"
-	},
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8";
-	pixel_x = 0
-	},
-/turf/simulated/floor,
-/area/derelict/arrival)
-"oV" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 8;
-	icon_state = "1-8"
-	},
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/storage/engine_storage)
 "oW" = (
 /obj/machinery/pipedispenser,
 /obj/effect/floor_decal/corner/black/diagonal,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/storage/engine_storage)
 "oX" = (
 /obj/random/junk,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/floor_decal/corner/black/diagonal,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/storage/engine_storage)
 "oY" = (
 /obj/structure/table/rack,
 /obj/effect/floor_decal/corner/black/diagonal,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/storage/engine_storage)
 "oZ" = (
 /obj/machinery/pipedispenser/disposal,
 /obj/effect/floor_decal/corner/black/diagonal,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/storage/engine_storage)
 "pa" = (
 /obj/effect/decal/cleanable/dirt,
@@ -5718,20 +4641,20 @@
 "pb" = (
 /obj/structure/shuttle/engine/heater,
 /obj/effect/floor_decal/corner/black/diagonal,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/storage/engine_storage)
 "pc" = (
 /obj/structure/shuttle/engine/heater,
 /obj/effect/floor_decal/corner/black/diagonal,
 /obj/machinery/light,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/storage/engine_storage)
 "pd" = (
 /obj/structure/bed/chair/office/bridge{
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/bridge)
 "pe" = (
 /obj/effect/decal/cleanable/dirt,
@@ -5756,7 +4679,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/closet/firecloset,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/bridge)
 "pi" = (
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -5764,7 +4687,7 @@
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/holofloor/wood,
+/turf/simulated/floor/wood,
 /area/derelict/bridge)
 "pj" = (
 /obj/effect/floor_decal/spline/fancy/wood/corner{
@@ -5772,15 +4695,15 @@
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/holofloor/wood,
+/turf/simulated/floor/wood,
 /area/derelict/bridge)
 "pk" = (
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/holofloor/wood,
+/turf/simulated/floor/wood,
 /area/derelict/bridge)
 "pl" = (
 /obj/effect/decal/cleanable/generic,
-/turf/simulated/floor/holofloor/wood,
+/turf/simulated/floor/wood,
 /area/derelict/bridge)
 "pm" = (
 /obj/structure/bed/chair/office/light{
@@ -5788,7 +4711,7 @@
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/holofloor/wood,
+/turf/simulated/floor/wood,
 /area/derelict/bridge)
 "pn" = (
 /obj/structure/closet/cabinet,
@@ -5809,7 +4732,7 @@
 /obj/item/device/camera,
 /obj/item/clothing/head/legion_beret,
 /obj/item/clothing/head/helmet/legion,
-/turf/simulated/floor/holofloor/wood,
+/turf/simulated/floor/wood,
 /area/derelict/bridge)
 "po" = (
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -5817,7 +4740,7 @@
 	dir = 1
 	},
 /obj/effect/decal/cleanable/generic,
-/turf/simulated/floor/holofloor/wood,
+/turf/simulated/floor/wood,
 /area/derelict/bridge)
 "pp" = (
 /obj/item/clothing/shoes/slippers,
@@ -5842,7 +4765,7 @@
 /obj/item/clothing/shoes/combat,
 /obj/item/clothing/head/legion_beret,
 /obj/item/clothing/head/helmet/legion,
-/turf/simulated/floor/holofloor/wood,
+/turf/simulated/floor/wood,
 /area/derelict/bridge)
 "pr" = (
 /obj/random/loot,
@@ -5853,80 +4776,56 @@
 /obj/item/clothing/shoes/combat,
 /turf/simulated/floor,
 /area/derelict/arrival)
-"pt" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 4;
-	icon_state = "1-4"
-	},
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/turf/simulated/floor,
-/area/derelict/storage/engine_storage)
 "pu" = (
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8";
-	pixel_x = 0
-	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
-	},
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 8;
-	icon_state = "1-8"
 	},
 /turf/simulated/floor,
 /area/derelict/storage/engine_storage)
 "pv" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/vending/snack,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/arrival)
 "pw" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/vending/cola,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/arrival)
 "px" = (
 /obj/effect/floor_decal/corner/black/diagonal,
 /obj/machinery/space_heater,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/storage/engine_storage)
 "py" = (
 /obj/machinery/vending/cola,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/arrival)
 "pz" = (
 /obj/machinery/vending/snack,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/arrival)
 "pA" = (
 /obj/machinery/vending/engineering,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/arrival)
 "pB" = (
 /obj/effect/floor_decal/corner/black/diagonal,
 /obj/machinery/vending/tool,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/arrival)
 "pC" = (
 /obj/machinery/vending/vendors,
 /obj/effect/floor_decal/corner/black/diagonal,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/storage/engine_storage)
 "pD" = (
 /obj/machinery/vending/sovietsoda,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/arrival)
 "pE" = (
 /obj/machinery/vending/robotics,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/arrival)
 "pF" = (
 /obj/machinery/vending/cigarette,
@@ -5934,23 +4833,23 @@
 	icon_state = "rwindow";
 	dir = 1
 	},
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/arrival)
 "pG" = (
 /obj/machinery/vending/coffee,
 /obj/structure/window/reinforced,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/arrival)
 "pH" = (
 /obj/structure/table/wood,
 /obj/effect/floor_decal/spline/fancy/wood,
 /obj/item/weapon/storage/fancy/cigarettes,
-/turf/simulated/floor/holofloor/wood,
+/turf/simulated/floor/wood,
 /area/derelict/bridge)
 "pI" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/closet/emcloset,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/bridge)
 "pJ" = (
 /obj/structure/closet/firecloset,
@@ -5958,7 +4857,7 @@
 /area/derelict/bridge)
 "pK" = (
 /obj/structure/closet/emcloset,
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/bridge)
 
 (1,1,1) = {"
@@ -18672,15 +17571,15 @@ aa
 aa
 aa
 cK
-iA
+cL
 cK
 aa
 cK
-iA
+cL
 cK
 aa
 cK
-iA
+cL
 cK
 aa
 aa
@@ -18928,17 +17827,17 @@ aa
 aa
 aa
 aa
-im
-iB
-iI
+cP
+cK
+cP
 aa
-im
-iB
-iI
+cP
+cK
+cP
 aa
-im
-iB
-iI
+cP
+cK
+cP
 aa
 aa
 aa
@@ -19185,17 +18084,17 @@ aa
 aa
 aa
 aa
-im
-iB
-iI
+cP
+cK
+cP
 aa
-im
-iB
-iI
+cP
+cK
+cP
 aa
-im
-iB
-iI
+cP
+cK
+cP
 aa
 aa
 aa
@@ -19442,17 +18341,17 @@ aa
 aa
 aa
 aa
-im
-iB
-iI
+cP
+cK
+cP
 aa
-im
-iB
-iI
+cP
+cK
+cP
 aa
-im
-iB
-iI
+cP
+cK
+cP
 aa
 aa
 aa
@@ -19699,17 +18598,17 @@ aa
 aa
 aa
 aa
-im
-iB
-iI
+cP
+cK
+cP
 aa
-im
-iB
-iI
+cP
+cK
+cP
 aa
-im
-iB
-iI
+cP
+cK
+cP
 aa
 aa
 aa
@@ -19956,17 +18855,17 @@ aa
 aa
 aa
 aa
-im
-iB
-iI
+cP
+cK
+cP
 aa
-im
-iB
-iI
+cP
+cK
+cP
 aa
-im
-iB
-iI
+cP
+cK
+cP
 aa
 aa
 aa
@@ -20213,17 +19112,17 @@ aa
 aa
 aa
 aa
-im
-iB
-iI
+cP
+cK
+cP
 aa
-im
-iB
-iI
+cP
+cK
+cP
 aa
-im
-iB
-iI
+cP
+cK
+cP
 aa
 aa
 aa
@@ -20470,17 +19369,17 @@ aa
 aa
 aa
 aa
-im
-iB
-iI
+cP
+cK
+cP
 aa
-im
-iB
-iI
+cP
+cK
+cP
 aa
-im
-iB
-iI
+cP
+cK
+cP
 aa
 aa
 aa
@@ -20727,17 +19626,17 @@ aa
 aa
 aa
 aa
-im
-iB
-iI
+cP
+cK
+cP
 aa
-im
-iB
-iI
+cP
+cK
+cP
 aa
-im
-iB
-iI
+cP
+cK
+cP
 aa
 aa
 aa
@@ -20984,17 +19883,17 @@ aa
 aa
 aa
 aa
-im
-iB
-iI
+cP
+cK
+cP
 aa
-im
-iB
-iI
+cP
+cK
+cP
 aa
-im
-iB
-iI
+cP
+cK
+cP
 aa
 aa
 aa
@@ -21241,17 +20140,17 @@ aa
 aa
 aa
 aa
-im
-iB
-iI
+cP
+cK
+cP
 aa
-im
-iB
-iI
+cP
+cK
+cP
 aa
-im
-iB
-iI
+cP
+cK
+cP
 aa
 aa
 aa
@@ -21498,17 +20397,17 @@ aa
 aa
 aa
 aa
-im
-iB
-iI
+cP
+cK
+cP
 aa
-im
-iB
-iI
+cP
+cK
+cP
 aa
-im
-iB
-iI
+cP
+cK
+cP
 aa
 aa
 aa
@@ -21755,17 +20654,17 @@ aa
 aa
 aa
 aa
-im
-iB
-iI
+cP
+cK
+cP
 aa
-im
-iB
-iI
+cP
+cK
+cP
 aa
-im
-iB
-iI
+cP
+cK
+cP
 aa
 aa
 aa
@@ -22012,17 +20911,17 @@ aa
 aa
 aa
 aa
-im
-iB
-iI
+cP
+cK
+cP
 aa
-im
-iB
-iI
+cP
+cK
+cP
 aa
-im
-iB
-iI
+cP
+cK
+cP
 aa
 aa
 aa
@@ -22269,17 +21168,17 @@ aa
 aa
 aa
 aa
-im
-iB
-iI
+cP
+cK
+cP
 aa
-im
-iB
-iI
+cP
+cK
+cP
 aa
-im
-iB
-iI
+cP
+cK
+cP
 aa
 aa
 aa
@@ -22526,17 +21425,17 @@ aa
 aa
 aa
 aa
-im
-iB
-iI
+cP
+cK
+cP
 aa
-im
-iB
-iI
+cP
+cK
+cP
 aa
-im
-iB
-iI
+cP
+cK
+cP
 aa
 aa
 aa
@@ -22783,17 +21682,17 @@ aa
 aa
 aa
 aa
-im
-iB
-iI
+cP
+cK
+cP
 aa
-im
-iB
-iI
+cP
+cK
+cP
 aa
-im
-iB
-iI
+cP
+cK
+cP
 aa
 aa
 aa
@@ -23040,17 +21939,17 @@ aa
 aa
 aa
 aa
-im
-iB
-iI
+cP
+cK
+cP
 aa
-im
-iB
-iI
+cP
+cK
+cP
 aa
-im
-iB
-iI
+cP
+cK
+cP
 aa
 aa
 aa
@@ -23298,15 +22197,15 @@ aa
 aa
 aa
 cC
-hf
+gy
 cC
 aa
 cC
-hf
+gy
 cC
 aa
 cC
-hf
+gy
 cC
 aa
 aa
@@ -23555,15 +22454,15 @@ aa
 aa
 aa
 cM
-hg
+cK
 cM
 aa
 cM
-hg
+cK
 cM
 aa
 cM
-hg
+cK
 cM
 aa
 aa
@@ -23812,15 +22711,15 @@ aa
 aa
 aa
 cC
-hf
+gy
 cC
 aa
 cC
-hf
+gy
 cC
 aa
 cC
-hf
+gy
 cC
 aa
 aa
@@ -24069,15 +22968,15 @@ cC
 cC
 cC
 cC
-ip
+cS
 cC
 cC
 cC
-ip
+cS
 cC
 cC
 cC
-kd
+dI
 cC
 cC
 kX
@@ -24326,28 +23225,28 @@ cC
 dw
 dw
 dw
-hg
+cK
 cK
 cC
 dw
-hg
-jF
+cK
+hC
 cC
 dw
-ke
-kx
-kx
-kY
-lh
-lp
-lp
+dw
+dw
+dw
+mX
+ny
+mz
+mz
 lG
-lp
-lS
-lp
-kY
-lp
-mr
+mz
+nk
+mz
+mX
+mz
+nU
 mz
 kX
 ml
@@ -24583,15 +23482,15 @@ cC
 dw
 cK
 cK
-hg
+cK
 cK
 cC
 dw
-hg
-hg
+cK
+cK
 cC
 cK
-hg
+cK
 dw
 dw
 cC
@@ -24604,7 +23503,7 @@ cC
 cC
 cC
 mi
-ms
+mz
 mz
 kX
 ml
@@ -24840,15 +23739,15 @@ cC
 cK
 cK
 cK
-ia
+kf
 cK
 dk
 dw
-jv
-jG
-hK
-gH
-hZ
+cK
+cK
+dk
+cK
+cK
 cK
 dw
 cC
@@ -24861,7 +23760,7 @@ hq
 ly
 cC
 mj
-mt
+ny
 mA
 kX
 mz
@@ -25072,32 +23971,32 @@ aa
 aa
 aa
 cL
-cQ
-cQ
-cQ
-cQ
-cQ
-cQ
-cQ
-cQ
-cQ
-cQ
-cQ
-cQ
-cQ
-cQ
-cQ
-cQ
-cQ
-cQ
-gy
-gH
-gy
-hb
-gH
-hU
 cK
-hg
+cK
+cK
+cK
+cK
+cK
+cK
+cK
+cK
+cK
+cK
+cK
+cK
+cK
+cK
+cK
+cK
+cK
+gy
+cK
+gy
+cS
+cK
+cK
+cK
+cK
 io
 cC
 dw
@@ -25118,7 +24017,7 @@ hq
 ly
 cC
 mk
-mu
+mB
 mB
 kX
 mX
@@ -25329,32 +24228,32 @@ aa
 aa
 aa
 cK
-cR
-cR
-cR
-cR
-cR
-cR
-cR
-cR
-cR
-cR
-cR
-cR
-cR
-cR
-cR
-cR
-cR
-cR
+cP
+cP
+cP
+cP
+cP
+cP
+cP
+cP
+cP
+cP
+cP
+cP
+cP
+cP
+cP
+cP
+cP
+cP
 cC
 cM
 cC
 cC
 hC
-hV
-gH
-hZ
+cK
+cK
+cK
 cK
 cC
 dw
@@ -25375,7 +24274,7 @@ hq
 lY
 cC
 ml
-mv
+ml
 mz
 mz
 mz
@@ -25609,7 +24508,7 @@ aa
 aa
 cC
 cC
-hW
+dk
 cC
 cC
 cC
@@ -25632,7 +24531,7 @@ cC
 lk
 cC
 ml
-mv
+ml
 ml
 mz
 mY
@@ -25866,7 +24765,7 @@ aa
 aa
 cC
 hD
-hg
+cK
 cK
 cC
 cK
@@ -25889,16 +24788,16 @@ cC
 ll
 cC
 ml
-mw
-mC
-mC
-mC
-lp
-lp
-lp
-kY
-mC
-nH
+ml
+ml
+ml
+ml
+mz
+mz
+mz
+mX
+ml
+mD
 ml
 oe
 op
@@ -26123,8 +25022,8 @@ cM
 cC
 cC
 hC
-hX
-hU
+cK
+cK
 cC
 nq
 cC
@@ -26155,7 +25054,7 @@ ml
 ml
 kX
 ml
-mv
+ml
 ml
 oe
 op
@@ -26357,31 +25256,31 @@ aa
 aa
 aa
 cL
-cQ
-cQ
-cQ
-cQ
-cQ
-cQ
-cQ
-cQ
-cQ
-cQ
-cQ
-cQ
-cQ
-cQ
-cQ
-cQ
-cQ
-cQ
+cK
+cK
+cK
+cK
+cK
+cK
+cK
+cK
+cK
+cK
+cK
+cK
+cK
+cK
+cK
+cK
+cK
+cK
 gy
-gH
+cK
 gy
-hc
-gH
-hY
-ib
+dI
+cK
+cK
+fz
 cC
 cC
 cC
@@ -26412,7 +25311,7 @@ kX
 kX
 kX
 kX
-nI
+mX
 kX
 oe
 op
@@ -26614,31 +25513,31 @@ aa
 aa
 aa
 cK
-cR
-cR
-cR
-cR
-cR
-cR
-cR
-cR
-cR
-cR
-cR
-cR
-cR
-cR
-cR
-cR
-cR
-cR
+cP
+cP
+cP
+cP
+cP
+cP
+cP
+cP
+cP
+cP
+cP
+cP
+cP
+cP
+cP
+cP
+cP
+cP
 cC
 cM
 cC
 cC
-hE
-hZ
-hg
+dw
+cK
+cK
 cC
 iJ
 iU
@@ -26669,7 +25568,7 @@ cC
 cC
 cC
 cC
-ms
+mz
 mz
 oe
 op
@@ -26893,9 +25792,9 @@ aa
 aa
 aa
 cC
-hF
-he
-hZ
+dw
+cK
+cK
 cC
 iK
 iV
@@ -26926,7 +25825,7 @@ iK
 nr
 cC
 cC
-ms
+mz
 nT
 oe
 op
@@ -27150,8 +26049,8 @@ cC
 aa
 aa
 cC
-hG
-hW
+gz
+dk
 cC
 cC
 cC
@@ -27183,7 +26082,7 @@ cZ
 ns
 cC
 cC
-mv
+ml
 mz
 oe
 op
@@ -27407,8 +26306,8 @@ cC
 cC
 cC
 cC
-hg
-hg
+cK
+cK
 cK
 cC
 iJ
@@ -27440,7 +26339,7 @@ cZ
 nt
 cC
 cC
-mv
+ml
 mz
 oe
 op
@@ -27664,8 +26563,8 @@ dk
 dw
 dw
 hd
-hg
-ia
+cK
+kf
 cK
 cC
 iK
@@ -27697,7 +26596,7 @@ cZ
 nu
 cC
 cC
-mv
+ml
 pr
 oe
 op
@@ -27921,8 +26820,8 @@ cC
 cC
 dw
 cK
-hg
-hg
+cK
+cK
 in
 cC
 cC
@@ -27954,7 +26853,7 @@ cZ
 nv
 cC
 cC
-mv
+ml
 mz
 oe
 op
@@ -28177,9 +27076,9 @@ dw
 gz
 cC
 nq
-he
-hH
-ib
+cK
+nO
+fz
 io
 cC
 iJ
@@ -28211,7 +27110,7 @@ cZ
 iK
 cC
 cC
-mv
+ml
 mY
 oe
 op
@@ -28434,10 +27333,10 @@ dw
 dw
 cC
 cC
-hf
+gy
 cC
-ic
-hU
+cK
+cK
 cC
 iK
 iV
@@ -28468,7 +27367,7 @@ mQ
 cC
 cC
 cC
-mv
+ml
 mz
 oe
 op
@@ -28691,10 +27590,10 @@ cC
 cC
 cC
 cC
-hg
+cK
 cC
 cC
-hW
+dk
 cC
 cC
 cC
@@ -28725,7 +27624,7 @@ gE
 cC
 cC
 cC
-nJ
+nV
 mz
 oe
 op
@@ -28948,10 +27847,10 @@ aa
 aa
 aa
 cC
-hf
+gy
 cC
 cC
-hF
+dw
 cC
 iJ
 iY
@@ -28982,7 +27881,7 @@ mR
 cC
 cC
 cC
-nJ
+nV
 nU
 oe
 op
@@ -29205,10 +28104,10 @@ aa
 aa
 aa
 aa
-hg
+cK
 iT
 cC
-hG
+gz
 cC
 iK
 iV
@@ -29239,7 +28138,7 @@ cZ
 nw
 cC
 cC
-mv
+ml
 mz
 oe
 op
@@ -29462,10 +28361,10 @@ aa
 aa
 aa
 aa
-hg
+cK
 iT
 cC
-hg
+cK
 cC
 cC
 cC
@@ -29496,7 +28395,7 @@ mS
 nx
 cC
 cC
-nJ
+nV
 mz
 oe
 op
@@ -29719,10 +28618,10 @@ cD
 cC
 aa
 cC
-hh
+cD
 cC
 cC
-ip
+cS
 cC
 iL
 iZ
@@ -29976,10 +28875,10 @@ cM
 cC
 cC
 cC
-hi
+cM
 cC
 cC
-iq
+gB
 cC
 iK
 iV
@@ -30232,11 +29131,11 @@ gj
 dl
 fY
 cC
-gR
-hj
+eZ
+dl
 hI
 cC
-hg
+cK
 cC
 iM
 ja
@@ -30267,7 +29166,7 @@ cZ
 iK
 cC
 cC
-nJ
+nV
 nV
 oe
 op
@@ -30490,10 +29389,10 @@ dl
 gA
 cC
 dR
-hj
+dl
 hJ
 cC
-hg
+cK
 cC
 iN
 ja
@@ -30524,7 +29423,7 @@ cZ
 iK
 jy
 cC
-mv
+ml
 ml
 ml
 kX
@@ -30747,10 +29646,10 @@ dl
 ga
 cC
 cV
-hj
+dl
 ga
 cC
-hW
+dk
 cC
 iN
 jb
@@ -30781,7 +29680,7 @@ mU
 iK
 jl
 cC
-mv
+ml
 ml
 ml
 kX
@@ -31004,10 +29903,10 @@ dm
 cC
 cC
 cC
-hk
+dm
 cC
 cC
-dF
+cZ
 es
 cC
 cC
@@ -31038,7 +29937,7 @@ cC
 cC
 cC
 es
-hW
+dk
 kX
 kX
 kX
@@ -31261,10 +30160,10 @@ cZ
 cZ
 cY
 cZ
-dF
+cZ
 db
 cZ
-dF
+cZ
 cZ
 cZ
 cZ
@@ -31295,7 +30194,7 @@ db
 db
 gi
 dZ
-nL
+nN
 kX
 of
 oq
@@ -31498,30 +30397,30 @@ aa
 aa
 cC
 cX
-dn
-dA
-dJ
-dA
-dA
-dA
-et
-dA
-dA
-dA
-dA
-dA
-dA
-dA
-dA
-dJ
-dA
-dA
-dJ
-dA
-hl
+dc
+dZ
+eM
+dZ
+dZ
+dZ
+hO
+dZ
+dZ
+dZ
+dZ
+dZ
+dZ
+dZ
+dZ
+eM
+dZ
+dZ
+eM
+dZ
+dZ
 dZ
 dc
-dq
+dZ
 dZ
 dZ
 dc
@@ -31552,11 +30451,11 @@ dZ
 dZ
 fE
 dZ
-nM
+dZ
 nW
-og
-og
-ow
+of
+of
+of
 of
 oI
 oQ
@@ -31755,7 +30654,7 @@ ac
 ac
 ab
 cC
-do
+dc
 db
 dK
 cZ
@@ -31778,7 +30677,7 @@ ek
 cZ
 cZ
 cZ
-dF
+cZ
 cZ
 eK
 db
@@ -32012,7 +30911,7 @@ aO
 aY
 ab
 cY
-dp
+eM
 dB
 cC
 dP
@@ -32035,7 +30934,7 @@ cC
 cC
 cC
 cC
-ir
+dP
 ea
 cC
 dP
@@ -32070,7 +30969,7 @@ cC
 kX
 oi
 or
-oy
+oX
 nX
 oK
 px
@@ -32269,7 +31168,7 @@ bT
 bX
 ab
 cZ
-dq
+dZ
 cZ
 dL
 aa
@@ -32288,8 +31187,8 @@ cC
 cC
 cC
 cC
-gS
-hm
+cK
+cK
 cC
 id
 is
@@ -32526,7 +31425,7 @@ aR
 bY
 ab
 cZ
-dq
+dZ
 cZ
 dM
 aa
@@ -32545,11 +31444,11 @@ dk
 cK
 cK
 cK
-gT
-oU
+cK
+cK
 cC
 ie
-it
+ie
 ie
 ie
 ie
@@ -32584,7 +31483,7 @@ gM
 nX
 of
 of
-oA
+of
 of
 of
 of
@@ -32783,7 +31682,7 @@ bp
 bZ
 ab
 cZ
-dq
+dZ
 dC
 cC
 dP
@@ -32803,10 +31702,10 @@ cC
 cC
 cC
 cC
-ho
-hK
-if
-iu
+fz
+dk
+ie
+ie
 ie
 ie
 ie
@@ -32841,7 +31740,7 @@ nC
 nY
 oj
 of
-oB
+os
 of
 of
 of
@@ -33040,7 +31939,7 @@ bU
 ca
 ab
 da
-dq
+dZ
 db
 dL
 dS
@@ -33098,7 +31997,7 @@ nD
 nZ
 ok
 os
-oB
+os
 oE
 oE
 of
@@ -33297,7 +32196,7 @@ ab
 ab
 bK
 db
-dq
+dZ
 cZ
 dN
 dT
@@ -33355,7 +32254,7 @@ cK
 oa
 ol
 nX
-oC
+nX
 nX
 nX
 nX
@@ -33554,7 +32453,7 @@ ap
 bH
 cH
 cZ
-dq
+dZ
 cZ
 dM
 dU
@@ -33613,9 +32512,9 @@ ob
 om
 nX
 oD
-oF
+oD
 oL
-oS
+nY
 pC
 oY
 pb
@@ -33811,7 +32710,7 @@ ap
 bJ
 cH
 cZ
-dq
+dZ
 cZ
 cC
 cC
@@ -33872,7 +32771,7 @@ nX
 kX
 kX
 kX
-oT
+nW
 kX
 kX
 oe
@@ -34068,7 +32967,7 @@ cj
 ab
 ab
 cZ
-dq
+dZ
 cZ
 cC
 dV
@@ -34127,8 +33026,8 @@ od
 on
 nX
 kX
-oG
-pt
+mz
+mz
 pu
 oO
 mz
@@ -34325,7 +33224,7 @@ ap
 cE
 ab
 cY
-dp
+eM
 dD
 cC
 dW
@@ -34384,9 +33283,9 @@ kX
 nX
 nX
 kX
-oH
-oN
-oV
+mz
+mz
+oO
 oO
 oO
 oe
@@ -34582,7 +33481,7 @@ ap
 cE
 ab
 cZ
-dq
+dZ
 cZ
 cC
 dW
@@ -34839,7 +33738,7 @@ cw
 cF
 ab
 py
-dq
+dZ
 cZ
 cC
 dW
@@ -35096,7 +33995,7 @@ cz
 cz
 ab
 pz
-dq
+dZ
 cZ
 dL
 dW
@@ -35353,7 +34252,7 @@ cA
 cG
 ab
 cC
-do
+dc
 cZ
 dM
 dW
@@ -35610,7 +34509,7 @@ ab
 ab
 bi
 cZ
-do
+dc
 dC
 cC
 dW
@@ -35867,7 +34766,7 @@ ab
 cH
 cN
 cZ
-dq
+dZ
 cZ
 dL
 dW
@@ -36124,7 +35023,7 @@ cj
 cI
 cO
 dc
-dq
+dZ
 cZ
 dM
 dX
@@ -36381,7 +35280,7 @@ ab
 cH
 cN
 cZ
-dq
+dZ
 db
 cC
 dY
@@ -36638,7 +35537,7 @@ ab
 ab
 ab
 cC
-do
+dc
 db
 cY
 cZ
@@ -36895,8 +35794,8 @@ au
 au
 bH
 cX
-dr
-dE
+dc
+dZ
 dO
 dZ
 dZ
@@ -37153,7 +36052,7 @@ au
 bJ
 dd
 cZ
-dF
+cZ
 dK
 db
 cZ
@@ -37667,7 +36566,7 @@ aL
 ab
 de
 ds
-dH
+ds
 ds
 ab
 au
@@ -37924,7 +36823,7 @@ bw
 ab
 de
 ds
-dH
+ds
 dg
 ab
 au
@@ -38438,7 +37337,7 @@ bx
 ab
 dg
 ds
-dH
+ds
 dh
 ab
 au
@@ -38695,7 +37594,7 @@ cg
 ab
 dh
 ds
-dH
+ds
 dh
 ab
 au
@@ -38950,9 +37849,9 @@ aO
 aY
 ab
 ab
-di
-du
-oM
+ds
+ds
+ds
 ds
 ab
 au
@@ -39207,9 +38106,9 @@ ac
 ac
 ab
 ab
-dj
-hn
-dv
+ds
+ds
+ds
 ds
 ab
 au

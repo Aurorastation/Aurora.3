@@ -51,7 +51,7 @@
 	var/list/station_networks = list() 		// Camera networks that will show up on the console.
 
 	var/list/holodeck_programs = list() // map of string ids to /datum/holodeck_program instances
-	var/list/holodeck_supported_programs = list() 
+	var/list/holodeck_supported_programs = list()
 		// map of maps - first level maps from list-of-programs string id (e.g. "BarPrograms") to another map
 		// this is in order to support multiple holodeck program listings for different holodecks
 		// second level maps from program friendly display names ("Picnic Area") to program string ids ("picnicarea")
@@ -63,6 +63,8 @@
 
 	var/lobby_icon                         // The icon which contains the lobby image(s)
 	var/list/lobby_screens = list("title") // The list of lobby screen to pick() from. If left unset the first icon state is always selected.
+
+	var/has_space_ruins = FALSE	//if this map picks and creates a space ruin
 
 /datum/map/New()
 	if(!map_levels)
