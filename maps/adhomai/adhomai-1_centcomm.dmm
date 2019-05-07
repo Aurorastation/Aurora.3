@@ -3614,15 +3614,6 @@
 "jI" = (
 /turf/unsimulated/wall/riveted,
 /area/syndicate_mothership)
-"jJ" = (
-/obj/structure/table/rack,
-/obj/item/weapon/plastique,
-/obj/item/weapon/plastique,
-/obj/item/weapon/plastique,
-/obj/item/weapon/plastique,
-/obj/item/weapon/plastique,
-/turf/simulated/floor/tiled/dark,
-/area/pra_base)
 "jK" = (
 /turf/template_noop,
 /area/shuttle/escape_pod1/centcom)
@@ -3828,11 +3819,7 @@
 /area/pra_base)
 "kn" = (
 /obj/structure/table/rack,
-/obj/item/device/flashlight/lantern,
-/obj/item/device/flashlight/lantern,
-/obj/item/device/flashlight/lantern,
-/obj/item/device/flashlight/lantern,
-/obj/item/device/flashlight/lantern,
+/obj/item/clothing/suit/storage/hooded/tajaran,
 /turf/simulated/floor/tiled/dark,
 /area/pra_base)
 "ko" = (
@@ -3926,6 +3913,13 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/pra_base)
+"kx" = (
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/table/standard,
+/turf/simulated/floor/tiled/dark,
+/area/template_noop)
 "ky" = (
 /obj/machinery/computer/pod{
 	id = "syndicate_elite";
@@ -3938,17 +3932,16 @@
 /turf/simulated/floor/tiled/dark,
 /area/pra_base)
 "kB" = (
-/obj/random/toolbox,
 /obj/structure/table/wood,
+/obj/item/weapon/storage/toolbox/mechanical,
 /turf/simulated/floor/tiled/dark,
 /area/pra_base)
 "kC" = (
 /obj/structure/flora/tree/pine,
 /turf/simulated/floor/snow,
 /area/traveller_outpost)
-"kD" = (
-/obj/mecha/combat/tank,
-/obj/machinery/mech_recharger,
+"kE" = (
+/obj/item/weapon/stool/padded,
 /turf/simulated/floor/tiled/dark,
 /area/pra_base)
 "kF" = (
@@ -4027,6 +4020,13 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/syndicate_elite/mothership)
+"kK" = (
+/obj/structure/table/rack,
+/obj/item/device/binoculars,
+/obj/item/device/gps,
+/obj/item/device/gps,
+/turf/simulated/floor/tiled/dark,
+/area/pra_base)
 "kL" = (
 /obj/machinery/door/airlock/external{
 	req_access = null
@@ -16223,6 +16223,24 @@
 /obj/random/hoodie,
 /turf/simulated/floor/wood,
 /area/traveller_outpost)
+"Kk" = (
+/obj/structure/table/rack,
+/obj/item/clothing/suit/armor/bulletproof,
+/obj/item/clothing/suit/armor/bulletproof,
+/obj/item/clothing/suit/armor/bulletproof,
+/obj/item/clothing/head/helmet,
+/obj/item/clothing/head/helmet,
+/obj/item/clothing/head/helmet,
+/turf/simulated/floor/tiled/dark,
+/area/pra_base)
+"Kl" = (
+/obj/structure/table/rack,
+/obj/item/weapon/storage/belt/utility,
+/obj/item/clothing/accessory/epaulette/engineer{
+	desc = "An ornamental shoulder piece that displays a rank among the People's Army. This one bears the rank of a combat engineer."
+	},
+/turf/simulated/floor/tiled/dark,
+/area/pra_base)
 "Km" = (
 /obj/structure/window/reinforced{
 	dir = 4
@@ -16336,6 +16354,26 @@
 	dir = 8
 	},
 /area/centcom/spawning)
+"KA" = (
+/obj/structure/sign/flag/pra{
+	pixel_y = 32
+	},
+/turf/simulated/floor/tiled/dark,
+/area/pra_base)
+"KB" = (
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/table/standard,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/template_noop)
+"KC" = (
+/obj/structure/table/standard,
+/turf/simulated/floor/tiled/dark,
+/area/pra_base)
 "KD" = (
 /obj/structure/shuttle/engine/propulsion{
 	icon_state = "burst_l";
@@ -16559,6 +16597,14 @@
 /obj/structure/closet/crate/loot,
 /turf/simulated/floor/wood,
 /area/traveller_outpost)
+"Lf" = (
+/obj/structure/table/rack,
+/obj/item/weapon/gun/projectile/dragunov,
+/obj/item/ammo_magazine/d762,
+/obj/item/ammo_magazine/d762,
+/obj/item/ammo_magazine/d762,
+/turf/simulated/floor/tiled/dark,
+/area/pra_base)
 "Lg" = (
 /obj/structure/shuttle/engine/propulsion{
 	icon_state = "propulsion";
@@ -17202,6 +17248,14 @@
 "Mv" = (
 /turf/simulated/floor/snow,
 /area/traveller_outpost)
+"Mx" = (
+/obj/structure/closet/cabinet,
+/obj/item/clothing/glasses/goggles,
+/obj/item/clothing/glasses/goggles,
+/obj/item/clothing/head/helmet/tank/olive,
+/obj/item/clothing/head/helmet/tank/olive,
+/turf/simulated/floor/tiled/dark,
+/area/pra_base)
 "My" = (
 /obj/structure/window/reinforced{
 	icon_state = "rwindow";
@@ -17299,6 +17353,16 @@
 "MK" = (
 /turf/simulated/wall/wood,
 /area/traveller_outpost)
+"ML" = (
+/obj/effect/overlay/blizzard/heavy,
+/turf/simulated/floor/snow,
+/area/traveller_outpost)
+"MM" = (
+/obj/structure/closet/cabinet,
+/obj/item/clothing/gloves/brown/tajara,
+/obj/item/clothing/gloves/brown/tajara,
+/turf/simulated/floor/tiled/dark,
+/area/pra_base)
 "MN" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
@@ -17377,6 +17441,31 @@
 	dir = 6
 	},
 /area/centcom/spawning)
+"MY" = (
+/obj/structure/table/rack,
+/obj/item/device/flashlight/heavy,
+/obj/item/weapon/pickaxe,
+/obj/item/weapon/shovel,
+/obj/item/weapon/landmine,
+/obj/item/weapon/landmine,
+/obj/item/weapon/landmine,
+/obj/item/weapon/landmine/frag,
+/obj/item/weapon/landmine/frag,
+/turf/simulated/floor/tiled/dark,
+/area/pra_base)
+"MZ" = (
+/obj/structure/table/wood,
+/obj/item/device/radio/adhomai/pra,
+/obj/item/device/radio/adhomai/pra,
+/obj/item/device/radio/adhomai/pra,
+/obj/item/device/radio/adhomai/pra,
+/obj/item/device/radio/adhomai/pra,
+/turf/simulated/floor/tiled/dark,
+/area/pra_base)
+"Na" = (
+/obj/structure/closet/crate/bin,
+/turf/simulated/floor/tiled/dark,
+/area/pra_base)
 "Nb" = (
 /obj/machinery/megavendor,
 /turf/unsimulated/floor{
@@ -22394,12 +22483,8 @@
 	},
 /area/centcom/spawning)
 "XO" = (
-/obj/structure/table/rack,
-/obj/item/weapon/shovel,
-/obj/item/weapon/shovel,
-/obj/item/weapon/shovel,
-/obj/item/weapon/shovel,
-/obj/item/weapon/shovel,
+/obj/structure/table/standard,
+/obj/item/weapon/gun/launcher/grenade,
 /turf/simulated/floor/tiled/dark,
 /area/pra_base)
 "XP" = (
@@ -22431,17 +22516,18 @@
 /area/traveller_outpost)
 "XS" = (
 /obj/structure/table/rack,
-/obj/item/clothing/accessory/storage/bayonet,
-/obj/item/clothing/accessory/storage/bayonet,
-/obj/item/clothing/accessory/storage/bayonet,
-/obj/item/clothing/accessory/storage/bayonet,
-/obj/item/clothing/accessory/storage/bayonet,
-/obj/item/clothing/accessory/storage/bayonet,
-/obj/item/clothing/accessory/storage/bayonet,
-/obj/item/clothing/accessory/storage/bayonet,
-/obj/item/clothing/accessory/storage/bayonet,
-/obj/item/clothing/accessory/storage/bayonet,
-/obj/item/clothing/accessory/storage/bayonet,
+/obj/item/weapon/gun/projectile/automatic/rifle/pra,
+/obj/item/weapon/gun/projectile/automatic/rifle/pra,
+/obj/item/ammo_magazine/c762,
+/obj/item/ammo_magazine/c762,
+/obj/item/ammo_magazine/c762,
+/obj/item/ammo_magazine/c762,
+/obj/item/ammo_magazine/c762,
+/obj/item/ammo_magazine/c762,
+/obj/item/ammo_magazine/c762,
+/obj/item/ammo_magazine/c762,
+/obj/item/ammo_magazine/c762,
+/obj/item/ammo_magazine/c762,
 /turf/simulated/floor/tiled/dark,
 /area/pra_base)
 "XT" = (
@@ -22516,8 +22602,9 @@
 /turf/simulated/floor/plating,
 /area/centcom/holding)
 "XZ" = (
-/obj/structure/table/rack,
-/obj/item/weapon/storage/box/frags,
+/obj/structure/table/standard,
+/obj/item/weapon/gun/launcher/syringe,
+/obj/item/weapon/storage/box/syringegun,
 /turf/simulated/floor/tiled/dark,
 /area/pra_base)
 "Ya" = (
@@ -22556,13 +22643,18 @@
 /turf/simulated/floor/tiled,
 /area/centcom/holding)
 "Yd" = (
-/obj/structure/table/rack,
-/obj/item/clothing/mask/gas/tactical,
-/obj/item/clothing/mask/gas/tactical,
-/obj/item/clothing/mask/gas/tactical,
-/obj/item/clothing/mask/gas/tactical,
+/obj/structure/table/standard,
+/obj/item/weapon/storage/backpack/satchel_cap,
 /turf/simulated/floor/tiled/dark,
 /area/pra_base)
+"Ye" = (
+/obj/structure/table/wood,
+/obj/item/device/radio/intercom/basestation/adhomai/pra,
+/turf/simulated/floor/tiled/dark,
+/area/pra_base)
+"Yf" = (
+/turf/simulated/floor/tiled/dark,
+/area/template_noop)
 "Yg" = (
 /turf/simulated/floor/snow,
 /area/template_noop)
@@ -22589,63 +22681,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/centcom/holding)
-"Yl" = (
-/obj/structure/table/rack,
-/obj/item/clothing/mask/balaclava/tactical,
-/obj/item/clothing/mask/balaclava/tactical,
-/obj/item/clothing/mask/balaclava/tactical,
-/obj/item/clothing/mask/balaclava/tactical,
-/obj/item/clothing/mask/balaclava/tactical,
-/obj/item/clothing/mask/balaclava/tactical,
-/obj/item/clothing/mask/balaclava/tactical,
-/turf/simulated/floor/tiled/dark,
-/area/pra_base)
 "Ym" = (
 /turf/simulated/wall,
 /area/centcom/holding)
-"Yn" = (
-/obj/structure/table/steel,
-/obj/item/weapon/reagent_containers/food/drinks/drinkingglass,
-/turf/simulated/floor/tiled/dark,
-/area/pra_base)
 "Yo" = (
-/obj/structure/table/rack,
-/obj/item/ammo_magazine/d762,
-/obj/item/ammo_magazine/d762,
-/obj/item/ammo_magazine/d762,
-/obj/item/ammo_magazine/d762,
-/obj/item/ammo_magazine/d762,
-/obj/item/ammo_magazine/d762,
-/obj/item/ammo_magazine/d762,
-/obj/item/ammo_magazine/d762,
-/obj/item/ammo_magazine/d762,
-/obj/item/weapon/gun/projectile/dragunov,
-/obj/item/weapon/gun/projectile/dragunov,
-/obj/item/weapon/gun/projectile/dragunov,
-/turf/simulated/floor/tiled/dark,
-/area/pra_base)
-"Yp" = (
-/obj/structure/table/rack,
-/obj/item/weapon/landmine,
-/obj/item/weapon/landmine,
-/obj/item/weapon/landmine,
-/obj/item/weapon/landmine,
-/obj/item/weapon/landmine,
-/obj/item/weapon/landmine,
-/turf/simulated/floor/tiled/dark,
-/area/pra_base)
-"Yq" = (
-/obj/structure/table/rack,
-/obj/item/weapon/storage/belt/security/tactical,
-/obj/item/weapon/storage/belt/security/tactical,
-/obj/item/weapon/storage/belt/security/tactical,
-/obj/item/weapon/storage/belt/security/tactical,
-/obj/item/weapon/storage/belt/security/tactical,
-/obj/item/weapon/storage/belt/security/tactical,
-/obj/item/weapon/storage/belt/security/tactical,
-/obj/item/weapon/storage/belt/security/tactical,
-/obj/item/weapon/storage/belt/security/tactical,
-/obj/item/weapon/storage/belt/security/tactical,
+/obj/structure/table/standard,
+/obj/item/weapon/storage/box/smokebombs,
 /turf/simulated/floor/tiled/dark,
 /area/pra_base)
 "Yr" = (
@@ -22654,11 +22695,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/centcom/holding)
-"Ys" = (
-/obj/structure/table/steel,
-/obj/item/weapon/deck/cards,
-/turf/simulated/floor/tiled/dark,
-/area/pra_base)
 "Yt" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced,
@@ -22673,14 +22709,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/centcom/holding)
-"Yu" = (
-/obj/structure/table/rack,
-/obj/item/clothing/accessory/storage/brown_pouches,
-/obj/item/clothing/accessory/storage/brown_pouches,
-/obj/item/clothing/accessory/storage/brown_pouches,
-/obj/item/clothing/accessory/storage/brown_pouches,
-/turf/simulated/floor/tiled/dark,
-/area/pra_base)
 "Yv" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced{
@@ -22696,10 +22724,27 @@
 	},
 /turf/simulated/floor/plating,
 /area/centcom/holding)
+"Yw" = (
+/obj/item/target,
+/obj/item/target,
+/obj/item/target,
+/obj/item/target,
+/obj/item/target,
+/obj/item/target,
+/obj/item/target,
+/obj/item/target,
+/obj/item/target,
+/obj/structure/closet/crate,
+/turf/simulated/floor/tiled/dark,
+/area/template_noop)
 "Yx" = (
 /obj/structure/table/wood,
 /obj/item/clothing/head/welding,
 /obj/item/weapon/weldingtool,
+/turf/simulated/floor/tiled/dark,
+/area/pra_base)
+"Yy" = (
+/obj/vehicle/bike/snowmobile,
 /turf/simulated/floor/tiled/dark,
 /area/pra_base)
 "Yz" = (
@@ -22733,6 +22778,14 @@
 	},
 /turf/simulated/floor/plating,
 /area/centcom/holding)
+"YC" = (
+/obj/structure/table/rack,
+/obj/item/ammo_magazine/a762,
+/obj/item/ammo_magazine/a762,
+/obj/item/ammo_magazine/a762,
+/obj/item/weapon/gun/projectile/automatic/rifle/l6_saw,
+/turf/simulated/floor/tiled/dark,
+/area/pra_base)
 "YD" = (
 /obj/structure/table/steel,
 /obj/item/weapon/paper_bin,
@@ -22775,46 +22828,14 @@
 	},
 /turf/simulated/floor/plating,
 /area/centcom/holding)
-"YJ" = (
-/obj/structure/table/rack,
-/obj/item/weapon/material/knife/trench,
-/obj/item/weapon/material/knife/trench,
-/obj/item/weapon/material/knife/trench,
-/obj/item/weapon/material/knife/trench,
-/turf/simulated/floor/tiled/dark,
-/area/pra_base)
 "YK" = (
-/turf/unsimulated/wall/blizzard,
+/obj/effect/overlay/blizzard/heavy,
+/turf/unsimulated/wall/riveted,
 /area/traveller_outpost)
-"YM" = (
-/obj/structure/table/rack,
-/obj/item/ammo_magazine/boltaction,
-/obj/item/ammo_magazine/boltaction,
-/obj/item/ammo_magazine/boltaction,
-/obj/item/ammo_magazine/boltaction,
-/obj/item/ammo_magazine/boltaction,
-/obj/item/ammo_magazine/boltaction,
-/obj/item/ammo_magazine/boltaction,
-/obj/item/ammo_magazine/boltaction,
-/obj/item/ammo_magazine/boltaction,
-/obj/item/ammo_magazine/boltaction,
-/obj/item/ammo_magazine/boltaction,
-/obj/item/ammo_magazine/boltaction,
-/obj/item/weapon/gun/projectile/shotgun/pump/rifle,
-/obj/item/weapon/gun/projectile/shotgun/pump/rifle,
-/obj/item/weapon/gun/projectile/shotgun/pump/rifle,
-/obj/item/weapon/gun/projectile/shotgun/pump/rifle,
-/obj/item/weapon/gun/projectile/shotgun/pump/rifle,
-/obj/item/weapon/gun/projectile/shotgun/pump/rifle,
-/obj/item/weapon/gun/projectile/shotgun/pump/rifle,
-/obj/item/weapon/gun/projectile/shotgun/pump/rifle,
-/obj/item/weapon/gun/projectile/shotgun/pump/rifle,
+"YL" = (
+/obj/structure/target_stake,
 /turf/simulated/floor/tiled/dark,
-/area/pra_base)
-"YN" = (
-/obj/structure/table/steel,
-/turf/simulated/floor/tiled/dark,
-/area/pra_base)
+/area/template_noop)
 "YO" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
@@ -22837,33 +22858,30 @@
 /area/centcom/holding)
 "YP" = (
 /obj/structure/table/rack,
-/obj/item/weapon/pickaxe/drill,
-/obj/item/weapon/pickaxe/drill,
-/obj/item/weapon/pickaxe/drill,
+/obj/item/weapon/storage/belt/medical,
+/obj/item/clothing/accessory/epaulette/supply{
+	desc = "An ornamental shoulder piece that displays a rank among the People's Army. This one bears the rank of a combat medic.";
+	name = "combat medic epaulette"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/pra_base)
 "YQ" = (
 /obj/structure/table/rack,
-/obj/item/ammo_magazine/c45m,
-/obj/item/ammo_magazine/c45m,
-/obj/item/ammo_magazine/c45m,
-/obj/item/ammo_magazine/c45m,
-/obj/item/ammo_magazine/c45m,
-/obj/item/ammo_magazine/c45m,
-/obj/item/ammo_magazine/c45m,
-/obj/item/ammo_magazine/c45m,
-/obj/item/ammo_magazine/c45m,
-/obj/item/ammo_magazine/c45m,
-/obj/item/ammo_magazine/c45m,
-/obj/item/ammo_magazine/c45m,
-/obj/item/ammo_magazine/c45m,
-/obj/item/weapon/gun/projectile/colt,
-/obj/item/weapon/gun/projectile/colt,
-/obj/item/weapon/gun/projectile/colt,
-/obj/item/weapon/gun/projectile/colt,
-/obj/item/weapon/gun/projectile/colt,
-/obj/item/weapon/gun/projectile/colt,
-/obj/item/weapon/gun/projectile/colt,
+/obj/item/weapon/gun/projectile/pistol,
+/obj/item/weapon/gun/projectile/pistol,
+/obj/item/weapon/gun/projectile/pistol,
+/obj/item/weapon/gun/projectile/pistol,
+/obj/item/weapon/gun/projectile/pistol,
+/obj/item/ammo_magazine/mc9mm,
+/obj/item/ammo_magazine/mc9mm,
+/obj/item/ammo_magazine/mc9mm,
+/obj/item/ammo_magazine/mc9mm,
+/obj/item/ammo_magazine/mc9mm,
+/obj/item/ammo_magazine/mc9mm,
+/obj/item/ammo_magazine/mc9mm,
+/obj/item/ammo_magazine/mc9mm,
+/obj/item/ammo_magazine/mc9mm,
+/obj/item/ammo_magazine/mc9mm,
 /turf/simulated/floor/tiled/dark,
 /area/pra_base)
 "YR" = (
@@ -22880,6 +22898,10 @@
 /obj/structure/window/reinforced,
 /turf/simulated/floor/plating,
 /area/centcom/holding)
+"YS" = (
+/obj/machinery/door/airlock/centcom,
+/turf/simulated/floor/tiled/dark,
+/area/template_noop)
 "YT" = (
 /obj/item/weapon/stool,
 /turf/simulated/floor/tiled/dark,
@@ -22929,40 +22951,22 @@
 /turf/simulated/floor/plating,
 /area/centcom/holding)
 "YY" = (
-/obj/structure/table/rack,
-/obj/item/clothing/accessory/holster/armpit,
-/obj/item/clothing/accessory/holster/armpit,
-/obj/item/clothing/accessory/holster/armpit,
-/obj/item/clothing/accessory/holster/armpit,
-/obj/item/clothing/accessory/holster/armpit,
-/obj/item/clothing/accessory/holster/armpit,
-/obj/item/clothing/accessory/holster/armpit,
-/obj/item/clothing/accessory/holster/armpit,
-/obj/item/clothing/accessory/holster/armpit,
-/obj/item/clothing/accessory/holster/armpit,
+/obj/structure/table/standard,
+/obj/item/clothing/accessory/holster/thigh,
+/obj/item/clothing/accessory/holster/thigh,
+/obj/item/clothing/accessory/holster/thigh,
+/obj/item/clothing/accessory/holster/thigh,
+/obj/item/clothing/accessory/holster/thigh,
 /turf/simulated/floor/tiled/dark,
 /area/pra_base)
 "YZ" = (
-/obj/structure/table/rack,
-/obj/item/device/binoculars,
-/obj/item/device/binoculars,
-/obj/item/device/binoculars,
-/turf/simulated/floor/tiled/dark,
-/area/pra_base)
-"Za" = (
-/obj/structure/table/steel,
-/obj/item/weapon/material/ashtray/bronze,
-/obj/item/weapon/reagent_containers/food/drinks/bottle/victorygin,
+/obj/structure/table/standard,
+/obj/item/weapon/storage/backpack/duffel/eng,
 /turf/simulated/floor/tiled/dark,
 /area/pra_base)
 "Zb" = (
 /turf/simulated/floor/asteroid/ash,
 /area/centcom/holding)
-"Zc" = (
-/obj/structure/table/steel,
-/obj/item/weapon/storage/field_ration,
-/turf/simulated/floor/tiled/dark,
-/area/pra_base)
 "Zd" = (
 /obj/structure/cryofeed{
 	dir = 1
@@ -23029,18 +23033,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/centcom/holding)
-"Zj" = (
-/obj/structure/table/steel,
-/obj/item/weapon/storage/fancy/cigar,
-/turf/simulated/floor/tiled/dark,
-/area/pra_base)
 "Zk" = (
 /obj/structure/table/rack,
-/obj/item/weapon/gun/energy/retro,
-/obj/item/weapon/gun/energy/retro,
-/obj/item/weapon/gun/energy/retro,
-/obj/item/weapon/gun/energy/retro,
-/obj/item/weapon/gun/energy/retro,
+/obj/item/weapon/gun/projectile/rocket,
+/obj/item/ammo_casing/rpg,
+/obj/item/ammo_casing/rpg,
+/obj/item/ammo_casing/rpg,
 /turf/simulated/floor/tiled/dark,
 /area/pra_base)
 "Zl" = (
@@ -23093,24 +23091,28 @@
 /turf/simulated/floor/plating,
 /area/centcom/holding)
 "Zo" = (
-/turf/unsimulated/wall/blizzard,
+/obj/effect/overlay/blizzard,
+/turf/space,
 /area/template_noop)
 "Zp" = (
-/obj/structure/table/rack,
-/obj/item/weapon/gun/energy/rifle/icelance,
-/obj/item/weapon/gun/energy/rifle/icelance,
-/obj/item/weapon/gun/energy/rifle/icelance,
-/obj/item/weapon/gun/energy/rifle/icelance,
-/obj/item/weapon/gun/energy/rifle/icelance,
-/obj/item/weapon/gun/energy/rifle/icelance,
-/obj/item/weapon/gun/energy/rifle/icelance,
+/obj/structure/table/standard,
+/obj/item/weapon/grenade/frag/pra,
+/obj/item/weapon/grenade/frag/pra,
+/obj/item/weapon/grenade/frag/pra,
+/obj/item/weapon/grenade/frag/pra,
+/obj/item/weapon/grenade/frag/pra,
+/obj/item/weapon/grenade/frag/pra,
+/obj/item/weapon/grenade/frag/pra,
+/obj/item/weapon/grenade/frag/pra,
+/obj/item/weapon/grenade/frag/pra,
+/obj/item/weapon/grenade/frag/pra,
 /turf/simulated/floor/tiled/dark,
 /area/pra_base)
 "Zq" = (
-/obj/structure/table/rack,
-/obj/item/weapon/storage/belt/medical,
-/obj/item/weapon/storage/firstaid/adv,
-/obj/item/weapon/storage/firstaid/brute,
+/obj/structure/table/standard,
+/obj/item/weapon/storage/backpack,
+/obj/item/weapon/storage/backpack,
+/obj/item/weapon/storage/backpack,
 /turf/simulated/floor/tiled/dark,
 /area/pra_base)
 "Zr" = (
@@ -23141,11 +23143,8 @@
 /turf/simulated/floor/plating,
 /area/centcom/holding)
 "Zt" = (
-/obj/structure/table/rack,
-/obj/item/weapon/shield/riot/tact,
-/obj/item/weapon/shield/riot/tact,
-/obj/item/weapon/shield/riot/tact,
-/obj/item/weapon/shield/riot/tact,
+/obj/structure/table/standard,
+/obj/item/weapon/storage/backpack/satchel_med,
 /turf/simulated/floor/tiled/dark,
 /area/pra_base)
 "Zu" = (
@@ -23183,8 +23182,19 @@
 /area/centcom/holding)
 "Zx" = (
 /obj/structure/table/rack,
-/obj/item/weapon/storage/box/smokebombs,
-/obj/item/weapon/gun/launcher/grenade,
+/obj/item/weapon/storage/firstaid/brute,
+/obj/item/bodybag/cryobag,
+/obj/item/bodybag/cryobag,
+/obj/item/bodybag/cryobag,
+/obj/item/weapon/reagent_containers/hypospray,
+/obj/item/clothing/glasses/hud/health,
+/obj/item/weapon/storage/firstaid/brute,
+/obj/item/weapon/reagent_containers/glass/bottle/antitoxin,
+/obj/item/weapon/reagent_containers/glass/bottle/inaprovaline,
+/obj/item/weapon/storage/pill_bottle/spaceacillin,
+/obj/item/weapon/storage/pill_bottle/tramadol,
+/obj/item/weapon/storage/pill_bottle/bicaridine,
+/obj/item/weapon/storage/pill_bottle/dermaline,
 /turf/simulated/floor/tiled/dark,
 /area/pra_base)
 "Zy" = (
@@ -23217,20 +23227,6 @@
 	icon_state = "diagonalWall3"
 	},
 /area/shuttle/syndicate_elite/mothership)
-"ZC" = (
-/obj/structure/table/steel,
-/obj/item/weapon/storage/field_ration,
-/obj/item/weapon/storage/field_ration,
-/obj/item/weapon/storage/field_ration,
-/obj/item/weapon/storage/field_ration,
-/obj/item/weapon/storage/field_ration,
-/obj/item/weapon/storage/field_ration,
-/obj/item/weapon/storage/field_ration,
-/obj/item/weapon/storage/field_ration,
-/obj/item/weapon/storage/field_ration,
-/obj/item/weapon/storage/field_ration,
-/turf/simulated/floor/tiled/dark,
-/area/pra_base)
 "ZD" = (
 /obj/machinery/door/firedoor{
 	dir = 2
@@ -23242,11 +23238,6 @@
 /obj/structure/window/reinforced,
 /turf/simulated/floor/plating,
 /area/centcom/holding)
-"ZE" = (
-/obj/structure/table/steel,
-/obj/item/trash/can,
-/turf/simulated/floor/tiled/dark,
-/area/pra_base)
 "ZG" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced{
@@ -23259,8 +23250,7 @@
 /area/centcom/holding)
 "ZH" = (
 /obj/structure/table/rack,
-/obj/item/clothing/head/helmet/tank/olive,
-/obj/item/clothing/head/helmet/tank/olive,
+/obj/item/clothing/suit/storage/hazardvest/white,
 /turf/simulated/floor/tiled/dark,
 /area/pra_base)
 "ZI" = (
@@ -23282,16 +23272,9 @@
 /area/centcom/holding)
 "ZM" = (
 /obj/structure/table/rack,
-/obj/item/weapon/storage/box/syndie_kit/armor,
-/obj/item/weapon/storage/box/syndie_kit/armor,
-/obj/item/weapon/storage/box/syndie_kit/armor,
-/obj/item/weapon/storage/box/syndie_kit/armor,
-/obj/item/weapon/storage/box/syndie_kit/armor,
-/obj/item/weapon/storage/box/syndie_kit/armor,
-/obj/item/weapon/storage/box/syndie_kit/armor,
-/obj/item/weapon/storage/box/syndie_kit/armor,
-/obj/item/weapon/storage/box/syndie_kit/armor,
-/obj/item/weapon/storage/box/syndie_kit/armor,
+/obj/item/weapon/storage/belt/military,
+/obj/item/weapon/storage/belt/military,
+/obj/item/weapon/storage/belt/military,
 /turf/simulated/floor/tiled/dark,
 /area/pra_base)
 "ZN" = (
@@ -23399,51 +23382,9 @@
 	icon_state = "floor4"
 	},
 /area/shuttle/syndicate_elite/mothership)
-"ZW" = (
-/obj/structure/table/rack,
-/obj/item/ammo_magazine/c762,
-/obj/item/ammo_magazine/c762,
-/obj/item/ammo_magazine/c762,
-/obj/item/ammo_magazine/c762,
-/obj/item/ammo_magazine/c762,
-/obj/item/ammo_magazine/c762,
-/obj/item/ammo_magazine/c762,
-/obj/item/ammo_magazine/c762,
-/obj/item/ammo_magazine/c762,
-/obj/item/ammo_magazine/c762,
-/obj/item/ammo_magazine/c762,
-/obj/item/ammo_magazine/c762,
-/obj/item/weapon/gun/projectile/automatic/rifle/pra,
-/obj/item/weapon/gun/projectile/automatic/rifle/pra,
-/obj/item/weapon/gun/projectile/automatic/rifle/pra,
-/obj/item/weapon/gun/projectile/automatic/rifle/pra,
-/obj/item/weapon/gun/projectile/automatic/rifle/pra,
-/obj/item/weapon/gun/projectile/automatic/rifle/pra,
-/obj/item/weapon/gun/projectile/automatic/rifle/pra,
-/turf/simulated/floor/tiled/dark,
-/area/pra_base)
 "ZX" = (
-/obj/structure/table/rack,
-/obj/item/ammo_magazine/tommydrum,
-/obj/item/ammo_magazine/tommydrum,
-/obj/item/ammo_magazine/tommydrum,
-/obj/item/ammo_magazine/tommydrum,
-/obj/item/ammo_magazine/tommydrum,
-/obj/item/ammo_magazine/tommydrum,
-/obj/item/ammo_magazine/tommymag,
-/obj/item/ammo_magazine/tommymag,
-/obj/item/ammo_magazine/tommymag,
-/obj/item/ammo_magazine/tommymag,
-/obj/item/ammo_magazine/tommymag,
-/obj/item/ammo_magazine/tommymag,
-/obj/item/ammo_magazine/tommymag,
-/obj/item/ammo_magazine/tommymag,
-/obj/item/ammo_magazine/tommymag,
-/obj/item/weapon/gun/projectile/automatic/tommygun/adhomai,
-/obj/item/weapon/gun/projectile/automatic/tommygun/adhomai,
-/obj/item/weapon/gun/projectile/automatic/tommygun/adhomai,
-/obj/item/weapon/gun/projectile/automatic/tommygun/adhomai,
-/obj/item/weapon/gun/projectile/automatic/tommygun/adhomai,
+/obj/structure/table/standard,
+/obj/item/weapon/storage/box/flashbangs,
 /turf/simulated/floor/tiled/dark,
 /area/pra_base)
 "ZY" = (
@@ -55897,13 +55838,13 @@ aM
 YK
 Mv
 Mv
-Mv
-Mv
-Mv
-Mv
-Mv
-Mv
-Mv
+ML
+ML
+ML
+ML
+ML
+ML
+ML
 YK
 Yg
 Yg
@@ -58201,29 +58142,29 @@ gZ
 gZ
 gZ
 gZ
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-Zo
+aP
+aP
+aP
+aP
+aP
+aP
+aP
+aP
+aP
+aP
 km
 YD
 Zr
 Zr
 Zr
-Zr
+Na
 km
 ZM
-Yq
+Zr
 Zq
 YZ
 Zt
-jJ
+Zr
 kn
 km
 ky
@@ -58458,16 +58399,16 @@ gZ
 hp
 hi
 gZ
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-Zo
+YL
+Yf
+Yf
+Yf
+Yf
+Yf
+Yf
+KB
+Yf
+Yf
 km
 Yz
 YT
@@ -58475,15 +58416,15 @@ Zr
 Zr
 Zr
 km
+Kl
 Zr
 Zr
 Zr
 Zr
 Zr
-Zr
-Zr
+Kk
 km
-Zr
+Ye
 Zr
 Zr
 Zr
@@ -58715,32 +58656,32 @@ gZ
 hd
 hr
 gZ
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-Zo
+YL
+Yf
+Yf
+Yf
+Yf
+Yf
+Yf
+KB
+Yf
+Yf
 km
-ZC
+Zr
 Zr
 Zr
 Zr
 Zr
 km
 YP
-Yu
+Zr
 YY
 Zr
 Yd
-Yl
+Zr
 ZH
 km
-Zr
+MZ
 Zr
 Zr
 Zr
@@ -58972,16 +58913,16 @@ gZ
 gZ
 gZ
 gZ
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-Zo
+YL
+Yf
+Yf
+Yf
+Yf
+Yf
+Yf
+kx
+Yf
+Yf
 km
 Zr
 Zr
@@ -58997,7 +58938,7 @@ Yh
 Yh
 km
 km
-Zr
+KA
 Zr
 Zr
 Zr
@@ -59229,21 +59170,21 @@ gZ
 hc
 hi
 gZ
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-Zo
-km
+YL
+Yf
+Yf
+Yf
+Yf
+Yf
+Yf
+kx
+Yf
+Yf
+ZT
 Zr
-YT
-YT
-YT
+Zr
+Zr
+Zr
 Zr
 ZT
 Zr
@@ -59486,22 +59427,22 @@ gZ
 hg
 hs
 gZ
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-Zo
+Yw
+Yf
+Yf
+Yf
+Yf
+Yf
+Yf
+YS
+Yf
+Yf
 km
-YT
-Zc
-Ys
-YN
-YT
+kE
+kE
+Zr
+Zr
+Zr
 km
 km
 Yh
@@ -59511,12 +59452,12 @@ Yh
 Yh
 km
 km
+KA
 Zr
 Zr
 Zr
 Zr
-Zr
-Zr
+Yy
 km
 Yg
 Yg
@@ -59743,36 +59684,36 @@ gZ
 gZ
 gZ
 gZ
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-aM
-Zo
+aP
+aP
+aP
+aP
+aP
+aP
+aP
+aP
+aP
+aP
 km
-YT
-YN
-YN
-Yn
-YT
+KC
+KC
+Zr
+Zr
+Zr
 km
 XS
-YJ
+Zr
 XO
 Zr
 XZ
-Yp
+Zr
 Zx
 km
+Mx
 Zr
 Zr
 Zr
 Zr
-kD
 Zr
 km
 Yg
@@ -60011,26 +59952,26 @@ aM
 aM
 Zo
 km
-YT
-Za
-ZE
-YN
-YT
-km
-Zr
-Zr
-Zr
-Zr
+KC
+KC
 Zr
 Zr
 Zr
 km
+Lf
 Zr
 Zr
 Zr
 Zr
 Zr
+kK
+km
+MM
 Zr
+Zr
+Zr
+Zr
+Yy
 km
 Yg
 Yg
@@ -60268,19 +60209,19 @@ aM
 aM
 Zo
 km
-YT
-YN
-Yn
-Zj
-YT
+kE
+kE
+Zr
+Zr
+Zr
 km
+YC
 Zr
 Zr
 Zr
 Zr
 Zr
-Zr
-Zr
+MY
 km
 km
 km
@@ -60526,17 +60467,17 @@ aM
 Zo
 km
 Zr
-YT
-YT
-YT
+Zr
+Zr
+Zr
 Zr
 km
 YQ
-YM
+Zr
 Zp
 ZX
 Yo
-ZW
+Zr
 Zk
 km
 Yg
