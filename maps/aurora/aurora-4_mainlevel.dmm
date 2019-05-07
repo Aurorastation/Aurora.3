@@ -946,6 +946,10 @@
 /obj/item/weapon/book/manual/ntsl2,
 /turf/simulated/floor/wood,
 /area/library)
+"abY" = (
+/obj/structure/closet/l3closet/security,
+/turf/simulated/floor/tiled/dark,
+/area/security/armoury)
 "abZ" = (
 /obj/structure/cable/green{
 	d2 = 4;
@@ -6032,10 +6036,6 @@
 /area/maintenance/engineering)
 "alD" = (
 /obj/structure/closet/bombclosetsecurity,
-/turf/simulated/floor/tiled/dark,
-/area/security/armoury)
-"alE" = (
-/obj/structure/closet/l3closet/general,
 /turf/simulated/floor/tiled/dark,
 /area/security/armoury)
 "alF" = (
@@ -93779,7 +93779,7 @@ afo
 aab
 ajR
 ajR
-alE
+abY
 amO
 anT
 apc
