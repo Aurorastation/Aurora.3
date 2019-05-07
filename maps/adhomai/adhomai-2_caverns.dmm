@@ -442,11 +442,6 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/adhomai/fortress)
-"cy" = (
-/obj/structure/table/wood,
-/obj/machinery/media/jukebox/phonograph,
-/turf/simulated/floor/holofloor/wood,
-/area/adhomai/village/bar)
 "cz" = (
 /obj/item/weapon/reagent_containers/glass/bucket/wood,
 /turf/simulated/floor/tiled/dark,
@@ -501,24 +496,25 @@
 	},
 /turf/simulated/lava,
 /area/adhomai/cavern)
-"ei" = (
-/obj/structure/barricade/bars,
-/turf/simulated/floor/tiled/dark,
-/area/adhomai/fortress)
+"ey" = (
+/obj/structure/table/wood,
+/obj/machinery/chemical_dispenser/bar_alc/full,
+/turf/simulated/floor/holofloor/wood,
+/area/adhomai/village/bar)
 "eY" = (
 /turf/simulated/floor/cult,
 /area/adhomai/cavern)
-"fs" = (
-/obj/structure/sign/double/painting/mountain/right{
-	pixel_y = 32
-	},
-/turf/simulated/floor/holofloor/wood,
-/area/adhomai/village/bar)
 "gN" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/closet/coffin/sarcophagus/treasure,
 /turf/simulated/floor/cult,
 /area/adhomai/cavern)
+"hw" = (
+/obj/effect/landmark{
+	name = "LateJoinPrisoner"
+	},
+/turf/simulated/floor/plating,
+/area/adhomai/fortress)
 "ia" = (
 /obj/structure/table/reinforced/steel,
 /obj/structure/window/reinforced{
@@ -527,23 +523,28 @@
 /obj/random/finances,
 /turf/simulated/floor/tiled/dark,
 /area/adhomai/village/townhall)
-"ih" = (
-/obj/structure/bed,
-/obj/effect/landmark{
-	name = "LateJoinPrisoner"
-	},
-/turf/simulated/floor/plating,
-/area/adhomai/fortress)
+"if" = (
+/obj/structure/table/stone,
+/obj/item/mold/pot,
+/obj/item/mold,
+/turf/simulated/floor/asteroid/basalt/adhomai,
+/area/adhomai/cavern)
+"ij" = (
+/obj/structure/table/stone,
+/obj/item/weapon/pickaxe,
+/obj/item/weapon/shovel,
+/obj/item/weapon/shovel,
+/turf/simulated/floor/asteroid/basalt/adhomai,
+/area/adhomai/cavern)
 "iq" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/cult,
 /area/adhomai/cavern)
-"ix" = (
-/obj/effect/landmark{
-	name = "LateJoinPrisoner"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/adhomai/fortress)
+"iC" = (
+/obj/structure/anvil,
+/obj/item/weapon/material/blacksmith_hammer,
+/turf/simulated/floor/asteroid/basalt/adhomai,
+/area/adhomai/cavern)
 "jf" = (
 /obj/structure/window/reinforced{
 	dir = 8
@@ -596,10 +597,25 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/cult,
 /area/adhomai/village/temple)
+"mw" = (
+/obj/structure/table/wood,
+/turf/simulated/floor/holofloor/wood,
+/area/adhomai/village/bar)
+"mV" = (
+/obj/structure/table/wood,
+/obj/item/weapon/reagent_containers/glass/rag,
+/obj/item/weapon/reagent_containers/glass/rag,
+/turf/simulated/floor/holofloor/wood,
+/area/adhomai/village/bar)
 "nf" = (
 /obj/random/sarcophagus,
 /turf/simulated/floor/cult,
 /area/adhomai/cavern)
+"nk" = (
+/obj/structure/table/wood,
+/obj/item/weapon/storage/box/drinkingglasses,
+/turf/simulated/floor/holofloor/wood,
+/area/adhomai/village/bar)
 "nv" = (
 /turf/simulated/floor/holofloor/wood,
 /area/adhomai/village/bar)
@@ -608,12 +624,6 @@
 /obj/random/sarcophagus,
 /turf/simulated/floor/cult,
 /area/adhomai/cavern)
-"oE" = (
-/obj/effect/landmark{
-	name = "LateJoinPrisoner"
-	},
-/turf/simulated/floor/plating,
-/area/adhomai/fortress)
 "oN" = (
 /obj/structure/table/reinforced/steel,
 /obj/structure/window/reinforced{
@@ -638,12 +648,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/cult,
 /area/adhomai/village/temple)
-"pQ" = (
-/obj/machinery/light/small{
-	dir = 4
-	},
-/turf/simulated/floor/holofloor/wood,
-/area/adhomai/village/bar)
 "pS" = (
 /obj/structure/cult/talisman,
 /turf/simulated/floor/cult,
@@ -655,13 +659,6 @@
 /obj/item/weapon/reagent_containers/glass/bucket/wood,
 /turf/simulated/floor/cult,
 /area/adhomai/village/temple)
-"ql" = (
-/obj/structure/table/stone,
-/obj/item/weapon/pickaxe,
-/obj/item/weapon/shovel,
-/obj/item/weapon/shovel,
-/turf/simulated/floor/asteroid/basalt/adhomai,
-/area/adhomai/cavern)
 "qn" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/closet/coffin/sarcophagus,
@@ -674,6 +671,12 @@
 "qK" = (
 /turf/simulated/wall/cult,
 /area/adhomai/cavern)
+"qX" = (
+/obj/machinery/light/small{
+	dir = 4
+	},
+/turf/simulated/floor/holofloor/wood,
+/area/adhomai/village/bar)
 "rd" = (
 /obj/structure/bed,
 /obj/effect/decal/cleanable/cobweb,
@@ -682,17 +685,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/adhomai/fortress)
-"ri" = (
-/obj/structure/table/wood,
-/obj/item/weapon/reagent_containers/glass/rag,
-/obj/item/weapon/reagent_containers/glass/rag,
-/turf/simulated/floor/holofloor/wood,
-/area/adhomai/village/bar)
-"rj" = (
-/obj/structure/track,
-/obj/structure/ore_box/adhomai,
-/turf/simulated/floor/asteroid/basalt/adhomai,
-/area/adhomai/cavern)
 "rq" = (
 /obj/structure/stairs/north,
 /obj/structure/window/reinforced{
@@ -726,10 +718,6 @@
 /obj/structure/table/wood,
 /turf/simulated/floor/tiled/dark,
 /area/adhomai/village/police)
-"sA" = (
-/obj/structure/smelter,
-/turf/simulated/floor/asteroid/basalt/adhomai,
-/area/adhomai/cavern)
 "tC" = (
 /obj/structure/bed/chair/wood/adhomai,
 /turf/simulated/floor/tiled/dark,
@@ -738,10 +726,6 @@
 /obj/structure/cult/talisman,
 /turf/simulated/floor/cult,
 /area/adhomai/village/temple)
-"tO" = (
-/obj/structure/ore_box/adhomai,
-/turf/simulated/floor/asteroid/basalt/adhomai,
-/area/adhomai/cavern)
 "tS" = (
 /obj/structure/bed,
 /obj/effect/decal/cleanable/dirt,
@@ -758,16 +742,16 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/adhomai/village/townhall)
-"ug" = (
-/obj/structure/table/wood,
-/obj/item/weapon/storage/box/drinkingglasses,
-/turf/simulated/floor/holofloor/wood,
-/area/adhomai/village/bar)
 "ul" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/remains/human,
 /turf/simulated/floor/cult,
 /area/adhomai/village/temple)
+"uD" = (
+/obj/structure/track,
+/obj/structure/ore_box/adhomai,
+/turf/simulated/floor/asteroid/basalt/adhomai,
+/area/adhomai/cavern)
 "vc" = (
 /obj/structure/table/reinforced/steel,
 /obj/structure/window/reinforced{
@@ -797,6 +781,10 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/cult,
 /area/adhomai/village/temple)
+"wf" = (
+/obj/structure/barricade/bars,
+/turf/simulated/floor/tiled/dark,
+/area/adhomai/fortress)
 "wk" = (
 /obj/structure/cult/talisman,
 /obj/item/weapon/archaeological_find,
@@ -941,6 +929,12 @@
 	},
 /turf/simulated/floor/cult,
 /area/adhomai/village/temple)
+"CQ" = (
+/obj/structure/table/stone,
+/obj/item/weapon/storage/bag/ore,
+/obj/item/weapon/storage/bag/ore,
+/turf/simulated/floor/asteroid/basalt/adhomai,
+/area/adhomai/cavern)
 "Dc" = (
 /obj/structure/morgue,
 /obj/effect/decal/cleanable/dirt,
@@ -960,6 +954,11 @@
 /obj/structure/flora/pottedplant/random,
 /turf/simulated/floor/tiled/dark,
 /area/adhomai/village/townhall)
+"Em" = (
+/obj/structure/table/stone,
+/obj/item/mold/ingot,
+/turf/simulated/floor/asteroid/basalt/adhomai,
+/area/adhomai/cavern)
 "Ey" = (
 /obj/machinery/light/small{
 	dir = 1
@@ -983,12 +982,6 @@
 	},
 /turf/simulated/floor/holofloor/wood,
 /area/adhomai/village/bar)
-"Fj" = (
-/obj/structure/table/stone,
-/obj/item/weapon/storage/bag/ore,
-/obj/item/weapon/storage/bag/ore,
-/turf/simulated/floor/asteroid/basalt/adhomai,
-/area/adhomai/cavern)
 "FH" = (
 /obj/machinery/light/small{
 	dir = 4;
@@ -1011,10 +1004,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/adhomai/village/police)
-"GP" = (
-/obj/structure/table/wood,
-/turf/simulated/floor/holofloor/wood,
-/area/adhomai/village/bar)
 "GT" = (
 /obj/effect/decal/remains/human,
 /obj/effect/decal/cleanable/dirt,
@@ -1028,6 +1017,12 @@
 /obj/effect/decal/cleanable/blood/splatter,
 /turf/simulated/floor/cult,
 /area/adhomai/cavern)
+"HO" = (
+/obj/effect/landmark{
+	name = "LateJoinPrisoner"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/adhomai/fortress)
 "HP" = (
 /obj/structure/table/wood,
 /obj/item/weapon/melee/classic_baton,
@@ -1036,16 +1031,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/adhomai/fortress)
-"HX" = (
-/obj/structure/anvil,
-/obj/item/weapon/material/blacksmith_hammer,
-/turf/simulated/floor/asteroid/basalt/adhomai,
-/area/adhomai/cavern)
-"Ic" = (
-/obj/structure/table/wood,
-/obj/machinery/chemical_dispenser/bar_alc/full,
-/turf/simulated/floor/holofloor/wood,
-/area/adhomai/village/bar)
 "If" = (
 /obj/machinery/light/small{
 	dir = 1
@@ -1091,6 +1076,11 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/adhomai/fortress)
+"Kv" = (
+/obj/structure/table/wood,
+/obj/machinery/media/jukebox/phonograph,
+/turf/simulated/floor/holofloor/wood,
+/area/adhomai/village/bar)
 "KO" = (
 /obj/machinery/light{
 	dir = 1;
@@ -1112,15 +1102,13 @@
 /obj/item/weapon/pen/blue,
 /turf/simulated/floor/tiled/dark,
 /area/adhomai/village/townhall)
+"Lu" = (
+/obj/structure/ore_box/adhomai,
+/turf/simulated/floor/asteroid/basalt/adhomai,
+/area/adhomai/cavern)
 "LE" = (
 /turf/simulated/floor/carpet/blue,
 /area/adhomai/village/bar)
-"LR" = (
-/obj/structure/table/stone,
-/obj/item/mold/pickaxe,
-/obj/item/mold/shovel,
-/turf/simulated/floor/asteroid/basalt/adhomai,
-/area/adhomai/cavern)
 "LS" = (
 /obj/structure/closet,
 /obj/structure/window/reinforced{
@@ -1128,25 +1116,20 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/adhomai/village/police)
+"MD" = (
+/obj/structure/table/stone,
+/obj/item/device/flashlight/lantern,
+/obj/item/device/flashlight/lantern,
+/obj/item/clothing/mask/gas,
+/turf/simulated/floor/asteroid/basalt/adhomai,
+/area/adhomai/cavern)
 "MM" = (
 /obj/item/weapon/stool/padded,
-/turf/simulated/floor/tiled/dark,
-/area/adhomai/fortress)
-"MW" = (
-/obj/structure/simple_door/cell{
-	initial_lock_value = "soldier"
-	},
 /turf/simulated/floor/tiled/dark,
 /area/adhomai/fortress)
 "Oe" = (
 /turf/simulated/wall/iron,
 /area/adhomai/village/police)
-"OH" = (
-/obj/structure/sign/double/painting/mountain{
-	pixel_y = 32
-	},
-/turf/simulated/floor/holofloor/wood,
-/area/adhomai/village/bar)
 "Pj" = (
 /obj/structure/table/steel,
 /obj/structure/window/reinforced{
@@ -1165,6 +1148,12 @@
 "QL" = (
 /turf/simulated/wall/iron,
 /area/adhomai/village/temple)
+"QM" = (
+/obj/structure/sign/double/painting/mountain{
+	pixel_y = 32
+	},
+/turf/simulated/floor/holofloor/wood,
+/area/adhomai/village/bar)
 "Ri" = (
 /obj/structure/window/reinforced{
 	icon_state = "rwindow";
@@ -1192,13 +1181,6 @@
 /obj/random/spacecash,
 /turf/simulated/floor/tiled/dark,
 /area/adhomai/village/townhall)
-"RB" = (
-/obj/structure/table/stone,
-/obj/item/device/flashlight/lantern,
-/obj/item/device/flashlight/lantern,
-/obj/item/clothing/mask/gas,
-/turf/simulated/floor/asteroid/basalt/adhomai,
-/area/adhomai/cavern)
 "RF" = (
 /obj/structure/table/reinforced/steel,
 /obj/structure/window/reinforced{
@@ -1268,17 +1250,24 @@
 	},
 /turf/simulated/floor/cult,
 /area/adhomai/village/temple)
-"Ut" = (
-/obj/structure/table/stone,
-/obj/item/mold/ingot,
-/turf/simulated/floor/asteroid/basalt/adhomai,
-/area/adhomai/cavern)
+"Ua" = (
+/obj/structure/sign/double/painting/mountain/right{
+	pixel_y = 32
+	},
+/turf/simulated/floor/holofloor/wood,
+/area/adhomai/village/bar)
 "Uy" = (
 /obj/machinery/light/small{
 	dir = 4
 	},
 /turf/simulated/floor/cult,
 /area/adhomai/village/temple)
+"Uz" = (
+/obj/structure/table/stone,
+/obj/item/mold/pickaxe,
+/obj/item/mold/shovel,
+/turf/simulated/floor/asteroid/basalt/adhomai,
+/area/adhomai/cavern)
 "UA" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/barricade/bars,
@@ -1290,6 +1279,12 @@
 	},
 /turf/simulated/floor/cult,
 /area/adhomai/village/temple)
+"Vc" = (
+/obj/structure/simple_door/cell{
+	initial_lock_value = "soldier"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/adhomai/fortress)
 "Vg" = (
 /obj/machinery/light/small,
 /obj/effect/decal/cleanable/dirt,
@@ -1302,6 +1297,10 @@
 /obj/structure/filingcabinet/filingcabinet,
 /turf/simulated/floor/tiled/dark,
 /area/adhomai/village/townhall)
+"We" = (
+/obj/structure/smelter,
+/turf/simulated/floor/asteroid/basalt/adhomai,
+/area/adhomai/cavern)
 "Wu" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/table/wood,
@@ -1387,6 +1386,13 @@
 /obj/item/weapon/material/twohanded/pike,
 /turf/simulated/floor/tiled/dark,
 /area/adhomai/village/police)
+"Ze" = (
+/obj/structure/bed,
+/obj/effect/landmark{
+	name = "LateJoinPrisoner"
+	},
+/turf/simulated/floor/plating,
+/area/adhomai/fortress)
 "Zg" = (
 /obj/structure/safe/station,
 /obj/machinery/light{
@@ -1416,12 +1422,6 @@
 /obj/item/clothing/ring/material/platinum,
 /turf/simulated/floor/tiled/dark,
 /area/adhomai/village/townhall)
-"ZW" = (
-/obj/structure/table/stone,
-/obj/item/mold/pot,
-/obj/item/mold,
-/turf/simulated/floor/asteroid/basalt/adhomai,
-/area/adhomai/cavern)
 
 (1,1,1) = {"
 ae
@@ -5606,9 +5606,9 @@ ab
 ab
 ab
 ab
-ql
-RB
-Fj
+ij
+MD
+CQ
 ab
 ab
 ae
@@ -5862,11 +5862,11 @@ ab
 ab
 ab
 ab
-HX
+iC
 aa
 aa
 aa
-LR
+Uz
 ab
 ae
 ae
@@ -6119,11 +6119,11 @@ ab
 ab
 ab
 ab
-sA
+We
 aa
 aa
 aa
-ZW
+if
 ab
 ae
 ae
@@ -6380,7 +6380,7 @@ aa
 aa
 aa
 aa
-Ut
+Em
 ab
 ae
 ae
@@ -8429,7 +8429,7 @@ bP
 ae
 aa
 aa
-tO
+Lu
 bP
 aa
 aa
@@ -8686,7 +8686,7 @@ bP
 ae
 aa
 aa
-rj
+uD
 bP
 aa
 aa
@@ -8943,7 +8943,7 @@ bP
 ae
 aa
 aa
-rj
+uD
 bP
 aa
 aa
@@ -9200,7 +9200,7 @@ bP
 ae
 aa
 aa
-rj
+uD
 bP
 aa
 aa
@@ -33560,7 +33560,7 @@ ae
 ae
 ae
 aj
-ih
+Ze
 an
 al
 IW
@@ -34847,7 +34847,7 @@ ae
 aj
 al
 al
-oE
+hw
 DE
 aI
 aI
@@ -35616,7 +35616,7 @@ ae
 ae
 ae
 aj
-ih
+Ze
 an
 al
 IW
@@ -35880,7 +35880,7 @@ DE
 au
 au
 aI
-ei
+wf
 cz
 au
 au
@@ -36137,9 +36137,9 @@ RZ
 au
 au
 au
-ei
+wf
 au
-ix
+HO
 au
 au
 aj
@@ -36394,10 +36394,10 @@ aj
 aK
 au
 au
-ei
+wf
 au
 au
-ix
+HO
 ER
 aj
 ae
@@ -36651,8 +36651,8 @@ IW
 au
 au
 aI
-ei
-ix
+wf
+HO
 au
 au
 ER
@@ -36908,10 +36908,10 @@ DE
 au
 aI
 aI
-MW
+Vc
 au
-ix
-ix
+HO
+HO
 ER
 aj
 ae
@@ -37165,7 +37165,7 @@ RZ
 aI
 aI
 aI
-ei
+wf
 au
 ER
 ER
@@ -56725,8 +56725,8 @@ ae
 ae
 sp
 du
-GP
-GP
+mw
+mw
 du
 nv
 sp
@@ -56982,8 +56982,8 @@ ae
 ae
 sp
 du
-GP
-GP
+mw
+mw
 du
 SF
 sp
@@ -57495,7 +57495,7 @@ ae
 ae
 ae
 sp
-OH
+QM
 LE
 LE
 LE
@@ -57752,7 +57752,7 @@ ae
 ae
 ae
 sp
-fs
+Ua
 LE
 LE
 LE
@@ -58523,10 +58523,10 @@ ae
 ae
 ae
 sp
-ri
-GP
-GP
-GP
+mV
+mw
+mw
+mw
 nv
 sp
 ae
@@ -58780,10 +58780,10 @@ ae
 ae
 ae
 sp
-ug
+nk
 nv
 nv
-cy
+Kv
 nv
 sp
 ae
@@ -59037,10 +59037,10 @@ ae
 ae
 ae
 sp
-Ic
-pQ
+ey
+qX
 nv
-pQ
+qX
 nv
 sp
 ae

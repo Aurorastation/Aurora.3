@@ -91,6 +91,11 @@
 /obj/structure/reagent_dispensers/messakeg,
 /turf/simulated/floor/tiled/freezer,
 /area/crew_quarters/sleep/bedrooms)
+"aF" = (
+/obj/structure/track,
+/obj/structure/track,
+/turf/simulated/floor/ice,
+/area/adhomai)
 "aH" = (
 /obj/structure/table/wood,
 /obj/machinery/light/small{
@@ -205,14 +210,13 @@
 "aZ" = (
 /turf/simulated/floor/tiled/freezer,
 /area/crew_quarters/sleep/bedrooms)
-"bb" = (
-/obj/structure/window/sandbag{
-	icon_state = "sandbag";
+"ba" = (
+/obj/structure/reagent_dispensers/messakeg,
+/obj/machinery/light/small{
 	dir = 1
 	},
-/obj/item/weapon/stool/padded,
-/turf/simulated/floor/asteroid/ash/adhomai,
-/area/adhomai)
+/turf/simulated/floor/lino,
+/area/adhomai/fortress)
 "bf" = (
 /obj/structure/table/wood,
 /obj/item/weapon/reagent_containers/food/snacks/tajaran_stew,
@@ -238,6 +242,14 @@
 /obj/structure/simple_door/adhomai/wood,
 /turf/simulated/floor/tiled/dark,
 /area/adhomai/village/townhall)
+"bm" = (
+/obj/structure/window/sandbag{
+	icon_state = "sandbag";
+	dir = 1
+	},
+/obj/item/weapon/stool/padded,
+/turf/simulated/floor/asteroid/ash/adhomai,
+/area/adhomai)
 "bn" = (
 /obj/structure/closet/crate,
 /turf/simulated/floor/tiled/steel,
@@ -293,6 +305,26 @@
 /obj/item/weapon/key/minecarts,
 /turf/simulated/floor/tiled/steel,
 /area/adhomai/village/foundry)
+"bA" = (
+/obj/structure/window/sandbag{
+	icon_state = "sandbag";
+	dir = 1
+	},
+/obj/structure/closet/crate{
+	desc = "A simple metal footlocker.";
+	name = "footlocker"
+	},
+/obj/item/target,
+/obj/item/target,
+/obj/item/target,
+/obj/item/target,
+/obj/item/target,
+/obj/item/target,
+/obj/item/target,
+/obj/item/target,
+/obj/item/target,
+/turf/simulated/floor/snow,
+/area/adhomai)
 "bD" = (
 /obj/structure/bed/chair/wood/adhomai{
 	icon_state = "tajchair";
@@ -334,6 +366,13 @@
 	},
 /turf/simulated/floor/wood,
 /area/adhomai/village/shop)
+"bQ" = (
+/obj/structure/window/sandbag{
+	icon_state = "sandbag";
+	dir = 1
+	},
+/turf/simulated/floor/asteroid/ash/adhomai,
+/area/adhomai)
 "bV" = (
 /obj/structure/table/wood,
 /obj/structure/curtain/open/bed{
@@ -415,12 +454,6 @@
 /obj/machinery/shower,
 /turf/simulated/floor/tiled/white,
 /area/adhomai/village)
-"cy" = (
-/obj/structure/closet/cabinet,
-/obj/item/weapon/storage/box/drinkingglasses,
-/obj/item/weapon/storage/box/utensils,
-/turf/simulated/floor/lino,
-/area/adhomai/fortress)
 "cz" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/closet/crate,
@@ -434,10 +467,6 @@
 /obj/structure/closet/cabinet,
 /turf/simulated/floor/wood,
 /area/adhomai/village)
-"cB" = (
-/obj/effect/overlay/blizzard,
-/turf/simulated/floor/snow,
-/area/adhomai)
 "cE" = (
 /obj/structure/coatrack,
 /turf/simulated/floor/wood,
@@ -449,6 +478,19 @@
 	},
 /turf/simulated/floor/carpet,
 /area/adhomai/village)
+"cG" = (
+/obj/effect/landmark/start{
+	name = "Commoner"
+	},
+/turf/unsimulated/mask/adhomai,
+/area/adhomai)
+"cJ" = (
+/obj/structure/window/sandbag{
+	icon_state = "sandbag";
+	dir = 8
+	},
+/turf/unsimulated/mask/adhomai,
+/area/adhomai)
 "cK" = (
 /obj/structure/table/wood,
 /obj/item/weapon/paper_bin,
@@ -456,6 +498,20 @@
 /obj/effect/floor_decal/corner/green/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/adhomai/village/medical)
+"cN" = (
+/obj/structure/table/rack,
+/obj/item/weapon/grenade/smokebomb/nka,
+/obj/item/weapon/grenade/smokebomb/nka,
+/obj/item/weapon/grenade/smokebomb/nka,
+/obj/item/weapon/grenade/smokebomb/nka,
+/obj/item/weapon/grenade/smokebomb/nka,
+/obj/item/weapon/grenade/smokebomb/nka,
+/obj/item/weapon/grenade/smokebomb/nka,
+/obj/item/weapon/grenade/smokebomb/nka,
+/obj/item/weapon/grenade/smokebomb/nka,
+/obj/item/weapon/grenade/smokebomb/nka,
+/turf/simulated/floor/tiled/dark,
+/area/adhomai/fortress)
 "cP" = (
 /obj/item/weapon/storage/fancy/candle_box,
 /obj/structure/table/wood,
@@ -564,11 +620,6 @@
 	},
 /turf/simulated/floor/wood,
 /area/adhomai/village/townhall)
-"dv" = (
-/obj/structure/flora/ausbushes/genericbush,
-/obj/effect/overlay/blizzard/heavy,
-/turf/unsimulated/mask/adhomai,
-/area/adhomai)
 "dx" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /obj/structure/sink{
@@ -578,13 +629,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/adhomai/village/medical)
-"dy" = (
-/obj/structure/bed/chair/wood/adhomai,
-/obj/effect/landmark/start{
-	name = "Sharpshooter"
-	},
-/turf/simulated/floor/carpet,
-/area/adhomai/village/temple)
 "dz" = (
 /turf/simulated/floor/ice,
 /area/adhomai)
@@ -662,13 +706,12 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/adhomai/fortress)
-"ea" = (
+"dZ" = (
 /obj/effect/landmark/start{
-	name = "Supply Officer"
+	name = "Prospector"
 	},
-/obj/item/weapon/stool/padded,
-/turf/simulated/floor/tiled/dark,
-/area/adhomai/fortress)
+/turf/simulated/floor/asteroid/ash/adhomai,
+/area/adhomai)
 "eb" = (
 /obj/structure/closet/crate/trashcart,
 /turf/simulated/floor/tiled/steel,
@@ -680,11 +723,6 @@
 /obj/structure/bed/chair/wood/adhomai,
 /turf/simulated/floor/wood,
 /area/adhomai/village)
-"ee" = (
-/obj/effect/overlay/blizzard/heavy,
-/obj/effect/overlay/blizzard,
-/turf/simulated/floor/asteroid/ash/adhomai,
-/area/adhomai)
 "ej" = (
 /obj/structure/flora/pottedplant/random,
 /turf/simulated/floor/wood,
@@ -712,6 +750,11 @@
 /obj/structure/simple_door/adhomai/wood,
 /turf/simulated/floor/wood,
 /area/adhomai/village/police)
+"en" = (
+/obj/structure/flora/grass/both,
+/obj/effect/overlay/blizzard/heavy,
+/turf/unsimulated/mask/adhomai,
+/area/adhomai)
 "ep" = (
 /obj/structure/table/wood,
 /obj/item/hoist_kit,
@@ -727,6 +770,11 @@
 /obj/item/mold/urn,
 /turf/simulated/floor/wood,
 /area/adhomai/village/blacksmith)
+"eu" = (
+/obj/structure/flora/ausbushes/genericbush,
+/obj/effect/overlay/blizzard/heavy,
+/turf/unsimulated/mask/adhomai,
+/area/adhomai)
 "ew" = (
 /obj/structure/bed/chair/wood/adhomai,
 /turf/simulated/floor/carpet,
@@ -744,18 +792,9 @@
 /obj/item/clothing/under/dress/tajaran/red,
 /turf/simulated/floor/wood,
 /area/adhomai/village/mayor)
-"eB" = (
-/obj/machinery/shower,
-/turf/simulated/floor/tiled/dark,
-/area/adhomai/fortress)
 "eC" = (
 /turf/simulated/floor/lino,
 /area/adhomai/village/police)
-"eD" = (
-/obj/structure/track,
-/obj/structure/track,
-/turf/simulated/floor/ice,
-/area/adhomai)
 "eE" = (
 /obj/machinery/light/small{
 	dir = 8
@@ -763,10 +802,6 @@
 /obj/structure/closet,
 /turf/simulated/floor/lino,
 /area/adhomai/village/medical)
-"eF" = (
-/obj/structure/table/rack,
-/turf/simulated/floor/tiled/dark,
-/area/adhomai/fortress)
 "eG" = (
 /obj/effect/landmark{
 	name = "Observer-Start"
@@ -780,13 +815,19 @@
 	},
 /turf/simulated/floor/wood,
 /area/adhomai/village/shop)
-"eM" = (
-/obj/structure/flora/pottedplant{
-	dead = 1;
-	icon_state = "plant-dead";
-	name = "dead plant"
-	},
+"eJ" = (
+/obj/structure/table/rack,
+/obj/item/roller,
+/obj/item/roller,
 /turf/simulated/floor/tiled/dark,
+/area/adhomai/fortress)
+"eO" = (
+/obj/effect/overlay/blizzard,
+/turf/simulated/floor/snow,
+/area/adhomai)
+"eQ" = (
+/obj/machinery/light/small,
+/turf/simulated/floor/lino,
 /area/adhomai/fortress)
 "eS" = (
 /obj/structure/table/wood,
@@ -862,6 +903,10 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/steel,
 /area/adhomai/village/foundry)
+"fp" = (
+/obj/effect/overlay/blizzard/heavy,
+/turf/simulated/floor/ice,
+/area/adhomai)
 "fq" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/wall/iron,
@@ -1018,6 +1063,14 @@
 /obj/effect/decal/cleanable/blood/oil,
 /turf/simulated/floor/tiled/dark,
 /area/adhomai/fortress)
+"gq" = (
+/obj/structure/table/wood,
+/obj/machinery/chemical_dispenser/bar_soft/full{
+	pixel_y = 20
+	},
+/obj/item/clothing/gloves/black/oven,
+/turf/simulated/floor/lino,
+/area/crew_quarters/sleep/bedrooms)
 "gt" = (
 /obj/structure/table/wood,
 /obj/item/clothing/head/welding,
@@ -1150,12 +1203,6 @@
 /obj/item/weapon/pen/blue,
 /turf/simulated/floor/wood,
 /area/adhomai/fortress)
-"hf" = (
-/obj/structure/bed/chair/comfy/brown{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark,
-/area/adhomai/fortress)
 "hg" = (
 /obj/structure/table/wood,
 /obj/item/weapon/folder/red{
@@ -1205,14 +1252,17 @@
 	},
 /turf/simulated/floor/wood,
 /area/adhomai/village/police)
-"hz" = (
-/obj/structure/target_stake,
-/turf/simulated/floor/snow,
-/area/adhomai)
 "hC" = (
 /obj/structure/bookcase/manuals/medical,
 /turf/simulated/floor/wood,
 /area/adhomai/village/medical)
+"hD" = (
+/obj/item/weapon/stool/padded,
+/obj/effect/landmark/start{
+	name = "Infantryman"
+	},
+/turf/simulated/floor/wood,
+/area/crew_quarters/sleep/bedrooms)
 "hG" = (
 /obj/machinery/light{
 	icon_state = "tube1";
@@ -1231,6 +1281,12 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/sleep/bedrooms)
+"hJ" = (
+/obj/structure/simple_door/adhomai/iron{
+	initial_lock_value = "soldier"
+	},
+/turf/simulated/floor/asteroid/ash/adhomai,
+/area/adhomai)
 "hM" = (
 /obj/item/weapon/paper_bin,
 /obj/structure/table/wood,
@@ -1240,14 +1296,6 @@
 	},
 /turf/simulated/floor/wood,
 /area/adhomai/village/townhall)
-"hN" = (
-/obj/structure/window/sandbag{
-	icon_state = "sandbag";
-	dir = 4
-	},
-/obj/structure/street_lamp,
-/turf/simulated/floor/snow,
-/area/adhomai)
 "hO" = (
 /obj/structure/closet/cabinet,
 /obj/machinery/light{
@@ -1276,6 +1324,12 @@
 	},
 /turf/simulated/floor/carpet,
 /area/adhomai/village/mayor)
+"hU" = (
+/obj/structure/table/rack,
+/obj/item/weapon/material/axe,
+/obj/item/weapon/material/axe,
+/turf/simulated/floor/tiled/dark,
+/area/adhomai/fortress)
 "hW" = (
 /obj/structure/curtain/open/bed{
 	pixel_y = -32
@@ -1289,6 +1343,10 @@
 	},
 /turf/simulated/floor/wood,
 /area/adhomai/village)
+"hY" = (
+/obj/machinery/shower,
+/turf/simulated/floor/tiled/dark,
+/area/adhomai/fortress)
 "ie" = (
 /obj/structure/bed/chair/comfy/beige{
 	icon_state = "comfychair_preview";
@@ -1358,26 +1416,12 @@
 /obj/item/device/flashlight/lamp,
 /turf/simulated/floor/wood,
 /area/adhomai/village/mayor)
-"ix" = (
-/obj/structure/closet/crate,
-/obj/item/weapon/storage/field_ration/nka/army,
-/obj/item/clothing/shoes/jackboots/unathi,
-/obj/item/clothing/under/uniform/levy,
-/obj/item/clothing/head/nka,
-/turf/simulated/floor/tiled/dark,
-/area/adhomai/fortress)
 "iz" = (
 /obj/structure/curtain/open/bed{
 	pixel_x = -32
 	},
 /turf/simulated/floor/wood,
 /area/adhomai/village/shop)
-"iC" = (
-/obj/structure/table/rack,
-/obj/item/weapon/storage/belt/utility,
-/obj/item/weapon/storage/belt/utility,
-/turf/simulated/floor/tiled/dark,
-/area/adhomai/fortress)
 "iD" = (
 /obj/machinery/light{
 	icon_state = "tube1";
@@ -1409,6 +1453,10 @@
 	},
 /turf/simulated/floor/wood,
 /area/crew_quarters/sleep/bedrooms)
+"iK" = (
+/obj/structure/track,
+/turf/simulated/floor/ice,
+/area/adhomai)
 "iL" = (
 /obj/structure/simple_door/adhomai/wood{
 	initial_lock_value = "mayor"
@@ -1417,6 +1465,13 @@
 	icon_state = "hydrofloor"
 	},
 /area/adhomai/village/mayor)
+"iM" = (
+/obj/structure/table/wood,
+/obj/item/weapon/reagent_containers/cooking_container/fire/pot,
+/obj/item/weapon/reagent_containers/cooking_container/fire/pot,
+/obj/item/weapon/reagent_containers/cooking_container/fire/pot,
+/turf/simulated/floor/lino,
+/area/adhomai/fortress)
 "iN" = (
 /obj/effect/floor_decal/carpet{
 	icon_state = "carpet_edges";
@@ -1455,13 +1510,6 @@
 	},
 /turf/simulated/floor/carpet,
 /area/adhomai/village/mayor)
-"iQ" = (
-/obj/structure/table/wood,
-/obj/item/weapon/reagent_containers/cooking_container/fire/pot,
-/obj/item/weapon/reagent_containers/cooking_container/fire/pot,
-/obj/item/weapon/reagent_containers/cooking_container/fire/pot,
-/turf/simulated/floor/lino,
-/area/adhomai/fortress)
 "iR" = (
 /obj/structure/bookcase/manuals/research_and_development,
 /turf/simulated/floor/wood,
@@ -1660,21 +1708,6 @@
 /obj/item/weapon/coin/platinum,
 /turf/simulated/floor/snow,
 /area/adhomai)
-"jH" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/landmark/start{
-	name = "Commoner"
-	},
-/turf/simulated/floor/asteroid/ash/adhomai,
-/area/adhomai)
-"jI" = (
-/obj/structure/window/sandbag{
-	icon_state = "sandbag";
-	dir = 8
-	},
-/obj/structure/street_lamp,
-/turf/simulated/floor/snow,
-/area/adhomai)
 "jJ" = (
 /obj/structure/table/wood,
 /obj/item/weapon/paper_bin{
@@ -1695,6 +1728,18 @@
 "jM" = (
 /turf/simulated/floor/silver,
 /area/adhomai/village/temple)
+"jO" = (
+/obj/structure/window/reinforced,
+/obj/item/weapon/storage/field_ration/nka/army,
+/obj/structure/closet/crate{
+	desc = "A simple metal footlocker.";
+	name = "footlocker"
+	},
+/obj/item/clothing/shoes/jackboots/unathi,
+/obj/item/clothing/under/uniform/levy,
+/obj/item/clothing/head/nka,
+/turf/simulated/floor/tiled/dark,
+/area/adhomai/fortress)
 "jP" = (
 /obj/machinery/light{
 	dir = 2;
@@ -1761,14 +1806,6 @@
 /obj/structure/window/classic/reinforced,
 /turf/simulated/floor/wood,
 /area/adhomai/village/police)
-"ki" = (
-/obj/structure/table/wood,
-/obj/machinery/chemical_dispenser/bar_soft/full{
-	pixel_y = 20
-	},
-/obj/item/clothing/gloves/black/oven,
-/turf/simulated/floor/lino,
-/area/crew_quarters/sleep/bedrooms)
 "kj" = (
 /obj/structure/window/reinforced,
 /turf/simulated/floor/wood,
@@ -1811,18 +1848,6 @@
 "kJ" = (
 /turf/simulated/wall/wood/adhomai,
 /area/adhomai/village/mayor)
-"kL" = (
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 4
-	},
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 8
-	},
-/turf/simulated/floor/plating,
-/area/adhomai/fortress)
 "kP" = (
 /obj/structure/bed/chair/wood/adhomai{
 	icon_state = "tajchair";
@@ -1843,13 +1868,6 @@
 /obj/structure/window/classic/reinforced,
 /turf/simulated/floor/wood,
 /area/adhomai/village/townhall)
-"kU" = (
-/obj/structure/table/wood,
-/obj/item/weapon/storage/fancy/cigarettes,
-/obj/item/weapon/storage/fancy/cigarettes,
-/obj/item/weapon/storage/box/matches,
-/turf/simulated/floor/tiled/dark,
-/area/adhomai/fortress)
 "kX" = (
 /obj/structure/table/wood,
 /obj/item/device/radio/phone,
@@ -1900,11 +1918,6 @@
 /obj/item/weapon/storage/fancy/egg_box,
 /turf/simulated/floor/tiled/freezer,
 /area/crew_quarters/sleep/bedrooms)
-"lx" = (
-/obj/structure/table/wood,
-/obj/structure/bedsheetbin,
-/turf/simulated/floor/tiled/dark,
-/area/adhomai/fortress)
 "ly" = (
 /obj/item/weapon/material/kitchen/utensil/fork,
 /obj/item/weapon/material/kitchen/utensil/fork,
@@ -2001,6 +2014,17 @@
 /obj/structure/filingcabinet/chestdrawer,
 /turf/simulated/floor/wood,
 /area/adhomai/village/medical)
+"mp" = (
+/obj/structure/table/wood,
+/obj/item/clothing/mask/smokable/pipe,
+/obj/item/clothing/mask/smokable/pipe,
+/turf/simulated/floor/tiled/dark,
+/area/adhomai/fortress)
+"mw" = (
+/obj/structure/table/wood,
+/obj/item/weapon/storage/field_ration/nka/army,
+/turf/simulated/floor/tiled/dark,
+/area/adhomai/fortress)
 "mx" = (
 /obj/effect/floor_decal/corner/green/diagonal,
 /obj/structure/closet/cabinet,
@@ -2040,6 +2064,15 @@
 "mC" = (
 /turf/simulated/floor/carpet,
 /area/adhomai/village/mayor)
+"mF" = (
+/obj/structure/closet/crate,
+/obj/effect/decal/cleanable/dirt,
+/obj/item/weapon/storage/field_ration/nka/army,
+/obj/item/clothing/shoes/jackboots/unathi,
+/obj/item/clothing/under/uniform/levy,
+/obj/item/clothing/head/nka,
+/turf/simulated/floor/tiled/dark,
+/area/adhomai/fortress)
 "mG" = (
 /obj/effect/floor_decal/spline/plain{
 	icon_state = "spline_plain";
@@ -2064,13 +2097,6 @@
 /obj/structure/table/stone/marble,
 /turf/simulated/floor/wood,
 /area/adhomai/village/shop)
-"mS" = (
-/obj/structure/window/sandbag{
-	icon_state = "sandbag";
-	dir = 1
-	},
-/turf/simulated/floor/asteroid/ash/adhomai,
-/area/adhomai)
 "mU" = (
 /obj/structure/simple_door/adhomai/wood{
 	initial_lock_value = "room three";
@@ -2078,12 +2104,6 @@
 	},
 /turf/simulated/floor/wood,
 /area/crew_quarters/sleep/bedrooms)
-"mV" = (
-/obj/structure/simple_door/adhomai/iron{
-	initial_lock_value = "soldier"
-	},
-/turf/simulated/floor/asteroid/ash/adhomai,
-/area/adhomai)
 "mZ" = (
 /obj/structure/bonfire/fireplace{
 	dir = 8
@@ -2112,10 +2132,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/adhomai/fortress)
-"ng" = (
-/obj/structure/bonfire/fireplace,
-/turf/simulated/floor/tiled/dark,
-/area/adhomai/fortress)
 "nl" = (
 /obj/structure/table/wood,
 /obj/effect/floor_decal/corner/green/diagonal,
@@ -2124,10 +2140,9 @@
 /turf/simulated/floor/tiled/white,
 /area/adhomai/village/medical)
 "np" = (
-/obj/structure/bed,
-/obj/item/weapon/bedsheet,
-/turf/simulated/floor/tiled/dark,
-/area/adhomai/fortress/outpost)
+/obj/effect/overlay/blizzard/heavy,
+/turf/simulated/floor/snow,
+/area/adhomai)
 "nt" = (
 /obj/machinery/light{
 	dir = 8;
@@ -2146,6 +2161,19 @@
 	},
 /turf/simulated/floor/wood,
 /area/adhomai/village/police)
+"nz" = (
+/obj/structure/window/reinforced,
+/obj/effect/decal/cleanable/dirt,
+/obj/item/weapon/storage/field_ration/nka/army,
+/obj/structure/closet/crate{
+	desc = "A simple metal footlocker.";
+	name = "footlocker"
+	},
+/obj/item/clothing/under/uniform/levy,
+/obj/item/clothing/shoes/jackboots/unathi,
+/obj/item/clothing/head/nka,
+/turf/simulated/floor/tiled/dark,
+/area/adhomai/fortress)
 "nD" = (
 /obj/structure/curtain/open/bed{
 	pixel_y = -32
@@ -2173,26 +2201,16 @@
 	},
 /turf/simulated/floor/wood,
 /area/adhomai/village)
-"nL" = (
-/obj/structure/flora/grass/brown,
-/obj/effect/overlay/blizzard/heavy,
-/turf/unsimulated/mask/adhomai,
-/area/adhomai)
 "nM" = (
 /obj/structure/simple_door/adhomai/wood{
 	initial_lock_value = "chief"
 	},
 /turf/simulated/floor/lino,
 /area/adhomai/village/police)
-"nS" = (
-/obj/effect/floor_decal/corner/paleblue/diagonal,
-/obj/structure/closet/crate/freezer,
-/obj/item/weapon/reagent_containers/blood/OMinus,
-/obj/item/weapon/reagent_containers/blood/OMinus,
-/obj/item/weapon/reagent_containers/blood/OMinus,
-/obj/item/weapon/reagent_containers/blood/OMinus,
-/turf/simulated/floor/tiled/white,
-/area/adhomai/village/medical)
+"nR" = (
+/obj/structure/target_stake,
+/turf/simulated/floor/snow,
+/area/adhomai)
 "nT" = (
 /turf/simulated/floor/carpet,
 /area/adhomai/village/townhall)
@@ -2280,6 +2298,11 @@
 /obj/machinery/smartfridge/drying_rack/adhomai,
 /turf/simulated/floor/asteroid/ash/adhomai,
 /area/adhomai)
+"oA" = (
+/obj/structure/track,
+/obj/vehicle/train/cargo/trolley/mining,
+/turf/simulated/floor/asteroid/ash/adhomai,
+/area/adhomai)
 "oB" = (
 /obj/item/weapon/reagent_containers/glass/bucket,
 /obj/item/weapon/mop,
@@ -2318,25 +2341,12 @@
 /obj/item/weapon/storage/box/clams,
 /turf/simulated/floor/tiled/freezer,
 /area/crew_quarters/sleep/bedrooms)
-"oM" = (
-/obj/structure/sink/kitchen{
-	dir = 4;
-	icon_state = "sink_alt";
-	pixel_x = -21
-	},
-/obj/item/weapon/reagent_containers/glass/bucket,
-/turf/simulated/floor/lino,
-/area/adhomai/fortress)
 "oQ" = (
 /obj/structure/curtain/open/bed{
 	pixel_y = -32
 	},
 /turf/simulated/floor/wood,
 /area/adhomai/village/blacksmith)
-"oR" = (
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/wall/r_wall,
-/area/adhomai/fortress)
 "oV" = (
 /obj/structure/table/wood,
 /obj/item/weapon/reagent_containers/food/drinks/bottle/messa_mead,
@@ -2386,19 +2396,6 @@
 	},
 /turf/simulated/floor/wood,
 /area/adhomai/village/court)
-"pj" = (
-/obj/structure/window/reinforced,
-/obj/effect/decal/cleanable/dirt,
-/obj/item/weapon/storage/field_ration/nka/army,
-/obj/structure/closet/crate{
-	desc = "A simple metal footlocker.";
-	name = "footlocker"
-	},
-/obj/item/clothing/under/uniform/levy,
-/obj/item/clothing/shoes/jackboots/unathi,
-/obj/item/clothing/head/nka,
-/turf/simulated/floor/tiled/dark,
-/area/adhomai/fortress)
 "pl" = (
 /turf/simulated/wall/iron,
 /area/adhomai/village/townhall)
@@ -2475,13 +2472,6 @@
 /obj/item/weapon/reagent_containers/food/drinks/bottle/holywater,
 /turf/simulated/floor/wood,
 /area/adhomai/village/temple)
-"pI" = (
-/obj/item/weapon/stool/padded,
-/obj/effect/landmark/start{
-	name = "Commoner"
-	},
-/turf/simulated/floor/wood,
-/area/crew_quarters/sleep/bedrooms)
 "pJ" = (
 /obj/structure/table/wood,
 /obj/machinery/light/small{
@@ -2499,12 +2489,6 @@
 /obj/machinery/portable_atmospherics/hydroponics/soil,
 /turf/simulated/floor/asteroid/ash/adhomai,
 /area/adhomai)
-"pN" = (
-/obj/structure/table/wood,
-/obj/item/weapon/reagent_containers/cooking_container/fire/oven,
-/obj/item/weapon/reagent_containers/cooking_container/fire/oven,
-/turf/simulated/floor/lino,
-/area/adhomai/fortress)
 "pP" = (
 /obj/structure/table/wood,
 /obj/structure/bedsheetbin,
@@ -2593,6 +2577,24 @@
 /obj/item/weapon/stool/padded,
 /turf/simulated/floor/wood,
 /area/adhomai/village)
+"qo" = (
+/obj/structure/flora/grass/brown,
+/obj/effect/overlay/blizzard/heavy,
+/turf/unsimulated/mask/adhomai,
+/area/adhomai)
+"qs" = (
+/obj/structure/table/rack,
+/obj/item/ammo_magazine/nka/kt_76,
+/obj/item/ammo_magazine/nka/kt_76,
+/obj/item/ammo_magazine/nka/kt_76,
+/obj/item/ammo_magazine/nka/kt_76,
+/obj/item/ammo_magazine/nka/kt_76,
+/turf/simulated/floor/tiled/dark,
+/area/adhomai/fortress)
+"qw" = (
+/obj/structure/reagent_dispensers/water_cooler,
+/turf/simulated/floor/tiled/dark,
+/area/adhomai/fortress)
 "qC" = (
 /obj/structure/closet/cabinet,
 /obj/item/clothing/under/uniform/hand/fancy,
@@ -2602,13 +2604,6 @@
 /obj/item/clothing/accessory/levy_coat/dress/officer,
 /turf/simulated/floor/wood,
 /area/adhomai/fortress)
-"qD" = (
-/obj/structure/bed/chair/wood/adhomai,
-/obj/effect/landmark/start{
-	name = "Royal Grenadier"
-	},
-/turf/simulated/floor/carpet,
-/area/adhomai/village/temple)
 "qE" = (
 /obj/structure/bed/chair/wood/adhomai{
 	icon_state = "tajchair";
@@ -2635,6 +2630,23 @@
 /obj/structure/simple_door/adhomai/wood,
 /turf/simulated/floor/wood,
 /area/adhomai/village/blacksmith)
+"qL" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/closet/crate/freezer{
+	name = "Meat Storage"
+	},
+/obj/item/weapon/reagent_containers/food/snacks/meat/adhomai,
+/obj/item/weapon/reagent_containers/food/snacks/meat/adhomai,
+/obj/item/weapon/reagent_containers/food/snacks/meat/adhomai,
+/obj/item/weapon/reagent_containers/food/snacks/meat/adhomai,
+/obj/item/weapon/reagent_containers/food/snacks/meat/adhomai,
+/obj/item/weapon/storage/box/clams,
+/obj/item/weapon/storage/box/clams,
+/obj/item/weapon/storage/box/clams,
+/obj/item/weapon/storage/box/clams,
+/obj/item/weapon/storage/box/clams,
+/turf/simulated/floor/lino,
+/area/adhomai/fortress)
 "qO" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/light/small{
@@ -2663,6 +2675,10 @@
 /obj/random/cookingoil,
 /turf/simulated/floor/wood,
 /area/adhomai/village/shop)
+"rd" = (
+/obj/structure/coatrack,
+/turf/simulated/floor/tiled/dark,
+/area/adhomai/fortress)
 "ri" = (
 /obj/structure/curtain/open/bed{
 	pixel_x = 32
@@ -2739,10 +2755,6 @@
 /obj/item/device/flashlight/lamp,
 /turf/simulated/floor/carpet,
 /area/adhomai/village/townhall)
-"rB" = (
-/obj/structure/bonfire,
-/turf/simulated/floor/wood,
-/area/adhomai/village)
 "rF" = (
 /obj/effect/landmark{
 	name = "animalspawn"
@@ -2885,6 +2897,13 @@
 /obj/structure/table/wood,
 /turf/simulated/floor/asteroid/ash/adhomai,
 /area/adhomai)
+"sK" = (
+/obj/machinery/shower{
+	icon_state = "shower";
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/adhomai/fortress)
 "sL" = (
 /obj/structure/pit/closed/grave,
 /turf/simulated/floor/snow,
@@ -2910,13 +2929,6 @@
 	},
 /turf/simulated/floor/wood,
 /area/adhomai/village/court)
-"sR" = (
-/obj/item/weapon/stool/padded,
-/obj/effect/landmark/start{
-	name = "Infantryman"
-	},
-/turf/simulated/floor/wood,
-/area/crew_quarters/sleep/bedrooms)
 "sS" = (
 /obj/structure/bed/chair/wood/adhomai{
 	icon_state = "tajchair";
@@ -2937,13 +2949,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/asteroid/ash/adhomai,
 /area/adhomai)
-"tb" = (
-/obj/structure/reagent_dispensers/messakeg,
-/obj/machinery/light/small{
-	dir = 1
-	},
-/turf/simulated/floor/lino,
-/area/adhomai/fortress)
 "tc" = (
 /obj/machinery/light/small{
 	dir = 1
@@ -2953,17 +2958,12 @@
 	},
 /turf/simulated/floor/wood,
 /area/adhomai/village/medical)
-"td" = (
-/obj/effect/overlay/blizzard/heavy,
-/turf/simulated/floor/snow,
-/area/adhomai)
-"tm" = (
-/obj/structure/bed/chair/wood/adhomai,
-/obj/effect/landmark/start{
-	name = "Infantryman"
-	},
-/turf/simulated/floor/carpet,
-/area/adhomai/village/temple)
+"tj" = (
+/obj/structure/table/rack,
+/obj/item/clothing/head/welding,
+/obj/item/clothing/head/welding,
+/turf/simulated/floor/tiled/dark,
+/area/adhomai/fortress)
 "to" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/barricade/bars,
@@ -3057,15 +3057,22 @@
 /obj/structure/bed/chair/wood/adhomai,
 /turf/simulated/floor/tiled/dark,
 /area/adhomai/village/police)
-"tO" = (
-/obj/machinery/light/small,
-/obj/machinery/biogenerator/adhomai,
-/turf/simulated/floor/lino,
-/area/adhomai/fortress)
 "tP" = (
 /obj/structure/table/wood,
 /turf/simulated/floor/wood,
 /area/crew_quarters/sleep/bedrooms)
+"tQ" = (
+/obj/structure/closet/crate,
+/obj/item/weapon/storage/field_ration/nka/army,
+/obj/item/clothing/shoes/jackboots/unathi,
+/obj/item/clothing/under/uniform/levy,
+/obj/item/clothing/head/nka,
+/turf/simulated/floor/tiled/dark,
+/area/adhomai/fortress)
+"tY" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/wall/r_wall,
+/area/adhomai/fortress)
 "ua" = (
 /obj/item/weapon/material/kitchen/utensil/spoon,
 /obj/item/weapon/material/kitchen/utensil/spoon,
@@ -3141,40 +3148,24 @@
 /obj/structure/table/wood,
 /turf/simulated/floor/carpet,
 /area/adhomai/village/mayor)
-"uC" = (
-/obj/structure/track,
-/turf/simulated/floor/ice,
-/area/adhomai)
 "uD" = (
 /obj/machinery/washing_machine{
 	anchored = 0
 	},
 /turf/simulated/floor/lino,
 /area/adhomai/village/shop)
-"uN" = (
-/obj/item/weapon/reagent_containers/food/condiment/spacespice,
-/obj/item/weapon/reagent_containers/food/condiment/saltshaker,
-/obj/item/weapon/reagent_containers/food/condiment/peppermill,
-/obj/item/weapon/reagent_containers/food/condiment/flour,
-/obj/item/weapon/storage/fancy/egg_box,
-/obj/item/weapon/reagent_containers/food/condiment/flour,
-/obj/item/weapon/storage/fancy/egg_box,
-/obj/structure/closet/cabinet,
-/turf/simulated/floor/lino,
-/area/adhomai/fortress)
 "uV" = (
 /turf/simulated/floor/tiled/dark,
 /area/adhomai/village/townhall)
-"uX" = (
-/obj/machinery/shower{
-	icon_state = "shower";
-	dir = 1
-	},
-/turf/simulated/floor/tiled/dark,
-/area/adhomai/fortress)
 "uY" = (
 /turf/simulated/floor/asteroid/ash/adhomai,
 /area/adhomai/village)
+"vc" = (
+/obj/structure/table/rack,
+/obj/item/clothing/accessory/stethoscope,
+/obj/item/clothing/accessory/stethoscope,
+/turf/simulated/floor/tiled/dark,
+/area/adhomai/fortress)
 "ve" = (
 /obj/structure/closet/cabinet,
 /obj/item/weapon/gun/projectile/grenadier,
@@ -3205,15 +3196,12 @@
 /turf/simulated/floor/lino,
 /area/adhomai/village/shop)
 "vp" = (
-/obj/structure/table/wood,
-/obj/item/weapon/tray,
-/obj/item/weapon/tray,
-/obj/item/weapon/tray,
-/obj/item/weapon/tray,
-/obj/item/weapon/tray,
-/obj/item/weapon/tray,
-/turf/simulated/floor/lino,
-/area/adhomai/fortress)
+/obj/structure/bed/chair/wood/adhomai,
+/obj/effect/landmark/start{
+	name = "Bartender"
+	},
+/turf/simulated/floor/carpet,
+/area/adhomai/village/temple)
 "vv" = (
 /obj/structure/window/reinforced{
 	dir = 8
@@ -3251,6 +3239,12 @@
 	},
 /turf/simulated/floor/wood,
 /area/adhomai/village/blacksmith)
+"vI" = (
+/obj/structure/table/rack,
+/obj/item/weapon/storage/belt/utility,
+/obj/item/weapon/storage/belt/utility,
+/turf/simulated/floor/tiled/dark,
+/area/adhomai/fortress)
 "vK" = (
 /obj/structure/simple_door/adhomai/wood{
 	initial_lock_value = "mayor"
@@ -3263,6 +3257,17 @@
 	dir = 4
 	},
 /area/adhomai/village/townhall)
+"vQ" = (
+/obj/effect/overlay/blizzard/heavy,
+/obj/effect/overlay/blizzard,
+/turf/unsimulated/mask/adhomai,
+/area/adhomai)
+"vS" = (
+/obj/structure/table/wood,
+/obj/item/weapon/reagent_containers/cooking_container/fire/oven,
+/obj/item/weapon/reagent_containers/cooking_container/fire/oven,
+/turf/simulated/floor/lino,
+/area/adhomai/fortress)
 "vV" = (
 /obj/structure/table/wood,
 /obj/machinery/light/small{
@@ -3276,6 +3281,17 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/adhomai/village/police)
+"vY" = (
+/obj/item/weapon/reagent_containers/food/condiment/spacespice,
+/obj/item/weapon/reagent_containers/food/condiment/saltshaker,
+/obj/item/weapon/reagent_containers/food/condiment/peppermill,
+/obj/item/weapon/reagent_containers/food/condiment/flour,
+/obj/item/weapon/storage/fancy/egg_box,
+/obj/item/weapon/reagent_containers/food/condiment/flour,
+/obj/item/weapon/storage/fancy/egg_box,
+/obj/structure/closet/cabinet,
+/turf/simulated/floor/lino,
+/area/adhomai/fortress)
 "vZ" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/button/remote/blast_door{
@@ -3383,6 +3399,12 @@
 /obj/random/loot,
 /turf/simulated/floor/tiled/dark,
 /area/adhomai/village/shop)
+"wQ" = (
+/obj/structure/table/rack,
+/obj/item/device/binoculars,
+/obj/item/device/binoculars,
+/turf/simulated/floor/tiled/dark,
+/area/adhomai/fortress)
 "wR" = (
 /obj/machinery/light/small,
 /turf/simulated/floor/wood,
@@ -3397,10 +3419,6 @@
 	},
 /turf/simulated/floor/wood,
 /area/adhomai/village/shop)
-"wX" = (
-/obj/machinery/light/small,
-/turf/simulated/floor/lino,
-/area/adhomai/fortress)
 "wY" = (
 /obj/structure/flora/pottedplant/random,
 /turf/simulated/floor/wood,
@@ -3426,9 +3444,15 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/adhomai/village/shop)
-"xc" = (
-/obj/structure/table/wood,
+"xf" = (
 /obj/item/weapon/storage/field_ration/nka/army,
+/obj/structure/closet/crate{
+	desc = "A simple metal footlocker.";
+	name = "footlocker"
+	},
+/obj/item/clothing/shoes/jackboots/unathi,
+/obj/item/clothing/under/uniform/levy,
+/obj/item/clothing/head/nka,
 /turf/simulated/floor/tiled/dark,
 /area/adhomai/fortress)
 "xg" = (
@@ -3458,10 +3482,13 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/adhomai/village/townhall)
-"xu" = (
-/obj/structure/track,
-/turf/simulated/floor/asteroid/ash/adhomai,
-/area/adhomai)
+"xv" = (
+/obj/structure/closet/crate/trashcart{
+	desc = "A wagon.";
+	name = "wagon"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/adhomai/fortress)
 "xw" = (
 /obj/machinery/light/small{
 	dir = 8
@@ -3501,10 +3528,6 @@
 /obj/item/clothing/under/color/white,
 /turf/simulated/floor/tiled/dark,
 /area/adhomai/village/temple)
-"xJ" = (
-/obj/effect/overlay/blizzard,
-/turf/simulated/floor/ice,
-/area/adhomai)
 "xL" = (
 /obj/structure/sign/adhomai/smith{
 	name = "The Iron Rafama";
@@ -3521,10 +3544,6 @@
 /obj/random/contraband,
 /turf/simulated/floor/tiled/dark,
 /area/adhomai/village/shop)
-"xN" = (
-/obj/structure/bonfire/fireplace/oven,
-/turf/simulated/floor/lino,
-/area/adhomai/fortress)
 "xP" = (
 /obj/structure/bed/chair/office/light,
 /obj/effect/landmark/start{
@@ -3545,6 +3564,15 @@
 /obj/structure/window/classic/reinforced,
 /turf/simulated/floor/tiled/white,
 /area/adhomai/village/medical)
+"xV" = (
+/obj/structure/table/rack,
+/obj/item/ammo_magazine/boltaction/nka/enbloc,
+/obj/item/ammo_magazine/boltaction/nka/enbloc,
+/obj/item/ammo_magazine/boltaction/nka/enbloc,
+/obj/item/ammo_magazine/boltaction/nka/enbloc,
+/obj/item/ammo_magazine/boltaction/nka/enbloc,
+/turf/simulated/floor/tiled/dark,
+/area/adhomai/fortress)
 "xW" = (
 /obj/structure/closet/cabinet,
 /obj/item/weapon/tank/oxygen/red,
@@ -3563,6 +3591,22 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/adhomai/village/shop)
+"ya" = (
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 1
+	},
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/adhomai/fortress)
 "ye" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/landmark/start{
@@ -3574,20 +3618,6 @@
 /obj/machinery/light/small,
 /turf/simulated/floor/tiled/freezer,
 /area/adhomai/village/mayor)
-"yi" = (
-/obj/structure/table/wood,
-/obj/item/clothing/mask/smokable/pipe,
-/obj/item/clothing/mask/smokable/pipe,
-/turf/simulated/floor/tiled/dark,
-/area/adhomai/fortress)
-"yk" = (
-/obj/structure/bed,
-/obj/effect/landmark/start{
-	name = "Infantryman"
-	},
-/obj/item/weapon/bedsheet/brown,
-/turf/simulated/floor/tiled/dark,
-/area/adhomai/fortress)
 "ym" = (
 /obj/structure/bedsheetbin,
 /obj/structure/table/standard,
@@ -3664,6 +3694,10 @@
 	},
 /turf/simulated/floor/wood,
 /area/crew_quarters/sleep/bedrooms)
+"yO" = (
+/obj/effect/overlay/blizzard,
+/turf/unsimulated/mask/adhomai,
+/area/adhomai)
 "yP" = (
 /obj/structure/table/rack,
 /obj/structure/window/reinforced,
@@ -3729,6 +3763,18 @@
 	},
 /turf/simulated/floor/carpet,
 /area/adhomai/village/shop)
+"zk" = (
+/obj/structure/window/sandbag{
+	icon_state = "sandbag";
+	dir = 4
+	},
+/obj/structure/street_lamp,
+/turf/simulated/floor/snow,
+/area/adhomai)
+"zl" = (
+/obj/machinery/light/small,
+/turf/simulated/floor/asteroid/ash/adhomai,
+/area/adhomai)
 "zn" = (
 /turf/simulated/floor/plating,
 /area/adhomai/village/court)
@@ -3738,18 +3784,6 @@
 /obj/item/weapon/pickaxe/drill/mattock,
 /turf/simulated/floor/tiled/dark,
 /area/adhomai/fortress)
-"zs" = (
-/obj/structure/table/rack,
-/obj/item/weapon/storage/belt/security/tactical/nka,
-/obj/item/weapon/storage/belt/security/tactical/nka,
-/obj/item/weapon/storage/belt/security/tactical/nka,
-/obj/item/weapon/storage/belt/security/tactical/nka,
-/turf/simulated/floor/tiled/dark,
-/area/adhomai/fortress)
-"zt" = (
-/obj/machinery/light/small,
-/turf/simulated/floor/asteroid/ash/adhomai,
-/area/adhomai)
 "zw" = (
 /obj/structure/bed/chair/wood/adhomai,
 /obj/effect/landmark/start{
@@ -3757,6 +3791,13 @@
 	},
 /turf/simulated/floor/wood,
 /area/adhomai/village/police)
+"zy" = (
+/obj/structure/table/wood,
+/obj/item/weapon/storage/fancy/cigarettes,
+/obj/item/weapon/storage/fancy/cigarettes,
+/obj/item/weapon/storage/box/matches,
+/turf/simulated/floor/tiled/dark,
+/area/adhomai/fortress)
 "zB" = (
 /obj/structure/bookcase/libraryspawn/reference,
 /turf/simulated/floor/carpet,
@@ -3765,35 +3806,23 @@
 /obj/structure/curtain/medical,
 /turf/simulated/floor/lino,
 /area/adhomai/village/medical)
-"zD" = (
-/obj/effect/landmark/start{
-	name = "Prospector"
-	},
-/turf/simulated/floor/asteroid/ash/adhomai,
-/area/adhomai)
-"zE" = (
-/obj/structure/pit{
-	name = "latrine pit"
-	},
-/turf/simulated/floor/snow,
-/area/adhomai)
-"zG" = (
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/lino,
+"zH" = (
+/obj/structure/table/steel,
+/obj/item/weapon/storage/box/cups,
+/turf/simulated/floor/tiled/dark,
 /area/adhomai/fortress)
 "zI" = (
-/obj/structure/filingcabinet/chestdrawer,
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/table/rack,
+/obj/item/stack/material/wood{
+	amount = 10
+	},
 /turf/simulated/floor/tiled/dark,
 /area/adhomai/fortress)
 "zK" = (
 /obj/structure/table/wood,
 /turf/simulated/floor/wood,
 /area/adhomai/village)
-"zN" = (
-/obj/structure/track,
-/obj/vehicle/train/cargo/engine/mining,
-/turf/simulated/floor/asteroid/ash/adhomai,
-/area/adhomai)
 "zO" = (
 /obj/structure/curtain/open/bed{
 	pixel_y = -32
@@ -3825,11 +3854,6 @@
 	},
 /turf/simulated/floor/wood,
 /area/adhomai/village/shop)
-"zT" = (
-/obj/structure/table/wood,
-/obj/machinery/chemical_dispenser/coffeemaster/full,
-/turf/simulated/floor/tiled/dark,
-/area/adhomai/fortress)
 "zU" = (
 /obj/structure/bed/chair/wood/adhomai{
 	icon_state = "tajchair";
@@ -3845,10 +3869,6 @@
 "zX" = (
 /turf/simulated/open,
 /area/adhomai/village/police)
-"zZ" = (
-/obj/structure/bonfire/fireplace/stove,
-/turf/simulated/floor/tiled/dark,
-/area/adhomai/fortress/outpost)
 "Ab" = (
 /obj/machinery/power/apc{
 	pixel_y = 32
@@ -3873,6 +3893,21 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/sleep/bedrooms)
+"Ao" = (
+/obj/structure/table/rack,
+/obj/item/weapon/material/caltrops,
+/obj/item/weapon/material/caltrops,
+/obj/item/weapon/material/caltrops,
+/obj/item/weapon/material/caltrops,
+/obj/item/weapon/material/caltrops,
+/obj/effect/decal/cleanable/dirt,
+/obj/item/weapon/material/caltrops,
+/obj/item/weapon/material/caltrops,
+/obj/item/weapon/material/caltrops,
+/obj/item/weapon/material/caltrops,
+/obj/item/weapon/material/caltrops,
+/turf/simulated/floor/tiled/dark,
+/area/adhomai/fortress)
 "Ax" = (
 /obj/structure/bed/chair/wood/adhomai,
 /turf/simulated/floor/carpet,
@@ -3968,22 +4003,6 @@
 /obj/structure/window/reinforced,
 /turf/simulated/floor/tiled/dark,
 /area/adhomai/fortress)
-"Bd" = (
-/obj/structure/table/steel,
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 8
-	},
-/obj/item/device/radio/intercom/basestation/adhomai/nka,
-/obj/machinery/light/small{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/dark,
-/area/adhomai/fortress)
 "Bf" = (
 /obj/structure/table/wood,
 /obj/structure/curtain/open/bed{
@@ -4028,17 +4047,14 @@
 	},
 /turf/simulated/floor/snow,
 /area/adhomai)
-"Bl" = (
-/obj/effect/overlay/blizzard/heavy,
-/turf/simulated/floor/ice,
-/area/adhomai)
-"Bo" = (
-/obj/structure/window/sandbag{
-	icon_state = "sandbag";
-	dir = 4
+"Bp" = (
+/obj/structure/flora/pottedplant{
+	dead = 1;
+	icon_state = "plant-dead";
+	name = "dead plant"
 	},
-/turf/simulated/floor/asteroid/ash/adhomai,
-/area/adhomai)
+/turf/simulated/floor/tiled/dark,
+/area/adhomai/fortress)
 "Br" = (
 /obj/machinery/light/small{
 	dir = 1
@@ -4049,6 +4065,10 @@
 /obj/structure/window/sandbag,
 /obj/structure/window/sandbag,
 /turf/simulated/floor/snow,
+/area/adhomai)
+"Bv" = (
+/obj/effect/overlay/blizzard,
+/turf/simulated/floor/asteroid/ash/adhomai,
 /area/adhomai)
 "Bw" = (
 /obj/structure/filingcabinet/chestdrawer,
@@ -4113,15 +4133,6 @@
 /obj/machinery/light/small,
 /turf/simulated/floor/tiled/freezer,
 /area/adhomai/village/mayor)
-"BP" = (
-/obj/structure/closet/crate,
-/obj/effect/decal/cleanable/dirt,
-/obj/item/weapon/storage/field_ration/nka/army,
-/obj/item/clothing/shoes/jackboots/unathi,
-/obj/item/clothing/under/uniform/levy,
-/obj/item/clothing/head/nka,
-/turf/simulated/floor/tiled/dark,
-/area/adhomai/fortress)
 "BV" = (
 /obj/structure/table/rack,
 /obj/structure/window/reinforced,
@@ -4174,13 +4185,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/adhomai/village/townhall)
-"Cr" = (
-/obj/effect/landmark{
-	name = "AdhomaiJourney"
-	},
-/obj/effect/overlay/blizzard,
-/turf/simulated/floor/asteroid/ash/adhomai,
-/area/adhomai)
 "Cs" = (
 /obj/structure/bed,
 /obj/item/weapon/bedsheet,
@@ -4200,11 +4204,6 @@
 	},
 /turf/simulated/floor/wood,
 /area/adhomai/village/temple)
-"Cz" = (
-/obj/structure/table/wood,
-/obj/item/clothing/gloves/black/oven,
-/turf/simulated/floor/lino,
-/area/adhomai/fortress)
 "CA" = (
 /obj/item/weapon/trap/animal/large,
 /obj/effect/decal/cleanable/dirt,
@@ -4218,11 +4217,6 @@
 	},
 /turf/simulated/floor/snow,
 /area/adhomai)
-"CD" = (
-/obj/structure/table/wood,
-/obj/machinery/recharger,
-/turf/simulated/floor/wood,
-/area/adhomai/village/townhall)
 "CK" = (
 /obj/structure/table/rack,
 /obj/structure/window/reinforced,
@@ -4239,6 +4233,11 @@
 /obj/structure/simple_door/adhomai/wood,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/sleep/bedrooms)
+"CT" = (
+/obj/structure/table/wood,
+/obj/structure/bedsheetbin,
+/turf/simulated/floor/tiled/dark,
+/area/adhomai/fortress)
 "CU" = (
 /obj/structure/bonfire/fireplace{
 	dir = 4
@@ -4312,12 +4311,16 @@
 	icon_state = "hydrofloor"
 	},
 /area/adhomai/village/mayor)
-"Dr" = (
-/obj/structure/closet/crate/trashcart{
-	desc = "A wagon.";
-	name = "wagon"
+"Dl" = (
+/obj/machinery/light/small{
+	dir = 4;
+	pixel_y = 8
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/asteroid/ash/adhomai,
+/area/adhomai)
+"Dr" = (
+/obj/structure/bonfire/fireplace/oven,
+/turf/simulated/floor/lino,
 /area/adhomai/fortress)
 "Dw" = (
 /obj/structure/table/wood,
@@ -4368,42 +4371,9 @@
 "DA" = (
 /turf/simulated/wall/iron,
 /area/adhomai)
-"DE" = (
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 1
-	},
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 8
-	},
-/turf/simulated/floor/plating,
+"DC" = (
+/turf/simulated/floor/lino,
 /area/adhomai/fortress)
-"DF" = (
-/obj/structure/window/sandbag{
-	icon_state = "sandbag";
-	dir = 1
-	},
-/obj/structure/closet/crate{
-	desc = "A simple metal footlocker.";
-	name = "footlocker"
-	},
-/obj/item/target,
-/obj/item/target,
-/obj/item/target,
-/obj/item/target,
-/obj/item/target,
-/obj/item/target,
-/obj/item/target,
-/obj/item/target,
-/obj/item/target,
-/turf/simulated/floor/snow,
-/area/adhomai)
 "DK" = (
 /obj/structure/window/sandbag{
 	icon_state = "sandbag";
@@ -4486,18 +4456,6 @@
 /obj/machinery/light/small{
 	dir = 4;
 	pixel_y = 0
-	},
-/turf/simulated/floor/tiled/dark,
-/area/adhomai/fortress)
-"Ec" = (
-/obj/structure/coatrack,
-/turf/simulated/floor/tiled/dark,
-/area/adhomai/fortress)
-"Ed" = (
-/obj/structure/table/wood,
-/obj/item/weapon/storage/box/chess_kit,
-/obj/machinery/light/small{
-	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/adhomai/fortress)
@@ -4595,10 +4553,26 @@
 "EH" = (
 /turf/simulated/floor/wood,
 /area/adhomai/village)
+"EN" = (
+/obj/structure/table/wood,
+/obj/item/weapon/reagent_containers/glass/rag,
+/turf/simulated/floor/lino,
+/area/adhomai/fortress)
 "EQ" = (
 /obj/structure/bed/chair/wood/adhomai,
 /turf/simulated/floor/carpet,
 /area/adhomai/village/townhall)
+"ER" = (
+/obj/item/weapon/stool/padded,
+/obj/effect/landmark/start{
+	name = "Commoner"
+	},
+/turf/simulated/floor/wood,
+/area/crew_quarters/sleep/bedrooms)
+"EU" = (
+/obj/machinery/washing_machine,
+/turf/simulated/floor/tiled/dark,
+/area/adhomai/fortress)
 "Fa" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /turf/simulated/floor/tiled/white,
@@ -4616,6 +4590,11 @@
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/adhomai/fortress)
+"Ff" = (
+/obj/structure/table/wood,
+/obj/machinery/chemical_dispenser/coffeemaster/full,
 /turf/simulated/floor/tiled/dark,
 /area/adhomai/fortress)
 "Fr" = (
@@ -4653,8 +4632,7 @@
 /turf/simulated/floor/carpet,
 /area/adhomai/village/court)
 "FC" = (
-/obj/structure/track,
-/turf/simulated/floor/snow,
+/turf/simulated/wall/r_wall,
 /area/adhomai)
 "FD" = (
 /obj/effect/floor_decal/spline/plain{
@@ -4663,6 +4641,11 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/adhomai/village/temple)
+"FG" = (
+/obj/structure/bed,
+/obj/item/weapon/bedsheet,
+/turf/simulated/floor/tiled/dark,
+/area/adhomai/fortress/outpost)
 "FJ" = (
 /obj/structure/closet/cabinet,
 /obj/item/stack/material/platinum{
@@ -4670,6 +4653,11 @@
 	},
 /turf/simulated/floor/wood,
 /area/adhomai/village/blacksmith)
+"FM" = (
+/obj/machinery/light/small,
+/obj/machinery/biogenerator/adhomai,
+/turf/simulated/floor/lino,
+/area/adhomai/fortress)
 "FP" = (
 /obj/structure/table/wood,
 /obj/effect/floor_decal/spline/plain{
@@ -4678,6 +4666,10 @@
 	},
 /turf/simulated/floor/lino,
 /area/adhomai/village/court)
+"FT" = (
+/obj/effect/overlay/blizzard/heavy,
+/turf/unsimulated/mask/adhomai,
+/area/adhomai)
 "FW" = (
 /obj/structure/sign/adhomai/paiting{
 	pixel_y = 32
@@ -4790,11 +4782,30 @@
 	},
 /turf/simulated/floor/asteroid/ash/adhomai,
 /area/adhomai)
-"GE" = (
-/obj/structure/table/rack,
-/obj/item/clothing/accessory/stethoscope,
-/obj/item/clothing/accessory/stethoscope,
+"GK" = (
+/obj/structure/table/steel,
+/obj/item/device/flashlight/lantern,
+/obj/item/device/flashlight/lantern,
+/obj/item/device/flashlight/lantern,
+/obj/item/device/flashlight/lantern,
+/obj/item/device/flashlight/lantern,
 /turf/simulated/floor/tiled/dark,
+/area/adhomai/fortress)
+"GN" = (
+/obj/structure/lattice/catwalk/indoor,
+/turf/simulated/floor/asteroid/ash/adhomai,
+/area/adhomai)
+"GQ" = (
+/obj/structure/table/steel,
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 8
+	},
+/obj/item/weapon/clipboard,
+/obj/item/weapon/pen,
+/obj/item/weapon/paper_bin,
+/turf/simulated/wall/iron,
 /area/adhomai/fortress)
 "GT" = (
 /obj/structure/closet/cabinet,
@@ -4803,6 +4814,13 @@
 	},
 /turf/simulated/floor/wood,
 /area/adhomai/village/blacksmith)
+"GU" = (
+/obj/structure/bed/chair/wood/adhomai,
+/obj/effect/landmark/start{
+	name = "Infantryman"
+	},
+/turf/simulated/floor/carpet,
+/area/adhomai/village/temple)
 "He" = (
 /turf/simulated/floor/tiled/ramp/bottom{
 	icon_state = "rampbot";
@@ -4816,11 +4834,6 @@
 	},
 /turf/simulated/floor/carpet,
 /area/adhomai/village/mayor)
-"Hg" = (
-/obj/effect/overlay/blizzard/heavy,
-/obj/effect/overlay/blizzard,
-/turf/unsimulated/mask/adhomai,
-/area/adhomai)
 "Hh" = (
 /obj/structure/table/stone/marble,
 /obj/effect/decal/cleanable/blood,
@@ -4840,6 +4853,10 @@
 	},
 /turf/simulated/floor/asteroid/ash/adhomai,
 /area/adhomai/village)
+"Hu" = (
+/obj/effect/overlay/blizzard/heavy,
+/turf/simulated/floor/asteroid/ash/adhomai,
+/area/adhomai)
 "Hw" = (
 /obj/structure/closet/crate,
 /obj/effect/decal/cleanable/dirt,
@@ -4868,6 +4885,12 @@
 	},
 /turf/simulated/floor/wood,
 /area/adhomai/village)
+"HG" = (
+/obj/structure/bed/chair/comfy/brown{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/adhomai/fortress)
 "HH" = (
 /obj/structure/table/wood,
 /obj/item/weapon/paper_bin,
@@ -4895,9 +4918,6 @@
 /obj/item/weapon/stool/padded,
 /turf/simulated/floor/wood,
 /area/crew_quarters/sleep/bedrooms)
-"HW" = (
-/turf/simulated/floor/lino,
-/area/adhomai/fortress)
 "HZ" = (
 /obj/structure/closet/crate{
 	desc = "A simple metal footlocker.";
@@ -4945,6 +4965,14 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/adhomai/fortress)
+"Ik" = (
+/obj/structure/table/wood,
+/obj/item/weapon/storage/box/chess_kit,
+/obj/machinery/light/small{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/adhomai/fortress)
 "Il" = (
 /turf/simulated/floor/tiled/ramp/bottom{
 	icon_state = "rampbot";
@@ -4968,6 +4996,11 @@
 /obj/structure/bed/roller,
 /turf/simulated/floor/lino,
 /area/adhomai/village/medical)
+"Iv" = (
+/obj/structure/table/steel,
+/obj/structure/closet/crate,
+/turf/simulated/floor/tiled/dark,
+/area/adhomai/fortress)
 "Iz" = (
 /obj/structure/closet/crate,
 /turf/simulated/floor/wood,
@@ -5022,6 +5055,22 @@
 /obj/structure/flora/ausbushes/genericbush,
 /turf/simulated/floor/asteroid/ash/adhomai,
 /area/adhomai)
+"IQ" = (
+/obj/structure/table/rack,
+/obj/item/ammo_magazine/nka,
+/obj/item/ammo_magazine/nka,
+/obj/item/ammo_magazine/nka,
+/obj/item/ammo_magazine/nka,
+/obj/item/ammo_magazine/nka,
+/obj/item/ammo_magazine/nka,
+/obj/item/ammo_magazine/nka,
+/obj/item/ammo_magazine/nka,
+/obj/item/ammo_magazine/nka,
+/obj/item/ammo_magazine/nka,
+/obj/item/ammo_magazine/nka,
+/obj/item/ammo_magazine/nka,
+/turf/simulated/floor/tiled/dark,
+/area/adhomai/fortress)
 "IT" = (
 /obj/structure/flora/pottedplant,
 /obj/machinery/light/small{
@@ -5067,11 +5116,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/adhomai/fortress)
 "Jn" = (
-/obj/structure/table/rack,
-/obj/item/device/binoculars,
-/obj/item/device/binoculars,
-/turf/simulated/floor/tiled/dark,
-/area/adhomai/fortress)
+/obj/structure/track,
+/turf/simulated/floor/asteroid/ash/adhomai,
+/area/adhomai)
 "Jv" = (
 /obj/machinery/light{
 	dir = 8;
@@ -5146,11 +5193,6 @@
 /obj/structure/simple_door/wood,
 /turf/simulated/floor/wood,
 /area/adhomai/village)
-"JQ" = (
-/obj/structure/track,
-/obj/vehicle/train/cargo/trolley/mining,
-/turf/simulated/floor/asteroid/ash/adhomai,
-/area/adhomai)
 "JR" = (
 /turf/simulated/wall/wood/adhomai,
 /area/adhomai)
@@ -5161,23 +5203,10 @@
 /obj/item/weapon/storage/toolbox/mechanical,
 /turf/simulated/floor/tiled/dark,
 /area/adhomai/fortress)
-"JV" = (
-/obj/structure/window/sandbag{
-	icon_state = "sandbag";
-	dir = 8
-	},
-/turf/simulated/floor/asteroid/ash/adhomai,
-/area/adhomai)
 "JX" = (
 /obj/structure/window/classic/reinforced,
 /turf/simulated/floor/lino,
 /area/adhomai/village/mayor)
-"Kc" = (
-/obj/structure/table/rack,
-/obj/item/weapon/shovel,
-/obj/item/weapon/shovel,
-/turf/simulated/floor/tiled/dark,
-/area/adhomai/fortress)
 "Kf" = (
 /obj/structure/table/wood,
 /obj/item/device/ano_scanner,
@@ -5221,10 +5250,6 @@
 	icon_state = "hydrofloor"
 	},
 /area/adhomai/village/mayor)
-"KA" = (
-/obj/structure/reagent_dispensers/water_cooler,
-/turf/simulated/floor/tiled/dark,
-/area/adhomai/fortress)
 "KB" = (
 /obj/structure/table/steel,
 /turf/simulated/floor/tiled/dark,
@@ -5241,6 +5266,14 @@
 	},
 /turf/simulated/floor/wood,
 /area/adhomai/village)
+"KG" = (
+/obj/structure/window/sandbag{
+	icon_state = "sandbag";
+	dir = 8
+	},
+/obj/structure/street_lamp,
+/turf/simulated/floor/snow,
+/area/adhomai)
 "KI" = (
 /obj/machinery/light/small{
 	dir = 8
@@ -5362,18 +5395,10 @@
 /area/adhomai/village/townhall)
 "LD" = (
 /obj/structure/table/rack,
-/obj/item/ammo_magazine/boltaction/nka/enbloc,
-/obj/item/ammo_magazine/boltaction/nka/enbloc,
-/obj/item/ammo_magazine/boltaction/nka/enbloc,
-/obj/item/ammo_magazine/boltaction/nka/enbloc,
-/obj/item/ammo_magazine/boltaction/nka/enbloc,
-/turf/simulated/floor/tiled/dark,
-/area/adhomai/fortress)
-"LE" = (
-/obj/structure/bed/chair/wood/adhomai{
-	icon_state = "tajchair";
-	dir = 8
-	},
+/obj/item/weapon/storage/belt/security/tactical/nka,
+/obj/item/weapon/storage/belt/security/tactical/nka,
+/obj/item/weapon/storage/belt/security/tactical/nka,
+/obj/item/weapon/storage/belt/security/tactical/nka,
 /turf/simulated/floor/tiled/dark,
 /area/adhomai/fortress)
 "LF" = (
@@ -5400,15 +5425,6 @@
 	},
 /turf/simulated/floor/wood,
 /area/adhomai/village)
-"LK" = (
-/obj/structure/table/rack,
-/obj/item/ammo_magazine/boltaction/nka,
-/obj/item/ammo_magazine/boltaction/nka,
-/obj/item/ammo_magazine/boltaction/nka,
-/obj/item/ammo_magazine/boltaction/nka,
-/obj/item/ammo_magazine/boltaction/nka,
-/turf/simulated/floor/tiled/dark,
-/area/adhomai/fortress)
 "LP" = (
 /obj/structure/curtain/open/bed{
 	pixel_x = -32
@@ -5439,25 +5455,24 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/adhomai/village/medical)
-"Mc" = (
-/obj/structure/flora/grass/both,
-/obj/effect/overlay/blizzard/heavy,
-/turf/unsimulated/mask/adhomai,
-/area/adhomai)
-"Me" = (
-/obj/structure/table/rack,
-/obj/item/weapon/material/caltrops,
-/obj/item/weapon/material/caltrops,
-/obj/item/weapon/material/caltrops,
-/obj/item/weapon/material/caltrops,
-/obj/item/weapon/material/caltrops,
-/obj/effect/decal/cleanable/dirt,
-/obj/item/weapon/material/caltrops,
-/obj/item/weapon/material/caltrops,
-/obj/item/weapon/material/caltrops,
-/obj/item/weapon/material/caltrops,
-/obj/item/weapon/material/caltrops,
+"Mb" = (
+/obj/structure/bed/chair/wood/adhomai{
+	icon_state = "tajchair";
+	dir = 8
+	},
 /turf/simulated/floor/tiled/dark,
+/area/adhomai/fortress)
+"Md" = (
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 4
+	},
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 8
+	},
+/turf/simulated/floor/plating,
 /area/adhomai/fortress)
 "Mg" = (
 /obj/structure/sink/kitchen{
@@ -5507,6 +5522,13 @@
 	},
 /turf/simulated/floor/carpet,
 /area/adhomai/village/mayor)
+"Mq" = (
+/obj/structure/window/sandbag{
+	icon_state = "sandbag";
+	dir = 8
+	},
+/turf/simulated/floor/asteroid/ash/adhomai,
+/area/adhomai)
 "Mt" = (
 /obj/structure/table/rack,
 /obj/item/weapon/sandbag,
@@ -5523,6 +5545,13 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/adhomai/fortress)
+"Mx" = (
+/obj/structure/window/sandbag{
+	icon_state = "sandbag";
+	dir = 4
+	},
+/turf/simulated/floor/asteroid/ash/adhomai,
+/area/adhomai)
 "Mz" = (
 /turf/simulated/wall/iron,
 /area/adhomai/village/temple)
@@ -5617,6 +5646,16 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
 /area/adhomai/fortress)
+"Nl" = (
+/obj/structure/pit{
+	name = "latrine pit"
+	},
+/turf/simulated/floor/snow,
+/area/adhomai)
+"Nm" = (
+/obj/structure/bonfire,
+/turf/simulated/floor/wood,
+/area/adhomai/village)
 "Nn" = (
 /obj/effect/decal/cleanable/cobweb,
 /obj/effect/decal/cleanable/dirt,
@@ -5634,8 +5673,11 @@
 /obj/item/device/toner,
 /turf/simulated/floor/carpet,
 /area/adhomai/village/shop)
-"NB" = (
-/obj/structure/flora/ausbushes/fullgrass,
+"Ny" = (
+/obj/effect/landmark{
+	name = "AdhomaiJourney"
+	},
+/obj/effect/overlay/blizzard,
 /turf/simulated/floor/asteroid/ash/adhomai,
 /area/adhomai)
 "NC" = (
@@ -5654,19 +5696,16 @@
 	},
 /turf/simulated/floor/snow,
 /area/adhomai)
-"NL" = (
-/obj/machinery/light/small{
-	dir = 1
-	},
-/obj/structure/noticeboard{
-	pixel_y = 27
-	},
-/turf/simulated/floor/snow,
-/area/adhomai)
 "NR" = (
 /obj/structure/flora/grass/brown,
 /turf/simulated/floor/asteroid/ash/adhomai,
 /area/adhomai/village)
+"NU" = (
+/obj/structure/table/rack,
+/obj/item/weapon/shovel,
+/obj/item/weapon/shovel,
+/turf/simulated/floor/tiled/dark,
+/area/adhomai/fortress)
 "NW" = (
 /obj/structure/bed/chair/wood/adhomai{
 	icon_state = "tajchair";
@@ -5682,6 +5721,10 @@
 	},
 /turf/simulated/floor/wood,
 /area/adhomai/village/blacksmith)
+"Oc" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/lino,
+/area/adhomai/fortress)
 "Od" = (
 /obj/structure/curtain/open/bed{
 	pixel_y = -32
@@ -5692,11 +5735,6 @@
 	},
 /turf/simulated/floor/carpet,
 /area/adhomai/village)
-"Og" = (
-/obj/structure/table/steel,
-/obj/item/weapon/storage/box/cups,
-/turf/simulated/floor/tiled/dark,
-/area/adhomai/fortress)
 "Oi" = (
 /obj/machinery/light/small{
 	dir = 4
@@ -5744,12 +5782,6 @@
 /obj/item/weapon/reagent_containers/food/drinks/drinkingglass,
 /turf/simulated/floor/wood,
 /area/adhomai/village)
-"Ov" = (
-/obj/effect/landmark/start{
-	name = "Commoner"
-	},
-/turf/unsimulated/mask/adhomai,
-/area/adhomai)
 "Ox" = (
 /obj/structure/table/wood,
 /obj/effect/floor_decal/corner/green/diagonal,
@@ -5830,6 +5862,13 @@
 /obj/structure/closet/crate/trashcart,
 /turf/simulated/floor/wood,
 /area/adhomai/village/temple)
+"OR" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/landmark/start{
+	name = "Commoner"
+	},
+/turf/simulated/floor/asteroid/ash/adhomai,
+/area/adhomai)
 "OS" = (
 /obj/structure/table/wood,
 /obj/item/weapon/hand_labeler,
@@ -5837,20 +5876,6 @@
 /obj/item/weapon/ladder_mobile,
 /turf/simulated/floor/wood,
 /area/adhomai/village)
-"OT" = (
-/obj/structure/table/rack,
-/obj/item/weapon/grenade/smokebomb/nka,
-/obj/item/weapon/grenade/smokebomb/nka,
-/obj/item/weapon/grenade/smokebomb/nka,
-/obj/item/weapon/grenade/smokebomb/nka,
-/obj/item/weapon/grenade/smokebomb/nka,
-/obj/item/weapon/grenade/smokebomb/nka,
-/obj/item/weapon/grenade/smokebomb/nka,
-/obj/item/weapon/grenade/smokebomb/nka,
-/obj/item/weapon/grenade/smokebomb/nka,
-/obj/item/weapon/grenade/smokebomb/nka,
-/turf/simulated/floor/tiled/dark,
-/area/adhomai/fortress)
 "OY" = (
 /obj/structure/closet/coffin/sarcophagus,
 /turf/simulated/floor/tiled/dark,
@@ -5859,18 +5884,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/adhomai/village/court)
 "Pc" = (
-/obj/structure/table/rack,
-/obj/item/clothing/head/welding,
-/obj/item/clothing/head/welding,
-/turf/simulated/floor/tiled/dark,
+/obj/structure/table/wood,
+/obj/item/clothing/gloves/black/oven,
+/turf/simulated/floor/lino,
 /area/adhomai/fortress)
-"Pg" = (
-/obj/structure/window/sandbag{
-	icon_state = "sandbag";
-	dir = 8
-	},
-/turf/unsimulated/mask/adhomai,
-/area/adhomai)
 "Pi" = (
 /obj/structure/sink{
 	dir = 8;
@@ -5919,22 +5936,38 @@
 /obj/machinery/portable_atmospherics/hydroponics/soil,
 /turf/simulated/floor/asteroid/ash/adhomai,
 /area/adhomai/village)
+"Px" = (
+/obj/structure/flora/ausbushes/fullgrass,
+/turf/simulated/floor/asteroid/ash/adhomai,
+/area/adhomai)
 "PA" = (
 /obj/structure/anvil,
 /turf/simulated/floor/wood,
 /area/adhomai/village/blacksmith)
+"PC" = (
+/obj/structure/sink/kitchen{
+	dir = 4;
+	icon_state = "sink_alt";
+	pixel_x = -21
+	},
+/obj/item/weapon/reagent_containers/glass/bucket,
+/turf/simulated/floor/lino,
+/area/adhomai/fortress)
+"PF" = (
+/obj/effect/floor_decal/corner/paleblue/diagonal,
+/obj/structure/closet/crate/freezer,
+/obj/item/weapon/reagent_containers/blood/OMinus,
+/obj/item/weapon/reagent_containers/blood/OMinus,
+/obj/item/weapon/reagent_containers/blood/OMinus,
+/obj/item/weapon/reagent_containers/blood/OMinus,
+/turf/simulated/floor/tiled/white,
+/area/adhomai/village/medical)
 "PJ" = (
 /obj/machinery/light/small{
 	dir = 8
 	},
 /turf/simulated/floor/wood,
 /area/adhomai/village)
-"PL" = (
-/obj/effect/landmark/start{
-	name = "Hunter"
-	},
-/turf/simulated/floor/asteroid/ash/adhomai,
-/area/adhomai)
 "PM" = (
 /obj/structure/sign/adhomai/shop{
 	pixel_y = 32
@@ -5960,10 +5993,6 @@
 /obj/machinery/appliance/cooker/oven/adhomai,
 /turf/simulated/floor/lino,
 /area/crew_quarters/sleep/bedrooms)
-"PW" = (
-/obj/effect/overlay/blizzard,
-/turf/simulated/floor/asteroid/ash/adhomai,
-/area/adhomai)
 "PX" = (
 /obj/structure/noticeboard{
 	pixel_x = -32;
@@ -5985,13 +6014,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
 /area/adhomai/fortress)
-"Qf" = (
-/obj/structure/table/rack,
-/obj/item/ammo_casing/rpg,
-/obj/item/ammo_casing/rpg,
-/obj/item/ammo_casing/rpg,
-/turf/simulated/floor/tiled/dark,
-/area/adhomai/fortress)
 "Qi" = (
 /obj/machinery/light/small,
 /turf/simulated/floor/carpet,
@@ -6004,13 +6026,14 @@
 /turf/simulated/wall,
 /area/adhomai/village/police)
 "Ql" = (
-/obj/structure/table/rack,
-/obj/item/ammo_magazine/nka/kt_76,
-/obj/item/ammo_magazine/nka/kt_76,
-/obj/item/ammo_magazine/nka/kt_76,
-/obj/item/ammo_magazine/nka/kt_76,
-/obj/item/ammo_magazine/nka/kt_76,
-/turf/simulated/floor/tiled/dark,
+/obj/structure/table/wood,
+/obj/item/weapon/tray,
+/obj/item/weapon/tray,
+/obj/item/weapon/tray,
+/obj/item/weapon/tray,
+/obj/item/weapon/tray,
+/obj/item/weapon/tray,
+/turf/simulated/floor/lino,
 /area/adhomai/fortress)
 "Qn" = (
 /obj/structure/bed/chair/wood/adhomai{
@@ -6046,17 +6069,10 @@
 	},
 /turf/simulated/floor/wood,
 /area/adhomai/village/townhall)
-"QD" = (
-/turf/simulated/wall/r_wall,
-/area/adhomai)
 "QE" = (
 /obj/machinery/media/jukebox,
 /turf/simulated/floor/wood,
 /area/adhomai/village/mayor)
-"QF" = (
-/obj/effect/overlay/blizzard/heavy,
-/turf/unsimulated/mask/adhomai,
-/area/adhomai)
 "QG" = (
 /obj/structure/window/sandbag,
 /obj/structure/window/sandbag{
@@ -6080,6 +6096,10 @@
 	},
 /turf/simulated/floor/wood,
 /area/adhomai/village)
+"QK" = (
+/obj/structure/bonfire/fireplace/stove,
+/turf/simulated/floor/tiled/dark,
+/area/adhomai/fortress/outpost)
 "QL" = (
 /obj/structure/table/wood,
 /obj/item/weapon/wirecutters/clippers/trimmers,
@@ -6095,11 +6115,6 @@
 /obj/item/weapon/material/hatchet/butch,
 /turf/simulated/floor/wood,
 /area/adhomai/village)
-"QV" = (
-/obj/structure/table/wood,
-/obj/item/weapon/reagent_containers/glass/rag,
-/turf/simulated/floor/lino,
-/area/adhomai/fortress)
 "QX" = (
 /obj/structure/table/wood,
 /obj/item/glass_jar{
@@ -6108,23 +6123,13 @@
 	},
 /turf/simulated/floor/wood,
 /area/adhomai/village/temple)
-"Rg" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/structure/closet/crate/freezer{
-	name = "Meat Storage"
+"QY" = (
+/obj/structure/bed/chair/wood/adhomai,
+/obj/effect/landmark/start{
+	name = "Sharpshooter"
 	},
-/obj/item/weapon/reagent_containers/food/snacks/meat/adhomai,
-/obj/item/weapon/reagent_containers/food/snacks/meat/adhomai,
-/obj/item/weapon/reagent_containers/food/snacks/meat/adhomai,
-/obj/item/weapon/reagent_containers/food/snacks/meat/adhomai,
-/obj/item/weapon/reagent_containers/food/snacks/meat/adhomai,
-/obj/item/weapon/storage/box/clams,
-/obj/item/weapon/storage/box/clams,
-/obj/item/weapon/storage/box/clams,
-/obj/item/weapon/storage/box/clams,
-/obj/item/weapon/storage/box/clams,
-/turf/simulated/floor/lino,
-/area/adhomai/fortress)
+/turf/simulated/floor/carpet,
+/area/adhomai/village/temple)
 "Rl" = (
 /obj/structure/table/wood,
 /obj/item/weapon/reagent_containers/glass/rag,
@@ -6178,18 +6183,6 @@
 	},
 /turf/simulated/floor/carpet,
 /area/adhomai/village/mayor)
-"RH" = (
-/obj/structure/table/steel,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 8
-	},
-/obj/item/weapon/clipboard,
-/obj/item/weapon/pen,
-/obj/item/weapon/paper_bin,
-/turf/simulated/wall/iron,
-/area/adhomai/fortress)
 "RJ" = (
 /obj/machinery/light/small{
 	dir = 4
@@ -6210,45 +6203,6 @@
 /obj/structure/ore_box,
 /turf/simulated/floor/tiled/dark,
 /area/adhomai/fortress)
-"RQ" = (
-/obj/structure/table/wood,
-/obj/machinery/light/small,
-/turf/simulated/floor/tiled/dark,
-/area/adhomai/fortress)
-"RR" = (
-/obj/structure/table/rack,
-/obj/item/stack/material/wood{
-	amount = 40
-	},
-/obj/item/stack/material/wood{
-	amount = 40
-	},
-/obj/item/stack/material/wood{
-	amount = 40
-	},
-/obj/item/stack/material/wood{
-	amount = 40
-	},
-/obj/item/stack/material/wood{
-	amount = 40
-	},
-/obj/item/stack/material/wood{
-	amount = 40
-	},
-/obj/item/stack/material/wood{
-	amount = 40
-	},
-/obj/item/stack/material/wood{
-	amount = 40
-	},
-/obj/item/stack/material/wood{
-	amount = 40
-	},
-/obj/item/stack/material/wood{
-	amount = 40
-	},
-/turf/simulated/floor/tiled/dark,
-/area/adhomai/fortress)
 "RS" = (
 /obj/structure/closet,
 /turf/simulated/floor/wood,
@@ -6259,6 +6213,15 @@
 	},
 /turf/simulated/floor/wood,
 /area/adhomai/village/shop)
+"RX" = (
+/obj/structure/table/rack,
+/obj/item/ammo_magazine/boltaction/nka,
+/obj/item/ammo_magazine/boltaction/nka,
+/obj/item/ammo_magazine/boltaction/nka,
+/obj/item/ammo_magazine/boltaction/nka,
+/obj/item/ammo_magazine/boltaction/nka,
+/turf/simulated/floor/tiled/dark,
+/area/adhomai/fortress)
 "RY" = (
 /obj/structure/reagent_dispensers/fueltank,
 /obj/effect/decal/cleanable/dirt,
@@ -6319,15 +6282,17 @@
 /turf/simulated/floor/wood,
 /area/adhomai/village/blacksmith)
 "SB" = (
-/obj/item/weapon/storage/field_ration/nka/army,
-/obj/structure/closet/crate{
-	desc = "A simple metal footlocker.";
-	name = "footlocker"
-	},
-/obj/item/clothing/shoes/jackboots/unathi,
-/obj/item/clothing/under/uniform/levy,
-/obj/item/clothing/head/nka,
+/obj/structure/table/rack,
+/obj/item/ammo_casing/rpg,
+/obj/item/ammo_casing/rpg,
+/obj/item/ammo_casing/rpg,
 /turf/simulated/floor/tiled/dark,
+/area/adhomai/fortress)
+"SE" = (
+/obj/structure/closet/cabinet,
+/obj/item/weapon/storage/box/drinkingglasses,
+/obj/item/weapon/storage/box/utensils,
+/turf/simulated/floor/lino,
 /area/adhomai/fortress)
 "SF" = (
 /obj/structure/table/rack,
@@ -6413,13 +6378,10 @@
 /obj/item/ammo_magazine/boltaction/nka,
 /turf/simulated/floor/wood,
 /area/adhomai/village)
-"Tx" = (
-/obj/machinery/light/small{
-	dir = 4;
-	pixel_y = 8
-	},
-/turf/simulated/floor/asteroid/ash/adhomai,
-/area/adhomai)
+"TA" = (
+/obj/structure/bonfire/fireplace,
+/turf/simulated/floor/tiled/dark,
+/area/adhomai/fortress)
 "TC" = (
 /obj/structure/table/wood,
 /obj/item/weapon/reagent_containers/glass/bucket/wood,
@@ -6430,13 +6392,16 @@
 /obj/structure/table/wood,
 /turf/simulated/floor/carpet,
 /area/adhomai/village/mayor)
+"TG" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/item/weapon/stool/padded,
+/turf/simulated/floor/tiled/dark,
+/area/adhomai/fortress)
 "TH" = (
-/obj/structure/bed/chair/wood/adhomai,
-/obj/effect/landmark/start{
-	name = "Trader"
-	},
-/turf/simulated/floor/carpet,
-/area/adhomai/village/temple)
+/obj/structure/table/wood,
+/obj/machinery/light/small,
+/turf/simulated/floor/tiled/dark,
+/area/adhomai/fortress)
 "TK" = (
 /obj/structure/table/rack,
 /turf/simulated/floor/carpet,
@@ -6463,11 +6428,6 @@
 	},
 /turf/simulated/floor/carpet,
 /area/adhomai/village/mayor)
-"TO" = (
-/obj/structure/table/steel,
-/obj/structure/closet/crate,
-/turf/simulated/floor/tiled/dark,
-/area/adhomai/fortress)
 "TP" = (
 /obj/structure/filingcabinet/filingcabinet,
 /obj/machinery/light{
@@ -6490,22 +6450,6 @@
 	},
 /turf/simulated/floor/asteroid/ash/adhomai,
 /area/adhomai)
-"TZ" = (
-/obj/structure/table/rack,
-/obj/item/ammo_magazine/nka,
-/obj/item/ammo_magazine/nka,
-/obj/item/ammo_magazine/nka,
-/obj/item/ammo_magazine/nka,
-/obj/item/ammo_magazine/nka,
-/obj/item/ammo_magazine/nka,
-/obj/item/ammo_magazine/nka,
-/obj/item/ammo_magazine/nka,
-/obj/item/ammo_magazine/nka,
-/obj/item/ammo_magazine/nka,
-/obj/item/ammo_magazine/nka,
-/obj/item/ammo_magazine/nka,
-/turf/simulated/floor/tiled/dark,
-/area/adhomai/fortress)
 "Ue" = (
 /obj/structure/telegraphy,
 /turf/simulated/floor/wood,
@@ -6551,11 +6495,10 @@
 /turf/simulated/floor/carpet,
 /area/adhomai/village/mayor)
 "Um" = (
-/obj/structure/table/rack,
-/obj/item/roller,
-/obj/item/roller,
-/turf/simulated/floor/tiled/dark,
-/area/adhomai/fortress)
+/obj/structure/table/wood,
+/obj/machinery/recharger,
+/turf/simulated/floor/wood,
+/area/adhomai/village/townhall)
 "Un" = (
 /obj/structure/ore_box,
 /turf/simulated/floor/wood,
@@ -6591,16 +6534,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/adhomai/village/shop)
-"Ut" = (
-/obj/structure/table/wood,
-/obj/item/weapon/towel/random,
-/obj/item/weapon/towel/random,
-/obj/item/weapon/towel/random,
-/obj/item/weapon/towel/random,
-/obj/item/weapon/towel/random,
-/obj/item/weapon/towel/random,
-/turf/simulated/floor/tiled/dark,
-/area/adhomai/fortress)
 "Uu" = (
 /obj/structure/bed/chair/wood/adhomai{
 	icon_state = "tajchair";
@@ -6624,6 +6557,13 @@
 /obj/structure/table/wood,
 /turf/simulated/floor/wood,
 /area/adhomai/village)
+"UB" = (
+/obj/structure/bed/chair/wood/adhomai,
+/obj/effect/landmark/start{
+	name = "Trader"
+	},
+/turf/simulated/floor/carpet,
+/area/adhomai/village/temple)
 "UD" = (
 /obj/structure/bookcase/libraryspawn/nonfiction,
 /turf/simulated/floor/wood,
@@ -6671,6 +6611,22 @@
 	},
 /turf/simulated/floor/lino,
 /area/crew_quarters/sleep/bedrooms)
+"UP" = (
+/obj/structure/table/steel,
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 8
+	},
+/obj/item/device/radio/intercom/basestation/adhomai/nka,
+/obj/machinery/light/small{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/adhomai/fortress)
 "UU" = (
 /obj/structure/curtain/open/bed{
 	pixel_y = -32
@@ -6688,10 +6644,6 @@
 	},
 /turf/simulated/floor/asteroid/ash/adhomai,
 /area/adhomai/village)
-"UW" = (
-/obj/effect/overlay/blizzard,
-/turf/unsimulated/mask/adhomai,
-/area/adhomai)
 "UX" = (
 /obj/structure/curtain/open/bed,
 /turf/simulated/floor/wood,
@@ -6699,6 +6651,10 @@
 "Va" = (
 /obj/structure/table/wood,
 /obj/machinery/media/jukebox/phonograph,
+/turf/simulated/floor/tiled/dark,
+/area/adhomai/fortress)
+"Vg" = (
+/obj/structure/filingcabinet/chestdrawer,
 /turf/simulated/floor/tiled/dark,
 /area/adhomai/fortress)
 "Vh" = (
@@ -6744,14 +6700,22 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/adhomai/fortress)
-"VA" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/structure/table/rack,
-/obj/item/stack/material/wood{
-	amount = 10
-	},
+"Vy" = (
+/obj/structure/table/wood,
+/obj/item/weapon/towel/random,
+/obj/item/weapon/towel/random,
+/obj/item/weapon/towel/random,
+/obj/item/weapon/towel/random,
+/obj/item/weapon/towel/random,
+/obj/item/weapon/towel/random,
 /turf/simulated/floor/tiled/dark,
 /area/adhomai/fortress)
+"VA" = (
+/obj/effect/landmark/start{
+	name = "Hunter"
+	},
+/turf/simulated/floor/asteroid/ash/adhomai,
+/area/adhomai)
 "VB" = (
 /obj/structure/curtain/open/bed{
 	pixel_y = -32
@@ -6796,10 +6760,6 @@
 /obj/item/weapon/storage/pill_bottle/tramadol,
 /turf/simulated/floor/tiled/white,
 /area/adhomai/village/medical)
-"VN" = (
-/obj/structure/lattice/catwalk/indoor,
-/turf/simulated/floor/asteroid/ash/adhomai,
-/area/adhomai)
 "VP" = (
 /obj/structure/curtain/open/bed{
 	pixel_y = -32
@@ -6827,6 +6787,11 @@
 	},
 /turf/simulated/floor/wood,
 /area/adhomai/village/court)
+"Wa" = (
+/obj/structure/track,
+/obj/vehicle/train/cargo/engine/mining,
+/turf/simulated/floor/asteroid/ash/adhomai,
+/area/adhomai)
 "We" = (
 /obj/structure/bed,
 /obj/effect/landmark/start{
@@ -6857,19 +6822,9 @@
 	},
 /turf/simulated/floor/tiled/freezer,
 /area/adhomai/village/mayor)
-"Wj" = (
-/obj/structure/table/rack,
-/obj/item/weapon/material/axe,
-/obj/item/weapon/material/axe,
-/turf/simulated/floor/tiled/dark,
-/area/adhomai/fortress)
 "Wm" = (
 /turf/simulated/wall/iron,
 /area/adhomai/village/police)
-"Wr" = (
-/obj/effect/overlay/blizzard/heavy,
-/turf/simulated/floor/asteroid/ash/adhomai,
-/area/adhomai)
 "Ws" = (
 /obj/structure/table/wood,
 /obj/item/weapon/paper_bin,
@@ -6907,11 +6862,6 @@
 	},
 /turf/simulated/floor/carpet,
 /area/adhomai/village/mayor)
-"WC" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/item/weapon/stool/padded,
-/turf/simulated/floor/tiled/dark,
-/area/adhomai/fortress)
 "WG" = (
 /obj/item/weapon/key/mayor,
 /obj/item/weapon/key/mayor,
@@ -6933,6 +6883,13 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/adhomai/village/court)
+"WQ" = (
+/obj/effect/landmark/start{
+	name = "Supply Officer"
+	},
+/obj/item/weapon/stool/padded,
+/turf/simulated/floor/tiled/dark,
+/area/adhomai/fortress)
 "WS" = (
 /obj/structure/shotgun_rack/pump{
 	pixel_y = 32
@@ -7005,6 +6962,14 @@
 /obj/structure/flora/grass/brown,
 /turf/unsimulated/mask/adhomai,
 /area/adhomai)
+"XB" = (
+/obj/structure/bed,
+/obj/effect/landmark/start{
+	name = "Infantryman"
+	},
+/obj/item/weapon/bedsheet/brown,
+/turf/simulated/floor/tiled/dark,
+/area/adhomai/fortress)
 "XC" = (
 /obj/structure/flora/tree/pine,
 /turf/simulated/floor/asteroid/ash/adhomai,
@@ -7018,15 +6983,6 @@
 "XG" = (
 /turf/simulated/floor/carpet,
 /area/adhomai/village/police)
-"XI" = (
-/obj/structure/table/steel,
-/obj/item/device/flashlight/lantern,
-/obj/item/device/flashlight/lantern,
-/obj/item/device/flashlight/lantern,
-/obj/item/device/flashlight/lantern,
-/obj/item/device/flashlight/lantern,
-/turf/simulated/floor/tiled/dark,
-/area/adhomai/fortress)
 "XJ" = (
 /turf/simulated/floor/wood,
 /area/adhomai/village/police)
@@ -7064,6 +7020,10 @@
 /obj/structure/street_lamp,
 /turf/simulated/floor/snow,
 /area/adhomai)
+"Yg" = (
+/obj/structure/table/rack,
+/turf/simulated/floor/tiled/dark,
+/area/adhomai/fortress)
 "Yh" = (
 /obj/structure/window/classic/reinforced,
 /turf/simulated/floor/plating,
@@ -7074,6 +7034,15 @@
 	},
 /turf/simulated/floor/wood,
 /area/adhomai/village/police)
+"Yl" = (
+/obj/effect/overlay/blizzard/heavy,
+/obj/effect/overlay/blizzard,
+/turf/simulated/floor/asteroid/ash/adhomai,
+/area/adhomai)
+"Yo" = (
+/obj/structure/track,
+/turf/simulated/floor/snow,
+/area/adhomai)
 "Yp" = (
 /obj/structure/bed,
 /obj/machinery/light/small{
@@ -7123,6 +7092,10 @@
 /obj/item/device/flashlight/lamp/green,
 /turf/simulated/floor/carpet,
 /area/adhomai/village/townhall)
+"YS" = (
+/obj/effect/overlay/blizzard,
+/turf/simulated/floor/ice,
+/area/adhomai)
 "YT" = (
 /obj/structure/bonfire/fireplace/stove,
 /obj/item/weapon/reagent_containers/cooking_container/fire/pot,
@@ -7203,6 +7176,40 @@
 /obj/structure/table/standard,
 /turf/simulated/floor/lino,
 /area/adhomai/village/mayor)
+"Zh" = (
+/obj/structure/table/rack,
+/obj/item/stack/material/wood{
+	amount = 40
+	},
+/obj/item/stack/material/wood{
+	amount = 40
+	},
+/obj/item/stack/material/wood{
+	amount = 40
+	},
+/obj/item/stack/material/wood{
+	amount = 40
+	},
+/obj/item/stack/material/wood{
+	amount = 40
+	},
+/obj/item/stack/material/wood{
+	amount = 40
+	},
+/obj/item/stack/material/wood{
+	amount = 40
+	},
+/obj/item/stack/material/wood{
+	amount = 40
+	},
+/obj/item/stack/material/wood{
+	amount = 40
+	},
+/obj/item/stack/material/wood{
+	amount = 40
+	},
+/turf/simulated/floor/tiled/dark,
+/area/adhomai/fortress)
 "Zj" = (
 /obj/machinery/radiocarbon_spectrometer,
 /turf/simulated/floor/wood,
@@ -7212,20 +7219,8 @@
 /turf/simulated/floor/wood,
 /area/adhomai/village/medical)
 "Zo" = (
-/obj/structure/window/reinforced,
-/obj/item/weapon/storage/field_ration/nka/army,
-/obj/structure/closet/crate{
-	desc = "A simple metal footlocker.";
-	name = "footlocker"
-	},
-/obj/item/clothing/shoes/jackboots/unathi,
-/obj/item/clothing/under/uniform/levy,
-/obj/item/clothing/head/nka,
-/turf/simulated/floor/tiled/dark,
-/area/adhomai/fortress)
-"Zp" = (
-/obj/machinery/washing_machine,
-/turf/simulated/floor/tiled/dark,
+/obj/structure/closet/crate/trashcart,
+/turf/simulated/floor/lino,
 /area/adhomai/fortress)
 "Zq" = (
 /obj/structure/closet/cabinet,
@@ -7252,6 +7247,13 @@
 /obj/item/device/flashlight/lamp,
 /turf/simulated/floor/wood,
 /area/adhomai/village/shop)
+"Zx" = (
+/obj/structure/bed/chair/wood/adhomai,
+/obj/effect/landmark/start{
+	name = "Royal Grenadier"
+	},
+/turf/simulated/floor/carpet,
+/area/adhomai/village/temple)
 "Zz" = (
 /obj/machinery/computer/secure_data/adhomai{
 	req_one_access = null
@@ -7298,10 +7300,15 @@
 	},
 /turf/simulated/floor/wood,
 /area/adhomai/village/shop)
-"ZP" = (
-/obj/structure/closet/crate/trashcart,
-/turf/simulated/floor/lino,
-/area/adhomai/fortress)
+"ZQ" = (
+/obj/machinery/light/small{
+	dir = 1
+	},
+/obj/structure/noticeboard{
+	pixel_y = 27
+	},
+/turf/simulated/floor/snow,
+/area/adhomai)
 "ZS" = (
 /obj/item/weapon/mop,
 /obj/item/weapon/reagent_containers/glass/bucket,
@@ -7315,13 +7322,6 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/adhomai/fortress)
-"ZY" = (
-/obj/structure/bed/chair/wood/adhomai,
-/obj/effect/landmark/start{
-	name = "Bartender"
-	},
-/turf/simulated/floor/carpet,
-/area/adhomai/village/temple)
 
 (1,1,1) = {"
 bG
@@ -7338,246 +7338,246 @@ bG
 bG
 bG
 bG
-UW
-UW
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-Bl
-Bl
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
+yO
+yO
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+fp
+fp
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
 it
 "}
 (2,1,1) = {"
@@ -7595,127 +7595,127 @@ bG
 bG
 bG
 bG
-UW
-UW
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-Bl
-Bl
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-nL
-QF
-dv
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
+yO
+yO
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+fp
+fp
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+qo
+FT
+eu
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
 Rm
 Rm
 Rm
@@ -7835,7 +7835,7 @@ Rm
 Rm
 Rm
 Rm
-QF
+FT
 "}
 (3,1,1) = {"
 bG
@@ -7852,127 +7852,127 @@ bG
 bG
 bG
 bG
-UW
-UW
-UW
-UW
-UW
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-Bl
-xJ
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
+yO
+yO
+yO
+yO
+yO
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+fp
+YS
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
 Rm
 Rm
 dz
-QF
-QF
-QF
+FT
+FT
+FT
 Rm
 Rm
 Rm
@@ -8092,7 +8092,7 @@ Rm
 Rm
 Rm
 Rm
-QF
+FT
 "}
 (4,1,1) = {"
 bG
@@ -8109,58 +8109,58 @@ bG
 bG
 bG
 bG
-UW
-UW
-UW
-UW
-UW
-UW
-UW
-UW
-UW
-UW
-QF
-UW
-UW
-UW
-UW
-UW
-UW
-UW
-UW
-UW
-UW
-UW
-UW
-UW
-UW
-UW
-UW
-UW
-UW
-UW
-UW
-UW
-UW
-UW
-UW
-UW
-UW
-UW
-UW
-UW
-UW
-UW
-UW
-UW
-UW
-UW
-UW
-UW
-xJ
-xJ
-UW
-UW
+yO
+yO
+yO
+yO
+yO
+yO
+yO
+yO
+yO
+yO
+FT
+yO
+yO
+yO
+yO
+yO
+yO
+yO
+yO
+yO
+yO
+yO
+yO
+yO
+yO
+yO
+yO
+yO
+yO
+yO
+yO
+yO
+yO
+yO
+yO
+yO
+yO
+yO
+yO
+yO
+yO
+yO
+yO
+yO
+yO
+yO
+yO
+yO
+YS
+YS
+yO
+yO
 Rm
 Rm
 Rm
@@ -8349,7 +8349,7 @@ Rm
 Rm
 Rm
 Rm
-QF
+FT
 "}
 (5,1,1) = {"
 bG
@@ -8366,43 +8366,43 @@ bG
 bG
 bG
 bG
-UW
-UW
-UW
-UW
-UW
-UW
-UW
-UW
-UW
-UW
-UW
-UW
-UW
-UW
-UW
-UW
-UW
-UW
-UW
-UW
-UW
-UW
-UW
-UW
-UW
-UW
-UW
-UW
-UW
-UW
-UW
-UW
-UW
-UW
-UW
-UW
-UW
+yO
+yO
+yO
+yO
+yO
+yO
+yO
+yO
+yO
+yO
+yO
+yO
+yO
+yO
+yO
+yO
+yO
+yO
+yO
+yO
+yO
+yO
+yO
+yO
+yO
+yO
+yO
+yO
+yO
+yO
+yO
+yO
+yO
+yO
+yO
+yO
+yO
 Rm
 Rm
 Rm
@@ -8412,12 +8412,12 @@ Rm
 Rm
 Rm
 Rm
-UW
-UW
-xJ
-xJ
-UW
-UW
+yO
+yO
+YS
+YS
+yO
+yO
 Rm
 Rm
 Rm
@@ -8606,7 +8606,7 @@ Rm
 Rm
 Rm
 Rm
-QF
+FT
 "}
 (6,1,1) = {"
 bG
@@ -8623,13 +8623,13 @@ bG
 bG
 bG
 bG
-UW
-UW
-UW
-UW
-UW
-UW
-UW
+yO
+yO
+yO
+yO
+yO
+yO
+yO
 Rm
 Rm
 Rm
@@ -8670,11 +8670,11 @@ Rm
 Rm
 Rm
 Rm
-UW
-xJ
-xJ
-UW
-UW
+yO
+YS
+YS
+yO
+yO
 Rm
 Rm
 Rm
@@ -8863,7 +8863,7 @@ Rm
 Rm
 Rm
 Rm
-QF
+FT
 "}
 (7,1,1) = {"
 bG
@@ -8880,13 +8880,13 @@ bG
 bG
 bG
 bG
-UW
-UW
-UW
-UW
-UW
-UW
-UW
+yO
+yO
+yO
+yO
+yO
+yO
+yO
 Rm
 Rm
 Rm
@@ -9120,7 +9120,7 @@ Rm
 Rm
 Rm
 Rm
-QF
+FT
 "}
 (8,1,1) = {"
 bG
@@ -9137,13 +9137,13 @@ bG
 bG
 bG
 bG
-UW
-UW
-UW
-UW
-UW
-UW
-UW
+yO
+yO
+yO
+yO
+yO
+yO
+yO
 Rm
 Rm
 Rm
@@ -9377,7 +9377,7 @@ Rm
 Rm
 Rm
 Rm
-QF
+FT
 "}
 (9,1,1) = {"
 bG
@@ -9394,12 +9394,12 @@ bG
 bG
 bG
 bG
-UW
-UW
-UW
-UW
-UW
-UW
+yO
+yO
+yO
+yO
+yO
+yO
 Rm
 Rm
 Rm
@@ -9634,7 +9634,7 @@ Rm
 Rm
 Rm
 Rm
-QF
+FT
 "}
 (10,1,1) = {"
 bG
@@ -9651,12 +9651,12 @@ bG
 bG
 bG
 bG
-UW
-UW
-UW
-UW
-UW
-UW
+yO
+yO
+yO
+yO
+yO
+yO
 Rm
 Rm
 Rm
@@ -9891,7 +9891,7 @@ Rm
 Rm
 Rm
 Rm
-QF
+FT
 "}
 (11,1,1) = {"
 bG
@@ -9908,11 +9908,11 @@ bG
 bG
 bG
 bG
-UW
-UW
-UW
-UW
-UW
+yO
+yO
+yO
+yO
+yO
 Rm
 Rm
 Rm
@@ -10148,7 +10148,7 @@ Rm
 Rm
 Rm
 Rm
-QF
+FT
 "}
 (12,1,1) = {"
 bG
@@ -10165,11 +10165,11 @@ bG
 bG
 bG
 bG
-UW
-UW
-UW
-UW
-UW
+yO
+yO
+yO
+yO
+yO
 Rm
 Rm
 Rm
@@ -10243,7 +10243,7 @@ Ib
 fj
 fh
 eX
-np
+FG
 Ib
 aa
 fM
@@ -10405,7 +10405,7 @@ Rm
 Rm
 Rm
 Rm
-QF
+FT
 "}
 (13,1,1) = {"
 bG
@@ -10422,8 +10422,8 @@ bG
 bG
 bG
 bG
-UW
-UW
+yO
+yO
 Rm
 Rm
 Rm
@@ -10662,7 +10662,7 @@ Rm
 Rm
 Rm
 Rm
-QF
+FT
 "}
 (14,1,1) = {"
 bG
@@ -10680,7 +10680,7 @@ bG
 bG
 bG
 Rm
-UW
+yO
 dz
 Rm
 Rm
@@ -10919,7 +10919,7 @@ Rm
 Rm
 Rm
 Rm
-QF
+FT
 "}
 (15,1,1) = {"
 bG
@@ -11011,7 +11011,7 @@ Rm
 Ss
 aa
 Ib
-zZ
+QK
 ad
 fy
 fC
@@ -11176,7 +11176,7 @@ Rm
 Rm
 Rm
 Rm
-QF
+FT
 "}
 (16,1,1) = {"
 bG
@@ -11433,7 +11433,7 @@ Rm
 Rm
 Rm
 Rm
-QF
+FT
 "}
 (17,1,1) = {"
 bG
@@ -11690,7 +11690,7 @@ Rm
 Rm
 Rm
 Rm
-Hg
+vQ
 "}
 (18,1,1) = {"
 bG
@@ -11947,7 +11947,7 @@ ae
 ae
 ae
 ae
-PW
+Bv
 "}
 (19,1,1) = {"
 bG
@@ -12204,10 +12204,10 @@ ae
 ae
 ae
 ae
-Cr
+Ny
 "}
 (20,1,1) = {"
-Bl
+fp
 dz
 dz
 dz
@@ -12273,9 +12273,9 @@ dz
 dz
 Rm
 Rm
-zD
+dZ
 ae
-zD
+dZ
 Rm
 Rm
 Rm
@@ -12461,10 +12461,10 @@ Rm
 Rm
 Rm
 Rm
-QF
+FT
 "}
 (21,1,1) = {"
-Bl
+fp
 dz
 dz
 dz
@@ -12531,7 +12531,7 @@ dz
 Rm
 Rm
 ae
-zD
+dZ
 ae
 Rm
 Rm
@@ -12718,7 +12718,7 @@ Rm
 Rm
 Rm
 Rm
-QF
+FT
 "}
 (22,1,1) = {"
 bG
@@ -12787,9 +12787,9 @@ dz
 dz
 Rm
 AC
-zD
+dZ
 ae
-zD
+dZ
 ae
 ae
 Rm
@@ -12975,7 +12975,7 @@ Rm
 Rm
 Rm
 Rm
-QF
+FT
 "}
 (23,1,1) = {"
 bG
@@ -13232,7 +13232,7 @@ Rm
 Rm
 Rm
 Rm
-QF
+FT
 "}
 (24,1,1) = {"
 bG
@@ -13489,7 +13489,7 @@ Rm
 Rm
 Rm
 Rm
-QF
+FT
 "}
 (25,1,1) = {"
 bG
@@ -13556,8 +13556,8 @@ Rm
 Rm
 dz
 dz
-xu
-xu
+Jn
+Jn
 ae
 ae
 bt
@@ -13746,7 +13746,7 @@ Rm
 Rm
 Rm
 Rm
-QF
+FT
 "}
 (26,1,1) = {"
 bG
@@ -13813,8 +13813,8 @@ Rm
 Rm
 dz
 dz
-xu
-xu
+Jn
+Jn
 ae
 ae
 bt
@@ -14003,7 +14003,7 @@ Rm
 Rm
 Rm
 Rm
-QF
+FT
 "}
 (27,1,1) = {"
 bG
@@ -14070,11 +14070,11 @@ Rm
 Rm
 dz
 dz
-xu
-xu
+Jn
+Jn
 ae
 ae
-VN
+GN
 bt
 bt
 ae
@@ -14260,7 +14260,7 @@ Rm
 Rm
 Rm
 Rm
-QF
+FT
 "}
 (28,1,1) = {"
 bG
@@ -14324,11 +14324,11 @@ Rm
 Rm
 Rm
 Rm
-FC
-uC
-uC
-xu
-xu
+Yo
+iK
+iK
+Jn
+Jn
 ae
 ae
 ae
@@ -14517,7 +14517,7 @@ Rm
 Rm
 Rm
 Rm
-QF
+FT
 "}
 (29,1,1) = {"
 bG
@@ -14581,12 +14581,12 @@ Rm
 Rm
 Rm
 Rm
-FC
+Yo
 dz
 dz
 Rm
 Rm
-NB
+Px
 ae
 ae
 ae
@@ -14774,7 +14774,7 @@ Rm
 Rm
 Rm
 Rm
-QF
+FT
 "}
 (30,1,1) = {"
 bG
@@ -14838,7 +14838,7 @@ Rm
 Rm
 Rm
 Rm
-FC
+Yo
 dz
 dz
 Rm
@@ -15031,7 +15031,7 @@ Rm
 Rm
 Rm
 Rm
-QF
+FT
 "}
 (31,1,1) = {"
 bG
@@ -15095,7 +15095,7 @@ Rm
 Rm
 Rm
 Rm
-FC
+Yo
 dz
 dz
 Rm
@@ -15288,7 +15288,7 @@ Rm
 Rm
 Rm
 Rm
-QF
+FT
 "}
 (32,1,1) = {"
 bG
@@ -15352,7 +15352,7 @@ Rm
 Rm
 Rm
 Rm
-FC
+Yo
 dz
 dz
 Rm
@@ -15545,7 +15545,7 @@ Rm
 Rm
 Rm
 Rm
-QF
+FT
 "}
 (33,1,1) = {"
 bG
@@ -15609,7 +15609,7 @@ Rm
 Rm
 Rm
 Rm
-FC
+Yo
 dz
 dz
 Rm
@@ -15802,7 +15802,7 @@ Rm
 Rm
 Rm
 Rm
-QF
+FT
 "}
 (34,1,1) = {"
 bG
@@ -15866,7 +15866,7 @@ Rm
 Rm
 Rm
 Rm
-FC
+Yo
 dz
 dz
 Rm
@@ -16059,7 +16059,7 @@ Rm
 Rm
 Rm
 Rm
-QF
+FT
 "}
 (35,1,1) = {"
 bG
@@ -16123,7 +16123,7 @@ Rm
 Rm
 Rm
 Rm
-FC
+Yo
 dz
 dz
 Rm
@@ -16316,7 +16316,7 @@ Rm
 Rm
 Rm
 Rm
-QF
+FT
 "}
 (36,1,1) = {"
 bG
@@ -16380,7 +16380,7 @@ Rm
 Rm
 Rm
 Rm
-FC
+Yo
 dz
 dz
 Rm
@@ -16573,7 +16573,7 @@ Rm
 Rm
 Rm
 Rm
-QF
+FT
 "}
 (37,1,1) = {"
 bG
@@ -16637,7 +16637,7 @@ Rm
 Rm
 Rm
 Rm
-FC
+Yo
 dz
 dz
 Rm
@@ -16830,7 +16830,7 @@ Rm
 Rm
 Rm
 Rm
-QF
+FT
 "}
 (38,1,1) = {"
 bG
@@ -16894,7 +16894,7 @@ Rm
 Rm
 Rm
 Rm
-FC
+Yo
 dz
 dz
 Rm
@@ -17087,7 +17087,7 @@ Rm
 Rm
 Rm
 Rm
-QF
+FT
 "}
 (39,1,1) = {"
 bG
@@ -17151,7 +17151,7 @@ Rm
 Rm
 Rm
 Rm
-FC
+Yo
 dz
 dz
 Rm
@@ -17344,7 +17344,7 @@ Rm
 Rm
 Rm
 Rm
-QF
+FT
 "}
 (40,1,1) = {"
 bG
@@ -17408,7 +17408,7 @@ Rm
 Rm
 Rm
 Rm
-FC
+Yo
 dz
 dz
 Rm
@@ -17601,7 +17601,7 @@ Rm
 Rm
 Rm
 Rm
-QF
+FT
 "}
 (41,1,1) = {"
 bG
@@ -17665,7 +17665,7 @@ Rm
 Rm
 Rm
 Rm
-FC
+Yo
 dz
 dz
 Rm
@@ -17858,7 +17858,7 @@ Rm
 Rm
 Rm
 Rm
-QF
+FT
 "}
 (42,1,1) = {"
 bG
@@ -17922,7 +17922,7 @@ Rm
 Rm
 Rm
 Rm
-FC
+Yo
 dz
 dz
 Rm
@@ -18115,7 +18115,7 @@ Rm
 Rm
 Rm
 Rm
-QF
+FT
 "}
 (43,1,1) = {"
 bG
@@ -18179,7 +18179,7 @@ Rm
 Rm
 Rm
 Rm
-FC
+Yo
 dz
 dz
 Rm
@@ -18372,7 +18372,7 @@ Rm
 Rm
 Rm
 Rm
-QF
+FT
 "}
 (44,1,1) = {"
 bG
@@ -18436,7 +18436,7 @@ Rm
 Rm
 Rm
 Rm
-FC
+Yo
 dz
 dz
 Rm
@@ -18629,7 +18629,7 @@ Rm
 Rm
 Rm
 Rm
-QF
+FT
 "}
 (45,1,1) = {"
 bG
@@ -18693,7 +18693,7 @@ Rm
 Rm
 Rm
 Rm
-FC
+Yo
 dz
 dz
 Rm
@@ -18886,7 +18886,7 @@ Rm
 Rm
 Rm
 Rm
-QF
+FT
 "}
 (46,1,1) = {"
 bG
@@ -18950,7 +18950,7 @@ Rm
 Rm
 Rm
 Rm
-FC
+Yo
 dz
 dz
 Rm
@@ -19143,7 +19143,7 @@ Rm
 Rm
 Rm
 Rm
-QF
+FT
 "}
 (47,1,1) = {"
 bG
@@ -19207,7 +19207,7 @@ Rm
 Rm
 Rm
 Rm
-FC
+Yo
 dz
 dz
 Rm
@@ -19400,7 +19400,7 @@ Rm
 Rm
 Rm
 Rm
-QF
+FT
 "}
 (48,1,1) = {"
 bG
@@ -19464,7 +19464,7 @@ Rm
 Rm
 Rm
 Rm
-FC
+Yo
 dz
 dz
 Rm
@@ -19657,7 +19657,7 @@ Rm
 Rm
 Rm
 Rm
-QF
+FT
 "}
 (49,1,1) = {"
 bG
@@ -19721,7 +19721,7 @@ Rm
 Rm
 Rm
 Rm
-FC
+Yo
 dz
 dz
 Rm
@@ -19914,7 +19914,7 @@ Rm
 Rm
 Rm
 Rm
-QF
+FT
 "}
 (50,1,1) = {"
 bG
@@ -19978,7 +19978,7 @@ Rm
 Rm
 Rm
 Rm
-FC
+Yo
 dz
 dz
 Rm
@@ -20171,7 +20171,7 @@ Rm
 Rm
 Rm
 Rm
-QF
+FT
 "}
 (51,1,1) = {"
 bG
@@ -20235,7 +20235,7 @@ Rm
 Rm
 Rm
 Rm
-FC
+Yo
 dz
 dz
 Rm
@@ -20428,7 +20428,7 @@ Rm
 Rm
 Rm
 Rm
-QF
+FT
 "}
 (52,1,1) = {"
 bG
@@ -20492,7 +20492,7 @@ Rm
 Rm
 Rm
 Rm
-FC
+Yo
 dz
 dz
 Rm
@@ -20685,12 +20685,12 @@ Rm
 Rm
 Rm
 Rm
-QF
+FT
 "}
 (53,1,1) = {"
-Bl
-xJ
-xJ
+fp
+YS
+YS
 dz
 dz
 dz
@@ -20749,7 +20749,7 @@ Rm
 Rm
 Rm
 Rm
-FC
+Yo
 dz
 dz
 Rm
@@ -20942,13 +20942,13 @@ Rm
 Rm
 Rm
 Rm
-QF
+FT
 "}
 (54,1,1) = {"
-Bl
-xJ
-xJ
-xJ
+fp
+YS
+YS
+YS
 dz
 dz
 dz
@@ -21006,7 +21006,7 @@ Rm
 Rm
 Rm
 Rm
-FC
+Yo
 dz
 dz
 Rm
@@ -21199,13 +21199,13 @@ Rm
 Rm
 Rm
 Rm
-QF
+FT
 "}
 (55,1,1) = {"
-Bl
-xJ
-xJ
-xJ
+fp
+YS
+YS
+YS
 dz
 dz
 dz
@@ -21263,7 +21263,7 @@ Rm
 Rm
 Rm
 Rm
-FC
+Yo
 dz
 dz
 Rm
@@ -21456,14 +21456,14 @@ Rm
 Rm
 Rm
 Rm
-QF
+FT
 "}
 (56,1,1) = {"
-Bl
-xJ
-xJ
-xJ
-xJ
+fp
+YS
+YS
+YS
+YS
 dz
 dz
 dz
@@ -21520,7 +21520,7 @@ Rm
 Rm
 Rm
 Rm
-FC
+Yo
 dz
 dz
 Rm
@@ -21713,14 +21713,14 @@ Rm
 Rm
 Rm
 Rm
-QF
+FT
 "}
 (57,1,1) = {"
-QF
-UW
-UW
-UW
-UW
+FT
+yO
+yO
+yO
+yO
 dz
 dz
 dz
@@ -21777,7 +21777,7 @@ Rm
 Rm
 Rm
 Rm
-FC
+Yo
 dz
 dz
 Rm
@@ -21970,13 +21970,13 @@ Rm
 Rm
 Rm
 Rm
-QF
+FT
 "}
 (58,1,1) = {"
-QF
-UW
-UW
-UW
+FT
+yO
+yO
+yO
 Rm
 Rm
 dz
@@ -22034,7 +22034,7 @@ Rm
 Rm
 Rm
 Rm
-FC
+Yo
 dz
 dz
 Rm
@@ -22227,13 +22227,13 @@ Rm
 Rm
 Rm
 Rm
-QF
+FT
 "}
 (59,1,1) = {"
-QF
-UW
-UW
-UW
+FT
+yO
+yO
+yO
 Rm
 Rm
 dz
@@ -22291,7 +22291,7 @@ Rm
 Rm
 Rm
 Rm
-FC
+Yo
 dz
 dz
 Rm
@@ -22484,13 +22484,13 @@ Rm
 Rm
 Rm
 Rm
-QF
+FT
 "}
 (60,1,1) = {"
-QF
-UW
-UW
-UW
+FT
+yO
+yO
+yO
 Rm
 Rm
 Rm
@@ -22548,7 +22548,7 @@ Rm
 Rm
 Rm
 Rm
-FC
+Yo
 dz
 dz
 Rm
@@ -22741,13 +22741,13 @@ Rm
 Rm
 Rm
 Rm
-QF
+FT
 "}
 (61,1,1) = {"
-QF
-UW
-UW
-UW
+FT
+yO
+yO
+yO
 Rm
 Rm
 Rm
@@ -22805,7 +22805,7 @@ Rm
 Rm
 Rm
 Rm
-FC
+Yo
 dz
 dz
 Rm
@@ -22998,13 +22998,13 @@ Rm
 Rm
 Rm
 Rm
-QF
+FT
 "}
 (62,1,1) = {"
-QF
-UW
-UW
-UW
+FT
+yO
+yO
+yO
 Rm
 Rm
 Rm
@@ -23062,7 +23062,7 @@ Rm
 Rm
 Rm
 Rm
-FC
+Yo
 dz
 dz
 Rm
@@ -23255,13 +23255,13 @@ Rm
 Rm
 Rm
 Rm
-QF
+FT
 "}
 (63,1,1) = {"
-QF
-UW
-UW
-UW
+FT
+yO
+yO
+yO
 Rm
 Rm
 Rm
@@ -23319,7 +23319,7 @@ Rm
 Rm
 Rm
 Rm
-FC
+Yo
 dz
 dz
 Rm
@@ -23512,13 +23512,13 @@ Rm
 Rm
 Rm
 Rm
-QF
+FT
 "}
 (64,1,1) = {"
-QF
-UW
-UW
-UW
+FT
+yO
+yO
+yO
 Rm
 Rm
 Rm
@@ -23576,7 +23576,7 @@ Rm
 Rm
 Rm
 Rm
-FC
+Yo
 dz
 dz
 Rm
@@ -23769,13 +23769,13 @@ Rm
 Rm
 Rm
 Rm
-QF
+FT
 "}
 (65,1,1) = {"
-QF
-UW
-UW
-UW
+FT
+yO
+yO
+yO
 Rm
 Rm
 Rm
@@ -23833,7 +23833,7 @@ Rm
 Rm
 Rm
 Rm
-FC
+Yo
 dz
 dz
 Rm
@@ -24026,13 +24026,13 @@ Rm
 Rm
 Rm
 Rm
-QF
+FT
 "}
 (66,1,1) = {"
-QF
-UW
-UW
-UW
+FT
+yO
+yO
+yO
 Rm
 Rm
 Rm
@@ -24090,7 +24090,7 @@ Rm
 Rm
 Rm
 Rm
-FC
+Yo
 dz
 dz
 Rm
@@ -24283,12 +24283,12 @@ Rm
 Rm
 Rm
 Rm
-QF
+FT
 "}
 (67,1,1) = {"
-QF
-UW
-UW
+FT
+yO
+yO
 Rm
 Rm
 Rm
@@ -24347,7 +24347,7 @@ Rm
 Rm
 Rm
 Rm
-FC
+Yo
 dz
 dz
 Rm
@@ -24540,12 +24540,12 @@ Rm
 Rm
 Rm
 Rm
-QF
+FT
 "}
 (68,1,1) = {"
-QF
-UW
-UW
+FT
+yO
+yO
 Rm
 Rm
 Rm
@@ -24604,7 +24604,7 @@ Rm
 Rm
 Rm
 Rm
-FC
+Yo
 dz
 dz
 Rm
@@ -24797,13 +24797,13 @@ Rm
 Rm
 Rm
 Rm
-QF
+FT
 "}
 (69,1,1) = {"
-QF
-UW
-UW
-UW
+FT
+yO
+yO
+yO
 Rm
 Rm
 Rm
@@ -24861,7 +24861,7 @@ Rm
 Rm
 Rm
 Rm
-FC
+Yo
 dz
 dz
 Rm
@@ -25054,13 +25054,13 @@ Rm
 Rm
 Rm
 Rm
-QF
+FT
 "}
 (70,1,1) = {"
-QF
-UW
-UW
-UW
+FT
+yO
+yO
+yO
 Rm
 Rm
 Rm
@@ -25118,7 +25118,7 @@ Rm
 Rm
 Rm
 Rm
-FC
+Yo
 dz
 dz
 Rm
@@ -25311,13 +25311,13 @@ Rm
 Rm
 Rm
 Rm
-QF
+FT
 "}
 (71,1,1) = {"
-QF
-UW
-UW
-UW
+FT
+yO
+yO
+yO
 Rm
 Rm
 Rm
@@ -25375,7 +25375,7 @@ Rm
 Rm
 Rm
 Rm
-FC
+Yo
 dz
 dz
 Rm
@@ -25568,13 +25568,13 @@ Rm
 Rm
 Rm
 Rm
-QF
+FT
 "}
 (72,1,1) = {"
-QF
-UW
-UW
-UW
+FT
+yO
+yO
+yO
 Rm
 Rm
 Rm
@@ -25632,7 +25632,7 @@ Rm
 Rm
 Rm
 Rm
-FC
+Yo
 dz
 dz
 Rm
@@ -25825,13 +25825,13 @@ Rm
 Rm
 Rm
 Rm
-QF
+FT
 "}
 (73,1,1) = {"
-QF
-UW
-UW
-UW
+FT
+yO
+yO
+yO
 Rm
 Rm
 Rm
@@ -25889,7 +25889,7 @@ Rm
 Rm
 Rm
 Rm
-FC
+Yo
 dz
 dz
 Rm
@@ -26082,13 +26082,13 @@ Rm
 Rm
 Rm
 Rm
-QF
+FT
 "}
 (74,1,1) = {"
-QF
-UW
-UW
-UW
+FT
+yO
+yO
+yO
 Rm
 Rm
 Rm
@@ -26146,7 +26146,7 @@ Rm
 Rm
 Rm
 Rm
-FC
+Yo
 dz
 dz
 Rm
@@ -26339,13 +26339,13 @@ Rm
 Rm
 Rm
 Rm
-QF
+FT
 "}
 (75,1,1) = {"
-QF
-UW
-UW
-UW
+FT
+yO
+yO
+yO
 Rm
 Rm
 Rm
@@ -26403,7 +26403,7 @@ Rm
 Rm
 Rm
 Rm
-FC
+Yo
 dz
 dz
 Rm
@@ -26596,12 +26596,12 @@ Rm
 Rm
 Rm
 Rm
-QF
+FT
 "}
 (76,1,1) = {"
-QF
-UW
-UW
+FT
+yO
+yO
 Rm
 Rm
 Rm
@@ -26660,7 +26660,7 @@ Rm
 Rm
 Rm
 Rm
-FC
+Yo
 dz
 dz
 Rm
@@ -26853,12 +26853,12 @@ dz
 dz
 Rm
 dz
-Bl
+fp
 "}
 (77,1,1) = {"
-QF
-UW
-UW
+FT
+yO
+yO
 Rm
 Rm
 Rm
@@ -26917,7 +26917,7 @@ Rm
 Rm
 Rm
 Rm
-FC
+Yo
 dz
 dz
 Rm
@@ -27110,12 +27110,12 @@ Rm
 dz
 dz
 dz
-Bl
+fp
 "}
 (78,1,1) = {"
-QF
-UW
-UW
+FT
+yO
+yO
 Rm
 Rm
 Rm
@@ -27174,7 +27174,7 @@ Rm
 Rm
 Rm
 Rm
-FC
+Yo
 dz
 dz
 Rm
@@ -27367,13 +27367,13 @@ Rm
 Rm
 Rm
 Rm
-QF
+FT
 "}
 (79,1,1) = {"
-QF
-UW
-UW
-UW
+FT
+yO
+yO
+yO
 Rm
 Rm
 Rm
@@ -27431,7 +27431,7 @@ Rm
 Rm
 Rm
 Rm
-FC
+Yo
 dz
 dz
 Rm
@@ -27624,13 +27624,13 @@ Rm
 Rm
 Rm
 Rm
-QF
+FT
 "}
 (80,1,1) = {"
-QF
-UW
-UW
-UW
+FT
+yO
+yO
+yO
 Rm
 Rm
 Rm
@@ -27688,7 +27688,7 @@ Rm
 Rm
 Rm
 Rm
-FC
+Yo
 dz
 dz
 Rm
@@ -27881,13 +27881,13 @@ Rm
 Rm
 Rm
 Rm
-QF
+FT
 "}
 (81,1,1) = {"
-QF
-UW
-UW
-UW
+FT
+yO
+yO
+yO
 Rm
 Rm
 Rm
@@ -27945,7 +27945,7 @@ Rm
 Rm
 Rm
 Rm
-FC
+Yo
 dz
 dz
 Rm
@@ -28138,13 +28138,13 @@ Rm
 Rm
 Rm
 Rm
-QF
+FT
 "}
 (82,1,1) = {"
-QF
-UW
-UW
-UW
+FT
+yO
+yO
+yO
 Rm
 Rm
 Rm
@@ -28202,7 +28202,7 @@ Rm
 Rm
 Rm
 Rm
-FC
+Yo
 dz
 dz
 Rm
@@ -28395,13 +28395,13 @@ dz
 dz
 dz
 dz
-Bl
+fp
 "}
 (83,1,1) = {"
-QF
-UW
-UW
-UW
+FT
+yO
+yO
+yO
 Rm
 Rm
 Rm
@@ -28459,7 +28459,7 @@ Rm
 Rm
 Rm
 Rm
-FC
+Yo
 dz
 dz
 Rm
@@ -28652,14 +28652,14 @@ Rm
 Rm
 dz
 Rm
-QF
+FT
 "}
 (84,1,1) = {"
-QF
-UW
-UW
-UW
-UW
+FT
+yO
+yO
+yO
+yO
 Rm
 Rm
 Rm
@@ -28688,35 +28688,35 @@ Rm
 Rm
 Rm
 Rm
-FC
-FC
-FC
-FC
-FC
-FC
-FC
-FC
-FC
-FC
-FC
-FC
-FC
-FC
-FC
-FC
-FC
-FC
-FC
-FC
-FC
-FC
-FC
-FC
-FC
-FC
-FC
-FC
-FC
+Yo
+Yo
+Yo
+Yo
+Yo
+Yo
+Yo
+Yo
+Yo
+Yo
+Yo
+Yo
+Yo
+Yo
+Yo
+Yo
+Yo
+Yo
+Yo
+Yo
+Yo
+Yo
+Yo
+Yo
+Yo
+Yo
+Yo
+Yo
+Yo
 dz
 dz
 Rm
@@ -28909,14 +28909,14 @@ Rm
 dz
 dz
 Rm
-QF
+FT
 "}
 (85,1,1) = {"
-QF
-UW
-UW
-UW
-UW
+FT
+yO
+yO
+yO
+yO
 Rm
 Rm
 Rm
@@ -28945,7 +28945,7 @@ Rm
 Rm
 Rm
 Rm
-FC
+Yo
 Rm
 Rm
 Rm
@@ -29166,14 +29166,14 @@ Rm
 Rm
 dz
 Rm
-QF
+FT
 "}
 (86,1,1) = {"
-QF
-UW
-UW
-UW
-UW
+FT
+yO
+yO
+yO
+yO
 Rm
 Rm
 Rm
@@ -29202,7 +29202,7 @@ Rm
 Rm
 Rm
 Rm
-FC
+Yo
 Rm
 Rm
 Rm
@@ -29423,14 +29423,14 @@ Rm
 Rm
 dz
 dz
-Bl
+fp
 "}
 (87,1,1) = {"
-QF
-UW
-UW
-UW
-UW
+FT
+yO
+yO
+yO
+yO
 Rm
 Rm
 Rm
@@ -29459,7 +29459,7 @@ Rm
 Rm
 Rm
 Rm
-FC
+Yo
 Rm
 Rm
 Rm
@@ -29680,14 +29680,14 @@ Rm
 Rm
 Rm
 Rm
-QF
+FT
 "}
 (88,1,1) = {"
-QF
-UW
-UW
-UW
-UW
+FT
+yO
+yO
+yO
+yO
 Rm
 Rm
 Rm
@@ -29716,7 +29716,7 @@ Rm
 Rm
 Rm
 Rm
-FC
+Yo
 Rm
 Rm
 Rm
@@ -29937,14 +29937,14 @@ Rm
 Rm
 Rm
 Rm
-QF
+FT
 "}
 (89,1,1) = {"
-QF
-UW
-UW
-UW
-UW
+FT
+yO
+yO
+yO
+yO
 Rm
 Rm
 Rm
@@ -29973,7 +29973,7 @@ Rm
 Rm
 Rm
 Rm
-FC
+Yo
 Rm
 Rm
 Rm
@@ -30194,14 +30194,14 @@ Rm
 Rm
 Rm
 Rm
-QF
+FT
 "}
 (90,1,1) = {"
-QF
-UW
-UW
-UW
-UW
+FT
+yO
+yO
+yO
+yO
 Rm
 Rm
 Rm
@@ -30230,7 +30230,7 @@ Rm
 Rm
 Rm
 Rm
-FC
+Yo
 Rm
 Rm
 Rm
@@ -30451,14 +30451,14 @@ Rm
 Rm
 Rm
 Rm
-QF
+FT
 "}
 (91,1,1) = {"
-QF
-UW
-UW
-UW
-UW
+FT
+yO
+yO
+yO
+yO
 Rm
 Rm
 Rm
@@ -30487,7 +30487,7 @@ Rm
 Rm
 Rm
 Rm
-FC
+Yo
 Rm
 Rm
 Rm
@@ -30708,14 +30708,14 @@ Rm
 Rm
 Rm
 Rm
-QF
+FT
 "}
 (92,1,1) = {"
-QF
-UW
-UW
-UW
-UW
+FT
+yO
+yO
+yO
+yO
 Rm
 Rm
 Rm
@@ -30744,7 +30744,7 @@ Rm
 Rm
 Rm
 Rm
-FC
+Yo
 Rm
 Rm
 Rm
@@ -30965,14 +30965,14 @@ Rm
 Rm
 Rm
 Rm
-QF
+FT
 "}
 (93,1,1) = {"
-QF
-UW
-UW
-UW
-UW
+FT
+yO
+yO
+yO
+yO
 Rm
 Rm
 Rm
@@ -31001,7 +31001,7 @@ Rm
 Rm
 Rm
 Rm
-FC
+Yo
 Rm
 Rm
 Rm
@@ -31222,14 +31222,14 @@ Rm
 Rm
 Rm
 Rm
-QF
+FT
 "}
 (94,1,1) = {"
-QF
-UW
-UW
-UW
-UW
+FT
+yO
+yO
+yO
+yO
 Rm
 Rm
 Rm
@@ -31258,7 +31258,7 @@ Rm
 Rm
 Rm
 Rm
-FC
+Yo
 Rm
 Rm
 Rm
@@ -31479,14 +31479,14 @@ Rm
 Rm
 Rm
 Rm
-QF
+FT
 "}
 (95,1,1) = {"
-QF
-UW
-UW
-UW
-UW
+FT
+yO
+yO
+yO
+yO
 Rm
 Rm
 Rm
@@ -31515,7 +31515,7 @@ Rm
 Rm
 Rm
 Rm
-FC
+Yo
 Rm
 Rm
 Rm
@@ -31736,14 +31736,14 @@ Rm
 Rm
 Rm
 Rm
-QF
+FT
 "}
 (96,1,1) = {"
-QF
-UW
-UW
-UW
-UW
+FT
+yO
+yO
+yO
+yO
 Rm
 Rm
 Rm
@@ -31772,7 +31772,7 @@ Rm
 Rm
 Rm
 Rm
-FC
+Yo
 Rm
 Rm
 Rm
@@ -31993,14 +31993,14 @@ Rm
 Rm
 Rm
 Rm
-QF
+FT
 "}
 (97,1,1) = {"
-QF
-UW
-UW
-UW
-UW
+FT
+yO
+yO
+yO
+yO
 Rm
 Rm
 Rm
@@ -32029,7 +32029,7 @@ Rm
 Rm
 Rm
 Rm
-FC
+Yo
 Rm
 Rm
 Rm
@@ -32250,14 +32250,14 @@ Rm
 Rm
 Rm
 Rm
-QF
+FT
 "}
 (98,1,1) = {"
-QF
-UW
-UW
-UW
-UW
+FT
+yO
+yO
+yO
+yO
 Rm
 Rm
 Rm
@@ -32286,7 +32286,7 @@ Rm
 Rm
 Rm
 Rm
-FC
+Yo
 Rm
 Rm
 Rm
@@ -32507,14 +32507,14 @@ Rm
 Rm
 Rm
 Rm
-QF
+FT
 "}
 (99,1,1) = {"
-QF
-UW
-UW
-UW
-UW
+FT
+yO
+yO
+yO
+yO
 Rm
 Rm
 Rm
@@ -32543,7 +32543,7 @@ Rm
 Rm
 Rm
 Rm
-FC
+Yo
 Rm
 Rm
 Rm
@@ -32764,14 +32764,14 @@ Rm
 Rm
 Rm
 Rm
-QF
+FT
 "}
 (100,1,1) = {"
-QF
-UW
-UW
-UW
-UW
+FT
+yO
+yO
+yO
+yO
 Rm
 Rm
 Rm
@@ -32800,7 +32800,7 @@ dz
 dz
 dz
 Rm
-FC
+Yo
 Rm
 Rm
 Rm
@@ -33021,14 +33021,14 @@ Rm
 Rm
 Rm
 Rm
-QF
+FT
 "}
 (101,1,1) = {"
-QF
-UW
-UW
-UW
-UW
+FT
+yO
+yO
+yO
+yO
 Rm
 Rm
 Rm
@@ -33057,7 +33057,7 @@ dz
 dz
 dz
 Rm
-FC
+Yo
 Rm
 Rm
 Rm
@@ -33278,14 +33278,14 @@ Rm
 Rm
 Rm
 Rm
-QF
+FT
 "}
 (102,1,1) = {"
-QF
-UW
-UW
-UW
-UW
+FT
+yO
+yO
+yO
+yO
 Rm
 Rm
 Rm
@@ -33314,7 +33314,7 @@ Rm
 Rm
 dz
 Rm
-FC
+Yo
 Rm
 Rm
 Rm
@@ -33535,14 +33535,14 @@ Rm
 Rm
 Rm
 Rm
-QF
+FT
 "}
 (103,1,1) = {"
-QF
-UW
-UW
-UW
-UW
+FT
+yO
+yO
+yO
+yO
 Rm
 Rm
 Rm
@@ -33571,7 +33571,7 @@ Rm
 Rm
 dz
 Rm
-FC
+Yo
 Rm
 Rm
 Rm
@@ -33792,14 +33792,14 @@ Rm
 Rm
 Rm
 Rm
-QF
+FT
 "}
 (104,1,1) = {"
-QF
-UW
-UW
-UW
-UW
+FT
+yO
+yO
+yO
+yO
 Rm
 Rm
 Rm
@@ -33828,7 +33828,7 @@ Rm
 dz
 dz
 Rm
-FC
+Yo
 Rm
 Rm
 Rm
@@ -34049,14 +34049,14 @@ Rm
 Rm
 Rm
 Rm
-QF
+FT
 "}
 (105,1,1) = {"
-QF
-UW
-UW
-UW
-UW
+FT
+yO
+yO
+yO
+yO
 Rm
 Rm
 Rm
@@ -34085,7 +34085,7 @@ Rm
 dz
 dz
 Rm
-FC
+Yo
 Rm
 Rm
 Rm
@@ -34306,13 +34306,13 @@ Rm
 Rm
 Rm
 Rm
-QF
+FT
 "}
 (106,1,1) = {"
-QF
-UW
-UW
-UW
+FT
+yO
+yO
+yO
 Rm
 Rm
 Rm
@@ -34342,7 +34342,7 @@ Rm
 dz
 dz
 dz
-uC
+iK
 dz
 Rm
 Rm
@@ -34563,13 +34563,13 @@ Rm
 Rm
 Rm
 Rm
-QF
+FT
 "}
 (107,1,1) = {"
-QF
-UW
-UW
-UW
+FT
+yO
+yO
+yO
 Rm
 Rm
 Rm
@@ -34599,7 +34599,7 @@ Rm
 dz
 dz
 dz
-uC
+iK
 dz
 dz
 dz
@@ -34820,13 +34820,13 @@ Rm
 Rm
 Rm
 Rm
-QF
+FT
 "}
 (108,1,1) = {"
-QF
-UW
-UW
-UW
+FT
+yO
+yO
+yO
 Rm
 Rm
 Rm
@@ -34836,10 +34836,10 @@ Rm
 Rm
 Rm
 Rm
-cB
+eO
 Rm
 Rm
-cB
+eO
 Rm
 Rm
 Rm
@@ -34856,7 +34856,7 @@ dz
 dz
 dz
 dz
-eD
+aF
 dz
 dz
 dz
@@ -35077,13 +35077,13 @@ Rm
 Rm
 Rm
 Rm
-QF
+FT
 "}
 (109,1,1) = {"
-QF
-UW
-UW
-UW
+FT
+yO
+yO
+yO
 Rm
 Rm
 Rm
@@ -35093,10 +35093,10 @@ Rm
 Rm
 Rm
 Rm
-cB
-cB
-cB
-cB
+eO
+eO
+eO
+eO
 Rm
 Rm
 Rm
@@ -35113,7 +35113,7 @@ dz
 dz
 dz
 dz
-FC
+Yo
 Rm
 Rm
 Rm
@@ -35334,13 +35334,13 @@ Rm
 Rm
 Rm
 Rm
-QF
+FT
 "}
 (110,1,1) = {"
-QF
-UW
-UW
-UW
+FT
+yO
+yO
+yO
 Rm
 Rm
 Rm
@@ -35349,11 +35349,11 @@ Rm
 Rm
 Rm
 Rm
-cB
-cB
-cB
-cB
-cB
+eO
+eO
+eO
+eO
+eO
 Rm
 Rm
 Rm
@@ -35370,7 +35370,7 @@ dz
 dz
 dz
 dz
-FC
+Yo
 Rm
 Rm
 Rm
@@ -35591,13 +35591,13 @@ Rm
 Rm
 Rm
 Rm
-QF
+FT
 "}
 (111,1,1) = {"
-QF
-UW
-UW
-UW
+FT
+yO
+yO
+yO
 Rm
 Rm
 Rm
@@ -35605,13 +35605,13 @@ Rm
 Rm
 Rm
 Rm
-cB
-cB
-cB
-cB
-cB
-cB
-cB
+eO
+eO
+eO
+eO
+eO
+eO
+eO
 Rm
 Rm
 Rm
@@ -35627,7 +35627,7 @@ dz
 dz
 dz
 Rm
-FC
+Yo
 Rm
 Rm
 Rm
@@ -35848,27 +35848,27 @@ Rm
 Rm
 Rm
 Rm
-QF
+FT
 "}
 (112,1,1) = {"
-QF
-UW
-UW
-UW
+FT
+yO
+yO
+yO
 Rm
 Rm
 Rm
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
+eO
+eO
+eO
+eO
+eO
+eO
+eO
+eO
+eO
+eO
+eO
 Rm
 Rm
 Rm
@@ -35884,7 +35884,7 @@ dz
 dz
 dz
 Rm
-FC
+Yo
 Rm
 Rm
 Rm
@@ -36105,27 +36105,27 @@ Rm
 Rm
 Rm
 Rm
-QF
+FT
 "}
 (113,1,1) = {"
-QF
-UW
-UW
-UW
+FT
+yO
+yO
+yO
 Rm
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
+eO
+eO
+eO
+eO
+eO
+eO
+eO
+eO
+eO
+eO
+eO
+eO
+eO
 Rm
 Rm
 Rm
@@ -36141,7 +36141,7 @@ dz
 dz
 Rm
 Rm
-FC
+Yo
 Rm
 Rm
 Rm
@@ -36362,27 +36362,27 @@ Rm
 Rm
 Rm
 Rm
-QF
+FT
 "}
 (114,1,1) = {"
-QF
-UW
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
+FT
+yO
+eO
+eO
+eO
+eO
+eO
+eO
+eO
+eO
+eO
+eO
+eO
+eO
+eO
+eO
+eO
+eO
 Rm
 Rm
 Rm
@@ -36398,7 +36398,7 @@ dz
 dz
 Rm
 Rm
-FC
+Yo
 Rm
 Rm
 Rm
@@ -36619,27 +36619,27 @@ Rm
 Rm
 Rm
 Rm
-QF
+FT
 "}
 (115,1,1) = {"
-QF
-UW
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
+FT
+yO
+eO
+eO
+eO
+eO
+eO
+eO
+eO
+eO
+eO
+eO
+eO
+eO
+eO
+eO
+eO
+eO
 Rm
 Rm
 Rm
@@ -36655,7 +36655,7 @@ dz
 Rm
 Rm
 Rm
-FC
+Yo
 Rm
 Rm
 Rm
@@ -36876,27 +36876,27 @@ Rm
 Rm
 Rm
 Rm
-QF
+FT
 "}
 (116,1,1) = {"
-QF
-UW
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
+FT
+yO
+eO
+eO
+eO
+eO
+eO
+eO
+eO
+eO
+eO
+eO
+eO
+eO
+eO
+eO
+eO
+eO
 Rm
 Rm
 Rm
@@ -36912,7 +36912,7 @@ aa
 aa
 aa
 aa
-FC
+Yo
 Rm
 Rm
 Rm
@@ -37133,27 +37133,27 @@ Rm
 Rm
 Rm
 Rm
-QF
+FT
 "}
 (117,1,1) = {"
-td
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
+np
+eO
+eO
+eO
+eO
+eO
+eO
+eO
+eO
+eO
+eO
+eO
+eO
+eO
+eO
+eO
+eO
+eO
 Rm
 Rm
 Rm
@@ -37169,7 +37169,7 @@ aa
 aa
 aa
 aa
-FC
+Yo
 Rm
 Rm
 Rm
@@ -37390,27 +37390,27 @@ Rm
 Rm
 Rm
 Rm
-QF
+FT
 "}
 (118,1,1) = {"
-td
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
+np
+eO
+eO
+eO
+eO
+eO
+eO
+eO
+eO
+eO
+eO
+eO
+eO
+eO
+eO
+eO
+eO
+eO
 Rm
 Rm
 Rm
@@ -37426,7 +37426,7 @@ aa
 aa
 aa
 aa
-FC
+Yo
 Rm
 Rm
 zQ
@@ -37647,25 +37647,25 @@ Rm
 Rm
 Rm
 Rm
-QF
+FT
 "}
 (119,1,1) = {"
-td
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
+np
+eO
+eO
+eO
+eO
+eO
+eO
+eO
+eO
+eO
+eO
+eO
+eO
+eO
+eO
+eO
 Rm
 Rm
 Rm
@@ -37682,8 +37682,8 @@ aa
 ae
 ae
 ae
-xu
-JQ
+Jn
+oA
 Rm
 Rm
 Rm
@@ -37904,20 +37904,20 @@ Rm
 Rm
 Rm
 Rm
-QF
+FT
 "}
 (120,1,1) = {"
-td
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
+np
+eO
+eO
+eO
+eO
+eO
+eO
+eO
+eO
+eO
+eO
 Rm
 Rm
 Rm
@@ -37939,8 +37939,8 @@ aa
 ae
 ae
 ae
-xu
-JQ
+Jn
+oA
 ui
 Rm
 Rm
@@ -38161,19 +38161,19 @@ Rm
 Rm
 Rm
 Rm
-QF
+FT
 "}
 (121,1,1) = {"
-td
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
-cB
+np
+eO
+eO
+eO
+eO
+eO
+eO
+eO
+eO
+eO
 Rm
 Rm
 Rm
@@ -38196,8 +38196,8 @@ ae
 ae
 ae
 ae
-xu
-JQ
+Jn
+oA
 Rm
 Rm
 Rm
@@ -38418,16 +38418,16 @@ Rm
 Rm
 Rm
 Rm
-QF
+FT
 "}
 (122,1,1) = {"
-td
-cB
-cB
-cB
-cB
-cB
-cB
+np
+eO
+eO
+eO
+eO
+eO
+eO
 Rm
 Rm
 Rm
@@ -38453,8 +38453,8 @@ ae
 ae
 ae
 ae
-xu
-zN
+Jn
+Wa
 Rm
 Rm
 Xu
@@ -38675,15 +38675,15 @@ Rm
 Rm
 Rm
 Rm
-QF
+FT
 "}
 (123,1,1) = {"
-td
-cB
-cB
-cB
-cB
-cB
+np
+eO
+eO
+eO
+eO
+eO
 Rm
 Rm
 Rm
@@ -38932,13 +38932,13 @@ Rm
 Rm
 Rm
 Rm
-QF
+FT
 "}
 (124,1,1) = {"
-td
-cB
-cB
-cB
+np
+eO
+eO
+eO
 Rm
 Rm
 Rm
@@ -39189,13 +39189,13 @@ Rm
 Rm
 Rm
 Rm
-QF
+FT
 "}
 (125,1,1) = {"
-td
-cB
-cB
-cB
+np
+eO
+eO
+eO
 Rm
 Rm
 Rm
@@ -39446,13 +39446,13 @@ Rm
 Rm
 Rm
 Rm
-QF
+FT
 "}
 (126,1,1) = {"
-td
-cB
-cB
-UW
+np
+eO
+eO
+yO
 Rm
 Rm
 Rm
@@ -39703,13 +39703,13 @@ Rm
 Rm
 Rm
 Rm
-QF
+FT
 "}
 (127,1,1) = {"
-td
-UW
-UW
-UW
+np
+yO
+yO
+yO
 Rm
 Rm
 Rm
@@ -39960,13 +39960,13 @@ Rm
 Rm
 Rm
 Rm
-QF
+FT
 "}
 (128,1,1) = {"
-QF
-UW
-UW
-UW
+FT
+yO
+yO
+yO
 Rm
 Rm
 Rm
@@ -40217,13 +40217,13 @@ Rm
 Rm
 Rm
 Rm
-QF
+FT
 "}
 (129,1,1) = {"
-QF
-UW
-UW
-UW
+FT
+yO
+yO
+yO
 Rm
 Rm
 dz
@@ -40474,13 +40474,13 @@ Rm
 Rm
 Rm
 Rm
-QF
+FT
 "}
 (130,1,1) = {"
-QF
-UW
-UW
-UW
+FT
+yO
+yO
+yO
 Rm
 dz
 dz
@@ -40731,13 +40731,13 @@ Rm
 Rm
 Rm
 Rm
-QF
+FT
 "}
 (131,1,1) = {"
-QF
-UW
-UW
-xJ
+FT
+yO
+yO
+YS
 dz
 dz
 dz
@@ -40988,13 +40988,13 @@ Rm
 Rm
 Rm
 Rm
-QF
+FT
 "}
 (132,1,1) = {"
-QF
-UW
-xJ
-xJ
+FT
+yO
+YS
+YS
 dz
 dz
 dz
@@ -41245,13 +41245,13 @@ Rm
 Rm
 Rm
 Rm
-QF
+FT
 "}
 (133,1,1) = {"
-Bl
-xJ
-xJ
-xJ
+fp
+YS
+YS
+YS
 dz
 dz
 dz
@@ -41502,13 +41502,13 @@ Rm
 Rm
 Rm
 Rm
-QF
+FT
 "}
 (134,1,1) = {"
-Bl
-xJ
-xJ
-xJ
+fp
+YS
+YS
+YS
 dz
 dz
 dz
@@ -41759,13 +41759,13 @@ Rm
 Rm
 Rm
 Rm
-QF
+FT
 "}
 (135,1,1) = {"
-Bl
-xJ
-xJ
-xJ
+fp
+YS
+YS
+YS
 dz
 Rm
 Rm
@@ -42016,13 +42016,13 @@ Rm
 Rm
 Rm
 Rm
-QF
+FT
 "}
 (136,1,1) = {"
-Bl
-xJ
-xJ
-xJ
+fp
+YS
+YS
+YS
 Rm
 Rm
 Rm
@@ -42273,13 +42273,13 @@ Rm
 Rm
 Rm
 Rm
-QF
+FT
 "}
 (137,1,1) = {"
-Bl
-xJ
-xJ
-UW
+fp
+YS
+YS
+yO
 Rm
 Rm
 Rm
@@ -42530,13 +42530,13 @@ Rm
 Rm
 Rm
 Rm
-QF
+FT
 "}
 (138,1,1) = {"
-Bl
-xJ
-UW
-UW
+fp
+YS
+yO
+yO
 Rm
 Rm
 Rm
@@ -42787,13 +42787,13 @@ Rm
 Rm
 Rm
 Rm
-QF
+FT
 "}
 (139,1,1) = {"
-Bl
-UW
-UW
-UW
+fp
+yO
+yO
+yO
 Rm
 Rm
 Rm
@@ -43044,14 +43044,14 @@ Rm
 Rm
 Rm
 Rm
-QF
+FT
 "}
 (140,1,1) = {"
-QF
-UW
-UW
-UW
-UW
+FT
+yO
+yO
+yO
+yO
 Rm
 Rm
 Rm
@@ -43301,15 +43301,15 @@ Rm
 Rm
 Rm
 Rm
-QF
+FT
 "}
 (141,1,1) = {"
-QF
-UW
-UW
-UW
-UW
-UW
+FT
+yO
+yO
+yO
+yO
+yO
 Rm
 Rm
 Rm
@@ -43558,16 +43558,16 @@ Rm
 Rm
 Rm
 Rm
-QF
+FT
 "}
 (142,1,1) = {"
-QF
-UW
-UW
-UW
-UW
-UW
-UW
+FT
+yO
+yO
+yO
+yO
+yO
+yO
 Rm
 Rm
 Rm
@@ -43815,16 +43815,16 @@ Rm
 Rm
 Rm
 Rm
-QF
+FT
 "}
 (143,1,1) = {"
-QF
-UW
-UW
-UW
-UW
-UW
-UW
+FT
+yO
+yO
+yO
+yO
+yO
+yO
 Rm
 Rm
 Rm
@@ -44072,10 +44072,10 @@ Rm
 Rm
 Rm
 Rm
-QF
+FT
 "}
 (144,1,1) = {"
-td
+np
 Bk
 Bk
 Bk
@@ -44329,14 +44329,14 @@ Rm
 Rm
 Rm
 Rm
-QF
+FT
 "}
 (145,1,1) = {"
-td
-DF
-hz
-hz
-hz
+np
+bA
+nR
+nR
+nR
 Ss
 aa
 Rm
@@ -44375,7 +44375,7 @@ Rm
 Rm
 aa
 wf
-nS
+PF
 Fa
 dx
 wf
@@ -44586,10 +44586,10 @@ Rm
 Rm
 Rm
 Rm
-QF
+FT
 "}
 (146,1,1) = {"
-td
+np
 Ss
 aa
 aa
@@ -44843,10 +44843,10 @@ Rm
 Rm
 Rm
 Rm
-QF
+FT
 "}
 (147,1,1) = {"
-td
+np
 Ss
 aa
 aa
@@ -45100,10 +45100,10 @@ Rm
 Rm
 Rm
 Rm
-QF
+FT
 "}
 (148,1,1) = {"
-td
+np
 Ss
 aa
 aa
@@ -45357,10 +45357,10 @@ Rm
 Rm
 Rm
 Rm
-QF
+FT
 "}
 (149,1,1) = {"
-td
+np
 Ss
 aa
 aa
@@ -45614,10 +45614,10 @@ Rm
 Rm
 Rm
 Rm
-QF
+FT
 "}
 (150,1,1) = {"
-td
+np
 Ss
 aa
 aa
@@ -45871,10 +45871,10 @@ Rm
 Rm
 Rm
 Rm
-QF
+FT
 "}
 (151,1,1) = {"
-td
+np
 Ss
 aa
 aa
@@ -46128,10 +46128,10 @@ Rm
 Rm
 Rm
 Rm
-QF
+FT
 "}
 (152,1,1) = {"
-td
+np
 Ss
 ae
 aa
@@ -46385,10 +46385,10 @@ Rm
 Rm
 Rm
 Rm
-QF
+FT
 "}
 (153,1,1) = {"
-td
+np
 Ss
 aa
 ae
@@ -46642,10 +46642,10 @@ Rm
 Rm
 Rm
 Rm
-QF
+FT
 "}
 (154,1,1) = {"
-td
+np
 Ss
 ae
 ae
@@ -46656,7 +46656,7 @@ ae
 ae
 ae
 ae
-zE
+Nl
 aa
 yX
 lC
@@ -46899,10 +46899,10 @@ Rm
 Rm
 Rm
 Rm
-QF
+FT
 "}
 (155,1,1) = {"
-td
+np
 Ss
 ae
 ae
@@ -47156,10 +47156,10 @@ Rm
 Rm
 Rm
 Rm
-QF
+FT
 "}
 (156,1,1) = {"
-td
+np
 Ss
 ae
 ae
@@ -47413,10 +47413,10 @@ Rm
 Rm
 Rm
 Rm
-QF
+FT
 "}
 (157,1,1) = {"
-td
+np
 Ss
 ae
 ae
@@ -47427,14 +47427,14 @@ ae
 ae
 ae
 ae
-zE
+Nl
 aa
 yX
-Dr
-eF
-eF
+xv
+Yg
+Yg
 Vp
-eF
+Yg
 yX
 aa
 aa
@@ -47514,11 +47514,11 @@ VS
 VS
 WX
 VS
-dy
+QY
 VS
 ew
 VS
-ZY
+vp
 VS
 WH
 FD
@@ -47617,7 +47617,7 @@ Rm
 Rm
 ae
 aa
-PL
+VA
 vw
 EH
 EH
@@ -47670,19 +47670,19 @@ Rm
 Rm
 Rm
 Rm
-QF
+FT
 "}
 (158,1,1) = {"
-td
+np
 Ss
 ae
 ae
 ae
 ae
 ae
-Bo
-Bo
-Bo
+Mx
+Mx
+Mx
 aa
 aa
 aa
@@ -47927,18 +47927,18 @@ Rm
 Rm
 Rm
 Rm
-QF
+FT
 "}
 (159,1,1) = {"
-td
+np
 Ss
 ae
 ae
 aa
 yX
 yX
-DE
-kL
+ya
+Md
 OK
 yX
 yX
@@ -48026,13 +48026,13 @@ Mz
 mM
 VS
 VS
-qD
+Zx
 VS
-tm
+GU
 VS
 ew
 VS
-TH
+UB
 VS
 Jk
 mG
@@ -48140,7 +48140,7 @@ Yy
 Yy
 EH
 sW
-rB
+Nm
 vw
 Rm
 Rm
@@ -48184,10 +48184,10 @@ Rm
 Rm
 Rm
 Rm
-QF
+FT
 "}
 (160,1,1) = {"
-td
+np
 Ss
 ae
 ae
@@ -48197,15 +48197,15 @@ Vp
 Vp
 Vp
 Vp
-hf
-Ed
-hf
+HG
+Ik
+HG
 mk
 Vp
 Vp
-WC
-WC
-WC
+TG
+TG
+TG
 yX
 Ss
 aa
@@ -48441,10 +48441,10 @@ Rm
 Rm
 Rm
 Rm
-QF
+FT
 "}
 (161,1,1) = {"
-td
+np
 Ss
 ae
 ae
@@ -48458,11 +48458,11 @@ Vp
 Vp
 Vp
 mk
-xc
+mw
 Vp
 eS
 eS
-RQ
+TH
 hr
 Ss
 aa
@@ -48698,10 +48698,10 @@ Rm
 Rm
 Rm
 Rm
-QF
+FT
 "}
 (162,1,1) = {"
-td
+np
 Ss
 ae
 ae
@@ -48718,7 +48718,7 @@ mk
 XR
 Vp
 JN
-WC
+TG
 JN
 yX
 Ss
@@ -48955,10 +48955,10 @@ Rm
 Rm
 Rm
 Rm
-QF
+FT
 "}
 (163,1,1) = {"
-td
+np
 Ss
 aa
 aa
@@ -48970,9 +48970,9 @@ Vp
 Va
 Vp
 so
-VA
+zI
 mk
-yi
+mp
 Vp
 Vp
 Vp
@@ -49212,10 +49212,10 @@ Rm
 Rm
 Rm
 Rm
-QF
+FT
 "}
 (164,1,1) = {"
-td
+np
 yX
 yX
 yX
@@ -49229,7 +49229,7 @@ mk
 mk
 fq
 mk
-ng
+TA
 Vp
 Vp
 Vp
@@ -49469,24 +49469,24 @@ Rm
 Rm
 Rm
 Rm
-QF
+FT
 "}
 (165,1,1) = {"
-td
+np
 yX
-BP
+mF
 Sh
-ix
+tQ
 Vp
-Zo
+jO
 Vp
 Vp
 mk
-eB
+hY
 eV
-uX
+sK
 fq
-kU
+zy
 Vp
 Vp
 Sh
@@ -49726,28 +49726,28 @@ Rm
 Rm
 Rm
 Rm
-QF
+FT
 "}
 (166,1,1) = {"
-td
+np
 yX
 We
 Vp
-yk
+XB
 Vp
 BH
 Vp
 Vp
 mk
-eB
+hY
 Vp
-uX
+sK
 fq
 IF
 Vp
 JN
-WC
-WC
+TG
+TG
 yX
 Ss
 aa
@@ -49804,7 +49804,7 @@ aa
 pl
 pl
 QA
-CD
+Um
 pU
 pl
 pU
@@ -49983,10 +49983,10 @@ Rm
 Rm
 Rm
 Rm
-QF
+FT
 "}
 (167,1,1) = {"
-td
+np
 yX
 Vs
 Vp
@@ -49996,15 +49996,15 @@ Vp
 Vp
 Vp
 mk
-eB
+hY
 Vp
-uX
+sK
 fq
-zT
+Ff
 Vp
 eS
 eS
-RQ
+TH
 hr
 Ss
 aa
@@ -50240,12 +50240,12 @@ Rm
 Rm
 Rm
 Rm
-QF
+FT
 "}
 (168,1,1) = {"
-td
+np
 yX
-yk
+XB
 Sh
 We
 Vp
@@ -50257,11 +50257,11 @@ mk
 Vp
 fq
 fq
-Ec
+rd
 Vp
-WC
-WC
-WC
+TG
+TG
+TG
 yX
 Ss
 aa
@@ -50497,23 +50497,23 @@ Rm
 Rm
 Rm
 Rm
-QF
+FT
 "}
 (169,1,1) = {"
-td
+np
 yX
-BP
+mF
 Sh
-ix
+tQ
 Vp
-Zo
+jO
 Vp
 Vp
 fk
-Ut
+Vy
 Vp
-lx
-Zp
+CT
+EU
 Vp
 Vp
 Sh
@@ -50754,10 +50754,10 @@ Rm
 Rm
 Rm
 Rm
-QF
+FT
 "}
 (170,1,1) = {"
-td
+np
 yX
 mk
 mk
@@ -51011,16 +51011,16 @@ Rm
 Rm
 Rm
 Rm
-QF
+FT
 "}
 (171,1,1) = {"
-td
+np
 yX
-SB
+xf
 Vp
-SB
+xf
 Sh
-pj
+nz
 Vp
 Vp
 Vp
@@ -51268,14 +51268,14 @@ Rm
 Rm
 Rm
 Rm
-QF
+FT
 "}
 (172,1,1) = {"
-td
+np
 yX
 We
 Vp
-yk
+XB
 Vp
 BH
 Vp
@@ -51283,13 +51283,13 @@ Vp
 mk
 Vp
 Vp
-eM
+Bp
 mk
-tb
-HW
+ba
+DC
 TT
-QV
-tO
+EN
+FM
 yX
 yX
 aa
@@ -51525,10 +51525,10 @@ Rm
 Rm
 Rm
 Rm
-QF
+FT
 "}
 (173,1,1) = {"
-td
+np
 yX
 Vs
 Vp
@@ -51542,12 +51542,12 @@ Vp
 Vp
 Vp
 mk
-cy
-HW
-HW
-HW
-HW
-oM
+SE
+DC
+DC
+DC
+DC
+PC
 yX
 yX
 Ns
@@ -51782,12 +51782,12 @@ Rm
 Rm
 Rm
 Rm
-QF
+FT
 "}
 (174,1,1) = {"
-td
+np
 yX
-yk
+XB
 Sh
 We
 Vp
@@ -51796,16 +51796,16 @@ Vp
 Vp
 mk
 Vp
-LE
+Mb
 nf
 mk
-uN
-HW
-HW
-pN
-HW
-HW
-Cz
+vY
+DC
+DC
+vS
+DC
+DC
+Pc
 yX
 aa
 fM
@@ -52039,16 +52039,16 @@ Rm
 Rm
 Rm
 Rm
-QF
+FT
 "}
 (175,1,1) = {"
-td
+np
 yX
-BP
+mF
 Sh
-ix
+tQ
 Vp
-Zo
+jO
 Vp
 yX
 yX
@@ -52057,11 +52057,11 @@ yX
 yX
 yX
 yX
-xN
-HW
-iQ
-HW
-HW
+Dr
+DC
+iM
+DC
+DC
 Su
 yX
 aa
@@ -52296,10 +52296,10 @@ Rm
 Rm
 Rm
 Rm
-QF
+FT
 "}
 (176,1,1) = {"
-td
+np
 yX
 yX
 yX
@@ -52315,10 +52315,10 @@ ae
 yX
 yX
 PY
-zG
-HW
-zG
-wX
+Oc
+DC
+Oc
+eQ
 yX
 yX
 Ns
@@ -52553,15 +52553,15 @@ Rm
 Rm
 Rm
 Rm
-QF
+FT
 "}
 (177,1,1) = {"
-td
+np
 Ss
 aa
 aa
 aa
-QD
+FC
 NJ
 ue
 NJ
@@ -52572,10 +52572,10 @@ NJ
 aa
 yX
 yX
-vp
+Ql
 Gx
-Rg
-ZP
+qL
+Zo
 yX
 aa
 aa
@@ -52810,15 +52810,15 @@ Rm
 Rm
 Rm
 Rm
-QF
+FT
 "}
 (178,1,1) = {"
-td
+np
 IB
 Bk
 Bk
 aa
-QD
+FC
 aa
 Bu
 aa
@@ -52833,7 +52833,7 @@ yX
 yX
 yX
 yX
-hN
+zk
 Bk
 Bk
 Uj
@@ -52858,7 +52858,7 @@ Yd
 Rm
 Rm
 Rm
-Ov
+cG
 Rm
 Rm
 Rm
@@ -53067,15 +53067,15 @@ Rm
 Rm
 Rm
 Rm
-QF
+FT
 "}
 (179,1,1) = {"
-Wr
-mS
+Hu
+bQ
 ae
-mS
-zt
-QD
+bQ
+zl
+FC
 ae
 ud
 ae
@@ -53324,20 +53324,15 @@ Rm
 Rm
 Rm
 Rm
-QF
+FT
 "}
 (180,1,1) = {"
-Wr
+Hu
 ae
 ae
 ae
 ae
-mV
-ae
-ae
-ae
-ae
-ae
+hJ
 ae
 ae
 ae
@@ -53345,7 +53340,12 @@ ae
 ae
 ae
 ae
-zt
+ae
+ae
+ae
+ae
+ae
+zl
 yX
 ae
 ae
@@ -53581,15 +53581,15 @@ Rm
 Rm
 Rm
 Rm
-QF
+FT
 "}
 (181,1,1) = {"
-Wr
-mS
+Hu
+bQ
 ae
-mS
-zt
-QD
+bQ
+zl
+FC
 ae
 ud
 ae
@@ -53838,15 +53838,15 @@ Rm
 Rm
 Rm
 Rm
-QF
+FT
 "}
 (182,1,1) = {"
-td
+np
 Nf
 NJ
-JV
+Mq
 ae
-QD
+FC
 aa
 fM
 aa
@@ -53861,7 +53861,7 @@ yX
 op
 yX
 yX
-jI
+KG
 NJ
 NJ
 CC
@@ -54094,16 +54094,16 @@ Rm
 Rm
 Rm
 Rm
-UW
-QF
+yO
+FT
 "}
 (183,1,1) = {"
-td
-bb
+np
+bm
 ae
 ae
 ae
-QD
+FC
 Bk
 Uj
 Bk
@@ -54349,21 +54349,21 @@ Rm
 Rm
 Rm
 Rm
-UW
-UW
-UW
-QF
+yO
+yO
+yO
+FT
 "}
 (184,1,1) = {"
-td
+np
 Ss
 ae
 aa
 aa
-QD
+FC
 aa
 aa
-Tx
+Dl
 ae
 aa
 aa
@@ -54377,7 +54377,7 @@ Vp
 ft
 mk
 yX
-NL
+ZQ
 QG
 Rm
 ae
@@ -54606,13 +54606,13 @@ Rm
 Rm
 Rm
 Rm
-UW
-UW
-UW
-QF
+yO
+yO
+yO
+FT
 "}
 (185,1,1) = {"
-td
+np
 yX
 yX
 yX
@@ -54861,15 +54861,15 @@ Rm
 Rm
 Rm
 Rm
-UW
-UW
-UW
-UW
-UW
-QF
+yO
+yO
+yO
+yO
+yO
+FT
 "}
 (186,1,1) = {"
-td
+np
 yX
 Ue
 zP
@@ -55117,16 +55117,16 @@ Rm
 Rm
 Rm
 Rm
-UW
-UW
-UW
-UW
-UW
-UW
-QF
+yO
+yO
+yO
+yO
+yO
+yO
+FT
 "}
 (187,1,1) = {"
-td
+np
 yX
 Ly
 Tu
@@ -55371,19 +55371,19 @@ Rm
 Rm
 Rm
 Rm
-UW
-UW
-UW
-UW
-UW
-UW
-UW
-UW
-UW
-QF
+yO
+yO
+yO
+yO
+yO
+yO
+yO
+yO
+yO
+FT
 "}
 (188,1,1) = {"
-td
+np
 yX
 he
 Pu
@@ -55627,20 +55627,20 @@ Rm
 Rm
 Rm
 Rm
-UW
-UW
-UW
-UW
-UW
-UW
-UW
-UW
-UW
-UW
-QF
+yO
+yO
+yO
+yO
+yO
+yO
+yO
+yO
+yO
+yO
+FT
 "}
 (189,1,1) = {"
-td
+np
 yX
 oY
 Tu
@@ -55884,20 +55884,20 @@ Rm
 Rm
 Rm
 Rm
-UW
-UW
-UW
-UW
-UW
-UW
-UW
-UW
-UW
-UW
-QF
+yO
+yO
+yO
+yO
+yO
+yO
+yO
+yO
+yO
+yO
+FT
 "}
 (190,1,1) = {"
-td
+np
 yX
 zP
 Tu
@@ -56141,20 +56141,20 @@ Rm
 Rm
 Rm
 Rm
-UW
-UW
-UW
-UW
-UW
-UW
-UW
-UW
-UW
-UW
-QF
+yO
+yO
+yO
+yO
+yO
+yO
+yO
+yO
+yO
+yO
+FT
 "}
 (191,1,1) = {"
-td
+np
 yX
 Cm
 wB
@@ -56398,20 +56398,20 @@ Rm
 Rm
 Rm
 Rm
-UW
-UW
-UW
-UW
-UW
-UW
-UW
-UW
-UW
-UW
-QF
+yO
+yO
+yO
+yO
+yO
+yO
+yO
+yO
+yO
+yO
+FT
 "}
 (192,1,1) = {"
-td
+np
 yX
 mk
 mk
@@ -56420,9 +56420,9 @@ mk
 mk
 mk
 mk
-Bd
+UP
 KB
-RH
+GQ
 fV
 mk
 mk
@@ -56654,31 +56654,31 @@ Rm
 Rm
 Rm
 Rm
-UW
-UW
-UW
-UW
-UW
-UW
-UW
-UW
-UW
-UW
-UW
-QF
+yO
+yO
+yO
+yO
+yO
+yO
+yO
+yO
+yO
+yO
+yO
+FT
 "}
 (193,1,1) = {"
-td
+np
 yX
 pT
 aC
-LK
+RX
 jj
 eV
-TO
+Iv
 mk
-zI
-ea
+Vg
+WQ
 Sh
 Sh
 mk
@@ -56911,30 +56911,30 @@ Rm
 Rm
 Rm
 Rm
-UW
-UW
-UW
-UW
-UW
-UW
-UW
-UW
-UW
-UW
-UW
-QF
+yO
+yO
+yO
+yO
+yO
+yO
+yO
+yO
+yO
+yO
+yO
+FT
 "}
 (194,1,1) = {"
-td
+np
 yX
 kp
 Vp
-LK
-zs
+RX
+LD
 Vp
-TO
+Iv
 mk
-Og
+zH
 Vp
 Sh
 gX
@@ -57164,34 +57164,34 @@ Rm
 Rm
 Rm
 Rm
-QF
-QF
-QF
-QF
-UW
-UW
-UW
-UW
-UW
-UW
-UW
-UW
-UW
-UW
-UW
-QF
+FT
+FT
+FT
+FT
+yO
+yO
+yO
+yO
+yO
+yO
+yO
+yO
+yO
+yO
+yO
+FT
 "}
 (195,1,1) = {"
-td
+np
 yX
 ve
 Vp
-LD
+xV
 JC
 Vp
-TO
+Iv
 mk
-KA
+qw
 Vp
 Vp
 KB
@@ -57392,21 +57392,21 @@ Rm
 Rm
 Rm
 Rm
-UW
-UW
-UW
-UW
-UW
-UW
-UW
-UW
-UW
-UW
-UW
-UW
-UW
-QF
-QF
+yO
+yO
+yO
+yO
+yO
+yO
+yO
+yO
+yO
+yO
+yO
+yO
+yO
+FT
+FT
 Rm
 Rm
 Rm
@@ -57417,29 +57417,29 @@ Rm
 Rm
 Rm
 Rm
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-UW
-UW
-UW
-UW
-UW
-UW
-UW
-UW
-QF
-QF
-QF
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+yO
+yO
+yO
+yO
+yO
+yO
+yO
+yO
+FT
+FT
+FT
 "}
 (196,1,1) = {"
-td
+np
 yX
 WS
 Vp
@@ -57650,21 +57650,21 @@ Rm
 Rm
 Rm
 Rm
-UW
-UW
-UW
-UW
-UW
-UW
-UW
-QF
-QF
-QF
-QF
-UW
-UW
-UW
-QF
+yO
+yO
+yO
+yO
+yO
+yO
+yO
+FT
+FT
+FT
+FT
+yO
+yO
+yO
+FT
 Rm
 Rm
 Rm
@@ -57674,41 +57674,41 @@ Rm
 Rm
 Rm
 Rm
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-UW
-UW
-UW
-UW
-UW
-UW
-UW
-UW
-QF
-QF
-QF
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+yO
+yO
+yO
+yO
+yO
+yO
+yO
+yO
+FT
+FT
+FT
 "}
 (197,1,1) = {"
-td
+np
 yX
 EC
 Vp
-TZ
+IQ
 zo
 Vp
-GE
+vc
 mk
 dT
 Vp
 Vp
-Jn
+wQ
 mk
 Ab
 Vp
@@ -57908,61 +57908,61 @@ Rm
 Rm
 Rm
 Rm
-UW
-UW
-UW
-UW
-UW
-UW
-QF
-QF
-QF
-QF
-QF
-QF
-UW
-QF
-QF
-QF
-QF
+yO
+yO
+yO
+yO
+yO
+yO
+FT
+FT
+FT
+FT
+FT
+FT
+yO
+FT
+FT
+FT
+FT
 Rm
 Rm
 Rm
 Rm
 Rm
 Rm
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-UW
-UW
-QF
-QF
-QF
-QF
-QF
-QF
-QF
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+yO
+yO
+FT
+FT
+FT
+FT
+FT
+FT
+FT
 "}
 (198,1,1) = {"
-td
+np
 yX
 ff
 Vp
-Ql
-Pc
+qs
+tj
 Vp
-Um
+eJ
 mk
-OT
+cN
 Vp
 Vp
 rW
@@ -58164,58 +58164,58 @@ Rm
 Rm
 Rm
 Rm
-UW
-UW
-UW
-UW
-UW
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
+yO
+yO
+yO
+yO
+yO
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
 Rm
 Rm
 Rm
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
 "}
 (199,1,1) = {"
-td
+np
 yX
 dk
 eY
-Qf
-iC
+SB
+vI
 eY
 oj
 mk
@@ -58422,52 +58422,52 @@ Rm
 Rm
 Rm
 Rm
-UW
-UW
-UW
-UW
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
+yO
+yO
+yO
+yO
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
 Rm
 Rm
 Rm
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
 "}
 (200,1,1) = {"
-td
+np
 yX
 yX
 yX
@@ -58679,52 +58679,52 @@ Rm
 Rm
 Rm
 Rm
-UW
-UW
-UW
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
+yO
+yO
+yO
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
 Rm
 Rm
 Rm
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
 "}
 (201,1,1) = {"
-td
+np
 Ss
 aa
 aa
@@ -58937,19 +58937,19 @@ Rm
 Rm
 Rm
 Rm
-QF
-QF
-QF
-QF
-QF
+FT
+FT
+FT
+FT
+FT
 bG
 bG
 bG
 bG
 bG
 bG
-QF
-QF
+FT
+FT
 bG
 bG
 bG
@@ -58981,7 +58981,7 @@ bG
 bG
 "}
 (202,1,1) = {"
-td
+np
 Ss
 aa
 aa
@@ -58990,7 +58990,7 @@ aa
 aa
 aa
 yX
-RR
+Zh
 Vp
 Sh
 UN
@@ -59194,19 +59194,19 @@ Rm
 Rm
 Rm
 Rm
-QF
-QF
-QF
-QF
-QF
+FT
+FT
+FT
+FT
+FT
 bG
 bG
 bG
 bG
 bG
 bG
-QF
-QF
+FT
+FT
 bG
 bG
 bG
@@ -59238,19 +59238,19 @@ bG
 bG
 "}
 (203,1,1) = {"
-QF
-Pg
-Pg
-Pg
-Pg
-Pg
+FT
+cJ
+cJ
+cJ
+cJ
+cJ
 Ss
 aa
 yX
 AY
 Vp
 Sh
-Me
+Ao
 yX
 aa
 aa
@@ -59451,11 +59451,11 @@ Rm
 Rm
 Rm
 Rm
-QF
-QF
-QF
-QF
-QF
+FT
+FT
+FT
+FT
+FT
 bG
 bG
 bG
@@ -59463,7 +59463,7 @@ bG
 bG
 bG
 bG
-QF
+FT
 bG
 bG
 bG
@@ -59495,7 +59495,7 @@ bG
 bG
 "}
 (204,1,1) = {"
-QF
+FT
 Rm
 Rm
 Rm
@@ -59504,9 +59504,9 @@ Rm
 Ss
 aa
 yX
-XI
-Wj
-Kc
+GK
+hU
+NU
 JS
 yX
 aa
@@ -59708,11 +59708,11 @@ Rm
 Rm
 Rm
 Rm
-QF
-QF
-QF
-QF
-QF
+FT
+FT
+FT
+FT
+FT
 bG
 bG
 bG
@@ -59752,7 +59752,7 @@ bG
 bG
 "}
 (205,1,1) = {"
-QF
+FT
 Rm
 Rm
 Rm
@@ -59763,7 +59763,7 @@ aa
 yX
 yX
 yX
-oR
+tY
 yX
 yX
 aa
@@ -59964,12 +59964,12 @@ Rm
 Rm
 Rm
 Rm
-QF
-QF
-QF
-QF
-QF
-QF
+FT
+FT
+FT
+FT
+FT
+FT
 bG
 bG
 bG
@@ -60009,7 +60009,7 @@ bG
 bG
 "}
 (206,1,1) = {"
-QF
+FT
 Rm
 Rm
 Rm
@@ -60221,12 +60221,12 @@ Rm
 Rm
 Rm
 Rm
-QF
-QF
-QF
-QF
-QF
-QF
+FT
+FT
+FT
+FT
+FT
+FT
 bG
 bG
 bG
@@ -60266,7 +60266,7 @@ bG
 bG
 "}
 (207,1,1) = {"
-QF
+FT
 Rm
 Rm
 Rm
@@ -60479,11 +60479,11 @@ Rm
 Rm
 Rm
 Rm
-QF
-QF
-QF
-QF
-QF
+FT
+FT
+FT
+FT
+FT
 bG
 bG
 bG
@@ -60523,7 +60523,7 @@ bG
 bG
 "}
 (208,1,1) = {"
-QF
+FT
 Rm
 Rm
 Rm
@@ -60737,10 +60737,10 @@ Rm
 Rm
 Rm
 Rm
-QF
-QF
-QF
-QF
+FT
+FT
+FT
+FT
 bG
 bG
 bG
@@ -60780,7 +60780,7 @@ bG
 bG
 "}
 (209,1,1) = {"
-QF
+FT
 Rm
 Rm
 Rm
@@ -60994,10 +60994,10 @@ Rm
 Rm
 Rm
 Rm
-QF
-QF
-QF
-QF
+FT
+FT
+FT
+FT
 bG
 bG
 bG
@@ -61037,7 +61037,7 @@ bG
 bG
 "}
 (210,1,1) = {"
-QF
+FT
 Rm
 Rm
 Rm
@@ -61251,10 +61251,10 @@ Rm
 Rm
 Rm
 Rm
-QF
-QF
-QF
-QF
+FT
+FT
+FT
+FT
 bG
 bG
 bG
@@ -61294,7 +61294,7 @@ bG
 bG
 "}
 (211,1,1) = {"
-QF
+FT
 Rm
 Rm
 Rm
@@ -61507,11 +61507,11 @@ Rm
 Rm
 Rm
 Rm
-QF
-QF
-QF
-QF
-QF
+FT
+FT
+FT
+FT
+FT
 bG
 bG
 bG
@@ -61551,7 +61551,7 @@ bG
 bG
 "}
 (212,1,1) = {"
-QF
+FT
 Rm
 Rm
 Rm
@@ -61763,12 +61763,12 @@ Rm
 Rm
 Rm
 Rm
-QF
-QF
-QF
-QF
-QF
-QF
+FT
+FT
+FT
+FT
+FT
+FT
 bG
 bG
 bG
@@ -61808,7 +61808,7 @@ bG
 bG
 "}
 (213,1,1) = {"
-QF
+FT
 Rm
 Rm
 Rm
@@ -62020,12 +62020,12 @@ Rm
 Rm
 Rm
 Rm
-QF
+FT
 Rm
-QF
-QF
-QF
-QF
+FT
+FT
+FT
+FT
 bG
 bG
 bG
@@ -62065,7 +62065,7 @@ bG
 bG
 "}
 (214,1,1) = {"
-QF
+FT
 Rm
 Rm
 Rm
@@ -62112,7 +62112,7 @@ vx
 vx
 AR
 UO
-sR
+hD
 gU
 gU
 pb
@@ -62277,12 +62277,12 @@ Rm
 Rm
 Rm
 Rm
-QF
-QF
-QF
-QF
-QF
-QF
+FT
+FT
+FT
+FT
+FT
+FT
 bG
 bG
 bG
@@ -62322,7 +62322,7 @@ bG
 bG
 "}
 (215,1,1) = {"
-QF
+FT
 Rm
 Rm
 Rm
@@ -62369,7 +62369,7 @@ PU
 vx
 vx
 gg
-pI
+ER
 gU
 gU
 gU
@@ -62535,11 +62535,11 @@ Rm
 Rm
 Rm
 Rm
-QF
-QF
-QF
-QF
-QF
+FT
+FT
+FT
+FT
+FT
 bG
 bG
 bG
@@ -62579,7 +62579,7 @@ bG
 bG
 "}
 (216,1,1) = {"
-QF
+FT
 Rm
 Rm
 Rm
@@ -62626,7 +62626,7 @@ YT
 vx
 FY
 gg
-pI
+ER
 gU
 gU
 gU
@@ -62792,11 +62792,11 @@ Rm
 Rm
 Rm
 Rm
-QF
-QF
-QF
-QF
-QF
+FT
+FT
+FT
+FT
+FT
 bG
 bG
 bG
@@ -62836,7 +62836,7 @@ bG
 bG
 "}
 (217,1,1) = {"
-QF
+FT
 Rm
 Rm
 Rm
@@ -62879,11 +62879,11 @@ Rm
 Rm
 Rm
 DR
-ki
+gq
 vx
 vx
 kX
-pI
+ER
 gU
 gU
 gU
@@ -63093,7 +63093,7 @@ bG
 bG
 "}
 (218,1,1) = {"
-QF
+FT
 Rm
 Rm
 Rm
@@ -63350,7 +63350,7 @@ bG
 bG
 "}
 (219,1,1) = {"
-QF
+FT
 Rm
 Rm
 Rm
@@ -63607,7 +63607,7 @@ bG
 bG
 "}
 (220,1,1) = {"
-QF
+FT
 Rm
 Rm
 Rm
@@ -63823,8 +63823,8 @@ Rm
 Rm
 Rm
 Rm
-QF
-QF
+FT
+FT
 bG
 bG
 bG
@@ -63864,7 +63864,7 @@ bG
 bG
 "}
 (221,1,1) = {"
-QF
+FT
 Rm
 Rm
 Rm
@@ -64080,8 +64080,8 @@ Rm
 Rm
 Rm
 Rm
-QF
-QF
+FT
+FT
 bG
 bG
 bG
@@ -64121,7 +64121,7 @@ bG
 bG
 "}
 (222,1,1) = {"
-QF
+FT
 Rm
 Rm
 Rm
@@ -64335,10 +64335,10 @@ Rm
 Rm
 Rm
 Rm
-QF
-QF
-QF
-QF
+FT
+FT
+FT
+FT
 bG
 bG
 bG
@@ -64378,7 +64378,7 @@ bG
 bG
 "}
 (223,1,1) = {"
-QF
+FT
 Rm
 Rm
 Rm
@@ -64592,10 +64592,10 @@ Rm
 Rm
 Rm
 Rm
-QF
-QF
-QF
-QF
+FT
+FT
+FT
+FT
 bG
 bG
 bG
@@ -64635,7 +64635,7 @@ bG
 bG
 "}
 (224,1,1) = {"
-QF
+FT
 Rm
 Rm
 Rm
@@ -64849,10 +64849,10 @@ Rm
 Rm
 Rm
 Rm
-QF
-QF
-QF
-QF
+FT
+FT
+FT
+FT
 bG
 bG
 bG
@@ -64892,7 +64892,7 @@ bG
 bG
 "}
 (225,1,1) = {"
-QF
+FT
 Rm
 Rm
 Rm
@@ -64953,7 +64953,7 @@ ae
 ae
 ae
 ae
-jH
+OR
 sY
 ae
 sY
@@ -65106,10 +65106,10 @@ Rm
 Rm
 Rm
 Rm
-QF
-QF
-QF
-QF
+FT
+FT
+FT
+FT
 bG
 bG
 bG
@@ -65149,7 +65149,7 @@ bG
 bG
 "}
 (226,1,1) = {"
-QF
+FT
 Rm
 Rm
 Rm
@@ -65362,11 +65362,11 @@ Rm
 Rm
 Rm
 Rm
-QF
-QF
-QF
-QF
-QF
+FT
+FT
+FT
+FT
+FT
 bG
 bG
 bG
@@ -65406,7 +65406,7 @@ bG
 bG
 "}
 (227,1,1) = {"
-QF
+FT
 Rm
 Rm
 Rm
@@ -65619,11 +65619,11 @@ Rm
 Rm
 Rm
 Rm
-QF
-QF
-QF
-QF
-QF
+FT
+FT
+FT
+FT
+FT
 bG
 bG
 bG
@@ -65663,7 +65663,7 @@ bG
 bG
 "}
 (228,1,1) = {"
-QF
+FT
 Rm
 Rm
 Rm
@@ -65876,11 +65876,11 @@ Rm
 Rm
 Rm
 Rm
-QF
-QF
-QF
-QF
-QF
+FT
+FT
+FT
+FT
+FT
 bG
 bG
 bG
@@ -65920,7 +65920,7 @@ bG
 bG
 "}
 (229,1,1) = {"
-QF
+FT
 Rm
 Rm
 Rm
@@ -66133,11 +66133,11 @@ Rm
 Rm
 Rm
 Rm
-QF
-QF
-QF
-QF
-QF
+FT
+FT
+FT
+FT
+FT
 bG
 bG
 bG
@@ -66177,7 +66177,7 @@ bG
 bG
 "}
 (230,1,1) = {"
-QF
+FT
 Rm
 Rm
 Rm
@@ -66390,11 +66390,11 @@ Rm
 Rm
 Rm
 Rm
-QF
-QF
-QF
-QF
-QF
+FT
+FT
+FT
+FT
+FT
 bG
 bG
 bG
@@ -66434,7 +66434,7 @@ bG
 bG
 "}
 (231,1,1) = {"
-QF
+FT
 Rm
 Rm
 Rm
@@ -66648,10 +66648,10 @@ Rm
 Rm
 Rm
 Rm
-QF
-QF
-QF
-QF
+FT
+FT
+FT
+FT
 bG
 bG
 bG
@@ -66691,8 +66691,8 @@ bG
 bG
 "}
 (232,1,1) = {"
-QF
-UW
+FT
+yO
 Rm
 Rm
 Rm
@@ -66906,9 +66906,9 @@ Rm
 Rm
 Rm
 Rm
-QF
-QF
-QF
+FT
+FT
+FT
 bG
 bG
 bG
@@ -66948,9 +66948,9 @@ bG
 bG
 "}
 (233,1,1) = {"
-QF
-UW
-UW
+FT
+yO
+yO
 Rm
 Rm
 Rm
@@ -67163,9 +67163,9 @@ Rm
 Rm
 Rm
 Rm
-QF
-QF
-QF
+FT
+FT
+FT
 bG
 bG
 bG
@@ -67205,9 +67205,9 @@ bG
 bG
 "}
 (234,1,1) = {"
-QF
-UW
-UW
+FT
+yO
+yO
 Rm
 Rm
 Rm
@@ -67420,9 +67420,9 @@ Rm
 Rm
 Rm
 Rm
-QF
-QF
-QF
+FT
+FT
+FT
 bG
 bG
 bG
@@ -67462,9 +67462,9 @@ bG
 bG
 "}
 (235,1,1) = {"
-QF
-UW
-UW
+FT
+yO
+yO
 Rm
 Rm
 Rm
@@ -67677,9 +67677,9 @@ Rm
 Rm
 Rm
 Rm
-QF
-QF
-QF
+FT
+FT
+FT
 bG
 bG
 bG
@@ -67719,9 +67719,9 @@ bG
 bG
 "}
 (236,1,1) = {"
-QF
-UW
-UW
+FT
+yO
+yO
 Rm
 Rm
 Rm
@@ -67934,9 +67934,9 @@ Rm
 Rm
 Rm
 Rm
-QF
-QF
-QF
+FT
+FT
+FT
 bG
 bG
 bG
@@ -67976,10 +67976,10 @@ bG
 bG
 "}
 (237,1,1) = {"
-QF
-UW
-UW
-UW
+FT
+yO
+yO
+yO
 Rm
 Rm
 Rm
@@ -68190,10 +68190,10 @@ Rm
 Rm
 Rm
 Rm
-QF
-QF
-QF
-QF
+FT
+FT
+FT
+FT
 bG
 bG
 bG
@@ -68233,10 +68233,10 @@ bG
 bG
 "}
 (238,1,1) = {"
-QF
-UW
-UW
-UW
+FT
+yO
+yO
+yO
 Rm
 Rm
 Rm
@@ -68447,10 +68447,10 @@ Rm
 Rm
 Rm
 Rm
-QF
-QF
-QF
-QF
+FT
+FT
+FT
+FT
 bG
 bG
 bG
@@ -68490,10 +68490,10 @@ bG
 bG
 "}
 (239,1,1) = {"
-QF
-UW
-UW
-UW
+FT
+yO
+yO
+yO
 Rm
 Rm
 Rm
@@ -68704,10 +68704,10 @@ Rm
 Rm
 Rm
 Rm
-QF
-QF
-QF
-QF
+FT
+FT
+FT
+FT
 bG
 bG
 bG
@@ -68747,10 +68747,10 @@ bG
 bG
 "}
 (240,1,1) = {"
-QF
-UW
-UW
-UW
+FT
+yO
+yO
+yO
 Rm
 Rm
 Rm
@@ -68961,10 +68961,10 @@ Rm
 Rm
 Rm
 Rm
-QF
-QF
-QF
-QF
+FT
+FT
+FT
+FT
 bG
 bG
 bG
@@ -69004,10 +69004,10 @@ bG
 bG
 "}
 (241,1,1) = {"
-QF
-UW
-UW
-UW
+FT
+yO
+yO
+yO
 Rm
 Rm
 Rm
@@ -69218,10 +69218,10 @@ Rm
 Rm
 Rm
 Rm
-QF
-QF
-QF
-QF
+FT
+FT
+FT
+FT
 bG
 bG
 bG
@@ -69261,10 +69261,10 @@ bG
 bG
 "}
 (242,1,1) = {"
-QF
-UW
-UW
-UW
+FT
+yO
+yO
+yO
 Rm
 Rm
 Rm
@@ -69475,10 +69475,10 @@ Rm
 Rm
 Rm
 Rm
-QF
-QF
-QF
-QF
+FT
+FT
+FT
+FT
 bG
 bG
 bG
@@ -69518,10 +69518,10 @@ bG
 bG
 "}
 (243,1,1) = {"
-QF
-UW
-UW
-UW
+FT
+yO
+yO
+yO
 Rm
 Rm
 Rm
@@ -69733,9 +69733,9 @@ Rm
 Rm
 Rm
 Rm
-QF
-QF
-QF
+FT
+FT
+FT
 bG
 bG
 bG
@@ -69775,11 +69775,11 @@ bG
 bG
 "}
 (244,1,1) = {"
-QF
-UW
-UW
-UW
-UW
+FT
+yO
+yO
+yO
+yO
 Rm
 Rm
 Rm
@@ -69990,9 +69990,9 @@ Rm
 Rm
 Rm
 Rm
-QF
-QF
-QF
+FT
+FT
+FT
 bG
 bG
 bG
@@ -70032,11 +70032,11 @@ bG
 bG
 "}
 (245,1,1) = {"
-QF
-UW
-UW
-UW
-UW
+FT
+yO
+yO
+yO
+yO
 Rm
 Rm
 Rm
@@ -70247,9 +70247,9 @@ Rm
 Rm
 Rm
 Rm
-QF
-QF
-QF
+FT
+FT
+FT
 bG
 bG
 bG
@@ -70289,11 +70289,11 @@ bG
 bG
 "}
 (246,1,1) = {"
-QF
-UW
-UW
-UW
-UW
+FT
+yO
+yO
+yO
+yO
 Rm
 Rm
 Rm
@@ -70503,10 +70503,10 @@ Rm
 Rm
 Rm
 Rm
-QF
-QF
-QF
-QF
+FT
+FT
+FT
+FT
 bG
 bG
 bG
@@ -70546,12 +70546,12 @@ bG
 bG
 "}
 (247,1,1) = {"
-QF
-UW
-UW
-UW
-UW
-UW
+FT
+yO
+yO
+yO
+yO
+yO
 Rm
 Rm
 Rm
@@ -70759,11 +70759,11 @@ Rm
 Rm
 Rm
 Rm
-QF
-QF
-QF
-QF
-QF
+FT
+FT
+FT
+FT
+FT
 bG
 bG
 bG
@@ -70803,13 +70803,13 @@ bG
 bG
 "}
 (248,1,1) = {"
-QF
-UW
-UW
-UW
-UW
-UW
-UW
+FT
+yO
+yO
+yO
+yO
+yO
+yO
 Rm
 Rm
 Rm
@@ -71016,11 +71016,11 @@ Rm
 Rm
 Rm
 Rm
-QF
-QF
-QF
-QF
-QF
+FT
+FT
+FT
+FT
+FT
 bG
 bG
 bG
@@ -71060,13 +71060,13 @@ bG
 bG
 "}
 (249,1,1) = {"
-QF
-UW
-UW
-UW
-UW
-UW
-UW
+FT
+yO
+yO
+yO
+yO
+yO
+yO
 Rm
 Rm
 Rm
@@ -71154,7 +71154,7 @@ Rm
 Rm
 ae
 ae
-UW
+yO
 Rm
 Rm
 Rm
@@ -71274,10 +71274,10 @@ Rm
 Rm
 Rm
 Rm
-QF
-QF
-QF
-QF
+FT
+FT
+FT
+FT
 bG
 bG
 bG
@@ -71317,14 +71317,14 @@ bG
 bG
 "}
 (250,1,1) = {"
-QF
-QF
-UW
-UW
-UW
-UW
-UW
-UW
+FT
+FT
+yO
+yO
+yO
+yO
+yO
+yO
 Rm
 Rm
 Rm
@@ -71406,15 +71406,15 @@ Rm
 Rm
 Rm
 Rm
-UW
+yO
 Rm
 Rm
 ae
-PW
-UW
-UW
-UW
-UW
+Bv
+yO
+yO
+yO
+yO
 Rm
 Rm
 Rm
@@ -71504,37 +71504,37 @@ Rm
 Rm
 Rm
 Rm
-UW
-UW
-UW
-UW
-UW
-UW
-UW
-UW
-UW
-UW
-UW
-UW
-UW
-UW
-UW
-UW
-UW
-UW
-UW
-UW
-UW
-UW
-UW
-UW
-UW
-UW
-QF
-QF
-QF
-QF
-QF
+yO
+yO
+yO
+yO
+yO
+yO
+yO
+yO
+yO
+yO
+yO
+yO
+yO
+yO
+yO
+yO
+yO
+yO
+yO
+yO
+yO
+yO
+yO
+yO
+yO
+yO
+FT
+FT
+FT
+FT
+FT
 bG
 bG
 bG
@@ -71574,16 +71574,16 @@ bG
 bG
 "}
 (251,1,1) = {"
-QF
-QF
-QF
-UW
-UW
-UW
-UW
-UW
-UW
-UW
+FT
+FT
+FT
+yO
+yO
+yO
+yO
+yO
+yO
+yO
 Rm
 Rm
 Rm
@@ -71594,7 +71594,7 @@ Rm
 Rm
 Rm
 Rm
-QF
+FT
 Rm
 Rm
 Rm
@@ -71661,18 +71661,18 @@ Rm
 Rm
 Rm
 Rm
-UW
-UW
-UW
-UW
+yO
+yO
+yO
+yO
 Rm
-PW
-PW
-UW
-UW
-UW
-UW
-UW
+Bv
+Bv
+yO
+yO
+yO
+yO
+yO
 Rm
 Rm
 Rm
@@ -71742,7 +71742,7 @@ Rm
 Rm
 Rm
 Rm
-td
+np
 Rm
 Rm
 Rm
@@ -71758,40 +71758,40 @@ Rm
 Rm
 Rm
 Rm
-UW
-UW
-UW
-UW
-UW
-UW
-UW
-UW
-UW
-UW
-UW
-UW
-UW
-UW
-UW
-UW
-UW
-UW
-UW
-UW
-UW
-UW
-UW
-UW
-UW
-UW
-UW
-UW
-UW
-QF
-QF
-QF
-QF
-QF
+yO
+yO
+yO
+yO
+yO
+yO
+yO
+yO
+yO
+yO
+yO
+yO
+yO
+yO
+yO
+yO
+yO
+yO
+yO
+yO
+yO
+yO
+yO
+yO
+yO
+yO
+yO
+yO
+yO
+FT
+FT
+FT
+FT
+FT
 bG
 bG
 bG
@@ -71831,32 +71831,32 @@ bG
 bG
 "}
 (252,1,1) = {"
-QF
-QF
-QF
-QF
-QF
-UW
-UW
-UW
-UW
-UW
+FT
+FT
+FT
+FT
+FT
+yO
+yO
+yO
+yO
+yO
 Rm
 Rm
 Rm
 Rm
 Rm
-QF
+FT
 Rm
 Rm
-QF
-QF
-QF
-QF
-QF
+FT
+FT
+FT
+FT
+FT
 Rm
-QF
-QF
+FT
+FT
 Rm
 Rm
 Rm
@@ -71917,23 +71917,23 @@ Rm
 Rm
 Rm
 Rm
-UW
-UW
-UW
-UW
-UW
-UW
-PW
-PW
-UW
-UW
-UW
-UW
-QF
-QF
-QF
-QF
-QF
+yO
+yO
+yO
+yO
+yO
+yO
+Bv
+Bv
+yO
+yO
+yO
+yO
+FT
+FT
+FT
+FT
+FT
 Rm
 Rm
 Rm
@@ -71982,8 +71982,8 @@ Rm
 Rm
 Rm
 Rm
-QF
-QF
+FT
+FT
 Rm
 Rm
 Rm
@@ -71998,12 +71998,12 @@ Rm
 Rm
 Rm
 Rm
-QF
-QF
+FT
+FT
 Rm
-QF
-QF
-QF
+FT
+FT
+FT
 Rm
 Rm
 Rm
@@ -72012,43 +72012,43 @@ Rm
 Rm
 Rm
 Rm
-UW
-UW
-UW
-UW
-UW
-UW
-UW
-UW
-UW
-UW
-UW
-UW
-UW
-UW
-UW
-UW
-QF
-QF
-UW
-UW
-UW
-UW
-UW
-UW
-UW
-UW
-UW
-UW
-UW
-UW
-UW
-UW
-UW
-QF
-QF
-QF
-QF
+yO
+yO
+yO
+yO
+yO
+yO
+yO
+yO
+yO
+yO
+yO
+yO
+yO
+yO
+yO
+yO
+FT
+FT
+yO
+yO
+yO
+yO
+yO
+yO
+yO
+yO
+yO
+yO
+yO
+yO
+yO
+yO
+yO
+FT
+FT
+FT
+FT
 bG
 bG
 bG
@@ -72088,65 +72088,65 @@ bG
 bG
 "}
 (253,1,1) = {"
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
 Rm
 Rm
 Rm
 Rm
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
 Rm
 Rm
 Rm
 Rm
-QF
-QF
-QF
-QF
+FT
+FT
+FT
+FT
 dz
 dz
 dz
 dz
 dz
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
 Rm
 Rm
 Rm
@@ -72168,36 +72168,36 @@ Rm
 Rm
 Rm
 Rm
-QF
-QF
+FT
+FT
 Rm
 Rm
 Rm
 Rm
-UW
-UW
-UW
-UW
-UW
-UW
-PW
-PW
-UW
-Hg
-QF
-QF
-QF
-QF
-QF
-QF
-QF
+yO
+yO
+yO
+yO
+yO
+yO
+Bv
+Bv
+yO
+vQ
+FT
+FT
+FT
+FT
+FT
+FT
+FT
 Rm
-QF
+FT
 Rm
 Rm
 Rm
-QF
-QF
+FT
+FT
 Rm
 Rm
 Rm
@@ -72212,10 +72212,10 @@ Rm
 Rm
 Rm
 Rm
-QF
-QF
-QF
-QF
+FT
+FT
+FT
+FT
 Rm
 Rm
 Rm
@@ -72239,9 +72239,9 @@ Rm
 Rm
 Rm
 Rm
-QF
-QF
-QF
+FT
+FT
+FT
 Rm
 Rm
 Rm
@@ -72255,13 +72255,13 @@ Rm
 Rm
 Rm
 Rm
-QF
-QF
-QF
-QF
-QF
-QF
-QF
+FT
+FT
+FT
+FT
+FT
+FT
+FT
 Rm
 Rm
 Rm
@@ -72269,43 +72269,43 @@ Rm
 Rm
 Rm
 Rm
-UW
-UW
-UW
-UW
-UW
-UW
-UW
-UW
-UW
-UW
-UW
-UW
-UW
-UW
-QF
-QF
-QF
-QF
-QF
-UW
-UW
-UW
-UW
-UW
-QF
-QF
-QF
-QF
-UW
-UW
-UW
-UW
-QF
-QF
-QF
-QF
-QF
+yO
+yO
+yO
+yO
+yO
+yO
+yO
+yO
+yO
+yO
+yO
+yO
+yO
+yO
+FT
+FT
+FT
+FT
+FT
+yO
+yO
+yO
+yO
+yO
+FT
+FT
+FT
+FT
+yO
+yO
+yO
+yO
+FT
+FT
+FT
+FT
+FT
 bG
 bG
 bG
@@ -72341,75 +72341,75 @@ bG
 bG
 bG
 bG
-cB
-cB
+eO
+eO
 "}
 (254,1,1) = {"
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-Mc
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+en
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
 Rm
 Rm
 Rm
@@ -72417,152 +72417,152 @@ Rm
 Rm
 Rm
 Rm
-QF
+FT
 Rm
 Rm
 Rm
 Rm
 Rm
 Rm
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-Hg
-Hg
-ee
-Wr
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+vQ
+vQ
+Yl
+Hu
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
 bG
 bG
 bG
@@ -72598,228 +72598,228 @@ bG
 bG
 bG
 bG
-cB
+eO
 oH
 "}
 (255,1,1) = {"
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-Wr
-Wr
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
-QF
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+Hu
+Hu
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
+FT
 bG
 bG
 bG
@@ -72855,6 +72855,6 @@ bG
 bG
 bG
 bG
-cB
-cB
+eO
+eO
 "}
