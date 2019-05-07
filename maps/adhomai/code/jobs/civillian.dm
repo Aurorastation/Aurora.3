@@ -21,6 +21,14 @@
 	account_allowed = FALSE
 
 
+/datum/outfit/job/adhomai/commoner/herbalist
+	name = "Herbalist"
+
+	belt = /obj/item/weapon/storage/bag/plants
+	r_pocket = /obj/item/weapon/material/minihoe
+	l_hand = /obj/item/weapon/reagent_containers/glass/bucket
+	r_hand = /obj/item/weapon/wirecutters/clippers
+
 /datum/job/mayor
 	title = "Governor"
 	flag = MAYOR
@@ -57,8 +65,6 @@
 
 	account_allowed = FALSE
 	alt_outfits = list(
-		"Innkeeper"=/datum/outfit/job/adhomai/innkeeper
-		)
 
 /datum/job/hunter
 	title = "Hunter"
@@ -125,10 +131,7 @@
 	alt_outfits = list(
 		"IAC Volunteer"=/datum/outfit/job/adhomai/nurse/iacvolunteer
 		)
-
-
 	outfit = /datum/outfit/job/adhomai/nurse
-
 	account_allowed = FALSE
 
 /datum/job/prospector
@@ -158,9 +161,7 @@
 	supervisors = "the laws of the land"
 	selection_color = "#ddddff"
 	alt_titles = list("Craftsman")
-
 	outfit = /datum/outfit/job/adhomai/blacksmith
-
 	account_allowed = FALSE
 
 /datum/job/archeologist

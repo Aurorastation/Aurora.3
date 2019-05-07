@@ -239,7 +239,3 @@
 		new/datum/stack_recipe("wrench mold", /obj/item/mold/tools/wrench, 1), \
 		new/datum/stack_recipe("ingot mold", /obj/item/mold/ingot, 1), \
 		))
-
-/material/sandbag/generate_recipes()
-	..()
-	recipes += new/datum/stack_recipe("sandbag barricade", /obj/structure/window/sandbag, 3, time = 100)

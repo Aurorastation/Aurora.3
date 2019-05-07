@@ -272,3 +272,10 @@
 	w_class = 2
 	origin_tech = list(TECH_MATERIAL = 1)
 	desc = "A modern chisel. For the aspiring sculptor!"
+
+/obj/item/stack/leather_strips
+	name = "leather strips"
+	icon = 'icons/obj/items.dmi'
+	icon_state = "c_tube"
+	max_amount = 50
+	singular_name = "strip"
