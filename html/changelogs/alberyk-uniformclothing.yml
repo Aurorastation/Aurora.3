@@ -1,0 +1,6 @@
+author: Alberyk
+
+delete-after: True
+
+changes: 
+  - rscadd: "Added contractor related uniforms to the loadout."
