@@ -19,7 +19,6 @@
 		process_killswitch()
 		process_locks()
 		process_queued_alarms()
-		process_level_restrictions()
 	update_canmove()
 
 /mob/living/silicon/robot/proc/clamp_values()
@@ -332,18 +331,6 @@
 	if(paralysis || stunned || weakened || buckled || lockcharge || !is_component_functioning("actuator")) canmove = 0
 	else canmove = 1
 	return canmove
-
-/mob/living/silicon/robot/proc/process_level_restrictions()
-	//If they are on a player level -> abort
-	if (src.z in current_map.player_levels)
-		return
-	//If they are on centcom -> abort
-	if (istype(get_area(src), /area/centcom) || istype(get_area(src), /area/shuttle/escape) || istype(get_area(src), /area/shuttle/arrival))
-		return
-	//Make sure they should not get blown
-	if (lockcharge || scrambledcodes || emagged)
-		return
-	self_destruct(TRUE)
 
 /mob/living/silicon/robot/update_fire()
 	cut_overlay(image("icon"='icons/mob/OnFire.dmi', "icon_state"="Standing"))
