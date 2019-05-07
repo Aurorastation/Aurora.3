@@ -74,4 +74,3 @@
 		to_chat(src, "You will now hear dropping and throwing sounds.")
 	else
 		to_chat(src, "<font color='red'>You will no longer hear dropping and throwing sounds.</font>")
-	feedback_add_details("admin_verb","TSFXDS") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
