@@ -65,6 +65,8 @@
 
 	account_allowed = FALSE
 	alt_outfits = list(
+		"Innkeeper"=/datum/outfit/job/adhomai/innkeeper
+		)
 
 /datum/job/hunter
 	title = "Hunter"
