@@ -199,9 +199,4 @@
 	
 	statuscode = 200
 	response = "Client has been authenticated sucessfully."
-	data = list(
-		"address" = una.client.address,
-		"cid" = una.client.computer_id,
-		"ckey" = una.client.ckey
-	)
 	una.ClientLogin(queryparams["key"])

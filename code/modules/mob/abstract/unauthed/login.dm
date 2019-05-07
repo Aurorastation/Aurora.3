@@ -23,6 +23,8 @@
 	show_browser(src, uihtml, "window=auth;size=300x300;border=0;can_close=0;can_resize=0;can_minimize=0;titlebar=1")
 
 /mob/abstract/unauthed/proc/ClientLogin(var/newkey)
+	if(!client)
+		qdel(src)
 	var/client/c = client
 	show_browser(src, null, "window=auth;")
 	client.verbs += typesof(/client/verb) // Let's return regular client verbs
@@ -38,7 +40,7 @@
 	directory -= client.ckey
 	if(newkey)
 		client.key = newkey // Try seeting ckey
-	directory[c.ckey] = client
+	directory[c.ckey] = c
 	// If mob exists for that ckey, then BYOND will transfer client to it.
 	if(istype(c.mob, /mob/abstract/unauthed))
 		c.mob = new /mob/abstract/new_player() // Else we just treat them as new player
