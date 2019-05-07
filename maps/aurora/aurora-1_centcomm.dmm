@@ -7071,28 +7071,17 @@
 	},
 /turf/simulated/shuttle/plating,
 /area/merchant_station)
-"arg" = (
-/obj/structure/table/rack,
+"arh" = (
+/obj/structure/table/standard,
+/obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/window/reinforced{
-	dir = 8
+	icon_state = "rwindow";
+	dir = 4
 	},
 /obj/machinery/door/window/southleft{
 	name = "display case";
 	req_access = list(110)
 	},
-/obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/tiled,
-/area/merchant_ship/start)
-"arh" = (
-/obj/structure/table/rack,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/machinery/door/window/southright{
-	name = "display case";
-	req_access = list(110)
-	},
-/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
 /area/merchant_ship/start)
 "arl" = (
@@ -7440,30 +7429,18 @@
 /obj/structure/window/reinforced,
 /turf/simulated/shuttle/plating,
 /area/merchant_station)
-"asu" = (
-/obj/structure/table/rack,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
+"asv" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/door/window{
 	dir = 1;
 	name = "display case";
 	req_access = list(110)
 	},
-/obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/tiled,
-/area/merchant_ship/start)
-"asv" = (
-/obj/structure/table/rack,
+/obj/structure/table/standard,
 /obj/structure/window/reinforced{
 	icon_state = "rwindow";
 	dir = 4
 	},
-/obj/machinery/door/window/northright{
-	name = "display case";
-	req_access = list(110)
-	},
-/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
 /area/merchant_ship/start)
 "asA" = (
@@ -22082,6 +22059,14 @@
 	icon_state = "carpetside"
 	},
 /area/centcom/living)
+"cBW" = (
+/obj/machinery/portable_atmospherics/canister/nitrogen,
+/obj/item/weapon/tank/nitrogen,
+/obj/machinery/light/small{
+	dir = 8
+	},
+/turf/simulated/floor/wood,
+/area/merchant_station)
 "djI" = (
 /obj/machinery/light{
 	dir = 2;
@@ -22139,6 +22124,13 @@
 /obj/structure/sign/poster,
 /turf/unsimulated/wall/riveted,
 /area/centcom/living)
+"gkJ" = (
+/obj/structure/shuttle/engine/propulsion{
+	icon_state = "burst_l";
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/merchant_ship/start)
 "gDh" = (
 /obj/machinery/telecomms/receiver/preset_cent,
 /turf/unsimulated/floor{
@@ -22357,6 +22349,18 @@
 	icon_state = "carpetside"
 	},
 /area/centcom/living)
+"qHY" = (
+/obj/structure/table/rack,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/machinery/door/window/southright{
+	name = "display case";
+	req_access = list(110)
+	},
+/turf/simulated/floor/tiled,
+/area/merchant_ship/start)
 "qMl" = (
 /obj/structure/table/wood,
 /obj/item/device/flashlight/lamp,
@@ -27945,26 +27949,16 @@
 	icon_state = "diagonalWall3"
 	},
 /area/centcom/legion_base/hangar5)
-"yab" = (
-/obj/machinery/light/small{
-	brightness_color = "#DA0205";
-	brightness_power = 1;
-	brightness_range = 5
-	},
-/obj/machinery/portable_atmospherics/canister/nitrogen,
-/obj/item/weapon/tank/nitrogen,
-/turf/simulated/floor/wood,
-/area/merchant_station)
 "yad" = (
 /obj/structure/flora/pottedplant/random,
 /turf/simulated/floor/tiled,
 /area/merchant_station)
 "yah" = (
 /obj/structure/shuttle/engine/propulsion{
-	icon_state = "burst_r";
-	dir = 8
+	dir = 8;
+	icon_state = "propulsion_r"
 	},
-/turf/simulated/shuttle/wall,
+/turf/simulated/floor/plating,
 /area/merchant_ship/start)
 "yai" = (
 /obj/structure/shuttle/engine/heater{
@@ -27997,91 +27991,85 @@
 /turf/simulated/floor/tiled,
 /area/merchant_station)
 "yas" = (
+/obj/structure/table/rack,
+/obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/door/window/southleft{
 	name = "display case";
 	req_access = list(110)
 	},
-/obj/structure/table/standard,
 /turf/simulated/floor/tiled,
 /area/merchant_ship/start)
 "yat" = (
 /obj/structure/table/rack,
+/obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/window/reinforced{
-	dir = 8
+	dir = 4
 	},
-/obj/machinery/door/window/southleft{
+/obj/machinery/door/window/southright{
 	name = "display case";
 	req_access = list(110)
 	},
-/obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/light{
-	dir = 1;
-	icon_state = "tube1"
+	icon_state = "tube1";
+	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/merchant_ship/start)
 "yau" = (
 /obj/structure/table/standard,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
+/obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/door/window/southleft{
 	name = "display case";
 	req_access = list(110)
-	},
-/obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/tiled,
-/area/merchant_ship/start)
-"yav" = (
-/obj/structure/window/reinforced{
-	dir = 8
 	},
 /obj/structure/window/reinforced{
 	icon_state = "rwindow";
 	dir = 4
 	},
+/turf/simulated/floor/tiled,
+/area/merchant_ship/start)
+"yav" = (
 /obj/structure/table/standard,
+/obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/door/window/southleft{
 	name = "display case";
 	req_access = list(110)
 	},
-/obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/light{
-	dir = 1;
-	icon_state = "tube1"
+	icon_state = "tube1";
+	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/merchant_ship/start)
 "yax" = (
 /obj/structure/table/rack,
+/obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/window/reinforced{
-	dir = 4
+	dir = 8
 	},
-/obj/machinery/door/window/southright{
+/obj/machinery/door/window/southleft{
 	name = "display case";
 	req_access = list(110)
 	},
-/obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/light{
-	dir = 1;
-	icon_state = "tube1"
+	icon_state = "tube1";
+	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/merchant_ship/start)
 "yay" = (
 /obj/structure/table/standard,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
+/obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/door/window/southright{
 	name = "display case";
 	req_access = list(110)
 	},
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
 /turf/simulated/floor/tiled,
 /area/merchant_ship/start)
 "yaD" = (
@@ -28346,12 +28334,15 @@
 "yaZ" = (
 /obj/structure/flora/pottedplant/random,
 /obj/machinery/light{
+	dir = 8;
 	icon_state = "tube1";
-	dir = 8
+	pixel_y = 0
 	},
 /turf/simulated/floor/tiled,
 /area/merchant_ship/start)
 "yba" = (
+/obj/structure/table/rack,
+/obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/window/reinforced{
 	dir = 8
 	},
@@ -28360,83 +28351,60 @@
 	name = "display case";
 	req_access = list(110)
 	},
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/table/standard,
 /turf/simulated/floor/tiled,
 /area/merchant_ship/start)
 "ybb" = (
 /obj/structure/table/rack,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/machinery/door/window{
-	dir = 1;
-	name = "display case";
-	req_access = list(110)
-	},
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/light{
-	dir = 2;
-	icon_state = "tube1"
-	},
-/turf/simulated/floor/tiled,
-/area/merchant_ship/start)
-"ybc" = (
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/door/window{
-	dir = 1;
-	name = "display case";
-	req_access = list(110)
-	},
-/obj/structure/table/standard,
-/turf/simulated/floor/tiled,
-/area/merchant_ship/start)
-"ybd" = (
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/machinery/door/window{
-	dir = 1;
+/obj/machinery/door/window/northright{
 	name = "display case";
 	req_access = list(110)
 	},
-/obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/light{
-	dir = 2;
-	icon_state = "tube1"
+	icon_state = "tube1";
+	dir = 2
+	},
+/turf/simulated/floor/tiled,
+/area/merchant_ship/start)
+"ybd" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/door/window/northright{
+	name = "display case";
+	req_access = list(110)
+	},
+/obj/machinery/light{
+	icon_state = "tube1";
+	dir = 2
 	},
 /obj/structure/table/standard,
 /turf/simulated/floor/tiled,
 /area/merchant_ship/start)
 "ybe" = (
-/obj/structure/window/reinforced{
-	dir = 4
-	},
+/obj/structure/table/standard,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/door/window/northright{
 	name = "display case";
 	req_access = list(110)
 	},
-/obj/structure/table/standard,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
 /turf/simulated/floor/tiled,
 /area/merchant_ship/start)
 "ybf" = (
 /obj/structure/table/rack,
+/obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 4
+	dir = 8
 	},
-/obj/machinery/door/window/northright{
+/obj/machinery/door/window{
+	dir = 1;
 	name = "display case";
 	req_access = list(110)
 	},
-/obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/light{
 	dir = 2;
 	icon_state = "tube1"
@@ -28444,13 +28412,12 @@
 /turf/simulated/floor/tiled,
 /area/merchant_ship/start)
 "ybg" = (
-/obj/structure/table/standard,
+/obj/structure/table/rack,
+/obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/door/window{
-	dir = 1;
+/obj/machinery/door/window/northright{
 	name = "display case";
 	req_access = list(110)
 	},
@@ -28465,7 +28432,7 @@
 	icon_state = "propulsion_l";
 	dir = 8
 	},
-/turf/simulated/shuttle/wall,
+/turf/simulated/floor/plating,
 /area/merchant_ship/start)
 "ybn" = (
 /obj/structure/shuttle/engine/heater{
@@ -28499,13 +28466,6 @@
 	p_open = 0
 	},
 /turf/simulated/shuttle/plating,
-/area/merchant_ship/start)
-"ybx" = (
-/obj/structure/shuttle/engine/propulsion{
-	dir = 8;
-	icon_state = "propulsion_r"
-	},
-/turf/simulated/shuttle/wall,
 /area/merchant_ship/start)
 "ybC" = (
 /obj/structure/shuttle/engine/propulsion{
@@ -30512,7 +30472,7 @@ aaM
 aaM
 aaM
 aaM
-ahM
+aaM
 aaM
 aaM
 aaM
@@ -32850,7 +32810,7 @@ ahV
 ahV
 ahV
 aoY
-apu
+cBW
 apG
 aoY
 apt
@@ -33108,7 +33068,7 @@ ahV
 ahV
 aoY
 apv
-yab
+apu
 aoY
 apt
 apt
@@ -33636,8 +33596,8 @@ aqR
 arO
 aqR
 aqR
-ybm
-ybx
+gkJ
+yah
 aaM
 aaM
 aaM
@@ -35434,9 +35394,9 @@ yau
 arz
 arz
 arz
-ybc
+asv
 aqR
-ybx
+yah
 aaM
 aaM
 aaM
@@ -36201,11 +36161,11 @@ aaM
 aaM
 aaM
 ybt
-arg
+yay
 arz
 arz
 arz
-asu
+ybe
 ybt
 aaM
 aaM
@@ -36713,15 +36673,15 @@ aaM
 aaM
 aaM
 aaM
-aaM
+aWP
 ybt
-yay
+qHY
 arz
 arz
 arz
 ybg
 ybt
-aaM
+aWP
 aaM
 aaM
 aaM
@@ -36978,7 +36938,7 @@ arz
 arz
 ybh
 aqR
-ybx
+yah
 aaM
 aaM
 aaM
@@ -37484,7 +37444,7 @@ aaM
 aaM
 aaM
 aaM
-aaM
+aqR
 aqR
 aqR
 yaF
@@ -37492,7 +37452,7 @@ arR
 yaQ
 aqR
 aqR
-aaM
+aqR
 aaM
 aaM
 aaM
@@ -37742,13 +37702,13 @@ aaM
 aaM
 aaM
 aaM
-aaM
-ybt
+aqR
+aqR
 arz
 arS
 asi
-ybt
-aaM
+aqR
+aqR
 aaM
 aaM
 aaM
@@ -37999,13 +37959,13 @@ aaM
 aaM
 aaM
 aaM
-aaM
-ybt
+aqR
+aqR
 yaG
 arz
 yaR
-ybt
-aaM
+aqR
+aqR
 aaM
 aaM
 aaM
@@ -38256,13 +38216,13 @@ aaM
 aaM
 aaM
 aaM
-ybm
+aqR
 aqR
 aqR
 arT
 aqR
 aqR
-ybx
+aqR
 aaM
 aaM
 aaM
@@ -38513,13 +38473,13 @@ aaM
 aaM
 aaM
 aaM
-aqR
+aaM
 aqR
 yaH
 arU
 yaS
 aqR
-aqR
+aaM
 aaM
 aaM
 aaM
