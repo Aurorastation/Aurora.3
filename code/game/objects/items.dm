@@ -46,6 +46,7 @@
 	var/zoomdevicename //name used for message when binoculars/scope is used
 	var/zoom = 0 //1 if item is actively being used to zoom. For scoped guns and binoculars.
 	var/contained_sprite = 0 //1 if item_state, lefthand, righthand, and worn sprite are all in one dmi
+	var/drop_sound = 'sound/items/drop/device.ogg' // drop sound - this is the default
 
 	//Item_state definition moved to /obj
 	//var/item_state = null // Used to specify the item state for the on-mob overlays.
@@ -240,6 +241,11 @@
 
 /obj/item/proc/moved(mob/user as mob, old_loc as turf)
 	return
+
+/obj/item/throw_impact(atom/hit_atom)
+	..()
+	if(drop_sound)
+		playsound(src, drop_sound, 50, 0)
 
 //Apparently called whenever an item is dropped on the floor, thrown, or placed into a container.
 //It is called after loc is set, so if placed in a container its loc will be that container.

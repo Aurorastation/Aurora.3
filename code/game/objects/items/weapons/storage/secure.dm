@@ -36,7 +36,7 @@
 		if(locked)
 			if (istype(W, /obj/item/weapon/melee/energy/blade) && emag_act(INFINITY, user, "You slice through the lock of \the [src]"))
 				W:spark_system.queue()
-				playsound(src.loc, 'sound/weapons/blade1.ogg', 50, 1)
+				playsound(src.loc, 'sound/weapons/blade.ogg', 50, 1)
 				playsound(src.loc, "sparks", 50, 1)
 				return
 

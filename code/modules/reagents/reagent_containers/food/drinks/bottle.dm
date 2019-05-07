@@ -18,7 +18,9 @@
 
 /obj/item/weapon/reagent_containers/food/drinks/bottle/Initialize()
 	. = ..()
-	if(isGlass) unacidable = 1
+	if(isGlass)
+		unacidable = 1
+		drop_sound = 'sound/items/drop/bottle.ogg'
 
 /obj/item/weapon/reagent_containers/food/drinks/bottle/Destroy()
 	if(rag)
@@ -466,6 +468,17 @@
 	Initialize()
 		. = ..()
 		reagents.add_reagent("lemonjuice", 100)
+
+/obj/item/weapon/reagent_containers/food/drinks/bottle/dynjuice
+	name = "dyn juice"
+	desc = "Juice from a Skrell medicinal herb. It's supposed to be diluted."
+	icon_state = "dyncarton"
+	item_state = "carton"
+	center_of_mass = list("x"=16, "y"=8)
+	isGlass = 0
+	Initialize()
+		. = ..()
+		reagents.add_reagent("dynjuice", 100)
 
 //Small bottles
 /obj/item/weapon/reagent_containers/food/drinks/bottle/small

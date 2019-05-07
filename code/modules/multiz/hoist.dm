@@ -28,7 +28,7 @@
 	return // no, bad
 
 /obj/effect/hoist_hook/MouseDrop_T(atom/movable/AM,mob/user)
-	if (use_check(user, USE_DISALLOW_SILICONS))
+	if (use_check_and_message(user, USE_DISALLOW_SILICONS))
 		return
 
 	if (!AM.simulated || AM.anchored)

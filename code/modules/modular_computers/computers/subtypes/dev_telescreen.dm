@@ -5,6 +5,7 @@
 	icon_state = "telescreen"
 	icon_state_unpowered = "telescreen"
 	icon_state_menu = "menu"
+	icon_state_broken = "telescreen-broken"
 	hardware_flag = PROGRAM_TELESCREEN
 	anchored = TRUE
 	density = 0
@@ -13,8 +14,6 @@
 	max_hardware_size = 2
 	steel_sheet_cost = 10
 	light_strength = 4
-	max_damage = 300
-	broken_damage = 150
 	w_class = 5
 	is_holographic = TRUE
 

@@ -1,6 +1,5 @@
 /obj/machinery/computer/cloning
 	name = "cloning control console"
-	icon = 'icons/obj/computer.dmi'
 
 	icon_screen = "dna"
 	light_color = "#315ab4"

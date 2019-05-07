@@ -274,7 +274,7 @@
 		telefail()
 		temp_msg = "ERROR!<BR>Elevation is less than 1 or greater than 90."
 		return
-	if(z_co in current_map.admin_levels)
+	if(!(z_co in current_map.player_levels))
 		telefail()
 		temp_msg = "ERROR! Sector is invalid! Valid sectors are [english_list(current_map.player_levels)]."
 		return
