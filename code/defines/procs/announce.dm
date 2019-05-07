@@ -17,17 +17,17 @@
 	newscast = do_newscast
 	print = do_print
 
-/datum/announcement/priority/New(var/do_log = 1, var/new_sound = 'sound/misc/notice2.ogg', var/do_newscast = 0, var/do_print = 0)
+/datum/announcement/priority/New(var/do_log = 1, var/new_sound = 'sound/misc/announcements/security_level_old.ogg', var/do_newscast = 0, var/do_print = 0)
 	..(do_log, new_sound, do_newscast, do_print)
 	title = "Priority Announcement"
 	announcement_type = "Priority Announcement"
 
-/datum/announcement/priority/command/New(var/do_log = 1, var/new_sound = 'sound/misc/notice2.ogg', var/do_newscast = 0, var/do_print = 0)
+/datum/announcement/priority/command/New(var/do_log = 1, var/new_sound = 'sound/misc/announcements/security_level_old.ogg', var/do_newscast = 0, var/do_print = 0)
 	..(do_log, new_sound, do_newscast, do_print)
 	title = "[current_map.boss_name] Update"
 	announcement_type = "[current_map.boss_name] Update"
 
-/datum/announcement/priority/security/New(var/do_log = 1, var/new_sound = 'sound/misc/notice2.ogg', var/do_newscast = 0, var/do_print = 0)
+/datum/announcement/priority/security/New(var/do_log = 1, var/new_sound = 'sound/misc/announcements/security_level_old.ogg', var/do_newscast = 0, var/do_print = 0)
 	..(do_log, new_sound, do_newscast, do_print)
 	title = "Security Announcement"
 	announcement_type = "Security Announcement"
@@ -136,5 +136,5 @@ datum/announcement/proc/Log(message as text, message_title as text)
 			rank = character.mind.role_alt_title
 		AnnounceArrivalSimple(character.real_name, rank, join_message)
 
-/proc/AnnounceArrivalSimple(var/name, var/rank = "visitor", var/join_message = "has arrived on the station")
+/proc/AnnounceArrivalSimple(var/name, var/rank = "visitor", var/join_message = "has arrived on the station", var/new_sound = 'sound/misc/announcements/nightlight.ogg')
 	global_announcer.autosay("[name], [rank], [join_message].", "Arrivals Announcement Computer")

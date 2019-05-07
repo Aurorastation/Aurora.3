@@ -216,7 +216,7 @@ var/list/admin_departments
 		return 0
 
 	flick("faxreceive", src)
-	playsound(loc, "sound/items/polaroid1.ogg", 50, 1)
+	playsound(loc, "sound/bureaucracy/print.ogg", 75, 1)
 
 	// give the sprite some time to flick
 	spawn(20)
@@ -283,7 +283,8 @@ var/list/admin_departments
 
 	var/cciaa_present = 0
 	var/cciaa_afk = 0
-	for(var/client/C in admins)
+	for(var/s in staff)
+		var/client/C = s
 		var/flags = C.holder.rights & (R_ADMIN|R_CCIAA)
 		if(flags)
 			to_chat(C, msg)

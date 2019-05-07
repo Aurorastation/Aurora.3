@@ -606,7 +606,7 @@
 		if(!do_after(user, 2 SECONDS, act_target = src))
 			return 0
 		visible_message("<span class='warning'>\The [user] burns \the [src] down!</span>")
-		playsound(src.loc, 'sound/items/zippo_on.ogg', 100, 1)
+		playsound(src.loc, 'sound/items/cigs_lighters/zippo_on.ogg', 100, 1)
 		new /obj/effect/decal/cleanable/ash(src.loc)
 
 		qdel(src)

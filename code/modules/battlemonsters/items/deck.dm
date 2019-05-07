@@ -95,7 +95,7 @@
 	set name = "Change Deck Type"
 	set src in view(1)
 
-	if (use_check(usr, USE_DISALLOW_SILICONS))
+	if (use_check_and_message(usr, USE_DISALLOW_SILICONS))
 		return
 
 	if(icon_state == "hand")
@@ -118,7 +118,7 @@
 	set name = "Shuffle Deck"
 	set src in view(1)
 
-	if (use_check(usr, USE_DISALLOW_SILICONS))
+	if (use_check_and_message(usr, USE_DISALLOW_SILICONS))
 		return
 
 	usr.visible_message(\

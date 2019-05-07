@@ -9,7 +9,7 @@
 	admin_levels = list(1)
 	contact_levels = list(3, 4, 5, 6)
 	player_levels = list(2, 3, 4, 5, 6, 7, 8)
-	accessible_z_levels = list("8" = 5, "9" = 10, "7" = 15, "2" = 60)
+	accessible_z_levels = list("8" = 10, "7" = 15, "2" = 60)
 	base_turf_by_z = list(
 		"1" = /turf/space,
 		"2" = /turf/space,
@@ -81,3 +81,6 @@
 /datum/map/aurora/finalize_load()
 	// generate an empty space Z
 	world.maxz++
+	// generate an empty space Z for the space ruin
+	world.maxz++
+	create_space_ruin(1,1,9)

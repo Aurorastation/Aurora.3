@@ -192,7 +192,7 @@
 		)
 
 	if(do_after(src, 50))
-		if(!handcuffed || buckled)
+		if(!handcuffed)
 			return
 
 		visible_message(
@@ -206,7 +206,7 @@
 
 		qdel(handcuffed)
 		handcuffed = null
-		if(buckled && buckled.buckle_require_restraints)
+		if(buckled)
 			buckled.unbuckle_mob()
 		update_inv_handcuffed()
 

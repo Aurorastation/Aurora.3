@@ -2,6 +2,7 @@
 	volume = 40 //just over one and a half cups
 	amount_per_transfer_from_this = 5
 	flags = 0 //starts closed
+	drop_sound = 'sound/items/drop/soda.ogg'
 
 //DRINKS
 
@@ -265,3 +266,14 @@
 /obj/item/weapon/reagent_containers/food/drinks/cans/beetle_milk/Initialize()
 	. = ..()
 	reagents.add_reagent("beetle_milk", 30)
+
+/obj/item/weapon/reagent_containers/food/drinks/cans/dyn
+	name = "Cooling Breeze"
+	desc = "The most refreshing thing you can find on the market, based on a Skrell medicinal plant. No salt or sugar. "
+	icon_state = "dyncan"
+	center_of_mass = list("x"=16, "y"=10)
+
+/obj/item/weapon/reagent_containers/food/drinks/cans/dyn/Initialize()
+	. = ..()
+	reagents.add_reagent("dyncold", 30)
+

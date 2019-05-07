@@ -16,6 +16,7 @@
 	siemens_coefficient = 0.5
 	w_class = 3
 	var/allow_hair_covering = TRUE //in case if you want to allow someone to switch the BLOCKHEADHAIR var from the helmet or not
+	drop_sound = 'sound/items/drop/helm.ogg'
 
 /obj/item/clothing/head/helmet/verb/toggle_block_hair()
 	set name = "Toggle Helmet Hair Coverage"
@@ -72,7 +73,7 @@
 	action_button_name = "Toggle Visor"
 
 /obj/item/clothing/head/helmet/riot/attack_self(mob/user as mob)
-	if (use_check(user))
+	if (use_check_and_message(user))
 		return
 
 	if(src.icon_state == initial(icon_state))
@@ -124,7 +125,7 @@
 	action_button_name = "Toggle Visor"
 
 /obj/item/clothing/head/helmet/swat/peacekeeper/attack_self(mob/user as mob)
-	if (use_check(user))
+	if (use_check_and_message(user))
 		return
 
 	if(src.icon_state == initial(icon_state))

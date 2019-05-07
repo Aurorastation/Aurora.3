@@ -66,8 +66,20 @@
 	if(!isnull(T))
 		stance = HOSTILE_STANCE_ATTACK
 	if(isliving(T))
-		custom_emote(1,"[attack_emote] [T]")
+		custom_emote(1, "[attack_emote] [T]")
+		if(istype(T, /mob/living/simple_animal/hostile/))
+			var/mob/living/simple_animal/hostile/H = T
+			H.being_targeted(src)
 	return T
+
+// This proc is used when one hostile mob targets another hostile mob.
+/mob/living/simple_animal/hostile/proc/being_targeted(var/mob/living/simple_animal/hostile/H)
+	if(!H || target_mob == H)
+		return
+	target_mob = H
+	FoundTarget()
+	stance = HOSTILE_STANCE_ATTACKING
+	custom_emote(1, "gets taunted by [H] and begins to retaliate!")
 
 /mob/living/simple_animal/hostile/bullet_act(var/obj/item/projectile/P, var/def_zone)
 	..()
@@ -239,8 +251,10 @@ mob/living/simple_animal/hostile/hitby(atom/movable/AM as mob|obj,var/speed = TH
 		return FALSE
 
 	var/target_hit = FALSE
-
-	for(var/mob/M in check_trajectory(target_mob, src, pass_flags=PASSTABLE))
+	var/flags = PASSTABLE
+	if(istype(projectiletype, /obj/item/projectile/beam))
+		flags |= (PASSGLASS|PASSGRILLE)
+	for(var/mob/M in check_trajectory(target_mob, src, pass_flags=flags))
 		if(M == target_mob)
 			target_hit = TRUE
 		if((M.faction == faction) || (M in friends))

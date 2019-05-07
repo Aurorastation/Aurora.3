@@ -58,6 +58,12 @@
 /area/centcom/legion_base/hangar5
 	name = "\improper BLV The Tower, Hangar 5"
 
+/area/centcom/checkpoint/fore
+	name = "\improper Fore Checkpoint"
+
+/area/centcom/checkpoint/aft
+	name = "\improper Aft Checkpoint"
+
 //SYNDICATES
 
 /area/syndicate_mothership
