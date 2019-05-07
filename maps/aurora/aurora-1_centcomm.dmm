@@ -22059,14 +22059,6 @@
 	icon_state = "carpetside"
 	},
 /area/centcom/living)
-"cBW" = (
-/obj/machinery/portable_atmospherics/canister/nitrogen,
-/obj/item/weapon/tank/nitrogen,
-/obj/machinery/light/small{
-	dir = 8
-	},
-/turf/simulated/floor/wood,
-/area/merchant_station)
 "djI" = (
 /obj/machinery/light{
 	dir = 2;
@@ -22124,13 +22116,17 @@
 /obj/structure/sign/poster,
 /turf/unsimulated/wall/riveted,
 /area/centcom/living)
-"gkJ" = (
-/obj/structure/shuttle/engine/propulsion{
-	icon_state = "burst_l";
+"gaU" = (
+/obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
-/turf/simulated/floor/plating,
-/area/merchant_ship/start)
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/turf/unsimulated/floor{
+	icon_state = "dark"
+	},
+/area/centcom/legion_base)
 "gDh" = (
 /obj/machinery/telecomms/receiver/preset_cent,
 /turf/unsimulated/floor{
@@ -22349,18 +22345,17 @@
 	icon_state = "carpetside"
 	},
 /area/centcom/living)
-"qHY" = (
-/obj/structure/table/rack,
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/window/reinforced{
+"qoq" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/obj/machinery/door/window/southright{
-	name = "display case";
-	req_access = list(110)
+/turf/unsimulated/floor{
+	icon_state = "dark"
 	},
-/turf/simulated/floor/tiled,
-/area/merchant_ship/start)
+/area/centcom/legion_base)
 "qMl" = (
 /obj/structure/table/wood,
 /obj/item/device/flashlight/lamp,
@@ -22369,6 +22364,18 @@
 	icon_state = "carpetside"
 	},
 /area/centcom/living)
+"rwd" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	icon_state = "warningcorner";
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/turf/unsimulated/floor{
+	icon_state = "dark"
+	},
+/area/centcom/legion_base)
 "rzy" = (
 /obj/structure/bed/chair/office/bridge{
 	dir = 4
@@ -22407,6 +22414,14 @@
 	icon_state = "floor"
 	},
 /area/centcom/control)
+"utE" = (
+/obj/machinery/portable_atmospherics/canister/nitrogen,
+/obj/item/weapon/tank/nitrogen,
+/obj/machinery/light/small{
+	dir = 8
+	},
+/turf/simulated/floor/wood,
+/area/merchant_station)
 "vdZ" = (
 /obj/effect/decal/warning_stripes,
 /obj/machinery/porta_turret/crescent,
@@ -23971,6 +23986,13 @@
 	icon_state = "dark"
 	},
 /area/centcom/legion_base)
+"xuz" = (
+/obj/structure/shuttle/engine/propulsion{
+	icon_state = "burst_l";
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/merchant_ship/start)
 "xuI" = (
 /obj/machinery/door/airlock/centcom{
 	name = "Hangar 5";
@@ -24364,12 +24386,6 @@
 	},
 /turf/unsimulated/floor{
 	name = "plating"
-	},
-/area/centcom/legion_base)
-"xxN" = (
-/obj/effect/floor_decal/industrial/warning/corner,
-/turf/unsimulated/floor{
-	icon_state = "dark"
 	},
 /area/centcom/legion_base)
 "xxY" = (
@@ -24951,6 +24967,7 @@
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 8
 	},
+/obj/effect/floor_decal/industrial/warning/corner,
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
@@ -25795,6 +25812,9 @@
 	icon_state = "tube1";
 	pixel_x = 0
 	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
@@ -25818,6 +25838,9 @@
 /obj/machinery/light/spot{
 	icon_state = "tube1";
 	dir = 4
+	},
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 8
 	},
 /turf/unsimulated/floor{
 	icon_state = "dark"
@@ -27203,6 +27226,18 @@
 	icon_state = "dark"
 	},
 /area/centcom/legion_base)
+"xWs" = (
+/obj/structure/table/rack,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/machinery/door/window/southright{
+	name = "display case";
+	req_access = list(110)
+	},
+/turf/simulated/floor/tiled,
+/area/merchant_ship/start)
 "xWt" = (
 /turf/unsimulated/floor{
 	name = "plating"
@@ -27979,6 +28014,18 @@
 	},
 /turf/simulated/floor/plating,
 /area/merchant_ship/start)
+"yal" = (
+/obj/machinery/light/spot{
+	icon_state = "tube1";
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/turf/unsimulated/floor{
+	icon_state = "dark"
+	},
+/area/centcom/legion_base)
 "yaq" = (
 /obj/machinery/embedded_controller/radio/simple_docking_controller{
 	frequency = 1380;
@@ -32810,7 +32857,7 @@ ahV
 ahV
 ahV
 aoY
-cBW
+utE
 apG
 aoY
 apt
@@ -33596,7 +33643,7 @@ aqR
 arO
 aqR
 aqR
-gkJ
+xuz
 yah
 aaM
 aaM
@@ -36675,7 +36722,7 @@ aaM
 aaM
 aWP
 ybt
-qHY
+xWs
 arz
 arz
 arz
@@ -81307,15 +81354,15 @@ xWv
 xXD
 xOG
 xFF
-xWu
-xWu
-xLC
+gaU
+gaU
+rwd
 xNa
-xFF
-xWu
-xWu
-xWu
-xLC
+qoq
+gaU
+gaU
+gaU
+rwd
 xNa
 xOG
 xXD
@@ -81563,18 +81610,18 @@ xEd
 xGO
 xXl
 xWv
-xxN
-xWi
-xWi
-xWi
-xWi
-xWi
-xWi
-xWi
-xWi
-xWi
-xWi
-xWi
+xxY
+xWt
+xWt
+xWt
+xWt
+xWt
+xWt
+xWt
+xWt
+xWt
+xWt
+xWt
 xXD
 xWi
 xWi
@@ -81821,11 +81868,11 @@ xGO
 xXl
 xWv
 xxY
-xEp
-xEp
-xEp
-xEp
 xWt
+xEp
+xEp
+xEp
+xEp
 xWt
 xNe
 xNe
@@ -82078,11 +82125,11 @@ xGO
 xXD
 xwm
 xxY
-xEp
-xEp
-xEp
-xEp
 xWt
+xEp
+xEp
+xEp
+xEp
 xWt
 xNe
 xNe
@@ -82335,11 +82382,11 @@ xGO
 xXl
 xWv
 xxY
-xEp
-xEp
-xEp
-xEp
 xWt
+xEp
+xEp
+xEp
+xEp
 xWt
 xNe
 xNe
@@ -82849,11 +82896,11 @@ xGO
 xux
 xwh
 xxY
-xEt
-xEt
-xEt
-xEt
 xWt
+xEt
+xEt
+xEt
+xEt
 xWt
 xNi
 xNi
@@ -83106,11 +83153,11 @@ xGO
 xuy
 xwi
 xxY
-xEt
-xEt
-xEt
-xEt
 xWt
+xEt
+xEt
+xEt
+xEt
 xWt
 xNi
 xNi
@@ -83363,11 +83410,11 @@ xGO
 xXD
 xLC
 xxY
-xEt
-xEt
-xEt
-xEt
 xWt
+xEt
+xEt
+xEt
+xEt
 xWt
 xNi
 xNi
@@ -83877,11 +83924,11 @@ xGO
 xXl
 xWv
 xxY
-xEx
-xEx
-xEx
-xEx
 xWt
+xEx
+xEx
+xEx
+xEx
 xWt
 xNm
 xNm
@@ -84134,11 +84181,11 @@ xGO
 xXD
 xwm
 xxY
-xEx
-xEx
-xEx
-xEx
 xWt
+xEx
+xEx
+xEx
+xEx
 xWt
 xNm
 xNm
@@ -84391,11 +84438,11 @@ xGO
 xXl
 xWv
 xxY
-xEx
-xEx
-xEx
-xEx
 xWt
+xEx
+xEx
+xEx
+xEx
 xWt
 xNm
 xNm
@@ -84647,18 +84694,18 @@ xEd
 xGO
 xXl
 xWv
-xFF
-xWu
-xWu
-xWu
-xWu
-xWu
-xWu
-xWu
-xWu
-xWu
-xWu
-xWu
+xxY
+xWt
+xWt
+xWt
+xWt
+xWt
+xWt
+xWt
+xWt
+xWt
+xWt
+xWt
 xXD
 xRq
 xWu
@@ -84905,16 +84952,16 @@ xGO
 xXD
 xOG
 xNo
-xWv
-xWv
-xWv
-xWv
-xWv
-xWv
-xWv
-xWv
-xWv
-xNo
+xWu
+xWu
+xWu
+xWu
+xWu
+xWu
+xWu
+xWu
+xWu
+yal
 xOG
 xXD
 xRr
@@ -85949,7 +85996,7 @@ xRv
 xSK
 xTY
 xVm
-xYC
+xpa
 xXH
 xYi
 xZe
