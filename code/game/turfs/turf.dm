@@ -343,12 +343,18 @@ var/const/enterloopsanity = 100
 	if (!above)
 		return FALSE
 
-	if ((isopenturf(above) || (flags & ROOF_FORCE_SPAWN)) && roof_type && above)
+	if ((isopenturf(above) || (flags & ROOF_FORCE_SPAWN)) && get_roof_type() && above)
 		above.ChangeTurf(roof_type)
 		roof_flags |= flags
 		return TRUE
 
 	return FALSE
+
+/**
+ * Returns the roof type of the current turf
+ */
+/turf/proc/get_roof_type()
+	return roof_type
 
 /**
  * Cleans up the roof above a tile if there is one spawned and the ROOF_CLEANUP
