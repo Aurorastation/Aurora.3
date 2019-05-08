@@ -84,7 +84,7 @@
 	sort_category = "Xenowear - IPC"
 
 /datum/gear/suit/idris
-	display_name = "idris reclamation unit coat"
+	display_name = "Idris reclamation unit coat"
 	path = /obj/item/clothing/suit/armor/vest/idris
 	whitelisted = list("Baseline Frame", "Hephaestus G1 Industrial Frame", "Hephaestus G2 Industrial Frame", "Xion Industrial Frame", "Zeng-Hu Mobility Frame", "Bishop Accessory Frame", "Shell Frame")
 	sort_category = "Xenowear - IPC"

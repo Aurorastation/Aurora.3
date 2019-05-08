@@ -526,7 +526,7 @@
 	armor = list(melee = 50, bullet = 30, laser = 30, energy = 15, bomb = 40, bio = 0, rad = 0)
 
 /obj/item/clothing/suit/armor/vest/idris
-	name = "idris reclamation unit coat "
+	name = "Idris reclamation unit coat "
 	desc = "A coat worn by the Idris Reclamation Units, notorious across space."
 	icon_state = "iru_coat"
 	item_state = "iru_coat"
