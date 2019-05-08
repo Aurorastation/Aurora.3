@@ -7859,21 +7859,21 @@
 /area/maintenance/engineering)
 "apb" = (
 /obj/structure/table/rack,
-/obj/item/clothing/mask/gas{
+/obj/item/clothing/mask/gas/alt{
 	pixel_x = -3;
 	pixel_y = 3
 	},
-/obj/item/clothing/mask/gas{
+/obj/item/clothing/mask/gas/alt{
 	pixel_x = -3;
 	pixel_y = 3
 	},
-/obj/item/clothing/mask/gas,
-/obj/item/clothing/mask/gas,
-/obj/item/clothing/mask/gas{
+/obj/item/clothing/mask/gas/alt,
+/obj/item/clothing/mask/gas/alt,
+/obj/item/clothing/mask/gas/alt{
 	pixel_x = 3;
 	pixel_y = -3
 	},
-/obj/item/clothing/mask/gas{
+/obj/item/clothing/mask/gas/alt{
 	pixel_x = 3;
 	pixel_y = -3
 	},
