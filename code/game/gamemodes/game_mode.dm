@@ -230,11 +230,7 @@ var/global/list/additional_antag_types = list()
 	refresh_event_modifiers()
 
 	spawn (ROUNDSTART_LOGOUT_REPORT_TIME)
-		var/logout_report = get_logout_report()
-		for(var/s in staff)
-			var/client/C = s
-			if(check_rights(R_MOD|R_ADMIN,0,C.mob))
-				to_chat(C.mob, logout_report)
+		display_logout_report()
 
 	spawn (rand(waittime_l, waittime_h))
 		send_intercept()
@@ -679,6 +675,13 @@ proc/get_logout_report()
 
 	msg += "</span>" // close the span from right at the top
 	return msg
+
+proc/display_logout_report()
+	var/logout_report = get_logout_report()
+	for(var/s in staff)
+		var/client/C = s
+		if(check_rights(R_MOD|R_ADMIN,0,C.mob))
+			to_chat(C.mob, logout_report)
 
 /client/proc/print_logout_report()
 	set category = "Admin"
