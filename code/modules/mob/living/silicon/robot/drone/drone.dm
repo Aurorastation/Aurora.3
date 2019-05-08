@@ -42,7 +42,10 @@
 	can_pull_size = 3
 	can_pull_mobs = MOB_PULL_SMALLER
 	//Allow drones to pull disposal pipes
-	var/list/pull_list = list(/obj/structure/disposalconstruct)
+	var/list/pull_list = list(
+					/obj/structure/disposalconstruct,
+					/obj/item/pipe
+					)
 
 	mob_bump_flag = SIMPLE_ANIMAL
 	//mob_swap_flags = SIMPLE_ANIMAL
