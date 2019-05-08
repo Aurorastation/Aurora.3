@@ -4,7 +4,7 @@
 	icon = 'icons/obj/storage.dmi'
 	icon_state = "ration"
 	description_fluff = "The republican army is the best equipped among the warring factions of Adhomai, being supplied by NanoTrasen and other outworld supporters. Canned goods and \
-	modern rations are issued to all branches of the Republic’s military. Native field meals are composed of salt-cured Fatshouters’s meat, bread and Victory Gin, while imported ones \
+	modern rations are issued to all branches of the Republic's military. Native field meals are composed of salt-cured Fatshouters's meat, bread and Victory Gin, while imported ones \
 	are commonly found in the form of LiquidFood rations, a less than popular alternative manufactured by NanoTrasen."
 	var/preset_ration	//if the package comes with one in particular, not a random
 
