@@ -194,7 +194,7 @@
 	center_of_mass = list("x"=16, "y"=4)
 	description_fluff = "Adhomian beverages are commonly made with fermented grains or vegetables, if alcoholic, or juices mixed with sugar or honey. Victory gin is the most \
 	widespread alcoholic drink in Adhomai, the result of the fermentation of honey extracted from Messa's tears, but its production and consumption is slowly declining due to the \
-	People’s Republic situation in the current conflict."
+	People's Republic situation in the current conflict."
 	Initialize()
 		. = ..()
 		reagents.add_reagent("victorygin", 100)
@@ -584,7 +584,7 @@
 	icon_state = "messa_mead"
 	description_fluff = "Adhomian beverages are commonly made with fermented grains or vegetables, if alcoholic, or juices mixed with sugar or honey. Victory gin is the most \
 	widespread alcoholic drink in Adhomai, the result of the fermentation of honey extracted from Messa's tears, but its production and consumption is slowly declining due to the \
-	People’s Republic situation in the current conflict. Messa's mead is also another more traditional alternative, made with honey and fermented Earthen-Root juice."
+	People's Republic situation in the current conflict. Messa's mead is also another more traditional alternative, made with honey and fermented Earthen-Root juice."
 	Initialize()
 		. = ..()
 		reagents.add_reagent("messa_mead", 100)
