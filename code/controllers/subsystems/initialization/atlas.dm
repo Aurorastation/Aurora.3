@@ -13,6 +13,8 @@ var/datum/controller/subsystem/atlas/SSatlas
 	var/dmm_suite/maploader
 	var/list/height_markers = list()
 
+	var/datum/space_ruin/selected_ruin
+
 	var/list/mapload_callbacks = list()
 	var/map_override	// If set, SSatlas will forcibly load this map. If the map does not exist, mapload will fail and SSatlas will panic.
 	var/list/spawn_locations = list()
@@ -73,6 +75,7 @@ var/datum/controller/subsystem/atlas/SSatlas
 		world.map_panic("No maps loaded!")
 
 	if(current_map.has_space_ruins)
+		select_ruin()
 		load_space_ruin()
 
 	setup_multiz()
@@ -116,22 +119,56 @@ var/datum/controller/subsystem/atlas/SSatlas
 		.++
 		CHECK_TICK
 
-/datum/controller/subsystem/atlas/proc/load_space_ruin()
-	log_ss("atlas", "Loading Space Ruins.")
-	var/map_directory = "maps/space_ruins/"
-	var/list/files = flist(map_directory)
-	var/time = world.time
+/datum/controller/subsystem/atlas/proc/select_ruin()
+	var/list/ruinconfig = list()
+	var/list/ruinlist = list()
+	var/list/weightedlist = list()
+	try
+		ruinconfig = json_decode(return_file_text("config/space_ruins.json"))
+	catch(var/exception/ej)
+		log_debug("SSatlas: Warning: Could not load space ruin config, as space_ruins.json is missing - [ej]")
+		return
+	
+	for(var/ruinname in ruinconfig)
+		//Create the datums
+		var/datum/space_ruin/sr = new(ruinname,ruinconfig[ruinname]["file_name"])
+		if("weight" in ruinconfig[ruinname])
+			sr.weight = ruinconfig[ruinname]["weight"]
+		if("valid_maps" in ruinconfig[ruinname])
+			sr.valid_maps = ruinconfig[ruinname]["valid_maps"]
+		if("characteristics" in ruinconfig[ruinname])
+			sr.characteristics = ruinconfig[ruinname]["characteristics"]
+		
+		//Check if the file exists
+		var/map_directory = "maps/space_ruins/"
+		if(!fexists("[map_directory][sr.file_name]"))
+			admin_notice("<span class='danger'>Map file [sr.file_name] for ruin [sr.name] does not exist.</span>")
+			log_ss("atlas","Map file [sr.file_name] for ruin [sr.name] does not exist.")
+			continue
 
-	for(var/filename in files)
-		if(!dd_hassuffix(filename,".dmm"))
-			files -=filename
-
-	if(length(files) <= 0)
-		log_ss("atlas","There are no space ruin maps.")
+		//Build the lists
+		if(length(sr.valid_maps))
+			if(!(map_override in sr.valid_maps))
+				continue
+		ruinlist[sr.name] = sr
+		weightedlist[sr.name] = sr.weight
+	
+	if(!length(ruinlist))
+		log_ss("atlas","Found no valid ruins for current map.")
 		return
 
-	var/chosen_ruin = pick(files)
-	var/mfile = "[map_directory][chosen_ruin]"
+	log_ss("atlas", "Loaded ruin config.")
+	var/ruinname = pickweight(weightedlist)
+	selected_ruin = ruinlist[ruinname]
+	return
+
+/datum/controller/subsystem/atlas/proc/load_space_ruin()
+	if(!selected_ruin)
+		return
+	log_ss("atlas", "Loading Space Ruin.")
+	var/map_directory = "maps/space_ruins/"
+	var/mfile = "[map_directory][selected_ruin.file_name]"
+	var/time = world.time
 
 	if (!maploader.load_map(file(mfile), 0, 0, no_changeturf = TRUE))
 		log_ss("atlas", "Failed to load '[mfile]'!")

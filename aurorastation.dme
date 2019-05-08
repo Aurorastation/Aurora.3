@@ -296,6 +296,7 @@
 #include "code\datums\helper_datums\construction_datum.dm"
 #include "code\datums\helper_datums\events.dm"
 #include "code\datums\helper_datums\getrev.dm"
+#include "code\datums\helper_datums\space_ruin.dm"
 #include "code\datums\helper_datums\teleport.dm"
 #include "code\datums\helper_datums\topic_input.dm"
 #include "code\datums\looping_sounds\_looping_sound.dm"

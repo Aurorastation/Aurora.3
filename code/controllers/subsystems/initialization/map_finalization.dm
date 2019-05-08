@@ -27,6 +27,9 @@
 	// This is dependant on markers.
 	populate_antag_spawns()
 
+	// Generate contact report.
+	generate_contact_report()
+
 	..()
 
 /proc/resort_all_areas()
@@ -36,7 +39,7 @@
 
 	sortTim(all_areas, /proc/cmp_name_asc)
 
-/proc/place_dungeon_spawns()
+/datum/controller/subsystem/finalize/proc/place_dungeon_spawns()
 	var/map_directory = "maps/dungeon_spawns/"
 	var/list/files = flist(map_directory)
 	var/start_time = world.time
@@ -78,3 +81,13 @@
 
 	qdel(maploader)
 
+/datum/controller/subsystem/finalize/proc/generate_contact_report()
+	if(!SSatlas.selected_ruin)
+		return
+	var/report_text = SSatlas.selected_ruin.get_contact_report()
+	for(var/obj/effect/landmark/C in landmarks_list)
+		if(C.name == "Space Ruin Paper")
+			var/obj/item/weapon/paper/P = new /obj/item/weapon/paper(get_turf(C))
+			P.name = "Icarus reading report"
+			P.info = report_text
+			P.update_icon()
