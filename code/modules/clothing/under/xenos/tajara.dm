@@ -131,7 +131,7 @@
 	contained_sprite = TRUE
 	description_fluff = "Marriage wraps are the symbol of the union of a Tajaran couple in the tradition known as S'rendal'Mati. At the noon, during the marriage celebration, the bride \
 	and groom meet at the main altar of the church, a present priest recites the holy vows and with the wedding wrist wraps, one blue for the bride and one golden for the groom, ties \
-	their hands together ending the ceremony. From then on celebration begins, feats of strenght, endurance and agility are a common sight and many use wedding days to secure their own \
+	their hands together ending the ceremony. From then on celebration begins, feats of strength, endurance and agility are a common sight and many use wedding days to secure their own \
 	future brides and grooms, the bride and groom are required to stay tied together by these wrist wraps until the suns set and celebrations end, solidifying their marriage. The next \
 	morning the wedded couple untie these wraps but keep them on their respective wrists to showcase that they are already taken, furthermore the couple is required to visit the local \
 	office and register in the marriage registry to be a certified wedded pair. "
