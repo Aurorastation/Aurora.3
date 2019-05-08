@@ -15,7 +15,7 @@
     ruintext += "<b><font face='Courier New'>The Icarus sensors located a away site with the possible characteristics:</font></b><br><ul>"
 
     for(var/characteristic in schar)
-        if(prob(characteristics[characteristic]))
+        if(prob(schar[characteristic]))
             ruintext += "<li>[characteristic]</li>"
 
     ruintext += "</ul><HR>"
