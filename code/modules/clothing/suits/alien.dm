@@ -45,7 +45,7 @@
 	item_state = "taj_jacket"
 	icon_open = "taj_jacket_open"
 	icon_closed = "taj_jacket"
-	description_fluff = "Today the fashion that dominates Adhomai bears only a vague resemblance to the clothing of old. Furs, linen, hemp, silk and other such fabrics were traded for \
+	description_fluff = "Today the fashion that dominates Adhomai shares few similarities to the clothing of old Furs, linen, hemp, silk and other such fabrics were traded for \
 	synthetic versions, creating a massive boom in the nylon industry and textile industry in the cities. Jeans, overcoats, army uniforms, parade uniforms, flags, pants, shirts, ties, \
 	suspenders, overalls are now the fashion of every Tajara from Nal'Tor to Kaltir. The protests of \"Old fashion\" supporters usually shatter against how effective and cheap it is to \
 	make the human clothes are. There are a few notable branches, the long-coat and fedora \"gangster style\". Leather jacket wearing \"Greaser\" or the popular amongst females, short \
@@ -56,7 +56,7 @@
 	desc = "A thick wool coat from Adhomai."
 	icon_state = "naval_coat"
 	item_state = "naval_coat"
-	description_fluff = "Today the fashion that dominates Adhomai bears only a vague resemblance to the clothing of old. Furs, linen, hemp, silk and other such fabrics were traded for \
+	description_fluff = "Today the fashion that dominates Adhomai shares few similarities to the clothing of old Furs, linen, hemp, silk and other such fabrics were traded for \
 	synthetic versions, creating a massive boom in the nylon industry and textile industry in the cities. Jeans, overcoats, army uniforms, parade uniforms, flags, pants, shirts, ties, \
 	suspenders, overalls are now the fashion of every Tajara from Nal'Tor to Kaltir. The protests of \"Old fashion\" supporters usually shatter against how effective and cheap it is to \
 	make the human clothes are. There are a few notable branches, the long-coat and fedora \"gangster style\". Leather jacket wearing \"Greaser\" or the popular amongst females, short \
@@ -106,7 +106,7 @@
 	contained_sprite = TRUE
 	flags_inv = HIDETAIL
 	hoodtype = /obj/item/clothing/head/winterhood
-	description_fluff = "Today the fashion that dominates Adhomai bears only a vague resemblance to the clothing of old. Furs, linen, hemp, silk and other such fabrics were traded for \
+	description_fluff = "Today the fashion that dominates Adhomai shares few similarities to the clothing of old Furs, linen, hemp, silk and other such fabrics were traded for \
 	synthetic versions, creating a massive boom in the nylon industry and textile industry in the cities. Jeans, overcoats, army uniforms, parade uniforms, flags, pants, shirts, ties, \
 	suspenders, overalls are now the fashion of every Tajara from Nal'Tor to Kaltir. The protests of \"Old fashion\" supporters usually shatter against how effective and cheap it is to \
 	make the human clothes are. There are a few notable branches, the long-coat and fedora \"gangster style\". Leather jacket wearing \"Greaser\" or the popular amongst females, short \
@@ -126,7 +126,7 @@
 	in temporary cease-fires from all sides."
 
 /obj/item/clothing/head/tajaran
-	description_fluff = "Today the fashion that dominates Adhomai bears only a vague resemblance to the clothing of old. Furs, linen, hemp, silk and other such fabrics were traded for \
+	description_fluff = "Today the fashion that dominates Adhomai shares few similarities to the clothing of old Furs, linen, hemp, silk and other such fabrics were traded for \
 	synthetic versions, creating a massive boom in the nylon industry and textile industry in the cities. Jeans, overcoats, army uniforms, parade uniforms, flags, pants, shirts, ties, \
 	suspenders, overalls are now the fashion of every Tajara from Nal'Tor to Kaltir. The protests of \"Old fashion\" supporters usually shatter against how effective and cheap it is to \
 	make the human clothes are. There are a few notable branches, the long-coat and fedora \"gangster style\". Leather jacket wearing \"Greaser\" or the popular amongst females, short \
@@ -171,7 +171,7 @@
 	body_parts_covered = FEET|LEGS
 	species_restricted = list("Tajara")
 	contained_sprite = TRUE
-	description_fluff = "Today the fashion that dominates Adhomai bears only a vague resemblance to the clothing of old. Furs, linen, hemp, silk and other such fabrics were traded for \
+	description_fluff = "Today the fashion that dominates Adhomai shares few similarities to the clothing of old Furs, linen, hemp, silk and other such fabrics were traded for \
 	synthetic versions, creating a massive boom in the nylon industry and textile industry in the cities. Jeans, overcoats, army uniforms, parade uniforms, flags, pants, shirts, ties, \
 	suspenders, overalls are now the fashion of every Tajara from Nal'Tor to Kaltir. The protests of \"Old fashion\" supporters usually shatter against how effective and cheap it is to \
 	make the human clothes are. There are a few notable branches, the long-coat and fedora \"gangster style\". Leather jacket wearing \"Greaser\" or the popular amongst females, short \
