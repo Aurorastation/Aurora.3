@@ -504,7 +504,7 @@
 
 /obj/item/clothing/suit/armor/tajara
 	name = "amohdan swordsmen armor"
-	desc = "A suit of armor used by the traditional warriors of Amohhda."
+	desc = "A suit of armor used by the traditional warriors of Amohda."
 	icon = 'icons/obj/tajara_items.dmi'
 	icon_state = "amohdan_armor"
 	item_state = "amohdan_armor"
@@ -514,6 +514,11 @@
 	flags_inv = HIDEJUMPSUIT|HIDETAIL
 	species_restricted = list("Tajara")
 	armor = list(melee = 60, bullet = 50, laser = 20, energy = 10, bomb = 5, bio = 0, rad = 0)
+	description_fluff = "The Feudal Era of Amohda is famous for the steel swords which became common. Many renowned swordsmen and famous warriors would travel the land fighting duels of \
+	single combat in their quests to become the greatest swordsman. Modern Amohda is a mix between loyalists to the NKA and to the DPRA, with almost universal praise for a return to \
+	traditional culture, yet often violent disagreement about the course of the island's political future. A sizable third party of monarchists which advocate the reestablishment of the \
+	Imperial Amohdan dynasty also exists, fragmenting the monarchist factions on the island and further complicating political violence in the area."
+
 
 //tau ceti foreign legion armor
 
