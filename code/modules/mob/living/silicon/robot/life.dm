@@ -334,14 +334,18 @@
 	return canmove
 
 /mob/living/silicon/robot/proc/process_level_restrictions()
-	//If they are on a player level -> abort
+	//Abort if they should not get blown
+	if (lockcharge || scrambledcodes || emagged)
+		return
+	//First check their coordinates
 	if (src.z in current_map.player_levels)
+		return
+	//Then check the coordinates of the turf they are on
+	var/turf/T = get_turf(src)
+	if (T.z in current_map.player_levels)
 		return
 	//If they are on centcom -> abort
 	if (istype(get_area(src), /area/centcom) || istype(get_area(src), /area/shuttle/escape) || istype(get_area(src), /area/shuttle/arrival))
-		return
-	//Make sure they should not get blown
-	if (lockcharge || scrambledcodes || emagged)
 		return
 	self_destruct(TRUE)
 
