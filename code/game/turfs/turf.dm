@@ -343,7 +343,7 @@ var/const/enterloopsanity = 100
 	if (!above)
 		return FALSE
 
-	if (((isopenturf(above)) || (flags & ROOF_FORCE_SPAWN)) && roof_type && above)
+	if ((isopenturf(above) || (flags & ROOF_FORCE_SPAWN)) && roof_type && above)
 		above.ChangeTurf(roof_type)
 		roof_flags |= flags
 		return TRUE
