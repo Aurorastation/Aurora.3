@@ -337,12 +337,9 @@
 	//Abort if they should not get blown
 	if (lockcharge || scrambledcodes || emagged)
 		return
-	//First check their coordinates
-	if (src.z in current_map.player_levels)
-		return
-	//Then check the coordinates of the turf they are on
+	//Check if they are on a player level -> abort
 	var/turf/T = get_turf(src)
-	if (T.z in current_map.player_levels)
+	if (!T || (T.z in current_map.player_levels))
 		return
 	//If they are on centcom -> abort
 	if (istype(get_area(src), /area/centcom) || istype(get_area(src), /area/shuttle/escape) || istype(get_area(src), /area/shuttle/arrival))
