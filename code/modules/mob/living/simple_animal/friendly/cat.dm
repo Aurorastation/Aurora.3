@@ -28,6 +28,7 @@
 	mob_size = 2.5
 	scan_range = 3//less aggressive about stealing food
 	metabolic_factor = 0.75
+	max_nutrition = 60
 	density = 0
 	var/mob/living/simple_animal/mouse/mousetarget = null
 	seek_speed = 5

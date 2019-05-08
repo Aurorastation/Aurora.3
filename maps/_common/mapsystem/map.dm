@@ -131,6 +131,8 @@
 		'sound/music/thats-my-horse.ogg'
 	)
 
+	var/has_space_ruins = FALSE	//if this map picks and creates a space ruin
+
 /datum/map/New()
 	if(!map_levels)
 		map_levels = station_levels.Copy()

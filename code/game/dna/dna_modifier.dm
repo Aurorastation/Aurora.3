@@ -18,6 +18,7 @@
 	var/mind=null
 	var/languages=null
 	var/list/flavor=null
+	var/cloning_species=null
 
 /datum/dna2/record/proc/GetData()
 	var/list/ser=list("data" = null, "owner" = null, "label" = null, "type" = null, "ue" = 0)
@@ -206,7 +207,6 @@
 /obj/machinery/computer/scan_consolenew
 	name = "DNA Modifier Access Console"
 	desc = "Scand DNA."
-	icon = 'icons/obj/computer.dmi'
 	icon_screen = "dna"
 	density = 1
 	circuit = /obj/item/weapon/circuitboard/scan_consolenew

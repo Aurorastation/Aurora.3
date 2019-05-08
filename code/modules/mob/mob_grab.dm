@@ -339,7 +339,10 @@
 						dislocate(affecting, assailant, hit_zone)
 
 				if(I_DISARM)
-					pin_down(affecting, assailant)
+					if(hit_zone != "head")
+						pin_down(affecting, assailant)
+					if(hit_zone == "head")
+						hair_pull(affecting, assailant)
 
 	//clicking on yourself while grabbing them
 	if(M == assailant && state >= GRAB_AGGRESSIVE)

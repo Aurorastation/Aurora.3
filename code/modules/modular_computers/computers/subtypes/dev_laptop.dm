@@ -6,17 +6,18 @@
 	icon_state_unpowered = "laptop-open"
 	icon = 'icons/obj/modular_laptop.dmi'
 	icon_state = "laptop-open"
+	icon_state_broken = "laptop-broken"
 	base_idle_power_usage = 25
 	base_active_power_usage = 200
 	max_hardware_size = 2
 	light_strength = 3
-	max_damage = 200
-	broken_damage = 100
+	max_damage = 50
+	broken_damage = 25
 	w_class = 3
 	var/icon_state_closed = "laptop-closed"
 
 /obj/item/modular_computer/laptop/AltClick()
-	if (use_check(usr, show_messages = FALSE)) return
+	if (use_check(usr)) return
 	// Prevents carrying of open laptops inhand.
 	// While they work inhand, i feel it'd make tablets lose some of their high-mobility advantage they have over laptops now.
 	if(!istype(loc, /turf/))
@@ -31,4 +32,7 @@
 		..()
 	else
 		cut_overlays()
-		icon_state = icon_state_closed
+		if(damage >= broken_damage)
+			icon_state = icon_state_broken + "-closed"
+		else
+			icon_state = icon_state_closed

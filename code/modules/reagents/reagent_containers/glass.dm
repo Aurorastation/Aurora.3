@@ -19,6 +19,8 @@
 
 	var/label_text = ""
 
+	drop_sound = 'sound/items/drop/bottle.ogg'
+
 /obj/item/weapon/reagent_containers/glass/Initialize()
 	. = ..()
 	base_name = name

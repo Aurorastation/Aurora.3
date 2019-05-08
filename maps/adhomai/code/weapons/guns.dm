@@ -128,8 +128,8 @@
 		icon_state = "nka-empty"
 
 /obj/item/weapon/gun/projectile/nka/kt_76
-	name = "KT-76 service pistol"
-	desc = "A more reliable, clip-fed sidearm issued to officers and survival personnel of the Imperial Adhomian Army."
+	name = "service pistol"
+	desc = "The KT-76 service pistol is a reliable, clip-fed sidearm issued to officers and survival personnel of the Imperial Adhomian Army."
 	icon_state = "kt_76"
 	jam_chance = 1
 	max_shells = 10

@@ -18,13 +18,14 @@
 	var/cuff_sound = 'sound/weapons/handcuffs.ogg'
 	var/cuff_type = "handcuffs"
 	sprite_sheets = list("Resomi" = 'icons/mob/species/resomi/handcuffs.dmi')
+	drop_sound = 'sound/items/drop/accessory.ogg'
 
 /obj/item/weapon/handcuffs/attack(var/mob/living/carbon/C, var/mob/living/user)
 
 	if(!user.IsAdvancedToolUser())
 		return
 
-	if ((CLUMSY in user.mutations) && prob(50))
+	if ((user.is_clumsy()) && prob(50))
 		to_chat(user, "<span class='warning'>Uh ... how do those things work?!</span>")
 		place_handcuffs(user, user)
 		return

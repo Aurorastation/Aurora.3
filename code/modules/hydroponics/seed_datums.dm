@@ -163,7 +163,7 @@
 	name = "tomato"
 	seed_name = "tomato"
 	display_name = "tomato plant"
-	mutants = list("bluetomato","bloodtomato")
+	mutants = list("bluetomato","bloodtomato") // no killer :(
 	chems = list("nutriment" = list(1,10), "tomatojuice" = list(10,10))
 	kitchen_tag = "tomato"
 
@@ -1343,6 +1343,25 @@
 	set_trait(TRAIT_PLANT_ICON,"stalk")
 	set_trait(TRAIT_WATER_CONSUMPTION, 5)
 
+/datum/seed/dyn
+	name = "dyn"
+	seed_name = "dyn"
+	display_name = "dyn bush"
+	mutants = null
+	chems = list("dynjuice" = list(2,2), "dylovene" = list(0,1))
+	kitchen_tag = "dyn leaf"
+
+/datum/seed/dyn/setup_traits()
+	..()
+	set_trait(TRAIT_MATURATION,10)
+	set_trait(TRAIT_PRODUCTION,10)
+	set_trait(TRAIT_YIELD,3)
+	set_trait(TRAIT_POTENCY,10)
+	set_trait(TRAIT_PRODUCT_ICON,"leaves")
+	set_trait(TRAIT_PRODUCT_COLOUR,"#00e0e0")
+	set_trait(TRAIT_PLANT_ICON,"bush8")
+	
+
 /datum/seed/mushroom/nfrihi
 	name = "nfrihi"
 	seed_name = "blizzard ears"
@@ -1389,3 +1408,4 @@
 	set_trait(TRAIT_IDEAL_HEAT, 253)
 	set_trait(TRAIT_WATER_CONSUMPTION, 4)
 	set_trait(TRAIT_IDEAL_LIGHT, 3)
+
