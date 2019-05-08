@@ -10,9 +10,7 @@
 	vision_restriction = TINT_HEAVY
 	offline_vision_restriction = TINT_BLIND
 
-	chest_type = /obj/item/clothing/suit/space/rig/unathi
-	helm_type = /obj/item/clothing/head/helmet/space/rig/unathi
-	boot_type = /obj/item/clothing/shoes/magboots/rig/unathi
+	species_restricted = list("Unathi")
 
 	allowed = list(/obj/item/weapon/gun,/obj/item/device/flashlight,/obj/item/weapon/tank,/obj/item/device/suit_cooling_unit,/obj/item/weapon/melee/baton,/obj/item/weapon/melee/energy)
 
@@ -30,16 +28,6 @@
 
 	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT | MODULE_SPECIAL
 
-/obj/item/clothing/head/helmet/space/rig/unathi
-	species_restricted = list("Unathi")
-
-/obj/item/clothing/suit/space/rig/unathi
-	species_restricted = list("Unathi")
-
-/obj/item/clothing/shoes/magboots/rig/unathi
-	species_restricted = list("Unathi")
-
-
 
 /obj/item/weapon/rig/vaurca
 	name = "combat exoskeleton control module"
@@ -51,9 +39,9 @@
 	slowdown = 2
 	offline_slowdown = 3
 
-	chest_type = /obj/item/clothing/suit/space/rig/vaurca
+	species_restricted = list("Vaurca")
+
 	helm_type = /obj/item/clothing/head/helmet/space/rig/vaurca
-	boot_type = /obj/item/clothing/shoes/magboots/rig/vaurca
 	air_type =   /obj/item/weapon/tank/phoron
 
 	allowed = list(/obj/item/weapon/gun,/obj/item/device/flashlight,/obj/item/weapon/tank,/obj/item/device/suit_cooling_unit,/obj/item/weapon/melee/baton,/obj/item/weapon/melee/energy)
@@ -68,19 +56,36 @@
 		/obj/item/rig_module/maneuvering_jets
 
 		)
-	
+
 	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT | MODULE_VAURCA
 
 /obj/item/weapon/rig/vaurca/minimal
 	initial_modules = list(/obj/item/rig_module/chem_dispenser/vaurca)
 
 /obj/item/clothing/head/helmet/space/rig/vaurca
-	species_restricted = list("Vaurca")
 	light_overlay = "helmet_light_dual_green"
 	light_color = "#3e7c3e"
 
-/obj/item/clothing/suit/space/rig/vaurca
-	species_restricted = list("Vaurca")
 
-/obj/item/clothing/shoes/magboots/rig/vaurca
-	species_restricted = list("Vaurca")
+/obj/item/weapon/rig/tesla
+	name = "tesla suit control module"
+	desc = "A tajaran hardsuit designated to be used by the special forces of the Tesla Brigade."
+	suit_type = "tesla suit"
+	icon_state = "tesla_rig"
+	armor = list(melee = 70, bullet = 50, laser = 35, energy = 15, bomb = 55, bio = 100, rad = 60)
+	vision_restriction = 0
+	slowdown = 2
+	offline_slowdown = 3
+	siemens_coefficient = 0
+
+	species_restricted = list("Tajara")
+
+	allowed = list(/obj/item/weapon/gun,/obj/item/device/flashlight,/obj/item/weapon/tank,/obj/item/device/suit_cooling_unit,/obj/item/weapon/melee/baton,/obj/item/weapon/melee/energy)
+
+	initial_modules = list(
+		/obj/item/rig_module/actuators/combat,
+		/obj/item/rig_module/vision/thermal,
+		/obj/item/rig_module/tesla_coil,
+		/obj/item/rig_module/mounted/tesla)
+
+	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT | MODULE_UTILITY

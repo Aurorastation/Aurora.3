@@ -85,6 +85,7 @@
 	var/datum/effect_system/sparks/spark_system
 
 	var/allowed_module_types = MODULE_GENERAL // All rigs by default should have access to general
+	var/list/species_restricted = list("exclude","Diona","Xenomorph","Vaurca","Golem", "Vox")
 
 /obj/item/weapon/rig/examine()
 	to_chat(usr, "This is \icon[src][src.name].")
@@ -139,7 +140,7 @@
 		chest.slowdown = offline_slowdown
 		verbs |= /obj/item/weapon/rig/proc/toggle_chest
 
-	for(var/obj/item/piece in list(gloves,helmet,boots,chest))
+	for(var/obj/item/clothing/piece in list(gloves,helmet,boots,chest))
 		if(!istype(piece))
 			continue
 		piece.canremove = 0
@@ -152,6 +153,7 @@
 			piece.siemens_coefficient = siemens_coefficient
 		piece.permeability_coefficient = permeability_coefficient
 		piece.unacidable = unacidable
+		piece.species_restricted = species_restricted
 		if(islist(armor)) piece.armor = armor.Copy()
 
 	set_vision(!offline)

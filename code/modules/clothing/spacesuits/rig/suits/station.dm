@@ -270,20 +270,9 @@
 	offline_slowdown = 4
 	offline_vision_restriction = TINT_HEAVY
 
-	chest_type = /obj/item/clothing/suit/space/rig/diving
-	helm_type = /obj/item/clothing/head/helmet/space/rig/diving
-	boot_type = /obj/item/clothing/shoes/magboots/rig/diving
-
 	allowed = list(/obj/item/device/flashlight,/obj/item/weapon/tank,/obj/item/device/suit_cooling_unit,/obj/item/weapon/storage/toolbox,/obj/item/weapon/storage/briefcase/inflatable,/obj/item/device/t_scanner,/obj/item/weapon/rcd)
 
 	req_access = list()
 	req_one_access = list()
 
-/obj/item/clothing/head/helmet/space/rig/diving
-	species_restricted = list("Human")
-
-/obj/item/clothing/suit/space/rig/diving
-	species_restricted = list("Human")
-
-/obj/item/clothing/shoes/magboots/rig/diving
 	species_restricted = list("Human")

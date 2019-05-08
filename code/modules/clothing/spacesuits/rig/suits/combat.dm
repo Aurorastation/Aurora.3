@@ -10,23 +10,12 @@
 	helm_type = /obj/item/clothing/head/helmet/space/rig/combat
 	allowed = list(/obj/item/weapon/gun,/obj/item/device/flashlight,/obj/item/weapon/tank,/obj/item/device/suit_cooling_unit,/obj/item/weapon/melee/baton)
 
-
 	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT
+
+	species_restricted = list("Human")
 
 /obj/item/clothing/head/helmet/space/rig/combat
 	light_overlay = "helmet_light_dual_cyan"
-	species_restricted = list("Human")
-
-/obj/item/clothing/suit/space/rig/combat
-	species_restricted = list("Human")
-
-/obj/item/clothing/shoes/magboots/rig/combat
-	species_restricted = list("Human")
-
-/obj/item/clothing/gloves/rig/combat
-	species_restricted = list("Human")
-
-
 
 /obj/item/weapon/rig/combat/equipped
 
@@ -51,26 +40,16 @@
 	offline_vision_restriction = TINT_HEAVY
 	allowed = list(/obj/item/device/flashlight,/obj/item/weapon/tank,/obj/item/device/suit_cooling_unit,/obj/item/weapon/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/weapon/melee/baton,/obj/item/weapon/melee/energy/sword,/obj/item/weapon/handcuffs)
 
-	chest_type = /obj/item/clothing/suit/space/rig/military
+	species_restricted = list("Human")
+
 	helm_type = /obj/item/clothing/head/helmet/space/rig/military
-	boot_type = /obj/item/clothing/shoes/magboots/rig/military
-	glove_type = /obj/item/clothing/gloves/rig/military
+
 
 	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT | MODULE_SPECIAL | MODULE_MEDICAL | MODULE_UTILITY
 
 /obj/item/clothing/head/helmet/space/rig/military
 	light_overlay = "helmet_light_dual_green"
 	light_color = "#3e7c3e"
-	species_restricted = list("Human")
-
-/obj/item/clothing/suit/space/rig/military
-	species_restricted = list("Human")
-
-/obj/item/clothing/shoes/magboots/rig/military
-	species_restricted = list("Human")
-
-/obj/item/clothing/gloves/rig/military
-	species_restricted = list("Human")
 
 /obj/item/weapon/rig/military/equipped
 	initial_modules = list(
@@ -108,8 +87,7 @@
 		/obj/item/weapon/handcuffs
 	)
 
-	chest_type = /obj/item/clothing/suit/space/rig/retro
-	helm_type = /obj/item/clothing/head/helmet/space/rig/retro
+	species_restricted = list("exclude","Diona","Xenomorph", "Golem")
 
 	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT | MODULE_SPECIAL | MODULE_MEDICAL | MODULE_UTILITY
 
@@ -121,9 +99,3 @@
 		/obj/item/rig_module/cooling_unit,
 		/obj/item/rig_module/fabricator/energy_net
 		)
-
-/obj/item/clothing/head/helmet/space/rig/retro
-	species_restricted = list("exclude","Diona","Xenomorph", "Golem")
-
-/obj/item/clothing/suit/space/rig/retro
-	species_restricted = list("exclude","Diona","Xenomorph", "Golem")

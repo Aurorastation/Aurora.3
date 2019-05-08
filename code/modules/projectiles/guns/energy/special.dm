@@ -571,6 +571,13 @@
 	accuracy = 80
 	muzzle_flash = 15
 
+/obj/item/weapon/gun/energy/tesla/mounted
+	name = "mounted tesla carbine"
+	self_recharge = 1
+	use_external_power = 1
+	recharge_time = 10
+	can_turret = 0
+
 /obj/item/weapon/gun/energy/gravity_gun
 	name = "gravity gun"
 	desc = "This nifty gun disables the gravity in the area you shoot at. Use with caution."
