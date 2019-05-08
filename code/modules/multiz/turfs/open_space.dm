@@ -227,7 +227,7 @@
 
 //Returns the roof type of the turf below
 /turf/simulated/open/get_roof_type()
-	var/turf/t = GetBelow()
+	var/turf/t = GetBelow(src)
 	if(!t)
 		return null
 	return t.roof_type
