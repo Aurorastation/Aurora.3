@@ -10,11 +10,11 @@
     file_name = i_file_name
 
 /datum/space_ruin/proc/get_contact_report()
-    var/characteristics = sortList(characteristics) //Sort them alphabetically to avoid metaing based on the order
+    var/list/schar = sortList(characteristics) //Sort them alphabetically to avoid metaing based on the order
     var/ruintext = "<center><img src = ntlogo.png><br><h2><br><b>Icarus Reading Report</h2></b></FONT size><HR></center>"
     ruintext += "<b><font face='Courier New'>The Icarus sensors located a away site with the possible characteristics:</font></b><br><ul>"
 
-    for(var/characteristic in characteristics)
+    for(var/characteristic in schar)
         if(prob(characteristics[characteristic]))
             ruintext += "<li>[characteristic]</li>"
 
