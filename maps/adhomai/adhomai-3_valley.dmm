@@ -2468,7 +2468,7 @@
 "pF" = (
 /obj/structure/closet/wardrobe/chaplain_black,
 /obj/item/weapon/storage/fancy/crayons,
-/obj/item/weapon/nullrod/itembox,
+/obj/item/weapon/nullrod,
 /obj/item/weapon/reagent_containers/food/drinks/bottle/holywater,
 /turf/simulated/floor/wood,
 /area/adhomai/village/temple)
