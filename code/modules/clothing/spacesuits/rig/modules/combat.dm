@@ -398,7 +398,7 @@
 	if (!..())
 		return 0
 
-	H.visible_message("<span class='danger'>\The [holder.wearer] crackles with energy!</span>")
+	holder.wearer.visible_message("<span class='danger'>\The [holder.wearer] crackles with energy!</span>")
 	playsound(holder.wearer, 'sound/magic/LightningShock.ogg', 75, 1)
 	tesla_zap(holder.wearer, 6, 2500)
 	return 1
