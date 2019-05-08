@@ -72,6 +72,9 @@ var/datum/controller/subsystem/atlas/SSatlas
 	if (!maps_loaded)
 		world.map_panic("No maps loaded!")
 
+	if(current_map.has_space_ruins)
+		load_space_ruin()
+
 	setup_multiz()
 
 	QDEL_NULL(maploader)
@@ -112,6 +115,28 @@ var/datum/controller/subsystem/atlas/SSatlas
 
 		.++
 		CHECK_TICK
+
+/datum/controller/subsystem/atlas/proc/load_space_ruin()
+	log_ss("atlas", "Loading Space Ruins.")
+	var/map_directory = "maps/space_ruins/"
+	var/list/files = flist(map_directory)
+	var/time = world.time
+
+	for(var/filename in files)
+		if(!dd_hassuffix(filename,".dmm"))
+			files -=filename
+
+	if(length(files) <= 0)
+		log_ss("atlas","There are no space ruin maps.")
+		return
+
+	var/chosen_ruin = pick(files)
+	var/mfile = "[map_directory][chosen_ruin]"
+
+	if (!maploader.load_map(file(mfile), 0, 0, no_changeturf = TRUE))
+		log_ss("atlas", "Failed to load '[mfile]'!")
+	else
+		log_ss("atlas", "Loaded level in [(world.time - time)/10] seconds.")
 
 /datum/controller/subsystem/atlas/proc/setup_multiz()
 	for (var/thing in height_markers)

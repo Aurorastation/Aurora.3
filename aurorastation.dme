@@ -189,7 +189,6 @@
 #include "code\controllers\subsystems\power.dm"
 #include "code\controllers\subsystems\radio.dm"
 #include "code\controllers\subsystems\responseteam.dm"
-#include "code\controllers\subsystems\space_ruin.dm"
 #include "code\controllers\subsystems\statistics.dm"
 #include "code\controllers\subsystems\sun.dm"
 #include "code\controllers\subsystems\sunlight.dm"
