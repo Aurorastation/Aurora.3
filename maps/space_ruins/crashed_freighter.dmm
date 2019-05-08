@@ -9,22 +9,22 @@
 /turf/simulated/mineral/random/higher_chance,
 /area/mine/unexplored)
 "ad" = (
-/turf/simulated/floor/asteroid/ash/rocky,
+/turf/unsimulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
 "ae" = (
 /obj/effect/blob/core,
-/turf/simulated/floor/asteroid/ash/rocky,
+/turf/unsimulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
 "af" = (
-/turf/simulated/floor/asteroid/ash,
+/turf/unsimulated/floor/asteroid/ash,
 /area/mine/unexplored)
 "ag" = (
 /obj/effect/floor_decal/asteroid,
-/turf/simulated/floor/asteroid/ash,
+/turf/unsimulated/floor/asteroid/ash,
 /area/mine/unexplored)
 "ah" = (
 /obj/effect/blob/core,
-/turf/simulated/floor/asteroid/ash,
+/turf/unsimulated/floor/asteroid/ash,
 /area/mine/unexplored)
 "ai" = (
 /turf/simulated/wall/r_wall,
@@ -46,17 +46,17 @@
 /turf/simulated/floor,
 /area/derelict/ship)
 "al" = (
-/turf/simulated/floor/asteroid/ash/rocky,
+/turf/unsimulated/floor/asteroid/ash/rocky,
 /area/derelict/ship)
 "am" = (
-/turf/simulated/floor/asteroid/ash,
+/turf/unsimulated/floor/asteroid/ash,
 /area/derelict/ship)
 "ap" = (
 /turf/simulated/floor,
 /area/derelict/ship)
 "aq" = (
 /obj/effect/floor_decal/asteroid,
-/turf/simulated/floor/asteroid/ash,
+/turf/unsimulated/floor/asteroid/ash,
 /area/derelict/ship)
 "ar" = (
 /obj/structure/grille,
@@ -148,7 +148,7 @@
 /area/derelict/ship)
 "aB" = (
 /obj/structure/grille,
-/turf/simulated/floor/asteroid/ash/rocky,
+/turf/unsimulated/floor/asteroid/ash/rocky,
 /area/derelict/ship)
 "aC" = (
 /turf/simulated/floor,
@@ -208,7 +208,7 @@
 /area/template_noop)
 "aI" = (
 /obj/structure/lattice,
-/turf/simulated/floor/asteroid/ash,
+/turf/unsimulated/floor/asteroid/ash,
 /area/template_noop)
 "aJ" = (
 /obj/structure/lattice,
@@ -216,7 +216,7 @@
 /area/template_noop)
 "aK" = (
 /mob/living/simple_animal/hostile/retaliate/cavern_dweller,
-/turf/simulated/floor/asteroid/ash,
+/turf/unsimulated/floor/asteroid/ash,
 /area/derelict/ship)
 "aL" = (
 /obj/structure/shuttle/engine/platform,
@@ -235,7 +235,7 @@
 /area/derelict/ship)
 "aP" = (
 /obj/effect/floor_decal/asteroid,
-/turf/simulated/floor/asteroid/ash/rocky,
+/turf/unsimulated/floor/asteroid/ash/rocky,
 /area/derelict/ship)
 "aQ" = (
 /obj/structure/lattice,
@@ -243,7 +243,7 @@
 /area/derelict/ship)
 "aR" = (
 /obj/random/junk,
-/turf/simulated/floor/asteroid/ash/rocky,
+/turf/unsimulated/floor/asteroid/ash/rocky,
 /area/derelict/ship)
 "aS" = (
 /obj/structure/shuttle/engine/router,
@@ -255,7 +255,7 @@
 /area/derelict/ship)
 "aU" = (
 /obj/structure/lattice,
-/turf/simulated/floor/asteroid/ash,
+/turf/unsimulated/floor/asteroid/ash,
 /area/derelict/ship)
 "aV" = (
 /obj/structure/grille,

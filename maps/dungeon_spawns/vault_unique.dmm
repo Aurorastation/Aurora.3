@@ -155,7 +155,7 @@
 /turf/simulated/floor/holofloor/tiled/dark,
 /area/turret_protected/corp_vault)
 "x" = (
-/turf/simulated/floor/asteroid/ash/rocky,
+/turf/unsimulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
 "y" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{

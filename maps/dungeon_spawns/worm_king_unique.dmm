@@ -3,30 +3,30 @@
 /turf/unsimulated/chasm_mask,
 /area/mine/unexplored)
 "b" = (
-/turf/simulated/floor/asteroid/ash/rocky,
+/turf/unsimulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
 "c" = (
 /obj/structure/greatworm,
-/turf/simulated/floor/asteroid/ash/rocky,
+/turf/unsimulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
 "e" = (
 /mob/living/simple_animal/hostile/greatworm,
-/turf/simulated/floor/asteroid/ash/rocky,
+/turf/unsimulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
 "g" = (
 /mob/living/simple_animal/hostile/greatwormking,
-/turf/simulated/floor/asteroid/ash/rocky,
+/turf/unsimulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
 "h" = (
 /turf/simulated/mineral,
 /area/mine/unexplored)
 "i" = (
 /obj/effect/decal/remains/human,
-/turf/simulated/floor/asteroid/ash/rocky,
+/turf/unsimulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
 "j" = (
 /obj/item/weapon/archaeological_find,
-/turf/simulated/floor/asteroid/ash/rocky,
+/turf/unsimulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
 
 (1,1,1) = {"

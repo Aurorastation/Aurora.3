@@ -43,7 +43,7 @@
 
 	var/list/rock_tcache = typecacheof(list(
 		/turf/simulated/mineral,
-		/turf/simulated/floor/asteroid,
+		/turf/unsimulated/floor/asteroid,
 		/turf/simulated/open
 	))
 	var/list/obstacle_tcache = typecacheof(list(
@@ -54,7 +54,7 @@
 	var/list/path_tcache = typecacheof(list(
 		/turf/simulated/floor,
 		/turf/unsimulated/floor
-	)) - typecacheof(/turf/simulated/floor/asteroid)
+	)) - typecacheof(/turf/unsimulated/floor/asteroid)
 
 	var/turf/T
 	var/area/A

@@ -34,6 +34,16 @@
 
 	var/movement_cost = 0 // How much the turf slows down movement, if any.
 
+	//Mining resources (for the large drills).
+	var/has_resources
+	var/list/resources
+
+	// Plating data.
+	var/base_name = "plating"
+	var/base_desc = "The naked hull."
+	var/base_icon = 'icons/turf/flooring/plating.dmi'
+	var/base_icon_state = "plating"
+
 // Parent code is duplicated in here instead of ..() for performance reasons.
 // There's ALSO a copy of this in mine_turfs.dm!
 /turf/Initialize(mapload, ...)
@@ -329,11 +339,11 @@ var/const/enterloopsanity = 100
  * @return TRUE if a roof has been spawned, FALSE if not.
  */
 /turf/proc/spawn_roof(flags = 0)
-	var/turf/simulated/open/above = GetAbove(src)
+	var/turf/above = GetAbove(src)
 	if (!above)
 		return FALSE
 
-	if (((istype(above)) || (flags & ROOF_FORCE_SPAWN)) && roof_type && above)
+	if (((isopenturf(above)) || (flags & ROOF_FORCE_SPAWN)) && roof_type && above)
 		above.ChangeTurf(roof_type)
 		roof_flags |= flags
 		return TRUE

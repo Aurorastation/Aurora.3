@@ -99,7 +99,7 @@
 	if(kickstand) return
 
 	//these things like space, not turf. Dragging shouldn't weigh you down.
-	var/static/list/types = typecacheof(list(/turf/space, /turf/simulated/open, /turf/simulated/floor/asteroid))
+	var/static/list/types = typecacheof(list(/turf/space, /turf/simulated/open, /turf/unsimulated/floor/asteroid))
 	if(is_type_in_typecache(destination,types) || pulledby)
 		if(!space_speed)
 			return 0

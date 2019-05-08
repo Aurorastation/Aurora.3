@@ -3,27 +3,27 @@
 /turf/simulated/mineral/random,
 /area/template_noop)
 "ac" = (
-/turf/simulated/floor/asteroid/ash,
+/turf/unsimulated/floor/asteroid/ash,
 /area/template_noop)
 "ad" = (
 /turf/simulated/mineral/random/higher_chance,
 /area/template_noop)
 "ae" = (
 /obj/structure/alien/weeds,
-/turf/simulated/floor/asteroid/ash,
+/turf/unsimulated/floor/asteroid/ash,
 /area/template_noop)
 "af" = (
 /obj/structure/alien/weeds,
 /mob/living/simple_animal/hostile/carp/shark,
-/turf/simulated/floor/asteroid/ash,
+/turf/unsimulated/floor/asteroid/ash,
 /area/template_noop)
 "ag" = (
 /obj/structure/alien/weeds,
 /mob/living/simple_animal/hostile/carp,
-/turf/simulated/floor/asteroid/ash,
+/turf/unsimulated/floor/asteroid/ash,
 /area/template_noop)
 "ah" = (
-/turf/simulated/floor/asteroid/ash,
+/turf/unsimulated/floor/asteroid/ash,
 /turf/simulated/wall/cult,
 /area/template_noop)
 "ai" = (
@@ -80,7 +80,7 @@
 /area/template_noop)
 "au" = (
 /obj/structure/lattice,
-/turf/simulated/floor/asteroid/ash,
+/turf/unsimulated/floor/asteroid/ash,
 /area/template_noop)
 "av" = (
 /turf/simulated/floor,
@@ -109,14 +109,14 @@
 /area/derelict/ship)
 "az" = (
 /obj/structure/lattice,
-/turf/simulated/floor/asteroid/ash,
+/turf/unsimulated/floor/asteroid/ash,
 /area/derelict/ship)
 "aA" = (
-/turf/simulated/floor/asteroid/ash,
+/turf/unsimulated/floor/asteroid/ash,
 /area/derelict/ship)
 "aB" = (
 /obj/structure/boulder,
-/turf/simulated/floor/asteroid/ash,
+/turf/unsimulated/floor/asteroid/ash,
 /area/template_noop)
 "aC" = (
 /obj/structure/inflatable,
@@ -656,7 +656,7 @@
 /area/derelict/ship)
 "cn" = (
 /mob/living/simple_animal/hostile/carp,
-/turf/simulated/floor/asteroid/ash,
+/turf/unsimulated/floor/asteroid/ash,
 /area/template_noop)
 "co" = (
 /obj/machinery/mech_recharger,
@@ -946,7 +946,7 @@
 /area/derelict/ship)
 "dp" = (
 /obj/item/clothing/head/helmet/space/void/sol,
-/turf/simulated/floor/asteroid/ash,
+/turf/unsimulated/floor/asteroid/ash,
 /area/template_noop)
 "dq" = (
 /obj/structure/window/reinforced,
@@ -3202,7 +3202,7 @@
 /area/derelict/ship)
 "ki" = (
 /obj/item/clothing/suit/space/void/sol,
-/turf/simulated/floor/asteroid/ash,
+/turf/unsimulated/floor/asteroid/ash,
 /area/template_noop)
 "kj" = (
 /obj/structure/table/reinforced/steel,

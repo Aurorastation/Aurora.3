@@ -411,7 +411,7 @@
 	var/obj/item/stack/flag/F = locate() in get_turf(src)
 
 	var/turf/T = get_turf(src)
-	if(!T || !istype(T, /turf/simulated/floor/asteroid))
+	if(!T || !istype(T, /turf/unsimulated/floor/asteroid))
 		to_chat(user, "The beacon won't stand up in this terrain.")
 		return
 
