@@ -2,7 +2,6 @@
 
 /obj/machinery/computer/prisoner
 	name = "prisoner management console"
-	icon = 'icons/obj/computer.dmi'
 
 	icon_screen = "explosive"
 	light_color = LIGHT_COLOR_ORANGE

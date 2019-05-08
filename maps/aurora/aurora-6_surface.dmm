@@ -10246,6 +10246,15 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/fore)
+"sG" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10
+	},
+/turf/simulated/floor/tiled,
+/area/bridge/levela)
 "sH" = (
 /obj/machinery/atm{
 	pixel_x = 32
@@ -10411,6 +10420,7 @@
 /obj/structure/table/standard,
 /obj/item/weapon/storage/fancy/crayons,
 /obj/item/weapon/storage/fancy/crayons,
+/obj/item/weapon/storage/fancy/crayons/chalkbox,
 /turf/simulated/floor/tiled,
 /area/storage/primary)
 "sZ" = (
@@ -11157,19 +11167,9 @@
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/fitness)
 "uB" = (
-/obj/structure/table/standard{
-	name = "plastic table frame"
-	},
 /obj/effect/floor_decal/corner/paleblue/full{
 	icon_state = "corner_white_full";
 	dir = 4
-	},
-/obj/random/single{
-	icon = 'icons/obj/items.dmi';
-	icon_state = "lighter-g";
-	name = "randomly spawned lighter";
-	spawn_nothing_percentage = 50;
-	spawn_object = /obj/item/weapon/flame/lighter
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
@@ -11461,16 +11461,15 @@
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/fitness)
 "vi" = (
-/obj/structure/bed/chair,
 /obj/effect/floor_decal/corner/paleblue{
 	icon_state = "corner_white";
 	dir = 10
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 10
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/bridge/levela)
@@ -11492,7 +11491,6 @@
 /turf/simulated/floor/plating,
 /area/maintenance/arrivals)
 "vk" = (
-/obj/structure/bed/chair,
 /obj/effect/floor_decal/corner/paleblue{
 	icon_state = "corner_white";
 	dir = 10
@@ -11501,19 +11499,11 @@
 	icon_state = "corner_white";
 	dir = 10
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /turf/simulated/floor/tiled,
 /area/bridge/levela)
 "vl" = (
-/obj/structure/table/standard{
-	name = "plastic table frame"
-	},
 /obj/effect/floor_decal/corner/paleblue/full,
-/obj/item/weapon/storage/fancy/cigarettes{
-	pixel_y = 2
-	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
@@ -13453,6 +13443,10 @@
 	},
 /turf/simulated/floor/tiled,
 /area/bridge/levela)
+"yN" = (
+/obj/structure/closet/radiation,
+/turf/simulated/floor/plating,
+/area/shuttle/research/station)
 "yO" = (
 /obj/structure/window/reinforced{
 	icon_state = "rwindow";
@@ -14461,6 +14455,29 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/hallway/secondary/entry/fore)
+"AE" = (
+/obj/machinery/light{
+	dir = 2;
+	icon_state = "tube1";
+	pixel_y = 0
+	},
+/obj/effect/floor_decal/corner/paleblue{
+	icon_state = "corner_white_full";
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/shuttle/research/station)
+"AG" = (
+/obj/structure/table/standard,
+/obj/effect/floor_decal/corner/paleblue{
+	icon_state = "corner_white";
+	dir = 6
+	},
+/obj/effect/landmark{
+	name = "Space Ruin Paper"
+	},
+/turf/simulated/floor/tiled,
+/area/shuttle/research/station)
 "AH" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
@@ -15205,6 +15222,7 @@
 	d2 = 8;
 	icon_state = "1-8"
 	},
+/obj/item/weapon/storage/fancy/crayons/chalkbox,
 /turf/simulated/floor/tiled,
 /area/storage/tools)
 "Cb" = (
@@ -18153,6 +18171,17 @@
 /obj/structure/reagent_dispensers/fueltank,
 /turf/simulated/floor/plating,
 /area/maintenance/arrivals)
+"HR" = (
+/obj/machinery/door/firedoor,
+/obj/machinery/door/airlock/external{
+	frequency = 1380;
+	icon_state = "door_locked";
+	id_tag = "science_bridge_out";
+	locked = 0;
+	name = "Shuttle Docking Port"
+	},
+/turf/simulated/floor/plating,
+/area/bridge/levela)
 "HS" = (
 /obj/structure/disposalpipe/segment,
 /obj/structure/cable{
@@ -18176,6 +18205,17 @@
 	},
 /turf/simulated/floor/tiled,
 /area/quartermaster/loading)
+"HU" = (
+/obj/machinery/light{
+	icon_state = "tube1";
+	dir = 8
+	},
+/obj/effect/floor_decal/corner/mauve/full,
+/obj/structure/bed/chair/shuttle{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/shuttle/research/station)
 "HV" = (
 /obj/machinery/door/airlock/maintenance{
 	name = "Cargo Bay Warehouse Maintenance";
@@ -18241,6 +18281,17 @@
 	},
 /turf/simulated/floor/tiled,
 /area/quartermaster/loading)
+"Ij" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 5;
+	icon_state = "intact"
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 6
+	},
+/obj/machinery/light,
+/turf/simulated/floor/tiled,
+/area/bridge/levela)
 "Ik" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -18271,6 +18322,19 @@
 "IJ" = (
 /turf/simulated/floor/asteroid/ash,
 /area/shuttle/legion/station)
+"IM" = (
+/obj/structure/closet/crate,
+/obj/item/device/flashlight/flare,
+/obj/machinery/light/small/emergency{
+	icon_state = "bulb1";
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/research/station)
+"IT" = (
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/turf/simulated/floor/tiled,
+/area/shuttle/research/station)
 "IU" = (
 /obj/effect/decal/warning_stripes,
 /obj/structure/ladder{
@@ -18298,6 +18362,10 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/aft)
+"IW" = (
+/obj/machinery/portable_atmospherics/canister/oxygen,
+/turf/simulated/floor/plating,
+/area/shuttle/research/station)
 "IX" = (
 /obj/machinery/alarm{
 	dir = 4;
@@ -19486,10 +19554,54 @@
 	},
 /turf/simulated/floor/plating,
 /area/bridge/levela)
+"Lr" = (
+/obj/structure/shuttle/engine/propulsion{
+	icon_state = "propulsion_r"
+	},
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/shuttle/research/station)
+"LG" = (
+/obj/effect/floor_decal/corner/paleblue{
+	icon_state = "corner_white";
+	dir = 9
+	},
+/obj/machinery/light{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/floor/tiled,
+/area/bridge/levela)
 "LH" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/tiled,
 /area/bridge/levela)
+"LI" = (
+/obj/machinery/atmospherics/pipe/manifold4w/hidden,
+/obj/machinery/door/firedoor,
+/obj/machinery/door/airlock/external{
+	frequency = 1380;
+	icon_state = "door_locked";
+	id_tag = "science_bridge_in";
+	locked = 0;
+	name = "Shuttle Docking Port"
+	},
+/turf/simulated/floor/plating,
+/area/bridge/levela)
+"LL" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 4;
+	fluorescent = null;
+	frequency = 1380;
+	id_tag = "science_bridge_pump"
+	},
+/turf/simulated/floor/plating,
+/area/bridge/levela)
+"LN" = (
+/obj/structure/closet/crate/freezer/rations,
+/turf/simulated/floor/plating,
+/area/shuttle/research/station)
 "LZ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
@@ -19500,6 +19612,20 @@
 /obj/machinery/atmospherics/pipe/simple/visible,
 /turf/simulated/floor/plating,
 /area/bridge/levela)
+"Mn" = (
+/obj/structure/closet/medical_wall{
+	pixel_x = -32
+	},
+/obj/item/weapon/storage/firstaid/o2,
+/obj/item/bodybag/cryobag,
+/obj/item/bodybag/cryobag,
+/obj/item/weapon/storage/firstaid/regular,
+/obj/effect/floor_decal/corner/lime{
+	icon_state = "corner_white";
+	dir = 9
+	},
+/turf/simulated/floor/tiled,
+/area/shuttle/research/station)
 "Ms" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -19514,12 +19640,59 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/bridge/levela)
+"MM" = (
+/obj/effect/floor_decal/corner/paleblue{
+	icon_state = "corner_white";
+	dir = 5
+	},
+/obj/machinery/computer/shuttle_control/research,
+/turf/simulated/floor/tiled,
+/area/shuttle/research/station)
+"MU" = (
+/obj/effect/floor_decal/corner/mauve/full,
+/obj/structure/closet/walllocker/emerglocker/south,
+/obj/structure/bed/chair/shuttle{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/shuttle/research/station)
+"Nd" = (
+/obj/machinery/door/firedoor,
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/grille,
+/turf/simulated/floor/plating,
+/area/bridge/levela)
+"Ne" = (
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/machinery/door/airlock,
+/turf/simulated/floor/tiled,
+/area/shuttle/research/station)
 "Ns" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/aft)
+"Nt" = (
+/obj/machinery/atmospherics/pipe/manifold4w/hidden,
+/turf/simulated/floor/plating,
+/area/shuttle/research/station)
+"Nu" = (
+/obj/effect/floor_decal/corner/paleblue{
+	icon_state = "corner_white_full";
+	dir = 4
+	},
+/obj/structure/bed/chair{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/bridge/levela)
 "Ny" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
@@ -19665,6 +19838,14 @@
 	},
 /turf/simulated/floor/plating,
 /area/hallway/secondary/entry/fore)
+"Oe" = (
+/obj/structure/shuttle/engine/propulsion{
+	icon_state = "propulsion_l"
+	},
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/shuttle/research/station)
 "Oi" = (
 /obj/machinery/atmospherics/binary/pump/on{
 	dir = 8;
@@ -19683,6 +19864,51 @@
 /obj/machinery/atmospherics/pipe/manifold/visible,
 /turf/simulated/floor/plating,
 /area/tcommsat/entrance)
+"Op" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 10;
+	icon_state = "intact"
+	},
+/obj/machinery/door/airlock/external{
+	frequency = 1380;
+	icon_state = "door_locked";
+	id_tag = "science_bridge_in";
+	locked = 0;
+	name = "Shuttle Docking Port"
+	},
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/plating,
+/area/bridge/levela)
+"Or" = (
+/obj/structure/table/standard,
+/obj/item/device/flashlight/lamp,
+/obj/effect/floor_decal/corner/paleblue{
+	icon_state = "corner_white_full";
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/shuttle/research/station)
+"Ov" = (
+/obj/effect/floor_decal/corner/paleblue{
+	icon_state = "corner_white";
+	dir = 4
+	},
+/obj/machinery/door/airlock/glass_command{
+	id_tag = "";
+	name = "Docking Area";
+	req_access = list(19)
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/tiled,
+/area/bridge/levela)
+"Ow" = (
+/obj/structure/dispenser/oxygen,
+/obj/effect/floor_decal/corner/mauve/full{
+	icon_state = "corner_white_full";
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/shuttle/research/station)
 "Oz" = (
 /obj/effect/floor_decal/corner/paleblue/full{
 	icon_state = "corner_white_full";
@@ -19700,6 +19926,21 @@
 	},
 /turf/simulated/floor/tiled,
 /area/bridge/levela)
+"OL" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	frequency = 1380;
+	id_tag = "science_shuttle_pump"
+	},
+/obj/machinery/airlock_sensor{
+	frequency = 1380;
+	id_tag = "science_shuttle_sensor";
+	pixel_y = 32
+	},
+/obj/machinery/light/small{
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/research/station)
 "OP" = (
 /obj/structure/bed/chair/office/dark{
 	dir = 8
@@ -19713,11 +19954,37 @@
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /turf/simulated/floor/plating,
 /area/tcommsat/entrance)
+"OU" = (
+/obj/structure/dispenser/oxygen,
+/turf/simulated/floor/plating,
+/area/shuttle/research/station)
 "OV" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /turf/simulated/floor/wood,
+/area/bridge/levela)
+"Pa" = (
+/obj/structure/table/standard,
+/obj/effect/floor_decal/corner/lime/full{
+	icon_state = "corner_white_full";
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/shuttle/research/station)
+"Pb" = (
+/obj/structure/bed/chair/shuttle{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/shuttle/research/station)
+"Pe" = (
+/obj/effect/floor_decal/corner/paleblue{
+	icon_state = "corner_white";
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/tiled,
 /area/bridge/levela)
 "Pg" = (
 /obj/machinery/door/blast/regular{
@@ -19744,6 +20011,18 @@
 	},
 /turf/simulated/floor/tiled,
 /area/bridge/levela)
+"Pm" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
+/obj/machinery/door/airlock/external{
+	frequency = 1380;
+	icon_state = "door_locked";
+	id_tag = "science_shuttle_in";
+	locked = 0
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/research/station)
 "Pp" = (
 /obj/machinery/atmospherics/pipe/manifold/visible{
 	dir = 1
@@ -19751,6 +20030,44 @@
 /obj/machinery/meter,
 /turf/simulated/floor/plating,
 /area/bridge/levela)
+"Pt" = (
+/obj/effect/floor_decal/corner/mauve{
+	icon_state = "corner_white";
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/shuttle/research/station)
+"Pw" = (
+/obj/machinery/door/airlock/glass_science,
+/turf/simulated/floor/tiled,
+/area/shuttle/research/station)
+"PE" = (
+/obj/effect/floor_decal/corner/paleblue/full,
+/obj/machinery/light,
+/obj/machinery/access_button{
+	command = "cycle_interior";
+	frequency = 1380;
+	master_tag = "science_bridge";
+	name = "interior access button";
+	pixel_y = -32
+	},
+/turf/simulated/floor/tiled,
+/area/bridge/levela)
+"PL" = (
+/obj/effect/floor_decal/corner/mauve/full{
+	icon_state = "corner_white_full";
+	dir = 4
+	},
+/obj/machinery/light,
+/obj/item/device/radio/intercom{
+	name = "Station Intercom (General)";
+	pixel_y = -29
+	},
+/obj/structure/bed/chair/shuttle{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/shuttle/research/station)
 "PP" = (
 /obj/machinery/atmospherics/pipe/simple/visible{
 	icon_state = "intact";
@@ -19774,6 +20091,10 @@
 	},
 /turf/simulated/floor/tiled/freezer,
 /area/crew_quarters/toilet)
+"PW" = (
+/obj/effect/floor_decal/corner/mauve,
+/turf/simulated/floor/tiled,
+/area/shuttle/research/station)
 "Qc" = (
 /obj/structure/cable/green{
 	d1 = 2;
@@ -19782,6 +20103,19 @@
 	},
 /turf/simulated/floor/plating,
 /area/bridge/levela)
+"Qd" = (
+/turf/simulated/shuttle/wall,
+/area/shuttle/research/station)
+"Qf" = (
+/obj/structure/table/standard,
+/obj/item/weapon/paper_bin,
+/obj/item/weapon/pen,
+/obj/effect/floor_decal/corner/paleblue{
+	icon_state = "corner_white";
+	dir = 9
+	},
+/turf/simulated/floor/tiled,
+/area/shuttle/research/station)
 "Qh" = (
 /obj/machinery/door/firedoor,
 /obj/structure/window/reinforced/polarized{
@@ -19798,6 +20132,18 @@
 /obj/structure/grille,
 /turf/simulated/floor/plating,
 /area/quartermaster/loading)
+"Qn" = (
+/obj/structure/window/shuttle,
+/obj/structure/grille,
+/turf/simulated/floor/plating,
+/area/shuttle/research/station)
+"Qo" = (
+/obj/effect/floor_decal/corner/paleblue{
+	icon_state = "corner_white";
+	dir = 10
+	},
+/turf/simulated/floor/tiled,
+/area/bridge/levela)
 "Qr" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -19810,6 +20156,36 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
+/area/bridge/levela)
+"Qv" = (
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 8
+	},
+/obj/machinery/door/airlock/glass_command{
+	id_tag = "";
+	name = "Docking Area";
+	req_access = list(19)
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/floor/tiled,
+/area/bridge/levela)
+"Qz" = (
+/obj/machinery/suit_storage_unit/standard_unit,
+/turf/simulated/floor/plating,
+/area/shuttle/research/station)
+"QE" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 4;
+	fluorescent = null;
+	frequency = 1380;
+	id_tag = "science_bridge_pump"
+	},
+/obj/machinery/airlock_sensor{
+	frequency = 1380;
+	master_tag = "science_bridge_sensor";
+	pixel_y = -32
+	},
+/turf/simulated/floor/plating,
 /area/bridge/levela)
 "QL" = (
 /obj/structure/table/rack{
@@ -19827,6 +20203,25 @@
 /obj/item/weapon/towel,
 /turf/simulated/floor/tiled/freezer,
 /area/crew_quarters/toilet)
+"QY" = (
+/obj/structure/shuttle/engine/propulsion,
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/shuttle/research/station)
+"QZ" = (
+/obj/effect/floor_decal/corner/paleblue/full{
+	icon_state = "corner_white_full";
+	dir = 8
+	},
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/machinery/alarm{
+	pixel_y = 22
+	},
+/turf/simulated/floor/tiled,
+/area/bridge/levela)
 "Rc" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
@@ -19837,6 +20232,13 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/aft)
+"Rj" = (
+/obj/effect/floor_decal/corner/mauve{
+	icon_state = "corner_white";
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/shuttle/research/station)
 "Rn" = (
 /obj/machinery/embedded_controller/radio/airlock/docking_port{
 	frequency = 1380;
@@ -19867,6 +20269,55 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/aft)
+"Rs" = (
+/obj/machinery/door/airlock/external{
+	frequency = 1380;
+	icon_state = "door_locked";
+	id_tag = "science_shuttle_out";
+	locked = 0
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/research/station)
+"Rv" = (
+/obj/effect/floor_decal/corner/lime/full{
+	icon_state = "corner_white_full";
+	dir = 1
+	},
+/obj/structure/bed/chair/shuttle{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/shuttle/research/station)
+"RD" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/shuttle/research/station)
+"RI" = (
+/obj/machinery/embedded_controller/radio/airlock/docking_port{
+	frequency = 1380;
+	id_tag = "science_shuttle";
+	pixel_y = -32;
+	tag_airpump = "science_shuttle_pump";
+	tag_chamber_sensor = "science_shuttle_sensor";
+	tag_exterior_door = "science_shuttle_out";
+	tag_interior_door = "science_shuttle_in"
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 1;
+	frequency = 1380;
+	id_tag = "science_shuttle_pump"
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/research/station)
+"RN" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 6
+	},
+/obj/machinery/hologram/holopad,
+/turf/simulated/floor/tiled,
+/area/shuttle/research/station)
 "Sa" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/command{
@@ -19893,12 +20344,128 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/exit)
+"Sr" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 9;
+	icon_state = "intact"
+	},
+/obj/machinery/door/firedoor,
+/obj/machinery/door/airlock/external{
+	frequency = 1380;
+	icon_state = "door_locked";
+	id_tag = "science_bridge_in";
+	locked = 0;
+	name = "Shuttle Docking Port"
+	},
+/turf/simulated/floor/plating,
+/area/bridge/levela)
+"St" = (
+/obj/machinery/door/firedoor,
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/grille,
+/turf/simulated/floor/plating,
+/area/bridge/levela)
+"Sx" = (
+/obj/machinery/recharge_station,
+/turf/simulated/floor/plating,
+/area/shuttle/research/station)
+"Sy" = (
+/obj/effect/floor_decal/corner/mauve/full{
+	icon_state = "corner_white_full";
+	dir = 1
+	},
+/obj/structure/closet/walllocker/emerglocker/north,
+/obj/structure/bed/chair/shuttle{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/shuttle/research/station)
+"SI" = (
+/obj/effect/floor_decal/corner/paleblue{
+	icon_state = "corner_white_full";
+	dir = 1
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on,
+/turf/simulated/floor/tiled,
+/area/bridge/levela)
+"SO" = (
+/obj/structure/shuttle/engine/heater,
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 4
+	},
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/shuttle/research/station)
 "SW" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9;
 	pixel_y = 0
 	},
 /turf/simulated/floor/wood,
+/area/bridge/levela)
+"Tg" = (
+/obj/machinery/access_button{
+	command = "cycle_exterior";
+	frequency = 1380;
+	master_tag = "science_bridge";
+	name = "interior access button";
+	pixel_y = 32
+	},
+/turf/unsimulated/chasm_mask,
+/area/mine/explored)
+"Tm" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
+/obj/machinery/portable_atmospherics/powered/pump/filled,
+/turf/simulated/floor/plating,
+/area/shuttle/research/station)
+"Tp" = (
+/obj/structure/shuttle/engine/heater,
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 1
+	},
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/shuttle/research/station)
+"Tr" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 5;
+	icon_state = "intact"
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/research/station)
+"Tt" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
+	},
+/turf/simulated/floor/tiled,
+/area/bridge/levela)
+"Tv" = (
+/obj/effect/floor_decal/corner/paleblue{
+	icon_state = "corner_white";
+	dir = 10
+	},
+/obj/machinery/light,
+/turf/simulated/floor/tiled,
 /area/bridge/levela)
 "TK" = (
 /obj/machinery/door/firedoor,
@@ -19912,6 +20479,29 @@
 /obj/structure/grille,
 /turf/simulated/floor/plating,
 /area/quartermaster/qm)
+"TQ" = (
+/obj/structure/table/standard,
+/obj/effect/floor_decal/corner/paleblue{
+	icon_state = "corner_white_full";
+	dir = 8
+	},
+/obj/machinery/camera/network/command{
+	c_tag = "Research Shuttle - Cockpit"
+	},
+/turf/simulated/floor/tiled,
+/area/shuttle/research/station)
+"TS" = (
+/obj/effect/floor_decal/corner/paleblue{
+	icon_state = "corner_white";
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/floor/tiled,
+/area/bridge/levela)
+"Un" = (
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/turf/simulated/floor/plating,
+/area/shuttle/research/station)
 "Us" = (
 /obj/structure/curtain/open/shower,
 /obj/machinery/shower{
@@ -19936,6 +20526,44 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/aft)
+"UF" = (
+/obj/machinery/light{
+	dir = 2;
+	icon_state = "tube1";
+	pixel_y = 0
+	},
+/obj/effect/floor_decal/corner/lime/full{
+	dir = 4
+	},
+/obj/structure/bed/chair/shuttle{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/shuttle/research/station)
+"UI" = (
+/turf/simulated/floor/plating,
+/area/shuttle/research/station)
+"UP" = (
+/obj/machinery/light{
+	dir = 2;
+	icon_state = "tube1";
+	pixel_y = 0
+	},
+/obj/effect/floor_decal/corner/paleblue{
+	icon_state = "corner_white_full";
+	dir = 2
+	},
+/obj/machinery/recharger/wallcharger{
+	pixel_y = -30
+	},
+/turf/simulated/floor/tiled,
+/area/shuttle/research/station)
+"UU" = (
+/obj/machinery/atmospherics/pipe/tank/air{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/research/station)
 "UW" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced,
@@ -19961,6 +20589,27 @@
 	},
 /turf/simulated/floor/plating,
 /area/bridge/levela)
+"Vg" = (
+/obj/machinery/sleeper{
+	icon_state = "sleeper_0";
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/lime/full,
+/turf/simulated/floor/tiled,
+/area/shuttle/research/station)
+"Vi" = (
+/obj/structure/shuttle/engine/heater,
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/shuttle/research/station)
 "Vk" = (
 /obj/machinery/firealarm/south,
 /turf/simulated/floor/tiled,
@@ -20015,66 +20664,17 @@
 /obj/item/weapon/pen,
 /turf/simulated/floor/wood,
 /area/bridge/levela)
-"Vr" = (
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 1
-	},
-/obj/structure/window/reinforced,
-/obj/structure/grille,
-/obj/machinery/door/blast/regular{
-	density = 0;
-	dir = 4;
-	icon_state = "pdoor0";
-	id = "bridge blast";
-	name = "Bridge Blast Doors";
-	opacity = 0
-	},
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/plating,
-/area/bridge/levela)
 "Vt" = (
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
+/obj/effect/floor_decal/corner/paleblue{
 	dir = 1
 	},
-/obj/structure/window/reinforced,
-/obj/structure/grille,
-/obj/machinery/door/blast/regular{
-	density = 0;
-	dir = 4;
-	icon_state = "pdoor0";
-	id = "bridge blast";
-	name = "Bridge Blast Doors";
-	opacity = 0
+/obj/machinery/door/airlock/glass_command{
+	id_tag = "";
+	name = "Docking Area";
+	req_access = list(19)
 	},
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/plating,
-/area/bridge/levela)
-"Vu" = (
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 1
-	},
-/obj/structure/window/reinforced,
-/obj/structure/grille,
-/obj/machinery/door/blast/regular{
-	density = 0;
-	dir = 4;
-	icon_state = "pdoor0";
-	id = "bridge blast";
-	name = "Bridge Blast Doors";
-	opacity = 0
-	},
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/plating,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/floor/tiled,
 /area/bridge/levela)
 "Vw" = (
 /obj/structure/table/wood,
@@ -20103,6 +20703,18 @@
 	pixel_y = 32
 	},
 /obj/structure/flora/pottedplant/random,
+/turf/simulated/floor/tiled,
+/area/bridge/levela)
+"VC" = (
+/obj/effect/floor_decal/corner/paleblue{
+	icon_state = "corner_white";
+	dir = 6
+	},
+/obj/machinery/light{
+	dir = 4;
+	status = 2
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled,
 /area/bridge/levela)
 "VD" = (
@@ -20154,6 +20766,13 @@
 /obj/item/weapon/folder/blue,
 /turf/simulated/floor/wood,
 /area/bridge/levela)
+"VM" = (
+/obj/structure/closet/excavation,
+/obj/machinery/light/small/emergency{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/research/station)
 "VN" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /obj/structure/bed/chair{
@@ -20252,6 +20871,18 @@
 	},
 /obj/machinery/atmospherics/pipe/manifold/visible{
 	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/bridge/levela)
+"VY" = (
+/obj/machinery/embedded_controller/radio/airlock/docking_port{
+	frequency = 1380;
+	id_tag = "science_bridge";
+	pixel_y = 32;
+	tag_airpump = "science_bridge_pump";
+	tag_chamber_sensor = "science_bridge_sensor";
+	tag_exterior_door = "science_bridge_out";
+	tag_interior_door = "science_bridge_in"
 	},
 /turf/simulated/floor/plating,
 /area/bridge/levela)
@@ -20457,6 +21088,21 @@
 	},
 /turf/simulated/floor/carpet,
 /area/crew_quarters/sleep/bedrooms)
+"Ww" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 6
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 5
+	},
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/machinery/camera/network/command{
+	c_tag = "Bridge - Research Shuttle Dock"
+	},
+/turf/simulated/floor/tiled,
+/area/bridge/levela)
 "Wx" = (
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/tiled,
@@ -20828,6 +21474,18 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/maintenance/arrivals)
+"Xo" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/machinery/door/firedoor,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/bridge/levela)
 "Xq" = (
 /obj/machinery/atmospherics/pipe/simple/visible/universal{
 	dir = 4
@@ -20837,6 +21495,20 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/arrivals)
+"Xr" = (
+/obj/effect/floor_decal/corner/paleblue{
+	icon_state = "corner_white";
+	dir = 10
+	},
+/obj/structure/bed/chair{
+	dir = 1
+	},
+/obj/item/device/radio/intercom{
+	name = "Station Intercom (General)";
+	pixel_y = -29
+	},
+/turf/simulated/floor/tiled,
+/area/bridge/levela)
 "Xt" = (
 /obj/machinery/atmospherics/pipe/simple/visible/universal{
 	dir = 4
@@ -20875,6 +21547,13 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/arrivals)
+"XK" = (
+/obj/effect/floor_decal/corner/mauve{
+	icon_state = "corner_white";
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/shuttle/research/station)
 "XN" = (
 /obj/structure/disposalpipe/segment,
 /obj/structure/cable{
@@ -20903,6 +21582,9 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/arrivals)
+"XU" = (
+/turf/simulated/floor/tiled,
+/area/shuttle/research/station)
 "XY" = (
 /obj/effect/floor_decal/corner/paleblue{
 	icon_state = "corner_white";
@@ -20917,6 +21599,16 @@
 	},
 /turf/simulated/floor/tiled,
 /area/bridge/levela)
+"Yc" = (
+/obj/effect/floor_decal/corner/paleblue,
+/obj/machinery/door/airlock/glass_command{
+	id_tag = "";
+	name = "Docking Area";
+	req_access = list(19)
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/tiled,
+/area/bridge/levela)
 "Yg" = (
 /obj/machinery/access_button{
 	command = "cycle_exterior";
@@ -20929,6 +21621,22 @@
 	},
 /turf/unsimulated/chasm_mask,
 /area/mine/explored)
+"Yn" = (
+/obj/machinery/suit_storage_unit/standard_unit,
+/obj/effect/floor_decal/corner/mauve/full{
+	icon_state = "corner_white_full";
+	dir = 1
+	},
+/obj/machinery/access_button{
+	command = "cycle_interior";
+	frequency = 1380;
+	master_tag = "science_shuttle";
+	name = "interior access button";
+	pixel_x = 30;
+	pixel_y = 30
+	},
+/turf/simulated/floor/tiled,
+/area/shuttle/research/station)
 "Yq" = (
 /obj/machinery/atmospherics/binary/pump/on{
 	name = "Distro to Canisters";
@@ -20961,6 +21669,40 @@
 /obj/machinery/atmospherics/pipe/manifold4w/hidden,
 /turf/simulated/floor/tiled,
 /area/bridge/levela)
+"YJ" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/tiled,
+/area/bridge/levela)
+"YM" = (
+/obj/effect/floor_decal/corner/mauve/full{
+	icon_state = "corner_white_full";
+	dir = 8
+	},
+/obj/machinery/camera/network/command{
+	c_tag = "Research Shuttle - Main Section";
+	dir = 4
+	},
+/obj/structure/bed/chair/shuttle{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/shuttle/research/station)
+"YR" = (
+/obj/effect/floor_decal/corner/mauve/full{
+	icon_state = "corner_white_full";
+	dir = 8
+	},
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/structure/bed/chair/shuttle{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/shuttle/research/station)
 "Zc" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
@@ -20976,6 +21718,62 @@
 	},
 /turf/simulated/floor/plating,
 /area/bridge/levela)
+"Zk" = (
+/obj/effect/floor_decal/corner/paleblue{
+	icon_state = "corner_white";
+	dir = 5
+	},
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/bridge/levela)
+"Zm" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/floor/tiled,
+/area/bridge/levela)
+"Zx" = (
+/obj/effect/floor_decal/corner/paleblue{
+	icon_state = "corner_white";
+	dir = 10
+	},
+/obj/structure/flora/pottedplant/random,
+/turf/simulated/floor/tiled,
+/area/bridge/levela)
+"ZF" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 8;
+	frequency = 1380;
+	id_tag = "science_shuttle_pump"
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/research/station)
+"ZH" = (
+/obj/machinery/light/small,
+/turf/simulated/floor/plating,
+/area/bridge/levela)
+"ZP" = (
+/obj/machinery/door/firedoor,
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 1
+	},
+/obj/structure/grille,
+/turf/simulated/floor/plating,
+/area/bridge/levela)
+"ZT" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/research/station)
 
 (1,1,1) = {"
 aa
@@ -60164,11 +60962,11 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
+Qd
+Qd
+Qd
+Qd
+Qd
 aa
 aa
 aa
@@ -60421,11 +61219,11 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
+Qn
+Pa
+Mn
+Vg
+Qd
 aa
 aa
 aa
@@ -60678,17 +61476,17 @@ aa
 aa
 aa
 aa
+Qn
+Rv
+XU
+UF
+Qd
+Qd
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+Qd
+Qd
+Qd
 aa
 aa
 aa
@@ -60934,19 +61732,19 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+Qd
+Qd
+Qd
+Pw
+Qd
+Qd
+Qd
+Qd
+Qd
+Qd
+LN
+Vi
+Oe
 aa
 aa
 aa
@@ -61187,23 +61985,23 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+Qd
+Qn
+Qn
+Qn
+Qd
+Qd
+YM
+XU
+HU
+Qd
+Qd
+yN
+VM
+Qz
+UI
+Tp
+QY
 aa
 aa
 aa
@@ -61444,23 +62242,23 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+Qn
+TQ
+Qf
+UP
+Qd
+YR
+XK
+XU
+Pt
+MU
+Qd
+IW
+UI
+UI
+UI
+Tp
+QY
 aa
 aa
 aa
@@ -61701,23 +62499,23 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+Qn
+MM
+Pb
+XU
+Pw
+XU
+XU
+RN
+IT
+IT
+Ne
+Un
+Un
+Un
+Tr
+Tp
+QY
 aa
 aa
 aa
@@ -61958,23 +62756,23 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+Qn
+Or
+AG
+AE
+Qd
+Sy
+Rj
+RD
+PW
+PL
+Qd
+UI
+UI
+UI
+ZT
+Tp
+QY
 aa
 aa
 aa
@@ -62215,23 +63013,23 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+Qd
+Qn
+Qn
+Qn
+Qd
+Qd
+Yn
+RD
+Ow
+Qd
+Qd
+Sx
+IM
+OU
+Tm
+Tp
+QY
 aa
 aa
 aa
@@ -62476,19 +63274,19 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+Qd
+Qd
+Qn
+Pm
+Qn
+Qd
+Qd
+Qd
+Qd
+Qd
+UU
+SO
+Lr
 aa
 aa
 aa
@@ -62734,17 +63532,17 @@ aa
 aa
 aa
 aa
+Qd
+OL
+Nt
+RI
+Qd
+Qd
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+Qd
+Qd
+Qd
 aa
 aa
 aa
@@ -62991,11 +63789,11 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
+Qn
+UI
+ZF
+UI
+Qn
 aa
 aa
 aa
@@ -63248,11 +64046,11 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
+Qd
+Rs
+Rs
+Rs
+Qd
 aa
 aa
 aa
@@ -63505,12 +64303,12 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
+rV
+HR
+HR
+HR
+rV
+Tg
 aa
 aa
 aa
@@ -63762,11 +64560,11 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
+wR
+VY
+sN
+ZH
+wR
 aa
 aa
 aa
@@ -64019,11 +64817,11 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
+Xo
+LL
+LL
+QE
+Xo
 aa
 aa
 aa
@@ -64276,11 +65074,11 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
+rV
+Op
+LI
+Sr
+rV
 aa
 aa
 aa
@@ -64533,11 +65331,11 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
+rV
+QZ
+Pk
+PE
+rV
 aa
 aa
 aa
@@ -64790,11 +65588,11 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
+wR
+ye
+Pk
+Qo
+wR
 aa
 aa
 aa
@@ -65047,11 +65845,11 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
+wf
+ye
+Pk
+Qo
+wf
 aa
 aa
 aa
@@ -65304,11 +66102,11 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
+wf
+Zk
+Pk
+Tv
+wf
 aa
 aa
 aa
@@ -65561,11 +66359,11 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
+wf
+ye
+Pk
+Zx
+wU
 aa
 aa
 aa
@@ -65818,11 +66616,11 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
+wf
+ye
+Pk
+Xr
+rV
 aa
 aa
 aa
@@ -66075,21 +66873,21 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-Vr
+wf
+SI
+Tt
+Nu
+rV
+rV
+ZP
+Nd
+Nd
+Nd
+Nd
+Nd
+St
+rV
+rV
 uB
 Ik
 VN
@@ -66332,20 +67130,20 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+wf
+tS
+sG
+Zm
+Qv
+LG
+TS
+TS
+TS
+LG
+TS
+TS
+TS
+LG
 Vt
 vi
 vt
@@ -66589,21 +67387,21 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-Vt
+Xo
+LH
+YJ
+yc
+Yc
+VC
+Pe
+Pe
+Pe
+VC
+Pe
+Pe
+Pe
+VC
+Ov
 vk
 Ms
 VO
@@ -66846,21 +67644,21 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-Vu
+rV
+Ww
+YG
+Ij
+rV
+rV
+ZP
+Nd
+Nd
+Nd
+Nd
+Nd
+St
+rV
+rV
 vl
 Ms
 wi
@@ -67103,11 +67901,11 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
+rV
+ue
+ue
+ue
+rV
 aa
 aa
 aa
@@ -67360,11 +68158,11 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
+rV
+rV
+rV
+rV
+rV
 aa
 aa
 aa

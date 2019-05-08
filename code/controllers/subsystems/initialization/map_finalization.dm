@@ -41,7 +41,7 @@
 	var/list/files = flist(map_directory)
 	var/start_time = world.time
 	var/dungeons_placed = 0
-	var/static/dmm_suite/maploader = new
+	var/dmm_suite/maploader = new
 
 	var/dungeon_chance = config.dungeon_chance
 
@@ -77,3 +77,4 @@
 	log_ss("map_finalization","Loaded [dungeons_placed] asteroid dungeons in [(world.time - start_time)/10] seconds.")
 
 	qdel(maploader)
+

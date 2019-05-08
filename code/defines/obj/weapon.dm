@@ -239,7 +239,7 @@
 	if(concealed_blade)
 		user.visible_message("<span class='warning'>[user] has unsheathed \a [concealed_blade] from \his [src]!</span>", "You unsheathe \the [concealed_blade] from \the [src].")
 		// Calling drop/put in hands to properly call item drop/pickup procs
-		playsound(user.loc, 'sound/weapons/blade_unsheath.ogg', 50, 1)
+		playsound(user.loc, 'sound/weapons/holster/sheathout.ogg', 50, 1)
 		user.drop_from_inventory(src)
 		user.put_in_hands(concealed_blade)
 		user.put_in_hands(src)
@@ -253,7 +253,7 @@
 /obj/item/weapon/cane/concealed/attackby(var/obj/item/weapon/canesword/W, var/mob/user)
 	if(!src.concealed_blade && istype(W))
 		user.visible_message("<span class='warning'>[user] has sheathed \a [W] into \his [src]!</span>", "You sheathe \the [W] into \the [src].")
-		playsound(user.loc, 'sound/weapons/blade_sheath.ogg', 50, 1)
+		playsound(user.loc, 'sound/weapons/holster/sheathin.ogg', 50, 1)
 		user.drop_from_inventory(W)
 		W.forceMove(src)
 		src.concealed_blade = W
