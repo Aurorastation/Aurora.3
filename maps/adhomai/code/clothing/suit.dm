@@ -1,4 +1,4 @@
-/obj/item/clothing/suit/armor/nka
+/obj/item/clothing/suit/armor/tactical/nka
 	name = "chestplate"
 	desc = "The standard body armor of the Imperial Army"
 	icon = 'icons/adhomai/clothing.dmi'
@@ -7,12 +7,15 @@
 	contained_sprite = TRUE
 	armor = list(melee = 50, bullet = 50, laser = 15, energy = 10, bomb = 25, bio = 0, rad = 0)
 	siemens_coefficient = 0.5
+	pocket_size = 2
 
-/obj/item/clothing/suit/armor/nka/grenadier
+/obj/item/clothing/suit/armor/tactical/nka/grenadier
 	desc = "The standard body armor of the Royal Grenadiers"
+	icon = 'icons/adhomai/clothing.dmi'
 	icon_state = "roygrenchest"
 	item_state = "roygrenchest"
 	armor = list(melee = 70, bullet = 70, laser = 20, energy = 10, bomb = 25, bio = 0, rad = 0)
+	pocket_size = 4
 
 /obj/item/clothing/suit/armor/hunter
 	name = "heavy coat"
@@ -80,3 +83,14 @@
 	item_state = "chief_constable"
 	contained_sprite = TRUE
 	body_parts_covered = UPPER_TORSO|ARMS
+
+/obj/item/clothing/suit/chef/nka
+	name = "royal cooking coat"
+	desc = "A royal cooking niform, it has dark black buttons and ranking epaulets don its shoulders. Blue accents to the collar and fringes envoke the harmony of Adhomai and the Sibling Suns."
+	icon = 'icons/adhomai/clothing.dmi'
+	icon_state = "cook_coat"
+	item_state = "cook_coat"
+	contained_sprite = TRUE
+	allowed = list(
+		/obj/item/weapon/storage/bag/plants/produce/adhomai
+		)

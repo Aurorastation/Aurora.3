@@ -110,9 +110,8 @@
 
 /obj/item/mold/armor
 	name = "armor mold"
-	outcome = /obj/item/clothing/suit/armor/nka
+	outcome = /obj/item/clothing/suit/armor/tactical/nka
 	needed_ammount = 5
-	use_material = FALSE
 
 /obj/item/mold/bat
 	name = "bat mold"
@@ -136,13 +135,13 @@
 	icon_state = "mold_shovel"
 	outcome = /obj/item/clothing/head/helmet/nka
 	needed_ammount = 5
-	use_material = FALSE
 
 /obj/item/mold/urn
 	name = "urn mold"
 	icon_state = "urn_mold"
 	outcome = /obj/item/weapon/storage/box/burialurn
 	needed_ammount = 3
+	allowed_materials = list("iron", DEFAULT_WALL_MATERIAL, "plasteel")
 	use_material = FALSE
 
 /obj/item/mold/gauntlets

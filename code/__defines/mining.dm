@@ -8,3 +8,4 @@
 #define ORE_DIAMOND		"diamond"
 #define ORE_PLATINUM	"platinum"
 #define ORE_HYDROGEN	"mhydrogen"
+#define ORE_METEORIC	"meteoric"

@@ -34,7 +34,6 @@
 	display_name = "wallet"
 	path = 	/obj/item/weapon/storage/wallet
 
-/*
 /datum/gear/utility/cheaptablet
 	display_name = "cheap tablet computer"
 	path = /obj/item/modular_computer/tablet/preset/custom_loadout/cheap
@@ -44,7 +43,6 @@
 	display_name = "tablet computer"
 	path = /obj/item/modular_computer/tablet/preset/custom_loadout/advanced
 	cost = 4
-*/
 
 /datum/gear/utility/recorder
 	display_name = "universal recorder"
@@ -66,3 +64,8 @@
 		var/obj/item/weapon/storage/belt/fannypack/fanny_type = fanny
 		fannys[initial(fanny_type.name)] = fanny_type
 	gear_tweaks += new/datum/gear_tweak/path(sortAssoc(fannys))
+
+/datum/gear/utility/duffelbag
+	display_name = "duffelbag"
+	cost = 2
+	path = /obj/item/weapon/storage/backpack/duffel

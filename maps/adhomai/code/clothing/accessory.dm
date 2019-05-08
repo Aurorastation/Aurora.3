@@ -62,4 +62,3 @@
 /obj/item/clothing/accessory/levy_coat/dress/officer
 	icon_state = "nka_fancycoat"
 	item_state = "nka_fancycoat"
-

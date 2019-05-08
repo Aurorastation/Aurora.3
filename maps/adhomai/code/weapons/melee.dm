@@ -1,7 +1,7 @@
 /obj/item/weapon/material/axe
 	name = "felling axe"
 	desc = "An axe used to chop down trees."
-	icon = 'icons/adhomai/weapons.dmi'
+	icon = 'icons/adhomai/weapons/weapons.dmi'
 	icon_state = "axe"
 	item_state = "axe"
 	contained_sprite = TRUE
@@ -17,7 +17,7 @@
 	name = "torch"
 	desc = "A rustic source of light."
 	light_color = LIGHT_COLOR_FIRE
-	icon = 'icons/adhomai/weapons.dmi'
+	icon = 'icons/adhomai/weapons/weapons.dmi'
 	icon_state = "torch"
 	item_state = "torch"
 	contained_sprite = TRUE

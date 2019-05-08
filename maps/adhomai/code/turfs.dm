@@ -1,8 +1,18 @@
-/turf/unsimulated/wall/blizzard
+/obj/effect/overlay/blizzard
 	name = "blizzard"
 	desc = "A thick snow storm."
 	icon = 'icons/adhomai/turfs.dmi'
 	icon_state = "blizzard"
+	density = 0
+	layer = 5
+	opacity = 1
+
+/obj/effect/overlay/blizzard/heavy
+	name = "heavy blizzard"
+	desc = "A thick snow storm."
+	icon = 'icons/adhomai/turfs.dmi'
+	icon_state = "blizzard"
+	density = 1
 
 /turf/unsimulated/mask/adhomai
 	name = "adhomaimask"
@@ -50,7 +60,8 @@
 		ORE_COAL = 8,
 		ORE_DIAMOND = 1,
 		ORE_GOLD = 2,
-		ORE_SILVER = 2
+		ORE_SILVER = 2,
+		ORE_CLAY = 5
 	)
 
 /turf/simulated/mineral/random/adhomai/surface
@@ -86,12 +97,31 @@
 		ORE_DIAMOND = 1,
 		ORE_GOLD = 3,
 		ORE_SILVER = 3,
-		ORE_PHORON = 1
+		ORE_PHORON = 1,
+		ORE_CLAY = 1
 	)
 	mineralChance = 75
 
 /turf/simulated/mineral/random/adhomai/higher_chance/surface
 	actual_icon = 'icons/adhomai/icy_wall.dmi'
+
+/turf/simulated/mineral/random/adhomai/higher_chance/meteor
+	oxygen = MOLES_O2STANDARD
+	nitrogen = MOLES_N2STANDARD
+	temperature = T0C-20
+	mineralSpawnChanceList = list(
+		ORE_URANIUM = 3,
+		ORE_PLATINUM = 3,
+		ORE_IRON = 0,
+		ORE_COAL = 1,
+		ORE_DIAMOND = 1,
+		ORE_GOLD = 3,
+		ORE_SILVER = 3,
+		ORE_PHORON = 1,
+		ORE_CLAY = 1,
+		ORE_METEORIC = 5
+	)
+	mineralChance = 80
 
 /turf/simulated/floor/adhomai/desert
 	name = "desert sand"

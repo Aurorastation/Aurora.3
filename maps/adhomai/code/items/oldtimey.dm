@@ -21,8 +21,18 @@
 	icon_state = "traumakit"
 
 /obj/item/weapon/grenade/frag/nka
-	icon = 'icons/adhomai/items.dmi'
-	icon_state = "frag"
+	icon = 'icons/adhomai/weapons/explosives.dmi'
+	icon_state = "NKAFRAG"
+
+/obj/item/weapon/grenade/frag/pra
+	icon = 'icons/adhomai/weapons/explosives.dmi'
+	icon_state = "PRAFrag"
+
+/obj/item/weapon/grenade/chem_grenade/incendiary/nka
+	name = "incendiary grenade"
+	desc = "Incendiary Grenades commonly found in the hands of the Imperial Grenadiers."
+	icon = 'icons/adhomai/weapons/explosives.dmi'
+	icon_state = "NKAFIRE"
 
 /obj/item/weapon/grenade/smokebomb/nka
 	icon = 'icons/adhomai/items.dmi'
@@ -132,7 +142,7 @@
 	return
 
 /obj/machinery/appliance/cooker/oven/adhomai
-	name = "potbelly stove"
+	name = "old iron oven"
 	desc = "Borscht is ready."
 	icon = 'icons/adhomai/structures.dmi'
 	icon_state = "ovenopen"
@@ -180,20 +190,20 @@
 
 /obj/item/weapon/pickaxe/drill/mattock
 	name = "mattock"
-	desc = "It's a mattock."
+	desc = "It's a mattock. Has a point for digging and entrenching. Very useful."
 	icon = 'icons/adhomai/items.dmi'
 	icon_state = "mattock"
-	item_state = "pickaxe"
+	item_state = "mattock"
 	drill_verb = "excavating"
 	autodrill = 0
 	drill_sound = 'sound/weapons/chisel1.ogg'
 	can_wield = 1
-	excavation_amount = 30
+	excavation_amount = 14
 	wielded = 0
 	force_unwielded = 5.0
 	force_wielded = 15.0
-	digspeed_unwielded = 30
-	digspeed_wielded = 10
+	digspeed_unwielded = 160
+	digspeed_wielded = 80
 	contained_sprite = 1
 
 /obj/item/device/radio/intercom/basestation/adhomai/nka
@@ -248,6 +258,11 @@
 	icon_state = "hedget"
 	item_state = "hedget"
 	contained_sprite = 1
+
+/obj/item/weapon/wirecutters/clippers/trimmers/New()
+	if(prob(50))
+		return
+	..()
 
 /obj/item/weapon/autochisel/chisel
 	name = "chisel"

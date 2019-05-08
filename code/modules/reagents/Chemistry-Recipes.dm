@@ -1644,14 +1644,6 @@
 		new /obj/item/weapon/reagent_containers/food/snacks/sliceable/cheesewheel(location)
 	return
 
-/datum/chemical_reaction/cheesewheel/fatshouter
-	name = "Cheesewheel"
-	id = "cheesewheel"
-	result = null
-	required_reagents = list("fatshouter_milk" = 40)
-	catalysts = list("enzyme" = 5)
-	result_amount = 1
-
 /datum/chemical_reaction/meatball
 	name = "Meatball"
 	id = "meatball"

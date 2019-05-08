@@ -43,6 +43,7 @@ var/global/list/ore_data = list()
 	name = ORE_IRON
 	display_name = "hematite"
 	smelts_to = "iron"
+	compresses_to = "clay"
 	alloy = 1
 	result_amount = 5
 	spread_chance = 30
@@ -141,3 +142,13 @@ var/global/list/ore_data = list()
 	compresses_to = "mhydrogen"
 	scan_icon = "mineral_rare"
 	worth = 30
+
+/ore/meteoric
+	name = ORE_METEORIC
+	display_name = "meteoric iron"
+	smelts_to = "meteoric iron"
+	compresses_to = "clay"
+	scan_icon = "mineral_rare"
+	ore = /obj/item/weapon/ore/meteoric_iron
+	result_amount = 5
+	worth = 50

@@ -11,7 +11,8 @@
 	density = 1
 	anchored = 1
 	animate_movement=1
-	light_range = 3
+	light_range = 5
+	light_wedge = LIGHT_NARROW
 
 	can_buckle = 1
 	buckle_movable = 1

@@ -5,20 +5,21 @@ var/const/COMMANDER			=(1<<0)
 var/const/SUPPLYOFFICER		=(1<<1)
 var/const/LEVY				=(1<<2)
 var/const/GRENADIER			=(1<<3)
-var/const/SHARPSHOOTER		=(1<<4)
-var/const/COMBATENGINEER	=(1<<5)
-var/const/MAYOR				=(1<<6)
-var/const/BARKEEPER			=(1<<7)
-var/const/HUNTER			=(1<<8)
-var/const/PRIEST			=(1<<9)
-var/const/MEDIC				=(1<<10)
-var/const/NURSE				=(1<<11)
-var/const/PROSPECTOR		=(1<<12)
-var/const/BLACKSMITH		=(1<<13)
-var/const/ARCHEO			=(1<<14)
-var/const/TRADER			=(1<<15)
-var/const/CHIEFCONSTABLE	=(1<<16)
-var/const/CONSTABLE			=(1<<17)
+var/const/AMOHDANSWORDSMAN	=(1<<4)
+var/const/SHARPSHOOTER		=(1<<5)
+var/const/COMBATENGINEER	=(1<<6)
+var/const/MAYOR				=(1<<7)
+var/const/BARKEEPER			=(1<<8)
+var/const/HUNTER			=(1<<9)
+var/const/PRIEST			=(1<<10)
+var/const/MEDIC				=(1<<11)
+var/const/NURSE				=(1<<12)
+var/const/PROSPECTOR		=(1<<13)
+var/const/BLACKSMITH		=(1<<14)
+var/const/ARCHEO			=(1<<15)
+var/const/TRADER			=(1<<16)
+var/const/CHIEFCONSTABLE	=(1<<17)
+var/const/CONSTABLE			=(1<<18)
 
 var/list/adhomai_positions = list(
 	"Civillian",
@@ -39,7 +40,8 @@ var/list/adhomai_positions = list(
 	"Supply Officer",
 	"Royal Grenadier",
 	"Sharpshooter",
-	"Combat Engineer"
+	"Combat Engineer",
+	"Amohdan Swordsman",
 	)
 
 /datum/outfit/job/adhomai

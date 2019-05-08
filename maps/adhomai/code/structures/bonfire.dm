@@ -119,6 +119,7 @@
 
 	if(!fuel)
 		extinguish()
+		playsound()
 
 	if(istype(loc, /turf))
 		var/turf/T = loc
@@ -130,6 +131,7 @@
 
 	check_light()
 	heat()
+	playsound(src.loc, 'maps/adhomai/sound/fireplace.ogg', 50, 1, -3)
 
 /obj/structure/bonfire/proc/extinguish()
 	on_fire = FALSE
@@ -216,7 +218,21 @@
 	icon_state = "stew_empty"
 	appliancetype = POT
 
+
 /obj/item/weapon/reagent_containers/cooking_container/fire/pot/New(var/newloc, var/mat_key)
+	..(newloc)
+	var/material/material = get_material_by_name(mat_key ? mat_key : "iron")
+	name = "[material.display_name] [initial(name)]"
+
+/obj/item/weapon/reagent_containers/cooking_container/fire/oven
+	name = "campfire oven"
+	shortname = "oven"
+	desc = "Chuck ingredients in this to bake something over a fire."
+	icon = 'icons/adhomai/items.dmi'
+	icon_state = "dutchoven"
+	appliancetype = OVEN
+
+/obj/item/weapon/reagent_containers/cooking_container/fire/oven/New(var/newloc, var/mat_key)
 	..(newloc)
 	var/material/material = get_material_by_name(mat_key ? mat_key : "iron")
 	name = "[material.display_name] [initial(name)]"
@@ -326,7 +342,7 @@
 	name = "stove"
 	desc = "A potbelly stove. How'd that get here."
 	icon = 'icons/adhomai/structures.dmi'
-	icon_state = "ovenopen"
+	icon_state = "stoveopen"
 	pixel_x = 0
 	safe = TRUE
 	density = 1
@@ -334,7 +350,6 @@
 /obj/structure/bonfire/fireplace/stove/update_icon()
 	cut_overlays()
 	if(on_fire)
-		icon_state = "ovenclosed_on"
 		switch(fuel)
 			if(1 to 500)
 				add_overlay("stove_fire0")
@@ -347,6 +362,27 @@
 			if(1700 to 2000)
 				add_overlay("stove_fire4")
 		add_overlay("stove_glow")
+	else if(fuel >= 1)
+		icon_state = "stoveclosed_off"
+
+	if(fuel == 0)
+		icon_state = "stoveopen"
+
+/obj/structure/bonfire/fireplace/oven
+	name = "old iron oven"
+	desc = "An oven."
+	icon = 'icons/adhomai/structures.dmi'
+	icon_state = "ovenopen"
+	pixel_x = 0
+	safe = TRUE
+	density = 1
+
+/obj/structure/bonfire/fireplace/oven/update_icon()
+	cut_overlays()
+	if(on_fire)
+		switch(fuel)
+			if(1 to 2000)
+				icon_state = "ovenclosed_on"
 	else if(fuel >= 1)
 		icon_state = "ovenclosed_off"
 

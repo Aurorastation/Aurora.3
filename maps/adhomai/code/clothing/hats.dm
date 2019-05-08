@@ -74,3 +74,11 @@
 	icon_state = "explorer_hat"
 	item_state = "explorer_hat"
 	contained_sprite = TRUE
+
+/obj/item/clothing/head/chefhat/nka
+	name = "royal chef's hat"
+	desc = "A muted blue floppy shaped chef's hat, it possess a golden clasp in it, denoting a ranking."
+	icon = 'icons/adhomai/clothing.dmi'
+	icon_state = "cook_hat"
+	item_state = "cook_hat"
+	contained_sprite = TRUE

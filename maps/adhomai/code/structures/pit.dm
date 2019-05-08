@@ -7,9 +7,10 @@
 	density = FALSE
 	anchored = TRUE
 	var/open = TRUE
+	var/mob/occupant = null
 
 /obj/structure/pit/attackby(obj/item/W, mob/user)
-	if(( istype(W,/obj/item/weapon/shovel)  || istype(W,/obj/item/weapon/pickaxe/drill/mattock)) )
+	if(istype(W,/obj/item/weapon/shovel)  || istype(W,/obj/item/weapon/pickaxe/drill/mattock))
 		visible_message("<span class='notice'>\The [user] starts [open ? "filling" : "digging open"] \the [src]</span>")
 		if( do_after(user, 50) )
 			visible_message("<span class='notice'>\The [user] [open ? "fills" : "digs open"] \the [src]!</span>")
@@ -30,6 +31,9 @@
 				var/obj/item/stack/material/wood/plank = W
 				plank.use(1)
 				new/obj/structure/gravemarker(src.loc)
+				for(var/mob/living/M in src.contents)
+					if(M.stat == DEAD)
+						SSjobs.DespawnMob(M)
 			else
 				to_chat(user, "<span class='notice'>You stop making a grave marker.</span>")
 		return
@@ -47,6 +51,7 @@
 	name = "pit"
 	desc = "Watch your step, partner."
 	open = TRUE
+	opacity = 0
 	for(var/atom/movable/A in src)
 		A.forceMove(src.loc)
 	update_icon()
@@ -55,6 +60,7 @@
 	name = "mound"
 	desc = "Some things are better left buried."
 	open = FALSE
+	opacity = 1
 	for(var/atom/movable/A in src.loc)
 		if(!A.anchored && A != user)
 			A.forceMove(src)
@@ -102,6 +108,7 @@ obj/structure/pit/Crossed(AM as mob|obj)
 	name = "mound"
 	desc = "Some things are better left buried."
 	open = FALSE
+	opacity = 1
 
 /obj/structure/pit/closed/Initialize()
 	. = ..()
