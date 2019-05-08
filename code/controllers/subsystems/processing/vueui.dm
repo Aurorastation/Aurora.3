@@ -7,6 +7,7 @@ Byond Vue UI framework's management subsystem
 	name = "VueUI"
 	flags = 0
 	priority = SS_PRIORITY_NANOUI
+	init_order = SS_INIT_MISC_FIRST
 	stat_tag = "O"
 
 	var/list/open_uis
@@ -86,6 +87,20 @@ Byond Vue UI framework's management subsystem
 		return null
 
 	return open_uis[src_object_key]
+
+/**
+  * Closes open uis for that object
+  *
+  * @param src_object - object that hosts the uis that we want to close
+  *
+  * @return number of uis closed
+  */
+/datum/controller/subsystem/processing/vueui/proc/close_uis(var/src_object)
+	. = 0
+	for (var/tui in get_open_uis(src_object))
+		var/datum/vueui/ui = tui
+		ui.close()
+	.++
 
 /**
   * Initiates check for data change of specified object
