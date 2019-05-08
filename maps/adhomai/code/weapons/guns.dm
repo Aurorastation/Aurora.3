@@ -47,7 +47,7 @@
 	ammo_type = /obj/item/ammo_casing/a762/nka
 	magazine_type = /obj/item/ammo_magazine/boltaction/nka/enbloc
 	allowed_magazines = list(/obj/item/ammo_magazine/boltaction/nka/enbloc)
-	fire_sound = 'sound/weapons/rifleshot.ogg'
+	fire_sound = 'sound/weapons/gunshot/gunshot_rifle.ogg'
 	auto_eject_sound = 'maps/adhomai/sound/ping.ogg'
 	accuracy = -1
 	auto_eject = 1
@@ -117,7 +117,7 @@
 	jam_chance = 10
 	caliber = "38"
 	accuracy = 1
-	fire_sound = 'sound/weapons/Gunshot_light.ogg'
+	fire_sound = 'sound/weapons/gunshot/gunshot_light.ogg'
 	load_method = MAGAZINE
 
 /obj/item/weapon/gun/projectile/nka/update_icon()

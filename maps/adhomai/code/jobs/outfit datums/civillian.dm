@@ -83,7 +83,7 @@
 
 	uniform = /obj/item/clothing/under/color/white
 	l_pocket = /obj/item/weapon/storage/wallet/medium
-	backpack_contents = list(/obj/item/weapon/nullrod/itembox = 1)
+	backpack_contents = list(/obj/item/weapon/nullrod/obsidianshards = 1)
 
 /datum/outfit/job/adhomai/priest/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()

@@ -196,7 +196,7 @@
 	item_state = "mattock"
 	drill_verb = "excavating"
 	autodrill = 0
-	drill_sound = 'sound/weapons/chisel1.ogg'
+	drill_sound = "pickaxe"
 	can_wield = 1
 	excavation_amount = 14
 	wielded = 0
