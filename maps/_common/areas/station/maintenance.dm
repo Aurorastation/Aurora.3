@@ -190,18 +190,10 @@
 	name = "\improper Bridge - Interstitial"
 	icon_state = "maintcentral"
 
-/area/interstitial_construction_site
+/area/maintenance/interstitial_construction_site
 	name = "\improper Construction Site"
 	icon_state = "engineering_workshop"
 	flags = HIDE_FROM_HOLOMAP
-	ambience = list(
-		'sound/ambience/ambimaint1.ogg',
-		'sound/ambience/ambimaint2.ogg',
-		'sound/ambience/ambimaint3.ogg',
-		'sound/ambience/ambimaint4.ogg',
-		'sound/ambience/ambimaint5.ogg'
-	)
-	station_area = 1
 
 // SUBSTATIONS (Subtype of maint, that should let them serve as shielded area during radstorm)
 

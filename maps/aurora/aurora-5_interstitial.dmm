@@ -6982,7 +6982,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/airless,
-/area/interstitial_construction_site)
+/area/maintenance/interstitial_construction_site)
 "mG" = (
 /obj/structure/cable/green{
 	d1 = 2;
@@ -7088,7 +7088,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/airless,
-/area/interstitial_construction_site)
+/area/maintenance/interstitial_construction_site)
 "nz" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -7106,7 +7106,7 @@
 "nH" = (
 /obj/structure/girder,
 /turf/simulated/floor/airless,
-/area/interstitial_construction_site)
+/area/maintenance/interstitial_construction_site)
 "nJ" = (
 /obj/machinery/door/firedoor,
 /obj/structure/window/reinforced,
@@ -7125,7 +7125,7 @@
 /obj/item/weapon/material/shard,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/airless,
-/area/interstitial_construction_site)
+/area/maintenance/interstitial_construction_site)
 "nN" = (
 /obj/structure/lattice,
 /obj/structure/disposalpipe/segment{
@@ -7139,7 +7139,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/airless,
-/area/interstitial_construction_site)
+/area/maintenance/interstitial_construction_site)
 "nT" = (
 /obj/machinery/door/firedoor,
 /obj/structure/window/reinforced,
@@ -7330,7 +7330,7 @@
 /area/medical/upperlevel)
 "qe" = (
 /turf/unsimulated/floor/asteroid/ash/rocky,
-/area/interstitial_construction_site)
+/area/maintenance/interstitial_construction_site)
 "qg" = (
 /turf/simulated/wall,
 /area/maintenance/substation/interstitial)
@@ -7485,7 +7485,7 @@
 /obj/item/weapon/storage/toolbox/mechanical,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/airless,
-/area/interstitial_construction_site)
+/area/maintenance/interstitial_construction_site)
 "rH" = (
 /obj/structure/table/standard,
 /obj/effect/floor_decal/corner/lime{
@@ -7568,7 +7568,7 @@
 /area/medical/upperlevel)
 "ta" = (
 /turf/simulated/wall,
-/area/interstitial_construction_site)
+/area/maintenance/interstitial_construction_site)
 "tk" = (
 /obj/structure/closet,
 /obj/random/loot,
@@ -7835,7 +7835,7 @@
 /obj/item/weapon/ladder_mobile,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/airless,
-/area/interstitial_construction_site)
+/area/maintenance/interstitial_construction_site)
 "wn" = (
 /obj/structure/cable/green{
 	d1 = 4;
@@ -8328,7 +8328,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/airless,
-/area/interstitial_construction_site)
+/area/maintenance/interstitial_construction_site)
 "EZ" = (
 /obj/effect/floor_decal/corner/green{
 	icon_state = "corner_white";
@@ -8566,7 +8566,7 @@
 /obj/random/loot,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/airless,
-/area/interstitial_construction_site)
+/area/maintenance/interstitial_construction_site)
 "Hc" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
@@ -8599,7 +8599,7 @@
 "Ht" = (
 /obj/structure/grille,
 /turf/simulated/floor/airless,
-/area/interstitial_construction_site)
+/area/maintenance/interstitial_construction_site)
 "HC" = (
 /obj/machinery/power/smes/buildable{
 	RCon_tag = "Substation - Construction Level"
@@ -9240,7 +9240,7 @@
 /obj/structure/table/steel,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/airless,
-/area/interstitial_construction_site)
+/area/maintenance/interstitial_construction_site)
 "KJ" = (
 /turf/simulated/wall/r_wall,
 /area/maintenance/interstitial_cargo)
@@ -9621,7 +9621,7 @@
 /obj/random/loot,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/airless,
-/area/interstitial_construction_site)
+/area/maintenance/interstitial_construction_site)
 "Lt" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -9854,7 +9854,7 @@
 /obj/item/weapon/pickaxe,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/airless,
-/area/interstitial_construction_site)
+/area/maintenance/interstitial_construction_site)
 "Oj" = (
 /obj/structure/table/steel,
 /obj/item/weapon/stool,
@@ -9896,7 +9896,7 @@
 "OX" = (
 /obj/structure/lattice,
 /turf/unsimulated/floor/asteroid/ash/rocky,
-/area/interstitial_construction_site)
+/area/maintenance/interstitial_construction_site)
 "Pp" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -10110,7 +10110,7 @@
 /obj/item/weapon/material/shard,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/airless,
-/area/interstitial_construction_site)
+/area/maintenance/interstitial_construction_site)
 "RN" = (
 /obj/structure/disposalpipe/segment{
 	dir = 2;
@@ -10178,7 +10178,7 @@
 /obj/item/weapon/shovel,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/airless,
-/area/interstitial_construction_site)
+/area/maintenance/interstitial_construction_site)
 "Si" = (
 /obj/structure/disposalpipe/segment{
 	dir = 1;
@@ -10267,12 +10267,12 @@
 "SZ" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/airless,
-/area/interstitial_construction_site)
+/area/maintenance/interstitial_construction_site)
 "Tr" = (
 /obj/machinery/floodlight,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/airless,
-/area/interstitial_construction_site)
+/area/maintenance/interstitial_construction_site)
 "Ts" = (
 /obj/machinery/light{
 	dir = 8;
@@ -10332,7 +10332,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/airless,
-/area/interstitial_construction_site)
+/area/maintenance/interstitial_construction_site)
 "TV" = (
 /obj/effect/floor_decal/industrial/warning/dust,
 /obj/random/junk,
@@ -10512,13 +10512,13 @@
 /obj/structure/cable/green,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/airless,
-/area/interstitial_construction_site)
+/area/maintenance/interstitial_construction_site)
 "Ve" = (
 /obj/structure/closet/crate,
 /obj/random/loot,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/airless,
-/area/interstitial_construction_site)
+/area/maintenance/interstitial_construction_site)
 "Vo" = (
 /obj/item/weapon/material/shard{
 	icon_state = "small"
@@ -10526,14 +10526,14 @@
 /obj/structure/grille/broken,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/airless,
-/area/interstitial_construction_site)
+/area/maintenance/interstitial_construction_site)
 "Vt" = (
 /obj/machinery/light/small/emergency{
 	icon_state = "bulb1";
 	dir = 4
 	},
 /turf/unsimulated/floor/asteroid/ash/rocky,
-/area/interstitial_construction_site)
+/area/maintenance/interstitial_construction_site)
 "Vv" = (
 /obj/effect/floor_decal/corner/lime/full,
 /obj/structure/extinguisher_cabinet{
@@ -10617,7 +10617,7 @@
 /obj/item/hoist_kit,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/airless,
-/area/interstitial_construction_site)
+/area/maintenance/interstitial_construction_site)
 "Wh" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -10656,7 +10656,7 @@
 /obj/structure/grille/broken,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/airless,
-/area/interstitial_construction_site)
+/area/maintenance/interstitial_construction_site)
 "WG" = (
 /obj/effect/floor_decal/corner/green{
 	icon_state = "corner_white";
@@ -10708,7 +10708,7 @@
 "WZ" = (
 /obj/structure/girder/displaced,
 /turf/simulated/floor/airless,
-/area/interstitial_construction_site)
+/area/maintenance/interstitial_construction_site)
 "Xb" = (
 /obj/machinery/light/small/emergency{
 	icon_state = "bulb1";
@@ -10716,7 +10716,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/airless,
-/area/interstitial_construction_site)
+/area/maintenance/interstitial_construction_site)
 "Xi" = (
 /obj/effect/floor_decal/industrial/warning/dust{
 	icon_state = "warning_dust";
