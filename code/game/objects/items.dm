@@ -245,7 +245,7 @@
 /obj/item/throw_impact(atom/hit_atom)
 	..()
 	for(var/mob/M in player_list)
-		if(drop_sound && (M.client.prefs.asfx_togs & ASFX_DROP))
+		if(drop_sound && M.check_drop_sound_pref())
 			playsound(src, drop_sound, 50, 0)
 
 //Apparently called whenever an item is dropped on the floor, thrown, or placed into a container.

@@ -204,7 +204,7 @@ var/list/slot_equipment_priority = list( \
 		return
 
 	for(var/mob/M in player_list)
-		if(I.drop_sound && (M.client.prefs.asfx_togs & ASFX_DROP))
+		if(I.drop_sound && M.check_drop_sound_pref())
 			playsound(I, I.drop_sound, 25, 0)
 
 /*

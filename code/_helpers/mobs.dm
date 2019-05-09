@@ -214,3 +214,6 @@ Proc for attack log creation, because really why not
 /mob/proc/remove_from_dead_mob_list()
 	return dead_mob_list.Remove(src)
 
+// Returns a player's dropsound preferences
+/mob/proc/check_drop_sound_pref()
+	return (client.prefs.asfx_togs & ASFX_DROP)
