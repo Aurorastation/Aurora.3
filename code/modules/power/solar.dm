@@ -274,7 +274,7 @@
 	name = "solar panel control"
 	desc = "A controller for solar panel arrays."
 	icon = 'icons/obj/computer.dmi'
-	icon_state = "solar_control"
+	icon_state = "computer"
 	anchored = 1
 	density = 1
 	use_power = 1
@@ -349,16 +349,16 @@
 	set_panels(cdir)
 
 /obj/machinery/power/solar_control/update_icon()
+	icon_state = initial(icon_state)
+	cut_overlays()
 	if(stat & BROKEN)
-		icon_state = "broken"
-		cut_overlays()
+		icon_state = "computer-broken"
+		add_overlay("broken")
 		return
 	if(stat & NOPOWER)
 		icon_state = "computer"
-		cut_overlays()
 		return
-	icon_state = "solar_control"
-	cut_overlays()
+	add_overlay("solar")
 	if(cdir > -1)
 		add_overlay(image('icons/obj/computer.dmi', "solcon-o", FLY_LAYER, angle2dir(cdir)))
 	return

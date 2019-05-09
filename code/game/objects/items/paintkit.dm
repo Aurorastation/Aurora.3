@@ -149,6 +149,12 @@
 	new_desc = "Looks like an over worked, under maintained Ripley with some horrific damage."
 	new_icon = "earth"
 
+/obj/item/device/kit/paint/ripley/shire
+	name = "\"Shire\" APLU customisation kit"
+	new_name = "Shire"
+	new_desc = "A prototype military predecessor to the APLU units of modern day. Seen exclusively in the hands of the Sol Alliance during the Interstellar War."
+	new_icon = "shire"
+
 /obj/item/device/kit/paint/ripley/random
 	name = "quantum ripley kit"
 

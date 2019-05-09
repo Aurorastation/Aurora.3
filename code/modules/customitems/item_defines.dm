@@ -1332,7 +1332,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	set category = "Object"
 	set src in usr
 
-	if (use_check(usr)) return
+	if (use_check_and_message(usr)) return
 
 	var/style = input("You change the shirt to;","Change the shirt style") as null|anything in list("Eiffel Tower Diner","Pyramids of Giza Café","Phoenixport","New Parthenon")
 	switch(style)
@@ -1424,7 +1424,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	item_state = "syringe_kit"
 
 /obj/item/fluff/jennifer_wardrobe_kit/attack_self(mob/user as mob)
-	if (use_check(user, USE_DISALLOW_SILICONS))
+	if (use_check_and_message(user, USE_DISALLOW_SILICONS))
 		return
 
 	var/list/outfits = list(
@@ -1574,7 +1574,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	set category = "Object"
 	set src in usr
 
-	if(use_check(usr)) return
+	if(use_check_and_message(usr)) return
 
 	if(src.separated)
 		return
@@ -1678,7 +1678,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	var/picture = null
 
 /obj/item/fluff/raymond_tablet/attack_self(mob/user as mob)
-	if (use_check(user, USE_DISALLOW_SILICONS))
+	if (use_check_and_message(user, USE_DISALLOW_SILICONS))
 		return
 
 	var/list/pictures = list("22-01-2460", "07-11-2459", "03-08-2459", "08-03-2452", "18-06-2437", "01-01-2434")
@@ -2088,12 +2088,12 @@ All custom items with worn sprites must follow the contained sprite system: http
 	set category = "Object"
 	set src in usr
 
-	if (use_check(usr)) return
+	if (use_check_and_message(usr)) return
 
 	if(!lit)
 		usr.visible_message("<span class='notice'>With a snap of \the [usr]'s fingers, a small lighter flame sparks from \his index fingers!</span>")
 		lit = TRUE
-		playsound(src.loc, 'sound/items/lighter_on.ogg', 75, 1)
+		playsound(src.loc, 'sound/items/cigs_lighters/zippo_on.ogg', 75, 1)
 		update_icon()
 		usr.update_inv_gloves()
 		return
@@ -2101,7 +2101,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	else
 		usr.visible_message("<span class='notice'>With the flick of \the [usr] wrists and the pinch of \his fingers, the glove's flames are extinguished.</span>")
 		lit = FALSE
-		playsound(src.loc, 'sound/items/lighter_off.ogg', 75, 1)
+		playsound(src.loc, 'sound/items/cigs_lighters/zippo_off.ogg', 75, 1)
 		update_icon()
 		usr.update_inv_gloves()
 		return
@@ -2545,7 +2545,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	set category = "Object"
 
 	set src in usr
-	if (use_check(usr, USE_DISALLOW_SILICONS))
+	if (use_check_and_message(usr, USE_DISALLOW_SILICONS))
 		return
 
 	if(rolled_sleeves)
@@ -2566,7 +2566,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	set category = "Object"
 	set src in usr
 
-	if (use_check(usr, USE_DISALLOW_SILICONS))
+	if (use_check_and_message(usr, USE_DISALLOW_SILICONS))
 		return
 
 	if(rolled_down)

@@ -249,6 +249,8 @@
 	return 1
 
 //DRONE LIFE/DEATH
+/mob/living/silicon/robot/drone/process_level_restrictions()
+	return
 
 //For some goddamn reason robots have this hardcoded. Redefining it for our fragile friends here.
 /mob/living/silicon/robot/drone/updatehealth()
