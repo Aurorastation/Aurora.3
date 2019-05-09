@@ -33,7 +33,7 @@
 /obj/item/clothing/mask/balaclava/military
 	name = "military balaclava"
 	desc = "Designed to both hide identities and keep your face comfy and warm."
-	icon_state = "milaclava"
+	icon_state = "milclava"
 
 /obj/item/clothing/mask/balaclava/iacmask
 	name = "IAC balaclava"

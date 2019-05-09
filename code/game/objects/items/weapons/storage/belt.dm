@@ -225,8 +225,7 @@
 
 /obj/item/weapon/storage/belt/military/red
 	desc = "A syndicate belt designed to be used by boarding parties. Its style is modeled after the hardsuits they wear."
-	//icon_state = "militarybelt_syndie" -To be added.
-	item_state = "militarybelt_syndie"
+	icon_state = "militarybelt_syndie"
 
 /obj/item/weapon/storage/belt/janitor
 	name = "janibelt"
