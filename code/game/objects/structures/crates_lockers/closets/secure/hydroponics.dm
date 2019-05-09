@@ -24,6 +24,7 @@
 		new /obj/item/weapon/material/hatchet(src)
 		new /obj/item/weapon/wirecutters/clippers(src)
 		new /obj/item/weapon/reagent_containers/spray/plantbgone(src)
+		new /obj/item/weapon/storage/belt/hydro(src)
 //		new /obj/item/weapon/bee_net(src) //No more bees, March 2014
 
 /obj/structure/closet/secure_closet/xenobotany
@@ -54,3 +55,4 @@
 		new /obj/item/weapon/reagent_containers/spray/plantbgone(src)
 		new /obj/item/clothing/mask/gas/alt(src)
 		new /obj/item/watertank(src)
+		new /obj/item/weapon/storage/belt/hydro(src)

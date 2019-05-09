@@ -28,7 +28,7 @@
 	icon_state = "mecha_scatter"
 	equip_cooldown = 20
 	projectile = /obj/item/projectile/bullet/pellet
-	fire_sound = 'sound/weapons/shotgun.ogg'
+	fire_sound = 'sound/weapons/gunshot/gunshot_shotgun2.ogg'
 	fire_volume = 80
 	projectiles = 40
 	deviation = 0.7
@@ -40,7 +40,7 @@
 	icon_state = "mecha_uac2"
 	equip_cooldown = 10
 	projectile = /obj/item/projectile/bullet/rifle/a556
-	fire_sound = 'sound/weapons/gunshot_saw.ogg'
+	fire_sound = 'sound/weapons/gunshot/gunshot_saw.ogg'
 	projectiles = 300
 	projectiles_per_shot = 3
 	deviation = 0.3
@@ -53,7 +53,7 @@
 	icon_state = "mecha_carbine"
 	equip_cooldown = 10
 	projectile = /obj/item/projectile/bullet/shotgun/incendiary
-	fire_sound = 'sound/weapons/Gunshot.ogg'
+	fire_sound = 'sound/weapons/gunshot/gunshot1.ogg'
 	projectiles = 50
 	projectile_energy_cost = 40
 	deviation = 0.7
@@ -64,7 +64,7 @@
 	icon_state = "mecha_mime"
 	equip_cooldown = 10
 	projectile = /obj/item/projectile/bullet/rifle/a145
-	fire_sound = 'sound/weapons/Gunshot_DMR.ogg'
+	fire_sound = 'sound/weapons/gunshot/gunshot_dmr.ogg'
 	projectiles = 5
 	projectile_energy_cost = 750
 

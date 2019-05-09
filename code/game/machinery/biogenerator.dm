@@ -133,6 +133,14 @@
 			cost = 300,
 			amount = list(1,2,3,4,5),
 			emag = 0
+		), 
+		"hydrobelt" = list(
+			name = "Hydroponic Belt",
+			class = "Items",
+			object = /obj/item/weapon/storage/belt/hydro,
+			cost = 300,
+			amount = list(1,2,3,4,5),
+			emag = 0
 		),
 		"wallet" = list(
 			name = "Leather Wallet",

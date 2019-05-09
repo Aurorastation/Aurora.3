@@ -84,7 +84,7 @@
 	. = ..()
 	setup_parts()
 	middle.add_overlay("activated")
-	update_list()
+	update_list(TRUE)
 	addtimer(CALLBACK(src, .proc/round_startset), 100)
 
 /obj/machinery/gravity_generator/main/station/proc/round_startset()
@@ -99,8 +99,6 @@
 /obj/machinery/gravity_generator/main/station/admin/Initialize()
 	. = ..()
 	round_start = 1
-
-
 
 //
 // Main Generator with the main code
@@ -131,7 +129,7 @@
 	log_debug("Gravity Generator Destroyed")
 	investigate_log("was destroyed!", "gravity")
 	on = 0
-	update_list()
+	update_list(TRUE)
 	for(var/obj/machinery/gravity_generator/part/O in parts)
 		O.main_part = null
 		qdel(O)
@@ -145,6 +143,10 @@
 	breaker = 1
 	charging_state = POWER_UP
 	set_power()
+	eventon = !eventon
+	addtimer(CALLBACK(src, .proc/reset_event), 100) // Because it takes 100 seconds for it to recharge. And we need to make sure we resen this var
+
+/obj/machinery/gravity_generator/main/proc/reset_event()
 	eventon = !eventon
 
 /obj/machinery/gravity_generator/main/proc/setup_parts()

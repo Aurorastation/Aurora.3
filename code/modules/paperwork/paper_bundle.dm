@@ -13,6 +13,7 @@
 	var/page = 1    // current page
 	var/list/pages = list()  // Ordered list of pages as they are to be displayed. Can be different order than src.contents.
 	var amount = 0 // How many sheet
+	drop_sound = 'sound/items/drop/paper.ogg'
 
 /obj/item/weapon/paper_bundle/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	..()
