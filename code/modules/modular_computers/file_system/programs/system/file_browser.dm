@@ -98,7 +98,7 @@
 		var/oldtext = html_decode(F.stored_data)
 		oldtext = replacetext(oldtext, "\[editorbr\]", "\n")
 
-		var/newtext = pencode2html(sanitize(replacetext(input(usr, "Editing file [open_file]. You may use most tags used in paper formatting:", "Text Editor", oldtext) as message|null, "\n", "\[editorbr\]"), MAX_TEXTFILE_LENGTH))
+		var/newtext = sanitize(replacetext(input(usr, "Editing file [open_file]. You may use most tags used in paper formatting:", "Text Editor", oldtext) as message|null, "\n", "\[editorbr\]"), MAX_TEXTFILE_LENGTH)
 		if(!newtext)
 			return
 
@@ -201,7 +201,7 @@
 			if(!istype(file))
 				data["error"] = "I/O ERROR: Unable to open file."
 			else
-				data["filedata"] = file.stored_data
+				data["filedata"] = pencode2html(file.stored_data)
 				data["filename"] = "[file.filename].[file.filetype]"
 	else
 		if(!PRG.computer || !PRG.computer.hard_drive)
