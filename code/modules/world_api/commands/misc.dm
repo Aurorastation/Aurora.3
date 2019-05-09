@@ -194,7 +194,7 @@
 
 	if(!config.external_auth)
 		statuscode = 500
-		response = "External auth is disaalowed."
+		response = "External auth is disalowed."
 		del(una.client)
 		del(una)
 		return TRUE
