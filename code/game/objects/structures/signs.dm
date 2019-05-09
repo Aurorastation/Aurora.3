@@ -469,7 +469,7 @@
 
 /obj/structure/sign/flag/dpra
 	name = "Democratic People's Republic of Adhomai flag"
-	desc = "The banner of an ancient nation, its glory old."
+	desc = "The black flag of the Democratic People's Republic of Adhomai."
 	icon_state = "dpra"
 
 /obj/structure/sign/flag/dpra/left
@@ -488,7 +488,7 @@
 
 /obj/structure/sign/flag/pra
 	name = "People's Republic of Adhomai flag"
-	desc = "The banner of an ancient nation, its glory old."
+	desc = "The tajaran flag of the People's Republic of Adhomai."
 	icon_state = "pra"
 
 /obj/structure/sign/flag/pra/left
@@ -496,6 +496,63 @@
 
 /obj/structure/sign/flag/pra/right
 	icon_state = "pra_r"
+
+/obj/item/weapon/flag/nka
+	name = "New Kingdom of Adhomai flag"
+	desc = "The blue flag of the New Kingdom of Adhomai."
+	flag_path = "nka"
+
+/obj/item/weapon/flag/nka/l
+	flag_size = 1
+
+/obj/structure/sign/flag/nka
+	name = "New Kingdom of Adhomai flag"
+	desc = "The blue flag of the New Kingdom of Adhomai."
+	icon_state = "nka"
+
+/obj/structure/sign/flag/nka/left
+	icon_state = "nka_l"
+
+/obj/structure/sign/flag/nka/right
+	icon_state = "nka_r"
+
+/obj/item/weapon/flag/heph
+	name = "Hephaestus Industries flag"
+	desc = "The logo of Hephaestus Industries on a flag."
+	flag_path = "heph"
+
+/obj/item/weapon/flag/heph/l
+	flag_size = 1
+
+/obj/structure/sign/flag/heph
+	name = "Hephaestus Industries flag"
+	desc = "The logo of Hephaestus Industries on a flag."
+	icon_state = "heph"
+
+/obj/structure/sign/flag/heph/left
+	icon_state = "heph_l"
+
+/obj/structure/sign/flag/heph/right
+	icon_state = "heph_r"
+
+/obj/item/weapon/flag/zenghu
+	name = "Hephaestus Industries flag"
+	desc = "The logo of Hephaestus Industries on a flag."
+	flag_path = "zenghu"
+
+/obj/item/weapon/flag/zenghu/l
+	flag_size = 1
+
+/obj/structure/sign/flag/zenghu
+	name = "Zeng-Hu Pharmaceuticals flag"
+	desc = "The logo of Zeng-Hu Pharmaceuticalson a flag."
+	icon_state = "zenghu"
+
+/obj/structure/sign/flag/zenghu/left
+	icon_state = "zenghu_l"
+
+/obj/structure/sign/flag/zenghu/right
+	icon_state = "zenghu_r"
 
 /obj/item/weapon/flag
 	name = "boxed flag"
