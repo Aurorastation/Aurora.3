@@ -297,7 +297,7 @@ var/list/gamemode_cache = list()
 	var/ntsl_port = "1945"
 
 	// Is external Auth enabled
-	var/external_auth = 0
+	var/external_auth = FALSE
 
 /datum/configuration/New()
 	var/list/L = typesof(/datum/game_mode) - /datum/game_mode
