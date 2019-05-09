@@ -192,6 +192,13 @@
 		response = "Somethnig went horribly wrong."
 		return TRUE
 
+	if(!config.external_auth)
+		statuscode = 500
+		response = "External auth is disaalowed."
+		del(una.client)
+		del(una)
+		return TRUE
+
 	var/client/cl = directory[ckey(queryparams["key"])]
 	if(cl)
 		to_chat(cl, "Another connection has been made using your login key. This session has been terminated.")
@@ -200,3 +207,21 @@
 	statuscode = 200
 	response = "Client has been authenticated sucessfully."
 	una.ClientLogin(queryparams["key"])
+
+// Updates external auth state
+/datum/topic_command/set_extenal_auth
+	name = "set_extenal_auth"
+	description = "Enables or disables external authentication."
+	params = list(
+		"state" = list("name"="state","desc"="State to witch option should be updated. If not provided option is toggled.","type"="int","req"=0)
+	)
+
+/datum/topic_command/set_extenal_auth/run_command(queryparams)
+	if(queryparams["state"] == null)
+		config.external_auth = !config.external_auth
+	else
+		config.external_auth = queryparams["state"]
+	
+	statuscode = 200
+	response = "External authentication state has been updated sucessfully."
+	data = config.external_auth
