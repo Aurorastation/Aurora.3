@@ -536,8 +536,8 @@
 	icon_state = "heph_r"
 
 /obj/item/weapon/flag/zenghu
-	name = "Hephaestus Industries flag"
-	desc = "The logo of Hephaestus Industries on a flag."
+	name = "Zeng-Hu Pharmaceuticals flag"
+	desc = "The logo of Zeng-Hu Pharmaceuticals on a flag."
 	flag_path = "zenghu"
 
 /obj/item/weapon/flag/zenghu/l
@@ -545,7 +545,7 @@
 
 /obj/structure/sign/flag/zenghu
 	name = "Zeng-Hu Pharmaceuticals flag"
-	desc = "The logo of Zeng-Hu Pharmaceuticalson a flag."
+	desc = "The logo of Zeng-Hu Pharmaceuticals on a flag."
 	icon_state = "zenghu"
 
 /obj/structure/sign/flag/zenghu/left
