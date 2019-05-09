@@ -1,0 +1,4 @@
+author: Karolis2011
+delete-after: True
+changes: 
+  - rscadd: "Adds external auth mechanism to allow to play even when BYOND hub is down."
