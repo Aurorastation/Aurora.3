@@ -1,6 +1,5 @@
 /obj/machinery/computer/diseasesplicer
 	name = "disease splicer"
-	icon = 'icons/obj/computer.dmi'
 
 	icon_screen = "crew"
 

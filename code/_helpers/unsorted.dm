@@ -1158,6 +1158,9 @@ var/list/wall_items = typecacheof(list(
 			to_chat(user, "<span class='notice'>You need to be holding [src] to do that.</span>")
 		return USE_FAIL_NOT_IN_USER
 
+/atom/proc/use_check_and_message(mob/user, use_flags = 0)
+	. = use_check(user, use_flags, TRUE)
+
 /obj/proc/iswrench()
 	return FALSE
 

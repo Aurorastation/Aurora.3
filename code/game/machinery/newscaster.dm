@@ -800,6 +800,7 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 	var/datum/feed_message/important_message = null
 	var/scribble=""
 	var/scribble_page = null
+	drop_sound = 'sound/items/drop/wrapper.ogg'
 
 obj/item/weapon/newspaper/attack_self(mob/user as mob)
 	if(ishuman(user))

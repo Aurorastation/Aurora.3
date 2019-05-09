@@ -17967,7 +17967,9 @@
 /obj/item/weapon/tank/oxygen,
 /obj/item/clothing/shoes/magboots,
 /obj/item/clothing/shoes/magboots,
-/obj/item/weapon/rig/light/stealth,
+/obj/item/weapon/rig/hazard/equipped{
+	req_access = newlist()
+	},
 /turf/simulated/shuttle/plating,
 /area/skipjack_station/start)
 "aOq" = (
@@ -18004,6 +18006,7 @@
 /obj/item/weapon/storage/belt/utility/full,
 /obj/item/device/multitool,
 /obj/item/device/multitool,
+/obj/item/weapon/rig/industrial/equipped,
 /turf/simulated/shuttle/plating,
 /area/skipjack_station/start)
 "aOv" = (
@@ -18034,7 +18037,9 @@
 /obj/item/weapon/tank/oxygen,
 /obj/item/clothing/shoes/magboots,
 /obj/item/clothing/shoes/magboots,
-/obj/item/weapon/rig/light/hacker,
+/obj/item/weapon/rig/eva/equipped{
+	req_access = newlist()
+	},
 /turf/simulated/shuttle/plating,
 /area/skipjack_station/start)
 "aOy" = (
@@ -18462,7 +18467,7 @@
 /obj/structure/table/rack,
 /obj/item/device/suit_cooling_unit/improved,
 /obj/item/device/suit_cooling_unit/improved,
-/obj/item/weapon/rig/industrial/syndicate,
+/obj/item/weapon/rig/industrial/equipped,
 /obj/item/weapon/pickaxe/jackhammer,
 /obj/item/weapon/pickaxe/jackhammer,
 /obj/item/weapon/pickaxe/jackhammer,
@@ -23707,11 +23712,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/centcom/legion)
-"bbc" = (
-/obj/item/clothing/accessory/legion,
-/obj/structure/table/reinforced,
-/turf/simulated/floor/tiled/dark,
-/area/centcom/legion)
 "bbd" = (
 /obj/structure/table/reinforced,
 /obj/item/device/megaphone,
@@ -23725,13 +23725,12 @@
 	icon_state = "tube1";
 	dir = 1
 	},
+/obj/item/clothing/accessory/legion,
 /turf/simulated/floor/tiled/dark,
 /area/centcom/legion)
 "bbe" = (
 /obj/structure/table/wood,
-/obj/item/weapon/storage/fancy/cigar,
-/obj/item/weapon/flame/lighter/zippo,
-/turf/simulated/floor/wood,
+/turf/simulated/floor/carpet/blue,
 /area/centcom/legion)
 "bbf" = (
 /obj/machinery/portable_atmospherics/canister/air,
@@ -23750,19 +23749,11 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/centcom/legion)
-"bbi" = (
-/obj/structure/bed/chair/comfy/black{
-	dir = 4
-	},
-/turf/simulated/floor/wood,
-/area/centcom/legion)
 "bbj" = (
-/obj/structure/table/wood,
-/obj/machinery/button/remote/blast_door{
-	id = "tcfl";
-	name = "Heavy Support"
+/obj/structure/bed/chair/comfy/brown{
+	dir = 1
 	},
-/turf/simulated/floor/wood,
+/turf/simulated/floor/carpet/blue,
 /area/centcom/legion)
 "bbk" = (
 /obj/structure/table/reinforced,
@@ -23789,10 +23780,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/centcom/legion)
 "bbm" = (
-/obj/machinery/light/small{
-	dir = 1
-	},
-/turf/simulated/floor/wood,
+/obj/structure/bed/chair/comfy/black,
+/turf/simulated/floor/carpet/blue,
 /area/centcom/legion)
 "bbn" = (
 /obj/item/mecha_parts/mecha_equipment/tesla_energy_relay,
@@ -23805,11 +23794,6 @@
 /obj/item/mecha_parts/mecha_equipment/repair_droid,
 /obj/structure/table/reinforced/steel,
 /turf/simulated/floor/tiled/dark,
-/area/centcom/legion)
-"bbo" = (
-/obj/structure/table/wood,
-/obj/item/device/flashlight/lamp,
-/turf/simulated/floor/wood,
 /area/centcom/legion)
 "bbp" = (
 /obj/machinery/shieldwallgen,
@@ -23832,11 +23816,12 @@
 /area/centcom/legion)
 "bbs" = (
 /obj/machinery/door/airlock/centcom{
-	name = "High Command";
+	name = "Cmdt Office";
 	req_access = list(108,109)
 	},
 /obj/machinery/door/blast/regular{
-	id = "tcfl"
+	id = "tcfl";
+	name = "Heavy Support"
 	},
 /turf/simulated/floor/wood,
 /area/centcom/legion)
@@ -23879,7 +23864,8 @@
 /area/centcom/legion)
 "bbx" = (
 /obj/machinery/door/blast/regular{
-	id = "tcfl"
+	id = "tcfl";
+	name = "Heavy Support"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/centcom/legion)
@@ -24054,10 +24040,6 @@
 "bbM" = (
 /obj/machinery/computer/shuttle_control/legion,
 /turf/simulated/floor/tiled/dark,
-/area/centcom/legion)
-"bbN" = (
-/obj/machinery/computer/shuttle_control/legion,
-/turf/simulated/floor/wood,
 /area/centcom/legion)
 "bbO" = (
 /obj/machinery/door/airlock/external{
@@ -24288,6 +24270,18 @@
 	icon_state = "wood"
 	},
 /area/centcom/living)
+"duC" = (
+/obj/machinery/door/airlock/centcom{
+	name = "Cmdt Office";
+	req_access = list(108,109)
+	},
+/obj/machinery/door/blast/regular{
+	dir = 4;
+	id = "tcfl-c";
+	name = "Cmdt Office"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/centcom/legion)
 "dCz" = (
 /obj/structure/window/reinforced/crescent,
 /obj/structure/window/reinforced/crescent{
@@ -24331,6 +24325,22 @@
 	icon_state = "floor"
 	},
 /area/centcom/checkpoint/aft)
+"eiE" = (
+/turf/simulated/floor/carpet/blue,
+/area/centcom/legion)
+"ejS" = (
+/obj/machinery/light/small{
+	dir = 1
+	},
+/turf/simulated/floor/carpet/blue,
+/area/centcom/legion)
+"epB" = (
+/obj/machinery/light/small{
+	dir = 4;
+	pixel_y = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/centcom/legion)
 "etF" = (
 /turf/unsimulated/floor{
 	icon_state = "floor"
@@ -24409,6 +24419,20 @@
 	icon_state = "floor"
 	},
 /area/centcom/checkpoint/aft)
+"hFe" = (
+/obj/structure/table/wood,
+/obj/machinery/button/remote/blast_door{
+	id = "tcfl-c";
+	name = "Cmdt Office";
+	pixel_y = 6
+	},
+/obj/machinery/button/remote/blast_door{
+	id = "tcfl";
+	name = "Heavy Support";
+	pixel_y = -3
+	},
+/turf/simulated/floor/carpet/blue,
+/area/centcom/legion)
 "hGZ" = (
 /obj/machinery/light{
 	icon_state = "tube1";
@@ -24554,8 +24578,10 @@
 	},
 /area/centcom/holding)
 "jon" = (
-/obj/machinery/door/airlock/glass_command{
-	name = "Cockpit";
+/obj/machinery/door/airlock/centcom{
+	icon = 'icons/obj/doors/Doorcomglass.dmi';
+	name = "Shuttle Bridge Access";
+	opacity = 0;
 	req_access = list(19)
 	},
 /turf/unsimulated/floor{
@@ -24641,6 +24667,10 @@
 	icon_state = "floor"
 	},
 /area/centcom/checkpoint/fore)
+"kPX" = (
+/obj/machinery/computer/shuttle_control/legion,
+/turf/simulated/floor/carpet/blue,
+/area/centcom/legion)
 "kSv" = (
 /obj/machinery/button/remote/airlock{
 	desiredstate = 1;
@@ -24650,6 +24680,12 @@
 	pixel_y = -5;
 	req_access = list(101);
 	specialfunctions = 4
+	},
+/obj/machinery/button/remote/blast_door{
+	id = "CentComArrivalsCommand";
+	name = "Command Blastdoors";
+	pixel_x = 31;
+	pixel_y = 5
 	},
 /turf/unsimulated/floor{
 	icon_state = "floor"
@@ -24706,6 +24742,19 @@
 	dir = 1
 	},
 /area/centcom/control)
+"mak" = (
+/obj/machinery/door/blast/regular{
+	density = 0;
+	dir = 1;
+	icon_state = "pdoor0";
+	id = "CentComArrivalsCommand";
+	name = "Security Doors";
+	opacity = 0
+	},
+/turf/unsimulated/floor{
+	icon_state = "floor"
+	},
+/area/centcom/evac)
 "mbM" = (
 /obj/effect/wingrille_spawn/reinforced/crescent,
 /turf/template_noop,
@@ -24855,6 +24904,31 @@
 	icon_state = "wood"
 	},
 /area/centcom/living)
+"psm" = (
+/obj/structure/closet{
+	icon_closed = "cabinet_closed";
+	icon_opened = "cabinet_open";
+	icon_state = "cabinet_closed"
+	},
+/obj/item/clothing/accessory/legion,
+/obj/item/clothing/head/legion_beret,
+/obj/item/clothing/under/legion,
+/obj/item/device/radio/headset/legion,
+/obj/item/weapon/shield/energy/legion,
+/obj/item/weapon/storage/backpack/legion,
+/obj/item/weapon/gun/projectile/revolver,
+/obj/item/ammo_magazine/a357,
+/obj/item/ammo_magazine/a357,
+/obj/item/ammo_magazine/a357,
+/obj/item/weapon/melee/baton/loaded,
+/obj/item/weapon/handcuffs,
+/obj/item/weapon/handcuffs,
+/obj/item/weapon/storage/belt/security/tactical,
+/obj/item/device/flash,
+/obj/item/weapon/storage/box/flashbangs,
+/obj/item/clothing/accessory/holster/hip,
+/turf/simulated/floor/wood,
+/area/centcom/legion)
 "pPH" = (
 /obj/structure/table/wood,
 /turf/unsimulated/floor{
@@ -24903,6 +24977,11 @@
 	icon_state = "carpetside"
 	},
 /area/centcom/living)
+"sdy" = (
+/obj/structure/table/wood,
+/obj/item/device/flashlight/lamp,
+/turf/simulated/floor/carpet/blue,
+/area/centcom/legion)
 "srl" = (
 /obj/effect/wingrille_spawn/reinforced/crescent,
 /turf/unsimulated/floor{
@@ -25160,6 +25239,17 @@
 	dir = 2
 	},
 /area/centcom/spawning)
+"xLe" = (
+/obj/machinery/door/airlock/centcom{
+	name = "Cmdt Office";
+	req_access = list(108,109)
+	},
+/obj/machinery/door/blast/regular{
+	id = "tcfl-c";
+	name = "Cmdt Office"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/centcom/legion)
 
 (1,1,1) = {"
 aaa
@@ -26286,7 +26376,7 @@ ahM
 ahM
 ahM
 ahM
-aaM
+ahM
 aaM
 aaM
 aaM
@@ -26542,8 +26632,8 @@ aZD
 aZD
 aZD
 asK
+asK
 ahM
-aaM
 aaM
 aaM
 aaM
@@ -26798,14 +26888,14 @@ asK
 baq
 baD
 baz
+baA
 asK
 ahM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
+ahM
+ahM
+ahM
+ahM
+ahM
 aaM
 aaM
 aaM
@@ -27054,15 +27144,15 @@ asU
 aZD
 asU
 asU
-baA
+asU
+asU
+asK
+asK
+aZD
+asK
+aZD
 asK
 ahM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
 aaM
 aaM
 aaM
@@ -27311,15 +27401,15 @@ asU
 baa
 asU
 asU
-baB
-asK
+asU
+asU
+duC
+asU
+asU
+epB
+asU
+aZD
 ahM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
 aaM
 aaM
 aaM
@@ -27568,15 +27658,15 @@ asU
 aZD
 asU
 asU
-baC
+asU
+asU
+asK
+asK
+asK
+asK
+asU
 asK
 ahM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
 aaM
 aaM
 aaM
@@ -27825,17 +27915,17 @@ asU
 asK
 bbd
 bar
-bbc
+baB
+baC
 asK
 ahM
 ahM
+asK
+asU
+aZD
 ahM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
+ahM
+ahM
 aaM
 aaM
 aaM
@@ -28086,12 +28176,12 @@ aZD
 asK
 asK
 asK
-ahM
-ahM
-ahM
-ahM
-ahM
-ahM
+asK
+asK
+xLe
+asK
+asK
+asK
 ahM
 aaM
 aaM
@@ -28343,11 +28433,11 @@ asU
 asU
 haj
 asK
-asK
-aZD
-aZD
-aZD
-asK
+baP
+baP
+baP
+baP
+psm
 asK
 ahM
 aaM
@@ -28600,12 +28690,12 @@ asU
 asU
 baR
 asK
+eiE
+hFe
+eiE
 baP
 baP
-bbi
-baP
-baP
-asK
+aZD
 ahM
 aaM
 aaM
@@ -28860,8 +28950,8 @@ asK
 bbm
 bbe
 bbj
-bbo
-bbN
+baP
+baP
 aZD
 ahM
 aaM
@@ -29114,9 +29204,9 @@ asU
 asU
 baT
 asK
-baP
-baP
-baP
+ejS
+sdy
+eiE
 baP
 baP
 aZD
@@ -29371,9 +29461,9 @@ baE
 baQ
 baU
 asK
-baP
-baP
-baP
+eiE
+kPX
+eiE
 baP
 baP
 asK
@@ -65432,8 +65522,8 @@ aDe
 wne
 wne
 srl
-etF
-etF
+mak
+mak
 nhD
 nhD
 nhD

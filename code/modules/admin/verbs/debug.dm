@@ -502,19 +502,19 @@
 	set name = "Debug Mob Lists"
 	set desc = "For when you just gotta know"
 
-	switch(input("Which list?") in list("Players","Admins","Mobs","Living Mobs","Dead Mobs", "Clients"))
+	switch(input("Which list?") in list("Players","Staff","Mobs","Living Mobs","Dead Mobs", "Clients"))
 		if("Players")
-			to_chat(usr, jointext(player_list,","))
-		if("Admins")
-			to_chat(usr, jointext(admins,","))
+			to_chat(usr, jointext(player_list,", "))
+		if("Staff")
+			to_chat(usr, jointext(staff,", "))
 		if("Mobs")
-			to_chat(usr, jointext(mob_list,","))
+			to_chat(usr, jointext(mob_list,", "))
 		if("Living Mobs")
-			to_chat(usr, jointext(living_mob_list,","))
+			to_chat(usr, jointext(living_mob_list,", "))
 		if("Dead Mobs")
-			to_chat(usr, jointext(dead_mob_list,","))
+			to_chat(usr, jointext(dead_mob_list,", "))
 		if("Clients")
-			to_chat(usr, jointext(clients,","))
+			to_chat(usr, jointext(clients,", "))
 
 // DNA2 - Admin Hax
 /client/proc/cmd_admin_toggle_block(var/mob/M,var/block)

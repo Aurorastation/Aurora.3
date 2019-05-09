@@ -1286,6 +1286,13 @@ mob/proc/yank_out_object()
 
 	return
 
+
+/mob/proc/is_clumsy()
+	if(CLUMSY in mutations)
+		return TRUE
+
+	return FALSE
+
 //Helper proc for figuring out if the active hand (or given hand) is usable.
 /mob/proc/can_use_hand()
 	return 1
