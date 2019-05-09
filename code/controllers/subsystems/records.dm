@@ -161,15 +161,27 @@
 /datum/controller/subsystem/records/proc/get_manifest_json()
 	if(manifest.len)
 		return manifest_json
-	var/heads[0]
-	var/sec[0]
-	var/eng[0]
-	var/med[0]
-	var/sci[0]
-	var/car[0]
-	var/civ[0]
-	var/bot[0]
-	var/misc[0]
+	manifest = list(
+		"heads" = list(),
+		"sec" = list(),
+		"eng" = list(),
+		"med" = list(),
+		"sci" = list(),
+		"car" = list(),
+		"civ" = list(),
+		"bot" = list(),
+		"misc" = list()
+	)
+	var/positions = list(
+		"heads" = command_positions,
+		"sec" = security_positions,
+		"eng" = engineering_positions,
+		"med" = medical_positions,
+		"sci" = science_positions,
+		"car" = cargo_positions,
+		"civ" = civilian_positions,
+		"bot" = nonhuman_positions
+	)
 	for(var/datum/record/general/t in records)
 		var/name = sanitize(t.name)
 		var/rank = sanitize(t.rank)
@@ -178,68 +190,20 @@
 		var/isactive = t.phisical_status
 		var/department = 0
 		var/depthead = 0            // Department Heads will be placed at the top of their lists.
-		if(real_rank in command_positions)
-			heads[++heads.len] = list("name" = name, "rank" = rank, "active" = isactive)
-			department = 1
-			depthead = 1
-			if(rank=="Captain" && heads.len != 1)
-				heads.Swap(1,heads.len)
+		
+		for(var/positionType in positions)
+			var/typesPositions = positions[positionType]
+			if(real_rank in typesPositions)
+				manifest[positionType][++manifest[positionType].len] = list("name" = name, "rank" = rank, "active" = isactive)
+				department = 1
+				if ((depthead || rank == "Captain") && manifest[positionType].len != 1)
+					manifest[positionType].Swap(1, manifest[positionType].len)
+				if(positionType == "head")
+					depthead = 1
 
-		if(real_rank in security_positions)
-			sec[++sec.len] = list("name" = name, "rank" = rank, "active" = isactive)
-			department = 1
-			if(depthead && sec.len != 1)
-				sec.Swap(1,sec.len)
+		if(!department && !(name in manifest["heads"]))
+			manifest["misc"][++manifest["misc"].len] = list("name" = name, "rank" = rank, "active" = isactive)
 
-		if(real_rank in engineering_positions)
-			eng[++eng.len] = list("name" = name, "rank" = rank, "active" = isactive)
-			department = 1
-			if(depthead && eng.len != 1)
-				eng.Swap(1,eng.len)
-
-		if(real_rank in medical_positions)
-			med[++med.len] = list("name" = name, "rank" = rank, "active" = isactive)
-			department = 1
-			if(depthead && med.len != 1)
-				med.Swap(1,med.len)
-
-		if(real_rank in science_positions)
-			sci[++sci.len] = list("name" = name, "rank" = rank, "active" = isactive)
-			department = 1
-			if(depthead && sci.len != 1)
-				sci.Swap(1,sci.len)
-
-		if(real_rank in cargo_positions)
-			car[++car.len] = list("name" = name, "rank" = rank, "active" = isactive)
-			department = 1
-			if(depthead && car.len != 1)
-				car.Swap(1,car.len)
-
-		if(real_rank in civilian_positions)
-			civ[++civ.len] = list("name" = name, "rank" = rank, "active" = isactive)
-			department = 1
-			if(depthead && civ.len != 1)
-				civ.Swap(1,civ.len)
-
-		if(real_rank in nonhuman_positions)
-			bot[++bot.len] = list("name" = name, "rank" = rank, "active" = isactive)
-			department = 1
-
-		if(!department && !(name in heads))
-			misc[++misc.len] = list("name" = name, "rank" = rank, "active" = isactive)
-
-
-	manifest = list(\
-		"heads" = heads,\
-		"sec" = sec,\
-		"eng" = eng,\
-		"med" = med,\
-		"sci" = sci,\
-		"car" = car,\
-		"civ" = civ,\
-		"bot" = bot,\
-		"misc" = misc\
-		)
 	manifest_json = json_encode(manifest)
 	return manifest_json
 
