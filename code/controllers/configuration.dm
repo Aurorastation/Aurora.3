@@ -907,7 +907,7 @@ var/list/gamemode_cache = list()
 					ntsl_port = value
 
 				if ("external_auth")
-					external_auth = 1
+					external_auth = TRUE
 
 				else
 					log_misc("Unknown setting in configuration: '[name]'")
