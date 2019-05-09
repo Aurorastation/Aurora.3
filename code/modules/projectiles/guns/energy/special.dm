@@ -281,7 +281,7 @@
 	if(!wielded)
 		to_chat(user, "<span class='danger'>You cannot fire this weapon with just one hand!</span>")
 		return 0
-	playsound(src, 'sound/weapons/chainsawstart.ogg', 90, 1)
+	playsound(src, 'sound/weapons/saw/chainsawstart.ogg', 90, 1)
 	user.visible_message(
 					"<span class='danger'>\The [user] begins spinning [src]'s barrels!</span>",
 					"<span class='danger'>You begin spinning [src]'s barrels!</span>",
