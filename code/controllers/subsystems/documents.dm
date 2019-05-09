@@ -78,7 +78,7 @@ var/datum/controller/subsystem/docs/SSdocs
 //Pick a document by multiple tags that it must have.
 /datum/controller/subsystem/docs/proc/pick_document_by_tags(var/list/tags)
 	if(!istype(tags) || !tags.len)
-		return 0
+		return null
 	var/list/tag_sublist = docs_by_tags[pick(tags)] // the list cannot start off as empty
 	for(var/t in tags)
 		if(!docs_by_tags[t])
