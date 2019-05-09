@@ -4,6 +4,10 @@
 	slot = slot_head
 	sort_category = "Hats and Headwear"
 
+/datum/gear/head/ushanka_grey
+	display_name = "ushanka, grey"
+	path = /obj/item/clothing/head/ushanka/grey
+
 /datum/gear/head/bandana
 	display_name = "bandana selection"
 	path = /obj/item/clothing/head/bandana
