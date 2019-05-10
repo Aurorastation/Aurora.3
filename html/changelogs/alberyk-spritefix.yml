@@ -1,0 +1,6 @@
+author: ChangeMe
+
+delete-after: True
+
+changes: 
+  - bugfix: "Fixed some items having the incorrect sprite when worn in the suit storage slot."
