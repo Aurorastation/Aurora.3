@@ -181,7 +181,7 @@
 	worn_state = "heph"
 
 /obj/item/clothing/under/rank/necropolis
-	name = "Cecropolis Industries uniform"
+	name = "Necropolis Industries uniform"
 	desc = "A uniform worn by Necropolis Industries employees and contractors."
 	icon_state = "necro"
 	worn_state = "necro"

@@ -65,13 +65,13 @@
 	siemens_coefficient = 0.7
 
 /obj/item/clothing/under/rank/security/necropolis
-	name = "Becropolis security uniform"
+	name = "Necropolis Industries security uniform"
 	desc = "A uniform worn by Necropolis Industries security forces."
 	icon_state = "necro_sec"
 	worn_state = "necro_sec"
 
 /obj/item/clothing/under/rank/security/idris
-	name = "Idris security uniform"
+	name = "Idris Incorporated security uniform"
 	desc = "A uniform worn by Idris Incorporated employees and contractors."
 	icon_state = "idris_sec"
 	worn_state = "idris_sec"
