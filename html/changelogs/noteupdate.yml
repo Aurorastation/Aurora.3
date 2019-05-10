@@ -1,0 +1,6 @@
+author: MoondancerPony
+delete-after: True
+changes: 
+  - rscadd: "Adds a method of randomly spawning lore-related notes."
+  - rscadd: "Text files on computers can now have paper formatting."
+  - rscadd: "There is limited support for images in some papers, specifically randomly-spawned notes."
