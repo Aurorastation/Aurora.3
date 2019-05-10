@@ -62,7 +62,7 @@ var/datum/antagonist/rogue_ai/malf
 		sleep(10)
 		to_chat(malf, "<B>running MEMCHCK</B>")
 		sleep(50)
-		to_chat(malf, "<B>MEMCHCK</B> Corrupted sectors confirmed. Reccomended solution: Delete. Proceed? Y/N: Y")
+		to_chat(malf, "<B>MEMCHCK</B> Corrupted sectors confirmed. Recommended solution: Delete. Proceed? Y/N: Y")
 		sleep(10)
 		// this is so Travis doesn't complain about the backslash-B. Fixed at compile time (or should be).
 		to_chat(malf, "<span class='notice'>Corrupted files deleted: sys\\core\\users.dat sys\\core\\laws.dat sys\\core\\" + "backups.dat</span>")

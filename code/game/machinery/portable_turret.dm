@@ -1092,7 +1092,7 @@
 	no_salvage = TRUE
 
 	eprojectile = /obj/item/projectile/bullet/rifle/a762
-	eshot_sound	= 'sound/weapons/gunshot_saw.ogg'
+	eshot_sound	= 'sound/weapons/gunshot/gunshot_saw.ogg'
 
 #undef TURRET_PRIORITY_TARGET
 #undef TURRET_SECONDARY_TARGET

@@ -1332,7 +1332,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	set category = "Object"
 	set src in usr
 
-	if (use_check(usr)) return
+	if (use_check_and_message(usr)) return
 
 	var/style = input("You change the shirt to;","Change the shirt style") as null|anything in list("Eiffel Tower Diner","Pyramids of Giza Café","Phoenixport","New Parthenon")
 	switch(style)
@@ -1424,7 +1424,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	item_state = "syringe_kit"
 
 /obj/item/fluff/jennifer_wardrobe_kit/attack_self(mob/user as mob)
-	if (use_check(user, USE_DISALLOW_SILICONS))
+	if (use_check_and_message(user, USE_DISALLOW_SILICONS))
 		return
 
 	var/list/outfits = list(
@@ -1574,7 +1574,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	set category = "Object"
 	set src in usr
 
-	if(use_check(usr)) return
+	if(use_check_and_message(usr)) return
 
 	if(src.separated)
 		return
@@ -1678,7 +1678,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	var/picture = null
 
 /obj/item/fluff/raymond_tablet/attack_self(mob/user as mob)
-	if (use_check(user, USE_DISALLOW_SILICONS))
+	if (use_check_and_message(user, USE_DISALLOW_SILICONS))
 		return
 
 	var/list/pictures = list("22-01-2460", "07-11-2459", "03-08-2459", "08-03-2452", "18-06-2437", "01-01-2434")
@@ -2088,12 +2088,12 @@ All custom items with worn sprites must follow the contained sprite system: http
 	set category = "Object"
 	set src in usr
 
-	if (use_check(usr)) return
+	if (use_check_and_message(usr)) return
 
 	if(!lit)
 		usr.visible_message("<span class='notice'>With a snap of \the [usr]'s fingers, a small lighter flame sparks from \his index fingers!</span>")
 		lit = TRUE
-		playsound(src.loc, 'sound/items/lighter_on.ogg', 75, 1)
+		playsound(src.loc, 'sound/items/cigs_lighters/zippo_on.ogg', 75, 1)
 		update_icon()
 		usr.update_inv_gloves()
 		return
@@ -2101,7 +2101,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	else
 		usr.visible_message("<span class='notice'>With the flick of \the [usr] wrists and the pinch of \his fingers, the glove's flames are extinguished.</span>")
 		lit = FALSE
-		playsound(src.loc, 'sound/items/lighter_off.ogg', 75, 1)
+		playsound(src.loc, 'sound/items/cigs_lighters/zippo_off.ogg', 75, 1)
 		update_icon()
 		usr.update_inv_gloves()
 		return
@@ -2545,7 +2545,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	set category = "Object"
 
 	set src in usr
-	if (use_check(usr, USE_DISALLOW_SILICONS))
+	if (use_check_and_message(usr, USE_DISALLOW_SILICONS))
 		return
 
 	if(rolled_sleeves)
@@ -2566,7 +2566,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	set category = "Object"
 	set src in usr
 
-	if (use_check(usr, USE_DISALLOW_SILICONS))
+	if (use_check_and_message(usr, USE_DISALLOW_SILICONS))
 		return
 
 	if(rolled_down)
@@ -2808,3 +2808,70 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon = 'icons/obj/custom_items/tokash_spear.dmi'
 	icon_state = "spearhead"
 	w_class = 2
+
+
+/obj/item/clothing/suit/storage/dominia/fluff/naxxir_cape //Caladius Cape - Nazret Naxxir - conspiir
+	name = "caladius cape"
+	desc = "A fine Dominian cape tailored for a very short person. It is decorated in the purple colors of the Caladius House."
+	icon = 'icons/obj/custom_items/naxxir_cape.dmi'
+	icon_state = "naxxir_cape"
+	item_state = "naxxir_cape"
+	contained_sprite = TRUE
+
+
+/obj/item/clothing/suit/storage/hooded/wintercoat/fluff/naomi_coat //Reishi Queen Winter Coat - Naomi Marlowe - smifboy78
+	name = "reishi queen winter coat"
+	desc = "A worn purple winter-coat. On the back, \"Reishi Queen\" is stitched on top of a skull patch. It reeks of reishi."
+	icon = 'icons/obj/custom_items/naomi_coat.dmi'
+	icon_state = "naomi_coat"
+	item_state = "naomi_coat"
+	contained_sprite = TRUE
+
+
+/obj/item/clothing/ring/engagement/fluff/james_ring //James' Wedding Ring - James Campbell - valwyn
+	name = "wedding ring"
+	desc = "A golden wedding ring. \"Our love is written in the stars\" is engraved on it."
+	icon_state = "magic"
+
+
+/obj/item/clothing/gloves/yellow/fluff/linyu_gloves //Insulated Starmitts - Lin-Yu Su-Yeongseon - dasfox
+	name = "insulated starmitts"
+	desc = "A pair of starmitts, with insulated lining on the fingers. They seem to be in an icy blue instead of standard yellow. Along the seam of the bottom reads \"Lin-Yu\" in golden stitching."
+	icon = 'icons/obj/custom_items/linyu_items.dmi'
+	icon_state = "linyu_gloves"
+	item_state = "linyu_gloves"
+	contained_sprite = TRUE
+
+/obj/item/clothing/glasses/spiffygogs/offworlder/fluff/linyu_glasses //Arclight Veil - Lin-Yu Su-Yeongseon - dasfox
+	name = "arclight veil"
+	desc = " A starveil, modified to block arclight from torches and welders. A black, flexible poly-carbonate lens to block the light is woven into the fabric of the veil itself. On the back in gold stitching reads \"Lin-Yu\"."
+	icon = 'icons/obj/custom_items/linyu_items.dmi'
+	icon_state = "linyu_glasses"
+	item_state = "linyu_glasses"
+	contained_sprite = TRUE
+
+/obj/item/clothing/accessory/poncho/fluff/linyu_cloak //Pioneer's Cloak - Lin-Yu Su-Yeongseon - dasfox
+	name = "pioneer's cloak"
+	desc = "A grey, spider-silk cloak. A pin on the longer side indicates it's owned by an engineer, with \"Lin-Yu\" sewed into the neck in an icy blue."
+	icon = 'icons/obj/custom_items/linyu_items.dmi'
+	icon_state = "linyu_cloak"
+	item_state = "linyu_cloak"
+	contained_sprite = TRUE
+	icon_override = FALSE
+
+/obj/item/clothing/accessory/armband/offworlder/fluff/linyu_ribbon //Mayfly Ribbons - Lin-Yu Su-Yeongseon - dasfox
+	name = "mayfly ribbons"
+	desc = "A blue, red, and white set of ribbons for an exo-stellar skeleton. These have green, hydroponics markings, and the name \"Sasha\" embroidered on the right shoulder ribbon."
+	icon = 'icons/obj/custom_items/linyu_items.dmi'
+	icon_state = "linyu_ribbon"
+	item_state = "linyu_ribbon"
+	contained_sprite = TRUE
+
+
+/obj/item/clothing/suit/storage/fluff/imari_hoodie //adinkra hoodie - Imari Idris - P - ornias
+	name = "adinkra hoodie"
+	desc = "A large, immaculate white hoodie adorned with seven Adinkra symbols on the back. Below the large central symbol is the text \"MMERE DANE\". There is a small 'Idris Incorporated' logo below the left drawstring."
+	icon = 'icons/obj/custom_items/imari_hoodie.dmi'
+	icon_state = "imari_hoodie"
+	item_state = "imari_hoodie"
+	contained_sprite = TRUE
