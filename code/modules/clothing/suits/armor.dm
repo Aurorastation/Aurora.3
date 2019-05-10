@@ -449,13 +449,6 @@
 	item_state = "mercwebvest"
 	armor = list(melee = 60, bullet = 60, laser = 60, energy = 40, bomb = 40, bio = 0, rad = 0)
 
-/obj/item/clothing/suit/storage/vest/sol
-	name = "sol heavy armor vest"
-	desc = "A high-quality armor vest in a deep green. It is surprisingly flexible and light, even with the added webbing and armor plating."
-	icon_state = "solwebvest"
-	item_state = "solwebvest"
-	armor = list(melee = 60, bullet = 60, laser = 60, energy = 40, bomb = 40, bio = 0, rad = 0)
-
 //ert related armor
 
 /obj/item/clothing/suit/storage/vest/heavy/ert
