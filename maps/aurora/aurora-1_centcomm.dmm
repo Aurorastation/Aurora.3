@@ -23323,10 +23323,17 @@
 	},
 /area/centcom/legion_base/hangar5)
 "xpB" = (
-/obj/effect/floor_decal/industrial/warning/full,
-/obj/vehicle/droppod,
+/obj/vehicle/droppod{
+	pixel_y = 6
+	},
+/obj/effect/floor_decal/industrial/warning,
+/obj/machinery/light/small/emergency{
+	dir = 4;
+	name = "drop pod light";
+	pixel_y = -14
+	},
 /turf/unsimulated/floor{
-	icon_state = "dark"
+	icon_state = "engine"
 	},
 /area/centcom/legion_base/hangar5)
 "xpF" = (
