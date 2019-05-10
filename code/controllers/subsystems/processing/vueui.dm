@@ -100,7 +100,7 @@ Byond Vue UI framework's management subsystem
 	for (var/tui in get_open_uis(src_object))
 		var/datum/vueui/ui = tui
 		ui.close()
-	.++
+		.++
 
 /**
   * Initiates check for data change of specified object
