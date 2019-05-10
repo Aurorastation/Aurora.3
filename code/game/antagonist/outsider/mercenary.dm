@@ -41,7 +41,7 @@ var/datum/antagonist/mercenary/mercs
 		var/fallback_type = pick(/obj/item/clothing/shoes/jackboots/unathi)
 		player.equip_to_slot_or_del(new fallback_type(player), slot_shoes)
 	player.equip_to_slot_or_del(new /obj/item/clothing/gloves/swat(player), slot_gloves)
-	player.equip_to_slot_or_del(new /obj/item/weapon/storage/belt/military/red(player), slot_belt)
+	player.equip_to_slot_or_del(new /obj/item/weapon/storage/belt/military(player), slot_belt)
 	if(player.backbag == 2) player.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack/syndie(player), slot_back)
 	if(player.backbag == 3) player.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack/satchel_syndie(player), slot_back)
 	if(player.backbag == 4) player.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack/satchel(player), slot_back)

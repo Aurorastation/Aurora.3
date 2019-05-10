@@ -191,7 +191,7 @@
 
 /obj/item/weapon/storage/belt/military
 	name = "military belt"
-	desc = "A lightweight, quick to use, military belt. Designed to be comfortably worn during lengthy military operations."
+	desc = "A lightweight, quick to use, military belt. Designed to be comfortably worn even during lengthy military operations."
 	icon_state = "militarybelt"
 	item_state = "militarybelt"
 	storage_slots = 9 //same as a combat belt now
@@ -223,9 +223,10 @@
 		/obj/item/stack/telecrystal
 		)
 
-/obj/item/weapon/storage/belt/military/red
+/obj/item/weapon/storage/belt/military/syndicate
 	desc = "A syndicate belt designed to be used by boarding parties. Its style is modeled after the hardsuits they wear."
 	icon_state = "militarybelt_syndie"
+	item_state = "militarybelt_syndie"
 
 /obj/item/weapon/storage/belt/janitor
 	name = "janibelt"
