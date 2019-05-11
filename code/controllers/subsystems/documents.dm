@@ -128,6 +128,7 @@ var/datum/controller/subsystem/docs/SSdocs
 			catch(var/exception/ec)
 				log_debug("SSdocs: Error when loading document: [ec]")
 	return 1
+	return 1
 
 //Loads the document data from JSON
 /datum/controller/subsystem/docs/proc/load_from_json()
