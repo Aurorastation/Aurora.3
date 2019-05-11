@@ -296,6 +296,9 @@ var/list/gamemode_cache = list()
 	var/ntsl_hostname = "localhost"
 	var/ntsl_port = "1945"
 
+	// Is external Auth enabled
+	var/external_auth = FALSE
+
 /datum/configuration/New()
 	var/list/L = typesof(/datum/game_mode) - /datum/game_mode
 	for (var/T in L)
@@ -902,6 +905,9 @@ var/list/gamemode_cache = list()
 					ntsl_hostname = value
 				if ("ntsl_port")
 					ntsl_port = value
+
+				if ("external_auth")
+					external_auth = TRUE
 
 				else
 					log_misc("Unknown setting in configuration: '[name]'")
