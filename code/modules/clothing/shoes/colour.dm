@@ -47,8 +47,8 @@
 	icon_state = "mime"
 
 /obj/item/clothing/shoes/medical
-	name = "chem-safe white shoes"
-	desc = "A pair of chemically resistant shoes intended for safety around chemicals."
+	name = "chem-safe shoes"
+	desc = "A pair of chemically resistant white shoes intended for safety around chemicals."
 	icon_state = "mime"
 	permeability_coefficient = 0.01
 
