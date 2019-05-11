@@ -16,11 +16,11 @@
 	if(!carded_ai)
 		message = "There is no AI loaded to the card."
 	else if(carded_ai.stat == DEAD)
-		message += span("danger", "terminated")
+		message += span("danger", "terminated.")
 	else if(!carded_ai.client)
-		message += span("notice", "active")
+		message += span("notice", "active.")
 	else
-		message += span("warning", "inactive")
+		message += span("warning", "inactive.")
 	to_chat(user, message)
 
 /obj/item/weapon/aicard/attack(mob/living/silicon/decoy/M as mob, mob/user as mob, var/target_zone)
