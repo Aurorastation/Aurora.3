@@ -175,7 +175,7 @@
 
 /datum/gear/uniform/security_contractors
 	display_name = "security contractor uniform selection"
-	description = "A selection of security contractor related uniforms."
+	description = "A selection of security contractor uniforms."
 	path = /obj/item/clothing/under/rank/security/necropolis
 	allowed_roles = list("Security Officer", "Warden", "Head of Security","Detective", "Forensic Technician", "Security Cadet")
 
@@ -263,7 +263,7 @@
 
 /datum/gear/uniform/contractors
 	display_name = "contractor uniform selection"
-	description = "A selection of contractor related uniforms."
+	description = "A selection of contractor uniforms."
 	path = /obj/item/clothing/under/rank/hephaestus
 
 /datum/gear/uniform/contractors/New()

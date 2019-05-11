@@ -527,7 +527,7 @@
 
 /obj/item/clothing/suit/armor/vest/idris
 	name = "Idris reclamation unit coat "
-	desc = "A coat worn by the Idris Reclamation Units, notorious across space."
+	desc = "A coat worn by the Idris reclamation units, notorious across space."
 	icon_state = "iru_coat"
 	item_state = "iru_coat"
 

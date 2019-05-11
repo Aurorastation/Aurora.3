@@ -175,7 +175,7 @@
 	worn_state = "miner"
 
 /obj/item/clothing/under/rank/hephaestus
-	name = "Hephaestus industries uniform"
+	name = "Hephaestus Industries uniform"
 	desc = "A uniform worn by Hephaestus Industries employees and contractors."
 	icon_state = "heph"
 	worn_state = "heph"
@@ -199,7 +199,7 @@
 	worn_state = "einstein_engine"
 
 /obj/item/clothing/under/rank/zheng
-	name = "Zheng-hu uniform"
+	name = "Zheng-Hu uniform"
 	desc = "A uniform worn by Zheng-Hu employees and contractors."
 	icon_state = "zhu"
 	worn_state = "zhu"

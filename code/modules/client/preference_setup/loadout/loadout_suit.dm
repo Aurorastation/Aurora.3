@@ -205,7 +205,7 @@
 
 /datum/gear/suit/dominia
 	display_name = "dominia great coat selection"
-	description = "A selection of dominian coats."
+	description = "A selection of Dominian coats."
 	path = /obj/item/clothing/suit/storage/toggle/dominia
 
 /datum/gear/suit/dominia/New()
