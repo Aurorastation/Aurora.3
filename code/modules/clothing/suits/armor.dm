@@ -530,6 +530,12 @@
 	body_parts_covered = UPPER_TORSO | LOWER_TORSO | LEGS | ARMS
 	armor = list(melee = 50, bullet = 30, laser = 30, energy = 15, bomb = 40, bio = 0, rad = 0)
 
+/obj/item/clothing/suit/armor/vest/idris
+	name = "Idris reclamation unit coat "
+	desc = "A coat worn by the Idris reclamation units, notorious across space."
+	icon_state = "iru_coat"
+	item_state = "iru_coat"
+
 //All of the armor below is mostly unused
 
 /obj/item/clothing/suit/armor/centcomm
