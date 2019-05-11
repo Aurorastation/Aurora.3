@@ -4,7 +4,8 @@
 	location = 0
 	warmup_time = 0
 	var/datum/computer/file/embedded_program/docking/simple/escape_pod/arming_controller
-	var/area/crashed_area = null
+	var/list/destinations[5]
+	var/mode = 1
 
 /datum/shuttle/ferry/escape_pod/init_docking_controllers()
 	..()
@@ -59,15 +60,15 @@
 
 /datum/shuttle/ferry/escape_pod/crash_shuttle()
 	var/distance = pick(list(10, 15, 18, 20, 22, 25, 35))
-	crashed_area = new crashed_area()
+	destinations[4] = new destinations[4]
 	for(var/turf/T in area_station)
 		var/turf/T_n = get_turf(locate(T.x, T.y + distance, T.z))
 
 		T_n = get_turf(locate(T.x, T.y + distance, T.z))
 		if(T_n)
-			crashed_area.contents += T_n
-	move(area_station, crashed_area)
-	explosion(pick(crashed_area.contents), 1, 0, 1, 1, 0) // explosion inside of the shuttle, as in we damaged it
+			destinations[4].contents += T_n
+	move(area_station, destinations[4])
+	explosion(pick(destinations[4].contents), 1, 0, 1, 1, 0) // explosion inside of the shuttle, as in we damaged it
 	process_state = IDLE_STATE
 
 //This controller goes on the escape pod itself
@@ -83,9 +84,9 @@
 		"override_enabled" = docking_program.override_enabled,
 		"door_state" = 	docking_program.memory["door_status"]["state"],
 		"door_lock" = 	docking_program.memory["door_status"]["lock"],
-		//"destination" = docking_program.destination,
+		"mode" = pod.mode,
 		"emagged" = emagged,
-		"can_force" = pod.can_force() || (emergency_shuttle.departed && pod.can_launch()),	//allow players to manually launch ahead of time if the shuttle leaves
+		"can_force" = pod.can_force() || emagged || (emergency_shuttle.departed && pod.can_launch()),	//allow players to manually launch ahead of time if the shuttle leaves
 		"is_armed" = pod.arming_controller.armed
 	)
 
@@ -101,17 +102,32 @@
 	if(..())
 		return 1
 
-	if("manual_arm")
+	if(href_list["command"] == "manual_arm")
 		pod.arming_controller.arm()
-	if("force_launch")
+	else if(href_list["command"] == "force_launch")
 		if (pod.can_force())
 			pod.force_launch(src)
 		else if (emergency_shuttle.departed && pod.can_launch())	//allow players to manually launch ahead of time if the shuttle leaves
 			pod.launch(src)
-
+	else if(href_list["command"] == "destination")
+		var/m = text2num(href_list["destination"])
+		if(!m)
+			return
+		switch(m)
+			if(1)
+				pod.area_offsite = pod.destinations[1]
+			if(2)
+				pod.area_offsite = pod.destinations[2]
+			if(3)
+				pod.area_offsite = pod.destinations[3]
+		pod.mode = m
 	return 0
 
-
+/obj/machinery/embedded_controller/radio/simple_docking_controller/escape_pod/emag_act(var/remaining_charges, var/mob/user)
+	emagged = TRUE
+	to_chat(user, span("notice", "You short circuit the control. Unlocking new destination!"))
+	warn_ai("Warning: malware detected in one of the escape pods controllers!")
+	return TRUE
 
 //This controller is for the escape pod berth (station side)
 /obj/machinery/embedded_controller/radio/simple_docking_controller/escape_pod_berth

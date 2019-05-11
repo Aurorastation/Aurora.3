@@ -47,6 +47,9 @@
 /area/centcom/holding
 	name = "\improper Holding Facility"
 
+
+/area/centcom/extraction_shuttle
+	name = "\improper Escape Pods Retrival Shuttle"
 /area/centcom/legion_base
 	name = "\improper BLV The Tower, Deck 1"
 	icon_state = "centcom"
@@ -63,6 +66,10 @@
 
 /area/centcom/checkpoint/aft
 	name = "\improper Aft Checkpoint"
+
+/area/centcom/legion
+	name = "\improper Tau Ceti Foreign Legion Base"
+
 
 //SYNDICATES
 

@@ -707,31 +707,6 @@
 /area/template_noop)
 "bB" = (
 /obj/machinery/power/solar,
-/obj/structure/cable{
-	icon_state = "0-4";
-	d2 = 4
-	},
-/turf/simulated/floor,
-/area/derelict/ship)
-"bC" = (
-/obj/structure/cable{
-	d1 = 2;
-	d2 = 4;
-	icon_state = "2-4"
-	},
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 8;
-	icon_state = "2-8"
-	},
-/turf/simulated/floor,
-/area/derelict/ship)
-"bD" = (
-/obj/machinery/power/solar,
-/obj/structure/cable{
-	d2 = 8;
-	icon_state = "0-8"
-	},
 /turf/simulated/floor,
 /area/derelict/ship)
 "bE" = (
@@ -817,14 +792,6 @@
 "bL" = (
 /turf/space/transit/north/shuttlespace_ns9,
 /area/derelict/ship)
-"bM" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/turf/simulated/floor,
-/area/derelict/ship)
 "bN" = (
 /obj/structure/lattice,
 /obj/effect/step_trigger/teleporter/random{
@@ -896,24 +863,6 @@
 	dir = 6
 	},
 /turf/simulated/floor/tiled/dark,
-/area/derelict/ship)
-"bV" = (
-/obj/structure/cable{
-	d1 = 2;
-	d2 = 4;
-	icon_state = "2-4"
-	},
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 8;
-	icon_state = "2-8"
-	},
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/turf/simulated/floor,
 /area/derelict/ship)
 "bW" = (
 /obj/structure/lattice,
@@ -2453,11 +2402,6 @@
 /area/derelict/ship)
 "fF" = (
 /obj/machinery/shield_capacitor,
-/obj/structure/cable{
-	d2 = 2;
-	icon_state = "0-2";
-	pixel_y = 0
-	},
 /turf/simulated/floor,
 /area/derelict/ship)
 "fG" = (
@@ -2489,53 +2433,8 @@
 /obj/item/toy/plushie/squid/blue,
 /turf/simulated/floor,
 /area/derelict/ship)
-"fL" = (
-/obj/structure/cable{
-	d1 = 2;
-	d2 = 4;
-	icon_state = "2-4"
-	},
-/turf/simulated/floor,
-/area/derelict/ship)
-"fM" = (
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/turf/simulated/floor,
-/area/derelict/ship)
-"fN" = (
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 8
-	},
-/obj/structure/grille,
-/obj/structure/window/reinforced,
-/obj/machinery/door/firedoor,
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/turf/simulated/floor,
-/area/derelict/ship)
 "fO" = (
 /obj/machinery/shield_gen,
-/obj/structure/cable{
-	d2 = 8;
-	icon_state = "0-8"
-	},
-/obj/structure/cable{
-	icon_state = "1-8"
-	},
 /turf/simulated/floor,
 /area/derelict/ship)
 "fP" = (
@@ -2624,44 +2523,8 @@
 /obj/structure/closet/firecloset,
 /turf/simulated/floor/tiled,
 /area/derelict/ship)
-"gb" = (
-/obj/machinery/door/firedoor,
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/obj/machinery/door/airlock/maintenance_hatch,
-/turf/simulated/floor,
-/area/derelict/ship)
 "gc" = (
 /turf/space/transit/north/shuttlespace_ns7,
-/area/derelict/ship)
-"gd" = (
-/obj/structure/cable{
-	d1 = 2;
-	d2 = 4;
-	icon_state = "2-4"
-	},
-/obj/structure/table/rack,
-/turf/simulated/floor,
-/area/derelict/ship)
-"ge" = (
-/obj/machinery/power/apc{
-	dir = 1;
-	name = "north bump";
-	pixel_x = 0;
-	pixel_y = 24
-	},
-/obj/machinery/power/terminal{
-	icon_state = "term";
-	dir = 1
-	},
-/obj/structure/cable{
-	d2 = 8;
-	icon_state = "0-8"
-	},
-/turf/simulated/floor,
 /area/derelict/ship)
 "gf" = (
 /obj/machinery/door/firedoor,
@@ -2702,18 +2565,6 @@
 	icon_state = "term";
 	dir = 1
 	},
-/obj/structure/cable{
-	icon_state = "0-4";
-	d2 = 4
-	},
-/turf/simulated/floor,
-/area/derelict/ship)
-"gl" = (
-/obj/structure/cable{
-	d1 = 2;
-	d2 = 8;
-	icon_state = "2-8"
-	},
 /turf/simulated/floor,
 /area/derelict/ship)
 "gm" = (
@@ -2723,19 +2574,6 @@
 	id_tag = "sl3i";
 	locked = 1;
 	req_access = list(13)
-	},
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/turf/simulated/floor,
-/area/derelict/ship)
-"gn" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 4;
-	icon_state = "1-4"
 	},
 /turf/simulated/floor,
 /area/derelict/ship)
@@ -2787,31 +2625,6 @@
 /area/derelict/ship)
 "gt" = (
 /obj/machinery/power/solar_control/autostart,
-/obj/structure/cable{
-	d2 = 2;
-	icon_state = "0-2";
-	pixel_y = 0
-	},
-/turf/simulated/floor,
-/area/derelict/ship)
-"gu" = (
-/obj/machinery/power/smes,
-/obj/structure/cable{
-	d2 = 2;
-	icon_state = "0-2";
-	pixel_y = 0
-	},
-/turf/simulated/floor,
-/area/derelict/ship)
-"gv" = (
-/obj/machinery/power/terminal{
-	dir = 8
-	},
-/obj/structure/cable{
-	d2 = 2;
-	icon_state = "0-2";
-	pixel_y = 0
-	},
 /turf/simulated/floor,
 /area/derelict/ship)
 "gw" = (
@@ -2849,61 +2662,6 @@
 /area/derelict/ship)
 "gB" = (
 /obj/machinery/power/smes,
-/obj/structure/cable{
-	d2 = 8;
-	icon_state = "0-8"
-	},
-/turf/simulated/floor,
-/area/derelict/ship)
-"gC" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 4;
-	icon_state = "1-4"
-	},
-/obj/random/junk,
-/turf/simulated/floor,
-/area/derelict/ship)
-"gD" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/turf/simulated/floor,
-/area/derelict/ship)
-"gE" = (
-/obj/structure/cable{
-	icon_state = "1-8"
-	},
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 4;
-	icon_state = "1-4"
-	},
-/turf/simulated/floor,
-/area/derelict/ship)
-"gF" = (
-/obj/machinery/door/firedoor,
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/machinery/door/airlock/maintenance_hatch,
-/turf/simulated/floor,
-/area/derelict/ship)
-"gG" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 8;
-	icon_state = "1-8"
-	},
 /turf/simulated/floor,
 /area/derelict/ship)
 "gH" = (
@@ -2957,28 +2715,6 @@
 	icon_state = "term";
 	dir = 1
 	},
-/obj/structure/cable{
-	d2 = 2;
-	icon_state = "0-2";
-	pixel_y = 0
-	},
-/turf/simulated/floor,
-/area/derelict/ship)
-"gN" = (
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/structure/cable{
-	icon_state = "1-8"
-	},
-/turf/simulated/floor,
-/area/derelict/ship)
-"gO" = (
-/obj/structure/cable{
-	icon_state = "1-8"
-	},
 /turf/simulated/floor,
 /area/derelict/ship)
 "gP" = (
@@ -3013,19 +2749,6 @@
 /obj/structure/table/rack,
 /obj/item/weapon/storage/backpack/ert/security,
 /obj/item/clothing/head/helmet/ert/security,
-/turf/simulated/floor,
-/area/derelict/ship)
-"gT" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 4;
-	icon_state = "1-4"
-	},
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
 /turf/simulated/floor,
 /area/derelict/ship)
 "gU" = (
@@ -30021,42 +29744,42 @@ ac
 ad
 ae
 bu
-bC
-bM
-bV
-bM
-bV
-bM
-bV
-bM
-bV
-bM
-bV
-bM
-bV
-bM
-bV
-bM
-bV
-bM
-bV
-bM
-bV
-bM
-bV
-bM
-bV
-bM
-bV
-bM
-bV
-bM
-bV
-bM
+fl
+fl
+fl
+fl
+fl
+fl
+fl
+fl
+fl
+fl
+fl
+fl
+fl
+fl
+fl
+fl
+fl
+fl
+fl
+fl
+fl
+fl
+fl
+fl
+fl
+fl
+fl
+fl
+fl
+fl
+fl
+fl
 gm
-bM
+fl
 gm
-gn
+fl
 ar
 cg
 bP
@@ -30278,42 +30001,42 @@ ac
 ad
 ae
 bu
-bD
+bB
 bL
-bD
+bB
 cd
-bD
+bB
 cu
-bD
+bB
 cJ
-bD
+bB
 cW
-bD
+bB
 du
-bD
+bB
 dL
-bD
+bB
 ef
-bD
+bB
 bL
-bD
+bB
 cd
-bD
+bB
 cu
-bD
+bB
 cJ
-bD
+bB
 cW
-bD
+bB
 du
-bD
+bB
 dL
-bD
+bB
 ef
 ar
 ar
 ar
-fM
+fl
 fE
 cg
 bP
@@ -30568,9 +30291,9 @@ dV
 eg
 eq
 ar
-gt
-bM
-gN
+fl
+fl
+fl
 ar
 cg
 cP
@@ -30825,9 +30548,9 @@ de
 ar
 de
 ar
-gu
-gC
-fM
+fl
+fT
+fl
 ar
 fV
 ha
@@ -31080,11 +30803,11 @@ fK
 fT
 fj
 ar
-gd
-gn
-gv
-gD
-gO
+fj
+fl
+fl
+fl
+fl
 ar
 cg
 fu
@@ -31337,10 +31060,10 @@ fl
 fl
 fj
 ar
-ge
-gl
-bM
-gE
+fl
+fl
+fl
+fl
 fl
 ar
 cg
@@ -31597,7 +31320,7 @@ ar
 ar
 ar
 ar
-gF
+fE
 ar
 ar
 bG
@@ -31847,14 +31570,14 @@ fl
 fl
 fy
 ar
-fL
-bM
-bM
-gb
-bM
-bM
-bM
-gG
+fl
+fl
+fl
+fE
+fl
+fl
+fl
+fl
 fl
 ar
 cg
@@ -32104,7 +31827,7 @@ fm
 fs
 fl
 ar
-fM
+fl
 fU
 fX
 ar
@@ -32361,7 +32084,7 @@ ar
 ar
 ar
 ar
-fN
+de
 ar
 ar
 ar
@@ -37248,9 +36971,9 @@ fj
 fj
 fl
 ar
-gl
-bM
-gn
+fl
+fl
+fl
 fT
 fl
 ar
@@ -37509,7 +37232,7 @@ de
 ar
 gB
 gM
-gn
+fl
 ar
 bP
 hd
@@ -37765,8 +37488,8 @@ eg
 eq
 ar
 gt
-bM
-gT
+fl
+fl
 ar
 bP
 bP
@@ -38023,7 +37746,7 @@ ef
 ar
 ar
 ar
-fM
+fl
 fE
 bP
 bP
@@ -38245,42 +37968,42 @@ ac
 ad
 ae
 bu
-bC
-bM
-bV
-bM
-bV
-bM
-bV
-bM
-bV
-bM
-bV
-bM
-bV
-bM
-bV
-bM
-bV
-bM
-bV
-bM
-bV
-bM
-bV
-bM
-bV
-bM
-bV
-bM
-bV
-bM
-bV
-bM
+fl
+fl
+fl
+fl
+fl
+fl
+fl
+fl
+fl
+fl
+fl
+fl
+fl
+fl
+fl
+fl
+fl
+fl
+fl
+fl
+fl
+fl
+fl
+fl
+fl
+fl
+fl
+fl
+fl
+fl
+fl
+fl
 gm
-bM
+fl
 gm
-gO
+fl
 ar
 gY
 bP
@@ -38502,37 +38225,37 @@ ac
 ad
 ae
 bu
-bD
+bB
 bL
-bD
+bB
 cd
-bD
+bB
 cu
-bD
+bB
 cJ
-bD
+bB
 cW
-bD
+bB
 du
-bD
+bB
 dL
-bD
+bB
 ef
-bD
+bB
 bL
-bD
+bB
 cd
-bD
+bB
 cu
-bD
+bB
 cJ
-bD
+bB
 cW
-bD
+bB
 du
-bD
+bB
 dL
-bD
+bB
 ef
 ar
 de

@@ -988,6 +988,13 @@ var/list/wall_items = typecacheof(list(
 		arglist = list2params(arglist)
 	return "<a href='?src=\ref[D];[arglist]'>[content]</a>"
 
+
+// Proc used to notify AI of something.
+/proc/warn_ai(var/message)
+	for(var/mob/living/silicon/ai in mob_list)
+		if(ai.client)
+			to_chat(ai, span("warning", message))
+
 /proc/get_random_colour(var/simple, var/lower, var/upper)
 	var/colour
 	if(simple)
