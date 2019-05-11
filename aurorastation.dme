@@ -1646,6 +1646,7 @@
 #include "code\modules\mob\abstract\observer\logout.dm"
 #include "code\modules\mob\abstract\observer\observer.dm"
 #include "code\modules\mob\abstract\observer\say.dm"
+#include "code\modules\mob\abstract\unauthed\login.dm"
 #include "code\modules\mob\language\generic.dm"
 #include "code\modules\mob\language\language.dm"
 #include "code\modules\mob\language\monkey.dm"
