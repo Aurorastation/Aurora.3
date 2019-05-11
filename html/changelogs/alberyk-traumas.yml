@@ -1,7 +1,0 @@
-author: Alberyk
-
-delete-after: True
-
-changes: 
-  - tweak: "Reduced the sleeping and stun aspects of some traumas, such as the phobias and the concussion."
-  - rscdel: "Removed paralysis and narcoleps from the possible traumas selection."
