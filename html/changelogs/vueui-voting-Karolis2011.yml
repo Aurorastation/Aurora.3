@@ -1,0 +1,4 @@
+author: Karolis2011
+delete-after: True
+changes: 
+  - rscadd: "Made voting use VueUi framework. Now numbers update automatically!"
