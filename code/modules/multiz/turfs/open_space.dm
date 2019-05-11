@@ -134,10 +134,7 @@
 /turf/simulated/open/Initialize(mapload)
 	. = ..()
 	icon_state = ""	// Clear out the debug icon.
-	shadower = new(src)
-	if (!(flags & MIMIC_OVERWRITE) && plane == PLANE_SPACE_BACKGROUND)
-		// If the plane is default and we're a no_mutate turf, force it to 0 so the icon works properly.
-		plane = 0
+
 	update(mapload)
 
 /**
