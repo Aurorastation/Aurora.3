@@ -519,6 +519,11 @@
 	name = "New Kingdom of Adhomai flag"
 	desc = "The blue flag of the New Kingdom of Adhomai."
 	flag_path = "nka"
+	description_fluff = " The New Kingdom is ruled by a Njarir’Akhran noble line that survived the previous Revolution by remaining in hiding, owing to the efforts of their supporters. \
+	Ruled by King Vahzirthaamro Azunja specifically, he denounces both other factions in the civil war as illegitimate and himself as the only legitimate ruler of Adhomai. \
+	Supporters of the New Kingdom tend to be rare outside lands it controls. However, they believe strongly that the current republic on Adhomai was founded on genocide and unspeakable \
+	slaughters. The New Kingdom puts forth the ideology that Republicanism is bloodshed. The only way to return Adhomai to peace and prosperity is to learn from the mistakes of the \
+	ancient nobles and Republicans, and create a new noble dynasty."
 
 /obj/item/weapon/flag/nka/l
 	flag_size = 1
@@ -527,6 +532,11 @@
 	name = "New Kingdom of Adhomai flag"
 	desc = "The blue flag of the New Kingdom of Adhomai."
 	icon_state = "nka"
+	description_fluff = " The New Kingdom is ruled by a Njarir’Akhran noble line that survived the previous Revolution by remaining in hiding, owing to the efforts of their supporters. \
+	Ruled by King Vahzirthaamro Azunja specifically, he denounces both other factions in the civil war as illegitimate and himself as the only legitimate ruler of Adhomai. \
+	Supporters of the New Kingdom tend to be rare outside lands it controls. However, they believe strongly that the current republic on Adhomai was founded on genocide and unspeakable \
+	slaughters. The New Kingdom puts forth the ideology that Republicanism is bloodshed. The only way to return Adhomai to peace and prosperity is to learn from the mistakes of the \
+	ancient nobles and Republicans, and create a new noble dynasty."
 
 /obj/structure/sign/flag/nka/left
 	icon_state = "nka_l"
