@@ -173,3 +173,33 @@
 	icon_state = "miner"
 	item_state = "lb_suit"
 	worn_state = "miner"
+
+/obj/item/clothing/under/rank/hephaestus
+	name = "Hephaestus Industries uniform"
+	desc = "A uniform worn by Hephaestus Industries employees and contractors."
+	icon_state = "heph"
+	worn_state = "heph"
+
+/obj/item/clothing/under/rank/necropolis
+	name = "Necropolis Industries uniform"
+	desc = "A uniform worn by Necropolis Industries employees and contractors."
+	icon_state = "necro"
+	worn_state = "necro"
+
+/obj/item/clothing/under/rank/idris
+	name = "Idris Incorporated uniform"
+	desc = "A uniform worn by Idris Incorporated employees and contractors."
+	icon_state = "idris"
+	worn_state = "idris"
+
+/obj/item/clothing/under/rank/einstein_engines
+	name = "Einstein Engines uniform"
+	desc = "A uniform worn by Einstein Engines Incorporated employees and contractors."
+	icon_state = "einstein_engine"
+	worn_state = "einstein_engine"
+
+/obj/item/clothing/under/rank/zheng
+	name = "Zheng-Hu uniform"
+	desc = "A uniform worn by Zheng-Hu employees and contractors."
+	icon_state = "zhu"
+	worn_state = "zhu"
