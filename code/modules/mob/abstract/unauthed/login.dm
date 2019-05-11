@@ -49,17 +49,20 @@
 	unauthed -= token
 
 /mob/abstract/unauthed/Topic(href, href_list)
+	if(!src.client)
+		qdel(src)
+		return
 	switch(href_list["authaction"])
 		if("guest")
 			if(config.guests_allowed)
 				src.ClientLogin(null)
 			else
-				del(src)
+				qdel(src)
 		if("forums")
 			if(config.external_auth)
 				src.OpenForumAuthWindow()
 			else
-				del(src)
+				qdel(src)
 
 /mob/abstract/unauthed/proc/OpenForumAuthWindow()
 	src << link("[config.webint_url]server/auth?token=[token]")
