@@ -81,6 +81,10 @@
 	name = "Surface Maintenance"
 	icon_state = "maint_arrivals"
 
+/area/maintenance/commissary
+	name = "Old Commissary"
+	icon_state = "red"
+
 /area/maintenance/bar
 	name = "Bar Maintenance"
 	icon_state = "maint_bar"
@@ -145,7 +149,7 @@
 /area/maintenance/medbay
 	name = "Medbay Maintenance"
 	icon_state = "maint_medbay"
-	
+
 /area/maintenance/medbay_interstitial
 	name = "\improper Medbay Interstitial Maintenance"
 	icon_state = "maint_medbay"

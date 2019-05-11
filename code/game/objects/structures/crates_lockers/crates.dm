@@ -526,6 +526,15 @@
 	icon_opened = "weaponcrateopen"
 	icon_closed = "weaponcrate"
 
+/obj/structure/closet/crate/secure/legion
+	name = "foreign legion supply crate"
+	desc = "A secure supply crate, It carries the insignia of the Tau Ceti Foreign Legion. It appears quite scuffed."
+	icon_state = "tcflcrate"
+	icon_opened = "tcflcrateopen"
+	icon_closed = "tcflcrate"
+	req_access = list(access_legion)
+
+
 /obj/structure/closet/crate/secure/phoron
 	name = "phoron crate"
 	desc = "A secure phoron crate."
