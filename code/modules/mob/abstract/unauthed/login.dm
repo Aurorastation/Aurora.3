@@ -16,9 +16,9 @@
 	var/uihtml = "<html><head><style>body * {display: block;text-align:center;margin: 14px 0;font-size:24px;text-decoration:none;font-family:Segoe UI,Frutiger,Frutiger Linotype,Dejavu Sans,Helvetica Neue,Arial,sans-serif;}</style></head><body><p>Please select:</p>"
 	if(config.guests_allowed)
 		uihtml += "<a href='?src=\ref[src];authaction=guest'>Login as guest</a>"
-	if(config.webint_url)
+	if(config.webint_url && config.external_auth)
 		uihtml += "<a href='?src=\ref[src];authaction=forums'>Login via forums</a>"
-	if(!config.guests_allowed && config.webint_url)
+	if(!config.guests_allowed && config.webint_url && config.external_auth)
 		src.OpenForumAuthWindow()
 	show_browser(src, uihtml, "window=auth;size=300x300;border=0;can_close=0;can_resize=0;can_minimize=0;titlebar=1")
 
@@ -51,9 +51,15 @@
 /mob/abstract/unauthed/Topic(href, href_list)
 	switch(href_list["authaction"])
 		if("guest")
-			src.ClientLogin(null)
+			if(config.guests_allowed)
+				src.ClientLogin(null)
+			else
+				del(src)
 		if("forums")
-			src.OpenForumAuthWindow()
+			if(config.guests_allowed)
+				src.OpenForumAuthWindow()
+			else
+				del(src)
 
 /mob/abstract/unauthed/proc/OpenForumAuthWindow()
 	src << link("[config.webint_url]server/auth?token=[token]")
