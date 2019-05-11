@@ -56,7 +56,7 @@
 			else
 				del(src)
 		if("forums")
-			if(config.guests_allowed)
+			if(config.external_auth)
 				src.OpenForumAuthWindow()
 			else
 				del(src)
