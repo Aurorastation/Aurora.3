@@ -86,7 +86,7 @@
 		"door_lock" = 	docking_program.memory["door_status"]["lock"],
 		"mode" = pod.mode,
 		"emagged" = emagged,
-		"can_force" = pod.can_force() || (emergency_shuttle.departed && pod.can_launch()),	//allow players to manually launch ahead of time if the shuttle leaves
+		"can_force" = pod.can_force() || emagged || (emergency_shuttle.departed && pod.can_launch()),	//allow players to manually launch ahead of time if the shuttle leaves
 		"is_armed" = pod.arming_controller.armed
 	)
 
@@ -102,14 +102,14 @@
 	if(..())
 		return 1
 
-	if("manual_arm")
+	if(href_list["command"] == "manual_arm")
 		pod.arming_controller.arm()
-	if("force_launch")
+	else if(href_list["command"] == "force_launch")
 		if (pod.can_force())
 			pod.force_launch(src)
 		else if (emergency_shuttle.departed && pod.can_launch())	//allow players to manually launch ahead of time if the shuttle leaves
 			pod.launch(src)
-	if("destination")
+	else if(href_list["command"] == "destination")
 		var/m = text2num(href_list["destination"])
 		if(!m)
 			return
@@ -123,7 +123,11 @@
 		pod.mode = m
 	return 0
 
-
+/obj/machinery/embedded_controller/radio/simple_docking_controller/escape_pod/emag_act(var/remaining_charges, var/mob/user)
+	emagged = TRUE
+	to_chat(user, span("notice", "You short circuit the control. Unlocking new destination!"))
+	warn_ai("Warning: malware detected in one of the escape pods controllers!")
+	return TRUE
 
 //This controller is for the escape pod berth (station side)
 /obj/machinery/embedded_controller/radio/simple_docking_controller/escape_pod_berth
