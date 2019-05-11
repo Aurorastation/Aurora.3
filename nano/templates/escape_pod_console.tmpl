@@ -93,3 +93,15 @@
 		</div>
 	</div>
 </div>
+<div class="item" style="padding-top: 10px">
+	<div class="item">
+		<div class="itemContent" style="padding-top: 2px; width: 100%">
+		{{if data.emmaged == 1}}
+			Escape Pod is hacked. New destination is available.
+			{{:helper.link('Hidden Base', 'alert', {'destination' : 3}, data.mode == 3 ? 'selected' : 'null', null)}}
+		{{/if}}
+		{{:helper.link('Recovery Ship', 'alert', {'destination' : 1}, data.mode == 1 ? 'selected' : 'null', null)}}
+		{{:helper.link('Asteroid Field', 'alert', {'destination' : 2}, data.mode == 2 ? 'selected' : 'null', null)}}
+		</div>
+	</div>
+</div>
