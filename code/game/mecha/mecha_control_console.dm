@@ -3,7 +3,6 @@
 
 /obj/machinery/computer/mecha
 	name = "Exosuit Control"
-	icon = 'icons/obj/computer.dmi'
 
 	icon_screen = "mecha"
 	light_color = "#a97faa"

@@ -34,3 +34,4 @@
 	var/coughedtime = null // should only be useful for carbons as the only thing using it has a carbon arg.
 
 	var/willfully_sleeping = 0
+	var/consume_nutrition_from_air = FALSE // used by Diona

@@ -128,7 +128,8 @@ var/global/list/ticket_panels = list()
 
 	if (!admin_found)
 		message_admins("<span class='danger'><b>[owner]'s ticket has yet to be closed!</b></span>")
-		for(var/client/C in admins)
+		for(var/s in staff)
+			var/client/C = s
 			if((C.holder.rights & (R_ADMIN|R_MOD)) && (C.prefs.toggles & SOUND_ADMINHELP))
 				sound_to(C, 'sound/effects/adminhelp.ogg')
 

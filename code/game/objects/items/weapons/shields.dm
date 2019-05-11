@@ -142,7 +142,7 @@
 
 	if(.)
 		spark(user.loc, 5)
-		playsound(user.loc, 'sound/weapons/blade1.ogg', 50, 1)
+		playsound(user.loc, 'sound/weapons/blade.ogg', 50, 1)
 
 	//block as long as they are not directly behind us
 	var/bad_arc = reverse_direction(user.dir) //arc of directions from which we cannot block
@@ -150,7 +150,7 @@
 
 		if(prob(get_block_chance(user, damage, damage_source, attacker)))
 			spark(user.loc, 5)
-			playsound(user.loc, 'sound/weapons/blade1.ogg', 50, 1)
+			playsound(user.loc, 'sound/weapons/blade.ogg', 50, 1)
 			shield_power -= round(damage/4)
 
 			if(shield_power <= 0)
@@ -194,7 +194,7 @@
 	return base_block_chance
 
 /obj/item/weapon/shield/energy/attack_self(mob/living/user as mob)
-	if ((CLUMSY in user.mutations) && prob(50))
+	if ((user.is_clumsy()) && prob(50))
 		to_chat(user, "<span class='warning'>You beat yourself in the head with [src].</span>")
 		user.take_organ_damage(5)
 	active = !active

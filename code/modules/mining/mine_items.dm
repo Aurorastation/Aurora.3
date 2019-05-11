@@ -58,7 +58,7 @@
 	var/digspeed //moving the delay to an item var so R&D can make improved picks. --NEO
 	origin_tech = list(TECH_MATERIAL = 1, TECH_ENGINEERING = 1)
 	attack_verb = list("hit", "pierced", "sliced", "attacked")
-	var/drill_sound = 'sound/weapons/chisel1.ogg'
+	var/drill_sound = "pickaxe"
 	var/drill_verb = "excavating"
 	var/autodrill = 0 //pickaxes must be manually swung to mine, drills can mine rocks via bump
 	sharp = 1
@@ -88,6 +88,14 @@
 	digspeed = digspeed_wielded
 	name = "[name] (Wielded)"
 	update_icon()
+
+/obj/item/weapon/pickaxe/update_icon()
+		..()
+		if(wielded)
+				item_state = "[initial(icon_state)]-wielded"
+		else
+				item_state = initial(item_state)
+		update_held_icon()
 
 /obj/item/weapon/pickaxe/mob_can_equip(M as mob, slot)
 	//Cannot equip wielded items.
@@ -1091,7 +1099,7 @@ var/list/total_extraction_beacons = list()
 	origin_tech = list(TECH_MAGNET = 4, TECH_ENGINEERING = 3)
 
 /obj/item/weapon/oremagnet/attack_self(mob/user)
-	if (use_check(user))
+	if (use_check_and_message(user))
 		return
 
 	toggle_on(user)

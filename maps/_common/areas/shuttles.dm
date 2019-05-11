@@ -307,11 +307,18 @@
 
 /area/shuttle/research/station
 	icon_state = "shuttle2"
+	flags = RAD_SHIELDED | SPAWN_ROOF
+	base_turf = /turf/simulated/floor/asteroid/ash
 	station_area = 1
 
 /area/shuttle/research/outpost
 	icon_state = "shuttle"
-	station_area = 1
+	base_turf = /turf/space
+
+/area/shuttle/research/away
+	icon_state = "shuttle"
+	station_area = 0
+	base_turf = /turf/space
 
 /area/shuttle/legion/centcom
 	name = "\improper Foreign Legion Shuttle"
@@ -325,3 +332,4 @@
 	icon_state = "shuttlegrn2"
 	base_turf = /turf/simulated/floor/asteroid/ash
 	station_area = 1
+

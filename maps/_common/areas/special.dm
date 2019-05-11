@@ -55,6 +55,11 @@
 	no_light_control = 1
 	base_turf = /turf/simulated/shuttle/floor
 	centcomm_area = 1
+/area/centcom/checkpoint/fore
+	name = "\improper Fore Checkpoint"
+
+/area/centcom/checkpoint/aft
+	name = "\improper Aft Checkpoint"
 
 /area/centcom/legion
 	name = "\improper Tau Ceti Foreign Legion Base"

@@ -201,6 +201,7 @@
 	var/title		 // The real name of the book.
 	var/carved = 0	 // Has the book been hollowed out for use as a secret storage item?
 	var/obj/item/store	//What's in the book?
+	drop_sound = 'sound/bureaucracy/bookclose.ogg'
 
 /obj/item/weapon/book/attack_self(var/mob/user as mob)
 	if(carved)
@@ -215,6 +216,7 @@
 	if(src.dat)
 		user << browse("<TT><I>Penned by [author].</I></TT> <BR>" + "[dat]", "window=book")
 		user.visible_message("[user] opens a book titled \"[src.title]\" and begins reading intently.")
+		playsound(loc, 'sound/bureaucracy/bookopen.ogg', 50, 1)
 		onclose(user, "book")
 	else
 		to_chat(user, "This book is completely blank!")
@@ -297,6 +299,8 @@
 		to_chat(user, "<span class='notice'>You begin to carve out [title].</span>")
 		if(do_after(user, 30))
 			to_chat(user, "<span class='notice'>You carve out the pages from [title]! You didn't want to read it anyway.</span>")
+			playsound(loc, 'sound/bureaucracy/papercrumple.ogg', 50, 1)
+			new /obj/item/weapon/shreddedp(get_turf(src))
 			carved = 1
 			return
 	else
