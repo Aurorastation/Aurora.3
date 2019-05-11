@@ -184,6 +184,7 @@
 	var/uniform = list()
 	uniform["Necropolis Industries security uniform"] = /obj/item/clothing/under/rank/security/necropolis
 	uniform["Idris Incorporated security uniform"] = /obj/item/clothing/under/rank/security/idris
+	uniform["Idris Incorporated security uniform, alternative"] = /obj/item/clothing/under/rank/security/idris/alt
 	uniform["Eridani PMC uniform"] = /obj/item/clothing/under/rank/security/eridani
 	gear_tweaks += new/datum/gear_tweak/path(uniform)
 

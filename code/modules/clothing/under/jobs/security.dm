@@ -76,6 +76,10 @@
 	icon_state = "idris_sec"
 	worn_state = "idris_sec"
 
+/obj/item/clothing/under/rank/security/idris/alt
+	icon_state = "idris_alt"
+	worn_state = "idris_alt"
+
 /obj/item/clothing/under/rank/security/eridani
 	name = "Eridani PMC uniform"
 	desc = "A uniform worn by contracted Eridani security forces."
