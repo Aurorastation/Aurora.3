@@ -70,7 +70,7 @@
 
 	uniform = /obj/item/clothing/under/rank/medical
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat
-	shoes = /obj/item/clothing/shoes/white
+	shoes = /obj/item/clothing/shoes/medical
 	l_ear = /obj/item/device/radio/headset/headset_med
 	pda = /obj/item/device/pda/medical
 	suit_store = /obj/item/device/flashlight/pen
@@ -130,7 +130,7 @@
 
 	uniform = /obj/item/clothing/under/rank/pharmacist
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat/pharmacist
-	shoes = /obj/item/clothing/shoes/white
+	shoes = /obj/item/clothing/shoes/medical
 	l_ear = /obj/item/device/radio/headset/headset_med
 	pda =  /obj/item/device/pda/chemist
 
@@ -246,7 +246,7 @@
 	jobtype = /datum/job/intern_med
 
 	uniform = /obj/item/clothing/under/rank/medical
-	shoes = /obj/item/clothing/shoes/white
+	shoes = /obj/item/clothing/shoes/medical
 	l_ear = /obj/item/device/radio/headset/headset_med
 
 	backpack = /obj/item/weapon/storage/backpack/medic

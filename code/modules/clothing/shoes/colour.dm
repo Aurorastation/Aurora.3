@@ -18,31 +18,37 @@
 
 /obj/item/clothing/shoes/blue
 	name = "blue shoes"
+	desc = "A pair of light blue shoes."
 	icon_state = "blue"
 
 /obj/item/clothing/shoes/green
 	name = "green shoes"
+	desc = "A pair of gaudy green shoes."
 	icon_state = "green"
 
 /obj/item/clothing/shoes/yellow
 	name = "yellow shoes"
+	desc = "A pair of garish yellow shoes."
 	icon_state = "yellow"
 
 /obj/item/clothing/shoes/purple
 	name = "purple shoes"
+	desc = "A pair of vibrant purple shoes."
 	icon_state = "purple"
-
-/obj/item/clothing/shoes/brown
-	name = "brown shoes"
-	icon_state = "brown"
 
 /obj/item/clothing/shoes/red
 	name = "red shoes"
-	desc = "Stylish red shoes."
+	desc = "A pair of stylish red shoes."
 	icon_state = "red"
 
 /obj/item/clothing/shoes/white
 	name = "white shoes"
+	desc = "A pair of classy white shoes."
+	icon_state = "mime"
+
+/obj/item/clothing/shoes/medical
+	name = "chem-safe white shoes"
+	desc = "A pair of chemically resistant shoes intended for safety around chemicals."
 	icon_state = "mime"
 
 /obj/item/clothing/shoes/leather
@@ -52,11 +58,12 @@
 
 /obj/item/clothing/shoes/rainbow
 	name = "rainbow shoes"
-	desc = "Very gay shoes."
+	desc = "A pair of overly colorful shoes."
 	icon_state = "rain_bow"
 
 /obj/item/clothing/shoes/orange
 	name = "orange shoes"
+	desc = "A pair of easily noticed, reflective orange shoes."
 	icon_state = "orange"
 	var/obj/item/weapon/handcuffs/chained = null
 
