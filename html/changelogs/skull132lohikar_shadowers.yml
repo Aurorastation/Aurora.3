@@ -1,0 +1,6 @@
+author: Skull132 by advice of Lohikar
+
+delete-after: True
+
+changes:
+  - bugfix: "Shadows in open spaces were supposedly twice as dark as they should be."
