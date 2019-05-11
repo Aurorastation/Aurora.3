@@ -26779,9 +26779,6 @@
 /obj/machinery/light/small{
 	dir = 1
 	},
-/obj/effect/landmark{
-	name = "Tau Ceti Legion"
-	},
 /turf/unsimulated/floor{
 	icon_state = "floor"
 	},
@@ -27361,9 +27358,6 @@
 "xVL" = (
 /obj/machinery/light/small{
 	dir = 4
-	},
-/obj/effect/landmark{
-	name = "Tau Ceti Legion"
 	},
 /turf/unsimulated/floor{
 	icon_state = "floor"
@@ -90814,7 +90808,7 @@ xYv
 xQw
 xRN
 xYC
-xYC
+xYz
 xYC
 xYz
 xXZ
@@ -91584,7 +91578,7 @@ xNT
 xPf
 xZf
 xRQ
-xYC
+xYz
 xUt
 xYC
 xYc
