@@ -244,9 +244,8 @@
 
 /obj/item/throw_impact(atom/hit_atom)
 	..()
-	for(var/mob/M in player_list)
-		if(drop_sound && M.check_drop_sound_pref())
-			playsound(src, drop_sound, 50, 0)
+	if(drop_sound)
+		playsound(src, drop_sound, 50, 0, required_asfx_toggles = ASFX_DROPSOUND)
 
 //Apparently called whenever an item is dropped on the floor, thrown, or placed into a container.
 //It is called after loc is set, so if placed in a container its loc will be that container.

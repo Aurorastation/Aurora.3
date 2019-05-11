@@ -203,9 +203,8 @@ var/list/slot_equipment_priority = list( \
 	if(QDELETED(I))
 		return
 
-	for(var/mob/M in player_list)
-		if(I.drop_sound && M.check_drop_sound_pref())
-			playsound(I, I.drop_sound, 25, 0)
+	if(I.drop_sound)
+		playsound(I, I.drop_sound, 25, 0, required_asfx_toggles = ASFX_DROPSOUND)
 
 /*
 	Removes the object from any slots the mob might have, calling the appropriate icon update proc.

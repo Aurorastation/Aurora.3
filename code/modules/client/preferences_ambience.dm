@@ -68,9 +68,9 @@
 	set category = "SoundFx Prefs"
 	set desc = "Toggles hearing dropping and throwing sound effects"
 
-	prefs.asfx_togs ^= ASFX_DROP
+	prefs.asfx_togs ^= ASFX_DROPSOUND
 	prefs.save_preferences()
-	if(prefs.asfx_togs & ASFX_DROP)
+	if(prefs.asfx_togs & ASFX_DROPSOUND)
 		to_chat(src, "You will now hear dropping and throwing sounds.")
 	else
 		to_chat(src, "<font color='red'>You will no longer hear dropping and throwing sounds.</font>")
