@@ -50,6 +50,7 @@
 	name = "chem-safe white shoes"
 	desc = "A pair of chemically resistant shoes intended for safety around chemicals."
 	icon_state = "mime"
+	permeability_coefficient = 0.01
 
 /obj/item/clothing/shoes/leather
 	name = "leather shoes"
