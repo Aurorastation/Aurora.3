@@ -22104,6 +22104,22 @@
 	dir = 5
 	},
 /area/centcom/living)
+"egd" = (
+/obj/vehicle/droppod{
+	pixel_y = 0
+	},
+/obj/effect/floor_decal/spline/plain{
+	icon_state = "spline_plain";
+	dir = 5
+	},
+/obj/effect/floor_decal/spline/plain{
+	dir = 10;
+	icon_state = "spline_plain"
+	},
+/turf/unsimulated/floor{
+	icon_state = "panelscorched"
+	},
+/area/centcom/legion_base/hangar5)
 "ehq" = (
 /obj/machinery/door/unpowered/shuttle,
 /turf/simulated/shuttle/floor,
@@ -23515,16 +23531,23 @@
 /area/centcom/legion_base/hangar5)
 "xpB" = (
 /obj/vehicle/droppod{
-	pixel_y = 6
+	pixel_y = 0
 	},
-/obj/effect/floor_decal/industrial/warning,
-/obj/machinery/light/small/emergency{
-	dir = 4;
-	name = "drop pod light";
-	pixel_y = -14
+/obj/effect/floor_decal/spline/plain{
+	icon_state = "spline_plain";
+	dir = 1
+	},
+/obj/effect/floor_decal/spline/plain,
+/obj/effect/floor_decal/spline/plain{
+	icon_state = "spline_plain";
+	dir = 4
+	},
+/obj/effect/floor_decal/spline/plain{
+	icon_state = "spline_plain";
+	dir = 8
 	},
 /turf/unsimulated/floor{
-	icon_state = "engine"
+	icon_state = "panelscorched"
 	},
 /area/centcom/legion_base/hangar5)
 "xpF" = (
@@ -23782,42 +23805,46 @@
 /area/centcom/legion_base/hangar5)
 "xqI" = (
 /obj/machinery/door/blast/regular{
-	dir = 4;
+	dir = 2;
 	id = "tcfldroppods";
 	name = "Droppod 1"
 	},
+/obj/effect/floor_decal/industrial/warning,
 /turf/unsimulated/floor{
-	icon_state = "dark"
+	icon_state = "engine"
 	},
 /area/centcom/legion_base/hangar5)
 "xqK" = (
 /obj/machinery/door/blast/regular{
-	dir = 4;
+	dir = 2;
 	id = "tcfldroppods";
 	name = "Droppod 2"
 	},
+/obj/effect/floor_decal/industrial/warning,
 /turf/unsimulated/floor{
-	icon_state = "dark"
+	icon_state = "engine"
 	},
 /area/centcom/legion_base/hangar5)
 "xqM" = (
 /obj/machinery/door/blast/regular{
-	dir = 4;
+	dir = 2;
 	id = "tcfldroppods";
 	name = "Droppod 3"
 	},
+/obj/effect/floor_decal/industrial/warning,
 /turf/unsimulated/floor{
-	icon_state = "dark"
+	icon_state = "engine"
 	},
 /area/centcom/legion_base/hangar5)
 "xqO" = (
 /obj/machinery/door/blast/regular{
-	dir = 4;
+	dir = 2;
 	id = "tcfldroppods";
 	name = "Droppod 4"
 	},
+/obj/effect/floor_decal/industrial/warning,
 /turf/unsimulated/floor{
-	icon_state = "dark"
+	icon_state = "engine"
 	},
 /area/centcom/legion_base/hangar5)
 "xqQ" = (
@@ -92586,7 +92613,7 @@ aaM
 aaM
 aaM
 xZf
-xpB
+egd
 xqO
 xYv
 xYv
