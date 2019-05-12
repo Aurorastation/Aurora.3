@@ -243,8 +243,7 @@ var/datum/controller/subsystem/vote/SSvote
 					if(!M)
 						continue
 					AddChoice(F, capitalize(M.name), "[M.required_players]")
-				if(ROUNDTYPE_STR_SECRET in choices)
-					AddChoice(ROUNDTYPE_STR_SECRET, "Secret")
+				AddChoice(ROUNDTYPE_STR_SECRET, "Secret")
 				if(ROUNDTYPE_STR_MIXED_SECRET in choices)
 					AddChoice(ROUNDTYPE_STR_MIXED_SECRET, "Mixed Secret")
 			if("crew_transfer")
