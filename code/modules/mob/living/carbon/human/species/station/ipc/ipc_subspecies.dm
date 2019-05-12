@@ -384,8 +384,8 @@
 
 	blurb = "A simple and archaic robotic frame, used mostly as a temporary body before posibrains are transferred to any specialized chassis."
 
-	icobase = 'icons/mob/human_races/robotic.dmi'
-	deform = 'icons/mob/human_races/robotic.dmi'
+	icobase = 'icons/mob/human_races/ipc/robotic.dmi'
+	deform = 'icons/mob/human_races/ipc/robotic.dmi'
 	eyes = "eyes_s"
 
 	bald = 1

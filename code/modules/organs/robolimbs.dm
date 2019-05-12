@@ -59,7 +59,7 @@ var/global/datum/robolimb/basic_robolimb
 /datum/robolimb/ipc
 	company = PROSTHETIC_IPC
 	desc = "This limb is simple and functional; no effort has been made to make it look human."
-	icon = 'icons/mob/human_races/r_machine.dmi'
+	icon = 'icons/mob/human_races/ipc/r_machine.dmi'
 	unavailable_at_chargen = 1
 	paintable = 1
 	linked_frame = "Baseline Frame"
@@ -67,27 +67,27 @@ var/global/datum/robolimb/basic_robolimb
 /datum/robolimb/industrial
 	company = PROSTHETIC_IND
 	desc = "This limb is more robust than the standard Hephaestus Integrated Limb, and is better suited for industrial machinery."
-	icon = 'icons/mob/human_races/r_industrial.dmi'
+	icon = 'icons/mob/human_races/ipc/r_industrial.dmi'
 	unavailable_at_chargen = 1
 	linked_frame = "Hephaestus G1 Industrial Frame"
 
 /datum/robolimb/terminator
 	company = PROSTHETIC_HK
 	desc = "A ludicrously expensive and EMP shielded component, these types of limbs are best suited for highly specialized cyborgs."
-	icon = 'icons/mob/human_races/r_terminator.dmi'
+	icon = 'icons/mob/human_races/ipc/r_terminator.dmi'
 	unavailable_at_chargen = 1
 
 /datum/robolimb/human
 	company = PROSTHETIC_SYNTHSKIN
 	desc = "This limb is designed to mimic the Human form. It does so with moderate success."
-	icon = 'icons/mob/human_races/r_human.dmi'
+	icon = 'icons/mob/human_races/human/r_human.dmi'
 	species_can_use = list("Human")
 	linked_frame = "Shell Frame"
 
 /datum/robolimb/autakh
 	company = PROSTHETIC_AUTAKH
 	desc = "This limb has been designed by the Aut'akh sect, it was created to interact exclusively with their bodies and implants."
-	icon = 'icons/mob/human_races/r_autakh.dmi'
+	icon = 'icons/mob/human_races/unathi/r_autakh.dmi'
 	species_can_use = list("Aut'akh Unathi")
 	linked_frame = "Aut'akh Unathi"
 	unavailable_at_chargen = 1

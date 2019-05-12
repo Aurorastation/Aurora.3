@@ -5,8 +5,8 @@
 	bodytype = "Diona"
 	age_max = 1000
 	economic_modifier = 3
-	icobase = 'icons/mob/human_races/r_diona.dmi'
-	deform = 'icons/mob/human_races/r_def_plant.dmi'
+	icobase = 'icons/mob/human_races/diona/r_diona.dmi'
+	deform = 'icons/mob/human_races/diona/r_def_plant.dmi'
 	language = LANGUAGE_ROOTSONG
 	unarmed_types = list(
 		/datum/unarmed_attack/stomp,
