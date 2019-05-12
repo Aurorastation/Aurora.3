@@ -22104,22 +22104,6 @@
 	dir = 5
 	},
 /area/centcom/living)
-"egd" = (
-/obj/vehicle/droppod{
-	pixel_y = 0
-	},
-/obj/effect/floor_decal/spline/plain{
-	icon_state = "spline_plain";
-	dir = 5
-	},
-/obj/effect/floor_decal/spline/plain{
-	dir = 10;
-	icon_state = "spline_plain"
-	},
-/turf/unsimulated/floor{
-	icon_state = "panelscorched"
-	},
-/area/centcom/legion_base/hangar5)
 "ehq" = (
 /obj/machinery/door/unpowered/shuttle,
 /turf/simulated/shuttle/floor,
@@ -22389,6 +22373,43 @@
 	dir = 8
 	},
 /area/centcom/living)
+"oqs" = (
+/obj/vehicle/droppod{
+	pixel_y = 0
+	},
+/obj/effect/floor_decal/spline/plain{
+	icon_state = "spline_plain";
+	dir = 5
+	},
+/obj/effect/floor_decal/spline/plain{
+	dir = 10;
+	icon_state = "spline_plain"
+	},
+/turf/unsimulated/floor{
+	icon_state = "panelscorched"
+	},
+/area/centcom/legion_base/hangar5)
+"oxh" = (
+/obj/effect/floor_decal/spline/plain{
+	icon_state = "spline_plain";
+	dir = 1
+	},
+/obj/effect/floor_decal/spline/plain,
+/obj/effect/floor_decal/spline/plain{
+	icon_state = "spline_plain";
+	dir = 4
+	},
+/obj/effect/floor_decal/spline/plain{
+	icon_state = "spline_plain";
+	dir = 8
+	},
+/obj/vehicle/droppod{
+	pixel_y = 0
+	},
+/turf/unsimulated/floor{
+	icon_state = "panelscorched"
+	},
+/area/centcom/legion_base/hangar5)
 "oIb" = (
 /obj/machinery/light{
 	icon_state = "tube1";
@@ -91585,7 +91606,7 @@ xZf
 xmo
 xYv
 xZf
-xpB
+oxh
 xqK
 xYv
 xYv
@@ -92613,7 +92634,7 @@ aaM
 aaM
 aaM
 xZf
-egd
+oqs
 xqO
 xYv
 xYv
