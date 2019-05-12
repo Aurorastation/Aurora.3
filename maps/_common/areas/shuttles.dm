@@ -321,7 +321,7 @@
 	base_turf = /turf/space
 
 /area/shuttle/legion
-	name = "\improper Foreign Legion Shuttle"
+	name = "\improper Foreign Legion Dropship"
 	flags = RAD_SHIELDED | SPAWN_ROOF
 	icon_state = "shuttlegrn"
 	requires_power = 0

@@ -22333,6 +22333,27 @@
 	icon_state = "carpetside"
 	},
 /area/centcom/living)
+"mQs" = (
+/obj/effect/floor_decal/spline/plain{
+	icon_state = "spline_plain";
+	dir = 1
+	},
+/obj/effect/floor_decal/spline/plain,
+/obj/effect/floor_decal/spline/plain{
+	icon_state = "spline_plain";
+	dir = 4
+	},
+/obj/effect/floor_decal/spline/plain{
+	icon_state = "spline_plain";
+	dir = 8
+	},
+/obj/vehicle/droppod{
+	pixel_y = 0
+	},
+/turf/unsimulated/floor{
+	icon_state = "panelscorched"
+	},
+/area/centcom/legion_base/hangar5)
 "ncc" = (
 /obj/structure/bed/chair{
 	dir = 1
@@ -22373,43 +22394,6 @@
 	dir = 8
 	},
 /area/centcom/living)
-"oqs" = (
-/obj/vehicle/droppod{
-	pixel_y = 0
-	},
-/obj/effect/floor_decal/spline/plain{
-	icon_state = "spline_plain";
-	dir = 5
-	},
-/obj/effect/floor_decal/spline/plain{
-	dir = 10;
-	icon_state = "spline_plain"
-	},
-/turf/unsimulated/floor{
-	icon_state = "panelscorched"
-	},
-/area/centcom/legion_base/hangar5)
-"oxh" = (
-/obj/effect/floor_decal/spline/plain{
-	icon_state = "spline_plain";
-	dir = 1
-	},
-/obj/effect/floor_decal/spline/plain,
-/obj/effect/floor_decal/spline/plain{
-	icon_state = "spline_plain";
-	dir = 4
-	},
-/obj/effect/floor_decal/spline/plain{
-	icon_state = "spline_plain";
-	dir = 8
-	},
-/obj/vehicle/droppod{
-	pixel_y = 0
-	},
-/turf/unsimulated/floor{
-	icon_state = "panelscorched"
-	},
-/area/centcom/legion_base/hangar5)
 "oIb" = (
 /obj/machinery/light{
 	icon_state = "tube1";
@@ -22589,6 +22573,22 @@
 /obj/item/weapon/broken_bottle,
 /turf/template_noop,
 /area/template_noop)
+"tqQ" = (
+/obj/vehicle/droppod{
+	pixel_y = 0
+	},
+/obj/effect/floor_decal/spline/plain{
+	icon_state = "spline_plain";
+	dir = 5
+	},
+/obj/effect/floor_decal/spline/plain{
+	dir = 10;
+	icon_state = "spline_plain"
+	},
+/turf/unsimulated/floor{
+	icon_state = "panelscorched"
+	},
+/area/centcom/legion_base/hangar5)
 "twX" = (
 /obj/structure/shuttle/engine/propulsion{
 	dir = 4;
@@ -22787,6 +22787,7 @@
 /obj/item/weapon/storage/fancy/cigar,
 /obj/item/weapon/flame/lighter/zippo,
 /obj/item/clothing/glasses/eyepatch,
+/obj/item/clothing/glasses/eyepatch/hud/night,
 /turf/unsimulated/floor{
 	dir = 8;
 	icon_state = "wood"
@@ -24859,7 +24860,7 @@
 	icon_state = "door_locked";
 	id_tag = "legion_shuttle_aft_exterior";
 	locked = 1;
-	name = "Shuttle External Airlock";
+	name = "Dropship External Airlock";
 	req_access = list(111)
 	},
 /obj/machinery/access_button{
@@ -24879,7 +24880,7 @@
 /obj/machinery/door/airlock/hatch{
 	frequency = 1331;
 	id_tag = "legion_shuttle_hatch";
-	name = "Shuttle Hatch";
+	name = "Dropship Hatch";
 	req_access = list(111)
 	},
 /obj/machinery/door/blast/regular/open{
@@ -24902,7 +24903,7 @@
 /obj/machinery/door/airlock/hatch{
 	frequency = 1331;
 	id_tag = "legion_shuttle_hatch";
-	name = "Shuttle Hatch";
+	name = "Dropship Hatch";
 	req_access = list(111)
 	},
 /obj/machinery/door/blast/regular/open{
@@ -25076,7 +25077,7 @@
 	dir = 2;
 	frequency = 1331;
 	id_tag = "legion_shuttle_aft_pump";
-	name = "Shuttle Air Vent"
+	name = "Dropship Air Vent"
 	},
 /obj/machinery/embedded_controller/radio/airlock/docking_port_multi{
 	frequency = 1331;
@@ -25132,7 +25133,7 @@
 /obj/machinery/embedded_controller/radio/simple_docking_controller{
 	frequency = 1331;
 	id_tag = "legion_shuttle";
-	name = "Legion shuttle hatch controller";
+	name = "Legion dropship hatch controller";
 	pixel_y = 32;
 	tag_door = "legion_shuttle_hatch"
 	},
@@ -25296,7 +25297,7 @@
 	icon_state = "door_locked";
 	id_tag = "legion_shuttle_aft_interior";
 	locked = 1;
-	name = "Shuttle Internal Airlock";
+	name = "Dropship Internal Airlock";
 	req_access = list(111)
 	},
 /turf/simulated/shuttle/floor{
@@ -25466,7 +25467,7 @@
 	dir = 1;
 	frequency = 1331;
 	id_tag = "legion_shuttle_aft_pump";
-	name = "Shuttle Air Vent"
+	name = "Dropship Air Vent"
 	},
 /obj/machinery/airlock_sensor{
 	frequency = 1331;
@@ -25482,7 +25483,7 @@
 	dir = 1;
 	frequency = 1331;
 	id_tag = "legion_shuttle_aft_pump";
-	name = "Shuttle Air Vent"
+	name = "Dropship Air Vent"
 	},
 /turf/simulated/shuttle/floor{
 	icon_state = "floor7"
@@ -25626,7 +25627,7 @@
 	icon_state = "door_locked";
 	id_tag = "legion_shuttle_aft_exterior";
 	locked = 1;
-	name = "Shuttle External Airlock";
+	name = "Dropship External Airlock";
 	req_access = list(111)
 	},
 /obj/machinery/access_button{
@@ -25670,7 +25671,7 @@
 /obj/machinery/door/airlock/hatch{
 	frequency = 1331;
 	id_tag = "legion_shuttle_hatch";
-	name = "Shuttle Hatch";
+	name = "Dropship Hatch";
 	req_access = list(111)
 	},
 /obj/machinery/door/blast/regular/open{
@@ -25686,7 +25687,7 @@
 /obj/machinery/door/airlock/hatch{
 	frequency = 1331;
 	id_tag = "legion_shuttle_hatch";
-	name = "Shuttle Hatch";
+	name = "Dropship Hatch";
 	req_access = list(111)
 	},
 /obj/machinery/door/blast/regular/open{
@@ -91606,7 +91607,7 @@ xZf
 xmo
 xYv
 xZf
-oxh
+mQs
 xqK
 xYv
 xYv
@@ -92634,7 +92635,7 @@ aaM
 aaM
 aaM
 xZf
-oqs
+tqQ
 xqO
 xYv
 xYv
