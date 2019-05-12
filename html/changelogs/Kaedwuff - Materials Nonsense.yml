@@ -38,5 +38,5 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
-  - balance: "Constructable weapons such as spears and halberds have had their damage multiplier values severely nerfed. No longer can you create a weapon stronger than an energy glaive because you stuck some plasteel or diamond on top of a stick."
+  - balance: "Constructable weapons such as spears and halberds have had their damage multiplier values severely nerfed. Their damage values are now more in line with the rest of the weapons in the game."
   - tweak: "Gold is now much softer than it used to be (half as soft as glass, in fact) to conform with reality instead of nonsense game logic."
