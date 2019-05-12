@@ -8,7 +8,7 @@
           <th>Choices</th><th>Votes</th><th v-if="mode == 'gamemode'">Minimum Players</th>
         </tr>
         <tr v-for="(options, choice) in uichoices" :key="choice">
-          <td><vui-button :class="{on: choice == voted}" style="text-align:left;" :params="{action: 'vote', vote: choice}">{{options.name}}</vui-button></td><td>{{options.votes}}</td><td v-if="options.extra">{{options.extra}}</td>
+          <td style="text-align:left;"><vui-button :class="{on: choice == voted}" :params="{action: 'vote', vote: choice}">{{options.name}}</vui-button></td><td>{{options.votes}}</td><td v-if="options.extra">{{options.extra}}</td>
         </tr>
       </table>
       <hr>
