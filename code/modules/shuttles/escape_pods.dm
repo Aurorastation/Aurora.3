@@ -6,6 +6,7 @@
 	var/datum/computer/file/embedded_program/docking/simple/escape_pod/arming_controller
 	var/list/destinations[5]
 	var/mode = 1
+	var/mode_change = FALSE
 
 /datum/shuttle/ferry/escape_pod/init_docking_controllers()
 	..()
@@ -35,9 +36,7 @@
 /datum/shuttle/ferry/escape_pod/can_cancel()
 	return 0
 
-
-/datum/shuttle/ferry/escape_pod/launch(var/user)
-	if (!can_launch()) return
+/datum/shuttle/ferry/escape_pod/proc/check_capacity()
 	var/area/A = get_area(docking_controller.master)
 	var/num_mobs = 0
 	if(A)
@@ -46,13 +45,17 @@
 		if((num_mobs > capacity) && first_try) // Each passenger over capacity increases chances to crash by 50%
 			first_try = FALSE
 			docking_controller.master.visible_message("\bold [docking_controller.master]\ states \"<span class='warning'>Warning, escape pod is over capacity! The designated capacity is [capacity]. Forcing to launch may result into crashing of the pod!\"</span>")
-			return
+			return FALSE
 		else if(!first_try && prob((num_mobs - capacity) * 50))
 			process_state = CRASH_SHUTTLE
 			undock()
 			docking_controller.master.visible_message("\bold [docking_controller.master]\ states \"<span class='warning'>Warning, loosing altitude. Brace for impact!\"</span>")
-			return
+			return FALSE
+	return TRUE
 
+/datum/shuttle/ferry/escape_pod/launch(var/user)
+	if(!can_launch() || !check_capacity())
+		return
 	in_use = user	//obtain an exclusive lock on the shuttle
 
 	process_state = WAIT_LAUNCH
@@ -85,6 +88,7 @@
 		"door_state" = 	docking_program.memory["door_status"]["state"],
 		"door_lock" = 	docking_program.memory["door_status"]["lock"],
 		"mode" = pod.mode,
+		"mode_change" = pod.mode_change,
 		"emagged" = emagged,
 		"can_force" = pod.can_force() || emagged || (emergency_shuttle.departed && pod.can_launch()),	//allow players to manually launch ahead of time if the shuttle leaves
 		"is_armed" = pod.arming_controller.armed
@@ -105,11 +109,12 @@
 	if(href_list["command"] == "manual_arm")
 		pod.arming_controller.arm()
 	else if(href_list["command"] == "force_launch")
-		if (pod.can_force())
-			pod.force_launch(src)
+		if (pod.can_force() || emagged)
+			pod.check_capacity()
+			pod.force_launch(src, emagged)
 		else if (emergency_shuttle.departed && pod.can_launch())	//allow players to manually launch ahead of time if the shuttle leaves
 			pod.launch(src)
-	else if(href_list["command"] == "destination")
+	else if(href_list["destination"])
 		var/m = text2num(href_list["destination"])
 		if(!m)
 			return

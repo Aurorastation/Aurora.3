@@ -118,8 +118,8 @@
 	process_state = WAIT_LAUNCH
 	undock()
 
-/datum/shuttle/ferry/proc/force_launch(var/user)
-	if (!can_force()) return
+/datum/shuttle/ferry/proc/force_launch(var/user, var/emagged = FALSE)
+	if (!can_force() && !emagged) return
 
 	in_use = user	//obtain an exclusive lock on the shuttle
 
