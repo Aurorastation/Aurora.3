@@ -27,7 +27,7 @@
 #################################
 
 # Your name.  
-author: ParadoxSpace
+author: ParadoxSpace & DasFox
 
 # Optional: Remove this file after generating master changelog.  Useful for PR changelogs that won't get used again.
 delete-after: True
@@ -40,4 +40,5 @@ delete-after: True
 changes: 
   - rscadd: "Adds the old Eridani uniform from the week-long event. The dark one before this is now the alt uniform."
   - rscadd: "Adds Necropolis and Idris to the faction list, for contractors and such."
-  - tweak: "Idris Reclamation Unit coat is now ventillated."
+  - rscadd: "Replaces the Idris Alt uniform with a better sprite, made by DasFox."
+  - tweak: "Idris Reclamation Unit coat is now ventillated, and some sprite issues were fixed by TheLancer."
