@@ -540,8 +540,8 @@
 	name = "halberd"
 	desc = "A sharp axe mounted on the top of a long spear."
 	force = 10
-	unwielded_force_divisor = 0.2
-	force_divisor = 0.35
+	unwielded_force_divisor = 0.4
+	force_divisor = 0.6
 	sharp = 1
 	attack_verb = list("attacked", "poked", "jabbed","gored", "chopped", "cleaved", "torn", "cut", "stabbed")
 
