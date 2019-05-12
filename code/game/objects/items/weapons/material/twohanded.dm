@@ -218,9 +218,9 @@
 	force = 10
 	w_class = 4.0
 	slot_flags = SLOT_BACK
-	force_wielded = 0.75           // 22 when wielded with hardness 15 (glass)
-	unwielded_force_divisor = 0.65 // 14 when unwielded based on above
-	thrown_force_divisor = 1.5 // 20 when thrown with weight 15 (glass)
+	force_wielded = 0.35           // 22 when wielded with hardness 15 (glass)
+	unwielded_force_divisor = 0.2 // 14 when unwielded based on above
+	thrown_force_divisor = 0.4 // 20 when thrown with weight 15 (glass)
 	throw_speed = 3
 	edge = 1
 	sharp = 0
@@ -540,8 +540,8 @@
 	name = "halberd"
 	desc = "A sharp axe mounted on the top of a long spear."
 	force = 10
-	unwielded_force_divisor = 0.4
-	force_divisor = 0.6
+	unwielded_force_divisor = 0.2
+	force_divisor = 0.35
 	sharp = 1
 	attack_verb = list("attacked", "poked", "jabbed","gored", "chopped", "cleaved", "torn", "cut", "stabbed")
 
