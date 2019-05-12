@@ -70,7 +70,7 @@
 	id = "eglaive"
 	name = "energy glaive"
 	desc = "A Li'idra designed hardlight glaive reverse-engineered from schematics found amongst raider wreckages."
-	req_tech = list(TECH_COMBAT = 6, TECH_PHORON = 4, TECH_MATERIAL = 7, TECH_ILLEGAL = 4,TECH_POWER = 4)
+	req_tech = list(TECH_COMBAT = 6, TECH_PHORON = 4, TECH_MATERIAL = 7, TECH_ILLEGAL = 9,TECH_POWER = 4)
 	materials = list(DEFAULT_WALL_MATERIAL = 10000, "glass" = 18750, "phoron" = 3000, "silver" = 7500)
 	build_path = /obj/item/weapon/melee/energy/glaive
 	sort_string = "TVAAA"
