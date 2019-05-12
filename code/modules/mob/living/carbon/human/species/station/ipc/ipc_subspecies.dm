@@ -17,7 +17,7 @@
 	num_alternate_languages = 3
 
 	icobase = 'icons/mob/human_races/human/r_human.dmi'
-	deform = 'icons/mob/human_races/robotic.dmi'
+	deform = 'icons/mob/human_races/ipc/robotic.dmi'
 
 	light_range = 0
 	light_power = 0
