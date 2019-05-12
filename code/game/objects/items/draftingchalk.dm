@@ -25,6 +25,9 @@
 	color = "#FFFFFF"
 	var/colorName = "whitec"
 
+/obj/item/weapon/pen/drafting/attack_self(var/mob/user)
+	return
+
 /obj/item/weapon/pen/drafting/afterattack(turf/target, mob/user, proximity)
 	if (!proximity || !istype(target, /turf/simulated) || target.density || target.is_hole)
 		return
