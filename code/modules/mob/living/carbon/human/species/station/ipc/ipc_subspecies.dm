@@ -16,7 +16,7 @@
 
 	num_alternate_languages = 3
 
-	icobase = 'icons/mob/human_races/r_human.dmi'
+	icobase = 'icons/mob/human_races/human/r_human.dmi'
 	deform = 'icons/mob/human_races/robotic.dmi'
 
 	light_range = 0
@@ -83,8 +83,9 @@
 
 	blurb = "The first commercialized attempt Hephaestus Industries made at an industrial-type IPC. Designed for extra durability and increased weight loads, the first generation Industrial was considered a success, though it possessed some issues. A limited power cell and actuators designed for heavy lifting and not locomotion resulted in a slow and frequently charging machine. A special addition to the chassis makes up for these drawbacks - the ability to simply slot a suit cooling unit onto the model's back and make use of its built-in heat transferal conduits, allowing the Industrial to perform EVA without any extra peripherals such as a voidsuit."
 
-	icobase = 'icons/mob/human_races/r_industrial.dmi'
-	deform = 'icons/mob/human_races/r_industrial.dmi'
+	icobase = 'icons/mob/human_races/ipc/r_industrial.dmi'
+	deform = 'icons/mob/human_races/ipc/r_industrial.dmi'
+	preview_icon = 'icons/mob/human_races/ipc/industrial_preview.dmi'
 
 	eyes = "eyes_industry"
 	show_ssd = "completely quiescent"
@@ -134,8 +135,8 @@
 
 	blurb = "\[REDACTED\]"
 
-	icobase = 'icons/mob/human_races/r_terminator.dmi'
-	deform = 'icons/mob/human_races/r_terminator.dmi'
+	icobase = 'icons/mob/human_races/ipc/r_terminator.dmi'
+	deform = 'icons/mob/human_races/ipc/r_terminator.dmi'
 
 	light_range = 0
 	light_power = 0
@@ -234,8 +235,9 @@
 	short_name = "hif"
 	bodytype = "Heavy Machine"
 
-	icobase = 'icons/mob/human_races/r_ind_hephaestus.dmi'
-	deform = 'icons/mob/human_races/r_ind_hephaestus.dmi'
+	icobase = 'icons/mob/human_races/ipc/r_ind_hephaestus.dmi'
+	deform = 'icons/mob/human_races/ipc/r_ind_hephaestus.dmi'
+	preview_icon = 'icons/mob/human_races/ipc/ind_hephaestus_preview.dmi'
 
 	eyes = "heph_eyes"
 	slowdown = 6
@@ -268,8 +270,9 @@
 	short_name = "xmf"
 	bodytype = "Heavy Machine"
 
-	icobase = 'icons/mob/human_races/r_ind_xion.dmi'
-	deform = 'icons/mob/human_races/r_ind_xion.dmi'
+	icobase = 'icons/mob/human_races/ipc/r_ind_xion.dmi'
+	deform = 'icons/mob/human_races/ipc/r_ind_xion.dmi'
+	preview_icon = 'icons/mob/human_races/ipc/ind_xion_preview.dmi'
 
 	eyes = "xion_eyes"
 	flags = IS_IPC
@@ -302,8 +305,9 @@
 	short_name = "zhf"
 	bodytype = null
 
-	icobase = 'icons/mob/human_races/r_ind_zenghu.dmi'
-	deform = 'icons/mob/human_races/r_ind_zenghu.dmi'
+	icobase = 'icons/mob/human_races/ipc/r_ind_zenghu.dmi'
+	deform = 'icons/mob/human_races/ipc/r_ind_zenghu.dmi'
+	preview_icon = 'icons/mob/human_races/ipc/ind_zenghu_preview.dmi'
 
 	eyes = "zenghu_eyes"
 	brute_mod = 1.5
@@ -338,8 +342,9 @@
 	short_name = "bcf"
 	bodytype = null
 
-	icobase = 'icons/mob/human_races/r_ind_bishop.dmi'
-	deform = 'icons/mob/human_races/r_ind_bishop.dmi'
+	icobase = 'icons/mob/human_races/ipc/r_ind_bishop.dmi'
+	deform = 'icons/mob/human_races/ipc/r_ind_bishop.dmi'
+	preview_icon = 'icons/mob/human_races/ipc/ind_bishop_preview.dmi'
 
 	eyes = "bishop_eyes"
 	eyes_icon_blend = ICON_MULTIPLY
