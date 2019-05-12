@@ -5,11 +5,11 @@
 	var/active_w_class
 	sharp = 0
 	edge = 0
-	armor_penetration = 10
+	armor_penetration = 80
 	flags = NOBLOODY
 	can_embed = 0//No embedding pls
 	var/base_reflectchance = 40
-	var/base_block_chance = 25
+	var/base_block_chance = 40
 	var/shield_power = 100
 	var/can_block_bullets = 0
 
@@ -117,7 +117,7 @@
 
 /obj/item/weapon/melee/energy/glaive
 	name = "energy glaive"
-	desc = "An energized glaive."
+	desc = "An irregular, specialized weapon. Rumor has it the designs for these came from the Hegemony, others insist that this is a Zo'ra design. Whatever the case, in the right hands this is a very nasty weapon with superior reach over typical plasma-based melee weapons."
 	icon_state = "eglaive0"
 	active_force = 40
 	active_throwforce = 60
@@ -137,7 +137,6 @@
 	base_block_chance = 0 //cannot be used to block guns
 	shield_power = 0
 	can_block_bullets = 0
-	armor_penetration = 20
 
 /obj/item/weapon/melee/energy/glaive/activate(mob/living/user)
 	..()
@@ -163,14 +162,11 @@
  */
 /obj/item/weapon/melee/energy/axe
 	name = "energy axe"
-	desc = "An energised battle axe."
+	desc = "An energised battle axe. Scholars on plasma technology are baffled as to what the intended function of this weapon was meant to be outside of its most obvious explanation, that being a very lethal plasma-based melee weapon. It is only utilitarian in that it thrives in cutting life out of the galaxy, one sentient at a time."
 	icon_state = "axe0"
-	//active_force = 150 //holy...
 	active_force = 60
 	active_throwforce = 35
 	active_w_class = 5
-	//force = 40
-	//throwforce = 25
 	force = 20
 	throwforce = 10
 	throw_speed = 1
@@ -185,7 +181,6 @@
 	base_block_chance = 0 //cannot be used to block guns
 	shield_power = 0
 	can_block_bullets = 0
-	armor_penetration = 35
 
 /obj/item/weapon/melee/energy/axe/activate(mob/living/user)
 	..()
@@ -203,7 +198,7 @@
 /obj/item/weapon/melee/energy/sword
 	color
 	name = "energy sword"
-	desc = "May the force be within you."
+	desc = "Claimed to be an elegant weapon from more civilized times, energy swords were produced en-masse during the advent of the Interstellar War. Producing a laser cutter from its emitter, the energy blade is a nasty weapon capable of chewing through nearly all forms of protection and is capable of easily dispersing beam-projectiles with its localized diffusion field."
 	icon_state = "sword0"
 	active_force = 30
 	active_throwforce = 20
@@ -309,11 +304,10 @@
  */
 /obj/item/weapon/melee/energy/blade
 	name = "energy blade"
-	desc = "A concentrated beam of energy in the shape of a blade. Very stylish... and lethal."
+	desc = "A concentrated beam of energy in the shape of a blade. The plasma emission itself appears very unstable, but rests comfortably well in your hands nonetheless."
 	icon_state = "blade"
 	force = 40
 	active_force = 40 //Normal attacks deal very high damage - about the same as wielded fire axe
-	armor_penetration = 100
 	sharp = 1
 	edge = 1
 	anchored = 1    // Never spawned outside of inventory, should be fine.
