@@ -6,32 +6,32 @@
 		list(
 			/area/shuttle/escape_pod1/station, /area/shuttle/escape_pod1/centcom,
 			/area/shuttle/escape_pod1/transit, /area/shuttle/escape_pod1/centcom/antag,
-			/area/shuttle/escape_pod1/crashed
+			/area/shuttle/escape_pod1/centcom/space, /area/shuttle/escape_pod1/crashed
 		),
 		list(
 			/area/shuttle/escape_pod2/station, /area/shuttle/escape_pod2/centcom,
 			/area/shuttle/escape_pod2/transit, /area/shuttle/escape_pod2/centcom/antag,
-			/area/shuttle/escape_pod2/crashed
+			/area/shuttle/escape_pod2/centcom/space, /area/shuttle/escape_pod2/crashed
 		),
 		list(
 			/area/shuttle/escape_pod3/station, /area/shuttle/escape_pod3/centcom,
 			/area/shuttle/escape_pod3/transit, /area/shuttle/escape_pod3/centcom/antag,
-			/area/shuttle/escape_pod3/crashed
+			/area/shuttle/escape_pod3/centcom/space, /area/shuttle/escape_pod3/crashed
 		),
 		list(
 			/area/shuttle/escape_pod4/station, /area/shuttle/escape_pod4/centcom,
 			/area/shuttle/escape_pod4/transit, /area/shuttle/escape_pod4/centcom/antag,
-			/area/shuttle/escape_pod4/crashed
+			/area/shuttle/escape_pod4/centcom/space, /area/shuttle/escape_pod4/crashed
 		),
 		list(
 			/area/shuttle/escape_pod5/station, /area/shuttle/escape_pod5/centcom,
 			/area/shuttle/escape_pod5/transit, /area/shuttle/escape_pod5/centcom/antag,
-			/area/shuttle/escape_pod5/crashed
+			/area/shuttle/escape_pod5/centcom/space, /area/shuttle/escape_pod5/crashed
 		),
 		list(
 			/area/shuttle/escape_pod6/station, /area/shuttle/escape_pod6/centcom,
 			/area/shuttle/escape_pod6/transit, /area/shuttle/escape_pod6/centcom/antag,
-			/area/shuttle/escape_pod6/crashed
+			/area/shuttle/escape_pod6/centcom/space, /area/shuttle/escape_pod6/crashed
 		)
 	)
 
@@ -42,8 +42,9 @@
 		pod.area_offsite = locate(areas_p[x][2])
 		pod.area_transition = locate(areas_p[x][3])
 		pod.destinations[1] = areas_p[x][2]
+		pod.destinations[2] = areas_p[x][5]
 		pod.destinations[3] = areas_p[x][4]
-		pod.destinations[4] = areas_p[x][5]
+		pod.destinations[4] = areas_p[x][6]
 		pod.docking_controller_tag = "escape_pod_[x]"
 		pod.dock_target_station = "escape_pod_[x]_berth"
 		//pod.dock_target_offsite = "escape_pod_[x]_recovery"

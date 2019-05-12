@@ -22068,6 +22068,10 @@
 /obj/structure/grille,
 /turf/simulated/shuttle/plating,
 /area/template_noop)
+"cJi" = (
+/obj/structure/lattice/catwalk/indoor,
+/turf/space,
+/area/syndicate_mothership/elite_squad)
 "cRe" = (
 /turf/template_noop,
 /area/shuttle/escape_pod1/centcom/space)
@@ -22081,6 +22085,12 @@
 	},
 /turf/unsimulated/floor,
 /area/template_noop)
+"djC" = (
+/obj/structure/flora/pottedplant/random,
+/turf/unsimulated/floor{
+	icon_state = "floor4"
+	},
+/area/syndicate_mothership/elite_squad)
 "djI" = (
 /obj/machinery/light{
 	dir = 2;
@@ -22622,6 +22632,10 @@
 	},
 /turf/simulated/floor/wood,
 /area/merchant_station)
+"uzX" = (
+/obj/structure/lattice/catwalk/indoor,
+/turf/template_noop,
+/area/syndicate_mothership/elite_squad)
 "vcM" = (
 /obj/structure/bed/chair{
 	dir = 1
@@ -61027,11 +61041,11 @@ aaM
 aaM
 aaM
 aaM
-aaM
-akx
-akx
-akx
-akx
+uzX
+cJi
+cJi
+cJi
+cJi
 akx
 akx
 akx
@@ -61284,14 +61298,14 @@ aaM
 aaM
 aaM
 aaM
-aaM
+uzX
 xyJ
 xyJ
 xyJ
 xyJ
 xAM
 akB
-akB
+djC
 akx
 aaM
 aaM
@@ -61541,7 +61555,7 @@ aaM
 aaM
 aaM
 aaM
-aaM
+uzX
 xyJ
 xyJ
 xyJ
@@ -61798,7 +61812,7 @@ aaM
 aaM
 aaM
 aaM
-aaM
+uzX
 xyJ
 xyJ
 xyJ
@@ -62055,11 +62069,11 @@ aaM
 aaM
 aaM
 aaM
-aaM
-akx
-akx
-akx
-akx
+uzX
+cJi
+cJi
+cJi
+cJi
 akx
 xCn
 akB
@@ -62312,7 +62326,7 @@ aaM
 aaM
 aaM
 aaM
-aaM
+uzX
 xyM
 xyM
 xyM
@@ -62569,7 +62583,7 @@ aaM
 aaM
 aaM
 aaM
-aaM
+uzX
 xyM
 xyM
 xyM
@@ -62826,7 +62840,7 @@ aaM
 aaM
 aaM
 aaM
-aaM
+uzX
 xyM
 xyM
 xyM
@@ -63083,11 +63097,11 @@ aaM
 aaM
 aaM
 aaM
-aaM
-akx
-akx
-akx
-akx
+uzX
+cJi
+cJi
+cJi
+cJi
 akx
 xCn
 akB
@@ -63340,7 +63354,7 @@ aaM
 aaM
 aaM
 aaM
-aaM
+uzX
 xyP
 xyP
 xyP
@@ -63597,7 +63611,7 @@ aaM
 aaM
 aaM
 aaM
-aaM
+uzX
 xyP
 xyP
 xyP
@@ -63854,7 +63868,7 @@ aaM
 aaM
 aaM
 aaM
-aaM
+uzX
 xyP
 xyP
 xyP
@@ -64111,11 +64125,11 @@ aaM
 aaM
 aaM
 aaM
-aaM
-akx
-akx
-akx
-akx
+uzX
+cJi
+cJi
+cJi
+cJi
 akx
 xCn
 akB
@@ -64368,7 +64382,7 @@ aaM
 aaM
 aaM
 aaM
-aaM
+uzX
 xyS
 xyS
 xyS
@@ -64625,14 +64639,14 @@ aaM
 aaM
 aaM
 aaM
-aaM
+uzX
 xyS
 xyS
 xyS
 xyS
 xAL
 akB
-akB
+djC
 akx
 akx
 akx
@@ -64882,7 +64896,7 @@ aaM
 aaM
 aaM
 aaM
-aaM
+uzX
 xyS
 xyS
 xyS
@@ -65139,11 +65153,11 @@ aaM
 aaM
 aaM
 aaM
-aaM
-akx
-akx
-akx
-akx
+uzX
+cJi
+cJi
+cJi
+cJi
 akx
 xCn
 akB
@@ -65396,14 +65410,14 @@ aaM
 aaM
 aaM
 aaM
-aaM
+uzX
 xyV
 xyV
 xyV
 xyV
 xAM
 akB
-akB
+djC
 akx
 akx
 akx
@@ -65653,7 +65667,7 @@ aaM
 aaM
 aaM
 aaM
-aaM
+uzX
 xyV
 xyV
 xyV
@@ -65910,7 +65924,7 @@ aaM
 aaM
 aaM
 aaM
-aaM
+uzX
 xyV
 xyV
 xyV
@@ -66167,11 +66181,11 @@ aaM
 aaM
 aaM
 aaM
-aaM
-akx
-akx
-akx
-akx
+uzX
+cJi
+cJi
+cJi
+cJi
 akx
 xCn
 akB
@@ -66424,7 +66438,7 @@ aaM
 aaM
 aaM
 aaM
-aaM
+uzX
 xyY
 xyY
 xyY
@@ -66681,7 +66695,7 @@ aaM
 aaM
 aaM
 aaM
-aaM
+uzX
 xyY
 xyY
 xyY
@@ -66938,14 +66952,14 @@ aaM
 aaM
 aaM
 aaM
-aaM
+uzX
 xyY
 xyY
 xyY
 xyY
 xAM
 akB
-akB
+djC
 akx
 aaM
 aaM
@@ -67195,11 +67209,11 @@ aaM
 aaM
 aaM
 aaM
-aaM
-akx
-akx
-akx
-akx
+uzX
+cJi
+cJi
+cJi
+cJi
 akx
 akx
 akx

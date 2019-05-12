@@ -99,11 +99,11 @@
 			Destination:
 		</div>
 		<div class="itemContent" style="padding-top: 2px; width: 100%">
-		{{:helper.link('Recovery Ship', 'alert', {'destination' : 1}, null, data.mode == 1 ? 'selected' : 'null')}}
-		{{:helper.link('Asteroid Field', 'alert', {'destination' : 2}, null, data.mode == 2 ? 'selected' : 'null')}}
 		{{if data.emagged == 1}}
-			{{:helper.link('Hidden Base', 'alert', {'destination' : 3}, null, data.mode == 3 ? 'selected' : 'null')}}
+			{{:helper.link('Hidden Base', null, {'destination' : 3}, data.mode == 3 ? 'selected' : null)}}
 		{{/if}}
+		{{:helper.link('Recovery Ship', null, {'destination' : 1}, data.mode == 1 ? 'selected' : null)}}
+		{{:helper.link('Asteroid Field', null, {'destination' : 2}, data.mode == 2 ? 'selected' : null)}}
 		</div>
 	</div>
 </div>

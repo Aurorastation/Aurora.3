@@ -120,11 +120,11 @@
 			return
 		switch(m)
 			if(1)
-				pod.area_offsite = pod.destinations[1]
+				pod.area_offsite = locate(pod.destinations[1])
 			if(2)
-				pod.area_offsite = pod.destinations[2]
+				pod.area_offsite = locate(pod.destinations[2])
 			if(3)
-				pod.area_offsite = pod.destinations[3]
+				pod.area_offsite = locate(pod.destinations[3])
 		pod.mode = m
 	return 0
 
