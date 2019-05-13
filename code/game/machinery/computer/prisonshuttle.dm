@@ -12,7 +12,6 @@ var/prison_shuttle_timeleft = 0
 
 /obj/machinery/computer/prison_shuttle
 	name = "prison shuttle control console"
-	icon = 'icons/obj/computer.dmi'
 
 	icon_screen = "syndishuttle"
 	light_color = "#00ffff"

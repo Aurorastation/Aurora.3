@@ -2,6 +2,7 @@
 	volume = 40 //just over one and a half cups
 	amount_per_transfer_from_this = 5
 	flags = 0 //starts closed
+	drop_sound = 'sound/items/drop/soda.ogg'
 
 //DRINKS
 
@@ -251,6 +252,7 @@
 	desc = "A can of fermented fatshouters milk, imported from Adhomai."
 	icon_state = "milk_can"
 	center_of_mass = list("x"=16, "y"=10)
+	description_fluff = "Fermend fatshouters milk is a drink that originated among the nomadic populations of Rhazar'Hrujmagh, and it has spread to the rest of Adhomai."
 
 /obj/item/weapon/reagent_containers/food/drinks/cans/adhomai_milk/Initialize()
 	. = ..()

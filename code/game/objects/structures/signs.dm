@@ -463,14 +463,22 @@
 	name = "Democratic People's Republic of Adhomai flag"
 	desc = "The black flag of the Democratic People's Republic of Adhomai."
 	flag_path = "dpra"
+	description_fluff = "The most pervasive and successful rebellion came from a group calling themselves the Adhomai Libeation Army, a group made up of Tajara from almost every walk of \
+	life. Opposing corporate claims on Tajaran soil and citing mismatched development and governmental negligence as the fault of humanity, they aim \
+	to \"free Tajara from the new shackles imposed upon them by the corporate overlords and return Adhomai to a free, prosperous planet like our ancestors dreamed of.\" They named the \
+	nation they were fighting for the Democratic People's Republic of Adhomai."
 
 /obj/item/weapon/flag/dpra/l
 	flag_size = 1
 
 /obj/structure/sign/flag/dpra
 	name = "Democratic People's Republic of Adhomai flag"
-	desc = "The banner of an ancient nation, its glory old."
+	desc = "The black flag of the Democratic People's Republic of Adhomai."
 	icon_state = "dpra"
+	description_fluff = "The most pervasive and successful rebellion came from a group calling themselves the Adhomai Libeation Army, a group made up of Tajara from almost every walk of \
+	life. Opposing corporate claims on Tajaran soil and citing mismatched development and governmental negligence as the fault of humanity, they aim \
+	to \"free Tajara from the new shackles imposed upon them by the corporate overlords and return Adhomai to a free, prosperous planet like our ancestors dreamed of.\" They named the \
+	nation they were fighting for the Democratic People's Republic of Adhomai."
 
 /obj/structure/sign/flag/dpra/left
 	icon_state = "dpra_l"
@@ -482,20 +490,97 @@
 	name = "People's Republic of Adhomai flag"
 	desc = "The tajaran flag of the People's Republic of Adhomai."
 	flag_path = "pra"
+	description_fluff = "Lead by President Njadrasanukii Hadii, the People's Republic of Adhomai are considered the 'loyalist' faction on Adhomai and enjoy galactic recognition as the \
+	government of Adhomai. It claims to be the true keeper of Al'marii's legacy. However, the PRA can be described as a Hadiist branch of Al'marii's revolutionary ideology - that means \
+	putting the State at the top of a hierarchy of power. The PRA is a very centralized state, but in recent years has slowly been able to start making true its promises to bring \
+	revolution to the masses. With land reform, enfranchisement of women and peasantry, literacy initiatives, and the collectivization of farms and the means of production, the PRA is \
+	struggling to hold true to its radical ideals while an entrenched upper party stubbornly tries to hold onto power."
 
 /obj/item/weapon/flag/pra/l
 	flag_size = 1
 
 /obj/structure/sign/flag/pra
 	name = "People's Republic of Adhomai flag"
-	desc = "The banner of an ancient nation, its glory old."
+	desc = "The tajaran flag of the People's Republic of Adhomai."
 	icon_state = "pra"
+	description_fluff = "Lead by President Njadrasanukii Hadii, the People's Republic of Adhomai are considered the 'loyalist' faction on Adhomai and enjoy galactic recognition as the \
+	government of Adhomai. It claims to be the true keeper of Al'marii's legacy. However, the PRA can be described as a Hadiist branch of Al'marii's revolutionary ideology - that means \
+	putting the State at the top of a hierarchy of power. The PRA is a very centralized state, but in recent years has slowly been able to start making true its promises to bring \
+	revolution to the masses. With land reform, enfranchisement of women and peasantry, literacy initiatives, and the collectivization of farms and the means of production, the PRA is \
+	struggling to hold true to its radical ideals while an entrenched upper party stubbornly tries to hold onto power."
 
 /obj/structure/sign/flag/pra/left
 	icon_state = "pra_l"
 
 /obj/structure/sign/flag/pra/right
 	icon_state = "pra_r"
+
+/obj/item/weapon/flag/nka
+	name = "New Kingdom of Adhomai flag"
+	desc = "The blue flag of the New Kingdom of Adhomai."
+	flag_path = "nka"
+	description_fluff = " The New Kingdom is ruled by a Njarir'Akhran noble line that survived the previous Revolution by remaining in hiding, owing to the efforts of their supporters. \
+	Ruled by King Vahzirthaamro Azunja specifically, he denounces both other factions in the civil war as illegitimate and himself as the only legitimate ruler of Adhomai. \
+	Supporters of the New Kingdom tend to be rare outside lands it controls. However, they believe strongly that the current republic on Adhomai was founded on genocide and unspeakable \
+	slaughters. The New Kingdom puts forth the ideology that Republicanism is bloodshed. The only way to return Adhomai to peace and prosperity is to learn from the mistakes of the \
+	ancient nobles and Republicans, and create a new noble dynasty."
+
+/obj/item/weapon/flag/nka/l
+	flag_size = 1
+
+/obj/structure/sign/flag/nka
+	name = "New Kingdom of Adhomai flag"
+	desc = "The blue flag of the New Kingdom of Adhomai."
+	icon_state = "nka"
+	description_fluff = " The New Kingdom is ruled by a Njarir'Akhran noble line that survived the previous Revolution by remaining in hiding, owing to the efforts of their supporters. \
+	Ruled by King Vahzirthaamro Azunja specifically, he denounces both other factions in the civil war as illegitimate and himself as the only legitimate ruler of Adhomai. \
+	Supporters of the New Kingdom tend to be rare outside lands it controls. However, they believe strongly that the current republic on Adhomai was founded on genocide and unspeakable \
+	slaughters. The New Kingdom puts forth the ideology that Republicanism is bloodshed. The only way to return Adhomai to peace and prosperity is to learn from the mistakes of the \
+	ancient nobles and Republicans, and create a new noble dynasty."
+
+/obj/structure/sign/flag/nka/left
+	icon_state = "nka_l"
+
+/obj/structure/sign/flag/nka/right
+	icon_state = "nka_r"
+
+/obj/item/weapon/flag/heph
+	name = "Hephaestus Industries flag"
+	desc = "The logo of Hephaestus Industries on a flag."
+	flag_path = "heph"
+
+/obj/item/weapon/flag/heph/l
+	flag_size = 1
+
+/obj/structure/sign/flag/heph
+	name = "Hephaestus Industries flag"
+	desc = "The logo of Hephaestus Industries on a flag."
+	icon_state = "heph"
+
+/obj/structure/sign/flag/heph/left
+	icon_state = "heph_l"
+
+/obj/structure/sign/flag/heph/right
+	icon_state = "heph_r"
+
+/obj/item/weapon/flag/zenghu
+	name = "Zeng-Hu Pharmaceuticals flag"
+	desc = "The logo of Zeng-Hu Pharmaceuticals on a flag."
+	flag_path = "zenghu"
+
+/obj/item/weapon/flag/zenghu/l
+	flag_size = 1
+
+/obj/structure/sign/flag/zenghu
+	name = "Zeng-Hu Pharmaceuticals flag"
+	desc = "The logo of Zeng-Hu Pharmaceuticals on a flag."
+	icon_state = "zenghu"
+
+/obj/structure/sign/flag/zenghu/left
+	icon_state = "zenghu_l"
+
+/obj/structure/sign/flag/zenghu/right
+	icon_state = "zenghu_r"
 
 /obj/item/weapon/flag
 	name = "boxed flag"
@@ -585,7 +670,7 @@
 		if(!do_after(user, 2 SECONDS, act_target = src))
 			return 0
 		visible_message("<span class='warning'>\The [user] burns \the [src] down!</span>")
-		playsound(src.loc, 'sound/items/zippo_on.ogg', 100, 1)
+		playsound(src.loc, 'sound/items/cigs_lighters/zippo_on.ogg', 100, 1)
 		new /obj/effect/decal/cleanable/ash(src.loc)
 
 		qdel(src)
