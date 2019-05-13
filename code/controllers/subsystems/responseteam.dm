@@ -80,6 +80,9 @@
 		ert_type = forced_choice
 	else if(!forced_choice && !prob(ert_chance)) 
 		ert_type = "Tau Ceti Foreign Legion"
+		for(var/datum/shuttle/ferry/escape_pod/P in shuttle_controller)
+			P.mode_change = FALSE
+			P.area_offsite = locate(P.destinations[1]) // Making escape pods dock with TCFL ship
 
 	can_call_ert = FALSE // Only one call per round, gentleman.
 	send_emergency_team = 1
@@ -123,7 +126,7 @@
 		return
 
 	message_admins("[key_name_admin(usr)] is dispatching an Emergency Response Team.", 1)
-	log_admin("[key_name(usr)] used Dispatch Response Team.",admin_key=key_name(usr))
+	log_admin("[key_name(usr)] used Dispatch Response Team.", admin_key=key_name(usr))
 	SSresponseteam.trigger_armed_response_team(choice)
 
 client/verb/JoinResponseTeam()

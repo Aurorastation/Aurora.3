@@ -5,8 +5,8 @@
 	warmup_time = 0
 	var/datum/computer/file/embedded_program/docking/simple/escape_pod/arming_controller
 	var/list/destinations[5]
-	var/mode = 1
-	var/mode_change = FALSE
+	var/mode = 2
+	var/mode_change = TRUE
 
 /datum/shuttle/ferry/escape_pod/init_docking_controllers()
 	..()
@@ -88,11 +88,15 @@
 		"door_state" = 	docking_program.memory["door_status"]["state"],
 		"door_lock" = 	docking_program.memory["door_status"]["lock"],
 		"mode" = pod.mode,
-		"mode_change" = pod.mode_change,
 		"emagged" = emagged,
 		"can_force" = pod.can_force() || emagged || (emergency_shuttle.departed && pod.can_launch()),	//allow players to manually launch ahead of time if the shuttle leaves
-		"is_armed" = pod.arming_controller.armed
+		"is_armed" = pod.arming_controller.armed,
+		"choose_destination" = pod.mode_change
 	)
+	// Making sure that we cannot eject once we are already ejected
+	if(data["docking_status"] == "undocked")
+		data["can_force"] = FALSE
+		data["choose_destination"] = FALSE
 
 	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
 

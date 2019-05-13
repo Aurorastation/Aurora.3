@@ -39,7 +39,7 @@
 		var/datum/shuttle/ferry/escape_pod/pod
 		pod = new/datum/shuttle/ferry/escape_pod()
 		pod.area_station = locate(areas_p[x][1])
-		pod.area_offsite = locate(areas_p[x][2])
+		pod.area_offsite = locate(areas_p[x][5])
 		pod.area_transition = locate(areas_p[x][3])
 		pod.destinations[1] = areas_p[x][2]
 		pod.destinations[2] = areas_p[x][5]
