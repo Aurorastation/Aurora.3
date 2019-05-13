@@ -60,7 +60,7 @@ var/datum/controller/subsystem/economy/SSeconomy
 	T.amount = 75000
 	T.date = "13th May, 2461"
 	T.time = "11:24"
-	T.source_terminal = "Idris SelfServ Terminal #[rand(111,11111)]"
+	T.source_terminal = "Idris Remote Terminal #[rand(111,11111)]"
 
 	//add the account
 	add_transaction_log(station_account,T)
@@ -86,7 +86,7 @@ var/datum/controller/subsystem/economy/SSeconomy
 	T.amount = department_account.money
 	T.date = "13th May, 2461"
 	T.time = "11:24"
-	T.source_terminal = "Idris SelfServ Terminal #[rand(111,11111)]"
+	T.source_terminal = "Idris Remote Terminal #[rand(111,11111)]"
 
 	//add the account
 	add_transaction_log(department_account,T)
