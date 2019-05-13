@@ -112,6 +112,9 @@
 					"www.scalesnstuff.nt",\
 					"www.spacelube.nt",\
 					"www.pervertedprogramming.nt",\
+					"www.risquerobots.tc",\
+					"www.clanked.tc",\
+					"www.filledsockets.tc",\
 					"www.hivenetmingle.nt")
 					sender = pick("[current_map.company_name] Morale Divison",\
 					"Feeling Lonely?",\
@@ -120,6 +123,7 @@
 					message = pick("The [current_map.company_name] Morale Division wishes to provide you with quality entertainment sites.",\
 					"[pornography] is a xenophillic website endorsed by NT for the use of male crewmembers among it's many stations and outposts.",\
 					"[pornography] only provides the higest quality of male entertaiment to [current_map.company_name] Employees.",\
+					"district14.nt : Find local Scrapheap babes near your area. Click to learn more.",\
 					"Simply enter your [current_map.company_name] Bank account system number and pin. With three easy steps this service could be yours!",
 					"Warning! Your connection is not private. Attackers might be trying to steal your information from [pornography] (for example, passwords, messages, or credit cards). Click to learn more.")
 
