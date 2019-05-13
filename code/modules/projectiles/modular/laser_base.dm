@@ -37,6 +37,7 @@
 	var/base_malus = 2 //when modifiers get damaged they do not break, but make other components break faster
 	var/malus = 2 //subtracted from weapon's overall reliability everytime it's fired
 	var/gun_force = 0 //melee damage of the gun
+	var/gun_armorpen = 0 //armor penetration via gun melees. implemented to make energy bayonets ignore armor.
 	var/chargetime = 0
 	var/burst_delay = 0
 	var/scope_name
