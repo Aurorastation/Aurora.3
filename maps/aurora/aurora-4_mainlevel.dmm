@@ -10709,7 +10709,7 @@
 	icon_state = "corner_white_full";
 	dir = 1
 	},
-/obj/item/modular_computer/console/preset/command,
+/obj/machinery/computer/shuttle_control/research,
 /turf/simulated/floor/tiled,
 /area/bridge)
 "atE" = (
@@ -45669,6 +45669,9 @@
 	},
 /obj/item/weapon/pen,
 /obj/effect/floor_decal/corner/grey/diagonal,
+/obj/effect/landmark{
+	name = "Space Ruin Paper"
+	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/rdoffice)
 "byA" = (
@@ -64902,6 +64905,11 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/plating,
 /area/maintenance/medbay)
+"elB" = (
+/obj/structure/table/wood/gamblingtable,
+/obj/item/weapon/storage/fancy/crayons/chalkbox,
+/turf/simulated/floor/tiled,
+/area/engineering/foyer)
 "eoJ" = (
 /obj/random/plushie,
 /turf/simulated/floor/plating,
@@ -87884,7 +87892,7 @@ aCa
 aDU
 aFJ
 aHL
-aHL
+elB
 aLb
 aMS
 aOH

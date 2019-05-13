@@ -79,7 +79,7 @@
 	if(QDELETED(src))
 		return 0
 
-	if(use_check(user,USE_FORCE_SRC_IN_USER))
+	if(use_check_and_message(user,USE_FORCE_SRC_IN_USER))
 		return 0
 
 	amount = round(Clamp(amount, 0, src.worth))

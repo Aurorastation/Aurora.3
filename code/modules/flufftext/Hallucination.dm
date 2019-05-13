@@ -117,9 +117,9 @@ mob/living/carbon/proc/handle_hallucinations()
 					if(8) sound_to(src, 'sound/machines/windowdoor.ogg')
 					if(9)
 						//To make it more realistic, I added two gunshots (enough to kill)
-						sound_to(src, 'sound/weapons/Gunshot.ogg')
+						sound_to(src, 'sound/weapons/gunshot/gunshot1.ogg')
 						spawn(rand(10,30))
-							sound_to(src, 'sound/weapons/Gunshot.ogg')
+							sound_to(src, 'sound/weapons/gunshot/gunshot1.ogg')
 					if(10) sound_to(src, 'sound/weapons/smash.ogg')
 					if(11)
 						//Same as above, but with tasers.
@@ -129,11 +129,30 @@ mob/living/carbon/proc/handle_hallucinations()
 				//Rare audio
 					if(12)
 //These sounds are (mostly) taken from Hidden: Source
-						var/list/creepyasssounds = list('sound/effects/ghost.ogg', 'sound/effects/ghost2.ogg', 'sound/effects/Heart Beat.ogg', 'sound/effects/screech.ogg',\
-							'sound/hallucinations/behind_you1.ogg', 'sound/hallucinations/behind_you2.ogg', 'sound/hallucinations/far_noise.ogg', 'sound/hallucinations/growl1.ogg', 'sound/hallucinations/growl2.ogg',\
-							'sound/hallucinations/growl3.ogg', 'sound/hallucinations/im_here1.ogg', 'sound/hallucinations/im_here2.ogg', 'sound/hallucinations/i_see_you1.ogg', 'sound/hallucinations/i_see_you2.ogg',\
-							'sound/hallucinations/look_up1.ogg', 'sound/hallucinations/look_up2.ogg', 'sound/hallucinations/over_here1.ogg', 'sound/hallucinations/over_here2.ogg', 'sound/hallucinations/over_here3.ogg',\
-							'sound/hallucinations/turn_around1.ogg', 'sound/hallucinations/turn_around2.ogg', 'sound/hallucinations/veryfar_noise.ogg', 'sound/hallucinations/wail.ogg')
+						var/list/creepyasssounds = list(
+						'sound/effects/ghost.ogg',
+						'sound/effects/ghost2.ogg',
+						'sound/effects/Heart Beat.ogg',
+						'sound/effects/screech.ogg',
+						'sound/hallucinations/behind_you1.ogg',
+						'sound/hallucinations/behind_you2.ogg',
+						'sound/hallucinations/far_noise.ogg',
+						'sound/hallucinations/growl1.ogg',
+						'sound/hallucinations/growl2.ogg',
+						'sound/hallucinations/growl3.ogg',
+						'sound/hallucinations/im_here1.ogg',
+						'sound/hallucinations/im_here2.ogg',
+						'sound/hallucinations/i_see_you1.ogg',
+						'sound/hallucinations/i_see_you2.ogg',
+						'sound/hallucinations/look_up1.ogg',
+						'sound/hallucinations/look_up2.ogg',
+						'sound/hallucinations/over_here1.ogg',
+						'sound/hallucinations/over_here2.ogg',
+						'sound/hallucinations/over_here3.ogg',
+						'sound/hallucinations/turn_around1.ogg',
+						'sound/hallucinations/turn_around2.ogg',
+						'sound/hallucinations/veryfar_noise.ogg',
+						'sound/hallucinations/wail.ogg')
 						sound_to(src, pick(creepyasssounds))
 			if(66 to 70)
 				//Flashes of danger

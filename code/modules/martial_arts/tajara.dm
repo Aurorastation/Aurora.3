@@ -102,4 +102,9 @@
 	name = "baghrar manual"
 	desc = "A manual designated to teach the user about the tajaran martial art of Baghrar."
 	martial_art = /datum/martial_art/baghrar
+	description_fluff = "An ancient martial art from Adhomai primarily used for sport and contests of strength. The fighting style consists of attacks against the opponent from the waist \
+	up. The form of the attacks are primarily swiping motions which take advantage of a Tajara's claws to rake an opponents torso or head. Other moves include punching for friendlier \
+	matches or stabbing forward with the claws in typical matches. Modern Baghrariri, or people who fight in the Baghrar style for sport, usually fight with implements that cover and \
+	support their claws to avoid serious bodily damage. Modern Baghrar matches are decided upon with a point scoring system over three 10 minute rounds of fighting, but historical \
+	victories were secured by knocking opponents onto the ground."
 

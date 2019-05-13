@@ -33,6 +33,7 @@
 	sprite_sheets = list(
 		"Vox" = 'icons/mob/species/vox/head.dmi'
 		)
+	drop_sound = 'sound/items/drop/helm.ogg'
 
 /obj/item/clothing/head/welding/attack_self()
 	if(!base_state)
@@ -147,6 +148,7 @@
 	brightness_on = 2
 	light_overlay = "helmet_light"
 	w_class = 3
+	drop_sound = 'sound/items/drop/herb.ogg'
 
 /*
  * Kitty ears

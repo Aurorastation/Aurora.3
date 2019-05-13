@@ -22,6 +22,7 @@
 
 /datum/gear/head/cap
 	display_name = "cap selection"
+	description = "A selection of colored caps."
 	path = /obj/item/clothing/head/soft/blue
 
 /datum/gear/head/cap/New()
@@ -114,6 +115,7 @@
 
 /datum/gear/head/hats
 	display_name = "hat selection"
+	description = "A selection of hats."
 	path = /obj/item/clothing/head/boaterhat
 
 /datum/gear/head/hats/New()

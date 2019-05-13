@@ -14,11 +14,8 @@ var/datum/controller/subsystem/vote/SSvote
 	var/mode = null
 	var/question = null
 	var/list/choices = list()
-	var/list/gamemode_names = list()
 	var/list/voted = list()
-	var/list/voting = list()
 	var/list/current_votes = list()
-	var/list/additional_text = list()
 	var/auto_muted = 0
 	var/last_transfer_vote = null
 
@@ -35,34 +32,13 @@ var/datum/controller/subsystem/vote/SSvote
 		// No more change mode votes after the game has started.
 		if(mode == "gamemode" && ROUND_IS_STARTED)
 			to_world("<b>Voting aborted due to game start.</b>")
-			src.reset()
+			reset()
 			return
 
-		// Calculate how much time is remaining by comparing current time, to time of vote start,
-		// plus vote duration
-		time_remaining = round((started_time + config.vote_period - world.time)/10)
-
-		if(time_remaining < 0)
+		if(((started_time + config.vote_period - world.time)) < 0)
 			result()
-			for(var/client/C in voting)
-				if(C)
-					if (C.vote_window)
-						C.vote_window.close()
-					else
-						log_debug("SSvote: Client [C] had no vote_window but was in voting list!")
-
+			SSvueui.close_uis(src)
 			reset()
-		else
-			for(var/client/C in voting)
-				if(C)
-					if (C.vote_window)
-						C.vote_window.open()
-					else
-						log_debug("SSvote: Client [C]'s vote_window was missing!")
-						setup_vote_window(C)
-						C.vote_window.open()
-
-			voting.Cut()
 
 	if (get_round_duration() >= next_transfer_time - 600)
 		autotransfer()
@@ -83,16 +59,15 @@ var/datum/controller/subsystem/vote/SSvote
 	question = null
 	choices.Cut()
 	voted.Cut()
-	voting.Cut()
 	current_votes.Cut()
-	additional_text.Cut()
+	SSvueui.check_uis_for_change(src)
 
 /datum/controller/subsystem/vote/proc/get_result()
 	//get the highest number of votes
 	var/greatest_votes = 0
 	var/total_votes = 0
 	for(var/option in choices)
-		var/votes = choices[option]
+		var/votes = choices[option]["votes"]
 		total_votes += votes
 		if(votes > greatest_votes)
 			greatest_votes = votes
@@ -101,14 +76,14 @@ var/datum/controller/subsystem/vote/SSvote
 		var/non_voters = (clients.len - total_votes)
 		if(non_voters > 0)
 			if(mode == "restart")
-				choices["Continue Playing"] += non_voters
-				if(choices["Continue Playing"] >= greatest_votes)
-					greatest_votes = choices["Continue Playing"]
+				choices["Continue Playing"]["votes"] += non_voters
+				if(choices["Continue Playing"]["votes"] >= greatest_votes)
+					greatest_votes = choices["Continue Playing"]["votes"]
 			else if(mode == "gamemode")
 				if(master_mode in choices)
-					choices[master_mode] += non_voters
-					if(choices[master_mode] >= greatest_votes)
-						greatest_votes = choices[master_mode]
+					choices[master_mode]["votes"] += non_voters
+					if(choices[master_mode]["votes"] >= greatest_votes)
+						greatest_votes = choices[master_mode]["votes"]
 			else if(mode == "crew_transfer")
 				var/factor = 0.5
 				switch(get_round_duration() / (10 * 60)) // minutes
@@ -122,22 +97,22 @@ var/datum/controller/subsystem/vote/SSvote
 						factor = 1.2
 					else
 						factor = 1.4
-				choices["Initiate Crew Transfer"] = round(choices["Initiate Crew Transfer"] * factor)
+				choices["Initiate Crew Transfer"]["votes"] = round(choices["Initiate Crew Transfer"]["votes"] * factor)
 				to_world("<font color='purple'>Crew Transfer Factor: [factor]</font>")
-				greatest_votes = max(choices["Initiate Crew Transfer"], choices["Continue The Round"])
+				greatest_votes = max(choices["Initiate Crew Transfer"]["votes"], choices["Continue The Round"]["votes"])
 
 	if(mode == "crew_transfer")
 		if(round(get_round_duration() / 36000)+12 <= 14)
 			// Credit to Scopes @ oldcode.
 			to_world("<font color='purple'><b>Majority voting rule in effect. 2/3rds majority needed to initiate transfer.</b></font>")
-			choices["Initiate Crew Transfer"] = round(choices["Initiate Crew Transfer"] - round(total_votes / 3))
-			greatest_votes = max(choices["Initiate Crew Transfer"], choices["Continue The Round"])
+			choices["Initiate Crew Transfer"]["votes"] = round(choices["Initiate Crew Transfer"]["votes"] - round(total_votes / 3))
+			greatest_votes = max(choices["Initiate Crew Transfer"]["votes"], choices["Continue The Round"]["votes"])
 
 	//get all options with that many votes and return them in a list
 	. = list()
 	if(greatest_votes)
 		for(var/option in choices)
-			if(choices[option] == greatest_votes)
+			if(choices[option]["votes"] == greatest_votes)
 				. += option
 
 /datum/controller/subsystem/vote/proc/announce_result()
@@ -152,7 +127,7 @@ var/datum/controller/subsystem/vote/SSvote
 		. = pick(winners)
 
 		for(var/key in current_votes)
-			if(choices[current_votes[key]] == .)
+			if(choices[current_votes[key]]["votes"] == .)
 				round_voters += key // Keep track of who voted for the winning round.
 		if((mode == "gamemode" && . == "Extended") || SSticker.hide_mode == 0) // Announce Extended gamemode, but not other gamemodes
 			text += "<b>Vote Result: [.]</b>"
@@ -218,13 +193,13 @@ var/datum/controller/subsystem/vote/SSvote
 					if (O.started_as_observer)
 						to_chat(usr, "<span class='warning'>You must be playing or have been playing to start a vote.</span>")
 						return 0
-		if(vote && vote >= 1 && vote <= choices.len)
+		if(vote in choices)
 			if(current_votes[ckey])
-				choices[choices[current_votes[ckey]]]--
+				choices[current_votes[ckey]]["votes"]--
 			voted += usr.ckey
-			choices[choices[vote]]++	//check this
+			choices[vote]["votes"]++	//check this
 			current_votes[ckey] = vote
-			return vote
+			return 1
 	return 0
 
 
@@ -254,27 +229,28 @@ var/datum/controller/subsystem/vote/SSvote
 			if(next_allowed_time > get_round_duration())
 				return 0
 
-		reset()
+		//reset()
 		switch(vote_type)
 			if("restart")
-				choices.Add("Restart Round","Continue Playing")
+				AddChoice("Restart Round")
+				AddChoice("Continue Playing")
 			if("gamemode")
 				round_voters.Cut() //Delete the old list, since we are having a new gamemode vote
 				if(SSticker.current_state >= 2)
 					return 0
-				choices.Add(config.votable_modes)
-				for (var/F in choices)
+				for (var/F in config.votable_modes)
 					var/datum/game_mode/M = gamemode_cache[F]
 					if(!M)
 						continue
-					gamemode_names[M.config_tag] = capitalize(M.name) //It's ugly to put this here but it works
-					additional_text.Add("<td align = 'center'>[M.required_players]</td>")
-				gamemode_names[ROUNDTYPE_STR_SECRET] = "Secret"
-				gamemode_names[ROUNDTYPE_STR_MIXED_SECRET] = "Mixed Secret"
+					AddChoice(F, capitalize(M.name), "[M.required_players]")
+				AddChoice(ROUNDTYPE_STR_SECRET, "Secret")
+				if(ROUNDTYPE_STR_MIXED_SECRET in choices)
+					AddChoice(ROUNDTYPE_STR_MIXED_SECRET, "Mixed Secret")
 			if("crew_transfer")
 				if(check_rights(R_ADMIN|R_MOD, 0))
 					question = "End the shift?"
-					choices.Add("Initiate Crew Transfer", "Continue The Round")
+					AddChoice("Initiate Crew Transfer")
+					AddChoice("Continue The Round")
 				else
 					if (get_security_level() == "red" || get_security_level() == "delta")
 						to_chat(initiator_key, "The current alert status is too high to call for a crew transfer!")
@@ -283,22 +259,23 @@ var/datum/controller/subsystem/vote/SSvote
 						return 0
 						to_chat(initiator_key, "The crew transfer button has been disabled!")
 					question = "End the shift?"
-					choices.Add("Initiate Crew Transfer", "Continue The Round")
+					AddChoice("Initiate Crew Transfer")
+					AddChoice("Continue The Round")
 			if("add_antagonist")
 				if(!config.allow_extra_antags || SSticker.current_state >= 2)
 					return 0
 				for(var/antag_type in all_antag_types)
 					var/datum/antagonist/antag = all_antag_types[antag_type]
 					if(!(antag.id in additional_antag_types) && antag.is_votable())
-						choices.Add(antag.role_text)
-				choices.Add("None")
+						AddChoice(antag.role_text)
+				AddChoice("None")
 			if("custom")
 				question = sanitizeSafe(input(usr,"What is the vote for?") as text|null)
 				if(!question)	return 0
 				for(var/i=1,i<=10,i++)
 					var/option = capitalize(sanitize(input(usr,"Please enter an option or hit cancel to finish") as text|null))
 					if(!option || mode || !usr.client)	break
-					choices.Add(option)
+					AddChoice(option)
 			else
 				return 0
 		mode = vote_type
@@ -309,7 +286,7 @@ var/datum/controller/subsystem/vote/SSvote
 			text += "\n[question]"
 
 		log_vote(text)
-		to_world("<font color='purple'><b>[text]</b>\nType <b>vote</b> or click <a href='?src=\ref[src]'>here</a> to place your votes.\nYou have [config.vote_period/10] seconds to vote.</font>")
+		to_world("<font color='purple'><b>[text]</b>\nType <b>vote</b> or click <a href='?src=\ref[src];open=1'>here</a> to place your votes.\nYou have [config.vote_period/10] seconds to vote.</font>")
 		for(var/cc in clients)
 			var/client/C = cc
 			if(C.prefs.asfx_togs & ASFX_VOTE) //Personal mute
@@ -323,116 +300,43 @@ var/datum/controller/subsystem/vote/SSvote
 		if(mode == "gamemode" && round_progressing)
 			round_progressing = 0
 			to_world("<font color='red'><b>Round start has been delayed.</b></font>")
-
-		time_remaining = round(config.vote_period/10)
+		SSvueui.check_uis_for_change(src)
 		return 1
 	return 0
 
-/datum/controller/subsystem/vote/proc/interface(client/C)
-	if(!C)
-		return
-	var/is_staff = 0
-	if(C.holder)
-		if(C.holder.rights & (R_ADMIN|R_MOD))
-			is_staff = 1
-	voting |= C
-
-	. = ""
-	if(mode)
-		if(question)	. += "<h2>Vote: '[question]'</h2>"
-		else			. += "<h2>Vote: [capitalize(mode)]</h2>"
-		. += "Time Left: [time_remaining] s<hr>"
-		. += "<table width = '100%'><tr><td align = 'center'><b>Choices</b></td><td align = 'center'><b>Votes</b></td>"
-		if(capitalize(mode) == "Gamemode") .+= "<td align = 'center'><b>Minimum Players</b></td></tr>"
-
-		for(var/i = 1, i <= choices.len, i++)
-			var/votes = choices[choices[i]]
-			if(!votes)	votes = 0
-			. += "<tr>"
-			if(mode == "gamemode")
-				if(current_votes[C.ckey] == i)
-					. += "<td><b><a href='?src=\ref[src];vote=[i]'>[gamemode_names[choices[i]]]</a></b></td><td align = 'center'>[votes]</td>"
-				else
-					. += "<td><a href='?src=\ref[src];vote=[i]'>[gamemode_names[choices[i]]]</a></td><td align = 'center'>[votes]</td>"
-			else
-				if(current_votes[C.ckey] == i)
-					. += "<td><b><a href='?src=\ref[src];vote=[i]'>[choices[i]]</a></b></td><td align = 'center'>[votes]</td>"
-				else
-					. += "<td><a href='?src=\ref[src];vote=[i]'>[choices[i]]</a></td><td align = 'center'>[votes]</td>"
-			if (additional_text.len >= i)
-				. += additional_text[i]
-			. += "</tr>"
-
-		. += "</table><hr>"
-		if(is_staff)
-			. += "(<a href='?src=\ref[src];vote=cancel'>Cancel Vote</a>) "
-	else
-		. += "<h2>Start a vote:</h2><hr><ul><li>"
-		//restart
-		if(is_staff || config.allow_vote_restart)
-			. += "<a href='?src=\ref[src];vote=restart'>Restart</a>"
-		else
-			. += "<font color='grey'>Restart (Disallowed)</font>"
-		. += "</li><li>"
-		if(is_staff || config.allow_vote_restart)
-			if (get_security_level() == "red" || get_security_level() == "delta")
-				. += "<a href='?src=\ref[src];vote=crew_transfer'>Crew Transfer (Disallowed, Code Red or above)</a>"
-			else
-				. += "<a href='?src=\ref[src];vote=crew_transfer'>Crew Transfer</a>"
-		else
-			. += "<font color='grey'>Crew Transfer (Disallowed)</font>"
-		if(is_staff)
-			. += "\t(<a href='?src=\ref[src];vote=toggle_restart'>[config.allow_vote_restart?"Allowed":"Disallowed"]</a>)"
-		. += "</li><li>"
-		//gamemode
-		if(is_staff || config.allow_vote_mode)
-			. += "<a href='?src=\ref[src];vote=gamemode'>GameMode</a>"
-		else
-			. += "<font color='grey'>GameMode (Disallowed)</font>"
-		if(is_staff)
-			. += "\t(<a href='?src=\ref[src];vote=toggle_gamemode'>[config.allow_vote_mode?"Allowed":"Disallowed"]</a>)"
-		. += "</li><li>"
-		//extra antagonists
-		if(!antag_add_failed && config.allow_extra_antags)
-			. += "<a href='?src=\ref[src];vote=add_antagonist'>Add Antagonist Type</a>"
-		else
-			. += "<font color='grey'>Restart (Disallowed)</font>"
-		. += "</li>"
-		//custom
-		if(is_staff)
-			. += "<li><a href='?src=\ref[src];vote=custom'>Custom</a></li>"
-		. += "</ul><hr>"
-	. += "<a href='?src=\ref[src];vote=close' style='position:absolute;right:50px'>Close</a></body></html>"
+/datum/controller/subsystem/vote/proc/AddChoice(name, display_name, extra_text)
+	if(!display_name)
+		display_name = name
+	choices[name] = list("name" = display_name, "extra" = extra_text, "votes" = 0)
 
 /datum/controller/subsystem/vote/Topic(href, list/href_list = list(), hsrc)
 	if(!usr || !usr.client)
 		return	//not necessary but meh...just in-case somebody does something stupid
-
-	switch(href_list["vote"])
-		if("close")
-			voting -= usr.client
-			if (usr.client.vote_window)
-				usr.client.vote_window.close()
-			else
-				log_debug("SSvote: User [usr] had an invalid vote_window, but was the source of a Topic() call!")
-			return
+	if(href_list["open"])
+		OpenVotingUI(usr)
+	var/isstaff = usr.client.holder && (usr.client.holder.rights & (R_ADMIN|R_MOD))
+	
+	switch(href_list["action"])
 		if("cancel")
-			if(usr.client.holder)
+			if(isstaff)
 				reset()
 		if("toggle_restart")
-			if(usr.client.holder)
+			if(isstaff)
 				config.allow_vote_restart = !config.allow_vote_restart
+				SSvueui.check_uis_for_change(src)
 		if("toggle_gamemode")
-			if(usr.client.holder)
+			if(isstaff)
 				config.allow_vote_mode = !config.allow_vote_mode
+				SSvueui.check_uis_for_change(src)
 		if("restart")
-			if(usr.client.holder)
+			if(isstaff)
 				initiate_vote("restart",usr.key)
 			else if (config.allow_vote_restart)
 				var/admin_number_present = 0
 				var/admin_number_afk = 0
 
-				for (var/client/X in admins)
+				for (var/s in staff)
+					var/client/X = s
 					if (X.holder.rights & R_ADMIN)
 						admin_number_present++
 						if (X.is_afk())
@@ -446,42 +350,59 @@ var/datum/controller/subsystem/vote/SSvote
 					log_and_message_admins("tried to start a restart vote.", usr, null)
 					to_chat(usr, "<span class='notice'><b>There are active admins around! You cannot start a restart vote due to this.</b></span>")
 		if("gamemode")
-			if(config.allow_vote_mode || usr.client.holder)
+			if(config.allow_vote_mode || isstaff)
 				initiate_vote("gamemode",usr.key)
 		if("crew_transfer")
-			if(config.allow_vote_restart || usr.client.holder)
+			if(config.allow_vote_restart || isstaff)
 				initiate_vote("crew_transfer",usr.key)
 		if("add_antagonist")
-			if(config.allow_extra_antags)
+			if(!antag_add_failed && config.allow_extra_antags)
 				initiate_vote("add_antagonist",usr.key)
 		if("custom")
-			if(usr.client.holder)
+			if(isstaff)
 				initiate_vote("custom",usr.key)
-		else
-			var/t = round(text2num(href_list["vote"]))
+		if("vote")
+			var/t = href_list["vote"]
 			if(t) // It starts from 1, so there's no problem
-				submit_vote(usr.ckey, t)
-	usr.vote()
+				if(submit_vote(usr.ckey, t))
+					SSvueui.check_uis_for_change(src)
 
-/datum/controller/subsystem/vote/proc/setup_vote_window(client/C)
-	if (!QDELETED(C.vote_window))
-		return
+/datum/controller/subsystem/vote/vueui_data_change(var/list/data, var/mob/user, var/datum/vueui/ui)
+	if(!data)
+		. = list("choices" = list(), "mode" = 0, "voted" = 0)
+	data = . || data
+	if(choices.len != data["choices"].len)
+		data["choices"] = list()
+	for(var/choice in choices)
+		VUEUI_SET_IFNOTSET(data["choices"][choice], deepCopyList(choices[choice]), ., data)
+		VUEUI_SET_CHECK(data["choices"][choice]["votes"], choices[choice]["votes"], ., data) // Only votes trigger data update
+	
+	VUEUI_SET_CHECK(data["mode"], mode, ., data)
+	VUEUI_SET_CHECK(data["voted"], current_votes[user.ckey], ., data)
+	VUEUI_SET_CHECK(data["endtime"], started_time + config.vote_period, ., data)
+	VUEUI_SET_CHECK(data["allow_vote_restart"], config.allow_vote_restart, ., data)
+	VUEUI_SET_CHECK(data["allow_vote_mode"], config.allow_vote_mode, ., data)
+	VUEUI_SET_CHECK(data["allow_extra_antags"], (!antag_add_failed && config.allow_extra_antags), ., data)
+	
+	if(!question)
+		VUEUI_SET_CHECK(data["question"], capitalize(mode), ., data)
+	else
+		VUEUI_SET_CHECK(data["question"], question, ., data)
+	VUEUI_SET_CHECK(data["isstaff"], (user.client.holder && (user.client.holder.rights & (R_ADMIN|R_MOD))), ., data)
+	var/slevel = get_security_level()
+	VUEUI_SET_CHECK(data["is_code_red"], (slevel == "red" || slevel == "delta"), ., data)
+	
 
-	C.vote_window = new(C.mob, "vote", "Voting")
-	C.vote_window.add_head_content("<title>Voting panel</title>")
+
+/datum/controller/subsystem/vote/proc/OpenVotingUI(var/mob/user)
+	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
+	if (!ui)
+		ui = new(user, SSvote, "misc-voting", 400, 500, "Voting panel", nstate = interactive_state)
+		ui.header = "minimal"
+	ui.open()
 
 /mob/verb/vote()
 	set category = "OOC"
 	set name = "Vote"
 
-	if (!client.vote_window)
-		SSvote.setup_vote_window(client)
-
-	var/datum/browser/vote_window = client.vote_window
-
-	vote_window.set_user(src)
-	vote_window.set_content(SSvote.interface(client))
-	vote_window.open()
-
-/client
-	var/tmp/datum/browser/vote_window
+	SSvote.OpenVotingUI(src)

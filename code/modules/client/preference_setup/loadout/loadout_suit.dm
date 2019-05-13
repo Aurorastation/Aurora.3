@@ -8,6 +8,7 @@
 
 /datum/gear/suit/leather
 	display_name = "jacket selection"
+	description = "A selection of jackets."
 	path = /obj/item/clothing/suit/storage/toggle/leather_jacket
 
 /datum/gear/suit/leather/New()
@@ -204,6 +205,7 @@
 
 /datum/gear/suit/dominia
 	display_name = "dominia great coat selection"
+	description = "A selection of Dominian coats."
 	path = /obj/item/clothing/suit/storage/toggle/dominia
 
 /datum/gear/suit/dominia/New()
