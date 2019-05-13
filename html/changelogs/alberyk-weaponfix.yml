@@ -1,0 +1,6 @@
+Author: Alberyk
+
+delete-after: True
+
+changes: 
+  - bugfix: "Fixed some weapons having the incorrect in hands icon."
