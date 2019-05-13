@@ -3,7 +3,7 @@
 
 /obj/item/weapon/reagent_containers/personal_inhaler_cartridge
 	name = "small inhaler cartridge"
-	desc = "Fill this when chemicals and attach this to personal inhalers. Contains enough areosol for 15u of reagents. The cartridge must be activated for aerosol reagents to mix for the use in inhalers."
+	desc = "Fill this when chemicals and attach this to personal inhalers. Contains enough areosol for 15u of reagents. The container must be activated for aerosol reagents to mix for the use in inhalers."
 	icon = 'icons/obj/syringe.dmi'
 	item_state = "buildpipe"
 	icon_state = "pi_cart_small"
@@ -56,7 +56,7 @@
 
 /obj/item/weapon/reagent_containers/personal_inhaler_cartridge/bluespace
 	name = "bluespace inhaler cartridge"
-	desc = "An experimental bluespace inhaler cartridge. It has enough areosal for 60 units of reagents. The cartridge must be activated to mix areosal with reagents inside."
+	desc = "An experimental bluespace inhaler cartridge. It has enough areosal for 60 units of reagents. The container must be activated to mix areosal with reagents inside."
 	icon_state = "pi_cart_large"
 	volume = 60
 	w_class = 2
