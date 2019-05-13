@@ -430,8 +430,14 @@
 	var/list/targets = list()			//list of primary targets
 	var/list/secondarytargets = list()	//targets that are least important
 
-	for(var/mob/M in mobs_in_view(world.view, src))
-		assess_and_assign(M, targets, secondarytargets)
+	for(var/v in view(world.view, src))
+		if(isliving(v))
+			var/mob/living/L = v
+			assess_and_assign(L, targets, secondarytargets)
+		else if(istype(v, /obj/mecha))
+			var/obj/mecha/M = v
+			if(M.occupant)
+				secondarytargets += M
 
 	if(!tryToShootAt(targets))
 		if(!tryToShootAt(secondarytargets)) // if no valid targets, go for secondary targets
@@ -452,10 +458,10 @@
 	if(!istype(L))
 		return TURRET_NOT_TARGET
 
-	if(L.invisibility >= INVISIBILITY_LEVEL_ONE) // Cannot see him. see_invisible is a mob-var
+	if(!L)
 		return TURRET_NOT_TARGET
 
-	if(!L)
+	if(L.invisibility >= INVISIBILITY_LEVEL_ONE) // Cannot see him. see_invisible is a mob-var
 		return TURRET_NOT_TARGET
 
 	if(!emagged && issilicon(L))	// Don't target silica
@@ -467,7 +473,11 @@
 	if(get_dist(src, L) > 7)	//if it's too far away, why bother?
 		return TURRET_NOT_TARGET
 
-	if(!(L in check_trajectory(L, src)))	//check if we have true line of sight
+	var/flags =  PASSTABLE
+	if(ispath(projectile, /obj/item/projectile/beam) || ispath(eprojectile, /obj/item/projectile/beam))
+		flags |= PASSTABLE|PASSGLASS|PASSGRILLE
+
+	if(!(L in check_trajectory(L, src, pass_flags=flags)))	//check if we have true line of sight
 		return TURRET_NOT_TARGET
 
 	if(emagged)		// If emagged not even the dead get a rest
