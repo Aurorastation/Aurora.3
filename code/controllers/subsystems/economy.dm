@@ -112,10 +112,10 @@ var/datum/controller/subsystem/economy/SSeconomy
 	T.amount = starting_funds
 
 	if(!source_db)
-		//set a random date, time and location some time over the past few decades
-		T.date = "[num2text(rand(1,31))] [pick("January","February","March","April","May","June","July","August","September","October","November","December")], 24[rand(10,48)]"
+		//set a random date from recent months
+		T.date = "[num2text(rand(1,31))] [pick("January","February","March","April","May")], 2461"
 		T.time = "[rand(0,24)]:[rand(11,59)]"
-		T.source_terminal = "NTGalaxyNet Terminal #[rand(111,1111)]"
+		T.source_terminal = "Idris SelfServ Terminal #[rand(111,11111)]"
 	else
 		T.date = worlddate2text()
 		T.time = worldtime2text()
