@@ -139,6 +139,7 @@
 		burst_delay += modifier.burst_delay
 		max_shots *= modifier.shots
 		force = min(force + modifier.gun_force, 40)
+		armor_penetration = modifier.gun_armorpen
 		chargetime += modifier.chargetime*10
 		accuracy += modifier.accuracy
 		criticality *= modifier.criticality
