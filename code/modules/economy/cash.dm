@@ -36,7 +36,7 @@
 			h_user.drop_from_inventory(src)
 			h_user.drop_from_inventory(bundle)
 			h_user.put_in_hands(bundle)
-		user << "<span class='notice'>You add [src.worth] credits worth of money to the bundles.<br>It holds [bundle.worth] credits now.</span>"
+		to_chat(user, "<span class='notice'>You add [src.worth] credits worth of money to the bundles.<br>It holds [bundle.worth] credits now.</span>")
 		qdel(src)
 
 /obj/item/weapon/spacecash/bundle
@@ -79,7 +79,7 @@
 	if(QDELETED(src))
 		return 0
 
-	if(use_check(user,USE_FORCE_SRC_IN_USER))
+	if(use_check_and_message(user,USE_FORCE_SRC_IN_USER))
 		return 0
 
 	amount = round(Clamp(amount, 0, src.worth))
@@ -174,7 +174,7 @@ proc/spawn_money(var/sum, spawnloc, mob/living/carbon/human/human_user as mob)
 /obj/item/weapon/spacecash/ewallet/examine(mob/user)
 	..(user)
 	if (!(user in view(2)) && user!=src.loc) return
-	user << "<span class='notice'>Charge card's owner: [src.owner_name]. Credit chips remaining: [src.worth].</span>"
+	to_chat(user, "<span class='notice'>Charge card's owner: [src.owner_name]. Credit chips remaining: [src.worth].</span>")
 
 /obj/item/weapon/spacecash/ewallet/lotto
 	name = "space lottery card"
@@ -186,16 +186,16 @@ proc/spawn_money(var/sum, spawnloc, mob/living/carbon/human/human_user as mob)
 /obj/item/weapon/spacecash/ewallet/lotto/attack_self(mob/user)
 
 	if(scratches_remaining <= 0)
-		user << "<span class='warning'>The card flashes: \"No scratches remaining!\"</span>"
+		to_chat(user, "<span class='warning'>The card flashes: \"No scratches remaining!\"</span>")
 		return
 
 	if(next_scratch > world.time)
-		user << "<span class='warning'>The card flashes: \"Please wait!\"</span>"
+		to_chat(user, "<span class='warning'>The card flashes: \"Please wait!\"</span>")
 		return
 
 	next_scratch = world.time + 6 SECONDS
 
-	user << "<span class='notice'>You initiate the simulated scratch action process on the [src]...</span>"
+	to_chat(user, "<span class='notice'>You initiate the simulated scratch action process on the [src]...</span>")
 	playsound(src.loc, 'sound/items/drumroll.ogg', 50, 0, -4)
 	if(do_after(user,4.5 SECONDS))
 		var/won = 0
@@ -235,9 +235,9 @@ proc/spawn_money(var/sum, spawnloc, mob/living/carbon/human/human_user as mob)
 		worth += won
 		sleep(1 SECONDS)
 		if(scratches_remaining > 0)
-			user << "<span class='notice'>The card flashes: You have: [scratches_remaining] SCRATCHES remaining! Scratch again!</span>"
+			to_chat(user, "<span class='notice'>The card flashes: You have: [scratches_remaining] SCRATCHES remaining! Scratch again!</span>")
 		else
-			user << "<span class='notice'>The card flashes: You have: [scratches_remaining] SCRATCHES remaining! You won a total of: [worth] CREDITS. Thanks for playing the space lottery!</span>"
+			to_chat(user, "<span class='notice'>The card flashes: You have: [scratches_remaining] SCRATCHES remaining! You won a total of: [worth] CREDITS. Thanks for playing the space lottery!</span>")
 
 		owner_name = user.name
 

@@ -17,7 +17,7 @@
  */
 /obj/item/weapon/wrench
 	name = "wrench"
-	desc = "A wrench with many common uses. Can be usually found in your hand."
+	desc = "An adjustable tool used for gripping and turning nuts or bolts."
 	icon = 'icons/obj/items.dmi'
 	icon_state = "wrench"
 	flags = CONDUCT
@@ -28,6 +28,7 @@
 	origin_tech = list(TECH_MATERIAL = 1, TECH_ENGINEERING = 1)
 	matter = list(DEFAULT_WALL_MATERIAL = 150)
 	attack_verb = list("bashed", "battered", "bludgeoned", "whacked")
+	drop_sound = 'sound/items/drop/sword.ogg'
 
 /obj/item/weapon/wrench/iswrench()
 	return TRUE
@@ -37,7 +38,7 @@
  */
 /obj/item/weapon/screwdriver
 	name = "screwdriver"
-	desc = "You can be totally screwwy with this."
+	desc = "A tool with a flattened or cross-shaped tip that fits into the head of a screw to turn it."
 	icon = 'icons/obj/items.dmi'
 	icon_state = "screwdriver"
 	flags = CONDUCT
@@ -51,6 +52,7 @@
 	attack_verb = list("stabbed")
 	lock_picking_level = 5
 	var/random_icon = TRUE
+	drop_sound = 'sound/items/drop/scrap.ogg'
 
 
 /obj/item/weapon/screwdriver/Initialize()
@@ -89,7 +91,7 @@
 		return ..()
 	if(target_zone != "eyes" && target_zone != "head")
 		return ..()
-	if((CLUMSY in user.mutations) && prob(50))
+	if((user.is_clumsy()) && prob(50))
 		M = user
 	return eyestab(M,user)
 
@@ -101,7 +103,7 @@
  */
 /obj/item/weapon/wirecutters
 	name = "wirecutters"
-	desc = "This cuts wires."
+	desc = "A tool used to cut wires in electrical work."
 	icon = 'icons/obj/items.dmi'
 	icon_state = "cutters"
 	flags = CONDUCT
@@ -115,6 +117,7 @@
 	attack_verb = list("pinched", "nipped")
 	sharp = 1
 	edge = 1
+	drop_sound = 'sound/items/drop/knife.ogg'
 
 /obj/item/weapon/wirecutters/New()
 	if(prob(50))
@@ -151,6 +154,7 @@
 	var/base_iconstate = "welder"//These are given an _on/_off suffix before being used
 	var/base_itemstate = "welder"
 	contained_sprite = 1
+	drop_sound = 'sound/items/drop/scrap.ogg'
 
 	//Amount of OUCH when it's thrown
 	force = 3.0
@@ -194,7 +198,7 @@
 //The Experimental Welding Tool!
 /obj/item/weapon/weldingtool/experimental
 	name = "experimental welding tool"
-	desc = "A scientifically-enhanced welding tool that uses fuel-producing microbes to gradually replenish its fuel supply"
+	desc = "A scientifically-enhanced welding tool that uses fuel-producing microbes to gradually replenish its fuel supply."
 	max_fuel = 40
 	w_class = 2.0
 	matter = list(DEFAULT_WALL_MATERIAL = 100, "glass" = 120)
@@ -233,21 +237,21 @@
 
 /obj/item/weapon/weldingtool/examine(mob/user)
 	if(..(user, 0))
-		user << text("\icon[] [] contains []/[] units of fuel!", src, src.name, get_fuel(),src.max_fuel )
+		to_chat(user, text("\icon[] [] contains []/[] units of fuel!", src, src.name, get_fuel(),src.max_fuel ))
 
 /obj/item/weapon/weldingtool/attackby(obj/item/W as obj, mob/user as mob)
 	if(W.isscrewdriver())
 		if (isrobot(loc))
-			user << span("alert", "You cannot modify your own welder!")
+			to_chat(user, span("alert", "You cannot modify your own welder!"))
 			return
 		if(welding)
-			user << span("danger", "Stop welding first!")
+			to_chat(user, span("danger", "Stop welding first!"))
 			return
 		status = !status
 		if(status)
-			user << span("notice", "You secure the welder.")
+			to_chat(user, span("notice", "You secure the welder."))
 		else
-			user << span("notice", "The welder can now be attached and modified.")
+			to_chat(user, span("notice", "The welder can now be attached and modified."))
 		src.add_fingerprint(user)
 		return
 
@@ -304,19 +308,21 @@
 			return ..()
 
 		if(M.isSynthetic() && M == user && !(M.get_species() == "Hunter-Killer"))
-			user << "<span class='warning'>You can't repair damage to your own body - it's against OH&S.</span>"
+			to_chat(user, "<span class='warning'>You can't repair damage to your own body - it's against OH&S.</span>")
 			return
 		if(S.brute_dam == 0)
 			// Organ undamaged
-			user << "Nothing to fix here!"
+			to_chat(user, "Nothing to fix here!")
 			return
 		if (!src.welding)
 			// Welder is switched off!
-			user << "<span class='warning'>You need to light the welding tool, first!</span>"
+			to_chat(user, "<span class='warning'>You need to light the welding tool, first!</span>")
 			return
+
 		if(S.brute_dam > ROBOLIMB_SELF_REPAIR_CAP && (S.status & ORGAN_ROBOT))
 			user << "<span class='warning'>The damage is far too severe to patch over externally.</span>"
 			return
+
 		if (src.remove_fuel(0))
 			// Use a bit of fuel and repair
 			S.heal_damage(15,0,0,1)
@@ -324,7 +330,7 @@
 			user.visible_message("<span class='warning'>\The [user] patches some dents on \the [M]'s [S.name] with \the [src].</span>")
 		else
 			// Welding tool is out of fuel
-			user << "Need more welding fuel!"
+			to_chat(user, "Need more welding fuel!")
 		return
 
 	else
@@ -334,13 +340,13 @@
 	if(!proximity) return
 	if (istype(O, /obj/structure/reagent_dispensers/fueltank) && get_dist(src,O) <= 1 && !src.welding)
 		O.reagents.trans_to_obj(src, max_fuel)
-		user << "<span class='notice'>Welder refueled</span>"
+		to_chat(user, "<span class='notice'>Welder refueled</span>")
 		playsound(src.loc, 'sound/effects/refill.ogg', 50, 1, -6)
 		return
 	else if (istype(O, /obj/structure/reagent_dispensers/fueltank) && get_dist(src,O) <= 1 && src.welding)
 		var/obj/structure/reagent_dispensers/fueltank/tank = O
 		if(tank.armed)
-			user << "You are already heating the [O]"
+			to_chat(user, "You are already heating the [O]")
 			return
 		tank.armed = 1
 		user.visible_message("[user] begins heating the [O].", "You start to heat the [O].")
@@ -353,12 +359,12 @@
 				return
 			message_admins("[key_name_admin(user)] triggered a fueltank explosion.")
 			log_game("[key_name(user)] triggered a fueltank explosion with a welding tool.",ckey=key_name(user))
-			user << span("alert", "That was stupid of you.")
+			to_chat(user, span("alert", "That was stupid of you."))
 			tank.ex_act(3.0)
 			return
 		else
 			tank.armed = 0
-			user << "You thought better of yourself."
+			to_chat(user, "You thought better of yourself.")
 			return
 		return
 	if (src.welding)
@@ -390,7 +396,7 @@
 		return 1
 	else
 		if(M)
-			M << span("notice", "You need more welding fuel to complete this task.")
+			to_chat(M, span("notice", "You need more welding fuel to complete this task."))
 		return 0
 
 //Returns whether or not the welding tool is currently on.
@@ -407,7 +413,7 @@
 	if(set_welding && !welding)
 		if (get_fuel() > 0)
 			if(M)
-				M << "<span class='notice'>You switch the [src] on.</span>"
+				to_chat(M, "<span class='notice'>You switch the [src] on.</span>")
 			else if(T)
 				T.visible_message("<span class='danger'>\The [src] turns on.</span>")
 			playsound(loc, 'sound/items/WelderActivate.ogg', 50, 1)
@@ -419,12 +425,12 @@
 			set_processing(1)
 		else
 			if(M)
-				M << "<span class='notice'>You need more welding fuel to complete this task.</span>"
+				to_chat(M, "<span class='notice'>You need more welding fuel to complete this task.</span>")
 			return
 	//Otherwise
 	else if(!set_welding && welding)
 		if(M)
-			M << "<span class='notice'>You switch \the [src] off.</span>"
+			to_chat(M, "<span class='notice'>You switch \the [src] off.</span>")
 		else if(T)
 			T.visible_message("<span class='warning'>\The [src] turns off.</span>")
 		playsound(loc, 'sound/items/WelderDeactivate.ogg', 50, 1)
@@ -456,28 +462,28 @@
 			return
 		switch(safety)
 			if(FLASH_PROTECTION_MODERATE)
-				usr << "<span class='warning'>Your eyes sting a little.</span>"
+				to_chat(usr, "<span class='warning'>Your eyes sting a little.</span>")
 				E.damage += rand(1, 2)
 				if(E.damage > 12)
 					user.eye_blurry += rand(3,6)
 			if(FLASH_PROTECTION_NONE)
-				usr << "<span class='warning'>Your eyes burn.</span>"
+				to_chat(usr, "<span class='warning'>Your eyes burn.</span>")
 				E.damage += rand(2, 4)
 				if(E.damage > 10)
 					E.damage += rand(4,10)
 			if(FLASH_PROTECTION_REDUCED)
-				usr << "<span class='danger'>Your equipment intensify the welder's glow. Your eyes itch and burn severely.</span>"
+				to_chat(usr, "<span class='danger'>Your equipment intensify the welder's glow. Your eyes itch and burn severely.</span>")
 				user.eye_blurry += rand(12,20)
 				E.damage += rand(12, 16)
 		if(safety<FLASH_PROTECTION_MAJOR)
 			if(E.damage > 10)
-				user << "<span class='warning'>Your eyes are really starting to hurt. This can't be good for you!</span>"
+				to_chat(user, "<span class='warning'>Your eyes are really starting to hurt. This can't be good for you!</span>")
 
 			if (E.damage >= E.min_broken_damage)
-				user << "<span class='danger'>You go blind!</span>"
+				to_chat(user, "<span class='danger'>You go blind!</span>")
 				user.sdisabilities |= BLIND
 			else if (E.damage >= E.min_bruised_damage)
-				user << "<span class='danger'>You go blind!</span>"
+				to_chat(user, "<span class='danger'>You go blind!</span>")
 				user.eye_blind = 5
 				user.eye_blurry = 5
 				user.disabilities |= NEARSIGHTED
@@ -525,7 +531,7 @@
 
 /obj/item/weapon/crowbar
 	name = "crowbar"
-	desc = "Used to remove floors and to pry open doors."
+	desc = "An iron bar with a flattened end, used as a lever to remove floors and pry open doors."
 	icon = 'icons/obj/items.dmi'
 	icon_state = "crowbar"
 	flags = CONDUCT
@@ -537,6 +543,7 @@
 	origin_tech = list(TECH_ENGINEERING = 1)
 	matter = list(DEFAULT_WALL_MATERIAL = 50)
 	attack_verb = list("attacked", "bashed", "battered", "bludgeoned", "whacked")
+	drop_sound = 'sound/items/drop/sword.ogg'
 
 /obj/item/weapon/crowbar/iscrowbar()
 	return TRUE
@@ -575,7 +582,8 @@
 		"crowbar",
 		"screwdriver",
 		"wrench",
-		"wirecutters"
+		"wirecutters",
+		"multitool"
 		)
 	var/current_tool = 1
 
@@ -601,6 +609,9 @@
 
 /obj/item/combitool/iscrowbar()
 	return tools[current_tool] == "crowbar"
+
+/obj/item/combitool/ismultitool()
+	return tools[current_tool] == "multitool"
 
 /obj/item/combitool/proc/update_tool()
 	icon_state = "[initial(icon_state)]-[tools[current_tool]]"

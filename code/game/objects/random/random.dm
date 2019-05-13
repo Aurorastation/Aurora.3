@@ -307,16 +307,25 @@
 	icon = 'icons/obj/toy.dmi'
 	icon_state = "nymphplushie"
 	spawnlist = list(
-		/obj/structure/plushie/ian,
-		/obj/structure/plushie/drone,
-		/obj/structure/plushie/carp,
-		/obj/structure/plushie/beepsky,
-		/obj/structure/plushie/ivancarp,
+		/obj/item/toy/plushie/ian,
+		/obj/item/toy/plushie/drone,
+		/obj/item/toy/plushie/carp,
+		/obj/item/toy/plushie/beepsky,
+		/obj/item/toy/plushie/ivancarp,
 		/obj/item/toy/plushie/nymph,
 		/obj/item/toy/plushie/mouse,
 		/obj/item/toy/plushie/kitten,
 		/obj/item/toy/plushie/lizard,
 		/obj/item/toy/plushie/farwa,
+		/obj/random/squid_plushie
+	)
+
+/obj/random/squid_plushie
+	name = "random squid plushie"
+	desc = "This is a random squid plushie."
+	icon = 'icons/obj/toy.dmi'
+	icon_state = "greensquid"
+	spawnlist = list(
 		/obj/item/toy/plushie/squid/green,
 		/obj/item/toy/plushie/squid/mint,
 		/obj/item/toy/plushie/squid/blue,
@@ -364,7 +373,7 @@
 		/obj/item/weapon/storage/backpack/hydroponics = 3,
 		/obj/item/weapon/storage/backpack/genetics = 3,
 		/obj/item/weapon/storage/backpack/virology = 3,
-		/obj/item/weapon/storage/backpack/chemistry = 3,
+		/obj/item/weapon/storage/backpack/pharmacy = 3,
 		/obj/item/weapon/storage/backpack/cloak = 2,
 		/obj/item/weapon/storage/backpack/syndie = 1,
 		/obj/item/weapon/storage/backpack/wizard = 1,
@@ -373,7 +382,7 @@
 		/obj/item/weapon/storage/backpack/satchel_eng = 3,
 		/obj/item/weapon/storage/backpack/satchel_med = 3,
 		/obj/item/weapon/storage/backpack/satchel_vir = 3,
-		/obj/item/weapon/storage/backpack/satchel_chem = 3,
+		/obj/item/weapon/storage/backpack/satchel_pharm = 3,
 		/obj/item/weapon/storage/backpack/satchel_gen = 3,
 		/obj/item/weapon/storage/backpack/satchel_tox = 3,
 		/obj/item/weapon/storage/backpack/satchel_sec = 3,
@@ -394,11 +403,11 @@
 		/obj/item/weapon/storage/backpack/duffel/tox = 3,
 		/obj/item/weapon/storage/backpack/duffel/sec = 3,
 		/obj/item/weapon/storage/backpack/duffel/gen = 3,
-		/obj/item/weapon/storage/backpack/duffel/chem = 3,
+		/obj/item/weapon/storage/backpack/duffel/pharm = 3,
 		/obj/item/weapon/storage/backpack/duffel/syndie = 1,
 		/obj/item/weapon/storage/backpack/duffel/wizard = 1,
 		/obj/item/weapon/storage/backpack/messenger = 2,
-		/obj/item/weapon/storage/backpack/messenger/chem = 2,
+		/obj/item/weapon/storage/backpack/messenger/pharm = 2,
 		/obj/item/weapon/storage/backpack/messenger/med = 2,
 		/obj/item/weapon/storage/backpack/messenger/viro = 2,
 		/obj/item/weapon/storage/backpack/messenger/tox = 2,

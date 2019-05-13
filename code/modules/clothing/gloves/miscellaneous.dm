@@ -45,6 +45,7 @@
 	permeability_coefficient = 0.01
 	germ_level = 0
 	fingerprint_chance = 75
+	drop_sound = 'sound/items/drop/rubber.ogg'
 
 /obj/item/clothing/gloves/latex/nitrile
 	name = "nitrile gloves"
@@ -69,6 +70,7 @@
 	item_state = "ggloves"
 	permeability_coefficient = 0.05
 	siemens_coefficient = 0.50 //thick work gloves
+	drop_sound = 'sound/items/drop/leather.ogg'
 
 /obj/item/clothing/gloves/botanic_leather/unathi
 	name = "unathi leather gloves"
@@ -89,6 +91,7 @@
 	gender = NEUTER
 	body_parts_covered = null
 	fingerprint_chance = 100
+	drop_sound = 'sound/items/drop/accessory.ogg'
 
 /obj/item/clothing/gloves/watch/verb/checktime()
 	set category = "Object"
@@ -96,13 +99,13 @@
 	set src in usr
 
 	if(wired && !clipped)
-		usr << "You check your watch, spotting a digital collection of numbers reading '[worldtime2text()]'. Today's date is '[time2text(world.time, "Month DD")]. [game_year]'."
+		to_chat(usr, "You check your watch, spotting a digital collection of numbers reading '[worldtime2text()]'. Today's date is '[time2text(world.time, "Month DD")]. [game_year]'.")
 		if (emergency_shuttle.get_status_panel_eta())
-			usr << "<span class='warning'>The shuttle's status is reported as: [emergency_shuttle.get_status_panel_eta()].</span>"
+			to_chat(usr, "<span class='warning'>The shuttle's status is reported as: [emergency_shuttle.get_status_panel_eta()].</span>")
 	else if(wired && clipped)
-		usr << "You check your watch realising it's still open"
+		to_chat(usr, "You check your watch realising it's still open")
 	else
-		usr << "You check your watch as it dawns on you that it's broken"
+		to_chat(usr, "You check your watch as it dawns on you that it's broken")
 
 /obj/item/clothing/gloves/watch/verb/pointatwatch()
 	set category = "Object"
@@ -136,20 +139,20 @@
 	if(W.iscoil())
 		var/obj/item/stack/cable_coil/C = W
 		if (!clipped)
-			user << "<span class='notice'>The [src] is not open.</span>"
+			to_chat(user, "<span class='notice'>The [src] is not open.</span>")
 			return
 
 		if(wired)
-			user << "<span class='notice'>The [src] are already wired.</span>"
+			to_chat(user, "<span class='notice'>The [src] are already wired.</span>")
 			return
 
 		if(C.amount < 2)
-			user << "<span class='notice'>There is not enough wire to cover the [src].</span>"
+			to_chat(user, "<span class='notice'>There is not enough wire to cover the [src].</span>")
 			return
 
 		C.use(2)
 		wired = 1
-		user << "<span class='notice'>You repair some wires in the [src].</span>"
+		to_chat(user, "<span class='notice'>You repair some wires in the [src].</span>")
 		return
 
 /obj/item/clothing/gloves/watch/emp_act(severity)
@@ -164,6 +167,7 @@
 	item_state = "cobalt_armchains"
 	siemens_coefficient = 1.0
 	fingerprint_chance = 100
+	drop_sound = 'sound/items/drop/accessory.ogg'
 
 /obj/item/clothing/gloves/armchain/emerald
 	name = "emerald arm chains"
@@ -184,6 +188,7 @@
 	item_state = "cobalt_bracers"
 	siemens_coefficient = 1.0
 	fingerprint_chance = 100
+	drop_sound = 'sound/items/drop/accessory.ogg'
 
 /obj/item/clothing/gloves/goldbracer/emerald
 	name = "emerald bracers"
@@ -210,6 +215,7 @@
 	item_state = "force_glove"
 	siemens_coefficient = 0.6
 	permeability_coefficient = 0.05
+	drop_sound = 'sound/items/drop/metalboots.ogg'
 
 	cold_protection = HANDS
 	min_cold_protection_temperature = GLOVES_MIN_COLD_PROTECTION_TEMPERATURE
@@ -241,6 +247,7 @@
 	force = 5
 	punch_force = 5
 	clipped = 1
+	drop_sound = 'sound/items/drop/metalboots.ogg'
 
 /obj/item/clothing/gloves/powerfist
 	name = "power fist"
@@ -254,6 +261,7 @@
 	punch_force = 10
 	clipped = 1
 	species_restricted = list("exclude","Golem","Vaurca Breeder","Vaurca Warform")
+	drop_sound = 'sound/items/drop/metalboots.ogg'
 
 /obj/item/clothing/gloves/powerfist/Touch(atom/A, mob/living/user, proximity)
 	if(!proximity)
@@ -286,3 +294,10 @@
 	clipped = 1
 	sharp = 1
 	edge = 1
+	drop_sound = 'sound/items/drop/metalboots.ogg'
+
+/obj/item/clothing/gloves/offworlder
+	name = "starmitts"
+	desc = "Thick arm warmers and mittens that reach past the elbow."
+	icon_state = "starmittens"
+	item_state = "starmittens"

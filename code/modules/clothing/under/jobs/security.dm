@@ -64,10 +64,33 @@
 	armor = list(melee = 10, bullet = 5, laser = 5,energy = 0, bomb = 0, bio = 0, rad = 0)
 	siemens_coefficient = 0.7
 
+/obj/item/clothing/under/rank/security/necropolis
+	name = "Necropolis Industries security uniform"
+	desc = "A uniform worn by Necropolis Industries security forces."
+	icon_state = "necro_sec"
+	worn_state = "necro_sec"
+
+/obj/item/clothing/under/rank/security/idris
+	name = "Idris Incorporated security uniform"
+	desc = "A uniform worn by Idris Incorporated employees and contractors."
+	icon_state = "idris_sec"
+	worn_state = "idris_sec"
+
+/obj/item/clothing/under/rank/security/idris/alt
+	icon_state = "idris_alt"
+	worn_state = "idris_alt"
+
+/obj/item/clothing/under/rank/security/eridani
+	name = "Eridani PMC uniform"
+	desc = "A uniform worn by contracted Eridani security forces."
+	icon_state = "erisec"
+	worn_state = "erisec"
+
+
 /*
  * Detective
  */
- 
+
 /obj/item/clothing/under/det
 	name = "hard-worn suit"
 	desc = "Someone who wears this means business."
@@ -85,7 +108,7 @@
 /obj/item/clothing/under/det/slob
 	icon_state = "polsuit"
 	worn_state = "polsuit"
-	
+
 /obj/item/clothing/under/det/forensics
 	name = "forensics technician's uniform"
 	desc = "A tan service uniform worn by a forensics officer."

@@ -19,6 +19,8 @@
 
 	var/label_text = ""
 
+	drop_sound = 'sound/items/drop/bottle.ogg'
+
 /obj/item/weapon/reagent_containers/glass/Initialize()
 	. = ..()
 	base_name = name
@@ -27,23 +29,23 @@
 	if(!..(user, 2))
 		return
 	if(reagents && reagents.reagent_list.len)
-		user << "<span class='notice'>It contains [round(reagents.total_volume, accuracy)] units of liquid.</span>"
+		to_chat(user, "<span class='notice'>It contains [round(reagents.total_volume, accuracy)] units of liquid.</span>")
 		for(var/datum/reagent/T in reagents.reagent_list)
 			if(T.reagent_state == SOLID)
-				user << "<span class='notice'>You see something solid in the beaker.</span>"
+				to_chat(user, "<span class='notice'>You see something solid in the beaker.</span>")
 				break // to stop multiple messages of this
 	else
-		user << "<span class='notice'>It is empty.</span>"
+		to_chat(user, "<span class='notice'>It is empty.</span>")
 	if(!is_open_container())
-		user << "<span class='notice'>Airtight lid seals it completely.</span>"
+		to_chat(user, "<span class='notice'>Airtight lid seals it completely.</span>")
 
 /obj/item/weapon/reagent_containers/glass/attack_self()
 	..()
 	if(is_open_container())
-		usr << "<span class = 'notice'>You put the lid on \the [src].</span>"
+		to_chat(usr, "<span class = 'notice'>You put the lid on \the [src].</span>")
 		flags ^= OPENCONTAINER
 	else
-		usr << "<span class = 'notice'>You take the lid off \the [src].</span>"
+		to_chat(usr, "<span class = 'notice'>You take the lid off \the [src].</span>")
 		flags |= OPENCONTAINER
 	update_icon()
 
@@ -57,9 +59,9 @@
 	if(istype(W, /obj/item/weapon/pen) || istype(W, /obj/item/device/flashlight/pen))
 		var/tmp_label = sanitizeSafe(input(user, "Enter a label for [name]", "Label", label_text), MAX_NAME_LEN)
 		if(length(tmp_label) > 15)
-			user << "<span class='notice'>The label can be at most 15 characters long.</span>"
+			to_chat(user, "<span class='notice'>The label can be at most 15 characters long.</span>")
 		else
-			user << "<span class='notice'>You set the label to \"[tmp_label]\".</span>"
+			to_chat(user, "<span class='notice'>You set the label to \"[tmp_label]\".</span>")
 			label_text = tmp_label
 			update_name_label()
 
@@ -201,7 +203,7 @@
 
 /obj/item/weapon/reagent_containers/glass/bucket/attackby(var/obj/D, mob/user as mob)
 	if(isprox(D))
-		user << "You add [D] to [src]."
+		to_chat(user, "You add [D] to [src].")
 		qdel(D)
 		user.put_in_hands(new /obj/item/weapon/bucket_sensor)
 		qdel(src)
@@ -213,10 +215,10 @@
 		return
 	else if(istype(D, /obj/item/weapon/mop))
 		if(reagents.total_volume < 1)
-			user << "<span class='warning'>\The [src] is empty!</span>"
+			to_chat(user, "<span class='warning'>\The [src] is empty!</span>")
 		else
 			reagents.trans_to_obj(D, 5)
-			user << "<span class='notice'>You wet \the [D] in \the [src].</span>"
+			to_chat(user, "<span class='notice'>You wet \the [D] in \the [src].</span>")
 			playsound(loc, 'sound/effects/slosh.ogg', 25, 1)
 		return
 	else
@@ -241,7 +243,7 @@ obj/item/weapon/reagent_containers/glass/bucket/wood
 
 /obj/item/weapon/reagent_containers/glass/bucket/wood/attackby(var/obj/D, mob/user as mob)
 	if(isprox(D))
-		user << "This wooden bucket doesn't play well with electronics."
+		to_chat(user, "This wooden bucket doesn't play well with electronics.")
 		return
 	else if(istype(D, /obj/item/weapon/material/hatchet))
 		to_chat(user, "<span class='notice'>You cut a big hole in \the [src] with \the [D].</span>")
@@ -250,10 +252,10 @@ obj/item/weapon/reagent_containers/glass/bucket/wood
 		return
 	else if(istype(D, /obj/item/weapon/mop))
 		if(reagents.total_volume < 1)
-			user << "<span class='warning'>\The [src] is empty!</span>"
+			to_chat(user, "<span class='warning'>\The [src] is empty!</span>")
 		else
 			reagents.trans_to_obj(D, 5)
-			user << "<span class='notice'>You wet \the [D] in \the [src].</span>"
+			to_chat(user, "<span class='notice'>You wet \the [D] in \the [src].</span>")
 			playsound(loc, 'sound/effects/slosh.ogg', 25, 1)
 		return
 	else

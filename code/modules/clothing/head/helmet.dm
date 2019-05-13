@@ -16,6 +16,7 @@
 	siemens_coefficient = 0.5
 	w_class = 3
 	var/allow_hair_covering = TRUE //in case if you want to allow someone to switch the BLOCKHEADHAIR var from the helmet or not
+	drop_sound = 'sound/items/drop/helm.ogg'
 
 /obj/item/clothing/head/helmet/verb/toggle_block_hair()
 	set name = "Toggle Helmet Hair Coverage"
@@ -23,7 +24,7 @@
 
 	if(allow_hair_covering)
 		flags_inv ^= BLOCKHEADHAIR
-		usr << "<span class='notice'>[src] will now [flags_inv & BLOCKHEADHAIR ? "hide" : "show"] hair.</span>"
+		to_chat(usr, "<span class='notice'>[src] will now [flags_inv & BLOCKHEADHAIR ? "hide" : "show"] hair.</span>")
 	..()
 
 /obj/item/clothing/head/helmet/warden
@@ -72,16 +73,16 @@
 	action_button_name = "Toggle Visor"
 
 /obj/item/clothing/head/helmet/riot/attack_self(mob/user as mob)
-	if (use_check(user))
+	if (use_check_and_message(user))
 		return
 
 	if(src.icon_state == initial(icon_state))
 		src.icon_state = "[icon_state]-up"
-		user << "You raise the visor on \the [src]."
+		to_chat(user, "You raise the visor on \the [src].")
 		body_parts_covered = HEAD
 	else
 		src.icon_state = initial(icon_state)
-		user << "You lower the visor on \the [src]."
+		to_chat(user, "You lower the visor on \the [src].")
 		body_parts_covered = HEAD|FACE|EYES
 	update_clothing_icon()
 
@@ -124,16 +125,16 @@
 	action_button_name = "Toggle Visor"
 
 /obj/item/clothing/head/helmet/swat/peacekeeper/attack_self(mob/user as mob)
-	if (use_check(user))
+	if (use_check_and_message(user))
 		return
 
 	if(src.icon_state == initial(icon_state))
 		src.icon_state = "[icon_state]-up"
-		user << "You raise the visor on \the [src]."
+		to_chat(user, "You raise the visor on \the [src].")
 		body_parts_covered = HEAD
 	else
 		src.icon_state = initial(icon_state)
-		user << "You lower the visor on \the [src]."
+		to_chat(user, "You lower the visor on \the [src].")
 		body_parts_covered = HEAD|FACE|EYES
 	update_clothing_icon()
 
@@ -248,3 +249,20 @@
 	body_parts_covered = HEAD|FACE|EYES
 	flags_inv = HIDEEARS|HIDEEYES|HIDEFACE
 	armor = list(melee = 50, bullet = 30, laser = 30, energy = 15, bomb = 40, bio = 0, rad = 0)
+
+/obj/item/clothing/head/helmet/tajara
+	name = "amohdan swordsmen helmet"
+	desc = "A helmet used by the traditional warriors of Amohda."
+	icon = 'icons/obj/tajara_items.dmi'
+	icon_state = "amohdan_helmet"
+	item_state = "amohdan_helmet"
+	contained_sprite = TRUE
+	body_parts_covered = HEAD|FACE|EYES
+	flags_inv = HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE|BLOCKHAIR
+	species_restricted = list("Tajara")
+	armor = list(melee = 60, bullet = 50, laser = 20, energy = 10, bomb = 5, bio = 0, rad = 0)
+	allow_hair_covering = FALSE
+	description_fluff = "The Feudal Era of Amohda is famous for the steel swords which became common. Many renowned swordsmen and famous warriors would travel the land fighting duels of \
+	single combat in their quests to become the greatest swordsman. Modern Amohda is a mix between loyalists to the NKA and to the DPRA, with almost universal praise for a return to \
+	traditional culture, yet often violent disagreement about the course of the island's political future. A sizable third party of monarchists which advocate the reestablishment of the \
+	Imperial Amohdan dynasty also exists, fragmenting the monarchist factions on the island and further complicating political violence in the area."

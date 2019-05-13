@@ -10,6 +10,7 @@
 	throw_range = 4
 	throwforce = 10
 	w_class = 2
+	var/static/list/nullchoices
 
 /obj/item/weapon/nullrod/nullstaff
 	name = "null staff"
@@ -31,32 +32,40 @@
 	icon_state = "nullathame"
 	item_state = "nullathame"
 
-/obj/item/weapon/nullrod/itembox
-	name = "null item box"
-	desc = "A box to safe keep your religious items. What item did you bring to work today?"
-	icon = 'icons/obj/storage.dmi'
-	icon_state = "box"
-	item_state = "box"
+/obj/item/weapon/nullrod/obsidianshards
+	name = "Obsidian Shards"
+	desc = "A loose pile of obsidian shards, waiting to be assembled into a religious focus."
+	icon_state = "nullshards"
+	item_state = "nullshards"
 
-/obj/item/weapon/nullrod/itembox/attack_self(mob/user as mob)
-	if(..()) return
+/obj/item/weapon/nullrod/Initialize()
+	. = ..()
+	if(!nullchoices)
+		var/blocked = list(src.type, /obj/item/weapon/nullrod/nullorb) + typesof(/obj/item/weapon/nullrod/fluff)
+		nullchoices = generate_chameleon_choices(/obj/item/weapon/nullrod, blocked)
 
-	var/selection = input("Pick a null item type.") in list("Rod","Staff", /*"Orb",*/ "Athame")
-	switch(selection)
-		if ("Rod")
-			new /obj/item/weapon/nullrod(user.loc)
-			user << "<span class='notice'>A simple obsidian rod, a classic. Rods like these are seen in the hands of religious folks all across the galaxy.</span>"
-		if ("Staff")
-			new /obj/item/weapon/nullrod/nullstaff(user.loc)
-			user << "<span class='notice'>A simple staff, a popular choice amongst shamans and wise men. You doubt this will fit in your bag, but you can put it on your back.</span>"
-		if ("Orb")
-			new /obj/item/weapon/nullrod/nullorb(user.loc)
-		if ("Athame")
-			new /obj/item/weapon/nullrod/nullathame(user.loc)
-			user << "<span class='notice'>An athame, a ritualistic dagger. It's blade is curved and ornate, yet it is rather blunt.</span>"
-	user << "<span class='notice'>You take your [selection] from the box, and throw the empty box away.</span>"
-	qdel(src)
-	return
+/obj/item/weapon/nullrod/verb/change()
+	set name = "Reassemble"
+	set category = "Obsidian Relics"
+	set src in usr
+
+	if (use_check_and_message(usr, USE_FORCE_SRC_IN_USER))
+		return
+
+	var/picked = input("What form would you like your obsidian relic to take?", "Reassembling your obsidian relic") as null|anything in nullchoices
+
+	if (use_check_and_message(usr, USE_FORCE_SRC_IN_USER))
+		return
+
+	if(!ispath(nullchoices[picked]))
+		return
+
+	disguise(nullchoices[picked])
+
+	if (ismob(src.loc))
+		var/mob/M = src.loc
+		M.update_inv_r_hand(FALSE)
+		M.update_inv_l_hand()
 
 /obj/item/weapon/nullrod/attack(mob/M as mob, mob/living/user as mob) //Paste from old-code to decult with a null rod.
 
@@ -65,15 +74,15 @@
 
 	if(LAZYLEN(user.spell_list))
 		user.silence_spells(300) //30 seconds
-		user << "<span class='danger'>You've been silenced!</span>"
+		to_chat(user, "<span class='danger'>You've been silenced!</span>")
 		return
 
 	if (!user.IsAdvancedToolUser())
-		user << "<span class='danger'>You don't have the dexterity to do this!</span>"
+		to_chat(user, "<span class='danger'>You don't have the dexterity to do this!</span>")
 		return
 
-	if ((CLUMSY in user.mutations) && prob(50))
-		user << "<span class='danger'>The rod slips out of your hand and hits your head.</span>"
+	if ((user.is_clumsy()) && prob(50))
+		to_chat(user, "<span class='danger'>The rod slips out of your hand and hits your head.</span>")
 		user.take_organ_damage(10)
 		user.Paralyse(20)
 		return
@@ -86,7 +95,7 @@
 				var/choice = alert(K,"Do you want to give up your goal?","Become cleansed","Resist","Give in")
 				switch(choice)
 					if("Resist")
-						K.visible_message("<span class='warning'>The gaze in [K]'s eyes remains determined.</span>", "<span class='notice'>You turn away from the light, remaining true to your dark lord. <b>Anathema!</b></span>")
+						K.visible_message("<span class='warning'>The gaze in [K]'s eyes remains determined.</span>", "<span class='notice'>You turn away from the light, remaining true to the Geometer!</span>")
 						K.say("*scream")
 						K.take_overall_damage(5, 15)
 					if("Give in")
@@ -97,10 +106,10 @@
 				user.visible_message("<span class='warning'>[user]'s concentration is broken!</span>", "<span class='warning'>Your concentration is broken! You and your target need to stay uninterrupted for longer!</span>")
 				return
 		else if(prob(10))
-			user << "<span class='danger'>The rod slips in your hand.</span>"
+			to_chat(user, "<span class='danger'>The rod slips in your hand.</span>")
 			..()
 		else
-			user << "<span class='danger'>The rod appears to do nothing.</span>"
+			to_chat(user, "<span class='danger'>The rod appears to do nothing.</span>")
 			M.visible_message("<span class='danger'>\The [user] waves \the [src] over \the [M]'s head.</span>")
 			if(ishuman(M))
 				var/mob/living/carbon/human/H = M
@@ -121,8 +130,23 @@
 	if(!proximity)
 		return
 	if (istype(A, /turf/simulated/floor))
-		user << "<span class='notice'>You hit the floor with the [src].</span>"
+		to_chat(user, "<span class='notice'>You hit the floor with the [src].</span>")
 		call(/obj/effect/rune/proc/revealrunes)(src)
+
+/obj/item/weapon/reagent_containers/spray/aspergillum/AltClick()
+	return
+
+/obj/item/weapon/reagent_containers/spray/aspergillum
+	name = "aspergillum"
+	desc = "A ceremonial item for sprinkling holy water, or other liquids, on a subject. It has two sacred bells attached."
+	icon = 'icons/obj/weapons.dmi'
+	icon_state = "aspergillum"
+	item_state = "aspergillum"
+	amount_per_transfer_from_this = 5
+	possible_transfer_amounts = null
+	spray_size = 1
+	volume = 10
+	spray_sound = 'sound/effects/jingle.ogg'
 
 /obj/item/weapon/energy_net
 	name = "energy net"
@@ -188,7 +212,7 @@
 		var/mob/living/carbon/M = affecting
 		M.anchored = initial(affecting.anchored)
 		M.captured = 0
-		M << "You are free of the net!"
+		to_chat(M, "You are free of the net!")
 
 	STOP_PROCESSING(SSprocessing, src)
 	return ..()
@@ -231,7 +255,7 @@
 	if(holdingfacility.len)
 		affecting.forceMove(pick(holdingfacility))
 
-	affecting << "You appear in a strange place!"
+	to_chat(affecting, "You appear in a strange place!")
 
 	playsound(affecting.loc, 'sound/effects/phasein.ogg', 25, 1)
 	playsound(affecting.loc, 'sound/effects/sparks2.ogg', 50, 1)
@@ -264,7 +288,7 @@
 	else
 		health -= rand(5,8)
 
-	H << "<span class='danger'>You claw at the energy net.</span>"
+	to_chat(H, "<span class='danger'>You claw at the energy net.</span>")
 
 	healthcheck()
 	return
@@ -288,6 +312,7 @@
 	attack_verb = list("attacked", "slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut")
 	hitsound = 'sound/weapons/bladeslice.ogg'
 	contained_sprite = 1
+	drop_sound = 'sound/items/drop/sword.ogg'
 
 /obj/item/weapon/sord
 	name = "\improper SORD"
@@ -316,6 +341,6 @@
 	attack_verb = list("banned")
 
 /obj/item/weapon/banhammer/attack(mob/M as mob, mob/user as mob)
-	M << "<font color='red'><b> You have been banned FOR NO REISIN by [user]</b></font>"
-	user << "<font color='red'> You have <b>BANNED</b> [M]</font>"
+	to_chat(M, "<font color='red'><b> You have been banned FOR NO REISIN by [user]</b></font>")
+	to_chat(user, "<font color='red'> You have <b>BANNED</b> [M]</font>")
 	playsound(loc, 'sound/effects/adminhelp.ogg', 15)

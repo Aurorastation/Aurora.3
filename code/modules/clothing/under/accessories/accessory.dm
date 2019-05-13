@@ -58,7 +58,7 @@
 	has_suit.add_overlay(get_inv_overlay())
 
 	if(user)
-		user << "<span class='notice'>You attach \the [src] to \the [has_suit].</span>"
+		to_chat(user, "<span class='notice'>You attach \the [src] to \the [has_suit].</span>")
 		src.add_fingerprint(user)
 
 /obj/item/clothing/accessory/proc/on_removed(var/mob/user)
@@ -335,7 +335,7 @@
 	icon_state = "classicponcho"
 	item_state = "classicponcho"
 	icon_override = 'icons/mob/ties.dmi'
-	allowed = list(/obj/item/weapon/tank/emergency_oxygen)
+	allowed = list(/obj/item/weapon/tank/emergency_oxygen,/obj/item/weapon/storage/bible,/obj/item/weapon/nullrod,/obj/item/weapon/reagent_containers/food/drinks/bottle/holywater)
 	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 0, rad = 0)
 	slot_flags = SLOT_OCLOTHING | SLOT_TIE
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS|LEGS
@@ -350,7 +350,7 @@
 
 	if(allow_tail_hiding)
 		flags_inv ^= HIDETAIL
-		usr << "<span class='notice'>[src] will now [flags_inv & HIDETAIL ? "hide" : "show"] your tail.</span>"
+		to_chat(usr, "<span class='notice'>[src] will now [flags_inv & HIDETAIL ? "hide" : "show"] your tail.</span>")
 	..()
 
 /obj/item/clothing/accessory/poncho/green
@@ -545,3 +545,22 @@
 	desc = "Two small medallions, one worn on the shoulder and the other worn on the chest. Meant to display the rank of specialist troops in a Tau Ceti Foreign Legion."
 	icon_state = "specialist_medallion"
 	item_state = "specialist_medallion"
+
+/obj/item/clothing/accessory/offworlder
+	name = "venter assembly"
+	desc = "A series of complex tubing meant to dissipate heat from the skin passively."
+	icon_state = "venter"
+	item_state = "venter"
+	slot = "over"
+
+/obj/item/clothing/accessory/offworlder/bracer
+	name = "legbrace"
+	desc = "A lightweight polymer frame meant to brace and hold someone's legs upright comfortably."
+	icon_state = "legbrace"
+	item_state = "legbrace"
+
+/obj/item/clothing/accessory/offworlder/bracer/neckbrace
+	name = "neckbrace"
+	desc = "A lightweight polymer frame meant to brace and hold someone's neck upright comfortably."
+	icon_state = "neckbrace"
+	item_state = "neckbrace"

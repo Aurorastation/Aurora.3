@@ -617,14 +617,14 @@ var/global/list/default_medbay_channels = list(
 					keyslot = null
 
 			recalculateChannels()
-			user << "You pop out the encryption key in the radio!"
+			to_chat(user, "You pop out the encryption key in the radio!")
 
 		else
-			user << "This radio doesn't have any encryption keys!"
+			to_chat(user, "This radio doesn't have any encryption keys!")
 
 	if(istype(W, /obj/item/device/encryptionkey/))
 		if(keyslot)
-			user << "The radio can't hold another key!"
+			to_chat(user, "The radio can't hold another key!")
 			return
 
 		if(!keyslot)
@@ -675,9 +675,9 @@ var/global/list/default_medbay_channels = list(
 		if(enable_subspace_transmission != subspace_transmission)
 			subspace_transmission = !subspace_transmission
 			if(subspace_transmission)
-				usr << "<span class='notice'>Subspace Transmission is enabled</span>"
+				to_chat(usr, "<span class='notice'>Subspace Transmission is enabled</span>")
 			else
-				usr << "<span class='notice'>Subspace Transmission is disabled</span>"
+				to_chat(usr, "<span class='notice'>Subspace Transmission is disabled</span>")
 
 			if(subspace_transmission == 0)//Simple as fuck, clears the channel list to prevent talking/listening over them if subspace transmission is disabled
 				channels = list()
@@ -690,10 +690,10 @@ var/global/list/default_medbay_channels = list(
 			shut_up = !shut_up
 			if(shut_up)
 				canhear_range = 0
-				usr << "<span class='notice'>Loadspeaker disabled.</span>"
+				to_chat(usr, "<span class='notice'>Loadspeaker disabled.</span>")
 			else
 				canhear_range = 3
-				usr << "<span class='notice'>Loadspeaker enabled.</span>"
+				to_chat(usr, "<span class='notice'>Loadspeaker enabled.</span>")
 		. = 1
 
 	if(.)

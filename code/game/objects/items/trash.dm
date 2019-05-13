@@ -5,7 +5,8 @@
 /obj/item/trash
 	icon = 'icons/obj/trash.dmi'
 	w_class = 1.0
-	desc = "This is rubbish."
+	desc = "General waste material, refuse or litter. Dispose responsibly."
+	drop_sound = 'sound/items/drop/wrapper.ogg'
 
 /obj/item/trash/attack(mob/M as mob, mob/living/user as mob)
 	return
@@ -43,7 +44,7 @@
 	icon_state = "syndi_cakes"
 
 /obj/item/trash/waffles
-	name = "waffles"
+	name = "square tray"
 	icon_state = "waffles"
 
 /obj/item/trash/plate
@@ -65,6 +66,7 @@
 /obj/item/trash/tray
 	name = "tray"
 	icon_state = "tray"
+	drop_sound = 'sound/items/trayhit1.ogg'
 
 /obj/item/trash/candle
 	name = "candle"
@@ -84,16 +86,18 @@
 	icon_state = "meatsnack-used"
 
 /obj/item/trash/maps
-	name = "map salty ham"
+	name = "maps salty ham"
 	icon_state = "maps-used"
 
 /obj/item/trash/nathisnack
 	name = "razi-snack corned beef"
 	icon_state = "cbeef-used"
+	drop_sound = 'sound/items/drop/soda.ogg'
 
 /obj/item/trash/brownies
-	name = "brownie tray"
+	name = "square tray"
 	icon_state = "brownies"
+	drop_sound = 'sound/items/trayhit1.ogg'
 
 /obj/item/trash/snacktray
 	name = "snacktray"
@@ -114,7 +118,21 @@
 /obj/item/trash/can
 	name = "used can"
 	icon_state = "can-used"
+	drop_sound = 'sound/items/drop/soda.ogg'
 
 /obj/item/trash/tuna
 	name = "\improper Tuna Snax"
 	icon_state = "tuna"
+
+/obj/item/trash/skrellsnacks
+	name = "\improper SkrellSnax"
+	icon_state = "skrellsnacks"
+
+/obj/item/trash/space_twinkie
+	name = "space twinkie"
+	icon_state = "space_twinkie"
+
+/obj/item/trash/grease //used for generic plattered food. example is lasagna.
+	name = "square tray"
+	icon_state = "grease"
+	drop_sound = 'sound/items/trayhit1.ogg'

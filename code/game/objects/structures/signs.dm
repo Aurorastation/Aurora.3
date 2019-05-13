@@ -22,7 +22,7 @@
 
 /obj/structure/sign/attackby(obj/item/tool as obj, mob/user as mob)	//deconstruction
 	if(tool.isscrewdriver() && !istype(src, /obj/structure/sign/double))
-		user << "You unfasten the sign with your [tool]."
+		to_chat(user, "You unfasten the sign with your [tool].")
 		unfasten()
 	else ..()
 
@@ -61,7 +61,7 @@
 		S.name = name
 		S.desc = desc
 		S.icon_state = sign_state
-		user << "You fasten \the [S] with your [tool]."
+		to_chat(user, "You fasten \the [S] with your [tool].")
 		qdel(src)
 	else ..()
 
@@ -173,6 +173,11 @@
 	name = "\improper CHEMISTRY"
 	desc = "A warning sign which reads 'CHEMISTRY'."
 	icon_state = "chemistry1"
+
+/obj/structure/sign/pharmacy
+	name = "\improper Pharmacy"
+	desc = "A warning sign which reads 'PHARMACY'."
+	icon_state = "pharmacy1"
 
 /obj/structure/sign/botany
 	name = "\improper HYDROPONICS"
@@ -458,6 +463,10 @@
 	name = "Democratic People's Republic of Adhomai flag"
 	desc = "The black flag of the Democratic People's Republic of Adhomai."
 	flag_path = "dpra"
+	description_fluff = "The most pervasive and successful rebellion came from a group calling themselves the Adhomai Libeation Army, a group made up of Tajara from almost every walk of \
+	life. Opposing corporate claims on Tajaran soil and citing mismatched development and governmental negligence as the fault of humanity, they aim \
+	to \"free Tajara from the new shackles imposed upon them by the corporate overlords and return Adhomai to a free, prosperous planet like our ancestors dreamed of.\" They named the \
+	nation they were fighting for the Democratic People's Republic of Adhomai."
 
 /obj/item/weapon/flag/dpra/l
 	flag_size = 1
@@ -466,6 +475,10 @@
 	name = "Democratic People's Republic of Adhomai flag"
 	desc = "The banner of an ancient nation, its glory old."
 	icon_state = "dpra"
+	description_fluff = "The most pervasive and successful rebellion came from a group calling themselves the Adhomai Libeation Army, a group made up of Tajara from almost every walk of \
+	life. Opposing corporate claims on Tajaran soil and citing mismatched development and governmental negligence as the fault of humanity, they aim \
+	to \"free Tajara from the new shackles imposed upon them by the corporate overlords and return Adhomai to a free, prosperous planet like our ancestors dreamed of.\" They named the \
+	nation they were fighting for the Democratic People's Republic of Adhomai."
 
 /obj/structure/sign/flag/dpra/left
 	icon_state = "dpra_l"
@@ -477,6 +490,11 @@
 	name = "People's Republic of Adhomai flag"
 	desc = "The tajaran flag of the People's Republic of Adhomai."
 	flag_path = "pra"
+	description_fluff = "Lead by President Njadrasanukii Hadii, the People's Republic of Adhomai are considered the 'loyalist' faction on Adhomai and enjoy galactic recognition as the \
+	government of Adhomai. It claims to be the true keeper of Al'marii's legacy. However, the PRA can be described as a Hadiist branch of Al'marii's revolutionary ideology - that means \
+	putting the State at the top of a hierarchy of power. The PRA is a very centralized state, but in recent years has slowly been able to start making true its promises to bring \
+	revolution to the masses. With land reform, enfranchisement of women and peasantry, literacy initiatives, and the collectivization of farms and the means of production, the PRA is \
+	struggling to hold true to its radical ideals while an entrenched upper party stubbornly tries to hold onto power."
 
 /obj/item/weapon/flag/pra/l
 	flag_size = 1
@@ -485,6 +503,11 @@
 	name = "People's Republic of Adhomai flag"
 	desc = "The banner of an ancient nation, its glory old."
 	icon_state = "pra"
+	description_fluff = "Lead by President Njadrasanukii Hadii, the People's Republic of Adhomai are considered the 'loyalist' faction on Adhomai and enjoy galactic recognition as the \
+	government of Adhomai. It claims to be the true keeper of Al'marii's legacy. However, the PRA can be described as a Hadiist branch of Al'marii's revolutionary ideology - that means \
+	putting the State at the top of a hierarchy of power. The PRA is a very centralized state, but in recent years has slowly been able to start making true its promises to bring \
+	revolution to the masses. With land reform, enfranchisement of women and peasantry, literacy initiatives, and the collectivization of farms and the means of production, the PRA is \
+	struggling to hold true to its radical ideals while an entrenched upper party stubbornly tries to hold onto power."
 
 /obj/structure/sign/flag/pra/left
 	icon_state = "pra_l"
@@ -506,12 +529,12 @@
 
 	var/turf/W = A
 	if (!iswall(W) || !isturf(user.loc))
-		user << "<span class='warning'>You can't place this here!</span>"
+		to_chat(user, "<span class='warning'>You can't place this here!</span>")
 		return
 
 	var/placement_dir = get_dir(user, W)
 	if (!(placement_dir in cardinal))
-		user << "<span class='warning'>You must stand directly in front of the wall you wish to place that on.</span>"
+		to_chat(user, "<span class='warning'>You must stand directly in front of the wall you wish to place that on.</span>")
 		return
 
 	var/obj/structure/sign/flag/P = new(user.loc)
@@ -580,7 +603,7 @@
 		if(!do_after(user, 2 SECONDS, act_target = src))
 			return 0
 		visible_message("<span class='warning'>\The [user] burns \the [src] down!</span>")
-		playsound(src.loc, 'sound/items/zippo_on.ogg', 100, 1)
+		playsound(src.loc, 'sound/items/cigs_lighters/zippo_on.ogg', 100, 1)
 		new /obj/effect/decal/cleanable/ash(src.loc)
 
 		qdel(src)

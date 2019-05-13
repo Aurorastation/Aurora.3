@@ -7,7 +7,6 @@
 	on_icon = "fryer_on"
 	off_icon = "fryer_off"
 	food_color = "#FFAD33"
-	cooked_sound = 'sound/machines/ding.ogg'
 	appliancetype = FRYER
 	active_power_usage = 12 KILOWATTS
 
@@ -26,11 +25,11 @@
 
 	var/datum/reagents/oil
 	var/optimal_oil = 9000//90 litres of cooking oil
-
+	var/datum/looping_sound/deep_fryer/fry_loop
 
 /obj/machinery/appliance/cooker/fryer/examine(var/mob/user)
 	if (..())//no need to duplicate adjacency check
-		user << "Oil Level: [oil.total_volume]/[optimal_oil]"
+		to_chat(user, "Oil Level: [oil.total_volume]/[optimal_oil]")
 
 /obj/machinery/appliance/cooker/fryer/Initialize()
 	. = ..()
@@ -42,6 +41,7 @@
 		//Sometimes the fryer will start with much less than full oil, significantly impacting efficiency until filled
 		variance = rand()*0.5
 	oil.add_reagent("cornoil", optimal_oil*(1 - variance))
+	fry_loop = new(list(src), FALSE)
 
 /obj/machinery/appliance/cooker/fryer/heat_up()
 	if (..())
@@ -81,8 +81,10 @@
 /obj/machinery/appliance/cooker/fryer/update_icon()
 	if (cooking)
 		icon_state = on_icon
+		fry_loop.start()
 	else
 		icon_state = off_icon
+		fry_loop.stop()
 	..()
 
 
@@ -154,7 +156,7 @@
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN*3)
 
 	if(!victim || !victim.Adjacent(user))
-		user << "<span class='danger'>Your victim slipped free!</span>"
+		to_chat(user, "<span class='danger'>Your victim slipped free!</span>")
 		return
 
 	var/damage = rand(7,13)
@@ -190,10 +192,12 @@
 
 
 		if(!nopain)
-			victim << "<span class='danger'>Agony consumes you as searing hot oil scorches your [E ? E.name : "flesh"] horribly!</span>"
+			var/arrows_var1 = E ? E.name : "flesh"
+			to_chat(victim, "<span class='danger'>Agony consumes you as searing hot oil scorches your [arrows_var1] horribly!</span>")
 			victim.emote("scream")
 		else
-			victim << "<span class='danger'>Searing hot oil scorches your [E ? E.name : "flesh"]!</span>"
+			var/arrows_var2 = E ? E.name : "flesh"
+			to_chat(victim, "<span class='danger'>Searing hot oil scorches your [arrows_var2]!</span>")
 
 
 		user.attack_log += text("\[[time_stamp()]\] <font color='red'>Has [cook_type] \the [victim] ([victim.ckey]) in \a [src]</font>")

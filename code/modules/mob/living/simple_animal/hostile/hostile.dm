@@ -25,6 +25,8 @@
 	var/list/target_type_validator_map = list()
 	var/attack_emote = "stares menacingly at"
 
+	var/smart = FALSE // This makes ranged mob check for friendly fire and obstacles
+
 /mob/living/simple_animal/hostile/Initialize()
 	. = ..()
 	target_type_validator_map[/mob/living] = CALLBACK(src, .proc/validator_living)
@@ -64,8 +66,20 @@
 	if(!isnull(T))
 		stance = HOSTILE_STANCE_ATTACK
 	if(isliving(T))
-		custom_emote(1,"[attack_emote] [T]")
+		custom_emote(1, "[attack_emote] [T]")
+		if(istype(T, /mob/living/simple_animal/hostile/))
+			var/mob/living/simple_animal/hostile/H = T
+			H.being_targeted(src)
 	return T
+
+// This proc is used when one hostile mob targets another hostile mob.
+/mob/living/simple_animal/hostile/proc/being_targeted(var/mob/living/simple_animal/hostile/H)
+	if(!H || target_mob == H)
+		return
+	target_mob = H
+	FoundTarget()
+	stance = HOSTILE_STANCE_ATTACKING
+	custom_emote(1, "gets taunted by [H] and begins to retaliate!")
 
 /mob/living/simple_animal/hostile/bullet_act(var/obj/item/projectile/P, var/def_zone)
 	..()
@@ -212,6 +226,9 @@ mob/living/simple_animal/hostile/hitby(atom/movable/AM as mob|obj,var/speed = TH
 	if(!see_target())
 		LoseTarget()
 	var/target = target_mob
+	// This code checks if we are not going to hit our target
+	if(smart && !check_fire(target_mob))
+		return
 	visible_message("<span class='warning'> <b>[src]</b> fires at [target]!</span>")
 
 	if(rapid)
@@ -229,16 +246,32 @@ mob/living/simple_animal/hostile/hitby(atom/movable/AM as mob|obj,var/speed = TH
 	target_mob = null
 	return
 
+/mob/living/simple_animal/hostile/proc/check_fire(target_mob)
+	if(!target_mob)
+		return FALSE
+
+	var/target_hit = FALSE
+	var/flags = PASSTABLE
+	if(istype(projectiletype, /obj/item/projectile/beam))
+		flags |= (PASSGLASS|PASSGRILLE)
+	for(var/mob/M in check_trajectory(target_mob, src, pass_flags=flags))
+		if(M == target_mob)
+			target_hit = TRUE
+		if((M.faction == faction) || (M in friends))
+			return FALSE
+
+	return target_hit
+
 /mob/living/simple_animal/hostile/proc/shoot_wrapper(target, location, user)
 	Shoot(target, location, user)
 	if (casingtype)
 		new casingtype(loc)
 
-/mob/living/simple_animal/hostile/proc/Shoot(var/target, var/start, var/user, var/bullet = 0)
+/mob/living/simple_animal/hostile/proc/Shoot(var/target, var/start, var/mob/user, var/bullet = 0)
 	if(target == start)
 		return
 
-	var/obj/item/projectile/A = new projectiletype(user:loc)
+	var/obj/item/projectile/A = new projectiletype(user.loc)
 	playsound(user, projectilesound, 100, 1)
 	if(!A)	return
 	var/def_zone = get_exposed_defense_zone(target)

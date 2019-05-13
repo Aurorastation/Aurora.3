@@ -21,6 +21,7 @@
 	var/base_icon = "bed"
 	var/can_dismantle = 1
 	gfi_layer_rotation = GFI_ROTATION_DEFDIR
+	var/apply_material_color = TRUE
 
 /obj/structure/bed/Initialize(mapload, var/new_material, var/new_padding_material)
 	. = ..()
@@ -48,7 +49,8 @@
 	var/cache_key = "[base_icon]-[material.name]"
 	if(!stool_cache[cache_key])
 		var/image/I = image('icons/obj/furniture.dmi', base_icon)
-		I.color = material.icon_colour
+		if(apply_material_color)
+			I.color = material.icon_colour
 		stool_cache[cache_key] = I
 	add_overlay(stool_cache[cache_key])
 	// Padding overlay.
@@ -56,7 +58,8 @@
 		var/padding_cache_key = "[base_icon]-padding-[padding_material.name]"
 		if(!stool_cache[padding_cache_key])
 			var/image/I =  image(icon, "[base_icon]_padding")
-			I.color = padding_material.icon_colour
+			if(apply_material_color)
+				I.color = padding_material.icon_colour
 			stool_cache[padding_cache_key] = I
 		add_overlay(stool_cache[padding_cache_key])
 
@@ -97,7 +100,7 @@
 			qdel(src)
 	else if(istype(W,/obj/item/stack))
 		if(padding_material)
-			user << "\The [src] is already padded."
+			to_chat(user, "\The [src] is already padded.")
 			return
 		var/obj/item/stack/C = W
 		if(C.get_amount() < 1) // How??
@@ -111,21 +114,21 @@
 			if(M.material && (M.material.flags & MATERIAL_PADDING))
 				padding_type = "[M.material.name]"
 		if(!padding_type)
-			user << "You cannot pad \the [src] with that."
+			to_chat(user, "You cannot pad \the [src] with that.")
 			return
 		C.use(1)
 		if(!istype(src.loc, /turf))
 			user.drop_from_inventory(src)
 			src.forceMove(get_turf(src))
-		user << "You add padding to \the [src]."
+		to_chat(user, "You add padding to \the [src].")
 		add_padding(padding_type)
 		return
 
 	else if (W.iswirecutter())
 		if(!padding_material)
-			user << "\The [src] has no padding to remove."
+			to_chat(user, "\The [src] has no padding to remove.")
 			return
-		user << "You remove the padding from \the [src]."
+		to_chat(user, "You remove the padding from \the [src].")
 		playsound(src, 'sound/items/Wirecutter.ogg', 100, 1)
 		remove_padding()
 
@@ -222,7 +225,7 @@
 	if(istype(W,/obj/item/roller_holder))
 		var/obj/item/roller_holder/RH = W
 		if(!RH.held)
-			user << "<span class='notice'>You collect the roller bed.</span>"
+			to_chat(user, "<span class='notice'>You collect the roller bed.</span>")
 			src.forceMove(RH)
 			RH.held = src
 			return
@@ -243,10 +246,10 @@
 /obj/item/roller_holder/attack_self(mob/user as mob)
 
 	if(!held)
-		user << "<span class='notice'>The rack is empty.</span>"
+		to_chat(user, "<span class='notice'>The rack is empty.</span>")
 		return
 
-	user << "<span class='notice'>You deploy the roller bed.</span>"
+	to_chat(user, "<span class='notice'>You deploy the roller bed.</span>")
 	var/obj/structure/bed/roller/R = new /obj/structure/bed/roller(user.loc)
 	R.add_fingerprint(user)
 	qdel(held)
@@ -255,6 +258,7 @@
 
 /obj/structure/bed/roller/Move()
 	..()
+	playsound(src, 'sound/effects/roll.ogg', 100, 1)
 	if(buckled_mob)
 		if(buckled_mob.buckled == src)
 			buckled_mob.forceMove(src.loc)

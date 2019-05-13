@@ -13,6 +13,7 @@
 	var/page = 1    // current page
 	var/list/pages = list()  // Ordered list of pages as they are to be displayed. Can be different order than src.contents.
 	var amount = 0 // How many sheet
+	drop_sound = 'sound/items/drop/paper.ogg'
 
 /obj/item/weapon/paper_bundle/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	..()
@@ -20,7 +21,7 @@
 	if (istype(W, /obj/item/weapon/paper/carbon))
 		var/obj/item/weapon/paper/carbon/C = W
 		if (!C.iscopy && !C.copied)
-			user << "<span class='notice'>Take off the carbon copy first.</span>"
+			to_chat(user, "<span class='notice'>Take off the carbon copy first.</span>")
 			add_fingerprint(user)
 			return
 	// adding sheets
@@ -40,13 +41,13 @@
 			pages.Add(O)
 			amount++
 
-		user << "<span class='notice'>You add \the [W.name] to [(src.name == "paper bundle") ? "the paper bundle" : src.name].</span>"
+		to_chat(user, "<span class='notice'>You add \the [W.name] to [(src.name == "paper bundle") ? "the paper bundle" : src.name].</span>")
 		qdel(W)
 	else
 		if(istype(W, /obj/item/weapon/tape_roll))
 			return 0
 		if(istype(W, /obj/item/weapon/pen))
-			usr << browse("", "window=[name]") //Closes the dialog
+			usr << browse("", "window=[name]") //Closes the dialog)
 		var/obj/P = pages[page]
 		P.attackby(W, user)
 
@@ -57,9 +58,9 @@
 
 /obj/item/weapon/paper_bundle/proc/insert_sheet_at(mob/user, var/index, obj/item/weapon/sheet)
 	if(istype(sheet, /obj/item/weapon/paper))
-		user << "<span class='notice'>You add [(sheet.name == "paper") ? "the paper" : sheet.name] to [(src.name == "paper bundle") ? "the paper bundle" : src.name].</span>"
+		to_chat(user, "<span class='notice'>You add [(sheet.name == "paper") ? "the paper" : sheet.name] to [(src.name == "paper bundle") ? "the paper bundle" : src.name].</span>")
 	else if(istype(sheet, /obj/item/weapon/photo))
-		user << "<span class='notice'>You add [(sheet.name == "photo") ? "the photo" : sheet.name] to [(src.name == "paper bundle") ? "the paper bundle" : src.name].</span>"
+		to_chat(user, "<span class='notice'>You add [(sheet.name == "photo") ? "the photo" : sheet.name] to [(src.name == "paper bundle") ? "the paper bundle" : src.name].</span>")
 
 	user.drop_from_inventory(sheet,src)
 
@@ -86,13 +87,13 @@
 				qdel(src)
 
 			else
-				user << "<span class='warning'>You must hold \the [P] steady to burn \the [src].</span>"
+				to_chat(user, "<span class='warning'>You must hold \the [P] steady to burn \the [src].</span>")
 
 /obj/item/weapon/paper_bundle/examine(mob/user)
 	if(..(user, 1))
 		src.show_content(user)
 	else
-		user << "<span class='notice'>It is too far away.</span>"
+		to_chat(user, "<span class='notice'>It is too far away.</span>")
 	return
 
 /obj/item/weapon/paper_bundle/proc/show_content(mob/user as mob)
@@ -124,12 +125,8 @@
 		user << browse(dat, "window=[name]")
 	else if(istype(pages[page], /obj/item/weapon/photo))
 		var/obj/item/weapon/photo/P = W
-		user << browse_rsc(P.img, "tmp_photo.png")
-		user << browse(dat + "<html><head><title>[P.name]</title></head>" \
-		+ "<body style='overflow:hidden'>" \
-		+ "<div> <img src='tmp_photo.png' width = '180'" \
-		+ "[P.scribble ? "<div> Written on the back:<br><i>[P.scribble]</i>" : ]"\
-		+ "</body></html>", "window=[name]")
+		to_chat(user, browse_rsc(P.img, "tmp_photo.png"))
+		user << browse(dat + "<html><head><title>[P.name]</title></head>" + "<body style='overflow:hidden'>" + "<div> <img src='tmp_photo.png' width = '180'" + "[P.scribble ? "<div> Written on the back:<br><i>[P.scribble]</i>" : ]" + "</body></html>", "window=[name]")
 
 /obj/item/weapon/paper_bundle/attack_self(mob/user as mob)
 	src.show_content(user)
@@ -159,7 +156,7 @@
 			usr.put_in_hands(W)
 			pages.Remove(pages[page])
 
-			usr << "<span class='notice'>You remove the [W.name] from the bundle.</span>"
+			to_chat(usr, "<span class='notice'>You remove the [W.name] from the bundle.</span>")
 
 			if(pages.len <= 1)
 				var/obj/item/weapon/paper/P = src[1]
@@ -172,7 +169,7 @@
 
 			update_icon()
 	else
-		usr << "<span class='notice'>You need to hold it in hands!</span>"
+		to_chat(usr, "<span class='notice'>You need to hold it in hands!</span>")
 	if (istype(src.loc, /mob) ||istype(src.loc.loc, /mob))
 		src.attack_self(usr)
 		updateUsrDialog()
@@ -194,7 +191,7 @@
 	set category = "Object"
 	set src in usr
 
-	usr << "<span class='notice'>You loosen the bundle.</span>"
+	to_chat(usr, "<span class='notice'>You loosen the bundle.</span>")
 	for(var/obj/O in src)
 		O.forceMove(usr.loc)
 		O.layer = initial(O.layer)

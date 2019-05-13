@@ -247,7 +247,7 @@
 				else
 					new /obj/machinery/power/solar(get_turf(src), src)
 			else
-				user << "<span class='warning'>You need two sheets of glass to put them into a solar panel.</span>"
+				to_chat(user, "<span class='warning'>You need two sheets of glass to put them into a solar panel.</span>")
 				return
 			return 1
 
@@ -274,7 +274,7 @@
 	name = "solar panel control"
 	desc = "A controller for solar panel arrays."
 	icon = 'icons/obj/computer.dmi'
-	icon_state = "solar_control"
+	icon_state = "computer"
 	anchored = 1
 	density = 1
 	use_power = 1
@@ -349,16 +349,16 @@
 	set_panels(cdir)
 
 /obj/machinery/power/solar_control/update_icon()
+	icon_state = initial(icon_state)
+	cut_overlays()
 	if(stat & BROKEN)
-		icon_state = "broken"
-		cut_overlays()
+		icon_state = "computer-broken"
+		add_overlay("broken")
 		return
 	if(stat & NOPOWER)
 		icon_state = "computer"
-		cut_overlays()
 		return
-	icon_state = "solar_control"
-	cut_overlays()
+	add_overlay("solar")
 	if(cdir > -1)
 		add_overlay(image('icons/obj/computer.dmi', "solcon-o", FLY_LAYER, angle2dir(cdir)))
 	return
@@ -402,7 +402,7 @@
 		playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, 1)
 		if(do_after(user, 20))
 			if (src.stat & BROKEN)
-				user << "<span class='notice'>The broken glass falls out.</span>"
+				to_chat(user, "<span class='notice'>The broken glass falls out.</span>")
 				var/obj/structure/computerframe/A = new /obj/structure/computerframe( src.loc )
 				new /obj/item/weapon/material/shard( src.loc )
 				var/obj/item/weapon/circuitboard/solar_control/M = new /obj/item/weapon/circuitboard/solar_control( A )
@@ -414,7 +414,7 @@
 				A.anchored = 1
 				qdel(src)
 			else
-				user << "<span class='notice'>You disconnect the monitor.</span>"
+				to_chat(user, "<span class='notice'>You disconnect the monitor.</span>")
 				var/obj/structure/computerframe/A = new /obj/structure/computerframe( src.loc )
 				var/obj/item/weapon/circuitboard/solar_control/M = new /obj/item/weapon/circuitboard/solar_control( A )
 				for (var/obj/C in src)

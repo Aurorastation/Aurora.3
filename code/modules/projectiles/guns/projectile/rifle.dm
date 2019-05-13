@@ -4,7 +4,7 @@
 	icon_state = "moistnugget"
 	item_state = "moistnugget"
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
-	fire_sound = 'sound/weapons/rifleshot.ogg'
+	fire_sound = 'sound/weapons/gunshot/gunshot_rifle.ogg'
 	caliber = "a762"
 	ammo_type = /obj/item/ammo_casing/a762
 	max_shells = 5
@@ -60,13 +60,13 @@
 	ammo_type = /obj/item/ammo_casing/a556
 	slot_flags = SLOT_BELT|SLOT_HOLSTER
 	load_method = SINGLE_CASING
-	fire_sound = 'sound/weapons/gunshot3.ogg'
+	fire_sound = 'sound/weapons/gunshot/gunshot3.ogg'
 	var/retracted_bolt = 0
 	var/icon_retracted = "pockrifle-empty"
 
 /obj/item/weapon/gun/projectile/contender/special_check(mob/user)
 	if(retracted_bolt)
-		user << "<span class='warning'>You can't fire \the [src] while the bolt is open!</span>"
+		to_chat(user, "<span class='warning'>You can't fire \the [src] while the bolt is open!</span>")
 		return 0
 	return ..()
 
@@ -111,7 +111,7 @@
 	icon_state = "springfield"
 	icon_state = "springfield"
 	origin_tech = list(TECH_COMBAT = 1, TECH_MATERIAL = 3)
-	fire_sound = 'sound/weapons/rifleshot.ogg'
+	fire_sound = 'sound/weapons/gunshot/gunshot_rifle.ogg'
 	slot_flags = SLOT_BACK
 	load_method = SINGLE_CASING|SPEEDLOADER
 	handle_casings = HOLD_CASINGS
@@ -139,15 +139,15 @@
 				else
 					add_overlay("springfield-clip-full")
 			else
-				user << "<span class='warning'>There is no ammo in \the [has_clip.name]!</span>"
+				to_chat(user, "<span class='warning'>There is no ammo in \the [has_clip.name]!</span>")
 		else if(!open_bolt)
-			user << "<span class='warning'>The bolt on \the [src.name] is closed!</span>"
+			to_chat(user, "<span class='warning'>The bolt on \the [src.name] is closed!</span>")
 		else
-			user << "<span class='warning'>There is no clip in \the [src.name]!</span>"
+			to_chat(user, "<span class='warning'>There is no clip in \the [src.name]!</span>")
 
 /obj/item/weapon/gun/projectile/shotgun/pump/rifle/vintage/pump(mob/M as mob)
 	if(!wielded)
-		M << "<span class='warning'>You cannot work \the [src]'s bolt without gripping it with both hands!</span>"
+		to_chat(M, "<span class='warning'>You cannot work \the [src]'s bolt without gripping it with both hands!</span>")
 		return
 	if(!open_bolt)
 		open_bolt = 1
@@ -178,12 +178,12 @@
 /obj/item/weapon/gun/projectile/shotgun/pump/rifle/vintage/attackby(var/obj/item/A as obj, mob/user as mob)
 	if(istype(A, /obj/item/ammo_magazine/boltaction/vintage))
 		if(!open_bolt)
-			user << "<span class='notice'>You need to open the bolt of \the [src] first.</span>"
+			to_chat(user, "<span class='notice'>You need to open the bolt of \the [src] first.</span>")
 			return
 		if(!has_clip)
 			user.drop_from_inventory(A,src)
 			has_clip = A
-			user << "<span class='notice'>You load the clip into \the [src].</span>"
+			to_chat(user, "<span class='notice'>You load the clip into \the [src].</span>")
 			if(!has_clip.stored_ammo.len)
 				add_overlay("springfield-clip-empty")
 			else if(has_clip.stored_ammo.len <= 3)
@@ -198,19 +198,19 @@
 
 /obj/item/weapon/gun/projectile/shotgun/pump/rifle/vintage/load_ammo(var/obj/item/A, mob/user)
 	if(!open_bolt)
-		user << "<span class='warning'>The bolt is closed on \the [src]!</span>"
+		to_chat(user, "<span class='warning'>The bolt is closed on \the [src]!</span>")
 		return
 	..()
 
 /obj/item/weapon/gun/projectile/shotgun/pump/rifle/vintage/Fire(atom/target, mob/living/user, clickparams, pointblank=0, reflex=0)
 	if(open_bolt)
-		user << "<span class='warning'>The bolt is open on \the [src]!</span>"
+		to_chat(user, "<span class='warning'>The bolt is open on \the [src]!</span>")
 		return
 	..()
 
 /obj/item/weapon/gun/projectile/gauss
 	name = "gauss thumper"
-	desc = "An outdated gauss weapon which sees sparing use in modern times. It's covered in the colors of the Tau Ceti Foreign Legion."
+	desc = "An outdated gauss weapon which sees sparing use in modern times."
 	w_class = 3
 	slot_flags = 0
 	magazine_type = /obj/item/ammo_magazine/gauss

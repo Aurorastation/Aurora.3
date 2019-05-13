@@ -47,11 +47,11 @@
 
 /obj/item/clothing/suit/storage/hooded/verb/ToggleHood()
 
-	set name ="Toggle Coat Hood"
+	set name = "Toggle Coat Hood"
 	set category = "Object"
 	set src in usr
 
-	if(!use_check(usr))
+	if(use_check_and_message(usr))
 		return 0
 
 	if(!suittoggled)
@@ -193,7 +193,7 @@
 	set name = "Toggle Coat Buttons"
 	set category = "Object"
 	set src in usr
-	if(use_check(usr))
+	if(use_check_and_message(usr))
 		return 0
 	if(icon_state == icon_open)
 		icon_state = icon_closed
@@ -208,12 +208,12 @@
 		return
 	update_clothing_icon()
 
-/obj/item/clothing/suit/storage/hooded/wintercoat/hoodie/verb/ToggleHoodie()
+/obj/item/clothing/suit/storage/hooded/wintercoat/hoodie/ToggleHood()
 	set name ="Toggle Coat Hood"
 	set category = "Object"
 	set src in usr
 
-	if(use_check(usr))
+	if(use_check_and_message(usr))
 		return 0
 
 	if(!suittoggled)

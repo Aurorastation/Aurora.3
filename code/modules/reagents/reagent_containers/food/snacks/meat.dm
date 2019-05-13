@@ -18,7 +18,7 @@
 		new /obj/item/weapon/reagent_containers/food/snacks/rawcutlet(src)
 		new /obj/item/weapon/reagent_containers/food/snacks/rawcutlet(src)
 		new /obj/item/weapon/reagent_containers/food/snacks/rawcutlet(src)
-		user << "You cut the meat into thin strips."
+		to_chat(user, "You cut the meat into thin strips.")
 		qdel(src)
 	else
 		..()
@@ -91,6 +91,11 @@
 	name = "snow strider meat"
 	desc = "A slab of nav'twir's meat, an animal native from Adhomai."
 	icon_state = "adhomai_meat"
+	description_fluff = "For much of Tajaran history, the herbivorous and graceful Nav'twir were the main prey of Tajaran hunters, and still are today in rural areas of the planet. \
+	Their meat was nice and hearty and healthy, and the thick furs were good for making clothes to keep themselves warm in the snow. As the modern ages came, the hunting of the \
+	'striders', as their name translates, slowed as the Tajara started to learn how to capture and farm them for their resources more efficiently. That being said, not that the modern \
+	day Adhomai needs their resources less thanks to synthetic fabric and more efficient food sources, both the meat and the fur of the nav'twir has become an export of the Adhomai \
+	people. In the olden days, carved nav'twir antlers were used as decoration for pelts and armors."
 
 /obj/item/weapon/reagent_containers/food/snacks/meat/mice
 	name = "mice meat"

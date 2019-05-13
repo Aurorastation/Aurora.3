@@ -1,6 +1,7 @@
 /obj/item/organ
 	name = "organ"
 	icon = 'icons/obj/surgery.dmi'
+	drop_sound = 'sound/items/drop/flesh.ogg'
 	default_action_type = /datum/action/item_action/organ
 	var/dead_icon
 	var/mob/living/carbon/human/owner = null
@@ -173,7 +174,7 @@
 /obj/item/organ/examine(mob/user)
 	..(user)
 	if(status & ORGAN_DEAD)
-		user << "<span class='notice'>The decay has set in.</span>"
+		to_chat(user, "<span class='notice'>The decay has set in.</span>")
 
 /obj/item/organ/proc/handle_germ_effects()
 	//** Handle the effects of infections

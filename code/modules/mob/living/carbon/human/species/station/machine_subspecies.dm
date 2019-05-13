@@ -4,6 +4,7 @@
 	short_name = "jak"
 	name_plural = "Shells"
 	bodytype = "Human"
+	neuter_ipc = FALSE
 
 	burn_mod = 1.2
 
@@ -179,7 +180,8 @@
 	inherent_verbs = list(
 		/mob/living/carbon/human/proc/self_destruct,
 		/mob/living/carbon/human/proc/detonate_flechettes,
-		/mob/living/carbon/human/proc/state_laws
+		/mob/living/carbon/human/proc/state_laws,
+		/mob/living/carbon/human/proc/self_diagnostics
 	)
 
 	has_organ = list(

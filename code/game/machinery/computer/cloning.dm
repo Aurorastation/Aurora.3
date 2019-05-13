@@ -1,6 +1,5 @@
 /obj/machinery/computer/cloning
 	name = "cloning control console"
-	icon = 'icons/obj/computer.dmi'
 
 	icon_screen = "dna"
 	light_color = "#315ab4"
@@ -94,7 +93,7 @@
 		if (!src.diskette)
 			user.drop_from_inventory(W,src)
 			src.diskette = W
-			user << "You insert [W]."
+			to_chat(user, "You insert [W].")
 			src.updateUsrDialog()
 			return
 	else
@@ -401,6 +400,7 @@
 	R.types=DNA2_BUF_UI|DNA2_BUF_UE|DNA2_BUF_SE
 	R.languages=subject.languages
 	R.flavor=subject.flavor_texts.Copy()
+	R.cloning_species = subject.species.get_cloning_variant()
 
 	//Add an implant if needed
 	var/obj/item/weapon/implant/health/imp = locate(/obj/item/weapon/implant/health, subject)

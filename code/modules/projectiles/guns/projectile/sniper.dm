@@ -18,7 +18,7 @@
 	scoped_accuracy = 4
 	var/bolt_open = 0
 
-	fire_sound = 'sound/weapons/Gunshot_DMR.ogg'
+	fire_sound = 'sound/weapons/gunshot/gunshot_dmr.ogg'
 
 	recoil_wielded = 2
 	accuracy_wielded = -1
@@ -57,24 +57,24 @@
 	bolt_open = !bolt_open
 	if(bolt_open)
 		if(chambered)
-			user << "<span class='notice'>You work the bolt open, ejecting [chambered]!</span>"
+			to_chat(user, "<span class='notice'>You work the bolt open, ejecting [chambered]!</span>")
 			chambered.forceMove(get_turf(src))
 			loaded -= chambered
 			chambered = null
 		else
-			user << "<span class='notice'>You work the bolt open.</span>"
+			to_chat(user, "<span class='notice'>You work the bolt open.</span>")
 	else
-		user << "<span class='notice'>You work the bolt closed.</span>"
+		to_chat(user, "<span class='notice'>You work the bolt closed.</span>")
 		bolt_open = 0
 	add_fingerprint(user)
 	update_icon()
 
 /obj/item/weapon/gun/projectile/heavysniper/special_check(mob/user)
 	if(bolt_open)
-		user << "<span class='warning'>You can't fire [src] while the bolt is open!</span>"
+		to_chat(user, "<span class='warning'>You can't fire [src] while the bolt is open!</span>")
 		return 0
 	if(!wielded)
-		user << "<span class='warning'>You can't fire without stabilizing the rifle!</span>"
+		to_chat(user, "<span class='warning'>You can't fire without stabilizing the rifle!</span>")
 		return 0
 	return ..()
 
@@ -96,7 +96,7 @@
 	if(wielded)
 		toggle_scope(2.0, usr)
 	else
-		usr << "<span class='warning'>You can't look through the scope without stabilizing the rifle!</span>"
+		to_chat(usr, "<span class='warning'>You can't look through the scope without stabilizing the rifle!</span>")
 
 /obj/item/weapon/gun/projectile/heavysniper/tranq
 	name = "tranquilizer rifle"
@@ -110,7 +110,7 @@
 	caliber = "PPS"
 	recoil = 1
 	silenced = 1
-	fire_sound = 'sound/weapons/Gunshot_light.ogg'
+	fire_sound = 'sound/weapons/gunshot/gunshot_light.ogg'
 	max_shells = 4
 	ammo_type = null
 	accuracy = -3
@@ -145,7 +145,7 @@
 	origin_tech = list(TECH_COMBAT = 8, TECH_MATERIAL = 3, TECH_MAGNET = 2, TECH_ILLEGAL = 5)
 	caliber = "a762"
 	recoil = 2
-	fire_sound = 'sound/weapons/svd_shot.ogg'
+	fire_sound = 'sound/weapons/gunshot/gunshot_svd.ogg'
 	load_method = MAGAZINE
 	max_shells = 10
 	magazine_type = /obj/item/ammo_magazine/d762
@@ -182,7 +182,7 @@
 
 /obj/item/weapon/gun/projectile/dragunov/special_check(mob/user)
 	if(!wielded)
-		user << "<span class='warning'>You can't fire without stabilizing the rifle!</span>"
+		to_chat(user, "<span class='warning'>You can't fire without stabilizing the rifle!</span>")
 		return 0
 	return ..()
 
@@ -194,7 +194,7 @@
 	if(wielded)
 		toggle_scope(2.0, usr)
 	else
-		usr << "<span class='warning'>You can't look through the scope without stabilizing the rifle!</span>"
+		to_chat(usr, "<span class='warning'>You can't look through the scope without stabilizing the rifle!</span>")
 
 /obj/item/weapon/gun/projectile/automatic/rifle/w556
 	name = "scout rifle"
@@ -208,7 +208,7 @@
 	caliber = "a556"
 	recoil = 4
 	load_method = MAGAZINE
-	fire_sound = 'sound/weapons/Gunshot_DMR.ogg'
+	fire_sound = 'sound/weapons/gunshot/gunshot_dmr.ogg'
 	max_shells = 10
 	ammo_type = /obj/item/ammo_casing/a556/ap
 	magazine_type = /obj/item/ammo_magazine/a556/ap
@@ -232,7 +232,7 @@
 	if(wielded)
 		toggle_scope(2.0, usr)
 	else
-		usr << "<span class='warning'>You can't look through the scope without stabilizing the rifle!</span>"
+		to_chat(usr, "<span class='warning'>You can't look through the scope without stabilizing the rifle!</span>")
 
 /obj/item/weapon/gun/projectile/automatic/rifle/w556/update_icon()
 	if(wielded)

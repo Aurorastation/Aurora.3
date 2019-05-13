@@ -52,11 +52,11 @@ var/list/spark_sound = list(
 	'sound/effects/sparks4.ogg'
 )
 var/list/rustle_sound = list(
-	'sound/effects/rustle1.ogg',
-	'sound/effects/rustle2.ogg',
-	'sound/effects/rustle3.ogg',
-	'sound/effects/rustle4.ogg',
-	'sound/effects/rustle5.ogg'
+	'sound/items/storage/rustle1.ogg',
+	'sound/items/storage/rustle2.ogg',
+	'sound/items/storage/rustle3.ogg',
+	'sound/items/storage/rustle4.ogg',
+	'sound/items/storage/rustle5.ogg'
 )
 var/list/punch_sound = list(
 	'sound/weapons/punch1.ogg',
@@ -157,10 +157,16 @@ var/list/keyboardsounds = list(
 	'sound/machines/keyboard/keystroke3.ogg',
 	'sound/machines/keyboard/keystroke4.ogg'
 	)
+var/list/pickaxesounds = list(
+	'sound/weapons/mine/pickaxe1.ogg',
+	'sound/weapons/mine/pickaxe2.ogg',
+	'sound/weapons/mine/pickaxe3.ogg',
+	'sound/weapons/mine/pickaxe4.ogg'
+	)
 
 var/list/footstepfx = list("defaultstep","concretestep","grassstep","dirtstep","waterstep","sandstep", "gravelstep")
 
-//var/list/gun_sound = list('sound/weapons/Gunshot.ogg', 'sound/weapons/Gunshot2.ogg','sound/weapons/Gunshot3.ogg','sound/weapons/Gunshot4.ogg')
+//var/list/gun_sound = list('sound/weapons/gunshot/gunshot1.ogg', 'sound/weapons/gunshot/gunshot2.ogg','sound/weapons/gunshot/gunshot3.ogg','sound/weapons/gunshot/gunshot4.ogg')
 
 /proc/playsound(atom/source, soundin, vol as num, vary, extrarange as num, falloff, is_global, usepressure = 1, environment = -1, is_ambience = FALSE, is_footstep = FALSE)
 	if (istext(soundin))
@@ -284,13 +290,13 @@ var/list/footstepfx = list("defaultstep","concretestep","grassstep","dirtstep","
 			var/area/A = get_area(src)
 			S.environment = A.sound_env
 
-	src << S
+	sound_to(src, S)
 	return S.volume
 
 /client/proc/playtitlemusic()
 	if(!SSticker.login_music)	return
 	if(prefs.toggles & SOUND_LOBBY)
-		src << sound(SSticker.login_music, repeat = 0, wait = 0, volume = 85, channel = 1) // MAD JAMS
+		src << sound(SSticker.login_music, repeat = 0, wait = 0, volume = 85, channel = 1) // MAD JAMS)
 
 /proc/get_rand_frequency()
 	return rand(32000, 55000) //Frequency stuff only works with 45kbps oggs.
@@ -319,4 +325,5 @@ var/list/footstepfx = list("defaultstep","concretestep","grassstep","dirtstep","
 			if ("computerbeep") soundin = pick(computerbeeps)
 			if ("switch") soundin = pick(switchsounds)
 			if ("keyboard") soundin = pick(keyboardsounds)
+			if ("pickaxe") soundin = pick(pickaxesounds)
 	return soundin

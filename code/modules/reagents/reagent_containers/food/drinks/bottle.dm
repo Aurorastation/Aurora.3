@@ -18,7 +18,9 @@
 
 /obj/item/weapon/reagent_containers/food/drinks/bottle/Initialize()
 	. = ..()
-	if(isGlass) unacidable = 1
+	if(isGlass)
+		unacidable = 1
+		drop_sound = 'sound/items/drop/bottle.ogg'
 
 /obj/item/weapon/reagent_containers/food/drinks/bottle/Destroy()
 	if(rag)
@@ -94,7 +96,7 @@
 /obj/item/weapon/reagent_containers/food/drinks/bottle/proc/insert_rag(obj/item/weapon/reagent_containers/glass/rag/R, mob/user)
 	if(!isGlass || rag) return
 	if(user.unEquip(R))
-		user << "<span class='notice'>You stuff [R] into [src].</span>"
+		to_chat(user, "<span class='notice'>You stuff [R] into [src].</span>")
 		rag = R
 		rag.forceMove(src)
 		flags &= ~OPENCONTAINER
@@ -169,6 +171,7 @@
 	sharp = 1
 	edge = 0
 	var/icon/broken_outline = icon('icons/obj/drinks.dmi', "broken")
+	w_class = 2
 
 /obj/item/weapon/broken_bottle/attack(mob/living/carbon/M as mob, mob/living/carbon/user as mob, var/target_zone)
 	playsound(loc, 'sound/weapons/bladeslice.ogg', 50, 1, -1)
@@ -189,6 +192,9 @@
 	desc = "Pour one out for Al'mari. His gun was on stun, bless his heart."
 	icon_state = "victorygin"
 	center_of_mass = list("x"=16, "y"=4)
+	description_fluff = "Adhomian beverages are commonly made with fermented grains or vegetables, if alcoholic, or juices mixed with sugar or honey. Victory gin is the most \
+	widespread alcoholic drink in Adhomai, the result of the fermentation of honey extracted from Messa's tears, but its production and consumption is slowly declining due to the \
+	People's Republic situation in the current conflict."
 	Initialize()
 		. = ..()
 		reagents.add_reagent("victorygin", 100)
@@ -221,7 +227,7 @@
 		reagents.add_reagent("vodka", 100)
 
 /obj/item/weapon/reagent_containers/food/drinks/bottle/tequilla
-	name = "Caccavo Guaranteed Quality tequilla"
+	name = "Caccavo Guaranteed Quality tequila"
 	desc = "Made from premium petroleum distillates, pure thalidomide and other fine quality ingredients!"
 	icon_state = "tequillabottle"
 	center_of_mass = list("x"=16, "y"=3)
@@ -466,6 +472,17 @@
 		. = ..()
 		reagents.add_reagent("lemonjuice", 100)
 
+/obj/item/weapon/reagent_containers/food/drinks/bottle/dynjuice
+	name = "dyn juice"
+	desc = "Juice from a Skrell medicinal herb. It's supposed to be diluted."
+	icon_state = "dyncarton"
+	item_state = "carton"
+	center_of_mass = list("x"=16, "y"=8)
+	isGlass = 0
+	Initialize()
+		. = ..()
+		reagents.add_reagent("dynjuice", 100)
+
 //Small bottles
 /obj/item/weapon/reagent_containers/food/drinks/bottle/small
 	name = "empty small bottle"
@@ -565,6 +582,9 @@
 	name = "messa's mead"
 	desc = "A bottle of Messa's mead. Bottled somewhere in the icy world of Adhomai."
 	icon_state = "messa_mead"
+	description_fluff = "Adhomian beverages are commonly made with fermented grains or vegetables, if alcoholic, or juices mixed with sugar or honey. Victory gin is the most \
+	widespread alcoholic drink in Adhomai, the result of the fermentation of honey extracted from Messa's tears, but its production and consumption is slowly declining due to the \
+	People's Republic situation in the current conflict. Messa's mead is also another more traditional alternative, made with honey and fermented Earthen-Root juice."
 	Initialize()
 		. = ..()
 		reagents.add_reagent("messa_mead", 100)

@@ -108,6 +108,8 @@
 	var/cooling_temperature = T0C + 5 //Best temp for soda.
 	var/heating_temperature = T0C + 57 //Best temp for coffee.
 
+	var/vending_sound = "machines/vending/vending_drop.ogg"
+
 /obj/machinery/vending/Initialize()
 	. = ..()
 	wires = new(src)
@@ -183,7 +185,7 @@
 /obj/machinery/vending/emag_act(var/remaining_charges, var/mob/user)
 	if (!emagged)
 		src.emagged = 1
-		user << "You short out the product lock on \the [src]"
+		to_chat(user, "You short out the product lock on \the [src]")
 		return 1
 
 /obj/machinery/vending/attackby(obj/item/weapon/W as obj, mob/user as mob)
@@ -209,10 +211,12 @@
 			var/obj/item/weapon/spacecash/ewallet/C = W
 			paid = pay_with_ewallet(C)
 			handled = 1
+			playsound(user.loc, 'sound/machines/id_swipe.ogg', 100, 1)
 		else if (istype(W, /obj/item/weapon/spacecash))
 			var/obj/item/weapon/spacecash/C = W
 			paid = pay_with_cash(C, user)
 			handled = 1
+			playsound(user.loc, 'sound/machines/id_swipe.ogg', 100, 1)
 
 		if(paid)
 			src.vend(currently_vending, usr)
@@ -226,7 +230,7 @@
 		return
 	else if(W.isscrewdriver())
 		src.panel_open = !src.panel_open
-		user << "You [src.panel_open ? "open" : "close"] the maintenance panel."
+		to_chat(user, "You [src.panel_open ? "open" : "close"] the maintenance panel.")
 		cut_overlays()
 		if(src.panel_open)
 			add_overlay("[initial(icon_state)]-panel")
@@ -241,7 +245,7 @@
 		user.drop_from_inventory(W,src)
 		coin = W
 		categories |= CAT_COIN
-		user << "<span class='notice'>You insert \the [W] into \the [src].</span>"
+		to_chat(user, "<span class='notice'>You insert \the [W] into \the [src].</span>")
 		SSnanoui.update_uis(src)
 		return
 	else if(W.iswrench())
@@ -256,7 +260,7 @@
 
 		if(do_after(user, 20))
 			if(!src) return
-			user << "<span class='notice'>You [anchored? "un" : ""]secured \the [src]!</span>"
+			to_chat(user, "<span class='notice'>You [anchored? "un" : ""]secured \the [src]!</span>")
 			anchored = !anchored
 		return
 
@@ -266,25 +270,25 @@
 			if(VR.charges)
 				if(VR.vend_id == vend_id)
 					VR.restock_inventory(src)
-					user << "<span class='notice'>You restock \the [src] with \the [VR]!</span>"
+					to_chat(user, "<span class='notice'>You restock \the [src] with \the [VR]!</span>")
 					if(!VR.charges)
-						user << "<span class='warning'>\The [VR] is depleted!</span>"
+						to_chat(user, "<span class='warning'>\The [VR] is depleted!</span>")
 				else
-					user << "<span class='warning'>\The [VR] is not stocked for this type of vendor!</span>"
+					to_chat(user, "<span class='warning'>\The [VR] is not stocked for this type of vendor!</span>")
 			else
-				user << "<span class='warning'>\The [VR] is depleted!</span>"
+				to_chat(user, "<span class='warning'>\The [VR] is depleted!</span>")
 			return
 		else
-			user << "<span class='warning'>You must open \the [src]'s maintenance panel first!</span>"
+			to_chat(user, "<span class='warning'>You must open \the [src]'s maintenance panel first!</span>")
 			return
 
 	else if(!is_borg_item(W))
 		if(!restock_items)
-			user << "<span class='warning'>\the [src] can not be restocked manually!</span>"
+			to_chat(user, "<span class='warning'>\the [src] can not be restocked manually!</span>")
 			return
 		for(var/path in restock_blocked_items)
 			if(istype(W,path))
-				user << "<span class='warning'>\the [src] does not accept this item!</span>"
+				to_chat(user, "<span class='warning'>\the [src] does not accept this item!</span>")
 				return
 
 		for(var/datum/data/vending_product/R in product_records)
@@ -306,7 +310,7 @@
 
 		// This is not a status display message, since it's something the character
 		// themselves is meant to see BEFORE putting the money in
-		usr << "\icon[cashmoney] <span class='warning'>That is not enough money.</span>"
+		to_chat(usr, "\icon[cashmoney] <span class='warning'>That is not enough money.</span>")
 		return 0
 
 	if(istype(cashmoney, /obj/item/weapon/spacecash/bundle))
@@ -514,20 +518,20 @@
 
 	if(href_list["remove_coin"] && !istype(usr,/mob/living/silicon))
 		if(!coin)
-			usr << "There is no coin in this machine."
+			to_chat(usr, "There is no coin in this machine.")
 			return
 
 		coin.forceMove(src.loc)
 		if(!usr.get_active_hand())
 			usr.put_in_hands(coin)
-		usr << "<span class='notice'>You remove the [coin] from the [src]</span>"
+		to_chat(usr, "<span class='notice'>You remove the [coin] from the [src]</span>")
 		coin = null
 		categories &= ~CAT_COIN
 
 	if ((usr.contents.Find(src) || (in_range(src, usr) && istype(src.loc, /turf))))
 		if (href_list["vendItem"] && vend_ready && !currently_vending)
 			if((!allowed(usr)) && !emagged && scan_id)	//For SECURE VENDING MACHINES YEAH
-				usr << "<span class='warning'>Access denied.</span>"	//Unless emagged of course
+				to_chat(usr, "<span class='warning'>Access denied.</span>")	//Unless emagged of course)
 				flick(icon_deny,src)
 				return
 
@@ -541,7 +545,7 @@
 			if(R.price <= 0)
 				src.vend(R, usr)
 			else if(istype(usr,/mob/living/silicon)) //If the item is not free, provide feedback if a synth is trying to buy something.
-				usr << "<span class='danger'>Artificial unit recognized.  Artificial units cannot complete this transaction.  Purchase canceled.</span>"
+				to_chat(usr, "<span class='danger'>Artificial unit recognized.  Artificial units cannot complete this transaction.  Purchase canceled.</span>")
 				return
 			else
 				src.currently_vending = R
@@ -566,7 +570,7 @@
 		return
 
 	if((!allowed(usr)) && !emagged && scan_id)	//For SECURE VENDING MACHINES YEAH
-		usr << "<span class='warning'>Access denied.</span>"	//Unless emagged of course
+		to_chat(usr, "<span class='warning'>Access denied.</span>")	//Unless emagged of course)
 		flick(src.icon_deny,src)
 		return
 	src.vend_ready = 0 //One thing at a time!!
@@ -576,15 +580,15 @@
 
 	if (R.category & CAT_COIN)
 		if(!coin)
-			user << "<span class='notice'>You need to insert a coin to get this item.</span>"
+			to_chat(user, "<span class='notice'>You need to insert a coin to get this item.</span>")
 			return
 		if(coin.string_attached)
 			if(prob(50))
-				user << "<span class='notice'>You successfully pull the coin out before \the [src] could swallow it.</span>"
+				to_chat(user, "<span class='notice'>You successfully pull the coin out before \the [src] could swallow it.</span>")
 				src.visible_message("<span class='notice'>The [src] putters to life, coughing out its 'premium' item after a moment.</span>")
 				playsound(src.loc, 'sound/items/poster_being_created.ogg', 50, 1)
 			else
-				user << "<span class='notice'>You weren't able to pull the coin out fast enough, the machine ate it, string and all.</span>"
+				to_chat(user, "<span class='notice'>You weren't able to pull the coin out fast enough, the machine ate it, string and all.</span>")
 				src.visible_message("<span class='notice'>The [src] putters to life, coughing out its 'premium' item after a moment.</span>")
 				playsound(src.loc, 'sound/items/poster_being_created.ogg', 50, 1)
 				qdel(coin)
@@ -608,7 +612,7 @@
 	if (src.icon_vend) //Show the vending animation if needed
 		flick(src.icon_vend,src)
 	spawn(src.vend_delay)
-		playsound(src.loc, 'sound/machines/vending.ogg', 35, 1)
+		playsound(src.loc, "sound/[vending_sound]", 100, 1)
 		var/obj/vended = new R.product_path(get_turf(src))
 		src.status_message = ""
 		src.status_error = 0
@@ -625,7 +629,7 @@
 						use_power(RC.reagents.set_temperature(heating_temperature))
 
 /obj/machinery/vending/proc/stock(var/datum/data/vending_product/R, var/mob/user)
-	user << "<span class='notice'>You insert \the [R.product_name] in the product receptor.</span>"
+	to_chat(user, "<span class='notice'>You insert \the [R.product_name] in the product receptor.</span>")
 	R.amount++
 
 	SSnanoui.update_uis(src)

@@ -9,7 +9,7 @@
 	handle_casings = CYCLE_CASINGS
 	max_shells = 8
 	ammo_type = /obj/item/ammo_casing/a357
-	fire_sound = 'sound/weapons/revolver_shoot.ogg'
+	fire_sound = 'sound/weapons/gunshot/gunshot_revolver.ogg'
 	var/chamber_offset = 0 //how many empty chambers in the cylinder until you hit a round
 
 /obj/item/weapon/gun/projectile/revolver/verb/spin_cylinder()
@@ -42,7 +42,7 @@
 	accuracy = 2
 	caliber = "454"
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
-	fire_sound = 'sound/weapons/mateba_fire.ogg'
+	fire_sound = 'sound/weapons/gunshot/gunshot_mateba.ogg'
 	ammo_type = /obj/item/ammo_casing/a454
 
 /obj/item/weapon/gun/projectile/revolver/detective
@@ -53,7 +53,7 @@
 	accuracy = 1
 	caliber = "38"
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
-	fire_sound = 'sound/weapons/gunshot_strong.ogg'
+	fire_sound = 'sound/weapons/gunshot/gunshot_strong.ogg'
 	ammo_type = /obj/item/ammo_casing/c38
 
 /obj/item/weapon/gun/projectile/revolver/detective/verb/rename_gun()
@@ -64,14 +64,14 @@
 	var/mob/M = usr
 	if(!M.mind)	return 0
 	if(!M.mind.assigned_role == "Detective")
-		M << "<span class='notice'>You don't feel cool enough to name this gun, chump.</span>"
+		to_chat(M, "<span class='notice'>You don't feel cool enough to name this gun, chump.</span>")
 		return 0
 
 	var/input = sanitizeSafe(input("What do you want to name the gun?", ,""), MAX_NAME_LEN)
 
 	if(src && input && !M.stat && in_range(M,src))
 		name = input
-		M << "You name the gun [input]. Say hello to your new friend."
+		to_chat(M, "You name the gun [input]. Say hello to your new friend.")
 		return 1
 
 // Blade Runner pistol.
@@ -83,7 +83,7 @@
 	icon_state = "deckard-empty"
 	caliber = "38"
 	ammo_type = /obj/item/ammo_casing/c38
-	fire_sound = 'sound/weapons/gunshot_strong.ogg'
+	fire_sound = 'sound/weapons/gunshot/gunshot_strong.ogg'
 
 /obj/item/weapon/gun/projectile/revolver/deckard/update_icon()
 	..()
@@ -143,7 +143,7 @@
 	handle_casings = CYCLE_CASINGS
 	max_shells = 6
 	caliber = "38"
-	fire_sound = 'sound/weapons/gunshot_strong.ogg'
+	fire_sound = 'sound/weapons/gunshot/gunshot_strong.ogg'
 	ammo_type = /obj/item/ammo_casing/c38
 	var/secondary_max_shells = 1
 	var/secondary_caliber = "shotgun"
@@ -174,7 +174,7 @@
 
 		if(caliber && secondary_caliber)
 			caliber = secondary_caliber
-			fire_sound = 'sound/weapons/shotgun.ogg'
+			fire_sound = 'sound/weapons/gunshot/gunshot_shotgun2.ogg'
 
 		if(ammo_type && secondary_ammo_type)
 			ammo_type = secondary_ammo_type

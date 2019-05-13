@@ -62,11 +62,14 @@
 	else
 		set_light(light_range_on, light_power_on)
 
+	icon_state = initial(icon_state)
+
 	if(stat & BROKEN)
+		icon_state = "computer-broken"
 		if (overlay_layer != layer)
-			add_overlay(image(icon,"[icon_state]_broken", overlay_layer))
+			add_overlay(image(icon, "broken", overlay_layer))
 		else
-			add_overlay("[icon_state]_broken")
+			add_overlay("broken")
 	else if (icon_screen)
 		if (is_holographic)
 			holographic_overlay(src, src.icon, icon_screen)
@@ -104,12 +107,12 @@
 			for (var/obj/C in src)
 				C.forceMove(src.loc)
 			if (src.stat & BROKEN)
-				user << "<span class='notice'>The broken glass falls out.</span>"
+				to_chat(user, "<span class='notice'>The broken glass falls out.</span>")
 				new /obj/item/weapon/material/shard( src.loc )
 				A.state = 3
 				A.icon_state = "3"
 			else
-				user << "<span class='notice'>You disconnect the glass keyboard panel.</span>"
+				to_chat(user, "<span class='notice'>You disconnect the glass keyboard panel.</span>")
 				A.state = 4
 				A.icon_state = "4"
 			M.deconstruct(src)

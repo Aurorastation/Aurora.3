@@ -165,11 +165,11 @@
 	if(W.flags & NOBLUDGEON) return
 
 	if(W.isscrewdriver())
-		user << ("<span class='notice'>It's a holowindow, you can't unfasten it!</span>")
+		to_chat(user, ("<span class='notice'>It's a holowindow, you can't unfasten it!</span>"))
 	else if(W.iscrowbar() && reinf && state <= 1)
-		user << ("<span class='notice'>It's a holowindow, you can't pry it!</span>")
+		to_chat(user, ("<span class='notice'>It's a holowindow, you can't pry it!</span>"))
 	else if(W.iswrench() && !anchored && (!state || !reinf))
-		user << ("<span class='notice'>It's a holowindow, you can't dismantle it!</span>")
+		to_chat(user, ("<span class='notice'>It's a holowindow, you can't dismantle it!</span>"))
 	else
 		if(W.damtype == BRUTE || W.damtype == BURN)
 			hit(W.force)
@@ -235,7 +235,7 @@
 
 /obj/structure/bed/chair/holochair/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	if(W.iswrench())
-		user << ("<span class='notice'>It's a holochair, you can't dismantle it!</span>")
+		to_chat(user, ("<span class='notice'>It's a holochair, you can't dismantle it!</span>"))
 	return
 
 /obj/item/weapon/holo
@@ -267,7 +267,7 @@
 		user.visible_message("<span class='danger'>\The [user] parries [attack_text] with \the [src]!</span>")
 
 		spark(user.loc, 5)
-		playsound(user.loc, 'sound/weapons/blade1.ogg', 50, 1)
+		playsound(user.loc, 'sound/weapons/blade.ogg', 50, 1)
 		return 1
 	return 0
 
@@ -281,13 +281,13 @@
 		icon_state = "sword[item_color]"
 		w_class = 4
 		playsound(user, 'sound/weapons/saberon.ogg', 50, 1)
-		user << "<span class='notice'>[src] is now active.</span>"
+		to_chat(user, "<span class='notice'>[src] is now active.</span>")
 	else
 		force = 3
 		icon_state = "sword0"
 		w_class = 2
 		playsound(user, 'sound/weapons/saberoff.ogg', 50, 1)
-		user << "<span class='notice'>[src] can now be concealed.</span>"
+		to_chat(user, "<span class='notice'>[src] can now be concealed.</span>")
 
 	if(istype(user,/mob/living/carbon/human))
 		var/mob/living/carbon/human/H = user
@@ -320,7 +320,7 @@
 	if (istype(W, /obj/item/weapon/grab) && get_dist(src,user)<2)
 		var/obj/item/weapon/grab/G = W
 		if(G.state<2)
-			user << "<span class='warning'>You need a better grip to do that!</span>"
+			to_chat(user, "<span class='warning'>You need a better grip to do that!</span>")
 			return
 		G.affecting.forceMove(src.loc)
 		G.affecting.Weaken(5)
@@ -360,16 +360,16 @@
 	use_power = 0 // reason is because the holodeck already takes power so this can be powered as a result.
 
 /obj/machinery/readybutton/attack_ai(mob/user as mob)
-	user << "The station AI is not to interact with these devices!"
+	to_chat(user, "The station AI is not to interact with these devices!")
 	return
 
 /obj/machinery/readybutton/attackby(obj/item/weapon/W as obj, mob/user as mob)
-	user << "The device is a solid button, there's nothing you can do with it!"
+	to_chat(user, "The device is a solid button, there's nothing you can do with it!")
 
 /obj/machinery/readybutton/attack_hand(mob/user as mob)
 
 	if(user.stat || stat & (NOPOWER|BROKEN))
-		user << "This device is not powered."
+		to_chat(user, "This device is not powered.")
 		return
 
 	if(!user.IsAdvancedToolUser())
@@ -380,7 +380,7 @@
 		qdel(src)
 
 	if(eventstarted)
-		usr << "The event has already begun!"
+		to_chat(usr, "The event has already begun!")
 		return
 
 	ready = !ready
@@ -411,7 +411,7 @@
 		qdel(W)
 
 	for(var/mob/M in currentarea)
-		M << "FIGHT!"
+		to_chat(M, "FIGHT!")
 
 //Holocarp
 
@@ -454,7 +454,7 @@
 //Holo-penguin
 
 /mob/living/simple_animal/penguin/holodeck
-	icon = 'icons/mob/penguins.dmi'
+	icon = 'icons/mob/npc/penguins.dmi'
 	icon_state = "penguin"
 	icon_living = "penguin"
 	icon_dead = "penguin_dead"

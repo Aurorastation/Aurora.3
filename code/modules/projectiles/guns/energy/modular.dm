@@ -30,19 +30,28 @@
 	..(user)
 	if(gun_mods.len)
 		for(var/obj/item/laser_components/modifier/modifier in gun_mods)
-			user << "You can see \the [modifier] attached."
+			to_chat(user, "You can see \the [modifier] attached.")
 	if(capacitor)
-		user << "You can see \the [capacitor] attached."
+		to_chat(user, "You can see \the [capacitor] attached.")
 	if(focusing_lens)
-		user << "You can see \the [focusing_lens] attached."
+		to_chat(user, "You can see \the [focusing_lens] attached.")
 	if(modulator)
-		user << "You can see \the [modulator] attached."
+		to_chat(user, "You can see \the [modulator] attached.")
 
 /obj/item/weapon/gun/energy/laser/prototype/attackby(var/obj/item/weapon/D, var/mob/user)
 	if(!D.isscrewdriver())
 		return ..()
-	user << "You disassemble \the [src]."
+	to_chat(user, "You disassemble \the [src].")
 	disassemble(user)
+
+/obj/item/weapon/gun/energy/laser/prototype/update_icon()
+	..()
+	if(origin_chassis == CHASSIS_LARGE)
+		if(wielded)
+			item_state = "heavyprotogun_wielded"
+		else
+			item_state = "heavyprotogun"
+	update_held_icon()
 
 /obj/item/weapon/gun/energy/laser/prototype/proc/reset_vars()
 	burst = initial(burst)
@@ -70,10 +79,12 @@
 			gun_type = CHASSIS_MEDIUM
 			slot_flags = SLOT_BELT | SLOT_BACK
 			item_state = "energystun"
+			action_button_name = "Wield rifle"
 		if(CHASSIS_LARGE)
 			gun_type = CHASSIS_LARGE
 			slot_flags = SLOT_BACK
-			item_state = "lasercannon"
+			item_state = "heavyprotogun"
+			action_button_name = "Wield rifle"
 
 	if(capacitor.reliability - capacitor.condition <= 0)
 		if(prob(66))
@@ -203,19 +214,19 @@
 
 /obj/item/weapon/gun/energy/laser/prototype/small_fail(var/mob/user)
 	if(capacitor)
-		user << "<span class='danger'>\The [src]'s [capacitor] short-circuits!</span>"
+		to_chat(user, "<span class='danger'>\The [src]'s [capacitor] short-circuits!</span>")
 		capacitor.small_fail(user, src)
 	return
 
 /obj/item/weapon/gun/energy/laser/prototype/medium_fail(var/mob/user)
 	if(capacitor)
-		user << "<span class='danger'>\The [src]'s [capacitor] overloads!</span>"
+		to_chat(user, "<span class='danger'>\The [src]'s [capacitor] overloads!</span>")
 		capacitor.medium_fail(user, src)
 	return
 
 /obj/item/weapon/gun/energy/laser/prototype/critical_fail(var/mob/user)
 	if(capacitor)
-		user << "<span class='danger'>\The [src]'s [capacitor] goes critical!</span>"
+		to_chat(user, "<span class='danger'>\The [src]'s [capacitor] goes critical!</span>")
 		capacitor.critical_fail(user, src)
 	return
 
@@ -245,16 +256,16 @@
 		if(wielded)
 			toggle_scope(2.0, usr)
 		else
-			usr << "<span class='warning'>You can't look through the scope without stabilizing the rifle!</span>"
+			to_chat(usr, "<span class='warning'>You can't look through the scope without stabilizing the rifle!</span>")
 	else
-		usr << "<span class='warning'>This device does not have a scope installed!</span>"
+		to_chat(usr, "<span class='warning'>This device does not have a scope installed!</span>")
 
 /obj/item/weapon/gun/energy/laser/prototype/special_check(var/mob/user)
 	if(is_charging && chargetime)
-		user << "<span class='danger'>\The [src] is already charging!</span>"
+		to_chat(user, "<span class='danger'>\The [src] is already charging!</span>")
 		return 0
 	if(!wielded && (origin_chassis == CHASSIS_LARGE))
-		user << "<span class='danger'>You require both hands to fire this weapon!</span>"
+		to_chat(user, "<span class='danger'>You require both hands to fire this weapon!</span>")
 		return 0
 	if(chargetime)
 		user.visible_message(
@@ -288,7 +299,7 @@
 
 	if(src && input && !M.stat && in_range(M,src))
 		name = input
-		M << "You name the gun [input]. Say hello to your new friend."
+		to_chat(M, "You name the gun [input]. Say hello to your new friend.")
 		named = 1
 		return 1
 
@@ -305,6 +316,6 @@
 
 	if(src && input && !M.stat && in_range(M,src))
 		desc = input
-		M << "You describe the gun as [input]. Say hello to your new friend."
+		to_chat(M, "You describe the gun as [input]. Say hello to your new friend.")
 		described = 1
 		return 1

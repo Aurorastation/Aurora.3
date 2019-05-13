@@ -33,14 +33,14 @@
 /obj/item/weapon/melee/chainsword/attack_self(mob/user)
 	active= !active
 	if(active)
-		playsound(user, 'sound/weapons/chainsawstart.ogg', 50, 1)
-		user << span("notice", "\The [src] rumbles to life.")
+		playsound(user, 'sound/weapons/saw/chainsawstart.ogg', 50, 1)
+		to_chat(user, span("notice", "\The [src] rumbles to life."))
 		force = 35
-		hitsound = 'sound/weapons/chainsword.ogg'
+		hitsound = 'sound/weapons/saw/chainsword.ogg'
 		icon_state = "chainswordon"
 		slot_flags = null
 	else
-		user << span("notice", "\The [src] slowly powers down.")
+		to_chat(user, span("notice", "\The [src] slowly powers down."))
 		force = initial(force)
 		hitsound = initial(hitsound)
 		icon_state = initial(icon_state)
@@ -92,7 +92,7 @@
 	..()
 	if(prob(25))
 		if(!on)
-			user << "<span class='warning'>\The [src] buzzes!</span>"
+			to_chat(user, "<span class='warning'>\The [src] buzzes!</span>")
 			return
 		playsound(user, 'sound/weapons/beartrap_shut.ogg', 50, 1, -1)
 		user.visible_message("<span class='danger'>\The [user] slams \the [target] away with \the [src]!</span>")

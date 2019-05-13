@@ -184,7 +184,7 @@ var/datum/controller/subsystem/atlas/SSatlas
 
 	if (world.name != sname)
 		world.name = sname
-		world.log << "Set world.name to [sname]."
+		world.log <<  "Set world.name to [sname]."
 
 /proc/system_name()
 	ASSERT(current_map)

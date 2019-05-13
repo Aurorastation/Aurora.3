@@ -144,7 +144,7 @@
 	set category = null
 	set name = "Make Abomination"
 
-	usr << "Ruby Mode disabled. Command aborted."
+	to_chat(usr, "Ruby Mode disabled. Command aborted.")
 	return
 	if(!ROUND_IS_STARTED)
 		alert("Wait until the game starts.")
@@ -168,33 +168,33 @@
 			return
 		else
 			if(alert("Spawn that person a tome?",,"Yes","No")=="Yes")
-				M << "\red You catch a glimpse of the Realm of Nar-Sie, The Geometer of Blood. You now see how flimsy the world is, you see that it should be open to the knowledge of Nar-Sie. A tome, a message from your new master, appears on the ground."
+				to_chat(M, "\red You catch a glimpse of the Realm of Nar-Sie, The Geometer of Blood. You now see how flimsy the world is, you see that it should be open to the knowledge of Nar-Sie. A tome, a message from your new master, appears on the ground.")
 				new /obj/item/weapon/book/tome(M.loc)
 			else
-				M << "\red You catch a glimpse of the Realm of Nar-Sie, The Geometer of Blood. You now see how flimsy the world is, you see that it should be open to the knowledge of Nar-Sie."
+				to_chat(M, "\red You catch a glimpse of the Realm of Nar-Sie, The Geometer of Blood. You now see how flimsy the world is, you see that it should be open to the knowledge of Nar-Sie.")
 			var/glimpse=pick("1","2","3","4","5","6","7","8")
 			switch(glimpse)
 				if("1")
-					M << "\red You remembered one thing from the glimpse... [cultwords["travel"]] is travel..."
+					to_chat(M, "\red You remembered one thing from the glimpse... [cultwords["travel"]] is travel...")
 				if("2")
-					M << "\red You remembered one thing from the glimpse... [cultwords["blood"]] is blood..."
+					to_chat(M, "\red You remembered one thing from the glimpse... [cultwords["blood"]] is blood...")
 				if("3")
-					M << "\red You remembered one thing from the glimpse... [cultwords["join"]] is join..."
+					to_chat(M, "\red You remembered one thing from the glimpse... [cultwords["join"]] is join...")
 				if("4")
-					M << "\red You remembered one thing from the glimpse... [cultwords["hell"]] is Hell..."
+					to_chat(M, "\red You remembered one thing from the glimpse... [cultwords["hell"]] is Hell...")
 				if("5")
-					M << "\red You remembered one thing from the glimpse... [cultwords["destroy"]] is destroy..."
+					to_chat(M, "\red You remembered one thing from the glimpse... [cultwords["destroy"]] is destroy...")
 				if("6")
-					M << "\red You remembered one thing from the glimpse... [cultwords["technology"]] is technology..."
+					to_chat(M, "\red You remembered one thing from the glimpse... [cultwords["technology"]] is technology...")
 				if("7")
-					M << "\red You remembered one thing from the glimpse... [cultwords["self"]] is self..."
+					to_chat(M, "\red You remembered one thing from the glimpse... [cultwords["self"]] is self...")
 				if("8")
-					M << "\red You remembered one thing from the glimpse... [cultwords["see"]] is see..."
+					to_chat(M, "\red You remembered one thing from the glimpse... [cultwords["see"]] is see...")
 
 			if(M.mind)
 				M.mind.special_role = "Cultist"
 				SSticker.mode.cult += M.mind
-			src << "Made [M] a cultist."
+			to_chat(src, "Made [M] a cultist.")
 */
 
 //TODO: merge the vievars version into this or something maybe mayhaps
@@ -502,19 +502,19 @@
 	set name = "Debug Mob Lists"
 	set desc = "For when you just gotta know"
 
-	switch(input("Which list?") in list("Players","Admins","Mobs","Living Mobs","Dead Mobs", "Clients"))
+	switch(input("Which list?") in list("Players","Staff","Mobs","Living Mobs","Dead Mobs", "Clients"))
 		if("Players")
-			usr << jointext(player_list,",")
-		if("Admins")
-			usr << jointext(admins,",")
+			to_chat(usr, jointext(player_list,", "))
+		if("Staff")
+			to_chat(usr, jointext(staff,", "))
 		if("Mobs")
-			usr << jointext(mob_list,",")
+			to_chat(usr, jointext(mob_list,", "))
 		if("Living Mobs")
-			usr << jointext(living_mob_list,",")
+			to_chat(usr, jointext(living_mob_list,", "))
 		if("Dead Mobs")
-			usr << jointext(dead_mob_list,",")
+			to_chat(usr, jointext(dead_mob_list,", "))
 		if("Clients")
-			usr << jointext(clients,",")
+			to_chat(usr, jointext(clients,", "))
 
 // DNA2 - Admin Hax
 /client/proc/cmd_admin_toggle_block(var/mob/M,var/block)

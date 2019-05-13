@@ -49,7 +49,7 @@
 	caliber = "10mm"
 	origin_tech = list(TECH_COMBAT = 5, TECH_MATERIAL = 2, TECH_ILLEGAL = 8)
 	slot_flags = SLOT_BELT|SLOT_BACK
-	fire_sound = 'sound/weapons/gunshot_pistol.ogg'
+	fire_sound = 'sound/weapons/gunshot/gunshot_pistol.ogg'
 	load_method = MAGAZINE
 	magazine_type = /obj/item/ammo_magazine/a10mm
 	allowed_magazines = list(/obj/item/ammo_magazine/a10mm)
@@ -74,7 +74,7 @@
 	origin_tech = list(TECH_COMBAT = 5, TECH_MATERIAL = 2)
 	slot_flags = SLOT_BELT
 	ammo_type = "/obj/item/ammo_casing/c9mmr"
-	fire_sound = 'sound/weapons/gunshot_pistol.ogg'
+	fire_sound = 'sound/weapons/gunshot/gunshot_pistol.ogg'
 	load_method = MAGAZINE
 	magazine_type = /obj/item/ammo_magazine/mc9mmt/rubber
 	allowed_magazines = list(/obj/item/ammo_magazine/mc9mmt)
@@ -100,7 +100,7 @@
 	origin_tech = list(TECH_COMBAT = 6, TECH_MATERIAL = 1, TECH_ILLEGAL = 4)
 	slot_flags = SLOT_BACK
 	load_method = MAGAZINE
-	fire_sound = 'sound/weapons/rifleshot.ogg'
+	fire_sound = 'sound/weapons/gunshot/gunshot_rifle.ogg'
 	magazine_type = /obj/item/ammo_magazine/c762
 	allowed_magazines = list(/obj/item/ammo_magazine/c762)
 
@@ -152,6 +152,30 @@
 		item_state = (ammo_magazine)? "arifle" : "arifle-empty"
 	update_held_icon()
 
+/obj/item/weapon/gun/projectile/automatic/rifle/sol
+	name = "battle rifle"
+	desc = "A powerful battle rifle, the M469 is a highly accurate skirmishing firearm of Necropolis make which is chambered in 7.62."
+	icon_state = "battlerifle"
+	item_state = "battlerifle"
+	origin_tech = list(TECH_COMBAT = 6, TECH_MATERIAL = 3, TECH_ILLEGAL = 2)
+	magazine_type = /obj/item/ammo_magazine/c762/sol
+	allowed_magazines = list(/obj/item/ammo_magazine/c762/sol)
+	auto_eject = 1
+	auto_eject_sound = 'sound/weapons/smg_empty_alarm.ogg'
+
+/obj/item/weapon/gun/projectile/automatic/rifle/sol/update_icon()
+	..()
+	if(ammo_magazine)
+		icon_state = "battlerifle"
+	else
+		icon_state = "battlerifle-empty"
+	if(wielded)
+		item_state = "battlerifle-wielded"
+	else
+		item_state = "battlerifle"
+	update_held_icon()
+	return
+
 /datum/firemode/z8
 	var/use_launcher = 0
 
@@ -165,7 +189,7 @@
 	caliber = "a556"
 	origin_tech = list(TECH_COMBAT = 8, TECH_MATERIAL = 3)
 	ammo_type = "/obj/item/ammo_casing/a556"
-	fire_sound = 'sound/weapons/rifleshot.ogg'
+	fire_sound = 'sound/weapons/gunshot/gunshot_rifle.ogg'
 	slot_flags = SLOT_BACK
 	load_method = MAGAZINE
 	magazine_type = /obj/item/ammo_magazine/a556
@@ -227,9 +251,9 @@
 /obj/item/weapon/gun/projectile/automatic/rifle/z8/examine(mob/user)
 	..()
 	if(launcher.chambered)
-		user << "\The [launcher] has \a [launcher.chambered] loaded."
+		to_chat(user, "\The [launcher] has \a [launcher.chambered] loaded.")
 	else
-		user << "\The [launcher] is empty."
+		to_chat(user, "\The [launcher] is empty.")
 
 /obj/item/weapon/gun/projectile/automatic/rifle/l6_saw
 	name = "light machine gun"
@@ -245,7 +269,7 @@
 	slot_flags = SLOT_BACK
 	ammo_type = "/obj/item/ammo_casing/a762"
 	allowed_magazines = list(/obj/item/ammo_magazine/a762)
-	fire_sound = 'sound/weapons/gunshot_saw.ogg'
+	fire_sound = 'sound/weapons/gunshot/gunshot_saw.ogg'
 	load_method = MAGAZINE
 	magazine_type = /obj/item/ammo_magazine/a762
 
@@ -258,13 +282,13 @@
 
 /obj/item/weapon/gun/projectile/automatic/rifle/l6_saw/special_check(mob/user)
 	if(cover_open)
-		user << "<span class='warning'>[src]'s cover is open! Close it before firing!</span>"
+		to_chat(user, "<span class='warning'>[src]'s cover is open! Close it before firing!</span>")
 		return 0
 	return ..()
 
 /obj/item/weapon/gun/projectile/automatic/rifle/l6_saw/proc/toggle_cover(mob/user)
 	cover_open = !cover_open
-	user << "<span class='notice'>You [cover_open ? "open" : "close"] [src]'s cover.</span>"
+	to_chat(user, "<span class='notice'>You [cover_open ? "open" : "close"] [src]'s cover.</span>")
 	if(cover_open)
 		playsound(user, 'sound/weapons/sawopen.ogg', 60, 1)
 	else
@@ -292,13 +316,13 @@
 
 /obj/item/weapon/gun/projectile/automatic/rifle/l6_saw/load_ammo(var/obj/item/A, mob/user)
 	if(!cover_open)
-		user << "<span class='warning'>You need to open the cover to load [src].</span>"
+		to_chat(user, "<span class='warning'>You need to open the cover to load [src].</span>")
 		return
 	..()
 
 /obj/item/weapon/gun/projectile/automatic/rifle/l6_saw/unload_ammo(mob/user, var/allow_dump=1)
 	if(!cover_open)
-		user << "<span class='warning'>You need to open the cover to unload [src].</span>"
+		to_chat(user, "<span class='warning'>You need to open the cover to unload [src].</span>")
 		return
 	..()
 
@@ -355,7 +379,7 @@
 	force = 30
 	caliber = "flechette"
 	slot_flags = SLOT_BELT|SLOT_BACK
-	fire_sound = 'sound/weapons/Gunshot_DMR.ogg'
+	fire_sound = 'sound/weapons/gunshot/gunshot_dmr.ogg'
 	load_method = MAGAZINE
 	magazine_type = /obj/item/ammo_magazine/flechette
 	allowed_magazines = list(/obj/item/ammo_magazine/flechette,/obj/item/ammo_magazine/flechette/explosive)
@@ -387,7 +411,7 @@
 	if(wielded)
 		toggle_scope(2.0, usr)
 	else
-		usr << "<span class='warning'>You can't look through the scope without stabilizing the rifle!</span>"
+		to_chat(usr, "<span class='warning'>You can't look through the scope without stabilizing the rifle!</span>")
 
 /obj/item/weapon/gun/projectile/automatic/terminator/can_wield()
 	return 1
@@ -422,7 +446,7 @@
 	auto_eject = 1
 	auto_eject_sound = 'sound/weapons/smg_empty_alarm.ogg'
 	recoil = 3
-	fire_sound = 'sound/weapons/shotgun_shoot.ogg'
+	fire_sound = 'sound/weapons/gunshot/gunshot_shotgun.ogg'
 
 	accuracy = -2
 	fire_delay = 10

@@ -54,6 +54,7 @@
 		switch(atype)
 			if ("Fill")
 				RG.standard_dispenser_refill(user,src)
+				playsound(src.loc, 'sound/machines/reagent_dispense.ogg', 25, 1)
 			if ("Empty")
 				if(is_open_container())
 					RG.standard_pour_into(user,src)
@@ -140,9 +141,9 @@
 	if(!..(user, 2))
 		return
 	if (is_leaking)
-		user << "<span class='warning'>Fuel faucet is wrenched open, leaking the fuel!</span>"
+		to_chat(user, "<span class='warning'>Fuel faucet is wrenched open, leaking the fuel!</span>")
 	if(rig)
-		user << "<span class='notice'>There is some kind of device rigged to the tank.</span>"
+		to_chat(user, "<span class='notice'>There is some kind of device rigged to the tank.</span>")
 
 /obj/structure/reagent_dispensers/fueltank/attack_hand(mob/user)
 	if (rig)
@@ -157,7 +158,7 @@
 	src.add_fingerprint(user)
 	if (istype(W,/obj/item/device/assembly_holder))
 		if (rig)
-			user << "<span class='warning'>There is another device in the way.</span>"
+			to_chat(user, "<span class='warning'>There is another device in the way.</span>")
 			return ..()
 		user.visible_message("[user] begins rigging [W] to \the [src].", "You begin rigging [W] to \the [src]")
 		if(do_after(user, 20))

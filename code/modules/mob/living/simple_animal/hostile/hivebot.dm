@@ -1,3 +1,7 @@
+#define NORMAL 1
+#define RANGED 2
+#define RAPID  3
+
 /obj/item/projectile/hivebotbullet
 	damage = 10
 	damage_type = BRUTE
@@ -5,7 +9,7 @@
 /mob/living/simple_animal/hostile/hivebot
 	name = "Hivebot"
 	desc = "A small robot"
-	icon = 'icons/mob/hivebot.dmi'
+	icon = 'icons/mob/npc/hivebot.dmi'
 	icon_state = "basic"
 	icon_living = "basic"
 	icon_dead = "basic"
@@ -14,7 +18,7 @@
 	melee_damage_lower = 2
 	melee_damage_upper = 3
 	attacktext = "clawed"
-	projectilesound = 'sound/weapons/Gunshot.ogg'
+	projectilesound = 'sound/weapons/gunshot/gunshot1.ogg'
 	projectiletype = /obj/item/projectile/hivebotbullet
 	faction = "hivebot"
 	min_oxy = 0
@@ -34,17 +38,15 @@
 	name = "Hivebot"
 	desc = "A smallish robot, this one is armed!"
 	ranged = 1
+	smart = TRUE
 
-/mob/living/simple_animal/hostile/hivebot/rapid
-	ranged = 1
+/mob/living/simple_animal/hostile/hivebot/range/rapid
 	rapid = 1
 
-/mob/living/simple_animal/hostile/hivebot/strong
+/mob/living/simple_animal/hostile/hivebot/range/strong
 	name = "Strong Hivebot"
 	desc = "A robot, this one is armed and looks tough!"
 	health = 80
-	ranged = 1
-
 
 /mob/living/simple_animal/hostile/hivebot/death()
 	..()
@@ -57,7 +59,6 @@
 /mob/living/simple_animal/hostile/hivebot/tele//this still needs work
 	name = "Beacon"
 	desc = "Some odd beacon thing"
-	icon = 'icons/mob/hivebot.dmi'
 	icon_state = "def_radar-off"
 	icon_living = "def_radar-off"
 	health = 200
@@ -65,43 +66,52 @@
 	status_flags = 0
 	anchored = 1
 	stop_automated_movement = 1
-	var/bot_type = "norm"
+	var/bot_type = NORMAL // type of bot, 1 is normal, 2 is ranged, 3 is rapid rnaged.
 	var/bot_amt = 10
 	var/spawn_delay = 600
-	var/turn_on = 0
-	var/auto_spawn = 1
-	proc
-		warpbots()
 
+/mob/living/simple_animal/hostile/hivebot/tele/New()
+	..()
+	var/datum/effect/effect/system/smoke_spread/smoke = new /datum/effect/effect/system/smoke_spread()
+	smoke.set_up(5, 0, src.loc)
+	smoke.start()
+	visible_message("<span class='danger'>\The [src] warps in!</span>")
+	playsound(src.loc, 'sound/effects/EMPulse.ogg', 25, 1)
 
-	New()
-		..()
-		var/datum/effect/effect/system/smoke_spread/smoke = new /datum/effect/effect/system/smoke_spread()
-		smoke.set_up(5, 0, src.loc)
-		smoke.start()
-		visible_message("<span class='danger'>The [src] warps in!</span>")
-		playsound(src.loc, 'sound/effects/EMPulse.ogg', 25, 1)
+/mob/living/simple_animal/hostile/hivebot/tele/proc/warpbots()
 
-	warpbots()
-		icon_state = "def_radar"
-		visible_message("<span class='warning'>The [src] turns on!</span>")
-		while(bot_amt > 0)
-			bot_amt--
-			switch(bot_type)
-				if("norm")
-					new /mob/living/simple_animal/hostile/hivebot(get_turf(src))
-				if("range")
-					new /mob/living/simple_animal/hostile/hivebot/range(get_turf(src))
-				if("rapid")
-					new /mob/living/simple_animal/hostile/hivebot/rapid(get_turf(src))
-		spawn(100)
-			qdel(src)
+	if(!bot_amt)
+		qdel(src)
 		return
 
+	icon_state = "def_radar"
+	visible_message("<span class='warning'>\The [src] turns on!</span>")
 
-	Life()
-		..()
-		if(stat == 0)
-			if(prob(2))//Might be a bit low, will mess with it likely
-				warpbots()
+	switch(bot_type)
+		if(NORMAL)
+			new /mob/living/simple_animal/hostile/hivebot(get_turf(src))
+		if(RANGED)
+			new /mob/living/simple_animal/hostile/hivebot/range(get_turf(src))
+		if(RAPID)
+			new /mob/living/simple_animal/hostile/hivebot/range/rapid(get_turf(src))
 
+	if(prob(30))
+		if(prob(20))
+			bot_type = RAPID
+		else
+			bot_type = RANGED
+	else
+		bot_type = NORMAL
+	bot_amt--
+	addtimer(CALLBACK(src, .proc/warpbots, spawn_delay))
+
+
+/mob/living/simple_animal/hostile/hivebot/tele/Life()
+	..()
+	if(stat == 0)
+		if(prob(2))//Might be a bit low, will mess with it likely
+			warpbots()
+
+#undef NORMAL
+#undef RANGED
+#undef RAPID

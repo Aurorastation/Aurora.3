@@ -13,7 +13,7 @@
 	if(!padding_material && istype(W, /obj/item/assembly/shock_kit))
 		var/obj/item/assembly/shock_kit/SK = W
 		if(!SK.status)
-			user << "<span class='notice'>\The [SK] is not ready to be attached!</span>"
+			to_chat(user, "<span class='notice'>\The [SK] is not ready to be attached!</span>")
 			return
 		var/obj/structure/bed/chair/e_chair/E = new (src.loc, material.name)
 		playsound(src.loc, 'sound/items/Deconstruct.ogg', 50, 1)
@@ -41,7 +41,8 @@
 	var/cache_key = "[base_icon]-[material.name]-over"
 	if(isnull(stool_cache[cache_key]))
 		var/image/I = image('icons/obj/furniture.dmi', "[base_icon]_over")
-		I.color = material.icon_colour
+		if(apply_material_color)
+			I.color = material.icon_colour
 		I.layer = FLY_LAYER
 		stool_cache[cache_key] = I
 	add_overlay(stool_cache[cache_key])
@@ -50,7 +51,8 @@
 		var/padding_cache_key = "[base_icon]-padding-[padding_material.name]-over"
 		if(isnull(stool_cache[padding_cache_key]))
 			var/image/I =  image(icon, "[base_icon]_padding_over")
-			I.color = padding_material.icon_colour
+			if(apply_material_color)
+				I.color = padding_material.icon_colour
 			I.layer = FLY_LAYER
 			stool_cache[padding_cache_key] = I
 		add_overlay(stool_cache[padding_cache_key])
@@ -60,7 +62,8 @@
 		if(isnull(stool_cache[cache_key]))
 			var/image/I = image(icon, "[base_icon]_armrest")
 			I.layer = MOB_LAYER + 0.1
-			I.color = padding_material.icon_colour
+			if(apply_material_color)
+				I.color = padding_material.icon_colour
 			stool_cache[cache_key] = I
 		add_overlay(stool_cache[cache_key])
 
@@ -134,6 +137,7 @@
 
 /obj/structure/bed/chair/office/Move()
 	. = ..()
+	playsound(src, 'sound/effects/roll.ogg', 100, 1)
 	if(buckled_mob)
 		var/mob/living/occupant = buckled_mob
 		occupant.buckled = null
@@ -216,3 +220,42 @@
 
 /obj/structure/bed/chair/unmovable
 	can_dismantle = 0
+
+/obj/structure/bed/chair/shuttle
+	icon_state = "shuttlechair"
+	base_icon = "shuttlechair"
+	can_dismantle = FALSE
+	apply_material_color = FALSE
+	anchored = TRUE
+
+/obj/structure/bed/chair/shuttle/update_icon()
+	cut_overlays()
+
+	var/image/O = image(icon, "[icon_state]_over")
+	O.layer = FLY_LAYER
+	add_overlay(O)
+
+	var/list/stool_cache = SSicon_cache.stool_cache
+
+	var/cache_key = "[base_icon]_over"
+	if(isnull(stool_cache[cache_key]))
+		var/image/I = image('icons/obj/furniture.dmi', "[base_icon]_over")
+		if(apply_material_color)
+			I.color = material.icon_colour
+		I.layer = FLY_LAYER
+		stool_cache[cache_key] = I
+	add_overlay(stool_cache[cache_key])
+
+	if(buckled_mob)
+		icon_state = "[base_icon]_down"
+		cache_key = "[base_icon]-armrest"
+		if(isnull(stool_cache[cache_key]))
+			var/image/I = image(icon, "[base_icon]_armrest")
+			I.layer = MOB_LAYER + 0.1
+			if(apply_material_color)
+				I.color = padding_material.icon_colour
+			stool_cache[cache_key] = I
+		add_overlay(stool_cache[cache_key])
+
+	else
+		icon_state = initial(icon_state)

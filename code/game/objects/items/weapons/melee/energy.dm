@@ -39,7 +39,7 @@
 
 /obj/item/weapon/melee/energy/attack_self(mob/living/user as mob)
 	if (active)
-		if ((CLUMSY in user.mutations) && prob(50))
+		if ((user.is_clumsy()) && prob(50))
 			user.visible_message("<span class='danger'>\The [user] accidentally cuts \himself with \the [src].</span>",\
 			"<span class='danger'>You accidentally cut yourself with \the [src].</span>")
 			user.take_organ_damage(5,5)
@@ -60,7 +60,7 @@
 		user.visible_message("<span class='danger'>\The [user] parries [attack_text] with \the [src]!</span>")
 
 		spark(src, 5)
-		playsound(user.loc, 'sound/weapons/blade1.ogg', 50, 1)
+		playsound(user.loc, 'sound/weapons/blade.ogg', 50, 1)
 		return 1
 	else
 
@@ -76,7 +76,7 @@
 
 			if(prob(base_block_chance))
 				spark(src, 5)
-				playsound(user.loc, 'sound/weapons/blade1.ogg', 50, 1)
+				playsound(user.loc, 'sound/weapons/blade.ogg', 50, 1)
 				shield_power -= round(damage/4)
 
 				if(shield_power <= 0)
@@ -142,12 +142,12 @@
 /obj/item/weapon/melee/energy/glaive/activate(mob/living/user)
 	..()
 	icon_state = "eglaive1"
-	user << "<span class='notice'>\The [src] is now energised.</span>"
+	to_chat(user, "<span class='notice'>\The [src] is now energised.</span>")
 
 /obj/item/weapon/melee/energy/glaive/deactivate(mob/living/user)
 	..()
 	icon_state = initial(icon_state)
-	user << "<span class='notice'>\The [src] is de-energised.</span>"
+	to_chat(user, "<span class='notice'>\The [src] is de-energised.</span>")
 
 /obj/item/weapon/melee/energy/glaive/attack(mob/living/carbon/human/M as mob, mob/living/carbon/user as mob)
 	user.setClickCooldown(16)
@@ -190,12 +190,12 @@
 /obj/item/weapon/melee/energy/axe/activate(mob/living/user)
 	..()
 	icon_state = "axe1"
-	user << "<span class='notice'>\The [src] is now energised.</span>"
+	to_chat(user, "<span class='notice'>\The [src] is now energised.</span>")
 
 /obj/item/weapon/melee/energy/axe/deactivate(mob/living/user)
 	..()
 	icon_state = initial(icon_state)
-	user << "<span class='notice'>\The [src] is de-energised. It's just a regular axe now.</span>"
+	to_chat(user, "<span class='notice'>\The [src] is de-energised. It's just a regular axe now.</span>")
 
 /*
  * Energy Sword
@@ -242,14 +242,14 @@
 
 /obj/item/weapon/melee/energy/sword/activate(mob/living/user)
 	if(!active)
-		user << "<span class='notice'>\The [src] is now energised.</span>"
+		to_chat(user, "<span class='notice'>\The [src] is now energised.</span>")
 	..()
 	attack_verb = list("attacked", "slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut")
 	icon_state = "sword[blade_color]"
 
 /obj/item/weapon/melee/energy/sword/deactivate(mob/living/user)
 	if(active)
-		user << "<span class='notice'>\The [src] deactivates!</span>"
+		to_chat(user, "<span class='notice'>\The [src] deactivates!</span>")
 	..()
 	attack_verb = list()
 	icon_state = initial(icon_state)

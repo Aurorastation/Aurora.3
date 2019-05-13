@@ -81,14 +81,16 @@
 		a_ip = world.address
 
 	var/who
-	for(var/client/C in clients)
+	for(var/c in clients)
+		var/client/C = c
 		if(!who)
 			who = "[C]"
 		else
 			who += ", [C]"
 
 	var/adminwho
-	for(var/client/C in admins)
+	for(var/c in staff)
+		var/client/C = c
 		if(!adminwho)
 			adminwho = "[C]"
 		else
@@ -99,7 +101,7 @@
 	var/sql = "INSERT INTO ss13_ban (`id`,`bantime`,`serverip`,`bantype`,`reason`,`job`,`duration`,`rounds`,`expiration_time`,`ckey`,`computerid`,`ip`,`a_ckey`,`a_computerid`,`a_ip`,`who`,`adminwho`,`edits`,`unbanned`,`unbanned_datetime`,`unbanned_ckey`,`unbanned_computerid`,`unbanned_ip`) VALUES (null, Now(), '[serverip]', '[bantype_str]', '[reason]', '[job]', [(duration)?"[duration]":"0"], [(rounds)?"[rounds]":"0"], Now() + INTERVAL [(duration>0) ? duration : 0] MINUTE, '[ckey]', '[computerid]', '[ip]', '[a_ckey]', '[a_computerid]', '[a_ip]', '[who]', '[adminwho]', '', null, null, null, null, null)"
 	var/DBQuery/query_insert = dbcon.NewQuery(sql)
 	query_insert.Execute()
-	usr << "<span class='notice'>Ban saved to database.</span>"
+	to_chat(usr, "<span class='notice'>Ban saved to database.</span>")
 	message_admins("[key_name_admin(usr)] has added a [bantype_str] for [ckey] [(job)?"([job])":""] [(duration > 0)?"([duration] minutes)":""] with the reason: \"[reason]\" to the ban database.",1)
 
 /proc/DB_ban_unban(var/ckey, var/bantype, var/job = "")
@@ -151,17 +153,17 @@
 		ban_number++;
 
 	if(ban_number == 0)
-		usr << "<span class='warning'>Database update failed due to no bans fitting the search criteria. If this is not a legacy ban you should contact the database admin.</span>"
+		to_chat(usr, "<span class='warning'>Database update failed due to no bans fitting the search criteria. If this is not a legacy ban you should contact the database admin.</span>")
 		return
 
 	if(ban_number > 1)
-		usr << "<span class='warning'>Database update failed due to multiple bans fitting the search criteria. Note down the ckey, job and current time and contact the database admin.</span>"
+		to_chat(usr, "<span class='warning'>Database update failed due to multiple bans fitting the search criteria. Note down the ckey, job and current time and contact the database admin.</span>")
 		return
 
 	if(istext(ban_id))
 		ban_id = text2num(ban_id)
 	if(!isnum(ban_id))
-		usr << "<span class='warning'>Database update failed due to a ban ID mismatch. Contact the database admin.</span>"
+		to_chat(usr, "<span class='warning'>Database update failed due to a ban ID mismatch. Contact the database admin.</span>")
 		return
 
 	DB_ban_unban_by_id(ban_id)
@@ -171,7 +173,7 @@
 	if(!check_rights(R_BAN))	return
 
 	if(!isnum(banid) || !istext(param))
-		usr << "Cancelled"
+		to_chat(usr, "Cancelled")
 		return
 
 	var/DBQuery/query = dbcon.NewQuery("SELECT ckey, duration, reason FROM ss13_ban WHERE id = [banid]")
@@ -187,7 +189,7 @@
 		duration = query.item[2]
 		reason = query.item[3]
 	else
-		usr << "Invalid ban id. Contact the database admin"
+		to_chat(usr, "Invalid ban id. Contact the database admin")
 		return
 
 	reason = sql_sanitize_text(reason)
@@ -199,7 +201,7 @@
 				value = sanitize(input("Insert the new reason for [pckey]'s ban", "New Reason", "[reason]", null) as null|text)
 				value = sql_sanitize_text(value)
 				if(!value)
-					usr << "Cancelled"
+					to_chat(usr, "Cancelled")
 					return
 
 			var/DBQuery/update_query = dbcon.NewQuery("UPDATE ss13_ban SET reason = '[value]', edits = CONCAT(edits,'- [eckey] changed ban reason from <cite><b>\\\"[reason]\\\"</b></cite> to <cite><b>\\\"[value]\\\"</b></cite><BR>') WHERE id = [banid]")
@@ -209,7 +211,7 @@
 			if(!value)
 				value = input("Insert the new duration (in minutes) for [pckey]'s ban", "New Duration", "[duration]", null) as null|num
 				if(!isnum(value) || !value)
-					usr << "Cancelled"
+					to_chat(usr, "Cancelled")
 					return
 
 			var/DBQuery/update_query = dbcon.NewQuery("UPDATE ss13_ban SET duration = [value], edits = CONCAT(edits,'- [eckey] changed ban duration from [duration] to [value]<br>'), expiration_time = DATE_ADD(bantime, INTERVAL [value] MINUTE) WHERE id = [banid]")
@@ -220,10 +222,10 @@
 				DB_ban_unban_by_id(banid)
 				return
 			else
-				usr << "Cancelled"
+				to_chat(usr, "Cancelled")
 				return
 		else
-			usr << "Cancelled"
+			to_chat(usr, "Cancelled")
 			return
 
 /proc/DB_ban_unban_by_id(var/id)
@@ -238,7 +240,7 @@
 
 	var/reason = input("Please specify an unban reason.", "Unban Reason", "Unbanned as per appeal.")
 	if (!reason)
-		usr << "<span class='warning'>Invalid reason given. Cancelled.</span>"
+		to_chat(usr, "<span class='warning'>Invalid reason given. Cancelled.</span>")
 		return
 
 	var/ban_number = 0 //failsafe
@@ -255,11 +257,11 @@
 		ban_number++;
 
 	if(ban_number == 0)
-		usr << "<span class='warning'>Database update failed due to a ban id not being present in the database.</span>"
+		to_chat(usr, "<span class='warning'>Database update failed due to a ban id not being present in the database.</span>")
 		return
 
 	if(ban_number > 1)
-		usr << "<span class='warning'>Database update failed due to multiple bans having the same ID. Contact the database admin.</span>"
+		to_chat(usr, "<span class='warning'>Database update failed due to multiple bans having the same ID. Contact the database admin.</span>")
 		return
 
 	var/datum/admins/holder = null
@@ -306,7 +308,7 @@
 
 	establish_db_connection(dbcon)
 	if(!dbcon.IsConnected())
-		usr << "<span class='warning'>Failed to establish database connection</span>"
+		to_chat(usr, "<span class='warning'>Failed to establish database connection</span>")
 		return
 
 	var/output = "<div align='center'><table width='90%'><tr>"

@@ -15,12 +15,13 @@
 	origin_tech = list(TECH_MATERIAL = 1)
 	attack_verb = list("slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut")
 	unbreakable = 1
+	drop_sound = 'sound/items/drop/knife.ogg'
 
 /obj/item/weapon/material/knife/attack(mob/living/carbon/M as mob, mob/living/carbon/user as mob, var/target_zone)
 	if(active == 1)
 		if(target_zone != "eyes" && target_zone != "head")
 			return ..()
-		if((CLUMSY in user.mutations) && prob(50))
+		if((user.is_clumsy()) && prob(50))
 			M = user
 		return eyestab(M,user)
 
@@ -70,6 +71,7 @@
 	desc = "A basic metal blade concealed in a lightweight plasteel grip. Small enough when folded to fit in a pocket."
 	icon = 'icons/obj/weapons.dmi'
 	icon_state = "butterfly"
+	item_state = null
 	hitsound = null
 	active = 0
 	w_class = 2
@@ -84,6 +86,7 @@
 		..() //Updates force.
 		throwforce = max(3,force-3)
 		icon_state += "_open"
+		item_state = icon_state
 		hitsound = 'sound/weapons/bladeslice.ogg'
 		w_class = 3
 		attack_verb = list("attacked", "slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut")
@@ -93,6 +96,7 @@
 		sharp = 0
 		hitsound = initial(hitsound)
 		icon_state = initial(icon_state)
+		item_state = initial(item_state)
 		w_class = initial(w_class)
 		attack_verb = initial(attack_verb)
 
@@ -106,9 +110,9 @@
 /obj/item/weapon/material/knife/butterfly/attack_self(mob/user)
 	active = !active
 	if(active)
-		user << "<span class='notice'>You flip out \the [src].</span>"
+		to_chat(user, "<span class='notice'>You flip out \the [src].</span>")
 		playsound(user, 'sound/weapons/flipblade.ogg', 15, 1)
 	else
-		user << "<span class='notice'>\The [src] can now be concealed.</span>"
+		to_chat(user, "<span class='notice'>\The [src] can now be concealed.</span>")
 	update_force()
 	add_fingerprint(user)

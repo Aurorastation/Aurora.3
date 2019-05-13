@@ -18,14 +18,14 @@
 	playsound(user.loc, 'sound/items/drink.ogg', rand(10, 50), 1)
 
 /obj/item/weapon/reagent_containers/food/drinks/self_feed_message(var/mob/user)
-	user << "<span class='notice'>You drink from \the [src].</span>"
+	to_chat(user, "<span class='notice'>You drink from \the [src].</span>")
 
 /obj/item/weapon/reagent_containers/food/drinks/attack_self(mob/user as mob)
 	if(!is_open_container())
 		if(user.a_intent == I_HURT && !shaken)
 			shaken = 1
 			user.visible_message("[user] shakes \the [src]!", "You shake \the [src]!")
-			playsound(loc,'sound/items/Shaking_Soda_Can.ogg', rand(10,50), 1)
+			playsound(loc,'sound/items/soda_shaking.ogg', rand(10,50), 1)
 			return
 		if(shaken)
 			boom(user)
@@ -39,7 +39,7 @@
 
 /obj/item/weapon/reagent_containers/food/drinks/proc/boom(mob/user as mob)
 	user.visible_message("<span class='danger'>\The [src] explodes all over [user] as they open it!</span>","<span class='danger'>\The [src] explodes all over you as you open it!</span>","You can hear a soda can explode.")
-	playsound(loc,'sound/items/Soda_Burst.ogg', rand(20,50), 1)
+	playsound(loc,'sound/items/soda_burst.ogg', rand(20,50), 1)
 	QDEL_NULL(reagents)
 	flags |= OPENCONTAINER
 	shaken = 0
@@ -51,19 +51,19 @@
 
 /obj/item/weapon/reagent_containers/food/drinks/standard_feed_mob(var/mob/user, var/mob/target)
 	if(!is_open_container())
-		user << "<span class='notice'>You need to open \the [src]!</span>"
+		to_chat(user, "<span class='notice'>You need to open \the [src]!</span>")
 		return 1
 	return ..()
 
 /obj/item/weapon/reagent_containers/food/drinks/standard_dispenser_refill(var/mob/user, var/obj/structure/reagent_dispensers/target)
 	if(!is_open_container())
-		user << "<span class='notice'>You need to open \the [src]!</span>"
+		to_chat(user, "<span class='notice'>You need to open \the [src]!</span>")
 		return 1
 	return ..()
 
 /obj/item/weapon/reagent_containers/food/drinks/standard_pour_into(var/mob/user, var/atom/target)
 	if(!is_open_container())
-		user << "<span class='notice'>You need to open \the [src]!</span>"
+		to_chat(user, "<span class='notice'>You need to open \the [src]!</span>")
 		return 1
 	return ..()
 
@@ -71,15 +71,15 @@
 	if(!..(user, 1))
 		return
 	if(!reagents || reagents.total_volume == 0)
-		user << "<span class='notice'>\The [src] is empty!</span>"
+		to_chat(user, "<span class='notice'>\The [src] is empty!</span>")
 	else if (reagents.total_volume <= volume * 0.25)
-		user << "<span class='notice'>\The [src] is almost empty!</span>"
+		to_chat(user, "<span class='notice'>\The [src] is almost empty!</span>")
 	else if (reagents.total_volume <= volume * 0.66)
-		user << "<span class='notice'>\The [src] is half full!</span>"
+		to_chat(user, "<span class='notice'>\The [src] is half full!</span>")
 	else if (reagents.total_volume <= volume * 0.90)
-		user << "<span class='notice'>\The [src] is almost full!</span>"
+		to_chat(user, "<span class='notice'>\The [src] is almost full!</span>")
 	else
-		user << "<span class='notice'>\The [src] is full!</span>"
+		to_chat(user, "<span class='notice'>\The [src] is full!</span>")
 
 
 ////////////////////////////////////////////////////////////////////////////////

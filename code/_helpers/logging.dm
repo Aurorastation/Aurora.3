@@ -27,7 +27,7 @@
 	WRITE_LOG(diary, "[game_id] TOPIC: \"[T]\", from:[addr], master:[master], key:[key], auth:[queryparams["auth"] ? queryparams["auth"] : "null"] [log_end]")
 
 /proc/error(msg)
-	world.log << "## ERROR: [msg][log_end]"
+	world.log <<  "## ERROR: [msg][log_end]"
 
 /proc/shutdown_logging()
 	call(RUST_G, "log_close_all")()
@@ -35,11 +35,11 @@
 #define WARNING(MSG) warning("[MSG] in [__FILE__] at line [__LINE__] src: [src] usr: [usr].")
 //print a warning message to world.log
 /proc/warning(msg)
-	world.log << "## WARNING: [msg][log_end]"
+	world.log <<  "## WARNING: [msg][log_end]"
 
 //print a testing-mode debug message to world.log
 /proc/testing(msg)
-	world.log << "## TESTING: [msg][log_end]"
+	world.log <<  "## TESTING: [msg][log_end]"
 
 /proc/game_log(category, text)
 	WRITE_LOG(diary, "[game_id] [category]: [text][log_end]")
@@ -57,11 +57,12 @@
 	if (level == SEVERITY_ERROR) // Errors are always logged
 		error(text)
 
-	for(var/client/C in admins)
+	for(var/s in staff)
+		var/client/C = s
 		if(!C.prefs) //This is to avoid null.toggles runtime error while still initialyzing players preferences
 			return
 		if(C.prefs.toggles & CHAT_DEBUGLOGS)
-			C << "DEBUG: [text]"
+			to_chat(C, "DEBUG: [text]")
 	send_gelf_log(short_message = text, long_message = "[time_stamp()]: [text]", level = level, category = "DEBUG")
 
 /proc/log_game(text, level = SEVERITY_NOTICE, ckey = "", admin_key = "", ckey_target = "")
@@ -144,7 +145,7 @@
 	)
 
 /proc/log_to_dd(text)
-	world.log << text //this comes before the config check because it can't possibly runtime
+	world.log <<  text //this comes before the config check because it can't possibly runtime
 	if(config.log_world_output)
 		game_log("DD_OUTPUT", text)
 	send_gelf_log(short_message = text, long_message = "[time_stamp()]: [text]", level = SEVERITY_NOTICE, category = "DD_OUTPUT")
@@ -168,7 +169,7 @@
 	game_log("SS", msg)
 	send_gelf_log(msg, "[time_stamp()]: [msg]", SEVERITY_DEBUG, "SUBSYSTEM", additional_data = list("_subsystem" = subsystem))
 	if (log_world)
-		world.log << "SS[subsystem]: [text]"
+		world.log <<  "SS[subsystem]: [text]"
 
 /proc/log_ss_init(text)
 	game_log("SS", "[text]")
@@ -188,8 +189,12 @@
 		category = "TGS"
 	)
 
+/proc/log_ntsl(text, severity = SEVERITY_NOTICE, ckey = "")
+	game_log("NTSL", text)
+	send_gelf_log(text, "[time_stamp()]: [text]", severity, "NTSL", additional_data = list("_ckey" = ckey))
+
 /proc/log_unit_test(text)
-	world.log << "## UNIT_TEST ##: [text]"
+	world.log <<  "## UNIT_TEST ##: [text]"
 
 /proc/log_exception(exception/e)
 	if (config.log_runtime)

@@ -19,7 +19,7 @@
 	var/title = sanitize(input("Enter your announcement title.", "Announcement Title") as null|text)
 	if(!title)
 		return
-	var/message = sanitize(input("Enter your announcement message.", "Announcement Title") as null|text)
+	var/message = sanitize(input("Enter your announcement message.", "Announcement Title") as null|message)
 	if(!message)
 		return
 	return list("title" = title, "message" = message)
@@ -104,7 +104,7 @@
 			cooldown = 0
 		return 1
 	else
-		loc << "<span class='danger'>This service is on cooldown! Try again in a bit!</span>"
+		to_chat(loc, "<span class='danger'>This service is on cooldown! Try again in a bit!</span>")
 		return 0
 
 /datum/uplink_item/abstract/announcements/fake_radiation
@@ -122,5 +122,5 @@
 			cooldown = 0
 		return 1
 	else
-		loc << "<span class='danger'>This service is on cooldown! Try again in a bit!</span>"
+		to_chat(loc, "<span class='danger'>This service is on cooldown! Try again in a bit!</span>")
 		return 0

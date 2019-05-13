@@ -95,6 +95,7 @@
 	switch(view)
 		if(ORION_VIEW_MAIN)
 			if(event == ORION_TRAIL_START) //new game? New game.
+				playsound(loc, 'sound/arcade/Ori_begin.ogg', 50, 1, extrarange = -3, falloff = 10)
 				dat = "<center><h1>Orion Trail[emagged ? ": Realism Edition" : ""]</h1><br>Learn how our ancestors got to Orion, and have fun in the process!</center><br><P ALIGN=Right><a href='?src=\ref[src];continue=1'>Start New Game</a></P>"
 				user << browse(dat, "window=arcade")
 				return
@@ -103,6 +104,7 @@
 				event_actions = "<a href='?src=\ref[src];continue=1'>Continue your journey</a><br>"
 			switch(event)
 				if(ORION_TRAIL_GAMEOVER)
+					playsound(loc, 'sound/arcade/Ori_fail.ogg', 50, 1, extrarange = -3, falloff = 10)
 					event_info = ""
 					event_actions = "<a href='?src=\ref[src];continue=1'>Start New Game</a><br>"
 				if(ORION_TRAIL_SPACEPORT)
@@ -124,6 +126,7 @@
 				if(ORION_TRAIL_ILLNESS)
 					event_desc = "A disease has spread amoungst your crew!"
 				if(ORION_TRAIL_FLUX)
+					playsound(loc, 'sound/arcade/explo.ogg', 50, 1, extrarange = -3, falloff = 10)
 					event_desc = "You've entered a turbulent region. Slowing down would be better for your ship but would cost more fuel."
 					event_actions  = "<a href='?src=\ref[src];continue=1;risky=25'>Continue as normal</a><BR>"
 					event_actions += "<a href='?src=\ref[src];continue=1;slow=1;'>Take it slow</a><BR>"
@@ -134,12 +137,14 @@
 					if(supplies["3"] != 0)
 						event_actions += "<a href='?src=\ref[src];continue=1;fix=3'>Fix using a part.</a><BR>"
 				if(ORION_TRAIL_COLLISION)
+					playsound(loc, 'sound/arcade/explo.ogg', 50, 1, extrarange = -3, falloff = 10)
 					event_info = ""
 					event_desc = "Something has hit your ship and breached the hull! You can choose to fix it with a part or risk something going awry."
 					event_actions  = "<a href='?src=\ref[src];continue=1;risky=25'>Continue as normal</a><BR>"
 					if(supplies["2"] != 0)
 						event_actions += "<a href='?src=\ref[src];continue=1;fix=2'>Fix using a part.</a><BR>"
 				if(ORION_TRAIL_BREAKDOWN)
+					playsound(loc, 'sound/arcade/explo.ogg', 50, 1, extrarange = -3, falloff = 10)
 					event_info = ""
 					event_desc = "The ship's engines broke down! You can choose to fix it with a part or risk something going awry."
 					event_actions  = "<a href='?src=\ref[src];continue=1;risky=25'>Continue as normal</a><BR>"
@@ -241,22 +246,26 @@
 
 	if(href_list["buy"])
 		var/item = href_list["buy"]
+		playsound(loc, 'sound/arcade/get_fuel.ogg', 50, 1, extrarange = -3, falloff = 10)
 		if(supply_cost["[item]"] <= supplies["6"])
 			supplies["[item]"] += (text2num(item) > 3 ? 10 : 1)
 			supplies["6"] -= supply_cost["[item]"]
 
 	if(href_list["sell"])
 		var/item = href_list["sell"]
+		playsound(loc, 'sound/arcade/lose_fuel.ogg', 50, 1, extrarange = -3, falloff = 10)
 		if(supplies["[item]"] >= (text2num(item) > 3 ? 10 : 1))
 			supplies["6"] += supply_cost["[item]"]
 			supplies["[item]"] -= (text2num(item) > 3 ? 10 : 1)
 
 	if(href_list["kill"])
 		var/item = text2num(href_list["kill"])
+		playsound(loc, 'sound/arcade/kill_crew.ogg', 50, 1, extrarange = -3, falloff = 10)
 		remove_settler(item)
 
 	if(href_list["attack"])
 		supply_cost = list()
+		playsound(loc, 'sound/arcade/raid.ogg', 50, 1, extrarange = -3, falloff = 10)
 		if(prob(17*settlers.len))
 			event_desc = "An empty husk of a station now, all its resources stripped for use in your travels."
 			event_info = "You've successfully raided the spaceport!<br>"
@@ -400,22 +409,22 @@
 			if(istype(usr,/mob/living/carbon))
 				var/mob/living/carbon/M = usr
 				if(prob(50))
-					usr << "<span class='warning'>You hear battle shouts. The tramping of boots on cold metal. Screams of agony. The rush of venting air. Are you going insane?</span>"
+					to_chat(usr, "<span class='warning'>You hear battle shouts. The tramping of boots on cold metal. Screams of agony. The rush of venting air. Are you going insane?</span>")
 					M.hallucination += 50
 				else
-					usr << "<span class='danger'>Something strikes you from behind! It hurts like hell and feel like a blunt weapon, but nothing is there...</span>"
+					to_chat(usr, "<span class='danger'>Something strikes you from behind! It hurts like hell and feel like a blunt weapon, but nothing is there...</span>")
 					M.take_organ_damage(10)
 			else
-				usr << "<span class='warning'>The sounds of battle fill your ears...</span>"
+				to_chat(usr, "<span class='warning'>The sounds of battle fill your ears...</span>")
 		if(ORION_TRAIL_ILLNESS)
 			if(istype(usr,/mob/living/carbon/human))
 				var/mob/living/carbon/human/M = usr
-				M << "<span class='warning'>An overpowering wave of nausea consumes over you. You hunch over, your stomach's contents preparing for a spectacular exit.</span>"
+				to_chat(M, "<span class='warning'>An overpowering wave of nausea consumes over you. You hunch over, your stomach's contents preparing for a spectacular exit.</span>")
 				M.vomit()
 			else
-				usr << "<span class='warning'>You feel ill.</span>"
+				to_chat(usr, "<span class='warning'>You feel ill.</span>")
 		if(ORION_TRAIL_CARP)
-			usr << "<span class='danger'>Something bit you!</span>"
+			to_chat(usr, "<span class='danger'>Something bit you!</span>")
 			var/mob/living/M = usr
 			M.adjustBruteLoss(10)
 		if(ORION_TRAIL_FLUX)
@@ -425,7 +434,7 @@
 				src.visible_message("A sudden gust of powerful wind slams \the [M] into the floor!", "You hear a large fwooshing sound, followed by a bang.")
 				M.take_organ_damage(10)
 			else
-				usr << "<span class='warning'>A violent gale blows past you, and you barely manage to stay standing!</span>"
+				to_chat(usr, "<span class='warning'>A violent gale blows past you, and you barely manage to stay standing!</span>")
 		if(ORION_TRAIL_MALFUNCTION)
 			if(supplies["3"])
 				return
@@ -440,10 +449,10 @@
 			else
 				src.visible_message("Something slams into the floor around \the [src] - luckily, it didn't get through!", "You hear something crack.")
 		if(ORION_TRAIL_GAMEOVER)
-			usr << "<span class='danger'><font size=3>You're never going to make it to Orion...</font></span>"
+			to_chat(usr, "<span class='danger'><font size=3>You're never going to make it to Orion...</font></span>")
 			var/mob/living/M = usr
 			M.visible_message("\The [M] starts rapidly deteriorating.")
-			M << browse (null,"window=arcade")
+			to_chat(M, browse (null,"window=arcade"))
 			for(var/i=0;i<10;i++)
 				sleep(10)
 				M.Stun(5)
@@ -460,6 +469,7 @@
 
 /obj/machinery/computer/arcade/orion_trail/proc/win()
 	src.visible_message("\The [src] plays a triumpant tune, stating 'CONGRATULATIONS, YOU HAVE MADE IT TO ORION.'")
+	playsound(loc, 'sound/arcade/Ori_win.ogg', 50, 1, extrarange = -3, falloff = 10)
 	if(emagged)
 		new /obj/item/weapon/orion_ship(src.loc)
 		message_admins("[key_name_admin(usr)] made it to Orion on an emagged machine and got an explosive toy ship.")
@@ -481,15 +491,15 @@
 	if(!(in_range(user, src)))
 		return
 	if(!active)
-		user << "<span class='notice'>There's a little switch on the bottom. It's flipped down.</span>"
+		to_chat(user, "<span class='notice'>There's a little switch on the bottom. It's flipped down.</span>")
 	else
-		user << "<span class='notice'>There's a little switch on the bottom. It's flipped up.</span>"
+		to_chat(user, "<span class='notice'>There's a little switch on the bottom. It's flipped up.</span>")
 /obj/item/weapon/orion_ship/attack_self(mob/user)
 	if(active)
 		return
 	message_admins("[key_name_admin(usr)] primed an explosive Orion ship for detonation.")
 	log_game("[key_name(usr)] primed an explosive Orion ship for detonation.",ckey=key_name(usr))
-	user << "<span class='warning'>You flip the switch on the underside of [src].</span>"
+	to_chat(user, "<span class='warning'>You flip the switch on the underside of [src].</span>")
 	active = 1
 	src.visible_message("<span class='notice'>[src] softly beeps and whirs to life!</span>")
 	src.audible_message("<b>\The [src]</b> says, 'This is ship ID #[rand(1,1000)] to Orion Port Authority. We're coming in for landing, over.'")

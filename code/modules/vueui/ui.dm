@@ -81,7 +81,7 @@ main ui datum.
 	if(!status || status == STATUS_CLOSE)
 		return
 
-	var/params = "window=[windowid];"
+	var/params = "window=[windowid];file=[windowid];"
 	if(width && height)
 		params += "size=[width]x[height];"
 	send_resources_and_assets(user.client)
@@ -268,7 +268,7 @@ main ui datum.
 /datum/vueui/proc/push_change(var/list/ndata)
 	if(ndata && status > STATUS_DISABLED)
 		src.data = ndata
-	user << output(list2params(list(generate_data_json())),"[windowid].browser:receiveUIState")
+	to_chat(user, output(list2params(list(generate_data_json())),"[windowid].browser:receiveUIState"))
 
 /**
   * Check for change and push that change of data

@@ -40,7 +40,7 @@
 
 /obj/machinery/computer/telescience/examine(mob/user)
 	..()
-	user << "There are [crystals.len ? crystals.len : "no"] bluespace crystal\s in the crystal slots."
+	to_chat(user, "There are [crystals.len ? crystals.len : "no"] bluespace crystal\s in the crystal slots.")
 
 /obj/machinery/computer/telescience/Initialize()
 	. = ..()
@@ -51,7 +51,7 @@
 /obj/machinery/computer/telescience/attackby(obj/item/W, mob/user, params)
 	if(istype(W, /obj/item/bluespace_crystal))
 		if(crystals.len >= max_crystals)
-			user << "<span class='warning'>There are not enough crystal slots.</span>"
+			to_chat(user, "<span class='warning'>There are not enough crystal slots.</span>")
 			return
 		user.drop_item(src)
 		crystals += W
@@ -69,7 +69,7 @@
 		if(M.buffer && istype(M.buffer, /obj/machinery/telepad))
 			telepad = M.buffer
 			M.buffer = null
-			user << "<span class='caution'>You upload the data from the [W.name]'s buffer.</span>"
+			to_chat(user, "<span class='caution'>You upload the data from the [W.name]'s buffer.</span>")
 	else
 		..()
 
@@ -274,7 +274,7 @@
 		telefail()
 		temp_msg = "ERROR!<BR>Elevation is less than 1 or greater than 90."
 		return
-	if(z_co in current_map.admin_levels)
+	if(!(z_co in current_map.player_levels))
 		telefail()
 		temp_msg = "ERROR! Sector is invalid! Valid sectors are [english_list(current_map.player_levels)]."
 		return
