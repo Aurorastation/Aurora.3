@@ -269,15 +269,16 @@
 
 /obj/item/laser_components/modifier/bayonet
 	name = "bayonet"
-	desc = "A modification that adds a big knife to your gun. Science."
+	desc = "A modification that adds a big knife to your gun. Science!"
 	gun_force = 10
 	gun_overlay = "bayonet"
 	icon_state = "bayonet_item"
 
 /obj/item/laser_components/modifier/ebayonet
 	name = "energy bayonet"
-	desc = "A modification that adds a hardlight knife to your gun. Science!"
+	desc = "A modification that adds a plasma blade to your gun. SCIENCE!"
 	gun_force = 25
+	gun_armorpen = 80
 	gun_overlay = "ebayonet"
 	icon_state = "ebayonet_item"
 
