@@ -218,10 +218,9 @@
 	force = 10
 	w_class = 4.0
 	slot_flags = SLOT_BACK
-	force_wielded = 0.35           // 22 when wielded with hardness 15 (glass)
-	unwielded_force_divisor = 0.2 // 14 when unwielded based on above
-	thrown_force_divisor = 0.4 // 20 when thrown with weight 15 (glass)
-	throw_speed = 3
+	force_divisor = 0.35
+	unwielded_force_divisor = 0.2 
+	thrown_force_divisor = 0.4 
 	edge = 1
 	sharp = 0
 	hitsound = 'sound/weapons/bladeslice.ogg'
