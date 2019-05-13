@@ -38,4 +38,6 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
-  - imageadd: "Improved and replaced a range of sprites."
+  - imageadd: "Added new sprites for the tactical gear available in cargo. Added new green sprite fro the military belt. Improved the sprite of the ushanka, the old one is available as a variant. Adds a TCFL jacket to the loadout. Made the sleeves rollable on two sol uniforms, added sol tactical helmet, sol heavy armor vest."
+  - imageadd: "Changed the look of most flipped caps, Made the visors of biosuits and eyes of tactical gasmasks transparent. Hip holster was made black. Tweaked the red and blue bandanas to be less bright. Changed the look of rolled up balaclavas. Changed the look of some security berets."
+  - maptweak: "Replaced the armoury from a generic to a security specific one. Replaced the armoury gas masks with the transparent ones."
