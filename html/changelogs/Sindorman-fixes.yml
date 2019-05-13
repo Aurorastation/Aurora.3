@@ -37,8 +37,5 @@ delete-after: True
 # SCREW THIS UP AND IT WON'T WORK.
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
-changes: 
-  - bugfix: "Hostile mobs that use beam weapons now properly check if they can shoot throught windows or grille."
-  - tweak: "Turrets will now consider piloted mechs as valid targets to shoot."
-  - tweak: "Turrets now check if their weapon can shoot throught windows or grille at people."
+changes:
   - bugfix: "Ghosting verb alert now shows proper time until next respawn when prompted user to confirm."
