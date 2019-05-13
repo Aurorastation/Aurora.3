@@ -16,8 +16,7 @@
 
 	var/brute_mod = 1
 	var/burn_mod = 1
-
-	var/robotize_type		// If set, this organ type will automatically be roboticized with this manufacturer.
+	var/stage = 0
 	var/augment_capacity = 0// Number of augments this organ can hold.
 	var/icon_name = null
 	var/body_part = null
@@ -47,7 +46,6 @@
 	var/damage_msg = "<span class='warning'>You feel an intense pain!</span>"
 	var/broken_description
 	var/open = 0
-	var/stage = 0
 	var/cavity = 0
 	var/sabotaged = 0 // If a prosthetic limb is emagged, it will detonate when it fails.
 	var/encased       // Needs to be opened with a saw to access the organs.

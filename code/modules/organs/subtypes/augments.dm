@@ -54,6 +54,7 @@
 /obj/item/organ/augment/timepiece
 	name = "integrated timepiece"
 	action_icon = "time"
+	install_locations = list(HAND_LEFT, HAND_RIGHT)
 
 /obj/item/organ/augment/timepiece/attack_self(var/mob/user)
 	. = ..()
@@ -94,6 +95,7 @@
 /obj/item/organ/augment/multihair
 	name = "synthetic multicolored hair"
 	action_icon = "haircolor"
+	install_locations = list(HEAD)
 
 /obj/item/organ/augment/multihair/attack_self(var/mob/user)
 	. = ..()
@@ -112,6 +114,7 @@
 	name = "synthetic hair extensions"
 	desc = "The AMPHORA Co. Synthetic Hair Extension Mk II. Originally manufactured for elderly Eridanian suits with a smaller variety of colors and hairstyles, it eventually found its way onto a broader market after lifting up artificial restrictions on styles and colors."
 	action_icon = "hairstyle"
+	install_locations = list(HEAD)
 
 /obj/item/organ/augment/multihair/attack_self(var/mob/user)
 	. = ..()
@@ -127,8 +130,9 @@
 			return 1
 
 /obj/item/organ/augment/multieye
-	name = "synthetic multicolored hair"
+	name = "multi-eye"
 	action_icon = "eyecolor"
+	install_locations = list(HEAD)
 
 /obj/item/organ/augment/multieye/attack_self(var/mob/user)
 	. = ..()
