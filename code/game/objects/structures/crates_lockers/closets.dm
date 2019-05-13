@@ -210,7 +210,7 @@
 	if(!proj_damage)
 		return
 	
-	if(Proj.penetrating || (istype(Proj, /obj/item/projectile/) && prob(40)))
+	if(Proj.penetrating || istype(Proj, /obj/item/projectile/bullet))
 		var/distance = get_dist(Proj.starting, get_turf(loc))
 		for(var/mob/living/L in contents)
 			Proj.attack_mob(L, distance)
