@@ -4813,6 +4813,12 @@
 /obj/item/mecha_parts/chassis/phazon,
 /turf/simulated/floor/tiled/steel,
 /area/derelict/ship)
+"pt" = (
+/obj/structure/shuttle/engine/propulsion{
+	icon_state = "propulsion_r"
+	},
+/turf/simulated/shuttle/wall,
+/area/derelict/ship)
 "pw" = (
 /obj/structure/table/reinforced/steel,
 /obj/structure/window/reinforced{
@@ -4890,6 +4896,12 @@
 /obj/structure/shuttle/engine/heater,
 /obj/structure/window/reinforced,
 /turf/simulated/floor,
+/area/derelict/ship)
+"ZT" = (
+/obj/structure/shuttle/engine/propulsion{
+	icon_state = "propulsion_l"
+	},
+/turf/simulated/shuttle/wall,
 /area/derelict/ship)
 
 (1,1,1) = {"
@@ -23299,8 +23311,8 @@ hC
 av
 av
 av
-av
 hT
+ZT
 av
 av
 av
@@ -23554,14 +23566,14 @@ ay
 hk
 hC
 av
+hU
+hT
 hT
 hT
 hU
 hT
 hU
-hT
-hU
-hT
+ZT
 jL
 ey
 ay
@@ -23811,7 +23823,7 @@ ay
 bp
 hC
 hT
-hT
+hU
 ii
 pm
 hT
@@ -24325,7 +24337,7 @@ gf
 bp
 hC
 hT
-hT
+hU
 ik
 iu
 hT
@@ -24582,14 +24594,14 @@ ay
 fa
 hC
 av
+hU
+hT
 hT
 hT
 hU
 hT
 hU
-hT
-hU
-hT
+pt
 jL
 ey
 ay
@@ -24841,8 +24853,8 @@ hC
 av
 av
 av
-av
 hT
+pt
 av
 av
 av
