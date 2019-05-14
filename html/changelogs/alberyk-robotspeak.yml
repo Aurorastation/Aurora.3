@@ -1,0 +1,6 @@
+author: ChangeMe
+
+delete-after: True
+
+changes: 
+  - bugfix: "Fixed cyborgs and AIs not being able to understand certain languages."
