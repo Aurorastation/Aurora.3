@@ -70,15 +70,54 @@
 /turf/simulated/wall/sandstonediamond/Initialize(mapload)
 	. = ..(mapload,"sandstone","diamond")
 
-// Kind of wondering if this is going to bite me in the butt.
+/turf/simulated/wall/titanium/Initialize(mapload)
+	. = ..(mapload,"titanium")
+
+/turf/simulated/wall/wood/Initialize(mapload)
+	. = ..(mapload,"wood")
+
+//Destructible shuttle walls
+
 /turf/simulated/wall/voxshuttle/Initialize(mapload)
 	. = ..(mapload,"voxalloy")
 
 /turf/simulated/wall/voxshuttle/attackby()
 	return
 
-/turf/simulated/wall/titanium/Initialize(mapload)
-	. = ..(mapload,"titanium")
+/turf/simulated/wall/shuttle_destructible
+	name = "placeholder"
+	icon = 'icons/turf/smooth/shuttle_wall.dmi'
+	icon_state = "shuttle"
+	smooth = SMOOTH_MORE | SMOOTH_DIAGONAL
+	permit_ao = FALSE
+	canSmoothWith = list(
+		/turf/simulated/wall/shuttle_destructible,
+		/turf/simulated/shuttle
+		/obj/structure/window/shuttle,
+		/obj/machinery/door/airlock,
+		/obj/machinery/door/unpowered/shuttle,
+		/obj/structure/shuttle/engine/propulsion
+	)
 
-/turf/simulated/wall/wood/Initialize(mapload)
-	. = ..(mapload,"wood")
+/turf/simulated/wall/shuttle_destructible/standard
+	name = "white wall"
+	roof_type = /turf/simulated/shuttle/roof
+
+/turf/simulated/wall/shuttle_destructible/standard/Initialize(mapload)
+	.=..(mapload, "shuttle alloy")
+
+/turf/simulated/wall/shuttle_destructible/blue
+	name = "blue wall"
+	icon = 'icons/turf/smooth/shuttle_wall_blue.dmi'
+	roof_type = /turf/simulated/shuttle/roof
+
+/turf/simulated/wall/shuttle_destructible/blue/Initialize(mapload)
+	.=..(mapload, "blue shuttle alloy")
+
+/turf/simulated/wall/shuttle_destructible/black
+	name = "black wall"
+	smooth = null
+	icon = 'icons/turf/smooth/shuttle_wall_black.dmi'
+
+/turf/simulated/wall/shuttle/black/Initialize(mapload)
+	.=..(mapload, "black shuttle alloy")

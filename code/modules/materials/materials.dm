@@ -184,6 +184,15 @@ var/list/name_to_material
 		if ("vaurca")
 			wall_icon = 'icons/turf/smooth/vaurca_wall.dmi'
 			skip_blend = TRUE
+		if ("shuttle_white")
+			wall_icon = 'icons/turf/smooth/shuttle_wall.dmi'
+			skip_blend = TRUE
+		if ("shuttle_blue")
+			wall_icon = 'icons/turf/smooth/shuttle_wall_blue.dmi'
+			skip_blend = TRUE
+		if ("shuttle_black")
+			wall_icon = 'icons/turf/smooth/shuttle_wall_black.dmi'
+			skip_blend = TRUE
 		else
 			world.log <<  "materials: [src] has unknown icon_base [icon_base]."
 
@@ -961,3 +970,43 @@ var/list/name_to_material
 	weight = 23
 	protectiveness = 20 // 50%
 	conductivity = 10
+
+//Shuttle materials, unobtainable as of now
+/material/shuttle
+	name = "shuttle alloy"
+	display_name = "sleek ship alloy"
+	stack_type = null
+	icon_colour = "#ffffff"
+	icon_base = "shuttle_white"
+	integrity = 600
+	melting_point = 4000
+	explosion_resistance = 50
+	hardness = 500
+	weight = 500
+	protectiveness = 50
+
+/material/shuttle/blue
+	name = "blue shuttle alloy"
+	display_name = "worn ship alloy"
+	stack_type = null
+	icon_colour = "#3f00ff"
+	icon_base = "shuttle_blue"
+	integrity = 800
+	melting_point = 4000
+	explosion_resistance = 75
+	hardness = 500
+	weight = 500
+	protectiveness = 50
+
+material/shuttle/black
+	name = "black shuttle alloy"
+	display_name = "resilient ship alloy"
+	stack_type = null
+	icon_colour = "#000000"
+	icon_base = "shuttle_black"
+	integrity = 1000
+	melting_point = 6000
+	explosion_resistance = 100
+	hardness = 500
+	weight = 500
+	protectiveness = 50

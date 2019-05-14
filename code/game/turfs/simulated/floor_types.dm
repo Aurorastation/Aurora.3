@@ -58,9 +58,14 @@
 	footstep_sound = "concretestep"
 	level = 1
 
+/turf/simulated/shuttle/ramp
+	name = "ramp"
+	icon = 'icons/turf/flooring/tiles.dmi'
+	icon_state = "rampbot"
+	footstep_sound = "concretestep"
+
 /turf/simulated/shuttle/plating/is_plating()
 	return 1
-
 
 /turf/simulated/shuttle/plating/vox //Skipjack plating
 	oxygen = 0
@@ -86,5 +91,7 @@
 
 	roof_type = null
 
-/turf/simulated/shuttle/roof/black
-	icon_state = "roof_black"
+///turf/simulated/shuttle/roof/black
+//	icon_state = "roof_black"
+
+///turf/simulated/shuttle/roof/blue

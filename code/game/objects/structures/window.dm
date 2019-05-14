@@ -496,6 +496,8 @@
 
 /obj/structure/window/shuttle/blue
 	icon = 'icons/obj/smooth/shuttle_window_blue.dmi'
+	health = 160
+	maxhealth = 160
 
 /obj/structure/window/shuttle/crescent
 	desc = "It looks rather strong."
