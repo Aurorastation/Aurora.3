@@ -536,3 +536,6 @@ ERT_SCALING_FACTOR_DEAD 2
 # NTSL2+ Connection Info
 NTSL_HOSTNAME localhost
 NTSL_PORT 1945
+
+# Limit to how many hacked drones can AI have at the same time.
+# HACKED_DRONES_LIMIT 5
