@@ -1,11 +1,5 @@
 //Standard Rings
 
-/obj/item/clothing/ring
-	name = "generic ring"
-	desc = "Torus shaped finger decoration."
-	icon_state = "material"
-	drop_sound = 'sound/items/drop/ring.ogg'
-
 /obj/item/clothing/ring/engagement
 	name = "engagement ring"
 	desc = "An engagement ring. It certainly looks expensive."
