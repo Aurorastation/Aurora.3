@@ -18,6 +18,17 @@
 	layer = 2
 
 	roof_flags = ROOF_CLEANUP
+	var/destructible = FALSE
+	var/damage = 0
+	var/damage_overlay = 0
+	var/material/material
+	var/material/reinf_material
+	baseturf = /turf/space
+
+/turf/simulated/shuttle/Initialize(mapload)
+	. = ..(mapload)
+	material = new /material/steel (src.loc)
+	reinf_material = new /material/plasteel (src.loc)
 
 /turf/simulated/shuttle/wall
 	icon = 'icons/turf/smooth/shuttle_wall.dmi'
@@ -28,6 +39,7 @@
 	blocks_air = 1
 	smooth = SMOOTH_MORE | SMOOTH_DIAGONAL
 	permit_ao = FALSE
+	baseturf = /turf/simulated/shuttle/floor
 	canSmoothWith = list(
 		/turf/simulated/shuttle/wall,
 		/obj/structure/window/shuttle,
@@ -35,8 +47,29 @@
 		/obj/machinery/door/unpowered/shuttle,
 		/obj/structure/shuttle/engine/propulsion
 	)
+
 /turf/simulated/shuttle/wall/blue
 	icon = 'icons/turf/smooth/shuttle_wall_blue.dmi'
+
+/turf/simulated/shuttle/wall/destructible
+	name = "placeholder"
+	icon = 'icons/turf/smooth/shuttle_wall.dmi'
+	icon_state = "shuttle"
+	destructible = TRUE
+
+/turf/simulated/shuttle/wall/destructible/standard
+	name = "white wall"
+	roof_type = /turf/simulated/shuttle/roof
+
+/turf/simulated/shuttle/wall/destructible/blue
+	name = "blue shuttle wall"
+	icon = 'icons/turf/smooth/shuttle_wall_blue.dmi'
+	roof_type = /turf/simulated/shuttle/roof
+
+/turf/simulated/shuttle/wall/destructible/black
+	name = "black shuttle wall"
+	smooth = null
+	icon = 'icons/turf/smooth/shuttle_wall_black.dmi'
 
 /turf/simulated/shuttle/wall/dark
 	icon = 'icons/turf/shuttle.dmi'
@@ -50,6 +83,9 @@
 	icon_state = "floor"
 	footstep_sound = "concretestep"
 	permit_ao = FALSE
+
+/turf/simulated/shuttle/floor/destructible
+	destructible = TRUE
 
 /turf/simulated/shuttle/plating
 	name = "plating"

@@ -352,3 +352,31 @@
 	else if(!istype(W,/obj/item/weapon/rcd) && !istype(W, /obj/item/weapon/reagent_containers))
 		return attack_hand(user)
 
+/turf/simulated/shuttle/attackby(obj/item/weapon/W as obj, mob/user as mob)
+	if(!destructible)
+		return
+	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
+	if (!user.)
+		to_chat(user, "<span class='warning'>You don't have the dexterity to do this!</span>")
+		return
+
+	//get the user's location
+	if(!istype(user.loc, /turf))	return	//can't do this stuff whilst inside objects and such
+
+	if(damage && W.iswelder())
+
+		var/obj/item/weapon/weldingtool/WT = W
+
+		if(!WT.isOn())
+			return
+
+		if(WT.remove_fuel(0, user))
+			to_chat(user, "<span class='notice'>You start repairing the damage to [src].</span>")
+			playsound(src, 'sound/items/Welder.ogg', 100, 1)
+			if(do_after(user, max(5, damage / 5)) && WT && WT.isOn())
+				to_chat(user, "<span class='notice'>You finish repairing the damage to [src].</span>")
+				take_damage(-damage)
+		else
+			to_chat(user, "<span class='notice'>You need more welding fuel to complete this task.</span>")
+			return
+		return

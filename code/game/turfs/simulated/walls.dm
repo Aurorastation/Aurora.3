@@ -254,3 +254,64 @@
 				W.burn((temperature/4))
 			for(var/obj/machinery/door/airlock/phoron/D in range(3,src))
 				D.ignite(temperature/4)
+
+/turf/simulated/shuttle/ex_act(severity)
+	if(!destructible)
+		return
+	switch(severity)
+		if(1.0)
+			src.ChangeTurf(baseturf)
+			return
+		if(2.0)
+			if(prob(75))
+				take_damage(rand(150, 250))
+			else
+				ChangeTurf(baseturf)
+				new /obj/item/stack/material/steel(src.loc, 2)
+		if(3.0)
+			take_damage(rand(0, 250))
+		else
+
+/turf/simulated/shuttle/proc/take_damage(dam)
+	if(!destructible)
+		return
+
+	if(dam)
+		damage = max(0, damage + dam)
+		update_damage()
+
+/turf/simulated/shuttle/proc/update_damage()
+	if(!destructible)
+		return
+	
+	var/cap = material.integrity
+	if(reinf_material)
+		cap += reinf_material.integrity
+
+	if(damage >= cap)
+		ChangeTurf(baseturf)
+
+/turf/simulated/shuttle/bullet_act(var/obj/item/projectile/Proj)
+	if(!destructible)
+		return
+
+	var/proj_damage = Proj.get_structure_damage()
+
+	//cap the amount of damage, so that things like emitters can't destroy walls in one hit.
+	var/dam = min(proj_damage, 100)
+
+	take_damage(dam)
+
+/turf/simulated/shuttle/examine(mob/user)
+	. = ..(user)
+
+	if(!damage)
+		to_chat(user, "<span class='notice'>It looks fully intact.</span>")
+	else
+		var/dam = damage / reinf_material ? reinf_material.integrity + material.integrity : material.integrity
+		if(dam <= 0.3)
+			to_chat(user, "<span class='warning'>It looks slightly damaged.</span>")
+		else if(dam <= 0.6)
+			to_chat(user, "<span class='warning'>It looks moderately damaged.</span>")
+		else
+			to_chat(user, "<span class='danger'>It looks heavily damaged.</span>")

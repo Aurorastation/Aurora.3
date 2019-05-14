@@ -3271,24 +3271,24 @@
 	icon_state = "burst_l";
 	dir = 8
 	},
-/turf/simulated/shuttle/wall/shuttle_destructible/blue,
+/turf/simulated/wall/shuttle_destructible/blue,
 /area/shuttle/legion/centcom)
 "aiv" = (
-/turf/simulated/shuttle/wall/shuttle_destructible/blue,
+/turf/simulated/wall/shuttle_destructible/blue,
 /area/shuttle/legion/centcom)
 "aiw" = (
 /obj/machinery/atmospherics/pipe/simple/visible{
 	icon_state = "intact";
 	dir = 6
 	},
-/turf/simulated/shuttle/wall/shuttle_destructible/blue,
+/turf/simulated/wall/shuttle_destructible/blue,
 /area/shuttle/legion/centcom)
 "aix" = (
 /obj/machinery/atmospherics/pipe/simple/visible{
 	dir = 10;
 	icon_state = "intact"
 	},
-/turf/simulated/shuttle/wall/shuttle_destructible/blue,
+/turf/simulated/wall/shuttle_destructible/blue,
 /area/shuttle/legion/centcom)
 "aiy" = (
 /turf/space/transit/north/shuttlespace_ns8,
@@ -3316,14 +3316,14 @@
 	icon_state = "propulsion";
 	dir = 8
 	},
-/turf/simulated/shuttle/wall/shuttle_destructible/blue,
+/turf/simulated/wall/shuttle_destructible/blue,
 /area/shuttle/legion/centcom)
 "aiE" = (
 /obj/structure/shuttle/engine/propulsion/burst/right{
 	icon_state = "burst_r";
 	dir = 8
 	},
-/turf/simulated/shuttle/wall/shuttle_destructible/blue,
+/turf/simulated/wall/shuttle_destructible/blue,
 /area/shuttle/legion/centcom)
 "aiF" = (
 /obj/effect/decal/spraystill{
@@ -3335,7 +3335,7 @@
 	pixel_x = 0;
 	pixel_y = -4
 	},
-/turf/simulated/shuttle/wall/shuttle_destructible/blue,
+/turf/simulated/wall/shuttle_destructible/blue,
 /area/shuttle/legion/centcom)
 "aiG" = (
 /obj/structure/window/reinforced{
@@ -3369,7 +3369,7 @@
 	pixel_x = 0;
 	pixel_y = -4
 	},
-/turf/simulated/shuttle/wall/shuttle_destructible/blue,
+/turf/simulated/wall/shuttle_destructible/blue,
 /area/shuttle/legion/centcom)
 "aiI" = (
 /turf/space/transit/north/shuttlespace_ns3,
@@ -3448,7 +3448,7 @@
 	pixel_x = -16;
 	pixel_y = -1
 	},
-/turf/simulated/shuttle/wall/shuttle_destructible/blue,
+/turf/simulated/wall/shuttle_destructible/blue,
 /area/shuttle/legion/centcom)
 "aiS" = (
 /obj/effect/step_trigger/thrower{
