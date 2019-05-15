@@ -251,9 +251,7 @@ mob/living/simple_animal/hostile/hitby(atom/movable/AM as mob|obj,var/speed = TH
 		return FALSE
 
 	var/target_hit = FALSE
-	var/flags = PASSTABLE
-	if(istype(projectiletype, /obj/item/projectile/beam))
-		flags |= (PASSGLASS|PASSGRILLE)
+	var/flags = ispath(projectiletype, /obj/item/projectile/beam) ? PASSTABLE|PASSGLASS|PASSGRILLE : PASSTABLE
 	for(var/mob/M in check_trajectory(target_mob, src, pass_flags=flags))
 		if(M == target_mob)
 			target_hit = TRUE
