@@ -495,7 +495,7 @@
 		if(stored_matter <= 0)
 			return
 
-	if(!istype(A, /turf/simulated/floor))
+	if(!istype(A, /turf/simulated/floor) && !istype(A, /turf/unsimulated/floor))
 		return
 
 	if(locate(/obj/structure/track) in A)
