@@ -7,8 +7,8 @@
 	edge = 0
 	armor_penetration = 80
 	flags = NOBLOODY
-	can_embed = 0//No embedding pls
-	var/base_reflectchance = 40
+	can_embed = 0 //No embedding pls
+	var/base_reflectchance = 20
 	var/base_block_chance = 40
 	var/shield_power = 100
 	var/can_block_bullets = 0
