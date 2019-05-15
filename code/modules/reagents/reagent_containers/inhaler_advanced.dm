@@ -46,7 +46,7 @@
 
 /obj/item/weapon/reagent_containers/personal_inhaler_cartridge/large
 	name = "large inhaler cartridge"
-	desc = "A large inhaler cartridge. It contains enough areosal for 30 units of reagents. The container must be activated for aerosol to mix with reagents."
+	desc = "A large inhaler cartridge. It contains enough aerosol for 30 units of reagents. The container must be activated for aerosol to mix with reagents."
 	icon_state = "pi_cart_medium"
 	volume = 30
 	w_class = 2
