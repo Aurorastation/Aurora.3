@@ -360,7 +360,7 @@
 	if (!DS)
 		return 0 //Something is very wrong
 
-	var/remainder = cost * sprint_cost_factor
+	var/remainder = cost * H.sprint_cost_factor
 
 	if (H.total_radiation)
 		if (H.total_radiation > (cost*0.5))//Radiation counts as double energy
