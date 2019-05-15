@@ -2853,23 +2853,6 @@
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/mine/explored)
-"kO" = (
-/obj/effect/floor_decal/industrial/warning/cee{
-	icon_state = "warningcee";
-	dir = 1
-	},
-/turf/simulated/floor/reinforced/airless,
-/area/mine/explored)
-"oi" = (
-/obj/effect/floor_decal/industrial/warning/corner{
-	dir = 4
-	},
-/obj/effect/floor_decal/industrial/warning/corner{
-	icon_state = "warningcorner";
-	dir = 1
-	},
-/turf/simulated/floor/reinforced/airless,
-/area/mine/explored)
 "qN" = (
 /obj/effect/floor_decal/industrial/warning{
 	icon_state = "warning";
@@ -2953,15 +2936,6 @@
 	},
 /obj/structure/disposalpipe/trunk{
 	dir = 4
-	},
-/turf/simulated/floor/reinforced/airless,
-/area/mine/explored)
-"WO" = (
-/obj/effect/floor_decal/industrial/warning/corner{
-	dir = 4
-	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/mine/explored)
@@ -22380,11 +22354,11 @@ aa
 aa
 aa
 aa
-aa
-kO
-aP
-aP
-WO
+fG
+fH
+fH
+fH
+fH
 fe
 ah
 ah
@@ -22637,11 +22611,11 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
 bn
+ah
+ah
+ah
+ah
 ah
 ah
 ah
@@ -22894,11 +22868,11 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
 qN
+ah
+ah
+ah
+ah
 ah
 ah
 ah
@@ -23151,11 +23125,11 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
 bn
+ah
+ah
+ah
+ah
 ah
 ah
 ah
@@ -23408,11 +23382,11 @@ aa
 aa
 aa
 aa
-aa
-kO
-aP
-aP
-oi
+bn
+ah
+ah
+ah
+ah
 ah
 ah
 ah
@@ -23665,11 +23639,11 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
 bn
+ah
+ah
+ah
+ah
 ah
 ah
 ah
@@ -23922,11 +23896,11 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
 qN
+ah
+ah
+ah
+ah
 ah
 ah
 ah
@@ -24179,11 +24153,11 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
 bn
+ah
+ah
+ah
+ah
 ah
 ah
 ah
@@ -24436,11 +24410,11 @@ aa
 aa
 aa
 aa
-aa
-kO
-aP
-aP
-oi
+bn
+ah
+ah
+ah
+ah
 ah
 ah
 ah
@@ -24693,11 +24667,11 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
 bn
+ah
+ah
+ah
+ah
 ah
 ah
 ah
@@ -24950,11 +24924,11 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
 qN
+ah
+ah
+ah
+ah
 ah
 ah
 ah
@@ -25207,11 +25181,11 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
 bn
+ah
+ah
+ah
+ah
 ah
 ah
 ah
@@ -25464,10 +25438,10 @@ aa
 aa
 aa
 aa
-aa
-fG
-ag
-ag
+af
+ff
+ah
+ah
 ah
 ah
 ah
@@ -48582,17 +48556,17 @@ ae
 ah
 ah
 ah
-fg
-ai
-ai
-ai
-ai
-ai
-ai
-ai
-ai
-ai
-fi
+ah
+ah
+ah
+ah
+ah
+ah
+ah
+ah
+ah
+ah
+ah
 ah
 ah
 ah
@@ -48839,17 +48813,17 @@ ae
 ah
 ah
 ah
-al
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-ae
+fg
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ff
 ah
 ah
 ah

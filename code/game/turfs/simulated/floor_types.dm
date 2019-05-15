@@ -16,14 +16,13 @@
 	thermal_conductivity = 0.05
 	heat_capacity = 0
 	layer = 2
-
 	roof_flags = ROOF_CLEANUP
 	var/destructible = FALSE
 	var/damage = 0
 	var/damage_overlay = 0
 	var/material/material
 	var/material/reinf_material
-	baseturf = /turf/space
+	roof_type = /turf/simulated/shuttle/roof/destructible
 
 /turf/simulated/shuttle/Initialize(mapload)
 	. = ..(mapload)
@@ -39,7 +38,6 @@
 	blocks_air = 1
 	smooth = SMOOTH_MORE | SMOOTH_DIAGONAL
 	permit_ao = FALSE
-	baseturf = /turf/simulated/shuttle/floor
 	canSmoothWith = list(
 		/turf/simulated/shuttle/wall,
 		/obj/structure/window/shuttle,
@@ -52,19 +50,15 @@
 	icon = 'icons/turf/smooth/shuttle_wall_blue.dmi'
 
 /turf/simulated/shuttle/wall/destructible
-	name = "placeholder"
+	name = "shuttle wall"
 	icon = 'icons/turf/smooth/shuttle_wall.dmi'
 	icon_state = "shuttle"
 	destructible = TRUE
 
-/turf/simulated/shuttle/wall/destructible/standard
-	name = "white wall"
-	roof_type = /turf/simulated/shuttle/roof
-
-/turf/simulated/shuttle/wall/destructible/blue
+/turf/simulated/shuttle/wall/destructible/legion
 	name = "blue shuttle wall"
+	roof_type = /turf/simulated/shuttle/roof/legion
 	icon = 'icons/turf/smooth/shuttle_wall_blue.dmi'
-	roof_type = /turf/simulated/shuttle/roof
 
 /turf/simulated/shuttle/wall/destructible/black
 	name = "black shuttle wall"
@@ -87,18 +81,39 @@
 /turf/simulated/shuttle/floor/destructible
 	destructible = TRUE
 
-/turf/simulated/shuttle/plating
+/turf/simulated/shuttle/floor/destructible/legion
+	icon_state = "floor7"
+	roof_type = /turf/simulated/shuttle/roof/legion
+
+/turf/simulated/shuttle/floor/tiled
+	icon = 'icons/turf/flooring/tiles.dmi'
+	icon_state = "steel"
+
+/turf/simulated/shuttle/floor/tiled/destructible
+	destructible = TRUE
+
+/turf/simulated/shuttle/floor/plating
 	name = "plating"
 	icon = 'icons/turf/floors.dmi'
 	icon_state = "plating"
-	footstep_sound = "concretestep"
 	level = 1
 
-/turf/simulated/shuttle/ramp
-	name = "ramp"
+/turf/simulated/shuttle/floor/plating/destructible
+	destructible = TRUE
+
+/turf/simulated/shuttle/floor/plating/destructible/legion
+	roof_type = /turf/simulated/shuttle/roof/legion
+
+/turf/simulated/shuttle/floor/ramp
+	name = "steps"
 	icon = 'icons/turf/flooring/tiles.dmi'
 	icon_state = "rampbot"
-	footstep_sound = "concretestep"
+
+/turf/simulated/shuttle/floor/ramp/destructible
+	destructible = TRUE
+
+/turf/simulated/shuttle/floor/ramp/destructible/legion
+	roof_type = /turf/simulated/shuttle/roof/legion
 
 /turf/simulated/shuttle/plating/is_plating()
 	return 1
@@ -118,16 +133,18 @@
 
 /turf/simulated/shuttle/roof
 	name = "shuttle roof"
+	icon = 'icons/turf/smooth/roof_white.dmi'
 	icon_state = "roof_white"
-
 	smooth = SMOOTH_DIAGONAL|SMOOTH_TRUE
-
+	smooth_underlays = TRUE
 	oxygen = 0
 	nitrogen = 0
-
 	roof_type = null
 
-///turf/simulated/shuttle/roof/black
-//	icon_state = "roof_black"
+/turf/simulated/shuttle/roof/destructible
+	destructible = TRUE
 
-///turf/simulated/shuttle/roof/blue
+/turf/simulated/shuttle/roof/legion
+	icon = 'icons/turf/smooth/roof_blue.dmi'
+	icon_state = "roof_blue"
+
