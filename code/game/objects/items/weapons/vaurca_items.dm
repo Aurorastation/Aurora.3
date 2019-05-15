@@ -43,6 +43,7 @@
 	active_force = 20
 	active_throwforce = 20
 	active_w_class = 5
+	armor_penetration = 80
 	force = 5
 	throwforce = 5
 	throw_speed = 5
@@ -291,7 +292,7 @@
 	icon_state = "greatblade0"
 	item_state = "greatblade0"
 	active_force = 30
-	armor_penetration = 30
+	armor_penetration = 80
 	active_throwforce = 20
 	active_w_class = 5
 	force = 10
