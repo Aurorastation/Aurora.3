@@ -56,7 +56,7 @@
 
 /obj/item/weapon/reagent_containers/personal_inhaler_cartridge/bluespace
 	name = "bluespace inhaler cartridge"
-	desc = "An experimental bluespace inhaler cartridge. It has enough areosal for 60 units of reagents. The container must be activated to mix aerosol with reagents inside."
+	desc = "An experimental bluespace inhaler cartridge. It has enough aerosol for 60 units of reagents. The container must be activated to mix aerosol with reagents inside."
 	icon_state = "pi_cart_large"
 	volume = 60
 	w_class = 2
