@@ -283,7 +283,7 @@
 /turf/simulated/shuttle/proc/update_damage()
 	if(!destructible)
 		return
-	
+
 	var/cap = material.integrity
 	if(reinf_material)
 		cap += reinf_material.integrity

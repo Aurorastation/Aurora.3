@@ -60,17 +60,16 @@
 	roof_type = /turf/simulated/shuttle/roof/destructible/legion
 	icon = 'icons/turf/smooth/shuttle_wall_blue.dmi'
 
-/turf/simulated/shuttle/wall/destructible/black
-	name = "black shuttle wall"
-	smooth = null
-	icon = 'icons/turf/smooth/shuttle_wall_black.dmi'
-
 /turf/simulated/shuttle/wall/dark
 	icon = 'icons/turf/shuttle.dmi'
 	icon_state = "wall3"
 	smooth = SMOOTH_FALSE
 	canSmoothWith = null
 	permit_ao = TRUE
+	roof_type = /turf/simulated/shuttle/roof/destructible/black
+
+/turf/simulated/shuttle/wall/dark/destructible
+	destructible = TRUE
 
 /turf/simulated/shuttle/floor
 	name = "floor"
@@ -84,6 +83,22 @@
 /turf/simulated/shuttle/floor/destructible/legion
 	icon_state = "floor7"
 	roof_type = /turf/simulated/shuttle/roof/destructible/legion
+
+/turf/simulated/shuttle/floor/destructible/merc
+	icon_state = "floor6"
+	roof_type = /turf/simulated/shuttle/roof/destructible/black
+
+/turf/simulated/shuttle/floor/destructible/merc/red
+	icon_state = "floor4"
+
+/turf/simulated/shuttle/floor/destructible/merc/black
+	icon_state = "floor7"
+
+/turf/simulated/shuttle/floor/destructible/merc/white
+	icon_state = "floor3"
+
+/turf/simulated/shuttle/floor/destructible/merc/yellow
+	icon_state = "floor2"
 
 /turf/simulated/shuttle/floor/tiled
 	icon = 'icons/turf/flooring/tiles.dmi'
@@ -103,6 +118,9 @@
 
 /turf/simulated/shuttle/floor/plating/destructible/legion
 	roof_type = /turf/simulated/shuttle/roof/destructible/legion
+
+/turf/simulated/shuttle/floor/plating/destructible/black
+	roof_type = /turf/simulated/shuttle/roof/destructible/black
 
 /turf/simulated/shuttle/floor/ramp
 	name = "steps"
@@ -148,4 +166,8 @@
 	name = "dropship roof"
 	icon = 'icons/turf/smooth/roof_blue.dmi'
 	icon_state = "roof_blue"
+
+/turf/simulated/shuttle/roof/destructible/black
+	icon = 'icons/turf/smooth/roof_black.dmi'
+	icon_state = "roof_black"
 
