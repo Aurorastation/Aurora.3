@@ -35,7 +35,7 @@ log transactions
 
 /obj/machinery/atm/Initialize()
 	. = ..()
-	machine_id = "[station_name()] RT #[SSeconomy.num_financial_terminals++]"
+	machine_id = "Idris SelfServ #[SSeconomy.num_financial_terminals++]"
 
 /obj/machinery/atm/Destroy()
 	authenticated_account = null
