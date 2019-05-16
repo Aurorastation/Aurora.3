@@ -308,7 +308,7 @@
 	if(!damage)
 		to_chat(user, "<span class='notice'>It looks fully intact.</span>")
 	else
-		var/dam = damage / reinf_material ? reinf_material.integrity + material.integrity : material.integrity
+		var/dam = damage / (reinf_material ? reinf_material.integrity + material.integrity : material.integrity)
 		if(dam <= 0.3)
 			to_chat(user, "<span class='warning'>It looks slightly damaged.</span>")
 		else if(dam <= 0.6)
