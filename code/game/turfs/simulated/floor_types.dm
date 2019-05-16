@@ -56,8 +56,8 @@
 	destructible = TRUE
 
 /turf/simulated/shuttle/wall/destructible/legion
-	name = "blue shuttle wall"
-	roof_type = /turf/simulated/shuttle/roof/legion
+	name = "dropship hull"
+	roof_type = /turf/simulated/shuttle/roof/destructible/legion
 	icon = 'icons/turf/smooth/shuttle_wall_blue.dmi'
 
 /turf/simulated/shuttle/wall/destructible/black
@@ -83,7 +83,7 @@
 
 /turf/simulated/shuttle/floor/destructible/legion
 	icon_state = "floor7"
-	roof_type = /turf/simulated/shuttle/roof/legion
+	roof_type = /turf/simulated/shuttle/roof/destructible/legion
 
 /turf/simulated/shuttle/floor/tiled
 	icon = 'icons/turf/flooring/tiles.dmi'
@@ -102,7 +102,7 @@
 	destructible = TRUE
 
 /turf/simulated/shuttle/floor/plating/destructible/legion
-	roof_type = /turf/simulated/shuttle/roof/legion
+	roof_type = /turf/simulated/shuttle/roof/destructible/legion
 
 /turf/simulated/shuttle/floor/ramp
 	name = "steps"
@@ -113,7 +113,7 @@
 	destructible = TRUE
 
 /turf/simulated/shuttle/floor/ramp/destructible/legion
-	roof_type = /turf/simulated/shuttle/roof/legion
+	roof_type = /turf/simulated/shuttle/roof/destructible/legion
 
 /turf/simulated/shuttle/plating/is_plating()
 	return 1
@@ -144,7 +144,8 @@
 /turf/simulated/shuttle/roof/destructible
 	destructible = TRUE
 
-/turf/simulated/shuttle/roof/legion
+/turf/simulated/shuttle/roof/destructible/legion
+	name = "dropship roof"
 	icon = 'icons/turf/smooth/roof_blue.dmi'
 	icon_state = "roof_blue"
 

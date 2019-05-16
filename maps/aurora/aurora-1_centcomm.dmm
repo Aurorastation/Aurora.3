@@ -22452,6 +22452,20 @@
 	icon_state = "floor"
 	},
 /area/centcom/living)
+"lNA" = (
+/obj/structure/window/shuttle,
+/obj/structure/grille,
+/obj/machinery/door/blast/regular{
+	density = 0;
+	dir = 4;
+	icon_state = "pdoor0";
+	id = "MERCHANT FULL";
+	name = "Merchant Shuttle Lockdown";
+	opacity = 0;
+	p_open = 0
+	},
+/turf/simulated/shuttle/floor/plating/destructible,
+/area/merchant_ship/start)
 "lXq" = (
 /obj/machinery/porta_turret/crescent,
 /obj/effect/decal/warning_stripes,
@@ -22601,20 +22615,6 @@
 /obj/item/weapon/material/shard,
 /turf/unsimulated/floor,
 /area/template_noop)
-"pvf" = (
-/obj/structure/window/shuttle,
-/obj/structure/grille,
-/obj/machinery/door/blast/regular{
-	density = 0;
-	dir = 4;
-	icon_state = "pdoor0";
-	id = "MERCHANT FULL";
-	name = "Merchant Shuttle Lockdown";
-	opacity = 0;
-	p_open = 0
-	},
-/turf/simulated/shuttle/floor/plating/destructible,
-/area/merchant_ship/start)
 "pFA" = (
 /obj/structure/closet/crate/loot,
 /turf/simulated/shuttle/floor,
@@ -25188,7 +25188,7 @@
 	},
 /obj/machinery/atmospherics/binary/passive_gate{
 	name = "shuttle airlock pressure regulator";
-	target_pressure = 100;
+	target_pressure = 75;
 	unlocked = 1;
 	use_power = 0
 	},
@@ -34894,7 +34894,7 @@ arz
 arz
 arz
 yba
-pvf
+lNA
 aaM
 aaM
 aaM
@@ -35151,7 +35151,7 @@ arz
 arz
 arz
 ybb
-pvf
+lNA
 aaM
 aaM
 aaM
@@ -35408,7 +35408,7 @@ arz
 arz
 arz
 asv
-pvf
+lNA
 aaM
 aaM
 aaM
@@ -36430,13 +36430,13 @@ aaM
 aaM
 aaM
 aaM
-pvf
+lNA
 yay
 arz
 arz
 arz
 ybe
-pvf
+lNA
 aaM
 aaM
 aaM
@@ -36687,13 +36687,13 @@ aaM
 aaM
 aaM
 aaM
-pvf
+lNA
 yax
 arz
 arz
 arz
 ybf
-pvf
+lNA
 aaM
 aaM
 aaM
@@ -36944,13 +36944,13 @@ aaM
 aaM
 aaM
 aWP
-pvf
+lNA
 xWs
 arz
 arz
 arz
 ybg
-pvf
+lNA
 aWP
 aaM
 aaM
@@ -39005,7 +39005,7 @@ yaD
 yaI
 yaN
 yaT
-pvf
+lNA
 aaM
 aaM
 aaM
@@ -39262,7 +39262,7 @@ yaD
 yaJ
 arW
 yaU
-pvf
+lNA
 aaM
 aaM
 aaM

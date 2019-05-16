@@ -20715,7 +20715,9 @@
 /turf/simulated/floor/plating,
 /area/hallway/secondary/exit/pods)
 "Pv" = (
-/obj/structure/flora/pottedplant/random,
+/obj/structure/bed/chair{
+	dir = 4
+	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/exit/pods)
 "Pw" = (
@@ -21577,9 +21579,6 @@
 /turf/simulated/floor/plating,
 /area/hallway/secondary/exit/pods)
 "Sr" = (
-/obj/structure/bed/chair{
-	dir = 4
-	},
 /obj/machinery/light{
 	icon_state = "tube1";
 	dir = 8
@@ -21587,6 +21586,7 @@
 /obj/machinery/alarm{
 	pixel_y = 24
 	},
+/obj/structure/closet/emcloset,
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/exit/pods)
 "Sw" = (
@@ -22087,7 +22087,7 @@
 	icon_state = "tube1";
 	dir = 4
 	},
-/obj/structure/flora/pottedplant/random,
+/obj/structure/closet/emcloset,
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/exit/pods)
 "Us" = (
@@ -23545,7 +23545,9 @@
 	icon_state = "tube1";
 	pixel_y = 0
 	},
-/obj/structure/flora/pottedplant/random,
+/obj/structure/bed/chair{
+	dir = 4
+	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/exit/pods)
 "Zc" = (
@@ -46554,7 +46556,7 @@ Nz
 Tz
 aa
 aa
-aa
+aw
 aw
 aw
 aw
