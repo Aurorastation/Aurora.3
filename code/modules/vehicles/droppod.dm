@@ -61,6 +61,7 @@
 
 	C.set_dir(dir)
 	C.anchored = 1
+	user_buckle_mob(C, C)
 	icon_state = "droppod"
 	return 1
 
@@ -99,6 +100,7 @@
 			L.pixel_x = initial(user.pixel_x)
 			L.pixel_y = initial(user.pixel_y)
 			L.layer = initial(user.layer)
+			user_unbuckle_mob(L, L)
 		else if(istype(a, /obj))
 			var/obj/O = a
 			O.forceMove(src.loc)
