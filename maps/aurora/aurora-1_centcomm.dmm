@@ -4370,7 +4370,7 @@
 	},
 /obj/structure/grille,
 /turf/unsimulated/floor{
-	icon_state = "floor5"
+	name = "plating"
 	},
 /area/syndicate_mothership)
 "als" = (
@@ -4380,7 +4380,7 @@
 	},
 /obj/structure/grille,
 /turf/unsimulated/floor{
-	icon_state = "floor5"
+	name = "plating"
 	},
 /area/syndicate_mothership)
 "alt" = (
@@ -4393,7 +4393,7 @@
 	dir = 4
 	},
 /turf/unsimulated/floor{
-	icon_state = "floor5"
+	name = "plating"
 	},
 /area/syndicate_mothership)
 "alu" = (
@@ -4466,7 +4466,7 @@
 	},
 /obj/structure/grille,
 /turf/unsimulated/floor{
-	icon_state = "floor5"
+	name = "plating"
 	},
 /area/syndicate_mothership)
 "alz" = (
@@ -4868,13 +4868,6 @@
 	icon_state = "dark"
 	},
 /area/syndicate_mothership)
-"ams" = (
-/turf/template_noop,
-/turf/simulated/shuttle/wall/dark{
-	dir = 5;
-	icon_state = "diagonalWall3"
-	},
-/area/syndicate_station/start)
 "amt" = (
 /obj/machinery/door/window/northright{
 	name = "Flight Deck";
@@ -4891,7 +4884,7 @@
 	},
 /obj/structure/grille,
 /turf/unsimulated/floor{
-	icon_state = "floor5"
+	name = "plating"
 	},
 /area/syndicate_mothership)
 "amv" = (
@@ -4904,7 +4897,7 @@
 	},
 /obj/structure/grille,
 /turf/unsimulated/floor{
-	icon_state = "floor5"
+	name = "plating"
 	},
 /area/syndicate_mothership)
 "amw" = (
@@ -5042,7 +5035,7 @@
 	dir = 1
 	},
 /turf/unsimulated/floor{
-	icon_state = "floor5"
+	name = "plating"
 	},
 /area/syndicate_mothership)
 "amI" = (
@@ -5108,7 +5101,7 @@
 /obj/structure/grille,
 /obj/structure/window/reinforced,
 /turf/unsimulated/floor{
-	icon_state = "floor5"
+	name = "plating"
 	},
 /area/syndicate_mothership)
 "amP" = (
@@ -5624,7 +5617,7 @@
 	},
 /obj/structure/grille,
 /turf/unsimulated/floor{
-	icon_state = "floor5"
+	name = "plating"
 	},
 /area/syndicate_mothership)
 "anL" = (
@@ -6572,7 +6565,7 @@
 /obj/structure/window/reinforced{
 	dir = 1
 	},
-/turf/simulated/shuttle/plating,
+/turf/simulated/shuttle/floor/plating,
 /area/syndicate_station/start)
 "apq" = (
 /obj/machinery/teleport/station,
@@ -6631,17 +6624,17 @@
 /obj/structure/shuttle/engine/propulsion{
 	icon_state = "propulsion_l"
 	},
-/turf/template_noop,
+/turf/simulated/shuttle/floor/plating,
 /area/syndicate_station/start)
 "apA" = (
 /obj/structure/shuttle/engine/propulsion,
-/turf/template_noop,
+/turf/simulated/shuttle/floor/plating,
 /area/syndicate_station/start)
 "apB" = (
 /obj/structure/shuttle/engine/propulsion{
 	icon_state = "propulsion_r"
 	},
-/turf/template_noop,
+/turf/simulated/shuttle/floor/plating,
 /area/syndicate_station/start)
 "apC" = (
 /obj/machinery/suit_cycler{
@@ -7009,7 +7002,9 @@
 /turf/simulated/shuttle/plating,
 /area/merchant_station)
 "aqB" = (
-/turf/simulated/shuttle/plating,
+/turf/unsimulated/floor{
+	name = "plating"
+	},
 /turf/simulated/shuttle/wall/dark{
 	dir = 8;
 	icon_state = "diagonalWall3"
@@ -7020,7 +7015,9 @@
 /turf/simulated/shuttle/plating,
 /area/shuttle/administration/centcom)
 "aqD" = (
-/turf/simulated/shuttle/plating,
+/turf/unsimulated/floor{
+	name = "plating"
+	},
 /turf/simulated/shuttle/wall/dark{
 	dir = 6;
 	icon_state = "diagonalWall3"
@@ -8367,7 +8364,7 @@
 /obj/structure/window/reinforced{
 	dir = 1
 	},
-/turf/simulated/shuttle/plating,
+/turf/simulated/shuttle/floor/plating,
 /area/shuttle/administration/centcom)
 "aux" = (
 /obj/machinery/iv_drip,
@@ -8397,16 +8394,14 @@
 	},
 /area/shuttle/administration/centcom)
 "auz" = (
-/turf/simulated/shuttle/plating,
+/turf/simulated/shuttle/floor/plating,
 /turf/simulated/shuttle/wall/dark{
 	icon_state = "diagonalWall3"
 	},
 /area/shuttle/administration/centcom)
 "auA" = (
 /obj/structure/shuttle/engine/propulsion,
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/simulated/shuttle/floor/plating,
 /area/shuttle/administration/centcom)
 "auB" = (
 /obj/machinery/sleeper{
@@ -8470,7 +8465,9 @@
 	},
 /area/shuttle/administration/centcom)
 "auE" = (
-/turf/simulated/shuttle/plating,
+/turf/unsimulated/floor{
+	name = "plating"
+	},
 /turf/simulated/shuttle/wall/dark{
 	dir = 4;
 	icon_state = "diagonalWall3"
@@ -8500,7 +8497,7 @@
 	dir = 1
 	},
 /obj/structure/shuttle/engine/heater,
-/turf/simulated/shuttle/plating,
+/turf/simulated/shuttle/floor/plating,
 /area/shuttle/administration/centcom)
 "auI" = (
 /obj/machinery/embedded_controller/radio/simple_docking_controller{
@@ -12081,11 +12078,10 @@
 	name = "shuttle bay blast door"
 	},
 /area/centcom/specops)
-"aCc" = (
-/turf/simulated/shuttle/plating,
-/area/centcom/specops)
 "aCd" = (
-/turf/simulated/shuttle/plating,
+/turf/unsimulated/floor{
+	name = "plating"
+	},
 /turf/simulated/shuttle/wall/dark{
 	dir = 8;
 	icon_state = "diagonalWall3"
@@ -12271,7 +12267,7 @@
 	icon_state = "heater";
 	dir = 4
 	},
-/turf/unsimulated/floor,
+/turf/simulated/shuttle/floor/plating,
 /area/shuttle/specops/centcom)
 "aCA" = (
 /obj/structure/table/reinforced,
@@ -12330,7 +12326,7 @@
 	name = "Forward Docking Hatch";
 	req_access = list(13)
 	},
-/turf/simulated/shuttle/plating,
+/turf/simulated/shuttle/floor/plating,
 /area/shuttle/specops/centcom)
 "aCJ" = (
 /obj/machinery/embedded_controller/radio/simple_docking_controller{
@@ -12392,7 +12388,9 @@
 /turf/unsimulated/beach/sand,
 /area/beach)
 "aCT" = (
-/turf/simulated/shuttle/plating,
+/turf/unsimulated/floor{
+	name = "plating"
+	},
 /turf/simulated/shuttle/wall/dark{
 	icon_state = "diagonalWall3"
 	},
@@ -12653,7 +12651,9 @@
 /area/holodeck/source_battlemonsters)
 "aDB" = (
 /obj/machinery/light/spot,
-/turf/simulated/shuttle/plating,
+/turf/unsimulated/floor{
+	name = "plating"
+	},
 /area/centcom/specops)
 "aDC" = (
 /obj/machinery/light,
@@ -16954,7 +16954,7 @@
 	locked = 0;
 	req_access = list(150)
 	},
-/turf/simulated/shuttle/plating,
+/turf/simulated/shuttle/floor/plating,
 /area/skipjack_station/start)
 "aNg" = (
 /obj/structure/grille,
@@ -16970,7 +16970,7 @@
 	id = "skipjackshutters";
 	name = "Skipjack Blast Shielding"
 	},
-/turf/simulated/shuttle/plating,
+/turf/simulated/shuttle/floor/plating,
 /area/skipjack_station/start)
 "aNh" = (
 /obj/structure/grille,
@@ -16983,7 +16983,7 @@
 	id = "skipjackshutters";
 	name = "Skipjack Blast Shielding"
 	},
-/turf/simulated/shuttle/plating,
+/turf/simulated/shuttle/floor/plating,
 /area/skipjack_station/start)
 "aNi" = (
 /obj/structure/grille,
@@ -16999,7 +16999,7 @@
 	id = "skipjackshutters";
 	name = "Skipjack Blast Shielding"
 	},
-/turf/simulated/shuttle/plating,
+/turf/simulated/shuttle/floor/plating,
 /area/skipjack_station/start)
 "aNj" = (
 /obj/machinery/door/airlock/hatch{
@@ -17009,7 +17009,7 @@
 	locked = 0;
 	req_access = list(150)
 	},
-/turf/simulated/shuttle/plating,
+/turf/simulated/shuttle/floor/plating,
 /area/skipjack_station/start)
 "aNk" = (
 /obj/machinery/access_button{
@@ -17120,7 +17120,7 @@
 	frequency = 1331;
 	id_tag = "vox_west_vent"
 	},
-/turf/simulated/shuttle/plating,
+/turf/simulated/shuttle/floor/plating,
 /area/skipjack_station/start)
 "aNy" = (
 /obj/machinery/airlock_sensor{
@@ -17128,7 +17128,7 @@
 	id_tag = "vox_west_sensor";
 	pixel_x = 25
 	},
-/turf/simulated/shuttle/plating,
+/turf/simulated/shuttle/floor/plating,
 /area/skipjack_station/start)
 "aNz" = (
 /obj/structure/table/standard,
@@ -17162,7 +17162,7 @@
 	id_tag = "vox_east_sensor";
 	pixel_x = -25
 	},
-/turf/simulated/shuttle/plating,
+/turf/simulated/shuttle/floor/plating,
 /area/skipjack_station/start)
 "aNE" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
@@ -17170,7 +17170,7 @@
 	frequency = 1331;
 	id_tag = "vox_east_vent"
 	},
-/turf/simulated/shuttle/plating,
+/turf/simulated/shuttle/floor/plating,
 /area/skipjack_station/start)
 "aNF" = (
 /obj/structure/window/reinforced/holowindow/disappearing{
@@ -17233,7 +17233,7 @@
 	dir = 8
 	},
 /obj/machinery/meter,
-/turf/simulated/shuttle/plating,
+/turf/simulated/shuttle/floor/plating,
 /area/skipjack_station/start)
 "aNO" = (
 /obj/machinery/embedded_controller/radio/airlock/airlock_controller{
@@ -17252,7 +17252,7 @@
 	id_tag = "vox_west_vent"
 	},
 /obj/machinery/light/small,
-/turf/simulated/shuttle/plating,
+/turf/simulated/shuttle/floor/plating,
 /area/skipjack_station/start)
 "aNP" = (
 /obj/machinery/light/small{
@@ -17305,14 +17305,14 @@
 	id_tag = "vox_east_vent"
 	},
 /obj/machinery/light/small,
-/turf/simulated/shuttle/plating,
+/turf/simulated/shuttle/floor/plating,
 /area/skipjack_station/start)
 "aNU" = (
 /obj/machinery/atmospherics/pipe/manifold/visible{
 	dir = 4
 	},
 /obj/machinery/meter,
-/turf/simulated/shuttle/plating,
+/turf/simulated/shuttle/floor/plating,
 /area/skipjack_station/start)
 "aNV" = (
 /obj/structure/sign/directions/all,
@@ -17376,7 +17376,7 @@
 	req_access = list(150)
 	},
 /obj/machinery/atmospherics/pipe/simple/visible,
-/turf/simulated/shuttle/plating,
+/turf/simulated/shuttle/floor/plating,
 /area/skipjack_station/start)
 "aOc" = (
 /obj/structure/table/rack,
@@ -17407,7 +17407,7 @@
 	req_access = list(150)
 	},
 /obj/machinery/atmospherics/pipe/simple/visible,
-/turf/simulated/shuttle/plating,
+/turf/simulated/shuttle/floor/plating,
 /area/skipjack_station/start)
 "aOg" = (
 /obj/structure/window/reinforced/holowindow{
@@ -17481,7 +17481,7 @@
 	pixel_x = -22;
 	req_one_access = list(150)
 	},
-/turf/simulated/shuttle/plating,
+/turf/simulated/shuttle/floor/plating,
 /area/skipjack_station/start)
 "aOq" = (
 /obj/machinery/microwave{
@@ -17489,7 +17489,7 @@
 	pixel_y = 8
 	},
 /obj/structure/table/steel,
-/turf/simulated/shuttle/plating,
+/turf/simulated/shuttle/floor/plating,
 /area/skipjack_station/start)
 "aOr" = (
 /obj/item/seeds/potatoseed,
@@ -17498,11 +17498,11 @@
 /obj/item/weapon/material/minihoe,
 /obj/item/weapon/trap,
 /obj/structure/table/steel,
-/turf/simulated/shuttle/plating,
+/turf/simulated/shuttle/floor/plating,
 /area/skipjack_station/start)
 "aOs" = (
 /obj/machinery/vending/hydroseeds,
-/turf/simulated/shuttle/plating,
+/turf/simulated/shuttle/floor/plating,
 /area/skipjack_station/start)
 "aOt" = (
 /obj/structure/table/rack,
@@ -17513,7 +17513,7 @@
 /area/skipjack_station/start)
 "aOv" = (
 /obj/machinery/washing_machine,
-/turf/simulated/shuttle/plating,
+/turf/simulated/shuttle/floor/plating,
 /area/skipjack_station/start)
 "aOw" = (
 /obj/structure/table/standard,
@@ -17527,7 +17527,7 @@
 	amount = 50
 	},
 /obj/item/weapon/card/emag,
-/turf/simulated/shuttle/plating,
+/turf/simulated/shuttle/floor/plating,
 /area/skipjack_station/start)
 "aOy" = (
 /obj/machinery/atmospherics/pipe/simple/visible,
@@ -17538,7 +17538,7 @@
 	pixel_x = 22;
 	req_access = list(150)
 	},
-/turf/simulated/shuttle/plating,
+/turf/simulated/shuttle/floor/plating,
 /area/skipjack_station/start)
 "aOz" = (
 /turf/unsimulated/floor{
@@ -17577,68 +17577,17 @@
 /area/centcom/spawning)
 "aOE" = (
 /obj/machinery/atmospherics/pipe/simple/visible,
-/turf/simulated/shuttle/plating,
+/turf/simulated/shuttle/floor/plating,
 /area/skipjack_station/start)
 "aOF" = (
-/turf/simulated/shuttle/plating,
+/turf/simulated/shuttle/floor/plating,
 /area/skipjack_station/start)
 "aOG" = (
 /obj/structure/reagent_dispensers/watertank,
 /obj/machinery/light/small{
 	dir = 4
 	},
-/turf/simulated/shuttle/plating,
-/area/skipjack_station/start)
-"aOH" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/machinery/door/blast/regular{
-	dir = 4;
-	id = "skipjackshutters";
-	name = "Skipjack Blast Shielding"
-	},
-/turf/simulated/shuttle/floor{
-	icon_state = "floor4"
-	},
-/area/skipjack_station/start)
-"aOI" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/machinery/door/blast/regular{
-	dir = 4;
-	id = "skipjackshutters";
-	name = "Skipjack Blast Shielding"
-	},
-/turf/simulated/shuttle/floor{
-	icon_state = "floor4"
-	},
-/area/skipjack_station/start)
-"aOJ" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/machinery/door/blast/regular{
-	dir = 4;
-	id = "skipjackshutters";
-	name = "Skipjack Blast Shielding"
-	},
-/turf/simulated/shuttle/floor{
-	icon_state = "floor4"
-	},
+/turf/simulated/shuttle/floor/plating,
 /area/skipjack_station/start)
 "aOK" = (
 /obj/machinery/door/airlock/hatch{
@@ -17660,11 +17609,11 @@
 /obj/item/airbubble/syndie,
 /obj/item/airbubble/syndie,
 /obj/item/airbubble/syndie,
-/turf/simulated/shuttle/plating,
+/turf/simulated/shuttle/floor/plating,
 /area/skipjack_station/start)
 "aOM" = (
 /obj/item/robot_parts/head,
-/turf/simulated/shuttle/plating,
+/turf/simulated/shuttle/floor/plating,
 /area/skipjack_station/start)
 "aON" = (
 /obj/machinery/light,
@@ -17876,11 +17825,11 @@
 	id = "skipjackshutters";
 	name = "Skipjack Blast Shielding"
 	},
-/turf/simulated/shuttle/plating,
+/turf/simulated/shuttle/floor/plating,
 /area/skipjack_station/start)
 "aPh" = (
 /obj/item/robot_parts/l_leg,
-/turf/simulated/shuttle/plating,
+/turf/simulated/shuttle/floor/plating,
 /area/skipjack_station/start)
 "aPi" = (
 /obj/structure/window/reinforced,
@@ -17911,16 +17860,16 @@
 	id = "skipjackshutters";
 	name = "Skipjack Blast Shielding"
 	},
-/turf/simulated/shuttle/plating,
+/turf/simulated/shuttle/floor/plating,
 /area/skipjack_station/start)
 "aPl" = (
 /obj/machinery/atmospherics/pipe/simple/visible,
 /obj/machinery/portable_atmospherics/hydroponics,
-/turf/simulated/shuttle/plating,
+/turf/simulated/shuttle/floor/plating,
 /area/skipjack_station/start)
 "aPm" = (
 /obj/machinery/floodlight,
-/turf/simulated/shuttle/plating,
+/turf/simulated/shuttle/floor/plating,
 /area/skipjack_station/start)
 "aPn" = (
 /obj/structure/table/rack,
@@ -17962,13 +17911,13 @@
 /area/skipjack_station/start)
 "aPr" = (
 /obj/structure/reagent_dispensers/fueltank,
-/turf/simulated/shuttle/plating,
+/turf/simulated/shuttle/floor/plating,
 /area/skipjack_station/start)
 "aPs" = (
 /obj/item/robot_parts/robot_suit,
 /obj/item/robot_parts/r_leg,
 /obj/item/robot_parts/r_arm,
-/turf/simulated/shuttle/plating,
+/turf/simulated/shuttle/floor/plating,
 /area/skipjack_station/start)
 "aPt" = (
 /obj/structure/table/standard,
@@ -18096,13 +18045,13 @@
 	id = "skipjackshutters";
 	name = "Skipjack Blast Shielding"
 	},
-/turf/simulated/shuttle/plating,
+/turf/simulated/shuttle/floor/plating,
 /area/skipjack_station/start)
 "aPD" = (
 /obj/machinery/door/airlock/hatch{
 	req_access = list(150)
 	},
-/turf/simulated/shuttle/plating,
+/turf/simulated/shuttle/floor/plating,
 /area/skipjack_station/start)
 "aPE" = (
 /obj/structure/bed/chair{
@@ -18139,16 +18088,16 @@
 	pixel_x = -12;
 	pixel_y = 2
 	},
-/turf/simulated/shuttle/plating,
+/turf/simulated/shuttle/floor/plating,
 /area/skipjack_station/start)
 "aPI" = (
 /obj/item/weapon/wrench,
-/turf/simulated/shuttle/plating,
+/turf/simulated/shuttle/floor/plating,
 /area/skipjack_station/start)
 "aPJ" = (
 /obj/machinery/atmospherics/pipe/simple/visible,
 /obj/item/weapon/crowbar,
-/turf/simulated/shuttle/plating,
+/turf/simulated/shuttle/floor/plating,
 /area/skipjack_station/start)
 "aPK" = (
 /obj/machinery/door/airlock/glass,
@@ -18225,17 +18174,17 @@
 	dir = 1
 	},
 /obj/machinery/portable_atmospherics/canister/air/airlock,
-/turf/simulated/shuttle/plating,
+/turf/simulated/shuttle/floor/plating,
 /area/skipjack_station/start)
 "aPT" = (
 /obj/machinery/portable_atmospherics/hydroponics,
-/turf/simulated/shuttle/plating,
+/turf/simulated/shuttle/floor/plating,
 /area/skipjack_station/start)
 "aPU" = (
 /obj/machinery/suit_cycler/syndicate{
 	locked = 0
 	},
-/turf/simulated/shuttle/plating,
+/turf/simulated/shuttle/floor/plating,
 /area/skipjack_station/start)
 "aPV" = (
 /turf/simulated/shuttle/floor{
@@ -18304,12 +18253,12 @@
 /obj/structure/toilet{
 	dir = 4
 	},
-/turf/simulated/shuttle/plating,
+/turf/simulated/shuttle/floor/plating,
 /area/skipjack_station/start)
 "aQe" = (
 /obj/machinery/portable_atmospherics/canister/nitrogen,
 /obj/item/weapon/tank/nitrogen,
-/turf/simulated/shuttle/plating,
+/turf/simulated/shuttle/floor/plating,
 /area/skipjack_station/start)
 "aQf" = (
 /obj/machinery/light/small{
@@ -18319,7 +18268,7 @@
 	dir = 1
 	},
 /obj/machinery/portable_atmospherics/canister/air/airlock,
-/turf/simulated/shuttle/plating,
+/turf/simulated/shuttle/floor/plating,
 /area/skipjack_station/start)
 "aQg" = (
 /turf/unsimulated/floor{
@@ -18449,7 +18398,7 @@
 	icon_state = "rwindow";
 	dir = 1
 	},
-/turf/simulated/shuttle/plating,
+/turf/simulated/shuttle/floor/plating,
 /area/skipjack_station/start)
 "aQs" = (
 /obj/structure/sink{
@@ -18593,7 +18542,7 @@
 /area/wizard_station)
 "aQG" = (
 /obj/structure/shuttle/engine/propulsion,
-/turf/simulated/shuttle/wall/dark,
+/turf/simulated/shuttle/floor/plating,
 /area/skipjack_station/start)
 "aQH" = (
 /obj/structure/table/standard,
@@ -19227,7 +19176,7 @@
 /area/wizard_station)
 "aRW" = (
 /obj/structure/shuttle/engine/heater,
-/turf/simulated/shuttle/plating,
+/turf/simulated/shuttle/floor/plating,
 /area/skipjack_station/start)
 "aRX" = (
 /obj/structure/target_stake,
@@ -22195,6 +22144,20 @@
 	icon_state = "carpetside"
 	},
 /area/centcom/living)
+"chx" = (
+/obj/structure/window/shuttle,
+/obj/structure/grille,
+/obj/machinery/door/blast/regular{
+	density = 0;
+	dir = 4;
+	icon_state = "pdoor0";
+	id = "MERCHANT FULL";
+	name = "Merchant Shuttle Lockdown";
+	opacity = 0;
+	p_open = 0
+	},
+/turf/simulated/shuttle/floor/plating/destructible,
+/area/merchant_ship/start)
 "cnT" = (
 /obj/structure/window/shuttle,
 /obj/structure/grille,
@@ -22452,20 +22415,6 @@
 	icon_state = "floor"
 	},
 /area/centcom/living)
-"lNA" = (
-/obj/structure/window/shuttle,
-/obj/structure/grille,
-/obj/machinery/door/blast/regular{
-	density = 0;
-	dir = 4;
-	icon_state = "pdoor0";
-	id = "MERCHANT FULL";
-	name = "Merchant Shuttle Lockdown";
-	opacity = 0;
-	p_open = 0
-	},
-/turf/simulated/shuttle/floor/plating/destructible,
-/area/merchant_ship/start)
 "lXq" = (
 /obj/machinery/porta_turret/crescent,
 /obj/effect/decal/warning_stripes,
@@ -22548,6 +22497,14 @@
 	dir = 8
 	},
 /area/centcom/living)
+"nYu" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/turf/simulated/shuttle/wall/dark{
+	icon_state = "diagonalWall3"
+	},
+/area/shuttle/administration/centcom)
 "oIb" = (
 /obj/machinery/light{
 	icon_state = "tube1";
@@ -28741,17 +28698,13 @@
 /obj/structure/shuttle/engine/propulsion{
 	icon_state = "propulsion_l"
 	},
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/simulated/shuttle/floor/plating,
 /area/shuttle/administration/centcom)
 "ybD" = (
 /obj/structure/shuttle/engine/propulsion{
 	icon_state = "propulsion_r"
 	},
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/simulated/shuttle/floor/plating,
 /area/shuttle/administration/centcom)
 "ybE" = (
 /obj/machinery/button/remote/blast_door{
@@ -28792,7 +28745,7 @@
 	dir = 4;
 	icon_state = "propulsion_r"
 	},
-/turf/simulated/shuttle/plating,
+/turf/simulated/shuttle/floor/plating,
 /area/shuttle/specops/centcom)
 "ycz" = (
 /turf/unsimulated/floor,
@@ -28802,14 +28755,14 @@
 	dir = 4;
 	icon_state = "propulsion"
 	},
-/turf/simulated/shuttle/plating,
+/turf/simulated/shuttle/floor/plating,
 /area/shuttle/specops/centcom)
 "yda" = (
 /obj/structure/shuttle/engine/propulsion{
 	dir = 4;
 	icon_state = "propulsion_l"
 	},
-/turf/simulated/shuttle/plating,
+/turf/simulated/shuttle/floor/plating,
 /area/shuttle/specops/centcom)
 "ydw" = (
 /obj/structure/lattice,
@@ -29566,7 +29519,7 @@
 /obj/item/weapon/rig/hazard/equipped{
 	req_access = newlist()
 	},
-/turf/simulated/shuttle/plating,
+/turf/simulated/shuttle/floor/plating,
 /area/skipjack_station/start)
 "yjP" = (
 /obj/structure/table/rack,
@@ -29575,7 +29528,7 @@
 /obj/item/device/multitool,
 /obj/item/device/multitool,
 /obj/item/weapon/rig/industrial/equipped,
-/turf/simulated/shuttle/plating,
+/turf/simulated/shuttle/floor/plating,
 /area/skipjack_station/start)
 "yjQ" = (
 /obj/structure/table/rack,
@@ -29590,7 +29543,7 @@
 /obj/item/weapon/rig/eva/equipped{
 	req_access = newlist()
 	},
-/turf/simulated/shuttle/plating,
+/turf/simulated/shuttle/floor/plating,
 /area/skipjack_station/start)
 "yjR" = (
 /obj/structure/table/rack,
@@ -29608,13 +29561,13 @@
 /obj/structure/shuttle/engine/propulsion{
 	icon_state = "propulsion_l"
 	},
-/turf/simulated/shuttle/wall/dark,
+/turf/simulated/shuttle/floor/plating,
 /area/skipjack_station/start)
 "yjX" = (
 /obj/structure/shuttle/engine/propulsion{
 	icon_state = "propulsion_r"
 	},
-/turf/simulated/shuttle/wall/dark,
+/turf/simulated/shuttle/floor/plating,
 /area/skipjack_station/start)
 
 (1,1,1) = {"
@@ -34894,7 +34847,7 @@ arz
 arz
 arz
 yba
-lNA
+chx
 aaM
 aaM
 aaM
@@ -35151,7 +35104,7 @@ arz
 arz
 arz
 ybb
-lNA
+chx
 aaM
 aaM
 aaM
@@ -35408,7 +35361,7 @@ arz
 arz
 arz
 asv
-lNA
+chx
 aaM
 aaM
 aaM
@@ -35742,7 +35695,7 @@ aNd
 aNd
 aOc
 aOt
-aOH
+aNg
 aOd
 aPn
 aNd
@@ -35999,7 +35952,7 @@ aNd
 aNP
 aOd
 aOd
-aOI
+aNh
 aOd
 aPo
 aNd
@@ -36256,7 +36209,7 @@ aNz
 aNQ
 aOd
 aOd
-aOJ
+aNi
 aOd
 aOd
 aPE
@@ -36430,13 +36383,13 @@ aaM
 aaM
 aaM
 aaM
-lNA
+chx
 yay
 arz
 arz
 arz
 ybe
-lNA
+chx
 aaM
 aaM
 aaM
@@ -36687,13 +36640,13 @@ aaM
 aaM
 aaM
 aaM
-lNA
+chx
 yax
 arz
 arz
 arz
 ybf
-lNA
+chx
 aaM
 aaM
 aaM
@@ -36770,7 +36723,7 @@ aNB
 aNQ
 aOd
 aOd
-aOH
+aNg
 aOd
 aOd
 aPG
@@ -36944,13 +36897,13 @@ aaM
 aaM
 aaM
 aWP
-lNA
+chx
 xWs
 arz
 arz
 arz
 ybg
-lNA
+chx
 aWP
 aaM
 aaM
@@ -37027,7 +36980,7 @@ aNC
 aNS
 aOd
 aOd
-aOI
+aNh
 aOd
 yjR
 aNd
@@ -37284,7 +37237,7 @@ aNd
 aNd
 aOe
 aOe
-aOJ
+aNi
 aOd
 aPq
 aNd
@@ -39005,7 +38958,7 @@ yaD
 yaI
 yaN
 yaT
-lNA
+chx
 aaM
 aaM
 aaM
@@ -39262,7 +39215,7 @@ yaD
 yaJ
 arW
 yaU
-lNA
+chx
 aaM
 aaM
 aaM
@@ -59344,13 +59297,13 @@ axZ
 ave
 ave
 ave
-aCc
+awz
 aCd
 aCI
 aCT
-aCc
-aCc
-aCc
+awz
+awz
+awz
 ave
 aaM
 aaM
@@ -59606,7 +59559,7 @@ aCe
 aCJ
 aCe
 aCT
-aCc
+awz
 aDB
 aDM
 aDM
@@ -59863,8 +59816,8 @@ aCs
 aCv
 aCU
 aCe
-aCc
-aCc
+awz
+awz
 aDM
 aDS
 aEe
@@ -60120,8 +60073,8 @@ aCt
 aCv
 aCU
 aCe
-aCc
-aCc
+awz
+awz
 aDM
 aDT
 aEf
@@ -60350,7 +60303,7 @@ aqG
 aqG
 aqG
 aqG
-auz
+nYu
 aqt
 aqt
 ave
@@ -60377,7 +60330,7 @@ aCu
 aCv
 aCU
 aCe
-aCc
+awz
 aDB
 aDM
 aDU
@@ -60608,7 +60561,7 @@ aum
 aux
 auB
 aqG
-auz
+nYu
 aqt
 ave
 avu
@@ -60634,8 +60587,8 @@ aCv
 aCv
 aCV
 aCe
-aCc
-aCc
+awz
+awz
 aDM
 aDU
 aEf
@@ -60891,8 +60844,8 @@ aCv
 aCv
 aCU
 aCe
-aCc
-aCc
+awz
+awz
 aDM
 aDU
 aEf
@@ -61148,7 +61101,7 @@ aCw
 aCv
 aCW
 aCe
-aCc
+awz
 aDB
 aDM
 aDT
@@ -61405,8 +61358,8 @@ aCx
 aCK
 aCX
 aCe
-aCc
-aCc
+awz
+awz
 aDM
 aDU
 aEf
@@ -61662,8 +61615,8 @@ aCy
 aCy
 aCy
 aCe
-aCc
-aCc
+awz
+awz
 aDM
 aDU
 aEf
@@ -61919,7 +61872,7 @@ ycO
 ycO
 ycO
 yda
-aCc
+awz
 aDB
 aDM
 aDU
@@ -62173,11 +62126,11 @@ axZ
 ave
 ave
 ave
-aCc
-aCc
-aCc
-aCc
-aCc
+awz
+awz
+awz
+awz
+awz
 aDM
 aDT
 aEf
@@ -85231,7 +85184,7 @@ aVt
 alH
 alH
 alH
-ams
+aVw
 aaM
 aaM
 aVt

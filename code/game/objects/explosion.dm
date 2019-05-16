@@ -59,6 +59,10 @@
 
 /turf/simulated/shuttle/plating
 	explosion_resistance = 1
+	name = "plating"
+	icon = 'icons/turf/floors.dmi'
+	icon_state = "plating"
+	level = 1
 
 /turf/simulated/shuttle/wall
 	explosion_resistance = 10

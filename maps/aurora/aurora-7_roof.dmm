@@ -1691,13 +1691,6 @@
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/mine/explored)
-"dD" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1
-	},
-/obj/structure/sign/pods,
-/turf/simulated/floor/reinforced/airless,
-/area/mine/explored)
 "dE" = (
 /obj/effect/floor_decal/industrial/warning/dust{
 	icon_state = "warning_dust";
@@ -2703,14 +2696,6 @@
 /obj/effect/floor_decal/industrial/warning/corner,
 /turf/simulated/floor/reinforced/airless,
 /area/mine/explored)
-"fx" = (
-/obj/random/junk,
-/obj/effect/floor_decal/industrial/warning/corner{
-	icon_state = "warningcorner";
-	dir = 1
-	},
-/turf/simulated/floor/reinforced/airless,
-/area/mine/explored)
 "fy" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
@@ -2853,6 +2838,33 @@
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/mine/explored)
+"kO" = (
+/obj/effect/floor_decal/industrial/warning/cee{
+	icon_state = "warningcee";
+	dir = 1
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"nG" = (
+/obj/effect/floor_decal/industrial/warning{
+	icon_state = "warning";
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"ob" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning/corner{
+	icon_state = "warningcorner";
+	dir = 4
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
 "qN" = (
 /obj/effect/floor_decal/industrial/warning{
 	icon_state = "warning";
@@ -2866,6 +2878,16 @@
 /turf/simulated/floor/airless{
 	icon_state = "asteroidplating"
 	},
+/area/mine/explored)
+"xo" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	icon_state = "warningcorner";
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 1
+	},
+/turf/simulated/floor/reinforced/airless,
 /area/mine/explored)
 "za" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -2884,6 +2906,16 @@
 /obj/structure/disposalpipe/segment{
 	dir = 8;
 	icon_state = "pipe-c"
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"Fc" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning{
+	icon_state = "warning";
+	dir = 4
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/mine/explored)
@@ -2906,6 +2938,16 @@
 	},
 /turf/simulated/floor/tiled,
 /area/tcommsat/lounge)
+"HW" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	icon_state = "warningcorner";
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
 "IB" = (
 /obj/machinery/light{
 	dir = 4;
@@ -2925,6 +2967,23 @@
 "Kb" = (
 /obj/random/loot,
 /turf/simulated/floor/asteroid/ash,
+/area/mine/explored)
+"Kg" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 1
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"SA" = (
+/obj/effect/floor_decal/industrial/warning{
+	icon_state = "warning";
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning/corner{
+	icon_state = "warningcorner";
+	dir = 4
+	},
+/turf/simulated/floor/reinforced/airless,
 /area/mine/explored)
 "WJ" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -22354,11 +22413,11 @@ aa
 aa
 aa
 aa
-fG
-fH
-fH
-fH
-fH
+kO
+aD
+aD
+aD
+SA
 fe
 ah
 ah
@@ -22611,11 +22670,11 @@ aa
 aa
 aa
 aa
+aa
+aa
+aa
+aa
 bn
-ah
-ah
-ah
-ah
 ah
 ah
 ah
@@ -22868,11 +22927,11 @@ aa
 aa
 aa
 aa
+aa
+aa
+aa
+aa
 qN
-ah
-ah
-ah
-ah
 ah
 ah
 ah
@@ -23125,11 +23184,11 @@ aa
 aa
 aa
 aa
+aa
+aa
+aa
+aa
 bn
-ah
-ah
-ah
-ah
 ah
 ah
 ah
@@ -23382,11 +23441,11 @@ aa
 aa
 aa
 aa
-bn
-ah
-ah
-ah
-ah
+kO
+nG
+nG
+nG
+xo
 ah
 ah
 ah
@@ -23639,11 +23698,11 @@ aa
 aa
 aa
 aa
+aa
+aa
+aa
+aa
 bn
-ah
-ah
-ah
-ah
 ah
 ah
 ah
@@ -23896,11 +23955,11 @@ aa
 aa
 aa
 aa
+aa
+aa
+aa
+aa
 qN
-ah
-ah
-ah
-ah
 ah
 ah
 ah
@@ -24153,11 +24212,11 @@ aa
 aa
 aa
 aa
+aa
+aa
+aa
+aa
 bn
-ah
-ah
-ah
-ah
 ah
 ah
 ah
@@ -24410,11 +24469,11 @@ aa
 aa
 aa
 aa
-bn
-ah
-ah
-ah
-ah
+kO
+nG
+nG
+nG
+xo
 ah
 ah
 ah
@@ -24667,11 +24726,11 @@ aa
 aa
 aa
 aa
+aa
+aa
+aa
+aa
 bn
-ah
-ah
-ah
-ah
 ah
 ah
 ah
@@ -24924,11 +24983,11 @@ aa
 aa
 aa
 aa
+aa
+aa
+aa
+aa
 qN
-ah
-ah
-ah
-ah
 ah
 ah
 ah
@@ -25181,11 +25240,11 @@ aa
 aa
 aa
 aa
+aa
+aa
+aa
+aa
 bn
-ah
-ah
-ah
-ah
 ah
 ah
 ah
@@ -25438,11 +25497,11 @@ aa
 aa
 aa
 aa
-af
-ff
-ah
-ah
-ah
+kO
+HW
+ag
+ag
+Kg
 ah
 ah
 ah
@@ -49331,11 +49390,11 @@ am
 aa
 aa
 aa
-aa
-ad
-ag
-ag
-ag
+kO
+aD
+aD
+aD
+SA
 ag
 fe
 ah
@@ -49588,11 +49647,11 @@ aa
 aa
 aa
 aa
-ad
-fx
-ah
-ah
-ah
+aa
+aa
+aa
+aa
+bn
 ah
 ah
 ah
@@ -49845,11 +49904,11 @@ aa
 aa
 aa
 aa
-dD
-ah
-ah
-ah
-ah
+aa
+aa
+aa
+aa
+qN
 ah
 ah
 ah
@@ -50102,11 +50161,11 @@ aa
 aa
 aa
 aa
-af
-fi
-ah
-ah
-ah
+aa
+aa
+aa
+aa
+bn
 ah
 ah
 ah
@@ -50359,11 +50418,11 @@ aa
 aa
 aa
 aa
-aa
-ae
-ah
-ah
-ah
+kO
+nG
+nG
+nG
+xo
 ah
 ah
 ah
@@ -50616,11 +50675,11 @@ aa
 aa
 aa
 aa
-ad
-fe
-ah
-ah
-ah
+aa
+aa
+aa
+aa
+bn
 ah
 ah
 ah
@@ -50873,11 +50932,11 @@ aa
 aa
 aa
 aa
-dD
-ah
-ah
-ah
-ah
+aa
+aa
+aa
+aa
+qN
 ah
 ah
 ah
@@ -51130,11 +51189,11 @@ aa
 aa
 aa
 aa
-af
-fi
-ah
-ah
-ah
+aa
+aa
+aa
+aa
+bn
 ah
 ah
 ah
@@ -51387,11 +51446,11 @@ aa
 aa
 aa
 aa
-aa
-ae
-ah
-ah
-ah
+kO
+nG
+nG
+nG
+xo
 ah
 ah
 ah
@@ -51644,11 +51703,11 @@ aa
 aa
 aa
 aa
-ad
-fe
-ah
-ah
-ah
+aa
+aa
+aa
+aa
+bn
 ah
 ah
 ah
@@ -51901,11 +51960,11 @@ aa
 aa
 aa
 aa
-dD
-ah
-ah
-ah
-ah
+aa
+aa
+aa
+aa
+qN
 ah
 ah
 ah
@@ -52158,11 +52217,11 @@ aa
 aa
 aa
 aa
-af
-fi
-ah
-ah
-ah
+aa
+aa
+aa
+aa
+bn
 ah
 ah
 ah
@@ -52415,11 +52474,11 @@ aa
 aa
 aa
 aa
-aa
-af
-ai
-ff
-ah
+kO
+Fc
+Fc
+ob
+Kg
 ah
 ah
 ah
@@ -53702,7 +53761,7 @@ aa
 aa
 aa
 aa
-aa
+kO
 ao
 ah
 fg
