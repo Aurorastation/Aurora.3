@@ -36,6 +36,15 @@
 
 	ui_interact(usr)
 
+/obj/vehicle/droppod/verb/eject()
+	set src in oview(1)
+	set category = "Vehicle"
+	set name = "Open Pod"
+
+	if(!usr.canmove || usr.stat || usr.restrained())
+		return
+	unload(usr)
+
 /obj/vehicle/droppod/load(var/mob/C) // this won't call the parent proc due to the differences and the fact it doesn't use load. Also only mobs can be loaded.
 	if(!ismob(C))
 		return 0
@@ -52,7 +61,7 @@
 
 	C.set_dir(dir)
 	C.anchored = 1
-
+	icon_state = "droppod"
 	return 1
 
 /obj/vehicle/droppod/unload(var/mob/user, var/direction) // this also won't call the parent proc because it relies on load and doesn't expect a 2nd person
@@ -64,7 +73,7 @@
 	if(direction)
 		dest = get_step(src, direction)
 	else if(user)
-		dest = get_turf(user)
+		dest = get_turf(src)
 	if(!dest)
 		dest = get_step_to(src, get_step(src, turn(dir, 90)))
 
@@ -81,19 +90,26 @@
 
 	if(!isturf(dest))
 		return 0
+	for(var/a in contents)
+		if(isliving(a))
+			var/mob/living/L = a
+			L.forceMove(dest)
+			L.set_dir(get_dir(loc, dest))
+			L.anchored = 0
+			L.pixel_x = initial(user.pixel_x)
+			L.pixel_y = initial(user.pixel_y)
+			L.layer = initial(user.layer)
+		else if(istype(a, /obj))
+			var/obj/O = a
+			O.forceMove(src.loc)
 
-	user.forceMove(dest)
-	user.set_dir(get_dir(loc, dest))
-	user.anchored = 0
-	user.pixel_x = initial(user.pixel_x)
-	user.pixel_y = initial(user.pixel_y)
-	user.layer = initial(user.layer)
-
-	if(user == humanload)
-		humanload = null
-	else
-		passenger = null
+	humanload = null
+	passenger = null
+	icon_state = "droppodopen"
 	return 1
+
+/obj/vehicle/droppod/MouseDrop_T(over_object, src_location, over_location)
+	return
 
 /obj/vehicle/droppod/attack_hand(mob/user as mob)
 	..()
