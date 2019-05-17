@@ -116,6 +116,23 @@
 /turf/simulated/shuttle/floor/plating/destructible
 	destructible = TRUE
 
+/turf/simulated/shuttle/floor/wood
+	name = "wooden floor"
+	icon = 'icons/turf/flooring/wood.dmi'
+	icon_state = "wood"
+
+/turf/simulated/shuttle/floor/wood/destructible
+	destructible = TRUE
+
+/turf/simulated/shuttle/floor/carpet
+	name = "carpet"
+	icon = 'icons/turf/flooring/carpet.dmi'
+	icon_state = "carpet"
+	footstep_sound = "dirtstep"
+
+/turf/simulated/shuttle/floor/carpet/destructible
+	destructible = TRUE
+
 /turf/simulated/shuttle/floor/plating/destructible/legion
 	roof_type = /turf/simulated/shuttle/roof/destructible/legion
 

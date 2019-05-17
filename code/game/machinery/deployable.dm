@@ -152,7 +152,7 @@ for reference:
 	icon = 'icons/obj/objects.dmi'
 	anchored = 0.0
 	density = 1.0
-	icon_state = "barrier0"
+	icon_state = "barrier"
 	var/health = 100.0
 	var/maxhealth = 100.0
 	var/locked = 0.0
@@ -161,7 +161,7 @@ for reference:
 	New()
 		..()
 
-		src.icon_state = "barrier[src.locked]"
+		src.icon_state = "[initial(icon_state)][src.locked]"
 
 	attackby(obj/item/weapon/W as obj, mob/user as mob)
 		if (istype(W, /obj/item/weapon/card/id/))
@@ -169,7 +169,7 @@ for reference:
 				if	(src.emagged < 2.0)
 					src.locked = !src.locked
 					src.anchored = !src.anchored
-					src.icon_state = "barrier[src.locked]"
+					src.icon_state = "[initial(icon_state)][src.locked]"
 					if ((src.locked == 1.0) && (src.emagged < 2.0))
 						to_chat(user, "Barrier lock toggled on.")
 						return
@@ -224,7 +224,7 @@ for reference:
 		if(prob(50/severity))
 			locked = !locked
 			anchored = !anchored
-			icon_state = "barrier[src.locked]"
+			icon_state = "[initial(icon_state)][src.locked]"
 
 	CanPass(atom/movable/mover, turf/target, height=0, air_group=0)//So bullets will fly over and stuff.
 		if(air_group || (height==0))
@@ -260,3 +260,25 @@ for reference:
 		spark(src, 2, alldirs)
 		visible_message("<span class='warning'>BZZzZZzZZzZT</span>")
 		return 1
+
+/obj/machinery/deployable/barrier/legion
+	name = "legion barrier"
+	desc = "A deployable barrier, bearing the marks of the Tau Ceti Foreign Legion. Swipe your ID card to lock/unlock it."
+	icon_state = "barrier_legion"
+	req_access = list(access_legion)
+
+/obj/item/weapon/legion_barrier_kit
+	name = "legion barrier kit"
+	desc = "A quick assembly kit for deploying id-lockable barriers in the field. Most commonly seen used for crowd control by corporate security. "
+	icon = 'icons/obj/storage.dmi'
+	icon_state = "barrier_kit"
+	item_state = "syringe_kit"
+
+/obj/item/weapon/legion_barrier_kit/attack_self(mob/user)
+	to_chat(user, "<span class='notice'>You start assembling the barrier kit...</span>")
+	if(do_after(user, 80))
+		var/obj/machinery/deployable/barrier/legion/R = new /obj/machinery/deployable/barrier/legion(user.loc)
+		user.visible_message("<span class='notice'>[user] assembles \a [R].\
+			</span>", "<span class='notice'>You assemble \a [R].</span>")
+		R.add_fingerprint(user)
+		qdel(src)

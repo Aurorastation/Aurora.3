@@ -13627,10 +13627,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/hallway/secondary/exit/pods)
-"zr" = (
-/obj/structure/reagent_dispensers/fueltank,
-/turf/simulated/floor/plating,
-/area/maintenance/arrivals)
 "zs" = (
 /obj/structure/shuttle/engine/heater,
 /obj/structure/window/reinforced{
@@ -14350,9 +14346,6 @@
 /obj/machinery/door/blast/shutters{
 	id = "commissary_entry";
 	name = "Shutter"
-	},
-/obj/structure/barricade{
-	layer = 2.7
 	},
 /turf/simulated/floor/tiled,
 /area/maintenance/commissary)
@@ -20942,6 +20935,14 @@
 /obj/item/weapon/tape_roll,
 /turf/simulated/floor/tiled,
 /area/crew_quarters/locker)
+"Qk" = (
+/obj/effect/floor_decal/corner/paleblue{
+	icon_state = "corner_white";
+	dir = 5
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on,
+/turf/simulated/floor/tiled,
+/area/bridge/levela)
 "Ql" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1331;
@@ -21202,18 +21203,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/aft)
-"Ri" = (
-/obj/machinery/atmospherics/binary/pump/on{
-	dir = 4;
-	name = "Distro to Canisters";
-	target_pressure = 150
-	},
-/obj/effect/floor_decal/industrial/warning/cee{
-	icon_state = "warningcee";
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/bridge/levela)
 "Rj" = (
 /obj/machinery/door/airlock/maintenance{
 	name = "Commissary Maintenance";
@@ -21489,6 +21478,18 @@
 	},
 /turf/simulated/floor/plating,
 /area/hallway/secondary/exit/pods)
+"Sd" = (
+/obj/machinery/atmospherics/binary/pump/on{
+	dir = 4;
+	name = "Distro to Canisters";
+	target_pressure = 150
+	},
+/obj/effect/floor_decal/industrial/warning/cee{
+	icon_state = "warningcee";
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/bridge/levela)
 "Sg" = (
 /obj/machinery/camera/network/command{
 	c_tag = "Research Shuttle - Main Section";
@@ -21525,16 +21526,6 @@
 /obj/machinery/washing_machine,
 /turf/simulated/floor/tiled,
 /area/crew_quarters/locker)
-"Sl" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/universal{
-	dir = 4
-	},
-/obj/effect/floor_decal/industrial/warning/cee{
-	icon_state = "warningcee";
-	dir = 8
-	},
-/turf/simulated/floor/plating,
-/area/bridge/levela)
 "Sm" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/bed/chair{
@@ -21638,6 +21629,13 @@
 	},
 /turf/simulated/shuttle/floor/plating,
 /area/shuttle/research/station)
+"SC" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
+/turf/simulated/floor/tiled,
+/area/bridge/levela)
 "SD" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -21692,13 +21690,6 @@
 /obj/machinery/atmospherics/pipe/simple/visible/universal,
 /turf/simulated/floor/plating,
 /area/tcommsat/entrance)
-"SP" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
-/turf/simulated/floor/tiled,
-/area/bridge/levela)
 "SQ" = (
 /obj/machinery/light{
 	icon_state = "tube1";
@@ -21854,6 +21845,16 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/exit/pods)
+"TI" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/universal{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/warning/cee{
+	icon_state = "warningcee";
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/bridge/levela)
 "TJ" = (
 /turf/simulated/shuttle/floor/tiled,
 /area/shuttle/research/station)
@@ -21914,10 +21915,6 @@
 	dir = 5
 	},
 /turf/simulated/shuttle/floor/plating,
-/area/shuttle/research/station)
-"TS" = (
-/obj/machinery/atmospherics/pipe/simple/visible,
-/turf/simulated/shuttle/floor/tiled,
 /area/shuttle/research/station)
 "TV" = (
 /obj/machinery/power/apc{
@@ -21990,6 +21987,15 @@
 	},
 /turf/simulated/shuttle/floor/plating,
 /area/shuttle/research/station)
+"Ub" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/bridge/levela)
 "Uc" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4;
@@ -22438,6 +22444,10 @@
 /obj/item/weapon/folder/blue,
 /turf/simulated/floor/wood,
 /area/bridge/levela)
+"VK" = (
+/obj/machinery/atmospherics/pipe/simple/visible,
+/turf/simulated/shuttle/floor/tiled,
+/area/shuttle/research/station)
 "VN" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /obj/structure/bed/chair{
@@ -23178,14 +23188,6 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/maintenance/arrivals)
-"Xp" = (
-/obj/effect/floor_decal/corner/paleblue{
-	icon_state = "corner_white";
-	dir = 5
-	},
-/obj/machinery/atmospherics/unary/vent_pump/on,
-/turf/simulated/floor/tiled,
-/area/bridge/levela)
 "Xq" = (
 /obj/machinery/atmospherics/pipe/simple/visible/universal{
 	dir = 4
@@ -23438,7 +23440,6 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/random/loot,
 /obj/structure/table/standard,
-/obj/random/tech_supply,
 /turf/simulated/floor/plating,
 /area/maintenance/commissary)
 "YA" = (
@@ -23726,10 +23727,6 @@
 "ZI" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/table/standard,
-/obj/item/weapon/reagent_containers/toothbrush,
-/obj/item/weapon/reagent_containers/toothbrush,
-/obj/item/weapon/reagent_containers/toothbrush,
-/obj/structure/closet/crate/plastic,
 /turf/simulated/floor/tiled,
 /area/maintenance/commissary)
 "ZJ" = (
@@ -23738,15 +23735,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/exit/pods)
-"ZN" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/turf/simulated/floor/tiled,
-/area/bridge/levela)
 "ZO" = (
 /obj/structure/window/shuttle,
 /obj/structure/grille,
@@ -48104,7 +48092,7 @@ ag
 ag
 sU
 tt
-zr
+tt
 Mg
 Sk
 ZV
@@ -48641,7 +48629,7 @@ PX
 PX
 Yb
 vF
-zr
+tt
 HW
 sU
 sU
@@ -64543,7 +64531,7 @@ TJ
 TJ
 Ox
 Iw
-TS
+VK
 Rw
 ME
 ME
@@ -67881,7 +67869,7 @@ aa
 aa
 aa
 wf
-Xp
+Qk
 NE
 Ti
 wf
@@ -68139,7 +68127,7 @@ aa
 aa
 wf
 Sx
-ZN
+Ub
 Lw
 wf
 aa
@@ -68396,7 +68384,7 @@ aa
 aa
 wf
 ye
-ZN
+Ub
 OE
 wU
 aa
@@ -68653,7 +68641,7 @@ aa
 aa
 wf
 ye
-ZN
+Ub
 Qt
 rV
 aa
@@ -68910,7 +68898,7 @@ aa
 aa
 wf
 Ot
-SP
+SC
 ZG
 rV
 rV
@@ -69166,7 +69154,7 @@ aa
 aa
 aa
 wf
-Sl
+TI
 AF
 uE
 XS
@@ -69423,7 +69411,7 @@ aa
 aa
 aa
 IT
-Ri
+Sd
 RW
 QQ
 Uo

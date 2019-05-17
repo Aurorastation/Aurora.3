@@ -33,6 +33,10 @@
 	icon_state = "inactive_Security"
 	req_access = list(access_security)
 
+/obj/item/device/magnetic_lock/security/legion
+	name = "legion magnetic door lock"
+	req_access = (access_legion)
+
 /obj/item/device/magnetic_lock/engineering
 	department = "Engineering"
 	icon_state = "inactive_Engineering"
@@ -49,6 +53,10 @@
 		desc += " It is painted with [department] colors."
 
 	update_icon()
+
+/obj/item/device/magnetic_lock/security/legion/Initialize()
+	..()
+	desc = "A large, ID locked device used for completely locking down airlocks. This one carries the insignia of the Tau Ceti Foreign Legion."
 
 /obj/item/device/magnetic_lock/examine(mob/user)
 	..(user)

@@ -257,7 +257,8 @@
 	name = "foreign legion flight helmet"
 	desc = "A standard foreign legion helmet with an aged pilot visor attached instead of a faceplate. The visor feeds its wearer in-flight information via a heads-up display."
 	icon_state = "legion_pilot"
-	body_parts_covered = EYES
+	body_parts_covered = null
+	flags_inv = BLOCKHEADHAIR
 	armor = list(melee = 40, bullet = 20, laser = 20, energy = 10, bomb = 30, bio = 0, rad = 0)
 
 /obj/item/clothing/head/helmet/tajara
