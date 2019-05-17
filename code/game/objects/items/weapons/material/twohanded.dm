@@ -218,9 +218,9 @@
 	force = 10
 	w_class = 4.0
 	slot_flags = SLOT_BACK
-	force_divisor = 0.35
-	unwielded_force_divisor = 0.2 
-	thrown_force_divisor = 0.4 
+	force_divisor = 0.35 // 21 damage for steel (hardness 60)
+	unwielded_force_divisor = 0.2 // 12 damage for steel (hardness 60)
+	thrown_force_divisor = 0.4 // 24 damage for steel (hardness 60)
 	edge = 1
 	sharp = 0
 	hitsound = 'sound/weapons/bladeslice.ogg'
