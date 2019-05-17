@@ -4223,7 +4223,7 @@
 	reagents.add_reagent("iron", 3)
 
 /obj/item/weapon/reagent_containers/food/snacks/liquidfood/set_flavor()
-	flavor = pick("chocolate", "peanut butter cookie", "scrambled eggs", "beef taco", "tofu", "pizza", "spaghetti", "cheesy potatoes", "hamburger", "baked beans", "maple sausage")
+	flavor = pick("chocolate", "peanut butter cookie", "scrambled eggs", "beef taco", "tofu", "pizza", "spaghetti", "cheesy potatoes", "hamburger", "baked beans", "maple sausage", "chili macaroni", "veggie burger")
 	. = ..()
 
 /obj/item/weapon/reagent_containers/food/snacks/tastybread
