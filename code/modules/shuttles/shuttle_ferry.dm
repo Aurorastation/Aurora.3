@@ -129,15 +129,14 @@
 	// counting engines
 	var/area/A = area_station
 	for(var/obj/structure/shuttle/engine/propulsion/P in A.contents)
-		engines_c += 1
+		engine_c += 1
 	
 	var/ratio = (1 - (engine_c / engines_count)) * 100
 	if(ratio != 1 && !engines_checked)
 		engines_checked = TRUE
-		var/area/A = area_station
 		for(var/mob/living/L in A.contents)
 			to_chat(L, span("danger", "Warning: shuttle propulsion system is damaged! There is a [ratio]% chance of crash!"))
-	else if(ration != 1)
+	else if(ratio != 1)
 		crash_shuttle()
 	else
 		engines_checked = FALSE
