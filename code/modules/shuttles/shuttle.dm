@@ -13,15 +13,6 @@
 	var/datum/computer/file/embedded_program/docking/docking_controller	//the controller itself. (micro-controller, not game controller)
 
 	var/arrive_time = 0	//the time at which the shuttle arrives when long jumping
-	var/engines_count = 0 //Used to determine if shuttle should crash
-	var/engines_checked = FALSE
-
-/datum/shuttle/Initialize()
-	..()
-
-	// counting engines
-	for(var/obj/structure/shuttle/engine/propulsion/P in area_station.contents)
-		engines_count += 1
 
 /datum/shuttle/proc/init_docking_controllers()
 	if(docking_controller_tag)
@@ -81,23 +72,7 @@
 	return null
 
 /datum/shuttle/proc/check_engines()
-	var/engine_c = 0
-	// counting engines
-	for(var/obj/structure/shuttle/engine/propulsion/P in area_station.contents)
-		engines_c += 1
-	
-	var/ratio = (1 - (engine_c / engines_count)) * 100
-	if(ratio != 1 && !engines_checked)
-		engines_checked = TRUE
-		for(var/mob/living/L in area_station.contents)
-			to_chat(L, span("danger", "Warning: shuttle propulsion system is damaged! There is a [ratio]% chance of crash!"))
-	else if(ration != 1)
-		process_state = CRASH_SHUTTLE
-		to_chat(L, span("danger", "Warning: Not enough propulsion to gain velocity! Loosing altitude!"))
-		undock()
-		return
-	else
-		engines_checked = FALSE
+	return
 
 /datum/shuttle/proc/skip_docking_checks()
 	if (!docking_controller || !current_dock_target())

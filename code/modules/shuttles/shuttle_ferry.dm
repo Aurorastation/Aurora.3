@@ -18,6 +18,16 @@
 	var/dock_target_offsite
 
 	var/last_dock_attempt_time = 0
+	var/engines_count = 0 //Used to determine if shuttle should crash
+	var/engines_checked = FALSE
+
+/datum/shuttle/ferry/proc/Initialize()
+
+	// counting engines
+	var/area/A = area_station
+	for(var/obj/structure/shuttle/engine/propulsion/P in A.contents)
+		engines_count += 1
+
 
 /datum/shuttle/ferry/short_jump(var/area/origin,var/area/destination)
 	if(isnull(location))
@@ -107,8 +117,30 @@
 		dock_target = dock_target_offsite
 	return dock_target
 
-/datum/shuttle/ferry/proc/crash_shuttle() // Currently only pods can crash
-	return
+/datum/shuttle/ferry/proc/crash_shuttle()
+	process_state = CRASH_SHUTTLE
+	var/area/A = area_station
+	for(var/mob/living/L in A.contents)
+		to_chat(L, span("danger", "Warning: Not enough propulsion to gain velocity! Loosing altitude!"))
+	undock()
+
+/datum/shuttle/ferry/check_engines()
+	var/engine_c = 0
+	// counting engines
+	var/area/A = area_station
+	for(var/obj/structure/shuttle/engine/propulsion/P in A.contents)
+		engines_c += 1
+	
+	var/ratio = (1 - (engine_c / engines_count)) * 100
+	if(ratio != 1 && !engines_checked)
+		engines_checked = TRUE
+		var/area/A = area_station
+		for(var/mob/living/L in A.contents)
+			to_chat(L, span("danger", "Warning: shuttle propulsion system is damaged! There is a [ratio]% chance of crash!"))
+	else if(ration != 1)
+		crash_shuttle()
+	else
+		engines_checked = FALSE
 
 /datum/shuttle/ferry/proc/launch(var/user)
 	if (!can_launch()) return
