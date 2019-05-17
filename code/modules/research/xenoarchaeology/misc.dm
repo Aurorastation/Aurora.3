@@ -74,7 +74,7 @@
 		sleep(2)
 		new /obj/item/clothing/under/rank/scientist(src)
 		new /obj/item/clothing/suit/storage/toggle/labcoat(src)
-		new /obj/item/clothing/shoes/scientist(src)
+		new /obj/item/clothing/shoes/science(src)
 		new /obj/item/clothing/glasses/science(src)
 		new /obj/item/device/radio/headset/headset_sci(src)
 		new /obj/item/weapon/storage/belt/archaeology(src)
