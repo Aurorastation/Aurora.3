@@ -291,7 +291,7 @@ var/list/name_to_material
 	name = "gold"
 	stack_type = /obj/item/stack/material/gold
 	icon_colour = "#EDD12F"
-	weight = 35
+	weight = 30
 	hardness = 15 
 	conductivity = 41
 	stack_origin_tech = list(TECH_MATERIAL = 4)
