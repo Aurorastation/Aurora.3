@@ -39,6 +39,6 @@ delete-after: True
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
   - tweak: "All soft and cloth footwear no longer clicks on the floor as you move. Certainy spooky or traitorous footwear is also affected by this. You may now stalk people in bunny slippers."
-  - tweak: "White shoes are no longer chemical resistant. Doctors and scientists are now equipped with special chem resistant shoes that are chem resistant, and distinctive from regular white shoes."
-  - tweak: "All closets of clothing and corpses that belong to doctors and scientists now contain chemical resistant shoes.  Except genetics, because it doesn't exist."
+  - tweak: "White shoes are no longer chemical resistant. Doctors, scientists, and biochemists/pharmacists are now equipped with special protective shoes that have their own sprites, and resistances appropriate to their department."
+  - tweak: "All closets of clothing and corpses that belong to doctors and scientists now contain appropriate shoes.  Except genetics, because it doesn't exist."
   - tweak: "Shoes now use more descriptive examine text unstead of a generic catch-all."

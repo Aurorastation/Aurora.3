@@ -292,7 +292,7 @@
 
 	uniform = /obj/item/clothing/under/overalls
 	suit = /obj/item/clothing/suit/apron
-	shoes = /obj/item/clothing/shoes/medical
+	shoes = /obj/item/clothing/shoes/white
 	gloves = /obj/item/clothing/gloves/latex
 	mask = /obj/item/clothing/mask/surgical
 	head = /obj/item/clothing/head/welding

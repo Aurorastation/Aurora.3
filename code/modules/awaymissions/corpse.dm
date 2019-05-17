@@ -190,7 +190,7 @@
 	corpseuniform = /obj/item/clothing/under/rank/scientist
 	corpsesuit = /obj/item/clothing/suit/storage/toggle/labcoat/science
 	corpseback = /obj/item/weapon/storage/backpack
-	corpseshoes = /obj/item/clothing/shoes/medical
+	corpseshoes = /obj/item/clothing/shoes/scientist
 	corpseid = 1
 	corpseidjob = "Scientist"
 	corpseidaccess = "Scientist"

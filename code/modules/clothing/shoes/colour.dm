@@ -47,10 +47,24 @@
 	icon_state = "mime"
 
 /obj/item/clothing/shoes/medical
-	name = "chem-safe shoes"
-	desc = "A pair of chemically resistant white shoes intended for safety around chemicals."
-	icon_state = "mime"
+	name = "doctor shoes"
+	desc = "A pair of blue and white shoes intended for safety around patients."
+	icon_state = "doctor"
+	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 80, rad = 0)
+
+/obj/item/clothing/shoes/science
+	name = "scientist shoes"
+	desc = "A pair of treated purple and white shoes resistant to chemical and gas spills."
+	icon_state = "scientist"
+	gas_transfer_coefficient = 0.01
 	permeability_coefficient = 0.01
+
+/obj/item/clothing/shoes/chemist
+	name = "biochemist shoes"
+	desc = "A pair of green and white shoes resistant to biological and chemical hazards."
+	icon_state = "chemist"
+	permeability_coefficient = 0.01
+	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 90, rad = 0)
 
 /obj/item/clothing/shoes/leather
 	name = "leather shoes"
