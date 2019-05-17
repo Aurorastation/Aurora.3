@@ -30,6 +30,7 @@
 	//Used to stop deepfried meat from looking like slightly tanned raw meat, and make it actually look cooked
 
 	//Placeholder for effect that trigger on eating that aren't tied to reagents.
+	var/flavor = null // set_flavor()
 
 /obj/item/weapon/reagent_containers/food/snacks/Initialize()
 	. = ..()
@@ -377,6 +378,12 @@
 			var/datum/reagent/nutriment/coating/C = R
 			C.data["cooked"] = 1
 			C.name = C.cooked_name
+
+// A proc for setting various flavors of the same type of food instead of creating new foods with the only difference being a flavor
+/obj/item/weapon/reagent_containers/food/snacks/proc/set_flavor()
+	if(!flavor)
+		flavor = pick("flavored") // Use flavor = pick("option 1", "option 2", "etc") to define possible flavors before using .=..()
+	name = "[flavor] [name]"
 
 ////////////////////////////////////////////////////////////////////////////////
 /// FOOD END
@@ -4200,19 +4207,24 @@
 	nutriment_amt = 3
 
 /obj/item/weapon/reagent_containers/food/snacks/liquidfood
-	name = "\improper LiquidFood ration"
-	desc = "A prepackaged grey slurry of all the essential nutrients for a spacefarer on the go. Should this be crunchy?"
+	name = "LiquidFood ration"
+	desc = "A prepackaged grey slurry of all the essential nutrients for a spacefarer on the go. Should this be crunchy? Now with artificial flavoring!"
 	icon_state = "liquidfood"
 	trash = /obj/item/trash/liquidfood
 	filling_color = "#A8A8A8"
 	center_of_mass = list("x"=16, "y"=15)
-	nutriment_desc = list("chalk" = 3)
-	nutriment_amt = 10
 	bitesize = 4
 
 /obj/item/weapon/reagent_containers/food/snacks/liquidfood/Initialize()
 	. = ..()
+	set_flavor()
+	reagents.add_reagent("nutriment", 9, list("[flavor]" = 9))
+	reagents.add_reagent("nutriment", 1, list("chalk" = 1))
 	reagents.add_reagent("iron", 3)
+
+/obj/item/weapon/reagent_containers/food/snacks/liquidfood/set_flavor()
+	flavor = pick("chocolate", "peanut butter cookie", "scrambled eggs", "beef taco", "tofu", "pizza", "spaghetti", "cheesy potatoes", "hamburger", "baked beans", "maple sausage")
+	. = ..()
 
 /obj/item/weapon/reagent_containers/food/snacks/tastybread
 	name = "bread tube"
