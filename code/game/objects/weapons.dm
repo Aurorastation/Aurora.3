@@ -2,6 +2,7 @@
 	name = "weapon"
 	icon = 'icons/obj/weapons.dmi'
 	hitsound = "swing_hit"
+	drop_sound = 'sound/items/drop/metalweapon.ogg'
 
 //Called when the user alt-clicks on something with this item in their active hand
 //this function is designed to be overridden by individual weapons

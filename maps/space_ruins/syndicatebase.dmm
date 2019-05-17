@@ -15,9 +15,6 @@
 /obj/effect/floor_decal/asteroid,
 /turf/simulated/floor/asteroid/ash,
 /area/mine/unexplored)
-"af" = (
-/turf/template_noop,
-/area/mine/unexplored)
 "ag" = (
 /turf/simulated/shuttle/wall/dark,
 /area/derelict)
@@ -136,7 +133,7 @@
 "au" = (
 /obj/machinery/light,
 /turf/template_noop,
-/area/mine/unexplored)
+/area/template_noop)
 "av" = (
 /obj/machinery/light,
 /turf/simulated/floor/asteroid/ash/rocky,
@@ -758,7 +755,7 @@
 	dir = 8
 	},
 /turf/template_noop,
-/area/mine/unexplored)
+/area/template_noop)
 "ce" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
@@ -799,9 +796,6 @@
 /obj/structure/lattice/catwalk,
 /turf/template_noop,
 /area/mine/unexplored)
-"cj" = (
-/turf/template_noop,
-/area/derelict)
 "ck" = (
 /obj/machinery/light,
 /obj/effect/decal/cleanable/dirt,
@@ -1231,21 +1225,6 @@
 	},
 /turf/simulated/floor,
 /area/derelict)
-"dk" = (
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/grille,
-/obj/machinery/door/firedoor,
-/turf/template_noop,
-/area/derelict)
 "dl" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
@@ -1584,19 +1563,6 @@
 	icon_state = "asteroidplating"
 	},
 /area/derelict)
-"ee" = (
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/grille,
-/obj/structure/window/reinforced,
-/obj/machinery/door/firedoor,
-/turf/template_noop,
-/area/derelict)
 "ef" = (
 /obj/machinery/light,
 /obj/random/junk,
@@ -1666,50 +1632,6 @@
 /area/derelict)
 "eo" = (
 /obj/machinery/power/rtg/advanced,
-/obj/structure/cable{
-	d2 = 2;
-	icon_state = "0-2";
-	pixel_y = 0
-	},
-/turf/simulated/floor,
-/area/derelict)
-"ep" = (
-/obj/machinery/power/apc{
-	dir = 1;
-	is_critical = 1;
-	name = "north bump";
-	pixel_x = 0;
-	pixel_y = 24
-	},
-/obj/machinery/power/terminal{
-	icon_state = "term";
-	dir = 1
-	},
-/obj/structure/cable{
-	icon_state = "0-4";
-	d2 = 4
-	},
-/turf/simulated/floor,
-/area/derelict)
-"eq" = (
-/obj/structure/cable{
-	d1 = 2;
-	d2 = 4;
-	icon_state = "2-4"
-	},
-/obj/structure/cable{
-	d1 = 2;
-	d2 = 8;
-	icon_state = "2-8"
-	},
-/turf/simulated/floor,
-/area/derelict)
-"er" = (
-/obj/machinery/power/terminal,
-/obj/structure/cable{
-	d2 = 8;
-	icon_state = "0-8"
-	},
 /turf/simulated/floor,
 /area/derelict)
 "es" = (
@@ -1731,37 +1653,6 @@
 	icon_state = "white"
 	},
 /area/derelict)
-"ev" = (
-/obj/machinery/power/rtg/advanced,
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 4;
-	icon_state = "1-4"
-	},
-/turf/simulated/floor,
-/area/derelict)
-"ew" = (
-/obj/machinery/power/rtg/advanced,
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 4;
-	icon_state = "1-4"
-	},
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/turf/simulated/floor,
-/area/derelict)
-"ex" = (
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/turf/simulated/floor,
-/area/derelict)
 "ey" = (
 /obj/machinery/chemical_dispenser/bar_soft/full{
 	pixel_x = 2;
@@ -1777,7 +1668,6 @@
 	},
 /area/derelict)
 "ez" = (
-/obj/machinery/power/smes,
 /obj/machinery/light{
 	dir = 4
 	},
@@ -1897,13 +1787,7 @@
 	dir = 4
 	},
 /turf/template_noop,
-/area/derelict)
-"eM" = (
-/obj/machinery/light{
-	dir = 8
-	},
-/turf/template_noop,
-/area/derelict)
+/area/template_noop)
 "eN" = (
 /turf/simulated/mineral,
 /area/template_noop)
@@ -2552,15 +2436,6 @@
 /obj/item/weapon/phone,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/wood,
-/area/derelict)
-"gB" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 8;
-	icon_state = "1-8"
-	},
-/obj/effect/decal/cleanable/liquid_fuel,
-/turf/simulated/floor,
 /area/derelict)
 "gC" = (
 /obj/machinery/door/airlock/hatch,
@@ -26952,7 +26827,7 @@ ad
 ad
 ad
 ac
-af
+aa
 ah
 bb
 bc
@@ -27208,8 +27083,8 @@ ad
 ad
 ad
 ac
-af
-af
+aa
+aa
 ai
 bc
 bz
@@ -27464,9 +27339,9 @@ ad
 ad
 ad
 ad
-af
-af
-af
+aa
+aa
+aa
 ag
 bd
 bc
@@ -27721,8 +27596,8 @@ ad
 ad
 ad
 ac
-af
-af
+aa
+aa
 ac
 ag
 ag
@@ -27978,8 +27853,8 @@ ad
 ad
 ad
 ac
-af
-af
+aa
+aa
 ac
 ah
 bb
@@ -28235,8 +28110,8 @@ ad
 ad
 ad
 ac
-af
-af
+aa
+aa
 ac
 ai
 bc
@@ -28492,8 +28367,8 @@ ad
 ad
 ad
 ad
-af
-af
+aa
+aa
 ac
 ag
 bd
@@ -28750,7 +28625,7 @@ ad
 ad
 ad
 ad
-af
+aa
 ac
 ag
 ag
@@ -28768,10 +28643,10 @@ ac
 ac
 ac
 ac
-af
-af
-af
-af
+aa
+aa
+aa
+aa
 ac
 ac
 ac
@@ -29007,7 +28882,7 @@ ad
 ad
 ad
 ad
-af
+aa
 ac
 ah
 bb
@@ -29022,17 +28897,17 @@ bc
 bb
 ah
 ac
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 ac
 ac
 ac
@@ -29264,7 +29139,7 @@ ad
 ad
 ad
 ad
-af
+aa
 ac
 ai
 bc
@@ -29278,20 +29153,20 @@ bW
 bc
 bc
 ai
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 ac
 ac
 ac
@@ -29535,25 +29410,25 @@ df
 bc
 en
 ag
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 ac
 ar
 ad
@@ -33907,20 +33782,20 @@ aB
 aB
 ag
 as
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 ej
 dQ
 dQ
@@ -34164,20 +34039,20 @@ aB
 aB
 ag
 as
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 ej
 ej
 ej
@@ -34421,20 +34296,20 @@ aB
 aB
 ag
 as
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 ej
 dM
 dM
@@ -35426,7 +35301,7 @@ ab
 ab
 ab
 ab
-af
+aa
 ac
 am
 am
@@ -35683,7 +35558,7 @@ ab
 ab
 ab
 aa
-af
+aa
 ac
 ac
 ac
@@ -37266,12 +37141,12 @@ aB
 aB
 ag
 eK
-cj
-cj
-cj
+aa
+aa
+aa
 eK
-cj
-cj
+aa
+aa
 eV
 aq
 fI
@@ -37522,13 +37397,13 @@ aI
 aB
 aB
 ag
-cj
-cj
-cj
-cj
-cj
-cj
-cj
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 eT
 aq
 aq
@@ -37779,12 +37654,12 @@ aB
 aB
 aH
 ag
-cj
-cj
+aa
+aa
 eL
-cj
-cj
-cj
+aa
+aa
+aa
 ag
 ag
 aq
@@ -38036,11 +37911,11 @@ ag
 aG
 aG
 ag
-dk
-ee
+cg
+cq
 ag
-dk
-ee
+cg
+cq
 ag
 ag
 fH
@@ -38288,7 +38163,7 @@ bn
 dD
 ag
 eo
-ev
+eo
 ag
 aB
 aB
@@ -38545,7 +38420,7 @@ dZ
 eh
 ag
 eo
-ew
+eo
 ag
 aB
 aB
@@ -38802,17 +38677,17 @@ cq
 ag
 ag
 eo
-ew
+eo
 ag
 aB
 gK
 ag
-cj
-cj
-eM
-cj
-cj
-cj
+aa
+aa
+cd
+aa
+aa
+aa
 ag
 ag
 aq
@@ -39058,19 +38933,19 @@ bn
 bn
 dI
 ag
-ep
-ex
+aj
+aj
 ag
 aB
 aB
 ag
-cj
-cj
-cj
-cj
-cj
-cj
-cj
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 eV
 aq
 aq
@@ -39287,7 +39162,7 @@ ac
 ac
 ac
 ac
-af
+aa
 az
 aU
 bv
@@ -39315,19 +39190,19 @@ go
 bn
 ei
 ag
-eq
-gB
+aj
+aj
 ag
 aB
 aB
 ag
 fD
-cj
-cj
-cj
+aa
+aa
+aa
 fD
-cj
-cj
+aa
+aa
 eT
 aq
 fJ
@@ -39544,7 +39419,7 @@ aa
 ac
 ac
 ac
-af
+aa
 aA
 aV
 aV
@@ -39572,7 +39447,7 @@ dY
 ea
 dq
 ag
-er
+aj
 ez
 ag
 aB
@@ -39800,7 +39675,7 @@ aa
 aa
 ac
 ac
-af
+aa
 au
 ag
 aW
@@ -40057,8 +39932,8 @@ aa
 aa
 ac
 ac
-af
-af
+aa
+aa
 az
 aX
 aX
@@ -40315,7 +40190,7 @@ aa
 ac
 ae
 ac
-af
+aa
 aA
 aZ
 bw
@@ -41095,11 +40970,11 @@ aQ
 ac
 ac
 cd
-af
-af
-af
-af
-af
+aa
+aa
+aa
+aa
+aa
 ac
 db
 ar
@@ -41108,16 +40983,16 @@ ad
 ad
 ar
 aQ
-af
-af
+aa
+aa
 cd
-af
-af
+aa
+aa
 cd
-af
-af
+aa
+aa
 cd
-af
+aa
 ac
 ar
 ad
@@ -41367,13 +41242,13 @@ ar
 ae
 ac
 ac
-af
-af
-af
-af
-af
-af
-af
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 ac
 ac
 ad

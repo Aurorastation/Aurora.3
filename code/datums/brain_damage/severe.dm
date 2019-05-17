@@ -56,6 +56,7 @@
 	gain_text = "<span class='warning'>You can't feel your body anymore!</span>"
 	lose_text = "<span class='notice'>You can feel your limbs again!</span>"
 	cure_type = CURE_SURGERY
+	can_gain = FALSE
 
 /datum/brain_trauma/severe/paralysis/on_life()
 	owner.Weaken(200)
@@ -72,6 +73,7 @@
 	gain_text = "<span class='warning'>You have a constant feeling of drowsiness...</span>"
 	lose_text = "<span class='notice'>You feel awake and aware again.</span>"
 	cure_type = CURE_HYPNOSIS
+	can_gain = FALSE
 
 /datum/brain_trauma/severe/narcolepsy/on_life()
 	..()

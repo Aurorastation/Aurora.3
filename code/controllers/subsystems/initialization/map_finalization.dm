@@ -5,6 +5,9 @@
 	flags = SS_NO_FIRE | SS_NO_DISPLAY
 	init_order = SS_INIT_MAPFINALIZE
 
+	var/dmm_suite/maploader
+	var/datum/space_ruin/selected_ruin
+
 /datum/controller/subsystem/finalize/Initialize(timeofday)
 	// Setup the global antag uplink. This needs to be done after SSatlas as it requires current_map.
 	global.uplink = new
@@ -12,6 +15,11 @@
 	var/time = world.time
 	current_map.finalize_load()
 	log_ss("map_finalization", "Finalized map in [(world.time - time)/10] seconds.")
+
+	//Select ruin and spawn it
+	if(current_map.has_space_ruins)
+		select_ruin()
+		load_space_ruin()
 
 	if(config.dungeon_chance > 0)
 		place_dungeon_spawns()
@@ -27,6 +35,9 @@
 	// This is dependant on markers.
 	populate_antag_spawns()
 
+	// Generate contact report.
+	generate_contact_report()
+
 	..()
 
 /proc/resort_all_areas()
@@ -36,7 +47,65 @@
 
 	sortTim(all_areas, /proc/cmp_name_asc)
 
-/proc/place_dungeon_spawns()
+/datum/controller/subsystem/finalize/proc/select_ruin()
+	var/list/ruinconfig = list()
+	var/list/ruinlist = list()
+	var/list/weightedlist = list()
+	try
+		ruinconfig = json_decode(return_file_text("config/space_ruins.json"))
+	catch(var/exception/ej)
+		log_debug("SSatlas: Warning: Could not load space ruin config, as space_ruins.json is missing - [ej]")
+		return
+	
+	for(var/ruinname in ruinconfig)
+		//Create the datums
+		var/datum/space_ruin/sr = new(ruinname,ruinconfig[ruinname]["file_name"])
+		if("weight" in ruinconfig[ruinname])
+			sr.weight = ruinconfig[ruinname]["weight"]
+		if("valid_maps" in ruinconfig[ruinname])
+			sr.valid_maps = ruinconfig[ruinname]["valid_maps"]
+		if("characteristics" in ruinconfig[ruinname])
+			sr.characteristics = ruinconfig[ruinname]["characteristics"]
+		
+		//Check if the file exists
+		var/map_directory = "maps/space_ruins/"
+		if(!fexists("[map_directory][sr.file_name]"))
+			admin_notice("<span class='danger'>Map file [sr.file_name] for ruin [sr.name] does not exist.</span>")
+			log_ss("atlas","Map file [sr.file_name] for ruin [sr.name] does not exist.")
+			continue
+
+		//Build the lists
+		if(length(sr.valid_maps))
+			if(!(current_map.name in sr.valid_maps))
+				continue
+		ruinlist[sr.name] = sr
+		weightedlist[sr.name] = sr.weight
+	
+	if(!length(ruinlist))
+		log_ss("atlas","Found no valid ruins for current map.")
+		return
+
+	log_ss("atlas", "Loaded ruin config.")
+	var/ruinname = pickweight(weightedlist)
+	selected_ruin = ruinlist[ruinname]
+	return
+
+/datum/controller/subsystem/finalize/proc/load_space_ruin()
+	maploader = new
+
+	if(!selected_ruin)
+		return
+	var/map_directory = "maps/space_ruins/"
+	var/mfile = "[map_directory][selected_ruin.file_name]"
+	var/time = world.time
+
+	if (!maploader.load_map(file(mfile), 0, 0, no_changeturf = TRUE))
+		log_ss("finalize", "Failed to load '[mfile]'!")
+	else
+		log_ss("atlas", "Loaded space ruin in [(world.time - time)/10] seconds.")
+	QDEL_NULL(maploader)
+
+/datum/controller/subsystem/finalize/proc/place_dungeon_spawns()
 	var/map_directory = "maps/dungeon_spawns/"
 	var/list/files = flist(map_directory)
 	var/start_time = world.time
@@ -78,73 +147,13 @@
 
 	qdel(maploader)
 
-/proc/create_space_ruin(var/X, var/Y, var/Z)
-	var/map_directory = "maps/space_ruins/"
-	var/list/files = flist(map_directory)
-	var/start_time = world.time
-	var/static/dmm_suite/maploader = new
-
-	if(length(files) <= 0)
-		log_ss("map_finalization","There are no space ruin map.")
+/datum/controller/subsystem/finalize/proc/generate_contact_report()
+	if(!selected_ruin)
 		return
-
-	var/chosen_ruin = pick(files)
-
-	if(!dd_hassuffix(chosen_ruin,".dmm"))
-		files -= chosen_ruin
-		log_ss("map_finalization","ALERT: [chosen_ruin] is not a .dmm file! Skipping!")
-
-	var/map_file = file("[map_directory][chosen_ruin]")
-
-	if(isfile(map_file))
-		log_ss("map_finalization","Loading space ruin '[chosen_ruin]' at coordinates [X], [Y], [Z].")
-		maploader.load_map(map_file,X,Y,Z)
-
-	else
-		log_ss("map_finalization","ERROR: Something weird happened with the file: [chosen_ruin].")
-
-	log_ss("map_finalization","Loaded [chosen_ruin] space ruin in [(world.time - start_time)/10] seconds.")
-	create_space_ruin_report("chosen_ruin")
-	qdel(maploader)
-
-/proc/create_space_ruin_report(var/ruin_name)
-
-	var/ruintext = "<center><img src = ntlogo.png><BR><h2><BR><B>Icarus Reading Report</h2></B></FONT size><HR></center>"
-	ruintext += "<B><font face='Courier New'>The Icarus sensors located a away site with the possible characteristics:</font></B><br>"
-
-	switch(ruin_name)
-		if("crashed_freighter")
-			ruintext += "Lifeform signals.<br>"
-
-		if("derelict" || "nt_cloneship")
-			ruintext += "NanoTrasen infrastructure.<br>"
-
-		if("pra_blockade_runner")
-			ruintext += "Large biomass signals.<br>"
-
-		if("sol_frigate")
-			ruintext += "Warp signal.<br>"
-
-		else
-			ruintext += "Unrecognizable signals.<br>"
-
-	if(prob(20))
-		ruintext += "Mineral concentration.<br>"
-
-	if(prob(20))
-		ruintext += "Bluespace signals.<br>"
-
-	if(prob(20))
-		ruintext += "Artificial intelligence signals.<br>"
-
-	ruintext += "<HR>"
-
-	ruintext += "<B><font face='Courier New'>This reading has been detected within shuttle range of the [current_map.station_name] and deemed safe for survey by [current_map.company_name] personnel. \
-	The designated research director, or a captain level decision may determine the goal of any missions to this site. On-site command is deferred to any nearby command staff.</font></B><br>"
-
+	var/report_text = selected_ruin.get_contact_report()
 	for(var/obj/effect/landmark/C in landmarks_list)
 		if(C.name == "Space Ruin Paper")
 			var/obj/item/weapon/paper/P = new /obj/item/weapon/paper(get_turf(C))
 			P.name = "Icarus reading report"
-			P.info = ruintext
+			P.info = report_text
 			P.update_icon()
