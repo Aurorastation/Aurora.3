@@ -291,8 +291,8 @@ var/list/name_to_material
 	name = "gold"
 	stack_type = /obj/item/stack/material/gold
 	icon_colour = "#EDD12F"
-	weight = 24
-	hardness = 15 //Gold was harder than glass? lolwot
+	weight = 35
+	hardness = 15 
 	conductivity = 41
 	stack_origin_tech = list(TECH_MATERIAL = 4)
 	sheet_singular_name = "ingot"
