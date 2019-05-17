@@ -3329,9 +3329,9 @@
 /obj/effect/decal/spraystill{
 	desc = "A dropship of some kind.";
 	icon = 'icons/obj/decals.dmi';
-	icon_state = "bsv_chariot1";
+	icon_state = "blv_chariot1";
 	layer = 3.5;
-	name = "The BSL Chariot";
+	name = "The BLV Chariot";
 	pixel_x = 0;
 	pixel_y = -4
 	},
@@ -3363,7 +3363,7 @@
 /obj/effect/decal/spraystill{
 	desc = "Looks to be a dropship of some kind.";
 	icon = 'icons/obj/decals.dmi';
-	icon_state = "bsv_chariot2";
+	icon_state = "blv_chariot2";
 	layer = 3.5;
 	name = "The BLV Chariot";
 	pixel_x = 0;
@@ -7131,12 +7131,10 @@
 /turf/simulated/shuttle/floor/wood/destructible,
 /area/merchant_ship/start)
 "arW" = (
-/obj/effect/floor_decal/carpet{
-	icon_state = "carpet_edges";
-	dir = 4
-	},
 /obj/machinery/computer/shuttle_control/merchant,
-/turf/simulated/shuttle/floor/carpet/destructible,
+/turf/simulated/shuttle/floor/carpet/destructible{
+	icon_state = "bcarpet"
+	},
 /area/merchant_ship/start)
 "arX" = (
 /obj/structure/bed/chair{
@@ -27967,38 +27965,18 @@
 /turf/simulated/shuttle/floor/wood/destructible,
 /area/merchant_ship/start)
 "yaI" = (
-/obj/effect/floor_decal/carpet{
-	icon_state = "carpet_edges";
-	dir = 1
-	},
 /obj/structure/table/reinforced,
 /obj/item/weapon/hand_labeler,
-/obj/effect/floor_decal/carpet{
-	dir = 8;
-	icon_state = "carpet_edges"
+/turf/simulated/shuttle/floor/carpet/destructible{
+	icon_state = "bcarpet"
 	},
-/obj/effect/floor_decal/carpet{
-	icon_state = "carpet_edges";
-	dir = 9
-	},
-/turf/simulated/shuttle/floor/carpet/destructible,
 /area/merchant_ship/start)
 "yaJ" = (
-/obj/effect/floor_decal/carpet{
-	icon_state = "carpet_edges";
-	dir = 1
-	},
-/obj/effect/floor_decal/carpet{
-	icon_state = "carpet_edges";
-	dir = 4
-	},
-/obj/effect/floor_decal/carpet{
-	icon_state = "carpet_edges";
-	dir = 5
-	},
 /obj/structure/table/reinforced,
 /obj/item/weapon/storage/wallet,
-/turf/simulated/shuttle/floor/carpet/destructible,
+/turf/simulated/shuttle/floor/carpet/destructible{
+	icon_state = "bcarpet"
+	},
 /area/merchant_ship/start)
 "yaL" = (
 /obj/machinery/door/blast/regular{
@@ -28038,11 +28016,9 @@
 /obj/structure/bed/chair/office/bridge{
 	dir = 4
 	},
-/obj/effect/floor_decal/carpet{
-	dir = 8;
-	icon_state = "carpet_edges"
+/turf/simulated/shuttle/floor/carpet/destructible{
+	icon_state = "bcarpet"
 	},
-/turf/simulated/shuttle/floor/carpet/destructible,
 /area/merchant_ship/start)
 "yaP" = (
 /obj/structure/closet/walllocker/emerglocker/south,
@@ -28077,7 +28053,6 @@
 /turf/simulated/shuttle/floor/wood/destructible,
 /area/merchant_ship/start)
 "yaT" = (
-/obj/effect/floor_decal/carpet,
 /obj/structure/table/reinforced,
 /obj/machinery/button/remote/blast_door{
 	id = "MERCHANT FULL";
@@ -28093,30 +28068,17 @@
 	pixel_y = 4;
 	req_access = list(110)
 	},
-/obj/effect/floor_decal/carpet{
-	dir = 8;
-	icon_state = "carpet_edges"
+/turf/simulated/shuttle/floor/carpet/destructible{
+	icon_state = "bcarpet"
 	},
-/obj/effect/floor_decal/carpet{
-	dir = 10;
-	icon_state = "carpet_edges"
-	},
-/turf/simulated/shuttle/floor/carpet/destructible,
 /area/merchant_ship/start)
 "yaU" = (
-/obj/effect/floor_decal/carpet,
-/obj/effect/floor_decal/carpet{
-	icon_state = "carpet_edges";
-	dir = 4
-	},
-/obj/effect/floor_decal/carpet{
-	icon_state = "carpet_edges";
-	dir = 6
-	},
 /obj/structure/table/reinforced,
 /obj/item/weapon/storage/secure/briefcase,
 /obj/item/device/price_scanner,
-/turf/simulated/shuttle/floor/carpet/destructible,
+/turf/simulated/shuttle/floor/carpet/destructible{
+	icon_state = "bcarpet"
+	},
 /area/merchant_ship/start)
 "yaV" = (
 /obj/structure/window/shuttle,
