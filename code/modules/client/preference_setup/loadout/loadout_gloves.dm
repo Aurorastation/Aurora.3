@@ -35,6 +35,7 @@
 
 /datum/gear/gloves/ring
 	display_name = "ring"
+	description = "A selection of rings."
 	path = /obj/item/clothing/ring/engagement
 
 /datum/gear/gloves/ring/New()

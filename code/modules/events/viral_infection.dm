@@ -26,17 +26,15 @@ datum/event/viral_infection/setup()
 
 datum/event/viral_infection/announce()
 
-	var/disease_name = generated_disease ? generated_disease.generated_name : pick("Xenomorph Transformation", "Wizarditis", "GBS", "The Rhumba Beat")
-
 	var/announcement_body
 	var/announcement_title
 
 	if(!generated_disease || generated_disease.dangerous)
 		announcement_title = "High Risk Viral Outbreak"
-		announcement_body = "Confirmed outbreak of level 7 viral infection classification \"[disease_name]\". Failure to contain outbreak and comply with official orders may result in contract termination and/or death."
+		announcement_body = "Confirmed outbreak of level 7 viral infection. Failure to contain outbreak and comply with official orders may result in contract termination and/or death."
 	else
 		announcement_title = "Viral Outbreak"
-		announcement_body = "Confirmed outbreak of level 5 viral infection classification \"[disease_name]\". Please report to the medbay if you show any unusual symptoms."
+		announcement_body = "Confirmed outbreak of level 5 viral infection. Please report to the medbay if you show any unusual symptoms."
 
 	command_announcement.Announce(announcement_body, announcement_title)
 

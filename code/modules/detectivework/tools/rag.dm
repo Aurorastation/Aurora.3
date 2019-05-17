@@ -28,6 +28,7 @@
 
 	var/on_fire = 0
 	var/burn_time = 20 //if the rag burns for too long it turns to ashes
+	drop_sound = 'sound/items/drop/clothing.ogg'
 
 /obj/item/weapon/reagent_containers/glass/rag/Initialize()
 	. = ..()

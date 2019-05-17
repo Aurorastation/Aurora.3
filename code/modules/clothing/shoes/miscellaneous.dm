@@ -9,6 +9,7 @@
 	var/list/clothing_choices = list()
 	siemens_coefficient = 0.8
 	species_restricted = null
+	drop_sound = 'sound/items/drop/rubber.ogg'
 
 /obj/item/clothing/shoes/mime
 	name = "mime shoes"
@@ -112,6 +113,7 @@
 	species_restricted = null
 	w_class = 2
 	silent = 1
+	drop_sound = 'sound/items/drop/clothing.ogg'
 
 /obj/item/clothing/shoes/slippers_worn
 	name = "worn bunny slippers"
@@ -142,6 +144,7 @@
 	w_class = 2
 	species_restricted = null
 	silent = 1
+	drop_sound = 'sound/items/drop/clothing.ogg'
 
 /obj/item/clothing/shoes/winter_old
 	name = "winter boots"
@@ -156,6 +159,7 @@
 	name = "cowboy boots"
 	desc = "Lacking a durasteel horse to ride."
 	icon_state = "cowboy"
+	drop_sound = 'sound/items/drop/leather.ogg'
 
 /obj/item/clothing/shoes/cowboy/classic
 	name = "classic cowboy boots"
