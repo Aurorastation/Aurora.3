@@ -195,7 +195,7 @@
 
 /obj/item/clothing/accessory/badge/contractor/necrosec
 	name = "Necropolis Industries Security ID"
-	desc = "An old-fashioned, practical plastic card. This one is of the prestigious Personal Security Professional position."
+	desc = "An old-fashioned, practical plastic card. This one is of a higher rank, for Security personnel."
 	icon_state = "necrosec_card"
 	item_state = "necrosec_card"
 
