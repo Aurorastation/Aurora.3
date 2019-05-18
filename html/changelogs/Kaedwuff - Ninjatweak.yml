@@ -38,7 +38,8 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
-  - tweak: "The stealth module now is half as expensive to use."
+  - tweak: "The stealth field ninjas get now costs 750 to activate, but only drains half as much as before."
   - tweak: "Deactivating the stealth suit is much quieter now."
   - tweak: "The power sink module now drains power twice as fast, and is possible to use while stealthed for reduced charge speed."
-  - balance: "The stealth suit deactivates if you attack anything."
+  - balance: "The stealth suit deactivates if you interact with (click on) any mob. This includes attacks as well as grabs, disarms, and taps."
+  - tweak: "Leg actuators will no longer disable your stealth field."

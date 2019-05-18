@@ -581,7 +581,7 @@
 	construction_cost = list(DEFAULT_WALL_MATERIAL=15000, "glass"= 1250, "silver"=5250)
 	construction_time = 300
 
-	disruptive = 1
+	disruptive = 0
 
 	use_power_cost = 5
 	module_cooldown = 25

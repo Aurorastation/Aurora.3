@@ -207,7 +207,7 @@
 		return 0
 
 	active = 0
-	log_debug("dragons")
+
 	spawn(1)
 		if(suit_overlay_inactive)
 			suit_overlay = suit_overlay_inactive
@@ -351,7 +351,7 @@
 
 /mob/living/carbon/human/ClickOn(atom/A, params)
 	. = ..()
-	if (. && ismob(A) && istype(back, /obj/item/weapon/rig))
+	if (ismob(A) && istype(back, /obj/item/weapon/rig))
 		var/obj/item/weapon/rig/R = back
 		R.attack_disrupt_check(src)
 
