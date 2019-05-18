@@ -33,6 +33,9 @@
 		amount = 0
 	..(ignore=1)
 
+/obj/effect/decal/cleanable/blood/hide()
+    return
+
 /obj/effect/decal/cleanable/blood/Destroy()
 	for(var/datum/disease/D in viruses)
 		D.cure(0)
