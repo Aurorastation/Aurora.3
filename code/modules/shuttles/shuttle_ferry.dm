@@ -118,11 +118,22 @@
 	return dock_target
 
 /datum/shuttle/ferry/proc/crash_shuttle()
-	process_state = CRASH_SHUTTLE
 	var/area/A = area_station
 	for(var/mob/living/L in A.contents)
 		to_chat(L, span("danger", "Warning: Not enough propulsion to gain velocity! Loosing altitude!"))
-	undock()
+	var/distance = pick(rand(-10, 5))
+	destinations[4] = new destinations[4]
+	var/num = 0
+	for(var/turf/T in A)
+		var/turf/T_n = get_turf(locate(T.x  + distance, T.y + distance, T.z))
+		num =+ 1
+		T_n = get_turf(locate(T.x, T.y + distance, T.z))
+		if(T_n)
+			destinations[4].contents += T_n
+	move(area_station, destinations[4])
+	while(num / 4 > 0)
+		explosion(pick(destinations[4].contents), 1, 0, 1, 1, 0) // explosion inside of the shuttle, as in we damaged it
+	process_state = IDLE_STATE
 
 /datum/shuttle/ferry/check_engines()
 	var/engine_c = 0
@@ -137,7 +148,11 @@
 		for(var/mob/living/L in A.contents)
 			to_chat(L, span("danger", "Warning: shuttle propulsion system is damaged! There is a [ratio]% chance of crash!"))
 	else if(ratio != 1)
-		crash_shuttle()
+		if(prob(ratio))
+			process_state = CRASH_SHUTTLE
+			undock()
+		else
+			engines_checked = FALSE
 	else
 		engines_checked = FALSE
 
