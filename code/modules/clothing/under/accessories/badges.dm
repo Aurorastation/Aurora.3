@@ -9,7 +9,7 @@
 	desc = "A corporate security badge, made from gold and set on false leather."
 	icon_state = "badge"
 	item_state = "marshalbadge"
-	slot_flags = SLOT_BELT | SLOT_TIE | SLOT_OCLOTHING
+	slot_flags = SLOT_BELT | SLOT_TIE
 
 	var/stored_name
 	var/badge_string = "Corporate Security"
@@ -117,14 +117,14 @@
 	name = "warden's badge"
 	desc = "A silver corporate security badge. Stamped with the words 'Brig Officer.'"
 	icon_state = "silverbadge"
-	slot_flags = SLOT_TIE | SLOT_OCLOTHING
+	slot_flags = SLOT_TIE
 
 
 /obj/item/clothing/accessory/badge/hos
 	name = "commander's badge"
 	desc = "An immaculately polished gold security badge. Labeled 'Commander.'"
 	icon_state = "goldbadge"
-	slot_flags = SLOT_TIE | SLOT_OCLOTHING
+	slot_flags = SLOT_TIE
 
 
 //Contractor IDs
@@ -136,7 +136,7 @@
 	item_state = "necro_card"
 	icon_override = 'icons/mob/ties.dmi'
 	badge_string = null	//Will be the contractor's 'position.'
-	slot_flags = SLOT_TIE | SLOT_OCLOTHING
+	slot_flags = SLOT_TIE
 	slot = "over"
 
 /obj/item/clothing/accessory/badge/contractor/proc/set_desc(var/mob/living/carbon/human/H)
