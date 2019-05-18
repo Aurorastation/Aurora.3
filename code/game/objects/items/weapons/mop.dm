@@ -22,6 +22,7 @@
 	return ..()
 
 /obj/item/weapon/mop/afterattack(atom/A, mob/user, proximity)
+	update_icon()
 	if(!proximity) return
 	if(istype(A, /turf) || istype(A, /obj/effect/decal/cleanable) || istype(A, /obj/effect/overlay) || istype(A, /obj/effect/rune))
 		if(reagents.total_volume < 1)
@@ -29,6 +30,7 @@
 			return
 
 		user.visible_message("<span class='warning'>[user] begins to clean \the [get_turf(A)].</span>")
+		playsound(loc, 'sound/effects/mop.ogg', 25, 1)
 
 		if(do_after(user, 40))
 			var/turf/T = get_turf(A)
@@ -41,3 +43,12 @@
 	if(istype(I, /obj/item/weapon/mop) || istype(I, /obj/item/weapon/soap))
 		return
 	..()
+
+/obj/item/weapon/mop/update_icon()
+	if(reagents.total_volume < 1)
+		icon_state = "mop"
+	if(reagents.total_volume > 1)
+		icon_state = "mop_wet"
+
+/obj/item/weapon/mop/on_reagent_change()
+	update_icon()

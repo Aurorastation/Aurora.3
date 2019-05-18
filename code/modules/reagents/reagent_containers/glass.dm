@@ -187,7 +187,7 @@
 	update_icon()
 
 /obj/item/weapon/reagent_containers/glass/bucket
-	desc = "It's a bucket."
+	desc = "This is a bucket. <i>Dear god.</i> There's more. <i>No!</i>"
 	name = "bucket"
 	icon = 'icons/obj/janitor.dmi'
 	icon_state = "bucket"
@@ -200,6 +200,7 @@
 	volume = 120
 	flags = OPENCONTAINER
 	unacidable = 0
+	drop_sound = 'sound/items/drop/helm.ogg'
 
 /obj/item/weapon/reagent_containers/glass/bucket/attackby(var/obj/D, mob/user as mob)
 	if(isprox(D))
@@ -226,8 +227,13 @@
 
 /obj/item/weapon/reagent_containers/glass/bucket/update_icon()
 	cut_overlays()
-	if (!is_open_container())
+	if(reagents.total_volume > 0)
+		add_overlay("water_[initial(icon_state)]")
+	if(!is_open_container())
 		add_overlay("lid_[initial(icon_state)]")
+
+/obj/item/weapon/reagent_containers/glass/bucket/on_reagent_change()
+	update_icon()
 
 /obj/item/weapon/reagent_containers/glass/bucket/self_feed_message(var/mob/user)
 	to_chat(user, "<span class='notice'>You drink heavily from \the [src].</span>")
@@ -240,6 +246,7 @@ obj/item/weapon/reagent_containers/glass/bucket/wood
 	icon_state = "woodbucket"
 	item_state = "woodbucket"
 	matter = list("wood" = 50)
+	drop_sound = 'sound/items/drop/wooden.ogg'
 
 /obj/item/weapon/reagent_containers/glass/bucket/wood/attackby(var/obj/D, mob/user as mob)
 	if(isprox(D))
