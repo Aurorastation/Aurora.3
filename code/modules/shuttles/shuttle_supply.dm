@@ -2,6 +2,7 @@
 	var/away_location = 1	//the location to hide at while pretending to be in-transit
 	var/late_chance = 80
 	var/max_late_time = 300
+	crash_offset = list(-5, 15)
 
 /datum/shuttle/ferry/supply/short_jump(var/area/origin,var/area/destination)
 	if(moving_status != SHUTTLE_IDLE)

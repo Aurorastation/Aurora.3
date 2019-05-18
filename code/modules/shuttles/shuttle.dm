@@ -12,7 +12,16 @@
 	var/docking_controller_tag	//tag of the controller used to coordinate docking
 	var/datum/computer/file/embedded_program/docking/docking_controller	//the controller itself. (micro-controller, not game controller)
 
+	var/area_current
 	var/arrive_time = 0	//the time at which the shuttle arrives when long jumping
+	var/sound_takeoff = "ship_takeoff"
+	var/sound_landing = "ship_landing"
+	var/sound_crash = "ship_crash"
+
+/datum/shuttle/proc/play_sound(var/sound_name, var/area/A)
+	var/p = pick(A.contents)
+	for(var/mob/M in range(9, get_turf(p)))
+		M << sound("sound/effects/ship/[sound_name].ogg")
 
 /datum/shuttle/proc/init_docking_controllers()
 	if(docking_controller_tag)
@@ -20,11 +29,12 @@
 		if(!istype(docking_controller))
 			to_world("<span class='danger'>warning: shuttle with docking tag [docking_controller_tag] could not find it's controller!</span>")
 
-/datum/shuttle/proc/short_jump(var/area/origin,var/area/destination)
+/datum/shuttle/proc/short_jump(var/area/origin, var/area/destination)
 	if(moving_status != SHUTTLE_IDLE) return
 
 	//it would be cool to play a sound here
 	moving_status = SHUTTLE_WARMUP
+	play_sound(sound_takeoff, origin)
 	spawn(warmup_time*10)
 		if (moving_status == SHUTTLE_IDLE)
 			return	//someone cancelled the launch
@@ -32,12 +42,14 @@
 		moving_status = SHUTTLE_INTRANSIT //shouldn't matter but just to be safe
 		move(origin, destination)
 		moving_status = SHUTTLE_IDLE
+		play_sound(sound_landing, destination)
 
 /datum/shuttle/proc/long_jump(var/area/departing, var/area/destination, var/area/interim, var/travel_time, var/direction)
 	if(moving_status != SHUTTLE_IDLE) return
 
 	//it would be cool to play a sound here
 	moving_status = SHUTTLE_WARMUP
+	play_sound(sound_takeoff, departing)
 	spawn(warmup_time*10)
 		if (moving_status == SHUTTLE_IDLE)
 			return	//someone cancelled the launch
@@ -52,6 +64,7 @@
 
 		move(interim, destination, direction)
 		moving_status = SHUTTLE_IDLE
+		play_sound(sound_landing, destination)
 
 /datum/shuttle/proc/dock()
 	if (!docking_controller)
@@ -104,11 +117,8 @@
 		if(istype(T, /turf/simulated))
 			T.ChangeTurf(/turf/space)
 
-	for(var/mob/living/carbon/bug in destination)
+	for(var/mob/living/bug in destination)
 		bug.gib()
-
-	for(var/mob/living/simple_animal/pest in destination)
-		pest.gib()
 
 	origin.move_contents_to(destination)
 
@@ -124,6 +134,7 @@
 		if(istype(M, /mob/living/carbon))
 			if(!M.buckled)
 				M.Weaken(3)
+	area_current = destination
 
 //returns 1 if the shuttle has a valid arrive time
 /datum/shuttle/proc/has_arrive_time()

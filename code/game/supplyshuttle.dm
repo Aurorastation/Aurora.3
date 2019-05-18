@@ -19,6 +19,9 @@
 	requires_power = 0
 	centcomm_area = 1
 
+/area/supply/station/crashed
+	name = "Supply Shuttle Crashed"
+	flags = HIDE_FROM_HOLOMAP
 
 /*
 /obj/effect/marker/supplymarker

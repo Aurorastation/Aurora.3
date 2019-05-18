@@ -34,6 +34,8 @@ var/datum/controller/subsystem/processing/shuttle/shuttle_controller
 	shuttle.area_offsite = locate(/area/shuttle/escape/centcom)
 	shuttle.area_station = locate(/area/shuttle/escape/station)
 	shuttle.area_transition = locate(/area/shuttle/escape/transit)
+	shuttle.area_current = shuttle.area_offsite
+	shuttle.area_crash = /area/shuttle/escape/station/crash
 	shuttle.docking_controller_tag = "escape_shuttle"
 	shuttle.dock_target_station = "escape_dock"
 	shuttle.dock_target_offsite = "centcom_dock"
@@ -42,6 +44,7 @@ var/datum/controller/subsystem/processing/shuttle/shuttle_controller
 	//shuttle.docking_controller_tag = "supply_shuttle"
 	//shuttle.dock_target_station = "cargo_bay"
 	shuttles["Escape"] = shuttle
+	shuttle.init_engines()
 	START_PROCESSING(shuttle_controller, shuttle)
 	if(!shuttle)
 		log_debug("Escape shuttle does not exist!")
@@ -54,9 +57,12 @@ var/datum/controller/subsystem/processing/shuttle/shuttle_controller
 	shuttle.warmup_time = 10
 	shuttle.area_offsite = locate(/area/supply/dock)
 	shuttle.area_station = locate(/area/supply/station)
+	shuttle.area_current = shuttle.area_offsite
+	shuttle.area_crash = /area/supply/station/crashed
 	shuttle.docking_controller_tag = "supply_shuttle"
 	shuttle.dock_target_station = "cargo_bay"
 	shuttles["Supply"] = shuttle
+	shuttle.init_engines()
 	START_PROCESSING(shuttle_controller, shuttle)
 
 	SScargo.shuttle = shuttle
@@ -67,12 +73,14 @@ var/datum/controller/subsystem/processing/shuttle/shuttle_controller
 	shuttle.area_station = locate(/area/shuttle/arrival/station)
 	shuttle.area_offsite = locate(/area/shuttle/arrival/centcom)
 	shuttle.area_transition = locate(/area/shuttle/arrival/transit)
+	shuttle.area_current = shuttle.area_offsite
 	shuttle.docking_controller_tag = "arrival_shuttle"
 	shuttle.dock_target_station = "arrival_dock"
 	shuttle.dock_target_offsite = "centcom_setup"
 	shuttle.transit_direction = EAST
 	shuttle.move_time = 60
 	shuttles["Arrival"] = shuttle
+	shuttle.init_engines()
 	START_PROCESSING(shuttle_controller, shuttle)
 
 	SSarrivals.shuttle = shuttle

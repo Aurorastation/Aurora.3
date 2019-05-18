@@ -65,6 +65,9 @@
 	icon_state = "shuttle"
 	centcomm_area = 1
 
+/area/shuttle/escape/station/crash
+	name = "\improper Emergency Shuttle Crashed"
+
 /area/shuttle/escape_pod1
 	name = "\improper Escape Pod One"
 	flags = RAD_SHIELDED | SPAWN_ROOF
@@ -344,3 +347,5 @@
 	base_turf = /turf/space
 	centcomm_area = 1
 
+/area/shuttle/legion/docked/crashed
+	name = "\improper Foreign Legion Crashed Dropship"

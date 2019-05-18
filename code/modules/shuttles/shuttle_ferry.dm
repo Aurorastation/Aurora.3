@@ -13,6 +13,7 @@
 
 	var/area_station
 	var/area_offsite
+	var/area_crash
 	//TODO: change location to a string and use a mapping for area and dock targets.
 	var/dock_target_station
 	var/dock_target_offsite
@@ -20,14 +21,13 @@
 	var/last_dock_attempt_time = 0
 	var/engines_count = 0 //Used to determine if shuttle should crash
 	var/engines_checked = FALSE
+	var/list/crash_offset = list(-5, 5)
 
-/datum/shuttle/ferry/proc/Initialize()
-
+/datum/shuttle/ferry/proc/init_engines(var/check = area_current)
 	// counting engines
-	var/area/A = area_station
+	var/area/A = check
 	for(var/obj/structure/shuttle/engine/propulsion/P in A.contents)
 		engines_count += 1
-
 
 /datum/shuttle/ferry/short_jump(var/area/origin,var/area/destination)
 	if(isnull(location))
@@ -118,46 +118,60 @@
 	return dock_target
 
 /datum/shuttle/ferry/proc/crash_shuttle()
-	var/area/A = area_station
-	for(var/mob/living/L in A.contents)
-		to_chat(L, span("danger", "Warning: Not enough propulsion to gain velocity! Loosing altitude!"))
-	var/distance = pick(rand(-10, 5))
-	destinations[4] = new destinations[4]
+	var/area/A = area_current
+	for(var/mob/M in A.contents)
+		to_chat(M, span("danger", "Flight computer states: \"Warning: Not enough propulsion to gain velocity! Loosing altitude!\""))
+	var/distance = pick(crash_offset[1], crash_offset[2])
+	var/area/crash = new area_crash
 	var/num = 0
-	for(var/turf/T in A)
+	for(var/turf/T in A.contents)
 		var/turf/T_n = get_turf(locate(T.x  + distance, T.y + distance, T.z))
-		num =+ 1
-		T_n = get_turf(locate(T.x, T.y + distance, T.z))
+		num += 1
+		T_n = get_turf(locate(T.x + distance, T.y + distance, T.z))
 		if(T_n)
-			destinations[4].contents += T_n
-	move(area_station, destinations[4])
+			crash.contents += T_n
+	play_sound(sound_crash, crash)
+	sleep(7) // Has to be 4 seconds less than how long is crash sound. Change if the sound is changed.
+	for(var/mob/living/L in A.contents)
+		shake_camera(L, 10, 1)
+		if(!L.buckled)
+			L.ex_act(2)
+		else
+			L.ex_act(3)
+
+	move(area_current, crash)
 	while(num / 4 > 0)
-		explosion(pick(destinations[4].contents), 1, 0, 1, 1, 0) // explosion inside of the shuttle, as in we damaged it
+		explosion(pick(crash.contents), 1, 0, 1, 1, 0) // explosion inside of the shuttle, as in we damaged it
+		num -= 1
 	process_state = IDLE_STATE
 
 /datum/shuttle/ferry/check_engines()
 	var/engine_c = 0
 	// counting engines
-	var/area/A = area_station
+	var/area/A = area_current
 	for(var/obj/structure/shuttle/engine/propulsion/P in A.contents)
 		engine_c += 1
 	
 	var/ratio = (1 - (engine_c / engines_count)) * 100
-	if(ratio != 1 && !engines_checked)
+	if(ratio && !engines_checked)
 		engines_checked = TRUE
 		for(var/mob/living/L in A.contents)
-			to_chat(L, span("danger", "Warning: shuttle propulsion system is damaged! There is a [ratio]% chance of crash!"))
-	else if(ratio != 1)
+			to_chat(L, span("danger", "Flight computer states: \"Warning: shuttle propulsion system is damaged! There is a [ratio]% chance of crash!\""))
+		return FALSE
+	else if(ratio)
 		if(prob(ratio))
 			process_state = CRASH_SHUTTLE
 			undock()
+			return FALSE
 		else
 			engines_checked = FALSE
+			return TRUE
 	else
 		engines_checked = FALSE
+		return TRUE
 
 /datum/shuttle/ferry/proc/launch(var/user)
-	if (!can_launch()) return
+	if (!can_launch() || !check_engines()) return
 
 	in_use = user	//obtain an exclusive lock on the shuttle
 

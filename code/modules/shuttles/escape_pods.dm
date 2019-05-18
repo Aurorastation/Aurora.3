@@ -54,7 +54,7 @@
 	return TRUE
 
 /datum/shuttle/ferry/escape_pod/launch(var/user)
-	if(!can_launch() || !check_capacity())
+	if(!can_launch() || !check_capacity() || !check_engines())
 		return
 	in_use = user	//obtain an exclusive lock on the shuttle
 
@@ -66,11 +66,11 @@
 	destinations[4] = new destinations[4]
 	for(var/turf/T in area_station)
 		var/turf/T_n = get_turf(locate(T.x, T.y + distance, T.z))
-
-		T_n = get_turf(locate(T.x, T.y + distance, T.z))
 		if(T_n)
 			destinations[4].contents += T_n
-	move(area_station, destinations[4])
+	play_sound(sound_crash, destinations[4])
+	sleep(7) // Has to be 4 seconds less than how long is crash sound. Change if the sound is changed.
+	move(area_current, destinations[4])
 	explosion(pick(destinations[4].contents), 1, 0, 1, 1, 0) // explosion inside of the shuttle, as in we damaged it
 	process_state = IDLE_STATE
 
