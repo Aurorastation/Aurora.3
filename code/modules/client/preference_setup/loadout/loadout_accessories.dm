@@ -194,4 +194,32 @@
 	display_name = "chaps, black"
 	path = /obj/item/clothing/accessory/chaps/black
 
+/datum/gear/accessory/badge/contractors
+	display_name = "contractor ID selection"
+	description = "A selection of contractor IDs."
+	path = /obj/item/clothing/accessory/badge/contractor
 
+/datum/gear/accessory/badge/contractors/New()
+	..()
+	var/badge = list()
+	badge["Einstein Engines card"] = /obj/item/clothing/accessory/badge/contractor/einstein
+	badge["Necropolis Industries card"] = /obj/item/clothing/accessory/badge/contractor
+	badge["Idris Incorporated card"] = /obj/item/clothing/accessory/badge/contractor/idris
+	badge["Hephaestus Industries card"] = /obj/item/clothing/accessory/badge/contractor/hephaestus
+	badge["Zeng-Hu Pharmaceuticals card"] = /obj/item/clothing/accessory/badge/contractor/zenghu
+	gear_tweaks += new/datum/gear_tweak/path(badge)
+
+/datum/gear/accessory/badge/security_contractors
+	display_name = "security contractor ID selection"
+	description = "A selection of security contractor IDs."
+	path = /obj/item/clothing/accessory/badge/contractor/necrosec
+	allowed_roles = list("Security Officer", "Warden", "Head of Security","Detective", "Forensic Technician", "Security Cadet")
+
+/datum/gear/accessory/badge/security_contractors/New()
+	..()
+	var/secbadge = list()
+	secbadge["Necropolis Industries security card"] = /obj/item/clothing/accessory/badge/contractor/necrosec
+	secbadge["Idris Incorporated security card"] = /obj/item/clothing/accessory/badge/contractor/idrissec
+	secbadge["Idris Incorporated IRU card"] = /obj/item/clothing/accessory/badge/contractor/iru
+	secbadge["Eridani PMC card"] = /obj/item/clothing/accessory/badge/contractor/eridani
+	gear_tweaks += new/datum/gear_tweak/path(secbadge)
