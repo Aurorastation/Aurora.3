@@ -38,4 +38,4 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
-  - imageadd: "Adds new sprites for Janitor stuff, reagent tanks & dispensers (you can even see water in buckets now!)
+  - imageadd: "Adds new sprites for Janitor stuff, reagent tanks & dispensers (you can even see water in buckets now!)"
