@@ -353,9 +353,9 @@
 	. = ..()
 	if (. && ismob(A) && istype(back, /obj/item/weapon/rig))
 		var/obj/item/weapon/rig/R = back
-		R.attackdisrupts(src)
+		R.attack_disrupt_check(src)
 
-/obj/item/weapon/rig/proc/attackdisrupts(var/cost, var/obj/item/rig_module)
+/obj/item/weapon/rig/proc/attack_disrupt_check()
 	for (var/obj/item/rig_module/module in installed_modules)
 		if (module.active && module.attackdisrupts)
 			module.deactivate()
