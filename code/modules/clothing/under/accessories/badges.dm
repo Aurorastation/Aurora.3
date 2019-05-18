@@ -139,6 +139,11 @@
 	slot_flags = SLOT_TIE
 	slot = "over"
 
+	var/list/job_choices = list(
+		"Bio-technician",
+		"Weapons Researcher"
+		)
+
 /obj/item/clothing/accessory/badge/contractor/proc/set_desc(var/mob/living/carbon/human/H)
 
 /obj/item/clothing/accessory/badge/contractor/set_desc(var/mob/living/carbon/human/H)
@@ -160,7 +165,7 @@
 		to_chat(usr, "<span class='warning'>You have to be holding [src] to modify it.</span>")
 		return
 
-	badge_string = sanitize(input(usr, "Input your Contractor Role.", "Contractor ID") as null|text)
+	badge_string = (input(usr, "Input your Contractor Role.", "Contractor ID") as null|anything in job_choices)
 
 	if(usr.incapacitated())	//Because things can happen while you're typing
 		to_chat(usr, "<span class='warning'>You're unable to do that.</span>")
@@ -198,45 +203,79 @@
 	desc = "An old-fashioned, practical plastic card. This one is of a higher rank, for Security personnel."
 	icon_state = "necrosec_card"
 	item_state = "necrosec_card"
+	job_choices = list(
+	"Personal Security Professional"
+	)
 
 /obj/item/clothing/accessory/badge/contractor/einstein
 	name = "Einstein Engines ID"
 	desc = "A stylized plastic card, belonging to one of the many specialists at EE.."
 	icon_state = "einstein_card"
 	item_state = "einstein_card"
+	job_choices = list(
+	"Power Supply Specialist",
+	"EE Senior R&D Scientist",
+	"Freight Specialist"
+	)
 
 /obj/item/clothing/accessory/badge/contractor/hephaestus
 	name = "Hephaestus Industries ID"
 	desc = "A metal-backed card, belonging to the powerful Hephaestus Industries."
 	icon_state = "heph_card"
 	item_state = "heph_card"
+	job_choices = list(
+	"Hephaestus Senior Engineer",
+	"Cargo Specialist",
+	"Mechsuit Technician",
+	"Robotics Specialist",
+	"Drill Technician"
+	)
 
 /obj/item/clothing/accessory/badge/contractor/zenghu
 	name = "Zeng-Hu Pharmaceuticals ID"
 	desc = "A synthleather card, belonging to one of the highly skilled members of Zeng-Hu."
 	icon_state = "zhu_card"
 	item_state = "zhu_card"
+	job_choices = list(
+	"Senior Medical Doctor",
+	"Geneticist",
+	"Pharmacist"
+	)
 
 /obj/item/clothing/accessory/badge/contractor/eridani
 	name = "Eridani Corporate Federation ID"
 	desc = "A high tech holobadge, designed to project information about an Eridanian Private Military Contractor."
 	icon_state = "erisec_card"
 	item_state = "erisec_card"
+	job_choices = list(
+	"Private Military Contractor"
+	)
 
 /obj/item/clothing/accessory/badge/contractor/idris
 	name = "Idris Incorporated ID"
 	desc = "A high tech holocard, designed to project information about a civilian worker at Idris."
 	icon_state = "idris_card"
 	item_state = "idris_card"
+	job_choices = list(
+	"Artisan Mixologist",
+	"Culinary Specialist",
+	"Requisitions Technician"
+	)
 
 /obj/item/clothing/accessory/badge/contractor/idrissec
 	name = "Idris Security ID"
 	desc = "A high tech holobadge, designed to project information about Security personnel at Idris."
 	icon_state = "idrissec_card"
 	item_state = "idrissec_card"
+	job_choices = list(
+	"Asset Protection Agent"
+	)
 
 /obj/item/clothing/accessory/badge/contractor/iru
 	name = "Idris Reclamation Unit ID"
 	desc = "A high tech holobadge, designed to project information about an asset reclamation synthetic at Idris."
 	icon_state = "iru_card"
 	item_state = "iru_card"
+	job_choices = list(
+	"Idris Reclamation Unit"
+	)
