@@ -187,7 +187,7 @@
 	update_icon()
 
 /obj/item/weapon/reagent_containers/glass/bucket
-	desc = "This is a bucket. <i>Dear god.</i> There's more. <i>No!</i>"
+	desc = "A blue plastic bucket."
 	name = "bucket"
 	icon = 'icons/obj/janitor.dmi'
 	icon_state = "bucket"
