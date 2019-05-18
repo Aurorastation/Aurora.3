@@ -21683,6 +21683,19 @@
 	dir = 5
 	},
 /area/centcom/living)
+"dQN" = (
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 5
+	},
+/obj/effect/floor_decal/industrial/warning{
+	icon_state = "warning";
+	dir = 1
+	},
+/turf/unsimulated/floor{
+	icon_state = "dark"
+	},
+/area/centcom/legion_base)
 "ehq" = (
 /obj/machinery/door/unpowered/shuttle,
 /turf/simulated/shuttle/floor,
@@ -21885,6 +21898,28 @@
 	dir = 4
 	},
 /area/centcom/living)
+"jdM" = (
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 5
+	},
+/obj/effect/decal/spraystill{
+	desc = "Looks unpowered.";
+	icon = 'icons/obj/airlock_machines.dmi';
+	icon_state = "airlock_control_off";
+	layer = 3.5;
+	name = "Port Airlock Controller";
+	pixel_x = -1;
+	pixel_y = 32
+	},
+/obj/effect/floor_decal/industrial/warning/corner{
+	icon_state = "warningcorner";
+	dir = 1
+	},
+/turf/unsimulated/floor{
+	icon_state = "dark"
+	},
+/area/centcom/legion_base)
 "jfV" = (
 /obj/structure/window/reinforced,
 /obj/machinery/lapvend,
@@ -22315,6 +22350,16 @@
 	icon_state = "wood"
 	},
 /area/centcom/living)
+"vBS" = (
+/obj/structure/table/rack,
+/obj/item/weapon/storage/backpack/legion,
+/obj/item/weapon/storage/backpack/legion,
+/obj/item/weapon/storage/backpack/legion,
+/obj/item/weapon/storage/backpack/legion,
+/turf/unsimulated/floor{
+	icon_state = "cafeteria"
+	},
+/area/centcom/legion_base)
 "wdy" = (
 /obj/structure/bed/chair,
 /obj/effect/decal/cleanable/vomit,
@@ -23674,22 +23719,6 @@
 "xsF" = (
 /obj/structure/sign/flag/biesel{
 	pixel_y = 32
-	},
-/turf/unsimulated/floor{
-	icon_state = "floor4"
-	},
-/area/centcom/legion_base)
-"xsG" = (
-/obj/machinery/door/blast/shutters/open{
-	dir = 4;
-	icon_state = "shutter0";
-	id = "tcflcheckpoint";
-	name = "Checkpoint Delta"
-	},
-/obj/machinery/door/airlock/centcom{
-	name = "Checkpoint Delta";
-	opacity = 1;
-	req_access = list(111)
 	},
 /turf/unsimulated/floor{
 	icon_state = "floor4"
@@ -26093,14 +26122,13 @@
 	},
 /area/centcom/legion_base)
 "xQT" = (
-/obj/machinery/light{
-	dir = 1;
-	icon_state = "tube1";
-	pixel_y = 0
-	},
 /obj/effect/floor_decal/corner/lime{
 	icon_state = "corner_white";
 	dir = 5
+	},
+/obj/machinery/light{
+	dir = 1;
+	icon_state = "tube1"
 	},
 /turf/unsimulated/floor{
 	icon_state = "dark"
@@ -26600,22 +26628,19 @@
 /area/centcom/legion_base)
 "xTx" = (
 /obj/structure/table/standard,
-/obj/item/weapon/reagent_containers/food/condiment/barbecue{
-	pixel_x = 6;
-	pixel_y = 10
-	},
+/obj/item/trash/liquidfood,
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
 /area/centcom/legion_base)
 "xTy" = (
 /obj/structure/table/standard,
-/obj/item/pizzabox{
-	icon_state = "pizzabox_messy";
-	ismessy = 1;
-	open = 1;
-	pixel_y = 10
+/obj/item/weapon/reagent_containers/food/drinks/bottle{
+	icon_state = "beer";
+	pixel_x = -15;
+	pixel_y = 12
 	},
+/obj/item/trash/tray,
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
@@ -27140,6 +27165,7 @@
 	},
 /area/centcom/legion_base/hangar5)
 "xWP" = (
+/obj/effect/decal/cleanable/dirt,
 /obj/machinery/microwave{
 	broken = 2;
 	desc = "The microwave's door has a fist-sized hole in it.";
@@ -27147,7 +27173,6 @@
 	name = "Broken Microwave";
 	pixel_y = 3
 	},
-/obj/effect/decal/cleanable/dirt,
 /turf/unsimulated/floor{
 	icon_state = "wood-broken2"
 	},
@@ -76970,7 +76995,7 @@ aaM
 aaM
 aaM
 xXl
-xsr
+vBS
 xsr
 xpH
 xsr
@@ -80829,7 +80854,7 @@ xXD
 xXD
 xXD
 xXD
-xsG
+xsC
 xXD
 xxL
 xxL
@@ -82627,7 +82652,7 @@ xmZ
 xXD
 xXD
 xXD
-xEd
+xEe
 xGO
 xux
 xwh
@@ -82884,7 +82909,7 @@ xmZ
 xqe
 xoX
 xqe
-xEd
+dQN
 xGO
 xuy
 xwi
@@ -83141,7 +83166,7 @@ xmZ
 xXD
 xXD
 xXD
-xEd
+jdM
 xGO
 xXD
 xLC
