@@ -35,6 +35,7 @@
 
 	var/active                          // Basic module status
 	var/disruptable                     // Will deactivate if some other powers are used.
+	var/attackdisrupts = 0             // Will deactivate if user attacks
 
 	var/use_power_cost = 0              // Power used when single-use ability called.
 	var/active_power_cost = 0           // Power used when turned on.
@@ -206,7 +207,7 @@
 		return 0
 
 	active = 0
-
+	log_debug("dragons")
 	spawn(1)
 		if(suit_overlay_inactive)
 			suit_overlay = suit_overlay_inactive
@@ -347,3 +348,14 @@
 		name = "[charge.display_name] ([charge.charges]C) - Change"
 		return 1
 	return 0
+
+/mob/living/carbon/human/ClickOn(atom/A, params)
+	. = ..()
+	if (. && ismob(A) && istype(back, /obj/item/weapon/rig))
+		var/obj/item/weapon/rig/R = back
+		R.attackdisrupts(src)
+
+/obj/item/weapon/rig/proc/attackdisrupts(var/cost, var/obj/item/rig_module)
+	for (var/obj/item/rig_module/module in installed_modules)
+		if (module.active && module.attackdisrupts)
+			module.deactivate()

@@ -18,9 +18,10 @@
 	toggleable = 1
 	disruptable = 1
 	disruptive = 0
+	attackdisrupts = 1
 	confined_use = 1
 
-	use_power_cost = 150
+	use_power_cost = 75
 	active_power_cost = 5
 	passive_power_cost = 0
 	module_cooldown = 30
