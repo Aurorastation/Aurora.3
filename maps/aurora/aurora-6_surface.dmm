@@ -12554,11 +12554,10 @@
 /obj/machinery/camera/network/command{
 	c_tag = "Research Shuttle - Cockpit"
 	},
-/obj/effect/floor_decal/corner/paleblue/full{
-	icon_state = "corner_white_full";
-	dir = 8
+/turf/simulated/shuttle/floor/tiled{
+	icon_state = "blue";
+	dir = 9
 	},
-/turf/simulated/shuttle/floor/tiled,
 /area/shuttle/research/station)
 "xr" = (
 /obj/machinery/door/firedoor,
@@ -18234,11 +18233,10 @@
 /obj/structure/bed/chair/shuttle{
 	dir = 8
 	},
-/obj/effect/floor_decal/corner/mauve/full{
-	icon_state = "corner_white_full";
-	dir = 1
+/turf/simulated/shuttle/floor/tiled{
+	icon_state = "purple";
+	dir = 5
 	},
-/turf/simulated/shuttle/floor/tiled,
 /area/shuttle/research/station)
 "Il" = (
 /obj/structure/closet/crate,
@@ -18292,11 +18290,10 @@
 /obj/effect/landmark{
 	name = "Space Ruin Paper"
 	},
-/obj/effect/floor_decal/corner/paleblue{
-	icon_state = "corner_white";
-	dir = 6
+/turf/simulated/shuttle/floor/tiled{
+	icon_state = "blue";
+	dir = 4
 	},
-/turf/simulated/shuttle/floor/tiled,
 /area/shuttle/research/station)
 "IA" = (
 /obj/structure/cable{
@@ -18355,15 +18352,14 @@
 /area/maintenance/arrivals)
 "IN" = (
 /obj/structure/dispenser/oxygen,
-/obj/effect/floor_decal/corner/mauve/full{
-	icon_state = "corner_white_full";
-	dir = 4
-	},
 /obj/machinery/atmospherics/pipe/simple/visible{
 	icon_state = "intact";
 	dir = 9
 	},
-/turf/simulated/shuttle/floor/tiled,
+/turf/simulated/shuttle/floor/tiled{
+	icon_state = "purple";
+	dir = 6
+	},
 /area/shuttle/research/station)
 "IT" = (
 /obj/structure/grille,
@@ -19787,11 +19783,10 @@
 /obj/structure/table/standard,
 /obj/item/weapon/paper_bin,
 /obj/item/weapon/pen,
-/obj/effect/floor_decal/corner/paleblue{
-	icon_state = "corner_white";
-	dir = 9
+/turf/simulated/shuttle/floor/tiled{
+	icon_state = "blue";
+	dir = 8
 	},
-/turf/simulated/shuttle/floor/tiled,
 /area/shuttle/research/station)
 "LS" = (
 /obj/machinery/door/firedoor,
@@ -19818,8 +19813,10 @@
 /obj/structure/bed/chair/shuttle{
 	dir = 4
 	},
-/obj/effect/floor_decal/corner/mauve/full,
-/turf/simulated/shuttle/floor/tiled,
+/turf/simulated/shuttle/floor/tiled{
+	icon_state = "purple";
+	dir = 10
+	},
 /area/shuttle/research/station)
 "LX" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
@@ -19887,11 +19884,10 @@
 /obj/structure/bed/chair/shuttle{
 	dir = 4
 	},
-/obj/effect/floor_decal/corner/mauve/full{
-	icon_state = "corner_white_full";
-	dir = 8
+/turf/simulated/shuttle/floor/tiled{
+	icon_state = "purple";
+	dir = 9
 	},
-/turf/simulated/shuttle/floor/tiled,
 /area/shuttle/research/station)
 "Mm" = (
 /obj/effect/decal/cleanable/dirt,
@@ -20758,8 +20754,10 @@
 /obj/structure/bed/chair/shuttle{
 	dir = 4
 	},
-/obj/effect/floor_decal/corner/mauve/full,
-/turf/simulated/shuttle/floor/tiled,
+/turf/simulated/shuttle/floor/tiled{
+	icon_state = "purple";
+	dir = 10
+	},
 /area/shuttle/research/station)
 "PF" = (
 /obj/machinery/door/airlock/external{
@@ -20867,11 +20865,10 @@
 /area/maintenance/solarmaint)
 "Qa" = (
 /obj/structure/table/standard,
-/obj/effect/floor_decal/corner/lime/full{
-	icon_state = "corner_white_full";
-	dir = 8
+/turf/simulated/shuttle/floor/tiled{
+	icon_state = "green";
+	dir = 9
 	},
-/turf/simulated/shuttle/floor/tiled,
 /area/shuttle/research/station)
 "Qc" = (
 /obj/structure/cable/green{
@@ -21022,11 +21019,10 @@
 	pixel_x = 30;
 	pixel_y = 30
 	},
-/obj/effect/floor_decal/corner/mauve/full{
-	icon_state = "corner_white_full";
-	dir = 1
+/turf/simulated/shuttle/floor/tiled{
+	icon_state = "purple";
+	dir = 5
 	},
-/turf/simulated/shuttle/floor/tiled,
 /area/shuttle/research/station)
 "QA" = (
 /obj/machinery/door/firedoor,
@@ -21104,11 +21100,10 @@
 /obj/structure/bed/chair/shuttle{
 	dir = 8
 	},
-/obj/effect/floor_decal/corner/mauve/full{
-	icon_state = "corner_white_full";
-	dir = 4
+/turf/simulated/shuttle/floor/tiled{
+	icon_state = "purple";
+	dir = 6
 	},
-/turf/simulated/shuttle/floor/tiled,
 /area/shuttle/research/station)
 "QQ" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
@@ -21312,19 +21307,20 @@
 /area/maintenance/commissary)
 "RA" = (
 /obj/machinery/computer/shuttle_control/research,
-/obj/effect/floor_decal/corner/paleblue{
-	icon_state = "corner_white";
-	dir = 5
+/turf/simulated/shuttle/floor/tiled{
+	icon_state = "blue";
+	dir = 1
 	},
-/turf/simulated/shuttle/floor/tiled,
 /area/shuttle/research/station)
 "RB" = (
 /obj/machinery/sleeper{
 	icon_state = "sleeper_0";
 	dir = 4
 	},
-/obj/effect/floor_decal/corner/lime/full,
-/turf/simulated/shuttle/floor/tiled,
+/turf/simulated/shuttle/floor/tiled{
+	icon_state = "green";
+	dir = 10
+	},
 /area/shuttle/research/station)
 "RC" = (
 /obj/machinery/light/small,
@@ -21370,11 +21366,10 @@
 	icon_state = "tube1";
 	pixel_y = 0
 	},
-/obj/effect/floor_decal/corner/paleblue/full{
-	icon_state = "corner_white_full";
-	dir = 4
+/turf/simulated/shuttle/floor/tiled{
+	icon_state = "blue";
+	dir = 6
 	},
-/turf/simulated/shuttle/floor/tiled,
 /area/shuttle/research/station)
 "RQ" = (
 /obj/structure/cable/green{
@@ -21498,11 +21493,10 @@
 /obj/structure/bed/chair/shuttle{
 	dir = 4
 	},
-/obj/effect/floor_decal/corner/mauve/full{
-	icon_state = "corner_white_full";
-	dir = 8
+/turf/simulated/shuttle/floor/tiled{
+	icon_state = "purple";
+	dir = 9
 	},
-/turf/simulated/shuttle/floor/tiled,
 /area/shuttle/research/station)
 "Sj" = (
 /obj/structure/window/reinforced,
@@ -21706,11 +21700,10 @@
 /obj/item/bodybag/cryobag,
 /obj/item/bodybag/cryobag,
 /obj/item/weapon/storage/firstaid/regular,
-/obj/effect/floor_decal/corner/lime{
-	icon_state = "corner_white";
-	dir = 9
+/turf/simulated/shuttle/floor/tiled{
+	icon_state = "green";
+	dir = 8
 	},
-/turf/simulated/shuttle/floor/tiled,
 /area/shuttle/research/station)
 "ST" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
@@ -21815,8 +21808,10 @@
 /obj/machinery/recharger/wallcharger{
 	pixel_y = -30
 	},
-/obj/effect/floor_decal/corner/paleblue/full,
-/turf/simulated/shuttle/floor/tiled,
+/turf/simulated/shuttle/floor/tiled{
+	icon_state = "blue";
+	dir = 10
+	},
 /area/shuttle/research/station)
 "Tr" = (
 /obj/machinery/atmospherics/pipe/simple/visible{
@@ -22064,11 +22059,10 @@
 "Un" = (
 /obj/structure/table/standard,
 /obj/item/device/flashlight/lamp,
-/obj/effect/floor_decal/corner/paleblue/full{
-	icon_state = "corner_white_full";
-	dir = 1
+/turf/simulated/shuttle/floor/tiled{
+	icon_state = "blue";
+	dir = 5
 	},
-/turf/simulated/shuttle/floor/tiled,
 /area/shuttle/research/station)
 "Uo" = (
 /obj/effect/floor_decal/corner/paleblue,
@@ -22567,11 +22561,10 @@
 /obj/structure/bed/chair/shuttle{
 	dir = 8
 	},
-/obj/effect/floor_decal/corner/lime/full{
-	icon_state = "corner_white_full";
-	dir = 1
+/turf/simulated/shuttle/floor/tiled{
+	icon_state = "green";
+	dir = 5
 	},
-/turf/simulated/shuttle/floor/tiled,
 /area/shuttle/research/station)
 "Wb" = (
 /obj/machinery/airlock_sensor{
@@ -23422,10 +23415,10 @@
 /obj/structure/bed/chair/shuttle{
 	dir = 8
 	},
-/obj/effect/floor_decal/corner/lime/full{
-	dir = 4
+/turf/simulated/shuttle/floor/tiled{
+	icon_state = "green";
+	dir = 6
 	},
-/turf/simulated/shuttle/floor/tiled,
 /area/shuttle/research/station)
 "Yw" = (
 /obj/machinery/atmospherics/binary/pump/on{

@@ -101,8 +101,8 @@
 	icon_state = "floor2"
 
 /turf/simulated/shuttle/floor/tiled
-	icon = 'icons/turf/flooring/tiles.dmi'
-	icon_state = "steel"
+	icon = 'icons/turf/total_floors.dmi'
+	icon_state = "floor"
 
 /turf/simulated/shuttle/floor/tiled/destructible
 	destructible = TRUE
@@ -126,7 +126,7 @@
 
 /turf/simulated/shuttle/floor/carpet
 	name = "carpet"
-	icon = 'icons/turf/flooring/carpet.dmi'
+	icon = 'icons/turf/total_floors.dmi'
 	icon_state = "carpet"
 	footstep_sound = "dirtstep"
 

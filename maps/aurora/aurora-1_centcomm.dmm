@@ -7133,7 +7133,7 @@
 "arW" = (
 /obj/machinery/computer/shuttle_control/merchant,
 /turf/simulated/shuttle/floor/carpet/destructible{
-	icon_state = "bcarpet"
+	icon_state = "carpet11-12"
 	},
 /area/merchant_ship/start)
 "arX" = (
@@ -27968,14 +27968,14 @@
 /obj/structure/table/reinforced,
 /obj/item/weapon/hand_labeler,
 /turf/simulated/shuttle/floor/carpet/destructible{
-	icon_state = "bcarpet"
+	icon_state = "carpet6-2"
 	},
 /area/merchant_ship/start)
 "yaJ" = (
 /obj/structure/table/reinforced,
 /obj/item/weapon/storage/wallet,
 /turf/simulated/shuttle/floor/carpet/destructible{
-	icon_state = "bcarpet"
+	icon_state = "carpet10-8"
 	},
 /area/merchant_ship/start)
 "yaL" = (
@@ -28017,7 +28017,7 @@
 	dir = 4
 	},
 /turf/simulated/shuttle/floor/carpet/destructible{
-	icon_state = "bcarpet"
+	icon_state = "carpet7-3"
 	},
 /area/merchant_ship/start)
 "yaP" = (
@@ -28069,7 +28069,7 @@
 	req_access = list(110)
 	},
 /turf/simulated/shuttle/floor/carpet/destructible{
-	icon_state = "bcarpet"
+	icon_state = "carpet5-1"
 	},
 /area/merchant_ship/start)
 "yaU" = (
@@ -28077,7 +28077,7 @@
 /obj/item/weapon/storage/secure/briefcase,
 /obj/item/device/price_scanner,
 /turf/simulated/shuttle/floor/carpet/destructible{
-	icon_state = "bcarpet"
+	icon_state = "carpet9-4"
 	},
 /area/merchant_ship/start)
 "yaV" = (
