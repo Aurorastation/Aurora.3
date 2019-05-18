@@ -43,7 +43,7 @@
 	var/list/msg = list("<span class='info'>*---------*\nThis is ")
 
 	var/datum/gender/T = gender_datums[gender]
-	if(skipjumpsuit && skipface) //big suits/masks/helmets make it hard to tell their gender
+	if(skipjumpsuit && skipface || IS_SKRELL) //big suits/masks/helmets make it hard to tell their gender
 		T = gender_datums[PLURAL]
 	else
 		if(icon)

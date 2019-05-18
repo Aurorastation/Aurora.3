@@ -525,7 +525,7 @@
 	var/sprint_temperature_factor = 1.15
 	var/sprint_charge_factor = 0.65
 
-datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
+/datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
 	if (neuter_ipc)
 		H.gender = NEUTER
 	. = ..()
