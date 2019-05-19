@@ -20,6 +20,8 @@
 	active_power_usage = 300	//when active, this turret takes up constant 300 Equipment power
 	power_channel = EQUIP	//drains power from the EQUIPMENT channel
 
+	req_one_access = list(access_security, access_heads)
+
 	var/raised = 0			//if the turret cover is "open" and the turret is raised
 	var/raising= 0			//if the turret is currently opening or closing its cover
 	var/health = 80			//the turret's health
@@ -78,6 +80,7 @@
 	check_anomalies = TRUE
 	immobile = TRUE
 	no_salvage = TRUE
+	req_one_access = list(access_cent_specops, access_cent_general)
 
 	var/admin_emag_override = FALSE	// Set to true to allow emagging of this turret.
 
@@ -96,9 +99,6 @@
 	sprite_set = "laser"
 
 /obj/machinery/porta_turret/Initialize(mapload)
-	. = ..()
-	LAZYCLEARLIST(req_access)
-	req_one_access = list(access_security, access_heads)
 
 	//Sets up a spark system
 	spark_system = bind_spark(src, 5)
@@ -115,11 +115,6 @@
 			if(SOME_TC.lethal != lethal && !egun)
 				SOME_TC.enabled = 0
 			src.setState(SOME_TC)
-
-/obj/machinery/porta_turret/crescent/Initialize()
-	. = ..()
-	LAZYCLEARLIST(req_one_access)
-	req_access = list(access_cent_specops)
 
 /obj/machinery/porta_turret/Destroy()
 	var/area/control_area = get_area(src)
@@ -917,6 +912,7 @@
 
 	eprojectile = /obj/item/projectile/beam/xray
 	eshot_sound	= 'sound/weapons/laser3.ogg'
+	req_one_access = list(access_syndicate)
 
 /obj/machinery/porta_turret/ion
 	installation = /obj/item/weapon/gun/energy/rifle/ionrifle
@@ -929,6 +925,7 @@
 	eprojectile = /obj/item/projectile/ion
 	shot_sound = 'sound/weapons/Laser.ogg'
 	eshot_sound	= 'sound/weapons/Laser.ogg'
+	req_one_access = list(access_syndicate)
 
 /obj/machinery/porta_turret/crossbow
 	installation = /obj/item/weapon/gun/energy/crossbow
@@ -939,6 +936,7 @@
 
 	eprojectile = /obj/item/projectile/energy/bolt/large
 	eshot_sound	= 'sound/weapons/Genhit.ogg'
+	req_one_access = list(access_syndicate)
 
 /obj/machinery/porta_turret/cannon
 	installation = /obj/item/weapon/gun/energy/rifle/laser/heavy
@@ -949,6 +947,7 @@
 
 	eprojectile = /obj/item/projectile/beam/heavylaser
 	eshot_sound	= 'sound/weapons/lasercannonfire.ogg'
+	req_one_access = list(access_syndicate)
 
 /obj/machinery/porta_turret/pulse
 	installation = /obj/item/weapon/gun/energy/pulse
@@ -956,9 +955,11 @@
 	lethal_icon = 1
 	egun = 0
 	sprite_set = "pulse"
+	no_salvage = TRUE
 
 	eprojectile = /obj/item/projectile/beam/pulse
 	eshot_sound	= 'sound/weapons/pulse.ogg'
+	req_one_access = list(access_syndicate)
 
 /obj/machinery/porta_turret/sniper
 	installation = /obj/item/weapon/gun/energy/sniperrifle
@@ -966,9 +967,11 @@
 	lethal_icon = 1
 	egun = 0
 	sprite_set = "sniper"
+	no_salvage = TRUE
 
 	eprojectile = /obj/item/projectile/beam/sniper
 	eshot_sound	= 'sound/weapons/marauder.ogg'
+	req_one_access = list(access_syndicate)
 
 /obj/machinery/porta_turret/net
 	installation = /obj/item/weapon/gun/energy/net
@@ -979,6 +982,7 @@
 
 	eprojectile = /obj/item/projectile/beam/energy_net
 	eshot_sound	= 'sound/weapons/plasma_cutter.ogg'
+	req_one_access = list(access_syndicate)
 
 /obj/machinery/porta_turret/thermal
 	installation = /obj/item/weapon/gun/energy/vaurca/thermaldrill
@@ -989,6 +993,7 @@
 
 	eprojectile = /obj/item/projectile/beam/thermaldrill
 	eshot_sound	= 'sound/magic/lightningbolt.ogg'
+	req_one_access = list(access_syndicate)
 
 /obj/machinery/porta_turret/meteor
 	installation = /obj/item/weapon/gun/energy/meteorgun
@@ -996,9 +1001,11 @@
 	lethal_icon = 1
 	egun = 0
 	sprite_set = "meteor"
+	no_salvage = TRUE
 
 	eprojectile = /obj/item/projectile/meteor
 	eshot_sound	= 'sound/weapons/lasercannonfire.ogg'
+	req_one_access = list(access_syndicate)
 
 /obj/machinery/porta_turret/ballistic
 	installation = /obj/item/weapon/gun/energy/mountedsmg
@@ -1010,6 +1017,8 @@
 
 	eprojectile = /obj/item/projectile/bullet/rifle/a762
 	eshot_sound	= 'sound/weapons/gunshot/gunshot_saw.ogg'
+
+	req_one_access = list(access_syndicate)
 
 #undef TURRET_PRIORITY_TARGET
 #undef TURRET_SECONDARY_TARGET
