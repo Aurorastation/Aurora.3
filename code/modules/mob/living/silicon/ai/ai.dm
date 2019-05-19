@@ -158,6 +158,8 @@ var/list/ai_verbs_default = list(
 	add_language(LANGUAGE_ROOTSONG, 0)
 	add_language(LANGUAGE_EAL, 1)
 	add_language(LANGUAGE_YA_SSA, 0)
+	add_language(LANGUAGE_DELVAHII, 0)
+
 
 	if(!safety)//Only used by AIize() to successfully spawn an AI.
 		if (!B)//If there is no player/brain inside.
