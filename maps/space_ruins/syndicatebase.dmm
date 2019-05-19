@@ -6,14 +6,14 @@
 /turf/template_noop,
 /area/shuttle/research/away)
 "ac" = (
-/turf/simulated/floor/asteroid/ash,
+/turf/unsimulated/floor/asteroid/ash,
 /area/mine/unexplored)
 "ad" = (
 /turf/simulated/mineral,
 /area/mine/unexplored)
 "ae" = (
 /obj/effect/floor_decal/asteroid,
-/turf/simulated/floor/asteroid/ash,
+/turf/unsimulated/floor/asteroid/ash,
 /area/mine/unexplored)
 "ag" = (
 /turf/simulated/shuttle/wall/dark,
@@ -83,7 +83,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
-/turf/simulated/floor/asteroid/ash,
+/turf/unsimulated/floor/asteroid/ash,
 /area/mine/unexplored)
 "an" = (
 /obj/machinery/door/blast/shutters{
@@ -107,7 +107,7 @@
 /area/derelict)
 "ao" = (
 /obj/machinery/light,
-/turf/simulated/floor/asteroid/ash,
+/turf/unsimulated/floor/asteroid/ash,
 /area/mine/unexplored)
 "ap" = (
 /obj/effect/decal/cleanable/dirt,
@@ -119,7 +119,7 @@
 	},
 /area/derelict)
 "ar" = (
-/turf/simulated/floor/asteroid/ash/rocky,
+/turf/unsimulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
 "as" = (
 /obj/effect/floor_decal/industrial/warning,
@@ -136,7 +136,7 @@
 /area/template_noop)
 "av" = (
 /obj/machinery/light,
-/turf/simulated/floor/asteroid/ash/rocky,
+/turf/unsimulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
 "aw" = (
 /obj/machinery/door/blast/regular,
@@ -305,7 +305,7 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/turf/simulated/floor/asteroid/ash,
+/turf/unsimulated/floor/asteroid/ash,
 /area/mine/unexplored)
 "aR" = (
 /obj/machinery/light{
@@ -927,7 +927,7 @@
 /area/derelict)
 "cD" = (
 /obj/effect/floor_decal/asteroid,
-/turf/simulated/floor/asteroid/ash/rocky,
+/turf/unsimulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
 "cE" = (
 /obj/structure/toilet,
@@ -1831,7 +1831,7 @@
 /area/derelict)
 "eX" = (
 /obj/structure/barricade,
-/turf/simulated/floor/asteroid/ash,
+/turf/unsimulated/floor/asteroid/ash,
 /area/mine/unexplored)
 "eY" = (
 /obj/structure/barricade,
@@ -1869,7 +1869,7 @@
 /area/mine/unexplored)
 "fe" = (
 /obj/machinery/floodlight,
-/turf/simulated/floor/asteroid/ash,
+/turf/unsimulated/floor/asteroid/ash,
 /area/mine/unexplored)
 "ff" = (
 /turf/simulated/mineral/random/higher_chance,
@@ -1883,15 +1883,15 @@
 "fh" = (
 /obj/structure/table/rack,
 /obj/item/weapon/pickaxe/diamonddrill,
-/turf/simulated/floor/asteroid/ash,
+/turf/unsimulated/floor/asteroid/ash,
 /area/mine/unexplored)
 "fi" = (
 /obj/structure/ore_box,
-/turf/simulated/floor/asteroid/ash,
+/turf/unsimulated/floor/asteroid/ash,
 /area/mine/unexplored)
 "fj" = (
 /obj/mecha/working/ripley/mining,
-/turf/simulated/floor/asteroid/ash,
+/turf/unsimulated/floor/asteroid/ash,
 /area/mine/unexplored)
 "fk" = (
 /obj/effect/floor_decal/asteroid,
@@ -1901,7 +1901,7 @@
 /area/mine/unexplored)
 "fl" = (
 /obj/item/weapon/storage/bag/ore,
-/turf/simulated/floor/asteroid/ash,
+/turf/unsimulated/floor/asteroid/ash,
 /area/mine/unexplored)
 "fm" = (
 /obj/structure/table/rack,
@@ -1944,19 +1944,19 @@
 /area/mine/unexplored)
 "fs" = (
 /obj/structure/alien/weeds,
-/turf/simulated/floor/asteroid/ash,
+/turf/unsimulated/floor/asteroid/ash,
 /area/mine/unexplored)
 "ft" = (
 /obj/structure/alien/weeds,
-/turf/simulated/floor/asteroid/ash/rocky,
+/turf/unsimulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
 "fu" = (
 /mob/living/simple_animal/hostile/carp,
-/turf/simulated/floor/asteroid/ash/rocky,
+/turf/unsimulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
 "fv" = (
 /obj/structure/alien/resin/wall,
-/turf/simulated/floor/asteroid/ash/rocky,
+/turf/unsimulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
 "fw" = (
 /obj/structure/alien/weeds,
@@ -1964,12 +1964,12 @@
 /mob/living/simple_animal/hostile/carp,
 /mob/living/simple_animal/hostile/carp,
 /mob/living/simple_animal/hostile/carp,
-/turf/simulated/floor/asteroid/ash/rocky,
+/turf/unsimulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
 "fx" = (
 /obj/structure/alien/weeds,
 /mob/living/simple_animal/hostile/carp,
-/turf/simulated/floor/asteroid/ash/rocky,
+/turf/unsimulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
 "fy" = (
 /mob/living/simple_animal/hostile/carp,
@@ -1978,20 +1978,20 @@
 "fz" = (
 /obj/structure/alien/weeds,
 /obj/structure/alien/resin/membrane,
-/turf/simulated/floor/asteroid/ash/rocky,
+/turf/unsimulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
 "fA" = (
 /obj/structure/alien/resin/membrane,
-/turf/simulated/floor/asteroid/ash/rocky,
+/turf/unsimulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
 "fB" = (
 /obj/structure/alien/resin/membrane,
 /obj/structure/alien/resin/membrane,
-/turf/simulated/floor/asteroid/ash/rocky,
+/turf/unsimulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
 "fC" = (
 /mob/living/simple_animal/hostile/carp/shark,
-/turf/simulated/floor/asteroid/ash/rocky,
+/turf/unsimulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
 "fD" = (
 /obj/machinery/porta_turret/sniper,
@@ -2091,7 +2091,7 @@
 "fO" = (
 /obj/structure/alien/weeds,
 /mob/living/simple_animal/hostile/carp/shark,
-/turf/simulated/floor/asteroid/ash/rocky,
+/turf/unsimulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
 "fP" = (
 /obj/machinery/light/small{
@@ -2472,21 +2472,21 @@
 /area/derelict)
 "gN" = (
 /obj/machinery/mining/brace,
-/turf/simulated/floor/asteroid/ash,
+/turf/unsimulated/floor/asteroid/ash,
 /area/mine/unexplored)
 "gO" = (
 /obj/machinery/mining/drill,
-/turf/simulated/floor/asteroid/ash,
+/turf/unsimulated/floor/asteroid/ash,
 /area/mine/unexplored)
 "gP" = (
 /obj/effect/floor_decal/asteroid,
 /obj/machinery/mining/brace,
-/turf/simulated/floor/asteroid/ash,
+/turf/unsimulated/floor/asteroid/ash,
 /area/mine/unexplored)
 "gQ" = (
 /obj/effect/floor_decal/asteroid,
 /obj/machinery/mining/drill,
-/turf/simulated/floor/asteroid/ash,
+/turf/unsimulated/floor/asteroid/ash,
 /area/mine/unexplored)
 "gR" = (
 /obj/effect/decal/cleanable/dirt,

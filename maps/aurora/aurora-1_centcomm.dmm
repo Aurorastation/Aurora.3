@@ -21266,13 +21266,13 @@
 	},
 /area/syndicate_station/start)
 "aVx" = (
-/turf/simulated/floor/asteroid/ash,
+/turf/unsimulated/floor/asteroid/ash,
 /area/template_noop)
 "aVy" = (
 /obj/machinery/light/small{
 	dir = 8
 	},
-/turf/simulated/floor/asteroid/ash,
+/turf/unsimulated/floor/asteroid/ash,
 /area/merchant_station)
 "aVz" = (
 /obj/effect/floor_decal/carpet,
@@ -21292,7 +21292,7 @@
 /area/merchant_ship/start)
 "aVA" = (
 /obj/machinery/light/small,
-/turf/simulated/floor/asteroid/ash,
+/turf/unsimulated/floor/asteroid/ash,
 /area/merchant_station)
 "aVB" = (
 /obj/structure/window/reinforced,

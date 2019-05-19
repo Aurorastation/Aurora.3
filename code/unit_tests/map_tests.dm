@@ -172,7 +172,7 @@ datum/unit_test/wire_test/start_test()
 	for(var/obj/machinery/door/airlock/A in world)
 		var/turf/T = get_turf(A)
 		checks++
-		if(istype(T, /turf/space) || istype(T, /turf/simulated/floor/asteroid) || isopenturf(T) || T.density)
+		if(istype(T, /turf/space) || istype(T, /turf/unsimulated/floor/asteroid) || isopenturf(T) || T.density)
 			failed_checks++
 			log_unit_test("Airlock [A] with bad turf at ([A.x],[A.y],[A.z]) in [T.loc].")
 	
@@ -198,7 +198,7 @@ datum/unit_test/wire_test/start_test()
 		if(firelock_increment > 1)
 			failed_checks++
 			log_unit_test("Double firedoor [F] at ([F.x],[F.y],[F.z]) in [T.loc].")
-		else if(istype(T, /turf/space) || istype(T, /turf/simulated/floor/asteroid) || isopenturf(T) || T.density)
+		else if(istype(T, /turf/space) || istype(T, /turf/unsimulated/floor/asteroid) || isopenturf(T) || T.density)
 			failed_checks++
 			log_unit_test("Firedoor with bad turf at ([F.x],[F.y],[F.z]) in [T.loc].")
 	

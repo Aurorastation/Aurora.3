@@ -21,6 +21,7 @@
 	desc = "Introduced to the vending machines by Skrellian request, this water comes straight from the Martian poles."
 	icon_state = "waterbottle"
 	center_of_mass = list("x"=15, "y"=8)
+	drop_sound = 'sound/items/drop/food.ogg'
 
 /obj/item/weapon/reagent_containers/food/drinks/cans/waterbottle/Initialize()
 	. = ..()

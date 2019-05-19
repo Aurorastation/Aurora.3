@@ -3,11 +3,11 @@
 /turf/unsimulated/chasm_mask,
 /area/mine/unexplored)
 "b" = (
-/turf/simulated/floor/asteroid/ash/rocky,
+/turf/unsimulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
 "d" = (
 /obj/effect/decal/remains/human,
-/turf/simulated/floor/asteroid/ash/rocky,
+/turf/unsimulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
 "e" = (
 /obj/item/stack/material/gold{
@@ -21,7 +21,7 @@
 	},
 /obj/item/weapon/archaeological_find,
 /mob/living/simple_animal/hostile/mimic/crate,
-/turf/simulated/floor/asteroid/ash/rocky,
+/turf/unsimulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
 
 (1,1,1) = {"
