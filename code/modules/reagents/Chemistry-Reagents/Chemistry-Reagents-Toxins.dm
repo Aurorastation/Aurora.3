@@ -482,8 +482,8 @@
 	if(dose == metabolism)
 		M.confused += 2
 		M.drowsyness += 2
-	else if(dose < 2)
-		M.Weaken(30)
+	else if(dose < 5)
+		M.drowsyness = max(M.drowsyness, 30)
 		M.eye_blurry = max(M.eye_blurry, 10)
 	else
 		M.sleeping = max(M.sleeping, 30)
