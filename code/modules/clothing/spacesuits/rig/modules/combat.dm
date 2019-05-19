@@ -394,11 +394,13 @@
 
 	category = MODULE_LIGHT_COMBAT
 
-/obj/item/rig_module/tesla_coil/activate()
-	if (!..())
-		return 0
+/obj/item/rig_module/tesla_coil/engage()
 
-	holder.wearer.visible_message("<span class='danger'>\The [holder.wearer] crackles with energy!</span>")
-	playsound(holder.wearer, 'sound/magic/LightningShock.ogg', 75, 1)
-	tesla_zap(holder.wearer, 6, 2500)
+	..()
+
+	var/mob/living/carbon/human/H = holder.wearer
+
+	H.visible_message("<span class='danger'>\The [H] crackles with energy!</span>")
+	playsound(H, 'sound/magic/LightningShock.ogg', 75, 1)
+	tesla_zap(H, 5, 5000)
 	return 1
