@@ -167,7 +167,7 @@
 
 	badge_string = (input(usr, "Input your Contractor Role.", "Contractor ID") as null|anything in job_choices)
 
-	if(usr.incapacitated())	//Because things can happen while you're typing
+	if(usr.incapacitated())	//Because things can happen while you're selecting
 		to_chat(usr, "<span class='warning'>You're unable to do that.</span>")
 		return
 	in_hand = usr.get_active_hand()
@@ -183,7 +183,7 @@
 
 	if(!stored_name)
 		to_chat(user, "You inspect your [src.name]. Everything seems to be in order and you give it a quick cleaning with your hand.")
-		set_name(user.real_name)
+		set_name("[user.real_name], [badge_string]")
 		return
 
 	if(isliving(user))
@@ -194,7 +194,7 @@
 
 
 	if(badge_string)
-		set_name(usr.real_name)
+		set_name("[user.real_name], [badge_string]")
 		set_desc(usr)
 		verbs -= /obj/item/clothing/accessory/badge/contractor/verb/set_position
 
