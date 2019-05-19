@@ -2,7 +2,7 @@
 	iterations = 5
 	descriptor = "moon caves"
 	wall_type =  /turf/simulated/mineral
-	floor_type = /turf/simulated/floor/asteroid/ash/rocky
+	floor_type = /turf/unsimulated/floor/asteroid/ash/rocky
 	target_turf_type = /turf/unsimulated/mask
 	var/mineral_sparse =  /turf/simulated/mineral/random
 	var/mineral_rich = /turf/simulated/mineral/random/high_chance
@@ -156,8 +156,8 @@
 
 /datum/random_map/automata/cave_system/chasms/surface
 	descriptor = "chasm surface"
-	wall_type = /turf/simulated/floor/asteroid/ash
+	wall_type = /turf/unsimulated/floor/asteroid/ash
 	floor_type = /turf/simulated/open/airless
 	target_turf_type = /turf/unsimulated/chasm_mask
-	mineral_sparse = /turf/simulated/floor/asteroid/ash
-	mineral_rich = /turf/simulated/floor/asteroid/ash
+	mineral_sparse = /turf/unsimulated/floor/asteroid/ash
+	mineral_rich = /turf/unsimulated/floor/asteroid/ash

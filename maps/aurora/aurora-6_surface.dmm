@@ -196,7 +196,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/foresolar)
 "aw" = (
-/turf/simulated/floor/asteroid/ash,
+/turf/unsimulated/floor/asteroid/ash,
 /area/mine/explored)
 "ax" = (
 /obj/structure/grille,
@@ -240,7 +240,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/foresolar)
 "az" = (
-/turf/simulated/floor/asteroid/ash,
+/turf/unsimulated/floor/asteroid/ash,
 /area/shuttle/arrival/station)
 "aA" = (
 /obj/structure/grille,
@@ -998,7 +998,7 @@
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/dock)
 "bU" = (
-/turf/simulated/floor/asteroid/ash,
+/turf/unsimulated/floor/asteroid/ash,
 /area/shuttle/escape/station)
 "bV" = (
 /obj/structure/window/reinforced{
@@ -2167,7 +2167,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/tcommsat/computer)
 "ec" = (
-/turf/simulated/floor/asteroid/ash,
+/turf/unsimulated/floor/asteroid/ash,
 /area/syndicate_station/arrivals_dock)
 "ed" = (
 /obj/effect/floor_decal/corner/blue/full,
@@ -7487,7 +7487,7 @@
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/fore)
 "nx" = (
-/turf/simulated/floor/asteroid/ash,
+/turf/unsimulated/floor/asteroid/ash,
 /area/shuttle/syndicate_elite/station)
 "ny" = (
 /obj/item/weapon/cell,
@@ -7705,7 +7705,7 @@
 	pixel_y = -26;
 	req_one_access = list(13)
 	},
-/turf/simulated/floor/asteroid/ash,
+/turf/unsimulated/floor/asteroid/ash,
 /area/mine/explored)
 "nN" = (
 /obj/machinery/door/firedoor,
@@ -7878,7 +7878,7 @@
 /obj/machinery/light/small/emergency{
 	dir = 8
 	},
-/turf/simulated/floor/asteroid/ash,
+/turf/unsimulated/floor/asteroid/ash,
 /area/tcommsat/entrance)
 "od" = (
 /obj/machinery/door/firedoor,
@@ -9353,7 +9353,7 @@
 	pixel_y = -26;
 	req_one_access = list(13)
 	},
-/turf/simulated/floor/asteroid/ash,
+/turf/unsimulated/floor/asteroid/ash,
 /area/mine/explored)
 "qY" = (
 /obj/structure/cable/yellow{
@@ -9686,7 +9686,7 @@
 /turf/simulated/shuttle/plating,
 /area/shuttle/escape_pod3/station)
 "rD" = (
-/turf/simulated/floor/asteroid/ash,
+/turf/unsimulated/floor/asteroid/ash,
 /area/shuttle/administration/station)
 "rE" = (
 /obj/structure/cable/yellow{
@@ -9946,7 +9946,7 @@
 /turf/simulated/floor/plating,
 /area/bridge/levela)
 "sa" = (
-/turf/simulated/floor/asteroid/ash,
+/turf/unsimulated/floor/asteroid/ash,
 /area/shuttle/specops/station)
 "sb" = (
 /obj/structure/table/standard,
@@ -13987,7 +13987,7 @@
 /turf/simulated/floor/plating,
 /area/bridge/levela)
 "zR" = (
-/turf/simulated/floor/asteroid/ash,
+/turf/unsimulated/floor/asteroid/ash,
 /area/shuttle/transport1/station)
 "zS" = (
 /obj/machinery/washing_machine,
@@ -16034,7 +16034,7 @@
 /turf/simulated/floor/plating,
 /area/hallway/secondary/entry/aft)
 "DV" = (
-/turf/simulated/floor/asteroid/ash,
+/turf/unsimulated/floor/asteroid/ash,
 /area/merchant_ship/docked)
 "DW" = (
 /turf/simulated/wall,
@@ -16067,7 +16067,7 @@
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/aft)
 "Ea" = (
-/turf/simulated/floor/asteroid/ash,
+/turf/unsimulated/floor/asteroid/ash,
 /area/supply/station)
 "Eb" = (
 /obj/structure/window/reinforced{
@@ -16991,7 +16991,7 @@
 /turf/simulated/floor/plating,
 /area/hallway/secondary/entry/aft)
 "FE" = (
-/turf/simulated/floor/asteroid/ash,
+/turf/unsimulated/floor/asteroid/ash,
 /area/syndicate_station/surface)
 "FF" = (
 /obj/machinery/door/airlock/external{
@@ -18320,7 +18320,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/arrivals)
 "IJ" = (
-/turf/simulated/floor/asteroid/ash,
+/turf/unsimulated/floor/asteroid/ash,
 /area/shuttle/legion/station)
 "IM" = (
 /obj/structure/closet/crate,
@@ -18427,7 +18427,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/portsolar)
 "Jc" = (
-/turf/simulated/floor/asteroid/ash,
+/turf/unsimulated/floor/asteroid/ash,
 /area/skipjack_station/surface)
 "Jd" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
@@ -21431,7 +21431,7 @@
 /obj/effect/landmark{
 	name = "carpspawn"
 	},
-/turf/simulated/floor/asteroid/ash,
+/turf/unsimulated/floor/asteroid/ash,
 /area/mine/explored)
 "Xi" = (
 /obj/structure/cable{

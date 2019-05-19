@@ -15913,7 +15913,7 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
-/turf/simulated/floor/asteroid/ash,
+/turf/unsimulated/floor/asteroid/ash,
 /area/merchant_station)
 "aSi" = (
 /turf/unsimulated/floor{
@@ -16287,7 +16287,7 @@
 /area/centcom/holding)
 "aSY" = (
 /obj/machinery/light/small,
-/turf/simulated/floor/asteroid/ash,
+/turf/unsimulated/floor/asteroid/ash,
 /area/merchant_station)
 "aSZ" = (
 /obj/structure/bed/chair/comfy/brown,
@@ -16511,7 +16511,7 @@
 	},
 /area/centcom/control)
 "aTw" = (
-/turf/simulated/floor/asteroid/ash,
+/turf/unsimulated/floor/asteroid/ash,
 /area/template_noop)
 "aTx" = (
 /turf/space,

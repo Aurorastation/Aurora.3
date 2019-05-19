@@ -193,6 +193,7 @@
 /area/maintenance/interstitial_construction_site
 	name = "\improper Construction Site"
 	icon_state = "engineering_workshop"
+	flags = HIDE_FROM_HOLOMAP
 
 // SUBSTATIONS (Subtype of maint, that should let them serve as shielded area during radstorm)
 
