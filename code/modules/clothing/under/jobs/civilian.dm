@@ -198,8 +198,8 @@
 	icon_state = "einstein_engine"
 	worn_state = "einstein_engine"
 
-/obj/item/clothing/under/rank/zheng
-	name = "Zheng-Hu uniform"
-	desc = "A uniform worn by Zheng-Hu employees and contractors."
+/obj/item/clothing/under/rank/zeng
+	name = "Zeng-Hu uniform"
+	desc = "A uniform worn by Zeng-Hu employees and contractors."
 	icon_state = "zhu"
 	worn_state = "zhu"
