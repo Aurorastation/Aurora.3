@@ -5,7 +5,7 @@
 	language = LANGUAGE_VAURCA
 	primitive_form = "Vaurca Worker"
 	greater_form = "Vaurca Breeder"
-	icobase = 'icons/mob/human_races/subspecies/r_vaurcab.dmi'
+	icobase = 'icons/mob/human_races/vaurca/r_vaurcab.dmi'
 	slowdown = 0
 	brute_mod = 0.7
 	burn_mod = 1.2
@@ -41,9 +41,9 @@
 	name_plural = "Type CB"
 	bodytype = "Vaurca Breeder"
 	primitive_form = "Vaurca Warrior"
-	icon_template = 'icons/mob/human_races/subspecies/r_vaurcac.dmi'
-	icobase = 'icons/mob/human_races/subspecies/r_vaurcac.dmi'
-	deform = 'icons/mob/human_races/subspecies/r_vaurcac.dmi'
+	icon_template = 'icons/mob/human_races/vaurca/r_vaurcac.dmi'
+	icobase = 'icons/mob/human_races/vaurca/r_vaurcac.dmi'
+	deform = 'icons/mob/human_races/vaurca/r_vaurcac.dmi'
 	icon_x_offset = -8
 	unarmed_types = list(/datum/unarmed_attack/stomp, /datum/unarmed_attack/kick,  /datum/unarmed_attack/claws/strong, /datum/unarmed_attack/bite/strong)
 	rarity_value = 10
@@ -91,9 +91,9 @@
 	name_plural = "Type BA"
 	bodytype = "Vaurca Warform"
 	primitive_form = "Vaurca Warrior"
-	icon_template = 'icons/mob/human_races/subspecies/r_vaurcamecha.dmi'
-	icobase = 'icons/mob/human_races/subspecies/r_vaurcamecha.dmi'
-	deform = 'icons/mob/human_races/subspecies/r_vaurcamecha.dmi'
+	icon_template = 'icons/mob/human_races/vaurca/r_vaurcamecha.dmi'
+	icobase = 'icons/mob/human_races/vaurca/r_vaurcamecha.dmi'
+	deform = 'icons/mob/human_races/vaurca/r_vaurcamecha.dmi'
 	default_language = LANGUAGE_GIBBERING
 	language = LANGUAGE_VAURCA
 	icon_x_offset = -8
