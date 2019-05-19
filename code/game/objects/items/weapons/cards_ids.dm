@@ -19,6 +19,7 @@
 	var/associated_account_number = 0
 
 	var/list/files = list(  )
+	drop_sound = 'sound/items/drop/card.ogg'
 
 /obj/item/weapon/card/data
 	name = "data disk"
