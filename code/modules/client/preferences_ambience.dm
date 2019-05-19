@@ -2,7 +2,8 @@
 //	/client/proc/Toggle_asfx,
 //	/client/proc/Toggle_footsteps,
 	/client/proc/Toggle_asfx_vote,
-	/client/proc/toggle_vox_voice
+	/client/proc/toggle_vox_voice,
+	/client/proc/Toggle_dropsounds
 )
 
 /client/verb/asf_toggle()
@@ -61,3 +62,15 @@
 	prefs.asfx_togs ^= ASFX_VOX
 	prefs.save_preferences()
 	to_chat(src, "You will [(prefs.asfx_togs & ASFX_VOX) ? "now" : "no longer"] hear the VOX voice.")
+
+/client/proc/Toggle_dropsounds()
+	set name = "Hear/Silence Drop Sounds"
+	set category = "SoundFx Prefs"
+	set desc = "Toggles hearing dropping and throwing sound effects"
+
+	prefs.asfx_togs ^= ASFX_DROPSOUND
+	prefs.save_preferences()
+	if(prefs.asfx_togs & ASFX_DROPSOUND)
+		to_chat(src, "You will now hear dropping and throwing sounds.")
+	else
+		to_chat(src, "<font color='red'>You will no longer hear dropping and throwing sounds.</font>")
