@@ -387,16 +387,16 @@
 	interface_name = "mounted tesla coil"
 	interface_desc ="Discharges a powerful lightning strike around the user."
 
-	use_power_cost = 150
-	module_cooldown = 25
+	use_power_cost = 30
+	module_cooldown = 100
 
 	usable = 1
 
 	category = MODULE_LIGHT_COMBAT
 
 /obj/item/rig_module/tesla_coil/engage()
-
-	..()
+	if(!..())
+		return 0
 
 	var/mob/living/carbon/human/H = holder.wearer
 
