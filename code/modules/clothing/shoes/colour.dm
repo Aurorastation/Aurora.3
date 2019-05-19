@@ -1,9 +1,3 @@
-/obj/item/clothing/shoes
-	name = "shoes"
-	icon_state = "white"
-	desc = "A pair of shoes."
-	drop_sound = 'sound/items/drop/shoes.ogg'
-
 /obj/item/clothing/shoes/black
 	name = "black shoes"
 	icon_state = "black"
