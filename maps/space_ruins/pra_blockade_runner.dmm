@@ -841,7 +841,10 @@
 /turf/simulated/floor/tiled/freezer,
 /area/derelict/ship)
 "cw" = (
-/obj/machinery/power/supermatter,
+/obj/machinery/power/supermatter/shard{
+	pixel_y = 6
+	},
+/obj/effect/floor_decal/industrial/warning/full,
 /turf/simulated/floor,
 /area/derelict/ship)
 "cx" = (
