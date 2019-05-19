@@ -34,7 +34,9 @@ var/global/list/robot_modules = list(
 					LANGUAGE_SIGN = 0,
 					LANGUAGE_SIGN_TAJARA = 0,
 					LANGUAGE_SIIK_TAJR = 0,
-					LANGUAGE_AZAZIBA = 0
+					LANGUAGE_AZAZIBA = 0,
+					LANGUAGE_DELVAHII = 0,
+					LANGUAGE_YA_SSA = 0
 					)
 	var/sprites = list()
 	var/can_be_pushed = 1
@@ -127,7 +129,7 @@ var/global/list/robot_modules = list(
 
 	if(!synths || !synths.len)
 		return
-	
+
 	for(var/datum/matter_synth/T in synths)
 		T.add_charge(T.recharge_rate * rate)
 
@@ -614,7 +616,14 @@ var/global/list/robot_modules = list(
 					LANGUAGE_SIIK_MAAS = 1,
 					LANGUAGE_SKRELLIAN = 1,
 					LANGUAGE_GUTTER = 1,
-					LANGUAGE_ROOTSONG = 1
+					LANGUAGE_VAURCESE = 0,
+					LANGUAGE_ROOTSONG = 1,
+					LANGUAGE_SIGN = 0,
+					LANGUAGE_SIGN_TAJARA = 0,
+					LANGUAGE_SIIK_TAJR = 0,
+					LANGUAGE_AZAZIBA = 0,
+					LANGUAGE_DELVAHII = 0,
+					LANGUAGE_YA_SSA = 0
 					)
 
 	sprites = list(	"Waitress" = "service",
@@ -777,7 +786,14 @@ var/global/list/robot_modules = list(
 					LANGUAGE_SIIK_MAAS = 1,
 					LANGUAGE_SKRELLIAN = 1,
 					LANGUAGE_GUTTER = 1,
-					LANGUAGE_ROOTSONG = 1
+					LANGUAGE_VAURCESE = 0,
+					LANGUAGE_ROOTSONG = 1,
+					LANGUAGE_SIGN = 0,
+					LANGUAGE_SIGN_TAJARA = 0,
+					LANGUAGE_SIIK_TAJR = 0,
+					LANGUAGE_AZAZIBA = 0,
+					LANGUAGE_DELVAHII = 0,
+					LANGUAGE_YA_SSA = 0
 					)
 
 	sprites = list(
@@ -990,7 +1006,14 @@ var/global/list/robot_modules = list(
 					LANGUAGE_SIIK_MAAS = 1,
 					LANGUAGE_SKRELLIAN = 1,
 					LANGUAGE_GUTTER = 1,
+					LANGUAGE_VAURCESE = 0,
 					LANGUAGE_ROOTSONG = 1,
+					LANGUAGE_SIGN = 0,
+					LANGUAGE_SIGN_TAJARA = 0,
+					LANGUAGE_SIIK_TAJR = 0,
+					LANGUAGE_AZAZIBA = 0,
+					LANGUAGE_DELVAHII = 0,
+					LANGUAGE_YA_SSA = 0,
 					LANGUAGE_TERMINATOR = 1
 					)
 

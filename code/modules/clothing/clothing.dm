@@ -366,6 +366,7 @@
 		"Vox" = 'icons/mob/species/vox/gloves.dmi',
 		"Resomi" = 'icons/mob/species/resomi/gloves.dmi'
 		)
+	drop_sound = 'sound/items/drop/gloves.ogg'
 
 /obj/item/clothing/gloves/update_clothing_icon()
 	if (ismob(src.loc))
@@ -463,6 +464,8 @@
 	w_class = 2.0
 	uv_intensity = 50 //Light emitted by this object or creature has limited interaction with diona
 	species_restricted = list("exclude","Vaurca Breeder","Vaurca Warform")
+
+	drop_sound = 'sound/items/drop/hat.ogg'
 
 	var/light_overlay = "helmet_light"
 	var/light_applied
@@ -637,6 +640,7 @@
 	siemens_coefficient = 0.9
 	body_parts_covered = FEET
 	slot_flags = SLOT_FEET
+	drop_sound = 'sound/items/drop/shoes.ogg'
 
 	var/can_hold_knife
 	var/obj/item/holding
@@ -971,4 +975,5 @@
 	icon = 'icons/obj/clothing/rings.dmi'
 	slot_flags = SLOT_GLOVES
 	gender = NEUTER
+	drop_sound = 'sound/items/drop/ring.ogg'
 	var/undergloves = 1
