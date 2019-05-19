@@ -98,3 +98,22 @@
 
 
 	return 1
+
+/mob/proc/destabilize(fearmessage = "You feel a wave of tinging, and your whole body feels like it is vibrating.", panicmessage = "Blood begins to pour from your nose, and you can feel your organs shifting around!", deathmessage = "explodes in a shower of gore!")
+	set waitfor = FALSE
+	to_chat(src, fearmessage)
+	make_jittery(500)
+	sleep(100)
+	to_chat(src, panicmessage)
+	addtimer(CALLBACK(src, .proc/destabilize_gib), 15 SECONDS)
+	src.visible_message("<b>\The [src.name]</b> [deathmessage]")
+
+/mob/living/silicon/destabilize()
+	..("You register vibrations in your chassis.", "The vibrations in your chassis begin to damage your internal circuitry.", "explodes in a shower of oil and shrapnel!")
+
+/mob/proc/destabilize_gib(gibmessage = "You feel your body burst apart in a final moment of agony!")
+	to_chat(src, gibmessage)
+	gib()
+
+mob/living/silicon/destabilize_gib()
+	..("Your framework explodes into a cloud of shrapnel and oil!")

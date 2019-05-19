@@ -494,103 +494,14 @@ var/datum/controller/subsystem/ticker/SSticker
 
 		CHECK_TICK
 
-/datum/controller/subsystem/ticker/proc/station_explosion_cinematic(station_missed = 0, override = null, list/affected_levels = current_map.station_levels)
-	if (cinematic)
-		return	//already a cinematic in progress!
+/datum/controller/subsystem/ticker/proc/station_explosion_cinematic(station_missed = 0, list/affected_levels = current_map.station_levels)
+	if (T.z in affected_levels)
+		var/turf/T = get_turf(L)
+		for (var/mob/living/L in world)
+			L.destabilize()
+		CHECK_TICK
 
-	//initialise our cinematic screen object
-	cinematic = new /obj/screen{
-		icon = 'icons/effects/station_explosion.dmi';
-		icon_state = "station_intact";
-		layer = 20;
-		mouse_opacity = 0;
-		screen_loc = "1,0"
-	}
 
-	var/obj/structure/bed/temp_buckle = new
-	//Incredibly hackish. It creates a bed within the gameticker (lol) to stop mobs running around
-	if(station_missed)
-		for(var/mob/living/M in living_mob_list)
-			M.buckled = temp_buckle				//buckles the mob so it can't do anything
-			if(M.client)
-				M.client.screen += cinematic	//show every client the cinematic
-	else	//nuke kills everyone on z-level 1 to prevent "hurr-durr I survived"
-		for(var/mob/living/M in living_mob_list)
-			M.buckled = temp_buckle
-			if(M.client)
-				M.client.screen += cinematic
-
-			var/turf/Mloc = M.loc
-			if (!Mloc)
-				continue
-
-			if (!istype(Mloc))
-				Mloc = get_turf(M)
-
-			if (Mloc.z in affected_levels)
-				M.dust()
-
-			CHECK_TICK
-
-	//Now animate the cinematic
-	switch(station_missed)
-		if(1)	//nuke was nearby but (mostly) missed
-			if( mode && !override )
-				override = mode.name
-			switch( override )
-				if("mercenary") //Nuke wasn't on station when it blew up
-					flick("intro_nuke",cinematic)
-					sleep(35)
-					to_world(sound('sound/effects/explosionfar.ogg'))
-					flick("station_intact_fade_red",cinematic)
-					cinematic.icon_state = "summary_nukefail"
-				else
-					flick("intro_nuke",cinematic)
-					sleep(35)
-					to_world(sound('sound/effects/explosionfar.ogg'))
-					//flick("end",cinematic)
-
-		if(2)	//nuke was nowhere nearby	//TODO: a really distant explosion animation
-			sleep(50)
-			to_world(sound('sound/effects/explosionfar.ogg'))
-
-		else	//station was destroyed
-			if( mode && !override )
-				override = mode.name
-			switch( override )
-				if("mercenary") //Nuke Ops successfully bombed the station
-					flick("intro_nuke",cinematic)
-					sleep(35)
-					flick("station_explode_fade_red",cinematic)
-					to_world(sound('sound/effects/explosionfar.ogg'))
-					cinematic.icon_state = "summary_nukewin"
-				if("AI malfunction") //Malf (screen,explosion,summary)
-					flick("intro_malf",cinematic)
-					sleep(76)
-					flick("station_explode_fade_red",cinematic)
-					to_world(sound('sound/effects/explosionfar.ogg'))
-					cinematic.icon_state = "summary_malf"
-				if("blob") //Station nuked (nuke,explosion,summary)
-					flick("intro_nuke",cinematic)
-					sleep(35)
-					flick("station_explode_fade_red",cinematic)
-					to_world(sound('sound/effects/explosionfar.ogg'))
-					cinematic.icon_state = "summary_selfdes"
-				else //Station nuked (nuke,explosion,summary)
-					flick("intro_nuke",cinematic)
-					sleep(35)
-					flick("station_explode_fade_red", cinematic)
-					to_world(sound('sound/effects/explosionfar.ogg'))
-					cinematic.icon_state = "summary_selfdes"
-
-	//If its actually the end of the round, wait for it to end.
-	//Otherwise if its a verb it will continue on afterwards.
-	sleep(300)
-
-	if(cinematic)
-		QDEL_NULL(cinematic)		//end the cinematic
-	if(temp_buckle)
-		QDEL_NULL(temp_buckle)	//release everybody
 
 // Round setup stuff.
 
