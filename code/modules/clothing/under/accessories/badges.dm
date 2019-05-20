@@ -139,8 +139,6 @@
 	slot_flags = SLOT_TIE
 	slot = "over"
 
-/obj/item/clothing/accessory/badge/contractor/proc/set_desc(var/mob/living/carbon/human/H)
-
 /obj/item/clothing/accessory/badge/contractor/set_desc(var/mob/living/carbon/human/H)
 	if(!istype(H))
 		return
@@ -165,8 +163,8 @@
 
 
 	if(badge_string)
-		set_name(usr.real_name)
-		set_desc(usr)
+		set_name(user.real_name)
+		set_desc(user)
 
 /obj/item/clothing/accessory/badge/contractor/necrosec
 	name = "Necropolis Industries Security ID"
