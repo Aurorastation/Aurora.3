@@ -99,7 +99,7 @@
 	sprite_set = "laser"
 
 /obj/machinery/porta_turret/Initialize(mapload)
-
+	. = ..()
 	//Sets up a spark system
 	spark_system = bind_spark(src, 5)
 
