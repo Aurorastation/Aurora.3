@@ -139,11 +139,6 @@
 	slot_flags = SLOT_TIE
 	slot = "over"
 
-/obj/item/clothing/accessory/badge/contractor/set_desc(var/mob/living/carbon/human/H)
-	if(!istype(H))
-		return
-	desc = "[desc]\nBlood type: [H.b_type],\n[badge_string]."
-
 /obj/item/clothing/accessory/badge/contractor/attack_self(mob/user as mob)
 
 	if(!badge_string)
@@ -161,10 +156,8 @@
 		else
 			user.visible_message("<span class='notice'>[user] displays their [src.name].\nIt reads: [badge_string].</span>","<span class='notice'>You display your [src.name]. It reads: [badge_string].</span>")
 
-
 	if(badge_string)
 		set_name(user.real_name)
-		set_desc(user)
 
 /obj/item/clothing/accessory/badge/contractor/necrosec
 	name = "Necropolis Industries Security ID"
