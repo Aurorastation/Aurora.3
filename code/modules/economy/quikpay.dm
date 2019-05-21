@@ -130,7 +130,7 @@
 		ui = new(usr, src, "quikpay-main", 400, 400, "NT Quik-Pay")
 	ui.open()
 
-/obj/item/device/nanoquikpay/vueui_data_change(var/list/data, var/mob/user, var/datum/vueui/ui, var/list/newdata)
+/obj/item/device/nanoquikpay/vueui_data_change(var/list/data, var/mob/user, var/datum/vueui/ui)
 	if(!data)
 		. = data = list()
 
