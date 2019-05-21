@@ -17967,9 +17967,7 @@
 /obj/item/weapon/tank/oxygen,
 /obj/item/clothing/shoes/magboots,
 /obj/item/clothing/shoes/magboots,
-/obj/item/weapon/rig/hazard/equipped{
-	req_access = newlist()
-	},
+/obj/item/weapon/rig/hazard/equipped/pirate,
 /turf/simulated/shuttle/plating,
 /area/skipjack_station/start)
 "aOq" = (
@@ -21268,13 +21266,13 @@
 	},
 /area/syndicate_station/start)
 "aVx" = (
-/turf/simulated/floor/asteroid/ash,
+/turf/unsimulated/floor/asteroid/ash,
 /area/template_noop)
 "aVy" = (
 /obj/machinery/light/small{
 	dir = 8
 	},
-/turf/simulated/floor/asteroid/ash,
+/turf/unsimulated/floor/asteroid/ash,
 /area/merchant_station)
 "aVz" = (
 /obj/effect/floor_decal/carpet,
@@ -21294,7 +21292,7 @@
 /area/merchant_ship/start)
 "aVA" = (
 /obj/machinery/light/small,
-/turf/simulated/floor/asteroid/ash,
+/turf/unsimulated/floor/asteroid/ash,
 /area/merchant_station)
 "aVB" = (
 /obj/structure/window/reinforced,
@@ -24578,8 +24576,10 @@
 	},
 /area/centcom/holding)
 "jon" = (
-/obj/machinery/door/airlock/glass_command{
-	name = "Cockpit";
+/obj/machinery/door/airlock/centcom{
+	icon = 'icons/obj/doors/Doorcomglass.dmi';
+	name = "Shuttle Bridge Access";
+	opacity = 0;
 	req_access = list(19)
 	},
 /turf/unsimulated/floor{
@@ -24679,6 +24679,12 @@
 	req_access = list(101);
 	specialfunctions = 4
 	},
+/obj/machinery/button/remote/blast_door{
+	id = "CentComArrivalsCommand";
+	name = "Command Blastdoors";
+	pixel_x = 31;
+	pixel_y = 5
+	},
 /turf/unsimulated/floor{
 	icon_state = "floor"
 	},
@@ -24734,6 +24740,19 @@
 	dir = 1
 	},
 /area/centcom/control)
+"mak" = (
+/obj/machinery/door/blast/regular{
+	density = 0;
+	dir = 1;
+	icon_state = "pdoor0";
+	id = "CentComArrivalsCommand";
+	name = "Security Doors";
+	opacity = 0
+	},
+/turf/unsimulated/floor{
+	icon_state = "floor"
+	},
+/area/centcom/evac)
 "mbM" = (
 /obj/effect/wingrille_spawn/reinforced/crescent,
 /turf/template_noop,
@@ -65501,8 +65520,8 @@ aDe
 wne
 wne
 srl
-etF
-etF
+mak
+mak
 nhD
 nhD
 nhD

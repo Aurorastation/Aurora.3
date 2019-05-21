@@ -35,7 +35,7 @@
 	check_update_ui_need()
 
 	if (working && enabled && world.time > ambience_last_played + 30 SECONDS && prob(3))
-		playsound(loc, "computerbeep", 30, 1, 10, is_ambience = TRUE)
+		playsound(loc, "computerbeep", 30, 1, 10, required_preferences = SOUND_AMBIENCE)
 		ambience_last_played = world.time
 
 /obj/item/modular_computer/proc/get_preset_programs(var/app_preset_name)
@@ -85,13 +85,19 @@
 	icon_state = icon_state_unpowered
 
 	cut_overlays()
+	if(damage >= broken_damage)
+		icon_state = icon_state_broken
+		add_overlay("broken")
+		return
+	else
+		icon_state = initial(icon_state)
 	if(!enabled)
 		if(icon_state_screensaver && working)
 			if (is_holographic)
 				holographic_overlay(src, src.icon, icon_state_screensaver)
 			else
 				add_overlay(icon_state_screensaver)
-		
+
 		if (screensaver_light_range && working)
 			set_light(screensaver_light_range, 1, screensaver_light_color ? screensaver_light_color : "#FFFFFF")
 		else

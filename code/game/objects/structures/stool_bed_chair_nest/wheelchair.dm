@@ -86,6 +86,7 @@
 
 /obj/structure/bed/chair/wheelchair/Move()
 	. = ..()
+	playsound(src, 'sound/effects/roll.ogg', 75, 1)
 	if(buckled_mob)
 		var/mob/living/occupant = buckled_mob
 		if(!driving)

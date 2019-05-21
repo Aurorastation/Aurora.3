@@ -17,7 +17,7 @@
  */
 /obj/item/weapon/wrench
 	name = "wrench"
-	desc = "A wrench with many common uses. Can be usually found in your hand."
+	desc = "An adjustable tool used for gripping and turning nuts or bolts."
 	icon = 'icons/obj/items.dmi'
 	icon_state = "wrench"
 	flags = CONDUCT
@@ -28,6 +28,7 @@
 	origin_tech = list(TECH_MATERIAL = 1, TECH_ENGINEERING = 1)
 	matter = list(DEFAULT_WALL_MATERIAL = 150)
 	attack_verb = list("bashed", "battered", "bludgeoned", "whacked")
+	drop_sound = 'sound/items/drop/sword.ogg'
 
 /obj/item/weapon/wrench/iswrench()
 	return TRUE
@@ -37,7 +38,7 @@
  */
 /obj/item/weapon/screwdriver
 	name = "screwdriver"
-	desc = "You can be totally screwwy with this."
+	desc = "A tool with a flattened or cross-shaped tip that fits into the head of a screw to turn it."
 	icon = 'icons/obj/items.dmi'
 	icon_state = "screwdriver"
 	flags = CONDUCT
@@ -51,6 +52,7 @@
 	attack_verb = list("stabbed")
 	lock_picking_level = 5
 	var/random_icon = TRUE
+	drop_sound = 'sound/items/drop/scrap.ogg'
 
 
 /obj/item/weapon/screwdriver/Initialize()
@@ -101,7 +103,7 @@
  */
 /obj/item/weapon/wirecutters
 	name = "wirecutters"
-	desc = "This cuts wires."
+	desc = "A tool used to cut wires in electrical work."
 	icon = 'icons/obj/items.dmi'
 	icon_state = "cutters"
 	flags = CONDUCT
@@ -115,6 +117,7 @@
 	attack_verb = list("pinched", "nipped")
 	sharp = 1
 	edge = 1
+	drop_sound = 'sound/items/drop/knife.ogg'
 
 /obj/item/weapon/wirecutters/New()
 	if(prob(50))
@@ -151,6 +154,7 @@
 	var/base_iconstate = "welder"//These are given an _on/_off suffix before being used
 	var/base_itemstate = "welder"
 	contained_sprite = 1
+	drop_sound = 'sound/items/drop/scrap.ogg'
 
 	//Amount of OUCH when it's thrown
 	force = 3.0
@@ -194,7 +198,7 @@
 //The Experimental Welding Tool!
 /obj/item/weapon/weldingtool/experimental
 	name = "experimental welding tool"
-	desc = "A scientifically-enhanced welding tool that uses fuel-producing microbes to gradually replenish its fuel supply"
+	desc = "A scientifically-enhanced welding tool that uses fuel-producing microbes to gradually replenish its fuel supply."
 	max_fuel = 40
 	w_class = 2.0
 	matter = list(DEFAULT_WALL_MATERIAL = 100, "glass" = 120)
@@ -527,7 +531,7 @@
 
 /obj/item/weapon/crowbar
 	name = "crowbar"
-	desc = "Used to remove floors and to pry open doors."
+	desc = "An iron bar with a flattened end, used as a lever to remove floors and pry open doors."
 	icon = 'icons/obj/items.dmi'
 	icon_state = "crowbar"
 	flags = CONDUCT
@@ -539,6 +543,7 @@
 	origin_tech = list(TECH_ENGINEERING = 1)
 	matter = list(DEFAULT_WALL_MATERIAL = 50)
 	attack_verb = list("attacked", "bashed", "battered", "bludgeoned", "whacked")
+	drop_sound = 'sound/items/drop/sword.ogg'
 
 /obj/item/weapon/crowbar/iscrowbar()
 	return TRUE

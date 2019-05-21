@@ -141,10 +141,16 @@
 	var/mobpresent = 0		//true if there is a mob on the shower's loc, this is to ease process()
 	var/is_washing = 0
 	var/list/temperature_settings = list("normal" = 310, "boiling" = T0C+100, "freezing" = T0C)
+	var/datum/looping_sound/showering/soundloop
 
 /obj/machinery/shower/Initialize()
 	. = ..()
 	create_reagents(2)
+	soundloop = new(list(src), FALSE)
+
+/obj/machinery/shower/Destroy()
+	QDEL_NULL(soundloop)
+	return ..()
 
 //add heat controls? when emagged, you can freeze to death in it?
 
@@ -184,6 +190,7 @@
 		qdel(mymist)
 
 	if(on)
+		soundloop.start()
 		add_overlay(image('icons/obj/watercloset.dmi', src, "water", MOB_LAYER + 1, dir))
 		if(temperature_settings[watertemp] < T20C)
 			return //no mist for cold water
@@ -193,6 +200,7 @@
 					ismist = 1
 					mymist = new /obj/effect/mist(loc)
 		else
+			soundloop.stop()
 			ismist = 1
 			mymist = new /obj/effect/mist(loc)
 	else if(ismist)
@@ -360,8 +368,6 @@
 	icon_state = "rubberducky"
 	item_state = "rubberducky"
 
-
-
 /obj/structure/sink
 	name = "sink"
 	icon = 'icons/obj/watercloset.dmi'
@@ -401,6 +407,7 @@
 		return
 
 	to_chat(usr, "<span class='notice'>You start washing your hands.</span>")
+	playsound(src.loc, 'sound/effects/sink_fill.ogg', 25, 1)
 
 	busy = 1
 	sleep(40)
@@ -413,7 +420,7 @@
 		user:update_inv_gloves()
 	for(var/mob/V in viewers(src, null))
 		V.show_message("<span class='notice'>[user] washes their hands using \the [src].</span>")
-
+		playsound(src.loc, 'sound/effects/sink_empty.ogg', 25, 1)
 
 /obj/structure/sink/attackby(obj/item/O as obj, mob/user as mob)
 	if(busy)
@@ -440,6 +447,7 @@
 				RG.reagents.add_reagent("water", min(RG.volume - RG.reagents.total_volume, amount_per_transfer_from_this))
 				to_chat(oviewers(3, usr), "<span class='notice'>[usr] fills \the [RG] using \the [src].</span>")
 				to_chat(usr, "<span class='notice'>You fill \the [RG] using \the [src].</span>")
+				playsound(src.loc, 'sound/effects/sink_fill.ogg', 25, 1)
 			if ("Empty")
 				if(!RG.reagents.total_volume)
 					to_chat(usr, "<span class='warning'>\The [RG] is already empty.</span>")
@@ -448,6 +456,7 @@
 				var/empty_amount = RG.reagents.trans_to(src, RG.amount_per_transfer_from_this)
 				to_chat(oviewers(3, usr), "<span class='notice'>[usr] empties [empty_amount]u of \the [RG] into \the [src].</span>")
 				to_chat(usr, "<span class='notice'>You empty [empty_amount]u of \the [RG] into \the [src].</span>")
+				playsound(src.loc, 'sound/effects/sink_empty.ogg', 25, 1)
 		return
 
 	// Filling/empying Syringes

@@ -129,7 +129,10 @@
 /obj/item/projectile/bullet/pistol/medium
 	damage = 25
 
-/obj/item/projectile/bullet/pistol/strong //revolvers and matebas
+/obj/item/projectile/bullet/pistol/strong
+	damage = 60
+
+/obj/item/projectile/bullet/pistol/revolver
 	damage = 45
 	armor_penetration = 15
 
