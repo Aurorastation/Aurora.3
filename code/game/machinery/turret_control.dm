@@ -1,7 +1,6 @@
 ////////////////////////
 //Turret Control Panel//
 ////////////////////////
-#define UIDEBUG
 /area
 	// Turrets use this list to see if individual power/lethal settings are allowed
 	var/list/turret_controls = list()
