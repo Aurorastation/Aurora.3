@@ -475,7 +475,7 @@
 		shock_damage *= 0.4
 		playsound(loc, "sparks", 50, 1, -1)
 
-	if (shock_damage > 15)
+	if (shock_damage > 15 || tesla_shock)
 		visible_message(
 		"<span class='warning'>[src] was shocked by the [source]!</span>",
 		"<span class='danger'>You feel a powerful shock course through your body!</span>",
