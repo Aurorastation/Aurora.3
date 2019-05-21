@@ -81,7 +81,7 @@
 		new /obj/item/clothing/under/rank/orderly(src)
 		new /obj/item/clothing/suit/storage/toggle/labcoat(src)
 		new /obj/item/clothing/suit/storage/toggle/fr_jacket(src)
-		new /obj/item/clothing/shoes/white(src)
+		new /obj/item/clothing/shoes/medical(src)
 		new /obj/item/device/radio/headset/headset_med(src)
 		new /obj/item/clothing/glasses/hud/health/aviator(src)
 
@@ -103,7 +103,7 @@
 			new /obj/item/weapon/storage/backpack/satchel_med(src)
 		new /obj/item/clothing/suit/bio_suit/cmo(src)
 		new /obj/item/clothing/head/bio_hood/cmo(src)
-		new /obj/item/clothing/shoes/white(src)
+		new /obj/item/clothing/shoes/medical(src)
 		new /obj/item/clothing/under/rank/chief_medical_officer(src)
 		new /obj/item/weapon/cartridge/cmo(src)
 		new /obj/item/clothing/gloves/latex(src)

@@ -7,24 +7,24 @@
 /area/mine/unexplored)
 "c" = (
 /obj/structure/closet/crate/secure/loot,
-/turf/simulated/floor/asteroid/ash/rocky,
+/turf/unsimulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
 "d" = (
 /mob/living/simple_animal/hostile/retaliate/cavern_dweller,
-/turf/simulated/floor/asteroid/ash/rocky,
+/turf/unsimulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
 "e" = (
 /turf/simulated/mineral/random/higher_chance,
 /area/mine/unexplored)
 "f" = (
 /obj/random/loot,
-/turf/simulated/floor/asteroid/ash/rocky,
+/turf/unsimulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
 "g" = (
-/turf/simulated/floor/asteroid/ash/rocky,
+/turf/unsimulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
 "h" = (
-/turf/simulated/floor/asteroid/ash/rocky,
+/turf/unsimulated/floor/asteroid/ash/rocky,
 /area/space)
 "i" = (
 /turf/simulated/open/airless,
