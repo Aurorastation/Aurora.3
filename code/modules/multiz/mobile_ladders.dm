@@ -31,7 +31,7 @@
 		user.drop_from_inventory(src,get_turf(src))
 		qdel(src)
 
-	else if (istype(A, /turf/simulated/floor) || istype(A, /turf/unsimulated/floor))		//Place onto Floor
+	else if (istype(A, /turf/simulated/floor) || istype(A, /turf/unsimulated/floor))	//Place onto Floor
 		var/turf/upper_loc = GetAbove(A)
 		if (!upper_loc || !isopenturf(upper_loc))
 			to_chat(user, "<span class='notice'>There is something above. You can't deploy!</span>")
