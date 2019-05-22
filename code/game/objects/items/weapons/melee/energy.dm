@@ -9,7 +9,7 @@
 	flags = NOBLOODY
 	can_embed = 0 //No embedding pls
 	var/base_reflectchance = 20
-	var/base_block_chance = 40
+	var/base_block_chance = 25
 	var/shield_power = 100
 	var/can_block_bullets = 0
 
