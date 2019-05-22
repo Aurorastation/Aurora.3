@@ -178,28 +178,28 @@
 
 /obj/item/clothing/accessory/badge/contractor/eridani
 	name = "Eridani Corporate Federation ID"
-	desc = "A high tech holobadge, designed to project information about an Eridanian Private Military Contractor."
+	desc = "A high-tech holobadge, designed to project information about an Eridanian Private Military Contractor."
 	icon_state = "erisec_card"
 	item_state = "erisec_card"
 	badge_string = "Eridani Corporate Federation"
 
 /obj/item/clothing/accessory/badge/contractor/idris
 	name = "Idris Incorporated ID"
-	desc = "A high tech holocard, designed to project information about a civilian worker at Idris."
+	desc = "A high-tech holocard, designed to project information about a civilian worker at Idris."
 	icon_state = "idris_card"
 	item_state = "idris_card"
 	badge_string = "Idris Incorporated"
 
 /obj/item/clothing/accessory/badge/contractor/idrissec
 	name = "Idris Security ID"
-	desc = "A high tech holobadge, designed to project information about Security personnel at Idris."
+	desc = "A high-tech holobadge, designed to project information about Security personnel at Idris."
 	icon_state = "idrissec_card"
 	item_state = "idrissec_card"
 	badge_string = "Idris Security"
 
 /obj/item/clothing/accessory/badge/contractor/iru
 	name = "Idris Reclamation Unit ID"
-	desc = "A high tech holobadge, designed to project information about an asset reclamation synthetic at Idris."
+	desc = "A high-tech holobadge, designed to project information about an asset reclamation synthetic at Idris."
 	icon_state = "iru_card"
 	item_state = "iru_card"
 	badge_string = "Idris Reclamation Unit"
