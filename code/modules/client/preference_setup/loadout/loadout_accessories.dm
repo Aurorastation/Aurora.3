@@ -199,7 +199,7 @@
 	description = "A selection of contractor IDs."
 	path = /obj/item/clothing/accessory/badge/contractor
 
-/datum/gear/accessory/badge/contractors/Initialize()
+/datum/gear/accessory/badge/contractors/New()
 	..()
 	var/badge = list()
 	badge["Einstein Engines card"] = /obj/item/clothing/accessory/badge/contractor/einstein
@@ -215,7 +215,7 @@
 	path = /obj/item/clothing/accessory/badge/contractor/necrosec
 	allowed_roles = list("Security Officer", "Warden", "Head of Security","Detective", "Forensic Technician", "Security Cadet")
 
-/datum/gear/accessory/badge/security_contractors/Initialize()
+/datum/gear/accessory/badge/security_contractors/New()
 	..()
 	var/secbadge = list()
 	secbadge["Necropolis Industries security card"] = /obj/item/clothing/accessory/badge/contractor/necrosec
