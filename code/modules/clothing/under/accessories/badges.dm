@@ -144,9 +144,9 @@
 		return
 	if(!stored_name)
 		set_name(user.real_name)
-		to_chat(user, "You inspect your [src.name]. Everything seems to be in order and you give it a quick cleaning with your hand.")
+		to_chat(user, "You inspect your [src]. Everything seems to be in order and you give it a quick cleaning with your hand.")
 		return
-	user.visible_message("<span class='notice'>[user] displays their [src.name].\nIt reads: [stored_name], [badge_string].</span>","<span class='notice'>You display your [src.name].\nIt reads: [stored_name], [badge_string].</span>")
+	user.visible_message("<span class='notice'>[user] displays their [src].\nIt reads: [stored_name], [badge_string].</span>","<span class='notice'>You display your [src].\nIt reads: [stored_name], [badge_string].</span>")
 
 /obj/item/clothing/accessory/badge/contractor/necrosec
 	name = "Necropolis Industries Security ID"
