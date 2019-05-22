@@ -28,8 +28,6 @@
 	var/check_synth = 0 	//if active, will shoot at anything not an AI or cyborg
 	var/ailock = 0 	//Silicons cannot use this
 	req_access = list(access_ai_upload)
-	var/ui_ref = null //used for turrets UI ref
-	var/remote_access = FALSE
 
 
 /obj/machinery/turretid/stun
@@ -126,45 +124,48 @@
 
 	ui_interact(user)
 
-/obj/machinery/turretid/vueui_data_change(var/list/data, var/mob/user, var/datum/vueui/ui, var/list/newdata)
+/obj/machinery/turretid/vueui_data_change(var/list/data, var/mob/user, var/datum/vueui/ui)
 	. = ..()
 	data = . || data
-	if(ui.data == data && data != null)
-		return null
 	if(!data)
 		data = list()
-	VUEUI_SET_CHECK(data["access"], !isLocked(user), ., data)
+	VUEUI_SET_IFNOTSET(data["turrets"], list(), ., data)
 	VUEUI_SET_CHECK(data["locked"], locked, ., data)
 	VUEUI_SET_CHECK(data["enabled"], enabled, ., data)
 	VUEUI_SET_CHECK(data["is_lethal"], 1, ., data)
 	VUEUI_SET_CHECK(data["lethal"], lethal, ., data)
 	VUEUI_SET_CHECK(data["can_switch"], egun, ., data)
-	var/turrets[0]
+
+	var/usedSettings = list(
+		"check_synth" = "Neutralize All Non-Synthetics",
+		"check_weapons" = "Check Weapon Authorization",
+		"check_records" = "Check Security Records",
+		"check_arrest" ="Check Arrest Status",
+		"check_access" = "Check Access Authorization",
+		"check_anomalies" = "Check misc. Lifeforms"
+	)
+	VUEUI_SET_IFNOTSET(data["settings"], list(), ., data)
+	for(var/v in usedSettings)
+		var/name = usedSettings[v]
+		VUEUI_SET_IFNOTSET(data["settings"][v], list(), ., data)
+		data["settings"][v]["category"] = name
+		VUEUI_SET_CHECK(data["settings"][v]["value"], vars[v], ., data)
+
 	if(istype(control_area))
+		if(control_area.turrets.len != data["turrets"].len)
+			data["turrets"] = list()
 		for (var/obj/machinery/porta_turret/aTurret in control_area.turrets)
-			turrets[++turrets.len] = list("name" = sanitize(aTurret.name + " [turrets.len]"), "ref"= "\ref[aTurret]", "settings" = aTurret.generate_data(user, TRUE))
-	VUEUI_SET_CHECK(data["turrets"], turrets, ., data)
+			var/ref = "\ref[aTurret]"
+			VUEUI_SET_IFNOTSET(data["turrets"][ref], list("ref" = ref), ., data)
+			VUEUI_SET_IFNOTSET(data["turrets"][ref]["name"], sanitize(aTurret.name + " [data["turrets"].len]"), ., data)
+			var/rtn = aTurret.vueui_data_change(data["turrets"][ref]["settings"], user, ui)
+			if(rtn)
+				data["turrets"][ref]["settings"] = rtn
+				. = data
 
-	if(!isLocked(user))
-		var/usedSettings = list(
-			"check_synth" = "Neutralize All Non-Synthetics",
-			"check_weapons" = "Check Weapon Authorization",
-			"check_records" = "Check Security Records",
-			"check_arrest" ="Check Arrest Status",
-			"check_access" = "Check Access Authorization",
-			"check_anomalies" = "Check misc. Lifeforms"
-		)
-		var/settings[0]
-		for(var/v in usedSettings)
-			var/name = usedSettings[v]
-			VUEUI_SET_CHECK_IFNOTSET(settings[v], list(), ., data)
-			settings[v]["category"] = name
-			VUEUI_SET_CHECK(settings[v]["value"], vars[v], ., data)
-		data["settings"] = settings
 
-/obj/machinery/turretid/ui_interact(mob/user, ui_key = "main", var/datum/vueui/ui = null, var/force_open = 1)
-
-	ui = SSvueui.get_open_ui(user, src)
+/obj/machinery/turretid/ui_interact(mob/user)
+	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
 	if (!ui)
 		ui = new(user, src, "turrets-control", 375, 725, "Turret Controls")
 	ui.open()
@@ -173,52 +174,35 @@
 	if(..())
 		return 1
 
-	if(href_list["command"] && !isnull(href_list["value"]))
-		var/value = text2num(href_list["value"])
-		if(href_list["command"] == "enable")
-			enabled = value
-		else if(href_list["command"] == "lethal")
-			lethal = value
-		else if(href_list["command"] == "check_synth")
-			check_synth = value
-		else if(href_list["command"] == "check_weapons")
-			check_weapons = value
-		else if(href_list["command"] == "check_records")
-			check_records = value
-		else if(href_list["command"] == "check_arrest")
-			check_arrest = value
-		else if(href_list["command"] == "check_access")
-			check_access = value
-		else if(href_list["command"] == "check_anomalies")
-			check_anomalies = value
-		updateTurrets()
-		update_icon()
-		return 1
-	else if(href_list["turret"] && !isnull(href_list["value"]))
-		var/value = text2num(href_list["value"])
+	if(href_list["turret_ref"] == "this")
+		if(href_list["command"] && !isnull(href_list["value"]))
+			var/value = text2num(href_list["value"])
+			if(href_list["command"] == "enable")
+				enabled = value
+			else if(href_list["command"] == "lethal")
+				lethal = value
+			else if(href_list["command"] == "check_synth")
+				check_synth = value
+			else if(href_list["command"] == "check_weapons")
+				check_weapons = value
+			else if(href_list["command"] == "check_records")
+				check_records = value
+			else if(href_list["command"] == "check_arrest")
+				check_arrest = value
+			else if(href_list["command"] == "check_access")
+				check_access = value
+			else if(href_list["command"] == "check_anomalies")
+				check_anomalies = value
+			updateTurrets()
+			update_icon()
+			SSvueui.check_uis_for_change(src)
+	else if(href_list["turret_ref"])
 		var/obj/machinery/porta_turret/aTurret = locate(href_list["turret_ref"]) in (control_area.turrets)
 		if(!aTurret)
 			return
-		if(href_list["turret"] == "enable")
-			aTurret.enabled = value
-		else if(href_list["turret"] == "lethal")
-			aTurret.lethal = value
-			aTurret.lethal_icon = value
-			aTurret.update_icon()
-		else if(href_list["turret"] == "check_synth")
-			aTurret.check_synth = value
-		else if(href_list["turret"] == "check_weapons")
-			aTurret.check_weapons = value
-		else if(href_list["turret"] == "check_records")
-			aTurret.check_records = value
-		else if(href_list["turret"] == "check_arrest")
-			aTurret.check_arrest = value
-		else if(href_list["turret"] == "check_access")
-			aTurret.check_access = value
-		else if(href_list["turret"] == "check_anomalies")
-			aTurret.check_anomalies = value
+		. = aTurret.Topic(href, href_list)
+		SSvueui.check_uis_for_change(src)
 		update_icon()
-		return 1
 
 /obj/machinery/turretid/proc/updateTurrets()
 	var/datum/turret_checks/TC = getState()

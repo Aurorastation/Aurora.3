@@ -186,10 +186,7 @@
 	else
 		icon_state = "cover_[cover_set]"
 
-/obj/machinery/porta_turret/proc/isLocked(mob/user, var/remote = FALSE)
-	if(remote)
-		message_admins("Is unlocked")
-		return FALSE
+/obj/machinery/porta_turret/proc/isLocked(mob/user)
 	if(ailock && issilicon(user))
 		to_chat(user, "<span class='notice'>There seems to be a firewall preventing you from accessing this device.</span>")
 		return 1
@@ -200,72 +197,65 @@
 
 	return 0
 
-/obj/machinery/porta_turret/attack_ai(mob/user, var/remote = FALSE)
-	if(can_use(user, remote))
-		return
-
+/obj/machinery/porta_turret/attack_ai(mob/user)
 	ui_interact(user)
 
-/obj/machinery/porta_turret/attack_hand(mob/user, var/remote = FALSE)
-	if(can_use(user, remote))
-		return
+/obj/machinery/porta_turret/attack_hand(mob/user)
+	ui_interact(user)
 
-	message_admins("Opening UI")
-	ui_interact(user, remote)
+/obj/machinery/porta_turret/vueui_data_change(var/list/data, var/mob/user, var/datum/vueui/ui)
+	. = ..()
+	data = . || data
+	if(!data)
+		data = list()
+	VUEUI_SET_CHECK(data["locked"], locked, ., data)
+	VUEUI_SET_CHECK(data["enabled"], enabled, ., data)
+	VUEUI_SET_CHECK(data["is_lethal"], 1, ., data)
+	VUEUI_SET_CHECK(data["lethal"], lethal, ., data)
+	VUEUI_SET_CHECK(data["can_switch"], egun, ., data)
 
-/obj/machinery/porta_turret/proc/generate_data(mob/user, var/remote = FALSE)
-	var/data[0]
-	data["access"] = !isLocked(user, remote)
-	data["locked"] = locked
-	data["enabled"] = enabled
-	data["is_lethal"] = 1
-	data["lethal"] = lethal
-	data["can_switch"] = egun
+	var/usedSettings = list(
+		"check_synth" = "Neutralize All Non-Synthetics",
+		"check_weapons" = "Check Weapon Authorization",
+		"check_records" = "Check Security Records",
+		"check_arrest" ="Check Arrest Status",
+		"check_access" = "Check Access Authorization",
+		"check_anomalies" = "Check misc. Lifeforms"
+	)
+	VUEUI_SET_IFNOTSET(data["settings"], list(), ., data)
+	for(var/v in usedSettings)
+		var/name = usedSettings[v]
+		VUEUI_SET_IFNOTSET(data["settings"][v], list(), ., data)
+		data["settings"][v]["category"] = name
+		VUEUI_SET_CHECK(data["settings"][v]["value"], vars[v], ., data)
 
-	if(data["access"])
-		var/settings[0]
-		settings[++settings.len] = list("category" = "Neutralize All Non-Synthetics", "setting" = "check_synth", "value" = check_synth)
-		settings[++settings.len] = list("category" = "Check Weapon Authorization", "setting" = "check_weapons", "value" = check_weapons)
-		settings[++settings.len] = list("category" = "Check Security Records", "setting" = "check_records", "value" = check_records)
-		settings[++settings.len] = list("category" = "Check Arrest Status", "setting" = "check_arrest", "value" = check_arrest)
-		settings[++settings.len] = list("category" = "Check Access Authorization", "setting" = "check_access", "value" = check_access)
-		settings[++settings.len] = list("category" = "Check misc. Lifeforms", "setting" = "check_anomalies", "value" = check_anomalies)
-		data["settings"] = settings
-	return data
 
-/obj/machinery/porta_turret/ui_interact(mob/user, var/remote = FALSE, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/master_ui = null, var/datum/topic_state/state = default_state)
-	var/data = generate_data(user)
-
-	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
+/obj/machinery/porta_turret/ui_interact(mob/user)
+	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
 	if (!ui)
-		ui = new(user, src, ui_key, "turret_control.tmpl", "[name] turret Controls", 500, 300, master_ui = master_ui, state = state)
-		ui.set_initial_data(data)
-		ui.open()
-		ui.set_auto_update(1)
+		ui = new(user, src, "turrets-control", 375, 725, "Turret Controls")
+	ui.open()
 
-/obj/machinery/porta_turret/proc/HasController(var/remote = FALSE)
-	if(remote)
-		return FALSE
+/obj/machinery/porta_turret/proc/HasController()
 	var/area/A = get_area(src)
 	return A && A.turret_controls.len > 0
 
-/obj/machinery/porta_turret/proc/can_use(var/mob/user, var/remote = FALSE)
-	if(HasController(remote))
+/obj/machinery/porta_turret/CanUseTopic(var/mob/user)
+	if(HasController())
 		to_chat(user, "<span class='notice'>Turrets can only be controlled using the assigned turret controller.</span>")
 		return STATUS_CLOSE
 
-	if(isLocked(user, remote))
+	if(isLocked(user))
 		return STATUS_CLOSE
 
 	if(!anchored)
 		to_chat(usr, "<span class='notice'>\The [src] has to be secured first!</span>")
 		return STATUS_CLOSE
 
-/obj/machinery/porta_turret/Topic(href, href_list)
-	if(..())
-		return 1
+	return ..()
 
-	if(href_list["command"] && href_list["value"])
+/obj/machinery/porta_turret/Topic(href, href_list)
+	if(href_list["command"] && !isnull(href_list["value"]))
 		var/value = text2num(href_list["value"])
 		if(href_list["command"] == "enable")
 			enabled = value
@@ -292,7 +282,7 @@
 			check_access = value
 		else if(href_list["command"] == "check_anomalies")
 			check_anomalies = value
-
+		SSvueui.check_uis_for_change(src)
 		return 1
 
 /obj/machinery/porta_turret/power_change()
