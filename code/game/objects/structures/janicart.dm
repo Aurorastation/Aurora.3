@@ -88,10 +88,12 @@
 			if(I.reagents.total_volume < I.reagents.maximum_volume)
 				if(mybucket.reagents.total_volume < 1)
 					to_chat(user, "<span class='notice'>[mybucket] is empty!</span>")
+					update_icon()
 				else
 					mybucket.reagents.trans_to_obj(I, 5)	//
 					to_chat(user, "<span class='notice'>You wet [I] in [mybucket].</span>")
 					playsound(loc, 'sound/effects/slosh.ogg', 25, 1)
+					update_icon()
 			else
 				to_chat(user, "<span class='notice'>[I] can't absorb anymore liquid!</span>")
 		else
@@ -274,13 +276,14 @@
 	update_icon()
 	updateUsrDialog()
 
-
 /obj/structure/janitorialcart/update_icon()
 	cut_overlays()
 	has_items = 0
 	if(mybucket)
 		add_overlay("cart_bucket")
 		has_items = 1
+		if(mybucket.reagents.total_volume > 0)
+			add_overlay("cart_water")
 	if(mybag)
 		add_overlay("cart_garbage")
 		has_items = 1
