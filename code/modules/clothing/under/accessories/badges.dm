@@ -140,24 +140,13 @@
 	slot = "over"
 
 /obj/item/clothing/accessory/badge/contractor/attack_self(mob/user as mob)
-
-	if(!badge_string)
-		to_chat(user, "It would be somewhat pointless to wear an ID without proper information listed.")
+	if(!isliving(user))
 		return
-
 	if(!stored_name)
+		set_name(user.real_name)
 		to_chat(user, "You inspect your [src.name]. Everything seems to be in order and you give it a quick cleaning with your hand.")
-		set_name(user.real_name)
 		return
-
-	if(isliving(user))
-		if(stored_name)
-			user.visible_message("<span class='notice'>[user] displays their [src.name].\nIt reads: [stored_name], [badge_string].</span>","<span class='notice'>You display your [src.name].\nIt reads: [stored_name], [badge_string].</span>")
-		else
-			user.visible_message("<span class='notice'>[user] displays their [src.name].\nIt reads: [badge_string].</span>","<span class='notice'>You display your [src.name]. It reads: [badge_string].</span>")
-
-	if(badge_string)
-		set_name(user.real_name)
+	user.visible_message("<span class='notice'>[user] displays their [src.name].\nIt reads: [stored_name], [badge_string].</span>","<span class='notice'>You display your [src.name].\nIt reads: [stored_name], [badge_string].</span>")
 
 /obj/item/clothing/accessory/badge/contractor/necrosec
 	name = "Necropolis Industries Security ID"
