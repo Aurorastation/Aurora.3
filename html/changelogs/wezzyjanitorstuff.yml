@@ -39,3 +39,4 @@ delete-after: True
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
   - imageadd: "Adds new sprites for Janitor stuff, reagent tanks & dispensers (you can even see water in buckets now!)"
+  - soundadd: "Adds more drop sounds for Janistuff too."
