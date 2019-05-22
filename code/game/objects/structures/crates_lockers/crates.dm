@@ -745,3 +745,11 @@
 	new /obj/item/organ/external/hand/right/autakh/tool/mining(src)
 	new /obj/item/organ/external/hand/right/autakh/medical(src)
 	new /obj/item/organ/external/hand/right/autakh/security(src)
+
+/obj/structure/closet/crate/einstein
+	name = "Einstein Engines crate"
+	desc = "Placeholder"
+	icon_state = "EEcrate"
+	icon_opened = "EEcrateopen"
+	icon_closed = "EEcrate"
+

@@ -103,6 +103,11 @@
 			update_force()
 			user.visible_message(span("danger", "[user] smashes the [src] into [M], causing it to break open and strew its contents across the area"))
 
+/obj/item/weapon/storage/toolbox/einstein
+	name = "booster construction kit"
+	icon_state = "EEbox"
+	item_state = "toolbox_yellow"
+
 
 /obj/item/weapon/storage/toolbox/lunchbox
 	name = "rainbow lunchbox"

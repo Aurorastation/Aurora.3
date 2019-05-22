@@ -44,6 +44,10 @@
 /area/hallway/secondary/exit/pods
 	name = "\improper Surface Lvl. Escape Pods"
 
+/area/hallway/secondary/locker_room
+	name = "\improper Surface Lvl. Locker Room"
+	icon_state = "locker"
+
 /area/hallway/secondary/construction
 	name = "\improper Construction Area"
 	icon_state = "construction"

@@ -66,10 +66,11 @@
 	smooth = SMOOTH_FALSE
 	canSmoothWith = null
 	permit_ao = TRUE
-	roof_type = /turf/simulated/shuttle/roof/destructible/black
+	roof_type = /turf/simulated/shuttle/roof/black
 
 /turf/simulated/shuttle/wall/dark/destructible
 	destructible = TRUE
+	roof_type = /turf/simulated/shuttle/roof/destructible/black
 
 /turf/simulated/shuttle/floor
 	name = "floor"
@@ -139,6 +140,12 @@
 /turf/simulated/shuttle/floor/plating/destructible/black
 	roof_type = /turf/simulated/shuttle/roof/destructible/black
 
+/turf/simulated/shuttle/floor/administration
+	roof_type = /turf/simulated/shuttle/roof/black
+
+/turf/simulated/shuttle/floor/plating/administration
+	roof_type = /turf/simulated/shuttle/roof/black
+
 /turf/simulated/shuttle/floor/ramp
 	name = "steps"
 	icon = 'icons/turf/flooring/tiles.dmi'
@@ -175,6 +182,10 @@
 	oxygen = 0
 	nitrogen = 0
 	roof_type = null
+
+/turf/simulated/shuttle/roof/black
+	icon = 'icons/turf/smooth/roof_black.dmi'
+	icon_state = "roof_black"
 
 /turf/simulated/shuttle/roof/destructible
 	destructible = TRUE

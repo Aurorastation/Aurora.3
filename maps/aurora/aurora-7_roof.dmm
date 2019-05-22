@@ -2889,6 +2889,13 @@
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/mine/explored)
+"xI" = (
+/obj/effect/floor_decal/industrial/warning{
+	icon_state = "warning";
+	dir = 6
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
 "za" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -32465,13 +32472,13 @@ ai
 ai
 ai
 ai
-ai
-ai
-ff
+fi
 ah
-fg
-ai
-am
+ah
+ah
+ah
+ah
+al
 ab
 af
 ai
@@ -32722,13 +32729,13 @@ aa
 aa
 aa
 aa
-aa
-aa
-ae
+bn
+ah
+ah
+ah
+ah
 ah
 al
-aa
-ab
 ab
 ab
 ab
@@ -32979,14 +32986,14 @@ aa
 aa
 aa
 aa
-aa
-aa
-ae
+bn
+ah
+ah
+ah
+ah
 ah
 al
-aa
-aa
-aa
+ab
 ab
 ab
 ab
@@ -33236,13 +33243,13 @@ aa
 aa
 aa
 aa
-aa
-aa
-ed
-ai
-am
-aa
-aa
+af
+aq
+fi
+ah
+fg
+aq
+xI
 aa
 aa
 ab
@@ -33495,9 +33502,9 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
+ae
+ah
+al
 aa
 aa
 aa
@@ -33752,9 +33759,9 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
+ae
+ah
+al
 aa
 aa
 aa
@@ -34009,9 +34016,9 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
+ed
+ai
+am
 aa
 aa
 aa
