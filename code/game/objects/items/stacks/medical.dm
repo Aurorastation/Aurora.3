@@ -2,6 +2,7 @@
 	name = "medical pack"
 	singular_name = "medical pack"
 	icon = 'icons/obj/items.dmi'
+	drop_sound = 'sound/items/drop/box.ogg'
 	amount = 5
 	max_amount = 5
 	w_class = 2
@@ -67,6 +68,7 @@
 	heal_brute = 4
 	icon_has_variants = TRUE
 	apply_sounds = list('sound/items/rip1.ogg','sound/items/rip2.ogg')
+	drop_sound = 'sound/items/drop/gloves.ogg'
 
 /obj/item/stack/medical/bruise_pack/attack(mob/living/carbon/M as mob, mob/user as mob)
 	if(..())
@@ -132,6 +134,7 @@
 	origin_tech = list(TECH_BIO = 1)
 	icon_has_variants = TRUE
 	apply_sounds = list('sound/items/ointment.ogg')
+	drop_sound = 'sound/items/drop/herb.ogg'
 
 /obj/item/stack/medical/ointment/attack(mob/living/carbon/M as mob, mob/user as mob)
 	if(..())
@@ -276,6 +279,7 @@
 	icon_state = "splint"
 	amount = 5
 	max_amount = 5
+	drop_sound = 'sound/items/drop/hat.ogg'
 
 /obj/item/stack/medical/splint/attack(mob/living/carbon/M as mob, mob/user as mob)
 	if(..())

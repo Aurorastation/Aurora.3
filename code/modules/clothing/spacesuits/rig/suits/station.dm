@@ -253,6 +253,13 @@
 		/obj/item/rig_module/mounted/taser
 		)
 
+/obj/item/weapon/rig/hazard/equipped/pirate
+	req_access = list(access_syndicate)
+	helm_type = /obj/item/clothing/head/helmet/space/rig/hazard/pirate
+
+/obj/item/clothing/head/helmet/space/rig/hazard/pirate
+	camera_networks = list()
+
 /obj/item/weapon/rig/diving
 	name = "diving suit control module"
 	suit_type = "diving suit"
