@@ -1,28 +1,24 @@
-
-
 ///jar
 
-/obj/item/weapon/reagent_containers/food/drinks/jar
-	name = "empty jar"
-	desc = "A glass jar. You can put the lid back on and use it as a tip jar."
+/obj/item/weapon/reagent_containers/glass/beaker/jar
+	name = "glass jar"
+	desc = "A glass jar. You can put the lid back on and use it for other things."
+	icon = 'icons/obj/drinks.dmi'
 	icon_state = "jar"
-	item_state = "beaker"
+	matter = list("glass" = 5000)
 	center_of_mass = list("x"=15, "y"=8)
+	w_class = 3.0
+	amount_per_transfer_from_this = 20
+	possible_transfer_amounts = list(10,20,30,60,120)
+	volume = 120
 	unacidable = 1
 
-/obj/item/weapon/reagent_containers/food/drinks/jar/on_reagent_change()
-	if (reagents.reagent_list.len > 0)
-		icon_state ="jar_what"
-		name = "jar of something"
-		desc = "You can't really tell what this is." //todo : make this an overlay that changes color ala beaker. nonetheless, it works for now. -wezzy.
-	else
-		icon_state = "jar"
-		name = "empty jar"
-		desc = "A glass jar. You can put the lid back on and use it as a tip jar."
+/obj/item/weapon/reagent_containers/glass/beaker/jar/attack_self(var/mob/user)
+	if(reagents.total_volume > 0)
+		to_chat(user, "<span class='warning'>You need to empty \the [src] first!.</span>")
 		return
-
-/obj/item/weapon/reagent_containers/food/drinks/jar/attack_self(var/mob/user)
-	to_chat(user, "<span class='notice'>You put the lid on \the [src].</span>")
-	user.put_in_hands(new /obj/item/glass_jar)
-	qdel(src)
+	else
+		to_chat(user, "<span class='notice'>You put the lid on \the [src].</span>")
+		user.put_in_hands(new /obj/item/glass_jar)
+		qdel(src)
 	return

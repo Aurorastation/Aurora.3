@@ -8,6 +8,7 @@
 	flags = NOBLUDGEON
 	var/list/accept_mobs = list(/mob/living/simple_animal/lizard, /mob/living/simple_animal/mouse)
 	var/contains = 0 // 0 = nothing, 1 = money, 2 = animal, 3 = spiderling
+	drop_sound = 'sound/items/drop/glass.ogg'
 
 /obj/item/glass_jar/New()
 	..()
@@ -65,7 +66,7 @@
 			return
 		if(0)
 			to_chat(user, "<span class='notice'>You remove the lid from \the [src].</span>")
-			user.put_in_hands(new /obj/item/weapon/reagent_containers/food/drinks/jar)
+			user.put_in_hands(new /obj/item/weapon/reagent_containers/glass/beaker/jar)
 			qdel(src)
 			return
 
