@@ -158,7 +158,7 @@
 	name = "\improper Surface of the Station"
 	icon_state = "southwest"
 	station_area = 1
-	base_turf = /turf/simulated/floor/asteroid/ash
+	base_turf = /turf/unsimulated/floor/asteroid/ash
 
 /area/syndicate_station/above
 	name = "\improper Above the Station"
@@ -171,13 +171,13 @@
 /area/syndicate_station/caverns
 	name = "\improper Caverns"
 	icon_state = "southeast"
-	base_turf = /turf/simulated/floor/asteroid/ash
+	base_turf = /turf/unsimulated/floor/asteroid/ash
 
 /area/syndicate_station/arrivals_dock
 	name = "\improper Docked with Station"
 	icon_state = "shuttle"
 	station_area = 1
-	base_turf = /turf/simulated/floor/asteroid/ash
+	base_turf = /turf/unsimulated/floor/asteroid/ash
 
 /area/syndicate_station/transit
 	name = "\improper Hyperspace"
@@ -214,7 +214,7 @@
 	name = "\improper Surface of the Station"
 	icon_state = "southwest"
 	station_area = 1
-	base_turf = /turf/simulated/floor/asteroid/ash
+	base_turf = /turf/unsimulated/floor/asteroid/ash
 
 /area/skipjack_station/above
 	name = "\improper Above the Station"
@@ -227,7 +227,7 @@
 /area/skipjack_station/cavern
 	name = "\improper Caverns"
 	icon_state = "southeast"
-	base_turf = /turf/simulated/floor/asteroid/ash
+	base_turf = /turf/unsimulated/floor/asteroid/ash
 
 //DJSTATION
 
@@ -273,7 +273,7 @@
 	name = "\improper Docked with station"
 	icon_state = "southwest"
 	station_area = 1
-	base_turf = /turf/simulated/floor/asteroid/ash
+	base_turf = /turf/unsimulated/floor/asteroid/ash
 
 /area/beach
 	name = "Keelin's private beach"

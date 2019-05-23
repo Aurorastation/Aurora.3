@@ -5,6 +5,7 @@
 	name = "drink"
 	desc = "yummy"
 	icon = 'icons/obj/drinks.dmi'
+	drop_sound = 'sound/items/drop/bottle.ogg'
 	icon_state = null
 	flags = OPENCONTAINER
 	amount_per_transfer_from_this = 5
@@ -109,6 +110,7 @@
 	desc = "It's milk. White and nutritious goodness!"
 	icon_state = "milk"
 	item_state = "carton"
+	drop_sound = 'sound/items/drop/box.ogg'
 	center_of_mass = list("x"=16, "y"=9)
 	Initialize()
 		. = ..()
@@ -119,6 +121,7 @@
 	desc = "It's soy milk. White and nutritious goodness!"
 	icon_state = "soymilk"
 	item_state = "carton"
+	drop_sound = 'sound/items/drop/box.ogg'
 	center_of_mass = list("x"=16, "y"=9)
 	Initialize()
 		. = ..()
@@ -128,6 +131,7 @@
 	name = "Robust coffee"
 	desc = "Careful, the beverage you're about to enjoy is extremely hot."
 	icon_state = "coffee"
+	drop_sound = 'sound/items/drop/box.ogg'
 	center_of_mass = list("x"=15, "y"=10)
 	Initialize()
 		. = ..()
@@ -137,6 +141,7 @@
 	name = "Seasonal Pumpkin Spice Latte"
 	desc = "A limited edition pumpkin spice coffee drink!"
 	icon_state = "psl_vended"
+	drop_sound = 'sound/items/drop/box.ogg'
 	center_of_mass = list("x"=15, "y"=10)
 	Initialize()
 		. = ..()
@@ -185,6 +190,7 @@
 	name = "paper cup"
 	desc = "A paper water cup."
 	icon_state = "water_cup_e"
+	drop_sound = 'sound/items/drop/paper.ogg'
 	possible_transfer_amounts = null
 	volume = 10
 	center_of_mass = list("x"=16, "y"=12)

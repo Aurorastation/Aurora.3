@@ -4859,6 +4859,18 @@
 /obj/structure/closet/emcloset,
 /turf/simulated/floor/tiled/dark,
 /area/derelict/bridge)
+"Pb" = (
+/obj/structure/shuttle/engine/propulsion{
+	icon_state = "propulsion_r"
+	},
+/turf/template_noop,
+/area/derelict/storage/engine_storage)
+"TN" = (
+/obj/structure/shuttle/engine/propulsion{
+	icon_state = "propulsion_l"
+	},
+/turf/template_noop,
+/area/derelict/storage/engine_storage)
 
 (1,1,1) = {"
 aa
@@ -23002,7 +23014,7 @@ kX
 kX
 kX
 kX
-aa
+kX
 aa
 aa
 aa
@@ -23259,7 +23271,7 @@ mz
 mz
 oe
 op
-ks
+TN
 aa
 aa
 aa
@@ -29170,7 +29182,7 @@ nV
 nV
 oe
 op
-ks
+Pb
 aa
 aa
 aa
@@ -29427,7 +29439,7 @@ ml
 ml
 ml
 kX
-aa
+kX
 aa
 aa
 aa
@@ -29692,7 +29704,7 @@ kX
 kX
 kX
 kX
-aa
+kX
 aa
 aa
 aa
@@ -29949,7 +29961,7 @@ oW
 oZ
 pb
 op
-ks
+TN
 aa
 aa
 aa
@@ -33547,7 +33559,7 @@ oO
 pa
 oe
 op
-ks
+Pb
 aa
 aa
 aa
@@ -33804,7 +33816,7 @@ kX
 kX
 kX
 kX
-aa
+kX
 aa
 aa
 aa

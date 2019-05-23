@@ -9,22 +9,22 @@
 /turf/simulated/mineral/random/higher_chance,
 /area/mine/unexplored)
 "ad" = (
-/turf/simulated/floor/asteroid/ash/rocky,
+/turf/unsimulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
 "ae" = (
 /obj/effect/blob/core,
-/turf/simulated/floor/asteroid/ash/rocky,
+/turf/unsimulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
 "af" = (
-/turf/simulated/floor/asteroid/ash,
+/turf/unsimulated/floor/asteroid/ash,
 /area/mine/unexplored)
 "ag" = (
 /obj/effect/floor_decal/asteroid,
-/turf/simulated/floor/asteroid/ash,
+/turf/unsimulated/floor/asteroid/ash,
 /area/mine/unexplored)
 "ah" = (
 /obj/effect/blob/core,
-/turf/simulated/floor/asteroid/ash,
+/turf/unsimulated/floor/asteroid/ash,
 /area/mine/unexplored)
 "ai" = (
 /turf/simulated/wall/r_wall,
@@ -46,17 +46,17 @@
 /turf/simulated/floor,
 /area/derelict/ship)
 "al" = (
-/turf/simulated/floor/asteroid/ash/rocky,
+/turf/unsimulated/floor/asteroid/ash/rocky,
 /area/derelict/ship)
 "am" = (
-/turf/simulated/floor/asteroid/ash,
+/turf/unsimulated/floor/asteroid/ash,
 /area/derelict/ship)
 "ap" = (
 /turf/simulated/floor,
 /area/derelict/ship)
 "aq" = (
 /obj/effect/floor_decal/asteroid,
-/turf/simulated/floor/asteroid/ash,
+/turf/unsimulated/floor/asteroid/ash,
 /area/derelict/ship)
 "ar" = (
 /obj/structure/grille,
@@ -148,7 +148,7 @@
 /area/derelict/ship)
 "aB" = (
 /obj/structure/grille,
-/turf/simulated/floor/asteroid/ash/rocky,
+/turf/unsimulated/floor/asteroid/ash/rocky,
 /area/derelict/ship)
 "aC" = (
 /turf/simulated/floor,
@@ -208,7 +208,7 @@
 /area/template_noop)
 "aI" = (
 /obj/structure/lattice,
-/turf/simulated/floor/asteroid/ash,
+/turf/unsimulated/floor/asteroid/ash,
 /area/template_noop)
 "aJ" = (
 /obj/structure/lattice,
@@ -216,7 +216,7 @@
 /area/template_noop)
 "aK" = (
 /mob/living/simple_animal/hostile/retaliate/cavern_dweller,
-/turf/simulated/floor/asteroid/ash,
+/turf/unsimulated/floor/asteroid/ash,
 /area/derelict/ship)
 "aL" = (
 /obj/structure/shuttle/engine/platform,
@@ -235,7 +235,7 @@
 /area/derelict/ship)
 "aP" = (
 /obj/effect/floor_decal/asteroid,
-/turf/simulated/floor/asteroid/ash/rocky,
+/turf/unsimulated/floor/asteroid/ash/rocky,
 /area/derelict/ship)
 "aQ" = (
 /obj/structure/lattice,
@@ -243,7 +243,7 @@
 /area/derelict/ship)
 "aR" = (
 /obj/random/junk,
-/turf/simulated/floor/asteroid/ash/rocky,
+/turf/unsimulated/floor/asteroid/ash/rocky,
 /area/derelict/ship)
 "aS" = (
 /obj/structure/shuttle/engine/router,
@@ -255,7 +255,7 @@
 /area/derelict/ship)
 "aU" = (
 /obj/structure/lattice,
-/turf/simulated/floor/asteroid/ash,
+/turf/unsimulated/floor/asteroid/ash,
 /area/derelict/ship)
 "aV" = (
 /obj/structure/grille,
@@ -2721,6 +2721,59 @@
 	},
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor,
+/area/derelict/ship)
+"in" = (
+/turf/simulated/shuttle/wall/dark{
+	dir = 5;
+	icon_state = "diagonalWall3"
+	},
+/area/derelict/ship)
+"jo" = (
+/turf/template_noop,
+/turf/simulated/shuttle/wall/dark{
+	dir = 6;
+	icon_state = "diagonalWall3"
+	},
+/area/derelict/ship)
+"nh" = (
+/turf/template_noop,
+/turf/simulated/shuttle/wall/dark{
+	dir = 5;
+	icon_state = "diagonalWall3"
+	},
+/area/derelict/ship)
+"Ar" = (
+/obj/structure/shuttle/engine/propulsion{
+	icon_state = "propulsion_r"
+	},
+/turf/template_noop,
+/area/derelict/ship)
+"JJ" = (
+/turf/template_noop,
+/turf/simulated/shuttle/wall/dark{
+	dir = 8;
+	icon_state = "diagonalWall3"
+	},
+/area/derelict/ship)
+"Mk" = (
+/obj/structure/shuttle/engine/propulsion,
+/turf/simulated/shuttle/wall/dark{
+	dir = 5;
+	icon_state = "diagonalWall3"
+	},
+/area/derelict/ship)
+"Qi" = (
+/obj/structure/shuttle/engine/propulsion{
+	icon_state = "propulsion_l"
+	},
+/turf/template_noop,
+/area/derelict/ship)
+"Qp" = (
+/turf/template_noop,
+/turf/simulated/shuttle/wall/dark{
+	dir = 4;
+	icon_state = "diagonalWall3"
+	},
 /area/derelict/ship)
 
 (1,1,1) = {"
@@ -26447,9 +26500,9 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
+JJ
+ai
+in
 aa
 aa
 aa
@@ -26706,7 +26759,7 @@ ai
 ai
 ai
 aT
-aZ
+Mk
 aa
 aa
 aa
@@ -26962,10 +27015,10 @@ ai
 ai
 ai
 ai
-aT
-aZ
-aa
-aa
+aN
+ai
+ai
+nh
 aa
 aa
 aa
@@ -27220,9 +27273,9 @@ ai
 aN
 aN
 aN
-ap
+aN
 aT
-aZ
+Qi
 aa
 aa
 aa
@@ -27477,9 +27530,9 @@ ai
 aN
 ap
 ap
-ap
+aN
 aT
-aZ
+Ar
 aa
 aa
 aa
@@ -27734,10 +27787,10 @@ ai
 aN
 ap
 ap
-ap
-aT
-aZ
-aa
+aN
+aN
+ai
+nh
 aa
 aa
 aa
@@ -27989,12 +28042,12 @@ at
 at
 ai
 aN
-aN
-aN
-aN
+ap
+ap
+ap
 aN
 aT
-aZ
+Qi
 aa
 aa
 aa
@@ -28249,7 +28302,7 @@ aN
 ap
 ap
 ap
-ap
+aN
 aT
 aZ
 aa
@@ -28503,12 +28556,12 @@ at
 at
 ai
 aN
-aN
-aN
-aN
+ap
+ap
+ap
 aN
 aT
-aZ
+Ar
 aa
 aa
 aa
@@ -28762,10 +28815,10 @@ ai
 aN
 ap
 ap
-ap
-aT
-aZ
-aa
+aN
+aN
+ai
+Qp
 aa
 aa
 aa
@@ -29019,9 +29072,9 @@ ai
 aN
 ap
 ap
-ap
+aN
 aT
-aZ
+Qi
 aa
 aa
 aa
@@ -29276,9 +29329,9 @@ ai
 aN
 aN
 aN
-ap
+aN
 aT
-aZ
+Ar
 aa
 aa
 aa
@@ -29532,10 +29585,10 @@ ai
 ai
 ai
 ai
-aT
-aZ
-aa
-aa
+aN
+ai
+ai
+Qp
 aa
 aa
 aa
@@ -30044,13 +30097,13 @@ aJ
 aJ
 aJ
 aJ
-aJ
-aJ
-aJ
-aJ
-aJ
-aJ
-aJ
+aa
+jo
+ai
+Qp
+aa
+aa
+aa
 aJ
 aJ
 aJ
@@ -30301,11 +30354,11 @@ aJ
 aJ
 aJ
 aJ
-aJ
-aJ
-aJ
-aJ
-aJ
+aa
+aa
+aa
+aa
+aa
 aJ
 aJ
 aJ
@@ -36983,11 +37036,11 @@ aJ
 aJ
 aJ
 aJ
-aJ
-aJ
-aJ
-aJ
-aJ
+aa
+aa
+aa
+aa
+aa
 aJ
 aJ
 aJ
@@ -37240,13 +37293,13 @@ aJ
 aJ
 aJ
 aJ
-aJ
-aJ
-aJ
-aJ
-aJ
-aJ
-aJ
+aa
+JJ
+ai
+in
+aa
+aa
+aa
 aJ
 aJ
 aJ
@@ -37500,7 +37553,7 @@ ai
 ai
 ai
 aT
-aZ
+Mk
 aa
 aa
 aa
@@ -37756,10 +37809,10 @@ ai
 ai
 ai
 ai
-aT
-aZ
-aa
-aa
+aN
+ai
+ai
+nh
 aa
 aa
 aa
@@ -38014,9 +38067,9 @@ ai
 aN
 aN
 aN
-ap
+aN
 aT
-aZ
+Qi
 aa
 aa
 aa
@@ -38271,9 +38324,9 @@ ai
 aN
 ap
 ap
-ap
+aN
 aT
-aZ
+Ar
 aa
 aa
 aa
@@ -38528,10 +38581,10 @@ ai
 aN
 ap
 ap
-ap
-aT
-aZ
-aa
+aN
+aN
+ai
+nh
 aa
 aa
 aa
@@ -38783,12 +38836,12 @@ at
 at
 ai
 aN
-aN
-aN
-aN
+ap
+ap
+ap
 aN
 aT
-aZ
+Qi
 aa
 aa
 aa
@@ -39043,7 +39096,7 @@ aN
 ap
 ap
 ap
-ap
+aN
 aT
 aZ
 aa
@@ -39297,12 +39350,12 @@ at
 at
 ai
 aN
-aN
-aN
-aN
+ap
+ap
+ap
 aN
 aT
-aZ
+Ar
 aa
 aa
 aa
@@ -39556,10 +39609,10 @@ ai
 aN
 ap
 ap
-ap
-aT
-aZ
-aa
+aN
+aN
+ai
+Qp
 aa
 aa
 aa
@@ -39813,9 +39866,9 @@ ai
 aN
 ap
 ap
-ap
+aN
 aT
-aZ
+Qi
 aa
 aa
 aa
@@ -40070,9 +40123,9 @@ ai
 aN
 aN
 aN
-ap
+aN
 aT
-aZ
+Ar
 aa
 aa
 aa
@@ -40326,10 +40379,10 @@ ai
 ai
 ai
 ai
-aT
-aZ
-aa
-aa
+aN
+ai
+ai
+Qp
 aa
 aa
 aa
@@ -40839,9 +40892,9 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
+jo
+ai
+Qp
 aa
 aa
 aa
