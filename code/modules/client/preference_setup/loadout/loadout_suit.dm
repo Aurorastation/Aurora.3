@@ -231,6 +231,10 @@
 	coat["military jacket, green"] = /obj/item/clothing/suit/storage/miljacket/green
 	gear_tweaks += new/datum/gear_tweak/path(coat)
 
+/datum/gear/suit/legion_jacket
+	display_name = "Tau Ceti Foreign Legion jacket"
+	path = /obj/item/clothing/suit/storage/legion
+
 /datum/gear/suit/miscellaneous/engi_dep_jacket
 	display_name = "department jacket, engineering"
 	path = /obj/item/clothing/suit/storage/toggle/engi_dep_jacket

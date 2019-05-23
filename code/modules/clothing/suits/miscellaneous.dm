@@ -484,6 +484,12 @@
 	icon_state = "militaryjacket_green"
 	item_state = "militaryjacket_green"
 
+/obj/item/clothing/suit/storage/legion
+	name = "tcfl jacket"
+	desc = "A pale blue canvas jacket embossed with the insignia of the Tau Ceti Foreign Legion."
+	icon_state = "tcfljacket"
+	item_state = "tcfljacket"
+
 /obj/item/clothing/suit/jacket/puffer
 	name = "puffer jacket"
 	desc = "A thick jacket with a rubbery, water-resistant shell. Oddly enough, you don't feel any heat."

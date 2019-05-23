@@ -26,9 +26,14 @@
 	update_clothing_icon()
 
 /obj/item/clothing/mask/balaclava/tactical
-	name = "green balaclava"
+	name = "white balaclava"
 	desc = "Designed to both hide identities and keep your face comfy and warm."
 	icon_state = "swatclava"
+
+/obj/item/clothing/mask/balaclava/military
+	name = "green balaclava"
+	desc = "Designed to both hide identities and keep your face comfy and warm."
+	icon_state = "milclava"
 
 /obj/item/clothing/mask/balaclava/iacmask
 	name = "IAC balaclava"

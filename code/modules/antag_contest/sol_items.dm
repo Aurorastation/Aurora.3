@@ -39,6 +39,27 @@
 	item_state = "marine_fatigue"
 	contained_sprite = 1
 
+/obj/item/clothing/under/rank/fatigues/Initialize()
+	.=..()
+	rolled_sleeves = 0
+
+/obj/item/clothing/under/rank/fatigues/rollsleeves()
+	set name = "Roll Up Sleeves"
+	set category = "Object"
+	set src in usr
+
+	if (use_check(usr, USE_DISALLOW_SILICONS))
+		return
+
+	rolled_sleeves = !rolled_sleeves
+	if(rolled_sleeves)
+		body_parts_covered &= ~(ARMS|HANDS)
+		item_state = "[item_state]_r_s"
+	else
+		body_parts_covered = initial(body_parts_covered)
+		item_state = initial(item_state)
+	update_clothing_icon()
+
 /obj/item/clothing/under/rank/service //navy personnel service unniform
 	name = "sol navy service uniform"
 	desc = "Military looking service uniform issued to Sol Alliance navy members."
@@ -181,6 +202,26 @@
 	icon = 'icons/obj/sol_uniform.dmi'
 	icon_state = "marineofficersword"
 	item_state = "marineofficersword"
+	contained_sprite = 1
+
+//vest and helmet
+
+/obj/item/clothing/head/helmet/sol
+	name = "sol combat helmet"
+	desc = "A woodland colored helmet made from advanced ceramic."
+	icon = 'icons/obj/sol_uniform.dmi'
+	icon_state = "helmet_tac_sol"
+	item_state = "helmet_tac_sol"
+	armor = list(melee = 60, bullet = 60, laser = 60, energy = 40, bomb = 40, bio = 0, rad = 0)
+	contained_sprite = 1
+
+/obj/item/clothing/suit/storage/vest/sol
+	name = "sol heavy armor vest"
+	desc = "A high-quality armor vest in a deep green. It is surprisingly flexible and light, even with the added webbing and armor plating."
+	icon = 'icons/obj/sol_uniform.dmi'
+	icon_state = "solwebvest"
+	item_state = "solwebvest"
+	armor = list(melee = 60, bullet = 60, laser = 60, energy = 40, bomb = 40, bio = 0, rad = 0)
 	contained_sprite = 1
 
 //closet uniform
