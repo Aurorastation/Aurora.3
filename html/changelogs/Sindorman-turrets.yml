@@ -41,5 +41,8 @@ changes:
   - tweak: "Emagging turrets now decreases their shot delay by half, instead of allowing them to bypass cooldown."
   - tweak: "Hostile mobs now target turrets and attack the."
   - tweak: "Turrets can now be repaired with welding tool if they are not completely destroyed."
+  - tweak: "Bluespace inhibitors no longer break when touched/hit with hands."
+  - tweak: "Bluespace inhibitors no longer break from projectiles that deal no damage(Like test projectile or stun)."
   - tweak: "Turrets now now use faster processing(delay decreased from 2 second to 0.5 seconds process) if they have targets to shoot. Which makes them track and shoot faster than usual, allowing to unleash full potential of emagged and fast shooting guns."
   - backend: "Disabling(turning it off) turret stops their processing, while enabling enables it. Cause no need to process turned off turret, lets save CPU."
+  - backend: "Turrets Control panel now uses VueUi instead of NanoUi."

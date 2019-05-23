@@ -265,8 +265,10 @@
 			else if(fast_processing)
 				STOP_PROCESSING(SSfast_process, src)
 				fast_processing = FALSE
+				popDown()
 			else
 				STOP_PROCESSING(SSprocessing, src)
+				popDown()
 		else if(href_list["command"] == "lethal")
 			lethal = value
 			lethal_icon = value
