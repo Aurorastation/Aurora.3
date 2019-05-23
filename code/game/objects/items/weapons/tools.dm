@@ -18,7 +18,7 @@
 /obj/item/weapon/wrench
 	name = "wrench"
 	desc = "An adjustable tool used for gripping and turning nuts or bolts."
-	icon = 'icons/obj/items.dmi'
+	icon = 'icons/obj/tools.dmi'
 	icon_state = "wrench"
 	flags = CONDUCT
 	slot_flags = SLOT_BELT
@@ -39,7 +39,7 @@
 /obj/item/weapon/screwdriver
 	name = "screwdriver"
 	desc = "A tool with a flattened or cross-shaped tip that fits into the head of a screw to turn it."
-	icon = 'icons/obj/items.dmi'
+	icon = 'icons/obj/tools.dmi'
 	icon_state = "screwdriver"
 	flags = CONDUCT
 	slot_flags = SLOT_BELT | SLOT_EARS
@@ -104,7 +104,7 @@
 /obj/item/weapon/wirecutters
 	name = "wirecutters"
 	desc = "A tool used to cut wires in electrical work."
-	icon = 'icons/obj/items.dmi'
+	icon = 'icons/obj/tools.dmi'
 	icon_state = "cutters"
 	flags = CONDUCT
 	slot_flags = SLOT_BELT
@@ -147,7 +147,7 @@
 /obj/item/weapon/weldingtool
 	name = "welding tool"
 	desc = "A welding tool with a built-in fuel tank, designed for welding and cutting metal."
-	icon = 'icons/obj/tools/welding.dmi'
+	icon = 'icons/obj/tools.dmi'
 	icon_state = "welder_off"
 	flags = CONDUCT
 	slot_flags = SLOT_BELT
@@ -532,7 +532,7 @@
 /obj/item/weapon/crowbar
 	name = "crowbar"
 	desc = "An iron bar with a flattened end, used as a lever to remove floors and pry open doors."
-	icon = 'icons/obj/items.dmi'
+	icon = 'icons/obj/tools.dmi'
 	icon_state = "crowbar"
 	flags = CONDUCT
 	slot_flags = SLOT_BELT
@@ -573,7 +573,7 @@
 /obj/item/combitool
 	name = "combi-tool"
 	desc = "It even has one of those nubbins for doing the thingy."
-	icon = 'icons/obj/combitool.dmi'
+	icon = 'icons/obj/tools.dmi'
 	icon_state = "combitool"
 	force = 3
 	w_class = 2

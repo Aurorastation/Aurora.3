@@ -1,6 +1,6 @@
 /obj/item/weapon/material/ashtray
 	name = "ashtray"
-	icon = 'icons/obj/objects.dmi'
+	icon = 'icons/obj/ashtray.dmi'
 	icon_state = "blank"
 	force_divisor = 0.1
 	thrown_force_divisor = 0.1

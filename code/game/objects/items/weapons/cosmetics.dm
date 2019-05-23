@@ -2,7 +2,7 @@
 	gender = PLURAL
 	name = "red lipstick"
 	desc = "A generic brand of lipstick."
-	icon = 'icons/obj/items.dmi'
+	icon = 'icons/obj/cosmetics.dmi'
 	icon_state = "lipstick"
 	w_class = 1.0
 	slot_flags = SLOT_EARS
@@ -76,7 +76,7 @@
 	desc = "A pristine purple comb made from flexible plastic."
 	w_class = 1.0
 	slot_flags = SLOT_EARS
-	icon = 'icons/obj/items.dmi'
+	icon = 'icons/obj/cosmetics.dmi'
 	icon_state = "purplecomb"
 	item_state = "purplecomb"
 

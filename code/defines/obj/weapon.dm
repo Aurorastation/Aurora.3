@@ -1,7 +1,7 @@
 /obj/item/weapon/phone
 	name = "red phone"
 	desc = "Should anything ever go wrong..."
-	icon = 'icons/obj/items.dmi'
+	icon = 'icons/obj/radio.dmi'
 	icon_state = "red_phone"
 	flags = CONDUCT
 	force = 3.0
@@ -581,7 +581,7 @@
 /obj/item/weapon/anomaly_core
 	name = "anomaly core"
 	desc = "An advanced bluespace device, little is known about its applications, meriting research into its purpose."
-	icon = 'icons/obj/objects.dmi'
+	icon = 'icons/obj/stock_parts.dmi'
 	icon_state = "anomaly_core"
 	origin_tech = list(TECH_MAGNET = 6, TECH_MATERIAL = 7, TECH_BLUESPACE = 8)
 

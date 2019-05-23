@@ -2,7 +2,7 @@
 	name = "0 credit chip"
 	desc = "It's worth 0 credits."
 	gender = PLURAL
-	icon = 'icons/obj/items.dmi'
+	icon = 'icons/obj/cash.dmi'
 	icon_state = "spacecash1"
 	opacity = 0
 	density = 0

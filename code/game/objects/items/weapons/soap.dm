@@ -4,7 +4,7 @@
 	name = "soap"
 	desc = "A cheap bar of soap. Doesn't smell."
 	gender = PLURAL
-	icon = 'icons/obj/items.dmi'
+	icon = 'icons/obj/soap.dmi'
 	icon_state = "soap"
 	w_class = 2.0
 	throwforce = 0
@@ -75,7 +75,7 @@
 
 /obj/item/weapon/soap/white_soap
 	name = "Soap"
-	desc = "Smells like chicken."
+	desc = "Smells like vanilla."
 	icon_state = "white_soap"
 
 /obj/item/weapon/soap/grey_soap
@@ -125,7 +125,7 @@
 
 /obj/item/weapon/soap/golden_soap
 	name = "Soap"
-	desc = "Smells like butter."
+	desc = "Smells like honey."
 	icon_state = "golden_soap"
 
 /obj/random/soap/

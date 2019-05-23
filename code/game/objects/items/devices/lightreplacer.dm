@@ -38,7 +38,7 @@
 	name = "light replacer"
 	desc = "A device to automatically replace lights. Refill with working lightbulbs or sheets of glass."
 
-	icon = 'icons/obj/tools/lightreplacer.dmi'
+	icon = 'icons/obj/lightreplacer.dmi'
 	icon_state = "lightreplacer"
 	item_state = "lightreplacer"
 	contained_sprite = 1

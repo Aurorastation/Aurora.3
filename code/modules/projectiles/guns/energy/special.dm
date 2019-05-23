@@ -324,7 +324,7 @@
 /obj/item/weapon/gun/energy/vaurca/typec
 	name = "thermal lance"
 	desc = "A powerful piece of Zo'rane energy artillery, converted to be portable...if you weigh a metric tonne, that is."
-	icon = 'icons/mob/species/breeder/inventory/items.dmi'
+	icon = 'icons/mob/species/breeder/inventory.dmi'
 	icon_state = "megaglaive0"
 	item_state = "megaglaive"
 	item_icons = list(//DEPRECATED. USE CONTAINED SPRITES IN FUTURE

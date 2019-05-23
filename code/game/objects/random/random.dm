@@ -769,8 +769,8 @@
 		/obj/item/weapon/material/knife/tacknife = 0.4,
 		/obj/item/weapon/storage/fancy/cigarettes = 1.2,
 		/obj/item/weapon/storage/fancy/cigarettes/dromedaryco = 0.8,
-		/obj/item/weapon/storage/fancy/cigarettes/killthroat = 0.3,
-		/obj/item/weapon/storage/fancy/cigarettes/custom = 1,
+		/obj/item/weapon/storage/fancy/cigarettes/acmeco = 0.3,
+		/obj/item/weapon/storage/fancy/cigarettes/blank = 1,
 		/obj/item/weapon/storage/bag/plasticbag = 1,
 		/obj/item/weapon/extinguisher = 1.3,
 		/obj/item/weapon/extinguisher/mini = 0.9,
@@ -945,7 +945,7 @@
 /obj/random/cookingoil
 	name = "random cooking oil"
 	desc = "Has a 50% chance of spawning a tank of cooking oil, otherwise nothing"
-	icon = 'icons/obj/objects.dmi'
+	icon = 'icons/obj/reagent_dispensers.dmi'
 	icon_state = "oiltank"
 	spawn_nothing_percentage = 50
 
