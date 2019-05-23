@@ -4,6 +4,7 @@
 	icon = 'icons/obj/dice.dmi'
 	icon_state = "d66"
 	w_class = 1
+	var/side_mult = 1 // Used for d100s.
 	var/sides = 6
 	var/weighted = FALSE //if this dice can cheat or something
 	var/favored_number = 1 //related to the var above
@@ -27,7 +28,7 @@
 	else if(sides == 20 && result == 1)
 		comment = "Ouch, bad luck."
 	icon_state = "[name][result]"
-	src.visible_message("<span class='notice'>\The [name] lands on [result]. [comment]</span>")
+	src.visible_message("<span class='notice'>\The [name] lands on [result * side_mult]. [comment]</span>")
 
 /obj/item/weapon/dice/d4
 	name = "d4"
@@ -64,3 +65,4 @@
 	desc = "A dice with ten sides. This one is for the tens digit."
 	icon_state = "d10010"
 	sides = 10
+	side_mult = 10
