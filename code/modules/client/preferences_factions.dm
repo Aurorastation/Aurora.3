@@ -13,58 +13,78 @@ var/global/list/seen_religions = list()
 	return
 
 var/global/list/citizenship_choices = list(
-	"Sol Alliance",
 	"Republic of Biesel",
+	"Sol Alliance",
+	"Frontier Alliance",
 	"Republic of Elyra",
 	"Eridani Federation",
+	"Empire of Dominia",
 	"Jargon Federation",
 	"People's Republic of Adhomai",
 	"Izweski Hegemony",
 	"Zo'ra Hive",
 	"K'lax Hive",
-	"Empire of Dominia"
+	"C'thur Hive"
 	)
 
 var/global/list/home_system_choices = list(
-	"Sol",
 	"Tau Ceti",
+	"Sol",
+	"Xanu",
+	"Techno-Conglomerate Fleet",
+	"Scarab Fleet",
 	"New Ankara",
 	"Epsilon Eridani",
+	"X'yr Vharn'p",
 	"Jargon",
-	"S'rand'marr ",
-	"Uueoa-Esa",
-	"X'yr Vharn'p"
+	"S'rand'marr",
+	"Uueoa-Esa"
 	)
 
 var/global/list/faction_choices = list(
-	"Sol Central",
-	"Vey Med",
-	"Einstein Engines",
-	"Free Trade Union",
 	"NanoTrasen",
-	"Ward-Takahashi GMB",
-	"Gilthari Exports",
-	"Grayson Manufactories Ltd.",
-	"Aether Atmospherics",
-	"Zeng-Hu Pharmaceuticals",
+	"Getmore Corporation",
+	"Ingi Usang Entertainment Company",
 	"Hephaestus Industries",
+	"TakeOff! Entertainment",
 	"Idris Incorporated",
-	"Necropolis Industries"
+	"BP Entertainment Incorporated",
+	"Zeng-Hu Pharmaceuticals",
+	"Amijin-Kyodai Corporation",
+	"Bishop Cybernetics",
+	"Jeonshi Beauty Company",
+	"Nojosuru Foods",
+	"Einstein Engines",
+	"Taipei Engineering Industrial",
+	"Terraneus Diagnostics",
+	"Necropolis Industries",
+	"Confiance Technologies",
+	"Kumar Arms"
 	)
 
 var/global/list/religion_choices = list(
-	"Unitarianism",
+	"Agnosticism",
+	"Deism",
+	"Christianity",
+	"Islam",
 	"Hinduism",
-	"Buddhist",
-	"Islamic",
-	"Christian",
-	"Agnostic",
-	"Deist",
+	"Buddhism",
+	"Taoism",
+	"Shinto",
+	"Falun Gong",
+	"Sikhism",
+	"Judaism",
+	"Caodaoism",
+	"Baha'i Faith",
+	"Tenrikyo",
+	"Jainism",
+	"Cheondoism",
+	"Hoahaoism",
+	"Folk Religion",
+	"Moroz Holy Tribunal",
 	"Qeblak",
 	"Weishii",
 	"S'rendarr & Messa",
 	"Ma'ta'ke",
-	"Th'akh",
-	"Sk'akh",
-	"Moroz Holy Tribunal"
+	"Tha'akh"
 	)
