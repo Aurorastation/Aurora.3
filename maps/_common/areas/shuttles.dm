@@ -65,7 +65,7 @@
 	icon_state = "shuttle"
 	centcomm_area = 1
 
-/area/shuttle/escape/station/crash
+/area/shuttle/escape/crashed
 	name = "\improper Emergency Shuttle Crashed"
 
 /area/shuttle/escape_pod1
@@ -265,6 +265,9 @@
 	base_turf = /turf/unsimulated/floor/asteroid/ash
 	station_area = 1
 
+/area/shuttle/transport1/crashed
+	name = "\improper Crashed Transport Shuttle"
+
 /area/shuttle/specops/centcom
 	name = "\improper Special Ops Shuttle"
 	flags = RAD_SHIELDED | SPAWN_ROOF
@@ -276,6 +279,9 @@
 	icon_state = "shuttlered2"
 	base_turf = /turf/unsimulated/floor/asteroid/ash
 	station_area = 1
+
+/area/shuttle/specops/crashed
+	name = "\improper Crashed Special Ops Shuttle"
 
 /area/shuttle/syndicate_elite
 	name = "\improper Merc Elite Shuttle"
@@ -305,6 +311,9 @@
 	base_turf = /turf/unsimulated/floor/asteroid/ash
 	station_area = 1
 
+/area/shuttle/administration/crashed
+	name = "\improper Crashed Administration Shuttle"
+
 /area/shuttle/research
 	name = "\improper Research Shuttle"
 
@@ -322,6 +331,9 @@
 	icon_state = "shuttle"
 	station_area = 0
 	base_turf = /turf/space
+
+/area/shuttle/research/crashed
+	name = "\improper Crashed Research Shuttle"
 
 /area/shuttle/legion
 	name = "\improper Foreign Legion Dropship"
@@ -347,5 +359,5 @@
 	base_turf = /turf/space
 	centcomm_area = 1
 
-/area/shuttle/legion/docked/crashed
-	name = "\improper Foreign Legion Crashed Dropship"
+/area/shuttle/legion/crashed
+	name = "\improper Crashed Foreign Legion Dropship"

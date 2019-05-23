@@ -8,6 +8,13 @@
 	var/mode = 2
 	var/mode_change = TRUE
 
+/datum/shuttle/ferry/escape_pod/init_shuttle(var/list/settings)
+	..()
+	destinations[1] = settings[13]
+	destinations[2] = settings[14]
+	destinations[3] = settings[15]
+	destinations[4] = settings[16]
+
 /datum/shuttle/ferry/escape_pod/init_docking_controllers()
 	..()
 	arming_controller = locate(dock_target_station)

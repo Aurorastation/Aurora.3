@@ -184,6 +184,9 @@
 	icon_state = "shuttle"
 	centcomm_area = 1
 
+/area/syndicate_station/crashed
+	name = "\improper Crashed Mercinary Shuttle"
+
 /area/wizard_station
 	name = "\improper Wizard's Den"
 	icon_state = "yellow"
@@ -229,6 +232,9 @@
 	icon_state = "southeast"
 	base_turf = /turf/unsimulated/floor/asteroid/ash
 
+/area/skipjack_station/crashed
+	name = "\improper Crashed Skipjack"
+
 //DJSTATION
 
 /area/djstation
@@ -262,6 +268,10 @@
 	requires_power = 0
 	flags = RAD_SHIELDED | SPAWN_ROOF
 	no_light_control = 1
+
+/area/merchant_ship/crashed
+	name = "\improper Crashed Merchant Ship"
+	flags = SPAWN_ROOF
 
 /area/merchant_ship/start
 	name = "\improper Merchant Ship Docked"

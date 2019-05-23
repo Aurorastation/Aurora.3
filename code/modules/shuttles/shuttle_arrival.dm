@@ -71,3 +71,9 @@
 
 /datum/shuttle/ferry/arrival/proc/at_station()
 	return (!location)
+
+/datum/shuttle/ferry/arrival/check_engines()
+	return TRUE
+
+/datum/shuttle/ferry/arrival/crash_shuttle()
+	return

@@ -2,6 +2,11 @@
 	name = "shuttle"
 	icon = 'icons/turf/shuttle.dmi'
 
+/obj/structure/shuttle/announcement
+	name = "Shuttle announcement System"
+	icon = 'icons/obj/radio.dmi'
+	icon_state = "itercom-fancy"
+
 /obj/structure/shuttle/window
 	name = "shuttle window"
 	icon = 'icons/obj/podwindows.dmi'
@@ -11,9 +16,9 @@
 	anchored = 1
 	atmos_canpass = CANPASS_NEVER
 
-	CanPass(atom/movable/mover, turf/target, height, air_group)
-		if(!height || air_group) return 0
-		else return ..()
+/obj/structure/shuttle/window/CanPass(atom/movable/mover, turf/target, height, air_group)
+	if(!height || air_group) return 0
+	else return ..()
 
 /obj/structure/shuttle/engine
 	name = "engine"
@@ -33,6 +38,10 @@
 	name = "propulsion"
 	icon_state = "propulsion"
 	opacity = 1
+	var/health = 100
+
+/obj/structure/shuttle/engine/propulsion/proc/update_damage()
+	return
 
 /obj/structure/shuttle/engine/propulsion/burst
 	name = "burst"
@@ -48,3 +57,16 @@
 /obj/structure/shuttle/engine/router
 	name = "router"
 	icon_state = "router"
+
+/obj/structure/shuttle/engine/big
+	name = "big engine"
+	icon_state = "nozzle"
+
+/obj/structure/shuttle/engine/propulsion/temp
+	name = "emergency engine"
+	icon_state = "EE_Booster"
+
+/obj/structure/shuttle/engine/propulsion/temp/update_damage()
+	health -= 25
+	if(health <= 0)
+		qdel(src)

@@ -1,6 +1,7 @@
 /datum/map/aurora/setup_shuttles()
 	var/datum/shuttle/ferry/shuttle
 	var/list/shuttles = shuttle_controller.shuttles
+	var/list/settings = list()
 
 	var/list/areas_p = list(
 		list(
@@ -38,21 +39,13 @@
 	for(var/x = 1, x <= areas_p.len, x++)
 		var/datum/shuttle/ferry/escape_pod/pod
 		pod = new/datum/shuttle/ferry/escape_pod()
-		pod.area_station = locate(areas_p[x][1])
-		pod.area_offsite = locate(areas_p[x][5])
-		pod.area_transition = locate(areas_p[x][3])
-		pod.area_current = pod.area_station
-		pod.destinations[1] = areas_p[x][2]
-		pod.destinations[2] = areas_p[x][5]
-		pod.destinations[3] = areas_p[x][4]
-		pod.destinations[4] = areas_p[x][6]
-		pod.docking_controller_tag = "escape_pod_[x]"
-		pod.dock_target_station = "escape_pod_[x]_berth"
-		//pod.dock_target_offsite = "escape_pod_[x]_recovery"
-		pod.transit_direction = NORTH
-		pod.move_time = SHUTTLE_TRANSIT_DURATION_RETURN + rand(-30, 60)	//randomize this so it seems like the pods are being picked up one by one
+		settings = list(
+					1, 10, locate(areas_p[x][1]), locate(areas_p[x][5]), locate(areas_p[x][3]), NORTH, SHUTTLE_TRANSIT_DURATION_RETURN + rand(-30, 60),
+					locate(areas_p[x][1]),	null, "escape_pod_[x]", "escape_pod_[x]_berth", null, 
+					areas_p[x][2], areas_p[x][5], areas_p[x][4], areas_p[x][6]
+		)
+		pod.init_shuttle(settings)
 		shuttles["Escape Pod [x]"] = pod
-		pod.init_engines()
 		START_PROCESSING(shuttle_controller, pod)
 
 	//give the emergency shuttle controller it's shuttles
@@ -67,60 +60,46 @@
 	
 	// Admin shuttles.
 	shuttle = new()
-	shuttle.location = 1
-	shuttle.warmup_time = 10
-	shuttle.area_offsite = locate(/area/shuttle/transport1/centcom)
-	shuttle.area_station = locate(/area/shuttle/transport1/station)
-	shuttle.area_current = shuttle.area_offsite
-	shuttle.docking_controller_tag = "centcom_shuttle"
-	shuttle.dock_target_station = "centcom_shuttle_dock_airlock"
-	shuttle.dock_target_offsite = "centcom_shuttle_bay"
-	shuttles["Centcom"] = shuttle
-	shuttle.init_engines()
+	settings = list(
+					1, 10, locate(/area/shuttle/transport1/centcom), locate(/area/shuttle/transport1/station), null, EAST, 0,
+					locate(/area/shuttle/transport1/centcom),	/area/shuttle/transport1/crashed, "centcom_shuttle",
+					"centcom_shuttle_dock_airlock", "centcom_shuttle_bay"
+	)
+	shuttle.init_shuttle(settings)
+	shuttles["Centcom"] = shuttle	
 	START_PROCESSING(shuttle_controller, shuttle)
 
 	shuttle = new()
-	shuttle.location = 1
-	shuttle.warmup_time = 10	//want some warmup time so people can cancel.
-	shuttle.area_offsite = locate(/area/shuttle/administration/centcom)
-	shuttle.area_station = locate(/area/shuttle/administration/station)
-	shuttle.area_current = shuttle.area_offsite
-	shuttle.docking_controller_tag = "admin_shuttle"
-	shuttle.dock_target_station = "admin_shuttle_dock_airlock"
-	shuttle.dock_target_offsite = "admin_shuttle_bay"
+	settings = list(
+					1, 10, locate(/area/shuttle/administration/centcom), locate(/area/shuttle/administration/station), null, NORTH, 0,
+					locate(/area/shuttle/administration/centcom),	/area/shuttle/administration/crashed, "admin_shuttle",
+					"admin_shuttle_dock_airlock", "admin_shuttle_bay"
+	)
+	shuttle.init_shuttle(settings)
 	shuttles["Administration"] = shuttle
-	shuttle.init_engines()
 	START_PROCESSING(shuttle_controller, shuttle)
 
 	// Merchant Shuttle
 
 	shuttle = new()
-	shuttle.location = 1
-	shuttle.warmup_time = 10
-	shuttle.area_offsite = locate(/area/merchant_ship/start)
-	shuttle.area_station = locate(/area/merchant_ship/docked)
-	shuttle.area_current = shuttle.area_offsite
-	shuttle.docking_controller_tag = "merchant_shuttle"
-	shuttle.dock_target_station = "merchant_shuttle_dock"
-	shuttle.dock_target_offsite = "merchant_station"
+	settings = list(
+					1, 10, locate(/area/merchant_ship/start), locate(/area/merchant_ship/docked), null, EAST, 0,
+					locate(/area/merchant_ship/start),	/area/merchant_ship/crashed, "merchant_shuttle",
+					"merchant_shuttle_dock", "merchant_station"
+	)
+	shuttle.init_shuttle(settings)
 	shuttles["Merchant"] = shuttle
-	shuttle.init_engines()
 	START_PROCESSING(shuttle_controller, shuttle)
 
 	// ERT Shuttle
 	var/datum/shuttle/ferry/multidock/specops/ERT = new()
-	ERT.location = 0
-	ERT.warmup_time = 10
-	ERT.area_offsite = locate(/area/shuttle/specops/station)	//centcom is the home station, the Aurora is offsite
-	ERT.area_station = locate(/area/shuttle/specops/centcom)
-	shuttle.area_current = shuttle.area_offsite
-	ERT.docking_controller_tag = "specops_shuttle_port"
-	ERT.docking_controller_tag_station = "specops_shuttle_port"
-	ERT.docking_controller_tag_offsite = "specops_shuttle_fore"
-	ERT.dock_target_station = "specops_centcom_dock"
-	ERT.dock_target_offsite = "specops_dock_airlock"
-	shuttles["Special Operations"] = ERT
-	
+	settings = list(
+					0, 10, locate(/area/shuttle/specops/station), locate(/area/shuttle/specops/centcom), null, WEST, 0,
+					locate(/area/shuttle/specops/station),	/area/shuttle/specops/crashed, "specops_shuttle_port",
+					"specops_shuttle_port", "specops_shuttle_fore"
+	)
+	ERT.init_shuttle(settings)
+	shuttles["Special Operations"] = ERT	
 	START_PROCESSING(shuttle_controller, ERT)
 
 	//Skipjack.
@@ -172,33 +151,23 @@
 	// Tau Ceti Foreign Legion
 
 	shuttle = new()
-	shuttle.location = 1
-	shuttle.warmup_time = 10
-	shuttle.area_offsite = locate(/area/shuttle/legion/centcom)
-	shuttle.area_station = locate(/area/shuttle/legion/docked)
-	shuttle.area_transition = locate(/area/shuttle/legion/transit)
-	shuttle.area_current = shuttle.area_offsite
-	shuttle.area_crash = /area/shuttle/legion/docked/crashed
-	shuttle.transit_direction = EAST
-	shuttle.move_time = 75
-	shuttle.docking_controller_tag = "legion_shuttle"
-	shuttle.dock_target_station = "legion_shuttle_dock"
-	shuttle.dock_target_offsite = "legion_hangar"
+	settings = list(
+					1, 10, locate(/area/shuttle/legion/centcom), locate(/area/shuttle/legion/docked),
+					locate(/area/shuttle/legion/transit), EAST, 75, locate(/area/shuttle/legion/centcom),
+					/area/shuttle/legion/crashed, "legion_shuttle", "legion_shuttle_dock", "legion_hangar"
+	)
+	shuttle.init_shuttle(settings)
 	shuttles["Tau Ceti Foreign Legion"] = shuttle
-	shuttle.init_engines()
 	START_PROCESSING(shuttle_controller, shuttle)
 
 	//Away Site shuttle.
 
 	shuttle = new()
-	shuttle.location = 0
-	shuttle.warmup_time = 10
-	shuttle.area_station = locate(/area/shuttle/research/station)
-	shuttle.area_offsite = locate(/area/shuttle/research/away)
-	shuttle.area_current = shuttle.area_station
-	shuttle.area_current = shuttle.area_station
-	shuttle.docking_controller_tag = "science_shuttle"
-	shuttle.dock_target_station = "science_bridge"
+	settings = list(
+					1, 10, locate(/area/shuttle/research/station), locate(/area/shuttle/research/away),
+					null, EAST, 0, locate(/area/shuttle/research/station),
+					/area/shuttle/research/crashed, "science_shuttle", "science_bridge", null
+	)
+	shuttle.init_shuttle(settings)
 	shuttles["Research"] = shuttle
-	shuttle.init_engines()
 	START_PROCESSING(shuttle_controller, shuttle)
