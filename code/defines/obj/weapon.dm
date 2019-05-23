@@ -326,6 +326,7 @@
 	throw_range = 5
 	w_class = 2.0
 	attack_verb = list("warned", "cautioned", "smashed")
+	drop_sound = 'sound/items/drop/shoes.ogg'
 
 /obj/item/weapon/caution/attack_self(mob/user as mob)
     if(src.icon_state == "caution")
