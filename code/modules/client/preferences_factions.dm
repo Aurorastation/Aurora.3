@@ -86,5 +86,5 @@ var/global/list/religion_choices = list(
 	"Weishii",
 	"S'rendarr & Messa",
 	"Ma'ta'ke",
-	"Tha'akh"
+	"Th'akh"
 	)
