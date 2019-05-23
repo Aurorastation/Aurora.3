@@ -3,27 +3,27 @@
 /turf/simulated/mineral/random,
 /area/template_noop)
 "ac" = (
-/turf/simulated/floor/asteroid/ash,
+/turf/unsimulated/floor/asteroid/ash,
 /area/template_noop)
 "ad" = (
 /turf/simulated/mineral/random/higher_chance,
 /area/template_noop)
 "ae" = (
 /obj/structure/alien/weeds,
-/turf/simulated/floor/asteroid/ash,
+/turf/unsimulated/floor/asteroid/ash,
 /area/template_noop)
 "af" = (
 /obj/structure/alien/weeds,
 /mob/living/simple_animal/hostile/carp/shark,
-/turf/simulated/floor/asteroid/ash,
+/turf/unsimulated/floor/asteroid/ash,
 /area/template_noop)
 "ag" = (
 /obj/structure/alien/weeds,
 /mob/living/simple_animal/hostile/carp,
-/turf/simulated/floor/asteroid/ash,
+/turf/unsimulated/floor/asteroid/ash,
 /area/template_noop)
 "ah" = (
-/turf/simulated/floor/asteroid/ash,
+/turf/unsimulated/floor/asteroid/ash,
 /turf/simulated/wall/cult,
 /area/template_noop)
 "ai" = (
@@ -80,7 +80,7 @@
 /area/template_noop)
 "au" = (
 /obj/structure/lattice,
-/turf/simulated/floor/asteroid/ash,
+/turf/unsimulated/floor/asteroid/ash,
 /area/template_noop)
 "av" = (
 /turf/simulated/floor,
@@ -109,14 +109,14 @@
 /area/derelict/ship)
 "az" = (
 /obj/structure/lattice,
-/turf/simulated/floor/asteroid/ash,
+/turf/unsimulated/floor/asteroid/ash,
 /area/derelict/ship)
 "aA" = (
-/turf/simulated/floor/asteroid/ash,
+/turf/unsimulated/floor/asteroid/ash,
 /area/derelict/ship)
 "aB" = (
 /obj/structure/boulder,
-/turf/simulated/floor/asteroid/ash,
+/turf/unsimulated/floor/asteroid/ash,
 /area/template_noop)
 "aC" = (
 /obj/structure/inflatable,
@@ -656,7 +656,7 @@
 /area/derelict/ship)
 "cn" = (
 /mob/living/simple_animal/hostile/carp,
-/turf/simulated/floor/asteroid/ash,
+/turf/unsimulated/floor/asteroid/ash,
 /area/template_noop)
 "co" = (
 /obj/machinery/mech_recharger,
@@ -946,7 +946,7 @@
 /area/derelict/ship)
 "dp" = (
 /obj/item/clothing/head/helmet/space/void/sol,
-/turf/simulated/floor/asteroid/ash,
+/turf/unsimulated/floor/asteroid/ash,
 /area/template_noop)
 "dq" = (
 /obj/structure/window/reinforced,
@@ -3202,7 +3202,7 @@
 /area/derelict/ship)
 "ki" = (
 /obj/item/clothing/suit/space/void/sol,
-/turf/simulated/floor/asteroid/ash,
+/turf/unsimulated/floor/asteroid/ash,
 /area/template_noop)
 "kj" = (
 /obj/structure/table/reinforced/steel,
@@ -4813,6 +4813,12 @@
 /obj/item/mecha_parts/chassis/phazon,
 /turf/simulated/floor/tiled/steel,
 /area/derelict/ship)
+"pt" = (
+/obj/structure/shuttle/engine/propulsion{
+	icon_state = "propulsion_r"
+	},
+/turf/simulated/shuttle/wall,
+/area/derelict/ship)
 "pw" = (
 /obj/structure/table/reinforced/steel,
 /obj/structure/window/reinforced{
@@ -4829,6 +4835,73 @@
 /obj/effect/decal/cleanable/cobweb2,
 /obj/item/weapon/gun/projectile/automatic/rifle/sol,
 /turf/simulated/floor,
+/area/derelict/ship)
+"to" = (
+/obj/structure/shuttle/engine/propulsion{
+	icon_state = "propulsion_l"
+	},
+/turf/template_noop,
+/area/derelict/ship)
+"tw" = (
+/turf/template_noop,
+/turf/simulated/shuttle/wall/dark{
+	dir = 5;
+	icon_state = "diagonalWall3"
+	},
+/area/derelict/ship)
+"wb" = (
+/turf/template_noop,
+/turf/simulated/shuttle/wall/dark{
+	dir = 8;
+	icon_state = "diagonalWall3"
+	},
+/area/derelict/ship)
+"wh" = (
+/obj/structure/shuttle/engine/router,
+/turf/simulated/wall/r_wall,
+/area/derelict/ship)
+"yc" = (
+/turf/template_noop,
+/turf/simulated/shuttle/wall/dark{
+	dir = 4;
+	icon_state = "diagonalWall3"
+	},
+/area/derelict/ship)
+"FS" = (
+/turf/template_noop,
+/turf/simulated/shuttle/wall/dark{
+	dir = 6;
+	icon_state = "diagonalWall3"
+	},
+/area/derelict/ship)
+"Gy" = (
+/obj/structure/shuttle/engine/propulsion{
+	icon_state = "propulsion_r"
+	},
+/turf/template_noop,
+/area/derelict/ship)
+"PM" = (
+/turf/simulated/shuttle/wall/dark{
+	dir = 5;
+	icon_state = "diagonalWall3"
+	},
+/area/derelict/ship)
+"Rw" = (
+/turf/simulated/shuttle/wall/dark{
+	dir = 4;
+	icon_state = "diagonalWall3"
+	},
+/area/derelict/ship)
+"Wz" = (
+/obj/structure/shuttle/engine/heater,
+/obj/structure/window/reinforced,
+/turf/simulated/floor,
+/area/derelict/ship)
+"ZT" = (
+/obj/structure/shuttle/engine/propulsion{
+	icon_state = "propulsion_l"
+	},
+/turf/simulated/shuttle/wall,
 /area/derelict/ship)
 
 (1,1,1) = {"
@@ -23238,8 +23311,8 @@ hC
 av
 av
 av
-av
 hT
+ZT
 av
 av
 av
@@ -23493,14 +23566,14 @@ ay
 hk
 hC
 av
+hU
+hT
 hT
 hT
 hU
 hT
 hU
-hT
-hU
-hT
+ZT
 jL
 ey
 ay
@@ -23750,7 +23823,7 @@ ay
 bp
 hC
 hT
-hT
+hU
 ii
 pm
 hT
@@ -24264,7 +24337,7 @@ gf
 bp
 hC
 hT
-hT
+hU
 ik
 iu
 hT
@@ -24521,14 +24594,14 @@ ay
 fa
 hC
 av
+hU
+hT
 hT
 hT
 hU
 hT
 hU
-hT
-hU
-hT
+pt
 jL
 ey
 ay
@@ -24780,8 +24853,8 @@ hC
 av
 av
 av
-av
 hT
+pt
 av
 av
 av
@@ -25324,8 +25397,8 @@ nx
 nx
 nx
 nx
-nx
-nx
+wb
+tw
 nx
 nx
 nx
@@ -25580,9 +25653,9 @@ nx
 nx
 nx
 nx
-mE
-mG
-nx
+wb
+Wz
+to
 nx
 nx
 nx
@@ -25835,11 +25908,11 @@ ay
 ay
 ay
 ay
-nx
-ay
-mE
+PM
+wb
+av
+Wz
 mG
-nx
 nx
 nx
 nx
@@ -26094,9 +26167,9 @@ ay
 ay
 ay
 ay
-mE
+av
+Wz
 mG
-nx
 nx
 nx
 nx
@@ -26347,13 +26420,13 @@ lm
 lm
 mb
 mn
+mn
 mt
 ay
-ay
-ay
-mE
+av
+av
+Wz
 mG
-nx
 nx
 nx
 nx
@@ -26604,13 +26677,13 @@ lx
 lx
 lx
 lx
+lx
 mu
 ay
-ay
-ay
-mE
+ff
+av
+Wz
 mG
-nx
 nx
 nx
 nx
@@ -26861,13 +26934,13 @@ lo
 lo
 md
 mo
+mo
 mv
 ay
-ay
-ay
-mE
+av
+av
+Wz
 mG
-nx
 nx
 nx
 nx
@@ -27121,10 +27194,10 @@ ay
 ay
 ay
 ay
-ay
-mE
+av
+av
+Wz
 mG
-nx
 nx
 nx
 nx
@@ -27376,12 +27449,12 @@ kp
 kp
 kp
 kp
-ay
-ay
-ay
-mE
+kp
+gf
+av
+av
+Wz
 mG
-nx
 nx
 nx
 nx
@@ -27633,12 +27706,12 @@ lR
 lw
 lw
 lw
+lw
 ay
-ay
-ay
-mE
+av
+av
+Wz
 mG
-nx
 nx
 nx
 nx
@@ -27892,10 +27965,10 @@ ay
 ay
 ay
 ay
-ay
-mE
+av
+av
+Wz
 mG
-nx
 nx
 nx
 nx
@@ -28146,13 +28219,13 @@ lj
 lO
 kp
 kp
+kp
 mw
 ay
-ay
-ay
-mE
+av
+ff
+Wz
 mG
-nx
 nx
 nx
 nx
@@ -28404,12 +28477,12 @@ kp
 mf
 kp
 kp
+kp
 ay
-ay
-ay
-mE
+av
+av
+Wz
 mG
-nx
 nx
 nx
 nx
@@ -28659,14 +28732,14 @@ ay
 ay
 lY
 mg
+lY
 mp
 lj
 ay
-ay
-ay
-mE
+ff
+av
+Wz
 mG
-nx
 nx
 nx
 nx
@@ -28918,12 +28991,12 @@ kp
 kp
 kp
 kp
+kp
 ay
-ay
-ay
-mE
+av
+av
+Wz
 mG
-nx
 nx
 nx
 nx
@@ -29175,12 +29248,12 @@ kp
 kp
 kp
 kp
+kp
 ay
-ay
-ay
-mE
+av
+av
+Wz
 mG
-nx
 nx
 nx
 nx
@@ -29432,12 +29505,12 @@ kp
 kp
 kp
 kp
+kp
 ay
-ay
-ay
-mE
+av
+av
+Wz
 mG
-nx
 nx
 nx
 nx
@@ -29689,12 +29762,12 @@ kp
 kp
 kp
 kp
+kp
 ay
-ay
-ay
-mE
+av
+av
+Wz
 mG
-nx
 nx
 nx
 nx
@@ -29946,12 +30019,12 @@ kp
 kp
 kp
 kp
+kp
 ay
-ay
-ay
-mE
+av
+av
+Wz
 mG
-nx
 nx
 nx
 nx
@@ -30201,14 +30274,14 @@ ay
 kp
 lZ
 mh
+lZ
 mq
 kp
 ay
 ay
-ay
-mE
+ff
+Wz
 mG
-nx
 nx
 nx
 nx
@@ -30461,11 +30534,11 @@ ay
 ay
 ay
 ay
-nx
-ay
-mE
+Rw
+FS
+av
+Wz
 mG
-nx
 nx
 nx
 nx
@@ -30720,9 +30793,9 @@ aY
 nx
 nx
 nx
-mE
-mG
-nx
+FS
+Wz
+Gy
 nx
 nx
 nx
@@ -30978,8 +31051,8 @@ nx
 nx
 nx
 nx
-nx
-nx
+FS
+yc
 nx
 nx
 nx
@@ -32004,7 +32077,7 @@ av
 av
 av
 av
-av
+mA
 av
 av
 av
@@ -32261,7 +32334,7 @@ ay
 ay
 ay
 ay
-mA
+ay
 nx
 nx
 nx
@@ -33575,8 +33648,8 @@ nx
 nx
 nx
 nx
-nx
-nx
+wb
+tw
 nx
 nx
 nx
@@ -33831,9 +33904,9 @@ nx
 nx
 nx
 nx
-nx
+wb
 mE
-mG
+to
 nx
 nx
 nx
@@ -34604,10 +34677,10 @@ ay
 ay
 ay
 mE
-mG
+Gy
 nx
-nx
-nx
+wb
+tw
 nx
 nx
 nx
@@ -34864,7 +34937,7 @@ ay
 ay
 ay
 mE
-mG
+to
 nx
 nx
 nx
@@ -35121,12 +35194,12 @@ ou
 oN
 ay
 mE
-mG
+Gy
 nx
 nx
 nx
-nx
-nx
+wb
+tw
 nx
 nx
 nx
@@ -35383,7 +35456,7 @@ ay
 ay
 ay
 mE
-mG
+to
 nx
 nx
 nx
@@ -35896,9 +35969,9 @@ bV
 bV
 bV
 ay
-ay
 mE
-mG
+ay
+tw
 nx
 nx
 nx
@@ -36152,10 +36225,10 @@ ay
 bV
 bV
 bV
-av
 ay
 mE
-mG
+wh
+to
 nx
 nx
 nx
@@ -36409,9 +36482,9 @@ ke
 av
 av
 av
-av
 ay
 mE
+wh
 mG
 nx
 nx
@@ -36666,10 +36739,10 @@ ay
 bV
 bV
 bV
-av
 ay
 mE
-mG
+wh
+Gy
 nx
 nx
 nx
@@ -36924,9 +36997,9 @@ bV
 bV
 bV
 ay
-ay
 mE
-mG
+ay
+yc
 nx
 nx
 nx
@@ -37182,7 +37255,7 @@ bV
 bV
 ay
 mE
-mG
+to
 nx
 nx
 nx
@@ -37439,7 +37512,7 @@ ay
 ay
 ay
 mE
-mG
+Gy
 nx
 nx
 nx
@@ -37691,12 +37764,12 @@ oH
 nu
 ay
 mE
-mG
+to
 nx
 nx
 nx
-nx
-nx
+FS
+yc
 nx
 nx
 nx
@@ -37948,7 +38021,7 @@ ay
 ay
 ay
 mE
-mG
+Gy
 nx
 nx
 nx
@@ -38202,10 +38275,10 @@ ay
 av
 ay
 mE
-mG
+to
 nx
-nx
-nx
+FS
+yc
 nx
 nx
 nx
@@ -38971,9 +39044,9 @@ oe
 nx
 nx
 nJ
-nx
+FS
 mE
-mG
+Gy
 nx
 nx
 nx
@@ -39229,8 +39302,8 @@ nx
 nx
 nJ
 nx
-nx
-nx
+FS
+yc
 nx
 nx
 nx
@@ -39743,8 +39816,8 @@ nx
 nx
 nJ
 nx
-nx
-nx
+wb
+tw
 nx
 nx
 nx
@@ -39999,9 +40072,9 @@ of
 nx
 nx
 nJ
-nx
+wb
 mE
-mG
+to
 nx
 nx
 nx
@@ -40772,10 +40845,10 @@ ay
 av
 ay
 mE
-mG
+Gy
 nx
-nx
-nx
+wb
+tw
 nx
 nx
 nx
@@ -41032,7 +41105,7 @@ ay
 ay
 ay
 mE
-mG
+to
 nx
 nx
 nx
@@ -41289,12 +41362,12 @@ oo
 oo
 ay
 mE
-mG
+Gy
 nx
 nx
 nx
-nx
-nx
+wb
+tw
 nx
 nx
 nx
@@ -41551,7 +41624,7 @@ ay
 ay
 ay
 mE
-mG
+to
 nx
 nx
 nx
@@ -42064,9 +42137,9 @@ oX
 kp
 kp
 ay
-ay
 mE
-mG
+ay
+tw
 nx
 nx
 nx
@@ -42321,9 +42394,9 @@ kp
 pa
 kp
 pj
-ay
 mE
-mG
+wh
+to
 nx
 nx
 nx
@@ -42578,8 +42651,8 @@ oY
 kp
 kp
 pj
-ay
 mE
+wh
 mG
 nx
 nx
@@ -42835,9 +42908,9 @@ kp
 pb
 ph
 pq
-ay
 mE
-mG
+wh
+Gy
 nx
 nx
 nx
@@ -43092,9 +43165,9 @@ kp
 pc
 pc
 ay
-ay
 mE
-mG
+ay
+yc
 nx
 nx
 nx
@@ -43350,7 +43423,7 @@ pd
 pc
 ay
 mE
-mG
+to
 nx
 nx
 nx
@@ -43607,7 +43680,7 @@ ay
 ay
 ay
 mE
-mG
+Gy
 nx
 nx
 nx
@@ -43859,12 +43932,12 @@ ay
 ay
 ay
 mE
-mG
+to
 nx
 nx
 nx
-nx
-nx
+FS
+yc
 nx
 nx
 nx
@@ -44116,7 +44189,7 @@ ay
 ay
 ay
 mE
-mG
+Gy
 nx
 nx
 nx
@@ -44370,10 +44443,10 @@ ay
 av
 ay
 mE
-mG
+to
 nx
-nx
-nx
+FS
+yc
 nx
 nx
 nx
@@ -45139,9 +45212,9 @@ oe
 aY
 aY
 oB
-nx
+FS
 mE
-mG
+Gy
 nx
 nx
 nx
@@ -45397,8 +45470,8 @@ aY
 aY
 oC
 nx
-nx
-nx
+FS
+yc
 nx
 nx
 nx

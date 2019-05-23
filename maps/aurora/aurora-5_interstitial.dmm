@@ -3,11 +3,11 @@
 /turf/unsimulated/chasm_mask,
 /area/mine/unexplored)
 "ab" = (
-/turf/simulated/floor/asteroid/ash/rocky,
+/turf/unsimulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
 "ac" = (
 /obj/random/junk,
-/turf/simulated/floor/asteroid/ash/rocky,
+/turf/unsimulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
 "ad" = (
 /turf/simulated/wall/r_wall,
@@ -386,7 +386,7 @@
 	pixel_x = -32;
 	pixel_y = -26
 	},
-/turf/simulated/floor/asteroid/ash/rocky,
+/turf/unsimulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
 "aS" = (
 /obj/structure/grille,
@@ -7215,7 +7215,7 @@
 /obj/effect/landmark{
 	name = "cavernspawn"
 	},
-/turf/simulated/floor/asteroid/ash/rocky,
+/turf/unsimulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
 "oF" = (
 /turf/simulated/open,
@@ -7329,7 +7329,7 @@
 /turf/simulated/wall,
 /area/medical/upperlevel)
 "qe" = (
-/turf/simulated/floor/asteroid/ash/rocky,
+/turf/unsimulated/floor/asteroid/ash/rocky,
 /area/maintenance/interstitial_construction_site)
 "qg" = (
 /turf/simulated/wall,
@@ -8167,7 +8167,7 @@
 "Ch" = (
 /obj/structure/grille,
 /obj/structure/barricade,
-/turf/simulated/floor/asteroid/ash/rocky,
+/turf/unsimulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
 "CN" = (
 /obj/machinery/door/firedoor,
@@ -9895,7 +9895,7 @@
 /area/medical/upperlevel)
 "OX" = (
 /obj/structure/lattice,
-/turf/simulated/floor/asteroid/ash/rocky,
+/turf/unsimulated/floor/asteroid/ash/rocky,
 /area/maintenance/interstitial_construction_site)
 "Pp" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -10532,7 +10532,7 @@
 	icon_state = "bulb1";
 	dir = 4
 	},
-/turf/simulated/floor/asteroid/ash/rocky,
+/turf/unsimulated/floor/asteroid/ash/rocky,
 /area/maintenance/interstitial_construction_site)
 "Vv" = (
 /obj/effect/floor_decal/corner/lime/full,
