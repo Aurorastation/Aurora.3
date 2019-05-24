@@ -144,7 +144,7 @@ var/global/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","E
 	var/datum/changeling/changeling = changeling_power(0,0,100)
 	if(!changeling)	return
 
-	if (last_succ + 60 SECONDS > world.time)
+	if (justate + 60 SECONDS > world.time)
 		to_chat(src, "<span class='warning'>We still processing our last DNA sample!</span>")
 		return
 
@@ -205,6 +205,7 @@ var/global/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","E
 		to_chat(T, "<span class='danger'>You are wracked with agony collapse as your body twists and changes, turning you into a hideous monstrosity!</span>")
 	else
 		addtimer(CALLBACK(T, /mob/living/.proc/adjustCloneLoss, rand(10, 15)), rand(10, 15) SECONDS)
+
 	justate = world.time
 
 	changeling.chem_charges += 5
