@@ -78,7 +78,7 @@ var/global/list/religion_choices = list(
 	"Falun Gong",
 	"Sikhism",
 	"Judaism",
-	"Caodaoism",
+	"Caodaism",
 	"Baha'i Faith",
 	"Tenrikyo",
 	"Jainism",
