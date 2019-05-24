@@ -30,6 +30,9 @@ var/global/list/citizenship_choices = list(
 var/global/list/home_system_choices = list(
 	"Tau Ceti",
 	"Sol",
+	"Wintermute's Perches",
+	"Alpha Centauri",
+	"Trummer Flotilla",
 	"Xanu",
 	"Techno-Conglomerate Fleet",
 	"Scarab Fleet",
@@ -47,6 +50,7 @@ var/global/list/faction_choices = list(
 	"Ingi Usang Entertainment Company",
 	"Hephaestus Industries",
 	"TakeOff! Entertainment",
+	"Xion Manufacturing Group",
 	"Idris Incorporated",
 	"BP Entertainment Incorporated",
 	"Zeng-Hu Pharmaceuticals",
