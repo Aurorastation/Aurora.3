@@ -661,12 +661,11 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 		"<td width = 400>[current_species.blurb]</td>",
 		"<td width = 200 align='center'>"
 	)
-	if("preview" in icon_states(current_species.icobase))
-		var/curr_name = html_encode(current_species.name)
-		var/icon/preview = icon(current_species.icobase, "preview")
+	if(current_species.preview_icon)
+		var/icon/preview = icon(current_species.preview_icon, "")
 		preview.Scale(64, 64)	// Scale it here to stop it blurring.
-		to_chat(usr, browse_rsc(preview, "species_preview_[curr_name].png"))
-		dat += "<img src='species_preview_[curr_name].png' width='64px' height='64px'><br/><br/>"
+		to_chat(usr, browse_rsc(icon(icon = preview, icon_state = ""), "species_preview_[current_species.short_name].png"))
+		dat += "<img src='species_preview_[current_species.short_name].png' width='64px' height='64px'><br/><br/>"
 	dat += "<b>Language:</b> [current_species.language]<br/>"
 	dat += "<small>"
 	if(current_species.spawn_flags & CAN_JOIN)

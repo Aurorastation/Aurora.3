@@ -54,6 +54,7 @@
 		switch(atype)
 			if ("Fill")
 				RG.standard_dispenser_refill(user,src)
+				playsound(src.loc, 'sound/machines/reagent_dispense.ogg', 25, 1)
 			if ("Empty")
 				if(is_open_container())
 					RG.standard_pour_into(user,src)

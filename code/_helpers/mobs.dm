@@ -213,4 +213,3 @@ Proc for attack log creation, because really why not
 // Returns true if the mob was removed form the dead list
 /mob/proc/remove_from_dead_mob_list()
 	return dead_mob_list.Remove(src)
-

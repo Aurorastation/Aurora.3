@@ -23,6 +23,11 @@
 	if(!usr || usr != mob)	//stops us calling Topic for somebody else's client. Also helps prevent usr=null
 		return
 
+	if(!authed)
+		if(href_list["authaction"] in list("guest", "forums")) // Protection
+			..()
+		return
+
 	// asset_cache
 	if(href_list["asset_cache_confirm_arrival"])
 		//to_chat(src, "ASSET JOB [href_list["asset_cache_confirm_arrival"]] ARRIVED.")
@@ -324,16 +329,52 @@
 	if(byond_version < MIN_CLIENT_VERSION)		//Out of date client.
 		return null
 
-	if(!config.guests_allowed && IsGuestKey(key))
+	if(!(config.guests_allowed || config.external_auth) && IsGuestKey(key))
 		alert(src,"This server doesn't allow guest accounts to play. Please go to http://www.byond.com/ and register for a key.","Guest","OK")
 		del(src)
 		return
 
-	to_chat(src, "<span class='alert'>If the title screen is black, resources are still downloading. Please be patient until the title screen appears.</span>")
-
-
 	clients += src
 	directory[ckey] = src
+
+
+	if (LAZYLEN(config.client_blacklist_version))
+		var/client_version = "[byond_version].[byond_build]"
+		if (client_version in config.client_blacklist_version)
+			to_chat(src, "<span class='danger'><b>Your version of BYOND is explicitly blacklisted from joining this server!</b></span>")
+			to_chat(src, "Your current version: [client_version].")
+			to_chat(src, "Visit http://www.byond.com/download/ to download a different version. Try looking for a newer one, or go one lower.")
+			log_access("Failed Login: [key] [computer_id] [address] - Blacklisted BYOND version: [client_version].")
+			del(src)
+			return 0
+
+	if(IsGuestKey(key) && config.external_auth)
+		//src.real_mob = ..()
+		src.authed = FALSE
+		var/mob/abstract/unauthed/m = new()
+		m.client = src
+		return m
+		//Do auth shit
+	else
+		. = ..()
+		src.InitPerfs()
+		src.InitClient()
+
+/client/proc/InitPerfs()
+
+	//preferences datum - also holds some persistant data for the client (because we may as well keep these datums to a minimum)
+	prefs = preferences_datums[ckey]
+	if(!prefs)
+		prefs = new /datum/preferences(src)
+		preferences_datums[ckey] = prefs
+
+		prefs.gather_notifications(src)
+	prefs.client = src					// Safety reasons here.
+	prefs.last_ip = address				//these are gonna be used for banning
+	prefs.last_id = computer_id			//these are gonna be used for banning
+
+/client/proc/InitClient()
+	to_chat(src, "<span class='alert'>If the title screen is black, resources are still downloading. Please be patient until the title screen appears.</span>")
 
 	//Admin Authorisation
 	holder = admin_datums[ckey]
@@ -342,6 +383,19 @@
 		holder.owner = src
 
 	log_client_to_db()
+
+	if (byond_version < config.client_error_version)
+		to_chat(src, "<span class='danger'><b>Your version of BYOND is too old!</b></span>")
+		to_chat(src, config.client_error_message)
+		to_chat(src, "Your version: [byond_version].")
+		to_chat(src, "Required version: [config.client_error_version] or later.")
+		to_chat(src, "Visit http://www.byond.com/download/ to get the latest version of BYOND.")
+		if (holder)
+			to_chat(src, "Admins get a free pass. However, <b>please</b> update your BYOND as soon as possible. Certain things may cause crashes if you play with your present version.")
+		else
+			log_access("Failed Login: [key] [computer_id] [address] - Outdated BYOND major version: [byond_version].")
+			del(src)
+			return 0
 
 	// New player, and we don't want any.
 	if (!holder)
@@ -359,42 +413,6 @@
 			to_chat(src, "<span class='danger'>Apologies, but the server is currently not accepting connections from BYOND accounts this young.</span>")
 			del(src)
 			return 0
-
-	if (byond_version < config.client_error_version)
-		to_chat(src, "<span class='danger'><b>Your version of BYOND is too old!</b></span>")
-		to_chat(src, config.client_error_message)
-		to_chat(src, "Your version: [byond_version].")
-		to_chat(src, "Required version: [config.client_error_version] or later.")
-		to_chat(src, "Visit http://www.byond.com/download/ to get the latest version of BYOND.")
-		if (holder)
-			to_chat(src, "Admins get a free pass. However, <b>please</b> update your BYOND as soon as possible. Certain things may cause crashes if you play with your present version.")
-		else
-			log_access("Failed Login: [key] [computer_id] [address] - Outdated BYOND major version: [byond_version].")
-			del(src)
-			return 0
-
-	if (LAZYLEN(config.client_blacklist_version))
-		var/client_version = "[byond_version].[byond_build]"
-		if (client_version in config.client_blacklist_version)
-			to_chat(src, "<span class='danger'><b>Your version of BYOND is explicitly blacklisted from joining this server!</b></span>")
-			to_chat(src, "Your current version: [client_version].")
-			to_chat(src, "Visit http://www.byond.com/download/ to download a different version. Try looking for a newer one, or go one lower.")
-			log_access("Failed Login: [key] [computer_id] [address] - Blacklisted BYOND version: [client_version].")
-			del(src)
-			return 0
-
-	//preferences datum - also holds some persistant data for the client (because we may as well keep these datums to a minimum)
-	prefs = preferences_datums[ckey]
-	if(!prefs)
-		prefs = new /datum/preferences(src)
-		preferences_datums[ckey] = prefs
-
-		prefs.gather_notifications(src)
-	prefs.client = src					// Safety reasons here.
-	prefs.last_ip = address				//these are gonna be used for banning
-	prefs.last_id = computer_id			//these are gonna be used for banning
-
-	. = ..()	//calls mob.Login()
 
 	if(holder)
 		add_admin_verbs()

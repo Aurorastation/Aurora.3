@@ -17,7 +17,7 @@ var/list/mineral_can_smooth_with = list(
 
 // Some extra types for the surface to keep things pretty.
 /turf/simulated/mineral/surface
-	mined_turf = /turf/simulated/floor/asteroid/ash
+	mined_turf = /turf/unsimulated/floor/asteroid/ash
 
 /turf/simulated/mineral //wall piece
 	name = "rock"
@@ -38,7 +38,7 @@ var/list/mineral_can_smooth_with = list(
 	density = 1
 	blocks_air = 1
 	temperature = T0C
-	var/mined_turf = /turf/simulated/floor/asteroid/ash/rocky
+	var/mined_turf = /turf/unsimulated/floor/asteroid/ash/rocky
 	var/ore/mineral
 	var/mined_ore = 0
 	var/last_act = 0
@@ -528,7 +528,7 @@ var/list/mineral_can_smooth_with = list(
 
 // Setting icon/icon_state initially will use these values when the turf is built on/replaced.
 // This means you can put grass on the asteroid etc.
-/turf/simulated/floor/asteroid
+/turf/unsimulated/floor/asteroid
 	name = "coder's blight"
 	icon = 'icons/turf/map_placeholders.dmi'
 	icon_state = ""
@@ -539,7 +539,6 @@ var/list/mineral_can_smooth_with = list(
 	base_icon = 'icons/turf/map_placeholders.dmi'
 	base_icon_state = "ash"
 
-	initial_flooring = null
 	oxygen = 0
 	nitrogen = 0
 	temperature = TCMB
@@ -553,14 +552,14 @@ var/list/mineral_can_smooth_with = list(
 // Same as the other, this is a global so we don't have a lot of pointless lists floating around.
 // Basalt is explicitly omitted so ash will spill onto basalt turfs.
 var/list/asteroid_floor_smooth = list(
-	/turf/simulated/floor/asteroid/ash,
+	/turf/unsimulated/floor/asteroid/ash,
 	/turf/simulated/mineral,
 	/turf/simulated/wall,
 	/turf/simulated/shuttle
 )
 
 // Copypaste parent for performance.
-/turf/simulated/floor/asteroid/Initialize(mapload)
+/turf/unsimulated/floor/asteroid/Initialize(mapload)
 	if(initialized)
 		crash_with("Warning: [src]([type]) initialized multiple times!")
 	initialized = TRUE
@@ -595,7 +594,7 @@ var/list/asteroid_floor_smooth = list(
 
 	return INITIALIZE_HINT_NORMAL
 
-/turf/simulated/floor/asteroid/ex_act(severity)
+/turf/unsimulated/floor/asteroid/ex_act(severity)
 	switch(severity)
 		if(3.0)
 			return
@@ -615,10 +614,10 @@ var/list/asteroid_floor_smooth = list(
 				gets_dug()
 	return
 
-/turf/simulated/floor/asteroid/is_plating()
+/turf/unsimulated/floor/asteroid/is_plating()
 	return 0
 
-/turf/simulated/floor/asteroid/attackby(obj/item/weapon/W as obj, mob/user as mob)
+/turf/unsimulated/floor/asteroid/attackby(obj/item/weapon/W as obj, mob/user as mob)
 
 	if(!W || !user)
 		return 0
@@ -669,13 +668,13 @@ var/list/asteroid_floor_smooth = list(
 			playsound(user.loc, 'sound/effects/stonedoor_openclose.ogg', 50, 1)
 			digging = 1
 			if(!do_after(user, 60))
-				if (istype(src, /turf/simulated/floor/asteroid))
+				if (istype(src, /turf/unsimulated/floor/asteroid))
 					digging = 0
 				return
 
 			// Turfs are special. They don't delete. So we need to check if it's
 			// still the same turf as before the sleep.
-			if (!istype(src, /turf/simulated/floor/asteroid))
+			if (!istype(src, /turf/unsimulated/floor/asteroid))
 				return
 
 			playsound(user.loc, 'sound/effects/stonedoor_openclose.ogg', 50, 1)
@@ -718,13 +717,13 @@ var/list/asteroid_floor_smooth = list(
 
 		digging = 1
 		if(!do_after(user,40))
-			if (istype(src, /turf/simulated/floor/asteroid))
+			if (istype(src, /turf/unsimulated/floor/asteroid))
 				digging = 0
 			return
 
 		// Turfs are special. They don't delete. So we need to check if it's
 		// still the same turf as before the sleep.
-		if (!istype(src, /turf/simulated/floor/asteroid))
+		if (!istype(src, /turf/unsimulated/floor/asteroid))
 			return
 
 		to_chat(user, "<span class='notice'> You dug a hole.</span>")
@@ -749,7 +748,7 @@ var/list/asteroid_floor_smooth = list(
 		..(W,user)
 	return
 
-/turf/simulated/floor/asteroid/proc/gets_dug(mob/user)
+/turf/unsimulated/floor/asteroid/proc/gets_dug(mob/user)
 
 	add_overlay("asteroid_dug", TRUE)
 
@@ -814,7 +813,7 @@ var/list/asteroid_floor_smooth = list(
 			else
 				ChangeTurf(/turf/space)
 
-/turf/simulated/floor/asteroid/Entered(atom/movable/M as mob|obj)
+/turf/unsimulated/floor/asteroid/Entered(atom/movable/M as mob|obj)
 	..()
 	if(istype(M,/mob/living/silicon/robot))
 		var/mob/living/silicon/robot/R = M

@@ -62,11 +62,14 @@
 	else
 		set_light(light_range_on, light_power_on)
 
+	icon_state = initial(icon_state)
+
 	if(stat & BROKEN)
+		icon_state = "computer-broken"
 		if (overlay_layer != layer)
-			add_overlay(image(icon,"[icon_state]_broken", overlay_layer))
+			add_overlay(image(icon, "broken", overlay_layer))
 		else
-			add_overlay("[icon_state]_broken")
+			add_overlay("broken")
 	else if (icon_screen)
 		if (is_holographic)
 			holographic_overlay(src, src.icon, icon_screen)

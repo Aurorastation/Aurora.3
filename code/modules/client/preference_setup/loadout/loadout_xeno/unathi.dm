@@ -21,6 +21,7 @@
 
 /datum/gear/gloves/unathi
 	display_name = "unathi gloves selection"
+	description = "A selection of unathi colored gloves."
 	path = /obj/item/clothing/gloves/black/unathi
 	whitelisted = list("Unathi", "Aut'akh Unathi")
 	sort_category = "Xenowear - Unathi"

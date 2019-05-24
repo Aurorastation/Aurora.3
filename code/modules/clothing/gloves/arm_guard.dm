@@ -7,6 +7,7 @@
 	punch_force = 3
 	w_class = 3
 	siemens_coefficient = 0.5
+	drop_sound = 'sound/items/drop/metalshield.ogg'
 
 /obj/item/clothing/gloves/arm_guard/mob_can_equip(var/mob/living/carbon/human/H, slot)
 	if(..()) //This will only run if no other problems occured when equiping.

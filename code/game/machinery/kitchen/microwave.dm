@@ -17,6 +17,7 @@
 	var/global/list/acceptable_reagents // List of the reagents you can put in
 	var/global/max_n_of_items = 20
 	var/appliancetype = MICROWAVE
+	var/datum/looping_sound/microwave/soundloop
 
 // see code/modules/food/recipes_microwave.dm for recipes
 
@@ -28,6 +29,7 @@
 	. = ..()
 	reagents = new/datum/reagents(100)
 	reagents.my_atom = src
+	soundloop = new(list(src), FALSE)
 	if (mapload)
 		addtimer(CALLBACK(src, .proc/setup_recipes), 0)
 	else
@@ -349,14 +351,17 @@
 	src.operating = 1
 	src.icon_state = "mw1"
 	src.updateUsrDialog()
+	set_light(1.5)
+	soundloop.start()
 
 /obj/machinery/microwave/proc/abort()
+	after_finish_loop()
 	src.operating = 0 // Turn it off again aferwards
 	src.icon_state = "mw"
 	src.updateUsrDialog()
 
 /obj/machinery/microwave/proc/stop()
-	playsound(src.loc, 'sound/machines/ding.ogg', 50, 1)
+	after_finish_loop()
 	src.operating = 0 // Turn it off again aferwards
 	src.icon_state = "mw"
 	src.updateUsrDialog()
@@ -376,7 +381,7 @@
 	src.icon_state = "mwbloody1" // Make it look dirty!!
 
 /obj/machinery/microwave/proc/muck_finish()
-	playsound(src.loc, 'sound/machines/ding.ogg', 50, 1)
+	after_finish_loop()
 	src.visible_message("<span class='warning'>The microwave gets covered in muck!</span>")
 	src.dirty = 100 // Make it dirty so it can't be used util cleaned
 	src.flags = null //So you can't add condiments
@@ -385,6 +390,7 @@
 	src.updateUsrDialog()
 
 /obj/machinery/microwave/proc/broke()
+	after_finish_loop()
 	spark(src, 2, alldirs)
 	src.icon_state = "mwb" // Make it look all busted up and shit
 	src.visible_message("<span class='warning'>The microwave breaks!</span>") //Let them know they're stupid
@@ -394,6 +400,7 @@
 	src.updateUsrDialog()
 
 /obj/machinery/microwave/proc/fail()
+	after_finish_loop()
 	var/obj/item/weapon/reagent_containers/food/snacks/badrecipe/ffuu = new(src)
 	var/amount = 0
 	for (var/obj/O in contents-ffuu)
@@ -450,3 +457,8 @@
 	//Animals can run under them, lots of empty space
 		return 1
 	return ..()
+
+/obj/machinery/microwave/proc/after_finish_loop()
+	set_light(0)
+	soundloop.stop()
+	update_icon()

@@ -38,7 +38,7 @@
 	icon_state = "Sleep"
 
 /area/crew_quarters/sleep/main
-	name = "\improper Main Level Dormitories"
+	name = "\improper Main Level Cryogenic Storage"
 	icon_state = "Sleep"
 
 /area/crew_quarters/sleep/engineering

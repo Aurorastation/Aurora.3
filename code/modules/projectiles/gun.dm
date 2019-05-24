@@ -54,7 +54,7 @@
 	var/fire_delay = 6 	//delay after shooting before the gun can be used again
 	var/burst_delay = 2	//delay between shots, if firing in bursts
 	var/move_delay = 1
-	var/fire_sound = 'sound/weapons/Gunshot.ogg'
+	var/fire_sound = 'sound/weapons/gunshot/gunshot1.ogg'
 	var/fire_sound_text = "gunshot"
 	var/recoil = 0		//screen shake
 	var/silenced = 0
@@ -90,6 +90,8 @@
 	var/tmp/list/mob/living/aim_targets //List of who yer targeting.
 	var/tmp/mob/living/last_moved_mob //Used to fire faster at more than one person.
 	var/tmp/lock_time = -100
+
+	drop_sound = 'sound/items/drop/gun.ogg'
 
 /obj/item/weapon/gun/Initialize(mapload)
 	. = ..()

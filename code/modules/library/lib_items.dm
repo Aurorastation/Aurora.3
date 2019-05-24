@@ -201,6 +201,7 @@
 	var/title		 // The real name of the book.
 	var/carved = 0	 // Has the book been hollowed out for use as a secret storage item?
 	var/obj/item/store	//What's in the book?
+	drop_sound = 'sound/bureaucracy/bookclose.ogg'
 
 /obj/item/weapon/book/attack_self(var/mob/user as mob)
 	if(carved)
@@ -217,7 +218,6 @@
 		user.visible_message("[user] opens a book titled \"[src.title]\" and begins reading intently.")
 		playsound(loc, 'sound/bureaucracy/bookopen.ogg', 50, 1)
 		onclose(user, "book")
-		playsound(loc, 'sound/bureaucracy/bookclose.ogg', 50, 1)
 	else
 		to_chat(user, "This book is completely blank!")
 

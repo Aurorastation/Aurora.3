@@ -52,11 +52,11 @@ var/list/spark_sound = list(
 	'sound/effects/sparks4.ogg'
 )
 var/list/rustle_sound = list(
-	'sound/effects/rustle1.ogg',
-	'sound/effects/rustle2.ogg',
-	'sound/effects/rustle3.ogg',
-	'sound/effects/rustle4.ogg',
-	'sound/effects/rustle5.ogg'
+	'sound/items/storage/rustle1.ogg',
+	'sound/items/storage/rustle2.ogg',
+	'sound/items/storage/rustle3.ogg',
+	'sound/items/storage/rustle4.ogg',
+	'sound/items/storage/rustle5.ogg'
 )
 var/list/punch_sound = list(
 	'sound/weapons/punch1.ogg',
@@ -157,12 +157,18 @@ var/list/keyboardsounds = list(
 	'sound/machines/keyboard/keystroke3.ogg',
 	'sound/machines/keyboard/keystroke4.ogg'
 	)
+var/list/pickaxesounds = list(
+	'sound/weapons/mine/pickaxe1.ogg',
+	'sound/weapons/mine/pickaxe2.ogg',
+	'sound/weapons/mine/pickaxe3.ogg',
+	'sound/weapons/mine/pickaxe4.ogg'
+	)
 
 var/list/footstepfx = list("defaultstep","concretestep","grassstep","dirtstep","waterstep","sandstep", "gravelstep")
 
-//var/list/gun_sound = list('sound/weapons/Gunshot.ogg', 'sound/weapons/Gunshot2.ogg','sound/weapons/Gunshot3.ogg','sound/weapons/Gunshot4.ogg')
+//var/list/gun_sound = list('sound/weapons/gunshot/gunshot1.ogg', 'sound/weapons/gunshot/gunshot2.ogg','sound/weapons/gunshot/gunshot3.ogg','sound/weapons/gunshot/gunshot4.ogg')
 
-/proc/playsound(atom/source, soundin, vol as num, vary, extrarange as num, falloff, is_global, usepressure = 1, environment = -1, is_ambience = FALSE, is_footstep = FALSE)
+/proc/playsound(atom/source, soundin, vol as num, vary, extrarange as num, falloff, is_global, usepressure = 1, environment = -1, required_preferences = 0, required_asfx_toggles = 0)
 	if (istext(soundin))
 		soundin = get_sfx(soundin) // same sound for everyone
 	else if (isarea(source))
@@ -188,10 +194,10 @@ var/list/footstepfx = list("defaultstep","concretestep","grassstep","dirtstep","
 			if (!T || T.z != turf_source.z)
 				continue
 
-			if (is_ambience && !(M.client.prefs.toggles & SOUND_AMBIENCE))
+			if (required_preferences && (M.client.prefs.toggles & required_preferences) != required_preferences)
 				continue
 
-			if (is_footstep && !(M.client.prefs.asfx_togs & ASFX_FOOTSTEPS))
+			if (required_asfx_toggles && (M.client.prefs.asfx_togs & required_asfx_toggles) != required_asfx_toggles)
 				continue
 
 			M.playsound_local(turf_source, soundin, vol, vary, frequency, falloff, is_global, usepressure, environment, S)
@@ -319,4 +325,5 @@ var/list/footstepfx = list("defaultstep","concretestep","grassstep","dirtstep","
 			if ("computerbeep") soundin = pick(computerbeeps)
 			if ("switch") soundin = pick(switchsounds)
 			if ("keyboard") soundin = pick(keyboardsounds)
+			if ("pickaxe") soundin = pick(pickaxesounds)
 	return soundin
