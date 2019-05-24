@@ -214,6 +214,14 @@
 	icon_state = "southeast"
 	base_turf = /turf/unsimulated/floor/asteroid/ash
 
+/area/conceptual_space
+	name = "\improper Conceptual Space"
+	icon_state = "yellow"
+	requires_power = 0
+	dynamic_lighting = 0
+	no_light_control = 1
+	centcomm_area = 1
+
 //DJSTATION
 
 /area/djstation
