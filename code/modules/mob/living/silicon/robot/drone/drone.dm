@@ -252,16 +252,11 @@
 
 /mob/living/silicon/robot/drone/proc/ai_hack(var/mob/user)
 	if(!client || stat == 2)
-		return 0
-
-	if(hacked)
-		to_chat(src, "<span class='danger'>\The [user] attempts to load subversive software into you, but your hacked subroutines ignore the attempt.</span>")
-		return 0
+		return
 
 	to_chat(src, "<span class='danger'>You feel a sudden burst of malware loaded into your execute-as-root buffer. Your tiny brain methodically parses, loads and executes the script.</span>")
 
-	message_admins("[key_name_admin(user)] hacked drone [key_name_admin(src)].  Laws overridden.")
-	log_game("[key_name(user)] hacked drone [key_name(src)].  Laws overridden.",ckey=key_name(user),ckey_target=key_name(src))
+	log_and_message_admins("[key_name(user)] hacked drone [key_name(src)]. Laws overridden.", key_name(user), get_turf(src))
 	var/time = time2text(world.realtime,"hh:mm:ss")
 	lawchanges.Add("[time] <B>:</B> [user.name]([user.key]) hacked [name]([key])")
 
@@ -279,7 +274,6 @@
 	to_chat(src, span("notice", "You have acquired new radio frequency."))
 	remove_language(LANGUAGE_ROBOT)
 	add_language(LANGUAGE_ROBOT, TRUE)
-	return 1
 
 //DRONE LIFE/DEATH
 /mob/living/silicon/robot/drone/process_level_restrictions()
