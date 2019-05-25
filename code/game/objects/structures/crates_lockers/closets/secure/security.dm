@@ -132,7 +132,6 @@
 		new /obj/item/clothing/suit/storage/toggle/armor/hos/jensen(src)
 		new /obj/item/clothing/suit/armor/hos(src)
 		new /obj/item/clothing/suit/storage/vest/hos(src)
-		new /obj/item/clothing/head/helmet/HoS/dermal(src)
 		new /obj/item/clothing/head/helmet/HoS(src)
 		new /obj/item/clothing/head/beret/sec/hos(src)
 		new /obj/item/clothing/accessory/badge/hos(src)
@@ -374,7 +373,7 @@
 		if(istype(W, /obj/item/weapon/melee/energy/blade))//Attempt to cut open locker if locked
 			if(emag_act(INFINITY, user, "<span class='danger'>The locker has been sliced open by [user] with \an [W]</span>!", "<span class='danger'>You hear metal being sliced and sparks flying.</span>"))
 				spark(src, 5)
-				playsound(loc, 'sound/weapons/blade1.ogg', 50, 1)
+				playsound(loc, 'sound/weapons/blade.ogg', 50, 1)
 				playsound(loc, "sparks", 50, 1)
 		else
 			togglelock(user)//Attempt to lock locker if closed

@@ -706,3 +706,33 @@
 /obj/structure/closet/crate/extinguisher_catridges/fill()
 	for(var/a = 1 to 12)
 		new /obj/item/weapon/reagent_containers/extinguisher_refill(src)
+
+/obj/structure/closet/crate/autakh
+	name = "aut'akh crate"
+	desc = "Contains a number of limbs and augmentations created by the Aut'akh Commune."
+	icon = 'icons/obj/storage.dmi'
+	icon_state = "autakh_crate"
+	icon_opened = "autakh_crateopen"
+	icon_closed = "autakh_crate"
+
+/obj/structure/closet/crate/autakh/fill()
+	new /obj/item/organ/external/arm/right/autakh(src)
+	new /obj/item/organ/external/arm/right/autakh(src)
+	new /obj/item/organ/external/arm/autakh(src)
+	new /obj/item/organ/external/arm/autakh(src)
+	new /obj/item/organ/external/hand/autakh(src)
+	new /obj/item/organ/external/hand/autakh(src)
+	new /obj/item/organ/external/hand/right/autakh(src)
+	new /obj/item/organ/external/hand/right/autakh(src)
+	new /obj/item/organ/external/leg/autakh(src)
+	new /obj/item/organ/external/leg/autakh(src)
+	new /obj/item/organ/external/leg/right/autakh(src)
+	new /obj/item/organ/external/leg/right/autakh(src)
+	new /obj/item/organ/external/foot/autakh(src)
+	new /obj/item/organ/external/foot/autakh(src)
+	new /obj/item/organ/external/foot/right/autakh(src)
+	new /obj/item/organ/external/foot/right/autakh(src)
+	new /obj/item/organ/external/hand/right/autakh/tool(src)
+	new /obj/item/organ/external/hand/right/autakh/tool/mining(src)
+	new /obj/item/organ/external/hand/right/autakh/medical(src)
+	new /obj/item/organ/external/hand/right/autakh/security(src)

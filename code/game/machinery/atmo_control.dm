@@ -75,7 +75,6 @@ obj/machinery/air_sensor/Destroy()
 	return ..()
 
 /obj/machinery/computer/general_air_control
-	icon = 'icons/obj/computer.dmi'
 	icon_screen = "tank"
 	light_color = LIGHT_COLOR_CYAN
 
@@ -134,7 +133,6 @@ obj/machinery/computer/general_air_control/Destroy()
 
 
 /obj/machinery/computer/general_air_control/large_tank_control
-	icon = 'icons/obj/computer.dmi'
 
 	frequency = 1441
 	var/input_tag
@@ -307,7 +305,6 @@ obj/machinery/computer/general_air_control/Destroy()
 	addtimer(CALLBACK(SSvueui, /datum/controller/subsystem/processing/vueui/proc/check_uis_for_change, src), 5) //Just in case we get no new data
 
 /obj/machinery/computer/general_air_control/fuel_injection
-	icon = 'icons/obj/computer.dmi'
 	icon_screen = "alert:0"
 
 	var/device_tag

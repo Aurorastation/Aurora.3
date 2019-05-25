@@ -595,7 +595,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 	var/datum/nanoui/ui = SSnanoui.get_open_ui(user, src, "main")
 	var/mob/living/U = usr
 	//Looking for master was kind of pointless since PDAs don't appear to have one.)
-	if(use_check(usr)) // Need to allow silicons here.
+	if(use_check_and_message(usr)) // Need to allow silicons here.
 		U.unset_machine()
 		if(ui)
 			ui.close()
@@ -961,6 +961,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 			var/mob/M = loc
 			M.put_in_hands(id)
 			to_chat(usr, "<span class='notice'>You remove the ID from the [name].</span>")
+			playsound(loc, 'sound/machines/id_swipe.ogg', 100, 1)
 		else
 			id.forceMove(get_turf(src))
 		id = null
@@ -1024,7 +1025,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 	if (last_text && world.time < last_text + 5)
 		return
 
-	if(use_check(U))
+	if(use_check_and_message(U))
 		return
 
 	last_text = world.time
@@ -1188,6 +1189,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 				if (cartridge.radio)
 					cartridge.radio.hostpda = null
 				to_chat(usr, "<span class='notice'>You remove \the [cartridge] from the [name].</span>")
+				playsound(loc, 'sound/machines/id_swipe.ogg', 100, 1)
 				cartridge = null
 
 /obj/item/device/pda/proc/id_check(mob/user as mob, choice as num)//To check for IDs; 1 for in-pda use, 2 for out of pda use.

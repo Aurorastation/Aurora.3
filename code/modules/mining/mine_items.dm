@@ -58,7 +58,7 @@
 	var/digspeed //moving the delay to an item var so R&D can make improved picks. --NEO
 	origin_tech = list(TECH_MATERIAL = 1, TECH_ENGINEERING = 1)
 	attack_verb = list("hit", "pierced", "sliced", "attacked")
-	var/drill_sound = 'sound/weapons/chisel1.ogg'
+	var/drill_sound = "pickaxe"
 	var/drill_verb = "excavating"
 	var/autodrill = 0 //pickaxes must be manually swung to mine, drills can mine rocks via bump
 	sharp = 1
@@ -411,7 +411,7 @@
 	var/obj/item/stack/flag/F = locate() in get_turf(src)
 
 	var/turf/T = get_turf(src)
-	if(!T || !istype(T, /turf/simulated/floor/asteroid))
+	if(!T || !istype(T, /turf/unsimulated/floor/asteroid))
 		to_chat(user, "The beacon won't stand up in this terrain.")
 		return
 
@@ -495,7 +495,7 @@
 		if(stored_matter <= 0)
 			return
 
-	if(!istype(A, /turf/simulated/floor))
+	if(!istype(A, /turf/simulated/floor) && !istype(A, /turf/unsimulated/floor))
 		return
 
 	if(locate(/obj/structure/track) in A)
@@ -1099,7 +1099,7 @@ var/list/total_extraction_beacons = list()
 	origin_tech = list(TECH_MAGNET = 4, TECH_ENGINEERING = 3)
 
 /obj/item/weapon/oremagnet/attack_self(mob/user)
-	if (use_check(user))
+	if (use_check_and_message(user))
 		return
 
 	toggle_on(user)

@@ -170,6 +170,7 @@
 /obj/item/clothing/head/lightrig/offworlder
 	name = "helmet"
 	species_restricted = list("Human")
+	flash_protection = FLASH_PROTECTION_MAJOR
 
 /obj/item/clothing/suit/lightrig/offworlder
 	body_parts_covered = UPPER_TORSO
@@ -177,7 +178,6 @@
 	cold_protection = UPPER_TORSO
 	flags_inv = 0
 	species_restricted = list("Human")
-	flash_protection = FLASH_PROTECTION_MAJOR
 
 /obj/item/weapon/rig/light/offworlder/techno
 	name = "techno-conglomerate mobility hardsuit control module"

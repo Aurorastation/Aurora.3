@@ -92,6 +92,12 @@
 		if (I.anchored)
 			to_chat(user, span("notice", "\The [I] is anchored in place."))
 			return
+		if(!I.origin_tech)
+			to_chat(user, "<span class='notice'>This doesn't seem to have a tech origin.</span>")
+			return
+		if(I.origin_tech.len == 0)
+			to_chat(user, "<span class='notice'>You cannot deconstruct this item.</span>")
+			return
 		I.forceMove(src)
 		loaded_item = I
 		for(var/mob/M in viewers())

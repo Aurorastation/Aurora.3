@@ -23,6 +23,10 @@
 	knife_x_offset = 23
 	knife_y_offset = 13
 
+	description_fluff = "The Tui'ad \"Icelance\" laser rifle is an energy weapon of Tajaran design. Clumsy overheating handguns and rifles that slowly fire long bolts of \
+	concentrated energy are used by high ranking soldiers or special operatives of the Republican army, but their durability is dubious in comparison to the mass-produced, \
+	single shot or bolt action rifles that the majority of Tajaran soldiers use."
+
 /obj/item/weapon/gun/energy/rifle/icelance/attack_self(mob/living/user as mob)
 	if(is_charging)
 		to_chat(user, "<span class='warning'>You are already charging \the [src].</span>")

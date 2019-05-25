@@ -20,6 +20,7 @@
 	var/list/carrying = list() // List of things on the tray. - Doohl
 	var/max_carry = 20
 	var/current_weight = 0
+	drop_sound = 'sound/items/trayhit1.ogg'
 
 	var/safedrop = 0//Used to tell when we should or shouldn't spill if the tray is dropped.
 	//Safedrop is set true when throwing, because it will spill on impact. And when placing on a table
@@ -41,7 +42,7 @@
 	spill(user, M.loc)
 
 	//Note: Added a robot check to all stun/weaken procs, beccause weakening a robot causes its active modules to bug out
-	if((CLUMSY in user.mutations) && prob(50))              //What if he's a clown?
+	if((user.is_clumsy()) && prob(50))              //What if he's a clown?
 		to_chat(M, "<span class='warning'>You accidentally slam yourself with the [src]!</span>")
 		if (!issilicon(M))
 			M.Weaken(1)
@@ -214,7 +215,7 @@
 	return 1
 
 /obj/item/weapon/tray/AltClick(var/mob/user)
-	if (use_check(user, show_messages = FALSE)) return
+	if (use_check(user)) return
 	unload(user)
 
 /obj/item/weapon/tray/proc/attempt_load_item(var/obj/item/I, var/mob/user, var/messages = 1)

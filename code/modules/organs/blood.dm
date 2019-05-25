@@ -32,7 +32,7 @@ var/const/BLOOD_VOLUME_SURVIVE = 122
 			B.data = list(
 				"donor" = WEAKREF(src),
 				"viruses" = null,
-				"species" = species.name,
+				"species" = species.bodytype,
 				"blood_DNA" = dna.unique_enzymes,
 				"blood_colour" = species.blood_color,
 				"blood_type" = dna.b_type,
@@ -178,6 +178,7 @@ var/const/BLOOD_VOLUME_SURVIVE = 122
 		var/mob/living/carbon/human/H = src
 		B.data["blood_colour"] = H.species.blood_color
 		B.color = B.data["blood_colour"]
+		B.data["species"] = H.species.bodytype
 
 	var/list/temp_chem = list()
 	for(var/datum/reagent/R in src.reagents.reagent_list)

@@ -113,8 +113,8 @@
 	origin_tech = list(TECH_MATERIAL = 5, TECH_ENGINEERING = 4, TECH_MAGNET = 3, TECH_POWER = 4, TECH_COMBAT = 4, TECH_ILLEGAL = 4)
 
 /obj/item/rig_assembly/combat/illegal/hacker
-	name = "light suit control module assembly"
-	desc = "An assembly for a lighter, less armoured rig suit."
+	name = "cybersuit control module assembly"
+	desc = "An assembly for an advanced powered armour suit with many cyberwarfare enhancements. Comes with built-in insulated gloves for safely tampering with electronics."
 	icon_base = "hacker"
 	icon_state = "hacker1"
 	rig_type = /obj/item/weapon/rig/light/hacker

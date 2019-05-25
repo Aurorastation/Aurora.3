@@ -34,7 +34,7 @@
 		to_chat(user,"<span class='warning'>\The [src] is empty.</span>")
 		return
 
-	if ( ((CLUMSY in user.mutations) || (DUMB in user.mutations)) && prob(10))
+	if ( ((user.is_clumsy()) || (DUMB in user.mutations)) && prob(10))
 		to_chat(user,"<span class='danger'>Your hand slips from clumsiness!</span>")
 		eyestab(H,user)
 		if(H.reagents)

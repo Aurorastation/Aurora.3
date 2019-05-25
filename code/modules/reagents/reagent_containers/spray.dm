@@ -17,6 +17,7 @@
 	var/list/spray_sizes = list(1,3)
 	volume = 250
 	var/safety = 0
+	var/spray_sound = 'sound/effects/spray2.ogg'
 
 /obj/item/weapon/reagent_containers/spray/Initialize()
 	. = ..()
@@ -61,7 +62,7 @@
 
 	Spray_at(A, user, proximity)
 
-	playsound(src.loc, 'sound/effects/spray2.ogg', 50, 1, -6)
+	playsound(src.loc, spray_sound, 50, 1, -6)
 
 	if(reagents.has_reagent("sacid"))
 		message_admins("[key_name_admin(user)] fired sulphuric acid from \a [src].")

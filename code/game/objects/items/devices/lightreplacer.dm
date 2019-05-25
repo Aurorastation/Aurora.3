@@ -37,8 +37,7 @@
 
 	name = "light replacer"
 	desc = "A device to automatically replace lights. Refill with working lightbulbs or sheets of glass."
-
-	icon = 'icons/obj/tools/lightreplacer.dmi'
+	icon = 'icons/obj/janitor.dmi'
 	icon_state = "lightreplacer"
 	item_state = "lightreplacer"
 	contained_sprite = 1
@@ -65,7 +64,6 @@
 	desc = "A specialised light replacer which stores more lights, refills faster from boxes, and sucks up broken bulbs. Empty into a disposal or trashbag when full!"
 	icon_state = "adv_lightreplacer"
 	item_state = "adv_lightreplacer"
-
 
 /obj/item/device/lightreplacer/New()
 	failmsg = "The [name]'s refill light blinks red."

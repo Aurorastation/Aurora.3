@@ -48,7 +48,7 @@
 	add_fingerprint(user)
 	if(on && user.zone_sel.selecting == "eyes")
 
-		if(((CLUMSY in user.mutations) || (DUMB in user.mutations)) && prob(50))	//too dumb to use flashlight properly
+		if(((user.is_clumsy()) || (DUMB in user.mutations)) && prob(50))	//too dumb to use flashlight properly
 			return ..()	//just hit them in the head
 
 		var/mob/living/carbon/human/H = M	//mob has protective eyewear
@@ -284,7 +284,7 @@
 
 /obj/item/device/flashlight/glowstick/attack_self(var/mob/living/user)
 
-	if(((CLUMSY in user.mutations)) && prob(50))
+	if(((user.is_clumsy())) && prob(50))
 		to_chat(user, "<span class='notice'>You break \the [src] apart, spilling its contents everywhere!</span>")
 		fuel = 0
 		new /obj/effect/decal/cleanable/greenglow(get_turf(user))

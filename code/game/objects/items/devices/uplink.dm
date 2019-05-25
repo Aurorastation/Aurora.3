@@ -380,7 +380,7 @@ A list of items and costs is stored under the datum of every game mode, alongsid
 	if(!title)
 		return
 
-	var/message = sanitize(input("Enter your announcement message.", "Announcement Title") as null|text)
+	var/message = sanitize(input("Enter your announcement message.", "Announcement Title") as message|null)
 	if(!message)
 		return
 

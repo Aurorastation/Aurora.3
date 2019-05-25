@@ -15,7 +15,7 @@
 	var/last_used = 0 //last world.time it was used.
 
 /obj/item/device/flash/proc/clown_check(var/mob/user)
-	if(user && (CLUMSY in user.mutations) && prob(50))
+	if(user && (user.is_clumsy()) && prob(50))
 		to_chat(user, "<span class='warning'>\The [src] slips out of your hand.</span>")
 		user.drop_from_inventory(src)
 		return 0

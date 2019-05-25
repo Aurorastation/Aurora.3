@@ -153,6 +153,7 @@
 	real_name = name
 
 	update_icon()
+	update_nutrition_stats()
 
 /mob/living/simple_animal/mouse/king/splat()
 	src.apply_damage(5, BRUTE)

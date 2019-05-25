@@ -100,6 +100,7 @@
 	banners["banner, Sedantis"] = /obj/item/weapon/flag/vaurca
 	banners["banner, People's Republic of Adhomai"] = /obj/item/weapon/flag/pra
 	banners["banner, Democratic People's Republic of Adhomai"] = /obj/item/weapon/flag/dpra
+	banners["banner, New Kingdom of Adhomai"] = /obj/item/weapon/flag/nka
 	gear_tweaks += new/datum/gear_tweak/path(banners)
 
 /datum/gear/flag
@@ -120,6 +121,7 @@
 	flags["flag, Sedantis"] = /obj/item/weapon/flag/vaurca/l
 	flags["flag, People's Republic of Adhomai"] = /obj/item/weapon/flag/pra/l
 	flags["flag, Democratic People's Republic of Adhomai"] = /obj/item/weapon/flag/dpra/l
+	flags["flag, New Kingdom of Adhomai"] = /obj/item/weapon/flag/nka/l
 	gear_tweaks += new/datum/gear_tweak/path(flags)
 
 /datum/gear/towel
@@ -141,3 +143,15 @@
 /datum/gear/battlemonsters
 	display_name = "battlemonsters starter deck"
 	path = /obj/item/battle_monsters/wrapped
+
+/datum/gear/toothpaste
+	display_name = "toothpaste and toothbrush"
+	path = /obj/item/weapon/storage/box/toothpaste
+
+/datum/gear/toothpaste/New()
+	..()
+	var/toothpaste = list()
+	toothpaste["toothpaste and blue toothbrush"] = /obj/item/weapon/storage/box/toothpaste
+	toothpaste["toothpaste and green toothbrush"] = /obj/item/weapon/storage/box/toothpaste/green
+	toothpaste["toothpaste and red toothbrush"] = /obj/item/weapon/storage/box/toothpaste/red
+	gear_tweaks += new/datum/gear_tweak/path(toothpaste)

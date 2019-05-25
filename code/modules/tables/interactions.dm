@@ -185,7 +185,7 @@
 
 	if(istype(W, /obj/item/weapon/melee/energy/blade))
 		W:spark_system.queue()
-		playsound(src.loc, 'sound/weapons/blade1.ogg', 50, 1)
+		playsound(src.loc, 'sound/weapons/blade.ogg', 50, 1)
 		playsound(src.loc, "sparks", 50, 1)
 		user.visible_message("<span class='danger'>\The [src] was sliced apart by [user]!</span>")
 		break_to_parts()

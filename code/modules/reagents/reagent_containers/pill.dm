@@ -11,6 +11,7 @@
 	w_class = 1
 	slot_flags = SLOT_EARS
 	volume = 60
+	drop_sound = 'sound/items/drop/food.ogg'
 
 	New()
 		..()

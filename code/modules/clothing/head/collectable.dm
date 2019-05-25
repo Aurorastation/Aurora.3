@@ -1,6 +1,5 @@
 
 //Hat Station 13
-
 /obj/item/clothing/head/collectable
 	name = "collectable hat"
 	desc = "A rare collectable hat."
@@ -42,6 +41,7 @@
 	icon_state = "paper"
 	item_state = "paper"
 	body_parts_covered = 0
+	drop_sound = 'sound/items/drop/paper.ogg'
 
 /obj/item/clothing/head/collectable/tophat
 	name = "collectable top hat"

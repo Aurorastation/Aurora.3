@@ -14,7 +14,7 @@
 	var/fake = FALSE
 
 /obj/item/weapon/grenade/proc/clown_check(var/mob/living/user)
-	if((CLUMSY in user.mutations) && prob(50))
+	if((user.is_clumsy()) && prob(50))
 		to_chat(user, "<span class='warning'>Huh? How does this thing work?</span>")
 
 		activate(user)

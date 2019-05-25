@@ -4,6 +4,7 @@
 	icon = 'icons/obj/bureaucracy.dmi'
 	icon_state = "folder"
 	w_class = 2
+	drop_sound = 'sound/items/drop/paper.ogg'
 
 /obj/item/weapon/folder/blue
 	desc = "A blue folder."

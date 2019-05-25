@@ -1,6 +1,7 @@
 /obj/item/clothing
 	name = "clothing"
 	siemens_coefficient = 0.9
+	drop_sound = 'sound/items/drop/clothing.ogg'
 	var/flash_protection = FLASH_PROTECTION_NONE	// Sets the item's level of flash protection.
 	var/tint = TINT_NONE							// Sets the item's level of visual impairment tint.
 	var/list/species_restricted = null 				//Only these species can wear this kit.
@@ -365,6 +366,7 @@
 		"Vox" = 'icons/mob/species/vox/gloves.dmi',
 		"Resomi" = 'icons/mob/species/resomi/gloves.dmi'
 		)
+	drop_sound = 'sound/items/drop/gloves.ogg'
 
 /obj/item/clothing/gloves/update_clothing_icon()
 	if (ismob(src.loc))
@@ -462,6 +464,8 @@
 	w_class = 2.0
 	uv_intensity = 50 //Light emitted by this object or creature has limited interaction with diona
 	species_restricted = list("exclude","Vaurca Breeder","Vaurca Warform")
+
+	drop_sound = 'sound/items/drop/hat.ogg'
 
 	var/light_overlay = "helmet_light"
 	var/light_applied
@@ -597,7 +601,7 @@
 /obj/item/clothing/mask/proc/adjust_mask(mob/user)
 	if(!adjustable)
 		return
-	if(use_check(user))
+	if(use_check_and_message(user))
 		return
 
 	hanging = !hanging
@@ -636,6 +640,7 @@
 	siemens_coefficient = 0.9
 	body_parts_covered = FEET
 	slot_flags = SLOT_FEET
+	drop_sound = 'sound/items/drop/shoes.ogg'
 
 	var/can_hold_knife
 	var/obj/item/holding
@@ -666,7 +671,7 @@
 	if(usr.put_in_hands(holding))
 		usr.visible_message("<span class='danger'>\The [usr] pulls \a [holding] out of their boot!</span>")
 		holding = null
-		playsound(get_turf(src), 'sound/items/holster/sheathout.ogg', 25)
+		playsound(get_turf(src), 'sound/weapons/holster/sheathout.ogg', 25)
 	else
 		to_chat(usr, "<span class='warning'>Your need an empty, unbroken hand to do that.</span>")
 		holding.forceMove(src)
@@ -970,4 +975,5 @@
 	icon = 'icons/obj/clothing/rings.dmi'
 	slot_flags = SLOT_GLOVES
 	gender = NEUTER
+	drop_sound = 'sound/items/drop/ring.ogg'
 	var/undergloves = 1

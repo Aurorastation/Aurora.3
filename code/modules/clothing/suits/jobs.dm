@@ -19,6 +19,9 @@
 	icon_state = "overalls"
 	item_state = "overalls"
 
+obj/item/clothing/suit/apron/overalls/blue
+	color = "#3429d1"
+
 /obj/item/clothing/suit/apron/surgery
 	name = "surgical apron"
 	desc = "To keep their blood off while you knife them."

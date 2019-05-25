@@ -2959,6 +2959,20 @@
 	required_reagents = list("wine" = 4, "vodka" = 2, "sodawater" = 3, "radium" = 1 )
 	result_amount = 10
 
+/datum/chemical_reaction/dynhot
+	name = "Dyn Tea"
+	id = "dynhot"
+	result = "dynhot"
+	required_reagents = list("dynjuice" = 1, "water" = 4)
+	result_amount = 5
+
+/datum/chemical_reaction/dyncold
+	name = "Dyn Ice Tea"
+	id = "dyncold"
+	result = "dyncold"
+	required_reagents = list("dynjuice" = 1, "ice" = 2, "sodawater" = 2)
+	result_amount = 5
+
 //transmutation
 
 /datum/chemical_reaction/transmutation_silver
@@ -3169,3 +3183,31 @@
 	result = "rmt"
 	result_amount = 1
 	required_reagents = list("potassium" = 1, "inaprovaline" = 1)
+
+/datum/chemical_reaction/cold_gate
+	name = "Cold Gate"
+	id = "cold_gate"
+	result = "cold_gate"
+	result_amount = 3
+	required_reagents = list("mintsyrup" = 1, "ice" = 1, "toothpaste" = 1)
+
+/datum/chemical_reaction/waterfresh
+	name = "Waterfresh"
+	id = "waterfresh"
+	result = "waterfresh"
+	result_amount = 3
+	required_reagents = list("tonic" = 1, "sodawater" = 1, "toothpaste" = 1)
+
+/datum/chemical_reaction/sedantian_firestorm
+	name = "Sedantian Firestorm"
+	id = "sedantian_firestorm"
+	result = "sedantian_firestorm"
+	result_amount = 2
+	required_reagents = list("phoron" = 1, "toothpaste" = 1)
+
+/datum/chemical_reaction/kois_odyne
+	name = "Kois Odyne"
+	id = "kois_odyne"
+	result = "kois_odyne"
+	result_amount = 3
+	required_reagents = list("tonic" = 1, "koispaste" = 1, "toothpaste" = 1)

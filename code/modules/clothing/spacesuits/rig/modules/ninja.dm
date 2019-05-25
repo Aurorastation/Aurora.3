@@ -131,7 +131,7 @@
 		to_chat(H, "<span class='warning'>You cannot teleport to a location with solid objects.</span>")
 		return 0
 
-	if(T.z != H.z || get_dist(T, get_turf(H)) > world.view)
+	if((T.z != H.z || get_dist(T, get_turf(H)) > world.view) && target)
 		to_chat(H, "<span class='warning'>You cannot teleport to such a distant object.</span>")
 		return 0
 

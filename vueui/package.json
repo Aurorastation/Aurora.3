@@ -9,18 +9,18 @@
     "dev": "vue-cli-service build --watch"
   },
   "dependencies": {
-    "@fortawesome/fontawesome-free": "^5.2.0",
-    "vue": "^2.5.21",
-    "webpack": "^4.28.3"
+    "@fortawesome/fontawesome-free": "^5.8.2",
+    "vue": "^2.6.10",
+    "webpack": "^4.30.0"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "^3.2.2",
-    "@vue/cli-plugin-eslint": "^3.2.2",
-    "@vue/cli-service": "^3.2.2",
-    "node-sass": "^4.11.0",
+    "@vue/cli-plugin-babel": "^3.7.0",
+    "@vue/cli-plugin-eslint": "^3.7.0",
+    "@vue/cli-service": "^3.7.0",
+    "node-sass": "^4.12.0",
     "sass-loader": "^7.1.0",
-    "vue-template-compiler": "^2.5.21",
-    "webpack-command": "^0.4.1"
+    "vue-template-compiler": "^2.6.10",
+    "webpack-command": "^0.4.2"
   },
   "browserslist": [
     "ie >= 9",

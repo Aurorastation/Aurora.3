@@ -13,7 +13,6 @@ var/specops_shuttle_timeleft = 0
 
 /obj/machinery/computer/specops_shuttle
 	name = "special operations shuttle control console"
-	icon = 'icons/obj/computer.dmi'
 
 	icon_screen = "syndishuttle"
 	light_color = "#00ffff"

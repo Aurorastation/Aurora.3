@@ -1,0 +1,91 @@
+{
+	"crashed freighter": {
+		"file_name": "crashed_freighter.dmm",
+		"valid maps": ["aurora"],
+		"weight": 1,
+		"characteristics": {
+			"Life Form Signals": 100,
+			"Bluespace Signals": 20,
+			"Artificial Intelligence Signals": 20,
+			"Unrecognizable Signals": 20
+		}
+	},
+	"derelict": {
+		"file_name": "derelict.dmm",
+		"valid maps": ["aurora"],
+		"characteristics": {
+			"Abandoned Infrastructure": 100,
+			"Artificial Intelligence Signals": 20,
+			"Bluespace Signals": 20,
+			"Unrecognizable Signals": 20
+		}
+	},
+	"listening post": {
+		"file_name": "listening_post.dmm",
+		"valid maps": ["aurora"],
+		"characteristics": {
+			"Bluespace Signals": 20,
+			"Artificial Intelligence Signals": 20,
+			"Unrecognizable Signals": 20
+		}
+	},
+	"nt cloneship": {
+		"file_name": "nt_cloneship.dmm",
+		"valid maps": ["aurora"],
+		"characteristics": {
+			"Abandoned Infrastructure": 100,
+			"Life Form Signals": 20,
+			"Bluespace Signals": 20,
+			"Artificial Intelligence Signals": 20,
+			"Unrecognizable Signals": 20
+		}
+	},
+	"pra blockade runner": {
+		"file_name": "pra_blockade_runner.dmm",
+		"valid maps": ["aurora"],
+		"characteristics": {
+			"Large biomass signals": 100,
+			"Life Form Signals": 20,
+			"Bluespace Signals": 20,
+			"Unrecognizable Signals": 20
+		}
+	},
+	"sol corvette": {
+		"file_name": "sol_corvette.dmm",
+		"valid maps": ["aurora"],
+		"characteristics": {
+			"Life Form Signals": 20,
+			"Bluespace Signals": 20,
+			"Unrecognizable Signals": 20
+		}
+	},
+	"sol frigate": {
+		"file_name": "sol_frigate.dmm",
+		"valid maps": ["aurora"],
+		"characteristics": {
+			"Wrap Signal": 100,
+			"Life Form Signals": 20,
+			"Bluespace Signals": 20,
+			"Unrecognizable Signals": 20
+		}
+	},
+	"syndicate base": {
+		"file_name": "syndicatebase.dmm",
+		"valid maps": ["aurora"],
+		"weight": 0.5,
+		"characteristics": {
+			"Unrecognizable Signals": 100,
+			"Life Form Signals": 20,
+			"Bluespace Signals": 20
+		}
+	},
+	"tcfl frigate": {
+		"file_name": "tcfl_frigate.dmm",
+		"valid maps": ["aurora"],
+		"characteristics": {
+			"Unrecognizable Signals": 100,
+			"Life Form Signals": 20,
+			"Bluespace Signals": 20
+		}
+	}
+}
