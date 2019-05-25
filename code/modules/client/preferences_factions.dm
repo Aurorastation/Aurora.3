@@ -23,8 +23,7 @@ var/global/list/citizenship_choices = list(
 	"People's Republic of Adhomai",
 	"Izweski Hegemony",
 	"Zo'ra Hive",
-	"K'lax Hive",
-	"C'thur Hive"
+	"K'lax Hive"
 	)
 
 var/global/list/home_system_choices = list(
@@ -92,5 +91,5 @@ var/global/list/religion_choices = list(
 	"Ma'ta'ke",
 	"Th'akh",
 	"Sk'akh",
-	"Aut'kah"
+	"Aut'akh"
 	)
