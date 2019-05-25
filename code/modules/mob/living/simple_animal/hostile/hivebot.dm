@@ -100,7 +100,7 @@
 	qdel(src)
 
 /mob/living/simple_animal/hostile/hivebot/Destroy()
-	..()
+	. = ..()
 	if(linked_parent)
 		linked_parent.linked_bots -= src
 
