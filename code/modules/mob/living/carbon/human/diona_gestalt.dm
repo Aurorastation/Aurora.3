@@ -7,9 +7,6 @@
 #define COLD_DAMAGE_LEVEL_2 1.5
 #define COLD_DAMAGE_LEVEL_3 3
 
-
-
-#define NUM_NYMPHS	6
 /mob/living/carbon/human
 	var/datum/dionastats/DS
 
@@ -43,31 +40,25 @@
 
 		topup_nymphs()
 
-/mob/living/carbon/human/proc/topup_nymphs(var/max = 6)
-	var/i = 0
+/mob/living/carbon/human/proc/topup_nymphs()
 	var/added = 0
-	for(var/mob/living/carbon/alien/diona/D in src)
-		i++
-		D.stat = CONSCIOUS
-		D.sync_languages(src)
+	for(var/obj/item/organ/external/diona/D in organs_by_name)
+		if(istype(D, /obj/item/organ/external/diona/groin))
+			continue
 
-	if (i < NUM_NYMPHS)
-		for (i;i < NUM_NYMPHS;i++)
-			add_nymph()
-			added++
-			if (added >= max)
-				return added
+		D.nymph = add_nymph()
+		added += 1
 
 	return added
 
 /mob/living/carbon/human/proc/add_nymph()
 	var/turf/T = get_turf(src)
-	var/mob/living/carbon/alien/diona/M = new /mob/living/carbon/alien/diona(T)
+	var/mob/living/carbon/alien/diona/M = new /mob/living/carbon/alien/diona(src)
 	M.gestalt = src
 	M.stat = CONSCIOUS
 	M.update_verbs()
-	spawn(1)
-		M.forceMove(src)
+	M.sync_languages(src)
+	return M
 
 //Environmental Functions
 //================================
@@ -210,6 +201,21 @@
 		verbs.Remove(/mob/living/carbon/human/proc/gestalt_set_name)
 
 
+/mob/living/carbon/human/proc/diona_detach_nymph()
+	set name = "Detach nymph"
+	set desc = "Allows you to detach specific nymph, and control it."
+	set category = "Abilities"
+
+	var/choice =  input(src, "Choose a limb to detach?", "Limb detach") as null|anything in organs_by_name
+	var/obj/item/organ/external/diona/O = organs_by_name[choice]
+	if(!O || O.is_stump())
+		to_chat(src, span("warning", "Cannot detach that!"))
+		return
+	var/mob/living/carbon/alien/diona/nymph = O.detach_nymph()
+	nymph.teleop = src
+	nymph.key = src.key
+	src.key = "@[nymph.key]"
+
 /mob/living/carbon/human/proc/diona_split_into_nymphs()
 	var/turf/T = get_turf(src)
 	var/mob/living/carbon/alien/diona/bestNymph = null
@@ -217,8 +223,6 @@
 
 
 	var/nymphs_to_kill_off = 0
-
-
 
 	//We iterate through all the nymphs and find which one is healthiest and not controlled
 	//The gestalt's player will control that nymph

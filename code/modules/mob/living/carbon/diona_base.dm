@@ -367,6 +367,9 @@ var/list/diona_banned_languages = list(
 
 		//If we have less than six nymphs, we add one each proc
 		if (topup_nymphs(1))
+			if (DS.stored_energy < REGROW_ENERGY_REQ)
+				return
+
 			DS.stored_energy -= REGROW_ENERGY_REQ
 			adjustNutritionLoss(REGROW_FOOD_REQ)
 			to_chat(src, "<span class='danger'>You feel a stirring inside you as a new nymph is born within your trunk!</span>")

@@ -15,7 +15,7 @@
 			if(D)
 				if(!D.ckey || !D.client)
 					D.death()
-		return 1
+		return D
 
 
 //Probable future TODO: Refactor diona organs to be /obj/item/organ/external/bodypart/diona
@@ -24,8 +24,8 @@
 /obj/item/organ/external/diona
 	name = "tendril"
 	cannot_break = 1
-
-
+	var/mob/living/carbon/alien/diona/nymph
+	var/stump= FALSE
 
 /obj/item/organ/external/chest/diona
 	name = "core trunk"
@@ -215,8 +215,17 @@
 	..()
 	if(!istype(H) || !H.organs || !H.organs.len)
 		H.death()
-	if(prob(50) && spawn_diona_nymph(get_turf(src)))
+
+/obj/item/organ/external/diona/removed(var/mob/living/user)
+	..()
+	if(spawn_diona_nymph(get_turf(src)))
 		qdel(src)
+
+/obj/item/organ/external/diona/proc/detach_nymph()
+	if(nymph)
+		nymph.forceMove(get_turf(owner))
+	droplimb(src)
+	return nymph
 
 // These are different to the standard diona organs as they have a purpose in other
 // species (absorbing radiation and light respectively)
