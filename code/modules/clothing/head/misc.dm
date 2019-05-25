@@ -17,11 +17,6 @@
 	body_parts_covered = 0
 	drop_sound = 'sound/items/drop/ring.ogg'
 
-/obj/item/clothing/head/pin/pink
-	icon_state = "pinkpin"
-	item_state = "pinkpin"
-	name = "pink hair pin"
-
 /obj/item/clothing/head/pin/clover
 	icon_state = "cloverpin"
 	item_state = "cloverpin"
@@ -32,50 +27,19 @@
 	icon_state = "butterflypin"
 	item_state = "butterflypin"
 	name = "butterfly pin"
-	desc = "A hair pin in the shape of a bright blue butterfly."
+	desc = "A hair pin in the shape of a bright butterfly."
 
 /obj/item/clothing/head/pin/magnetic
 	icon_state = "magnetpin"
 	item_state = "magnetpin"
 	name = "magnetic 'pin'"
 	desc = "Finally, a hair pin even a robot chassis can use."
-	matter = list(DEFAULT_WALL_MATERIAL = 10)
 
 /obj/item/clothing/head/pin/flower
-	name = "red flower pin"
+	name = "flower pin"
 	icon_state = "hairflower"
 	item_state = "hairflower"
 	desc = "Smells nice."
-
-/obj/item/clothing/head/pin/flower/blue
-	icon_state = "hairflower_blue"
-	item_state = "hairflower_blue"
-	name = "blue flower pin"
-
-/obj/item/clothing/head/pin/flower/pink
-	item_state = "hairflower_pink"
-	icon_state = "hairflower_pink"
-	name = "pink flower pin"
-
-/obj/item/clothing/head/pin/flower/yellow
-	icon_state = "hairflower_yellow"
-	item_state = "hairflower_yellow"
-	name = "yellow flower pin"
-
-/obj/item/clothing/head/pin/flower/violet
-	icon_state = "hairflower_violet"
-	item_state = "hairflower_violet"
-	name = "violet flower pin"
-
-/obj/item/clothing/head/pin/flower/orange
-	icon_state = "hairflower_orange"
-	item_state = "hairflower_orange"
-	name = "orange flower pin"
-
-/obj/item/clothing/head/pin/flower/white
-	icon_state = "hairflower_white"
-	item_state = "hairflower_white"
-	name = "white flower pin"
 
 /obj/item/clothing/head/pin/bow
 	icon_state = "bow"
@@ -88,11 +52,6 @@
 	icon_state = "whiteribbon"
 	item_state = "whiteribbon"
 	name = "ribbon"
-
-/obj/item/clothing/head/pin/bow/big/red
-	icon_state = "redribbon"
-	item_state = "redribbon"
-	name = "red ribbon"
 
 /obj/item/clothing/head/powdered_wig
 	name = "powdered wig"

@@ -89,14 +89,6 @@
 	hardhat["hardhat, red"] = /obj/item/clothing/head/hardhat/red
 	gear_tweaks += new/datum/gear_tweak/path(hardhat)
 
-/datum/gear/head/hairflower
-	display_name = "hair flower pin (colorable)"
-	path = /obj/item/clothing/head/pin/flower/white
-
-/datum/gear/head/hairflower/New()
-	..()
-	gear_tweaks = list(gear_tweak_free_color_choice)
-
 /datum/gear/head/pin
 	display_name = "pin selection"
 	path = /obj/item/clothing/head/pin
@@ -108,6 +100,7 @@
 		var/obj/item/clothing/head/pin/pin_type = pin
 		pins[initial(pin_type.name)] = pin_type
 	gear_tweaks += new/datum/gear_tweak/path(sortAssoc(pins))
+	gear_tweaks += list(gear_tweak_free_color_choice)
 
 /datum/gear/head/hats
 	display_name = "hat selection"

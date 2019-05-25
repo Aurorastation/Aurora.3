@@ -553,3 +553,8 @@
 	icon_state = "cardigan"
 	item_state = "cardigan"
 
+/obj/item/clothing/suit/shortjacket
+	name = "short jacket"
+	desc = "A really short jacket, stopping at the ribs."
+	icon_state = "short_jacket"
+	item_state = "short_jacket"

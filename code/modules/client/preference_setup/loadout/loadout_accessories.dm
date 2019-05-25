@@ -75,6 +75,22 @@
 	ties["white tie"] = /obj/item/clothing/accessory/tie/white
 	gear_tweaks += new/datum/gear_tweak/path(ties)
 
+/datum/gear/accessory/rectie
+	display_name = "colorful tie"
+	path = /obj/item/clothing/accessory/rectie
+
+/datum/gear/accessory/rectie/New()
+	..()
+	gear_tweaks = list(gear_tweak_free_color_choice)
+
+/datum/gear/accessory/ribbon
+	display_name = "ribbon bow"
+	path = /obj/item/clothing/accessory/ribbon
+
+/datum/gear/accessory/ribbon/New()
+	..()
+	gear_tweaks = list(gear_tweak_free_color_choice)
+
 /datum/gear/accessory/bowtie
 	display_name = "bowtie"
 	path = /obj/item/clothing/accessory/tie/bowtie
@@ -147,32 +163,28 @@
 	..()
 	gear_tweaks = list(gear_tweak_free_color_choice)
 
-/datum/gear/accessory/longsleeve
-	display_name = "long-sleeved shirt"
-	path = /obj/item/clothing/accessory/longsleeve
+/datum/gear/accessory/blouse
+	display_name = "blouse"
+	path = /obj/item/clothing/accessory/blouse
 
-/datum/gear/accessory/longsleeve/New()
+/datum/gear/accessory/blouse/New()
 	..()
 	gear_tweaks = list(gear_tweak_free_color_choice)
 
-/datum/gear/accessory/longsleeve_s
-	display_name = "long-sleeved shirt, striped"
-	path = /obj/item/clothing/accessory/longsleeve_s
-
-/datum/gear/accessory/longsleeve_s/New()
-	..()
-	var/lshirt = list()
-	lshirt["black-striped"] = /obj/item/clothing/accessory/longsleeve_s
-	lshirt["blue-striped"] = /obj/item/clothing/accessory/longsleeve_sb
-	gear_tweaks += new/datum/gear_tweak/path(lshirt)
-
-/datum/gear/accessory/tshirt
-	display_name = "t-shirt"
+/datum/gear/accessory/shirt
+	display_name = "shirt selection"
 	path = /obj/item/clothing/accessory/tshirt
+	description = "A selection of various t-shirts."
 
-/datum/gear/accessory/tshirt/New()
+/datum/gear/accessory/shirt/New()
 	..()
-	gear_tweaks = list(gear_tweak_free_color_choice)
+	var/shirt = list()
+	shirt["longsleeve"] = /obj/item/clothing/accessory/longsleeve
+	shirt["t-shirt"] = /obj/item/clothing/accessory/tshirt
+	shirt["black-striped longsleeve"] = /obj/item/clothing/accessory/longsleeve_s
+	shirt["blue-striped longsleeve"] = /obj/item/clothing/accessory/longsleeve_sb
+	gear_tweaks += new/datum/gear_tweak/path(shirt)
+	gear_tweaks += list(gear_tweak_free_color_choice)
 
 /datum/gear/accessory/scarf
 	display_name = "scarf selection"

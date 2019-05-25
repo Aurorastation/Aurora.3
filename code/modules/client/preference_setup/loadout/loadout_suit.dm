@@ -303,3 +303,7 @@
 /datum/gear/suit/cardigan/New()
 	..()
 	gear_tweaks = list(gear_tweak_free_color_choice)
+
+/datum/gear/suit/cardigan/short
+	display_name = "short jacket"
+	path = /obj/item/clothing/suit/shortjacket

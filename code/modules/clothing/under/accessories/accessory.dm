@@ -136,6 +136,16 @@
 	desc = "Snazzy!"
 	icon_state = "bowtie"
 
+/obj/item/clothing/accessory/rectie
+	name = "tie"
+	icon_state = "rectie"
+
+/obj/item/clothing/accessory/ribbon
+	name = "ribbon bow"
+	desc = "A small ribbon bow that attaches to a top button."
+	icon_state = "ribbon"
+	item_state = "ribbon"
+
 /obj/item/clothing/accessory/stethoscope
 	name = "stethoscope"
 	desc = "An outdated medical apparatus for listening to the sounds of the human body. It also makes you look like you know what you're doing."

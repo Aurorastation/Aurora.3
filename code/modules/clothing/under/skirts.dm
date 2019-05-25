@@ -33,6 +33,12 @@
 	icon_state = "skirt_pencil"
 	worn_state = "skirt_pencil"
 
+/obj/item/clothing/under/skirt/mini
+	name = "miniskirt"
+	desc = "A Cytherean female fashion staple."
+	icon_state = "skirt_mini"
+	worn_state = "skirt_mini"
+
 /obj/item/clothing/under/skirt/short_black
 	name = "short black skirt"
 	desc = "A skirt that is a shiny black."
