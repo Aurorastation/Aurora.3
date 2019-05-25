@@ -46,7 +46,7 @@
 		return alt_outfits[H.job]
 	else if(outfit)
 		return outfit
- 
+
 /datum/job/proc/pre_equip(mob/living/carbon/human/H, visualsOnly = FALSE, alt_title = null)
 	if(!H)
 		return 0

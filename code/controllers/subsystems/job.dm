@@ -19,13 +19,19 @@
 	var/list/unassigned = list()
 	var/list/job_debug = list()
 
+	var/list/factions = list()
+	var/list/name_factions = list()
+	var/datum/faction/default_faction = null
+
 /datum/controller/subsystem/jobs/New()
 	NEW_SS_GLOBAL(SSjobs)
 
 /datum/controller/subsystem/jobs/Initialize()
+	..()
+
 	SetupOccupations()
 	LoadJobs("config/jobs.txt")
-	..()
+	InitializeFactions()
 
 /datum/controller/subsystem/jobs/Recover()
 	occupations = SSjobs.occupations
@@ -609,6 +615,25 @@
 				J.total_positions = 0
 
 	return TRUE
+
+/datum/controller/subsystem/jobs/proc/InitializeFactions()
+	for (var/type in subtypesof(/datum/faction))
+		var/datum/faction/faction = new type()
+
+		factions += faction
+		name_factions[faction.name] = faction
+
+		if (faction.is_default)
+			if (default_faction)
+				crash_with("Two default factions detected in SSjobs.")
+			else
+				default_faction = faction
+
+	if (!default_faction)
+		crash_with("No default faction assigned to SSjobs.")
+
+	if (!factions.len)
+		crash_with("No factions located in SSjobs.")
 
 /datum/controller/subsystem/jobs/proc/HandleFeedbackGathering()
 	for(var/thing in occupations)

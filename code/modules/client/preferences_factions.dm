@@ -36,22 +36,6 @@ var/global/list/home_system_choices = list(
 	"X'yr Vharn'p"
 	)
 
-var/global/list/faction_choices = list(
-	"Sol Central",
-	"Vey Med",
-	"Einstein Engines",
-	"Free Trade Union",
-	"NanoTrasen",
-	"Ward-Takahashi GMB",
-	"Gilthari Exports",
-	"Grayson Manufactories Ltd.",
-	"Aether Atmospherics",
-	"Zeng-Hu Pharmaceuticals",
-	"Hephaestus Industries",
-	"Idris Incorporated",
-	"Necropolis Industries"
-	)
-
 var/global/list/religion_choices = list(
 	"Unitarianism",
 	"Hinduism",
