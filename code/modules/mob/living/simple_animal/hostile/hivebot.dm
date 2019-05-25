@@ -206,6 +206,10 @@
 	else if(activated == 1)
 		icon_state = "hivebotbeacon_active"
 
+/mob/living/simple_animal/hostile/hivebotbeacon/MoveToTarget()
+    ..()
+    walk(src, 0)
+
 /mob/living/simple_animal/hostile/hivebotbeacon/proc/reset_activation()
 	icon_state = "hivebotbeacon_active"
 	activated = 1
