@@ -370,5 +370,4 @@
 			env.temperature = 0
 		else if (reagents.total_volume > 500)
 			env.temperature -= 100
-		else
-			QDEL_IN(src, 10)
+		QDEL_IN(src, 10)
