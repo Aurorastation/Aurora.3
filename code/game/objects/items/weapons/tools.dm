@@ -153,7 +153,6 @@
 	slot_flags = SLOT_BELT
 	var/base_iconstate = "welder"//These are given an _on/_off suffix before being used
 	var/base_itemstate = "welder"
-	contained_sprite = 1
 	drop_sound = 'sound/items/drop/scrap.ogg'
 
 	//Amount of OUCH when it's thrown

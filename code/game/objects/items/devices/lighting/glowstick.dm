@@ -5,9 +5,9 @@
 	brightness_on = 1.5
 	light_power = 1
 	light_color = "#49F37C"
+	color = "#49F37C"
 	icon_state = "glowstick"
 	item_state = "glowstick"
-	contained_sprite = 1
 	uv_intensity = 255
 	var/fuel = 0
 	light_wedge = LIGHT_OMNI
@@ -72,27 +72,32 @@
 	name = "red glowstick"
 	desc = "A red military-grade glowstick."
 	light_color = LIGHT_COLOR_RED //"#FC0F29"
+	color = "#FC0F29"
 
 /obj/item/device/flashlight/glowstick/blue
 	name = "blue glowstick"
 	desc = "A blue military-grade glowstick."
 	light_color = LIGHT_COLOR_BLUE //"#599DFF"
+	color = "#599DFF"
 
 /obj/item/device/flashlight/glowstick/orange
 	name = "orange glowstick"
 	desc = "A orange military-grade glowstick."
 	light_color = LIGHT_COLOR_ORANGE//"#FA7C0B"
+	color = "#FA7C0B"
 
 /obj/item/device/flashlight/glowstick/yellow
 	name = "yellow glowstick"
 	desc = "A yellow military-grade glowstick."
 	light_color = LIGHT_COLOR_YELLOW //"#FEF923"
+	color = "#FEF923"
 
-/obj/item/device/lighting/glowstick/random
+/obj/item/device/flashlight/glowstick/random
 	name = "glowstick"
 	desc = "A party-grade glowstick."
 	light_color = "#FF00FF"
+	color = "#FF00FF"
 
-/obj/item/device/lighting/glowstick/random/New()
+/obj/item/device/flashlight/glowstick/random/New()
 	light_color = rgb(rand(50,255),rand(50,255),rand(50,255))
 	..()
