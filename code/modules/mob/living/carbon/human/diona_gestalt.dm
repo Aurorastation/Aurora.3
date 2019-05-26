@@ -243,7 +243,7 @@
 		parent_stump.update_damages()
 		parent.post_droplimb(src)
 		qdel(parent)
-	to_chat(src, span("notice", "You detach [O] nymph from your body."))
+	to_chat(src, span("notice", "You detach [O.name] nymph from your body."))
 	qdel(O)
 
 	// Spawn new nymph 
@@ -255,12 +255,29 @@
 	M.key = src.key
 	src.key = "@[M.key]"
 	src.ajourn = 0
+	DS.nym = M
+	M.gestalt = src
 	M.verbs += /mob/living/carbon/alien/diona/proc/merge_back_to_gestalt
+	M.verbs += /mob/living/carbon/alien/diona/proc/switch_to_gestalt
+	verbs += /mob/living/carbon/human/proc/switch_to_nymph
 
 	update_dionastats() //Re-find the organs in case they were lost or regained
 	nutrition -= 150
 	DS.stored_energy -= 60
 	diona_handle_regeneration(DS, TRUE)
+	playsound(src, 'sound/species/diona/gestalt_grow.ogg', 30, 1)
+
+/mob/living/carbon/human/proc/switch_to_nymph()
+	set name = "Switch to Nymph"
+	set desc = "Allows you to switch control back to your detached Nymph."
+	set category = "Abilities"
+
+	if(!DS.nym)
+		to_chat(src, span("warning", "You have no nymph!"))
+	else if(DS.nym.stat == DEAD)
+		to_chat(src, span("danger", "Your nymph is not responding! Something could have happened to it!"))
+	else
+		DS.nym.key = key
 
 /mob/living/carbon/human/proc/diona_split_into_nymphs()
 	var/turf/T = get_turf(src)

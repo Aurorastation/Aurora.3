@@ -521,6 +521,18 @@ var/list/diona_banned_languages = list(
 		else
 			to_chat(src, "<span class='danger'>You have forgotten the [L.name] language!</span>")
 
+/mob/living/carbon/alien/diona/proc/switch_to_gestalt()
+	set name = "Switch to Gestalt"
+	set desc = "Allows you to switch control back to your parent Gestalt."
+	set category = "Abilities"
+
+	if(!gestalt)
+		to_chat(src, span("warning", "You have no Gestalt!"))
+	else if(gestalt.stat == DEAD)
+		to_chat(src, span("danger", "Your Gestlat is not responding! Something could have happened to it!"))
+	else
+		gestalt.key = key
+
 /mob/living/carbon/alien/diona/proc/merge_back_to_gestalt()
 	set name = "Merge to Gestalt"
 	set desc = "Allows you to merge back to your parent Gestalt."
@@ -538,11 +550,14 @@ var/list/diona_banned_languages = list(
 					var/datum/callback/callBack = T.callBack
 					if(callBack && callBack.delegate == /mob/living/carbon/human/proc/diona_regen_callback)
 						T.timeToRun = REALTIMEOFDAY + 5
-						to_chat(C, span("notice", "Your lost nymph merged back."))
 						break
 			else
 				C.diona_handle_regeneration(C.DS, TRUE)
+			to_chat(C, span("notice", "Your lost nymph merged back."))
 			C.add_nymph()
+			verbs -= /mob/living/carbon/alien/diona/proc/switch_to_gestalt
+			C.verbs -= /mob/living/carbon/human/proc/switch_to_nymph
+			C.DS.nym = null
 			qdel(src)
 			break
 
@@ -572,6 +587,7 @@ var/list/diona_banned_languages = list(
 	var/obj/item/organ/diona/nutrients/nutrient_organ = null //Organ
 	var/LMS = 1 //Lightmessage state. Switching between states gives the user a message
 	var/dionatype //1 = nymph, 2 = worker gestalt
+	var/mob/living/carbon/alien/diona/nym
 
 /datum/dionastats/Destroy()
 	light_organ = null //Nulling out these references to prevent GC errors
