@@ -362,8 +362,7 @@
 	S.set_up(5, 0, src.loc)
 
 	playsound(src.loc, 'sound/effects/smoke.ogg', 50, 1, -3)
-	spawn(0)
-		INVOKE_ASYNC(S, /datum/effect/effect/system/smoke_spread/start)
+	INVOKE_ASYNC(S, /datum/effect/effect/system/smoke_spread/start)
 
 	var/datum/gas_mixture/env = src.loc.return_air()
 	if(env)
