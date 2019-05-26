@@ -523,7 +523,7 @@
 /obj/random/glowstick
 	name = "random glowstick"
 	desc = "This is a random glowstick."
-	icon = 'icons/obj/glowsticks.dmi'
+	icon = 'icons/obj/lighting.dmi'
 	icon_state = "glowstick"
 	spawnlist = list(
 		/obj/item/device/flashlight/glowstick,
