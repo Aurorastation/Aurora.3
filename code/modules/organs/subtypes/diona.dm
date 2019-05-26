@@ -24,7 +24,6 @@
 /obj/item/organ/external/diona
 	name = "tendril"
 	cannot_break = 1
-	var/mob/living/carbon/alien/diona/nymph
 	var/stump= FALSE
 
 /obj/item/organ/external/chest/diona
@@ -220,12 +219,6 @@
 	..()
 	if(spawn_diona_nymph(get_turf(src)))
 		qdel(src)
-
-/obj/item/organ/external/diona/proc/detach_nymph()
-	if(nymph)
-		nymph.forceMove(get_turf(owner))
-	droplimb(src)
-	return nymph
 
 // These are different to the standard diona organs as they have a purpose in other
 // species (absorbing radiation and light respectively)

@@ -16,6 +16,7 @@
 	setup_dionastats()
 	verbs += /mob/living/carbon/human/proc/check_light
 	verbs += /mob/living/carbon/human/proc/diona_split_nymph
+	verbs += /mob/living/carbon/human/proc/diona_detach_nymph
 	verbs += /mob/living/proc/devour
 
 	spawn(10)
@@ -42,23 +43,28 @@
 
 /mob/living/carbon/human/proc/topup_nymphs()
 	var/added = 0
-	for(var/obj/item/organ/external/diona/D in organs_by_name)
-		if(istype(D, /obj/item/organ/external/diona/groin))
+	var/list/exclude = list("groin", "l_hand", "r_hand", "l_foot", "r_foot") // becase these are supposed to be whole as their join parts
+	for(var/thing in organs_by_name)
+		if(thing in exclude)
 			continue
 
-		D.nymph = add_nymph()
+		add_nymph()
 		added += 1
 
 	return added
 
 /mob/living/carbon/human/proc/add_nymph()
-	var/turf/T = get_turf(src)
+	var/count = 0
+	for(var/mob/living/carbon/alien/nymph in contents)
+		count += 1
+	if(count >= 6)
+		return
 	var/mob/living/carbon/alien/diona/M = new /mob/living/carbon/alien/diona(src)
 	M.gestalt = src
 	M.stat = CONSCIOUS
 	M.update_verbs()
 	M.sync_languages(src)
-	return M
+	return
 
 //Environmental Functions
 //================================
@@ -206,15 +212,55 @@
 	set desc = "Allows you to detach specific nymph, and control it."
 	set category = "Abilities"
 
-	var/choice =  input(src, "Choose a limb to detach?", "Limb detach") as null|anything in organs_by_name
-	var/obj/item/organ/external/diona/O = organs_by_name[choice]
+	if(nutrition <= 150)
+		to_chat(src, span("warning", "You lack nutrition to perform this action!"))
+		return
+	if(DS.stored_energy <= 60)
+		to_chat(src, span("warning", "You lack energy to perform this action!"))
+		return
+	// Choose our limb to detach
+	var/list/exclude = organs_by_name - list("groin", "chest", "l_arm", "r_arm", "l_leg", "r_leg")
+	var/choice =  input(src, "Choose a limb to detach?", "Limb detach") as null|anything in exclude
+	if(!choice)
+		return
+	var/obj/item/organ/external/O = organs_by_name[choice]
 	if(!O || O.is_stump())
 		to_chat(src, span("warning", "Cannot detach that!"))
 		return
-	var/mob/living/carbon/alien/diona/nymph = O.detach_nymph()
-	nymph.teleop = src
-	nymph.key = src.key
-	src.key = "@[nymph.key]"
+	
+	// Get rid of our limb and replace with stump
+	var/obj/item/organ/external/stump/stump = new (src, 0, O)
+	O.removed(null, TRUE)
+	organs |= stump
+	stump.update_damages()
+	O.post_droplimb(src)
+	// If we got parent organ - drop it too
+	if(O.parent_organ && O.parent_organ != "chest")
+		var/obj/item/organ/external/parent = organs_by_name[O.parent_organ]
+		var/obj/item/organ/external/stump/parent_stump = new (src, 0, parent)
+		parent.removed(null, TRUE)
+		organs |= parent_stump
+		parent_stump.update_damages()
+		parent.post_droplimb(src)
+		qdel(parent)
+	to_chat(src, span("notice", "You detach [O] nymph from your body."))
+	qdel(O)
+
+	// Spawn new nymph 
+	var/mob/living/carbon/alien/diona/M = locate(/mob/living/carbon/alien/diona) in contents
+	M.forceMove(get_turf(src))
+
+	// Switch control to nymph
+	M.teleop = src
+	M.key = src.key
+	src.key = "@[M.key]"
+	src.ajourn = 0
+	M.verbs += /mob/living/carbon/alien/diona/proc/merge_back_to_gestalt
+
+	update_dionastats() //Re-find the organs in case they were lost or regained
+	nutrition -= 150
+	DS.stored_energy -= 60
+	diona_handle_regeneration(DS, TRUE)
 
 /mob/living/carbon/human/proc/diona_split_into_nymphs()
 	var/turf/T = get_turf(src)
