@@ -15,7 +15,7 @@
 			if(D)
 				if(!D.ckey || !D.client)
 					D.death()
-		return D
+		return 1
 
 
 //Probable future TODO: Refactor diona organs to be /obj/item/organ/external/bodypart/diona
@@ -24,7 +24,6 @@
 /obj/item/organ/external/diona
 	name = "tendril"
 	cannot_break = 1
-	var/stump= FALSE
 
 /obj/item/organ/external/chest/diona
 	name = "core trunk"
