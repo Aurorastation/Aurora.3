@@ -350,7 +350,7 @@
 
 /obj/structure/reagent_dispensers/coolanttank/bullet_act(var/obj/item/projectile/Proj)
 	if(Proj.get_structure_damage())
-		if(!istype(Proj ,/obj/item/projectile/beam/lastertag) && !istype(Proj ,/obj/item/projectile/beam/practice) )
+		if (Proj.damage_type != HALLOSS)
 			explode()
 
 /obj/structure/reagent_dispensers/coolanttank/ex_act(var/severity = 2.0)
@@ -363,7 +363,7 @@
 
 	playsound(src.loc, 'sound/effects/smoke.ogg', 50, 1, -3)
 	spawn(0)
-		S.start()
+		INVOKE_ASYNC(S, /datum/effect/effect/system/smoke_spread/start)
 
 	var/datum/gas_mixture/env = src.loc.return_air()
 	if(env)
@@ -372,8 +372,4 @@
 		else if (reagents.total_volume > 500)
 			env.temperature -= 100
 		else
-			env.temperature -= 50
-
-	sleep(10)
-	if(src)
-		qdel(src)
+			QDEL_IN(src, 10)

@@ -10,7 +10,7 @@ Contains:
 /obj/item/stack/medical
 	name = "medical pack"
 	singular_name = "medical pack"
-	icon = 'icons/obj/medical.dmi'
+	icon = 'icons/obj/stacks/medical.dmi'
 	drop_sound = 'sound/items/drop/box.ogg'
 	amount = 5
 	max_amount = 5
@@ -292,7 +292,6 @@ Contains:
 	name = "space klot"
 	singular_name = "space klot"
 	desc = "A powder that, when poured on an open wound, quickly stops the bleeding. Combine with bandages for the best effect."
-	icon = 'icons/obj/medical.dmi'
 	icon_state = "powderbag"
 	heal_brute = 15
 	origin_tech = list(TECH_BIO = 4)

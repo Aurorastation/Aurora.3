@@ -18,8 +18,10 @@
 	set name = "Toggle Headphone Music"
 	set category = "Object"
 	set src in usr
-	if(!istype(usr, /mob/living)) return
-	if(usr.stat) return
+	if(!isliving(usr))
+		return
+	if(use_check_and_message(usr))
+		return
 
 	if(headphones_on)
 		icon_state = "headphones_off"
