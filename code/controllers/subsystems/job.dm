@@ -330,6 +330,9 @@
 	var/datum/job/job = GetJob(rank)
 	var/list/spawn_in_storage = list()
 
+	if (H.mind)
+		H.mind.selected_faction = GetFaction(H)
+
 	H.job = rank
 
 	if(job)
@@ -856,5 +859,12 @@
 		return pick(loc_list)
 	else
 		return locate("start*[rank]") // use old stype
+
+/datum/controller/subsystem/jobs/proc/GetFaction(mob/living/carbon/human/H)
+	var/faction_name = H?.client?.prefs?.faction
+	if (faction_name)
+		return name_factions[faction_name]
+	else
+		return null
 
 #undef Debug

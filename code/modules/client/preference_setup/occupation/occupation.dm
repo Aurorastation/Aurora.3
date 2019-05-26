@@ -262,7 +262,7 @@
 		return TOPIC_NOACTION
 
 	else if(href_list["faction_select"])
-		validate_and_set_faction(user, html_decode(href_list["faction_select"]))
+		validate_and_set_faction(html_decode(href_list["faction_select"]))
 		show_faction_menu(user, html_decode(href_list["faction_select"]))
 		return TOPIC_REFRESH
 
@@ -384,8 +384,10 @@
 
 	if (selected_faction == pref.faction)
 		dat += "<br>\[Faction already selected\]"
-	else
+	else if (faction.can_select(pref))
 		dat += "<br>\[<a href='?src=\ref[src];faction_select=[html_encode(selected_faction)]'>Select faction</a>\]"
+	else
+		dat += "<br><span class='warning'>[faction.get_selection_error(pref)]</span>"
 
 	dat += "</center><hr><center><large><u>[faction.name]</u></large></center>"
 
@@ -396,7 +398,7 @@
 
 	show_browser(user, dat.Join(), "window=factionpreview")
 
-/datum/category_item/player_setup_item/occupation/proc/validate_and_set_faction(user, selected_faction)
+/datum/category_item/player_setup_item/occupation/proc/validate_and_set_faction(selected_faction)
 	var/datum/faction/faction = SSjobs.name_factions[selected_faction]
 
 	if (!faction)
