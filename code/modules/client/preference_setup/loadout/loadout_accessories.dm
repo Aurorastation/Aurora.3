@@ -119,7 +119,12 @@
 
 /datum/gear/accessory/sweater/New()
 	..()
-	gear_tweaks = list(gear_tweak_free_color_choice)
+	var/sweater = list()
+	sweater["plain"] = /obj/item/clothing/accessory/sweater
+	sweater["striped"] = /obj/item/clothing/accessory/sweater/stripes
+	sweater["tricolor"] = /obj/item/clothing/accessory/sweater/tricolor
+	gear_tweaks += new/datum/gear_tweak/path(sweater)
+	gear_tweaks += list(gear_tweak_free_color_choice)
 
 /datum/gear/accessory/dressshirt
 	display_name = "dress shirt"

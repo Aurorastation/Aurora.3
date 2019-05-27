@@ -4,6 +4,14 @@
 	icon_state = "sweater"
 	item_state = "sweater"
 
+/obj/item/clothing/accessory/sweater/tricolor
+	icon_state = "sweater_tricolor"
+	item_state = "sweater_tricolor"
+
+/obj/item/clothing/accessory/sweater/stripes
+	icon_state = "sweater_stripes"
+	item_state = "sweater_stripes"
+
 /obj/item/clothing/accessory/dressshirt
 	name = "dress shirt"
 	desc = "A casual dress shirt."

@@ -40,5 +40,5 @@ delete-after: True
 changes: 
   - tweak: "Removed several redundant (already present in, or added to lockers) items from the loadout. Condensed some items into lists."
   - tweak: "Destroyed pant bloat; made pants and ties recolorable."
-  - rscadd: "Added miniskirts, short jackets, blouses and ribbon bows."
+  - rscadd: "Added miniskirts, short jackets, blouses, ribbon bows and two new sweaters."
   - tweak: "Made ALL hair pins recolorable."
