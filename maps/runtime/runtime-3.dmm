@@ -163,21 +163,6 @@
 /turf/simulated/floor/tiled,
 /area/construction/hallway)
 "B" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 4
-	},
-/turf/simulated/floor/tiled,
-/area/construction/hallway)
-"C" = (
-/obj/machinery/light{
-	dir = 8
-	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 4
-	},
-/turf/simulated/floor/tiled,
-/area/construction/hallway)
-"D" = (
 /obj/structure/cable{
 	d1 = 1;
 	d2 = 4;
@@ -188,7 +173,51 @@
 	},
 /turf/simulated/floor/airless,
 /area/construction/hallway)
-"F" = (
+"E" = (
+/obj/effect/floor_decal/industrial/warning,
+/obj/machinery/camera/network/command{
+	c_tag = "Level 3";
+	network = list("Civillian")
+	},
+/turf/simulated/floor/tiled,
+/area/construction/hallway)
+"H" = (
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/wall/r_wall,
+/area/construction/hallway)
+"J" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/construction/hallway)
+"N" = (
+/obj/structure/cable{
+	d1 = 32;
+	d2 = 2;
+	icon_state = "11-2"
+	},
+/obj/structure/lattice/catwalk,
+/obj/machinery/atmospherics/pipe/zpipe/down/supply,
+/turf/simulated/open,
+/area/construction/hallway)
+"P" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/construction/hallway)
+"T" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
@@ -202,41 +231,12 @@
 	},
 /turf/simulated/floor/tiled,
 /area/construction/hallway)
-"G" = (
-/obj/structure/cable{
-	d1 = 32;
-	d2 = 2;
-	icon_state = "11-2"
-	},
-/obj/structure/lattice/catwalk,
-/obj/machinery/atmospherics/pipe/zpipe/down/supply,
-/turf/simulated/open,
-/area/construction/hallway)
-"L" = (
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/turf/simulated/wall/r_wall,
-/area/construction/hallway)
-"T" = (
+"X" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
 /obj/machinery/atmospherics/unary/vent_pump{
 	dir = 1
-	},
-/turf/simulated/floor/tiled,
-/area/construction/hallway)
-"V" = (
-/obj/effect/floor_decal/industrial/warning,
-/obj/machinery/camera/network/command{
-	c_tag = "Level 3";
-	network = list("Civillian")
 	},
 /turf/simulated/floor/tiled,
 /area/construction/hallway)
@@ -865,8 +865,8 @@ d
 d
 d
 e
-G
-D
+N
+B
 e
 d
 d
@@ -920,7 +920,7 @@ e
 e
 e
 e
-L
+H
 e
 e
 e
@@ -974,14 +974,14 @@ e
 f
 i
 m
-F
 T
-B
-B
-B
-B
-B
-C
+X
+P
+P
+P
+P
+P
+J
 u
 e
 d
@@ -1241,7 +1241,7 @@ d
 d
 d
 e
-V
+E
 j
 j
 j

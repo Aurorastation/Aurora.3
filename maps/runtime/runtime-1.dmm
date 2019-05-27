@@ -1408,15 +1408,35 @@
 /obj/structure/table/standard,
 /turf/simulated/floor/tiled,
 /area/storage/primary)
-"ga" = (
-/obj/effect/floor_decal/industrial/warning,
-/obj/machinery/camera/network/command{
-	c_tag = "Level 1 - Stairs";
-	network = list("Civillian")
+"ie" = (
+/obj/effect/wingrille_spawn/reinforced,
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
 	},
-/turf/simulated/floor/tiled,
-/area/construction)
-"iN" = (
+/turf/simulated/floor/plating,
+/area/hallway/primary/central_one)
+"jf" = (
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/wall/r_wall,
+/area/engineering/gravity_gen)
+"ob" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/maintcentral)
+"pX" = (
 /obj/structure/cable{
 	d1 = 16;
 	d2 = 0;
@@ -1426,21 +1446,7 @@
 /obj/machinery/atmospherics/pipe/zpipe/up/supply,
 /turf/simulated/floor/plating,
 /area/maintenance/maintcentral)
-"jf" = (
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/turf/simulated/wall/r_wall,
-/area/engineering/gravity_gen)
-"kO" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/turf/simulated/wall/r_wall,
-/area/construction)
-"tf" = (
+"ss" = (
 /obj/machinery/power/rtg/advanced,
 /obj/structure/cable{
 	icon_state = "0-8";
@@ -1448,7 +1454,35 @@
 	},
 /turf/simulated/floor/airless,
 /area/template_noop)
-"uE" = (
+"Bd" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/wall/r_wall,
+/area/construction)
+"Go" = (
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/maintcentral)
+"HB" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/maintcentral)
+"HJ" = (
+/obj/structure/cable{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/maintcentral)
+"HK" = (
 /obj/machinery/light{
 	dir = 8
 	},
@@ -1460,50 +1494,15 @@
 	},
 /turf/simulated/floor/tiled,
 /area/construction)
-"vh" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/maintcentral)
-"vN" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 4
-	},
-/obj/machinery/atmospherics/unary/vent_pump{
-	dir = 1
+"Jp" = (
+/obj/effect/floor_decal/industrial/warning,
+/obj/machinery/camera/network/command{
+	c_tag = "Level 1 - Stairs";
+	network = list("Civillian")
 	},
 /turf/simulated/floor/tiled,
 /area/construction)
-"xu" = (
-/obj/machinery/light{
-	dir = 8
-	},
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/maintcentral)
-"AL" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 5
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/maintcentral)
-"BZ" = (
-/obj/effect/wingrille_spawn/reinforced,
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/turf/simulated/floor/plating,
-/area/hallway/primary/central_one)
-"EW" = (
+"NX" = (
 /obj/machinery/camera/network/command{
 	c_tag = "Level 1 - Main hallway";
 	dir = 1;
@@ -1511,15 +1510,7 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
-"Kt" = (
-/obj/structure/cable{
-	d1 = 2;
-	d2 = 4;
-	icon_state = "2-4"
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/maintcentral)
-"Xj" = (
+"Pm" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/camera/network/command{
 	c_tag = "Level 1 - Main hallway 2";
@@ -1528,6 +1519,15 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
+"TP" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/obj/machinery/atmospherics/unary/vent_pump{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/construction)
 
 (1,1,1) = {"
 aa
@@ -2144,15 +2144,15 @@ ae
 ae
 ae
 bw
-Kt
-vh
-vh
-vh
-vh
-xu
-vh
-iN
-AL
+HJ
+Go
+Go
+Go
+Go
+ob
+Go
+pX
+HB
 ae
 ae
 ae
@@ -2198,7 +2198,7 @@ af
 af
 af
 bx
-BZ
+ie
 bV
 bV
 bV
@@ -2206,7 +2206,7 @@ bV
 bx
 cK
 cK
-kO
+Bd
 cK
 cK
 cK
@@ -2260,8 +2260,8 @@ bK
 bK
 cL
 cT
-uE
-vN
+HK
+TP
 di
 di
 di
@@ -2311,7 +2311,7 @@ bJ
 bJ
 bz
 bJ
-Xj
+Pm
 cM
 cU
 de
@@ -2691,7 +2691,7 @@ cA
 bB
 bB
 cK
-ga
+Jp
 de
 de
 de
@@ -2730,11 +2730,11 @@ ab
 aa
 ad
 ab
-tf
-tf
+ss
+ss
 aA
-tf
-tf
+ss
+ss
 ab
 bs
 bF
@@ -3067,7 +3067,7 @@ bB
 bB
 cx
 bB
-EW
+NX
 cP
 cZ
 cZ
