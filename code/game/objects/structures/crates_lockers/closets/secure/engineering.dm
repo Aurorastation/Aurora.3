@@ -13,7 +13,7 @@
 		new /obj/item/weapon/storage/backpack/industrial(src)
 	else
 		new /obj/item/weapon/storage/backpack/satchel_eng(src)
-	if (prob(70))
+	if (prob(50))
 		new /obj/item/clothing/accessory/storage/brown_vest(src)
 	else
 		new /obj/item/clothing/accessory/storage/webbing(src)
@@ -21,6 +21,7 @@
 	new /obj/item/clothing/under/rank/chief_engineer(src)
 	new /obj/item/clothing/head/hardhat/white(src)
 	new /obj/item/clothing/head/welding(src)
+	new /obj/item/clothing/head/beret/engineering(src)
 	new /obj/item/clothing/gloves/yellow(src)
 	new /obj/item/clothing/gloves/yellow/specialu(src)
 	new /obj/item/clothing/gloves/yellow/specialt(src)
@@ -127,6 +128,7 @@
 	new /obj/item/clothing/glasses/meson/aviator(src)
 	new /obj/item/weapon/cartridge/engineering(src)
 	new /obj/item/taperoll/engineering(src)
+	new /obj/item/clothing/head/beret/engineering(src)
 
 /obj/structure/closet/secure_closet/atmos_personal
 	name = "technician's locker"

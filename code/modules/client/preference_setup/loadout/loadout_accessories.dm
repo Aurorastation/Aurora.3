@@ -61,18 +61,12 @@
 /datum/gear/accessory/tie/New()
 	..()
 	var/ties = list()
-	ties["blue tie"] = /obj/item/clothing/accessory/blue
-	ties["red tie"] = /obj/item/clothing/accessory/red
 	ties["horrible tie"] = /obj/item/clothing/accessory/horrible
 	ties["blue tie with a clip"] = /obj/item/clothing/accessory/tie/blue_clip
 	ties["blue long tie"] = /obj/item/clothing/accessory/tie/blue_long
 	ties["red tie with a clip"] = /obj/item/clothing/accessory/tie/red_clip
 	ties["red long tie"] = /obj/item/clothing/accessory/tie/red_long
-	ties["black tie"] = /obj/item/clothing/accessory/tie/black
 	ties["dark green tie"] = /obj/item/clothing/accessory/tie/darkgreen
-	ties["yellow tie"] = /obj/item/clothing/accessory/tie/yellow
-	ties["navy tie"] = /obj/item/clothing/accessory/tie/navy
-	ties["white tie"] = /obj/item/clothing/accessory/tie/white
 	gear_tweaks += new/datum/gear_tweak/path(ties)
 
 /datum/gear/accessory/rectie
@@ -99,30 +93,10 @@
 	..()
 	gear_tweaks = list(gear_tweak_free_color_choice)
 
-/datum/gear/accessory/brown_vest
-	display_name = "webbing, engineering"
-	path = /obj/item/clothing/accessory/storage/brown_vest
-	allowed_roles = list("Station Engineer", "Atmospheric Technician", "Chief Engineer", "Engineering Apprentice")
-
-/datum/gear/accessory/black_vest
-	display_name = "webbing, security"
-	path = /obj/item/clothing/accessory/storage/black_vest
-	allowed_roles = list("Security Officer","Head of Security","Warden", "Security Cadet", "Detective", "Forensic Technician")
-
-/datum/gear/accessory/white_vest
-	display_name = "webbing, medical"
-	path = /obj/item/clothing/accessory/storage/white_vest
-	allowed_roles = list("Chief Medical Officer", "Medical Doctor", "Pharmacist", "Psychiatrist", "Paramedic", "Medical Resident")
-
 /datum/gear/accessory/webbing
-	display_name = "webbing, simple"
+	display_name = "webbing"
 	path = /obj/item/clothing/accessory/storage/webbing
 	cost = 2
-
-/datum/gear/accessory/brown_pouches
-	display_name = "drop pouches, engineering"
-	path = /obj/item/clothing/accessory/storage/brown_pouches
-	allowed_roles = list("Station Engineer", "Atmospheric Technician", "Chief Engineer", "Engineering Apprentice")
 
 /datum/gear/accessory/black_pouches
 	display_name = "drop pouches, security"
@@ -135,7 +109,7 @@
 	allowed_roles = list("Chief Medical Officer", "Medical Doctor", "Pharmacist","Psychiatrist", "Paramedic", "Medical Resident")
 
 /datum/gear/accessory/pouches
-	display_name = "drop pouches, simple"
+	display_name = "drop pouches"
 	path = /obj/item/clothing/accessory/storage/pouches
 	cost = 2
 
@@ -199,12 +173,15 @@
 	gear_tweaks += list(gear_tweak_free_color_choice)
 
 /datum/gear/accessory/chaps
-	display_name = "chaps, brown"
+	display_name = "chaps"
 	path = /obj/item/clothing/accessory/chaps
 
-/datum/gear/accessory/chaps/black
-	display_name = "chaps, black"
-	path = /obj/item/clothing/accessory/chaps/black
+/datum/gear/accessory/chaps/New()
+	..()
+	var/chaps = list()
+	chaps["chaps, brown"] = /obj/item/clothing/accessory/chaps
+	chaps["chaps, black"] = /obj/item/clothing/accessory/chaps/black
+	gear_tweaks += new/datum/gear_tweak/path(chaps)
 
 /datum/gear/accessory/badge/contractors
 	display_name = "contractor ID selection"

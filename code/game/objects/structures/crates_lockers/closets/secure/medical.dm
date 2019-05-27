@@ -114,6 +114,7 @@
 		new /obj/item/clothing/suit/storage/toggle/labcoat/cmoalt(src)
 		new /obj/item/weapon/storage/box/inhalers(src)
 		new /obj/item/clothing/glasses/hud/health/aviator(src)
+		new /obj/item/clothing/accessory/storage/white_vest(src)
 
 /obj/structure/closet/secure_closet/CMO2
 	name = "chief medical officer's attire"

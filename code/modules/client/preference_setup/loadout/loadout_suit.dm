@@ -28,7 +28,8 @@
 	jackets["black vest"] = /obj/item/clothing/suit/storage/toggle/leather_vest
 	jackets["brown vest"] = /obj/item/clothing/suit/storage/toggle/brown_jacket/sleeveless
 	jackets["leather coat"] = /obj/item/clothing/suit/leathercoat
-
+	jackets["puffer coat"] = /obj/item/clothing/suit/jacket/puffer
+	jackets["puffer vest"] = /obj/item/clothing/suit/jacket/puffer/vest
 	gear_tweaks += new/datum/gear_tweak/path(jackets)
 
 /datum/gear/suit/hazard_vest
@@ -115,24 +116,6 @@
 /datum/gear/suit/trenchcoatgrey
 	display_name = "trenchcoat, grey"
 	path = /obj/item/clothing/suit/storage/toggle/trench/grey
-
-/datum/gear/suit/det_trenchcoat_brown
-	display_name = "brown trenchcoat (Detective)"
-	description = "A rugged canvas trenchcoat, designed and created by TX Fabrication Corp. The coat is externally impact resistant - perfect for your next act of autodefenestration!"
-	path = /obj/item/clothing/suit/storage/toggle/det_trench
-	allowed_roles = list("Detective", "Head of Security")
-
-/datum/gear/suit/det_trenchcoat_black
-	display_name = "black trenchcoat (Detective)"
-	description = "A rugged canvas trenchcoat, designed and created by TX Fabrication Corp. The coat is externally impact resistant - perfect for your next act of autodefenestration!"
-	path = /obj/item/clothing/suit/storage/toggle/det_trench/black
-	allowed_roles = list("Detective", "Head of Security")
-
-/datum/gear/suit/det_trenchcoat_techni
-	display_name = "technicolor trenchcoat (Detective)"
-	description = "A 23rd-century multi-purpose trenchcoat. It's fibres are hyper-absorbent. Can be painted into any color."
-	path = /obj/item/clothing/suit/storage/toggle/det_trench/technicolor
-	allowed_roles = list("Detective", "Head of Security")
 
 /datum/gear/suit/ian
 	display_name = "worn shirt"
@@ -286,14 +269,6 @@
 		var/obj/item/clothing/suit/storage/toggle/track/track = track_style
 		tracks[initial(track.name)] = track
 	gear_tweaks += new/datum/gear_tweak/path(sortAssoc(tracks))
-
-/datum/gear/suit/puffer_coat
-	display_name = "puffer coat"
-	path = /obj/item/clothing/suit/jacket/puffer
-
-/datum/gear/suit/puffer_vest
-	display_name = "puffer vest"
-	path = /obj/item/clothing/suit/jacket/puffer/vest
 
 /datum/gear/suit/greenjacket
 	display_name = "green suit jacket"

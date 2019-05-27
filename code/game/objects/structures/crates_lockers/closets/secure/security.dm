@@ -346,6 +346,9 @@
 		new /obj/item/clothing/under/det/slob(src)
 		new /obj/item/clothing/gloves/black(src)
 		new /obj/item/clothing/shoes/brown(src)
+		new /obj/item/clothing/suit/storage/toggle/det_trench(src)
+		new /obj/item/clothing/suit/storage/toggle/det_trench/black(src)
+		new /obj/item/clothing/suit/storage/toggle/det_trench/technicolor(src)
 		//Tools
 		new /obj/item/device/radio/headset/headset_sec(src)
 		new /obj/item/clothing/suit/storage/vest/detective(src)
