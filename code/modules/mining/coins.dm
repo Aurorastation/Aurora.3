@@ -1,7 +1,7 @@
 /*****************************Coin********************************/
 
 /obj/item/weapon/coin
-	icon = 'icons/obj/coins_cash.dmi'
+	icon = 'icons/obj/coins.dmi'
 	name = "Coin"
 	icon_state = "coin"
 	desc = "A flat disc or piece of metal with an official stamp. An archaic type of currency."
