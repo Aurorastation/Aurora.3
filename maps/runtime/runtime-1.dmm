@@ -21,7 +21,6 @@
 /turf/simulated/wall/r_wall,
 /area/engineering/atmos)
 "ag" = (
-/obj/machinery/power/rtg/advanced,
 /obj/structure/cable{
 	icon_state = "0-2";
 	d2 = 2
@@ -35,6 +34,10 @@
 	d1 = 2;
 	d2 = 4;
 	icon_state = "2-4"
+	},
+/obj/machinery/power/rtg/advanced{
+	name = "Experimental radioisotope thermoelectric generator";
+	power_gen = 25000
 	},
 /turf/simulated/floor/airless,
 /area/template_noop)
@@ -122,9 +125,11 @@
 /obj/machinery/power/smes/buildable{
 	charge = 1e+006;
 	input_attempt = 1;
-	input_level = 150000;
+	input_level = 250000;
+	input_level_max = 250000;
 	output_attempt = 1;
-	output_level = 150000
+	output_level = 150000;
+	output_level_max = 250000
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/gravity_gen)
@@ -181,7 +186,10 @@
 /turf/simulated/floor/plating,
 /area/engineering/atmos)
 "ay" = (
-/obj/machinery/power/rtg/advanced,
+/obj/machinery/power/rtg/advanced{
+	name = "Experimental radioisotope thermoelectric generator";
+	power_gen = 25000
+	},
 /obj/structure/cable{
 	icon_state = "0-4";
 	d2 = 4
@@ -411,7 +419,6 @@
 /turf/simulated/floor/tiled,
 /area/engineering/atmos)
 "aZ" = (
-/obj/machinery/power/rtg/advanced,
 /obj/structure/cable,
 /obj/structure/cable{
 	icon_state = "1-8"
@@ -420,6 +427,10 @@
 	d1 = 1;
 	d2 = 4;
 	icon_state = "1-4"
+	},
+/obj/machinery/power/rtg/advanced{
+	name = "Experimental radioisotope thermoelectric generator";
+	power_gen = 25000
 	},
 /turf/simulated/floor/airless,
 /area/template_noop)
@@ -1436,6 +1447,17 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/maintcentral)
+"pt" = (
+/obj/structure/cable{
+	icon_state = "0-4";
+	d2 = 4
+	},
+/obj/machinery/power/rtg/advanced{
+	name = "Experimental radioisotope thermoelectric generator";
+	power_gen = 25000
+	},
+/turf/simulated/floor/airless,
+/area/template_noop)
 "pX" = (
 /obj/structure/cable{
 	d1 = 16;
@@ -1447,10 +1469,13 @@
 /turf/simulated/floor/plating,
 /area/maintenance/maintcentral)
 "ss" = (
-/obj/machinery/power/rtg/advanced,
 /obj/structure/cable{
 	icon_state = "0-8";
 	d2 = 8
+	},
+/obj/machinery/power/rtg/advanced{
+	name = "Experimental radioisotope thermoelectric generator";
+	power_gen = 25000
 	},
 /turf/simulated/floor/airless,
 /area/template_noop)
@@ -2623,10 +2648,10 @@ aa
 ad
 ab
 ay
-ay
-ay
-ay
-ay
+pt
+pt
+pt
+pt
 ab
 bs
 bE
