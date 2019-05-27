@@ -137,6 +137,6 @@ var/ai_music_channel = 0 // Storing on which channel does AI plays music
 	if(!played_area) return
 
 	for(var/obj/item/device/radio/intercom/i in played_area)
-		playsound(i, null, channel = ai_music_channel)
+		playsound(i, null, 100, channel = ai_music_channel, status = SOUND_MUTE)
 		CHECK_TICK
 	

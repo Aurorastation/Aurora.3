@@ -166,9 +166,8 @@ var/list/pickaxesounds = list(
 
 var/list/footstepfx = list("defaultstep","concretestep","grassstep","dirtstep","waterstep","sandstep", "gravelstep")
 
-//var/list/gun_sound = list('sound/weapons/gunshot/gunshot1.ogg', 'sound/weapons/gunshot/gunshot2.ogg','sound/weapons/gunshot/gunshot3.ogg','sound/weapons/gunshot/gunshot4.ogg')
 
-/proc/playsound(atom/source, soundin, vol as num, vary, extrarange as num, falloff, is_global, usepressure = 1, environment = -1, required_preferences = 0, required_asfx_toggles = 0, var/channel = 0)
+/proc/playsound(atom/source, soundin, vol as num, vary, extrarange as num, falloff, is_global, usepressure = 1, environment = -1, required_preferences = 0, required_asfx_toggles = 0, var/channel = 0, var/status)
 	if (istext(soundin))
 		soundin = get_sfx(soundin) // same sound for everyone
 	else if (isarea(source))
@@ -199,10 +198,9 @@ var/list/footstepfx = list("defaultstep","concretestep","grassstep","dirtstep","
 
 			if (required_asfx_toggles && (M.client.prefs.asfx_togs & required_asfx_toggles) != required_asfx_toggles)
 				continue
+			M.playsound_local(turf_source, soundin, vol, vary, frequency, falloff, is_global, usepressure, environment, S, channel, status)
 
-			M.playsound_local(turf_source, soundin, vol, vary, frequency, falloff, is_global, usepressure, environment, S, channel)
-
-/mob/proc/playsound_local(turf/turf_source, soundin, vol as num, vary, frequency, falloff, is_global, usepressure = 1, environment = -1, sound/S, var/channel = 0)
+/mob/proc/playsound_local(turf/turf_source, soundin, vol as num, vary, frequency, falloff, is_global, usepressure = 1, environment = -1, sound/S, var/channel = 0, var/status)
 	if(!client || ear_deaf > 0)
 		return 0
 
@@ -212,6 +210,7 @@ var/list/footstepfx = list("defaultstep","concretestep","grassstep","dirtstep","
 	S.wait = 0 //No queue
 	S.channel = channel
 	S.environment = environment
+	S.status = status
 
 	if (vary)
 		if(frequency)
@@ -296,7 +295,7 @@ var/list/footstepfx = list("defaultstep","concretestep","grassstep","dirtstep","
 /client/proc/playtitlemusic()
 	if(!SSticker.login_music)	return
 	if(prefs.toggles & SOUND_LOBBY)
-		src << sound(SSticker.login_music, repeat = 0, wait = 0, volume = 85, channel = 1) // MAD JAMS)
+		sound_to(src, sound(SSticker.login_music, repeat = 0, wait = 0, volume = 85, channel = 1)) // MAD JAMS)
 
 /proc/get_rand_frequency()
 	return rand(32000, 55000) //Frequency stuff only works with 45kbps oggs.
