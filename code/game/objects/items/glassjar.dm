@@ -66,7 +66,7 @@
 			return
 		if(0)
 			to_chat(user, "<span class='notice'>You remove the lid from \the [src].</span>")
-			user.put_in_hands(new /obj/item/weapon/reagent_containers/glass/beaker/jar)
+			user.put_in_hands(new /obj/item/weapon/reagent_containers/glass/beaker/jar) //found in jar.dm
 			qdel(src)
 			return
 
