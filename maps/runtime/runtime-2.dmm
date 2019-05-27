@@ -1,15 +1,25 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
-"a" = (
+"aa" = (
 /turf/template_noop,
 /area/template_noop)
-"c" = (
+"ab" = (
+/obj/effect/decal/warning_stripes,
+/obj/machinery/porta_turret{
+	dir = 4
+	},
+/turf/simulated/floor/bluegrid{
+	name = "cooled mainframe floor";
+	temperature = 278
+	},
+/area/turret_protected/ai)
+"ac" = (
 /obj/structure/lattice,
 /turf/template_noop,
 /area/template_noop)
-"d" = (
+"ad" = (
 /turf/simulated/floor/airless,
 /area/template_noop)
-"e" = (
+"ae" = (
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
@@ -20,7 +30,7 @@
 	},
 /turf/simulated/wall/r_wall,
 /area/construction/Storage)
-"f" = (
+"af" = (
 /obj/machinery/alarm{
 	frequency = 1439;
 	locked = 0;
@@ -35,19 +45,37 @@
 	icon_state = "0-2";
 	d2 = 2
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	icon_state = "intact-supply";
+	dir = 6
+	},
+/obj/structure/cable{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
 /turf/simulated/floor/tiled,
 /area/construction/Storage)
-"g" = (
+"ag" = (
 /obj/effect/floor_decal/industrial/warning,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8";
+	pixel_x = 0
+	},
 /turf/simulated/floor/tiled,
 /area/construction/Storage)
-"h" = (
+"ah" = (
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/construction/Storage)
-"i" = (
+"ai" = (
 /obj/machinery/light{
 	dir = 8
 	},
@@ -57,19 +85,19 @@
 /obj/structure/cable{
 	icon_state = "1-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 10
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/construction/Storage)
-"j" = (
+"aj" = (
 /turf/simulated/open,
 /area/construction/Storage)
-"k" = (
+"ak" = (
 /obj/structure/lattice/catwalk,
 /turf/simulated/open,
 /area/construction/Storage)
-"l" = (
+"al" = (
 /obj/machinery/light{
 	dir = 4
 	},
@@ -78,38 +106,38 @@
 	},
 /turf/simulated/floor/tiled,
 /area/construction/Storage)
-"m" = (
+"am" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/construction/Storage)
-"n" = (
+"an" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/construction/Storage)
-"o" = (
+"ao" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/lattice/catwalk,
 /turf/simulated/open,
 /area/construction/Storage)
-"p" = (
+"ap" = (
 /obj/effect/floor_decal/industrial/warning/corner,
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/construction/Storage)
-"q" = (
+"aq" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/tiled,
 /area/construction/Storage)
-"r" = (
+"ar" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 5
 	},
@@ -118,25 +146,25 @@
 	},
 /turf/simulated/floor/tiled,
 /area/construction/Storage)
-"s" = (
+"as" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 9
 	},
 /turf/simulated/floor/tiled,
 /area/construction/Storage)
-"t" = (
+"at" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/construction/Storage)
-"u" = (
+"au" = (
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/construction/Storage)
-"v" = (
+"av" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
@@ -145,17 +173,17 @@
 	},
 /turf/simulated/floor/tiled,
 /area/construction/Storage)
-"w" = (
+"aw" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/warning/corner,
 /turf/simulated/floor/tiled,
 /area/construction/Storage)
-"x" = (
+"ax" = (
 /turf/simulated/floor/tiled,
 /area/construction/Storage)
-"y" = (
+"ay" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
@@ -164,17 +192,17 @@
 	},
 /turf/simulated/floor/tiled,
 /area/construction/Storage)
-"z" = (
+"az" = (
 /obj/structure/stairs/south,
 /turf/simulated/floor/tiled,
 /area/construction/Storage)
-"A" = (
+"aA" = (
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/construction/Storage)
-"B" = (
+"aB" = (
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 1
 	},
@@ -183,7 +211,7 @@
 	},
 /turf/simulated/floor/tiled,
 /area/construction/Storage)
-"C" = (
+"aC" = (
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 4
 	},
@@ -192,14 +220,28 @@
 	},
 /turf/simulated/floor/tiled,
 /area/construction/Storage)
-"E" = (
+"aD" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10
+	},
+/obj/structure/cable{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
+	},
+/turf/simulated/floor/tiled,
+/area/construction/Storage)
+"aE" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	icon_state = "intact-supply";
 	dir = 9
 	},
 /turf/simulated/wall/r_wall,
 /area/construction/Storage)
-"F" = (
+"aF" = (
 /obj/structure/cable{
 	d1 = 16;
 	d2 = 0;
@@ -209,13 +251,40 @@
 /obj/machinery/atmospherics/pipe/zpipe/up/supply,
 /turf/simulated/floor/airless,
 /area/construction/Storage)
-"J" = (
+"aG" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2";
+	pixel_y = 0
+	},
+/turf/simulated/floor/tiled,
+/area/construction/Storage)
+"aH" = (
+/turf/simulated/wall/r_wall,
+/area/turret_protected/ai)
+"aI" = (
+/obj/structure/cable/cyan{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/turf/simulated/wall/r_wall,
+/area/turret_protected/ai)
+"aJ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
 /turf/simulated/wall/r_wall,
 /area/construction/Storage)
-"K" = (
+"aK" = (
 /obj/machinery/light{
 	dir = 8
 	},
@@ -224,17 +293,30 @@
 	},
 /turf/simulated/floor/tiled,
 /area/construction/Storage)
-"L" = (
+"aL" = (
 /turf/simulated/wall/r_wall,
 /area/construction/Storage)
-"N" = (
+"aM" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2";
+	pixel_y = 0
+	},
+/turf/simulated/floor/tiled,
+/area/construction/Storage)
+"aN" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	icon_state = "intact-supply";
 	dir = 6
 	},
 /turf/simulated/wall/r_wall,
 /area/construction/Storage)
-"O" = (
+"aO" = (
 /obj/structure/cable{
 	d1 = 32;
 	d2 = 2;
@@ -244,7 +326,99 @@
 /obj/machinery/atmospherics/pipe/zpipe/down/supply,
 /turf/simulated/open,
 /area/construction/Storage)
-"T" = (
+"aP" = (
+/obj/item/device/radio/intercom{
+	listening = 0;
+	name = "Custom Channel";
+	pixel_x = 0;
+	pixel_y = 19
+	},
+/obj/item/device/radio/intercom{
+	broadcasting = 0;
+	frequency = 1343;
+	name = "Private Channel";
+	pixel_x = 0;
+	pixel_y = -26
+	},
+/obj/item/device/radio/intercom{
+	broadcasting = 0;
+	listening = 1;
+	name = "Common Channel";
+	pixel_x = 27;
+	pixel_y = -3
+	},
+/obj/machinery/newscaster/security_unit{
+	pixel_x = 32;
+	pixel_y = 32
+	},
+/obj/machinery/requests_console{
+	department = "AI";
+	departmentType = 5;
+	pixel_x = 32;
+	pixel_y = -32
+	},
+/obj/machinery/button/remote/blast_door{
+	desc = "A remote control-switch for the AI core maintenance door.";
+	id = "AICore";
+	name = "AI Maintenance Hatch";
+	pixel_x = 17;
+	pixel_y = 25;
+	req_access = list(20)
+	},
+/obj/effect/decal/warning_stripes,
+/obj/structure/cable/cyan{
+	d2 = 4;
+	icon_state = "0-4"
+	},
+/obj/effect/landmark/start{
+	name = "AI"
+	},
+/turf/simulated/floor/bluegrid{
+	name = "cooled mainframe floor";
+	temperature = 278
+	},
+/area/turret_protected/ai)
+"aQ" = (
+/obj/structure/cable/cyan{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
+/obj/structure/cable/cyan{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/wall/r_wall,
+/area/turret_protected/ai)
+"aR" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
+	},
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/turf/simulated/floor/tiled,
+/area/construction/Storage)
+"aS" = (
+/obj/structure/cable/cyan{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/obj/structure/cable/cyan{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
+/turf/simulated/wall/r_wall,
+/area/turret_protected/ai)
+"aT" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
@@ -253,7 +427,7 @@
 	},
 /turf/simulated/floor/tiled,
 /area/construction/Storage)
-"U" = (
+"aU" = (
 /obj/structure/cable{
 	d1 = 1;
 	d2 = 4;
@@ -267,2816 +441,3333 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /turf/simulated/floor/airless,
 /area/construction/Storage)
-"Y" = (
+"aV" = (
+/obj/machinery/anti_bluespace,
+/turf/simulated/floor/tiled/dark{
+	name = "cooled dark floor";
+	temperature = 278
+	},
+/area/turret_protected/ai)
+"aW" = (
+/obj/machinery/door/firedoor{
+	dir = 2
+	},
+/obj/structure/cable/cyan{
+	d2 = 4;
+	icon_state = "0-4"
+	},
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/cable{
+	d2 = 8;
+	icon_state = "0-8"
+	},
+/turf/simulated/floor/plating,
+/area/turret_protected/ai)
+"aX" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced,
+/obj/machinery/door/firedoor,
+/obj/structure/cable/cyan{
+	d2 = 4;
+	dir = 2;
+	icon_state = "0-4"
+	},
+/obj/structure/cable/cyan{
+	d2 = 8;
+	icon_state = "0-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/turret_protected/ai)
+"aY" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/wall/r_wall,
 /area/construction/Storage)
+"aZ" = (
+/obj/machinery/door/blast/regular{
+	density = 0;
+	dir = 1;
+	icon_state = "pdoor0";
+	id = "AICore";
+	name = "AI core maintenance hatch";
+	opacity = 0
+	},
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced,
+/obj/machinery/door/firedoor,
+/obj/structure/cable/cyan{
+	d2 = 4;
+	dir = 2;
+	icon_state = "0-4"
+	},
+/obj/structure/cable/cyan{
+	d2 = 8;
+	icon_state = "0-8"
+	},
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/turret_protected/ai)
+"ba" = (
+/obj/machinery/door/airlock/external{
+	frequency = 1380;
+	icon_state = "door_locked";
+	id_tag = "ai_core_outer";
+	locked = 1;
+	name = "Outer Core Airlock";
+	req_access = list(13)
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/plating{
+	temperature = 273.15
+	},
+/area/turret_protected/ai)
+"bb" = (
+/obj/machinery/embedded_controller/radio/airlock/docking_port{
+	frequency = 1380;
+	id_tag = "ai_core_airlock";
+	name = "AI Core airlock controller";
+	pixel_x = 0;
+	pixel_y = 30;
+	req_one_access = list(13);
+	tag_airpump = "ai_core_pump";
+	tag_chamber_sensor = "ai_core_sensor";
+	tag_exterior_door = "ai_core_outer";
+	tag_exterior_sensor = "ai_core_sensor_exterior";
+	tag_interior_door = "ai_core_inner";
+	tag_interior_sensor = "ai_core_sensor_interior"
+	},
+/obj/machinery/airlock_sensor{
+	frequency = 1380;
+	id_tag = "ai_core_sensor";
+	pixel_x = 0;
+	pixel_y = -25
+	},
+/obj/machinery/light/small,
+/obj/effect/decal/warning_stripes,
+/obj/effect/decal/remains/mouse,
+/obj/machinery/camera/network/command{
+	c_tag = "AI Core - Core Airlock"
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 4;
+	frequency = 1380;
+	id_tag = "ai_core_pump"
+	},
+/turf/simulated/floor/plating{
+	temperature = 273.15
+	},
+/area/turret_protected/ai)
+"bc" = (
+/obj/machinery/door/airlock/external{
+	frequency = 1380;
+	icon_state = "door_locked";
+	id_tag = "ai_core_inner";
+	locked = 1;
+	name = "Inner Core Airlock";
+	req_access = list(13)
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/door/blast/regular{
+	density = 0;
+	dir = 1;
+	icon_state = "pdoor0";
+	id = "AICore";
+	name = "AI core maintenance hatch";
+	opacity = 0
+	},
+/turf/simulated/floor/plating{
+	temperature = 273.15
+	},
+/area/turret_protected/ai)
+"bd" = (
+/obj/machinery/door/firedoor{
+	dir = 2
+	},
+/obj/structure/cable/cyan{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/structure/grille,
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/cable/cyan{
+	d2 = 4;
+	dir = 2;
+	icon_state = "0-4"
+	},
+/turf/simulated/floor/plating,
+/area/turret_protected/ai)
+"be" = (
+/obj/machinery/door/firedoor{
+	dir = 2
+	},
+/obj/structure/grille,
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/cable/cyan{
+	d2 = 4;
+	dir = 2;
+	icon_state = "0-4"
+	},
+/obj/structure/cable/cyan{
+	d2 = 8;
+	icon_state = "0-8"
+	},
+/turf/simulated/floor/plating,
+/area/turret_protected/ai)
+"bf" = (
+/obj/machinery/door/blast/regular{
+	density = 0;
+	dir = 1;
+	icon_state = "pdoor0";
+	id = "AICore";
+	name = "AI core maintenance hatch";
+	opacity = 0
+	},
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/machinery/door/firedoor,
+/obj/structure/cable/cyan{
+	d2 = 4;
+	dir = 2;
+	icon_state = "0-4"
+	},
+/obj/structure/cable/cyan{
+	d2 = 8;
+	icon_state = "0-8"
+	},
+/obj/structure/window/reinforced,
+/turf/simulated/floor/plating,
+/area/turret_protected/ai)
+"bg" = (
+/obj/machinery/computer/aiupload,
+/obj/item/device/radio/intercom/locked{
+	frequency = 1343;
+	locked_frequency = 1343;
+	name = "Private AI Channel";
+	pixel_x = -5;
+	pixel_y = 22
+	},
+/obj/effect/decal/cleanable/cobweb2{
+	icon_state = "cobweb1"
+	},
+/turf/simulated/floor/tiled/dark{
+	name = "cooled dark floor";
+	temperature = 278
+	},
+/area/turret_protected/ai)
+"bh" = (
+/turf/simulated/floor/tiled/dark{
+	name = "cooled dark floor";
+	temperature = 278
+	},
+/area/turret_protected/ai)
+"bi" = (
+/obj/machinery/door/window{
+	base_state = "right";
+	dir = 2;
+	icon_state = "left";
+	name = "Core Modules";
+	req_access = list(20)
+	},
+/obj/structure/table/standard,
+/obj/item/weapon/aiModule/robocop,
+/obj/item/weapon/aiModule/paladin,
+/obj/item/weapon/aiModule/corp,
+/turf/simulated/floor/tiled/dark{
+	name = "cooled dark floor";
+	temperature = 278
+	},
+/area/turret_protected/ai)
+"bj" = (
+/obj/machinery/door/window{
+	base_state = "right";
+	dir = 2;
+	icon_state = "right";
+	name = "Core Modules";
+	req_access = list(20)
+	},
+/obj/structure/table/standard,
+/obj/item/weapon/aiModule/freeformcore,
+/obj/item/weapon/aiModule/asimov,
+/obj/item/weapon/aiModule/nanotrasen,
+/turf/simulated/floor/tiled/dark{
+	name = "cooled dark floor";
+	temperature = 278
+	},
+/area/turret_protected/ai)
+"bk" = (
+/obj/structure/table/standard,
+/obj/item/weapon/aiModule/teleporterOffline,
+/obj/item/weapon/aiModule/antimov,
+/obj/item/weapon/aiModule/purge,
+/turf/simulated/floor/tiled/dark{
+	name = "cooled dark floor";
+	temperature = 278
+	},
+/area/turret_protected/ai)
+"bl" = (
+/obj/machinery/hologram/holopad,
+/obj/item/weapon/cigbutt,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor/bluegrid{
+	name = "cooled mainframe floor";
+	temperature = 278
+	},
+/area/turret_protected/ai)
+"bm" = (
+/obj/machinery/computer/borgupload,
+/obj/item/device/radio/intercom/locked{
+	frequency = 1343;
+	locked_frequency = 1343;
+	name = "Private AI Channel";
+	pixel_x = -5;
+	pixel_y = -27
+	},
+/turf/simulated/floor/tiled/dark{
+	name = "cooled dark floor";
+	temperature = 278
+	},
+/area/turret_protected/ai)
+"bn" = (
+/obj/machinery/computer/robotics,
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/camera/network/command{
+	c_tag = "AI Core - Main Core";
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark{
+	name = "cooled dark floor";
+	temperature = 278
+	},
+/area/turret_protected/ai)
+"bo" = (
+/obj/structure/table/standard,
+/obj/item/weapon/aiModule/oneHuman,
+/obj/item/weapon/aiModule/oxygen,
+/obj/item/weapon/aiModule/freeformcore,
+/turf/simulated/floor/tiled/dark{
+	name = "cooled dark floor";
+	temperature = 278
+	},
+/area/turret_protected/ai)
+"bp" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10
+	},
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8";
+	pixel_x = 0
+	},
+/turf/simulated/floor/tiled/dark{
+	name = "cooled dark floor";
+	temperature = 278
+	},
+/area/turret_protected/ai)
+"bq" = (
+/turf/simulated/floor/bluegrid{
+	name = "cooled mainframe floor";
+	temperature = 278
+	},
+/area/turret_protected/ai)
+"br" = (
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8";
+	pixel_x = 0
+	},
+/turf/simulated/floor/tiled/dark{
+	name = "cooled dark floor";
+	temperature = 278
+	},
+/area/turret_protected/ai)
+"bs" = (
+/obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8";
+	pixel_x = 0
+	},
+/turf/simulated/floor/bluegrid{
+	name = "cooled mainframe floor";
+	temperature = 278
+	},
+/area/turret_protected/ai)
+"bt" = (
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8";
+	pixel_x = 0
+	},
+/turf/simulated/floor/bluegrid{
+	name = "cooled mainframe floor";
+	temperature = 278
+	},
+/area/turret_protected/ai)
+"bu" = (
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/machinery/light/small{
+	dir = 4
+	},
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "2-8"
+	},
+/turf/simulated/floor/bluegrid{
+	name = "cooled mainframe floor";
+	temperature = 278
+	},
+/area/turret_protected/ai)
+"bv" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
+/turf/simulated/floor/tiled/dark{
+	name = "cooled dark floor";
+	temperature = 278
+	},
+/area/turret_protected/ai)
+"bw" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	icon_state = "intact-supply";
+	dir = 9
+	},
+/turf/simulated/floor/bluegrid{
+	name = "cooled mainframe floor";
+	temperature = 278
+	},
+/area/turret_protected/ai)
+"bx" = (
+/obj/machinery/flasher{
+	id = "AI";
+	pixel_x = 22;
+	pixel_y = 36
+	},
+/obj/machinery/turretid/stun{
+	check_synth = 1;
+	name = "AI Chamber turret control";
+	pixel_x = 36;
+	pixel_y = 36
+	},
+/obj/machinery/door/window{
+	base_state = "right";
+	dir = 8;
+	icon_state = "right";
+	name = "AI Core Door";
+	req_access = list(16)
+	},
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2";
+	pixel_y = 0
+	},
+/turf/simulated/floor/bluegrid{
+	name = "cooled mainframe floor";
+	temperature = 278
+	},
+/area/turret_protected/ai)
+"by" = (
+/obj/machinery/power/apc/super/critical{
+	dir = 4;
+	name = "east bump";
+	pixel_x = 24
+	},
+/obj/machinery/camera/network/command{
+	c_tag = "AI Core - Alpha Core";
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced,
+/obj/structure/cable/cyan{
+	d2 = 2;
+	icon_state = "0-2"
+	},
+/obj/machinery/light/small{
+	dir = 4
+	},
+/obj/structure/cable,
+/turf/simulated/floor/bluegrid{
+	name = "cooled mainframe floor";
+	temperature = 278
+	},
+/area/turret_protected/ai)
+"bz" = (
+/obj/effect/floor_decal/industrial/warning,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8";
+	pixel_x = 0
+	},
+/obj/machinery/camera/network/command{
+	c_tag = "Level 2";
+	network = list("Civillian")
+	},
+/turf/simulated/floor/tiled,
+/area/construction/Storage)
 
 (1,1,1) = {"
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 "}
 (2,1,1) = {"
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 "}
 (3,1,1) = {"
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 "}
 (4,1,1) = {"
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 "}
 (5,1,1) = {"
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 "}
 (6,1,1) = {"
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 "}
 (7,1,1) = {"
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 "}
 (8,1,1) = {"
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 "}
 (9,1,1) = {"
-a
-a
-a
-a
-a
-a
-a
-a
-c
-c
-c
-c
-c
-c
-c
-c
-c
-c
-c
-c
-c
-c
-c
-c
-c
-c
-c
-c
-c
-c
-c
-c
-c
-c
-c
-c
-c
-c
-c
-c
-c
-c
-c
-c
-a
-a
-a
-a
-a
-a
-a
-a
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 "}
 (10,1,1) = {"
-a
-a
-a
-a
-a
-a
-a
-a
-c
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-c
-a
-a
-a
-a
-a
-a
-a
-a
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ac
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ac
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 "}
 (11,1,1) = {"
-a
-a
-a
-a
-a
-a
-a
-a
-c
-a
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-L
-L
-N
-Y
-J
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-a
-c
-a
-a
-a
-a
-a
-a
-a
-a
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ac
+aa
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+aL
+aL
+aN
+aY
+aJ
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+aa
+ac
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 "}
 (12,1,1) = {"
-a
-a
-a
-a
-a
-a
-a
-a
-c
-a
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-L
-O
-U
-F
-E
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-a
-c
-a
-a
-a
-a
-a
-a
-a
-a
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ac
+aa
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+aL
+aO
+aU
+aF
+aE
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+aa
+ac
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 "}
 (13,1,1) = {"
-a
-a
-a
-a
-a
-a
-a
-a
-c
-a
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-L
-L
-e
-L
-L
-L
-L
-L
-L
-L
-L
-L
-L
-L
-d
-d
-a
-c
-a
-a
-a
-a
-a
-a
-a
-a
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ac
+aa
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+aL
+aL
+ae
+aL
+aL
+aL
+aL
+aL
+aL
+aL
+aL
+aL
+aL
+aL
+ad
+ad
+aa
+ac
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 "}
 (14,1,1) = {"
-a
-a
-a
-a
-a
-a
-a
-a
-c
-a
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-L
-f
-i
-T
-m
-m
-m
-m
-m
-p
-m
-K
-A
-L
-d
-d
-a
-c
-a
-a
-a
-a
-a
-a
-a
-a
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ac
+aa
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+aL
+af
+ai
+aT
+am
+am
+am
+am
+am
+ap
+am
+aK
+aA
+aL
+ad
+ad
+aa
+ac
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 "}
 (15,1,1) = {"
-a
-a
-a
-a
-a
-a
-a
-a
-c
-a
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-L
-g
-j
-j
-k
-j
-j
-j
-j
-q
-j
-j
-t
-L
-d
-d
-a
-c
-a
-a
-a
-a
-a
-a
-a
-a
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ac
+aa
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+aL
+ag
+aj
+aj
+ak
+aj
+aj
+aj
+aj
+aq
+aj
+aj
+at
+aL
+ad
+ad
+aa
+ac
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 "}
 (16,1,1) = {"
-a
-a
-a
-a
-a
-a
-a
-a
-c
-a
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-L
-g
-j
-j
-k
-j
-j
-j
-j
-r
-v
-v
-B
-L
-d
-d
-a
-c
-a
-a
-a
-a
-a
-a
-a
-a
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ac
+aa
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+aL
+ag
+aj
+aj
+ak
+aj
+aj
+aj
+aj
+ar
+av
+av
+aB
+aL
+ad
+ad
+aa
+ac
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 "}
 (17,1,1) = {"
-a
-a
-a
-a
-a
-a
-a
-a
-c
-a
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-L
-g
-k
-k
-o
-k
-k
-k
-k
-o
-k
-k
-t
-L
-d
-d
-a
-c
-a
-a
-a
-a
-a
-a
-a
-a
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ac
+aa
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+aL
+ag
+ak
+ak
+ao
+ak
+ak
+ak
+ak
+ao
+ak
+ak
+at
+aL
+ad
+ad
+aa
+ac
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 "}
 (18,1,1) = {"
-a
-a
-a
-a
-a
-a
-a
-a
-c
-a
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-L
-g
-j
-j
-k
-j
-j
-j
-j
-k
-j
-j
-t
-L
-d
-d
-a
-c
-a
-a
-a
-a
-a
-a
-a
-a
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ac
+aa
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+aL
+ag
+aj
+aj
+ak
+aj
+aj
+aj
+aj
+ak
+aj
+aj
+at
+aL
+ad
+ad
+aa
+ac
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 "}
 (19,1,1) = {"
-a
-a
-a
-a
-a
-a
-a
-a
-c
-a
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-L
-g
-j
-j
-k
-j
-j
-j
-j
-k
-j
-j
-t
-L
-d
-d
-a
-c
-a
-a
-a
-a
-a
-a
-a
-a
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ac
+aa
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+aL
+bz
+aj
+aj
+ak
+aj
+aj
+aj
+aj
+ak
+aj
+aj
+at
+aL
+ad
+ad
+aa
+ac
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 "}
 (20,1,1) = {"
-a
-a
-a
-a
-a
-a
-a
-a
-c
-a
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-L
-g
-j
-j
-k
-j
-j
-j
-j
-k
-j
-j
-t
-L
-d
-d
-a
-c
-a
-a
-a
-a
-a
-a
-a
-a
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ac
+aa
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+aL
+ag
+aj
+aj
+ak
+aj
+aj
+aj
+aj
+ak
+aj
+aj
+at
+aL
+ad
+ad
+aa
+ac
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 "}
 (21,1,1) = {"
-a
-a
-a
-a
-a
-a
-a
-a
-c
-a
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-L
-g
-j
-j
-k
-j
-j
-j
-j
-k
-j
-j
-t
-L
-d
-d
-a
-c
-a
-a
-a
-a
-a
-a
-a
-a
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ac
+aa
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+aL
+ag
+aj
+aj
+ak
+aj
+aj
+aj
+aj
+ak
+aj
+aj
+at
+aL
+ad
+ad
+aa
+ac
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 "}
 (22,1,1) = {"
-a
-a
-a
-a
-a
-a
-a
-a
-c
-a
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-L
-g
-k
-k
-o
-k
-k
-k
-k
-o
-k
-k
-t
-L
-d
-d
-a
-c
-a
-a
-a
-a
-a
-a
-a
-a
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ac
+aa
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+aL
+ag
+ak
+ak
+ao
+ak
+ak
+ak
+ak
+ao
+ak
+ak
+at
+aL
+ad
+ad
+aa
+ac
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 "}
 (23,1,1) = {"
-a
-a
-a
-a
-a
-a
-a
-a
-c
-a
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-L
-g
-j
-j
-k
-j
-j
-j
-j
-s
-w
-y
-C
-L
-d
-d
-a
-c
-a
-a
-a
-a
-a
-a
-a
-a
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ac
+aa
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+aL
+ag
+aj
+aj
+ak
+aj
+aj
+aj
+aj
+as
+aw
+ay
+aC
+aL
+ad
+ad
+aa
+ac
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 "}
 (24,1,1) = {"
-a
-a
-a
-a
-a
-a
-a
-a
-c
-a
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-L
-g
-j
-j
-k
-j
-j
-j
-j
-t
-x
-z
-t
-L
-d
-d
-a
-c
-a
-a
-a
-a
-a
-a
-a
-a
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ac
+aa
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+aL
+ag
+aj
+aj
+ak
+aj
+aj
+aj
+aj
+at
+ax
+az
+at
+aL
+ad
+ad
+aa
+ac
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 "}
 (25,1,1) = {"
-a
-a
-a
-a
-a
-a
-a
-a
-c
-a
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-L
-h
-l
-n
-n
-n
-n
-n
-n
-u
-h
-l
-u
-L
-d
-d
-a
-c
-a
-a
-a
-a
-a
-a
-a
-a
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ac
+aa
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+aL
+aD
+aG
+aM
+aM
+aR
+an
+an
+an
+au
+ah
+al
+au
+aL
+ad
+ad
+aa
+ac
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 "}
 (26,1,1) = {"
-a
-a
-a
-a
-a
-a
-a
-a
-c
-a
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-L
-L
-L
-L
-L
-L
-L
-L
-L
-L
-L
-L
-L
-L
-d
-d
-a
-c
-a
-a
-a
-a
-a
-a
-a
-a
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ac
+aa
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+aL
+aL
+aL
+aL
+aL
+aW
+ba
+bd
+aL
+aL
+aL
+aL
+aL
+aL
+ad
+ad
+aa
+ac
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 "}
 (27,1,1) = {"
-a
-a
-a
-a
-a
-a
-a
-a
-c
-a
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-a
-c
-a
-a
-a
-a
-a
-a
-a
-a
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ac
+aa
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+aX
+bb
+be
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+aa
+ac
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 "}
 (28,1,1) = {"
-a
-a
-a
-a
-a
-a
-a
-a
-c
-a
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-a
-c
-a
-a
-a
-a
-a
-a
-a
-a
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ac
+aa
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+aH
+aH
+aH
+aZ
+bc
+bf
+aH
+aH
+aH
+ad
+ad
+ad
+ad
+ad
+aa
+ac
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 "}
 (29,1,1) = {"
-a
-a
-a
-a
-a
-a
-a
-a
-c
-a
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-a
-c
-a
-a
-a
-a
-a
-a
-a
-a
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ac
+aa
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+aH
+bg
+bh
+bp
+bv
+bh
+bh
+bm
+aH
+ad
+ad
+ad
+ad
+ad
+aa
+ac
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 "}
 (30,1,1) = {"
-a
-a
-a
-a
-a
-a
-a
-a
-c
-a
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-a
-c
-a
-a
-a
-a
-a
-a
-a
-a
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ac
+aa
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+aH
+bh
+bh
+br
+bl
+bh
+bh
+bn
+aH
+ad
+ad
+ad
+ad
+ad
+aa
+ac
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 "}
 (31,1,1) = {"
-a
-a
-a
-a
-a
-a
-a
-a
-c
-a
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-a
-c
-a
-a
-a
-a
-a
-a
-a
-a
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ac
+aa
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+aH
+bi
+ab
+bs
+bw
+bq
+ab
+bk
+aH
+ad
+ad
+ad
+ad
+ad
+aa
+ac
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 "}
 (32,1,1) = {"
-a
-a
-a
-a
-a
-a
-a
-a
-c
-a
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-a
-c
-a
-a
-a
-a
-a
-a
-a
-a
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ac
+aa
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+aH
+bj
+bq
+bt
+bq
+bq
+bq
+bo
+aH
+ad
+ad
+ad
+ad
+ad
+aa
+ac
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 "}
 (33,1,1) = {"
-a
-a
-a
-a
-a
-a
-a
-a
-c
-a
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-a
-c
-a
-a
-a
-a
-a
-a
-a
-a
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ac
+aa
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+aH
+aV
+bq
+bu
+bx
+by
+bq
+aV
+aH
+ad
+ad
+ad
+ad
+ad
+aa
+ac
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 "}
 (34,1,1) = {"
-a
-a
-a
-a
-a
-a
-a
-a
-c
-a
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-a
-c
-a
-a
-a
-a
-a
-a
-a
-a
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ac
+aa
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+aH
+aH
+aH
+aH
+aP
+aI
+aH
+aH
+aH
+ad
+ad
+ad
+ad
+ad
+aa
+ac
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 "}
 (35,1,1) = {"
-a
-a
-a
-a
-a
-a
-a
-a
-c
-a
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-a
-c
-a
-a
-a
-a
-a
-a
-a
-a
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ac
+aa
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+aI
+aQ
+aS
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+aa
+ac
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 "}
 (36,1,1) = {"
-a
-a
-a
-a
-a
-a
-a
-a
-c
-a
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-a
-c
-a
-a
-a
-a
-a
-a
-a
-a
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ac
+aa
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+aa
+ac
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 "}
 (37,1,1) = {"
-a
-a
-a
-a
-a
-a
-a
-a
-c
-a
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-a
-c
-a
-a
-a
-a
-a
-a
-a
-a
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ac
+aa
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+aa
+ac
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 "}
 (38,1,1) = {"
-a
-a
-a
-a
-a
-a
-a
-a
-c
-a
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-a
-c
-a
-a
-a
-a
-a
-a
-a
-a
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ac
+aa
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+aa
+ac
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 "}
 (39,1,1) = {"
-a
-a
-a
-a
-a
-a
-a
-a
-c
-a
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-a
-c
-a
-a
-a
-a
-a
-a
-a
-a
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ac
+aa
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+aa
+ac
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 "}
 (40,1,1) = {"
-a
-a
-a
-a
-a
-a
-a
-a
-c
-a
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-a
-c
-a
-a
-a
-a
-a
-a
-a
-a
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ac
+aa
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+aa
+ac
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 "}
 (41,1,1) = {"
-a
-a
-a
-a
-a
-a
-a
-a
-c
-a
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-a
-c
-a
-a
-a
-a
-a
-a
-a
-a
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ac
+aa
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+aa
+ac
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 "}
 (42,1,1) = {"
-a
-a
-a
-a
-a
-a
-a
-a
-c
-a
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-d
-a
-c
-a
-a
-a
-a
-a
-a
-a
-a
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ac
+aa
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+aa
+ac
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 "}
 (43,1,1) = {"
-a
-a
-a
-a
-a
-a
-a
-a
-c
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-c
-a
-a
-a
-a
-a
-a
-a
-a
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ac
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ac
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 "}
 (44,1,1) = {"
-a
-a
-a
-a
-a
-a
-a
-a
-c
-c
-c
-c
-c
-c
-c
-c
-c
-c
-c
-c
-c
-c
-c
-c
-c
-c
-c
-c
-c
-c
-c
-c
-c
-c
-c
-c
-c
-c
-c
-c
-c
-c
-c
-c
-a
-a
-a
-a
-a
-a
-a
-a
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 "}
 (45,1,1) = {"
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 "}
 (46,1,1) = {"
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 "}
 (47,1,1) = {"
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 "}
 (48,1,1) = {"
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 "}
 (49,1,1) = {"
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 "}
 (50,1,1) = {"
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 "}
 (51,1,1) = {"
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 "}
 (52,1,1) = {"
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 "}

@@ -178,7 +178,7 @@ var/global/list/default_medbay_channels = list(
 /obj/item/device/radio/proc/ToggleReception()
 	listening = !listening && !(wires.IsIndexCut(WIRE_RECEIVE) || wires.IsIndexCut(WIRE_SIGNAL))
 	if(!listening)
-		playsound(src, null)
+		playsound(src, null, ai_music_channel)
 
 /obj/item/device/radio/CanUseTopic()
 	if(!on)

@@ -26,6 +26,16 @@
 	icon_state = "0-2";
 	d2 = 2
 	},
+/obj/structure/cable{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
+	},
+/obj/structure/cable{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
 /turf/simulated/floor/airless,
 /area/template_noop)
 "ah" = (
@@ -47,15 +57,6 @@
 /obj/machinery/atmospherics/pipe/tank/air,
 /turf/simulated/floor/plating,
 /area/engineering/atmos)
-"al" = (
-/obj/structure/lattice/catwalk,
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 4;
-	icon_state = "1-4"
-	},
-/turf/template_noop,
-/area/template_noop)
 "am" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/cable{
@@ -67,6 +68,11 @@
 	d1 = 2;
 	d2 = 8;
 	icon_state = "2-8"
+	},
+/obj/structure/cable{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
 	},
 /turf/template_noop,
 /area/template_noop)
@@ -116,7 +122,9 @@
 /obj/machinery/power/smes/buildable{
 	charge = 1e+006;
 	input_attempt = 1;
-	output_attempt = 1
+	input_level = 150000;
+	output_attempt = 1;
+	output_level = 150000
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/gravity_gen)
@@ -297,15 +305,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/engineering/atmos)
-"aM" = (
-/obj/structure/lattice/catwalk,
-/obj/structure/cable{
-	d1 = 2;
-	d2 = 4;
-	icon_state = "2-4"
-	},
-/turf/template_noop,
-/area/template_noop)
 "aN" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/cable{
@@ -315,6 +314,11 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2"
+	},
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
 	},
 /turf/template_noop,
 /area/template_noop)
@@ -409,6 +413,14 @@
 "aZ" = (
 /obj/machinery/power/rtg/advanced,
 /obj/structure/cable,
+/obj/structure/cable{
+	icon_state = "1-8"
+	},
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
 /turf/simulated/floor/airless,
 /area/template_noop)
 "ba" = (
@@ -471,6 +483,11 @@
 /obj/machinery/atmospherics/pipe/simple/visible/universal{
 	dir = 4
 	},
+/obj/machinery/camera/network/command{
+	c_tag = "Level 1 - Atmospherics";
+	dir = 1;
+	network = list("Engineering")
+	},
 /turf/simulated/floor/plating,
 /area/engineering/atmos)
 "bj" = (
@@ -491,6 +508,11 @@
 /obj/item/weapon/screwdriver,
 /obj/item/weapon/wirecutters,
 /obj/structure/table/standard,
+/obj/machinery/camera/network/command{
+	c_tag = "Level 1 - TEGS Control Room";
+	dir = 1;
+	network = list("Engineering")
+	},
 /turf/simulated/floor/plating,
 /area/engineering)
 "bm" = (
@@ -503,6 +525,11 @@
 "bn" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 10
+	},
+/obj/machinery/camera/network/command{
+	c_tag = "Level 1 - Gravity Gen";
+	dir = 1;
+	network = list("Engineering")
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/gravity_gen)
@@ -1073,6 +1100,11 @@
 	dir = 8
 	},
 /obj/structure/table/standard,
+/obj/machinery/camera/network/command{
+	c_tag = "Level 1 - Auxillary Room";
+	dir = 1;
+	network = list("Civillian")
+	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry)
 "cI" = (
@@ -1350,6 +1382,11 @@
 /obj/item/weapon/material/twohanded/fireaxe,
 /obj/item/weapon/extinguisher,
 /obj/structure/table/standard,
+/obj/machinery/camera/network/command{
+	c_tag = "Level 1 - Main Room";
+	dir = 1;
+	network = list("Civillian")
+	},
 /turf/simulated/floor/tiled,
 /area/storage/primary)
 "dB" = (
@@ -1371,35 +1408,15 @@
 /obj/structure/table/standard,
 /turf/simulated/floor/tiled,
 /area/storage/primary)
-"ie" = (
-/obj/effect/wingrille_spawn/reinforced,
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
+"ga" = (
+/obj/effect/floor_decal/industrial/warning,
+/obj/machinery/camera/network/command{
+	c_tag = "Level 1 - Stairs";
+	network = list("Civillian")
 	},
-/turf/simulated/floor/plating,
-/area/hallway/primary/central_one)
-"jf" = (
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/turf/simulated/wall/r_wall,
-/area/engineering/gravity_gen)
-"ob" = (
-/obj/machinery/light{
-	dir = 8
-	},
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/maintcentral)
-"pX" = (
+/turf/simulated/floor/tiled,
+/area/construction)
+"iN" = (
 /obj/structure/cable{
 	d1 = 16;
 	d2 = 0;
@@ -1409,35 +1426,29 @@
 /obj/machinery/atmospherics/pipe/zpipe/up/supply,
 /turf/simulated/floor/plating,
 /area/maintenance/maintcentral)
-"Bd" = (
+"jf" = (
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/wall/r_wall,
+/area/engineering/gravity_gen)
+"kO" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /turf/simulated/wall/r_wall,
 /area/construction)
-"Go" = (
+"tf" = (
+/obj/machinery/power/rtg/advanced,
 /obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
+	icon_state = "0-8";
+	d2 = 8
 	},
-/turf/simulated/floor/plating,
-/area/maintenance/maintcentral)
-"HB" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 5
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/maintcentral)
-"HJ" = (
-/obj/structure/cable{
-	d1 = 2;
-	d2 = 4;
-	icon_state = "2-4"
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/maintcentral)
-"HK" = (
+/turf/simulated/floor/airless,
+/area/template_noop)
+"uE" = (
 /obj/machinery/light{
 	dir = 8
 	},
@@ -1449,7 +1460,15 @@
 	},
 /turf/simulated/floor/tiled,
 /area/construction)
-"TP" = (
+"vh" = (
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/maintcentral)
+"vN" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
@@ -1458,6 +1477,57 @@
 	},
 /turf/simulated/floor/tiled,
 /area/construction)
+"xu" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/maintcentral)
+"AL" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/maintcentral)
+"BZ" = (
+/obj/effect/wingrille_spawn/reinforced,
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/plating,
+/area/hallway/primary/central_one)
+"EW" = (
+/obj/machinery/camera/network/command{
+	c_tag = "Level 1 - Main hallway";
+	dir = 1;
+	network = list("Civillian")
+	},
+/turf/simulated/floor/tiled,
+/area/hallway/primary/central_one)
+"Kt" = (
+/obj/structure/cable{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/maintcentral)
+"Xj" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/camera/network/command{
+	c_tag = "Level 1 - Main hallway 2";
+	dir = 1;
+	network = list("Civillian")
+	},
+/turf/simulated/floor/tiled,
+/area/hallway/primary/central_one)
 
 (1,1,1) = {"
 aa
@@ -2074,15 +2144,15 @@ ae
 ae
 ae
 bw
-HJ
-Go
-Go
-Go
-Go
-ob
-Go
-pX
-HB
+Kt
+vh
+vh
+vh
+vh
+xu
+vh
+iN
+AL
 ae
 ae
 ae
@@ -2128,7 +2198,7 @@ af
 af
 af
 bx
-ie
+BZ
 bV
 bV
 bV
@@ -2136,7 +2206,7 @@ bV
 bx
 cK
 cK
-Bd
+kO
 cK
 cK
 cK
@@ -2190,8 +2260,8 @@ bK
 bK
 cL
 cT
-HK
-TP
+uE
+vN
 di
 di
 di
@@ -2241,7 +2311,7 @@ bJ
 bJ
 bz
 bJ
-bJ
+Xj
 cM
 cU
 de
@@ -2552,11 +2622,11 @@ ab
 aa
 ad
 ab
-ag
-al
 ay
-aM
-aZ
+ay
+ay
+ay
+ay
 ab
 bs
 bE
@@ -2621,7 +2691,7 @@ cA
 bB
 bB
 cK
-cV
+ga
 de
 de
 de
@@ -2660,11 +2730,11 @@ ab
 aa
 ad
 ab
-ab
-ab
+tf
+tf
 aA
-ab
-ab
+tf
+tf
 ab
 bs
 bF
@@ -2997,7 +3067,7 @@ bB
 bB
 cx
 bB
-bB
+EW
 cP
 cZ
 cZ

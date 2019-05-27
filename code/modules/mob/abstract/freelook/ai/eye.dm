@@ -3,6 +3,8 @@
 // A mob that the AI controls to look around the station with.
 // It streams chunks as it moves around, which will show it what the AI can and cannot see.
 
+var/ai_music_channel = 0 // Storing on which channel does AI plays music
+
 /mob/abstract/eye/aiEye
 	name = "Inactive AI Eye"
 	icon_state = "AI-eye"
@@ -122,9 +124,10 @@
 	log_game("[key_name(src)] played sound [melody] in [played_area]", admin_key=key_name(src))
 	message_admins("[key_name_admin(src)] played sound [melody] in [played_area]", 1)
 
+	ai_music_channel = pick(1, 8) // Hope we won't stop some other sound
 	for(var/obj/item/device/radio/intercom/i in played_area)
 		i.listening = TRUE
-		playsound(i, melody, 60, 0)
+		playsound(i, melody, channel = ai_music_channel, 60, 0)
 		CHECK_TICK
 	time_music = world.time
 
@@ -134,6 +137,6 @@
 	if(!played_area) return
 
 	for(var/obj/item/device/radio/intercom/i in played_area)
-		playsound(i, null)
+		playsound(i, null, channel = ai_music_channel)
 		CHECK_TICK
 	
