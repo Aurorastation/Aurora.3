@@ -104,10 +104,10 @@ var/ai_music_channel = 0 // Storing on which channel does AI plays music
 	set category = "AI Commands"
 	set name = "Play Music In The Area"
 
-	var/delay = world.time - time_music
-	if(delay < 3000)
-		delay \= 10
-		to_chat(src, "<span class='warning'>You have played music recently, you have to wait [(round(delay/60) > 0) ? ("[round(delay/60)] minutes") : ("[delay] seconds") ]</span>")
+	var/music_delay = world.time - time_music
+	if(music_delay < 3000)
+		music_delay \= 10
+		to_chat(src, "<span class='warning'>You have played music recently, you have to wait [(round(music_delay/60) > 0) ? ("[5 - round(music_delay/60)] minutes") : ("[300 - music_delay] seconds") ]</span>")
 		return
 	var/list/sounds = file2list("sound/serversound_list.txt");
 	sounds += sounds_cache
@@ -127,7 +127,7 @@ var/ai_music_channel = 0 // Storing on which channel does AI plays music
 	ai_music_channel = pick(1, 8) // Hope we won't stop some other sound
 	for(var/obj/item/device/radio/intercom/i in played_area)
 		i.listening = TRUE
-		playsound(i, melody, channel = ai_music_channel, 60, 0)
+		playsound(i, melody, 60, 0, channel = ai_music_channel)
 		CHECK_TICK
 	time_music = world.time
 

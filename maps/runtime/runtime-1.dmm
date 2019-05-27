@@ -35,10 +35,7 @@
 	d2 = 4;
 	icon_state = "2-4"
 	},
-/obj/machinery/power/rtg/advanced{
-	name = "Experimental radioisotope thermoelectric generator";
-	power_gen = 25000
-	},
+/obj/machinery/power/rtg/advanced/experimental,
 /turf/simulated/floor/airless,
 /area/template_noop)
 "ah" = (
@@ -186,14 +183,11 @@
 /turf/simulated/floor/plating,
 /area/engineering/atmos)
 "ay" = (
-/obj/machinery/power/rtg/advanced{
-	name = "Experimental radioisotope thermoelectric generator";
-	power_gen = 25000
-	},
 /obj/structure/cable{
 	icon_state = "0-4";
 	d2 = 4
 	},
+/obj/machinery/power/rtg/advanced/experimental,
 /turf/simulated/floor/airless,
 /area/template_noop)
 "az" = (
@@ -428,10 +422,7 @@
 	d2 = 4;
 	icon_state = "1-4"
 	},
-/obj/machinery/power/rtg/advanced{
-	name = "Experimental radioisotope thermoelectric generator";
-	power_gen = 25000
-	},
+/obj/machinery/power/rtg/advanced/experimental,
 /turf/simulated/floor/airless,
 /area/template_noop)
 "ba" = (
@@ -1447,17 +1438,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/maintcentral)
-"pt" = (
-/obj/structure/cable{
-	icon_state = "0-4";
-	d2 = 4
-	},
-/obj/machinery/power/rtg/advanced{
-	name = "Experimental radioisotope thermoelectric generator";
-	power_gen = 25000
-	},
-/turf/simulated/floor/airless,
-/area/template_noop)
 "pX" = (
 /obj/structure/cable{
 	d1 = 16;
@@ -1485,6 +1465,14 @@
 	},
 /turf/simulated/wall/r_wall,
 /area/construction)
+"Bn" = (
+/obj/structure/cable{
+	icon_state = "0-8";
+	d2 = 8
+	},
+/obj/machinery/power/rtg/advanced/experimental,
+/turf/simulated/floor/airless,
+/area/template_noop)
 "Go" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -2648,10 +2636,10 @@ aa
 ad
 ab
 ay
-pt
-pt
-pt
-pt
+ay
+ay
+ay
+ay
 ab
 bs
 bE
@@ -2755,11 +2743,11 @@ ab
 aa
 ad
 ab
-ss
+Bn
 ss
 aA
-ss
-ss
+Bn
+Bn
 ab
 bs
 bF

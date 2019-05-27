@@ -63,6 +63,7 @@
 
 
 /obj/machinery/power/rtg/advanced
+	name = "advanced radioisotope thermoelectric generator"
 	desc = "An advanced RTG capable of moderating isotope decay, increasing power output but reducing lifetime. It uses phoron-fueled radiation collectors to increase output even further."
 	power_gen = 1250 // 2500 on T1, 10000 on T4.
 
@@ -75,6 +76,19 @@
 		/obj/item/weapon/circuitboard/rtg/advanced
 	)
 
+/obj/machinery/power/rtg/advanced/experimental
+	name = "experimental radioisotope thermoelectric generator"
+	desc = "An experimental RTG capable of moderating isotope decay, increasing power output but reducing lifetime. It uses special phoron infused radiation collectors to increase output drastically."
+	power_gen = 4200
+
+	component_types = list(
+		/obj/item/stack/cable_coil{amount = 5},
+		/obj/item/weapon/stock_parts/capacitor/super,
+		/obj/item/weapon/stock_parts/micro_laser/ultra,
+		/obj/item/stack/material/uranium{amount = 10},
+		/obj/item/stack/material/phoron{amount = 5},
+		/obj/item/weapon/circuitboard/rtg/advanced
+	)
 
 /obj/item/weapon/circuitboard/rtg
 	name = T_BOARD("radioisotope thermoelectric generator")
