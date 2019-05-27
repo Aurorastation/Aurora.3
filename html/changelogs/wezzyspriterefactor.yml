@@ -40,3 +40,4 @@ delete-after: True
 changes: 
   - rscadd: "Adds some more uses to glass jar - now you can use it as a tip jar AND a reagent container (You can also see reagents inside like a beaker!)"
   - imageadd: "Improves sprites for wrapping paper, pocketwatches, nanopaste, and new coinflip animations"
+  - bugfix: "Fixes missing inhand sprites for light replacers."
