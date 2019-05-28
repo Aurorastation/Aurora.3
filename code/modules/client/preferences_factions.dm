@@ -45,24 +45,11 @@ var/global/list/home_system_choices = list(
 
 var/global/list/faction_choices = list(
 	"NanoTrasen",
-	"Getmore Corporation",
-	"Ingi Usang Entertainment Company",
 	"Hephaestus Industries",
-	"TakeOff! Entertainment",
-	"Xion Manufacturing Group",
 	"Idris Incorporated",
-	"BP Entertainment Incorporated",
 	"Zeng-Hu Pharmaceuticals",
-	"Amijin-Kyodai Corporation",
-	"Bishop Cybernetics",
-	"Jeonshi Beauty Company",
-	"Nojosuru Foods",
 	"Einstein Engines",
-	"Taipei Engineering Industrial",
-	"Terraneus Diagnostics",
-	"Necropolis Industries",
-	"Confiance Technologies",
-	"Kumar Arms"
+	"Necropolis Industries"
 	)
 
 var/global/list/religion_choices = list(
@@ -75,14 +62,6 @@ var/global/list/religion_choices = list(
 	"Taoism",
 	"Shinto",
 	"Falun Gong",
-	"Sikhism",
-	"Judaism",
-	"Caodaism",
-	"Baha'i Faith",
-	"Tenrikyo",
-	"Jainism",
-	"Cheondoism",
-	"Hoahaoism",
 	"Folk Religion",
 	"Moroz Holy Tribunal",
 	"Qeblak",
