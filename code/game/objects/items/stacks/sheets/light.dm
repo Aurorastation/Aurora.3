@@ -19,7 +19,6 @@
 		use(1)
 	else if(istype(D, /obj/item/stack/material/steel))
 		if (use(1))
-			qdel(D)
 			var/obj/item/L = new /obj/item/stack/tile/light
 			user.drop_from_inventory(L,get_turf(src))
 			to_chat(user, "<span class='notice'>You make a light tile.</span>")

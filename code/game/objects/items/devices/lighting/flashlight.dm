@@ -138,3 +138,23 @@
 	hitsound = 'sound/weapons/smash.ogg'
 	contained_sprite = 1
 	light_wedge = LIGHT_NARROW
+
+/obj/item/device/flashlight/slime
+	gender = PLURAL
+	name = "glowing slime extract"
+	desc = "A glowing ball of what appears to be amber."
+	icon = 'icons/obj/lighting.dmi'
+	icon_state = "floor1" //not a slime extract sprite but... something close enough!
+	item_state = "slime"
+	w_class = 1
+	brightness_on = 6
+	uv_intensity = 200
+	on = 1 //Bio-luminesence has one setting, on.
+	light_color = LIGHT_COLOR_SLIME_LAMP
+	light_wedge = LIGHT_OMNI
+
+/obj/item/device/flashlight/slime/update_icon()
+	return
+
+/obj/item/device/flashlight/slime/attack_self(mob/user)
+	return //Bio-luminescence does not toggle.

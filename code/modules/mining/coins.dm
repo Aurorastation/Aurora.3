@@ -54,6 +54,11 @@
 	icon_state = "coin_platinum_heads"
 	cmineral = "platinum"
 
+/obj/item/weapon/coin/platinum
+	name = "mythril coin"
+	icon_state = "coin_mythril_heads"
+	cmineral = "mythril"
+
 /obj/item/weapon/coin/battlemonsters
 	name = "battlemonsters coin"
 	icon_state = "coin_battlemonsters_heads"

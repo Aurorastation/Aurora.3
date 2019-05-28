@@ -205,8 +205,8 @@ All custom items with worn sprites must follow the contained sprite system: http
 	name = "sobriety chip"
 	desc = "A red coin, made from plastic. A triangle is engraved, surrounding it is the words: \"TO THINE OWN SELF BE TRUE\"."
 	icon = 'icons/obj/custom_items/yoiko_coin.dmi'
-	icon_state = "yoiko_coin" //thanks fireandglory for the sprites
-
+	icon_state = "coin_yoiko_heads" //thanks fireandglory for the sprites
+	cmineral = "yoiko"
 
 /obj/item/clothing/suit/unathi/mantle/fluff/karnaikai_wrappings //Unathi Wrappings - Azeazekal Karnaikai - canon35
 	name = "unathi wrappings"
@@ -651,8 +651,8 @@ All custom items with worn sprites must follow the contained sprite system: http
 	name = "engraved coin"
 	desc = "A coin of light and bright with one side having an engraving of a greek Lamba sign, and on the back the initials of R.H. are engraved."
 	icon = 'icons/obj/custom_items/raymond_items.dmi'
-	icon_state = "raymond_coin"
-
+	icon_state = "coin_raymond_heads"
+	cmineral = "raymond"
 
 /obj/item/clothing/under/fluff/zohjar_uniform //Republic Noble Clothing - Zohjar Rasateir - lordraven001
 	name = "republic noble clothing"

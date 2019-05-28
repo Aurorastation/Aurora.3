@@ -4,7 +4,7 @@
 	w_class = 2.0
 	brightness_on = 4 // Pretty bright.
 	light_power = 4
-	light_color = LIGHT_COLOR_FLARE
+	light_color = LIGHT_COLOR_FLARE //"#E58775"
 	icon_state = "flare"
 	item_state = "flare"
 	action_button_name = null //just pull it manually, neckbeard.
@@ -48,27 +48,10 @@
 	. = ..()
 	// All good, turn it on.
 	if(.)
-		user.visible_message("<span class='notice'>[user] activates the flare.</span>", "<span class='notice'>You pull the cord on the flare, activating it!</span>")
+		user.visible_message(
+		"<span class='notice'>[user] activates the flare.</span>",
+		"<span class='notice'>You pull the cord on the flare, activating it!</span>"
+		)
 		src.force = on_damage
 		src.damtype = "fire"
 		START_PROCESSING(SSprocessing, src)
-
-/obj/item/device/flashlight/slime
-	gender = PLURAL
-	name = "glowing slime extract"
-	desc = "A glowing ball of what appears to be amber."
-	icon = 'icons/obj/lighting.dmi'
-	icon_state = "floor1" //not a slime extract sprite but... something close enough!
-	item_state = "slime"
-	w_class = 1
-	brightness_on = 6
-	uv_intensity = 200
-	on = 1 //Bio-luminesence has one setting, on.
-	light_color = LIGHT_COLOR_SLIME_LAMP
-	light_wedge = LIGHT_OMNI
-
-/obj/item/device/flashlight/slime/update_icon()
-	return
-
-/obj/item/device/flashlight/slime/attack_self(mob/user)
-	return //Bio-luminescence does not toggle.
