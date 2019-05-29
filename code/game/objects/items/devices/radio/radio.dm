@@ -747,6 +747,7 @@ var/global/list/default_medbay_channels = list(
 
 /obj/item/device/radio/phone
 	broadcasting = 0
+	icon = 'icons/obj/radio.dmi'
 	icon_state = "red_phone"
 	listening = 1
 	name = "phone"
