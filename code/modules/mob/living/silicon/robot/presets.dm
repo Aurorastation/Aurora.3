@@ -76,3 +76,10 @@
 		else
 			icon_state = module_sprites[icontype]
 
+/mob/living/silicon/robot/bluespace
+	modtype = "Bluespace"
+	spawn_module = /obj/item/weapon/robot_module/bluespace
+	cell_type = /obj/item/weapon/cell/infinite
+	overclocked = 1
+	lawupdate = 0
+	scrambledcodes = 1
