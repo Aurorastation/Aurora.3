@@ -21761,11 +21761,6 @@
 	dir = 4
 	},
 /area/centcom/living)
-"bmJ" = (
-/obj/structure/window/shuttle,
-/obj/structure/grille,
-/turf/simulated/shuttle/floor/plating/destructible,
-/area/shuttle/escape/centcom)
 "boO" = (
 /turf/template_noop,
 /area/shuttle/escape_pod2/centcom/space)
@@ -21775,15 +21770,6 @@
 	icon_state = "carpetside"
 	},
 /area/centcom/living)
-"ckL" = (
-/obj/item/weapon/shield/energy/legion,
-/obj/item/weapon/melee/energy/sword/knife,
-/obj/structure/table/wood,
-/turf/unsimulated/floor{
-	dir = 8;
-	icon_state = "wood"
-	},
-/area/centcom/legion_base/hangar5)
 "cnT" = (
 /obj/structure/window/shuttle,
 /obj/structure/grille,
@@ -21793,6 +21779,10 @@
 /obj/structure/lattice/catwalk/indoor,
 /turf/space,
 /area/syndicate_mothership/elite_squad)
+"cKO" = (
+/obj/structure/bed/chair,
+/turf/simulated/shuttle/floor/destructible,
+/area/shuttle/escape/centcom)
 "cRe" = (
 /turf/template_noop,
 /area/shuttle/escape_pod1/centcom/space)
@@ -21848,6 +21838,15 @@
 	icon_state = "dark"
 	},
 /area/centcom/legion_base)
+"dZP" = (
+/obj/item/weapon/shield/energy/legion,
+/obj/item/weapon/melee/energy/sword/knife,
+/obj/structure/table/wood,
+/turf/unsimulated/floor{
+	dir = 8;
+	icon_state = "wood"
+	},
+/area/centcom/legion_base/hangar5)
 "ehq" = (
 /obj/machinery/door/unpowered/shuttle,
 /turf/simulated/shuttle/floor,
@@ -21888,6 +21887,9 @@
 	icon_state = "floor"
 	},
 /area/centcom/holding)
+"fns" = (
+/turf/simulated/shuttle/floor/destructible,
+/area/shuttle/escape/centcom)
 "frH" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/generic,
@@ -21950,6 +21952,11 @@
 "goI" = (
 /turf/template_noop,
 /area/shuttle/escape_pod4/centcom/space)
+"gvN" = (
+/obj/structure/window/shuttle,
+/obj/structure/grille,
+/turf/simulated/shuttle/floor/plating/destructible,
+/area/shuttle/escape/centcom)
 "gDh" = (
 /obj/machinery/telecomms/receiver/preset_cent,
 /turf/unsimulated/floor{
@@ -22036,9 +22043,6 @@
 	},
 /turf/simulated/shuttle/floor/plating/destructible,
 /area/merchant_ship/start)
-"iUQ" = (
-/turf/simulated/shuttle/wall/destructible,
-/area/shuttle/escape/centcom)
 "jcW" = (
 /obj/machinery/light{
 	dir = 4;
@@ -22108,9 +22112,8 @@
 	dir = 1
 	},
 /area/centcom/living)
-"kjx" = (
-/obj/structure/bed/chair,
-/turf/simulated/shuttle/floor/destructible,
+"kfH" = (
+/turf/simulated/shuttle/wall/destructible,
 /area/shuttle/escape/centcom)
 "knY" = (
 /obj/structure/bed/chair,
@@ -22153,9 +22156,6 @@
 	},
 /turf/simulated/shuttle/floor/destructible/legion,
 /area/shuttle/legion/centcom)
-"mAU" = (
-/turf/simulated/shuttle/floor/destructible,
-/area/shuttle/escape/centcom)
 "mQj" = (
 /turf/unsimulated/floor{
 	dir = 10;
@@ -22216,13 +22216,6 @@
 	},
 /turf/simulated/shuttle/floor,
 /area/template_noop)
-"nLN" = (
-/obj/machinery/light{
-	dir = 4;
-	status = 0
-	},
-/turf/simulated/shuttle/floor/destructible,
-/area/shuttle/escape/centcom)
 "nPC" = (
 /obj/structure/banner,
 /turf/unsimulated/floor{
@@ -23966,6 +23959,13 @@
 	name = "plating"
 	},
 /area/centcom/legion_base/hangar5)
+"xtk" = (
+/obj/machinery/light{
+	dir = 4;
+	status = 0
+	},
+/turf/simulated/shuttle/floor/destructible,
+/area/shuttle/escape/centcom)
 "xtl" = (
 /obj/structure/table/rack,
 /obj/item/weapon/rig/retro/equipped,
@@ -27075,10 +27075,16 @@
 "xVt" = (
 /obj/structure/table/reinforced,
 /obj/item/weapon/storage/firstaid/adv{
-	pixel_x = 5;
+	pixel_x = -1;
+	pixel_y = 8
+	},
+/obj/item/weapon/storage/firstaid/adv{
+	pixel_x = -6;
 	pixel_y = 4
 	},
-/obj/item/weapon/storage/firstaid/adv,
+/obj/item/weapon/storage/firstaid/surgery{
+	pixel_x = 8
+	},
 /turf/unsimulated/floor{
 	icon_state = "floor3"
 	},
@@ -27762,11 +27768,19 @@
 /area/centcom/legion_base/hangar5)
 "xYp" = (
 /obj/structure/table/reinforced,
+/obj/item/weapon/storage/box/bodybags{
+	pixel_x = 6;
+	pixel_y = 8
+	},
+/obj/item/weapon/storage/box/gloves{
+	pixel_x = 3;
+	pixel_y = 4
+	},
+/obj/item/weapon/storage/box/masks,
 /obj/machinery/light{
 	dir = 4;
 	icon_state = "tube1"
 	},
-/obj/item/weapon/storage/box/bodybags,
 /turf/unsimulated/floor{
 	icon_state = "floor3"
 	},
@@ -70389,8 +70403,8 @@ yis
 yic
 yis
 yjp
-iUQ
-iUQ
+kfH
+kfH
 yjp
 yjN
 aJF
@@ -70627,27 +70641,27 @@ yjN
 ycz
 yjp
 yjp
-iUQ
-bmJ
-iUQ
-bmJ
-bmJ
-iUQ
+kfH
+gvN
+kfH
+gvN
+gvN
+kfH
 aEW
-iUQ
-bmJ
-iUQ
+kfH
+gvN
+kfH
 aWj
 aWj
 aWj
-iUQ
-bmJ
-iUQ
+kfH
+gvN
+kfH
 aGc
-iUQ
-iUQ
-iUQ
-iUQ
+kfH
+kfH
+kfH
+kfH
 yjp
 yjN
 aHK
@@ -70883,23 +70897,23 @@ auT
 yjN
 ycz
 aCO
-iUQ
-iUQ
+kfH
+kfH
 aVG
-iUQ
-kjx
-mAU
+kfH
+cKO
+fns
 aVL
-mAU
-iUQ
+fns
+kfH
 aOC
 aDs
 aDs
 aDs
 aDs
-mAU
+fns
 aWC
-iUQ
+kfH
 aWH
 aWU
 aXa
@@ -71139,23 +71153,23 @@ aBQ
 auT
 yjN
 ycz
-bmJ
-bmJ
+gvN
+gvN
 aGQ
 aFZ
-iUQ
+kfH
 aIx
-mAU
+fns
 aVS
-nLN
+xtk
 aOX
-mAU
+fns
 aDs
 aVP
 aDs
 aDs
-mAU
-mAU
+fns
+fns
 aIC
 aWu
 aWu
@@ -71396,23 +71410,23 @@ aBR
 auT
 yjN
 ycz
-bmJ
+gvN
 aVC
 aFu
 aGQ
-iUQ
+kfH
 aCP
 aOX
-iUQ
-iUQ
-iUQ
-bmJ
-bmJ
-iUQ
-bmJ
-bmJ
-mAU
-mAU
+kfH
+kfH
+kfH
+gvN
+gvN
+kfH
+gvN
+gvN
+fns
+fns
 aCQ
 aWI
 aWV
@@ -71653,14 +71667,14 @@ ajK
 auT
 yjN
 ycz
-bmJ
+gvN
 aFn
 aFz
 aGN
 aGQ
 aXp
 aVH
-iUQ
+kfH
 aVQ
 aVU
 aWc
@@ -71668,9 +71682,9 @@ aWc
 aWk
 aWc
 aWm
-mAU
+fns
 aWF
-iUQ
+kfH
 aWN
 aWu
 aWu
@@ -71910,7 +71924,7 @@ aBq
 auT
 yjN
 ycz
-bmJ
+gvN
 aFq
 aFA
 aGO
@@ -71918,15 +71932,15 @@ aGQ
 aPe
 aVI
 aVE
-mAU
-mAU
-mAU
-mAU
-mAU
-mAU
-mAU
-mAU
-mAU
+fns
+fns
+fns
+fns
+fns
+fns
+fns
+fns
+fns
 aCQ
 aWv
 aWW
@@ -72167,14 +72181,14 @@ aBT
 auT
 yjN
 ycz
-bmJ
+gvN
 aFs
 aFB
 aGP
 aID
 aPi
 aVM
-iUQ
+kfH
 aVR
 aVV
 aWd
@@ -72182,14 +72196,14 @@ aWd
 aWd
 aWd
 aWn
-mAU
+fns
 aVH
-iUQ
-iUQ
-iUQ
-iUQ
-iUQ
-iUQ
+kfH
+kfH
+kfH
+kfH
+kfH
+kfH
 yjp
 yjN
 aJH
@@ -72424,14 +72438,14 @@ aBT
 auT
 yjN
 ycz
-bmJ
+gvN
 aFq
 aFB
 aHM
 aID
 aPi
 aVM
-iUQ
+kfH
 aVR
 aVU
 aWc
@@ -72439,14 +72453,14 @@ aWc
 aWc
 aWc
 aWm
-mAU
-mAU
+fns
+fns
 aWs
 aWO
 aWX
 aXb
-iUQ
-iUQ
+kfH
+kfH
 yjp
 yjN
 aJH
@@ -72681,7 +72695,7 @@ aBT
 auT
 yjN
 ycz
-bmJ
+gvN
 aFq
 aFA
 aGO
@@ -72689,15 +72703,15 @@ aGQ
 aVB
 aVI
 aVE
-mAU
-mAU
-mAU
-mAU
-mAU
-mAU
-mAU
-mAU
-mAU
+fns
+fns
+fns
+fns
+fns
+fns
+fns
+fns
+fns
 aCQ
 aVX
 aGQ
@@ -72938,23 +72952,23 @@ aBT
 auT
 yjN
 ycz
-bmJ
+gvN
 aFt
 aFO
 aIg
 aGQ
 aXq
 aVH
-iUQ
-mAU
+kfH
+fns
 aVV
 aWd
 aWd
 aWd
 aWd
 aWn
-mAU
-mAU
+fns
+fns
 aCQ
 aVX
 aGQ
@@ -73195,23 +73209,23 @@ aBq
 auT
 yjN
 ycz
-bmJ
+gvN
 aDK
 aVF
 aGQ
-iUQ
-iUQ
-iUQ
-iUQ
-mAU
+kfH
+kfH
+kfH
+kfH
+fns
 aVU
 aWc
 aWc
 aWc
 aWc
 aWm
-mAU
-mAU
+fns
+fns
 aCQ
 aWR
 aGQ
@@ -73452,24 +73466,24 @@ aBT
 auT
 yjN
 yjp
-bmJ
-bmJ
+gvN
+gvN
 aGQ
 aIf
-iUQ
+kfH
 aVD
 aVJ
 aVN
-mAU
-mAU
-mAU
-mAU
-mAU
-mAU
-mAU
-mAU
+fns
+fns
+fns
+fns
+fns
+fns
+fns
+fns
 aWF
-iUQ
+kfH
 aWS
 aWY
 aXc
@@ -73710,13 +73724,13 @@ auT
 yjN
 yjp
 yjp
-iUQ
-iUQ
+kfH
+kfH
 aVG
-iUQ
+kfH
 aWB
 aVK
-iUQ
+kfH
 aVT
 aVV
 aWd
@@ -73724,9 +73738,9 @@ aWd
 aWl
 aWd
 aWn
-mAU
+fns
 aWD
-iUQ
+kfH
 aWT
 aWZ
 aXd
@@ -73968,27 +73982,27 @@ yjN
 yjp
 yjp
 yjp
-iUQ
-bmJ
-iUQ
-bmJ
-bmJ
-iUQ
-iUQ
-bmJ
-bmJ
-bmJ
-iUQ
-bmJ
-bmJ
-bmJ
-iUQ
-iUQ
-bmJ
-bmJ
-iUQ
-iUQ
-iUQ
+kfH
+gvN
+kfH
+gvN
+gvN
+kfH
+kfH
+gvN
+gvN
+gvN
+kfH
+gvN
+gvN
+gvN
+kfH
+kfH
+gvN
+gvN
+kfH
+kfH
+kfH
 yjp
 yjN
 aJH
@@ -74244,8 +74258,8 @@ yjp
 yjp
 yjp
 yjp
-iUQ
-iUQ
+kfH
+kfH
 yjp
 yjN
 aJH
@@ -85415,7 +85429,7 @@ xLS
 xNq
 xOI
 xZe
-ckL
+dZP
 xSI
 xRt
 xYC
