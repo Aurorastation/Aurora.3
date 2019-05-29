@@ -152,6 +152,8 @@
 		return null
 	if(!power_supply.checked_use(charge_cost))
 		return null
+	if(!capacitor)
+		return null
 	if (self_recharge)
 		addtimer(CALLBACK(src, .proc/try_recharge), recharge_time * 2 SECONDS, TIMER_UNIQUE)
 	var/obj/item/projectile/beam/A = new projectile_type(src)
@@ -171,11 +173,6 @@
 			focusing_lens.degrade(modifier.malus)
 		if(prob((33 + capacitor.damage)/(max(1,(burst - 1)))))
 			modifier.degrade(1)
-	if((prob(A.damage)/burst))
-		if(prob(A.damage/2))
-			medium_fail(ismob(loc) ? loc : null)
-		else
-			small_fail(ismob(loc) ? loc : null)
 
 	updatetype(ismob(loc) ? loc : null)
 	return A
