@@ -159,6 +159,12 @@
 	if(!istype(A))
 		return ..()
 	if(ismodifier(A) && gun_mods.len < modifier_cap)
+		var/obj/item/laser_components/modifier/m = A
+		for(var/v in gun_mods)
+			var/obj/item/laser_components/modifier/M = v
+			if(M.type == m.type)
+				to_chat(user, span("warning", "\The [name] already has [m]."))
+				return
 		gun_mods += A
 		user.drop_from_inventory(A,src)
 	else if(islasercapacitor(A) && stage == 1)
@@ -202,7 +208,8 @@
 	A.modulator = modulator
 	modulator.forceMove(A)
 	if(gun_mods.len)
-		for(var/obj/item/laser_components/modifier/mod in gun_mods)
+		for(var/v in gun_mods)
+			var/obj/item/laser_components/modifier/mod = v
 			A.gun_mods += mod
 			mod.forceMove(A)
 	A.forceMove(get_turf(src))
