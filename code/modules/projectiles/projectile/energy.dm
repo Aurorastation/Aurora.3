@@ -218,10 +218,8 @@
 	muzzle_type = /obj/effect/projectile/muzzle/bolt
 
 /obj/item/projectile/energy/blaster/overcharge
-	name = "concentrated blaster bolt"
-	icon_state = "overchargedbolt"
-	damage = 40
-	armor_penetration = 15
+	damage = 35
+	armor_penetration = 20
 
 /obj/item/projectile/energy/blaster/heavy
 	damage = 35

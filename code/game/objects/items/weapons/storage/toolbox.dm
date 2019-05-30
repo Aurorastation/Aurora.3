@@ -104,10 +104,21 @@
 			user.visible_message(span("danger", "[user] smashes the [src] into [M], causing it to break open and strew its contents across the area"))
 
 /obj/item/weapon/storage/toolbox/einstein
-	name = "booster construction kit"
+	name = "einstein engines toolbox"
+	contained_sprite = 1
+	icon = 'icons/obj/shuttle_parts.dmi'
 	icon_state = "EEbox"
-	item_state = "toolbox_yellow"
+	item_state = "EEbox"
 
+/obj/item/weapon/storage/toolbox/einstein/booster
+	name = "emergency booster construction kit"
+	desc = "Placeholder"
+
+	fill()
+		new /obj/item/weapon/shuttle_parts/einstein/bluespace_relay(src)
+		new /obj/item/weapon/shuttle_parts/einstein/ignition_chamber(src)
+		new /obj/item/weapon/shuttle_parts/einstein/propellant_assembly(src)
+		new /obj/item/weapon/shuttle_parts/einstein/propulsion_electronics(src)
 
 /obj/item/weapon/storage/toolbox/lunchbox
 	name = "rainbow lunchbox"

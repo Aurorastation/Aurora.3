@@ -366,7 +366,7 @@ obj/item/weapon/card/id/ert/New()
 
 /obj/item/weapon/card/id/legion
 	name = "\improper Tau Ceti Foreign Legion ID"
-	icon_state = "centcom"
+	icon_state = "legion"
 	assignment = "Tau Ceti Foreign Legion Volunteer"
 	access = list(access_legion, access_maint_tunnels, access_external_airlocks, access_security, access_engine, access_engine_equip, access_medical, access_research, access_atmospherics, access_medical_equip)
 
