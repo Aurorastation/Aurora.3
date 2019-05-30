@@ -65,8 +65,17 @@
 /obj/structure/shuttle/engine/propulsion/temp
 	name = "emergency engine"
 	icon_state = "EE_Booster"
+	var/list/component_parts = list()
 
 /obj/structure/shuttle/engine/propulsion/temp/update_damage()
 	health -= 25
 	if(health <= 0)
 		qdel(src)
+
+/obj/structure/shuttle/engine/propulsion/temp/verb/rotate()
+	set name = "Rotate"
+	set category = "Object"
+	set src in oview(1)
+
+	src.set_dir(turn(src.dir, 90))
+	return 1

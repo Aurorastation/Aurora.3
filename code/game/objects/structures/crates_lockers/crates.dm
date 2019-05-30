@@ -753,3 +753,10 @@
 	icon_opened = "EEcrateopen"
 	icon_closed = "EEcrate"
 
+/obj/structure/closet/crate/einstein/fill()
+		new /obj/item/weapon/shuttle_parts/einstein/bluespace_relay(src)
+		new /obj/item/weapon/shuttle_parts/einstein/ignition_chamber(src)
+		new /obj/item/weapon/shuttle_parts/einstein/propellant_assembly(src)
+		new /obj/item/weapon/shuttle_parts/einstein/propulsion_electronics(src)
+		new /obj/item/weapon/circuitboard/ee_engine(src)
+	

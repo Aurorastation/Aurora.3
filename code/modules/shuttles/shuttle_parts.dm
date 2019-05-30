@@ -28,3 +28,15 @@
 	name = "Propulsion electronics"
 	desc = "Placeholder"
 	icon_state = "propulsion_electronics"
+
+/obj/item/weapon/circuitboard/ee_engine
+	name = T_BOARD("Engine booster circuit")
+	desc = "Circuit board designed by Eienstein Engines to control a rocket booster."
+	build_path = "/obj/structure/shuttle/engine/propulsion/temp"
+	board_type = "machine"
+	origin_tech = list(TECH_EGNINEERING = 3, TECH_PHORON = 2)
+	req_components = list(
+							"/obj/item/weapon/shuttle_parts/einstein/bluespace_relay" = 1, "/obj/item/weapon/shuttle_parts/einstein/ignition_chamber" = 1, 
+							"/obj/item/weapon/shuttle_parts/einstein/propellant_assembly" = 1, "/obj/item/weapon/shuttle_parts/einstein/propulsion_electronics" = 1
+	)
+	
