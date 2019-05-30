@@ -21770,6 +21770,9 @@
 	icon_state = "carpetside"
 	},
 /area/centcom/living)
+"bIj" = (
+/turf/simulated/shuttle/wall/destructible,
+/area/shuttle/escape/centcom)
 "cnT" = (
 /obj/structure/window/shuttle,
 /obj/structure/grille,
@@ -21779,10 +21782,6 @@
 /obj/structure/lattice/catwalk/indoor,
 /turf/space,
 /area/syndicate_mothership/elite_squad)
-"cKO" = (
-/obj/structure/bed/chair,
-/turf/simulated/shuttle/floor/destructible,
-/area/shuttle/escape/centcom)
 "cRe" = (
 /turf/template_noop,
 /area/shuttle/escape_pod1/centcom/space)
@@ -21838,15 +21837,6 @@
 	icon_state = "dark"
 	},
 /area/centcom/legion_base)
-"dZP" = (
-/obj/item/weapon/shield/energy/legion,
-/obj/item/weapon/melee/energy/sword/knife,
-/obj/structure/table/wood,
-/turf/unsimulated/floor{
-	dir = 8;
-	icon_state = "wood"
-	},
-/area/centcom/legion_base/hangar5)
 "ehq" = (
 /obj/machinery/door/unpowered/shuttle,
 /turf/simulated/shuttle/floor,
@@ -21887,9 +21877,6 @@
 	icon_state = "floor"
 	},
 /area/centcom/holding)
-"fns" = (
-/turf/simulated/shuttle/floor/destructible,
-/area/shuttle/escape/centcom)
 "frH" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/generic,
@@ -21952,11 +21939,6 @@
 "goI" = (
 /turf/template_noop,
 /area/shuttle/escape_pod4/centcom/space)
-"gvN" = (
-/obj/structure/window/shuttle,
-/obj/structure/grille,
-/turf/simulated/shuttle/floor/plating/destructible,
-/area/shuttle/escape/centcom)
 "gDh" = (
 /obj/machinery/telecomms/receiver/preset_cent,
 /turf/unsimulated/floor{
@@ -21964,6 +21946,9 @@
 	dir = 8
 	},
 /area/centcom/living)
+"gGu" = (
+/turf/simulated/shuttle/floor/destructible,
+/area/shuttle/escape/centcom)
 "gJu" = (
 /obj/effect/floor_decal/industrial/warning{
 	icon_state = "warning";
@@ -22112,9 +22097,6 @@
 	dir = 1
 	},
 /area/centcom/living)
-"kfH" = (
-/turf/simulated/shuttle/wall/destructible,
-/area/shuttle/escape/centcom)
 "knY" = (
 /obj/structure/bed/chair,
 /obj/machinery/light{
@@ -22128,6 +22110,11 @@
 	dir = 4
 	},
 /area/centcom/living)
+"lfg" = (
+/obj/structure/window/shuttle,
+/obj/structure/grille,
+/turf/simulated/shuttle/floor/plating/destructible,
+/area/shuttle/escape/centcom)
 "lpW" = (
 /obj/machinery/computer/borgupload,
 /turf/unsimulated/floor{
@@ -22238,6 +22225,17 @@
 	dir = 8
 	},
 /area/centcom/living)
+"oPH" = (
+/obj/machinery/light{
+	dir = 8;
+	icon_state = "tube1";
+	pixel_x = 0
+	},
+/turf/unsimulated/floor{
+	dir = 8;
+	icon_state = "wood"
+	},
+/area/centcom/legion_base/hangar5)
 "oQu" = (
 /obj/effect/wingrille_spawn/reinforced/crescent,
 /turf/unsimulated/wall/riveted,
@@ -22290,6 +22288,13 @@
 /obj/item/weapon/material/shard,
 /turf/unsimulated/floor,
 /area/template_noop)
+"pDy" = (
+/obj/machinery/light{
+	dir = 4;
+	status = 0
+	},
+/turf/simulated/shuttle/floor/destructible,
+/area/shuttle/escape/centcom)
 "pFA" = (
 /obj/structure/closet/crate/loot,
 /turf/simulated/shuttle/floor,
@@ -22522,6 +22527,10 @@
 	icon_state = "cafeteria"
 	},
 /area/centcom/legion_base)
+"vZD" = (
+/obj/structure/bed/chair,
+/turf/simulated/shuttle/floor/destructible,
+/area/shuttle/escape/centcom)
 "wdy" = (
 /obj/structure/bed/chair,
 /obj/effect/decal/cleanable/vomit,
@@ -23959,13 +23968,6 @@
 	name = "plating"
 	},
 /area/centcom/legion_base/hangar5)
-"xtk" = (
-/obj/machinery/light{
-	dir = 4;
-	status = 0
-	},
-/turf/simulated/shuttle/floor/destructible,
-/area/shuttle/escape/centcom)
 "xtl" = (
 /obj/structure/table/rack,
 /obj/item/weapon/rig/retro/equipped,
@@ -26381,14 +26383,9 @@
 	},
 /area/centcom/legion_base)
 "xRt" = (
+/obj/item/weapon/shield/energy/legion,
+/obj/item/weapon/melee/energy/sword/knife,
 /obj/structure/table/rack,
-/obj/item/weapon/rig/retro/equipped,
-/obj/machinery/light{
-	dir = 8;
-	icon_state = "tube1";
-	pixel_x = 0
-	},
-/obj/item/clothing/accessory/legion,
 /turf/unsimulated/floor{
 	dir = 8;
 	icon_state = "wood"
@@ -26649,22 +26646,10 @@
 	},
 /area/centcom/legion_base)
 "xSI" = (
-/obj/item/weapon/melee/baton/loaded,
-/obj/structure/table/wood,
-/obj/item/weapon/gun/energy/stunrevolver{
-	pixel_y = 4
-	},
-/turf/unsimulated/floor{
-	dir = 8;
-	icon_state = "wood"
-	},
-/area/centcom/legion_base/hangar5)
-"xSK" = (
 /obj/item/weapon/handcuffs,
 /obj/item/device/flash,
 /obj/item/clothing/glasses/sunglasses/sechud/tactical,
 /obj/item/weapon/storage/belt/security/tactical,
-/obj/structure/table/wood,
 /obj/item/clothing/accessory/storage/black_vest{
 	pixel_x = 2;
 	pixel_y = -4
@@ -26672,6 +26657,22 @@
 /obj/item/clothing/glasses/night{
 	pixel_x = -2;
 	pixel_y = 6
+	},
+/obj/item/weapon/gun/energy/stunrevolver{
+	pixel_y = 4
+	},
+/obj/item/weapon/melee/baton/loaded,
+/obj/structure/table/rack,
+/turf/unsimulated/floor{
+	dir = 8;
+	icon_state = "wood"
+	},
+/area/centcom/legion_base/hangar5)
+"xSK" = (
+/obj/structure/table/wood,
+/obj/item/weapon/storage/box/flashbangs{
+	pixel_x = 2;
+	pixel_y = 4
 	},
 /turf/unsimulated/floor{
 	dir = 8;
@@ -26861,12 +26862,10 @@
 	icon_state = "dark"
 	},
 /area/centcom/legion_base)
-"xTY" = (
-/obj/structure/table/wood,
-/obj/item/weapon/storage/box/flashbangs{
-	pixel_x = 0;
-	pixel_y = 0
-	},
+"xTW" = (
+/obj/structure/table/rack,
+/obj/item/weapon/rig/retro/equipped,
+/obj/item/clothing/accessory/legion,
 /turf/unsimulated/floor{
 	dir = 8;
 	icon_state = "wood"
@@ -27075,15 +27074,16 @@
 "xVt" = (
 /obj/structure/table/reinforced,
 /obj/item/weapon/storage/firstaid/adv{
-	pixel_x = -1;
-	pixel_y = 8
+	pixel_x = 5;
+	pixel_y = 12
 	},
 /obj/item/weapon/storage/firstaid/adv{
-	pixel_x = -6;
-	pixel_y = 4
+	pixel_x = 0;
+	pixel_y = 9
 	},
 /obj/item/weapon/storage/firstaid/surgery{
-	pixel_x = 8
+	pixel_x = 6;
+	pixel_y = -8
 	},
 /turf/unsimulated/floor{
 	icon_state = "floor3"
@@ -27619,11 +27619,6 @@
 /obj/structure/table/wood,
 /obj/item/weapon/pinpointer/advpinpointer,
 /obj/item/weapon/aicard,
-/obj/machinery/light{
-	dir = 8;
-	icon_state = "tube1";
-	pixel_x = 0
-	},
 /turf/unsimulated/floor{
 	dir = 8;
 	icon_state = "wood"
@@ -70403,8 +70398,8 @@ yis
 yic
 yis
 yjp
-kfH
-kfH
+bIj
+bIj
 yjp
 yjN
 aJF
@@ -70641,27 +70636,27 @@ yjN
 ycz
 yjp
 yjp
-kfH
-gvN
-kfH
-gvN
-gvN
-kfH
+bIj
+lfg
+bIj
+lfg
+lfg
+bIj
 aEW
-kfH
-gvN
-kfH
+bIj
+lfg
+bIj
 aWj
 aWj
 aWj
-kfH
-gvN
-kfH
+bIj
+lfg
+bIj
 aGc
-kfH
-kfH
-kfH
-kfH
+bIj
+bIj
+bIj
+bIj
 yjp
 yjN
 aHK
@@ -70897,23 +70892,23 @@ auT
 yjN
 ycz
 aCO
-kfH
-kfH
+bIj
+bIj
 aVG
-kfH
-cKO
-fns
+bIj
+vZD
+gGu
 aVL
-fns
-kfH
+gGu
+bIj
 aOC
 aDs
 aDs
 aDs
 aDs
-fns
+gGu
 aWC
-kfH
+bIj
 aWH
 aWU
 aXa
@@ -71153,23 +71148,23 @@ aBQ
 auT
 yjN
 ycz
-gvN
-gvN
+lfg
+lfg
 aGQ
 aFZ
-kfH
+bIj
 aIx
-fns
+gGu
 aVS
-xtk
+pDy
 aOX
-fns
+gGu
 aDs
 aVP
 aDs
 aDs
-fns
-fns
+gGu
+gGu
 aIC
 aWu
 aWu
@@ -71410,23 +71405,23 @@ aBR
 auT
 yjN
 ycz
-gvN
+lfg
 aVC
 aFu
 aGQ
-kfH
+bIj
 aCP
 aOX
-kfH
-kfH
-kfH
-gvN
-gvN
-kfH
-gvN
-gvN
-fns
-fns
+bIj
+bIj
+bIj
+lfg
+lfg
+bIj
+lfg
+lfg
+gGu
+gGu
 aCQ
 aWI
 aWV
@@ -71667,14 +71662,14 @@ ajK
 auT
 yjN
 ycz
-gvN
+lfg
 aFn
 aFz
 aGN
 aGQ
 aXp
 aVH
-kfH
+bIj
 aVQ
 aVU
 aWc
@@ -71682,9 +71677,9 @@ aWc
 aWk
 aWc
 aWm
-fns
+gGu
 aWF
-kfH
+bIj
 aWN
 aWu
 aWu
@@ -71924,7 +71919,7 @@ aBq
 auT
 yjN
 ycz
-gvN
+lfg
 aFq
 aFA
 aGO
@@ -71932,15 +71927,15 @@ aGQ
 aPe
 aVI
 aVE
-fns
-fns
-fns
-fns
-fns
-fns
-fns
-fns
-fns
+gGu
+gGu
+gGu
+gGu
+gGu
+gGu
+gGu
+gGu
+gGu
 aCQ
 aWv
 aWW
@@ -72181,14 +72176,14 @@ aBT
 auT
 yjN
 ycz
-gvN
+lfg
 aFs
 aFB
 aGP
 aID
 aPi
 aVM
-kfH
+bIj
 aVR
 aVV
 aWd
@@ -72196,14 +72191,14 @@ aWd
 aWd
 aWd
 aWn
-fns
+gGu
 aVH
-kfH
-kfH
-kfH
-kfH
-kfH
-kfH
+bIj
+bIj
+bIj
+bIj
+bIj
+bIj
 yjp
 yjN
 aJH
@@ -72438,14 +72433,14 @@ aBT
 auT
 yjN
 ycz
-gvN
+lfg
 aFq
 aFB
 aHM
 aID
 aPi
 aVM
-kfH
+bIj
 aVR
 aVU
 aWc
@@ -72453,14 +72448,14 @@ aWc
 aWc
 aWc
 aWm
-fns
-fns
+gGu
+gGu
 aWs
 aWO
 aWX
 aXb
-kfH
-kfH
+bIj
+bIj
 yjp
 yjN
 aJH
@@ -72695,7 +72690,7 @@ aBT
 auT
 yjN
 ycz
-gvN
+lfg
 aFq
 aFA
 aGO
@@ -72703,15 +72698,15 @@ aGQ
 aVB
 aVI
 aVE
-fns
-fns
-fns
-fns
-fns
-fns
-fns
-fns
-fns
+gGu
+gGu
+gGu
+gGu
+gGu
+gGu
+gGu
+gGu
+gGu
 aCQ
 aVX
 aGQ
@@ -72952,23 +72947,23 @@ aBT
 auT
 yjN
 ycz
-gvN
+lfg
 aFt
 aFO
 aIg
 aGQ
 aXq
 aVH
-kfH
-fns
+bIj
+gGu
 aVV
 aWd
 aWd
 aWd
 aWd
 aWn
-fns
-fns
+gGu
+gGu
 aCQ
 aVX
 aGQ
@@ -73209,23 +73204,23 @@ aBq
 auT
 yjN
 ycz
-gvN
+lfg
 aDK
 aVF
 aGQ
-kfH
-kfH
-kfH
-kfH
-fns
+bIj
+bIj
+bIj
+bIj
+gGu
 aVU
 aWc
 aWc
 aWc
 aWc
 aWm
-fns
-fns
+gGu
+gGu
 aCQ
 aWR
 aGQ
@@ -73466,24 +73461,24 @@ aBT
 auT
 yjN
 yjp
-gvN
-gvN
+lfg
+lfg
 aGQ
 aIf
-kfH
+bIj
 aVD
 aVJ
 aVN
-fns
-fns
-fns
-fns
-fns
-fns
-fns
-fns
+gGu
+gGu
+gGu
+gGu
+gGu
+gGu
+gGu
+gGu
 aWF
-kfH
+bIj
 aWS
 aWY
 aXc
@@ -73724,13 +73719,13 @@ auT
 yjN
 yjp
 yjp
-kfH
-kfH
+bIj
+bIj
 aVG
-kfH
+bIj
 aWB
 aVK
-kfH
+bIj
 aVT
 aVV
 aWd
@@ -73738,9 +73733,9 @@ aWd
 aWl
 aWd
 aWn
-fns
+gGu
 aWD
-kfH
+bIj
 aWT
 aWZ
 aXd
@@ -73982,27 +73977,27 @@ yjN
 yjp
 yjp
 yjp
-kfH
-gvN
-kfH
-gvN
-gvN
-kfH
-kfH
-gvN
-gvN
-gvN
-kfH
-gvN
-gvN
-gvN
-kfH
-kfH
-gvN
-gvN
-kfH
-kfH
-kfH
+bIj
+lfg
+bIj
+lfg
+lfg
+bIj
+bIj
+lfg
+lfg
+lfg
+bIj
+lfg
+lfg
+lfg
+bIj
+bIj
+lfg
+lfg
+bIj
+bIj
+bIj
 yjp
 yjN
 aJH
@@ -74258,8 +74253,8 @@ yjp
 yjp
 yjp
 yjp
-kfH
-kfH
+bIj
+bIj
 yjp
 yjN
 aJH
@@ -85429,10 +85424,10 @@ xLS
 xNq
 xOI
 xZe
-dZP
-xSI
 xRt
-xYC
+xSI
+xTW
+oPH
 xWx
 xXF
 xYg
@@ -85945,8 +85940,8 @@ xYv
 xZe
 xRv
 xSK
-xTY
 xVm
+xYC
 xpa
 xXH
 xYi
