@@ -14,7 +14,7 @@
 
 /obj/item/weapon/shuttle_parts/einstein/ignition_chamber
 	name = "Ignition chamber"
-	desc = "An elegantly designed and compact, yet suprisingly light, ignition chamber. Only as durable as it needs to be for a short-lived rocket booster. The markings of Einstein Engines is stamped along its bottom."
+	desc = "An elegantly designed and compact, yet suprisingly light, ignition chamber. Only as durable as it needs to be for a short-lived rocket booster. The markings of Einstein Engines are stamped along its bottom."
 	icon_state = "ignition_chamber"
 	w_class = 3.0
 

@@ -64,6 +64,7 @@
 
 /obj/structure/shuttle/engine/propulsion/temp
 	name = "emergency engine"
+	desc = "An Einstein Engines emergency booster engine, intended to be fit onto shuttles which have damaged their propulsion systems. It acts as a band-aid solution to provide an otherwise stranded ship the necessary delta-v to get to a repair dock."
 	icon_state = "EE_Booster"
 	var/list/component_parts = list()
 
