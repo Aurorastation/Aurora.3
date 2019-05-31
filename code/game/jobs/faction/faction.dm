@@ -1,10 +1,13 @@
 /datum/faction
 	var/name
 	var/description
+
 	var/list/allowed_role_names
 	var/list/allowed_race_names
-	var/list/titles_to_loadout = list()
+
 	var/is_default = FALSE
+
+	var/list/titles_to_loadout = list()
 
 /datum/faction/proc/get_occupations()
 	. = list()
@@ -37,7 +40,7 @@
 /datum/faction/einstein_engines
 	name = "Einstein Engines"
 	description = "Nikola Tesla is great."
-	allowed_role_names = list("Station Engineer", "Atmospherics Technician")
+	allowed_role_names = list("Station Engineer", "Atmospheric Technician")
 
 /datum/faction/ncropolis
 	name = "Necropolis"
