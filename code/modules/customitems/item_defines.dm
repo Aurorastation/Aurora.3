@@ -2868,10 +2868,27 @@ All custom items with worn sprites must follow the contained sprite system: http
 	contained_sprite = TRUE
 
 
-/obj/item/clothing/suit/storage/fluff/imari_hoodie //adinkra hoodie - Imari Idris - P - ornias
+/obj/item/clothing/suit/storage/fluff/imari_hoodie //Adinkra Hoodie - Imari Idris - P - ornias
 	name = "adinkra hoodie"
 	desc = "A large, immaculate white hoodie adorned with seven Adinkra symbols on the back. Below the large central symbol is the text \"MMERE DANE\". There is a small 'Idris Incorporated' logo below the left drawstring."
 	icon = 'icons/obj/custom_items/imari_hoodie.dmi'
 	icon_state = "imari_hoodie"
 	item_state = "imari_hoodie"
+	contained_sprite = TRUE
+
+
+/obj/item/weapon/reagent_containers/glass/bucket/fluff/khasan_bucket //Battered Metal Bucket - Khasan Mikhnovsky - alberyk
+	name = "battered metal bucket"
+	desc = "A battered rusty metal bucket. It has seen a lot of use and little maintenance."
+	icon = 'icons/obj/custom_items/khasan_bucket.dmi'
+	icon_state = "khasan_bucket"
+	item_state = "khasan_bucket"
+	contained_sprite = TRUE
+	helmet_type = /obj/item/clothing/head/helmet/bucket/fluff/khasan_bucket
+
+/obj/item/clothing/head/helmet/bucket/fluff/khasan_bucket
+	name = "battered metal bucket helmet"
+	icon = 'icons/obj/custom_items/khasan_bucket.dmi'
+	icon_state = "khasan_helmet"
+	item_state = "khasan_helmet"
 	contained_sprite = TRUE
