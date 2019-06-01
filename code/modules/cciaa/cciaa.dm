@@ -79,7 +79,7 @@
 	M.equip_to_slot_or_del(new /obj/item/clothing/shoes/laceup(M), slot_shoes)
 	M.equip_to_slot_or_del(new /obj/item/clothing/gloves/white(M), slot_gloves)
 	M.equip_to_slot_or_del(new /obj/item/device/radio/headset/ert/ccia(M), slot_l_ear)
-	M.equip_to_slot_or_del(new /obj/item/clothing/glasses/sunglasses/sechud(M), slot_glasses)
+	M.equip_to_slot_or_del(new /obj/item/clothing/glasses/sunglasses/sechud/aviator(M), slot_glasses)
 	M.equip_to_slot_or_del(new /obj/item/clothing/head/beret/centcom/officer(M), slot_head)
 	M.equip_to_slot_or_del(new /obj/item/weapon/reagent_containers/spray/pepper(M), slot_l_store)
 	M.equip_to_slot_or_del(new /obj/item/device/taperecorder/cciaa(M), slot_r_store)

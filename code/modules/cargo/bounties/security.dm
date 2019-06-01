@@ -14,7 +14,7 @@
 	name = "Security HUDSunglasses"
 	description = "%BOSSSHORT screwed up and ordered the wrong type of security sunglasses. They request the station ship some of theirs."
 	reward = 800
-	wanted_types = list(/obj/item/clothing/glasses/sunglasses/sechud)
+	wanted_types = list(/obj/item/clothing/glasses/sunglasses/sechud/aviator)
 
 /datum/bounty/item/security/riotshotgun
 	name = "Riot Shotguns"

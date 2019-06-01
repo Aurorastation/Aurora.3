@@ -139,7 +139,6 @@
 		new /obj/item/weapon/cartridge/hos(src)
 		new /obj/item/device/radio/headset/heads/hos(src)
 		new /obj/item/weapon/storage/box/tranquilizer(src)
-		new /obj/item/clothing/glasses/sunglasses/sechud(src)
 		new /obj/item/clothing/glasses/sunglasses/sechud/head(src)
 		new /obj/item/weapon/shield/riot/tact(src)
 		new /obj/item/weapon/melee/baton/loaded(src)
@@ -219,7 +218,6 @@
 		new /obj/item/weapon/cartridge/security(src)
 		new /obj/item/device/radio/headset/headset_sec(src)
 		new /obj/item/clothing/glasses/sunglasses/sechud/aviator(src)
-		new /obj/item/clothing/glasses/sunglasses/sechud(src)
 		new /obj/item/taperoll/police(src)
 		new /obj/item/weapon/reagent_containers/spray/pepper(src)
 		new /obj/item/weapon/melee/baton/loaded(src)
@@ -282,7 +280,6 @@
 		//Tools
 		new /obj/item/device/radio/headset/headset_sec(src)
 		new /obj/item/clothing/glasses/sunglasses/sechud/aviator(src)
-		new /obj/item/clothing/glasses/sunglasses/sechud(src)
 		new /obj/item/ammo_magazine/c45m/rubber(src)
 		new /obj/random/handgun(src)
 		new /obj/item/weapon/gun/energy/taser(src)
