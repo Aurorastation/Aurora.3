@@ -30,7 +30,7 @@
 	var/locked = 1			//if the turret's behaviour control access is locked
 	var/controllock = 0		//if the turret responds to control panels
 
-	var/installation = /obj/item/weapon/gun/energy/gun		//the type of weapon installed
+	var/obj/item/weapon/gun/energy/installation = /obj/item/weapon/gun/energy/gun //the type of weapon installed
 	var/gun_charge = 0		//the charge of the gun inserted
 	var/reqpower = 500		//holder for power needed
 	var/lethal_icon = 0		//holder for the icon_state. 1 for lethal sprite, null for stun sprite.
@@ -68,6 +68,25 @@
 
 	var/wrenching = 0
 	var/last_target			//last target fired at, prevents turrets from erratically firing at all valid targets in range
+	var/list/targets = list()			//list of primary targets
+	var/list/secondarytargets = list()	//targets that are least important
+	var/resetting = FALSE
+	var/fast_processing = FALSE
+
+/obj/machinery/porta_turret/examine(mob/user)
+	..()
+	var/msg = ""
+	if(!health)
+		msg += span("danger", "\The [src] is destroyed!")
+	else if(health / maxhealth < 0.35)
+		msg += span("danger", "\The [src] is critically damaged!")
+	else if(health / maxhealth < 0.6)
+		msg += span("warning", "\The [src] is badly damaged!")
+	else if(health / maxhealth < 1)
+		msg += span("notice", "\The [src] is slightly damaged!")	
+	else
+		msg += span("good", "\The [src] is not damaged!")
+	to_chat(user, msg)
 
 /obj/machinery/porta_turret/crescent
 	enabled = FALSE
@@ -102,6 +121,14 @@
 	. = ..()
 	//Sets up a spark system
 	spark_system = bind_spark(src, 5)
+	if(!istype(installation, /obj/item/weapon/gun/energy))
+		installation = new installation(src)
+	if(installation)
+		if(installation.fire_delay_wielded > 0)
+			shot_delay = max(installation.fire_delay_wielded, 4)
+		else
+			shot_delay = max(installation.fire_delay, 4)
+		name = "[installation.name] [name]"
 
 	var/area/control_area = get_area(src)
 	if(istype(control_area))
@@ -115,6 +142,7 @@
 			if(SOME_TC.lethal != lethal && !egun)
 				SOME_TC.enabled = 0
 			src.setState(SOME_TC)
+	START_PROCESSING(SSprocessing, src)
 
 /obj/machinery/porta_turret/Destroy()
 	var/area/control_area = get_area(src)
@@ -124,6 +152,11 @@
 			aTurretID.turretModes()
 	qdel(spark_system)
 	spark_system = null
+	if(fast_processing)
+		STOP_PROCESSING(SSfast_process, src)
+	else
+		STOP_PROCESSING(SSprocessing, src)
+	
 	. = ..()
 
 
@@ -160,42 +193,43 @@
 	return 0
 
 /obj/machinery/porta_turret/attack_ai(mob/user)
-	if(isLocked(user))
-		return
-
 	ui_interact(user)
 
 /obj/machinery/porta_turret/attack_hand(mob/user)
-	if(isLocked(user))
-		return
-
 	ui_interact(user)
 
-/obj/machinery/porta_turret/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
-	var/data[0]
-	data["access"] = !isLocked(user)
-	data["locked"] = locked
-	data["enabled"] = enabled
-	data["is_lethal"] = 1
-	data["lethal"] = lethal
-	data["can_switch"] = egun
+/obj/machinery/porta_turret/vueui_data_change(var/list/data, var/mob/user, var/datum/vueui/ui)
+	. = ..()
+	data = . || data
+	if(!data)
+		data = list()
+	VUEUI_SET_CHECK(data["locked"], locked, ., data)
+	VUEUI_SET_CHECK(data["enabled"], enabled, ., data)
+	VUEUI_SET_CHECK(data["is_lethal"], 1, ., data)
+	VUEUI_SET_CHECK(data["lethal"], lethal, ., data)
+	VUEUI_SET_CHECK(data["can_switch"], egun, ., data)
 
-	if(data["access"])
-		var/settings[0]
-		settings[++settings.len] = list("category" = "Neutralize All Non-Synthetics", "setting" = "check_synth", "value" = check_synth)
-		settings[++settings.len] = list("category" = "Check Weapon Authorization", "setting" = "check_weapons", "value" = check_weapons)
-		settings[++settings.len] = list("category" = "Check Security Records", "setting" = "check_records", "value" = check_records)
-		settings[++settings.len] = list("category" = "Check Arrest Status", "setting" = "check_arrest", "value" = check_arrest)
-		settings[++settings.len] = list("category" = "Check Access Authorization", "setting" = "check_access", "value" = check_access)
-		settings[++settings.len] = list("category" = "Check misc. Lifeforms", "setting" = "check_anomalies", "value" = check_anomalies)
-		data["settings"] = settings
+	var/usedSettings = list(
+		"check_synth" = "Neutralize All Non-Synthetics",
+		"check_weapons" = "Check Weapon Authorization",
+		"check_records" = "Check Security Records",
+		"check_arrest" ="Check Arrest Status",
+		"check_access" = "Check Access Authorization",
+		"check_anomalies" = "Check misc. Lifeforms"
+	)
+	VUEUI_SET_IFNOTSET(data["settings"], list(), ., data)
+	for(var/v in usedSettings)
+		var/name = usedSettings[v]
+		VUEUI_SET_IFNOTSET(data["settings"][v], list(), ., data)
+		data["settings"][v]["category"] = name
+		VUEUI_SET_CHECK(data["settings"][v]["value"], vars[v], ., data)
 
-	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
+
+/obj/machinery/porta_turret/ui_interact(mob/user)
+	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
 	if (!ui)
-		ui = new(user, src, ui_key, "turret_control.tmpl", "Turret Controls", 500, 300)
-		ui.set_initial_data(data)
-		ui.open()
-		ui.set_auto_update(1)
+		ui = new(user, src, "turrets-control", 375, 725, "Turret Controls")
+	ui.open()
 
 /obj/machinery/porta_turret/proc/HasController()
 	var/area/A = get_area(src)
@@ -215,15 +249,21 @@
 
 	return ..()
 
-
 /obj/machinery/porta_turret/Topic(href, href_list)
-	if(..())
-		return 1
-
-	if(href_list["command"] && href_list["value"])
+	if(href_list["command"] && !isnull(href_list["value"]))
 		var/value = text2num(href_list["value"])
 		if(href_list["command"] == "enable")
 			enabled = value
+			if (enabled)
+				START_PROCESSING(SSprocessing, src)
+				fast_processing = FALSE
+			else if(fast_processing)
+				STOP_PROCESSING(SSfast_process, src)
+				fast_processing = FALSE
+				popDown()
+			else
+				STOP_PROCESSING(SSprocessing, src)
+				popDown()
 		else if(href_list["command"] == "lethal")
 			lethal = value
 			lethal_icon = value
@@ -239,7 +279,7 @@
 			check_access = value
 		else if(href_list["command"] == "check_anomalies")
 			check_anomalies = value
-
+		SSvueui.check_uis_for_change(src)
 		return 1
 
 /obj/machinery/porta_turret/power_change()
@@ -263,9 +303,8 @@
 				if(prob(70) && !no_salvage)
 					to_chat(user, "<span class='notice'>You remove the turret and salvage some components.</span>")
 					if(installation)
-						var/obj/item/weapon/gun/energy/Gun = new installation(loc)
-						Gun.power_supply.charge = gun_charge
-						Gun.update_icon()
+						installation.forceMove(loc)
+						installation = null
 					if(prob(50))
 						new /obj/item/stack/material/steel(loc, rand(1,4))
 					if(prob(50))
@@ -317,7 +356,29 @@
 			updateUsrDialog()
 		else
 			to_chat(user, "<span class='notice'>Access denied.</span>")
-
+	
+	else if(I.iswelder())
+		var/obj/item/weapon/weldingtool/WT = I
+		if (!WT.welding)
+			to_chat(user, "<span class='danger'>\The [WT] must be turned on!</span>")
+			return
+		else if (health == maxhealth)
+			to_chat(user, "<span class='notice'>\The [src] is fully repaired.</span>")
+			return
+		else if (WT.remove_fuel(3, user))
+			to_chat(user, "<span class='notice'>Now welding \the [src].</span>")
+			if(do_after(user, 5))
+				if(QDELETED(src) || !WT.isOn())
+					return
+				playsound(src.loc, 'sound/items/Welder2.ogg', 50, 1)
+				health += maxhealth / 3
+				health = min(maxhealth, health)
+				return
+			else
+				to_chat(user, "<span class='notice'>You fail to complete the welding.</span>")
+		else
+			to_chat(user, "<span class='warning'>You need more welding fuel to complete this task.</span>")
+			return 1
 	else
 		//if the turret was attacked with the intention of harming it:
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
@@ -325,11 +386,11 @@
 		if(I.force * 0.5 > 1) //if the force of impact dealt at least 1 damage, the turret gets pissed off
 			if(!attacked && !emagged)
 				attacked = 1
-				addtimer(CALLBACK(src, .proc/reset_attacked), 6 SECONDS, TIMER_UNIQUE | TIMER_OVERRIDE)
+				addtimer(CALLBACK(src, .proc/reset_attacked), 1 SECONDS, TIMER_UNIQUE | TIMER_OVERRIDE)
 		..()
 
 /obj/machinery/porta_turret/proc/reset_attacked()
-	attacked = 0
+	attacked = FALSE
 
 /obj/machinery/porta_turret/emag_act(var/remaining_charges, var/mob/user)
 	if(!emagged)
@@ -340,6 +401,7 @@
 		emagged = 1
 		lethal_icon = 1
 		controllock = 1
+		shot_delay = shot_delay / 2
 		enabled = 0 //turns off the turret temporarily
 		sleep(60) //6 seconds for the traitor to gtfo of the area before the turret decides to ruin his shit
 		enabled = 1 //turns it back on. The cover popUp() popDown() are automatically called in process(), no need to define it here
@@ -409,9 +471,8 @@
 	spark_system.queue()	//creates some sparks because they look cool
 	update_icon()
 
-/obj/machinery/porta_turret/machinery_process()
+/obj/machinery/porta_turret/process()
 	//the main machinery process
-
 	if(stat & (NOPOWER|BROKEN))
 		//if the turret has no power or is broken, make the turret pop down if it hasn't already
 		popDown()
@@ -422,8 +483,8 @@
 		popDown()
 		return
 
-	var/list/targets = list()			//list of primary targets
-	var/list/secondarytargets = list()	//targets that are least important
+	targets = list()
+	secondarytargets = list()
 
 	for(var/v in view(world.view, src))
 		if(isliving(v))
@@ -435,12 +496,29 @@
 				secondarytargets += M
 
 	if(!tryToShootAt(targets))
-		if(!tryToShootAt(secondarytargets)) // if no valid targets, go for secondary targets
-			popDown() // no valid targets, close the cover
+		if(!tryToShootAt(secondarytargets) && !resetting) // if no valid targets, go for secondary targets
+			resetting = TRUE
+			addtimer(CALLBACK(src, .proc/reset), 6 SECONDS, TIMER_UNIQUE | TIMER_OVERRIDE) // no valid targets, close the cover
+	
+	if(targets.len || secondarytargets.len)
+		if(!fast_processing)
+			STOP_PROCESSING(SSprocessing, src)
+			START_PROCESSING(SSfast_process, src)
+			fast_processing = TRUE
+	else
+		if(fast_processing)
+			STOP_PROCESSING(SSfast_process, src)
+			START_PROCESSING(SSprocessing, src)
+			fast_processing = FALSE
 
 	if(auto_repair && (health < maxhealth))
 		use_power(20000)
 		health = min(health+1, maxhealth) // 1HP for 20kJ
+
+/obj/machinery/porta_turret/proc/reset()
+	if(!targets.len && !secondarytargets.len)
+		popDown()
+	resetting = FALSE
 
 /obj/machinery/porta_turret/proc/assess_and_assign(var/mob/living/L, var/list/targets, var/list/secondarytargets)
 	switch(assess_living(L))
@@ -582,15 +660,12 @@
 	return
 
 /obj/machinery/porta_turret/proc/reset_last_fired()
-	last_fired = 0
+	last_fired = FALSE
 
 /obj/machinery/porta_turret/proc/shootAt(var/mob/living/target)
 	//any emagged turrets will shoot extremely fast! This not only is deadly, but drains a lot power!
-	if(!(emagged || attacked))		//if it hasn't been emagged or attacked, it has to obey a cooldown rate
-		if(last_fired || !raised)	//prevents rapid-fire shooting, unless it's been emagged
-			return
-		last_fired = 1
-		addtimer(CALLBACK(src, .proc/reset_last_fired), shot_delay)
+	if(last_fired || !raised)	//prevents rapid-fire shooting, unless it's been emagged
+		return
 
 	var/turf/T = get_turf(src)
 	var/turf/U = get_turf(target)
@@ -618,6 +693,8 @@
 	var/def_zone = get_exposed_defense_zone(target)
 	//Shooting Code:
 	A.launch_projectile(target, def_zone)
+	last_fired = TRUE
+	addtimer(CALLBACK(src, .proc/reset_last_fired), shot_delay, TIMER_UNIQUE | TIMER_OVERRIDE)
 
 /datum/turret_checks
 	var/enabled
@@ -634,6 +711,14 @@
 	if(controllock)
 		return
 	src.enabled = TC.enabled
+	if (enabled)
+		START_PROCESSING(SSprocessing, src)
+		fast_processing = FALSE
+	else if(fast_processing)
+		STOP_PROCESSING(SSprocessing, src)
+		fast_processing = FALSE
+	else
+		STOP_PROCESSING(SSfast_process, src)
 	if(egun) //If turret can switch modes.
 		src.lethal = TC.lethal
 		src.lethal_icon = TC.lethal
@@ -662,7 +747,7 @@
 	var/target_type = /obj/machinery/porta_turret	// The type we intend to build
 	var/build_step = 0			//the current step in the building process
 	var/finish_name = "turret"	//the name applied to the product turret
-	var/installation = null		//the gun type installed
+	var/obj/item/weapon/gun/energy/installation = null		//the gun type installed
 	var/case_sprite_set = 0		//sprite set the turret case will use
 	var/obj/item/weapon/gun/energy/E = null
 
@@ -747,7 +832,7 @@
 					to_chat(user, "<span class='notice'>You install [I] into the turret.</span>")
 					user.drop_from_inventory(E,src)
 					target_type = /obj/machinery/porta_turret
-					installation = I.type //installation becomes I.type
+					installation = I //installation becomes I.type
 					build_step = 4
 					icon_state = "turret_frame_4_[case_sprite_set]"
 					add_overlay("turret_[E.turret_sprite_set]_off")
@@ -844,13 +929,13 @@
 					Turret.lethal_icon = E.turret_is_lethal
 					// Check if gun has wielded delay, turret will have same fire rate as the gun.
 					if(E.fire_delay_wielded > 0)
-						Turret.shot_delay = E.fire_delay_wielded
+						Turret.shot_delay = max(E.fire_delay_wielded, 4)
 					else
-						Turret.shot_delay = E.fire_delay
+						Turret.shot_delay = max(E.fire_delay, 4)
 
 					Turret.cover_set = case_sprite_set
 					Turret.icon_state = "cover_[case_sprite_set]"
-
+					START_PROCESSING(SSprocessing, Turret)
 					qdel(src) // qdel
 
 			else if(I.iscrowbar())
