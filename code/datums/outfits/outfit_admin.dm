@@ -153,7 +153,7 @@
 	shoes = /obj/item/clothing/shoes/swat
 	gloves = /obj/item/clothing/gloves/swat
 	l_ear = /obj/item/device/radio/headset/ert
-	glasses = /obj/item/clothing/glasses/sunglasses/sechud
+	glasses = /obj/item/clothing/glasses/sunglasses/sechud/aviators
 	head = /obj/item/clothing/head/beret/centcom/officer
 
 	backpack_contents = list(
@@ -176,7 +176,7 @@
 	shoes = /obj/item/clothing/shoes/swat
 	gloves = /obj/item/clothing/gloves/swat
 	l_ear = /obj/item/device/radio/headset/ert
-	glasses = /obj/item/clothing/glasses/sunglasses/sechud
+	glasses = /obj/item/clothing/glasses/sunglasses/sechud/head
 	head = /obj/item/clothing/head/beret/centcom/commander
 
 	backpack_contents = list(
