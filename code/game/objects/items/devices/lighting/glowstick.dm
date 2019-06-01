@@ -30,9 +30,7 @@
 		icon_state = "[initial(icon_state)]-empty"
 		set_light(0)
 	else if(on)
-		var/image/I = image(icon,"[initial(icon_state)]-on",color)
-		I.blend_mode = BLEND_ADD
-		overlays += I
+		icon_state = "[initial(icon_state)]-on"
 		item_state = "[initial(icon_state)]-on"
 		set_light(brightness_on)
 	else
@@ -63,6 +61,7 @@
 		"<span class='notice'>[user] cracks and shakes \the [src].</span>",
 		"<span class='notice'>You crack and shake \the [src], turning it on!</span>"
 		)
+		update_icon()
 		START_PROCESSING(SSprocessing, src)
 
 /obj/item/device/flashlight/flare/glowstick/red

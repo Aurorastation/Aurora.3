@@ -37,17 +37,6 @@
 	attack_verb = list("HONKED")
 	var/spam_flag = 0
 
-
-/obj/item/weapon/c_tube
-	name = "cardboard tube"
-	desc = "A tube... of cardboard."
-	icon = 'icons/obj/items.dmi'
-	icon_state = "c_tube"
-	throwforce = 1
-	w_class = 2.0
-	throw_speed = 4
-	throw_range = 5
-
 /obj/item/weapon/cane
 	name = "cane"
 	desc = "A cane used by a true gentlemen. Or a clown."

@@ -124,7 +124,7 @@
 	problist = list(
 		/obj/random/powercell = 3,
 		/obj/random/technology_scanner = 2,
-		/obj/item/weapon/packageWrap = 1,
+		/obj/item/stack/packageWrap = 1,
 		/obj/random/bomb_supply = 2,
 		/obj/item/weapon/extinguisher = 1,
 		/obj/item/clothing/gloves/fyellow = 1,

@@ -31,6 +31,10 @@
 	else
 		icon_state = "[initial(icon_state)]"
 		set_light(0)
+	if (ismob(src.loc))
+		var/mob/M = src.loc
+		M.update_inv_ears()
+		M.update_inv_head()
 
 /obj/item/device/flashlight/attack_self(mob/user)
 	if(!isturf(user.loc))
@@ -121,7 +125,6 @@
 	w_class = 3
 	uv_intensity = 60
 	matter = list(DEFAULT_WALL_MATERIAL = 100,"glass" = 70)
-	contained_sprite = 1
 	light_wedge = LIGHT_SEMI
 
 /obj/item/device/flashlight/maglight
@@ -136,7 +139,6 @@
 	attack_verb = list("slammed", "whacked", "bashed", "thunked", "battered", "bludgeoned", "thrashed")
 	matter = list(DEFAULT_WALL_MATERIAL = 200,"glass" = 100)
 	hitsound = 'sound/weapons/smash.ogg'
-	contained_sprite = 1
 	light_wedge = LIGHT_NARROW
 
 /obj/item/device/flashlight/slime
@@ -158,3 +160,15 @@
 
 /obj/item/device/flashlight/slime/attack_self(mob/user)
 	return //Bio-luminescence does not toggle.
+
+/obj/item/device/flashlight/headlights
+	name = "headlights"
+	desc = "Some nifty lamps drawing from internal battery sources to produce a light, though a dim one."
+	icon_state = "headlights"
+	item_state = "headlights"
+	flags = CONDUCT
+	slot_flags = SLOT_HEAD | SLOT_EARS
+	brightness_on = 2
+	w_class = 1
+	light_wedge = LIGHT_WIDE
+	body_parts_covered = 0
