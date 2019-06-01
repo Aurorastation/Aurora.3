@@ -8,6 +8,7 @@
 
 /datum/gear/suit/leather
 	display_name = "jacket selection"
+	description = "A selection of jackets."
 	path = /obj/item/clothing/suit/storage/toggle/leather_jacket
 
 /datum/gear/suit/leather/New()
@@ -204,6 +205,7 @@
 
 /datum/gear/suit/dominia
 	display_name = "dominia great coat selection"
+	description = "A selection of Dominian coats."
 	path = /obj/item/clothing/suit/storage/toggle/dominia
 
 /datum/gear/suit/dominia/New()
@@ -228,6 +230,10 @@
 	coat["military jacket, alternative"] = /obj/item/clothing/suit/storage/miljacket/alt
 	coat["military jacket, green"] = /obj/item/clothing/suit/storage/miljacket/green
 	gear_tweaks += new/datum/gear_tweak/path(coat)
+
+/datum/gear/suit/legion_jacket
+	display_name = "Tau Ceti Foreign Legion jacket"
+	path = /obj/item/clothing/suit/storage/legion
 
 /datum/gear/suit/miscellaneous/engi_dep_jacket
 	display_name = "department jacket, engineering"

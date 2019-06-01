@@ -3,7 +3,7 @@
 /turf/simulated/open,
 /area/mine/explored)
 "ab" = (
-/turf/simulated/floor/asteroid/ash,
+/turf/unsimulated/floor/asteroid/ash,
 /area/mine/explored)
 "ac" = (
 /turf/simulated/mineral,
@@ -1585,14 +1585,14 @@
 /area/security/checkpoint2)
 "dk" = (
 /obj/random/junk,
-/turf/simulated/floor/asteroid/ash,
+/turf/unsimulated/floor/asteroid/ash,
 /area/mine/explored)
 "dl" = (
 /turf/simulated/wall,
 /area/mine/explored)
 "dm" = (
 /obj/structure/boulder,
-/turf/simulated/floor/asteroid/ash,
+/turf/unsimulated/floor/asteroid/ash,
 /area/mine/explored)
 "dn" = (
 /obj/structure/ladder{
@@ -1605,7 +1605,7 @@
 /obj/structure/boulder{
 	icon_state = "boulder3"
 	},
-/turf/simulated/floor/asteroid/ash,
+/turf/unsimulated/floor/asteroid/ash,
 /area/mine/explored)
 "dp" = (
 /obj/structure/lattice/catwalk,
@@ -2941,7 +2941,7 @@
 /area/tcommsat/lounge)
 "Kb" = (
 /obj/random/loot,
-/turf/simulated/floor/asteroid/ash,
+/turf/unsimulated/floor/asteroid/ash,
 /area/mine/explored)
 "WJ" = (
 /obj/effect/floor_decal/industrial/warning{

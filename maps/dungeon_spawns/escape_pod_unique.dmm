@@ -40,18 +40,18 @@
 /turf/simulated/shuttle/floor,
 /area/mine/unexplored)
 "i" = (
-/turf/simulated/floor/asteroid/ash/rocky,
+/turf/unsimulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
 "j" = (
 /mob/living/simple_animal/hostile/carp/shark,
-/turf/simulated/floor/asteroid/ash/rocky,
+/turf/unsimulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
 "k" = (
 /turf/simulated/open/airless,
 /area/mine/unexplored)
 "l" = (
 /obj/structure/closet/crate/secure/loot,
-/turf/simulated/floor/asteroid/ash/rocky,
+/turf/unsimulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
 
 (1,1,1) = {"

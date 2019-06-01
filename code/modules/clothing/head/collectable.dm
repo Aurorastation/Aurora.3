@@ -1,11 +1,5 @@
 
 //Hat Station 13
-
-/obj/item/clothing/head/
-	name = "hat"
-	desc = "Apply on head."
-	drop_sound = 'sound/items/drop/hat.ogg'
-
 /obj/item/clothing/head/collectable
 	name = "collectable hat"
 	desc = "A rare collectable hat."

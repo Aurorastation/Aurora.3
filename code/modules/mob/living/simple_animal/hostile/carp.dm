@@ -67,29 +67,15 @@
 	return ..()
 
 /mob/living/simple_animal/hostile/carp/AttackingTarget()
-	setClickCooldown(attack_delay)
-	if(!Adjacent(target_mob))
+	. = ..()
+	if(.)
 		return
-	if(isliving(target_mob))
-		var/mob/living/L = target_mob
-		if(prob(15))
-			L.Weaken(3)
-			L.visible_message("<span class='danger'>\the [src] knocks down \the [L]!</span>")
-		L.attack_generic(src,rand(melee_damage_lower,melee_damage_upper),attacktext)
-		return L
-	if(istype(target_mob,/obj/mecha))
-		var/obj/mecha/M = target_mob
-		M.attack_generic(src,rand(melee_damage_lower,melee_damage_upper),attacktext)
-		return M
-	if(istype(target_mob,/obj/machinery/bot))
-		var/obj/machinery/bot/B = target_mob
-		B.attack_generic(src,rand(melee_damage_lower,melee_damage_upper),attacktext)
-		return B
 	if(istype(target_mob, /obj/effect/energy_field))
 		var/obj/effect/energy_field/e = target_mob
 		e.Stress(rand(1,2))
 		visible_message("<span class='danger'>\the [src] has attacked [e]!</span>")
 		src.do_attack_animation(e)
+		return e
 
 /mob/living/simple_animal/hostile/carp/DestroySurroundings(var/bypass_prob = FALSE)
 	if(prob(break_stuff_probability) || bypass_prob)

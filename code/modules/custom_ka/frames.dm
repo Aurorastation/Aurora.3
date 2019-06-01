@@ -3,17 +3,18 @@
 	name = "compact kinetic accelerator frame"
 	build_name = "compact"
 	icon_state = "frame01"
+	item_state = "compact"
 	desc = "A very minimal kinetic accelerator frame that holds cheap and inexpensive parts."
 	w_class = 3
 	capacity_increase = 3
 	mod_limit_increase = 2
 	origin_tech = list(TECH_MATERIAL = 1,TECH_ENGINEERING = 1)
-	slot_flags = SLOT_BELT
 
 /obj/item/weapon/gun/custom_ka/frame02
 	name = "light kinetic accelerator frame"
 	build_name = "light"
 	icon_state = "frame02"
+	item_state = "light"
 	desc = "A lightweight kinetic accelerator frame that holds standard issue parts."
 	w_class = 3
 	recoil_increase = -1
@@ -25,6 +26,7 @@
 	name = "medium kinetic accelerator frame"
 	build_name = "medium"
 	icon_state = "frame03"
+	item_state = "medium"
 	desc = "A more durable and robust kinetic accelerator frame that allows the installation of advanced parts."
 	w_class = 4
 	recoil_increase = -2
@@ -36,6 +38,7 @@
 	name = "heavy kinetic accelerator frame"
 	build_name = "heavy"
 	icon_state = "frame04"
+	item_state = "heavy"
 	desc = "A very high-tech kinetic accelerator frame that is compatable with the more experimental kinetic accelerator parts. Requires two hands to fire."
 	w_class = 5
 	recoil_increase = -5
@@ -48,6 +51,7 @@
 	name = "tactical kinetic accelerator frame"
 	build_name = "tactical"
 	icon_state = "frame05"
+	item_state = "tactical"
 	desc = "An incredibly robust and experimental kinetic accelerator frame that has has the ability to hold top of the line kinetic accelerator parts and chips. Requires two hands to fire."
 	w_class = 5
 	recoil_increase = -6
@@ -75,6 +79,7 @@
 	name = "vented kinetic accelerator frame"
 	build_name = "vented"
 	icon_state = "frameA"
+	item_state = "compact"
 	w_class = 3
 	desc = "A very specialized kinetic accelerator frame that can hold moderately powerful parts, however it contains special heat sink technology that allows the weapon to fire faster."
 	origin_tech = list(TECH_MATERIAL = 3,TECH_ENGINEERING = 3)
@@ -91,6 +96,7 @@
 	name = "ultra heavy kinetic accelerator frame"
 	build_name = "ultra heavy"
 	icon_state = "frameB"
+	item_state = "ultra"
 	desc = "A massive kinetic accelerator frame intended for unathi miners who don't mind carrying the extra weight. It's size and built in power core allows for a significant power and range increase. Requires two hands to fire."
 	w_class = 5
 	damage_increase = 10
@@ -100,11 +106,13 @@
 	mod_limit_increase = 100 //Fit anything
 	origin_tech = list(TECH_MATERIAL = 6,TECH_ENGINEERING = 6)
 	require_wield = TRUE
+	slot_flags = 0
 
 /obj/item/weapon/gun/custom_ka/frameC
 	name = "vaurca kinetic accelerator frame"
 	build_name = "vaurca"
 	icon_state = "frameC"
+	item_state = "heavy"
 	desc = "An advanced kinetic accelerator frame designed for vaurca graspers. Boasts increased recoil reduction and a lightweight alloy."
 	w_class = 4
 	recoil_increase = -10
@@ -116,6 +124,7 @@
 	name = "burst fire kinetic accelerator frame"
 	build_name = "burst-fire"
 	icon_state = "frameD"
+	item_state = "heavy"
 	desc = "A disgustingly bulky kinetic accelerator frame that supports a 3 round burstfire. You just can't seem to hold it right. Requires two hands to fire and pump."
 	firedelay_increase = (2*3)
 	w_class = 5
@@ -130,6 +139,7 @@
 	name = "large kinetic accelerator frame"
 	build_name = "large"
 	icon_state = "frameE"
+	item_state = "tactical"
 	desc = "An incredibly large kinetic accelerator frame that's meant to absorb a ton of recoil per shot while carrying large additions. Requires two hands to fire."
 	w_class = 5
 	recoil_increase = -20
@@ -142,6 +152,7 @@
 	name = "long kinetic accelerator frame"
 	build_name = "long"
 	icon_state = "frameF"
+	item_state = "tactical"
 	desc = "A lightweight long kinetic accelerator frame with increase stability and range support, at the cost of reduced firerate. Requires two hands to fire."
 	w_class = 5
 	recoil_increase = -8
