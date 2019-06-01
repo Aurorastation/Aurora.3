@@ -560,3 +560,18 @@
 	icon_state = "dish"
 	item_state = "dish"
 
+/obj/item/clothing/head/antenna/double
+	name = "antenna ears"
+	desc = "Despite being commonly seen on Shells, nobody knows what these actually do."
+	icon_state = "dual_robot_antennae"
+	item_state = "dual_robot_antennae"
+
+/obj/item/clothing/head/antenna/double/left
+	name = "left antenna ear"
+	icon_state = "left_robot_antennae"
+	item_state = "left_robot_antennae"
+
+/obj/item/clothing/head/antenna/double/right
+	name = "right antenna ear"
+	icon_state = "right_robot_antennae"
+	item_state = "right_robot_antennae"
