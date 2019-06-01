@@ -8238,7 +8238,7 @@
 	icon_state = "corner_white";
 	dir = 5
 	},
-/obj/item/weapon/packageWrap,
+/obj/item/stack/packageWrap,
 /obj/item/weapon/hand_labeler,
 /obj/structure/table/reinforced,
 /turf/simulated/floor/tiled,
@@ -20711,7 +20711,7 @@
 	c_tag = "Security - Lobby Desk"
 	},
 /obj/structure/table/standard,
-/obj/item/weapon/packageWrap,
+/obj/item/stack/packageWrap,
 /obj/item/weapon/hand_labeler,
 /turf/simulated/floor/tiled,
 /area/security/brig)
@@ -25369,7 +25369,7 @@
 	icon_state = "1-4"
 	},
 /obj/structure/table/wood,
-/obj/item/weapon/packageWrap,
+/obj/item/stack/packageWrap,
 /obj/item/weapon/hand_labeler,
 /turf/simulated/floor/wood,
 /area/crew_quarters/captain)
@@ -32732,7 +32732,7 @@
 /area/crew_quarters/heads/hop)
 "bea" = (
 /obj/structure/table/wood,
-/obj/item/weapon/packageWrap,
+/obj/item/stack/packageWrap,
 /obj/item/weapon/hand_labeler,
 /obj/structure/sign/nosmoking_2{
 	pixel_y = -32
@@ -33396,7 +33396,7 @@
 	broadcasting = 0;
 	canhear_range = 1;
 	frequency = 1487;
-	icon = 'icons/obj/items.dmi';
+	icon = 'icons/obj/radio.dmi';
 	icon_state = "red_phone";
 	listening = 1;
 	name = "Examination Room Emergency Phone";
@@ -33998,7 +33998,7 @@
 	pixel_x = 0;
 	pixel_y = 32
 	},
-/obj/item/weapon/packageWrap,
+/obj/item/stack/packageWrap,
 /obj/item/device/destTagger,
 /obj/item/weapon/hand_labeler,
 /turf/simulated/floor/tiled,
@@ -34801,7 +34801,7 @@
 /obj/machinery/door/firedoor,
 /obj/item/device/destTagger,
 /obj/item/weapon/hand_labeler,
-/obj/item/weapon/packageWrap,
+/obj/item/stack/packageWrap,
 /obj/machinery/door/blast/shutters{
 	dir = 2;
 	id = "kitchenshutters02";
@@ -36908,7 +36908,7 @@
 	},
 /obj/effect/floor_decal/corner/mauve/diagonal,
 /obj/structure/table/standard,
-/obj/item/weapon/packageWrap,
+/obj/item/stack/packageWrap,
 /obj/item/weapon/hand_labeler,
 /obj/item/weapon/reagent_containers/spray,
 /turf/simulated/floor/tiled/white,
@@ -39037,7 +39037,7 @@
 	broadcasting = 0;
 	canhear_range = 1;
 	frequency = 1487;
-	icon = 'icons/obj/items.dmi';
+	icon = 'icons/obj/radio.dmi';
 	icon_state = "red_phone";
 	listening = 1;
 	name = "Examination Room Emergency Phone";
@@ -39860,7 +39860,7 @@
 	broadcasting = 0;
 	canhear_range = 1;
 	frequency = 1487;
-	icon = 'icons/obj/items.dmi';
+	icon = 'icons/obj/radio.dmi';
 	icon_state = "red_phone";
 	listening = 1;
 	name = "Virology Lab Emergency Phone";
@@ -41818,7 +41818,7 @@
 	icon_state = "corner_white_full";
 	dir = 8
 	},
-/obj/item/weapon/packageWrap,
+/obj/item/stack/packageWrap,
 /obj/structure/table/standard,
 /obj/item/weapon/hand_labeler,
 /turf/simulated/floor/tiled/white,
@@ -44190,7 +44190,7 @@
 	broadcasting = 0;
 	canhear_range = 7;
 	frequency = 1487;
-	icon = 'icons/obj/items.dmi';
+	icon = 'icons/obj/radio.dmi';
 	icon_state = "red_phone";
 	listening = 1;
 	name = "Surgery Emergency Phone";
@@ -46402,7 +46402,7 @@
 	},
 /obj/structure/table/standard,
 /obj/item/weapon/hand_labeler,
-/obj/item/weapon/packageWrap,
+/obj/item/stack/packageWrap,
 /turf/simulated/floor/tiled/white,
 /area/rnd/lab)
 "bzT" = (
@@ -51159,7 +51159,7 @@
 	broadcasting = 0;
 	canhear_range = 7;
 	frequency = 1487;
-	icon = 'icons/obj/items.dmi';
+	icon = 'icons/obj/radio.dmi';
 	icon_state = "red_phone";
 	listening = 1;
 	name = "Surgery Emergency Phone";
@@ -56871,7 +56871,7 @@
 "bUC" = (
 /obj/structure/table/wood,
 /obj/item/weapon/reagent_containers/food/drinks/shaker,
-/obj/item/weapon/packageWrap,
+/obj/item/stack/packageWrap,
 /obj/item/weapon/book/manual/barman_recipes,
 /obj/machinery/newscaster{
 	pixel_x = -32
@@ -59278,11 +59278,11 @@
 	},
 /obj/machinery/firealarm/west,
 /obj/structure/table/standard,
-/obj/item/weapon/packageWrap,
+/obj/item/stack/packageWrap,
 /obj/item/device/destTagger,
 /obj/item/weapon/pen,
 /obj/item/weapon/hand_labeler,
-/obj/item/weapon/wrapping_paper,
+/obj/item/stack/wrapping_paper,
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/tiled,
 /area/quartermaster/lobby)
@@ -59774,8 +59774,8 @@
 "cao" = (
 /obj/structure/window/reinforced,
 /obj/structure/table/standard,
-/obj/item/weapon/packageWrap,
-/obj/item/weapon/packageWrap,
+/obj/item/stack/packageWrap,
+/obj/item/stack/packageWrap,
 /obj/machinery/alarm{
 	dir = 4;
 	icon_state = "alarm0";
@@ -61193,7 +61193,7 @@
 "ccZ" = (
 /obj/structure/disposalpipe/segment,
 /obj/structure/table/standard,
-/obj/item/weapon/packageWrap,
+/obj/item/stack/packageWrap,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/effect/floor_decal/corner/brown{
 	icon_state = "corner_white";
@@ -61345,7 +61345,7 @@
 "cdu" = (
 /obj/structure/disposalpipe/segment,
 /obj/structure/table/standard,
-/obj/item/weapon/packageWrap,
+/obj/item/stack/packageWrap,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
@@ -61504,7 +61504,7 @@
 	icon_state = "pipe-c"
 	},
 /obj/structure/table/standard,
-/obj/item/weapon/wrapping_paper,
+/obj/item/stack/wrapping_paper,
 /obj/effect/floor_decal/corner/brown/full,
 /turf/simulated/floor/tiled,
 /area/quartermaster/mail_room)
@@ -64197,7 +64197,7 @@
 	icon_state = "corner_white";
 	dir = 10
 	},
-/obj/item/weapon/packageWrap,
+/obj/item/stack/packageWrap,
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/refinery)
 "cif" = (
@@ -67092,7 +67092,7 @@
 /area/rnd/misc_lab)
 "qzz" = (
 /obj/item/weapon/clipboard,
-/obj/item/weapon/packageWrap,
+/obj/item/stack/packageWrap,
 /obj/structure/table/standard,
 /turf/simulated/floor/tiled,
 /area/maintenance/cargo)
