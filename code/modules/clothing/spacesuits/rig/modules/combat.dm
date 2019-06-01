@@ -229,6 +229,17 @@
 
 	gun_type = /obj/item/weapon/gun/energy/rifle/ionrifle/mounted
 
+/obj/item/rig_module/mounted/tesla
+
+	name = "mounted tesla carbine"
+	desc = "A shoulder-mounted battery-powered tesla carbine mount."
+	icon_state = "tesla"
+
+	interface_name = "mounted tesla carbine"
+	interface_desc = "A shoulder-mounted cell-powered tesla carbine."
+
+	gun_type = /obj/item/weapon/gun/energy/tesla/mounted
+
 /obj/item/rig_module/mounted/plasmacutter
 	name = "hardsuit plasma cutter"
 	desc = "A forearm mounted kinetic accelerator"
@@ -367,3 +378,29 @@
 	fabrication_type = /obj/item/weapon/caution
 
 	category = MODULE_GENERAL
+
+
+/obj/item/rig_module/tesla_coil
+	name = "mounted tesla coil"
+	desc = "A mounted tesla coil that discharges a powerful lightning strike around the user."
+	icon_state = "ewar"
+	interface_name = "mounted tesla coil"
+	interface_desc ="Discharges a powerful lightning strike around the user."
+
+	use_power_cost = 30
+	module_cooldown = 100
+
+	usable = 1
+
+	category = MODULE_LIGHT_COMBAT
+
+/obj/item/rig_module/tesla_coil/engage()
+	if(!..())
+		return 0
+
+	var/mob/living/carbon/human/H = holder.wearer
+
+	H.visible_message("<span class='danger'>\The [H] crackles with energy!</span>")
+	playsound(H, 'sound/magic/LightningShock.ogg', 75, 1)
+	tesla_zap(H, 5, 5000)
+	return 1
