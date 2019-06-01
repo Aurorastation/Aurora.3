@@ -1321,8 +1321,8 @@
 	//0.1% chance of playing a scary sound to someone who's in complete darkness
 	if(isturf(loc) && rand(1,1000) == 1)
 		var/turf/T = loc
-		if(T.get_lumcount() < 0.01)	// give a little bit of tolerance for near-dark areas.
-			playsound_local(src,pick(scarySounds),50, 1, -1)
+		if (T.get_lumcount() < 0.01)	// give a little bit of tolerance for near-dark areas.
+			playsound_simple(null, pick(scarySounds), 50, TRUE)
 
 /mob/living/carbon/human/proc/handle_changeling()
 	if(mind && mind.changeling)
