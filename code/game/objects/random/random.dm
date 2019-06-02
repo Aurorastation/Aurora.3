@@ -58,7 +58,7 @@
 	name = "random tool"
 	desc = "This is a random tool"
 	icon = 'icons/obj/tools.dmi'
-	icon_state = "welder"
+	icon_state = "welder_off"
 	spawnlist = list(
 		/obj/item/weapon/screwdriver,
 		/obj/item/weapon/wirecutters,
