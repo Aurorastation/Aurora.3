@@ -705,6 +705,7 @@
 #include "code\game\objects\effects\explosion_particles.dm"
 #include "code\game\objects\effects\gibs.dm"
 #include "code\game\objects\effects\glowshroom.dm"
+#include "code\game\objects\effects\item_pickup_ghost.dm"
 #include "code\game\objects\effects\landmarks.dm"
 #include "code\game\objects\effects\manifest.dm"
 #include "code\game\objects\effects\misc.dm"
