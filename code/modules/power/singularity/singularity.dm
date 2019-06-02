@@ -108,7 +108,7 @@
 	if (!count)
 		message_admins("A singulo has been created without containment fields active ([x], [y], [z] - <A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[x];Y=[y];Z=[z]'>JMP</a>).")
 
-	investigate_log("was created. [count ? "" : "<font color='red'>No containment fields were active.</font>"]", I_SINGULO)
+	investigate_log("was created.[count ? "" : " <font color='red'>No containment fields were active.</font>"]. usr=[usr ? key_name(usr) : "null"]", I_SINGULO)
 
 /obj/singularity/proc/dissipate()
 	if (!dissipate)
