@@ -347,7 +347,6 @@ var/datum/controller/subsystem/vote/SSvote
 				if ((admin_number_present - admin_number_afk) <= 0)
 					initiate_vote("restart", usr.key)
 				else
-					log_and_message_admins("tried to start a restart vote.", usr, null)
 					to_chat(usr, "<span class='notice'><b>There are active admins around! You cannot start a restart vote due to this.</b></span>")
 		if("gamemode")
 			if(config.allow_vote_mode || isstaff)
