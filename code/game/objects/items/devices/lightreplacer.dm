@@ -40,7 +40,6 @@
 	icon = 'icons/obj/janitor.dmi'
 	icon_state = "lightreplacer"
 	item_state = "lightreplacer"
-	contained_sprite = 1
 
 	flags = CONDUCT
 	slot_flags = SLOT_BELT

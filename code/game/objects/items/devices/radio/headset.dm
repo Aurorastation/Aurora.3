@@ -17,6 +17,7 @@
 
 	var/ks1type = /obj/item/device/encryptionkey
 	var/ks2type = null
+	var/radio_sound = null
 
 	sprite_sheets = list("Resomi" = 'icons/mob/species/resomi/ears.dmi')
 
