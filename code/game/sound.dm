@@ -242,7 +242,7 @@ var/list/footstepfx = list("defaultstep","concretestep","grassstep","dirtstep","
 			else if (!M.sound_can_play(required_preferences, required_asfx_toggles))
 				continue
 
-			M.playsound_to(source_turf, S, use_random_freq = use_random_freq, use_presure = use_pressure, modify_environment = modify_environment)
+			M.playsound_to(source_turf, S, use_random_freq = use_random_freq, use_pressure = use_pressure, modify_environment = modify_environment)
 
 /proc/playsound_lineofsight(atom/source, sound/S, use_random_freq = FALSE, use_pressure = TRUE, modify_environment = TRUE, required_preferences = 0, required_asfx_toggles = 0)
 	var/list/mobs = get_mobs_or_objects_in_view(world.view, source, include_objects = FALSE)
