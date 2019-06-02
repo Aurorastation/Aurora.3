@@ -318,7 +318,7 @@
 		/obj/item/toy/plushie/lizard,
 		/obj/item/toy/plushie/farwa,
 		/obj/item/toy/plushie/bear,
-		/obj/item/toy/plushie/bearfire
+		/obj/item/toy/plushie/bearfire,
 		/obj/random/squid_plushie
 	)
 
