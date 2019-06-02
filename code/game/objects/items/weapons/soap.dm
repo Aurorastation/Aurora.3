@@ -131,7 +131,7 @@
 /obj/random/soap/
 	name = "Random Soap"
 	desc = "This is a random soap."
-	icon = 'icons/obj/items.dmi'
+	icon = 'icons/obj/soap.dmi'
 	icon_state = "soap"
 
 /obj/random/soap/item_to_spawn()

@@ -548,7 +548,7 @@
 	return TRUE
 
 /obj/item/weapon/crowbar/red
-	icon = 'icons/obj/items.dmi'
+	icon = 'icons/obj/tools.dmi'
 	icon_state = "red_crowbar"
 	item_state = "crowbar_red"
 
@@ -556,7 +556,7 @@
 /obj/item/weapon/pipewrench
 	name = "pipe wrench"
 	desc = "A big wrench that is made for working with pipes."
-	icon = 'icons/obj/items.dmi'
+	icon = 'icons/obj/tools.dmi'
 	icon_state = "pipewrench"
 	flags = CONDUCT
 	slot_flags = SLOT_BELT

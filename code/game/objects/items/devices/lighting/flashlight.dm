@@ -31,7 +31,7 @@
 	else
 		icon_state = "[initial(icon_state)]"
 		set_light(0)
-	if (ismob(src.loc))
+	if (ismob(src.loc))	//for reasons, this makes headlights work.
 		var/mob/M = src.loc
 		M.update_inv_ears()
 		M.update_inv_head()

@@ -57,7 +57,7 @@
 /obj/random/tool
 	name = "random tool"
 	desc = "This is a random tool"
-	icon = 'icons/obj/items.dmi'
+	icon = 'icons/obj/tools.dmi'
 	icon_state = "welder"
 	spawnlist = list(
 		/obj/item/weapon/screwdriver,
@@ -138,7 +138,7 @@
 /obj/random/medical
 	name = "Random Medicine"
 	desc = "This is a random medical item."
-	icon = 'icons/obj/items.dmi'
+	icon = 'icons/obj/stacks/medical.dmi'
 	icon_state = "brutepack"
 	spawn_nothing_percentage = 25
 	problist = list(
@@ -174,7 +174,7 @@
 /obj/random/contraband
 	name = "Random Illegal Item"
 	desc = "Hot Stuff."
-	icon = 'icons/obj/items.dmi'
+	icon = 'icons/obj/cosmetics.dmi'
 	icon_state = "purplecomb"
 //	spawn_nothing_percentage = 50
 	problist = list(
@@ -599,7 +599,7 @@
 /obj/random/coin
 	name = "random coin"
 	desc = "This is a random coin."
-	icon = 'icons/obj/items.dmi'
+	icon = 'icons/obj/coins.dmi'
 	icon_state = "coin"
 	problist = list(
 		/obj/item/weapon/coin/iron = 5,
@@ -614,7 +614,7 @@
 /obj/random/spacecash
 	name = "random credit chips"
 	desc = "This is a random credit ships."
-	icon = 'icons/obj/items.dmi'
+	icon = 'icons/obj/cash.dmi'
 	icon_state = "spacecash1"
 	problist = list(
 		/obj/item/weapon/spacecash/c1 = 6,
@@ -869,8 +869,8 @@
 /obj/random/highvalue
 	name = "random high valuable item"
 	desc = "This is a random high valuable item."
-	icon = 'icons/obj/items.dmi'
-	icon_state = "coin_diamond"
+	icon = 'icons/obj/coins.dmi'
+	icon_state = "coin_diamond_heads"
 	problist = list(
 		/obj/item/bluespace_crystal = 5,
 		/obj/item/stack/telecrystal{amount = 10} = 5,
