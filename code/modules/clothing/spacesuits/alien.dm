@@ -158,7 +158,7 @@
 // Can't be equipped by any other species.
 
 /obj/item/clothing/suit/space/typec
-	icon = 'icons/mob/species/breeder/inventory/items.dmi'
+	icon = 'icons/mob/species/breeder/inventory.dmi'
 	name = "carapace plating"
 	desc = "Form fitting and tight...but definitely not for a human form!"
 	w_class = 5.0
@@ -175,7 +175,7 @@
 		"Vaurca Breeder" = 'icons/mob/species/breeder/suit.dmi'
 		)
 /obj/item/clothing/head/helmet/space/typec
-	icon = 'icons/mob/species/breeder/inventory/items.dmi'
+	icon = 'icons/mob/species/breeder/inventory.dmi'
 	name = "cranial carapace plating"
 	desc = "An intimidating alien helmet that fits over the head."
 	w_class = 5.0
@@ -191,7 +191,7 @@
 
 /obj/item/clothing/shoes/magboots/typec
 
-	icon = 'icons/mob/species/breeder/inventory/items.dmi'
+	icon = 'icons/mob/species/breeder/inventory.dmi'
 	desc = "A set of several heavy magboots, fitted for long, thick legs."
 	name = "carapace magclaws"
 	w_class = 5.0
@@ -245,7 +245,7 @@
 
 //ZZODDAA
 /obj/item/clothing/gloves/yellow/typec
-	icon = 'icons/mob/species/breeder/inventory/items.dmi'
+	icon = 'icons/mob/species/breeder/inventory.dmi'
 	desc = "A set of form-fitting carapace gauntlets. They appear to be fitted with some robust hydraulics."
 	name = "carapace gauntlets"
 	w_class = 5.0
@@ -259,7 +259,7 @@
 		)
 
 /obj/item/clothing/mask/gas/typec
-	icon = 'icons/mob/species/breeder/inventory/items.dmi'
+	icon = 'icons/mob/species/breeder/inventory.dmi'
 	name = "carapace mask"
 	desc = "A carapace gas filter designed to fit over an insectoid maw without hindering the mandibles."
 	icon_state = "breath"
@@ -279,7 +279,7 @@
 		)
 
 obj/item/weapon/storage/backpack/typec
-	icon = 'icons/mob/species/breeder/inventory/items.dmi'
+	icon = 'icons/mob/species/breeder/inventory.dmi'
 	name = "type c wings"
 	desc = "The wings of a CB Caste Vaurca. They are far too small at this stage to permit sustained periods of flight in most situations."
 	icon_state = "wings"

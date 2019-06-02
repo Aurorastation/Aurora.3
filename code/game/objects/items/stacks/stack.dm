@@ -22,6 +22,7 @@
 	var/list/charge_costs = null
 	var/list/datum/matter_synth/synths = null
 	var/icon_has_variants = FALSE
+	icon = 'icons/obj/stacks/materials.dmi'
 
 /obj/item/stack/Initialize(mapload, amount)
 	. = ..()
