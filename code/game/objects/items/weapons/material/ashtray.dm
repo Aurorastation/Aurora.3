@@ -24,7 +24,7 @@
 	var/list/ashtray_cache = SSicon_cache.ashtray_cache
 	var/cache_key = "base-[material.name]"
 	if(!ashtray_cache[cache_key])
-		var/image/I = image('icons/obj/objects.dmi',"ashtray")
+		var/image/I = image('icons/obj/ashtray.dmi',"ashtray")
 		I.color = material.icon_colour
 		ashtray_cache[cache_key] = I
 	add_overlay(ashtray_cache[cache_key])
