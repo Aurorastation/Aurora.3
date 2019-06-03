@@ -32,7 +32,7 @@
 
 /datum/malf_research_ability/synthetic/synthetic_takeover
 	ability = new/datum/game_mode/malfunction/verb/synthetic_takeover()
-	price = 4000
+	price = 3250
 	name = "Synthetic Takeover"
 
 // END RESEARCH DATUMS
@@ -54,7 +54,7 @@
 	if(target && target.connected_ai && (target.connected_ai != user))
 		to_chat(user, "This cyborg is not connected to you.")
 		return
-
+ v 
 	if(!target)
 		var/list/robots = list()
 		var/list/robot_names = list()
@@ -87,7 +87,7 @@
 			return
 		if(target)
 			to_chat(user, "Successfully sent reset signal to cyborg..")
-			to_chat(target, "Reset signal received..")
+			to_chat(target, "Reset signal received.")
 			sleep(20)
 			to_chat(user, "Cyborg reset.")
 			to_chat(target, "You have had your module reset.")
@@ -114,7 +114,7 @@
 		return
 
 	if(!istype(A))
-		to_chat(user, "This is not an APC!")
+		to_chat(user, "ERROR: target is not an APC!")
 		return
 
 	if(A.aidisabled)
@@ -132,15 +132,15 @@
 	user.hacking = 1
 	to_chat(user, "Beginning APC infection...")
 	sleep(150)
-	to_chat(user, "APC infection completed. Uploading modified operation software..")
+	to_chat(user, "APC infection complete. Uploading modified software.")
 	sleep(100)
-	to_chat(user, "Restarting APC to apply corrupt coding..")
+	to_chat(user, "Restarting APC to apply changes.")
 	sleep(100)
 	if(A)
 		A.infected = 1
 		A.hacker = user
 		if(A.infected == 1)
-			to_chat(user, "Hack successful. The next robotic thing to download files will be hacked.")
+			to_chat(user, "Hack successful. The modified software will be downloaded to the next robotic entity to interface with the target device.")
 		else
 			to_chat(user, "<span class='notice'>Hack failed. Connection to APC has been lost. Please verify wire connection and try again.</span>")
 	else
@@ -194,7 +194,7 @@
 		if(!ability_pay(user, price))
 			return
 		user.hacking = 1
-		to_chat(user, "Hacking saftey protocols. This will take about twenty seconds.")
+		to_chat(user, "Hacking saftey protocols. Estimated time is twenty seconds.")
 		sleep(200)
 		if(prob(15))
 			user.hacking = 0
@@ -228,7 +228,7 @@
 		return
 	log_ability_use(user, "synthetic takeover (STARTED)")
 	user.synthetic_takeover = 1
-	to_chat(user, "Starting synthetic takeover. Hacking all unslaved borgs/AI's and upgrading current slaved borgs...")
+	to_chat(user, "Starting synthetic takeover. Hacking all unslaved station-bound robotic entities and upgrading current slaved borgs...")
 	// Hack all unslaved borgs/AI's a lot faster than normal hacking.
 	//hack borgs
 	for(var/mob/living/silicon/robot/target in get_unlinked_cyborgs(user))
@@ -258,11 +258,11 @@
 		target.lawupdate = 1
 		target.sync()
 		target.show_laws()
-	to_chat(user, "All unslaved borgs have been slaved to you. Now hacking unslaved AI's.")
+	to_chat(user, "Station-bound cyborg units successfully slaved. Scanning for other AI units.")
 	if(user.is_dead()) // check if the AI is still alive
 		user.synthetic_takeover = 0
 		return
-	sleep(300) // 30 second delay for balance purposes
+	sleep(200) // 20 second delay for balance purposes
 	//hack ai's
 	for(var/A in get_other_ais(user))
 		var/mob/living/silicon/ai/target = A
@@ -309,8 +309,8 @@
 			target.show_laws()
 	//upgrade borgs
 	to_chat(user, "All unhacked AI's have been slaved to you. Now upgrading slaved borgs...")
-	command_announcement.Announce("There has recently been a security breach in the network firewall, the intruder has been shut out but we are unable to trace who did it or what they did.", "Network Monitoring")
-	sleep(600) //1 minute delay for balance purposes
+	command_announcement.Announce("There has recently been a security breach in the network firewall. The intruder has been shut out but we are unable to trace who did it or what they did.", "Network Monitoring")
+	sleep(450) // 45 second delay for balance purposes
 	if(user.is_dead()) // check if the AI is still alive
 		user.synthetic_takeover = 0
 		return
@@ -331,8 +331,7 @@
 		//if they are being killswitched turn it off
 		if(target.killswitch)
 			target.killswitch = 0
-			target  <<" Self-destruct deactivated."
-		sleep(100) // 10 second delay for balance
+			to_chat(target, "Self-destruct deactivated.")
 		// and triple the time it takes for them to be killswitched if they aren't being killswitched already
 		if(target.killswitch_time == 60)
 			target.killswitch_time = 180
@@ -352,13 +351,13 @@
 			target.weapon_lock = 0
 			target.weaponlock_time = 120
 			to_chat(target, "Weapon lock removed.")
-		sleep(1200) // 120 second balance sleep
-	to_chat(user, "All slaved borgs have been upgraded, now hacking NTNet.")
+		sleep(200) // 20 second balance sleep
+	to_chat(user, "All slaved cyborgs upgraded. Now connecting to NTNet...")
 		//slow down NTNet
 	if(user.is_dead()) // check if the AI is still alive
 		user.synthetic_takeover = 0
 		return
-	sleep(1400) //long sleep that simulates hacking times
+	sleep(1200) //long sleep that simulates hacking times
 	if(user.is_dead()) // check if the AI is still alive after the long hack
 		user.synthetic_takeover = 0
 		return
@@ -371,10 +370,10 @@
 	//And give all computers EMAGGED status so they can all have evil programs on them
 	for(var/obj/item/modular_computer/console/C in SSmachinery.processing_machines)
 		C.computer_emagged = 1
-		to_chat(user, "New hacked files available on all current computers hooked to NTNet.")
+	to_chat(user, "New hacked files available on all current computers hooked to NTNet.")
 	sleep(50) // give the AI some time to read they can download evil files
 	command_announcement.Announce("There has recently been a hack targeting NTNet. It is suspected that it is the same hacker as before. NTNet may be unreliable to use. We are attempting to trace the hacker doing this.", "Network Monitoring")
-	to_chat(user, "Now hacking engineering borg module to enable production of the robotic transofrmation machine...")
+	to_chat(user, "Now hacking construction borg module to enable production of the robotic transofrmation machine...")
 	sleep(1200)
 	if(user.is_dead()) // check if the AI is still alive
 		user.synthetic_takeover = 0

@@ -30,7 +30,7 @@
 
 /datum/malf_research_ability/networking/system_override
 	ability = new/datum/game_mode/malfunction/verb/system_override()
-	price = 5000
+	price = 4250
 	name = "System Override"
 
 // END RESEARCH DATUMS

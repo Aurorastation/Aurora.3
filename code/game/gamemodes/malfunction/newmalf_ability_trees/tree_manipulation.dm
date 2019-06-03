@@ -32,7 +32,7 @@
 
 /datum/malf_research_ability/manipulation/machine_overload
 	ability = new/datum/game_mode/malfunction/verb/machine_overload()
-	price = 5000
+	price = 4250
 	name = "Machine Overload"
 
 // END RESEARCH DATUMS
