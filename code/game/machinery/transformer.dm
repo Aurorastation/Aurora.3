@@ -50,6 +50,7 @@
 		return
 	if(!transform_dead && H.stat == DEAD)
 		playsound(src.loc, 'sound/machines/buzz-sigh.ogg', 50, 0)
+		visible_message("<span class='notice'>The machine displays an error message reading it's unable to transform dead humans.</span>")
 		return
 	if(canuse)
 		playsound(src.loc, 'sound/items/Welder.ogg', 50, 1)
