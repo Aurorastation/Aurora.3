@@ -24,6 +24,7 @@
 	if(human.species.appearance_flags & HAS_SKIN_COLOR)
 		skin_color = rgb(human.r_skin, human.g_skin, human.b_skin)
 	hair_color = rgb(human.r_hair, human.g_hair, human.b_hair)
+	
 
 /obj/item/organ/external/proc/sync_colour_to_dna()
 	s_tone = null
