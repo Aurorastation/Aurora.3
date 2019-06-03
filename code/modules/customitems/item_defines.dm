@@ -2885,6 +2885,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	item_state = "khasan_bucket"
 	contained_sprite = TRUE
 	helmet_type = /obj/item/clothing/head/helmet/bucket/fluff/khasan_bucket
+	drop_sound = 'sound/items/drop/axe.ogg'
 
 /obj/item/clothing/head/helmet/bucket/fluff/khasan_bucket
 	name = "battered metal bucket helmet"
