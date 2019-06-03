@@ -54,7 +54,7 @@
 	if(target && target.connected_ai && (target.connected_ai != user))
 		to_chat(user, "This cyborg is not connected to you.")
 		return
- v 
+
 	if(!target)
 		var/list/robots = list()
 		var/list/robot_names = list()
