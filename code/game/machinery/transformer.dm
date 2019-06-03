@@ -41,7 +41,7 @@
 		// Only humans can enter from the west side, while lying down.
 		var/move_dir = get_dir(loc, AM.loc)
 		var/mob/living/carbon/human/H = AM
-		if(((transform_standing || H.lying) || H.trapped) && move_dir == EAST)
+		if((transform_standing || H.lying) && move_dir == EAST)
 			AM.forceMove(src.loc)
 			make_robot(AM)
 
