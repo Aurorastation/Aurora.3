@@ -105,7 +105,7 @@
 /obj/item/weapon/mirror
 	name = "mirror"
 	desc = "A SalonPro Nano-Mirror(TM) brand mirror! Now a portable version."
-	icon = 'icons/obj/items.dmi'
+	icon = 'icons/obj/cosmetics.dmi'
 	icon_state = "mirror"
 	var/list/ui_users = list()
 

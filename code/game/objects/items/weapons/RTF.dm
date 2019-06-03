@@ -3,7 +3,7 @@ var/malftransformermade = 0
 /obj/item/weapon/rtf
 	name = "\improper Rapid-Transformer-Fabricator"
 	desc = "A device used to deploy a transformer. It can only be used once and there can not be more than one made."
-	icon = 'icons/obj/items.dmi'
+	icon = 'icons/obj/tools.dmi'
 	icon_state = "rcd"
 	opacity = 0
 	density = 0

@@ -20897,7 +20897,7 @@
 	},
 /obj/effect/floor_decal/corner/mauve/full,
 /obj/structure/table/standard,
-/obj/item/weapon/packageWrap,
+/obj/item/stack/packageWrap,
 /obj/item/weapon/hand_labeler,
 /turf/simulated/floor/tiled/white,
 /area/outpost/research/hallway)
@@ -21613,8 +21613,8 @@
 /area/rnd/xenobiology)
 "aQJ" = (
 /obj/structure/table/standard,
-/obj/item/weapon/reagent_containers/food/drinks/jar,
-/obj/item/weapon/reagent_containers/food/drinks/jar,
+/obj/item/weapon/reagent_containers/glass/beaker/jar,
+/obj/item/weapon/reagent_containers/glass/beaker/jar,
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology)
 "aQK" = (

@@ -2977,7 +2977,7 @@
 	dir = 4
 	},
 /obj/structure/table/wood,
-/obj/item/weapon/packageWrap,
+/obj/item/stack/packageWrap,
 /obj/item/weapon/hand_labeler,
 /obj/structure/disposalpipe/segment,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -3072,7 +3072,7 @@
 /area/security/forensics_office)
 "fO" = (
 /obj/structure/table/standard,
-/obj/item/weapon/packageWrap,
+/obj/item/stack/packageWrap,
 /obj/item/weapon/hand_labeler,
 /obj/effect/floor_decal/corner/blue{
 	icon_state = "corner_white";

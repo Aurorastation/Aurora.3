@@ -105,7 +105,7 @@
 		"custom_cigarettes" = list(
 			name = "Empty Cigarettes (x6)",
 			class = "Items",
-			object = /obj/item/weapon/storage/fancy/cigarettes/custom,
+			object = /obj/item/weapon/storage/fancy/cigarettes/blank,
 			cost = 500,
 			amount = list(1,2,3,4,5),
 			emag = 0
@@ -133,7 +133,7 @@
 			cost = 300,
 			amount = list(1,2,3,4,5),
 			emag = 0
-		), 
+		),
 		"hydrobelt" = list(
 			name = "Hydroponic Belt",
 			class = "Items",
