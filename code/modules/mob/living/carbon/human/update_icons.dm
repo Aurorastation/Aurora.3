@@ -215,6 +215,9 @@ There are several things that need to be remembered:
 /mob/living/carbon/human/proc/update_body(var/update_icons=1)
 	if (QDELING(src))
 		return
+	
+	// Maybe this will fix it.
+	species.create_organs(src)
 
 	var/husk_color_mod = rgb(96,88,80)
 	var/hulk_color_mod = rgb(48,224,40)
