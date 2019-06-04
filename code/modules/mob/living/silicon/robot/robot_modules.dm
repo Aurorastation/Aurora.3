@@ -1092,6 +1092,7 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/borg/sight/meson(src)
 	src.modules += new /obj/item/borg/sight/hud/med(src)
 	src.modules += new /obj/item/borg/sight/hud/sec(src)
+	src.modules += new /obj/item/weapon/rcd/borg/infinite(src)
 	src.modules += new /obj/item/weapon/extinguisher(src)
 	src.modules += new /obj/item/weapon/weldingtool/largetank(src)
 	src.modules += new /obj/item/weapon/screwdriver(src)
@@ -1125,10 +1126,10 @@ var/global/list/robot_modules = list(
 	// Security
 	src.modules += new /obj/item/weapon/handcuffs/cyborg(src)
 	src.modules += new /obj/item/weapon/melee/baton/robot(src)
-	src.modules += new /obj/item/weapon/gun/energy/taser/mounted/cyborg(src)
-	src.modules += new /obj/item/weapon/gun/energy/laser/mounted(src)
+	src.modules += new /obj/item/weapon/gun/energy/taser/mounted/cyborg/overclocked(src)
+	src.modules += new /obj/item/weapon/gun/energy/laser/mounted/cyborg/overclocked(src)
 	src.modules += new /obj/item/weapon/melee/hammer/powered(src)
-	src.modules += new /obj/item/weapon/gun/energy/lasercannon/mounted(src)
+	src.modules += new /obj/item/weapon/gun/energy/lasercannon/mounted/cyborg/overclocked(src)
 	src.modules += new /obj/item/borg/combat/shield(src)
 	src.modules += new /obj/item/borg/combat/mobility(src)
 	// BST

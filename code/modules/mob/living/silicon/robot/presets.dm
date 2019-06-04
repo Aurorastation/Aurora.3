@@ -83,3 +83,39 @@
 	overclocked = 1
 	lawupdate = 0
 	scrambledcodes = 1
+	status_flags = GODMODE
+
+/mob/living/silicon/robot/bluespace/verb/bstwalk()
+	set name = "Ruin Everything"
+	set desc = "Uses bluespace technology to phase through solid matter and move quickly."
+	set category = "BST"
+	set popup_menu = 0
+
+	if(!src.incorporeal_move)
+		src.incorporeal_move = 2
+		to_chat(src, span("notice", "You will now phase through solid matter."))
+	else
+		src.incorporeal_move = 0
+		to_chat(src, span("notice", "You will no-longer phase through solid matter."))
+	return
+
+/mob/living/silicon/robot/bluespace/verb/bstrecover()
+	set name = "Rejuv"
+	set desc = "Use the bluespace within you to restore your health"
+	set category = "BST"
+	set popup_menu = 0
+
+	src.revive()
+
+/mob/living/silicon/robot/bluespace/verb/bstquit()
+	set name = "Teleport out"
+	set desc = "Activate bluespace to leave and return to your original mob (if you have one)."
+	set category = "BST"
+
+/mob/living/silicon/robot/bluespace/verb/tgm()
+	set name = "Toggle Godmode"
+	set desc = "Enable or disable god mode. For testing things that require you to be vulnerable."
+	set category = "BST"
+
+	status_flags ^= GODMODE
+	to_chat(src, span("notice", "God mode is now [status_flags & GODMODE ? "enabled" : "disabled"]"))
