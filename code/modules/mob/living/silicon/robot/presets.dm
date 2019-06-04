@@ -112,6 +112,22 @@
 	set desc = "Activate bluespace to leave and return to your original mob (if you have one)."
 	set category = "BST"
 
+	src.custom_emote(1,"politely beeps with all ligth starting to flash.")
+	spark(src, 5, alldirs)
+	addtimer(CALLBACK(GLOBAL_PROC, .proc/qdel, src), 10, TIMER_CLIENT_TIME)
+	animate(src, alpha = 0, time = 9, easing = QUAD_EASING)
+
+	if(key)
+		if(client.holder && client.holder.original_mob)
+			client.holder.original_mob.key = key
+		else
+			var/mob/abstract/observer/ghost = new(src)	//Transfer safety to observer spawning proc.
+			ghost.key = key
+			ghost.mind.name = "[ghost.key] BSTech"
+			ghost.name = "[ghost.key] BSTech"
+			ghost.real_name = "[ghost.key] BSTech"
+			ghost.voice_name = "[ghost.key] BSTech"
+
 /mob/living/silicon/robot/bluespace/verb/tgm()
 	set name = "Toggle Godmode"
 	set desc = "Enable or disable god mode. For testing things that require you to be vulnerable."
