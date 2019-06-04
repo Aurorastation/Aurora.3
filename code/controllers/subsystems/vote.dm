@@ -314,36 +314,7 @@ var/datum/controller/subsystem/vote/SSvote
 		return	//not necessary but meh...just in-case somebody does something stupid
 	if(href_list["open"])
 		OpenVotingUI(usr)
-	var/isstaff = usr.client.holder && (usr.client.holder.rights & (R_ADMIN|R_MOD))
-	
-	switch(href_list["action"])
-		if("cancel")
-			if(isstaff)
-				reset()
-		if("toggle_restart")
-			if(isstaff)
-				config.allow_vote_restart = !config.allow_vote_restart
-				SSvueui.check_uis_for_change(src)
-		if("toggle_gamemode")
-			if(isstaff)
-				config.allow_vote_mode = !config.allow_vote_mode
-				SSvueui.check_uis_for_change(src)
-		if("restart")
-			if(isstaff)
-				initiate_vote("restart",usr.key)
-			else if (config.allow_vote_restart)
-				var/admin_number_present = 0
-				var/admin_number_afk = 0
 
-				for (var/s in staff)
-					var/client/X = s
-					if (X.holder.rights & R_ADMIN)
-						admin_number_present++
-						if (X.is_afk())
-							admin_number_afk++
-
-				if ((admin_number_present - admin_number_afk) <= 0)
-					initiate_vote("restart", usr.key)
 				else
 					to_chat(usr, "<span class='notice'><b>There are active admins around! You cannot start a restart vote due to this.</b></span>")
 		if("gamemode")
