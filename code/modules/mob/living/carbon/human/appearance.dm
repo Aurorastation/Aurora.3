@@ -22,9 +22,12 @@
 		return
 
 	src.gender = gender
+	// Maybe this will fix it.
+	dna.SetUIState(DNA_UI_GENDER, src.gender != MALE, 1)
 	reset_hair()
 	update_body()
-	update_dna()
+	species.create_organs(src)
+	
 	return 1
 
 /mob/living/carbon/human/proc/change_hair(var/hair_style)
