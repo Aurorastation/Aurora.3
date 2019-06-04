@@ -59,16 +59,8 @@
 /datum/species/machine/shell/get_light_color()
 	return
 
-/datum/species/machine/shell/handle_post_spawn(var/mob/living/carbon/human/H)
-	. = ..()
-	check_tag(H, H.client)
-
 /datum/species/machine/shell/handle_death(var/mob/living/carbon/human/H)
 	return
-
-/datum/species/machine/shell/before_equip(var/mob/living/carbon/human/H)
-	. = ..()
-	check_tag(H, H.client)
 
 /datum/species/machine/industrial
 	name = "Hephaestus G1 Industrial Frame"

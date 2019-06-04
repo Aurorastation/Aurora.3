@@ -236,4 +236,5 @@ datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
 /datum/species/machine/before_equip(var/mob/living/carbon/human/H)
 	. = ..()
 	check_tag(H, H.client)
-	H.gender = NEUTER
+	if (neuter_ipc)
+		H.gender = NEUTER
