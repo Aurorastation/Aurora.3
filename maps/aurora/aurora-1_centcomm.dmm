@@ -21764,28 +21764,29 @@
 "boO" = (
 /turf/template_noop,
 /area/shuttle/escape_pod2/centcom/space)
-"bvD" = (
-/turf/unsimulated/floor{
-	dir = 9;
-	icon_state = "carpetside"
+"bsN" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	icon_state = "warningcorner";
+	dir = 1
 	},
-/area/centcom/living)
-"caO" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/obj/structure/sign/flag/biesel/left{
+/obj/structure/sign/flag/biesel/right{
 	dir = 8;
-	icon_state = "biesel_l";
+	icon_state = "biesel_r";
 	pixel_x = -30
 	},
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
 /area/centcom/legion_base)
-"ckQ" = (
-/turf/simulated/shuttle/floor/destructible,
-/area/shuttle/escape/centcom)
+"bvD" = (
+/turf/unsimulated/floor{
+	dir = 9;
+	icon_state = "carpetside"
+	},
+/area/centcom/living)
 "cnT" = (
 /obj/structure/window/shuttle,
 /obj/structure/grille,
@@ -21882,6 +21883,13 @@
 	icon_state = "dark"
 	},
 /area/centcom/legion_base/hangar5)
+"ePo" = (
+/obj/machinery/light{
+	dir = 4;
+	status = 0
+	},
+/turf/simulated/shuttle/floor/destructible,
+/area/shuttle/escape/centcom)
 "eSC" = (
 /obj/machinery/atm{
 	pixel_x = -26
@@ -21890,6 +21898,26 @@
 	icon_state = "floor"
 	},
 /area/centcom/holding)
+"fbV" = (
+/obj/machinery/door/blast/shutters/open{
+	dir = 4;
+	icon_state = "shutter0";
+	id = "tcflcheckpoint";
+	name = "Checkpoint Delta"
+	},
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 8
+	},
+/obj/structure/grille,
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/centcom/legion_base)
 "frH" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/generic,
@@ -21947,26 +21975,6 @@
 	},
 /turf/unsimulated/floor{
 	icon_state = "dark"
-	},
-/area/centcom/legion_base)
-"gcm" = (
-/obj/machinery/door/blast/shutters/open{
-	dir = 4;
-	icon_state = "shutter0";
-	id = "tcflcheckpoint";
-	name = "Checkpoint Delta"
-	},
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 8
-	},
-/obj/structure/grille,
-/turf/unsimulated/floor{
-	name = "plating"
 	},
 /area/centcom/legion_base)
 "goI" = (
@@ -22058,16 +22066,6 @@
 	},
 /turf/simulated/shuttle/floor/plating/destructible,
 /area/merchant_ship/start)
-"iMH" = (
-/obj/item/weapon/stool/padded,
-/obj/machinery/light{
-	dir = 4;
-	icon_state = "tube1"
-	},
-/turf/unsimulated/floor{
-	icon_state = "dark"
-	},
-/area/centcom/legion_base)
 "jcW" = (
 /obj/machinery/light{
 	dir = 4;
@@ -22131,6 +22129,19 @@
 	dir = 4
 	},
 /area/centcom/living)
+"jJc" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/obj/structure/sign/flag/biesel/left{
+	dir = 8;
+	icon_state = "biesel_l";
+	pixel_x = -30
+	},
+/turf/unsimulated/floor{
+	icon_state = "dark"
+	},
+/area/centcom/legion_base)
 "jTp" = (
 /turf/unsimulated/floor{
 	icon_state = "green";
@@ -22150,17 +22161,6 @@
 	dir = 4
 	},
 /area/centcom/living)
-"lpm" = (
-/obj/machinery/light{
-	dir = 8;
-	icon_state = "tube1";
-	pixel_x = 0
-	},
-/turf/unsimulated/floor{
-	dir = 8;
-	icon_state = "wood"
-	},
-/area/centcom/legion_base/hangar5)
 "lpW" = (
 /obj/machinery/computer/borgupload,
 /turf/unsimulated/floor{
@@ -22216,23 +22216,6 @@
 	icon_state = "panelscorched"
 	},
 /area/centcom/legion_base/hangar5)
-"mTX" = (
-/obj/effect/floor_decal/industrial/warning/corner{
-	icon_state = "warningcorner";
-	dir = 1
-	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 4
-	},
-/obj/structure/sign/flag/biesel/right{
-	dir = 8;
-	icon_state = "biesel_r";
-	pixel_x = -30
-	},
-/turf/unsimulated/floor{
-	icon_state = "dark"
-	},
-/area/centcom/legion_base)
 "ncc" = (
 /obj/structure/bed/chair{
 	dir = 1
@@ -22266,6 +22249,11 @@
 	},
 /turf/simulated/shuttle/floor,
 /area/template_noop)
+"nBn" = (
+/obj/structure/window/shuttle,
+/obj/structure/grille,
+/turf/simulated/shuttle/floor/plating/destructible,
+/area/shuttle/escape/centcom)
 "nPC" = (
 /obj/structure/banner,
 /turf/unsimulated/floor{
@@ -22292,6 +22280,9 @@
 /obj/effect/wingrille_spawn/reinforced/crescent,
 /turf/unsimulated/wall/riveted,
 /area/centcom/living)
+"oUR" = (
+/turf/simulated/shuttle/floor/destructible,
+/area/shuttle/escape/centcom)
 "oVL" = (
 /obj/machinery/door/window{
 	dir = 8;
@@ -22344,9 +22335,6 @@
 /obj/structure/closet/crate/loot,
 /turf/simulated/shuttle/floor,
 /area/template_noop)
-"pOt" = (
-/turf/simulated/shuttle/wall/destructible,
-/area/shuttle/escape/centcom)
 "pPH" = (
 /obj/structure/table/wood,
 /turf/unsimulated/floor{
@@ -22373,6 +22361,10 @@
 /obj/effect/decal/remains,
 /turf/simulated/shuttle/floor,
 /area/template_noop)
+"qGT" = (
+/obj/structure/bed/chair,
+/turf/simulated/shuttle/floor/destructible,
+/area/shuttle/escape/centcom)
 "qMl" = (
 /obj/structure/table/wood,
 /obj/item/device/flashlight/lamp,
@@ -22402,11 +22394,6 @@
 "qXc" = (
 /turf/simulated/shuttle/plating,
 /area/space)
-"rlH" = (
-/obj/structure/window/shuttle,
-/obj/structure/grille,
-/turf/simulated/shuttle/floor/plating/destructible,
-/area/shuttle/escape/centcom)
 "rtI" = (
 /obj/structure/bed/chair/shuttle{
 	icon_state = "shuttlechair";
@@ -22529,6 +22516,17 @@
 	},
 /turf/simulated/floor/wood,
 /area/merchant_station)
+"uyf" = (
+/obj/machinery/light{
+	dir = 8;
+	icon_state = "tube1";
+	pixel_x = 0
+	},
+/turf/unsimulated/floor{
+	dir = 8;
+	icon_state = "wood"
+	},
+/area/centcom/legion_base/hangar5)
 "uzX" = (
 /obj/structure/lattice/catwalk/indoor,
 /turf/template_noop,
@@ -22561,17 +22559,6 @@
 "vkW" = (
 /turf/template_noop,
 /area/shuttle/escape_pod3/centcom/space)
-"vnk" = (
-/obj/structure/bed/chair,
-/turf/simulated/shuttle/floor/destructible,
-/area/shuttle/escape/centcom)
-"vut" = (
-/obj/machinery/light{
-	dir = 4;
-	status = 0
-	},
-/turf/simulated/shuttle/floor/destructible,
-/area/shuttle/escape/centcom)
 "vyG" = (
 /obj/structure/bed/chair/comfy/beige{
 	dir = 8
@@ -22607,6 +22594,19 @@
 	dir = 1
 	},
 /area/centcom/living)
+"wqI" = (
+/obj/item/weapon/stool/padded,
+/obj/machinery/light{
+	dir = 4;
+	icon_state = "tube1"
+	},
+/turf/unsimulated/floor{
+	icon_state = "dark"
+	},
+/area/centcom/legion_base)
+"wrF" = (
+/turf/simulated/shuttle/wall/destructible,
+/area/shuttle/escape/centcom)
 "wGd" = (
 /obj/machinery/light{
 	dir = 2;
@@ -23611,7 +23611,8 @@
 /obj/structure/lattice/catwalk/indoor,
 /obj/machinery/door/airlock/external{
 	icon_state = "door_locked";
-	locked = 1
+	locked = 1;
+	name = "Port Maintenance Airlock"
 	},
 /turf/unsimulated/floor{
 	name = "plating"
@@ -27189,6 +27190,9 @@
 	pixel_x = 32
 	},
 /obj/structure/weightlifter,
+/obj/effect/landmark{
+	name = "Tau Ceti Legion"
+	},
 /turf/unsimulated/floor{
 	dir = 8;
 	icon_state = "wood"
@@ -27947,15 +27951,6 @@
 	pixel_x = -32
 	},
 /obj/effect/decal/cleanable/dirt,
-/turf/unsimulated/floor{
-	dir = 8;
-	icon_state = "wood"
-	},
-/area/centcom/legion_base/hangar5)
-"xYz" = (
-/obj/effect/landmark{
-	name = "Tau Ceti Legion"
-	},
 /turf/unsimulated/floor{
 	dir = 8;
 	icon_state = "wood"
@@ -70426,8 +70421,8 @@ yis
 yic
 yis
 yjp
-pOt
-pOt
+wrF
+wrF
 yjp
 yjN
 aJF
@@ -70664,27 +70659,27 @@ yjN
 ycz
 yjp
 yjp
-pOt
-rlH
-pOt
-rlH
-rlH
-pOt
+wrF
+nBn
+wrF
+nBn
+nBn
+wrF
 aEW
-pOt
-rlH
-pOt
+wrF
+nBn
+wrF
 aWj
 aWj
 aWj
-pOt
-rlH
-pOt
+wrF
+nBn
+wrF
 aGc
-pOt
-pOt
-pOt
-pOt
+wrF
+wrF
+wrF
+wrF
 yjp
 yjN
 aHK
@@ -70920,23 +70915,23 @@ auT
 yjN
 ycz
 aCO
-pOt
-pOt
+wrF
+wrF
 aVG
-pOt
-vnk
-ckQ
+wrF
+qGT
+oUR
 aVL
-ckQ
-pOt
+oUR
+wrF
 aOC
 aDs
 aDs
 aDs
 aDs
-ckQ
+oUR
 aWC
-pOt
+wrF
 aWH
 aWU
 aXa
@@ -71176,23 +71171,23 @@ aBQ
 auT
 yjN
 ycz
-rlH
-rlH
+nBn
+nBn
 aGQ
 aFZ
-pOt
+wrF
 aIx
-ckQ
+oUR
 aVS
-vut
+ePo
 aOX
-ckQ
+oUR
 aDs
 aVP
 aDs
 aDs
-ckQ
-ckQ
+oUR
+oUR
 aIC
 aWu
 aWu
@@ -71433,23 +71428,23 @@ aBR
 auT
 yjN
 ycz
-rlH
+nBn
 aVC
 aFu
 aGQ
-pOt
+wrF
 aCP
 aOX
-pOt
-pOt
-pOt
-rlH
-rlH
-pOt
-rlH
-rlH
-ckQ
-ckQ
+wrF
+wrF
+wrF
+nBn
+nBn
+wrF
+nBn
+nBn
+oUR
+oUR
 aCQ
 aWI
 aWV
@@ -71690,14 +71685,14 @@ ajK
 auT
 yjN
 ycz
-rlH
+nBn
 aFn
 aFz
 aGN
 aGQ
 aXp
 aVH
-pOt
+wrF
 aVQ
 aVU
 aWc
@@ -71705,9 +71700,9 @@ aWc
 aWk
 aWc
 aWm
-ckQ
+oUR
 aWF
-pOt
+wrF
 aWN
 aWu
 aWu
@@ -71947,7 +71942,7 @@ aBq
 auT
 yjN
 ycz
-rlH
+nBn
 aFq
 aFA
 aGO
@@ -71955,15 +71950,15 @@ aGQ
 aPe
 aVI
 aVE
-ckQ
-ckQ
-ckQ
-ckQ
-ckQ
-ckQ
-ckQ
-ckQ
-ckQ
+oUR
+oUR
+oUR
+oUR
+oUR
+oUR
+oUR
+oUR
+oUR
 aCQ
 aWv
 aWW
@@ -72204,14 +72199,14 @@ aBT
 auT
 yjN
 ycz
-rlH
+nBn
 aFs
 aFB
 aGP
 aID
 aPi
 aVM
-pOt
+wrF
 aVR
 aVV
 aWd
@@ -72219,14 +72214,14 @@ aWd
 aWd
 aWd
 aWn
-ckQ
+oUR
 aVH
-pOt
-pOt
-pOt
-pOt
-pOt
-pOt
+wrF
+wrF
+wrF
+wrF
+wrF
+wrF
 yjp
 yjN
 aJH
@@ -72461,14 +72456,14 @@ aBT
 auT
 yjN
 ycz
-rlH
+nBn
 aFq
 aFB
 aHM
 aID
 aPi
 aVM
-pOt
+wrF
 aVR
 aVU
 aWc
@@ -72476,14 +72471,14 @@ aWc
 aWc
 aWc
 aWm
-ckQ
-ckQ
+oUR
+oUR
 aWs
 aWO
 aWX
 aXb
-pOt
-pOt
+wrF
+wrF
 yjp
 yjN
 aJH
@@ -72718,7 +72713,7 @@ aBT
 auT
 yjN
 ycz
-rlH
+nBn
 aFq
 aFA
 aGO
@@ -72726,15 +72721,15 @@ aGQ
 aVB
 aVI
 aVE
-ckQ
-ckQ
-ckQ
-ckQ
-ckQ
-ckQ
-ckQ
-ckQ
-ckQ
+oUR
+oUR
+oUR
+oUR
+oUR
+oUR
+oUR
+oUR
+oUR
 aCQ
 aVX
 aGQ
@@ -72975,23 +72970,23 @@ aBT
 auT
 yjN
 ycz
-rlH
+nBn
 aFt
 aFO
 aIg
 aGQ
 aXq
 aVH
-pOt
-ckQ
+wrF
+oUR
 aVV
 aWd
 aWd
 aWd
 aWd
 aWn
-ckQ
-ckQ
+oUR
+oUR
 aCQ
 aVX
 aGQ
@@ -73232,23 +73227,23 @@ aBq
 auT
 yjN
 ycz
-rlH
+nBn
 aDK
 aVF
 aGQ
-pOt
-pOt
-pOt
-pOt
-ckQ
+wrF
+wrF
+wrF
+wrF
+oUR
 aVU
 aWc
 aWc
 aWc
 aWc
 aWm
-ckQ
-ckQ
+oUR
+oUR
 aCQ
 aWR
 aGQ
@@ -73489,24 +73484,24 @@ aBT
 auT
 yjN
 yjp
-rlH
-rlH
+nBn
+nBn
 aGQ
 aIf
-pOt
+wrF
 aVD
 aVJ
 aVN
-ckQ
-ckQ
-ckQ
-ckQ
-ckQ
-ckQ
-ckQ
-ckQ
+oUR
+oUR
+oUR
+oUR
+oUR
+oUR
+oUR
+oUR
 aWF
-pOt
+wrF
 aWS
 aWY
 aXc
@@ -73747,13 +73742,13 @@ auT
 yjN
 yjp
 yjp
-pOt
-pOt
+wrF
+wrF
 aVG
-pOt
+wrF
 aWB
 aVK
-pOt
+wrF
 aVT
 aVV
 aWd
@@ -73761,9 +73756,9 @@ aWd
 aWl
 aWd
 aWn
-ckQ
+oUR
 aWD
-pOt
+wrF
 aWT
 aWZ
 aXd
@@ -74005,27 +74000,27 @@ yjN
 yjp
 yjp
 yjp
-pOt
-rlH
-pOt
-rlH
-rlH
-pOt
-pOt
-rlH
-rlH
-rlH
-pOt
-rlH
-rlH
-rlH
-pOt
-pOt
-rlH
-rlH
-pOt
-pOt
-pOt
+wrF
+nBn
+wrF
+nBn
+nBn
+wrF
+wrF
+nBn
+nBn
+nBn
+wrF
+nBn
+nBn
+nBn
+wrF
+wrF
+nBn
+nBn
+wrF
+wrF
+wrF
 yjp
 yjN
 aJH
@@ -74281,8 +74276,8 @@ yjp
 yjp
 yjp
 yjp
-pOt
-pOt
+wrF
+wrF
 yjp
 yjN
 aJH
@@ -79285,7 +79280,7 @@ xMS
 xOk
 xXD
 xSf
-iMH
+wqI
 xTy
 xVV
 xVZ
@@ -81070,7 +81065,7 @@ xXD
 xsC
 xXD
 xxL
-gcm
+fbV
 xBn
 xBn
 xXD
@@ -81330,8 +81325,8 @@ xOG
 xFF
 gaU
 gaU
-mTX
-caO
+bsN
+jJc
 qoq
 gaU
 gaU
@@ -85455,7 +85450,7 @@ xZe
 xRt
 xSI
 xTW
-lpm
+uyf
 xWx
 xXF
 xYg
@@ -91109,7 +91104,7 @@ xZf
 xRP
 xYC
 xYC
-xYz
+xYC
 xWT
 xYb
 xYC
