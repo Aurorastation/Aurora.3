@@ -270,11 +270,6 @@
 	flags_inv = BLOCKHAIR
 	siemens_coefficient = 2.0
 
-/obj/item/clothing/head/legion_beret
-	name = "TCFL dress beret"
-	desc = "A pale blue dress beret with a rubber insignia of a torch, surrounded by red stars and the letters \"TCFL\". A common good luck charm among former legionaires."
-	icon_state = "legion_beret"
-
 /obj/item/clothing/head/chicken
 	name = "chicken suit head"
 	desc = "Bkaw!"
@@ -480,6 +475,26 @@
 	item_state = "poppy_crown"
 	body_parts_covered = 0
 	drop_sound = 'sound/items/drop/herb.ogg'
+
+//Tau Ceti Foreign Legion
+
+/obj/item/clothing/head/legion_beret
+	name = "TCFL dress beret"
+	desc = "A pale blue dress beret with a rubber insignia of a torch, surrounded by red stars and the letters \"TCFL\". A common good luck charm among former legionaires."
+	icon_state = "legion_beret"
+	item_state = "legion_beret"
+
+/obj/item/clothing/head/legion_beret/field
+	name = "TCFL field beret"
+	desc = "A bright red field beret with a rubber insignia of a torch, surrounded by red stars and the letters \"TCFL\"."
+	icon_state = "legion_field_beret"
+	item_state = "legion_field_beret"
+
+/obj/item/clothing/head/legion_commander
+	name = "TCFL commander cap"
+	desc = "A bright red peaked cap. Worn by senior officers of the Tau Ceti Foreign Legion."
+	icon_state = "legion_cap"
+	item_state = "legion_cap"
 
 //golden beep stuff
 

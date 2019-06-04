@@ -530,6 +530,19 @@
 	body_parts_covered = UPPER_TORSO | LOWER_TORSO | LEGS | ARMS
 	armor = list(melee = 50, bullet = 30, laser = 30, energy = 15, bomb = 40, bio = 0, rad = 0)
 
+/obj/item/clothing/suit/storage/vest/legion/commander
+	name = "foreign legion commander coat"
+	desc = "A luxurious coat made out of sturdy synthetic fabrics and reinforced with lightweight alloys. Only worn by some of the highest decorated officers of the TCFL."
+	icon_state = "legion_coat"
+	item_state = "legion_coat"
+
+/obj/item/clothing/suit/storage/vest/legion/commander/Initialize()
+	. = ..()
+	pockets = new/obj/item/weapon/storage/internal(src)
+	pockets.storage_slots = 4
+	pockets.max_w_class = 2
+	pockets.max_storage_space = 8
+
 /obj/item/clothing/suit/armor/vest/idris
 	name = "Idris Reclamation Unit coat"
 	desc = "A coat worn by the Idris reclamation units, notorious across space."

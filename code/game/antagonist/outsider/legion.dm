@@ -39,6 +39,7 @@ var/datum/antagonist/legion/legion
 	player.equip_to_slot_or_del(new /obj/item/clothing/under/legion(src), slot_w_uniform)
 	player.equip_to_slot_or_del(new /obj/item/clothing/shoes/swat(src), slot_shoes)
 	player.equip_to_slot_or_del(new /obj/item/clothing/gloves/swat(src), slot_gloves)
+	player.equip_to_slot_or_del(new /obj/item/clothing/head/legion_beret/field(src), slot_head)
 	player.equip_to_slot_or_del(new /obj/item/clothing/glasses/sunglasses(src), slot_glasses)
 	player.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack/legion(src), slot_back)
 	player.equip_to_slot_or_del(new /obj/item/weapon/storage/box/engineer(player.back), slot_in_backpack)

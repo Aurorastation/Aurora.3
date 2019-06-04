@@ -712,6 +712,11 @@
 	worn_state = "taucetilegion"
 	siemens_coefficient = 0.7
 
+/obj/item/clothing/under/legion/commander
+	name = "TCFL commander uniform"
+	icon_state = "taucetilegion"
+	worn_state = "taucetilegion_commander"
+
 /obj/item/clothing/under/offworlder
 	name = "\improper CR suit"
 	desc = "A very tight form-fitting padded suit that looks extremely comfortable to wear."

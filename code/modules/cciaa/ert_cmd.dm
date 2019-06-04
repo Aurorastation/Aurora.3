@@ -1,7 +1,7 @@
 /client/proc/spawn_ert_commander()
 	set category = "Special Verbs"
-	set name = "Spawn ERT Commander"
-	set desc = "Spawns an ERT Commander."
+	set name = "Spawn Response Team Commander"
+	set desc = "Spawns a Response Team Commander."
 
 	if(!check_rights(R_CCIAA))	return
 
@@ -25,14 +25,24 @@
 		verbs += /client/proc/returntobody
 		return
 
+	if(mob.mind && mob.mind.special_role == "TCFL Commander")
+		to_chat(src,"<span class='warning'>You are already a TCFL Commander.</span>")
+		verbs += /client/proc/returntobody
+		return
+
 	var/wasLiving = 0
 	if(istype(mob, /mob/living))
 		holder.original_mob = mob
 		wasLiving = 1
 
+	var/choice = input("Select the Commander Type","Commander Team Selection") as null|anything in list("ERT Commander", "TCFL Commander")
+
 	var/obj/effect/landmark/L
 	for (var/obj/effect/landmark/landmark in landmarks_list)
-		if(landmark.name == "ERTCommander")
+		if(landmark.name == "ERTCommander" && choice == "ERT Commander")
+			L = landmark
+			break
+		else if (landmark.name == "TCFLCommander" && choice == "TCFL Commander")
 			L = landmark
 			break
 
@@ -64,44 +74,81 @@
 	M.mind.original = M
 	if(wasLiving)
 		M.mind.admin_mob_placeholder = mob
-	M.mind.assigned_role = "Emergency Response Team Commander"
-	M.mind.special_role = "ERT Commander"
-	M.forceMove(L.loc)
-	M.key = key
 
-	M.change_appearance(APPEARANCE_ALL, M.loc, check_species_whitelist = 1)
+	if(choice == "ERT Commander")
 
-	if(wasLiving)
-		clear_cciaa_job(holder.original_mob)
-		addtimer(CALLBACK(holder.original_mob, /mob/.proc/invalidate_key_tmr), 1)
+		M.mind.assigned_role = "Emergency Response Team Commander"
+		M.mind.special_role = "ERT Commander"
+		M.forceMove(L.loc)
+		M.key = key
 
-	M.equip_to_slot_or_del(new /obj/item/clothing/under/rank/centcom_commander(M), slot_w_uniform)
-	M.equip_to_slot_or_del(new /obj/item/clothing/shoes/jackboots(M), slot_shoes)
-	M.equip_to_slot_or_del(new /obj/item/clothing/gloves/white(M), slot_gloves)
-	M.equip_to_slot_or_del(new /obj/item/device/radio/headset/ert(M), slot_l_ear)
-	M.equip_to_slot_or_del(new /obj/item/clothing/glasses/sunglasses/sechud(M), slot_glasses)
-	M.equip_to_slot_or_del(new /obj/item/clothing/head/beret/centcom/commander(M), slot_head)
-	M.equip_to_slot_or_del(new /obj/item/clothing/suit/storage/vest/heavy/ert/commander(M), slot_wear_suit)
-	M.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack/satchel, slot_back)
+		M.change_appearance(APPEARANCE_ALL, M.loc, check_species_whitelist = 1)
 
-			
+		if(wasLiving)
+			clear_cciaa_job(holder.original_mob)
+			addtimer(CALLBACK(holder.original_mob, /mob/.proc/invalidate_key_tmr), 1)
 
-	var/obj/item/device/pda/central/pda = new(M)
-	pda.owner = M.real_name
-	pda.ownjob = "Emergency Response Team Commander"
-	pda.name = "PDA-[M.real_name] ([pda.ownjob])"
+		M.equip_to_slot_or_del(new /obj/item/clothing/under/rank/centcom_commander(M), slot_w_uniform)
+		M.equip_to_slot_or_del(new /obj/item/clothing/shoes/jackboots(M), slot_shoes)
+		M.equip_to_slot_or_del(new /obj/item/clothing/gloves/white(M), slot_gloves)
+		M.equip_to_slot_or_del(new /obj/item/device/radio/headset/ert(M), slot_l_ear)
+		M.equip_to_slot_or_del(new /obj/item/clothing/glasses/sunglasses/sechud(M), slot_glasses)
+		M.equip_to_slot_or_del(new /obj/item/clothing/head/beret/centcom/commander(M), slot_head)
+		M.equip_to_slot_or_del(new /obj/item/clothing/suit/storage/vest/heavy/ert/commander(M), slot_wear_suit)
+		M.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack/satchel, slot_back)
 
-	M.equip_to_slot_or_del(pda, slot_belt)
+		var/obj/item/device/pda/central/pda = new(M)
+		pda.owner = M.real_name
+		pda.ownjob = "Emergency Response Team Commander"
+		pda.name = "PDA-[M.real_name] ([pda.ownjob])"
 
-	M.implant_loyalty(M, 1)
+		M.equip_to_slot_or_del(pda, slot_belt)
 
-	var/obj/item/weapon/card/id/centcom/W = new(M)
-	W.name = "[M.real_name]'s ID Card"
-	W.item_state = "id_inv"
-	W.access = get_all_accesses() | get_centcom_access("BlackOps Commander")
-	W.assignment = "Emergency Response Team Commander"
-	W.registered_name = M.real_name
-	M.equip_to_slot_or_del(W, slot_wear_id)
+		M.implant_loyalty(M, 1)
+
+		var/obj/item/weapon/card/id/centcom/W = new(M)
+		W.name = "[M.real_name]'s ID Card"
+		W.item_state = "id_inv"
+		W.access = get_all_accesses() | get_centcom_access("BlackOps Commander")
+		W.assignment = "Emergency Response Team Commander"
+		W.registered_name = M.real_name
+		M.equip_to_slot_or_del(W, slot_wear_id)
+
+	if(choice == "TCFL Commander")
+
+		M.mind.assigned_role = "Tau Ceti Foreign Legion Commander"
+		M.mind.special_role = "TCFL Commander"
+		M.forceMove(L.loc)
+		M.key = key
+
+		M.change_appearance(APPEARANCE_ALL, M.loc, check_species_whitelist = 1)
+
+		if(wasLiving)
+			clear_cciaa_job(holder.original_mob)
+			addtimer(CALLBACK(holder.original_mob, /mob/.proc/invalidate_key_tmr), 1)
+
+		var/obj/item/clothing/accessory/holster/hip/hold = new(M)
+		var/obj/item/weapon/gun/projectile/revolver/mateba/weapon = new(M)
+		hold.contents += weapon
+		hold.holstered = weapon
+
+		var/obj/item/clothing/under/legion/commander/under = new(M)
+		under.attackby(hold, M)
+
+		M.equip_to_slot_or_del(under, slot_w_uniform)
+		M.equip_to_slot_or_del(new /obj/item/clothing/shoes/jackboots(M), slot_shoes)
+		M.equip_to_slot_or_del(new /obj/item/clothing/gloves/white(M), slot_gloves)
+		M.equip_to_slot_or_del(new /obj/item/device/radio/headset/legion(M), slot_l_ear)
+		M.equip_to_slot_or_del(new /obj/item/clothing/head/legion_commander(M), slot_head)
+		M.equip_to_slot_or_del(new /obj/item/clothing/suit/storage/vest/legion/commander(M), slot_wear_suit)
+
+		var/obj/item/weapon/card/id/legion/W = new(M)
+		W.name = "[M.real_name]'s ID Card"
+		W.item_state = "id_inv"
+		W.access += (access_cent_specops)
+		W.assignment = "Tau Ceti Foreign Legion Commander"
+		W.registered_name = M.real_name
+		M.equip_to_slot_or_del(W, slot_wear_id)
 
 	verbs += /client/proc/returntobody
 
