@@ -14,6 +14,8 @@ var/datum/antagonist/ert/ert
 	flags = ANTAG_OVERRIDE_JOB | ANTAG_SET_APPEARANCE | ANTAG_HAS_LEADER | ANTAG_CHOOSE_NAME | ANTAG_RANDOM_EXCEPTED
 	antaghud_indicator = "hudloyalist"
 
+	var/list/callsign = list("ERTPlaceholder-1","ERTPlaceholder-2","ERTPlaceholder-3","ERTPlaceholder-4","ERTPlaceholder-5","ERTPlaceholder-6","ERTPlaceholder-7","ERTPlaceholder-8")
+
 	hard_cap = 5
 	hard_cap_round = 7
 	initial_spawn_req = 5
@@ -32,6 +34,56 @@ var/datum/antagonist/ert/ert
 		return
 	to_chat(player.current, "The Emergency Response Team works for Asset Protection; your job is to protect [current_map.company_name]'s assets. There is a code red alert on [station_name()], you are tasked to go and fix the problem.")
 	to_chat(player.current, "You should first gear up and discuss a plan with your team. More members may be joining, don't move out before you're ready.")
+
+/datum/antagonist/ert/update_leader()
+	return
+
+/datum/antagonist/ert/set_antag_name(var/mob/living/carbon/human/player)
+
+	var/rank = null
+
+	if(!leader)
+		rank = input(player,"Select your character's rank","Rank selection") as null|anything in list("Leading Trooper (L/Tpr)","Specialist Trooper (S/Tpr)","Trooper (Tpr)")
+	else
+		rank = input(player,"Select your character's rank","Rank selection") as null|anything in list("Specialist Trooper (S/Tpr)","Trooper (Tpr)")
+
+	switch(rank)
+		if("Leading Trooper (L/Tpr)")
+			if(!leader)
+				player.mind.special_role = "L/Tpr"
+				leader = player.mind
+			else
+				rank = input(player,"Option unavailable, Reselect your character's rank","Rank selection") as null|anything in list("Specialist Trooper (S/Tpr)","Trooper (Tpr)")
+				switch(rank)
+					if("Specialist Trooper (S/Tpr)")
+						player.mind.special_role = "S/Tpr"
+					if("Trooper (Tpr)")
+						player.mind.special_role = "Tpr"
+		if("Specialist Trooper (S/Tpr)")
+			player.mind.special_role = "S/Tpr."
+		if("Trooper (Tpr)")
+			player.mind.special_role = "Tpr"
+	if(!rank)
+		player.mind.special_role = "Tpr"
+
+	var/newname = sanitize(input(player, "You are a member of ERT Phoenix with the rank of [rank]. Would you like to set a surname or callsign?", "Name change") as null|text, MAX_NAME_LEN)
+
+	if(findtext(newname," "))
+		newname = null
+	if(!newname && (callsign.len>= 1))
+		newname = "[pick(callsign)]"
+			callsign -= newname
+	else if(!newname)
+		newname = "[capitalize(pick(last_names))]"
+
+	newname = "[player.mind.special_role] [newname]"
+	player.real_name = newname
+	player.name = player.real_name
+	player.dna.real_name = newname
+	if(player.mind) player.mind.name = player.name
+
+	create_id(role_text, player)
+	update_access(player)
 
 /datum/antagonist/ert/equip(var/mob/living/carbon/human/player)
 

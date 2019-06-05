@@ -14,6 +14,8 @@ var/datum/antagonist/legion/legion
 	flags = ANTAG_OVERRIDE_JOB | ANTAG_SET_APPEARANCE | ANTAG_HAS_LEADER | ANTAG_CHOOSE_NAME | ANTAG_RANDOM_EXCEPTED
 	antaghud_indicator = "hudloyalist"
 
+	var/list/callsign = list("TCFLPlaceholder-1","TCFLPlaceholder-2","TCFLPlaceholder-3","TCFLPlaceholder-4","TCFLPlaceholder-5","TCFLPlaceholder-6","TCFLPlaceholder-7","TCFLPlaceholder-8")
+
 	hard_cap = 5
 	hard_cap_round = 7
 	initial_spawn_req = 5
@@ -33,6 +35,58 @@ var/datum/antagonist/legion/legion
 	to_chat(player.current,  "The Tau Ceti Foreign Legion works for the Republic of Biesel; your job is to protect [current_map.company_name]. There is a code red alert on [station_name()], you are tasked to go and fix the problem.")
 	to_chat(player.current, "You should first gear up and discuss a plan with your team. More members may be joining, don't move out before you're ready.")
 
+/datum/antagonist/legion/update_leader()
+	return
+
+/datum/antagonist/legion/set_antag_name(var/mob/living/carbon/human/player)
+
+	var/rank = null
+
+	if(!leader)
+		rank = input(player,"Select your character's rank","Rank selection") as null|anything in list("Prefect (Pfct.)","Legionnaire (Lgn.)","Volunteer (Vol.)")
+	else
+		rank = input(player,"Select your character's rank","Rank selection") as null|anything in list("Legionnaire (Lgn.)","Volunteer (Vol.)")
+
+	switch(rank)
+		if("Prefect (Pfct.)")
+			if(!leader)
+				player.mind.special_role = "Pfct."
+				leader = player.mind
+			else
+				rank = input(player,"Option unavailable, Reselect your character's rank","Rank selection") as null|anything in list("Legionnaire (Lgn.)","Volunteer (Vol.)")
+				switch(rank)
+					if("Legionnaire (Lgn.)")
+						player.mind.special_role = "Lgn."
+					if("Volunteer (Vol.)")
+						player.mind.special_role = "Vol."
+		if("Legionnaire (Lgn.)")
+			player.mind.special_role = "Lgn."
+		if("Volunteer (Vol.)")
+			player.mind.special_role = "Vol."
+	if(!rank)
+		player.mind.special_role = "Vol."
+
+	var/newname = sanitize(input(player, "You are a member of the TCFL with the rank of [rank]. Would you like to set a surname or callsign?", "Name change") as null|text, MAX_NAME_LEN)
+
+	if(findtext(newname," "))
+		newname = null
+	if(!newname && (callsign.len>= 1))
+		newname = "[pick(callsign)]"
+			callsign -= newname
+	else if(!newname)
+		newname = "[capitalize(pick(last_names))]"
+
+	newname = "[player.mind.special_role] [newname]"
+	player.real_name = newname
+	player.name = player.real_name
+	player.dna.real_name = newname
+	if(player.mind) player.mind.name = player.name
+
+	var/obj/item/weapon/card/id/legion/id = create_id(role_text, player)
+	update_access(player)
+	if(id && player.mind.special_role == "Pfct.")
+		id.access += (access_cent_specops)
+
 /datum/antagonist/legion/equip(var/mob/living/carbon/human/player)
 
 	player.equip_to_slot_or_del(new /obj/item/device/radio/headset/legion(src), slot_l_ear)
@@ -44,5 +98,4 @@ var/datum/antagonist/legion/legion
 	player.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack/legion(src), slot_back)
 	player.equip_to_slot_or_del(new /obj/item/weapon/storage/box/engineer(player.back), slot_in_backpack)
 
-	create_id(role_text, player)
 	return 1
