@@ -54,4 +54,4 @@
 		var/image/gun_overlay = image(gun_I)
 		gun_overlay.pixel_x += 8
 		gun_overlay.pixel_y += 8
-		add_overlay(gun_overlay, TRUE)
+		add_overlay(gun_overlay)
