@@ -88,31 +88,10 @@
 			clear_cciaa_job(holder.original_mob)
 			addtimer(CALLBACK(holder.original_mob, /mob/.proc/invalidate_key_tmr), 1)
 
-		M.equip_to_slot_or_del(new /obj/item/clothing/under/rank/centcom_commander(M), slot_w_uniform)
-		M.equip_to_slot_or_del(new /obj/item/clothing/shoes/jackboots(M), slot_shoes)
-		M.equip_to_slot_or_del(new /obj/item/clothing/gloves/white(M), slot_gloves)
-		M.equip_to_slot_or_del(new /obj/item/device/radio/headset/ert(M), slot_l_ear)
-		M.equip_to_slot_or_del(new /obj/item/clothing/glasses/sunglasses/sechud(M), slot_glasses)
-		M.equip_to_slot_or_del(new /obj/item/clothing/head/beret/centcom/commander(M), slot_head)
-		M.equip_to_slot_or_del(new /obj/item/clothing/suit/storage/vest/heavy/ert/commander(M), slot_wear_suit)
-		M.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack/satchel, slot_back)
-
-		var/obj/item/device/pda/central/pda = new(M)
-		pda.owner = M.real_name
-		pda.ownjob = "Emergency Response Team Commander"
-		pda.name = "PDA-[M.real_name] ([pda.ownjob])"
-
-		M.equip_to_slot_or_del(pda, slot_belt)
-
-		M.implant_loyalty(M, 1)
-
-		var/obj/item/weapon/card/id/centcom/W = new(M)
-		W.name = "[M.real_name]'s ID Card"
-		W.item_state = "id_inv"
-		W.access = get_all_accesses() | get_centcom_access("BlackOps Commander")
-		W.assignment = "Emergency Response Team Commander"
-		W.registered_name = M.real_name
-		M.equip_to_slot_or_del(W, slot_wear_id)
+		var/datum/outfit/O = /datum/outfit/admin/nt/ert_commander
+		if(O)
+			M.preEquipOutfit(O,FALSE)
+			M.equipOutfit(O,FALSE)
 
 	if(choice == "TCFL Commander")
 
@@ -127,28 +106,10 @@
 			clear_cciaa_job(holder.original_mob)
 			addtimer(CALLBACK(holder.original_mob, /mob/.proc/invalidate_key_tmr), 1)
 
-		var/obj/item/clothing/accessory/holster/hip/hold = new(M)
-		var/obj/item/weapon/gun/projectile/revolver/mateba/weapon = new(M)
-		hold.contents += weapon
-		hold.holstered = weapon
-
-		var/obj/item/clothing/under/legion/commander/under = new(M)
-		under.attackby(hold, M)
-
-		M.equip_to_slot_or_del(under, slot_w_uniform)
-		M.equip_to_slot_or_del(new /obj/item/clothing/shoes/jackboots(M), slot_shoes)
-		M.equip_to_slot_or_del(new /obj/item/clothing/gloves/white(M), slot_gloves)
-		M.equip_to_slot_or_del(new /obj/item/device/radio/headset/legion(M), slot_l_ear)
-		M.equip_to_slot_or_del(new /obj/item/clothing/head/legion_commander(M), slot_head)
-		M.equip_to_slot_or_del(new /obj/item/clothing/suit/storage/vest/legion/commander(M), slot_wear_suit)
-
-		var/obj/item/weapon/card/id/legion/W = new(M)
-		W.name = "[M.real_name]'s ID Card"
-		W.item_state = "id_inv"
-		W.access += (access_cent_specops)
-		W.assignment = "Tau Ceti Foreign Legion Commander"
-		W.registered_name = M.real_name
-		M.equip_to_slot_or_del(W, slot_wear_id)
+		var/datum/outfit/O = /datum/outfit/admin/tcfl_commander
+		if(O)
+			M.preEquipOutfit(O,FALSE)
+			M.equipOutfit(O,FALSE)
 
 	verbs += /client/proc/returntobody
 

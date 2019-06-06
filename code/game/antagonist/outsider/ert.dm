@@ -72,7 +72,7 @@ var/datum/antagonist/ert/ert
 		newname = null
 	if(!newname && (callsign.len>= 1))
 		newname = "[pick(callsign)]"
-			callsign -= newname
+		callsign -= newname
 	else if(!newname)
 		newname = "[capitalize(pick(last_names))]"
 

@@ -173,21 +173,33 @@
 
 	uniform = /obj/item/clothing/under/rank/centcom_commander
 	suit = /obj/item/clothing/suit/storage/vest/heavy/ert/commander
-	shoes = /obj/item/clothing/shoes/swat
-	gloves = /obj/item/clothing/gloves/swat
+	back = null
+	shoes = /obj/item/clothing/shoes/jackboots
+	gloves = /obj/item/clothing/gloves/white
 	l_ear = /obj/item/device/radio/headset/ert
-	glasses = /obj/item/clothing/glasses/sunglasses/sechud
+	glasses = /obj/item/clothing/glasses/sunglasses/sechud/head
 	head = /obj/item/clothing/head/beret/centcom/commander
-
-	backpack_contents = list(
-		/obj/item/weapon/storage/fancy/cigar = 1,
-		/obj/item/weapon/flame/lighter/zippo = 1,
-		/obj/item/clothing/accessory/medal/gold/heroism = 1
-	)
+	r_pocket = /obj/item/weapon/melee/telebaton
+	pda = /obj/item/device/pda/central
+	backpack_contents = null
 
 	implants = list(
 		/obj/item/weapon/implant/loyalty
 	)
+
+/datum/outfit/admin/nt/ert_commander/get_id_assignment()
+	return "Emergency Response Team Commander"
+
+/datum/outfit/admin/nt/ert_commander/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+	if(H && H.w_uniform)
+		var/obj/item/clothing/accessory/medal/gold/heroism/medal = new(H)
+		var/obj/item/clothing/accessory/holster/hip/hold = new(H)
+		var/obj/item/weapon/gun/projectile/revolver/mateba/weapon = new(H)
+		hold.contents += weapon
+		hold.holstered = weapon
+		var/obj/item/clothing/under/rank/U = H.w_uniform
+		U.attach_accessory(null, hold)
+		U.attach_accessory(null, medal)
 
 
 /datum/outfit/admin/nt/odinsec
@@ -236,6 +248,33 @@
 	)
 
 	id_access = "Death Commando"
+
+
+/datum/outfit/admin/tcfl_commander
+	name = "TCFL Commander"
+
+	uniform = /obj/item/clothing/under/legion/commander
+	suit = /obj/item/clothing/suit/storage/vest/legion/commander
+	shoes = /obj/item/clothing/shoes/jackboots
+	gloves = /obj/item/clothing/gloves/white
+	l_ear = /obj/item/device/radio/headset/legion
+	head = /obj/item/clothing/head/legion_commander
+	id = /obj/item/weapon/card/id/legion
+
+/datum/outfit/admin/tcfl_commander/get_id_assignment()
+	return "Tau Ceti Foreign Legion Commander"
+
+/datum/outfit/admin/tcfl_commander/get_id_access()
+	return list(access_legion, access_maint_tunnels, access_external_airlocks, access_security, access_engine, access_engine_equip, access_medical, access_research, access_atmospherics, access_medical_equip, access_cent_creed, access_cent_specops)
+
+/datum/outfit/admin/tcfl_commander/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+	if(H && H.w_uniform)
+		var/obj/item/clothing/accessory/holster/hip/hold = new(H)
+		var/obj/item/weapon/gun/projectile/revolver/mateba/weapon = new(H)
+		hold.contents += weapon
+		hold.holstered = weapon
+		var/obj/item/clothing/under/rank/U = H.w_uniform
+		U.attach_accessory(null, hold)
 
 
 /datum/outfit/admin/pirate

@@ -66,13 +66,13 @@ var/datum/antagonist/legion/legion
 	if(!rank)
 		player.mind.special_role = "Vol."
 
-	var/newname = sanitize(input(player, "You are a member of the TCFL with the rank of [rank]. Would you like to set a surname or callsign?", "Name change") as null|text, MAX_NAME_LEN)
+	var/newname = sanitize(input(player, "You are a member of the TCFL - Taskforce XIII with the rank of [rank]. Would you like to set a surname or callsign?", "Name change") as null|text, MAX_NAME_LEN)
 
 	if(findtext(newname," "))
 		newname = null
 	if(!newname && (callsign.len>= 1))
 		newname = "[pick(callsign)]"
-			callsign -= newname
+		callsign -= newname
 	else if(!newname)
 		newname = "[capitalize(pick(last_names))]"
 

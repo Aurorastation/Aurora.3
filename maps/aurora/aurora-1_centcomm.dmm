@@ -8673,6 +8673,7 @@
 /obj/item/weapon/storage/fancy/cigarettes,
 /obj/item/weapon/flame/lighter/zippo,
 /obj/item/weapon/storage/belt/utility,
+/obj/item/weapon/storage/fancy/cigar,
 /obj/item/weapon/storage/backpack/satchel,
 /turf/unsimulated/floor{
 	icon_state = "grimy"
@@ -21764,23 +21765,6 @@
 "boO" = (
 /turf/template_noop,
 /area/shuttle/escape_pod2/centcom/space)
-"bsN" = (
-/obj/effect/floor_decal/industrial/warning/corner{
-	icon_state = "warningcorner";
-	dir = 1
-	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 4
-	},
-/obj/structure/sign/flag/biesel/right{
-	dir = 8;
-	icon_state = "biesel_r";
-	pixel_x = -30
-	},
-/turf/unsimulated/floor{
-	icon_state = "dark"
-	},
-/area/centcom/legion_base)
 "bvD" = (
 /turf/unsimulated/floor{
 	dir = 9;
@@ -21883,11 +21867,8 @@
 	icon_state = "dark"
 	},
 /area/centcom/legion_base/hangar5)
-"ePo" = (
-/obj/machinery/light{
-	dir = 4;
-	status = 0
-	},
+"eLv" = (
+/obj/structure/bed/chair,
 /turf/simulated/shuttle/floor/destructible,
 /area/shuttle/escape/centcom)
 "eSC" = (
@@ -21898,26 +21879,6 @@
 	icon_state = "floor"
 	},
 /area/centcom/holding)
-"fbV" = (
-/obj/machinery/door/blast/shutters/open{
-	dir = 4;
-	icon_state = "shutter0";
-	id = "tcflcheckpoint";
-	name = "Checkpoint Delta"
-	},
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 8
-	},
-/obj/structure/grille,
-/turf/unsimulated/floor{
-	name = "plating"
-	},
-/area/centcom/legion_base)
 "frH" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/generic,
@@ -21987,6 +21948,19 @@
 	dir = 8
 	},
 /area/centcom/living)
+"gDJ" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/obj/structure/sign/flag/biesel/left{
+	dir = 8;
+	icon_state = "biesel_l";
+	pixel_x = -30
+	},
+/turf/unsimulated/floor{
+	icon_state = "dark"
+	},
+/area/centcom/legion_base)
 "gJu" = (
 /obj/effect/floor_decal/industrial/warning{
 	icon_state = "warning";
@@ -22129,19 +22103,17 @@
 	dir = 4
 	},
 /area/centcom/living)
-"jJc" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 4
-	},
-/obj/structure/sign/flag/biesel/left{
+"jNm" = (
+/obj/machinery/light{
 	dir = 8;
-	icon_state = "biesel_l";
-	pixel_x = -30
+	icon_state = "tube1";
+	pixel_x = 0
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark"
+	dir = 8;
+	icon_state = "wood"
 	},
-/area/centcom/legion_base)
+/area/centcom/legion_base/hangar5)
 "jTp" = (
 /turf/unsimulated/floor{
 	icon_state = "green";
@@ -22249,11 +22221,6 @@
 	},
 /turf/simulated/shuttle/floor,
 /area/template_noop)
-"nBn" = (
-/obj/structure/window/shuttle,
-/obj/structure/grille,
-/turf/simulated/shuttle/floor/plating/destructible,
-/area/shuttle/escape/centcom)
 "nPC" = (
 /obj/structure/banner,
 /turf/unsimulated/floor{
@@ -22261,6 +22228,13 @@
 	dir = 8
 	},
 /area/centcom/living)
+"ofE" = (
+/obj/machinery/light{
+	dir = 4;
+	status = 0
+	},
+/turf/simulated/shuttle/floor/destructible,
+/area/shuttle/escape/centcom)
 "oIb" = (
 /obj/machinery/light{
 	icon_state = "tube1";
@@ -22280,9 +22254,6 @@
 /obj/effect/wingrille_spawn/reinforced/crescent,
 /turf/unsimulated/wall/riveted,
 /area/centcom/living)
-"oUR" = (
-/turf/simulated/shuttle/floor/destructible,
-/area/shuttle/escape/centcom)
 "oVL" = (
 /obj/machinery/door/window{
 	dir = 8;
@@ -22331,6 +22302,26 @@
 /obj/item/weapon/material/shard,
 /turf/unsimulated/floor,
 /area/template_noop)
+"puy" = (
+/obj/machinery/door/blast/shutters/open{
+	dir = 4;
+	icon_state = "shutter0";
+	id = "tcflcheckpoint";
+	name = "Checkpoint Delta"
+	},
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 8
+	},
+/obj/structure/grille,
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/centcom/legion_base)
 "pFA" = (
 /obj/structure/closet/crate/loot,
 /turf/simulated/shuttle/floor,
@@ -22361,10 +22352,6 @@
 /obj/effect/decal/remains,
 /turf/simulated/shuttle/floor,
 /area/template_noop)
-"qGT" = (
-/obj/structure/bed/chair,
-/turf/simulated/shuttle/floor/destructible,
-/area/shuttle/escape/centcom)
 "qMl" = (
 /obj/structure/table/wood,
 /obj/item/device/flashlight/lamp,
@@ -22384,6 +22371,11 @@
 	icon_state = "wood"
 	},
 /area/centcom/legion_base/hangar5)
+"qVE" = (
+/obj/structure/window/shuttle,
+/obj/structure/grille,
+/turf/simulated/shuttle/floor/plating/destructible,
+/area/shuttle/escape/centcom)
 "qWb" = (
 /obj/structure/bed/chair{
 	dir = 1
@@ -22394,6 +22386,16 @@
 "qXc" = (
 /turf/simulated/shuttle/plating,
 /area/space)
+"rpb" = (
+/obj/item/weapon/stool/padded,
+/obj/machinery/light{
+	dir = 4;
+	icon_state = "tube1"
+	},
+/turf/unsimulated/floor{
+	icon_state = "dark"
+	},
+/area/centcom/legion_base)
 "rtI" = (
 /obj/structure/bed/chair/shuttle{
 	icon_state = "shuttlechair";
@@ -22422,6 +22424,12 @@
 	icon_state = "carpetside"
 	},
 /area/centcom/living)
+"rIg" = (
+/turf/simulated/shuttle/wall/destructible,
+/area/shuttle/escape/centcom)
+"rIO" = (
+/turf/simulated/shuttle/floor/destructible,
+/area/shuttle/escape/centcom)
 "rRO" = (
 /obj/effect/decal/cleanable/blood/xeno,
 /turf/simulated/shuttle/floor,
@@ -22448,6 +22456,23 @@
 /obj/effect/decal/cleanable/blood/xeno,
 /turf/simulated/shuttle/floor,
 /area/template_noop)
+"sTb" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	icon_state = "warningcorner";
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/obj/structure/sign/flag/biesel/right{
+	dir = 8;
+	icon_state = "biesel_r";
+	pixel_x = -30
+	},
+/turf/unsimulated/floor{
+	icon_state = "dark"
+	},
+/area/centcom/legion_base)
 "tcY" = (
 /obj/machinery/light{
 	dir = 4;
@@ -22516,17 +22541,6 @@
 	},
 /turf/simulated/floor/wood,
 /area/merchant_station)
-"uyf" = (
-/obj/machinery/light{
-	dir = 8;
-	icon_state = "tube1";
-	pixel_x = 0
-	},
-/turf/unsimulated/floor{
-	dir = 8;
-	icon_state = "wood"
-	},
-/area/centcom/legion_base/hangar5)
 "uzX" = (
 /obj/structure/lattice/catwalk/indoor,
 /turf/template_noop,
@@ -22594,19 +22608,6 @@
 	dir = 1
 	},
 /area/centcom/living)
-"wqI" = (
-/obj/item/weapon/stool/padded,
-/obj/machinery/light{
-	dir = 4;
-	icon_state = "tube1"
-	},
-/turf/unsimulated/floor{
-	icon_state = "dark"
-	},
-/area/centcom/legion_base)
-"wrF" = (
-/turf/simulated/shuttle/wall/destructible,
-/area/shuttle/escape/centcom)
 "wGd" = (
 /obj/machinery/light{
 	dir = 2;
@@ -22698,7 +22699,7 @@
 	icon_opened = "cabinetdetective_open";
 	icon_state = "cabinetdetective_locked";
 	name = "commander's closet";
-	req_access = list(103,111)
+	req_access = list(108,111)
 	},
 /obj/structure/sign/flag/biesel{
 	pixel_y = 32
@@ -22752,7 +22753,7 @@
 	name = "Heavy Support";
 	pixel_x = 28;
 	pixel_y = -6;
-	req_access = list(103,111)
+	req_access = list(108,111)
 	},
 /turf/unsimulated/floor{
 	dir = 8;
@@ -22961,7 +22962,7 @@
 	name = "Unlock Hangar 5";
 	pixel_x = 4;
 	pixel_y = 6;
-	req_access = list(103,111)
+	req_access = list(108,111)
 	},
 /turf/unsimulated/floor{
 	dir = 6;
@@ -23193,7 +23194,7 @@
 	check_records = 0;
 	name = "Hangar 5 turret control";
 	pixel_x = 31;
-	req_access = list(103,111)
+	req_access = list(108,111)
 	},
 /turf/unsimulated/floor{
 	dir = 8;
@@ -23857,7 +23858,7 @@
 	locked = 0;
 	name = "Commander's Office";
 	opacity = 1;
-	req_access = list(103,111)
+	req_access = list(108,111)
 	},
 /turf/unsimulated/floor{
 	dir = 8;
@@ -26157,7 +26158,7 @@
 "xQc" = (
 /obj/machinery/door/airlock/glass_command{
 	name = "Prefect Preparation";
-	req_access = list(111)
+	req_access = list(103,111)
 	},
 /turf/unsimulated/floor{
 	dir = 8;
@@ -26189,7 +26190,8 @@
 	id = "tcflreadyroom";
 	name = "Ready Room Shutters";
 	pixel_x = -24;
-	pixel_y = -2
+	pixel_y = -2;
+	req_access = list(111)
 	},
 /turf/unsimulated/floor{
 	icon_state = "dark"
@@ -27538,6 +27540,17 @@
 	pixel_x = 4;
 	pixel_y = -6
 	},
+/obj/item/weapon/storage/belt/security/tactical{
+	pixel_x = -4;
+	pixel_y = 5
+	},
+/obj/item/weapon/storage/belt/security/tactical{
+	pixel_y = 0
+	},
+/obj/item/weapon/storage/belt/security/tactical{
+	pixel_x = 4;
+	pixel_y = -6
+	},
 /turf/unsimulated/floor{
 	icon_state = "vault";
 	dir = 8
@@ -27839,6 +27852,15 @@
 	},
 /obj/item/weapon/shield/riot/tact,
 /obj/item/weapon/shield/riot/tact{
+	pixel_x = 4;
+	pixel_y = -4
+	},
+/obj/item/weapon/melee/baton/loaded{
+	pixel_x = -4;
+	pixel_y = 4
+	},
+/obj/item/weapon/melee/baton/loaded,
+/obj/item/weapon/melee/baton/loaded{
 	pixel_x = 4;
 	pixel_y = -4
 	},
@@ -70421,8 +70443,8 @@ yis
 yic
 yis
 yjp
-wrF
-wrF
+rIg
+rIg
 yjp
 yjN
 aJF
@@ -70659,27 +70681,27 @@ yjN
 ycz
 yjp
 yjp
-wrF
-nBn
-wrF
-nBn
-nBn
-wrF
+rIg
+qVE
+rIg
+qVE
+qVE
+rIg
 aEW
-wrF
-nBn
-wrF
+rIg
+qVE
+rIg
 aWj
 aWj
 aWj
-wrF
-nBn
-wrF
+rIg
+qVE
+rIg
 aGc
-wrF
-wrF
-wrF
-wrF
+rIg
+rIg
+rIg
+rIg
 yjp
 yjN
 aHK
@@ -70915,23 +70937,23 @@ auT
 yjN
 ycz
 aCO
-wrF
-wrF
+rIg
+rIg
 aVG
-wrF
-qGT
-oUR
+rIg
+eLv
+rIO
 aVL
-oUR
-wrF
+rIO
+rIg
 aOC
 aDs
 aDs
 aDs
 aDs
-oUR
+rIO
 aWC
-wrF
+rIg
 aWH
 aWU
 aXa
@@ -71171,23 +71193,23 @@ aBQ
 auT
 yjN
 ycz
-nBn
-nBn
+qVE
+qVE
 aGQ
 aFZ
-wrF
+rIg
 aIx
-oUR
+rIO
 aVS
-ePo
+ofE
 aOX
-oUR
+rIO
 aDs
 aVP
 aDs
 aDs
-oUR
-oUR
+rIO
+rIO
 aIC
 aWu
 aWu
@@ -71428,23 +71450,23 @@ aBR
 auT
 yjN
 ycz
-nBn
+qVE
 aVC
 aFu
 aGQ
-wrF
+rIg
 aCP
 aOX
-wrF
-wrF
-wrF
-nBn
-nBn
-wrF
-nBn
-nBn
-oUR
-oUR
+rIg
+rIg
+rIg
+qVE
+qVE
+rIg
+qVE
+qVE
+rIO
+rIO
 aCQ
 aWI
 aWV
@@ -71685,14 +71707,14 @@ ajK
 auT
 yjN
 ycz
-nBn
+qVE
 aFn
 aFz
 aGN
 aGQ
 aXp
 aVH
-wrF
+rIg
 aVQ
 aVU
 aWc
@@ -71700,9 +71722,9 @@ aWc
 aWk
 aWc
 aWm
-oUR
+rIO
 aWF
-wrF
+rIg
 aWN
 aWu
 aWu
@@ -71942,7 +71964,7 @@ aBq
 auT
 yjN
 ycz
-nBn
+qVE
 aFq
 aFA
 aGO
@@ -71950,15 +71972,15 @@ aGQ
 aPe
 aVI
 aVE
-oUR
-oUR
-oUR
-oUR
-oUR
-oUR
-oUR
-oUR
-oUR
+rIO
+rIO
+rIO
+rIO
+rIO
+rIO
+rIO
+rIO
+rIO
 aCQ
 aWv
 aWW
@@ -72199,14 +72221,14 @@ aBT
 auT
 yjN
 ycz
-nBn
+qVE
 aFs
 aFB
 aGP
 aID
 aPi
 aVM
-wrF
+rIg
 aVR
 aVV
 aWd
@@ -72214,14 +72236,14 @@ aWd
 aWd
 aWd
 aWn
-oUR
+rIO
 aVH
-wrF
-wrF
-wrF
-wrF
-wrF
-wrF
+rIg
+rIg
+rIg
+rIg
+rIg
+rIg
 yjp
 yjN
 aJH
@@ -72456,14 +72478,14 @@ aBT
 auT
 yjN
 ycz
-nBn
+qVE
 aFq
 aFB
 aHM
 aID
 aPi
 aVM
-wrF
+rIg
 aVR
 aVU
 aWc
@@ -72471,14 +72493,14 @@ aWc
 aWc
 aWc
 aWm
-oUR
-oUR
+rIO
+rIO
 aWs
 aWO
 aWX
 aXb
-wrF
-wrF
+rIg
+rIg
 yjp
 yjN
 aJH
@@ -72713,7 +72735,7 @@ aBT
 auT
 yjN
 ycz
-nBn
+qVE
 aFq
 aFA
 aGO
@@ -72721,15 +72743,15 @@ aGQ
 aVB
 aVI
 aVE
-oUR
-oUR
-oUR
-oUR
-oUR
-oUR
-oUR
-oUR
-oUR
+rIO
+rIO
+rIO
+rIO
+rIO
+rIO
+rIO
+rIO
+rIO
 aCQ
 aVX
 aGQ
@@ -72970,23 +72992,23 @@ aBT
 auT
 yjN
 ycz
-nBn
+qVE
 aFt
 aFO
 aIg
 aGQ
 aXq
 aVH
-wrF
-oUR
+rIg
+rIO
 aVV
 aWd
 aWd
 aWd
 aWd
 aWn
-oUR
-oUR
+rIO
+rIO
 aCQ
 aVX
 aGQ
@@ -73227,23 +73249,23 @@ aBq
 auT
 yjN
 ycz
-nBn
+qVE
 aDK
 aVF
 aGQ
-wrF
-wrF
-wrF
-wrF
-oUR
+rIg
+rIg
+rIg
+rIg
+rIO
 aVU
 aWc
 aWc
 aWc
 aWc
 aWm
-oUR
-oUR
+rIO
+rIO
 aCQ
 aWR
 aGQ
@@ -73484,24 +73506,24 @@ aBT
 auT
 yjN
 yjp
-nBn
-nBn
+qVE
+qVE
 aGQ
 aIf
-wrF
+rIg
 aVD
 aVJ
 aVN
-oUR
-oUR
-oUR
-oUR
-oUR
-oUR
-oUR
-oUR
+rIO
+rIO
+rIO
+rIO
+rIO
+rIO
+rIO
+rIO
 aWF
-wrF
+rIg
 aWS
 aWY
 aXc
@@ -73742,13 +73764,13 @@ auT
 yjN
 yjp
 yjp
-wrF
-wrF
+rIg
+rIg
 aVG
-wrF
+rIg
 aWB
 aVK
-wrF
+rIg
 aVT
 aVV
 aWd
@@ -73756,9 +73778,9 @@ aWd
 aWl
 aWd
 aWn
-oUR
+rIO
 aWD
-wrF
+rIg
 aWT
 aWZ
 aXd
@@ -74000,27 +74022,27 @@ yjN
 yjp
 yjp
 yjp
-wrF
-nBn
-wrF
-nBn
-nBn
-wrF
-wrF
-nBn
-nBn
-nBn
-wrF
-nBn
-nBn
-nBn
-wrF
-wrF
-nBn
-nBn
-wrF
-wrF
-wrF
+rIg
+qVE
+rIg
+qVE
+qVE
+rIg
+rIg
+qVE
+qVE
+qVE
+rIg
+qVE
+qVE
+qVE
+rIg
+rIg
+qVE
+qVE
+rIg
+rIg
+rIg
 yjp
 yjN
 aJH
@@ -74276,8 +74298,8 @@ yjp
 yjp
 yjp
 yjp
-wrF
-wrF
+rIg
+rIg
 yjp
 yjN
 aJH
@@ -79280,7 +79302,7 @@ xMS
 xOk
 xXD
 xSf
-wqI
+rpb
 xTy
 xVV
 xVZ
@@ -81065,7 +81087,7 @@ xXD
 xsC
 xXD
 xxL
-fbV
+puy
 xBn
 xBn
 xXD
@@ -81325,8 +81347,8 @@ xOG
 xFF
 gaU
 gaU
-bsN
-jJc
+sTb
+gDJ
 qoq
 gaU
 gaU
@@ -85450,7 +85472,7 @@ xZe
 xRt
 xSI
 xTW
-uyf
+jNm
 xWx
 xXF
 xYg
