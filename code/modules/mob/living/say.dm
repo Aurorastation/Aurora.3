@@ -176,6 +176,10 @@ proc/get_radio_key_from_channel(var/channel)
 
 	message = trim_left(message)
 
+	var/ending = copytext(message, length(message), (length(message) + 1))
+	if(ending != "!" && ending != "." && ending != "?" && ending != "-")
+		message += "."
+
 	//parse the language code and consume it
 	if(!speaking)
 		speaking = parse_language(message)
