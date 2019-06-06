@@ -12,6 +12,10 @@
 		to_chat(src,"<span class='warning'>The game hasn't started yet!</span>")
 		return
 
+	if(!SSresponseteam.send_emergency_team)
+		to_chat(usr, "No emergency response team is currently being sent.")
+		return
+
 	if(istype(mob, /mob/abstract/new_player))
 		to_chat(src,"<span class='warning'>You can't be in the lobby to join as a commander.</span>")
 		return
@@ -35,14 +39,12 @@
 		holder.original_mob = mob
 		wasLiving = 1
 
-	var/choice = input("Select the Commander Type","Commander Team Selection") as null|anything in list("ERT Commander", "TCFL Commander")
-
 	var/obj/effect/landmark/L
 	for (var/obj/effect/landmark/landmark in landmarks_list)
-		if(landmark.name == "ERTCommander" && choice == "ERT Commander")
+		if(landmark.name == "ERTCommander" && SSresponseteam.ert_type == "NanoTrasen Response Team")
 			L = landmark
 			break
-		else if (landmark.name == "TCFLCommander" && choice == "TCFL Commander")
+		else if (landmark.name == "TCFLCommander" && SSresponseteam.ert_type == "Tau Ceti Foreign Legion")
 			L = landmark
 			break
 
@@ -75,7 +77,7 @@
 	if(wasLiving)
 		M.mind.admin_mob_placeholder = mob
 
-	if(choice == "ERT Commander")
+	if(SSresponseteam.ert_type == "NanoTrasen Response Team")
 
 		M.mind.assigned_role = "Emergency Response Team Commander"
 		M.mind.special_role = "ERT Commander"
@@ -93,7 +95,7 @@
 			M.preEquipOutfit(O,FALSE)
 			M.equipOutfit(O,FALSE)
 
-	if(choice == "TCFL Commander")
+	if(SSresponseteam.ert_type == "Tau Ceti Foreign Legion")
 
 		M.mind.assigned_role = "Tau Ceti Foreign Legion Commander"
 		M.mind.special_role = "TCFL Commander"

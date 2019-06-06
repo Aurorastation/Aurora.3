@@ -276,6 +276,68 @@
 		var/obj/item/clothing/under/rank/U = H.w_uniform
 		U.attach_accessory(null, hold)
 
+/datum/outfit/admin/tcfl
+	name = "TCFL Volunteer (Equipped)"
+
+	uniform = /obj/item/clothing/under/legion
+	shoes = /obj/item/clothing/shoes/swat
+	gloves = /obj/item/clothing/gloves/swat/legion
+	head = /obj/item/clothing/head/helmet/legion
+	mask =	/obj/item/clothing/mask/gas/tactical
+	suit = /obj/item/clothing/suit/storage/vest/legion
+	l_ear = /obj/item/device/radio/headset/legion
+	glasses = /obj/item/clothing/glasses/sunglasses/aviator
+	belt = /obj/item/weapon/storage/belt/security/tactical
+	back = /obj/item/weapon/storage/backpack/legion
+	suit_store = /obj/item/weapon/gun/projectile/gauss
+	id = /obj/item/weapon/card/id/legion
+
+	backpack_contents = list(
+		/obj/item/weapon/storage/box/engineer = 1,
+		/obj/item/weapon/crowbar = 1,
+		/obj/item/weapon/gun/energy/blaster/carbine = 1,
+		/obj/item/ammo_magazine/gauss = 3,
+		/obj/item/weapon/handcuffs/ziptie = 2,
+		/obj/item/weapon/storage/firstaid/regular = 1,
+		/obj/item/clothing/head/legion_beret/field = 1
+	)
+
+/datum/outfit/admin/tcfl/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+
+	if(H && H.w_uniform)
+
+		var/obj/item/clothing/accessory/holster/armpit/hold = new(H)
+		var/obj/item/weapon/gun/energy/blaster/weapon = new(H)
+		hold.contents += weapon
+		hold.holstered = weapon
+		var/obj/item/clothing/under/rank/U = H.w_uniform
+		U.attach_accessory(null, hold)
+
+	if(H && H.belt)
+
+		var/obj/item/ammo_magazine/gauss/ammo_g = new(H)
+		var/obj/item/ammo_magazine/gauss/emp/ammo_i = new(H)
+		var/obj/item/weapon/grenade/flashbang/flashbang = new(H)
+		var/obj/item/weapon/reagent_containers/spray/pepper/pepperspray = new(H)
+		var/obj/item/weapon/melee/baton/loaded/baton = new(H)
+		var/obj/item/weapon/shield/riot/tact/shield = new(H)
+		var/obj/item/device/flashlight/flare/flare = new(H)
+
+		H.belt.contents += ammo_g
+		H.belt.contents += ammo_i
+		H.belt.contents += flashbang
+		H.belt.contents += pepperspray
+		H.belt.contents += baton
+		H.belt.contents += shield
+		H.belt.contents += flare
+
+
+/datum/outfit/admin/tcfl/get_id_assignment()
+	return "Tau Ceti Foreign Legion Volunteer"
+
+/datum/outfit/admin/tcfl/get_id_access()
+	return list(access_legion, access_maint_tunnels, access_external_airlocks, access_security, access_engine, access_engine_equip, access_medical, access_research, access_atmospherics, access_medical_equip)
+
 
 /datum/outfit/admin/pirate
 	name = "Pirate"

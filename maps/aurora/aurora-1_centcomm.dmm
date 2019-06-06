@@ -21771,6 +21771,11 @@
 	icon_state = "carpetside"
 	},
 /area/centcom/living)
+"bYF" = (
+/obj/structure/window/shuttle,
+/obj/structure/grille,
+/turf/simulated/shuttle/floor/plating/destructible,
+/area/shuttle/escape/centcom)
 "cnT" = (
 /obj/structure/window/shuttle,
 /obj/structure/grille,
@@ -21867,9 +21872,8 @@
 	icon_state = "dark"
 	},
 /area/centcom/legion_base/hangar5)
-"eLv" = (
-/obj/structure/bed/chair,
-/turf/simulated/shuttle/floor/destructible,
+"ePy" = (
+/turf/simulated/shuttle/wall/destructible,
 /area/shuttle/escape/centcom)
 "eSC" = (
 /obj/machinery/atm{
@@ -21948,19 +21952,6 @@
 	dir = 8
 	},
 /area/centcom/living)
-"gDJ" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 4
-	},
-/obj/structure/sign/flag/biesel/left{
-	dir = 8;
-	icon_state = "biesel_l";
-	pixel_x = -30
-	},
-/turf/unsimulated/floor{
-	icon_state = "dark"
-	},
-/area/centcom/legion_base)
 "gJu" = (
 /obj/effect/floor_decal/industrial/warning{
 	icon_state = "warning";
@@ -22040,6 +22031,16 @@
 	},
 /turf/simulated/shuttle/floor/plating/destructible,
 /area/merchant_ship/start)
+"jcb" = (
+/obj/item/weapon/stool/padded,
+/obj/machinery/light{
+	dir = 4;
+	icon_state = "tube1"
+	},
+/turf/unsimulated/floor{
+	icon_state = "dark"
+	},
+/area/centcom/legion_base)
 "jcW" = (
 /obj/machinery/light{
 	dir = 4;
@@ -22103,17 +22104,6 @@
 	dir = 4
 	},
 /area/centcom/living)
-"jNm" = (
-/obj/machinery/light{
-	dir = 8;
-	icon_state = "tube1";
-	pixel_x = 0
-	},
-/turf/unsimulated/floor{
-	dir = 8;
-	icon_state = "wood"
-	},
-/area/centcom/legion_base/hangar5)
 "jTp" = (
 /turf/unsimulated/floor{
 	icon_state = "green";
@@ -22140,6 +22130,23 @@
 	dir = 4
 	},
 /area/centcom/living)
+"lug" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	icon_state = "warningcorner";
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/obj/structure/sign/flag/biesel/right{
+	dir = 8;
+	icon_state = "biesel_r";
+	pixel_x = -30
+	},
+/turf/unsimulated/floor{
+	icon_state = "dark"
+	},
+/area/centcom/legion_base)
 "lwP" = (
 /obj/structure/window/reinforced,
 /turf/unsimulated/floor{
@@ -22161,6 +22168,19 @@
 	},
 /turf/simulated/shuttle/floor/destructible/legion,
 /area/shuttle/legion/centcom)
+"mGq" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/obj/structure/sign/flag/biesel/left{
+	dir = 8;
+	icon_state = "biesel_l";
+	pixel_x = -30
+	},
+/turf/unsimulated/floor{
+	icon_state = "dark"
+	},
+/area/centcom/legion_base)
 "mQj" = (
 /turf/unsimulated/floor{
 	dir = 10;
@@ -22228,13 +22248,6 @@
 	dir = 8
 	},
 /area/centcom/living)
-"ofE" = (
-/obj/machinery/light{
-	dir = 4;
-	status = 0
-	},
-/turf/simulated/shuttle/floor/destructible,
-/area/shuttle/escape/centcom)
 "oIb" = (
 /obj/machinery/light{
 	icon_state = "tube1";
@@ -22281,6 +22294,17 @@
 	icon_state = "floor"
 	},
 /area/centcom/living)
+"pia" = (
+/obj/machinery/light{
+	dir = 8;
+	icon_state = "tube1";
+	pixel_x = 0
+	},
+/turf/unsimulated/floor{
+	dir = 8;
+	icon_state = "wood"
+	},
+/area/centcom/legion_base/hangar5)
 "pkO" = (
 /obj/machinery/door/window{
 	dir = 2;
@@ -22302,7 +22326,18 @@
 /obj/item/weapon/material/shard,
 /turf/unsimulated/floor,
 /area/template_noop)
-"puy" = (
+"pFA" = (
+/obj/structure/closet/crate/loot,
+/turf/simulated/shuttle/floor,
+/area/template_noop)
+"pPH" = (
+/obj/structure/table/wood,
+/turf/unsimulated/floor{
+	dir = 4;
+	icon_state = "carpetside"
+	},
+/area/centcom/living)
+"qea" = (
 /obj/machinery/door/blast/shutters/open{
 	dir = 4;
 	icon_state = "shutter0";
@@ -22322,17 +22357,6 @@
 	name = "plating"
 	},
 /area/centcom/legion_base)
-"pFA" = (
-/obj/structure/closet/crate/loot,
-/turf/simulated/shuttle/floor,
-/area/template_noop)
-"pPH" = (
-/obj/structure/table/wood,
-/turf/unsimulated/floor{
-	dir = 4;
-	icon_state = "carpetside"
-	},
-/area/centcom/living)
 "qmf" = (
 /obj/item/weapon/material/shard,
 /turf/template_noop,
@@ -22371,11 +22395,6 @@
 	icon_state = "wood"
 	},
 /area/centcom/legion_base/hangar5)
-"qVE" = (
-/obj/structure/window/shuttle,
-/obj/structure/grille,
-/turf/simulated/shuttle/floor/plating/destructible,
-/area/shuttle/escape/centcom)
 "qWb" = (
 /obj/structure/bed/chair{
 	dir = 1
@@ -22386,16 +22405,6 @@
 "qXc" = (
 /turf/simulated/shuttle/plating,
 /area/space)
-"rpb" = (
-/obj/item/weapon/stool/padded,
-/obj/machinery/light{
-	dir = 4;
-	icon_state = "tube1"
-	},
-/turf/unsimulated/floor{
-	icon_state = "dark"
-	},
-/area/centcom/legion_base)
 "rtI" = (
 /obj/structure/bed/chair/shuttle{
 	icon_state = "shuttlechair";
@@ -22424,10 +22433,11 @@
 	icon_state = "carpetside"
 	},
 /area/centcom/living)
-"rIg" = (
-/turf/simulated/shuttle/wall/destructible,
-/area/shuttle/escape/centcom)
-"rIO" = (
+"rCH" = (
+/obj/machinery/light{
+	dir = 4;
+	status = 0
+	},
 /turf/simulated/shuttle/floor/destructible,
 /area/shuttle/escape/centcom)
 "rRO" = (
@@ -22456,23 +22466,6 @@
 /obj/effect/decal/cleanable/blood/xeno,
 /turf/simulated/shuttle/floor,
 /area/template_noop)
-"sTb" = (
-/obj/effect/floor_decal/industrial/warning/corner{
-	icon_state = "warningcorner";
-	dir = 1
-	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 4
-	},
-/obj/structure/sign/flag/biesel/right{
-	dir = 8;
-	icon_state = "biesel_r";
-	pixel_x = -30
-	},
-/turf/unsimulated/floor{
-	icon_state = "dark"
-	},
-/area/centcom/legion_base)
 "tcY" = (
 /obj/machinery/light{
 	dir = 4;
@@ -22515,6 +22508,10 @@
 	},
 /turf/simulated/shuttle/plating,
 /area/template_noop)
+"tOu" = (
+/obj/structure/bed/chair,
+/turf/simulated/shuttle/floor/destructible,
+/area/shuttle/escape/centcom)
 "tTz" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
@@ -22713,10 +22710,12 @@
 /obj/item/weapon/reagent_containers/food/drinks/bottle/victorygin,
 /obj/item/weapon/reagent_containers/food/drinks/bottle/whiskey,
 /obj/item/weapon/storage/box/drinkingglasses,
+/obj/item/weapon/storage/backpack/satchel,
 /obj/item/weapon/flag/biesel/l{
 	pixel_y = 8
 	},
 /obj/item/weapon/flag/biesel,
+/obj/item/clothing/glasses/sunglasses/aviator,
 /turf/unsimulated/floor{
 	dir = 8;
 	icon_state = "wood"
@@ -23059,10 +23058,6 @@
 	icon_state = "blue";
 	name = "Spare Uniforms"
 	},
-/obj/item/clothing/gloves/swat,
-/obj/item/clothing/gloves/swat,
-/obj/item/clothing/gloves/swat,
-/obj/item/clothing/gloves/swat,
 /obj/item/clothing/under/legion,
 /obj/item/clothing/under/legion,
 /obj/item/clothing/under/legion,
@@ -23085,6 +23080,10 @@
 /obj/item/clothing/head/legion_beret/field,
 /obj/item/clothing/head/legion_beret/field,
 /obj/item/clothing/head/legion_beret/field,
+/obj/item/clothing/gloves/swat/legion,
+/obj/item/clothing/gloves/swat/legion,
+/obj/item/clothing/gloves/swat/legion,
+/obj/item/clothing/gloves/swat/legion,
 /turf/unsimulated/floor{
 	icon_state = "cafeteria"
 	},
@@ -24358,6 +24357,15 @@
 /obj/item/device/magnetic_lock/security/legion,
 /obj/item/device/magnetic_lock/security/legion,
 /obj/item/device/magnetic_lock/security/legion,
+/obj/effect/decal/spraystill{
+	desc = "A sign.";
+	icon = 'icons/obj/decals.dmi';
+	icon_state = "hangar5";
+	layer = 3.5;
+	name = "Hangar 5";
+	pixel_x = 0;
+	pixel_y = 32
+	},
 /obj/machinery/light/spot{
 	icon_state = "tube1";
 	dir = 1
@@ -26564,10 +26572,6 @@
 	icon_state = "blue";
 	name = "Spare Uniforms"
 	},
-/obj/item/clothing/gloves/swat,
-/obj/item/clothing/gloves/swat,
-/obj/item/clothing/gloves/swat,
-/obj/item/clothing/gloves/swat,
 /obj/item/clothing/under/legion,
 /obj/item/clothing/under/legion,
 /obj/item/clothing/under/legion,
@@ -26592,6 +26596,10 @@
 /obj/item/clothing/head/legion_beret/field,
 /obj/item/clothing/head/legion_beret/field,
 /obj/item/clothing/head/legion_beret/field,
+/obj/item/clothing/gloves/swat/legion,
+/obj/item/clothing/gloves/swat/legion,
+/obj/item/clothing/gloves/swat/legion,
+/obj/item/clothing/gloves/swat/legion,
 /turf/unsimulated/floor{
 	dir = 8;
 	icon_state = "wood"
@@ -26957,6 +26965,9 @@
 	dir = 8
 	},
 /area/centcom/legion_base/hangar5)
+"xUk" = (
+/turf/simulated/shuttle/floor/destructible,
+/area/shuttle/escape/centcom)
 "xUm" = (
 /obj/item/weapon/gun/energy/blaster/carbine{
 	pixel_y = 10
@@ -70443,8 +70454,8 @@ yis
 yic
 yis
 yjp
-rIg
-rIg
+ePy
+ePy
 yjp
 yjN
 aJF
@@ -70681,27 +70692,27 @@ yjN
 ycz
 yjp
 yjp
-rIg
-qVE
-rIg
-qVE
-qVE
-rIg
+ePy
+bYF
+ePy
+bYF
+bYF
+ePy
 aEW
-rIg
-qVE
-rIg
+ePy
+bYF
+ePy
 aWj
 aWj
 aWj
-rIg
-qVE
-rIg
+ePy
+bYF
+ePy
 aGc
-rIg
-rIg
-rIg
-rIg
+ePy
+ePy
+ePy
+ePy
 yjp
 yjN
 aHK
@@ -70937,23 +70948,23 @@ auT
 yjN
 ycz
 aCO
-rIg
-rIg
+ePy
+ePy
 aVG
-rIg
-eLv
-rIO
+ePy
+tOu
+xUk
 aVL
-rIO
-rIg
+xUk
+ePy
 aOC
 aDs
 aDs
 aDs
 aDs
-rIO
+xUk
 aWC
-rIg
+ePy
 aWH
 aWU
 aXa
@@ -71193,23 +71204,23 @@ aBQ
 auT
 yjN
 ycz
-qVE
-qVE
+bYF
+bYF
 aGQ
 aFZ
-rIg
+ePy
 aIx
-rIO
+xUk
 aVS
-ofE
+rCH
 aOX
-rIO
+xUk
 aDs
 aVP
 aDs
 aDs
-rIO
-rIO
+xUk
+xUk
 aIC
 aWu
 aWu
@@ -71450,23 +71461,23 @@ aBR
 auT
 yjN
 ycz
-qVE
+bYF
 aVC
 aFu
 aGQ
-rIg
+ePy
 aCP
 aOX
-rIg
-rIg
-rIg
-qVE
-qVE
-rIg
-qVE
-qVE
-rIO
-rIO
+ePy
+ePy
+ePy
+bYF
+bYF
+ePy
+bYF
+bYF
+xUk
+xUk
 aCQ
 aWI
 aWV
@@ -71707,14 +71718,14 @@ ajK
 auT
 yjN
 ycz
-qVE
+bYF
 aFn
 aFz
 aGN
 aGQ
 aXp
 aVH
-rIg
+ePy
 aVQ
 aVU
 aWc
@@ -71722,9 +71733,9 @@ aWc
 aWk
 aWc
 aWm
-rIO
+xUk
 aWF
-rIg
+ePy
 aWN
 aWu
 aWu
@@ -71964,7 +71975,7 @@ aBq
 auT
 yjN
 ycz
-qVE
+bYF
 aFq
 aFA
 aGO
@@ -71972,15 +71983,15 @@ aGQ
 aPe
 aVI
 aVE
-rIO
-rIO
-rIO
-rIO
-rIO
-rIO
-rIO
-rIO
-rIO
+xUk
+xUk
+xUk
+xUk
+xUk
+xUk
+xUk
+xUk
+xUk
 aCQ
 aWv
 aWW
@@ -72221,14 +72232,14 @@ aBT
 auT
 yjN
 ycz
-qVE
+bYF
 aFs
 aFB
 aGP
 aID
 aPi
 aVM
-rIg
+ePy
 aVR
 aVV
 aWd
@@ -72236,14 +72247,14 @@ aWd
 aWd
 aWd
 aWn
-rIO
+xUk
 aVH
-rIg
-rIg
-rIg
-rIg
-rIg
-rIg
+ePy
+ePy
+ePy
+ePy
+ePy
+ePy
 yjp
 yjN
 aJH
@@ -72478,14 +72489,14 @@ aBT
 auT
 yjN
 ycz
-qVE
+bYF
 aFq
 aFB
 aHM
 aID
 aPi
 aVM
-rIg
+ePy
 aVR
 aVU
 aWc
@@ -72493,14 +72504,14 @@ aWc
 aWc
 aWc
 aWm
-rIO
-rIO
+xUk
+xUk
 aWs
 aWO
 aWX
 aXb
-rIg
-rIg
+ePy
+ePy
 yjp
 yjN
 aJH
@@ -72735,7 +72746,7 @@ aBT
 auT
 yjN
 ycz
-qVE
+bYF
 aFq
 aFA
 aGO
@@ -72743,15 +72754,15 @@ aGQ
 aVB
 aVI
 aVE
-rIO
-rIO
-rIO
-rIO
-rIO
-rIO
-rIO
-rIO
-rIO
+xUk
+xUk
+xUk
+xUk
+xUk
+xUk
+xUk
+xUk
+xUk
 aCQ
 aVX
 aGQ
@@ -72992,23 +73003,23 @@ aBT
 auT
 yjN
 ycz
-qVE
+bYF
 aFt
 aFO
 aIg
 aGQ
 aXq
 aVH
-rIg
-rIO
+ePy
+xUk
 aVV
 aWd
 aWd
 aWd
 aWd
 aWn
-rIO
-rIO
+xUk
+xUk
 aCQ
 aVX
 aGQ
@@ -73249,23 +73260,23 @@ aBq
 auT
 yjN
 ycz
-qVE
+bYF
 aDK
 aVF
 aGQ
-rIg
-rIg
-rIg
-rIg
-rIO
+ePy
+ePy
+ePy
+ePy
+xUk
 aVU
 aWc
 aWc
 aWc
 aWc
 aWm
-rIO
-rIO
+xUk
+xUk
 aCQ
 aWR
 aGQ
@@ -73506,24 +73517,24 @@ aBT
 auT
 yjN
 yjp
-qVE
-qVE
+bYF
+bYF
 aGQ
 aIf
-rIg
+ePy
 aVD
 aVJ
 aVN
-rIO
-rIO
-rIO
-rIO
-rIO
-rIO
-rIO
-rIO
+xUk
+xUk
+xUk
+xUk
+xUk
+xUk
+xUk
+xUk
 aWF
-rIg
+ePy
 aWS
 aWY
 aXc
@@ -73764,13 +73775,13 @@ auT
 yjN
 yjp
 yjp
-rIg
-rIg
+ePy
+ePy
 aVG
-rIg
+ePy
 aWB
 aVK
-rIg
+ePy
 aVT
 aVV
 aWd
@@ -73778,9 +73789,9 @@ aWd
 aWl
 aWd
 aWn
-rIO
+xUk
 aWD
-rIg
+ePy
 aWT
 aWZ
 aXd
@@ -74022,27 +74033,27 @@ yjN
 yjp
 yjp
 yjp
-rIg
-qVE
-rIg
-qVE
-qVE
-rIg
-rIg
-qVE
-qVE
-qVE
-rIg
-qVE
-qVE
-qVE
-rIg
-rIg
-qVE
-qVE
-rIg
-rIg
-rIg
+ePy
+bYF
+ePy
+bYF
+bYF
+ePy
+ePy
+bYF
+bYF
+bYF
+ePy
+bYF
+bYF
+bYF
+ePy
+ePy
+bYF
+bYF
+ePy
+ePy
+ePy
 yjp
 yjN
 aJH
@@ -74298,8 +74309,8 @@ yjp
 yjp
 yjp
 yjp
-rIg
-rIg
+ePy
+ePy
 yjp
 yjN
 aJH
@@ -79302,7 +79313,7 @@ xMS
 xOk
 xXD
 xSf
-rpb
+jcb
 xTy
 xVV
 xVZ
@@ -81087,7 +81098,7 @@ xXD
 xsC
 xXD
 xxL
-puy
+qea
 xBn
 xBn
 xXD
@@ -81347,8 +81358,8 @@ xOG
 xFF
 gaU
 gaU
-sTb
-gDJ
+lug
+mGq
 qoq
 gaU
 gaU
@@ -85472,7 +85483,7 @@ xZe
 xRt
 xSI
 xTW
-jNm
+pia
 xWx
 xXF
 xYg
