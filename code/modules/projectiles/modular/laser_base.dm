@@ -150,6 +150,9 @@
 	var/obj/item/laser_components/focusing_lens/focusing_lens
 	var/obj/item/laser_components/modulator/modulator
 
+	var/ready_to_craft = FALSE // Use by weapons analyzer.
+	var/datum/weakref/analyzer
+
 /obj/item/device/laser_assembly/Initialize()
 	. = ..()
 	update_icon()
@@ -158,6 +161,9 @@
 	var/obj/item/laser_components/A = D
 	if(!istype(A))
 		return ..()
+	if(!ready_to_craft)
+		return
+
 	if(ismodifier(A) && gun_mods.len < modifier_cap)
 		var/obj/item/laser_components/modifier/m = A
 		for(var/v in gun_mods)
@@ -199,6 +205,9 @@
 		finish()
 
 /obj/item/device/laser_assembly/proc/finish()
+	var/obj/machinery/weapons_analyzer/an = analyzer.resolve()
+	if(!an)
+		return
 	var/obj/item/weapon/gun/energy/laser/prototype/A = new /obj/item/weapon/gun/energy/laser/prototype
 	A.origin_chassis = size
 	A.capacitor = capacitor
@@ -219,4 +228,5 @@
 	gun_mods = null
 	focusing_lens = null
 	capacitor = null
+	an.assembly = null
 	qdel(src)

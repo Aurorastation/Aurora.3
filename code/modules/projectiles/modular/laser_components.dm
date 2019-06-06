@@ -34,7 +34,7 @@
 	name = "reinforced capacitor"
 	desc = "A reinforced laser weapon capacitor."
 	icon_state = "reinforced_capacitor"
-	reliability = 75
+	reliability = 100
 
 /obj/item/laser_components/capacitor/nuclear
 	name = "uranium-enriched capacitor"
@@ -42,7 +42,7 @@
 	icon_state = "uranium_capacitor"
 	damage = 20
 	shots = 10
-	reliability = 55
+	reliability = 60
 
 /obj/item/laser_components/capacitor/nuclear/small_fail(var/mob/user, var/obj/item/weapon/gun/energy/laser/prototype/prototype)
 	for (var/mob/living/M in range(0,src)) //Only a minor failure, enjoy your radiation if you're in the same tile or carrying it
@@ -70,7 +70,7 @@
 	icon_state = "teranium_capacitor"
 	damage = 25
 	shots = 15
-	reliability = 50
+	reliability = 55
 
 /obj/item/laser_components/capacitor/teranium/small_fail(var/mob/user, var/obj/item/weapon/gun/energy/laser/prototype/prototype)
 	tesla_zap(prototype, 3, 1000*(prototype.criticality+1))
@@ -91,7 +91,7 @@
 	icon_state = "phoron_capacitor"
 	damage = 30
 	shots = 25
-	reliability = 45
+	reliability = 50
 
 /obj/item/laser_components/capacitor/phoron/small_fail(var/mob/user, var/obj/item/weapon/gun/energy/laser/prototype/prototype)
 	for (var/mob/living/M in range(0,src)) //Only a minor failure, enjoy your radiation if you're in the same tile or carrying it
@@ -116,7 +116,7 @@
 	icon_state = "bluespace_capacitor"
 	damage = 35
 	shots = 30
-	reliability = 40
+	reliability = 45
 
 /obj/item/laser_components/capacitor/bluespace/small_fail(var/mob/user, var/obj/item/weapon/gun/energy/laser/prototype/prototype)
 	for (var/mob/living/M in range(round((prototype.criticality+1),1),src))
