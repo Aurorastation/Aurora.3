@@ -186,6 +186,7 @@
 	uniform["Idris Incorporated security uniform"] = /obj/item/clothing/under/rank/security/idris
 	uniform["Idris Incorporated security uniform, alternative"] = /obj/item/clothing/under/rank/security/idris/alt
 	uniform["Eridani PMC uniform"] = /obj/item/clothing/under/rank/security/eridani
+	uniform["Eridani PMC uniform, alternative"] = /obj/item/clothing/under/rank/security/eridani/alt
 	gear_tweaks += new/datum/gear_tweak/path(uniform)
 
 /datum/gear/uniform/pants
@@ -274,5 +275,5 @@
 	uniform["Necropolis Industries uniform"] = /obj/item/clothing/under/rank/necropolis
 	uniform["Idris Incorporated uniform"] = /obj/item/clothing/under/rank/idris
 	uniform["Einstein Engines uniform"] = /obj/item/clothing/under/rank/einstein_engines
-	uniform["Zeng-Hu Pharmaceuticals uniform"] = /obj/item/clothing/under/rank/zheng
+	uniform["Zeng-Hu Pharmaceuticals uniform"] = /obj/item/clothing/under/rank/zeng
 	gear_tweaks += new/datum/gear_tweak/path(uniform)

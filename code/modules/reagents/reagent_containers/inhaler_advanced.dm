@@ -46,6 +46,7 @@
 
 /obj/item/weapon/reagent_containers/personal_inhaler_cartridge/large
 	name = "large inhaler cartridge"
+	desc = "A large inhaler cartridge. It contains enough aerosol for 30 units of reagents. The container must be activated for aerosol to mix with reagents."
 	icon_state = "pi_cart_medium"
 	volume = 30
 	w_class = 2
@@ -55,6 +56,7 @@
 
 /obj/item/weapon/reagent_containers/personal_inhaler_cartridge/bluespace
 	name = "bluespace inhaler cartridge"
+	desc = "An experimental bluespace inhaler cartridge. It has enough aerosol for 60 units of reagents. The container must be activated to mix aerosol with reagents inside."
 	icon_state = "pi_cart_large"
 	volume = 60
 	w_class = 2

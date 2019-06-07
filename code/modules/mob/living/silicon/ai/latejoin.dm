@@ -38,7 +38,11 @@ var/global/list/empty_playable_ai_cores = list()
 	if(SSticker.mode && SSticker.mode.name == "AI malfunction")
 		to_chat(usr, "<span class='danger'>You cannot use this verb in malfunction. If you need to leave, please adminhelp.</span>")
 		return
-
+		
+	if(carded)
+		to_chat(usr, "<span class='danger'>No connection to station intelligence storage. You must be in an AI Core to store yourself (adminhelp if you need to leave).</span>")
+		return
+		
 	// Guard against misclicks, this isn't the sort of thing we want happening accidentally
 	if(alert("WARNING: This will immediately wipe your core and ghost you, removing your character from the round permanently (similar to cryo and robotic storage). Are you entirely sure you want to do this?",
 					"Wipe Core", "No", "No", "Yes") != "Yes")

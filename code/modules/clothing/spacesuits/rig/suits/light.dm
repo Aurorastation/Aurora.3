@@ -82,9 +82,10 @@
 	emp_protection = 40
 	slowdown = 0
 
+	species_restricted = list("exclude","Diona","Xenomorph", "Golem")
+
 	chest_type = /obj/item/clothing/suit/space/rig/light/ninja
 	glove_type = /obj/item/clothing/gloves/rig/light/ninja
-	helm_type =  /obj/item/clothing/head/helmet/space/rig/light/ninja
 	boot_type = /obj/item/clothing/shoes/rig/light/ninja
 
 	req_access = list(access_syndicate)
@@ -122,15 +123,11 @@
 	siemens_coefficient = 0
 
 /obj/item/clothing/shoes/rig/light/ninja
-	species_restricted = list("exclude","Diona","Xenomorph", "Golem")
 	silent = 1
 
 /obj/item/clothing/suit/space/rig/light/ninja
-	species_restricted = list("exclude","Diona","Xenomorph", "Golem")
 	breach_threshold = 38 //comparable to regular hardsuits
 
-/obj/item/clothing/head/helmet/space/rig/light/ninja
-	species_restricted = list("exclude","Diona","Xenomorph", "Golem")
 
 /obj/item/weapon/rig/light/stealth
 	name = "stealth suit control module"
@@ -167,9 +164,10 @@
 		/obj/item/rig_module/chem_dispenser/offworlder
 		)
 
+	species_restricted = list("Human")
+
 /obj/item/clothing/head/lightrig/offworlder
 	name = "helmet"
-	species_restricted = list("Human")
 	flash_protection = FLASH_PROTECTION_MAJOR
 
 /obj/item/clothing/suit/lightrig/offworlder
@@ -177,7 +175,6 @@
 	heat_protection = UPPER_TORSO
 	cold_protection = UPPER_TORSO
 	flags_inv = 0
-	species_restricted = list("Human")
 
 /obj/item/weapon/rig/light/offworlder/techno
 	name = "techno-conglomerate mobility hardsuit control module"
