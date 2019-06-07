@@ -45,6 +45,21 @@
 	else
 		..(speaker,message)
 
+
+/datum/language/erdanicyber
+	name = LANGUAGE_ERDANICYBER
+	desc = "The language and communication of hackers in the Erdani Federation, its a sign of living on the fringes of the law to be a user of this language."
+	speech_verb = "types"
+	colour = "changeling"
+	key = "w"
+	flags = RESTRICTED | HIVEMIND
+
+/datum/language/erdanicyber/broadcast(var/mob/living/speaker,var/message,var/speaker_mask)
+	if(speaker.mind)
+		..(speaker,message,speaker.mind.holonetname)
+	else
+		..(speaker,message)
+
 /datum/language/corticalborer
 	name = LANGUAGE_BORER
 	desc = "Cortical borers possess a strange link between their tiny minds."

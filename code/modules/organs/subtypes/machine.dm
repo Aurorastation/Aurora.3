@@ -270,7 +270,7 @@
 	vital = 0
 	emp_coeff = 0.1
 	action_button_name = "Expunge/Fill Coolant Pump"
-	var/coolantbaseamount = 100
+	var/coolantbaseamount = 200
 	var/coolantuserate = 0.9
 	var/coolantamount = 100
 	var/pumphealth = 30
@@ -512,7 +512,7 @@
 	var/mob/living/carbon/human/H = owner
 	if(!H) 
 		return
-	if(calibrated <= 0)
+	if(calibrated <= 0 || !src)
 		H.confused += 9
 		H.drowsyness += 2
 	powernetglitch_timer = FALSE
@@ -531,6 +531,13 @@
 		icon_state = "camera_broken"
 		H.Weaken(6)
 		NV.forceMove(H.loc)
+
+
+/obj/item/organ/powercontrolunitr/removed(var/mob/living/carbon/human/H)
+
+	H.confused += 250
+	H.drowsyness += 250
+
 
 /obj/item/organ/powercontrolunit/process()
 	calibration_check()

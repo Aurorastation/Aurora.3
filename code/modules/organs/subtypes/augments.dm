@@ -1,7 +1,40 @@
+var/list/augmentations = typesof(/datum/augment) - /datum/augment
+
+
+/datum/augment
+	var/name = "augment"
+	var/linkedaugment = null
+
+/datum/augment/timepiece
+	name = "integrated timepiece"
+	linkedaugment = /obj/item/organ/augment/timepiece
+
+/datum/augment/pda
+	name = "integrated PDA"
+	linkedaugment = /obj/item/organ/augment/pda
+
+/datum/augment/synthhair
+	name = "synthetic multicolored hair"
+	linkedaugment = /obj/item/organ/augment/multihair
+
+/datum/augment/syntheye
+	name = "synthetic eye color"
+	linkedaugment = /obj/item/organ/augment/multieye
+
+/datum/augment/testunit
+
+	name = "Augmented Brain"
+	linkedaugment = /obj/item/organ/augment/aci
+
+
+
+
 /obj/item/organ/augment
 	name = "aug"
 	icon = 'icons/obj/surgery.dmi'
+	icon_state = "screen"
 	var/action_icon = "ams"
+	action_button_name = "Toggle Augment"
 
 	robotic = 2
 
@@ -10,21 +43,24 @@
 	var/online = 0
 	var/list/install_locations = list()
 
-/obj/item/organ/augment/proc/installation_instructions(var/obj/item/organ/external/E)
-	return 1
+
+
+/obj/item/organ/augment/Initialize()
+	robotize()
+	. = ..()
 
 /obj/item/organ/augment/refresh_action_button()
 	. = ..()
 	if(.)
-		if(!online)
-			return
 		action.button_icon_state = action_icon
 		if(action.button)
 			action.button.UpdateIcon()
 
 /obj/item/organ/augment/attack_self(var/mob/user)
 	. = ..()
+
 	if(.)
+
 		if(!online)
 			return
 
@@ -51,6 +87,70 @@
 /////////////////
 /////////////////
 /////////////////
+
+/obj/item/organ/augment/aci
+	name = "Augmented Cranial Implant"
+	action_icon = "aci"
+	icon_state = "aci"
+	var/connected = FALSE
+	var/useraccount = null
+
+/obj/item/organ/augment/aci/proc/augmentbrain(var/mob/user)
+
+	var/mob/living/carbon/human/H = owner
+	var/obj/item/organ/IO = H.internal_organs_by_name["brain"]
+	IO.name = "Augmented Brain"
+	IO.icon_state = "brain-prosthetic"
+	H.add_language(LANGUAGE_ERDANICYBER)
+
+
+/obj/item/organ/augment/aci/Initialize()
+	augmentbrain()
+	robotize()
+	. = ..()
+
+
+/obj/item/organ/augment/aci/attack_self(var/mob/user)
+	. = ..()
+	var/mob/living/carbon/human/H = owner
+	var/userid = H.mind.holonetname
+	if(.)
+
+
+		var/list/acisettings = list("Toggle Connection", "Change ID","Insert ID","Shop For Augments", "Cancel")
+
+		var/acimode = input("Select A.C.I Operation.", "Hephaestus Industries ACI os.V335") as null|anything in acisettings
+
+
+		switch(acimode)
+
+			if("Toggle Connection")
+				if(!connected)
+					to_chat(H, "<span class='warning'>Disconnected from the HoloNet, goodbye [userid] </span>")
+					connected = TRUE
+					H.remove_language(LANGUAGE_ERDANICYBER)
+				if(connected)
+					to_chat(H, "<span class='warning'>Now connected to the HoloNet, welcome [userid] </span>")
+					connected = FALSE
+					H.add_language(LANGUAGE_ERDANICYBER)
+
+			if("Change ID")
+				if(connected == 0)
+					to_chat(H, "<span class='warning'>You must be connected to change your ID</span>")
+					return
+				if(connected == 1)
+					var/idinput = sanitize(input("Enter Username.", "Set Name") as text|null)
+					H.mind.holonetname = idinput
+					to_chat(H, "<span class='warning'>Your HoloChat name is now [idinput], restarting connection</span>")
+
+			if("Insert ID")
+				var/obj/item/weapon/card/I = user.get_active_hand()
+				if (istype(I, /obj/item/weapon/card/id))
+					useraccount += I.associated_account_number
+					to_chat(H, "<span class='warning'>Financial Info saved!</span>")
+			if("Shop For Augments")
+				
+
 /obj/item/organ/augment/timepiece
 	name = "integrated timepiece"
 	action_icon = "time"
@@ -71,6 +171,13 @@
 	if(!P)
 		P = new /obj/item/device/pda (src)
 		P.canremove = 0
+
+/obj/item/organ/augment/pda/refresh_action_button()
+	. = ..()
+	if(.)
+		action.button_icon_state = "teslaunit"
+		if(action.button)
+			action.button.UpdateIcon()
 
 /obj/item/organ/augment/pda/attack_self(var/mob/user)
 	. = ..()
@@ -93,55 +200,30 @@
 
 /obj/item/organ/augment/multihair
 	name = "synthetic multicolored hair"
-	action_icon = "haircolor"
+	install_locations = list(HEAD)
 
 /obj/item/organ/augment/multihair/attack_self(var/mob/user)
 	. = ..()
+	var/mob/living/carbon/human/H = user
 	if(ishuman(user))
-		var/new_hair = input("Please select hair color.", "Hair Color", rgb(owner.r_hair, owner.g_hair, owner.b_hair)) as color|null
-		if(new_hair)
-			var/r_hair = hex2num(copytext(new_hair, 2, 4))
-			var/g_hair = hex2num(copytext(new_hair, 4, 6))
-			var/b_hair = hex2num(copytext(new_hair, 6, 8))
-			if(owner.change_hair_color(r_hair, g_hair, b_hair))
-				owner.update_dna()
-				owner.visible_message("<span class='notice'>\The [owner]'s hair rapidly shifts color.</span>")
-				return 1
-
-/obj/item/organ/augment/multihairstyles
-	name = "synthetic hair extensions"
-	desc = "The AMPHORA Co. Synthetic Hair Extension Mk II. Originally manufactured for elderly Eridanian suits with a smaller variety of colors and hairstyles, it eventually found its way onto a broader market after lifting up artificial restrictions on styles and colors."
-	action_icon = "hairstyle"
-
-/obj/item/organ/augment/multihair/attack_self(var/mob/user)
-	. = ..()
-	if(ishuman(user))
-		var/list/hair_styles = list()
-		for(var/hair_style in owner.generate_valid_hairstyles(check_gender = 0))
-			hair_styles[++hair_styles.len] = list("hairstyle" = hair_style)
-
-		var/new_hair = input("Please select hairstyle.", "Hair Style") as null|anything in hair_styles
-		if(new_hair && owner.change_hair(new_hair))
-			owner.update_dna()
-			owner.visible_message("<span class='notice'>\The [owner]'s hair rapidly shifts shape and length.</span>")
-			return 1
+		H.change_appearance(APPEARANCE_ALL_HAIR, usr, usr, check_species_whitelist = 1, state = z_state)
+		owner.update_dna()
+		owner.visible_message("<span class='notice'>\The [owner]'s hair rapidly shifts, forming into a new style.</span>")
+		return 1
 
 /obj/item/organ/augment/multieye
-	name = "synthetic multicolored hair"
+	name = "synthetic eye"
 	action_icon = "eyecolor"
+	install_locations = list(HEAD)
 
 /obj/item/organ/augment/multieye/attack_self(var/mob/user)
 	. = ..()
+	var/mob/living/carbon/human/H = user
 	if(ishuman(user))
-		var/new_eyes = input("Please select eye color.", "Eye Color", rgb(owner.r_eyes, owner.g_eyes, owner.b_eyes)) as color|null
-		if(new_eyes)
-			var/r_eyes = hex2num(copytext(new_eyes, 2, 4))
-			var/g_eyes = hex2num(copytext(new_eyes, 4, 6))
-			var/b_eyes = hex2num(copytext(new_eyes, 6, 8))
-			if(owner.change_eye_color(r_eyes, g_eyes, b_eyes))
-				owner.update_dna()
-				owner.visible_message("<span class='notice'>\The [owner]'s eyes rapidly shifts color.</span>")
-				return 1
+		H.change_appearance(APPEARANCE_EYE_COLOR, usr, usr, check_species_whitelist = 1, state = z_state)
+		owner.update_dna()
+		owner.visible_message("<span class='notice'>\The [owner]'s eyes rapidly shifts color.</span>")
+		return 1
 
 /////////////////
 //TOOL AUGMENTS// - they spawn a tool when they operate
@@ -150,7 +232,7 @@
 /obj/item/organ/augment/tool
 	name = "retractable widget"
 	action_button_name = "Deploy Widget"
-	action_icon = "combitool"
+	action_icon = "digitool"
 	var/augment_type
 	var/obj/item/augment
 	var/deployed = 0
@@ -199,6 +281,7 @@
 
 		else
 			owner.last_special = world.time + cooldown
+			user.drop_from_inventory(augment)
 			augment.forceMove(src)
 			owner.visible_message("<span class='notice'>\The [augment] slides into \the [owner]'s [src.loc].</span>","<span class='notice'>You retract \the [augment]!</span>")
 			deployed = 0
@@ -255,7 +338,7 @@
 /obj/item/organ/augment/tool/maghands
 	name = "magnetic palms"
 	action_button_name = "Deploy Magnetic Palms"
-	action_icon = "magboots"
+	action_icon = "magnetichands"
 	augment_type = /obj/item/clothing/gloves/magnetic
 	deployment_location = slot_gloves
 	deployment_string = "gloves"
@@ -263,6 +346,8 @@
 
 /obj/item/clothing/gloves/magnetic
 	name = "magnetic palms"
+	icon = 'icons/obj/surgery.dmi'
+	icon_state = "magnetichands"
 	magnetic = 1
 
 
@@ -281,6 +366,7 @@
 
 /obj/item/organ/augment/integratedtesla/Initialize()
 	START_PROCESSING(SSfast_process, src)
+	teslacell = new/obj/item/weapon/cell/high(src)
 	robotize()
 	. = ..()
 
@@ -364,5 +450,19 @@
 				else
 					celldischarge = teslainput
 					to_chat(H, "<span class='notice'>The Tesla output is now at [celldischarge]</span>")
+
+			if("Charge Tesla")
+				var/teslacharge = input(owner, "Enter Tesla Charge.", "Uncle Kalvins Zapp-A-Do(TM)", "") as num
+				if(H.nutrition >= teslacharge)
+					to_chat(H, "<span class='warning'>\The [src]'s You cant drain more power then you have!</span>")
+					return
+				if(H.nutrition >= 0)
+					to_chat(H, "<span class='warning'>You have no power!!</span>")
+					return
+				else
+					teslacell.charge += teslacharge
+					H.nutrition -= teslacharge
+
+					to_chat(H, "<span class='notice'>The Tesla cell is now at [teslacell.charge]</span>")
 
 

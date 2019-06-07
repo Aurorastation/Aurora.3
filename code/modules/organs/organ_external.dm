@@ -17,7 +17,7 @@
 	var/brute_mod = 1
 	var/burn_mod = 1
 
-	var/augment_capacity = 0// Number of augments this organ can hold.
+	var/augment_capacity = 1// Number of augments this organ can hold.
 
 	var/icon_name = null
 	var/body_part = null
@@ -138,7 +138,7 @@
 
 			if(istype(W, /obj/item/organ/augment) && augment_capacity)
 				var/obj/item/organ/augment/AUG = W
-				if(((body_part in AUG.install_locations) || !AUG.install_locations) && AUG.installation_instructions(src))
+				if(((body_part in AUG.install_locations) || !AUG.install_locations))
 					user.visible_message("<span class='danger'><b>[user]</b> installs [W] into [src]!</span>")
 					augment_capacity--
 					user.drop_item(AUG)
