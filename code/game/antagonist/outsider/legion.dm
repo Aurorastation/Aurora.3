@@ -14,7 +14,18 @@ var/datum/antagonist/legion/legion
 	flags = ANTAG_OVERRIDE_JOB | ANTAG_SET_APPEARANCE | ANTAG_HAS_LEADER | ANTAG_CHOOSE_NAME | ANTAG_RANDOM_EXCEPTED
 	antaghud_indicator = "hudloyalist"
 
-	var/list/callsign = list("TCFLPlaceholder-1","TCFLPlaceholder-2","TCFLPlaceholder-3","TCFLPlaceholder-4","TCFLPlaceholder-5","TCFLPlaceholder-6","TCFLPlaceholder-7","TCFLPlaceholder-8")
+	var/list/callsign = list(
+		"Ace","Angel","Ant","Apollo","Arctic","Ash","Badger","Bandit",
+		"Baron","Beetle","Beta","Bishop","Black","Blaze","Blue","Bull",
+		"Carp","Chrome","Cobra","Crimson","Crypt","Delta","Duke","Eagle",
+		"Earl","Epsilon","Hammer","Fallen","Fang","Fido","Firefly","Flame",
+		"Foggy","Fox","Galaxy","Gamma","Grave","Jade","Jester","Judge",
+		"Justice","Kaiser","Kappa","King","Knight","Lambda","Lemur","Lion",
+		"Mace","Maverick","Midas","Noble","Nomad","Oath","Preacher","Prince",
+		"Princess","Red","Rex","Rook","Shephard","Shield","Sigma","Smoke",
+		"Star","Steel","Storm","Valor","Viper","Void","Voodoo","Wing",
+		"Wolf","Zeta"
+	)
 
 	hard_cap = 5
 	hard_cap_round = 7

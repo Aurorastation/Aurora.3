@@ -535,6 +535,10 @@
 	desc = "A luxurious coat made out of sturdy synthetic fabrics and reinforced with lightweight alloys. Only worn by some of the highest decorated officers of the TCFL."
 	icon_state = "legion_coat"
 	item_state = "legion_coat"
+	cold_protection = 0
+	min_cold_protection_temperature = 0
+	heat_protection = 0
+	max_heat_protection_temperature = 0
 
 /obj/item/clothing/suit/storage/vest/legion/commander/Initialize()
 	. = ..()

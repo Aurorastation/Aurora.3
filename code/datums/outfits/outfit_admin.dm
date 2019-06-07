@@ -258,6 +258,7 @@
 	shoes = /obj/item/clothing/shoes/jackboots
 	gloves = /obj/item/clothing/gloves/white
 	l_ear = /obj/item/device/radio/headset/legion
+	r_pocket = /obj/item/weapon/melee/telebaton
 	head = /obj/item/clothing/head/legion_commander
 	id = /obj/item/weapon/card/id/legion
 
@@ -268,13 +269,16 @@
 	return list(access_legion, access_maint_tunnels, access_external_airlocks, access_security, access_engine, access_engine_equip, access_medical, access_research, access_atmospherics, access_medical_equip, access_cent_creed, access_cent_specops)
 
 /datum/outfit/admin/tcfl_commander/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+
 	if(H && H.w_uniform)
+
 		var/obj/item/clothing/accessory/holster/hip/hold = new(H)
 		var/obj/item/weapon/gun/projectile/revolver/mateba/weapon = new(H)
 		hold.contents += weapon
 		hold.holstered = weapon
 		var/obj/item/clothing/under/rank/U = H.w_uniform
 		U.attach_accessory(null, hold)
+
 
 /datum/outfit/admin/tcfl
 	name = "TCFL Volunteer (Equipped)"

@@ -14,7 +14,18 @@ var/datum/antagonist/ert/ert
 	flags = ANTAG_OVERRIDE_JOB | ANTAG_SET_APPEARANCE | ANTAG_HAS_LEADER | ANTAG_CHOOSE_NAME | ANTAG_RANDOM_EXCEPTED
 	antaghud_indicator = "hudloyalist"
 
-	var/list/callsign = list("ERTPlaceholder-1","ERTPlaceholder-2","ERTPlaceholder-3","ERTPlaceholder-4","ERTPlaceholder-5","ERTPlaceholder-6","ERTPlaceholder-7","ERTPlaceholder-8")
+	var/list/callsign = list(
+		"Ace","Angel","Ant","Apollo","Arctic","Ash","Badger","Bandit",
+		"Baron","Beetle","Beta","Bishop","Black","Blaze","Blue","Bull",
+		"Carp","Chrome","Cobra","Crimson","Crypt","Delta","Duke","Eagle",
+		"Earl","Epsilon","Hammer","Fallen","Fang","Fido","Firefly","Flame",
+		"Foggy","Fox","Galaxy","Gamma","Ghost","Grave","Jade","Jester","Judge",
+		"Justice","Kaiser","Kappa","King","Knight","Lambda","Lemur","Lion",
+		"Mace","Maverick","Midas","Noble","Nomad","Oath","Preacher","Prince",
+		"Princess","Red","Rex","Rook","Shephard","Shield","Sigma","Smoke",
+		"Star","Steel","Storm","Valor","Viper","Void","Voodoo","Wing",
+		"Wolf","Zeta"
+	)
 
 	hard_cap = 5
 	hard_cap_round = 7
