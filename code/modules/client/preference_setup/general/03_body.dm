@@ -23,6 +23,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 	S["b_type"]            >> pref.b_type
 	S["disabilities"]      >> pref.disabilities
 	S["organ_data"]        >> pref.organ_data
+	S["auglimb_data"]        >> pref.auglimb_data
 	S["rlimb_data"]        >> pref.rlimb_data
 	S["body_markings"]     >> pref.body_markings
 	pref.preview_icon = null
@@ -46,6 +47,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 	S["b_type"]            << pref.b_type
 	S["disabilities"]      << pref.disabilities
 	S["organ_data"]        << pref.organ_data
+	S["auglimb_data"]      << pref.auglimb_data
 	S["rlimb_data"]        << pref.rlimb_data
 	S["body_markings"]     << pref.body_markings
 
@@ -63,6 +65,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 				"b_type",
 				"disabilities",
 				"organs_data" = "organ_data",
+				"auglimbs_data" = "auglimb_data",
 				"organs_robotic" = "rlimb_data",
 				"body_markings"
 			),
@@ -87,6 +90,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 			"disabilities",
 			"organs_data",
 			"organs_robotic",
+			"auglimbs_data",
 			"body_markings",
 			"id" = 1,
 			"ckey" = 1
@@ -105,6 +109,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 		"b_type"        = pref.b_type,
 		"disabilities"  = json_encode(pref.disabilities),
 		"organs_data"   = list2params(pref.organ_data),
+		"auglimbs_data" = list2params(pref.auglimb_data),
 		"organs_robotic"= list2params(pref.rlimb_data),
 		"body_markings" = json_encode(pref.body_markings),
 		"id"            = pref.current_character,
@@ -153,6 +158,13 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 			catch (var/exception/e)
 				log_debug("DISABILITIES: Caught [e]. Initial value: [before]")
 				pref.disabilities = list()
+		if (istext(pref.auglimb_data))
+			var/before = pref.auglimb_data
+			try
+				pref.auglimb_data = json_decode(pref.auglimb_data)
+			catch (var/exception/e)
+				log_debug("DISABILITIES: Caught [e]. Initial value: [before]")
+				pref.auglimb_data = list()
 
 	pref.r_hair   = sanitize_integer(pref.r_hair, 0, 255, initial(pref.r_hair))
 	pref.g_hair   = sanitize_integer(pref.g_hair, 0, 255, initial(pref.g_hair))
@@ -179,6 +191,8 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 		pref.body_markings = list()
 	if (!pref.disabilities || !islist(pref.disabilities))
 		pref.disabilities = list()
+	if (!pref.auglimb_data || !islist(pref.auglimb_data))
+		pref.auglimb_data = list()
 
 /datum/category_item/player_setup_item/general/body/content(var/mob/user)
 	var/list/out = list()
@@ -237,6 +251,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 				if("eyes")
 					organ_name = "eyes"
 
+			
 			if(status == "cyborg")
 				++ind
 				if(ind > 1)
@@ -252,7 +267,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 				if(ind > 1)
 					out += ", "
 				out += "\tAmputated [organ_name]"
-			else if(status == "mechanical")
+			else if(status == "mechanical" || (pref.auglimb_data != null))
 				++ind
 				if(ind > 1)
 					out += ", "
@@ -303,6 +318,36 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 		out += "[M] <a href='?src=\ref[src];marking_remove=[M]'>-</a> <a href='?src=\ref[src];marking_color=[M]'>Color</a>"
 		out += HTML_RECT(pref.body_markings[M])
 		out += "<br>"
+
+	out += "<br><a href='?src=\ref[src];augments=1'>Augments +</a><br>"
+	for(var/name in pref.auglimb_data)
+		var/augorgan_name = null
+		switch(name)
+			if("l_arm")
+				augorgan_name = "left arm"
+			if("r_arm")
+				augorgan_name = "right arm"
+			if("l_leg")
+				augorgan_name = "left leg"
+			if("r_leg")
+				augorgan_name = "right leg"
+			if("l_foot")
+				augorgan_name = "left foot"
+			if("r_foot")
+				augorgan_name = "right foot"
+			if("l_hand")
+				augorgan_name = "left hand"
+			if("r_hand")
+				augorgan_name = "right hand"
+			if("groin")
+				augorgan_name = "lower body"
+			if("chest")
+				augorgan_name = "upper body"
+			if("head")
+				augorgan_name = "head"
+		out += "Augmented [augorgan_name] <a href='?src=\ref[src];reset_augments=[augorgan_name]'>-</a> "
+		out += "<br>"
+
 
 	. = out.Join()
 
@@ -512,6 +557,50 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 			pref.body_markings[M] = "[mark_color]"
 			return TOPIC_REFRESH
 
+	else if(href_list["augments"])
+		var/augmentpoints = 4
+		var/list/acceptable_augmentableorgan_input = list("Left Leg","Right Leg","Left Arm","Right Arm","Left Foot","Right Foot","Left Hand","Right Hand", "Head")
+		var/augmentlimb_name = input(user, "Which limb do you want to change?") as null|anything in acceptable_augmentableorgan_input
+		if(!augmentlimb_name && !CanUseTopic(user)) 
+			return TOPIC_NOACTION
+
+		var/augmentlimb = null
+
+		switch(augmentlimb_name)
+			if("Left Leg")
+				augmentlimb = "l_leg"
+			if("Right Leg")
+				augmentlimb = "r_leg"
+			if("Left Arm")
+				augmentlimb = "l_arm"
+			if("Right Arm")
+				augmentlimb = "r_arm"
+			if("Left Foot")
+				augmentlimb = "l_foot"
+			if("Right Foot")
+				augmentlimb = "r_foot"
+			if("Left Hand")
+				augmentlimb = "l_hand"
+			if("Right Hand")
+				augmentlimb = "r_hand"
+			if("Lower Body")
+				augmentlimb = "groin"
+			if("Upper Body")
+				augmentlimb = "chest"
+			if("Head")
+				augmentlimb = "head"
+			else
+				to_chat(user, "<span class='notice'>Cancelled.</span>")
+				return TOPIC_NOACTION
+		if(augmentpoints == 0)
+			to_chat(user, "<span class='notice'>You cant select anymore augments.</span>")
+			return TOPIC_NOACTION
+
+		var/list/augments_setup = chargen_augments_list
+		var/augmentchoice = input(user, "Which augment/biomod do you wish to use for this limb?") as null|anything in augments_setup
+		pref.auglimb_data[augmentlimb] += augments_setup[augmentchoice]
+		--augmentpoints
+
 	else if(href_list["limbs"])
 		var/list/acceptable_organ_input = list("Left Leg","Right Leg","Left Arm","Right Arm","Left Foot","Right Foot","Left Hand","Right Hand")
 		var/limb_name = input(user, "Which limb do you want to change?") as null|anything in acceptable_organ_input
@@ -559,9 +648,9 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 				to_chat(user, "<span class='notice'>Cancelled.</span>")
 				return TOPIC_NOACTION
 
-		var/list/available_states = list("Normal","Amputated","Prosthesis")
+		var/list/available_states = list("Normal","Amputated","Prosthesis", "Augmented")
 		if(carries_organs)
-			available_states = list("Normal","Prosthesis")
+			available_states = list("Normal","Prosthesis", "Augmented")
 		var/new_state = input(user, "What state do you wish the limb to be in?") as null|anything in available_states
 		if(!new_state && !CanUseTopic(user)) return TOPIC_NOACTION
 
@@ -599,8 +688,8 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 					pref.organ_data[second_limb] = "cyborg"
 				if(third_limb && pref.organ_data[third_limb] == "amputated")
 					pref.organ_data[third_limb] = null
-		return TOPIC_REFRESH
 
+		return TOPIC_REFRESH
 	else if(href_list["organs"])
 		var/organ_name = input(user, "Which internal function do you want to change?") as null|anything in list("Heart", "Eyes")
 		if(!organ_name) return
@@ -627,6 +716,11 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 	else if(href_list["reset_organs"])
 		pref.organ_data.Cut()
 		pref.rlimb_data.Cut()
+
+		return TOPIC_REFRESH
+
+	else if(href_list["reset_augments"])
+		pref.auglimb_data.Cut()
 
 		return TOPIC_REFRESH
 
