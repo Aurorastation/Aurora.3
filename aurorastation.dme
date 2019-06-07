@@ -1997,7 +1997,6 @@
 #include "code\modules\organs\wound.dm"
 #include "code\modules\organs\subtypes\augments.dm"
 #include "code\modules\organs\subtypes\autakh.dm"
-#include "code\modules\organs\subtypes\biomods.dm"
 #include "code\modules\organs\subtypes\diona.dm"
 #include "code\modules\organs\subtypes\industrial.dm"
 #include "code\modules\organs\subtypes\machine.dm"

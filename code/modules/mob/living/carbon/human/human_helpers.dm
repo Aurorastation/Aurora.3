@@ -141,6 +141,20 @@
 		var/datum/character_disabilities/trait = chargen_disabilities_list[M]
 		trait.apply_self(src)
 
+/mob/living/carbon/human/proc/sync_augment_prefs_to_mob(datum/preferences/prefs)
+	var/list/auglimb_data = prefs.auglimb_data
+	for(var/name in auglimb_data)
+		var/augmentpath = auglimb_data[name]
+		var/obj/item/organ/external/O = organs_by_name[name]
+		var/obj/item/organ/augment/AUG = new augmentpath()
+		AUG.replaced(src,O)
+		AUG.online = 1
+		AUG.owner = src
+		src.update_body()
+		src.updatehealth()
+		src.UpdateDamageIcon()
+		AUG.refresh_action_button()
+
 // Helper proc that grabs whatever organ this humantype uses to see.
 // Usually eyes, but can be something else.
 // If `no_synthetic` is TRUE, returns null for mobs that are mechanical, or for mechanical eyes.

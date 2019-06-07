@@ -184,7 +184,9 @@
 		climb_speed = round(max(1, (species.climb_coeff * climb_speed) - speed_bonus), 1)
 
 	if(G && G.magnetic)
-		climb_speed *= 0.5
+		climb_speed = 4
+		will_succeed = TRUE
+		climb_chance = min(100, climb_chance + climb_bonus)
 
 	if(prob(climb_chance))
 		will_succeed = TRUE

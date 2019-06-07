@@ -104,6 +104,7 @@ datum/preferences
 	// will probably not be able to do this for head and torso ;)
 	var/list/organ_data = list()
 	var/list/rlimb_data = list()
+	var/list/auglimb_data = list()
 	var/list/body_markings = list() // "name" = "#rgbcolor"
 	var/list/player_alt_titles = new()		// the default name of a job like "Medical Doctor"
 
@@ -369,6 +370,7 @@ datum/preferences
 
 	// Destroy/cyborgize organs & setup body markings
 	character.sync_organ_prefs_to_mob(src)
+	character.sync_augment_prefs_to_mob(src)
 
 	character.sync_trait_prefs_to_mob(src)
 
@@ -535,6 +537,7 @@ datum/preferences
 
 		organ_data = list()
 		rlimb_data = list()
+		auglimb_data = list()
 		body_markings = list()
 		player_alt_titles = new()
 

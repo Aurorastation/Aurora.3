@@ -1073,6 +1073,7 @@
 	if (prefs && real_name == prefs.real_name)
 		// Re-apply the mob's markings and prosthetics if their pref is their current char.
 		sync_organ_prefs_to_mob(prefs, reset_to_roundstart)	// Don't apply prosthetics if we're a ling rejuving.
+		sync_augment_prefs_to_mob(prefs, reset_to_roundstart)
 
 	if(!client || !key) //Don't boot out anyone already in the mob.
 		for (var/obj/item/organ/brain/H in world)
