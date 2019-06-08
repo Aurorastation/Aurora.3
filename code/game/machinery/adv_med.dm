@@ -17,7 +17,8 @@
 		"Zhan-Khazan Tajara",
 		"Vaurca Worker",
 		"Vaurca Warrior",
-		"Diona"
+		"Diona",
+		"Monkey"
 	)
 	name = "Body Scanner"
 	desc = "A state-of-the-art medical diagnostics machine. Guaranteed detection of all your bodily ailments or your money back!"
