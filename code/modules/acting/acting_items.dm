@@ -30,6 +30,7 @@
 		H.change_appearance(APPEARANCE_ALL, H.loc, H, H.generate_valid_species(), state = z_state)
 		var/getName = sanitize(input(H, "Would you like to change your name to something else?", "Name change") as null|text, MAX_NAME_LEN)
 		if(getName)
+			getName = html_decode(getName)
 			H.real_name = getName
 			H.name = getName
 			H.dna.real_name = getName
