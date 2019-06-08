@@ -35,19 +35,19 @@ BREATH ANALYZER
 /proc/calcDamage(var/DMGValue)
 	switch(DMGValue)
 		if (0 to 1)
-			return "Healthy"
+			return "Healthy "
 		if (1 to 10)
-			return "Negligible"
+			return "Negligible "
 		if (10 to 25)
-			return "Minor"
+			return "Minor "
 		if (25 to 50)
-			return "Moderate"
+			return "Moderate "
 		if (50 to 75)
-			return "Major"
+			return "Major "
 		if (75 to 200)
-			return "Critical"
+			return "Critical "
 		if (200 to INFINITY)
-			return "Fatal"
+			return "Fatal "
 
 /proc/health_scan_mob(var/mob/living/M, var/mob/living/user, var/visible_msg, var/ignore_clumsiness, var/show_limb_damage = TRUE)
 	if ( ((user.is_clumsy()) || (DUMB in user.mutations)) && prob(50))
