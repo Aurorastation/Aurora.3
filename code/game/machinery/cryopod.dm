@@ -12,7 +12,7 @@
 /obj/machinery/computer/cryopod
 	name = "cryogenic oversight console"
 	desc = "An interface between crew and the cryogenic storage oversight systems."
-	icon = 'icons/obj/Cryogenic2.dmi'
+	icon = 'icons/obj/sleeper.dmi'
 	icon_state = "cellconsole"
 	light_color = LIGHT_COLOR_GREEN
 	circuit = /obj/item/weapon/circuitboard/cryopodcontrol
@@ -145,7 +145,7 @@
 
 	name = "cryogenic feed"
 	desc = "A bewildering tangle of machinery and pipes."
-	icon = 'icons/obj/Cryogenic2.dmi'
+	icon = 'icons/obj/sleeper.dmi'
 	icon_state = "cryo_rear"
 	anchored = 1
 	dir = WEST
@@ -154,14 +154,14 @@
 /obj/machinery/cryopod
 	name = "cryogenic freezer"
 	desc = "A man-sized pod for entering suspended animation."
-	icon = 'icons/obj/Cryogenic2.dmi'
-	icon_state = "body_scanner_0"
+	icon = 'icons/obj/sleeper.dmi'
+	icon_state = "body_scanner"
 	density = 1
 	anchored = 1
 	dir = WEST
 
-	var/base_icon_state = "body_scanner_0"
-	var/occupied_icon_state = "body_scanner_1"
+	var/base_icon_state = "body_scanner"
+	var/occupied_icon_state = "body_scanner-closed"
 	var/on_store_message = "has entered long-term storage."
 	var/on_store_name = "Cryogenic Oversight"
 	var/on_enter_occupant_message = "You feel cool air surround you. You go numb as your senses turn inward."
@@ -364,6 +364,7 @@
 					M.client.perspective = EYE_PERSPECTIVE
 					M.client.eye = src
 
+			flick("[initial(icon_state)]-anim", src)
 			icon_state = occupied_icon_state
 
 			to_chat(M, "<span class='notice'>[on_enter_occupant_message]</span>")
@@ -425,6 +426,7 @@
 			to_chat(user, "<span class='notice'>You stop [L == user ? "climbing into" : "putting [L] into"] \the [name].</span>")
 			return
 
+		flick("[initial(icon_state)]-anim", src)
 		icon_state = occupied_icon_state
 
 		to_chat(L, "<span class='notice'>You feel cool air surround you. You go numb as your senses turn inward.</span>")
@@ -449,6 +451,7 @@
 	if(usr.stat != 0)
 		return
 
+	flick("[initial(icon_state)]-anim", src)
 	icon_state = base_icon_state
 
 	//Eject any items that aren't meant to be in the pod.
@@ -499,6 +502,7 @@
 		usr.forceMove(src)
 		set_occupant(usr)
 
+		flick("[initial(icon_state)]-anim", src)
 		icon_state = occupied_icon_state
 
 		to_chat(usr, "<span class='notice'>[on_enter_occupant_message]</span>")
@@ -522,6 +526,7 @@
 	occupant.forceMove(get_turf(src))
 	set_occupant(null)
 
+	flick("[initial(icon_state)]-anim", src)
 	icon_state = base_icon_state
 
 	return
