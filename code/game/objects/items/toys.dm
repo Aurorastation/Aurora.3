@@ -830,17 +830,17 @@
 	name = "squid plushie"
 	desc = "A small, cute and loveable squid friend. This one is pink coloured."
 	icon = 'icons/obj/toy.dmi'
-	icon_state = "squidpink"
-	item_state = "squidpink"
+	icon_state = "pinksquid"
+	item_state = "pinksquid"
 	var/active = 0.0
 	var/colorvar = "pink"
 	slot_flags = SLOT_HEAD
 
-/obj/item/toy/plushie/therapy/Initialize()
+/obj/item/toy/plushie/squid/Initialize()
 	. = ..()
 	colorvar = pick("pink","blue","mint","green","yellow","orange")
-	icon_state = "squid[colorvar]"
-	item_state = "squid[colorvar]"
+	icon_state = "[colorvar]squid"
+	item_state = "[colorvar]squid"
 	desc = "A small, cute and loveable squid friend. This one is in [colorvar]."
 
 //Toy cult sword
