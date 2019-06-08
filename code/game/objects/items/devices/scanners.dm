@@ -44,8 +44,10 @@ BREATH ANALYZER
 			return "Moderate"
 		if (50 to 75)
 			return "Major"
-		if (75 to INFINITY)
+		if (75 to 200)
 			return "Critical"
+		if (200 to INFINITY)
+			return "Fatal"
 
 /proc/health_scan_mob(var/mob/living/M, var/mob/living/user, var/visible_msg, var/ignore_clumsiness, var/show_limb_damage = TRUE)
 	if ( ((user.is_clumsy()) || (DUMB in user.mutations)) && prob(50))
