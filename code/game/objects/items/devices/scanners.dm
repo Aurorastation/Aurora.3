@@ -32,6 +32,21 @@ BREATH ANALYZER
 	src.add_fingerprint(user)
 	return
 
+/proc/calcDamage(var/DMGValue)
+	switch(DMGValue)
+		if (0 to 1)
+			return "Healthy"
+		if (1 to 10)
+			return "Negligible"
+		if (10 to 25)
+			return "Minor"
+		if (25 to 50)
+			return "Moderate"
+		if (50 to 75)
+			return "Serious"
+		if (75 to INFINITY)
+			return "Critical"
+
 /proc/health_scan_mob(var/mob/living/M, var/mob/living/user, var/visible_msg, var/ignore_clumsiness, var/show_limb_damage = TRUE)
 	if ( ((user.is_clumsy()) || (DUMB in user.mutations)) && prob(50))
 		to_chat(user, text("<span class='warning'>You try to analyze the floor's vitals!</span>"))
@@ -59,19 +74,20 @@ BREATH ANALYZER
 		return
 
 	var/fake_oxy = max(rand(1,40), M.getOxyLoss(), (300 - (M.getToxLoss() + M.getFireLoss() + M.getBruteLoss())))
-	var/OX = M.getOxyLoss() > 50 	? 	"<b>[M.getOxyLoss()]</b>" 		: M.getOxyLoss()
-	var/TX = M.getToxLoss() > 50 	? 	"<b>[M.getToxLoss()]</b>" 		: M.getToxLoss()
-	var/BU = M.getFireLoss() > 50 	? 	"<b>[M.getFireLoss()]</b>" 		: M.getFireLoss()
-	var/BR = M.getBruteLoss() > 50 	? 	"<b>[M.getBruteLoss()]</b>" 	: M.getBruteLoss()
+	
+	var/OX = calcDamage(M.getOxyLoss())
+	var/TX = calcDamage(M.getToxLoss())
+	var/BU = calcDamage(M.getFireLoss())
+	var/BR = calcDamage(M.getBruteLoss())
 	if(M.status_flags & FAKEDEATH)
 		OX = fake_oxy > 50 			? 	"<b>[fake_oxy]</b>" 			: fake_oxy
 		user.show_message("<span class='notice'>Analyzing Results for [M]:</span>")
 		user.show_message("<span class='notice'>Overall Status: dead</span>")
 	else
 		user.show_message("<span class='notice'>Analyzing Results for [M]:\n\t Overall Status: [M.stat > 1 ? "dead" : "[M.health - M.halloss]% healthy"]</span>")
-	user.show_message("<span class='notice'>    Key: <font color='blue'>Suffocation</font>/<font color='green'>Toxin</font>/<font color='#FFA500'>Burns</font>/<font color='red'>Brute</font></span>", 1)
-	user.show_message("<span class='notice'>    Damage Specifics: <font color='blue'>[OX]</font> - <font color='green'>[TX]</font> - <font color='#FFA500'>[BU]</font> - <font color='red'>[BR]</font></span>")
-	user.show_message("<span class='notice'>Body Temperature: [M.bodytemperature-T0C]&deg;C ([M.bodytemperature*1.8-459.67]&deg;F)</span>", 1)
+		user.show_message("<span class='notice'>    Key: <font color='blue'>Suffocation</font>/<font color='green'>Toxin</font>/<font color='#FFA500'>Burns</font>/<font color='red'>Brute</font></span>", 1)
+		user.show_message("<span class='notice'>    Damage Specifics: <font color='blue'>[OX]</font> - <font color='green'>[TX]</font> - <font color='#FFA500'>[BU]</font> - <font color='red'>[BR]</font></span>")
+		user.show_message("<span class='notice'>Body Temperature: [M.bodytemperature-T0C]&deg;C ([M.bodytemperature*1.8-459.67]&deg;F)</span>", 1)
 	if(M.tod && (M.stat == DEAD || (M.status_flags & FAKEDEATH)))
 		user.show_message("<span class='notice'>Time of Death: [M.tod]</span>")
 	if(istype(M, /mob/living/carbon/human) && show_limb_damage)
@@ -83,19 +99,11 @@ BREATH ANALYZER
 				user.show_message(text("<span class='notice'>     [][]: [][] - []</span>",
 				capitalize(org.name),
 				(org.status & ORGAN_ROBOT) ? "(Cybernetic)" : "",
-				(org.brute_dam > 0) ? "<span class='warning'>[org.brute_dam]</span>" : 0,
+				(org.brute_dam > 0) ? "<font color='red'>[calcDamage(org.brute_dam)]</font>" : "<font color='red'>Healthy</font>",
 				(org.status & ORGAN_BLEEDING)?"<span class='danger'>\[Bleeding\]</span>":"",
-				(org.burn_dam > 0) ? "<font color='#FFA500'>[org.burn_dam]</font>" : 0),1)
+				(org.burn_dam > 0) ? "<font color='#FFA500'>[calcDamage(org.burn_dam)]</font>" : "<font color='#FFA500'>Healthy</font>"),1)
 		else
 			user.show_message("<span class='notice'>    Limbs are OK.</span>",1)
-
-	OX = M.getOxyLoss() > 50 ? 	"<font color='blue'><b>Severe oxygen deprivation detected</b></font>" 		: 	"Subject bloodstream oxygen level normal"
-	TX = M.getToxLoss() > 50 ? 	"<font color='green'><b>Dangerous amount of toxins detected</b></font>" 	: 	"Subject bloodstream toxin level minimal"
-	BU = M.getFireLoss() > 50 ? 	"<font color='#FFA500'><b>Severe burn damage detected</b></font>" 			:	"Subject burn injury status O.K"
-	BR = M.getBruteLoss() > 50 ? "<font color='red'><b>Severe anatomical damage detected</b></font>" 		: 	"Subject brute-force injury status O.K"
-	if(M.status_flags & FAKEDEATH)
-		OX = fake_oxy > 50 ? 		"<span class='warning'>Severe oxygen deprivation detected</span>" 	: 	"Subject bloodstream oxygen level normal"
-	user.show_message("[OX] | [TX] | [BU] | [BR]")
 	if(istype(M, /mob/living/carbon))
 		var/mob/living/carbon/C = M
 		if(C.reagents.total_volume)
@@ -127,7 +135,12 @@ BREATH ANALYZER
 				if (ID in virusDB)
 					var/datum/data/record/V = virusDB[ID]
 					user.show_message("<span class='warning'>Warning: Pathogen [V.fields["name"]] detected in subject's blood. Known antigen : [V.fields["antigen"]]</span>")
-
+					
+	if(M.nutrition / M.max_nutrition <= CREW_NUTRITION_VERYHUNGRY)
+		user.show_message("<span class='warning'>Subject malnourished. Food intake recommended.</span>")
+	if(M.hydration / M.max_hydration <= CREW_HYDRATION_VERYTHIRSTY)
+		user.show_message("<span class='warning'>Subject dehydrated. Fluid intake recommended.</span>")
+	
 	if (M.getCloneLoss())
 		user.show_message("<span class='warning'>Subject appears to have been imperfectly cloned.</span>")
 	for(var/datum/disease/D in M.viruses)
@@ -178,7 +191,7 @@ BREATH ANALYZER
 			else
 				user.show_message("<span class='notice'>Blood Level Normal: [blood_percent]% [blood_volume]cl. Type: [blood_type]</span>")
 		user.show_message("<span class='notice'>Subject's pulse: <font color='[H.pulse == PULSE_THREADY || H.pulse == PULSE_NONE ? "red" : "blue"]'>[H.get_pulse(GETPULSE_TOOL)] bpm.</font></span>")
-
+		
 /obj/item/device/healthanalyzer/verb/toggle_mode()
 	set name = "Switch Verbosity"
 	set category = "Object"
@@ -189,7 +202,6 @@ BREATH ANALYZER
 		to_chat(usr, "The scanner now shows specific limb damage.")
 	else
 		to_chat(usr, "The scanner no longer shows limb damage.")
-
 
 /obj/item/device/analyzer
 	name = "analyzer"
