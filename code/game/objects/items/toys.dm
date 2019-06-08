@@ -813,6 +813,16 @@
 	desc = "A farwa plush doll. It's soft and comforting, with extra grip!"
 	icon_state = "farwaplushie"
 	slot_flags = SLOT_HEAD
+	
+/obj/item/toy/plushie/bear
+	name = "bear plush"
+	desc = "A bear plushie. You should hug it, quickly!"
+	icon_state = "bearplushie"
+
+/obj/item/toy/plushie/bearfire
+	name = "firefighter bear plush"
+	desc = "A bear plushie. Only you can stop phoron fires!"
+	icon_state = "bearplushie_fire"
 
 //Squid Plushies
 
