@@ -43,7 +43,7 @@ BREATH ANALYZER
 		if (25 to 50)
 			return "Moderate"
 		if (50 to 75)
-			return "Serious"
+			return "Major"
 		if (75 to INFINITY)
 			return "Critical"
 
