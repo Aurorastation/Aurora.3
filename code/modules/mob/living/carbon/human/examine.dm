@@ -245,7 +245,7 @@
 			msg += "[T.He] [T.is] quite chubby.\n"
 	if(max_hydration > 0)
 		if(hydration / max_hydration <= CREW_HYDRATION_VERYTHIRSTY)
-			msg += "[T.He] [T.is] severely dehydrated.\n"/*
+			msg += "[T.He] [T.is] severely dehydrated.\n"*/
 
 	msg += "</span>"
 
