@@ -173,6 +173,7 @@
 		"kidneys" =  /obj/item/organ/kidneys,
 		"brain" =    /obj/item/organ/brain,
 		"appendix" = /obj/item/organ/appendix,
+		"stomache" = /obj/item/organ/stomache,
 		"eyes" =     /obj/item/organ/eyes
 		)
 	var/vision_organ              // If set, this organ is required for vision. Defaults to "eyes" if the species has them.

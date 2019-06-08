@@ -270,6 +270,38 @@
 			else if(prob(50))
 				to_chat(H,"<span class='warning'>Your mind buzzes...</span>")
 
+/mob/living/carbon/human/proc/swallowobject()
+	set name = "Swallow Object"
+	set desc = "Swallows a held object"
+	set category = "IC"
+
+	var/mob/living/carbon/human/H = src
+	var/obj/item/organ/ST = H.internal_organs_by_name["stomache"]
+	var/obj/item/organ/external/E = H.organs_by_name[ST.parent_organ]
+	var/obj/item/I = H.get_active_hand()
+
+	if(!I)
+		to_chat(H, "<span class='notice'>You can't swallow nothing!</span>")
+		return
+	if(I.w_class >= 2)
+		to_chat(H, "<span class='notice'>You begin to swallow the [I]</span>")
+		if(do_after(H, 40, act_target = I))
+			H.drop_from_inventory(I,H.loc)
+			I.forceMove(ST)
+			to_chat(H, "<span class='notice'>You swallow the [I]</span>")
+		if(I.sharp == 1)
+			to_chat(H, "<span class='notice'>You swallow the [I], but feel a intese stabbing pain!</span>")
+			I.forceMove(ST)
+			E.createwound(CUT, rand(30,50), 1)
+			for(var/datum/wound/W in E.wounds)
+				if(W.internal)
+					E.wounds += W
+
+	if(I.w_class <= 2)
+		if(do_after(H, 60, act_target = I))
+			to_chat(H, "<span class='notice'>This is too big to swallow</span>")
+			return 0
+
 
 /mob/living/carbon/human/proc/regurgitate()
 	set name = "Regurgitate"

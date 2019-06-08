@@ -723,7 +723,8 @@ proc/is_blind(A)
 
 /mob/living/carbon/proc/vomit()
 	var/canVomit = 0
-	var/mob/living/carbon/human/H
+	var/mob/living/carbon/human/H = src
+	var/obj/item/organ/ST = H.internal_organs_by_name["stomache"]
 	if (istype(src, /mob/living/carbon/human))
 		H = src
 		if (H.ingested.total_volume > 0)
@@ -740,13 +741,17 @@ proc/is_blind(A)
 		var/turf/location = loc
 		if (istype(location, /turf/simulated))
 			location.add_vomit_floor(src, 1)
+		if(ST.contents.len)
+			var/atom/movable/vomititem = pick(ST.contents)
+			vomititem.forceMove(src.loc)
+			src.visible_message("<span class='warning'>[src] spits up the[vomititem.name]</span>","<span class='warning'>You vomit a object up</span>")
 		adjustNutritionLoss(60)
 		adjustHydrationLoss(30)
 		if (intoxication)//The pain and system shock of vomiting, sobers you up a little
 			intoxication *= 0.9
-
 		if (istype(src, /mob/living/carbon/human))
 			ingested.trans_to_turf(location,30)//Vomiting empties the stomach, transferring 30u reagents to the floor where you vomited
+		
 	else if (prob(50))
 		src.visible_message("<span class='warning'>[src] retches, attempting to vomit!</span>","<span class='warning'>You gag and collapse as you feel the urge to vomit, but there's nothing in your stomach!</span>")
 		Weaken(4)

@@ -15,6 +15,40 @@
 	robotic_name = "circulatory pump"
 	robotic_sprite = "heart-prosthetic"
 
+/obj/item/organ/stomache
+	name = "stomache"
+	icon_state = "stomache"
+	gender = PLURAL
+	organ_tag = "stomache"
+	parent_organ = "groin"
+	robotic_name = "gas exchange system"
+	robotic_sprite = "heart-prosthetic"
+	var/vomit_timer = FALSE
+
+/obj/item/organ/stomache/Initialize()
+	START_PROCESSING(SSfast_process, src)
+	. = ..()
+
+/obj/item/organ/stomache/process()
+	contents_check() // if your stomache is too full, lets have you vomit up some of that stuff
+
+/obj/item/organ/stomache/proc/contents_check()
+	var/mob/living/carbon/human/H = owner
+	if(!H) 
+		return
+	if(contents.len > 4)
+		addtimer(CALLBACK(src, .proc/cough_up), rand(100, 400))
+		to_chat(owner, "<span class='danger'>You dont feel too good....</span>")
+		vomit_timer = TRUE
+
+/obj/item/organ/stomache/proc/cough_up()
+	var/mob/living/carbon/human/H = owner
+	if(!H) 
+		return
+	H.vomit()
+	vomit_timer = FALSE
+
+
 /obj/item/organ/lungs
 	name = "lungs"
 	icon_state = "lungs"
