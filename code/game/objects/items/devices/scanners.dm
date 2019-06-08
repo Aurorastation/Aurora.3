@@ -35,19 +35,19 @@ BREATH ANALYZER
 /proc/calcDamage(var/DMGValue)
 	switch(DMGValue)
 		if (0 to 1)
-			return "Healthy "
+			return "Healthy"
 		if (1 to 10)
-			return "Negligible "
+			return "Negligible"
 		if (10 to 25)
-			return "Minor "
+			return "Minor"
 		if (25 to 50)
-			return "Moderate "
+			return "Moderate"
 		if (50 to 75)
-			return "Major "
+			return "Major"
 		if (75 to 200)
-			return "Critical "
+			return "Critical"
 		if (200 to INFINITY)
-			return "Fatal "
+			return "Fatal"
 
 /proc/health_scan_mob(var/mob/living/M, var/mob/living/user, var/visible_msg, var/ignore_clumsiness, var/show_limb_damage = TRUE)
 	if ( ((user.is_clumsy()) || (DUMB in user.mutations)) && prob(50))
@@ -102,7 +102,7 @@ BREATH ANALYZER
 				capitalize(org.name),
 				(org.status & ORGAN_ROBOT) ? "(Cybernetic)" : "",
 				(org.brute_dam > 0) ? "<font color='red'>[calcDamage(org.brute_dam)]</font>" : "<font color='red'>Healthy</font>",
-				(org.status & ORGAN_BLEEDING)?"<span class='danger'>\[Bleeding\]</span>":"",
+				(org.status & ORGAN_BLEEDING)?"<span class='danger'> \[Bleeding\]</span>":"",
 				(org.burn_dam > 0) ? "<font color='#FFA500'>[calcDamage(org.burn_dam)]</font>" : "<font color='#FFA500'>Healthy</font>"),1)
 		else
 			user.show_message("<span class='notice'>    Limbs are OK.</span>",1)
