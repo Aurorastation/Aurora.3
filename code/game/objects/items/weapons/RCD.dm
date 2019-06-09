@@ -171,6 +171,9 @@
 				return 1
 	return 0
 
+/obj/item/weapon/rcd/borg/infinite/useResource()
+	return 1
+
 /obj/item/weapon/rcd/borg/attackby()
 	return
 
