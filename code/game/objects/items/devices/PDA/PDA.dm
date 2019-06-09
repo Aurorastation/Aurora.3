@@ -1264,6 +1264,23 @@ var/global/list/obj/item/device/pda/PDAs = list()
 		to_chat(user, "<span class='notice'>Card scanned.</span>")
 	try_sort_pda_list()
 
+/obj/item/device/pda/proc/calcDamage(var/DMGValue)
+	switch(DMGValue)
+		if (0 to 1)
+			return "Healthy"
+		if (1 to 10)
+			return "Negligible"
+		if (10 to 25)
+			return "Minor"
+		if (25 to 50)
+			return "Moderate"
+		if (50 to 75)
+			return "Major"
+		if (75 to 200)
+			return "Critical"
+		if (200 to INFINITY)
+			return "Fatal"
+		
 /obj/item/device/pda/attack(mob/living/C as mob, mob/living/user as mob)
 	if (istype(C, /mob/living/carbon))
 		switch(scanmode)
@@ -1275,10 +1292,10 @@ var/global/list/obj/item/device/pda/PDAs = list()
 				user.show_message("<span class='notice'>Analyzing Results for [C]:</span>")
 				user.show_message("<span class='notice'>    Overall Status: [C.stat > 1 ? "dead" : "[C.health - C.halloss]% healthy"]</span>", 1)
 				user.show_message(text("<span class='notice'>    Damage Specifics:</span> <span class='[]'>[]</span>-<span class='[]'>[]</span>-<span class='[]'>[]</span>-<span class='[]'>[]</span>",
-						(C.getOxyLoss() > 50) ? "warning" : "", C.getOxyLoss(),
-						(C.getToxLoss() > 50) ? "warning" : "", C.getToxLoss(),
-						(C.getFireLoss() > 50) ? "warning" : "", C.getFireLoss(),
-						(C.getBruteLoss() > 50) ? "warning" : "", C.getBruteLoss()
+						(C.getOxyLoss() > 50) ? "warning" : "", calcDamage(C.getOxyLoss()),
+						(C.getToxLoss() > 50) ? "warning" : "", calcDamage(C.getToxLoss()),
+						(C.getFireLoss() > 50) ? "warning" : "", calcDamage(C.getFireLoss()),
+						(C.getBruteLoss() > 50) ? "warning" : "", calcDamage(C.getBruteLoss())
 						), 1)
 				user.show_message("<span class='notice'>    Key: Suffocation/Toxin/Burns/Brute</span>", 1)
 				user.show_message("<span class='notice'>    Body Temperature: [C.bodytemperature-T0C]&deg;C ([C.bodytemperature*1.8-459.67]&deg;F)</span>", 1)
@@ -1291,7 +1308,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 					if(length(damaged)>0)
 						for(var/obj/item/organ/external/org in damaged)
 							user.show_message(text("<span class='notice'>     []: <span class='[]'>[]</span>-<span class='[]'>[]</span></span>",
-									capitalize(org.name), (org.brute_dam > 0) ? "warning" : "notice", org.brute_dam, (org.burn_dam > 0) ? "warning" : "notice", org.burn_dam),1)
+									capitalize(org.name), (org.brute_dam > 0) ? "warning" : "notice", calcDamage(org.brute_dam), (org.burn_dam > 0) ? "warning" : "notice", calcDamage(org.burn_dam)),1)
 					else
 						user.show_message("<span class='notice'>    Limbs are OK.</span>",1)
 
