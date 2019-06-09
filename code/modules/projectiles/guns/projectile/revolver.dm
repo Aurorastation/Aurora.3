@@ -48,7 +48,7 @@
 /obj/item/weapon/gun/projectile/revolver/detective
 	name = "revolver"
 	desc = "A cheap Martian knock-off of a Smith & Wesson Model 10. Uses .38-Special rounds."
-	icon_state = "detective"
+	icon_state = "odetective"
 	max_shells = 6
 	accuracy = 1
 	caliber = "38"

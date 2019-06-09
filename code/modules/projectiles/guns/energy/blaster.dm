@@ -20,6 +20,41 @@
 		list(mode_name="2-round bursts", burst=2, fire_delay=null, move_delay=2,    burst_accuracy=list(1,0,0),       dispersion=list(0, 10, 15))
 		)
 
+/obj/item/weapon/gun/energy/blaster/detective
+	name = "detective blaster"
+	desc = "A robust eight-shot blaster, capable of taking down any aggressive suspects."
+	icon_state = "detective"
+	item_state = "detective"
+	fire_sound = 'sound/weapons/laserstrong.ogg'
+	projectile_type = /obj/item/projectile/energy/blaster/tame
+	max_shots = 8
+
+/obj/item/weapon/gun/energy/blaster/detective/verb/spin_cylinder()
+	set name = "Spin cylinder"
+	set desc = "Fun when you're bored out of your skull."
+	set category = "Object"
+
+	usr.visible_message("<span class='warning'>\The [usr] spins the cylinder of \the [src]!</span>", "<span class='warning'>You spin the cylinder of \the [src]!</span>", "<span class='notice'>You hear something metallic spin and click.</span>")
+	playsound(src.loc, 'sound/weapons/revolver_spin.ogg', 100, 1)
+
+/obj/item/weapon/gun/energy/blaster/detective/verb/rename_gun()
+	set name = "Name Gun"
+	set category = "Object"
+	set desc = "Click to rename your gun. If you're the detective."
+
+	var/mob/M = usr
+	if(!M.mind)	return 0
+	if(!M.mind.assigned_role == "Detective")
+		to_chat(M, "<span class='notice'>You don't feel cool enough to name this gun, chump.</span>")
+		return 0
+
+	var/input = sanitizeSafe(input("What do you want to name the gun?", ,""), MAX_NAME_LEN)
+
+	if(src && input && !M.stat && in_range(M,src))
+		name = input
+		to_chat(M, "You name the gun [input]. Say hello to your new friend.")
+		return 1
+
 /obj/item/weapon/gun/energy/blaster/carbine
 	name = "blaster carbine"
 	desc = "A short-barreled blaster carbine meant for easy handling and comfort when in combat."

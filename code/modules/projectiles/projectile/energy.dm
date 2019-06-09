@@ -216,6 +216,9 @@
 	damage_type = BURN
 	pass_flags = PASSTABLE | PASSGLASS | PASSGRILLE
 	muzzle_type = /obj/effect/projectile/muzzle/bolt
+	
+/obj/item/projectile/energy/blaster/tame
+	damage = 20
 
 /obj/item/projectile/energy/blaster/heavy
 	damage = 35

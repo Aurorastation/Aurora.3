@@ -349,9 +349,7 @@
 		//Tools
 		new /obj/item/device/radio/headset/headset_sec(src)
 		new /obj/item/clothing/suit/storage/vest/detective(src)
-		new /obj/item/ammo_magazine/c38(src)
-		new /obj/item/ammo_magazine/c38(src)
-		new /obj/item/weapon/gun/projectile/revolver/detective(src)
+		new /obj/item/weapon/gun/energy/blaster/detective(src)
 		new /obj/item/taperoll/police(src)
 		//Belts
 		new /obj/item/clothing/accessory/holster/armpit(src)
