@@ -1,4 +1,5 @@
 author: MoondancerPony
 delete-after: True
 changes: 
-  - rscadd: "Added a vote to evac shuttle requests. This vote is OOC."
+  - rscadd: "Added a vote to evac shuttle requests on code blue/yellow. This vote is OOC."
+  - tweak: "A crew transfer cannot be called on code blue. It can still be called on yellow and green."
