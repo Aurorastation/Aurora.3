@@ -23,12 +23,12 @@ BREATH ANALYZER
 	var/mode = 1
 
 /obj/item/device/healthanalyzer/attack(mob/living/M as mob, mob/living/user as mob)
-	health_scan_mob(M, user)
+	health_scan_mob(M, user, FALSE)
 	src.add_fingerprint(user)
 	return
 
 /obj/item/device/healthanalyzer/attack_self(mob/user)
-	health_scan_mob(user, user)
+	health_scan_mob(user, user, FALSE)
 	src.add_fingerprint(user)
 	return
 
@@ -49,17 +49,17 @@ BREATH ANALYZER
 		if (200 to INFINITY)
 			return "Fatal"
 
-/proc/health_scan_mob(var/mob/living/M, var/mob/living/user, var/visible_msg, var/ignore_clumsiness, var/show_limb_damage = TRUE)
-	if ( ((user.is_clumsy()) || (DUMB in user.mutations)) && prob(50))
+/proc/health_scan_mob(var/mob/living/M, var/mob/living/user, var/adv, var/visible_msg, var/ignore_clumsiness, var/show_limb_damage = TRUE)
+	if (((user.is_clumsy()) || (DUMB in user.mutations)) && prob(50))
 		to_chat(user, text("<span class='warning'>You try to analyze the floor's vitals!</span>"))
 		for(var/mob/O in viewers(M, null))
 			O.show_message("<span class='warning'>\The [user] has analyzed the floor's vitals!</span>", 1)
-		user.show_message("<span class='notice'>Analyzing Results for The floor:</span>", 1)
-		user.show_message("Overall Status: Healthy</span>", 1)
-		user.show_message("<span class='notice'>    Damage Specifics: 0-0-0-0</span>", 1)
-		user.show_message("<span class='notice'>Key: Suffocation/Toxin/Burns/Brute</span>", 1)
-		user.show_message("<span class='notice'>Body Temperature: ???</span>", 1)
-		return
+			user.show_message("<span class='notice'>Analyzing Results for The floor:</span>", 1)
+			user.show_message("Overall Status: Healthy</span>", 1)
+			user.show_message("<span class='notice'>    Damage Specifics: 0-0-0-0</span>", 1)
+			user.show_message("<span class='notice'>Key: Suffocation/Toxin/Burns/Brute</span>", 1)
+			user.show_message("<span class='notice'>Body Temperature: ???</span>", 1)
+			return
 	if (!usr.IsAdvancedToolUser())
 		to_chat(usr, "<span class='warning'>You don't have the dexterity to do this!</span>")
 		return
@@ -77,10 +77,22 @@ BREATH ANALYZER
 
 	var/fake_oxy = max(rand(1,40), M.getOxyLoss(), (300 - (M.getToxLoss() + M.getFireLoss() + M.getBruteLoss())))
 	
-	var/OX = calcDamage(M.getOxyLoss())
-	var/TX = calcDamage(M.getToxLoss())
-	var/BU = calcDamage(M.getFireLoss())
-	var/BR = calcDamage(M.getBruteLoss())
+	var/OX = 0
+	var/TX = 0
+	var/BU = 0
+	var/BR = 0
+	
+	if (adv == TRUE)
+		OX = M.getOxyLoss()
+		TX = M.getToxLoss()
+		BU = M.getFireLoss()
+		BR = M.getBruteLoss()
+	else
+		OX = calcDamage(M.getOxyLoss())
+		TX = calcDamage(M.getToxLoss())
+		BU = calcDamage(M.getFireLoss())
+		BR = calcDamage(M.getBruteLoss())
+	
 	if(M.status_flags & FAKEDEATH)
 		OX = fake_oxy > 50 			? 	"<b>[fake_oxy]</b>" 			: fake_oxy
 		user.show_message("<span class='notice'>Analyzing Results for [M]:</span>")
@@ -97,13 +109,22 @@ BREATH ANALYZER
 		var/list/damaged = H.get_damaged_organs(1,1)
 		user.show_message("<span class='notice'>Localized Damage, Brute/Burn:</span>",1)
 		if(length(damaged)>0)
-			for(var/obj/item/organ/external/org in damaged)
-				user.show_message(text("<span class='notice'>     [][]: [][] - []</span>",
-				capitalize(org.name),
-				(org.status & ORGAN_ROBOT) ? "(Cybernetic)" : "",
-				(org.brute_dam > 0) ? "<font color='red'>[calcDamage(org.brute_dam)]</font>" : "<font color='red'>Healthy</font>",
-				(org.status & ORGAN_BLEEDING)?"<span class='danger'> \[Bleeding\]</span>":"",
-				(org.burn_dam > 0) ? "<font color='#FFA500'>[calcDamage(org.burn_dam)]</font>" : "<font color='#FFA500'>Healthy</font>"),1)
+			if (adv == TRUE)
+				for(var/obj/item/organ/external/org in damaged)
+					user.show_message(text("<span class='notice'>     [][]: [][] - []</span>",
+					capitalize(org.name),
+					(org.status & ORGAN_ROBOT) ? "(Cybernetic)" : "",
+					(org.brute_dam > 0) ? "<font color='red'>[org.brute_dam]</font>" : "<font color='red'>0</font>",
+					(org.status & ORGAN_BLEEDING)?"<span class='danger'> \[Bleeding\]</span>":"",
+					(org.burn_dam > 0) ? "<font color='#FFA500'>[org.burn_dam]</font>" : "<font color='#FFA500'>0</font>"),1)
+			else
+				for(var/obj/item/organ/external/org in damaged)
+					user.show_message(text("<span class='notice'>     [][]: [][] - []</span>",
+					capitalize(org.name),
+					(org.status & ORGAN_ROBOT) ? "(Cybernetic)" : "",
+					(org.brute_dam > 0) ? "<font color='red'>[calcDamage(org.brute_dam)]</font>" : "<font color='red'>Healthy</font>",
+					(org.status & ORGAN_BLEEDING)?"<span class='danger'> \[Bleeding\]</span>":"",
+					(org.burn_dam > 0) ? "<font color='#FFA500'>[calcDamage(org.burn_dam)]</font>" : "<font color='#FFA500'>Healthy</font>"),1)
 		else
 			user.show_message("<span class='notice'>    Limbs are OK.</span>",1)
 	if(istype(M, /mob/living/carbon))
@@ -204,6 +225,23 @@ BREATH ANALYZER
 		to_chat(usr, "The scanner now shows specific limb damage.")
 	else
 		to_chat(usr, "The scanner no longer shows limb damage.")
+		
+/obj/item/device/healthanalyzer/adv
+	name = "advanced health analyzer"
+	desc = "An advanced hand-held body scanner able to accurately distinguish vital signs of the subject. Now in blue!"
+	icon_state = "advhealth"
+	matter = list(DEFAULT_WALL_MATERIAL = 250)
+	origin_tech = list(TECH_MAGNET = 2, TECH_BIO = 2)
+	
+/obj/item/device/healthanalyzer/adv/attack(mob/living/M as mob, mob/living/user as mob)
+	health_scan_mob(M, user, TRUE)
+	src.add_fingerprint(user)
+	return
+	
+/obj/item/device/healthanalyzer/adv/attack_self(mob/user)
+	health_scan_mob(user, user, TRUE)
+	src.add_fingerprint(user)
+	return
 
 /obj/item/device/analyzer
 	name = "analyzer"
