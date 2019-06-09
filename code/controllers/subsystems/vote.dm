@@ -167,7 +167,10 @@ var/datum/controller/subsystem/vote/SSvote
 				if(. == "Evacuate the Station")
 					emergency_shuttle.call_evac()
 				else
-					to_chat(initiator, "[current_map.boss_short] does not currently have a shuttle available in your sector. Please try again later. We apologise for any inconvenience caused by this.")
+					var/client/C = directory[ckey(initiator)]
+					if(!istype(C))
+						return 0
+					to_chat(C, "[current_map.boss_short] does not currently have a shuttle available in your sector. Please try again later. We apologise for any inconvenience caused by this. Please try again later.")
 			if("add_antagonist")
 				if(isnull(.) || . == "None")
 					antag_add_failed = 1

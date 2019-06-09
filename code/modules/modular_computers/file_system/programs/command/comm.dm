@@ -134,17 +134,17 @@
 		if("sw_menu")
 			current_status = text2num(href_list["target"])
 		if("announce")
-			if(is_authenticated(user) && !issilicon(usr) && ntn_comm)
+			if(is_authenticated(user) && !issilicon(user) && ntn_comm)
 				if(user)
 					var/obj/item/weapon/card/id/id_card = user.GetIdCard()
 					crew_announcement.announcer = GetNameAndAssignmentFromId(id_card)
 				else
 					crew_announcement.announcer = "Unknown"
 				if(announcment_cooldown)
-					to_chat(usr, "Please allow at least one minute to pass between announcements")
+					to_chat(user, "Please allow at least one minute to pass between announcements.")
 					SSnanoui.update_uis(src)
 					return
-				var/input = input(usr, "Please write a message to announce to the station crew.", "Priority Announcement") as null|message
+				var/input = input(user, "Please write a message to announce to the station crew.", "Priority Announcement") as null|message
 				if(!input || !can_still_topic())
 					SSnanoui.update_uis(src)
 					return
@@ -155,29 +155,29 @@
 		if("message")
 			if(href_list["target"] == "emagged")
 				if(program)
-					if(is_authenticated(user) && program.computer_emagged && !issilicon(usr) && ntn_comm)
+					if(is_authenticated(user) && program.computer_emagged && !issilicon(user) && ntn_comm)
 						if(centcomm_message_cooldown)
-							to_chat(usr, "<span class='warning'>Arrays recycling. Please stand by.</span>")
+							to_chat(user, "<span class='warning'>Arrays recycling. Please stand by.</span>")
 							SSnanoui.update_uis(src)
 							return
-						var/input = sanitize(input(usr, "Please choose a message to transmit to \[ABNORMAL ROUTING CORDINATES\] via quantum entanglement.  Please be aware that this process is very expensive, and abuse will lead to... termination. Transmission does not guarantee a response. There is a 30 second delay before you may send another message, be clear, full and concise.", "To abort, send an empty message.", "") as null|text)
+						var/input = sanitize(input(user, "Please choose a message to transmit to \[ABNORMAL ROUTING CORDINATES\] via quantum entanglement.  Please be aware that this process is very expensive, and abuse will lead to... termination. Transmission does not guarantee a response. There is a 30 second delay before you may send another message, be clear, full and concise.", "To abort, send an empty message.", "") as null|text)
 						if(!input || !can_still_topic())
 							SSnanoui.update_uis(src)
 							return
-						Syndicate_announce(input, usr)
-						to_chat(usr, "<span class='notice'>Message transmitted.</span>")
-						log_say("[key_name(usr)] has made an illegal announcement: [input]",ckey=key_name(usr))
+						Syndicate_announce(input, user)
+						to_chat(user, "<span class='notice'>Message transmitted.</span>")
+						log_say("[key_name(usr)] has made an illegal announcement: [input]",ckey=key_name(user))
 						centcomm_message_cooldown = 1
 						spawn(300)//30 second cooldown
 							centcomm_message_cooldown = 0
 			else if(href_list["target"] == "regular")
-				if(is_authenticated(user) && !issilicon(usr) && ntn_comm)
+				if(is_authenticated(user) && !issilicon(user) && ntn_comm)
 					if(centcomm_message_cooldown)
-						to_chat(usr, "<span class='warning'>Arrays recycling. Please stand by.</span>")
+						to_chat(user, "<span class='warning'>Arrays recycling. Please stand by.</span>")
 						SSnanoui.update_uis(src)
 						return
 					if(!is_relay_online())//Contact Centcom has a check, Syndie doesn't to allow for Traitor funs.
-						to_chat(usr, "<span class='warning'>No Emergency Bluespace Relay detected. Unable to transmit message.</span>")
+						to_chat(user, "<span class='warning'>No Emergency Bluespace Relay detected. Unable to transmit message.</span>")
 						SSnanoui.update_uis(src)
 						return
 					var/input = sanitize(input("Please choose a message to transmit to [current_map.boss_short] via quantum entanglement.  Please be aware that this process is very expensive, and abuse will lead to... termination.  Transmission does not guarantee a response. There is a 30 second delay before you may send another message, be clear, full and concise.", "To abort, send an empty message.", "") as null|text)
@@ -185,7 +185,7 @@
 						SSnanoui.update_uis(src)
 						return
 					Centcomm_announce(input, usr)
-					to_chat(usr, "<span class='notice'>Message transmitted.</span>")
+					to_chat(user, "<span class='notice'>Message transmitted.</span>")
 					log_say("[key_name(usr)] has made an IA [current_map.boss_short] announcement: [input]",ckey=key_name(usr))
 					centcomm_message_cooldown = 1
 					spawn(300) //30 second cooldown
@@ -376,9 +376,9 @@ Command action procs
 		to_chat(user, "The emergency shuttle may not be sent at this time. Please try again later.")
 		return 0
 
-	if(world.time < 6000) // Ten minute grace period to let the game get going without lolmetagaming. -- TLE
-		to_chat(user, "The emergency shuttle is refueling. Please wait another [round((6000-world.time)/600)] minute\s before trying again.")
-		return 0
+	//if(world.time < 6000) // Ten minute grace period to let the game get going without lolmetagaming. -- TLE
+	//	to_chat(user, "The emergency shuttle is refueling. Please wait another [round((6000-world.time)/600)] minute\s before trying again.")
+	//	return 0
 
 	if(emergency_shuttle.going_to_centcom())
 		to_chat(user, "The emergency shuttle may not be called while returning to [current_map.boss_short].")
@@ -392,6 +392,7 @@ Command action procs
 		to_chat(user, "Under directive 7-10, [station_name()] is quarantined until further notice.")
 		return 0
 
+	to_chat(user, "[current_map.boss_short] has received your request for an evacuation shuttle and will respond in approximately one minute.")
 	SSvote.initiate_vote("evacuate",user.key)
 	log_game("[key_name(user)] has initiated an evacuation vote.",ckey=key_name(user))
 	message_admins("[key_name_admin(user)] has initiated an evacuation vote.", 1)
