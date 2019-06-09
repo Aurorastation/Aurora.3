@@ -20,7 +20,7 @@
 	
 /datum/design/item/adv_health_analyzer/
 	name = "Advanced Health Analyzer"
-	desc = "An advanced hand-held body scanner able to accurately distinguish vital signs of the subject. Now in blue!"
+	desc = "An advanced hand-held body scanner able to accurately distinguish vital signs of the subject. Now in gold!"
 	id = "adv_health_analyzer"
 	req_tech = list(TECH_MAGNET = 3, TECH_BIO = 4)
 	materials = list(DEFAULT_WALL_MATERIAL = 250)

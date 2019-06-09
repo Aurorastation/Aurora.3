@@ -228,7 +228,7 @@ BREATH ANALYZER
 		
 /obj/item/device/healthanalyzer/adv
 	name = "advanced health analyzer"
-	desc = "An advanced hand-held body scanner able to accurately distinguish vital signs of the subject. Now in blue!"
+	desc = "An advanced hand-held body scanner able to accurately distinguish vital signs of the subject. Now in gold!"
 	icon_state = "advhealth"
 	matter = list(DEFAULT_WALL_MATERIAL = 250)
 	origin_tech = list(TECH_MAGNET = 2, TECH_BIO = 2)
