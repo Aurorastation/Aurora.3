@@ -256,7 +256,7 @@ var/datum/controller/subsystem/vote/SSvote
 					AddChoice(ROUNDTYPE_STR_MIXED_SECRET, "Mixed Secret")
 			if("crew_transfer")
 				if(!check_rights(R_ADMIN|R_MOD, 0))
-					if (get_security_level() == "red" || get_security_level() == "delta")
+					if (get_security-level() == "blue" || get_security_level() == "red" || get_security_level() == "delta")
 						to_chat(initiator_key, "The current alert status is too high to call for a crew transfer!")
 						return 0
 					if(SSticker.current_state <= 2)

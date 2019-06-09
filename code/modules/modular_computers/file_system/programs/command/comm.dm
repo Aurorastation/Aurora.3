@@ -239,7 +239,7 @@
 							if(SEC_LEVEL_YELLOW)
 								feedback_inc("alert_comms_yellow",1)
 			else
-				to_chat(usr, "You press button, but red light flashes and nothing happens.") //This should never happen)
+				to_chat(usr, "You press the button, but a red light flashes and nothing happens.") //This should never happen)
 			current_status = STATE_DEFAULT
 		if("viewmessage")
 			if(is_authenticated(user) && ntn_comm)
@@ -392,11 +392,20 @@ Command action procs
 		to_chat(user, "Under directive 7-10, [station_name()] is quarantined until further notice.")
 		return 0
 
-	to_chat(user, "[current_map.boss_short] has received your request for an evacuation shuttle and will respond in approximately one minute.")
-	SSvote.initiate_vote("evacuate",user.key)
-	log_game("[key_name(user)] has initiated an evacuation vote.",ckey=key_name(user))
-	message_admins("[key_name_admin(user)] has initiated an evacuation vote.", 1)
-
+	switch(get_security_level())
+		if("green")
+			to_chat(user, "[current_map.boss_short] does not have any shuttles available for a low-priority crew evacuation at this time. Please try again if the priority changes.")
+			return 0
+		if("blue", "yellow")
+			to_chat(user, "[current_map.boss_short] has received your request for an evacuation shuttle and will respond in approximately one minute.")
+			SSvote.initiate_vote("evacuate",user.key)
+			log_game("[key_name(user)] has initiated an evacuation vote.",ckey=key_name(user))
+			message_admins("[key_name_admin(user)] has initiated an evacuation vote.", 1)
+		if("red", "delta")
+			to_chat(user, "[current_map.boss_short] has received your priority evacuation request.")
+			emergency_shuttle.call_evac()
+			log_game("[key_name(user)] has called an evacuation shuttle.",ckey=key_name(user))
+			message_admins("[key_name(user)] has called an evacuation shuttle.", 1)
 	return 1
 
 /proc/init_shift_change(var/mob/user, var/force = 0)
