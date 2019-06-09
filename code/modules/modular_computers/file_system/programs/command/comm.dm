@@ -392,7 +392,7 @@ Command action procs
 		to_chat(user, "Under directive 7-10, [station_name()] is quarantined until further notice.")
 		return 0
 
-	initiate_vote("evacuate",user.key)
+	SSvote.initiate_vote("evacuate",user.key)
 	log_game("[key_name(user)] has initiated an evacuation vote.",ckey=key_name(user))
 	message_admins("[key_name_admin(user)] has initiated an evacuation vote.", 1)
 
