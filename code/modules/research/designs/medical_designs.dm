@@ -9,7 +9,7 @@
 	..()
 	name = "Biotech device prototype ([item_name])"
 
-/datum/design/item/health_analyzer
+/datum/design/item/medical/health_analyzer
 	name = "Health Analyzer"
 	desc = "A hand-held body scanner able to distinguish vital signs of the subject."
 	id = "health_analyzer"
@@ -18,12 +18,12 @@
 	build_path = /obj/item/device/healthanalyzer
 	sort_string = "MBCAF"
 	
-/datum/design/item/adv_health_analyzer/
+/datum/design/item/medical/adv_health_analyzer/
 	name = "Advanced Health Analyzer"
 	desc = "An advanced hand-held body scanner able to accurately distinguish vital signs of the subject. Now in gold!"
 	id = "adv_health_analyzer"
 	req_tech = list(TECH_MAGNET = 3, TECH_BIO = 4)
-	materials = list(DEFAULT_WALL_MATERIAL = 250)
+	materials = list(DEFAULT_WALL_MATERIAL = 500, "glass" = 250)
 	build_path = /obj/item/device/healthanalyzer/adv
 	sort_string = "MBCAG"
 
