@@ -99,14 +99,14 @@ var/datum/controller/subsystem/vote/SSvote
 						factor = 1.4
 				choices["Initiate Crew Transfer"]["votes"] = round(choices["Initiate Crew Transfer"]["votes"] * factor)
 				to_world("<font color='purple'>Crew Transfer Factor: [factor]</font>")
-				greatest_votes = max(choices["Initiate Crew Transfer"]["votes"], choices["Continue The Round"]["votes"])
+				greatest_votes = max(choices["Initiate Crew Transfer"]["votes"], choices["Continue the Round"]["votes"])
 
 	if(mode == "crew_transfer")
 		if(round(get_round_duration() / 36000)+12 <= 14)
 			// Credit to Scopes @ oldcode.
 			to_world("<font color='purple'><b>Majority voting rule in effect. 2/3rds majority needed to initiate transfer.</b></font>")
 			choices["Initiate Crew Transfer"]["votes"] = round(choices["Initiate Crew Transfer"]["votes"] - round(total_votes / 3))
-			greatest_votes = max(choices["Initiate Crew Transfer"]["votes"], choices["Continue The Round"]["votes"])
+			greatest_votes = max(choices["Initiate Crew Transfer"]["votes"], choices["Continue the Round"]["votes"])
 
 	//get all options with that many votes and return them in a list
 	. = list()
@@ -163,6 +163,11 @@ var/datum/controller/subsystem/vote/SSvote
 				if(. == "Initiate Crew Transfer")
 					init_shift_change(null, 1)
 				last_transfer_vote = get_round_duration()
+			if("evacuate")
+				if(. == "Evacuate the Station")
+					emergency_shuttle.call_evac()
+				else
+					to_world("[current_map.boss_short] does not currently have a shuttle available in your sector. Please try again later. We apologise for any inconvenience caused by this.")
 			if("add_antagonist")
 				if(isnull(.) || . == "None")
 					antag_add_failed = 1
@@ -247,20 +252,20 @@ var/datum/controller/subsystem/vote/SSvote
 				if(ROUNDTYPE_STR_MIXED_SECRET in choices)
 					AddChoice(ROUNDTYPE_STR_MIXED_SECRET, "Mixed Secret")
 			if("crew_transfer")
-				if(check_rights(R_ADMIN|R_MOD, 0))
-					question = "End the shift?"
-					AddChoice("Initiate Crew Transfer")
-					AddChoice("Continue The Round")
-				else
+				if(!check_rights(R_ADMIN|R_MOD, 0))
 					if (get_security_level() == "red" || get_security_level() == "delta")
 						to_chat(initiator_key, "The current alert status is too high to call for a crew transfer!")
 						return 0
 					if(SSticker.current_state <= 2)
-						return 0
 						to_chat(initiator_key, "The crew transfer button has been disabled!")
-					question = "End the shift?"
-					AddChoice("Initiate Crew Transfer")
-					AddChoice("Continue The Round")
+						return 0
+				question = "End the shift?"
+				AddChoice("Initiate Crew Transfer")
+				AddChoice("Continue the Round")
+			if("evacuate")
+				question = "Evacuate the station?"
+				AddChoice("Evacuate the Station")
+				AddChoice("Continue the Round")
 			if("add_antagonist")
 				if(!config.allow_extra_antags || SSticker.current_state >= 2)
 					return 0
