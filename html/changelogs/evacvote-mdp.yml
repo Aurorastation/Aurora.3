@@ -1,0 +1,4 @@
+author: MoondancerPony
+delete-after: True
+changes: 
+  - rscadd: "Added a vote to evac shuttle requests. This vote is OOC."
