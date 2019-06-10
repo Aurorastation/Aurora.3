@@ -39,51 +39,15 @@
 	un_gloves["white gloves"] = /obj/item/clothing/gloves/white/unathi
 	gear_tweaks += new/datum/gear_tweak/path(un_gloves)
 
-/datum/gear/uniform/unathi/tunic
+/datum/gear/uniform/unathi
 	display_name = "sinta tunic"
 	path = /obj/item/clothing/under/unathi
 	whitelisted = list("Unathi", "Aut'akh Unathi")
 	sort_category = "Xenowear - Unathi"
 
-/datum/gear/uniform/unathi/tunic/New()
+/datum/gear/uniform/unathi/New()
 	..()
 	gear_tweaks = list(gear_tweak_free_color_choice)
-
-/datum/gear/uniform/unathi/jizixi
-	display_name = "jizixi dress"
-	path = /obj/item/clothing/under/unathi/jizixi
-	whitelisted = list("Unathi", "Aut'akh Unathi")
-	sort_category = "Xenowear - Unathi"
-
-/datum/gear/uniform/unathi/sashes
-	display_name = "gy'zao sashes"
-	path = /obj/item/clothing/under/unathi/sashes
-	whitelisted = list("Unathi", "Aut'akh Unathi")
-	sort_category = "Xenowear - Unathi"
-
-/datum/gear/uniform/unathi/mogazali
-	display_name = "mogazali attire"
-	path = /obj/item/clothing/under/unathi/mogazali
-	whitelisted = list("Unathi", "Aut'akh Unathi")
-	sort_category = "Xenowear - Unathi"
-
-/datum/gear/uniform/unathi/zazali
-	display_name = "zazali garb"
-	path = /obj/item/clothing/under/unathi/zazali
-	whitelisted = list("Unathi", "Aut'akh Unathi")
-	sort_category = "Xenowear - Unathi"
-
-/datum/gear/uniform/unathi/huytai
-	display_name = "huytai outfit"
-	path = /obj/item/clothing/under/unathi/huytai
-	whitelisted = list("Unathi", "Aut'akh Unathi")
-	sort_category = "Xenowear - Unathi"
-
-/datum/gear/uniform/unathi/zozo
-	display_name = "zo'zo top"
-	path = /obj/item/clothing/under/unathi/zozo
-	whitelisted = list("Unathi", "Aut'akh Unathi")
-	sort_category = "Xenowear - Unathi"
 
 /datum/gear/autakh_engineering
 	display_name = "engineering grasper"
@@ -120,3 +84,39 @@
 	sort_category = "Xenowear - Unathi"
 	cost = 3
 	allowed_roles = list("Security Officer", "Head of Security", "Warden")
+
+/datum/gear/uniform/unathi/jizixi
+	display_name = "jizixi dress"
+	path = /obj/item/clothing/under/unathi/jizixi
+	whitelisted = list("Unathi", "Aut'akh Unathi")
+	sort_category = "Xenowear - Unathi"
+
+/datum/gear/uniform/unathi/sashes
+	display_name = "gy'zao sashes"
+	path = /obj/item/clothing/under/unathi/sashes
+	whitelisted = list("Unathi", "Aut'akh Unathi")
+	sort_category = "Xenowear - Unathi"
+
+/datum/gear/uniform/unathi/mogazali
+	display_name = "mogazali attire"
+	path = /obj/item/clothing/under/unathi/mogazali
+	whitelisted = list("Unathi", "Aut'akh Unathi")
+	sort_category = "Xenowear - Unathi"
+
+/datum/gear/uniform/unathi/zazali
+	display_name = "zazali garb"
+	path = /obj/item/clothing/under/unathi/zazali
+	whitelisted = list("Unathi", "Aut'akh Unathi")
+	sort_category = "Xenowear - Unathi"
+
+/datum/gear/uniform/unathi/huytai
+	display_name = "huytai outfit"
+	path = /obj/item/clothing/under/unathi/huytai
+	whitelisted = list("Unathi", "Aut'akh Unathi")
+	sort_category = "Xenowear - Unathi"
+
+/datum/gear/uniform/unathi/zozo
+	display_name = "zo'zo top"
+	path = /obj/item/clothing/under/unathi/zozo
+	whitelisted = list("Unathi", "Aut'akh Unathi")
+	sort_category = "Xenowear - Unathi"
