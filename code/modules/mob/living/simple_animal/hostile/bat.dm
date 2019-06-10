@@ -39,6 +39,7 @@
 	faction = "scarybat"
 	flying = TRUE
 	var/mob/living/owner
+	emote_sounds = list('sound/effects/creatures/bat.ogg')
 
 /mob/living/simple_animal/hostile/scarybat/Initialize(mapload, mob/living/L as mob)
 	. = ..()

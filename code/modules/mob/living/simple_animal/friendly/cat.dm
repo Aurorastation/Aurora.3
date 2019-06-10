@@ -35,7 +35,6 @@
 	pass_flags = PASSTABLE
 	possession_candidate = 1
 	emote_sounds = list('sound/effects/creatures/cat_meow.ogg', 'sound/effects/creatures/cat_meow2.ogg')
-	emote_sound_chance = 20
 
 /mob/living/simple_animal/cat/think()
 	//MICE!
