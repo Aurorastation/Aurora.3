@@ -8,21 +8,11 @@
 /*
  * Security
  */
-/obj/item/clothing/under/rank/warden
-	desc = "It's made of a slightly sturdier material than standard jumpsuits, to allow for more robust protection. It has the word \"Warden\" written on the shoulders."
-	name = "warden's jumpsuit"
-	icon_state = "warden"
-//	item_state = "r_suit"
-	worn_state = "warden"
-	armor = list(melee = 10, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 0, rad = 0)
-	siemens_coefficient = 0.7
-
 /obj/item/clothing/under/rank/security
 	name = "security officer's jumpsuit"
 	desc = "It's made of a slightly sturdier material than standard jumpsuits, to allow for robust protection."
-	icon_state = "security"
-//	item_state = "r_suit"
-	worn_state = "secred"
+	icon_state = "standard_officer"
+	worn_state = "standard_officer"
 	armor = list(melee = 10, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 0, rad = 0)
 	siemens_coefficient = 0.7
 
@@ -30,7 +20,6 @@
 	name = "dispatcher's uniform"
 	desc = "A dress shirt and khakis with a security patch sewn on."
 	icon_state = "dispatch"
-	//item_state = "dispatch"
 	worn_state = "dispatch"
 	armor = list(melee = 10, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 0, rad = 0)
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS
@@ -39,20 +28,25 @@
 /obj/item/clothing/under/rank/security2
 	name = "security cadet's uniform"
 	desc = "It's made of a slightly sturdier material, to allow for robust protection."
-	icon_state = "redshirt2"
-	item_state = "r_suit"
-	worn_state = "redshirt2"
+	icon_state = "standard_cadet"
+	worn_state = "standard_cadet"
 	armor = list(melee = 10, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 0, rad = 0)
 	siemens_coefficient = 0.7
 
 /obj/item/clothing/under/rank/security/corp
-	icon_state = "sec_corporate"
-	//item_state = "sec_corporate"
-	worn_state = "sec_corporate"
+	icon_state = "corporate_officer"
+	worn_state = "corporate_officer"
+
+/obj/item/clothing/under/rank/warden
+	desc = "It's made of a slightly sturdier material than standard jumpsuits, to allow for more robust protection. It has the word \"Warden\" written on the shoulders."
+	name = "warden's jumpsuit"
+	icon_state = "warden"
+	worn_state = "warden"
+	armor = list(melee = 10, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 0, rad = 0)
+	siemens_coefficient = 0.7
 
 /obj/item/clothing/under/rank/warden/corp
 	icon_state = "warden_corporate"
-	//item_state = "warden_corporate"
 	worn_state = "warden_corporate"
 
 /obj/item/clothing/under/tactical
