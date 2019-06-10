@@ -4,7 +4,6 @@
  */
 
 /*
-
 /obj/machinery/vending/[vendors name here]   // --vending machine template   :)
 	name = ""
 	desc = ""
@@ -14,7 +13,6 @@
 	products = list()
 	contraband = list()
 	premium = list()
-
 */
 
 //RECURSION
@@ -132,7 +130,6 @@
 	icon_vend = "coffee-vend"
 	vend_delay = 34
 	idle_power_usage = 211 //refrigerator - believe it or not, this is actually the average power consumption of a refrigerated vending machine according to NRCan.
-	vend_power_usage = 85000 //85 kJ to heat a 250 mL cup of coffee
 	vend_id = "coffee"
 	products = list(
 		/obj/item/weapon/reagent_containers/food/drinks/coffee = 25,
@@ -149,6 +146,7 @@
 		/obj/item/weapon/reagent_containers/food/drinks/h_chocolate = 22,
 		/obj/item/weapon/reagent_containers/food/snacks/donut/normal = 6
 	)
+	vending_sound = "machines/vending/vending_coffee.ogg"
 
 /obj/machinery/vending/snack
 	name = "Getmore Chocolate Corp"
@@ -232,6 +230,7 @@
 		/obj/item/weapon/reagent_containers/food/drinks/cans/beetle_milk = 5
 	)
 	idle_power_usage = 211 //refrigerator - believe it or not, this is actually the average power consumption of a refrigerated vending machine according to NRCan.
+	vending_sound = "machines/vending/vending_cans.ogg"
 
 //This one's from bay12
 /obj/machinery/vending/cart
@@ -253,6 +252,7 @@
 		/obj/item/weapon/cartridge/quartermaster = 10
 	)
 	restock_items = 1
+
 
 /obj/machinery/vending/cigarette
 	name = "Cigarette machine" //OCD had to be uppercase to look nice with the new formating
@@ -637,6 +637,7 @@
 	)
 	idle_power_usage = 211 //refrigerator - believe it or not, this is actually the average power consumption of a refrigerated vending machine according to NRCan.
 	random_itemcount = 0
+	vending_sound = "machines/vending/vending_cans.ogg"
 
 /obj/machinery/vending/tool
 	name = "YouTool"

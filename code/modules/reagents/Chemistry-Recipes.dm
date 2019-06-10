@@ -824,7 +824,7 @@
 	name = "Zo'rane Fire"
 	id = "greekfire"
 	result = "greekfire"
-	required_reagents = list("nitroglycerin" = 2, "pyrosilicate" = 2, "phoron" = 3, "zoragel" = 3)
+	required_reagents = list("nitroglycerin" = 2, "phoron" = 3, "zoragel" = 3)
 	result_amount = 1
 	log_is_important = 1
 

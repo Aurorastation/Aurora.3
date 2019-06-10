@@ -30,6 +30,11 @@
 	var/metabolism_min = 0.01 //How much for the medicine to be present in the system to actually have an effect.
 	var/conflicting_reagent //Reagents that conflict with this medicine, and cause adverse effects when in the blood.
 
+/datum/reagent/proc/initialize_data(var/newdata) // Called when the reagent is created.
+	if(!isnull(newdata))
+		data = newdata
+	metabolism = round(metabolism,0.001)
+
 /datum/reagent/proc/remove_self(var/amount) // Shortcut
 	if (!holder)
 		//PROCLOG_WEIRD("Null holder found. Name: [name], id: [id]")
@@ -120,10 +125,6 @@
 
 /datum/reagent/proc/overdose(var/mob/living/carbon/M, var/alien, var/removed = 0, var/scale = 1) // Overdose effect. Doesn't happen instantly.
 	M.adjustToxLoss(REM)
-
-/datum/reagent/proc/initialize_data(var/newdata) // Called when the reagent is created.
-	if(!isnull(newdata))
-		data = newdata
 
 /datum/reagent/proc/mix_data(var/newdata, var/newamount) // You have a reagent with data, and new reagent with its own data get added, how do you deal with that?
 	return

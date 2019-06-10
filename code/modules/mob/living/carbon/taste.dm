@@ -6,6 +6,7 @@
 		var/text_output = temp.generate_taste_message(src)
 		if(text_output != last_taste_text || last_taste_time + 100 < world.time) //We dont want to spam the same message over and over again at the person. Give it a bit of a buffer.
 			to_chat(src, "<span class='notice'>You can taste [text_output]</span>")//no taste means there are too many tastes and not enough flavor.
+
 			last_taste_time = world.time
 			last_taste_text = text_output
 	return from.trans_to_holder(target,amount,multiplier,copy) //complete transfer
@@ -26,7 +27,7 @@ calculate text size per text.
 		for(var/datum/reagent/R in reagent_list)
 			if(!R.taste_mult)
 				continue
-			if(R.id == "nutriment" || R.id == "synnutriment") //this is ugly but apparently only nutriment (not subtypes) has taste data TODO figure out why
+			if(R.id == "nutriment") //this is ugly but apparently only nutriment (not subtypes) has taste data TODO figure out why
 				var/list/taste_data = R.get_data()
 				for(var/taste in taste_data)
 					if(taste in tastes)
@@ -58,3 +59,5 @@ calculate text size per text.
 				out += "[taste_desc]"
 			else
 				out += "[intensity_desc] [taste_desc]"
+
+		return "[english_list(out, "something indescribable")]."

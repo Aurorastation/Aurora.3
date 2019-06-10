@@ -7,9 +7,16 @@ var/datum/controller/subsystem/chemistry/SSchemistry
 
 	var/list/active_holders = list()
 	var/list/chemical_reactions
+	var/list/chemical_reactions_clean = list()
 	var/list/chemical_reagents
 
 	var/tmp/list/processing_holders = list()
+
+/datum/controller/subsystem/chemistry/proc/find_recipe_by_result(var/result_id)
+	for(var/key in chemical_reactions_clean)
+		var/datum/chemical_reaction/CR = chemical_reactions_clean[key]
+		if(CR.result == result_id && CR.result_amount > 0)
+			return CR
 
 /datum/controller/subsystem/chemistry/stat_entry()
 	..("AH:[active_holders.len]")
@@ -46,7 +53,7 @@ var/datum/controller/subsystem/chemistry/SSchemistry
 
 		if (MC_TICK_CHECK)
 			return
-		
+
 /datum/controller/subsystem/chemistry/proc/mark_for_update(var/datum/reagents/holder)
 	if (holder in active_holders)
 		return
@@ -122,3 +129,5 @@ var/datum/controller/subsystem/chemistry/SSchemistry
 			if(!chemical_reactions[reagent_id])
 				chemical_reactions[reagent_id] = list()
 			chemical_reactions[reagent_id] += D
+		if(D.id)
+			chemical_reactions_clean[D.id] = D
