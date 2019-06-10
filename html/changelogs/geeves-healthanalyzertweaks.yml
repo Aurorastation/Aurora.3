@@ -39,6 +39,7 @@ delete-after: True
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
   - tweak: "Changed Handheld Health Scanners. They no longer display numerical values. Additonal useless fluff has also been pruned."
+  - tweak: "Suit sensors are now less accurate than Handheld Scanners, and no longer display numerical values."
   - rscadd: "Allows monkeys to be placed into Advanced Body Scanners, so that science personnel can still check the 'effectiveness' of their weaponry."
   - rscadd: "Added Advanced Handheld Health Scanners, they display what the old normal ones did. Fluff still pruned."
   - bugfix: "Fixed Health Analyzers not getting a time of death on dead people. Should be harder to meta lings now."

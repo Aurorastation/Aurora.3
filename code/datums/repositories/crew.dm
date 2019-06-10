@@ -7,6 +7,21 @@ var/global/datum/repository/crew/crew_repository = new()
 	cache_data = list()
 	..()
 
+/datum/repository/crew/proc/calcDamage(var/DMGValue)
+	switch(DMGValue)
+		if (0 to 10)
+			return "&#8203;Healthy"
+		if (10 to 25)
+			return "&#8203;Minor"
+		if (25 to 50)
+			return "&#8203;Moderate"
+		if (50 to 75)
+			return "&#8203;Major"
+		if (75 to 200)
+			return "&#8203;Critical"
+		if (200 to INFINITY)
+			return "&#8203;Fatal"
+			
 /datum/repository/crew/proc/health_data(var/z_level)
 	var/list/crewmembers = list()
 	if(!z_level)
@@ -29,7 +44,7 @@ var/global/datum/repository/crew/crew_repository = new()
 				if(H.w_uniform != C)
 					continue
 
-				var/list/crewmemberData = list("dead"=0, "oxy"=-1, "tox"=-1, "fire"=-1, "brute"=-1, "area"="", "x"=-1, "y"=-1, "z"=-1, "level"="", "ref" = "\ref[H]")
+				var/list/crewmemberData = list("dead"=0, "oxy"="&#8203;Healthy", "tox"="&#8203;Healthy", "fire"="&#8203;Healthy", "brute"="&#8203;Healthy", "area"="", "x"=-1, "y"=-1, "z"=-1, "level"="", "ref" = "\ref[H]")
 
 				crewmemberData["sensor_type"] = C.sensor_mode
 				crewmemberData["name"] = H.get_authentification_name(if_no_id="Unknown")
@@ -40,10 +55,10 @@ var/global/datum/repository/crew/crew_repository = new()
 					crewmemberData["dead"] = H.stat > UNCONSCIOUS
 
 				if(C.sensor_mode >= SUIT_SENSOR_VITAL)
-					crewmemberData["oxy"] = round(H.getOxyLoss(), 1)
-					crewmemberData["tox"] = round(H.getToxLoss(), 1)
-					crewmemberData["fire"] = round(H.getFireLoss(), 1)
-					crewmemberData["brute"] = round(H.getBruteLoss(), 1)
+					crewmemberData["oxy"] = calcDamage(H.getOxyLoss())
+					crewmemberData["tox"] = calcDamage(H.getToxLoss())
+					crewmemberData["fire"] = calcDamage(H.getFireLoss())
+					crewmemberData["brute"] = calcDamage(H.getBruteLoss())
 
 				if(C.sensor_mode >= SUIT_SENSOR_TRACKING)
 					var/area/A = get_area(H)
