@@ -38,4 +38,4 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
-  - soundadd: "All domestic animals now have sounds. They have 10-20% chance to make them."
+  - soundadd: "Added sounds for: cat, dog, corgi, bats, cow, goat, chicken, chick, spider, parrot, bees."
