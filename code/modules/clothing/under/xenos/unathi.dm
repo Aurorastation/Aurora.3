@@ -1,122 +1,49 @@
-/datum/gear/suit/unathi_mantle
-	display_name = "hide mantle"
-	path = /obj/item/clothing/suit/unathi/mantle
-	cost = 1
-	whitelisted = list("Unathi", "Aut'akh Unathi")
-	sort_category = "Xenowear - Unathi"
+/obj/item/clothing/under/unathi
+	name = "sinta tunic"
+	desc = "A tunic common on both Moghes and Ouerea, it's simple and easy to manufacture design makes it universally favorable."
+	icon = 'icons/obj/unathi_items.dmi'
+	icon_state = "unathi_tunic"
+	item_state = "unathi_tunic"
+	contained_sprite = 1
 
-/datum/gear/suit/unathi_robe
-	display_name = "roughspun robe"
-	path = /obj/item/clothing/suit/unathi/robe
-	cost = 1
-	whitelisted = list("Unathi", "Aut'akh Unathi")
-	sort_category = "Xenowear - Unathi"
+/obj/item/clothing/under/unathi/jizixi
+	name = "jizixi dress"
+	desc = "A striking, modern dress typically worn by Moghean women of high birth."
+	icon = 'icons/obj/unathi_items.dmi'
+	icon_state = "unathi_formal_fem"
+	item_state = "unathi_formal_fem"
 
-/datum/gear/suit/robe_coat
-	display_name = "tzirzi robe"
-	path = /obj/item/clothing/suit/unathi/robe/robe_coat
-	cost = 1
-	whitelisted = list("Unathi", "Aut'akh Unathi")
-	sort_category = "Xenowear - Unathi"
+/obj/item/clothing/under/unathi/sashes
+	name = "gy'zao sashes"
+	desc = "An androgynous set of sashes worn by Unathi when they want to bask under the sun. Not appropriate to wear outside of that."
+	icon = 'icons/obj/unathi_items.dmi'
+	icon_state = "unathi_sunwear"
+	item_state = "unathi_sunwear"
 
-/datum/gear/gloves/unathi
-	display_name = "unathi gloves selection"
-	description = "A selection of unathi colored gloves."
-	path = /obj/item/clothing/gloves/black/unathi
-	whitelisted = list("Unathi", "Aut'akh Unathi")
-	sort_category = "Xenowear - Unathi"
+/obj/item/clothing/under/unathi/mogazali
+	name = "mogazali attire"
+	desc = "A traditional Moghean uniform worn by men of high status whether merchants, priests, or nobility."
+	icon = 'icons/obj/unathi_items.dmi'
+	icon_state = "unathi_uniform_male"
+	item_state = "unathi_uniform_male"
 
-/datum/gear/gloves/unathi/New()
-	..()
-	var/un_gloves = list()
-	un_gloves["black gloves"] = /obj/item/clothing/gloves/black/unathi
-	un_gloves["red gloves"] = /obj/item/clothing/gloves/red/unathi
-	un_gloves["blue gloves"] = /obj/item/clothing/gloves/blue/unathi
-	un_gloves["orange gloves"] = /obj/item/clothing/gloves/orange/unathi
-	un_gloves["purple gloves"] = /obj/item/clothing/gloves/purple/unathi
-	un_gloves["brown gloves"] = /obj/item/clothing/gloves/brown/unathi
-	un_gloves["green gloves"] = /obj/item/clothing/gloves/green/unathi
-	un_gloves["white gloves"] = /obj/item/clothing/gloves/white/unathi
-	gear_tweaks += new/datum/gear_tweak/path(un_gloves)
+/obj/item/clothing/under/unathi/zazali
+	name = "zazali garb"
+	desc = "An old fashioned, extremely striking garb for the Unathi man with pointy shoulders. It's typically worn by those in the warrior caste... Or those with something to prove."
+	icon = 'icons/obj/unathi_items.dmi'
+	icon_state = "unathi_garb_male"
+	item_state = "unathi_garb_male"
 
-/datum/gear/uniform/unathi
-	display_name = "sinta tunic"
-	path = /obj/item/clothing/under/unathi
-	whitelisted = list("Unathi", "Aut'akh Unathi")
-	sort_category = "Xenowear - Unathi"
+/obj/item/clothing/under/unathi/huytai
+	name = "huytai outfit"
+	desc = "Typically worn by Unathi women who engage in a trade. Popular with fisherwomen and others."
+	icon = 'icons/obj/unathi_items.dmi'
+	icon_state = "unathi_trader"
+	item_state = "unathi_trader"
 
-/datum/gear/uniform/unathi/New()
-	..()
-	gear_tweaks = list(gear_tweak_free_color_choice)
-
-/datum/gear/autakh_engineering
-	display_name = "engineering grasper"
-	description = "An Aut'akh augment limb, this one is outfitted with a limited toolkit."
-	path = /obj/item/organ/external/hand/right/autakh/tool
-	whitelisted = list("Aut'akh Unathi")
-	sort_category = "Xenowear - Unathi"
-	cost = 3
-	allowed_roles = list("Station Engineer", "Chief Engineer", "Atmospheric Technician", "Engineering Apprentice", "Roboticist")
-
-/datum/gear/autakh_mining
-	display_name = "mining grasper"
-	description = "An Aut'akh augment limb, this one is outfitted with a mining drill."
-	path = /obj/item/organ/external/hand/right/autakh/tool/mining
-	whitelisted = list("Aut'akh Unathi")
-	sort_category = "Xenowear - Unathi"
-	cost = 3
-	allowed_roles = list("Shaft Miner")
-
-/datum/gear/autakh_medical
-	display_name = "medical grasper"
-	description = "An Aut'akh augment limb, this one is outfitted with a health scanner."
-	path = /obj/item/organ/external/hand/right/autakh/medical
-	whitelisted = list("Aut'akh Unathi")
-	sort_category = "Xenowear - Unathi"
-	cost = 3
-	allowed_roles = list("Chief Medical Officer", "Medical Doctor", "Paramedic", "Medical Resident", "Psychiatrist", "Chemist")
-
-/datum/gear/autakh_security
-	display_name = "security grasper"
-	description = "An Aut'akh augment limb, this one is outfitted with an electroshock weapon."
-	path = /obj/item/organ/external/hand/right/autakh/security
-	whitelisted = list("Aut'akh Unathi")
-	sort_category = "Xenowear - Unathi"
-	cost = 3
-	allowed_roles = list("Security Officer", "Head of Security", "Warden")
-
-/datum/gear/uniform/unathi/jizixi
-	display_name = "jizixi dress"
-	path = /obj/item/clothing/under/unathi/jizixi
-	whitelisted = list("Unathi", "Aut'akh Unathi")
-	sort_category = "Xenowear - Unathi"
-
-/datum/gear/uniform/unathi/sashes
-	display_name = "gy'zao sashes"
-	path = /obj/item/clothing/under/unathi/sashes
-	whitelisted = list("Unathi", "Aut'akh Unathi")
-	sort_category = "Xenowear - Unathi"
-
-/datum/gear/uniform/unathi/mogazali
-	display_name = "mogazali attire"
-	path = /obj/item/clothing/under/unathi/mogazali
-	whitelisted = list("Unathi", "Aut'akh Unathi")
-	sort_category = "Xenowear - Unathi"
-
-/datum/gear/uniform/unathi/zazali
-	display_name = "zazali garb"
-	path = /obj/item/clothing/under/unathi/zazali
-	whitelisted = list("Unathi", "Aut'akh Unathi")
-	sort_category = "Xenowear - Unathi"
-
-/datum/gear/uniform/unathi/huytai
-	display_name = "huytai outfit"
-	path = /obj/item/clothing/under/unathi/huytai
-	whitelisted = list("Unathi", "Aut'akh Unathi")
-	sort_category = "Xenowear - Unathi"
-
-/datum/gear/uniform/unathi/zozo
-	display_name = "zo'zo top"
-	path = /obj/item/clothing/under/unathi/zozo
-	whitelisted = list("Unathi", "Aut'akh Unathi")
-	sort_category = "Xenowear - Unathi"
+/obj/item/clothing/under/unathi/zozo
+	name = "zo'zo top"
+	desc = "A modern blend of Ouerean and Moghean style for the Unathi man on the go. Great for sunbathing."
+	icon = 'icons/obj/unathi_items.dmi'
+	icon_state = "unathi_sunwear_male"
+	item_state = "unathi_sunwear_male"
