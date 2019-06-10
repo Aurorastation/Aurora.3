@@ -41,3 +41,4 @@ changes:
   - tweak: "Changed Handheld Health Scanners. They no longer display numerical values. Additonal useless fluff has also been pruned."
   - rscadd: "Allows monkeys to be placed into Advanced Body Scanners, so that science personnel can still check the 'effectiveness' of their weaponry."
   - rscadd: "Added Advanced Handheld Health Scanners, they display what the old normal ones did. Fluff still pruned."
+  - bugfix: "Fixed Health Analyzers not getting a time of death on dead people. Should be harder to meta lings now."

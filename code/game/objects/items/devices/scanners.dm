@@ -51,15 +51,13 @@ BREATH ANALYZER
 
 /proc/health_scan_mob(var/mob/living/M, var/mob/living/user, var/adv, var/visible_msg, var/ignore_clumsiness, var/show_limb_damage = TRUE)
 	if (((user.is_clumsy()) || (DUMB in user.mutations)) && prob(50))
-		to_chat(user, text("<span class='warning'>You try to analyze the floor's vitals!</span>"))
-		for(var/mob/O in viewers(M, null))
-			O.show_message("<span class='warning'>\The [user] has analyzed the floor's vitals!</span>", 1)
-			user.show_message("<span class='notice'>Analyzing Results for The floor:</span>", 1)
-			user.show_message("Overall Status: Healthy</span>", 1)
-			user.show_message("<span class='notice'>    Damage Specifics: 0-0-0-0</span>", 1)
-			user.show_message("<span class='notice'>Key: Suffocation/Toxin/Burns/Brute</span>", 1)
-			user.show_message("<span class='notice'>Body Temperature: ???</span>", 1)
-			return
+		user.visible_message("<span class='warning'>\The [user] has analyzed the floor's vitals!</span>", "<span class='warning'>You try to analyze the floor's vitals!</span>", "<span class='notice'>You hear metal repeatedly clunking against the floor.</span>")
+		user.show_message("<span class='notice'>Analyzing Results for The floor:</span>", 1)
+		user.show_message("Overall Status: Healthy</span>", 1)
+		user.show_message("<span class='notice'>    Damage Specifics: 0-0-0-0</span>", 1)
+		user.show_message("<span class='notice'>Key: Suffocation/Toxin/Burns/Brute</span>", 1)
+		user.show_message("<span class='notice'>Body Temperature: ???</span>", 1)
+		return
 	if (!usr.IsAdvancedToolUser())
 		to_chat(usr, "<span class='warning'>You don't have the dexterity to do this!</span>")
 		return
@@ -94,16 +92,24 @@ BREATH ANALYZER
 		BR = calcDamage(M.getBruteLoss())
 	
 	if(M.status_flags & FAKEDEATH)
-		OX = fake_oxy > 50 			? 	"<b>[fake_oxy]</b>" 			: fake_oxy
+		if (adv == TRUE)
+			OX = fake_oxy
+		else
+			OX = calcDamage(fake_oxy)
 		user.show_message("<span class='notice'>Analyzing Results for [M]:</span>")
-		user.show_message("<span class='notice'>Overall Status: dead</span>")
-	else
-		user.show_message("<span class='notice'>Analyzing Results for [M]:\n\t Overall Status: [M.stat > 1 ? "dead" : "[M.health - M.halloss]% healthy"]</span>")
+		user.show_message("<span class='notice'>	Overall Status: Dead</span>")
 		user.show_message("<span class='notice'>    Key: <font color='blue'>Suffocation</font>/<font color='green'>Toxin</font>/<font color='#FFA500'>Burns</font>/<font color='red'>Brute</font></span>", 1)
 		user.show_message("<span class='notice'>    Damage Specifics: <font color='blue'>[OX]</font> - <font color='green'>[TX]</font> - <font color='#FFA500'>[BU]</font> - <font color='red'>[BR]</font></span>")
 		user.show_message("<span class='notice'>Body Temperature: [M.bodytemperature-T0C]&deg;C ([M.bodytemperature*1.8-459.67]&deg;F)</span>", 1)
-	if(M.tod && (M.stat == DEAD || (M.status_flags & FAKEDEATH)))
+	else
+		user.show_message("<span class='notice'>Analyzing Results for [M]:\n\t Overall Status: [M.stat > 1 ? "Dead" : "[M.health - M.halloss]% healthy"]</span>")
+		user.show_message("<span class='notice'>    Key: <font color='blue'>Suffocation</font>/<font color='green'>Toxin</font>/<font color='#FFA500'>Burns</font>/<font color='red'>Brute</font></span>", 1)
+		user.show_message("<span class='notice'>    Damage Specifics: <font color='blue'>[OX]</font> - <font color='green'>[TX]</font> - <font color='#FFA500'>[BU]</font> - <font color='red'>[BR]</font></span>")
+		user.show_message("<span class='notice'>Body Temperature: [M.bodytemperature-T0C]&deg;C ([M.bodytemperature*1.8-459.67]&deg;F)</span>", 1)
+	if(M.tod && (M.status_flags & FAKEDEATH))
 		user.show_message("<span class='notice'>Time of Death: [M.tod]</span>")
+	else if(M.timeofdeath > 0 && M.stat == DEAD)
+		user.show_message("<span class='notice'>Time of Death: [worldtime2text(M.timeofdeath)]</span>")
 	if(istype(M, /mob/living/carbon/human) && show_limb_damage)
 		var/mob/living/carbon/human/H = M
 		var/list/damaged = H.get_damaged_organs(1,1)
@@ -196,12 +202,15 @@ BREATH ANALYZER
 			if(e && e.status & ORGAN_BROKEN)
 				user.show_message(text("<span class='warning'>Bone fractures detected. Advanced scanner required for location.</span>"), 1)
 				break
+		var/IB = FALSE
 		for(var/obj/item/organ/external/e in H.organs)
 			if(!e)
 				continue
 			for(var/datum/wound/W in e.wounds) if(W.internal)
-				user.show_message(text("<span class='warning'>Internal bleeding detected. Advanced scanner required for location.</span>"), 1)
+				IB = TRUE
 				break
+		if (IB == TRUE)
+			user.show_message(text("<span class='warning'>Internal bleeding detected. Advanced scanner required for location.</span>"), 1)
 		if(M:vessel)
 			var/blood_volume = round(M:vessel.get_reagent_amount("blood"))
 			var/blood_percent =  blood_volume / 560
