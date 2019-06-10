@@ -102,12 +102,7 @@
 	var/restock_items = 0	//If items can be restocked into the vending machine
 	var/list/restock_blocked_items = list() //Items that can not be restocked if restock_items is enabled
 	var/random_itemcount = 1 //If the number of items should be randomized
-
-	var/temperature_setting = 0 //-1 means cooling, 1 means heating, 0 means doing nothing.
-
-	var/cooling_temperature = T0C + 5 //Best temp for soda.
-	var/heating_temperature = T0C + 57 //Best temp for coffee.
-
+	
 	var/vending_sound = "machines/vending/vending_drop.ogg"
 
 /obj/machinery/vending/Initialize()
@@ -123,7 +118,7 @@
 
 	if(src.product_ads)
 		src.ads_list += text2list(src.product_ads, ";")
-
+	
 	src.build_inventory()
 	power_change()
 
@@ -578,6 +573,8 @@
 	src.status_error = 0
 	SSnanoui.update_uis(src)
 
+
+
 	if (R.category & CAT_COIN)
 		if(!coin)
 			to_chat(user, "<span class='notice'>You need to insert a coin to get this item.</span>")
@@ -612,21 +609,12 @@
 	if (src.icon_vend) //Show the vending animation if needed
 		flick(src.icon_vend,src)
 	spawn(src.vend_delay)
-		playsound(src.loc, "sound/[vending_sound]", 100, 1)
-		var/obj/vended = new R.product_path(get_turf(src))
+		playsound(src.loc, "sound/machines/vending/vending_drop.ogg", 100, 1)
 		src.status_message = ""
 		src.status_error = 0
 		src.vend_ready = 1
 		currently_vending = null
 		SSnanoui.update_uis(src)
-		if(istype(vended,/obj/item/weapon/reagent_containers/))
-			var/obj/item/weapon/reagent_containers/RC = vended
-			if(RC.reagents)
-				switch(temperature_setting)
-					if(-1)
-						use_power(RC.reagents.set_temperature(cooling_temperature))
-					if(1)
-						use_power(RC.reagents.set_temperature(heating_temperature))
 
 /obj/machinery/vending/proc/stock(var/datum/data/vending_product/R, var/mob/user)
 	to_chat(user, "<span class='notice'>You insert \the [R.product_name] in the product receptor.</span>")

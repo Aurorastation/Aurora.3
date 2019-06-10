@@ -2,14 +2,12 @@
 
 /datum/wires/vending
 	holder_type = /obj/machinery/vending
-	wire_count = 6
+	wire_count = 4
 
 var/const/VENDING_WIRE_THROW = 1
 var/const/VENDING_WIRE_CONTRABAND = 2
 var/const/VENDING_WIRE_ELECTRIFY = 4
 var/const/VENDING_WIRE_IDSCAN = 8
-var/const/VENDING_WIRE_COOLING = 16
-var/const/VENDING_WIRE_HEATING = 32
 
 /datum/wires/vending/CanUse(var/mob/living/L)
 	var/obj/machinery/vending/V = holder
@@ -28,8 +26,6 @@ var/const/VENDING_WIRE_HEATING = 32
 	. += "The red light is [V.shoot_inventory ? "off" : "blinking"].<BR>"
 	. += "The green light is [(V.categories & CAT_HIDDEN) ? "on" : "off"].<BR>"
 	. += "The [V.scan_id ? "purple" : "yellow"] light is on.<BR>"
-	. += "The cyan light is [V.temperature_setting == -1 ? "on" : "off"].<BR>"
-	. += "The blue light is [V.temperature_setting == 1 ? "on" : "off"].<BR>"
 
 /datum/wires/vending/UpdatePulsed(var/index)
 	var/obj/machinery/vending/V = holder
@@ -42,10 +38,6 @@ var/const/VENDING_WIRE_HEATING = 32
 			V.seconds_electrified = 30
 		if(VENDING_WIRE_IDSCAN)
 			V.scan_id = !V.scan_id
-		if(VENDING_WIRE_COOLING)
-			V.temperature_setting = V.temperature_setting != -1 ? -1 : 0
-		if(VENDING_WIRE_HEATING)
-			V.temperature_setting = V.temperature_setting != 1 ? 1 : 0
 
 /datum/wires/vending/UpdateCut(var/index, var/mended)
 	var/obj/machinery/vending/V = holder
@@ -61,7 +53,3 @@ var/const/VENDING_WIRE_HEATING = 32
 				V.seconds_electrified = -1
 		if(VENDING_WIRE_IDSCAN)
 			V.scan_id = 1
-		if(VENDING_WIRE_COOLING)
-			V.temperature_setting = mended && V.temperature_setting != 1 ? -1 : 0
-		if(VENDING_WIRE_HEATING)
-			V.temperature_setting = mended && V.temperature_setting != -1 ? 1 : 0

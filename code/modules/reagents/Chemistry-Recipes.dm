@@ -7,7 +7,7 @@
 //HALF_LIFE(0) -> Reaction completes immediately (default chems)
 //HALF_LIFE(1) -> Half of the reagents react immediately, the rest over the following ticks.
 //HALF_LIFE(2) -> Half of the reagents are consumed after 2 chemistry ticks.
-//HALF_LIFE(2.2) -> Half of the reagents are consumed after 2.2 chemistry ticks.
+//HALF_LIFE(3) -> Half of the reagents are consumed after 3 chemistry ticks.
 #define HALF_LIFE(ticks) (ticks? 1.0 - (0.5)**(1.0/(ticks*PROCESS_REACTION_ITER)) : 1.0)
 
 /datum/chemical_reaction
@@ -15,8 +15,6 @@
 	var/id = null
 	var/result = null
 	var/list/required_reagents = list()
-	var/list/required_temperatures_min = list() //Format: reagent name = required_kelvin. Temperatures must exceed this value to trigger.
-	var/list/required_temperatures_max = list() //Format: reagent name = required_kelvin. Temperatures must be less than this value to trigger.
 	var/list/catalysts = list()
 	var/list/inhibitors = list()
 	var/result_amount = 0
@@ -47,9 +45,6 @@
 
 	//check that none of the inhibitors are present in the required amount
 	if(holder.has_any_reagent(inhibitors))
-		return 0
-
-	if(!holder.has_all_temperatures(required_temperatures_min, required_temperatures_max))
 		return 0
 
 	return 1
@@ -98,38 +93,32 @@
 	var/data = send_data(holder, reaction_progress)
 
 	//remove the reactants
-	var/total_thermal_energy = 0
 	for(var/reactant in required_reagents)
 		var/amt_used = required_reagents[reactant] * reaction_progress
-		var/datum/reagent/removing_reagent = holder.get_reagent(reactant)
-		var/energy_transfered = removing_reagent.get_thermal_energy() * (amt_used / removing_reagent.volume)
-		total_thermal_energy += energy_transfered
 		holder.remove_reagent(reactant, amt_used, safety = 1)
 
 	//add the product
 	var/amt_produced = result_amount * reaction_progress
 	if(result)
-		holder.add_reagent(result, amt_produced, data, safety = 1, thermal_energy = total_thermal_energy)
+		holder.add_reagent(result, amt_produced, data, safety = 1)
 
-	on_reaction(holder, amt_produced, total_thermal_energy)
+	on_reaction(holder, amt_produced)
 
 	return reaction_progress
 
 //called when a reaction processes
-/datum/chemical_reaction/proc/on_reaction(var/datum/reagents/holder, var/created_volume, var/created_thermal_energy)
+/datum/chemical_reaction/proc/on_reaction(var/datum/reagents/holder, var/created_volume)
 	return
 
 //called after processing reactions, if they occurred
 /datum/chemical_reaction/proc/post_reaction(var/datum/reagents/holder)
 	var/atom/container = holder.my_atom
-	if(container && !ismob(container))
+	if(mix_message && container && !ismob(container))
 		var/turf/T = get_turf(container)
-		if(mix_message)
-			var/list/seen = viewers(4, T)
-			for(var/mob/M in seen)
-				M.show_message("<span class='notice'>\icon[container] [mix_message]</span>", 1)
-		if(reaction_sound)
-			playsound(T, reaction_sound, 80, 1)
+		var/list/seen = viewers(4, T)
+		for(var/mob/M in seen)
+			M.show_message("<span class='notice'>\icon[container] [mix_message]</span>", 1)
+		playsound(T, reaction_sound, 80, 1)
 
 //obtains any special data that will be provided to the reaction products
 //this is called just before reactants are removed.
@@ -263,9 +252,9 @@
 	name = "Peridaxon"
 	id = "peridaxon"
 	result = "peridaxon"
-	required_reagents = list("bicaridine" = 1, "clonexadone" = 1)
+	required_reagents = list("bicaridine" = 2, "clonexadone" = 2)
 	catalysts = list("phoron" = 5)
-	result_amount = 1
+	result_amount = 2
 
 /datum/chemical_reaction/virus_food
 	name = "Virus Food"
@@ -2912,14 +2901,14 @@
 	id = "psfrappe"
 	result = "psfrappe"
 	required_reagents = list("icecoffee" = 6, "pumpkinspice" = 2, "cream" = 2)
-	result_amount = 10
+	result_amount = 10	
 
 /datum/chemical_reaction/pslatte
 	name = "Pumpkin Spice Latte"
 	id = "pslatte"
 	result = "pslatte"
 	required_reagents = list("coffee" = 6, "pumpkinspice" = 2, "cream" = 2)
-	result_amount = 10
+	result_amount = 10	
 
 //Skrell drinks. Bring forth the culture.
 //===========================================
@@ -3016,166 +3005,6 @@
 	for(var/i = 1, i <= created_volume, i++)
 		new /obj/item/stack/material/diamond(location)
 	return
-
-//Temperature Additions
-/datum/chemical_reaction/water_to_ice
-	name = "Water to Ice"
-	id = "water_to_ice"
-	result = "ice"
-	required_reagents = list("water" = 1)
-	required_temperatures_max = list("water" = T0C)
-	result_amount = 1
-	mix_message = "The water freezes."
-	reaction_sound = ""
-
-/datum/chemical_reaction/ice_to_water
-	name = "Ice to Water"
-	id = "ice_to_water"
-	result = "water"
-	required_reagents = list("ice" = 1)
-	required_temperatures_min = list("ice" = T0C + 1)
-	result_amount = 1
-	mix_message = "The ice melts."
-	reaction_sound = ""
-
-/datum/chemical_reaction/phoron_salt //Safe temperatures for phoron salt is between 0 degress celcius and 200 celcius.
-	name = "Phoron Salt"
-	id = "phoron_salt"
-	result = "phoron_salt"
-	required_reagents = list("sodiumchloride" = 1, "phoron" = 2)
-	required_temperatures_min = list("sodiumchloride" = 678, "phoron" = 73)
-	required_temperatures_max = list("phoron" = 261)
-
-	result_amount = 1
-
-/datum/chemical_reaction/pyrosilicate
-	name = "Pyrosilicate"
-	id = "pyrosilicate"
-	result = "pyrosilicate"
-	result_amount = 4
-	required_reagents = list("silicate" = 1, "sacid" = 1, "hydrazine" = 1, "iron" = 1)
-
-/datum/chemical_reaction/cryosurfactant
-	name = "Cryosurfactant"
-	id = "cryosurfactant"
-	result = "cryosurfactant"
-	result_amount = 3
-	required_reagents = list("surfactant" = 1, "ice" = 1, "sodium" = 1)
-
-//WATER
-/datum/chemical_reaction/cryosurfactant_cooling_water
-	name = "Cryosurfactant Cooling Water"
-	id = "cryosurfactant_cooling_water"
-	result = null
-	result_amount = 1
-	required_reagents = list("cryosurfactant" = 1)
-	inhibitors = list("pyrosilicate" = 1)
-	catalysts = list("water" = 1)
-	mix_message = "The solution begins to freeze."
-
-/datum/chemical_reaction/cryosurfactant_cooling_water/on_reaction(var/datum/reagents/holder, var/created_volume, var/created_thermal_energy)
-	holder.del_reagent("cryosurfactant")
-	holder.add_thermal_energy(-created_volume*500)
-
-//ICE
-/datum/chemical_reaction/cryosurfactant_cooling_ice
-	name = "Cryosurfactant Cooling Ice"
-	id = "cryosurfactant_cooling_ice"
-	result = null
-	result_amount = 1
-	required_reagents = list("cryosurfactant" = 1)
-	inhibitors = list("pyrosilicate" = 1)
-	catalysts = list("ice" = 1)
-	mix_message = "The solution begins to freeze."
-
-/datum/chemical_reaction/cryosurfactant_cooling_ice/on_reaction(var/datum/reagents/holder, var/created_volume, var/created_thermal_energy)
-	holder.del_reagent("cryosurfactant")
-	holder.add_thermal_energy(-created_volume*500)
-
-/datum/chemical_reaction/pyrosilicate_heating
-	name = "Pyrosilicate Heating"
-	id = "pyrosilicate_heating"
-	result = null
-	result_amount = 1
-	required_reagents = list("pyrosilicate" = 1)
-	inhibitors = list("cryosurfactant" = 1)
-	catalysts = list("sodiumchloride" = 1)
-
-/datum/chemical_reaction/pyrosilicate_heating/on_reaction(var/datum/reagents/holder, var/created_volume)
-	holder.del_reagent("pyrosilicate")
-	holder.add_thermal_energy(created_volume*1000)
-
-/datum/chemical_reaction/pyrosilicate_cryosurfactant
-	name = "Pyrosilicate Cryosurfactant Reaction"
-	id = "pyrosilicate_cryosurfactant"
-	result = null
-	required_reagents = list("pyrosilicate" = 1, "cryosurfactant" = 1)
-	required_temperatures_min = list("pyrosilicate" = T0C, "cryosurfactant" = T0C) //Does not react when below these temperatures.
-	result_amount = 1
-
-/datum/chemical_reaction/pyrosilicate_cryosurfactant/on_reaction(var/datum/reagents/holder, var/created_volume, var/created_thermal_energy)
-	if(created_volume)
-		var/turf/simulated/floor/T = get_turf(holder.my_atom.loc)
-		if(istype(T))
-			T.assume_gas("oxygen", created_volume*10, (created_thermal_energy/created_volume) )
-
-/datum/chemical_reaction/phoron_salt_fire
-	name = "Phoron Salt Fire"
-	id = "phoron_salt_fire"
-	result = null
-	result_amount = 1
-	required_reagents = list("phoron_salt" = 1)
-	required_temperatures_min = list("phoron_salt" = 134) //If it's above this temperature, then cause hellfire.
-	mix_message = "The solution begins to vibrate!"
-
-/datum/chemical_reaction/phoron_salt_fire/on_reaction(var/datum/reagents/holder, var/created_volume, var/created_thermal_energy)
-	var/turf/location = get_turf(holder.my_atom)
-	for(var/turf/simulated/floor/target_tile in range(0,location))
-		target_tile.assume_gas("phoron", created_volume*2, created_thermal_energy / 25) //2 because there is 2 phoron in 1u of phoron salts
-		addtimer(CALLBACK(target_tile, /turf/simulated/floor/.proc/hotspot_expose, 700, 400), 1)
-	holder.del_reagent("phoron_salt")
-	return
-
-/datum/chemical_reaction/phoron_salt_coldfire
-	name = "Phoron Salt Coldfire"
-	id = "phoron_salt_coldfire"
-	result = null
-	result_amount = 1
-	required_reagents = list("phoron_salt" = 1)
-	required_temperatures_max = list("phoron_salt" = 113) //if it's below this temperature, then make a boom
-	mix_message = "The solution begins to shrink!"
-
-/datum/chemical_reaction/phoron_salt_coldfire/on_reaction(var/datum/reagents/holder, var/created_volume, var/created_thermal_energy)
-	var/turf/location = get_turf(holder.my_atom)
-	var/thermal_energy_mod = max(0,1 - (max(0,created_thermal_energy)/28000))
-	var/volume_mod = min(1,created_volume/120)
-	var/explosion_mod = 3 + (thermal_energy_mod*volume_mod*320)
-	var/datum/effect/effect/system/reagents_explosion/e = new()
-	e.set_up(explosion_mod, location, 0, 0)
-	e.start()
-	holder.del_reagent("phoron_salt")
-	return
-
-/datum/chemical_reaction/mutone
-	name = "Mutone"
-	id = "mutone"
-	result = "mutone"
-	result_amount = 1
-	required_reagents = list("phoron_salt" = 1, "mutagen" = 1)
-
-/datum/chemical_reaction/plexium
-	name = "Plexium"
-	id = "plexium"
-	result = "plexium"
-	result_amount = 1
-	required_reagents = list("phoron_salt" = 1, "alkysine" = 1)
-
-/datum/chemical_reaction/venenum
-	name = "Venenum"
-	id = "venenum"
-	result = "venenum"
-	result_amount = 1
-	required_reagents = list("phoron_salt" = 1, "ryetalyn" = 1)
 
 /datum/chemical_reaction/rmt
 	name = "RMT"

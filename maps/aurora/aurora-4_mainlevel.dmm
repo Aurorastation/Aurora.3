@@ -35604,7 +35604,6 @@
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
 "biO" = (
-/obj/machinery/chem_heater,
 /obj/effect/floor_decal/corner/mauve{
 	icon_state = "corner_white";
 	dir = 10
@@ -52067,7 +52066,6 @@
 	dir = 10
 	},
 /obj/machinery/light,
-/obj/machinery/chem_heater,
 /turf/simulated/floor/tiled/white,
 /area/rnd/chemistry)
 "bKA" = (
