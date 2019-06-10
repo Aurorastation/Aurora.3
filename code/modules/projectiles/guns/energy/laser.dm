@@ -21,6 +21,10 @@
 	use_external_power = 1
 	can_turret = 0
 
+/obj/item/weapon/gun/energy/laser/mounted/cyborg/overclocked
+	max_shots = 15
+	recharge_time = 1
+
 /obj/item/weapon/gun/energy/laser/practice
 	name = "practice laser carbine"
 	desc = "A modified version of the HI G40E, this one fires less concentrated energy bolts designed for target practice."
@@ -79,6 +83,10 @@ obj/item/weapon/gun/energy/retro
 	use_external_power = 1
 	recharge_time = 10
 	can_turret = 0
+
+/obj/item/weapon/gun/energy/lasercannon/mounted/cyborg/overclocked
+	recharge_time = 1
+	max_shots = 15
 
 /obj/item/weapon/gun/energy/xray
 	name = "xray laser gun"
