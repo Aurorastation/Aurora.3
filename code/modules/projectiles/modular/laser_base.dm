@@ -162,6 +162,7 @@
 	if(!istype(A))
 		return ..()
 	if(!ready_to_craft)
+		to_chat(user, span("warning", "You cannot assemble this in your hands. You need to craft it in special eqiupment!"))
 		return
 
 	if(ismodifier(A) && gun_mods.len < modifier_cap)

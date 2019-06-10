@@ -47,11 +47,12 @@
 		assembly.attackby(I, user)
 		playsound(loc, 'sound/machines/weapns_analyzer.ogg', 75, 1)
 		process = TRUE
-		addtimer(CALLBACK(src, .proc/reset), 20)
+		addtimer(CALLBACK(src, .proc/reset), 40)
 		update_icon()
 
 /obj/machinery/weapons_analyzer/proc/reset()
 	process = FALSE
+	update_icon()
 
 /obj/machinery/weapons_analyzer/proc/check_gun(var/mob/user)
 	if(gun)
@@ -101,7 +102,7 @@
 		Icon_used = new /icon(gun.icon, gun.icon_state)
 
 	else if(assembly)
-		icon_state = process ?  "[icon_state]_on" : "[icon_state]_on"
+		icon_state = process ?  "[icon_state]_working" : "[icon_state]_on"
 		Icon_used = new /icon(assembly.icon, assembly.icon_state)
 
 	if(Icon_used)
