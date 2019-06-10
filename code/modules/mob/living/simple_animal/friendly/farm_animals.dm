@@ -24,6 +24,7 @@
 	melee_damage_lower = 1
 	melee_damage_upper = 5
 	var/datum/reagents/udder = null
+	emote_sounds = list('sound/effects/creatures/goat.ogg')
 
 /mob/living/simple_animal/hostile/retaliate/goat/Initialize()
 	. = ..()
@@ -113,6 +114,7 @@
 	beg_for_food = 0
 	var/datum/reagents/udder = null
 	mob_size = 20//based on mass of holstein fresian dairy cattle, what the sprite is based on
+	emote_sounds = list('sound/effects/creatures/cow.ogg')
 
 /mob/living/simple_animal/cow/Initialize()
 	. = ..()
@@ -181,6 +183,7 @@
 	density = 0
 	mob_size = 0.75//just a rough estimate, the real value should be way lower
 	hunger_enabled = FALSE
+	emote_sounds = list('sound/effects/creatures/chick.ogg')
 
 /mob/living/simple_animal/chick/Initialize()
 	. = ..()
@@ -229,6 +232,7 @@
 	hunger_enabled = FALSE
 
 	var/static/chicken_count = 0
+	emote_sounds = list('sound/effects/creatures/chicken.ogg', 'sound/effects/creatures/chicken_bwak.ogg')
 
 /mob/living/simple_animal/chicken/Initialize()
 	. = ..()

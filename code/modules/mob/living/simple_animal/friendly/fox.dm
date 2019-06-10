@@ -21,7 +21,7 @@
 	mob_size = 4
 	max_nutrition = 90
 	holder_type = /obj/item/weapon/holder/fox
-
+	emote_sounds = list()
 //Captain fox
 /mob/living/simple_animal/corgi/fox/Chauncey
 	name = "Chauncey"

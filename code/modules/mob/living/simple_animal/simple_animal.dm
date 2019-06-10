@@ -19,6 +19,7 @@
 	var/list/emote_hear = list()	//Hearable emotes
 	var/list/emote_see = list()		//Unlike speak_emote, the list of things in this variable only show by themselves with no spoken text. IE: Ian barks, Ian yaps
 	var/list/emote_sounds = list()
+	var/emote_sound_chance = 10
 
 	var/turns_per_move = 1
 	var/turns_since_move = 0
@@ -532,8 +533,8 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 		verb = pick(speak_emote)
 
 	message = sanitize(message)
-	if(prob(10))
-		playsound(src, pick(emote_sounds))
+	if(emote_sounds.len && prob(emote_sound_chance))
+		playsound(src, pick(emote_sounds), 75, 1)
 
 	..(message, null, verb)
 
