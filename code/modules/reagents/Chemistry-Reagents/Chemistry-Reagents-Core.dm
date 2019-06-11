@@ -22,7 +22,7 @@
 	glass_name = "glass of tomato juice"
 	glass_desc = "Are you sure this is tomato juice?"
 
-	specific_heat = 3.617
+	fallback_specific_heat = 3.617
 
 /datum/reagent/blood/initialize_data(var/newdata)
 	..()
@@ -184,7 +184,7 @@
 
 	unaffected_species = IS_MACHINE
 
-	specific_heat = 1.541
+	fallback_specific_heat = 1.541
 
 /datum/reagent/water/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
 	if(!istype(M))
@@ -276,7 +276,7 @@
 	glass_name = "glass of welder fuel"
 	glass_desc = "Unless you are an industrial tool, this is probably not safe for consumption."
 
-	specific_heat = 0.605
+	fallback_specific_heat = 0.605
 
 /datum/reagent/fuel/touch_turf(var/turf/T)
 	new /obj/effect/decal/cleanable/liquid_fuel(T, volume)
