@@ -129,6 +129,12 @@
 	desc = "The height of fashion, and they're pre-polished!"
 	icon_state = "laceups"
 
+/obj/item/clothing/shoes/laceup/sec
+	name = "security shoes"
+	desc = "Placeholder"
+	icon_state = "secshoes"
+	item_state = "secshoes"
+
 /obj/item/clothing/shoes/swimmingfins
 	desc = "Help you swim good."
 	name = "swimming fins"

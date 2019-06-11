@@ -487,8 +487,10 @@
 /obj/item/clothing/suit/storage/vest/heavy/ert/peacekeeper
 	name = "ERT civil protection plate carrier"
 	desc = "A plate carrier worn by troopers serving civil protection details. Commonly seen on high-profile escorts and Nanotrasen administration centers."
-	icon_state = "ert_peacekeeper"
-	item_state = "ert_peacekeeper"
+	icon_state = "civilprotection_nobadge"
+	item_state = "civilprotection_nobadge"
+	icon_badge = "civilprotection_badge"
+	icon_nobadge = "civilprotection_nobadge"
 
 //unathi armor
 
