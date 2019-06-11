@@ -587,7 +587,7 @@ var/list/diona_banned_languages = list(
 	var/obj/item/organ/diona/nutrients/nutrient_organ = null //Organ
 	var/LMS = 1 //Lightmessage state. Switching between states gives the user a message
 	var/dionatype //1 = nymph, 2 = worker gestalt
-	var/mob/living/carbon/alien/diona/nym
+	var/datum/weakref/nym
 
 /datum/dionastats/Destroy()
 	light_organ = null //Nulling out these references to prevent GC errors

@@ -255,7 +255,7 @@
 	M.key = src.key
 	src.key = "@[M.key]"
 	src.ajourn = 0
-	DS.nym = M
+	DS.nym = WEAKREF(M)
 	M.gestalt = src
 	M.verbs += /mob/living/carbon/alien/diona/proc/merge_back_to_gestalt
 	M.verbs += /mob/living/carbon/alien/diona/proc/switch_to_gestalt
@@ -272,12 +272,14 @@
 	set desc = "Allows you to switch control back to your detached Nymph."
 	set category = "Abilities"
 
-	if(!DS.nym)
+	var/mob/living/carbon/alien/diona/nymph = DS.nym.resolve()
+
+	if(!nymph)
 		to_chat(src, span("warning", "You have no nymph!"))
-	else if(DS.nym.stat == DEAD)
+	else if(nymph.stat == DEAD)
 		to_chat(src, span("danger", "Your nymph is not responding! Something could have happened to it!"))
 	else
-		DS.nym.key = key
+		nymph.key = key
 
 /mob/living/carbon/human/proc/diona_split_into_nymphs()
 	var/turf/T = get_turf(src)
