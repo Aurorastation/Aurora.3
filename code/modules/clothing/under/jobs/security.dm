@@ -46,8 +46,8 @@
 	siemens_coefficient = 0.7
 
 /obj/item/clothing/under/rank/warden/corp
-	icon_state = "warden_corporate"
-	worn_state = "warden_corporate"
+	icon_state = "corporate_warden"
+	worn_state = "corporate_warden"
 
 /obj/item/clothing/under/tactical
 	name = "tactical jumpsuit"

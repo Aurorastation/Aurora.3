@@ -113,20 +113,20 @@
 	pockets.max_storage_space = 8
 
 /obj/item/clothing/suit/armor/riot
-	name = "riot suit"
-	desc = "A suit of armor with heavy padding to protect against melee attacks. Looks like it might impair movement."
-	icon_state = "riot"
-	item_state = "swat_suit"
+	name = "riot vest"
+	desc = "A vest of armor with heavy padding to protect against melee attacks. Looks like it might impair movement."
+	icon_state = "riot_vest"
+	item_state = "riot_vest"
 	slowdown = 1
 	armor = list(melee = 80, bullet = 20, laser = 25, energy = 10, bomb = 0, bio = 0, rad = 0)
 	siemens_coefficient = 0.5
 	pocket_slots = 4//Fullbody suit, so more slots
 
 /obj/item/clothing/suit/armor/bulletproof
-	name = "bulletproof vest"
+	name = "ballistic vest"
 	desc = "A vest that excels in protecting the wearer against high-velocity solid projectiles."
-	icon_state = "bulletproof"
-	item_state = "armor"
+	icon_state = "bulletproof_armor"
+	item_state = "bulletproof_armor"
 	blood_overlay_type = "armor"
 	armor = list(melee = 25, bullet = 80, laser = 25, energy = 10, bomb = 0, bio = 0, rad = 0)
 	pocket_slots = 4
