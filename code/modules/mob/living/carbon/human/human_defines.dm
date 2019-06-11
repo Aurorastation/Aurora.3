@@ -113,3 +113,5 @@
 	var/datum/unarmed_attack/default_attack	//default unarmed attack
 
 	var/datum/martial_art/martial_art = null
+
+	var/skin_base = "" // used for when you need different skin base

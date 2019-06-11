@@ -119,15 +119,18 @@
 	var/gender = "f"
 	if(owner && owner.gender == MALE)
 		gender = "m"
+	var/skin_base = ""
+	if(owner)
+		skin_base = "_[owner.skin_base]"
 
 	if(force_icon)
-		mob_icon = new /icon(force_icon, "[icon_name][gendered_icon ? "_[gender]" : ""]")
+		mob_icon = new /icon(force_icon, "[icon_name][gendered_icon ? "_[gender][skin_base]" : ""]")
 		if(painted && skin_color)
 			mob_icon.Blend(skin_color, ICON_ADD)
 		apply_markings(restrict_to_robotic = TRUE)
 	else
 		if(!dna)
-			mob_icon = new /icon('icons/mob/human_races/human/r_human.dmi', "[icon_name][gendered_icon ? "_[gender]" : ""]")
+			mob_icon = new /icon('icons/mob/human_races/human/r_human.dmi', "[icon_name][gendered_icon ? "_[gender][skin_base]" : ""]")
 		else
 			if(!gendered_icon)
 				gender = null

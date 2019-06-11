@@ -11,6 +11,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 	S["facial_red"]        >> pref.r_facial
 	S["facial_green"]      >> pref.g_facial
 	S["facial_blue"]       >> pref.b_facial
+	S["skin_base"]         >> pref.s_base
 	S["skin_tone"]         >> pref.s_tone
 	S["skin_red"]          >> pref.r_skin
 	S["skin_green"]        >> pref.g_skin
@@ -34,6 +35,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 	S["facial_red"]        << pref.r_facial
 	S["facial_green"]      << pref.g_facial
 	S["facial_blue"]       << pref.b_facial
+	S["skin_base"]         >> pref.s_base
 	S["skin_tone"]         << pref.s_tone
 	S["skin_red"]          << pref.r_skin
 	S["skin_green"]        << pref.g_skin
@@ -97,6 +99,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 	return list(
 		"hair_colour"   = rgb(pref.r_hair, pref.g_hair, pref.b_hair),
 		"facial_colour" = rgb(pref.r_facial, pref.g_facial, pref.b_facial),
+		"skin_base"     = pref.s_base,
 		"skin_tone"     = pref.s_tone,
 		"skin_colour"   = rgb(pref.r_skin, pref.g_skin, pref.b_skin) ,
 		"hair_style"    = pref.h_style,
@@ -193,6 +196,13 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 	out += "<br>"
 	out += "Species: <a href='?src=\ref[src];show_species=1'>[pref.species]</a><br>"
 	out += "Blood Type: <a href='?src=\ref[src];blood_type=1'>[pref.b_type]</a><br>"
+	message_admins(mob_species.bodytype)
+	if(mob_species.bodytype == "Human")
+		if(pref.s_base == "")
+			pref.s_base = "cold"
+		out += "Skin Base: <a href='?src=\ref[src];skin_base=1'>[pref.s_base]</a><br>"
+	else
+		pref.s_base = ""
 	if(has_flag(mob_species, HAS_SKIN_TONE))
 		out += "Skin Tone: <a href='?src=\ref[src];skin_tone=1'>[-pref.s_tone + 35]/220</a><br>"
 	out += "Disabilities: <a href='?src=\ref[src];trait_add=1'>Adjust</a><br>"
@@ -386,6 +396,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 			pref.r_hair = 0//hex2num(copytext(new_hair, 2, 4))
 			pref.g_hair = 0//hex2num(copytext(new_hair, 4, 6))
 			pref.b_hair = 0//hex2num(copytext(new_hair, 6, 8))
+			pref.s_base = "cold"
 			pref.s_tone = 0
 
 			pref.organ_data.Cut()
@@ -440,6 +451,13 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 			pref.g_eyes = GetGreenPart(new_eyes)
 			pref.b_eyes = GetBluePart(new_eyes)
 			return TOPIC_REFRESH
+	
+	else if(href_list["skin_base"])
+		var/new_skin_base = input(user, "Choose your character's skin base:", "Character Skin Base")  as null|anything in list("cold", "warm")
+		if(new_skin_base)
+			pref.s_base = new_skin_base
+			pref.update_preview_icon()
+			return TOPIC_REFRESH 
 
 	else if(href_list["skin_tone"])
 		if(!has_flag(mob_species, HAS_SKIN_TONE))

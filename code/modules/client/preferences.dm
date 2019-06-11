@@ -14,64 +14,65 @@ datum/preferences
 	var/muted = 0
 	var/last_ip
 	var/last_id
-	var/list/notifications = list()		//A list of datums, for the dynamic server greeting window.
-	var/list/time_of_death = list()//This is a list of last times of death for various things with different respawn timers
+	var/list/notifications = list()			// A list of datums, for the dynamic server greeting window.
+	var/list/time_of_death = list()			// This is a list of last times of death for various things with different respawn timers
 
-	//game-preferences
-	var/lastchangelog = ""				//Saved changlog filesize to detect if there was a change
-	var/ooccolor = "#010000"			//Whatever this is set to acts as 'reset' color and is thus unusable as an actual custom color
-	var/list/be_special_role = list()		//Special role selection
+	// game-preferences
+	var/lastchangelog = ""					// Saved changlog filesize to detect if there was a change
+	var/ooccolor = "#010000"				// Whatever this is set to acts as 'reset' color and is thus unusable as an actual custom color
+	var/list/be_special_role = list()		// Special role selection
 	var/UI_style = "Midnight"
 	var/toggles = TOGGLES_DEFAULT
 	var/asfx_togs = ASFX_DEFAULT
 	var/UI_style_color = "#ffffff"
 	var/UI_style_alpha = 255
 	var/html_UI_style = "Nano"
-	var/motd_hash = ""					//Hashes for the new server greeting window.
+	var/motd_hash = ""						// Hashes for the new server greeting window.
 	var/memo_hash = ""
 
-	//character preferences
-	var/real_name						//our character's name
-	var/can_edit_name = 1				//Whether or not a character's name can be edited. Used with SQL saving.
-	var/gender = MALE					//gender of character (well duh)
-	var/age = 30						//age of character
-	var/spawnpoint = "Arrivals Shuttle" //where this character will spawn (0-2).
-	var/b_type = "A+"					//blood type (not-chooseable)
-	var/underwear						//underwear type
-	var/undershirt						//undershirt type
-	var/socks						//socks type
-	var/backbag = 2						//backpack type
+	// character preferences
+	var/real_name							// our character's name
+	var/can_edit_name = 1					// Whether or not a character's name can be edited. Used with SQL saving.
+	var/gender = MALE						// gender of character (well duh)
+	var/age = 30							// age of character
+	var/spawnpoint = "Arrivals Shuttle" 	// where this character will spawn (0-2).
+	var/b_type = "A+"						// blood type (not-chooseable)
+	var/underwear							// underwear type
+	var/undershirt							// undershirt type
+	var/socks								//socks type
+	var/backbag = 2							// backpack type
 	var/backbag_style = 1
-	var/h_style = "Bald"				//Hair type
-	var/hair_colour = "#000000"			//Hair colour hex value, for SQL loading
-	var/r_hair = 0						//Hair color
-	var/g_hair = 0						//Hair color
-	var/b_hair = 0						//Hair color
-	var/f_style = "Shaved"				//Face hair type
-	var/facial_colour = "#000000"		//Facial colour hex value, for SQL loading
-	var/r_facial = 0					//Face hair color
-	var/g_facial = 0					//Face hair color
-	var/b_facial = 0					//Face hair color
-	var/s_tone = 0						//Skin tone
-	var/skin_colour = "#000000"			//Skin colour hex value, for SQL loading
-	var/r_skin = 0						//Skin color
-	var/g_skin = 0						//Skin color
-	var/b_skin = 0						//Skin color
-	var/eyes_colour = "#000000"			//Eye colour hex value, for SQL loading
-	var/r_eyes = 0						//Eye color
-	var/g_eyes = 0						//Eye color
-	var/b_eyes = 0						//Eye color
-	var/species = "Human"               //Species datum to use.
-	var/species_preview                 //Used for the species selection window.
-	var/list/alternate_languages = list() //Secondary language(s)
-	var/list/language_prefixes = list() // Language prefix keys
-	var/list/gear						// Custom/fluff item loadout.
+	var/h_style = "Bald"					// Hair type
+	var/hair_colour = "#000000"				// Hair colour hex value, for SQL loading
+	var/r_hair = 0							// Hair color
+	var/g_hair = 0							// Hair color
+	var/b_hair = 0							// Hair color
+	var/f_style = "Shaved"					// Face hair type
+	var/facial_colour = "#000000"			// Facial colour hex value, for SQL loading
+	var/r_facial = 0						// Face hair color
+	var/g_facial = 0						// Face hair color
+	var/b_facial = 0						// Face hair color
+	var/s_base = "cold"							// Skin base
+	var/s_tone = 0							// Skin tone
+	var/skin_colour = "#000000"				// Skin colour hex value, for SQL loading
+	var/r_skin = 0							// Skin color
+	var/g_skin = 0							// Skin color
+	var/b_skin = 0							// Skin color
+	var/eyes_colour = "#000000"				// Eye colour hex value, for SQL loading
+	var/r_eyes = 0							// Eye color
+	var/g_eyes = 0							// Eye color
+	var/b_eyes = 0							// Eye color
+	var/species = "Human"					// Species datum to use.
+	var/species_preview						// Used for the species selection window.
+	var/list/alternate_languages = list() 	//Secondary language(s)
+	var/list/language_prefixes = list() 	// Language prefix keys
+	var/list/gear							// Custom/fluff item loadout.
 
 		//Some faction information.
-	var/home_system = "Unset"           //System of birth.
-	var/citizenship = "None"            //Current home system.
-	var/faction = "None"                //Antag faction/general associated faction.
-	var/religion = "None"               //Religious association.
+	var/home_system = "Unset"				// System of birth.
+	var/citizenship = "None"				// Current home system.
+	var/faction = "None"					// Antag faction/general associated faction.
+	var/religion = "None"					// Religious association.
 
 		//Mob preview
 	var/icon/preview_icon = null
@@ -354,6 +355,7 @@ datum/preferences
 	character.g_skin = g_skin
 	character.b_skin = b_skin
 
+	character.skin_base = s_base
 	character.s_tone = s_tone
 
 	character.h_style = h_style
@@ -515,7 +517,7 @@ datum/preferences
 		citizenship = "None"
 		faction = "None"
 		religion = "None"
-
+		s_tone = "cold"
 		species = "Human"
 
 		job_civilian_high = 0
