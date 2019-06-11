@@ -164,7 +164,7 @@
 	name = "Forensic Technician"
 	jobtype = /datum/job/forensics
 
-	uniform = /obj/item/clothing/under/det/slob
+	uniform = /obj/item/clothing/under/det/forensics
 	suit = /obj/item/clothing/suit/storage/vest/csi
 	shoes = /obj/item/clothing/shoes/laceup
 	l_ear = /obj/item/device/radio/headset/headset_sec

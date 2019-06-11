@@ -89,29 +89,31 @@
  */
 
 /obj/item/clothing/under/det
-	name = "hard-worn suit"
+	name = "detective's uniform"
 	desc = "Someone who wears this means business."
-	icon_state = "detective"
-	item_state = "det"
-	worn_state = "detective"
+	icon_state = "standard_detective"
+	item_state = "standard_detective"
+	worn_state = "standard_detective"
 	armor = list(melee = 10, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 0, rad = 0)
 	siemens_coefficient = 0.7
 
 /obj/item/clothing/under/det/black
+	name = "hard-worn suit"
 	icon_state = "detective2"
 	worn_state = "detective2"
 	item_state = "sl_suit"
 
 /obj/item/clothing/under/det/slob
+	name = "hard-worn suit"
 	icon_state = "polsuit"
 	worn_state = "polsuit"
 
 /obj/item/clothing/under/det/forensics
 	name = "forensics technician's uniform"
-	desc = "A tan service uniform worn by a forensics officer."
-	icon_state = "officertanclothes"
-	item_state = "det"
-	worn_state = "officertanclothes"
+	desc = "A gray service uniform worn by a forensics officer."
+	icon_state = "standard_forensic"
+	item_state = "standard_forensic"
+	worn_state = "standard_forensic"
 
 /*
  * Head of Security
@@ -119,16 +121,14 @@
 /obj/item/clothing/under/rank/head_of_security
 	desc = "It's a jumpsuit worn by those few with the dedication to achieve the position of \"Head of Security\". It has additional armor to protect the wearer."
 	name = "head of security's jumpsuit"
-	icon_state = "hos"
-//	item_state = "r_suit"
-	worn_state = "hosred"
+	icon_state = "standard_hos"
+	worn_state = "standard_hos"
 	armor = list(melee = 10, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 0, rad = 0)
 	siemens_coefficient = 0.7
 
 /obj/item/clothing/under/rank/head_of_security/corp
-	icon_state = "hos_corporate"
-	//item_state = "hos_corporate"
-	worn_state = "hos_corporate"
+	icon_state = "corporate_hos"
+	worn_state = "corporate_hos"
 
 //Jensen cosplay gear
 /obj/item/clothing/under/rank/head_of_security/jensen
