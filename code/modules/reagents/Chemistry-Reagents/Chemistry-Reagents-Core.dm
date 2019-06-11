@@ -184,7 +184,7 @@
 
 	unaffected_species = IS_MACHINE
 
-	fallback_specific_heat = 1.541
+	specific_heat = 1.541
 
 /datum/reagent/water/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
 	if(!istype(M))
