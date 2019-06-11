@@ -163,21 +163,6 @@ var/global/list/cloaking_devices = list()
 
 
 
-	//Augments
-	paths = subtypesof(/datum/augment/legal)
-	for(var/path in paths)
-		var/datum/augment/legal/T = new path()
-		chargen_augments_list[T.name] = T.linkedaugment
-	sortTim(chargen_augments_list, /proc/cmp_text_asc)
-
-
-	//Illegal Augments
-	paths = subtypesof(/datum/augment/illegal)
-	for(var/path in paths)
-		var/datum/augment/illegal/T = new path()
-		illegal_augments_list[T.name] = T.linkedaugment
-	sortTim(illegal_augments_list, /proc/cmp_text_asc)
-
 	//Surgery Steps - Initialize all /datum/surgery_step into a list
 	paths = subtypesof(/datum/surgery_step)
 	for(var/T in paths)

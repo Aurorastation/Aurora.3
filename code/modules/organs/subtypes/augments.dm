@@ -35,6 +35,7 @@ var/list/augmentations = typesof(/datum/augment) - /datum/augment
 	icon_state = "screen"
 	var/action_icon = "ams"
 	action_button_name = "Toggle Augment"
+	var/augmenthp = 50
 
 	robotic = 2
 
@@ -46,8 +47,10 @@ var/list/augmentations = typesof(/datum/augment) - /datum/augment
 
 
 /obj/item/organ/augment/Initialize()
+	START_PROCESSING(SSfast_process, src)
 	robotize()
 	. = ..()
+
 
 /obj/item/organ/augment/refresh_action_button()
 	. = ..()
@@ -83,6 +86,13 @@ var/list/augmentations = typesof(/datum/augment) - /datum/augment
 	..()
 	if(!online)
 		return
+	if(augmenthp <= 0)
+		name = "Broken [src.name]"
+		spark(owner.loc, 5)
+		playsound(owner.loc, "sparks", 50, 1)
+		owner.visible_message("<span class='notice'>\The [owner]'s [src.name] .</span>")
+		src.forceMove(owner.loc)
+		online = 0
 
 /////////////////
 /////////////////
@@ -121,7 +131,6 @@ var/list/augmentations = typesof(/datum/augment) - /datum/augment
 
 		var/acimode = input("Select A.C.I Operation.", "Hephaestus Industries ACI os.V335") as null|anything in acisettings
 
-
 		switch(acimode)
 
 			if("Toggle Connection")
@@ -148,8 +157,6 @@ var/list/augmentations = typesof(/datum/augment) - /datum/augment
 				if (istype(I, /obj/item/weapon/card/id))
 					useraccount += I.associated_account_number
 					to_chat(H, "<span class='warning'>Financial Info saved!</span>")
-			if("Shop For Augments")
-				
 
 /obj/item/organ/augment/timepiece
 	name = "integrated timepiece"
@@ -157,9 +164,9 @@ var/list/augmentations = typesof(/datum/augment) - /datum/augment
 
 /obj/item/organ/augment/timepiece/attack_self(var/mob/user)
 	. = ..()
-	user << "Hello [user], it is currently: '[worldtime2text()]'. Today's date is '[time2text(world.time, "Month DD")]. [game_year]'. Have a lovely day."
+	to_chat(user, "<span class='warning'>Hello [user], it is currently: '[worldtime2text()]'. Today's date is '[time2text(world.time, "Month DD")]. [game_year]'. Have a lovely day</span>")
 	if (emergency_shuttle.get_status_panel_eta())
-		user << "<span class='warning'>Notice: You have one (1) scheduled flight, ETA: [emergency_shuttle.get_status_panel_eta()].</span>"
+		to_chat(user, "<span class='warning'>Notice: You have one (1) scheduled flight, ETA: [emergency_shuttle.get_status_panel_eta()].</span>")
 
 /obj/item/organ/augment/pda
 	name = "integrated PDA"
@@ -189,10 +196,10 @@ var/list/augmentations = typesof(/datum/augment) - /datum/augment
 				P.ownjob = idcard.assignment
 				P.ownrank = idcard.rank
 				P.name = "Integrated PDA-[P.owner] ([P.ownjob])"
-				user << "<span class='notice'>Card scanned.</span>"
+				to_chat(user, "<span class='notice'>Card scanned.</span>")
 				P.try_sort_pda_list()
 			else
-				user << "<span class='notice'>No ID data loaded. Please hold your ID to be scanned.</span>"
+				to_chat(user, "<span class='notice'>No ID data loaded. Please hold your ID to be scanned.</span>")
 				return
 
 		P.attack_self(user)
@@ -258,7 +265,6 @@ var/list/augmentations = typesof(/datum/augment) - /datum/augment
 	. = ..()
 
 	if(.)
-
 		if(!deployed)
 			if(!deployment_location)
 				if(owner.get_active_hand())

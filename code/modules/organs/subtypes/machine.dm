@@ -260,6 +260,33 @@
 	robotize()
 	. = ..()
 
+/obj/item/organ/augment/limbservo
+	name = "limbservo"
+	icon = 'icons/obj/robot_component.dmi'
+	icon_state = "servo"
+	vital = 0
+	action_button_name = "Engage Servos"
+	augmenthp = 30
+	var/servothreshhold = 0
+	install_locations = list(ARM_LEFT, ARM_RIGHT, HAND_LEFT, HAND_RIGHT,LEG_LEFT,LEG_RIGHT)
+
+/obj/item/organ/augment/limbservo/Initialize()
+	START_PROCESSING(SSfast_process, src)
+	robotize()
+	. = ..()
+
+/obj/item/organ/augment/limbservo/proc/servo_check()
+	var/mob/living/carbon/human/H = owner
+	var/obj/item/organ/external/SO = src.loc
+	if(!H) 
+		return		
+	if(SO.brute_dam >= 20 )
+		servothreshhold = 1
+	if(SO.brute_dam <= 19 )
+		servothreshhold = 0
+
+/obj/item/organ/augment/limbservo/process()
+	servo_check()
 
 /obj/item/organ/coolantpump
 	name = "coolant pump"

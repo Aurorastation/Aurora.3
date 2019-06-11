@@ -177,3 +177,14 @@
 /mob/living/carbon/human/proc/get_blood_alcohol()
 	return round(intoxication/max(vessel.get_reagent_amount("blood"),1),0.01)
 
+
+/mob/living/carbon/human/proc/install_servos()
+
+	for(var/servolimb in list("l_arm","l_leg","l_hand","l_foot","r_leg","r_foot","r_hand","r_arm",))
+		var/obj/item/organ/external/E = get_organ(servolimb)
+		if(E)
+			var/obj/item/organ/augment/limbservo/S = locate() in E.contents
+			if(!S)
+				S = new /obj/item/organ/augment/limbservo()
+				S.online = 1
+				S.replaced(src,E)

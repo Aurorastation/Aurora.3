@@ -11,7 +11,7 @@ emp_act
 /mob/living/carbon/human/bullet_act(var/obj/item/projectile/P, var/def_zone)
 
 	var/species_check = src.species.bullet_act(P, def_zone, src)
-
+	
 	if(species_check)
 		return species_check
 
@@ -35,7 +35,7 @@ emp_act
 			return 100
 
 	var/obj/item/organ/external/organ = get_organ(def_zone)
-
+	var/armor = getarmor_organ(organ, "bullet")
 	// Tell clothing we're wearing that it got hit by a bullet/laser/etc
 	var/list/clothing = get_clothing_list_organ(organ)
 	for(var/obj/item/clothing/C in clothing)
@@ -43,13 +43,15 @@ emp_act
 
 	//Shrapnel
 	if(!(species.flags & NO_EMBED) && P.can_embed())
-		var/armor = getarmor_organ(organ, "bullet")
 		if(prob(20 + max(P.damage - armor, -10)))
 			var/obj/item/weapon/SP = new P.shrapnel_type()
 			SP.name = (P.name != "shrapnel")? "[P.name] shrapnel" : "shrapnel"
 			SP.desc = "[SP.desc] It looks like it was fired from [P.shot_from]."
 			SP.forceMove(organ)
 			organ.embed(SP)
+
+	for(var/obj/item/organ/augment/AUG in organ.contents)
+		AUG.augmenthp -= P.damage / 2
 
 	return (..(P , def_zone))
 
