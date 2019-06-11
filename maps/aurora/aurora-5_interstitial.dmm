@@ -3227,6 +3227,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/machinery/recharger/wallcharger{
+	pixel_x = 6;
+	pixel_y = -32
+	},
 /turf/simulated/floor/wood,
 /area/security/detectives_office)
 "ge" = (
