@@ -14,9 +14,9 @@
 		"1" = /turf/space,
 		"2" = /turf/space,
 		"3" = /turf/space,
-		"4" = /turf/simulated/floor/asteroid/ash/rocky,
-		"5" = /turf/simulated/floor/asteroid/ash/rocky,
-		"6" = /turf/simulated/floor/asteroid/ash,
+		"4" = /turf/unsimulated/floor/asteroid/ash/rocky,
+		"5" = /turf/unsimulated/floor/asteroid/ash/rocky,
+		"6" = /turf/unsimulated/floor/asteroid/ash,
 		"7" = /turf/space,
 		"8" = /turf/space,
 		"9" = /turf/space

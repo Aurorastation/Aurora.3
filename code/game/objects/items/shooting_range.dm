@@ -2,7 +2,7 @@
 /obj/item/target
 	name = "shooting target"
 	desc = "A shooting target."
-	icon = 'icons/obj/objects.dmi'
+	icon = 'icons/obj/target_stake.dmi'
 	icon_state = "target_h"
 	density = 0
 	var/hp = 1800

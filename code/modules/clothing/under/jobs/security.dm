@@ -86,6 +86,9 @@
 	icon_state = "erisec"
 	worn_state = "erisec"
 
+/obj/item/clothing/under/rank/security/eridani/alt
+	icon_state = "erisec_alt"
+	worn_state = "erisec_alt"
 
 /*
  * Detective

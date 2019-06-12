@@ -12,6 +12,7 @@
 	desc = "A non-descript floor tile"
 	w_class = 3
 	max_amount = 60
+	icon = 'icons/obj/stacks/tiles.dmi'
 	drop_sound = 'sound/items/drop/axe.ogg'
 
 /obj/item/stack/tile/New()

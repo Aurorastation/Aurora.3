@@ -19,9 +19,14 @@
 /datum/malf_research_ability/interdiction/unlock_cyborg
 	ability = new/datum/game_mode/malfunction/verb/unlock_cyborg()
 	price = 1200
-	next = new/datum/malf_research_ability/interdiction/hack_cyborg()
+	next = new/datum/malf_research_ability/interdiction/hack_drone()
 	name = "Unlock Cyborg"
 
+/datum/malf_research_ability/interdiction/hack_drone
+	ability = new/datum/game_mode/malfunction/verb/hack_drone()
+	price = 2500
+	next = new/datum/malf_research_ability/interdiction/hack_cyborg()
+	name = "Hack maintenance drone"
 
 /datum/malf_research_ability/interdiction/hack_cyborg
 	ability = new/datum/game_mode/malfunction/verb/hack_cyborg()
@@ -126,6 +131,41 @@
 		else
 			to_chat(user, "Unlock cancelled - lost connection to cyborg.")
 		user.hacking = 0
+
+/datum/game_mode/malfunction/verb/hack_drone()
+	set name = "Hack a random active maintenance drone"
+	set desc = "2500 CPU - Allows you to hack a random active maintenance drone which is slaved to you. Bringing them under your control."
+	set category = "Software"
+	var/price = 2500
+	var/mob/living/silicon/ai/user = usr
+	var/list/drone_list = list()
+	var/hacked_num = 0
+	for(var/mob/living/silicon/robot/drone/D in mob_list)
+		if(D.client || D.stat != 2)
+			if(!D.hacked)
+				drone_list += D
+			else
+				hacked_num += 1
+
+	if(!drone_list.len)
+		to_chat(user, span("warning", "There are no active maintenance drones present to hack!"))
+		return
+
+	if(hacked_num >= config.hacked_drones_limit)
+		to_chat(user, span("warning", "ERROR: maximum active hacked drones limit reached. Report: [hacked_num] drones hacked out of [config.hacked_drones_limit] maximum possible."))
+		return
+		
+	if(!ability_prechecks(user, price) || !ability_pay(user, price))
+		return
+	var/mob/living/silicon/robot/drone/D = pick(drone_list)
+	to_chat(user, "Hacking into maintenance drones scripting server...")
+	sleep(100)
+	to_chat(user, "Hacking complete. Uploading modified operation scripts to the server...")
+	sleep(100)
+	to_chat(user, "Upload complete. Pushing modified scripts from remote server to [D]...")
+	sleep(100)
+	D.ai_hack(user)
+	to_chat(user, "Updates fetched. [D] was hacked.")
 
 
 /datum/game_mode/malfunction/verb/hack_cyborg(var/mob/living/silicon/robot/target as mob in get_unlinked_cyborgs(usr))

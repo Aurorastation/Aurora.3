@@ -531,10 +531,14 @@
 	armor = list(melee = 50, bullet = 30, laser = 30, energy = 15, bomb = 40, bio = 0, rad = 0)
 
 /obj/item/clothing/suit/armor/vest/idris
-	name = "Idris reclamation unit coat "
+	name = "Idris Reclamation Unit coat"
 	desc = "A coat worn by the Idris reclamation units, notorious across space."
 	icon_state = "iru_coat"
 	item_state = "iru_coat"
+	cold_protection = 0
+	min_cold_protection_temperature = 0
+	heat_protection = 0
+	max_heat_protection_temperature = 0
 
 //All of the armor below is mostly unused
 

@@ -4628,8 +4628,17 @@
 /turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "mm" = (
-/obj/structure/shuttle/engine/propulsion,
-/turf/space/transit/north/shuttlespace_ns14,
+/obj/effect/step_trigger/teleporter/random{
+	affect_ghosts = 1;
+	name = "escapeshuttle_leave";
+	teleport_x = 25;
+	teleport_x_offset = 245;
+	teleport_y = 25;
+	teleport_y_offset = 245;
+	teleport_z = 6;
+	teleport_z_offset = 6
+	},
+/turf/space/transit/north/shuttlespace_ns15,
 /area/derelict/ship)
 "mn" = (
 /obj/structure/window/reinforced{
@@ -4799,8 +4808,17 @@
 /turf/simulated/floor,
 /area/derelict/ship)
 "mD" = (
-/obj/structure/shuttle/engine/propulsion,
-/turf/space/transit/north/shuttlespace_ns3,
+/obj/effect/step_trigger/teleporter/random{
+	affect_ghosts = 1;
+	name = "escapeshuttle_leave";
+	teleport_x = 25;
+	teleport_x_offset = 245;
+	teleport_y = 25;
+	teleport_y_offset = 245;
+	teleport_z = 6;
+	teleport_z_offset = 6
+	},
+/turf/space/transit/north/shuttlespace_ns4,
 /area/derelict/ship)
 "mE" = (
 /obj/machinery/vending,
@@ -4848,29 +4866,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
-"mL" = (
-/obj/effect/step_trigger/teleporter/random{
-	affect_ghosts = 1;
-	name = "escapeshuttle_leave";
-	teleport_x = 25;
-	teleport_x_offset = 245;
-	teleport_y = 25;
-	teleport_y_offset = 245;
-	teleport_z = 6;
-	teleport_z_offset = 6
-	},
-/obj/effect/step_trigger/teleporter/random{
-	affect_ghosts = 1;
-	name = "escapeshuttle_leave";
-	teleport_x = 25;
-	teleport_x_offset = 245;
-	teleport_y = 25;
-	teleport_y_offset = 245;
-	teleport_z = 6;
-	teleport_z_offset = 6
-	},
-/turf/space/transit/north/shuttlespace_ns4,
-/area/template_noop)
 "mM" = (
 /obj/structure/table/reinforced/steel,
 /obj/structure/window/reinforced{
@@ -4887,8 +4882,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "mO" = (
-/obj/structure/shuttle/engine/propulsion,
-/turf/space/transit/north/shuttlespace_ns4,
+/obj/structure/shuttle/engine/heater,
+/obj/structure/window/reinforced,
+/turf/simulated/floor,
 /area/derelict/ship)
 "mP" = (
 /obj/machinery/pipelayer,
@@ -4959,11 +4955,13 @@
 /area/derelict/ship)
 "mZ" = (
 /obj/structure/shuttle/engine/router,
+/obj/structure/window/reinforced,
 /turf/simulated/shuttle/wall/dark,
 /area/derelict/ship)
 "na" = (
 /obj/structure/shuttle/engine/router,
 /obj/structure/shuttle/engine/router,
+/obj/structure/window/reinforced,
 /turf/simulated/shuttle/wall/dark,
 /area/derelict/ship)
 "nb" = (
@@ -4992,6 +4990,115 @@
 	teleport_z_offset = 6
 	},
 /turf/space/transit/north/shuttlespace_ns11,
+/area/template_noop)
+"qD" = (
+/turf/space/transit/north/shuttlespace_ns4,
+/turf/simulated/shuttle/wall/dark{
+	dir = 5;
+	icon_state = "diagonalWall3"
+	},
+/area/template_noop)
+"qY" = (
+/obj/effect/step_trigger/teleporter/random{
+	affect_ghosts = 1;
+	name = "escapeshuttle_leave";
+	teleport_x = 25;
+	teleport_x_offset = 245;
+	teleport_y = 25;
+	teleport_y_offset = 245;
+	teleport_z = 6;
+	teleport_z_offset = 6
+	},
+/obj/effect/step_trigger/teleporter/random{
+	affect_ghosts = 1;
+	name = "escapeshuttle_leave";
+	teleport_x = 25;
+	teleport_x_offset = 245;
+	teleport_y = 25;
+	teleport_y_offset = 245;
+	teleport_z = 6;
+	teleport_z_offset = 6
+	},
+/turf/space/transit/north/shuttlespace_ns4,
+/area/derelict/ship)
+"up" = (
+/obj/structure/shuttle/engine/propulsion,
+/turf/space/transit/north/shuttlespace_ns4,
+/area/template_noop)
+"yZ" = (
+/obj/structure/shuttle/engine/propulsion{
+	icon_state = "propulsion_l"
+	},
+/turf/space/transit/north/shuttlespace_ns10,
+/area/derelict/ship)
+"AN" = (
+/obj/structure/shuttle/engine/propulsion{
+	icon_state = "propulsion_r"
+	},
+/turf/space/transit/north/shuttlespace_ns10,
+/area/derelict/ship)
+"DJ" = (
+/turf/simulated/shuttle/wall/dark{
+	dir = 4;
+	icon_state = "diagonalWall3"
+	},
+/area/derelict/ship)
+"GQ" = (
+/turf/space/transit/north/shuttlespace_ns10,
+/turf/simulated/shuttle/wall/dark{
+	dir = 5;
+	icon_state = "diagonalWall3"
+	},
+/area/derelict/ship)
+"Kv" = (
+/obj/structure/shuttle/engine/heater,
+/obj/structure/window/reinforced,
+/turf/simulated/floor,
+/area/template_noop)
+"Mt" = (
+/obj/effect/step_trigger/teleporter/random{
+	affect_ghosts = 1;
+	name = "escapeshuttle_leave";
+	teleport_x = 25;
+	teleport_x_offset = 245;
+	teleport_y = 25;
+	teleport_y_offset = 245;
+	teleport_z = 6;
+	teleport_z_offset = 6
+	},
+/obj/effect/step_trigger/teleporter/random{
+	affect_ghosts = 1;
+	name = "escapeshuttle_leave";
+	teleport_x = 25;
+	teleport_x_offset = 245;
+	teleport_y = 25;
+	teleport_y_offset = 245;
+	teleport_z = 6;
+	teleport_z_offset = 6
+	},
+/turf/space/transit/north/shuttlespace_ns15,
+/area/derelict/ship)
+"Og" = (
+/obj/structure/shuttle/engine/propulsion{
+	icon_state = "propulsion_r"
+	},
+/turf/space/transit/north/shuttlespace_ns4,
+/area/template_noop)
+"ON" = (
+/turf/simulated/shuttle/wall/dark{
+	dir = 4;
+	icon_state = "diagonalWall3"
+	},
+/area/template_noop)
+"QA" = (
+/obj/structure/shuttle/engine/propulsion,
+/turf/space/transit/north/shuttlespace_ns3,
+/area/template_noop)
+"Zd" = (
+/obj/structure/shuttle/engine/propulsion{
+	icon_state = "propulsion_l"
+	},
+/turf/space/transit/north/shuttlespace_ns4,
 /area/template_noop)
 
 (1,1,1) = {"
@@ -28285,9 +28392,9 @@ av
 az
 aF
 aM
-mp
-ab
-aa
+ac
+ac
+ac
 ac
 ad
 ae
@@ -28542,9 +28649,9 @@ ar
 ar
 ar
 mm
-aR
-ab
-aa
+ac
+ac
+ac
 ac
 ad
 ae
@@ -28799,15 +28906,15 @@ lS
 lS
 ar
 mm
-aR
-ab
-aa
+ac
+ac
+ac
 ac
 ad
 ae
 af
 ag
-ah
+ai
 ai
 aj
 ak
@@ -29056,15 +29163,15 @@ bP
 mb
 ar
 mm
-aR
-ab
-aa
+ac
+ac
+ac
 ac
 ad
 ae
 af
 ag
-ah
+ai
 ai
 aj
 ak
@@ -29313,15 +29420,15 @@ bP
 mb
 ar
 mm
-aR
-ab
-aa
 ac
-ad
+ac
+ac
+ac
+ac
 ae
 af
 ag
-ah
+ai
 ai
 aj
 ak
@@ -29569,16 +29676,16 @@ lJ
 bP
 kV
 ar
-mm
+Mt
 mp
 aY
 bc
 bh
-bl
+ac
 ae
 af
 ag
-ah
+ai
 ai
 aj
 ak
@@ -29831,11 +29938,11 @@ ko
 kr
 ar
 mD
-bl
+ac
 ae
 af
 ag
-ah
+ai
 ai
 aj
 ak
@@ -30088,7 +30195,7 @@ mq
 mu
 ar
 mD
-bl
+ac
 ae
 af
 ag
@@ -30345,7 +30452,7 @@ aB
 bT
 ar
 mD
-bl
+ac
 ae
 af
 ag
@@ -30601,8 +30708,8 @@ jr
 aD
 bT
 ar
-mD
-mL
+qY
+bl
 bn
 bu
 bA
@@ -30864,8 +30971,8 @@ bi
 mS
 bd
 bi
-mZ
-nb
+ar
+GQ
 av
 al
 am
@@ -31122,7 +31229,7 @@ mT
 mV
 mY
 na
-nb
+yZ
 av
 al
 am
@@ -33178,7 +33285,7 @@ mU
 mX
 mY
 mZ
-nb
+AN
 av
 al
 am
@@ -33434,8 +33541,8 @@ bi
 ar
 bd
 bi
-mZ
-nb
+ar
+DJ
 az
 al
 am
@@ -33943,7 +34050,7 @@ bI
 bT
 lE
 bh
-bl
+ae
 ae
 af
 ag
@@ -34457,7 +34564,7 @@ bI
 bT
 lE
 bh
-bl
+ae
 ae
 af
 ag
@@ -34716,7 +34823,7 @@ ar
 mD
 bl
 bn
-af
+bn
 ag
 ah
 ai
@@ -34971,9 +35078,9 @@ mt
 mw
 ar
 ar
-mO
+ar
+qD
 bn
-af
 ag
 ah
 ai
@@ -35229,8 +35336,8 @@ mx
 mA
 ar
 mO
+Zd
 bn
-af
 ag
 ah
 ai
@@ -35486,8 +35593,8 @@ bS
 mB
 ar
 mO
+up
 bn
-af
 ag
 ah
 ai
@@ -35743,8 +35850,8 @@ mv
 ar
 ar
 mO
+QA
 bn
-af
 ag
 ah
 ai
@@ -35998,10 +36105,10 @@ ar
 bI
 bT
 ar
-mD
-bl
+ar
+Kv
+QA
 bn
-af
 ag
 ah
 ai
@@ -36255,10 +36362,10 @@ ar
 bI
 bT
 ar
-mD
+fl
+Kv
+QA
 bl
-ae
-af
 ag
 ah
 ai
@@ -36511,11 +36618,11 @@ fl
 ar
 ms
 bT
-ar
-mD
+jY
+fl
+Kv
+QA
 bl
-ae
-af
 ag
 ah
 ai
@@ -36769,10 +36876,10 @@ ar
 bI
 bT
 ar
-mD
+fl
+Kv
+QA
 bl
-ae
-af
 ag
 ah
 ai
@@ -37026,10 +37133,10 @@ ar
 aL
 my
 ar
-mD
-bl
+ar
+Kv
+QA
 bn
-af
 ag
 ah
 ai
@@ -37285,8 +37392,8 @@ ar
 ar
 ar
 mO
+QA
 bn
-af
 ag
 ah
 ai
@@ -37542,8 +37649,8 @@ fl
 kP
 ar
 mO
+up
 bn
-af
 ag
 ah
 ai
@@ -37799,8 +37906,8 @@ fl
 kP
 lE
 mO
+up
 bn
-af
 ag
 ah
 ai
@@ -38056,8 +38163,8 @@ jS
 fl
 ar
 mO
+up
 bn
-af
 ag
 ah
 ai
@@ -38313,8 +38420,8 @@ fl
 fl
 lE
 mO
+up
 bn
-af
 ag
 ah
 ai
@@ -38570,8 +38677,8 @@ fl
 mC
 ar
 mO
+Og
 bn
-af
 ag
 ah
 ai
@@ -38826,9 +38933,9 @@ bd
 bi
 ar
 ar
-mO
+ar
+ON
 bn
-af
 ag
 ah
 ai
@@ -39085,7 +39192,7 @@ bc
 bh
 bl
 bn
-af
+bn
 ag
 ah
 ai

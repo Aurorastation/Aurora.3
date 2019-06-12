@@ -1,0 +1,29 @@
+/obj/item/device/flashlight/lamp
+	name = "desk lamp"
+	desc = "A desk lamp with an adjustable mount."
+	icon_state = "lamp"
+	item_state = "lamp"
+	brightness_on = 5
+	w_class = 5
+	flags = CONDUCT
+	uv_intensity = 100
+	on = 1
+	slot_flags = 0 //No wearing desklamps
+	light_wedge = LIGHT_OMNI
+
+
+// green-shaded desk lamp
+/obj/item/device/flashlight/lamp/green
+	desc = "A classic green-shaded desk lamp."
+	icon_state = "lampgreen"
+	item_state = "lampgreen"
+	brightness_on = 5
+	light_color = "#FFC58F"
+
+/obj/item/device/flashlight/lamp/verb/toggle_light()
+	set name = "Toggle light"
+	set category = "Object"
+	set src in oview(1)
+
+	if(!usr.stat)
+		attack_self(usr)
