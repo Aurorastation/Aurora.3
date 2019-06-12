@@ -206,9 +206,8 @@
 	base_itemstate = "exp_welder"
 
 	var/last_gen = 0
-	var/fuelgen_delay = 800//The time, in deciseconds, required to regenerate one unit of fuel
-	//800 = 1 unit per 1 minute and 20 seconds,
-	//This is roughly half the rate that fuel is lost if the welder is left idle, so it you carelessly leave it on it will still run out
+	var/fuelgen_delay = 400 //The time, in deciseconds, required to regenerate one unit of fuel
+	//400 = 1 unit per 40 seconds
 
 //Welding tool functionality here
 /obj/item/weapon/weldingtool/Initialize()
