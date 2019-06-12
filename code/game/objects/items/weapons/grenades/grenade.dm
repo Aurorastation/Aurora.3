@@ -9,6 +9,7 @@
 	throw_range = 20
 	flags = CONDUCT
 	slot_flags = SLOT_BELT
+	contained_sprite = 1
 	var/active = 0
 	var/det_time = 30
 	var/fake = FALSE
