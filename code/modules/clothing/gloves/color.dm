@@ -35,7 +35,7 @@
 
 /obj/item/clothing/gloves/black/sec
 	name = "security gloves"
-	desc = "Placeholder"
+	desc = "A pair of tight fitting black gloves, made from some type of sturdy synthetic fabric. The NT logo is stamped on the wrists."
 	item_state = "secgloves"
 
 /obj/item/clothing/gloves/orange

@@ -29,7 +29,7 @@
 	jobtype = /datum/job/hos
 
 	uniform = /obj/item/clothing/under/rank/head_of_security
-	shoes = /obj/item/clothing/shoes/secboots
+	shoes = /obj/item/clothing/shoes/jackboots/sec
 	l_ear = /obj/item/device/radio/headset/heads/hos
 	pda = /obj/item/device/pda/heads/hos
 	id = /obj/item/weapon/card/id/silver
@@ -79,7 +79,7 @@
 	jobtype = /datum/job/warden
 
 	uniform = /obj/item/clothing/under/rank/warden
-	shoes = /obj/item/clothing/shoes/secboots
+	shoes = /obj/item/clothing/shoes/jackboots/sec
 	l_ear = /obj/item/device/radio/headset/headset_sec
 	pda = /obj/item/device/pda/warden
 	glasses = /obj/item/clothing/glasses/sunglasses/sechud/head
@@ -212,7 +212,7 @@
 	jobtype = /datum/job/officer
 
 	uniform = /obj/item/clothing/under/rank/security
-	shoes = /obj/item/clothing/shoes/jackboots
+	shoes = /obj/item/clothing/shoes/jackboots/sec
 	l_ear = /obj/item/device/radio/headset/headset_sec
 	pda = /obj/item/device/pda/security
 	l_pocket = /obj/item/device/flash

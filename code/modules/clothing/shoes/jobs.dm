@@ -19,16 +19,11 @@
 	can_hold_knife = 1
 	drop_sound = 'sound/items/drop/boots.ogg'
 
-/obj/item/clothing/shoes/secboots
+/obj/item/clothing/shoes/jackboots/sec
 	name = "security boots"
-	desc = "Placeholder"
+	desc = "A pair of lightweight, yet sturdy, synthleather boots."
 	icon_state = "swat"
 	item_state = "secboots"
-	force = 3
-	armor = list(melee = 30, bullet = 10, laser = 10, energy = 15, bomb = 20, bio = 0, rad = 0)
-	siemens_coefficient = 0.7
-	can_hold_knife = 1
-	drop_sound = 'sound/items/drop/boots.ogg'
 
 /obj/item/clothing/shoes/jackboots/unathi
 	name = "toe-less jackboots"
