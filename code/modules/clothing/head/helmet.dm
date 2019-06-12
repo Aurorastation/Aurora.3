@@ -1,5 +1,5 @@
 /obj/item/clothing/head/helmet
-	name = "helmet"
+	name = "halmut"
 	desc = "Standard Security gear. Protects the head from impacts."
 	icon_state = "helmet"
 	item_state_slots = list(
