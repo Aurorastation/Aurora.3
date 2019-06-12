@@ -29,7 +29,7 @@
 	jobtype = /datum/job/hos
 
 	uniform = /obj/item/clothing/under/rank/head_of_security
-	shoes = /obj/item/clothing/shoes/jackboots
+	shoes = /obj/item/clothing/shoes/secboots
 	l_ear = /obj/item/device/radio/headset/heads/hos
 	pda = /obj/item/device/pda/heads/hos
 	id = /obj/item/weapon/card/id/silver
@@ -55,7 +55,7 @@
 	else if(isunathi(H))
 		H.equip_to_slot_or_del(new /obj/item/clothing/gloves/black/unathi(H), slot_gloves)
 	else
-		H.equip_to_slot_or_del(new /obj/item/clothing/gloves/black(H), slot_gloves)
+		H.equip_to_slot_or_del(new /obj/item/clothing/gloves/black/sec(H), slot_gloves)
 
 
 /datum/job/warden
@@ -79,7 +79,7 @@
 	jobtype = /datum/job/warden
 
 	uniform = /obj/item/clothing/under/rank/warden
-	shoes = /obj/item/clothing/shoes/jackboots
+	shoes = /obj/item/clothing/shoes/secboots
 	l_ear = /obj/item/device/radio/headset/headset_sec
 	pda = /obj/item/device/pda/warden
 	glasses = /obj/item/clothing/glasses/sunglasses/sechud/head
@@ -101,7 +101,7 @@
 	else if(isunathi(H))
 		H.equip_to_slot_or_del(new /obj/item/clothing/gloves/black/unathi(H), slot_gloves)
 	else
-		H.equip_to_slot_or_del(new /obj/item/clothing/gloves/black(H), slot_gloves)
+		H.equip_to_slot_or_del(new /obj/item/clothing/gloves/black/sec(H), slot_gloves)
 
 
 /datum/job/detective
@@ -125,7 +125,7 @@
 	jobtype = /datum/job/detective
 
 	uniform = /obj/item/clothing/under/det
-	shoes = /obj/item/clothing/shoes/laceup
+	shoes = /obj/item/clothing/shoes/laceup/sec
 	l_ear = /obj/item/device/radio/headset/headset_sec
 	pda = /obj/item/device/pda/detective
 
@@ -140,7 +140,7 @@
 	else if(isunathi(H))
 		H.equip_to_slot_or_del(new /obj/item/clothing/gloves/black/unathi(H), slot_gloves)
 	else
-		H.equip_to_slot_or_del(new /obj/item/clothing/gloves/black(H), slot_gloves)
+		H.equip_to_slot_or_del(new /obj/item/clothing/gloves/black/sec(H), slot_gloves)
 
 
 /datum/job/forensics
@@ -166,7 +166,7 @@
 
 	uniform = /obj/item/clothing/under/det/forensics
 	suit = /obj/item/clothing/suit/storage/vest/csi
-	shoes = /obj/item/clothing/shoes/laceup
+	shoes = /obj/item/clothing/shoes/laceup/sec
 	l_ear = /obj/item/device/radio/headset/headset_sec
 	pda = /obj/item/device/pda/detective
 
@@ -181,7 +181,7 @@
 	else if(isunathi(H))
 		H.equip_to_slot_or_del(new /obj/item/clothing/gloves/black/unathi(H), slot_gloves)
 	else
-		H.equip_to_slot_or_del(new /obj/item/clothing/gloves/black(H), slot_gloves)
+		H.equip_to_slot_or_del(new /obj/item/clothing/gloves/black/sec(H), slot_gloves)
 
 
 /datum/outfit/job/forensics/csi
@@ -233,7 +233,7 @@
 	else if(isunathi(H))
 		H.equip_to_slot_or_del(new /obj/item/clothing/gloves/black/unathi(H), slot_gloves)
 	else
-		H.equip_to_slot_or_del(new /obj/item/clothing/gloves/black(H), slot_gloves)
+		H.equip_to_slot_or_del(new /obj/item/clothing/gloves/black/sec(H), slot_gloves)
 
 /datum/job/intern_sec
 	title = "Security Cadet"
