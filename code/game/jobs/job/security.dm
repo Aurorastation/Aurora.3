@@ -252,9 +252,9 @@
 	name = "Security Cadet"
 	jobtype = /datum/job/intern_sec
 
-	uniform = /obj/item/clothing/under/rank/security2
+	uniform = /obj/item/clothing/under/rank/cadet/navy
 	head = /obj/item/clothing/head/beret/sec
-	shoes = /obj/item/clothing/shoes/jackboots
+	shoes = /obj/item/clothing/shoes/jackboots/sec
 	l_ear = /obj/item/device/radio/headset/headset_sec
 
 	backpack = /obj/item/weapon/storage/backpack/security

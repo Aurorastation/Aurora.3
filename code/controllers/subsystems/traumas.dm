@@ -54,7 +54,7 @@ var/datum/controller/subsystem/traumas/SStraumas
 					   "security"  = typecacheof(list(/obj/item/clothing/under/rank/security, /obj/item/clothing/under/rank/warden, /obj/item/clothing/head/beret/sec,
 											 	 /obj/item/clothing/under/rank/head_of_security, /obj/item/clothing/under/det, /obj/item/clothing/glasses/hud/security,
 												 /obj/item/weapon/melee/baton, /obj/item/weapon/gun/energy/taser, /obj/item/weapon/handcuffs, /obj/item/clothing/glasses/sunglasses/sechud,
-												 /obj/machinery/door/airlock/security, /obj/item/clothing/under/rank/security2, /obj/structure/sign/directions/security,
+												 /obj/machinery/door/airlock/security, /obj/item/clothing/under/rank/cadet/navy, /obj/structure/sign/directions/security,
 												 /obj/item/clothing/head/bio_hood/security, /obj/item/clothing/head/bomb_hood/security, /obj/item/clothing/head/helmet/space/void/security,
 												 /obj/item/clothing/head/soft/sec, /obj/item/clothing/suit/armor/vest/security, /obj/item/clothing/suit/bio_suit/security,
 												 /obj/item/clothing/suit/bomb_suit/security, /obj/item/clothing/suit/security/navyofficer, /obj/item/clothing/suit/space/void/security,
