@@ -1230,3 +1230,19 @@
 		E.charge_cost *= 2
 		E.self_recharge = 0
 		E.reliability = 90
+
+/obj/random/animal_crate
+	name = "random animal"
+	desc = "Contains a random crate with some animal."
+	icon = 'icons/obj/storage.dmi'
+	icon_state = "densecrate"
+	spawnlist = list(
+		/obj/structure/largecrate/animal/corgi = 3,
+		/obj/structure/largecrate/animal/cow = 4,
+		/obj/structure/largecrate/animal/goat = 3,
+		/obj/structure/largecrate/animal/cat = 2,
+		/obj/structure/largecrate/animal/chick = 4,
+		/obj/structure/largecrate/animal/adhomai = 0.5,
+		/obj/structure/largecrate/animal/adhomai/fatshouter = 0.5,
+		/obj/structure/largecrate/animal/adhomai/rafama = 0.5
+	)
