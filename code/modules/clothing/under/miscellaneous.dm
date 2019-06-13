@@ -111,7 +111,6 @@
 	name = "ERT civil protection uniform"
 	desc = "A sturdy navy uniform, carefully ironed and folded. Worn by specialist troopers on civil protection duties."
 	icon_state = "civilprotection"
-	item_state = "civilprotection"
 	worn_state = "civilprotection"
 
 /obj/item/clothing/under/rank/centcom_commander
