@@ -1,0 +1,9 @@
+# Your name.  
+author: MoondancerPony
+
+# Optional: Remove this file after generating master changelog.  Useful for PR changelogs that won't get used again.
+delete-after: True
+
+changes: 
+  - tweak: "Ice melts slowly and water freezes slowly."
+  - bugfix: "The Wizard Federation has lifted its Tongue-Scalding Curse from the station's cocktails."
