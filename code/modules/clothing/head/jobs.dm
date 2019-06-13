@@ -88,9 +88,9 @@
 	icon_state = "centcomofficerberet"
 
 /obj/item/clothing/head/beret/centcom/officer/civilprotection
-	name = "placeholder"
-	desc = "placeholder"
-	icon_state = "centcomofficerberet"
+	name = "civil protection beret"
+	desc = "A black beret adorned with the shield - a gold kite shield with an engraved sword - of the NanoTrasen security forces."
+	icon_state = "civilprotection_beret"
 	item_state = "civilprotection_beret"
 
 /obj/item/clothing/head/beret/centcom/captain
