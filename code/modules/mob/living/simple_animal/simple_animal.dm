@@ -104,6 +104,12 @@
 
 	var/flying = FALSE //if they can fly, which stops them from falling down and allows z-space travel
 
+	var/has_udder = FALSE
+	var/datum/reagents/udder = null
+	var/milk_type = "milk"
+
+	var/list/butchering_products	//if anything else is created when butchering this creature, like bones and leather
+
 /mob/living/simple_animal/proc/beg(var/atom/thing, var/atom/holder)
 	visible_emote("gazes longingly at [holder]'s [thing]",0)
 
@@ -140,6 +146,10 @@
 
 	if (can_nap)
 		verbs += /mob/living/simple_animal/lay_down
+
+	if(has_udder)
+		udder = new(50)
+		udder.my_atom = src
 
 /mob/living/simple_animal/Move(NewLoc, direct)
 	. = ..()
@@ -239,6 +249,12 @@
 
 	if(!atmos_suitable)
 		apply_damage(unsuitable_atoms_damage, OXY, used_weapon = "Atmosphere")
+
+	if(has_udder)
+		if(stat == CONSCIOUS)
+			if(udder && prob(5))
+				udder.add_reagent(milk_type, rand(5, 10))
+
 	return 1
 
 /mob/living/simple_animal/think()
@@ -411,6 +427,17 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 	return
 
 /mob/living/simple_animal/attackby(var/obj/item/O, var/mob/user)
+	if(has_udder)
+		var/obj/item/weapon/reagent_containers/glass/G = O
+		if(stat == CONSCIOUS && istype(G) && G.is_open_container())
+			user.visible_message("<span class='notice'>[user] milks [src] using \the [O].</span>")
+			var/transfered = udder.trans_id_to(G, "milk", rand(5,10))
+			if(G.reagents.total_volume >= G.volume)
+				to_chat(user, "<span class='warning'>The [O] is full.</span>")
+			if(!transfered)
+				to_chat(user, "<span class='warning'>The udder is dry.</span>")
+			return
+
 	if(istype(O, /obj/item/weapon/reagent_containers) || istype(O, /obj/item/stack/medical) || istype(O,/obj/item/weapon/gripper/))
 		..()
 		poke()
@@ -546,9 +573,14 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 	var/actual_meat_amount = max(1,(meat_amount*0.75))
 	if(meat_type && actual_meat_amount>0 && (stat == DEAD))
 		for(var/i=0;i<actual_meat_amount;i++)
-			var/obj/item/meat = new meat_type(get_turf(src))
-			if (meat.name == "meat")
-				meat.name = "[src.name] [meat.name]"
+			new meat_type(get_turf(src))
+
+		if(butchering_products)
+			for(var/path in butchering_products)
+				var/number = butchering_products[path]
+				for(var/i in 1 to number)
+					new path(get_turf(src))
+
 		if(issmall(src))
 			user.visible_message("<span class='danger'>[user] chops up \the [src]!</span>")
 			new/obj/effect/decal/cleanable/blood/splatter(get_turf(src))

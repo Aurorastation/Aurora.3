@@ -1015,13 +1015,10 @@
 	glass_desc = "White and nutritious soy goodness!"
 
 /datum/reagent/drink/milk/adhomai
-	name = "Fermented Fatshouters Milk"
-	id = "adhomai_milk"
-	description = "A tajaran made fermented dairy product, traditionally consumed by nomadic population of Adhomai."
-	taste_description = "sour milk"
-
-	glass_name = "glass of fermented fatshouters milk"
-	glass_desc = "A tajaran made fermented dairy product, traditionally consumed by nomadic population of Adhomai."
+	name = "Fatshouters Milk"
+	id = "fatshouter_milk"
+	description = "An opaque white liquid produced by the mammary glands of native adhomian animal."
+	taste_description = "fatty milk"
 
 /datum/reagent/drink/milk/adhomai/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
 	..()
@@ -1029,6 +1026,15 @@
 		var/mob/living/carbon/human/H = M
 		if(alien != IS_TAJARA && prob(5))
 			H.delayed_vomit()
+
+/datum/reagent/drink/milk/adhomai/fermented
+	name = "Fermented Fatshouters Milk"
+	id = "adhomai_milk"
+	description = "A tajaran made fermented dairy product, traditionally consumed by nomadic population of Adhomai."
+	taste_description = "sour milk"
+
+	glass_name = "glass of fermented fatshouters milk"
+	glass_desc = "A tajaran made fermented dairy product, traditionally consumed by nomadic population of Adhomai."
 
 /datum/reagent/drink/milk/beetle
 	name = "Hakhma Milk"

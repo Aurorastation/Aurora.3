@@ -3213,3 +3213,11 @@
 	result = "kois_odyne"
 	result_amount = 3
 	required_reagents = list("tonic" = 1, "koispaste" = 1, "toothpaste" = 1)
+
+/datum/chemical_reaction/adhomai_milk
+	name = "Fermented Fatshouters Milk"
+	id = "adhomai_milk"
+	result = "adhomai_milk"
+	required_reagents = list("fatshouter_milk" = 1)
+	catalysts = list("enzyme" = 5)
+	result_amount = 1
