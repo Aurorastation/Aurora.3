@@ -19,12 +19,6 @@
 	can_hold_knife = 1
 	drop_sound = 'sound/items/drop/boots.ogg'
 
-/obj/item/clothing/shoes/jackboots/sec
-	name = "security boots"
-	desc = "A pair of lightweight, yet sturdy, synthleather boots."
-	icon_state = "swat"
-	item_state = "secboots"
-
 /obj/item/clothing/shoes/jackboots/unathi
 	name = "toe-less jackboots"
 	desc = "Modified pair of jackboots, particularly friendly to those species whose toes hold claws."

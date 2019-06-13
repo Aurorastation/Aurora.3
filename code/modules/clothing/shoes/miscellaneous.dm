@@ -129,12 +129,6 @@
 	desc = "The height of fashion, and they're pre-polished!"
 	icon_state = "laceups"
 
-/obj/item/clothing/shoes/laceup/sec
-	name = "security shoes"
-	desc = "Placeholder"
-	icon_state = "secshoes"
-	item_state = "secshoes"
-
 /obj/item/clothing/shoes/swimmingfins
 	desc = "Help you swim good."
 	name = "swimming fins"
@@ -193,6 +187,14 @@
 	max_heat_protection_temperature = SHOE_MAX_HEAT_PROTECTION_TEMPERATURE
 	armor = list(melee = 10, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 10, rad = 0)
 	siemens_coefficient = 0.9
+	can_hold_knife = 1
+
+/obj/item/clothing/shoes/black_boots
+	name = "black boots"
+	desc = "A pair of tough looking black boots."
+	icon_state = "jackboots"
+	item_state = "blackboots"
+	armor = list(melee = 10, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0, rad = 0)
 	can_hold_knife = 1
 
 /obj/item/clothing/shoes/caligae

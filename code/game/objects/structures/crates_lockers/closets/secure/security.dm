@@ -391,14 +391,14 @@
 
 	fill()
 		//Appearance
-		new /obj/item/clothing/gloves/black/sec(src)
+		new /obj/item/clothing/gloves/black(src)
 		new /obj/item/clothing/suit/storage/forensics/blue(src)
 		new /obj/item/clothing/suit/storage/forensics/red(src)
 		new /obj/item/clothing/suit/storage/vest/csi(src)
 		new /obj/item/clothing/under/det/forensics(src)
 		new /obj/item/clothing/under/det/black(src)
 		new /obj/item/clothing/under/det/classic(src)
-		new /obj/item/clothing/shoes/laceup/sec(src)
+		new /obj/item/clothing/shoes/laceup(src)
 		//Tools
 		new /obj/item/device/radio/headset/headset_sec(src)
 		new /obj/item/weapon/storage/box/evidence(src)

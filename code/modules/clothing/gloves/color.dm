@@ -33,11 +33,6 @@
 	heat_protection = HANDS
 	max_heat_protection_temperature = GLOVES_MAX_HEAT_PROTECTION_TEMPERATURE
 
-/obj/item/clothing/gloves/black/sec
-	name = "security gloves"
-	desc = "A pair of tight fitting black gloves, made from some type of sturdy synthetic fabric. The NT logo is stamped on the wrists."
-	item_state = "secgloves"
-
 /obj/item/clothing/gloves/orange
 	name = "orange gloves"
 	desc = "A pair of gloves, they don't look special in any way."
@@ -202,6 +197,12 @@
 	name = "evening gloves"
 	desc = "A pair of gloves that reach past the elbow."
 	icon_state = "evening_gloves"
+
+/obj/item/clothing/gloves/black_leather
+	name = "black leather gloves"
+	desc = "A pair of tight-fitting synthleather gloves."
+	icon_state = "black_leather"
+	item_state = "black_leather_gloves"
 
 /obj/item/clothing/gloves/fingerless
 	desc = "A pair of gloves that don't actually cover the fingers."
