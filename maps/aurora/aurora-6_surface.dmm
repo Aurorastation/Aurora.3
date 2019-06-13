@@ -12143,6 +12143,12 @@
 /area/maintenance/arrivals)
 "wt" = (
 /obj/structure/closet/wardrobe/xenos,
+/obj/item/clothing/shoes/footwraps,
+/obj/item/clothing/shoes/footwraps,
+/obj/item/clothing/shoes/workboots/toeless,
+/obj/item/clothing/shoes/workboots/toeless,
+/obj/item/clothing/shoes/jackboots/unathi,
+/obj/item/clothing/shoes/jackboots/unathi,
 /turf/simulated/floor/tiled,
 /area/crew_quarters/locker)
 "wu" = (
