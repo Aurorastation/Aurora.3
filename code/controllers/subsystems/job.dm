@@ -15,7 +15,7 @@
 	// Vars.
 	var/list/occupations = list()
 	var/list/name_occupations = list()	//Dict of all jobs, keys are titles
-	var/list/type_occupations = list()	//Dict of all jobs, keys are titles
+	var/list/type_occupations = list()	//Dict of all jobs, keys are types
 	var/list/unassigned = list()
 	var/list/job_debug = list()
 

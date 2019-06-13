@@ -1,48 +1,45 @@
 /datum/faction
 	var/name
 	var/description
+	var/icon_file
 
-	var/list/allowed_role_names
-	var/list/allowed_race_names
+	var/list/allowed_role_types
+	var/list/allowed_species_types
 
 	var/is_default = FALSE
 
 	var/list/titles_to_loadout = list()
 
+/datum/faction/New()
+	var/list/l = list()
+
+	for (var/path in allowed_species_types)
+		if (allowed_species_types[path] != TRUE)
+			l |= typecacheof(path, FALSE)
+		else
+			l[path] = TRUE
+
+	allowed_species_types = l
+
 /datum/faction/proc/get_occupations()
 	. = list()
 
-	for (var/title in allowed_role_names)
-		. += SSjobs.name_occupations[title]
+	for (var/path in allowed_role_types)
+		. += SSjobs.type_occupations[path]
 
 /datum/faction/proc/get_selection_error(datum/preferences/prefs)
-	if (allowed_race_names && !(prefs.species in allowed_race_names))
-		return "Race not allowed."
+	if (!length(allowed_species_types))
+		return null
+
+	var/datum/species/S = prefs.get_species_datum()
+
+	if (!S)
+		return "No valid species selected."
+
+	if (!is_type_in_typecache(S, allowed_species_types))
+		return "Invalid species selected."
 
 	return null
 
 /datum/faction/proc/can_select(datum/preferences/prefs)
 	return !get_selection_error(prefs)
-
-/datum/faction/nano_trasen
-	name = "NanoTrasen"
-	description = "Your lord and saviour."
-	is_default = TRUE
-
-/datum/faction/nano_trasen/New()
-	..()
-
-	allowed_role_names = list()
-
-	for (var/datum/job/job in SSjobs.occupations)
-		allowed_role_names += job.title
-
-/datum/faction/einstein_engines
-	name = "Einstein Engines"
-	description = "Nikola Tesla is great."
-	allowed_role_names = list("Station Engineer", "Atmospheric Technician")
-
-/datum/faction/ncropolis
-	name = "Necropolis"
-	description = "OW THE FUCKING EDGE"
-	allowed_role_names = list("Security Cadet", "Security Officer")
