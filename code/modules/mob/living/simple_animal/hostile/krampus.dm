@@ -121,10 +121,10 @@
 
 /mob/living/simple_animal/hostile/gift
 	name = "christmas gift"
-	desc = "PRESENTS!!!! eek!"
+	desc = "PRESENTS!!!!...OH SHIT!"
 	icon = 'icons/obj/items.dmi'
-	icon_state = "gift1"
-	icon_living = "gift1"
+	icon_state = "gift1_evil"
+	icon_living = "gift1_evil"
 	icon_dead = "gift1"
 
 	response_help = "touches"
@@ -164,8 +164,8 @@
 	switch(size)
 
 		if("medium")
-			icon_state = "gift2"
-			icon_living = "gift2"
+			icon_state = "gift2_evil"
+			icon_living = "gift2_evil"
 			icon_dead = "gift2"
 			maxHealth = 100
 			health = 100
@@ -173,8 +173,8 @@
 			melee_damage_upper = 10
 
 		if("big")
-			icon_state = "gift3"
-			icon_living = "gift3"
+			icon_state = "gift3_evil"
+			icon_living = "gift3_evil"
 			icon_dead = "gift3"
 			maxHealth = 150
 			health = 150

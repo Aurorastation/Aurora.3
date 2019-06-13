@@ -324,7 +324,7 @@
 /obj/item/weapon/gun/energy/vaurca/typec
 	name = "thermal lance"
 	desc = "A powerful piece of Zo'rane energy artillery, converted to be portable...if you weigh a metric tonne, that is."
-	icon = 'icons/mob/species/breeder/inventory/items.dmi'
+	icon = 'icons/mob/species/breeder/inventory.dmi'
 	icon_state = "megaglaive0"
 	item_state = "megaglaive"
 	item_icons = list(//DEPRECATED. USE CONTAINED SPRITES IN FUTURE
@@ -570,6 +570,13 @@
 	fire_delay = 10
 	accuracy = 80
 	muzzle_flash = 15
+
+/obj/item/weapon/gun/energy/tesla/mounted
+	name = "mounted tesla carbine"
+	self_recharge = 1
+	use_external_power = 1
+	recharge_time = 10
+	can_turret = 0
 
 /obj/item/weapon/gun/energy/gravity_gun
 	name = "gravity gun"

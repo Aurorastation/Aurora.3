@@ -22,6 +22,9 @@
 	max_shots = 6
 	recharge_time = 10 //Time it takes for shots to recharge (in ticks)
 
+/obj/item/weapon/gun/energy/taser/mounted/cyborg/overclocked
+	max_shots = 20
+	recharge_time = 1
 
 /obj/item/weapon/gun/energy/stunrevolver
 	name = "stun revolver"
