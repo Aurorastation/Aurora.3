@@ -317,23 +317,9 @@
 		/obj/item/toy/plushie/kitten,
 		/obj/item/toy/plushie/lizard,
 		/obj/item/toy/plushie/farwa,
+		/obj/item/toy/plushie/squid,
 		/obj/item/toy/plushie/bear,
-		/obj/item/toy/plushie/bearfire,
-		/obj/random/squid_plushie
-	)
-
-/obj/random/squid_plushie
-	name = "random squid plushie"
-	desc = "This is a random squid plushie."
-	icon = 'icons/obj/toy.dmi'
-	icon_state = "greensquid"
-	spawnlist = list(
-		/obj/item/toy/plushie/squid/green,
-		/obj/item/toy/plushie/squid/mint,
-		/obj/item/toy/plushie/squid/blue,
-		/obj/item/toy/plushie/squid/orange,
-		/obj/item/toy/plushie/squid/yellow,
-		/obj/item/toy/plushie/squid/pink
+		/obj/item/toy/plushie/bearfire
 	)
 
 /obj/random/smalltank
