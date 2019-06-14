@@ -309,7 +309,7 @@
 
 	uniform = /obj/item/clothing/under/soviet
 	shoes = /obj/item/clothing/shoes/black
-	head = /obj/item/clothing/head/ushanka
+	head = /obj/item/clothing/head/ushanka/grey
 
 
 /datum/outfit/admin/sovietsoldier

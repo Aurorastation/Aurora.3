@@ -109,13 +109,22 @@
 	..()
 	gear_tweaks = list(gear_tweak_free_color_choice)
 
-/datum/gear/suit/trenchcoat
-	display_name = "trenchcoat, brown"
+
+
+/datum/gear/suit/trenchcoats
+	display_name = "trenchcoat selection"
+	description = "A selection of trenchcoats."
 	path = /obj/item/clothing/suit/storage/toggle/trench
 
-/datum/gear/suit/trenchcoatgrey
-	display_name = "trenchcoat, grey"
-	path = /obj/item/clothing/suit/storage/toggle/trench/grey
+/datum/gear/suit/trenchcoats/New()
+	..()
+	var/coat = list()
+	coat["trenchcoat, brown"] = /obj/item/clothing/suit/storage/toggle/trench
+	coat["trenchcoat, grey"] = /obj/item/clothing/suit/storage/toggle/trench/grey
+	coat["trenchcoat, modern brown"] = /obj/item/clothing/suit/storage/toggle/trench/modern_brown
+	coat["trenchcoat, modern grey"] = /obj/item/clothing/suit/storage/toggle/trench/modern_grey
+	gear_tweaks += new/datum/gear_tweak/path(coat)
+
 
 /datum/gear/suit/det_trenchcoat
 	display_name = "detective trenchcoat selection"
@@ -130,6 +139,7 @@
 	coat["black trenchcoat (Detective)"] = /obj/item/clothing/suit/storage/toggle/det_trench/black
 	coat["technicolor trenchcoat (Detective)"] = /obj/item/clothing/suit/storage/toggle/det_trench/technicolor
 	gear_tweaks += new/datum/gear_tweak/path(coat)
+
 
 /datum/gear/suit/ian
 	display_name = "worn shirt"

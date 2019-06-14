@@ -347,7 +347,7 @@
 
 /obj/item/clothing/suit/storage/toggle/trench/modern_brown
 	name = "brown trenchcoat"
-	desc = "A sleek modern trenchcoat"
+	desc = "A sleek canvas trenchcoat"
 	icon_state = "trenchcoat_brown"
 	item_state = "trenchcoat_brown"
 	icon_open = "trenchcoat_brown_open"
@@ -355,7 +355,7 @@
 
 /obj/item/clothing/suit/storage/toggle/trench/modern_grey
 	name = "grey trenchcoat"
-	desc = "A sleek modern trenchcoat"
+	desc = "A sleek canvas trenchcoat"
 	icon_state = "trenchcoat_grey"
 	item_state = "trenchcoat_grey"
 	icon_open = "trenchcoat_grey_open"
