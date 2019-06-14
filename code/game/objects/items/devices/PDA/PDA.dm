@@ -1263,23 +1263,6 @@ var/global/list/obj/item/device/pda/PDAs = list()
 	if(user)
 		to_chat(user, "<span class='notice'>Card scanned.</span>")
 	try_sort_pda_list()
-
-/obj/item/device/pda/proc/calcDamage(var/DMGValue)
-	switch(DMGValue)
-		if (0 to 1)
-			return "Healthy"
-		if (1 to 10)
-			return "Negligible"
-		if (10 to 25)
-			return "Minor"
-		if (25 to 50)
-			return "Moderate"
-		if (50 to 75)
-			return "Major"
-		if (75 to 200)
-			return "Critical"
-		if (200 to INFINITY)
-			return "Fatal"
 		
 /obj/item/device/pda/attack(mob/living/C as mob, mob/living/user as mob)
 	if (istype(C, /mob/living/carbon))
