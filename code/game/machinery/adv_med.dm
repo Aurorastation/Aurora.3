@@ -30,6 +30,10 @@
 	idle_power_usage = 60
 	active_power_usage = 10000	//10 kW. It's a big all-body scanner.
 
+/obj/machinery/bodyscanner/Initialize()
+	. = ..()
+	update_icon()
+
 /obj/machinery/bodyscanner/Destroy()
 	// So the GC can qdel this.
 	if (connected)
