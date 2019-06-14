@@ -1,6 +1,6 @@
 /obj/item/clothing/head/soft
-	name = "dunce cap"
-	desc = "It's a peaked cap in a tasteless yellow color, reserved for dunces that weren't smart enough to work anywhere else on Aurora."
+	name = "cargo cap"
+	desc = "It's a peaked cap in a tasteless yellow color."
 	icon_state = "cargosoft"
 	item_state_slots = list(
 		slot_l_hand_str = "helmet", //probably a placeholder
