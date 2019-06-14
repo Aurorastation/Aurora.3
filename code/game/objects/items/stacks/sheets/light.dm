@@ -24,8 +24,8 @@
 	else if(istype(O, /obj/item/weapon/wirecutters))
 		user.drop_from_inventory(O,get_turf(src))
 		to_chat(user, "<span class='notice'>You detach the wire from the [name].</span>")
-		new /obj/item/stack/cable_coil(user.loc)
-		new /obj/item/stack/material/glass(user.loc)
+		new /obj/item/stack/cable_coil(user.loc, 5)
+		new /obj/item/stack/material/glass(user.loc, 1)
 		use(1)
 	else
 		return ..()
