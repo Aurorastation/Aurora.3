@@ -400,6 +400,13 @@
 	icon_badge = "csivest_badge"
 	icon_nobadge = "csivest_nobadge"
 
+/obj/item/clothing/suit/storage/vest/cadet
+	name = "cadet hazard vest"
+	desc = "A sturdy high-visibility vest intended for in training security personnel."
+	icon_state = "hazard_cadet"
+	item_state = "hazard_cadet"
+	armor = list(melee = 10, bullet = 0, laser = 10, energy = 10, bomb = 10, bio = 0, rad = 0)
+
 /obj/item/clothing/suit/storage/vest/heavy
 	name = "heavy armor vest"
 	desc = "A heavy kevlar plate carrier with webbing attached."

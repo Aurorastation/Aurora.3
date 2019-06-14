@@ -165,7 +165,6 @@
 	jobtype = /datum/job/forensics
 
 	uniform = /obj/item/clothing/under/det/forensics
-	suit = /obj/item/clothing/suit/storage/vest/csi
 	shoes = /obj/item/clothing/shoes/laceup
 	l_ear = /obj/item/device/radio/headset/headset_sec
 	pda = /obj/item/device/pda/detective
@@ -252,7 +251,8 @@
 	name = "Security Cadet"
 	jobtype = /datum/job/intern_sec
 
-	uniform = /obj/item/clothing/under/rank/cadet/navy
+	uniform = /obj/item/clothing/under/rank/cadet
+	suit = /obj/item/clothing/suit/storage/vest/cadet
 	head = /obj/item/clothing/head/beret/sec
 	shoes = /obj/item/clothing/shoes/jackboots
 	l_ear = /obj/item/device/radio/headset/headset_sec

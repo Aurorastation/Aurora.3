@@ -16,7 +16,7 @@
 	new /obj/item/clothing/under/rank/security(src)
 	new /obj/item/clothing/under/rank/cadet(src)
 	new /obj/item/clothing/under/rank/cadet(src)
-	new /obj/item/clothing/under/rank/cadet/navy(src)
+	new /obj/item/clothing/under/rank/cadet(src)
 	new /obj/item/clothing/shoes/jackboots(src)
 	new /obj/item/clothing/shoes/jackboots(src)
 	new /obj/item/clothing/shoes/jackboots(src)

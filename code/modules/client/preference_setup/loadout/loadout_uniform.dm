@@ -143,11 +143,6 @@
 	..()
 	gear_tweaks = list(gear_tweak_free_color_choice)
 
-/datum/gear/uniform/corpsecsuit
-	display_name = "uniform, corporate (Security)"
-	path = /obj/item/clothing/under/rank/security/corp
-	allowed_roles = list("Security Officer", "Head of Security", "Warden", "Security Cadet")
-
 /datum/gear/uniform/uniform_hop
 	display_name = "uniform, HoP dress"
 	path = /obj/item/clothing/under/dress/dress_hop
@@ -262,3 +257,38 @@
 	uniform["Einstein Engines uniform"] = /obj/item/clothing/under/rank/einstein_engines
 	uniform["Zeng-Hu Pharmaceuticals uniform"] = /obj/item/clothing/under/rank/zeng
 	gear_tweaks += new/datum/gear_tweak/path(uniform)
+
+/datum/gear/uniform/officer
+	display_name = "uniforms, (Security Officer)"
+	description = "A selection of officer uniforms."
+	path = /obj/item/clothing/under/rank/security
+	allowed_roles = list("Security Officer")
+
+/datum/gear/uniform/officer/New()
+	..()
+	var/uniform = list()
+	uniform["officer uniform, standard"] = /obj/item/clothing/under/rank/security
+	uniform["officer uniform, corporate"] = /obj/item/clothing/under/rank/security/corp
+	uniform["officer uniform, blue"] = /obj/item/clothing/under/rank/security/blue
+	gear_tweaks += new/datum/gear_tweak/path(uniform)
+
+
+/datum/gear/uniform/warden
+	display_name = "uniforms, (Warden)"
+	description = "A selection of Warden uniforms."
+	path = /obj/item/clothing/under/rank/warden
+	allowed_roles = list("Warden")
+
+/datum/gear/uniform/warden/New()
+	..()
+	var/uniform = list()
+	uniform["warden uniform, standard"] = /obj/item/clothing/under/rank/warden
+	uniform["warden uniform, corporate"] = /obj/item/clothing/under/rank/warden/corp
+	uniform["warden uniform, dark blue"] = /obj/item/clothing/under/rank/warden/dark_blue
+	gear_tweaks += new/datum/gear_tweak/path(uniform)
+
+
+/datum/gear/uniform/hos
+	display_name = "uniform, corporate (Head of Security)"
+	path = /obj/item/clothing/under/rank/head_of_security/corp
+	allowed_roles = list("Head of Security")
