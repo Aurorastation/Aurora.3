@@ -25512,6 +25512,16 @@
 	},
 /turf/simulated/floor/tiled,
 /area/rnd/storage)
+"bdO" = (
+/obj/effect/floor_decal/industrial/warning/dust{
+	icon_state = "warning_dust";
+	dir = 4
+	},
+/obj/random/junk,
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
+/area/mine/unexplored)
 "bey" = (
 /obj/effect/floor_decal/industrial/warning/dust{
 	icon_state = "warning_dust";
@@ -27569,14 +27579,6 @@
 "bFN" = (
 /turf/simulated/wall/r_wall,
 /area/medical/patient_wing_picnic)
-"bKr" = (
-/obj/effect/floor_decal/industrial/warning/dust,
-/obj/machinery/light/small/emergency,
-/obj/random/junk,
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/mine/unexplored)
 "bTg" = (
 /turf/simulated/floor/wood,
 /area/medical/patient_wing_library)
@@ -27626,6 +27628,12 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology/xenoflora_hazard)
+"caL" = (
+/obj/machinery/light/small/emergency{
+	dir = 1
+	},
+/turf/unsimulated/floor/asteroid/ash/rocky,
+/area/mine/unexplored)
 "cbH" = (
 /obj/machinery/atmospherics/portables_connector{
 	dir = 4
@@ -27816,6 +27824,19 @@
 	},
 /turf/simulated/floor/plating,
 /area/rnd/xenoarch_atrium)
+"cRX" = (
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/obj/structure/cable{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/turf/simulated/floor/plating,
+/area/outpost/engineering/power)
 "cVf" = (
 /obj/effect/floor_decal/corner/red{
 	icon_state = "corner_white";
@@ -28446,7 +28467,7 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/patient_wing_post1)
-"emO" = (
+"eop" = (
 /obj/effect/floor_decal/industrial/warning/dust{
 	icon_state = "warning_dust";
 	dir = 5
@@ -28548,9 +28569,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/rnd/test_range)
-"eLQ" = (
-/turf/unsimulated/chasm_mask,
-/area/maintenance/engsublevel)
 "eRY" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -29066,12 +29084,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/patient_wing_post1)
-"gvm" = (
-/obj/machinery/light/small/emergency{
-	dir = 1
-	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
-/area/mine/unexplored)
 "gyi" = (
 /obj/structure/bed/chair{
 	dir = 8
@@ -29253,16 +29265,6 @@
 /obj/item/device/flashlight/lamp,
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenoarch_atrium)
-"hsf" = (
-/obj/effect/floor_decal/industrial/warning/dust{
-	icon_state = "warning_dust";
-	dir = 4
-	},
-/obj/random/junk,
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/mine/unexplored)
 "hwN" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -29304,6 +29306,10 @@
 	temperature = 278
 	},
 /area/medical/quarantineautopsy)
+"hFN" = (
+/obj/structure/disposalpipe/segment,
+/turf/simulated/wall/r_wall,
+/area/maintenance/research_xenobiology)
 "hHy" = (
 /obj/structure/table/wood,
 /turf/simulated/floor/beach/sand,
@@ -29486,17 +29492,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/patient_wing_gym)
-"ihO" = (
-/obj/machinery/light/small/emergency,
-/turf/unsimulated/floor/asteroid/ash/rocky,
-/area/mine/unexplored)
-"iie" = (
-/obj/effect/floor_decal/corner/white/diagonal,
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/turf/simulated/floor/tiled,
-/area/outpost/engineering/meeting)
 "ipg" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/hologram/holopad,
@@ -29513,6 +29508,19 @@
 	},
 /turf/simulated/floor/tiled,
 /area/rnd/xenoarch_atrium)
+"iyY" = (
+/obj/effect/floor_decal/industrial/warning/dust{
+	icon_state = "warning_dust";
+	dir = 1
+	},
+/obj/structure/disposaloutlet,
+/obj/structure/disposalpipe/trunk{
+	dir = 1
+	},
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
+/area/mine/unexplored)
 "iFn" = (
 /obj/machinery/door/firedoor,
 /obj/structure/disposalpipe/segment,
@@ -29541,16 +29549,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/medical/quarantineaccess)
-"iFQ" = (
-/obj/effect/floor_decal/industrial/warning/dust{
-	icon_state = "warning_dust";
-	dir = 6
-	},
-/obj/effect/decal/cleanable/blood,
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/mine/unexplored)
 "iOl" = (
 /turf/simulated/wall/r_wall,
 /area/rnd/xenobiology/xenoflora_hazard)
@@ -29639,6 +29637,16 @@
 	temperature = 278
 	},
 /area/medical/quarantineautopsy)
+"iVX" = (
+/obj/effect/floor_decal/industrial/warning/dust{
+	icon_state = "warning_dust";
+	dir = 9
+	},
+/obj/random/junk,
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
+/area/mine/unexplored)
 "jbg" = (
 /obj/structure/table/rack,
 /obj/item/stack/rods{
@@ -30290,12 +30298,6 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/tiled/dark,
 /area/rnd/isolation_c)
-"lCQ" = (
-/obj/machinery/light/small/emergency{
-	dir = 8
-	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
-/area/mine/unexplored)
 "lDM" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /obj/effect/floor_decal/corner/pink/full{
@@ -30422,6 +30424,13 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/medsublevel)
+"mbs" = (
+/obj/effect/floor_decal/corner/white/diagonal,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/outpost/engineering/meeting)
 "mgV" = (
 /obj/structure/sign/biohazard{
 	pixel_x = -32
@@ -30538,17 +30547,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/rnd/xenobiology/xenoflora_hazard)
-"mqU" = (
-/obj/effect/floor_decal/industrial/warning/dust{
-	icon_state = "warning_dust";
-	dir = 10
-	},
-/obj/random/coin,
-/obj/effect/decal/cleanable/blood/drip,
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/mine/unexplored)
 "mrR" = (
 /obj/effect/floor_decal/corner/white/diagonal,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -30811,6 +30809,11 @@
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology/xenoflora_hazard)
+"nfn" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/cyan,
+/obj/structure/disposalpipe/segment,
+/turf/simulated/floor/plating,
+/area/maintenance/research_xenobiology)
 "ngr" = (
 /obj/structure/table/standard,
 /obj/effect/floor_decal/corner/red{
@@ -31471,17 +31474,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology/xenoflora_hazard)
-"pwn" = (
-/obj/effect/floor_decal/industrial/warning/dust{
-	icon_state = "warning_dust";
-	dir = 8
-	},
-/obj/effect/decal/remains/xeno,
-/obj/effect/decal/cleanable/blood,
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/mine/unexplored)
 "pCk" = (
 /obj/machinery/door/firedoor,
 /obj/structure/grille,
@@ -31560,19 +31552,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/isolation_b)
-"pLF" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 4;
-	icon_state = "1-4"
-	},
-/obj/structure/cable{
-	d1 = 2;
-	d2 = 4;
-	icon_state = "2-4"
-	},
-/turf/simulated/floor/plating,
-/area/outpost/engineering/power)
 "pPI" = (
 /obj/effect/floor_decal/corner/red/full{
 	icon_state = "corner_white_full";
@@ -31606,6 +31585,17 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/patient_wing_hallway)
+"pQW" = (
+/obj/effect/floor_decal/industrial/warning/dust{
+	icon_state = "warning_dust";
+	dir = 10
+	},
+/obj/random/coin,
+/obj/effect/decal/cleanable/blood/drip,
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
+/area/mine/unexplored)
 "pUK" = (
 /obj/effect/floor_decal/corner/red/full{
 	icon_state = "corner_white_full";
@@ -31646,6 +31636,17 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/medical/quarantineaccess)
+"pWN" = (
+/obj/effect/floor_decal/industrial/warning/dust{
+	icon_state = "warning_dust";
+	dir = 8
+	},
+/obj/effect/decal/remains/xeno,
+/obj/effect/decal/cleanable/blood,
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
+/area/mine/unexplored)
 "qax" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled,
@@ -31801,22 +31802,10 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/outpost/research/hallway)
-"qtR" = (
-/obj/machinery/light/small/emergency{
-	icon_state = "bulb1";
-	dir = 4
-	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
-/area/mine/unexplored)
 "qtU" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/maintenance/medsublevel)
-"quA" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/cyan,
-/obj/structure/disposalpipe/segment,
-/turf/simulated/floor/plating,
-/area/maintenance/research_xenobiology)
 "qDr" = (
 /obj/effect/floor_decal/corner/mauve{
 	icon_state = "corner_white";
@@ -32336,6 +32325,12 @@
 	},
 /turf/simulated/floor/wood,
 /area/medical/patient_d)
+"sJn" = (
+/obj/machinery/light/small/emergency{
+	dir = 8
+	},
+/turf/unsimulated/floor/asteroid/ash/rocky,
+/area/mine/unexplored)
 "sOK" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
@@ -32366,6 +32361,10 @@
 	roof_type = null
 	},
 /area/maintenance/engsublevel)
+"sUG" = (
+/obj/machinery/light/small/emergency,
+/turf/unsimulated/floor/asteroid/ash/rocky,
+/area/mine/unexplored)
 "sXz" = (
 /turf/simulated/wall/r_wall,
 /area/maintenance/medsublevel)
@@ -32379,17 +32378,6 @@
 	icon_state = "asteroidplating"
 	},
 /area/mine/unexplored)
-"sZb" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/cyan{
-	icon_state = "intact";
-	dir = 4
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 2;
-	icon_state = "pipe-c"
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/research_xenobiology)
 "tap" = (
 /obj/structure/disposalpipe/segment,
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
@@ -32531,19 +32519,6 @@
 /obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor/plating,
 /area/rnd/xenoarch_atrium)
-"tyg" = (
-/obj/effect/floor_decal/industrial/warning/dust{
-	icon_state = "warning_dust";
-	dir = 1
-	},
-/obj/structure/disposaloutlet,
-/obj/structure/disposalpipe/trunk{
-	dir = 1
-	},
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/mine/unexplored)
 "tCp" = (
 /obj/structure/weightlifter,
 /obj/structure/cable/green{
@@ -32971,16 +32946,6 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/maintenance/medsublevel)
-"uHs" = (
-/obj/effect/floor_decal/industrial/warning/dust{
-	icon_state = "warning_dust";
-	dir = 9
-	},
-/obj/random/junk,
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/mine/unexplored)
 "uMH" = (
 /obj/effect/floor_decal/corner/green{
 	icon_state = "corner_white";
@@ -33105,6 +33070,14 @@
 /obj/machinery/atmospherics/pipe/simple/visible/yellow,
 /turf/simulated/floor/tiled,
 /area/rnd/xenoarch_atrium)
+"vaI" = (
+/obj/effect/floor_decal/industrial/warning/dust,
+/obj/machinery/light/small/emergency,
+/obj/random/junk,
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
+/area/mine/unexplored)
 "vdr" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/cable{
@@ -33297,10 +33270,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenoarch_atrium)
-"vRP" = (
-/obj/structure/disposalpipe/segment,
-/turf/simulated/wall/r_wall,
-/area/maintenance/research_xenobiology)
 "vRZ" = (
 /obj/effect/floor_decal/corner/mauve{
 	icon_state = "corner_white";
@@ -33371,6 +33340,16 @@
 	},
 /turf/simulated/floor/plating,
 /area/rnd/isolation_a)
+"vYq" = (
+/obj/effect/floor_decal/industrial/warning/dust{
+	icon_state = "warning_dust";
+	dir = 6
+	},
+/obj/effect/decal/cleanable/blood,
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
+/area/mine/unexplored)
 "vZM" = (
 /obj/structure/cable/green{
 	d1 = 4;
@@ -33968,6 +33947,13 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology/xenoflora)
+"xDP" = (
+/obj/machinery/light/small/emergency{
+	icon_state = "bulb1";
+	dir = 4
+	},
+/turf/unsimulated/floor/asteroid/ash/rocky,
+/area/mine/unexplored)
 "xFp" = (
 /obj/effect/floor_decal/corner/red{
 	icon_state = "corner_white";
@@ -34077,6 +34063,17 @@
 	},
 /turf/simulated/floor/beach/water/pool,
 /area/medical/patient_wing_gym)
+"xNa" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/cyan{
+	icon_state = "intact";
+	dir = 4
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 2;
+	icon_state = "pipe-c"
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/research_xenobiology)
 "xPQ" = (
 /obj/structure/window/reinforced{
 	icon_state = "rwindow";
@@ -46707,7 +46704,7 @@ afR
 abJ
 agI
 adf
-pLF
+cRX
 adf
 afl
 abJ
@@ -47732,7 +47729,7 @@ adX
 aeF
 afo
 adZ
-iie
+mbs
 agM
 ahh
 ahH
@@ -56233,9 +56230,9 @@ alB
 alB
 amt
 akx
-eLQ
-eLQ
-eLQ
+aaa
+aaa
+aaa
 aaa
 aaa
 aaa
@@ -56490,9 +56487,9 @@ akx
 akx
 akx
 akx
-eLQ
-eLQ
-eLQ
+aaa
+aaa
+aaa
 aaa
 aaa
 aaa
@@ -56747,9 +56744,9 @@ aaa
 aaa
 aaa
 aaa
-eLQ
-eLQ
-eLQ
+aaa
+aaa
+aaa
 aaa
 aaa
 aaa
@@ -57004,9 +57001,9 @@ aaa
 aaa
 aaa
 aaa
-eLQ
-eLQ
-eLQ
+aaa
+aaa
+aaa
 aaa
 aaa
 aaa
@@ -57062,18 +57059,18 @@ aRr
 apc
 aTb
 aTJ
-quA
-quA
-quA
+nfn
+nfn
+nfn
 aWP
-quA
+nfn
 aXW
-quA
+nfn
 aYN
 aFW
-uHs
-pwn
-mqU
+iVX
+pWN
+pQW
 ale
 ale
 ale
@@ -57261,9 +57258,9 @@ aaa
 aaa
 aaa
 aaa
-eLQ
-eLQ
-eLQ
+aaa
+aaa
+aaa
 aaa
 aaa
 aaa
@@ -57326,11 +57323,11 @@ aFV
 aFV
 aFV
 aJW
-sZb
-vRP
-tyg
+xNa
+hFN
+iyY
 ebn
-bKr
+vaI
 akG
 ale
 aba
@@ -57518,9 +57515,9 @@ aaa
 aaa
 aaa
 aaa
-eLQ
-eLQ
-eLQ
+aaa
+aaa
+aaa
 aaa
 aaa
 aba
@@ -57585,9 +57582,9 @@ aXX
 aXX
 aUR
 aFW
-emO
-hsf
-iFQ
+eop
+bdO
+vYq
 ale
 ale
 aba
@@ -57775,9 +57772,9 @@ aaa
 aaa
 aaa
 aaa
-eLQ
-eLQ
-eLQ
+aaa
+aaa
+aaa
 aaa
 aaa
 aba
@@ -58032,9 +58029,9 @@ aaa
 aaa
 aaa
 aaa
-eLQ
-eLQ
-eLQ
+aaa
+aaa
+aaa
 aaa
 aaa
 aba
@@ -58289,9 +58286,9 @@ aaa
 aaa
 aaa
 aaa
-eLQ
-eLQ
-eLQ
+aaa
+aaa
+aaa
 aaa
 aaa
 aba
@@ -58546,9 +58543,9 @@ aaa
 aaa
 aaa
 aaa
-eLQ
-eLQ
-eLQ
+aaa
+aaa
+aaa
 aaa
 aaa
 aba
@@ -58803,9 +58800,9 @@ aaa
 aaa
 aaa
 aaa
-eLQ
-eLQ
-eLQ
+aaa
+aaa
+aaa
 aaa
 aaa
 aba
@@ -65705,7 +65702,7 @@ aaa
 aba
 aba
 aba
-lCQ
+sJn
 aba
 aba
 aba
@@ -66217,11 +66214,11 @@ aaa
 aaa
 aaa
 akG
-gvm
+caL
 aba
 aba
 aba
-ihO
+sUG
 akG
 aaa
 aaa
@@ -66733,7 +66730,7 @@ aaa
 aaa
 aba
 aba
-qtR
+xDP
 aba
 aba
 aba
