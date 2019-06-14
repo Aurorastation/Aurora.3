@@ -42,3 +42,4 @@ changes:
   - maptweak: "Toeless workboots were added to engineering lockers. Workboots, Jackboots, and Cloth Footwraps were also added to the Xeno Wardrobe on the Surface."
   - maptweak: "Wires in Tesla Bay were changed slightly to prevent an annoying power alarm when the Tesla isn't set up."
   - maptweak: "Added two more maglights, crowbars, and radios to the Security equipment room so Cadets and Officers don't need to fight over them."
+  - maptweak: "The window into space in the Atmospherics port station has been replaced with a wall so such a huge area doesn't always get vented due to carp."
