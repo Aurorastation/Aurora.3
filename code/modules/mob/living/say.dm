@@ -161,6 +161,11 @@ proc/get_radio_key_from_channel(var/channel)
 
 	var/message_mode = parse_message_mode(message, "headset")
 
+	var/ending = copytext(message, length(message), (length(message) + 1))
+
+	if(ending && ending != "!" && ending != "." && ending != "?" && ending != "-" && ending != "~" && ending != "*" && ending != "/") //Check * and / for markup.
+		message += "."
+
 	message = process_chat_markup(message, list("~", "_"))
 
 	switch(copytext(message,1,2))
@@ -175,10 +180,6 @@ proc/get_radio_key_from_channel(var/channel)
 			message = copytext(message,3)
 
 	message = trim_left(message)
-
-	var/ending = copytext(message, length(message), (length(message) + 1))
-	if(ending != "!" && ending != "." && ending != "?" && ending != "-")
-		message += "."
 
 	//parse the language code and consume it
 	if(!speaking)
