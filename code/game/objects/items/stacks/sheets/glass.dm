@@ -30,7 +30,7 @@
 		if(W.iscoil())
 			var/obj/item/stack/cable_coil/CC = W
 			if (get_amount() < 1 || CC.get_amount() < 5)
-				to_chat(user, "<span class='warning'>You need five lengths of coil and one sheet of glass to make wired glass.</span>")
+				to_chat(user, "<span class='warning'>You need five lengths of coil and one sheet of [name] to make wired [name].</span>")
 				return
 			else
 				var/obj/item/stack/light_w/LW = new (user.loc)
@@ -49,7 +49,7 @@
 		else if(istype(W, /obj/item/stack/rods))
 			var/obj/item/stack/rods/V  = W
 			if (V.get_amount() < 1 || get_amount() < 1)
-				to_chat(user, "<span class='warning'>You need one rod and one sheet of glass to make reinforced glass.</span>")
+				to_chat(user, "<span class='warning'>You need one rod and one sheet of [name] to make reinforced [name].</span>")
 				return
 			else
 				var/obj/item/stack/material/glass/reinforced/RG = new (user.loc)
