@@ -254,9 +254,11 @@
 		var/obj/item/device/flash/flash = new(H)
 		var/obj/item/ammo_magazine/c45x/mag1 = new(H)
 		var/obj/item/ammo_magazine/c45x/mag2 = new(H)
+		var/obj/item/ammo_magazine/c45x/mag3 = new(H)
 
 		H.belt.contents += mag1
 		H.belt.contents += mag2
+		H.belt.contents += mag3
 		H.belt.contents += gasgrenade
 		H.belt.contents += pepperspray
 		H.belt.contents += flash
