@@ -1,0 +1,7 @@
+author: MattAtlas
+
+delete-after: True
+
+changes: 
+  - bugfix: "Autopunctuation will no longer autopunctuate if markup (* or /) is present at the end of the sentence."
+  - bugfix: "Autopunctuation will no longer send a period if you input an empty chat box."
