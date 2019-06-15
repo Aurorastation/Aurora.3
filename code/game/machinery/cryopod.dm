@@ -193,6 +193,7 @@
 /obj/machinery/cryopod/update_icon()
 	if (occupant)
 		icon_state = "[initial(icon_state)]-closed"
+		return
 	else
 		icon_state = initial(icon_state)
 
@@ -200,7 +201,7 @@
 	name = "robotic storage unit"
 	desc = "A storage unit for robots."
 	icon = 'icons/obj/robot_storage.dmi'
-	icon_state = "pod_0"
+	icon_state = "pod"
 	on_store_message = "has entered robotic storage."
 	on_store_name = "Robotic Storage Oversight"
 	on_enter_occupant_message = "The storage unit broadcasts a sleep signal to you. Your systems start to shut down, and you enter low-power mode."
