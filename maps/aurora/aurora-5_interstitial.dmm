@@ -5657,7 +5657,9 @@
 /area/medical/psych)
 "kc" = (
 /obj/effect/floor_decal/industrial/warning/full,
-/obj/machinery/chakrapod,
+/obj/machinery/chakrapod{
+	dir = 8
+	},
 /turf/simulated/floor/plating,
 /area/medical/psych)
 "kd" = (
