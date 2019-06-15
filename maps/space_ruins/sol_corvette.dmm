@@ -470,12 +470,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
-"bH" = (
-/obj/effect/landmark{
-	name = "Observer-Start"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/derelict/ship)
 "bI" = (
 /obj/structure/window/reinforced{
 	icon_state = "rwindow";
@@ -28614,7 +28608,7 @@ ba
 am
 az
 am
-bH
+am
 bJ
 bN
 ba
