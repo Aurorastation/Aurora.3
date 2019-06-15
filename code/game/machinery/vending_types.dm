@@ -279,7 +279,7 @@
 	)
 	premium = list(
 		/obj/item/weapon/storage/fancy/cigar = 5,
-		/obj/item/weapon/storage/fancy/cigarettes/killthroat = 5
+		/obj/item/weapon/storage/fancy/cigarettes/acmeco = 5
 	)
 	prices = list(
 		/obj/item/weapon/storage/fancy/cigarettes = 200,

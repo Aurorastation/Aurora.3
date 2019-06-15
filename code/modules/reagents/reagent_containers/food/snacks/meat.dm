@@ -88,8 +88,8 @@
 	reagents.add_reagent("undead_ichor", 5)
 
 /obj/item/weapon/reagent_containers/food/snacks/meat/adhomai
-	name = "snow strider meat"
-	desc = "A slab of nav'twir's meat, an animal native from Adhomai."
+	name = "adhomian meat"
+	desc = "A slab of an animal native from Adhomai."
 	icon_state = "adhomai_meat"
 	description_fluff = "For much of Tajaran history, the herbivorous and graceful Nav'twir were the main prey of Tajaran hunters, and still are today in rural areas of the planet. \
 	Their meat was nice and hearty and healthy, and the thick furs were good for making clothes to keep themselves warm in the snow. As the modern ages came, the hunting of the \

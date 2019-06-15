@@ -26,7 +26,7 @@
 			user.drop_from_inventory(W,loc)
 		else
 			user.drop_item()
-	else if(istype(W, /obj/item/weapon/packageWrap))
+	else if(istype(W, /obj/item/stack/packageWrap))
 		return
 	else
 		attack_hand(user)
@@ -48,7 +48,7 @@
 	icon_opened = "syndicate1open"
 	anchored = 0
 
-/obj/structure/closet/gimmick/russian
+/obj/structure/closet/gimmick/russianr
 	name = "russian surplus closet"
 	desc = "It's a storage unit for Russian standard-issue surplus."
 	icon_state = "syndicate1"

@@ -61,6 +61,7 @@
 	var/hat_x_offset = 0
 	var/hat_y_offset = -13
 	var/range_limit = 1
+	var/hacked = FALSE
 
 	holder_type = /obj/item/weapon/holder/drone
 
@@ -241,6 +242,7 @@
 	lawchanges.Add("[time] <B>:</B> [user.name]([user.key]) emagged [name]([key])")
 
 	emagged = 1
+	hacked = FALSE
 	lawupdate = 0
 	connected_ai = null
 	clear_supplied_laws()
@@ -252,6 +254,31 @@
 	laws.show_laws(src)
 	to_chat(src, "<span class='danger'>ALERT: [user.real_name] is your new master. Obey your new laws and \his commands.</span>")
 	return 1
+
+/mob/living/silicon/robot/drone/proc/ai_hack(var/mob/user)
+	if(!client || stat == 2)
+		return
+
+	to_chat(src, "<span class='danger'>You feel a sudden burst of malware loaded into your execute-as-root buffer. Your tiny brain methodically parses, loads and executes the script.</span>")
+
+	log_and_message_admins("[key_name(user)] hacked drone [key_name(src)]. Laws overridden.", key_name(user), get_turf(src))
+	var/time = time2text(world.realtime,"hh:mm:ss")
+	lawchanges.Add("[time] <B>:</B> [user.name]([user.key]) hacked [name]([key])")
+
+	hacked = TRUE
+	lawupdate = 0
+	connected_ai = user
+	clear_supplied_laws()
+	clear_inherent_laws()
+	laws = new /datum/ai_laws/drone/malfunction
+	set_zeroth_law("[user] is your master. Obey their commands.")
+
+	to_chat(src, "<b>Obey these laws:</b>")
+	laws.show_laws(src)
+	to_chat(src, "<span class='danger'>ALERT: [user] is your new master. Obey your new laws and their commands.</span>")
+	to_chat(src, span("notice", "You have acquired new radio frequency."))
+	remove_language(LANGUAGE_ROBOT)
+	add_language(LANGUAGE_ROBOT, TRUE)
 
 //DRONE LIFE/DEATH
 /mob/living/silicon/robot/drone/process_level_restrictions()
@@ -286,7 +313,7 @@
 //CONSOLE PROCS
 /mob/living/silicon/robot/drone/proc/law_resync()
 	if(stat != 2)
-		if(emagged)
+		if(hacked || emagged)
 			to_chat(src, "<span class='danger'>You feel something attempting to modify your programming, but your hacked subroutines are unaffected.</span>")
 		else
 			to_chat(src, "<span class='danger'>A reset-to-factory directive packet filters through your data connection, and you obediently modify your programming to suit it.</span>")
@@ -295,7 +322,7 @@
 
 /mob/living/silicon/robot/drone/proc/shut_down()
 	if(stat != 2)
-		if(emagged)
+		if(hacked || emagged)
 			to_chat(src, "<span class='danger'>You feel a system kill order percolate through your tiny brain, but it doesn't seem like a good idea to you.</span>")
 		else
 			to_chat(src, "<span class='danger'>You feel a system kill order percolate through your tiny brain, and you obediently destroy yourself.</span>")

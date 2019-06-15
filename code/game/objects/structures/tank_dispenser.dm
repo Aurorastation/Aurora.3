@@ -1,7 +1,7 @@
 /obj/structure/dispenser
 	name = "tank storage unit"
 	desc = "A simple yet bulky storage device for gas tanks. Has room for up to ten oxygen tanks, and ten phoron tanks."
-	icon = 'icons/obj/objects.dmi'
+	icon = 'icons/obj/tank_dispenser.dmi'
 	icon_state = "dispenser"
 	density = 1
 	anchored = 1.0
@@ -24,10 +24,10 @@
 /obj/structure/dispenser/update_icon()
 	cut_overlays()
 	switch(oxygentanks)
-		if(1 to 3)
+		if(1 to 4)
 			add_overlay("oxygen-[oxygentanks]")
-		if(4 to INFINITY)
-			add_overlay("oxygen-4")
+		if(5 to INFINITY)
+			add_overlay("oxygen-5")
 	switch(phorontanks)
 		if(1 to 4)
 			add_overlay("phoron-[phorontanks]")
