@@ -90,7 +90,7 @@
 				if(A.density && !A.throwpass)	// **TODO: Better behaviour for windows which are dense, but shouldn't always stop movement
 					src.throw_impact(A,speed)
 
-/atom/movable/proc/throw_at(atom/target, range, speed, thrower, var/do_throw_animaton = TRUE)
+/atom/movable/proc/throw_at(atom/target, range, speed, thrower, var/do_throw_animation = TRUE)
 	if(!target || !src)	return 0
 	//use a modified version of Bresenham's algorithm to get from the atom's current position to that of the target
 
@@ -161,7 +161,7 @@
 			sleep(1)
 		a = get_area(src.loc)
 		// and yet it moves
-		if(do_throw_animaton)
+		if(do_throw_animation)
 			if(src.does_spin)
 				src.SpinAnimation(speed = 4, loops = 1)
 
