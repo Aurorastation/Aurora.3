@@ -6,7 +6,7 @@
 	origin_tech = list(TECH_DATA = 2, TECH_BIO = 3)
 	energy_drain = 20
 	range = MELEE
-	equip_cooldown = 20
+	equip_cooldown = 60
 	var/mob/living/carbon/occupant = null
 	var/datum/global_iterator/pr_mech_sleeper
 	var/inject_amount = 10
@@ -41,6 +41,10 @@
 	chassis.visible_message("[chassis] starts putting [target] into [src].")
 	var/C = chassis.loc
 	var/T = target.loc
+	if(target.stat == UNCONSCIOUS)
+		equip_cooldown = 20
+	else
+		equip_cooldown = 60
 	if(do_after_cooldown(target))
 		if(chassis.loc!=C || target.loc!=T)
 			return
@@ -85,6 +89,25 @@
 		if(occupant)
 			temp = "<br />\[Occupant: [occupant] (Health: [occupant.health]%)\]<br /><a href='?src=\ref[src];view_stats=1'>View stats</a>|<a href='?src=\ref[src];eject=1'>Eject</a>"
 		return "[output] [temp]"
+	return
+	
+/obj/item/mecha_parts/mecha_equipment/tool/sleeper/verb/move_eject()
+	set name = "Eject occupant"
+	set category = "Object"
+	set src in oview(0)
+	if(usr == occupant) //If the user is inside the sleeper...
+		if (usr.stat == 2) //and they're not dead....
+			return
+		to_chat(usr, "<span class='notice'>Release sequence activated. This will take a minute.</span>")
+		sleep(600)
+		if(!src || !usr || !occupant || (occupant != usr)) //Check if someone's released/replaced/bombed them already
+			return
+		go_out() //and release them from the eternal prison.
+	else
+		if (usr.stat != 0)
+			return
+		go_out()
+	add_fingerprint(usr)
 	return
 
 /obj/item/mecha_parts/mecha_equipment/tool/sleeper/Topic(href,href_list)
@@ -202,9 +225,6 @@
 	M.AdjustStunned(-4)
 	M.AdjustWeakened(-4)
 	M.AdjustStunned(-4)
-	M.Paralyse(2)
-	M.Weaken(2)
-	M.Stun(2)
 	if(M.reagents.get_reagent_amount("inaprovaline") < 5)
 		M.reagents.add_reagent("inaprovaline", 5)
 	chassis.use_power(energy_drain)
