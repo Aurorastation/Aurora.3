@@ -74,6 +74,15 @@
 	if(!material.build_windows(user, src))
 		..()
 
+/obj/item/stack/material/attackby(var/obj/item/W, var/mob/user)
+	if(W.iscoil())
+		material.build_wired_product(user, W, src)
+		return
+	else if(istype(W, /obj/item/stack/rods))
+		material.build_rod_product(user, W, src)
+		return
+	return ..()
+
 /obj/item/stack/material/iron
 	name = "iron"
 	icon_state = "sheet-silver"

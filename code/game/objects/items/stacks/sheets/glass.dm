@@ -24,47 +24,6 @@
 /obj/item/stack/material/glass/attack_self(mob/user as mob)
 	construct_window(user)
 
-/obj/item/stack/material/glass/attackby(obj/item/W, mob/user)
-	..()
-	if(!is_reinforced)
-		if(W.iscoil())
-			var/obj/item/stack/cable_coil/CC = W
-			if (get_amount() < 1 || CC.get_amount() < 5)
-				to_chat(user, "<span class='warning'>You need five lengths of coil and one sheet of [name] to make wired [name].</span>")
-				return
-			else
-				var/obj/item/stack/light_w/LW = new (user.loc)
-				LW.add_fingerprint(user)
-				LW.add_to_stacks(user)
-				var/obj/item/stack/material/glass/G = src
-				src = null
-				var/replace = (user.get_inactive_hand()==G)
-				CC.use(5)
-				G.use(1)
-				if (!G && replace)
-					user.put_in_hands(LW)
-
-				to_chat(user, "<span class='notice'>You attach wire to the [name].</span>")
-
-		else if(istype(W, /obj/item/stack/rods))
-			var/obj/item/stack/rods/V  = W
-			if (V.get_amount() < 1 || get_amount() < 1)
-				to_chat(user, "<span class='warning'>You need one rod and one sheet of [name] to make reinforced [name].</span>")
-				return
-			else
-				var/obj/item/stack/material/glass/reinforced/RG = new (user.loc)
-				RG.add_fingerprint(user)
-				RG.add_to_stacks(user)
-				var/obj/item/stack/material/glass/G = src
-				src = null
-				var/replace = (user.get_inactive_hand()==G)
-				V.use(1)
-				G.use(1)
-				if (!G && replace)
-					user.put_in_hands(RG)
-
-				to_chat(user, "<span class='notice'>You attach rods to the [name].</span>")
-
 /obj/item/stack/material/glass/proc/construct_window(mob/user as mob)
 	if(!user || !src)	return 0
 	if(!istype(user.loc,/turf)) return 0
@@ -158,23 +117,6 @@
 	created_window = /obj/structure/window/phoronbasic
 	default_type = "phoron glass"
 	icon_has_variants = FALSE
-
-/obj/item/stack/material/glass/phoronglass/attackby(obj/item/W, mob/user)
-	..()
-	if( istype(W, /obj/item/stack/rods) )
-		var/obj/item/stack/rods/V  = W
-		var/obj/item/stack/material/glass/phoronrglass/RG = new (user.loc)
-		RG.add_fingerprint(user)
-		RG.add_to_stacks(user)
-		V.use(1)
-		var/obj/item/stack/material/glass/G = src
-		src = null
-		var/replace = (user.get_inactive_hand()==G)
-		G.use(1)
-		if (!G && !RG && replace)
-			user.put_in_hands(RG)
-	else
-		return ..()
 
 /*
  * Reinforced phoron glass sheets
