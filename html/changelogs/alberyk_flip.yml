@@ -1,6 +1,0 @@
-author: Alberyk
-
-delete-after: True
-
-changes: 
-  - bugfix: "Fixed hardsuit actuator jump and leaping forcing people to do backflip in mid air."
