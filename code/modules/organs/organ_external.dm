@@ -142,7 +142,8 @@
 					user.visible_message("<span class='danger'><b>[user]</b> installs [W] into [src]!</span>")
 					augment_capacity--
 					user.drop_item(AUG)
-					AUG.forceMove(src)
+					AUG.parent_organ = src
+					AUG.forceMove(src.internal_organs)
 					AUG.online = 1
 					return
 
@@ -1052,7 +1053,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 	return !is_dislocated() && !(status & (ORGAN_MUTATED|ORGAN_DEAD))
 
 /obj/item/organ/external/proc/is_malfunctioning()
-	var/obj/item/organ/augment/limbservo/servo = locate() in contents
+	var/obj/item/organ/augment/limbservo/servo = locate() in owner.internal_organs 
 	if(!servo)
 		return((status & ORGAN_ROBOT) && (!servo || servo.online == 0))
 

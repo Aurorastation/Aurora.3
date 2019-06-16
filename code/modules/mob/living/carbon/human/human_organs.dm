@@ -187,4 +187,6 @@
 			if(!S)
 				S = new /obj/item/organ/augment/limbservo()
 				S.online = 1
+				S.parent_organ = E
 				S.replaced(src,E)
+				S.isprocessing = 1

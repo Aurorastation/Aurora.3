@@ -525,7 +525,6 @@ datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
 	H.gender = NEUTER
 	. = ..()
 	check_tag(H, H.client)
-	install_servos(H)
 
 /datum/species/machine/handle_sprint_cost(var/mob/living/carbon/human/H, var/cost)
 	if (H.stat == CONSCIOUS)
@@ -549,17 +548,6 @@ datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
 
 /datum/species/machine/sanitize_name(var/new_name)
 	return sanitizeName(new_name, allow_numbers = 1)
-
-/datum/species/machine/proc/install_servos(var/mob/living/carbon/human/newipc)
-
-	for(var/servolimb in list("l_arm","l_leg","l_hand","l_foot","r_leg","r_foot","r_hand","r_arm",))
-		var/obj/item/organ/external/E = newipc.get_organ(servolimb)
-		if(E)
-			var/obj/item/organ/augment/limbservo/S = locate() in E.contents
-			if(!S)
-				S = new /obj/item/organ/augment/limbservo()
-				S.online = 1
-				S.replaced(src,E)
 
 /datum/species/machine/proc/check_tag(var/mob/living/carbon/human/new_machine, var/client/player)
 	if (!new_machine || !player)

@@ -277,7 +277,7 @@
 
 /obj/item/organ/augment/limbservo/proc/servo_check()
 	var/mob/living/carbon/human/H = owner
-	var/obj/item/organ/external/SO = src.loc
+	var/obj/item/organ/external/SO = parent_organ
 	if(!H) 
 		return		
 	if(SO.brute_dam >= 20 )
@@ -546,18 +546,17 @@
 
 /obj/item/organ/powercontrolunit/proc/calibration_dmgcheck()
 	var/mob/living/carbon/human/H = owner
-	var/obj/item/organ/NV = H.internal_organs_by_name["calibration system"]
-	var/obj/item/organ/external/UB = H.organs_by_name["head"]
 	if(!H) 
 		return
+	var/obj/item/organ/external/UB = H.organs_by_name["head"]
 	if(UB.brute_dam >= 10 )
 		calibrated = 0		
 	if(UB.brute_dam >= 28)
 		powernetinteg = 0
 		name = "broken power calibration system"
 		icon_state = "camera_broken"
-		H.Weaken(6)
-		NV.forceMove(H.loc)
+		H.confused += 12
+		H.drowsyness += 19
 
 
 /obj/item/organ/powercontrolunitr/removed(var/mob/living/carbon/human/H)

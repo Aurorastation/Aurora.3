@@ -50,8 +50,13 @@ emp_act
 			SP.forceMove(organ)
 			organ.embed(SP)
 
-	for(var/obj/item/organ/augment/AUG in organ.contents)
-		AUG.augmenthp -= P.damage / 2
+	for(var/obj/item/organ/augment/AUG in organ.internal_organs)
+		if(istype(AUG,/obj/item/organ/augment/limbservo))
+			for(var/obj/item/organ/augment/limbservo/SR in organ.internal_organs)
+				if(!SR.servotheshhold)
+					return
+			else
+				AUG.augmenthp -= P.damage / 2
 
 	return (..(P , def_zone))
 
