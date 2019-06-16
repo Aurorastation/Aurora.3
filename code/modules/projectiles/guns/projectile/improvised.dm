@@ -80,6 +80,7 @@
 	icon = 'icons/obj/improvised.dmi'
 	icon_state = "riflestock"
 	var/buildstate = 0
+	var/buildpath = 0 //0 is for the Improvised Handgun, 1 is for the Improvised Lasergun
 
 /obj/item/weapon/receivergun
 	name = "receiver"
@@ -162,16 +163,49 @@
 		if(26 to 50) to_chat(user, "All craftsmanship is of average quality.")
 		if(51 to 75) to_chat(user, "All craftsmanship is of low quality.")
 		if(100) to_chat(user, "All craftsmanship is of the lowest quality.")
+		
+//Ghetto Lasergun, sprites by DronzTheWolf
+		
+/obj/item/weapon/gun/energy/improvised_laser
+	name = "improvised lasergun"
+	desc = "A hodgepodge of parts in the shape of an pistol. Most notably, a high capacity battery wired to inefficiently blast energy through thick lenses."
+	max_shots = 8
+	accuracy = -1
+	fire_delay = 10
+	icon = 'icons/obj/improvised.dmi'
+	icon_state = "ilaser"
+	item_state = "caplaser"
+	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
+	
+/*obj/item/weapon/gun/energy/improvised_laser/examine(mob/user)
+	..(user)
+	switch(jam_chance)
+		if(1) to_chat(user, "All craftsmanship is of the highest quality.")
+		if(2 to 25) to_chat(user, "All craftsmanship is of high quality.")
+		if(26 to 50) to_chat(user, "All craftsmanship is of average quality.")
+		if(51 to 75) to_chat(user, "All craftsmanship is of low quality.")
+		if(100) to_chat(user, "All craftsmanship is of the lowest quality.")*/
 
 /obj/item/weapon/stock/update_icon()
-	icon_state = "ipistol[buildstate]"
+	if(buildpath == 0)
+		icon_state = "ipistol[buildstate]"
+	else if(buildpath == 1)
+		icon_state = "ilaser[buildstate]"
 
 /obj/item/weapon/stock/examine(mob/user)
 	..(user)
-	switch(buildstate)
-		if(1) to_chat(user, "It is carved in the shape of a pistol handle.")
-		if(2) to_chat(user, "It has a receiver installed.")
-		if(3) to_chat(user, "It has a pipe installed.")
+	if(buildpath == 0)
+		switch(buildstate)
+			if(1) to_chat(user, "It is carved in the shape of a pistol handle.")
+			if(2) to_chat(user, "It has a receiver installed.")
+			if(3) to_chat(user, "It has a pipe installed.")
+	if(buildpath == 1)
+		switch(buildstate)
+			if(4) to_chat(user, "It has a wire frame installed.")
+			if(5) to_chat(user, "It has a lenses installed.")
+			if(6) to_chat(user, "It has a battery attached.")
+			if(7) to_chat(user, "It has a its battery fastened.")
+			if(8) to_chat(user, "It has a wires installed.")
 
 /obj/item/weapon/stock/attackby(obj/item/W as obj, mob/user as mob)
 	if(istype(W,/obj/item/weapon/material/hatchet))
@@ -194,8 +228,57 @@
 			buildstate++
 			update_icon()
 			return
-	else if(W.iswelder())
+	//Diverges path: Improvised Lasergun
+	else if(istype(W,/obj/item/stack/rods))
+		var/obj/item/stack/rods/R = W
 		if(buildstate == 3)
+			if (R.use(2))
+				to_chat(user, "<span class='notice'>You attach a wired frame to the top of the assembly.</span>")
+				buildstate++
+				buildpath++ //Not strictly needed, as paths will never cross right now, but will prevent issues with additions in future
+				update_icon()
+			else
+				to_chat(user, "<span class='notice'>You need at least two rods if you want to make the frame!</span>")
+			return
+	else if(istype(W,/obj/item/device/camera))
+		if(buildstate == 4 && buildpath == 1)
+			qdel(W)
+			to_chat(user, "<span class='notice'>You attach the lenses of the camera to the assembly.</span>")
+			buildstate++
+			update_icon()
+			return
+	else if(istype(W,/obj/item/weapon/cell/high))
+		if(buildstate == 5 && buildpath == 1)
+			qdel(W)
+			to_chat(user, "<span class='notice'>You add the high capacity battery to the assembly.</span>")
+			buildstate++
+			update_icon()
+			return
+	else if(istype(W,/obj/item/weapon/wrench))
+		if(buildstate == 6 && buildpath == 1)
+			to_chat(user, "<span class='notice'>You wrench the battery into place.</span>")
+			buildstate++
+			update_icon()
+			return
+	else if(W.iscoil())
+		var/obj/item/stack/cable_coil/C = W
+		if(buildstate == 7 && buildpath == 1)
+			if(C.use(5))
+				to_chat(user, "<span class='notice'>You attach wires to the battery.</span>")
+				buildstate++
+				update_icon()
+			else
+				to_chat(user, "<span class='notice'>You need at least ten lengths of cable if you want to make a sling!</span>")
+			return
+	else if(istype(W,/obj/item/weapon/screwdriver))
+		if(buildstate == 8 && buildpath == 1)
+			to_chat(user, "<span class='notice'>You use the screwdriver to secure the assembly, finalizing it.</span>")
+			new /obj/item/weapon/gun/energy/improvised_laser(get_turf(src))
+			qdel(src)
+			return
+	//Diverges path: Improvised .45 Handgun
+	else if(W.iswelder())
+		if(buildstate == 3 && buildpath == 0)
 			var/obj/item/weapon/weldingtool/T = W
 			if(T.remove_fuel(0,user))
 				if(!src || !T.isOn()) return
