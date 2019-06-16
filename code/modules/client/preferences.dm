@@ -517,7 +517,7 @@ datum/preferences
 		citizenship = "None"
 		faction = "None"
 		religion = "None"
-		s_tone = "cold"
+		s_base = "cold"
 		species = "Human"
 
 		job_civilian_high = 0

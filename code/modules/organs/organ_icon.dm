@@ -124,13 +124,13 @@
 		skin_base = "_[owner.skin_base]"
 
 	if(force_icon)
-		mob_icon = new /icon(force_icon, "[icon_name][gendered_icon ? "_[gender][skin_base]" : ""]")
+		mob_icon = new /icon(force_icon, "[icon_name][gendered_icon ? "_[gender][skin_base]" : "[skin_base]"]")
 		if(painted && skin_color)
 			mob_icon.Blend(skin_color, ICON_ADD)
 		apply_markings(restrict_to_robotic = TRUE)
 	else
 		if(!dna)
-			mob_icon = new /icon('icons/mob/human_races/human/r_human.dmi', "[icon_name][gendered_icon ? "_[gender][skin_base]" : ""]")
+			mob_icon = new /icon('icons/mob/human_races/human/r_human.dmi', "[icon_name][gendered_icon ? "_[gender][skin_base]" : "[skin_base]"]")
 		else
 			if(!gendered_icon)
 				gender = null
@@ -141,14 +141,14 @@
 					gender = "m"
 
 			if(skeletal)
-				mob_icon = new /icon('icons/mob/human_races/r_skeleton.dmi', "[icon_name][gender ? "_[gender]" : ""]")
+				mob_icon = new /icon('icons/mob/human_races/r_skeleton.dmi', "[icon_name][gender ? "_[gender][skin_base]" : "[skin_base]"]")
 			else if (status & ORGAN_ROBOT && !force_skintone)
-				mob_icon = new /icon('icons/mob/human_races/ipc/robotic.dmi', "[icon_name][gender ? "_[gender]" : ""]")
+				mob_icon = new /icon('icons/mob/human_races/ipc/robotic.dmi', "[icon_name][gender ? "_[gender][skin_base]" : "[skin_base]"]")
 			else
 				if (status & ORGAN_MUTATED)
-					mob_icon = new /icon(species.deform, "[icon_name][gender ? "_[gender]" : ""]")
+					mob_icon = new /icon(species.deform, "[icon_name][gender ? "_[gender][skin_base]" : "[skin_base]"]")
 				else
-					mob_icon = new /icon(species.icobase, "[icon_name][gender ? "_[gender]" : ""]")
+					mob_icon = new /icon(species.icobase, "[icon_name][gender ? "_[gender][skin_base]" : "[skin_base]"]")
 
 				if(status & ORGAN_DEAD)
 					mob_icon.ColorTone(rgb(10,50,0))
@@ -174,6 +174,11 @@
 				mob_icon.Blend(limb_icon_cache[cache_key], ICON_OVERLAY)
 
 	icon = mob_icon
+	var/list/states = mob_icon.IconStates()
+	var/s = ""
+	for(var/v in states)
+		s += "[v] "
+	message_admins("icon state [s]")
 
 	return mob_icon
 
