@@ -91,24 +91,10 @@
 		return "[output] [temp]"
 	return
 	
-/obj/item/mecha_parts/mecha_equipment/tool/sleeper/verb/move_eject()
-	set name = "Eject occupant"
-	set category = "Object"
-	set src in oview(0)
-	if(usr == occupant) //If the user is inside the sleeper...
-		if (usr.stat == 2) //and they're not dead....
-			return
-		to_chat(usr, "<span class='notice'>Release sequence activated. This will take a minute.</span>")
-		sleep(600)
-		if(!src || !usr || !occupant || (occupant != usr)) //Check if someone's released/replaced/bombed them already
-			return
-		go_out() //and release them from the eternal prison.
-	else
-		if (usr.stat != 0)
-			return
-		go_out()
-	add_fingerprint(usr)
-	return
+/obj/item/mecha_parts/mecha_equipment/tool/sleeper/relaymove(mob, direct)
+	to_chat(usr, "<span class='notice'>Remote release sequence activated. This will take ten seconds.</span>")
+	sleep(100)
+	go_out()
 
 /obj/item/mecha_parts/mecha_equipment/tool/sleeper/Topic(href,href_list)
 	..()
