@@ -124,14 +124,14 @@
 				owner.vomit()
 			if(2,3)
 				to_chat(owner, "<span class='notice'>You feel light-headed.</span>")
-				owner.dizziness += 10
+				owner.dizziness = max(slurring, 10)
 			if(4,5)
 				to_chat(owner, "<span class='notice'>it becomes hard to see for some reason.</span>")
-				owner.confused += 10
+				owner.confused = max(slurring, 10)
 				owner.apply_effect(10,EYE_BLUR)
 			if(6 to 9)
 				to_chat(owner, "<span class='notice'>Your tongue feels thick in your mouth.</span>")
-				owner.slurring += 30
+				owner.slurring = max(slurring, 30)
 
 	..()
 
