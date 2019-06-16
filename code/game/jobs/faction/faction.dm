@@ -2,6 +2,7 @@
 	var/name
 	var/description
 	var/icon_file
+	var/title_suffix
 
 	var/list/allowed_role_types
 	var/list/allowed_species_types

@@ -413,7 +413,7 @@
 	to_client_chat("<span class='notice'>New faction chosen. Job preferences reset.</span>")
 
 /datum/preferences/proc/GetPlayerAltTitle(datum/job/job)
-	return (job.title in player_alt_titles) ? player_alt_titles[job.title] : job.title
+	return player_alt_titles[job.title] || job.title
 
 /datum/preferences/proc/GetJobDepartment(var/datum/job/job, var/level)
 	if(!job || !level)	return 0

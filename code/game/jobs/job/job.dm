@@ -43,12 +43,12 @@
 		if (H?.mind?.selected_faction?.titles_to_loadout[alt_title])
 			return H.mind.selected_faction.titles_to_loadout[alt_title]
 
-		if (alt_outfits[alt_title])
+		if (alt_outfits && alt_outfits[alt_title])
 			return alt_outfits[alt_title]
 
 	if (H?.mind?.selected_faction?.titles_to_loadout[H.job])
 		return H.mind.selected_faction.titles_to_loadout[H.job]
-	else if (alt_outfits[H.job])
+	else if (alt_outfits && alt_outfits[H.job])
 		return alt_outfits[H.job]
 	else if (outfit)
 		return outfit
