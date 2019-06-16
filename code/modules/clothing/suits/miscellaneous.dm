@@ -345,7 +345,7 @@
 	icon_closed = "trench2"
 	blood_overlay_type = "coat"
 
-/obj/item/clothing/suit/storage/toggle/trench/modern_brown
+/obj/item/clothing/suit/storage/toggle/trench/alt
 	name = "brown trenchcoat"
 	desc = "A sleek canvas trenchcoat"
 	icon_state = "trenchcoat_brown"
@@ -353,7 +353,7 @@
 	icon_open = "trenchcoat_brown_open"
 	icon_closed = "trenchcoat_brown"
 
-/obj/item/clothing/suit/storage/toggle/trench/modern_grey
+/obj/item/clothing/suit/storage/toggle/trench/grey_alt
 	name = "grey trenchcoat"
 	desc = "A sleek canvas trenchcoat"
 	icon_state = "trenchcoat_grey"

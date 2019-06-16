@@ -135,6 +135,8 @@
 		new /obj/item/clothing/head/helmet/HoS(src)
 		new /obj/item/clothing/head/beret/sec/hos(src)
 		new /obj/item/clothing/accessory/badge/hos(src)
+		new /obj/item/clothing/shoes/black_boots(src)
+		new /obj/item/clothing/gloves/black_leather(src)
 		//Tools
 		new /obj/item/weapon/cartridge/hos(src)
 		new /obj/item/device/radio/headset/heads/hos(src)
@@ -216,6 +218,8 @@
 		new /obj/item/clothing/head/helmet/warden/commissar(src)
 		new /obj/item/clothing/head/helmet(src)
 		new /obj/item/clothing/accessory/badge/warden(src)
+		new /obj/item/clothing/shoes/black_boots(src)
+		new /obj/item/clothing/gloves/black_leather(src)
 		//Tools
 		new /obj/item/weapon/cartridge/security(src)
 		new /obj/item/device/radio/headset/headset_sec(src)
@@ -306,9 +310,8 @@
 			new /obj/item/clothing/accessory/storage/black_vest(src)
 		else
 			new /obj/item/clothing/accessory/storage/black_pouches(src)
-		new /obj/item/weapon/storage/belt/security(src)
 		new /obj/item/clothing/accessory/holster/hip(src)
-
+		new /obj/item/weapon/storage/belt/security(src)
 
 /obj/structure/closet/secure_closet/security/cargo
 

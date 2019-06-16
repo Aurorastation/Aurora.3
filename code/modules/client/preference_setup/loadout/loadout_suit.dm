@@ -121,8 +121,8 @@
 	var/coat = list()
 	coat["trenchcoat, brown"] = /obj/item/clothing/suit/storage/toggle/trench
 	coat["trenchcoat, grey"] = /obj/item/clothing/suit/storage/toggle/trench/grey
-	coat["trenchcoat, modern dark brown"] = /obj/item/clothing/suit/storage/toggle/trench/modern_brown
-	coat["trenchcoat, modern grey"] = /obj/item/clothing/suit/storage/toggle/trench/modern_grey
+	coat["trenchcoat, dark brown"] = /obj/item/clothing/suit/storage/toggle/trench/alt
+	coat["trenchcoat, grey alternate"] = /obj/item/clothing/suit/storage/toggle/trench/grey_alt
 	gear_tweaks += new/datum/gear_tweak/path(coat)
 
 
