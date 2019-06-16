@@ -70,7 +70,7 @@
 	touch_met = 5
 	taste_mult = 1.5
 	breathe_mul = 2
-	specific_heat = 12 //Phoron is very dense and can hold a lot of energy.
+	fallback_specific_heat = 12 //Phoron is very dense and can hold a lot of energy.
 
 /datum/reagent/toxin/phoron/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(ishuman(M))

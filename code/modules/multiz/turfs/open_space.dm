@@ -224,3 +224,10 @@
 
 /turf/simulated/open/AddTracks(var/list/DNA, var/comingdir, var/goingdir, var/bloodcolor="#A10808")
 	return
+
+//Returns the roof type of the turf below
+/turf/simulated/open/get_roof_type()
+	var/turf/t = GetBelow(src)
+	if(!t)
+		return null
+	return t.roof_type

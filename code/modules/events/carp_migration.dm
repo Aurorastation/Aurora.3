@@ -6,7 +6,7 @@
 
 	var/list/despawn_turfs = list(
 		/turf/space,
-		/turf/simulated/floor/asteroid,
+		/turf/unsimulated/floor/asteroid,
 		/turf/simulated/open,
 		/turf/simulated/floor/reinforced/airless	// Station roof.
 	)

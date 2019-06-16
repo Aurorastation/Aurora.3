@@ -21,8 +21,8 @@
 	)
 	name = "Body Scanner"
 	desc = "A state-of-the-art medical diagnostics machine. Guaranteed detection of all your bodily ailments or your money back!"
-	icon = 'icons/obj/Cryogenic2.dmi'
-	icon_state = "body_scanner_0"
+	icon = 'icons/obj/sleeper.dmi'
+	icon_state = "body_scanner"
 	density = 1
 	anchored = 1
 
@@ -30,11 +30,22 @@
 	idle_power_usage = 60
 	active_power_usage = 10000	//10 kW. It's a big all-body scanner.
 
+/obj/machinery/bodyscanner/Initialize()
+	. = ..()
+	update_icon()
+
 /obj/machinery/bodyscanner/Destroy()
 	// So the GC can qdel this.
 	if (connected)
 		connected.connected = null
 	return ..()
+
+/obj/machinery/bodyscanner/update_icon()
+	if(occupant)
+		icon_state = "[initial(icon_state)]-closed"
+		return
+	else
+		icon_state = initial(icon_state)
 
 /obj/machinery/bodyscanner/relaymove(mob/user as mob)
 	if (user.stat)
@@ -72,7 +83,8 @@
 	usr.forceMove(src)
 	src.occupant = usr
 	update_use_power(2)
-	src.icon_state = "body_scanner_1"
+	flick("[initial(icon_state)]-anim", src)
+	update_icon()
 	for(var/obj/O in src)
 		//O = null
 		qdel(O)
@@ -94,7 +106,8 @@
 	src.occupant.forceMove(src.loc)
 	src.occupant = null
 	update_use_power(1)
-	src.icon_state = "body_scanner_0"
+	flick("[initial(icon_state)]-anim", src)
+	update_icon()
 	return
 
 /obj/machinery/bodyscanner/attackby(obj/item/weapon/grab/G, mob/user)
@@ -124,7 +137,8 @@
 		M.forceMove(src)
 		src.occupant = M
 		update_use_power(2)
-		src.icon_state = "body_scanner_1"
+		flick("[initial(icon_state)]-anim", src)
+		update_icon()
 		for(var/obj/O in src)
 			O.forceMove(loc)
 		//Foreach goto(154)
@@ -167,7 +181,8 @@
 		M.forceMove(src)
 		src.occupant = M
 		update_use_power(2)
-		src.icon_state = "body_scanner_1"
+		flick("[initial(icon_state)]-anim", src)
+		update_icon()
 		playsound(src.loc, 'sound/machines/medbayscanner1.ogg', 50)
 		for(var/obj/Obj in src)
 			Obj.forceMove(src.loc)
@@ -236,7 +251,7 @@
 	var/collapse_desc = ""
 	name = "Body Scanner Console"
 	desc = "A control panel for some kind of medical device."
-	icon = 'icons/obj/Cryogenic2.dmi'
+	icon = 'icons/obj/sleeper.dmi'
 	icon_state = "body_scannerconsole"
 	density = 0
 	anchored = 1

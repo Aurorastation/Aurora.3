@@ -11,6 +11,7 @@
 	icon_state = "harness"
 	worn_state = "harness"
 	item_state = "w_suit"
+	body_parts_covered = 0
 	species_restricted = null
 	sprite_sheets = list(
 		"Vaurca Breeder" = 'icons/mob/species/breeder/suit.dmi'
@@ -224,14 +225,6 @@
 	icon_state = "red_suit"
 	item_state = "r_suit"
 	worn_state = "red_suit"
-
-/obj/item/clothing/under/schoolgirl
-	name = "schoolgirl uniform"
-	desc = "It's just like one of my Japanese animes!"
-	icon_state = "schoolgirl"
-	item_state = "b_suit"
-	worn_state = "schoolgirl"
-	body_parts_covered = UPPER_TORSO|LOWER_TORSO
 
 /obj/item/clothing/under/overalls
 	name = "laborer's overalls"

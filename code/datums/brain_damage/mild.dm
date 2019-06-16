@@ -118,7 +118,7 @@
 
 /datum/brain_trauma/mild/concussion/on_life()
 	if(prob(25))
-		switch(rand(1,11))
+		switch(rand(1,9))
 			if(1)
 				to_chat(owner, "<span class='notice'>Your stomach writhes with pain.</span>")
 				owner.vomit()
@@ -132,12 +132,6 @@
 			if(6 to 9)
 				to_chat(owner, "<span class='notice'>Your tongue feels thick in your mouth.</span>")
 				owner.slurring += 30
-			if(10)
-				to_chat(owner, "<span class='notice'>You forget for a moment what you were doing.</span>")
-				owner.Stun(20)
-			if(11)
-				to_chat(owner, "<span class='warning'>You faint.</span>")
-				owner.Sleeping(80)
 
 	..()
 

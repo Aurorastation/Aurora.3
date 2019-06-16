@@ -19,7 +19,7 @@
 	var/title = sanitize(input("Enter your announcement title.", "Announcement Title") as null|text)
 	if(!title)
 		return
-	var/message = sanitize(input("Enter your announcement message.", "Announcement Title") as null|text)
+	var/message = sanitize(input("Enter your announcement message.", "Announcement Title") as null|message)
 	if(!message)
 		return
 	return list("title" = title, "message" = message)

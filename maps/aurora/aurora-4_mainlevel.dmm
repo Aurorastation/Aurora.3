@@ -3,10 +3,10 @@
 /turf/unsimulated/chasm_mask,
 /area/mine/unexplored)
 "aab" = (
-/turf/simulated/floor/asteroid/ash/rocky,
+/turf/unsimulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
 "aac" = (
-/turf/simulated/floor/asteroid/ash/rocky,
+/turf/unsimulated/floor/asteroid/ash/rocky,
 /area/syndicate_station/caverns)
 "aad" = (
 /turf/simulated/wall,
@@ -246,7 +246,7 @@
 "aaz" = (
 /obj/structure/lattice,
 /obj/structure/lattice,
-/turf/simulated/floor/asteroid/ash/rocky,
+/turf/unsimulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
 "aaA" = (
 /obj/structure/closet,
@@ -295,7 +295,7 @@
 /obj/structure/lattice,
 /obj/structure/grille/broken,
 /obj/structure/lattice,
-/turf/simulated/floor/asteroid/ash/rocky,
+/turf/unsimulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
 "aaI" = (
 /obj/structure/cable{
@@ -946,6 +946,10 @@
 /obj/item/weapon/book/manual/ntsl2,
 /turf/simulated/floor/wood,
 /area/library)
+"abY" = (
+/obj/structure/closet/l3closet/security,
+/turf/simulated/floor/tiled/dark,
+/area/security/armoury)
 "abZ" = (
 /obj/structure/cable/green{
 	d2 = 4;
@@ -1186,7 +1190,7 @@
 /obj/effect/landmark{
 	name = "cavernspawn"
 	},
-/turf/simulated/floor/asteroid/ash/rocky,
+/turf/unsimulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
 "acv" = (
 /obj/structure/grille,
@@ -2554,7 +2558,7 @@
 /obj/effect/landmark{
 	name = "carpspawn"
 	},
-/turf/simulated/floor/asteroid/ash/rocky,
+/turf/unsimulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
 "aeU" = (
 /obj/structure/grille/broken,
@@ -6034,10 +6038,6 @@
 /obj/structure/closet/bombclosetsecurity,
 /turf/simulated/floor/tiled/dark,
 /area/security/armoury)
-"alE" = (
-/obj/structure/closet/l3closet/general,
-/turf/simulated/floor/tiled/dark,
-/area/security/armoury)
 "alF" = (
 /obj/machinery/light{
 	dir = 1
@@ -6965,7 +6965,7 @@
 /area/maintenance/security_starboard)
 "ans" = (
 /obj/machinery/light/spot,
-/turf/simulated/floor/asteroid/ash/rocky,
+/turf/unsimulated/floor/asteroid/ash/rocky,
 /area/bridge)
 "ant" = (
 /obj/machinery/portable_atmospherics/canister/nitrogen,
@@ -7859,21 +7859,21 @@
 /area/maintenance/engineering)
 "apb" = (
 /obj/structure/table/rack,
-/obj/item/clothing/mask/gas{
+/obj/item/clothing/mask/gas/alt{
 	pixel_x = -3;
 	pixel_y = 3
 	},
-/obj/item/clothing/mask/gas{
+/obj/item/clothing/mask/gas/alt{
 	pixel_x = -3;
 	pixel_y = 3
 	},
-/obj/item/clothing/mask/gas,
-/obj/item/clothing/mask/gas,
-/obj/item/clothing/mask/gas{
+/obj/item/clothing/mask/gas/alt,
+/obj/item/clothing/mask/gas/alt,
+/obj/item/clothing/mask/gas/alt{
 	pixel_x = 3;
 	pixel_y = -3
 	},
-/obj/item/clothing/mask/gas{
+/obj/item/clothing/mask/gas/alt{
 	pixel_x = 3;
 	pixel_y = -3
 	},
@@ -8238,7 +8238,7 @@
 	icon_state = "corner_white";
 	dir = 5
 	},
-/obj/item/weapon/packageWrap,
+/obj/item/stack/packageWrap,
 /obj/item/weapon/hand_labeler,
 /obj/structure/table/reinforced,
 /turf/simulated/floor/tiled,
@@ -11607,7 +11607,7 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/turf/simulated/floor/asteroid/ash/rocky,
+/turf/unsimulated/floor/asteroid/ash/rocky,
 /area/bridge)
 "avi" = (
 /turf/simulated/wall,
@@ -11708,7 +11708,7 @@
 	icon_state = "tube1";
 	pixel_x = 0
 	},
-/turf/simulated/floor/asteroid/ash/rocky,
+/turf/unsimulated/floor/asteroid/ash/rocky,
 /area/bridge)
 "avp" = (
 /turf/simulated/open,
@@ -12651,7 +12651,7 @@
 	name = "Reactor Vent";
 	p_open = 0
 	},
-/turf/simulated/floor/asteroid/ash/rocky,
+/turf/unsimulated/floor/asteroid/ash/rocky,
 /area/engineering/engine_room)
 "awX" = (
 /turf/simulated/floor/greengrid/nitrogen,
@@ -17792,7 +17792,7 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/turf/simulated/floor/asteroid/ash/rocky,
+/turf/unsimulated/floor/asteroid/ash/rocky,
 /area/crew_quarters/captain)
 "aFo" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/yellow{
@@ -20711,7 +20711,7 @@
 	c_tag = "Security - Lobby Desk"
 	},
 /obj/structure/table/standard,
-/obj/item/weapon/packageWrap,
+/obj/item/stack/packageWrap,
 /obj/item/weapon/hand_labeler,
 /turf/simulated/floor/tiled,
 /area/security/brig)
@@ -25369,7 +25369,7 @@
 	icon_state = "1-4"
 	},
 /obj/structure/table/wood,
-/obj/item/weapon/packageWrap,
+/obj/item/stack/packageWrap,
 /obj/item/weapon/hand_labeler,
 /turf/simulated/floor/wood,
 /area/crew_quarters/captain)
@@ -31931,7 +31931,7 @@
 	icon_state = "rightsecure";
 	req_access = list(57)
 	},
-/mob/living/simple_animal/corgi/Ian,
+/obj/item/toy/plushie/ian,
 /turf/simulated/floor/wood,
 /area/crew_quarters/heads/hop)
 "bcA" = (
@@ -32732,7 +32732,7 @@
 /area/crew_quarters/heads/hop)
 "bea" = (
 /obj/structure/table/wood,
-/obj/item/weapon/packageWrap,
+/obj/item/stack/packageWrap,
 /obj/item/weapon/hand_labeler,
 /obj/structure/sign/nosmoking_2{
 	pixel_y = -32
@@ -33396,7 +33396,7 @@
 	broadcasting = 0;
 	canhear_range = 1;
 	frequency = 1487;
-	icon = 'icons/obj/items.dmi';
+	icon = 'icons/obj/radio.dmi';
 	icon_state = "red_phone";
 	listening = 1;
 	name = "Examination Room Emergency Phone";
@@ -33998,7 +33998,7 @@
 	pixel_x = 0;
 	pixel_y = 32
 	},
-/obj/item/weapon/packageWrap,
+/obj/item/stack/packageWrap,
 /obj/item/device/destTagger,
 /obj/item/weapon/hand_labeler,
 /turf/simulated/floor/tiled,
@@ -34801,7 +34801,7 @@
 /obj/machinery/door/firedoor,
 /obj/item/device/destTagger,
 /obj/item/weapon/hand_labeler,
-/obj/item/weapon/packageWrap,
+/obj/item/stack/packageWrap,
 /obj/machinery/door/blast/shutters{
 	dir = 2;
 	id = "kitchenshutters02";
@@ -36908,7 +36908,7 @@
 	},
 /obj/effect/floor_decal/corner/mauve/diagonal,
 /obj/structure/table/standard,
-/obj/item/weapon/packageWrap,
+/obj/item/stack/packageWrap,
 /obj/item/weapon/hand_labeler,
 /obj/item/weapon/reagent_containers/spray,
 /turf/simulated/floor/tiled/white,
@@ -39037,7 +39037,7 @@
 	broadcasting = 0;
 	canhear_range = 1;
 	frequency = 1487;
-	icon = 'icons/obj/items.dmi';
+	icon = 'icons/obj/radio.dmi';
 	icon_state = "red_phone";
 	listening = 1;
 	name = "Examination Room Emergency Phone";
@@ -39860,7 +39860,7 @@
 	broadcasting = 0;
 	canhear_range = 1;
 	frequency = 1487;
-	icon = 'icons/obj/items.dmi';
+	icon = 'icons/obj/radio.dmi';
 	icon_state = "red_phone";
 	listening = 1;
 	name = "Virology Lab Emergency Phone";
@@ -41818,7 +41818,7 @@
 	icon_state = "corner_white_full";
 	dir = 8
 	},
-/obj/item/weapon/packageWrap,
+/obj/item/stack/packageWrap,
 /obj/structure/table/standard,
 /obj/item/weapon/hand_labeler,
 /turf/simulated/floor/tiled/white,
@@ -44190,7 +44190,7 @@
 	broadcasting = 0;
 	canhear_range = 7;
 	frequency = 1487;
-	icon = 'icons/obj/items.dmi';
+	icon = 'icons/obj/radio.dmi';
 	icon_state = "red_phone";
 	listening = 1;
 	name = "Surgery Emergency Phone";
@@ -46402,7 +46402,7 @@
 	},
 /obj/structure/table/standard,
 /obj/item/weapon/hand_labeler,
-/obj/item/weapon/packageWrap,
+/obj/item/stack/packageWrap,
 /turf/simulated/floor/tiled/white,
 /area/rnd/lab)
 "bzT" = (
@@ -51159,7 +51159,7 @@
 	broadcasting = 0;
 	canhear_range = 7;
 	frequency = 1487;
-	icon = 'icons/obj/items.dmi';
+	icon = 'icons/obj/radio.dmi';
 	icon_state = "red_phone";
 	listening = 1;
 	name = "Surgery Emergency Phone";
@@ -56871,7 +56871,7 @@
 "bUC" = (
 /obj/structure/table/wood,
 /obj/item/weapon/reagent_containers/food/drinks/shaker,
-/obj/item/weapon/packageWrap,
+/obj/item/stack/packageWrap,
 /obj/item/weapon/book/manual/barman_recipes,
 /obj/machinery/newscaster{
 	pixel_x = -32
@@ -59278,11 +59278,11 @@
 	},
 /obj/machinery/firealarm/west,
 /obj/structure/table/standard,
-/obj/item/weapon/packageWrap,
+/obj/item/stack/packageWrap,
 /obj/item/device/destTagger,
 /obj/item/weapon/pen,
 /obj/item/weapon/hand_labeler,
-/obj/item/weapon/wrapping_paper,
+/obj/item/stack/wrapping_paper,
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/tiled,
 /area/quartermaster/lobby)
@@ -59774,8 +59774,8 @@
 "cao" = (
 /obj/structure/window/reinforced,
 /obj/structure/table/standard,
-/obj/item/weapon/packageWrap,
-/obj/item/weapon/packageWrap,
+/obj/item/stack/packageWrap,
+/obj/item/stack/packageWrap,
 /obj/machinery/alarm{
 	dir = 4;
 	icon_state = "alarm0";
@@ -61193,7 +61193,7 @@
 "ccZ" = (
 /obj/structure/disposalpipe/segment,
 /obj/structure/table/standard,
-/obj/item/weapon/packageWrap,
+/obj/item/stack/packageWrap,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/effect/floor_decal/corner/brown{
 	icon_state = "corner_white";
@@ -61345,7 +61345,7 @@
 "cdu" = (
 /obj/structure/disposalpipe/segment,
 /obj/structure/table/standard,
-/obj/item/weapon/packageWrap,
+/obj/item/stack/packageWrap,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
@@ -61504,7 +61504,7 @@
 	icon_state = "pipe-c"
 	},
 /obj/structure/table/standard,
-/obj/item/weapon/wrapping_paper,
+/obj/item/stack/wrapping_paper,
 /obj/effect/floor_decal/corner/brown/full,
 /turf/simulated/floor/tiled,
 /area/quartermaster/mail_room)
@@ -62477,13 +62477,13 @@
 /obj/structure/track{
 	icon_state = "track4"
 	},
-/turf/simulated/floor/asteroid/ash/rocky,
+/turf/unsimulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
 "cfe" = (
 /obj/structure/track{
 	icon_state = "track12"
 	},
-/turf/simulated/floor/asteroid/ash/rocky,
+/turf/unsimulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
 "cff" = (
 /obj/structure/track{
@@ -64197,7 +64197,7 @@
 	icon_state = "corner_white";
 	dir = 10
 	},
-/obj/item/weapon/packageWrap,
+/obj/item/stack/packageWrap,
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/refinery)
 "cif" = (
@@ -64313,7 +64313,7 @@
 	},
 /area/outpost/mining_main/eva)
 "cio" = (
-/turf/simulated/floor/asteroid/ash/rocky,
+/turf/unsimulated/floor/asteroid/ash/rocky,
 /area/skipjack_station/cavern)
 "cip" = (
 /obj/machinery/door/airlock/maintenance{
@@ -66166,9 +66166,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/research)
-"lpr" = (
-/turf/simulated/floor/asteroid/ash/rocky,
-/area/maintenance/research_port)
 "lpH" = (
 /obj/structure/curtain/open/shower,
 /obj/machinery/shower{
@@ -66551,7 +66548,7 @@
 	pixel_y = 25;
 	req_access = list(13)
 	},
-/turf/simulated/floor/asteroid/ash/rocky,
+/turf/unsimulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
 "nug" = (
 /obj/effect/decal/cleanable/dirt,
@@ -67095,7 +67092,7 @@
 /area/rnd/misc_lab)
 "qzz" = (
 /obj/item/weapon/clipboard,
-/obj/item/weapon/packageWrap,
+/obj/item/stack/packageWrap,
 /obj/structure/table/standard,
 /turf/simulated/floor/tiled,
 /area/maintenance/cargo)
@@ -90261,7 +90258,7 @@ bfQ
 bcY
 hlp
 mBU
-lpr
+bcY
 bSB
 hlp
 feo
@@ -93787,7 +93784,7 @@ afo
 aab
 ajR
 ajR
-alE
+abY
 amO
 anT
 apc

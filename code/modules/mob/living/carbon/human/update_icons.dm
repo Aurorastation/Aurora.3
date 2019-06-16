@@ -155,12 +155,12 @@ There are several things that need to be remembered:
 			M.Turn(90)
 			M.Scale(size_multiplier)
 			M.Translate(1,-6)
-			src.transform = M
+			animate(src, transform = M, time = ANIM_LYING_TIME)
 		else
 			var/matrix/M = matrix()
 			M.Scale(size_multiplier)
 			M.Translate(0, 16*(size_multiplier-1))
-			src.transform = M
+			animate(src, transform = M, time = ANIM_LYING_TIME)
 
 	compile_overlays()
 	lying_prev = lying
@@ -723,13 +723,19 @@ There are several things that need to be remembered:
 		return
 
 	if(s_store)
-		//s_store.auto_adapt_species(src)
-		overlays_raw[SUIT_STORE_LAYER] = image('icons/mob/belt_mirror.dmi', s_store.item_state || s_store.icon_state)
-		s_store.screen_loc = ui_sstore1		//TODO
+		if(s_store.contained_sprite)
+			s_store.auto_adapt_species(src)
+			var/state="[UNDERSCORE_OR_NULL(s_store.icon_species_tag)][s_store.item_state][WORN_SSTORE]"
+			overlays_raw[SUIT_STORE_LAYER] = image(s_store.icon_override || s_store.icon, state)
+			s_store.screen_loc = ui_sstore1
+		else
+			//s_store.auto_adapt_species(src)
+			overlays_raw[SUIT_STORE_LAYER] = image('icons/mob/belt_mirror.dmi', s_store.item_state || s_store.icon_state)
+			s_store.screen_loc = ui_sstore1		//TODO
 	else
 		overlays_raw[SUIT_STORE_LAYER] = null
-	if(update_icons)   update_icons()
-
+	if(update_icons)
+		update_icons()
 
 /mob/living/carbon/human/update_inv_head(update_icons = TRUE, recurse = TRUE)
 	if (QDELING(src))

@@ -112,3 +112,13 @@
 	desc = "Deus vult. Non nobis domine!"
 	icon_state = "hospitallercross_down"
 	icon_up = "hospitallercross_up"
+
+
+//////////////////////////////MarauderW's banners/////////////////////////////////////////////////////////
+
+
+/obj/structure/banner/newgibson
+	name = "new gibson banner"
+	desc = "A banner depicting the flag of New Gibson."
+	icon_state = "newgibson_down"
+	icon_up = "newgibson_up"

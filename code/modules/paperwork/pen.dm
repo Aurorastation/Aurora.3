@@ -69,6 +69,10 @@
 	msg_admin_attack("[user.name] ([user.ckey]) Used the [name] to stab [M.name] ([M.ckey]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(M))
 	return
 
+/obj/item/weapon/pen/attack_self(var/mob/user)
+	to_chat(user, "<span class='notice'>Click.</span>")
+	playsound(loc, 'sound/items/penclick.ogg', 50, 1)
+
 /*
  * Reagent pens
  */
