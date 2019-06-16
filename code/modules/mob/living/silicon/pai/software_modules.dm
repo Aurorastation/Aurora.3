@@ -371,11 +371,11 @@
 /mob/living/silicon/pai/proc/hackloop()
 	var/turf/T = get_turf_or_move(src.loc)
 	for(var/mob/living/silicon/ai/AI in player_list)
-		if(T.loc)
+		if(T.loc && prob(60)) //60% chance for AI to detect where hack takes place
 			to_chat(AI, "<font color = red><b>Network Alert: Brute-force encryption crack in progress in [T.loc].</b></font>")
 		else
 			to_chat(AI, "<font color = red><b>Network Alert: Brute-force encryption crack in progress. Unable to pinpoint location.</b></font>")
-	var/obj/machinery/door/D = cable.machine
+	var/obj/machinery/door/airlock/D = cable.machine
 	if(!istype(D))
 		hack_aborted = 1
 		hackprogress = 0
@@ -390,12 +390,13 @@
 			hackprogress = 0
 			hackdoor = null
 			return
-		if(hackprogress >= 1000)
+		if(hackprogress >= 1000) //Hack finished, unlock and open door
 			hackprogress = 0
+			D.unlock() //Unlocks door as long as Bolt Wire isn't cut
 			D.open()
 			cable.machine = null
 			return
-		sleep(10)			// Update every second
+		sleep(10)  // Update every second
 
 /datum/pai_software/atmosphere_sensor
 	name = "Atmosphere Sensor"
@@ -471,13 +472,11 @@
 			user.add_language(LANGUAGE_UNATHI)
 			user.add_language(LANGUAGE_SIIK_MAAS)
 			user.add_language(LANGUAGE_SKRELLIAN)
-//			user.add_language("Vaurcese")
 			user.add_language("Rootsong")
 		else
 			user.remove_language(LANGUAGE_UNATHI)
 			user.remove_language(LANGUAGE_SIIK_MAAS)
 			user.remove_language(LANGUAGE_SKRELLIAN)
-			//user.add_language(LANGUAGE_VAURCA) //I can buy an AI core and its cyborgs having access to the local hivenet for security reasons, but a pAI?
 			user.add_language("Rootsong")
 
 	is_active(mob/living/silicon/pai/user)
