@@ -10,7 +10,7 @@
  */
 
 /obj/item/clothing/under/rank/security
-	name = "security officer's jumpsuit"
+	name = "security officer's uniform"
 	desc = "It's made of a slightly sturdier material than standard jumpsuits, to allow for robust protection."
 	icon_state = "officer_standard"
 	worn_state = "officer_standard"
@@ -35,7 +35,7 @@
 
 /obj/item/clothing/under/rank/warden
 	desc = "It's made of a slightly sturdier material than standard jumpsuits, to allow for more robust protection. It has the word \"Warden\" written on the shoulders."
-	name = "warden's jumpsuit"
+	name = "warden's uniform"
 	icon_state = "warden_standard"
 	worn_state = "warden_standard"
 	armor = list(melee = 10, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 0, rad = 0)
@@ -81,7 +81,7 @@
  */
 /obj/item/clothing/under/rank/head_of_security
 	desc = "It's a jumpsuit worn by those few with the dedication to achieve the position of \"Head of Security\". It has additional armor to protect the wearer."
-	name = "head of security's jumpsuit"
+	name = "head of security's uniform"
 	icon_state = "hos_standard"
 	worn_state = "hos_standard"
 	armor = list(melee = 10, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 0, rad = 0)

@@ -192,7 +192,7 @@
 /obj/item/clothing/shoes/black_boots
 	name = "black boots"
 	desc = "A pair of tough looking black boots."
-	icon_state = "jackboots"
+	icon_state = "blackboots"
 	item_state = "blackboots"
 	armor = list(melee = 10, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0, rad = 0)
 	can_hold_knife = 1

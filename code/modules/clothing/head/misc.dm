@@ -439,6 +439,9 @@
 		)
 	siemens_coefficient = 0.7
 
+/obj/item/clothing/head/fedora/brown/dark
+	icon_state = "darkbrown_fedora"
+
 /obj/item/clothing/head/fedora/grey
 	icon_state = "grey_fedora"
 	desc = "A grey fedora - either the cornerstone of a detective's style or a poor attempt at looking cool, depending on the person wearing it."

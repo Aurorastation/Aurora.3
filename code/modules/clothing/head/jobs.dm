@@ -62,6 +62,11 @@
 	desc = "A navy blue beret with an officer's rank emblem. For officers that are more inclined towards style than safety."
 	icon_state = "officerberet"
 
+/obj/item/clothing/head/beret/sec/cadet
+	name = "cadet beret"
+	desc = "A beret with the security insignia emblazoned on it. This one is for in training security personnel."
+	icon_state = "cadetberet"
+
 /obj/item/clothing/head/beret/sec/hos
 	name = "commander beret"
 	desc = "A navy blue beret with a commander's rank emblem. For officers that are more inclined towards style than safety."

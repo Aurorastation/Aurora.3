@@ -179,6 +179,7 @@
 		new /obj/item/device/radio/headset/heads/hos(src)
 		//Belts
 		new /obj/item/weapon/storage/belt/security(src)
+
 		new /obj/item/clothing/accessory/holster/waist(src)
 
 		new /obj/item/device/breath_analyzer(src)
@@ -225,8 +226,10 @@
 		new /obj/item/weapon/melee/baton/loaded(src)
 		new /obj/item/weapon/gun/energy/pistol(src)
 		//Belts
-		new /obj/item/weapon/storage/belt/security(src)
-		new /obj/item/clothing/accessory/storage/black_vest(src)
+		if (prob(50))
+			new /obj/item/clothing/accessory/storage/black_vest(src)
+		else
+			new /obj/item/clothing/accessory/storage/black_pouches(src)
 
 
 /obj/structure/closet/secure_closet/security_cadet
@@ -245,7 +248,7 @@
 			new /obj/item/weapon/storage/backpack/security(src)
 		else
 			new /obj/item/weapon/storage/backpack/satchel_sec(src)
-		new /obj/item/clothing/head/beret/sec(src)
+		new /obj/item/clothing/head/beret/sec/cadet(src)
 		new /obj/item/clothing/suit/storage/vest/cadet(src)
 		new /obj/item/clothing/under/rank/cadet(src)
 		//Tools
@@ -257,7 +260,10 @@
 		new /obj/item/device/holowarrant(src)
 		new /obj/item/device/flashlight/flare(src)
 		//Belts
-		new /obj/item/clothing/accessory/storage/black_vest(src)
+		if (prob(50))
+			new /obj/item/clothing/accessory/storage/black_vest(src)
+		else
+			new /obj/item/clothing/accessory/storage/black_pouches(src)
 		new /obj/item/weapon/storage/belt/security(src)
 
 /obj/structure/closet/secure_closet/security
@@ -296,8 +302,12 @@
 		new /obj/item/device/flashlight/flare(src)
 		new /obj/item/weapon/handcuffs(src)
 		//Belts
-		new /obj/item/clothing/accessory/storage/black_vest(src)
+		if (prob(50))
+			new /obj/item/clothing/accessory/storage/black_vest(src)
+		else
+			new /obj/item/clothing/accessory/storage/black_pouches(src)
 		new /obj/item/weapon/storage/belt/security(src)
+		new /obj/item/clothing/accessory/holster/hip(src)
 
 
 /obj/structure/closet/secure_closet/security/cargo
