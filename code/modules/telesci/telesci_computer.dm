@@ -1,6 +1,6 @@
 /obj/machinery/computer/telescience
 	name = "\improper Telepad Control Console"
-	desc = "Used to teleport objects to and from the telescience telepad."
+	desc = "Used to create bluespace portals using the telescience telepad."
 	icon_screen = "teleport"
 	light_color = LIGHT_COLOR_BLUE
 	circuit = /obj/item/weapon/circuitboard/telesci_console
@@ -195,7 +195,7 @@
 
 			spark(telepad, 5, alldirs)
 
-			temp_msg = "Teleport successful.<BR>"
+			temp_msg = "Bluespace portal creation successful.<BR>"
 			if(teles_left < 10)
 				temp_msg += "<BR>Calibration required soon."
 			else
