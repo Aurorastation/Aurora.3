@@ -43,6 +43,11 @@ var/list/floor_light_cache = list()
 		update_brightness()
 	else if(W.force && user.a_intent == "hurt")
 		attack_hand(user)
+	else if(istype(W, /obj/item/weapon/crowbar))
+		to_chat(user, "<span class='notice'>You lever off the [name].</span>")
+		playsound(src.loc, 'sound/items/Crowbar.ogg', 100, 1)
+		new /obj/item/stack/tile/light(user.loc)
+		qdel(src)
 	return
 
 /obj/machinery/floor_light/attack_hand(var/mob/user)

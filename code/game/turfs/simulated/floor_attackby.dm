@@ -88,6 +88,12 @@
 						broken = null
 					else
 						to_chat(user, "<span class='warning'>You need more welding fuel to complete this task.</span>")
+		else if(C./obj/item/stack/tile/light())
+			amount--
+			playsound(src.loc, 'sound/items/Deconstruct.ogg', 50, 1)
+			new /obj/machinery/floor_light(user.loc)
+			if(amount <= 0)
+				qdel(src)
 
 /turf/simulated/floor/can_lay_cable()
 	return !flooring
