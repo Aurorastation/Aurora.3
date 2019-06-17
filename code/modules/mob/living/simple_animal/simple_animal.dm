@@ -554,11 +554,11 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 		return (0)
 	return 1
 
-/mob/living/simple_animal/verb/make_noise()
+/mob/living/simple_animal/verb/make_noise(var/make_sound = TRUE)
 	set name = "Resist"
 	set category = "Abilities"
 
-	if(usr.stat == DEAD)
+	if(usr.stat == DEAD || !make_sound)
 		return
 
 	if(!sound_time)
@@ -566,8 +566,9 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 		return
 
 	playsound(src, pick(emote_sounds), 75, 1)
-	sound_time = FALSE
-	addtimer(CALLBACK(src, .proc/reset_sound_time), 2 SECONDS)
+	if(client)
+		sound_time = FALSE
+		addtimer(CALLBACK(src, .proc/reset_sound_time), 2 SECONDS)
 
 /mob/living/simple_animal/proc/reset_sound_time()
 	sound_time = TRUE
@@ -579,9 +580,10 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 
 	message = sanitize(message)
 	if(emote_sounds.len)
-		if(client && prob(50)) // we do not want people who assume direct control to spam
-			return
-		make_noise()
+		var/sound_chance = FALSE
+		if(client) // we do not want people who assume direct control to spam
+			sound_chance = prob(50)
+		make_noise(sound_chance)
 
 	..(message, null, verb)
 
