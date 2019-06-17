@@ -234,6 +234,7 @@
 			new /obj/item/clothing/accessory/storage/black_vest(src)
 		else
 			new /obj/item/clothing/accessory/storage/black_pouches(src)
+		new /obj/item/weapon/storage/belt/security(src)
 
 
 /obj/structure/closet/secure_closet/security_cadet
