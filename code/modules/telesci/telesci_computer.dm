@@ -20,7 +20,6 @@
 	var/rotation = 0
 	var/angle = 45
 	var/power = 5
-	var/potency = 0
 
 	// Based on the power used
 	var/teleport_cooldown = 0 // every index requires a bluespace crystal
@@ -102,7 +101,7 @@
 		t += "<div class='statusDisplay'>"
 
 		for(var/i = 1; i <= power_options.len; i++)
-			if(crystals.len + telepad.efficiency - potency  < i)
+			if(crystals.len + telepad.efficiency < i)
 				t += "<span class='linkOff'>[power_options[i]]</span>"
 				continue
 			if(power == power_options[i])
@@ -113,9 +112,6 @@
 
 		t += "<A href='?src=\ref[src];setz=1'>Set Sector</A>"
 		t += "<div class='statusDisplay'>[z_co ? z_co : "NULL"]</div>"
-
-		t += " <A href='?src=\ref[src];scalar=1'>Recalibrate Warp-Funnel</A>"
-		t += "<div class='statusDisplay'>[potency]</div>"
 
 		t += "<BR><A href='?src=\ref[src];send=1'>Open Portal</A>"
 		t += "<BR><A href='?src=\ref[src];recal=1'>Recalibrate Crystals</A> <A href='?src=\ref[src];eject=1'>Eject Crystals</A>"
@@ -174,7 +170,7 @@
 		var/area/A = get_area(target)
 		flick("pad-beam", telepad)
 
-		if(spawn_time > (15 * (potency + 1))) // 1.5 seconds
+		if(spawn_time > 15 ) // 1.5 seconds
 			playsound(telepad.loc, 'sound/weapons/flash.ogg', 25, 1)
 			// Wait depending on the time the projectile took to get there
 			teleporting = 1
@@ -187,11 +183,11 @@
 			if(telepad.stat & NOPOWER)
 				return
 			teleporting = 0
-			teleport_cooldown = world.time + (power * 2 * (potency + 1))
+			teleport_cooldown = world.time + (power * 2)
 			teles_left -= 1
 
 			// use a lot of power
-			use_power(power * 10 * (potency + 1))
+			use_power(power * 10)
 
 			spark(telepad, 5, alldirs)
 
@@ -299,7 +295,7 @@
 		var/index = href_list["setpower"]
 		index = text2num(index)
 		if(index != null && power_options[index])
-			if(crystals.len + telepad.efficiency - potency >= index)
+			if(crystals.len + telepad.efficiency >= index)
 				power = power_options[index]
 
 	if(href_list["setz"])
@@ -323,16 +319,6 @@
 	if(href_list["send"])
 		sending = 1
 		teleport(usr)
-
-	if(href_list["scalar"])
-		if(potency < max(0, crystals.len - 2))
-			potency++
-		else
-			potency = 0
-		if(crystals.len + telepad.efficiency - potency <= 0)
-			power = power_options[1]
-		else if(power_options[crystals.len + telepad.efficiency - potency] < power)
-			power = power_options[crystals.len + telepad.efficiency - potency]
 
 	if(href_list["recal"])
 		recalibrate()
