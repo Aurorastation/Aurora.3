@@ -2429,10 +2429,6 @@
 /obj/structure/window/reinforced,
 /turf/simulated/floor/tiled/white,
 /area/derelict/ship)
-"fK" = (
-/obj/item/toy/plushie/squid/blue,
-/turf/simulated/floor,
-/area/derelict/ship)
 "fO" = (
 /obj/machinery/shield_gen,
 /turf/simulated/floor,
@@ -30906,7 +30902,7 @@ ar
 fq
 fl
 ar
-fK
+fl
 fT
 fj
 ar
