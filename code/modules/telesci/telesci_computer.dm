@@ -117,8 +117,7 @@
 		t += " <A href='?src=\ref[src];scalar=1'>Recalibrate Warp-Funnel</A>"
 		t += "<div class='statusDisplay'>[potency]</div>"
 
-		t += "<BR><A href='?src=\ref[src];send=1'>Send</A>"
-		t += " <A href='?src=\ref[src];receive=1'>Receive</A>"
+		t += "<BR><A href='?src=\ref[src];send=1'>Open Portal</A>"
 		t += "<BR><A href='?src=\ref[src];recal=1'>Recalibrate Crystals</A> <A href='?src=\ref[src];eject=1'>Eject Crystals</A>"
 
 		// Information about the last teleport
@@ -215,44 +214,12 @@
 
 			flick("pad-beam", telepad)
 			playsound(telepad.loc, 'sound/weapons/emitter2.ogg', 25, 1, extrarange = 3, falloff = 5)
-			for(var/atom/movable/ROI in range(potency,source))
-				// if is anchored, don't let through
-				if(ROI.anchored)
-					if(isliving(ROI))
-						var/mob/living/L = ROI
-						if(L.buckled)
-							// TP people on office chairs
-							if(L.buckled.anchored)
-								continue
 
-							log_msg += "[key_name(L)] (on a chair), "
-						else
-							continue
-					else if(!isobserver(ROI))
-						continue
-				if(ismob(ROI))
-					var/mob/T = ROI
-					log_msg += "[key_name(T)], "
-				else
-					log_msg += "[ROI.name]"
-					if (istype(ROI, /obj/structure/closet))
-						var/obj/structure/closet/C = ROI
-						log_msg += " ("
-						for(var/atom/movable/Q as mob|obj in C)
-							if(ismob(Q))
-								log_msg += "[key_name(Q)], "
-							else
-								log_msg += "[Q.name], "
-						if (dd_hassuffix(log_msg, "("))
-							log_msg += "empty)"
-						else
-							log_msg = dd_limittext(log_msg, length(log_msg) - 2)
-							log_msg += ")"
-					log_msg += ", "
-				var/x_offset = ROI.x - source.x
-				var/y_offset = ROI.y - source.y
+			var/obj/effect/portal/origin = new /obj/effect/portal(dest)
+			var/obj/effect/portal/destination = new /obj/effect/portal(source)
 
-				do_teleport(ROI, locate(dest.x + x_offset, dest.y + y_offset, dest.z))
+			origin.target = destination
+			destination.target = origin
 
 			if (dd_hassuffix(log_msg, ", "))
 				log_msg = dd_limittext(log_msg, length(log_msg) - 2)
@@ -270,6 +237,10 @@
 		telefail()
 		temp_msg = "ERROR!<BR>No power selected!"
 		return
+	if(telepad)
+		if(locate(/obj/effect/portal, telepad.loc))
+			temp_msg = "ERROR!<BR>Bluespace portal located at \the [telepad] location!"
+			return
 	if(angle < 1 || angle > 90)
 		telefail()
 		temp_msg = "ERROR!<BR>Elevation is less than 1 or greater than 90."
@@ -341,10 +312,6 @@
 
 	if(href_list["send"])
 		sending = 1
-		teleport(usr)
-
-	if(href_list["receive"])
-		sending = 0
 		teleport(usr)
 
 	if(href_list["scalar"])
