@@ -3025,8 +3025,9 @@
 	required_reagents = list("water" = 1)
 	required_temperatures_max = list("water" = T0C)
 	result_amount = 1
-	mix_message = "The water freezes."
+	mix_message = ""
 	reaction_sound = ""
+	reaction_rate = HALF_LIFE(80)
 
 /datum/chemical_reaction/ice_to_water
 	name = "Ice to Water"
@@ -3035,8 +3036,9 @@
 	required_reagents = list("ice" = 1)
 	required_temperatures_min = list("ice" = T0C + 1)
 	result_amount = 1
-	mix_message = "The ice melts."
+	mix_message = ""
 	reaction_sound = ""
+	reaction_rate = HALF_LIFE(80)
 
 /datum/chemical_reaction/phoron_salt //Safe temperatures for phoron salt is between 0 degress celcius and 200 celcius.
 	name = "Phoron Salt"
@@ -3211,3 +3213,11 @@
 	result = "kois_odyne"
 	result_amount = 3
 	required_reagents = list("tonic" = 1, "koispaste" = 1, "toothpaste" = 1)
+
+/datum/chemical_reaction/adhomai_milk
+	name = "Fermented Fatshouters Milk"
+	id = "adhomai_milk"
+	result = "adhomai_milk"
+	required_reagents = list("fatshouter_milk" = 1)
+	catalysts = list("enzyme" = 5)
+	result_amount = 1

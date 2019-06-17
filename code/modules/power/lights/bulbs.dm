@@ -102,7 +102,7 @@
 	name = "fire bulb"
 	desc = "A replacement fire bulb."
 	icon_state = "flight"
-	item_state = "egg4"
+	item_state = "egg_red"
 	matter = list("glass" = 100)
 	brightness_range = 8
 	brightness_power = 0.8

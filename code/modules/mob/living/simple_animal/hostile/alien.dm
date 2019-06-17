@@ -39,6 +39,8 @@
 	attack_emote = "growls at"
 	smart = TRUE
 
+	butchering_products = list(/obj/item/stack/material/animalhide/xeno = 5)
+
 /mob/living/simple_animal/hostile/alien/drone
 	name = "alien drone"
 	icon_state = "aliend_running"

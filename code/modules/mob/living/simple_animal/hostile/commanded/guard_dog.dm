@@ -48,6 +48,8 @@
 	destroy_surroundings = FALSE
 	attack_emote = "growls at"
 
+	butchering_products = list(/obj/item/stack/material/animalhide = 2)
+
 /mob/living/simple_animal/hostile/commanded/dog/verb/befriend()
 	set name = "Befriend Dog"
 	set category = "IC"
@@ -133,3 +135,5 @@
 	harm_intent_damage = 5
 	melee_damage_lower = 5
 	melee_damage_upper = 5
+
+	butchering_products = list(/obj/item/stack/material/animalhide = 2)
