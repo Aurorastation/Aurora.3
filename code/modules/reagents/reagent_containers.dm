@@ -189,6 +189,12 @@
 		return 1
 
 	//var/types = target.find_type()
+
+	if(isanimal(target))
+		var/mob/living/simple_animal/C = target
+		if(C.has_udder)
+			return
+
 	var/mob/living/carbon/human/H
 	if(istype(target, /mob/living/carbon/human))
 		H = target
