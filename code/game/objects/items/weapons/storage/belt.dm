@@ -355,14 +355,6 @@
 	new /obj/item/weapon/reagent_containers/spray/plantbgone(src)
 	new /obj/item/weapon/wirecutters/clippers(src)
 
-/obj/item/weapon/storage/belt/bandolier
-	name = "bandolier"
-	desc = "A pocketed belt designated to hold shotgun shells."
-	icon_state = "bandolier"
-	item_state = "bandolier"
-	can_hold = list(/obj/item/ammo_casing/shotgun)
-	storage_slots = 16
-
 /obj/item/weapon/storage/belt/fannypack
 	name = "leather fannypack"
 	desc = "A dorky fannypack for keeping small items in."
