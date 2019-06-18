@@ -133,6 +133,7 @@
 		new /obj/item/clothing/suit/armor/hos(src)
 		new /obj/item/clothing/suit/storage/vest/hos(src)
 		new /obj/item/clothing/head/helmet/HoS(src)
+		new /obj/item/clothing/head/helmet/HoS/tacticalhelm(src)
 		new /obj/item/clothing/head/beret/sec/hos(src)
 		new /obj/item/clothing/accessory/badge/hos(src)
 		new /obj/item/clothing/shoes/black_boots(src)
