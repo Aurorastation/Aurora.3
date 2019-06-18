@@ -117,11 +117,8 @@
 	desc = "A glass tile, which is wired, somehow."
 	icon = 'icons/obj/stacks/tiles.dmi'
 	icon_state = "glass_wire"
-	force = 3
-	throwforce = 5
-	throw_speed = 3
-	throw_range = 7
-	max_amount = 60
+	default_type = "wired glass tile"
+	created_window = null
 
 /obj/item/stack/material/glass/wired/attackby(var/obj/O, mob/user as mob)
 	if(istype(O, /obj/item/stack/material/steel))

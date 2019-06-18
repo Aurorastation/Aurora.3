@@ -190,13 +190,6 @@
 		/obj/item/weapon/storage/internal
 	)
 
-/obj/machinery/cryopod/update_icon()
-	if (occupant)
-		icon_state = "[initial(icon_state)]-closed"
-		return
-	else
-		icon_state = initial(icon_state)
-
 /obj/machinery/cryopod/robot
 	name = "robotic storage unit"
 	desc = "A storage unit for robots."
@@ -368,7 +361,6 @@
 					M.client.perspective = EYE_PERSPECTIVE
 					M.client.eye = src
 
-			flick("[initial(icon_state)]-anim", src)
 			update_icon()
 
 			to_chat(M, "<span class='notice'>[on_enter_occupant_message]</span>")
@@ -430,7 +422,6 @@
 			to_chat(user, "<span class='notice'>You stop [L == user ? "climbing into" : "putting [L] into"] \the [name].</span>")
 			return
 
-		flick("[initial(icon_state)]-anim", src)
 		update_icon()
 
 		to_chat(L, "<span class='notice'>You feel cool air surround you. You go numb as your senses turn inward.</span>")
@@ -455,7 +446,6 @@
 	if(usr.stat != 0)
 		return
 
-	flick("[initial(icon_state)]-anim", src)
 	update_icon()
 
 	//Eject any items that aren't meant to be in the pod.
@@ -506,7 +496,6 @@
 		usr.forceMove(src)
 		set_occupant(usr)
 
-		flick("[initial(icon_state)]-anim", src)
 		update_icon()
 
 		to_chat(usr, "<span class='notice'>[on_enter_occupant_message]</span>")
@@ -530,7 +519,6 @@
 	occupant.forceMove(get_turf(src))
 	set_occupant(null)
 
-	flick("[initial(icon_state)]-anim", src)
 	update_icon()
 
 	return
@@ -540,3 +528,11 @@
 	name = initial(name)
 	if(occupant)
 		name = "[name] ([occupant])"
+
+/obj/machinery/cryopod/update_icon()
+	flick("[initial(icon_state)]-anim", src)
+	if(occupant)
+		icon_state = "[initial(icon_state)]-closed"
+		return
+	else
+		icon_state = initial(icon_state)
