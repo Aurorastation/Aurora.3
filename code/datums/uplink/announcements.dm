@@ -12,7 +12,7 @@
 /datum/uplink_item/abstract/announcements/fake_centcom/New()
 	..()
 	name = "[current_map.boss_name] Update Announcement"
-	item_cost = 2
+	item_cost = round(DEFAULT_TELECRYSTAL_AMOUNT / 3)
 	desc = "Causes a falsified [current_map.boss_name] Update. Triggers immediately after supplying additional data."
 
 /datum/uplink_item/abstract/announcements/fake_centcom/extra_args(var/mob/user)
@@ -31,7 +31,7 @@
 /datum/uplink_item/abstract/announcements/fake_crew_arrival
 	name = "Crew Arrival Announcement/Records"
 	desc = "Creates a fake crew arrival announcement as well as fake crew records, using your current appearance (including held items!) and worn id card. Trigger with care!"
-	item_cost = 3
+	item_cost = 8
 
 /datum/uplink_item/abstract/announcements/fake_crew_arrival/New()
 	..()
