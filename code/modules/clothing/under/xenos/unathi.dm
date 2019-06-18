@@ -15,6 +15,7 @@
 
 /obj/item/clothing/under/unathi/sashes
 	name = "gy'zao sashes"
+	gender = PLURAL
 	desc = "An androgynous set of sashes worn by Unathi when they want to bask under the sun. Not appropriate to wear outside of that."
 	icon = 'icons/obj/unathi_items.dmi'
 	icon_state = "unathi_sunwear"
