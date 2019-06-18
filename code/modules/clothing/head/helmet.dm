@@ -42,14 +42,20 @@
 	name = "head of security hat"
 	desc = "The hat of the Head of Security. For showing the officers who's in charge."
 	icon_state = "hoscap"
-	armor = list(melee = 65, bullet = 30, laser = 50, energy = 10, bomb = 25, bio = 0, rad = 0)
-	flags_inv = HIDEEARS
 
 /obj/item/clothing/head/helmet/HoS/dermal
 	name = "dermal armour patch"
 	desc = "You're not quite sure how you manage to take it on and off, but it implants nicely in your head."
 	icon_state = "dermal"
+	armor = list(melee = 65, bullet = 30, laser = 50, energy = 10, bomb = 25, bio = 0, rad = 0)
 	allow_hair_covering = FALSE
+
+/obj/item/clothing/head/helmet/HoS/tacticalhelm
+	name = "commander tactical helmet"
+	desc = "A special Internal Security Division helmet designed to protect the precious craniums of important installation security officers."
+	icon_state = "hos_helmet"
+	armor = list(melee = 65, bullet = 30, laser = 50, energy = 10, bomb = 25, bio = 0, rad = 0)
+	flags_inv = HIDEEARS
 
 /obj/item/clothing/head/helmet/hop
 	name = "crew resource's hat"
