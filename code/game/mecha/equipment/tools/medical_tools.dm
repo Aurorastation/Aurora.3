@@ -93,8 +93,7 @@
 	
 /obj/item/mecha_parts/mecha_equipment/tool/sleeper/relaymove(mob, direct)
 	to_chat(usr, "<span class='notice'>Remote release sequence activated. This will take ten seconds.</span>")
-	sleep(100)
-	go_out()
+	addtimer(CALLBACK(src, .proc/go_out), 10 SECONDS)
 
 /obj/item/mecha_parts/mecha_equipment/tool/sleeper/Topic(href,href_list)
 	..()
