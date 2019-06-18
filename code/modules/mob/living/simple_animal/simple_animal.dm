@@ -428,22 +428,16 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 
 /mob/living/simple_animal/attackby(var/obj/item/O, var/mob/user)
 	if(has_udder)
-		if(istype(O, /obj/item/weapon/reagent_containers/glass))
-			var/obj/item/weapon/reagent_containers/glass/G = O
-			if(stat == CONSCIOUS && G.is_open_container())
-
-				if(udder.total_volume < 5)
-					to_chat(user, "<span class='warning'>The udder is dry.</span>")
-					return
-
-				if(G.reagents.total_volume >= G.volume)
-					to_chat(user, "<span class='warning'>The [O] is full.</span>")
-					return
-
-				user.visible_message("<span class='notice'>[user] milks [src] using \the [O].</span>")
-				udder.trans_to_obj(G, 5)
+		var/obj/item/weapon/reagent_containers/glass/G = O
+		if(stat == CONSCIOUS && istype(G) && G.is_open_container())
+			if(udder.total_volume <= 0)
+				to_chat(user, "<span class='warning'>The udder is dry.</span>")
 				return
-
+			if(G.reagents.total_volume >= G.volume)
+				to_chat(user, "<span class='warning'>The [O] is full.</span>")
+				return
+			user.visible_message("<span class='notice'>[user] milks [src] using \the [O].</span>")
+			udder.trans_id_to(G, milk_type , rand(5,10))
 			return
 
 	if(istype(O, /obj/item/weapon/reagent_containers) || istype(O, /obj/item/stack/medical) || istype(O,/obj/item/weapon/gripper/))
