@@ -161,9 +161,9 @@ proc/get_radio_key_from_channel(var/channel)
 
 	var/message_mode = parse_message_mode(message, "headset")
 
+	var/static/list/correct_punctuation = list("!" = TRUE, "." = TRUE, "?" = TRUE, "-" = TRUE, "~" = TRUE, "*" = TRUE, "/" = TRUE)
 	var/ending = copytext(message, length(message), (length(message) + 1))
-
-	if(ending && ending != "!" && ending != "." && ending != "?" && ending != "-" && ending != "~" && ending != "*" && ending != "/") //Check * and / for markup.
+	if(ending && !correct_punctuation[ending])
 		message += "."
 
 	message = process_chat_markup(message, list("~", "_"))
