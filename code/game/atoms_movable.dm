@@ -15,7 +15,7 @@
 	var/mob/pulledby = null
 	var/item_state = null // Base name of the image used for when the item is worn. Suffixes are added to this.
 	//Also used on holdable mobs for the same info related to their held version
-	var/does_spin = TRUE // Does the atom spin when thrown (of course it does :P)
+	var/does_spin = FALSE // Does the atom spin when thrown
 
 	var/can_hold_mob = FALSE
 	var/list/contained_mobs
