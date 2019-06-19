@@ -92,7 +92,7 @@
 	sort_category = "Xenowear - Unathi"
 
 /datum/gear/uniform/unathi/sashes
-	display_name = "gy'zao sashes"
+	display_name = "gyzao sashes"
 	path = /obj/item/clothing/under/unathi/sashes
 	whitelisted = list("Unathi", "Aut'akh Unathi")
 	sort_category = "Xenowear - Unathi"
@@ -116,7 +116,7 @@
 	sort_category = "Xenowear - Unathi"
 
 /datum/gear/uniform/unathi/zozo
-	display_name = "zo'zo top"
+	display_name = "zozo top"
 	path = /obj/item/clothing/under/unathi/zozo
 	whitelisted = list("Unathi", "Aut'akh Unathi")
 	sort_category = "Xenowear - Unathi"
