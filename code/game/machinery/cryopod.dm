@@ -214,7 +214,7 @@
 /obj/machinery/cryopod/Initialize()
 	. = ..()
 
-	update_icon()
+	icon_state = base_icon_state
 	find_control_computer()
 
 /obj/machinery/cryopod/proc/find_control_computer(urgent=0)
