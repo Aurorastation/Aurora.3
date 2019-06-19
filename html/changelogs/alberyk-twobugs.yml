@@ -1,7 +1,0 @@
-author: Alberyk
-
-delete-after: True
-
-changes: 
-  - bugfix: "Slurring caused by traumas should no longer last forever."
-  - bugfix: "The ESS now has the appropriate siemen's coefficient."
