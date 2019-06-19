@@ -107,10 +107,8 @@
 			data -= null
 
 /datum/reagent/nutriment/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	if(!injectable)
-		M.adjustToxLoss(0.1 * removed)
-		return
-	affect_ingest(M, alien, removed)
+	if(injectable)
+		affect_ingest(M, alien, removed)
 
 /datum/reagent/nutriment/affect_ingest(var/mob/living/carbon/human/M, var/alien, var/removed)
 	if(!istype(M))
@@ -732,7 +730,6 @@
 	return ..()
 
 /datum/reagent/drink/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	M.adjustToxLoss(removed * blood_to_ingest_scale) // Probably not a good idea; not very deadly though
 	digest(M,alien,removed * blood_to_ingest_scale, FALSE)
 
 /datum/reagent/drink/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
