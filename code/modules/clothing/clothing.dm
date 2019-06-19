@@ -253,7 +253,6 @@
 	w_class = 1.0
 	throwforce = 2
 	slot_flags = SLOT_EARS
-	sprite_sheets = list("Resomi" = 'icons/mob/species/resomi/ears.dmi')
 
 /obj/item/clothing/ears/attack_hand(mob/user as mob)
 	if (!user) return
@@ -329,8 +328,7 @@
 	attack_verb = list("challenged")
 	species_restricted = list("exclude","Unathi","Tajara","Vaurca", "Golem","Vaurca Breeder","Vaurca Warform")
 	sprite_sheets = list(
-		"Vox" = 'icons/mob/species/vox/gloves.dmi',
-		"Resomi" = 'icons/mob/species/resomi/gloves.dmi'
+		"Vox" = 'icons/mob/species/vox/gloves.dmi'
 		)
 	drop_sound = 'sound/items/drop/gloves.ogg'
 
@@ -439,8 +437,7 @@
 	var/on = 0
 
 	sprite_sheets = list(
-		"Vox" = 'icons/mob/species/vox/head.dmi',
-		"Resomi" = 'icons/mob/species/resomi/head.dmi'
+		"Vox" = 'icons/mob/species/vox/head.dmi'
 		)
 
 /obj/item/clothing/head/attack_self(mob/user)
@@ -535,9 +532,9 @@
 	body_parts_covered = FACE|EYES
 	sprite_sheets = list(
 		"Vox" = 'icons/mob/species/vox/masks.dmi',
-		"Resomi" = 'icons/mob/species/resomi/masks.dmi',
-						"Tajara" = 'icons/mob/species/tajaran/mask.dmi',
-						"Unathi" = 'icons/mob/species/unathi/mask.dmi')
+		"Tajara" = 'icons/mob/species/tajaran/mask.dmi',
+		"Unathi" = 'icons/mob/species/unathi/mask.dmi')
+
 	species_restricted = list("exclude","Vaurca Breeder","Vaurca Warform")
 
 	var/voicechange = 0
@@ -619,8 +616,7 @@
 	sprite_sheets = list("Vox" = 'icons/mob/species/vox/shoes.dmi')
 	var/silent = 0
 	sprite_sheets = list(
-		"Vox" = 'icons/mob/species/vox/shoes.dmi',
-		"Resomi" = 'icons/mob/species/resomi/shoes.dmi'
+		"Vox" = 'icons/mob/species/vox/shoes.dmi'
 		)
 
 /obj/item/clothing/shoes/proc/draw_knife()
@@ -693,8 +689,7 @@
 	species_restricted = list("exclude","Vaurca Breeder","Vaurca Warform")
 
 	sprite_sheets = list(
-		"Vox" = 'icons/mob/species/vox/suit.dmi',
-		"Resomi" = 'icons/mob/species/resomi/suit.dmi'
+		"Vox" = 'icons/mob/species/vox/suit.dmi'
 		)
 
 	valid_accessory_slots = list("over")
@@ -730,8 +725,7 @@
 	var/rolled_sleeves = -1 //0 = unrolled, 1 = rolled, -1 = cannot be toggled
 	sprite_sheets = list(
 		"Vox" = 'icons/mob/species/vox/uniform.dmi',
-		"Golem" = 'icons/mob/uniform_fat.dmi',
-		"Resomi" = 'icons/mob/species/resomi/uniform.dmi')
+		"Golem" = 'icons/mob/uniform_fat.dmi')
 	species_restricted = list("exclude","Vaurca Breeder","Vaurca Warform")
 
 	//convenience var for defining the icon state for the overlay used when the clothing is worn.
