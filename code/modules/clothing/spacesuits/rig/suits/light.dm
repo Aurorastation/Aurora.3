@@ -166,6 +166,8 @@
 
 	species_restricted = list("Human")
 
+	siemens_coefficient = 0.9
+
 /obj/item/clothing/head/lightrig/offworlder
 	name = "helmet"
 	flash_protection = FLASH_PROTECTION_MAJOR
@@ -187,6 +189,7 @@
 	offline_slowdown = 0
 	airtight = 1
 	offline_vision_restriction = TINT_HEAVY
+	siemens_coefficient = 0.2
 
 	allowed = list(
 		/obj/item/device/flashlight,

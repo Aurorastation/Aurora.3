@@ -1056,7 +1056,6 @@ var/global/list/robot_modules = list(
 					LANGUAGE_SOL_COMMON = 1,
 					LANGUAGE_ROOTSONG = 1,
 					LANGUAGE_VAURCA = 1,
-					LANGUAGE_RESOMI = 1,
 					LANGUAGE_ROBOT = 1,
 					LANGUAGE_DRONE = 1,
 					LANGUAGE_EAL = 1,
