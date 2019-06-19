@@ -211,6 +211,12 @@
 	icon_has_variants = TRUE
 	drop_sound = 'sound/items/drop/glass.ogg'
 
+/obj/item/stack/material/glass/wired
+	name = "wired glass"
+	icon = 'icons/obj/stacks/tiles.dmi'
+	icon_state = "glass_wire"
+	default_type = "wglass"
+
 /obj/item/stack/material/glass/reinforced
 	name = "reinforced glass"
 	icon_state = "sheet-rglass"

@@ -533,6 +533,25 @@ var/list/name_to_material
 /material/glass/proc/is_reinforced()
 	return (hardness > 35) //todo
 
+/material/glass/wired
+	name = "wglass"
+	display_name = "wired glass"
+	stack_type = /obj/item/stack/material/glass/wired
+	flags = MATERIAL_BRITTLE
+	icon_colour = "#00E1FF"
+	opacity = 0.3
+	integrity = 100
+	shard_type = SHARD_SHARD
+	tableslam_noise = 'sound/effects/Glasshit.ogg'
+	hardness = 40
+	weight = 30
+	stack_origin_tech = list(TECH_MATERIAL = 2)
+	composite_material = list(DEFAULT_WALL_MATERIAL = 1875,"glass" = 3750)
+	window_options = list(null)
+	created_window = null
+	wire_product = null
+	rod_product = null
+
 /material/glass/reinforced
 	name = "rglass"
 	display_name = "reinforced glass"
