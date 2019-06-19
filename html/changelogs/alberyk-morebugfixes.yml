@@ -1,7 +1,0 @@
-author: Alberyk
-
-delete-after: True
-
-changes: 
-  - bugfix: "Fatshouter should now produce the correct milk."
-  - bugfix: "Fixed the korlaaskak recipe having no reagents."
