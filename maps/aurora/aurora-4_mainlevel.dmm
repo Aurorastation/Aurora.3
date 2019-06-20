@@ -30635,6 +30635,10 @@
 	},
 /obj/item/weapon/pen,
 /obj/machinery/light,
+/obj/machinery/light_switch{
+	pixel_x = 8;
+	pixel_y = 7
+	},
 /turf/simulated/floor/wood,
 /area/bridge/meeting_room)
 "bag" = (
@@ -31802,12 +31806,8 @@
 "bco" = (
 /obj/effect/floor_decal/corner/white/diagonal,
 /obj/item/weapon/stool/padded,
-/obj/machinery/ringer{
-	department = "Medbay";
-	id = "medbay_ringer";
-	pixel_x = 0;
-	pixel_y = 30;
-	req_access = list(5)
+/obj/structure/sink{
+	pixel_y = 22
 	},
 /turf/simulated/floor/tiled,
 /area/crew_quarters/medbreak)
@@ -31821,6 +31821,13 @@
 /obj/machinery/chemical_dispenser/bar_soft/full,
 /obj/machinery/camera/network/medbay{
 	c_tag = "Medical - Break Room"
+	},
+/obj/machinery/ringer{
+	department = "Medbay";
+	id = "medbay_ringer";
+	pixel_x = 0;
+	pixel_y = 30;
+	req_access = list(5)
 	},
 /turf/simulated/floor/tiled,
 /area/crew_quarters/medbreak)
@@ -32626,19 +32633,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/medbreak)
 "bdQ" = (
-/obj/structure/disposalpipe/segment{
-	dir = 1;
-	icon_state = "pipe-c"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark,
-/area/crew_quarters/medbreak)
-"bdR" = (
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
+/obj/structure/disposalpipe/segment,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},
@@ -32654,26 +32649,16 @@
 	dir = 4
 	},
 /obj/structure/window/reinforced,
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
 /turf/simulated/floor/plating,
 /area/crew_quarters/medbreak)
 "bdT" = (
 /obj/effect/floor_decal/corner/white/diagonal,
 /obj/structure/table/glass,
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
 /turf/simulated/floor/tiled,
 /area/crew_quarters/medbreak)
 "bdU" = (
 /obj/effect/floor_decal/corner/white/diagonal,
 /obj/item/weapon/stool/padded,
-/obj/structure/disposalpipe/segment{
-	dir = 2;
-	icon_state = "pipe-c"
-	},
 /turf/simulated/floor/tiled,
 /area/crew_quarters/medbreak)
 "bdV" = (
@@ -33458,8 +33443,11 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 5
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/medbreak)
@@ -33475,6 +33463,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
 /turf/simulated/floor/tiled{
 	icon_state = "vault";
 	dir = 5
@@ -33488,6 +33479,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
 /turf/simulated/floor/tiled,
 /area/crew_quarters/medbreak)
 "bfr" = (
@@ -33498,7 +33492,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
-/obj/structure/disposalpipe/segment,
+/obj/structure/disposalpipe/segment{
+	dir = 2;
+	icon_state = "pipe-c"
+	},
 /turf/simulated/floor/tiled,
 /area/crew_quarters/medbreak)
 "bfs" = (
@@ -34242,18 +34239,15 @@
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/medbreak)
 "bgC" = (
-/obj/structure/sink{
-	dir = 4;
-	icon_state = "sink";
-	pixel_x = 11;
-	pixel_y = 0
-	},
 /obj/item/device/radio/intercom{
 	name = "Station Intercom (General)";
 	pixel_y = -28
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
+	},
+/obj/structure/coatrack{
+	pixel_x = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/medbreak)
@@ -41595,6 +41589,7 @@
 	name = "Bridge Blast Doors";
 	opacity = 0
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/bridge)
 "bso" = (
@@ -41627,6 +41622,7 @@
 	d2 = 4;
 	icon_state = "1-4"
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
 /area/bridge)
 "bsp" = (
@@ -41653,6 +41649,7 @@
 	name = "Bridge Blast Doors";
 	opacity = 0
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/bridge)
 "bsq" = (
@@ -43180,6 +43177,10 @@
 /obj/structure/cable/green{
 	d2 = 2;
 	icon_state = "0-2"
+	},
+/obj/machinery/light_switch{
+	pixel_x = 0;
+	pixel_y = 24
 	},
 /turf/simulated/floor/tiled/dark{
 	name = "cooled dark floor";
@@ -45387,6 +45388,10 @@
 	dir = 6
 	},
 /obj/machinery/computer/med_data,
+/obj/machinery/light_switch{
+	pixel_x = 24;
+	pixel_y = 8
+	},
 /turf/simulated/floor/tiled/white,
 /area/medical/genetics_cloning)
 "byb" = (
@@ -45406,21 +45411,6 @@
 	pixel_y = -22
 	},
 /obj/machinery/light,
-/obj/effect/floor_decal/industrial/outline/blue,
-/obj/structure/morgue{
-	icon_state = "morgue1";
-	dir = 1
-	},
-/turf/simulated/floor/tiled/dark{
-	name = "cooled dark floor";
-	temperature = 278
-	},
-/area/medical/temp_morgue)
-"byd" = (
-/obj/machinery/camera/network/medbay{
-	c_tag = "Medical - Staff Wing Dorms";
-	dir = 8
-	},
 /obj/effect/floor_decal/industrial/outline/blue,
 /obj/structure/morgue{
 	icon_state = "morgue1";
@@ -53354,12 +53344,6 @@
 /obj/random/loot,
 /turf/simulated/floor/plating,
 /area/maintenance/medbay)
-"bMZ" = (
-/obj/effect/landmark{
-	name = "blobstart"
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/medbay)
 "bNa" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/random/junk,
@@ -55126,6 +55110,10 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
+	},
+/obj/machinery/light_switch{
+	pixel_x = -22;
+	pixel_y = 24
 	},
 /turf/simulated/floor/tiled/freezer{
 	name = "cold storage tiles";
@@ -58998,6 +58986,11 @@
 	dir = 4
 	},
 /obj/structure/filingcabinet/filingcabinet,
+/obj/machinery/light{
+	dir = 4;
+	icon_state = "tube1";
+	pixel_x = 0
+	},
 /turf/simulated/floor/tiled,
 /area/quartermaster/lobby)
 "bYW" = (
@@ -59111,6 +59104,10 @@
 /obj/structure/extinguisher_cabinet{
 	pixel_x = -2;
 	pixel_y = 30
+	},
+/obj/machinery/light_switch{
+	pixel_x = 12;
+	pixel_y = 24
 	},
 /turf/simulated/floor/tiled,
 /area/quartermaster/lobby)
@@ -60267,6 +60264,10 @@
 /obj/structure/cable/green{
 	d2 = 8;
 	icon_state = "0-8"
+	},
+/obj/machinery/light_switch{
+	pixel_x = 12;
+	pixel_y = 24
 	},
 /turf/simulated/floor/tiled,
 /area/quartermaster/mail_room)
@@ -64587,6 +64588,10 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/medbay)
+"cIp" = (
+/obj/structure/lattice,
+/turf/simulated/open/airless,
+/area/mine/unexplored)
 "cPy" = (
 /obj/structure/cable{
 	d1 = 2;
@@ -65253,6 +65258,16 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
+"gkH" = (
+/obj/machinery/camera/network/medbay{
+	c_tag = "Medical - Temporary Morgue";
+	dir = 2
+	},
+/turf/simulated/floor/tiled/dark{
+	name = "cooled dark floor";
+	temperature = 278
+	},
+/area/medical/temp_morgue)
 "gsM" = (
 /obj/structure/disposalpipe/segment,
 /obj/structure/cable{
@@ -65869,6 +65884,16 @@
 /obj/effect/floor_decal/corner/lime/full,
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay2)
+"jKE" = (
+/obj/structure/disposalpipe/segment{
+	dir = 1;
+	icon_state = "pipe-c"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/dark,
+/area/crew_quarters/medbreak)
 "jOm" = (
 /obj/machinery/door/firedoor,
 /obj/effect/decal/cleanable/dirt,
@@ -66854,8 +66879,14 @@
 "pfO" = (
 /obj/structure/table/steel,
 /obj/item/weapon/reagent_containers/food/drinks/bottle{
-	pixel_x = -14;
-	pixel_y = 4
+	icon_state = "beer";
+	pixel_x = 0;
+	pixel_y = 16
+	},
+/obj/item/weapon/reagent_containers/food/drinks/bottle{
+	icon_state = "beer";
+	pixel_x = 6;
+	pixel_y = 6
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/security_starboard)
@@ -67269,18 +67300,20 @@
 /turf/simulated/floor/plating,
 /area/maintenance/bar)
 "rqe" = (
-/obj/machinery/light/small/emergency{
-	icon_state = "bulb1";
-	dir = 4
-	},
 /obj/structure/table/steel,
 /obj/item/weapon/reagent_containers/food/drinks/bottle{
-	pixel_x = -6;
+	icon_state = "beer";
+	pixel_x = 0;
 	pixel_y = 16
 	},
 /obj/item/weapon/reagent_containers/food/drinks/bottle{
-	pixel_x = -14;
-	pixel_y = 4
+	icon_state = "beer";
+	pixel_x = 6;
+	pixel_y = 6
+	},
+/obj/machinery/light/small/emergency{
+	icon_state = "bulb1";
+	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/security_starboard)
@@ -67687,12 +67720,15 @@
 "tHM" = (
 /obj/structure/table/steel,
 /obj/item/weapon/reagent_containers/food/drinks/bottle{
-	pixel_x = -6;
+	icon_state = "beer";
+	item_state = "beer";
+	pixel_x = 0;
 	pixel_y = 16
 	},
 /obj/item/weapon/reagent_containers/food/drinks/bottle{
-	pixel_x = -14;
-	pixel_y = 4
+	icon_state = "beer";
+	pixel_x = 6;
+	pixel_y = 6
 	},
 /turf/simulated/floor/tiled,
 /area/maintenance/security_starboard)
@@ -85099,7 +85135,7 @@ bBu
 beG
 bbs
 bbs
-bbs
+bcY
 bbs
 bbs
 bbs
@@ -85356,9 +85392,9 @@ bBv
 beG
 bbs
 bcY
-bbs
 bEc
-bcY
+bQG
+beC
 bcY
 bbs
 beG
@@ -85588,14 +85624,14 @@ aWg
 aXQ
 aYY
 aQq
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
 bbs
 bnt
 bbs
@@ -85613,8 +85649,8 @@ bBv
 beG
 bbs
 beC
+bcY
 bbs
-beC
 bbs
 bcY
 bbs
@@ -85845,14 +85881,14 @@ aDY
 aXR
 aYZ
 aQq
-aab
+aaa
 bcQ
 bcQ
 bcQ
 bcQ
 bcQ
-aab
-aab
+aaa
+aaa
 bbs
 bnt
 bbs
@@ -85871,9 +85907,9 @@ beG
 bbs
 bcY
 bbs
+beC
+bbs
 bcY
-bbs
-bbs
 bbs
 beG
 bFT
@@ -86102,14 +86138,14 @@ aWh
 aXR
 aCf
 aQq
-aab
+aaa
 bcQ
 beu
 bfK
 bhg
 bcQ
-aab
-aab
+aaa
+aaa
 bbs
 bnt
 bbs
@@ -86127,11 +86163,11 @@ bBv
 beG
 bbs
 bcY
-beC
 bcY
 bcY
 bcY
-bbs
+bcY
+bcY
 beG
 bqh
 bbs
@@ -86359,14 +86395,14 @@ aWi
 aXS
 aCf
 aQq
-aab
+aaa
 bcQ
 bev
 bfL
 bfL
 bcQ
-aab
-aab
+aaa
+aaa
 bbs
 bnt
 bbs
@@ -86383,10 +86419,10 @@ aab
 bBw
 beG
 bbs
-bcY
 bbs
 bbs
 bcY
+bbs
 bbs
 bbs
 beG
@@ -86623,7 +86659,7 @@ bfM
 bhh
 bcQ
 bbq
-aab
+aaa
 bbs
 kcG
 bbs
@@ -86643,7 +86679,7 @@ bbs
 bcY
 bbs
 bEc
-bcY
+bbs
 bcY
 bbs
 beG
@@ -86880,7 +86916,7 @@ bex
 bex
 bip
 bbq
-aab
+aaa
 bbs
 bnt
 bbs
@@ -86899,7 +86935,7 @@ beG
 bbs
 bcY
 bbs
-bbs
+bcY
 bbs
 beC
 bbs
@@ -87156,8 +87192,8 @@ bCp
 bcY
 bcY
 bEc
-bbs
 bcY
+bbs
 bcY
 bcY
 beG
@@ -88683,7 +88719,7 @@ htm
 aKT
 bnA
 aKT
-aab
+aaa
 brr
 bsx
 btC
@@ -88940,7 +88976,7 @@ bfR
 aKT
 bnA
 aKT
-aab
+aaa
 brr
 bsy
 btD
@@ -89448,8 +89484,8 @@ bcX
 bcY
 bfQ
 aKT
-aab
-aab
+aiN
+cIp
 baE
 bmf
 bnC
@@ -89705,8 +89741,8 @@ bcY
 beD
 bfR
 aKT
-aab
-aab
+aiN
+cIp
 baE
 bmg
 bnD
@@ -90214,7 +90250,7 @@ aWp
 aYb
 aWp
 aVq
-aab
+aaa
 bbs
 beF
 bfT
@@ -90471,7 +90507,7 @@ aWq
 aYc
 aWs
 aVq
-aab
+aaa
 bbs
 beG
 bcY
@@ -90728,7 +90764,7 @@ aWr
 aYc
 aZf
 aVq
-aab
+aaa
 bbs
 beG
 bfU
@@ -90985,7 +91021,7 @@ aWs
 aYc
 aZg
 aVq
-aab
+aaa
 bbs
 beH
 bfV
@@ -91242,7 +91278,7 @@ aWs
 aYc
 aZg
 aVq
-aab
+aaa
 bbs
 beH
 bfW
@@ -103787,7 +103823,7 @@ aad
 aad
 aad
 aad
-aaJ
+adN
 abK
 abK
 abK
@@ -104897,7 +104933,7 @@ bHy
 bHy
 bKZ
 bMs
-bMZ
+bBo
 bNV
 bOy
 bPh
@@ -106407,7 +106443,7 @@ aZQ
 baT
 bck
 bdQ
-bfn
+jKE
 bgB
 baT
 aaa
@@ -106663,7 +106699,7 @@ aPu
 aZQ
 baT
 bcl
-bdR
+bfn
 bfo
 bgC
 baT
@@ -110531,7 +110567,7 @@ bpY
 brf
 bsk
 bng
-buE
+gkH
 bvJ
 buE
 byc
@@ -110791,7 +110827,7 @@ bng
 buF
 bvK
 bwE
-byd
+byb
 buC
 kYi
 nIc

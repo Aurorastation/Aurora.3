@@ -145,7 +145,7 @@
 /area/maintenance/medbay
 	name = "Medbay Maintenance"
 	icon_state = "maint_medbay"
-	
+
 /area/maintenance/medbay_interstitial
 	name = "\improper Medbay Interstitial Maintenance"
 	icon_state = "maint_medbay"
@@ -191,9 +191,15 @@
 	icon_state = "maintcentral"
 
 /area/maintenance/interstitial_construction_site
-	name = "\improper Construction Site"
+	name = "\improper Construction Zone 1"
 	icon_state = "engineering_workshop"
 	flags = HIDE_FROM_HOLOMAP
+
+/area/maintenance/interstitial_construction_site/zone_2
+	name = "\improper Construction Zone 2"
+
+/area/maintenance/interstitial_construction_site/office
+	name = "\improper Construction Office"
 
 // SUBSTATIONS (Subtype of maint, that should let them serve as shielded area during radstorm)
 

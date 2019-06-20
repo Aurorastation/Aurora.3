@@ -13593,6 +13593,10 @@
 	dir = 9
 	},
 /obj/machinery/firealarm/west,
+/obj/structure/coatrack{
+	pixel_x = -4;
+	pixel_y = 0
+	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenoarch_atrium)
 "aAB" = (
