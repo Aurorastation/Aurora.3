@@ -31,16 +31,19 @@
 	name = "warden's hat"
 	desc = "It's a special helmet issued to the Warden of a securiy force. Protects the head from impacts."
 	icon_state = "policehelm"
+	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 0, rad = 0)
 	flags_inv = 0
 
 /obj/item/clothing/head/helmet/warden/commissar
 	name = "commissar's cap"
 	desc = "A security commissar's cap."
+	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 0, rad = 0)
 	icon_state = "commissarcap"
 
 /obj/item/clothing/head/helmet/HoS
 	name = "head of security hat"
 	desc = "The hat of the Head of Security. For showing the officers who's in charge."
+	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 0, rad = 0)
 	icon_state = "hoscap"
 
 /obj/item/clothing/head/helmet/HoS/dermal
@@ -59,14 +62,16 @@
 
 /obj/item/clothing/head/helmet/hop
 	name = "crew resource's hat"
-	desc = "A stylish hat that both protects you from enraged former-crewmembers and gives you a false sense of authority."
+	desc = "A stylish hat that gives you a false sense of authority."
 	icon_state = "hopcap"
+	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 0, rad = 0)
 	flags_inv = 0
 
 /obj/item/clothing/head/helmet/formalcaptain
 	name = "parade hat"
 	desc = "No one in a commanding position should be without a perfect, white hat of ultimate authority."
 	icon_state = "officercap"
+	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 0, rad = 0)
 	flags_inv = 0
 
 /obj/item/clothing/head/helmet/riot
