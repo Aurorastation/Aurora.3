@@ -590,7 +590,7 @@
 	density = 1
 
 	icon = 'icons/obj/suit_storage.dmi'
-	icon_state = "suitstorage000000100"
+	icon_state = "close"
 
 	req_access = list(access_captain,access_heads)
 
