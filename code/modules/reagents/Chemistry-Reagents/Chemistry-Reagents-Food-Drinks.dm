@@ -23,9 +23,15 @@
 		M.add_chemical_effect(CE_BLOODRESTORE, 6 * removed)
 
 	else
-		M.adjustToxLoss(1 * removed)
-		if(istype(M,/mob/living/carbon/human))
-			var/mob/living/carbon/human/H = M
+		if(ingest_mul)
+			affect_blood(M, alien, removed * ingest_mul)
+
+/datum/reagent/kois/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+	if(istype(M,/mob/living/carbon/human))
+		var/mob/living/carbon/human/H = M
+		var/obj/item/organ/parasite/P = H.internal_organs_by_name["blackkois"]
+		if((alien != IS_VAURCA) || (istype(P) && P.stage >= 3))
+			M.adjustToxLoss(1 * removed)
 			switch(kois_type)
 				if(1) //Normal
 					if(!H.internal_organs_by_name["kois"] && prob(5*removed))
@@ -37,7 +43,6 @@
 						var/obj/item/organ/external/affected = H.get_organ("head")
 						var/obj/item/organ/parasite/blackkois/infest = new()
 						infest.replaced(H, affected)
-	..()
 
 /datum/reagent/kois/clean
 	name = "Filtered K'ois"
