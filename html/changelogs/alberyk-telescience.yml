@@ -4,3 +4,4 @@ delete-after: True
 
 changes: 
   - tweak: "Telescience has been changed; it will now create two bluespace portals, one at the telepad and other at the location of the coordinates."
+  - tweak: "Teleporting into solid objects is now less punishing, dealing brute damage instead of exploding limbs."
