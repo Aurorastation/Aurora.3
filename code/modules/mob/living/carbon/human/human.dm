@@ -883,9 +883,8 @@
 	return
 
 /mob/living/carbon/human/proc/check_has_mouth()
-	// Todo, check stomach organ when implemented.
-	var/obj/item/organ/external/head/H = get_organ("head")
-	if(!H || !H.can_intake_reagents)
+	var/obj/item/organ/stomach/S = get_organ("stomach")
+	if(!istype(S))
 		return 0
 	return 1
 

@@ -37,7 +37,7 @@
 
 /obj/item/integrated_circuit/proc/activate_pin(pin_number)
 	var/datum/integrated_io/activate/A = activators[pin_number]
-	A.push_data()
+	A.push_data(pin_number)
 
 /datum/integrated_io/proc/get_data()
 	if(isweakref(data))

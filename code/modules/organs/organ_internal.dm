@@ -22,7 +22,7 @@
 	organ_tag = "lungs"
 	parent_organ = "chest"
 	robotic_name = "gas exchange system"
-	robotic_sprite = "heart-prosthetic"
+	robotic_sprite = "lungs-prosthetic"
 
 /obj/item/organ/lungs/process()
 	..()
@@ -41,6 +41,23 @@
 		if(prob(4))
 			spawn owner.emote("me", 1, "gasps for air!")
 			owner.losebreath += 15
+
+/obj/item/organ/lungs/proc/on_inhale()
+	return reagents.trans_to_holder(owner.ingested,amount,multiplier,copy)
+
+/mob/living/carbon/proc/inhale(var/datum/reagents/from, var/datum/reagents/target, var/amount = 1, var/multiplier = 1, var/copy = 0, var/bypass_checks = FALSE)
+	if(species && (species.flags & NO_BREATHE)) //Check for species
+		return 0
+	if(!bypass_checks)
+		if(wear_mask && wear_mask.item_flags & BLOCK_GAS_SMOKE_EFFECT) //Check if the gasmask blocks an effect
+			return 0
+		if (internals && internals.icon_state == "internal1") //Check for internals
+			return 0
+	var/obj/item/organ/lungs/L = get_organ("lungs")
+	if(!istype(L))
+		return
+	from.trans_to_holder(L.reagents, amount, multiplier, copy)
+	L.on_inhale()
 
 /obj/item/organ/kidneys
 	name = "kidneys"
@@ -182,3 +199,43 @@
 			icon_state = "appendixinflamed"
 			name = "inflamed appendix"
 	..()
+
+/obj/item/organ/stomach
+	name = "stomach"
+	icon_state = "innards" // wip?
+	robotic_name = "reagent processor"
+	robotic_sprite = "innards-prosthetic"
+	parent_organ = "groin"
+	organ_tag = "stomach"
+
+/obj/item/organ/stomach/Initialize()
+	. = ..()
+	create_reagents(1000)
+
+/obj/item/organ/stomach/process()
+	if(!owner)
+		return
+	
+	if (germ_level > INFECTION_LEVEL_ONE)
+		if(prob(1))
+			to_chat(owner, "<span class='warning'>Your skin itches.</span>")
+	if (germ_level > INFECTION_LEVEL_TWO)
+		if(prob(1))
+			addtimer(CALLBACK(owner, .proc/delayed_vomit), 0)
+
+/obj/item/organ/stomach/proc/on_ingest()
+	//process taste and move to owner.ingested
+	if(last_taste_time + 50 < world.time)
+		var/text_output = reagents.generate_taste_message(src)
+		if(text_output != last_taste_text || last_taste_time + 100 < world.time) //We dont want to spam the same message over and over again at the person. Give it a bit of a buffer.
+			to_chat(src, "<span class='notice'>You can taste [text_output]</span>")//no taste means there are too many tastes and not enough flavor.
+			last_taste_time = world.time
+			last_taste_text = text_output
+	return reagents.trans_to_holder(owner.ingested,amount,multiplier,copy)
+	
+/mob/living/carbon/human/ingest(var/datum/reagents/from, var/amount = 1, var/multiplier = 1, var/copy = 0)
+	var/obj/item/organ/stomach/S = get_organ("stomach")
+	if(!istype(S))
+		return
+	from.trans_to_holder(S.reagents, amount, multiplier, copy)
+	S.on_ingest()
