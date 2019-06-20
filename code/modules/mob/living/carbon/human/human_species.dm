@@ -15,10 +15,6 @@ INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy/mannequin)
 	human_mob_list -= src
 	delete_inventory()
 
-/mob/living/carbon/human/resomi/Initialize(mapload)
-	h_style = "Resomi Plumage"
-	. = ..(mapload, "Resomi")
-
 /mob/living/carbon/human/skrell/Initialize(mapload)
 	h_style = "Skrell Average Tentacles"
 	. = ..(mapload, "Skrell")

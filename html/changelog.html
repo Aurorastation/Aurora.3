@@ -5,7 +5,7 @@
   <link rel="stylesheet" type="text/css" href="changelog.css">
   <base target="_blank" />
   <script type='text/javascript'>
-
+  
 	function changeText(tagID, newText, linkTagID){
 		var tag = document.getElementById(tagID);
 		tag.innerHTML = newText;
@@ -13,8 +13,8 @@
 		linkTag.removeAttribute("href");
 		linkTag.removeAttribute("onclick");
 	}
-
-  </script>
+	
+  </script>  
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 </head>
 
@@ -24,7 +24,7 @@
 	<tr>
 		<td valign='top'>
 			<div align='center'><font size='3'><b>Space Station 13</b></font></div>
-
+			
 			<p><div align='center'><font size='3'><a href="https://aurorastation.org/wiki/index.php?title=Main_Page">Wiki</a> | <a href="https://github.com/Aurorastation/Aurora.3">Source code</a></font></div></p>
             <font size='2'>Code licensed under <a href="http://www.gnu.org/licenses/agpl.html">AGPLv3</a>. Content licensed under <a href="http://creativecommons.org/licenses/by-sa/3.0/">CC BY-SA 3.0</a>.<br><br>
 			</td>
@@ -48,13 +48,65 @@
 </table>
 
 		<!--
-
-		TO ADD AN ENTRY, ADD AND MAINTAIN YOUR OWN changelog/USERNAME.yml FILE.
-
+		
+		TO ADD AN ENTRY, ADD AND MAINTAIN YOUR OWN changelog/USERNAME.yml FILE. 
+		
 		*** DO NOT MODIFY THIS FILE OR YOU WILL CAUSE MERGE CONFLICTS. ***
-
+		
 		-->
 		<div class="commit sansserif">
+
+			<h2 class="date">19 June 2019</h2>
+			<h3 class="author">Alberyk updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscdel">Nutriment should no longer deal toxin damage when injected.</li>
+				<li class="backend">Removed Resomi.</li>
+				<li class="bugfix">Slurring caused by traumas should no longer last forever.</li>
+				<li class="bugfix">The ESS now has the appropriate siemen's coefficient.</li>
+				<li class="bugfix">Fatshouter should now produce the correct milk.</li>
+				<li class="bugfix">Fixed the korlaaskak recipe having no reagents.</li>
+			</ul>
+			<h3 class="author">Geeves updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Increased the time it takes to put someone in an exosuit mounted sleeper to six seconds, if they're conscious.</li>
+				<li class="rscadd">People put inside mounted sleepers no longer get knocked out.</li>
+				<li class="rscadd">It is now possible to eject yourself from a mounted sleeper by moving.</li>
+				<li class="bugfix">Mechs now check your wallet to see if you have access to it, swipe on it and use keycodes to set access requirements.</li>
+			</ul>
+			<h3 class="author">MattAtlas updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Autopunctuation will no longer autopunctuate if markup (* or /) is present at the end of the sentence.</li>
+				<li class="bugfix">Autopunctuation will no longer send a period if you input an empty chat box.</li>
+			</ul>
+			<h3 class="author">ParadoxSpace updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">The Zo'zo and Gy'zao outfits are now selectable for Unathi.</li>
+			</ul>
+
+			<h2 class="date">18 June 2019</h2>
+			<h3 class="author">PoZe updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixed my shit that made everyone blind. Code is fucking ancient.</li>
+			</ul>
+			<h3 class="author">smallgreenant updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added a series of requested clothing items for Unathi. Also added their ability to be selected as Xenowear in the loadout menu at round start.</li>
+			</ul>
+
+			<h2 class="date">17 June 2019</h2>
+			<h3 class="author">AmoryBlaine, Ferner updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="imageadd">Overhauled the sprites of security's uniforms and equipment. (Spritework by AmoryBlaine.)</li>
+				<li class="imageadd">Changed the uniforms of civilprotection. (Spritework by AmoryBlaine.)</li>
+				<li class="rscadd">Compacted, changed and added a few of loadout options.</li>
+				<li class="tweak">Changed the bandolier from a belt to an accessory.</li>
+			</ul>
+
+			<h2 class="date">16 June 2019</h2>
+			<h3 class="author">Alberyk updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixed hardsuit actuator jump and leaping forcing people to do backflip in mid air.</li>
+			</ul>
 
 			<h2 class="date">14 June 2019</h2>
 			<h3 class="author">Wowzewow updated:</h3>
@@ -8439,7 +8491,7 @@
 			<h2 class="date">09 March 2013</h2>
 			<h3 class="author">Cael Aislinn updated:</h3>
 			<ul class="changes bgimages16">
-				<li class="rscadd">Beekeeping is now possible. Construct an apiary of out wood and embed it into a hydroponics tray, then get a queen bee and bottle of BeezEez from cargo bay.
+				<li class="rscadd">Beekeeping is now possible. Construct an apiary of out wood and embed it into a hydroponics tray, then get a queen bee and bottle of BeezEez from cargo bay. 
 		Hives produce honey and honeycomb, but be wary if the bees start swarming.</li>
 			</ul>
 
