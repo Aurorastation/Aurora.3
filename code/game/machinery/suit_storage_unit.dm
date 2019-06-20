@@ -6,8 +6,8 @@
 /obj/machinery/suit_storage_unit
 	name = "Suit Storage Unit"
 	desc = "An industrial U-Stor-It Storage unit designed to accomodate all kinds of space suits. Its on-board equipment also allows the user to decontaminate the contents through a UV-ray purging cycle. There's a warning label dangling from the control pad, reading \"STRICTLY NO BIOLOGICALS IN THE CONFINES OF THE UNIT\"."
-	icon = 'icons/obj/suitstorage.dmi'
-	icon_state = "suitstorage000000100" //order is: [has helmet][has suit][has human][is open][is locked][is UV cycling][is powered][is dirty/broken] [is superUVcycling]
+	icon = 'icons/obj/suit_storage.dmi'
+	icon_state = "close"
 	anchored = 1
 	density = 1
 	var/mob/living/carbon/human/OCCUPANT = null
@@ -46,17 +46,30 @@
 		MASK = new MASK_TYPE(src)
 
 /obj/machinery/suit_storage_unit/update_icon()
-	var/hashelmet = 0
-	var/hassuit = 0
-	var/hashuman = 0
-	if(HELMET)
-		hashelmet = 1
-	if(SUIT)
-		hassuit = 1
-	if(OCCUPANT)
-		hashuman = 1
-	icon_state = text("suitstorage[][][][][][][][][]",hashelmet,hassuit,hashuman,src.isopen,src.islocked,src.isUV,src.ispowered,src.isbroken,src.issuperUV)
+	cut_overlays()
 
+	if(panelopen)
+		add_overlay("panel")
+	if(isUV)
+		if(issuperUV)
+			add_overlay("super")
+		else if(OCCUPANT)
+			add_overlay("uvhuman")
+		else
+			add_overlay("uv")
+	else if(isopen)
+		if(isbroken)
+			add_overlay("broken")
+		else
+			add_overlay("open")
+			if(SUIT)
+				add_overlay("suit")
+			if(HELMET)
+				add_overlay("helm")
+			if(MASK)
+				add_overlay("storage")
+	else if(OCCUPANT)
+		add_overlay("human")
 
 /obj/machinery/suit_storage_unit/power_change()
 	..()
@@ -482,6 +495,7 @@
 		src.panelopen = !src.panelopen
 		playsound(src.loc, 'sound/items/Screwdriver.ogg', 100, 1)
 		to_chat(user, text("<font color='blue'>You [] the unit's maintenance panel.</font>",(src.panelopen ? "open up" : "close") ))
+		update_icon()
 		src.updateUsrDialog()
 		return
 	if ( istype(I, /obj/item/weapon/grab) )
@@ -575,7 +589,7 @@
 	anchored = 1
 	density = 1
 
-	icon = 'icons/obj/suitstorage.dmi'
+	icon = 'icons/obj/suit_storage.dmi'
 	icon_state = "suitstorage000000100"
 
 	req_access = list(access_captain,access_heads)
