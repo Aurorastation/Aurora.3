@@ -3,6 +3,18 @@
 	icon = 'icons/obj/items.dmi'
 	w_class = 3.0
 
+	var/lefthand_file = 'icons/mob/inhands/items_lefthand.dmi'
+	var/righthand_file = 'icons/mob/inhands/items_righthand.dmi'
+
+	//Dimensions of the icon file used when this item is worn, eg: hats.dmi
+	//eg: 32x32 sprite, 64x64 sprite, etc.
+	//allows inhands/worn sprites to be of any size, but still centered on a mob properly
+	var/worn_x_dimension = 32
+	var/worn_y_dimension = 32
+	//Same as above but for inhands, uses the lefthand_ and righthand_ file vars
+	var/inhand_x_dimension = 32
+	var/inhand_y_dimension = 32
+
 	var/image/blood_overlay //this saves our blood splatter overlay, which will be processed not to go over the edges of the sprite
 	var/abstract = 0
 	var/r_speed = 1.0

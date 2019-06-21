@@ -6,18 +6,10 @@
 /obj/item/weapon/storage/backpack
 	name = "backpack"
 	desc = "You wear this on your back and put items into it."
-	item_icons = list(//ITEM_ICONS ARE DEPRECATED. USE CONTAINED SPRITES IN FUTURE
-		slot_l_hand_str = 'icons/mob/items/lefthand_backpacks.dmi',
-		slot_r_hand_str = 'icons/mob/items/righthand_backpacks.dmi'
-		)
 	icon_state = "backpack"
-	item_state = null
-	//most backpacks use the default backpack state for inhand overlays
-	item_state_slots = list(
-		slot_l_hand_str = "backpack",
-		slot_r_hand_str = "backpack"
-		)
-
+	item_state = "backpack"
+	lefthand_file = 'icons/mob/inhands/equipment/backpack_lefthand.dmi'
+	righthand_file = 'icons/mob/inhands/equipment/backpack_righthand.dmi'
 	w_class = 4
 	slot_flags = SLOT_BACK
 	max_w_class = 3
