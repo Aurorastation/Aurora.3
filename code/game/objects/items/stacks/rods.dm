@@ -78,7 +78,7 @@ var/global/list/datum/stack_recipe/rod_recipes = list(
 
 		user.visible_message("<span class='notice'>\The [user] constructs \a [new_splint] out of a [singular_name].</span>", \
 				"<span class='notice'>You use make \a [new_splint] out of a [singular_name].</span>")
-		src.use(1)
+		use(1)
 		return
 
 	..()
