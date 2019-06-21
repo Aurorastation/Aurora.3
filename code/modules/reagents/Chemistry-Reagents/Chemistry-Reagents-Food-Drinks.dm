@@ -24,10 +24,10 @@
 
 	else
 		if(ingest_mul)
-			affect_blood(M, alien, removed * ingest_mul)
+			affect_blood(M, alien, removed)
 
 /datum/reagent/kois/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	if(istype(M,/mob/living/carbon/human))
+	if(ishuman(M))
 		var/mob/living/carbon/human/H = M
 		var/obj/item/organ/parasite/P = H.internal_organs_by_name["blackkois"]
 		if((alien != IS_VAURCA) || (istype(P) && P.stage >= 3))
