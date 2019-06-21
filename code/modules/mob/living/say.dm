@@ -161,11 +161,6 @@ proc/get_radio_key_from_channel(var/channel)
 
 	var/message_mode = parse_message_mode(message, "headset")
 
-	var/static/list/correct_punctuation = list("!" = TRUE, "." = TRUE, "?" = TRUE, "-" = TRUE, "~" = TRUE, "*" = TRUE, "/" = TRUE)
-	var/ending = copytext(message, length(message), (length(message) + 1))
-	if(ending && !correct_punctuation[ending])
-		message += "."
-
 	message = process_chat_markup(message, list("~", "_"))
 
 	switch(copytext(message,1,2))
@@ -180,6 +175,11 @@ proc/get_radio_key_from_channel(var/channel)
 			message = copytext(message,3)
 
 	message = trim_left(message)
+
+	var/static/list/correct_punctuation = list("!" = TRUE, "." = TRUE, "?" = TRUE, "-" = TRUE, "~" = TRUE, "*" = TRUE, "/" = TRUE, ">" = TRUE,)
+	var/ending = copytext(message, length(message), (length(message) + 1))
+	if(ending && !correct_punctuation[ending])
+		message += "."
 
 	//parse the language code and consume it
 	if(!speaking)
