@@ -56,6 +56,13 @@
 	// Are we placing or stripping?
 	var/stripping
 	var/obj/item/held = user.get_active_hand()
+
+	if (istype(held, /obj/item/weapon/gripper))
+		var/obj/item/weapon/gripper/G = held
+		if(!G.wrapped)
+			return 0
+		else
+			held = G.wrapped
 	if(!istype(held) || is_robot_module(held))
 		if(!istype(target_slot))  // They aren't holding anything valid and there's nothing to remove, why are we even here?
 			return 0
@@ -68,11 +75,20 @@
 		visible_message("<span class='danger'>\The [user] is trying to remove \the [src]'s [target_slot.name]!</span>")
 	else
 		visible_message("<span class='danger'>\The [user] is trying to put \a [held] on \the [src]!</span>")
-
 	if(!do_mob(user,src,HUMAN_STRIP_DELAY))
 		return 0
 
-	if(!stripping && user.get_active_hand() != held)
+	var/obj/item/held_n = user.get_active_hand()
+	if(!stripping && held_n)
+		if (istype(held_n, /obj/item/weapon/gripper))
+			var/obj/item/weapon/gripper/G = held_n 
+			if(!G.wrapped)
+				return 0
+			else
+				held_n = G.wrapped
+		if(held_n != held)
+			return 0
+	else
 		return 0
 
 	if(stripping)
@@ -82,7 +98,6 @@
 		equip_to_slot_if_possible(held, text2num(slot_to_strip), 0, 1, 1)
 		if(held.loc != src)
 			user.put_in_hands(held)
-
 	return 1
 
 // Empty out everything in the target's pockets.

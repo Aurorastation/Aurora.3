@@ -77,6 +77,9 @@
 		emp_counter--
 
 /obj/item/organ/cell/emp_act(severity)
+	if(owner.get_species() == "Military Frame")
+		spark(owner.loc, 5, alldirs)
+		return
 	emp_counter += 30/severity
 	if(emp_counter >= 30)
 		owner.Paralyse(emp_counter/6)
