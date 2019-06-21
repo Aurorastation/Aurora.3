@@ -419,10 +419,8 @@
 /obj/item/clothing/head
 	name = "head"
 	icon = 'icons/obj/clothing/hats.dmi'
-	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/lefthand_hats.dmi',
-		slot_r_hand_str = 'icons/mob/items/righthand_hats.dmi'
-		)
+	lefthand_file = 'icons/mob/inhands/equipment/hats_lefthand.dmi'
+	righthand_file = 'icons/mob/inhands/equipment/hats_righthand.dmi'
 	body_parts_covered = HEAD
 	slot_flags = SLOT_HEAD
 	w_class = 2.0
@@ -678,6 +676,8 @@
 /obj/item/clothing/suit
 	icon = 'icons/obj/clothing/suits.dmi'
 	name = "suit"
+	lefthand_file = 'icons/mob/inhands/equipment/suits_lefthand.dmi'
+	righthand_file = 'icons/mob/inhands/equipment/suits_righthand.dmi'
 	var/fire_resist = T0C+100
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS|LEGS
 	allowed = list(/obj/item/weapon/tank/emergency_oxygen)
