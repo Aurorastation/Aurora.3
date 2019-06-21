@@ -250,6 +250,21 @@
 		/obj/item/stack/material/phoron
 		)
 
+
+/obj/item/weapon/gripper/medical //Filling the gap between the chem gripper and science grippers
+	name = "medical gripper"
+	icon_state = "gripper-sci"
+	desc = "A specialised grasping tool designed for working in the medical field"
+
+	can_hold = list(
+		/obj/item/weapon/reagent_containers/food/snacks/monkeycube,
+		/obj/item/organ,
+		/obj/item/clothing/mask,
+		/obj/item/weapon/tank
+		)
+
+
+
 /obj/item/weapon/gripper/service //Used to handle food, drinks, and seeds.
 	name = "service gripper"
 	icon_state = "gripper"
