@@ -205,7 +205,7 @@
 		/obj/item/rig_module/device/healthscanner/vitalscanner,
 		/obj/item/rig_module/chem_dispenser/offworlder,
 		/obj/item/rig_module/actuators/combat,
-		/obj/item/rig_module/chem_dispenser/combat,
+		/obj/item/rig_module/chem_dispenser/combat
 		)
 
 	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT | MODULE_SPECIAL | MODULE_MEDICAL | MODULE_UTILITY
