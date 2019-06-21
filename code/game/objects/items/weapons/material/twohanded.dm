@@ -205,7 +205,7 @@
 
 /obj/item/weapon/material/twohanded/fireaxe/pre_attack(var/mob/living/target, var/mob/living/user)
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN * 2.5)
-	if(istype(target))
+	if(istype(target) && wielded)
 		cleave(user, target)
 	..()
 
