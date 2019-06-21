@@ -253,7 +253,7 @@
 
 /obj/item/weapon/gripper/medical //Filling the gap between the chem gripper and science grippers
 	name = "medical gripper"
-	icon_state = "gripper-sci"
+	icon_state = "gripper-medical"
 	desc = "A specialised grasping tool designed for working in the medical field"
 
 	can_hold = list(
