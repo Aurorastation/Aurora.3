@@ -554,7 +554,7 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 		return (0)
 	return 1
 
-/mob/living/simple_animal/verb/make_noise(var/make_sound = TRUE)
+/mob/living/simple_animal/proc/make_noise(var/make_sound = TRUE)
 	set name = "Resist"
 	set category = "Abilities"
 
