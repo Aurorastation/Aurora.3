@@ -2711,11 +2711,6 @@
 	},
 /turf/simulated/floor,
 /area/derelict)
-"gv" = (
-/obj/machinery/power/supermatter/shard,
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor,
-/area/derelict)
 "gw" = (
 /obj/structure/lattice/catwalk/indoor,
 /obj/machinery/power/emitter{
@@ -42544,7 +42539,7 @@ bS
 fG
 fG
 gj
-gv
+fG
 gk
 bP
 nP

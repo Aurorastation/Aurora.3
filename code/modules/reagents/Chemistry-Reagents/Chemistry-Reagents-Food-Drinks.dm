@@ -10,7 +10,7 @@
 	taste_description = "boiled cabbage"
 	unaffected_species = IS_MACHINE
 	var/kois_type = 1
-	specific_heat = 0.75
+	fallback_specific_heat = 0.75
 
 /datum/reagent/kois/affect_ingest(var/mob/living/carbon/human/M, var/alien, var/removed)
 	if(!istype(M))
@@ -46,7 +46,7 @@
 	color = "#ece9dd"
 	taste_description = "cabbage soup"
 	kois_type = 0
-	specific_heat = 1
+	fallback_specific_heat = 1
 
 /datum/reagent/kois/black
 	name = "Modified K'ois"
@@ -55,7 +55,7 @@
 	color = "#31004A"
 	taste_description = "tar"
 	kois_type = 2
-	specific_heat = 0.5
+	fallback_specific_heat = 0.5
 
 /* Food */
 /datum/reagent/nutriment
@@ -107,10 +107,8 @@
 			data -= null
 
 /datum/reagent/nutriment/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	if(!injectable)
-		M.adjustToxLoss(0.1 * removed)
-		return
-	affect_ingest(M, alien, removed)
+	if(injectable)
+		affect_ingest(M, alien, removed)
 
 /datum/reagent/nutriment/affect_ingest(var/mob/living/carbon/human/M, var/alien, var/removed)
 	if(!istype(M))
@@ -549,7 +547,7 @@
 	taste_description = "mint"
 	taste_mult = 1.5
 
-	specific_heat = 15
+	fallback_specific_heat = 15
 	default_temperature = T0C - 20
 
 /datum/reagent/frostoil/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
@@ -732,7 +730,6 @@
 	return ..()
 
 /datum/reagent/drink/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	M.adjustToxLoss(removed * blood_to_ingest_scale) // Probably not a good idea; not very deadly though
 	digest(M,alien,removed * blood_to_ingest_scale, FALSE)
 
 /datum/reagent/drink/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
