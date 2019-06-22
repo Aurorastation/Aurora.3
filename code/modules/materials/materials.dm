@@ -534,7 +534,7 @@ var/list/name_to_material
 	return (hardness > 35) //todo
 
 /material/glass/wired
-	name = "wglass"
+	name = "wired glass"
 	display_name = "wired glass"
 	stack_type = /obj/item/stack/material/glass/wired
 	flags = MATERIAL_BRITTLE
