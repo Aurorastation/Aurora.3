@@ -1,6 +1,6 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "aa" = (
-/turf/simulated/open,
+/turf/simulated/open/airless,
 /area/mine/explored)
 "ab" = (
 /turf/unsimulated/floor/asteroid/ash,
@@ -174,7 +174,7 @@
 /obj/effect/landmark{
 	name = "carpspawn"
 	},
-/turf/simulated/open,
+/turf/simulated/open/airless,
 /area/mine/explored)
 "aD" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -302,7 +302,7 @@
 	dir = 2;
 	icon_state = "11-1"
 	},
-/turf/simulated/open,
+/turf/simulated/open/airless,
 /area/mine/explored)
 "aR" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -428,7 +428,7 @@
 /area/tcommsat/lounge)
 "aZ" = (
 /obj/structure/lattice,
-/turf/simulated/open,
+/turf/simulated/open/airless,
 /area/mine/explored)
 "ba" = (
 /obj/machinery/door/firedoor,
@@ -713,7 +713,7 @@
 /turf/simulated/floor/reinforced/airless,
 /area/mine/explored)
 "bH" = (
-/turf/simulated/open,
+/turf/simulated/open/airless,
 /area/syndicate_station/above)
 "bI" = (
 /obj/structure/bed,
@@ -1594,13 +1594,6 @@
 /obj/structure/boulder,
 /turf/unsimulated/floor/asteroid/ash,
 /area/mine/explored)
-"dn" = (
-/obj/structure/ladder{
-	icon_state = "ladder01";
-	pixel_y = 16
-	},
-/turf/simulated/open,
-/area/mine/explored)
 "do" = (
 /obj/structure/boulder{
 	icon_state = "boulder3"
@@ -1609,7 +1602,7 @@
 /area/mine/explored)
 "dp" = (
 /obj/structure/lattice/catwalk,
-/turf/simulated/open,
+/turf/simulated/open/airless,
 /area/mine/explored)
 "dq" = (
 /obj/effect/floor_decal/industrial/warning/dust{
@@ -1779,7 +1772,7 @@
 /turf/simulated/floor/airless,
 /area/solar/auxport)
 "dL" = (
-/turf/simulated/open,
+/turf/simulated/open/airless,
 /area/skipjack_station/above)
 "dN" = (
 /obj/machinery/power/tracker,
@@ -2519,7 +2512,7 @@
 /obj/effect/landmark/map_data{
 	height = 6
 	},
-/turf/simulated/open,
+/turf/simulated/open/airless,
 /area/mine/explored)
 "eZ" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -2857,10 +2850,12 @@
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/mine/explored)
-"pF" = (
-/obj/structure/lattice/catwalk,
-/obj/structure/lattice/catwalk,
-/turf/simulated/open,
+"nR" = (
+/obj/effect/floor_decal/industrial/warning{
+	icon_state = "warning";
+	dir = 6
+	},
+/turf/simulated/floor/reinforced/airless,
 /area/mine/explored)
 "za" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -2868,13 +2863,6 @@
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
-	},
-/turf/simulated/floor/reinforced/airless,
-/area/mine/explored)
-"zr" = (
-/obj/effect/floor_decal/industrial/warning{
-	icon_state = "warning";
-	dir = 6
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/mine/explored)
@@ -2888,6 +2876,13 @@
 	icon_state = "pipe-c"
 	},
 /turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"Co" = (
+/obj/structure/ladder{
+	icon_state = "ladder01";
+	pixel_y = 16
+	},
+/turf/simulated/open/airless,
 /area/mine/explored)
 "FZ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -2931,6 +2926,11 @@
 	dir = 4
 	},
 /turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"XK" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/lattice/catwalk,
+/turf/simulated/open/airless,
 /area/mine/explored)
 
 (1,1,1) = {"
@@ -35180,7 +35180,7 @@ aa
 ab
 ac
 dl
-dn
+Co
 ab
 ab
 ab
@@ -36497,7 +36497,7 @@ fg
 aq
 aq
 aq
-zr
+nR
 ab
 ab
 ab
@@ -39063,7 +39063,7 @@ aq
 aq
 aq
 aq
-zr
+nR
 ab
 ac
 ab
@@ -45226,7 +45226,7 @@ aa
 aa
 aa
 dp
-pF
+XK
 dp
 aa
 aa
@@ -52418,7 +52418,7 @@ ah
 ah
 ah
 dw
-dn
+Co
 dp
 ab
 ac
