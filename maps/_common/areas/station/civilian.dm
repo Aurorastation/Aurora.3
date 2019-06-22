@@ -12,7 +12,7 @@
 	station_area = 1
 
 /area/crew_quarters/toilet
-	name = "\improper Surface Washroom"
+	name = "\improper Surface - Washroom"
 	icon_state = "toilet"
 	sound_env = SMALL_ENCLOSED
 
