@@ -269,7 +269,7 @@ var/datum/controller/subsystem/ticker/SSticker
 		if (aiPlayer.connected_robots.len)
 			var/robolist = "<b>The AI's loyal minions were:</b> "
 			for(var/mob/living/silicon/robot/robo in aiPlayer.connected_robots)
-				robolist += "[robo.name][robo.stat?" (Deactivated), ":" , "]"
+				robolist += "[robo.name][robo.stat?" (Deactivated), ":", "]"
 			to_world("[robolist]")
 
 	var/dronecount = 0
