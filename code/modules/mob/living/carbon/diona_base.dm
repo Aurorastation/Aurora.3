@@ -538,7 +538,10 @@ var/list/diona_banned_languages = list(
 	set desc = "Allows you to merge back to your parent Gestalt."
 	set category = "Abilities"
 
-	for(var/mob/living/carbon/human/diona/C in view(src, 7))
+	for(var/mob/living/carbon/human/H in view(src, 7))
+		if(!H.is_diona())
+			continue
+		var/mob/living/carbon/human/diona/C = H
 		if(C == gestalt)
 			C.nutrition += REGROW_FOOD_REQ
 			C.DS.stored_energy += REGROW_ENERGY_REQ
