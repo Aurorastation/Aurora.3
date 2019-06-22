@@ -215,7 +215,7 @@
 	name = "wired glass"
 	icon = 'icons/obj/stacks/tiles.dmi'
 	icon_state = "glass_wire"
-	default_type = "wglass"
+	default_type = "wired glass"
 
 /obj/item/stack/material/glass/reinforced
 	name = "reinforced glass"
