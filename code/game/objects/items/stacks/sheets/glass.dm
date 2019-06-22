@@ -119,7 +119,7 @@
 	icon_state = "glass_wire"
 	created_window = null
 	default_type = "wired glass"
-	construction_options = list(null)
+	construction_options = list()
 
 /obj/item/stack/material/glass/wired/attackby(var/obj/O, mob/user as mob)
 	if(istype(O, /obj/item/stack/material/steel))
