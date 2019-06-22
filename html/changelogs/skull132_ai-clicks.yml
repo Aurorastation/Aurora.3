@@ -1,0 +1,5 @@
+author: Skull132
+delete-after: True
+
+changes:
+  - bugfix: "Fixed a case where leaving the multitool mode enabled as the AI would cause your clicks to fail in 90% of the cases."
