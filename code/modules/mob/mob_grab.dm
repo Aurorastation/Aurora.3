@@ -110,7 +110,6 @@
 		assailant.stop_pulling()
 
 	if(state <= GRAB_AGGRESSIVE)
-		allow_upgrade = 1
 		//disallow upgrading if we're grabbing more than one person
 		if((assailant.l_hand && assailant.l_hand != src && istype(assailant.l_hand, /obj/item/weapon/grab)))
 			var/obj/item/weapon/grab/G = assailant.l_hand
@@ -126,6 +125,8 @@
 			if(G == src) continue
 			if(G.state >= GRAB_AGGRESSIVE)
 				allow_upgrade = 0
+
+		allow_upgrade = 1
 
 		if(allow_upgrade)
 			if(state < GRAB_AGGRESSIVE)
