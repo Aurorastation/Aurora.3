@@ -547,7 +547,7 @@ var/list/name_to_material
 	weight = 30
 	stack_origin_tech = list(TECH_MATERIAL = 2)
 	composite_material = list(DEFAULT_WALL_MATERIAL = 1875,"glass" = 3750)
-	window_options = list(null)
+	window_options = list()
 	created_window = null
 	wire_product = null
 	rod_product = null
