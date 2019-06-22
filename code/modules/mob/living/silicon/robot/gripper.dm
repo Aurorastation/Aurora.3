@@ -260,8 +260,19 @@
 		/obj/item/weapon/reagent_containers/food/snacks/monkeycube,
 		/obj/item/organ,
 		/obj/item/clothing/mask,
-		/obj/item/weapon/tank
+		/obj/item/weapon/tank,
+		/obj/item/weapon/scalpel,
+		/obj/item/weapon/hemostat,
+		/obj/item/weapon/retractor,
+		/obj/item/weapon/cautery,
+		/obj/item/weapon/bonegel,
+		/obj/item/weapon/FixOVein,
+		/obj/item/weapon/bonesetter,
+		/obj/item/weapon/circular_saw,
+		/obj/item/stack/medical,
+		/obj/item/weapon/surgicaldrill
 		)
+
 
 
 
