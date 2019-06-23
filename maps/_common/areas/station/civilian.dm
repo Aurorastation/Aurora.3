@@ -100,6 +100,9 @@
 /area/crew_quarters/fitness/changing
 	name = "\improper Surface - Changing Room"
 
+/area/crew_quarters/fitness/running
+	name = "\improper Surface - Running Track"
+
 /area/crew_quarters/cafeteria
 	name = "\improper Cafeteria"
 	icon_state = "cafeteria"
