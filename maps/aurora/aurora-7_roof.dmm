@@ -2437,6 +2437,15 @@
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/mine/explored)
+"eR" = (
+/obj/effect/floor_decal/industrial/warning/dust{
+	icon_state = "warning_dust";
+	dir = 8
+	},
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
+/area/mine/explored)
 "eS" = (
 /obj/effect/floor_decal/industrial/warning/corner{
 	icon_state = "warningcorner";
@@ -2820,29 +2829,27 @@
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/mine/explored)
-"fL" = (
-/obj/random/loot,
-/obj/effect/floor_decal/industrial/warning/corner{
-	icon_state = "warningcorner";
+"fP" = (
+/obj/machinery/door/firedoor,
+/obj/structure/grille,
+/obj/structure/window/reinforced{
 	dir = 1
 	},
-/turf/simulated/floor/reinforced/airless,
-/area/mine/explored)
-"gc" = (
+/obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
-	dir = 4
+	dir = 8
 	},
+/turf/simulated/floor/plating,
+/area/crew_quarters/fitness/running)
+"hg" = (
 /obj/structure/lattice,
 /turf/simulated/open{
 	name = "heated open space";
 	temperature = 303.15
 	},
 /area/crew_quarters/fitness/running)
-"gd" = (
-/turf/simulated/open{
-	name = "heated open space";
-	temperature = 303.15
-	},
+"hx" = (
+/turf/simulated/wall,
 /area/crew_quarters/fitness/running)
 "hR" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -2860,57 +2867,111 @@
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled,
 /area/tcommsat/lounge)
-"ie" = (
+"hX" = (
+/obj/effect/floor_decal/corner/red{
+	icon_state = "corner_white";
+	dir = 9
+	},
 /obj/machinery/light{
-	dir = 1;
+	dir = 8;
 	icon_state = "tube1";
 	pixel_y = 0
 	},
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/fitness/running)
-"im" = (
-/obj/structure/ladder{
-	icon_state = "ladder01";
-	pixel_y = 16
-	},
-/turf/simulated/open/airless,
-/area/mine/explored)
-"iM" = (
-/obj/structure/lattice,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/turf/simulated/open{
-	name = "heated open space";
-	temperature = 303.15
-	},
-/area/crew_quarters/fitness/running)
-"jm" = (
+"jZ" = (
 /obj/machinery/door/firedoor,
 /obj/structure/grille,
 /obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
 	dir = 8
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 1
 	},
 /turf/simulated/floor/plating,
 /area/crew_quarters/fitness/running)
+"ko" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/cable/green{
+	d1 = 32;
+	d2 = 1;
+	icon_state = "11-1"
+	},
+/obj/machinery/atmospherics/pipe/zpipe/down/scrubbers{
+	icon_state = "down-scrubbers";
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/zpipe/down/supply{
+	icon_state = "down-supply";
+	dir = 1
+	},
+/turf/simulated/open,
+/area/maintenance/arrivals)
 "kE" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/mine/explored)
-"mH" = (
+"lS" = (
+/obj/structure/ladder{
+	icon_state = "ladder01";
+	pixel_y = 16
+	},
+/turf/simulated/open/airless,
+/area/mine/explored)
+"mo" = (
+/turf/simulated/open,
+/area/crew_quarters/fitness/running)
+"mr" = (
+/obj/machinery/door/firedoor,
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/crew_quarters/fitness/running)
+"nL" = (
+/obj/machinery/door/firedoor,
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced,
+/turf/simulated/floor/plating,
+/area/crew_quarters/fitness/running)
+"nO" = (
 /obj/effect/floor_decal/corner/red{
 	icon_state = "corner_white";
-	dir = 4
+	dir = 6
+	},
+/obj/effect/floor_decal/corner/red{
+	icon_state = "corner_white";
+	dir = 9
 	},
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/fitness/running)
-"ps" = (
+"oc" = (
+/obj/machinery/door/firedoor,
+/obj/structure/grille,
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/crew_quarters/fitness/running)
+"oH" = (
+/obj/machinery/door/firedoor,
 /obj/structure/grille,
 /obj/structure/window/reinforced{
 	dir = 1
@@ -2921,52 +2982,64 @@
 	},
 /turf/simulated/floor/plating,
 /area/crew_quarters/fitness/running)
-"pt" = (
-/obj/effect/floor_decal/corner/red{
-	icon_state = "corner_white";
-	dir = 9
-	},
+"pK" = (
 /obj/machinery/light{
+	dir = 4;
 	icon_state = "tube1";
-	dir = 8
+	pixel_x = 0
 	},
-/turf/simulated/floor/tiled/dark,
-/area/crew_quarters/fitness/running)
-"rR" = (
 /obj/effect/floor_decal/corner/red{
 	icon_state = "corner_white";
-	dir = 9
+	dir = 6
 	},
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/fitness/running)
-"sf" = (
-/obj/machinery/door/firedoor,
-/obj/structure/grille,
-/obj/structure/window/reinforced{
+"pZ" = (
+/turf/simulated/floor/tiled/dark,
+/area/crew_quarters/fitness/running)
+"rD" = (
+/obj/machinery/vending/snack,
+/turf/simulated/floor/tiled/dark,
+/area/crew_quarters/fitness/running)
+"tW" = (
+/obj/effect/floor_decal/corner/red{
+	icon_state = "corner_white";
 	dir = 1
 	},
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/crew_quarters/fitness/running)
-"vY" = (
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/fitness/running)
-"xy" = (
+"vA" = (
+/obj/item/weapon/stool/padded,
+/turf/simulated/floor/tiled/dark{
+	name = "heated dark floor";
+	temperature = 303.15
+	},
+/area/crew_quarters/fitness/running)
+"ws" = (
+/obj/effect/floor_decal/industrial/warning/dust,
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
+/area/mine/explored)
+"xg" = (
+/obj/machinery/door/firedoor,
 /obj/structure/grille,
 /obj/structure/window/reinforced{
 	dir = 8
 	},
 /obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
 	dir = 4
 	},
-/obj/machinery/door/firedoor,
+/obj/structure/window/reinforced,
 /turf/simulated/floor/plating,
+/area/crew_quarters/fitness/running)
+"xv" = (
+/obj/machinery/light{
+	dir = 1;
+	icon_state = "tube1"
+	},
+/obj/item/weapon/stool/padded,
+/turf/simulated/floor/tiled/dark,
 /area/crew_quarters/fitness/running)
 "za" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -2977,35 +3050,22 @@
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/mine/explored)
-"zk" = (
-/obj/structure/lattice,
-/turf/simulated/open{
-	name = "heated open space";
-	temperature = 303.15
-	},
-/area/crew_quarters/fitness/running)
-"zJ" = (
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced,
-/obj/structure/lattice,
-/turf/simulated/open{
-	name = "heated open space";
-	temperature = 303.15
-	},
-/area/crew_quarters/fitness/running)
-"zK" = (
-/obj/effect/floor_decal/corner/red{
-	icon_state = "corner_white";
-	dir = 8
-	},
-/turf/simulated/floor/tiled/dark,
-/area/crew_quarters/fitness/running)
 "Aj" = (
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/reinforced/airless,
 /area/mine/explored)
+"As" = (
+/obj/effect/floor_decal/corner/red{
+	icon_state = "corner_white";
+	dir = 10
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/crew_quarters/fitness/running)
 "AK" = (
 /obj/structure/disposalpipe/segment{
 	dir = 8;
@@ -3013,51 +3073,67 @@
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/mine/explored)
+"AU" = (
+/obj/machinery/door/airlock/glass,
+/turf/simulated/floor/tiled/dark,
+/area/crew_quarters/fitness/running)
+"Bk" = (
+/obj/effect/floor_decal/corner/red{
+	icon_state = "corner_white";
+	dir = 9
+	},
+/obj/effect/floor_decal/corner/red{
+	icon_state = "corner_white";
+	dir = 6
+	},
+/obj/machinery/light{
+	dir = 1;
+	icon_state = "tube1";
+	pixel_y = 0
+	},
+/turf/simulated/floor/tiled/dark,
+/area/crew_quarters/fitness/running)
 "Bz" = (
 /turf/simulated/wall,
-/area/crew_quarters/fitness/running)
-"BK" = (
-/obj/structure/lattice/catwalk,
-/obj/structure/lattice/catwalk,
-/turf/simulated/open/airless,
-/area/mine/explored)
-"BZ" = (
-/turf/simulated/wall,
 /area/maintenance/arrivals)
-"CM" = (
-/obj/structure/ladder{
-	icon_state = "ladder01";
-	pixel_y = 16
+"CX" = (
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
 	},
-/obj/machinery/light/small/emergency{
-	dir = 8
+/obj/structure/lattice/catwalk/indoor,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
 	},
-/turf/simulated/open,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6
+	},
+/turf/simulated/floor/plating,
 /area/maintenance/arrivals)
-"Ds" = (
+"DK" = (
 /obj/effect/floor_decal/corner/red{
 	icon_state = "corner_white";
 	dir = 10
 	},
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/fitness/running)
-"EI" = (
-/obj/structure/window/reinforced{
-	dir = 8
-	},
+"ES" = (
+/obj/machinery/door/firedoor,
+/obj/structure/grille,
 /obj/structure/window/reinforced{
 	dir = 1
 	},
-/obj/structure/lattice,
-/turf/simulated/open{
-	name = "heated open space";
-	temperature = 303.15
-	},
-/area/crew_quarters/fitness/running)
-"EJ" = (
-/obj/machinery/door/airlock/maintenance_hatch,
+/obj/structure/window/reinforced,
 /turf/simulated/floor/plating,
-/area/maintenance/arrivals)
+/area/crew_quarters/fitness/running)
+"FH" = (
+/obj/effect/floor_decal/corner/red{
+	icon_state = "corner_white";
+	dir = 5
+	},
+/turf/simulated/floor/tiled/dark,
+/area/crew_quarters/fitness/running)
 "FZ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -3077,61 +3153,25 @@
 	},
 /turf/simulated/floor/tiled,
 /area/tcommsat/lounge)
-"Gd" = (
-/obj/effect/floor_decal/corner/red{
-	icon_state = "corner_white";
-	dir = 5
-	},
-/obj/machinery/light{
-	dir = 1;
-	icon_state = "tube1"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/crew_quarters/fitness/running)
 "Gj" = (
-/obj/structure/window/reinforced{
-	dir = 1
+/obj/effect/floor_decal/industrial/warning/corner,
+/obj/random/loot,
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"Gk" = (
+/obj/structure/lattice/catwalk/indoor,
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
 	},
-/obj/structure/window/reinforced{
+/obj/machinery/door/airlock/maintenance_hatch,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/structure/lattice,
-/turf/simulated/open{
-	name = "heated open space";
-	temperature = 303.15
-	},
-/area/crew_quarters/fitness/running)
-"GJ" = (
-/obj/effect/floor_decal/corner/red{
-	icon_state = "corner_white";
-	dir = 6
-	},
-/turf/simulated/floor/tiled/dark,
-/area/crew_quarters/fitness/running)
-"Ho" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/structure/window/reinforced,
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/plating,
-/area/crew_quarters/fitness/running)
-"Hy" = (
-/turf/simulated/open,
-/area/crew_quarters/fitness/running)
-"HO" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/crew_quarters/fitness/running)
 "IB" = (
@@ -3141,20 +3181,40 @@
 	},
 /turf/simulated/floor/tiled,
 /area/tcommsat/lounge)
-"ID" = (
+"IV" = (
 /obj/machinery/door/firedoor,
 /obj/structure/grille,
 /obj/structure/window/reinforced{
-	dir = 1
+	dir = 8
 	},
-/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/crew_quarters/fitness/running)
 "Kb" = (
 /obj/random/loot,
 /turf/unsimulated/floor/asteroid/ash,
 /area/mine/explored)
-"Ki" = (
+"LW" = (
+/obj/effect/floor_decal/industrial/warning{
+	icon_state = "warning";
+	dir = 6
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"Np" = (
+/obj/machinery/light{
+	icon_state = "tube1";
+	dir = 2
+	},
+/obj/effect/floor_decal/corner/red{
+	icon_state = "corner_white";
+	dir = 10
+	},
+/turf/simulated/floor/tiled/dark,
+/area/crew_quarters/fitness/running)
+"NB" = (
 /obj/effect/floor_decal/corner/red{
 	icon_state = "corner_white";
 	dir = 9
@@ -3163,77 +3223,32 @@
 	icon_state = "corner_white";
 	dir = 6
 	},
-/obj/machinery/light{
-	dir = 1;
-	icon_state = "tube1"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/crew_quarters/fitness/running)
-"KP" = (
-/obj/structure/window/reinforced,
-/obj/structure/lattice,
-/turf/simulated/open{
-	name = "heated open space";
-	temperature = 303.15
-	},
-/area/crew_quarters/fitness/running)
-"LP" = (
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/lattice,
-/turf/simulated/open{
-	name = "heated open space";
-	temperature = 303.15
-	},
-/area/crew_quarters/fitness/running)
-"Mu" = (
-/obj/effect/floor_decal/corner/red,
-/turf/simulated/floor/tiled/dark,
-/area/crew_quarters/fitness/running)
-"No" = (
-/obj/structure/lattice/catwalk,
 /obj/structure/cable/green{
-	d1 = 32;
-	d2 = 1;
-	icon_state = "11-1"
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
 	},
-/turf/simulated/open,
-/area/maintenance/arrivals)
-"Qx" = (
-/obj/structure/window/reinforced{
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/structure/window/reinforced,
-/obj/structure/lattice,
-/turf/simulated/open{
-	name = "heated open space";
-	temperature = 303.15
-	},
-/area/crew_quarters/fitness/running)
-"RV" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced,
-/turf/simulated/floor/plating,
-/area/crew_quarters/fitness/running)
-"Sk" = (
-/obj/structure/lattice,
-/obj/structure/window/reinforced{
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/turf/simulated/open{
-	name = "heated open space";
-	temperature = 303.15
-	},
+/turf/simulated/floor/tiled/dark,
 /area/crew_quarters/fitness/running)
-"Sp" = (
+"NY" = (
+/obj/effect/floor_decal/corner/red{
+	icon_state = "corner_white";
+	dir = 6
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/crew_quarters/fitness/running)
+"NZ" = (
 /obj/effect/floor_decal/corner/red{
 	icon_state = "corner_white";
 	dir = 10
@@ -3244,65 +3259,115 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/fitness/running)
-"SS" = (
-/obj/structure/lattice/catwalk/indoor,
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/arrivals)
-"Tr" = (
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/lattice,
+"Op" = (
 /turf/simulated/open{
 	name = "heated open space";
 	temperature = 303.15
 	},
 /area/crew_quarters/fitness/running)
-"Ua" = (
-/obj/effect/floor_decal/corner/red{
-	icon_state = "corner_white";
-	dir = 6
+"Ox" = (
+/obj/structure/table/standard{
+	name = "plastic table frame"
 	},
-/obj/machinery/light{
-	dir = 4;
-	icon_state = "tube1"
+/turf/simulated/floor/tiled/dark{
+	name = "heated dark floor";
+	temperature = 303.15
 	},
-/turf/simulated/floor/tiled/dark,
 /area/crew_quarters/fitness/running)
-"Ux" = (
+"Pn" = (
+/obj/effect/floor_decal/industrial/warning/dust{
+	icon_state = "warning_dust";
+	dir = 10
+	},
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
+/area/mine/explored)
+"QV" = (
 /obj/effect/floor_decal/corner/red{
 	icon_state = "corner_white";
 	dir = 5
 	},
+/obj/machinery/light{
+	dir = 1;
+	icon_state = "tube1";
+	pixel_y = 0
+	},
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/fitness/running)
-"Ve" = (
+"Sn" = (
+/obj/effect/floor_decal/corner/red,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/crew_quarters/fitness/running)
+"SK" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/structure/lattice/catwalk/indoor,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	icon_state = "intact-scrubbers";
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/floor/plating,
+/area/maintenance/arrivals)
+"TD" = (
+/obj/structure/ladder{
+	icon_state = "ladder01";
+	pixel_y = 16
+	},
+/obj/machinery/light/small/emergency{
+	icon_state = "bulb1";
+	dir = 4
+	},
+/turf/simulated/open,
+/area/maintenance/arrivals)
+"Uu" = (
+/obj/machinery/door/firedoor,
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/crew_quarters/fitness/running)
+"VJ" = (
 /obj/effect/floor_decal/corner/red{
 	icon_state = "corner_white";
-	dir = 9
+	dir = 5
 	},
+/obj/machinery/power/apc{
+	dir = 1;
+	name = "north bump";
+	pixel_x = 0;
+	pixel_y = 24
+	},
+/obj/structure/cable/green{
+	d2 = 2;
+	icon_state = "0-2"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/crew_quarters/fitness/running)
+"VU" = (
 /obj/effect/floor_decal/corner/red{
 	icon_state = "corner_white";
 	dir = 6
 	},
-/obj/machinery/light{
-	icon_state = "tube1";
-	dir = 2
-	},
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/fitness/running)
-"Wp" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced,
-/turf/simulated/floor/plating,
+"Wg" = (
+/obj/machinery/vending/cola,
+/turf/simulated/floor/tiled/dark,
 /area/crew_quarters/fitness/running)
 "WJ" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -3317,28 +3382,56 @@
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/mine/explored)
-"Xd" = (
-/obj/effect/floor_decal/corner/red{
-	icon_state = "corner_white";
-	dir = 1
+"Xc" = (
+/obj/machinery/door/firedoor,
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 8
 	},
-/turf/simulated/floor/tiled/dark,
-/area/crew_quarters/fitness/running)
-"XT" = (
-/obj/structure/window/reinforced,
-/turf/simulated/open{
-	name = "heated open space";
-	temperature = 303.15
+/obj/structure/window/reinforced{
+	dir = 4
 	},
-/area/crew_quarters/fitness/running)
-"ZO" = (
 /obj/structure/window/reinforced{
 	dir = 1
 	},
-/turf/simulated/open{
-	name = "heated open space";
-	temperature = 303.15
+/turf/simulated/floor/plating,
+/area/crew_quarters/fitness/running)
+"XB" = (
+/obj/effect/floor_decal/corner/red{
+	icon_state = "corner_white";
+	dir = 4
 	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/crew_quarters/fitness/running)
+"XL" = (
+/obj/machinery/door/firedoor,
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/crew_quarters/fitness/running)
+"Yz" = (
+/obj/effect/floor_decal/corner/red{
+	icon_state = "corner_white";
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/crew_quarters/fitness/running)
+"ZQ" = (
+/obj/effect/floor_decal/corner/red{
+	icon_state = "corner_white";
+	dir = 9
+	},
+/turf/simulated/floor/tiled/dark,
 /area/crew_quarters/fitness/running)
 
 (1,1,1) = {"
@@ -34592,7 +34685,7 @@ ag
 ag
 ag
 ag
-fL
+ah
 ah
 ah
 ah
@@ -34819,7 +34912,7 @@ aa
 ab
 ab
 ab
-ab
+dk
 ab
 ab
 ab
@@ -34855,7 +34948,7 @@ ah
 ah
 ah
 ah
-ah
+bX
 ah
 ah
 al
@@ -35080,13 +35173,13 @@ ab
 ab
 ab
 ab
-ab
+dk
 ab
 ab
 ab
 ae
 ah
-ah
+bX
 ah
 ah
 ah
@@ -35331,6 +35424,8 @@ aa
 aa
 ab
 ac
+eR
+Pn
 ab
 ab
 ab
@@ -35339,13 +35434,11 @@ ab
 ab
 ab
 ab
-ab
-ab
-ah
-ah
-ah
-ah
-ah
+ed
+ai
+ai
+ai
+ff
 ah
 ah
 ah
@@ -35588,7 +35681,8 @@ aa
 ab
 ac
 dl
-im
+lS
+ws
 ab
 ab
 ab
@@ -35599,12 +35693,11 @@ ab
 ab
 ab
 ab
-Bz
-Bz
-Bz
-Bz
-ah
-ah
+ab
+ab
+hx
+hx
+hx
 ah
 ah
 ah
@@ -35845,41 +35938,41 @@ aa
 ab
 ac
 ac
-ab
-ab
+du
+dy
 aa
 aa
 aa
-ab
 ab
 ab
 ab
 ac
 ac
+ac
+ab
+ab
+ac
+hx
+mo
+hx
+ah
+ah
+ah
+ah
+ah
+ah
+ah
+ah
+ah
+ah
+ah
 Bz
-Hy
-Hy
 Bz
-ah
-ah
-ah
-ah
-ah
-ah
-ah
-ah
-ah
-ah
-ah
-ah
-ah
-ah
-ah
-ah
-ah
-BZ
-BZ
-BZ
+Bz
+Bz
+Bz
+Bz
+Bz
 ah
 ah
 ah
@@ -36113,30 +36206,30 @@ ac
 ac
 ac
 ac
+ac
+ab
+ac
+hx
+mo
+hx
+ah
+ah
+ah
+ah
+ah
+ah
+ah
+ah
+ah
+ah
+ah
 Bz
-Hy
-Hy
+CX
+SK
+SK
+SK
+ko
 Bz
-ah
-ah
-ah
-ah
-ah
-ah
-ah
-ah
-ah
-ah
-ah
-ah
-ah
-ah
-ah
-ah
-ah
-BZ
-CM
-BZ
 ah
 ah
 ah
@@ -36366,34 +36459,34 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
+ab
+ab
+ac
+ac
+ab
+ab
+ac
+hx
+mo
+hx
+jZ
+IV
+xg
+hx
+Xc
+IV
+IV
+IV
+xg
+hx
+hx
+hx
+Gk
+hx
 Bz
-Hy
-Hy
 Bz
+TD
 Bz
-ah
-ah
-ah
-ah
-ah
-ah
-ah
-ah
-ah
-ah
-ah
-ah
-ah
-ah
-ah
-ah
-BZ
-No
-BZ
 ah
 ah
 ah
@@ -36625,34 +36718,34 @@ aa
 aa
 aa
 aa
-aa
-aa
-RV
-vY
-vY
-vY
+ab
+ab
+ab
+ab
+ac
+hx
+pZ
+hx
+Bk
+ZQ
+ZQ
+hX
+ZQ
+ZQ
+ZQ
+ZQ
+ZQ
+hX
+ZQ
+ZQ
+NB
+fP
+ah
 Bz
 Bz
-xy
-HO
-HO
-HO
-Ho
 Bz
-xy
-HO
-HO
-HO
-Ho
-Bz
-Bz
-BZ
-BZ
-BZ
-BZ
-BZ
-ai
-ai
+ah
+fg
 ai
 ai
 ai
@@ -36883,33 +36976,33 @@ aa
 aa
 aa
 aa
-aa
-Wp
-vY
-vY
-vY
-Bz
-Ki
-rR
-rR
-rR
-rR
-rR
-pt
-rR
-rR
-rR
-rR
-rR
-Ve
-Bz
-EJ
-SS
-SS
-BZ
 ab
 ab
 ab
+hx
+hx
+AU
+hx
+VJ
+Sn
+NY
+NY
+NY
+NY
+NY
+NY
+NY
+NY
+NY
+XB
+As
+ES
+ah
+ah
+Gj
+ai
+ai
+LW
 ab
 ab
 ac
@@ -37141,29 +37234,29 @@ aa
 aa
 aa
 aa
-ps
-vY
-vY
-vY
-jm
-Ux
-Mu
-GJ
-GJ
-GJ
-GJ
-GJ
-GJ
-GJ
-GJ
-GJ
-mH
-Ds
-jm
-BZ
-BZ
-BZ
-BZ
+dq
+du
+fP
+vA
+pZ
+pZ
+FH
+DK
+hx
+jZ
+IV
+IV
+IV
+IV
+IV
+xg
+hx
+FH
+DK
+oH
+ai
+ai
+LW
 aa
 aa
 aa
@@ -37398,27 +37491,27 @@ aa
 aa
 aa
 aa
-Bz
-ie
-vY
-vY
-ID
-Ux
-Ds
-EI
-LP
-LP
-LP
-iM
-LP
-LP
-LP
-zJ
-Ux
-Ds
-ID
-ab
-ab
+aa
+dp
+oH
+Ox
+pZ
+pZ
+FH
+DK
+fP
+Op
+hg
+Op
+Op
+Op
+hg
+Op
+fP
+FH
+NZ
+hx
+aa
 aa
 aa
 aa
@@ -37655,27 +37748,27 @@ aa
 aa
 aa
 aa
-RV
-vY
-vY
-vY
-ID
-Ux
-Ds
-ZO
-gd
-zk
-gd
-gd
-gd
-zk
-gd
-XT
-Ux
-Ds
-ID
-ab
-ab
+aa
+dp
+hx
+xv
+pZ
+pZ
+FH
+DK
+ES
+Op
+hg
+Op
+Op
+Op
+hg
+Op
+ES
+FH
+DK
+fP
+aa
 aa
 aa
 aa
@@ -37912,27 +38005,27 @@ aa
 aa
 aa
 aa
-Wp
-vY
-vY
-vY
-sf
-Ux
-Ds
-ZO
-gd
-zk
-gd
-gd
-gd
-zk
-gd
-XT
-Ux
-Ds
-sf
-ab
-ab
+aa
+dp
+fP
+Wg
+pZ
+pZ
+FH
+DK
+ES
+hg
+hg
+hg
+hg
+hg
+hg
+hg
+ES
+FH
+DK
+ES
+aa
 aa
 aa
 aa
@@ -38169,26 +38262,26 @@ aa
 aa
 aa
 aa
-Wp
-vY
-vY
-vY
-Bz
-Gd
-Ds
-Tr
-zk
-zk
-zk
-zk
-zk
-zk
-zk
-KP
-Ux
-Sp
-Bz
-ab
+aa
+dp
+ES
+rD
+pZ
+pZ
+FH
+DK
+ES
+Op
+hg
+Op
+Op
+Op
+hg
+Op
+ES
+FH
+DK
+ES
 aa
 aa
 aa
@@ -38426,26 +38519,26 @@ aa
 aa
 aa
 aa
-ps
-vY
-vY
-vY
-jm
-Ux
-Ds
-ZO
-gd
-zk
-gd
-gd
-gd
-zk
-gd
-XT
-Ux
-Ds
-jm
-ab
+aa
+dp
+mr
+XL
+oc
+hx
+QV
+DK
+oH
+Op
+hg
+Op
+Op
+Op
+hg
+Op
+oH
+FH
+Np
+hx
 aa
 aa
 aa
@@ -38683,26 +38776,26 @@ aa
 aa
 aa
 aa
-Bz
-vY
-vY
-vY
-ID
-Ux
-Ds
-ZO
-gd
-zk
-gd
-gd
-gd
-zk
-gd
-XT
-Ux
-Ds
-ID
-ab
+aa
+dp
+dp
+dp
+dp
+fP
+FH
+DK
+hx
+jZ
+IV
+IV
+IV
+IV
+IV
+xg
+hx
+FH
+DK
+fP
 aa
 aa
 aC
@@ -38940,26 +39033,26 @@ aa
 aa
 aa
 aa
-Bz
-vY
-vY
-vY
-ID
-Ux
-Ds
-Gj
-gc
-gc
-gc
-Sk
-gc
-gc
-gc
-Qx
-Ux
-Ds
-ID
-ab
+aa
+aa
+aa
+aa
+dp
+ES
+FH
+Yz
+ZQ
+ZQ
+ZQ
+ZQ
+ZQ
+ZQ
+ZQ
+ZQ
+ZQ
+tW
+DK
+ES
 aa
 aa
 aa
@@ -39197,26 +39290,26 @@ aa
 aa
 aa
 aa
-Bz
-vY
-vY
-vY
-sf
-Ux
-zK
-rR
-rR
-rR
-rR
-rR
-rR
-rR
-rR
-rR
-Xd
-Ds
-sf
-ab
+aa
+aa
+aa
+aa
+dp
+ES
+nO
+VU
+VU
+pK
+VU
+VU
+VU
+VU
+VU
+pK
+VU
+VU
+nO
+ES
 aa
 aa
 aa
@@ -39454,26 +39547,26 @@ aa
 aa
 aa
 aa
-Bz
-Bz
-Bz
-Bz
-Bz
-Ki
-GJ
-GJ
-GJ
-GJ
-GJ
-Ua
-GJ
-GJ
-GJ
-GJ
-GJ
-Ve
-Bz
-ab
+aa
+aa
+aa
+dE
+Pn
+Uu
+IV
+IV
+xg
+hx
+Xc
+IV
+IV
+IV
+xg
+hx
+Xc
+IV
+IV
+nL
 ab
 aa
 aa
@@ -39713,23 +39806,23 @@ aa
 aa
 aa
 aa
+aa
 ab
 ab
-Bz
-Bz
-xy
-HO
-HO
-HO
-Ho
-Bz
-xy
-HO
-HO
-HO
-Ho
-Bz
-Bz
+ab
+ab
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ab
+ab
+ab
 ab
 ab
 aa
@@ -39975,20 +40068,20 @@ ab
 ab
 ab
 ab
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 ab
 ab
 ab
 ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ac
 aa
 aa
 aa
@@ -40228,7 +40321,8 @@ aa
 aa
 aa
 aa
-aa
+ab
+ab
 ab
 ab
 aa
@@ -40237,7 +40331,6 @@ aa
 aa
 aa
 aa
-dp
 aa
 aa
 aa
@@ -40486,6 +40579,8 @@ aa
 aa
 aa
 aa
+dq
+dy
 aa
 aa
 aa
@@ -40493,8 +40588,6 @@ aa
 aa
 aa
 aa
-aa
-dp
 aa
 aa
 aa
@@ -40743,15 +40836,15 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
 dp
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -41000,16 +41093,16 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
 dp
-dp
-dp
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -41257,17 +41350,17 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
 dp
-dr
-dv
-dz
-dp
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -41514,17 +41607,17 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
 dp
-ds
-dw
-dA
-dp
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -41770,18 +41863,18 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
 dp
-dt
-dx
-dB
 dp
+dp
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -42026,18 +42119,18 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
 dp
+dr
+dv
+dz
 dp
-dp
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -42283,17 +42376,17 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
 dp
+ds
+dw
+dA
+dp
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -42540,17 +42633,17 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
 dp
+dt
+dx
+dB
+dp
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -42798,16 +42891,16 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
 dp
+dp
+dp
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -43056,15 +43149,15 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
 dp
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -43313,15 +43406,15 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
 dp
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -43570,16 +43663,16 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
 dp
-dp
-dp
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -43827,17 +43920,17 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
 dp
-dr
-dv
-dz
-dp
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -44084,17 +44177,17 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
 dp
-ds
-dw
-dA
-dp
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -44340,18 +44433,18 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
 dp
-dt
-dx
-dB
 dp
+dp
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -44596,18 +44689,18 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
 dp
+dr
+dv
+dz
 dp
-dp
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -44853,17 +44946,17 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
 dp
+ds
+dw
+dA
+dp
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -45110,17 +45203,17 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
 dp
+dt
+dx
+dB
+dp
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -45368,16 +45461,16 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
 dp
+dp
+dp
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -45626,16 +45719,16 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
 dp
-BK
-dp
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -45883,7 +45976,7 @@ aa
 aa
 aa
 aa
-aa
+dp
 aa
 aa
 aa
@@ -46140,7 +46233,7 @@ aa
 aa
 aa
 aa
-aa
+dp
 aa
 aa
 aa
@@ -46397,7 +46490,7 @@ aa
 aa
 aa
 aa
-aa
+dp
 aa
 aa
 aa
@@ -48957,17 +49050,17 @@ ae
 ah
 ah
 ah
-fg
-ai
-ai
-ai
-ai
-ai
-ai
-ai
-ai
-ai
-fi
+ah
+ah
+ah
+ah
+ah
+ah
+ah
+ah
+ah
+ah
+ah
 ah
 ah
 ah
@@ -49214,17 +49307,17 @@ ae
 ah
 ah
 ah
-al
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-ae
+fg
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ff
 ah
 ah
 ah
@@ -52826,7 +52919,7 @@ ah
 ah
 ah
 dw
-im
+lS
 dp
 ab
 ac
