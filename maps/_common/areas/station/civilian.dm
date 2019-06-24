@@ -102,6 +102,7 @@
 
 /area/crew_quarters/fitness/running
 	name = "\improper Surface - Running Track"
+	allow_nightmode = 0
 
 /area/crew_quarters/cafeteria
 	name = "\improper Cafeteria"
