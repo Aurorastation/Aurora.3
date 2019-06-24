@@ -189,6 +189,7 @@
 		return 1
 
 	//var/types = target.find_type()
+
 	var/mob/living/carbon/human/H
 	if(istype(target, /mob/living/carbon/human))
 		H = target

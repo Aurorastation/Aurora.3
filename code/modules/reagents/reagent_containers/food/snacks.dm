@@ -890,7 +890,7 @@
 	reagents.add_reagent("pacid",6)
 
 /obj/item/weapon/reagent_containers/food/snacks/fishfingers
-	name = "fish Fingers"
+	name = "fish fingers"
 	desc = "A finger of fish."
 	icon_state = "fishfingers"
 	filling_color = "#FFDEFE"
@@ -4910,6 +4910,7 @@
 	trash = /obj/item/trash/snacktray
 
 /obj/item/weapon/reagent_containers/food/snacks/sliceable/grilled_carp/Initialize()
+	. = ..()
 	reagents.add_reagent("seafood", 12)
 
 /obj/item/weapon/reagent_containers/food/snacks/grilled_carp_slice

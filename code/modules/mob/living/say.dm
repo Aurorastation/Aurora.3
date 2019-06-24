@@ -176,8 +176,9 @@ proc/get_radio_key_from_channel(var/channel)
 
 	message = trim_left(message)
 
+	var/static/list/correct_punctuation = list("!" = TRUE, "." = TRUE, "?" = TRUE, "-" = TRUE, "~" = TRUE, "*" = TRUE, "/" = TRUE, ">" = TRUE,)
 	var/ending = copytext(message, length(message), (length(message) + 1))
-	if(ending != "!" && ending != "." && ending != "?" && ending != "-")
+	if(ending && !correct_punctuation[ending])
 		message += "."
 
 	//parse the language code and consume it
