@@ -3025,9 +3025,8 @@
 	required_reagents = list("water" = 1)
 	required_temperatures_max = list("water" = T0C)
 	result_amount = 1
-	mix_message = ""
+	mix_message = "The water freezes."
 	reaction_sound = ""
-	reaction_rate = HALF_LIFE(80)
 
 /datum/chemical_reaction/ice_to_water
 	name = "Ice to Water"
@@ -3036,9 +3035,8 @@
 	required_reagents = list("ice" = 1)
 	required_temperatures_min = list("ice" = T0C + 1)
 	result_amount = 1
-	mix_message = ""
+	mix_message = "The ice melts."
 	reaction_sound = ""
-	reaction_rate = HALF_LIFE(80)
 
 /datum/chemical_reaction/phoron_salt //Safe temperatures for phoron salt is between 0 degress celcius and 200 celcius.
 	name = "Phoron Salt"
