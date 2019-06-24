@@ -1,5 +1,6 @@
 /* Toys!
  * Contains:
+ *		Bike horn
  *		Balloons
  *		Fake telebeacon
  *		Fake singularity
@@ -26,6 +27,35 @@
 	throw_range = 20
 	force = 0
 	drop_sound = 'sound/items/drop/gloves.ogg'
+
+/obj/item/latexballon/attackby(obj/item/W as obj, mob/user as mob)
+	if (can_puncture(W))
+		burst()
+/*
+ * Bike horn
+ */
+
+/obj/item/weapon/bikehorn
+	name = "bike horn"
+	desc = "A horn off of a bicycle."
+	icon = 'icons/obj/items.dmi'
+	icon_state = "bike_horn"
+	item_state = "bike_horn"
+	throwforce = 3
+	w_class = 2
+	throw_speed = 3
+	throw_range = 15
+	attack_verb = list("HONKED")
+	var/spam_flag = 0
+
+/obj/item/weapon/bikehorn/attack_self(mob/user as mob)
+	if (spam_flag == 0)
+		spam_flag = 1
+		playsound(loc, 'sound/items/bikehorn.ogg', 50, 1)
+		add_fingerprint(user)
+		spawn(20)
+			spam_flag = 0
+	return
 
 /*
  * Balloons
@@ -104,6 +134,51 @@
 	item_state = "ntballoon"
 	w_class = ITEMSIZE_LARGE
 	drop_sound = 'sound/items/drop/rubber.ogg'
+
+/obj/item/toy/latexballon
+	name = "latex glove"
+	desc = "A latex glove, usually used as a balloon."
+	icon_state = "latexballon"
+	item_state = "lgloves"
+	force = 0
+	throwforce = 0
+	w_class = 2.0
+	throw_speed = 1
+	throw_range = 15
+	var/state
+	var/datum/gas_mixture/air_contents = null
+
+/obj/item/toy/latexballon/proc/blow(obj/item/weapon/tank/tank)
+	if (icon_state == "latexballon_bursted")
+		return
+	src.air_contents = tank.remove_air_volume(3)
+	icon_state = "latexballon_blow"
+	item_state = "latexballon"
+
+/obj/item/latexballon/proc/burst()
+	if (!air_contents)
+		return
+	playsound(src, 'sound/weapons/gunshot/gunshot1.ogg', 100, 1)
+	icon_state = "latexballon_bursted"
+	item_state = "lgloves"
+	loc.assume_air(air_contents)
+
+/obj/item/toy/latexballon/ex_act(severity)
+	burst()
+	switch(severity)
+		if (1)
+			qdel(src)
+		if (2)
+			if (prob(50))
+				qdel(src)
+
+/obj/item/toy/latexballon/bullet_act()
+	burst()
+
+/obj/item/toy/latexballon/fire_act(datum/gas_mixture/air, temperature, volume)
+	if(temperature > T0C+100)
+		burst()
+	return
 
 /*
  * Fake telebeacon
@@ -813,7 +888,7 @@
 	desc = "A farwa plush doll. It's soft and comforting, with extra grip!"
 	icon_state = "farwaplushie"
 	slot_flags = SLOT_HEAD
-	
+
 /obj/item/toy/plushie/bear
 	name = "bear plush"
 	desc = "A bear plushie. You should hug it, quickly!"

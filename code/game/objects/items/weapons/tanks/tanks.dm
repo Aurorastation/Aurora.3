@@ -75,8 +75,8 @@
 	if ((istype(W, /obj/item/device/analyzer)) && get_dist(user, src) <= 1)
 		var/obj/item/device/analyzer/A = W
 		A.analyze_gases(src, user)
-	else if (istype(W,/obj/item/latexballon))
-		var/obj/item/latexballon/LB = W
+	else if (istype(W,/obj/item/toy/latexballon))
+		var/obj/item/toy/latexballon/LB = W
 		LB.blow(src)
 		src.add_fingerprint(user)
 

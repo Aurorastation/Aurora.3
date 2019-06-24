@@ -57,7 +57,7 @@
 		if(51 to 52) // Uncommon, 2% each
 			new/obj/item/weapon/melee/classic_baton(src)
 		if(53 to 54)
-			new/obj/item/latexballon(src)
+			new/obj/item/toy/latexballon(src)
 		if(55 to 56)
 			var/newitem = pick(typesof(/obj/item/toy/prize) - /obj/item/toy/prize)
 			new newitem(src)

@@ -218,7 +218,7 @@
 		/obj/item/weapon/ore/coal,
 		/obj/item/weapon/stamp/clown,
 		/obj/item/organ/heart/skrell,
-		/obj/item/latexballon)
+		/obj/item/toy/latexballon)
 
 	var/atom/movable/I = new gift_type(get_turf(M))
 	M.remove_from_mob(src)
