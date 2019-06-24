@@ -39,16 +39,17 @@
 /datum/job/proc/get_outfit(mob/living/carbon/human/H, alt_title=null)
 	//Check if we have a speical outfit for that alt title
 	alt_title = H?.mind?.role_alt_title || alt_title
-	if (alt_title)
-		if (H?.mind?.selected_faction?.titles_to_loadout[alt_title])
+
+	if (H?.mind?.selected_faction?.titles_to_loadout)
+		if (alt_title && H.mind.selected_faction.titles_to_loadout[alt_title])
 			return H.mind.selected_faction.titles_to_loadout[alt_title]
+		else if (H.mind.selected_faction.titles_to_loadout[H.job])
+			return H.mind.selected_faction.titles_to_loadout[H.job]
 
-		if (alt_outfits && alt_outfits[alt_title])
-			return alt_outfits[alt_title]
+	if (alt_title && LAZYACCESS(alt_outfits, alt_title))
+		return alt_outfits[alt_title]
 
-	if (H?.mind?.selected_faction?.titles_to_loadout[H.job])
-		return H.mind.selected_faction.titles_to_loadout[H.job]
-	else if (alt_outfits && alt_outfits[H.job])
+	if (alt_outfits && alt_outfits[H.job])
 		return alt_outfits[H.job]
 	else if (outfit)
 		return outfit
