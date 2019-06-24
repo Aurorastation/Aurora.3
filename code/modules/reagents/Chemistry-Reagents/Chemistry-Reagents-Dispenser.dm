@@ -179,7 +179,7 @@
 
 	fallback_specific_heat = 0.605
 
-	var/distillation_point = T0C + 78.37
+	distillation_point = T0C + 78.37
 
 /datum/reagent/alcohol/ethanol/affect_ingest(var/mob/living/carbon/human/M, var/alien, var/removed)
 	if(!istype(M))
@@ -233,7 +233,7 @@
 
 	fallback_specific_heat = 0.549
 
-	var/distillation_point = T0C + 117.7
+	distillation_point = T0C + 117.7
 
 /datum/reagent/alcohol/butanol/affect_ingest(var/mob/living/carbon/human/M, var/alien, var/removed)
 	if(!istype(M))
@@ -279,7 +279,7 @@
 	if(istype(H))
 		var/obj/item/organ/L = H.internal_organs_by_name["lungs"]
 		if(istype(L))
-			L.take_damage(removed * power * 0.5)
+			L.take_damage(removed * 0.5)
 
 /datum/reagent/iron
 	name = "Iron"

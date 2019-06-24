@@ -605,6 +605,13 @@
 	required_reagents = list("atropine" = 1, "phoron" = 0.1, "inaprovaline" = 1 )
 	result_amount = 2
 
+/datum/chemical_reaction/coughsyrup
+	name = "Cough Syrup"
+	id = "coughsyrup"
+	result = "coughsyrup"
+	required_reagents = list("carbon" = 1, "ammonia" = 1, "water" = 1)
+	result_amount = 3
+
 //Mental Medication
 
 /datum/chemical_reaction/methylphenidate
@@ -707,6 +714,19 @@
 	required_reagents = list("fuel" = 1, "rewriter" = 5)
 	result_amount = 6
 
+/datum/chemical_reaction/lean
+	name = "Lean"
+	id = "lean"
+	result = "lean"
+	required_reagents = list("space_up" = 2, "coughsyrup" = 2, "sugar" = 1)
+	result_amount = 5
+
+/datum/chemical_reaction/krokjuice
+	name = "Krok Juice"
+	id = "krok"
+	result = "krok"
+	required_reagents = list("orangejuice" = 2, "fuel" = 1, "iron" = 1)
+	result_amount = 4
 
 /* Solidification */
 

@@ -1417,7 +1417,7 @@
 		M.vomit()
 	if(prob(7))
 		M.emote(pick("twitch", "drool", "moan", "giggle"))
-	if(prob(20))
+	if(prob(7))
 		M.adjustBrainLoss(3 * removed) // not great for your brain
 	if(prob(50))
 		M.drowsyness = max(M.drowsyness, 3)

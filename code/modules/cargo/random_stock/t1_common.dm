@@ -380,9 +380,9 @@ STOCK_ITEM_COMMON(booze, 3.7)
 					break
 
 		if (prob(80))
-			new /obj/structure/reagent_dispensers/beerkeg(T)
+			new /obj/structure/reagent_dispensers/keg/beerkeg(T)
 		else
-			new /obj/structure/reagent_dispensers/xuizikeg(T)
+			new /obj/structure/reagent_dispensers/keg/xuizikeg(T)
 	else
 		var/list/drinks = typesof(/obj/item/weapon/reagent_containers/food/drinks/bottle)
 		drinks -= /obj/item/weapon/reagent_containers/food/drinks/bottle

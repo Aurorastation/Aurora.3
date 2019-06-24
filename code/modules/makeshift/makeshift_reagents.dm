@@ -111,7 +111,7 @@
 /obj/structure/distillery
 	name = "makeshift workstation"
 	icon = 'icons/obj/makeshift_workstation.dmi'
-	icon_state = "workstation"
+	icon_state = "distillery-empty"
 	desc = "It's a makeshift workstation for grinding, chopping, and heating."
 	density = 1
 
@@ -119,35 +119,55 @@
 
 	flags = OPENCONTAINER
 
+	var/transfer_out = FALSE
 	var/obj/item/weapon/weldingtool/welder
-	var/obj/item/device/analyzer/analyzer
 
 /obj/structure/distillery/attackby(obj/item/weapon/W, mob/user)
 	if(W.iscrowbar())
-		var/obj/structure/reagent_dispensers/beerkeg/keg = new (loc)
+		var/obj/structure/reagent_dispensers/keg/beerkeg/keg = new (loc)
 		keg.filled = FALSE
 		if (src.reagents && src.reagents.total_volume)
 			src.reagents.trans_to_holder(keg.reagents, src.reagents.total_volume)
 		new /obj/item/stack/rods(get_turf(src), 3)
-		if(analyzer)
-			analyzer.forceMove(loc)
-			analyzer = null
 		if(welder)
 			welder.forceMove(loc)
 			welder = null
 		qdel(src)
 		return
-	if(!analyzer && istype(W, /obj/item/device/analyzer))
-		user.drop_from_inventory(W)
-		src.analyzer = W
-		W.forceMove(src)
-		return
 	if(!welder && istype(W, /obj/item/weapon/weldingtool))
 		user.drop_from_inventory(W)
 		src.welder = W
 		W.forceMove(src)
+		icon_state = "distillery-off"
+		return
+	if(!istype(W, /obj/item/weapon/reagent_containers/food) && W.is_open_container())
+		if(!transfer_out && W.reagents)
+			W.reagents.trans_to_holder(src.reagents, W.reagents.total_volume) // just pour it if you can
+			return
+		if(transfer_out)
+			src.reagents.trans_to_holder(W.reagents, src.reagents.total_volume)
+			return
+	if(isflamesource(W) && istype(welder))
+		to_chat(user, span("notice", "You light \the [src] and begin the distillation process."))
+		addtimer(CALLBACK(src, .proc/distill), 60)
+		src.icon_state = "distillery-active"
 		return
 	. = ..()
+
+/obj/structure/distillery/proc/distill()
+	if(!reagents || !reagents.total_volume) // can't distill nothing
+		return
+	for(var/datum/reagent/R in src.reagents.reagent_list)
+		if(!istype(R, /datum/reagent/alcohol))
+			return
+		var/datum/reagent/alcohol/AR = R
+		reagents.add_reagent("water", (1-(AR.strength/100))*AR.volume)
+		if(istype(AR, /datum/reagent/alcohol/ethanol))
+			reagents.add_reagent("ethanol", (AR.strength/100)*AR.volume)
+		if(istype(AR, /datum/reagent/alcohol/butanol))
+			reagents.add_reagent("butanol", (AR.strength/100)*AR.volume)
+		reagents.remove_reagent(AR.id, AR.volume)
+	src.icon_state = "distillery-off"
 
 /obj/structure/distillery/Initialize()
 	. = ..()

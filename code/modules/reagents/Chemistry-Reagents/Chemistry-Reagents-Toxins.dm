@@ -857,6 +857,7 @@
 	taste_description = "sweetness"
 	taste_mult = 1.8
 	color = "#d0583a"
+	var/datum/modifier = null
 	metabolism = REM * 3
 	overdose = 10
 	strength = 3
@@ -867,12 +868,16 @@
 	..()
 	if(prob(15))
 		M.emote(pick("twitch", "blink_r", "shiver"))
-	if(prob(15))
+	if(prob(5)) // average of 6 brute every 20 seconds.
 		M.visible_message("[M] shudders violently.", "You shudder uncontrollably, it hurts.")
 		M.take_organ_damage(6 * removed, 0)
 	M.add_chemical_effect(CE_SPEEDBOOST, 1)
 	if (!modifier)
 		modifier = M.add_modifier(/datum/modifier/stimulant, MODIFIER_REAGENT, src, _strength = 1, override = MODIFIER_OVERRIDE_STRENGTHEN)
+
+/datum/reagent/toxin/stimm/Destroy()
+	QDEL_NULL(modifier)
+	return ..()
 
 /datum/reagent/toxin/lean
 	name = "Lean"
@@ -880,19 +885,20 @@
 	description = "A mixture of cough syrup, space-up, and sugar."
 	taste_description = "sickly-sweet soda"
 	taste_mult = 1.5
-	color = "#600060
-	metabolism = REM * 3
+	color = "#600060"
+	metabolism = REM // twice as fast as space drugs
 	overdose = 10
 	strength = 1.5 // makes up for it with slight brain damage
 
 /datum/reagent/toxin/lean/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.hallucination = max(M.hallucination, 40)
-	M.add_chemical_effect(CE_PAINKILLER, 20) // stronger at higher doses
+	M.add_chemical_effect(CE_PAINKILLER, 40) // basically like paracetamol, but a bit worse
 	// doesn't make you vomit, though
 	if(prob(7))
 		M.emote(pick("twitch", "drool", "moan", "giggle"))
-	if(prob(20))
-		M.adjustBrainLoss(3 * removed) // not great for your brain
+	M.adjustOxyLoss(0.5 * removed) // poor man's lexorin
+	if(M.losebreath < 15)
+		M.losebreath++
 	if(prob(50))
 		M.drowsyness = max(M.drowsyness, 3)
 
@@ -904,7 +910,7 @@
 	metabolism = REM
 	overdose = 15
 
-/datum/reagent/toxin/krok/affect_blood(var/mob/living/carbon/M, var/alien, var/removed
+/datum/reagent/toxin/krok/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	var/mob/living/carbon/human/H = M
 	if(!istype(H))
 		return
@@ -914,18 +920,16 @@
 			continue
 		robo = TRUE
 		if(prob(80)) // 20% chance of making robot limbs malfuction
-			break
+			continue
 		switch(E.body_part)
 			if(HAND_LEFT, ARM_LEFT)
-				if(!l_hand)
-					break
-				drop_from_inventory(l_hand)
+				if(!H.l_hand)
+					continue
+				H.drop_from_inventory(H.l_hand)
 			if(HAND_RIGHT, ARM_RIGHT)
-				if(!r_hand)
-					break
-				drop_from_inventory(r_hand)
-			else
-				break
+				if(!H.r_hand)
+					continue
+				H.drop_from_inventory(H.r_hand)
 	if(robo)
 		H.add_chemical_effect(CE_PAINKILLER, 80) // equivalent to tramadol
 	var/obj/item/organ/eyes/eyes = H.internal_organs_by_name[H.species.vision_organ || "eyes"]

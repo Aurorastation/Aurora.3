@@ -305,8 +305,8 @@
 	desc = "An empty keg."
 	icon_state = "beertankTEMP"
 	amount_per_transfer_from_this = 10
-	reagentid = "beer"
-	filled = TRUE
+	var/reagentid = "beer"
+	var/filled = TRUE
 
 /obj/structure/reagent_dispensers/keg/Initialize()
 	. = ..()
