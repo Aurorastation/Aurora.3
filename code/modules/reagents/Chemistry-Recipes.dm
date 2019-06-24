@@ -698,6 +698,16 @@
 	required_reagents = list("psilocybin" = 1, "moonshine" = 1)
 	result_amount = 1
 
+/* Makeshift Drugs */
+
+/datum/chemical_reaction/stimm
+	name = "Stimm"
+	id = "stimm"
+	result = "stimm"
+	required_reagents = list("fuel" = 1, "rewriter" = 5)
+	result_amount = 6
+
+
 /* Solidification */
 
 /datum/chemical_reaction/phoronsolidification

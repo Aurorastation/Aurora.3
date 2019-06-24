@@ -300,25 +300,28 @@
 
 //Beer Kegs
 
-/obj/structure/reagent_dispensers/beerkeg
-	name = "beer keg"
-	desc = "A beer keg"
+/obj/structure/reagent_dispensers/keg
+	name = "keg"
+	desc = "An empty keg."
 	icon_state = "beertankTEMP"
 	amount_per_transfer_from_this = 10
+	reagentid = "beer"
+	filled = TRUE
 
-/obj/structure/reagent_dispensers/beerkeg/Initialize()
+/obj/structure/reagent_dispensers/keg/Initialize()
 	. = ..()
-	reagents.add_reagent("beer",capacity)
+	if(filled)
+		reagents.add_reagent(src.reagentid,capacity)
 
-/obj/structure/reagent_dispensers/xuizikeg
+/obj/structure/reagent_dispensers/keg/beerkeg
+	name = "beer keg"
+	desc = "A beer keg"
+
+/obj/structure/reagent_dispensers/keg/xuizikeg
 	name = "xuizi juice keg"
 	desc = "A keg full of Xuizi juice, blended flower buds from the Moghean Xuizi cactus. The export stamp of the Arizi Guild is imprinted on the side."
 	icon_state = "keg_xuizi"
-	amount_per_transfer_from_this = 10
-
-/obj/structure/reagent_dispensers/xuizikeg/Initialize()
-	. = ..()
-	reagents.add_reagent("xuizijuice",capacity)
+	reagentid = "xuizijuice"
 
 //Cooking oil tank
 /obj/structure/reagent_dispensers/cookingoil

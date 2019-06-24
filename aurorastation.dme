@@ -1565,6 +1565,7 @@
 #include "code\modules\lock\key.dm"
 #include "code\modules\lock\lock.dm"
 #include "code\modules\lock\lock_construct.dm"
+#include "code\modules\makeshift\makeshift_reagents.dm"
 #include "code\modules\maps\dmm_suite.dm"
 #include "code\modules\maps\map_template.dm"
 #include "code\modules\maps\reader.dm"

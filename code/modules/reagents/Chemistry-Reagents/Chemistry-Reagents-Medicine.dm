@@ -1396,3 +1396,28 @@
 	metabolism = 0.5 * REM
 	taste_description = "sourness"
 	fallback_specific_heat = 1
+
+/datum/reagent/coughsyrup
+	name = "Cough Syrup"
+	id = "coughsyrup"
+	description = "A chemical that is used as a cough suppressant in low doses, and in higher doses it can be recreationally (ab)used."
+	scannable = 1
+	reagent_state = LIQUID
+	taste_description = "bitterness"
+	metabolism = REM
+	color = "#402060"
+
+/datum/reagent/coughsyrup/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+	M.add_chemical_effect(CE_PAINKILLER, 5) // very slight painkiller effect at low doses
+
+/datum/reagent/coughsyrup/overdose(var/mob/living/carbon/M, var/alien, var/removed) // effects based loosely on DXM
+	M.hallucination = max(M.hallucination, 40)
+	M.add_chemical_effect(CE_PAINKILLER, 20) // stronger at higher doses
+	if (prob(dose))
+		M.vomit()
+	if(prob(7))
+		M.emote(pick("twitch", "drool", "moan", "giggle"))
+	if(prob(20))
+		M.adjustBrainLoss(3 * removed) // not great for your brain
+	if(prob(50))
+		M.drowsyness = max(M.drowsyness, 3)

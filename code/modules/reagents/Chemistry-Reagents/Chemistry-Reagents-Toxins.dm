@@ -849,3 +849,85 @@
 			H.revive()
 			playsound(H.loc, 'sound/hallucinations/far_noise.ogg', 50, 1)
 			to_chat(H,"<font size='3'><span class='cult'>You return back to life as the undead, all that is left is the hunger to consume the living and the will to spread the infection.</font></span>")
+
+/datum/reagent/toxin/stimm	//Homemade Hyperzine, ported from Polaris
+	name = "Stimm"
+	id = "stimm"
+	description = "A homemade stimulant with some serious side-effects."
+	taste_description = "sweetness"
+	taste_mult = 1.8
+	color = "#d0583a"
+	metabolism = REM * 3
+	overdose = 10
+	strength = 3
+
+/datum/reagent/toxin/stimm/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+	if(alien == IS_TAJARA)
+		removed *= 1.25
+	..()
+	if(prob(15))
+		M.emote(pick("twitch", "blink_r", "shiver"))
+	if(prob(15))
+		M.visible_message("[M] shudders violently.", "You shudder uncontrollably, it hurts.")
+		M.take_organ_damage(6 * removed, 0)
+	M.add_chemical_effect(CE_SPEEDBOOST, 1)
+	if (!modifier)
+		modifier = M.add_modifier(/datum/modifier/stimulant, MODIFIER_REAGENT, src, _strength = 1, override = MODIFIER_OVERRIDE_STRENGTHEN)
+
+/datum/reagent/toxin/lean
+	name = "Lean"
+	id = "lean"
+	description = "A mixture of cough syrup, space-up, and sugar."
+	taste_description = "sickly-sweet soda"
+	taste_mult = 1.5
+	color = "#600060
+	metabolism = REM * 3
+	overdose = 10
+	strength = 1.5 // makes up for it with slight brain damage
+
+/datum/reagent/toxin/lean/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+	M.hallucination = max(M.hallucination, 40)
+	M.add_chemical_effect(CE_PAINKILLER, 20) // stronger at higher doses
+	// doesn't make you vomit, though
+	if(prob(7))
+		M.emote(pick("twitch", "drool", "moan", "giggle"))
+	if(prob(20))
+		M.adjustBrainLoss(3 * removed) // not great for your brain
+	if(prob(50))
+		M.drowsyness = max(M.drowsyness, 3)
+
+/datum/reagent/toxin/krok/
+	name = "Krok Juice"
+	id = "krok"
+	description = "An Eridanian variant of krokodil, known for causing prosthetic malfunctions."
+	strength = 3
+	metabolism = REM
+	overdose = 15
+
+/datum/reagent/toxin/krok/affect_blood(var/mob/living/carbon/M, var/alien, var/removed
+	var/mob/living/carbon/human/H = M
+	if(!istype(H))
+		return
+	var/robo = FALSE
+	for (var/obj/item/organ/external/E in H.organs)
+		if(!E || !(E.status & ORGAN_ROBOT))
+			continue
+		robo = TRUE
+		if(prob(80)) // 20% chance of making robot limbs malfuction
+			break
+		switch(E.body_part)
+			if(HAND_LEFT, ARM_LEFT)
+				if(!l_hand)
+					break
+				drop_from_inventory(l_hand)
+			if(HAND_RIGHT, ARM_RIGHT)
+				if(!r_hand)
+					break
+				drop_from_inventory(r_hand)
+			else
+				break
+	if(robo)
+		H.add_chemical_effect(CE_PAINKILLER, 80) // equivalent to tramadol
+	var/obj/item/organ/eyes/eyes = H.internal_organs_by_name[H.species.vision_organ || "eyes"]
+	if(eyes.status & ORGAN_ROBOT)
+		M.hallucination = max(M.hallucination, 40)

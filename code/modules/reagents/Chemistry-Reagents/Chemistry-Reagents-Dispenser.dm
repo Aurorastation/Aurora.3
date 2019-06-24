@@ -118,6 +118,8 @@
 
 	var/flammability_divisor = 10
 
+	var/distillation_point = T0C + 100
+
 	unaffected_species = IS_MACHINE
 
 	taste_description = "mistakes"
@@ -177,6 +179,8 @@
 
 	fallback_specific_heat = 0.605
 
+	var/distillation_point = T0C + 78.37
+
 /datum/reagent/alcohol/ethanol/affect_ingest(var/mob/living/carbon/human/M, var/alien, var/removed)
 	if(!istype(M))
 		return
@@ -229,6 +233,8 @@
 
 	fallback_specific_heat = 0.549
 
+	var/distillation_point = T0C + 117.7
+
 /datum/reagent/alcohol/butanol/affect_ingest(var/mob/living/carbon/human/M, var/alien, var/removed)
 	if(!istype(M))
 		return
@@ -267,6 +273,13 @@
 	new /obj/effect/decal/cleanable/liquid_fuel(T, volume)
 	remove_self(volume)
 	return
+
+/datum/reagent/hydrazine/affect_breathe(var/mob/living/carbon/human/H, var/alien, var/removed)
+	. = ..()
+	if(istype(H))
+		var/obj/item/organ/L = H.internal_organs_by_name["lungs"]
+		if(istype(L))
+			L.take_damage(removed * power * 0.5)
 
 /datum/reagent/iron
 	name = "Iron"
