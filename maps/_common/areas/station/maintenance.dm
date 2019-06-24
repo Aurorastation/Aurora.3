@@ -174,6 +174,10 @@
 	name = "Security Maintenance - Starboard"
 	icon_state = "maint_security_starboard"
 
+/area/maintenance/security_interstitial
+	name = "Security Maintenance - Interstitial"
+	icon_state = "maint_security_starboard"
+
 /area/maintenance/storage
 	name = "Atmospherics"
 	icon_state = "green"
