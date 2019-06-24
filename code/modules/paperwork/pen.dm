@@ -70,7 +70,6 @@
 	return
 
 /obj/item/weapon/pen/attack_self(var/mob/user)
-	to_chat(user, "<span class='notice'>Click.</span>")
 	playsound(loc, 'sound/items/penclick.ogg', 50, 1)
 
 /*
