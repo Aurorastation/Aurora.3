@@ -180,7 +180,7 @@ obj/item/organ/vaurca/neuralsocket/process()
 			to_chat(user, "<span class='notice'>Tank is empty!</span>")
 		src.add_fingerprint(user)
 	else if (istype(W,/obj/item/toy/latexballon))
-		var/obj/item/latexballon/LB = W
+		var/obj/item/toy/latexballon/LB = W
 		LB.blow(src)
 		src.add_fingerprint(user)
 

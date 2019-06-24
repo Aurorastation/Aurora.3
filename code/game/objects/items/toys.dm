@@ -28,9 +28,6 @@
 	force = 0
 	drop_sound = 'sound/items/drop/gloves.ogg'
 
-/obj/item/latexballon/attackby(obj/item/W as obj, mob/user as mob)
-	if (can_puncture(W))
-		burst()
 /*
  * Bike horn
  */
@@ -155,7 +152,7 @@
 	icon_state = "latexballon_blow"
 	item_state = "latexballon"
 
-/obj/item/latexballon/proc/burst()
+/obj/item/toy/latexballon/proc/burst()
 	if (!air_contents)
 		return
 	playsound(src, 'sound/weapons/gunshot/gunshot1.ogg', 100, 1)
@@ -179,6 +176,10 @@
 	if(temperature > T0C+100)
 		burst()
 	return
+
+/obj/item/toy/latexballon/attackby(obj/item/W as obj, mob/user as mob)
+	if (can_puncture(W))
+		burst()
 
 /*
  * Fake telebeacon
