@@ -790,7 +790,7 @@
 /turf/simulated/floor/plating,
 /area/hallway/secondary/entry/dock)
 "bv" = (
-/turf/simulated/open,
+/turf/simulated/open/airless,
 /area/turret_protected/tcomsat)
 "bw" = (
 /obj/structure/window/reinforced{
@@ -799,7 +799,7 @@
 /obj/machinery/camera/network/telecom{
 	c_tag = "Telecomms - Port Wing Fore"
 	},
-/turf/simulated/open,
+/turf/simulated/open/airless,
 /area/turret_protected/tcomsat)
 "bx" = (
 /turf/simulated/floor/plating,
@@ -1004,7 +1004,7 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/turf/simulated/open,
+/turf/simulated/open/airless,
 /area/turret_protected/tcomsat)
 "bW" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
@@ -1030,7 +1030,7 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/turf/simulated/open,
+/turf/simulated/open/airless,
 /area/turret_protected/tcomsat)
 "ca" = (
 /obj/machinery/atmospherics/portables_connector,
@@ -1347,7 +1347,7 @@
 /obj/structure/window/reinforced{
 	dir = 1
 	},
-/turf/simulated/open,
+/turf/simulated/open/airless,
 /area/turret_protected/tcomsat)
 "cJ" = (
 /obj/structure/window/reinforced,
@@ -1357,7 +1357,7 @@
 /obj/structure/window/reinforced{
 	dir = 1
 	},
-/turf/simulated/open,
+/turf/simulated/open/airless,
 /area/turret_protected/tcomsat)
 "cK" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -1377,11 +1377,11 @@
 /obj/structure/window/reinforced{
 	dir = 1
 	},
-/turf/simulated/open,
+/turf/simulated/open/airless,
 /area/turret_protected/tcomsat)
 "cM" = (
 /obj/structure/window/reinforced,
-/turf/simulated/open,
+/turf/simulated/open/airless,
 /area/turret_protected/tcomsat)
 "cN" = (
 /obj/structure/sign/securearea,
@@ -1815,20 +1815,20 @@
 /obj/structure/window/reinforced{
 	dir = 1
 	},
-/turf/simulated/open,
+/turf/simulated/open/airless,
 /area/turret_protected/tcomsat)
 "dA" = (
 /obj/structure/window/reinforced{
 	dir = 1
 	},
 /obj/machinery/light,
-/turf/simulated/open,
+/turf/simulated/open/airless,
 /area/turret_protected/tcomsat)
 "dB" = (
 /obj/structure/window/reinforced{
 	dir = 1
 	},
-/turf/simulated/open,
+/turf/simulated/open/airless,
 /area/turret_protected/tcomsat)
 "dC" = (
 /obj/structure/window/reinforced{
@@ -1840,7 +1840,7 @@
 	icon_state = "1-4"
 	},
 /obj/structure/lattice/catwalk,
-/turf/simulated/open,
+/turf/simulated/open/airless,
 /area/turret_protected/tcomsat)
 "dD" = (
 /obj/structure/window/reinforced{
@@ -1864,7 +1864,7 @@
 	icon_state = "12-0"
 	},
 /obj/structure/lattice/catwalk,
-/turf/simulated/open,
+/turf/simulated/open/airless,
 /area/turret_protected/tcomsat)
 "dE" = (
 /obj/machinery/light{
@@ -2072,16 +2072,12 @@
 /turf/simulated/floor/airless,
 /area/solar/port)
 "dT" = (
-/turf/simulated/floor/plating{
-	roof_type = null
-	},
+/turf/simulated/floor/airless,
 /area/turret_protected/tcomsat)
 "dU" = (
 /obj/machinery/porta_turret/stationary,
 /obj/effect/decal/warning_stripes,
-/turf/simulated/floor/plating{
-	roof_type = null
-	},
+/turf/simulated/floor/airless,
 /area/turret_protected/tcomsat)
 "dV" = (
 /turf/simulated/wall/r_wall,
@@ -2272,9 +2268,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},
-/turf/simulated/floor/plating{
-	roof_type = null
-	},
+/turf/simulated/floor/airless,
 /area/turret_protected/tcomsat)
 "eo" = (
 /turf/simulated/floor/bluegrid{
@@ -2550,9 +2544,7 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
 	},
-/turf/simulated/floor/plating{
-	roof_type = null
-	},
+/turf/simulated/floor/airless,
 /area/turret_protected/tcomsat)
 "eO" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/black,
@@ -2800,9 +2792,7 @@
 	dir = 9;
 	pixel_y = 0
 	},
-/turf/simulated/floor/plating{
-	roof_type = null
-	},
+/turf/simulated/floor/airless,
 /area/turret_protected/tcomsat)
 "fn" = (
 /obj/machinery/telecomms/server/presets/supply,
@@ -2845,9 +2835,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
 	},
-/turf/simulated/floor/plating{
-	roof_type = null
-	},
+/turf/simulated/floor/airless,
 /area/turret_protected/tcomsat)
 "fu" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -3243,9 +3231,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
-/turf/simulated/floor/plating{
-	roof_type = null
-	},
+/turf/simulated/floor/airless,
 /area/turret_protected/tcomsat)
 "gg" = (
 /obj/structure/cable/blue{
@@ -3267,9 +3253,7 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
 	},
-/turf/simulated/floor/plating{
-	roof_type = null
-	},
+/turf/simulated/floor/airless,
 /area/turret_protected/tcomsat)
 "gi" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
@@ -3286,7 +3270,7 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/turf/simulated/open,
+/turf/simulated/open/airless,
 /area/turret_protected/tcomsat)
 "gk" = (
 /obj/structure/grille,
@@ -3801,9 +3785,7 @@
 	icon_state = "map-scrubbers";
 	dir = 4
 	},
-/turf/simulated/floor/plating{
-	roof_type = null
-	},
+/turf/simulated/floor/airless,
 /area/turret_protected/tcomsat)
 "gX" = (
 /obj/structure/sign/nosmoking_2{
@@ -3885,9 +3867,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
-/turf/simulated/floor/plating{
-	roof_type = null
-	},
+/turf/simulated/floor/airless,
 /area/turret_protected/tcomsat)
 "hh" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
@@ -4279,9 +4259,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
-/turf/simulated/floor/plating{
-	roof_type = null
-	},
+/turf/simulated/floor/airless,
 /area/turret_protected/tcomsat)
 "hO" = (
 /obj/machinery/telecomms/bus/preset_one,
@@ -4310,9 +4288,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
-/turf/simulated/floor/plating{
-	roof_type = null
-	},
+/turf/simulated/floor/airless,
 /area/turret_protected/tcomsat)
 "hU" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -4331,7 +4307,7 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/turf/simulated/open,
+/turf/simulated/open/airless,
 /area/turret_protected/tcomsat)
 "hW" = (
 /obj/structure/grille,
@@ -4579,9 +4555,7 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 8
 	},
-/turf/simulated/floor/plating{
-	roof_type = null
-	},
+/turf/simulated/floor/airless,
 /area/turret_protected/tcomsat)
 "ix" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -5046,9 +5020,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
-/turf/simulated/floor/plating{
-	roof_type = null
-	},
+/turf/simulated/floor/airless,
 /area/turret_protected/tcomsat)
 "jk" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -5817,14 +5789,14 @@
 	dir = 8
 	},
 /obj/structure/window/reinforced,
-/turf/simulated/open,
+/turf/simulated/open/airless,
 /area/turret_protected/tcomsat)
 "kz" = (
 /obj/structure/window/reinforced,
 /obj/machinery/light{
 	dir = 1
 	},
-/turf/simulated/open,
+/turf/simulated/open/airless,
 /area/turret_protected/tcomsat)
 "kA" = (
 /turf/simulated/wall/r_wall,
@@ -5911,7 +5883,7 @@
 	dir = 4
 	},
 /obj/structure/window/reinforced,
-/turf/simulated/open,
+/turf/simulated/open/airless,
 /area/turret_protected/tcomsat)
 "kJ" = (
 /obj/structure/grille,
@@ -6198,7 +6170,7 @@
 	c_tag = "Telecomms - Starboard Wing Aft";
 	dir = 8
 	},
-/turf/simulated/open,
+/turf/simulated/open/airless,
 /area/turret_protected/tcomsat)
 "lj" = (
 /obj/effect/floor_decal/corner/yellow/full,
@@ -6438,7 +6410,7 @@
 	c_tag = "Telecomms - Port Wing Aft";
 	dir = 4
 	},
-/turf/simulated/open,
+/turf/simulated/open/airless,
 /area/turret_protected/tcomsat)
 "lD" = (
 /obj/structure/sign/securearea{
@@ -19564,9 +19536,7 @@
 /obj/structure/shuttle/engine/propulsion{
 	icon_state = "propulsion_r"
 	},
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/simulated/floor/plating,
 /area/shuttle/research/station)
 "LG" = (
 /obj/effect/floor_decal/corner/paleblue{
@@ -19848,9 +19818,7 @@
 /obj/structure/shuttle/engine/propulsion{
 	icon_state = "propulsion_l"
 	},
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/simulated/floor/plating,
 /area/shuttle/research/station)
 "Oi" = (
 /obj/machinery/atmospherics/binary/pump/on{
@@ -20211,9 +20179,7 @@
 /area/crew_quarters/toilet)
 "QY" = (
 /obj/structure/shuttle/engine/propulsion,
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/simulated/floor/plating,
 /area/shuttle/research/station)
 "QZ" = (
 /obj/effect/floor_decal/corner/paleblue/full{
@@ -20411,9 +20377,7 @@
 	icon_state = "rwindow";
 	dir = 4
 	},
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/simulated/floor/plating,
 /area/shuttle/research/station)
 "SW" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -20445,9 +20409,7 @@
 	icon_state = "rwindow";
 	dir = 1
 	},
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/simulated/floor/plating,
 /area/shuttle/research/station)
 "Tr" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
@@ -20612,9 +20574,7 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/simulated/floor/plating,
 /area/shuttle/research/station)
 "Vk" = (
 /obj/machinery/firealarm/south,
