@@ -316,8 +316,9 @@
 /datum/reagent/toxin/fertilizer/monoammoniumphosphate/touch_mob(var/mob/living/L, var/amount)
 	. = ..()
 	if(istype(L))
-		L.ExtinguishMob(L.on_fire ? amount*3 : amount*1.5)
-		remove_self(amount)
+		var/needed = L.fire_stacks >= 3 * amount ? 3 * amount : L.fire_stacks
+		L.ExtinguishMob(needed)
+		remove_self(needed)
 
 /datum/reagent/toxin/fertilizer/monoammoniumphosphate/affect_touch(var/mob/living/carbon/slime/S, var/alien, var/removed)
 	if(istype(S))
