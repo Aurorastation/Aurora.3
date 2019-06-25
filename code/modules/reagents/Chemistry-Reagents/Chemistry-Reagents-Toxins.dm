@@ -316,7 +316,7 @@
 /datum/reagent/toxin/fertilizer/monoammoniumphosphate/touch_mob(var/mob/living/L, var/amount)
 	. = ..()
 	if(istype(L))
-		var/needed = L.fire_stacks >= 3 * amount ? 3 * amount : L.fire_stacks
+		var/needed = min(L.fire_stacks, 3 * amount)
 		L.ExtinguishMob(needed)
 		remove_self(needed)
 

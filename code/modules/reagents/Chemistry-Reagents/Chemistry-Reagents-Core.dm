@@ -236,7 +236,7 @@
 	. = ..()
 	if(istype(M) && isliving(M))
 		var/mob/living/L = M
-		var/needed = L.fire_stacks >= amount ? amount : L.fire_stacks
+		var/needed = min(L.fire_stacks, amount)
 		L.ExtinguishMob(needed)
 		remove_self(needed)
 
