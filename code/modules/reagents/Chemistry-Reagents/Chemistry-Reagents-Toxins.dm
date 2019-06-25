@@ -316,8 +316,8 @@
 /datum/reagent/toxin/fertilizer/monoammoniumphosphate/touch_mob(var/mob/living/L, var/amount)
 	. = ..()
 	if(istype(L))
-		var/needed = min(L.fire_stacks, 3 * amount)
-		L.ExtinguishMob(needed)
+		var/needed = min(L.fire_stacks, amount)
+		L.ExtinguishMob(3* needed) // Foam is 3 times more efficient at extinguishing
 		remove_self(needed)
 
 /datum/reagent/toxin/fertilizer/monoammoniumphosphate/affect_touch(var/mob/living/carbon/slime/S, var/alien, var/removed)
