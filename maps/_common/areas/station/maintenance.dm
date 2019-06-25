@@ -195,12 +195,12 @@
 	icon_state = "maintcentral"
 
 /area/maintenance/interstitial_construction_site
-	name = "\improper Construction Zone 1"
+	name = "\improper Construction Zone"
 	icon_state = "engineering_workshop"
 	flags = HIDE_FROM_HOLOMAP
 
 /area/maintenance/interstitial_construction_site/zone_2
-	name = "\improper Construction Zone 2"
+	name = "\improper Secondary Construction Zone"
 
 /area/maintenance/interstitial_construction_site/office
 	name = "\improper Construction Office"

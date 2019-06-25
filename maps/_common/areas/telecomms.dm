@@ -8,7 +8,11 @@
 	holomap_color = HOLOMAP_AREACOLOR_ENGINEERING
 
 /area/tcommsat/entrance
-	name = "\improper Telecoms Teleporter"
+	name = "\improper Telecoms Entrance"
+	icon_state = "tcomsatentrance"
+
+/area/tcommsat/ladder
+	name = "\improper Telecoms Ladder Shaft"
 	icon_state = "tcomsatentrance"
 
 /area/tcommsat/chamber
@@ -16,7 +20,7 @@
 	icon_state = "tcomsatcham"
 
 /area/turret_protected/tcomsat
-	name = "\improper Telecoms Satellite"
+	name = "\improper Telecoms Exterior"
 	icon_state = "tcomsatlob"
 	ambience = list('sound/ambience/ambisin2.ogg', 'sound/ambience/signal.ogg', 'sound/ambience/signal.ogg', 'sound/ambience/ambigen10.ogg')
 
