@@ -19,6 +19,7 @@
 	var/associated_account_number = 0
 
 	var/list/files = list(  )
+	drop_sound = 'sound/items/drop/card.ogg'
 
 /obj/item/weapon/card/data
 	name = "data disk"
@@ -95,10 +96,6 @@ var/const/NO_EMAG_ACT = -50
 	desc = "A card used to provide ID and determine access across the station."
 	icon_state = "id"
 	item_state = "card-id"
-
-	sprite_sheets = list(
-		"Resomi" = 'icons/mob/species/resomi/id.dmi'
-		)
 
 	var/list/access = list()
 	var/registered_name = "Unknown" // The name registered_name on the card
@@ -367,7 +364,7 @@ obj/item/weapon/card/id/ert/New()
 	name = "\improper Tau Ceti Foreign Legion ID"
 	icon_state = "centcom"
 	assignment = "Tau Ceti Foreign Legion Volunteer"
-	access = list(access_legion, access_maint_tunnels, access_external_airlocks, access_security, access_engine, access_medical, access_research, access_atmospherics, access_medical_equip)
+	access = list(access_legion, access_maint_tunnels, access_external_airlocks, access_security, access_engine, access_engine_equip, access_medical, access_research, access_atmospherics, access_medical_equip)
 
 /obj/item/weapon/card/id/all_access
 	name = "\improper Administrator's spare ID"

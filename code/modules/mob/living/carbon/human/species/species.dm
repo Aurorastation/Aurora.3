@@ -16,8 +16,9 @@
 	var/economic_modifier = 0
 
 	// Icon/appearance vars.
-	var/icobase = 'icons/mob/human_races/r_human.dmi'    // Normal icon set.
-	var/deform = 'icons/mob/human_races/r_def_human.dmi' // Mutated icon set.
+	var/icobase = 'icons/mob/human_races/human/r_human.dmi'    // Normal icon set.
+	var/deform = 'icons/mob/human_races/human/r_def_human.dmi' // Mutated icon set.
+	var/preview_icon = 'icons/mob/human_races/human/human_preview.dmi'
 
 	// Damage overlay and masks.
 	var/damage_overlays = 'icons/mob/human_races/masks/dam_human.dmi'
@@ -535,6 +536,9 @@
 		current_flags[2] = 50
 	return current_flags
 
+/datum/species/proc/get_vision_organ(mob/living/carbon/human/H)
+	return H.internal_organs_by_name[vision_organ]
+
 /datum/species/proc/set_default_hair(var/mob/living/carbon/human/H)
 	H.h_style = H.species.default_h_style
 	H.f_style = H.species.default_f_style
@@ -545,3 +549,6 @@
 
 /datum/species/proc/equip_later_gear(var/mob/living/carbon/human/H) //this handles anything not covered by survival gear, it is only called after everything else is equiped to the mob
 	return
+
+/datum/species/proc/get_cloning_variant()
+	return name

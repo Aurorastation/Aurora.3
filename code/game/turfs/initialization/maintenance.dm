@@ -7,6 +7,9 @@
 	//Don't place on openspace!
 	if(istype(T,/turf/simulated/open))
 		return
+	//Dont place on unsimulated!
+	if(istype(T,/turf/unsimulated))
+		return
 
 	var/cardinal_turfs = T.CardinalTurfs()
 

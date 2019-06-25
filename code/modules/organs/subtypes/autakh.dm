@@ -344,7 +344,7 @@
 	qdel(src)
 
 /obj/item/organ/external/hand/right/autakh/tool/mining
-	name = "engineering grasper"
+	name = "mining grasper"
 	action_button_name = "Deploy Mounted Drill"
 	augment_type = /obj/item/weapon/pickaxe/drill/integrated
 
@@ -357,6 +357,8 @@
 
 /obj/item/weapon/pickaxe/drill/integrated
 	name = "integrated mining drill"
+	icon_state = "integrateddrill"
+	item_state = "integrateddrill"
 
 /obj/item/weapon/pickaxe/drill/integrated/throw_at()
 	usr.drop_from_inventory(src)

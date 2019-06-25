@@ -8,6 +8,7 @@
 	volume = 30
 	unacidable = 1 //glass
 	center_of_mass = list("x"=16, "y"=10)
+	matter = list("glass" = 300)
 
 	on_reagent_change()
 		/*if(reagents.reagent_list.len > 1 )

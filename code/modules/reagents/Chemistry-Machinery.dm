@@ -815,7 +815,7 @@
 	set category = "Object"
 	set name = "Eject contents"
 
-	if(use_check(usr))
+	if(use_check_and_message(usr))
 		return
 	usr.visible_message(
 	"<span class='notice'>[usr] opens [src] and has removed [english_list(holdingitems)].</span>"

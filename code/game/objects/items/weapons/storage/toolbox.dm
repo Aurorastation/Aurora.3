@@ -16,6 +16,7 @@
 	attack_verb = list("robusted")
 	use_sound = 'sound/items/storage/toolbox.ogg'
 	var/stunhit = 0
+	drop_sound = 'sound/items/drop/metalboots.ogg'
 
 /obj/item/weapon/storage/toolbox/Initialize()
 	. = ..()

@@ -21,6 +21,7 @@
 	var/base_icon = "bed"
 	var/can_dismantle = 1
 	gfi_layer_rotation = GFI_ROTATION_DEFDIR
+	var/apply_material_color = TRUE
 
 /obj/structure/bed/Initialize(mapload, var/new_material, var/new_padding_material)
 	. = ..()
@@ -48,7 +49,8 @@
 	var/cache_key = "[base_icon]-[material.name]"
 	if(!stool_cache[cache_key])
 		var/image/I = image('icons/obj/furniture.dmi', base_icon)
-		I.color = material.icon_colour
+		if(apply_material_color)
+			I.color = material.icon_colour
 		stool_cache[cache_key] = I
 	add_overlay(stool_cache[cache_key])
 	// Padding overlay.
@@ -56,7 +58,8 @@
 		var/padding_cache_key = "[base_icon]-padding-[padding_material.name]"
 		if(!stool_cache[padding_cache_key])
 			var/image/I =  image(icon, "[base_icon]_padding")
-			I.color = padding_material.icon_colour
+			if(apply_material_color)
+				I.color = padding_material.icon_colour
 			stool_cache[padding_cache_key] = I
 		add_overlay(stool_cache[padding_cache_key])
 
@@ -255,6 +258,7 @@
 
 /obj/structure/bed/roller/Move()
 	..()
+	playsound(src, 'sound/effects/roll.ogg', 100, 1)
 	if(buckled_mob)
 		if(buckled_mob.buckled == src)
 			buckled_mob.forceMove(src.loc)

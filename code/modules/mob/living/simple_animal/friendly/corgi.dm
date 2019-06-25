@@ -18,13 +18,15 @@
 	response_disarm = "bops"
 	response_harm   = "kicks"
 	see_in_dark = 5
-	mob_size = 5
-	max_nutrition = 250	//Dogs are insatiable eating monsters. This scales with their mob size too
+	mob_size = 3.5
+	max_nutrition = 80	//Dogs are insatiable eating monsters. This scales with their mob size too
 	stomach_size_mult = 30
 	seek_speed = 6
 	possession_candidate = 1
 
 	holder_type = /obj/item/weapon/holder/corgi
+
+	butchering_products = list(/obj/item/stack/material/animalhide/corgi = 3)
 
 	var/obj/item/inventory_head
 	var/obj/item/inventory_back
@@ -32,7 +34,6 @@
 /mob/living/simple_animal/corgi/Initialize()
 	. = ..()
 	nutrition = max_nutrition * 0.3	//Ian doesn't start with a full belly so will be hungry at roundstart
-	nutrition_step = mob_size * 0.12
 
 //IAN! SQUEEEEEEEEE~
 /mob/living/simple_animal/corgi/Ian
@@ -110,6 +111,8 @@
 	icon_state = "puppy"
 	icon_living = "puppy"
 	icon_dead = "puppy_dead"
+
+	butchering_products = list(/obj/item/stack/material/animalhide/corgi = 1)
 
 //pupplies cannot wear anything.
 /mob/living/simple_animal/corgi/puppy/Topic(href, href_list)

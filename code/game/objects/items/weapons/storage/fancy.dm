@@ -123,7 +123,7 @@
 /obj/item/weapon/storage/fancy/cigarettes
 	name = "cigarette packet"
 	desc = "The most popular brand of Space Cigarettes, sponsors of the Space Olympics."
-	icon = 'icons/obj/cigarettes.dmi'
+	icon = 'icons/obj/cigs_lighters.dmi'
 	icon_state = "cigpacket"
 	item_state = "cigpacket"
 	w_class = 1
@@ -178,6 +178,22 @@
 	else
 		..()
 
+// get it? A - AcmeCo, B - Blank, C - Cigar, D - DromedaryCo. How convenient is that? - Wezzy
+
+/obj/item/weapon/storage/fancy/cigarettes/acmeco
+	name = "\improper AcmeCo packet"
+	desc = "A packet of six AcmeCo cigarettes. For those who somehow want to obtain the record for the most amount of cancerous tumors."
+	icon_state = "Apacket"
+	item_state = "Apacket" //Doesn't have an inhand state, but neither does dromedary, so, ya know..
+	cigarette_to_spawn = /obj/item/clothing/mask/smokable/cigarette/acmeco
+
+/obj/item/weapon/storage/fancy/cigarettes/blank
+	name = "\improper blank packet"
+	desc = "A packet of six blank cigarettes. The healthiest cigarettes on the market!"
+	icon_state = "Bpacket"
+	item_state = "Bpacket" //Doesn't have an inhand state, but neither does dromedary, so, ya know..
+	cigarette_to_spawn = /obj/item/clothing/mask/smokable/cigarette/blank
+
 /obj/item/weapon/storage/fancy/cigarettes/dromedaryco
 	name = "\improper DromedaryCo packet"
 	desc = "A packet of six imported DromedaryCo cancer sticks. A label on the packaging reads, \"Wouldn't a slow death make a change?\""
@@ -185,26 +201,12 @@
 	item_state = "Dpacket"
 	cigarette_to_spawn = /obj/item/clothing/mask/smokable/cigarette/dromedaryco
 
-/obj/item/weapon/storage/fancy/cigarettes/killthroat
-	name = "\improper AcmeCo packet"
-	desc = "A packet of six AcmeCo cigarettes. For those who somehow want to obtain the record for the most amount of cancerous tumors."
-	icon_state = "Bpacket"
-	item_state = "Bpacket" //Doesn't have an inhand state, but neither does dromedary, so, ya know..
-	cigarette_to_spawn = /obj/item/clothing/mask/smokable/cigarette/killthroat
-
-/obj/item/weapon/storage/fancy/cigarettes/custom
-	name = "\improper blank packet"
-	desc = "A packet of six blank cigarettes. The healthiest cigarettes on the market!"
-	icon_state = "Epacket"
-	item_state = "Epacket" //Doesn't have an inhand state, but neither does dromedary, so, ya know..
-	cigarette_to_spawn = /obj/item/clothing/mask/smokable/cigarette/custom
-
 /obj/item/weapon/storage/fancy/cigar
 	name = "cigar case"
 	desc = "A case for holding your cigars when you are not smoking them."
 	icon_state = "cigarcase"
 	item_state = "cigarcase"
-	icon = 'icons/obj/cigarettes.dmi'
+	icon = 'icons/obj/cigs_lighters.dmi'
 	w_class = 1
 	throwforce = 2
 	slot_flags = SLOT_BELT

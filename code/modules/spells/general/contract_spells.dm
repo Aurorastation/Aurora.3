@@ -30,10 +30,9 @@
 		target = target[1]
 	return target
 
-
 /spell/contract/reward
-	name = "Reward Contractee"
-	desc = "A spell that makes your contracted victim feel better."
+	name = "Extinguish Contractee"
+	desc = "A spell that extinguishes your contractee from flames."
 
 	charge_max = 300
 	cooldown_min = 100
@@ -45,8 +44,9 @@
 	if(!target)
 		return
 
-	to_chat(target, "<span class='notice'>You feel great!</span>")
-	target.ExtinguishMob()
+	if(target.on_fire && target.fire_stacks > 0)
+		to_chat(target, "<span class='notice'>Magical energies surround you, putting out all your flames.</span>")
+		target.ExtinguishMobCompletely()
 
 /spell/contract/punish
 	name = "Punish Contractee"
@@ -62,6 +62,5 @@
 	if(!target)
 		return
 
-	to_chat(target, "<span class='danger'>You feel punished!</span>")
-	target.fire_stacks += 15
-	target.IgniteMob()
+	to_chat(target, "<span class='danger'>Magical energies surround you, immolating you in a furious fashion!</span>")
+	target.IgniteMob(15)

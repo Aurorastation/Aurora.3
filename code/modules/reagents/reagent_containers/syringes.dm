@@ -25,6 +25,7 @@
 	var/visible_name = "a syringe"
 	var/time = 30
 	center_of_mass = null
+	drop_sound = 'sound/items/drop/glass.ogg'
 
 /obj/item/weapon/reagent_containers/syringe/on_reagent_change()
 	update_icon()
@@ -62,8 +63,8 @@
 		to_chat(user, "<span class='warning'>This syringe is broken!</span>")
 		return
 
-	if(user.a_intent == I_HURT && ismob(target))
-		if((CLUMSY in user.mutations) && prob(50))
+	if(user.a_intent == I_HURT && ishuman(user))
+		if((user.is_clumsy()) && prob(50))
 			target = user
 		syringestab(target, user)
 		return

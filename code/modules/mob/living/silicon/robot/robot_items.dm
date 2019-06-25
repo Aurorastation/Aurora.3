@@ -1,7 +1,7 @@
 //A portable analyzer, for research borgs.  This is better then giving them a gripper which can hold anything and letting them use the normal analyzer.
 /obj/item/weapon/portable_destructive_analyzer
 	name = "Portable Destructive Analyzer"
-	icon = 'icons/obj/items.dmi'
+	icon = 'icons/obj/robot_items.dmi'
 	icon_state = "portable_analyzer"
 	desc = "Similar to the stationary version, this rather unwieldy device allows you to break down objects in the name of science."
 
@@ -91,6 +91,12 @@
 		var/obj/item/I = target
 		if (I.anchored)
 			to_chat(user, span("notice", "\The [I] is anchored in place."))
+			return
+		if(!I.origin_tech)
+			to_chat(user, "<span class='notice'>This doesn't seem to have a tech origin.</span>")
+			return
+		if(I.origin_tech.len == 0)
+			to_chat(user, "<span class='notice'>You cannot deconstruct this item.</span>")
 			return
 		I.forceMove(src)
 		loaded_item = I

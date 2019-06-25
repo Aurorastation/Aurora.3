@@ -14,6 +14,8 @@
 	var/obj/item/projectile/BB = null	//The loaded bullet - make it so that the projectiles are created only when needed?
 	var/spent_icon = "s-casing-spent"
 
+	drop_sound = 'sound/items/drop/ring.ogg'
+
 /obj/item/ammo_casing/Initialize()
 	. = ..()
 	if(ispath(projectile_type))
@@ -123,6 +125,7 @@
 	to_chat(user, "<span class='notice'>You empty [src].</span>")
 	for(var/obj/item/ammo_casing/C in stored_ammo)
 		C.forceMove(user.loc)
+		playsound(C, "sound/weapons/casingdrop[rand(1,5)].ogg", 50, 1)
 		C.set_dir(pick(alldirs))
 	stored_ammo.Cut()
 	update_icon()

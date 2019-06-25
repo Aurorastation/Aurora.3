@@ -475,7 +475,7 @@
 		shock_damage *= 0.4
 		playsound(loc, "sparks", 50, 1, -1)
 
-	if (shock_damage > 15 || tesla_shock)
+	if (shock_damage > 15)
 		visible_message(
 		"<span class='warning'>[src] was shocked by the [source]!</span>",
 		"<span class='danger'>You feel a powerful shock course through your body!</span>",
@@ -1459,7 +1459,7 @@
 /mob/living/carbon/human/slip(var/slipped_on, stun_duration=8)
 	if((species.flags & NO_SLIP) || (shoes && (shoes.item_flags & NOSLIP)))
 		return 0
-	..(slipped_on,stun_duration)
+	. = ..(slipped_on,stun_duration)
 
 /mob/living/carbon/human/proc/undislocate()
 	set category = "Object"
@@ -1608,3 +1608,14 @@
 		return A.onlifesupport()
 	else
 		return 0
+/mob/living/carbon/human/is_clumsy()
+	if(CLUMSY in mutations)
+		return TRUE
+
+	var/bac = get_blood_alcohol()
+	var/SR = species.ethanol_resistance
+	if(SR>0)
+		if(bac > INTOX_REACTION*SR)
+			return TRUE
+
+	return FALSE

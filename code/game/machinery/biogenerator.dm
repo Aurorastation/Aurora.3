@@ -105,7 +105,7 @@
 		"custom_cigarettes" = list(
 			name = "Empty Cigarettes (x6)",
 			class = "Items",
-			object = /obj/item/weapon/storage/fancy/cigarettes/custom,
+			object = /obj/item/weapon/storage/fancy/cigarettes/blank,
 			cost = 500,
 			amount = list(1,2,3,4,5),
 			emag = 0
@@ -130,6 +130,14 @@
 			name = "Utility Belt",
 			class = "Items",
 			object = /obj/item/weapon/storage/belt/utility,
+			cost = 300,
+			amount = list(1,2,3,4,5),
+			emag = 0
+		),
+		"hydrobelt" = list(
+			name = "Hydroponic Belt",
+			class = "Items",
+			object = /obj/item/weapon/storage/belt/hydro,
 			cost = 300,
 			amount = list(1,2,3,4,5),
 			emag = 0
@@ -219,6 +227,46 @@
 			class = "Special",
 			object = /mob/living/simple_animal/mushroom,
 			cost = 1000,
+			amount = list(1,2,3,4,5),
+			emag = 0
+		),
+		"monkey" = list(
+			name = "Monkey Cube",
+			class = "Special",
+			object = /obj/item/weapon/reagent_containers/food/snacks/monkeycube/wrapped,
+			cost = 500,
+			amount = list(1,2,3,4,5),
+			emag = 0
+		),
+		"stok" = list(
+			name = "Stok Cube",
+			class = "Special",
+			object = /obj/item/weapon/reagent_containers/food/snacks/monkeycube/wrapped/stokcube,
+			cost = 500,
+			amount = list(1,2,3,4,5),
+			emag = 0
+		),
+		"farwa" = list(
+			name = "Farwa Cube",
+			class = "Special",
+			object = /obj/item/weapon/reagent_containers/food/snacks/monkeycube/wrapped/farwacube,
+			cost = 500,
+			amount = list(1,2,3,4,5),
+			emag = 0
+		),
+		"neaera" = list(
+			name = "Neaera Cube",
+			class = "Special",
+			object = /obj/item/weapon/reagent_containers/food/snacks/monkeycube/wrapped/neaeracube,
+			cost = 500,
+			amount = list(1,2,3,4,5),
+			emag = 0
+		),
+		"cazador" = list(
+			name = "V'krexi Cube",
+			class = "Special",
+			object = /obj/item/weapon/reagent_containers/food/snacks/monkeycube/wrapped/vkrexicube,
+			cost = 500,
 			amount = list(1,2,3,4,5),
 			emag = 0
 		),

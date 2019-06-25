@@ -29,7 +29,7 @@
 	melee_damage_lower = 15
 	melee_damage_upper = 15
 
-	mob_size = 6
+	mob_size = 5
 
 	response_help = "pets"
 	response_harm = "hits"
@@ -38,6 +38,7 @@
 	hunger_enabled = 1 //so you can feed your dog or something
 	autoseek_food = 0
 	beg_for_food = 0
+	max_nutrition = 120
 
 	known_commands = list("stay", "stop", "attack", "follow")
 
@@ -45,6 +46,8 @@
 
 	destroy_surroundings = FALSE
 	attack_emote = "growls at"
+
+	butchering_products = list(/obj/item/stack/material/animalhide = 2)
 
 /mob/living/simple_animal/hostile/commanded/dog/verb/befriend()
 	set name = "Befriend Dog"
@@ -125,8 +128,11 @@
 
 	density = 0
 
-	mob_size = 5
+	mob_size = 3.2
+	max_nutrition = 80
 
 	harm_intent_damage = 5
 	melee_damage_lower = 5
 	melee_damage_upper = 5
+
+	butchering_products = list(/obj/item/stack/material/animalhide = 2)

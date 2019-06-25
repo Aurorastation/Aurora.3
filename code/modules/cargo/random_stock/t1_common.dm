@@ -118,8 +118,8 @@ STOCK_ITEM_COMMON(smokes, 2)
 		new /obj/item/weapon/storage/fancy/cigar(L)
 		new /obj/item/weapon/storage/fancy/cigar(L)
 	else
-		new /obj/item/weapon/storage/fancy/cigarettes/custom(L)
-		new /obj/item/weapon/storage/fancy/cigarettes/custom(L)
+		new /obj/item/weapon/storage/fancy/cigarettes/blank(L)
+		new /obj/item/weapon/storage/fancy/cigarettes/blank(L)
 		if (prob(50))
 			new /obj/item/weapon/storage/fancy/cigarettes/dromedaryco(L)
 			new /obj/item/weapon/storage/fancy/cigarettes/dromedaryco(L)
@@ -149,16 +149,6 @@ STOCK_ITEM_COMMON(smallcell, 4)
 			/obj/item/weapon/cell/high \
 		)
 		new type(L)
-
-STOCK_ITEM_COMMON(robolimb, 2.5)
-	var/manufacturer = pick(all_robolimbs)
-	var/limbtype = pick( \
-		/obj/item/robot_parts/l_arm, \
-		/obj/item/robot_parts/r_arm, \
-		/obj/item/robot_parts/l_leg, \
-		/obj/item/robot_parts/r_leg \
-	)
-	new limbtype(L, manufacturer)
 
 //Spawns a random circuitboard
 //Allboards being a global list might be faster, but it didnt seem worth the extra memory

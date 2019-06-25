@@ -152,6 +152,27 @@
 	health = 100
 	var/datum/weakref/captured = null
 
+/obj/item/weapon/trap/animal/process()
+	update_icon()
+
+/obj/item/weapon/trap/animal/update_icon()
+	icon = initial(icon)
+	icon_state = "[icon_base][deployed]"	
+	var/datum/L = captured ? captured.resolve() : null
+	if (!L)
+		deployed = FALSE
+		captured = null
+		release_time = world.time
+		underlays.Cut()
+		STOP_PROCESSING(SSprocessing, src)
+		return
+	if(isliving(L))
+		var/mutable_appearance/MA = new(L)
+		MA.layer = FLOAT_LAYER
+		MA.plane = FLOAT_PLANE	
+		underlays.Cut()
+		underlays += MA
+
 /obj/item/weapon/trap/animal/examine(mob/user)
 	..()
 	if(captured)
@@ -171,9 +192,11 @@
 				message += "<span class='warning'>wounded</span>"
 			message += ".</span>"
 			to_chat(user, message)
+			ll.examine(user)
 		else if (istype(L, /obj/effect/spider/spiderling))
 			var/obj/effect/spider/spiderling/S = L
 			to_chat(user, "<span class='notice'>\The [src] has [S] and it is alive.</span>")
+		
 	else
 		to_chat(user, "<span class='notice'>\The [src] is empty.</span>")
 
@@ -201,6 +224,7 @@
 				deployed = 1
 				update_icon()
 				src.animate_shake()
+				START_PROCESSING(SSprocessing, src)
 
 	else if(istype(AM, /obj/effect/spider/spiderling) && spider) // for spiderlings
 		var/obj/effect/spider/spiderling/S = AM
@@ -289,6 +313,11 @@
 		if(!can_use(usr))
 			to_chat(usr, "<span class='warning'>You cannot use \the [src].</span>")
 			return
+
+		if(usr in contents)
+			to_chat(usr, "<span class='warning'>You cannot open lock \the [src] from the inside. You would have to forcefully open it.</span>")
+			return
+
 		if(!contents.len)
 			return
 
@@ -349,6 +378,7 @@
 		captured = null
 		release_time = world.time
 		update_icon()
+		STOP_PROCESSING(SSprocessing, src)
 		return
 
 	var/msg
@@ -356,6 +386,7 @@
 		var/mob/living/ll = L
 		ll.forceMove(target)
 		msg = "<span class='warning'>[ll] runs out of \the [src].</span>"
+		STOP_PROCESSING(SSprocessing, src)
 	else if (istype(L, /obj/effect/spider/spiderling))
 		var/obj/effect/spider/spiderling/S = L
 		S.forceMove(target)
@@ -386,6 +417,7 @@
 			new /obj/item/stack/rods(src.loc, resources["rods"])
 			if(resources.len == 2)
 				new /obj/item/stack/material/steel(src.loc, resources["metal"])
+			release()
 			qdel(src)
 
 	else if(W.isscrewdriver())

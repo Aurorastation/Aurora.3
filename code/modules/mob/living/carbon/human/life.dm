@@ -166,7 +166,7 @@
 	//Vision
 	var/obj/item/organ/vision
 	if(species.vision_organ)
-		vision =  internal_organs_by_name[species.vision_organ] || organs_by_name[species.vision_organ]
+		vision = species.get_vision_organ(src)
 
 	if (!vision)
 		if (species.vision_organ) // if they should have eyes but don't, they can't see
@@ -543,7 +543,7 @@
 
 			// Enough to make us sleep as well
 			if(SA_pp > SA_sleep_min)
-				Sleeping(5)
+				Sleeping(10)
 
 		// There is sleeping gas in their lungs, but only a little, so give them a bit of a warning
 		else if(SA_pp > 0.15)
@@ -627,7 +627,7 @@
 	var/pressure = environment.return_pressure()
 	var/adjusted_pressure = calculate_affecting_pressure(pressure)
 
-	if (is_diona())
+	if (consume_nutrition_from_air)
 		environment.remove(diona_handle_air(get_dionastats(), pressure))
 
 	//Check for contaminants before anything else because we don't want to skip it.

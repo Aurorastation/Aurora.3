@@ -56,7 +56,7 @@
 		to_chat(user, "<span class='warning'>\The [src] must be worn to deploy \the [gun]!</span>")
 		return
 
-	if(use_check(user))
+	if(use_check_and_message(user))
 		return
 
 	if(!gun)
@@ -122,7 +122,7 @@
 	caliber = "a762"
 	magazine_type = null
 	max_shells = 1000
-	fire_sound = 'sound/weapons/gunshot_saw.ogg'
+	fire_sound = 'sound/weapons/gunshot/gunshot_saw.ogg'
 	needspin = FALSE
 	origin_tech = null
 

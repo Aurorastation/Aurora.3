@@ -30,6 +30,10 @@
 	var/base_state
 	flash_protection = FLASH_PROTECTION_MAJOR
 	tint = TINT_HEAVY
+	sprite_sheets = list(
+		"Vox" = 'icons/mob/species/vox/head.dmi'
+		)
+	drop_sound = 'sound/items/drop/helm.ogg'
 
 /obj/item/clothing/head/welding/attack_self()
 	if(!base_state)
@@ -112,17 +116,25 @@
  */
 /obj/item/clothing/head/ushanka
 	name = "ushanka"
-	desc = "Perfect for winter in Siberia, da?"
-	icon_state = "ushankadown"
+	desc = "A warm fur hat with ear flaps that can be raised and tied to be out of the way."
+	icon_state = "ushanka"
 	flags_inv = HIDEEARS
+	var/earsup = 0
+
+/obj/item/clothing/head/ushanka/grey
+	name = "grey ushanka"
+	desc = "Perfect for winter in Siberia, da?"
+	icon_state = "greyushanka"
 
 /obj/item/clothing/head/ushanka/attack_self(mob/user as mob)
-	if(src.icon_state == "ushankadown")
-		src.icon_state = "ushankaup"
+	src.earsup = !src.earsup
+	if(src.earsup)
+		icon_state = "[icon_state]_up"
 		to_chat(user, "You raise the ear flaps on the ushanka.")
 	else
-		src.icon_state = "ushankadown"
+		src.icon_state = initial(icon_state)
 		to_chat(user, "You lower the ear flaps on the ushanka.")
+	update_clothing_icon()
 
 /*
  * Pumpkin head
@@ -136,6 +148,7 @@
 	brightness_on = 2
 	light_overlay = "helmet_light"
 	w_class = 3
+	drop_sound = 'sound/items/drop/herb.ogg'
 
 /*
  * Kitty ears

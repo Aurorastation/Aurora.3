@@ -46,7 +46,7 @@
 /obj/item/weapon/pickaxe
 	name = "pickaxe"
 	desc = "The most basic of mining implements. Surely this is a joke?"
-	icon = 'icons/obj/items.dmi'
+	icon = 'icons/obj/tools.dmi'
 	flags = CONDUCT
 	slot_flags = SLOT_BELT
 	throwforce = 4.0
@@ -58,7 +58,7 @@
 	var/digspeed //moving the delay to an item var so R&D can make improved picks. --NEO
 	origin_tech = list(TECH_MATERIAL = 1, TECH_ENGINEERING = 1)
 	attack_verb = list("hit", "pierced", "sliced", "attacked")
-	var/drill_sound = 'sound/weapons/chisel1.ogg'
+	var/drill_sound = "pickaxe"
 	var/drill_verb = "excavating"
 	var/autodrill = 0 //pickaxes must be manually swung to mine, drills can mine rocks via bump
 	sharp = 1
@@ -88,6 +88,14 @@
 	digspeed = digspeed_wielded
 	name = "[name] (Wielded)"
 	update_icon()
+
+/obj/item/weapon/pickaxe/update_icon()
+		..()
+		if(wielded)
+				item_state = "[initial(icon_state)]-wielded"
+		else
+				item_state = initial(item_state)
+		update_held_icon()
 
 /obj/item/weapon/pickaxe/mob_can_equip(M as mob, slot)
 	//Cannot equip wielded items.
@@ -315,7 +323,7 @@
 /obj/item/weapon/shovel
 	name = "shovel"
 	desc = "A large tool for digging and moving dirt."
-	icon = 'icons/obj/items.dmi'
+	icon = 'icons/obj/tools.dmi'
 	icon_state = "shovel"
 	flags = CONDUCT
 	slot_flags = SLOT_BELT
@@ -403,7 +411,7 @@
 	var/obj/item/stack/flag/F = locate() in get_turf(src)
 
 	var/turf/T = get_turf(src)
-	if(!T || !istype(T, /turf/simulated/floor/asteroid))
+	if(!T || !istype(T, /turf/unsimulated/floor/asteroid))
 		to_chat(user, "The beacon won't stand up in this terrain.")
 		return
 
@@ -435,7 +443,7 @@
 /obj/item/weapon/rrf
 	name = "\improper Rapid-Railway-Fabricator"
 	desc = "A device used to rapidly deploy mine tracks."
-	icon = 'icons/obj/items.dmi'
+	icon = 'icons/obj/tools.dmi'
 	icon_state = "rcd"
 	opacity = 0
 	density = 0
@@ -487,7 +495,7 @@
 		if(stored_matter <= 0)
 			return
 
-	if(!istype(A, /turf/simulated/floor))
+	if(!istype(A, /turf/simulated/floor) && !istype(A, /turf/unsimulated/floor))
 		return
 
 	if(locate(/obj/structure/track) in A)
@@ -1091,7 +1099,7 @@ var/list/total_extraction_beacons = list()
 	origin_tech = list(TECH_MAGNET = 4, TECH_ENGINEERING = 3)
 
 /obj/item/weapon/oremagnet/attack_self(mob/user)
-	if (use_check(user))
+	if (use_check_and_message(user))
 		return
 
 	toggle_on(user)
@@ -1151,7 +1159,7 @@ var/list/total_extraction_beacons = list()
 /******************************Sculpting*******************************/
 /obj/item/weapon/autochisel
 	name = "auto-chisel"
-	icon = 'icons/obj/items.dmi'
+	icon = 'icons/obj/tools.dmi'
 	icon_state = "jackhammer"
 	item_state = "jackhammer"
 	origin_tech = list(TECH_MATERIAL = 3, TECH_POWER = 2, TECH_ENGINEERING = 2)

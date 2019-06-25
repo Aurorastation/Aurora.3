@@ -51,10 +51,6 @@
 		pixel_x = 0
 		pixel_y = 0
 
-		// This now does just the animation of all balls shooting main ball
-		for (var/obj/singularity/energy_ball/ball in orbiting_balls)
-			ball.Beam(src, icon_state="lightning[rand(1,12)]", icon = 'icons/effects/effects.dmi', time=2)
-
 		// Instead of miniballs shooting stuff, decided to make it just count the power produced.
 		dir = tesla_zap(src, 10, TESLA_DEFAULT_POWER + orbiting_balls.len * TESLA_MINI_POWER, TRUE)
 
@@ -65,6 +61,12 @@
 		energy = 0 // ensure we dont have miniballs of miniballs
 	if(energy < 0)
 		qdel(src)
+
+/obj/singularity/energy_ball/admin_investigate_setup()
+	if(orbiting)
+		return
+	else
+		..()
 
 /obj/singularity/energy_ball/examine(mob/user)
 	..()
@@ -338,7 +340,7 @@
 		var/obj/singularity/energy_ball/E = source
 		if(E.energy && (E.orbiting_balls.len > rods_count * 4)) // so that miniballs don't fry stuff.
 			melt =  TRUE// 1 grounding rod can handle max 4 balls
-			E.visible_message(span("danger", "All [E.orbiting_balls.len] energize for a second, sending their energy to the main ball, which redirects it at the nearest object! Sacraficing one of its miniballs!"))
+			E.visible_message(span("danger", "All [E.orbiting_balls.len] energize for a second, sending their energy to the main ball, which redirects it at the nearest object! Sacrificing one of its miniballs!"))
 			for(var/obj/singularity/energy_ball/mini in E.orbiting_balls)
 				mini.Beam(source, icon_state="lightning[rand(1,12)]", icon = 'icons/effects/effects.dmi', time=2)
 			playsound(source.loc, 'sound/magic/lightning_chargeup.ogg', 100, 1, extrarange = 30)

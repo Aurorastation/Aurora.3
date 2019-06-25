@@ -20,6 +20,7 @@
 	flags = CONDUCT
 	w_class = 2.0
 	origin_tech = list(TECH_MATERIAL = 1, TECH_BIO = 1)
+	drop_sound = 'sound/items/drop/scrap.ogg'
 
 /*
  * Hemostat
@@ -34,6 +35,7 @@
 	w_class = 2.0
 	origin_tech = list(TECH_MATERIAL = 1, TECH_BIO = 1)
 	attack_verb = list("attacked", "pinched")
+	drop_sound = 'sound/items/drop/scrap.ogg'
 
 /*
  * Cautery
@@ -48,6 +50,7 @@
 	w_class = 2.0
 	origin_tech = list(TECH_MATERIAL = 1, TECH_BIO = 1)
 	attack_verb = list("burnt")
+	drop_sound = 'sound/items/drop/scrap.ogg'
 
 /*
  * Surgical Drill
@@ -57,13 +60,14 @@
 	desc = "You can drill using this item. You dig?"
 	icon = 'icons/obj/surgery.dmi'
 	icon_state = "drill"
-	hitsound = 'sound/weapons/circsawhit.ogg'
+	hitsound = 'sound/weapons/saw/circsawhit.ogg'
 	matter = list(DEFAULT_WALL_MATERIAL = 15000, "glass" = 10000)
 	flags = CONDUCT
 	force = 15.0
 	w_class = 3
 	origin_tech = list(TECH_MATERIAL = 1, TECH_BIO = 1)
 	attack_verb = list("drilled")
+	drop_sound = 'sound/items/drop/accessory.ogg'
 
 /*
  * Scalpel
@@ -85,6 +89,7 @@
 	origin_tech = list(TECH_MATERIAL = 1, TECH_BIO = 1)
 	matter = list(DEFAULT_WALL_MATERIAL = 10000, "glass" = 5000)
 	attack_verb = list("attacked", "slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut")
+	drop_sound = 'sound/items/drop/knife.ogg'
 
 /*
  * Researchable Scalpels
@@ -123,7 +128,7 @@
 	desc = "For heavy duty cutting."
 	icon = 'icons/obj/surgery.dmi'
 	icon_state = "saw3"
-	hitsound = 'sound/weapons/circsawhit.ogg'
+	hitsound = 'sound/weapons/saw/circsawhit.ogg'
 	flags = CONDUCT
 	force = 15.0
 	w_class = 3
@@ -135,6 +140,7 @@
 	attack_verb = list("attacked", "slashed", "sawed", "cut")
 	sharp = 1
 	edge = 1
+	drop_sound = 'sound/items/drop/accessory.ogg'
 
 //misc, formerly from code/defines/weapons.dm
 /obj/item/weapon/bonegel
@@ -144,6 +150,7 @@
 	force = 0
 	w_class = 2.0
 	throwforce = 1.0
+	drop_sound = 'sound/items/drop/bottle.ogg'
 
 /obj/item/weapon/FixOVein
 	name = "FixOVein"
@@ -154,6 +161,7 @@
 	origin_tech = list(TECH_MATERIAL = 1, TECH_BIO = 3)
 	w_class = 2.0
 	var/usage_amount = 10
+	drop_sound = 'sound/items/drop/accessory.ogg'
 
 /obj/item/weapon/bonesetter
 	name = "bone setter"
@@ -165,3 +173,4 @@
 	throw_range = 5
 	w_class = 2.0
 	attack_verb = list("attacked", "hit", "bludgeoned")
+	drop_sound = 'sound/items/drop/scrap.ogg'

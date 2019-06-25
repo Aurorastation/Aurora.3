@@ -43,6 +43,18 @@
 
 	category = MODULE_MEDICAL
 
+/obj/item/rig_module/device/healthscanner/vitalscanner
+	name = "integrated vitals tracker"
+	desc = "A hardsuit-mounted vitals tracker."
+	interface_name = "vitals tracker"
+	interface_desc = "Shows an informative health readout of the user."
+
+	usable = 1
+	selectable = 0
+
+	category = MODULE_GENERAL
+
+
 /obj/item/rig_module/device/drill
 	name = "hardsuit diamond drill mount"
 	desc = "A very heavy diamond-tipped drill."
@@ -569,7 +581,7 @@
 	construction_cost = list(DEFAULT_WALL_MATERIAL=15000, "glass"= 1250, "silver"=5250)
 	construction_time = 300
 
-	disruptive = 1
+	disruptive = 0
 
 	use_power_cost = 5
 	module_cooldown = 25
@@ -654,7 +666,7 @@
 			"<span class='warning'>You leap horizontally at \the [T]!</span>",
 			"<span class='warning'>You hear an electric <i>whirr</i> followed by a weighty thump!</span>")
 		H.face_atom(T)
-		H.throw_at(T, leapDistance, 1, src)
+		H.throw_at(T, leapDistance, 1, src, do_throw_animation = FALSE)
 		return 1
 	else
 		var/turf/simulated/open/TA = GetAbove(src)
@@ -801,21 +813,3 @@ var/global/list/lattice_users = list()
 	to_chat(H, "<span class='notice'>Neural lattice disengaged. Pain receptors restored.</span>")
 	lattice_users.Remove(H)
 
-/obj/item/rig_module/vitalscanner
-	name = "integrated vitals tracker"
-	desc = "A hardsuit-mounted vitals tracker."
-	icon_state = "scanner"
-	interface_name = "vitals tracker"
-	interface_desc = "Shows an informative health readout of the user."
-	construction_cost = list("$glass" = 3250, DEFAULT_WALL_MATERIAL = 500)
-	construction_time = 100
-
-	usable = 1
-
-	category = MODULE_GENERAL
-
-/obj/item/rig_module/healthscanner/engage()
-	if (!..())
-		return 0
-
-	health_scan_mob(holder.wearer, holder.wearer)

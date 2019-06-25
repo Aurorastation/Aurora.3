@@ -1,6 +1,6 @@
 /obj/item/watertank
 	name = "backpack water tank"
-	desc = "A watertank backpack with nozzle to clean dirt and graffiti."
+	desc = "A watertank backpack with nozzle to water plants."
 	icon = 'icons/obj/hydro_equipment.dmi'
 	icon_state = "waterpack"
 	item_state = "waterpack"
@@ -36,7 +36,7 @@
 	if (user.back!= src)
 		to_chat(user, "<span class='warning'>The watertank must be worn properly to use!</span>")
 		return
-	if(use_check(user))
+	if(use_check_and_message(user))
 		return
 	on = !on
 	if(on)

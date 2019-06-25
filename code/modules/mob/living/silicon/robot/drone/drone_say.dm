@@ -1,10 +1,8 @@
 /mob/living/silicon/robot/drone/say(var/message)
-	if(local_transmit)
-		if (src.client)
-			if(client.prefs.muted & MUTE_IC)
-				to_chat(src, "You cannot send IC messages (muted).")
-				return 0
+	if(hacked)
+		return ..(message)
 
+	if(local_transmit)
 		message = sanitize(message)
 
 		if (stat == 2)

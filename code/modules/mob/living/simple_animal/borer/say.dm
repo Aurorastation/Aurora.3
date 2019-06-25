@@ -12,11 +12,6 @@
 	if (stat)
 		return
 
-	if (src.client)
-		if(client.prefs.muted & MUTE_IC)
-			to_chat(src, "<span class='danger'>You cannot speak in IC (muted).</span>")
-			return
-
 	if (copytext(message, 1, 2) == "*")
 		return emote(copytext(message, 2))
 

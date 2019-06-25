@@ -17,8 +17,8 @@
  */
 /obj/item/weapon/wrench
 	name = "wrench"
-	desc = "A wrench with many common uses. Can be usually found in your hand."
-	icon = 'icons/obj/items.dmi'
+	desc = "An adjustable tool used for gripping and turning nuts or bolts."
+	icon = 'icons/obj/tools.dmi'
 	icon_state = "wrench"
 	flags = CONDUCT
 	slot_flags = SLOT_BELT
@@ -28,6 +28,7 @@
 	origin_tech = list(TECH_MATERIAL = 1, TECH_ENGINEERING = 1)
 	matter = list(DEFAULT_WALL_MATERIAL = 150)
 	attack_verb = list("bashed", "battered", "bludgeoned", "whacked")
+	drop_sound = 'sound/items/drop/sword.ogg'
 
 /obj/item/weapon/wrench/iswrench()
 	return TRUE
@@ -37,8 +38,8 @@
  */
 /obj/item/weapon/screwdriver
 	name = "screwdriver"
-	desc = "You can be totally screwwy with this."
-	icon = 'icons/obj/items.dmi'
+	desc = "A tool with a flattened or cross-shaped tip that fits into the head of a screw to turn it."
+	icon = 'icons/obj/tools.dmi'
 	icon_state = "screwdriver"
 	flags = CONDUCT
 	slot_flags = SLOT_BELT | SLOT_EARS
@@ -51,6 +52,7 @@
 	attack_verb = list("stabbed")
 	lock_picking_level = 5
 	var/random_icon = TRUE
+	drop_sound = 'sound/items/drop/scrap.ogg'
 
 
 /obj/item/weapon/screwdriver/Initialize()
@@ -89,7 +91,7 @@
 		return ..()
 	if(target_zone != "eyes" && target_zone != "head")
 		return ..()
-	if((CLUMSY in user.mutations) && prob(50))
+	if((user.is_clumsy()) && prob(50))
 		M = user
 	return eyestab(M,user)
 
@@ -101,8 +103,8 @@
  */
 /obj/item/weapon/wirecutters
 	name = "wirecutters"
-	desc = "This cuts wires."
-	icon = 'icons/obj/items.dmi'
+	desc = "A tool used to cut wires in electrical work."
+	icon = 'icons/obj/tools.dmi'
 	icon_state = "cutters"
 	flags = CONDUCT
 	slot_flags = SLOT_BELT
@@ -115,6 +117,7 @@
 	attack_verb = list("pinched", "nipped")
 	sharp = 1
 	edge = 1
+	drop_sound = 'sound/items/drop/knife.ogg'
 
 /obj/item/weapon/wirecutters/New()
 	if(prob(50))
@@ -144,13 +147,13 @@
 /obj/item/weapon/weldingtool
 	name = "welding tool"
 	desc = "A welding tool with a built-in fuel tank, designed for welding and cutting metal."
-	icon = 'icons/obj/tools/welding.dmi'
+	icon = 'icons/obj/tools.dmi'
 	icon_state = "welder_off"
 	flags = CONDUCT
 	slot_flags = SLOT_BELT
 	var/base_iconstate = "welder"//These are given an _on/_off suffix before being used
 	var/base_itemstate = "welder"
-	contained_sprite = 1
+	drop_sound = 'sound/items/drop/scrap.ogg'
 
 	//Amount of OUCH when it's thrown
 	force = 3.0
@@ -194,7 +197,7 @@
 //The Experimental Welding Tool!
 /obj/item/weapon/weldingtool/experimental
 	name = "experimental welding tool"
-	desc = "A scientifically-enhanced welding tool that uses fuel-producing microbes to gradually replenish its fuel supply"
+	desc = "A scientifically-enhanced welding tool that uses fuel-producing microbes to gradually replenish its fuel supply."
 	max_fuel = 40
 	w_class = 2.0
 	matter = list(DEFAULT_WALL_MATERIAL = 100, "glass" = 120)
@@ -203,9 +206,8 @@
 	base_itemstate = "exp_welder"
 
 	var/last_gen = 0
-	var/fuelgen_delay = 800//The time, in deciseconds, required to regenerate one unit of fuel
-	//800 = 1 unit per 1 minute and 20 seconds,
-	//This is roughly half the rate that fuel is lost if the welder is left idle, so it you carelessly leave it on it will still run out
+	var/fuelgen_delay = 400 //The time, in deciseconds, required to regenerate one unit of fuel
+	//400 = 1 unit per 40 seconds
 
 //Welding tool functionality here
 /obj/item/weapon/weldingtool/Initialize()
@@ -527,8 +529,8 @@
 
 /obj/item/weapon/crowbar
 	name = "crowbar"
-	desc = "Used to remove floors and to pry open doors."
-	icon = 'icons/obj/items.dmi'
+	desc = "An iron bar with a flattened end, used as a lever to remove floors and pry open doors."
+	icon = 'icons/obj/tools.dmi'
 	icon_state = "crowbar"
 	flags = CONDUCT
 	slot_flags = SLOT_BELT
@@ -539,12 +541,13 @@
 	origin_tech = list(TECH_ENGINEERING = 1)
 	matter = list(DEFAULT_WALL_MATERIAL = 50)
 	attack_verb = list("attacked", "bashed", "battered", "bludgeoned", "whacked")
+	drop_sound = 'sound/items/drop/sword.ogg'
 
 /obj/item/weapon/crowbar/iscrowbar()
 	return TRUE
 
 /obj/item/weapon/crowbar/red
-	icon = 'icons/obj/items.dmi'
+	icon = 'icons/obj/tools.dmi'
 	icon_state = "red_crowbar"
 	item_state = "crowbar_red"
 
@@ -552,7 +555,7 @@
 /obj/item/weapon/pipewrench
 	name = "pipe wrench"
 	desc = "A big wrench that is made for working with pipes."
-	icon = 'icons/obj/items.dmi'
+	icon = 'icons/obj/tools.dmi'
 	icon_state = "pipewrench"
 	flags = CONDUCT
 	slot_flags = SLOT_BELT
@@ -568,7 +571,7 @@
 /obj/item/combitool
 	name = "combi-tool"
 	desc = "It even has one of those nubbins for doing the thingy."
-	icon = 'icons/obj/combitool.dmi'
+	icon = 'icons/obj/tools.dmi'
 	icon_state = "combitool"
 	force = 3
 	w_class = 2
@@ -577,7 +580,8 @@
 		"crowbar",
 		"screwdriver",
 		"wrench",
-		"wirecutters"
+		"wirecutters",
+		"multitool"
 		)
 	var/current_tool = 1
 
@@ -604,6 +608,9 @@
 /obj/item/combitool/iscrowbar()
 	return tools[current_tool] == "crowbar"
 
+/obj/item/combitool/ismultitool()
+	return tools[current_tool] == "multitool"
+
 /obj/item/combitool/proc/update_tool()
 	icon_state = "[initial(icon_state)]-[tools[current_tool]]"
 
@@ -617,6 +624,7 @@
 		to_chat(user, "You switch \the [src] to the [tool] fitting.")
 	update_tool()
 	return 1
+
 
 // PAPAPAPAPA POWEERRRR! -Drago
 

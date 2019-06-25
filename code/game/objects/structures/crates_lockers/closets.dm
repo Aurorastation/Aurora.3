@@ -210,6 +210,11 @@
 	if(!proj_damage)
 		return
 
+	if(Proj.penetrating || istype(Proj, /obj/item/projectile/bullet))
+		var/distance = get_dist(Proj.starting, get_turf(loc))
+		for(var/mob/living/L in contents)
+			Proj.attack_mob(L, distance)
+
 	..()
 	damage(proj_damage)
 
@@ -260,7 +265,7 @@
 			user.drop_from_inventory(W,loc)
 		else
 			user.drop_item()
-	else if(istype(W, /obj/item/weapon/packageWrap))
+	else if(istype(W, /obj/item/stack/packageWrap))
 		return
 	else if(W.iswelder())
 		var/obj/item/weapon/weldingtool/WT = W

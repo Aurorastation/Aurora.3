@@ -18,10 +18,11 @@
 	toggleable = 1
 	disruptable = 1
 	disruptive = 0
+	attackdisrupts = 1
 	confined_use = 1
 
-	use_power_cost = 50
-	active_power_cost = 10
+	use_power_cost = 75
+	active_power_cost = 5
 	passive_power_cost = 0
 	module_cooldown = 30
 
@@ -65,7 +66,7 @@
 
 	for(var/mob/O in oviewers(H))
 		O.show_message("[H.name] appears from thin air!",1)
-	playsound(get_turf(H), 'sound/effects/stealthoff.ogg', 75, 1)
+	playsound(get_turf(H), 'sound/effects/stealthoff.ogg', 10, 1)
 
 
 /obj/item/rig_module/teleporter
@@ -131,7 +132,7 @@
 		to_chat(H, "<span class='warning'>You cannot teleport to a location with solid objects.</span>")
 		return 0
 
-	if(T.z != H.z || get_dist(T, get_turf(H)) > world.view)
+	if((T.z != H.z || get_dist(T, get_turf(H)) > world.view) && target)
 		to_chat(H, "<span class='warning'>You cannot teleport to such a distant object.</span>")
 		return 0
 

@@ -70,11 +70,6 @@ var/list/adminhelp_ignored_words = list("unknown","the","a","an","of","monkey","
 		to_chat(usr, "<span class='warning'>Speech is currently admin-disabled.</span>")
 		return
 
-	//handle muting and automuting
-	if(prefs.muted & MUTE_ADMINHELP)
-		to_chat(src, "<font color='red'>Error: Admin-PM: You cannot send adminhelps (Muted).</font>")
-		return
-
 	adminhelped = ADMINHELPED
 
 	if(src.handle_spam_prevention(msg,MUTE_ADMINHELP))
@@ -121,15 +116,16 @@ var/list/adminhelp_ignored_words = list("unknown","the","a","an","of","monkey","
 	var/admin_number_present = 0
 	var/admin_number_afk = 0
 
-	for(var/client/X in admins)
-		if((R_ADMIN|R_MOD) & X.holder.rights)
+	for(var/s in staff)
+		var/client/C = s
+		if((R_ADMIN|R_MOD) & C.holder.rights)
 			admin_number_present++
-			if(X.is_afk())
+			if(C.is_afk())
 				admin_number_afk++
-			if(X.prefs.toggles & SOUND_ADMINHELP)
-				sound_to(X, 'sound/effects/adminhelp.ogg')
+			if(C.prefs.toggles & SOUND_ADMINHELP)
+				sound_to(C, 'sound/effects/adminhelp.ogg')
 
-			to_chat(X, msg)
+			to_chat(C, msg)
 
 	//show it to the person adminhelping too
 	to_chat(src, "<font color='blue'>PM to-<b>Staff </b>: [original_msg]</font>")

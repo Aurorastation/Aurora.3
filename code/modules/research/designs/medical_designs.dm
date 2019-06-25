@@ -9,6 +9,14 @@
 	..()
 	name = "Biotech device prototype ([item_name])"
 
+/datum/design/item/health_analyzer
+	desc = "A hand-held body scanner able to distinguish vital signs of the subject."
+	id = "health_analyzer"
+	req_tech = list(TECH_MAGNET = 2, TECH_BIO = 3)
+	materials = list(DEFAULT_WALL_MATERIAL = 200)
+	build_path = /obj/item/device/healthanalyzer
+	sort_string = "MBCAF"
+
 /datum/design/item/medical/robot_scanner
 	desc = "A hand-held scanner able to diagnose robotic injuries."
 	id = "robot_scanner"

@@ -394,7 +394,6 @@ var/bomb_set
 /obj/item/weapon/disk/nuclear
 	name = "authentication disk"
 	desc = "Better keep this safe."
-	icon = 'icons/obj/items.dmi'
 	icon_state = "nucleardisk"
 	item_state = "card-id"
 	w_class = 1.0

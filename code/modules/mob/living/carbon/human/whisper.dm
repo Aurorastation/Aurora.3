@@ -8,13 +8,8 @@
 
 	message = sanitize(message)
 
-	if (src.client)
-		if (src.client.prefs.muted & MUTE_IC)
-			to_chat(src, "<span class='warning'>You cannot whisper (muted).</span>")
-			return
-
-		if (src.client.handle_spam_prevention(message,MUTE_IC))
-			return
+	if (client && client.handle_spam_prevention(message,MUTE_IC))
+		return
 
 	if (src.stat == 2)
 		return src.say_dead(message)

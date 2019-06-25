@@ -222,7 +222,9 @@ var/list/admin_verbs_debug = list(
 	/client/proc/reset_openturf,
 	/datum/admins/proc/capture_map,
 	/client/proc/global_ao_regenerate,
-	/client/proc/add_client_color
+	/client/proc/add_client_color,
+	/client/proc/connect_ntsl,
+	/client/proc/disconnect_ntsl
 	)
 
 var/list/admin_verbs_paranoid_debug = list(
@@ -337,7 +339,8 @@ var/list/admin_verbs_mod = list(
 	/client/proc/cmd_admin_check_contents,
 	/client/proc/check_words,			/*displays cult-words*/
 	/client/proc/check_ai_laws,			/*shows AI and borg laws*/
-	/client/proc/aooc
+	/client/proc/aooc,
+	/client/proc/print_logout_report
 )
 
 var/list/admin_verbs_dev = list( //will need to be altered - Ryan784

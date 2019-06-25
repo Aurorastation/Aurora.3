@@ -58,6 +58,7 @@ var/list/gamemode_cache = list()
 	var/allow_ai = 1					// allow ai job
 	var/hostedby = null
 	var/respawn_delay = 30
+	var/hacked_drones_limit = 5
 	var/guest_jobban = 1
 	var/usewhitelist = 0
 	var/kick_inactive = 0				//force disconnect for inactive players after this many minutes, if non-0
@@ -292,6 +293,13 @@ var/list/gamemode_cache = list()
 	var/ert_scaling_factor_antag = 1
 	var/ert_scaling_factor_dead = 2
 
+	// Configurable hostname / port for the NTSL Daemon.
+	var/ntsl_hostname = "localhost"
+	var/ntsl_port = "1945"
+
+	// Is external Auth enabled
+	var/external_auth = FALSE
+
 /datum/configuration/New()
 	var/list/L = typesof(/datum/game_mode) - /datum/game_mode
 	for (var/T in L)
@@ -471,6 +479,9 @@ var/list/gamemode_cache = list()
 
 				if ("respawn_delay")
 					config.respawn_delay = text2num(value)
+				
+				if("hacked_drones_limit")
+					config.hacked_drones_limit = text2num(value)
 
 				if ("servername")
 					config.server_name = value
@@ -893,6 +904,14 @@ var/list/gamemode_cache = list()
 					ert_scaling_factor_antag = text2num(value)
 				if ("ert_scaling_factor_dead")
 					ert_scaling_factor_dead = text2num(value)
+
+				if ("ntsl_hostname")
+					ntsl_hostname = value
+				if ("ntsl_port")
+					ntsl_port = value
+
+				if ("external_auth")
+					external_auth = TRUE
 
 				else
 					log_misc("Unknown setting in configuration: '[name]'")

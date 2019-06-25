@@ -30,6 +30,12 @@
 	data += "<li>VM identifier count to kick on: [config.access_deny_vms ? "[config.access_deny_vms]" : "<font color='red'>DISABLED</font>"]. <a href='?_src_=holder;access_control=vm_kick;'>Edit</a></li>"
 	data += "</ul>"
 
+	data += "<h2>Guest join settings:</h2><br><ul>"
+	data += "<li>Guests [(config.guests_allowed || config.external_auth) ? "<font color='green'>CAN</font>" : "<font color='red'>CAN NOT</font>"] join.</li>"
+	data += "<li>Guests [config.guests_allowed ? "<font color='green'>CAN</font>" : "<font color='red'>CAN NOT</font>"] play. <a href='?_src_=holder;access_control=guest;'>Toggle</a></li>"
+	data += "<li>External authetification: [config.external_auth ? "<font color='green'>ENABLED</font>" : "<font color='red'>DISABLED</font>"]. <a href='?_src_=holder;access_control=external_auth;'>Toggle</a></li>"
+	data += "</ul>"
+
 	config_window.set_user(src.mob)
 	config_window.set_content(data)
 	config_window.open()
@@ -98,6 +104,10 @@
 				log_and_message_admins("has disabled warnings based on potential VM usage.")
 		if ("hub")
 			togglehubvisibility()
+		if ("external_auth")
+			config.external_auth = !config.external_auth
+		if ("guest")
+			config.guests_allowed = !config.guests_allowed
 		else
 			to_chat(usr, "<span class='danger'>Unknown control message sent. Cancelling.</span>")
 

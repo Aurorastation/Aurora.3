@@ -404,6 +404,7 @@ datum/borrowbook // Datum used to keep track of who has borrowed what when and f
 	name = "scanner"
 	icon = 'icons/obj/library.dmi'
 	icon_state = "bigscanner"
+	var/insert_anim = "bigscanner1"
 	anchored = 1
 	density = 1
 	var/obj/item/weapon/book/cache		// Last scanned book
@@ -434,6 +435,8 @@ datum/borrowbook // Datum used to keep track of who has borrowed what when and f
 		return
 
 	if(href_list["scan"])
+		flick(insert_anim, src)
+		playsound(loc, 'sound/bureaucracy/scan.ogg', 75, 1)
 		for(var/obj/item/weapon/book/B in contents)
 			cache = B
 			break
@@ -462,8 +465,10 @@ datum/borrowbook // Datum used to keep track of who has borrowed what when and f
 		user.drop_from_inventory(O,src)
 		user.visible_message("[user] loads some paper into [src].", "You load some paper into [src].")
 		src.visible_message("[src] begins to hum as it warms up its printing drums.")
+		playsound(src.loc, 'sound/bureaucracy/binder.ogg', 75, 1)
 		sleep(rand(200,400))
 		src.visible_message("[src] whirs as it prints and binds a new book.")
+		playsound(src.loc, 'sound/bureaucracy/print.ogg', 75, 1)
 		var/obj/item/weapon/book/b = new(src.loc)
 		b.dat = O:info
 		b.name = "Print Job #" + "[rand(100, 999)]"

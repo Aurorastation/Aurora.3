@@ -153,7 +153,7 @@ var/list/world_api_rate_limit = list()
 		response["response"] = "Not Implemented"
 		return json_encode(response)
 
-	var/unauthed = api_do_auth_check(addr,auth,command)
+	var/unauthed = command.check_auth(addr, auth)
 	if (unauthed)
 		if (unauthed == 3)
 			log_debug("API: Request denied - Auth Service Unavailable")

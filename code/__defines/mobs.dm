@@ -129,8 +129,8 @@
 #define BASE_MAX_HYDRATION  800
 #define THIRST_FACTOR       0.02 // Factor of how fast mob hydration decreases over time.
 
-#define CREW_MINIMUM_HYDRATION CREW_HYDRATION_SLIGHTLYTHIRSTY	// The minimum amount of nutrition a crewmember will spawn with, represented as a percentage
-#define CREW_MAXIMUM_HYDRATION CREW_HYDRATION_HYDRATED	// Same as above, but maximum.
+#define CREW_MINIMUM_HYDRATION CREW_HYDRATION_HYDRATED	// The minimum amount of nutrition a crewmember will spawn with, represented as a percentage
+#define CREW_MAXIMUM_HYDRATION CREW_HYDRATION_OVERHYDRATED	// Same as above, but maximum.
 
 #define CREW_MINIMUM_NUTRITION CREW_NUTRITION_FULL	// The minimum amount of nutrition a crewmember will spawn with, represented as a percentage.
 #define CREW_MAXIMUM_NUTRITION CREW_NUTRITION_OVEREATEN	// Same as above, but maximum.

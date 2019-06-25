@@ -3,6 +3,9 @@
 	desc = "An individually packed meal, designated to be consumed on field."
 	icon = 'icons/obj/storage.dmi'
 	icon_state = "ration"
+	description_fluff = "The republican army is the best equipped among the warring factions of Adhomai, being supplied by NanoTrasen and other outworld supporters. Canned goods and \
+	modern rations are issued to all branches of the Republic's military. Native field meals are composed of salt-cured Fatshouters's meat, bread and Victory Gin, while imported ones \
+	are commonly found in the form of LiquidFood rations, a less than popular alternative manufactured by NanoTrasen."
 	var/preset_ration	//if the package comes with one in particular, not a random
 
 /obj/item/weapon/storage/field_ration/fill()
@@ -38,6 +41,10 @@
 
 /obj/item/weapon/storage/field_ration/nka
 	icon_state = "bigbox"
+	description_fluff = "The early Alam'ardii forces relied on the landed nobility to provide them food, with the resources being taken from the private properties of their contractors. \
+	Their rations were composed mainly of salt-cured Snow Strider's meat, Blizzard Ears's flour and Fatshouters's milk. The defection of many officers from the Republican navy to the \
+	imperial side introduced the concept of canned goods, a luxury at the time, being used as rations. Large shipments of supplements, included food, were smuggled by the officers and \
+	their crew during the formation of the Royal Navy."
 
 /obj/item/weapon/storage/field_ration/nka/create_ration()
 	var/selected_ration = preset_ration

@@ -5,6 +5,7 @@
 	icon = 'icons/obj/stock_parts.dmi'
 	w_class = 2.0
 	var/rating = 1
+	drop_sound = 'sound/items/drop/glass.ogg'
 
 /obj/item/weapon/stock_parts/Initialize()
 	. = ..()

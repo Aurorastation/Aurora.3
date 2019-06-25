@@ -5,11 +5,10 @@
 	if(!src.holder)
 		to_chat(src, "Only administrators may use this command.")
 		return
+
 	if(!src.mob)
 		return
-	if(prefs.muted & MUTE_DEADCHAT)
-		to_chat(src, "<span class='danger'>You cannot send DSAY messages (muted).</span>")
-		return
+
 
 	if(!(prefs.toggles & CHAT_DEAD))
 		to_chat(src, "<span class='warning'>You have deadchat muted.</span>")

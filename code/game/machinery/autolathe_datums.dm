@@ -145,6 +145,16 @@
 	path = /obj/item/weapon/material/knife
 	category = "General"
 
+/datum/autolathe/recipe/drinking_glass
+	name = "drinking glass"
+	path = /obj/item/weapon/reagent_containers/food/drinks/drinkingglass
+	category = "General"
+
+/datum/autolathe/recipe/bottle
+	name = "bottle"
+	path = /obj/item/weapon/reagent_containers/food/drinks/bottle
+	category = "General"
+
 /datum/autolathe/recipe/taperecorder
 	name = "tape recorder"
 	path = /obj/item/device/taperecorder
@@ -320,6 +330,58 @@
 	path = /obj/item/device/suit_cooling_unit
 	category = "Engineering"
 
+/datum/autolathe/recipe/emergency_cell
+	name = "miniature cell"
+	path = /obj/item/weapon/cell/device/emergency_light/empty
+	category = "Engineering"
+
+/datum/autolathe/recipe/cable_coil
+	name = "cable coil"
+	path = /obj/item/stack/cable_coil
+	category = "Devices and Components"
+	is_stack = 1
+
+/datum/autolathe/recipe/labeler
+	name = "hand labeler"
+	path = /obj/item/weapon/hand_labeler
+	category = "General"
+
+/datum/autolathe/recipe/destTagger
+	name = "destination tagger"
+	path = /obj/item/device/destTagger
+	category = "General"
+
+/datum/autolathe/recipe/debugger
+	name = "debugger"
+	path = /obj/item/device/debugger
+	category = "Engineering"
+
+// Basic Stock Parts for Engineering
+/datum/autolathe/recipe/micromanip
+	name = "micro-manipulator"
+	path = /obj/item/weapon/stock_parts/manipulator
+	category = "Devices and Components"
+
+/datum/autolathe/recipe/matterbin
+	name = "matter bin"
+	path = /obj/item/weapon/stock_parts/matter_bin
+	category = "Devices and Components"
+
+/datum/autolathe/recipe/capacitor
+	name = "capacitor"
+	path = /obj/item/weapon/stock_parts/capacitor
+	category = "Devices and Components"
+
+/datum/autolathe/recipe/scanningmod
+	name = "scanning module"
+	path = /obj/item/weapon/stock_parts/scanning_module
+	category = "Devices and Components"
+
+/datum/autolathe/recipe/microlaser
+	name = "micro-laser"
+	path = /obj/item/weapon/stock_parts/micro_laser
+	category = "Devices and Components"
+
 /datum/autolathe/recipe/flamethrower
 	name = "flamethrower"
 	path = /obj/item/weapon/flamethrower/full
@@ -451,8 +513,3 @@
 	path = /obj/item/weapon/handcuffs
 	hidden = 1
 	category = "General"
-
-/datum/autolathe/recipe/emergency_cell
-	name = "miniature cell"
-	path = /obj/item/weapon/cell/device/emergency_light/empty
-	category = "Engineering"

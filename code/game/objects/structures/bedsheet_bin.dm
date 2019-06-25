@@ -7,7 +7,7 @@ LINEN BINS
 /obj/item/weapon/bedsheet
 	name = "bedsheet"
 	desc = "A surprisingly soft linen bedsheet."
-	icon = 'icons/obj/items.dmi'
+	icon = 'icons/obj/bedsheets.dmi'
 	icon_state = "sheet"
 	item_state = "bedsheet"
 	layer = 4.0
@@ -15,6 +15,7 @@ LINEN BINS
 	throw_speed = 1
 	throw_range = 2
 	w_class = 2.0
+	drop_sound = 'sound/items/drop/clothing.ogg'
 
 /obj/item/weapon/bedsheet/attack_self(mob/user as mob)
 	user.drop_item()

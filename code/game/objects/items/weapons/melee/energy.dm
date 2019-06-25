@@ -39,7 +39,7 @@
 
 /obj/item/weapon/melee/energy/attack_self(mob/living/user as mob)
 	if (active)
-		if ((CLUMSY in user.mutations) && prob(50))
+		if ((user.is_clumsy()) && prob(50))
 			user.visible_message("<span class='danger'>\The [user] accidentally cuts \himself with \the [src].</span>",\
 			"<span class='danger'>You accidentally cut yourself with \the [src].</span>")
 			user.take_organ_damage(5,5)
@@ -60,7 +60,7 @@
 		user.visible_message("<span class='danger'>\The [user] parries [attack_text] with \the [src]!</span>")
 
 		spark(src, 5)
-		playsound(user.loc, 'sound/weapons/blade1.ogg', 50, 1)
+		playsound(user.loc, 'sound/weapons/blade.ogg', 50, 1)
 		return 1
 	else
 
@@ -76,7 +76,7 @@
 
 			if(prob(base_block_chance))
 				spark(src, 5)
-				playsound(user.loc, 'sound/weapons/blade1.ogg', 50, 1)
+				playsound(user.loc, 'sound/weapons/blade.ogg', 50, 1)
 				shield_power -= round(damage/4)
 
 				if(shield_power <= 0)
