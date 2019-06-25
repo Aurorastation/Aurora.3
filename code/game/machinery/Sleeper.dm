@@ -43,6 +43,7 @@
 			toggle_filter()
 
 /obj/machinery/sleeper/update_icon()
+	flick("[initial(icon_state)]-anim", src)
 	if(occupant)
 		icon_state = "[initial(icon_state)]-closed"
 		return
@@ -246,7 +247,6 @@
 		M.forceMove(src)
 		update_use_power(2)
 		occupant = M
-		flick("[initial(icon_state)]-anim", src)
 		update_icon()
 
 /obj/machinery/sleeper/proc/go_out()
@@ -262,7 +262,6 @@
 			continue
 		A.forceMove(loc)
 	update_use_power(1)
-	flick("[initial(icon_state)]-anim", src)
 	update_icon()
 	toggle_filter()
 
