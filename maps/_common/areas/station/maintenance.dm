@@ -222,8 +222,14 @@
 /area/maintenance/substation/medical // Medbay
 	name = "Main Lvl. Medical Substation"
 
+/area/maintenance/substation/medical_sublevel // Medbay
+	name = "Medical Sublevel - Substation"
+
 /area/maintenance/substation/research // Research
 	name = "Main Lvl. Research Substation"
+
+/area/maintenance/substation/research_sublevel
+	name = "Research Sublevel - Substation"
 
 /area/maintenance/substation/civilian_east // Bar, kitchen, dorms, ...
 	name = "Surface Lvl. Civilian Substation"
