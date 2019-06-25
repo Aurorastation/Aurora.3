@@ -340,11 +340,13 @@ Contains:
 
 /obj/item/stack/medical/splint
 	name = "medical splints"
+	desc = "Modular splints capable of supporting and immobilizing bones in both limbs and appendages."
 	singular_name = "medical splint"
 	icon_state = "splint"
 	amount = 5
 	max_amount = 5
 	drop_sound = 'sound/items/drop/hat.ogg'
+	var/list/splintable_organs = list("l_arm","r_arm","l_leg","r_leg", "l_hand", "r_hand", "r_foot", "l_foot")
 
 /obj/item/stack/medical/splint/attack(mob/living/carbon/M as mob, mob/user as mob)
 	if(..())
@@ -354,7 +356,7 @@ Contains:
 		var/mob/living/carbon/human/H = M
 		var/obj/item/organ/external/affecting = H.get_organ(user.zone_sel.selecting)
 		var/limb = affecting.name
-		if(!(affecting.limb_name in list("l_arm","r_arm","l_leg","r_leg", "l_hand", "r_hand", "r_foot", "l_foot")))
+		if(!(affecting.limb_name in splintable_organs))
 			to_chat(user, "<span class='danger'>You can't apply a splint there!</span>")
 			return
 		if(affecting.status & ORGAN_SPLINTED)
@@ -381,3 +383,10 @@ Contains:
 		return
 
 
+/obj/item/stack/medical/splint/makeshift
+	name = "makeshift splints"
+	singular_name = "makeshift splint"
+	desc = "For holding your limbs in place with duct tape and scrap metal."
+	icon_state = "tape-splint"
+	amount = 1
+	splintable_organs = list("l_arm","r_arm","l_leg","r_leg")
