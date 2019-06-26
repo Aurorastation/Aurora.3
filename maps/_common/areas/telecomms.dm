@@ -11,10 +11,6 @@
 	name = "\improper Telecoms Entrance"
 	icon_state = "tcomsatentrance"
 
-/area/tcommsat/ladder
-	name = "\improper Telecoms Ladder Shaft"
-	icon_state = "tcomsatentrance"
-
 /area/tcommsat/chamber
 	name = "\improper Telecoms Central Compartment"
 	icon_state = "tcomsatcham"

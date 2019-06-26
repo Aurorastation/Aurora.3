@@ -157,6 +157,10 @@
 	name = "Research Maintenance - Port"
 	icon_state = "maint_research_port"
 
+/area/maintenance/telecoms_ladder
+	name = "\improper Telecoms Ladder Shaft"
+	icon_state = "tcomsatentrance"
+
 /area/maintenance/research_xenobiology
 	name = "Research Maintenance - Xenobiology"
 	icon_state = "maint_research_port"
