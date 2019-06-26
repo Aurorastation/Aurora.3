@@ -46,9 +46,11 @@
 		qdel(src)
 		return
 
-	queue_icon_update()
+	update_icon()
+	return
 
-/obj/machinery/atmospherics/pipe/simple/heat_exchanging/machinery_process()
+
+/obj/machinery/atmospherics/pipe/simple/heat_exchanging/process()
 	if(!parent)
 		..()
 	else
@@ -65,20 +67,23 @@
 		else if(istype(loc, /turf/space/))
 			parent.radiate_heat_to_space(surface, 1)
 
-		if(buckled_mob)
-			var/hc = pipe_air.heat_capacity()
-			var/avg_temp = (pipe_air.temperature * hc + buckled_mob.bodytemperature * 3500) / (hc + 3500)
-			pipe_air.temperature = avg_temp
-			buckled_mob.bodytemperature = avg_temp
+		if(has_buckled_mobs())
+			for(var/M in buckled_mobs)
+				var/mob/living/L = M
 
-			var/heat_limit = 1000
+				var/hc = pipe_air.heat_capacity()
+				var/avg_temp = (pipe_air.temperature * hc + L.bodytemperature * 3500) / (hc + 3500)
+				pipe_air.temperature = avg_temp
+				L.bodytemperature = avg_temp
 
-			var/mob/living/carbon/human/H = buckled_mob
-			if(istype(H) && H.species)
-				heat_limit = H.species.heat_level_3
+				var/heat_limit = 1000
 
-			if(pipe_air.temperature > heat_limit + 1)
-				buckled_mob.apply_damage(4 * log(pipe_air.temperature - heat_limit), BURN, "chest", used_weapon = "Excessive Heat")
+				var/mob/living/carbon/human/H = L
+				if(istype(H) && H.species)
+					heat_limit = H.species.heat_level_3
+
+				if(pipe_air.temperature > heat_limit + 1)
+					L.apply_damage(4 * log(pipe_air.temperature - heat_limit), BURN, "chest", used_weapon = "Excessive Heat")
 
 		//fancy radiation glowing
 		if(pipe_air.temperature && (icon_temperature > 500 || pipe_air.temperature > 500)) //start glowing at 500K
@@ -95,10 +100,9 @@
 					h_g = 64 + (h_g - 64)*scale
 					h_b = 64 + (h_b - 64)*scale
 
-				var/list/animate_targets = get_above_oo() + src
-				for (var/thing in animate_targets)
-					var/atom/movable/AM = thing
-					animate(AM, color = rgb(h_r, h_g, h_b), time = 20, easing = SINE_EASING)
+				animate(src, color = rgb(h_r, h_g, h_b), time = 20, easing = SINE_EASING)
+
+
 
 
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging/junction
@@ -117,16 +121,16 @@
 		if (SOUTH)
 			initialize_directions = NORTH
 			initialize_directions_he = SOUTH
-		if (NORTH)
+		if ( NORTH )
 			initialize_directions = SOUTH
 			initialize_directions_he = NORTH
-		if (EAST)
+		if ( EAST )
 			initialize_directions = WEST
 			initialize_directions_he = EAST
-		if (WEST)
+		if ( WEST )
 			initialize_directions = EAST
 			initialize_directions_he = WEST
-	// BubbleWrap END
+
 
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging/junction/atmos_init()
 	for(var/obj/machinery/atmospherics/target in get_step(src,initialize_directions))
@@ -139,8 +143,9 @@
 			node2 = target
 			break
 
-	if(!node1 && !node2)
+	if(!node1&&!node2)
 		qdel(src)
 		return
 
-	queue_icon_update()
+	update_icon()
+	return

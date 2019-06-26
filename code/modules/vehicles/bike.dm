@@ -128,8 +128,9 @@
 	..()
 
 /obj/vehicle/bike/bullet_act(var/obj/item/projectile/Proj)
-	if(buckled_mob && prob(protection_percent))
-		buckled_mob.bullet_act(Proj)
+	if(has_buckled_mobs() && prob(protection_percent))
+		var/mob/living/L = pick(buckled_mobs)
+		L.bullet_act(Proj)
 		return
 	..()
 

@@ -98,6 +98,7 @@
 	else if(istype(AM, /mob/living))
 		numobjects += 1
 		var/mob/living/L = AM
+		L.update_water()
 		if(!istype(oldloc, /turf/simulated/floor/beach/water))
 			to_chat(L, "<span class='warning'>You get drenched in water from entering \the [src]!</span>")
 		wash(L)

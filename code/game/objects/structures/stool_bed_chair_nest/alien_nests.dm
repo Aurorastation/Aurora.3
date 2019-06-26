@@ -11,7 +11,7 @@
 /obj/structure/bed/nest/update_icon()
 	return
 
-/obj/structure/bed/nest/user_unbuckle_mob(mob/user as mob)
+/obj/structure/bed/nest/user_unbuckle_mob(mob/living/buckled_mob, mob/user)
 	if(buckled_mob)
 		if(buckled_mob.buckled == src)
 			if(buckled_mob != user)
@@ -35,7 +35,7 @@
 						buckled_mob.last_special = world.time
 						buckled_mob.pixel_y = 0
 						buckled_mob.old_y = 0
-						unbuckle_mob()
+						unbuckle_mob(buckled_mob)
 			src.add_fingerprint(user)
 	return
 
@@ -43,7 +43,7 @@
 	if ( !ismob(M) || (get_dist(src, user) > 1) || (M.loc != src.loc) || user.restrained() || usr.stat || M.buckled || istype(user, /mob/living/silicon/pai) )
 		return
 
-	unbuckle_mob()
+	unbuckle_mob(buckled_mobs)
 
 	var/mob/living/carbon/xenos = user
 	var/mob/living/carbon/victim = M
@@ -67,7 +67,7 @@
 	M.update_canmove()
 	M.pixel_y = 6
 	M.old_y = 6
-	src.buckled_mob = M
+	src.buckled_mobs |= M
 	src.add_fingerprint(user)
 	return
 

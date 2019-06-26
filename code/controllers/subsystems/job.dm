@@ -402,7 +402,7 @@
 			H.buckled = W
 			H.update_canmove()
 			W.set_dir(H.dir)
-			W.buckled_mob = H
+			W.buckled_mobs |= H
 			W.add_fingerprint(H)
 
 	to_chat(H, "<B>You are [job.total_positions == 1 ? "the" : "a"] [alt_title ? alt_title : rank].</B>")
@@ -549,7 +549,7 @@
 			H.buckled = W
 			H.update_canmove()
 			W.set_dir(H.dir)
-			W.buckled_mob = H
+			W.buckled_mobs |= H
 			W.add_fingerprint(H)
 
 	//Gives glasses to the vision impaired

@@ -63,10 +63,12 @@
 		else
 			plant.layer = layer + 0.1
 
-	if(buckled_mob)
-		seed.do_sting(buckled_mob,src)
-		if(seed.get_trait(TRAIT_CARNIVOROUS))
-			seed.do_thorns(buckled_mob,src)
+	if(has_buckled_mobs())
+		for(var/A in buckled_mobs)
+			var/mob/living/L = A
+			seed.do_sting(L,src)
+			if(seed.get_trait(TRAIT_CARNIVOROUS))
+				seed.do_thorns(L,src)
 
 	if(world.time >= last_tick+NEIGHBOR_REFRESH_TIME)
 		last_tick = world.time
@@ -90,7 +92,7 @@
 
 	// We shouldn't have spawned if the controller doesn't exist.
 	check_health()
-	if(neighbors.len || health != max_health || buckled_mob || !is_mature())
+	if(neighbors.len || health != max_health || has_buckled_mobs() || !is_mature())
 		SSplants.add_plant(src)
 
 /obj/effect/plant/proc/do_spread(spread_chance, max_spread)

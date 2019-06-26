@@ -135,6 +135,14 @@
 
 	..()
 
+
+/datum/brain_trauma/mild/concussion/on_lose()
+	to_chat(owner, "<span class='notice'>Your head feels alot better!.</span>")
+	owner.dizziness = 0
+	owner.confused = 0
+	owner.slurring = 0
+	..()
+
 /datum/brain_trauma/mild/muscle_weakness
 	name = "Muscle Weakness"
 	desc = "Patient experiences occasional bouts of muscle weakness."

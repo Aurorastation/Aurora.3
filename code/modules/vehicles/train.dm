@@ -100,7 +100,7 @@
 	if(istype(C,/obj/vehicle/train))
 		latch(C, user)
 	else
-		if(!load(C))
+		if(!load(C, user))
 			to_chat(user, "<span class='warning'>You were unable to load [C] on [src].</span>")
 
 /obj/vehicle/train/attack_hand(mob/user as mob)
@@ -112,7 +112,7 @@
 	else if(load)
 		unload(user)			//unload if loaded
 	else if(!load && !user.buckled)
-		load(user)				//else try climbing on board
+		load(user, user)				//else try climbing on board
 	else
 		return 0
 

@@ -10,16 +10,20 @@
 	var/bloodiness
 
 /obj/structure/bed/chair/wheelchair/update_icon()
-	cut_overlays()
-	add_overlay(image(icon = 'icons/obj/furniture.dmi', icon_state = "w_overlay", layer = FLY_LAYER))
+	return
 
 /obj/structure/bed/chair/wheelchair/set_dir()
-	. = ..()
-	if(buckled_mob)
-		buckled_mob.set_dir(dir)
+	..()
+	overlays = null
+	var/image/O = image(icon = 'icons/obj/furniture.dmi', icon_state = "w_overlay", layer = FLY_LAYER, dir = src.dir)
+	overlays += O
+	if(has_buckled_mobs())
+		for(var/A in buckled_mobs)
+			var/mob/living/L = A
+			L.set_dir(dir)
 
 /obj/structure/bed/chair/wheelchair/attackby(obj/item/weapon/W as obj, mob/user as mob)
-	if(W.iswrench() || istype(W,/obj/item/stack) || W.iswirecutter())
+	if(istype(W, /obj/item/weapon/wrench) || istype(W,/obj/item/stack) || istype(W, /obj/item/weapon/wirecutters))
 		return
 	..()
 
@@ -29,9 +33,9 @@
 		if(user==pulling)
 			pulling = null
 			user.pulledby = null
-			to_chat(user, "<span class='warning'>You lost your grip!</span>")
+			user << "<span class='warning'>You lost your grip!</span>"
 		return
-	if(buckled_mob && pulling && user == buckled_mob)
+	if(has_buckled_mobs() && pulling && user in buckled_mobs)
 		if(pulling.stat || pulling.stunned || pulling.weakened || pulling.paralysis || pulling.lying || pulling.restrained())
 			pulling.pulledby = null
 			pulling = null
@@ -47,20 +51,22 @@
 		if(user==pulling)
 			return
 	if(pulling && (get_dir(src.loc, pulling.loc) == direction))
-		to_chat(user, "<span class='warning'>You cannot go there.</span>")
+		user << "<span class='warning'>You cannot go there.</span>"
 		return
-	if(pulling && buckled_mob && (buckled_mob == user))
-		to_chat(user, "<span class='warning'>You cannot drive while being pushed.</span>")
+	if(pulling && has_buckled_mobs() && (user in buckled_mobs))
+		user << "<span class='warning'>You cannot drive while being pushed.</span>"
 		return
 
 	// Let's roll
 	driving = 1
 	var/turf/T = null
 	//--1---Move occupant---1--//
-	if(buckled_mob)
-		buckled_mob.buckled = null
-		step(buckled_mob, direction)
-		buckled_mob.buckled = src
+	if(has_buckled_mobs())
+		for(var/A in buckled_mobs)
+			var/mob/living/L = A
+			L.buckled = null
+			step(L, direction)
+			L.buckled = src
 	//--2----Move driver----2--//
 	if(pulling)
 		T = pulling.loc
@@ -68,8 +74,9 @@
 			step(pulling, get_dir(pulling.loc, src.loc))
 	//--3--Move wheelchair--3--//
 	step(src, direction)
-	if(buckled_mob) // Make sure it stays beneath the occupant
-		Move(buckled_mob.loc)
+	if(has_buckled_mobs()) // Make sure it stays beneath the occupant
+		var/mob/living/L = buckled_mobs[1]
+		Move(L.loc)
 	set_dir(direction)
 	if(pulling) // Driver
 		if(pulling.loc == src.loc) // We moved onto the wheelchair? Revert!
@@ -85,41 +92,43 @@
 	driving = 0
 
 /obj/structure/bed/chair/wheelchair/Move()
-	. = ..()
-	playsound(src, 'sound/effects/roll.ogg', 75, 1)
-	if(buckled_mob)
-		var/mob/living/occupant = buckled_mob
-		if(!driving)
-			occupant.buckled = null
-			occupant.Move(src.loc)
-			occupant.buckled = src
-			if (occupant && (src.loc != occupant.loc))
-				if (propelled)
-					for (var/mob/O in src.loc)
-						if (O != occupant)
-							Collide(O)
-				else
-					unbuckle_mob()
-			if (pulling && (get_dist(src, pulling) > 1))
-				pulling.pulledby = null
-				to_chat(pulling, "<span class='warning'>You lost your grip!</span>")
-				pulling = null
-		else
-			if (occupant && (src.loc != occupant.loc))
-				src.forceMove(occupant.loc) // Failsafe to make sure the wheelchair stays beneath the occupant after driving
+	..()
+	if(has_buckled_mobs())
+		for(var/A in buckled_mobs)
+			var/mob/living/occupant = A
+			if(!driving)
+				occupant.buckled = null
+				occupant.Move(src.loc)
+				occupant.buckled = src
+				if (occupant && (src.loc != occupant.loc))
+					if (propelled)
+						for (var/mob/O in src.loc)
+							if (O != occupant)
+								Bump(O)
+					else
+						unbuckle_mob()
+				if (pulling && (get_dist(src, pulling) > 1))
+					pulling.pulledby = null
+					pulling << "<span class='warning'>You lost your grip!</span>"
+					pulling = null
+			else
+				if (occupant && (src.loc != occupant.loc))
+					src.forceMove(occupant.loc) // Failsafe to make sure the wheelchair stays beneath the occupant after driving
 
 /obj/structure/bed/chair/wheelchair/attack_hand(mob/living/user as mob)
 	if (pulling)
 		MouseDrop(usr)
 	else
-		user_unbuckle_mob(user)
+		if(has_buckled_mobs())
+			for(var/A in buckled_mobs)
+				user_unbuckle_mob(A, user)
 	return
 
 /obj/structure/bed/chair/wheelchair/CtrlClick(var/mob/user)
 	if(in_range(src, user))
 		if(!ishuman(user))	return
-		if(user == buckled_mob)
-			to_chat(user, "<span class='warning'>You realize you are unable to push the wheelchair you sit in.</span>")
+		if(has_buckled_mobs() && user in buckled_mobs)
+			user << "<span class='warning'>You realize you are unable to push the wheelchair you sit in.</span>"
 			return
 		if(!pulling)
 			pulling = user
@@ -127,17 +136,16 @@
 			if(user.pulling)
 				user.stop_pulling()
 			user.set_dir(get_dir(user, src))
-			to_chat(user, "You grip \the [name]'s handles.")
+			user << "You grip \the [name]'s handles."
 		else
-			to_chat(usr, "You let go of \the [name]'s handles.")
+			usr << "You let go of \the [name]'s handles."
 			pulling.pulledby = null
 			pulling = null
 		return
 
 /obj/structure/bed/chair/wheelchair/Collide(atom/A)
-	. = ..()
-	if(!buckled_mob)
-		return
+	..()
+	if(!has_buckled_mobs())	return
 
 	if(propelled || (pulling && (pulling.a_intent == I_HURT)))
 		var/mob/living/occupant = unbuckle_mob()
@@ -191,3 +199,31 @@
 		pulling = null
 		usr.pulledby = null
 	..()
+
+/obj/item/wheelchair
+	name = "wheelchair"
+	desc = "A folded wheelchair that can be carried around."
+	icon = 'icons/obj/furniture.dmi'
+	icon_state = "wheelchair_folded"
+	item_state = "wheelchair"
+	w_class = ITEMSIZE_HUGE // Can't be put in backpacks. Oh well.
+
+/obj/item/wheelchair/attack_self(mob/user)
+		var/obj/structure/bed/chair/wheelchair/R = new /obj/structure/bed/chair/wheelchair(user.loc)
+		R.add_fingerprint(user)
+		R.name = src.name
+		R.color = src.color
+		qdel(src)
+
+/obj/structure/bed/chair/wheelchair/MouseDrop(over_object, src_location, over_location)
+	..()
+	if((over_object == usr && (in_range(src, usr) || usr.contents.Find(src))))
+		if(!ishuman(usr))	return
+		if(has_buckled_mobs())	return 0
+		visible_message("[usr] collapses \the [src.name].")
+		var/obj/item/wheelchair/R = new/obj/item/wheelchair(get_turf(src))
+		R.name = src.name
+		R.color = src.color
+		spawn(0)
+			qdel(src)
+		return

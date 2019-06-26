@@ -62,12 +62,14 @@
 	var/datum/powernet/PN = C.powernet
 	flick("echair1", src)
 	spark(src, 12, alldirs)
-	if(buckled_mob && istype(C))
-		if(electrocute_mob(buckled_mob, C, src, 1.25, "head"))
-			to_chat(buckled_mob, "<span class='danger'>You feel a deep shock course through your body!</span>")
+	if(has_buckled_mobs())
+		for(var/a in buckled_mobs)
+			var/mob/living/L = a
+			L.burn_skin(85)
+			to_chat(L, "<span class='danger'>You feel a deep shock course through your body!</span>")
 			sleep(1)
-			if(electrocute_mob(buckled_mob, C, src, 1.25, "head"))
-				buckled_mob.Stun(PN.get_electrocute_damage()*10)
+			if(electrocute_mob(buckled_mobs, C, src, 1.25, "head"))
+				buckled_mobs.Stun(PN.get_electrocute_damage()*10)
 	visible_message("<span class='danger'>The electric chair goes off!</span>", "<span class='danger'>You hear an electrical discharge!</span>")
 
 	return

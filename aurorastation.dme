@@ -236,6 +236,7 @@
 #include "code\datums\modules.dm"
 #include "code\datums\position_point_vector.dm"
 #include "code\datums\progressbar.dm"
+#include "code\datums\riding.dm"
 #include "code\datums\server_greeting.dm"
 #include "code\datums\statistic.dm"
 #include "code\datums\weakref.dm"

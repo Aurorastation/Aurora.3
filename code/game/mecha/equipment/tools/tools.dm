@@ -64,7 +64,7 @@
 						O.anchored = initial(O.anchored)
 						return
 
-		if(O.buckled_mob)
+		if(O.has_buckled_mobs())
 			return
 		if(locate(/mob/living) in O)
 			occupant_message("<span class='warning'>You can't load living things into the cargo compartment.</span>")

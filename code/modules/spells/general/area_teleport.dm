@@ -57,7 +57,7 @@
 
 	if(user && user.buckled)
 		var/obj/structure/bed/B = user.buckled
-		if(B && B.buckled_mob)
+		if(B && B.buckled_mobs)
 			B.user_unbuckle_mob(user)
 		user.buckled = null
 

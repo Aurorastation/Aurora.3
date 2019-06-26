@@ -692,7 +692,7 @@ default behaviour is:
 
 /mob/living/proc/escape_buckle()
 	if(buckled)
-		buckled.user_unbuckle_mob(src)
+		buckled.user_unbuckle_mob(src, src)
 
 /mob/living/var/last_resist
 
@@ -838,3 +838,6 @@ default behaviour is:
 	QDEL_NULL(ingested)
 
 	return ..()
+
+/mob/living/proc/update_water()
+	return

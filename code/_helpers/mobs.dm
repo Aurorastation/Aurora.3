@@ -9,7 +9,7 @@
 	return occupant
 
 /obj/vehicle/train/get_mob()
-	return buckled_mob
+	return buckled_mobs
 
 /mob/get_mob()
 	return src

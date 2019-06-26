@@ -130,6 +130,11 @@ var/list/slot_equipment_priority = list( \
 	if(hand)	return r_hand
 	else		return l_hand
 
+// Override for your specific mob's hands or lack thereof.
+/mob/proc/is_holding_item_of_type(typepath)
+	return FALSE
+
+
 //Puts the item into your l_hand if possible and calls all necessary triggers/updates. returns 1 on success.
 /mob/proc/put_in_l_hand(var/obj/item/W)
 	if(lying || !istype(W))

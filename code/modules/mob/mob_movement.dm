@@ -168,6 +168,14 @@
 		if ((A != src.loc && A && A.z == src.z))
 			src.last_move = get_dir(A, src.loc)
 
+		if(.)
+			Moved(A, direct)
+	return
+
+// Called on a successful Move().
+/atom/movable/proc/Moved(atom/oldloc)
+	return
+
 /client/proc/Move_object(direct)
 	if(mob && mob.control_object)
 		if(mob.control_object.density)

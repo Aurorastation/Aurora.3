@@ -24,6 +24,7 @@
 	melee_damage_lower = 1
 	melee_damage_upper = 5
 	has_udder = TRUE
+	can_reproduce = 1
 
 	butchering_products = list(/obj/item/stack/material/animalhide = 3)
 
@@ -299,3 +300,109 @@
 	name = "emperor penguin"
 	desc = "Emperor of all he surveys."
 
+
+
+// Horse
+/mob/living/simple_animal/hostile/retaliate/horse
+	name = "horse"
+	desc = "It is a very bad idea to spook these."
+	icon_state = "horse_brown"
+	icon_living = "horse_brown"
+	icon_dead = "horse_dead"
+	speak = list("NNNeigh!","neieh?")
+	speak_emote = list("neighs")
+	emote_hear = list("neighs")
+	emote_see = list("shakes its head", "stamps a hoof", "glares around")
+	speak_chance = 1
+	turns_per_move = 5
+	see_in_dark = 6
+	meat_type = /obj/item/weapon/reagent_containers/food/snacks/meat
+	meat_amount = 12
+	mob_size = 6.8
+	response_help  = "pets"
+	response_disarm = "gently headbutts aside"
+	response_harm   = "kicks"
+	faction = "horse"
+	attacktext = "kicked"
+	maxHealth = 80
+	melee_damage_lower = 12
+	var/coat_color
+	melee_damage_upper = 5
+	has_udder = TRUE
+	can_reproduce = 1
+	babytype = /mob/living/simple_animal/hostile/retaliate/horse
+	mount_offset_x = 0
+
+	butchering_products = list(/obj/item/stack/material/animalhide = 3)
+
+
+/mob/living/simple_animal/hostile/retaliate/horse/Initialize()
+	. = ..()
+	if(!riding_datum)
+		riding_datum = new /datum/riding/simple_animal(src)
+	verbs |= /mob/living/simple_animal/proc/animal_mount
+
+	nutrition = rand(max_nutrition*0.25, max_nutrition*0.75)
+
+	if(name == initial(name))
+		name = "[name] ([rand(1, 1000)])"
+	real_name = name
+
+/mob/living/simple_animal/hostile/retaliate/horse/beg(var/atom/thing, var/atom/holder)
+	if (nutrition < max_nutrition *0.5) // Hungry horses are a bitch
+		var/mob/living/carbon/human/M = holder
+		var/obj/I = M.get_active_hand()
+		visible_emote("push insistently at [holder]'s chest and reaches towards their [thing], knocking them over.",0)
+		M.drop_from_inventory(I,src)
+		M.Weaken(3)
+		M.apply_damage(3, HALLOSS)
+
+/mob/living/simple_animal/hostile/retaliate/horse/Life()
+	. = ..()
+	if(.)
+		if(locate(/obj/effect/plant) in loc)
+			var/obj/effect/plant/SV = locate() in loc
+			SV.die_off(1)
+
+		if(locate(/obj/machinery/portable_atmospherics/hydroponics/soil/invisible) in loc)
+			var/obj/machinery/portable_atmospherics/hydroponics/soil/invisible/SP = locate() in loc
+			qdel(SP)
+
+
+
+/mob/living/simple_animal/hostile/retaliate/horse/think()
+	..()
+	//chance to go crazy and start wacking stuff
+	if(!enemies.len && prob(1))
+		Retaliate()
+
+	if(enemies.len && prob(10))
+		enemies = list()
+		LoseTarget()
+		src.visible_message("<span class='notice'>[src] calms down.</span>")
+
+	if(!pulledby)
+		var/obj/effect/plant/food = locate(/obj/effect/plant) in oview(5,loc)
+		if(food)
+			var/step = get_step_to(src, food, 0)
+			Move(step)
+
+/mob/living/simple_animal/hostile/retaliate/horse/Retaliate()
+	..()
+	if(stat == CONSCIOUS)
+		visible_message("<span class='warning'>[src] puts their ears back.</span>")
+
+/mob/living/simple_animal/hostile/retaliate/horse/Move()
+	..()
+	if(!stat)
+		for(var/obj/effect/plant/SV in loc)
+			SV.die_off(1)
+
+/mob/living/simple_animal/horse/Login()
+	. = ..()
+	if(!riding_datum)
+		riding_datum = new /datum/riding/simple_animal(src)
+	verbs |= /mob/living/simple_animal/proc/animal_mount
+
+/mob/living/simple_animal/horse/MouseDrop_T(mob/living/M, mob/living/user)
+	return 

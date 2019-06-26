@@ -35,6 +35,7 @@
 	var/response_disarm = "tries to disarm"
 	var/response_harm   = "hurts"
 	var/harm_intent_damage = 5
+	var/can_reproduce = 0
 
 	//Temperature effect
 	var/minbodytemp = 250
@@ -107,8 +108,15 @@
 	var/has_udder = FALSE
 	var/datum/reagents/udder = null
 	var/milk_type = "milk"
+	var/preg_timer = FALSE
+	var/pregnant = 0
+	var/babytype
 
 	var/list/butchering_products	//if anything else is created when butchering this creature, like bones and leather
+
+	var/mount_offset_x = 5				// Horizontal riding offset.
+	var/mount_offset_y = 8
+	var/datum/riding/riding_datum = null
 
 /mob/living/simple_animal/proc/beg(var/atom/thing, var/atom/holder)
 	visible_emote("gazes longingly at [holder]'s [thing]",0)
@@ -150,6 +158,8 @@
 	if(has_udder)
 		udder = new(50)
 		udder.my_atom = src
+
+	gender = pick(MALE, FEMALE)
 
 /mob/living/simple_animal/Move(NewLoc, direct)
 	. = ..()
@@ -254,8 +264,41 @@
 		if(stat == CONSCIOUS)
 			if(udder && prob(5))
 				udder.add_reagent(milk_type, rand(5, 10))
+	if(can_reproduce)
+		for(var/mob/living/simple_animal/BA in range(1,src))
+			if(BA.gender == FEMALE && src.gender == MALE)
+				if(BA.pregnant || (BA.stat == DEAD || (!babytype)))
+					return //Safety check so they dont keep getting knocked up or so they dont commit necrophelia
+				if(prob(62))
+					src.visible_message("<span class='notice'>\icon[src] nuzzles [BA] softly.</span>")
+					BA.impregnate()
+					BA.pregnant = 1
 
 	return 1
+
+/mob/living/simple_animal/proc/impregnate()
+
+	if(pregnant && !preg_timer)
+		addtimer(CALLBACK(src, .proc/have_baby), rand(200, 200))
+		preg_timer = TRUE
+
+
+/mob/living/simple_animal/proc/have_baby()
+
+	if(pregnant == 1)
+		if (!nutrition)
+			src.visible_message("<span class='danger'>The [src]'s offspring was stillborn</span>")
+			var/mob/living/simple_animal/OS = new babytype(src.loc)
+			OS.stat = 2
+		else if (nutrition < max_nutrition *0.5)
+			src.visible_message("<span class='notice'>The [src] gives birth to a baby!.</span>")
+			new babytype(get_turf(src))
+		else if ((reagents.total_volume > 0 && nutrition > max_nutrition *0.75) || nutrition > max_nutrition *0.9)
+			src.visible_message("<span class='notice'>Wow! The [src] gives birth to multiple offspring!.</span>")
+			new babytype(get_turf(src))
+		preg_timer = FALSE
+		pregnant = 0
+
 
 /mob/living/simple_animal/think()
 	..()
@@ -746,3 +789,107 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 		return TRUE
 	else
 		return FALSE
+
+/obj/item/weapon/material/twohanded/fluff/riding_crop
+	name = "riding crop"
+	desc = "A steel rod, a little over a foot long with a widened grip and a thick, leather patch at the end. Made to get horses into gear."
+	force_divisor = 0.05 //Required in order for the X attacks Y message to pop up.
+	unwielded_force_divisor = 1 // One here, too.
+	applies_material_colour = 0
+	unbreakable = 1
+	icon = 'icons/obj/items.dmi'
+	base_icon = "riding_crop"
+	icon_state = "riding_crop0"
+	attack_verb = list("cropped","spanked","swatted","smacked","peppered")
+
+
+
+
+// Riding for simple mobs
+/datum/riding/simple_animal
+	keytype = /obj/item/weapon/material/twohanded/fluff/riding_crop // Crack!
+	nonhuman_key_exemption = FALSE	// If true, nonhumans who can't hold keys don't need them, like borgs and simplemobs.
+	key_name = "a riding crop"		// What the 'keys' for the thing being rided on would be called.
+	only_one_driver = TRUE			// If true, only the person in 'front' (first on list of riding mobs) can drive.
+
+/datum/riding/simple_animal/handle_vehicle_layer()
+	ridden.layer = initial(ridden.layer)
+
+/datum/riding/simple_animal/ride_check(mob/living/M)
+	var/mob/living/L = ridden
+	if(L.stat)
+		force_dismount(M)
+		return FALSE
+	return TRUE
+
+/datum/riding/simple_animal/force_dismount(mob/M)
+	. =..()
+	ridden.visible_message("<span class='notice'>[M] stops riding [ridden]!</span>")
+
+/datum/riding/simple_animal/get_offsets(pass_index) // list(dir = x, y, layer)
+	var/mob/living/simple_animal/L = ridden
+	var/scale = L.size_multiplier
+
+	var/list/values = list(
+		"[NORTH]" = list(0, L.mount_offset_y*scale, ABOVE_MOB_LAYER),
+		"[SOUTH]" = list(0, L.mount_offset_y*scale, BELOW_MOB_LAYER),
+		"[EAST]" = list(-L.mount_offset_x*scale, L.mount_offset_y*scale, ABOVE_MOB_LAYER),
+		"[WEST]" = list(L.mount_offset_x*scale, L.mount_offset_y*scale, ABOVE_MOB_LAYER))
+
+	return values
+
+/mob/living/simple_animal/buckle_mob(mob/living/M, forced = FALSE, check_loc = TRUE)
+	if(forced)
+		return ..() // Skip our checks
+	if(!riding_datum)
+		return FALSE
+	if(lying)
+		return FALSE
+	if(!ishuman(M))
+		return FALSE
+	if(M in buckled_mobs)
+		return FALSE
+	if(M.size_multiplier > size_multiplier * 1.2)
+		to_chat(src,"<span class='warning'>This isn't a pony show! You need to be bigger for them to ride.</span>")
+		return FALSE
+
+	var/mob/living/carbon/human/H = M
+
+	if(H.loc != src.loc)
+		if(H.Adjacent(src))
+			H.forceMove(get_turf(src))
+
+	. = ..()
+	if(.)
+		buckled_mobs[H] = "riding"
+
+/mob/living/simple_animal/attack_hand(mob/user as mob)
+	if(riding_datum && LAZYLEN(buckled_mobs))
+		//We're getting off!
+		if(user in buckled_mobs)
+			riding_datum.force_dismount(user)
+		//We're kicking everyone off!
+		if(user == src)
+			for(var/rider in buckled_mobs)
+				riding_datum.force_dismount(rider)
+	else
+		. = ..()
+
+/mob/living/simple_animal/proc/animal_mount(var/mob/living/M in range (src,1))
+	set name = "Animal Mount/Dismount"
+	set category = "Abilities"
+	set desc = "Let people ride on you."
+
+	if(LAZYLEN(buckled_mobs))
+		for(var/rider in buckled_mobs)
+			riding_datum.force_dismount(rider)
+		return
+	if (stat != CONSCIOUS)
+		return
+	if(!can_buckle || !istype(M) || !M.Adjacent(src) || M.buckled)
+		return
+	if(buckle_mob(M))
+		visible_message("<span class='notice'>[M] starts riding [name]!</span>")
+
+
+

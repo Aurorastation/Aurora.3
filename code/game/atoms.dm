@@ -90,6 +90,14 @@
 	P.on_hit(src, 0, def_zone)
 	. = 0
 
+/atom/proc/atom_has_gravity(turf/T)
+	if(!T || !isturf(T))
+		return FALSE
+	var/area/A = get_area(T)
+	if(A && A.has_gravity())
+		return TRUE
+	return FALSE
+
 /atom/proc/in_contents_of(container)//can take class or object instance as argument
 	if(ispath(container))
 		if(istype(src.loc, container))
