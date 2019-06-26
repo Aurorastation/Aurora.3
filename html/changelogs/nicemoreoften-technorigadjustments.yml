@@ -1,0 +1,7 @@
+
+author: nicemoreoften
+
+delete-after: True
+
+changes: 
+  - tweak: "Removed the X-ray gun and energy net fabricator from the techno-conglomerate RIG by default and created a new equipped version of the RIG with those modules still in place."
