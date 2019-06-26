@@ -59,7 +59,7 @@
 	icon_state = "entry_3"
 
 /area/hallway/secondary/entry/central
-	name = "\improper Surface - Central Hallway"
+	name = "\improper Surface Lvl. Hallway Central"
 	icon_state = "entry_3"
 
 /area/hallway/secondary/entry/aft
