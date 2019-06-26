@@ -93,6 +93,9 @@
 	name = "Cargo Maintenance"
 	icon_state = "maint_cargo"
 
+/area/maintenance/cargo/surface
+	name = "Cargo Maintenance - Surface"
+
 /area/maintenance/disposal
 	name = "Waste Disposal"
 	icon_state = "disposal"

@@ -90,7 +90,7 @@
 	sound_env = SMALL_ENCLOSED
 
 /area/crew_quarters/fitness
-	name = "\improper Surface - Fitness Room"
+	name = "\improper Surface - Fitness Center"
 	icon_state = "fitness"
 	allow_nightmode = 1
 
