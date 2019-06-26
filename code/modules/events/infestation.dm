@@ -1,4 +1,4 @@
-#define INFESTATION_MICE "mice"
+#define INFESTATION_MICE "rats"
 #define INFESTATION_LIZARDS "lizards"
 #define INFESTATION_SPACE_BATS "space bats"
 #define INFESTATION_SPIDERLINGS "spiderlings"
@@ -68,7 +68,7 @@
 			for(var/i = 1, i < rand(6,8),i++)
 				chosen_mob_types += /mob/living/simple_animal/lizard
 		if(INFESTATION_MICE)
-			event_name = "Mouse Nest"
+			event_name = "Rat Nest"
 			chosen_verb = "have been breeding in"
 			var/list/rat_breeds = list(
 				/mob/living/simple_animal/mouse/gray = 4,

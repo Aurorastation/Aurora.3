@@ -182,7 +182,7 @@
 
 
 /mob/living/simple_animal/mouse/familiar
-	name = "ancient mouse"
+	name = "ancient rat"
 	desc = "A small rodent. It looks very old."
 	body_color = "gray"
 

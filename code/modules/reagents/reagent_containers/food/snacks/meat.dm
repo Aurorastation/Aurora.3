@@ -98,7 +98,7 @@
 	people. In the olden days, carved nav'twir antlers were used as decoration for pelts and armors."
 
 /obj/item/weapon/reagent_containers/food/snacks/meat/mice
-	name = "mice meat"
+	name = "rat meat"
 	icon_state = "chickenbreast"
 	desc = "You have reached the epitome of poorness: eating the station's vermin."
 

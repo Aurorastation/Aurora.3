@@ -1208,8 +1208,8 @@
 	bitesize = 2
 
 /obj/item/weapon/reagent_containers/food/snacks/burger/mouse
-	name = "mouse burger"
-	desc = "Squeaky and a little furry."
+	name = "rat burger"
+	desc = "Squeaky and a little furry. Do you see any cows around here, Detective?"
 	icon_state = "ratburger"
 	center_of_mass = list("x"=16, "y"=11)
 	bitesize = 2

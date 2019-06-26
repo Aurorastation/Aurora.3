@@ -470,7 +470,7 @@ var/list/holder_mob_icon_cache = list()
 
 //Holders for mice
 /obj/item/weapon/holder/mouse
-	name = "mouse"
+	name = "rat"
 	desc = "It's a fuzzy little critter."
 	desc_dead = "It's filthy vermin, throw it in the trash."
 	icon = 'icons/mob/npc/mouse.dmi'

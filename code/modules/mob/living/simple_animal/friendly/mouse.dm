@@ -1,7 +1,7 @@
 /mob/living/simple_animal/mouse
-	name = "mouse"
-	real_name = "mouse"
-	desc = "It's a small, disgusting rodent, often found being annoying, and aiding in the spread of disease."
+	name = "rat"
+	real_name = "rat"
+	desc = "It's a rather large, long-tailed rodent, often found rooting through tunnels, and aiding in the destruction of the culinary arts."
 
 	icon = 'icons/mob/npc/mouse.dmi'
 	icon_state = "mouse_gray"
@@ -199,7 +199,7 @@
 			squeals --
 			log_say("[key_name(src)] squeals! ",ckey=key_name(src))
 		else
-			to_chat(src, "<span class='warning'>Your hoarse mousey throat can't squeal just now, stop and take a breath!</span>")
+			to_chat(src, "<span class='warning'>Your hoarse rattish throat can't squeal just now, stop and take a breath!</span>")
 
 
 //Wrapper verbs for the squeak functions
