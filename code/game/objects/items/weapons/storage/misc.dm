@@ -3,6 +3,8 @@
 	desc = "It's a small container with dice inside."
 	icon = 'icons/obj/dice.dmi'
 	icon_state = "dicebag"
+	use_sound = "rustle"
+	drop_sound = 'sound/items/drop/hat.ogg'
 
 /obj/item/weapon/storage/pill_bottle/dice/fill()
 	..()

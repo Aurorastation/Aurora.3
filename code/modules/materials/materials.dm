@@ -124,7 +124,6 @@ var/list/name_to_material
 	//What golem species is created with this material
 	var/golem = null
 
-// Placeholders for light tiles and rglass.
 /material/proc/build_rod_product(var/mob/user, var/obj/item/stack/used_stack, var/obj/item/stack/target_stack)
 	if(!rod_product)
 		to_chat(user, "<span class='warning'>You cannot make anything out of \the [target_stack]</span>")
@@ -134,6 +133,7 @@ var/list/name_to_material
 		return
 	used_stack.use(1)
 	target_stack.use(1)
+	to_chat(user, "<span class='notice'>You attach a rod to the [display_name].</span>")
 	var/obj/item/stack/S = new rod_product(get_turf(user))
 	S.add_fingerprint(user)
 	S.add_to_stacks(user)
@@ -148,7 +148,7 @@ var/list/name_to_material
 
 	used_stack.use(5)
 	target_stack.use(1)
-	to_chat(user, "<span class='notice'>You attach wire to the [name].</span>")
+	to_chat(user, "<span class='notice'>You attach wires to the [display_name].</span>")
 	var/obj/item/product = new wire_product(get_turf(user))
 	if(!(user.l_hand && user.r_hand))
 		user.put_in_hands(product)
@@ -457,6 +457,7 @@ var/list/name_to_material
 	destruction_desc = "shatters"
 	window_options = list("One Direction" = 1, "Full Window" = 4)
 	created_window = /obj/structure/window/basic
+	wire_product = /obj/item/stack/material/glass/wired
 	rod_product = /obj/item/stack/material/glass/reinforced
 	golem = "Glass Golem"
 
@@ -531,6 +532,25 @@ var/list/name_to_material
 
 /material/glass/proc/is_reinforced()
 	return (hardness > 35) //todo
+
+/material/glass/wired
+	name = "wired glass"
+	display_name = "wired glass"
+	stack_type = /obj/item/stack/material/glass/wired
+	flags = MATERIAL_BRITTLE
+	icon_colour = "#00E1FF"
+	opacity = 0.3
+	integrity = 100
+	shard_type = SHARD_SHARD
+	tableslam_noise = 'sound/effects/Glasshit.ogg'
+	hardness = 40
+	weight = 30
+	stack_origin_tech = list(TECH_MATERIAL = 2)
+	composite_material = list(DEFAULT_WALL_MATERIAL = 1875,"glass" = 3750)
+	window_options = list()
+	created_window = null
+	wire_product = null
+	rod_product = null
 
 /material/glass/reinforced
 	name = "rglass"
