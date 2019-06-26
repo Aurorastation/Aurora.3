@@ -176,3 +176,25 @@
 
 	min_fine = 50
 	max_fine = 400
+
+/datum/law/low_severity/violation_privacy
+	name = "i117 - Violation of Privacy Laws"
+	desc = "To intentionally leak private aspects of employee records or financial account information to unauthorized personnel."
+	id = "i117"
+
+	min_brig_time = 3
+	max_brig_time = 10
+
+	min_fine = 50
+	max_fine = 550
+
+/datum/law/low_severity/illegal_search
+	name = "i118 - Illegal Search"
+	desc = "To preform a search of an employee or workplace without a search warrant, clearance, or probable cause."
+	id = "i118"
+
+	min_brig_time = 3
+	max_brig_time = 10
+
+	min_fine = 50
+	max_fine = 550
