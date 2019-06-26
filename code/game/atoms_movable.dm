@@ -15,6 +15,7 @@
 	var/mob/pulledby = null
 	var/item_state = null // Base name of the image used for when the item is worn. Suffixes are added to this.
 	//Also used on holdable mobs for the same info related to their held version
+	var/datum/riding/riding_datum //VOREStation Add - Moved from /obj/vehicle
 	var/does_spin = TRUE // Does the atom spin when thrown (of course it does :P)
 
 	var/can_hold_mob = FALSE
@@ -292,3 +293,14 @@
 			bound_overlay.forceMove(get_step(src, UP))
 			if (bound_overlay.dir != dir)
 				bound_overlay.set_dir(dir)
+
+
+/atom/movable/relaymove(mob/user, direction)
+	. = ..()
+	if(riding_datum)
+		riding_datum.handle_ride(user, direction)
+
+/atom/movable/set_dir(newdir)
+	. = ..(newdir)
+	if(riding_datum)
+		riding_datum.handle_vehicle_offsets()

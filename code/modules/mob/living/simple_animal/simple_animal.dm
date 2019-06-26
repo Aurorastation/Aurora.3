@@ -116,8 +116,6 @@
 
 	var/mount_offset_x = 5				// Horizontal riding offset.
 	var/mount_offset_y = 8
-	var/datum/riding/riding_datum = null
-
 /mob/living/simple_animal/proc/beg(var/atom/thing, var/atom/holder)
 	visible_emote("gazes longingly at [holder]'s [thing]",0)
 
