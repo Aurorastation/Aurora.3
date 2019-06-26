@@ -42,3 +42,4 @@ changes:
   - maptweak: "Added atmosphere purge blast doors to the anomaly isolation cells, a monitor to watch the cameras, a storage room for researched artifacts."
   - maptweak: "Added cameras, lightswitches to some areas missing them. Adjusted the merchant shuttle dock slightly, adjusted the toxins chambers to be a bit less prone to melting. Added a mine cart at cargo interstitial."
   - maptweak: "Fixed a number of bugs and tweaked some areas' names to fit better, made the investigations maintenance actually count as maintenance, fixed the psychiatry isolation room monitor."
+  - maptweak: "Added paramedic access to mining."
