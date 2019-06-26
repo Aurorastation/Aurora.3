@@ -18268,6 +18268,9 @@
 	dir = 6
 	},
 /obj/machinery/light,
+/obj/machinery/light_switch{
+	pixel_y = -24
+	},
 /turf/simulated/floor/tiled,
 /area/bridge/levela)
 "Ik" = (
@@ -19063,6 +19066,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
+/obj/machinery/hologram/holopad,
 /turf/simulated/floor/carpet,
 /area/sconference_room)
 "Kt" = (
@@ -19578,6 +19582,13 @@
 /obj/structure/closet/crate/freezer/rations,
 /turf/simulated/floor/plating,
 /area/shuttle/research/station)
+"LQ" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
+/obj/machinery/hologram/holopad,
+/turf/simulated/floor/tiled,
+/area/bridge/levela)
 "LZ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
@@ -20106,6 +20117,10 @@
 /obj/structure/grille,
 /turf/simulated/floor/plating,
 /area/quartermaster/loading)
+"Qj" = (
+/obj/machinery/hologram/holopad,
+/turf/simulated/floor/wood,
+/area/bridge/levela)
 "Qn" = (
 /obj/structure/window/shuttle,
 /obj/structure/grille,
@@ -20384,6 +20399,9 @@
 	dir = 9;
 	pixel_y = 0
 	},
+/obj/machinery/light_switch{
+	pixel_x = 24
+	},
 /turf/simulated/floor/wood,
 /area/bridge/levela)
 "Tg" = (
@@ -20433,8 +20451,21 @@
 	dir = 10
 	},
 /obj/machinery/light,
+/obj/structure/bed/chair{
+	dir = 1
+	},
 /turf/simulated/floor/tiled,
 /area/bridge/levela)
+"Tz" = (
+/obj/effect/floor_decal/corner/brown{
+	icon_state = "corner_white";
+	dir = 4
+	},
+/obj/machinery/light_switch{
+	pixel_x = 24
+	},
+/turf/simulated/floor/tiled,
+/area/quartermaster/loading)
 "TK" = (
 /obj/machinery/door/firedoor,
 /obj/structure/window/reinforced/polarized{
@@ -20618,9 +20649,6 @@
 "Vp" = (
 /obj/structure/bed/chair/office/dark{
 	dir = 4
-	},
-/obj/machinery/light_switch{
-	pixel_y = 24
 	},
 /turf/simulated/floor/wood,
 /area/bridge/levela)
@@ -21133,6 +21161,9 @@
 	name_tag = "Surface Shields Subgrid"
 	},
 /obj/machinery/light,
+/obj/machinery/light_switch{
+	pixel_y = -24
+	},
 /turf/simulated/floor/tiled,
 /area/storage/shields)
 "WE" = (
@@ -21610,6 +21641,16 @@
 	},
 /turf/simulated/floor/plating,
 /area/tcommsat/entrance)
+"YB" = (
+/obj/effect/floor_decal/corner/paleblue{
+	icon_state = "corner_white";
+	dir = 10
+	},
+/obj/structure/bed/chair{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/bridge/levela)
 "YE" = (
 /obj/machinery/door/firedoor,
 /obj/structure/window/reinforced/polarized{
@@ -21698,6 +21739,15 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled,
 /area/bridge/levela)
+"Zu" = (
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/obj/machinery/hologram/holopad,
+/turf/simulated/floor/tiled,
+/area/quartermaster/loading)
 "Zx" = (
 /obj/effect/floor_decal/corner/paleblue{
 	icon_state = "corner_white";
@@ -47109,7 +47159,7 @@ Hf
 Xi
 Xi
 Xi
-NS
+Zu
 Ig
 DW
 ag
@@ -47364,7 +47414,7 @@ Ek
 GS
 Hg
 EG
-Gp
+Tz
 Ek
 NT
 Ih
@@ -65556,7 +65606,7 @@ aa
 aa
 wR
 ye
-Pk
+LQ
 Qo
 wR
 aa
@@ -65814,7 +65864,7 @@ aa
 wf
 ye
 Pk
-Qo
+YB
 wf
 aa
 aa
@@ -65827,7 +65877,7 @@ aa
 rV
 Vp
 VQ
-VQ
+Qj
 OV
 wM
 rV
@@ -69940,7 +69990,7 @@ tm
 tS
 Rp
 wd
-sL
+rV
 xY
 yd
 yd

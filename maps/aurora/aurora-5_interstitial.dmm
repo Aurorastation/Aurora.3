@@ -2761,6 +2761,7 @@
 	icon_state = "corner_white";
 	dir = 10
 	},
+/obj/machinery/hologram/holopad,
 /turf/simulated/floor/tiled,
 /area/security/training)
 "fj" = (
@@ -4166,6 +4167,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
+/obj/machinery/hologram/holopad,
 /turf/simulated/floor/tiled/dark,
 /area/security/training)
 "ht" = (
@@ -4341,6 +4343,9 @@
 "hI" = (
 /obj/structure/table/standard,
 /obj/item/weapon/folder/sec,
+/obj/machinery/light_switch{
+	pixel_y = -26
+	},
 /turf/simulated/floor/tiled/dark,
 /area/security/training)
 "hJ" = (
@@ -5334,6 +5339,9 @@
 /obj/structure/table/wood,
 /obj/item/weapon/reagent_containers/spray/luminol,
 /obj/machinery/light,
+/obj/machinery/light_switch{
+	pixel_y = -26
+	},
 /turf/simulated/floor/tiled,
 /area/security/training)
 "jA" = (
@@ -7619,6 +7627,11 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/medbay_interstitial)
+"tJ" = (
+/obj/effect/floor_decal/corner/beige/diagonal,
+/obj/machinery/hologram/holopad,
+/turf/simulated/floor/tiled/white,
+/area/security/forensics_office)
 "tK" = (
 /obj/machinery/power/sensor{
 	long_range = 1;
@@ -7926,6 +7939,13 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/maintcentral)
+"ys" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/hologram/holopad,
+/turf/simulated/floor/tiled,
+/area/security/training)
 "yD" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
@@ -9915,6 +9935,10 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/medbay_interstitial)
+"Py" = (
+/obj/machinery/hologram/holopad,
+/turf/simulated/floor/tiled,
+/area/security/forensics_office)
 "PA" = (
 /obj/structure/table/standard,
 /obj/effect/floor_decal/corner/lime{
@@ -10078,6 +10102,18 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/upperlevel)
+"QZ" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/hologram/holopad,
+/turf/simulated/floor/tiled,
+/area/security/range)
 "Rf" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -43665,7 +43701,7 @@ aa
 aa
 db
 dg
-dp
+QZ
 dx
 dJ
 dR
@@ -45982,7 +46018,7 @@ dc
 dD
 dN
 dW
-eg
+ys
 ep
 ev
 eE
@@ -48818,12 +48854,12 @@ ab
 ab
 fw
 fR
-gk
+Py
 gB
 gU
 hp
 hD
-hW
+tJ
 ig
 fw
 fw

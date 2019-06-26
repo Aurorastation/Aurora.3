@@ -3944,6 +3944,7 @@
 	icon_state = "tube1";
 	dir = 2
 	},
+/obj/machinery/hologram/holopad,
 /turf/simulated/floor/tiled,
 /area/engineering/atmos)
 "aiI" = (
@@ -14043,6 +14044,7 @@
 /obj/machinery/light{
 	dir = 8
 	},
+/obj/structure/coatrack,
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenoarch_atrium)
 "aBh" = (
@@ -33070,6 +33072,10 @@
 /obj/machinery/atmospherics/pipe/simple/visible/yellow,
 /turf/simulated/floor/tiled,
 /area/rnd/xenoarch_atrium)
+"uZl" = (
+/obj/machinery/hologram/holopad,
+/turf/simulated/floor/tiled/white,
+/area/medical/medbay4)
 "vaI" = (
 /obj/effect/floor_decal/industrial/warning/dust,
 /obj/machinery/light/small/emergency,
@@ -33528,6 +33534,10 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/medical/quarantineaccess)
+"wyB" = (
+/obj/machinery/hologram/holopad,
+/turf/simulated/floor/tiled,
+/area/engineering/atmos)
 "wzY" = (
 /obj/machinery/light,
 /obj/machinery/power/apc{
@@ -56462,7 +56472,7 @@ abh
 abR
 act
 afy
-abo
+wyB
 adD
 abo
 afz
@@ -59032,7 +59042,7 @@ abr
 aca
 acw
 afy
-abo
+wyB
 adD
 abo
 afF
@@ -75055,7 +75065,7 @@ aWE
 aXo
 aXM
 aWD
-aXM
+uZl
 aWD
 aXM
 aZv

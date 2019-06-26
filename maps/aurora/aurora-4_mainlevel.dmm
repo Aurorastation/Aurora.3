@@ -4777,6 +4777,9 @@
 	dir = 10
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/light_switch{
+	pixel_x = 26
+	},
 /turf/simulated/floor/tiled/dark{
 	name = "cooled dark floor";
 	temperature = 278
@@ -7144,6 +7147,7 @@
 /obj/structure/noticeboard{
 	pixel_x = 32
 	},
+/obj/machinery/hologram/holopad,
 /turf/simulated/floor/tiled,
 /area/security/security_office)
 "aof" = (
@@ -11918,6 +11922,7 @@
 	icon_state = "1-4"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/red,
+/obj/machinery/hologram/holopad,
 /turf/simulated/floor/tiled,
 /area/engineering/atmos/monitoring)
 "avS" = (
@@ -12783,6 +12788,7 @@
 	d2 = 4;
 	icon_state = "1-4"
 	},
+/obj/machinery/hologram/holopad,
 /turf/simulated/floor/tiled,
 /area/engineering/engine_monitoring)
 "axl" = (
@@ -21638,6 +21644,7 @@
 	dir = 1;
 	icon_state = "pipe-c"
 	},
+/obj/machinery/hologram/holopad,
 /turf/simulated/floor/tiled,
 /area/security/brig)
 "aLD" = (
@@ -25154,6 +25161,9 @@
 	dir = 1;
 	icon_state = "tube1";
 	pixel_y = 0
+	},
+/obj/machinery/light_switch{
+	pixel_y = 28
 	},
 /turf/simulated/floor/tiled/dark,
 /area/bridge/meeting_room)
@@ -29818,6 +29828,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/hologram/holopad,
 /turf/simulated/floor/tiled,
 /area/janitor)
 "aYX" = (
@@ -31205,7 +31216,11 @@
 "bbA" = (
 /obj/machinery/button/windowtint{
 	id = "CybGlass";
-	pixel_x = 0;
+	pixel_x = 5;
+	pixel_y = 26
+	},
+/obj/machinery/light_switch{
+	pixel_x = -5;
 	pixel_y = 26
 	},
 /turf/simulated/floor/tiled/white,
@@ -32827,6 +32842,7 @@
 	icon_state = "intact-scrubbers";
 	dir = 5
 	},
+/obj/machinery/hologram/holopad,
 /turf/simulated/floor/tiled/dark,
 /area/janitor)
 "bes" = (
@@ -33531,6 +33547,7 @@
 	pixel_x = -22;
 	pixel_y = 0
 	},
+/obj/machinery/hologram/holopad,
 /turf/simulated/floor/wood,
 /area/bridge)
 "bfB" = (
@@ -34144,12 +34161,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/medbreak)
 "bgC" = (
-/obj/structure/sink{
-	dir = 4;
-	icon_state = "sink";
-	pixel_x = 11;
-	pixel_y = 0
-	},
 /obj/item/device/radio/intercom{
 	name = "Station Intercom (General)";
 	pixel_y = -28
@@ -34157,6 +34168,7 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
+/obj/structure/coatrack,
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/medbreak)
 "bgD" = (
@@ -36757,6 +36769,7 @@
 	icon_state = "pipe-c"
 	},
 /obj/effect/floor_decal/industrial/warning,
+/obj/machinery/hologram/holopad,
 /turf/simulated/floor/tiled,
 /area/assembly/robotics)
 "bkL" = (
@@ -39636,13 +39649,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled,
 /area/assembly/robotics)
-"bpg" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1
-	},
-/obj/machinery/hologram/holopad,
-/turf/simulated/floor/tiled,
-/area/assembly/robotics)
 "bph" = (
 /obj/effect/floor_decal/industrial/warning/corner{
 	icon_state = "warningcorner";
@@ -41405,6 +41411,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
+	},
+/obj/machinery/light_switch{
+	pixel_y = -28
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/main_storage)
@@ -43684,6 +43693,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
+/obj/machinery/hologram/holopad,
 /turf/simulated/floor/tiled/dark{
 	name = "cooled dark floor";
 	temperature = 278
@@ -44215,9 +44225,13 @@
 	},
 /obj/machinery/hologram/holopad,
 /obj/machinery/firealarm/east,
+/obj/machinery/light_switch{
+	pixel_x = 24;
+	pixel_y = -24
+	},
 /obj/machinery/light{
 	dir = 4;
-	status = 2
+	icon_state = "tube1"
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/genetics_cloning)
@@ -44928,6 +44942,7 @@
 	d2 = 4;
 	icon_state = "0-4"
 	},
+/obj/machinery/hologram/holopad,
 /turf/simulated/floor/tiled/dark,
 /area/medical/emt)
 "bxz" = (
@@ -45278,14 +45293,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/white,
 /area/medical/genetics_cloning)
-"bya" = (
-/obj/effect/floor_decal/corner/paleblue{
-	icon_state = "corner_white";
-	dir = 6
-	},
-/obj/machinery/computer/med_data,
-/turf/simulated/floor/tiled/white,
-/area/medical/genetics_cloning)
 "byb" = (
 /obj/effect/floor_decal/industrial/outline/blue,
 /obj/structure/morgue{
@@ -45302,11 +45309,15 @@
 	dir = 1;
 	pixel_y = -22
 	},
-/obj/machinery/light,
 /obj/effect/floor_decal/industrial/outline/blue,
 /obj/structure/morgue{
 	icon_state = "morgue1";
 	dir = 1
+	},
+/obj/machinery/light{
+	dir = 2;
+	icon_state = "tube1";
+	pixel_y = 0
 	},
 /turf/simulated/floor/tiled/dark{
 	name = "cooled dark floor";
@@ -46582,10 +46593,10 @@
 	icon_state = "corner_white";
 	dir = 6
 	},
-/obj/structure/closet,
 /obj/machinery/newscaster{
 	pixel_y = -30
 	},
+/obj/machinery/computer/med_data,
 /turf/simulated/floor/tiled/white,
 /area/medical/genetics_cloning)
 "bAv" = (
@@ -46974,14 +46985,15 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/surgeryobs)
 "bBi" = (
-/obj/structure/curtain/open/medical{
-	name = "Operating Room 1"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/effect/floor_decal/corner/paleblue{
 	icon_state = "corner_white";
 	dir = 10
+	},
+/obj/structure/curtain/medical{
+	icon_state = "open";
+	name = "Operating Theatre 1"
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/surgerywing)
@@ -48388,6 +48400,9 @@
 	c_tag = "Medical - Cold Storage";
 	dir = 4
 	},
+/obj/item/weapon/reagent_containers/blood/empty,
+/obj/item/weapon/reagent_containers/blood/empty,
+/obj/item/weapon/reagent_containers/blood/empty,
 /turf/simulated/floor/tiled/freezer{
 	name = "cold storage tiles";
 	temperature = 278
@@ -48836,14 +48851,15 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/surgeryobs)
 "bEN" = (
-/obj/structure/curtain/open/medical{
-	name = "Operating Room 2"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/effect/floor_decal/corner/paleblue{
 	icon_state = "corner_white";
 	dir = 5
+	},
+/obj/structure/curtain/medical{
+	icon_state = "open";
+	name = "Operating Theatre 2"
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/surgerywing)
@@ -49226,6 +49242,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
+/obj/machinery/hologram/holopad,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/sleep/main)
 "bFC" = (
@@ -54987,6 +55004,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/machinery/light_switch{
+	pixel_x = 0;
+	pixel_y = -24
+	},
 /turf/simulated/floor/tiled/freezer{
 	name = "cold storage tiles";
 	temperature = 278
@@ -60104,25 +60125,19 @@
 	},
 /obj/structure/cable/green{
 	d1 = 1;
-	d2 = 4;
-	icon_state = "1-4"
+	d2 = 2;
+	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled,
 /area/quartermaster/mail_room)
 "cbf" = (
-/obj/machinery/power/apc{
-	dir = 1;
-	name = "north bump";
-	pixel_x = 0;
-	pixel_y = 24
-	},
 /obj/effect/floor_decal/corner/brown/full{
 	icon_state = "corner_white_full";
 	dir = 1
 	},
-/obj/structure/cable/green{
-	d2 = 8;
-	icon_state = "0-8"
+/obj/machinery/light_switch{
+	pixel_x = 0;
+	pixel_y = 24
 	},
 /turf/simulated/floor/tiled,
 /area/quartermaster/mail_room)
@@ -60278,6 +60293,11 @@
 /obj/effect/floor_decal/corner/brown{
 	icon_state = "corner_white";
 	dir = 9
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled,
 /area/quartermaster/mail_room)
@@ -60521,6 +60541,11 @@
 	dir = 9
 	},
 /obj/structure/table/rack,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled,
 /area/quartermaster/mail_room)
 "ccd" = (
@@ -60730,6 +60755,11 @@
 	dir = 9
 	},
 /obj/structure/table/rack,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled,
 /area/quartermaster/mail_room)
 "ccC" = (
@@ -61055,6 +61085,11 @@
 	icon_state = "corner_white";
 	dir = 9
 	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled,
 /area/quartermaster/mail_room)
 "cda" = (
@@ -61209,6 +61244,11 @@
 	icon_state = "corner_white";
 	dir = 9
 	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled,
 /area/quartermaster/mail_room)
 "cdv" = (
@@ -61362,6 +61402,12 @@
 /obj/structure/table/standard,
 /obj/item/stack/wrapping_paper,
 /obj/effect/floor_decal/corner/brown/full,
+/obj/machinery/power/apc{
+	dir = 8;
+	name = "west bump";
+	pixel_x = -24
+	},
+/obj/structure/cable/green,
 /turf/simulated/floor/tiled,
 /area/quartermaster/mail_room)
 "cdL" = (
@@ -65443,6 +65489,13 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
+"hSe" = (
+/obj/machinery/mech_recharger,
+/obj/machinery/light_switch{
+	step_x = -24
+	},
+/turf/simulated/floor/tiled/dark,
+/area/assembly/robotics)
 "hSJ" = (
 /obj/structure/window/reinforced{
 	icon_state = "rwindow";
@@ -66366,6 +66419,11 @@
 /obj/effect/decal/remains/mouse,
 /turf/simulated/floor/plating,
 /area/maintenance/civ)
+"mTs" = (
+/obj/effect/floor_decal/corner/paleblue/diagonal,
+/obj/machinery/button/remote,
+/turf/simulated/floor/tiled/white,
+/area/medical/surgerywing)
 "mUs" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
@@ -67753,6 +67811,10 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/medbay)
+"uFu" = (
+/obj/machinery/hologram/holopad,
+/turf/simulated/floor/tiled,
+/area/engineering/engine_smes)
 "uKO" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
@@ -82373,7 +82435,7 @@ aiX
 aia
 anA
 aoE
-apS
+uFu
 are
 anI
 atU
@@ -91659,7 +91721,7 @@ bjO
 bkL
 bmm
 bnL
-bpg
+bmu
 bqs
 brv
 bsC
@@ -92684,7 +92746,7 @@ bfX
 baE
 biD
 hPs
-biD
+hSe
 bmr
 bnP
 bpj
@@ -97876,7 +97938,7 @@ bWM
 bWM
 bYi
 bWa
-bWa
+bXo
 bYZ
 bZt
 kAL
@@ -105802,7 +105864,7 @@ bup
 bvz
 bww
 bxU
-bzk
+mTs
 bzk
 bBj
 bCc
@@ -109656,7 +109718,7 @@ bmW
 buB
 bvG
 bwD
-bya
+bzr
 bzr
 bAu
 bzs
