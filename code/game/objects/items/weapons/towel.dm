@@ -35,7 +35,7 @@
 	color = get_random_colour(1)
 
 /obj/item/weapon/towel/verb/lay_out()
-	set name = "Lay Out towel"
+	set name = "Lay Out Towel"
 	set category = "Object"
 
 	to_chat(usr, "<span class='notice'>You lay out \the [src] flat on the ground.</span>")
