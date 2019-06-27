@@ -73,11 +73,11 @@
 			var/list/rat_breeds = list(
 				/mob/living/simple_animal/rat/gray = 4,
 				/mob/living/simple_animal/rat/brown = 2,
-				/mob/living/simple_animal/rat/white = 3
-				/mob/living/simple_animal/rat/hooded = 1
-				/mob/living/simple_animal/rat/irish = 2
+				/mob/living/simple_animal/rat/white = 3,
+				/mob/living/simple_animal/rat/hooded = 1,
+				/mob/living/simple_animal/rat/irish = 2,
 			)
-			for(var/i = 1, i < rand(6,12),i++)
+			for(var/i = 1, i < rand(8,24),i++)
 				chosen_mob_types += pickweight(rat_breeds)
 		if(INFESTATION_SLIMES)
 			event_name = "Slime Leak"
