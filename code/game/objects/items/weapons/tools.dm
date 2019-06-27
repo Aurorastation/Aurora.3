@@ -369,6 +369,7 @@
 					to_chat(user, "You thought better of yourself.")
 					return
 			if("No")
+				message_admins("[key_name_admin(user)] decided not to welder bomb, most likely they did this on accident ([loc.x],[loc.y],[loc.z]) - <A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[O.x];Y=[O.y];Z=[O.z]'>JMP</a>")
 				tank.armed = 0
 				to_chat(user, "You thought better of yourself.")
 				return
