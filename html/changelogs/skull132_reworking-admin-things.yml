@@ -1,5 +1,0 @@
-author: "Skull132"
-delete-after: True
-
-changes:
-  - tweak: "Edited the join text of heads of staff to no longer require them to adminhelp upon disconnect. This really isn't useful information, believe it or not!"
