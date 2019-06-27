@@ -2,6 +2,8 @@
 	name = "bible"
 	desc = "Apply to head repeatedly."
 	icon_state ="bible"
+	lefthand_file = 'icons/mob/inhands/misc/books_lefthand.dmi'
+	righthand_file = 'icons/mob/inhands/misc/books_righthand.dmi'
 	throw_speed = 1
 	throw_range = 5
 	w_class = 3.0

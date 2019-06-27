@@ -3,6 +3,8 @@
 	name = "mop"
 	icon = 'icons/obj/janitor.dmi'
 	icon_state = "mop"
+	lefthand_file = 'icons/mob/inhands/misc/janitor_lefthand.dmi'
+	righthand_file = 'icons/mob/inhands/misc/janitor_righthand.dmi'
 	force = 3.0
 	throwforce = 10.0
 	throw_speed = 5
@@ -52,3 +54,5 @@
 
 /obj/item/weapon/mop/on_reagent_change()
 	update_icon()
+	update_held_icon()
+

@@ -1,5 +1,6 @@
 /* Toys!
  * Contains:
+ *		Balls
  *		Bike horn
  *		Balloons
  *		Fake telebeacon
@@ -29,13 +30,35 @@
 	drop_sound = 'sound/items/drop/gloves.ogg'
 
 /*
+ * Beach ball
+ */
+
+/obj/item/weapon/beach_ball
+	icon = 'icons/misc/beach.dmi'
+	icon_state = "ball"
+	name = "beach ball"
+	item_state = "beachball"
+	density = 0
+	anchored = 0
+	w_class = 4
+	force = 0.0
+	throwforce = 0.0
+	throw_speed = 1
+	throw_range = 20
+	flags = CONDUCT
+
+	afterattack(atom/target as mob|obj|turf|area, mob/user as mob)
+		user.drop_item()
+		src.throw_at(target, throw_range, throw_speed, user)
+
+/*
  * Bike horn
  */
 
 /obj/item/weapon/bikehorn
 	name = "bike horn"
 	desc = "A horn off of a bicycle."
-	icon = 'icons/obj/items.dmi'
+	icon = 'icons/obj/toy.dmi'
 	icon_state = "bike_horn"
 	item_state = "bike_horn"
 	throwforce = 3
@@ -53,6 +76,13 @@
 		spawn(20)
 			spam_flag = 0
 	return
+
+/obj/item/weapon/bikehorn/rubberducky
+	name = "rubber ducky"
+	desc = "Rubber ducky you're so fine, you make bathtime lots of fuuun. Rubber ducky I'm awfully fooooond of yooooouuuu~"	//thanks doohl
+	icon = 'icons/obj/watercloset.dmi'
+	icon_state = "rubberducky"
+	item_state = "rubberducky"
 
 /*
  * Balloons
@@ -211,10 +241,8 @@
 	icon_state = "crossbow"
 	item_state = "crossbow"
 	drop_sound = 'sound/items/drop/gun.ogg'
-	item_icons = list(//ITEM_ICONS ARE DEPRECATED. USE CONTAINED SPRITES IN FUTURE
-		icon_l_hand = 'icons/mob/items/lefthand_guns.dmi',
-		icon_r_hand = 'icons/mob/items/righthand_guns.dmi'
-		)
+	lefthand_file = 'icons/mob/inhands/weapons/guns_lefthand.dmi'
+	righthand_file = 'icons/mob/inhands/weapons/guns_righthand.dmi'
 	w_class = ITEMSIZE_SMALL
 	attack_verb = list("attacked", "struck", "hit")
 	var/bullets = 5

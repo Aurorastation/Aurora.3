@@ -295,6 +295,8 @@
 	name = "wet floor sign"
 	icon = 'icons/obj/janitor.dmi'
 	icon_state = "caution"
+	lefthand_file = 'icons/mob/inhands/misc/janitor_lefthand.dmi'
+	righthand_file = 'icons/mob/inhands/misc/janitor_righthand.dmi'
 	force = 1.0
 	throwforce = 3.0
 	throw_speed = 1

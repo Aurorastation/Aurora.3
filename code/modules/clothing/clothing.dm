@@ -250,6 +250,8 @@
 // Ears: headsets, earmuffs and tiny objects
 /obj/item/clothing/ears
 	name = "ears"
+	lefthand_file = 'icons/mob/inhands/equipment/ears_lefthand.dmi'
+	righthand_file = 'icons/mob/inhands/equipment/ears_righthand.dmi'
 	w_class = 1.0
 	throwforce = 2
 	slot_flags = SLOT_EARS
@@ -703,10 +705,8 @@
 //Under clothing
 /obj/item/clothing/under
 	icon = 'icons/obj/clothing/uniforms.dmi'
-	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/lefthand_uniforms.dmi',
-		slot_r_hand_str = 'icons/mob/items/righthand_uniforms.dmi'
-		)
+	lefthand_file = 'icons/mob/inhands/equipment/uniforms_lefthand.dmi'
+	righthand_file = 'icons/mob/inhands/equipment/uniforms_righthand.dmi'
 	name = "under"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
 	permeability_coefficient = 0.90

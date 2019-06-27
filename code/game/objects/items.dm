@@ -3,8 +3,8 @@
 	icon = 'icons/obj/items.dmi'
 	w_class = 3.0
 
-	var/lefthand_file = 'icons/mob/inhands/items_lefthand.dmi'
-	var/righthand_file = 'icons/mob/inhands/items_righthand.dmi'
+	var/lefthand_file = 'icons/mob/inhands/lefthand.dmi'
+	var/righthand_file = 'icons/mob/inhands/righthand.dmi'
 
 	//Dimensions of the icon file used when this item is worn, eg: hats.dmi
 	//eg: 32x32 sprite, 64x64 sprite, etc.

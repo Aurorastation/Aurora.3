@@ -12,6 +12,8 @@ BLIND     // can't see anything
 /obj/item/clothing/glasses
 	name = "glasses"
 	icon = 'icons/obj/clothing/glasses.dmi'
+	lefthand_file = 'icons/mob/inhands/equipment/glasses_lefthand.dmi'
+	righthand_file = 'icons/mob/inhands/equipment/glasses_righthand.dmi'
 	w_class = 2.0
 	slot_flags = SLOT_EYES
 	body_parts_covered = EYES
