@@ -160,6 +160,8 @@
 	anchored = 1
 	dir = WEST
 
+	var/base_icon_state = "body_scanner"
+	var/occupied_icon_state = "body_scanner-closed"
 	var/on_store_message = "has entered long-term storage."
 	var/on_store_name = "Cryogenic Oversight"
 	var/on_enter_occupant_message = "You feel cool air surround you. You go numb as your senses turn inward."
@@ -190,17 +192,13 @@
 		/obj/item/weapon/storage/internal
 	)
 
-/obj/machinery/cryopod/update_icon()
-	if (occupant)
-		icon_state = "[initial(icon_state)]-closed"
-	else
-		icon_state = initial(icon_state)
-
 /obj/machinery/cryopod/robot
 	name = "robotic storage unit"
 	desc = "A storage unit for robots."
 	icon = 'icons/obj/robot_storage.dmi'
-	icon_state = "pod_0"
+	icon_state = "pod"
+	base_icon_state = "pod"
+	occupied_icon_state = "pod-closed"
 	on_store_message = "has entered robotic storage."
 	on_store_name = "Robotic Storage Oversight"
 	on_enter_occupant_message = "The storage unit broadcasts a sleep signal to you. Your systems start to shut down, and you enter low-power mode."
@@ -216,7 +214,7 @@
 /obj/machinery/cryopod/Initialize()
 	. = ..()
 
-	update_icon()
+	icon_state = base_icon_state
 	find_control_computer()
 
 /obj/machinery/cryopod/proc/find_control_computer(urgent=0)
@@ -319,7 +317,8 @@
 			else
 				W.forceMove(src.loc)
 
-	update_icon()
+	flick("[initial(icon_state)]-anim", src)
+	icon_state = base_icon_state
 
 	global_announcer.autosay("[occupant.real_name], [occupant.mind.role_alt_title], [on_store_message]", "[on_store_name]")
 	visible_message("<span class='notice'>\The [initial(name)] hums and hisses as it moves [occupant.real_name] into storage.</span>")
@@ -368,7 +367,7 @@
 					M.client.eye = src
 
 			flick("[initial(icon_state)]-anim", src)
-			update_icon()
+			icon_state = occupied_icon_state
 
 			to_chat(M, "<span class='notice'>[on_enter_occupant_message]</span>")
 			to_chat(M, "<span class='notice'><b>If you ghost, log out or close your client now, your character will shortly be permanently removed from the round.</b></span>")
@@ -430,7 +429,7 @@
 			return
 
 		flick("[initial(icon_state)]-anim", src)
-		update_icon()
+		icon_state = occupied_icon_state
 
 		to_chat(L, "<span class='notice'>You feel cool air surround you. You go numb as your senses turn inward.</span>")
 		to_chat(L, "<span class='notice'><b>If you ghost, log out or close your client now, your character will shortly be permanently removed from the round.</b></span>")
@@ -455,7 +454,7 @@
 		return
 
 	flick("[initial(icon_state)]-anim", src)
-	update_icon()
+	icon_state = base_icon_state
 
 	//Eject any items that aren't meant to be in the pod.
 	var/list/items = src.contents
@@ -506,7 +505,7 @@
 		set_occupant(usr)
 
 		flick("[initial(icon_state)]-anim", src)
-		update_icon()
+		icon_state = occupied_icon_state
 
 		to_chat(usr, "<span class='notice'>[on_enter_occupant_message]</span>")
 		to_chat(usr, "<span class='notice'><b>If you ghost, log out or close your client now, your character will shortly be permanently removed from the round.</b></span>")
@@ -530,7 +529,7 @@
 	set_occupant(null)
 
 	flick("[initial(icon_state)]-anim", src)
-	update_icon()
+	icon_state = base_icon_state
 
 	return
 
