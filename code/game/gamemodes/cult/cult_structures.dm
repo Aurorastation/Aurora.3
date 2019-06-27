@@ -427,7 +427,7 @@
 	attackpylon(user, W.force, W)
 
 
-//Mousedrop so that constructs can drag mice out of maintenance to make turrets
+//Mousedrop so that constructs can drag rats out of maintenance to make turrets
 /obj/structure/cult/pylon/MouseDrop_T(var/atom/movable/C, mob/user)
 	if (istype(C, /mob/living))
 		present_sacrifice(user, C)

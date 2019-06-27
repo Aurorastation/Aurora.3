@@ -145,7 +145,7 @@
 	time_to_escape = 3 // Minutes
 	var/breakout = FALSE
 	var/last_shake = 0
-	var/list/allowed_mobs = list(/mob/living/simple_animal/mouse, /mob/living/simple_animal/chick, /mob/living/simple_animal/lizard)
+	var/list/allowed_mobs = list(/mob/living/simple_animal/rat, /mob/living/simple_animal/chick, /mob/living/simple_animal/lizard)
 	var/release_time = 0
 	var/list/resources = list(rods = 6)
 	var/spider = TRUE

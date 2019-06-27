@@ -71,9 +71,11 @@
 			event_name = "Rat Nest"
 			chosen_verb = "have been breeding in"
 			var/list/rat_breeds = list(
-				/mob/living/simple_animal/mouse/gray = 4,
-				/mob/living/simple_animal/mouse/brown = 2,
-				/mob/living/simple_animal/mouse/white = 1
+				/mob/living/simple_animal/rat/gray = 4,
+				/mob/living/simple_animal/rat/brown = 2,
+				/mob/living/simple_animal/rat/white = 3
+				/mob/living/simple_animal/rat/hooded = 1
+				/mob/living/simple_animal/rat/irish = 2
 			)
 			for(var/i = 1, i < rand(6,12),i++)
 				chosen_mob_types += pickweight(rat_breeds)

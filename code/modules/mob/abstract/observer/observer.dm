@@ -472,11 +472,11 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 
 
 	//find a viable mouse candidate
-	var/mob/living/simple_animal/mouse/host
+	var/mob/living/simple_animal/rat/host
 	var/obj/machinery/atmospherics/unary/vent_pump/spawnpoint = find_mouse_spawnpoint(T.z)
 
 	if (spawnpoint)
-		host = new /mob/living/simple_animal/mouse(spawnpoint.loc)
+		host = new /mob/living/simple_animal/rat(spawnpoint.loc)
 	else
 		to_chat(src, "<span class='warning'>Unable to find any safe, unwelded vents to spawn rats at. The station must be quite a mess!  Trying again might work, if you think there's still a safe place. </span>")
 
@@ -485,10 +485,10 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 			host.universal_understand = 0
 		announce_ghost_joinleave(src, 0, "They are now a rat.")
 		host.ckey = src.ckey
-		to_chat(host, "<span class='info'>You are now a rat. Try to avoid interaction with players, and do not give hints away that you are more than a simple rodent.</span>")
+		to_chat(host, "<span class='info'>You are now a rat. Though you may interact with players, try to avoid giving hints away that you are more than a simple rodent. Cause mischief, avoid cats, find food, and try to survive!</span>")
 
 /proc/find_mouse_spawnpoint(var/ZLevel)
-	//This function will attempt to find a good spawnpoint for mice, and prevent them from spawning in closed vent systems with no escape
+	//This function will attempt to find a good spawnpoint for rats, and prevent them from spawning in closed vent systems with no escape
 	//It does this by bruteforce: Picks a random vent, tests if it has enough connections, if not, repeat
 	//Continues either until a valid one is found (in which case we return it), or until we hit a limit on attempts..
 	//If we hit the limit without finding a valid one, then the best one we found is selected

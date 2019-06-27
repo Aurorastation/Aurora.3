@@ -9,7 +9,7 @@
 	var/uses = 1
 	var/temp = null
 	var/list/monster = list(/mob/living/simple_animal/familiar/pet/cat,
-							/mob/living/simple_animal/mouse/familiar,
+							/mob/living/simple_animal/rat/familiar,
 							/mob/living/simple_animal/familiar/carcinus,
 							/mob/living/simple_animal/familiar/horror,
 							/mob/living/simple_animal/familiar/goat,

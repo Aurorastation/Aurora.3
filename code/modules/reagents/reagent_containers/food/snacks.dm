@@ -4068,7 +4068,7 @@
 		switch (MF.kitchen_tag)
 			if ("rodent")
 				result = new /obj/item/weapon/reagent_containers/food/snacks/burger/mouse(src)
-				to_chat(user, "You make a mouseburger!")
+				to_chat(user, "You make a ratburger!")
 
 	if (result)
 		if (W.reagents)

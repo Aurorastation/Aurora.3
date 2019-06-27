@@ -181,7 +181,7 @@
 	butchering_products = list(/obj/item/stack/material/animalhide/cat = 2)
 
 
-/mob/living/simple_animal/mouse/familiar
+/mob/living/simple_animal/rat/familiar
 	name = "ancient rat"
 	desc = "A small rodent. It looks very old."
 	body_color = "gray"
@@ -205,7 +205,7 @@
 
 	supernatural = 1
 
-/mob/living/simple_animal/mouse/familiar/Initialize()
+/mob/living/simple_animal/rat/familiar/Initialize()
 	. = ..()
 	add_spell(new /spell/targeted/heal_target, "const_spell_ready")
 	add_spell(new /spell/targeted/heal_target/area, "const_spell_ready")
