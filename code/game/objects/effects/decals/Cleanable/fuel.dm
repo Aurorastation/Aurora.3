@@ -11,8 +11,8 @@
 	if(!nologs && !mapload)
 		for (var/mob/living/culprit in range(loc, 2))
 			
-			message_admins("[key_name_admin(culprit)] caused Liquid fuel has spill in [loc.loc.name] ([loc.x],[loc.y],[loc.z]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[loc.x];Y=[loc.y];Z=[loc.z]'>JMP</a>)")
-			log_game("[key_name_admin(culprit)] caused Liquid fuel has spill in [loc.loc.name] ([loc.x],[loc.y],[loc.z])")
+			message_admins("[key_name_admin(culprit)] in area of Liquid fuel spill in [loc.loc.name] ([loc.x],[loc.y],[loc.z]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[loc.x];Y=[loc.y];Z=[loc.z]'>JMP</a>)")
+			log_game("[key_name_admin(culprit)] in area of Liquid fuel spill in [loc.loc.name] ([loc.x],[loc.y],[loc.z])")
 	src.amount = amt
 
 	var/has_spread = 0
