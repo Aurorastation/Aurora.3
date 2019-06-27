@@ -348,9 +348,10 @@
 			return
 		tank.armed = 1
 		user.visible_message("[user] begins heating the [O].", "You start to heat the [O].")
-		message_admins("[key_name_admin(user)] is attempting a welder bomb at ([loc.x],[loc.y],[loc.z]) - <A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[O.x];Y=[O.y];Z=[O.z]'>JMP</a>")
-		switch(alert("Are you sure you want to do this? It is quite dangerous", "Heat up fuel tank", "No", "Yes"))
+		message_admins("[key_name_admin(user)] is potentialy arming a welder bomb at ([loc.x],[loc.y],[loc.z]) - <A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[O.x];Y=[O.y];Z=[O.z]'>JMP</a>")
+		switch(alert("Are you sure you want to do this? It is quite dangerous and could get you in trouble.", "Heat up fuel tank", "No", "Yes"))
 			if("Yes")
+				message_admins("[key_name_admin(user)] accepted the warning prompt and are welder bombing at ([loc.x],[loc.y],[loc.z]) - <A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[O.x];Y=[O.y];Z=[O.z]'>JMP</a>")
 				to_chat(user, span("alert", "Heating the fueltank..."))
 				if(do_after(user,200))
 					if(tank.defuse)
