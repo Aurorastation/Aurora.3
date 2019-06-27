@@ -9,8 +9,10 @@
 /obj/effect/decal/cleanable/liquid_fuel/Initialize(mapload, amt = 1, nologs = 0)
 	. = ..()
 	if(!nologs && !mapload)
-		message_admins("Liquid fuel has spilled in [loc.loc.name] ([loc.x],[loc.y],[loc.z]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[loc.x];Y=[loc.y];Z=[loc.z]'>JMP</a>)")
-		log_game("Liquid fuel has spilled in [loc.loc.name] ([loc.x],[loc.y],[loc.z])")
+		for (var/mob/living/culprit in range(loc, 2))
+			
+			message_admins("[key_name_admin(culprit)] caused Liquid fuel has spill in [loc.loc.name] ([loc.x],[loc.y],[loc.z]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[loc.x];Y=[loc.y];Z=[loc.z]'>JMP</a>)")
+			log_game("[key_name_admin(culprit)] caused Liquid fuel has spill in [loc.loc.name] ([loc.x],[loc.y],[loc.z])")
 	src.amount = amt
 
 	var/has_spread = 0
