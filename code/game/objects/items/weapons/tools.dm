@@ -349,21 +349,28 @@
 		tank.armed = 1
 		user.visible_message("[user] begins heating the [O].", "You start to heat the [O].")
 		message_admins("[key_name_admin(user)] is attempting a welder bomb at ([loc.x],[loc.y],[loc.z]) - <A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[O.x];Y=[O.y];Z=[O.z]'>JMP</a>")
-		if(do_after(user,100))
-			if(tank.defuse)
-				user.visible_message("[user] melts some of the framework on the [O].", "You melt some of the framework.")
-				tank.defuse = 0
+		switch(alert("Are you sure you want to do this? It is quite dangerous", "Heat up fuel tank", "No", "Yes"))
+			if("Yes")
+				to_chat(user, span("alert", "Heating the fueltank..."))
+				if(do_after(user,200))
+					if(tank.defuse)
+						user.visible_message("[user] melts some of the framework on the [O].", "You melt some of the framework.")
+						tank.defuse = 0
+						tank.armed = 0
+						return
+					message_admins("[key_name_admin(user)] triggered a fueltank explosion.")
+					log_game("[key_name(user)] triggered a fueltank explosion with a welding tool.",ckey=key_name(user))
+					to_chat(user, span("alert", "That was stupid of you."))
+					tank.ex_act(3.0)
+					return
+				else
+					tank.armed = 0
+					to_chat(user, "You thought better of yourself.")
+					return
+			if("No")
 				tank.armed = 0
+				to_chat(user, "You thought better of yourself.")
 				return
-			message_admins("[key_name_admin(user)] triggered a fueltank explosion.")
-			log_game("[key_name(user)] triggered a fueltank explosion with a welding tool.",ckey=key_name(user))
-			to_chat(user, span("alert", "That was stupid of you."))
-			tank.ex_act(3.0)
-			return
-		else
-			tank.armed = 0
-			to_chat(user, "You thought better of yourself.")
-			return
 		return
 	if (src.welding)
 		remove_fuel(1)
