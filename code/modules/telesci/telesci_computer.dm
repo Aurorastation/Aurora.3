@@ -211,8 +211,8 @@
 			flick("pad-beam", telepad)
 			playsound(telepad.loc, 'sound/weapons/emitter2.ogg', 25, 1, extrarange = 3, falloff = 5)
 
-			var/total_lifespawn += 25 * crystals.len
-			var/total_failchance += crystals.len
+			var/total_lifespawn = 25 * crystals.len
+			var/total_failchance = crystals.len
 
 			var/obj/effect/portal/origin = new /obj/effect/portal(dest, null, null, total_lifespawn)
 			var/obj/effect/portal/destination = new /obj/effect/portal(source,  null, null, total_lifespawn)
