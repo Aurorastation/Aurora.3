@@ -19,7 +19,6 @@
 	response_help  = "pets"
 	response_disarm = "gently pushes aside"
 	response_harm   = "kicks"
-	//var/mob/living/simple_animal/rat/movement_target
 	var/mob/flee_target
 	min_oxy = 16 //Require atleast 16kPA oxygen
 	minbodytemp = 223		//Below -50 Degrees Celcius
@@ -37,7 +36,7 @@
 	butchering_products = list(/obj/item/stack/material/animalhide/cat = 2)
 
 /mob/living/simple_animal/cat/think()
-	//THEM RATS!
+	//!
 	..()
 	if (!stat)
 		for(var/mob/living/simple_animal/rat/snack in oview(src,7))
