@@ -770,6 +770,20 @@
 	glass_name = "glass of banana juice"
 	glass_desc = "The raw essence of a banana. HONK!"
 
+/datum/reagent/drink/bananacream
+	name = "Banana Cream"
+	id = "bananacream"
+	description = "A creamy banana mixture."
+	reagent_state = LIQUID
+	color = "#009CA8"
+	taste_description = "banana"
+
+/datum/reagent/drink/bananacream/touch_turf(var/turf/simulated/T)
+	if(!istype(T))
+		return
+	if(volume >= 1)
+		T.wet_floor(WET_TYPE_LUBE,volume)
+
 /datum/reagent/drink/berryjuice
 	name = "Berry Juice"
 	id = "berryjuice"

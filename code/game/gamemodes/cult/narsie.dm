@@ -8,6 +8,7 @@ var/global/list/narsie_list = list()
 	icon_state = "narsie-small"
 	pixel_x = -236
 	pixel_y = -256
+	var/initial_icon = "narsie"
 
 	current_size = 9 //It moves/eats like a max-size singulo, aside from range. --NEO.
 	contained = 0 // Are we going to move around?
@@ -352,17 +353,17 @@ var/global/list/narsie_list = list()
 /obj/singularity/narsie/on_capture()
 	chained = 1
 	move_self = 0
-	icon_state ="narsie-small-chains"
+	icon_state ="[initial_icon]-small-chains"
 
 /obj/singularity/narsie/on_release()
 	chained = 0
 	move_self = 1
-	icon_state ="narsie-small"
+	icon_state ="[initial_icon]-small"
 
 /obj/singularity/narsie/large/on_capture()
 	chained = 1
 	move_self = 0
-	icon_state ="narsie-chains"
+	icon_state ="[initial_icon]-chains"
 	for(var/mob/M in mob_list)//removing the client image of nar-sie while it is chained
 		if(M.client)
 			M.see_narsie(src)
@@ -370,7 +371,7 @@ var/global/list/narsie_list = list()
 /obj/singularity/narsie/large/on_release()
 	chained = 0
 	move_self = 1
-	icon_state ="narsie"
+	icon_state ="[initial_icon]"
 
 /obj/singularity/narsie/cultify()
 	return
@@ -389,7 +390,37 @@ var/global/list/narsie_list = list()
 	icon = 'icons/obj/narsie_spawn_anim.dmi'
 	dir = SOUTH
 	move_self = 0
-	flick("narsie_spawn_anim",src)
+	flick("[initial_icon]_spawn_anim",src)
 	sleep(11)
 	move_self = 1
 	icon = initial(icon)
+
+
+/obj/singularity/narsie/large/honkmother
+	name = "Honkmother"
+	icon = 'icons/obj/narsie.dmi'
+	icon_state = "honkmother"
+
+	pixel_x = -236
+	pixel_y = -256
+	light_range = 3
+	light_color = "#3e0000"
+
+	current_size = 12
+	consume_range = 3 // How many tiles out do we eat.
+	initial_icon = "honkmother"
+
+/obj/singularity/narsie/large/honkmother/New(loc)
+	..()
+	if(announce)
+		to_world("<font size='15' color='red'><b>[uppertext(name)] HAS BEEN SUMMONED</b></font>")
+		to_world(sound('sound/music/clownmusic.ogg'))
+
+	narsie_spawn_animation()
+
+	log_and_message_admins("Honkmother has been spawned.", location = get_turf(loc))
+
+	spawn(10 SECONDS)
+		if(emergency_shuttle)
+			emergency_shuttle.call_evac()
+			emergency_shuttle.launch_time = 0	// Cannot recall

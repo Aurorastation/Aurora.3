@@ -308,3 +308,51 @@
 	implants = list(
 		/obj/item/weapon/implant/loyalty
 	)
+
+
+/datum/job/entertainment
+	title = "Clown"
+	flag = CLOWN
+	department = "Civilian"
+	department_flag = CIVILIAN
+	faction = "Station"
+	total_positions = 2
+	spawn_positions = 2
+	supervisors = "the head of personnel"
+	selection_color = "#fe019a"
+	access = list(access_maint_tunnels)
+	minimal_access = list(access_maint_tunnels)
+	alt_titles = list("Mime")
+	alt_outfits = list("Mime" = /datum/outfit/job/mime)
+	title_accesses = list("Clown" = list(access_clown), "Entertainer" = list(access_medical, access_sec_doors, access_research, access_engine))
+	outfit = /datum/outfit/job/clown
+
+/datum/outfit/job/mime
+	name = "Mime"
+	jobtype = /datum/job/entertainment
+
+	uniform = /obj/item/clothing/under/lightblue
+	pda = /obj/item/device/pda/mime
+	l_ear = /obj/item/device/radio/headset/headset_service
+
+/datum/outfit/job/clown
+	name = "Clown"
+	jobtype = /datum/job/entertainment
+
+	uniform = /obj/item/clothing/under/rank/clown
+	pda = /obj/item/device/pda/clown
+	shoes = /obj/item/clothing/shoes/clown_shoes
+	l_ear = /obj/item/device/radio/headset/headset_service
+	back = /obj/item/weapon/storage/backpack/clown
+	mask = /obj/item/clothing/mask/gas/clown_hat
+	gloves = /obj/item/clothing/gloves/white
+
+	backpack_contents = list(
+		/obj/item/weapon/stamp/clown = 1,
+		/obj/item/weapon/bananapeel = 1,
+		/obj/item/weapon/bikehorn = 1
+	)
+
+/datum/job/entertainment/after_spawn(mob/living/carbon/human/H)
+	if(H.mind)
+		playsound(H.loc, 'sound/items/bikehorn.ogg', 50, 1)
