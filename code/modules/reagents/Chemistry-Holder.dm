@@ -5,7 +5,7 @@
 	var/total_volume = 0
 	var/maximum_volume = 100
 	var/atom/my_atom = null
-	
+
 	var/temperature = T20C
 
 /datum/reagents/New(var/max = 100, atom/A = null)
@@ -247,6 +247,12 @@
 		. += "[current.id] ([current.volume])"
 	return english_list(., "EMPTY", "", ", ", ", ")
 
+/datum/reagents/proc/get_ids_by_phase(var/phase) // this proc will probably need to be changed if you can have one reagent in multiple states at the same time
+	. = list()
+	for(var/datum/reagent/current in reagent_list)
+		if(phase == current.reagent_state)
+			. += current.id
+
 /* Holder-to-holder and similar procs */
 
 /datum/reagents/proc/remove_any(var/amount = 1) // Removes up to [amount] of reagents from [src]. Returns actual amount removed.
@@ -349,6 +355,14 @@
 		return F.trans_to(target, amount) // Let this proc check the atom's type
 	else if (istype(target, /datum/reagents))
 		return F.trans_to_holder(target, amount)
+
+/datum/reagents/proc/trans_ids_to(var/target, var/list/ids, var/amount = 1) // amount is distributed equally over all reagents
+	if(!target)
+		return
+	var/amounteach = amount / ids.len
+	. = 0
+	for(var/id in ids)
+		. += src.trans_id_to(target, id, amounteach)
 
 // When applying reagents to an atom externally, touch() is called to trigger any on-touch effects of the reagent.
 // This does not handle transferring reagents to things.

@@ -614,6 +614,7 @@
 	color = "#C8A5DC"
 	touch_met = 5
 	taste_description = "bitterness"
+	germ_adjust = 20
 
 /datum/reagent/sterilizine/affect_touch(var/mob/living/carbon/M, var/alien, var/removed)
 	M.germ_level -= min(removed*20, M.germ_level)
@@ -624,7 +625,7 @@
 		var/mob/living/carbon/human/H = M
 		for (var/obj/item/organ/external/E in H.organs)//For each external bodypart
 			for (var/datum/wound/W in E.wounds)//We check each wound on that bodypart
-				W.germ_level -= min(removed*20, W.germ_level)//Clean the wound a bit. Note we only clean wounds on the part, not the part itself.
+				W.germ_level -= min(removed*germ_adjust, W.germ_level)//Clean the wound a bit. Note we only clean wounds on the part, not the part itself.
 				if (W.germ_level <= 0)
 					W.disinfected = 1//The wound becomes disinfected if fully cleaned
 

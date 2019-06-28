@@ -65,16 +65,11 @@
 	flags = OPENCONTAINER
 	amount_per_transfer_from_this = 5
 	volume = 5
-	var/used = FALSE
 
 /obj/item/weapon/reagent_containers/hypospray/autoinjector/Initialize()
 	. =..()
 	icon_state = empty_state
 	update_icon()
-
-/obj/item/weapon/reagent_containers/hypospray/autoinjector/afterattack(var/mob/M, var/mob/user, proximity)
-	if(..())
-		used = TRUE
 
 /obj/item/weapon/reagent_containers/hypospray/autoinjector/attack(var/mob/M, var/mob/user, target_zone)
 	if(is_open_container())
@@ -94,6 +89,14 @@
 		to_chat(user,"<span class='notice'>The reagents inside \the [src] are already secured.</span>")
 	return
 
+/obj/item/weapon/reagent_containers/hypospray/autoinjector/attackby(obj/item/weapon/W, mob/user)
+	if(W.isscrewdriver() && !is_open_container())
+		to_chat(user,"<span class='notice'>Using \the [W], you unsecure the autoinjector's lid.</span>") // it locks shut after being secured
+		flags |= OPENCONTAINER
+		update_icon()
+		return
+	. = ..()
+
 /obj/item/weapon/reagent_containers/hypospray/autoinjector/update_icon()
 	if(reagents.total_volume > 0 && !is_open_container())
 		icon_state = initial(icon_state)
@@ -102,10 +105,8 @@
 
 /obj/item/weapon/reagent_containers/hypospray/autoinjector/examine(mob/user)
 	..(user)
-	if(reagents && reagents.reagent_list.len && !used)
+	if(reagents && reagents.reagent_list.len)
 		to_chat(user, "<span class='notice'>It is currently loaded.</span>")
-	else if(used)
-		to_chat(user, "<span class='notice'>It is spent.</span>")
 	else
 		to_chat(user, "<span class='notice'>It is empty.</span>")
 

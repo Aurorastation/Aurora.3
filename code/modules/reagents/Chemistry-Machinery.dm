@@ -554,10 +554,10 @@
 		/obj/item/stack/material/gold = list("gold"),
 		/obj/item/stack/material/silver = list("silver"),
 		/obj/item/stack/material/platinum = list("platinum"),
-		/obj/item/stack/material/mhydrogen = list("hydrogen"),
+		/obj/item/stack/material/mhydrogen = list("hydrazine"), // i guess
 		/obj/item/stack/material/steel = list("iron", "carbon"),
 		/obj/item/stack/material/plasteel = list("iron", "iron", "carbon", "carbon", "platinum"), //8 iron, 8 carbon, 4 platinum,
-		/obj/item/stack/material/sandstone = list("silicate", "acetone"),
+		/obj/item/stack/material/sandstone = list("silicon", "acetone"),
 		/obj/item/stack/material/glass = list("silicate"),
 		/obj/item/stack/material/glass/phoronglass = list("platinum", "silicate", "silicate", "silicate"), //5 platinum, 15 silicate,
 		)
@@ -752,12 +752,18 @@
 		if(sheet_reagents[O.type])
 			var/obj/item/stack/stack = O
 			if(istype(stack))
+				var/list/sheet_components = sheet_reagents[stack.type]
 				var/amount_to_take = max(0,min(stack.amount,round(remaining_volume/REAGENTS_PER_SHEET)))
 				if(amount_to_take)
 					stack.use(amount_to_take)
 					if(QDELETED(stack))
 						holdingitems -= stack
-					beaker.reagents.add_reagent(sheet_reagents[stack.type], (amount_to_take*REAGENTS_PER_SHEET))
+					if(islist(sheet_components))
+						amount_to_take = (amount_to_take/(sheet_components.len))
+						for(var/i in sheet_components)
+							beaker.reagents.add_reagent(i, (amount_to_take*REAGENTS_PER_SHEET))
+					else
+						beaker.reagents.add_reagent(sheet_components, (amount_to_take*REAGENTS_PER_SHEET))
 					continue
 
 		if(O.reagents)

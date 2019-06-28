@@ -63,6 +63,19 @@
 		to_chat(user, "<span class='warning'>This syringe is broken!</span>")
 		return
 
+	if(user.a_intent == I_GRAB && ishuman(user) && ishuman(target)) // we could add other things here eventually. trepanation maybe
+		var/mob/living/carbon/human/H = target
+		if (check_zone(user.zone_sel.selecting, target) == "chest") // impromptu needle thoracostomy, re-inflate a collapsed lung
+			user.visible_message(span("warning", "[user] jabs [(user == target) ? "themselves" : target] between the ribs with \the [src]!"))
+			if(H.is_lung_ruptured())
+				var/obj/item/organ/lungs/L = H.internal_organs_by_name["lungs"]
+				if(!L.rescued)
+					L.rescued = TRUE
+				else
+					L.rescued = FALSE
+					L.take_damage(3)
+			return
+
 	if(user.a_intent == I_HURT && ishuman(user))
 		if((user.is_clumsy()) && prob(50))
 			target = user
@@ -237,7 +250,7 @@
 
 		var/mob/living/carbon/human/H = target
 
-		var/target_zone = ran_zone(check_zone(user.zone_sel.selecting, target))
+		var/target_zone = ran_zone(check_zone(user.zone_sel.selecting), 70)
 		var/obj/item/organ/external/affecting = H.get_organ(target_zone)
 
 		if (!affecting || affecting.is_stump())

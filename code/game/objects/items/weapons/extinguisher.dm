@@ -40,12 +40,19 @@
 	if(is_open_container())
 		if(reagents && reagents.reagent_list.len)
 			to_chat(user,"<span class='notice'>With a quick twist of the cartridge's lid, you secure the reagents inside \the [src].</span>")
-			flags ^= OPENCONTAINER
+			flags &= ~OPENCONTAINER
 		else
 			to_chat(user,"<span class='notice'>You can't secure the cartridge without putting reagents in!</span>")
 	else
 		to_chat(user,"<span class='notice'>\The reagents inside [src] are already secured!</span>")
 	return
+
+/obj/item/weapon/reagent_containers/extinguisher_refill/attackby(obj/item/weapon/W, mob/user)
+	if(W.isscrewdriver() && !is_open_container())
+		to_chat(user,"<span class='notice'>Using \the [W], you unsecure the extinguisher refill cartridge's lid.</span>") // it locks shut after being secured
+		flags |= OPENCONTAINER
+		return
+	. = ..()
 
 /obj/item/weapon/reagent_containers/extinguisher_refill/examine(var/mob/user) //Copied from inhalers.
 	if(!..(user, 2))
@@ -64,7 +71,7 @@
 
 /obj/item/weapon/reagent_containers/extinguisher_refill/filled
 	name = "extinguisher refiller (monoammonium phosphate)"
-	desc = "A one time use extinguisher refiller that allows fire extinguishers to be refilled with an aerosol mix. This one is contains monoammonium phosphate."
+	desc = "A one time use extinguisher refiller that allows fire extinguishers to be refilled with an aerosol mix. This one contains monoammonium phosphate."
 
 /obj/item/weapon/reagent_containers/extinguisher_refill/filled/Initialize()
 		. =..()
@@ -120,7 +127,7 @@
 
 /obj/item/weapon/extinguisher/examine(mob/user)
 	if(..(user, 0))
-		to_chat(user,"The [src] contains [src.reagents.total_volume] units of reagents.")
+		to_chat(user,"\The [src] contains [src.reagents.total_volume] units of reagents.")
 		to_chat(user,"The safety is [safety ? "on" : "off"].")
 	return
 

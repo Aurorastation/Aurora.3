@@ -705,7 +705,7 @@
 	required_reagents = list("psilocybin" = 1, "moonshine" = 1)
 	result_amount = 1
 
-/* Makeshift Drugs */
+/* Makeshift Chemicals and Drugs */
 
 /datum/chemical_reaction/stimm
 	name = "Stimm"
@@ -727,6 +727,22 @@
 	result = "krok"
 	required_reagents = list("orangejuice" = 2, "fuel" = 1, "iron" = 1)
 	result_amount = 4
+
+/datum/chemical_reaction/raskara_dust
+	name = "Raskara Dust"
+	id = "raskara_dust"
+	result = "raskara_dust"
+	required_reagents = list("monoammoniumphosphate" = 1, "cleaner" = 1, "sodiumchloride" = 2) // extinguisher, cleaner, salt
+	required_temperatures_min = list("monoammoniumphosphate" = 400, "cleaner" = 400, "sodiumchloride" = 400) // barely over boiling point of water
+	result_amount = 2
+
+/datum/chemical_reaction/nightjuice
+	name = "Nightlife"
+	id = "night_juice"
+	result = "night_juice"
+	required_reagents = list("methylphenidate" = 1, "epinephrine" = 1, "synaptizine" = 1)
+	required_temperatures_min = list("methylphenidate" = T0C+300, "epinephrine" = T0C+300, "synaptizine" = T0C+300)
+	result_amount = 1 // doesn't make a lot
 
 /* Solidification */
 

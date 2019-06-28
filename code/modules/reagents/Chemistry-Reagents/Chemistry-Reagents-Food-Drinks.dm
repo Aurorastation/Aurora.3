@@ -374,6 +374,7 @@
 	nutriment_factor = 10
 	color = "#FFFF00"
 	taste_description = "honey"
+	germ_adjust = 5
 
 /datum/reagent/nutriment/flour
 	name = "flour"
