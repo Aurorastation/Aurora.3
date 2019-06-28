@@ -28,6 +28,8 @@
 	var/unwielded_force_divisor = 0.25
 	var/parry_chance = 15
 	action_button_name = "Wield two-handed weapon"
+	lefthand_file = 'icons/mob/inhands/weapons/twohanded_lefthand.dmi'
+	righthand_file = 'icons/mob/inhands/weapons/twohanded_righthand.dmi'
 
 /obj/item/weapon/material/twohanded/proc/unwield()
 	wielded = 0
@@ -320,6 +322,8 @@
 	desc = "A robust tree-cutting chainsaw intended to cut down various types of invasive spaceplants that grow on the station."
 	icon_state = "chainsaw_off"
 	base_icon = "chainsaw_off"
+	lefthand_file = 'icons/mob/inhands/weapons/chainsaw_lefthand.dmi'
+	righthand_file = 'icons/mob/inhands/weapons/chainsaw_righthand.dmi'
 	flags = CONDUCT
 	force = 10
 	force_unwielded = 10

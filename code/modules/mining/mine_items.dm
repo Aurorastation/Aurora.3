@@ -53,6 +53,8 @@
 	force = 10.0
 	icon_state = "pickaxe"
 	item_state = "pickaxe"
+	lefthand_file = 'icons/mob/inhands/equipment/tools_lefthand.dmi'
+	righthand_file = 'icons/mob/inhands/equipment/tools_righthand.dmi'
 	w_class = 4.0
 	matter = list(DEFAULT_WALL_MATERIAL = 3750)
 	var/digspeed //moving the delay to an item var so R&D can make improved picks. --NEO

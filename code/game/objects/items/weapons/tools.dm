@@ -20,6 +20,8 @@
 	desc = "An adjustable tool used for gripping and turning nuts or bolts."
 	icon = 'icons/obj/tools.dmi'
 	icon_state = "wrench"
+	lefthand_file = 'icons/mob/inhands/equipment/tools_lefthand.dmi'
+	righthand_file = 'icons/mob/inhands/equipment/tools_righthand.dmi'
 	flags = CONDUCT
 	slot_flags = SLOT_BELT
 	force = 5.0
@@ -41,6 +43,8 @@
 	desc = "A tool with a flattened or cross-shaped tip that fits into the head of a screw to turn it."
 	icon = 'icons/obj/tools.dmi'
 	icon_state = "screwdriver"
+	lefthand_file = 'icons/mob/inhands/equipment/tools_lefthand.dmi'
+	righthand_file = 'icons/mob/inhands/equipment/tools_righthand.dmi'
 	flags = CONDUCT
 	slot_flags = SLOT_BELT | SLOT_EARS
 	force = 5.0
@@ -106,6 +110,8 @@
 	desc = "A tool used to cut wires in electrical work."
 	icon = 'icons/obj/tools.dmi'
 	icon_state = "cutters"
+	lefthand_file = 'icons/mob/inhands/equipment/tools_lefthand.dmi'
+	righthand_file = 'icons/mob/inhands/equipment/tools_righthand.dmi'
 	flags = CONDUCT
 	slot_flags = SLOT_BELT
 	force = 6.0
@@ -149,6 +155,8 @@
 	desc = "A welding tool with a built-in fuel tank, designed for welding and cutting metal."
 	icon = 'icons/obj/tools.dmi'
 	icon_state = "welder_off"
+	lefthand_file = 'icons/mob/inhands/equipment/tools_lefthand.dmi'
+	righthand_file = 'icons/mob/inhands/equipment/tools_righthand.dmi'
 	flags = CONDUCT
 	slot_flags = SLOT_BELT
 	var/base_iconstate = "welder"//These are given an _on/_off suffix before being used
@@ -532,6 +540,8 @@
 	desc = "An iron bar with a flattened end, used as a lever to remove floors and pry open doors."
 	icon = 'icons/obj/tools.dmi'
 	icon_state = "crowbar"
+	lefthand_file = 'icons/mob/inhands/equipment/tools_lefthand.dmi'
+	righthand_file = 'icons/mob/inhands/equipment/tools_righthand.dmi'
 	flags = CONDUCT
 	slot_flags = SLOT_BELT
 	force = 5.0
