@@ -409,18 +409,39 @@ var/datum/controller/subsystem/timer/SStimer
 /proc/deltimer(id)
 	if (!id)
 		return FALSE
+
 	if (id == TIMER_ID_NULL)
 		CRASH("Tried to delete a null timerid. Use the TIMER_STOPPABLE flag.")
+
 	if (!istext(id))
 		if (istype(id, /datum/timedevent))
 			qdel(id)
 			return TRUE
+
 	var/datum/timedevent/timer = SStimer.timer_id_dict["timerid[id]"]
 	if (timer && !timer.spent)
 		qdel(timer)
 		return TRUE
 	return FALSE
 
+/proc/execute_and_deltimer(id)
+	if (!id)
+		return FALSE
+
+	if (id == TIMER_ID_NULL)
+		CRASH("Tried to delete a null timerid. Use the TIMER_STOPPABLE flag.")
+
+	if (!istext(id))
+		if (istype(id, /datum/timedevent))
+			qdel(id)
+			return TRUE
+
+	var/datum/timedevent/timer = SStimer.timer_id_dict["timerid[id]"]
+	SStimer.clienttime_timers -= timer
+	var/datum/callback/callBack = timer.callBack
+	timer.spent = TRUE
+	callBack.InvokeAsync()
+	qdel(timer)
 
 #undef BUCKET_LEN
 #undef BUCKET_POS

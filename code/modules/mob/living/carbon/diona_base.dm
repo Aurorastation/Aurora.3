@@ -552,7 +552,7 @@ var/list/diona_banned_languages = list(
 					var/datum/timedevent/T = v
 					var/datum/callback/callBack = T.callBack
 					if(callBack && callBack.delegate == /mob/living/carbon/human/proc/diona_regen_callback)
-						T.timeToRun = REALTIMEOFDAY + 5
+						execute_and_deltimer(T.id)
 						break
 			else
 				C.diona_handle_regeneration(C.DS, TRUE)

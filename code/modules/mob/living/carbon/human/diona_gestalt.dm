@@ -251,8 +251,9 @@
 	M.forceMove(get_turf(src))
 
 	// Switch control to nymph
-	M.teleop = src
 	M.key = src.key
+	teleop = TRUE
+	M.teleop = TRUE
 	src.key = "@[M.key]"
 	src.ajourn = 0
 	DS.nym = WEAKREF(M)
