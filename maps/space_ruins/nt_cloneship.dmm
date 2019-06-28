@@ -3540,7 +3540,7 @@
 /turf/simulated/floor/tiled,
 /area/derelict/ship)
 "iX" = (
-/obj/structure/reagent_dispensers/beerkeg,
+/obj/structure/reagent_dispensers/keg/beerkeg,
 /turf/simulated/floor/tiled/freezer,
 /area/derelict/ship)
 "iY" = (

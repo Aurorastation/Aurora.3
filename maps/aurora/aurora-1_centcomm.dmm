@@ -14234,7 +14234,7 @@
 	},
 /area/syndicate_mothership/raider_base)
 "aGk" = (
-/obj/structure/reagent_dispensers/beerkeg,
+/obj/structure/reagent_dispensers/keg/beerkeg,
 /turf/unsimulated/floor{
 	dir = 8;
 	icon_state = "wood"
@@ -20315,7 +20315,7 @@
 	},
 /area/tdome/tdomeobserve)
 "aTk" = (
-/obj/structure/reagent_dispensers/beerkeg,
+/obj/structure/reagent_dispensers/keg/beerkeg,
 /turf/unsimulated/floor{
 	icon_state = "redbluefull";
 	dir = 8

@@ -20819,7 +20819,7 @@
 /turf/simulated/floor/lino,
 /area/crew_quarters/bar)
 "aLU" = (
-/obj/structure/reagent_dispensers/beerkeg,
+/obj/structure/reagent_dispensers/keg/beerkeg,
 /obj/machinery/requests_console{
 	announcementConsole = 0;
 	department = "Bar";

@@ -56096,7 +56096,7 @@
 /obj/machinery/alarm{
 	pixel_y = 22
 	},
-/obj/structure/reagent_dispensers/beerkeg,
+/obj/structure/reagent_dispensers/keg/beerkeg,
 /turf/simulated/floor/wood,
 /area/crew_quarters/bar)
 "bTp" = (
