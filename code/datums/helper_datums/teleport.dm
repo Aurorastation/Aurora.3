@@ -180,7 +180,7 @@
 
 
 
-			if(istype(teleatom, /obj))
+			if(istype(teleatom, /obj) && !istype(teleatom, /obj/effect/portal))
 				valid = 1
 				var/obj/O = teleatom
 				if(newdest)
