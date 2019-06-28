@@ -324,7 +324,7 @@
 	minimal_access = list(access_maint_tunnels)
 	alt_titles = list("Mime")
 	alt_outfits = list("Mime" = /datum/outfit/job/mime)
-	title_accesses = list("Clown" = list(access_clown), "Entertainer" = list(access_medical, access_sec_doors, access_research, access_engine))
+	title_accesses = list("Clown" = list(access_clown), "Entertainer" = list(access_medical))
 	outfit = /datum/outfit/job/clown
 
 /datum/outfit/job/mime
