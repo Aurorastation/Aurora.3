@@ -131,7 +131,7 @@
 	item_cost = 4
 	path = /obj/item/clothing/glasses/night/aviator
 	desc = "A pair of night-vision glasses disguised as aviator shades."
-	
+
 /datum/uplink_item/item/tools/suit_cooling_unit
 	name = "Portable suit cooling unit"
 	item_cost = 4

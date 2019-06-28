@@ -99,3 +99,74 @@
 		/obj/item/rig_module/cooling_unit,
 		/obj/item/rig_module/fabricator/energy_net
 		)
+
+/obj/item/weapon/rig/gunslinger
+	name = "gunslinger hardsuit control module"
+	desc = "A favorite of Frontier rangers, the Gunslinger suit is a sturdy hardsuit meant to provide the user absolute situational awareness."
+	icon_state = "gunslinger"
+	suit_type = "gunslinger hardsuit"
+	armor = list(melee = 50, bullet = 60, laser = 40, energy = 30, bomb = 30, bio = 100, rad = 60)
+	offline_slowdown = 2
+	offline_vision_restriction = TINT_HEAVY
+
+	allowed = list(/obj/item/device/flashlight,/obj/item/weapon/tank,/obj/item/device/suit_cooling_unit,/obj/item/weapon/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/weapon/melee/baton,/obj/item/weapon/melee/energy/sword,/obj/item/weapon/handcuffs)
+
+	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT | MODULE_SPECIAL | MODULE_MEDICAL | MODULE_UTILITY | MODULE_VAURCA
+
+	species_restricted = list("Human")
+
+/obj/item/weapon/rig/gunslinger/equipped
+	req_access = list(access_syndicate)
+
+	initial_modules = list(
+		/obj/item/rig_module/vision/thermal,
+		/obj/item/rig_module/maneuvering_jets,
+		/obj/item/rig_module/mounted/taser
+		)
+
+/obj/item/weapon/rig/strike
+	name = "strike hardsuit control module"
+	desc = "An expensive hardsuit utilized by Eridani security contractors to field heavy weapons and coordinate non-lethal takedowns directly. Usually seen spearheading police raids."
+	icon_state = "strikesuit"
+	suit_type = "strike hardsuit"
+	armor = list(melee = 80, bullet = 45, laser = 45, energy = 25, bomb = 25, bio = 100, rad = 100)
+	offline_slowdown = 2
+	offline_vision_restriction = TINT_HEAVY
+
+	allowed = list(/obj/item/device/flashlight,/obj/item/weapon/tank,/obj/item/device/suit_cooling_unit,/obj/item/weapon/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/weapon/melee/baton,/obj/item/weapon/melee/energy/sword,/obj/item/weapon/handcuffs)
+
+	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT | MODULE_SPECIAL | MODULE_MEDICAL | MODULE_UTILITY | MODULE_VAURCA
+
+	species_restricted = list("Human")
+
+/obj/item/weapon/rig/strike/equipped
+	req_access = list(access_syndicate)
+
+	initial_modules = list(
+		/obj/item/rig_module/fabricator/energy_net,
+		/obj/item/rig_module/power_sink,
+		/obj/item/rig_module/mounted/taser
+		)
+
+/obj/item/weapon/rig/elyran
+	name = "elyran battlesuit control module"
+	desc = "An advanced Elyran hardsuit specialized in scorched earth tactics."
+	icon_state = "elyran_rig"
+	suit_type = "elyran battlesuit"
+	armor = list(melee = 60, bullet = 40, laser = 60, energy = 60, bomb = 25, bio = 100, rad = 100)
+	offline_slowdown = 2
+	offline_vision_restriction = TINT_HEAVY
+
+	allowed = list(/obj/item/device/flashlight,/obj/item/weapon/tank,/obj/item/device/suit_cooling_unit,/obj/item/weapon/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/weapon/melee/baton,/obj/item/weapon/melee/energy/sword,/obj/item/weapon/handcuffs)
+
+	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT | MODULE_SPECIAL | MODULE_MEDICAL | MODULE_UTILITY | MODULE_VAURCA
+
+	species_restricted = list("Human")
+
+/obj/item/weapon/rig/elyran/equipped
+	req_access = list(access_syndicate)
+
+	initial_modules = list(
+		/obj/item/rig_module/ai_container,
+		/obj/item/rig_module/actuators/combat
+		)
