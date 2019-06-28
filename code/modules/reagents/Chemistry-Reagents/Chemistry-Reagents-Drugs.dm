@@ -224,6 +224,7 @@
 	taste_description = "sunflower seeds"
 	metabolism = REM * 0.25
 	overdose = 10
+	fallback_specific_heat = 1
 
 /datum/reagent/guwan_painkillers/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	affect_ingest(M,alien,removed*0.5)
