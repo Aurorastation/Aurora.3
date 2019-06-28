@@ -56186,9 +56186,6 @@
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/bar)
 "bTB" = (
-/obj/machinery/camera/network/civilian_main{
-	c_tag = "Bar - Bathroom"
-	},
 /obj/machinery/recharge_station,
 /turf/simulated/floor/tiled/freezer,
 /area/crew_quarters/locker/locker_toilet)
@@ -56747,10 +56744,6 @@
 /turf/simulated/floor/wood,
 /area/crew_quarters/bar)
 "bUE" = (
-/obj/machinery/camera/network/civilian_main{
-	c_tag = "Bar - Backroom";
-	dir = 1
-	},
 /obj/structure/sink{
 	dir = 4;
 	icon_state = "sink";
@@ -67699,7 +67692,7 @@
 /area/maintenance/medbay)
 "uro" = (
 /obj/machinery/camera/network/medbay{
-	c_tag = "Medical - Staff Wing Dorms";
+	c_tag = "Medical - Temporary Morgue";
 	dir = 2
 	},
 /turf/simulated/floor/tiled/dark{
