@@ -257,3 +257,38 @@
 
 	toggle_wield(usr)
 	usr.update_icon()
+
+/obj/item/weapon/gun/projectile/automatic/rifle/mk43
+	name = "service rifle"
+	desc = "A semi-automatic rifle chambered in 7.62, it holds 12 rounds per magazine"
+	icon_state = "mk43"
+	item_state = "mk43"
+	w_class = 3
+	force = 10
+	slot_flags = SLOT_BACK
+	origin_tech = list(TECH_COMBAT = 5, TECH_MATERIAL = 3)
+	caliber = "a762"
+	recoil = 2
+	load_method = MAGAZINE
+	fire_sound = 'sound/weapons/gunshot/gunshot_rifle.ogg'
+	max_shells = 12
+	ammo_type = /obj/item/ammo_casing/a762
+	magazine_type = /obj/item/ammo_magazine/mk43/rubber
+	allowed_magazines = list(/obj/item/ammo_magazine/mk43)
+	accuracy = 2
+	recoil_wielded = 1
+	accuracy_wielded = 3
+	multi_aim = 0
+
+	firemodes = list(
+		list(mode_name="semiauto", burst=1, fire_delay= 10, move_delay=null, burst_accuracy=null, dispersion=null)
+		)
+
+/obj/item/weapon/gun/projectile/automatic/rifle/mk43/update_icon()
+	..()
+	icon_state = (ammo_magazine)? "mk43" : "mk43-empty"
+	if(wielded)
+		item_state = (ammo_magazine)? "mk43-wielded" : "mk43-wielded-empty"
+	else
+		item_state = (ammo_magazine)? "mk43" : "mk43-empty"
+	update_held_icon()

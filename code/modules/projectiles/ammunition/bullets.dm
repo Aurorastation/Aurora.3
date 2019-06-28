@@ -189,6 +189,13 @@
 	icon_state = "rifle-casing"
 	spent_icon = "rifle-casing-spent"
 
+/obj/item/ammo_casing/a762/rubber
+	desc = "A 7.62mm rubber bullet casing."
+	caliber = "a762"
+	projectile_type = /obj/item/projectile/bullet/rifle/a762/rubber
+	icon_state = "rrifle-casing"
+	spent_icon = "rifle-casing-spent"
+
 /obj/item/ammo_casing/a145
 	name = "shell casing"
 	desc = "A 14.5mm shell."

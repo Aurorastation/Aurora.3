@@ -182,6 +182,14 @@
 	armor_penetration = 20
 	penetrating = 1
 
+/obj/item/projectile/bullet/rifle/a762/rubber //still hurts like a bitch, don't wanna get shot with this
+	name = "rubber bullet"
+	check_armour = "melee"
+	damage = 15
+	agony = 65
+	embed = 0
+	sharp = 0
+
 /obj/item/projectile/bullet/rifle/a762
 	damage = 25
 
