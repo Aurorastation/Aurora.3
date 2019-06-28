@@ -55187,14 +55187,6 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/maintenance/bar)
-"bRB" = (
-/obj/machinery/door/airlock/maintenance{
-	name = "Maintenance Access";
-	req_access = list(12)
-	},
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/plating,
-/area/maintenance/bar)
 "bRC" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -55377,47 +55369,6 @@
 /obj/item/clothing/gloves/latex/tajara,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
-"bRW" = (
-/turf/simulated/floor/wood,
-/area/maintenance/bar)
-"bRX" = (
-/obj/random/junk,
-/turf/simulated/floor/carpet,
-/area/maintenance/bar)
-"bRY" = (
-/turf/simulated/floor/carpet,
-/area/maintenance/bar)
-"bRZ" = (
-/obj/item/clothing/mask/gas/clown_hat,
-/obj/item/clothing/shoes/clown_shoes,
-/obj/item/clothing/under/rank/clown,
-/obj/item/weapon/storage/backpack/clown,
-/obj/item/toy/figure/clown,
-/obj/structure/closet{
-	icon_closed = "cabinet_closed";
-	icon_opened = "cabinet_open";
-	icon_state = "cabinet_closed"
-	},
-/turf/simulated/floor/wood,
-/area/maintenance/bar)
-"bSa" = (
-/obj/item/clothing/head/soft/mime,
-/obj/item/clothing/mask/gas/mime,
-/obj/item/clothing/shoes/mime,
-/obj/item/clothing/under/mime,
-/obj/item/toy/figure/mime,
-/obj/structure/closet{
-	icon_closed = "cabinet_closed";
-	icon_opened = "cabinet_open";
-	icon_state = "cabinet_closed"
-	},
-/turf/simulated/floor/wood,
-/area/maintenance/bar)
-"bSb" = (
-/obj/item/weapon/bedsheet/clown,
-/obj/structure/bed,
-/turf/simulated/floor/wood,
-/area/maintenance/bar)
 "bSc" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/random/junk,
@@ -55712,23 +55663,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/bar)
-"bSz" = (
-/obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/maintenance{
-	name = "Maintenance Access";
-	req_access = list(12)
-	},
-/turf/simulated/floor/wood,
-/area/maintenance/bar)
-"bSA" = (
-/obj/structure/closet{
-	icon_closed = "cabinet_closed";
-	icon_opened = "cabinet_open";
-	icon_state = "cabinet_closed"
-	},
-/obj/effect/landmark/costume/imperium_monk,
-/turf/simulated/floor/wood,
-/area/maintenance/bar)
 "bSB" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/random/bomb_supply,
@@ -55907,27 +55841,6 @@
 "bSU" = (
 /turf/simulated/wall,
 /area/crew_quarters/locker/locker_toilet)
-"bSV" = (
-/obj/structure/curtain/black,
-/turf/simulated/floor/wood,
-/area/maintenance/bar)
-"bSW" = (
-/obj/structure/curtain/black,
-/turf/simulated/floor/plating,
-/area/maintenance/bar)
-"bSX" = (
-/obj/effect/landmark/costume/pirate,
-/turf/simulated/floor/wood,
-/area/maintenance/bar)
-"bSY" = (
-/obj/random/junk,
-/turf/simulated/floor/wood,
-/area/maintenance/bar)
-"bSZ" = (
-/obj/item/weapon/bedsheet/mime,
-/obj/structure/bed,
-/turf/simulated/floor/wood,
-/area/maintenance/bar)
 "bTa" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	icon_state = "spline_fancy";
@@ -56220,18 +56133,9 @@
 	},
 /turf/simulated/floor/tiled/freezer,
 /area/crew_quarters/locker/locker_toilet)
-"bTF" = (
-/obj/effect/landmark/costume/gladiator,
-/obj/structure/table/rack,
-/turf/simulated/floor/wood,
-/area/maintenance/bar)
 "bTG" = (
 /obj/random/junk,
 /turf/simulated/floor/plating,
-/area/maintenance/bar)
-"bTH" = (
-/obj/structure/table/rack,
-/turf/simulated/floor/wood,
 /area/maintenance/bar)
 "bTL" = (
 /obj/machinery/button/windowtint{
@@ -56499,15 +56403,6 @@
 	},
 /turf/simulated/floor/tiled/freezer,
 /area/crew_quarters/locker/locker_toilet)
-"bUk" = (
-/obj/item/weapon/stool/padded,
-/turf/simulated/floor/carpet,
-/area/maintenance/bar)
-"bUl" = (
-/obj/effect/landmark/costume/chicken,
-/obj/structure/table/rack,
-/turf/simulated/floor/wood,
-/area/maintenance/bar)
 "bUm" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
@@ -56821,11 +56716,6 @@
 	},
 /turf/simulated/floor/tiled/freezer,
 /area/crew_quarters/locker/locker_toilet)
-"bUM" = (
-/obj/effect/landmark/costume/commie,
-/obj/structure/table/rack,
-/turf/simulated/floor/wood,
-/area/maintenance/bar)
 "bUO" = (
 /obj/machinery/light{
 	dir = 8;
@@ -56965,17 +56855,6 @@
 /obj/machinery/computer/arcade/orion_trail,
 /turf/simulated/floor/wood,
 /area/crew_quarters/bar)
-"bVc" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 1
-	},
-/obj/structure/table/wood,
-/obj/item/weapon/flame/candle{
-	pixel_x = -15;
-	pixel_y = 15
-	},
-/turf/simulated/floor/wood,
-/area/crew_quarters/bar)
 "bVd" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/maintenance{
@@ -57008,16 +56887,6 @@
 	},
 /turf/simulated/floor/wood,
 /area/crew_quarters/bar)
-"bVg" = (
-/obj/effect/landmark/costume/plaguedoctor,
-/obj/structure/table/rack,
-/turf/simulated/floor/wood,
-/area/maintenance/bar)
-"bVh" = (
-/obj/effect/landmark/costume/elpresidente,
-/obj/structure/table/rack,
-/turf/simulated/floor/wood,
-/area/maintenance/bar)
 "bVi" = (
 /obj/random/loot,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -57453,14 +57322,6 @@
 /obj/effect/floor_decal/corner/grey/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/bar)
-"bWe" = (
-/obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/maintenance{
-	name = "Maintenance Access";
-	req_access = list(12)
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/bar)
 "bWf" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -57879,26 +57740,12 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/wood,
 /area/crew_quarters/bar)
-"bWS" = (
-/obj/effect/floor_decal/spline/fancy/wood{
-	icon_state = "spline_fancy";
-	dir = 4
-	},
-/turf/simulated/floor/wood,
-/area/crew_quarters/bar)
-"bWT" = (
-/obj/effect/floor_decal/spline/plain{
-	dir = 9;
-	icon_state = "spline_plain"
-	},
-/turf/simulated/floor/wood,
-/area/crew_quarters/bar)
 "bWU" = (
-/obj/effect/floor_decal/spline/plain{
-	icon_state = "spline_plain";
-	dir = 1
+/obj/machinery/door/airlock{
+	name = "Bar Backroom";
+	req_access = list(25)
 	},
-/turf/simulated/floor/wood,
+/turf/simulated/floor/tiled/dark,
 /area/crew_quarters/bar)
 "bWV" = (
 /obj/structure/sign/double/barsign,
@@ -58046,10 +57893,6 @@
 "bXo" = (
 /obj/machinery/hologram/holopad,
 /turf/simulated/floor/wood,
-/area/crew_quarters/bar)
-"bXp" = (
-/obj/machinery/computer/slot_machine,
-/turf/simulated/floor/tiled/dark,
 /area/crew_quarters/bar)
 "bXq" = (
 /obj/structure/table/rack,
@@ -58765,7 +58608,7 @@
 	icon_state = "spline_plain";
 	dir = 1
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/wall/wood,
 /area/crew_quarters/bar)
 "bYN" = (
 /turf/simulated/floor/tiled/dark,
@@ -58898,9 +58741,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/bar)
 "bZe" = (
+/obj/effect/landmark/costume/commie,
 /obj/structure/table/rack,
-/obj/random/loot,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/wood,
 /area/crew_quarters/bar)
 "bZf" = (
 /obj/structure/sign/electricshock,
@@ -59312,13 +59155,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/aft)
-"bZS" = (
-/obj/structure/curtain/black,
-/turf/simulated/floor/tiled/ramp/bottom{
-	icon_state = "rampbot";
-	dir = 1
-	},
-/area/crew_quarters/bar)
 "bZT" = (
 /obj/structure/table/wood,
 /turf/simulated/floor/wood,
@@ -64618,6 +64454,12 @@
 /obj/structure/closet/emcloset,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/aft)
+"dyN" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1
+	},
+/turf/simulated/floor/wood,
+/area/crew_quarters/bar)
 "dBt" = (
 /obj/structure/window/reinforced{
 	dir = 1
@@ -64639,11 +64481,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
-"dDa" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/bed/chair/wood,
-/turf/simulated/floor/wood,
-/area/crew_quarters/bar)
 "dEr" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/item/weapon/reagent_containers/blood/ripped,
@@ -64784,11 +64621,6 @@
 /obj/random/plushie,
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
-"eoW" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/table/wood,
-/turf/simulated/floor/wood,
-/area/crew_quarters/bar)
 "erq" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/table,
@@ -65393,6 +65225,11 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
+"hGp" = (
+/obj/effect/landmark/costume/elpresidente,
+/obj/structure/table/rack,
+/turf/simulated/floor/wood,
+/area/crew_quarters/bar)
 "hGy" = (
 /obj/machinery/alarm{
 	pixel_y = 23
@@ -65577,6 +65414,10 @@
 /mob/living/simple_animal/mouse/gray,
 /turf/simulated/floor/plating,
 /area/maintenance/bar)
+"iDn" = (
+/obj/item/weapon/stool/padded,
+/turf/simulated/floor/wood,
+/area/crew_quarters/bar)
 "iPv" = (
 /turf/simulated/wall/r_wall,
 /area/rnd/chemistry)
@@ -65951,6 +65792,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/cargo)
+"kTn" = (
+/obj/effect/landmark/start{
+	name = "Entertainer"
+	},
+/turf/simulated/floor/wood,
+/area/crew_quarters/bar)
 "kWH" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -66149,6 +65996,10 @@
 /obj/structure/grille,
 /turf/simulated/floor/plating,
 /area/medical/medbay2)
+"lUO" = (
+/obj/structure/device/piano,
+/turf/simulated/floor/wood,
+/area/crew_quarters/bar)
 "lVA" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -67455,6 +67306,11 @@
 /obj/effect/decal/cleanable/flour,
 /turf/simulated/floor/plating,
 /area/maintenance/civ)
+"tib" = (
+/obj/effect/landmark/costume/chicken,
+/obj/structure/table/rack,
+/turf/simulated/floor/wood,
+/area/crew_quarters/bar)
 "tjF" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/red,
 /obj/machinery/hologram/holopad,
@@ -98902,8 +98758,8 @@ bZs
 bZs
 bWa
 bWa
-bWa
-bWa
+bZs
+bZs
 bWa
 bYZ
 bXE
@@ -99159,8 +99015,8 @@ bZT
 bZT
 bWa
 bWa
-bZs
-bZs
+xHc
+bZT
 bWa
 bYZ
 bZt
@@ -99416,8 +99272,8 @@ bZT
 gNU
 bWa
 bWa
-xHc
 bZT
+gNU
 bWa
 bYZ
 bZt
@@ -99673,8 +99529,8 @@ bZU
 bZU
 bWa
 bWa
-bZT
-gNU
+bZU
+bZU
 bWa
 bYZ
 bZu
@@ -99930,8 +99786,8 @@ bWa
 bWa
 bWa
 bWa
-bZU
-bZU
+bWa
+bWa
 bWa
 bWQ
 blc
@@ -100184,10 +100040,10 @@ bVz
 bWa
 bWo
 bWa
-bWa
-bWa
-bWa
-bWa
+iDn
+iDn
+iDn
+iDn
 bWa
 bWa
 bYZ
@@ -100441,11 +100297,11 @@ bVA
 bWa
 bWo
 bWa
+iDn
+iDn
+iDn
+iDn
 bWa
-rOV
-bZT
-bZT
-ciE
 bWa
 bYZ
 bZt
@@ -100698,11 +100554,11 @@ bVA
 bWb
 bWp
 bWR
-bWR
-dDa
-eoW
-bVc
-ciE
+dyN
+bWa
+bWa
+bWa
+bWa
 bWa
 bYZ
 bZt
@@ -100954,13 +100810,13 @@ blc
 bVw
 bWc
 bWq
-bWS
-bWS
-bWS
-bWS
-bWS
-bWS
-bWS
+blc
+bXG
+bXG
+bXG
+bXG
+bXG
+blc
 bZb
 bZu
 bZu
@@ -101211,7 +101067,7 @@ bUI
 bVC
 bTz
 bWr
-bWT
+blc
 bXn
 bXn
 bXn
@@ -101468,14 +101324,14 @@ bUJ
 bVD
 bWd
 bWs
-bWU
+blc
 bXo
 bWa
-bWa
+kTn
 bWa
 bYB
 bYM
-bZc
+bYN
 bZc
 bZc
 blc
@@ -101731,8 +101587,8 @@ bWa
 bWa
 bWv
 bWN
+bWU
 bYN
-bXp
 bXV
 bZw
 blc
@@ -102239,17 +102095,17 @@ bUj
 bVG
 bSU
 bWt
-bZS
-bWa
-bWa
-bWa
-bWa
 blc
-bPH
+bWa
+bWa
+bWa
+bWa
+bWa
+tib
 bZe
-bOv
-bGC
-bKY
+hGp
+lUO
+blc
 bGC
 bGC
 bGC
@@ -102501,12 +102357,12 @@ bXq
 mxd
 bXq
 bXq
+bWa
+bWa
+bWa
+bWa
+bWa
 blc
-bGC
-bGC
-bGC
-bGC
-bGC
 bEK
 bEK
 bEK
@@ -102759,11 +102615,11 @@ blc
 blc
 blc
 blc
-bGC
-bGC
-bGC
-bGC
-bGC
+blc
+blc
+blc
+blc
+blc
 bGC
 bGC
 bGC
@@ -103771,14 +103627,14 @@ aaa
 bEK
 bRi
 bEK
-bRW
-bRY
-bSV
-bGC
-bRY
-bRY
-bGC
-bGC
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
 bEK
 bRi
 bEK
@@ -104028,14 +103884,14 @@ aaa
 bEK
 bRi
 bEK
-bRX
-bRY
-bSW
-bGC
-bUk
-bUk
-bGC
-bGC
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
 bEK
 bWx
 bEK
@@ -104285,15 +104141,15 @@ aaa
 bEK
 bRi
 bEK
-bRY
-bRY
-bSW
-bRW
-bUk
-bUk
-bGC
-bGC
-bWe
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+bEK
 bRi
 bEK
 aab
@@ -104542,14 +104398,14 @@ aaa
 bEK
 bRi
 bEK
-bRY
-bRY
-bSV
-bGC
-bUk
-bUk
-bRW
-bGC
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
 bEK
 bRi
 bEK
@@ -104799,14 +104655,14 @@ aaa
 bEK
 bRi
 bEK
-bRW
-bRY
-bSW
-bRW
-bRY
-bRY
-bGC
-bRW
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
 bEK
 bRi
 bEK
@@ -105056,14 +104912,14 @@ aaa
 bEK
 bRk
 bEK
-bEK
-bSz
-bEK
-bEK
-bEK
-bEK
-bEK
-bSz
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
 bEK
 bRi
 bEK
@@ -105313,14 +105169,14 @@ aaa
 bEK
 bRi
 bEK
-bRZ
-bGC
-bSX
-bTF
-bTH
-bTH
-bVg
-bRW
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
 bEK
 bRi
 bEK
@@ -105570,14 +105426,14 @@ blN
 blN
 bRi
 bEK
-bSa
-bRW
-bRW
-bTG
-bGC
-bRW
-bRW
-bRW
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
 bEK
 bRi
 bEK
@@ -105826,15 +105682,15 @@ nLf
 mBV
 blN
 bRi
-bRB
-bGC
-bGC
-bSY
-bTH
-bUl
-bUM
-bVh
-bTH
+bEK
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
 bEK
 bRi
 bEK
@@ -106084,9 +105940,9 @@ hAQ
 blN
 bRi
 bEK
-bSb
-bSA
-bSZ
+aaa
+aaa
+aaa
 bEK
 bEK
 bEK

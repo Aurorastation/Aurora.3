@@ -311,7 +311,7 @@
 
 
 /datum/job/entertainment
-	title = "Clown"
+	title = "Entertainer"
 	flag = CLOWN
 	department = "Civilian"
 	department_flag = CIVILIAN
@@ -322,10 +322,23 @@
 	selection_color = "#fe019a"
 	access = list(access_maint_tunnels)
 	minimal_access = list(access_maint_tunnels)
-	alt_titles = list("Mime")
-	alt_outfits = list("Mime" = /datum/outfit/job/mime)
-	title_accesses = list("Clown" = list(access_clown), "Entertainer" = list(access_medical))
+	alt_titles = list("Mime", "Clown")
+	alt_outfits = list("Mime" = /datum/outfit/job/mime, "Clown" = /datum/outfit/job/clown)
+	title_accesses = list("Entertainer" = list(access_bar), "Clown" = list(access_clown, access_bar), "Mime" = list(access_cargo,access_bar))
 	outfit = /datum/outfit/job/clown
+
+
+/datum/outfit/job/entertainer
+	name = "Entertainer"
+	jobtype = /datum/job/entertainment
+
+	uniform = /obj/item/clothing/under/suit_jacket/red
+	suit = /obj/item/clothing/suit/storage/toggle/internalaffairs
+	pda = /obj/item/device/pda/lawyer
+	shoes = /obj/item/clothing/shoes/brown
+	glasses = /obj/item/clothing/glasses/sunglasses/big
+	shoes = /obj/item/clothing/shoes/black
+	l_ear = /obj/item/device/radio/headset/headset_service
 
 /datum/outfit/job/mime
 	name = "Mime"
@@ -352,7 +365,3 @@
 		/obj/item/weapon/bananapeel = 1,
 		/obj/item/weapon/bikehorn = 1
 	)
-
-/datum/job/entertainment/after_spawn(mob/living/carbon/human/H)
-	if(H.mind)
-		playsound(H.loc, 'sound/items/bikehorn.ogg', 50, 1)
