@@ -3,6 +3,7 @@
 	desc = "Used for advanced medical procedures."
 	icon = 'icons/obj/surgery.dmi'
 	icon_state = "table2-idle"
+	var/modify_state = "table2"
 	density = 1
 	anchored = 1
 	use_power = 1
@@ -74,10 +75,10 @@
 		var/mob/living/carbon/human/M = locate(/mob/living/carbon/human, src.loc)
 		if(M.lying)
 			src.victim = M
-			icon_state = M.pulse ? "table2-active" : "table2-idle"
+			icon_state = M.pulse ? "[modify_state]-active" : "[modify_state]-idle"
 			return 1
 	src.victim = null
-	icon_state = "table2-idle"
+	icon_state = "[modify_state]-idle"
 	return 0
 
 /obj/machinery/optable/machinery_process()
@@ -93,15 +94,13 @@
 		C.client.eye = src
 	C.resting = 1
 	C.forceMove(src.loc)
-	for(var/obj/O in src)
-		O.forceMove(src.loc)
 	src.add_fingerprint(user)
 	if(ishuman(C))
 		var/mob/living/carbon/human/H = C
 		src.victim = H
-		icon_state = H.pulse ? "table2-active" : "table2-idle"
+		icon_state = H.pulse ? "[modify_state]-active" : "[modify_state]-idle"
 	else
-		icon_state = "table2-idle"
+		icon_state = "[modify_state]-idle"
 
 /obj/machinery/optable/MouseDrop_T(mob/target, mob/user)
 

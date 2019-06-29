@@ -11,6 +11,7 @@
 	name = "Life Support Enabled Operating Table"
 	desc = "A more advanced version of the standard operating table."
 	icon_state = "table3-idle"
+	modify_state = "table3"
 	flags = OPENCONTAINER
 	idle_power_usage = 3
 	active_power_usage = 8
@@ -143,13 +144,14 @@
 
 /obj/machinery/optable/lifesupport/update_icon()
 	if (panel_open)
-		icon_state = "table3-open"
+		icon_state = "[modify_state]-open"
 	else if (victim && active)
-		icon_state = victim.pulse ? "table3-lifeactive" : "table3-lifeidle"
+		icon_state = victim.pulse ? "[modify_state]-lifeactive" : "[modify_state]-lifeidle"
 	else if (victim)
-		icon_state = victim.pulse ? "table3-active" : "table3-idle"
+		icon_state = victim.pulse ? "[modify_state]-active" : "[modify_state]-idle"
 	else
-		icon_state = "table3-idle"
+		icon_state = "[modify_state]-idle"
+
 
 /obj/machinery/optable/lifesupport/check_table(mob/living/carbon/patient as mob)
 	if (victim)

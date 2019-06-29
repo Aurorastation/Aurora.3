@@ -91,6 +91,7 @@
 	density = 1
 	anchored = 1.0
 	icon_state = "crew"
+	icon_state = "computer"
 	circuit = "/obj/item/weapon/circuitboard/advoperating"
 	interact_offline = 0
 	var/screen = 1
