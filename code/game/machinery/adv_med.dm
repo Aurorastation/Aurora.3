@@ -91,10 +91,6 @@
 	update_use_power(2)
 	flick("[initial(icon_state)]-anim", src)
 	update_icon()
-	for(var/obj/O in src)
-		//O = null
-		qdel(O)
-		//Foreach goto(124)
 	src.add_fingerprint(usr)
 	return
 
@@ -103,9 +99,6 @@
 		return
 
 	last_occupant_name = src.occupant.name
-	for(var/obj/O in src)
-		O.forceMove(src.loc)
-		//Foreach goto(30)
 	if (src.occupant.client)
 		src.occupant.client.eye = src.occupant.client.mob
 		src.occupant.client.perspective = MOB_PERSPECTIVE
