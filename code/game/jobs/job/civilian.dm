@@ -325,7 +325,12 @@
 	alt_titles = list("Mime", "Clown")
 	alt_outfits = list("Mime" = /datum/outfit/job/mime, "Clown" = /datum/outfit/job/clown)
 	title_accesses = list("Entertainer" = list(access_bar), "Clown" = list(access_clown, access_bar), "Mime" = list(access_cargo,access_bar))
-	outfit = /datum/outfit/job/clown
+	outfit = /datum/outfit/job/entertainer
+
+/datum/job/entertainment/New()
+	..()
+	if(prob(config.entertainment_chance))
+		spawn_positions = 0 
 
 
 /datum/outfit/job/entertainer
@@ -344,9 +349,10 @@
 	name = "Mime"
 	jobtype = /datum/job/entertainment
 
-	uniform = /obj/item/clothing/under/lightblue
+	uniform = /obj/item/clothing/under/mime
 	pda = /obj/item/device/pda/mime
 	l_ear = /obj/item/device/radio/headset/headset_service
+	mask = /obj/item/clothing/mask/gas/mime
 
 /datum/outfit/job/clown
 	name = "Clown"
@@ -361,7 +367,5 @@
 	gloves = /obj/item/clothing/gloves/white
 
 	backpack_contents = list(
-		/obj/item/weapon/stamp/clown = 1,
-		/obj/item/weapon/bananapeel = 1,
 		/obj/item/weapon/bikehorn = 1
 	)

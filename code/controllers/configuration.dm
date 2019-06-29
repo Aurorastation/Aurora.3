@@ -271,6 +271,7 @@ var/list/gamemode_cache = list()
 
 	var/cargo_load_items_from = "json"
 	var/merchant_chance = 20 //Chance, in percentage, of the merchant job slot being open at round start
+	var/entertainment_chance = 20
 
 	var/show_game_type_odd = 1 // If the check gamemode probability verb is enabled or not
 
@@ -865,6 +866,9 @@ var/list/gamemode_cache = list()
 
 				if("merchant_chance")
 					config.merchant_chance = text2num(value)
+
+				if("entertainment_chance")
+					config.entertainment_chance = text2num(value)
 
 				if("force_map")
 					override_map = value

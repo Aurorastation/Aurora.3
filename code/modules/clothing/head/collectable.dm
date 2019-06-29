@@ -63,9 +63,12 @@
 	icon_state = "policehelm"
 
 /obj/item/clothing/head/collectable/beret
-	name = "collectable beret"
-	desc = "A Collectable red Beret. It smells faintly of Garlic."
+	name = "mime beret"
+	desc = "A mime red Beret. It smells faintly of Garlic."
 	icon_state = "beret"
+
+
+
 
 /obj/item/clothing/head/collectable/welding
 	name = "collectable welding helmet"

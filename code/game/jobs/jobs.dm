@@ -124,7 +124,8 @@ var/list/nonhuman_positions = list(
 	"AI",
 	"Cyborg",
 	"pAI",
-	"Merchant"
+	"Merchant",
+	"Entertainer"
 )
 
 /proc/guest_jobbans(var/job)

@@ -56,10 +56,15 @@ var/global/list/narsie_list = list()
 			SetUniversalState(/datum/universal_state/hell)
 		narsie_cometh = 1
 
-		spawn(10 SECONDS)
-			if(emergency_shuttle)
-				emergency_shuttle.call_evac()
-				emergency_shuttle.launch_time = 0	// Cannot recall
+		addtimer(CALLBACK(src, .proc/shuttlecheck), 10 SECONDS)
+
+
+/obj/singularity/narsie/large/proc/shuttlecheck()
+	if(emergency_shuttle)
+		emergency_shuttle.call_evac()
+		emergency_shuttle.launch_time = 0	// Cannot recall
+
+
 
 /obj/singularity/narsie/process()
 	eat()
@@ -419,8 +424,3 @@ var/global/list/narsie_list = list()
 	narsie_spawn_animation()
 
 	log_and_message_admins("Honkmother has been spawned.", location = get_turf(loc))
-
-	spawn(10 SECONDS)
-		if(emergency_shuttle)
-			emergency_shuttle.call_evac()
-			emergency_shuttle.launch_time = 0	// Cannot recall
