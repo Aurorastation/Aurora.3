@@ -19,7 +19,6 @@
 	roof_flags = ROOF_CLEANUP
 	var/destructible = FALSE
 	var/damage = 0
-	var/damage_overlay = 0
 	var/material/material
 	var/material/reinf_material
 	roof_type = /turf/simulated/shuttle/roof/destructible

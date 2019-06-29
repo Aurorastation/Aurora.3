@@ -27,6 +27,7 @@
 	var/list/crash_offset = list(-50, 50)
 	var/ship_size = 0
 	var/walls_count = 0
+	var/list/exterior_walls = list()
 
 /datum/shuttle/ferry/init_shuttle(var/list/settings)
 	location = settings[1]
@@ -52,6 +53,12 @@
 			engines_count += 1
 			var/obj/structure/shuttle/engine/propulsion/P = A
 			engines += P
+			var/turf/simulated/shuttle/e_turf = get_turf(P)
+			e_turf.name = "engine mount"
+			e_turf.add_overlay("engine_mount")
+			e_turf.destructible = FALSE
+			e_turf.dir = P.dir
+			e_turf.update_icon()
 
 /datum/shuttle/ferry/proc/integrity_check(var/V)
 	if(!isturf(V))
