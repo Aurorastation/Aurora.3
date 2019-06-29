@@ -73,6 +73,12 @@
 	build_path = /obj/item/weapon/circuitboard/operating
 	sort_string = "FACAA"
 
+/datum/design/circuit/operatingadv
+	name = "life support console"
+	id = "operatingadv"
+	build_path = /obj/item/weapon/circuitboard/advoperating
+	sort_string = "FACAB"
+
 /datum/design/circuit/pandemic
 	name = "PanD.E.M.I.C. 2200"
 	id = "pandemic"
