@@ -127,7 +127,7 @@ other types of metals and chemistry for reagents).
 
 
 /datum/design/item/powerdrill
-	name = "Optical meson scanners design"
+	name = "Power Drill"
 	desc = "A advanced drill used to make work more efficiant."
 	id = "powerdrill"
 	req_tech = list(TECH_MAGNET = 3, TECH_ENGINEERING = 3)
