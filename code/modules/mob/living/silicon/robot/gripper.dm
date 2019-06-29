@@ -243,34 +243,15 @@
 
 	can_hold = list(
 		/obj/item/weapon/reagent_containers/glass,
+		/obj/item/weapon/reagent_containers/food/snacks/monkeycube,
+		/obj/item/organ,
+		/obj/item/clothing/mask,
+		/obj/item/weapon/tank,
 		/obj/item/weapon/reagent_containers/pill,
 		/obj/item/weapon/reagent_containers/spray,
 		/obj/item/weapon/storage/pill_bottle,
 		/obj/item/weapon/hand_labeler,
 		/obj/item/stack/material/phoron
-		)
-
-
-/obj/item/weapon/gripper/medical //Filling the gap between the chem gripper and science grippers
-	name = "medical gripper"
-	icon_state = "gripper-medical"
-	desc = "A specialised grasping tool designed for working in the medical field"
-
-	can_hold = list(
-		/obj/item/weapon/reagent_containers/food/snacks/monkeycube,
-		/obj/item/organ,
-		/obj/item/clothing/mask,
-		/obj/item/weapon/tank,
-		/obj/item/weapon/scalpel,
-		/obj/item/weapon/hemostat,
-		/obj/item/weapon/retractor,
-		/obj/item/weapon/cautery,
-		/obj/item/weapon/bonegel,
-		/obj/item/weapon/FixOVein,
-		/obj/item/weapon/bonesetter,
-		/obj/item/weapon/circular_saw,
-		/obj/item/stack/medical,
-		/obj/item/weapon/surgicaldrill
 		)
 
 
