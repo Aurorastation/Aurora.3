@@ -125,6 +125,16 @@ other types of metals and chemistry for reagents).
 	build_path = /obj/item/clothing/glasses/meson
 	sort_string = "GAAAC"
 
+
+/datum/design/item/powerdrill
+	name = "Optical meson scanners design"
+	desc = "A advanced drill used to make work more efficiant."
+	id = "powerdrill"
+	req_tech = list(TECH_MAGNET = 3, TECH_ENGINEERING = 3)
+	materials = list(DEFAULT_WALL_MATERIAL = 60, "glass" = 50)
+	build_path = /obj/item/powerdrill
+	sort_string = "GAAAD"
+
 ///////////////////////////////////
 /////////Shield Generators/////////
 ///////////////////////////////////
