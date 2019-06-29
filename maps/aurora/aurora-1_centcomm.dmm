@@ -8339,17 +8339,17 @@
 /obj/structure/shuttle/engine/propulsion{
 	icon_state = "burst_l"
 	},
-/turf/template_noop,
+/turf/simulated/shuttle/floor/plating/destructible,
 /area/supply/dock)
 "auR" = (
 /obj/structure/shuttle/engine/propulsion,
-/turf/template_noop,
+/turf/simulated/shuttle/floor/plating/destructible,
 /area/supply/dock)
 "auS" = (
 /obj/structure/shuttle/engine/propulsion{
 	icon_state = "burst_r"
 	},
-/turf/template_noop,
+/turf/simulated/shuttle/floor/plating/destructible,
 /area/supply/dock)
 "auT" = (
 /turf/unsimulated/wall/riveted,
