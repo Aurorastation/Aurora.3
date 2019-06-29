@@ -29,6 +29,7 @@
 	matter = list(DEFAULT_WALL_MATERIAL = 150)
 	attack_verb = list("bashed", "battered", "bludgeoned", "whacked")
 	drop_sound = 'sound/items/drop/sword.ogg'
+	usesound = 'sound/items/Ratchet.ogg'
 
 /obj/item/weapon/wrench/iswrench()
 	return TRUE
@@ -53,6 +54,7 @@
 	lock_picking_level = 5
 	var/random_icon = TRUE
 	drop_sound = 'sound/items/drop/scrap.ogg'
+	usesound = 'sound/items/Screwdriver.ogg'
 
 
 /obj/item/weapon/screwdriver/Initialize()
