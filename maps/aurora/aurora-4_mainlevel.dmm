@@ -68594,6 +68594,11 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/lab)
+"whL" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/reagent_dispensers/keg,
+/turf/simulated/floor/plating,
+/area/maintenance/civ)
 "wkb" = (
 /obj/machinery/vending/snack,
 /turf/simulated/floor/tiled,
@@ -106148,7 +106153,7 @@ alc
 xoy
 acV
 adk
-adk
+whL
 acU
 arZ
 atr

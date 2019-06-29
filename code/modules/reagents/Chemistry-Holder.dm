@@ -359,6 +359,8 @@
 /datum/reagents/proc/trans_ids_to(var/target, var/list/ids, var/amount = 1) // amount is distributed equally over all reagents
 	if(!target)
 		return
+	if(!LAZYLEN(ids)) // it's always going to be defined but, you know, good practice and all
+		return
 	var/amounteach = amount / ids.len
 	. = 0
 	for(var/id in ids)
