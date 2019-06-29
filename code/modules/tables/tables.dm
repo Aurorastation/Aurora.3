@@ -251,14 +251,14 @@
 	reinforced = common_material_remove(user, reinforced, 40, "reinforcements", "screws", 'sound/items/Screwdriver.ogg')
 
 /obj/structure/table/proc/remove_material(obj/item/weapon/wrench/W, mob/user)
-	material = common_material_remove(user, material, 20, "plating", "bolts", 'sound/items/Ratchet.ogg')
+	material = common_material_remove(user, material, 20, "plating", "bolts", W.usesound)
 
 /obj/structure/table/proc/dismantle(obj/item/weapon/wrench/W, mob/user)
 	if(manipulating) return
 	manipulating = 1
 	user.visible_message("<span class='notice'>\The [user] begins dismantling \the [src].</span>",
 	                              "<span class='notice'>You begin dismantling \the [src].</span>")
-	playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
+	playsound(src, W.usesound, 100, 1)
 	if(!do_after(user, 20/W.toolspeed))
 		manipulating = 0
 		return

@@ -633,21 +633,32 @@
 /obj/item/powerdrill
 	name = "impact wrench"
 	desc = " The screwdriver's big brother."
-	icon = 'icons/obj/items.dmi'
-	icon_state = "powerdrill"
+	icon = 'icons/obj/tools.dmi'
+	var/drillcolor = null
 	force = 3
 	w_class = 2
 	toolspeed = 3
 	usesound = 'sound/items/drill_use.ogg'
 
 	var/list/tools = list(
-		"screwdriver",
-		"wrench"
+		"screwdriverbit",
+		"wrenchbit"
 		)
 	var/current_tool = 1
 
 /obj/item/powerdrill/Initialize()
 	. = ..()
+
+	switch(pick("red","blue","yellow","green"))
+		if ("red")
+			drillcolor = "red"
+		if ("blue")
+			drillcolor = "blue"
+		if ("green")
+			drillcolor = "green"
+		if ("yellow")
+			drillcolor = "yellow"
+	icon_state = "powerdrill[drillcolor]"
 
 /obj/item/powerdrill/examine(var/mob/user)
 	. = ..()
@@ -658,15 +669,20 @@
 
 /obj/item/powerdrill/iswrench()
 	usesound = 'sound/items/air_wrench.ogg'
-	return tools[current_tool] == "wrench"
+	return tools[current_tool] == "wrenchbit"
 
 /obj/item/powerdrill/isscrewdriver()
 	usesound = 'sound/items/drill_use.ogg'
 
-	return tools[current_tool] == "screwdriver"
+	return tools[current_tool] == "screwdriverbit"
 
 /obj/item/powerdrill/proc/update_tool()
-	icon_state = "[initial(icon_state)]-[tools[current_tool]]"
+	if(isscrewdriver())
+		cut_overlays()
+		add_overlay("screwdriverbit")
+	if(iswrench())
+		cut_overlays()
+		add_overlay("wrenchbit")
 
 /obj/item/powerdrill/attack_self(var/mob/user)
 	if(++current_tool > tools.len)

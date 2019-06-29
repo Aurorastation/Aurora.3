@@ -76,7 +76,7 @@
 						if(C.use(5))
 							to_chat(user, "<span class='notice'>You add cables to the frame.</span>")
 							state = 3
-							icon_state = "blueprint_2"
+							icon_state = "blueprint_1"
 				else
 					if(P.iswrench())
 						playsound(src.loc, P.usesound, 75, 1)
@@ -91,7 +91,7 @@
 						to_chat(user, span("notice", "You add the circuit board to the blueprint."))
 						circuit = P
 						user.drop_from_inventory(P,src)
-						icon_state = "blueprint_3"
+						icon_state = "blueprint_2"
 						state = 4
 						components = list()
 						req_components = circuit.req_components.Copy()
