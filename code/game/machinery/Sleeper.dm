@@ -1,8 +1,8 @@
 /obj/machinery/sleeper
 	name = "sleeper"
 	desc = "A fancy bed with built-in injectors, a dialysis machine, and a limited health scanner."
-	icon = 'icons/obj/Cryogenic2.dmi'
-	icon_state = "sleeper_0"
+	icon = 'icons/obj/sleeper.dmi'
+	icon_state = "sleeper"
 	density = 1
 	anchored = 1
 	var/mob/living/carbon/human/occupant = null
@@ -43,7 +43,12 @@
 			toggle_filter()
 
 /obj/machinery/sleeper/update_icon()
-	icon_state = "sleeper_[occupant ? "1" : "0"]"
+	flick("[initial(icon_state)]-anim", src)
+	if(occupant)
+		icon_state = "[initial(icon_state)]-closed"
+		return
+	else
+		icon_state = initial(icon_state)
 
 /obj/machinery/sleeper/RefreshParts()
 	..()
@@ -181,8 +186,12 @@
 			qdel(G)
 			return
 	else if(I.isscrewdriver())
-		to_chat(user, "You [panel_open ? "open" : "close"] the maintenance panel.")
-		panel_open = !panel_open
+		src.panel_open = !src.panel_open
+		to_chat(user, "You [src.panel_open ? "open" : "close"] the maintenance panel.")
+		cut_overlays()
+		if(src.panel_open)
+			add_overlay("[initial(icon_state)]-o")
+
 
 	else if(default_part_replacement(user, I))
 		return

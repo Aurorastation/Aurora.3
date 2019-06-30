@@ -97,6 +97,9 @@
 	name = "Cargo Maintenance"
 	icon_state = "maint_cargo"
 
+/area/maintenance/cargo/surface
+	name = "Cargo Maintenance - Surface"
+
 /area/maintenance/disposal
 	name = "Waste Disposal"
 	icon_state = "disposal"
@@ -158,6 +161,10 @@
 	name = "Research Maintenance - Port"
 	icon_state = "maint_research_port"
 
+/area/maintenance/telecoms_ladder
+	name = "\improper Telecoms Ladder Shaft"
+	icon_state = "tcomsatentrance"
+
 /area/maintenance/research_xenobiology
 	name = "Research Maintenance - Xenobiology"
 	icon_state = "maint_research_port"
@@ -178,6 +185,10 @@
 	name = "Security Maintenance - Starboard"
 	icon_state = "maint_security_starboard"
 
+/area/maintenance/security_interstitial
+	name = "Security Maintenance - Interstitial"
+	icon_state = "maint_security_starboard"
+
 /area/maintenance/storage
 	name = "Atmospherics"
 	icon_state = "green"
@@ -195,9 +206,15 @@
 	icon_state = "maintcentral"
 
 /area/maintenance/interstitial_construction_site
-	name = "\improper Construction Site"
+	name = "\improper Construction Zone"
 	icon_state = "engineering_workshop"
 	flags = HIDE_FROM_HOLOMAP
+
+/area/maintenance/interstitial_construction_site/zone_2
+	name = "\improper Secondary Construction Zone"
+
+/area/maintenance/interstitial_construction_site/office
+	name = "\improper Construction Office"
 
 // SUBSTATIONS (Subtype of maint, that should let them serve as shielded area during radstorm)
 
@@ -216,8 +233,14 @@
 /area/maintenance/substation/medical // Medbay
 	name = "Main Lvl. Medical Substation"
 
+/area/maintenance/substation/medical_sublevel // Medbay
+	name = "Medical Sublevel - Substation"
+
 /area/maintenance/substation/research // Research
 	name = "Main Lvl. Research Substation"
+
+/area/maintenance/substation/research_sublevel
+	name = "Research Sublevel - Substation"
 
 /area/maintenance/substation/civilian_east // Bar, kitchen, dorms, ...
 	name = "Surface Lvl. Civilian Substation"

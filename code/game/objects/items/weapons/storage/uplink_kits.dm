@@ -148,7 +148,7 @@
 	new /obj/item/weapon/stamp/chameleon(src)
 	new /obj/item/weapon/pen/chameleon(src)
 	new /obj/item/device/destTagger(src)
-	new /obj/item/weapon/packageWrap(src)
+	new /obj/item/stack/packageWrap(src)
 	new /obj/item/weapon/hand_labeler(src)
 
 /obj/item/weapon/storage/box/syndie_kit/spy

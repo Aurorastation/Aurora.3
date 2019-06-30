@@ -34,6 +34,7 @@
 	seek_speed = 5
 	pass_flags = PASSTABLE
 	possession_candidate = 1
+	butchering_products = list(/obj/item/stack/material/animalhide/cat = 2)
 
 /mob/living/simple_animal/cat/think()
 	//MICE!

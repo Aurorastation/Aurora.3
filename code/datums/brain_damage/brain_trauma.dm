@@ -14,10 +14,10 @@
 	var/suppressed = 0 //currently being suppressed
 	var/cure_type //type of therapy that cures the trauma
 	//current cures:
-		//hypnosis - cures traumas that alter behavior
-		//solitude - cures traumas that produce hallucination
-		//electroshock - cures traumas that have physical effects
-		//surgery - cures traumas not covered above
+		//CURE_HYPNOSIS - cures traumas that alter behavior
+		//CURE_SOLITUDE - cures traumas that produce hallucination
+		//CURE_CRYSTAL - cures traumas that have physical effects
+		//CURE_SURGERY - cures traumas not covered above
 
 /datum/brain_trauma/New(obj/item/organ/brain/B, _permanent)
 	brain = B

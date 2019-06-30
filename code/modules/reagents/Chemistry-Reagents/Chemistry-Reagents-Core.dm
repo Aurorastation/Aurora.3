@@ -22,7 +22,7 @@
 	glass_name = "glass of tomato juice"
 	glass_desc = "Are you sure this is tomato juice?"
 
-	specific_heat = 3.617
+	fallback_specific_heat = 3.617
 
 /datum/reagent/blood/initialize_data(var/newdata)
 	..()
@@ -236,8 +236,9 @@
 	. = ..()
 	if(istype(M) && isliving(M))
 		var/mob/living/L = M
-		L.ExtinguishMob(L.on_fire ? amount : amount*0.5)
-		remove_self(amount)
+		var/needed = min(L.fire_stacks, amount)
+		L.ExtinguishMob(needed)
+		remove_self(needed)
 
 	if(istype(M) && !istype(M, /mob/abstract))
 		M.color = initial(M.color)
@@ -276,7 +277,7 @@
 	glass_name = "glass of welder fuel"
 	glass_desc = "Unless you are an industrial tool, this is probably not safe for consumption."
 
-	specific_heat = 0.605
+	fallback_specific_heat = 0.605
 
 /datum/reagent/fuel/touch_turf(var/turf/T)
 	new /obj/effect/decal/cleanable/liquid_fuel(T, volume)

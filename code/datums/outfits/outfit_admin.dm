@@ -151,13 +151,15 @@
 	uniform = /obj/item/clothing/under/ccpolice
 	suit = /obj/item/clothing/suit/storage/vest/heavy/ert/peacekeeper
 	shoes = /obj/item/clothing/shoes/swat
-	gloves = /obj/item/clothing/gloves/swat
+	gloves = /obj/item/clothing/gloves/swat/tactical
 	l_ear = /obj/item/device/radio/headset/ert
 	glasses = /obj/item/clothing/glasses/sunglasses/sechud
-	head = /obj/item/clothing/head/beret/centcom/officer
+	head = /obj/item/clothing/head/beret/centcom/officer/civilprotection
+	suit_store = /obj/item/weapon/gun/energy/gun
+	belt = /obj/item/weapon/storage/belt/security
 
 	backpack_contents = list(
-		/obj/item/weapon/gun/energy/gun = 1,
+		/obj/item/weapon/storage/box/engineer = 1,
 		/obj/item/clothing/head/helmet/swat/peacekeeper = 1,
 		/obj/item/clothing/accessory/holster/hip = 1,
 		/obj/item/weapon/gun/energy/pistol = 1
@@ -166,6 +168,26 @@
 	implants = list(
 		/obj/item/weapon/implant/loyalty
 	)
+
+/datum/outfit/admin/nt/protection_detail/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+
+	if(H && H.belt)
+
+		var/obj/item/weapon/reagent_containers/spray/pepper/pepperspray = new(H)
+		var/obj/item/weapon/melee/baton/loaded/baton = new(H)
+		var/obj/item/weapon/shield/riot/tact/shield = new(H)
+		var/obj/item/weapon/grenade/flashbang/flashbang = new(H)
+		var/obj/item/weapon/handcuffs/cuffs = new(H)
+		var/obj/item/device/flash/flash = new(H)
+		var/obj/item/device/flashlight/flare/flare = new(H)
+
+		H.belt.contents += flare
+		H.belt.contents += flashbang
+		H.belt.contents += cuffs
+		H.belt.contents += pepperspray
+		H.belt.contents += flash
+		H.belt.contents += baton
+		H.belt.contents += shield
 
 
 /datum/outfit/admin/nt/ert_commander
@@ -208,26 +230,49 @@
 	uniform = /obj/item/clothing/under/ccpolice
 	suit = /obj/item/clothing/suit/storage/vest/heavy/ert/peacekeeper
 	shoes = /obj/item/clothing/shoes/swat
-	gloves = /obj/item/clothing/gloves/swat
+	gloves = /obj/item/clothing/gloves/swat/tactical
 	l_ear = /obj/item/device/radio/headset/ert
 	glasses = /obj/item/clothing/glasses/sunglasses/sechud/tactical
 	mask = /obj/item/clothing/mask/gas/tactical
 	head = /obj/item/clothing/head/helmet/swat/peacekeeper
+	back = null
 	r_pocket = /obj/item/weapon/handcuffs/ziptie
-	l_pocket = /obj/item/weapon/grenade/chem_grenade/gas
 	l_hand = /obj/item/weapon/shield/riot/tact
+	suit_store = /obj/item/weapon/gun/energy/gun
+	belt = /obj/item/weapon/storage/belt/security
 
-	backpack_contents = list(
-		/obj/item/weapon/gun/projectile/automatic/x9 = 1,
-		/obj/item/ammo_magazine/c45x = 2,
-		/obj/item/clothing/accessory/holster/hip = 1,
-		/obj/item/weapon/gun/energy/gun = 1
-	)
+	backpack_contents = null
 
 	implants = list(
 		/obj/item/weapon/implant/loyalty
 	)
 
+/datum/outfit/admin/nt/odinsec/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+
+	if(H && H.w_uniform)
+
+		var/obj/item/clothing/accessory/holster/hip/holster = new(H)
+		var/obj/item/weapon/gun/projectile/automatic/x9/weapon = new(H)
+		holster.contents += weapon
+		holster.holstered = weapon
+		var/obj/item/clothing/under/rank/U = H.w_uniform
+		U.attach_accessory(null, holster)
+
+	if(H && H.belt)
+
+		var/obj/item/weapon/reagent_containers/spray/pepper/pepperspray = new(H)
+		var/obj/item/weapon/melee/baton/loaded/baton = new(H)
+		var/obj/item/weapon/grenade/chem_grenade/gas/gasgrenade = new(H)
+		var/obj/item/device/flash/flash = new(H)
+		var/obj/item/ammo_magazine/c45x/mag1 = new(H)
+		var/obj/item/ammo_magazine/c45x/mag2 = new(H)
+
+		H.belt.contents += mag1
+		H.belt.contents += mag2
+		H.belt.contents += gasgrenade
+		H.belt.contents += pepperspray
+		H.belt.contents += flash
+		H.belt.contents += baton
 
 /datum/outfit/admin/nt/specops
 	name = "Special Operations Officer"
@@ -369,7 +414,7 @@
 
 	uniform = /obj/item/clothing/under/soviet
 	shoes = /obj/item/clothing/shoes/black
-	head = /obj/item/clothing/head/ushanka
+	head = /obj/item/clothing/head/ushanka/grey
 
 
 /datum/outfit/admin/sovietsoldier

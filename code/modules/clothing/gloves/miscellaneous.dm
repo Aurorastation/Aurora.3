@@ -29,6 +29,11 @@
 	icon_state = "legion"
 	item_state = "legion"
 
+/obj/item/clothing/gloves/swat/tactical
+	name = "\improper tactical gloves"
+	icon_state = "black_leather"
+	item_state = "black_leather_gloves"
+
 /obj/item/clothing/gloves/combat //Combined effect of SWAT gloves and insulated gloves
 	desc = "These tactical gloves are somewhat fire and impact resistant."
 	name = "combat gloves"

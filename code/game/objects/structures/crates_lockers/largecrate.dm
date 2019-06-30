@@ -87,3 +87,13 @@
 
 /obj/structure/largecrate/animal/dog/pug
 	held_type = /mob/living/simple_animal/hostile/commanded/dog/pug
+
+/obj/structure/largecrate/animal/adhomai
+	name = "adhomian animal crate"
+	held_type = /mob/living/simple_animal/ice_tunneler
+
+/obj/structure/largecrate/animal/adhomai/fatshouter
+	held_type = /mob/living/simple_animal/fatshouter
+
+/obj/structure/largecrate/animal/adhomai/rafama
+	held_type = /mob/living/simple_animal/hostile/retaliate/rafama
