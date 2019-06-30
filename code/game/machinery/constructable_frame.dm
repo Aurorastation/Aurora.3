@@ -52,14 +52,14 @@
 	attackby(obj/item/P as obj, mob/user as mob)
 		switch(state)
 			if(1)
-				if(P.ispen())
+				if(P.ismultitool())
 					to_chat(user, span("notice", "You begin to finalize the blueprint."))
 					if(do_after(user, 20) && state == 1)
 						to_chat(user, span("notice", "You finalize the blueprint."))
 						playsound(src.loc, 'sound/items/poster_being_created.ogg', 75, 1)
 						state = 2
 				else
-					if(P.ismultitool())
+					if(P.iswirecutter())
 						playsound(src.loc, 'sound/items/poster_ripped.ogg', 75, 1)
 						to_chat(user, span("notice", "You decide to scrap the blueprint"))
 						new /obj/item/stack/material/steel(src.loc, 5)
