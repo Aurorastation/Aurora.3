@@ -79,7 +79,7 @@
 // User has to wear their ID or have it inhand for ID Scan to work.
 // Can also be called manually, with optional parameter being access_to_check to scan the user's ID
 // Check type determines how the access should be checked PROGRAM_ACCESS_ONE, PROGRAM_ACCESS_LIST_ONE, PROGRAM_ACCESS_LIST_ALL
-/datum/computer_file/program/proc/can_run(var/mob/living/user, var/loud = 0, var/access_to_check, var/check_type)
+/datum/computer_file/program/proc/can_run(var/mob/user, var/loud = 0, var/access_to_check, var/check_type)
 	// Defaults to required_access_run
 	if(!access_to_check)
 		access_to_check = required_access_run
@@ -127,7 +127,7 @@
 // User has to wear their ID or have it inhand for ID Scan to work.
 // Can also be called manually, with optional parameter being access_to_check to scan the user's ID
 // Check type determines how the access should be checked PROGRAM_ACCESS_ONE, PROGRAM_ACCESS_LIST_ONE, PROGRAM_ACCESS_LIST_ALL
-/datum/computer_file/program/proc/can_download(var/mob/living/user, var/loud = 0, var/access_to_check, var/check_type)
+/datum/computer_file/program/proc/can_download(var/mob/user, var/loud = 0, var/access_to_check, var/check_type)
 	// Defaults to required_access_run
 	if(!access_to_check)
 		access_to_check = required_access_download
@@ -178,7 +178,7 @@
 
 // This is performed on program startup. May be overriden to add extra logic. Remember to include ..() call. Return 1 on success, 0 on failure.
 // When implementing new program based device, use this to run the program.
-/datum/computer_file/program/proc/run_program(var/mob/living/user)
+/datum/computer_file/program/proc/run_program(var/mob/user)
 	if(can_run(user, 1) || !requires_access_to_run)
 		if(nanomodule_path)
 			NM = new nanomodule_path(src, new /datum/topic_manager/program(src), src)
@@ -200,7 +200,7 @@
 
 // This is called every tick when the program is enabled. Ensure you do parent call if you override it. If parent returns 1 continue with UI initialisation.
 // It returns 0 if it can't run or if NanoModule was used instead. I suggest using NanoModules where applicable.
-/datum/computer_file/program/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
+/datum/computer_file/program/ui_interact(var/mob/user, var/ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
 	if(program_state != PROGRAM_STATE_ACTIVE) // Our program was closed. Close the ui if it exists.
 		if(ui)
 			ui.close()

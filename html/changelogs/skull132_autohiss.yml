@@ -1,0 +1,5 @@
+author: Skull132
+delete-after: True
+
+changes:
+  - bugfix: "Fixed a bug where, as a human, if you enabled autohiss, you would be unable to speak until you disabled it again."

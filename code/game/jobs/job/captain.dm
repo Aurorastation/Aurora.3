@@ -11,7 +11,6 @@ var/datum/announcement/minor/captain_announcement = new(do_newscast = 1)
 	spawn_positions = 1
 	supervisors = "company officials and Corporate Regulations"
 	selection_color = "#ccccff"
-	req_admin_notify = 1
 	access = list() 			//See get_access()
 	minimal_access = list() 	//See get_access()
 	minimal_player_age = 14
@@ -73,7 +72,6 @@ var/datum/announcement/minor/captain_announcement = new(do_newscast = 1)
 	spawn_positions = 1
 	supervisors = "the captain"
 	selection_color = "#ddddff"
-	req_admin_notify = 1
 	minimal_player_age = 10
 	economic_modifier = 10
 	ideal_character_age = 50
