@@ -7,7 +7,7 @@
 	name = "Suit Storage Unit"
 	desc = "An industrial U-Stor-It Storage unit designed to accomodate all kinds of space suits. Its on-board equipment also allows the user to decontaminate the contents through a UV-ray purging cycle. There's a warning label dangling from the control pad, reading \"STRICTLY NO BIOLOGICALS IN THE CONFINES OF THE UNIT\"."
 	icon = 'icons/obj/suit_storage.dmi'
-	icon_state = "close"
+	icon_state = "base"
 	anchored = 1
 	density = 1
 	var/mob/living/carbon/human/OCCUPANT = null
@@ -57,6 +57,8 @@
 			add_overlay("uvhuman")
 		else
 			add_overlay("uv")
+	if(!isopen)
+		add_overlay("closed")
 	else if(isopen)
 		if(isbroken)
 			add_overlay("broken")
