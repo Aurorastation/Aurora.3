@@ -62757,7 +62757,8 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass_mining{
 	name = "Mining";
-	req_access = list(48,67)
+	req_access = null;
+	req_one_access = list(48,67)
 	},
 /obj/structure/cable/green{
 	d1 = 1;
