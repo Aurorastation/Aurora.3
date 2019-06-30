@@ -12,6 +12,7 @@
 	fire_sound = 'sound/weapons/gunshot/slammer.ogg'
 	load_method = MAGAZINE
 	handle_casings = DELETE_CASINGS
+	fire_delay = 8
 
 /obj/item/weapon/gun/projectile/plasma/update_icon()
 	..()
@@ -32,3 +33,4 @@
 	allowed_magazines = list(/obj/item/ammo_magazine/plasma/light)
 	caliber = "plasma bolt"
 	fire_sound = 'sound/weapons/gunshot/bolter.ogg'
+	fire_delay = 6
