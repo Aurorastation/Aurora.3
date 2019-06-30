@@ -9,7 +9,7 @@
 	magazine_type = /obj/item/ammo_magazine/plasma
 	allowed_magazines = list(/obj/item/ammo_casing/plasma_slug)
 	caliber = "plasma slug"
-	fire_sound = 'sound/weapons/gunshot/gunshot_light.ogg'
+	fire_sound = 'sound/weapons/gunshot/slammer.ogg'
 	load_method = MAGAZINE
 	handle_casings = DELETE_CASINGS
 
@@ -31,3 +31,4 @@
 	magazine_type = /obj/item/ammo_magazine/plasma/light
 	allowed_magazines = list(/obj/item/ammo_magazine/plasma/light)
 	caliber = "plasma bolt"
+	fire_sound = 'sound/weapons/gunshot/bolter.ogg'

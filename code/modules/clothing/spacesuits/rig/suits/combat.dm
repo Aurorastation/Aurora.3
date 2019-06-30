@@ -163,6 +163,8 @@
 
 	species_restricted = list("Human")
 
+	max_heat_protection_temperature = FIRE_HELMET_MAX_HEAT_PROTECTION_TEMPERATURE + 10000
+
 /obj/item/weapon/rig/elyran/equipped
 	req_access = list(access_syndicate)
 

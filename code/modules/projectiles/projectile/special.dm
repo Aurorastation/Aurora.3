@@ -277,7 +277,7 @@
 
 /obj/item/projectile/plasma
 	name = "plasma slug"
-	icon_state = "plasma"
+	icon_state = "plasma_bolt"
 	damage = 25
 	damage_type = BRUTE
 	check_armour = "energy"
