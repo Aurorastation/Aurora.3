@@ -9,7 +9,6 @@
 	spawn_positions = 1
 	supervisors = "the captain"
 	selection_color = "#ffeeaa"
-	req_admin_notify = 1
 	economic_modifier = 10
 
 	ideal_character_age = 50
