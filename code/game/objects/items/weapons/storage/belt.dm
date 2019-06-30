@@ -10,7 +10,6 @@
 	max_storage_space = 28
 	slot_flags = SLOT_BELT
 	attack_verb = list("whipped", "lashed", "disciplined")
-	sprite_sheets = list("Resomi" = 'icons/mob/species/resomi/belt.dmi')
 	drop_sound = 'sound/items/drop/leather.ogg'
 
 	var/show_above_suit = 0
@@ -354,14 +353,6 @@
 	new /obj/item/weapon/reagent_containers/glass/fertilizer/rh(src)
 	new /obj/item/weapon/reagent_containers/spray/plantbgone(src)
 	new /obj/item/weapon/wirecutters/clippers(src)
-
-/obj/item/weapon/storage/belt/bandolier
-	name = "bandolier"
-	desc = "A pocketed belt designated to hold shotgun shells."
-	icon_state = "bandolier"
-	item_state = "bandolier"
-	can_hold = list(/obj/item/ammo_casing/shotgun)
-	storage_slots = 16
 
 /obj/item/weapon/storage/belt/fannypack
 	name = "leather fannypack"

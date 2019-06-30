@@ -1,7 +1,7 @@
 /obj/item/weapon/grenade/chem_grenade
 	name = "grenade casing"
 	icon_state = "chemg"
-	item_state = "grenade"
+	item_state = "chemg"
 	desc = "A hand made chemical grenade."
 	w_class = 2.0
 	force = 2.0
@@ -185,6 +185,7 @@
 	name = "large chem grenade"
 	desc = "An oversized grenade that affects a larger area."
 	icon_state = "large_grenade"
+	item_state = "largechemg"
 	allowed_containers = list(/obj/item/weapon/reagent_containers/glass)
 	origin_tech = list(TECH_COMBAT = 3, TECH_MATERIAL = 3)
 	affected_area = 4
@@ -253,7 +254,7 @@
 
 	beakers += B1
 	beakers += B2
-	icon_state = "grenade"
+	icon_state = initial(icon_state) +"_locked"
 
 /obj/item/weapon/grenade/chem_grenade/gas
 	name = "NT. 53 'Sandman' grenade"
