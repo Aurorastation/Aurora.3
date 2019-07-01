@@ -40,5 +40,5 @@ delete-after: True
 changes: 
   - rscadd: "Mice are now rats, featuring a slight visual retool."
   - rscadd: "Adds two more varieties of rat, hooded coat pattern and American Irish coat pattern."
-  - rscadd: "Rats are now slightly more durable, capable of taking a single hit, give slightly more meat now."
+  - rscadd: "Rats are now slightly more durable, capable of taking a single hit, give slightly more meat now (no longer containing rat toxin)."
   - tweak: "Adds slightly more rats to the infestation event."

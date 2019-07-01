@@ -451,7 +451,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 	set name = "Become Rat"
 	set category = "Ghost"
 
-	if(config.disable_player_mice)
+	if(config.disable_player_rats)
 		to_chat(src, "<span class='warning'>Spawning as a rat is currently disabled.</span>")
 		return
 
@@ -481,11 +481,11 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 		to_chat(src, "<span class='warning'>Unable to find any safe, unwelded vents to spawn rats at. The station must be quite a mess!  Trying again might work, if you think there's still a safe place. </span>")
 
 	if(host)
-		if(config.uneducated_mice)
+		if(config.uneducated_rats)
 			host.universal_understand = 0
 		announce_ghost_joinleave(src, 0, "They are now a rat.")
 		host.ckey = src.ckey
-		to_chat(host, "<span class='info'>You are now a rat. Though you may interact with players, try to avoid giving hints away that you are more than a simple rodent. Cause mischief, avoid cats, find food, and try to survive!</span>")
+		to_chat(host, "<span class='info'>You are now a rat. Though you may interact with players, do not give any hints away that you are more than a simple rodent. Find food, avoid cats, and try to survive!</span>")
 
 /proc/find_mouse_spawnpoint(var/ZLevel)
 	//This function will attempt to find a good spawnpoint for rats, and prevent them from spawning in closed vent systems with no escape

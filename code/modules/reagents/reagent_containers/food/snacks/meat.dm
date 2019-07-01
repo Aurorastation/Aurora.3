@@ -106,7 +106,6 @@
 /obj/item/weapon/reagent_containers/food/snacks/meat/mice/Initialize()
 	. = ..()
 	reagents.add_reagent("protein", 5)
-	reagents.add_reagent("rattoxin", 1)
 	src.bitesize = 1.5
 
 /obj/item/weapon/reagent_containers/food/snacks/meat/dionanymph
