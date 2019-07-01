@@ -38,4 +38,4 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
-  - tweak: "Off-worlder humans have learned to embrace themselves as the beautiful beings that they are, and are no longer ashame of the fact that they're off-worlders, and indeed state so when examining them."
+  - tweak: "Off-worlder humans have learned to embrace themselves as the beautiful beings that they are, and are no longer ashamed of the fact that they're off-worlders, and indeed state so when examining them."
