@@ -1247,7 +1247,7 @@ There are several things that need to be remembered:
 	if (QDELING(src))
 		return
 
-	overlays_raw[FIRE_LAYER] = on_fire ? image('icons/mob/OnFire.dmi', "Standing", layer = FIRE_LAYER) : null
+	overlays_raw[FIRE_LAYER] = on_fire ? image(species.onfire_overlay, "Standing", layer = FIRE_LAYER) : null
 
 	if(update_icons)
 		update_icons()

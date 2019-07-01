@@ -13,7 +13,7 @@
 	fallback_specific_heat = 0.75
 
 /datum/reagent/kois/affect_ingest(var/mob/living/carbon/human/M, var/alien, var/removed)
-	if(!istype(M))
+	if(!ishuman(M))
 		return
 	var/obj/item/organ/parasite/P = M.internal_organs_by_name["blackkois"]
 	if((alien == IS_VAURCA) || (istype(P) && P.stage >= 3))
@@ -23,21 +23,27 @@
 		M.add_chemical_effect(CE_BLOODRESTORE, 6 * removed)
 
 	else
-		M.adjustToxLoss(1 * removed)
-		if(istype(M,/mob/living/carbon/human))
-			var/mob/living/carbon/human/H = M
-			switch(kois_type)
-				if(1) //Normal
-					if(!H.internal_organs_by_name["kois"] && prob(5*removed))
-						var/obj/item/organ/external/affected = H.get_organ("chest")
-						var/obj/item/organ/parasite/kois/infest = new()
-						infest.replaced(H, affected)
-				if(2) //Modified
-					if(!H.internal_organs_by_name["blackkois"] && prob(10*removed))
-						var/obj/item/organ/external/affected = H.get_organ("head")
-						var/obj/item/organ/parasite/blackkois/infest = new()
-						infest.replaced(H, affected)
-	..()
+		infect(M, alien, removed)
+
+/datum/reagent/kois/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+	if(ishuman(M))
+		infect(M, alien, removed)
+
+/datum/reagent/kois/proc/infect(var/mob/living/carbon/human/H, var/alien, var/removed)
+	var/obj/item/organ/parasite/P = H.internal_organs_by_name["blackkois"]
+	if((alien != IS_VAURCA) || (istype(P) && P.stage >= 3))
+		H.adjustToxLoss(1 * removed)
+		switch(kois_type)
+			if(1) //Normal
+				if(!H.internal_organs_by_name["kois"] && prob(5*removed))
+					var/obj/item/organ/external/affected = H.get_organ("chest")
+					var/obj/item/organ/parasite/kois/infest = new()
+					infest.replaced(H, affected)
+			if(2) //Modified
+				if(!H.internal_organs_by_name["blackkois"] && prob(10*removed))
+					var/obj/item/organ/external/affected = H.get_organ("head")
+					var/obj/item/organ/parasite/blackkois/infest = new()
+					infest.replaced(H, affected)
 
 /datum/reagent/kois/clean
 	name = "Filtered K'ois"
