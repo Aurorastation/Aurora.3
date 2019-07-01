@@ -12,6 +12,13 @@
 	whitelisted = list("Vaurca Worker", "Vaurca Warrior")
 	sort_category = "Xenowear - Vaurca"
 
+/datum/gear/mask/filterport
+	display_name = "filter port"
+	path = /obj/item/clothing/mask/breath/vaurca/filter
+	cost = 1
+	whitelisted = list("Vaurca Worker", "Vaurca Warrior")
+	sort_category = "Xenowear - Vaurca"
+
 /datum/gear/mask/vaurca_expression
 	display_name = "human expression mask"
 	path = /obj/item/clothing/head/expression
