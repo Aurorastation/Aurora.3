@@ -330,7 +330,7 @@
 
 	uniform = /obj/item/clothing/under/legion
 	shoes = /obj/item/clothing/shoes/swat
-	gloves = /obj/item/clothing/gloves/swat/legion
+	gloves = /obj/item/clothing/gloves/swat/tactical
 	head = /obj/item/clothing/head/helmet/legion
 	mask =	/obj/item/clothing/mask/gas/tactical
 	suit = /obj/item/clothing/suit/storage/vest/legion

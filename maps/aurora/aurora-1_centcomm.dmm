@@ -3339,7 +3339,9 @@
 /area/shuttle/legion/centcom)
 "aiG" = (
 /obj/structure/window/reinforced{
-	dir = 1
+	dir = 1;
+	maxhealth = 80;
+	name = "strengthened window"
 	},
 /obj/machinery/door/window/westright{
 	name = "Cockpit";
@@ -21744,7 +21746,8 @@
 	},
 /obj/structure/closet/walllocker/emerglocker{
 	pixel_x = -10;
-	pixel_y = 31
+	pixel_y = 31;
+	spawnitems = list(/obj/item/weapon/tank/emergency_oxygen/double,/obj/item/clothing/mask/breath)
 	},
 /turf/simulated/shuttle/floor/destructible/legion,
 /area/shuttle/legion/centcom)
@@ -22173,8 +22176,10 @@
 /area/centcom/control)
 "muG" = (
 /obj/structure/window/reinforced{
+	dir = 4;
 	icon_state = "rwindow";
-	dir = 4
+	maxhealth = 80;
+	name = "strengthened window"
 	},
 /turf/simulated/shuttle/floor/destructible/legion,
 /area/shuttle/legion/centcom)
@@ -22460,6 +22465,18 @@
 	icon_state = "wood"
 	},
 /area/centcom/legion_base/hangar5)
+"sVR" = (
+/obj/structure/bed/chair/shuttle,
+/obj/machinery/computer/security/telescreen{
+	desc = "Placeholder.";
+	layer = 4;
+	name = "Emergency Dock Uplink";
+	network = list("Emergency Dock");
+	pixel_x = 0;
+	pixel_y = 28
+	},
+/turf/simulated/shuttle/floor/destructible/legion,
+/area/shuttle/legion/centcom)
 "tcY" = (
 /obj/machinery/light{
 	dir = 4;
@@ -23084,10 +23101,9 @@
 /obj/item/clothing/head/legion_beret/field,
 /obj/item/clothing/head/legion_beret/field,
 /obj/item/clothing/head/legion_beret/field,
-/obj/item/clothing/gloves/swat/legion,
-/obj/item/clothing/gloves/swat/legion,
-/obj/item/clothing/gloves/swat/legion,
-/obj/item/clothing/gloves/swat/legion,
+/obj/item/clothing/gloves/swat/tactical,
+/obj/item/clothing/gloves/swat/tactical,
+/obj/item/clothing/gloves/swat/tactical,
 /turf/unsimulated/floor{
 	icon_state = "cafeteria"
 	},
@@ -25187,8 +25203,10 @@
 /area/shuttle/legion/centcom)
 "xGd" = (
 /obj/structure/window/reinforced{
+	dir = 4;
 	icon_state = "rwindow";
-	dir = 4
+	maxhealth = 80;
+	name = "strengthened window"
 	},
 /obj/structure/bed/chair/shuttle,
 /obj/structure/extinguisher_cabinet{
@@ -25202,6 +25220,14 @@
 /obj/item/clothing/head/helmet/legion/pilot{
 	pixel_x = -2;
 	pixel_y = -6
+	},
+/obj/machinery/button/remote/blast_door{
+	id = "tcflblastshield";
+	layer = 3.5;
+	name = "Fore Blast Shields";
+	pixel_x = -4;
+	pixel_y = 27;
+	req_access = list(111)
 	},
 /turf/simulated/shuttle/floor/destructible/legion,
 /area/shuttle/legion/centcom)
@@ -25385,13 +25411,9 @@
 /turf/simulated/shuttle/floor/destructible/legion,
 /area/shuttle/legion/centcom)
 "xHv" = (
-/obj/machinery/button/remote/blast_door{
-	id = "tcflblastshield";
-	layer = 3.1;
-	name = "Fore Blast Shields";
-	pixel_x = 6;
-	pixel_y = -26;
-	req_access = list(111)
+/obj/structure/closet/walllocker/emerglocker/south{
+	pixel_y = -28;
+	spawnitems = list(/obj/item/weapon/tank/emergency_oxygen/double,/obj/item/clothing/mask/breath)
 	},
 /turf/simulated/shuttle/floor/destructible/legion,
 /area/shuttle/legion/centcom)
@@ -26593,10 +26615,9 @@
 /obj/item/clothing/head/legion_beret/field,
 /obj/item/clothing/head/legion_beret/field,
 /obj/item/clothing/head/legion_beret/field,
-/obj/item/clothing/gloves/swat/legion,
-/obj/item/clothing/gloves/swat/legion,
-/obj/item/clothing/gloves/swat/legion,
-/obj/item/clothing/gloves/swat/legion,
+/obj/item/clothing/gloves/swat/tactical,
+/obj/item/clothing/gloves/swat/tactical,
+/obj/item/clothing/gloves/swat/tactical,
 /turf/unsimulated/floor{
 	dir = 8;
 	icon_state = "wood"
@@ -89063,7 +89084,7 @@ xyF
 xMv
 xMv
 aiv
-xEK
+sVR
 aZA
 xHt
 aiR

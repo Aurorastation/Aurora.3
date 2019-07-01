@@ -82,7 +82,7 @@
 	icon_state = "maint_arrivals"
 
 /area/maintenance/commissary
-	name = "Old Commissary"
+	name = "\improper Commissary"
 	icon_state = "red"
 
 /area/maintenance/bar

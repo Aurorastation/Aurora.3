@@ -42,7 +42,7 @@
 	holomap_color = HOLOMAP_AREACOLOR_ESCAPE
 
 /area/hallway/secondary/exit/pods
-	name = "\improper Surface Lvl. Escape Pods"
+	name = "\improper Surface Lvl. Emergency Services Dock"
 
 /area/hallway/secondary/locker_room
 	name = "\improper Surface Lvl. Locker Room"

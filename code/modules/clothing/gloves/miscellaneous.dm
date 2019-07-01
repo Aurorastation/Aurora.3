@@ -24,11 +24,6 @@
 	heat_protection = HANDS
 	max_heat_protection_temperature = GLOVES_MAX_HEAT_PROTECTION_TEMPERATURE
 
-/obj/item/clothing/gloves/swat/legion
-	name = "\improper legion gloves"
-	icon_state = "legion"
-	item_state = "legion"
-
 /obj/item/clothing/gloves/swat/tactical
 	name = "\improper tactical gloves"
 	icon_state = "black_leather"
