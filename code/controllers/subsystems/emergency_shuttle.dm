@@ -8,6 +8,7 @@ var/datum/controller/subsystem/emergency_shuttle/emergency_shuttle
 	var/list/escape_pods
 
 	var/launch_time			//the time at which the shuttle will be launched
+	var/force_time			//the time at which the shuttle will be forced
 	var/auto_recall = 0		//if set, the shuttle will be auto-recalled
 	var/auto_recall_time	//the time at which the shuttle will be auto-recalled
 	var/evac = 0			//1 = emergency evacuation, 0 = crew transfer
@@ -47,6 +48,10 @@ var/datum/controller/subsystem/emergency_shuttle/emergency_shuttle
 
 			if (autopilot)
 				shuttle.launch(src)
+		if (world.time >= force_time) //If we are past the force time, force it
+			shuttle.launch(src)
+			shuttle.force_launch(src)
+
 
 /datum/controller/subsystem/emergency_shuttle/proc/shuttle_arrived()
 	if (!shuttle.location)	//at station
@@ -69,9 +74,11 @@ var/datum/controller/subsystem/emergency_shuttle/emergency_shuttle
 					pod.arming_controller.arm()
 
 //begins the launch countdown and sets the amount of time left until launch
-/datum/controller/subsystem/emergency_shuttle/proc/set_launch_countdown(var/seconds)
+/datum/controller/subsystem/emergency_shuttle/proc/set_launch_countdown(var/seconds,var/force=FALSE)
 	wait_for_launch = 1
 	launch_time = world.time + seconds*10
+	if(force)
+		force_time = launch_time + SHUTTLE_AUTOFORCE
 
 /datum/controller/subsystem/emergency_shuttle/proc/stop_launch_countdown()
 	wait_for_launch = 0

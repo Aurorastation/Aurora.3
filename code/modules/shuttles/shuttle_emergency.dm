@@ -53,10 +53,18 @@
 	return ..()
 
 /datum/shuttle/ferry/emergency/can_cancel(var/user)
+	//If we try to cancel it via the shuttle computer
 	if (istype(user, /obj/machinery/computer/shuttle_control/emergency))
 		var/obj/machinery/computer/shuttle_control/emergency/C = user
+		// Check if the computer is sufficiently authorized
 		if (!C.has_authorization())
 			return 0
+
+		// Check if the shuttle is running on autopilot
+		//   Aand if the shuttle is past the autoforce time
+		if (emergency_shuttle.autopilot && (world.time > emergency_shuttle.launch_time + SHUTTLE_AUTOFORCE))
+			return 0
+
 	return ..()
 
 /datum/shuttle/ferry/emergency/launch(var/user)
