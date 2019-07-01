@@ -13,6 +13,7 @@ var/datum/controller/subsystem/emergency_shuttle/emergency_shuttle
 	var/auto_recall_time	//the time at which the shuttle will be auto-recalled
 	var/evac = 0			//1 = emergency evacuation, 0 = crew transfer
 	var/wait_for_launch = 0	//if the shuttle is waiting to launch
+	var/wait_for_force = 0 	//if the shuttle is waiting to be forced
 	var/autopilot = 1		//set to 0 to disable the shuttle automatically launching
 
 	var/deny_shuttle = 0	//allows admins to prevent the shuttle from being called
@@ -48,13 +49,17 @@ var/datum/controller/subsystem/emergency_shuttle/emergency_shuttle
 
 			if (autopilot)
 				shuttle.launch(src)
-		if (world.time >= force_time) //If we are past the force time, force it
-			shuttle.launch(src)
-			shuttle.force_launch(src)
+	if (wait_for_force)
+		if (world.time > force_time)
+			stop_force_countdown()
+			if(waiting_to_leave())
+				shuttle.launch(src)
+				shuttle.force_launch(src)
 
 
 /datum/controller/subsystem/emergency_shuttle/proc/shuttle_arrived()
 	if (!shuttle.location)	//at station
+		set_force_countdown(SHUTTLE_FORCETIME)
 		if (autopilot)
 			set_launch_countdown(SHUTTLE_LEAVETIME)	//get ready to return
 
@@ -71,17 +76,23 @@ var/datum/controller/subsystem/emergency_shuttle/emergency_shuttle
 		if (evac)
 			for (var/datum/shuttle/ferry/escape_pod/pod in escape_pods)
 				if (pod.arming_controller)
-					pod.arming_controller.arm()
+					pod.arming_controller.arm()	
 
 //begins the launch countdown and sets the amount of time left until launch
-/datum/controller/subsystem/emergency_shuttle/proc/set_launch_countdown(var/seconds,var/force=FALSE)
+/datum/controller/subsystem/emergency_shuttle/proc/set_launch_countdown(var/seconds)
 	wait_for_launch = 1
 	launch_time = world.time + seconds*10
-	if(force)
-		force_time = launch_time + SHUTTLE_AUTOFORCE
+
+//begins the launch countdown and sets the amount of time left until launch
+/datum/controller/subsystem/emergency_shuttle/proc/set_force_countdown(var/seconds)
+	wait_for_force = 1
+	force_time = world.time + seconds*10
 
 /datum/controller/subsystem/emergency_shuttle/proc/stop_launch_countdown()
 	wait_for_launch = 0
+
+/datum/controller/subsystem/emergency_shuttle/proc/stop_force_countdown()
+	wait_for_force = 0
 
 //calls the shuttle for an emergency evacuation
 /datum/controller/subsystem/emergency_shuttle/proc/call_evac()

@@ -60,9 +60,8 @@
 		if (!C.has_authorization())
 			return 0
 
-		// Check if the shuttle is running on autopilot
-		//   Aand if the shuttle is past the autoforce time
-		if (emergency_shuttle.autopilot && (world.time > emergency_shuttle.launch_time + SHUTTLE_AUTOFORCE))
+		// If the emergency shuttle is waiting to leave the station and the world time exceeded the force time
+		if (emergency_shuttle.waiting_to_leave() && (world.time > emergency_shuttle.force_time))
 			return 0
 
 	return ..()
