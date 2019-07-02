@@ -2639,21 +2639,21 @@
 	icon_state = "propulsion_r";
 	dir = 1
 	},
-/turf/template_noop,
+/turf/simulated/shuttle/plating,
 /area/shuttle/syndicate_elite/mothership)
 "aha" = (
 /obj/structure/shuttle/engine/propulsion{
 	icon_state = "propulsion";
 	dir = 1
 	},
-/turf/template_noop,
+/turf/simulated/shuttle/plating,
 /area/shuttle/syndicate_elite/mothership)
 "ahb" = (
 /obj/structure/shuttle/engine/propulsion{
 	icon_state = "propulsion_l";
 	dir = 1
 	},
-/turf/template_noop,
+/turf/simulated/shuttle/plating,
 /area/shuttle/syndicate_elite/mothership)
 "ahe" = (
 /obj/structure/window/reinforced,
@@ -2661,7 +2661,7 @@
 	icon_state = "heater";
 	dir = 1
 	},
-/turf/simulated/floor/airless,
+/turf/simulated/shuttle/plating,
 /area/shuttle/syndicate_elite/mothership)
 "ahf" = (
 /obj/effect/step_trigger/thrower{
@@ -6768,17 +6768,17 @@
 /obj/structure/shuttle/engine/propulsion{
 	icon_state = "propulsion_l"
 	},
-/turf/template_noop,
+/turf/simulated/shuttle/plating,
 /area/syndicate_station/start)
 "asn" = (
 /obj/structure/shuttle/engine/propulsion,
-/turf/template_noop,
+/turf/simulated/shuttle/plating,
 /area/syndicate_station/start)
 "aso" = (
 /obj/structure/shuttle/engine/propulsion{
 	icon_state = "propulsion_r"
 	},
-/turf/template_noop,
+/turf/simulated/shuttle/plating,
 /area/syndicate_station/start)
 "ass" = (
 /obj/machinery/conveyor{
@@ -6840,17 +6840,17 @@
 /obj/structure/shuttle/engine/propulsion{
 	icon_state = "burst_l"
 	},
-/turf/template_noop,
+/turf/simulated/shuttle/plating,
 /area/supply/dock)
 "asT" = (
 /obj/structure/shuttle/engine/propulsion,
-/turf/template_noop,
+/turf/simulated/shuttle/plating,
 /area/supply/dock)
 "asU" = (
 /obj/structure/shuttle/engine/propulsion{
 	icon_state = "burst_r"
 	},
-/turf/template_noop,
+/turf/simulated/shuttle/plating,
 /area/supply/dock)
 "asW" = (
 /obj/structure/table/rack,
@@ -11549,9 +11549,7 @@
 /area/centcom/specops)
 "aHC" = (
 /obj/structure/shuttle/engine/propulsion,
-/turf/simulated/shuttle/wall{
-	icon_state = "wall3"
-	},
+/turf/simulated/shuttle/plating,
 /area/skipjack_station/start)
 "aHD" = (
 /obj/structure/table/standard,
@@ -15807,9 +15805,7 @@
 	dir = 8
 	},
 /obj/structure/window/reinforced,
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/simulated/shuttle/plating,
 /area/centcom/spawning)
 "aRX" = (
 /obj/structure/window/reinforced{
@@ -16670,7 +16666,7 @@
 	icon_state = "propulsion_l";
 	dir = 8
 	},
-/turf/template_noop,
+/turf/simulated/shuttle/plating,
 /area/merchant_ship/start)
 "aTN" = (
 /turf/unsimulated/floor{
@@ -17401,9 +17397,7 @@
 /obj/structure/window/reinforced{
 	dir = 1
 	},
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/simulated/shuttle/plating,
 /area/centcom/spawning)
 "aVt" = (
 /obj/machinery/light/spot{
@@ -17419,7 +17413,7 @@
 	dir = 8;
 	icon_state = "propulsion_r"
 	},
-/turf/template_noop,
+/turf/simulated/shuttle/plating,
 /area/merchant_ship/start)
 "aVv" = (
 /obj/structure/table/reinforced,
@@ -19348,9 +19342,7 @@
 	icon_state = "heater";
 	dir = 8
 	},
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/simulated/shuttle/plating,
 /area/centcom/spawning)
 "aZG" = (
 /turf/unsimulated/floor{
