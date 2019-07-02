@@ -152,7 +152,7 @@
 	src.icon_dead = "mouse_[body_color]_splat"
 	src.icon_state = "mouse_[body_color]_splat"
 	if(client)
-		client.time_died_as_mouse = world.time
+		client.time_died_as_rat = world.time
 
 //Plays a sound.
 //This is triggered when a mob steps on an NPC mouse, or manually by a playermouse
@@ -196,7 +196,7 @@
 		squeakcooldown = world.time + 4 SECONDS
 
 		if (squeals > 0 || !manual)
-			playsound(src, 'sound/effects/creatures/mouse_squeak_loud.ogg', 50, 1)
+			playsound(src, 'client.time_died_as_ratsound/effects/creatures/rat_squeak_loud.ogg', 50, 1)
 			squeals --
 			log_say("[key_name(src)] squeals! ",ckey=key_name(src))
 		else
