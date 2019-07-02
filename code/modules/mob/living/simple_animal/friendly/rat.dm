@@ -14,10 +14,10 @@
 	speak_emote = list("squeeks","squeeks","squiks")
 	emote_hear = list("squeeks","squeaks","squiks")
 	emote_see = list("runs in a circle", "shakes", "scritches at something")
-	var/soft_squeaks = list('sound/effects/creatures/mouse_squeaks_1.ogg',
-	'sound/effects/creatures/mouse_squeaks_2.ogg',
-	'sound/effects/creatures/mouse_squeaks_3.ogg',
-	'sound/effects/creatures/mouse_squeaks_4.ogg')
+	var/soft_squeaks = list('sound/effects/creatures/rat_squeaks_1.ogg',
+	'sound/effects/creatures/rat_squeaks_2.ogg',
+	'sound/effects/creatures/rat_squeaks_3.ogg',
+	'sound/effects/creatures/rat_squeaks_4.ogg')
 	var/last_softsqueak = null//Used to prevent the same soft squeak twice in a row
 	var/squeals = 5//Spam control.
 	var/maxSqueals = 2//SPAM PROTECTION
@@ -29,13 +29,13 @@
 	see_in_dark = 6
 	maxHealth = 10
 	health = 10
-	meat_type = /obj/item/weapon/reagent_containers/food/snacks/meat/mice
+	meat_type = /obj/item/weapon/reagent_containers/food/snacks/meat/rat
 	response_help  = "pets"
 	response_disarm = "gently pushes aside"
 	response_harm   = "stomps on"
 	density = 0
 	meat_amount = 2 // Rats are a bit bigger, so a bit more meat for dreg-feeding.
-	var/body_color //brown, gray and white, leave blank for random
+	var/body_color //brown, gray, white, american irish, hooded leave blank for random
 	layer = MOB_LAYER
 	mob_size = MOB_MINISCULE
 	min_oxy = 16 //Require atleast 16kPA oxygen
@@ -82,7 +82,7 @@
 			dust()
 
 /mob/living/simple_animal/rat/Destroy()
-	SSmob.all_mice -= src
+	SSmob.all_rats -= src
 
 	return ..()
 
@@ -129,11 +129,8 @@
 	if (body_color == "irish")
 		holder_type = /obj/item/weapon/holder/rat/irish
 
-	//verbs += /mob/living/simple_animal/rat/proc/squeak
-	//verbs += /mob/living/simple_animal/rat/proc/squeak_soft
-	//verbs += /mob/living/simple_animal/rat/proc/squeak_loud(1)
 
-	SSmob.all_mice += src
+	SSmob.all_rats += src
 
 /mob/living/simple_animal/rat/speak_audio()
 	squeak_soft(0)
@@ -165,7 +162,7 @@
 			return
 		squeakcooldown = world.time + 2 SECONDS
 
-		playsound(src, 'sound/effects/mousesqueek.ogg', 70, 1)
+		playsound(src, 'sound/effects/ratsqueek.ogg', 70, 1)
 		if (manual)
 			log_say("[key_name(src)] squeaks! ",ckey=key_name(src))
 
@@ -268,14 +265,14 @@
 		squeak_loud(0)//deathgasp
 
 	if(client)
-		client.time_died_as_mouse = world.time
+		client.time_died_as_rat = world.time
 
-	SSmob.all_mice -= src
+	SSmob.all_rats -= src
 
 	..()
 
 /mob/living/simple_animal/rat/dust()
-	..(anim = "dust_[body_color]", remains = /obj/effect/decal/remains/mouse, iconfile = 'icons/mob/npc/rat.dmi')
+	..(anim = "dust_[body_color]", remains = /obj/effect/decal/remains/rat, iconfile = 'icons/mob/npc/rat.dmi')
 
 /*
  * Mouse types
