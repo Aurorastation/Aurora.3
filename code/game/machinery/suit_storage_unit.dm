@@ -592,7 +592,7 @@
 	density = 1
 
 	icon = 'icons/obj/suit_storage.dmi'
-	icon_state = "close"
+	icon_state = "base"
 
 	req_access = list(access_captain,access_heads)
 
@@ -625,12 +625,36 @@
 	wires = new(src)
 	target_department = departments[1]
 	target_species = species[1]
-	if(!target_department || !target_species) qdel(src)
+	update_icon()
+	if(!target_department || !target_species)
+		qdel(src)
 
 /obj/machinery/suit_cycler/Destroy()
 	qdel(wires)
 	wires = null
 	return ..()
+
+/obj/machinery/suit_cycler/update_icon()
+	cut_overlays()
+
+	if(panel_open)
+		add_overlay("panel")
+
+	if(irradiating)
+		if(occupant)
+			add_overlay("uvhuman")
+		else
+			add_overlay("uv")
+
+
+	if(occupant)
+		add_overlay("human")
+
+	if(stat & BROKEN)
+		add_overlay("broken")
+
+	else
+		add_overlay("closed")
 
 /obj/machinery/suit_cycler/engineering
 	name = "Engineering suit cycler"
@@ -738,6 +762,7 @@
 		panel_open = !panel_open
 		to_chat(user, "You [panel_open ?  "open" : "close"] the maintenance panel.")
 		src.updateUsrDialog()
+		update_icon()
 		return
 
 	else if(istype(I,/obj/item/clothing/head/helmet/space) && !istype(I, /obj/item/clothing/head/helmet/space/rig))
@@ -918,6 +943,7 @@
 
 		active = 1
 		irradiating = 10
+		update_icon()
 		src.updateUsrDialog()
 
 		sleep(10)
@@ -949,11 +975,13 @@
 		active = 0
 		irradiating = 0
 		electrified = 0
+		update_icon()
 		return
 
 	if(irradiating == 1)
 		finished_job()
 		irradiating = 0
+		update_icon()
 		return
 
 	irradiating--
