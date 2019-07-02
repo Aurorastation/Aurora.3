@@ -81,6 +81,14 @@
 	name = "Surface Maintenance"
 	icon_state = "maint_arrivals"
 
+/area/maintenance/auxillary
+	name = "\improper Auxillary Tool Storage Maintenance"
+	icon_state = "maintcentral"
+
+/area/maintenance/fitness
+	name = "\improper Fitness Center Maintenance"
+	icon_state = "smaint"
+
 /area/maintenance/commissary
 	name = "\improper Commissary"
 	icon_state = "red"

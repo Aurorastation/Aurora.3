@@ -27,6 +27,10 @@
 	name = "\improper Surface - Bridge"
 	icon_state = "bridge"
 
+/area/bridge/research_dock
+	name = "\improper Surface - Bridge Research Dock"
+	icon_state = "bridge"
+
 /area/crew_quarters/heads/cryo
 	name = "\improper Command - Dormitory"
 	icon_state = "head_quarters"
