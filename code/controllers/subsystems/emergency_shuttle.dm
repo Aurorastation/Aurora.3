@@ -59,13 +59,14 @@ var/datum/controller/subsystem/emergency_shuttle/emergency_shuttle
 
 /datum/controller/subsystem/emergency_shuttle/proc/shuttle_arrived()
 	if (!shuttle.location)	//at station
-		set_force_countdown(SHUTTLE_FORCETIME)
 		if (autopilot)
 			set_launch_countdown(SHUTTLE_LEAVETIME)	//get ready to return
 
 			if (evac)
+				set_force_countdown(SHUTTLE_FORCETIME)
 				priority_announcement.Announce(replacetext(current_map.emergency_shuttle_docked_message, "%ETD%", round(estimate_launch_time()/60,1)), new_sound = 'sound/AI/emergencyshuttledock.ogg')
 			else
+				set_force_countdown(SHUTTLE_LEAVETIME)
 				var/list/fields = list(
 					"%ETA%" = round(emergency_shuttle.estimate_launch_time()/60,1),
 					"%dock%" = current_map.dock_name
@@ -85,8 +86,9 @@ var/datum/controller/subsystem/emergency_shuttle/emergency_shuttle
 
 //begins the launch countdown and sets the amount of time left until launch
 /datum/controller/subsystem/emergency_shuttle/proc/set_force_countdown(var/seconds)
-	wait_for_force = 1
-	force_time = world.time + seconds*10
+	if(!wait_for_force)
+		wait_for_force = 1
+		force_time = world.time + seconds*10
 
 /datum/controller/subsystem/emergency_shuttle/proc/stop_launch_countdown()
 	wait_for_launch = 0
