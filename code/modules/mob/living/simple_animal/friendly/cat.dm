@@ -36,7 +36,6 @@
 	butchering_products = list(/obj/item/stack/material/animalhide/cat = 2)
 
 /mob/living/simple_animal/cat/think()
-	//!
 	..()
 	if (!stat)
 		for(var/mob/living/simple_animal/rat/snack in oview(src,7))
