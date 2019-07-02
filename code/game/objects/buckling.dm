@@ -1,3 +1,6 @@
+/mob/var/can_buckle = 1 //what the fuck
+/mob/var/buckle_fail_message
+
 /obj
 	var/can_buckle = 0
 	var/buckle_movable = 0
@@ -24,10 +27,13 @@
 
 
 /obj/proc/buckle_mob(mob/living/M)
-	if(!can_buckle || !istype(M) || M.buckled || M.pinned.len || (buckle_require_restraints && !M.restrained()))
+	if(!can_buckle || !M.can_buckle || !istype(M) || M.buckled || M.pinned.len || (buckle_require_restraints && !M.restrained()))
 		return 0
 
 	if ((M.loc != loc) && !(density && get_dist(src, M) <= 1))
+		return 0
+
+	if(!M.can_buckle)
 		return 0
 
 	if (M.loc != loc)

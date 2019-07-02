@@ -162,13 +162,18 @@
 	canRwall = 1
 
 /obj/item/weapon/rcd/borg/useResource(var/amount, var/mob/user)
+	var/cost = amount*30
 	if(isrobot(user))
 		var/mob/living/silicon/robot/R = user
 		if(R.cell)
-			var/cost = amount*30
 			if(R.cell.charge >= cost)
 				R.cell.use(cost)
 				return 1
+	else if(istype(loc, /mob/living/heavy_vehicle))
+		var/mob/living/heavy_vehicle/mech = loc
+		if(mech.body.cell && mech.body.cell.charge >= cost)
+			mech.body.cell.use(cost)
+			return 1
 	return 0
 
 /obj/item/weapon/rcd/borg/infinite/useResource()

@@ -70,15 +70,10 @@
 /obj/item/device/kit/paint
 	name = "exosuit customisation kit"
 	desc = "A kit containing all the needed tools and parts to repaint an exosuit."
-	var/removable = null
-	var/list/allowed_types = list()
 
 /obj/item/device/kit/paint/examine()
 	..()
-	to_chat(usr, "This kit will convert an exosuit into: [new_name].")
-	to_chat(usr, "This kit can be used on the following exosuit models:")
-	for(var/exotype in allowed_types)
-		to_chat(usr, "- [capitalize(exotype)]")
+	usr << "This kit will add the [new_name] decal to a vehicle."
 
 /obj/mecha/attackby(var/obj/item/weapon/W, var/mob/user)
 	if(istype(W, /obj/item/device/kit/paint))
@@ -110,97 +105,20 @@
 	else
 		return ..()
 
-//Ripley APLU kits.
-/obj/item/device/kit/paint/ripley
-	name = "\"Classic\" APLU customisation kit"
-	new_name = "APLU \"Classic\""
-	new_desc = "A very retro APLU unit; didn't they retire these back in 2443?"
-	new_icon = "ripley-old"
-	allowed_types = list("ripley")
-
-/obj/item/device/kit/paint/ripley/death
-	name = "\"Reaper\" APLU customisation kit"
-	new_name = "APLU \"Reaper\""
-	new_desc = "A terrifying, grim power loader. Why do those clamps have spikes?"
-	new_icon = "deathripley"
-	allowed_types = list("ripley","firefighter")
-
-/obj/item/device/kit/paint/ripley/flames_red
-	name = "\"Firestarter\" APLU customisation kit"
-	new_name = "APLU \"Firestarter\""
-	new_desc = "A standard APLU exosuit with stylish orange flame decals."
+/obj/item/device/kit/paint/flames_red
+	name = "\"Firestarter\" exosuit customisation kit"
+	new_name = "\"Firestarter\" exosuit"
+	new_desc = "An exosuit with stylish orange flame decals."
 	new_icon = "ripley_flames_red"
 
 /obj/item/device/kit/paint/ripley/flames_blue
-	name = "\"Burning Chrome\" APLU customisation kit"
-	new_name = "APLU \"Burning Chrome\""
-	new_desc = "A standard APLU exosuit with stylish blue flame decals."
+	name = "\"Burning Chrome\" exosuit customisation kit"
+	new_name = "\"Burning Chrome\" exosuit"
+	new_desc = "An exosuit with stylish blue flame decals."
 	new_icon = "ripley_flames_blue"
 
-/obj/item/device/kit/paint/ripley/titan
-	name = "\"Titan's Fist\" APLU customisation kit"
-	new_name = "APLU \"Titan's Fist\""
-	new_desc = "This ordinary mining Ripley has been customized to look like a unit of the Titans Fist."
-	new_icon = "titan"
-
-/obj/item/device/kit/paint/ripley/earth
-	name = "\"Strike the Earth!\" APLU customisation kit"
-	new_name = "APLU \"Strike the Earth!\""
-	new_desc = "Looks like an over worked, under maintained Ripley with some horrific damage."
-	new_icon = "earth"
-
-/obj/item/device/kit/paint/ripley/shire
-	name = "\"Shire\" APLU customisation kit"
-	new_name = "Shire"
-	new_desc = "A prototype military predecessor to the APLU units of modern day. Seen exclusively in the hands of the Sol Alliance during the Interstellar War."
-	new_icon = "shire"
-
-/obj/item/device/kit/paint/ripley/random
-	name = "quantum ripley kit"
-
-/obj/item/device/kit/paint/ripley/random/New()
-	..()
-	var/list/ripleys = (typesof(/obj/item/device/kit/paint/ripley) - typesof(/obj/item/device/kit/paint/ripley/fluff))
-	var/build_path = pick(ripleys)
-	new build_path(src.loc)
-	qdel(src)
-
-// Durand kits.
-/obj/item/device/kit/paint/durand
-	name = "\"Classic\" Durand customisation kit"
-	new_name = "Durand \"Classic\""
-	new_desc = "An older model of Durand combat exosuit. This model was retired for rotating a pilot's torso 180 degrees."
-	new_icon = "old_durand"
-	allowed_types = list("durand")
-
-/obj/item/device/kit/paint/durand/seraph
-	name = "\"Cherubim\" Durand customisation kit"
-	new_name = "Durand \"Cherubim\""
-	new_desc = "A Durand combat exosuit modelled after ancient Earth entertainment. Your heart goes doki-doki just looking at it."
-	new_icon = "old_durand"
-
-/obj/item/device/kit/paint/durand/phazon
-	name = "\"Sypher\" Durand customisation kit"
-	new_name = "Durand \"Sypher\""
-	new_desc = "A Durand combat exosuit with some very stylish neons and decals. Seems to blur slightly at the edges; probably an optical illusion."
-	new_icon = "phazon"
-
-// Gygax kits.
-/obj/item/device/kit/paint/gygax
-	name = "\"Jester\" Gygax customisation kit"
-	new_name = "Gygax \"Jester\""
-	new_desc = "A Gygax exosuit modelled after the infamous combat-troubadors of Earth's distant past. Terrifying to behold."
-	new_icon = "honker"
-	allowed_types = list("gygax")
-
-/obj/item/device/kit/paint/gygax/darkgygax
-	name = "\"Silhouette\" Gygax customisation kit"
-	new_name = "Gygax \"Silhouette\""
-	new_desc = "An ominous Gygax exosuit modelled after the fictional corporate 'death squads' that were popular in pulp action-thrillers back in 2554."
-	new_icon = "darkgygax"
-
-/obj/item/device/kit/paint/gygax/recitence
-	name = "\"Gaoler\" Gygax customisation kit"
-	new_name = "Durand \"Gaoler\""
-	new_desc = "A bulky silver Gygax exosuit. The extra armour appears to be painted on, but it's very shiny."
-	new_icon = "recitence"
+/obj/item/device/kit/paint/stripes
+	name = "\"First Responder\" exosuit customisation kit"
+	new_name = "\"First Responder\" exosuit"
+	new_desc = "An exosuit with sleek green stripe decals."
+	new_icon = "stripes_green"

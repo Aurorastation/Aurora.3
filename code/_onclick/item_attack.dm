@@ -64,6 +64,11 @@ avoid code duplication. This includes items that may sometimes act as a standard
 	if(user.is_pacified())
 		return 0
 
+	if(istype(M, /mob/living/heavy_vehicle)) // It was either this or rewrite attacked_by(). :(
+		var/mob/living/heavy_vehicle/mech = M
+		mech.attacked_by(src, user, def_zone)
+		return
+	
 	/////////////////////////
 	user.lastattacked = M
 	M.lastattacker = user

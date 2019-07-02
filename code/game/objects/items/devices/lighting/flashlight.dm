@@ -18,6 +18,9 @@
 	var/brightness_on = 3 //luminosity when on
 	var/activation_sound = 'sound/items/flashlight.ogg'
 
+/obj/item/device/flashlight/mech
+	brightness_on = 8
+
 /obj/item/device/flashlight/Initialize()
 	if (on)
 		light_range = brightness_on
@@ -37,9 +40,10 @@
 		M.update_inv_head()
 
 /obj/item/device/flashlight/attack_self(mob/user)
-	if(!isturf(user.loc))
+	if(!isturf(user.loc) && !istype(user, /mob/living/heavy_vehicle) && !istype(user.loc, /mob/living/heavy_vehicle))
 		to_chat(user, "You cannot turn the light on while in this [user.loc].") //To prevent some lighting anomalities.)
 		return 0
+
 	on = !on
 	if(on && activation_sound)
 		playsound(src.loc, activation_sound, 75, 1)

@@ -117,24 +117,6 @@ STOCK_ITEM_RARE(xenohide, 0.5)
 STOCK_ITEM_RARE(humanhide, 0.5)
 	new /obj/item/stack/material/animalhide/human(L, rand(2,15))
 
-STOCK_ITEM_RARE(modkit, 1)
-	var/list/type = pick( \
-		/obj/item/device/kit/paint/ripley, \
-		/obj/item/device/kit/paint/ripley/death, \
-		/obj/item/device/kit/paint/ripley/flames_red, \
-		/obj/item/device/kit/paint/ripley/flames_blue, \
-		/obj/item/device/kit/paint/ripley/titan, \
-		/obj/item/device/kit/paint/ripley/earth, \
-		/obj/item/device/kit/paint/durand, \
-		/obj/item/device/kit/paint/durand/seraph, \
-		/obj/item/device/kit/paint/durand/phazon, \
-		/obj/item/device/kit/paint/gygax, \
-		/obj/item/device/kit/paint/gygax/darkgygax, \
-		/obj/item/device/kit/paint/gygax/recitence \
-	)
-
-	new type(L)
-
 STOCK_ITEM_RARE(contraband, 0.8)
 	new /obj/random/contraband(L)
 
