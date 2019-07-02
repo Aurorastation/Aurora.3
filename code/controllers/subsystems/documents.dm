@@ -122,7 +122,7 @@ var/datum/controller/subsystem/docs/SSdocs
 				add_document(
 					document_query.item[1],
 					document_query.item[2],
-					document_query.item[3],
+					text2num(document_query.item[3]),
 					document_query.item[4],
 					json_decode(document_query.item[5]))
 			catch(var/exception/ec)
