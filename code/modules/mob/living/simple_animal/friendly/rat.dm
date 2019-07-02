@@ -196,7 +196,7 @@
 		squeakcooldown = world.time + 4 SECONDS
 
 		if (squeals > 0 || !manual)
-			playsound(src, 'client.time_died_as_ratsound/effects/creatures/rat_squeak_loud.ogg', 50, 1)
+			playsound(src, 'sound/effects/creatures/rat_squeak_loud.ogg', 50, 1)
 			squeals --
 			log_say("[key_name(src)] squeals! ",ckey=key_name(src))
 		else
