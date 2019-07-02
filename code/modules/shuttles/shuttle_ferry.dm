@@ -22,12 +22,10 @@
 
 	// Vars for crashing
 	var/engines_count = 0 //Used to determine if shuttle should crash
-	var/list/engines = list()
 	var/engines_checked = FALSE
 	var/list/crash_offset = list(-50, 50)
 	var/ship_size = 0
 	var/walls_count = 0
-	var/list/exterior_walls = list()
 
 /datum/shuttle/ferry/init_shuttle(var/list/settings)
 	location = settings[1]
@@ -52,13 +50,12 @@
 		else if(istype(A, /obj/structure/shuttle/engine/propulsion))
 			engines_count += 1
 			var/obj/structure/shuttle/engine/propulsion/P = A
-			engines += P
 			var/turf/simulated/shuttle/e_turf = get_turf(P)
 			e_turf.name = "engine mount"
-			e_turf.add_overlay("engine_mount")
 			e_turf.destructible = FALSE
 			e_turf.dir = P.dir
 			e_turf.update_icon()
+			e_turf.add_overlay("engine_mount")
 
 /datum/shuttle/ferry/proc/integrity_check(var/V)
 	if(!isturf(V))
@@ -96,7 +93,7 @@
 	if (destination == area_station) location = 0
 	if (destination == area_offsite) location = 1
 	//if this is a long_jump retain the location we were last at until we get to the new one
-	for(var/obj/structure/shuttle/engine/propulsion/P in engines)
+	for(var/obj/structure/shuttle/engine/propulsion/P in area_current.contents)
 		P.update_damage()
 
 /datum/shuttle/ferry/dock()
@@ -166,11 +163,10 @@
 		distance_y = distance_y < 0 ? distance_y - round(sqrt(ship_size) + 1) : distance_y + round(sqrt(ship_size) + 1)
 	else
 		distance_x = distance_x < 0 ? distance_x - round(sqrt(ship_size) + 1) : distance_x + round(sqrt(ship_size) + 1)
-	
 
 	var/area/crash = new area_crash
 	for(var/turf/T in A.contents)
-		var/turf/T_n = get_turf(locate(T.x  + distance_x, T.y + distance_y, T.z))
+		var/turf/T_n = get_turf(locate(T.x + distance_x, T.y + distance_y, T.z))
 
 		// Making sure we remove everything on crash side
 		for(var/a in T_n.contents)
@@ -180,6 +176,7 @@
 		if(T_n)
 			crash.contents += T_n
 		CHECK_TICK
+
 	play_sound(sound_crash, crash)
 	sleep(7) // Has to be 4 seconds less than how long is crash sound. Change if the sound is changed.
 	for(var/mob/living/L in A.contents)
@@ -204,7 +201,10 @@
 	var/area/A = area_current
 	for(var/v in A.contents)
 		if(istype(v, /obj/structure/shuttle/engine/propulsion))
-			engines_c += 1
+			var/obj/structure/shuttle/engine/propulsion/P = v
+			var/turf/T = get_turf(P)
+			if(T && P.dir == T.dir)
+				engines_c += 1
 		else if(integrity_check(v))
 			walls_c += 1
 		CHECK_TICK
@@ -213,12 +213,23 @@
 	var/integrity = round((walls_c / walls_count) * 100)
 	var/crash_chance = ratio + round((100 - integrity) * 0.25)
 	if(crash_chance && !engines_checked)
+		var/message = ""
 		if(ratio == 100)
 			announce(span("danger", "Flight computer states: \"Warning: shuttle's propulsion system is entirely destroyed! Unable to launch!\""))
 			return FALSE
+
+		if(area_current.z == 1 || area_current.z == 2)
+			return TRUE
+		else
+			var/grav = SSmachinery.gravity_generators.len ? pick(SSmachinery.gravity_generators).charge_count : FALSE
+			if(!grav)
+				return TRUE
+
 		engines_checked = TRUE
-		announce(span("danger", "Flight computer states: \"Warning: shuttle's propulsion system is damaged! There is a [ratio]% chance of crash!\nEngines integrity: [100-ratio]%, Shuttle integrity: [integrity]%\nDetails:\n [engines_c] out of [engines_count], [walls_c] out of [walls_count] walls.\""))
-		addtimer(CALLBACK(src, .proc/reset_engines_check, 50))
+		message += span("danger", "Flight computer states: \"Warning: shuttle's propulsion system is damaged! There is a [crash_chance]% chance of crash!\nEngines integrity: [100-ratio]%, Shuttle integrity: [integrity]%\nDetails:\n [engines_c] out of [engines_count] engines, [walls_c] out of [walls_count] walls.\"\n")
+		message += span("notice", "Flight computer states: \"Press Launch again within 5 seconds to continue!\"") 
+		announce(message)
+		addtimer(CALLBACK(src, .proc/reset_engines_check), 5 SECONDS)
 		return FALSE
 	else if(crash_chance)
 		if(ratio == 100)

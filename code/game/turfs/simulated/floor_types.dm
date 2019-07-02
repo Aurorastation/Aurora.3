@@ -109,7 +109,6 @@
 
 /turf/simulated/shuttle/floor/plating
 	name = "plating"
-	icon = 'icons/turf/floors.dmi'
 	icon_state = "plating"
 	level = 1
 
