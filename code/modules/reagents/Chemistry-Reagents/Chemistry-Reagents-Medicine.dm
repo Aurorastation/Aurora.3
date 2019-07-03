@@ -599,7 +599,7 @@
 
 /datum/reagent/thetamivir
 	name = "Thetamivir"
-	id = "Thetamivir"
+	id = "thetamivir"
 	description = "An interferon-theta type III antiviral agent."
 	reagent_state = LIQUID
 	color = "#C1C1C1"

@@ -11680,10 +11680,10 @@
 /obj/item/weapon/reagent_containers/glass/bottle/inaprovaline,
 /obj/item/weapon/reagent_containers/glass/bottle/inaprovaline,
 /obj/item/weapon/reagent_containers/glass/bottle/inaprovaline,
-/obj/item/weapon/reagent_containers/hypospray,
-/obj/item/weapon/reagent_containers/hypospray,
-/obj/item/weapon/reagent_containers/hypospray,
 /obj/item/weapon/storage/box/syringes,
+/obj/item/weapon/reagent_containers/hypospray/CMO,
+/obj/item/weapon/reagent_containers/hypospray/CMO,
+/obj/item/weapon/reagent_containers/hypospray/CMO,
 /turf/unsimulated/floor{
 	icon_state = "vault";
 	dir = 1
@@ -11697,11 +11697,11 @@
 /obj/item/weapon/reagent_containers/glass/bottle/inaprovaline,
 /obj/item/weapon/reagent_containers/glass/bottle/inaprovaline,
 /obj/item/weapon/reagent_containers/glass/bottle/inaprovaline,
-/obj/item/weapon/reagent_containers/hypospray,
-/obj/item/weapon/reagent_containers/hypospray,
-/obj/item/weapon/reagent_containers/hypospray,
 /obj/item/weapon/storage/box/syringes,
 /obj/item/weapon/reagent_containers/glass/beaker/large,
+/obj/item/weapon/reagent_containers/hypospray/CMO,
+/obj/item/weapon/reagent_containers/hypospray/CMO,
+/obj/item/weapon/reagent_containers/hypospray/CMO,
 /turf/unsimulated/floor{
 	icon_state = "vault";
 	dir = 1

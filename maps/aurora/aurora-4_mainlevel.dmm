@@ -31518,7 +31518,6 @@
 	pixel_y = 32
 	},
 /obj/item/weapon/reagent_containers/blood/OMinus,
-/obj/item/weapon/reagent_containers/blood/OMinus,
 /obj/effect/floor_decal/corner/pink{
 	icon_state = "corner_white";
 	dir = 5
@@ -31529,6 +31528,7 @@
 	d2 = 4;
 	icon_state = "2-4"
 	},
+/obj/item/weapon/reagent_containers/blood/OMinus,
 /turf/simulated/floor/tiled/white,
 /area/medical/icu)
 "bcb" = (
@@ -32390,7 +32390,7 @@
 /area/medical/icu)
 "bdH" = (
 /turf/simulated/wall,
-/area/medical/biostorage{
+/area/medical/exam_room{
 	name = "\improper Medical - Exam Room 2"
 	})
 "bdI" = (
@@ -32416,7 +32416,7 @@
 	opacity = 0
 	},
 /turf/simulated/floor/plating,
-/area/medical/biostorage{
+/area/medical/exam_room{
 	name = "\improper Medical - Exam Room 2"
 	})
 "bdJ" = (
@@ -32438,7 +32438,7 @@
 	opacity = 0
 	},
 /turf/simulated/floor/plating,
-/area/medical/biostorage{
+/area/medical/exam_room{
 	name = "\improper Medical - Exam Room 2"
 	})
 "bdK" = (
@@ -32464,7 +32464,7 @@
 	opacity = 0
 	},
 /turf/simulated/floor/plating,
-/area/medical/biostorage{
+/area/medical/exam_room{
 	name = "\improper Medical - Exam Room 2"
 	})
 "bdL" = (
@@ -33254,7 +33254,7 @@
 /obj/structure/table/standard,
 /obj/machinery/computer/med_data/laptop,
 /turf/simulated/floor/carpet/blue,
-/area/medical/biostorage{
+/area/medical/exam_room{
 	name = "\improper Medical - Exam Room 2"
 	})
 "bfg" = (
@@ -33272,20 +33272,20 @@
 	pixel_y = -4
 	},
 /turf/simulated/floor/carpet/blue,
-/area/medical/biostorage{
+/area/medical/exam_room{
 	name = "\improper Medical - Exam Room 2"
 	})
 "bfh" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/tiled/white,
-/area/medical/biostorage{
+/area/medical/exam_room{
 	name = "\improper Medical - Exam Room 2"
 	})
 "bfi" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /turf/simulated/floor/tiled/white,
-/area/medical/biostorage{
+/area/medical/exam_room{
 	name = "\improper Medical - Exam Room 2"
 	})
 "bfj" = (
@@ -33305,7 +33305,7 @@
 	req_one_access = list(5)
 	},
 /turf/simulated/floor/tiled/white,
-/area/medical/biostorage{
+/area/medical/exam_room{
 	name = "\improper Medical - Exam Room 2"
 	})
 "bfk" = (
@@ -34015,7 +34015,7 @@
 	icon_state = "0-4"
 	},
 /turf/simulated/floor/carpet/blue,
-/area/medical/biostorage{
+/area/medical/exam_room{
 	name = "\improper Medical - Exam Room 2"
 	})
 "bgu" = (
@@ -34028,7 +34028,7 @@
 	icon_state = "2-8"
 	},
 /turf/simulated/floor/carpet/blue,
-/area/medical/biostorage{
+/area/medical/exam_room{
 	name = "\improper Medical - Exam Room 2"
 	})
 "bgv" = (
@@ -34038,7 +34038,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/white,
-/area/medical/biostorage{
+/area/medical/exam_room{
 	name = "\improper Medical - Exam Room 2"
 	})
 "bgw" = (
@@ -34068,7 +34068,7 @@
 	opacity = 0
 	},
 /turf/simulated/floor/plating,
-/area/medical/biostorage{
+/area/medical/exam_room{
 	name = "\improper Medical - Exam Room 2"
 	})
 "bgx" = (
@@ -34904,7 +34904,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/carpet/blue,
-/area/medical/biostorage{
+/area/medical/exam_room{
 	name = "\improper Medical - Exam Room 2"
 	})
 "bhP" = (
@@ -34919,7 +34919,7 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/carpet/blue,
-/area/medical/biostorage{
+/area/medical/exam_room{
 	name = "\improper Medical - Exam Room 2"
 	})
 "bhQ" = (
@@ -34930,7 +34930,7 @@
 	},
 /obj/machinery/hologram/holopad,
 /turf/simulated/floor/tiled/white,
-/area/medical/biostorage{
+/area/medical/exam_room{
 	name = "\improper Medical - Exam Room 2"
 	})
 "bhR" = (
@@ -34940,7 +34940,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
-/area/medical/biostorage{
+/area/medical/exam_room{
 	name = "\improper Medical - Exam Room 2"
 	})
 "bhS" = (
@@ -35638,25 +35638,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/icu)
-"bjc" = (
-/obj/effect/floor_decal/corner/grey/diagonal,
-/obj/structure/closet/secure_closet/medical_wall{
-	name = "Medication Closet";
-	pixel_x = -32;
-	pixel_y = 0
-	},
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/item/weapon/reagent_containers/glass/bottle/antitoxin,
-/obj/item/weapon/storage/pill_bottle/prefilled/dermaline,
-/obj/item/weapon/storage/pill_bottle/prefilled/tramadol,
-/obj/item/weapon/storage/pill_bottle/prefilled/dylovene,
-/obj/item/weapon/storage/pill_bottle/prefilled/dylovene,
-/obj/item/weapon/reagent_containers/syringe/antiviral,
-/obj/item/weapon/reagent_containers/syringe/antiviral,
-/turf/simulated/floor/tiled/white,
-/area/medical/biostorage{
-	name = "\improper Medical - Exam Room 2"
-	})
 "bjd" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -35672,7 +35653,7 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/white,
-/area/medical/biostorage{
+/area/medical/exam_room{
 	name = "\improper Medical - Exam Room 2"
 	})
 "bje" = (
@@ -35684,7 +35665,7 @@
 	dir = 9
 	},
 /turf/simulated/floor/tiled/white,
-/area/medical/biostorage{
+/area/medical/exam_room{
 	name = "\improper Medical - Exam Room 2"
 	})
 "bjf" = (
@@ -35692,7 +35673,7 @@
 /obj/structure/bed,
 /obj/item/weapon/bedsheet/medical,
 /turf/simulated/floor/tiled/white,
-/area/medical/biostorage{
+/area/medical/exam_room{
 	name = "\improper Medical - Exam Room 2"
 	})
 "bjg" = (
@@ -36383,7 +36364,7 @@
 	id = "ExamR2"
 	},
 /turf/simulated/floor/plating,
-/area/medical/biostorage{
+/area/medical/exam_room{
 	name = "\improper Medical - Exam Room 2"
 	})
 "bkn" = (
@@ -36401,27 +36382,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/white,
-/area/medical/biostorage{
-	name = "\improper Medical - Exam Room 2"
-	})
-"bko" = (
-/obj/effect/floor_decal/corner/grey/diagonal,
-/obj/structure/closet/secure_closet/medical_wall{
-	name = "Medication Closet";
-	pixel_x = -32;
-	pixel_y = 0
-	},
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/item/weapon/reagent_containers/glass/bottle/antitoxin,
-/obj/item/weapon/storage/pill_bottle/prefilled/dermaline,
-/obj/item/weapon/storage/pill_bottle/prefilled/tramadol,
-/obj/item/weapon/storage/pill_bottle/prefilled/dylovene,
-/obj/item/weapon/storage/pill_bottle/prefilled/dylovene,
-/obj/item/weapon/reagent_containers/syringe/antiviral,
-/obj/item/weapon/reagent_containers/syringe/antiviral,
-/turf/simulated/floor/tiled/white,
 /area/medical/exam_room{
-	name = "\improper Medical - Exam Room 1"
+	name = "\improper Medical - Exam Room 2"
 	})
 "bkp" = (
 /obj/machinery/hologram/holopad,
@@ -39231,25 +39193,20 @@
 /area/crew_quarters/heads/cmo)
 "boH" = (
 /obj/structure/table/standard,
-/obj/item/weapon/storage/firstaid/o2{
-	pixel_x = 4;
-	pixel_y = 4
-	},
-/obj/item/weapon/storage/firstaid/o2,
 /obj/effect/floor_decal/corner/lime/full{
 	icon_state = "corner_white_full";
 	dir = 8
 	},
 /obj/machinery/firealarm/north,
+/obj/item/weapon/storage/firstaid/adv{
+	pixel_x = 5;
+	pixel_y = 5
+	},
+/obj/item/weapon/storage/firstaid/adv,
 /turf/simulated/floor/tiled/white,
 /area/medical/main_storage)
 "boI" = (
 /obj/structure/table/standard,
-/obj/item/weapon/storage/firstaid/toxin{
-	pixel_x = 4;
-	pixel_y = 4
-	},
-/obj/item/weapon/storage/firstaid/toxin,
 /obj/effect/floor_decal/corner/lime{
 	icon_state = "corner_white";
 	dir = 5
@@ -39265,15 +39222,11 @@
 	d2 = 2;
 	icon_state = "0-2"
 	},
+/obj/item/weapon/storage/box/syringes,
 /turf/simulated/floor/tiled/white,
 /area/medical/main_storage)
 "boJ" = (
 /obj/structure/table/standard,
-/obj/item/weapon/storage/firstaid/fire{
-	pixel_x = 4;
-	pixel_y = 4
-	},
-/obj/item/weapon/storage/firstaid/fire,
 /obj/effect/floor_decal/corner/lime{
 	icon_state = "corner_white";
 	dir = 5
@@ -39286,15 +39239,20 @@
 	pixel_x = 0;
 	pixel_y = 32
 	},
+/obj/item/weapon/storage/firstaid/regular{
+	empty = 1;
+	name = "First-Aid (empty)";
+	pixel_x = 5;
+	pixel_y = 5
+	},
+/obj/item/weapon/storage/firstaid/regular{
+	empty = 1;
+	name = "First-Aid (empty)"
+	},
 /turf/simulated/floor/tiled/white,
 /area/medical/main_storage)
 "boK" = (
 /obj/structure/table/standard,
-/obj/item/weapon/storage/firstaid/adv{
-	pixel_x = 4;
-	pixel_y = 4
-	},
-/obj/item/weapon/storage/firstaid/adv,
 /obj/effect/floor_decal/corner/lime/full{
 	icon_state = "corner_white_full";
 	dir = 1
@@ -39302,6 +39260,12 @@
 /obj/item/device/radio/intercom{
 	pixel_y = 27
 	},
+/obj/machinery/camera/network/medbay{
+	c_tag = "Medical - Main Storage";
+	dir = 8;
+	icon_state = "camera"
+	},
+/obj/item/weapon/storage/box/sharps,
 /turf/simulated/floor/tiled/white,
 /area/medical/main_storage)
 "boL" = (
@@ -41157,6 +41121,8 @@
 	icon_state = "tube1";
 	pixel_x = 0
 	},
+/obj/item/weapon/storage/box/sharps,
+/obj/structure/table/standard,
 /turf/simulated/floor/tiled,
 /area/medical/gen_treatment)
 "brR" = (
@@ -46454,10 +46420,6 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
-/obj/machinery/vending/medical{
-	density = 0;
-	pixel_x = 32
-	},
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay)
 "bAg" = (
@@ -47461,8 +47423,6 @@
 	},
 /obj/item/weapon/reagent_containers/blood/OMinus,
 /obj/item/weapon/reagent_containers/blood/OMinus,
-/obj/item/weapon/reagent_containers/blood/OMinus,
-/obj/item/weapon/reagent_containers/blood/OMinus,
 /turf/simulated/floor/tiled/freezer{
 	name = "cold storage tiles";
 	temperature = 278
@@ -48381,29 +48341,6 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /turf/simulated/floor/tiled/white,
-/area/medical/surgerywing)
-"bDQ" = (
-/obj/structure/closet/crate/freezer{
-	name = "Various Blood Packs"
-	},
-/obj/item/weapon/reagent_containers/blood/AMinus,
-/obj/item/weapon/reagent_containers/blood/AMinus,
-/obj/item/weapon/reagent_containers/blood/APlus,
-/obj/item/weapon/reagent_containers/blood/APlus,
-/obj/item/weapon/reagent_containers/blood/BMinus,
-/obj/item/weapon/reagent_containers/blood/BMinus,
-/obj/item/weapon/reagent_containers/blood/BPlus,
-/obj/item/weapon/reagent_containers/blood/BPlus,
-/obj/item/weapon/reagent_containers/blood/OPlus,
-/obj/item/weapon/reagent_containers/blood/OPlus,
-/obj/machinery/camera/network/medbay{
-	c_tag = "Medical - Cold Storage";
-	dir = 4
-	},
-/turf/simulated/floor/tiled/freezer{
-	name = "cold storage tiles";
-	temperature = 278
-	},
 /area/medical/surgerywing)
 "bDR" = (
 /obj/structure/table/standard,
@@ -53968,6 +53905,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/iv_drip,
+/obj/random/firstaid,
 /turf/simulated/floor/tiled,
 /area/maintenance/medbay)
 "bOB" = (
@@ -65234,6 +65172,7 @@
 /obj/item/clothing/gloves/latex,
 /obj/item/clothing/mask/surgical,
 /obj/random/medical,
+/obj/random/medical,
 /turf/simulated/floor/carpet/blue,
 /area/maintenance/medbay)
 "gIs" = (
@@ -65639,13 +65578,14 @@
 /obj/machinery/portable_atmospherics/canister/empty,
 /turf/simulated/floor/plating,
 /area/maintenance/engineering)
+"icZ" = (
+/obj/structure/table/standard,
+/obj/effect/decal/cleanable/dirt,
+/obj/random/junk,
+/obj/random/medical,
+/turf/simulated/floor/tiled/white,
+/area/maintenance/medbay)
 "ifx" = (
-/obj/structure/closet/crate/freezer{
-	name = "O- Blood Packs"
-	},
-/obj/item/weapon/reagent_containers/blood/OMinus,
-/obj/item/weapon/reagent_containers/blood/OMinus,
-/obj/effect/floor_decal/industrial/hatch/red,
 /turf/simulated/floor/tiled/white,
 /area/medical/main_storage)
 "ipL" = (
@@ -66739,6 +66679,7 @@
 /obj/structure/table/standard,
 /obj/effect/decal/cleanable/dirt,
 /obj/item/weapon/towel/random,
+/obj/random/medical,
 /turf/simulated/floor/tiled/white,
 /area/maintenance/medbay)
 "ndP" = (
@@ -104384,7 +104325,7 @@ bdH
 bff
 bgt
 bhO
-bjc
+bfi
 bkm
 bln
 bmM
@@ -105670,7 +105611,7 @@ bfk
 bgx
 bhT
 bjg
-bko
+bjh
 bjh
 bmR
 bor
@@ -106201,7 +106142,7 @@ bAn
 bvz
 bCb
 bCc
-bDQ
+bCc
 bvz
 bAn
 bzl
@@ -109802,7 +109743,7 @@ uVs
 blN
 nJe
 ohn
-ujU
+icZ
 bHG
 nug
 rcu

@@ -367,15 +367,21 @@
 	name = "Thetamivir"
 	id = "thetamivir"
 	result = "thetamivir"
-	required_reagents = list("cryptobiolin" = 1, "inaprovaline" = 1)
+	required_reagents = list("cryptobiolin" = 1, "tricordrazine" = 1)
 	result_amount = 2
 
 /datum/chemical_reaction/methicillin
 	name = "Methicillin"
 	id = "methicillin"
 	result = "methicillin"
-	required_reagents = list("cryptobiolin" = 1, "dylovene" = 1)
+	required_reagents = list("cryptobiolin" = 1, "anti_toxin" = 1)
 	result_amount = 2
+
+/datum/chemical_reaction/antihistamine
+	name = "Diphenhydramine"
+	id = "diphenhydramine"
+	result = "diphenhydramine"
+	required_reagents = list("cryptobiolin" = 1, "inaprovaline" = 1)
 
 /datum/chemical_reaction/imidazoline
 	name = "imidazoline"

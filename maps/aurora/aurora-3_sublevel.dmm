@@ -14307,6 +14307,7 @@
 /obj/item/weapon/reagent_containers/dropper{
 	pixel_y = 9
 	},
+/obj/item/weapon/storage/box/sharps,
 /turf/simulated/floor/tiled/white,
 /area/medical/virologytesting)
 "aBN" = (
@@ -22358,6 +22359,7 @@
 /obj/structure/closet/secure_closet/medical3,
 /obj/item/clothing/gloves/latex/tajara,
 /obj/item/clothing/gloves/latex/unathi,
+/obj/item/weapon/reagent_containers/hypospray,
 /turf/simulated/floor/tiled,
 /area/medical/medbay4)
 "aSM" = (
@@ -22934,6 +22936,7 @@
 	},
 /obj/item/clothing/gloves/latex/tajara,
 /obj/item/clothing/gloves/latex/unathi,
+/obj/item/weapon/reagent_containers/hypospray,
 /turf/simulated/floor/tiled,
 /area/medical/medbay4)
 "aUE" = (
@@ -24649,13 +24652,8 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/patient_wing)
 "bbF" = (
-/obj/structure/table/standard,
-/obj/item/weapon/storage/firstaid/toxin{
-	pixel_x = 4;
-	pixel_y = 4
-	},
-/obj/item/weapon/storage/firstaid/o2,
 /obj/effect/floor_decal/corner/white/diagonal,
+/obj/structure/filingcabinet/chestdrawer,
 /turf/simulated/floor/tiled,
 /area/medical/patient_wing_post2)
 "bbG" = (
@@ -28035,12 +28033,8 @@
 /area/rnd/xenoarch_atrium)
 "dxk" = (
 /obj/structure/table/standard,
-/obj/item/weapon/storage/firstaid/adv{
-	pixel_x = 4;
-	pixel_y = 4
-	},
-/obj/item/weapon/storage/firstaid/fire,
 /obj/effect/floor_decal/corner/white/diagonal,
+/obj/item/weapon/storage/firstaid/adv,
 /turf/simulated/floor/tiled,
 /area/medical/patient_wing_post2)
 "dyi" = (
