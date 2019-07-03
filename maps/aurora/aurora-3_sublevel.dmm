@@ -29400,7 +29400,9 @@
 /turf/simulated/floor/beach/sand,
 /area/medical/patient_wing_picnic)
 "hHI" = (
-/obj/machinery/button/crematorium,
+/obj/machinery/button/crematorium{
+	req_access = list(66)
+	},
 /obj/structure/table/steel,
 /obj/machinery/light/small{
 	dir = 1

@@ -146,7 +146,7 @@
 	pass_flags = PASSTABLE
 	health = 15
 	maxHealth = 15
-	melee_damage_lower = 15
+	melee_damage_lower = 10
 	melee_damage_upper = 15
 	density = 0
 	attacktext = "cut"
