@@ -96,3 +96,9 @@
 /area/engineering/gravity_gen
 	name = "\improper Engineering - Gravity Generator"
 	icon_state = "engine"
+	
+/area/engineering/backup_smes
+	name = "\improper Engineering - Backup SMES Room"
+	icon_state = "substation"
+	sound_env = SMALL_ENCLOSED
+	
