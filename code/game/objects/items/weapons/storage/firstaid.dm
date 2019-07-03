@@ -182,156 +182,71 @@
 	drop_sound = 'sound/items/drop/pillbottle.ogg'
 	max_storage_space = 16
 
-/obj/item/weapon/storage/pill_bottle/antitox
+/obj/item/weapon/storage/pill_bottle/prefilled
+	var/default_amount = 7
+	var/pill_type
+
+/obj/item/weapon/storage/pill_bottle/prefilled/fill()
+	..()
+	for(var/i=0, i < 7)
+		new pill_type(src)
+
+/obj/item/weapon/storage/pill_bottle/prefilled/antitox
 	name = "bottle of Dylovene pills"
 	desc = "Contains pills used to counter toxins."
+	pill_type = /obj/item/weapon/reagent_containers/pill/antitox
 
-	fill()
-		..()
-		new /obj/item/weapon/reagent_containers/pill/antitox( src )
-		new /obj/item/weapon/reagent_containers/pill/antitox( src )
-		new /obj/item/weapon/reagent_containers/pill/antitox( src )
-		new /obj/item/weapon/reagent_containers/pill/antitox( src )
-		new /obj/item/weapon/reagent_containers/pill/antitox( src )
-		new /obj/item/weapon/reagent_containers/pill/antitox( src )
-		new /obj/item/weapon/reagent_containers/pill/antitox( src )
-
-/obj/item/weapon/storage/pill_bottle/bicaridine
+/obj/item/weapon/storage/pill_bottle/prefilled/bicaridine
 	name = "bottle of Bicaridine pills"
 	desc = "Contains pills used to stabilize the severely injured."
+	pill_type = /obj/item/weapon/reagent_containers/pill/bicaridine
 
-/obj/item/weapon/storage/pill_bottle/bicaridine/fill()
-    ..()
-    new /obj/item/weapon/reagent_containers/pill/bicaridine(src)
-    new /obj/item/weapon/reagent_containers/pill/bicaridine(src)
-    new /obj/item/weapon/reagent_containers/pill/bicaridine(src)
-    new /obj/item/weapon/reagent_containers/pill/bicaridine(src)
-    new /obj/item/weapon/reagent_containers/pill/bicaridine(src)
-    new /obj/item/weapon/reagent_containers/pill/bicaridine(src)
-    new /obj/item/weapon/reagent_containers/pill/bicaridine(src)
-
-/obj/item/weapon/storage/pill_bottle/dexalin_plus
+/obj/item/weapon/storage/pill_bottle/prefilled/dexalin_plus
 	name = "bottle of Dexalin Plus pills"
 	desc = "Contains pills used to treat extreme cases of oxygen deprivation."
+	pill_type = /obj/item/weapon/reagent_containers/pill/dexalin_plus
 
-/obj/item/weapon/storage/pill_bottle/dexalin_plus/fill()
-    ..()
-    new /obj/item/weapon/reagent_containers/pill/dexalin_plus(src)
-    new /obj/item/weapon/reagent_containers/pill/dexalin_plus(src)
-    new /obj/item/weapon/reagent_containers/pill/dexalin_plus(src)
-    new /obj/item/weapon/reagent_containers/pill/dexalin_plus(src)
-    new /obj/item/weapon/reagent_containers/pill/dexalin_plus(src)
-    new /obj/item/weapon/reagent_containers/pill/dexalin_plus(src)
-    new /obj/item/weapon/reagent_containers/pill/dexalin_plus(src)
-
-/obj/item/weapon/storage/pill_bottle/dermaline
+/obj/item/weapon/storage/pill_bottle/prefilled/dermaline
 	name = "bottle of Dermaline pills"
 	desc = "Contains pills used to treat burn wounds."
+	pill_type = /obj/item/weapon/reagent_containers/pill/dermaline
 
-/obj/item/weapon/storage/pill_bottle/dermaline/fill()
-    ..()
-    new /obj/item/weapon/reagent_containers/pill/dermaline(src)
-    new /obj/item/weapon/reagent_containers/pill/dermaline(src)
-    new /obj/item/weapon/reagent_containers/pill/dermaline(src)
-    new /obj/item/weapon/reagent_containers/pill/dermaline(src)
-    new /obj/item/weapon/reagent_containers/pill/dermaline(src)
-    new /obj/item/weapon/reagent_containers/pill/dermaline(src)
-    new /obj/item/weapon/reagent_containers/pill/dermaline(src)
-
-/obj/item/weapon/storage/pill_bottle/dylovene
+/obj/item/weapon/storage/pill_bottle/prefilled/dylovene
 	name = "bottle of Dylovene pills"
 	desc = "Contains pills used to treat toxic substances in the blood."
+	pill_type = /obj/item/weapon/reagent_containers/pill/dylovene
 
-/obj/item/weapon/storage/pill_bottle/dylovene/fill()
-    ..()
-    new /obj/item/weapon/reagent_containers/pill/dylovene(src)
-    new /obj/item/weapon/reagent_containers/pill/dylovene(src)
-    new /obj/item/weapon/reagent_containers/pill/dylovene(src)
-    new /obj/item/weapon/reagent_containers/pill/dylovene(src)
-    new /obj/item/weapon/reagent_containers/pill/dylovene(src)
-    new /obj/item/weapon/reagent_containers/pill/dylovene(src)
-    new /obj/item/weapon/reagent_containers/pill/dylovene(src)
-
-/obj/item/weapon/storage/pill_bottle/inaprovaline
+/obj/item/weapon/storage/pill_bottle/prefilled/inaprovaline
 	name = "bottle of Inaprovaline pills"
 	desc = "Contains pills used to stabilize patients."
+	pill_type = /obj/item/weapon/reagent_containers/pill/inaprovaline
 
-	fill()
-		..()
-		new /obj/item/weapon/reagent_containers/pill/inaprovaline( src )
-		new /obj/item/weapon/reagent_containers/pill/inaprovaline( src )
-		new /obj/item/weapon/reagent_containers/pill/inaprovaline( src )
-		new /obj/item/weapon/reagent_containers/pill/inaprovaline( src )
-		new /obj/item/weapon/reagent_containers/pill/inaprovaline( src )
-		new /obj/item/weapon/reagent_containers/pill/inaprovaline( src )
-		new /obj/item/weapon/reagent_containers/pill/inaprovaline( src )
-
-/obj/item/weapon/storage/pill_bottle/kelotane
+/obj/item/weapon/storage/pill_bottle/prefilled/kelotane
 	name = "bottle of kelotane pills"
 	desc = "Contains pills used to treat burns."
+	pill_type = /obj/item/weapon/reagent_containers/pill/kelotane
 
-	fill()
-		..()
-		new /obj/item/weapon/reagent_containers/pill/kelotane( src )
-		new /obj/item/weapon/reagent_containers/pill/kelotane( src )
-		new /obj/item/weapon/reagent_containers/pill/kelotane( src )
-		new /obj/item/weapon/reagent_containers/pill/kelotane( src )
-		new /obj/item/weapon/reagent_containers/pill/kelotane( src )
-		new /obj/item/weapon/reagent_containers/pill/kelotane( src )
-		new /obj/item/weapon/reagent_containers/pill/kelotane( src )
+/obj/item/weapon/storage/pill_bottle/prefilled/antihistamine
+	name = "bottle of diphenhydramine pills"
+	desc = "Diphenhydramine, a common antihistamine used to reduce symptoms of allergies. Helps with sneezing."
+	pill_type = /obj/item/weapon/reagent_containers/pill/antihistamine
 
-/obj/item/weapon/storage/pill_bottle/spaceacillin
-	name = "bottle of Spaceacillin pills"
-	desc = "A theta-lactam antibiotic. Effective against many diseases likely to be encountered in space."
-
-/obj/item/weapon/storage/pill_bottle/spaceacillin/fill()
-    ..()
-    new /obj/item/weapon/reagent_containers/pill/spaceacillin(src)
-    new /obj/item/weapon/reagent_containers/pill/spaceacillin(src)
-    new /obj/item/weapon/reagent_containers/pill/spaceacillin(src)
-    new /obj/item/weapon/reagent_containers/pill/spaceacillin(src)
-    new /obj/item/weapon/reagent_containers/pill/spaceacillin(src)
-    new /obj/item/weapon/reagent_containers/pill/spaceacillin(src)
-    new /obj/item/weapon/reagent_containers/pill/spaceacillin(src)
-
-/obj/item/weapon/storage/pill_bottle/tramadol
+/obj/item/weapon/storage/pill_bottle/prefilled/tramadol
 	name = "bottle of Tramadol pills"
 	desc = "Contains pills used to relieve pain."
+	pill_type = /obj/item/weapon/reagent_containers/pill/tramadol
 
-	fill()
-		..()
-		new /obj/item/weapon/reagent_containers/pill/tramadol( src )
-		new /obj/item/weapon/reagent_containers/pill/tramadol( src )
-		new /obj/item/weapon/reagent_containers/pill/tramadol( src )
-		new /obj/item/weapon/reagent_containers/pill/tramadol( src )
-		new /obj/item/weapon/reagent_containers/pill/tramadol( src )
-		new /obj/item/weapon/reagent_containers/pill/tramadol( src )
-		new /obj/item/weapon/reagent_containers/pill/tramadol( src )
+/obj/item/weapon/storage/pill_bottle/prefilled/tramadol
+	name = "bottle of paracetamol pills"
+	desc = "Contains pills used to relieve pain and reduce fevers."
+	pill_type = /obj/item/weapon/reagent_containers/pill/paracetamol
 
-/obj/item/weapon/storage/pill_bottle/escitalopram
+/obj/item/weapon/storage/pill_bottle/prefilled/escitalopram
 	name = "bottle of Escitalopram pills"
 	desc = "Contains pills used to stabilize a patient's mood."
+	pill_type = /obj/item/weapon/reagent_containers/pill/escitalopram
 
-	fill()
-		..()
-		new /obj/item/weapon/reagent_containers/pill/escitalopram( src )
-		new /obj/item/weapon/reagent_containers/pill/escitalopram( src )
-		new /obj/item/weapon/reagent_containers/pill/escitalopram( src )
-		new /obj/item/weapon/reagent_containers/pill/escitalopram( src )
-		new /obj/item/weapon/reagent_containers/pill/escitalopram( src )
-		new /obj/item/weapon/reagent_containers/pill/escitalopram( src )
-		new /obj/item/weapon/reagent_containers/pill/escitalopram( src )
-
-/obj/item/weapon/storage/pill_bottle/rmt
+/obj/item/weapon/storage/pill_bottle/prefilled/rmt
 	name = "bottle of RMT pills"
 	desc = "Contains pills used to remedy the effects of prolonged zero-gravity adaptations."
-
-/obj/item/weapon/storage/pill_bottle/rmt/fill()
-	..()
-	new /obj/item/weapon/reagent_containers/pill/rmt(src)
-	new /obj/item/weapon/reagent_containers/pill/rmt(src)
-	new /obj/item/weapon/reagent_containers/pill/rmt(src)
-	new /obj/item/weapon/reagent_containers/pill/rmt(src)
-	new /obj/item/weapon/reagent_containers/pill/rmt(src)
-	new /obj/item/weapon/reagent_containers/pill/rmt(src)
-	new /obj/item/weapon/reagent_containers/pill/rmt(src)
+	pill_type = /obj/item/weapon/reagent_containers/pill/rmt

@@ -310,6 +310,8 @@
 
 /datum/reagent/paracetamol/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.add_chemical_effect(CE_PAINKILLER, 50)
+	if(M.bodytemperature > 310)
+		M.bodytemperature = max(310, M.bodytemperature - (40 * TEMPERATURE_DAMAGE_COEFFICIENT)) // reduces fever
 
 /datum/reagent/paracetamol/overdose(var/mob/living/carbon/M, var/alien)
 	..()
@@ -595,16 +597,82 @@
 		if(prob(60))
 			M.take_organ_damage(4 * removed, 0)
 
-/datum/reagent/spaceacillin
-	name = "Spaceacillin"
-	id = "spaceacillin"
-	description = "An all-purpose antiviral agent."
+/datum/reagent/thetamivir
+	name = "Thetamivir"
+	id = "Thetamivir"
+	description = "An interferon-theta type III antiviral agent."
 	reagent_state = LIQUID
 	color = "#C1C1C1"
 	metabolism = REM * 0.05
 	overdose = REAGENTS_OVERDOSE
 	scannable = 1
 	taste_description = "bitterness"
+
+/datum/reagent/thetamivir/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+	if(prob(dose/4))
+		to_chat(M, span("warning", "Your muscles feel sore..."))
+		M.adjustHalLoss(15) // side effects of antivirals include fever, muscle aches and fatigue
+	if(prob(dose/4))
+		to_chat(M, span("warning", "You feel tired..."))
+		M.drowsyness += 1
+	if(prob(dose/4))
+		to_chat(M, span("warning", "You feel cold and lethargic..."))
+		mob.bodytemperature = max(mob.bodytemperature, min(310+5, mob.bodytemperature+5))
+
+/datum/reagent/methicillin
+	name = "Methicillin"
+	id = "methicillin"
+	description = "A common antibiotic."
+	reagent_state = LIQUID
+	color = "#41C141"
+	metabolism = REM * 0.05
+	overdose = REAGENTS_OVERDOSE
+	scannable = 1
+	taste_description = "bitter gauze"
+
+/datum/reagent/methicillin/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+	if(prob(dose/4))
+		to_chat(M, span("warning", "You feel sick to your stomach...")) // side effects of antibiotics
+		if(prob(25))
+			M.vomit()
+
+/datum/reagent/coughsyrup
+	name = "Cough Syrup"
+	id = "coughsyrup"
+	description = "A chemical that is used as a cough suppressant in low doses, and in higher doses it can be recreationally (ab)used."
+	scannable = 1
+	reagent_state = LIQUID
+	taste_description = "bitterness"
+	metabolism = REM * 0.05
+	color = "#402060"
+
+/datum/reagent/coughsyrup/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+	M.add_chemical_effect(CE_PAINKILLER, 5) // very slight painkiller effect at low doses
+
+/datum/reagent/coughsyrup/overdose(var/mob/living/carbon/M, var/alien, var/removed) // effects based loosely on DXM
+	M.hallucination = max(M.hallucination, 40)
+	M.add_chemical_effect(CE_PAINKILLER, 20) // stronger at higher doses
+	if(prob(dose))
+		M.vomit()
+	if(prob(7))
+		M.emote(pick("twitch", "drool", "moan", "giggle"))
+	if(prob(7))
+		M.adjustBrainLoss(3 * removed) // not great for your brain
+	if(prob(50))
+		M.drowsyness = max(M.drowsyness, 3)
+
+/datum/reagent/antihistamine
+	name = "Diphenhydramine"
+	id = "diphenhydramine"
+	description = "A common antihistamine medication, also known as Benadryl. Known for causing drowsiness in larger doses."
+	scannable = 1
+	reagent_state = LIQUID
+	taste_description = "bitterness"
+	metabolism = REM * 0.05
+
+/datum/reagent/antihistamine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+	if(prob(dose/2))
+		M.drowsyness += 2
 
 /datum/reagent/sterilizine
 	name = "Sterilizine"
@@ -643,7 +711,7 @@
 /datum/reagent/leporazine
 	name = "Leporazine"
 	id = "leporazine"
-	description = "Leporazine can be use to stabilize an individuals body temperature."
+	description = "Leporazine can be use to stabilize an individual's body temperature."
 	reagent_state = LIQUID
 	color = "#C8A5DC"
 	overdose = REAGENTS_OVERDOSE
@@ -1397,28 +1465,3 @@
 	metabolism = 0.5 * REM
 	taste_description = "sourness"
 	fallback_specific_heat = 1
-
-/datum/reagent/coughsyrup
-	name = "Cough Syrup"
-	id = "coughsyrup"
-	description = "A chemical that is used as a cough suppressant in low doses, and in higher doses it can be recreationally (ab)used."
-	scannable = 1
-	reagent_state = LIQUID
-	taste_description = "bitterness"
-	metabolism = REM
-	color = "#402060"
-
-/datum/reagent/coughsyrup/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	M.add_chemical_effect(CE_PAINKILLER, 5) // very slight painkiller effect at low doses
-
-/datum/reagent/coughsyrup/overdose(var/mob/living/carbon/M, var/alien, var/removed) // effects based loosely on DXM
-	M.hallucination = max(M.hallucination, 40)
-	M.add_chemical_effect(CE_PAINKILLER, 20) // stronger at higher doses
-	if (prob(dose))
-		M.vomit()
-	if(prob(7))
-		M.emote(pick("twitch", "drool", "moan", "giggle"))
-	if(prob(7))
-		M.adjustBrainLoss(3 * removed) // not great for your brain
-	if(prob(50))
-		M.drowsyness = max(M.drowsyness, 3)

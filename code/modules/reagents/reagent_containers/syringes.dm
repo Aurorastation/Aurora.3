@@ -338,11 +338,22 @@
 		update_icon()
 
 /obj/item/weapon/reagent_containers/syringe/antiviral
-	name = "Syringe (spaceacillin)"
+	name = "Syringe (thetamivir)"
 	desc = "Contains antiviral agents."
-	Initialize()
+
+/obj/item/weapon/reagent_containers/syringe/antiviral/Initialize()
 		. = ..()
-		reagents.add_reagent("spaceacillin", 15)
+		reagents.add_reagent("thetamivir", 15)
+		mode = SYRINGE_INJECT
+		update_icon()
+
+/obj/item/weapon/reagent_containers/syringe/antibiotic
+	name = "Syringe (methicillin)"
+	desc = "Contains antibiotics."
+
+/obj/item/weapon/reagent_containers/syringe/antiviral/Initialize()
+		. = ..()
+		reagents.add_reagent("methicillin", 15)
 		mode = SYRINGE_INJECT
 		update_icon()
 
@@ -359,7 +370,8 @@
 /obj/item/weapon/reagent_containers/syringe/calomel
 	name = "Syringe (calomel)"
 	desc = "Contains purging medicine."
-	Initialize()
+
+/obj/item/weapon/reagent_containers/syringe/calomel/Initialize()
 		. = ..()
 		reagents.add_reagent("calomel",  15)
 		mode = SYRINGE_INJECT

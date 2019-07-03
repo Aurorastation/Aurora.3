@@ -363,11 +363,18 @@
 	catalysts = list("phoron" = 5)
 	result_amount = 2
 
-/datum/chemical_reaction/spaceacillin
-	name = "Spaceacillin"
-	id = "spaceacillin"
-	result = "spaceacillin"
+/datum/chemical_reaction/thetamivir
+	name = "Thetamivir"
+	id = "thetamivir"
+	result = "thetamivir"
 	required_reagents = list("cryptobiolin" = 1, "inaprovaline" = 1)
+	result_amount = 2
+
+/datum/chemical_reaction/methicillin
+	name = "Methicillin"
+	id = "methicillin"
+	result = "methicillin"
+	required_reagents = list("cryptobiolin" = 1, "dylovene" = 1)
 	result_amount = 2
 
 /datum/chemical_reaction/imidazoline
