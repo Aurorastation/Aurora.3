@@ -617,7 +617,7 @@
 		M.drowsyness += 1
 	if(prob(dose/4))
 		to_chat(M, span("warning", "You feel cold and lethargic..."))
-		mob.bodytemperature = max(mob.bodytemperature, min(310+5, mob.bodytemperature+5))
+		M.bodytemperature = max(M.bodytemperature, min(310+5, M.bodytemperature+5))
 
 /datum/reagent/methicillin
 	name = "Methicillin"

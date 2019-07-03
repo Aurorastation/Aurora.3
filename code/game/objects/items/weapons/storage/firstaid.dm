@@ -116,11 +116,11 @@
 /obj/item/weapon/storage/firstaid/combat/fill()
 	..()
 	if (empty) return
-	new /obj/item/weapon/storage/pill_bottle/bicaridine(src)
-	new /obj/item/weapon/storage/pill_bottle/dermaline(src)
-	new /obj/item/weapon/storage/pill_bottle/dexalin_plus(src)
-	new /obj/item/weapon/storage/pill_bottle/dylovene(src)
-	new /obj/item/weapon/storage/pill_bottle/tramadol(src)
+	new /obj/item/weapon/storage/pill_bottle/prefilled/bicaridine(src)
+	new /obj/item/weapon/storage/pill_bottle/prefilled/dermaline(src)
+	new /obj/item/weapon/storage/pill_bottle/prefilled/dexalin_plus(src)
+	new /obj/item/weapon/storage/pill_bottle/prefilled/dylovene(src)
+	new /obj/item/weapon/storage/pill_bottle/prefilled/tramadol(src)
 	new /obj/item/weapon/reagent_containers/inhaler/hyperzine(src)
 	new /obj/item/stack/medical/splint(src)
 	return
@@ -236,7 +236,7 @@
 	desc = "Contains pills used to relieve pain."
 	pill_type = /obj/item/weapon/reagent_containers/pill/tramadol
 
-/obj/item/weapon/storage/pill_bottle/prefilled/tramadol
+/obj/item/weapon/storage/pill_bottle/prefilled/paracetamol
 	name = "bottle of paracetamol pills"
 	desc = "Contains pills used to relieve pain and reduce fevers."
 	pill_type = /obj/item/weapon/reagent_containers/pill/paracetamol

@@ -1,33 +1,15 @@
 //Let's get some REAL contraband stuff in here. Because come on, getting brigged for LIPSTICK is no fun.
 
 //Illicit drugs~
-/obj/item/weapon/storage/pill_bottle/happy
+/obj/item/weapon/storage/pill_bottle/prefilled/happy
 	name = "bottle of Happy pills"
 	desc = "Highly illegal drug. When you want to see the rainbow."
+	pill_type = /obj/item/weapon/reagent_containers/pill/happy
 
-/obj/item/weapon/storage/pill_bottle/happy/fill()
-	..()
-	new /obj/item/weapon/reagent_containers/pill/happy( src )
-	new /obj/item/weapon/reagent_containers/pill/happy( src )
-	new /obj/item/weapon/reagent_containers/pill/happy( src )
-	new /obj/item/weapon/reagent_containers/pill/happy( src )
-	new /obj/item/weapon/reagent_containers/pill/happy( src )
-	new /obj/item/weapon/reagent_containers/pill/happy( src )
-	new /obj/item/weapon/reagent_containers/pill/happy( src )
-
-/obj/item/weapon/storage/pill_bottle/zoom
+/obj/item/weapon/storage/pill_bottle/prefilled/zoom
 	name = "bottle of Zoom pills"
 	desc = "Highly illegal drug. Trade brain for speed."
-
-/obj/item/weapon/storage/pill_bottle/zoom/fill()
-	..()
-	new /obj/item/weapon/reagent_containers/pill/zoom( src )
-	new /obj/item/weapon/reagent_containers/pill/zoom( src )
-	new /obj/item/weapon/reagent_containers/pill/zoom( src )
-	new /obj/item/weapon/reagent_containers/pill/zoom( src )
-	new /obj/item/weapon/reagent_containers/pill/zoom( src )
-	new /obj/item/weapon/reagent_containers/pill/zoom( src )
-	new /obj/item/weapon/reagent_containers/pill/zoom( src )
+	pill_type = /obj/item/weapon/reagent_containers/pill/zoom
 
 /obj/item/weapon/reagent_containers/glass/beaker/vial/random
 	flags = 0

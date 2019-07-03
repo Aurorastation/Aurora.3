@@ -406,7 +406,7 @@
 		reagents.add_reagent("phoron_salt", 60)
 		update_icon()
 
-/obj/item/weapon/reagent_containers/glass/bottle/stoxin
+/obj/item/weapon/reagent_containers/glass/bottle/coughsyrup
 	name = "cough syrup bottle"
 	desc = "A small bottle of cough syrup. Don't take too much!"
 	icon = 'icons/obj/chemical.dmi'

@@ -60,8 +60,8 @@
 		/obj/item/clothing/accessory/badge/old/fluff                         = TRADER_BLACKLIST_ALL,
 		/obj/item/robot_parts                                                = TRADER_SUBTYPES_ONLY,
 		/obj/item/robot_parts/robot_component                                = TRADER_BLACKLIST,
-		/obj/item/weapon/storage/pill_bottle/happy                           = TRADER_THIS_TYPE,
-		/obj/item/weapon/storage/pill_bottle/zoom                            = TRADER_THIS_TYPE,
+		/obj/item/weapon/storage/pill_bottle/prefilled/happy                 = TRADER_THIS_TYPE,
+		/obj/item/weapon/storage/pill_bottle/prefilled/zoom                  = TRADER_THIS_TYPE,
 		/obj/item/weapon/reagent_containers/glass/beaker/vial/random/toxin   = TRADER_THIS_TYPE
 	)
 
