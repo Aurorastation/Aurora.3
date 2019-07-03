@@ -57,3 +57,7 @@ changes:
   - rscadd: "Cough syrup, allergy medication, and paracetamol are now available in NanoMed vendors."
   - tweak: "Some drinks now heal damage as they did before, though at reduced levels."
   - tweak: "Paracetamol now reduces fevers."
+  - maptweak: "Medical's supplies have been reduced to a less-excessive level, making chemists less redundant."
+  - tweak: "Syringes now begin capped. After use, syringes get dirty and can also transfer viruses between successive uses (on humans); it's recommended to throw them away in the new sharps bins. If they are only used to transfer reagents, they can be used indefinitely."
+  - maptweak: "Medical, Virology, and Xenobiology all have sharps bins for disposal of biohazardous glassware."
+  - tweak: "There are now three hyposprays in the Medical sublevel, which are equivalent to syringes prior to this update. They take the same amount of time to inject, and have a capacity of 15 units, but are reusable."
