@@ -7,7 +7,7 @@
 	origin_tech = list(TECH_COMBAT = 3, TECH_MATERIAL = 3)
 	ammo_type = /obj/item/ammo_casing/plasma_slug
 	magazine_type = /obj/item/ammo_magazine/plasma
-	allowed_magazines = list(/obj/item/ammo_magazine/plasma_slug)
+	allowed_magazines = list(/obj/item/ammo_magazine/plasma)
 	caliber = "plasma slug"
 	fire_sound = 'sound/weapons/gunshot/slammer.ogg'
 	load_method = MAGAZINE
