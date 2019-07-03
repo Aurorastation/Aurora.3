@@ -147,7 +147,7 @@
 	instantiate_hud()
 
 	// Build icon.
-	update_icon()
+	update_mecha_icon()
 
 /mob/living/heavy_vehicle/return_air()
 	return body.cockpit

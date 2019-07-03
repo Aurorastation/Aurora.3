@@ -646,8 +646,8 @@
 	else
 		var/loc_temp = T0C
 		if(istype(loc, /mob/living/heavy_vehicle/)) //TODO: Fix return_temperature()
-			var/mob/living/heavy_vehicle/M = loc
-			loc_temp =  M.return_temperature()
+			//var/mob/living/heavy_vehicle/M = loc
+			//loc_temp =  M.return_temperature()
 		else if(istype(loc, /obj/machinery/atmospherics/unary/cryo_cell))
 			loc_temp = loc:air_contents.temperature
 		else

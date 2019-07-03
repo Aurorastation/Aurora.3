@@ -15,7 +15,7 @@
 	if(pilot)
 		if(body.open_cabin)
 			update_pilot_overlay()
-			update_icon(1)
+			update_mecha_icon(1)
 		if(pilot.loc != src) // Admin jump or teleport/grab.
 			if(pilot.client)
 				pilot.client.screen -= hud_elements

@@ -63,7 +63,7 @@
 		default_hardpoint_background.pixel_x = 34
 	overlays |= default_hardpoint_background
 
-	if(!owner.body.diagnostics || !owner.body.diagnostics.is_functional() || ((owner.hallucination>EMP_GUI_DISRUPT) && prob(owner.hallucination))) //TODO: Fix is_functional() undefined proc auuuuuuuuuuuuuuuuuuuuuuuuuuu
+	if(!owner.body.diagnostics || ((owner.hallucination>EMP_GUI_DISRUPT) && prob(owner.hallucination))) //TODO: Re-add !owner.body.diagnostics.is_functional()
 		value = -1
 		maptext = null
 	else

@@ -20,7 +20,7 @@ proc/get_mech_icon(var/obj/item/arms, var/obj/item/legs, var/obj/item/head, var/
 	if(arms) all_images += get_mech_image(arms.icon_state, arms.icon, arms.color)
 	return all_images
 
-/mob/living/heavy_vehicle/proc/update_icon(var/update_hardpoints = 1)
+/mob/living/heavy_vehicle/proc/update_mecha_icon(var/update_hardpoints = 1)
 
 	overlays -= body_overlays
 	// Get the general images.

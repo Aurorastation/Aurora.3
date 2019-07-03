@@ -74,7 +74,7 @@
 	if(!body.cell || (body.cell.charge <= 0))
 		return
 
-	if(!body.diagnostics || !body.diagnostics.is_functional() || ((hallucination>EMP_GUI_DISRUPT) && prob(hallucination*2))) //TODO: Fix is_functional()
+	if(!body.diagnostics || ((hallucination>EMP_GUI_DISRUPT) && prob(hallucination*2))) //TODO: Re-add !body.is_component_functioning("diagnostics")
 		if(!mecha_damage_overlay_cache["critfail"])
 			mecha_damage_overlay_cache["critfail"] = image(icon='icons/mecha/mecha_hud.dmi',icon_state="dam_error")
 		hud_health.overlays |= mecha_damage_overlay_cache["critfail"]

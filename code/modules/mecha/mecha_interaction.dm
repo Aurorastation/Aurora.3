@@ -36,7 +36,7 @@
 		setClickCooldown(3)
 		return
 
-	if(!arms.motivator || !arms.is_component_functioning("arms")) //TODO: Fix
+	if(!arms.motivator) //TODO: Re-add !arms.is_component_functioning("motivator")
 		user << "<span class='warning'>Your motivators are damaged! You can't use your manipulators!</span>"
 		setClickCooldown(15)
 		return
@@ -142,7 +142,7 @@
 	playsound(src, 'sound/machines/windowdoor.ogg', 50, 1)
 	pilot << sound('sound/mecha/nominal.ogg',volume=50)
 	if(user.client) user.client.screen |= hud_elements
-	update_icon()
+	update_mecha_icon()
 	return 1
 
 /mob/living/heavy_vehicle/proc/sync_access()
@@ -161,7 +161,7 @@
 			return
 		hatch_closed = 0
 		hud_open.update_icon()
-		update_icon()
+		update_mecha_icon()
 		if(!silent)
 			user << "<span class='notice'>You open the hatch and climb out of \the [src].</span>"
 	else
@@ -192,7 +192,7 @@
 		next_move = world.time + 3 // Just to stop them from getting spammed with messages.
 		return
 
-	if(!legs.motivator || !legs.is_component_functioning("legs")) //TODO: Fix
+	if(!legs.motivator) //TODO: Re-add !legs.is_component_functioning("motivator")
 		user << "<span class='warning'>Your motivators are damaged! You can't move!</span>"
 		next_move = world.time + 15
 		return
@@ -269,7 +269,7 @@
 	hatch_closed = !hatch_closed
 	user << "<span class='notice'>You [hatch_closed ? "close" : "open"] the [body.hatch_descriptor].</span>"
 	hud_open.update_icon()
-	update_icon()
+	update_mecha_icon()
 	return
 
 

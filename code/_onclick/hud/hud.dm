@@ -258,6 +258,10 @@ datum/hud/New(mob/owner)
 	var/ui_color = mymob.client.prefs.UI_style_color
 	var/ui_alpha = mymob.client.prefs.UI_style_alpha
 
+	if(istype(mymob.loc, /mob/living/heavy_vehicle))
+		var/mob/living/heavy_vehicle/M = mymob.loc
+		M.refresh_hud()
+
 	mymob.instantiate_hud(src, ui_style, ui_color, ui_alpha)
 
 	update_parallax_existence()
