@@ -82,7 +82,7 @@
 			return
 
 		var/obj/item/device/kit/paint/P = W
-		var/found = null
+		/*var/found = null
 
 		for(var/type in P.allowed_types)
 			if(type==src.initial_icon)
@@ -91,7 +91,7 @@
 
 		if(!found)
 			to_chat(user, "That kit isn't meant for use on this class of exosuit.")
-			return
+			return*/
 
 		user.visible_message("[user] opens [P] and spends some quality time customising [src].")
 		src.name = P.new_name

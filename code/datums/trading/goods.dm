@@ -226,7 +226,7 @@ Sells devices, odds and ends, and medical stuff
 	possible_trading_items = list(
 		/obj/item/device/flashlight                = TRADER_ALL,
 		/obj/item/device/kit/paint                 = TRADER_SUBTYPES_ONLY,
-		/obj/item/device/kit/paint/ripley/fluff    = TRADER_BLACKLIST_ALL,
+		//obj/item/device/kit/paint/ripley/fluff    = TRADER_BLACKLIST_ALL,
 		/obj/item/weapon/aicard                    = TRADER_THIS_TYPE,
 		/obj/item/device/binoculars                = TRADER_THIS_TYPE,
 		/obj/item/device/flash                     = TRADER_THIS_TYPE,
