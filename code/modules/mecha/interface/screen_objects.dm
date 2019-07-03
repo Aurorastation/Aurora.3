@@ -44,30 +44,30 @@
 	if(!owner.body.cell || (owner.body.cell.charge <= 0))
 		return
 
-	var/value = holding.get_hardpoint_status_value()
+	maptext = holding.get_hardpoint_maptext()
 
+	var/ui_damage = (!owner.body.diagnostics || ((owner.emp_damage>EMP_GUI_DISRUPT) && prob(owner.emp_damage))) //TODO: add !owner.body.diagnostics.is_functional()
+
+	var/value = holding.get_hardpoint_status_value()
 	if(isnull(value))
 		return
 
-	value = round(value * BAR_CAP)
-
-	if((owner.hallucination>EMP_GUI_DISRUPT) && prob(owner.hallucination*2))
-		if(prob(10))
-			value = -1
+	if(ui_damage)
+		value = -1
+	else
+		if((owner.emp_damage>EMP_GUI_DISRUPT) && prob(owner.emp_damage*2))
+			if(prob(10))
+				value = -1
+			else
+				value = rand(1,BAR_CAP)
 		else
-			value = rand(1,BAR_CAP)
+			value = round(value * BAR_CAP)
 
 	// Draw background.
 	if(!default_hardpoint_background)
 		default_hardpoint_background = image(icon = 'icons/mecha/mecha_hud.dmi', icon_state = "bar_bkg")
 		default_hardpoint_background.pixel_x = 34
 	overlays |= default_hardpoint_background
-
-	if(!owner.body.diagnostics || ((owner.hallucination>EMP_GUI_DISRUPT) && prob(owner.hallucination))) //TODO: Re-add !owner.body.diagnostics.is_functional()
-		value = -1
-		maptext = null
-	else
-		maptext = holding.get_hardpoint_maptext()
 
 	if(value == 0)
 		if(!hardpoint_bar_empty)
@@ -176,10 +176,6 @@
 	name = "open or close hatch"
 	icon_state = "hatch_status"
 
-/obj/screen/movable/mecha/toggle/hatch_open/update_icon()
-	toggled = owner.hatch_closed
-	icon_state = "hatch_status[owner.hatch_closed ? "" : "_enabled"]"
-
 /obj/screen/movable/mecha/toggle/hatch_open/toggled()
 	if(owner.hatch_locked && owner.hatch_closed)
 		usr << "<span class='warning'>You cannot open the hatch while it is locked.</span>"
@@ -192,24 +188,5 @@
 /obj/screen/movable/mecha/health
 	name = "mech integrity"
 	icon_state = "health"
-	var/display_internals
-	var/list/internal_components = list()
-
-/obj/screen/movable/mecha/health/Click()
-	display_internals = !display_internals
-	usr << "<span class='notice'>[display_internals ? "Now" : "No longer"] displaying data on internal system status.</span>"
-	owner.handle_hud_icons_health()
-	owner.refresh_hud()
-
-/obj/screen/movable/mecha/health/MouseDrop()
-	..()
-	var/i = 1
-	for(var/obj/O in internal_components)
-		O.screen_loc = screen_loc
-		O.pixel_y = (i*(-32))
-
-/obj/screen/movable/mecha/internal_system
-	name = "internal system"
-	icon_state = "hardpoint"
 
 #undef BAR_CAP

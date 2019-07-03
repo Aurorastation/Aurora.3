@@ -8,7 +8,7 @@
 	if(head) head.prebuild()
 	if(body) body.prebuild()
 	..()
-	install_system(new /obj/item/weapon/mecha_equipment/light(src), HARDPOINT_HEAD)
+	install_system(new /obj/item/mecha_equipment/light(src), HARDPOINT_HEAD)
 
 /mob/living/heavy_vehicle/premade/random/New()
 	if(!arms)

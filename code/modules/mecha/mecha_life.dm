@@ -1,9 +1,6 @@
 /mob/living/heavy_vehicle/handle_disabilities()
 	return
 
-/mob/living/heavy_vehicle/handle_status_effects()
-	return
-
 /mob/living/heavy_vehicle/Life()
 
 	// Size offsets for large mechs.
@@ -13,9 +10,7 @@
 		pixel_y = offset_y
 
 	if(pilot)
-		if(body.open_cabin)
-			update_pilot_overlay()
-			update_mecha_icon(1)
+
 		if(pilot.loc != src) // Admin jump or teleport/grab.
 			if(pilot.client)
 				pilot.client.screen -= hud_elements
@@ -25,6 +20,10 @@
 		else
 			a_intent = pilot.a_intent
 			zone_sel = pilot.zone_sel
+
+		if(body.open_cabin)
+			update_pilot_overlay()
+			update_icon(1)
 
 	body.update_air(hatch_closed)
 
@@ -37,15 +36,16 @@
 
 	..()
 
+	handle_hud_icons()
+
 	lying = 0 // Fuck off, carp.
 	handle_vision()
-	handle_hud_icons()
 
 /mob/living/heavy_vehicle/proc/calc_power_draw()
 	// TODO
 	// Count up hardpoints, charge them if necessary.
 	// Count up body components that are pulling power, multiply by ratings.
-	return 100
+	return 1
 
 /mob/living/heavy_vehicle/death(var/gibbed)
 
@@ -77,8 +77,6 @@
 
 /mob/living/heavy_vehicle/gib()
 	death(1)
-	living_mob_list -= src
-	dead_mob_list -= src
 
 	// Get a turf to play with.
 	var/turf/T = get_turf(src)
@@ -105,10 +103,3 @@
 /mob/living/heavy_vehicle/handle_vision()
 	if(head && head.sight_flags)
 		sight = head.sight_flags
-
-/mob/living/heavy_vehicle/handle_status_effects()
-	..()
-	if(hallucination > 0)
-		hallucination--
-	else if(hallucination < 0)
-		hallucination = 0

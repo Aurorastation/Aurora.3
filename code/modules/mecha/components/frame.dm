@@ -1,10 +1,13 @@
+/obj/item/frame_holder
+	matter = list("steel" = 175000, "plastic" = 50000, "osmium" = 30000)
+
 /obj/item/frame_holder/New(var/newloc)
 	new /obj/structure/heavy_vehicle_frame(newloc)
 	qdel(src)
 
 /obj/structure/heavy_vehicle_frame
 	name = "exosuit frame"
-	desc = "The frame for am exosuit, apparently."
+	desc = "The frame for an exosuit, apparently."
 	icon = 'icons/mecha/mech_parts.dmi'
 	icon_state = "backbone"
 	density = 1
@@ -19,6 +22,45 @@
 	var/is_reinforced = 0
 	var/set_name
 
+/obj/structure/heavy_vehicle_frame/Destroy()
+
+	if(arms)
+		qdel(arms)
+		arms = null
+	if(legs)
+		qdel(legs)
+		legs = null
+	if(head)
+		qdel(head)
+		head = null
+	if(body)
+		qdel(body)
+		body = null
+
+	. = ..()
+
+/obj/structure/heavy_vehicle_frame/examine()
+	. = ..()
+	if(.)
+		if(!arms)
+			usr << "<span class='warning'>It is missing arms.</span>"
+		if(!legs)
+			usr << "<span class='warning'>It is missing legs.</span>"
+		if(!head)
+			usr << "<span class='warning'>It is missing a head.</span>"
+		if(!body)
+			usr << "<span class='warning'>It is missing a chassis.</span>"
+		if(is_wired == 1)
+			usr << "<span class='warning'>It has not had its wiring adjusted.</span>"
+		else if(!is_wired)
+			usr << "<span class='warning'>It has not yet been wired.</span>"
+		if(is_reinforced == 1)
+			usr << "<span class='warning'>It has not had its internal reinforcement secured.</span>"
+		else if(is_reinforced == 2)
+			usr << "<span class='warning'>It has not had its internal reinforcement welded in.</span>"
+		else if(!is_reinforced)
+			usr << "<span class='warning'>It does not have any internal reinforcement.</span>"
+
 /obj/structure/heavy_vehicle_frame/update_icon()
 	overlays.Cut()
 	overlays |= get_mech_icon(arms, legs, head, body)
@@ -26,9 +68,9 @@
 		if(legs)
 			anchored = 1
 		density = 1
-		overlays += get_mech_image("[body.icon_state]_cockpit", body.icon)
+		overlays += get_mech_image("[body.icon_state]_cockpit", body.icon, body.color)
 		if(body.open_cabin)
-			overlays |= get_mech_image("[body.icon_state]_open_overlay", body.icon)
+			overlays |= get_mech_image("[body.icon_state]_open_overlay", body.icon, body.color)
 	else
 		anchored = 0
 		density = 0
@@ -43,10 +85,10 @@
 /obj/structure/heavy_vehicle_frame/set_dir()
 	..(SOUTH)
 
-/obj/structure/heavy_vehicle_frame/attackby(var/obj/item/weapon/thing, var/mob/user)
+/obj/structure/heavy_vehicle_frame/attackby(var/obj/item/thing, var/mob/user)
 
 	// Removing components.
-	if(istype(thing, /obj/item/weapon/crowbar))
+	if(thing.iscrowbar())
 		var/obj/item/component
 		if(arms)
 			component = arms
@@ -72,7 +114,7 @@
 		return
 
 	// Final construction step.
-	else if(istype(thing, /obj/item/weapon/screwdriver))
+	else if(thing.isscrewdriver())
 
 		// Check for basic components.
 		if(!(arms && legs && head && body))
@@ -82,37 +124,44 @@
 		// Check for wiring.
 		if(is_wired < 2)
 			if(is_wired == 1)
-				user << "<span class='warning'>The [src]'s wiring has not been adjusted!</span>"
+				user << "<span class='warning'>\The [src]'s wiring has not been adjusted!</span>"
 			else
-				user << "<span class='warning'>The [src] is not wired!</span>"
+				user << "<span class='warning'>\The [src] is not wired!</span>"
 			return
 
 		// Check for basing metal internal plating.
 		if(is_reinforced < 3)
 			if(is_reinforced == 1)
-				user << "<span class='warning'>The [src]'s internal reinforcement has not been secured!</span>"
+				user << "<span class='warning'>\The [src]'s internal reinforcement has not been secured!</span>"
 			else if(is_reinforced == 2)
-				user << "<span class='warning'>The [src]'s internal reinforcement has not been welded down!</span>"
+				user << "<span class='warning'>\The [src]'s internal reinforcement has not been welded down!</span>"
 			else
-				user << "<span class='warning'>The [src] has no internal reinforcement!</span>"
+				user << "<span class='warning'>\The [src] has no internal reinforcement!</span>"
 			return
 
 		// We're all done. Finalize the mech and pass the frame to the new system.
 		var/mob/living/heavy_vehicle/M = new(get_turf(src), src)
+
 		visible_message("\The [user] finishes off \the [M].")
 		playsound(user.loc, 'sound/items/Screwdriver.ogg', 100, 1)
+
+		arms = null
+		legs = null
+		head = null
+		body = null
 		qdel(src)
+
 		return
 
 	// Installing wiring.
-	else if(istype(thing,/obj/item/stack/cable_coil))
+	else if(thing.iscoil())
 
 		if(is_wired)
 			user << "<span class='warning'>\The [src] has already been wired.</span>"
 			return
 
 		var/obj/item/stack/cable_coil/CC = thing
-		if(CC.amount < 10)
+		if(CC.get_amount() < 10)
 			user << "<span class='warning'>You need at least ten units of cable to complete the exosuit.</span>"
 			return
 
@@ -129,7 +178,7 @@
 		playsound(user.loc, 'sound/items/Deconstruct.ogg', 50, 1)
 		is_wired = 1
 	// Securing wiring.
-	else if(istype(thing, /obj/item/weapon/wirecutters))
+	else if(thing.iswirecutter())
 		if(!is_wired)
 			user << "There is no wiring in \the [src] to neaten."
 			return
@@ -139,21 +188,21 @@
 	// Installing metal.
 	else if(istype(thing, /obj/item/stack/material))
 		var/obj/item/stack/material/M = thing
-		if(M.material && M.material.name == "steel")
+		if(M.material && M.material.name == "plasteel")
 			if(is_reinforced)
-				user << "<span class='warning'>There is already metal reinforcement installed in \the [src].</span>"
+				user << "<span class='warning'>There is already plasteel reinforcement installed in \the [src].</span>"
 				return
-			if(M.amount < 15)
-				user << "<span class='warning'>You need at least fifteen sheets of steel to reinforce \the [src].</span>"
+			if(M.amount < 10)
+				user << "<span class='warning'>You need at least fifteen sheets of plasteel to reinforce \the [src].</span>"
 				return
 			visible_message("\The [user] reinforces \the [src] with \the [M].")
 			playsound(user.loc, 'sound/items/Deconstruct.ogg', 50, 1)
 			is_reinforced = 1
-			M.use(15)
+			M.use(10)
 		else
 			return ..()
 	// Securing metal.
-	else if(istype(thing, /obj/item/weapon/wrench))
+	else if(thing.iswrench())
 		if(!is_reinforced)
 			user << "<span class='warning'>There is no metal to secure inside \the [src].</span>"
 			return
@@ -164,7 +213,7 @@
 		playsound(user.loc, 'sound/items/Ratchet.ogg', 100, 1)
 		is_reinforced = (is_reinforced == 2) ? 1 : 2
 	// Welding metal.
-	else if(istype(thing, /obj/item/weapon/weldingtool))
+	else if(thing.iswelder())
 		var/obj/item/weapon/weldingtool/WT = thing
 		if(!is_reinforced)
 			user << "<span class='warning'>There is no metal to secure inside \the [src].</span>"
@@ -172,9 +221,9 @@
 		if(is_reinforced == 1)
 			user << "<span class='warning'>The reinforcement inside \the [src] has not been secured.</span>"
 			return
-		if(!WT.isOn())
+		/*if(!WT.isOn())
 			user << "<span class='warning'>Turn \the [WT] on, first.</span>"
-			return
+			return*/
 		if(WT.remove_fuel(1, user))
 			visible_message("\The [user] [(is_reinforced == 3) ? "unwelds the reinforcement from" : "welds the reinforcement into"] \the [src].")
 			is_reinforced = (is_reinforced == 3) ? 2 : 3
@@ -211,9 +260,11 @@
 /obj/structure/heavy_vehicle_frame/proc/install_component(var/obj/item/thing, var/mob/user)
 	var/obj/item/mech_component/MC = thing
 	if(istype(MC) && !MC.ready_to_install())
-		if(user) user << "<span class='warning'>\The [MC] is not ready to install.</span>"
+		if(user) user << "<span class='warning'>\The [MC] [MC.gender == PLURAL ? "are" : "is"] not ready to install.</span>"
 		return 0
-	user.unEquip(thing)
+	if(!do_after(user, 30))
+		return 0
+	user.drop_from_inventory(thing)
 	thing.forceMove(src)
 	visible_message("\The [user] installs \the [thing] into \the [src].")
 	playsound(user.loc, 'sound/machines/click.ogg', 50, 1)

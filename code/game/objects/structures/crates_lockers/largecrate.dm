@@ -10,6 +10,9 @@
 	return
 
 /obj/structure/largecrate/attackby(obj/item/weapon/W as obj, mob/user as mob)
+	if(istype(W, /obj/item/mecha_equipment/clamp))
+		return
+
 	if(W.iscrowbar())
 		new /obj/item/stack/material/wood(src)
 		var/turf/T = get_turf(src)

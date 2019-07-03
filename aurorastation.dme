@@ -1599,7 +1599,6 @@
 #include "code\modules\mecha\components\legs.dm"
 #include "code\modules\mecha\components\software.dm"
 #include "code\modules\mecha\equipment\_equipment.dm"
-#include "code\modules\mecha\equipment\advweapons.dm"
 #include "code\modules\mecha\equipment\engineering.dm"
 #include "code\modules\mecha\equipment\medical.dm"
 #include "code\modules\mecha\equipment\utility.dm"

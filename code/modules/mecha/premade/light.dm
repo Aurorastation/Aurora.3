@@ -7,9 +7,9 @@
 	if(!head) head = new /obj/item/mech_component/sensors/odysseus(src)
 	if(!body) body = new /obj/item/mech_component/chassis/odysseus(src)
 	..()
-	install_system(new /obj/item/weapon/mecha_equipment/mounted_system/weapon/taser(src), HARDPOINT_LEFT_HAND)
-	install_system(new 	/obj/item/weapon/mecha_equipment/mounted_system/plasmacutter(src), HARDPOINT_RIGHT_HAND)
-	install_system(new /obj/item/weapon/mecha_equipment/sleeper(src), HARDPOINT_BACK)
+	install_system(new /obj/item/mecha_equipment/mounted_system/weapon/taser(src), HARDPOINT_LEFT_HAND)
+	install_system(new 	/obj/item/mecha_equipment/mounted_system/plasmacutter(src), HARDPOINT_RIGHT_HAND)
+	install_system(new /obj/item/mecha_equipment/sleeper(src), HARDPOINT_BACK)
 
 /obj/item/mech_component/manipulators/odysseus
 	name = "light exosuit arms"

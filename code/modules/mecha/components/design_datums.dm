@@ -1,4 +1,4 @@
-// Components.
+/*// Components.
 /datum/design/item/mech_component
 	build_type = MECHFAB
 	category = "Vehicle Parts"
@@ -119,4 +119,4 @@
 	name = "advanced weapon systems"
 	id = "exsoft_advweapons"
 	build_path = /obj/item/weapon/circuitboard/exosystem/advweapons
-	req_tech = list(TECH_DATA = 4, TECH_COMBAT = 4)
+	req_tech = list(TECH_DATA = 4, TECH_COMBAT = 4)*/

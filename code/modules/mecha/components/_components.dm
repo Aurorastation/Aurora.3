@@ -11,6 +11,8 @@
 	var/damage_state = 1
 	var/list/has_hardpoints = list()
 
+	matter = list("steel" = 30000, "plastic" = 5000, "osmium" = 500)
+
 /obj/item/mech_component/emp_act(var/severity)
 	take_burn_damage(rand((10 - (severity*3)),15-(severity*4)))
 	for(var/obj/item/thing in contents)
@@ -20,16 +22,29 @@
 	..()
 	set_dir(SOUTH)
 
+/obj/item/mech_component/examine()
+	. = ..()
+	if(ready_to_install())
+		usr << "<span class='notice'>It is ready for installation.</span>"
+	else
+		show_missing_parts(usr)
+
 /obj/item/mech_component/set_dir()
 	..(SOUTH)
+
+/obj/item/mech_component/proc/show_missing_parts(var/mob/user)
+	return
 
 /obj/item/mech_component/proc/prebuild()
 	return
 
 /obj/item/mech_component/proc/install_component(var/obj/item/thing, var/mob/user)
-	user.unEquip(thing)
+	if(!do_after(user, 50))
+		return 0
+	user.drop_from_inventory(thing)
 	thing.forceMove(src)
 	user.visible_message("<span class='notice'>\The [user] installs \the [thing] in \the [src].</span>")
+	return 1
 
 /obj/item/mech_component/proc/update_health()
 	total_damage = brute_damage + burn_damage
@@ -54,24 +69,26 @@
 		total_damage = max_damage
 
 /obj/item/mech_component/proc/take_component_damage(var/brute, var/burn)
-	world << "[src] taking component damage"
 	var/list/damageable_components = list()
 	for(var/obj/item/robot_parts/robot_component/RC in contents)
 		damageable_components += RC
 	if(!damageable_components.len) return
-	/*var/obj/item/robot_parts/robot_component/RC = pick(damageable_components)
-	if(RC.take_damage(brute, burn)) //TODO: fix this shit: Undefined proc?
-		world << "[RC] broke"
+	/*var/obj/item/robot_parts/robot_component/RC = pick(damageable_components) //TODO: Fix dis shit
+	if(RC.take_damage(brute, burn))
 		qdel(RC)*/
 
 /obj/item/mech_component/attackby(var/obj/item/thing, var/mob/user)
-	if(istype(thing, /obj/item/weapon/screwdriver))
+	if(thing.isscrewdriver())
 		if(contents.len)
 			var/obj/item/removed = pick(contents)
 			user.visible_message("<span class='notice'>\The [user] removes \the [removed] from \the [src].</span>")
 			user.put_in_hands(removed)
 			playsound(user.loc, 'sound/effects/pop.ogg', 50, 0)
+			update_components()
 		else
 			user << "<span class='warning'>There is nothing to remove.</span>"
 		return
 	return ..()
+
+/obj/item/mech_component/proc/update_components()
+	return

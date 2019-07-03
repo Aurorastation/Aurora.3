@@ -1,4 +1,4 @@
-/obj/item/weapon/mecha_equipment/sleeper
+/obj/item/mecha_equipment/sleeper
 	name = "mounted stasis capsule"
 	desc = "A compact cryogenic storage unit for an injured patient."
 	icon_state = "mecha_sleeper"
@@ -8,15 +8,15 @@
 
 	var/mob/living/occupant
 
-/obj/item/weapon/mecha_equipment/sleeper/attack_self(var/mob/user)
+/obj/item/mecha_equipment/sleeper/attack_self(var/mob/user)
 	if(istype(loc, /mob/living/heavy_vehicle))
 		return eject()
 	return
 
-/obj/item/weapon/mecha_equipment/sleeper/attack()
+/obj/item/mecha_equipment/sleeper/attack()
 	return
 
-/obj/item/weapon/mecha_equipment/sleeper/afterattack(var/atom/target, var/mob/living/user, var/inrange, var/params)
+/obj/item/mecha_equipment/sleeper/afterattack(var/atom/target, var/mob/living/user, var/inrange, var/params)
 	if(!istype(loc, /mob/living/heavy_vehicle))
 		return
 	if(!inrange)
@@ -38,13 +38,13 @@
 		eject(target)
 		return
 
-/obj/item/weapon/mecha_equipment/sleeper/get_hardpoint_status_value()
+/obj/item/mecha_equipment/sleeper/get_hardpoint_status_value()
 	return (occupant ? (occupant.health/occupant.maxHealth) : null)
 
-/obj/item/weapon/mecha_equipment/sleeper/get_hardpoint_maptext()
+/obj/item/mecha_equipment/sleeper/get_hardpoint_maptext()
 	return (occupant ? "[round((occupant.health/occupant.maxHealth)*100)]%" : null)
 
-/obj/item/weapon/mecha_equipment/sleeper/proc/eject(var/target)
+/obj/item/mecha_equipment/sleeper/proc/eject(var/target)
 	if(!occupant)
 		return
 	if(!target)

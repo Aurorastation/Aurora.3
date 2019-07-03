@@ -48,6 +48,9 @@
 
 
 /obj/structure/closet/secure_closet/personal/attackby(obj/item/weapon/W as obj, mob/user as mob)
+	if(istype(W, /obj/item/mecha_equipment/clamp))
+		return
+
 	if (opened)
 		if (istype(W, /obj/item/weapon/grab))
 			MouseDrop_T(W:affecting, user)      //act like they were dragged onto the closet

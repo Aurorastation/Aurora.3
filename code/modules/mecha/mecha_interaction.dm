@@ -12,6 +12,7 @@
 
 
 /mob/living/heavy_vehicle/ClickOn(var/atom/A, var/params, var/mob/user)
+
 	if(!user || incapacitated() || user.incapacitated())
 		return
 
@@ -26,10 +27,12 @@
 	if(user != pilot && user != src)
 		return
 
-	if(!canClick())
+	// Are we facing the target?
+	if(A.loc != src && !(get_dir(src, A) & dir))
 		return
 
-	face_atom(A)
+	if(!canClick())
+		return
 
 	if(!arms)
 		user << "<span class='warning'>\The [src] has no manipulators!</span>"
@@ -42,7 +45,7 @@
 		return
 
 	// You may attack the target with your MECH FIST if you're malfunctioning.
-	if(!((hallucination>EMP_ATTACK_DISRUPT) && prob(hallucination*2)))
+	if(!((emp_damage>EMP_ATTACK_DISRUPT) && prob(emp_damage*2)))
 		if(selected_system)
 			if(selected_system == A)
 				selected_system.attack_self(user)
@@ -53,8 +56,8 @@
 			// to make sure that they work.
 			var/system_moved
 			var/obj/item/temp_system
-			if(istype(selected_system, /obj/item/weapon/mecha_equipment))
-				var/obj/item/weapon/mecha_equipment/ME = selected_system
+			if(istype(selected_system, /obj/item/mecha_equipment))
+				var/obj/item/mecha_equipment/ME = selected_system
 				temp_system = ME.get_effective_obj()
 				if(temp_system in ME)
 					system_moved = 1
@@ -63,7 +66,7 @@
 				temp_system = selected_system
 
 			// Slip up and attack yourself maybe.
-			if(hallucination>EMP_MOVE_DISRUPT && prob(10))
+			if(emp_damage>EMP_MOVE_DISRUPT && prob(10))
 				A = src
 				adj = 1
 
@@ -142,7 +145,7 @@
 	playsound(src, 'sound/machines/windowdoor.ogg', 50, 1)
 	pilot << sound('sound/mecha/nominal.ogg',volume=50)
 	if(user.client) user.client.screen |= hud_elements
-	update_mecha_icon()
+	update_icon()
 	return 1
 
 /mob/living/heavy_vehicle/proc/sync_access()
@@ -159,9 +162,7 @@
 		if(hatch_locked)
 			if(!silent) user << "<span class='warning'>The [body.hatch_descriptor] is locked.</span>"
 			return
-		hatch_closed = 0
-		hud_open.update_icon()
-		update_mecha_icon()
+		hud_open.toggled()
 		if(!silent)
 			user << "<span class='notice'>You open the hatch and climb out of \the [src].</span>"
 	else
@@ -177,7 +178,10 @@
 		a_intent = I_HURT
 		pilot = null
 		update_pilot_overlay()
-	return
+	return 1
+
+/mob/living/heavy_vehicle/movement_delay()
+	return legs ? legs.move_delay : 3
 
 /mob/living/heavy_vehicle/relaymove(var/mob/living/user, var/direction)
 
@@ -197,11 +201,22 @@
 		next_move = world.time + 15
 		return
 
-	next_move = world.time + legs.move_delay
+	glide_size = world.icon_size / max(movement_delay(), world.tick_lag) * world.tick_lag
+	next_move = world.time + movement_delay()
 
 	if(maintenance_protocols)
 		user << "<span class='warning'>Maintenance protocols are in effect.</span>"
 		return
+
+	if(!check_solid_ground())
+		var/allowmove = Allow_Spacemove(0)
+		if(!allowmove)
+			return 0
+		else if(allowmove == -1 && handle_spaceslipping())
+			return 0
+		else
+
+	inertia_dir = 0
 
 	if(hallucination >= EMP_MOVE_DISRUPT && prob(30))
 		direction = pick(cardinal)
@@ -219,8 +234,8 @@
 	if(..() && !istype(loc, /turf/space))
 		playsound(src.loc,mech_step_sound,40,1)
 
-/mob/living/heavy_vehicle/attackby(var/obj/item/weapon/thing, var/mob/user)
-	if(istype(thing, /obj/item/weapon/mecha_equipment))
+/mob/living/heavy_vehicle/attackby(var/obj/item/thing, var/mob/user)
+	if(istype(thing, /obj/item/mecha_equipment))
 		if(hardpoints_locked)
 			user << "<span class='warning'>Hardpoint system access is disabled.</span>"
 			return
@@ -232,7 +247,7 @@
 		return
 	else
 		if(user.a_intent != I_HURT)
-			if(istype(thing, /obj/item/device/multitool))
+			if(thing.ismultitool())
 				if(hardpoints_locked)
 					user << "<span class='warning'>Hardpoint system access is disabled.</span>"
 					return
@@ -241,7 +256,7 @@
 						return
 				user << "<span class='warning'>\The [src] has no hardpoint systems to remove.</span>"
 				return
-			else if(istype(thing, /obj/item/weapon/wrench))
+			else if(thing.iswrench())
 				if(!maintenance_protocols)
 					user << "<span class='warning'>The securing bolts are not visible while maintenance protocols are disabled.</span>"
 					return
@@ -271,7 +286,6 @@
 	hud_open.update_icon()
 	update_mecha_icon()
 	return
-
 
 /mob/living/heavy_vehicle/proc/attack_self(var/mob/user)
 	return visible_message("\The [src] pokes itself.")

@@ -8,6 +8,16 @@
 	var/action_delay = 15
 	var/obj/item/robot_parts/robot_component/actuator/motivator
 
+/obj/item/mech_component/manipulators/Destroy()
+	if(motivator)
+		qdel(motivator)
+		motivator = null
+	. = ..()
+
+/obj/item/mech_component/manipulators/show_missing_parts(var/mob/user)
+	if(!motivator)
+		user << "<span class='warning'>It is missing an actuator.</span>"
+
 /obj/item/mech_component/manipulators/ready_to_install()
 	return motivator
 
@@ -19,7 +29,9 @@
 		if(motivator)
 			user << "<span class='warning'>\The [src] already has an actuator installed.</span>"
 			return
-		motivator = thing
-		install_component(thing, user)
+		if(install_component(thing, user)) motivator = thing
 	else
 		return ..()
+
+/obj/item/mech_component/manipulators/update_components()
+	motivator = locate() in src

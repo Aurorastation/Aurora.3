@@ -10,9 +10,9 @@
 	..()
 	//install_system(new /obj/item/weapon/mecha_equipment/mounted_system/advweapon/missile_pod(src), HARDPOINT_BACK)
 	//install_system(new /obj/item/weapon/mecha_equipment/mounted_system/advweapon/railgun(src), HARDPOINT_RIGHT_SHOULDER)
-	install_system(new /obj/item/weapon/mecha_equipment/mounted_system/weapon/sniper(src), HARDPOINT_LEFT_SHOULDER)
-	install_system(new /obj/item/weapon/mecha_equipment/mounted_system/weapon/submachine_gun(src), HARDPOINT_LEFT_HAND)
-	install_system(new /obj/item/weapon/mecha_equipment/mounted_system/weapon/assault_rifle(src), HARDPOINT_RIGHT_HAND)
+	install_system(new /obj/item/mecha_equipment/mounted_system/weapon/sniper(src), HARDPOINT_LEFT_SHOULDER)
+	install_system(new /obj/item/mecha_equipment/mounted_system/weapon/submachine_gun(src), HARDPOINT_LEFT_HAND)
+	install_system(new /obj/item/mecha_equipment/mounted_system/weapon/assault_rifle(src), HARDPOINT_RIGHT_HAND)
 
 /obj/item/mech_component/manipulators/gygax
 	name = "combat exosuit arms"

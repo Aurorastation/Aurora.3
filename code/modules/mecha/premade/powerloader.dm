@@ -8,8 +8,8 @@
 	if(!head) head = new /obj/item/mech_component/sensors/ripley(src)
 	if(!body) body = new /obj/item/mech_component/chassis/ripley(src)
 	..()
-	install_system(new /obj/item/weapon/mecha_equipment/clamp(src), HARDPOINT_LEFT_HAND)
-	install_system(new /obj/item/weapon/mecha_equipment/mounted_system/drill(src), HARDPOINT_RIGHT_HAND)
+	install_system(new /obj/item/mecha_equipment/mounted_system/rcd(src), HARDPOINT_LEFT_HAND)
+	install_system(new /obj/item/mecha_equipment/clamp(src), HARDPOINT_RIGHT_HAND)
 
 /obj/item/mech_component/manipulators/ripley
 	name = "power loader arms"
@@ -19,12 +19,15 @@
 	color = "#FFBC37"
 /obj/item/mech_component/sensors/ripley
 	name = "power loader sensors"
+	gender = PLURAL
 	color = "#FFBC37"
+
 /obj/item/mech_component/sensors/ripley/prebuild()
 	..()
 	software = new(src)
 	software.installed_software |= MECH_SOFTWARE_UTILITY
 	software.installed_software |= MECH_SOFTWARE_ENGINEERING
+
 /obj/item/mech_component/chassis/ripley
 	name = "power loader chassis"
 	color = "#FFDC37"

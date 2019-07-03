@@ -219,6 +219,9 @@
 	damage(proj_damage)
 
 /obj/structure/closet/attackby(obj/item/weapon/W as obj, mob/user as mob)
+	if(istype(W, /obj/item/mecha_equipment/clamp))
+		return 0
+
 	if(opened)
 		if(istype(W, /obj/item/weapon/grab))
 			var/obj/item/weapon/grab/G = W

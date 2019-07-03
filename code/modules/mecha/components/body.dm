@@ -4,9 +4,9 @@
 	gender = NEUTER
 
 	var/mech_health = 300
-	var/obj/item/robot_parts/robot_component/diagnosis_unit/diagnostics
 	var/obj/item/weapon/cell/cell
-	var/obj/item/mech_component/plating/armour
+	var/obj/item/robot_parts/robot_component/diagnosis_unit/diagnostics
+	var/obj/item/robot_parts/robot_component/armour/armour
 	var/obj/machinery/portable_atmospherics/canister/air_supply
 	var/datum/gas_mixture/cockpit
 	var/pilot_offset_x = 0
@@ -15,17 +15,48 @@
 	var/hatch_descriptor = "cockpit"
 	var/pilot_coverage = 100
 
+
+/obj/item/mech_component/chassis/Destroy()
+	if(cell)
+		qdel(cell)
+		cell = null
+	if(diagnostics)
+		qdel(diagnostics)
+		diagnostics = null
+	if(armour)
+		qdel(armour)
+		armour = null
+	if(air_supply)
+		qdel(air_supply)
+		air_supply = null
+	. = ..()
+
+/obj/item/mech_component/chassis/update_components()
+	diagnostics = locate() in src
+	cell = locate() in src
+	armour = locate() in src
+	air_supply = locate() in src
+
+/obj/item/mech_component/chassis/show_missing_parts(var/mob/user)
+	if(!cell)
+		user << "<span class='warning'>It is missing a power cell.</span>"
+	if(!diagnostics)
+		user << "<span class='warning'>It is missing a diagnostics unit.</span>"
+	if(!armour)
+		user << "<span class='warning'>It is missing armour plating.</span>"
+
 /obj/item/mech_component/chassis/New()
 	..()
-	cockpit = new(200)
-	update_air()
+	cockpit = new(20)
 
 /obj/item/mech_component/chassis/proc/update_air(var/take_from_supply)
+
 	var/changed
 	if(!take_from_supply || open_cabin)
 		var/turf/T = get_turf(src)
+		if(!T)
+			return
 		cockpit.equalize(T.return_air())
-		//T.air_update_turf(1) //TODO: Fix undefined proc
 		changed = 1
 	else if(air_supply)
 		var/env_pressure = cockpit.return_pressure()
@@ -42,7 +73,7 @@
 
 /obj/item/mech_component/chassis/prebuild()
 	diagnostics = new(src)
-	cell = new /obj/item/weapon/cell/hyper(src)
+	cell = new /obj/item/weapon/cell/mecha(src)
 	cell.charge = cell.maxcharge
 	air_supply = new /obj/machinery/portable_atmospherics/canister/air(src)
 
@@ -51,26 +82,16 @@
 		if(diagnostics)
 			user << "<span class='warning'>\The [src] already has a diagnostic system installed.</span>"
 			return
-		diagnostics = thing
-		install_component(thing, user)
+		if(install_component(thing, user)) diagnostics = thing
 	else if(istype(thing, /obj/item/weapon/cell))
 		if(cell)
 			user << "<span class='warning'>\The [src] already has a cell installed.</span>"
 			return
-		cell = thing
-		install_component(thing,user)
-	else if(istype(thing, /obj/item/mech_component/plating))
+		if(install_component(thing,user)) cell = thing
+	else if(istype(thing, /obj/item/robot_parts/robot_component/armour))
 		if(armour)
 			user << "<span class='warning'>\The [src] already has armour installed.</span>"
 			return
-		armour = thing
-		install_component(thing, user)
+		if(install_component(thing, user)) armour = thing
 	else
 		return ..()
-
-/obj/item/mech_component/plating
-	name = "vehicle armour"
-	armor = list(melee = 80, bullet = 65, laser = 50, energy = 15, bomb = 80, bio = 100, rad = 60) // Rebalance this.
-	icon_state = "armour"
-	icon = 'icons/mecha/mech_part_items.dmi'
-	pixel_x = 0

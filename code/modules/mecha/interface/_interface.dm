@@ -26,55 +26,36 @@
 	i = 1
 	var/pos = 7
 	for(var/additional_hud in additional_hud_elements)
-		/*var/obj/screen/movable/mecha/M = PoolOrNew(additional_hud,src) //TODO: Fix. Dunno what this does
+		var/obj/screen/movable/mecha/M = new additional_hud(src)
 		M.screen_loc = "1:6,[pos]"
-		hud_elements |= M*/
+		hud_elements |= M
 		i++
 		if(i>=3)
 			i = 0
 			pos--
 
+	hud_health = new /obj/screen/movable/mecha/health(src)
+	hud_health.screen_loc = "13:28,7:15"
+	hud_elements |= hud_health
+
 	hud_open = locate(/obj/screen/movable/mecha/toggle/hatch_open) in hud_elements
 	refresh_hud()
 
 /mob/living/heavy_vehicle/handle_hud_icons()
-	if(client || (pilot && pilot.client))
-		for(var/hardpoint in hardpoint_hud_elements)
-			var/obj/screen/movable/mecha/hardpoint/H = hardpoint_hud_elements[hardpoint]
-			if(H)
-				H.update_system_info()
-		handle_hud_icons_health()
-		refresh_hud()
+	for(var/hardpoint in hardpoint_hud_elements)
+		var/obj/screen/movable/mecha/hardpoint/H = hardpoint_hud_elements[hardpoint]
+		if(H) H.update_system_info()
+	handle_hud_icons_health()
+	refresh_hud()
 
 /mob/living/heavy_vehicle/handle_hud_icons_health()
 
-	if(!hud_health)
-
-		//hud_health = PoolOrNew(/obj/screen/movable/mecha/health,src) //TODO: Fix. Dunno what this does
-		hud_health.screen_loc = "13:28,7:15"
-		hud_elements |= hud_health
-
-		// Debugging/placeholder, test another time.
-		for(var/i=1;i<=5;i++)
-			var/obj/screen/movable/mecha/internal_system/IS = new(src)
-			hud_health.internal_components += IS
-			IS.screen_loc = "13:28,[7-i]:15"
-
 	hud_health.overlays.Cut()
-
-	if(hud_health.display_internals)
-		hud_elements |= hud_health.internal_components
-	else
-		if(client)
-			client.screen -= hud_health.internal_components
-		if(pilot && pilot.client)
-			pilot.client.screen -= hud_health.internal_components
-		hud_elements -= hud_health.internal_components
 
 	if(!body.cell || (body.cell.charge <= 0))
 		return
 
-	if(!body.diagnostics || ((hallucination>EMP_GUI_DISRUPT) && prob(hallucination*2))) //TODO: Re-add !body.is_component_functioning("diagnostics")
+	if(!body.diagnostics || ((emp_damage>EMP_GUI_DISRUPT) && prob(emp_damage*2))) //TODO: Add diagnostics.is_functioning()
 		if(!mecha_damage_overlay_cache["critfail"])
 			mecha_damage_overlay_cache["critfail"] = image(icon='icons/mecha/mecha_hud.dmi',icon_state="dam_error")
 		hud_health.overlays |= mecha_damage_overlay_cache["critfail"]
@@ -85,7 +66,7 @@
 		var/state = 0
 		var/obj/item/mech_component/MC = part_to_state[part]
 		if(MC)
-			if((hallucination>EMP_GUI_DISRUPT) && prob(hallucination*3))
+			if((emp_damage>EMP_GUI_DISRUPT) && prob(emp_damage*3))
 				state = rand(0,4)
 			else
 				state = MC.damage_state
