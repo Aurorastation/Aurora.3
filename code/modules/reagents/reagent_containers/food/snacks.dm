@@ -557,35 +557,6 @@
 	bitesize = 1
 
 
-/obj/item/weapon/reagent_containers/food/snacks/creampie
-	name = "banana cream pie"
-	desc = "BANANA!!!!"
-	icon_state = "bananapie"
-	filling_color = "#DBC94F"
-	nutriment_amt = 5
-	nutriment_desc = list("sweetness" = 9, "banana" = 2)
-	bitesize = 1
-	var/mob/living/carbon/brain/brainmob = null
-	var/obj/item/organ/brain/brainobj = null
-
-/obj/item/weapon/reagent_containers/food/snacks/creampie/Initialize()
-	. = ..()
-	reagents.add_reagent("bananacream", 20)
-
-
-/obj/item/weapon/reagent_containers/food/snacks/creampie/throw_impact(atom/hit_atom)
-	..()
-
-	var/mob/M = thrower
-	
-	if(M.a_intent == I_HURT)
-		if(reagents)
-			hit_atom.visible_message("<span class='notice'>The pie splash's all over [hit_atom]!</span>")
-			reagents.splash(hit_atom, reagents.total_volume / 2)
-			for(var/turf/T in hit_atom)
-				reagents.splash(T, reagents.total_volume)
-		qdel(src)
-
 /obj/item/weapon/reagent_containers/food/snacks/chocolatebar
 	name = "chocolate bar"
 	desc = "Such sweet, fattening food."
@@ -1282,6 +1253,8 @@
 	nutriment_desc = list("pie" = 3, "cream" = 2)
 	nutriment_amt = 4
 	bitesize = 3
+	var/mob/living/carbon/brain/brainmob = null
+	var/obj/item/organ/brain/brainobj = null
 
 /obj/item/weapon/reagent_containers/food/snacks/pie/Initialize()
 	. = ..()
@@ -1289,9 +1262,16 @@
 
 /obj/item/weapon/reagent_containers/food/snacks/pie/throw_impact(atom/hit_atom)
 	..()
-	new/obj/effect/decal/cleanable/pie_smudge(src.loc)
-	src.visible_message("<span class='danger'>\The [src.name] splats.</span>","<span class='danger'>You hear a splat.</span>")
-	qdel(src)
+	var/mob/M = thrower
+	
+	if(M.a_intent == I_HURT)
+		if(reagents)
+			src.visible_message("<span class='danger'>\The [src.name] splats.</span>","<span class='danger'>You hear a splat.</span>")
+			new/obj/effect/decal/cleanable/pie_smudge(src.loc)
+			reagents.splash(hit_atom, reagents.total_volume / 2)
+			for(var/turf/T in hit_atom)
+				reagents.splash(T, reagents.total_volume)
+		qdel(src)
 
 /obj/item/weapon/reagent_containers/food/snacks/berryclafoutis
 	name = "berry clafoutis"

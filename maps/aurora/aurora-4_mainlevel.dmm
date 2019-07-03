@@ -56976,17 +56976,6 @@
 /obj/machinery/computer/arcade/orion_trail,
 /turf/simulated/floor/wood,
 /area/crew_quarters/bar)
-"bVc" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 1
-	},
-/obj/structure/table/wood,
-/obj/item/weapon/flame/candle{
-	pixel_x = -15;
-	pixel_y = 15
-	},
-/turf/simulated/floor/wood,
-/area/crew_quarters/bar)
 "bVd" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/maintenance{
@@ -57890,26 +57879,12 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/wood,
 /area/crew_quarters/bar)
-"bWS" = (
-/obj/effect/floor_decal/spline/fancy/wood{
-	icon_state = "spline_fancy";
-	dir = 4
-	},
-/turf/simulated/floor/wood,
-/area/crew_quarters/bar)
-"bWT" = (
-/obj/effect/floor_decal/spline/plain{
-	dir = 9;
-	icon_state = "spline_plain"
-	},
-/turf/simulated/floor/wood,
-/area/crew_quarters/bar)
 "bWU" = (
-/obj/effect/floor_decal/spline/plain{
-	icon_state = "spline_plain";
-	dir = 1
+/obj/machinery/door/airlock{
+	name = "Bar Backroom";
+	req_access = list(25)
 	},
-/turf/simulated/floor/wood,
+/turf/simulated/floor/tiled/dark,
 /area/crew_quarters/bar)
 "bWV" = (
 /obj/structure/sign/double/barsign,
@@ -58057,10 +58032,6 @@
 "bXo" = (
 /obj/machinery/hologram/holopad,
 /turf/simulated/floor/wood,
-/area/crew_quarters/bar)
-"bXp" = (
-/obj/machinery/computer/slot_machine,
-/turf/simulated/floor/tiled/dark,
 /area/crew_quarters/bar)
 "bXq" = (
 /obj/structure/table/rack,
@@ -58642,6 +58613,10 @@
 	dir = 10;
 	icon_state = "spline_plain"
 	},
+/obj/machinery/light{
+	icon_state = "tube1";
+	dir = 2
+	},
 /turf/simulated/floor/wood,
 /area/crew_quarters/bar)
 "bYB" = (
@@ -58776,7 +58751,7 @@
 	icon_state = "spline_plain";
 	dir = 1
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/wall/wood,
 /area/crew_quarters/bar)
 "bYN" = (
 /turf/simulated/floor/tiled/dark,
@@ -58912,11 +58887,6 @@
 "bZc" = (
 /obj/item/weapon/stool/padded,
 /turf/simulated/floor/tiled/dark,
-/area/crew_quarters/bar)
-"bZe" = (
-/obj/structure/table/rack,
-/obj/random/loot,
-/turf/simulated/floor/plating,
 /area/crew_quarters/bar)
 "bZf" = (
 /obj/structure/sign/electricshock,
@@ -59332,13 +59302,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/aft)
-"bZS" = (
-/obj/structure/curtain/black,
-/turf/simulated/floor/tiled/ramp/bottom{
-	icon_state = "rampbot";
-	dir = 1
-	},
-/area/crew_quarters/bar)
 "bZT" = (
 /obj/structure/table/wood,
 /turf/simulated/floor/wood,
@@ -60446,10 +60409,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/bar)
-"cbP" = (
-/obj/structure/closet,
-/turf/simulated/floor/plating,
-/area/maintenance/bar)
 "cbQ" = (
 /turf/simulated/wall,
 /area/maintenance/cargo)
@@ -60671,10 +60630,6 @@
 /obj/machinery/meter{
 	name = "Air supply"
 	},
-/turf/simulated/floor/plating,
-/area/maintenance/bar)
-"ccs" = (
-/obj/structure/barricade,
 /turf/simulated/floor/plating,
 /area/maintenance/bar)
 "cct" = (
@@ -64603,6 +64558,13 @@
 /obj/structure/closet/emcloset,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/aft)
+"dyY" = (
+/obj/machinery/light{
+	dir = 1;
+	icon_state = "tube1"
+	},
+/turf/simulated/floor/wood,
+/area/crew_quarters/bar)
 "dBt" = (
 /obj/structure/window/reinforced{
 	dir = 1
@@ -64637,11 +64599,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor/plating,
 /area/maintenance/atmos_control)
-"dDa" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/bed/chair/wood,
-/turf/simulated/floor/wood,
-/area/crew_quarters/bar)
 "dEr" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/item/weapon/reagent_containers/blood/ripped,
@@ -64785,11 +64742,6 @@
 /obj/random/plushie,
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
-"eoW" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/table/wood,
-/turf/simulated/floor/wood,
-/area/crew_quarters/bar)
 "erq" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/table,
@@ -64823,6 +64775,16 @@
 /obj/item/weapon/extinguisher,
 /turf/simulated/floor/plating,
 /area/maintenance/medbay)
+"eCe" = (
+/obj/structure/table/rack,
+/obj/random/arcade,
+/obj/random/arcade,
+/obj/machinery/light{
+	dir = 4;
+	icon_state = "tube1"
+	},
+/turf/simulated/floor/wood,
+/area/crew_quarters/bar)
 "eFC" = (
 /obj/structure/closet/crate,
 /obj/random/loot,
@@ -64899,6 +64861,10 @@
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/plating,
 /area/maintenance/library)
+"eUD" = (
+/obj/machinery/piemaker,
+/turf/simulated/floor/wood,
+/area/crew_quarters/bar)
 "feo" = (
 /obj/structure/grille/broken,
 /obj/machinery/door/firedoor,
@@ -64984,6 +64950,12 @@
 /obj/random/junk,
 /turf/simulated/floor/plating,
 /area/maintenance/bar)
+"fEp" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1
+	},
+/turf/simulated/floor/wood,
+/area/crew_quarters/bar)
 "fFb" = (
 /obj/item/ammo_casing/c45/rubber,
 /turf/simulated/floor/plating,
@@ -65219,6 +65191,10 @@
 	pixel_x = -15;
 	pixel_y = 15
 	},
+/turf/simulated/floor/wood,
+/area/crew_quarters/bar)
+"gPy" = (
+/obj/structure/device/piano,
 /turf/simulated/floor/wood,
 /area/crew_quarters/bar)
 "gSO" = (
@@ -65898,6 +65874,15 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/maintenance/medbay)
+"jPV" = (
+/obj/effect/landmark/costume/chicken,
+/obj/structure/table/rack,
+/obj/item/weapon/gun/bang/silenced,
+/obj/item/weapon/gun/bang/deagle/gold,
+/obj/item/weapon/gun/bang/colt,
+/obj/item/weapon/gun/bang/tanto,
+/turf/simulated/floor/wood,
+/area/crew_quarters/bar)
 "jSO" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/atmospherics/portables_connector,
@@ -66461,12 +66446,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/medical/icu)
-"mxd" = (
-/obj/structure/table/rack,
-/obj/random/arcade,
-/obj/random/arcade,
-/turf/simulated/floor/wood,
-/area/crew_quarters/bar)
 "myj" = (
 /obj/structure/curtain/medical,
 /obj/effect/decal/cleanable/dirt,
@@ -67352,6 +67331,19 @@
 /obj/structure/reagent_dispensers/watertank,
 /turf/simulated/floor/tiled,
 /area/maintenance/engineering)
+"raI" = (
+/obj/item/weapon/storage/backpack/clown,
+/obj/item/clothing/mask/gas/clown_hat,
+/obj/item/clothing/shoes/clown_shoes,
+/obj/item/clothing/under/rank/clown,
+/obj/item/toy/figure/clown,
+/obj/item/weapon/reagent_containers/food/snacks/pie,
+/obj/item/weapon/reagent_containers/food/snacks/pie,
+/obj/item/weapon/bananapeel,
+/obj/item/weapon/bikehorn,
+/obj/item/weapon/bananapeel,
+/turf/simulated/floor/wood,
+/area/crew_quarters/bar)
 "rcu" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -68070,6 +68062,12 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
+"uwh" = (
+/obj/structure/bed/chair/office/dark{
+	dir = 4
+	},
+/turf/simulated/floor/wood,
+/area/crew_quarters/bar)
 "uwI" = (
 /obj/structure/disposalpipe/segment{
 	dir = 2;
@@ -68097,6 +68095,18 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/carpet/blue,
 /area/maintenance/medbay)
+"uLq" = (
+/obj/structure/table/rack,
+/turf/simulated/floor/wood,
+/area/crew_quarters/bar)
+"uLt" = (
+/obj/machinery/light{
+	dir = 8;
+	icon_state = "tube1";
+	pixel_x = 0
+	},
+/turf/simulated/floor/wood,
+/area/crew_quarters/bar)
 "uNQ" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/floor_decal/corner/grey/diagonal,
@@ -68196,6 +68206,10 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/medbay)
+"vjq" = (
+/obj/item/weapon/stool/padded,
+/turf/simulated/floor/wood,
+/area/crew_quarters/bar)
 "vjG" = (
 /obj/structure/sink{
 	icon_state = "sink";
@@ -68611,6 +68625,12 @@
 	temperature = 278
 	},
 /area/medical/temp_morgue)
+"xiz" = (
+/obj/effect/landmark/start{
+	name = "Entertainer"
+	},
+/turf/simulated/floor/wood,
+/area/crew_quarters/bar)
 "xjD" = (
 /obj/machinery/door/firedoor,
 /obj/structure/grille,
@@ -99373,8 +99393,8 @@ bZs
 bZs
 bWa
 bWa
-bWa
-bWa
+bZs
+bZs
 bWa
 bYZ
 bXE
@@ -99630,8 +99650,8 @@ bZT
 bZT
 bWa
 bWa
-bZs
-bZs
+xHc
+bZT
 bWa
 bYZ
 bZt
@@ -99887,8 +99907,8 @@ bZT
 gNU
 bWa
 bWa
-xHc
 bZT
+gNU
 bWa
 bYZ
 bZt
@@ -100144,8 +100164,8 @@ bZU
 bZU
 bWa
 bWa
-bZT
-gNU
+bZU
+bZU
 bWa
 bYZ
 bZu
@@ -100401,8 +100421,8 @@ bWa
 bWa
 bWa
 bWa
-bZU
-bZU
+bWa
+bWa
 bWa
 bWQ
 blc
@@ -100655,10 +100675,10 @@ bVz
 bWa
 bWo
 bWa
-bWa
-bWa
-bWa
-bWa
+vjq
+vjq
+vjq
+vjq
 bWa
 bWa
 bYZ
@@ -100912,11 +100932,11 @@ bVA
 bWa
 bWo
 bWa
+vjq
+vjq
+vjq
+vjq
 bWa
-rOV
-bZT
-bZT
-ciE
 bWa
 bYZ
 bZt
@@ -101169,11 +101189,11 @@ bVA
 bWb
 bWp
 bWR
-bWR
-dDa
-eoW
-bVc
-ciE
+fEp
+bWa
+bWa
+bWa
+bWa
 bWa
 bYZ
 bZt
@@ -101425,13 +101445,13 @@ blc
 bVw
 bWc
 bWq
-bWS
-bWS
-bWS
-bWS
-bWS
-bWS
-bWS
+blc
+bXG
+bXG
+bXG
+bXG
+bXG
+blc
 bZb
 bZu
 bZu
@@ -101682,8 +101702,8 @@ bUI
 bVC
 bTz
 bWr
-bWT
-bXn
+blc
+dyY
 bXn
 bXn
 bXn
@@ -101939,21 +101959,21 @@ bUJ
 bVD
 bWd
 bWs
-bWU
+blc
 bXo
 bWa
-bWa
+xiz
 bWa
 bYB
 bYM
-bZc
+bYN
 bZc
 bZc
 blc
-bEK
-bEK
-bGC
-ccs
+bSM
+bSM
+bSM
+bSM
 bFF
 cdj
 bEK
@@ -102202,15 +102222,15 @@ bWa
 bWa
 bWv
 bWN
+bWU
 bYN
-bXp
 bXV
 bZw
 blc
-bKY
-bMU
-bGC
-bEK
+eUD
+bWa
+raI
+bSM
 bFF
 bPH
 bEK
@@ -102464,10 +102484,10 @@ blc
 blc
 blc
 blc
-bTG
-bGC
-cbP
-bEK
+uLq
+bWa
+uLq
+bSM
 ccT
 cdk
 bEK
@@ -102710,21 +102730,21 @@ bUj
 bVG
 bSU
 bWt
-bZS
-bWa
-bWa
-bWa
-bWa
 blc
-bPH
-bZe
-bOv
-bGC
-bKY
-bGC
-bGC
-bGC
-bEK
+uLt
+bWa
+bWa
+bWa
+uLt
+bWa
+uLt
+uwh
+gPy
+blc
+uLq
+bWa
+uLq
+bSM
 ccT
 cdk
 bEK
@@ -102968,20 +102988,20 @@ bVH
 bSU
 bWu
 blc
-bXq
-mxd
-bXq
-bXq
-blc
-bGC
-bGC
-bGC
-bGC
-bGC
-bEK
-bEK
-bEK
-bMU
+bWa
+bWa
+bWa
+bWa
+bWa
+bWa
+bWa
+bWa
+bWa
+bXG
+bWa
+bWa
+uLq
+bSM
 bFF
 cdl
 bEK
@@ -103225,20 +103245,20 @@ bVI
 bSU
 bUZ
 blc
+bWa
+bWa
+bWa
+bWa
+bWa
+bWa
+bWa
+bWa
+bWa
 blc
-blc
-blc
-blc
-blc
-bGC
-bGC
-bGC
-bGC
-bGC
-bGC
-bGC
-bGC
-bEK
+bSM
+bSM
+bSM
+bSM
 bFF
 bGC
 bEK
@@ -103480,19 +103500,19 @@ bSU
 bSU
 bSU
 bSU
-bWw
-bRC
-bRC
-bRC
-bRC
-bRC
-bYD
-bGD
-bGD
-bGD
-bGD
-bGD
-bGD
+bNO
+blc
+bXq
+eCe
+bXq
+bXq
+jPV
+bVE
+bWa
+bVE
+bWa
+blc
+bUm
 bGD
 bGD
 bGD
@@ -103737,19 +103757,19 @@ bGC
 bGC
 bVJ
 bRA
-bRi
-bWW
-bPH
-bXH
-bTG
-bGC
-bEK
-bEK
-bEK
-bEK
-bEK
-bEK
-bEK
+bNO
+blc
+blc
+blc
+blc
+blc
+blc
+blc
+blc
+blc
+blc
+blc
+bFF
 bEK
 bEK
 bEK
@@ -103994,20 +104014,20 @@ bEK
 bEK
 bEK
 bEK
-bRi
+bWw
+bRC
+bRC
+bRC
+bRC
+bRC
+bYD
+bGD
+bGD
+bGD
+bGD
+bGD
+ccU
 bEK
-bEK
-bEK
-bEK
-bEK
-bEK
-aab
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
 aaa
 aaa
 aaa
@@ -104252,19 +104272,19 @@ bGC
 bGC
 bEK
 bRi
+bWW
+bPH
+bXH
+bTG
+bGC
 bEK
-aaa
-aaa
-aab
-aab
-aab
-aab
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+bEK
+bEK
+bEK
+bEK
+bEK
+bEK
+bEK
 aaa
 aaa
 aab

@@ -1,7 +1,7 @@
 /obj/machinery/piemaker
 	name = "Honkington Pie Maker"
 	icon = 'icons/obj/kitchen.dmi'
-	desc = "A machine built on the clown planet that uses bluespace to convert there atoms into pies"
+	desc = "A colorful red stove used for cooking pies"
 	icon_state = "bahnan"
 	layer = 2.9
 	density = 1
@@ -12,7 +12,7 @@
 	flags = OPENCONTAINER | NOREACT
 	var/operating = 0 // Is it on?
 	var/mob/living/occupant // Who is inside the pie maker!!
-	var/obj/item/weapon/reagent_containers/food/snacks/creampie/pie
+	var/obj/item/weapon/reagent_containers/food/snacks/pie/pie
 	var/biomass = 0
 
 
@@ -22,10 +22,8 @@
 	if(operating)
 		to_chat(user, "<span class='danger'>\The [src] is in use, please wait!.</span>")
 		return
-	if(pie && !operating)
-		to_chat(user, "<span class='Notice'>\The [src] ejects its brand new pie, yum!.</span>")
-		pie.forceMove(src)
-		pie = null
+	if(biomass <= 10)
+		visible_message("<span class='danger'>The pie maker does not have enough biomass.</span>")
 		return
 	else
 		src.cookintopie(user)
@@ -39,6 +37,17 @@
 			return
 		stuffinto(user,G.affecting)
 		user.drop_from_inventory(G)
+		biomass += 20
+	if(istype(W, /obj/item/weapon/reagent_containers/food/snacks))
+		var/obj/item/weapon/reagent_containers/food/snacks/I = W
+		user.remove_from_mob(I)
+		I.forceMove(src)
+		to_chat(user, "<span class='danger'>You insert [W]</span>")
+		for(I in contents)
+			if(I.reagents.get_reagent_amount("nutriment") < 0.1)
+				biomass += 4
+			else biomass += I.reagents.get_reagent_amount("nutriment") * 2
+		qdel(I)
 
 /obj/machinery/piemaker/proc/stuffinto(var/mob/user,var/mob/living/victim)
 
@@ -76,6 +85,8 @@
 	if (usr.stat != 0)
 		return
 	src.get_out()
+	for(var/obj/O in src.pie)
+		O.forceMove(src.loc)
 	add_fingerprint(usr)
 	return
 
@@ -93,48 +104,41 @@
 	return
 
 /obj/machinery/piemaker/proc/cookintopie(mob/user as mob)
-	if(src.operating)
-		return
-	if(!src.occupant)
-		visible_message("<span class='danger'>You hear a loud metallic grinding sound.</span>")
-		return
 	use_power(9000)
 	src.operating = 1
 	update_icon()
-
-	src.occupant.attack_log += "\[[time_stamp()]\] Was made into a pie by <b>[user]/[user.ckey]</b>" //One shall not simply gib a mob unnoticed!
-	user.attack_log += "\[[time_stamp()]\] turned <b>[src.occupant]/[src.occupant.ckey] into a pie!</b>"
-	msg_admin_attack("[key_name_admin(user)] made  [src.occupant] ([src.occupant.ckey]) into a pie! (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(src.occupant))
-
 	playsound(src.loc, 'sound/items/bikehorn.ogg', 50, 1)
-	sleep(100)
+	sleep(10)
 	playsound(src.loc, 'sound/music/clownmusic.ogg', 50, 1)
 	icon_state = "bahnan-processing"
 	addtimer(CALLBACK(src, .proc/pieconversion), 40 SECONDS)
 	update_icon()
 
 
+
 /obj/machinery/piemaker/proc/pieconversion()
 
-	if(!occupant)
-		visible_message("<span class='danger'>The oven is empty! nothing!.</span>")
-		return
-	else
-		var/obj/item/weapon/reagent_containers/food/snacks/creampie/P = new(src.loc)
-		var/obj/item/organ/brain/B = new(src.loc)
-		var/mob/living/carbon/brain/BM = new(src.loc)
-		B.forceMove(P)
-		BM.forceMove(B)
-		P.brainobj = B
-		P.brainmob = BM
-		BM.dna = occupant.dna
+	var/obj/item/weapon/reagent_containers/food/snacks/pie/P = new(src.loc)
+	P.reagents.add_reagent("bananacream", 20)
+	biomass -= 10
+	if(occupant)
 		if(occupant.mind)
+			var/obj/item/organ/brain/B = new(src.loc)
+			var/mob/living/carbon/brain/BM = new(src.loc)
+			B.forceMove(P)
+			BM.forceMove(B)
+			P.brainobj = B
+			P.brainmob = BM
+			BM.dna = occupant.dna
 			occupant.mind.transfer_to(BM)
-		to_chat(BM, "<span class='warning'>You have been turned into a pie!.</span>")
-		src.occupant.gib()
+			to_chat(BM, "<span class='warning'>You have been turned into a pie!.</span>")
+		var/mob/living/carbon/C = occupant
+		if (C.can_feel_pain())
+			C.emote("scream")
+		qdel(occupant)
 		occupant = null
-		src.operating = 0
-		icon_state = "bahnan"
-		playsound(src.loc, 'sound/machines/microwave/microwave-end.ogg', 50, 1)
+	src.operating = 0
+	icon_state = "bahnan"
+	playsound(src.loc, 'sound/machines/microwave/microwave-end.ogg', 50, 1)
 
 
