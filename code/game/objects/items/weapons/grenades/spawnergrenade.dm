@@ -45,7 +45,7 @@
 	spawner_type = /mob/living/simple_animal/hostile/viscerator
 	deliveryamt = 5 //Five seems a bit much, but we'll keep it as-is.
 	origin_tech = list(TECH_MATERIAL = 3, TECH_MAGNET = 4, TECH_ILLEGAL = 4)
-	flash = 0
+	flash = FALSE
 
 /obj/item/weapon/grenade/spawnergrenade/spesscarp
 	name = "carp delivery grenade"
