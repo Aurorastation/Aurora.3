@@ -1,0 +1,8 @@
+author: Alberyk
+
+delete-after: True
+
+changes: 
+  - bugfix: "Fixed the flower water having the incorrect sprite"
+  - bugfix: "Fixed the meat hook having no sprite."
+  - bugfix: "Fixed mop in hand sprite missing when the mop was wet."
