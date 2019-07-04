@@ -37,8 +37,8 @@
 	update_icon()
 
 /obj/item/weapon/reagent_containers/syringe/Destroy()
-	viruses.Cut()
-	targets.Cut()
+	LAZYCLEARLIST(viruses)
+	LAZYCLEARLIST(targets)
 	return ..()
 
 /obj/item/weapon/reagent_containers/syringe/process() // this only happens once it's used

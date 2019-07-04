@@ -279,6 +279,9 @@
 	metabolism = REM // twice as fast as space drugs
 	overdose = 10
 	strength = 1.5 // makes up for it with slight suffocation damage
+	
+	glass_name = "glass of purple drank"
+	glass_desc = "Bottoms up."
 
 /datum/reagent/toxin/lean/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.hallucination = max(M.hallucination, 40)

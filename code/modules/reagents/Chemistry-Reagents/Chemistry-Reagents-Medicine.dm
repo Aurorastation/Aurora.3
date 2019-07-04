@@ -646,6 +646,9 @@
 	metabolism = REM * 0.05
 	color = "#402060"
 
+	glass_name = "glass of cough syrup"
+	glass_desc = "You'd better not."
+
 /datum/reagent/coughsyrup/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.add_chemical_effect(CE_PAINKILLER, 5) // very slight painkiller effect at low doses
 
