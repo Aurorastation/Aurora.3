@@ -47,6 +47,12 @@
 /datum/shuttle/multi_shuttle/current_dock_target()
 	return destination_dock_targets[last_location]
 
+//If they returned home, they wont be able to depart again
+/datum/shuttle/multi_shuttle/long_jump(var/area/departing, var/area/destination, var/area/interim, var/travel_time, var/direction)
+	if(returned_home)
+		return
+	return ..()
+
 /datum/shuttle/multi_shuttle/move(var/area/origin, var/area/destination)
 	..()
 	last_move = world.time
@@ -94,12 +100,13 @@
 
 	if((MS.last_move + MS.cooldown*10) > world.time)
 		dat += "<font color='red'>Engines charging.</font><br>"
+	else if (MS.returned_home)
+		dat += "<font color='red'>Engines offline.</font><br>"
 	else
 		dat += "<font color='green'>Engines ready.</font><br>"
-
-	dat += "<br><b><A href='?src=\ref[src];toggle_cloak=[1]'>Toggle cloaking field</A></b><br>"
-	dat += "<b><A href='?src=\ref[src];move_multi=[1]'>Move ship</A></b><br>"
-	dat += "<b><A href='?src=\ref[src];start=[1]'>Return to base</A></b></center>"
+		dat += "<br><b><A href='?src=\ref[src];toggle_cloak=[1]'>Toggle cloaking field</A></b><br>"
+		dat += "<b><A href='?src=\ref[src];move_multi=[1]'>Move ship</A></b><br>"
+		dat += "<b><A href='?src=\ref[src];start=[1]'>Return to base</A></b></center>"
 
 	//Docking
 	dat += "<center><br><br>"
@@ -190,7 +197,6 @@
 
 		if(!MS.return_warning)
 			to_chat(usr, "<span class='warning'>Returning to your home base will end your mission. If you are sure, press the button again.</span>")
-			//TODO: Actually end the mission.
 			MS.return_warning = 1
 			return
 
