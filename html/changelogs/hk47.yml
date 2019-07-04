@@ -38,6 +38,5 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
-  - balance: "Medical borg's are now able to handle tanks, breath mask's and organs with a new gripper."
-  - balance: "Medical borg's no longer have surgical tools and must use the medical gripper to pick tools up."
+  - balance: "Medical borg's are now able to handle organs and monkey cubes."
   - tweak: "Renames Hunter Killers to Military Frames."
