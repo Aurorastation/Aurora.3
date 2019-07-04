@@ -23,7 +23,7 @@
 	// Vars for crashing
 	var/engines_count = 0 //Used to determine if shuttle should crash
 	var/engines_checked = FALSE
-	var/list/crash_offset = list(-50, 50)
+	var/list/crash_offset = list(-10, 10)
 	var/ship_size = 0
 	var/walls_count = 0
 	var/exterior_walls_and_engines = list()
@@ -48,7 +48,7 @@
 			ship_size += 1
 			if(istype(A, /turf/simulated/shuttle) && exterior_wall(A))
 				var/turf/T = A
-				exterior_walls_and_engines += list(T.x, T.y, T.z)
+				exterior_walls_and_engines |= list(list(T.x, T.y, T.z))
 			if(integrity_check(A))
 				walls_count += 1
 		else if(istype(A, /obj/structure/shuttle/engine/propulsion))
@@ -60,7 +60,7 @@
 			e_turf.dir = P.dir
 			e_turf.update_icon()
 			e_turf.add_overlay("engine_mount")
-			exterior_walls_and_engines += list(e_turf.x, e_turf.y, e_turf.z)
+			exterior_walls_and_engines |= list(list(e_turf.x, e_turf.y, e_turf.z))
 
 /datum/shuttle/ferry/proc/exterior_wall(var/turf/simulated/shuttle/T)
 	for(var/v in list(NORTH, SOUTH, EAST, WEST))
@@ -101,7 +101,7 @@
 	direction = !location
 	..(departing, destination, interim, travel_time, direction, exterior_walls_and_engines)
 
-/datum/shuttle/ferry/move(var/area/origin,var/area/destination)
+/datum/shuttle/ferry/move(var/area/origin, var/area/destination)
 	..(origin, destination, exterior_walls_and_engines)
 
 	if (destination == area_station) location = 0
@@ -217,16 +217,17 @@
 	var/engines_c = 0
 	var/walls_c = 0
 	// counting engines
-	var/area/A = area_current
-	for(var/v in A.contents)
-		if(istype(v, /obj/structure/shuttle/engine/propulsion))
-			var/obj/structure/shuttle/engine/propulsion/P = v
-			var/turf/T = get_turf(P)
-			if(T && P.dir == T.dir)
-				engines_c += 1
-		else if(integrity_check(v))
+	for(var/list/v in exterior_walls_and_engines)
+		var/turf/S = get_turf(locate(v[1], v[2], v[3]))
+		if(!S)
+			return
+		for(var/a in S.contents)
+			if(istype(a, /obj/structure/shuttle/engine/propulsion))
+				var/obj/structure/shuttle/engine/propulsion/P = a
+				if(P.dir == S.dir)
+					engines_c += 1
+		if(integrity_check(S))
 			walls_c += 1
-		CHECK_TICK
 	
 	var/ratio = round((1 - (engines_c / engines_count)) * 100)
 	var/integrity = round((walls_c / walls_count) * 100)

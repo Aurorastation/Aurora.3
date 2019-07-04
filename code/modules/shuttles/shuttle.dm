@@ -66,13 +66,13 @@
 
 		arrive_time = world.time + travel_time*10
 		moving_status = SHUTTLE_INTRANSIT
-		move(departing, interim, direction, references)
+		move(departing, interim, references)
 
 
 		while (world.time < arrive_time)
 			sleep(5)
 
-		move(interim, destination, direction, references)
+		move(interim, destination, references)
 		moving_status = SHUTTLE_IDLE
 		play_sound(sound_landing, destination)
 
@@ -160,6 +160,8 @@
 		var/turf/ST = source_turfs[i]
 		if (!ST)	// Excluded turfs are null to keep the list ordered.
 			continue
+		if(istype(ST, /turf/unsimulated))
+			ST.ChangeTurf(new /turf/space)
 
 		var/turf/TT = ST.copy_turf(target_turfs[i])
 
@@ -169,12 +171,7 @@
 
 		ST.ChangeTurf(ST.baseturf)
 		// In case we need to keep track of turfs
-		var/r = references.Find(list(ST.x, ST.y, ST.z))
-		var/list/coord = list(TT.x, TT.y, TT.z)
-		if(r)
-			references[r] = coord
-		else
-			references += coord
+		references |= list(list(TT.x, TT.y, TT.z))
 
 		TT.update_icon()
 		TT.update_above()
