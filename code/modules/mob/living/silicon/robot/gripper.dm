@@ -243,12 +243,17 @@
 
 	can_hold = list(
 		/obj/item/weapon/reagent_containers/glass,
+		/obj/item/weapon/reagent_containers/food/snacks/monkeycube,
+		/obj/item/organ,
 		/obj/item/weapon/reagent_containers/pill,
 		/obj/item/weapon/reagent_containers/spray,
 		/obj/item/weapon/storage/pill_bottle,
 		/obj/item/weapon/hand_labeler,
 		/obj/item/stack/material/phoron
 		)
+
+
+
 
 /obj/item/weapon/gripper/service //Used to handle food, drinks, and seeds.
 	name = "service gripper"

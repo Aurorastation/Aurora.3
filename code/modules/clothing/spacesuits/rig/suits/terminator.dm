@@ -1,5 +1,5 @@
 /obj/item/weapon/rig/terminator
-	name = "\improper Hunter-Killer exoskeleton"
+	name = "\improper Military Frame exoskeleton"
 	desc = "A robust synth exoskeleton outfitted with state of the art infiltration tools. Creepy."
 	icon_state = "terminator_rig"
 	suit_type = "synthetic exoskeleton"
