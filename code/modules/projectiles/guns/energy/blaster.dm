@@ -17,8 +17,7 @@
 
 	firemodes = list(
 		list(mode_name="semiauto", burst=1,	fire_delay=0,	move_delay=null,	burst_accuracy=null,	dispersion=null,	charge_cost = 200,	projectile_type=/obj/item/projectile/energy/blaster),
-		list(mode_name="2-round bursts", burst=2,	fire_delay=null,	move_delay=2,	burst_accuracy=list(1,0,0),	dispersion=list(0, 10, 15),	charge_cost = 200,	projectile_type=/obj/item/projectile/energy/blaster),
-		list(mode_name="OVERCHARGE", burst=1,	fire_delay=20,	move_delay=null,	burst_accuracy=null,	dispersion=null,	charge_cost = 400,	projectile_type=/obj/item/projectile/energy/blaster/overcharge)
+		list(mode_name="2-round bursts", burst=2,	fire_delay=null,	move_delay=2,	burst_accuracy=list(1,0,0),	dispersion=list(0, 10, 15),	charge_cost = 200,	projectile_type=/obj/item/projectile/energy/blaster)
 		)
 
 /obj/item/weapon/gun/energy/blaster/carbine
@@ -50,8 +49,7 @@
 
 	firemodes = list(
 		list(mode_name="semiauto", burst=1, fire_delay=25,	fire_delay_wielded = 10,	move_delay=null,	burst_accuracy=null,	dispersion=null,	charge_cost = 200,	projectile_type=/obj/item/projectile/energy/blaster),
-		list(mode_name="2-round bursts", burst=2, fire_delay=25,	fire_delay_wielded = 10,	move_delay=2,	burst_accuracy=list(1,0,0),	dispersion=list(0, 10, 15),	charge_cost = 200,	projectile_type=/obj/item/projectile/energy/blaster),
-		list(mode_name="OVERCHARGE", burst=1, fire_delay=30,	fire_delay_wielded = 20,	move_delay=null,	burst_accuracy=null,	dispersion=null,	charge_cost = 400,	projectile_type=/obj/item/projectile/energy/blaster/overcharge)
+		list(mode_name="2-round bursts", burst=2, fire_delay=25,	fire_delay_wielded = 10,	move_delay=2,	burst_accuracy=list(1,0,0),	dispersion=list(0, 10, 15),	charge_cost = 200,	projectile_type=/obj/item/projectile/energy/blaster)
 		)
 
 	fire_delay_wielded = 10

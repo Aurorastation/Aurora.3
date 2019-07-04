@@ -217,10 +217,6 @@
 	pass_flags = PASSTABLE | PASSGLASS | PASSGRILLE
 	muzzle_type = /obj/effect/projectile/muzzle/bolt
 
-/obj/item/projectile/energy/blaster/overcharge
-	damage = 40
-	armor_penetration = 20
-
 /obj/item/projectile/energy/blaster/heavy
 	damage = 35
 
