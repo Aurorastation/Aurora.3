@@ -39,7 +39,7 @@
 		if(!istype(docking_controller))
 			to_world("<span class='danger'>warning: shuttle with docking tag [docking_controller_tag] could not find it's controller!</span>")
 
-/datum/shuttle/proc/short_jump(var/area/origin, var/area/destination)
+/datum/shuttle/proc/short_jump(var/area/origin, var/area/destination, var/list/references = list())
 	if(moving_status != SHUTTLE_IDLE) return
 
 	moving_status = SHUTTLE_WARMUP
@@ -50,11 +50,11 @@
 			return	//someone cancelled the launch
 
 		moving_status = SHUTTLE_INTRANSIT //shouldn't matter but just to be safe
-		move(origin, destination)
+		move(origin, destination, references)
 		moving_status = SHUTTLE_IDLE
 		play_sound(sound_landing, destination)
 
-/datum/shuttle/proc/long_jump(var/area/departing, var/area/destination, var/area/interim, var/travel_time, var/direction)
+/datum/shuttle/proc/long_jump(var/area/departing, var/area/destination, var/area/interim, var/travel_time, var/direction, var/list/references = list())
 	if(moving_status != SHUTTLE_IDLE) return
 
 	//it would be cool to play a sound here
@@ -66,13 +66,13 @@
 
 		arrive_time = world.time + travel_time*10
 		moving_status = SHUTTLE_INTRANSIT
-		move(departing, interim, direction)
+		move(departing, interim, direction, references)
 
 
 		while (world.time < arrive_time)
 			sleep(5)
 
-		move(interim, destination, direction)
+		move(interim, destination, direction, references)
 		moving_status = SHUTTLE_IDLE
 		play_sound(sound_landing, destination)
 
@@ -121,7 +121,7 @@
 			throwy = T.y
 
 	for(var/turf/T in dstturfs)
-		var/turf/D = locate(T.x, throwy - 1, 1)
+		var/turf/D =  get_turf(locate(T.x, throwy - 1, 1))
 		for(var/atom/movable/AM as mob|obj in T)
 			AM.Move(D)
 		if(istype(T, /turf/simulated))
@@ -130,7 +130,7 @@
 	for(var/mob/living/bug in destination)
 		bug.gib()
 
-	origin.move_contents_to(destination, references)
+	move_contents_to(origin, destination, references = references)
 
 	for(var/mob/M in destination)
 		if(M.client)

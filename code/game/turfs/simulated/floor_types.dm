@@ -37,6 +37,8 @@
 	blocks_air = 1
 	smooth = SMOOTH_MORE | SMOOTH_DIAGONAL
 	permit_ao = FALSE
+	var/tmp/image/damage_image = FALSE
+	var/list/damage_overlays[16]
 	canSmoothWith = list(
 		/turf/simulated/shuttle/wall,
 		/obj/structure/window/shuttle,
