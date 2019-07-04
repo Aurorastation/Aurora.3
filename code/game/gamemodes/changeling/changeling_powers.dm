@@ -177,7 +177,7 @@ var/global/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","E
 
 	for(var/datum/absorbed_dna/D in changeling.absorbed_dna)
 		if(D.dna == T.dna)
-			to_chat(src, "<span class='warning'>We have already collected this creature's dna!</span>")
+			to_chat(src, "<span class='warning'>We have already collected this creature's DNA!</span>")
 			return
 
 	changeling.isabsorbing = 1
