@@ -113,20 +113,20 @@
 	pockets.max_storage_space = 8
 
 /obj/item/clothing/suit/armor/riot
-	name = "riot suit"
-	desc = "A suit of armor with heavy padding to protect against melee attacks. Looks like it might impair movement."
-	icon_state = "riot"
-	item_state = "swat_suit"
+	name = "riot vest"
+	desc = "A vest of armor with heavy padding to protect against melee attacks. Looks like it might impair movement."
+	icon_state = "riot_vest"
+	item_state = "riot_vest"
 	slowdown = 1
 	armor = list(melee = 80, bullet = 20, laser = 25, energy = 10, bomb = 0, bio = 0, rad = 0)
 	siemens_coefficient = 0.5
-	pocket_slots = 4//Fullbody suit, so more slots
+	pocket_slots = 4
 
 /obj/item/clothing/suit/armor/bulletproof
-	name = "bulletproof vest"
+	name = "ballistic vest"
 	desc = "A vest that excels in protecting the wearer against high-velocity solid projectiles."
-	icon_state = "bulletproof"
-	item_state = "armor"
+	icon_state = "bulletproof_armor"
+	item_state = "bulletproof_armor"
 	blood_overlay_type = "armor"
 	armor = list(melee = 25, bullet = 80, laser = 25, energy = 10, bomb = 0, bio = 0, rad = 0)
 	pocket_slots = 4
@@ -400,6 +400,13 @@
 	icon_badge = "csivest_badge"
 	icon_nobadge = "csivest_nobadge"
 
+/obj/item/clothing/suit/storage/vest/cadet
+	name = "cadet hazard vest"
+	desc = "A sturdy high-visibility vest intended for in training security personnel."
+	icon_state = "hazard_cadet"
+	item_state = "hazard_cadet"
+	armor = list(melee = 10, bullet = 0, laser = 10, energy = 10, bomb = 10, bio = 0, rad = 0)
+
 /obj/item/clothing/suit/storage/vest/heavy
 	name = "heavy armor vest"
 	desc = "A heavy kevlar plate carrier with webbing attached."
@@ -487,8 +494,10 @@
 /obj/item/clothing/suit/storage/vest/heavy/ert/peacekeeper
 	name = "ERT civil protection plate carrier"
 	desc = "A plate carrier worn by troopers serving civil protection details. Commonly seen on high-profile escorts and Nanotrasen administration centers."
-	icon_state = "ert_peacekeeper"
-	item_state = "ert_peacekeeper"
+	icon_state = "civilprotection_nobadge"
+	item_state = "civilprotection_nobadge"
+	icon_badge = "civilprotection_badge"
+	icon_nobadge = "civilprotection_nobadge"
 
 //unathi armor
 
@@ -504,7 +513,7 @@
 
 /obj/item/clothing/suit/armor/tajara
 	name = "amohdan swordsmen armor"
-	desc = "A suit of armor used by the traditional warriors of Amohhda."
+	desc = "A suit of armor used by the traditional warriors of Amohda."
 	icon = 'icons/obj/tajara_items.dmi'
 	icon_state = "amohdan_armor"
 	item_state = "amohdan_armor"
@@ -514,6 +523,11 @@
 	flags_inv = HIDEJUMPSUIT|HIDETAIL
 	species_restricted = list("Tajara")
 	armor = list(melee = 60, bullet = 50, laser = 20, energy = 10, bomb = 5, bio = 0, rad = 0)
+	description_fluff = "The Feudal Era of Amohda is famous for the steel swords which became common. Many renowned swordsmen and famous warriors would travel the land fighting duels of \
+	single combat in their quests to become the greatest swordsman. Modern Amohda is a mix between loyalists to the NKA and to the DPRA, with almost universal praise for a return to \
+	traditional culture, yet often violent disagreement about the course of the island's political future. A sizable third party of monarchists which advocate the reestablishment of the \
+	Imperial Amohdan dynasty also exists, fragmenting the monarchist factions on the island and further complicating political violence in the area."
+
 
 //tau ceti foreign legion armor
 
@@ -524,6 +538,16 @@
 	item_state = "legion_armor"
 	body_parts_covered = UPPER_TORSO | LOWER_TORSO | LEGS | ARMS
 	armor = list(melee = 50, bullet = 30, laser = 30, energy = 15, bomb = 40, bio = 0, rad = 0)
+
+/obj/item/clothing/suit/armor/vest/idris
+	name = "Idris Reclamation Unit coat"
+	desc = "A coat worn by the Idris reclamation units, notorious across space."
+	icon_state = "iru_coat"
+	item_state = "iru_coat"
+	cold_protection = 0
+	min_cold_protection_temperature = 0
+	heat_protection = 0
+	max_heat_protection_temperature = 0
 
 //All of the armor below is mostly unused
 

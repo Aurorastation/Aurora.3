@@ -3,7 +3,7 @@
 /turf/unsimulated/chasm_mask,
 /area/mine/unexplored)
 "b" = (
-/turf/simulated/floor/asteroid/ash/rocky,
+/turf/unsimulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
 "c" = (
 /turf/simulated/mineral/random,
@@ -32,7 +32,7 @@
 /area/mine/unexplored)
 "j" = (
 /obj/effect/decal/cleanable/generic,
-/turf/simulated/floor/asteroid/ash/rocky,
+/turf/unsimulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
 "k" = (
 /obj/effect/floor_decal/industrial/warning{

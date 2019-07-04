@@ -104,8 +104,31 @@
 
 	var/flying = FALSE //if they can fly, which stops them from falling down and allows z-space travel
 
+	var/has_udder = FALSE
+	var/datum/reagents/udder = null
+	var/milk_type = "milk"
+
+	var/list/butchering_products	//if anything else is created when butchering this creature, like bones and leather
+
 /mob/living/simple_animal/proc/beg(var/atom/thing, var/atom/holder)
 	visible_emote("gazes longingly at [holder]'s [thing]",0)
+
+/mob/living/simple_animal/proc/steal_food(var/obj/item/weapon/reagent_containers/food/snacks/F, var/mob/living/carbon/human/H)
+	if(!F || !H)
+		return
+	H.visible_message(
+						span("warning", "\the [src] grabs \the [F] with its teeth and steals it from \the [H] hands. Taking a bite and dropping it on the floor."),
+						span("warning", "\the [src] grabs \the [F] with its teeth and steals it from your hands. Taking a bite and dropping it on the floor.")
+	)
+	H.drop_from_inventory(F)
+	UnarmedAttack(F)
+	if (get_turf(F) == loc)
+		set_dir(pick(NORTH, SOUTH, EAST, WEST, NORTH, NORTH))//Face a random direction when eating, but mostly upwards
+
+/mob/living/simple_animal/proc/update_nutrition_stats()
+	nutrition_step = mob_size * 0.03 * metabolic_factor
+	bite_factor = mob_size * 0.3
+	max_nutrition *= 1 + (nutrition_step*4)//Max nutrition scales faster than costs, so bigger creatures eat less often
 
 /mob/living/simple_animal/Initialize()
 	. = ..()
@@ -115,9 +138,7 @@
 	verbs -= /mob/verb/observe
 	health = maxHealth
 	if (mob_size)
-		nutrition_step = mob_size * 0.03 * metabolic_factor
-		bite_factor = mob_size * 0.3
-		max_nutrition *= 1 + (nutrition_step*4)//Max nutrition scales faster than costs, so bigger creatures eat less often
+		update_nutrition_stats()
 		reagents = new/datum/reagents(stomach_size_mult*mob_size, src)
 	else
 		reagents = new/datum/reagents(20, src)
@@ -125,6 +146,10 @@
 
 	if (can_nap)
 		verbs += /mob/living/simple_animal/lay_down
+
+	if(has_udder)
+		udder = new(50)
+		udder.my_atom = src
 
 /mob/living/simple_animal/Move(NewLoc, direct)
 	. = ..()
@@ -177,6 +202,7 @@
 	handle_paralysed()
 	update_canmove()
 	handle_supernatural()
+	autoseek_food = nutrition / max_nutrition <= 0.05 ? TRUE : initial(autoseek_food)
 	process_food()
 
 	//Movement
@@ -223,6 +249,12 @@
 
 	if(!atmos_suitable)
 		apply_damage(unsuitable_atoms_damage, OXY, used_weapon = "Atmosphere")
+
+	if(has_udder)
+		if(stat == CONSCIOUS)
+			if(udder && prob(5))
+				udder.add_reagent(milk_type, rand(5, 10))
+
 	return 1
 
 /mob/living/simple_animal/think()
@@ -395,6 +427,19 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 	return
 
 /mob/living/simple_animal/attackby(var/obj/item/O, var/mob/user)
+	if(has_udder)
+		var/obj/item/weapon/reagent_containers/glass/G = O
+		if(stat == CONSCIOUS && istype(G) && G.is_open_container())
+			if(udder.total_volume <= 0)
+				to_chat(user, "<span class='warning'>The udder is dry.</span>")
+				return
+			if(G.reagents.total_volume >= G.volume)
+				to_chat(user, "<span class='warning'>The [O] is full.</span>")
+				return
+			user.visible_message("<span class='notice'>[user] milks [src] using \the [O].</span>")
+			udder.trans_id_to(G, milk_type , rand(5,10))
+			return
+
 	if(istype(O, /obj/item/weapon/reagent_containers) || istype(O, /obj/item/stack/medical) || istype(O,/obj/item/weapon/gripper/))
 		..()
 		poke()
@@ -493,14 +538,20 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 		var/mob/living/L = target_mob
 		if(!L.stat)
 			return (0)
-	if (istype(target_mob,/obj/mecha))
+	if (istype(target_mob, /obj/mecha))
 		var/obj/mecha/M = target_mob
 		if (M.occupant)
 			return (0)
-	if (istype(target_mob,/obj/machinery/bot))
+	if (istype(target_mob, /obj/machinery/bot))
 		var/obj/machinery/bot/B = target_mob
 		if(B.health > 0)
 			return (0)
+	if(istype(target_mob, /obj/machinery/porta_turret/))
+		var/obj/machinery/porta_turret/T = target_mob
+		if(T.health > 0)
+			return (0)
+	if(istype(target_mob, /obj/effect/energy_field))
+		return (0)
 	return 1
 
 /mob/living/simple_animal/say(var/message)
@@ -524,9 +575,14 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 	var/actual_meat_amount = max(1,(meat_amount*0.75))
 	if(meat_type && actual_meat_amount>0 && (stat == DEAD))
 		for(var/i=0;i<actual_meat_amount;i++)
-			var/obj/item/meat = new meat_type(get_turf(src))
-			if (meat.name == "meat")
-				meat.name = "[src.name] [meat.name]"
+			new meat_type(get_turf(src))
+
+		if(butchering_products)
+			for(var/path in butchering_products)
+				var/number = butchering_products[path]
+				for(var/i in 1 to number)
+					new path(get_turf(src))
+
 		if(issmall(src))
 			user.visible_message("<span class='danger'>[user] chops up \the [src]!</span>")
 			new/obj/effect/decal/cleanable/blood/splatter(get_turf(src))
@@ -594,8 +650,11 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 						UnarmedAttack(movement_target)
 						if (get_turf(movement_target) == loc)
 							set_dir(pick(NORTH, SOUTH, EAST, WEST, NORTH, NORTH))//Face a random direction when eating, but mostly upwards
-					else if(ishuman(movement_target.loc) && Adjacent(src, get_turf(movement_target)) && prob(10))
-						beg(movement_target, movement_target.loc)
+					else if(ishuman(movement_target.loc) && Adjacent(get_turf(movement_target.loc)) && (prob(10) || nutrition / max_nutrition <= 0.25))
+						if(nutrition / max_nutrition <= 0.25)
+							steal_food(movement_target, movement_target.loc)
+						else
+							beg(movement_target, movement_target.loc)
 			else
 				scan_interval = max(min_scan_interval, min(scan_interval+1, max_scan_interval))//If nothing is happening, ian's scanning frequency slows down to save processing
 

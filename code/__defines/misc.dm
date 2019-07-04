@@ -83,8 +83,9 @@ Will print: "/mob/living/carbon/human/death" (you can optionally embed it in a s
 #define ASFX_FOOTSTEPS	2
 #define ASFX_VOTE		4
 #define ASFX_VOX		8
+#define ASFX_DROPSOUND	16
 
-#define ASFX_DEFAULT (ASFX_AMBIENCE|ASFX_FOOTSTEPS|ASFX_VOTE|ASFX_VOX)
+#define ASFX_DEFAULT (ASFX_AMBIENCE|ASFX_FOOTSTEPS|ASFX_VOTE|ASFX_VOX|ASFX_DROPSOUND)
 
 // For secHUDs and medHUDs and variants. The number is the location of the image on the list hud_list of humans.
 #define      HEALTH_HUD 1 // A simple line rounding the mob's number health.
@@ -459,3 +460,6 @@ Define for getting a bitfield of adjacent turfs that meet a condition.
 #define GET_BELOW(A) (HAS_BELOW(A:z) ? get_step(A, DOWN) : null)
 
 #define NULL_OR_EQUAL(self,other) (!(self) || (self) == (other))
+
+//Lying animation
+#define ANIM_LYING_TIME 2

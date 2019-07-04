@@ -10,7 +10,7 @@
 	max_storage_space = 28
 	slot_flags = SLOT_BELT
 	attack_verb = list("whipped", "lashed", "disciplined")
-	sprite_sheets = list("Resomi" = 'icons/mob/species/resomi/belt.dmi')
+	drop_sound = 'sound/items/drop/leather.ogg'
 
 	var/show_above_suit = 0
 
@@ -137,7 +137,7 @@
 		/obj/item/clothing/glasses/hud/security,
 		/obj/item/device/flashlight/maglight,
 		/obj/item/device/flashlight/flare,
-		/obj/item/device/flashlight/glowstick,
+		/obj/item/device/flashlight/flare/glowstick,
 		/obj/item/device/pda,
 		/obj/item/device/radio/headset,
 		/obj/item/device/hailer,
@@ -191,7 +191,7 @@
 
 /obj/item/weapon/storage/belt/military
 	name = "military belt"
-	desc = "A syndicate belt designed to be used by boarding parties. Its style is modeled after the hardsuits they wear."
+	desc = "A lightweight, quick to use, military belt. Designed to be comfortably worn even during lengthy military operations."
 	icon_state = "militarybelt"
 	item_state = "militarybelt"
 	storage_slots = 9 //same as a combat belt now
@@ -223,6 +223,11 @@
 		/obj/item/stack/telecrystal
 		)
 
+/obj/item/weapon/storage/belt/military/syndicate
+	desc = "A syndicate belt designed to be used by boarding parties. Its style is modeled after the hardsuits they wear."
+	icon_state = "militarybelt_syndie"
+	item_state = "militarybelt_syndie"
+
 /obj/item/weapon/storage/belt/janitor
 	name = "janibelt"
 	desc = "A belt used to hold most janitorial supplies."
@@ -232,7 +237,7 @@
 	w_class = 3
 	max_w_class = 3
 	can_hold = list(
-		/obj/item/weapon/grenade/chem_grenade/cleaner,
+		/obj/item/weapon/grenade/chem_grenade, //if I'm going to be doing a full allowance on one belt, I need to do the other.
 		/obj/item/device/lightreplacer,
 		/obj/item/device/flashlight,
 		/obj/item/weapon/reagent_containers/spray,
@@ -312,13 +317,42 @@
 		/obj/item/weapon/gun/custom_ka
 		)
 
-/obj/item/weapon/storage/belt/bandolier
-	name = "bandolier"
-	desc = "A pocketed belt designated to hold shotgun shells."
-	icon_state = "bandolier"
-	item_state = "bandolier"
-	can_hold = list(/obj/item/ammo_casing/shotgun)
-	storage_slots = 16
+/obj/item/weapon/storage/belt/hydro
+	name = "hydrobelt"
+	desc = "A utility belt to store and provide easy access to your floral utilities."
+	icon_state = "growbelt"
+	item_state = "growbelt"
+	storage_slots = 9
+	w_class = 3
+	max_w_class = 4
+	can_hold = list(
+		/obj/item/weapon/reagent_containers/glass,
+		/obj/item/weapon/grenade/chem_grenade, //weed killer grenades mostly, or water-pottassium if you grow the bannanas!
+		/obj/item/weapon/bee_smoker, //will this ever get used? Probally not.
+		/obj/item/weapon/plantspray/pests,
+		/obj/item/weapon/storage/bag/plants,
+		/obj/item/weapon/reagent_containers/food/snacks/grown,
+		/obj/item/seeds,
+		/obj/item/weapon/grown,
+		/obj/item/weapon/material/minihoe,
+		/obj/item/weapon/material/hatchet,
+		/obj/item/weapon/wirecutters,
+		/obj/item/weapon/reagent_containers/spray, //includes if you ever wish to get a spraybottle full of other chemicals, Like water
+		/obj/item/device/analyzer/plant_analyzer,
+		/obj/item/clothing/gloves/botanic_leather,
+		)
+
+/obj/item/weapon/storage/belt/hydro/full/fill()
+	..()
+	new /obj/item/weapon/plantspray/pests(src)
+	new /obj/item/weapon/material/minihoe(src)
+	new /obj/item/weapon/storage/bag/plants(src)
+	new /obj/item/clothing/gloves/botanic_leather(src)
+	new /obj/item/device/analyzer/plant_analyzer(src)
+	new /obj/item/weapon/material/hatchet(src)
+	new /obj/item/weapon/reagent_containers/glass/fertilizer/rh(src)
+	new /obj/item/weapon/reagent_containers/spray/plantbgone(src)
+	new /obj/item/weapon/wirecutters/clippers(src)
 
 /obj/item/weapon/storage/belt/fannypack
 	name = "leather fannypack"

@@ -18,6 +18,7 @@
 	unwrap()
 
 /obj/structure/bigDelivery/proc/unwrap()
+	playsound(loc, 'sound/items/package_unwrap.ogg', 50, 1)
 	if(wrapped) //sometimes items can disappear. For example, bombs. --rastaf0
 		wrapped.forceMove(get_turf(src.loc))
 		if(istype(wrapped, /obj/structure/closet))
@@ -52,6 +53,7 @@
 				user.visible_message("\The [user] titles \the [src] with \a [W], marking down: \"[str]\"",\
 				"<span class='notice'>You title \the [src]: \"[str]\"</span>",\
 				"You hear someone scribbling a note.")
+				playsound(src, pick('sound/bureaucracy/pen1.ogg','sound/bureaucracy/pen2.ogg'), 20)
 				name = "[name] ([str])"
 				if(!examtext && !nameset)
 					nameset = 1
@@ -71,6 +73,7 @@
 				user.visible_message("\The [user] labels \the [src] with \a [W], scribbling down: \"[examtext]\"",\
 				"<span class='notice'>You label \the [src]: \"[examtext]\"</span>",\
 				"You hear someone scribbling a note.")
+				playsound(src, pick('sound/bureaucracy/pen1.ogg','sound/bureaucracy/pen2.ogg'), 20)
 	return
 
 /obj/structure/bigDelivery/update_icon()
@@ -115,6 +118,7 @@
 	name = "small parcel"
 	icon = 'icons/obj/storage.dmi'
 	icon_state = "deliverycrate3"
+	drop_sound = 'sound/items/drop/box.ogg'
 	var/obj/item/wrapped = null
 	var/sortTag = null
 	var/examtext = null
@@ -159,6 +163,7 @@
 				user.visible_message("\The [user] titles \the [src] with \a [W], marking down: \"[str]\"",\
 				"<span class='notice'>You title \the [src]: \"[str]\"</span>",\
 				"You hear someone scribbling a note.")
+				playsound(src, pick('sound/bureaucracy/pen1.ogg','sound/bureaucracy/pen2.ogg'), 20)
 				name = "[name] ([str])"
 				if(!examtext && !nameset)
 					nameset = 1
@@ -179,6 +184,7 @@
 				user.visible_message("\The [user] labels \the [src] with \a [W], scribbling down: \"[examtext]\"",\
 				"<span class='notice'>You label \the [src]: \"[examtext]\"</span>",\
 				"You hear someone scribbling a note.")
+				playsound(src, pick('sound/bureaucracy/pen1.ogg','sound/bureaucracy/pen2.ogg'), 20)
 	return
 
 /obj/item/smallDelivery/update_icon()
@@ -214,105 +220,6 @@
 			to_chat(user, "<span class='notice'>It has a note attached which reads, \"[examtext]\"</span>")
 	return
 
-/obj/item/weapon/packageWrap
-	name = "package wrapper"
-	icon = 'icons/obj/items.dmi'
-	icon_state = "deliveryPaper"
-	w_class = 3.0
-	var/amount = 25.0
-	var/wrapping_tag = "Sorting Office"
-
-/obj/item/weapon/packageWrap/afterattack(var/obj/target as obj, mob/user as mob, proximity)
-	if(!proximity) return
-	if(!istype(target))	//this really shouldn't be necessary (but it is).	-Pete
-		return
-	if(istype(target, /obj/item/smallDelivery) || istype(target,/obj/structure/bigDelivery) \
-	|| istype(target, /obj/item/weapon/gift) || istype(target, /obj/item/weapon/evidencebag))
-		return
-	if(target.anchored)
-		return
-	if(target in user)
-		return
-	if(user in target) //no wrapping closets that you are inside - it's not physically possible
-		return
-
-	user.attack_log += text("\[[time_stamp()]\] <font color='blue'>Has used [src.name] on \ref[target]</font>")
-
-
-	if (istype(target, /obj/item) && !(istype(target, /obj/item/weapon/storage) && !istype(target,/obj/item/weapon/storage/box)))
-		var/obj/item/O = target
-		if (src.amount > 1)
-			var/obj/item/smallDelivery/P = new /obj/item/smallDelivery(get_turf(O.loc))	//Aaannd wrap it up!
-			if(!istype(O.loc, /turf))
-				if(user.client)
-					user.client.screen -= O
-			P.wrapped = O
-			O.forceMove(P)
-			P.w_class = O.w_class
-			var/i = round(O.w_class)
-			if(i in list(1,2,3,4,5))
-				P.icon_state = "deliverycrate[i]"
-				switch(i)
-					if(1) P.name = "tiny parcel"
-					if(3) P.name = "normal-sized parcel"
-					if(4) P.name = "large parcel"
-					if(5) P.name = "huge parcel"
-			if(i < 1)
-				P.icon_state = "deliverycrate1"
-				P.name = "tiny parcel"
-			if(i > 5)
-				P.icon_state = "deliverycrate5"
-				P.name = "huge parcel"
-			P.sortTag = wrapping_tag
-			P.add_fingerprint(usr)
-			O.add_fingerprint(usr)
-			src.add_fingerprint(usr)
-			src.amount -= 1
-			user.visible_message("\The [user] wraps \a [target] with \a [src].",\
-			"<span class='notice'>You wrap \the [target], leaving [amount] units of paper on \the [src].</span>",\
-			"You hear someone taping paper around a small object.")
-	else if (istype(target, /obj/structure/closet/crate))
-		var/obj/structure/closet/crate/O = target
-		if (src.amount > 3 && !O.opened)
-			var/obj/structure/bigDelivery/P = new /obj/structure/bigDelivery(get_turf(O.loc))
-			P.icon_state = "deliverycrate"
-			P.wrapped = O
-			P.sortTag = wrapping_tag
-			O.forceMove(P)
-			src.amount -= 3
-			user.visible_message("\The [user] wraps \a [target] with \a [src].",\
-			"<span class='notice'>You wrap \the [target], leaving [amount] units of paper on \the [src].</span>",\
-			"You hear someone taping paper around a large object.")
-		else if(src.amount < 3)
-			to_chat(user, "<span class='warning'>You need more paper.</span>")
-	else if (istype (target, /obj/structure/closet))
-		var/obj/structure/closet/O = target
-		if (src.amount > 3 && !O.opened)
-			var/obj/structure/bigDelivery/P = new /obj/structure/bigDelivery(get_turf(O.loc))
-			P.wrapped = O
-			O.welded = 1
-			P.sortTag = wrapping_tag
-			O.forceMove(P)
-			src.amount -= 3
-			user.visible_message("\The [user] wraps \a [target] with \a [src].",\
-			"<span class='notice'>You wrap \the [target], leaving [amount] units of paper on \the [src].</span>",\
-			"You hear someone taping paper around a large object.")
-		else if(src.amount < 3)
-			to_chat(user, "<span class='warning'>You need more paper.</span>")
-	else
-		to_chat(user, "<span class='notice'>The object you are trying to wrap is unsuitable for the sorting machinery!</span>")
-	if (src.amount <= 0)
-		new /obj/item/weapon/c_tube( src.loc )
-		qdel(src)
-		return
-	return
-
-/obj/item/weapon/packageWrap/examine(mob/user)
-	if(..(user, 0))
-		to_chat(user, "<span class='notice'>There are [amount] units of package wrap left!</span>")
-
-	return
-
 /obj/structure/bigDelivery/Destroy()
 	if(wrapped) //sometimes items can disappear. For example, bombs. --rastaf0
 		wrapped.forceMove((get_turf(loc)))
@@ -329,7 +236,7 @@
 	desc = "Used to set the destination of properly wrapped packages."
 	icon_state = "dest_tagger"
 	var/currTag = 0
-
+	matter = list(DEFAULT_WALL_MATERIAL = 250, "glass" = 140)
 	w_class = 2
 	item_state = "electronic"
 	flags = CONDUCT

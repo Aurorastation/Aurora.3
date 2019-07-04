@@ -2959,6 +2959,20 @@
 	required_reagents = list("wine" = 4, "vodka" = 2, "sodawater" = 3, "radium" = 1 )
 	result_amount = 10
 
+/datum/chemical_reaction/dynhot
+	name = "Dyn Tea"
+	id = "dynhot"
+	result = "dynhot"
+	required_reagents = list("dynjuice" = 1, "water" = 4)
+	result_amount = 5
+
+/datum/chemical_reaction/dyncold
+	name = "Dyn Ice Tea"
+	id = "dyncold"
+	result = "dyncold"
+	required_reagents = list("dynjuice" = 1, "ice" = 2, "sodawater" = 2)
+	result_amount = 5
+
 //transmutation
 
 /datum/chemical_reaction/transmutation_silver
@@ -3197,3 +3211,11 @@
 	result = "kois_odyne"
 	result_amount = 3
 	required_reagents = list("tonic" = 1, "koispaste" = 1, "toothpaste" = 1)
+
+/datum/chemical_reaction/adhomai_milk
+	name = "Fermented Fatshouters Milk"
+	id = "adhomai_milk"
+	result = "adhomai_milk"
+	required_reagents = list("fatshouter_milk" = 1)
+	catalysts = list("enzyme" = 5)
+	result_amount = 1

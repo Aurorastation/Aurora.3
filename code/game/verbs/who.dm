@@ -69,13 +69,14 @@
 	var/num_cciaa_online = 0
 	var/num_devs_online = 0
 	if(holder)
-		for(var/client/C in admins)
+		for(var/s in staff)
+			var/client/C = s
 			if(R_ADMIN & C.holder.rights || (!R_MOD & C.holder.rights))	//Used to determine who shows up in admin rows
 
 				if(C.holder.fakekey && (!R_ADMIN & holder.rights && !R_MOD & holder.rights))		//Mentors can't see stealthmins
 					continue
 
-				msg += "\t[C] is a [C.holder.rank]"
+				msg += "\t[C.key] is a [C.holder.rank]"
 
 				if(C.holder.fakekey)
 					msg += " <i>(as [C.holder.fakekey])</i>"
@@ -93,7 +94,7 @@
 
 				num_admins_online++
 			else if(R_MOD & C.holder.rights)				//Who shows up in mod/mentor rows.
-				modmsg += "\t[C] is a [C.holder.rank]"
+				modmsg += "\t[C.key] is a [C.holder.rank]"
 
 				if(isobserver(C.mob))
 					modmsg += " - Observing"
@@ -108,7 +109,7 @@
 				num_mods_online++
 
 			else if (R_CCIAA & C.holder.rights)
-				cciaamsg += "\t[C]"
+				cciaamsg += "\t[C.key]"
 				if (isobserver(C.mob))
 					cciaamsg += " - Observing"
 				else if (istype(C.mob, /mob/abstract/new_player))
@@ -122,7 +123,7 @@
 				num_cciaa_online++
 
 			else if(C.holder.rights & R_DEV)
-				devmsg += "\t[C] is a [C.holder.rank]"
+				devmsg += "\t[C.key] is a [C.holder.rank]"
 				if(isobserver(C.mob))
 					devmsg += " - Observing"
 				else if(istype(C.mob,/mob/abstract/new_player))
@@ -136,19 +137,20 @@
 				num_devs_online++
 
 	else
-		for(var/client/C in admins)
+		for(var/s in staff)
+			var/client/C = s
 			if(R_ADMIN & C.holder.rights || (!R_MOD & C.holder.rights))
 				if(!C.holder.fakekey)
-					msg += "\t[C] is a [C.holder.rank]\n"
+					msg += "\t[C.key] is a [C.holder.rank]\n"
 					num_admins_online++
 			else if (R_MOD & C.holder.rights)
-				modmsg += "\t[C] is a [C.holder.rank]\n"
+				modmsg += "\t[C.key] is a [C.holder.rank]\n"
 				num_mods_online++
 			else if(C.holder.rights & R_DEV)
-				devmsg += "\t[C] is a [C.holder.rank]\n"
+				devmsg += "\t[C.key] is a [C.holder.rank]\n"
 				num_devs_online++
 			else if (R_CCIAA & C.holder.rights)
-				cciaamsg += "\t[C] is a [C.holder.rank]\n"
+				cciaamsg += "\t[C.key] is a [C.holder.rank]\n"
 				num_cciaa_online++
 
 	if(discord_bot && discord_bot.active)

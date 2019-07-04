@@ -2,7 +2,7 @@
 /obj/item/weapon/rcd
 	name = "rapid construction device"
 	desc = "A device used to rapidly build walls and floors."
-	icon = 'icons/obj/items.dmi'
+	icon = 'icons/obj/tools.dmi'
 	icon_state = "rcd"
 	opacity = 0
 	density = 0
@@ -170,6 +170,9 @@
 				R.cell.use(cost)
 				return 1
 	return 0
+
+/obj/item/weapon/rcd/borg/infinite/useResource()
+	return 1
 
 /obj/item/weapon/rcd/borg/attackby()
 	return

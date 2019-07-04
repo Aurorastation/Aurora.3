@@ -81,7 +81,7 @@ main ui datum.
 	if(!status || status == STATUS_CLOSE)
 		return
 
-	var/params = "window=[windowid];"
+	var/params = "window=[windowid];file=[windowid];"
 	if(width && height)
 		params += "size=[width]x[height];"
 	send_resources_and_assets(user.client)

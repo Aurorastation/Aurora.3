@@ -28,10 +28,10 @@ BLIND     // can't see anything
 	var/activated_color = null
 	sprite_sheets = list(
 		"Vox" = 'icons/mob/species/vox/eyes.dmi',
-		"Resomi" = 'icons/mob/species/resomi/eyes.dmi',
 		"Vaurca Warform" = 'icons/mob/species/warriorform/eyes.dmi'
 		)
 	species_restricted = list("exclude","Vaurca Breeder")
+	drop_sound = 'sound/items/drop/accessory.ogg'
 
 /obj/item/clothing/glasses/update_clothing_icon()
 	if (ismob(src.loc))
@@ -177,7 +177,6 @@ BLIND     // can't see anything
 	item_flags = AIRTIGHT
 	unacidable = 1
 
-
 /obj/item/clothing/glasses/eyepatch
 	name = "eyepatch"
 	desc = "Yarr."
@@ -185,6 +184,7 @@ BLIND     // can't see anything
 	item_state = "eyepatch"
 	body_parts_covered = 0
 	var/flipped = 0
+	drop_sound = 'sound/items/drop/gloves.ogg'
 
 /obj/item/clothing/glasses/eyepatch/verb/flip_patch()
 	set name = "Flip Patch"
@@ -355,12 +355,14 @@ BLIND     // can't see anything
 	icon_state = "blindfold"
 	item_state = "blindfold"
 	tint = TINT_BLIND
+	drop_sound = 'sound/items/drop/gloves.ogg'
 
 /obj/item/clothing/glasses/sunglasses/blinders
 	name = "vaurcae blinders"
 	desc = "Specially designed Vaurca blindfold, designed to let in just enough light to see."
 	icon_state = "blinders"
 	item_state = "blinders"
+	drop_sound = 'sound/items/drop/gloves.ogg'
 
 /obj/item/clothing/glasses/sunglasses/blindfold/tape
 	name = "length of tape"

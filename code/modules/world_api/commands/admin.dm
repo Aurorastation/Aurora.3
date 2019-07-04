@@ -105,7 +105,7 @@
 	sound_to(C, 'sound/effects/adminhelp.ogg')
 	to_chat(C, message)
 
-	for(var/client/A in admins)
+	for(var/client/A in staff)
 		if(A != C)
 			to_chat(A, amessage)
 

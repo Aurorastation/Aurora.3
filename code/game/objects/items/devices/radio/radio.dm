@@ -27,7 +27,6 @@ var/global/list/default_medbay_channels = list(
 	suffix = "\[3\]"
 	icon_state = "walkietalkie"
 	item_state = "walkietalkie"
-
 	var/on = 1 // 0 for off
 	var/last_transmission
 	var/frequency = PUB_FREQ //common chat
@@ -45,7 +44,6 @@ var/global/list/default_medbay_channels = list(
 	throw_speed = 2
 	throw_range = 9
 	w_class = 2
-
 	matter = list("glass" = 25,DEFAULT_WALL_MATERIAL = 75)
 	var/const/FREQ_LISTENING = 1
 	var/list/internal_channels
@@ -580,6 +578,7 @@ var/global/list/default_medbay_channels = list(
 	canhear_range = 0
 	subspace_transmission = 1
 	name = "integrated radio"
+	var/radio_sound = null
 
 /obj/item/device/radio/borg/Destroy()
 	myborg = null
@@ -748,10 +747,11 @@ var/global/list/default_medbay_channels = list(
 
 /obj/item/device/radio/phone
 	broadcasting = 0
-	icon = 'icons/obj/items.dmi'
+	icon = 'icons/obj/radio.dmi'
 	icon_state = "red_phone"
 	listening = 1
 	name = "phone"
+	var/radio_sound = null
 
 /obj/item/device/radio/phone/medbay
 	frequency = MED_I_FREQ

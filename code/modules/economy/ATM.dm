@@ -15,8 +15,8 @@ log transactions
 /obj/item/weapon/card/id/var/money = 2000
 
 /obj/machinery/atm
-	name = "Automatic Teller Machine"
-	desc = "For all your monetary needs!"
+	name = "Idris SelfServ Teller"
+	desc = "For all your monetary needs! Astronomical figures!"
 	icon = 'icons/obj/terminals.dmi'
 	icon_state = "atm"
 	anchored = 1
@@ -35,7 +35,7 @@ log transactions
 
 /obj/machinery/atm/Initialize()
 	. = ..()
-	machine_id = "[station_name()] RT #[SSeconomy.num_financial_terminals++]"
+	machine_id = "Idris SelfServ #[SSeconomy.num_financial_terminals++]"
 
 /obj/machinery/atm/Destroy()
 	authenticated_account = null
@@ -134,10 +134,10 @@ log transactions
 		//js replicated from obj/machinery/computer/card
 		var/dat = "<h1>Automatic Teller Machine</h1>"
 		dat += "For all your monetary needs!<br>"
-		dat += "<i>This terminal is</i> [machine_id]. <i>Report this code when contacting IT Support</i><br/>"
+		dat += "<i>This terminal is</i> [machine_id]. <i>Report this code when contacting Idris Banking Support</i><br/>"
 
 		if(emagged)
-			dat += "Card: <span style='color: red;'>LOCKED</span><br><br><span style='color: red;'>Unauthorized terminal access detected! This ATM has been locked. Please contact IT Support.</span>"
+			dat += "Card: <span style='color: red;'>LOCKED</span><br><br><span style='color: red;'>Unauthorized terminal access detected! This ATM has been locked. Please contact Idris Banking Support.</span>"
 		else
 			dat += "Card: <a href='?src=\ref[src];choice=insert_card'>[held_card ? held_card.name : "------"]</a><br><br>"
 
@@ -355,7 +355,7 @@ log transactions
 				if(authenticated_account)
 					var/obj/item/weapon/paper/R = new()
 					var/pname = "Account balance: [authenticated_account.owner_name]"
-					var/info = "<b>NT Automated Teller Account Statement</b><br><br>"
+					var/info = "<b>Idris Automated Teller Account Statement</b><br><br>"
 					info += "<i>Account holder:</i> [authenticated_account.owner_name]<br>"
 					info += "<i>Account number:</i> [authenticated_account.account_number]<br>"
 					info += "<i>Balance:</i> $[authenticated_account.money]<br>"

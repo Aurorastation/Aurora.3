@@ -20,7 +20,7 @@ var/list/diona_banned_languages = list(
 	/datum/language/binary,
 	/datum/language/binary/drone)
 
-
+#define DIONA_LIGHT_COEFICIENT 0.25
 /mob/living/carbon/proc/diona_handle_light(var/datum/dionastats/DS) //Carbon is the highest common denominator between gestalts and nymphs. They will share light code
 	//if light_organ is non null, then we're working with a gestalt. otherwise nymph
 
@@ -50,6 +50,13 @@ var/list/diona_banned_languages = list(
 	DS.last_location = loc
 	if(light_amount)
 		adjustNutritionLoss(-light_amount) // regenerate our nutrition from light.
+	move_delay_mod = min(initial(move_delay_mod) - light_amount * 1.5, 0)
+	sprint_speed_factor = initial(sprint_speed_factor)
+	sprint_cost_factor = Clamp(initial(sprint_cost_factor) - light_amount * DIONA_LIGHT_COEFICIENT, 0, initial(sprint_cost_factor))
+	if (total_radiation)
+		move_delay_mod = max(move_delay_mod * total_radiation * 3, -7)
+		sprint_speed_factor = 0.75
+		sprint_cost_factor = 0
 
 /mob/living/carbon/proc/diona_handle_radiation(var/datum/dionastats/DS)
 	//Converts radiation to stored energy if its needed, and gives messages related to radiation
@@ -553,3 +560,4 @@ var/list/diona_banned_languages = list(
 #undef REGROW_ENERGY_REQ
 #undef diona_max_pressure
 #undef diona_nutrition_factor
+#undef DIONA_LIGHT_COEFICIENT

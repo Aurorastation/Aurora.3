@@ -154,4 +154,4 @@
 	corpsehelmet = /obj/item/clothing/head/bearpelt
 
 /obj/effect/landmark/mobcorpse/russian/ranged
-	corpsehelmet = /obj/item/clothing/head/ushanka
+	corpsehelmet = /obj/item/clothing/head/ushanka/grey

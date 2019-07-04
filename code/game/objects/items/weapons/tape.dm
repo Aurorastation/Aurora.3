@@ -4,6 +4,7 @@
 	icon = 'icons/obj/bureaucracy.dmi'
 	icon_state = "taperoll"
 	w_class = 1
+	drop_sound = 'sound/items/drop/box.ogg'
 
 /obj/item/weapon/tape_roll/attack(var/mob/living/carbon/human/H, var/mob/user, var/target_zone)
 	if(istype(H))
@@ -92,7 +93,7 @@
 	w_class = 1
 	layer = 4
 	anchored = 1 //it's sticky, no you cant move it
-
+	drop_sound = null
 	var/obj/item/weapon/stuck = null
 
 /obj/item/weapon/ducttape/New()

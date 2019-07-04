@@ -70,7 +70,7 @@
 	touch_met = 5
 	taste_mult = 1.5
 	breathe_mul = 2
-	specific_heat = 12 //Phoron is very dense and can hold a lot of energy.
+	fallback_specific_heat = 12 //Phoron is very dense and can hold a lot of energy.
 
 /datum/reagent/toxin/phoron/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(ishuman(M))
@@ -316,8 +316,9 @@
 /datum/reagent/toxin/fertilizer/monoammoniumphosphate/touch_mob(var/mob/living/L, var/amount)
 	. = ..()
 	if(istype(L))
-		L.ExtinguishMob(L.on_fire ? amount*3 : amount*1.5)
-		remove_self(amount)
+		var/needed = min(L.fire_stacks, amount)
+		L.ExtinguishMob(3* needed) // Foam is 3 times more efficient at extinguishing
+		remove_self(needed)
 
 /datum/reagent/toxin/fertilizer/monoammoniumphosphate/affect_touch(var/mob/living/carbon/slime/S, var/alien, var/removed)
 	if(istype(S))

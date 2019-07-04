@@ -144,7 +144,7 @@
 					to_chat(usr, "Please allow at least one minute to pass between announcements")
 					SSnanoui.update_uis(src)
 					return
-				var/input = input(usr, "Please write a message to announce to the station crew.", "Priority Announcement") as null|text
+				var/input = input(usr, "Please write a message to announce to the station crew.", "Priority Announcement") as null|message
 				if(!input || !can_still_topic())
 					SSnanoui.update_uis(src)
 					return

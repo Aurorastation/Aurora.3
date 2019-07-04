@@ -41,7 +41,7 @@
 
 /area/shuttle/arrival/station
 	icon_state = "shuttle"
-	base_turf = /turf/simulated/floor/asteroid/ash
+	base_turf = /turf/unsimulated/floor/asteroid/ash
 	station_area = 1
 
 /area/shuttle/escape
@@ -51,7 +51,7 @@
 /area/shuttle/escape/station
 	name = "\improper Emergency Shuttle Station"
 	icon_state = "shuttle2"
-	base_turf = /turf/simulated/floor/asteroid/ash
+	base_turf = /turf/unsimulated/floor/asteroid/ash
 	station_area = 1
 
 /area/shuttle/escape/centcom
@@ -71,7 +71,7 @@
 
 /area/shuttle/escape_pod1/station
 	icon_state = "shuttle2"
-	base_turf = /turf/simulated/floor/asteroid/ash
+	base_turf = /turf/unsimulated/floor/asteroid/ash
 	station_area = 1
 
 /area/shuttle/escape_pod1/centcom
@@ -89,7 +89,7 @@
 
 /area/shuttle/escape_pod2/station
 	icon_state = "shuttle2"
-	base_turf = /turf/simulated/floor/asteroid/ash
+	base_turf = /turf/unsimulated/floor/asteroid/ash
 	station_area = 1
 
 /area/shuttle/escape_pod2/centcom
@@ -107,7 +107,7 @@
 
 /area/shuttle/escape_pod3/station
 	icon_state = "shuttle2"
-	base_turf = /turf/simulated/floor/asteroid/ash
+	base_turf = /turf/unsimulated/floor/asteroid/ash
 	station_area = 1
 
 /area/shuttle/escape_pod3/centcom
@@ -125,7 +125,7 @@
 
 /area/shuttle/escape_pod5/station
 	icon_state = "shuttle2"
-	base_turf = /turf/simulated/floor/asteroid/ash
+	base_turf = /turf/unsimulated/floor/asteroid/ash
 	station_area = 1
 
 /area/shuttle/escape_pod5/centcom
@@ -157,7 +157,7 @@
 /area/shuttle/transport1/station
 	icon_state = "shuttle"
 	name = "\improper Transport Shuttle"
-	base_turf = /turf/simulated/floor/asteroid/ash
+	base_turf = /turf/unsimulated/floor/asteroid/ash
 	station_area = 1
 
 /area/shuttle/specops/centcom
@@ -169,7 +169,7 @@
 
 /area/shuttle/specops/station
 	icon_state = "shuttlered2"
-	base_turf = /turf/simulated/floor/asteroid/ash
+	base_turf = /turf/unsimulated/floor/asteroid/ash
 	station_area = 1
 
 /area/shuttle/syndicate_elite
@@ -182,7 +182,7 @@
 
 /area/shuttle/syndicate_elite/station
 	icon_state = "shuttlered2"
-	base_turf = /turf/simulated/floor/asteroid/ash
+	base_turf = /turf/unsimulated/floor/asteroid/ash
 	station_area = 1
 
 /area/shuttle/administration
@@ -197,7 +197,7 @@
 /area/shuttle/administration/station
 	name = "\improper Administration Shuttle"
 	icon_state = "shuttlered2"
-	base_turf = /turf/simulated/floor/asteroid/ash
+	base_turf = /turf/unsimulated/floor/asteroid/ash
 	station_area = 1
 
 /area/shuttle/research
@@ -205,11 +205,18 @@
 
 /area/shuttle/research/station
 	icon_state = "shuttle2"
+	flags = RAD_SHIELDED | SPAWN_ROOF
+	base_turf = /turf/unsimulated/floor/asteroid/ash
 	station_area = 1
 
 /area/shuttle/research/outpost
 	icon_state = "shuttle"
-	station_area = 1
+	base_turf = /turf/space
+
+/area/shuttle/research/away
+	icon_state = "shuttle"
+	station_area = 0
+	base_turf = /turf/space
 
 /area/shuttle/legion/centcom
 	name = "\improper Foreign Legion Shuttle"
@@ -221,5 +228,6 @@
 /area/shuttle/legion/station
 	name = "\improper Foreign Legion Landing"
 	icon_state = "shuttlegrn2"
-	base_turf = /turf/simulated/floor/asteroid/ash
+	base_turf = /turf/unsimulated/floor/asteroid/ash
 	station_area = 1
+

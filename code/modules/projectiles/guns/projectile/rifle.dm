@@ -4,7 +4,7 @@
 	icon_state = "moistnugget"
 	item_state = "moistnugget"
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
-	fire_sound = 'sound/weapons/rifleshot.ogg'
+	fire_sound = 'sound/weapons/gunshot/gunshot_rifle.ogg'
 	caliber = "a762"
 	ammo_type = /obj/item/ammo_casing/a762
 	max_shells = 5
@@ -60,7 +60,7 @@
 	ammo_type = /obj/item/ammo_casing/a556
 	slot_flags = SLOT_BELT|SLOT_HOLSTER
 	load_method = SINGLE_CASING
-	fire_sound = 'sound/weapons/gunshot3.ogg'
+	fire_sound = 'sound/weapons/gunshot/gunshot3.ogg'
 	var/retracted_bolt = 0
 	var/icon_retracted = "pockrifle-empty"
 
@@ -111,7 +111,7 @@
 	icon_state = "springfield"
 	icon_state = "springfield"
 	origin_tech = list(TECH_COMBAT = 1, TECH_MATERIAL = 3)
-	fire_sound = 'sound/weapons/rifleshot.ogg'
+	fire_sound = 'sound/weapons/gunshot/gunshot_rifle.ogg'
 	slot_flags = SLOT_BACK
 	load_method = SINGLE_CASING|SPEEDLOADER
 	handle_casings = HOLD_CASINGS

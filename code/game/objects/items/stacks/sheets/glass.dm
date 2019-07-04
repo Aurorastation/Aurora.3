@@ -2,6 +2,7 @@
  * Contains:
  *		Glass sheets
  *		Reinforced glass sheets
+ *		Wired glass sheets
  *		Phoron Glass Sheets
  *		Reinforced Phoron Glass Sheets (AKA Holy fuck strong windows)
  *		Glass shards - TODO: Move this into code/game/object/item/weapons
@@ -19,39 +20,10 @@
 	var/list/construction_options = list("One Direction", "Full Window")
 	default_type = "glass"
 	icon_has_variants = TRUE
+	drop_sound = 'sound/items/drop/glass.ogg'
 
 /obj/item/stack/material/glass/attack_self(mob/user as mob)
 	construct_window(user)
-
-/obj/item/stack/material/glass/attackby(obj/item/W, mob/user)
-	..()
-	if(!is_reinforced)
-		if(W.iscoil())
-			var/obj/item/stack/cable_coil/CC = W
-			if (get_amount() < 1 || CC.get_amount() < 5)
-				to_chat(user, "<span class='warning'>You need five lengths of coil and one sheet of glass to make wired glass.</span>")
-				return
-
-			CC.use(5)
-			use(1)
-			to_chat(user, "<span class='notice'>You attach wire to the [name].</span>")
-			new /obj/item/stack/light_w(user.loc)
-		else if(istype(W, /obj/item/stack/rods))
-			var/obj/item/stack/rods/V  = W
-			if (V.get_amount() < 1 || get_amount() < 1)
-				to_chat(user, "<span class='warning'>You need one rod and one sheet of glass to make reinforced glass.</span>")
-				return
-
-			var/obj/item/stack/material/glass/reinforced/RG = new (user.loc)
-			RG.add_fingerprint(user)
-			RG.add_to_stacks(user)
-			var/obj/item/stack/material/glass/G = src
-			src = null
-			var/replace = (user.get_inactive_hand()==G)
-			V.use(1)
-			G.use(1)
-			if (!G && replace)
-				user.put_in_hands(RG)
 
 /obj/item/stack/material/glass/proc/construct_window(mob/user as mob)
 	if(!user || !src)	return 0
@@ -137,6 +109,40 @@
 	construction_options = list("One Direction", "Full Window", "Windoor")
 
 /*
+ * Wired glass sheets
+ */
+/obj/item/stack/material/glass/wired
+	name = "wired glass tile"
+	singular_name = "wired glass floor tile"
+	desc = "A glass tile, which is wired, somehow."
+	icon = 'icons/obj/stacks/tiles.dmi'
+	icon_state = "glass_wire"
+	created_window = null
+	default_type = "wired glass"
+	construction_options = list()
+
+/obj/item/stack/material/glass/wired/attackby(var/obj/O, mob/user as mob)
+	if(istype(O, /obj/item/stack/material/steel))
+		var/obj/item/stack/material/steel/M = O
+		if (M.use(1))
+			var/obj/item/L = new /obj/item/stack/tile/light
+			user.drop_from_inventory(L,get_turf(src))
+			to_chat(user, "<span class='notice'>You make a light tile.</span>")
+			use(1)
+		else
+			to_chat(user, "<span class='warning'>You need one metal sheet to finish the light tile!</span>")
+
+	else if(istype(O, /obj/item/weapon/wirecutters))
+		user.drop_from_inventory(O,get_turf(src))
+		to_chat(user, "<span class='notice'>You detach the wire from the [name].</span>")
+		playsound(src.loc, 'sound/items/Wirecutter.ogg', 100, 1)
+		new /obj/item/stack/cable_coil(user.loc, 5)
+		new /obj/item/stack/material/glass(user.loc)
+		use(1)
+	else
+		return ..()
+
+/*
  * Phoron Glass sheets
  */
 /obj/item/stack/material/glass/phoronglass
@@ -146,23 +152,6 @@
 	created_window = /obj/structure/window/phoronbasic
 	default_type = "phoron glass"
 	icon_has_variants = FALSE
-
-/obj/item/stack/material/glass/phoronglass/attackby(obj/item/W, mob/user)
-	..()
-	if( istype(W, /obj/item/stack/rods) )
-		var/obj/item/stack/rods/V  = W
-		var/obj/item/stack/material/glass/phoronrglass/RG = new (user.loc)
-		RG.add_fingerprint(user)
-		RG.add_to_stacks(user)
-		V.use(1)
-		var/obj/item/stack/material/glass/G = src
-		src = null
-		var/replace = (user.get_inactive_hand()==G)
-		G.use(1)
-		if (!G && !RG && replace)
-			user.put_in_hands(RG)
-	else
-		return ..()
 
 /*
  * Reinforced phoron glass sheets

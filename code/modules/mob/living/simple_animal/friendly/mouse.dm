@@ -48,6 +48,7 @@
 	min_scan_interval = 2
 	max_scan_interval = 20
 	seek_speed = 1
+	max_nutrition = 17
 
 	can_pull_size = 1
 	can_pull_mobs = MOB_PULL_NONE

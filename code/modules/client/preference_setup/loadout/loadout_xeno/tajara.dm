@@ -1,5 +1,6 @@
 /datum/gear/gloves/tajara
 	display_name = "tajara gloves selection"
+	description = "A selection of tajaran colored gloves."
 	path = /obj/item/clothing/gloves/black/tajara
 	whitelisted = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
 	sort_category = "Xenowear - Tajara"
@@ -19,6 +20,7 @@
 
 /datum/gear/suit/tajara_coat
 	display_name = "tajara coat selection"
+	description = "A selection of tajaran native coats."
 	path = /obj/item/clothing/suit/storage/tajaran
 	whitelisted = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
 	sort_category = "Xenowear - Tajara"
@@ -35,6 +37,7 @@
 
 /datum/gear/suit/tajara_priest
 	display_name = "tajaran priest robe selection"
+	description = "A selection of tajaran religious robes."
 	path = /obj/item/clothing/suit/storage/hooded/tajaran/priest
 	whitelisted = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
 	sort_category = "Xenowear - Tajara"
@@ -55,6 +58,7 @@
 
 /datum/gear/uniform/tajara
 	display_name = "tajaran uniform selection"
+	description = "A selection of tajaran native uniforms."
 	path = /obj/item/clothing/under/tajaran
 	whitelisted = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
 	sort_category = "Xenowear - Tajara"
@@ -69,6 +73,7 @@
 
 /datum/gear/uniform/tajara_dress
 	display_name = "tajaran dress selection"
+	description = "A selection of tajaran native dresses."
 	path = /obj/item/clothing/under/dress/tajaran
 	whitelisted = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
 	sort_category = "Xenowear - Tajara"
@@ -86,6 +91,7 @@
 
 /datum/gear/accessory/tajara
 	display_name = "fur scarf"
+	description = "A selection of tajaran colored fur scarfs."
 	path = /obj/item/clothing/accessory/tajaran
 	whitelisted = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
 	sort_category = "Xenowear - Tajara"
@@ -106,6 +112,7 @@
 
 /datum/gear/head/tajara
 	display_name = "adhomian headgear selection"
+	description = "A selection of tajaran native headgear."
 	path = /obj/item/clothing/head/tajaran/circlet
 	whitelisted = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
 	sort_category = "Xenowear - Tajara"
@@ -120,6 +127,7 @@
 
 /datum/gear/accessory/tajara_wrap
 	display_name = "marriage wrap"
+	description = "A holy cloth wrap that signifies marriage amongst tajara."
 	path = /obj/item/clothing/accessory/tajaran_wrap
 	whitelisted = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
 	sort_category = "Xenowear - Tajara"

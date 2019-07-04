@@ -30,6 +30,10 @@
 
 	tameable = FALSE
 
+	meat_type = /obj/item/weapon/reagent_containers/food/snacks/bearmeat
+	butchering_products = list(/obj/item/clothing/head/bearpelt = 1)
+	meat_amount = 5
+
 /mob/living/simple_animal/hostile/commanded/bear/hit_with_weapon(obj/item/O, mob/living/user, var/effective_force, var/hit_zone)
 	. = ..()
 	if(!.)
