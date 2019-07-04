@@ -2893,3 +2893,64 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_state = "khasan_helmet"
 	item_state = "khasan_helmet"
 	contained_sprite = TRUE
+
+
+/obj/item/fluff/akinyi_symphette //Holo-symphette - Akinyi Idowu - kyres1
+	name = "holo-symphette"
+	desc = "A cheap, collapsible musical instrument which utilizes holographic projections to generate a rough noise. It's shaped like a small harp, and seems to be  \
+	able to be tuned to mimic several old stringed Solarian instruments with some distorted audio. It's still got its price tag sticker on it."
+	icon = 'icons/obj/custom_items/akinyi_symphette.dmi'
+	icon_state = "akinyi_symphette"
+	item_state = "akinyi_symphette"
+	w_class = 3
+	slot_flags = SLOT_BACK
+	contained_sprite = TRUE
+	var/deployed = FALSE
+
+/obj/item/fluff/akinyi_symphette/update_icon()
+	if(deployed)
+		icon_state = "akinyi_symphette_on"
+		item_state = "akinyi_symphette_on"
+	else
+		icon_state = "akinyi_symphette"
+		item_state = "akinyi_symphette"
+
+/obj/item/fluff/akinyi_symphette/attack_self(var/mob/user)
+	deployed = !deployed
+	to_chat(user, "<span class='notice'>You [deployed ? "expand" : "collapse"] \the [src].</span>")
+	update_icon()
+	user.update_inv_l_hand()
+	user.update_inv_r_hand()
+
+/obj/item/weapon/reagent_containers/food/drinks/teapot/fluff/thea_teapot //Bronze Teapot - Thea Reeves - shestrying
+	name = "bronze teapot"
+	desc = "A round-bottomed, well-used teapot. It looks as though it's been carefully maintained."
+	icon = 'icons/obj/custom_items/thea_tea.dmi'
+	icon_state = "thea_teapot"
+
+/obj/item/weapon/reagent_containers/food/drinks/fluff/thea_teacup //Bonze Teacup - Thea Reeves - shestrying
+	name = "bronze teacup"
+	desc = "A shallow, bronze teacup. Looks heavy."
+	icon = 'icons/obj/custom_items/thea_tea.dmi'
+	icon_state = "thea_teacup"
+	volume = 20
+
+/obj/item/weapon/storage/box/fluff/thea_teabox //Tea Box - Thea Reeves - shestrying
+	desc = "A black, wooden box, the edges softened with transport and use."
+	icon = 'icons/obj/custom_items/thea_tea.dmi'
+	icon_state = "thea_teabox"
+	foldable = null
+	can_hold = list(/obj/item/weapon/reagent_containers/food/drinks/teapot/fluff/thea_teapot, /obj/item/weapon/reagent_containers/food/drinks/fluff/thea_teacup)
+
+/obj/item/weapon/storage/box/fluff/thea_teabox/fill()
+	new /obj/item/weapon/reagent_containers/food/drinks/teapot/fluff/thea_teapot(src)
+	for(var/i in 1 to 4)
+		new /obj/item/weapon/reagent_containers/food/drinks/fluff/thea_teacup(src)
+	make_exact_fit()
+
+/obj/item/fluff/fraseq_journal //Fraseq's Journal of Mysteries - Quorrdash Fraseq - kingoftheping
+	name = "leather journal"
+	desc = "An old, worn out journal made out of leather. It has a lot of lose pages stuck in it, it surely has seen better days. The front just says \"Fraseq\"."
+//	icon = 'icons/obj/custom_items/fraseq_journal.dmi'
+//	icon_state = "fraseq_journal"
+	w_class = 3
