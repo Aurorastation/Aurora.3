@@ -195,7 +195,6 @@
 	if(!istype(T))
 		return
 
-	T.color = initial(T.color)
 	var/datum/gas_mixture/environment = T.return_air()
 	var/min_temperature = T0C + 100 // 100C, the boiling point of water
 
@@ -217,20 +216,10 @@
 		T.wet_floor(WET_TYPE_WATER,volume)
 
 /datum/reagent/water/touch_obj(var/obj/O)
-	if(istype(O))
-		O.color = initial(O.color)
-		if(istype(O, /obj/item/weapon/light))
-			var/obj/item/weapon/light/L = O
-			L.brightness_color = initial(L.brightness_color)
-			L.update()
-		else if(istype(O, /obj/machinery/light))
-			var/obj/machinery/light/L = O
-			L.brightness_color = initial(L.brightness_color)
-			L.update()
-		else if(istype(O, /obj/item/weapon/reagent_containers/food/snacks/monkeycube))
-			var/obj/item/weapon/reagent_containers/food/snacks/monkeycube/cube = O
-			if(!cube.wrapped)
-				cube.Expand()
+	if(istype(O, /obj/item/weapon/reagent_containers/food/snacks/monkeycube))
+		var/obj/item/weapon/reagent_containers/food/snacks/monkeycube/cube = O
+		if(!cube.wrapped)
+			cube.Expand()
 
 /datum/reagent/water/touch_mob(var/mob/M, var/amount)
 	. = ..()
