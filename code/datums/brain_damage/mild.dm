@@ -251,6 +251,7 @@
 	scan_desc = "minor damage to the brain's occipital lobe"
 	gain_text = "<span class='warning'>Your perception of color distorts!</span>"
 	lose_text = "<span class='notice'>Your vision returns.</span>"
+	cure_type = CURE_SURGERY
 	var/colorblindedness
 
 /datum/brain_trauma/mild/colorblind/on_gain()
