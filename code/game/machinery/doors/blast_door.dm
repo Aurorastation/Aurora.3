@@ -206,6 +206,13 @@ obj/machinery/door/blast/regular
 	maxhealth = 600
 	block_air_zones = 1
 
+/obj/machinery/door/blast/regular/unbreakable
+	unacidable = 1
+	maxhealth = null
+
+obj/machinery/door/blast/regular/unbreakable/ex_act(severity)
+	return
+
 obj/machinery/door/blast/regular/open
 	icon_state = "pdoor0"
 	density = 0

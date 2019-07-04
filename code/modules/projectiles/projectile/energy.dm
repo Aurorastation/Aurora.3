@@ -218,7 +218,7 @@
 	muzzle_type = /obj/effect/projectile/muzzle/bolt
 
 /obj/item/projectile/energy/blaster/overcharge
-	damage = 35
+	damage = 40
 	armor_penetration = 20
 
 /obj/item/projectile/energy/blaster/heavy

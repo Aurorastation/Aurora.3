@@ -54,7 +54,6 @@
 		list(mode_name="OVERCHARGE", burst=1, fire_delay=30,	fire_delay_wielded = 20,	move_delay=null,	burst_accuracy=null,	dispersion=null,	charge_cost = 400,	projectile_type=/obj/item/projectile/energy/blaster/overcharge)
 		)
 
-
 	fire_delay_wielded = 10
 	accuracy_wielded = 1
 

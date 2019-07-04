@@ -22085,6 +22085,15 @@
 	dir = 4
 	},
 /area/centcom/living)
+"jdC" = (
+/obj/structure/mirror{
+	pixel_y = -32
+	},
+/turf/unsimulated/floor{
+	dir = 8;
+	icon_state = "wood"
+	},
+/area/centcom/legion_base/hangar5)
 "jdM" = (
 /obj/effect/floor_decal/corner/blue{
 	icon_state = "corner_white";
@@ -23418,19 +23427,8 @@
 	},
 /area/centcom/legion_base/hangar5)
 "xpi" = (
-/obj/machinery/door/blast/regular{
-	dir = 4;
-	id = "tcflmechanized";
-	name = "Heavy Support Garage"
-	},
 /obj/effect/decal/cleanable/dirt,
-/turf/unsimulated/floor{
-	name = "plating"
-	},
-/area/centcom/legion_base/hangar5)
-"xpk" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/machinery/door/blast/regular{
+/obj/machinery/door/blast/regular/unbreakable{
 	dir = 4;
 	id = "tcflmechanized";
 	name = "Heavy Support Garage"
@@ -24321,7 +24319,16 @@
 	layer = 3.5;
 	name = "Hangar 5";
 	pixel_x = 8;
-	pixel_y = 32
+	pixel_y = 28
+	},
+/obj/effect/decal/spraystill{
+	desc = "A sign.";
+	icon = 'icons/obj/decals.dmi';
+	icon_state = "deck1";
+	layer = 3.5;
+	name = "Deck 1";
+	pixel_x = 4;
+	pixel_y = 38
 	},
 /turf/unsimulated/floor{
 	icon_state = "dark"
@@ -86247,7 +86254,7 @@ xZe
 xlU
 xne
 xYC
-xYC
+jdC
 xZf
 xrJ
 xZf
@@ -87789,7 +87796,7 @@ xZf
 xte
 xnk
 xte
-xpk
+xpi
 xte
 xMv
 xMv
@@ -88046,7 +88053,7 @@ xZf
 xte
 xte
 xte
-xpk
+xpi
 xqx
 xMv
 xMv
