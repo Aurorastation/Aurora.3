@@ -165,7 +165,7 @@ Proc for attack log creation, because really why not
 
 //checks whether this item is a module of the robot it is located in.
 /proc/is_robot_module(var/obj/item/thing)
-	if (!thing || (!istype(thing.loc, /mob/living/silicon/robot) && !istype(thing, /obj/item/weapon/gripper)))
+	if (!thing || !istype(thing.loc, /mob/living/silicon/robot))
 		return 0
 	var/mob/living/silicon/robot/R = thing.loc
 	return (thing in R.module.modules)
