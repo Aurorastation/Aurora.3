@@ -245,8 +245,6 @@
 		/obj/item/weapon/reagent_containers/glass,
 		/obj/item/weapon/reagent_containers/food/snacks/monkeycube,
 		/obj/item/organ,
-		/obj/item/clothing/mask,
-		/obj/item/weapon/tank,
 		/obj/item/weapon/reagent_containers/pill,
 		/obj/item/weapon/reagent_containers/spray,
 		/obj/item/weapon/storage/pill_bottle,
