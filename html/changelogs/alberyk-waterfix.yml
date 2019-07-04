@@ -1,6 +1,0 @@
-author: Alberyk
-
-delete-after: True
-
-changes: 
-  - tweak: "Water should no longer remove the color from objects, but should still remove paint from mobs."
