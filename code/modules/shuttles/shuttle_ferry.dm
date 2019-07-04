@@ -26,6 +26,8 @@
 	var/list/crash_offset = list(-50, 50)
 	var/ship_size = 0
 	var/walls_count = 0
+	var/exterior_walls = list()
+	var/engines = list()
 
 /datum/shuttle/ferry/init_shuttle(var/list/settings)
 	location = settings[1]
@@ -45,6 +47,9 @@
 	for(var/A in area_current.contents)
 		if(isturf(A))
 			ship_size += 1
+			if(istype(A, /turf/simulated/shuttle) && exterior_wall(A))
+				var/turf/T = A
+				exterior_walls += list(T.x, T.y, T.z)
 			if(integrity_check(A))
 				walls_count += 1
 		else if(istype(A, /obj/structure/shuttle/engine/propulsion))
@@ -56,6 +61,16 @@
 			e_turf.dir = P.dir
 			e_turf.update_icon()
 			e_turf.add_overlay("engine_mount")
+			engines += list(e_turf.x, e_turf.y, e_turf.z)
+
+/datum/shuttle/ferry/proc/exterior_wall(var/turf/simulated/shuttle/T)
+	for(var/v in list(NORTH, SOUTH, EAST, WEST))
+		var/turf/n_T = get_step(T, v)
+		if(!n_T)
+			continue
+		if(!istype(n_T, /turf/simulated/shuttle))
+			return TRUE
+	return FALSE
 
 /datum/shuttle/ferry/proc/integrity_check(var/V)
 	if(!isturf(V))
@@ -93,8 +108,13 @@
 	if (destination == area_station) location = 0
 	if (destination == area_offsite) location = 1
 	//if this is a long_jump retain the location we were last at until we get to the new one
-	for(var/obj/structure/shuttle/engine/propulsion/P in area_current.contents)
-		P.update_damage()
+	for(var/v in engines)
+		var/list/l = v
+		var/turf/P_T = locate(l[1], l[2], l[3])
+		if(!P_T)
+			continue
+		for(var/obj/structure/shuttle/engine/propulsion/P in P_T.contents)
+			P.update_damage()
 
 /datum/shuttle/ferry/dock()
 	..()

@@ -148,6 +148,37 @@
 
 	return references
 
+/datum/shuttle/proc/move_contents_to(area/A, area/B, turf_to_leave = null, var/list/references)
+	var/list/source_turfs = A.build_ordered_turf_list(turf_to_leave)
+	var/list/target_turfs = B.build_ordered_turf_list()
+	if(!references)
+		references = list()
+
+	ASSERT(source_turfs.len == target_turfs.len)
+
+	for (var/i = 1 to source_turfs.len)
+		var/turf/ST = source_turfs[i]
+		if (!ST)	// Excluded turfs are null to keep the list ordered.
+			continue
+
+		var/turf/TT = ST.copy_turf(target_turfs[i])
+
+		for (var/thing in ST)
+			var/atom/movable/AM = thing
+			AM.shuttle_move(TT)
+
+		ST.ChangeTurf(ST.baseturf)
+		// In case we need to keep track of turfs
+		var/r = references.Find(list(ST.x, ST.y, ST.z))
+		var/list/coord = list(TT.x, TT.y, TT.z)
+		if(r)
+			references[r] = coord
+		else
+			references += coord
+
+		TT.update_icon()
+		TT.update_above()
+
 //returns 1 if the shuttle has a valid arrive time
 /datum/shuttle/proc/has_arrive_time()
 	return (moving_status == SHUTTLE_INTRANSIT)

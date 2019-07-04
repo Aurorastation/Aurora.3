@@ -46,11 +46,9 @@
 				. += T
 
 // Moves the contents of this area to A. If turf_to_leave is defined, that type will be excluded from the area.
-/area/proc/move_contents_to(area/A, turf_to_leave = null, var/list/references)
+/area/proc/move_contents_to(area/A, turf_to_leave = null)
 	var/list/source_turfs = src.build_ordered_turf_list(turf_to_leave)
 	var/list/target_turfs = A.build_ordered_turf_list()
-	if(!references)
-		references = list()
 
 	ASSERT(source_turfs.len == target_turfs.len)
 
@@ -65,17 +63,10 @@
 			var/atom/movable/AM = thing
 			AM.shuttle_move(TT)
 
-		// In case we need to keep track of turfs
-		var/r = references.Find(ST)
-		if(r)
-			references[r] = ST.ChangeTurf(ST.baseturf) 
-		else
-			references += ST.ChangeTurf(ST.baseturf)
+		ST.ChangeTurf(ST.baseturf)
 
 		TT.update_icon()
 		TT.update_above()
-	
-	return references
 
 // Called when a movable area wants to move this object.
 /atom/movable/proc/shuttle_move(turf/loc)
