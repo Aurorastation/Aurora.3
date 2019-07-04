@@ -217,18 +217,6 @@ var/datum/controller/subsystem/ticker/SSticker
 			else if(!delay_notified)
 				to_world("<span class='notice'><b>An admin has delayed the round end</b></span>")
 
-	else if (mode_finished)
-		post_game = 1
-
-		mode.cleanup()
-
-		//call a transfer shuttle vote
-		spawn(50)
-			if(!round_end_announced) // Spam Prevention. Now it should announce only once.
-				to_world("<span class='danger'>The round has ended!</span>")
-				round_end_announced = 1
-			SSvote.autotransfer()
-
 	return 1
 
 /datum/controller/subsystem/ticker/proc/declare_completion()
