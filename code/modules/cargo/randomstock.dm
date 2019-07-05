@@ -72,7 +72,7 @@ var/list/global/random_stock_large = list()
 	var/list/warehouseturfs = list()
 
 	var/list/infest_mobs_minor = list(
-		/mob/living/simple_animal/mouse = 1,
+		/mob/living/simple_animal/rat = 1,
 		/mob/living/simple_animal/lizard = 0.5,
 		/mob/living/simple_animal/yithian = 0.7,
 		/mob/living/simple_animal/tindalos = 0.6,
