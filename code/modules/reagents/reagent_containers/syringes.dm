@@ -427,7 +427,7 @@
 	name = "Syringe (methicillin)"
 	desc = "Contains antibiotics."
 
-/obj/item/weapon/reagent_containers/syringe/antiviral/Initialize()
+/obj/item/weapon/reagent_containers/syringe/antibiotic/Initialize()
 		. = ..()
 		reagents.add_reagent("methicillin", 15)
 		mode = SYRINGE_INJECT
