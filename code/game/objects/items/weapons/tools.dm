@@ -305,7 +305,7 @@
 		if(!(S.status & ORGAN_ASSISTED) || user.a_intent != I_HELP)
 			return ..()
 
-		if(M.isSynthetic() && M == user && !(M.get_species() == "Hunter-Killer"))
+		if(M.isSynthetic() && M == user && !(M.get_species() == "Military Frame"))
 			to_chat(user, "<span class='warning'>You can't repair damage to your own body - it's against OH&S.</span>")
 			return
 		if(S.brute_dam == 0)
