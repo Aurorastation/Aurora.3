@@ -17,9 +17,51 @@
 	var/sound_takeoff = "ship_takeoff"
 	var/sound_landing = "ship_landing"
 	var/sound_crash = "ship_crash"
+	// Vars for crashing
+	var/transit_direction = null	//needed for area/move_contents_to() to properly handle shuttle corners - not exactly sure how it works.
+	var/engines_count = 0 //Used to determine if shuttle should crash
+	var/engines_checked = FALSE
+	var/area_crash
+	var/list/crash_offset = list(-10, 10)
+	var/ship_size = 0
+	var/walls_count = 0
+	var/list/exterior_walls_and_engines = list()
 
 /datum/shuttle/proc/init_shuttle()
-	return
+	//Calculating size and integrity
+	for(var/A in area_current.contents)
+		if(isturf(A))
+			ship_size += 1
+			if(istype(A, /turf/simulated/shuttle) && exterior_wall(A))
+				var/turf/T = A
+				exterior_walls_and_engines |= list(list(T.x, T.y, T.z))
+			if(integrity_check(A))
+				walls_count += 1
+		else if(istype(A, /obj/structure/shuttle/engine/propulsion))
+			engines_count += 1
+			var/obj/structure/shuttle/engine/propulsion/P = A
+			var/turf/simulated/shuttle/e_turf = get_turf(P)
+			e_turf.name = "engine mount"
+			e_turf.destructible = FALSE
+			e_turf.dir = P.dir
+			e_turf.update_icon()
+			e_turf.add_overlay("engine_mount")
+			exterior_walls_and_engines |= list(list(e_turf.x, e_turf.y, e_turf.z))
+
+/datum/shuttle/proc/exterior_wall(var/turf/simulated/shuttle/T)
+	for(var/v in list(NORTH, SOUTH, EAST, WEST))
+		var/turf/n_T = get_step(T, v)
+		if(!n_T)
+			continue
+		if(!istype(n_T, /turf/simulated/shuttle))
+			return TRUE
+	return FALSE
+
+/datum/shuttle/proc/integrity_check(var/V)
+	if(!isturf(V))
+		return FALSE
+	var/turf/T = V
+	return istype(T, /turf/simulated/wall) || istype(T, /turf/simulated/shuttle/wall) || istype(T, /turf/unsimulated/wall)
 
 /datum/shuttle/proc/announce(var/message)
 	var/area/A = area_current
@@ -39,7 +81,7 @@
 		if(!istype(docking_controller))
 			to_world("<span class='danger'>warning: shuttle with docking tag [docking_controller_tag] could not find it's controller!</span>")
 
-/datum/shuttle/proc/short_jump(var/area/origin, var/area/destination, var/list/references = list())
+/datum/shuttle/proc/short_jump(var/area/origin, var/area/destination)
 	if(moving_status != SHUTTLE_IDLE) return
 
 	moving_status = SHUTTLE_WARMUP
@@ -50,11 +92,11 @@
 			return	//someone cancelled the launch
 
 		moving_status = SHUTTLE_INTRANSIT //shouldn't matter but just to be safe
-		move(origin, destination, references)
+		move(origin, destination)
 		moving_status = SHUTTLE_IDLE
 		play_sound(sound_landing, destination)
 
-/datum/shuttle/proc/long_jump(var/area/departing, var/area/destination, var/area/interim, var/travel_time, var/direction, var/list/references = list())
+/datum/shuttle/proc/long_jump(var/area/departing, var/area/destination, var/area/interim, var/travel_time, var/direction)
 	if(moving_status != SHUTTLE_IDLE) return
 
 	//it would be cool to play a sound here
@@ -66,13 +108,13 @@
 
 		arrive_time = world.time + travel_time*10
 		moving_status = SHUTTLE_INTRANSIT
-		move(departing, interim, references)
+		move(departing, interim)
 
 
 		while (world.time < arrive_time)
 			sleep(5)
 
-		move(interim, destination, references)
+		move(interim, destination)
 		moving_status = SHUTTLE_IDLE
 		play_sound(sound_landing, destination)
 
@@ -94,9 +136,6 @@
 /datum/shuttle/proc/current_dock_target()
 	return null
 
-/datum/shuttle/proc/check_engines()
-	return
-
 /datum/shuttle/proc/skip_docking_checks()
 	if (!docking_controller || !current_dock_target())
 		return 1	//shuttles without docking controllers or at locations without docking ports act like old-style shuttles
@@ -105,7 +144,7 @@
 //just moves the shuttle from A to B, if it can be moved
 //A note to anyone overriding move in a subtype. move() must absolutely not, under any circumstances, fail to move the shuttle.
 //If you want to conditionally cancel shuttle launches, that logic must go in short_jump() or long_jump()
-/datum/shuttle/proc/move(var/area/origin, var/area/destination, var/list/references = list())
+/datum/shuttle/proc/move(var/area/origin, var/area/destination)
 	if(origin == destination)
 		return
 
@@ -130,7 +169,7 @@
 	for(var/mob/living/bug in destination)
 		bug.gib()
 
-	move_contents_to(origin, destination, references = references)
+	move_contents_to(origin, destination)
 
 	for(var/mob/M in destination)
 		if(M.client)
@@ -146,13 +185,11 @@
 				M.Weaken(3)
 	area_current = destination
 
-	return references
-
-/datum/shuttle/proc/move_contents_to(area/A, area/B, turf_to_leave = null, var/list/references)
+/datum/shuttle/proc/move_contents_to(area/A, area/B, turf_to_leave = null)
 	var/list/source_turfs = A.build_ordered_turf_list(turf_to_leave)
 	var/list/target_turfs = B.build_ordered_turf_list()
-	if(!references)
-		references = list()
+	if(exterior_walls_and_engines)
+		exterior_walls_and_engines.Cut()
 
 	ASSERT(source_turfs.len == target_turfs.len)
 
@@ -171,7 +208,7 @@
 
 		ST.ChangeTurf(ST.baseturf)
 		// In case we need to keep track of turfs
-		references |= list(list(TT.x, TT.y, TT.z))
+		exterior_walls_and_engines |= list(list(TT.x, TT.y, TT.z))
 
 		TT.update_icon()
 		TT.update_above()
@@ -179,3 +216,101 @@
 //returns 1 if the shuttle has a valid arrive time
 /datum/shuttle/proc/has_arrive_time()
 	return (moving_status == SHUTTLE_INTRANSIT)
+
+/datum/shuttle/proc/check_engines()
+	var/engines_c = 0
+	var/walls_c = 0
+	// counting engines
+	for(var/list/v in exterior_walls_and_engines)
+		var/turf/S = get_turf(locate(v[1], v[2], v[3]))
+		if(!S)
+			return
+		for(var/a in S.contents)
+			if(istype(a, /obj/structure/shuttle/engine/propulsion))
+				var/obj/structure/shuttle/engine/propulsion/P = a
+				if(P.dir == S.dir)
+					engines_c += 1
+		if(integrity_check(S))
+			walls_c += 1
+	
+	var/ratio = round((1 - (engines_c / engines_count)) * 100)
+	var/integrity = round((walls_c / walls_count) * 100)
+	var/crash_chance = ratio + round((100 - integrity) * 0.25)
+	if(crash_chance && !engines_checked)
+		var/message = ""
+		if(ratio == 100)
+			announce(span("danger", "Flight computer states: \"Warning: shuttle's propulsion system is entirely destroyed! Unable to launch!\""))
+			return FALSE
+
+		if(area_current.z == 1 || area_current.z == 2)
+			return TRUE
+		else
+			var/grav = SSmachinery.gravity_generators.len ? pick(SSmachinery.gravity_generators).charge_count : FALSE
+			if(!grav)
+				return TRUE
+
+		engines_checked = TRUE
+		message += span("danger", "Flight computer states: \"Warning: shuttle's propulsion system is damaged! There is a [crash_chance]% chance of crash!\nEngines integrity: [100-ratio]%, Shuttle integrity: [integrity]%\nDetails:\n [engines_c] out of [engines_count] engines, [walls_c] out of [walls_count] walls.\"\n")
+		message += span("notice", "Flight computer states: \"Press Launch again within 5 seconds to continue!\"") 
+		announce(message)
+		addtimer(CALLBACK(src, .proc/reset_engines_check), 5 SECONDS)
+		return FALSE
+	else if(crash_chance)
+		if(ratio == 100)
+			announce(span("danger", "Flight computer states: \"Warning: shuttle's propulsion system is entirely destroyed! Unable to launch!\""))
+			return FALSE
+		if(prob(crash_chance))
+			undock()
+			engines_checked = FALSE
+			sleep(20)
+			crash_shuttle()
+			return FALSE
+		else
+			engines_checked = FALSE
+			return TRUE
+	else
+		engines_checked = FALSE
+		return TRUE
+
+/datum/shuttle/proc/crash_shuttle()
+	var/area/A = area_current
+	announce(span("danger", "Flight computer states: \"Warning: Not enough propulsion to gain velocity! Loosing altitude!\""))
+	var/distance_x = pick(crash_offset[1], crash_offset[2])
+	var/distance_y = pick(crash_offset[1], crash_offset[2])
+
+	if(transit_direction == NORTH || transit_direction == SOUTH)
+		distance_y = distance_y < 0 ? distance_y - round(sqrt(ship_size) + 1) : distance_y + round(sqrt(ship_size) + 1)
+	else
+		distance_x = distance_x < 0 ? distance_x - round(sqrt(ship_size) + 1) : distance_x + round(sqrt(ship_size) + 1)
+
+	var/area/crash = new area_crash
+	for(var/turf/T in A.contents)
+		var/turf/T_n = get_turf(locate(T.x + distance_x, T.y + distance_y, T.z))
+
+		// Making sure we remove everything on crash side
+		for(var/a in T_n.contents)
+			if(!ismob(a))
+				qdel(a)
+			CHECK_TICK
+		if(T_n)
+			crash.contents += T_n
+		CHECK_TICK
+
+	play_sound(sound_crash, crash)
+	sleep(70) // Has to be 4 seconds less than how long is crash sound. Change if the sound is changed.
+	for(var/mob/living/L in A.contents)
+		shake_camera(L, 10, 1)
+		if(!L.buckled)
+			L.ex_act(2)
+		else
+			L.ex_act(3)
+
+	move(area_current, crash)
+	var/num = round(ship_size * 0.15)
+	while(num > 0)
+		explosion(pick(crash.contents), 1, 0, 1, 1, 0) // explosion inside of the shuttle, as in we damaged it
+		num -= 1
+	area_current = crash
+
+/datum/shuttle/proc/reset_engines_check()
+	engines_checked = FALSE
