@@ -274,3 +274,17 @@
 	desc = "A heavy ion gauss slug."
 	icon_state = "empslug"
 	projectile_type = /obj/item/projectile/ion/gauss
+
+/obj/item/ammo_casing/plasma_slug
+	name = "plasma slug"
+	desc = "A plasma slug."
+	icon_state = "plasmaslug"
+	caliber = "plasma slug"
+	projectile_type = /obj/item/projectile/plasma
+
+/obj/item/ammo_casing/plasma_bolt
+	name = "plasma bolt"
+	desc = "A plasma bolt."
+	icon_state = "plasmabolt"
+	caliber = "plasma bolt"
+	projectile_type = /obj/item/projectile/plasma/light

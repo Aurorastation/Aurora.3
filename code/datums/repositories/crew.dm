@@ -1,3 +1,5 @@
+#define ZERO_WIDTH_SPACE "&#8203;" //prevents the UI elements from popping out of place when viewport gets too small
+
 var/global/datum/repository/crew/crew_repository = new()
 
 /datum/repository/crew
@@ -7,6 +9,21 @@ var/global/datum/repository/crew/crew_repository = new()
 	cache_data = list()
 	..()
 
+/datum/repository/crew/proc/calcDamage_Inaccurate(var/DMGValue) //overrides global proc: this displays healthy even when damaged up to 10 points
+	switch(DMGValue)
+		if (0 to 10)
+			return ZERO_WIDTH_SPACE + "Healthy"
+		if (10 to 25)
+			return ZERO_WIDTH_SPACE + "Minor"
+		if (25 to 50)
+			return ZERO_WIDTH_SPACE + "Moderate"
+		if (50 to 75)
+			return ZERO_WIDTH_SPACE + "Major"
+		if (75 to 200)
+			return ZERO_WIDTH_SPACE + "Critical"
+		if (200 to INFINITY)
+			return ZERO_WIDTH_SPACE + "Fatal"
+			
 /datum/repository/crew/proc/health_data(var/z_level)
 	var/list/crewmembers = list()
 	if(!z_level)
@@ -29,7 +46,7 @@ var/global/datum/repository/crew/crew_repository = new()
 				if(H.w_uniform != C)
 					continue
 
-				var/list/crewmemberData = list("dead"=0, "oxy"=-1, "tox"=-1, "fire"=-1, "brute"=-1, "area"="", "x"=-1, "y"=-1, "z"=-1, "level"="", "ref" = "\ref[H]")
+				var/list/crewmemberData = list("dead"=0, "oxy"=ZERO_WIDTH_SPACE+"Healthy", "tox"=ZERO_WIDTH_SPACE+"Healthy", "fire"=ZERO_WIDTH_SPACE+"Healthy", "brute"=ZERO_WIDTH_SPACE+"Healthy", "area"="", "x"=-1, "y"=-1, "z"=-1, "level"="", "ref" = "\ref[H]")
 
 				crewmemberData["sensor_type"] = C.sensor_mode
 				crewmemberData["name"] = H.get_authentification_name(if_no_id="Unknown")
@@ -40,10 +57,10 @@ var/global/datum/repository/crew/crew_repository = new()
 					crewmemberData["dead"] = H.stat > UNCONSCIOUS
 
 				if(C.sensor_mode >= SUIT_SENSOR_VITAL)
-					crewmemberData["oxy"] = round(H.getOxyLoss(), 1)
-					crewmemberData["tox"] = round(H.getToxLoss(), 1)
-					crewmemberData["fire"] = round(H.getFireLoss(), 1)
-					crewmemberData["brute"] = round(H.getBruteLoss(), 1)
+					crewmemberData["oxy"] = calcDamage_Inaccurate(H.getOxyLoss())
+					crewmemberData["tox"] = calcDamage_Inaccurate(H.getToxLoss())
+					crewmemberData["fire"] = calcDamage_Inaccurate(H.getFireLoss())
+					crewmemberData["brute"] = calcDamage_Inaccurate(H.getBruteLoss())
 
 				if(C.sensor_mode >= SUIT_SENSOR_TRACKING)
 					var/area/A = get_area(H)
@@ -68,3 +85,5 @@ var/global/datum/repository/crew/crew_repository = new()
 			if (C.has_sensor)
 				tracked |= C
 	return tracked
+	
+#undef ZERO_WIDTH_SPACE
