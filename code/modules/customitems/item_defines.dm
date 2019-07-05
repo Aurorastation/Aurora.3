@@ -2951,6 +2951,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 /obj/item/fluff/fraseq_journal //Fraseq's Journal of Mysteries - Quorrdash Fraseq - kingoftheping
 	name = "leather journal"
 	desc = "An old, worn out journal made out of leather. It has a lot of lose pages stuck in it, it surely has seen better days. The front just says \"Fraseq\"."
-//	icon = 'icons/obj/custom_items/fraseq_journal.dmi'
-//	icon_state = "fraseq_journal"
+	icon = 'icons/obj/custom_items/fraseq_journal.dmi'
+	icon_state = "fraseq_journal"
 	w_class = 3
