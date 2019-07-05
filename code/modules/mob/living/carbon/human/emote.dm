@@ -484,7 +484,11 @@
 				message = "sneezes."
 				m_type = 1
 			else
-				if (!muzzled)
+				var/handkerchief = has_handkerchief()
+				if(handkerchief)
+					handkerchief.use("mucus")
+					message = "sneezes into \the [handkerchief]"
+				else if (!muzzled)
 					message = "sneezes."
 					m_type = 2
 				else

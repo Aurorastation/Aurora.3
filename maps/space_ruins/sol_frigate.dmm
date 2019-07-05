@@ -1498,7 +1498,7 @@
 /area/derelict/ship)
 "fh" = (
 /obj/structure/table/rack,
-/obj/item/weapon/towel,
+/obj/item/weapon/reagent_containers/rag/towel,
 /turf/simulated/floor/tiled/freezer,
 /area/derelict/ship)
 "fi" = (

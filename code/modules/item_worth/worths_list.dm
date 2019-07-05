@@ -22,7 +22,7 @@ var/list/worths = list(
 					/obj/item/weapon/reagent_containers/food/snacks = -10,
 					/obj/item/weapon/reagent_containers/food/drinks/bottle = -11,
 					/obj/item/weapon/reagent_containers/food/drinks = -8,
-					/obj/item/weapon/reagent_containers/glass/rag = -5,
+					/obj/item/weapon/reagent_containers/rag = -5,
 					/obj/item/weapon/reagent_containers/glass = -60,
 					/obj/item/weapon/reagent_containers = -1,
 //ENERGY GUNS,

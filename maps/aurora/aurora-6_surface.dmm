@@ -14772,7 +14772,7 @@
 	icon_state = "cobweb1"
 	},
 /obj/effect/decal/cleanable/dirt,
-/obj/item/weapon/towel,
+/obj/item/weapon/reagent_containers/rag/towel,
 /turf/simulated/floor/plating,
 /area/maintenance/arrivals)
 "CS" = (
@@ -20264,7 +20264,7 @@
 	icon_state = "tube1";
 	pixel_y = 0
 	},
-/obj/item/weapon/towel,
+/obj/item/weapon/reagent_containers/rag/towel,
 /turf/simulated/floor/tiled/freezer,
 /area/crew_quarters/toilet)
 "QL" = (
@@ -20288,7 +20288,7 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/item/weapon/towel,
+/obj/item/weapon/reagent_containers/rag/towel,
 /turf/simulated/floor/tiled/freezer,
 /area/crew_quarters/toilet)
 "QS" = (
@@ -21952,7 +21952,7 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/obj/item/weapon/towel,
+/obj/item/weapon/reagent_containers/rag/towel,
 /turf/simulated/floor/tiled/freezer,
 /area/crew_quarters/toilet)
 "WD" = (

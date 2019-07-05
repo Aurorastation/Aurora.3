@@ -1149,6 +1149,15 @@ mob/proc/yank_out_object()
 
 	return 0
 
+/mob/proc/has_handkerchief()
+	var/obj/item/l = l_hand
+	if(l && istype(l,/obj/item/weapon/reagent_containers/rag/handkerchief))
+		return l
+	var/obj/item/r = r_hand
+	if(r && istype(r,/obj/item/weapon/reagent_containers/rag/handkerchief))
+		return r
+	return null
+
 /mob/proc/Released()
 	//This is called when the mob is let out of a holder
 	//Override for mob-specific functionality

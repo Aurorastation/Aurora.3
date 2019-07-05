@@ -293,7 +293,7 @@ STOCK_ITEM_COMMON(luminol, 2)
 
 STOCK_ITEM_COMMON(cleaning, 3.5)
 	if (prob(80))
-		new /obj/item/weapon/reagent_containers/glass/rag(L)
+		new /obj/item/weapon/reagent_containers/rag(L)
 	if (prob(80))
 		var/list/soaps = list(
 			/obj/item/weapon/soap,

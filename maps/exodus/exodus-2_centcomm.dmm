@@ -9121,7 +9121,7 @@
 	})
 "aAv" = (
 /obj/structure/table/wood,
-/obj/item/weapon/reagent_containers/glass/rag,
+/obj/item/weapon/reagent_containers/rag,
 /turf/unsimulated/floor{
 	dir = 8;
 	icon_state = "wood"
@@ -14222,7 +14222,7 @@
 	dir = 5
 	},
 /obj/item/weapon/book/manual/barman_recipes,
-/obj/item/weapon/reagent_containers/glass/rag,
+/obj/item/weapon/reagent_containers/rag,
 /turf/unsimulated/floor{
 	icon_state = "grimy"
 	},
@@ -17165,7 +17165,7 @@
 	name = "Battery 1 Firing Control"
 	},
 /obj/effect/decal/cleanable/cobweb,
-/obj/item/weapon/reagent_containers/glass/rag,
+/obj/item/weapon/reagent_containers/rag,
 /turf/unsimulated/floor{
 	icon_state = "wood_siding10"
 	},

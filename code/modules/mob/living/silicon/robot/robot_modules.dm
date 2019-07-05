@@ -656,7 +656,7 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/weapon/material/kitchen/rollingpin(src)
 	src.modules += new /obj/item/weapon/material/knife(src)
 	src.modules += new /obj/item/weapon/soap(src) // a cheap bar of soap
-	src.modules += new /obj/item/weapon/reagent_containers/glass/rag(src) // a rag for.. yeah.. the primary tool of bartender
+	src.modules += new /obj/item/weapon/reagent_containers/rag(src) // a rag for.. yeah.. the primary tool of bartender
 
 	var/obj/item/weapon/rsf/M = new /obj/item/weapon/rsf(src)
 	M.stored_matter = 30

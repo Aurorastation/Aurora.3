@@ -126,7 +126,7 @@
 
 /datum/gear/towel
 	display_name = "towel"
-	path = /obj/item/weapon/towel
+	path = /obj/item/weapon/reagent_containers/rag/towel
 
 /datum/gear/towel/New()
 	..()

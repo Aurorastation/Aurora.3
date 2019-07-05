@@ -507,6 +507,11 @@
 		to_chat(user, "<span class='notice'>You wet \the [O] in \the [src].</span>")
 		playsound(loc, 'sound/effects/slosh.ogg', 25, 1)
 		return
+	else if(istype(O, /obj/item/weapon/reagent_containers/rag/handkerchief))
+		var/obj/item/weapon/reagent_containers/rag/handkerchief/H = O
+		to_chat(user, "<span class='notice'>You clean \the [O] in \the [src].</span>")
+		H.clean()
+		return
 
 	var/turf/location = user.loc
 	if(!isturf(location)) return
@@ -515,19 +520,13 @@
 	if(!I || !istype(I,/obj/item)) return
 
 	to_chat(usr, "<span class='notice'>You start washing \the [I].</span>")
-
 	busy = 1
-	sleep(40)
+	if(do_after(user,40,act_target=src))
+		O.clean_blood()
+		user.visible_message( \
+			"<span class='notice'>[user] washes \a [I] using \the [src].</span>", \
+			"<span class='notice'>You wash \a [I] using \the [src].</span>")
 	busy = 0
-
-	if(user.loc != location) return				//User has moved
-	if(!I) return 								//Item's been destroyed while washing
-	if(user.get_active_hand() != I) return		//Person has switched hands or the item in their hands
-
-	O.clean_blood()
-	user.visible_message( \
-		"<span class='notice'>[user] washes \a [I] using \the [src].</span>", \
-		"<span class='notice'>You wash \a [I] using \the [src].</span>")
 
 
 /obj/structure/sink/kitchen

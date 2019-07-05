@@ -14,7 +14,7 @@
 	var/isGlass = 1 //Whether the 'bottle' is made of glass or not so that milk cartons dont shatter when someone gets hit by it
 	matter = list("glass" = 800)
 
-	var/obj/item/weapon/reagent_containers/glass/rag/rag = null
+	var/obj/item/weapon/reagent_containers/rag/rag = null
 	var/rag_underlay = "rag"
 
 /obj/item/weapon/reagent_containers/food/drinks/bottle/Initialize()
@@ -80,7 +80,7 @@
 	return B
 
 /obj/item/weapon/reagent_containers/food/drinks/bottle/attackby(obj/item/W, mob/user)
-	if(!rag && istype(W, /obj/item/weapon/reagent_containers/glass/rag))
+	if(!rag && istype(W, /obj/item/weapon/reagent_containers/rag))
 		insert_rag(W, user)
 		return
 	if(rag && istype(W, /obj/item/weapon/flame))

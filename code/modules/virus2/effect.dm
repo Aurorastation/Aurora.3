@@ -406,6 +406,11 @@
 		return
 
 	mob.say("*sneeze")
+
+	if(mob.has_handkerchief())
+		return //TODO: Could scale its effectiveness based on the number of sneezes it took
+
+	//if they dont, spread the disease
 	for(var/mob/living/carbon/M in get_step(mob, mob.dir))
 		mob.spread_disease_to(M)
 	if (prob(50))

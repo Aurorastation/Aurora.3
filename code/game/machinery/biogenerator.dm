@@ -177,7 +177,7 @@
 		"towel" = list(
 			name = "Towel",
 			class = "Items",
-			object = /obj/item/weapon/towel/random,
+			object = /obj/item/weapon/reagent_containers/rag/towel/random,
 			cost = 300,
 			amount = list(1,2,3,4,5),
 			emag = 0
