@@ -39,4 +39,4 @@ delete-after: True
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
   - tweak: "No longer displays a message that the round has ended if the mercs/raiders move their shuttle back to the base."
-  - bugfix: "The merc/raider shuttle cant be used again if it´s used to return to the base."
+  - bugfix: "The merc/raider shuttle cant be used again if it is used to return to the base."
