@@ -22,6 +22,7 @@
 	var/list/destination_dock_targets = list()
 	var/area/origin
 	var/return_warning = 0
+	var/start_warning = 0
 
 /datum/shuttle/multi_shuttle/New()
 	..()
@@ -211,6 +212,11 @@
 		to_chat(usr, "<span class='warning'>Ship stealth systems have been [(MS.cloaked ? "activated. The station will not" : "deactivated. The station will")] be warned of our arrival.</span>")
 
 	if(href_list["move_multi"])
+		if(MS.at_origin && !MS.start_warning)
+			MS.start_warning = 1
+			to_chat(usr, "<span class='warning'>You can only make one roundtrip between the target and the base. If you are sure want to depart, press the button again.</span>")
+			return
+
 		if(MS.returned_home)
 			to_chat(usr, "<span class='warning'>The ship's drive is offline.</span>")
 			return
