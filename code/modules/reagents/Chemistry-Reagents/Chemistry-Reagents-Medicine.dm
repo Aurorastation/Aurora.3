@@ -607,6 +607,7 @@
 	overdose = REAGENTS_OVERDOSE
 	scannable = 1
 	taste_description = "bitterness"
+	fallback_specific_heat = 0.605 // assuming it's ethanol-based
 
 /datum/reagent/thetamivir/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(prob(dose/4))
@@ -629,6 +630,7 @@
 	overdose = REAGENTS_OVERDOSE
 	scannable = 1
 	taste_description = "bitter gauze"
+	fallback_specific_heat = 0.605 // assuming it's ethanol-based
 
 /datum/reagent/methicillin/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(prob(dose/4))
@@ -645,6 +647,7 @@
 	taste_description = "bitterness"
 	metabolism = REM * 0.05
 	color = "#402060"
+	fallback_specific_heat = 0.605 // assuming it's ethanol-based
 
 	glass_name = "glass of cough syrup"
 	glass_desc = "You'd better not."
@@ -672,6 +675,7 @@
 	reagent_state = LIQUID
 	taste_description = "bitterness"
 	metabolism = REM * 0.05
+	fallback_specific_heat = 0.605 // assuming it's ethanol-based
 
 /datum/reagent/antihistamine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(prob(dose/2))

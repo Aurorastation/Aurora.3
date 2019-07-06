@@ -42,7 +42,7 @@
 		for(var/t in starts_with)
 			if(!ispath(t))
 				continue
-			for(var/i=0, i<starts_with[t])
+			for(var/i=0, i<starts_with[t], i++)
 				new t(src)
 
 /obj/item/weapon/storage/box/proc/damage(var/severity)
