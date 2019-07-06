@@ -3355,7 +3355,7 @@
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
-/mob/living/simple_animal/rat,
+/mob/living/simple_animal/mouse,
 /turf/simulated/shuttle/floor{
 	icon_state = "floor6"
 	},

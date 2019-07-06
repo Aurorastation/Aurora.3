@@ -25,8 +25,8 @@
 		return
 
 	var/types = target.find_type()
-	if(israt(target))
-		var/mob/living/simple_animal/rat/M = target
+	if(ismouse(target))
+		var/mob/living/simple_animal/mouse/M = target
 		visible_message("<span class='danger'>SPLAT!</span>")
 		M.splat()
 	else
@@ -87,7 +87,7 @@
 
 /obj/item/device/assembly/mousetrap/Crossed(AM as mob|obj)
 	if(armed)
-		if(israt(AM))
+		if(ismouse(AM))
 			triggered(AM)
 		else if(istype(AM, /mob/living))
 			var/mob/living/L = AM

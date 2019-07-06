@@ -2431,7 +2431,7 @@
 /area/derelict)
 "gH" = (
 /obj/effect/decal/cleanable/dirt,
-/mob/living/simple_animal/rat,
+/mob/living/simple_animal/mouse,
 /turf/simulated/floor/wood,
 /area/derelict)
 "gI" = (

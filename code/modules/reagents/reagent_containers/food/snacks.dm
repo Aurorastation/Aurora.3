@@ -1208,8 +1208,8 @@
 	bitesize = 2
 
 /obj/item/weapon/reagent_containers/food/snacks/burger/mouse
-	name = "rat burger"
-	desc = "Squeaky and a little furry. Do you see any cows around here, Detective?"
+	name = "mouse burger"
+	desc = "Squeaky and a little furry."
 	icon_state = "ratburger"
 	center_of_mass = list("x"=16, "y"=11)
 	bitesize = 2
@@ -1217,6 +1217,7 @@
 /obj/item/weapon/reagent_containers/food/snacks/burger/mouse/Initialize()
 	. = ..()
 	reagents.add_reagent("protein", 5)
+	reagents.add_reagent("rattoxin", 1)
 
 /obj/item/weapon/reagent_containers/food/snacks/omelette
 	name = "omelette du fromage"
@@ -4067,7 +4068,7 @@
 		switch (MF.kitchen_tag)
 			if ("rodent")
 				result = new /obj/item/weapon/reagent_containers/food/snacks/burger/mouse(src)
-				to_chat(user, "You make a ratburger!")
+				to_chat(user, "You make a mouseburger!")
 
 	if (result)
 		if (W.reagents)

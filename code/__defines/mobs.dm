@@ -186,7 +186,7 @@
 //Time of Death constants
 //Used with a list in preference datums to track times of death
 #define CREW "crew" //Used for crewmembers, AI, cyborgs, nymphs, antags
-#define ANIMAL "animal" //Used for rats and any other simple animals
+#define ANIMAL "animal" //Used for mice and any other simple animals
 #define MINISYNTH "minisynth"//Used for drones and pAIs
 
 #define RESPAWN_ANIMAL 3000

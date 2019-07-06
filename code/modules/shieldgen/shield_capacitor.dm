@@ -160,7 +160,7 @@
 		src.set_dir(turn(src.dir, -90))
 		return
 	else
-		if(istype(usr,/mob/living/simple_animal/rat))
+		if(istype(usr,/mob/living/simple_animal/mouse))
 			return
 		if(!usr || !isturf(usr.loc))
 			return

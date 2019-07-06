@@ -12,16 +12,9 @@
 	whitelisted = list("Vaurca Worker", "Vaurca Warrior")
 	sort_category = "Xenowear - Vaurca"
 
-/datum/gear/mask/filterport
-	display_name = "filter port"
-	path = /obj/item/clothing/mask/breath/vaurca/filter
-	cost = 1
-	whitelisted = list("Vaurca Worker", "Vaurca Warrior")
-	sort_category = "Xenowear - Vaurca"
-
 /datum/gear/mask/vaurca_expression
 	display_name = "human expression mask"
-	path = /obj/item/clothing/head/expression
+	path = /obj/item/clothing/mask/breath/vaurca/expression
 	cost = 1
 	whitelisted = list("Vaurca Worker", "Vaurca Warrior")
 	sort_category = "Xenowear - Vaurca"
@@ -32,7 +25,7 @@
 
 /datum/gear/mask/vaurca_expression/skrell
 	display_name = "skrell expression mask"
-	path = /obj/item/clothing/head/expression/skrell
+	path = /obj/item/clothing/mask/breath/vaurca/expression/skrell
 
 /datum/gear/head/shaper
 	display_name = "shaper helmet"

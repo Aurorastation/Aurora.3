@@ -1276,7 +1276,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "en" = (
-/mob/living/simple_animal/rat,
+/mob/living/simple_animal/mouse,
 /turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "eo" = (

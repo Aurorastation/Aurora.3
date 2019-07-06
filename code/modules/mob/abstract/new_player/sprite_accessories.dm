@@ -107,7 +107,7 @@ Follow by example and make good judgement based on length which list to include 
 		icon_state = "hair_vlong"
 		length = 2
 		chatname = "Long Hair"
-
+		
 
 	longeralt2
 		name = "Long Hair Alt"
@@ -455,7 +455,7 @@ Follow by example and make good judgement based on length which list to include 
 		gender = FEMALE
 		length = 1
 		chatname = "Gentle Hair"
-
+		
 
 	spiky
 		name = "Spiky"
@@ -558,7 +558,7 @@ Follow by example and make good judgement based on length which list to include 
 		name = "Skinhead"
 		icon_state = "hair_skinhead"
 		length = 0
-
+		
 
 	balding
 		name = "Balding Hair"
@@ -881,7 +881,7 @@ Follow by example and make good judgement based on length which list to include 
 		name = "Shaved Bun"
 		icon_state = "hair_shavedbun"
 		chatname = "Hair Bun"
-
+		
 
 	halfshaved
 		name = "Half-Shaved"
@@ -1451,7 +1451,7 @@ Follow by example and make good judgement based on length which list to include 
 			name = "Tajara Bangs"
 			icon_state = "hair_bangs"
 			chatname = "Short Hair"
-
+			
 
 		taj_ears_braid
 			name = "Tajara Braid"
@@ -1585,48 +1585,6 @@ Follow by example and make good judgement based on length which list to include 
 			icon_state = "vaurca_braided"
 			chatname = "Antennae"
 			length = 3
-
-		vaurca_damaged_left
-			name = "Injured Antenna, Left"
-			icon_state = "vaurca_inj_left"
-			chatname = "Left Antenna"
-			length = 1
-
-		vaurca_damaged_right
-			name = "Injured Antenna, Right"
-			icon_state = "vaurca_inj_right"
-			chatname = "Right Antenna"
-			length = 1
-
-		vaurca_catfish
-			name = "Catfish Antennae"
-			icon_state = "vaurca_catfish"
-			chatname = "Antennae"
-			length = 2
-
-		vaurca_dipole
-			name = "Dipole Antennae"
-			icon_state = "vaurca_dipole"
-			chatname = "Antennae"
-			length = 2
-
-		vaurca_knight
-			name = "Knight Antennae"
-			icon_state = "vaurca_knight"
-			chatname = "Antennae"
-			length = 2
-
-		vaurca_formic
-			name = "Formic Antennae"
-			icon_state = "vaurca_formic"
-			chatname = "Antennae"
-			length = 2
-
-		vaurca_parabolic
-			name = "Parabolic Antennae"
-			icon_state = "vaurca_parabolic"
-			chatname = "Antennae"
-			length = 2
 
 /datum/sprite_accessory/facial_hair
 	taj_sideburns

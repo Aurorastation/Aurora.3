@@ -219,11 +219,11 @@ ALLOW_ANTAG_HUD
 ## If ghosts use antagHUD they are no longer allowed to join the round.
 ANTAG_HUD_RESTRICTED
 
-## Prevents observers from joining as rats.
-#DISABLE_PLAYER_RATS
+## Prevents observers from joining as mice.
+#DISABLE_PLAYER_MICE
 
-## If enabled, observer-rats will only be able to understand other rats.
-#UNEDUCATED_RATS
+## If enabled, observer-mice will only be able to understand other mice.
+#UNEDUCATED_MICE
 
 ## How much time a drone fabricator will take to produce a single drone. In deciseconds.
 #DRONE_BUILD_TIME 1200

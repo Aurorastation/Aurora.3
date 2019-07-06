@@ -25,7 +25,7 @@
 	possible_wanted_items = list(
 		/mob/living/simple_animal/mushroom                           = TRADER_THIS_TYPE,
 		/mob/living/simple_animal/tomato                             = TRADER_THIS_TYPE,
-		/mob/living/simple_animal/rat/king                         = TRADER_THIS_TYPE,
+		/mob/living/simple_animal/mouse/king                         = TRADER_THIS_TYPE,
 		/mob/living/simple_animal/hostile/diyaab                     = TRADER_THIS_TYPE,
 		/mob/living/simple_animal/hostile/shantak                    = TRADER_THIS_TYPE,
 		/mob/living/simple_animal/hostile/samak                      = TRADER_THIS_TYPE,
@@ -44,7 +44,7 @@
 		/mob/living/simple_animal/cat/kitten             = TRADER_THIS_TYPE,
 		/mob/living/simple_animal/crab                   = TRADER_THIS_TYPE,
 		/mob/living/simple_animal/lizard                 = TRADER_THIS_TYPE,
-		/mob/living/simple_animal/rat                  = TRADER_THIS_TYPE,
+		/mob/living/simple_animal/mouse                  = TRADER_THIS_TYPE,
 		/mob/living/simple_animal/parrot                 = TRADER_THIS_TYPE,
 		/mob/living/simple_animal/tindalos               = TRADER_THIS_TYPE,
 		/mob/living/simple_animal/cow                    = TRADER_THIS_TYPE,

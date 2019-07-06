@@ -13,34 +13,26 @@
 	to_chat(user, "This mask is too tight to adjust.")
 	return
 
-/obj/item/clothing/mask/breath/vaurca/filter
-	desc = "A basic screw on filter attached beneath the mouthparts of the common Vaurca."
-	name = "filter port"
-	icon_state = "filterport"
-	item_state = 0
+/obj/item/clothing/mask/breath/vaurca/expression
+	name = "human expression mask"
+	desc = "A mask that allows emotively challenged aliens to convey facial expressions. This one depicts a human."
+	icon_state = "human_mask"
+	item_state = "human_mask"
+
+/obj/item/clothing/mask/breath/vaurca/expression/skrell
+	name = "skrell expression mask"
+	desc = "A mask that allows emotively challenged aliens to convey facial expressions. This one depicts a skrell."
+	icon_state = "skrell_mask"
+	item_state = "skrell_mask"
 
 /obj/item/clothing/head/shaper
 	name = "shaper helmet"
-	desc = "A mirrored helm commonly worn by Preimminents. The helm masks the visage of its wearer, symbolically and literally blinding them to all but the path set in front of them."
+	desc = "A mirrored helm commonly worn by Preimmients. The helm masks the visage of its wearer, symbolically and literally  blinding them to all but the path set in front of them."
 	icon = 'icons/obj/vaurca_items.dmi'
 	icon_state = "shaper_helmet"
 	item_state = "shaper_helmet"
 	contained_sprite = TRUE
 	species_restricted = list("Vaurca")
-
-/obj/item/clothing/head/expression
-	name = "human expression mask"
-	desc = "A mask that allows emotively challenged aliens to convey facial expressions. This one depicts a human."
-	icon = 'icons/obj/vaurca_items.dmi'
-	icon_state = "human_helmet"
-	item_state = "human_helmet"
-	contained_sprite = TRUE
-
-/obj/item/clothing/head/expression/skrell
-	name = "skrell expression mask"
-	desc = "A mask that allows emotively challenged aliens to convey facial expressions. This one depicts a skrell."
-	icon_state = "skrell_helmet"
-	item_state = "skrell_helmet"
 
 /obj/item/weapon/melee/energy/vaurca
 	name = "thermal knife"

@@ -357,7 +357,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "bd" = (
-/mob/living/simple_animal/rat,
+/mob/living/simple_animal/mouse,
 /turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "be" = (
@@ -749,7 +749,7 @@
 /turf/simulated/floor/tiled/white,
 /area/derelict/ship)
 "cA" = (
-/mob/living/simple_animal/rat,
+/mob/living/simple_animal/mouse,
 /turf/simulated/floor/tiled/white,
 /area/derelict/ship)
 "cB" = (
