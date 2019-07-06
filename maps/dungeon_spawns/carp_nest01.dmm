@@ -63,7 +63,7 @@
 /turf/unsimulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
 "q" = (
-/obj/effect/decal/remains/mouse,
+/obj/effect/decal/remains/rat,
 /turf/unsimulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
 "r" = (

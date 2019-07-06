@@ -66605,7 +66605,7 @@
 /turf/simulated/floor/tiled/white,
 /area/maintenance/medbay)
 "mQn" = (
-/obj/effect/decal/remains/mouse,
+/obj/effect/decal/remains/rat,
 /turf/simulated/floor/plating,
 /area/maintenance/civ)
 "mUs" = (
