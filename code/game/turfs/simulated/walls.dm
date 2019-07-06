@@ -290,6 +290,7 @@
 
 	if(damage >= cap)
 		ChangeTurf(baseturf)
+	update_icon()
 
 /turf/simulated/shuttle/bullet_act(var/obj/item/projectile/Proj)
 	if(!destructible)

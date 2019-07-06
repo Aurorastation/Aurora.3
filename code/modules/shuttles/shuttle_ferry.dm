@@ -9,23 +9,14 @@
 
 	var/area_transition
 	var/move_time = 0		//the time spent in the transition area
-	var/transit_direction = null	//needed for area/move_contents_to() to properly handle shuttle corners - not exactly sure how it works.
 
 	var/area/area_station
 	var/area/area_offsite
-	var/area_crash
 	//TODO: change location to a string and use a mapping for area and dock targets.
 	var/dock_target_station
 	var/dock_target_offsite
 
 	var/last_dock_attempt_time = 0
-
-	// Vars for crashing
-	var/engines_count = 0 //Used to determine if shuttle should crash
-	var/engines_checked = FALSE
-	var/list/crash_offset = list(-50, 50)
-	var/ship_size = 0
-	var/walls_count = 0
 
 /datum/shuttle/ferry/init_shuttle(var/list/settings)
 	location = settings[1]
@@ -41,29 +32,9 @@
 	dock_target_station = settings[11]
 	dock_target_offsite = settings[12]
 	
-	//Calculating size and integrity
-	for(var/A in area_current.contents)
-		if(isturf(A))
-			ship_size += 1
-			if(integrity_check(A))
-				walls_count += 1
-		else if(istype(A, /obj/structure/shuttle/engine/propulsion))
-			engines_count += 1
-			var/obj/structure/shuttle/engine/propulsion/P = A
-			var/turf/simulated/shuttle/e_turf = get_turf(P)
-			e_turf.name = "engine mount"
-			e_turf.destructible = FALSE
-			e_turf.dir = P.dir
-			e_turf.update_icon()
-			e_turf.add_overlay("engine_mount")
+	..()
 
-/datum/shuttle/ferry/proc/integrity_check(var/V)
-	if(!isturf(V))
-		return FALSE
-	var/turf/T = V
-	return istype(T, /turf/simulated/wall) || istype(T, /turf/simulated/shuttle/wall) || istype(T, /turf/unsimulated/wall)
-
-/datum/shuttle/ferry/short_jump(var/area/origin,var/area/destination)
+/datum/shuttle/ferry/short_jump(var/area/origin, var/area/destination)
 	if(isnull(location))
 		return
 
@@ -73,7 +44,7 @@
 		origin = get_location_area(location)
 
 	direction = !location
-	..(origin, destination)
+	..(origin, destination, exterior_walls_and_engines)
 
 /datum/shuttle/ferry/long_jump(var/area/departing, var/area/destination, var/area/interim, var/travel_time, var/direction)
 	if(isnull(location))
@@ -85,16 +56,21 @@
 		departing = get_location_area(location)
 
 	direction = !location
-	..(departing, destination, interim, travel_time, direction)
+	..(departing, destination, interim, travel_time, direction, exterior_walls_and_engines)
 
-/datum/shuttle/ferry/move(var/area/origin,var/area/destination)
-	..(origin, destination)
+/datum/shuttle/ferry/move(var/area/origin, var/area/destination)
+	..(origin, destination, exterior_walls_and_engines)
 
 	if (destination == area_station) location = 0
 	if (destination == area_offsite) location = 1
 	//if this is a long_jump retain the location we were last at until we get to the new one
-	for(var/obj/structure/shuttle/engine/propulsion/P in area_current.contents)
-		P.update_damage()
+	for(var/v in exterior_walls_and_engines)
+		var/list/l = v
+		var/turf/P_T = get_turf(locate(l[1], l[2], l[3]))
+		if(!istype(P_T, /turf/simulated/shuttle/floor/plating))
+			continue
+		for(var/obj/structure/shuttle/engine/propulsion/P in P_T.contents)
+			P.update_damage()
 
 /datum/shuttle/ferry/dock()
 	..()
@@ -152,103 +128,6 @@
 	else
 		dock_target = dock_target_offsite
 	return dock_target
-
-/datum/shuttle/ferry/proc/crash_shuttle()
-	var/area/A = area_current
-	announce(span("danger", "Flight computer states: \"Warning: Not enough propulsion to gain velocity! Loosing altitude!\""))
-	var/distance_x = pick(crash_offset[1], crash_offset[2])
-	var/distance_y = pick(crash_offset[1], crash_offset[2])
-
-	if(transit_direction == NORTH || transit_direction == SOUTH)
-		distance_y = distance_y < 0 ? distance_y - round(sqrt(ship_size) + 1) : distance_y + round(sqrt(ship_size) + 1)
-	else
-		distance_x = distance_x < 0 ? distance_x - round(sqrt(ship_size) + 1) : distance_x + round(sqrt(ship_size) + 1)
-
-	var/area/crash = new area_crash
-	for(var/turf/T in A.contents)
-		var/turf/T_n = get_turf(locate(T.x + distance_x, T.y + distance_y, T.z))
-
-		// Making sure we remove everything on crash side
-		for(var/a in T_n.contents)
-			if(!ismob(a))
-				qdel(a)
-			CHECK_TICK
-		if(T_n)
-			crash.contents += T_n
-		CHECK_TICK
-
-	play_sound(sound_crash, crash)
-	sleep(7) // Has to be 4 seconds less than how long is crash sound. Change if the sound is changed.
-	for(var/mob/living/L in A.contents)
-		shake_camera(L, 10, 1)
-		if(!L.buckled)
-			L.ex_act(2)
-		else
-			L.ex_act(3)
-
-	move(area_current, crash)
-	var/num = round(ship_size * 0.15)
-	while(num > 0)
-		explosion(pick(crash.contents), 1, 0, 1, 1, 0) // explosion inside of the shuttle, as in we damaged it
-		num -= 1
-	area_current = crash
-	process_state = IDLE_STATE
-
-/datum/shuttle/ferry/check_engines()
-	var/engines_c = 0
-	var/walls_c = 0
-	// counting engines
-	var/area/A = area_current
-	for(var/v in A.contents)
-		if(istype(v, /obj/structure/shuttle/engine/propulsion))
-			var/obj/structure/shuttle/engine/propulsion/P = v
-			var/turf/T = get_turf(P)
-			if(T && P.dir == T.dir)
-				engines_c += 1
-		else if(integrity_check(v))
-			walls_c += 1
-		CHECK_TICK
-	
-	var/ratio = round((1 - (engines_c / engines_count)) * 100)
-	var/integrity = round((walls_c / walls_count) * 100)
-	var/crash_chance = ratio + round((100 - integrity) * 0.25)
-	if(crash_chance && !engines_checked)
-		var/message = ""
-		if(ratio == 100)
-			announce(span("danger", "Flight computer states: \"Warning: shuttle's propulsion system is entirely destroyed! Unable to launch!\""))
-			return FALSE
-
-		if(area_current.z == 1 || area_current.z == 2)
-			return TRUE
-		else
-			var/grav = SSmachinery.gravity_generators.len ? pick(SSmachinery.gravity_generators).charge_count : FALSE
-			if(!grav)
-				return TRUE
-
-		engines_checked = TRUE
-		message += span("danger", "Flight computer states: \"Warning: shuttle's propulsion system is damaged! There is a [crash_chance]% chance of crash!\nEngines integrity: [100-ratio]%, Shuttle integrity: [integrity]%\nDetails:\n [engines_c] out of [engines_count] engines, [walls_c] out of [walls_count] walls.\"\n")
-		message += span("notice", "Flight computer states: \"Press Launch again within 5 seconds to continue!\"") 
-		announce(message)
-		addtimer(CALLBACK(src, .proc/reset_engines_check), 5 SECONDS)
-		return FALSE
-	else if(crash_chance)
-		if(ratio == 100)
-			announce(span("danger", "Flight computer states: \"Warning: shuttle's propulsion system is entirely destroyed! Unable to launch!\""))
-			return FALSE
-		if(prob(crash_chance))
-			process_state = CRASH_SHUTTLE
-			undock()
-			engines_checked = FALSE
-			return FALSE
-		else
-			engines_checked = FALSE
-			return TRUE
-	else
-		engines_checked = FALSE
-		return TRUE
-
-/datum/shuttle/ferry/proc/reset_engines_check()
-	engines_checked = FALSE
 
 /datum/shuttle/ferry/proc/launch(var/user)
 	if (!can_launch() || !check_engines()) return
@@ -308,3 +187,6 @@
 /datum/shuttle/ferry/proc/arrived()
 	return	//do nothing for now
 
+/datum/shuttle/ferry/crash_shuttle()
+	..()
+	process_state = IDLE_STATE

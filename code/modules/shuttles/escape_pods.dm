@@ -75,8 +75,8 @@
 		var/turf/T_n = get_turf(locate(T.x, T.y + distance, T.z))
 		if(T_n)
 			destinations[4].contents += T_n
-	play_sound(sound_crash, destinations[4])
-	sleep(7) // Has to be 4 seconds less than how long is crash sound. Change if the sound is changed.
+	play_sound_shuttle(sound_crash, destinations[4])
+	sleep(70) // Has to be 4 seconds less than how long is crash sound. Change if the sound is changed.
 	move(area_current, destinations[4])
 	explosion(pick(destinations[4].contents), 1, 0, 1, 1, 0) // explosion inside of the shuttle, as in we damaged it
 	process_state = IDLE_STATE
