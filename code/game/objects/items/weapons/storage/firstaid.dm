@@ -188,7 +188,7 @@
 
 /obj/item/weapon/storage/pill_bottle/prefilled/fill()
 	..()
-	for(var/i=0, i < 7)
+	for(var/i=0, i < 7, i++)
 		new pill_type(src)
 
 /obj/item/weapon/storage/pill_bottle/prefilled/antitox
