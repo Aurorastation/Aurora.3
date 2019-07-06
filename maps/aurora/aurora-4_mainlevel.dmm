@@ -1825,7 +1825,7 @@
 /area/maintenance/civ)
 "adE" = (
 /obj/item/weapon/stool/padded,
-/mob/living/simple_animal/mouse/gray,
+/mob/living/simple_animal/rat/gray,
 /turf/simulated/floor/plating,
 /area/maintenance/civ)
 "adF" = (
@@ -64703,7 +64703,7 @@
 "dSL" = (
 /obj/effect/decal/cleanable/generic,
 /obj/effect/decal/cleanable/dirt,
-/mob/living/simple_animal/mouse/gray,
+/mob/living/simple_animal/rat/gray,
 /turf/simulated/floor/plating,
 /area/maintenance/civ)
 "dTN" = (
@@ -64824,7 +64824,7 @@
 "erq" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/table,
-/mob/living/simple_animal/mouse/brown,
+/mob/living/simple_animal/rat/brown,
 /turf/simulated/floor/plating,
 /area/maintenance/civ)
 "esz" = (
@@ -65726,7 +65726,7 @@
 /area/crew_quarters/kitchen)
 "iCN" = (
 /obj/effect/decal/cleanable/dirt,
-/mob/living/simple_animal/mouse/gray,
+/mob/living/simple_animal/rat/gray,
 /turf/simulated/floor/plating,
 /area/maintenance/bar)
 "iLz" = (
@@ -67789,7 +67789,7 @@
 	pixel_x = 6;
 	pixel_y = 25
 	},
-/mob/living/simple_animal/mouse/gray,
+/mob/living/simple_animal/rat/gray,
 /turf/simulated/floor/plating,
 /area/maintenance/civ)
 "sjg" = (
@@ -68862,7 +68862,7 @@
 /area/maintenance/medbay)
 "xOq" = (
 /obj/effect/decal/cleanable/dirt,
-/mob/living/simple_animal/mouse/brown,
+/mob/living/simple_animal/rat/brown,
 /turf/simulated/floor/plating,
 /area/maintenance/civ)
 "xUt" = (

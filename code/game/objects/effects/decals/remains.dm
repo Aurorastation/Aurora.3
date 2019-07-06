@@ -17,10 +17,10 @@
 	icon = 'icons/mob/robots.dmi'
 	icon_state = "remainsrobot"
 
-/obj/effect/decal/remains/mouse
-	name = "mouse skeleton"
+/obj/effect/decal/remains/rat
+	name = "rat skeleton"
 	desc = "Looks like the remains of a small rodent. It doesn't squeak anymore."
-	icon = 'icons/mob/npc/mouse.dmi'
+	icon = 'icons/mob/npc/rat.dmi'
 	icon_state = "skeleton"
 
 /obj/effect/decal/remains/lizard

@@ -448,15 +448,15 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 		to_chat(src, "<span class='notice'>Heat Capacity: [round(environment.heat_capacity(),0.1)]</span>")
 
 /mob/abstract/observer/verb/become_mouse()
-	set name = "Become mouse"
+	set name = "Become Rat"
 	set category = "Ghost"
 
-	if(config.disable_player_mice)
-		to_chat(src, "<span class='warning'>Spawning as a mouse is currently disabled.</span>")
+	if(config.disable_player_rats)
+		to_chat(src, "<span class='warning'>Spawning as a rat is currently disabled.</span>")
 		return
 
 	if(!ROUND_IS_STARTED)
-		to_chat(src, "<span class='warning'>You can not spawn as a mouse before round start!</span>")
+		to_chat(src, "<span class='warning'>You can not spawn as a rat before round start!</span>")
 		return
 
 	if(!MayRespawn(1, ANIMAL))
@@ -464,31 +464,31 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 
 	var/turf/T = get_turf(src)
 	if(!T || (T.z in current_map.admin_levels))
-		to_chat(src, "<span class='warning'>You may not spawn as a mouse on this Z-level.</span>")
+		to_chat(src, "<span class='warning'>You may not spawn as a rat on this Z-level.</span>")
 		return
 
-	var/response = alert(src, "Are you -sure- you want to become a mouse?","Are you sure you want to squeek?","Squeek!","Nope!")
+	var/response = alert(src, "Are you -sure- you want to become a rat?","Are you sure you want to squeek?","Squeek!","Nope!")
 	if(response != "Squeek!") return  //Hit the wrong key...again.
 
 
 	//find a viable mouse candidate
-	var/mob/living/simple_animal/mouse/host
+	var/mob/living/simple_animal/rat/host
 	var/obj/machinery/atmospherics/unary/vent_pump/spawnpoint = find_mouse_spawnpoint(T.z)
 
 	if (spawnpoint)
-		host = new /mob/living/simple_animal/mouse(spawnpoint.loc)
+		host = new /mob/living/simple_animal/rat(spawnpoint.loc)
 	else
-		to_chat(src, "<span class='warning'>Unable to find any safe, unwelded vents to spawn mice at. The station must be quite a mess!  Trying again might work, if you think there's still a safe place. </span>")
+		to_chat(src, "<span class='warning'>Unable to find any safe, unwelded vents to spawn rats at. The station must be quite a mess!  Trying again might work, if you think there's still a safe place. </span>")
 
 	if(host)
-		if(config.uneducated_mice)
+		if(config.uneducated_rats)
 			host.universal_understand = 0
-		announce_ghost_joinleave(src, 0, "They are now a mouse.")
+		announce_ghost_joinleave(src, 0, "They are now a rat.")
 		host.ckey = src.ckey
-		to_chat(host, "<span class='info'>You are now a mouse. Try to avoid interaction with players, and do not give hints away that you are more than a simple rodent.</span>")
+		to_chat(host, "<span class='info'>You are now a rat. Though you may interact with players, do not give any hints away that you are more than a simple rodent. Find food, avoid cats, and try to survive!</span>")
 
 /proc/find_mouse_spawnpoint(var/ZLevel)
-	//This function will attempt to find a good spawnpoint for mice, and prevent them from spawning in closed vent systems with no escape
+	//This function will attempt to find a good spawnpoint for rats, and prevent them from spawning in closed vent systems with no escape
 	//It does this by bruteforce: Picks a random vent, tests if it has enough connections, if not, repeat
 	//Continues either until a valid one is found (in which case we return it), or until we hit a limit on attempts..
 	//If we hit the limit without finding a valid one, then the best one we found is selected
