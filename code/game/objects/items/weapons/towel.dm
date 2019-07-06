@@ -42,6 +42,7 @@
 	to_chat(usr, "<span class='notice'>You lay out \the [src] flat on the ground.</span>")
 	var/obj/item/weapon/reagent_containers/rag/towel_flat/T = new /obj/item/weapon/reagent_containers/rag/towel_flat(usr.loc)
 	T.color = src.color
+	T.reagents = src.reagents
 	qdel(src)
 
 /obj/item/weapon/reagent_containers/rag/towel_flat
@@ -53,6 +54,7 @@
 /obj/item/weapon/reagent_containers/rag/towel_flat/attack_hand(mob/user as mob)
 	to_chat(user, "<span class='notice'>You pick up and fold \the [src].</span>")
 	var/obj/item/weapon/reagent_containers/rag/towel/T = new /obj/item/weapon/reagent_containers/rag/towel(user)
+	T.reagents = src.reagents
 	T.color = src.color
 	user.put_in_hands(T)
 	qdel(src)
