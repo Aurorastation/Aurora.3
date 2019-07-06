@@ -21818,6 +21818,20 @@
 /obj/item/clothing/head/helmet/space,
 /turf/simulated/shuttle/floor,
 /area/template_noop)
+"dyY" = (
+/obj/effect/decal/spraystill{
+	desc = "A sign.";
+	icon = 'icons/obj/decals.dmi';
+	icon_state = "memorial1";
+	layer = 3.5;
+	name = "memorial1";
+	pixel_x = 0;
+	pixel_y = 20
+	},
+/turf/unsimulated/floor{
+	icon_state = "dark"
+	},
+/area/centcom/legion_base)
 "dEu" = (
 /obj/machinery/light{
 	dir = 4;
@@ -21983,6 +21997,14 @@
 	icon_state = "dark"
 	},
 /area/centcom/legion_base/hangar5)
+"gLm" = (
+/obj/structure/sign/flag/biesel{
+	pixel_y = 32
+	},
+/turf/unsimulated/floor{
+	icon_state = "dark"
+	},
+/area/centcom/legion_base)
 "hFm" = (
 /obj/structure/window/shuttle,
 /obj/structure/grille,
@@ -22175,6 +22197,18 @@
 	icon_state = "floor"
 	},
 /area/centcom/living)
+"lUA" = (
+/obj/structure/closet/crate/trashcart{
+	icon_state = "trashcartopen";
+	opened = 1
+	},
+/obj/item/trash/tastybread,
+/obj/item/trash/koisbar,
+/obj/item/trash/chipbasket,
+/turf/unsimulated/floor{
+	icon_state = "dark"
+	},
+/area/centcom/legion_base)
 "lXq" = (
 /obj/machinery/porta_turret/crescent,
 /obj/effect/decal/warning_stripes,
@@ -22276,6 +22310,20 @@
 	dir = 8
 	},
 /area/centcom/living)
+"ouD" = (
+/obj/effect/decal/spraystill{
+	desc = "A sign.";
+	icon = 'icons/obj/decals.dmi';
+	icon_state = "memorial2";
+	layer = 3.5;
+	name = "memorial2";
+	pixel_x = 0;
+	pixel_y = 20
+	},
+/turf/unsimulated/floor{
+	icon_state = "dark"
+	},
+/area/centcom/legion_base)
 "oIb" = (
 /obj/machinery/light{
 	icon_state = "tube1";
@@ -22623,6 +22671,20 @@
 /obj/effect/decal/cleanable/vomit,
 /turf/simulated/shuttle/floor,
 /area/template_noop)
+"wms" = (
+/obj/effect/decal/spraystill{
+	desc = "A sign.";
+	icon = 'icons/obj/decals.dmi';
+	icon_state = "memorial3";
+	layer = 3.5;
+	name = "memorial3";
+	pixel_x = 0;
+	pixel_y = 20
+	},
+/turf/unsimulated/floor{
+	icon_state = "dark"
+	},
+/area/centcom/legion_base)
 "wpE" = (
 /obj/machinery/light{
 	dir = 1;
@@ -26359,16 +26421,12 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/structure/closet/crate/trashcart{
-	icon_state = "trashcartopen";
-	opened = 1
+/obj/structure/sign/flag/biesel{
+	pixel_y = 32
 	},
-/obj/item/trash/tastybread,
-/obj/item/trash/koisbar,
-/obj/item/trash/chipbasket,
-/obj/effect/floor_decal/corner/lime/full{
-	icon_state = "corner_white_full";
-	dir = 8
+/obj/effect/floor_decal/corner/lime{
+	icon_state = "corner_white";
+	dir = 9
 	},
 /turf/unsimulated/floor{
 	icon_state = "dark"
@@ -77539,7 +77597,7 @@ xQO
 xSf
 xWv
 xWv
-xWv
+lUA
 xXl
 aaM
 aaM
@@ -78563,7 +78621,7 @@ xLr
 xXD
 xOh
 xXD
-xSf
+dyY
 xWv
 xWv
 xWv
@@ -78820,7 +78878,7 @@ xLs
 xMQ
 xOi
 xXD
-xSf
+ouD
 xVV
 xTw
 xVV
@@ -79077,7 +79135,7 @@ xXD
 xXD
 xXD
 xXD
-xSf
+wms
 xVV
 xTx
 xVV
@@ -79334,7 +79392,7 @@ xLu
 xMS
 xOk
 xXD
-xSf
+gLm
 vVv
 xTy
 xVV
