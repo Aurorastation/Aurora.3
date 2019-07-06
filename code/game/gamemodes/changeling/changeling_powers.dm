@@ -150,7 +150,7 @@ var/global/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","E
 	var/mob/living/carbon/human/T = input(usr, "Who are we extracting from?", "Target selection") in typecache_filter_list(oview(1), typecacheof(/mob/living/carbon/human))|null
 	if (!T)
 		return
-	
+
 	if(changeling.isabsorbing)
 		to_chat(src, "<span class='warning'>We are already engaged in an absorption!</span>")
 		return
@@ -174,6 +174,11 @@ var/global/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","E
 	if(HUSK in T.mutations)
 		to_chat(src, "<span class='warning'>This creature's DNA is ruined beyond useability!</span>")
 		return
+
+	for(var/datum/absorbed_dna/D in changeling.absorbed_dna)
+		if(D.dna == T.dna)
+			to_chat(src, "<span class='warning'>We have already collected this creature's DNA!</span>")
+			return
 
 	changeling.isabsorbing = 1
 	for(var/stage = 1, stage<=2, stage++)
@@ -252,6 +257,11 @@ var/global/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","E
 	if(G.state != GRAB_KILL)
 		to_chat(src, "<span class='warning'>We must have a tighter grip to absorb this creature.</span>")
 		return
+
+	for(var/datum/absorbed_dna/D in changeling.absorbed_dna)
+		if(D.dna == T.dna)
+			to_chat(src, "<span class='warning'>We have already collected this creature's DNA!</span>")
+			return
 
 	if(changeling.isabsorbing)
 		to_chat(src, "<span class='warning'>We are already absorbing!</span>")
