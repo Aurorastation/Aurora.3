@@ -278,7 +278,6 @@
 		var/ldesc = pick("Shows symptoms of collapse.", "Collapsed.", "Pneumothorax detected.")
 		collapse_desc = ldesc
 		src.connected.last_occupant_name = src.connected.occupant.name
-		return ldesc
 
 	return collapse_desc
 
@@ -289,7 +288,6 @@
 		var/ldesc = pick("Shows symptoms of rupture.", "Ruptured.", "Extensive damage detected.")
 		broken_desc = ldesc
 		src.connected.last_occupant_name = src.connected.occupant.name
-		return ldesc
 
 	return broken_desc
 

@@ -19,7 +19,7 @@
 	var/time = 3 SECONDS
 	var/fast = FALSE // CMO's hypospray should be fast, doctors' should not
 
-/obj/item/weapon/reagent_containers/hypospray/CMO
+/obj/item/weapon/reagent_containers/hypospray/cmo
 	name = "premium hypospray"
 	desc = "The DeForest Medical Corporation premium hypospray is a cutting-edge, sterile, air-needle autoinjector for rapid administration of drugs to patients."
 	volume = 30

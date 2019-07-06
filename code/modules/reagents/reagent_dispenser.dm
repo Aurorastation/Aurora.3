@@ -320,7 +320,8 @@
 			to_chat(user, span("notice", "You need three rods to make a still!"))
 			return
 		if(do_after(user, 20))
-			if(!src) return
+			if (QDELETED(src))
+				return
 			R.use(3)
 			new /obj/structure/distillery(src.loc)
 			if(reagents)

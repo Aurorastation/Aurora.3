@@ -38,7 +38,7 @@
 	set name = "Set Phase Filter"
 	set category = "Object"
 	set src in view(1)
-	if(!usr.canmove || usr.stat || usr.restrained())
+	if(!use_check(usr))
 		return 0
 	phase_filter = input("Which phase do you want to filter?", "Phase Filter", null) as null|anything in list("solid", "liquid", "gas", "none")
 	if(phase_filter)
@@ -53,7 +53,6 @@
 	for(var/atom/movable/A in contents)
 		if(A == analyzer)
 			continue
-		contents -= A
 		A.forceMove(loc)
 
 /obj/structure/chemkit/attack_hand(mob/user)
@@ -102,7 +101,6 @@
 		to_chat(user, span("notice", "You begin to [pick("crush","smash","grind")] [smashed]."))
 		if(!do_after(user, 15 SECONDS))
 			return
-		contents -= smashed
 		if(sheet_reagents[smashed.type])
 			var/obj/item/stack/stack = smashed
 			if(istype(stack))
@@ -111,7 +109,6 @@
 				if(amount_to_take)
 					stack.use(amount_to_take)
 					if(QDELETED(stack))
-						contents -= stack
 					if(islist(sheet_components))
 						amount_to_take = (amount_to_take/(sheet_components.len))
 						for(var/i in sheet_components)
@@ -131,7 +128,6 @@
 		if(!do_after(user, 5 SECONDS))
 			return
 		to_chat(user, span("notice", "You [pick("chop","cut","slice")] [chopped] into [pick("small","tiny")] [pick("pieces","chunks","bits","slices")]."))
-		contents -= chopped
 		chopped.reagents.trans_to_holder(src.reagents, chopped.reagents.total_volume, rand(4, 8)/10) // 40% to 80% from chopping, since it's not very efficient
 		qdel(chopped)
 		return
@@ -143,7 +139,6 @@
 	if(!is_type_in_list(W, forbidden) && (W.w_class <= 3.0) && (W.reagents || sheet_reagents[W.type]))
 		user.drop_from_inventory(W)
 		W.forceMove(src)
-		src.contents += W
 		return
 	. = ..()
 

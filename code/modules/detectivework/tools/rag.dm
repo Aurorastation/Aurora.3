@@ -111,7 +111,7 @@
 			user.visible_message("<span class='danger'>\The [user] hits [target] with [src]!</span>",)
 			user.do_attack_animation(src)
 			M.IgniteMob()
-		else if(istype(M, /mob/living/carbon/human))
+		else if(ishuman(M))
 			var/mob/living/carbon/human/H = M
 			var/obj/item/organ/external/affecting = H.get_organ(user.zone_sel.selecting)
 			if(LAZYLEN(affecting.wounds))

@@ -46,7 +46,8 @@
 	if(is_bruised() && rescued)
 		if(prob(4))
 			to_chat(owner, span("warning", "It feels hard to breathe..."))
-			owner.losebreath = min(owner.losebreath + 1, 5) // it's still not good, but it's much better than an untreated collapsed lung
+			if (owner.losebreath < 5)
+				owner.losebreath = min(owner.losebreath + 1, 5) // it's still not good, but it's much better than an untreated collapsed lung
 
 /obj/item/organ/kidneys
 	name = "kidneys"
