@@ -81,7 +81,7 @@
 		to_chat(L, message)
 
 /datum/shuttle/proc/play_sound_shuttle(var/sound_name, var/area/A)
-	var/turf/T = get_turf(locate(center[1], center[2], center[3]))
+	var/turf/T = get_turf(locate(center[1], center[2], A.z))
 	for(var/mob/M in range(T, round(sqrt(ship_size)) + 5))
 		M << sound("sound/effects/ship/[sound_name].ogg")
 
@@ -243,7 +243,7 @@
 
 	for(var/turf/simulated/shuttle/S in area_current.contents)
 		if(exterior_wall(S))
-			exterior_walls_and_engines |= list(list(S.x, S.y, S.z))
+			
 
 	center = list((max_x - min_x) / 2, (max_y - min_y) / 2, area_current.z)
 
