@@ -7310,7 +7310,7 @@
 	},
 /obj/machinery/light/small,
 /obj/effect/decal/warning_stripes,
-/obj/effect/decal/remains/mouse,
+/obj/effect/decal/remains/rat,
 /obj/machinery/camera/network/command{
 	c_tag = "AI Core - Core Airlock"
 	},
