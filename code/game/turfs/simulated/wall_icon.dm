@@ -130,6 +130,8 @@
 	if (damage_image)
 		cut_overlay(damage_image, TRUE)
 
+	calculate_adjacencies()
+
 	damage_image = null
 	var/list/overlays_to_add = list()
 	if(damage != 0)
@@ -143,7 +145,7 @@
 
 		damage_image = damage_overlays[overlay]
 		overlays_to_add += damage_image
-	
+
 	add_overlay(overlays_to_add, TRUE)
 	queue_smooth(src)
 

@@ -26,14 +26,23 @@
 	var/ship_size = 0
 	var/walls_count = 0
 	var/list/exterior_walls_and_engines = list()
+	var/list/center = list()
 
 /datum/shuttle/proc/init_shuttle()
 	//Calculating size and integrity
+	var/min_x = -INFINITY
+	var/min_y = -INFINITY
+	var/max_x = -1
+	var/max_y = -1
 	for(var/A in area_current.contents)
 		if(isturf(A))
+			var/turf/T = A
+			min_x = min(T.x, min_x)
+			min_y = min(T.y, min_y)
+			max_x = max(T.x, max_x)
+			max_y = max(T.y, max_y)
 			ship_size += 1
 			if(istype(A, /turf/simulated/shuttle) && exterior_wall(A))
-				var/turf/T = A
 				exterior_walls_and_engines |= list(list(T.x, T.y, T.z))
 			if(integrity_check(A))
 				walls_count += 1
@@ -47,6 +56,7 @@
 			e_turf.update_icon()
 			e_turf.add_overlay("engine_mount")
 			exterior_walls_and_engines |= list(list(e_turf.x, e_turf.y, e_turf.z))
+	center = list((max_x - min_x) / 2, (max_y - min_y) / 2, area_current.z)
 
 /datum/shuttle/proc/exterior_wall(var/turf/simulated/shuttle/T)
 	for(var/v in list(NORTH, SOUTH, EAST, WEST))
@@ -70,9 +80,9 @@
 	for(var/mob/living/L in A.contents)
 		to_chat(L, message)
 
-/datum/shuttle/proc/play_sound(var/sound_name, var/area/A)
-	var/p = pick(A.contents)
-	for(var/mob/M in range(9, get_turf(p)))
+/datum/shuttle/proc/play_sound_shuttle(var/sound_name, var/area/A)
+	var/turf/T = get_turf(locate(center[1], center[2], center[3]))
+	for(var/mob/M in range(T, round(sqrt(ship_size)) + 5))
 		M << sound("sound/effects/ship/[sound_name].ogg")
 
 /datum/shuttle/proc/init_docking_controllers()
@@ -85,38 +95,42 @@
 	if(moving_status != SHUTTLE_IDLE) return
 
 	moving_status = SHUTTLE_WARMUP
-	play_sound(sound_takeoff, origin)
+	play_sound_shuttle(sound_takeoff, origin)
 
-	spawn(warmup_time * 10)
-		if (moving_status == SHUTTLE_IDLE)
-			return	//someone cancelled the launch
+	sleep(max(70, warmup_time * 10))
+	if (moving_status == SHUTTLE_IDLE)
+		return	//someone cancelled the launch
 
-		moving_status = SHUTTLE_INTRANSIT //shouldn't matter but just to be safe
-		move(origin, destination)
-		moving_status = SHUTTLE_IDLE
-		play_sound(sound_landing, destination)
+	moving_status = SHUTTLE_INTRANSIT //shouldn't matter but just to be safe
+	play_sound_shuttle(sound_landing, origin)
+	play_sound_shuttle(sound_landing, destination)
+	sleep(70)
+	move(origin, destination)
+	moving_status = SHUTTLE_IDLE
 
 /datum/shuttle/proc/long_jump(var/area/departing, var/area/destination, var/area/interim, var/travel_time, var/direction)
 	if(moving_status != SHUTTLE_IDLE) return
 
 	//it would be cool to play a sound here
 	moving_status = SHUTTLE_WARMUP
-	play_sound(sound_takeoff, departing)
-	spawn(warmup_time*10)
-		if (moving_status == SHUTTLE_IDLE)
-			return	//someone cancelled the launch
+	play_sound_shuttle(sound_takeoff, departing)
+	sleep(max(70, warmup_time*10))
+	if (moving_status == SHUTTLE_IDLE)
+		return	//someone cancelled the launch
 
-		arrive_time = world.time + travel_time*10
-		moving_status = SHUTTLE_INTRANSIT
-		move(departing, interim)
+	arrive_time = world.time + travel_time*10
+	moving_status = SHUTTLE_INTRANSIT
+	move(departing, interim)
 
+	while (world.time < arrive_time)
+		sleep(5)
 
-		while (world.time < arrive_time)
-			sleep(5)
-
-		move(interim, destination)
-		moving_status = SHUTTLE_IDLE
-		play_sound(sound_landing, destination)
+	play_sound_shuttle(sound_landing, interim)
+	play_sound_shuttle(sound_landing, destination)
+	sleep(70)
+	move(interim, destination)
+	
+	moving_status = SHUTTLE_IDLE
 
 /datum/shuttle/proc/dock()
 	if (!docking_controller)
@@ -163,7 +177,7 @@
 		var/turf/D =  get_turf(locate(T.x, throwy - 1, 1))
 		for(var/atom/movable/AM as mob|obj in T)
 			AM.Move(D)
-		if(istype(T, /turf/simulated))
+		if(istype(T, /turf/unsimulated))
 			T.ChangeTurf(/turf/space)
 
 	for(var/mob/living/bug in destination)
@@ -171,6 +185,8 @@
 
 	move_contents_to(origin, destination)
 
+	var/range = rand(1, 4)
+	var/speed = rand(1, 4)
 	for(var/mob/M in destination)
 		if(M.client)
 			spawn(0)
@@ -180,6 +196,8 @@
 				else
 					to_chat(M, "<span class='warning'>The floor lurches beneath you!</span>")
 					shake_camera(M, 10, 1)
+					sleep(1)
+					M.throw_at(get_step(get_turf(locate(M.loc.x + rand(-3, 3), M.loc.y + rand(-3, 3), M.loc.z)), get_turf(M)), range, speed, M)
 		if(istype(M, /mob/living/carbon))
 			if(!M.buckled)
 				M.Weaken(3)
@@ -193,6 +211,10 @@
 
 	ASSERT(source_turfs.len == target_turfs.len)
 
+	var/min_x = -INFINITY
+	var/min_y = -INFINITY
+	var/max_x = -1
+	var/max_y = -1
 	for (var/i = 1 to source_turfs.len)
 		var/turf/ST = source_turfs[i]
 		if (!ST)	// Excluded turfs are null to keep the list ordered.
@@ -207,11 +229,23 @@
 			AM.shuttle_move(TT)
 
 		ST.ChangeTurf(ST.baseturf)
-		// In case we need to keep track of turfs
-		exterior_walls_and_engines |= list(list(TT.x, TT.y, TT.z))
+		min_x = min(TT.x, min_x)
+		min_y = min(TT.y, min_y)
+		max_x = max(TT.x, max_x)
+		max_y = max(TT.y, max_y)
 
 		TT.update_icon()
+		var/icon/img_S = new (ST.icon, ST.icon_state)
+		var/icon/img_T = new (TT.icon, TT.icon_state)
+		img_S.Blend(img_T ,ICON_UNDERLAY)
+		TT.icon = img_T
 		TT.update_above()
+
+	for(var/turf/simulated/shuttle/S in area_current.contents)
+		if(exterior_wall(S))
+			exterior_walls_and_engines |= list(list(S.x, S.y, S.z))
+
+	center = list((max_x - min_x) / 2, (max_y - min_y) / 2, area_current.z)
 
 //returns 1 if the shuttle has a valid arrive time
 /datum/shuttle/proc/has_arrive_time()
@@ -296,7 +330,7 @@
 			crash.contents += T_n
 		CHECK_TICK
 
-	play_sound(sound_crash, crash)
+	play_sound_shuttle(sound_crash, crash)
 	sleep(70) // Has to be 4 seconds less than how long is crash sound. Change if the sound is changed.
 	for(var/mob/living/L in A.contents)
 		shake_camera(L, 10, 1)
