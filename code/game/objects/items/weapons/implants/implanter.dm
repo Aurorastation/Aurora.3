@@ -71,15 +71,6 @@
 	update()
 	return
 
-/obj/item/weapon/implanter/uplink
-	name = "implanter (E)"
-
-/obj/item/weapon/implanter/uplink/Initialize()
-	src.imp = new /obj/item/weapon/implant/uplink( src )
-	..()
-	update()
-	return
-
 /obj/item/weapon/implanter/explosive
 	name = "implanter (E)"
 
@@ -149,6 +140,9 @@
 	imp = new /obj/item/weapon/implant/freedom( src )
 	..()
 	update()
+
+/obj/item/weapon/implanter/uplink
+	name = "implanter (U)"
 
 /obj/item/weapon/implanter/uplink/Initialize()
 	imp = new /obj/item/weapon/implant/uplink( src )

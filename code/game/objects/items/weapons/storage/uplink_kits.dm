@@ -98,7 +98,7 @@
 
 /obj/item/weapon/storage/box/syndie_kit/imp_uplink
 	name = "boxed uplink implant (with injector)"
-	starts_with = list(obj/item/weapon/implanter/uplink = 1)
+	starts_with = list(/obj/item/weapon/implanter/uplink = 1)
 
 /obj/item/weapon/storage/box/syndie_kit/space
 	name = "boxed space suit and helmet"
