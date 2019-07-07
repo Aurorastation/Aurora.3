@@ -150,6 +150,8 @@
 			revoke_maint_all_access()
 			feedback_inc("alert_keycard_auth_maintRevoke",1)
 		if("Emergency Response Team")
+			if(SSticker.mode.ert_disabled)
+				SSticker.mode.announce_ert_disabled()
 			if(is_ert_blocked())
 				to_chat(usr, "<span class='warning'>All emergency response teams are dispatched and can not be called at this time.</span>")
 				return
