@@ -163,7 +163,7 @@ Works together with spawning an observer, noted above.
 
 /mob/abstract/observer/proc/on_restricted_level()
 	//Check if they are a staff member
-	if(client && client.holder && (client.holder.rights & (R_MOD|R_ADMIN|R_DEV)))
+	if(!check_rights(R_MOD|R_ADMIN|R_DEV, show_msg=FALSE, user=src))
 		return FALSE
 	
 	//Check if the z level is in the restricted list
