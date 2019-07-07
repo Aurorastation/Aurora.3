@@ -2462,7 +2462,7 @@
 /turf/simulated/floor,
 /area/derelict/ship)
 "fU" = (
-/obj/effect/decal/remains/mouse,
+/obj/effect/decal/remains/rat,
 /turf/simulated/floor,
 /area/derelict/ship)
 "fV" = (

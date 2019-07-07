@@ -119,7 +119,7 @@
 	return
 
 /datum/species/machine/terminator
-	name = "Hunter-Killer"
+	name = "Military Frame"
 	short_name = "hks"
 	name_plural = "HKs"
 	bald = 1

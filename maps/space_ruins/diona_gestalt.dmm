@@ -386,7 +386,7 @@
 /turf/simulated/floor/diona,
 /area/derelict)
 "bp" = (
-/obj/random/squid_plushie,
+/obj/item/toy/plushie/squid,
 /turf/simulated/floor/diona,
 /area/derelict)
 

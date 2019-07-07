@@ -6,8 +6,8 @@
 /obj/machinery/suit_storage_unit
 	name = "Suit Storage Unit"
 	desc = "An industrial U-Stor-It Storage unit designed to accomodate all kinds of space suits. Its on-board equipment also allows the user to decontaminate the contents through a UV-ray purging cycle. There's a warning label dangling from the control pad, reading \"STRICTLY NO BIOLOGICALS IN THE CONFINES OF THE UNIT\"."
-	icon = 'icons/obj/suitstorage.dmi'
-	icon_state = "suitstorage000000100" //order is: [has helmet][has suit][has human][is open][is locked][is UV cycling][is powered][is dirty/broken] [is superUVcycling]
+	icon = 'icons/obj/suit_storage.dmi'
+	icon_state = "base"
 	anchored = 1
 	density = 1
 	var/mob/living/carbon/human/OCCUPANT = null
@@ -46,17 +46,32 @@
 		MASK = new MASK_TYPE(src)
 
 /obj/machinery/suit_storage_unit/update_icon()
-	var/hashelmet = 0
-	var/hassuit = 0
-	var/hashuman = 0
-	if(HELMET)
-		hashelmet = 1
-	if(SUIT)
-		hassuit = 1
-	if(OCCUPANT)
-		hashuman = 1
-	icon_state = text("suitstorage[][][][][][][][][]",hashelmet,hassuit,hashuman,src.isopen,src.islocked,src.isUV,src.ispowered,src.isbroken,src.issuperUV)
+	cut_overlays()
 
+	if(panelopen)
+		add_overlay("panel")
+	if(isUV)
+		if(issuperUV)
+			add_overlay("super")
+		else if(OCCUPANT)
+			add_overlay("uvhuman")
+		else
+			add_overlay("uv")
+	if(!isopen)
+		add_overlay("closed")
+	else if(isopen)
+		if(isbroken)
+			add_overlay("broken")
+		else
+			add_overlay("open")
+			if(SUIT)
+				add_overlay("suit")
+			if(HELMET)
+				add_overlay("helm")
+			if(MASK)
+				add_overlay("storage")
+	else if(OCCUPANT)
+		add_overlay("human")
 
 /obj/machinery/suit_storage_unit/power_change()
 	..()
@@ -482,6 +497,7 @@
 		src.panelopen = !src.panelopen
 		playsound(src.loc, 'sound/items/Screwdriver.ogg', 100, 1)
 		to_chat(user, text("<font color='blue'>You [] the unit's maintenance panel.</font>",(src.panelopen ? "open up" : "close") ))
+		update_icon()
 		src.updateUsrDialog()
 		return
 	if ( istype(I, /obj/item/weapon/grab) )
@@ -575,8 +591,8 @@
 	anchored = 1
 	density = 1
 
-	icon = 'icons/obj/suitstorage.dmi'
-	icon_state = "suitstorage000000100"
+	icon = 'icons/obj/suit_storage.dmi'
+	icon_state = "base"
 
 	req_access = list(access_captain,access_heads)
 
@@ -609,12 +625,36 @@
 	wires = new(src)
 	target_department = departments[1]
 	target_species = species[1]
-	if(!target_department || !target_species) qdel(src)
+	update_icon()
+	if(!target_department || !target_species)
+		qdel(src)
 
 /obj/machinery/suit_cycler/Destroy()
 	qdel(wires)
 	wires = null
 	return ..()
+
+/obj/machinery/suit_cycler/update_icon()
+	cut_overlays()
+
+	if(panel_open)
+		add_overlay("panel")
+
+	if(irradiating)
+		if(occupant)
+			add_overlay("uvhuman")
+		else
+			add_overlay("uv")
+
+
+	if(occupant)
+		add_overlay("human")
+
+	if(stat & BROKEN)
+		add_overlay("broken")
+
+	else
+		add_overlay("closed")
 
 /obj/machinery/suit_cycler/engineering
 	name = "Engineering suit cycler"
@@ -722,6 +762,7 @@
 		panel_open = !panel_open
 		to_chat(user, "You [panel_open ?  "open" : "close"] the maintenance panel.")
 		src.updateUsrDialog()
+		update_icon()
 		return
 
 	else if(istype(I,/obj/item/clothing/head/helmet/space) && !istype(I, /obj/item/clothing/head/helmet/space/rig))
@@ -902,6 +943,7 @@
 
 		active = 1
 		irradiating = 10
+		update_icon()
 		src.updateUsrDialog()
 
 		sleep(10)
@@ -933,11 +975,13 @@
 		active = 0
 		irradiating = 0
 		electrified = 0
+		update_icon()
 		return
 
 	if(irradiating == 1)
 		finished_job()
 		irradiating = 0
+		update_icon()
 		return
 
 	irradiating--

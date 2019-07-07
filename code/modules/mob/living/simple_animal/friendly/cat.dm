@@ -19,7 +19,6 @@
 	response_help  = "pets"
 	response_disarm = "gently pushes aside"
 	response_harm   = "kicks"
-	//var/mob/living/simple_animal/mouse/movement_target
 	var/mob/flee_target
 	min_oxy = 16 //Require atleast 16kPA oxygen
 	minbodytemp = 223		//Below -50 Degrees Celcius
@@ -30,7 +29,7 @@
 	metabolic_factor = 0.75
 	max_nutrition = 60
 	density = 0
-	var/mob/living/simple_animal/mouse/mousetarget = null
+	var/mob/living/simple_animal/rat/mousetarget = null
 	seek_speed = 5
 	pass_flags = PASSTABLE
 	possession_candidate = 1
@@ -41,9 +40,9 @@
 	//MICE!
 	..()
 	if (!stat)
-		for(var/mob/living/simple_animal/mouse/snack in oview(src,7))
-			if(snack.stat != DEAD && prob(65))//The probability allows her to not get stuck target the first mouse, reducing exploits
-				mousetarget = snack
+		for(var/mob/living/simple_animal/rat/snack in oview(src,7))
+			if(snack.stat != DEAD && prob(65))//The probability allows her to not get stuck target the first rat, reducing exploits
+				rattarget = snack
 				movement_target = snack
 				foodtarget = 0	//chasing mice takes precedence over eating food
 				if(prob(15))
@@ -54,7 +53,7 @@
 
 
 		if(!buckled)
-			if (turns_since_move > 5 || (flee_target || mousetarget))
+			if (turns_since_move > 5 || (flee_target || rattarget))
 				walk_to(src,0)
 				turns_since_move = 0
 
@@ -95,14 +94,14 @@
 /mob/living/simple_animal/cat/proc/attack_mice()
 	if((src.loc) && isturf(src.loc))
 		if(!stat && !resting && !buckled)
-			for(var/mob/living/simple_animal/mouse/M in oview(src,1))
+			for(var/mob/living/simple_animal/rat/M in oview(src,1))
 				if(M.stat != DEAD)
 					M.splat()
 					visible_emote(pick("bites \the [M]!","toys with \the [M].","chomps on \the [M]!"),0)
 					movement_target = null
 					stop_automated_movement = 0
 					if (prob(75))
-						break//usually only kill one mouse per proc
+						break//usually only kill one rat per proc
 
 /mob/living/simple_animal/cat/beg(var/atom/thing, var/atom/holder)
 	visible_emote("licks [get_pronoun(POSESSIVE_ADJECTIVE)] lips and hungrily glares at [holder]'s [thing.name]",0)
@@ -176,7 +175,7 @@
 		var/current_dist = get_dist(src, friend)
 
 		if (movement_target != friend)
-			if (current_dist > follow_dist && !istype(movement_target, /mob/living/simple_animal/mouse) && (friend in oview(src)))
+			if (current_dist > follow_dist && !istype(movement_target, /mob/living/simple_animal/rat) && (friend in oview(src)))
 				//stop existing movement
 				walk_to(src,0)
 				turns_since_scan = 0

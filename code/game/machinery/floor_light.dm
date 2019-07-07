@@ -27,6 +27,7 @@ var/list/floor_light_cache = list()
 	if(W.isscrewdriver())
 		anchored = !anchored
 		visible_message("<span class='notice'>\The [user] has [anchored ? "attached" : "detached"] \the [src].</span>")
+		playsound(src.loc, 'sound/items/Screwdriver.ogg', 100, 1)
 	else if(W.iswelder() && (damaged || (stat & BROKEN)))
 		var/obj/item/weapon/weldingtool/WT = W
 		if(!WT.remove_fuel(0, user))
@@ -38,11 +39,25 @@ var/list/floor_light_cache = list()
 		if(!src || !WT.isOn())
 			return
 		visible_message("<span class='notice'>\The [user] has repaired \the [src].</span>")
+		update_icon()
 		stat &= ~BROKEN
 		damaged = null
 		update_brightness()
 	else if(W.force && user.a_intent == "hurt")
 		attack_hand(user)
+	else if(istype(W, /obj/item/weapon/crowbar))
+		if(anchored)
+			to_chat(user, "<span class='warning'>\The [src] must be unfastened from the [loc] first!</span>")
+			return
+		else
+			to_chat(user, "<span class='notice'>You lever off the [name].</span>")
+			playsound(src.loc, 'sound/items/Crowbar.ogg', 100, 1)
+			if(stat & BROKEN)
+				qdel(src)
+				return
+			else
+				new /obj/item/stack/tile/light(user.loc)
+				qdel(src)
 	return
 
 /obj/machinery/floor_light/attack_hand(var/mob/user)
@@ -51,6 +66,7 @@ var/list/floor_light_cache = list()
 		if(!isnull(damaged) && !(stat & BROKEN))
 			visible_message("<span class='danger'>\The [user] smashes \the [src]!</span>")
 			playsound(src, "shatter", 70, 1)
+			update_icon()
 			stat |= BROKEN
 		else
 			visible_message("<span class='danger'>\The [user] attacks \the [src]!</span>")
@@ -125,6 +141,10 @@ var/list/floor_light_cache = list()
 				I.layer = layer+0.001
 				floor_light_cache[cache_key] = I
 			add_overlay(floor_light_cache[cache_key])
+	if(stat & BROKEN)
+		icon_state = "broken"
+	else
+		icon_state = "base"
 
 /obj/machinery/floor_light/proc/broken()
 	return (stat & (BROKEN|NOPOWER))

@@ -15,10 +15,6 @@ INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy/mannequin)
 	human_mob_list -= src
 	delete_inventory()
 
-/mob/living/carbon/human/resomi/Initialize(mapload)
-	h_style = "Resomi Plumage"
-	. = ..(mapload, "Resomi")
-
 /mob/living/carbon/human/skrell/Initialize(mapload)
 	h_style = "Skrell Average Tentacles"
 	. = ..(mapload, "Skrell")
@@ -118,7 +114,7 @@ INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy/mannequin)
 	. = ..(mapload, "Unbranded Frame")
 
 /mob/living/carbon/human/terminator/Initialize(mapload)
-	. = ..(mapload, "Hunter-Killer")
+	. = ..(mapload, "Military Frame")
 	add_language(LANGUAGE_SOL_COMMON, 1)
 	add_language(LANGUAGE_UNATHI, 1)
 	add_language(LANGUAGE_SIIK_MAAS, 1)

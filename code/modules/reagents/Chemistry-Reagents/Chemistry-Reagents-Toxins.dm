@@ -316,8 +316,9 @@
 /datum/reagent/toxin/fertilizer/monoammoniumphosphate/touch_mob(var/mob/living/L, var/amount)
 	. = ..()
 	if(istype(L))
-		L.ExtinguishMob(L.on_fire ? amount*3 : amount*1.5)
-		remove_self(amount)
+		var/needed = min(L.fire_stacks, amount)
+		L.ExtinguishMob(3* needed) // Foam is 3 times more efficient at extinguishing
+		remove_self(needed)
 
 /datum/reagent/toxin/fertilizer/monoammoniumphosphate/affect_touch(var/mob/living/carbon/slime/S, var/alien, var/removed)
 	if(istype(S))
@@ -702,23 +703,6 @@
 
 /datum/reagent/nanites/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.contract_disease(new /datum/disease/robotic_transformation(0), 1)
-
-
-
-/datum/reagent/rattoxin
-	name = "Toxins"
-	id = "rattoxin"
-	description = "Toxins, yuck!."
-	reagent_state = LIQUID
-	color = "#535E66"
-	taste_description = "eugh!"
-	fallback_specific_heat = 3
-
-/datum/reagent/rattoxin/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	if(prob(50))
-		M.drowsyness = max(M.drowsyness, 3)
-	if(prob(10))
-		M.emote("vomit")
 
 /datum/reagent/xenomicrobes
 	name = "Xenomicrobes"
