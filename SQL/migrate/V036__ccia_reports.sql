@@ -2,7 +2,7 @@
 -- Adds tables to store ccia interviews
 --
 
-CREATE TABLE `ss13_ccia_report` (
+CREATE TABLE `ss13_ccia_reports` (
 	`id` INT(11) NOT NULL AUTO_INCREMENT,
 	`report_date` DATE NOT NULL,
 	`title` VARCHAR(200) NOT NULL COLLATE 'utf8mb4_unicode_ci',
@@ -16,7 +16,7 @@ COLLATE='utf8mb4_unicode_ci'
 ENGINE=InnoDB
 ;
 
-CREATE TABLE `ss13_ccia_report_transcripts` (
+CREATE TABLE `ss13_ccia_reports_transcripts` (
 	`id` INT(11) NOT NULL AUTO_INCREMENT,
 	`report_id` INT(11) NOT NULL,
 	`character_id` INT(11) NOT NULL,
@@ -28,7 +28,7 @@ CREATE TABLE `ss13_ccia_report_transcripts` (
 	PRIMARY KEY (`id`),
 	INDEX `report_id` (`report_id`),
 	INDEX `character_id` (`character_id`),
-	CONSTRAINT `report_id` FOREIGN KEY (`report_id`) REFERENCES `ss13_ccia_report` (`id`) ON UPDATE CASCADE ON DELETE CASCADE
+	CONSTRAINT `report_id` FOREIGN KEY (`report_id`) REFERENCES `ss13_ccia_reports` (`id`) ON UPDATE CASCADE ON DELETE CASCADE
 )
 COLLATE='utf8mb4_unicode_ci'
 ENGINE=InnoDB

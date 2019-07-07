@@ -58,7 +58,7 @@
 		if(config.sql_ccia_logs)
 			//Get the active cases from the database and display them
 			var/list/reports = list()
-			var/DBQuery/report_query = dbcon.NewQuery("SELECT id, report_date, title FROM ss13_ccia_report WHERE status = 'approved' AND deleted_at IS NULL")
+			var/DBQuery/report_query = dbcon.NewQuery("SELECT id, report_date, title FROM ss13_ccia_reports WHERE status = 'approved' AND deleted_at IS NULL")
 			report_query.Execute()
 			while(report_query.NextRow())
 				reports["[report_query.item[2]] - [report_query.item[3]]"] = "[report_query.item[1]]"
@@ -140,7 +140,7 @@
 
 	//If we have sql ccia logs enabled, then persist it here
 	if(config.sql_ccia_logs && establish_db_connection(dbcon))
-		var/DBQuery/save_log = dbcon.NewQuery("INSERT INTO ss13_ccia_report_transcripts (id, report_id, character_id, interviewer, text) VALUES (NULL, :report_id:, :character_id:, :interviewer:, :text:)")
+		var/DBQuery/save_log = dbcon.NewQuery("INSERT INTO ss13_ccia_reports_transcripts (id, report_id, character_id, interviewer, text) VALUES (NULL, :report_id:, :character_id:, :interviewer:, :text:)")
 		save_log.Execute(list("report_id" = report_id, "character_id" = interviewee_id, "interviewer" = usr.name, "text" = P.info))
 
 	sLogFile = null
