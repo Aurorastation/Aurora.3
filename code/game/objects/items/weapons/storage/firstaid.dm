@@ -26,10 +26,10 @@
 	icon_state = "ointment"
 	item_state = "firstaid-ointment"
 	starts_with = list(
-		/obj/item/weapon/reagent_containers/pill/kelotane = 3,\
-		/obj/item/stack/medical/ointment = 2,\
-		/obj/item/device/healthanalyzer = 1,\
-		/obj/item/weapon/reagent_containers/hypospray/autoinjector/inaprovaline = 1\
+		/obj/item/weapon/reagent_containers/pill/kelotane = 3,
+		/obj/item/stack/medical/ointment = 2,
+		/obj/item/device/healthanalyzer = 1,
+		/obj/item/weapon/reagent_containers/hypospray/autoinjector/inaprovaline = 1
 	)
 
 /obj/item/weapon/storage/firstaid/fire/fill()
@@ -39,10 +39,10 @@
 /obj/item/weapon/storage/firstaid/regular
 	icon_state = "firstaid"
 	starts_with = list(
-		/obj/item/stack/medical/bruise_pack = 3,\
-		/obj/item/stack/medical/ointment = 2,\
-		/obj/item/device/healthanalyzer = 1,\
-		/obj/item/weapon/reagent_containers/hypospray/autoinjector/inaprovaline = 1\
+		/obj/item/stack/medical/bruise_pack = 3,
+		/obj/item/stack/medical/ointment = 2,
+		/obj/item/device/healthanalyzer = 1,
+		/obj/item/weapon/reagent_containers/hypospray/autoinjector/inaprovaline = 1
 	)
 
 /obj/item/weapon/storage/firstaid/toxin
@@ -51,9 +51,9 @@
 	icon_state = "antitoxin"
 	item_state = "firstaid-toxin"
 	starts_with = list(
-		/obj/item/weapon/reagent_containers/syringe/antitoxin = 3,\
-		/obj/item/weapon/reagent_containers/pill/antitox = 3,\
-		/obj/item/device/healthanalyzer = 1\
+		/obj/item/weapon/reagent_containers/syringe/antitoxin = 3,
+		/obj/item/weapon/reagent_containers/pill/antitox = 3,
+		/obj/item/device/healthanalyzer = 1
 	)
 
 /obj/item/weapon/storage/firstaid/toxin/fill()
@@ -66,9 +66,9 @@
 	icon_state = "o2"
 	item_state = "firstaid-o2"
 	starts_with = list(
-		/obj/item/weapon/reagent_containers/inhaler/dexalin = 4,\
-		/obj/item/weapon/reagent_containers/hypospray/autoinjector/inaprovaline = 2,\
-		/obj/item/device/breath_analyzer = 1\
+		/obj/item/weapon/reagent_containers/inhaler/dexalin = 4,
+		/obj/item/weapon/reagent_containers/hypospray/autoinjector/inaprovaline = 2,
+		/obj/item/device/breath_analyzer = 1
 	)
 
 /obj/item/weapon/storage/firstaid/adv
@@ -77,10 +77,10 @@
 	icon_state = "advfirstaid"
 	item_state = "firstaid-advanced"
 	starts_with = list(
-		/obj/item/weapon/reagent_containers/hypospray/autoinjector/inaprovaline = 1,\
-		/obj/item/stack/medical/advanced/bruise_pack = 3,\
-		/obj/item/stack/medical/advanced/ointment = 2,\
-		/obj/item/stack/medical/splint = 1\
+		/obj/item/weapon/reagent_containers/hypospray/autoinjector/inaprovaline = 1,
+		/obj/item/stack/medical/advanced/bruise_pack = 3,
+		/obj/item/stack/medical/advanced/ointment = 2,
+		/obj/item/stack/medical/splint = 1
 	)
 
 /obj/item/weapon/storage/firstaid/combat
@@ -94,8 +94,8 @@
 		/obj/item/weapon/storage/pill_bottle/dexalin_plus = 1,
 		/obj/item/weapon/storage/pill_bottle/dylovene = 1,
 		/obj/item/weapon/storage/pill_bottle/tramadol = 1,
-		/obj/item/weapon/reagent_containers/inhaler/hyperzine = 1,\
-		/obj/item/stack/medical/splint = 1\
+		/obj/item/weapon/reagent_containers/inhaler/hyperzine = 1,
+		/obj/item/stack/medical/splint = 1
 	)
 
 /obj/item/weapon/storage/firstaid/surgery
@@ -105,17 +105,17 @@
 	item_state = "firstaid-advanced"
 	use_sound = 'sound/items/storage/briefcase.ogg'
 	starts_with = list(
-		/obj/item/weapon/bonesetter = 1,\
-		/obj/item/weapon/cautery = 1,\
-		/obj/item/weapon/circular_saw = 1,\
-		/obj/item/weapon/hemostat = 1,\
-		/obj/item/weapon/retractor = 1,\
-		/obj/item/weapon/scalpel = 1,\
-		/obj/item/weapon/surgicaldrill = 1,\
-		/obj/item/weapon/bonegel = 1,\
-		/obj/item/weapon/FixOVein = 1,\
-		/obj/item/stack/medical/advanced/bruise_pack = 1,\
-		/obj/item/weapon/reagent_containers/inhaler/soporific = 2\
+		/obj/item/weapon/bonesetter = 1,
+		/obj/item/weapon/cautery = 1,
+		/obj/item/weapon/circular_saw = 1,
+		/obj/item/weapon/hemostat = 1,
+		/obj/item/weapon/retractor = 1,
+		/obj/item/weapon/scalpel = 1,
+		/obj/item/weapon/surgicaldrill = 1,
+		/obj/item/weapon/bonegel = 1,
+		/obj/item/weapon/FixOVein = 1,
+		/obj/item/stack/medical/advanced/bruise_pack = 1,
+		/obj/item/weapon/reagent_containers/inhaler/soporific = 2
 	)
 
 /obj/item/weapon/storage/firstaid/surgery/fill()
@@ -128,8 +128,8 @@
 	desc = "A NanoTrasen care package for moderately injured miners."
 	icon_state = "brute"
 	starts_with = list(
-		/obj/item/stack/medical/bruise_pack = 4,\
-		/obj/item/stack/medical/advanced/bruise_pack = 2\
+		/obj/item/stack/medical/bruise_pack = 4,
+		/obj/item/stack/medical/advanced/bruise_pack = 2
 	)
 
 /*
