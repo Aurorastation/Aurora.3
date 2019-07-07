@@ -44,7 +44,7 @@
 	set name = "Start Recording"
 	set category = "Recorder"
 
-	if(!usr.client.holder && !(usr.client.holder.rights & R_CCIAA))
+	if(!check_rights(R_CCIAA,FALSE))
 		to_chat(usr, "<span class='notice'>The device beeps and flashes \"Unauthorised user.\".</span>")
 		return
 	if(usr.stat)
@@ -122,7 +122,7 @@
 
 	if(usr.stat)
 		return
-	if(!usr.client.holder && !(usr.client.holder.rights & R_CCIAA))
+	if(!check_rights(R_CCIAA,FALSE))
 		to_chat(usr, "<span class='notice'>The device beeps and flashes \"Unauthorised user.\".</span>")
 		return
 	if(!recording)
@@ -179,7 +179,7 @@
 
 	if(usr.stat)
 		return
-	if(!usr.client.holder && !(usr.client.holder.rights & R_CCIAA))
+	if(!check_rights(R_CCIAA,FALSE))
 		to_chat(usr, "<span class='notice'>The device beeps and flashes \"Unauthorised user\".</span>")
 		return
 	if(recording)
@@ -197,7 +197,7 @@
 
 	if(usr.stat)
 		return
-	if(!usr.client.holder && !(usr.client.holder.rights & R_CCIAA))
+	if(!check_rights(R_CCIAA,FALSE))
 		to_chat(usr, "<span class='notice'>The device beeps and flashes \"Unauthorised user\".</span>")
 		return
 	if(!recording)
