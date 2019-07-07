@@ -112,10 +112,6 @@
 			if(istype(target))
 				ManualFollow(target)
 
-/mob/abstract/observer/forceMove()
-	stop_following()
-	. = ..()
-
 /mob/abstract/observer/proc/initialise_postkey(set_timers = TRUE)
 	//This function should be run after a ghost has been created and had a ckey assigned
 	if (!set_timers)
@@ -195,10 +191,10 @@ Works together with spawning an observer, noted above.
 
 	if(following)
 		if(!iscarbon(following)) //If they are following something other than a carbon mob, teleport them
+			stop_following()
 			teleport_to_spawn("You can not follow \the [following] on this level.")
 		else
 			return
-
 	//If they are moving around freely, teleport them
 	teleport_to_spawn()
 	//And update their sight settings
