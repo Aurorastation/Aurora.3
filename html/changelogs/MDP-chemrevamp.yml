@@ -6,7 +6,7 @@
 # Your changelog will be merged with a master changelog. (New stuff added only, and only on the date entry for the day it was merged.)
 # When it is, any changes listed below will disappear.
 #
-# Valid Prefixes: 
+# Valid Prefixes:
 #   bugfix
 #   wip (For works in progress)
 #   tweak
@@ -26,7 +26,7 @@
 #   refactor
 #################################
 
-# Your name.  
+# Your name.
 author: MoondancerPony
 
 # Optional: Remove this file after generating master changelog.  Useful for PR changelogs that won't get used again.
@@ -37,7 +37,7 @@ delete-after: True
 # SCREW THIS UP AND IT WON'T WORK.
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
-changes: 
+changes:
   - rscadd: "Makes it so that you can create a makeshift chemistry workstation allowing for crushing, chopping, and heating reagents. You can add an analyser to it to view the temperature of the reagents."
   - rscadd: "Adds a distillery to turn booze into pure(r) ethanol/butanol and a little bit of water."
   - rscadd: "Adds lean, made from cough syrup, sugar, and space-up. Adds krok juice, made from iron and orange juice. Adds several other drugs coded by BurgerBB in a previous closed PR."
@@ -58,6 +58,9 @@ changes:
   - tweak: "Some drinks now heal damage as they did before, though at reduced levels."
   - tweak: "Paracetamol now reduces fevers."
   - maptweak: "Medical's supplies have been reduced to a less-excessive level, making chemists less redundant."
-  - tweak: "Syringes now begin capped. After use, syringes get dirty and can also transfer viruses between successive uses (on humans); it's recommended to throw them away in the new sharps bins. If they are only used to transfer reagents, they can be used indefinitely."
+  - tweak: "Syringes now begin capped. After use, syringes get dirty and can also transfer viruses between successive uses (on humans); it's recommended to throw them away in the new sharps bins. If they are only used to transfer reagents, they can be used indefinitely. Ported from Virgo."
   - maptweak: "Medical, Virology, and Xenobiology all have sharps bins for disposal of biohazardous glassware."
   - tweak: "There are now three hyposprays in the Medical sublevel, which are equivalent to syringes prior to this update. They take the same amount of time to inject, and have a capacity of 15 units, but are reusable."
+  - backend: "Accidentally refactored (almost) all storage items to use the starts_with var instead of overriding fill(). This should make it a lot less complicated to add new storage boxes."
+  - imageadd: "Ports Goonstation sprites for syringes."
+  - rscadd: "Adds medicine cups to take medicine by mouth in a dignified manner."
