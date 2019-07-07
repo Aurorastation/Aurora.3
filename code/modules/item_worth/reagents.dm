@@ -572,28 +572,28 @@
 
 /datum/reagent/mental/sertraline
 	value = 6
-	
+
 /datum/reagent/mental/fluvoxamine
 	value = 6
-	
+
 /datum/reagent/mental/escitalopram
 	value = 6
 
 /datum/reagent/mental/paroxetine
 	value = 3.5
-	
+
 /datum/reagent/mental/duloxetine
 	value = 6
-	
+
 /datum/reagent/mental/venlafaxine
 	value = 6
-	
+
 /datum/reagent/mental/risperidone
 	value = 6
-	
+
 /datum/reagent/mental/olanzapine
 	value = 6
-	
+
 /datum/reagent/mental/truthserum
 	value = 8
 
@@ -620,7 +620,7 @@
 
 /datum/reagent/uranium
 	value = 9
-	
+
 /datum/reagent/platinum
 	value = 3
 
@@ -737,9 +737,6 @@
 
 /datum/reagent/nanites
 	value = 9
-
-/datum/reagent/xenomicrobes
-	value = 5
 
 /datum/reagent/estus
 	value = 50
