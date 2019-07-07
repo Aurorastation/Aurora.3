@@ -54,7 +54,7 @@ changes:
   - refactor: "Spaceacillin has been refactored into several new chemicals. Cough syrup, allergy medicine, antivirals, antibiotics, and paracetamol can do the exact same spaceacillin once could."
   - rscadd: "Antibiotics (methicillin) are now available for bacterial infections. They have a small chance of causing side effects such as nausea and vomiting."
   - rscadd: "Antivirals (thetamivir) have replaced spaceacillin and do mostly the same thing, save for bacterial wound infections. They have a small chance of causing side effects such as fever, muscle pain, and fatigue."
-  - rscadd: "Cough syrup, allergy medication, and paracetamol are now available in NanoMed vendors."
+  - rscadd: "Cough syrup, allergy medication, paracetamol, and medicine cups are now available in NanoMed vendors."
   - tweak: "Some drinks now heal damage as they did before, though at reduced levels."
   - tweak: "Paracetamol now reduces fevers."
   - maptweak: "Medical's supplies have been reduced to a less-excessive level, making chemists less redundant."

@@ -312,7 +312,8 @@
 		/obj/item/stack/medical/splint = 2,
 		/obj/item/weapon/reagent_containers/pill/antitox = 6,
 		/obj/item/weapon/reagent_containers/pill/antihistamine = 6,
-		/obj/item/weapon/reagent_containers/pill/paracetamol = 6
+		/obj/item/weapon/reagent_containers/pill/paracetamol = 6,
+		/obj/item/weapon/reagent_containers/food/drinks/medcup = 4
 	)
 	contraband = list(
 		/obj/item/weapon/reagent_containers/pill/tox = 3,
