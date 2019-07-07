@@ -167,6 +167,7 @@ var/list/gamemode_cache = list()
 	var/sql_stats = 0			//Do we record round statistics on the database (deaths, round reports, population, etcetera) or not?
 	var/sql_whitelists = 0		//Defined whether the server uses an SQL based whitelist system, or the legacy one with two .txts. Config option in config.txt
 	var/sql_saves = 0			//Defines whether the server uses an SQL based character and preference saving system. Config option in config.txt
+	var/sql_ccia_logs = 0		//Defines weather the server saves CCIA Logs to the database aswell
 
 	var/simultaneous_pm_warning_timeout = 100
 
@@ -783,6 +784,9 @@ var/list/gamemode_cache = list()
 
 				if("sql_saves")
 					config.sql_saves = 1
+				
+				if("sql_ccia_logs")
+					config.sql_ccia_logs = 1
 
 				if("client_error_version")
 					config.client_error_version = text2num(value)
