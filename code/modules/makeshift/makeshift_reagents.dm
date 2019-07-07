@@ -86,7 +86,7 @@
 				amt = reagents.trans_to_holder(I.reagents, reagents.get_free_space())
 		if(amt)
 			to_chat(user, span("notice", "You fill \the [I] with [amt] units from \the [src]."))
-	else if(I.reagents && W.reagents.total_volume)
+	else if(I.reagents && I.reagents.total_volume)
 		var/amt = I.reagents.trans_to_holder(reagents, I.reagents.total_volume) // just pour it if you can
 		to_chat(user, span("notice", "You pour [amt] units from \the [I] into \the [src]."))
 
