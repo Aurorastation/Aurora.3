@@ -237,7 +237,7 @@
 	force = 3
 	throwforce = 5
 	stunforce = 0
-	agonyforce = 60	//same force as a stunbaton, but uses way more charge.
+	agonyforce = 60	//Marginally more inefficient.
 	hitcost = 5000
 	attack_verb = list("poked")
 	slot_flags = null
