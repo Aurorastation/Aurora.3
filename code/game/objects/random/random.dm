@@ -317,23 +317,9 @@
 		/obj/item/toy/plushie/kitten,
 		/obj/item/toy/plushie/lizard,
 		/obj/item/toy/plushie/farwa,
+		/obj/item/toy/plushie/squid,
 		/obj/item/toy/plushie/bear,
-		/obj/item/toy/plushie/bearfire,
-		/obj/random/squid_plushie
-	)
-
-/obj/random/squid_plushie
-	name = "random squid plushie"
-	desc = "This is a random squid plushie."
-	icon = 'icons/obj/toy.dmi'
-	icon_state = "greensquid"
-	spawnlist = list(
-		/obj/item/toy/plushie/squid/green,
-		/obj/item/toy/plushie/squid/mint,
-		/obj/item/toy/plushie/squid/blue,
-		/obj/item/toy/plushie/squid/orange,
-		/obj/item/toy/plushie/squid/yellow,
-		/obj/item/toy/plushie/squid/pink
+		/obj/item/toy/plushie/bearfire
 	)
 
 /obj/random/smalltank
@@ -1230,3 +1216,19 @@
 		E.charge_cost *= 2
 		E.self_recharge = 0
 		E.reliability = 90
+
+/obj/random/animal_crate
+	name = "random animal"
+	desc = "Contains a random crate with some animal."
+	icon = 'icons/obj/storage.dmi'
+	icon_state = "densecrate"
+	spawnlist = list(
+		/obj/structure/largecrate/animal/corgi = 3,
+		/obj/structure/largecrate/animal/cow = 4,
+		/obj/structure/largecrate/animal/goat = 3,
+		/obj/structure/largecrate/animal/cat = 2,
+		/obj/structure/largecrate/animal/chick = 4,
+		/obj/structure/largecrate/animal/adhomai = 0.5,
+		/obj/structure/largecrate/animal/adhomai/fatshouter = 0.5,
+		/obj/structure/largecrate/animal/adhomai/rafama = 0.5
+	)

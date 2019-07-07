@@ -581,7 +581,7 @@
 	construction_cost = list(DEFAULT_WALL_MATERIAL=15000, "glass"= 1250, "silver"=5250)
 	construction_time = 300
 
-	disruptive = 1
+	disruptive = 0
 
 	use_power_cost = 5
 	module_cooldown = 25
@@ -666,7 +666,7 @@
 			"<span class='warning'>You leap horizontally at \the [T]!</span>",
 			"<span class='warning'>You hear an electric <i>whirr</i> followed by a weighty thump!</span>")
 		H.face_atom(T)
-		H.throw_at(T, leapDistance, 1, src)
+		H.throw_at(T, leapDistance, 1, src, do_throw_animation = FALSE)
 		return 1
 	else
 		var/turf/simulated/open/TA = GetAbove(src)

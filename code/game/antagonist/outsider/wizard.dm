@@ -115,6 +115,9 @@ var/datum/antagonist/wizard/wizards
 				var/spell/spell = s
 				text += "<br><b>[spell.name]</b> - "
 				text += "Speed: [spell.spell_levels["speed"]] Power: [spell.spell_levels["power"]]"
+		if(player.ambitions)
+			text += "<br><font color='purple'><b>Their goals for today were:</b></font>"
+			text += "<br>  '[player.ambitions]'"
 		text += "<br>"
 		to_world(text)
 

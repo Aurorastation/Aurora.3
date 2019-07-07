@@ -426,3 +426,19 @@
 	name = "ion slug box"
 	icon_state = "empslugbox"
 	ammo_type = /obj/item/ammo_casing/gauss/emp
+
+
+/obj/item/ammo_magazine/plasma
+	name = "heavy duty plasma cell"
+	icon_state = "heavy_plasma_cell"
+	mag_type = MAGAZINE
+	caliber = "plasma slug"
+	ammo_type = /obj/item/ammo_casing/plasma_slug
+	max_ammo = 10
+
+/obj/item/ammo_magazine/plasma/light
+	name = "small plasma cell"
+	icon_state = "light_plasma_cell"
+	caliber = "plasma bolt"
+	ammo_type = /obj/item/ammo_casing/plasma_bolt
+	max_ammo = 30

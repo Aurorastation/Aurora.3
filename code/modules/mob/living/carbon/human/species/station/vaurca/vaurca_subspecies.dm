@@ -118,6 +118,7 @@
 	damage_overlays = 'icons/mob/human_races/masks/dam_mask_warform.dmi'
 	damage_mask = 'icons/mob/human_races/masks/dam_mask_warform.dmi'
 	blood_mask = 'icons/mob/human_races/masks/dam_mask_warform.dmi'
+	onfire_overlay = 'icons/mob/OnFire_large.dmi'
 
 
 	stamina = 200

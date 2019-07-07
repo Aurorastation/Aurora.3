@@ -56,11 +56,11 @@
 	icon_opened = "syndicate1open"
 
 /obj/structure/closet/gimmick/russian/fill()
-	new /obj/item/clothing/head/ushanka(src)
-	new /obj/item/clothing/head/ushanka(src)
-	new /obj/item/clothing/head/ushanka(src)
-	new /obj/item/clothing/head/ushanka(src)
-	new /obj/item/clothing/head/ushanka(src)
+	new /obj/item/clothing/head/ushanka/grey(src)
+	new /obj/item/clothing/head/ushanka/grey(src)
+	new /obj/item/clothing/head/ushanka/grey(src)
+	new /obj/item/clothing/head/ushanka/grey(src)
+	new /obj/item/clothing/head/ushanka/grey(src)
 	new /obj/item/clothing/under/soviet(src)
 	new /obj/item/clothing/under/soviet(src)
 	new /obj/item/clothing/under/soviet(src)
