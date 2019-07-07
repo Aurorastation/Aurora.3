@@ -340,15 +340,15 @@ STOCK_ITEM_COMMON(glasses, 1.2)
 
 STOCK_ITEM_COMMON(pills, 1.2)
 	var/list/options = pick( \
-		/obj/item/weapon/storage/pill_bottle/prefilled/bicaridine, \
-		/obj/item/weapon/storage/pill_bottle/prefilled/dexalin_plus, \
-		/obj/item/weapon/storage/pill_bottle/prefilled/dermaline, \
-		/obj/item/weapon/storage/pill_bottle/prefilled/dylovene, \
-		/obj/item/weapon/storage/pill_bottle/prefilled/inaprovaline, \
-		/obj/item/weapon/storage/pill_bottle/prefilled/kelotane, \
-		/obj/item/weapon/storage/pill_bottle/prefilled/antihistamine, \
-		/obj/item/weapon/storage/pill_bottle/prefilled/tramadol, \
-		/obj/item/weapon/storage/pill_bottle/prefilled/paracetamol \
+		/obj/item/weapon/storage/pill_bottle/bicaridine, \
+		/obj/item/weapon/storage/pill_bottle/dexalin_plus, \
+		/obj/item/weapon/storage/pill_bottle/dermaline, \
+		/obj/item/weapon/storage/pill_bottle/dylovene, \
+		/obj/item/weapon/storage/pill_bottle/inaprovaline, \
+		/obj/item/weapon/storage/pill_bottle/kelotane, \
+		/obj/item/weapon/storage/pill_bottle/antihistamine, \
+		/obj/item/weapon/storage/pill_bottle/tramadol, \
+		/obj/item/weapon/storage/pill_bottle/paracetamol \
 	)
 	var/newtype = pick(options)
 	new newtype(L)

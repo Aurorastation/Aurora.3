@@ -421,45 +421,45 @@
 	desc = "Contains antiviral agents."
 
 /obj/item/weapon/reagent_containers/syringe/antiviral/Initialize()
-		. = ..()
-		reagents.add_reagent("thetamivir", 15)
-		mode = SYRINGE_INJECT
-		update_icon()
+	. = ..()
+	reagents.add_reagent("thetamivir", 15)
+	mode = SYRINGE_INJECT
+	update_icon()
 
 /obj/item/weapon/reagent_containers/syringe/antibiotic
 	name = "Syringe (methicillin)"
 	desc = "Contains antibiotics."
 
 /obj/item/weapon/reagent_containers/syringe/antibiotic/Initialize()
-		. = ..()
-		reagents.add_reagent("methicillin", 15)
-		mode = SYRINGE_INJECT
-		update_icon()
+	. = ..()
+	reagents.add_reagent("methicillin", 15)
+	mode = SYRINGE_INJECT
+	update_icon()
 
 /obj/item/weapon/reagent_containers/syringe/drugs
 	name = "Syringe (drugs)"
 	desc = "Contains aggressive drugs meant for torture."
-	Initialize()
-		. = ..()
-		reagents.add_reagent("panotoxin",  5)
-		reagents.add_reagent("mindbreaker",  10)
-		mode = SYRINGE_INJECT
-		update_icon()
+
+/obj/item/weapon/reagent_containers/syringe/drugs/Initialize()
+	. = ..()
+	reagents.add_reagent("panotoxin",  5)
+	reagents.add_reagent("mindbreaker",  10)
+	mode = SYRINGE_INJECT
+	update_icon()
 
 /obj/item/weapon/reagent_containers/syringe/calomel
 	name = "Syringe (calomel)"
 	desc = "Contains purging medicine."
 
 /obj/item/weapon/reagent_containers/syringe/calomel/Initialize()
-		. = ..()
-		reagents.add_reagent("calomel",  15)
-		mode = SYRINGE_INJECT
-		update_icon()
+	. = ..()
+	reagents.add_reagent("calomel",  15)
+	mode = SYRINGE_INJECT
+	update_icon()
 
 
-/obj/item/weapon/reagent_containers/syringe/ld50_syringe/choral
-	Initialize()
-		. = ..()
-		reagents.add_reagent("chloralhydrate", 60)
-		mode = SYRINGE_INJECT
-		update_icon()
+/obj/item/weapon/reagent_containers/syringe/ld50_syringe/chloral/Initialize()
+	. = ..()
+	reagents.add_reagent("chloralhydrate", 60)
+	mode = SYRINGE_INJECT
+	update_icon()

@@ -17,24 +17,19 @@
 	center_of_mass = null
 	var/armorcheck = 1
 	var/time = 3 SECONDS
-	var/fast = FALSE // CMO's hypospray should be fast, doctors' should not
 
 /obj/item/weapon/reagent_containers/hypospray/cmo
 	name = "premium hypospray"
 	desc = "The DeForest Medical Corporation premium hypospray is a cutting-edge, sterile, air-needle autoinjector for rapid administration of drugs to patients."
 	volume = 30
-	fast = TRUE
+	time = 0
 
 /obj/item/weapon/reagent_containers/hypospray/attack(var/mob/M, var/mob/user, target_zone)
-
 	. = ..()
-
 	var/mob/living/carbon/human/H = M
 	if(istype(H))
 		user.visible_message("<span class='warning'>\The [user] is trying to inject \the [M] with \the [src]!</span>","<span class='notice'>You are trying to inject \the [M] with \the [src].</span>")
 		var/inj_time = time
-		if(fast)
-			inj_time = 0
 		if(armorcheck && H.run_armor_check(target_zone,"melee",0,"Your armor slows down the injection!","Your armor slows down the injection!"))
 			inj_time += 6 SECONDS
 		if(!do_mob(user, M, inj_time))
@@ -78,7 +73,6 @@
 	amount_per_transfer_from_this = 5
 	volume = 5
 	time = 0
-	fast = TRUE // redundant, but just in case
 
 /obj/item/weapon/reagent_containers/hypospray/autoinjector/Initialize()
 	. =..()
@@ -172,6 +166,7 @@
 	icon_state = "combat_hypo"
 	volume = 20
 	armorcheck = 0
+	time = 0
 
 /obj/item/weapon/reagent_containers/hypospray/combat/Initialize()
 	. = ..()

@@ -2486,7 +2486,7 @@
 /obj/item/clothing/mask/balaclava,
 /obj/effect/decal/cleanable/cobweb2,
 /obj/item/clothing/mask/muzzle,
-/obj/item/weapon/reagent_containers/syringe/ld50_syringe/choral,
+/obj/item/weapon/reagent_containers/syringe/ld50_syringe/chloral,
 /obj/effect/landmark{
 	name = "blobstart"
 	},

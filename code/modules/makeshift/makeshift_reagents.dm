@@ -108,7 +108,6 @@
 				var/amount_to_take = max(0,min(stack.amount,round(reagents.get_free_space()/REAGENTS_PER_SHEET)))
 				if(amount_to_take)
 					stack.use(amount_to_take)
-					if(QDELETED(stack))
 					if(islist(sheet_components))
 						amount_to_take = (amount_to_take/(sheet_components.len))
 						for(var/i in sheet_components)

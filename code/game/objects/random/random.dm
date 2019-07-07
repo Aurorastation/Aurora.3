@@ -149,9 +149,9 @@
 		/obj/item/stack/medical/splint = 1,
 		/obj/item/bodybag = 2,
 		/obj/item/bodybag/cryobag = 1,
-		/obj/item/weapon/storage/pill_bottle/prefilled/kelotane = 2,
-		/obj/item/weapon/storage/pill_bottle/prefilled/antitox = 2,
-		/obj/item/weapon/storage/pill_bottle/prefilled/tramadol = 2,
+		/obj/item/weapon/storage/pill_bottle/kelotane = 2,
+		/obj/item/weapon/storage/pill_bottle/antitox = 2,
+		/obj/item/weapon/storage/pill_bottle/tramadol = 2,
 		/obj/item/weapon/reagent_containers/syringe/antitoxin = 2,
 		/obj/item/weapon/reagent_containers/syringe/antiviral = 1,
 		/obj/item/weapon/reagent_containers/syringe/inaprovaline = 2,
@@ -178,9 +178,9 @@
 	icon_state = "purplecomb"
 //	spawn_nothing_percentage = 50
 	problist = list(
-		/obj/item/weapon/storage/pill_bottle/prefilled/tramadol = 3,
-		/obj/item/weapon/storage/pill_bottle/prefilled/happy = 2,
-		/obj/item/weapon/storage/pill_bottle/prefilled/zoom = 2,
+		/obj/item/weapon/storage/pill_bottle/tramadol = 3,
+		/obj/item/weapon/storage/pill_bottle/happy = 2,
+		/obj/item/weapon/storage/pill_bottle/zoom = 2,
 		/obj/item/weapon/reagent_containers/glass/beaker/vial/random/toxin = 1,
 		/obj/item/weapon/contraband/poster = 5,
 		/obj/item/weapon/material/knife/butterfly = 2,

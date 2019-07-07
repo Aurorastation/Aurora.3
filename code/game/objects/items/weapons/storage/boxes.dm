@@ -30,20 +30,10 @@
 	var/maxHealth = 20	//health is already defined
 	use_sound = 'sound/items/storage/box.ogg'
 	drop_sound = 'sound/items/drop/box.ogg'
-	var/list/starts_with // for pre-filled boxes
 
 /obj/item/weapon/storage/box/Initialize()
 	. = ..()
 	health = maxHealth
-
-/obj/item/weapon/storage/box/fill()
-	. = ..()
-	if(LAZYLEN(starts_with))
-		for(var/t in starts_with)
-			if(!ispath(t))
-				continue
-			for(var/i=0, i<starts_with[t], i++)
-				new t(src)
 
 /obj/item/weapon/storage/box/proc/damage(var/severity)
 	health -= severity
