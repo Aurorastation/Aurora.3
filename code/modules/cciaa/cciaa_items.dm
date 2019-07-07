@@ -165,7 +165,7 @@
 			firstLine = "[line]"
 			continue
 
-		dat += "[line]<br>"
+		dat += "[line]<br>\n"
 
 	var/obj/item/weapon/paper/P = new /obj/item/weapon/paper(src)
 	var/pname = "[firstLine]"
@@ -225,7 +225,7 @@
 		to_chat(user,"<span class='notice'>The device beeps and flashes \"A interviewee has already been associated with this interview\".</span>")
 		return
 	
-	if(istype(user,/mob/living/carbon/human))
+	if(iscarbon(user))
 		var/mob/living/carbon/human/H = user
 		if(!H.character_id)
 			to_chat(user,"<span class='notice'>The device beeps and flashes \"Fingerprint is not recognized\".</span>")

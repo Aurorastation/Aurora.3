@@ -14,7 +14,6 @@ CREATE TABLE `ss13_ccia_report` (
 )
 COLLATE='utf8mb4_unicode_ci'
 ENGINE=InnoDB
-AUTO_INCREMENT=6
 ;
 
 CREATE TABLE `ss13_ccia_report_transcripts` (
@@ -33,5 +32,4 @@ CREATE TABLE `ss13_ccia_report_transcripts` (
 )
 COLLATE='utf8mb4_unicode_ci'
 ENGINE=InnoDB
-AUTO_INCREMENT=2
 ;
