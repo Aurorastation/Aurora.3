@@ -85,7 +85,7 @@
 	var/datum/effect_system/sparks/spark_system
 
 	var/allowed_module_types = MODULE_GENERAL // All rigs by default should have access to general
-	var/list/species_restricted = list("exclude","Diona","Xenomorph","Vaurca","Golem", "Vox")
+	var/list/species_restricted = list("exclude","Diona","Vaurca","Golem", "Vox")
 
 /obj/item/weapon/rig/examine()
 	to_chat(usr, "This is \icon[src][src.name].")

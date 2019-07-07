@@ -1060,7 +1060,6 @@ var/global/list/robot_modules = list(
 					LANGUAGE_DRONE = 1,
 					LANGUAGE_EAL = 1,
 					LANGUAGE_VOX = 1,
-					LANGUAGE_XENOMORPH = 1,
 					LANGUAGE_HIVEMIND = 1,
 					LANGUAGE_CHANGELING = 1,
 					LANGUAGE_BORER = 1

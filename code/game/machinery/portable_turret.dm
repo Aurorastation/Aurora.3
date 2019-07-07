@@ -83,7 +83,7 @@
 	else if(health / maxhealth < 0.6)
 		msg += span("warning", "\The [src] is badly damaged!")
 	else if(health / maxhealth < 1)
-		msg += span("notice", "\The [src] is slightly damaged!")	
+		msg += span("notice", "\The [src] is slightly damaged!")
 	else
 		msg += span("good", "\The [src] is not damaged!")
 	to_chat(user, msg)
@@ -156,7 +156,7 @@
 		STOP_PROCESSING(SSfast_process, src)
 	else
 		STOP_PROCESSING(SSprocessing, src)
-	
+
 	. = ..()
 
 
@@ -356,7 +356,7 @@
 			updateUsrDialog()
 		else
 			to_chat(user, "<span class='notice'>Access denied.</span>")
-	
+
 	else if(I.iswelder())
 		var/obj/item/weapon/weldingtool/WT = I
 		if (!WT.welding)
@@ -499,7 +499,7 @@
 		if(!tryToShootAt(secondarytargets) && !resetting) // if no valid targets, go for secondary targets
 			resetting = TRUE
 			addtimer(CALLBACK(src, .proc/reset), 6 SECONDS, TIMER_UNIQUE | TIMER_OVERRIDE) // no valid targets, close the cover
-	
+
 	if(targets.len || secondarytargets.len)
 		if(!fast_processing)
 			STOP_PROCESSING(SSprocessing, src)
@@ -570,7 +570,7 @@
 	if(isanimal(L) || issmall(L)) // Animals are not so dangerous
 		return check_anomalies ? TURRET_SECONDARY_TARGET : TURRET_NOT_TARGET
 
-	if(isxenomorph(L) || isalien(L)) // Xenos are dangerous
+	if(isalien(L)) // Xenos are dangerous
 		return check_anomalies ? TURRET_PRIORITY_TARGET	: TURRET_NOT_TARGET
 
 	if(ishuman(L))	//if the target is a human, analyze threat level
