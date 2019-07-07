@@ -1,7 +1,7 @@
 /mob/living/simple_animal/rat
 	name = "rat"
 	real_name = "rat"
-	desc = "It's a small, disgusting rodent, often found being annoying, and aiding in the spread of disease."
+	desc = "It's a rather large, long-tailed rodent, often found rooting through tunnels, and aiding in the destruction of the culinary arts."
 
 	icon = 'icons/mob/npc/rat.dmi'
 	icon_state = "rat_gray"
@@ -24,18 +24,18 @@
 	var/last_squealgain = 0// #TODO-FUTURE: Remove from life() once something else is created
 	var/squeakcooldown = 0
 	pass_flags = PASSTABLE
-	speak_chance = 5
+	speak_chance = 3
 	turns_per_move = 5
 	see_in_dark = 6
-	maxHealth = 5
-	health = 5
-	meat_type = /obj/item/weapon/reagent_containers/food/snacks/meat/mice
+	maxHealth = 10
+	health = 10
+	meat_type = /obj/item/weapon/reagent_containers/food/snacks/meat/rat
 	response_help  = "pets"
 	response_disarm = "gently pushes aside"
 	response_harm   = "stomps on"
 	density = 0
-	meat_amount = 1 // Mice are small so you will get less meat
-	var/body_color //brown, gray and white, leave blank for random
+	meat_amount = 2 // Rats are a bit bigger, so a bit more meat for dreg-feeding.
+	var/body_color //brown, gray, white, american irish, hooded leave blank for random
 	layer = MOB_LAYER
 	mob_size = MOB_MINISCULE
 	min_oxy = 16 //Require atleast 16kPA oxygen
@@ -64,12 +64,12 @@
 			walk_to(src,0)
 
 			//Player-animals don't do random speech normally, so this is here
-			//Player-controlled mice will still squeak, but less often than NPC mice
+			//Player-controlled rats will still squeak, but less often than NPC rats
 			if (stat == CONSCIOUS && prob(speak_chance*0.05))
 				squeak_soft(0)
 
 			if(is_ventcrawling == 0)
-				sight = initial(sight) // Returns rat sight to normal when they leave a vent
+				sight = initial(sight) // Returns mouse sight to normal when they leave a vent
 
 			if (squeals < maxSqueals)
 				var/diff = world.time - last_squealgain
@@ -82,7 +82,7 @@
 			dust()
 
 /mob/living/simple_animal/rat/Destroy()
-	SSmob.all_mice -= src
+	SSmob.all_rats -= src
 
 	return ..()
 
@@ -112,7 +112,7 @@
 	real_name = name
 
 	if(!body_color)
-		body_color = pick( list("brown","gray","white") )
+		body_color = pick( list("brown","gray","white","hooded","irish") )
 	icon_state = "rat_[body_color]"
 	item_state = "rat_[body_color]"
 	icon_living = "rat_[body_color]"
@@ -124,8 +124,13 @@
 		holder_type = /obj/item/weapon/holder/rat/gray
 	if (body_color == "white")
 		holder_type = /obj/item/weapon/holder/rat/white
+	if (body_color == "hooded")
+		holder_type = /obj/item/weapon/holder/rat/hooded
+	if (body_color == "irish")
+		holder_type = /obj/item/weapon/holder/rat/irish
 
-	SSmob.all_mice += src
+
+	SSmob.all_rats += src
 
 /mob/living/simple_animal/rat/speak_audio()
 	squeak_soft(0)
@@ -135,7 +140,7 @@
 	visible_emote("squeaks timidly, sniffs the air and gazes longingly up at \the [thing.name].",0)
 
 /mob/living/simple_animal/rat/attack_hand(mob/living/carbon/human/M as mob)
-	if (src.stat == DEAD)//If the rat is dead, we don't pet it, we just pickup the corpse on click
+	if (src.stat == DEAD)//If the mouse is dead, we don't pet it, we just pickup the corpse on click
 		get_scooped(M, usr)
 		return
 	else
@@ -144,13 +149,13 @@
 /mob/living/simple_animal/rat/proc/splat()
 	src.health = 0
 	src.death()
-	src.icon_dead = "rat_[body_color]_splat"
-	src.icon_state = "rat_[body_color]_splat"
+	src.icon_dead = "mouse_[body_color]_splat"
+	src.icon_state = "mouse_[body_color]_splat"
 	if(client)
 		client.time_died_as_rat = world.time
 
 //Plays a sound.
-//This is triggered when a mob steps on an NPC rat, or manually by a playerrat
+//This is triggered when a mob steps on an NPC mouse, or manually by a playermouse
 /mob/living/simple_animal/rat/proc/squeak(var/manual = 1)
 	if (stat == CONSCIOUS)
 		if (squeakcooldown > world.time)
@@ -163,7 +168,7 @@
 
 
 //Plays a random selection of four sounds, at a low volume
-//This is triggered randomly periodically by any rat, or manually
+//This is triggered randomly periodically by any mouse, or manually
 /mob/living/simple_animal/rat/proc/squeak_soft(var/manual = 1)
 	if (stat != DEAD) //Soft squeaks are allowed while sleeping
 		var/list/new_squeaks = last_softsqueak ? emote_sounds - last_softsqueak : emote_sounds
@@ -182,7 +187,7 @@
 
 
 //Plays a loud sound
-//Triggered manually, when a rat dies, or rarely when its stepped on
+//Triggered manually, when a mouse dies, or rarely when its stepped on
 /mob/living/simple_animal/rat/proc/squeak_loud(var/manual = 0)
 	if (stat == CONSCIOUS)
 		if (squeakcooldown > world.time)
@@ -195,7 +200,7 @@
 			squeals --
 			log_say("[key_name(src)] squeals! ",ckey=key_name(src))
 		else
-			to_chat(src, "<span class='warning'>Your hoarse raty throat can't squeal just now, stop and take a breath!</span>")
+			to_chat(src, "<span class='warning'>Your hoarse rattish throat can't squeal just now, stop and take a breath!</span>")
 
 
 //Wrapper verbs for the squeak functions
@@ -262,16 +267,15 @@
 	if(client)
 		client.time_died_as_rat = world.time
 
-	SSmob.all_mice -= src
+	SSmob.all_rats -= src
 
 	..()
 
 /mob/living/simple_animal/rat/dust()
 	..(anim = "dust_[body_color]", remains = /obj/effect/decal/remains/rat, iconfile = 'icons/mob/npc/rat.dmi')
 
-
 /*
- * rat types
+ * Mouse types
  */
 
 /mob/living/simple_animal/rat/white
@@ -291,6 +295,18 @@
 	icon_state = "rat_brown"
 	icon_rest = "rat_brown_sleep"
 	holder_type = /obj/item/weapon/holder/rat/brown
+
+/mob/living/simple_animal/rat/hooded
+	body_color = "hooded"
+	icon_state = "rat_hooded"
+	icon_rest = "rat_brown_sleep"
+	holder_type = /obj/item/weapon/holder/rat/hooded
+
+/mob/living/simple_animal/rat/irish
+	body_color = "irish"
+	icon_state = "rat_irish"
+	icon_rest = "rat_irish_sleep"
+	holder_type = /obj/item/weapon/holder/rat/irish
 
 /mob/living/simple_animal/rat/brown/Tom
 	name = "Tom"

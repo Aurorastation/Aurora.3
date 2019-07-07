@@ -29,7 +29,7 @@
 	metabolic_factor = 0.75
 	max_nutrition = 60
 	density = 0
-	var/mob/living/simple_animal/rat/mousetarget = null
+	var/mob/living/simple_animal/rat/rattarget = null
 	seek_speed = 5
 	pass_flags = PASSTABLE
 	possession_candidate = 1
