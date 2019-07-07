@@ -180,11 +180,7 @@
 	anchored = 1.0
 	density = 0
 	cant_hold = list(/obj/item/weapon/storage/secure/briefcase)
-
-	New()
-		..()
-		new /obj/item/weapon/paper(src)
-		new /obj/item/weapon/pen(src)
+	starts_with = list(/obj/item/weapon/paper = 1, /obj/item/weapon/pen = 1)
 
 	attack_hand(mob/user as mob)
 		return attack_self(user)
