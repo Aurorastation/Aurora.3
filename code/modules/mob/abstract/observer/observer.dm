@@ -112,6 +112,10 @@
 			if(istype(target))
 				ManualFollow(target)
 
+/mob/abstract/observer/forceMove()
+	stop_following()
+	. = ..()
+
 /mob/abstract/observer/proc/initialise_postkey(set_timers = TRUE)
 	//This function should be run after a ghost has been created and had a ckey assigned
 	if (!set_timers)
@@ -161,13 +165,15 @@ Works together with spawning an observer, noted above.
 
 	teleport_if_needed()
 
-/mob/abstract/observer/proc/on_restricted_level()
+/mob/abstract/observer/proc/on_restricted_level(var/check)
+	if(!check)
+		check = z
 	//Check if they are a staff member
 	if(!check_rights(R_MOD|R_ADMIN|R_DEV, show_msg=FALSE, user=src))
 		return FALSE
 	
 	//Check if the z level is in the restricted list
-	if (!(z in current_map.restricted_levels))
+	if (!(check in current_map.restricted_levels))
 		return FALSE
 	
 	return TRUE
@@ -367,8 +373,15 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 	if(!L || !L.len)
 		if(holyblock)
 			to_chat(usr, "<span class='warning'>This area has been entirely made into sacred grounds, you cannot enter it while you are in this plane of existence!</span>")
+			return
 		else
 			to_chat(usr, "No area available.")
+			return
+
+	var/turf/P = pick(L)
+	if(on_restricted_level(P.z))
+		to_chat(usr, "You can not teleport to this area")
+		return
 
 	stop_following()
 	usr.forceMove(pick(L))
@@ -402,13 +415,13 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 		moved_event.unregister(following, src)
 		destroyed_event.unregister(following, src)
 		following = null
-	teleport_if_needed()
 	
 
 /mob/abstract/observer/move_to_destination(var/atom/movable/am, var/old_loc, var/new_loc)
 	var/turf/T = get_turf(new_loc)
 	if(check_holy(T))
 		stop_following()
+		teleport_if_needed()
 		to_chat(usr, "<span class='warning'>You cannot follow something standing on holy grounds!</span>")
 		return
 	..()
@@ -450,6 +463,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 
 /mob/abstract/observer/Post_Incorpmove()
 	stop_following()
+	teleport_if_needed()
 
 /mob/abstract/observer/verb/analyze_air()
 	set name = "Analyze Air"
