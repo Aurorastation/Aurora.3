@@ -162,6 +162,8 @@
 	can_hold = list(
 		/obj/item/device/soulstone
 		)
+
+/obj/item/weapon/storage/belt/soulstone/full
 	starts_with = list(/obj/item/device/soulstone = 6)
 
 /obj/item/weapon/storage/belt/champion
@@ -253,6 +255,8 @@
 	can_hold = list(
 		/obj/item/weapon/gun/energy/wand
 	)
+
+/obj/item/weapon/storage/belt/wands/full
 	starts_with = list(
 		/obj/item/weapon/gun/energy/wand/fire = 1,
 		/obj/item/weapon/gun/energy/wand/polymorph = 1,
@@ -334,6 +338,8 @@
 		/obj/item/device/analyzer/plant_analyzer,
 		/obj/item/clothing/gloves/botanic_leather,
 	)
+
+/obj/item/weapon/storage/belt/hydro
 	starts_with = list(
 		/obj/item/weapon/plantspray/pests = 1,
 		/obj/item/weapon/material/minihoe = 1,
