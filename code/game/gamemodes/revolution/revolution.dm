@@ -5,6 +5,7 @@
 	extended_round_description = "Revolutionaries - Remove the heads of staff from power. Convert other crewmembers to your cause using the 'Convert Bourgeoise' verb. Protect your leaders."
 	required_players = 10
 	required_enemies = 4
+	ert_disabled = 1
 	auto_recall_shuttle = 0
 	end_on_antag_death = 0
 //	shuttle_delay = 3
