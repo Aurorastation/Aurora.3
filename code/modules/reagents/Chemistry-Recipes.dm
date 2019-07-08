@@ -500,8 +500,25 @@
 	name = "Glycerol"
 	id = "glycerol"
 	result = "glycerol"
-	required_reagents = list("cornoil" = 3, "sacid" = 1)
-	result_amount = 1
+	required_reagents = list("triglyceride" = 1, "ethanol" = 2) // transesterification of triglycerides into butanol and glycerol
+	catalysts = list("sacid" = 5) // using acid as a catalyst
+	result_amount = 3 //each triglyceride has 3 glycerin chains.
+
+/datum/chemical_reaction/glycerol/butanol
+	name = "Glycerol"
+	id = "glycerol-butane"
+	result = "glycerol"
+	required_reagents = list("triglyceride" = 1, "butanol" = 2)
+
+/datum/chemical_reaction/glycerol/on_reaction(var/datum/reagents/holder, var/created_volume)
+	holder.add_reagent("acetone", 2 * created_volume / 3) // closest we can get to biofuel, sorry
+
+/datum/chemical_reaction/glucose
+	name = "Glucose"
+	id = "glucose"
+	result = "glucose"
+	required_reagents = list("nutriment" = 5) // thank you, Gottlieb Kirchhoff
+	catalysts = list("sacid" = 5 )//starch into sugar with sulfuric acid catalyst
 
 /datum/chemical_reaction/sodiumchloride
 	name = "Sodium Chloride"
@@ -1686,7 +1703,7 @@
 	name = "Garlic Sauce"
 	id = "garlicsauce"
 	result = "garlicsauce"
-	required_reagents = list("garlicjuice" = 1, "cornoil" = 1,)
+	required_reagents = list("garlicjuice" = 1, "cornoil" = 1)
 	result_amount = 2
 
 /datum/chemical_reaction/cheesewheel

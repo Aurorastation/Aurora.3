@@ -64,3 +64,5 @@ changes:
   - backend: "Accidentally refactored (almost) all storage items to use the starts_with var instead of overriding fill(). This should make it a lot less complicated to add new storage boxes."
   - imageadd: "Ports Goonstation sprites for syringes."
   - rscadd: "Adds medicine cups to take medicine by mouth in a dignified manner."
+  - tweak: "Changes the glycerol recipe. One unit of triglycerides (can be obtained from meat) and two units of any pure alcohol will produce three units of glycerol and two units of acetone. Sulfuric acid is required as a catalyst."
+  - rscadd: "Adds a recipe for glucose. Nutriment can be catalysed into glucose by adding sulfuric acid."

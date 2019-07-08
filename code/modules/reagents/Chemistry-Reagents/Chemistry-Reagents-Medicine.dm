@@ -303,7 +303,9 @@
 	color = "#C8A5DC"
 	overdose = 60
 	scannable = 1
-	metabolism = 0.02
+	metabolism = REM/10 // same as before when in blood, 0.02 units per tick
+	ingest_met = REM * 2 // .4 units per tick
+	breathe_met = REM * 4 // .8 units per tick
 	taste_description = "sickness"
 	metabolism_min = 0.005
 	breathe_mul = 0
@@ -325,7 +327,9 @@
 	color = "#CB68FC"
 	overdose = 30
 	scannable = 1
-	metabolism = 0.02
+	metabolism = REM/10 // same as before when in blood, 0.02 units per tick
+	ingest_met = REM * 2 // .4 units per tick
+	breathe_met = REM * 4 // .8 units per tick
 	taste_description = "sourness"
 	metabolism_min = 0.005
 	breathe_mul = 0
@@ -344,7 +348,9 @@
 	reagent_state = LIQUID
 	color = "#800080"
 	overdose = 20
-	metabolism = 0.02
+	metabolism = REM/10 // same as before when in blood, 0.02 units per tick
+	ingest_met = REM * 2 // .4 units per tick
+	breathe_met = REM * 4 // .8 units per tick
 	taste_description = "bitterness"
 	metabolism_min = 0.005
 	breathe_mul = 0
@@ -603,7 +609,10 @@
 	description = "An interferon-theta type III antiviral agent."
 	reagent_state = LIQUID
 	color = "#C1C1C1"
-	metabolism = REM * 0.05
+	metabolism = REM * 0.05 // only performs its effects while in blood
+	ingest_met = REM // .2 units per tick
+	breathe_met = REM * 2 // .4 units per tick
+	// touch is slow
 	overdose = REAGENTS_OVERDOSE
 	scannable = 1
 	taste_description = "bitterness"
@@ -626,7 +635,10 @@
 	description = "A common antibiotic."
 	reagent_state = LIQUID
 	color = "#41C141"
-	metabolism = REM * 0.05
+	metabolism = REM * 0.05 // only performs its effects while in blood
+	ingest_met = REM // .2 units per tick
+	breathe_met = REM * 2 // .4 units per tick
+	// touch is slow
 	overdose = REAGENTS_OVERDOSE
 	scannable = 1
 	taste_description = "bitter gauze"
@@ -645,9 +657,12 @@
 	scannable = 1
 	reagent_state = LIQUID
 	taste_description = "bitterness"
-	metabolism = REM * 0.05
 	color = "#402060"
 	fallback_specific_heat = 0.605 // assuming it's ethanol-based
+	metabolism = REM * 0.05 // only performs its effects while in blood
+	ingest_met = REM // .2 units per tick
+	breathe_met = REM * 2 // .4 units per tick
+	// touch is slow
 
 	glass_name = "glass of cough syrup"
 	glass_desc = "You'd better not."
@@ -674,7 +689,11 @@
 	scannable = 1
 	reagent_state = LIQUID
 	taste_description = "bitterness"
-	metabolism = REM * 0.05
+	metabolism = REM * 0.05 // only performs its effects while in blood
+	ingest_met = REM // .2 units per tick
+	breathe_met = REM * 2 // .4 units per tick
+	// touch is slow
+	ingest_mul = 1
 	fallback_specific_heat = 0.605 // assuming it's ethanol-based
 
 /datum/reagent/antihistamine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
