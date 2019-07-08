@@ -1,7 +1,7 @@
 ///SCI TELEPAD///
 /obj/machinery/telepad
 	name = "telepad"
-	desc = "A bluespace telepad used for teleporting objects to and from a location."
+	desc = "A bluespace telepad used for creating bluespace portals."
 	icon = 'icons/obj/telescience.dmi'
 	icon_state = "pad-idle"
 	anchored = 1

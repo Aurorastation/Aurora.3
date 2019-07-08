@@ -97,16 +97,15 @@
 	day Adhomai needs their resources less thanks to synthetic fabric and more efficient food sources, both the meat and the fur of the nav'twir has become an export of the Adhomai \
 	people. In the olden days, carved nav'twir antlers were used as decoration for pelts and armors."
 
-/obj/item/weapon/reagent_containers/food/snacks/meat/mice
-	name = "mice meat"
+/obj/item/weapon/reagent_containers/food/snacks/meat/rat
+	name = "rat meat"
 	icon_state = "chickenbreast"
 	desc = "You have reached the epitome of poorness: eating the station's vermin."
 
 
-/obj/item/weapon/reagent_containers/food/snacks/meat/mice/Initialize()
+/obj/item/weapon/reagent_containers/food/snacks/meat/rat/Initialize()
 	. = ..()
 	reagents.add_reagent("protein", 5)
-	reagents.add_reagent("rattoxin", 1)
 	src.bitesize = 1.5
 
 /obj/item/weapon/reagent_containers/food/snacks/meat/dionanymph

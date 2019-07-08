@@ -224,10 +224,10 @@ var/datum/controller/subsystem/ticker/SSticker
 
 		//call a transfer shuttle vote
 		spawn(50)
-			if(!round_end_announced) // Spam Prevention. Now it should announce only once.
+			if(!round_end_announced && !config.continous_rounds) // Spam Prevention. Now it should announce only once.
 				to_world("<span class='danger'>The round has ended!</span>")
 				round_end_announced = 1
-			SSvote.autotransfer()
+				SSvote.autotransfer()
 
 	return 1
 

@@ -114,7 +114,7 @@ I said no!
 /datum/recipe/mouseburger
 	items = list(
 		/obj/item/weapon/reagent_containers/food/snacks/bun,
-		/obj/item/weapon/reagent_containers/food/snacks/meat/mice
+		/obj/item/weapon/reagent_containers/food/snacks/meat/rat
 	)
 	result = /obj/item/weapon/reagent_containers/food/snacks/burger/mouse
 
