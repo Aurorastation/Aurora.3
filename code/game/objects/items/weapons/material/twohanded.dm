@@ -205,7 +205,7 @@
 
 /obj/item/weapon/material/twohanded/fireaxe/pre_attack(var/mob/living/target, var/mob/living/user)
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN * 2.5)
-	if(istype(target))
+	if(istype(target) && wielded)
 		cleave(user, target)
 	..()
 
@@ -572,13 +572,13 @@
 	var/unwielded_ap = 0
 
 /obj/item/weapon/material/twohanded/zweihander/pre_attack(var/mob/living/target, var/mob/living/user)
-	if(!reach && istype(target))
+	if(!wielded && istype(target))
 		cleave(user, target)
 	..()
 
 /obj/item/weapon/material/twohanded/zweihander/unwield()
 	..()
-	reach = 0
+	reach = 1
 	attack_verb = list("attacked", "chopped", "cleaved", "torn", "cut")
 	armor_penetration = unwielded_ap
 

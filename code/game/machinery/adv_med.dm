@@ -17,7 +17,8 @@
 		"Zhan-Khazan Tajara",
 		"Vaurca Worker",
 		"Vaurca Warrior",
-		"Diona"
+		"Diona",
+		"Monkey"
 	)
 	name = "Body Scanner"
 	desc = "A state-of-the-art medical diagnostics machine. Guaranteed detection of all your bodily ailments or your money back!"
@@ -41,6 +42,7 @@
 	return ..()
 
 /obj/machinery/bodyscanner/update_icon()
+	flick("[initial(icon_state)]-anim", src)
 	if(occupant)
 		icon_state = "[initial(icon_state)]-closed"
 		return
@@ -83,7 +85,6 @@
 	usr.forceMove(src)
 	src.occupant = usr
 	update_use_power(2)
-	flick("[initial(icon_state)]-anim", src)
 	update_icon()
 	for(var/obj/O in src)
 		//O = null
@@ -106,7 +107,6 @@
 	src.occupant.forceMove(src.loc)
 	src.occupant = null
 	update_use_power(1)
-	flick("[initial(icon_state)]-anim", src)
 	update_icon()
 	return
 
@@ -137,7 +137,6 @@
 		M.forceMove(src)
 		src.occupant = M
 		update_use_power(2)
-		flick("[initial(icon_state)]-anim", src)
 		update_icon()
 		for(var/obj/O in src)
 			O.forceMove(loc)
@@ -181,7 +180,6 @@
 		M.forceMove(src)
 		src.occupant = M
 		update_use_power(2)
-		flick("[initial(icon_state)]-anim", src)
 		update_icon()
 		playsound(src.loc, 'sound/machines/medbayscanner1.ogg', 50)
 		for(var/obj/Obj in src)

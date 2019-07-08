@@ -176,8 +176,9 @@ proc/get_radio_key_from_channel(var/channel)
 
 	message = trim_left(message)
 
+	var/static/list/correct_punctuation = list("!" = TRUE, "." = TRUE, "?" = TRUE, "-" = TRUE, "~" = TRUE, "*" = TRUE, "/" = TRUE, ">" = TRUE,)
 	var/ending = copytext(message, length(message), (length(message) + 1))
-	if(ending != "!" && ending != "." && ending != "?" && ending != "-")
+	if(ending && !correct_punctuation[ending])
 		message += "."
 
 	//parse the language code and consume it
@@ -267,7 +268,8 @@ proc/get_radio_key_from_channel(var/channel)
 
 
 	var/list/hear_clients = list()
-	for(var/mob/M in listening)
+	for(var/m in listening)		
+		var/mob/M = m
 		M.hear_say(message, verb, speaking, alt_name, italics, src, speech_sound, sound_vol)
 		if (M.client)
 			hear_clients += M.client
@@ -276,7 +278,8 @@ proc/get_radio_key_from_channel(var/channel)
 	var/image/speech_bubble = image('icons/mob/talk.dmi',src,"h[speech_bubble_test]")
 	INVOKE_ASYNC(GLOBAL_PROC, /proc/animate_speechbubble, speech_bubble, hear_clients, 30)
 
-	for(var/obj/O in listening_obj)
+	for(var/o in listening_obj)
+		var/obj/O = o
 		spawn(0)
 			if(O) //It's possible that it could be deleted in the meantime.
 				O.hear_talk(src, message, verb, speaking)

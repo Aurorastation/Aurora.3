@@ -18,6 +18,8 @@
 	var/speak_chance = 0
 	var/list/emote_hear = list()	//Hearable emotes
 	var/list/emote_see = list()		//Unlike speak_emote, the list of things in this variable only show by themselves with no spoken text. IE: Ian barks, Ian yaps
+	var/list/emote_sounds = list()
+	var/sound_time = TRUE
 
 	var/turns_per_move = 1
 	var/turns_since_move = 0
@@ -430,12 +432,14 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 	if(has_udder)
 		var/obj/item/weapon/reagent_containers/glass/G = O
 		if(stat == CONSCIOUS && istype(G) && G.is_open_container())
-			user.visible_message("<span class='notice'>[user] milks [src] using \the [O].</span>")
-			var/transfered = udder.trans_id_to(G, "milk", rand(5,10))
+			if(udder.total_volume <= 0)
+				to_chat(user, "<span class='warning'>The udder is dry.</span>")
+				return
 			if(G.reagents.total_volume >= G.volume)
 				to_chat(user, "<span class='warning'>The [O] is full.</span>")
-			if(!transfered)
-				to_chat(user, "<span class='warning'>The udder is dry.</span>")
+				return
+			user.visible_message("<span class='notice'>[user] milks [src] using \the [O].</span>")
+			udder.trans_id_to(G, milk_type , rand(5,10))
 			return
 
 	if(istype(O, /obj/item/weapon/reagent_containers) || istype(O, /obj/item/stack/medical) || istype(O,/obj/item/weapon/gripper/))
@@ -552,12 +556,36 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 		return (0)
 	return 1
 
+/mob/living/simple_animal/proc/make_noise(var/make_sound = TRUE)
+	set name = "Resist"
+	set category = "Abilities"
+
+	if(usr.stat == DEAD || !make_sound)
+		return
+
+	if(!sound_time)
+		to_chat(usr, span("warning", "Ability on cooldown 2 seconds."))
+		return
+
+	playsound(src, pick(emote_sounds), 75, 1)
+	if(client)
+		sound_time = FALSE
+		addtimer(CALLBACK(src, .proc/reset_sound_time), 2 SECONDS)
+
+/mob/living/simple_animal/proc/reset_sound_time()
+	sound_time = TRUE
+
 /mob/living/simple_animal/say(var/message)
 	var/verb = "says"
 	if(speak_emote.len)
 		verb = pick(speak_emote)
 
 	message = sanitize(message)
+	if(emote_sounds.len)
+		var/sound_chance = FALSE
+		if(client) // we do not want people who assume direct control to spam
+			sound_chance = prob(50)
+		make_noise(sound_chance)
 
 	..(message, null, verb)
 

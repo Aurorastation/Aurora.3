@@ -19,8 +19,6 @@
 	var/ks2type = null
 	var/radio_sound = null
 
-	sprite_sheets = list("Resomi" = 'icons/mob/species/resomi/ears.dmi')
-
 /obj/item/device/radio/headset/Initialize()
 	. = ..()
 	internal_channels.Cut()
