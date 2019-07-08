@@ -153,7 +153,6 @@ Will print: "/mob/living/carbon/human/death" (you can optionally embed it in a s
 #define FORCE_LAUNCH  2
 #define WAIT_ARRIVE   3
 #define WAIT_FINISH   4
-#define CRASH_SHUTTLE 5
 
 // Setting this much higher than 1024 could allow spammers to DOS the server easily.
 #define MAX_MESSAGE_LEN       1024

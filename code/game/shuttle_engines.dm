@@ -80,3 +80,6 @@
 
 	src.set_dir(turn(src.dir, 90))
 	return 1
+
+/obj/structure/shuttle/engine/propulsion/temp/proc/RefreshParts()
+	return

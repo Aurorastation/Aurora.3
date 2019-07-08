@@ -54,9 +54,9 @@
 			docking_controller.master.visible_message("\bold [docking_controller.master]\ states \"<span class='warning'>Warning, escape pod is over capacity! The designated capacity is [capacity]. Forcing to launch may result into crashing of the pod!\"</span>")
 			return FALSE
 		else if(!first_try && prob((num_mobs - capacity) * 50))
-			process_state = CRASH_SHUTTLE
 			undock()
 			docking_controller.master.visible_message("\bold [docking_controller.master]\ states \"<span class='warning'>Warning, loosing altitude. Brace for impact!\"</span>")
+			crash_shuttle()
 			return FALSE
 	return TRUE
 

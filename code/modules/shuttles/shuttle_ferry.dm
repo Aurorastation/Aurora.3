@@ -118,8 +118,6 @@
 			if (skip_docking_checks() || docking_controller.docked() || world.time > last_dock_attempt_time + DOCK_ATTEMPT_TIMEOUT)
 				process_state = IDLE_STATE
 				arrived()
-		if (CRASH_SHUTTLE)
-			crash_shuttle() // crash the shuttle
 
 /datum/shuttle/ferry/current_dock_target()
 	var/dock_target
@@ -138,7 +136,7 @@
 	undock()
 
 /datum/shuttle/ferry/proc/force_launch(var/user, var/emagged = FALSE)
-	if (!can_force() && !emagged) return
+	if ((!can_force() && !emagged) || !check_engines()) return
 
 	in_use = user	//obtain an exclusive lock on the shuttle
 
