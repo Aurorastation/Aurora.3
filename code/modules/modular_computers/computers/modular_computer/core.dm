@@ -89,8 +89,6 @@
 		icon_state = icon_state_broken
 		add_overlay("broken")
 		return
-	else
-		icon_state = initial(icon_state)
 	if(!enabled)
 		if(icon_state_screensaver && working)
 			if (is_holographic)

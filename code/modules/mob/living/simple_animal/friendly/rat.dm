@@ -14,7 +14,7 @@
 	speak_emote = list("squeeks","squeeks","squiks")
 	emote_hear = list("squeeks","squeaks","squiks")
 	emote_see = list("runs in a circle", "shakes", "scritches at something")
-	var/soft_squeaks = list('sound/effects/creatures/rat_squeaks_1.ogg',
+	emote_sounds = list('sound/effects/creatures/rat_squeaks_1.ogg',
 	'sound/effects/creatures/rat_squeaks_2.ogg',
 	'sound/effects/creatures/rat_squeaks_3.ogg',
 	'sound/effects/creatures/rat_squeaks_4.ogg')
@@ -171,7 +171,7 @@
 //This is triggered randomly periodically by any mouse, or manually
 /mob/living/simple_animal/rat/proc/squeak_soft(var/manual = 1)
 	if (stat != DEAD) //Soft squeaks are allowed while sleeping
-		var/list/new_squeaks = last_softsqueak ? soft_squeaks - last_softsqueak : soft_squeaks
+		var/list/new_squeaks = last_softsqueak ? emote_sounds - last_softsqueak : emote_sounds
 		var/sound = pick(new_squeaks)
 
 		last_softsqueak = sound

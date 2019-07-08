@@ -29,20 +29,22 @@
 	metabolic_factor = 0.75
 	max_nutrition = 60
 	density = 0
-	var/mob/living/simple_animal/rat/mousetarget = null
+	var/mob/living/simple_animal/rat/rattarget = null
 	seek_speed = 5
 	pass_flags = PASSTABLE
 	possession_candidate = 1
+	emote_sounds = list('sound/effects/creatures/cat_meow.ogg', 'sound/effects/creatures/cat_meow2.ogg')
 	butchering_products = list(/obj/item/stack/material/animalhide/cat = 2)
 
 /mob/living/simple_animal/cat/think()
+	//MICE!
 	..()
 	if (!stat)
 		for(var/mob/living/simple_animal/rat/snack in oview(src,7))
-			if(snack.stat != DEAD && prob(65))//The probability allows her to not get stuck target the first mouse, reducing exploits
-				mousetarget = snack
+			if(snack.stat != DEAD && prob(65))//The probability allows her to not get stuck target the first rat, reducing exploits
+				rattarget = snack
 				movement_target = snack
-				foodtarget = 0	//chasing rats takes precedence over eating food
+				foodtarget = 0	//chasing mice takes precedence over eating food
 				if(prob(15))
 					audible_emote(pick("hisses and spits!","mrowls fiercely!","eyes [snack] hungrily."))
 
@@ -51,7 +53,7 @@
 
 
 		if(!buckled)
-			if (turns_since_move > 5 || (flee_target || mousetarget))
+			if (turns_since_move > 5 || (flee_target || rattarget))
 				walk_to(src,0)
 				turns_since_move = 0
 
@@ -99,13 +101,13 @@
 					movement_target = null
 					stop_automated_movement = 0
 					if (prob(75))
-						break//usually only kill one mouse per proc
+						break//usually only kill one rat per proc
 
 /mob/living/simple_animal/cat/beg(var/atom/thing, var/atom/holder)
 	visible_emote("licks [get_pronoun(POSESSIVE_ADJECTIVE)] lips and hungrily glares at [holder]'s [thing.name]",0)
 
 /mob/living/simple_animal/cat/Released()
-	//A thrown cat will immediately attack rats near where it lands
+	//A thrown cat will immediately attack mice near where it lands
 	handle_movement_target()
 	addtimer(CALLBACK(src, .proc/attack_mice), 3)
 	..()
