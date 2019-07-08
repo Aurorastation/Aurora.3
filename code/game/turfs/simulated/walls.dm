@@ -270,7 +270,6 @@
 				new /obj/item/stack/material/steel(src.loc, 2)
 		if(3.0)
 			take_damage(rand(0, 250))
-		else
 
 /turf/simulated/shuttle/proc/take_damage(dam)
 	if(!destructible)
