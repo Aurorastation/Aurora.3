@@ -42,6 +42,8 @@
 	return ..()
 
 /obj/item/weapon/reagent_containers/syringe/process() // this only happens once it's used
+	if(prob(75)) // sorry, had to nerf this.
+		return
 	dirtiness = min(dirtiness + LAZYLEN(targets), 75)
 	if(dirtiness >= 75)
 		STOP_PROCESSING(SSprocessing, src)
