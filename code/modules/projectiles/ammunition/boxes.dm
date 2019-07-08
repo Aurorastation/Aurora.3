@@ -336,7 +336,6 @@
 
 /obj/item/ammo_magazine/d762
 	name = "magazine (7.62mm)"
-	icon = 'icons/obj/dragunov.dmi'
 	icon_state = "SVD"
 	mag_type = MAGAZINE
 	caliber = "a762"
@@ -379,7 +378,6 @@
 
 /obj/item/ammo_magazine/assault_shotgun
 	name = "magazine (slug)"
-	icon = 'icons/obj/dragunov.dmi'
 	icon_state = "csmb"
 	caliber = "shotgun"
 	mag_type = MAGAZINE

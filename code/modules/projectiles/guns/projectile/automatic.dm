@@ -24,8 +24,9 @@
 
 /obj/item/weapon/gun/projectile/automatic/mini_uzi
 	name = ".45 machine pistol"
-	desc = "The UZI is a lightweight, fast firing gun. For when you want someone dead. Uses .45 rounds."
+	desc = "A lightweight, fast firing gun. For when you want someone dead. Uses .45 rounds."
 	icon_state = "mini-uzi"
+	item_state = "mini-uzi"
 	w_class = 3
 	load_method = MAGAZINE
 	magazine_type = /obj/item/ammo_magazine/c45uzi
@@ -328,7 +329,7 @@
 
 /obj/item/weapon/gun/projectile/automatic/tommygun
 	name = "vintage submachine gun"
-	desc = "A classic Thompson submachine gun, ya see? Uses .45 rounds."
+	desc = "A classic submachine gun. Uses .45 rounds."
 	icon_state = "tommygun"
 	w_class = 3
 	max_shells = 50
@@ -431,10 +432,8 @@
 /obj/item/weapon/gun/projectile/automatic/rifle/shotgun
 	name = "assault shotgun"
 	desc = "A experimental, semi-automatic combat shotgun, designed for boarding operations and law enforcement agencies."
-	icon = 'icons/obj/dragunov.dmi' //lazy but works fine
-	icon_state = "cshotgun"
-	item_state = "cshotgun"
-	contained_sprite = 1
+	icon_state = "assaultshotgun"
+	item_state = "assaultshotgun"
 	w_class = 4
 	load_method = MAGAZINE
 	max_shells = 8
@@ -462,4 +461,4 @@
 
 /obj/item/weapon/gun/projectile/automatic/rifle/shotgun/update_icon()
 	..()
-	icon_state = (ammo_magazine)? "cshotgun" : "cshotgun-empty"
+	icon_state = (ammo_magazine)? "assaultshotgun" : "assaultshotgun-empty"
