@@ -80,6 +80,7 @@
 
 /mob/living/simple_animal/hostile/bear/Initialize()
 	. = ..()
+	emote_sounds = quiet_sounds
 	update_bearmode()
 
 /mob/living/simple_animal/hostile/bear/proc/set_stance(var/input)
