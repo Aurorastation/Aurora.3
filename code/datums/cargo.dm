@@ -34,13 +34,12 @@
 	return data
 
 /datum/cargo_item/proc/get_adjusted_price()
-	var/adjusted_price = price
-	price *= supplier_datum.price_modifier
+	. = price
+	. *= supplier_datum.price_modifier
 	for(var/category in categories)
 		var/datum/cargo_category/cc = SScargo.get_category_by_name(category)
 		if(cc)
-			adjusted_price *= cc.price_modifier
-	return adjusted_price
+			. *= cc.price_modifier
 
 
 /*

@@ -118,8 +118,8 @@ STOCK_ITEM_COMMON(smokes, 2)
 		new /obj/item/weapon/storage/fancy/cigar(L)
 		new /obj/item/weapon/storage/fancy/cigar(L)
 	else
-		new /obj/item/weapon/storage/fancy/cigarettes/custom(L)
-		new /obj/item/weapon/storage/fancy/cigarettes/custom(L)
+		new /obj/item/weapon/storage/fancy/cigarettes/blank(L)
+		new /obj/item/weapon/storage/fancy/cigarettes/blank(L)
 		if (prob(50))
 			new /obj/item/weapon/storage/fancy/cigarettes/dromedaryco(L)
 			new /obj/item/weapon/storage/fancy/cigarettes/dromedaryco(L)
@@ -445,7 +445,7 @@ STOCK_ITEM_COMMON(target, 2)
 STOCK_ITEM_COMMON(snacks, 4)
 	//Snackboxes are much more likely to spawn on tables than in crates.
 	//This ensures the cargo bay will have a supply of food in an obtainable place for animals
-	//allows nymphs and mice to raid it for nutrients, and thus gives playermice more
+	//allows nymphs and rats to raid it for nutrients, and thus gives player rats more
 	//reason to infest the warehouse
 	if (CS && prob(65))
 		if (!isturf(L))

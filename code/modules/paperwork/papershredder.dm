@@ -152,7 +152,7 @@
 		user.visible_message("<span class='[class]'>[user] holds \the [P] up to \the [src], it looks like \he's trying to burn it!</span>", \
 		"<span class='[class]'>You hold \the [P] up to \the [src], burning it slowly.</span>")
 		playsound(src.loc, 'sound/bureaucracy/paperburn.ogg', 50, 1)
-		icon_state = "shredp_onfire" //no do_after here, so people can walk n' burn at the same time. -wezzy
+		flick("shredp_onfire", src) //no do_after here, so people can walk n' burn at the same time. -wezzy
 
 		spawn(20)
 			if(get_dist(src, user) < 2 && user.get_active_hand() == P)

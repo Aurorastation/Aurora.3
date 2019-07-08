@@ -58,6 +58,10 @@
 	name = "\improper Arrival Shuttle Hallway - Starboard"
 	icon_state = "entry_3"
 
+/area/hallway/secondary/entry/central
+	name = "\improper Surface Lvl. Hallway Central"
+	icon_state = "entry_3"
+
 /area/hallway/secondary/entry/aft
 	name = "\improper Surface Lvl. Hallway Aft"
 	icon_state = "entry_4"

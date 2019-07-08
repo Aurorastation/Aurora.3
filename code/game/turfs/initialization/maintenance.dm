@@ -7,6 +7,9 @@
 	//Don't place on openspace!
 	if(istype(T,/turf/simulated/open))
 		return
+	//Dont place on unsimulated!
+	if(istype(T,/turf/unsimulated))
+		return
 
 	var/cardinal_turfs = T.CardinalTurfs()
 
@@ -33,7 +36,7 @@ var/global/list/random_junk
 		random_junk = subtypesof(/obj/item/trash)
 		random_junk += typesof(/obj/item/weapon/cigbutt)
 		random_junk += /obj/effect/decal/cleanable/spiderling_remains
-		random_junk += /obj/effect/decal/remains/mouse
+		random_junk += /obj/effect/decal/remains/rat
 		random_junk += /obj/effect/decal/remains/robot
 		random_junk -= /obj/item/trash/plate
 		random_junk -= /obj/item/trash/snack_bowl

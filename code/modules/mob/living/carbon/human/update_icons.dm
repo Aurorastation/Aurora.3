@@ -155,12 +155,12 @@ There are several things that need to be remembered:
 			M.Turn(90)
 			M.Scale(size_multiplier)
 			M.Translate(1,-6)
-			src.transform = M
+			animate(src, transform = M, time = ANIM_LYING_TIME)
 		else
 			var/matrix/M = matrix()
 			M.Scale(size_multiplier)
 			M.Translate(0, 16*(size_multiplier-1))
-			src.transform = M
+			animate(src, transform = M, time = ANIM_LYING_TIME)
 
 	compile_overlays()
 	lying_prev = lying
@@ -1247,7 +1247,7 @@ There are several things that need to be remembered:
 	if (QDELING(src))
 		return
 
-	overlays_raw[FIRE_LAYER] = on_fire ? image('icons/mob/OnFire.dmi', "Standing", layer = FIRE_LAYER) : null
+	overlays_raw[FIRE_LAYER] = on_fire ? image(species.onfire_overlay, "Standing", layer = FIRE_LAYER) : null
 
 	if(update_icons)
 		update_icons()

@@ -107,7 +107,6 @@
 	bst.add_language(LANGUAGE_SOL_COMMON)
 	bst.add_language(LANGUAGE_ROOTSONG)
 	bst.add_language(LANGUAGE_VAURCA)
-	bst.add_language(LANGUAGE_RESOMI)	// why not?
 	// Synthetics
 	bst.add_language(LANGUAGE_ROBOT)
 	bst.add_language(LANGUAGE_DRONE)

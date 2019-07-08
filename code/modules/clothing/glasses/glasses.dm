@@ -28,7 +28,6 @@ BLIND     // can't see anything
 	var/activated_color = null
 	sprite_sheets = list(
 		"Vox" = 'icons/mob/species/vox/eyes.dmi',
-		"Resomi" = 'icons/mob/species/resomi/eyes.dmi',
 		"Vaurca Warform" = 'icons/mob/species/warriorform/eyes.dmi'
 		)
 	species_restricted = list("exclude","Vaurca Breeder")
@@ -177,7 +176,6 @@ BLIND     // can't see anything
 	icon_state = "plaingoggles"
 	item_flags = AIRTIGHT
 	unacidable = 1
-
 
 /obj/item/clothing/glasses/eyepatch
 	name = "eyepatch"

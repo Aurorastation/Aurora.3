@@ -176,7 +176,7 @@
 
 /obj/item/clothing/head/justice
 	name = "justice hat"
-	desc = "fight for what's righteous!"
+	desc = "Fight for what's righteous!"
 	icon_state = "justicered"
 	flags_inv = BLOCKHAIR
 	body_parts_covered = HEAD|EYES
@@ -432,15 +432,18 @@
 /obj/item/clothing/head/fedora/brown
 	name = "fedora"
 	desc = "A brown fedora - either the cornerstone of a detective's style or a poor attempt at looking cool, depending on the person wearing it."
-	icon_state = "detective"
+	icon_state = "brown_fedora"
 	item_state_slots = list(
 		slot_l_hand_str = "det_hat",
 		slot_r_hand_str = "det_hat"
 		)
 	siemens_coefficient = 0.7
 
+/obj/item/clothing/head/fedora/brown/dark
+	icon_state = "darkbrown_fedora"
+
 /obj/item/clothing/head/fedora/grey
-	icon_state = "detective2"
+	icon_state = "grey_fedora"
 	desc = "A grey fedora - either the cornerstone of a detective's style or a poor attempt at looking cool, depending on the person wearing it."
 
 /obj/item/clothing/head/beanie
@@ -560,3 +563,18 @@
 	icon_state = "dish"
 	item_state = "dish"
 
+/obj/item/clothing/head/antenna/double
+	name = "antenna ears"
+	desc = "Despite being commonly seen on Shells, nobody knows what these actually do."
+	icon_state = "dual_robot_antennae"
+	item_state = "dual_robot_antennae"
+
+/obj/item/clothing/head/antenna/double/left
+	name = "left antenna ear"
+	icon_state = "left_robot_antennae"
+	item_state = "left_robot_antennae"
+
+/obj/item/clothing/head/antenna/double/right
+	name = "right antenna ear"
+	icon_state = "right_robot_antennae"
+	item_state = "right_robot_antennae"

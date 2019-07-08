@@ -205,8 +205,8 @@ All custom items with worn sprites must follow the contained sprite system: http
 	name = "sobriety chip"
 	desc = "A red coin, made from plastic. A triangle is engraved, surrounding it is the words: \"TO THINE OWN SELF BE TRUE\"."
 	icon = 'icons/obj/custom_items/yoiko_coin.dmi'
-	icon_state = "yoiko_coin" //thanks fireandglory for the sprites
-
+	icon_state = "coin_yoiko_heads" //thanks fireandglory for the sprites
+	cmineral = "yoiko"
 
 /obj/item/clothing/suit/unathi/mantle/fluff/karnaikai_wrappings //Unathi Wrappings - Azeazekal Karnaikai - canon35
 	name = "unathi wrappings"
@@ -651,8 +651,8 @@ All custom items with worn sprites must follow the contained sprite system: http
 	name = "engraved coin"
 	desc = "A coin of light and bright with one side having an engraving of a greek Lamba sign, and on the back the initials of R.H. are engraved."
 	icon = 'icons/obj/custom_items/raymond_items.dmi'
-	icon_state = "raymond_coin"
-
+	icon_state = "coin_raymond_heads"
+	cmineral = "raymond"
 
 /obj/item/clothing/under/fluff/zohjar_uniform //Republic Noble Clothing - Zohjar Rasateir - lordraven001
 	name = "republic noble clothing"
@@ -2868,10 +2868,28 @@ All custom items with worn sprites must follow the contained sprite system: http
 	contained_sprite = TRUE
 
 
-/obj/item/clothing/suit/storage/fluff/imari_hoodie //adinkra hoodie - Imari Idris - P - ornias
+/obj/item/clothing/suit/storage/fluff/imari_hoodie //Adinkra Hoodie - Imari Idris - P - ornias
 	name = "adinkra hoodie"
 	desc = "A large, immaculate white hoodie adorned with seven Adinkra symbols on the back. Below the large central symbol is the text \"MMERE DANE\". There is a small 'Idris Incorporated' logo below the left drawstring."
 	icon = 'icons/obj/custom_items/imari_hoodie.dmi'
 	icon_state = "imari_hoodie"
 	item_state = "imari_hoodie"
+	contained_sprite = TRUE
+
+
+/obj/item/weapon/reagent_containers/glass/bucket/fluff/khasan_bucket //Battered Metal Bucket - Khasan Mikhnovsky - alberyk
+	name = "battered metal bucket"
+	desc = "A battered rusty metal bucket. It has seen a lot of use and little maintenance."
+	icon = 'icons/obj/custom_items/khasan_bucket.dmi'
+	icon_state = "khasan_bucket"
+	item_state = "khasan_bucket"
+	contained_sprite = TRUE
+	helmet_type = /obj/item/clothing/head/helmet/bucket/fluff/khasan_bucket
+	drop_sound = 'sound/items/drop/axe.ogg'
+
+/obj/item/clothing/head/helmet/bucket/fluff/khasan_bucket
+	name = "battered metal bucket helmet"
+	icon = 'icons/obj/custom_items/khasan_bucket.dmi'
+	icon_state = "khasan_helmet"
+	item_state = "khasan_helmet"
 	contained_sprite = TRUE

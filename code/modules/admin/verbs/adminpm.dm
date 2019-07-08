@@ -17,7 +17,7 @@
 		to_chat(src, "<font color='red'>Error: Admin-PM-Panel: Only administrators may use this command.</font>")
 		return
 	var/list/client/targets[0]
-	for(var/p in player_list)
+	for(var/p in clients)
 		var/client/T = p
 		if(T.mob)
 			if(istype(T.mob, /mob/abstract/new_player))

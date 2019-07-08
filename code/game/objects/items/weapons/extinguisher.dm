@@ -1,7 +1,7 @@
 /obj/item/weapon/reagent_containers/extinguisher_refill
 	name = "extinguisher refiller"
 	desc = "A one time use extinguisher refiller that allows fire extinguishers to be refilled with an aerosol mix. Just pour in the reagents and twist."
-	icon = 'icons/obj/items.dmi'
+	icon = 'icons/obj/chemical.dmi'
 	icon_state = "metal_canister"
 	item_state = "metal_canister"
 	hitsound = 'sound/weapons/smash.ogg'
@@ -75,7 +75,7 @@
 /obj/item/weapon/extinguisher
 	name = "fire extinguisher"
 	desc = "A traditional red fire extinguisher."
-	icon = 'icons/obj/items.dmi'
+	icon = 'icons/obj/chemical.dmi'
 	icon_state = "fire_extinguisher0"
 	item_state = "fire_extinguisher"
 	hitsound = 'sound/weapons/smash.ogg'

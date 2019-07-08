@@ -118,8 +118,8 @@
 /obj/item/clothing/head/helmet/swat/peacekeeper
 	name = "\improper ERT civil protection helmet"
 	desc = "A full helmet made of highly advanced ceramic materials, complete with a jetblack visor. Shines with a mirror sheen."
-	icon_state = "erthelmet_peacekeeper"
-	item_state = "erthelmet_peacekeeper"
+	icon_state = "civilprotection_helmet"
+	item_state = "civilprotection_helmet"
 	body_parts_covered = HEAD|FACE|EYES //face shield
 	flags_inv = HIDEEARS
 	action_button_name = "Toggle Visor"
@@ -159,13 +159,13 @@
 	name = "tactical helmet"
 	desc = "An armored helmet capable of being fitted with a multitude of attachments."
 	icon_state = "swathelm"
+	flags_inv = HIDEEARS|BLOCKHAIR
 	sprite_sheets = list(
 		"Tajara" = 'icons/mob/species/tajaran/helmet.dmi',
 		"Unathi" = 'icons/mob/species/unathi/helmet.dmi'
 		)
-
 	armor = list(melee = 62, bullet = 50, laser = 50,energy = 35, bomb = 10, bio = 2, rad = 0)
-	flags_inv = HIDEEARS
+
 
 /obj/item/clothing/head/helmet/augment
 	name = "augment array"

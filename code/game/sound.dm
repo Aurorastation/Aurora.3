@@ -168,7 +168,7 @@ var/list/footstepfx = list("defaultstep","concretestep","grassstep","dirtstep","
 
 //var/list/gun_sound = list('sound/weapons/gunshot/gunshot1.ogg', 'sound/weapons/gunshot/gunshot2.ogg','sound/weapons/gunshot/gunshot3.ogg','sound/weapons/gunshot/gunshot4.ogg')
 
-/proc/playsound(atom/source, soundin, vol as num, vary, extrarange as num, falloff, is_global, usepressure = 1, environment = -1, is_ambience = FALSE, is_footstep = FALSE)
+/proc/playsound(atom/source, soundin, vol as num, vary, extrarange as num, falloff, is_global, usepressure = 1, environment = -1, required_preferences = 0, required_asfx_toggles = 0)
 	if (istext(soundin))
 		soundin = get_sfx(soundin) // same sound for everyone
 	else if (isarea(source))
@@ -194,10 +194,10 @@ var/list/footstepfx = list("defaultstep","concretestep","grassstep","dirtstep","
 			if (!T || T.z != turf_source.z)
 				continue
 
-			if (is_ambience && !(M.client.prefs.toggles & SOUND_AMBIENCE))
+			if (required_preferences && (M.client.prefs.toggles & required_preferences) != required_preferences)
 				continue
 
-			if (is_footstep && !(M.client.prefs.asfx_togs & ASFX_FOOTSTEPS))
+			if (required_asfx_toggles && (M.client.prefs.asfx_togs & required_asfx_toggles) != required_asfx_toggles)
 				continue
 
 			M.playsound_local(turf_source, soundin, vol, vary, frequency, falloff, is_global, usepressure, environment, S)

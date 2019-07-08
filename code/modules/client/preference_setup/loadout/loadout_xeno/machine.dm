@@ -73,6 +73,9 @@
 	antenna["antenna, spiked"] = /obj/item/clothing/head/antenna/spiked
 	antenna["antenna, side"] = /obj/item/clothing/head/antenna/side
 	antenna["antenna, dish"] = /obj/item/clothing/head/antenna/dish
+	antenna["antenna, double"] = /obj/item/clothing/head/antenna/double
+	antenna["antenna, left"] = /obj/item/clothing/head/antenna/double/left
+	antenna["antenna, right"] = /obj/item/clothing/head/antenna/double/right
 	gear_tweaks += new/datum/gear_tweak/path(antenna)
 	gear_tweaks += list(gear_tweak_free_color_choice)
 
