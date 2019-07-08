@@ -443,7 +443,7 @@
 	icon = 'icons/obj/toy.dmi'
 	icon_state = "spbox"
 	can_hold = list(/obj/item/toy/snappop)
-	starts_with = list(/obj/item/toy,snappop = 8)
+	starts_with = list(/obj/item/toy/snappop = 8)
 
 /obj/item/weapon/storage/box/matches
 	name = "matchbox"
