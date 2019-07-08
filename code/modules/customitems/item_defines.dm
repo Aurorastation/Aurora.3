@@ -288,7 +288,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	force = 2
 
 
-/obj/item/clothing/suit/chaplain_hoodie/fluff/nioathi_hoodie //Shaman Hoodie - Fereydoun Nioathi - jackboot
+/obj/item/clothing/suit/chaplain_hoodie/fluff/nioathi_hoodie //Shaman Hoodie - Fereydoun Nioathi - marlonphoenix
 	name = "shaman hoodie"
 	desc = "A slightly faded robe. It's worn by some Unathi shamans."
 	icon = 'icons/obj/custom_items/nioathi_hoodie.dmi'
@@ -630,7 +630,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	contained_sprite = TRUE
 
 
-/obj/item/sign/fluff/triaka_atimono //Framed Zatimono - Azkuyua Triaka - jackboot
+/obj/item/sign/fluff/triaka_atimono //Framed Zatimono - Azkuyua Triaka - marlonphoenix
 	name = "framed zatimono"
 	desc = "A framed Zatimono, a Unathi standard worn into battle similar to an old-Earth Sashimono. This one is slightly faded."
 	icon_state = "triaka_atimono"
@@ -1031,7 +1031,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_state = "oz_plushie"
 
 
-/obj/item/clothing/suit/storage/fluff/vizili_mantle //Maraziite Throw Over - Urzkrauzi Vizili - jackboot
+/obj/item/clothing/suit/storage/fluff/vizili_mantle //Maraziite Throw Over - Urzkrauzi Vizili - marlonphoenix
 	name = "maraziite throw over"
 	desc = "A worn, grey poncho exclusively worn by members of the Maraziite Order."
 	icon = 'icons/obj/custom_items/vizili_clothing.dmi'
@@ -1039,7 +1039,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	item_state = "vizili_mantle"
 	contained_sprite = TRUE
 
-/obj/item/clothing/mask/fluff/vizili_mask //Iron Mask - Urzkrauzi Vizili - jackboot
+/obj/item/clothing/mask/fluff/vizili_mask //Iron Mask - Urzkrauzi Vizili - marlonphoenix
 	name = "iron mask"
 	desc = "A mask made of iron worn by members of the Maraziite Order. It can strike dread in the hearts of Unathi that don't toe the line of Sk'akh orthodoxy."
 	icon = 'icons/obj/custom_items/vizili_clothing.dmi'
@@ -1260,7 +1260,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	contained_sprite = TRUE
 
 
-/obj/item/clothing/under/rank/medical/fluff/jurlkiitajr_scrubs //IAC Scrubs - Rajii'rkalahk Jurlkiitajr - jackboot
+/obj/item/clothing/under/rank/medical/fluff/jurlkiitajr_scrubs //IAC Scrubs - Rajii'rkalahk Jurlkiitajr - marlonphoenix
 	name = "\improper IAA scrubs"
 	desc = "A change of sterile medical scrubs worn by IAC workers. This one is specific for Tajara Aid workers."
 	icon = 'icons/obj/custom_items/jurlkiitajr_items.dmi'
@@ -1268,7 +1268,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	item_state = "jurlkiitajr_scrubs"
 	contained_sprite = TRUE
 
-/obj/item/clothing/suit/apron/surgery/fluff/jurlkiitajr_vest //IAC Vest - Rajii'rkalahk Jurlkiitajr - jackboot
+/obj/item/clothing/suit/apron/surgery/fluff/jurlkiitajr_vest //IAC Vest - Rajii'rkalahk Jurlkiitajr - marlonphoenix
 	name = "\improper IAA vest"
 	desc = "A vest designed to distinguish medical workers in the Interstellar Aid Corps."
 	icon = 'icons/obj/custom_items/jurlkiitajr_items.dmi'
@@ -1760,7 +1760,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	contained_sprite = TRUE
 
 
-/obj/item/weapon/paper/fluff/jawdat_paper //Manifesto of the PRA - Rrazujun Rrhazkal-Jawdat - jackboot
+/obj/item/weapon/paper/fluff/jawdat_paper //Manifesto of the PRA - Rrazujun Rrhazkal-Jawdat - marlonphoenix
 	name = "manifesto of the PRA"
 	desc = "This is the manifesto of the People's Republic of Adhomai, written by many different Tajara thinkers in the 2430's. Depending on who you ask it is either an enlightening document that showcases the great \
 	intellectual and cultural genius of Tajara civilization, or a dense collection of gibberish commie nonsense."
