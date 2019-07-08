@@ -572,7 +572,7 @@
 	var/unwielded_ap = 0
 
 /obj/item/weapon/material/twohanded/zweihander/pre_attack(var/mob/living/target, var/mob/living/user)
-	if(!reach && istype(target))
+	if(!wielded && istype(target))
 		cleave(user, target)
 	..()
 
