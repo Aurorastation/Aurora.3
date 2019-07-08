@@ -578,7 +578,7 @@
 
 /obj/item/weapon/material/twohanded/zweihander/unwield()
 	..()
-	reach = 0
+	reach = 1
 	attack_verb = list("attacked", "chopped", "cleaved", "torn", "cut")
 	armor_penetration = unwielded_ap
 
