@@ -38,9 +38,35 @@
 	name = "propulsion"
 	icon_state = "propulsion"
 	opacity = 1
-	var/health = 100
+	var/health = 500
+
+/obj/structure/shuttle/engine/propulsion/bullet_act(var/obj/item/projectile/Proj)
+	var/damage = Proj.get_structure_damage()
+	if(!damage)
+		return
+	
+	health -= damage
+
+	add_overlay("sparks")
+	if(health <= 0)
+		qdel(src)
+
+/obj/structure/shuttle/engine/propulsion/ex_act(severity)
+	switch(severity)
+		if(1.0)
+			health = 0
+			return
+		if(2.0)
+			health -= 250
+		if(3.0)
+			health -= 100
+	add_overlay("sparks")
+	if(health <= 0)
+		qdel(src)
 
 /obj/structure/shuttle/engine/propulsion/proc/update_damage()
+	if(health <= 0)
+		qdel(src)
 	return
 
 /obj/structure/shuttle/engine/propulsion/burst
@@ -66,6 +92,7 @@
 	name = "emergency engine"
 	desc = "An Einstein Engines emergency booster engine, intended to be fit onto shuttles which have damaged their propulsion systems. It acts as a band-aid solution to provide an otherwise stranded ship the necessary delta-v to get to a repair dock."
 	icon_state = "EE_Booster"
+	health = 100
 	var/list/component_parts = list()
 
 /obj/structure/shuttle/engine/propulsion/temp/update_damage()
@@ -83,3 +110,17 @@
 
 /obj/structure/shuttle/engine/propulsion/temp/proc/RefreshParts()
 	return
+
+/obj/structure/shuttle/engine/propulsion/examine(var/mob/M)
+	..()
+	var/ratio = health / initial(health)
+	if(ratio < 1)
+		to_chat(M, span("warning", "\The [src] is slightly damaged!"))
+	else if(ratio <= 0.75)
+		to_chat(M, span("warning", "\The [src] is moderatily damaged!"))
+	else if(ratio <= 0.5)
+		to_chat(M, span("warning", "\The [src] is severely damaged!"))
+	else if(ratio <= 0.25)
+		to_chat(M, span("warning", "\The [src] is about to break!"))
+	else
+		to_chat(M, "\The [src] is in perfect condition.")

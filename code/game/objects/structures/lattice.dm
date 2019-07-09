@@ -12,6 +12,7 @@
 	smooth = SMOOTH_MORE
 	canSmoothWith = list(
 		/obj/structure/lattice,
+		/turf/simulated/shuttle,
 		/turf/simulated/wall,
 		/turf/simulated/floor,
 		/turf/simulated/mineral,

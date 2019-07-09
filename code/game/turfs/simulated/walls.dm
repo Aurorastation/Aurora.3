@@ -266,8 +266,7 @@
 			if(prob(75))
 				take_damage(rand(150, 250))
 			else
-				ChangeTurf(baseturf)
-				new /obj/item/stack/material/steel(src.loc, 2)
+				dismantle_wall(1,1)
 		if(3.0)
 			take_damage(rand(0, 250))
 
@@ -288,8 +287,56 @@
 		cap += reinf_material.integrity
 
 	if(damage >= cap)
-		ChangeTurf(baseturf)
+		dismantle_wall()
 	update_icon()
+
+/turf/simulated/shuttle/proc/dismantle_wall(var/devastated, var/explode, var/no_product, var/no_change = FALSE)
+	ChangeTurf(baseturf)
+
+/turf/simulated/shuttle/wall/dismantle_wall(var/devastated, var/explode, var/no_product, var/no_change = FALSE)
+	if (!no_change)	// No change is TRUE when this is called by destroy.
+		playsound(src, 'sound/items/Welder.ogg', 100, 1)
+
+	if(!no_product)
+		if(reinf_material)
+			reinf_material.place_dismantled_girder(src, reinf_material)
+		else
+			material.place_dismantled_girder(src)
+		material.place_dismantled_product(src,devastated)
+
+	for(var/obj/O in src.contents) //Eject contents!
+		if(istype(O,/obj/structure/sign/poster))
+			var/obj/structure/sign/poster/P = O
+			P.roll_and_drop(src)
+		else
+			O.forceMove(src)
+
+	material = get_material_by_name("placeholder")
+	reinf_material = null
+
+	if (!no_change)
+		ChangeTurf(/turf/simulated/floor/plating)
+
+/turf/simulated/shuttle/wall/proc/thermitemelt(mob/user as mob)
+	if(!destructible)
+		return
+	var/obj/effect/overlay/O = new/obj/effect/overlay( src )
+	O.name = "Thermite"
+	O.desc = "Looks hot."
+	O.icon = 'icons/effects/fire.dmi'
+	O.icon_state = "2"
+	O.anchored = 1
+	O.density = 1
+	O.layer = 5
+
+	dismantle_wall()
+
+	var/turf/simulated/floor/F = src
+	F.burn_tile()
+	F.icon_state = "wall_thermite"
+	to_chat(user, "<span class='warning'>The thermite starts melting through the wall.</span>")
+
+	QDEL_IN(O, 100)
 
 /turf/simulated/shuttle/bullet_act(var/obj/item/projectile/Proj)
 	if(!destructible)
@@ -301,6 +348,18 @@
 	var/dam = min(proj_damage, 100)
 
 	take_damage(dam)
+
+/turf/simulated/shuttle/wall/proc/burn(temperature)
+	if(!destructible)
+		return
+	if(material.combustion_effect(src, temperature, 0.7))
+		spawn(2)
+			new /obj/structure/girder(src)
+			src.ChangeTurf(/turf/simulated/floor)
+			for(var/turf/simulated/wall/W in range(3,src))
+				W.burn((temperature/4))
+			for(var/obj/machinery/door/airlock/phoron/D in range(3,src))
+				D.ignite(temperature/4)
 
 /turf/simulated/shuttle/examine(mob/user)
 	. = ..(user)

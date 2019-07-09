@@ -52,7 +52,6 @@
 	damage_image = null
 
 	var/list/overlays_to_add = list()
-
 	if (!density)	// We're a fake and we're open.
 		clear_smooth_overlays()
 		fake_wall_image = image('icons/turf/wall_masks.dmi', "[material.icon_base]fwall_open")

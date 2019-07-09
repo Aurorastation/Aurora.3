@@ -58,7 +58,7 @@ var/datum/controller/subsystem/processing/shuttle/shuttle_controller
 
 	shuttle = new/datum/shuttle/ferry/arrival()
 	settings = list(
-					1, 5, locate(/area/shuttle/arrival/station), locate(/area/shuttle/arrival/centcom), locate(/area/shuttle/arrival/transit),
+					1, 5, locate(/area/shuttle/arrival/centcom), locate(/area/shuttle/arrival/station), locate(/area/shuttle/arrival/transit),
 					EAST, 60, locate(/area/shuttle/arrival/centcom), null, "arrival_shuttle",
 					"arrival_dock", "centcom_setup"
 	)

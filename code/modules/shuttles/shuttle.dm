@@ -100,7 +100,7 @@
 
 	moving_status = SHUTTLE_WARMUP
 	play_sound_shuttle(sound_takeoff, origin, 35)
-
+	launching(max(35, warmup_time * 10))
 	sleep(max(30, warmup_time * 10))
 	if (moving_status == SHUTTLE_IDLE)
 		return	//someone cancelled the launch
@@ -118,6 +118,7 @@
 	//it would be cool to play a sound here
 	moving_status = SHUTTLE_WARMUP
 	play_sound_shuttle(sound_takeoff, departing, 35)
+	launching(max(70, warmup_time * 10))
 	sleep(max(70, warmup_time*10))
 	if (moving_status == SHUTTLE_IDLE)
 		return	//someone cancelled the launch
@@ -127,10 +128,12 @@
 	move(departing, interim)
 
 	while (world.time < arrive_time)
+		launching(5)
 		sleep(5)
 
 	play_sound_shuttle(sound_landing, interim, 25)
 	play_sound_shuttle(sound_landing, destination, 25)
+	launching(80)
 	sleep(70)
 	move(interim, destination)
 	
@@ -211,8 +214,6 @@
 /datum/shuttle/proc/move_contents_to(area/A, area/B, turf_to_leave = null)
 	var/list/source_turfs = A.build_ordered_turf_list(turf_to_leave)
 	var/list/target_turfs = B.build_ordered_turf_list()
-	if(exterior_walls_and_engines)
-		exterior_walls_and_engines.Cut()
 
 	ASSERT(source_turfs.len == target_turfs.len)
 
@@ -235,9 +236,9 @@
 			AM.shuttle_move(TT)
 
 		ST.ChangeTurf(ST.baseturf)
+		
 		if(!TT)
 			continue
-		
 		var/found = exterior_walls_and_engines.Find(old_coord)
 		if(found)
 			exterior_walls_and_engines[found] = list(TT.x, TT.y, TT.z)
@@ -250,10 +251,6 @@
 		max_y = max(TT.y, max_y)
 
 		TT.update_icon()
-		var/icon/img_S = new (ST.icon, ST.icon_state)
-		var/icon/img_T = new (TT.icon, TT.icon_state)
-		img_S.Blend(img_T ,ICON_UNDERLAY)
-		TT.icon = img_T
 		TT.update_above()
 
 	center = list((max_x + min_x) / 2, (max_y + min_y) / 2)
@@ -363,3 +360,13 @@
 
 /datum/shuttle/proc/reset_engines_check()
 	engines_checked = FALSE
+
+/datum/shuttle/proc/launching(var/time)
+	for(var/list/v in exterior_walls_and_engines)
+		var/turf/S = get_turf(locate(v[1], v[2], v[3]))
+		if(!S)
+			return
+		for(var/a in S.contents)
+			if(istype(a, /obj/structure/shuttle/engine/propulsion))
+				var/obj/structure/shuttle/engine/propulsion/P = a
+				new /obj/effect/engine_exhaust/blue(get_step(P, P.dir), P.dir, 250, time)

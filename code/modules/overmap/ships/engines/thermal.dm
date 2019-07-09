@@ -88,12 +88,14 @@
 	icon_state = "exhaust"
 	anchored = 1
 
-	New(var/turf/nloc, var/ndir, var/temp)
+	New(var/turf/nloc, var/ndir, var/temp, var/time)
 		set_dir(ndir)
 		..(nloc)
 
 		if(nloc)
-			nloc.hotspot_expose(temp,125)
+			nloc.hotspot_expose(temp, 125)
 
-		spawn(20)
-			loc = null
+		addtimer(CALLBACK(GLOBAL_PROC, /proc/qdel, src), time)
+
+/obj/effect/engine_exhaust/blue
+	icon_state = "exhaust_blue"

@@ -12,8 +12,8 @@
 	direction = !location
 
 	if(moving_status != SHUTTLE_IDLE) return
-
-	//it would be cool to play a sound here
+	play_sound_shuttle(sound_takeoff, departing, 35)
+	launching(max(70, warmup_time * 10))
 	moving_status = SHUTTLE_WARMUP
 	spawn(warmup_time*10)
 		if (moving_status == SHUTTLE_IDLE)
@@ -58,8 +58,13 @@
 
 
 		while (world.time < arrive_time)
+			launching(5)
 			sleep(5)
 
+		play_sound_shuttle(sound_landing, interim, 25)
+		play_sound_shuttle(sound_landing, destination, 25)
+		launching(80)
+		sleep(70)
 		move(interim, destination, direction)
 		moving_status = SHUTTLE_IDLE
 
