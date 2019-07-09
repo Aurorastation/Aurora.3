@@ -2927,6 +2927,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	desc = "A round-bottomed, well-used teapot. It looks as though it's been carefully maintained."
 	icon = 'icons/obj/custom_items/thea_tea.dmi'
 	icon_state = "thea_teapot"
+center_of_mass = list("x"=16, "y"=13)
 
 /obj/item/weapon/reagent_containers/food/drinks/fluff/thea_teacup //Bonze Teacup - Thea Reeves - shestrying
 	name = "bronze teacup"
