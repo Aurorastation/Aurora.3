@@ -9,7 +9,7 @@
 /obj/effect/decal/cleanable/liquid_fuel/Initialize(mapload, amt = 1, nologs = 0)
 	. = ..()
 	if(!nologs && !mapload)
-		for (var/mob/living/culprit in range(loc, 2))
+		for (var/mob/living/culprit in range(loc, 3))
 			
 			message_admins("[key_name_admin(culprit)] in area of Liquid fuel spill in [loc.loc.name] ([loc.x],[loc.y],[loc.z]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[loc.x];Y=[loc.y];Z=[loc.z]'>JMP</a>)")
 			log_game("[key_name_admin(culprit)] in area of Liquid fuel spill in [loc.loc.name] ([loc.x],[loc.y],[loc.z])")
