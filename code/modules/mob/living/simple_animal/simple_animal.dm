@@ -582,7 +582,7 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 
 	message = sanitize(message)
 	if(emote_sounds.len)
-		var/sound_chance = FALSE
+		var/sound_chance = TRUE
 		if(client) // we do not want people who assume direct control to spam
 			sound_chance = prob(50)
 		make_noise(sound_chance)
