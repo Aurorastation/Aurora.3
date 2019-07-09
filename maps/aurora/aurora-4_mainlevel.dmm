@@ -5894,7 +5894,7 @@
 /obj/structure/fireaxecabinet{
 	pixel_x = -32
 	},
-/obj/structure/closet/crate/extinguisher_catridges,
+/obj/structure/closet/crate/extinguisher_cartridges,
 /turf/simulated/floor/tiled,
 /area/engineering/atmos/storage)
 "alv" = (
