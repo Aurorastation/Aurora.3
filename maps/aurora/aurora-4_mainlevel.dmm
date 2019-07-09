@@ -31821,7 +31821,7 @@
 	icon_state = "rightsecure";
 	req_access = list(57)
 	},
-/obj/item/toy/plushie/ian,
+/mob/living/simple_animal/corgi/Ian,
 /turf/simulated/floor/wood,
 /area/crew_quarters/heads/hop)
 "bcA" = (
