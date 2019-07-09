@@ -2935,6 +2935,7 @@ center_of_mass = list("x"=16, "y"=13)
 	icon = 'icons/obj/custom_items/thea_tea.dmi'
 	icon_state = "thea_teacup"
 	volume = 20
+center_of_mass = list("x"=16, "y"=12)
 
 /obj/item/weapon/storage/box/fluff/thea_teabox //Tea Box - Thea Reeves - shestrying
 	desc = "A black, wooden box, the edges softened with transport and use."
