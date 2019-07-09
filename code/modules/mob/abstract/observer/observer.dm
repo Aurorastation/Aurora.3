@@ -165,7 +165,7 @@ Works together with spawning an observer, noted above.
 	if(!check)
 		check = z
 	//Check if they are a staff member
-	if(!check_rights(R_MOD|R_ADMIN|R_DEV, show_msg=FALSE, user=src))
+	if(check_rights(R_MOD|R_ADMIN|R_DEV, show_msg=FALSE, user=src))
 		return FALSE
 	
 	//Check if the z level is in the restricted list
