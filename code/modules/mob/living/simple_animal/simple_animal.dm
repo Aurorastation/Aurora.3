@@ -560,10 +560,10 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 	set name = "Resist"
 	set category = "Abilities"
 
-	if(usr.stat == DEAD || !make_sound)
+	if((usr && usr.stat == DEAD) || !make_sound)
 		return
 
-	if(!sound_time)
+	if(usr && !sound_time)
 		to_chat(usr, span("warning", "Ability on cooldown 2 seconds."))
 		return
 
