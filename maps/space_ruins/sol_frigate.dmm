@@ -3086,7 +3086,7 @@
 /turf/simulated/floor,
 /area/derelict/ship)
 "jT" = (
-/obj/item/toy/plushie/squid/blue,
+/obj/item/toy/plushie/squid,
 /turf/simulated/floor,
 /area/derelict/ship)
 "jU" = (
