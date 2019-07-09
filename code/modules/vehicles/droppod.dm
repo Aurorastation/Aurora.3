@@ -115,7 +115,7 @@
 
 /obj/vehicle/droppod/attack_hand(mob/user as mob)
 	..()
-	if(user == (humanload || passenger))
+	if(user == humanload || user == passenger)
 		unload(user)
 	else
 		load(user)
@@ -209,12 +209,6 @@
 		if(belowturf)
 			//sound here
 			belowturf.visible_message("<span class='danger'>You hear something crash into the ceiling above!</span>")
-
-		if(humanload)
-			humanload.forceMove(loc)
-
-		if(passenger)
-			passenger.forceMove(loc)
 
 		used = 1
 
