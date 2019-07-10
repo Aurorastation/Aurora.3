@@ -48,7 +48,7 @@
 /obj/structure/ghostspawner/proc/is_available()
 	return state == STATE_AVAILABLE
 
-/obj/structure/ghostspawner/proc/spawn_mob(mob/user)
+/obj/structure/ghostspawner/proc/spawn_mob()
 	if(recharge_time) //If we are available again after a certain time -> being processing
 		state = STATE_RECHARGING
 		unavailable_time = world.time
