@@ -74,8 +74,8 @@
 	//75% chance to spread a virus if we have one
 	if(LAZYLEN(viruses) && prob(75))
 		var/newvir = pick(viruses - virus)
-		var/datum/disease2/disease/virus = viruses[newvir]
-		infect_virus2(target,virus.getcopy())
+		var/datum/disease2/disease/newvirus = viruses[newvir]
+		infect_virus2(target,newvirus.getcopy())
 
 	if(!used)
 		START_PROCESSING(SSprocessing, src)
