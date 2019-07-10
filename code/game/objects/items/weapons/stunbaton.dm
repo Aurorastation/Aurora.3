@@ -16,7 +16,7 @@
 	var/agonyforce = 70
 	var/status = 0		//whether the thing is on or not
 	var/obj/item/weapon/cell/bcell
-	var/hitcost = 5000
+	var/hitcost = 1000
 	var/baton_color = "#FF6A00"
 	var/sheathed = 1 //electrocutes only on harm intent
 
@@ -238,7 +238,7 @@
 	throwforce = 5
 	stunforce = 0
 	agonyforce = 60	//Marginally more inefficient.
-	hitcost = 5000
+	hitcost = 2000
 	attack_verb = list("poked")
 	slot_flags = null
 	baton_color = "#FFDF00"
@@ -252,7 +252,7 @@
 	item_state = "stunrod"
 	force = 7
 	agonyforce = 80
-	hitcost = 2500
+	hitcost = 1000
 	baton_color = "#75ACFF"
 	origin_tech = list(TECH_COMBAT = 4, TECH_ILLEGAL = 2)
 	contained_sprite = 1
@@ -283,7 +283,7 @@
 	item_state = "stunrod"
 	baton_color = "#75ACFF"
 	force = 3
-	hitcost = 2000
+	hitcost = 1000
 	agonyforce = 50
 
 /obj/item/weapon/melee/baton/slime/Initialize()
