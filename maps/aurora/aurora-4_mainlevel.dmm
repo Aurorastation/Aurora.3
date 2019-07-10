@@ -68505,7 +68505,7 @@
 "vNa" = (
 /obj/machinery/light/small/emergency,
 /turf/simulated/floor/plating,
-/area/mine/unexplored)
+/area/maintenance/research_port)
 "vNh" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
