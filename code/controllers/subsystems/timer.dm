@@ -433,15 +433,22 @@ var/datum/controller/subsystem/timer/SStimer
 
 	if (!istext(id))
 		if (istype(id, /datum/timedevent))
+			var/datum/timedevent/timer = id
+			var/datum/callback/callBack = timer.callBack
+			callBack.InvokeAsync()
+			timer.spent = TRUE
 			qdel(id)
 			return TRUE
 
 	var/datum/timedevent/timer = SStimer.timer_id_dict["timerid[id]"]
-	SStimer.clienttime_timers -= timer
 	var/datum/callback/callBack = timer.callBack
-	timer.spent = TRUE
-	callBack.InvokeAsync()
-	qdel(timer)
+
+	if (timer && !timer.spent)
+		callBack.InvokeAsync()
+		timer.spent = TRUE
+		qdel(timer)
+		return TRUE
+	return FALSE
 
 #undef BUCKET_LEN
 #undef BUCKET_POS
