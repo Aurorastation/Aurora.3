@@ -441,6 +441,10 @@ var/datum/controller/subsystem/timer/SStimer
 			return TRUE
 
 	var/datum/timedevent/timer = SStimer.timer_id_dict["timerid[id]"]
+
+	if(!timer)
+		return FALSE
+
 	var/datum/callback/callBack = timer.callBack
 
 	if (timer && !timer.spent)
