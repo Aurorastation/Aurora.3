@@ -90,22 +90,26 @@
 		var/amt = I.reagents.trans_to_holder(reagents, I.reagents.total_volume) // just pour it if you can
 		to_chat(user, span("notice", "You pour [amt] units from \the [I] into \the [src]."))
 
+/obj/structure/chemkit/proc/smash_sheet(/obj/item/stack/stack, mob/user)
+	if(istype(stack))
+		var/list/sheet_components = sheet_reagents[stack.type]
+		var/amount_to_take = max(0,min(stack.amount,round(reagents.get_free_space()/REAGENTS_PER_SHEET)))
+		if(!amount_to_take)
+			return
+		stack.use(amount_to_take)
+		if(islist(sheet_components))
+			amount_to_take = (amount_to_take/(sheet_components.len))
+			for(var/n in sheet_components)
+				reagents.add_reagent(n, (amount_to_take*REAGENTS_PER_SHEET)*rand(6,8)/10)
+		else
+			reagents.add_reagent(sheet_components, (amount_to_take*REAGENTS_PER_SHEET)*rand(6,8)/10) // 60% to 80% efficiency when crushing sheets
+		to_chat(user, span("notice", "You [pick("crush","smash","grind")] [stack] into a fine powder."))
+		return
+
 /obj/structure/chemkit/proc/smash(obj/item/I, mob/user)
 	if(sheet_reagents[I.type])
-		var/obj/item/stack/stack = I
-		if(istype(stack))
-			var/list/sheet_components = sheet_reagents[stack.type]
-			var/amount_to_take = max(0,min(stack.amount,round(reagents.get_free_space()/REAGENTS_PER_SHEET)))
-			if(amount_to_take)
-				stack.use(amount_to_take)
-				if(islist(sheet_components))
-					amount_to_take = (amount_to_take/(sheet_components.len))
-					for(var/n in sheet_components)
-						reagents.add_reagent(n, (amount_to_take*REAGENTS_PER_SHEET)*rand(6,8)/10)
-				else
-					reagents.add_reagent(sheet_components, (amount_to_take*REAGENTS_PER_SHEET)*rand(6,8)/10) // 60% to 80% efficiency when crushing sheets
-				to_chat(user, span("notice", "You [pick("crush","smash","grind")] [stack] into a fine powder."))
-				return
+		smash_sheet(stack, user)
+		return
 	to_chat(user, span("notice", "You [pick("crush","smash","grind")] [I] into a fine [pick("paste","powder","pulp")]."))
 	I.reagents.trans_to_holder(reagents, I.reagents.total_volume, rand(7, 10)/10) // 70% to 100% from smashing, since it's pretty thorough
 	qdel(I)

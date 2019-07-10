@@ -95,7 +95,7 @@
 	hyperzine	spawn_reagent = "hyperzine"
 	rezadone	spawn_reagent = "rezadone"
 	thetamivir	spawn_reagent = "thetamivir"
-	methicillin spawn_reagent = "methicillin"
+	methicillin	spawn_reagent = "methicillin"
 	coughsyrup	spawn_reagent = "coughsyrup"
 	benadryl	spawn_reagent = "diphenhydramine"
 	ethylredox	spawn_reagent = "ethylredoxrazine"

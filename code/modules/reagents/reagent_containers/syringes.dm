@@ -50,22 +50,20 @@
 	return 1
 
 /obj/item/weapon/reagent_containers/syringe/proc/infect_limb(var/obj/item/organ/external/eo)
-	eo.germ_level += INFECTION_LEVEL_ONE+30
+	eo.germ_level += dirtiness // only 75% of the way to an infection at max
 
 /obj/item/weapon/reagent_containers/syringe/proc/dirty(var/mob/living/carbon/human/target, var/obj/item/organ/external/eo)
 	LAZYINITLIST(targets)
 
-	//We can't keep a mob reference, that's a bad idea, so instead name+ref should suffice.
-	var/hash = md5(target.real_name + "\ref[target]")
-
 	//Just once!
-	targets |= hash
+	targets |= WEAKREF(target)
 
 	//Grab any viruses they have
+	var/datum/disease2/disease/virus
 	if(LAZYLEN(target.virus2.len))
 		LAZYINITLIST(viruses)
-		var/datum/disease2/disease/virus = pick(target.virus2.len)
-		viruses[hash] = virus.getcopy()
+		virus = pick(target.virus2.len)
+		viruses += virus.getcopy()
 
 	//Dirtiness should be very low if you're the first injectee. If you're spam-injecting 4 people in a row around you though,
 	//This gives the last one a 30% chance of infection.
@@ -75,10 +73,9 @@
 
 	//75% chance to spread a virus if we have one
 	if(LAZYLEN(viruses) && prob(75))
-		var/old_hash = pick(viruses)
-		if(hash != old_hash) //Same virus you already had?
-			var/datum/disease2/disease/virus = viruses[old_hash]
-			infect_virus2(target,virus.getcopy())
+		var/newvir = pick(viruses - virus)
+		var/datum/disease2/disease/virus = viruses[newvir]
+		infect_virus2(target,virus.getcopy())
 
 	if(!used)
 		START_PROCESSING(SSprocessing, src)
@@ -130,7 +127,7 @@
 		var/mob/living/carbon/human/H = target
 		if (check_zone(user.zone_sel.selecting, target) == "chest") // impromptu needle thoracostomy, re-inflate a collapsed lung
 			user.visible_message(span("danger", "[user] aims \the [src] between [(user == target) ? "their" : (target + "\'s")] ribs!"))
-			if(!do_after(user, 1.5 SECONDS))
+			if(!do_mob(user, target, 1.5 SECONDS))
 				return
 			user.visible_message(span("warning", "[user] jabs [(user == target) ? "themselves" : target] between the ribs with \the [src]!"))
 			if(H.is_lung_ruptured())
