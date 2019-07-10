@@ -111,7 +111,7 @@
 				to_chat(src, "You are not security.")
 
 		if ("help")
-			to_chat(src, "salute, bow, clap, flap, aflap, twitch, twitch_s, nod, beep, ping, \nbuzz, law, halt, meow1, meow2, squeal, squeak, softsqueak")
+			to_chat(src, "salute, bow, clap, flap, aflap, twitch, twitch_s, nod, beep, ping, \nbuzz, law, halt, meow, meow2, squeal, squeak, softsqueak")
 		else
 			to_chat(src, "<span class='notice'>Unusable emote '[act]'. Say *help for a list.</span>")
 
