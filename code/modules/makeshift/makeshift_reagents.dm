@@ -90,8 +90,8 @@
 		var/amt = I.reagents.trans_to_holder(reagents, I.reagents.total_volume) // just pour it if you can
 		to_chat(user, span("notice", "You pour [amt] units from \the [I] into \the [src]."))
 
-/obj/structure/chemkit/proc/smash_sheet(/obj/item/stack/S, mob/user)
-	if(!istype(S))
+/obj/structure/chemkit/proc/smash_sheet(obj/item/stack/stack, mob/user)
+	if(!istype(stack))
 		return
 	var/list/sheet_components = sheet_reagents[stack.type]
 	var/amount_to_take = max(0,min(stack.amount,round(reagents.get_free_space()/REAGENTS_PER_SHEET)))
@@ -109,7 +109,7 @@
 
 /obj/structure/chemkit/proc/smash(obj/item/I, mob/user)
 	if(sheet_reagents[I.type])
-		smash_sheet(stack, user)
+		smash_sheet(I, user)
 		return
 	to_chat(user, span("notice", "You [pick("crush","smash","grind")] [I] into a fine [pick("paste","powder","pulp")]."))
 	I.reagents.trans_to_holder(reagents, I.reagents.total_volume, rand(7, 10)/10) // 70% to 100% from smashing, since it's pretty thorough
