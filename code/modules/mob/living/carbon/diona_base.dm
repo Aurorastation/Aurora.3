@@ -314,9 +314,9 @@ var/list/diona_banned_languages = list(
 			DS.regening_organ = TRUE
 			to_chat(src, "<span class='notice'>You are trying to regrow a lost limb, this is a long and complicated process that will take 10 minutes!</span>")
 			if(!bypass)
-				addtimer(CALLBACK(src, .proc/diona_regen_callback, path), 10 MINUTES)
+				DS.regen_limb = addtimer(CALLBACK(src, .proc/diona_regen_callback, path), 10 MINUTES, TIMER_STOPPABLE)
 			else
-				diona_regen_callback(path)
+				diona_regen_callback(path, DS)
 			return
 
 
@@ -547,13 +547,8 @@ var/list/diona_banned_languages = list(
 			C.DS.stored_energy += REGROW_ENERGY_REQ
 			total_radiation += 5
 			C.key = src.key
-			if(C.active_timers)
-				for(var/v in C.active_timers)
-					var/datum/timedevent/T = v
-					var/datum/callback/callBack = T.callBack
-					if(callBack && callBack.delegate == /mob/living/carbon/human/proc/diona_regen_callback)
-						execute_and_deltimer(T.id)
-						break
+			if(DS.regen_limb)
+				execute_and_deltimer(DS.regen_limb)
 			else
 				C.diona_handle_regeneration(C.DS, TRUE)
 			to_chat(C, span("notice", "Your lost nymph merged back."))
@@ -591,6 +586,7 @@ var/list/diona_banned_languages = list(
 	var/LMS = 1 //Lightmessage state. Switching between states gives the user a message
 	var/dionatype //1 = nymph, 2 = worker gestalt
 	var/datum/weakref/nym
+	var/regen_limb
 
 /datum/dionastats/Destroy()
 	light_organ = null //Nulling out these references to prevent GC errors
