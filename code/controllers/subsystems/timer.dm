@@ -431,16 +431,17 @@ var/datum/controller/subsystem/timer/SStimer
 	if (id == TIMER_ID_NULL)
 		CRASH("Tried to delete a null timerid. Use the TIMER_STOPPABLE flag.")
 
+	var/datum/timedevent/timer = null
 	if (!istext(id))
 		if (istype(id, /datum/timedevent))
-			var/datum/timedevent/timer = id
+			timer = id
 			var/datum/callback/callBack = timer.callBack
-			callBack.InvokeAsync()
+			callBack.Invoke()
 			timer.spent = TRUE
 			qdel(id)
 			return TRUE
-
-	var/datum/timedevent/timer = SStimer.timer_id_dict["timerid[id]"]
+	else 
+		timer = SStimer.timer_id_dict["timerid[id]"]
 
 	if(!timer)
 		return FALSE
@@ -448,7 +449,7 @@ var/datum/controller/subsystem/timer/SStimer
 	var/datum/callback/callBack = timer.callBack
 
 	if (timer && !timer.spent)
-		callBack.InvokeAsync()
+		callBack.Invoke()
 		timer.spent = TRUE
 		qdel(timer)
 		return TRUE
