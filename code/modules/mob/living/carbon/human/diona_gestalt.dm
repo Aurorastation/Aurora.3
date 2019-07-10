@@ -246,8 +246,9 @@
 	to_chat(src, span("notice", "You detach [O.name] nymph from your body."))
 	qdel(O)
 
-	// Spawn new nymph 
 	var/mob/living/carbon/alien/diona/M = locate(/mob/living/carbon/alien/diona) in contents
+	if(!M)
+		return
 	M.forceMove(get_turf(src))
 
 	// Switch control to nymph
@@ -277,8 +278,10 @@
 
 	if(!nymph)
 		to_chat(src, span("warning", "You have no nymph!"))
+		return
 	else if(nymph.stat == DEAD)
 		to_chat(src, span("danger", "Your nymph is not responding! Something could have happened to it!"))
+		return
 	else
 		nymph.key = key
 
