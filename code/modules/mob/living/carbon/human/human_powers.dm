@@ -235,9 +235,12 @@
 		to_chat(src,"<span class='warning'>This can only be used on living organisms.</span>")
 		return
 
-
 	if (target.is_diona())
-		to_chat(src,"<span class='alium'>The creature's mind is not solid enough and slips through like sand.</span>")
+		to_chat(src,"<span class='alium'>The creature's mind is incompatible, formless.</span>")
+		return
+
+	if (isvaurca(target))
+		to_chat (src, "<span class='cult'>You feel your thoughts pass right through a mind empty of psychic energy.</span>")
 		return
 
 	if(!(target in view(client.view, client.eye)))
@@ -1019,3 +1022,65 @@
 
 		to_chat(src, output)
 
+/mob/living/carbon/human
+	var/next_sonar_ping = 0
+
+/mob/living/carbon/human/proc/sonar_ping()
+	set name = "Psychic Ping"
+	set desc = "Allows you to listen in to psychic traces of organisms around you."
+	set category = "Abilities"
+
+	if(incapacitated())
+		to_chat(src, "<span class='warning'>You need to recover before you can use this ability.</span>")
+		return
+	if(world.time < next_sonar_ping)
+		to_chat(src, "<span class='warning'>You need another moment to focus.</span>")
+		return
+	next_sonar_ping += 10 SECONDS
+	var/heard_something = FALSE
+	to_chat(src, "<span class='notice'>You take a moment to tune into the local Nlom...</span>")
+	var/dirs = list()
+	for(var/mob/living/L in range(25))
+		var/turf/T = get_turf(L)
+		if(!T || L == src || L.stat == DEAD || L.isSynthetic() || L.is_diona() || isvaurca(L))
+			continue
+		heard_something = TRUE
+		var/image/ping_image = image(icon = 'icons/effects/effects.dmi', icon_state = "sonar_ping", loc = src)
+		ping_image.plane = LIGHTING_LAYER+1
+		ping_image.layer = LIGHTING_LAYER+1
+		ping_image.pixel_x = (T.x - src.x) * WORLD_ICON_SIZE
+		ping_image.pixel_y = (T.y - src.y) * WORLD_ICON_SIZE
+		src << ping_image
+		addtimer(CALLBACK(GLOBAL_PROC, /proc/qdel, ping_image), 8)
+		var/direction = num2text(get_dir(src, L))
+		var/dist
+		if(text2num(direction))
+			switch(get_dist(src, L) / client.view)
+				if(0 to 0.2)
+					dist = "very close"
+				if(0.2 to 0.4)
+					dist = "close"
+				if(0.4 to 0.6)
+					dist = "a little ways away"
+				if(0.6 to 0.8)
+					dist = "farther away"
+				else
+					dist = "far away"
+		else
+			dist = "on top of you"
+		LAZYINITLIST(dirs[direction])
+		dirs[direction][dist] += 1
+	var/feedback = list()
+	for(var/d in dirs)
+		if(isnull(d)) // can be 0
+			continue
+		for(var/dst in dirs[d])
+			if(isnull(dst))
+				continue // don't need to print if there's nothing there
+			feedback += "[dirs[d][dst]] psionic signature\s [dst],"
+		feedback[length(feedback)] += " and"
+		feedback += "towards the [dir2text(text2num(d))],"
+	if(heard_something)
+		to_chat(src, span("notice", "You sense " + jointext(feedback, " ") + "."))
+	else
+		to_chat(src, span("notice", "You detect no psionic signatures but your own."))
