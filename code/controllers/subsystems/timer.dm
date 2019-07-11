@@ -432,14 +432,8 @@ var/datum/controller/subsystem/timer/SStimer
 		CRASH("Tried to delete a null timerid. Use the TIMER_STOPPABLE flag.")
 
 	var/datum/timedevent/timer = null
-	if (!istext(id))
-		if (istype(id, /datum/timedevent))
-			timer = id
-
-			
-
-
-
+	if (!istext(id) && istype(id, /datum/timedevent))
+		timer = id
 	else 
 		timer = SStimer.timer_id_dict["timerid[id]"]
 
