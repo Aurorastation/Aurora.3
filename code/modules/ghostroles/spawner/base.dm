@@ -34,7 +34,7 @@
 		return "Missing Head of Staff Whitelist"
 	
 	if(req_species_whitelist && !is_alien_whitelisted(user, req_species_whitelist))
-		return "Missing Species whitelist"
+		return "Missing Species Whitelist"
 
 	if(jobban_job && jobban_isbanned(user,jobban_job))
 		return "Job Banned"

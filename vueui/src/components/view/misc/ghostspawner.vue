@@ -12,9 +12,9 @@
         <td>{{data.name}}</td>
         <td>{{data.desc}}</td>
         <td>
-          <vui-button :disabled="(data.cant_spawn == 1)" :params="{action: 'spawn', spawner: 'data.short_name'}" icon="star">Spawn</vui-button> 
-          <vui-button v-if="data.can_edit == 1" :disabled="(data.enabled == 1)" :params="{action: 'enable', spawner: 'data.short_name'}" icon="unlocked">Enable</vui-button> 
-          <vui-button v-if="data.can_edit == 1" :disabled="(data.enabled == 0)" :params="{action: 'disable', spawner: 'data.short_name'}" icon="locked">Disable</vui-button> 
+          <vui-button :disabled="(data.cant_spawn !== 0)" :params="{action: 'spawn', spawner: index}" icon="star">Spawn</vui-button> 
+          <vui-button v-if="data.can_edit == 1" :disabled="(data.enabled == 1)" :params="{action: 'enable', spawner: index}" icon="unlocked">Enable</vui-button> 
+          <vui-button v-if="data.can_edit == 1" :disabled="(data.enabled == 0)" :params="{action: 'disable', spawner: index}" icon="locked">Disable</vui-button> 
         </td>
       </tr>
     </table>

@@ -23,7 +23,6 @@
 		var/datum/ghostspawner/G = new spawner
 		//Check if we hae name, short_name and desc set
 		if(!G.short_name || !G.name || !G.desc)
-			qdel(G)
 			continue
 		LAZYSET(spawners, G.short_name, G)
 
@@ -76,15 +75,13 @@
 /datum/controller/subsystem/ghostroles/ui_interact(mob/user)
 	var/datum/vueui/ui = SSvueui.get_open_ui(user,src)
 	if(!ui)
-		ui = new(user,src,"misc-ghostspawner",500,700,"Ghostspawner")
+		ui = new(user,src,"misc-ghostspawner",950,700,"Ghostspawner")
 	ui.open()
 
 /datum/controller/subsystem/ghostroles/vueui_data_change(var/list/newdata, var/mob/user, var/datum/vueui/ui)
-	if(!newdata)
-		var/list/data = list()
-		data["spawners"] = get_spawner_data(user)
-		return data
-	
+	var/list/data = list()
+	data["spawners"] = get_spawner_data(user)
+	return data
 
 	// Here we can add checks for difference of state and alter it
 	// or do actions depending on its change
@@ -92,30 +89,30 @@
 	//	return list("counter" = 0)
 
 /datum/controller/subsystem/ghostroles/Topic(href, href_list)
-
 	if(href_list["action"] == "spawn")
-		var/datum/ghostspawner/S = spawners[href_list["spawner"]]
+		var/spawner = href_list["spawner"]
+		var/datum/ghostspawner/S = spawners[spawner]
 		if(!S)
 			return
-		if(S.cant_spawn(src))
+		if(S.cant_spawn(usr))
 			return
-		S.pre_spawn(src)
-		S.spawn_mob(src)
-		S.post_spawn(src)
+		S.pre_spawn(usr)
+		S.spawn_mob(usr)
+		S.post_spawn(usr)
 	if(href_list["action"] == "enable")
 		var/datum/ghostspawner/S = spawners[href_list["spawner"]]
 		if(!S)
 			return
-		if(!S.can_edit(src))
+		if(!S.can_edit(usr))
 			return
 		S.enable()
-
+		to_chat(usr, "Ghost spawner enabled: [S.name]")
 	if(href_list["action"] == "disable")
 		var/datum/ghostspawner/S = spawners[href_list["spawner"]]
 		if(!S)
 			return
-		if(!S.can_edit(src))
+		if(!S.can_edit(usr))
 			return
 		S.disable()
-
+		to_chat(usr, "Ghost spawner disabled: [S.name]")
 	return
