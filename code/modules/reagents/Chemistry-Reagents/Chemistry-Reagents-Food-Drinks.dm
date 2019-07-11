@@ -10,10 +10,10 @@
 	taste_description = "boiled cabbage"
 	unaffected_species = IS_MACHINE
 	var/kois_type = 1
-	specific_heat = 0.75
+	fallback_specific_heat = 0.75
 
 /datum/reagent/kois/affect_ingest(var/mob/living/carbon/human/M, var/alien, var/removed)
-	if(!istype(M))
+	if(!ishuman(M))
 		return
 	var/obj/item/organ/parasite/P = M.internal_organs_by_name["blackkois"]
 	if((alien == IS_VAURCA) || (istype(P) && P.stage >= 3))
@@ -23,21 +23,27 @@
 		M.add_chemical_effect(CE_BLOODRESTORE, 6 * removed)
 
 	else
-		M.adjustToxLoss(1 * removed)
-		if(istype(M,/mob/living/carbon/human))
-			var/mob/living/carbon/human/H = M
-			switch(kois_type)
-				if(1) //Normal
-					if(!H.internal_organs_by_name["kois"] && prob(5*removed))
-						var/obj/item/organ/external/affected = H.get_organ("chest")
-						var/obj/item/organ/parasite/kois/infest = new()
-						infest.replaced(H, affected)
-				if(2) //Modified
-					if(!H.internal_organs_by_name["blackkois"] && prob(10*removed))
-						var/obj/item/organ/external/affected = H.get_organ("head")
-						var/obj/item/organ/parasite/blackkois/infest = new()
-						infest.replaced(H, affected)
-	..()
+		infect(M, alien, removed)
+
+/datum/reagent/kois/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+	if(ishuman(M))
+		infect(M, alien, removed)
+
+/datum/reagent/kois/proc/infect(var/mob/living/carbon/human/H, var/alien, var/removed)
+	var/obj/item/organ/parasite/P = H.internal_organs_by_name["blackkois"]
+	if((alien != IS_VAURCA) || (istype(P) && P.stage >= 3))
+		H.adjustToxLoss(1 * removed)
+		switch(kois_type)
+			if(1) //Normal
+				if(!H.internal_organs_by_name["kois"] && prob(5*removed))
+					var/obj/item/organ/external/affected = H.get_organ("chest")
+					var/obj/item/organ/parasite/kois/infest = new()
+					infest.replaced(H, affected)
+			if(2) //Modified
+				if(!H.internal_organs_by_name["blackkois"] && prob(10*removed))
+					var/obj/item/organ/external/affected = H.get_organ("head")
+					var/obj/item/organ/parasite/blackkois/infest = new()
+					infest.replaced(H, affected)
 
 /datum/reagent/kois/clean
 	name = "Filtered K'ois"
@@ -46,7 +52,7 @@
 	color = "#ece9dd"
 	taste_description = "cabbage soup"
 	kois_type = 0
-	specific_heat = 1
+	fallback_specific_heat = 1
 
 /datum/reagent/kois/black
 	name = "Modified K'ois"
@@ -55,7 +61,7 @@
 	color = "#31004A"
 	taste_description = "tar"
 	kois_type = 2
-	specific_heat = 0.5
+	fallback_specific_heat = 0.5
 
 /* Food */
 /datum/reagent/nutriment
@@ -107,10 +113,8 @@
 			data -= null
 
 /datum/reagent/nutriment/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	if(!injectable)
-		M.adjustToxLoss(0.1 * removed)
-		return
-	affect_ingest(M, alien, removed)
+	if(injectable)
+		affect_ingest(M, alien, removed)
 
 /datum/reagent/nutriment/affect_ingest(var/mob/living/carbon/human/M, var/alien, var/removed)
 	if(!istype(M))
@@ -549,7 +553,7 @@
 	taste_description = "mint"
 	taste_mult = 1.5
 
-	specific_heat = 15
+	fallback_specific_heat = 15
 	default_temperature = T0C - 20
 
 /datum/reagent/frostoil/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
@@ -732,7 +736,6 @@
 	return ..()
 
 /datum/reagent/drink/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	M.adjustToxLoss(removed * blood_to_ingest_scale) // Probably not a good idea; not very deadly though
 	digest(M,alien,removed * blood_to_ingest_scale, FALSE)
 
 /datum/reagent/drink/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
@@ -933,6 +936,45 @@
 	glass_name = "glass of onion juice"
 	glass_desc = "Juice from an onion, for when you need to cry."
 
+/datum/reagent/drink/dynjuice
+	name = "Dyn Juice"
+	id = "dynjuice"
+	description = "Juice from a dyn leaf. Good for you, but normally not consumed undiluted."
+	taste_description = "astringent menthol"
+	color = "#00e0e0"
+
+	glass_icon_state = "dynjuice"
+	glass_name = "glass of dyn juice"
+	glass_desc = "Juice from a dyn leaf. Good for you, but normally not consumed undiluted."
+
+/datum/reagent/drink/dynjuice/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
+	..()
+	M.adjustToxLoss(-0.3 * removed)
+
+
+/datum/reagent/drink/dynjuice/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+	M.adjustToxLoss(-0.3 * removed)
+
+/datum/reagent/drink/dynjuice/hot
+	name = "Dyn Tea"
+	id = "dynhot"
+	taste_description = "peppermint water"
+	description = "An old-fashioned, but traditional Skrell drink with documented medicinal properties."
+
+	glass_icon_state = "dynhot"
+	glass_name = "cup of dyn tea"
+	glass_desc = "An old-fashioned, but traditional Skrell drink with documented medicinal properties."
+
+/datum/reagent/drink/dynjuice/cold
+	name = "Dyn Ice Tea"
+	id = "dyncold"
+	taste_description = "fizzy mint tea"
+	description = "A modern spin on an old formula, popular among Skrell youngsters. Good for you."
+
+	glass_icon_state = "dyncold"
+	glass_name = "glass of dyn ice tea"
+	glass_desc = "A modern spin on an old formula, popular among Skrell youngsters. Good for you."
+
 // Everything else
 
 /datum/reagent/drink/milk
@@ -976,13 +1018,10 @@
 	glass_desc = "White and nutritious soy goodness!"
 
 /datum/reagent/drink/milk/adhomai
-	name = "Fermented Fatshouters Milk"
-	id = "adhomai_milk"
-	description = "A tajaran made fermented dairy product, traditionally consumed by nomadic population of Adhomai."
-	taste_description = "sour milk"
-
-	glass_name = "glass of fermented fatshouters milk"
-	glass_desc = "A tajaran made fermented dairy product, traditionally consumed by nomadic population of Adhomai."
+	name = "Fatshouters Milk"
+	id = "fatshouter_milk"
+	description = "An opaque white liquid produced by the mammary glands of native adhomian animal."
+	taste_description = "fatty milk"
 
 /datum/reagent/drink/milk/adhomai/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
 	..()
@@ -990,6 +1029,15 @@
 		var/mob/living/carbon/human/H = M
 		if(alien != IS_TAJARA && prob(5))
 			H.delayed_vomit()
+
+/datum/reagent/drink/milk/adhomai/fermented
+	name = "Fermented Fatshouters Milk"
+	id = "adhomai_milk"
+	description = "A tajaran made fermented dairy product, traditionally consumed by nomadic population of Adhomai."
+	taste_description = "sour milk"
+
+	glass_name = "glass of fermented fatshouters milk"
+	glass_desc = "A tajaran made fermented dairy product, traditionally consumed by nomadic population of Adhomai."
 
 /datum/reagent/drink/milk/beetle
 	name = "Hakhma Milk"
@@ -4019,4 +4067,3 @@
 	description = "A delicious seasonal flavoring."
 	color = "#AE771C"
 	taste_description = "autumn bliss"
-

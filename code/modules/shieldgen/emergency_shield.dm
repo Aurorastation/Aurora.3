@@ -114,7 +114,7 @@
 /obj/machinery/shieldgen
 	name = "Emergency shield projector"
 	desc = "Used to seal minor hull breaches."
-	icon = 'icons/obj/objects.dmi'
+	icon = 'icons/obj/machines/shielding.dmi'
 	icon_state = "shieldoff"
 	density = 1
 	opacity = 0

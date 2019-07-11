@@ -8,6 +8,7 @@
 	w_class = 3
 	attack_verb = list("whipped")
 	hitsound = 'sound/weapons/towelwhip.ogg'
+	drop_sound = 'sound/items/drop/clothing.ogg'
 
 /obj/item/weapon/towel/attack_self(mob/living/user as mob)
 	attack(user,user)
@@ -32,3 +33,25 @@
 /obj/item/weapon/towel/random/Initialize()
 	. = ..()
 	color = get_random_colour(1)
+
+/obj/item/weapon/towel/verb/lay_out()
+	set name = "Lay Out Towel"
+	set category = "Object"
+
+	to_chat(usr, "<span class='notice'>You lay out \the [src] flat on the ground.</span>")
+	var/obj/item/weapon/towel_flat/T = new /obj/item/weapon/towel_flat(usr.loc)
+	T.color = src.color
+	qdel(src)
+
+/obj/item/weapon/towel_flat
+	name = "towel"
+	desc = "A soft cotton towel."
+	icon = 'icons/obj/weapons.dmi'
+	icon_state = "towel_flat"
+
+/obj/item/weapon/towel_flat/attack_hand(mob/user as mob)
+	to_chat(user, "<span class='notice'>You pick up and fold \the [src].</span>")
+	var/obj/item/weapon/towel/T = new /obj/item/weapon/towel(user)
+	T.color = src.color
+	user.put_in_hands(T)
+	qdel(src)

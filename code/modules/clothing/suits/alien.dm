@@ -45,12 +45,22 @@
 	item_state = "taj_jacket"
 	icon_open = "taj_jacket_open"
 	icon_closed = "taj_jacket"
+	description_fluff = "Today the fashion that dominates Adhomai shares few similarities to the clothing of old Furs, linen, hemp, silk and other such fabrics were traded for \
+	synthetic versions, creating a massive boom in the nylon industry and textile industry in the cities. Jeans, overcoats, army uniforms, parade uniforms, flags, pants, shirts, ties, \
+	suspenders, overalls are now the fashion of every Tajara from Nal'Tor to Kaltir. The protests of \"Old fashion\" supporters usually shatter against how effective and cheap it is to \
+	make the human clothes are. There are a few notable branches, the long-coat and fedora \"gangster style\". Leather jacket wearing \"Greaser\" or the popular amongst females, short \
+	and colorful dress wearing \"Flapper\" variety of clothing."
 
 /obj/item/clothing/suit/storage/tajaran
 	name = "tajaran naval coat"
 	desc = "A thick wool coat from Adhomai."
 	icon_state = "naval_coat"
 	item_state = "naval_coat"
+	description_fluff = "Today the fashion that dominates Adhomai shares few similarities to the clothing of old Furs, linen, hemp, silk and other such fabrics were traded for \
+	synthetic versions, creating a massive boom in the nylon industry and textile industry in the cities. Jeans, overcoats, army uniforms, parade uniforms, flags, pants, shirts, ties, \
+	suspenders, overalls are now the fashion of every Tajara from Nal'Tor to Kaltir. The protests of \"Old fashion\" supporters usually shatter against how effective and cheap it is to \
+	make the human clothes are. There are a few notable branches, the long-coat and fedora \"gangster style\". Leather jacket wearing \"Greaser\" or the popular amongst females, short \
+	and colorful dress wearing \"Flapper\" variety of clothing."
 
 /obj/item/clothing/suit/storage/tajaran/cloak
 	name = "commoner cloak"
@@ -82,6 +92,10 @@
 	icon_state = "messarobes"
 	item_state = "messarobes"
 	contained_sprite = TRUE
+	description_fluff = "The official religious body of the S'rendarr & Messa religion  is reffered to as \"Parivara\" or roughly translated \"Family\". This branch is further split into \
+	the female Sun Sisters and male Priest's of S'rendarr. Currently their main role is to act as mediator and to remain out of political matters, there is however a certain unspoken \
+	agitation about the religion of Mata'ke and S'rrendars position within that pantheon. Further the Parivara has called multiple summits over the courses of war, which usually result \
+	in temporary cease-fires from all sides."
 
 /obj/item/clothing/suit/storage/hooded/tajaran
 	name = "gruff cloak"
@@ -92,6 +106,11 @@
 	contained_sprite = TRUE
 	flags_inv = HIDETAIL
 	hoodtype = /obj/item/clothing/head/winterhood
+	description_fluff = "Today the fashion that dominates Adhomai shares few similarities to the clothing of old Furs, linen, hemp, silk and other such fabrics were traded for \
+	synthetic versions, creating a massive boom in the nylon industry and textile industry in the cities. Jeans, overcoats, army uniforms, parade uniforms, flags, pants, shirts, ties, \
+	suspenders, overalls are now the fashion of every Tajara from Nal'Tor to Kaltir. The protests of \"Old fashion\" supporters usually shatter against how effective and cheap it is to \
+	make the human clothes are. There are a few notable branches, the long-coat and fedora \"gangster style\". Leather jacket wearing \"Greaser\" or the popular amongst females, short \
+	and colorful dress wearing \"Flapper\" variety of clothing."
 
 /obj/item/clothing/suit/storage/hooded/tajaran/priest
 	name = "sun priest robe"
@@ -101,6 +120,17 @@
 	item_state = "priestrobe"
 	contained_sprite = TRUE
 	flags_inv = 0
+	description_fluff = "The official religious body of the S'rendarr & Messa religion  is reffered to as \"Parivara\" or roughly translated \"Family\". This branch is further split into \
+	the female Sun Sisters and male Priest's of S'rendarr. Currently their main role is to act as mediator and to remain out of political matters, there is however a certain unspoken \
+	agitation about the religion of Mata'ke and S'rrendars position within that pantheon. Further the Parivara has called multiple summits over the courses of war, which usually result \
+	in temporary cease-fires from all sides."
+
+/obj/item/clothing/head/tajaran
+	description_fluff = "Today the fashion that dominates Adhomai shares few similarities to the clothing of old Furs, linen, hemp, silk and other such fabrics were traded for \
+	synthetic versions, creating a massive boom in the nylon industry and textile industry in the cities. Jeans, overcoats, army uniforms, parade uniforms, flags, pants, shirts, ties, \
+	suspenders, overalls are now the fashion of every Tajara from Nal'Tor to Kaltir. The protests of \"Old fashion\" supporters usually shatter against how effective and cheap it is to \
+	make the human clothes are. There are a few notable branches, the long-coat and fedora \"gangster style\". Leather jacket wearing \"Greaser\" or the popular amongst females, short \
+	and colorful dress wearing \"Flapper\" variety of clothing."
 
 /obj/item/clothing/head/tajaran/circlet
 	name = "golden dress circlet"
@@ -141,6 +171,11 @@
 	body_parts_covered = FEET|LEGS
 	species_restricted = list("Tajara")
 	contained_sprite = TRUE
+	description_fluff = "Today the fashion that dominates Adhomai shares few similarities to the clothing of old Furs, linen, hemp, silk and other such fabrics were traded for \
+	synthetic versions, creating a massive boom in the nylon industry and textile industry in the cities. Jeans, overcoats, army uniforms, parade uniforms, flags, pants, shirts, ties, \
+	suspenders, overalls are now the fashion of every Tajara from Nal'Tor to Kaltir. The protests of \"Old fashion\" supporters usually shatter against how effective and cheap it is to \
+	make the human clothes are. There are a few notable branches, the long-coat and fedora \"gangster style\". Leather jacket wearing \"Greaser\" or the popular amongst females, short \
+	and colorful dress wearing \"Flapper\" variety of clothing."
 
 //Vaurca clothing
 

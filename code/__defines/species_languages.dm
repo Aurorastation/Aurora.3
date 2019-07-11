@@ -43,7 +43,6 @@
 #define LANGUAGE_DELVAHII "Delvahhi"
 #define LANGUAGE_SIIK_TAU "Siik'Tau"
 #define LANGUAGE_SKRELLIAN "Nral'Malic"
-#define LANGUAGE_RESOMI "Resomi"
 #define LANGUAGE_ROOTSONG "Rootsong"
 #define LANGUAGE_TRADEBAND "Tradeband"
 #define LANGUAGE_GUTTER "Freespeak"

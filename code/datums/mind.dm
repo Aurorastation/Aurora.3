@@ -580,6 +580,6 @@
 	..()
 	mind.assigned_role = "Familiar"
 
-/mob/living/simple_animal/mouse/familiar/familiar/mind_initialize()
+/mob/living/simple_animal/rat/familiar/familiar/mind_initialize()
 	..()
 	mind.assigned_role = "Familiar"

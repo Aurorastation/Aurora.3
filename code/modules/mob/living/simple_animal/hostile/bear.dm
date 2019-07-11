@@ -17,6 +17,7 @@
 	turns_per_move = 10
 	see_in_dark = 6
 	meat_type = /obj/item/weapon/reagent_containers/food/snacks/bearmeat
+	meat_amount = 5
 	response_help  = "pets"
 	response_disarm = "gently pushes aside"
 	response_harm   = "hits"
@@ -26,6 +27,7 @@
 	melee_damage_upper = 18
 	break_stuff_probability = 80
 	mob_size = 17
+	butchering_products = list(/obj/item/clothing/head/bearpelt = 1)
 	var/safety //used to prevent infinite loops
 	var/turns_since_hit = 0//If the bear chases someone too long without hitting them, it will try to change to another nearby target instead
 
@@ -78,12 +80,8 @@
 
 /mob/living/simple_animal/hostile/bear/Initialize()
 	. = ..()
+	emote_sounds = quiet_sounds
 	update_bearmode()
-
-/mob/living/simple_animal/hostile/bear/harvest()
-	new /obj/item/clothing/head/bearpelt(get_turf(src))
-	..()
-
 
 /mob/living/simple_animal/hostile/bear/proc/set_stance(var/input)
 	var/previous = stance

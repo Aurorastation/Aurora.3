@@ -6,6 +6,7 @@
 	icon_state = "blank"
 	desc = "Nutritious! Probably."
 	slot_flags = SLOT_HOLSTER
+	drop_sound = 'sound/items/drop/herb.ogg'
 
 	var/plantname
 	var/datum/seed/seed
@@ -92,7 +93,7 @@
 			descriptors |= "poisonous"
 		if(reagents.has_reagent("psilocybin") || reagents.has_reagent("space_drugs"))
 			descriptors |= "hallucinogenic"
-		if(reagents.has_reagent("bicaridine"))
+		if(reagents.has_reagent("bicaridine") || reagents.has_reagent("dylovene"))
 			descriptors |= "medicinal"
 		if(reagents.has_reagent("gold"))
 			descriptors |= "shiny"
@@ -338,6 +339,7 @@ var/list/fruit_icon_cache = list()
 
 	name = "[S.seed_name] slice"
 	desc = "A slice of \a [S.seed_name]. Tasty, probably."
+	drop_sound = 'sound/items/drop/herb.ogg'
 
 	var/rind_colour = S.get_trait(TRAIT_PRODUCT_COLOUR)
 	var/flesh_colour = S.get_trait(TRAIT_FLESH_COLOUR)

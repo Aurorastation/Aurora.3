@@ -158,6 +158,8 @@ var/list/ai_verbs_default = list(
 	add_language(LANGUAGE_ROOTSONG, 0)
 	add_language(LANGUAGE_EAL, 1)
 	add_language(LANGUAGE_YA_SSA, 0)
+	add_language(LANGUAGE_DELVAHII, 0)
+
 
 	if(!safety)//Only used by AIize() to successfully spawn an AI.
 		if (!B)//If there is no player/brain inside.
@@ -372,7 +374,7 @@ var/list/ai_verbs_default = list(
 	if(message_cooldown)
 		to_chat(src, "Please allow one minute to pass between announcements.")
 		return
-	var/input = input(usr, "Please write a message to announce to the station crew.", "A.I. Announcement")
+	var/input = input(usr, "Please write a message to announce to the station crew.", "A.I. Announcement") as null|message
 	if(!input)
 		return
 

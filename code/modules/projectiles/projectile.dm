@@ -284,6 +284,8 @@
 		setAngle(angle)
 	// trajectory dispersion
 	var/turf/starting = get_turf(src)
+	if(!starting)
+		return
 	if(isnull(Angle))	//Try to resolve through offsets if there's no angle set.
 		if(isnull(xo) || isnull(yo))
 			crash_with("WARNING: Projectile [type] deleted due to being unable to resolve a target after angle was null!")
@@ -315,10 +317,6 @@
 	forceMove(get_turf(source))
 	starting = get_turf(source)
 	original = target
-	if(targloc || !params)
-		yo = targloc.y - curloc.y
-		xo = targloc.x - curloc.x
-		setAngle(Get_Angle(src, targloc))
 
 	var/list/calculated = list(null,null,null)
 	if(isliving(source) && params)
@@ -327,7 +325,7 @@
 		p_y = calculated[3]
 		setAngle(calculated[1])
 
-	else if(targloc)
+	else if(targloc && curloc)
 		yo = targloc.y - curloc.y
 		xo = targloc.x - curloc.x
 		setAngle(Get_Angle(src, targloc))

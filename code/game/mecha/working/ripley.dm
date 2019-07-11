@@ -92,3 +92,10 @@
 	ME = new /obj/item/mecha_parts/mecha_equipment/tool/passenger
 	ME.attach(src)
 	return
+
+/obj/mecha/working/ripley/shire
+	name = "Shire"
+	desc = "A prototype military predecessor to the APLU units of modern day. Seen exclusively in the hands of the Sol Alliance during the Interstellar War."
+	icon_state = "shire"
+	initial_icon = "shire"
+	step_in = 4

@@ -5,6 +5,7 @@
 	icon_state = "storage"
 	no_light_control = 1
 	base_turf = /turf/space
+	requires_power = FALSE
 
 /area/derelict/hallway/northwest
 	name = "\improper NSS Aurora I"

@@ -17,14 +17,13 @@
 		slot_l_hand_str = "backpack",
 		slot_r_hand_str = "backpack"
 		)
-	sprite_sheets = list(
-		"Resomi" = 'icons/mob/species/resomi/back.dmi'
-		)
+
 	w_class = 4
 	slot_flags = SLOT_BACK
 	max_w_class = 3
 	max_storage_space = 28
 	var/species_restricted = list("exclude","Vaurca Breeder","Vaurca Warform")
+	drop_sound = 'sound/items/drop/backpack.ogg'
 
 /obj/item/weapon/storage/backpack/mob_can_equip(M as mob, slot)
 
@@ -52,11 +51,6 @@
 				to_chat(H, "<span class='danger'>Your species cannot wear [src].</span>")
 				return 0
 	return 1
-
-/obj/item/weapon/storage/backpack/attackby(obj/item/weapon/W as obj, mob/user as mob)
-	if (src.use_sound)
-		playsound(src.loc, src.use_sound, 50, 1, -5)
-	..()
 
 /obj/item/weapon/storage/backpack/equipped(var/mob/user, var/slot)
 	if (slot == slot_back && src.use_sound)

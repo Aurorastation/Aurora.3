@@ -195,7 +195,7 @@
 	var/msg = "<i><span class='game say'>[name], <span class='name'>[speaker_mask]</span>[format_message(message, get_spoken_verb(message))]</span></i>"
 
 	if(isvaurca(speaker))
-		speaker.custom_emote(1, "[pick("twitches their antennae", "twitches their antennae rythmically")].")
+		speaker.custom_emote(1, "[pick("twitches their antennae", "twitches their antennae rhythmically")].")
 
 	if (within_jamming_range(speaker))
 		// The user thinks that the message got through.
@@ -287,25 +287,6 @@
 	if(prob(70))
 		return "[pick(list("PBU","HIU","SINA","ARMA","OSI"))]-[rand(100, 999)]"
 	return pick(ai_names)
-
-/datum/language/resomi
-	name = LANGUAGE_RESOMI
-	desc = "A trilling language spoken by the diminutive Resomi."
-	speech_verb = "chirps"
-	ask_verb = "chirrups"
-	exclaim_verb = "trills"
-	colour = "alien"
-	key = "v"
-	flags = RESTRICTED
-	space_chance = 50
-	syllables = list(
-			"ca", "ra", "ma", "sa", "na", "ta", "la", "sha", "scha", "a", "a",
-			"ce", "re", "me", "se", "ne", "te", "le", "she", "sche", "e", "e",
-			"ci", "ri", "mi", "si", "ni", "ti", "li", "shi", "schi", "i", "i"
-		)
-
-/datum/language/resomi/get_random_name(gender)
-	return ..(gender, 1, 4, 1.5)
 
 /datum/language/unathi_azaziba
 	name = LANGUAGE_AZAZIBA

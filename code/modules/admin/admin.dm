@@ -6,14 +6,16 @@ var/global/enabled_spooking = 0
 ////////////////////////////////
 /proc/message_admins(var/msg)
 	msg = "<span class=\"log_message\"><span class=\"prefix\">ADMIN LOG:</span> <span class=\"message\">[msg]</span></span>"
-	for(var/client/C in admins)
+	for(var/s in staff)
+		var/client/C = s
 		if((R_ADMIN|R_MOD) & C.holder.rights)
 			to_chat(C, msg)
 
 /proc/msg_admin_attack(var/text,var/ckey="",var/ckey_target="") //Toggleable Attack Messages
 	log_attack(text,ckey=ckey,ckey_target=ckey_target)
 	var/rendered = "<span class=\"log_message\"><span class=\"prefix\">ATTACK:</span> <span class=\"message\">[text]</span></span>"
-	for(var/client/C in admins)
+	for(var/s in staff)
+		var/client/C = s
 		if((R_ADMIN|R_MOD) & C.holder.rights)
 			if(C.prefs.toggles & CHAT_ATTACKLOGS)
 				var/msg = rendered

@@ -4,7 +4,7 @@
 	name = "soap"
 	desc = "A cheap bar of soap. Doesn't smell."
 	gender = PLURAL
-	icon = 'icons/obj/items.dmi'
+	icon = 'icons/obj/soap.dmi'
 	icon_state = "soap"
 	w_class = 2.0
 	throwforce = 0
@@ -12,6 +12,7 @@
 	throw_range = 20
 	flags = OPENCONTAINER
 	var/key_data
+	drop_sound = 'sound/misc/slip.ogg'
 
 /obj/item/weapon/soap/nanotrasen
 	desc = "A NanoTrasen-brand bar of soap. Smells of phoron."
@@ -74,7 +75,7 @@
 
 /obj/item/weapon/soap/white_soap
 	name = "Soap"
-	desc = "Smells like chicken."
+	desc = "Smells like vanilla."
 	icon_state = "white_soap"
 
 /obj/item/weapon/soap/grey_soap
@@ -124,13 +125,13 @@
 
 /obj/item/weapon/soap/golden_soap
 	name = "Soap"
-	desc = "Smells like butter."
+	desc = "Smells like honey."
 	icon_state = "golden_soap"
 
 /obj/random/soap/
 	name = "Random Soap"
 	desc = "This is a random soap."
-	icon = 'icons/obj/items.dmi'
+	icon = 'icons/obj/soap.dmi'
 	icon_state = "soap"
 
 /obj/random/soap/item_to_spawn()

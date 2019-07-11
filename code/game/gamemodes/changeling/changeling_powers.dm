@@ -14,6 +14,7 @@ var/global/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","E
 	var/geneticpoints = 5
 	var/purchasedpowers = list()
 	var/mimicing = ""
+	var/justate
 
 /datum/changeling/New(var/gender=FEMALE)
 	..()
@@ -143,13 +144,22 @@ var/global/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","E
 	var/datum/changeling/changeling = changeling_power(0,0,100)
 	if(!changeling)	return
 
+	if (changeling.justate + 60 SECONDS > world.time)
+		to_chat(src, "<span class='warning'>We still processing our last DNA sample!</span>")
+		return
+
 	if(changeling.isabsorbing)
-		to_chat(src, "<span class='warning'>We are already absorbing!</span>")
+		to_chat(src, "<span class='warning'>We are already engaged in an absorption!</span>")
 		return
 
 	var/mob/living/carbon/human/T = input(usr, "Who are we extracting from?", "Target selection") in typecache_filter_list(oview(1), typecacheof(/mob/living/carbon/human))|null
 	if (!T)
 		return
+
+	if(changeling.isabsorbing)
+		to_chat(src, "<span class='warning'>We are already engaged in an absorption!</span>")
+		return
+
 	if(!istype(T))
 		to_chat(src, "<span class='warning'>[T] is not compatible with our biology.</span>")
 		return
@@ -169,6 +179,11 @@ var/global/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","E
 	if(HUSK in T.mutations)
 		to_chat(src, "<span class='warning'>This creature's DNA is ruined beyond useability!</span>")
 		return
+
+	for(var/datum/absorbed_dna/D in changeling.absorbed_dna)
+		if(D.dna == T.dna)
+			to_chat(src, "<span class='warning'>We have already collected this creature's DNA!</span>")
+			return
 
 	changeling.isabsorbing = 1
 	for(var/stage = 1, stage<=2, stage++)
@@ -196,6 +211,7 @@ var/global/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","E
 	else
 		addtimer(CALLBACK(T, /mob/living/.proc/adjustCloneLoss, rand(10, 15)), rand(10, 15) SECONDS)
 
+	changeling.justate = world.time
 
 	changeling.chem_charges += 5
 	changeling.geneticpoints += 1
@@ -247,6 +263,11 @@ var/global/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","E
 	if(G.state != GRAB_KILL)
 		to_chat(src, "<span class='warning'>We must have a tighter grip to absorb this creature.</span>")
 		return
+
+	for(var/datum/absorbed_dna/D in changeling.absorbed_dna)
+		if(D.dna == T.dna)
+			to_chat(src, "<span class='warning'>We have already collected this creature's DNA!</span>")
+			return
 
 	if(changeling.isabsorbing)
 		to_chat(src, "<span class='warning'>We are already absorbing!</span>")

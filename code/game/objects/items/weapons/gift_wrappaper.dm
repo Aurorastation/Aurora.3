@@ -2,7 +2,6 @@
  * Contains:
  *		Gifts
  *		X-mas Gifts
- *		Wrapping Paper
  */
 
 /*
@@ -14,6 +13,7 @@
 	icon = 'icons/obj/items.dmi'
 	icon_state = "gift1"
 	item_state = "gift1"
+	drop_sound = 'sound/items/drop/box.ogg'
 
 /obj/item/weapon/a_gift/New()
 	..()
@@ -27,6 +27,7 @@
 
 /obj/item/weapon/gift/attack_self(mob/user as mob)
 	user.drop_item()
+	playsound(src.loc, 'sound/items/package_unwrap.ogg', 50,1)
 	if(src.gift)
 		user.put_in_active_hand(gift)
 		src.gift.add_fingerprint(user)
@@ -118,76 +119,6 @@
 /*
  * Wrapping Paper
  */
-/obj/item/weapon/wrapping_paper
-	name = "wrapping paper"
-	desc = "You can use this to wrap items in."
-	icon = 'icons/obj/items.dmi'
-	icon_state = "wrap_paper"
-	var/amount = 20.0
-
-/obj/item/weapon/wrapping_paper/attackby(obj/item/weapon/W as obj, mob/user as mob)
-	..()
-	if (!( locate(/obj/structure/table, src.loc) ))
-		to_chat(user, "<span class='warning'>You MUST put the paper on a table!</span>")
-	if (W.w_class < 4)
-		if ((istype(user.l_hand, /obj/item/weapon/wirecutters) || istype(user.r_hand, /obj/item/weapon/wirecutters)))
-			var/a_used = 2 ** (src.w_class - 1)
-			if (src.amount < a_used)
-				to_chat(user, "<span class='warning'>You need more paper!</span>")
-				return
-			else
-				if(istype(W, /obj/item/smallDelivery) || istype(W, /obj/item/weapon/gift)) //No gift wrapping gifts!
-					return
-
-				src.amount -= a_used
-				user.drop_item()
-				var/obj/item/weapon/gift/G = new /obj/item/weapon/gift( src.loc )
-				G.size = W.w_class
-				G.w_class = G.size + 1
-				G.icon_state = text("gift[]", G.size)
-				G.gift = W
-				W.forceMove(G)
-				G.add_fingerprint(user)
-				W.add_fingerprint(user)
-				src.add_fingerprint(user)
-			if (src.amount <= 0)
-				new /obj/item/weapon/c_tube( src.loc )
-				qdel(src)
-				return
-		else
-			to_chat(user, "<span class='warning'>You need scissors!</span>")
-	else
-		to_chat(user, "<span class='warning'>The object is FAR too large!</span>")
-	return
-
-
-/obj/item/weapon/wrapping_paper/examine(mob/user)
-	if(..(user, 1))
-		to_chat(user, text("There is about [] square units of paper left!", src.amount))
-
-/obj/item/weapon/wrapping_paper/attack(mob/target as mob, mob/user as mob)
-	if (!istype(target, /mob/living/carbon/human)) return
-	var/mob/living/carbon/human/H = target
-
-	if (istype(H.wear_suit, /obj/item/clothing/suit/straight_jacket) || H.stat)
-		if (src.amount > 2)
-			var/obj/effect/spresent/present = new /obj/effect/spresent (H.loc)
-			src.amount -= 2
-
-			if (H.client)
-				H.client.perspective = EYE_PERSPECTIVE
-				H.client.eye = present
-
-			H.forceMove(present)
-
-			H.attack_log += text("\[[time_stamp()]\] <font color='orange'>Has been wrapped with [src.name]  by [user.name] ([user.ckey])</font>")
-			user.attack_log += text("\[[time_stamp()]\] <font color='red'>Used the [src.name] to wrap [H.name] ([H.ckey])</font>")
-			msg_admin_attack("[key_name_admin(user)] used [src] to wrap [key_name_admin(H)] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(H))
-
-		else
-			to_chat(user, "<span class='warning'>You need more paper.</span>")
-	else
-		to_chat(user, "They are moving around too much. A straightjacket would help.")
 
 /*
  * Xmas Gifts
@@ -206,7 +137,7 @@
 		"Hephaestus Industries", "Idris Incorporated", "Glorsh Omega II", "the Jargon Federation", "the People's Republic of Adhomai", "the Adhomai Liberation Army", "the Izweski Hegemony",
 		"the Zo'ra Hive","the Frontier Alliance", "Digital Dingo", "Optimum Jeffrey", "Lemmy and the Clockworks", "President Hadii", "King Azunja","Supreme Commander Nated'Hakhan",
 		"Lord-Regent Not'zar","Jesus Christ","Santa Claus","Mrs. Claus","Sandy Claws","Buddha","Gary","Jesus Christ!","the True Queen of Biesel, God-Lady Seon-rin von Illdenberg, First of Her Name",
-		"Admiral Frost","Pirate King Frost", "The Secret NanoTrasen Cabal of Duty Officers", "The Society for the Preservation of Mice", "Officer Beepsky","Lieutenant Columbo","B.O.B","Runtime",
+		"Admiral Frost","Pirate King Frost", "The Secret NanoTrasen Cabal of Duty Officers", "The Society for the Preservation of Rats", "Officer Beepsky","Lieutenant Columbo","B.O.B","Runtime",
 		"Bones","Chauncey","Ian","Pun Pun","Nup Nup","Waldo","Odlaw","Crew of the NSS Exodus", "Custodial Staff of the NTCC Odin","ERT Phoenix","grey slime (357)","Bob the Blob","People for the Ethical Treatment of Bluespace Bears",
 		"Mr. Clown and Mrs. Mime from New Puerto Rico","the Grinch","the Krampus","Satan","Mega-Satan","<span class='danger'>\[BENEFACTOR REDACTED]\</span>","Bluespace Cat","Union of Bluespace Technicians Tau Ceti","Robo Mickey Mouse")
 	var/pick_emotion = pick("love","platonic admiration","approval","love (not in a sexual way or anything, though)","apathy", "schadenfreude","love","God's blessing","Santa's blessing","Non-demoninational deity's blessing","love","compassion","appreciation",
@@ -329,9 +260,9 @@
 		/obj/item/clothing/mask/gas/mime,
 		/obj/item/clothing/shoes/galoshes,
 		/mob/living/simple_animal/lizard,
-		/mob/living/simple_animal/mouse/brown,
-		/mob/living/simple_animal/mouse/gray,
-		/mob/living/simple_animal/mouse/white,
+		/mob/living/simple_animal/rat/brown,
+		/mob/living/simple_animal/rat/gray,
+		/mob/living/simple_animal/rat/white,
 		/obj/item/weapon/xmasgift/small,
 		/obj/item/weapon/tank/jetpack/void,
 		/obj/item/weapon/xmasgift/large,

@@ -20,6 +20,8 @@
 	density = 0
 	seek_speed = 0.75
 
+	butchering_products = list(/obj/item/stack/material/animalhide/lizard = 2)
+
 	var/decompose_time = 18000
 
 /mob/living/simple_animal/lizard/Initialize()

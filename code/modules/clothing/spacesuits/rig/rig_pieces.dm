@@ -19,7 +19,6 @@
 		"Machine" = 'icons/mob/species/machine/helmet.dmi',
 		"Vox" = 'icons/mob/species/vox/head.dmi'
 	)
-	species_restricted = list("exclude","Diona","Xenomorph","Vaurca","Golem", "Vox")
 
 /obj/item/clothing/gloves/rig
 	name = "gauntlets"
@@ -74,7 +73,6 @@
 		"Machine" = 'icons/mob/species/machine/suit.dmi',
 		"Vox" = 'icons/mob/species/vox/suit.dmi'
 		)
-	species_restricted = list("exclude","Diona","Xenomorph","Golem","Vaurca","Vox")
 
 	supporting_limbs = list()
 

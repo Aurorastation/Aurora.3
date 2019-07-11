@@ -57,7 +57,8 @@
 	if (level == SEVERITY_ERROR) // Errors are always logged
 		error(text)
 
-	for(var/client/C in admins)
+	for(var/s in staff)
+		var/client/C = s
 		if(!C.prefs) //This is to avoid null.toggles runtime error while still initialyzing players preferences
 			return
 		if(C.prefs.toggles & CHAT_DEBUGLOGS)

@@ -8,6 +8,7 @@
 
 /datum/gear/suit/leather
 	display_name = "jacket selection"
+	description = "A selection of jackets."
 	path = /obj/item/clothing/suit/storage/toggle/leather_jacket
 
 /datum/gear/suit/leather/New()
@@ -76,6 +77,7 @@
 
 /datum/gear/suit/iacvest
 	display_name = "IAC vest"
+	description = "It's a lightweight vest. Made of a dark, navy mesh with highly-reflective white material, designed to be worn by the Interstellar Aid Corps."
 	path = /obj/item/clothing/suit/iacvest
 	allowed_roles = list("Chief Medical Officer", "Medical Doctor", "Pharmacist", "Paramedic", "Medical Resident")
 
@@ -107,31 +109,37 @@
 	..()
 	gear_tweaks = list(gear_tweak_free_color_choice)
 
-/datum/gear/suit/trenchcoat
-	display_name = "trenchcoat, brown"
+
+
+/datum/gear/suit/trenchcoats
+	display_name = "trenchcoat selection"
+	description = "A selection of trenchcoats."
 	path = /obj/item/clothing/suit/storage/toggle/trench
 
-/datum/gear/suit/trenchcoatgrey
-	display_name = "trenchcoat, grey"
-	path = /obj/item/clothing/suit/storage/toggle/trench/grey
+/datum/gear/suit/trenchcoats/New()
+	..()
+	var/coat = list()
+	coat["trenchcoat, brown"] = /obj/item/clothing/suit/storage/toggle/trench
+	coat["trenchcoat, grey"] = /obj/item/clothing/suit/storage/toggle/trench/grey
+	coat["trenchcoat, dark brown"] = /obj/item/clothing/suit/storage/toggle/trench/alt
+	coat["trenchcoat, grey alternate"] = /obj/item/clothing/suit/storage/toggle/trench/grey_alt
+	gear_tweaks += new/datum/gear_tweak/path(coat)
 
-/datum/gear/suit/det_trenchcoat_brown
-	display_name = "brown trenchcoat (Detective)"
-	description = "A rugged canvas trenchcoat, designed and created by TX Fabrication Corp. The coat is externally impact resistant - perfect for your next act of autodefenestration!"
+
+/datum/gear/suit/det_trenchcoat
+	display_name = "detective trenchcoat selection"
+	description = "A selection of detective trenchcoats."
 	path = /obj/item/clothing/suit/storage/toggle/det_trench
-	allowed_roles = list("Detective", "Head of Security")
+	allowed_roles = list("Detective")
 
-/datum/gear/suit/det_trenchcoat_black
-	display_name = "black trenchcoat (Detective)"
-	description = "A rugged canvas trenchcoat, designed and created by TX Fabrication Corp. The coat is externally impact resistant - perfect for your next act of autodefenestration!"
-	path = /obj/item/clothing/suit/storage/toggle/det_trench/black
-	allowed_roles = list("Detective", "Head of Security")
+/datum/gear/suit/det_trenchcoat/New()
+	..()
+	var/coat = list()
+	coat["brown trenchcoat (Detective)"] = /obj/item/clothing/suit/storage/toggle/det_trench
+	coat["black trenchcoat (Detective)"] = /obj/item/clothing/suit/storage/toggle/det_trench/black
+	coat["technicolor trenchcoat (Detective)"] = /obj/item/clothing/suit/storage/toggle/det_trench/technicolor
+	gear_tweaks += new/datum/gear_tweak/path(coat)
 
-/datum/gear/suit/det_trenchcoat_techni
-	display_name = "technicolor trenchcoat (Detective)"
-	description = "A 23rd-century multi-purpose trenchcoat. It's fibres are hyper-absorbent. Can be painted into any color."
-	path = /obj/item/clothing/suit/storage/toggle/det_trench/technicolor
-	allowed_roles = list("Detective", "Head of Security")
 
 /datum/gear/suit/ian
 	display_name = "worn shirt"
@@ -204,6 +212,7 @@
 
 /datum/gear/suit/dominia
 	display_name = "dominia great coat selection"
+	description = "A selection of Dominian coats."
 	path = /obj/item/clothing/suit/storage/toggle/dominia
 
 /datum/gear/suit/dominia/New()
@@ -229,25 +238,25 @@
 	coat["military jacket, green"] = /obj/item/clothing/suit/storage/miljacket/green
 	gear_tweaks += new/datum/gear_tweak/path(coat)
 
-/datum/gear/suit/miscellaneous/engi_dep_jacket
-	display_name = "department jacket, engineering"
+/datum/gear/suit/legion_jacket
+	display_name = "Tau Ceti Foreign Legion jacket"
+	path = /obj/item/clothing/suit/storage/legion
+
+/datum/gear/suit/dep_jacket
+	display_name = "department jackets selection"
+	description = "A selection of department jackets."
 	path = /obj/item/clothing/suit/storage/toggle/engi_dep_jacket
 
-/datum/gear/suit/miscellaneous/supply_dep_jacket
-	display_name = "department jacket, supply"
-	path = /obj/item/clothing/suit/storage/toggle/supply_dep_jacket
+/datum/gear/suit/dep_jacket/New()
+	..()
+	var/jacket = list()
+	jacket["department jacket, engineering"] = /obj/item/clothing/suit/storage/toggle/engi_dep_jacket
+	jacket["department jacket, supply"] = /obj/item/clothing/suit/storage/toggle/supply_dep_jacket
+	jacket["department jacket, science"] = /obj/item/clothing/suit/storage/toggle/sci_dep_jacket
+	jacket["department jacket, medical"] = /obj/item/clothing/suit/storage/toggle/med_dep_jacket
+	jacket["department jacket, security"] = /obj/item/clothing/suit/storage/toggle/sec_dep_jacket
+	gear_tweaks += new/datum/gear_tweak/path(jacket)
 
-/datum/gear/suit/miscellaneous/sci_dep_jacket
-	display_name = "department jacket, science"
-	path = /obj/item/clothing/suit/storage/toggle/sci_dep_jacket
-
-/datum/gear/suit/miscellaneous/med_dep_jacket
-	display_name = "department jacket, medical"
-	path = /obj/item/clothing/suit/storage/toggle/med_dep_jacket
-
-/datum/gear/suit/miscellaneous/sec_dep_jacket
-	display_name = "department jacket, security"
-	path = /obj/item/clothing/suit/storage/toggle/sec_dep_jacket
 
 /datum/gear/suit/miscellaneous/peacoat
 	display_name = "peacoat"

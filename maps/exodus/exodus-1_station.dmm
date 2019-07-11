@@ -2303,7 +2303,7 @@
 /obj/structure/disposalpipe/segment,
 /obj/structure/window/reinforced,
 /obj/structure/table/standard,
-/obj/item/weapon/packageWrap,
+/obj/item/stack/packageWrap,
 /obj/item/weapon/storage/box,
 /turf/simulated/floor/tiled,
 /area/security/main)
@@ -3219,7 +3219,7 @@
 /area/maintenance/security_port)
 "afZ" = (
 /obj/effect/decal/cleanable/dirt,
-/mob/living/simple_animal/mouse,
+/mob/living/simple_animal/rat,
 /turf/simulated/floor/plating,
 /area/maintenance/security_port)
 "aga" = (
@@ -4051,7 +4051,7 @@
 	dir = 6;
 	icon_state = "intact"
 	},
-/mob/living/simple_animal/mouse,
+/mob/living/simple_animal/rat,
 /turf/simulated/floor/plating,
 /area/maintenance/security_starboard)
 "ahB" = (
@@ -10170,7 +10170,7 @@
 /obj/structure/bed/chair{
 	dir = 8
 	},
-/mob/living/simple_animal/mouse,
+/mob/living/simple_animal/rat,
 /turf/simulated/floor/plating,
 /area/maintenance/evahallway)
 "arU" = (
@@ -15258,7 +15258,7 @@
 	icon_state = "warning";
 	dir = 8
 	},
-/mob/living/simple_animal/mouse,
+/mob/living/simple_animal/rat,
 /turf/simulated/floor/plating,
 /area/maintenance/arrivals)
 "aBx" = (
@@ -15993,7 +15993,7 @@
 /obj/structure/table/wood,
 /obj/machinery/reagentgrinder,
 /obj/item/weapon/reagent_containers/food/drinks/shaker,
-/obj/item/weapon/packageWrap,
+/obj/item/stack/packageWrap,
 /obj/machinery/camera/network/civilian_east{
 	c_tag = "Bar Backroom"
 	},
@@ -16979,7 +16979,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/mob/living/simple_animal/mouse,
+/mob/living/simple_animal/rat,
 /turf/simulated/floor/plating,
 /area/maintenance/library)
 "aEL" = (
@@ -17944,7 +17944,7 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
-/mob/living/simple_animal/mouse/brown/Tom,
+/mob/living/simple_animal/rat/brown/Tom,
 /turf/simulated/floor/tiled/dark,
 /area/security/nuke_storage)
 "aGE" = (
@@ -18605,7 +18605,7 @@
 	pixel_x = 1;
 	pixel_y = 9
 	},
-/obj/item/weapon/packageWrap,
+/obj/item/stack/packageWrap,
 /turf/simulated/floor/wood,
 /area/library)
 "aHE" = (
@@ -27979,7 +27979,7 @@
 /obj/item/weapon/reagent_containers/food/condiment/enzyme{
 	layer = 5
 	},
-/obj/item/weapon/packageWrap,
+/obj/item/stack/packageWrap,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
@@ -31875,8 +31875,8 @@
 /area/quartermaster/office)
 "bgw" = (
 /obj/structure/table/standard,
-/obj/item/weapon/wrapping_paper,
-/obj/item/weapon/wrapping_paper,
+/obj/item/stack/wrapping_paper,
+/obj/item/stack/wrapping_paper,
 /obj/machinery/requests_console{
 	department = "Cargo Bay";
 	departmentType = 2;
@@ -31894,14 +31894,14 @@
 /area/quartermaster/office)
 "bgx" = (
 /obj/structure/table/standard,
-/obj/item/weapon/packageWrap,
-/obj/item/weapon/packageWrap,
-/obj/item/weapon/packageWrap,
-/obj/item/weapon/packageWrap,
-/obj/item/weapon/packageWrap,
-/obj/item/weapon/packageWrap,
-/obj/item/weapon/packageWrap,
-/obj/item/weapon/packageWrap,
+/obj/item/stack/packageWrap,
+/obj/item/stack/packageWrap,
+/obj/item/stack/packageWrap,
+/obj/item/stack/packageWrap,
+/obj/item/stack/packageWrap,
+/obj/item/stack/packageWrap,
+/obj/item/stack/packageWrap,
+/obj/item/stack/packageWrap,
 /obj/effect/floor_decal/corner/white{
 	icon_state = "corner_white";
 	dir = 4
@@ -34617,7 +34617,7 @@
 /turf/simulated/floor/tiled/freezer,
 /area/crew_quarters/locker/locker_toilet)
 "blb" = (
-/mob/living/simple_animal/mouse,
+/mob/living/simple_animal/rat,
 /turf/simulated/floor/plating,
 /area/maintenance/locker)
 "blc" = (
@@ -37762,7 +37762,7 @@
 	name = "Station Intercom (General)";
 	pixel_x = 28
 	},
-/obj/item/weapon/packageWrap,
+/obj/item/stack/packageWrap,
 /obj/item/weapon/hand_labeler,
 /obj/item/weapon/reagent_containers/spray/cleaner{
 	desc = "Someone has crossed out the 'Space' from Space Cleaner and written in Chemistry. Scrawled on the back is, 'Okay, whoever filled this with polytrinic acid, it was only funny the first time. It was hard enough replacing the CMO's first cat!'";
@@ -39146,8 +39146,8 @@
 /obj/structure/table/standard,
 /obj/item/weapon/hand_labeler,
 /obj/item/weapon/pen,
-/obj/item/weapon/packageWrap,
-/obj/item/weapon/packageWrap,
+/obj/item/stack/packageWrap,
+/obj/item/stack/packageWrap,
 /obj/item/device/radio/intercom{
 	frequency = 1459;
 	name = "Station Intercom (General)";
@@ -40651,7 +40651,7 @@
 /obj/machinery/recharger{
 	pixel_y = 0
 	},
-/obj/item/weapon/packageWrap,
+/obj/item/stack/packageWrap,
 /obj/item/weapon/hand_labeler,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -41753,7 +41753,7 @@
 /area/hallway/primary/central_two)
 "bxA" = (
 /obj/structure/table/standard,
-/obj/item/weapon/packageWrap,
+/obj/item/stack/packageWrap,
 /obj/item/weapon/hand_labeler,
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /obj/effect/floor_decal/corner/beige{
@@ -49573,7 +49573,7 @@
 "bKI" = (
 /obj/structure/table/rack,
 /obj/random/loot,
-/mob/living/simple_animal/mouse,
+/mob/living/simple_animal/rat,
 /turf/simulated/floor/plating,
 /area/maintenance/research_shuttle)
 "bKJ" = (
@@ -50931,7 +50931,7 @@
 	icon_state = "warning";
 	dir = 4
 	},
-/mob/living/simple_animal/mouse/white,
+/mob/living/simple_animal/rat/white,
 /turf/simulated/floor/tiled,
 /area/rnd/storage)
 "bNl" = (
@@ -52946,7 +52946,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/mob/living/simple_animal/mouse,
+/mob/living/simple_animal/rat,
 /turf/simulated/floor/plating,
 /area/maintenance/engineering)
 "bRh" = (
@@ -59067,7 +59067,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/research_starboard)
 "cbH" = (
-/mob/living/simple_animal/mouse,
+/mob/living/simple_animal/rat,
 /turf/simulated/floor/plating,
 /area/maintenance/research_starboard)
 "cbI" = (
@@ -59699,7 +59699,7 @@
 /area/maintenance/substation/research)
 "ccK" = (
 /obj/item/weapon/material/shard,
-/mob/living/simple_animal/mouse,
+/mob/living/simple_animal/rat,
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
 "ccL" = (
@@ -64094,7 +64094,7 @@
 /area/engineering/foyer)
 "ckl" = (
 /obj/structure/table/reinforced,
-/obj/item/weapon/packageWrap,
+/obj/item/stack/packageWrap,
 /obj/item/weapon/hand_labeler,
 /turf/simulated/floor/tiled,
 /area/engineering/foyer)
@@ -71999,7 +71999,7 @@
 /turf/simulated/floor/tiled,
 /area/maintenance/incinerator)
 "cyX" = (
-/mob/living/simple_animal/mouse,
+/mob/living/simple_animal/rat,
 /turf/simulated/floor/tiled,
 /area/maintenance/incinerator)
 "cyY" = (
@@ -75588,7 +75588,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/mob/living/simple_animal/mouse,
+/mob/living/simple_animal/rat,
 /turf/simulated/floor/plating,
 /area/maintenance/engineering)
 "cFv" = (
@@ -78659,7 +78659,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/mob/living/simple_animal/mouse,
+/mob/living/simple_animal/rat,
 /turf/simulated/floor/plating,
 /area/maintenance/engi_engine)
 "cLb" = (

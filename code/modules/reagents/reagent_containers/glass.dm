@@ -76,6 +76,7 @@
 	icon_state = "beaker"
 	item_state = "beaker"
 	matter = list("glass" = 500)
+	drop_sound = 'sound/items/drop/glass.ogg'
 
 /obj/item/weapon/reagent_containers/glass/beaker/Initialize()
 	. = ..()
@@ -185,7 +186,7 @@
 	update_icon()
 
 /obj/item/weapon/reagent_containers/glass/bucket
-	desc = "It's a bucket."
+	desc = "A blue plastic bucket."
 	name = "bucket"
 	icon = 'icons/obj/janitor.dmi'
 	icon_state = "bucket"
@@ -198,6 +199,9 @@
 	volume = 120
 	flags = OPENCONTAINER
 	unacidable = 0
+	drop_sound = 'sound/items/drop/helm.ogg'
+	var/carving_weapon = /obj/item/weapon/wirecutters
+	var/helmet_type = /obj/item/clothing/head/helmet/bucket
 
 /obj/item/weapon/reagent_containers/glass/bucket/attackby(var/obj/D, mob/user as mob)
 	if(isprox(D))
@@ -206,9 +210,9 @@
 		user.put_in_hands(new /obj/item/weapon/bucket_sensor)
 		qdel(src)
 		return
-	else if(istype(D, /obj/item/weapon/wirecutters))
+	else if(istype(D, carving_weapon))
 		to_chat(user, "<span class='notice'>You cut a big hole in \the [src] with \the [D].</span>")
-		user.put_in_hands(new /obj/item/clothing/head/helmet/bucket)
+		user.put_in_hands(new helmet_type)
 		qdel(src)
 		return
 	else if(istype(D, /obj/item/weapon/mop))
@@ -224,8 +228,13 @@
 
 /obj/item/weapon/reagent_containers/glass/bucket/update_icon()
 	cut_overlays()
-	if (!is_open_container())
+	if(reagents.total_volume > 0)
+		add_overlay("water_[initial(icon_state)]")
+	if(!is_open_container())
 		add_overlay("lid_[initial(icon_state)]")
+
+/obj/item/weapon/reagent_containers/glass/bucket/on_reagent_change()
+	update_icon()
 
 /obj/item/weapon/reagent_containers/glass/bucket/self_feed_message(var/mob/user)
 	to_chat(user, "<span class='notice'>You drink heavily from \the [src].</span>")
@@ -238,23 +247,12 @@ obj/item/weapon/reagent_containers/glass/bucket/wood
 	icon_state = "woodbucket"
 	item_state = "woodbucket"
 	matter = list("wood" = 50)
+	drop_sound = 'sound/items/drop/wooden.ogg'
+	carving_weapon = /obj/item/weapon/material/hatchet
+	helmet_type = /obj/item/clothing/head/helmet/bucket/wood
 
 /obj/item/weapon/reagent_containers/glass/bucket/wood/attackby(var/obj/D, mob/user as mob)
 	if(isprox(D))
 		to_chat(user, "This wooden bucket doesn't play well with electronics.")
 		return
-	else if(istype(D, /obj/item/weapon/material/hatchet))
-		to_chat(user, "<span class='notice'>You cut a big hole in \the [src] with \the [D].</span>")
-		user.put_in_hands(new /obj/item/clothing/head/helmet/bucket/wood)
-		qdel(src)
-		return
-	else if(istype(D, /obj/item/weapon/mop))
-		if(reagents.total_volume < 1)
-			to_chat(user, "<span class='warning'>\The [src] is empty!</span>")
-		else
-			reagents.trans_to_obj(D, 5)
-			to_chat(user, "<span class='notice'>You wet \the [D] in \the [src].</span>")
-			playsound(loc, 'sound/effects/slosh.ogg', 25, 1)
-		return
-	else
-		return ..()
+	 ..()

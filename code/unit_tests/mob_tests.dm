@@ -15,7 +15,71 @@
 // Tests Life() and mob breathing in space.
 //
 
+/mob/living/test
+	var/heard = FALSE
 
+/mob/living/test/on_hear_say(var/message)
+	. = ..(message)
+	if(message)
+		heard = TRUE
+	return .
+
+datum/unit_test/mob_hear
+	name = "MOB: Living mobs test for mob's speech"
+	var/mob_type = /mob/living/test
+
+
+datum/unit_test/mob_hear/start_test()
+	var/mobloc = pick(tdome1)
+	if(!mobloc)
+		fail("Unable to find a location to create test mob")
+		return 0
+	for(var/mob/M in get_turf(mobloc))
+		QDEL_NULL(M)
+	var/list/test_speaker = create_test_mob_with_mind(mobloc, mob_type, TRUE)
+	var/list/test_listener = create_test_mob_with_mind(mobloc, mob_type, TRUE)
+
+	if(isnull(test_speaker) || isnull(test_listener))
+		fail("Check Runtimed in Mob creation")
+		return 0
+
+	if(test_speaker["result"] == FAILURE )
+		fail(test_speaker["msg"])
+		return 0
+	else if(test_listener ["result"] == FAILURE)
+		fail(test_listener["msg"])
+		return 0
+
+	var/mob/living/test/test_speaker_mob = locate(test_speaker["mobref"])
+	var/mob/living/test/test_listener_mob = locate(test_listener["mobref"])
+
+	if(isnull(test_speaker_mob) || isnull(test_listener_mob))
+		fail("Test unable to set test mob from reference")
+		return 0
+
+	if(test_speaker_mob.stat)
+		fail("Test needs to be re-written, mob has a stat = [test_speaker_mob.stat]")
+		return 0
+	else if(test_listener_mob.stat)
+		fail("Test needs to be re-written, mob has a stat = [test_speaker_mob.stat]")
+		return 0
+
+	if(test_speaker_mob.sleeping || test_listener_mob.sleeping)
+		fail("Test needs to be re-written, mob is sleeping for some unknown reason")
+		return 0
+
+	var/message = "Test, can you hear me?"
+	var/said = test_speaker_mob.say(message)
+
+	if(said && test_listener_mob.heard)
+		pass("speech test complete, speaker said \"[message]\" and listener received it.")
+		return 1
+	else if(said)
+		fail("speaker said the words, but listener did not hear it. The message was \"[message]\", the difference were X: [test_listener_mob.loc.x - test_speaker_mob.loc.x], Y: [test_listener_mob.loc.y - test_speaker_mob.loc.y]")
+		return 0
+	else
+		fail("speaker did not say the words \"[message]\"")
+		return 0
 
 datum/unit_test/human_breath
 	name = "MOB: Human Suffocates in Space"
@@ -61,7 +125,7 @@ datum/unit_test/human_breath/check_result()
 //#define HALLOSS   "halloss"
 
 
-proc/create_test_mob_with_mind(var/turf/mobloc = null, var/mobtype = /mob/living/carbon/human)
+proc/create_test_mob_with_mind(var/turf/mobloc = null, var/mobtype = /mob/living/carbon/human, var/add_to_playerlist = FALSE)
 	var/list/test_result = list("result" = FAILURE, "msg"    = "", "mobref" = null)
 
 	if(isnull(mobloc))
@@ -70,13 +134,18 @@ proc/create_test_mob_with_mind(var/turf/mobloc = null, var/mobtype = /mob/living
 		test_result["msg"] = "Unable to find a location to create test mob"
 		return test_result
 
-	var/mob/living/carbon/human/H = new mobtype(mobloc)
+	var/mob/living/L = new mobtype(mobloc)
 
-	H.mind_initialize("TestKey[rand(0,10000)]")
+	L.mind_initialize("TestKey[rand(0,10000)]")
 
 	test_result["result"] = SUCCESS
 	test_result["msg"] = "Mob created"
-	test_result["mobref"] = "\ref[H]"
+	test_result["mobref"] = "\ref[L]"
+
+	if(add_to_playerlist)
+		player_list |= L
+		testing("Adding test subject to the player list")
+		world << "Adding test subject to the player list"
 
 	return test_result
 
@@ -305,40 +374,6 @@ datum/unit_test/mob_damage/tajaran/clone
 
 datum/unit_test/mob_damage/tajaran/halloss
 	name = "MOB: Tajaran Halloss Damage Check"
-	damagetype = HALLOSS
-
-// =================================================================
-// Resomi
-// =================================================================
-
-datum/unit_test/mob_damage/resomi
-	name = "MOB: Resomi damage check template"
-	mob_type = /mob/living/carbon/human/resomi
-
-datum/unit_test/mob_damage/resomi/brute
-	name = "MOB: Resomi Brute Damage Check"
-	damagetype = BRUTE
-	expected_vulnerability = EXTRA_VULNERABLE
-
-datum/unit_test/mob_damage/resomi/fire
-	name = "MOB: Resomi Fire Damage Check"
-	damagetype = BURN
-	expected_vulnerability = EXTRA_VULNERABLE
-
-datum/unit_test/mob_damage/resomi/tox
-	name = "MOB: Resomi Toxins Damage Check"
-	damagetype = TOX
-
-datum/unit_test/mob_damage/resomi/oxy
-	name = "MOB: Resomi Oxygen Damage Check"
-	damagetype = OXY
-
-datum/unit_test/mob_damage/resomi/clone
-	name = "MOB: Resomi Clone Damage Check"
-	damagetype = CLONE
-
-datum/unit_test/mob_damage/resomi/halloss
-	name = "MOB: Resomi Halloss Damage Check"
 	damagetype = HALLOSS
 
 // =================================================================
