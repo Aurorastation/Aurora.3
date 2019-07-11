@@ -16,7 +16,7 @@ var/datum/antagonist/legion/legion
 
 	var/list/callsign = list(
 		"Ace","Angel","Ant","Apollo","Arctic","Ash","Badger","Bandit",
-		"Baron","Beetle","Beta","Bishop","Black","Blaze","Blue","Bull",
+		"Baron","Beetle","Bishop","Black","Blaze","Blue","Bull",
 		"Carp","Chrome","Cobra","Crimson","Crypt","Delta","Duke","Eagle",
 		"Earl","Epsilon","Hammer","Fallen","Fang","Fido","Firefly","Flame",
 		"Foggy","Fox","Galaxy","Gamma","Grave","Jade","Jester","Judge",
@@ -42,46 +42,47 @@ var/datum/antagonist/legion/legion
 	switch(rank)
 		if("Prefect (Pfct.)")
 			if(!leader)
-				source.mind.special_role = "Pfct."
+				rank = "Pfct."
 				leader = source.mind
 			else
 				rank = input(source,"Option unavailable, Reselect your character's rank","Rank selection") as null|anything in list("Legionnaire (Lgn.)","Volunteer (Vol.)")
 				switch(rank)
 					if("Legionnaire (Lgn.)")
-						source.mind.special_role = "Lgn."
+						rank = "Lgn."
 					if("Volunteer (Vol.)")
-						source.mind.special_role = "Vol."
+						rank = "Vol."
 		if("Legionnaire (Lgn.)")
-			source.mind.special_role = "Lgn."
+			rank = "Lgn."
 		if("Volunteer (Vol.)")
-			source.mind.special_role = "Vol."
+			rank = "Vol."
 	if(!rank)
-		source.mind.special_role = "Vol."
+		rank = "Vol."
 
-	var/newname = sanitize(input(source, "You are a member of the TCFL - Taskforce XIII with the rank of [rank]. Would you like to set a surname or callsign?", "Name change") as null|text, MAX_NAME_LEN)
+	var/newname = sanitize(input(source, "You are a member of the Tau Ceti Foreign Legion - Taskforce XIII. Would you like to set a surname or callsign? (Does not support spaces.)", "Name change") as null|text, MAX_NAME_LEN)
 
 	if(findtext(newname," "))
 		newname = null
+		to_chat(source,"<span class='warning'>Invalid name due to included space, picking a random callsign.</span>")
 	if(!newname && (callsign.len>= 1))
 		newname = "[pick(callsign)]"
 		callsign -= newname
 	else if(!newname)
 		newname = "[capitalize(pick(last_names))]"
 
-	newname = "[source.mind.special_role] [newname]"
+	newname = "[rank] [newname]"
 	source.real_name = newname
 	source.name = source.real_name
 	source.mind.name = source.name
-	var/special_r = source.mind.special_role
 
 	var/mob/living/carbon/human/M = ..()
 	if(istype(M))
-		M.age = rand(25,45)
+		M.age = rand(20,45)
 		M.dna.real_name = newname
-		M.mind.special_role = special_r
-	if(M.mind.special_role == "Pfct.")
+
+	if(rank == "Pfct.")
 		var/obj/item/weapon/card/id/legion/I = M.wear_id
 		I.access += (access_cent_specops)
+		I.assignment = "Tau Ceti Foreign Legion Prefect"
 
 /datum/antagonist/legion/New()
 	..()
@@ -102,15 +103,5 @@ var/datum/antagonist/legion/legion
 	if(O)
 		player.preEquipOutfit(O,FALSE)
 		player.equipOutfit(O,FALSE)
-
-
-//	player.equip_to_slot_or_del(new /obj/item/device/radio/headset/legion(src), slot_l_ear)
-//	player.equip_to_slot_or_del(new /obj/item/clothing/under/legion(src), slot_w_uniform)
-//	player.equip_to_slot_or_del(new /obj/item/clothing/shoes/swat(src), slot_shoes)
-//	player.equip_to_slot_or_del(new /obj/item/clothing/gloves/swat/tactical(src), slot_gloves)
-//	player.equip_to_slot_or_del(new /obj/item/clothing/head/legion_beret/field(src), slot_head)
-//	player.equip_to_slot_or_del(new /obj/item/clothing/glasses/sunglasses/aviator(src), slot_glasses)
-//	player.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack/legion(src), slot_back)
-//	player.equip_to_slot_or_del(new /obj/item/weapon/storage/box/engineer(player.back), slot_in_backpack)
 
 	return 1

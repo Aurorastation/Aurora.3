@@ -223,6 +223,23 @@
 		U.attach_accessory(null, hold)
 		U.attach_accessory(null, medal)
 
+/datum/outfit/admin/nt/ert
+	name = "ERT Trooper"
+
+	uniform = /obj/item/clothing/under/ert
+	back = null
+	shoes = /obj/item/clothing/shoes/swat/ert
+	gloves = /obj/item/clothing/gloves/swat
+	l_ear = /obj/item/device/radio/headset/ert
+	glasses = /obj/item/clothing/glasses/sunglasses
+	backpack_contents = null
+
+/datum/outfit/admin/nt/ert/get_id_assignment()
+	return "Emergency Responder"
+
+
+/datum/outfit/admin/nt/ert/equipped
+	name = "ERT Trooper (Equipped)"
 
 /datum/outfit/admin/nt/odinsec
 	name = "NTCC Odin Security Specialist"
@@ -325,7 +342,19 @@
 		U.attach_accessory(null, hold)
 
 
+
 /datum/outfit/admin/tcfl
+	name = "TCFL Volunteer"
+
+	uniform = /obj/item/clothing/under/legion
+	shoes = /obj/item/clothing/shoes/swat
+	head = /obj/item/clothing/head/legion_beret/field
+	l_ear = /obj/item/device/radio/headset/legion
+	glasses = /obj/item/clothing/glasses/sunglasses/aviator
+	back = /obj/item/weapon/storage/backpack/legion
+	id = /obj/item/weapon/card/id/legion
+
+/datum/outfit/admin/tcfl/equipped
 	name = "TCFL Volunteer (Equipped)"
 
 	uniform = /obj/item/clothing/under/legion
@@ -345,13 +374,13 @@
 		/obj/item/weapon/storage/box/engineer = 1,
 		/obj/item/weapon/crowbar = 1,
 		/obj/item/weapon/gun/energy/blaster/carbine = 1,
-		/obj/item/ammo_magazine/gauss = 3,
+		/obj/item/ammo_magazine/gauss = 2,
 		/obj/item/weapon/handcuffs/ziptie = 2,
 		/obj/item/weapon/storage/firstaid/regular = 1,
 		/obj/item/clothing/head/legion_beret/field = 1
 	)
 
-/datum/outfit/admin/tcfl/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/datum/outfit/admin/tcfl/equipped/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 
 	if(H && H.w_uniform)
 
