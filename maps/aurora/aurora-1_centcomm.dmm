@@ -10411,7 +10411,8 @@
 /area/centcom/control)
 "azn" = (
 /obj/structure/closet/crate/freezer/rations,
-/turf/simulated/shuttle/floor/destructible/merc/red,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/shuttle/floor/plating/destructible/black,
 /area/skipjack_station/start)
 "azo" = (
 /obj/structure/window/reinforced,
@@ -10452,7 +10453,7 @@
 "azr" = (
 /obj/structure/table/rack,
 /obj/item/weapon/storage/box/drinkingglasses,
-/turf/simulated/shuttle/floor/destructible/merc/red,
+/turf/simulated/shuttle/floor/plating/destructible/black,
 /area/skipjack_station/start)
 "azs" = (
 /obj/machinery/computer/crew,
@@ -13604,6 +13605,8 @@
 /area/syndicate_mothership/raider_base)
 "aGv" = (
 /obj/structure/table/wood,
+/obj/item/clothing/glasses/thermal/plain/monocle,
+/obj/item/clothing/head/pirate,
 /turf/unsimulated/floor{
 	dir = 8;
 	icon_state = "wood"
@@ -13798,22 +13801,6 @@
 /area/syndicate_mothership/raider_base)
 "aGW" = (
 /obj/structure/closet/crate/loot,
-/turf/unsimulated/floor{
-	icon_state = "dark"
-	},
-/area/syndicate_mothership/raider_base)
-"aGX" = (
-/obj/vehicle/bike,
-/turf/unsimulated/floor{
-	icon_state = "dark"
-	},
-/area/syndicate_mothership/raider_base)
-"aGY" = (
-/obj/vehicle/bike,
-/obj/machinery/light{
-	icon_state = "tube1";
-	dir = 1
-	},
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
@@ -14195,6 +14182,7 @@
 /obj/machinery/light/small{
 	dir = 1
 	},
+/obj/machinery/portable_atmospherics/hydroponics,
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
@@ -14419,6 +14407,7 @@
 /obj/machinery/light{
 	dir = 8
 	},
+/obj/random/backpack,
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
@@ -16672,13 +16661,23 @@
 /turf/simulated/wall/voxshuttle,
 /area/skipjack_station/start)
 "aNe" = (
+/obj/machinery/door/airlock/hatch{
+	frequency = 1331;
+	icon_state = "door_closed";
+	id_tag = "vox_northwest_lock";
+	locked = 0;
+	req_access = list(150)
+	},
 /obj/machinery/access_button{
 	command = "cycle_exterior";
 	frequency = 1331;
 	master_tag = "vox_west_control";
+	name = "exterior access button";
+	pixel_x = -22;
+	pixel_y = 10;
 	req_one_access = list(150)
 	},
-/turf/simulated/wall/voxshuttle,
+/turf/simulated/shuttle/floor/plating/destructible/black,
 /area/skipjack_station/start)
 "aNf" = (
 /obj/machinery/door/airlock/hatch{
@@ -16699,10 +16698,10 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/machinery/door/blast/regular{
+/obj/machinery/door/blast/regular/open{
 	dir = 4;
-	id = "skipjackshutters";
-	name = "Skipjack Blast Shielding"
+	id = "skipjack_fore";
+	name = "Fore Blast Shield"
 	},
 /turf/simulated/shuttle/floor/plating/destructible/black,
 /area/skipjack_station/start)
@@ -16712,10 +16711,10 @@
 /obj/structure/window/reinforced{
 	dir = 1
 	},
-/obj/machinery/door/blast/regular{
+/obj/machinery/door/blast/regular/open{
 	dir = 4;
-	id = "skipjackshutters";
-	name = "Skipjack Blast Shielding"
+	id = "skipjack_fore";
+	name = "Fore Blast Shield"
 	},
 /turf/simulated/shuttle/floor/plating/destructible/black,
 /area/skipjack_station/start)
@@ -16728,10 +16727,10 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/obj/machinery/door/blast/regular{
+/obj/machinery/door/blast/regular/open{
 	dir = 4;
-	id = "skipjackshutters";
-	name = "Skipjack Blast Shielding"
+	id = "skipjack_fore";
+	name = "Fore Blast Shield"
 	},
 /turf/simulated/shuttle/floor/plating/destructible/black,
 /area/skipjack_station/start)
@@ -16746,13 +16745,23 @@
 /turf/simulated/shuttle/floor/plating/destructible/black,
 /area/skipjack_station/start)
 "aNk" = (
+/obj/machinery/door/airlock/hatch{
+	frequency = 1331;
+	icon_state = "door_closed";
+	id_tag = "vox_northeast_lock";
+	locked = 0;
+	req_access = list(150)
+	},
 /obj/machinery/access_button{
 	command = "cycle_exterior";
 	frequency = 1331;
 	master_tag = "vox_east_control";
+	name = "exterior access button";
+	pixel_x = 21;
+	pixel_y = 10;
 	req_access = list(150)
 	},
-/turf/simulated/wall/voxshuttle,
+/turf/simulated/shuttle/floor/plating/destructible/black,
 /area/skipjack_station/start)
 "aNl" = (
 /turf/unsimulated/floor{
@@ -16865,7 +16874,8 @@
 /turf/simulated/shuttle/floor/plating/destructible/black,
 /area/skipjack_station/start)
 "aNz" = (
-/obj/structure/table/standard,
+/obj/structure/table/steel,
+/obj/random/melee,
 /turf/simulated/shuttle/floor/destructible/merc/red,
 /area/skipjack_station/start)
 "aNA" = (
@@ -16873,13 +16883,14 @@
 /turf/simulated/shuttle/floor/destructible/merc/red,
 /area/skipjack_station/start)
 "aNB" = (
-/obj/machinery/portable_atmospherics/canister/oxygen,
+/obj/structure/table/steel,
+/obj/item/weapon/card/emag,
 /turf/simulated/shuttle/floor/destructible/merc/red,
 /area/skipjack_station/start)
 "aNC" = (
 /obj/machinery/button/remote/blast_door{
-	id = "skipjackshutters";
-	name = "remote shutter control";
+	id = "skipjack_fore";
+	name = "Fore Blast Shield";
 	req_access = list(150)
 	},
 /turf/simulated/wall/voxshuttle,
@@ -16961,6 +16972,9 @@
 	dir = 8
 	},
 /obj/machinery/meter,
+/obj/machinery/light/small{
+	dir = 8
+	},
 /turf/simulated/shuttle/floor/plating/destructible/black,
 /area/skipjack_station/start)
 "aNO" = (
@@ -16979,12 +16993,18 @@
 	frequency = 1331;
 	id_tag = "vox_west_vent"
 	},
-/obj/machinery/light/small,
 /turf/simulated/shuttle/floor/plating/destructible/black,
 /area/skipjack_station/start)
 "aNP" = (
 /obj/machinery/light/small{
 	dir = 8
+	},
+/obj/machinery/turretid{
+	ailock = 1;
+	check_arrest = 0;
+	check_records = 0;
+	pixel_y = 32;
+	req_access = list(150)
 	},
 /turf/simulated/shuttle/floor/destructible/merc/red,
 /area/skipjack_station/start)
@@ -16992,14 +17012,6 @@
 /obj/structure/bed/chair{
 	dir = 1
 	},
-/turf/simulated/shuttle/floor/destructible/merc/red,
-/area/skipjack_station/start)
-"aNR" = (
-/obj/structure/bed/chair{
-	dir = 1
-	},
-/obj/item/clothing/glasses/thermal/plain/monocle,
-/obj/item/clothing/head/pirate,
 /turf/simulated/shuttle/floor/destructible/merc/red,
 /area/skipjack_station/start)
 "aNS" = (
@@ -17024,7 +17036,6 @@
 	frequency = 1331;
 	id_tag = "vox_east_vent"
 	},
-/obj/machinery/light/small,
 /turf/simulated/shuttle/floor/plating/destructible/black,
 /area/skipjack_station/start)
 "aNU" = (
@@ -17032,6 +17043,10 @@
 	dir = 4
 	},
 /obj/machinery/meter,
+/obj/machinery/light/small{
+	dir = 4;
+	pixel_y = 0
+	},
 /turf/simulated/shuttle/floor/plating/destructible/black,
 /area/skipjack_station/start)
 "aNV" = (
@@ -17192,30 +17207,40 @@
 	command = "cycle_interior";
 	frequency = 1331;
 	master_tag = "vox_west_control";
+	name = "interior access button";
 	pixel_x = -22;
 	req_one_access = list(150)
 	},
 /turf/simulated/shuttle/floor/plating/destructible/black,
 /area/skipjack_station/start)
 "aOq" = (
-/obj/machinery/microwave{
-	pixel_x = -1;
-	pixel_y = 8
-	},
-/obj/structure/table/steel,
+/obj/structure/table/rack,
+/obj/item/clothing/shoes/magboots,
+/obj/item/clothing/suit/space/void/engineering,
+/obj/item/weapon/tank/oxygen,
+/obj/item/clothing/mask/breath,
+/obj/item/clothing/head/helmet/space/void/engineering,
+/obj/item/weapon/gun/energy/rifle/ionrifle,
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/shuttle/floor/plating/destructible/black,
 /area/skipjack_station/start)
 "aOr" = (
-/obj/item/seeds/potatoseed,
-/obj/item/seeds/potatoseed,
-/obj/item/seeds/ambrosiavulgarisseed,
-/obj/item/weapon/material/minihoe,
-/obj/item/weapon/trap,
-/obj/structure/table/steel,
+/obj/structure/table/rack,
+/obj/item/clothing/shoes/magboots,
+/obj/item/clothing/suit/space/void/merc,
+/obj/item/weapon/tank/oxygen,
+/obj/item/clothing/mask/breath,
+/obj/item/clothing/head/helmet/space/void/merc,
+/obj/item/weapon/material/harpoon,
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/shuttle/floor/plating/destructible/black,
 /area/skipjack_station/start)
 "aOs" = (
-/obj/machinery/vending/hydroseeds,
+/obj/structure/table/rack,
+/obj/item/clothing/mask/breath,
+/obj/item/weapon/rig/hazard/equipped{
+	req_access = newlist()
+	},
 /turf/simulated/shuttle/floor/plating/destructible/black,
 /area/skipjack_station/start)
 "aOt" = (
@@ -17224,21 +17249,20 @@
 /turf/simulated/shuttle/floor/destructible/merc/red,
 /area/skipjack_station/start)
 "aOv" = (
-/obj/machinery/washing_machine,
+/obj/structure/table/rack,
+/obj/item/clothing/mask/breath,
+/obj/item/weapon/rig/eva/equipped{
+	req_access = newlist()
+	},
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/shuttle/floor/plating/destructible/black,
 /area/skipjack_station/start)
 "aOw" = (
-/obj/structure/table/standard,
-/obj/item/weapon/storage/fancy/cigarettes,
-/obj/item/weapon/flame/lighter/zippo,
-/obj/item/clothing/gloves/yellow,
-/obj/item/stack/material/steel{
-	amount = 50
-	},
-/obj/item/stack/material/glass{
-	amount = 50
-	},
-/obj/item/weapon/card/emag,
+/obj/structure/table/rack,
+/obj/item/clothing/mask/breath,
+/obj/item/weapon/rig/industrial/equipped,
+/obj/item/clothing/mask/breath,
+/obj/item/weapon/rig/industrial/equipped,
 /turf/simulated/shuttle/floor/plating/destructible/black,
 /area/skipjack_station/start)
 "aOy" = (
@@ -17247,9 +17271,11 @@
 	command = "cycle_interior";
 	frequency = 1331;
 	master_tag = "vox_east_control";
+	name = "interior access button";
 	pixel_x = 22;
 	req_access = list(150)
 	},
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/shuttle/floor/plating/destructible/black,
 /area/skipjack_station/start)
 "aOz" = (
@@ -17289,20 +17315,36 @@
 /area/centcom/spawning)
 "aOE" = (
 /obj/machinery/atmospherics/pipe/simple/visible,
+/obj/machinery/light/small{
+	dir = 8
+	},
+/obj/machinery/button/remote/blast_door{
+	id = "skipjack_port";
+	name = "Port Blast Shield";
+	pixel_x = -24;
+	pixel_y = -8;
+	req_access = list(150)
+	},
 /turf/simulated/shuttle/floor/plating/destructible/black,
 /area/skipjack_station/start)
 "aOF" = (
 /turf/simulated/shuttle/floor/plating/destructible/black,
 /area/skipjack_station/start)
 "aOG" = (
-/obj/structure/reagent_dispensers/watertank,
+/obj/structure/table/rack,
+/obj/item/clothing/shoes/magboots,
+/obj/item/clothing/suit/space/syndicate/black/engie,
+/obj/item/clothing/mask/breath,
+/obj/item/clothing/head/helmet/space/syndicate/black/engie,
 /obj/machinery/light/small{
-	dir = 4
+	dir = 4;
+	pixel_y = 0
 	},
 /turf/simulated/shuttle/floor/plating/destructible/black,
 /area/skipjack_station/start)
 "aOK" = (
 /obj/machinery/door/airlock/hatch{
+	name = "Bridge";
 	req_access = list(150)
 	},
 /turf/simulated/shuttle/floor/destructible/merc/red,
@@ -17310,19 +17352,17 @@
 "aOL" = (
 /obj/structure/table/rack,
 /obj/item/clothing/shoes/magboots,
-/obj/item/clothing/suit/space/syndicate/black/engie,
+/obj/item/weapon/tank/oxygen,
+/obj/item/clothing/suit/space/void/atmos,
 /obj/item/clothing/mask/breath,
-/obj/item/clothing/head/helmet/space/syndicate/black/engie,
+/obj/item/clothing/head/helmet/space/void/atmos,
 /obj/machinery/light/small{
 	dir = 8
 	},
-/obj/item/airbubble/syndie,
-/obj/item/airbubble/syndie,
-/obj/item/airbubble/syndie,
 /turf/simulated/shuttle/floor/plating/destructible/black,
 /area/skipjack_station/start)
 "aOM" = (
-/obj/item/robot_parts/head,
+/obj/random/junk,
 /turf/simulated/shuttle/floor/plating/destructible/black,
 /area/skipjack_station/start)
 "aON" = (
@@ -17530,15 +17570,11 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/machinery/door/blast/regular{
-	dir = 1;
-	id = "skipjackshutters";
-	name = "Skipjack Blast Shielding"
+/obj/machinery/door/blast/regular/open{
+	dir = 2;
+	id = "skipjack_port";
+	name = "Port Blast Shield"
 	},
-/turf/simulated/shuttle/floor/plating/destructible/black,
-/area/skipjack_station/start)
-"aPh" = (
-/obj/item/robot_parts/l_leg,
 /turf/simulated/shuttle/floor/plating/destructible/black,
 /area/skipjack_station/start)
 "aPi" = (
@@ -17565,37 +17601,30 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/machinery/door/blast/regular{
-	dir = 1;
-	id = "skipjackshutters";
-	name = "Skipjack Blast Shielding"
+/obj/machinery/door/blast/regular/open{
+	dir = 2;
+	id = "skipjack_port";
+	name = "Port Blast Shield"
 	},
 /turf/simulated/shuttle/floor/plating/destructible/black,
 /area/skipjack_station/start)
 "aPl" = (
 /obj/machinery/atmospherics/pipe/simple/visible,
-/obj/machinery/portable_atmospherics/hydroponics,
-/turf/simulated/shuttle/floor/plating/destructible/black,
-/area/skipjack_station/start)
-"aPm" = (
-/obj/machinery/floodlight,
+/obj/vehicle/bike,
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/shuttle/floor/plating/destructible/black,
 /area/skipjack_station/start)
 "aPn" = (
-/obj/structure/table/rack,
-/obj/item/weapon/gun/launcher/crossbow,
-/obj/item/stack/rods{
-	amount = 10
+/obj/structure/table/standard,
+/obj/item/stack/material/steel{
+	amount = 50
+	},
+/obj/item/stack/material/glass{
+	amount = 50
 	},
 /obj/machinery/light/small{
 	dir = 8
 	},
-/obj/item/weapon/trap,
-/obj/item/weapon/trap,
-/obj/item/weapon/trap,
-/obj/item/weapon/trap,
-/obj/item/weapon/trap,
-/obj/item/weapon/trap,
 /turf/simulated/shuttle/floor/destructible/merc/red,
 /area/skipjack_station/start)
 "aPo" = (
@@ -17604,24 +17633,6 @@
 /obj/item/weapon/grenade/flashbang,
 /obj/item/weapon/grenade/spawnergrenade/manhacks,
 /turf/simulated/shuttle/floor/destructible/merc/red,
-/area/skipjack_station/start)
-"aPq" = (
-/obj/structure/table/steel,
-/obj/machinery/recharger,
-/obj/machinery/light/small{
-	dir = 4
-	},
-/turf/simulated/shuttle/floor/destructible/merc/red,
-/area/skipjack_station/start)
-"aPr" = (
-/obj/structure/reagent_dispensers/fueltank,
-/turf/simulated/shuttle/floor/plating/destructible/black,
-/area/skipjack_station/start)
-"aPs" = (
-/obj/item/robot_parts/robot_suit,
-/obj/item/robot_parts/r_leg,
-/obj/item/robot_parts/r_arm,
-/turf/simulated/shuttle/floor/plating/destructible/black,
 /area/skipjack_station/start)
 "aPt" = (
 /obj/structure/table/standard,
@@ -17744,15 +17755,16 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/machinery/door/blast/regular{
-	dir = 1;
-	id = "skipjackshutters";
-	name = "Skipjack Blast Shielding"
+/obj/machinery/door/blast/regular/open{
+	dir = 2;
+	id = "skipjack_port";
+	name = "Port Blast Shield"
 	},
 /turf/simulated/shuttle/floor/plating/destructible/black,
 /area/skipjack_station/start)
 "aPD" = (
 /obj/machinery/door/airlock/hatch{
+	name = "Brig";
 	req_access = list(150)
 	},
 /turf/simulated/shuttle/floor/plating/destructible/black,
@@ -17764,10 +17776,19 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
+/obj/machinery/button/remote/blast_door{
+	id = "skipjack_brig";
+	name = "Brig Blast Shields";
+	pixel_x = -24;
+	pixel_y = -10;
+	req_access = list(150)
+	},
 /turf/simulated/shuttle/floor/destructible/merc/red,
 /area/skipjack_station/start)
 "aPF" = (
 /obj/structure/table/steel,
+/obj/item/weapon/flame/lighter/zippo,
+/obj/item/weapon/storage/fancy/cigarettes,
 /turf/simulated/shuttle/floor/destructible/merc/red,
 /area/skipjack_station/start)
 "aPG" = (
@@ -17786,15 +17807,23 @@
 	pixel_x = -12;
 	pixel_y = 2
 	},
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/shuttle/floor/plating/destructible/black,
 /area/skipjack_station/start)
 "aPI" = (
+/obj/item/weapon/crowbar,
 /obj/item/weapon/wrench,
 /turf/simulated/shuttle/floor/plating/destructible/black,
 /area/skipjack_station/start)
 "aPJ" = (
-/obj/machinery/atmospherics/pipe/simple/visible,
-/obj/item/weapon/crowbar,
+/obj/machinery/atmospherics/binary/passive_gate{
+	dir = 1;
+	name = "skipjack airlock pressure regulator";
+	target_pressure = 75;
+	unlocked = 1;
+	use_power = 0
+	},
+/obj/machinery/washing_machine,
 /turf/simulated/shuttle/floor/plating/destructible/black,
 /area/skipjack_station/start)
 "aPK" = (
@@ -17868,20 +17897,23 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
-/obj/machinery/atmospherics/portables_connector{
+/obj/machinery/atmospherics/pipe/tank/air{
+	icon_state = "air_map";
 	dir = 1
 	},
-/obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/shuttle/floor/plating/destructible/black,
 /area/skipjack_station/start)
 "aPT" = (
-/obj/machinery/portable_atmospherics/hydroponics,
+/obj/machinery/portable_atmospherics/canister/oxygen,
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/shuttle/floor/plating/destructible/black,
 /area/skipjack_station/start)
 "aPU" = (
 /obj/machinery/suit_cycler/syndicate{
 	locked = 0
 	},
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/shuttle/floor/plating/destructible/black,
 /area/skipjack_station/start)
 "aPV" = (
@@ -17912,9 +17944,8 @@
 /area/skipjack_station/start)
 "aQa" = (
 /obj/machinery/bodyscanner{
-	allowed_species = list("Human","Skrell","Unathi","Tajara","M'sai Tajara","Zhan-Khazan Tajara","Vaurca Worker","Vaurca Warrior","Diona","Vox");
-	dir = 8;
-	icon_state = "body_scanner_0"
+	icon_state = "body_scanner";
+	dir = 4
 	},
 /turf/simulated/shuttle/floor/destructible/merc/white,
 /area/skipjack_station/start)
@@ -17935,6 +17966,7 @@
 /obj/structure/toilet{
 	dir = 4
 	},
+/obj/random/junk,
 /turf/simulated/shuttle/floor/plating/destructible/black,
 /area/skipjack_station/start)
 "aQe" = (
@@ -17946,10 +17978,10 @@
 /obj/machinery/light/small{
 	dir = 4
 	},
-/obj/machinery/atmospherics/portables_connector{
+/obj/machinery/atmospherics/pipe/tank/air{
+	icon_state = "air_map";
 	dir = 1
 	},
-/obj/machinery/portable_atmospherics/canister/air/airlock,
 /turf/simulated/shuttle/floor/plating/destructible/black,
 /area/skipjack_station/start)
 "aQg" = (
@@ -18537,12 +18569,7 @@
 	},
 /area/wizard_station)
 "aRw" = (
-/obj/structure/sink{
-	dir = 4;
-	icon_state = "sink";
-	pixel_x = 11;
-	pixel_y = 0
-	},
+/obj/structure/bed,
 /turf/simulated/shuttle/floor/destructible/merc/black,
 /area/skipjack_station/start)
 "aRx" = (
@@ -18625,9 +18652,6 @@
 	},
 /area/wizard_station)
 "aRD" = (
-/obj/structure/toilet{
-	dir = 4
-	},
 /obj/machinery/light/small{
 	dir = 8
 	},
@@ -18832,10 +18856,6 @@
 	icon_state = "cult"
 	},
 /area/wizard_station)
-"aRW" = (
-/obj/structure/shuttle/engine/heater,
-/turf/simulated/shuttle/floor/plating/destructible/black,
-/area/skipjack_station/start)
 "aRX" = (
 /obj/structure/target_stake,
 /obj/item/target,
@@ -21582,7 +21602,7 @@
 /area/syndicate_mothership/raider_base)
 "aYN" = (
 /obj/structure/table/steel,
-/obj/item/weapon/reagent_containers/food/drinks/flask/barflask,
+/obj/machinery/recharger,
 /turf/simulated/shuttle/floor/destructible/merc/red,
 /area/skipjack_station/start)
 "aYO" = (
@@ -21593,15 +21613,22 @@
 /area/centcom/shared_dream)
 "aYP" = (
 /obj/structure/reagent_dispensers/fueltank,
-/turf/simulated/shuttle/floor/destructible/merc/red,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/shuttle/floor/plating/destructible/black,
 /area/skipjack_station/start)
 "aYQ" = (
 /obj/structure/reagent_dispensers/watertank,
-/turf/simulated/shuttle/floor/destructible/merc/red,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/shuttle/floor/plating/destructible/black,
 /area/skipjack_station/start)
 "aYR" = (
-/obj/structure/reagent_dispensers/extinguisher,
-/turf/simulated/shuttle/floor/destructible/merc/red,
+/obj/structure/table/rack,
+/obj/item/weapon/storage/toolbox/mechanical,
+/obj/item/weapon/extinguisher,
+/obj/item/weapon/extinguisher,
+/obj/machinery/light/small,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/shuttle/floor/plating/destructible/black,
 /area/skipjack_station/start)
 "aYS" = (
 /obj/machinery/light/small{
@@ -21774,11 +21801,58 @@
 	icon_state = "carpetside"
 	},
 /area/centcom/living)
+"bAc" = (
+/obj/structure/closet/crate/loot,
+/obj/random/backpack,
+/turf/unsimulated/floor{
+	icon_state = "dark"
+	},
+/area/syndicate_mothership/raider_base)
+"bCR" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/machinery/door/blast/regular/open{
+	dir = 2;
+	id = "skipjack_brig";
+	name = "Brig Blast Shield"
+	},
+/turf/simulated/shuttle/floor/plating/destructible/black,
+/area/skipjack_station/start)
+"bIu" = (
+/obj/machinery/vending/hydroseeds,
+/turf/unsimulated/floor{
+	icon_state = "dark"
+	},
+/area/syndicate_mothership/raider_base)
 "cnT" = (
 /obj/structure/window/shuttle,
 /obj/structure/grille,
 /turf/simulated/shuttle/plating,
 /area/template_noop)
+"ctg" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/machinery/door/blast/regular/open{
+	dir = 2;
+	id = "skipjack_brig";
+	name = "Brig Blast Shield"
+	},
+/turf/simulated/shuttle/floor/plating/destructible/black,
+/area/skipjack_station/start)
 "cJi" = (
 /obj/structure/lattice/catwalk/indoor,
 /turf/space,
@@ -21912,6 +21986,12 @@
 	icon_state = "floor"
 	},
 /area/centcom/holding)
+"eWz" = (
+/obj/structure/bed/chair{
+	dir = 1
+	},
+/turf/simulated/shuttle/floor/destructible/merc/black,
+/area/skipjack_station/start)
 "frH" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/generic,
@@ -21930,9 +22010,34 @@
 	icon_state = "dark"
 	},
 /area/centcom/legion_base/hangar5)
+"fyq" = (
+/obj/machinery/door/airlock/hatch{
+	name = "Infirmary";
+	req_access = list(150)
+	},
+/turf/simulated/shuttle/floor/plating/destructible/black,
+/area/skipjack_station/start)
 "fDW" = (
 /turf/simulated/shuttle/floor,
 /area/template_noop)
+"fEh" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/machinery/door/blast/regular/open{
+	dir = 1;
+	id = "skipjack_internal";
+	name = "Internal Blast Shield"
+	},
+/turf/simulated/shuttle/floor/plating/destructible/black,
+/area/skipjack_station/start)
 "fIJ" = (
 /turf/template_noop,
 /area/shuttle/escape_pod6/centcom/space)
@@ -22005,6 +22110,14 @@
 	icon_state = "dark"
 	},
 /area/centcom/legion_base)
+"hdJ" = (
+/obj/machinery/atmospherics/pipe/simple/visible,
+/obj/structure/table/rack,
+/obj/item/airbubble/syndie,
+/obj/item/airbubble/syndie,
+/obj/item/airbubble/syndie,
+/turf/simulated/shuttle/floor/plating/destructible/black,
+/area/skipjack_station/start)
 "hFm" = (
 /obj/structure/window/shuttle,
 /obj/structure/grille,
@@ -22052,6 +22165,12 @@
 	dir = 8
 	},
 /area/centcom/living)
+"hYc" = (
+/obj/structure/bed/chair{
+	dir = 4
+	},
+/turf/simulated/shuttle/floor/destructible/merc/white,
+/area/skipjack_station/start)
 "iuE" = (
 /obj/machinery/light{
 	dir = 1
@@ -22073,6 +22192,28 @@
 	},
 /turf/simulated/shuttle/floor/plating/destructible,
 /area/merchant_ship/start)
+"iJW" = (
+/obj/structure/table/rack,
+/obj/item/weapon/gun/launcher/crossbow,
+/obj/item/stack/rods{
+	amount = 10
+	},
+/obj/item/weapon/trap,
+/obj/item/weapon/trap,
+/obj/item/weapon/trap,
+/obj/item/weapon/trap,
+/obj/item/weapon/trap,
+/obj/item/weapon/trap,
+/turf/simulated/shuttle/floor/destructible/merc/red,
+/area/skipjack_station/start)
+"iWD" = (
+/obj/item/weapon/reagent_containers/glass/bucket{
+	amount_per_transfer_from_this = 50
+	},
+/turf/unsimulated/floor{
+	icon_state = "dark"
+	},
+/area/syndicate_mothership/raider_base)
 "jak" = (
 /obj/machinery/door/blast/shutters/open{
 	dir = 4;
@@ -22146,6 +22287,22 @@
 	dir = 8
 	},
 /area/centcom/living)
+"jhV" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/machinery/door/blast/regular/open{
+	dir = 4;
+	id = "skipjack_internal";
+	name = "Bridge Blast Shield"
+	},
+/turf/simulated/shuttle/floor/plating/destructible/black,
+/area/skipjack_station/start)
 "jAE" = (
 /obj/structure/table/wood,
 /obj/item/weapon/paper_bin{
@@ -22184,6 +22341,40 @@
 	dir = 4
 	},
 /area/centcom/living)
+"kzm" = (
+/obj/structure/table/wood,
+/obj/item/weapon/reagent_containers/food/drinks/flask/barflask,
+/turf/unsimulated/floor{
+	dir = 8;
+	icon_state = "wood"
+	},
+/area/syndicate_mothership/raider_base)
+"kAg" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/machinery/door/blast/regular/open{
+	dir = 1;
+	id = "skipjack_internal";
+	name = "Internal Blast Shield"
+	},
+/turf/simulated/shuttle/floor/plating/destructible/black,
+/area/skipjack_station/start)
+"kKv" = (
+/obj/structure/table/steel,
+/obj/machinery/microwave{
+	pixel_x = -1;
+	pixel_y = 8
+	},
+/turf/unsimulated/floor{
+	icon_state = "dark"
+	},
+/area/syndicate_mothership/raider_base)
 "lpW" = (
 /obj/machinery/computer/borgupload,
 /turf/unsimulated/floor{
@@ -22197,6 +22388,47 @@
 	icon_state = "floor"
 	},
 /area/centcom/living)
+"lGL" = (
+/obj/machinery/door/airlock/hatch{
+	frequency = 1331;
+	icon_state = "door_closed";
+	id_tag = "vox_southwest_lock";
+	locked = 0;
+	req_access = list(150)
+	},
+/turf/simulated/shuttle/floor/plating/destructible/black,
+/area/skipjack_station/start)
+"lIF" = (
+/obj/machinery/porta_turret{
+	ailock = 1;
+	req_access = list(150);
+	req_one_access = null
+	},
+/turf/simulated/shuttle/floor/destructible/merc/red,
+/area/skipjack_station/start)
+"lJr" = (
+/obj/item/robot_parts/robot_suit,
+/obj/item/robot_parts/r_arm,
+/obj/item/robot_parts/r_leg,
+/obj/item/robot_parts/l_leg,
+/obj/item/robot_parts/head,
+/turf/unsimulated/floor{
+	icon_state = "dark"
+	},
+/area/syndicate_mothership/raider_base)
+"lTl" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/machinery/door/blast/regular/open{
+	dir = 4;
+	id = "skipjack_internal";
+	name = "Bridge Blast Shield"
+	},
+/turf/simulated/shuttle/floor/plating/destructible/black,
+/area/skipjack_station/start)
 "lUA" = (
 /obj/structure/closet/crate/trashcart{
 	icon_state = "trashcartopen";
@@ -22217,6 +22449,45 @@
 	dir = 1
 	},
 /area/centcom/control)
+"mar" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/machinery/door/blast/regular/open{
+	dir = 1;
+	id = "skipjack_internal";
+	name = "Internal Blast Shield"
+	},
+/turf/simulated/shuttle/floor/plating/destructible/black,
+/area/skipjack_station/start)
+"mim" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/machinery/door/blast/regular/open{
+	dir = 1;
+	id = "skipjack_starboard";
+	name = "Starboard Blast Shield"
+	},
+/turf/simulated/shuttle/floor/plating/destructible/black,
+/area/skipjack_station/start)
+"mmQ" = (
+/obj/machinery/atmospherics/pipe/simple/visible,
+/obj/item/weapon/screwdriver,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/shuttle/floor/plating/destructible/black,
+/area/skipjack_station/start)
 "muG" = (
 /obj/structure/window/reinforced{
 	dir = 4;
@@ -22303,6 +22574,27 @@
 	},
 /turf/simulated/shuttle/floor,
 /area/template_noop)
+"nwF" = (
+/obj/machinery/atmospherics/binary/passive_gate{
+	dir = 1;
+	name = "skipjack airlock pressure regulator";
+	target_pressure = 75;
+	unlocked = 1;
+	use_power = 0
+	},
+/obj/machinery/floodlight,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/shuttle/floor/plating/destructible/black,
+/area/skipjack_station/start)
+"nOd" = (
+/obj/structure/sink{
+	icon_state = "sink";
+	dir = 8;
+	pixel_x = -12;
+	pixel_y = 2
+	},
+/turf/simulated/shuttle/floor/destructible/merc/black,
+/area/skipjack_station/start)
 "nPC" = (
 /obj/structure/banner,
 /turf/unsimulated/floor{
@@ -22310,6 +22602,22 @@
 	dir = 8
 	},
 /area/centcom/living)
+"odN" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/machinery/door/blast/regular/open{
+	dir = 4;
+	id = "skipjack_internal";
+	name = "Bridge Blast Shield"
+	},
+/turf/simulated/shuttle/floor/plating/destructible/black,
+/area/skipjack_station/start)
 "ouD" = (
 /obj/effect/decal/spraystill{
 	desc = "A sign.";
@@ -22402,6 +22710,13 @@
 	icon_state = "carpetside"
 	},
 /area/centcom/living)
+"qlP" = (
+/obj/machinery/door/airlock/hatch{
+	name = "Storage Compartment";
+	req_access = list(150)
+	},
+/turf/simulated/shuttle/floor/destructible/merc/red,
+/area/skipjack_station/start)
 "qmf" = (
 /obj/item/weapon/material/shard,
 /turf/template_noop,
@@ -22443,6 +22758,24 @@
 	icon_state = "wood"
 	},
 /area/centcom/legion_base/hangar5)
+"qTe" = (
+/obj/machinery/atmospherics/pipe/simple/visible,
+/obj/machinery/light/small{
+	dir = 4
+	},
+/obj/machinery/button/remote/blast_door{
+	id = "skipjack_starboard";
+	name = "Starboard Blast Shield";
+	pixel_x = 24;
+	pixel_y = -8;
+	req_access = list(150)
+	},
+/turf/simulated/shuttle/floor/plating/destructible/black,
+/area/skipjack_station/start)
+"qTk" = (
+/obj/structure/bed/chair,
+/turf/simulated/shuttle/floor/destructible/merc/black,
+/area/skipjack_station/start)
 "qWb" = (
 /obj/structure/bed/chair{
 	dir = 1
@@ -22453,6 +22786,15 @@
 "qXc" = (
 /turf/simulated/shuttle/plating,
 /area/space)
+"rhT" = (
+/obj/machinery/atmospherics/pipe/simple/visible,
+/obj/effect/decal/cleanable/generic,
+/obj/vehicle/bike{
+	icon_state = "bike_off";
+	dir = 8
+	},
+/turf/simulated/shuttle/floor/plating/destructible/black,
+/area/skipjack_station/start)
 "rtI" = (
 /obj/structure/bed/chair/shuttle{
 	icon_state = "shuttlechair";
@@ -22481,6 +22823,12 @@
 	icon_state = "carpetside"
 	},
 /area/centcom/living)
+"rLT" = (
+/obj/machinery/portable_atmospherics/hydroponics,
+/turf/unsimulated/floor{
+	icon_state = "dark"
+	},
+/area/syndicate_mothership/raider_base)
 "rRO" = (
 /obj/effect/decal/cleanable/blood/xeno,
 /turf/simulated/shuttle/floor,
@@ -22489,6 +22837,16 @@
 /obj/structure/bed/chair,
 /turf/simulated/shuttle/floor/destructible,
 /area/shuttle/escape/centcom)
+"shd" = (
+/obj/machinery/button/remote/blast_door{
+	id = "skipjack_internal";
+	name = "Internal Blast Shields";
+	pixel_x = 24;
+	pixel_y = -24;
+	req_access = list(150)
+	},
+/turf/simulated/shuttle/floor/destructible/merc/red,
+/area/skipjack_station/start)
 "sxc" = (
 /obj/machinery/light{
 	dir = 1;
@@ -22506,6 +22864,13 @@
 	icon_state = "dark"
 	},
 /area/centcom/legion_base/hangar5)
+"sMH" = (
+/obj/structure/table/steel,
+/obj/item/weapon/material/minihoe,
+/turf/unsimulated/floor{
+	icon_state = "dark"
+	},
+/area/syndicate_mothership/raider_base)
 "sSc" = (
 /obj/machinery/light,
 /obj/effect/decal/cleanable/blood/xeno,
@@ -22556,6 +22921,16 @@
 /obj/item/weapon/broken_bottle,
 /turf/template_noop,
 /area/template_noop)
+"tpF" = (
+/obj/machinery/door/airlock/hatch{
+	frequency = 1331;
+	icon_state = "door_closed";
+	id_tag = "vox_southeast_lock";
+	locked = 0;
+	req_access = list(150)
+	},
+/turf/simulated/shuttle/floor/plating/destructible/black,
+/area/skipjack_station/start)
 "tqQ" = (
 /obj/vehicle/droppod{
 	pixel_y = 0
@@ -22572,6 +22947,22 @@
 	icon_state = "panelscorched"
 	},
 /area/centcom/legion_base/hangar5)
+"trS" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/machinery/door/blast/regular/open{
+	dir = 1;
+	id = "skipjack_starboard";
+	name = "Starboard Blast Shield"
+	},
+/turf/simulated/shuttle/floor/plating/destructible/black,
+/area/skipjack_station/start)
 "twX" = (
 /obj/structure/shuttle/engine/propulsion{
 	dir = 4;
@@ -22597,6 +22988,21 @@
 	icon_state = "floor"
 	},
 /area/centcom/control)
+"unI" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/machinery/door/blast/regular/open{
+	dir = 2;
+	id = "skipjack_brig";
+	name = "Brig Blast Shield"
+	},
+/turf/simulated/shuttle/floor/plating/destructible/black,
+/area/skipjack_station/start)
 "utE" = (
 /obj/machinery/portable_atmospherics/canister/nitrogen,
 /obj/item/weapon/tank/nitrogen,
@@ -22609,6 +23015,14 @@
 /obj/structure/lattice/catwalk/indoor,
 /turf/template_noop,
 /area/syndicate_mothership/elite_squad)
+"uBo" = (
+/obj/machinery/porta_turret{
+	ailock = 1;
+	req_access = list(150);
+	req_one_access = null
+	},
+/turf/simulated/shuttle/floor/plating/destructible/black,
+/area/skipjack_station/start)
 "vcM" = (
 /obj/structure/bed/chair{
 	dir = 1
@@ -22666,6 +23080,13 @@
 	icon_state = "dark"
 	},
 /area/centcom/legion_base)
+"vZP" = (
+/obj/machinery/door/airlock/hatch{
+	name = "Central Compartment";
+	req_access = list(150)
+	},
+/turf/simulated/shuttle/floor/destructible/merc/red,
+/area/skipjack_station/start)
 "wdy" = (
 /obj/structure/bed/chair,
 /obj/effect/decal/cleanable/vomit,
@@ -22696,6 +23117,16 @@
 	dir = 1
 	},
 /area/centcom/living)
+"wzs" = (
+/obj/effect/decal/cleanable/generic,
+/turf/simulated/shuttle/floor/plating/destructible/black,
+/area/skipjack_station/start)
+"wBL" = (
+/obj/structure/toilet{
+	dir = 8
+	},
+/turf/simulated/shuttle/floor/destructible/merc/black,
+/area/skipjack_station/start)
 "wGd" = (
 /obj/machinery/light{
 	dir = 2;
@@ -23412,6 +23843,15 @@
 	},
 /turf/unsimulated/floor{
 	icon_state = "dark"
+	},
+/area/centcom/legion_base/hangar5)
+"xoy" = (
+/obj/effect/landmark{
+	name = "Tau Ceti Legion"
+	},
+/turf/unsimulated/floor{
+	dir = 8;
+	icon_state = "wood"
 	},
 /area/centcom/legion_base/hangar5)
 "xoP" = (
@@ -24714,6 +25154,14 @@
 	name = "plating"
 	},
 /area/centcom/legion_base)
+"xzX" = (
+/obj/structure/table/rack,
+/obj/item/weapon/storage/belt/utility/full,
+/obj/item/weapon/storage/belt/utility/full,
+/obj/item/device/multitool,
+/obj/item/device/multitool,
+/turf/simulated/shuttle/floor/destructible/merc/red,
+/area/skipjack_station/start)
 "xAL" = (
 /obj/machinery/door/airlock/external{
 	req_access = list()
@@ -25212,6 +25660,21 @@
 	icon_state = "dark"
 	},
 /area/centcom/legion_base/hangar5)
+"xFV" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/machinery/door/blast/regular/open{
+	dir = 1;
+	id = "skipjack_starboard";
+	name = "Starboard Blast Shield"
+	},
+/turf/simulated/shuttle/floor/plating/destructible/black,
+/area/skipjack_station/start)
 "xFY" = (
 /obj/structure/shuttle/engine/router{
 	icon_state = "router";
@@ -27304,6 +27767,9 @@
 /obj/machinery/light/small{
 	dir = 4
 	},
+/obj/effect/landmark{
+	name = "Tau Ceti Legion"
+	},
 /turf/unsimulated/floor{
 	icon_state = "floor"
 	},
@@ -27943,15 +28409,6 @@
 	},
 /obj/item/weapon/shield/riot/tact,
 /obj/item/weapon/shield/riot/tact{
-	pixel_x = 4;
-	pixel_y = -4
-	},
-/obj/item/weapon/melee/baton/loaded{
-	pixel_x = -4;
-	pixel_y = 4
-	},
-/obj/item/weapon/melee/baton/loaded,
-/obj/item/weapon/melee/baton/loaded{
 	pixel_x = 4;
 	pixel_y = -4
 	},
@@ -29412,52 +29869,23 @@
 "yjN" = (
 /turf/unsimulated/wall/riveted,
 /area/centcom/evac)
-"yjO" = (
-/obj/structure/table/rack,
-/obj/item/weapon/gun/energy/rifle/ionrifle,
-/obj/item/weapon/material/harpoon,
-/obj/item/clothing/suit/space/void/merc,
-/obj/item/clothing/head/helmet/space/void/merc,
-/obj/item/clothing/head/helmet/space/void/engineering,
-/obj/item/clothing/suit/space/void/engineering,
-/obj/item/weapon/tank/oxygen,
-/obj/item/weapon/tank/oxygen,
-/obj/item/clothing/shoes/magboots,
-/obj/item/clothing/shoes/magboots,
-/obj/item/weapon/rig/hazard/equipped{
-	req_access = newlist()
-	},
-/turf/simulated/shuttle/floor/plating/destructible/black,
-/area/skipjack_station/start)
 "yjP" = (
 /obj/structure/table/rack,
-/obj/item/weapon/storage/belt/utility/full,
-/obj/item/weapon/storage/belt/utility/full,
-/obj/item/device/multitool,
-/obj/item/device/multitool,
-/obj/item/weapon/rig/industrial/equipped,
+/obj/item/clothing/shoes/magboots,
+/obj/item/weapon/tank/oxygen,
+/obj/item/clothing/suit/space/void/mining,
+/obj/item/clothing/mask/breath,
+/obj/item/clothing/head/helmet/space/void/mining,
 /turf/simulated/shuttle/floor/plating/destructible/black,
 /area/skipjack_station/start)
 "yjQ" = (
-/obj/structure/table/rack,
-/obj/item/clothing/suit/space/void/mining,
-/obj/item/clothing/head/helmet/space/void/mining,
-/obj/item/clothing/head/helmet/space/void/atmos,
-/obj/item/clothing/suit/space/void/atmos,
-/obj/item/weapon/tank/oxygen,
-/obj/item/weapon/tank/oxygen,
-/obj/item/clothing/shoes/magboots,
-/obj/item/clothing/shoes/magboots,
-/obj/item/weapon/rig/eva/equipped{
-	req_access = newlist()
-	},
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/shuttle/floor/plating/destructible/black,
 /area/skipjack_station/start)
 "yjR" = (
 /obj/structure/table/rack,
 /obj/item/device/suit_cooling_unit/improved,
 /obj/item/device/suit_cooling_unit/improved,
-/obj/item/weapon/rig/industrial/equipped,
 /obj/item/weapon/pickaxe/jackhammer,
 /obj/item/weapon/pickaxe/jackhammer,
 /obj/item/weapon/pickaxe/jackhammer,
@@ -33267,7 +33695,7 @@ aaM
 aFR
 aGh
 aGv
-aGv
+kzm
 aGR
 aGh
 aIi
@@ -34060,9 +34488,9 @@ aNN
 aOb
 aOo
 aOE
-aOE
+mmQ
 aPl
-aPl
+nwF
 aPS
 aQr
 yjW
@@ -34314,12 +34742,12 @@ aLL
 aNf
 aNy
 aNO
-aNd
-yjO
+lGL
 aOF
+yjQ
 aOF
-aOF
-aOF
+uBo
+yjQ
 aPT
 aQr
 yjX
@@ -34575,7 +35003,7 @@ aNd
 aOq
 aOF
 aOF
-aPm
+aOM
 aOF
 aPU
 aNd
@@ -34830,9 +35258,9 @@ aaM
 aaM
 aNd
 aOr
+wzs
 aOF
-aOF
-aOF
+yjQ
 aNd
 aNd
 aNd
@@ -35072,7 +35500,7 @@ aGh
 aGh
 aGh
 aJb
-aFT
+aIL
 aGZ
 aGZ
 aGZ
@@ -35092,10 +35520,10 @@ aOF
 aOF
 aPD
 aPV
-aPV
+qTk
 aQH
-aPV
-aPV
+eWz
+nOd
 aNd
 aNd
 aaM
@@ -35345,7 +35773,7 @@ aNd
 aNd
 aNd
 aNd
-aOK
+vZP
 aNd
 aNd
 aPW
@@ -35601,7 +36029,7 @@ aNd
 aNd
 aOc
 aOt
-aNg
+odN
 aOd
 aPn
 aNd
@@ -35610,7 +36038,7 @@ aPV
 aPV
 aPV
 aRw
-aPV
+wBL
 aNd
 aNd
 aWL
@@ -35839,10 +36267,10 @@ aaM
 aaM
 aaM
 aFT
+kKv
 aGZ
 aGZ
-aGZ
-aGZ
+sMH
 aFT
 aJN
 aKs
@@ -35858,18 +36286,18 @@ aNd
 aNP
 aOd
 aOd
-aNh
+lTl
 aOd
-aPo
+xzX
 aNd
-aPg
-aPk
-aPC
-aNd
-aNd
+bCR
+unI
+ctg
 aNd
 aNd
-aRW
+aNd
+aNd
+aQr
 yjW
 aaM
 aaM
@@ -36096,7 +36524,7 @@ aaM
 aaM
 aaM
 aFT
-aGZ
+bIu
 aGZ
 aGZ
 aGZ
@@ -36112,10 +36540,10 @@ aaM
 aaM
 aNh
 aNz
+aOd
 aNQ
 aOd
-aOd
-aNi
+jhV
 aOd
 aOd
 aPE
@@ -36124,7 +36552,7 @@ aPX
 aQJ
 aNd
 azn
-aNP
+yjQ
 aYQ
 aQr
 aQG
@@ -36369,19 +36797,19 @@ aaM
 aaM
 aNh
 aNA
-aNR
+aNQ
 aOd
 aOd
 aOK
 aOd
-aOd
+lIF
 aYN
 aPY
 aPF
 aOd
-aOK
-aOd
-aOd
+qlP
+aOF
+yjQ
 aYR
 aQr
 aQG
@@ -36610,10 +37038,10 @@ aaM
 aaM
 aaM
 aFT
+rLT
 aGZ
 aGZ
-aGZ
-aGZ
+iWD
 aFT
 aJN
 aJN
@@ -36626,19 +37054,19 @@ aaM
 aaM
 aNh
 aNB
+aOd
 aNQ
 aOd
+odN
 aOd
-aNg
-aOd
-aOd
+shd
 aPG
 aPZ
 aPZ
 aQJ
 aNd
 azr
-aNS
+yjQ
 aYP
 aQr
 aQG
@@ -36867,10 +37295,10 @@ aaM
 aaM
 aaM
 aFT
+rLT
 aGZ
 aGZ
-aGZ
-aGZ
+aYL
 aFT
 aJO
 aKt
@@ -36886,18 +37314,18 @@ aNC
 aNS
 aOd
 aOd
-aNh
+lTl
 aOd
 yjR
 aNd
-aPg
-aPk
-aPC
+fEh
+mar
+kAg
 aNd
 aNd
 aNd
 aNd
-aRW
+aQr
 yjX
 aaM
 aaM
@@ -37141,14 +37569,14 @@ xmS
 aNd
 aNd
 aNd
+iJW
 aOe
-aOe
-aNi
+jhV
 aOd
-aPq
+aPo
 aNd
 aQa
-aQc
+hYc
 aQc
 aRh
 aQc
@@ -37378,8 +37806,8 @@ aaM
 aaM
 aFT
 aYK
-aYL
-aGW
+aGZ
+aGZ
 aGZ
 aGZ
 aIn
@@ -37401,7 +37829,7 @@ aNd
 aNd
 aNd
 aNd
-aOK
+vZP
 aNd
 aNd
 aQb
@@ -37634,7 +38062,7 @@ ahV
 ahV
 ahV
 aFT
-aGX
+aYL
 aGZ
 aGZ
 aHm
@@ -37658,9 +38086,9 @@ aaM
 aNd
 yjP
 aOL
+yjQ
 aOF
-aOF
-aPD
+fyq
 aQc
 aQs
 aQK
@@ -37891,11 +38319,11 @@ ahV
 ahV
 ahV
 aFT
-aGY
+aGZ
+bAc
 aGZ
 aGZ
-aGZ
-aGW
+bAc
 aHm
 aHm
 aJd
@@ -37914,9 +38342,9 @@ aaM
 aaM
 aNd
 aOv
+yjQ
 aOF
-aOF
-aPr
+yjQ
 aNd
 aNd
 aNd
@@ -38148,7 +38576,7 @@ ahV
 ahV
 ahV
 aFT
-aGZ
+aJM
 aGZ
 aGZ
 aGZ
@@ -38172,8 +38600,8 @@ aNd
 aNd
 aOw
 aOF
-aPh
-aOF
+yjQ
+wzs
 aPH
 aQd
 aNd
@@ -38407,7 +38835,7 @@ ahV
 aGz
 aGZ
 aGZ
-aGW
+bAc
 aGZ
 aGZ
 aGZ
@@ -38426,11 +38854,11 @@ aLL
 aNj
 aND
 aNT
-aNd
+tpF
 yjQ
 aOM
 aOF
-aPs
+uBo
 aPI
 aQe
 aQr
@@ -38666,10 +39094,10 @@ aGz
 aGz
 aGz
 aGZ
-aGW
+bAc
 aIo
 aGW
-aGZ
+lJr
 aFT
 aGZ
 aGZ
@@ -38685,9 +39113,9 @@ aNE
 aNU
 aOf
 aOy
-aOE
-aOE
-aOE
+qTe
+rhT
+hdJ
 aPJ
 aQf
 aQr
@@ -38943,9 +39371,9 @@ aNd
 aNd
 aNd
 aNd
-aPg
-aPk
-aPC
+mim
+xFV
+trS
 aNd
 aNd
 aWM
@@ -91220,7 +91648,7 @@ xYC
 xYC
 xWT
 xYb
-xYC
+xoy
 xZe
 aaM
 aaM
