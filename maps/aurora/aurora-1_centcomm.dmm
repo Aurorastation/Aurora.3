@@ -24435,6 +24435,10 @@
 /obj/structure/bed/chair/office/dark{
 	dir = 1
 	},
+/obj/effect/ghostspawner{
+	identifier = "OdinCheckpoint";
+	name = "igs - OdinCheckpoint"
+	},
 /turf/unsimulated/floor{
 	icon_state = "floor"
 	},
@@ -25081,6 +25085,10 @@
 /area/centcom/living)
 "sQk" = (
 /obj/structure/bed/chair/office/dark,
+/obj/effect/ghostspawner{
+	identifier = "OdinCheckpoint";
+	name = "igs - OdinCheckpoint"
+	},
 /turf/unsimulated/floor{
 	icon_state = "floor"
 	},
@@ -60745,7 +60753,7 @@ aDm
 aDm
 aDM
 aDY
-aDY
+cDy
 aDY
 aDM
 aEN

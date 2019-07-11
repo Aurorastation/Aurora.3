@@ -23,8 +23,24 @@
 	
 
 //Proc executed before someone is spawned in
-/datum/ghostspawner/human/pre_spawn(mob/user) 
+/datum/ghostspawner/human/pre_spawn(mob/user)
 	. = ..()
+
+/datum/ghostspawner/human/proc/get_mob_name(mob/user)
+	var/mname = mob_name
+	if(isnull(mname))
+		var/pick_message = "Pick a name."
+		if(mob_name_prefix)
+			pick_message = "[pick_message] Automatic Prefix: \"[mob_name_prefix]\" "
+		if(mob_name_suffix)
+			pick_message = "[pick_message] Automatic Suffix: \"[mob_name_suffix]\" "
+		mname = sanitizeSafe(input(user, pick_message, "Name (without prefix/suffix"))
+	
+	if(mob_name_prefix)
+		mname = "[mob_name_prefix][mname]"
+	if(mob_name_suffix)
+		mname = "[mname][mob_name_suffix]"
+	return mname
 
 //The proc to actually spawn in the user
 /datum/ghostspawner/human/spawn_mob(mob/user)
@@ -45,7 +61,7 @@
 	M.dna.ready_dna(M)
 
 	//Move the mob inside and initialize the mind
-	M.key = user.ckey
+	M.key = user.ckey //!! After that USER is invalid, so we have to use M
 
 	M.mind_initialize()
 	
@@ -66,19 +82,7 @@
 		M.client.prefs.randomize_appearance_for(M, FALSE)
 	
 	//Setup the mob age and name
-	var/mname = mob_name
-	if(isnull(mname))
-		var/pick_message = "Pick a name."
-		if(mob_name_prefix)
-			pick_message = "[pick_message] Automatic Prefix: [mob_name_prefix]."
-		if(mob_name_suffix)
-			pick_message = "[pick_message] Automatic Suffix: [mob_name_suffix]."
-		mname = sanitizeSafe(input(M, pick_message, "Name (without prefix/suffix"))
-	
-	if(mob_name_prefix)
-		mname = "[mob_name_prefix][mname]"
-	if(mob_name_suffix)
-		mname = "[mname][mob_name_suffix]"
+	var/mname = get_mob_name(M)
 
 	var/age = input(M, "Enter your characters age:","Num") as num
 

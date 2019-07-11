@@ -69,7 +69,8 @@
 		data[G.short_name]["cant_spawn"] = G.cant_spawn(user)
 		data[G.short_name]["can_edit"] = G.can_edit(user)
 		data[G.short_name]["enabled"] = G.enabled
-	
+		data[G.short_name]["count"] = G.count
+		data[G.short_name]["max_count"] = G.max_count
 	return data
 
 /datum/controller/subsystem/ghostroles/ui_interact(mob/user)
@@ -114,14 +115,16 @@
 			return
 		if(!S.can_edit(usr))
 			return
-		S.enable()
-		to_chat(usr, "Ghost spawner enabled: [S.name]")
+		if(!S.enabled)
+			S.enable()
+			to_chat(usr, "Ghost spawner enabled: [S.name]")
 	if(href_list["action"] == "disable")
 		var/datum/ghostspawner/S = spawners[href_list["spawner"]]
 		if(!S)
 			return
 		if(!S.can_edit(usr))
 			return
-		S.disable()
-		to_chat(usr, "Ghost spawner disabled: [S.name]")
+		if(S.enabled)
+			S.disable()
+			to_chat(usr, "Ghost spawner disabled: [S.name]")
 	return

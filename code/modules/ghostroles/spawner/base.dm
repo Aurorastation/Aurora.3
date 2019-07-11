@@ -10,6 +10,7 @@
 	var/max_count = 0 //How often can this spawner be used
 	var/count = 0 //How ofen has this spawner been used
 	var/req_perms = null //What permission flags are required to use this spawner
+	var/req_perms_edit = R_ADMIN
 	var/req_head_whitelist = FALSE //If a head of staff whitelist is required
 	var/req_species_whitelist = null //Name/Datum of the species whitelist that is required, or null
 	var/enabled = TRUE //If the spawnpoint is enabled
@@ -41,6 +42,9 @@
 
 	if(jobban_job && jobban_isbanned(user,jobban_job))
 		return "Job Banned"
+	
+	if(!enabled && !can_edit(user)) //If its not enabled and the user cant edit it, dont show it
+		return "Currently Disabled"
 
 	return FALSE
 
@@ -58,18 +62,27 @@
 	if(!config.enter_allowed)
 		return "There is an administrative lock on entering the game"
 	if(SSticker.mode && SSticker.mode.explosion_in_progress)
-		return "The station is currently exploding. Joining would go poorly."
+		return "The station is currently exploding"
+	if(max_count && count > max_count)
+		return "No more slots are available"
+	//Check if a spawnpoint is available
+	var/turf/T = select_spawnpoint(FALSE)
+	if(!T)
+		return "No spawnpoint available"
 	return FALSE
 
 //Proc executed before someone is spawned in
 /datum/ghostspawner/proc/pre_spawn(mob/user) 
+	count++ //Increment the spawned in mob count
+	if(count >= max_count)
+		disable()
 	return TRUE
 
 //This proc selects the spawnpoint to use.
-/datum/ghostspawner/proc/select_spawnpoint()
+/datum/ghostspawner/proc/select_spawnpoint(var/use=TRUE)
 	if(!isnull(spawnpoints))
 		for(var/spawnpoint in spawnpoints) //Loop through the applicable spawnpoints
-			var/turf/T = SSghostroles.get_spawnpoint(spawnpoint) //Gets the first matching spawnpoint or null if none are available
+			var/turf/T = SSghostroles.get_spawnpoint(spawnpoint, use) //Gets the first matching spawnpoint or null if none are available
 			if(T) //If we have a spawnpoint, return it
 				return T
 	if(!isnull(landmark_name))
@@ -96,7 +109,7 @@
 
 //Proc to check if a specific user can edit this spawner (open/close/...)
 /datum/ghostspawner/proc/can_edit(mob/user)
-	if(check_rights(R_ADMIN, show_msg=FALSE, user=user))
+	if(check_rights(req_perms_edit, show_msg=FALSE, user=user))
 		return TRUE
 	return FALSE
 
