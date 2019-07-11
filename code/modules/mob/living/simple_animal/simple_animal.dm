@@ -560,10 +560,10 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 	set name = "Resist"
 	set category = "Abilities"
 
-	if(usr.stat == DEAD || !make_sound)
+	if((usr && usr.stat == DEAD) || !make_sound)
 		return
 
-	if(!sound_time)
+	if(usr && !sound_time)
 		to_chat(usr, span("warning", "Ability on cooldown 2 seconds."))
 		return
 
@@ -582,7 +582,7 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 
 	message = sanitize(message)
 	if(emote_sounds.len)
-		var/sound_chance = FALSE
+		var/sound_chance = TRUE
 		if(client) // we do not want people who assume direct control to spam
 			sound_chance = prob(50)
 		make_noise(sound_chance)
