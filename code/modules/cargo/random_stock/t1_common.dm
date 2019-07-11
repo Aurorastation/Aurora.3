@@ -242,6 +242,8 @@ STOCK_ITEM_COMMON(gloves, 3.3)
 	exclusion += typesof(/obj/item/clothing/gloves/rig)
 	exclusion += typesof(/obj/item/clothing/gloves/lightrig)
 	exclusion += typesof(/obj/item/clothing/gloves/watch)
+	exclusion += typesof(/obj/item/clothing/gloves/fluff)
+	exclusion += typesof(/obj/item/clothing/gloves/yellow/fluff)
 	allgloves -= exclusion
 
 	for (var/i in 1 to rand(1, 5))
@@ -445,7 +447,7 @@ STOCK_ITEM_COMMON(target, 2)
 STOCK_ITEM_COMMON(snacks, 4)
 	//Snackboxes are much more likely to spawn on tables than in crates.
 	//This ensures the cargo bay will have a supply of food in an obtainable place for animals
-	//allows nymphs and mice to raid it for nutrients, and thus gives playermice more
+	//allows nymphs and rats to raid it for nutrients, and thus gives player rats more
 	//reason to infest the warehouse
 	if (CS && prob(65))
 		if (!isturf(L))

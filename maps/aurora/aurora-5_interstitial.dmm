@@ -1104,6 +1104,10 @@
 	d2 = 8;
 	icon_state = "2-8"
 	},
+/obj/structure/disposalpipe/segment{
+	dir = 2;
+	icon_state = "pipe-c"
+	},
 /turf/simulated/floor/plating{
 	roof_type = null
 	},
@@ -7571,6 +7575,10 @@
 	pixel_x = -22;
 	pixel_y = 0
 	},
+/obj/structure/disposalpipe/up{
+	icon_state = "pipe-u";
+	dir = 4
+	},
 /turf/simulated/floor/plating{
 	roof_type = null
 	},
@@ -8242,6 +8250,10 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2"
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 1;
+	icon_state = "pipe-c"
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/maintcentral)
@@ -10664,6 +10676,10 @@
 	icon_state = "11-1"
 	},
 /obj/structure/lattice,
+/obj/structure/disposalpipe/down{
+	icon_state = "pipe-d";
+	dir = 8
+	},
 /turf/simulated/open,
 /area/maintenance/maintcentral)
 "MV" = (

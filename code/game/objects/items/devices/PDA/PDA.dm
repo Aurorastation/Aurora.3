@@ -1043,7 +1043,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 		tnote.Add(list(list("sent" = 1, "owner" = "[P.owner]", "job" = "[P.ownjob]", "message" = "[t]", "target" = "\ref[P]")))
 		P.tnote.Add(list(list("sent" = 0, "owner" = "[owner]", "job" = "[ownjob]", "message" = "[t]", "target" = "\ref[src]")))
 		for(var/mob/M in player_list)
-			if(M.stat == DEAD && M.client && (M.client.prefs.toggles & CHAT_GHOSTEARS)) // src.client is so that ghosts don't have to listen to mice
+			if(M.stat == DEAD && M.client && (M.client.prefs.toggles & CHAT_GHOSTEARS)) // src.client is so that ghosts don't have to listen to rats
 				if(istype(M, /mob/abstract/new_player))
 					continue
 				M.show_message("<span class='game say'>PDA Message - <span class='name'>[owner]</span> -> <span class='name'>[P.owner]</span>: <span class='message'>[t]</span></span>")
@@ -1262,7 +1262,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 	if(user)
 		to_chat(user, "<span class='notice'>Card scanned.</span>")
 	try_sort_pda_list()
-
+		
 /obj/item/device/pda/attack(mob/living/C as mob, mob/living/user as mob)
 	if (istype(C, /mob/living/carbon))
 		switch(scanmode)
@@ -1274,10 +1274,10 @@ var/global/list/obj/item/device/pda/PDAs = list()
 				user.show_message("<span class='notice'>Analyzing Results for [C]:</span>")
 				user.show_message("<span class='notice'>    Overall Status: [C.stat > 1 ? "dead" : "[C.health - C.halloss]% healthy"]</span>", 1)
 				user.show_message(text("<span class='notice'>    Damage Specifics:</span> <span class='[]'>[]</span>-<span class='[]'>[]</span>-<span class='[]'>[]</span>-<span class='[]'>[]</span>",
-						(C.getOxyLoss() > 50) ? "warning" : "", C.getOxyLoss(),
-						(C.getToxLoss() > 50) ? "warning" : "", C.getToxLoss(),
-						(C.getFireLoss() > 50) ? "warning" : "", C.getFireLoss(),
-						(C.getBruteLoss() > 50) ? "warning" : "", C.getBruteLoss()
+						(C.getOxyLoss() > 50) ? "warning" : "", calcDamage(C.getOxyLoss()),
+						(C.getToxLoss() > 50) ? "warning" : "", calcDamage(C.getToxLoss()),
+						(C.getFireLoss() > 50) ? "warning" : "", calcDamage(C.getFireLoss()),
+						(C.getBruteLoss() > 50) ? "warning" : "", calcDamage(C.getBruteLoss())
 						), 1)
 				user.show_message("<span class='notice'>    Key: Suffocation/Toxin/Burns/Brute</span>", 1)
 				user.show_message("<span class='notice'>    Body Temperature: [C.bodytemperature-T0C]&deg;C ([C.bodytemperature*1.8-459.67]&deg;F)</span>", 1)
@@ -1290,7 +1290,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 					if(length(damaged)>0)
 						for(var/obj/item/organ/external/org in damaged)
 							user.show_message(text("<span class='notice'>     []: <span class='[]'>[]</span>-<span class='[]'>[]</span></span>",
-									capitalize(org.name), (org.brute_dam > 0) ? "warning" : "notice", org.brute_dam, (org.burn_dam > 0) ? "warning" : "notice", org.burn_dam),1)
+									capitalize(org.name), (org.brute_dam > 0) ? "warning" : "notice", calcDamage(org.brute_dam), (org.burn_dam > 0) ? "warning" : "notice", calcDamage(org.burn_dam)),1)
 					else
 						user.show_message("<span class='notice'>    Limbs are OK.</span>",1)
 

@@ -6,7 +6,7 @@
 	w_class = 2
 	matter = list("glass" = 200)
 	flags = NOBLUDGEON
-	var/list/accept_mobs = list(/mob/living/simple_animal/lizard, /mob/living/simple_animal/mouse)
+	var/list/accept_mobs = list(/mob/living/simple_animal/lizard, /mob/living/simple_animal/rat)
 	var/contains = 0 // 0 = nothing, 1 = money, 2 = animal, 3 = spiderling
 	drop_sound = 'sound/items/drop/glass.ogg'
 
