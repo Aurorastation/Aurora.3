@@ -435,11 +435,11 @@ var/datum/controller/subsystem/timer/SStimer
 	if (!istext(id))
 		if (istype(id, /datum/timedevent))
 			timer = id
-			var/datum/callback/callBack = timer.callBack
-			callBack.Invoke()
-			timer.spent = TRUE
-			qdel(id)
-			return TRUE
+
+			
+
+
+
 	else 
 		timer = SStimer.timer_id_dict["timerid[id]"]
 
