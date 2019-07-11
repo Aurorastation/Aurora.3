@@ -56,23 +56,6 @@
 				G.spawn_mob()
 			return get_turf(G)
 
-/datum/controller/subsystem/ghostroles/proc/get_spawner_data(mob/user)
-	var/list/data = list()
-
-	for(var/s in spawners)
-		var/datum/ghostspawner/G = spawners[s]
-		if(G.cant_see(user))
-			continue
-		data[G.short_name] = list()
-		data[G.short_name]["name"] = G.name
-		data[G.short_name]["desc"] = G.desc
-		data[G.short_name]["cant_spawn"] = G.cant_spawn(user)
-		data[G.short_name]["can_edit"] = G.can_edit(user)
-		data[G.short_name]["enabled"] = G.enabled
-		data[G.short_name]["count"] = G.count
-		data[G.short_name]["max_count"] = G.max_count
-	return data
-
 /datum/controller/subsystem/ghostroles/ui_interact(mob/user)
 	var/datum/vueui/ui = SSvueui.get_open_ui(user,src)
 	if(!ui)
@@ -80,14 +63,21 @@
 	ui.open()
 
 /datum/controller/subsystem/ghostroles/vueui_data_change(var/list/newdata, var/mob/user, var/datum/vueui/ui)
-	var/list/data = list()
-	data["spawners"] = get_spawner_data(user)
-	return data
-
-	// Here we can add checks for difference of state and alter it
-	// or do actions depending on its change
-	//if(newdata["counter"] >= 10)
-	//	return list("counter" = 0)
+	if(!newdata)
+		. = newdata = list()
+	LAZYINITLIST(newdata["spawners"])
+	for(var/s in spawners)
+		var/datum/ghostspawner/G = spawners[s]
+		if(G.cant_see(user))
+			continue
+		LAZYINITLIST(newdata["spawners"][G.short_name])
+		VUEUI_SET_CHECK(newdata["spawners"][G.short_name]["name"], G.name, ., newdata)
+		VUEUI_SET_CHECK(newdata["spawners"][G.short_name]["desc"], G.desc, ., newdata)
+		VUEUI_SET_CHECK(newdata["spawners"][G.short_name]["cant_spawn"], G.cant_spawn(user), ., newdata)
+		VUEUI_SET_CHECK(newdata["spawners"][G.short_name]["can_edit"], G.can_edit(user), ., newdata)
+		VUEUI_SET_CHECK(newdata["spawners"][G.short_name]["enabled"], G.enabled, ., newdata)
+		VUEUI_SET_CHECK(newdata["spawners"][G.short_name]["count"], G.count, ., newdata)
+		VUEUI_SET_CHECK(newdata["spawners"][G.short_name]["max_count"], G.max_count, ., newdata)
 
 /datum/controller/subsystem/ghostroles/Topic(href, href_list)
 	if(href_list["action"] == "spawn")

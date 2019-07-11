@@ -8,7 +8,7 @@
         <th>Description</th>
         <th>Actions</th>
       </tr>
-      <tr v-for="(data,index) in spawnchoices" :key="index">
+      <tr v-for="(data,index) in spawners" :key="index">
         <td>{{data.name}}</td>
         <td>{{data.desc}}</td>
         <td>
@@ -25,15 +25,6 @@
 export default {
   data() {
     return this.$root.$data.state;
-  },
-  computed: {
-    spawnchoices() {
-      if(typeof this.spawners === 'object') {
-        return this.spawners
-      } else {
-        return {}
-      }
-    }
   }
 }
 </script>

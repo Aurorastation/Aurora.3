@@ -65,7 +65,7 @@
 /datum/ghostspawner/human/cciaescort
 	short_name = "cciaescort"
 	name = "CCIA Escort"
-	desc = "Escort a CCIA Agent to the station, watch them annoy the crew and prevent them from throwing themselfs under their own shuttle."
+	desc = "Escort a CCIA Agent to the station, watch them annoy the crew and prevent them from throwing themselvs under their own shuttle."
 
 	enabled = FALSE
 	landmark_name = "CCIAEscort"
@@ -90,7 +90,7 @@
 /datum/ghostspawner/human/checkpointsec
 	short_name = "checkpointsec"
 	name = "Odin Checkpoint Security"
-	desc = "Secure the odin checkpoint. Verify the identity of eveyone passing through, perform random searches on \"suspicious\" crew."
+	desc = "Secure the Odin checkpoint. Verify the identity of everyone passing through, perform random searches on \"suspicious\" crew."
 
 	enabled = FALSE
 	spawnpoints = list("OdinCheckpoint")
