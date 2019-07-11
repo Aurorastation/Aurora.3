@@ -203,6 +203,7 @@
 	head = /obj/item/clothing/head/beret/centcom/commander
 	r_pocket = /obj/item/weapon/melee/telebaton
 	pda = /obj/item/device/pda/central
+	id = /obj/item/weapon/card/id/centcom
 	backpack_contents = null
 
 	implants = list(
@@ -233,13 +234,11 @@
 	l_ear = /obj/item/device/radio/headset/ert
 	glasses = /obj/item/clothing/glasses/sunglasses
 	backpack_contents = null
+	id = /obj/item/weapon/card/id/centcom
 
 /datum/outfit/admin/nt/ert/get_id_assignment()
 	return "Emergency Responder"
 
-
-/datum/outfit/admin/nt/ert/equipped
-	name = "ERT Trooper (Equipped)"
 
 /datum/outfit/admin/nt/odinsec
 	name = "NTCC Odin Security Specialist"
