@@ -703,13 +703,6 @@
 	},
 /area/turret_protected/ai)
 "bi" = (
-/obj/machinery/door/window{
-	base_state = "right";
-	dir = 2;
-	icon_state = "left";
-	name = "Core Modules";
-	req_access = list(20)
-	},
 /obj/structure/table/standard,
 /obj/item/weapon/aiModule/robocop,
 /obj/item/weapon/aiModule/paladin,
@@ -720,13 +713,6 @@
 	},
 /area/turret_protected/ai)
 "bj" = (
-/obj/machinery/door/window{
-	base_state = "right";
-	dir = 2;
-	icon_state = "right";
-	name = "Core Modules";
-	req_access = list(20)
-	},
 /obj/structure/table/standard,
 /obj/item/weapon/aiModule/freeformcore,
 /obj/item/weapon/aiModule/asimov,
