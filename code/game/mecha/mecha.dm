@@ -669,7 +669,7 @@
 
 /obj/mecha/bullet_act(var/obj/item/projectile/Proj)
 	// We do not care about test projectile
-	if(!Proj.damage)
+	if(istype(Proj, /obj/item/projectile/test))
 		return
 
 	if(Proj.damage_type == HALLOSS && !(src.r_deflect_coeff > 1))
