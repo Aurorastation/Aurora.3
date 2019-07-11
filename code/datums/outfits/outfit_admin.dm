@@ -329,6 +329,29 @@
 		/obj/item/weapon/implant/loyalty
 	)
 
+/datum/outfit/admin/nt/tcfl_commander
+	name = "TCFL Commander"
+
+	uniform = /obj/item/clothing/under/legion
+	shoes = /obj/item/clothing/shoes/jackboots
+	l_ear = /obj/item/device/radio/headset/legion
+	head = /obj/item/clothing/head/legion_beret
+	belt = /obj/item/weapon/storage/belt/security/tactical
+
+	backpack_contents = list(
+		/obj/item/weapon/gun/projectile/revolver = 1,
+		/obj/item/clothing/accessory/holster/hip = 1,
+		/obj/item/clothing/accessory/legion = 1,
+		/obj/item/weapon/storage/box/flashbangs = 1
+	)
+
+	belt_contents = list(
+		/obj/item/weapon/melee/baton/loaded = 1,
+		/obj/item/weapon/handcuffs = 2,
+		/obj/item/ammo_magazine/a357 = 2,
+		/obj/item/device/flash = 1
+	)
+
 /datum/outfit/admin/nt/cciaa
 	name = "CCIA Agent"
 
@@ -362,6 +385,14 @@
 
 	backpack_contents = null
 
+	belt_contents = list(
+		/obj/item/weapon/reagent_containers/spray/pepper = 1,
+		/obj/item/weapon/melee/baton/loaded = 1,
+		/obj/item/weapon/grenade/chem_grenade/gas = 1,
+		/obj/item/device/flash = 1,
+		/obj/item/ammo_magazine/c45x = 2
+	)
+
 	implants = list(
 		/obj/item/weapon/implant/loyalty
 	)
@@ -376,22 +407,6 @@
 		holster.holstered = weapon
 		var/obj/item/clothing/under/rank/U = H.w_uniform
 		U.attach_accessory(null, holster)
-
-	if(H && H.belt)
-
-		var/obj/item/weapon/reagent_containers/spray/pepper/pepperspray = new(H)
-		var/obj/item/weapon/melee/baton/loaded/baton = new(H)
-		var/obj/item/weapon/grenade/chem_grenade/gas/gasgrenade = new(H)
-		var/obj/item/device/flash/flash = new(H)
-		var/obj/item/ammo_magazine/c45x/mag1 = new(H)
-		var/obj/item/ammo_magazine/c45x/mag2 = new(H)
-
-		H.belt.contents += mag1
-		H.belt.contents += mag2
-		H.belt.contents += gasgrenade
-		H.belt.contents += pepperspray
-		H.belt.contents += flash
-		H.belt.contents += baton
 
 /datum/outfit/admin/nt/specops
 	name = "Special Operations Officer"

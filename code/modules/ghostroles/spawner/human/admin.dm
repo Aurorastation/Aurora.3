@@ -1,7 +1,7 @@
 /datum/ghostspawner/human/ert_commander
 	short_name = "ertcommander"
 	name = "ERT Commander"
-	desc = "Command the Response team from Central Command"
+	desc = "Command the response team from Central Command"
 
 	landmark_name = "ERTCommander"
 	req_perms = R_CCIAA
@@ -14,6 +14,27 @@
 
 	assigned_role = "Emergency Response Team Commander"
 	special_role = "ERT Commander"
+	respawn_flag = null
+
+	mob_name = null
+	mob_name_prefix = "Cmdr. "
+
+/datum/ghostspawner/human/legion_commander
+	short_name = "legioncommander"
+	name = "TCFL Commander"
+	desc = "Command the TCFL, a walking and talking joke, whos members regularly die before they even arrive at their target."
+
+	landmark_name = "TCFLCommander"
+	req_perms = R_CCIAA
+
+	//Vars related to human mobs
+	outfit = /datum/outfit/admin/nt/tcfl_commander
+	possible_species = list("Human")
+	possible_genders = list(MALE,FEMALE)
+	allow_appearance_change = TRUE
+
+	assigned_role = "Tau Ceti Foreign Legion Commander"
+	special_role = "TCFL Commander"
 	respawn_flag = null
 
 	mob_name = null
@@ -58,12 +79,12 @@
 	possible_genders = list(MALE,FEMALE)
 	allow_appearance_change = TRUE
 
-	assigned_role = "Emergency Response Team Protection Detail"
-	special_role = "ERT Protection Detail"
+	assigned_role = "Civil Protection Officer"
+	special_role = "Civil Protection Officer"
 	respawn_flag = null
 
 	mob_name = null
-	mob_name_prefix = "S/Tpr. "
+	mob_name_prefix = "Ofc. "
 
 
 /datum/ghostspawner/human/checkpointsec

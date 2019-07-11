@@ -23757,7 +23757,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/centcom/legion)
 "bbm" = (
-/obj/structure/bed/chair/comfy/black,
+/obj/effect/landmark{
+	name = "TCFLCommander"
+	},
 /turf/simulated/floor/carpet/blue,
 /area/centcom/legion)
 "bbn" = (
@@ -25139,6 +25141,15 @@
 	dir = 4
 	},
 /area/centcom/living)
+"tou" = (
+/obj/effect/landmark{
+	name = "CCIAEscort"
+	},
+/turf/unsimulated/floor{
+	icon_state = "vault";
+	dir = 5
+	},
+/area/centcom/ferry)
 "tAQ" = (
 /obj/machinery/door/blast/regular{
 	density = 0;
@@ -60753,7 +60764,7 @@ aDm
 aDm
 aDM
 aDY
-cDy
+tou
 aDY
 aDM
 aEN
