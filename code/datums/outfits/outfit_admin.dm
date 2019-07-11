@@ -329,6 +329,19 @@
 		/obj/item/weapon/implant/loyalty
 	)
 
+/datum/outfit/admin/nt/cciaa
+	name = "CCIA Agent"
+
+	uniform = /obj/item/clothing/under/rank/centcom_officer
+	suit = /obj/item/clothing/suit/storage/toggle/internalaffairs/cciaa
+	shoes = /obj/item/clothing/shoes/laceup
+	gloves = /obj/item/clothing/gloves/white
+	l_ear = /obj/item/device/radio/headset/ert/ccia
+	glasses = /obj/item/clothing/glasses/sunglasses/sechud
+	head = /obj/item/clothing/head/beret/centcom/officer
+	l_pocket = /obj/item/weapon/reagent_containers/spray/pepper
+	r_pocket = /obj/item/device/taperecorder/cciaa
+	l_hand = /obj/item/weapon/storage/lockbox/cciaa
 
 /datum/outfit/admin/nt/odinsec
 	name = "NTCC Odin Security Specialist"

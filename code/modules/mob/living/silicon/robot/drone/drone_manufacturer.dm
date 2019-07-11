@@ -83,3 +83,5 @@
 	new_drone.master_fabricator = src
 
 	drone_progress = 0
+
+	return new_drone

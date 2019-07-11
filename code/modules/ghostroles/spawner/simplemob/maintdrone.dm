@@ -33,6 +33,5 @@
 	fabricator = all_fabricators[choice]
 
 	if(user && fabricator && !((fabricator.stat & NOPOWER) || !fabricator.produce_drones || fabricator.drone_progress < 100))
-		fabricator.create_drone(user.client)
-		return TRUE
+		return fabricator.create_drone(user.client)
 	return FALSE

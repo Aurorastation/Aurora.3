@@ -27,7 +27,7 @@
 		LAZYSET(spawners, G.short_name, G)
 
 //Adds a spawnpoint to the spawnpoint list
-/datum/controller/subsystem/ghostroles/proc/add_spawnpoints(var/obj/structure/ghostspawner/G)
+/datum/controller/subsystem/ghostroles/proc/add_spawnpoints(var/obj/effect/ghostspawner/G)
 	if(!G.identifier) //If the spawnpoint has no identifier -> Abort
 		log_ss("ghostroles","Spawner [G] at [G.x],[G.y],[G.z] has no identifier set")
 		qdel(G)
@@ -38,7 +38,7 @@
 	
 	spawnpoints[G.identifier].Add(G)
 	
-/datum/controller/subsystem/ghostroles/proc/remove_spawnpoints(var/obj/structure/ghostspawner/G)
+/datum/controller/subsystem/ghostroles/proc/remove_spawnpoints(var/obj/effect/ghostspawner/G)
 	spawnpoints[G.identifier].Remove(G)
 	return
 
@@ -50,7 +50,7 @@
 		return FALSE
 
 	for (var/spawnpoint in spawnpoints[identifier])
-		var/obj/structure/ghostspawner/G = spawnpoint
+		var/obj/effect/ghostspawner/G = spawnpoint
 		if(G.is_available())
 			if(use)
 				G.spawn_mob()
@@ -94,11 +94,20 @@
 		var/datum/ghostspawner/S = spawners[spawner]
 		if(!S)
 			return
-		if(S.cant_spawn(usr))
+		var/cant_spawn = S.cant_spawn(usr)
+		if(cant_spawn)
+			to_chat(usr, "Unable to spawn: [cant_spawn]")
 			return
-		S.pre_spawn(usr)
-		S.spawn_mob(usr)
-		S.post_spawn(usr)
+		if(!S.pre_spawn(usr))
+			to_chat(usr, "Unable to spawn: pre_spawn failed. Report this on GitHub")
+			return
+		var/mob/M = S.spawn_mob(usr)
+		if(!M)
+			to_chat(usr, "Unable to spawn: spawn_mob failed. Report this on GitHub")
+			return
+		if(!S.post_spawn(M))
+			to_chat(usr, "Unable to spawn: post_spawn failed. Report this on GitHub")
+			return
 	if(href_list["action"] == "enable")
 		var/datum/ghostspawner/S = spawners[href_list["spawner"]]
 		if(!S)

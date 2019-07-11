@@ -2,6 +2,7 @@
 	short_name = "rat"
 	name = "Rat"
 	desc = "Join as a Rat on the aurora, a common nuciance to the crew."
+	welcome_message = "You are now a rat. Though you may interact with players, do not give any hints away that you are more than a simple rodent. Find food, avoid cats, and try to survive!"
 
 	respawn_flag = ANIMAL //Flag to check for when trying to spawn someone of that type (CREW, ANIMAL, MINISYNTH)
 
@@ -24,15 +25,16 @@
 /datum/ghostspawner/simplemob/rat/spawn_mob(mob/user)
 	//Select a spawnpoint (if available)
 	var/turf/T = select_spawnpoint()
-	var/mob/living/simple_animal/host
+	var/mob/living/simple_animal/S
 	if (T)
-		host = new spawn_mob(T)
+		S = new spawn_mob(T)
 	else
 		to_chat(user, "<span class='warning'>Unable to find any safe, unwelded vents to spawn rats at. The station must be quite a mess!  Trying again might work, if you think there's still a safe place. </span>")
 
-	if(host)
+	if(S)
 		if(config.uneducated_rats)
-			host.universal_understand = 0
-		announce_ghost_joinleave(user, 0, "They are now a rat.")
-		host.ckey = user.ckey
-		to_chat(host, "<span class='info'>You are now a rat. Though you may interact with players, do not give any hints away that you are more than a simple rodent. Find food, avoid cats, and try to survive!</span>")
+			S.universal_understand = 0
+		announce_ghost_joinleave(user, 0, "They are now a [name].")
+		S.ckey = user.ckey
+
+	return S
