@@ -668,6 +668,10 @@
 	return
 
 /obj/mecha/bullet_act(var/obj/item/projectile/Proj)
+	// We do not care about test projectile
+	if(!Proj.damage)
+		return
+
 	if(Proj.damage_type == HALLOSS && !(src.r_deflect_coeff > 1))
 		use_power(Proj.agony * 5)
 
