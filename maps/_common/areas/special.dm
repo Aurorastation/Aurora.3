@@ -220,7 +220,7 @@
 	base_turf = /turf/unsimulated/floor/asteroid/ash
 
 /area/skipjack_station/above
-	name = "\improper Above the Station"
+	name = "\improper Telecomms Roof"
 	icon_state = "northwest"
 
 /area/skipjack_station/under
@@ -231,6 +231,10 @@
 	name = "\improper Caverns"
 	icon_state = "southeast"
 	base_turf = /turf/unsimulated/floor/asteroid/ash
+
+/area/skipjack_station/above2
+	name = "\improper Pool Roof"
+	icon_state = "northeast"
 
 /area/skipjack_station/crashed
 	name = "\improper Crashed Skipjack"

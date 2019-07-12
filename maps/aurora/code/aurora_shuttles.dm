@@ -41,7 +41,7 @@
 		pod = new/datum/shuttle/ferry/escape_pod()
 		settings = list(
 					1, 10, locate(areas_p[x][1]), locate(areas_p[x][5]), locate(areas_p[x][3]), NORTH, SHUTTLE_TRANSIT_DURATION_RETURN + rand(-30, 60),
-					locate(areas_p[x][1]),	null, "escape_pod_[x]", "escape_pod_[x]_berth", null, 
+					locate(areas_p[x][1]),	null, "escape_pod_[x]", "escape_pod_[x]_berth", null,
 					areas_p[x][2], areas_p[x][5], areas_p[x][4], areas_p[x][6]
 		)
 		pod.init_shuttle(settings)
@@ -57,7 +57,7 @@
 		shuttles["Escape Pod 5"],
 		shuttles["Escape Pod 6"]
 	)
-	
+
 	// Admin shuttles.
 	shuttle = new()
 	settings = list(
@@ -66,7 +66,7 @@
 					"centcom_shuttle_dock_airlock", "centcom_shuttle_bay"
 	)
 	shuttle.init_shuttle(settings)
-	shuttles["Centcom"] = shuttle	
+	shuttles["Centcom"] = shuttle
 	START_PROCESSING(shuttle_controller, shuttle)
 
 	shuttle = new()
@@ -99,7 +99,7 @@
 					"specops_shuttle_port", "specops_shuttle_fore"
 	)
 	ERT.init_shuttle(settings)
-	shuttles["Special Operations"] = ERT	
+	shuttles["Special Operations"] = ERT
 	START_PROCESSING(shuttle_controller, ERT)
 
 	//Skipjack.
@@ -107,9 +107,10 @@
 	VS.origin = locate(/area/skipjack_station/start)
 
 	VS.destinations = list(
-		"Surface of the station" = locate(/area/skipjack_station/surface),
-		"Under the station" = locate(/area/skipjack_station/under),
-		"Above the station" = locate(/area/skipjack_station/above),
+		"Surface of the station - Aft of Cargo" = locate(/area/skipjack_station/surface),
+		"Under the station - By the Engine Radiator" = locate(/area/skipjack_station/under),
+		"Above the station - By Telecomms" = locate(/area/skipjack_station/above),
+		"Above the station - By the Pool" = locate(/area/skipjack_station/above2),
 		"Mining caverns" = locate(/area/skipjack_station/cavern)
 	)
 
@@ -127,10 +128,10 @@
 	MS.start_location = "Mercenary Base"
 
 	MS.destinations = list(
-		"Surface of the station" = locate(/area/syndicate_station/surface),
-		"Above the station" = locate(/area/syndicate_station/above),
-		"Under the station" = locate(/area/syndicate_station/under),
-		"Mining caverns" = locate(/area/syndicate_station/caverns),
+		"Surface of the station - By Cargo Dock" = locate(/area/syndicate_station/surface),
+		"Above the station - By Command Roof" = locate(/area/syndicate_station/above),
+		"Under the station - By the Engine Radiator" = locate(/area/syndicate_station/under),
+		"Mining caverns - Fore of Security" = locate(/area/syndicate_station/caverns),
 		"Arrivals dock" = locate(/area/syndicate_station/arrivals_dock)
 	)
 
