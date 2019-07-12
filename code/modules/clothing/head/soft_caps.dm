@@ -76,9 +76,13 @@
 
 /obj/item/clothing/head/soft/sec/corp
 	name = "corporate security cap"
-	desc = "It's field cap in corporate colors."
+	desc = "It's a field cap in corporate colors."
 	icon_state = "corpsoft"
 
+/obj/item/clothing/head/soft/sec/idris
+	name = "idris security cap"
+	desc = "It's a field cap in the colors of Idris Incorporated."
+	icon_state = "idriscap"
 
 /obj/item/clothing/head/soft/iacberet
 	name = "IAC soft cap"

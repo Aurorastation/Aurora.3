@@ -108,6 +108,26 @@
 	desc = "A white beret adorned with the crest of an ERT detachment. Worn by commanders of Nanotrasen response teams."
 	icon_state = "centcomcaptain"
 
+/obj/item/clothing/head/beret/necropolis
+	name = "necropolis security beret"
+	desc = "A tan beret adorned with the familiarly sinister logo of Necropolis Industries."
+	icon_state = "necrosecberet"
+	item_state = "necrosecberet"
+
+/obj/item/clothing/head/beret/necropolis/alt
+	name = "necropolis security beret"
+	desc = "A black beret adorned with the familiarly sinister logo of Necropolis Industries."
+	icon_state = "necrosecaltberet"
+	item_state = "necrosecaltberet"
+
+/obj/item/clothing/head/beret/eridani
+	name = "eridani pmc beret"
+	desc = "A gray beret adorned with the insignia of the Eridani Corporate Federation."
+	icon_state = "erisecberet"
+	item_state = "erisecberet"
+
+/obj/item/clothing/
+
 //Medical
 /obj/item/clothing/head/surgery
 	name = "surgical cap"

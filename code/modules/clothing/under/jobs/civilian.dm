@@ -175,22 +175,46 @@
 	worn_state = "miner"
 
 /obj/item/clothing/under/rank/hephaestus
-	name = "Hephaestus Industries uniform"
-	desc = "A uniform worn by Hephaestus Industries employees and contractors."
-	icon_state = "heph"
-	worn_state = "heph"
+	name = "Hephaestus Industries engineering uniform"
+	desc = "A durable jumpsuit worn by Hephaestus Industries employees and contractors working in engineering fields."
+	icon_state = "heph_engineer"
+	worn_state = "heph_engineer"
+
+/obj/item/clothing/under/rank/hephaestus/cargo
+	name = "Hephaestus Industries logistics uniform"
+	desc = "A durable jumpsuit worn by Hephaestus Industries employees and contractors working in logistics."
+	icon_state = "heph_technician"
+	worn_state = "heph_technician"
+
+/obj/item/clothing/under/rank/hephaestus/research
+	name = "Hephaestus Industries research uniform"
+	desc = "A more casual jumpsuit worn by Hephaestus Industries employees and contractors working in research fields."
+	icon_state = "heph_research"
+	worn_state = "heph_research"
 
 /obj/item/clothing/under/rank/necropolis
-	name = "Necropolis Industries uniform"
-	desc = "A uniform worn by Necropolis Industries employees and contractors."
-	icon_state = "necro"
-	worn_state = "necro"
+	name = "Necropolis Industries research uniform"
+	desc = "A black and red jumpsuit worn by Necropolis Industries employees and contractors working in research fields."
+	icon_state = "necro_research"
+	worn_state = "necro_research"
+
+/obj/item/clothing/under/rank/necropolis/alt
+	name = "Necropolis Industries research uniform"
+	desc = "A tan and red jumpsuit worn by Necropolis Industries employees and contractors working in research fields."
+	icon_state = "necro_research_alt"
+	worn_state = "necro_research_alt"
 
 /obj/item/clothing/under/rank/idris
-	name = "Idris Incorporated uniform"
-	desc = "A uniform worn by Idris Incorporated employees and contractors."
-	icon_state = "idris"
-	worn_state = "idris"
+	name = "Idris Incorporated service uniform"
+	desc = "A uniform with pants worn by Idris Incorporated employees and contractors working in service fields."
+	icon_state = "idris_service"
+	worn_state = "idris_service"
+
+/obj/item/clothing/under/rank/idris/alt
+	name = "Idris Incorporated service uniform"
+	desc = "A uniform with a skirt worn by Idris Incorporated employees and contractors working in service fields."
+	icon_state = "idris_service_alt"
+	worn_state = "idris_service_alt"
 
 /obj/item/clothing/under/rank/einstein_engines
 	name = "Einstein Engines uniform"
@@ -199,7 +223,13 @@
 	worn_state = "einstein_engine"
 
 /obj/item/clothing/under/rank/zeng
-	name = "Zeng-Hu uniform"
-	desc = "A uniform worn by Zeng-Hu employees and contractors."
-	icon_state = "zhu"
-	worn_state = "zhu"
+	name = "Zeng-Hu research uniform"
+	desc = "A snappy jumpsuit worn by Zeng-Hu employees and contractors working in research fields."
+	icon_state = "zeng_research"
+	worn_state = "zeng_research"
+
+/obj/item/clothing/under/rank/zeng/service
+	name = "Zeng-Hu service uniform"
+	desc = "A tangzhuang and pants worn by Zeng-Hu employees and contractors working in service fields."
+	icon_state = "zeng_service"
+	worn_state = "zeng_service"

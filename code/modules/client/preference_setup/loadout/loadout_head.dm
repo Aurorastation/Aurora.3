@@ -210,7 +210,6 @@
 	..()
 	gear_tweaks = list(gear_tweak_free_color_choice)
 
-
 /datum/gear/head/iacberet
 	display_name = "IAC Beret"
 	path = /obj/item/clothing/head/soft/iacberet
@@ -219,3 +218,18 @@
 /datum/gear/head/tcflberet
 	display_name = "Tau Ceti Foreign Legion dress beret"
 	path = /obj/item/clothing/head/legion_beret
+
+/datum/gear/head/contractor
+	display_name = "security contractor hat selection"
+	description = "A selection of security contractor hats."
+	path = /obj/item/clothing/head/beret/necropolis
+	allowed_roles = list("Security Officer","Head of Security", "Warden", "Security Cadet", "Detective", "Forensic Technician",)
+
+/datum/gear/head/cap/New()
+	..()
+	var/contractorhats = list()
+	contractorhats["necropolis security beret"] = /obj/item/clothing/head/beret/necropolis
+	contractorhats["necropolis security beret, alt"] = /obj/item/clothing/head/beret/necropolis/alt
+	contractorhats["eridani pmc beret"] = /obj/item/clothing/head/beret/eridani
+	contractorhats["idris security cap"] = /obj/item/clothing/head/soft/sec/idris
+	gear_tweaks += new/datum/gear_tweak/path(contractorhats)

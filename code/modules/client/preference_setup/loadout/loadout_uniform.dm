@@ -163,6 +163,7 @@
 	..()
 	var/uniform = list()
 	uniform["Necropolis Industries security uniform"] = /obj/item/clothing/under/rank/security/necropolis
+	uniform["Necropolis Industries security uniform, alt"] = /obj/item/clothing/under/rank/security/necropolis/alt
 	uniform["Idris Incorporated security uniform"] = /obj/item/clothing/under/rank/security/idris
 	uniform["Idris Incorporated security uniform, alternative"] = /obj/item/clothing/under/rank/security/idris/alt
 	uniform["Eridani PMC uniform"] = /obj/item/clothing/under/rank/security/eridani
@@ -251,11 +252,16 @@
 /datum/gear/uniform/contractors/New()
 	..()
 	var/uniform = list()
-	uniform["Hephaestus Industries uniform"] = /obj/item/clothing/under/rank/hephaestus
-	uniform["Necropolis Industries uniform"] = /obj/item/clothing/under/rank/necropolis
-	uniform["Idris Incorporated uniform"] = /obj/item/clothing/under/rank/idris
+	uniform["Hephaestus Industries engineering uniform"] = /obj/item/clothing/under/rank/hephaestus
+	uniform["Hephaestus Industries cargo uniform"] = /obj/item/clothing/under/rank/hephaestus/cargo
+	uniform["Hephaestus Industries research uniform"] = /obj/item/clothing/under/rank/hephaestus/research
+	uniform["Necropolis Industries research uniform"] = /obj/item/clothing/under/rank/necropolis
+	uniform["Necropolis Industries research uniform, alt"] = /obj/item/clothing/under/rank/necropolis/alt
+	uniform["Idris Incorporated service uniform"] = /obj/item/clothing/under/rank/idris
+	uniform["Idris Incorporated service uniform, alt"] = /obj/item/clothing/under/rank/idris/alt
 	uniform["Einstein Engines uniform"] = /obj/item/clothing/under/rank/einstein_engines
-	uniform["Zeng-Hu Pharmaceuticals uniform"] = /obj/item/clothing/under/rank/zeng
+	uniform["Zeng-Hu Pharmaceuticals research uniform"] = /obj/item/clothing/under/rank/zeng
+	uniform["Zeng-Hu Pharmaceuticals service uniform"] = /obj/item/clothing/under/rank/zeng/service
 	gear_tweaks += new/datum/gear_tweak/path(uniform)
 
 /datum/gear/uniform/officer

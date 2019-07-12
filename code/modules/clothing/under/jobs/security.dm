@@ -97,9 +97,15 @@
 
 /obj/item/clothing/under/rank/security/necropolis
 	name = "Necropolis Industries security uniform"
-	desc = "A uniform worn by Necropolis Industries security forces."
+	desc = "A black and red worn by Necropolis Industries security forces."
 	icon_state = "necro_sec"
 	worn_state = "necro_sec"
+
+/obj/item/clothing/under/rank/security/necropolis/alt
+	name = "Necropolis Industries security uniform"
+	desc = "A tan uniform worn by Necropolis Industries security forces."
+	icon_state = "necro_sec_alt"
+	worn_state = "necro_sec_alt"
 
 /obj/item/clothing/under/rank/security/idris
 	name = "Idris Incorporated security uniform"
@@ -114,9 +120,9 @@
 /obj/item/clothing/under/rank/security/eridani
 	name = "Eridani PMC uniform"
 	desc = "A uniform worn by contracted Eridani security forces."
-	icon_state = "erisec"
-	worn_state = "erisec"
+	icon_state = "eridani_officer"
+	worn_state = "eridani_officer"
 
 /obj/item/clothing/under/rank/security/eridani/alt
-	icon_state = "erisec_alt"
-	worn_state = "erisec_alt"
+	icon_state = "eridani_alternate"
+	worn_state = "eridani_alternate"
