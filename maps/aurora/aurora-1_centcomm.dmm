@@ -10345,6 +10345,7 @@
 "azn" = (
 /obj/structure/closet/crate/freezer/rations,
 /obj/effect/decal/cleanable/dirt,
+/obj/item/weapon/storage/box/drinkingglasses,
 /turf/simulated/shuttle/floor/plating/destructible/black,
 /area/skipjack_station/start)
 "azo" = (
@@ -10385,7 +10386,8 @@
 /area/centcom/control)
 "azr" = (
 /obj/structure/table/rack,
-/obj/item/weapon/storage/box/drinkingglasses,
+/obj/item/hoist_kit,
+/obj/item/weapon/ladder_mobile,
 /turf/simulated/shuttle/floor/plating/destructible/black,
 /area/skipjack_station/start)
 "azs" = (
@@ -12085,11 +12087,7 @@
 /obj/structure/bed/chair{
 	dir = 1
 	},
-/obj/machinery/light/small{
-	brightness_color = "#DA0205";
-	brightness_power = 1;
-	brightness_range = 5
-	},
+/obj/machinery/light/small,
 /turf/simulated/shuttle/floor/destructible/merc/red,
 /area/shuttle/specops/centcom)
 "aCW" = (
@@ -13539,7 +13537,9 @@
 "aGv" = (
 /obj/structure/table/wood,
 /obj/item/clothing/glasses/thermal/plain/monocle,
-/obj/item/clothing/head/pirate,
+/obj/item/clothing/head/pirate{
+	pixel_y = -10
+	},
 /turf/unsimulated/floor{
 	dir = 8;
 	icon_state = "wood"
@@ -14115,7 +14115,6 @@
 /obj/machinery/light/small{
 	dir = 1
 	},
-/obj/machinery/portable_atmospherics/hydroponics,
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
@@ -15757,7 +15756,8 @@
 /obj/machinery/light/small{
 	brightness_color = "#DA0205";
 	brightness_power = 1;
-	brightness_range = 5
+	brightness_range = 5;
+	name = "old light fixture"
 	},
 /turf/unsimulated/floor{
 	icon_state = "asteroid"
@@ -16818,8 +16818,8 @@
 /turf/simulated/shuttle/floor/plating/destructible/black,
 /area/skipjack_station/start)
 "aNz" = (
-/obj/structure/table/steel,
 /obj/random/melee,
+/obj/structure/table/reinforced/steel,
 /turf/simulated/shuttle/floor/destructible/merc/red,
 /area/skipjack_station/start)
 "aNA" = (
@@ -16827,8 +16827,8 @@
 /turf/simulated/shuttle/floor/destructible/merc/red,
 /area/skipjack_station/start)
 "aNB" = (
-/obj/structure/table/steel,
 /obj/item/weapon/card/emag,
+/obj/structure/table/reinforced/steel,
 /turf/simulated/shuttle/floor/destructible/merc/red,
 /area/skipjack_station/start)
 "aNC" = (
@@ -17553,12 +17553,10 @@
 /area/skipjack_station/start)
 "aPl" = (
 /obj/machinery/atmospherics/pipe/simple/visible,
-/obj/vehicle/bike,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/shuttle/floor/plating/destructible/black,
 /area/skipjack_station/start)
 "aPn" = (
-/obj/structure/table/standard,
 /obj/item/stack/material/steel{
 	amount = 50
 	},
@@ -17568,6 +17566,7 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
+/obj/structure/table/rack,
 /turf/simulated/shuttle/floor/destructible/merc/red,
 /area/skipjack_station/start)
 "aPo" = (
@@ -17575,6 +17574,9 @@
 /obj/item/weapon/grenade/empgrenade,
 /obj/item/weapon/grenade/flashbang,
 /obj/item/weapon/grenade/spawnergrenade/manhacks,
+/obj/machinery/light/small{
+	dir = 4
+	},
 /turf/simulated/shuttle/floor/destructible/merc/red,
 /area/skipjack_station/start)
 "aPr" = (
@@ -17713,6 +17715,7 @@
 "aPD" = (
 /obj/machinery/door/airlock/hatch{
 	name = "Brig";
+	open_duration = 20;
 	req_access = list(150)
 	},
 /turf/simulated/shuttle/floor/plating/destructible/black,
@@ -17749,18 +17752,11 @@
 /turf/simulated/shuttle/floor/destructible/merc/red,
 /area/skipjack_station/start)
 "aPH" = (
-/obj/structure/sink{
-	icon_state = "sink";
-	dir = 8;
-	pixel_x = -12;
-	pixel_y = 2
-	},
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/shuttle/floor/plating/destructible/black,
-/area/skipjack_station/start)
-"aPI" = (
-/obj/item/weapon/crowbar,
-/obj/item/weapon/wrench,
+/obj/vehicle/bike{
+	icon_state = "bike_off";
+	dir = 8
+	},
 /turf/simulated/shuttle/floor/plating/destructible/black,
 /area/skipjack_station/start)
 "aPJ" = (
@@ -17771,7 +17767,10 @@
 	unlocked = 1;
 	use_power = 0
 	},
-/obj/machinery/washing_machine,
+/obj/structure/table/rack,
+/obj/item/airbubble/syndie,
+/obj/item/airbubble/syndie,
+/obj/item/airbubble/syndie,
 /turf/simulated/shuttle/floor/plating/destructible/black,
 /area/skipjack_station/start)
 "aPK" = (
@@ -17911,10 +17910,8 @@
 /turf/simulated/shuttle/floor/destructible/merc/white,
 /area/skipjack_station/start)
 "aQd" = (
-/obj/structure/toilet{
-	dir = 4
-	},
 /obj/effect/decal/cleanable/dirt,
+/obj/machinery/washing_machine,
 /turf/simulated/shuttle/floor/plating/destructible/black,
 /area/skipjack_station/start)
 "aQe" = (
@@ -18206,7 +18203,7 @@
 /area/skipjack_station/start)
 "aQH" = (
 /obj/structure/table/standard,
-/obj/item/weapon/legcuffs,
+/obj/item/weapon/handcuffs,
 /turf/simulated/shuttle/floor/destructible/merc/black,
 /area/skipjack_station/start)
 "aQI" = (
@@ -18600,8 +18597,16 @@
 	},
 /area/wizard_station)
 "aRD" = (
+/obj/structure/sink/kitchen{
+	dir = 4;
+	icon_state = "sink_alt";
+	name = "sink";
+	pixel_x = -20;
+	pixel_y = 0
+	},
 /obj/machinery/light/small{
-	dir = 8
+	name = "old light fixture";
+	pixel_x = 16
 	},
 /turf/simulated/shuttle/floor/destructible/merc/black,
 /area/skipjack_station/start)
@@ -21561,12 +21566,18 @@
 /turf/simulated/shuttle/floor/plating/destructible/black,
 /area/skipjack_station/start)
 "aYR" = (
-/obj/structure/table/rack,
-/obj/item/weapon/storage/toolbox/mechanical,
-/obj/item/weapon/extinguisher,
-/obj/item/weapon/extinguisher,
-/obj/machinery/light/small,
+/obj/item/weapon/extinguisher{
+	pixel_x = -2
+	},
+/obj/item/weapon/extinguisher{
+	pixel_x = 10
+	},
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/closet/crate,
+/obj/item/weapon/storage/toolbox/einstein/booster,
+/obj/item/weapon/storage/toolbox/einstein/booster,
+/obj/item/weapon/storage/toolbox/electrical,
+/obj/machinery/light/small,
 /turf/simulated/shuttle/floor/plating/destructible/black,
 /area/skipjack_station/start)
 "aYS" = (
@@ -21734,13 +21745,15 @@
 "boO" = (
 /turf/template_noop,
 /area/shuttle/escape_pod2/centcom/space)
+"brK" = (
+/obj/machinery/light/small{
+	dir = 8
+	},
+/turf/simulated/shuttle/floor/destructible/merc/black,
+/area/syndicate_station/start)
 "bvx" = (
 /obj/machinery/atmospherics/pipe/simple/visible,
 /obj/effect/decal/cleanable/generic,
-/obj/vehicle/bike{
-	icon_state = "bike_off";
-	dir = 8
-	},
 /turf/simulated/shuttle/floor/plating/destructible/black,
 /area/skipjack_station/start)
 "bvD" = (
@@ -21749,6 +21762,20 @@
 	icon_state = "carpetside"
 	},
 /area/centcom/living)
+"bxe" = (
+/obj/machinery/porta_turret{
+	cover_set = 1;
+	egun = 0;
+	installation = /obj/item/weapon/gun/energy/retro;
+	lethal = 1;
+	lethal_icon = 1;
+	name = "skipjack turret";
+	req_access = list(150);
+	req_one_access = null;
+	sprite_set = "captain"
+	},
+/turf/simulated/shuttle/floor/destructible/merc/red,
+/area/skipjack_station/start)
 "bBj" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced{
@@ -21783,17 +21810,6 @@
 	},
 /turf/simulated/shuttle/floor/plating/destructible/black,
 /area/skipjack_station/start)
-"cjI" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/turf/simulated/shuttle/floor/plating/destructible/black,
-/area/syndicate_station/start)
 "cnT" = (
 /obj/structure/window/shuttle,
 /obj/structure/grille,
@@ -21823,14 +21839,6 @@
 	name = "Internal Blast Shield"
 	},
 /turf/simulated/shuttle/floor/plating/destructible/black,
-/area/skipjack_station/start)
-"cXP" = (
-/obj/machinery/porta_turret{
-	ailock = 1;
-	req_access = list(150);
-	req_one_access = null
-	},
-/turf/simulated/shuttle/floor/destructible/merc/red,
 /area/skipjack_station/start)
 "dcz" = (
 /obj/structure/window/reinforced{
@@ -21917,18 +21925,6 @@
 	dir = 5
 	},
 /area/centcom/living)
-"dMz" = (
-/obj/machinery/atmospherics/pipe/simple/visible{
-	icon_state = "intact";
-	dir = 5
-	},
-/obj/structure/table/steel,
-/obj/item/clothing/glasses/night,
-/obj/item/clothing/glasses/night,
-/obj/item/clothing/glasses/night,
-/obj/item/clothing/glasses/night,
-/turf/simulated/shuttle/floor/destructible/merc,
-/area/syndicate_station/start)
 "dQN" = (
 /obj/effect/floor_decal/corner/blue{
 	icon_state = "corner_white";
@@ -22005,17 +22001,21 @@
 	},
 /turf/simulated/shuttle/floor/plating/destructible/black,
 /area/skipjack_station/start)
-"fol" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 4
-	},
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
+"fcR" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/item/weapon/wrench,
 /turf/simulated/shuttle/floor/plating/destructible/black,
+/area/skipjack_station/start)
+"fmc" = (
+/obj/item/device/radio/intercom{
+	desc = "Talk through this. Evilly";
+	frequency = 1213;
+	name = "Syndicate Intercom";
+	pixel_y = -32;
+	subspace_transmission = 1;
+	syndie = 1
+	},
+/turf/simulated/shuttle/floor/destructible/merc,
 /area/syndicate_station/start)
 "frH" = (
 /obj/effect/decal/cleanable/dirt,
@@ -22038,6 +22038,20 @@
 "fDW" = (
 /turf/simulated/shuttle/floor,
 /area/template_noop)
+"fHi" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	dir = 1;
+	maxhealth = 80;
+	name = "strengthened window"
+	},
+/obj/structure/window/reinforced,
+/turf/simulated/shuttle/floor/plating/destructible/black,
+/area/syndicate_station/start)
 "fIJ" = (
 /turf/template_noop,
 /area/shuttle/escape_pod6/centcom/space)
@@ -22062,9 +22076,7 @@
 	},
 /area/centcom/living)
 "fVT" = (
-/obj/structure/bed/chair{
-	dir = 1
-	},
+/obj/item/weapon/stool,
 /turf/simulated/shuttle/floor/destructible/merc/black,
 /area/skipjack_station/start)
 "gav" = (
@@ -22105,6 +22117,13 @@
 "goI" = (
 /turf/template_noop,
 /area/shuttle/escape_pod4/centcom/space)
+"gsD" = (
+/turf/space,
+/turf/simulated/shuttle/wall/dark/destructible{
+	icon_state = "wall3";
+	dir = 9
+	},
+/area/template_noop)
 "gDh" = (
 /obj/machinery/telecomms/receiver/preset_cent,
 /turf/unsimulated/floor{
@@ -22136,8 +22155,31 @@
 	icon_state = "dark"
 	},
 /area/centcom/legion_base)
+"gUP" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 1;
+	maxhealth = 80;
+	name = "strengthened window"
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/turf/simulated/shuttle/floor/plating/destructible/black,
+/area/syndicate_station/start)
 "gVu" = (
 /obj/effect/decal/cleanable/generic,
+/turf/simulated/shuttle/floor/plating/destructible/black,
+/area/skipjack_station/start)
+"gYP" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/toilet{
+	dir = 8
+	},
 /turf/simulated/shuttle/floor/plating/destructible/black,
 /area/skipjack_station/start)
 "hwi" = (
@@ -22166,16 +22208,6 @@
 "hOS" = (
 /turf/simulated/shuttle/plating,
 /area/template_noop)
-"hPW" = (
-/obj/structure/table/steel,
-/obj/machinery/microwave{
-	pixel_x = -1;
-	pixel_y = 8
-	},
-/turf/unsimulated/floor{
-	icon_state = "dark"
-	},
-/area/syndicate_mothership/raider_base)
 "hRs" = (
 /obj/structure/table/reinforced/steel,
 /obj/structure/window/reinforced{
@@ -22220,24 +22252,6 @@
 	},
 /turf/simulated/shuttle/floor/plating/destructible/black,
 /area/skipjack_station/start)
-"ior" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 4
-	},
-/obj/structure/window/reinforced,
-/turf/simulated/shuttle/floor/plating/destructible/black,
-/area/syndicate_station/start)
-"isn" = (
-/obj/machinery/vending/hydroseeds,
-/turf/unsimulated/floor{
-	icon_state = "dark"
-	},
-/area/syndicate_mothership/raider_base)
 "iuE" = (
 /obj/machinery/light{
 	dir = 1
@@ -22351,6 +22365,13 @@
 	dir = 8
 	},
 /area/centcom/living)
+"jhz" = (
+/turf/space,
+/turf/simulated/shuttle/wall/dark/destructible{
+	icon_state = "wall3";
+	dir = 5
+	},
+/area/template_noop)
 "jlf" = (
 /obj/structure/closet/crate/loot,
 /obj/random/backpack,
@@ -22358,15 +22379,6 @@
 	icon_state = "dark"
 	},
 /area/syndicate_mothership/raider_base)
-"jok" = (
-/obj/structure/sink{
-	icon_state = "sink";
-	dir = 8;
-	pixel_x = -12;
-	pixel_y = 2
-	},
-/turf/simulated/shuttle/floor/destructible/merc/black,
-/area/skipjack_station/start)
 "jAE" = (
 /obj/structure/table/wood,
 /obj/item/weapon/paper_bin{
@@ -22396,12 +22408,36 @@
 	},
 /turf/simulated/shuttle/floor/destructible/merc/red,
 /area/skipjack_station/start)
+"jCx" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 4
+	},
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/turf/simulated/shuttle/floor/plating/destructible/black,
+/area/syndicate_station/start)
 "jTp" = (
 /turf/unsimulated/floor{
 	icon_state = "green";
 	dir = 1
 	},
 /area/centcom/living)
+"kha" = (
+/obj/structure/table/standard,
+/obj/machinery/computer/pod/old/syndicate{
+	id = "smindicate";
+	pixel_y = 4
+	},
+/obj/machinery/door/window/southleft{
+	name = "Blast Door Control";
+	req_access = list(150)
+	},
+/turf/simulated/shuttle/floor/destructible/merc,
+/area/syndicate_station/start)
 "knY" = (
 /obj/structure/bed/chair,
 /obj/machinery/light{
@@ -22415,15 +22451,7 @@
 	dir = 4
 	},
 /area/centcom/living)
-"kIp" = (
-/obj/item/weapon/reagent_containers/glass/bucket{
-	amount_per_transfer_from_this = 50
-	},
-/turf/unsimulated/floor{
-	icon_state = "dark"
-	},
-/area/syndicate_mothership/raider_base)
-"kNC" = (
+"kLK" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 4;
 	frequency = 1331;
@@ -22440,6 +22468,17 @@
 	},
 /turf/simulated/shuttle/floor/destructible/merc,
 /area/syndicate_station/start)
+"kNQ" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 4
+	},
+/turf/simulated/shuttle/floor/plating/destructible/black,
+/area/syndicate_station/start)
 "kTi" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced,
@@ -22453,19 +22492,6 @@
 	},
 /turf/simulated/shuttle/floor/plating/destructible/black,
 /area/skipjack_station/start)
-"kYO" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 1;
-	maxhealth = 80;
-	name = "strengthened window"
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced,
-/turf/simulated/shuttle/floor/plating/destructible/black,
-/area/syndicate_station/start)
 "lpW" = (
 /obj/machinery/computer/borgupload,
 /turf/unsimulated/floor{
@@ -22473,20 +22499,6 @@
 	dir = 4
 	},
 /area/centcom/living)
-"ltn" = (
-/obj/structure/table/steel,
-/obj/item/weapon/material/minihoe,
-/turf/unsimulated/floor{
-	icon_state = "dark"
-	},
-/area/syndicate_mothership/raider_base)
-"lwy" = (
-/turf/space,
-/turf/simulated/shuttle/wall/dark/destructible{
-	icon_state = "wall3";
-	dir = 9
-	},
-/area/template_noop)
 "lwP" = (
 /obj/structure/window/reinforced,
 /turf/unsimulated/floor{
@@ -22511,16 +22523,18 @@
 	},
 /turf/simulated/shuttle/floor/plating/destructible/black,
 /area/skipjack_station/start)
-"lRR" = (
-/obj/item/device/radio/intercom{
-	desc = "Talk through this. Evilly";
-	frequency = 1213;
-	name = "Syndicate Intercom";
-	pixel_y = -32;
-	subspace_transmission = 1;
-	syndie = 1
+"lFy" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 1;
+	maxhealth = 80;
+	name = "strengthened window"
 	},
-/turf/simulated/shuttle/floor/destructible/merc,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced,
+/turf/simulated/shuttle/floor/plating/destructible/black,
 /area/syndicate_station/start)
 "lUA" = (
 /obj/structure/closet/crate/trashcart{
@@ -22578,6 +22592,13 @@
 	icon_state = "panelscorched"
 	},
 /area/centcom/legion_base/hangar5)
+"mQI" = (
+/turf/simulated/shuttle/floor/destructible/merc/black,
+/turf/simulated/shuttle/wall/dark/destructible{
+	icon_state = "wall3";
+	dir = 6
+	},
+/area/syndicate_station/start)
 "mVJ" = (
 /obj/effect/floor_decal/industrial/warning/corner{
 	icon_state = "warningcorner";
@@ -22595,6 +22616,21 @@
 	icon_state = "dark"
 	},
 /area/centcom/legion_base)
+"mVO" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 1
+	},
+/turf/simulated/shuttle/floor/plating/destructible/black,
+/area/syndicate_station/start)
 "mXD" = (
 /obj/machinery/atmospherics/pipe/simple/visible,
 /obj/machinery/light/small{
@@ -22607,6 +22643,7 @@
 	pixel_y = -8;
 	req_access = list(150)
 	},
+/obj/item/weapon/crowbar,
 /turf/simulated/shuttle/floor/plating/destructible/black,
 /area/skipjack_station/start)
 "ncc" = (
@@ -22625,6 +22662,15 @@
 	dir = 4
 	},
 /area/centcom/living)
+"nmQ" = (
+/obj/machinery/porta_turret{
+	ailock = 1;
+	req_access = list(150);
+	req_one_access = null
+	},
+/obj/effect/decal/warning_stripes,
+/turf/simulated/shuttle/floor/destructible/merc,
+/area/syndicate_station/start)
 "nsH" = (
 /obj/machinery/door/blast/regular/open{
 	dir = 4;
@@ -22683,21 +22729,6 @@
 	},
 /turf/simulated/shuttle/floor/plating/destructible/black,
 /area/skipjack_station/start)
-"nZO" = (
-/obj/machinery/porta_turret{
-	ailock = 1;
-	req_access = list(150);
-	req_one_access = null
-	},
-/obj/effect/decal/warning_stripes,
-/turf/simulated/shuttle/floor/destructible/merc,
-/area/syndicate_station/start)
-"ojN" = (
-/obj/machinery/light/small{
-	dir = 8
-	},
-/turf/simulated/shuttle/floor/destructible/merc/black,
-/area/syndicate_station/start)
 "ouD" = (
 /obj/effect/decal/spraystill{
 	desc = "A sign.";
@@ -22723,10 +22754,6 @@
 /area/centcom/living)
 "oLR" = (
 /obj/machinery/atmospherics/pipe/simple/visible,
-/obj/structure/table/rack,
-/obj/item/airbubble/syndie,
-/obj/item/airbubble/syndie,
-/obj/item/airbubble/syndie,
 /turf/simulated/shuttle/floor/plating/destructible/black,
 /area/skipjack_station/start)
 "oPC" = (
@@ -22739,25 +22766,6 @@
 /obj/effect/wingrille_spawn/reinforced/crescent,
 /turf/unsimulated/wall/riveted,
 /area/centcom/living)
-"oUn" = (
-/obj/item/weapon/storage/belt/military,
-/obj/item/weapon/storage/belt/military,
-/turf/simulated/shuttle/floor/destructible/merc,
-/area/syndicate_station/start)
-"oVc" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 1;
-	maxhealth = 80;
-	name = "strengthened window"
-	},
-/obj/structure/window/reinforced,
-/turf/simulated/shuttle/floor/plating/destructible/black,
-/area/syndicate_station/start)
 "oVL" = (
 /obj/machinery/door/window{
 	dir = 8;
@@ -22777,11 +22785,6 @@
 	icon_state = "wood"
 	},
 /area/centcom/living)
-"oYc" = (
-/obj/item/ammo_magazine/mc9mm,
-/obj/item/weapon/gun/projectile/pistol,
-/turf/simulated/shuttle/floor/destructible/merc,
-/area/syndicate_station/start)
 "peK" = (
 /obj/structure/bed/chair/office/dark{
 	dir = 4
@@ -22790,6 +22793,22 @@
 	icon_state = "floor"
 	},
 /area/centcom/living)
+"phc" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 1;
+	maxhealth = 80;
+	name = "strengthened window"
+	},
+/obj/structure/window/reinforced,
+/obj/machinery/atmospherics/pipe/simple/visible,
+/turf/simulated/shuttle/floor/plating/destructible/black,
+/area/syndicate_station/start)
+"pkn" = (
+/obj/item/weapon/storage/belt/military,
+/obj/item/weapon/storage/belt/military,
+/turf/simulated/shuttle/floor/destructible/merc,
+/area/syndicate_station/start)
 "pkO" = (
 /obj/machinery/door/window{
 	dir = 2;
@@ -22807,17 +22826,13 @@
 	icon_state = "wood"
 	},
 /area/centcom/living)
+"pny" = (
+/turf/simulated/shuttle/wall/dark/destructible,
+/area/template_noop)
 "pob" = (
 /obj/item/weapon/material/shard,
 /turf/unsimulated/floor,
 /area/template_noop)
-"ptD" = (
-/turf/simulated/shuttle/floor/destructible/merc/black,
-/turf/simulated/shuttle/wall/dark/destructible{
-	icon_state = "wall3";
-	dir = 6
-	},
-/area/syndicate_station/start)
 "pFA" = (
 /obj/structure/closet/crate/loot,
 /turf/simulated/shuttle/floor,
@@ -22857,22 +22872,6 @@
 /obj/effect/decal/remains,
 /turf/simulated/shuttle/floor,
 /area/template_noop)
-"qCl" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 1;
-	maxhealth = 80;
-	name = "strengthened window"
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/turf/simulated/shuttle/floor/plating/destructible/black,
-/area/syndicate_station/start)
 "qDj" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced{
@@ -22918,6 +22917,17 @@
 /obj/item/organ/xenos/eggsac,
 /turf/simulated/shuttle/floor,
 /area/template_noop)
+"qPs" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/turf/simulated/shuttle/floor/plating/destructible/black,
+/area/syndicate_station/start)
 "qQb" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/unsimulated/floor{
@@ -23007,13 +23017,6 @@
 	icon_state = "carpetside"
 	},
 /area/centcom/living)
-"rIu" = (
-/obj/machinery/door/airlock/hatch{
-	name = "Flight Deck";
-	req_access = list(150)
-	},
-/turf/simulated/shuttle/floor/destructible/merc,
-/area/syndicate_station/start)
 "rMt" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced,
@@ -23036,9 +23039,15 @@
 /area/template_noop)
 "rTn" = (
 /obj/machinery/porta_turret{
-	ailock = 1;
+	cover_set = 1;
+	egun = 0;
+	installation = /obj/item/weapon/gun/energy/retro;
+	lethal = 1;
+	lethal_icon = 1;
+	name = "skipjack turret";
 	req_access = list(150);
-	req_one_access = null
+	req_one_access = null;
+	sprite_set = "captain"
 	},
 /turf/simulated/shuttle/floor/plating/destructible/black,
 /area/skipjack_station/start)
@@ -23046,16 +23055,10 @@
 /obj/structure/bed/chair,
 /turf/simulated/shuttle/floor/destructible,
 /area/shuttle/escape/centcom)
-"skP" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 1;
-	maxhealth = 80;
-	name = "strengthened window"
-	},
-/obj/structure/window/reinforced,
-/obj/machinery/atmospherics/pipe/simple/visible,
-/turf/simulated/shuttle/floor/plating/destructible/black,
+"siP" = (
+/obj/item/ammo_magazine/mc9mm,
+/obj/item/weapon/gun/projectile/pistol,
+/turf/simulated/shuttle/floor/destructible/merc,
 /area/syndicate_station/start)
 "ssK" = (
 /obj/structure/bed/chair,
@@ -23083,12 +23086,6 @@
 /obj/effect/decal/cleanable/blood/xeno,
 /turf/simulated/shuttle/floor,
 /area/template_noop)
-"sTE" = (
-/obj/machinery/portable_atmospherics/hydroponics,
-/turf/unsimulated/floor{
-	icon_state = "dark"
-	},
-/area/syndicate_mothership/raider_base)
 "sUR" = (
 /obj/machinery/light{
 	dir = 8;
@@ -23134,6 +23131,13 @@
 /obj/item/weapon/broken_bottle,
 /turf/template_noop,
 /area/template_noop)
+"tpX" = (
+/obj/machinery/door/airlock/hatch{
+	name = "Flight Deck";
+	req_access = list(150)
+	},
+/turf/simulated/shuttle/floor/destructible/merc,
+/area/syndicate_station/start)
 "tqQ" = (
 /obj/vehicle/droppod{
 	pixel_y = 0
@@ -23157,13 +23161,6 @@
 	},
 /turf/simulated/shuttle/plating,
 /area/template_noop)
-"tFc" = (
-/turf/simulated/shuttle/wall/dark/destructible,
-/area/template_noop)
-"tPF" = (
-/obj/machinery/atmospherics/pipe/simple/visible,
-/turf/simulated/shuttle/floor/destructible/merc,
-/area/syndicate_station/start)
 "tTz" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
@@ -23182,11 +23179,19 @@
 /turf/simulated/shuttle/floor/plating/destructible/black,
 /area/skipjack_station/start)
 "tZY" = (
-/obj/structure/toilet{
-	dir = 8
+/obj/item/weapon/reagent_containers/glass/bucket{
+	pixel_x = 10;
+	pixel_y = -6
 	},
+/obj/effect/decal/cleanable/vomit,
 /turf/simulated/shuttle/floor/destructible/merc/black,
 /area/skipjack_station/start)
+"ubA" = (
+/obj/machinery/floodlight,
+/turf/unsimulated/floor{
+	icon_state = "dark"
+	},
+/area/syndicate_mothership/raider_base)
 "ukL" = (
 /obj/effect/decal/warning_stripes,
 /obj/machinery/porta_turret/crescent,
@@ -23194,13 +23199,6 @@
 	icon_state = "floor"
 	},
 /area/centcom/control)
-"unS" = (
-/turf/space,
-/turf/simulated/shuttle/wall/dark/destructible{
-	icon_state = "wall3";
-	dir = 5
-	},
-/area/template_noop)
 "upx" = (
 /obj/structure/bed/chair{
 	dir = 4
@@ -23223,22 +23221,38 @@
 	},
 /turf/simulated/floor/wood,
 /area/merchant_station)
-"uuL" = (
-/obj/structure/table/standard,
-/obj/machinery/computer/pod/old/syndicate{
-	id = "smindicate";
-	pixel_y = 4
+"uxW" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 8
 	},
-/obj/machinery/door/window/southleft{
-	name = "Blast Door Control";
-	req_access = list(150)
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 4
 	},
-/turf/simulated/shuttle/floor/destructible/merc,
+/obj/structure/window/reinforced,
+/turf/simulated/shuttle/floor/plating/destructible/black,
 /area/syndicate_station/start)
 "uzX" = (
 /obj/structure/lattice/catwalk/indoor,
 /turf/template_noop,
 /area/syndicate_mothership/elite_squad)
+"uDl" = (
+/obj/machinery/atmospherics/pipe/simple/visible{
+	icon_state = "intact";
+	dir = 5
+	},
+/obj/structure/table/steel,
+/obj/item/clothing/glasses/night,
+/obj/item/clothing/glasses/night,
+/obj/item/clothing/glasses/night,
+/obj/item/clothing/glasses/night,
+/turf/simulated/shuttle/floor/destructible/merc,
+/area/syndicate_station/start)
+"uJT" = (
+/obj/machinery/atmospherics/pipe/simple/visible,
+/turf/simulated/shuttle/floor/destructible/merc,
+/area/syndicate_station/start)
 "vcM" = (
 /obj/structure/bed/chair{
 	dir = 1
@@ -23304,21 +23318,10 @@
 	unlocked = 1;
 	use_power = 0
 	},
-/obj/machinery/floodlight,
 /obj/effect/decal/cleanable/dirt,
+/obj/vehicle/bike,
 /turf/simulated/shuttle/floor/plating/destructible/black,
 /area/skipjack_station/start)
-"vHf" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 4
-	},
-/turf/simulated/shuttle/floor/plating/destructible/black,
-/area/syndicate_station/start)
 "vVv" = (
 /obj/item/weapon/stool/padded,
 /obj/machinery/light{
@@ -23359,21 +23362,6 @@
 	dir = 1
 	},
 /area/centcom/living)
-"wEx" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 1
-	},
-/turf/simulated/shuttle/floor/plating/destructible/black,
-/area/syndicate_station/start)
 "wGd" = (
 /obj/machinery/light{
 	dir = 2;
@@ -23384,6 +23372,16 @@
 	icon_state = "green"
 	},
 /area/centcom/living)
+"wHE" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/sink{
+	icon_state = "sink";
+	dir = 8;
+	pixel_x = -12;
+	pixel_y = 2
+	},
+/turf/simulated/shuttle/floor/plating/destructible/black,
+/area/skipjack_station/start)
 "wPO" = (
 /turf/simulated/shuttle/wall,
 /area/template_noop)
@@ -35752,7 +35750,7 @@ aPV
 ssK
 aQH
 fVT
-jok
+aPV
 aNd
 aNd
 aaM
@@ -36496,10 +36494,10 @@ aaM
 aaM
 aaM
 aFT
-hPW
 aGZ
 aGZ
-ltn
+aGZ
+aGZ
 aFT
 aJN
 aKs
@@ -36753,7 +36751,7 @@ aaM
 aaM
 aaM
 aFT
-isn
+aGZ
 aGZ
 aGZ
 aGZ
@@ -36781,7 +36779,7 @@ aPX
 aQJ
 aNd
 azn
-yjQ
+wHE
 aYQ
 aQr
 aQG
@@ -37027,18 +37025,18 @@ aaM
 aNh
 aNA
 aNQ
-aOd
+bxe
 aOd
 aOK
 aOd
-cXP
+aOd
 aYN
 aPY
 aPF
 aOd
 hwi
 aOF
-yjQ
+aPr
 aYR
 aQr
 aQG
@@ -37267,10 +37265,10 @@ aaM
 aaM
 aaM
 aFT
-sTE
 aGZ
 aGZ
-kIp
+aGZ
+aGZ
 aFT
 aJN
 aJN
@@ -37295,7 +37293,7 @@ aPZ
 aQJ
 aNd
 azr
-aPr
+gYP
 aYP
 aQr
 aQG
@@ -37524,10 +37522,10 @@ aaM
 aaM
 aaM
 aFT
-sTE
 aGZ
 aGZ
-aYL
+aGZ
+aGZ
 aFT
 aJO
 aKt
@@ -38571,7 +38569,7 @@ aaM
 aaM
 aNd
 aOv
-yjQ
+fcR
 aOF
 aPr
 aNd
@@ -39088,7 +39086,7 @@ yjQ
 aOM
 aOF
 rTn
-aPI
+aOF
 aQe
 aQr
 yjW
@@ -39322,7 +39320,7 @@ aGz
 aGz
 aGz
 aGz
-aGZ
+ubA
 jlf
 aIo
 aGW
@@ -85236,8 +85234,8 @@ aaM
 aaM
 aaM
 aaM
-lwy
-ptD
+gsD
+mQI
 anf
 ant
 alH
@@ -85493,7 +85491,7 @@ aaM
 aaM
 aaM
 aaM
-tFc
+pny
 ang
 ant
 anu
@@ -85744,9 +85742,9 @@ aaM
 aaM
 aaM
 aVt
-wEx
-vHf
-ior
+mVO
+kNQ
+uxW
 ams
 aaM
 aaM
@@ -86259,8 +86257,8 @@ aaM
 alv
 alI
 alS
-oYc
-lRR
+siP
+fmc
 alH
 alH
 amL
@@ -86516,7 +86514,7 @@ aaM
 alw
 alJ
 alS
-oUn
+pkn
 alS
 alH
 amD
@@ -86536,7 +86534,7 @@ alS
 alS
 alH
 aoU
-ojN
+brK
 app
 apz
 aaM
@@ -86775,21 +86773,21 @@ alK
 alT
 alS
 alS
-rIu
+tpX
 alS
 alS
-nZO
+nmQ
 alS
 alS
 anv
 alS
 alS
-nZO
+nmQ
 alS
 alS
 alS
 alS
-nZO
+nmQ
 alS
 aoK
 ant
@@ -87800,21 +87798,21 @@ aaM
 aaM
 aaM
 aVu
-qCl
-cjI
-fol
+gUP
+qPs
+jCx
 aVv
 aaM
 aaM
 alH
 alH
-kNC
+kLK
 ank
 anH
 alS
 alS
 alS
-oVc
+fHi
 aon
 alS
 alS
@@ -88063,16 +88061,16 @@ aaM
 aaM
 aaM
 aaM
-tFc
-uuL
+pny
+kha
 anl
 anx
 anI
 anT
-tPF
-tPF
-skP
-dMz
+uJT
+uJT
+phc
+uDl
 alS
 alS
 alS
@@ -88320,7 +88318,7 @@ aly
 amu
 aaM
 aaM
-unS
+jhz
 alH
 anm
 any
@@ -88328,7 +88326,7 @@ anH
 anU
 anZ
 aoe
-kYO
+lFy
 aoo
 alS
 aoA
