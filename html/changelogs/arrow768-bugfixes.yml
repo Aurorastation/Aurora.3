@@ -39,3 +39,4 @@ delete-after: True
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
   - bugfix: "You can no longery defy the laws of physics by climbing up through solid floors with the use of a ladder"
+  - bugfix: "You will no longer spawn with a backpack if you have \"nothing\" selected in your loadout."
