@@ -1,0 +1,4 @@
+author: Skull132
+delete-after: True
+changes:
+  - tweak: "Walls now block sound properly!"
