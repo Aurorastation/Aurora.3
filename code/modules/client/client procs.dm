@@ -357,9 +357,9 @@
 	else
 		. = ..()
 		src.InitClient()
-		src.InitPerfs()
+		src.InitPrefs()
 
-/client/proc/InitPerfs()
+/client/proc/InitPrefs()
 	//preferences datum - also holds some persistant data for the client (because we may as well keep these datums to a minimum)
 	prefs = preferences_datums[ckey]
 	if(!prefs)

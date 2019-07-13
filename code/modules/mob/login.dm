@@ -25,7 +25,7 @@
 
 /mob/Login()
 	client.InitClient()
-	client.InitPerfs() // Init perfs in case they wasn't initilized
+	client.InitPrefs() // Init perfs in case they wasn't initilized
 	player_list |= src
 	update_Login_details()
 	SSfeedback.update_status()
