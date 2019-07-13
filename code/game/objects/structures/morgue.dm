@@ -188,21 +188,17 @@
 	var/cremating = 0
 	var/id = 1
 	var/locked = 0
-	var/_wifi_id
-	var/datum/wifi/receiver/button/crematorium/wifi_receiver
+	var/listener/crema
 
 /obj/structure/crematorium/Initialize()
 	. = ..()
-	if(_wifi_id)
-		wifi_receiver = new(_wifi_id, src)
+	crema = new(src, "crematoriums")
 
 /obj/structure/crematorium/Destroy()
 	if(connected)
-		qdel(connected)
-		connected = null
-	if(wifi_receiver)
-		qdel(wifi_receiver)
-		wifi_receiver = null
+		QDEL_NULL(connected)
+	if(listener)
+		QDEL_NULL(listener)
 	return ..()
 
 /obj/structure/crematorium/proc/update()
@@ -422,7 +418,7 @@
 	if(..())
 		return
 	if(src.allowed(user))
-		for (var/obj/structure/crematorium/C in world)
+		for (var/thing in get_listeners_by_type("crematoriums", /obj/structure/crematorium))
 			if (C.id == id)
 				if (!C.cremating)
 					C.cremate(user)
