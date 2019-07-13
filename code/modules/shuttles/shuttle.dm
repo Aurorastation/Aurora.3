@@ -45,7 +45,7 @@
 			max_y = max(T.y, max_y)
 			ship_size += 1
 			if(istype(A, /turf/simulated/shuttle) && exterior_wall(A))
-				exterior_walls_and_engines |= list(list(T.x, T.y, T.z))
+				exterior_walls_and_engines += list(list(T.x, T.y, T.z))
 			if(integrity_check(A))
 				walls_count += 1
 		else if(istype(A, /obj/structure/shuttle/engine/propulsion))
@@ -57,7 +57,6 @@
 			e_turf.dir = P.dir
 			e_turf.update_icon()
 			e_turf.add_overlay("engine_mount")
-			exterior_walls_and_engines |= list(list(e_turf.x, e_turf.y, e_turf.z))
 	center = list((max_x + min_x) / 2, (max_y + min_y) / 2)
 	length = max_x - min_x
 	width = max_y - min_y
@@ -100,7 +99,7 @@
 
 	moving_status = SHUTTLE_WARMUP
 	play_sound_shuttle(sound_takeoff, origin, 35)
-	launching(max(35, warmup_time * 10))
+	launching(max(50, warmup_time * 10))
 	sleep(max(30, warmup_time * 10))
 	if (moving_status == SHUTTLE_IDLE)
 		return	//someone cancelled the launch
@@ -108,8 +107,9 @@
 	moving_status = SHUTTLE_INTRANSIT //shouldn't matter but just to be safe
 	play_sound_shuttle(sound_landing, origin, 25)
 	play_sound_shuttle(sound_landing, destination, 25)
-	sleep(5)
+	sleep(10)
 	move(origin, destination)
+	launching(50)
 	moving_status = SHUTTLE_IDLE
 
 /datum/shuttle/proc/long_jump(var/area/departing, var/area/destination, var/area/interim, var/travel_time, var/direction)
@@ -133,10 +133,10 @@
 
 	play_sound_shuttle(sound_landing, interim, 25)
 	play_sound_shuttle(sound_landing, destination, 25)
-	launching(80)
-	sleep(70)
+	launching(15)
+	sleep(10)
 	move(interim, destination)
-	
+	launching(50)
 	moving_status = SHUTTLE_IDLE
 
 /datum/shuttle/proc/dock()
@@ -180,14 +180,20 @@
 		if(T.y < throwy)
 			throwy = T.y
 
-	for(var/turf/T in dstturfs)
+	var/list/bugs_to_squish = list()
+	for(var/v in dstturfs)
+		var/turf/T = v
 		var/turf/D =  get_turf(locate(T.x, throwy - 1, 1))
 		for(var/atom/movable/AM as mob|obj in T)
+			if(isliving(AM))
+				var/mob/living/L = AM
+				bugs_to_squish += L
 			AM.Move(D)
 		if(istype(T, /turf/unsimulated))
 			T.ChangeTurf(/turf/space)
 
-	for(var/mob/living/bug in destination)
+	for(var/v in bugs_to_squish)
+		var/mob/living/bug = v
 		bug.gib()
 
 	move_contents_to(origin, destination)
@@ -211,10 +217,11 @@
 				M.throw_at(get_step(get_turf(locate(M.loc.x + rand(-3, 3), M.loc.y + rand(-3, 3), M.loc.z)), get_turf(M)), range, speed, M)
 	area_current = destination
 
-/datum/shuttle/proc/move_contents_to(area/A, area/B, turf_to_leave = null)
-	var/list/source_turfs = A.build_ordered_turf_list(turf_to_leave)
+/datum/shuttle/proc/move_contents_to(area/A, area/B)
+	var/list/source_turfs = A.build_ordered_turf_list()
 	var/list/target_turfs = B.build_ordered_turf_list()
 
+	message_admins(source_turfs.len)
 	ASSERT(source_turfs.len == target_turfs.len)
 
 	var/min_x = INFINITY
@@ -225,13 +232,16 @@
 		var/turf/ST = source_turfs[i]
 		if (!ST)	// Excluded turfs are null to keep the list ordered.
 			continue
+		var/list/old_coord = list(ST.x, ST.y, ST.z)
+
 		if(istype(ST, /turf/unsimulated))
 			ST.ChangeTurf(/turf/space)
 
 		var/turf/TT = ST.copy_turf(target_turfs[i])
-		var/old_coord = list(ST.x, ST.y, ST.z)
-
-		for (var/thing in ST)
+		if(!TT)
+			TT = target_turfs[i]
+		
+		for(var/thing in ST)
 			var/atom/movable/AM = thing
 			AM.shuttle_move(TT)
 
@@ -239,11 +249,25 @@
 		
 		if(!TT)
 			continue
-		var/found = exterior_walls_and_engines.Find(old_coord)
+
+		var/found = FALSE
+		var/index = 0
+		for(var/v in exterior_walls_and_engines)
+			var/list/l = v
+			index += 1
+
+			if(old_coord[1] != l[1])
+				continue
+			if(old_coord[2] != l[2])
+				continue
+			if(old_coord[3] != l[3])
+				continue
+
+			found = TRUE
+			break
+
 		if(found)
-			exterior_walls_and_engines[found] = list(TT.x, TT.y, TT.z)
-		else
-			exterior_walls_and_engines += list(list(TT.x, TT.y, TT.z))
+			exterior_walls_and_engines[index] = list(TT.x, TT.y, TT.z)
 
 		min_x = min(TT.x, min_x)
 		min_y = min(TT.y, min_y)

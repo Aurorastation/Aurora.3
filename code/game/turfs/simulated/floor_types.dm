@@ -39,7 +39,6 @@
 	permit_ao = FALSE
 	var/tmp/image/damage_image = FALSE
 	var/list/damage_overlays[16]
-	baseturf = /turf/simulated/shuttle/floor
 	canSmoothWith = list(
 		/turf/simulated/wall,
 		/turf/simulated/shuttle/wall,
@@ -56,14 +55,12 @@
 	name = "shuttle wall"
 	icon = 'icons/turf/smooth/shuttle_wall.dmi'
 	icon_state = "shuttle"
-	baseturf = /turf/simulated/shuttle/floor/destructible
 	destructible = TRUE
 
 /turf/simulated/shuttle/wall/destructible/legion
 	name = "dropship hull"
 	roof_type = /turf/simulated/shuttle/roof/destructible/legion
 	icon = 'icons/turf/smooth/shuttle_wall_blue.dmi'
-	baseturf = /turf/simulated/shuttle/floor/destructible/legion
 
 /turf/simulated/shuttle/wall/dark
 	icon = 'icons/turf/shuttle.dmi'

@@ -177,3 +177,4 @@
 	other.material = material
 	other.reinf_material = reinf_material
 	other.roof_type = roof_type
+	other.baseturf = baseturf
