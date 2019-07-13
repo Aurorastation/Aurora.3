@@ -25,6 +25,7 @@
 	var/client/my_client // Need to keep track of this ourselves, since by the time Logout() is called the client has already been nulled
 
 /mob/abstract/new_player/Login()
+	client.InitClient()
 	client.InitPerfs()
 	update_Login_details()	//handles setting lastKnownIP and computer_id for use by the ban systems as well as checking for multikeying
 
