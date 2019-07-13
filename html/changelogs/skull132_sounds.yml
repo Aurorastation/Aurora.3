@@ -1,4 +1,4 @@
 author: Skull132
 delete-after: True
 changes:
-  - tweak: "Sounds below a certain volume threshold can now only be heard within view range. Meaning that walls will now start blocking sounds!"
+  - tweak: "Walls now block sound properly!"
