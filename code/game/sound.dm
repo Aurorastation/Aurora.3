@@ -179,7 +179,7 @@ var/list/footstepfx = list("defaultstep","concretestep","grassstep","dirtstep","
 		crash_with("Could not construct original sound.")
 		return
 
-	if (is_global || vol > 50)
+	if (is_global)
 		playsound_allinrange(source, original_sound,
 			extra_range = extrarange,
 			is_global = is_global,
