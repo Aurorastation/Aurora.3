@@ -758,7 +758,5 @@
 		new /obj/item/weapon/storage/toolbox/einstein/booster(src)
 		new /obj/item/weapon/storage/toolbox/einstein/booster(src)
 		new /obj/item/weapon/storage/toolbox/einstein/booster(src)
-		new /obj/item/weapon/storage/toolbox/einstein/booster(src)
-		new /obj/item/weapon/storage/toolbox/einstein/booster(src)
 
 

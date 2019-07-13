@@ -189,10 +189,16 @@
 	icon_state = "bridge"
 	anchored = 1
 
+/obj/structure/bed/chair/office/bridge/generic
+	name = "bridge chair"
+	icon_state = "bridge_generic"
+	can_dismantle = FALSE
+
 /obj/structure/bed/chair/office/bridge/legion
 	name = "legion pilot seat"
-	desc = "A standard bridge chair. an insignia representing the Tau Ceti Foreign Legion has been plastered to the back of it."
+	desc = "A worn pilot seat. An insignia representing the Tau Ceti Foreign Legion has been plastered to the back of it."
 	icon_state = "legion_shuttle"
+	can_dismantle = FALSE
 
 /obj/structure/bed/chair/office/Initialize()
 	. = ..()

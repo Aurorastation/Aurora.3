@@ -6844,20 +6844,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/turret_protected/tcomfoyer)
-"mk" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/plating,
-/area/hallway/secondary/entry/fore)
 "ml" = (
 /obj/effect/floor_decal/corner/lime/full{
 	icon_state = "corner_white_full";
@@ -11667,6 +11653,20 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/exit/pods)
+"vR" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/machinery/door/firedoor,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/hallway/secondary/entry/fore)
 "vS" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4;
@@ -41228,7 +41228,7 @@ aa
 aa
 aa
 aa
-aa
+FE
 FE
 FE
 FE
@@ -41485,7 +41485,7 @@ aa
 aa
 aa
 aa
-aa
+FE
 FE
 FE
 FE
@@ -44055,7 +44055,7 @@ aa
 aa
 aa
 aa
-aa
+FE
 FE
 FE
 FE
@@ -44242,7 +44242,7 @@ aw
 aw
 aw
 aw
-aw
+ec
 ec
 ec
 ec
@@ -44312,7 +44312,7 @@ aa
 aa
 aa
 aa
-aa
+FE
 FE
 FE
 FE
@@ -44499,7 +44499,7 @@ aw
 aw
 aw
 aw
-aw
+ec
 ec
 ec
 ec
@@ -47069,7 +47069,7 @@ aw
 aw
 aw
 aw
-aw
+ec
 ec
 ec
 ec
@@ -47326,7 +47326,7 @@ aw
 aw
 aw
 aw
-aw
+ec
 ec
 ec
 ec
@@ -50674,8 +50674,8 @@ ey
 ey
 ey
 gv
-mk
-mA
+gv
+vR
 mA
 mO
 gv
@@ -54272,8 +54272,8 @@ eI
 eI
 eI
 gv
-mk
-mA
+gv
+vR
 mA
 mO
 gv
