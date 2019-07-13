@@ -38,7 +38,7 @@
 	set name = "Set Phase Filter"
 	set category = "Object"
 	set src in view(1)
-	if(!use_check(usr))
+	if(use_check_and_message(usr))
 		return 0
 	phase_filter = input("Which phase do you want to filter?", "Phase Filter", null) as null|anything in list("solid", "liquid", "gas", "none")
 	if(phase_filter)
@@ -50,6 +50,8 @@
 	set name = "Remove Contents"
 	set category = "Object"
 	set src in view(1)
+	if (use_check_and_message(usr))
+		return
 	for(var/atom/movable/A in contents)
 		if(A == analyzer)
 			continue
