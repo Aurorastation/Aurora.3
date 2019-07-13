@@ -1042,7 +1042,7 @@
 	var/dirs = list()
 	for(var/mob/living/L in range(25))
 		var/turf/T = get_turf(L)
-		if(!T || L == src || L.stat == DEAD || L.isSynthetic() || L.is_diona() || isvaurca(L))
+		if(!T || L == src || L.stat == DEAD || L.isSynthetic() || L.is_diona() || isvaurca(L) || L.invisibility == INVISIBILITY_LEVEL_TWO || L.active_dummy)
 			continue
 		heard_something = TRUE
 		var/image/ping_image = image(icon = 'icons/effects/effects.dmi', icon_state = "sonar_ping", loc = src)
