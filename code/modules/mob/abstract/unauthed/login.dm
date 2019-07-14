@@ -44,8 +44,8 @@
 	// If mob exists for that ckey, then BYOND will transfer client to it.
 	if(istype(c.mob, /mob/abstract/unauthed))
 		c.mob = new /mob/abstract/new_player() // Else we just treat them as new player
-	c.InitPerfs() // We init pers just in case mob transfer didn't
-	c.InitClient() // And now we shal continue client initilization (permissions and stuff)
+	c.InitClient() // And now we shall continue client initilization (permissions and stuff)
+	c.InitPrefs() // We init prefs just in case mob transfer didn't
 	unauthed -= token
 
 /mob/abstract/unauthed/Topic(href, href_list)
