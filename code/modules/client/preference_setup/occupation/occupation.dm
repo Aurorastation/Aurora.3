@@ -127,16 +127,12 @@
 		pref.player_alt_titles = new()
 
 	if (!SSjobs.safe_to_sanitize)
-		testing("deferred")
 		if (!SSjobs.deferred_preference_sanitizations[src])
 			SSjobs.deferred_preference_sanitizations[src] = CALLBACK(src, .proc/late_sanitize, sql_load)
 	else
-		testing("immediate")
 		late_sanitize(sql_load)
 
 /datum/category_item/player_setup_item/occupation/proc/late_sanitize(sql_load)
-	testing("sanitized!")
-
 	for (var/datum/job/job in SSjobs.occupations)
 		var/alt_title = pref.player_alt_titles[job.title]
 		if(alt_title && !(alt_title in job.alt_titles))
@@ -284,8 +280,8 @@
 		pref.faction = SSjobs.default_faction.name
 
 		to_client_chat("<span class='danger'>Your faction selection has been reset to [pref.faction].</span>")
-
-	// TODO: Sanitize job based on faction selection.
+		to_client_chat("<span class='danger'>Your jobs have been reset due to this!</span>")
+		ResetJobs()
 
 /datum/category_item/player_setup_item/occupation/proc/SetPlayerAltTitle(datum/job/job, new_title)
 	// remove existing entry
@@ -417,7 +413,7 @@
 
 	if (!faction)
 		to_client_chat("<span class='danger'>Invalid faction chosen. Resetting to default.</span>")
-		faction = SSjobs.default_faction
+		selected_faction = SSjobs.default_faction.name
 
 	ResetJobs() // How to be horribly lazy.
 
