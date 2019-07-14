@@ -184,8 +184,7 @@
 	var/obj/item/weapon/weldingtool/welder
 
 /obj/structure/distillery/proc/dismantle()
-	var/obj/structure/reagent_dispensers/keg/beerkeg/keg = new (loc)
-	keg.filled = FALSE
+	var/obj/structure/reagent_dispensers/keg/keg = new (loc)
 	if (src.reagents && src.reagents.total_volume)
 		src.reagents.trans_to_holder(keg.reagents, src.reagents.total_volume)
 	new /obj/item/stack/rods(get_turf(src), 3)
