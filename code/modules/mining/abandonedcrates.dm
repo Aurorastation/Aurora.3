@@ -108,7 +108,7 @@
 			new/obj/item/weapon/gun/projectile/shotgun/pump/rifle(src)
 			new/obj/item/ammo_magazine/boltaction(src)
 			new/obj/item/clothing/under/soviet(src)
-			new/obj/item/clothing/head/ushanka(src)
+			new/obj/item/clothing/head/ushanka/grey(src)
 		if(89)
 			new/obj/item/organ/xenos/plasmavessel(src)
 		if(90)

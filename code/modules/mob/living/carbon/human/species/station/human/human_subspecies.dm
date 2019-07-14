@@ -1,8 +1,9 @@
 /datum/species/human/offworlder
 	name = "Off-Worlder Human"
-	name_plural = "off-worlders Humans"
+	name_plural = "Off-Worlder Humans"
 	blurb = "The Offworlders are humans that have adapted to zero-G conditions through a lifetime of conditioning, exposure, and physical modification. \
 	They thrive in thinner atmosphere and weightlessness, more often than not utilizing advanced life support and body-bracing equipment to sustain themselves in normal Human environments."
+	hide_name = FALSE
 
 	icobase = 'icons/mob/human_races/human/r_offworlder.dmi'
 	deform = 'icons/mob/human_races/human/r_offworlder.dmi'
@@ -16,6 +17,8 @@
 
 	warning_low_pressure = 30
 	hazard_low_pressure = 10
+
+	examine_color = "#C2AE95"
 
 /datum/species/human/offworlder/equip_later_gear(var/mob/living/carbon/human/H)
 	if(istype(H.get_equipped_item(slot_back), /obj/item/weapon/storage/backpack))

@@ -91,7 +91,7 @@
 	status_flags |= LEAPING
 
 	visible_message("<span class='danger'>[src] leaps at [T]!</span>", "<span class='danger'>You leap at [T]!</span>")
-	throw_at(get_step(get_turf(T), get_turf(src)), 4, 1, src)
+	throw_at(get_step(get_turf(T), get_turf(src)), 4, 1, src, do_throw_animation = FALSE)
 
 	// Only Vox get to shriek. Seriously.
 	if (isvox(src))
@@ -341,7 +341,7 @@
 	last_special = world.time + 25
 
 /mob/living/carbon/human/proc/detonate_flechettes()
-	set category = "Hunter-Killer"
+	set category = "Military Frame"
 	set name = "Detonate Flechettes"
 	set desc = "Detonate all explosive flechettes in a range of seven meters."
 
@@ -367,7 +367,7 @@
 
 
 /mob/living/carbon/human/proc/state_laws()
-	set category = "Hunter-Killer"
+	set category = "Military Frame"
 	set name = "State Laws"
 	set desc = "State your laws aloud."
 
@@ -453,7 +453,7 @@
 	last_special = world.time + 200
 
 /mob/living/carbon/human/proc/self_destruct()
-	set category = "Hunter-Killer"
+	set category = "Military Frame"
 	set name = "Engage Self-Destruct"
 	set desc = "When all else has failed, bite the bullet."
 

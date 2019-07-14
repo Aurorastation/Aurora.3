@@ -17,8 +17,7 @@
 
 	var/ks1type = /obj/item/device/encryptionkey
 	var/ks2type = null
-
-	sprite_sheets = list("Resomi" = 'icons/mob/species/resomi/ears.dmi')
+	var/radio_sound = null
 
 /obj/item/device/radio/headset/Initialize()
 	. = ..()

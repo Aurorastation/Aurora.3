@@ -205,8 +205,8 @@ All custom items with worn sprites must follow the contained sprite system: http
 	name = "sobriety chip"
 	desc = "A red coin, made from plastic. A triangle is engraved, surrounding it is the words: \"TO THINE OWN SELF BE TRUE\"."
 	icon = 'icons/obj/custom_items/yoiko_coin.dmi'
-	icon_state = "yoiko_coin" //thanks fireandglory for the sprites
-
+	icon_state = "coin_yoiko_heads" //thanks fireandglory for the sprites
+	cmineral = "yoiko"
 
 /obj/item/clothing/suit/unathi/mantle/fluff/karnaikai_wrappings //Unathi Wrappings - Azeazekal Karnaikai - canon35
 	name = "unathi wrappings"
@@ -288,7 +288,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	force = 2
 
 
-/obj/item/clothing/suit/chaplain_hoodie/fluff/nioathi_hoodie //Shaman Hoodie - Fereydoun Nioathi - jackboot
+/obj/item/clothing/suit/chaplain_hoodie/fluff/nioathi_hoodie //Shaman Hoodie - Fereydoun Nioathi - marlonphoenix
 	name = "shaman hoodie"
 	desc = "A slightly faded robe. It's worn by some Unathi shamans."
 	icon = 'icons/obj/custom_items/nioathi_hoodie.dmi'
@@ -630,7 +630,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	contained_sprite = TRUE
 
 
-/obj/item/sign/fluff/triaka_atimono //Framed Zatimono - Azkuyua Triaka - jackboot
+/obj/item/sign/fluff/triaka_atimono //Framed Zatimono - Azkuyua Triaka - marlonphoenix
 	name = "framed zatimono"
 	desc = "A framed Zatimono, a Unathi standard worn into battle similar to an old-Earth Sashimono. This one is slightly faded."
 	icon_state = "triaka_atimono"
@@ -651,8 +651,8 @@ All custom items with worn sprites must follow the contained sprite system: http
 	name = "engraved coin"
 	desc = "A coin of light and bright with one side having an engraving of a greek Lamba sign, and on the back the initials of R.H. are engraved."
 	icon = 'icons/obj/custom_items/raymond_items.dmi'
-	icon_state = "raymond_coin"
-
+	icon_state = "coin_raymond_heads"
+	cmineral = "raymond"
 
 /obj/item/clothing/under/fluff/zohjar_uniform //Republic Noble Clothing - Zohjar Rasateir - lordraven001
 	name = "republic noble clothing"
@@ -1031,7 +1031,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_state = "oz_plushie"
 
 
-/obj/item/clothing/suit/storage/fluff/vizili_mantle //Maraziite Throw Over - Urzkrauzi Vizili - jackboot
+/obj/item/clothing/suit/storage/fluff/vizili_mantle //Maraziite Throw Over - Urzkrauzi Vizili - marlonphoenix
 	name = "maraziite throw over"
 	desc = "A worn, grey poncho exclusively worn by members of the Maraziite Order."
 	icon = 'icons/obj/custom_items/vizili_clothing.dmi'
@@ -1039,7 +1039,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	item_state = "vizili_mantle"
 	contained_sprite = TRUE
 
-/obj/item/clothing/mask/fluff/vizili_mask //Iron Mask - Urzkrauzi Vizili - jackboot
+/obj/item/clothing/mask/fluff/vizili_mask //Iron Mask - Urzkrauzi Vizili - marlonphoenix
 	name = "iron mask"
 	desc = "A mask made of iron worn by members of the Maraziite Order. It can strike dread in the hearts of Unathi that don't toe the line of Sk'akh orthodoxy."
 	icon = 'icons/obj/custom_items/vizili_clothing.dmi'
@@ -1260,7 +1260,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	contained_sprite = TRUE
 
 
-/obj/item/clothing/under/rank/medical/fluff/jurlkiitajr_scrubs //IAC Scrubs - Rajii'rkalahk Jurlkiitajr - jackboot
+/obj/item/clothing/under/rank/medical/fluff/jurlkiitajr_scrubs //IAC Scrubs - Rajii'rkalahk Jurlkiitajr - marlonphoenix
 	name = "\improper IAA scrubs"
 	desc = "A change of sterile medical scrubs worn by IAC workers. This one is specific for Tajara Aid workers."
 	icon = 'icons/obj/custom_items/jurlkiitajr_items.dmi'
@@ -1268,7 +1268,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	item_state = "jurlkiitajr_scrubs"
 	contained_sprite = TRUE
 
-/obj/item/clothing/suit/apron/surgery/fluff/jurlkiitajr_vest //IAC Vest - Rajii'rkalahk Jurlkiitajr - jackboot
+/obj/item/clothing/suit/apron/surgery/fluff/jurlkiitajr_vest //IAC Vest - Rajii'rkalahk Jurlkiitajr - marlonphoenix
 	name = "\improper IAA vest"
 	desc = "A vest designed to distinguish medical workers in the Interstellar Aid Corps."
 	icon = 'icons/obj/custom_items/jurlkiitajr_items.dmi'
@@ -1760,7 +1760,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	contained_sprite = TRUE
 
 
-/obj/item/weapon/paper/fluff/jawdat_paper //Manifesto of the PRA - Rrazujun Rrhazkal-Jawdat - jackboot
+/obj/item/weapon/paper/fluff/jawdat_paper //Manifesto of the PRA - Rrazujun Rrhazkal-Jawdat - marlonphoenix
 	name = "manifesto of the PRA"
 	desc = "This is the manifesto of the People's Republic of Adhomai, written by many different Tajara thinkers in the 2430's. Depending on who you ask it is either an enlightening document that showcases the great \
 	intellectual and cultural genius of Tajara civilization, or a dense collection of gibberish commie nonsense."
@@ -2868,10 +2868,91 @@ All custom items with worn sprites must follow the contained sprite system: http
 	contained_sprite = TRUE
 
 
-/obj/item/clothing/suit/storage/fluff/imari_hoodie //adinkra hoodie - Imari Idris - P - ornias
+/obj/item/clothing/suit/storage/fluff/imari_hoodie //Adinkra Hoodie - Imari Idris - P - ornias
 	name = "adinkra hoodie"
 	desc = "A large, immaculate white hoodie adorned with seven Adinkra symbols on the back. Below the large central symbol is the text \"MMERE DANE\". There is a small 'Idris Incorporated' logo below the left drawstring."
 	icon = 'icons/obj/custom_items/imari_hoodie.dmi'
 	icon_state = "imari_hoodie"
 	item_state = "imari_hoodie"
 	contained_sprite = TRUE
+
+
+/obj/item/weapon/reagent_containers/glass/bucket/fluff/khasan_bucket //Battered Metal Bucket - Khasan Mikhnovsky - alberyk
+	name = "battered metal bucket"
+	desc = "A battered rusty metal bucket. It has seen a lot of use and little maintenance."
+	icon = 'icons/obj/custom_items/khasan_bucket.dmi'
+	icon_state = "khasan_bucket"
+	item_state = "khasan_bucket"
+	contained_sprite = TRUE
+	helmet_type = /obj/item/clothing/head/helmet/bucket/fluff/khasan_bucket
+	drop_sound = 'sound/items/drop/axe.ogg'
+
+/obj/item/clothing/head/helmet/bucket/fluff/khasan_bucket
+	name = "battered metal bucket helmet"
+	icon = 'icons/obj/custom_items/khasan_bucket.dmi'
+	icon_state = "khasan_helmet"
+	item_state = "khasan_helmet"
+	contained_sprite = TRUE
+
+
+/obj/item/fluff/akinyi_symphette //Holo-symphette - Akinyi Idowu - kyres1
+	name = "holo-symphette"
+	desc = "A cheap, collapsible musical instrument which utilizes holographic projections to generate a rough noise. It's shaped like a small harp, and seems to be  \
+	able to be tuned to mimic several old stringed Solarian instruments with some distorted audio. It's still got its price tag sticker on it."
+	icon = 'icons/obj/custom_items/akinyi_symphette.dmi'
+	icon_state = "akinyi_symphette"
+	item_state = "akinyi_symphette"
+	w_class = 3
+	slot_flags = SLOT_BACK
+	contained_sprite = TRUE
+	var/deployed = FALSE
+
+/obj/item/fluff/akinyi_symphette/update_icon()
+	if(deployed)
+		icon_state = "akinyi_symphette_on"
+		item_state = "akinyi_symphette_on"
+	else
+		icon_state = "akinyi_symphette"
+		item_state = "akinyi_symphette"
+
+/obj/item/fluff/akinyi_symphette/attack_self(var/mob/user)
+	deployed = !deployed
+	to_chat(user, "<span class='notice'>You [deployed ? "expand" : "collapse"] \the [src].</span>")
+	update_icon()
+	user.update_inv_l_hand()
+	user.update_inv_r_hand()
+
+/obj/item/weapon/reagent_containers/food/drinks/teapot/fluff/thea_teapot //Bronze Teapot - Thea Reeves - shestrying
+	name = "bronze teapot"
+	desc = "A round-bottomed, well-used teapot. It looks as though it's been carefully maintained."
+	icon = 'icons/obj/custom_items/thea_tea.dmi'
+	icon_state = "thea_teapot"
+	center_of_mass = list("x"=16, "y"=13)
+
+/obj/item/weapon/reagent_containers/food/drinks/fluff/thea_teacup //Bonze Teacup - Thea Reeves - shestrying
+	name = "bronze teacup"
+	desc = "A shallow, bronze teacup. Looks heavy."
+	icon = 'icons/obj/custom_items/thea_tea.dmi'
+	icon_state = "thea_teacup"
+	volume = 20
+	center_of_mass = list("x"=16, "y"=12)
+
+/obj/item/weapon/storage/box/fluff/thea_teabox //Tea Box - Thea Reeves - shestrying
+	desc = "A black, wooden box, the edges softened with transport and use."
+	icon = 'icons/obj/custom_items/thea_tea.dmi'
+	icon_state = "thea_teabox"
+	foldable = null
+	can_hold = list(/obj/item/weapon/reagent_containers/food/drinks/teapot/fluff/thea_teapot, /obj/item/weapon/reagent_containers/food/drinks/fluff/thea_teacup)
+
+/obj/item/weapon/storage/box/fluff/thea_teabox/fill()
+	new /obj/item/weapon/reagent_containers/food/drinks/teapot/fluff/thea_teapot(src)
+	for(var/i in 1 to 4)
+		new /obj/item/weapon/reagent_containers/food/drinks/fluff/thea_teacup(src)
+	make_exact_fit()
+
+/obj/item/fluff/fraseq_journal //Fraseq's Journal of Mysteries - Quorrdash Fraseq - kingoftheping
+	name = "leather journal"
+	desc = "An old, worn out journal made out of leather. It has a lot of lose pages stuck in it, it surely has seen better days. The front just says \"Fraseq\"."
+	icon = 'icons/obj/custom_items/fraseq_journal.dmi'
+	icon_state = "fraseq_journal"
+	w_class = 3

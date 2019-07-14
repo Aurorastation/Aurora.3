@@ -139,6 +139,7 @@ Will print: "/mob/living/carbon/human/death" (you can optionally embed it in a s
 // These define the time taken for the shuttle to get to the space station, and the time before it leaves again.
 #define SHUTTLE_PREPTIME                300 // 5 minutes = 300 seconds - after this time, the shuttle departs centcom and cannot be recalled.
 #define SHUTTLE_LEAVETIME               180 // 3 minutes = 180 seconds - the duration for which the shuttle will wait at the station after arriving.
+#define SHUTTLE_FORCETIME               300 // 5 minutes = 300 seconds - time after which the shuttle is automatically forced
 #define SHUTTLE_TRANSIT_DURATION        300 // 5 minutes = 300 seconds - how long it takes for the shuttle to get to the station.
 #define SHUTTLE_TRANSIT_DURATION_RETURN 120 // 2 minutes = 120 seconds - for some reason it takes less time to come back, go figure.
 
@@ -460,3 +461,6 @@ Define for getting a bitfield of adjacent turfs that meet a condition.
 #define GET_BELOW(A) (HAS_BELOW(A:z) ? get_step(A, DOWN) : null)
 
 #define NULL_OR_EQUAL(self,other) (!(self) || (self) == (other))
+
+//Lying animation
+#define ANIM_LYING_TIME 2

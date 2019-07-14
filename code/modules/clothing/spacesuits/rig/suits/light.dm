@@ -82,9 +82,10 @@
 	emp_protection = 40
 	slowdown = 0
 
+	species_restricted = list("exclude","Diona","Xenomorph", "Golem")
+
 	chest_type = /obj/item/clothing/suit/space/rig/light/ninja
 	glove_type = /obj/item/clothing/gloves/rig/light/ninja
-	helm_type =  /obj/item/clothing/head/helmet/space/rig/light/ninja
 	boot_type = /obj/item/clothing/shoes/rig/light/ninja
 
 	req_access = list(access_syndicate)
@@ -122,15 +123,11 @@
 	siemens_coefficient = 0
 
 /obj/item/clothing/shoes/rig/light/ninja
-	species_restricted = list("exclude","Diona","Xenomorph", "Golem")
 	silent = 1
 
 /obj/item/clothing/suit/space/rig/light/ninja
-	species_restricted = list("exclude","Diona","Xenomorph", "Golem")
 	breach_threshold = 38 //comparable to regular hardsuits
 
-/obj/item/clothing/head/helmet/space/rig/light/ninja
-	species_restricted = list("exclude","Diona","Xenomorph", "Golem")
 
 /obj/item/weapon/rig/light/stealth
 	name = "stealth suit control module"
@@ -167,9 +164,12 @@
 		/obj/item/rig_module/chem_dispenser/offworlder
 		)
 
+	species_restricted = list("Human")
+
+	siemens_coefficient = 0.9
+
 /obj/item/clothing/head/lightrig/offworlder
 	name = "helmet"
-	species_restricted = list("Human")
 	flash_protection = FLASH_PROTECTION_MAJOR
 
 /obj/item/clothing/suit/lightrig/offworlder
@@ -177,7 +177,6 @@
 	heat_protection = UPPER_TORSO
 	cold_protection = UPPER_TORSO
 	flags_inv = 0
-	species_restricted = list("Human")
 
 /obj/item/weapon/rig/light/offworlder/techno
 	name = "techno-conglomerate mobility hardsuit control module"
@@ -190,6 +189,7 @@
 	offline_slowdown = 0
 	airtight = 1
 	offline_vision_restriction = TINT_HEAVY
+	siemens_coefficient = 0.2
 
 	allowed = list(
 		/obj/item/device/flashlight,
@@ -205,9 +205,7 @@
 		/obj/item/rig_module/device/healthscanner/vitalscanner,
 		/obj/item/rig_module/chem_dispenser/offworlder,
 		/obj/item/rig_module/actuators/combat,
-		/obj/item/rig_module/fabricator/energy_net,
-		/obj/item/rig_module/chem_dispenser/combat,
-		/obj/item/rig_module/mounted/xray
+		/obj/item/rig_module/chem_dispenser/combat
 		)
 
 	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT | MODULE_SPECIAL | MODULE_MEDICAL | MODULE_UTILITY
@@ -228,3 +226,13 @@
 
 /obj/item/clothing/gloves/rig/light/offworlder
 	species_restricted = list("Human")
+
+/obj/item/weapon/rig/light/offworlder/techno/equipped
+	initial_modules = list(
+		/obj/item/rig_module/device/healthscanner/vitalscanner,
+		/obj/item/rig_module/chem_dispenser/offworlder,
+		/obj/item/rig_module/actuators/combat,
+		/obj/item/rig_module/fabricator/energy_net,
+		/obj/item/rig_module/chem_dispenser/combat,
+		/obj/item/rig_module/mounted/xray
+		)

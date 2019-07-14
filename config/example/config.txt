@@ -219,11 +219,11 @@ ALLOW_ANTAG_HUD
 ## If ghosts use antagHUD they are no longer allowed to join the round.
 ANTAG_HUD_RESTRICTED
 
-## Prevents observers from joining as mice.
-#DISABLE_PLAYER_MICE
+## Prevents observers from joining as rats.
+#DISABLE_PLAYER_RATS
 
-## If enabled, observer-mice will only be able to understand other mice.
-#UNEDUCATED_MICE
+## If enabled, observer-rats will only be able to understand other rats.
+#UNEDUCATED_RATS
 
 ## How much time a drone fabricator will take to produce a single drone. In deciseconds.
 #DRONE_BUILD_TIME 1200
@@ -532,10 +532,14 @@ ERT_SCALING_FACTOR 1
 ERT_SCALING_FACTOR_ANTAG 1
 ERT_SCALING_FACTOR_DEAD 2
 
-
 # NTSL2+ Connection Info
 NTSL_HOSTNAME localhost
 NTSL_PORT 1945
 
 # Limit to how many hacked drones can AI have at the same time.
 # HACKED_DRONES_LIMIT 5
+
+# Specifies where to load random documents from. Valid values: sql, json
+DOCS_LOAD_DOCS_FROM sql
+# Specifies where random document images are hosted at. Valid format is "https://cdn.aurorastation.org/images/", trailing slash included.
+DOCS_IMAGE_HOST https://cdn.aurorastation.org/images/

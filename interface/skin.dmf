@@ -1026,6 +1026,7 @@ window "mainwindow"
 		background-color = none
 		is-default = true
 		saved-params = "pos;size;is-minimized;is-maximized"
+		icon = 'icons\\ss13_64.png'
 		title = "Space Station 13 - Aurora Station"
 		macro = "macro"
 		menu = "menu"

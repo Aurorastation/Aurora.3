@@ -104,3 +104,7 @@
 	shoes["high-tops, purple"] = /obj/item/clothing/shoes/hitops/purple
 	shoes["high-tops, yellow"] = /obj/item/clothing/shoes/hitops/yellow
 	gear_tweaks += new/datum/gear_tweak/path(shoes)
+
+/datum/gear/shoes/black_boots
+	display_name = "black boots"
+	path = /obj/item/clothing/shoes/black_boots

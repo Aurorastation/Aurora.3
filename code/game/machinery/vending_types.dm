@@ -279,7 +279,7 @@
 	)
 	premium = list(
 		/obj/item/weapon/storage/fancy/cigar = 5,
-		/obj/item/weapon/storage/fancy/cigarettes/killthroat = 5
+		/obj/item/weapon/storage/fancy/cigarettes/acmeco = 5
 	)
 	prices = list(
 		/obj/item/weapon/storage/fancy/cigarettes = 200,
@@ -607,13 +607,13 @@
 	icon_state = "dinnerware"
 	vend_id = "cutlery"
 	products = list(
-		/obj/item/weapon/tray = 8,
-		/obj/item/weapon/material/kitchen/utensil/fork = 6,
-		/obj/item/weapon/material/kitchen/utensil/knife = 6,
-		/obj/item/weapon/material/kitchen/utensil/spoon = 6,
+		/obj/item/weapon/tray = 12,
+		/obj/item/weapon/material/kitchen/utensil/fork = 12,
+		/obj/item/weapon/material/kitchen/utensil/knife = 12,
+		/obj/item/weapon/material/kitchen/utensil/spoon = 12,
 		/obj/item/weapon/material/knife = 2,
 		/obj/item/weapon/material/hatchet/butch = 2,
-		/obj/item/weapon/reagent_containers/food/drinks/drinkingglass = 8,
+		/obj/item/weapon/reagent_containers/food/drinks/drinkingglass = 12,
 		/obj/item/clothing/suit/chef/classic = 2,
 		/obj/item/weapon/material/kitchen/rollingpin = 2,
 		/obj/item/weapon/reagent_containers/cooking_container/oven = 5,

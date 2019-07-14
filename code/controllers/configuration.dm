@@ -84,8 +84,8 @@ var/list/gamemode_cache = list()
 	var/allow_drone_spawn = 1				//assuming the admin allow them to.
 	var/drone_build_time = 1200				//A drone will become available every X ticks since last drone spawn. Default is 2 minutes.
 
-	var/disable_player_mice = 0
-	var/uneducated_mice = 0 //Set to 1 to prevent newly-spawned mice from understanding human speech
+	var/disable_player_rats = 0
+	var/uneducated_rats = 0 //Set to 1 to prevent newly-spawned mice from understanding human speech
 
 	var/usealienwhitelist = 0
 	var/limitalienplayers = 0
@@ -283,6 +283,9 @@ var/list/gamemode_cache = list()
 
 	var/rounds_until_hard_restart = -1 // Changes how often a hard restart will be executed.
 
+	var/docs_load_docs_from
+	var/docs_image_host
+ 
 	var/ert_base_chance = 10
 	var/ert_green_inc = 1
 	var/ert_yellow_inc = 1
@@ -479,7 +482,7 @@ var/list/gamemode_cache = list()
 
 				if ("respawn_delay")
 					config.respawn_delay = text2num(value)
-				
+
 				if("hacked_drones_limit")
 					config.hacked_drones_limit = text2num(value)
 
@@ -686,11 +689,11 @@ var/list/gamemode_cache = list()
 				if("nl_finish_hour")
 					config.nl_finish = text2num(value)
 
-				if("disable_player_mice")
-					config.disable_player_mice = 1
+				if("disable_player_rats")
+					config.disable_player_rats = 1
 
-				if("uneducated_mice")
-					config.uneducated_mice = 1
+				if("uneducated_rats")
+					config.uneducated_rats = 1
 
 				if("use_discord_pins")
 					config.use_discord_pins = 1
@@ -885,6 +888,11 @@ var/list/gamemode_cache = list()
 
 				if ("rounds_until_hard_restart")
 					rounds_until_hard_restart = text2num(value)
+
+				if ("docs_load_docs_from")
+					docs_load_docs_from = value
+				if ("docs_image_host")
+					docs_image_host = value
 
 				if ("ert_base_chance")
 					ert_base_chance = text2num(value)

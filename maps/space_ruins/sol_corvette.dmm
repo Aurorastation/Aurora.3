@@ -357,7 +357,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "bd" = (
-/mob/living/simple_animal/mouse,
+/mob/living/simple_animal/rat,
 /turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "be" = (
@@ -467,12 +467,6 @@
 "bG" = (
 /obj/machinery/light{
 	dir = 1
-	},
-/turf/simulated/floor/tiled/dark,
-/area/derelict/ship)
-"bH" = (
-/obj/effect/landmark{
-	name = "Observer-Start"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
@@ -755,7 +749,7 @@
 /turf/simulated/floor/tiled/white,
 /area/derelict/ship)
 "cA" = (
-/mob/living/simple_animal/mouse,
+/mob/living/simple_animal/rat,
 /turf/simulated/floor/tiled/white,
 /area/derelict/ship)
 "cB" = (
@@ -28614,7 +28608,7 @@ ba
 am
 az
 am
-bH
+am
 bJ
 bN
 ba

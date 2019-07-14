@@ -14,6 +14,7 @@
 	var/accuracy = 1
 	var/can_be_placed_into = list(
 		/obj/machinery/chem_master,
+		/obj/machinery/chem_heater,
 		/obj/machinery/chemical_dispenser,
 		/obj/structure/reagent_dispensers,
 		/obj/machinery/reagentgrinder,
@@ -188,6 +189,7 @@
 		return 1
 
 	//var/types = target.find_type()
+
 	var/mob/living/carbon/human/H
 	if(istype(target, /mob/living/carbon/human))
 		H = target

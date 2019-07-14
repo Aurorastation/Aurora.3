@@ -65,7 +65,6 @@
 	var/grounding = 1			// Cut to quickly discharge, at cost of "minor" electrical issues in output powernet.
 	var/RCon = 1				// Cut to disable AI and remote control.
 	var/RCon_tag = "NO_TAG"		// RCON tag, change to show it on SMES Remote control console.
-	var/install_coils = TRUE
 	charge = 0
 	should_be_mapped = 1
 	component_types = list(
@@ -108,9 +107,8 @@
 // Proc: Initialize()
 // Parameters: 2 (dir - direction machine should face, install_coils - if coils should be spawned)
 // Description: Adds standard components for this SMES, and forces recalculation of properties.
-/obj/machinery/power/smes/buildable/Initialize(mapload, dir, install_coils = 1)
+/obj/machinery/power/smes/buildable/Initialize(mapload, dir)
 	wires = new /datum/wires/smes(src)
-	src.install_coils = install_coils
 
 	SSmachinery.queue_rcon_update()
 
@@ -118,9 +116,8 @@
 
 	LAZYINITLIST(component_parts)	// Parent machinery call won't initialize this list if this is a newly constructed SMES.
 
-	if (install_coils)
-		for (var/i in 1 to cur_coils)
-			component_parts += new /obj/item/weapon/smes_coil(src)
+	for (var/i in 1 to cur_coils)
+		component_parts += new /obj/item/weapon/smes_coil(src)
 
 	return INITIALIZE_HINT_LATELOAD
 
