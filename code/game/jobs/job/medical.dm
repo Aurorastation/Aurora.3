@@ -9,7 +9,6 @@
 	spawn_positions = 1
 	supervisors = "the captain"
 	selection_color = "#ffddf0"
-	req_admin_notify = 1
 	economic_modifier = 10
 	access = list(access_medical, access_medical_equip, access_morgue, access_genetics, access_heads,
 			access_pharmacy, access_virology, access_cmo, access_surgery, access_RC_announce, access_engine, access_construction,

@@ -12,7 +12,7 @@
 /datum/uplink_item/abstract/announcements/fake_centcom/New()
 	..()
 	name = "[current_map.boss_name] Update Announcement"
-	item_cost = round(DEFAULT_TELECRYSTAL_AMOUNT / 2)
+	item_cost = round(DEFAULT_TELECRYSTAL_AMOUNT / 3)
 	desc = "Causes a falsified [current_map.boss_name] Update. Triggers immediately after supplying additional data."
 
 /datum/uplink_item/abstract/announcements/fake_centcom/extra_args(var/mob/user)
@@ -110,7 +110,7 @@
 /datum/uplink_item/abstract/announcements/fake_radiation
 	name = "Radiation Storm Announcement"
 	desc = "Interferes with the station's radiation sensors. Triggers immediately upon investment."
-	item_cost = 6
+	item_cost = 4
 
 /datum/uplink_item/abstract/announcements/fake_radiation/get_goods(var/obj/item/device/uplink/U, var/loc)
 	var/static/cooldown = 0

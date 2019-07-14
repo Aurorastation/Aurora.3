@@ -18,6 +18,8 @@
 	var/speak_chance = 0
 	var/list/emote_hear = list()	//Hearable emotes
 	var/list/emote_see = list()		//Unlike speak_emote, the list of things in this variable only show by themselves with no spoken text. IE: Ian barks, Ian yaps
+	var/list/emote_sounds = list()
+	var/sound_time = TRUE
 
 	var/turns_per_move = 1
 	var/turns_since_move = 0
@@ -104,6 +106,12 @@
 
 	var/flying = FALSE //if they can fly, which stops them from falling down and allows z-space travel
 
+	var/has_udder = FALSE
+	var/datum/reagents/udder = null
+	var/milk_type = "milk"
+
+	var/list/butchering_products	//if anything else is created when butchering this creature, like bones and leather
+
 /mob/living/simple_animal/proc/beg(var/atom/thing, var/atom/holder)
 	visible_emote("gazes longingly at [holder]'s [thing]",0)
 
@@ -140,6 +148,10 @@
 
 	if (can_nap)
 		verbs += /mob/living/simple_animal/lay_down
+
+	if(has_udder)
+		udder = new(50)
+		udder.my_atom = src
 
 /mob/living/simple_animal/Move(NewLoc, direct)
 	. = ..()
@@ -239,6 +251,12 @@
 
 	if(!atmos_suitable)
 		apply_damage(unsuitable_atoms_damage, OXY, used_weapon = "Atmosphere")
+
+	if(has_udder)
+		if(stat == CONSCIOUS)
+			if(udder && prob(5))
+				udder.add_reagent(milk_type, rand(5, 10))
+
 	return 1
 
 /mob/living/simple_animal/think()
@@ -411,6 +429,19 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 	return
 
 /mob/living/simple_animal/attackby(var/obj/item/O, var/mob/user)
+	if(has_udder)
+		var/obj/item/weapon/reagent_containers/glass/G = O
+		if(stat == CONSCIOUS && istype(G) && G.is_open_container())
+			if(udder.total_volume <= 0)
+				to_chat(user, "<span class='warning'>The udder is dry.</span>")
+				return
+			if(G.reagents.total_volume >= G.volume)
+				to_chat(user, "<span class='warning'>The [O] is full.</span>")
+				return
+			user.visible_message("<span class='notice'>[user] milks [src] using \the [O].</span>")
+			udder.trans_id_to(G, milk_type , rand(5,10))
+			return
+
 	if(istype(O, /obj/item/weapon/reagent_containers) || istype(O, /obj/item/stack/medical) || istype(O,/obj/item/weapon/gripper/))
 		..()
 		poke()
@@ -525,12 +556,36 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 		return (0)
 	return 1
 
+/mob/living/simple_animal/proc/make_noise(var/make_sound = TRUE)
+	set name = "Resist"
+	set category = "Abilities"
+
+	if((usr && usr.stat == DEAD) || !make_sound)
+		return
+
+	if(usr && !sound_time)
+		to_chat(usr, span("warning", "Ability on cooldown 2 seconds."))
+		return
+
+	playsound(src, pick(emote_sounds), 75, 1)
+	if(client)
+		sound_time = FALSE
+		addtimer(CALLBACK(src, .proc/reset_sound_time), 2 SECONDS)
+
+/mob/living/simple_animal/proc/reset_sound_time()
+	sound_time = TRUE
+
 /mob/living/simple_animal/say(var/message)
 	var/verb = "says"
 	if(speak_emote.len)
 		verb = pick(speak_emote)
 
 	message = sanitize(message)
+	if(emote_sounds.len)
+		var/sound_chance = TRUE
+		if(client) // we do not want people who assume direct control to spam
+			sound_chance = prob(50)
+		make_noise(sound_chance)
 
 	..(message, null, verb)
 
@@ -546,9 +601,14 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 	var/actual_meat_amount = max(1,(meat_amount*0.75))
 	if(meat_type && actual_meat_amount>0 && (stat == DEAD))
 		for(var/i=0;i<actual_meat_amount;i++)
-			var/obj/item/meat = new meat_type(get_turf(src))
-			if (meat.name == "meat")
-				meat.name = "[src.name] [meat.name]"
+			new meat_type(get_turf(src))
+
+		if(butchering_products)
+			for(var/path in butchering_products)
+				var/number = butchering_products[path]
+				for(var/i in 1 to number)
+					new path(get_turf(src))
+
 		if(issmall(src))
 			user.visible_message("<span class='danger'>[user] chops up \the [src]!</span>")
 			new/obj/effect/decal/cleanable/blood/splatter(get_turf(src))

@@ -166,6 +166,8 @@
 
 	species_restricted = list("Human")
 
+	siemens_coefficient = 0.9
+
 /obj/item/clothing/head/lightrig/offworlder
 	name = "helmet"
 	flash_protection = FLASH_PROTECTION_MAJOR
@@ -187,6 +189,7 @@
 	offline_slowdown = 0
 	airtight = 1
 	offline_vision_restriction = TINT_HEAVY
+	siemens_coefficient = 0.2
 
 	allowed = list(
 		/obj/item/device/flashlight,
@@ -202,9 +205,7 @@
 		/obj/item/rig_module/device/healthscanner/vitalscanner,
 		/obj/item/rig_module/chem_dispenser/offworlder,
 		/obj/item/rig_module/actuators/combat,
-		/obj/item/rig_module/fabricator/energy_net,
-		/obj/item/rig_module/chem_dispenser/combat,
-		/obj/item/rig_module/mounted/xray
+		/obj/item/rig_module/chem_dispenser/combat
 		)
 
 	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT | MODULE_SPECIAL | MODULE_MEDICAL | MODULE_UTILITY
@@ -225,3 +226,13 @@
 
 /obj/item/clothing/gloves/rig/light/offworlder
 	species_restricted = list("Human")
+
+/obj/item/weapon/rig/light/offworlder/techno/equipped
+	initial_modules = list(
+		/obj/item/rig_module/device/healthscanner/vitalscanner,
+		/obj/item/rig_module/chem_dispenser/offworlder,
+		/obj/item/rig_module/actuators/combat,
+		/obj/item/rig_module/fabricator/energy_net,
+		/obj/item/rig_module/chem_dispenser/combat,
+		/obj/item/rig_module/mounted/xray
+		)

@@ -180,7 +180,7 @@
 
 
 
-			if(istype(teleatom, /obj))
+			if(istype(teleatom, /obj) && !istype(teleatom, /obj/effect/portal))
 				valid = 1
 				var/obj/O = teleatom
 				if(newdest)
@@ -222,7 +222,7 @@
 							if(organs_to_gib.len)
 								var/obj/item/organ/external/E = pick(organs_to_gib)
 								to_chat(H, "<span class='danger'>You partially phase into \the [impediment], causing your [E.name] to violently dematerialize!</span>")
-								E.droplimb(0,DROPLIMB_BLUNT)
+								H.apply_damage(35, BRUTE, E, 0, sharp=0, edge=0)
 
 					else
 						if(newdest)

@@ -8,7 +8,7 @@
 	var/list/slept = list()
 
 	var/list/currentrun = list()
-	var/list/all_mice = list()	// Contains all *living* mice.
+	var/list/all_rats = list()	// Contains all *living* rats.
 	var/list/mannequins = list()	//Contains all mannequins used by character preview
 	var/list/greatworms = list()
 	var/list/greatasses = list()

@@ -3722,7 +3722,7 @@
 "aka" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/mob/living/simple_animal/mouse,
+/mob/living/simple_animal/rat,
 /turf/simulated/shuttle/floor,
 /area/template_noop)
 "akb" = (
