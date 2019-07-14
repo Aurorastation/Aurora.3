@@ -219,7 +219,7 @@
 	var/fine = 0// how much space dosh do they need to cough up if they want to go free
 	var/felony = 0// will the criminal become a felon as a result of being found guilty of his crimes?
 	var/created_by //The ckey and name of the person that created that charge
-	excluded_fields = list("db_id")
+	excluded_fields = list("db_id", "char_id", "created_by", "felony", "evidence", "arbiters", "brig_sentence", "prison_sentence", "fine")
 
 /datum/record/char_infraction/proc/getBrigSentence()
 	if(brig_sentence < PERMABRIG_SENTENCE)

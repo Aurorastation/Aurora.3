@@ -35,6 +35,13 @@
 						. = record
 				else
 					record[variable] = src.vars[variable].Listify()
+			else if(deep && istype(src.vars[variable], /list) && is_list_containing_type(src.vars[variable], /datum/record))
+				record[variable] = list()
+				for(var/subr in src.vars[variable])
+					var/datum/record/r = subr
+					record[variable] += list(r.Listify())
+				if(to_update && to_update[variable].len != record[variable].len)
+					 . = record
 			else if(istype(src.vars[variable], /list) || istext(src.vars[variable]) || isnum(src.vars[variable]))
 				if(to_update && record[variable] != src.vars[variable])
 					record[variable] = src.vars[variable]
