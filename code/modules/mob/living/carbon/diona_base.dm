@@ -613,8 +613,6 @@ var/list/diona_banned_languages = list(
 #undef TEMP_REGEN_NORMAL
 #undef TEMP_INCREASE_REGEN_DOUBLE
 #undef LIFETICK_INTERVAL_LESS
-#undef REGROW_FOOD_REQ
-#undef REGROW_ENERGY_REQ
 #undef diona_max_pressure
 #undef diona_nutrition_factor
 #undef DIONA_LIGHT_COEFICIENT
