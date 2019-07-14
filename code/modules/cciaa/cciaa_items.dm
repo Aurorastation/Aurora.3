@@ -47,7 +47,7 @@
 	if(!check_rights(R_CCIAA,FALSE))
 		to_chat(usr, "<span class='notice'>The device beeps and flashes \"Unauthorised user.\".</span>")
 		return
-	if(usr.stat)
+	if(use_check_and_message(usr))
 		return
 	if(recording)
 		to_chat(usr, "<span class='notice'>The device beeps and flashes \"Already recording, Aborting\".</span>")
