@@ -322,7 +322,6 @@ var/list/diona_banned_languages = list(
 			DS.regen_limb = addtimer(CALLBACK(src, .proc/diona_regen_callback, path, DS), 10 MINUTES, TIMER_STOPPABLE)
 			sleep(5)
 			if(path in special_case)
-				message_admins("Found it")
 				DS.regen_extra = addtimer(CALLBACK(src, .proc/diona_regen_callback, special_case[path], DS), 10 MINUTES, TIMER_STOPPABLE)
 
 			return
