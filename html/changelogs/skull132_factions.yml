@@ -1,0 +1,6 @@
+author: Skull132
+delete-after: True
+
+changes:
+  - rscdel: "Deleted the old faction system. As a result, all player factions choices are reset."
+  - rscadd: "Added a new faction system, accessible under the Occupation dialog. Factions now affect what jobs you can choose, and what uniforms you spawn with."
