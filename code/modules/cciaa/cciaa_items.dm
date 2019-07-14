@@ -225,7 +225,7 @@
 		to_chat(user,"<span class='notice'>The device beeps and flashes \"A interviewee has already been associated with this interview\".</span>")
 		return
 	
-	if(iscarbon(user))
+	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
 		if(!H.character_id)
 			to_chat(user,"<span class='notice'>The device beeps and flashes \"Fingerprint is not recognized\".</span>")
