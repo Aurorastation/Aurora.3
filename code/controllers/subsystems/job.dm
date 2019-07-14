@@ -23,6 +23,9 @@
 	var/list/name_factions = list()
 	var/datum/faction/default_faction = null
 
+	var/safe_to_sanitize = FALSE
+	var/list/deferred_preference_sanitizations = list()
+
 /datum/controller/subsystem/jobs/New()
 	NEW_SS_GLOBAL(SSjobs)
 
@@ -33,10 +36,13 @@
 	LoadJobs("config/jobs.txt")
 	InitializeFactions()
 
+	ProcessSanitizationQueue()
+
 /datum/controller/subsystem/jobs/Recover()
 	occupations = SSjobs.occupations
 	unassigned = SSjobs.unassigned
 	job_debug = SSjobs.job_debug
+	factions = SSjobs.factions
 	if (islist(job_debug))
 		job_debug += "NOTICE: Job system Recover() triggered."
 
@@ -866,5 +872,14 @@
 		return name_factions[faction_name]
 	else
 		return null
+
+/datum/controller/subsystem/jobs/proc/ProcessSanitizationQueue()
+	safe_to_sanitize = TRUE
+
+	for (var/p in deferred_preference_sanitizations)
+		var/datum/callback/CB = deferred_preference_sanitizations[p]
+		CB.Invoke()
+
+	deferred_preference_sanitizations.Cut()
 
 #undef Debug

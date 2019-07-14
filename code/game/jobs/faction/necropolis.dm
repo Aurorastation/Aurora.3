@@ -1,7 +1,7 @@
 /datum/faction/necropolis_industries
 	name = "Necropolis Industries"
 	description = "The largest weapons producer in human space, Necropolis Industries initially found their place with the invention of a militarized RIG suit for use in the Interstellar War. With many extraordinarily weapons contracts thanks to SolGov, as well as acquisitions of other major armaments companies, Necropolis Industries weapons can be found in the hands of nearly every military force across the Orion Spur. They are prominently associated with the Empire of Dominia, and are at the forefront of genetic modification technology."
-	title_suffix = "Necrp"
+	title_suffix = "Necro"
 
 	allowed_role_types = list(
 		/datum/job/officer = TRUE,

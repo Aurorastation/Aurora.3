@@ -1,7 +1,6 @@
 /datum/faction
 	var/name
 	var/description
-	var/icon_file
 	var/title_suffix
 
 	var/list/allowed_role_types
@@ -44,3 +43,6 @@
 
 /datum/faction/proc/can_select(datum/preferences/prefs)
 	return !get_selection_error(prefs)
+
+/datum/faction/proc/get_logo_name()
+	return "faction_[title_suffix].png"

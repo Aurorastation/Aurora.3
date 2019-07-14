@@ -126,6 +126,17 @@
 	if (!pref.player_alt_titles)
 		pref.player_alt_titles = new()
 
+	if (!SSjobs.safe_to_sanitize)
+		testing("deferred")
+		if (!SSjobs.deferred_preference_sanitizations[src])
+			SSjobs.deferred_preference_sanitizations[src] = CALLBACK(src, .proc/late_sanitize, sql_load)
+	else
+		testing("immediate")
+		late_sanitize(sql_load)
+
+/datum/category_item/player_setup_item/occupation/proc/late_sanitize(sql_load)
+	testing("sanitized!")
+
 	for (var/datum/job/job in SSjobs.occupations)
 		var/alt_title = pref.player_alt_titles[job.title]
 		if(alt_title && !(alt_title in job.alt_titles))
@@ -134,7 +145,7 @@
 	sanitize_faction()
 
 /datum/category_item/player_setup_item/occupation/content(mob/user, limit = 16, list/splitJobs = list("Chief Engineer", "Head of Security"))
-	if (!SSjobs.occupations.len || !SSjobs.factions.len)
+	if (SSjobs.init_state != SS_INITSTATE_DONE)
 		return "<center><large>Jobs controller not initialized yet. Please wait a bit and reload this section.</large></center>"
 
 	var/list/dat = list(
@@ -372,6 +383,8 @@
 	pref.player_alt_titles.Cut()
 
 /datum/category_item/player_setup_item/occupation/proc/show_faction_menu(user, selected_faction)
+	simple_asset_ensure_is_sent(user, /datum/asset/simple/faction_icons)
+
 	var/list/dat = list("<center>")
 
 	for (var/datum/faction/faction in SSjobs.factions)
@@ -389,7 +402,8 @@
 	else
 		dat += "<br><span class='warning'>[faction.get_selection_error(pref)]</span>"
 
-	dat += "</center><hr><center><large><u>[faction.name]</u></large></center>"
+	dat += "</center><hr><center><large><u>[faction.name]</u></large>"
+	dat += {"<br><img style="height:100px;" src="[faction.get_logo_name()]"></center>"}
 
 	if (faction.is_default)
 		dat += "<br><center><small>This faction is the default faction aboard this installation.</small></center>"
@@ -403,8 +417,7 @@
 
 	if (!faction)
 		to_client_chat("<span class='danger'>Invalid faction chosen. Resetting to default.</span>")
-
-	faction = SSjobs.default_faction
+		faction = SSjobs.default_faction
 
 	ResetJobs() // How to be horribly lazy.
 
