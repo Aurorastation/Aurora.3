@@ -38,13 +38,13 @@
 	return temp_list
 
 //Checks for specific types in a list
-/proc/is_type_in_list(var/atom/A, var/list/L)
+/proc/is_type_in_list(var/datum/A, var/list/L)
 	for(var/type in L)
 		if(istype(A, type))
 			return 1
 	return 0
 
-/proc/instances_of_type_in_list(atom/A, list/L, strict = FALSE)
+/proc/instances_of_type_in_list(var/datum/A, list/L, strict = FALSE)
 	. = 0
 	if (strict)
 		for (var/type in L)
@@ -54,6 +54,8 @@
 		for(var/type in L)
 			if(istype(A, type))
 				.++
+
+
 
 //Removes any null entries from the list
 //Returns TRUE if the list had nulls, FALSE otherwise
@@ -281,6 +283,9 @@
 		if(istype(T, type))
 			i++
 	return i
+
+/proc/is_list_containing_type(var/list/L, type)
+	return count_by_type(L, type) == L.len
 
 /proc/subtypesof(prototype)
 	return (typesof(prototype) - prototype)
