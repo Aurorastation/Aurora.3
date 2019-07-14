@@ -211,7 +211,9 @@ Example:
 Parameters:
  - `name` - name of asset to show that was sent to client.
 Please note that regular `<img>` parameters apply here.
-### VuiImg `<vui-item>`
+### VuiItem `<vui-item>` DEPRECATED
+(Please use VuiGroup and VuiGroupItem)
+
 Helper for making item lists using legacy nano styles.
 
 Example:
@@ -222,3 +224,14 @@ Parameters:
  - `label` - Label to display next to contents
  - `balance` - This determines how much space is used by content compared to label. This parameter value should be between 0 and 1.
 
+### VuiGroupItem `<vui-group-item>` and VuiGroup `<vui-group>`
+Helper for making item lists. Automatically adjusts label width for optimal layout, makes space for content.
+`VuiGroup` is container for items. It should contain vui-group-item or any element that has CSS `display: table-row`.
+Example:
+```Vue
+<vui-group>
+    <vui-group-item label="Current health:">75%</vui-item>
+</vui-group>
+```
+Parameters:
+ - `label` - Label to display next to contents.
