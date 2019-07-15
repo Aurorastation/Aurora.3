@@ -581,12 +581,12 @@ var/list/holder_mob_icon_cache = list()
 	icon_state = "cat_rest"
 	item_state = "cat"
 
-/obj/item/weapon/holder/pai/mouse
-	icon_state = "mouse_rest"
-	item_state = "mouse"
+/obj/item/weapon/holder/pai/rat
+	icon_state = "rat_rest"
+	item_state = "rat"
 
 /obj/item/weapon/holder/pai/monkey
-	icon_state = "monkey"
+	icon_state = "monkey_rest"
 	item_state = "monkey"
 
 /obj/item/weapon/holder/pai/rabbit

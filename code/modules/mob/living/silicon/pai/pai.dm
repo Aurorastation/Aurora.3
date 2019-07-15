@@ -22,7 +22,7 @@
 	var/global/list/possible_chassis = list(
 		"Drone" = "repairbot",
 		"Cat" = "cat",
-		"Mouse" = "mouse",
+		"Rat" = "rat",
 		"Monkey" = "monkey",
 		"Rabbit" = "rabbit"
 		)
@@ -30,7 +30,7 @@
 	var/global/list/pai_holder_types = list(
 		"Drone" = /obj/item/weapon/holder/pai/drone,
 		"Cat" = /obj/item/weapon/holder/pai/cat,
-		"Mouse" = /obj/item/weapon/holder/pai/mouse,
+		"Rat" = /obj/item/weapon/holder/pai/rat,
 		"Monkey" = /obj/item/weapon/holder/pai/monkey,
 		"Rabbit" = /obj/item/weapon/holder/pai/rabbit
 		)

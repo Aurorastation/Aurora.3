@@ -239,7 +239,7 @@ var/list/diona_banned_languages = list(
 		return FALSE
 
 // Continuation of the Diona regen proc, but for human specific actions.
-/mob/living/carbon/human/diona_handle_regeneration(var/datum/dionastats/DS)
+/mob/living/carbon/human/diona_handle_regeneration(var/datum/dionastats/DS, var/bypass = FALSE)
 	..()
 
 	// We cancel with regening organ, as it's meant to stop all other regenerative
@@ -280,7 +280,7 @@ var/list/diona_banned_languages = list(
 
 
 	//Last up, growing brand new limbs and organs to replace those lost or removed.
-	if (life_tick % (LIFETICK_INTERVAL_LESS*8) == 0 && (DS.stored_energy > (0.5 * DS.max_energy)))
+	if ((life_tick % (LIFETICK_INTERVAL_LESS*8) == 0 && (DS.stored_energy > (0.5 * DS.max_energy))) || bypass )
 		//We will only replace ONE organ or limb each time this procs
 		var/path
 		for (var/i in species.has_limbs)
@@ -308,13 +308,15 @@ var/list/diona_banned_languages = list(
 				return
 			DS.stored_energy -= REGROW_ENERGY_REQ
 			adjustNutritionLoss(REGROW_FOOD_REQ)
-			playsound(src, 'sound/species/diona/gestalt_grow.ogg', 30, 1)
 			visible_message("<span class='warning'>[src] begins to shift and quiver.</span>",
 				"<span class='warning'>You begin to shift and quiver, feeling a stirring within your trunk</span>")
 
 			DS.regening_organ = TRUE
 			to_chat(src, "<span class='notice'>You are trying to regrow a lost limb, this is a long and complicated process that will take 10 minutes!</span>")
-			addtimer(CALLBACK(src, .proc/diona_regen_callback, path), 10 MINUTES)
+			if(!bypass)
+				DS.regen_limb = addtimer(CALLBACK(src, .proc/diona_regen_callback, path), 10 MINUTES, TIMER_STOPPABLE)
+			else
+				diona_regen_callback(path, DS)
 			return
 
 
@@ -367,6 +369,9 @@ var/list/diona_banned_languages = list(
 
 		//If we have less than six nymphs, we add one each proc
 		if (topup_nymphs(1))
+			if (DS.stored_energy < REGROW_ENERGY_REQ)
+				return
+
 			DS.stored_energy -= REGROW_ENERGY_REQ
 			adjustNutritionLoss(REGROW_FOOD_REQ)
 			to_chat(src, "<span class='danger'>You feel a stirring inside you as a new nymph is born within your trunk!</span>")
@@ -390,6 +395,7 @@ var/list/diona_banned_languages = list(
 
 	update_dionastats() //Re-find the organs in case they were lost or regained
 	updatehealth()
+	playsound(src, 'sound/species/diona/gestalt_grow.ogg', 30, 1)
 
 //MESSAGE FUNCTIONS
 /mob/living/carbon/proc/diona_handle_lightmessages(var/datum/dionastats/DS)
@@ -515,6 +521,44 @@ var/list/diona_banned_languages = list(
 		else
 			to_chat(src, "<span class='danger'>You have forgotten the [L.name] language!</span>")
 
+/mob/living/carbon/alien/diona/proc/switch_to_gestalt()
+	set name = "Switch to Gestalt"
+	set desc = "Allows you to switch control back to your parent Gestalt."
+	set category = "Abilities"
+
+	if(!gestalt)
+		to_chat(src, span("warning", "You have no Gestalt!"))
+	else if(gestalt.stat == DEAD)
+		to_chat(src, span("danger", "Your Gestlat is not responding! Something could have happened to it!"))
+	else
+		gestalt.key = key
+
+/mob/living/carbon/alien/diona/proc/merge_back_to_gestalt()
+	set name = "Merge to Gestalt"
+	set desc = "Allows you to merge back to your parent Gestalt."
+	set category = "Abilities"
+
+	for(var/mob/living/carbon/human/H in view(src, 7))
+		if(!H.is_diona())
+			continue
+		var/mob/living/carbon/human/diona/C = H
+		if(C == gestalt)
+			C.nutrition += REGROW_FOOD_REQ
+			C.DS.stored_energy += REGROW_ENERGY_REQ
+			total_radiation += 5
+			C.key = src.key
+			if(DS.regen_limb)
+				execute_and_deltimer(DS.regen_limb)
+			else
+				C.diona_handle_regeneration(C.DS, TRUE)
+			to_chat(C, span("notice", "Your lost nymph merged back."))
+			C.add_nymph()
+			verbs -= /mob/living/carbon/alien/diona/proc/switch_to_gestalt
+			C.verbs -= /mob/living/carbon/human/proc/switch_to_nymph
+			C.DS.nym = null
+			qdel(src)
+			break
+
 //DIONASTATS DEFINES
 
 //Dionastats is an instanced object that diona will each create and hold a reference to.
@@ -541,7 +585,8 @@ var/list/diona_banned_languages = list(
 	var/obj/item/organ/diona/nutrients/nutrient_organ = null //Organ
 	var/LMS = 1 //Lightmessage state. Switching between states gives the user a message
 	var/dionatype //1 = nymph, 2 = worker gestalt
-
+	var/datum/weakref/nym
+	var/regen_limb
 
 /datum/dionastats/Destroy()
 	light_organ = null //Nulling out these references to prevent GC errors

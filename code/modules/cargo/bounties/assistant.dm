@@ -183,12 +183,6 @@
 		return T.air_contents.gas["phoron"] >= moles_required
 	return FALSE
 
-/datum/bounty/item/assistant/corgimeat
-	name = "Raw Corgi Meat"
-	description = "The Syndicate recently stole all of %BOSSSHORT's corgi meat. Ship out a replacement immediately."
-	reward = 3000
-	wanted_types = list(/obj/item/weapon/reagent_containers/food/snacks/meat/corgi)
-
 /datum/bounty/item/chef/action_figures
 	name = "Action Figures"
 	description = "The vice president's son saw an ad for action figures on the telescreen and now he won't shut up about them. Ship some to ease his complaints."
