@@ -39,3 +39,4 @@ delete-after: True
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
   - rscdel: "Due to various human rights abuses and poor quality programming, NanoTrasen has removed Security programming from their stationbound units."
+  - rscadd: "Combat and Syndicate modules now have handcuffs, for non-lethal capturing."
