@@ -17,23 +17,32 @@ export default {
   },
   props: {
     keys: {
-      type: Array
+      type: Array,
+      default() {
+        return [];
+      }
     },
     input: {
-      type: Array
+      type: Array,
+      default() {
+        return [];
+      }
     },
     value: {
-      type: Array
+      type: Array,
+      default() {
+        return [];
+      }
     }
   },
   watch: {
-    keys: function (newValue, oldValue) {
+    keys() {
       this.fuse = null;
     },
-    input: function (newValue, oldValue) {
+    input() {
       this.onFieldUpdate(this.searchValue)
     },
-    searchValue: function (newValue, oldValue) {
+    searchValue(newValue) {
       this.onFieldUpdate(newValue)
     }
   },
