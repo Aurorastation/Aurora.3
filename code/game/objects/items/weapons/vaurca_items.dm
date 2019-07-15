@@ -27,6 +27,7 @@
 	item_state = "shaper_helmet"
 	contained_sprite = TRUE
 	species_restricted = list("Vaurca")
+	body_parts_covered = HEAD|FACE|EYES
 
 /obj/item/clothing/head/expression
 	name = "human expression mask"
@@ -41,6 +42,35 @@
 	desc = "A mask that allows emotively challenged aliens to convey facial expressions. This one depicts a skrell."
 	icon_state = "skrell_helmet"
 	item_state = "skrell_helmet"
+
+/obj/item/clothing/head/shroud
+	name = "vaurcan shroud"
+	desc = "This relatively new design is meant to cover the head of a Vaurca, to both protect against sunlight, and to cover their mandibles. This one is blue."
+	icon = 'icons/obj/vaurca_items.dmi'
+	icon_state = "vacshroudblue"
+	item_state = "vacshroudblue"
+	body_parts_covered = HEAD|FACE|EYES
+	contained_sprite = TRUE
+
+/obj/item/clothing/head/shroud/red
+	desc = "This relatively new design is meant to cover the head of a Vaurca, to both protect against sunlight, and to cover their mandibles. This one is red."
+	icon_state = "vacshroudred"
+	item_state = "vacshroudred"
+
+/obj/item/clothing/head/shroud/green
+	desc = "This relatively new design is meant to cover the head of a Vaurca, to both protect against sunlight, and to cover their mandibles. This one is green."
+	icon_state = "vacshroudgreen"
+	item_state = "vacshroudgreen"
+
+/obj/item/clothing/head/shroud/purple
+	desc = "This relatively new design is meant to cover the head of a Vaurca, to both protect against sunlight, and to cover their mandibles. This one is purple."
+	icon_state = "vacshroudpurple"
+	item_state = "vacshroudpurple"
+
+/obj/item/clothing/head/shroud/brown
+	desc = "This relatively new design is meant to cover the head of a Vaurca, to both protect against sunlight, and to cover their mandibles. This one is brown."
+	icon_state = "vacshroudbrown"
+	item_state = "vacshroudbrown"
 
 /obj/item/weapon/melee/energy/vaurca
 	name = "thermal knife"
