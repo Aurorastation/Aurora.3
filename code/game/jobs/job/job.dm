@@ -200,6 +200,8 @@
 	if(allow_backbag_choice)
 		var/use_job_specific = H.backbag_style == 1
 		switch(H.backbag)
+			if (1)
+				back = null
 			if (2)
 				back = use_job_specific ? backpack : /obj/item/weapon/storage/backpack
 			if (3)
@@ -212,13 +214,15 @@
 				back = use_job_specific ? messengerbag : /obj/item/weapon/storage/backpack/messenger
 			else
 				back = backpack //Department backpack
-	equip_item(H, back, slot_back)
+	if(back)
+		equip_item(H, back, slot_back)
 
 	if(istype(H.back,/obj/item/weapon/storage/backpack))
 		var/obj/item/weapon/storage/backpack/B = H.back
 		B.autodrobe_no_remove = TRUE
 
 /datum/outfit/job/equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+	back = null //Nulling the backpack here, since we already equipped the backpack in pre_equip
 	if(box)
 		var/spawnbox = box
 		backpack_contents.Insert(1, spawnbox) // Box always takes a first slot in backpack
