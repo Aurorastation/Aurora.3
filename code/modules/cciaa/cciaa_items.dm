@@ -61,6 +61,7 @@
 			var/DBQuery/report_query = dbcon.NewQuery("SELECT id, report_date, title FROM ss13_ccia_reports WHERE status = 'approved' AND deleted_at IS NULL")
 			report_query.Execute()
 			while(report_query.NextRow())
+				CHECK_TICK
 				reports["[report_query.item[2]] - [report_query.item[3]]"] = "[report_query.item[1]]"
 
 			report_name = input(usr, "Select Report","Report Name") as null|anything in reports
