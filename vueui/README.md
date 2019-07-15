@@ -235,3 +235,33 @@ Example:
 ```
 Parameters:
  - `label` - Label to display next to contents.
+### VuiInputNumeric `<vui-input-numeric>`
+Numeric input helper to help inputting large and small numbers.
+
+Example:
+```Vue
+<vui-input-numeric width="2.5em" v-model="number" :min="1" :max="10"/>
+```
+Parameters:
+ - `value` - Initial value for input.
+ - `button-count` - How many -/+ buttons to show on each side.
+ - `min` - Minimum value.
+ - `max` - Maximum value.
+ - `push-state` - Boolean determining if current ui state should be pushed on input change.
+ - `width` - Determines width of input text field.
+ - `decimal-places` - How many decimal places are allowed.
+Events:
+ - `input` - Fires when value changes. Value is number currently entered.
+
+### VuiInputSearch `<vui-input-search>`
+Search text field to filter objects in user input.
+
+Example:
+```Vue
+<vui-input-search :input="[{name: 'Bret'}, {name: 'Andrea'}]" v-model="output" :keys="['name']"/>
+```
+Parameters:
+ - `input` - Initial array with elements to search.
+ - `keys` - Array of strings listing keys to be searched.
+Events:
+ - `input` - Fires when search text changes. Event value is new sorted array.
