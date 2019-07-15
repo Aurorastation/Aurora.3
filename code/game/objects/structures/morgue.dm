@@ -197,8 +197,8 @@
 /obj/structure/crematorium/Destroy()
 	if(connected)
 		QDEL_NULL(connected)
-	if(listener)
-		QDEL_NULL(listener)
+	if(crema)
+		QDEL_NULL(crema)
 	return ..()
 
 /obj/structure/crematorium/proc/update()
