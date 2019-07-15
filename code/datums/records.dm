@@ -41,7 +41,7 @@
 					var/datum/record/r = subr
 					record[variable] += list(r.Listify())
 				if(to_update && to_update[variable].len != record[variable].len)
-					 . = record
+					. = record
 			else if(istype(src.vars[variable], /list) || istext(src.vars[variable]) || isnum(src.vars[variable]))
 				if(to_update && record[variable] != src.vars[variable])
 					record[variable] = src.vars[variable]
