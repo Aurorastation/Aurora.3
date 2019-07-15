@@ -6,7 +6,6 @@ var/global/list/robot_modules = list(
 	"Mining" 		= /obj/item/weapon/robot_module/miner,
 	"Rescue" 		= /obj/item/weapon/robot_module/medical/rescue,
 	"Medical" 		= /obj/item/weapon/robot_module/medical/general,
-	"Security" 		= /obj/item/weapon/robot_module/security/general,
 	"Combat" 		= /obj/item/weapon/robot_module/combat,
 	"Engineering"	= /obj/item/weapon/robot_module/engineering/general,
 	"Construction"	= /obj/item/weapon/robot_module/engineering/construction,
@@ -523,52 +522,6 @@ var/global/list/robot_modules = list(
 	FTD.synths = list(plasteel)
 	src.modules += FTD
 
-/obj/item/weapon/robot_module/security
-	name = "security robot module"
-	channels = list("Security" = 1)
-	networks = list(NETWORK_SECURITY)
-	subsystems = list(/mob/living/silicon/proc/subsystem_crew_monitor)
-	can_be_pushed = 0
-	supported_upgrades = list(/obj/item/borg/upgrade/tasercooler,/obj/item/robot_parts/robot_component/jetpack)
-
-/obj/item/weapon/robot_module/security/general
-	sprites = list(
-					"Basic" = "robotsecy",
-					"Sleek" = "sleeksecurity",
-					"Black Knight" = "securityrobot",
-					"Bloodhound" = "bloodhound",
-					"Bloodhound - Treaded" = "treadhound",
-					"Drone" = "drone-sec",
-					"Classic" = "secborg",
-					"Spider" = "spidersec",
-					"Heavy" = "heavysec"
-				)
-
-/obj/item/weapon/robot_module/security/general/New()
-	..()
-	src.modules += new /obj/item/weapon/crowbar(src)
-	src.modules += new /obj/item/device/flash(src)
-	src.modules += new /obj/item/borg/sight/hud/sec(src)
-	src.modules += new /obj/item/weapon/handcuffs/cyborg(src)
-	src.modules += new /obj/item/weapon/melee/baton/robot(src)
-	src.modules += new /obj/item/weapon/gun/energy/taser/mounted/cyborg(src)
-	src.modules += new /obj/item/taperoll/police(src)
-	src.modules += new /obj/item/device/holowarrant(src)
-	src.modules += new /obj/item/weapon/book/manual/security_space_law(src) // book of security space law
-	src.emag = new /obj/item/weapon/gun/energy/laser/mounted(src)
-
-/obj/item/weapon/robot_module/security/respawn_consumable(var/mob/living/silicon/robot/R, var/amount)
-	..()
-	var/obj/item/weapon/gun/energy/taser/mounted/cyborg/T = locate() in src.modules
-	if(T.power_supply.charge < T.power_supply.maxcharge)
-		T.power_supply.give(T.charge_cost * amount)
-		T.update_icon()
-	else
-		T.charge_tick = 0
-	var/obj/item/weapon/melee/baton/robot/B = locate() in src.modules
-	if(B && B.bcell)
-		B.bcell.give(amount)
-
 /obj/item/weapon/robot_module/janitor
 	name = "custodial robot module"
 	channels = list("Service" = 1)
@@ -815,6 +768,7 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/weapon/gun/launcher/grenade/cyborg(src)
 	src.modules += new /obj/item/weapon/crowbar(src)
 	src.modules += new /obj/item/weapon/robot_emag(src)
+	src.modules += new /obj/item/weapon/handcuffs/cyborg(src)
 	supported_upgrades = list(/obj/item/robot_parts/robot_component/jetpack)
 
 	return
@@ -836,6 +790,7 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/weapon/melee/hammer/powered(src)
 	src.modules += new /obj/item/borg/combat/shield(src)
 	src.modules += new /obj/item/borg/combat/mobility(src)
+	src.modules += new /obj/item/weapon/handcuffs/cyborg(src)
 	src.modules += new /obj/item/weapon/crowbar(src)
 	src.emag = new /obj/item/weapon/gun/energy/lasercannon/mounted(src)
 
