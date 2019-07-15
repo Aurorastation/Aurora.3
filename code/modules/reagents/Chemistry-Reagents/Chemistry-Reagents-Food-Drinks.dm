@@ -1420,6 +1420,18 @@
 	glass_desc = "Glorious brainfreezing mixture."
 	glass_center_of_mass = list("x"=16, "y"=7)
 
+/datum/reagent/drink/milkshake/beetle
+	name = "Bugshake"
+	description = "A sweet and chilled mixture of bugmilk."
+	id = "bugshake"
+	color = "#AEE5E4"
+	taste_description = "creamy bugmilk"
+
+	glass_icon_state = "milkshake"
+	glass_name = "glass of bugshake"
+	glass_desc = "A sweet and chilled mixture of bugmilk."
+	glass_center_of_mass = list("x"=16, "y"=7)
+
 /datum/reagent/drink/rewriter
 	name = "Rewriter"
 	description = "The secret of the sanctuary of the Libarian..."
