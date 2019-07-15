@@ -26,9 +26,16 @@
 		/obj/machinery/door/airlock/centcom,
 		/turf/unsimulated/wall/fakepdoor
 	)
+
 /turf/unsimulated/wall/darkshuttlewall
-	icon = 'icons/turf/shuttle.dmi'
-	icon_state = "wall3"
+	icon = 'icons/turf/smooth/shuttle_wall_dark.dmi'
+	icon_state = "shuttle_dark"
+	desc = "It's a wall. It appears to be composed of a highly durable alloy."
+	smooth = SMOOTH_TRUE
+	canSmoothWith = list(
+		/turf/unsimulated/wall/darkshuttlewall
+	)
+
 
 /turf/unsimulated/wall/fakepdoor
 	icon = 'icons/obj/doors/rapid_pdoor.dmi'

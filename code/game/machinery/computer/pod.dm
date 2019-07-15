@@ -146,9 +146,12 @@
 
 
 /obj/machinery/computer/pod/old/syndicate
-	name = "ProComp Executive IIc"
-	desc = "Criminals often operate on a tight budget. Operates external airlocks."
+	name = "Blast Door Control Console"
+	desc = "A console that operates external airlocks."
 	title = "External Airlock Controls"
+	icon_state = "computer"
+	light_color = LIGHT_COLOR_GREEN
+	icon_screen = "command"
 	req_access = list(access_syndicate)
 
 /obj/machinery/computer/pod/old/syndicate/attack_hand(var/mob/user as mob)

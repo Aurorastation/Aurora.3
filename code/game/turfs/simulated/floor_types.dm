@@ -63,16 +63,30 @@
 	icon = 'icons/turf/smooth/shuttle_wall_blue.dmi'
 
 /turf/simulated/shuttle/wall/dark
-	icon = 'icons/turf/shuttle.dmi'
-	icon_state = "wall3"
-	smooth = SMOOTH_FALSE
-	canSmoothWith = null
-	permit_ao = TRUE
+	icon = 'icons/turf/smooth/shuttle_wall_dark.dmi'
+	icon_state = "shuttle_dark"
+	permit_ao = FALSE
+	smooth = SMOOTH_TRUE
+	canSmoothWith = list(
+		/turf/simulated/shuttle/wall/dark,
+		/turf/simulated/shuttle/wall/dark/destructible
+	)
 	roof_type = /turf/simulated/shuttle/roof/black
 
 /turf/simulated/shuttle/wall/dark/destructible
 	destructible = TRUE
 	roof_type = /turf/simulated/shuttle/roof/destructible/black
+
+/turf/simulated/shuttle/wall/dark_diagonal
+	name = "shuttle wall"
+	icon = 'icons/turf/shuttle.dmi'
+	icon_state = "wall3"
+	roof_type = /turf/simulated/shuttle/roof/black
+	smooth = SMOOTH_FALSE
+	canSmoothWith = null
+
+/turf/simulated/shuttle/wall/dark_diagonal/destructible
+	destructible = TRUE
 
 /turf/simulated/shuttle/floor
 	name = "floor"
@@ -90,18 +104,6 @@
 /turf/simulated/shuttle/floor/destructible/merc
 	icon_state = "floor6"
 	roof_type = /turf/simulated/shuttle/roof/destructible/black
-
-/turf/simulated/shuttle/floor/destructible/merc/red
-	icon_state = "floor4"
-
-/turf/simulated/shuttle/floor/destructible/merc/black
-	icon_state = "floor7"
-
-/turf/simulated/shuttle/floor/destructible/merc/white
-	icon_state = "floor3"
-
-/turf/simulated/shuttle/floor/destructible/merc/yellow
-	icon_state = "floor2"
 
 /turf/simulated/shuttle/floor/tiled
 	icon = 'icons/turf/total_floors.dmi'
