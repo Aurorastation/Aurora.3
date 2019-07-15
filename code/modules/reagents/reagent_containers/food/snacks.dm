@@ -556,6 +556,12 @@
 	nutriment_desc = list("sweetness" = 3, "cookie" = 2)
 	bitesize = 1
 
+/obj/item/weapon/reagent_containers/food/snacks/cookie/beetle
+	name = "bug cookie"
+	desc = "A cookie made with alien bug-milk."
+	icon_state = "COOKIE!!!"
+	filling_color = "#DBC94F"
+
 /obj/item/weapon/reagent_containers/food/snacks/chocolatebar
 	name = "chocolate bar"
 	desc = "Such sweet, fattening food."
@@ -3024,6 +3030,12 @@
 	nutriment_amt = 20
 	bitesize = 2
 
+/obj/item/weapon/reagent_containers/food/snacks/sliceable/bananabread/beetle
+	name = "bugnana-nut bread"
+	desc = "A banana-based baked treat made with alien bug-milk."
+	icon_state = "bananabread"
+	slice_path = /obj/item/weapon/reagent_containers/food/snacks/bananabreadslice
+
 /obj/item/weapon/reagent_containers/food/snacks/sliceable/bananabread/Initialize()
 	. = ..()
 	reagents.add_reagent("banana", 20)
@@ -4496,6 +4508,15 @@
 	nutriment_desc = list("ice cream" = 4)
 	nutriment_amt = 4
 
+/obj/item/weapon/reagent_containers/food/snacks/icecreamsandwich/beetle
+	name = "ice cream sandwich"
+	desc = "An ice cream sandwich made of mysterious alien bug-milk."
+	icon_state = "icecreamsandwich"
+	filling_color = "#343834"
+	center_of_mass = list("x"=15, "y"=4)
+	nutriment_desc = list("ice cream" = 4)
+	nutriment_amt = 4
+
 /obj/item/weapon/reagent_containers/food/snacks/honeybun
 	name = "honey bun"
 	desc = "A sticky pastry bun glazed with honey."
@@ -5237,6 +5258,16 @@
 	nutriment_desc = list("sweetness" = 1, "muffin" = 2, "berries" = 2)
 	bitesize = 2
 
+/obj/item/weapon/reagent_containers/food/snacks/berrymuffin/beetle
+	name = "bugberry muffin"
+	desc = "A small cake made from berries and alien bug milk"
+	icon_state = "berrymuffin"
+	filling_color = "#E0CF9B"
+	center_of_mass = list("x"=17, "y"=4)
+	nutriment_amt = 5
+	nutriment_desc = list("sweetness" = 1, "muffin" = 2, "berries" = 2)
+	bitesize = 2
+
 /obj/item/weapon/reagent_containers/food/snacks/soup/onion
 	name = "onion soup"
 	desc = "A soup with layers."
@@ -5317,6 +5348,15 @@
 /obj/item/weapon/reagent_containers/food/snacks/banana_split/Initialize()
 	. = ..()
 	reagents.add_reagent("banana", 3)
+
+/obj/item/weapon/reagent_containers/food/snacks/banana_split/beetle
+	name = "bugnana split"
+	desc = "A dessert made with bug-milk icecream and a banana."
+	icon_state = "banana_split"
+	nutriment_amt = 5
+	nutriment_desc = list("alien icecream" = 2)
+	bitesize = 2
+	trash = /obj/item/trash/snack_bowl
 
 /obj/item/weapon/reagent_containers/food/snacks/tuna
 	name = "\improper Tuna Snax"

@@ -1589,6 +1589,13 @@
 	required_reagents = list("milk" = 2, "coco" = 2, "sugar" = 2)
 	result_amount = 1
 
+/datum/chemical_reaction/chocolate_bar3
+	name = "Chocolate Bar"
+	id = "chocolate_bar"
+	result = null
+	required_reagents = list("beetle_milk" = 2, "coco" = 2, "sugar" = 2)
+	result_amount = 1
+
 /datum/chemical_reaction/chocolate_bar2/on_reaction(var/datum/reagents/holder, var/created_volume)
 	var/location = get_turf(holder.my_atom)
 	for(var/i = 1, i <= created_volume, i++)
@@ -2405,6 +2412,13 @@
 	id = "milkshake"
 	result = "milkshake"
 	required_reagents = list("cream" = 1, "ice" = 2, "milk" = 2)
+	result_amount = 5
+
+/datum/chemical_reaction/milkshake/beetle
+	name = "Bugshake"
+	id = "bugshake"
+	result = "bugshake"
+	required_reagents = list("cream" = 1, "ice" = 2, "beetle_milk" = 2)
 	result_amount = 5
 
 /datum/chemical_reaction/cmojito

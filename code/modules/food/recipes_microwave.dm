@@ -181,6 +181,14 @@ I said no!
 	)
 	result = /obj/item/weapon/reagent_containers/food/snacks/muffin
 
+/datum/recipe/muffin/beetle
+	reagents = list("beetle_milk" = 5, "sugar" = 5)
+	reagent_mix = RECIPE_REAGENT_REPLACE
+	items = list(
+		/obj/item/weapon/reagent_containers/food/snacks/dough
+	)
+	result = /obj/item/weapon/reagent_containers/food/snacks/muffin
+
 /datum/recipe/eggplantparm
 	fruit = list("eggplant" = 1)
 	items = list(
@@ -457,6 +465,10 @@ I said no!
 	reagents = list("milk" = 5, "rice" = 10)
 	result = /obj/item/weapon/reagent_containers/food/snacks/ricepudding
 
+/datum/recipe/ricepudding/beetle
+	reagents = list("beetle_milk" = 5, "rice" = 10)
+	result = /obj/item/weapon/reagent_containers/food/snacks/ricepudding
+
 /datum/recipe/pastatomato
 	fruit = list("tomato" = 2)
 	reagents = list("water" = 5)
@@ -603,6 +615,12 @@ I said no!
 /datum/recipe/mushroomsoup
 	fruit = list("mushroom" = 1)
 	reagents = list("water" = 5, "milk" = 5)
+	reagent_mix = RECIPE_REAGENT_REPLACE
+	result = /obj/item/weapon/reagent_containers/food/snacks/soup/mushroom
+
+/datum/recipe/mushroomsoup/beetle
+	fruit = list("mushroom" = 1)
+	reagents = list("water" = 5, "beetle_milk" = 5)
 	reagent_mix = RECIPE_REAGENT_REPLACE
 	result = /obj/item/weapon/reagent_containers/food/snacks/soup/mushroom
 
@@ -1189,6 +1207,15 @@ I said no!
 	fruit = list("berries" = 1)
 	result = /obj/item/weapon/reagent_containers/food/snacks/berrymuffin
 
+/datum/recipe/berrymuffin/beetle
+	reagents = list("beetle_milk" = 5, "sugar" = 5)
+	reagent_mix = RECIPE_REAGENT_REPLACE
+	items = list(
+		/obj/item/weapon/reagent_containers/food/snacks/dough
+	)
+	fruit = list("berries" = 1)
+	result = /obj/item/weapon/reagent_containers/food/snacks/berrymuffin/beetle
+
 /datum/recipe/onionsoup
 	fruit = list("onion" = 1)
 	reagents = list("water" = 10)
@@ -1214,6 +1241,14 @@ I said no!
 	)
 	result = /obj/item/weapon/reagent_containers/food/snacks/icecreamsandwich
 
+/datum/recipe/icecreamsandwich
+	reagents = list("beetle_milk" = 5, "ice" = 5)
+	reagent_mix = RECIPE_REAGENT_REPLACE
+	items = list(
+		/obj/item/weapon/reagent_containers/food/snacks/icecream
+	)
+	result = /obj/item/weapon/reagent_containers/food/snacks/icecreamsandwich/beetle
+
 /datum/recipe/crab_legs
 	reagents = list("water" = 10, "sodiumchloride" = 1)
 	items = list(
@@ -1236,3 +1271,12 @@ I said no!
 		/obj/item/weapon/reagent_containers/food/snacks/icecream
 	)
 	result = /obj/item/weapon/reagent_containers/food/snacks/banana_split
+
+/datum/recipe/banana_split/beetle
+	fruit = list("banana" = 1)
+	reagents = list("beetle_milk" = 5, "ice" = 5)
+	reagent_mix = RECIPE_REAGENT_REPLACE
+	items = list(
+		/obj/item/weapon/reagent_containers/food/snacks/icecream
+	)
+	result = /obj/item/weapon/reagent_containers/food/snacks/banana_split/beetle

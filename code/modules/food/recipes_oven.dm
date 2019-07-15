@@ -138,6 +138,16 @@
 	)
 	result = /obj/item/weapon/reagent_containers/food/snacks/sliceable/bananabread
 
+/datum/recipe/bananabread/beetle
+	appliance = OVEN
+	fruit = list("banana" = 1)
+	reagents = list("beetle_milk" = 5, "sugar" = 15)
+	items = list(
+		/obj/item/weapon/reagent_containers/food/snacks/dough,
+		/obj/item/weapon/reagent_containers/food/snacks/dough,
+		/obj/item/weapon/reagent_containers/food/snacks/dough
+	)
+	result = /obj/item/weapon/reagent_containers/food/snacks/sliceable/bananabread/beetle
 
 /datum/recipe/bun
 	appliance = OVEN
@@ -209,10 +219,23 @@
 	result = /obj/item/weapon/reagent_containers/food/snacks/sliceable/pumpkinpie
 	reagent_mix = RECIPE_REAGENT_REPLACE //We dont want raw egg in the result
 
+/datum/recipe/pumpkinpie/beetle
+	appliance = OVEN
+	reagents = list("beetle_milk" = 5, "sugar" = 5, "egg" = 3, "flour" = 10, "pumpkinpulp"= 5, "pumpkinspice"= 2)
+	result = /obj/item/weapon/reagent_containers/food/snacks/sliceable/pumpkinpie
+	reagent_mix = RECIPE_REAGENT_REPLACE
+
 /datum/recipe/appletart
 	appliance = OVEN
 	fruit = list("goldapple" = 1)
 	reagents = list("sugar" = 5, "milk" = 5, "flour" = 10, "egg" = 3)
+	result = /obj/item/weapon/reagent_containers/food/snacks/appletart
+	reagent_mix = RECIPE_REAGENT_REPLACE
+
+/datum/recipe/appletart/beetle
+	appliance = OVEN
+	fruit = list("goldapple" = 1)
+	reagents = list("sugar" = 5, "beetle_milk" = 5, "flour" = 10, "egg" = 3)
 	result = /obj/item/weapon/reagent_containers/food/snacks/appletart
 	reagent_mix = RECIPE_REAGENT_REPLACE
 
@@ -223,12 +246,26 @@
 	result = /obj/item/weapon/reagent_containers/food/snacks/sliceable/keylimepie
 	reagent_mix = RECIPE_REAGENT_REPLACE //No raw egg in finished product, protein after cooking causes magic meatballs otherwise
 
+/datum/recipe/keylimepie/beetle
+	appliance = OVEN
+	fruit = list("lime" = 2)
+	reagents = list("beetle_milk" = 5, "sugar" = 5, "egg" = 3, "flour" = 10)
+	result = /obj/item/weapon/reagent_containers/food/snacks/sliceable/keylimepie
+	reagent_mix = RECIPE_REAGENT_REPLACE
+
 /datum/recipe/quiche
 	appliance = OVEN
 	reagents = list("milk" = 5, "egg" = 9, "flour" = 10)
 	items = list(/obj/item/weapon/reagent_containers/food/snacks/cheesewedge)
 	result = /obj/item/weapon/reagent_containers/food/snacks/sliceable/quiche
 	reagent_mix = RECIPE_REAGENT_REPLACE //No raw egg in finished product, protein after cooking causes magic meatballs otherwise
+
+/datum/recipe/quiche/beetle
+	appliance = OVEN
+	reagents = list("beetle_milk" = 5, "egg" = 9, "flour" = 10)
+	items = list(/obj/item/weapon/reagent_containers/food/snacks/cheesewedge)
+	result = /obj/item/weapon/reagent_containers/food/snacks/sliceable/quiche
+	reagent_mix = RECIPE_REAGENT_REPLACE
 
 /datum/recipe/tajaran_bread
 	appliance = OVEN
@@ -261,6 +298,17 @@
 		/obj/item/weapon/reagent_containers/food/snacks/chocolatebar
 	)
 	result = /obj/item/weapon/reagent_containers/food/snacks/cookie
+	result_quantity = 4
+	reagent_mix = RECIPE_REAGENT_REPLACE
+
+/datum/recipe/cookie/beetle
+	appliance = OVEN
+	reagents = list("beetle_milk" = 10, "sugar" = 10)
+	items = list(
+		/obj/item/weapon/reagent_containers/food/snacks/dough,
+		/obj/item/weapon/reagent_containers/food/snacks/chocolatebar
+	)
+	result = /obj/item/weapon/reagent_containers/food/snacks/cookie/beetle
 	result_quantity = 4
 	reagent_mix = RECIPE_REAGENT_REPLACE
 
@@ -444,7 +492,18 @@
 	result = /obj/item/weapon/reagent_containers/food/snacks/sliceable/cake/plain
 	reagent_mix = RECIPE_REAGENT_REPLACE
 
+/datum/recipe/cake/beetle
+	appliance = OVEN
+	reagents = list("beetle_milk" = 5, "flour" = 15, "sugar" = 15, "egg" = 9)
+	result = /obj/item/weapon/reagent_containers/food/snacks/sliceable/cake/plain
+	reagent_mix = RECIPE_REAGENT_REPLACE
+
 /datum/recipe/cake/carrot
+	appliance = OVEN
+	fruit = list("carrot" = 3)
+	result = /obj/item/weapon/reagent_containers/food/snacks/sliceable/cake/carrot
+
+/datum/recipe/cake/beetle/carrot
 	appliance = OVEN
 	fruit = list("carrot" = 3)
 	result = /obj/item/weapon/reagent_containers/food/snacks/sliceable/cake/carrot
@@ -457,10 +516,25 @@
 	)
 	result = /obj/item/weapon/reagent_containers/food/snacks/sliceable/cake/cheese
 
+/datum/recipe/cake/beetle/cheese
+	appliance = OVEN
+	items = list(
+		/obj/item/weapon/reagent_containers/food/snacks/cheesewedge,
+		/obj/item/weapon/reagent_containers/food/snacks/cheesewedge
+	)
+	result = /obj/item/weapon/reagent_containers/food/snacks/sliceable/cake/cheese
+
+
 /datum/recipe/cake/orange
 	appliance = OVEN
 	fruit = list("orange" = 1)
 	reagents = list("milk" = 5, "flour" = 15, "egg" = 9, "orangejuice" = 3, "sugar" = 5)
+	result = /obj/item/weapon/reagent_containers/food/snacks/sliceable/cake/orange
+
+/datum/recipe/cake/orange/beetle
+	appliance = OVEN
+	fruit = list("orange" = 1)
+	reagents = list("beetle_milk" = 5, "flour" = 15, "egg" = 9, "orangejuice" = 3, "sugar" = 5)
 	result = /obj/item/weapon/reagent_containers/food/snacks/sliceable/cake/orange
 
 /datum/recipe/cake/lime
@@ -469,10 +543,22 @@
 	reagents = list("milk" = 5, "flour" = 15, "egg" = 9, "limejuice" = 3, "sugar" = 5)
 	result = /obj/item/weapon/reagent_containers/food/snacks/sliceable/cake/lime
 
+/datum/recipe/cake/lime/beetle
+	appliance = OVEN
+	fruit = list("lime" = 1)
+	reagents = list("beetle_milk" = 5, "flour" = 15, "egg" = 9, "limejuice" = 3, "sugar" = 5)
+	result = /obj/item/weapon/reagent_containers/food/snacks/sliceable/cake/lime
+
 /datum/recipe/cake/lemon
 	appliance = OVEN
 	fruit = list("lemon" = 1)
 	reagents = list("milk" = 5, "flour" = 15, "egg" = 9, "lemonjuice" = 3, "sugar" = 5)
+	result = /obj/item/weapon/reagent_containers/food/snacks/sliceable/cake/lemon
+
+/datum/recipe/cake/lemon/beetle
+	appliance = OVEN
+	fruit = list("lemon" = 1)
+	reagents = list("beetle_milk" = 5, "flour" = 15, "egg" = 9, "lemonjuice" = 3, "sugar" = 5)
 	result = /obj/item/weapon/reagent_containers/food/snacks/sliceable/cake/lemon
 
 /datum/recipe/cake/chocolate
@@ -481,7 +567,18 @@
 	reagents = list("milk" = 5, "flour" = 15, "egg" = 9, "coco" = 4, "sugar" = 5)
 	result = /obj/item/weapon/reagent_containers/food/snacks/sliceable/cake/chocolate
 
+/datum/recipe/cake/chocolate/beetle
+	appliance = OVEN
+	items = list(/obj/item/weapon/reagent_containers/food/snacks/chocolatebar)
+	reagents = list("beetle_milk" = 5, "flour" = 15, "egg" = 9, "coco" = 4, "sugar" = 5)
+	result = /obj/item/weapon/reagent_containers/food/snacks/sliceable/cake/chocolate
+
 /datum/recipe/cake/birthday
+	appliance = OVEN
+	items = list(/obj/item/weapon/flame/candle)
+	result = /obj/item/weapon/reagent_containers/food/snacks/sliceable/cake/birthday
+
+/datum/recipe/cake/beetle/birthday
 	appliance = OVEN
 	items = list(/obj/item/weapon/flame/candle)
 	result = /obj/item/weapon/reagent_containers/food/snacks/sliceable/cake/birthday
@@ -491,7 +588,17 @@
 	fruit = list("apple" = 2)
 	result = /obj/item/weapon/reagent_containers/food/snacks/sliceable/cake/apple
 
+/datum/recipe/cake/beetle/apple
+	appliance = OVEN
+	fruit = list("apple" = 2)
+	result = /obj/item/weapon/reagent_containers/food/snacks/sliceable/cake/apple
+
 /datum/recipe/cake/brain
+	appliance = OVEN
+	items = list(/obj/item/organ/brain)
+	result = /obj/item/weapon/reagent_containers/food/snacks/sliceable/cake/brain
+
+/datum/recipe/cake/beetle/brain
 	appliance = OVEN
 	items = list(/obj/item/organ/brain)
 	result = /obj/item/weapon/reagent_containers/food/snacks/sliceable/cake/brain
@@ -586,6 +693,13 @@
 /datum/recipe/croissant
 	appliance = OVEN
 	reagents = list("sodiumchloride" = 1, "water" = 5, "milk" = 5)
+	reagent_mix = RECIPE_REAGENT_REPLACE
+	items = list(/obj/item/weapon/reagent_containers/food/snacks/dough)
+	result = /obj/item/weapon/reagent_containers/food/snacks/croissant
+
+/datum/recipe/croissant/beetle
+	appliance = OVEN
+	reagents = list("sodiumchloride" = 1, "water" = 5, "beetle_milk" = 5)
 	reagent_mix = RECIPE_REAGENT_REPLACE
 	items = list(/obj/item/weapon/reagent_containers/food/snacks/dough)
 	result = /obj/item/weapon/reagent_containers/food/snacks/croissant
