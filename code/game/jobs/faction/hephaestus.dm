@@ -9,7 +9,8 @@
 		/datum/job/atmos = TRUE,
 		/datum/job/scientist = TRUE,
 		/datum/job/roboticist = TRUE,
-		/datum/job/mining = TRUE
+		/datum/job/mining = TRUE,
+		/datum/job/cargo_tech = TRUE
 	)
 
 	allowed_species_types = list(
@@ -25,7 +26,8 @@
 		"Atmospherics Technician" = /datum/outfit/job/atmos/hephaestus,
 		"Scientist" = /datum/outfit/job/scientist/hephaestus,
 		"Roboticist" = /datum/outfit/job/roboticist/hephaestus,
-		"Miner" = /datum/outfit/job/mining/hephaestus
+		"Miner" = /datum/outfit/job/mining/hephaestus,
+		"Cargo Technician" = /datum/outfit/job/cargo_tech/hephaestus
 	)
 
 /datum/outfit/job/engineer/hephaestus
@@ -46,4 +48,8 @@
 
 /datum/outfit/job/mining/hephaestus
 	name = "Miner - Hephaestus"
+	uniform = /obj/item/clothing/under/rank/hephaestus
+
+/datum/outfit/job/cargo_tech/hephaestus
+	name = "Cargo TEchnician - Hephaestus"
 	uniform = /obj/item/clothing/under/rank/hephaestus
