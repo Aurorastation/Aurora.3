@@ -14,7 +14,7 @@
 	var/mask = null
 	var/l_ear = null
 	var/r_ear = null
-	var/glasses = null	
+	var/glasses = null
 	var/l_pocket = null
 	var/r_pocket = null
 	var/suit_store = null
@@ -173,7 +173,7 @@
 		H.l_store.add_fingerprint(H, 1)
 	if(H.r_store)
 		H.r_store.add_fingerprint(H, 1)
-	return 1		
+	return 1
 
 /datum/outfit/proc/imprint_idcard(mob/living/carbon/human/H, obj/item/weapon/card/id/C)
 	if(istype(C))
@@ -200,7 +200,11 @@
 	return list()
 
 /datum/outfit/proc/get_id_assignment(mob/living/carbon/human/H)
-	return GetAssignment(H)
+	. = GetAssignment(H)
+
+	if (. && . != "Unassigned" && H?.mind?.selected_faction)
+		if (!H.mind.selected_faction.is_default && H.mind.selected_faction.title_suffix)
+			. += " ([H.mind.selected_faction.title_suffix])"
 
 /datum/outfit/proc/get_id_rank(mob/living/carbon/human/H)
 	return GetAssignment(H)
