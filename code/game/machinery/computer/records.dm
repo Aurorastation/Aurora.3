@@ -106,6 +106,12 @@
 			VUEUI_SET_CHECK(data["allrecords"][R.id]["id"], R.id, ., data)
 			VUEUI_SET_CHECK(data["allrecords"][R.id]["name"], R.name, ., data)
 			VUEUI_SET_CHECK(data["allrecords"][R.id]["rank"], R.rank, ., data)
+			VUEUI_SET_CHECK(data["allrecords"][R.id]["sex"], R.sex, ., data)
+			VUEUI_SET_CHECK(data["allrecords"][R.id]["age"], R.age, ., data)
+			VUEUI_SET_CHECK(data["allrecords"][R.id]["fingerprint"], R.fingerprint, ., data)
+			if(R.medical)
+				VUEUI_SET_CHECK(data["allrecords"][R.id]["blood"], R.medical.blood_type, ., data)
+				VUEUI_SET_CHECK(data["allrecords"][R.id]["dna"], R.medical.blood_dna, ., data)
 
 		if(records_type & RECORD_LOCKED)
 			for(var/tR in sortRecord(SSrecords.records_locked))
@@ -195,9 +201,9 @@
 			var/confirm = alert("Are you sure you want to delete this record?", "Confirm Deletion", "No", "Yes")
 			if(confirm == "Yes")
 				SSrecords.remove_record(active)
-				ui.data["allrecords"][active.id] = null
+				ui.data["allrecords"] -= active.id
 				active = null
-				ui.data["activeview"] = "list"
+				ui.data["activeview"] = default_screen
 			SSvueui.check_uis_for_change(src)
 	if(href_list["newrecord"])
 		if(canEdit(list("active", "name")))

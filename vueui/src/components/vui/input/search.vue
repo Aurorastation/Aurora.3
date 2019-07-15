@@ -1,5 +1,5 @@
 <template>
-  <input type="text" @input="onFieldUpdate($event.target.value)">
+  <input type="text" placeholder="Search..." v-model="searchValue">
 </template>
 
 <script>
@@ -8,11 +8,12 @@ import Fuse from 'fuse.js';
 export default {
   data() {
     return {
-      fuse: null
+      fuse: null,
+      searchValue: ""
     }
   },
   mounted() {
-    this.onFieldUpdate("")
+    this.onFieldUpdate(this.searchValue)
   },
   props: {
     keys: {
@@ -28,6 +29,12 @@ export default {
   watch: {
     keys: function (newValue, oldValue) {
       this.fuse = null;
+    },
+    input: function (newValue, oldValue) {
+      this.onFieldUpdate(this.searchValue)
+    },
+    searchValue: function (newValue, oldValue) {
+      this.onFieldUpdate(newValue)
     }
   },
   methods: {
