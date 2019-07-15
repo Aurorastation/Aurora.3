@@ -5255,17 +5255,20 @@
 /turf/simulated/floor/plating,
 /area/hallway/secondary/entry/port)
 "jE" = (
-/obj/machinery/light{
-	dir = 8
+/obj/machinery/access_button{
+	command = "cycle_interior";
+	frequency = 1331;
+	master_tag = "nuke_shuttle_dock_airlock";
+	name = "interior access button";
+	pixel_x = -28;
+	pixel_y = 26;
+	req_one_access = list(13)
 	},
 /obj/effect/floor_decal/corner/yellow{
 	icon_state = "corner_white";
 	dir = 9
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden{
-	dir = 8;
-	icon_state = "map"
-	},
+/obj/machinery/atmospherics/pipe/manifold/hidden,
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/port)
 "jF" = (
@@ -5537,29 +5540,12 @@
 /turf/simulated/floor/plating,
 /area/hallway/secondary/entry/port)
 "kc" = (
-/obj/machinery/embedded_controller/radio/airlock/docking_port{
-	frequency = 1331;
-	id_tag = "nuke_shuttle_dock_airlock";
-	pixel_x = 0;
-	pixel_y = 30;
-	req_access = null;
-	req_one_access = list(13);
-	tag_airpump = "nuke_shuttle_dock_pump";
-	tag_chamber_sensor = "nuke_shuttle_dock_sensor";
-	tag_exterior_door = "nuke_shuttle_dock_outer";
-	tag_interior_door = "nuke_shuttle_dock_inner"
-	},
 /obj/machinery/airlock_sensor{
 	frequency = 1331;
 	id_tag = "nuke_shuttle_dock_sensor";
 	master_tag = "nuke_shuttle_dock_airlock";
 	pixel_x = 0;
 	pixel_y = -25
-	},
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 4;
-	frequency = 1331;
-	id_tag = "nuke_shuttle_dock_pump"
 	},
 /turf/simulated/floor/plating,
 /area/hallway/secondary/entry/port)
@@ -5577,26 +5563,6 @@
 	dir = 4
 	},
 /turf/simulated/floor/plating,
-/area/hallway/secondary/entry/port)
-"ke" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 9;
-	icon_state = "intact"
-	},
-/obj/machinery/access_button{
-	command = "cycle_interior";
-	frequency = 1331;
-	master_tag = "nuke_shuttle_dock_airlock";
-	name = "interior access button";
-	pixel_x = -28;
-	pixel_y = 26;
-	req_one_access = list(13)
-	},
-/obj/effect/floor_decal/corner/yellow{
-	icon_state = "corner_white";
-	dir = 9
-	},
-/turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/port)
 "kf" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
@@ -11653,20 +11619,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/exit/pods)
-"vR" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/machinery/door/firedoor,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/turf/simulated/floor/plating,
-/area/hallway/secondary/entry/fore)
 "vS" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4;
@@ -15034,6 +14986,9 @@
 "Cp" = (
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/aft)
+"Cr" = (
+/turf/simulated/floor/plating,
+/area/hallway/secondary/entry/port)
 "Cs" = (
 /obj/machinery/light{
 	dir = 4;
@@ -20186,6 +20141,17 @@
 /obj/machinery/door/window/eastleft,
 /turf/simulated/floor/tiled/freezer,
 /area/crew_quarters/toilet)
+"MC" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/obj/effect/floor_decal/corner/yellow{
+	icon_state = "corner_white";
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/turf/simulated/floor/tiled,
+/area/hallway/secondary/entry/port)
 "MD" = (
 /obj/structure/table/standard,
 /obj/effect/decal/cleanable/dirt,
@@ -20778,6 +20744,20 @@
 	},
 /turf/simulated/floor/tiled,
 /area/quartermaster/loading)
+"NU" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/machinery/door/firedoor,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/hallway/secondary/entry/fore)
 "NV" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -21897,6 +21877,17 @@
 	},
 /turf/simulated/floor/plating,
 /area/bridge/research_dock)
+"QF" = (
+/obj/machinery/door/airlock/external{
+	frequency = 1331;
+	icon_state = "door_locked";
+	id_tag = "nuke_shuttle_dock_outer";
+	locked = 1;
+	name = "Docking Port Airlock";
+	req_access = list(13)
+	},
+/turf/simulated/floor/plating,
+/area/hallway/secondary/entry/port)
 "QG" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/maintenance{
@@ -23200,6 +23191,17 @@
 "TX" = (
 /turf/simulated/floor/plating,
 /area/maintenance/cargo/surface)
+"Ub" = (
+/obj/machinery/door/airlock/external{
+	frequency = 1331;
+	icon_state = "door_locked";
+	id_tag = "nuke_shuttle_dock_inner";
+	locked = 1;
+	name = "Docking Port Airlock";
+	req_access = list(13)
+	},
+/turf/simulated/floor/plating,
+/area/hallway/secondary/entry/port)
 "Uc" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -25513,6 +25515,26 @@
 	},
 /turf/simulated/floor/tiled,
 /area/bridge/research_dock)
+"Zk" = (
+/obj/machinery/embedded_controller/radio/airlock/docking_port{
+	frequency = 1331;
+	id_tag = "nuke_shuttle_dock_airlock";
+	pixel_x = 0;
+	pixel_y = 30;
+	req_access = null;
+	req_one_access = list(13);
+	tag_airpump = "nuke_shuttle_dock_pump";
+	tag_chamber_sensor = "nuke_shuttle_dock_sensor";
+	tag_exterior_door = "nuke_shuttle_dock_outer";
+	tag_interior_door = "nuke_shuttle_dock_inner"
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 4;
+	frequency = 1331;
+	id_tag = "nuke_shuttle_dock_pump"
+	},
+/turf/simulated/floor/plating,
+/area/hallway/secondary/entry/port)
 "Zl" = (
 /obj/machinery/door/firedoor,
 /obj/structure/grille,
@@ -43721,7 +43743,6 @@ aa
 aa
 aa
 aa
-aa
 aw
 aw
 aw
@@ -43747,6 +43768,7 @@ ec
 ec
 ec
 ec
+aa
 aa
 aa
 aa
@@ -43976,34 +43998,34 @@ aa
 aa
 aa
 aa
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
 aa
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
 aa
 aa
 aa
@@ -44233,34 +44255,34 @@ aa
 aa
 aa
 aa
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
 aa
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
 aa
 aa
 aa
@@ -44490,34 +44512,34 @@ aa
 aa
 aa
 aa
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
 aa
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
 aa
 aa
 aa
@@ -44747,34 +44769,34 @@ aa
 aa
 aa
 aa
+aw
+ec
+ec
+ec
+ec
+ec
+aw
+aw
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
 aa
-aw
-ec
-ec
-ec
-ec
-ec
-aw
-aw
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
 aa
 aa
 aa
@@ -45004,34 +45026,34 @@ aa
 aa
 aa
 aa
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
 aa
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-aw
-aw
-aw
+aa
+aa
+aa
 aa
 aa
 aa
@@ -45261,34 +45283,34 @@ aa
 aa
 aa
 aa
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
 aa
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-aw
+aa
 aa
 aa
 aa
@@ -45518,34 +45540,34 @@ aa
 aa
 aa
 aa
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
 aa
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-aw
+aa
 aa
 aa
 aa
@@ -45775,34 +45797,34 @@ aa
 aa
 aa
 aa
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
 aa
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-aw
+aa
 aa
 aa
 aa
@@ -46032,34 +46054,34 @@ aa
 aa
 aa
 aa
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
 aa
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-aw
+aa
 aa
 aa
 aa
@@ -46289,34 +46311,34 @@ aa
 aa
 aa
 aa
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
 aa
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-aw
+aa
 aa
 aa
 aa
@@ -46546,34 +46568,34 @@ aa
 aa
 aa
 aa
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
 aa
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-aw
-aw
-aw
+aa
+aa
+aa
 aa
 aa
 aa
@@ -46803,34 +46825,34 @@ aa
 aa
 aa
 aa
+aw
+ec
+ec
+ec
+ec
+ec
+aw
+aw
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
 aa
-aw
-ec
-ec
-ec
-ec
-ec
-aw
-aw
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
 aa
 aa
 aa
@@ -47068,7 +47090,6 @@ aw
 aw
 aw
 aw
-aw
 ec
 ec
 ec
@@ -47088,6 +47109,7 @@ ec
 ec
 ec
 ec
+aa
 aa
 aa
 aa
@@ -47325,7 +47347,6 @@ aw
 aw
 aw
 aw
-aw
 ec
 ec
 ec
@@ -47345,6 +47366,7 @@ ec
 ec
 ec
 ec
+aa
 aa
 aa
 aa
@@ -47583,7 +47605,6 @@ aw
 aw
 aw
 aw
-aw
 ec
 ec
 ec
@@ -47602,6 +47623,7 @@ ec
 ec
 ec
 ec
+aa
 aa
 aa
 aa
@@ -47840,25 +47862,25 @@ go
 ez
 aw
 aw
-aw
 jB
 ka
+QF
 kJ
 aa
 aa
 aa
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
+ec
 aa
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
-ec
 aa
 aa
 aa
@@ -48097,9 +48119,9 @@ gp
 fA
 aw
 aw
-aw
 fA
 kb
+Cr
 kK
 aa
 aa
@@ -48354,8 +48376,8 @@ gq
 hm
 fJ
 fJ
-fJ
 jC
+Zk
 kc
 fA
 aa
@@ -48611,9 +48633,9 @@ gr
 hn
 ia
 ia
-ia
 jD
 kd
+Ub
 kL
 ey
 ey
@@ -48868,9 +48890,9 @@ gs
 ho
 fC
 fC
-fC
+MC
 jE
-ke
+kM
 kM
 lj
 ez
@@ -50675,7 +50697,7 @@ ey
 ey
 gv
 gv
-vR
+NU
 mA
 mO
 gv
@@ -54273,7 +54295,7 @@ eI
 eI
 gv
 gv
-vR
+NU
 mA
 mO
 gv
@@ -75896,9 +75918,9 @@ rV
 aa
 aa
 aa
-zR
-zR
-zR
+aa
+aa
+aa
 aa
 aa
 aa
@@ -76152,11 +76174,11 @@ xf
 rV
 aa
 aa
+aa
 zR
 zR
 zR
-zR
-zR
+aa
 aa
 aa
 aa
@@ -76409,11 +76431,11 @@ xg
 yf
 aa
 aa
+aa
 zR
 zR
 zR
-zR
-zR
+aa
 aa
 aa
 aa
