@@ -418,7 +418,7 @@
 	if(..())
 		return
 	if(src.allowed(user))
-		for (var/thing in get_listeners_by_type("crematoriums", /obj/structure/crematorium))
+		for (var/obj/structure/crematorium/C in get_listeners_by_type("crematoriums", /obj/structure/crematorium))
 			if (C.id == id)
 				if (!C.cremating)
 					C.cremate(user)
