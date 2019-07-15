@@ -55880,13 +55880,13 @@
 /area/maintenance/research_port)
 "bSC" = (
 /obj/structure/crematorium{
-	_wifi_id = "chapel_crema"
+	id = "chapel_crema"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/chapel/office)
 "bSD" = (
 /obj/machinery/button/crematorium{
-	_wifi_id = "chapel_crema";
+	id = "chapel_crema";
 	pixel_x = -32;
 	pixel_y = 25
 	},

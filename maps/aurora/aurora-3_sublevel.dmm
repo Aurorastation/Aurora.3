@@ -566,7 +566,7 @@
 /area/engineering/atmos)
 "abq" = (
 /obj/structure/crematorium{
-	_wifi_id = "xenobio_crema"
+	id = "xenobio_crema"
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology)
@@ -5579,7 +5579,7 @@
 /area/rnd/xenobiology/cells/alpha)
 "ame" = (
 /obj/machinery/button/crematorium{
-	_wifi_id = "xenobio_crema";
+	id = "xenobio_crema";
 	pixel_x = -32;
 	pixel_y = 25;
 	req_access = null
