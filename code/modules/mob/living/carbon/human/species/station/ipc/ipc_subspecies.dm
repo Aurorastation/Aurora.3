@@ -92,6 +92,16 @@
 		"r_foot" = list("path" = /obj/item/organ/external/foot/right/industrial)
 		)
 
+	has_organ = list(
+		"brain"   = /obj/item/organ/mmi_holder/posibrain,
+		"cell"    = /obj/item/organ/cell,
+		"optics"  = /obj/item/organ/eyes/optical_sensor,
+		"ipc tag" = /obj/item/organ/ipc_tag,
+		"diagnostics unit" = /obj/item/organ/diagnosticsunit,
+		"coolant pump" = /obj/item/organ/coolantpump/heavy,
+		"calibration system" = /obj/item/organ/powercontrolunit
+	)
+
 	flags = IS_IPC | ACCEPTS_COOLER
 	appearance_flags = HAS_EYE_COLOR
 
@@ -251,6 +261,16 @@
 		"r_hand" = list("path" = /obj/item/organ/external/hand/right/industrial/zenghu),
 		"l_foot" = list("path" = /obj/item/organ/external/foot/industrial/zenghu),
 		"r_foot" = list("path" = /obj/item/organ/external/foot/right/industrial/zenghu)
+	)
+
+	has_organ = list(
+		"brain"   = /obj/item/organ/mmi_holder/posibrain,
+		"cell"    = /obj/item/organ/cell,
+		"optics"  = /obj/item/organ/eyes/optical_sensor,
+		"ipc tag" = /obj/item/organ/ipc_tag,
+		"diagnostics unit" = /obj/item/organ/diagnosticsunit,
+		"coolant pump" = /obj/item/organ/coolantpump,
+		"calibration system" = /obj/item/organ/powercontrolunit
 	)
 
 /datum/species/machine/zenghu/get_light_color(mob/living/carbon/human/H)

@@ -21,7 +21,7 @@ var/list/augmentations = typesof(/datum/augment) - /datum/augment
 	name = "synthetic eye color"
 	linkedaugment = /obj/item/organ/augment/multieye
 
-/datum/augment/testunit
+/datum/augment/brainaugment
 
 	name = "Augmented Brain"
 	linkedaugment = /obj/item/organ/augment/aci
@@ -303,29 +303,6 @@ var/list/augmentations = typesof(/datum/augment) - /datum/augment
 	action_icon = "pen"
 	augment_type = /obj/item/weapon/pen/multi
 	cooldown = 10
-
-/obj/item/organ/augment/tool/healthanalyzer
-	name = "retractable health analyzer"
-	action_button_name = "Deploy Health Analyzer"
-	action_icon = "health"
-	augment_type = /obj/item/device/healthanalyzer
-	cooldown = 50
-
-/obj/item/organ/augment/tool/zippo
-	name = "integrated lighter"
-	action_button_name = "Deploy lighter"
-	action_icon = "zippo"
-	augment_type = /obj/item/weapon/flame/lighter/zippo/integrated
-	install_locations = list(HAND_LEFT, HAND_RIGHT)
-	cooldown = 10
-
-/obj/item/weapon/flame/lighter/zippo/integrated
-	name = "integrated lighter"
-	desc = "A small, cube-shaped device inserted into a mechanized finger."
-	icon_state = "zippo"
-	item_state = "zippo"
-	activation_sound = 'sound/items/zippo_on.ogg'
-	desactivation_sound = 'sound/items/zippo_off.ogg'
 
 /obj/item/organ/augment/tool/magfeet
 	name = "magnetic soles"

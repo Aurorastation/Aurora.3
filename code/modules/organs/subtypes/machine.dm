@@ -265,7 +265,6 @@
 	icon = 'icons/obj/robot_component.dmi'
 	icon_state = "servo"
 	vital = 0
-	action_button_name = "Engage Servos"
 	augmenthp = 30
 	var/servothreshhold = 0
 	install_locations = list(ARM_LEFT, ARM_RIGHT, HAND_LEFT, HAND_RIGHT,LEG_LEFT,LEG_RIGHT)
@@ -287,6 +286,7 @@
 
 /obj/item/organ/augment/limbservo/process()
 	servo_check()
+	. = ..()
 
 /obj/item/organ/coolantpump
 	name = "coolant pump"
@@ -409,26 +409,28 @@
 
 /obj/item/organ/coolantpump/process()
 	var/mob/living/carbon/human/H = owner
+	if(!H)
+		return
+	else
+		if(coolantamount >= coolantbaseamount)
+			coolantamount = coolantbaseamount
 
-	if(coolantamount >= coolantbaseamount)
-		coolantamount = coolantbaseamount
+		if(H.bodytemperature <= H.species.cold_level_1 || (H.bodytemperature >= H.species.heat_level_1))
+			coolantamount -= coolantuserate * 1.5
+		if(H.bodytemperature <= H.species.cold_level_2 || (H.bodytemperature >= H.species.heat_level_2))
+			coolantamount -= coolantuserate * 2
+		if(H.bodytemperature <= H.species.cold_level_3 || (H.bodytemperature >= H.species.heat_level_3))
+			coolantamount -= coolantuserate * 4
+		coolantamount = max(coolantamount, 0)
+		coolant_check()
 
-	if(H.bodytemperature <= H.species.cold_level_1 || (H.bodytemperature >= H.species.heat_level_1))
-		coolantamount -= coolantuserate * 2
-	if(H.bodytemperature <= H.species.cold_level_2 || (H.bodytemperature >= H.species.heat_level_2))
-		coolantamount -= coolantuserate * 4
-	if(H.bodytemperature <= H.species.cold_level_3 || (H.bodytemperature >= H.species.heat_level_3))
-		coolantamount -= coolantuserate * 6
-	coolantamount = max(coolantamount, 0)
-	coolant_check()
-
-/obj/item/organ/coolant_pump/removed(var/mob/living/carbon/human/target)
+/obj/item/organ/coolantpump/removed(var/mob/living/carbon/human/target)
 	var/mob/living/carbon/human/H = target
 	to_chat(H, "<span class='warning'>Your entire body shuts down, leaving you lifeless.</span>")
-	H.Weaken(120)
+	H.Weaken(520)
 
 
-/obj/item/organ/coolant_pump/replaced(var/mob/living/carbon/human/target)
+/obj/item/organ/coolantpump/replaced(var/mob/living/carbon/human/target)
 	var/mob/living/carbon/human/H = owner
 	to_chat(target, "<span class='warning'>You feel a cool sensation overcome you.</span>")
 	target.update_canmove()
@@ -458,6 +460,11 @@
 				to_chat(user, "<span class='info'>You empty [amount_transferred]u of coolant into [src].</span>")
 				coolant_check()
 
+/obj/item/organ/coolantpump/heavy
+	coolantbaseamount = 300
+	coolantuserate = 0.6
+	coolantamount = 150
+	pumphealth = 60
 
 
 /obj/item/organ/powercontrolunit

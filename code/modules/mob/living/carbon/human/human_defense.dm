@@ -53,10 +53,12 @@ emp_act
 	for(var/obj/item/organ/augment/AUG in organ.internal_organs)
 		if(istype(AUG,/obj/item/organ/augment/limbservo))
 			for(var/obj/item/organ/augment/limbservo/SR in organ.internal_organs)
-				if(!SR.servotheshhold)
+				if(!SR.servothreshhold)
 					return
-			else
-				AUG.augmenthp -= P.damage / 2
+				else
+					SR.augmenthp -= P.damage / 2
+		else
+			AUG.augmenthp -= P.damage / 3
 
 	return (..(P , def_zone))
 
