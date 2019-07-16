@@ -195,6 +195,7 @@
 				value = text2num(value)
 			obj_query_set(null, src, value, null, key)
 			obj_query_set(null, ui.data, value, null, key)
+			SSrecords.reset_manifest()
 			. = TRUE
 	if(href_list["deleterecord"])
 		if(canEdit(list("active", "name")))
@@ -204,6 +205,7 @@
 				ui.data["allrecords"] -= active.id
 				active = null
 				ui.data["activeview"] = default_screen
+				SSrecords.reset_manifest()
 			SSvueui.check_uis_for_change(src)
 	if(href_list["newrecord"])
 		if(canEdit(list("active", "name")))
@@ -214,6 +216,7 @@
 			ui.send_asset("front")
 			ui.send_asset("side")
 			SSvueui.check_uis_for_change(src)
+			SSrecords.reset_manifest()
 	if(href_list["addtorecord"])
 		var/list/key = href_list["addtorecord"]["key"]
 		var/value = sanitize(href_list["addtorecord"]["value"], encode = 0, extra = 0)

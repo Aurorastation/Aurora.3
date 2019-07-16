@@ -36,6 +36,7 @@
 		var/datum/record/general/l = r.Copy(new /datum/record/general/locked(H))
 		add_record(l)
 		add_record(r)
+		reset_manifest()
 
 /datum/controller/subsystem/records/proc/add_record(var/datum/record/record)
 	switch(record.type)
