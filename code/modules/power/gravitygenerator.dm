@@ -425,7 +425,7 @@
 			if(M.client)
 				if(!M)	return
 				shake_camera(M, 5, 1)
-				M.playsound_local(our_turf, 'sound/effects/alert.ogg', 100, 1, 0.5)
+				M.playsound_simple(our_turf, 'sound/effects/alert.ogg', 100, use_random_freq = TRUE, falloff = 0.5)
 
 /obj/machinery/gravity_generator/main/proc/update_list(var/gravity_changed = FALSE)
 	var/turf/T = get_turf(src.loc)

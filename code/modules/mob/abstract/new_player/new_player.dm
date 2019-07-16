@@ -303,8 +303,6 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 
 	character = SSjobs.EquipPersonal(character, rank, 1,spawning_at)					//equips the human
 
-	UpdateFactionList(character)
-
 	// AIs don't need a spawnpoint, they must spawn at an empty core
 	if(character.mind.assigned_role == "AI")
 

@@ -218,10 +218,9 @@
 	force = 10
 	w_class = 4.0
 	slot_flags = SLOT_BACK
-	force_wielded = 0.75           // 22 when wielded with hardness 15 (glass)
-	unwielded_force_divisor = 0.65 // 14 when unwielded based on above
-	thrown_force_divisor = 1.5 // 20 when thrown with weight 15 (glass)
-	throw_speed = 3
+	force_divisor = 0.35 // 21 damage for steel (hardness 60)
+	unwielded_force_divisor = 0.2 // 12 damage for steel (hardness 60)
+	thrown_force_divisor = 1.2 // 24 damage for steel (weight 20)
 	edge = 1
 	sharp = 0
 	hitsound = 'sound/weapons/bladeslice.ogg'
@@ -572,13 +571,13 @@
 	var/unwielded_ap = 0
 
 /obj/item/weapon/material/twohanded/zweihander/pre_attack(var/mob/living/target, var/mob/living/user)
-	if(!reach && istype(target))
+	if(!wielded && istype(target))
 		cleave(user, target)
 	..()
 
 /obj/item/weapon/material/twohanded/zweihander/unwield()
 	..()
-	reach = 0
+	reach = 1
 	attack_verb = list("attacked", "chopped", "cleaved", "torn", "cut")
 	armor_penetration = unwielded_ap
 
