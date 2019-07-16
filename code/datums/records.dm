@@ -64,7 +64,7 @@
 	var/species = "Unknown"
 	var/home_system = "Unknown"
 	var/citizenship = "Unknown"
-	var/faction = "Unknown"
+	var/employer = "Unknown"
 	var/religion = "Unknown"
 	var/ccia_record = "No CCIA records found"
 	var/list/ccia_actions = list()
@@ -95,7 +95,7 @@
 		species = H.get_species()
 		home_system = H.home_system
 		citizenship = H.citizenship
-		faction = H.personal_faction
+		employer = H.employer_faction
 		religion = H.religion
 		ccia_record = H.ccia_record
 		ccia_actions = H.ccia_actions

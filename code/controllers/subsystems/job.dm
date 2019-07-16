@@ -15,22 +15,34 @@
 	// Vars.
 	var/list/occupations = list()
 	var/list/name_occupations = list()	//Dict of all jobs, keys are titles
-	var/list/type_occupations = list()	//Dict of all jobs, keys are titles
+	var/list/type_occupations = list()	//Dict of all jobs, keys are types
 	var/list/unassigned = list()
 	var/list/job_debug = list()
+
+	var/list/factions = list()
+	var/list/name_factions = list()
+	var/datum/faction/default_faction = null
+
+	var/safe_to_sanitize = FALSE
+	var/list/deferred_preference_sanitizations = list()
 
 /datum/controller/subsystem/jobs/New()
 	NEW_SS_GLOBAL(SSjobs)
 
 /datum/controller/subsystem/jobs/Initialize()
+	..()
+
 	SetupOccupations()
 	LoadJobs("config/jobs.txt")
-	..()
+	InitializeFactions()
+
+	ProcessSanitizationQueue()
 
 /datum/controller/subsystem/jobs/Recover()
 	occupations = SSjobs.occupations
 	unassigned = SSjobs.unassigned
 	job_debug = SSjobs.job_debug
+	factions = SSjobs.factions
 	if (islist(job_debug))
 		job_debug += "NOTICE: Job system Recover() triggered."
 
@@ -325,6 +337,9 @@
 	var/datum/job/job = GetJob(rank)
 	var/list/spawn_in_storage = list()
 
+	if (H.mind)
+		H.mind.selected_faction = GetFaction(H)
+
 	H.job = rank
 
 	if(job)
@@ -608,6 +623,25 @@
 
 	return TRUE
 
+/datum/controller/subsystem/jobs/proc/InitializeFactions()
+	for (var/type in subtypesof(/datum/faction))
+		var/datum/faction/faction = new type()
+
+		factions += faction
+		name_factions[faction.name] = faction
+
+		if (faction.is_default)
+			if (default_faction)
+				crash_with("Two default factions detected in SSjobs.")
+			else
+				default_faction = faction
+
+	if (!default_faction)
+		crash_with("No default faction assigned to SSjobs.")
+
+	if (!factions.len)
+		crash_with("No factions located in SSjobs.")
+
 /datum/controller/subsystem/jobs/proc/HandleFeedbackGathering()
 	for(var/thing in occupations)
 		var/datum/job/job = thing
@@ -820,5 +854,21 @@
 		return pick(loc_list)
 	else
 		return locate("start*[rank]") // use old stype
+
+/datum/controller/subsystem/jobs/proc/GetFaction(mob/living/carbon/human/H)
+	var/faction_name = H?.client?.prefs?.faction
+	if (faction_name)
+		return name_factions[faction_name]
+	else
+		return null
+
+/datum/controller/subsystem/jobs/proc/ProcessSanitizationQueue()
+	safe_to_sanitize = TRUE
+
+	for (var/p in deferred_preference_sanitizations)
+		var/datum/callback/CB = deferred_preference_sanitizations[p]
+		CB.Invoke()
+
+	deferred_preference_sanitizations.Cut()
 
 #undef Debug
