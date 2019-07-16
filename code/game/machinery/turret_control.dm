@@ -1,7 +1,6 @@
 ////////////////////////
 //Turret Control Panel//
 ////////////////////////
-
 /area
 	// Turrets use this list to see if individual power/lethal settings are allowed
 	var/list/turret_controls = list()
@@ -28,10 +27,8 @@
 	var/check_anomalies = 1	//checks if it can shoot at unidentified lifeforms (ie xenos)
 	var/check_synth = 0 	//if active, will shoot at anything not an AI or cyborg
 	var/ailock = 0 	//Silicons cannot use this
-
 	req_access = list(access_ai_upload)
 
-	 // list of turrets under control
 
 /obj/machinery/turretid/stun
 	enabled = 1
@@ -78,11 +75,11 @@
 
 /obj/machinery/turretid/proc/isLocked(mob/user)
 	if(ailock && issilicon(user))
-		user << "<span class='notice'>There seems to be a firewall preventing you from accessing this device.</span>"
+		to_chat(user, "<span class='notice'>There seems to be a firewall preventing you from accessing this device.</span>")
 		return 1
 
 	if(locked && !issilicon(user))
-		user << "<span class='notice'>Access denied.</span>"
+		to_chat(user, "<span class='notice'>Access denied.</span>")
 		return 1
 
 	return 0
@@ -100,16 +97,16 @@
 	if(istype(W, /obj/item/weapon/card/id)||istype(W, /obj/item/device/pda))
 		if(src.allowed(usr))
 			if(emagged)
-				user << "<span class='notice'>The turret control is unresponsive.</span>"
+				to_chat(user, "<span class='notice'>The turret control is unresponsive.</span>")
 			else
 				locked = !locked
-				user << "<span class='notice'>You [ locked ? "lock" : "unlock"] the panel.</span>"
+				to_chat(user, "<span class='notice'>You [ locked ? "lock" : "unlock"] the panel.</span>")
 		return
 	return ..()
 
 /obj/machinery/turretid/emag_act(var/remaining_charges, var/mob/user)
 	if(!emagged)
-		user << "<span class='danger'>You short out the turret controls' access analysis module.</span>"
+		to_chat(user, "<span class='danger'>You short out the turret controls' access analysis module.</span>")
 		emagged = 1
 		locked = 0
 		ailock = 0
@@ -127,58 +124,85 @@
 
 	ui_interact(user)
 
-/obj/machinery/turretid/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
-	var/data[0]
-	data["access"] = !isLocked(user)
-	data["locked"] = locked
-	data["enabled"] = enabled
-	data["is_lethal"] = 1
-	data["lethal"] = lethal
-	data["can_switch"] = egun
+/obj/machinery/turretid/vueui_data_change(var/list/data, var/mob/user, var/datum/vueui/ui)
+	. = ..()
+	data = . || data
+	if(!data)
+		data = list()
+	VUEUI_SET_IFNOTSET(data["turrets"], list(), ., data)
+	VUEUI_SET_CHECK(data["locked"], locked, ., data)
+	VUEUI_SET_CHECK(data["enabled"], enabled, ., data)
+	VUEUI_SET_CHECK(data["is_lethal"], 1, ., data)
+	VUEUI_SET_CHECK(data["lethal"], lethal, ., data)
+	VUEUI_SET_CHECK(data["can_switch"], egun, ., data)
 
-	if(data["access"])
-		var/settings[0]
-		settings[++settings.len] = list("category" = "Neutralize All Non-Synthetics", "setting" = "check_synth", "value" = check_synth)
-		settings[++settings.len] = list("category" = "Check Weapon Authorization", "setting" = "check_weapons", "value" = check_weapons)
-		settings[++settings.len] = list("category" = "Check Security Records", "setting" = "check_records", "value" = check_records)
-		settings[++settings.len] = list("category" = "Check Arrest Status", "setting" = "check_arrest", "value" = check_arrest)
-		settings[++settings.len] = list("category" = "Check Access Authorization", "setting" = "check_access", "value" = check_access)
-		settings[++settings.len] = list("category" = "Check misc. Lifeforms", "setting" = "check_anomalies", "value" = check_anomalies)
-		data["settings"] = settings
+	var/usedSettings = list(
+		"check_synth" = "Neutralize All Non-Synthetics",
+		"check_weapons" = "Check Weapon Authorization",
+		"check_records" = "Check Security Records",
+		"check_arrest" ="Check Arrest Status",
+		"check_access" = "Check Access Authorization",
+		"check_anomalies" = "Check misc. Lifeforms"
+	)
+	VUEUI_SET_IFNOTSET(data["settings"], list(), ., data)
+	for(var/v in usedSettings)
+		var/name = usedSettings[v]
+		VUEUI_SET_IFNOTSET(data["settings"][v], list(), ., data)
+		data["settings"][v]["category"] = name
+		VUEUI_SET_CHECK(data["settings"][v]["value"], vars[v], ., data)
 
-	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
+	if(istype(control_area))
+		if(control_area.turrets.len != data["turrets"].len)
+			data["turrets"] = list()
+		for (var/obj/machinery/porta_turret/aTurret in control_area.turrets)
+			var/ref = "\ref[aTurret]"
+			VUEUI_SET_IFNOTSET(data["turrets"][ref], list("ref" = ref), ., data)
+			VUEUI_SET_IFNOTSET(data["turrets"][ref]["name"], sanitize(aTurret.name + " [data["turrets"].len]"), ., data)
+			var/rtn = aTurret.vueui_data_change(data["turrets"][ref]["settings"], user, ui)
+			if(rtn)
+				data["turrets"][ref]["settings"] = rtn
+				. = data
+
+
+/obj/machinery/turretid/ui_interact(mob/user)
+	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
 	if (!ui)
-		ui = new(user, src, ui_key, "turret_control.tmpl", "Turret Controls", 500, 300)
-		ui.set_initial_data(data)
-		ui.open()
-		ui.set_auto_update(1)
+		ui = new(user, src, "turrets-control", 375, 725, "Turret Controls")
+	ui.open()
 
 /obj/machinery/turretid/Topic(href, href_list)
 	if(..())
 		return 1
 
-	if(href_list["command"] && href_list["value"])
-		var/value = text2num(href_list["value"])
-		if(href_list["command"] == "enable")
-			enabled = value
-		else if(href_list["command"] == "lethal")
-			lethal = value
-		else if(href_list["command"] == "check_synth")
-			check_synth = value
-		else if(href_list["command"] == "check_weapons")
-			check_weapons = value
-		else if(href_list["command"] == "check_records")
-			check_records = value
-		else if(href_list["command"] == "check_arrest")
-			check_arrest = value
-		else if(href_list["command"] == "check_access")
-			check_access = value
-		else if(href_list["command"] == "check_anomalies")
-			check_anomalies = value
-
-		updateTurrets()
+	if(href_list["turret_ref"] == "this")
+		if(href_list["command"] && !isnull(href_list["value"]))
+			var/value = text2num(href_list["value"])
+			if(href_list["command"] == "enable")
+				enabled = value
+			else if(href_list["command"] == "lethal")
+				lethal = value
+			else if(href_list["command"] == "check_synth")
+				check_synth = value
+			else if(href_list["command"] == "check_weapons")
+				check_weapons = value
+			else if(href_list["command"] == "check_records")
+				check_records = value
+			else if(href_list["command"] == "check_arrest")
+				check_arrest = value
+			else if(href_list["command"] == "check_access")
+				check_access = value
+			else if(href_list["command"] == "check_anomalies")
+				check_anomalies = value
+			updateTurrets()
+			update_icon()
+			SSvueui.check_uis_for_change(src)
+	else if(href_list["turret_ref"])
+		var/obj/machinery/porta_turret/aTurret = locate(href_list["turret_ref"]) in (control_area.turrets)
+		if(!aTurret)
+			return
+		. = aTurret.Topic(href, href_list)
+		SSvueui.check_uis_for_change(src)
 		update_icon()
-		return 1
 
 /obj/machinery/turretid/proc/updateTurrets()
 	var/datum/turret_checks/TC = getState()

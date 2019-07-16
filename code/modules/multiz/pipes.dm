@@ -20,7 +20,7 @@
 	var/maximum_pressure = 70*ONE_ATMOSPHERE
 	var/fatigue_pressure = 55*ONE_ATMOSPHERE
 	alert_pressure = 55*ONE_ATMOSPHERE
-	
+
 	var/travel_verbname = "UNDEFINED"
 	var/travel_direction_verb = "UNDEFINED"
 	var/travel_direction_name = "UNDEFINED"
@@ -50,11 +50,11 @@
 			initialize_directions = SOUTH
 
 	. = ..()
-	
+
 
 /obj/machinery/atmospherics/pipe/zpipe/Entered(mob/living/M)
 	if(istype(M))
-		M << span("notice", "You are in a vertical pipe section. Use [travel_verbname] from the IC menu to [travel_direction_verb] a level.")
+		to_chat(M, span("notice", "You are in a vertical pipe section. Use [travel_verbname] from the IC menu to [travel_direction_verb] a level."))
 		. = ..()
 
 /obj/machinery/atmospherics/pipe/zpipe/hide(var/i)

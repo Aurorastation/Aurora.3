@@ -37,8 +37,7 @@
 			else
 				L.bodytemperature = min(L.bodytemperature + 150, 1000)
 		else
-			L.adjust_fire_stacks(15)
-			L.IgniteMob()
+			L.IgniteMob(15)
 			return 1
 	..()
 
@@ -50,7 +49,7 @@
 	..()
 
 // Special asteroid variant that goes with lava better.
-/turf/simulated/floor/asteroid/basalt
+/turf/unsimulated/floor/asteroid/basalt
 	name = "basalt"
 	icon = 'icons/turf/basalt.dmi'
 	icon_state = "basalt"
@@ -66,14 +65,14 @@
 
 	footstep_sound = "concretestep"
 
-/turf/simulated/floor/asteroid/basalt/get_smooth_underlay_icon(mutable_appearance/underlay_appearance, turf/asking_turf, adjacency_dir)
+/turf/unsimulated/floor/asteroid/basalt/get_smooth_underlay_icon(mutable_appearance/underlay_appearance, turf/asking_turf, adjacency_dir)
 	underlay_appearance.icon = icon
 	underlay_appearance.icon_state = "basalt"
 	if (prob(20))
 		underlay_appearance.icon_state += "[rand(0,12)]"
 	return TRUE
 
-/turf/simulated/floor/asteroid/basalt/Initialize(mapload)
+/turf/unsimulated/floor/asteroid/basalt/Initialize(mapload)
 	if (prob(20))
 		var/variant = rand(0,12)
 		icon_state = "basalt[variant]"
@@ -86,7 +85,7 @@
 				light_range = 2
 	. = ..()
 
-/turf/simulated/floor/asteroid/ash
+/turf/unsimulated/floor/asteroid/ash
 	name = "ash"
 	icon_state = "ash"
 	desc = "A fine grey ash. Looks pretty tightly packed."
@@ -95,12 +94,12 @@
 	base_icon_state = "ash"
 	footstep_sound = "sandstep"
 
-/turf/simulated/floor/asteroid/ash/Initialize()
+/turf/unsimulated/floor/asteroid/ash/Initialize()
 	. = ..()
 	if (prob(20))
 		add_overlay("asteroid[rand(0, 9)]", TRUE)
 
-/turf/simulated/floor/asteroid/ash/rocky
+/turf/unsimulated/floor/asteroid/ash/rocky
 	name = "rocky ash"
 	icon_state = "rockyash"
 	base_icon_state = "rockyash"

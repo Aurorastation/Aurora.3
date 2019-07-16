@@ -126,7 +126,7 @@
 		apply_markings(restrict_to_robotic = TRUE)
 	else
 		if(!dna)
-			mob_icon = new /icon('icons/mob/human_races/r_human.dmi', "[icon_name][gendered_icon ? "_[gender]" : ""]")
+			mob_icon = new /icon('icons/mob/human_races/human/r_human.dmi', "[icon_name][gendered_icon ? "_[gender]" : ""]")
 		else
 			if(!gendered_icon)
 				gender = null
@@ -139,7 +139,7 @@
 			if(skeletal)
 				mob_icon = new /icon('icons/mob/human_races/r_skeleton.dmi', "[icon_name][gender ? "_[gender]" : ""]")
 			else if (status & ORGAN_ROBOT && !force_skintone)
-				mob_icon = new /icon('icons/mob/human_races/robotic.dmi', "[icon_name][gender ? "_[gender]" : ""]")
+				mob_icon = new /icon('icons/mob/human_races/ipc/robotic.dmi', "[icon_name][gender ? "_[gender]" : ""]")
 			else
 				if (status & ORGAN_MUTATED)
 					mob_icon = new /icon(species.deform, "[icon_name][gender ? "_[gender]" : ""]")
@@ -169,7 +169,6 @@
 					limb_icon_cache[cache_key] = I
 				mob_icon.Blend(limb_icon_cache[cache_key], ICON_OVERLAY)
 
-	dir = EAST
 	icon = mob_icon
 
 	return mob_icon

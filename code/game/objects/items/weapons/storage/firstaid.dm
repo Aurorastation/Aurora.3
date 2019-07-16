@@ -14,6 +14,7 @@
 	throw_speed = 2
 	throw_range = 8
 	var/empty = 0
+	drop_sound = 'sound/items/drop/box.ogg'
 
 
 /obj/item/weapon/storage/firstaid/fire
@@ -178,6 +179,7 @@
 	allow_quick_gather = 1
 	use_to_pickup = 1
 	use_sound = 'sound/items/storage/pillbottle.ogg'
+	drop_sound = 'sound/items/drop/pillbottle.ogg'
 	max_storage_space = 16
 
 /obj/item/weapon/storage/pill_bottle/antitox
@@ -319,3 +321,17 @@
 		new /obj/item/weapon/reagent_containers/pill/escitalopram( src )
 		new /obj/item/weapon/reagent_containers/pill/escitalopram( src )
 		new /obj/item/weapon/reagent_containers/pill/escitalopram( src )
+
+/obj/item/weapon/storage/pill_bottle/rmt
+	name = "bottle of RMT pills"
+	desc = "Contains pills used to remedy the effects of prolonged zero-gravity adaptations."
+
+/obj/item/weapon/storage/pill_bottle/rmt/fill()
+	..()
+	new /obj/item/weapon/reagent_containers/pill/rmt(src)
+	new /obj/item/weapon/reagent_containers/pill/rmt(src)
+	new /obj/item/weapon/reagent_containers/pill/rmt(src)
+	new /obj/item/weapon/reagent_containers/pill/rmt(src)
+	new /obj/item/weapon/reagent_containers/pill/rmt(src)
+	new /obj/item/weapon/reagent_containers/pill/rmt(src)
+	new /obj/item/weapon/reagent_containers/pill/rmt(src)

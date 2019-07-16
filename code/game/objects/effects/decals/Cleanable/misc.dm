@@ -5,19 +5,19 @@
 	density = 0
 	anchored = 1
 	layer = 2
-	icon = 'icons/obj/objects.dmi'
+	icon = 'icons/obj/trash.dmi'
 	icon_state = "shards"
 
 /obj/effect/decal/cleanable/ash
 	name = "ashes"
 	desc = "Ashes to ashes, dust to dust, and into space."
 	gender = PLURAL
-	icon = 'icons/obj/objects.dmi'
+	icon = 'icons/obj/trash.dmi'
 	icon_state = "ash"
 	anchored = 1
 
 /obj/effect/decal/cleanable/ash/attack_hand(mob/user as mob)
-	user << "<span class='notice'>[src] sifts through your fingers.</span>"
+	to_chat(user, "<span class='notice'>[src] sifts through your fingers.</span>")
 	var/turf/simulated/floor/F = get_turf(src)
 	if (istype(F))
 		F.dirt += 4

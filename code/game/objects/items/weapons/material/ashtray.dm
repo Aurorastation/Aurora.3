@@ -1,6 +1,6 @@
 /obj/item/weapon/material/ashtray
 	name = "ashtray"
-	icon = 'icons/obj/objects.dmi'
+	icon = 'icons/obj/ashtray.dmi'
 	icon_state = "blank"
 	force_divisor = 0.1
 	thrown_force_divisor = 0.1
@@ -24,7 +24,7 @@
 	var/list/ashtray_cache = SSicon_cache.ashtray_cache
 	var/cache_key = "base-[material.name]"
 	if(!ashtray_cache[cache_key])
-		var/image/I = image('icons/obj/objects.dmi',"ashtray")
+		var/image/I = image('icons/obj/ashtray.dmi',"ashtray")
 		I.color = material.icon_colour
 		ashtray_cache[cache_key] = I
 	add_overlay(ashtray_cache[cache_key])
@@ -43,7 +43,7 @@
 		return
 	if (istype(W,/obj/item/weapon/cigbutt) || istype(W,/obj/item/clothing/mask/smokable/cigarette) || istype(W, /obj/item/weapon/flame/match))
 		if (contents.len >= max_butts)
-			user << "\The [src] is full."
+			to_chat(user, "\The [src] is full.")
 			return
 		user.remove_from_mob(W)
 		W.forceMove(src)
@@ -60,7 +60,7 @@
 				//spawn(1)
 				//	TemperatureAct(150)
 			else if (cig.lit == 0)
-				user << "You place [cig] in [src] without even smoking it. Why would you do that?"
+				to_chat(user, "You place [cig] in [src] without even smoking it. Why would you do that?")
 
 		src.visible_message("[user] places [W] in [src].")
 		user.update_inv_l_hand()
@@ -69,7 +69,7 @@
 		update_icon()
 	else
 		health = max(0,health - W.force)
-		user << "You hit [src] with [W]."
+		to_chat(user, "You hit [src] with [W].")
 		if (health < 1)
 			shatter()
 	return

@@ -52,6 +52,7 @@
 	tameable = FALSE
 
 	flying = TRUE
+	smart = TRUE
 
 /mob/living/simple_animal/hostile/retaliate/malf_drone/Initialize()
 	. = ..()

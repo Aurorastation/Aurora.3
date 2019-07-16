@@ -33,6 +33,9 @@
 		amount = 0
 	..(ignore=1)
 
+/obj/effect/decal/cleanable/blood/hide()
+    return
+
 /obj/effect/decal/cleanable/blood/Destroy()
 	for(var/datum/disease/D in viruses)
 		D.cure(0)
@@ -121,7 +124,7 @@
 			return
 		var/taken = rand(1,amount)
 		amount -= taken
-		user << "<span class='notice'>You get some of \the [src] on your hands.</span>"
+		to_chat(user, "<span class='notice'>You get some of \the [src] on your hands.</span>")
 		LAZYINITLIST(user.blood_DNA)
 
 		if (blood_DNA)
@@ -169,7 +172,7 @@
 
 /obj/effect/decal/cleanable/blood/writing/examine(mob/user)
 	..(user)
-	user << "It reads: <font color='[basecolor]'>\"[message]\"</font>"
+	to_chat(user, "It reads: <font color='[basecolor]'>\"[message]\"</font>")
 
 /obj/effect/decal/cleanable/blood/gibs
 	name = "gibs"

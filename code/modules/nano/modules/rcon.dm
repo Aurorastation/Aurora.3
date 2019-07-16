@@ -74,7 +74,7 @@
 		var/obj/machinery/power/breakerbox/toggle = SSpower.rcon_breaker_units_by_tag[href_list["toggle_breaker"]]
 		if(toggle)
 			if(toggle.update_locked)
-				usr << "The breaker box was recently toggled. Please wait before toggling it again."
+				to_chat(usr, "The breaker box was recently toggled. Please wait before toggling it again.")
 			else
 				toggle.auto_toggle()
 	if(href_list["hide_smes"])

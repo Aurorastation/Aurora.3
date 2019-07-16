@@ -8,19 +8,22 @@
 	var/obj/machinery/body_scanconsole/connected
 	var/list/allowed_species = list(
 		"Human",
+		"Off-Worlder Human",
 		"Skrell",
 		"Unathi",
+		"Aut'akh Unathi",
 		"Tajara",
 		"M'sai Tajara",
 		"Zhan-Khazan Tajara",
 		"Vaurca Worker",
 		"Vaurca Warrior",
-		"Diona"
+		"Diona",
+		"Monkey"
 	)
 	name = "Body Scanner"
 	desc = "A state-of-the-art medical diagnostics machine. Guaranteed detection of all your bodily ailments or your money back!"
-	icon = 'icons/obj/Cryogenic2.dmi'
-	icon_state = "body_scanner_0"
+	icon = 'icons/obj/sleeper.dmi'
+	icon_state = "body_scanner"
 	density = 1
 	anchored = 1
 
@@ -28,11 +31,23 @@
 	idle_power_usage = 60
 	active_power_usage = 10000	//10 kW. It's a big all-body scanner.
 
+/obj/machinery/bodyscanner/Initialize()
+	. = ..()
+	update_icon()
+
 /obj/machinery/bodyscanner/Destroy()
 	// So the GC can qdel this.
 	if (connected)
 		connected.connected = null
 	return ..()
+
+/obj/machinery/bodyscanner/update_icon()
+	flick("[initial(icon_state)]-anim", src)
+	if(occupant)
+		icon_state = "[initial(icon_state)]-closed"
+		return
+	else
+		icon_state = initial(icon_state)
 
 /obj/machinery/bodyscanner/relaymove(mob/user as mob)
 	if (user.stat)
@@ -59,10 +74,10 @@
 	if (usr.stat != 0)
 		return
 	if (src.occupant)
-		usr << "<span class='warning'>The scanner is already occupied!</span>"
+		to_chat(usr, "<span class='warning'>The scanner is already occupied!</span>")
 		return
 	if (usr.abiotic())
-		usr << "<span class='warning'>The subject cannot have abiotic items on.</span>"
+		to_chat(usr, "<span class='warning'>The subject cannot have abiotic items on.</span>")
 		return
 	usr.pulling = null
 	usr.client.perspective = EYE_PERSPECTIVE
@@ -70,7 +85,7 @@
 	usr.forceMove(src)
 	src.occupant = usr
 	update_use_power(2)
-	src.icon_state = "body_scanner_1"
+	update_icon()
 	for(var/obj/O in src)
 		//O = null
 		qdel(O)
@@ -92,17 +107,17 @@
 	src.occupant.forceMove(src.loc)
 	src.occupant = null
 	update_use_power(1)
-	src.icon_state = "body_scanner_0"
+	update_icon()
 	return
 
 /obj/machinery/bodyscanner/attackby(obj/item/weapon/grab/G, mob/user)
 	if ((!( istype(G, /obj/item/weapon/grab) ) || !( isliving(G.affecting) )))
 		return
 	if (src.occupant)
-		user << "<span class='warning'>The scanner is already occupied!</span>"
+		to_chat(user, "<span class='warning'>The scanner is already occupied!</span>")
 		return
 	if (G.affecting.abiotic())
-		user << "<span class='warning'>Subject cannot have abiotic items on.</span>"
+		to_chat(user, "<span class='warning'>Subject cannot have abiotic items on.</span>")
 		return
 
 	var/mob/living/M = G.affecting
@@ -122,7 +137,7 @@
 		M.forceMove(src)
 		src.occupant = M
 		update_use_power(2)
-		src.icon_state = "body_scanner_1"
+		update_icon()
 		for(var/obj/O in src)
 			O.forceMove(loc)
 		//Foreach goto(154)
@@ -138,10 +153,10 @@
 		return
 	var/mob/living/M = O//Theres no reason this shouldn't be /mob/living
 	if (src.occupant)
-		user << "<span class='notice'><B>The scanner is already occupied!</B></span>"
+		to_chat(user, "<span class='notice'><B>The scanner is already occupied!</B></span>")
 		return
 	if (M.abiotic())
-		user << "<span class='notice'><B>Subject cannot have abiotic items on.</B></span>"
+		to_chat(user, "<span class='notice'><B>Subject cannot have abiotic items on.</B></span>")
 		return
 
 	var/mob/living/L = O
@@ -165,7 +180,7 @@
 		M.forceMove(src)
 		src.occupant = M
 		update_use_power(2)
-		src.icon_state = "body_scanner_1"
+		update_icon()
 		playsound(src.loc, 'sound/machines/medbayscanner1.ogg', 50)
 		for(var/obj/Obj in src)
 			Obj.forceMove(src.loc)
@@ -234,7 +249,7 @@
 	var/collapse_desc = ""
 	name = "Body Scanner Console"
 	desc = "A control panel for some kind of medical device."
-	icon = 'icons/obj/Cryogenic2.dmi'
+	icon = 'icons/obj/sleeper.dmi'
 	icon_state = "body_scannerconsole"
 	density = 0
 	anchored = 1

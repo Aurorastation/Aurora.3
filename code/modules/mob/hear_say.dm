@@ -1,10 +1,10 @@
 // At minimum every mob has a hear_say proc.
 
 /mob/proc/hear_say(var/message, var/verb = "says", var/datum/language/language = null, var/alt_name = "",var/italics = 0, var/mob/speaker = null, var/sound/speech_sound, var/sound_vol)
-	if(!client)
+	if(!istype(src, /mob/living/test) && !client)
 		return
 
-	if(speaker && !speaker.client && istype(src,/mob/abstract/observer) && client.prefs.toggles & CHAT_GHOSTEARS && !speaker in view(src))
+	if(speaker && !istype(speaker, /mob/living/test) && (!speaker.client && istype(src,/mob/abstract/observer) && client.prefs.toggles & CHAT_GHOSTEARS && !speaker in view(src)))
 			//Does the speaker have a client?  It's either random stuff that observers won't care about (Experiment 97B says, 'EHEHEHEHEHEHEHE')
 			//Or someone snoring.  So we make it where they won't hear it.
 		return
@@ -62,9 +62,9 @@
 	if(sdisabilities & DEAF || ear_deaf)
 		if(!language || !(language.flags & INNATE)) // INNATE is the flag for audible-emote-language, so we don't want to show an "x talks but you cannot hear them" message if it's set
 			if(speaker == src)
-				src << "<span class='warning'>You cannot hear yourself speak!</span>"
+				to_chat(src, "<span class='warning'>You cannot hear yourself speak!</span>")
 			else
-				src << "<span class='name'>[speaker_name]</span>[alt_name] talks but you cannot hear \him."
+				to_chat(src, "<span class='name'>[speaker_name]</span>[alt_name] talks but you cannot hear \him.")
 	else
 		if(language)
 			on_hear_say("[track]<span class='game say'><span class='name'>[speaker_name]</span>[alt_name] [language.format_message(message, verb)]</span>")
@@ -72,14 +72,14 @@
 			on_hear_say("[track]<span class='game say'><span class='name'>[speaker_name]</span>[alt_name] [verb], <span class='message'><span class='body'>\"[message]\"</span></span></span>")
 		if (speech_sound && (get_dist(speaker, src) <= world.view && src.z == speaker.z))
 			var/turf/source = speaker? get_turf(speaker) : get_turf(src)
-			src.playsound_local(source, speech_sound, sound_vol, 1)
+			playsound_simple(source, speech_sound, sound_vol, use_random_freq = TRUE)
 
 /mob/proc/on_hear_say(var/message)
-	src << message
+	to_chat(src, message)
 
 /mob/living/silicon/on_hear_say(var/message)
 	var/time = say_timestamp()
-	src << "[time] [message]"
+	to_chat(src, "[time] [message]")
 
 /mob/proc/hear_radio(var/message, var/verb="says", var/datum/language/language=null, var/part_a, var/part_b, var/mob/speaker = null, var/hard_to_hear = 0, var/vname ="")
 
@@ -120,13 +120,13 @@
 	else
 		speaker_name = "unknown"
 
-	if(vname)
-		speaker_name = vname
-
 	if(istype(speaker, /mob/living/carbon/human))
 		var/mob/living/carbon/human/H = speaker
 		if(H.voice)
 			speaker_name = H.voice
+
+	if(vname)
+		speaker_name = vname
 
 	if(hard_to_hear)
 		speaker_name = "unknown"
@@ -194,7 +194,7 @@
 		formatted = "[verb], <span class=\"body\">\"[message]\"</span>"
 	if(sdisabilities & DEAF || ear_deaf)
 		if(prob(20))
-			src << "<span class='warning'>You feel your headset vibrate but can hear nothing from it!</span>"
+			to_chat(src, "<span class='warning'>You feel your headset vibrate but can hear nothing from it!</span>")
 	else
 		on_hear_radio(part_a, speaker_name, track, part_b, formatted)
 
@@ -202,18 +202,18 @@
 	return "<span class='say_quote'>\[[worldtime2text()]\]</span>"
 
 /mob/proc/on_hear_radio(part_a, speaker_name, track, part_b, formatted)
-	src << "[part_a][speaker_name][part_b][formatted]"
+	to_chat(src, "[part_a][speaker_name][part_b][formatted]")
 
 /mob/abstract/observer/on_hear_radio(part_a, speaker_name, track, part_b, formatted)
-	src << "[track][part_a][speaker_name][part_b][formatted]"
+	to_chat(src, "[track][part_a][speaker_name][part_b][formatted]")
 
 /mob/living/silicon/on_hear_radio(part_a, speaker_name, track, part_b, formatted)
 	var/time = say_timestamp()
-	src << "[time][part_a][speaker_name][part_b][formatted]"
+	to_chat(src, "[time][part_a][speaker_name][part_b][formatted]")
 
 /mob/living/silicon/ai/on_hear_radio(part_a, speaker_name, track, part_b, formatted)
 	var/time = say_timestamp()
-	src << "[time][part_a][track][part_b][formatted]"
+	to_chat(src, "[time][part_a][track][part_b][formatted]")
 
 /mob/proc/hear_signlang(var/message, var/verb = "gestures", var/datum/language/language, var/mob/speaker = null)
 	if(!client || !speaker)
@@ -255,4 +255,4 @@
 	else
 		heard = "<span class = 'game_say'>...<i>You almost hear someone talking</i>...</span>"
 
-	src << heard
+	to_chat(src, heard)

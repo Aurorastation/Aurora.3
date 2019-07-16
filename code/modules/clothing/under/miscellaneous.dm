@@ -11,6 +11,7 @@
 	icon_state = "harness"
 	worn_state = "harness"
 	item_state = "w_suit"
+	body_parts_covered = 0
 	species_restricted = null
 	sprite_sheets = list(
 		"Vaurca Breeder" = 'icons/mob/species/breeder/suit.dmi'
@@ -109,9 +110,8 @@
 /obj/item/clothing/under/ccpolice
 	name = "ERT civil protection uniform"
 	desc = "A sturdy navy uniform, carefully ironed and folded. Worn by specialist troopers on civil protection duties."
-	icon_state = "officerdnavyclothes"
-	item_state = "scratch"
-	worn_state = "officerdnavyclothes"
+	icon_state = "civilprotection"
+	worn_state = "civilprotection"
 
 /obj/item/clothing/under/rank/centcom_commander
 	desc = "Gold trim on space-black cloth, this uniform displays the rank of \"Commander.\ It has a patch denoting a Pheonix on the sleeves."
@@ -224,14 +224,6 @@
 	icon_state = "red_suit"
 	item_state = "r_suit"
 	worn_state = "red_suit"
-
-/obj/item/clothing/under/schoolgirl
-	name = "schoolgirl uniform"
-	desc = "It's just like one of my Japanese animes!"
-	icon_state = "schoolgirl"
-	item_state = "b_suit"
-	worn_state = "schoolgirl"
-	body_parts_covered = UPPER_TORSO|LOWER_TORSO
 
 /obj/item/clothing/under/overalls
 	name = "laborer's overalls"
@@ -457,6 +449,12 @@
 /obj/item/clothing/under/dress/blacktango/alt
 	icon_state = "black_tango_alt"
 
+/obj/item/clothing/under/dress/offworlder
+	name = "\improper CR dress"
+	desc = "A very tight form-fitting padded suit that looks extremely comfortable to wear, made of strong woven spider-silk. This variant seems to be tailored to resemble a dress, revealing much more skin."
+	icon_state = "crdress"
+	worn_state = "crdress"
+
 /obj/item/clothing/under/captainformal
 	name = "captain's formal uniform"
 	desc = "A captain's formal-wear, for special occasions."
@@ -627,7 +625,7 @@
 	siemens_coefficient = 1
 
 //swimsuit
-/obj/item/clothing/under/swimsuit/
+/obj/item/clothing/under/swimsuit
 	siemens_coefficient = 1
 	body_parts_covered = 0
 
@@ -704,4 +702,28 @@
 	icon_state = "taucetilegion"
 	item_state = "bl_suit"
 	worn_state = "taucetilegion"
+	siemens_coefficient = 0.7
+
+/obj/item/clothing/under/offworlder
+	name = "\improper CR suit"
+	desc = "A very tight form-fitting padded suit that looks extremely comfortable to wear."
+	icon_state = "crsuit"
+	worn_state = "crsuit"
+
+/obj/item/clothing/under/tactical
+	name = "tactical jumpsuit"
+	desc = "It's made of a slightly sturdier material than standard jumpsuits, to allow for robust protection."
+	icon_state = "swatunder"
+	//item_state = "swatunder"
+	worn_state = "swatunder"
+	armor = list(melee = 10, bullet = 5, laser = 5,energy = 0, bomb = 0, bio = 0, rad = 0)
+	siemens_coefficient = 0.7
+
+/obj/item/clothing/under/rank/dispatch
+	name = "dispatcher's uniform"
+	desc = "A dress shirt and khakis with a security patch sewn on."
+	icon_state = "dispatch"
+	worn_state = "dispatch"
+	armor = list(melee = 10, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 0, rad = 0)
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS
 	siemens_coefficient = 0.7

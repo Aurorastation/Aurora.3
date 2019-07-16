@@ -18,7 +18,7 @@
 
 /obj/item/device/oxycandle/attack_self(mob/user)
 	if(!on)
-		user << "<span class='notice'>You pull the cord and [src] ignites.</span>"
+		to_chat(user, "<span class='notice'>You pull the cord and [src] ignites.</span>")
 		light_range = brightness_on
 		on = TRUE
 		update_icon()

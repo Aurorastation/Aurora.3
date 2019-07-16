@@ -8,19 +8,19 @@
 
 
 /proc/announceToRodents(var/message)
-	for(var/R in SSmob.all_mice)
-		R << message
+	for(var/R in SSmob.all_rats)
+		to_chat(R, message)
 
-/mob/living/simple_animal/mouse/king
+/mob/living/simple_animal/rat/king
 	attacktext = "bitten"
 	a_intent = "harm"
 
-	icon_state = "mouse_gray"
-	item_state = "mouse_gray"
-	icon_living = "mouse_gray"
-	icon_dead = "mouse_gray_dead"
-	icon_rest = "mouse_gray_sleep"
-	
+	icon_state = "rat_gray"
+	item_state = "rat_gray"
+	icon_living = "rat_gray"
+	icon_dead = "rat_gray_dead"
+	icon_rest = "rat_gray_sleep"
+
 	see_in_dark = 8
 	see_invisible = SEE_INVISIBLE_NOLIGHTING
 
@@ -28,7 +28,7 @@
 	var/announce_name = "Request"
 	var/list/rats = list()
 
-/mob/living/simple_animal/mouse/king/Initialize()
+/mob/living/simple_animal/rat/king/Initialize()
 	. = ..()
 
 	update()
@@ -41,32 +41,32 @@
 	say_dead_direct("An heir to the rat throne has risen, all rejoice and celebrate.")
 	announceToRodents("<span class='notice'>The rat king has risen! Go at once and join his kingdom, long live the king!</span>")
 
-/mob/living/simple_animal/mouse/king/death()
+/mob/living/simple_animal/rat/king/death()
 	while(rats.len)
 		eject(rats[1], 1)
 
 	..()
 
-/mob/living/simple_animal/mouse/king/Move()
+/mob/living/simple_animal/rat/king/Move()
 	..()
 
 	for(var/image/I in overlays)
 		I.dir = src.dir
 
-/mob/living/simple_animal/mouse/king/update_icon()
+/mob/living/simple_animal/rat/king/update_icon()
 	..()
 
 	cut_overlays()
 
-	for(var/mob/living/simple_animal/mouse/R in rats)
-		var/image/rat_overlay = image('icons/mob/animal.dmi', "[R.icon_state]")
+	for(var/mob/living/simple_animal/rat/R in rats)
+		var/image/rat_overlay = image('icons/mob/npc/animal.dmi', "[R.icon_state]")
 		rat_overlay.dir = src.dir
 		var/matrix/M = matrix()
 		M.Translate(rand(-6, 6), rand(-4, 8))
 		rat_overlay.transform = M
 		add_overlay(rat_overlay)
 
-/mob/living/simple_animal/mouse/king/proc/update()
+/mob/living/simple_animal/rat/king/proc/update()
 	if( rats.len >= RAT_GOD_LEVEL)
 		name = "rat god"
 		swarm_name = "creation"
@@ -153,16 +153,17 @@
 	real_name = name
 
 	update_icon()
+	update_nutrition_stats()
 
-/mob/living/simple_animal/mouse/king/splat()
+/mob/living/simple_animal/rat/king/splat()
 	src.apply_damage(5, BRUTE)
 
-/mob/living/simple_animal/mouse/king/verb/kingDecree()
+/mob/living/simple_animal/rat/king/verb/kingDecree()
 	set category = "Abilities"
 	set name = "Decree"
 
 	if( !health )
-		usr << "<span class='notice'>You are dead, you cannot use any abilities!</span>"
+		to_chat(usr, "<span class='notice'>You are dead, you cannot use any abilities!</span>")
 		return
 
 	var/input = sanitize(input(usr, "Please enter the [lowertext( announce_name )] for your whole kingdom.", "What?", "") as message|null, extra = 0)
@@ -175,20 +176,20 @@
 
 	announceToRodents( "[full_message]" )
 
-/mob/living/simple_animal/mouse/king/verb/roar()
+/mob/living/simple_animal/rat/king/verb/roar()
 	set category = "Abilities"
 	set name = "Mighty Roar"
 
 	if(!health)
-		usr << "<span class='notice'>You are dead, you cannot use any abilities!</span>"
+		to_chat(usr, "<span class='notice'>You are dead, you cannot use any abilities!</span>")
 		return
 
 	if(last_special > world.time)
-		usr << "<span class='warning'>We must wait a little while before we can use this ability again!</span>"
+		to_chat(usr, "<span class='warning'>We must wait a little while before we can use this ability again!</span>")
 		return
 
 	if(!canRoar())
-		usr << "<span class='warning'>Our [swarm_name] must grow larger before we can use this ability!</span>"
+		to_chat(usr, "<span class='warning'>Our [swarm_name] must grow larger before we can use this ability!</span>")
 		return
 
 	src.visible_message("<span class='warning'>[src] lets loose a mighty roar!</span>")
@@ -199,7 +200,7 @@
 			L.flicker()
 	last_special = world.time + 30
 
-/mob/living/simple_animal/mouse/king/verb/devourdead(mob/target as mob in oview())
+/mob/living/simple_animal/rat/king/verb/devourdead(mob/target as mob in oview())
 	set category = "Abilities"
 	set name = "Devour Body"
 
@@ -207,25 +208,25 @@
 		return
 
 	if(!health)
-		usr << "<span class='notice'>You are dead, you cannot use any abilities!</span>"
+		to_chat(usr, "<span class='notice'>You are dead, you cannot use any abilities!</span>")
 		return
 
 	if(!canEatCorpse())
-		usr << "<span class='warning'>Our [swarm_name] must grow larger before we can use this ability!</span>"
+		to_chat(usr, "<span class='warning'>Our [swarm_name] must grow larger before we can use this ability!</span>")
 		return
 
 	if(last_special > world.time)
-		usr << "<span class='warning'>We must wait a little while before we can use this ability again!</span>"
+		to_chat(usr, "<span class='warning'>We must wait a little while before we can use this ability again!</span>")
 		return
 
 	if(target.stat != DEAD)
-		usr << "<span class='warning'>We can only devour the dead!</span>"
+		to_chat(usr, "<span class='warning'>We can only devour the dead!</span>")
 		return
 
 	usr.visible_message("<span class='danger'>\The [usr] swarms the body of \the [target], ripping flesh from bone!</span>" )
 
 	if(!do_after(usr,200))
-		usr<< "<span class='warning'>You need to wait longer to consume the body of [target]!</span>"
+		to_chat(src, "<span class='warning'>You need to wait longer to consume the body of [target]!</span>")
 		return 0
 
 	src.visible_message("<span class='danger'>\The [usr] consumed the body of \the [target]!</span>")
@@ -235,7 +236,7 @@
 	last_special = world.time + 100
 	return
 
-/mob/living/simple_animal/mouse/king/proc/absorb(var/mob/living/simple_animal/mouse/R, var/update = 1)
+/mob/living/simple_animal/rat/king/proc/absorb(var/mob/living/simple_animal/rat/R, var/update = 1)
 	if(!(R in rats))
 		R.forceMove(src)
 		rats += R
@@ -243,7 +244,7 @@
 	if( update )
 		update()
 
-/mob/living/simple_animal/mouse/king/proc/eject(var/mob/living/simple_animal/mouse/R, var/update = 1)
+/mob/living/simple_animal/rat/king/proc/eject(var/mob/living/simple_animal/rat/R, var/update = 1)
 	if(R in rats)
 		R.forceMove(get_turf(src))
 		rats -= R
@@ -251,31 +252,31 @@
 	if(update)
 		update()
 
-/mob/living/simple_animal/mouse/king/proc/kingdomMessage(var/message, var/king_message)
+/mob/living/simple_animal/rat/king/proc/kingdomMessage(var/message, var/king_message)
 	for(var/R in rats)
-		R << message
+		to_chat(R, message)
 
 	if(king_message)
-		src << king_message
+		to_chat(src, king_message)
 	else
-		src << message
+		to_chat(src, message)
 
-/mob/living/simple_animal/mouse/king/proc/canNibbleWire()
+/mob/living/simple_animal/rat/king/proc/canNibbleWire()
 	if(rats.len >= RAT_MAYOR_LEVEL)
 		return 1
 	return 0
 
-/mob/living/simple_animal/mouse/king/proc/canRoar()
+/mob/living/simple_animal/rat/king/proc/canRoar()
 	if(rats.len >= RAT_BARON_LEVEL)
 		return 1
 	return 0
 
-/mob/living/simple_animal/mouse/king/proc/canRoarBreakLights()
+/mob/living/simple_animal/rat/king/proc/canRoarBreakLights()
 	if(rats.len >= RAT_EMPEROR_LEVEL)
 		return 1
 	return 0
 
-/mob/living/simple_animal/mouse/king/proc/canEatCorpse()
+/mob/living/simple_animal/rat/king/proc/canEatCorpse()
 	if(rats.len >= RAT_KING_LEVEL)
 		return 1
 	return 0

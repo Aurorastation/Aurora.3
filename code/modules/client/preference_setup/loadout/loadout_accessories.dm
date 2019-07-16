@@ -1,8 +1,16 @@
 /datum/gear/accessory
-	display_name = "suspenders"
-	path = /obj/item/clothing/accessory/suspenders
+	display_name = "silver locket"
+	path = /obj/item/clothing/accessory/locket
 	slot = slot_tie
 	sort_category = "Accessories"
+
+/datum/gear/accessory/suspenders
+	display_name = "suspenders"
+	path = /obj/item/clothing/accessory/suspenders
+
+/datum/gear/accessory/suspenders/New()
+	..()
+	gear_tweaks = list(gear_tweak_free_color_choice)
 
 /datum/gear/accessory/waistcoat
 	display_name = "waistcoat"
@@ -88,7 +96,7 @@
 /datum/gear/accessory/white_vest
 	display_name = "webbing, medical"
 	path = /obj/item/clothing/accessory/storage/white_vest
-	allowed_roles = list("Chief Medical Officer", "Medical Doctor", "Chemist", "Psychiatrist", "Paramedic", "Medical Resident")
+	allowed_roles = list("Chief Medical Officer", "Medical Doctor", "Pharmacist", "Psychiatrist", "Paramedic", "Medical Resident")
 
 /datum/gear/accessory/webbing
 	display_name = "webbing, simple"
@@ -108,20 +116,12 @@
 /datum/gear/accessory/white_pouches
 	display_name = "drop pouches, medical"
 	path = /obj/item/clothing/accessory/storage/white_pouches
-	allowed_roles = list("Chief Medical Officer", "Medical Doctor", "Chemist","Psychiatrist", "Paramedic", "Medical Resident")
+	allowed_roles = list("Chief Medical Officer", "Medical Doctor", "Pharmacist","Psychiatrist", "Paramedic", "Medical Resident")
 
 /datum/gear/accessory/pouches
 	display_name = "drop pouches, simple"
 	path = /obj/item/clothing/accessory/storage/pouches
 	cost = 2
-
-/datum/gear/accessory/locket
-	display_name = "silver locket"
-	path = /obj/item/clothing/accessory/locket
-
-/datum/gear/accessory/locket
-	display_name = "silver locket"
-	path = /obj/item/clothing/accessory/locket
 
 /datum/gear/accessory/sweater
 	display_name = "sweater"
@@ -194,4 +194,32 @@
 	display_name = "chaps, black"
 	path = /obj/item/clothing/accessory/chaps/black
 
+/datum/gear/accessory/badge/contractors
+	display_name = "contractor ID selection"
+	description = "A selection of contractor IDs."
+	path = /obj/item/clothing/accessory/badge/contractor
 
+/datum/gear/accessory/badge/contractors/New()
+	..()
+	var/badge = list()
+	badge["Einstein Engines card"] = /obj/item/clothing/accessory/badge/contractor/einstein
+	badge["Necropolis Industries card"] = /obj/item/clothing/accessory/badge/contractor
+	badge["Idris Incorporated card"] = /obj/item/clothing/accessory/badge/contractor/idris
+	badge["Hephaestus Industries card"] = /obj/item/clothing/accessory/badge/contractor/hephaestus
+	badge["Zeng-Hu Pharmaceuticals card"] = /obj/item/clothing/accessory/badge/contractor/zenghu
+	gear_tweaks += new/datum/gear_tweak/path(badge)
+
+/datum/gear/accessory/badge/security_contractors
+	display_name = "security contractor ID selection"
+	description = "A selection of security contractor IDs."
+	path = /obj/item/clothing/accessory/badge/contractor/necrosec
+	allowed_roles = list("Security Officer", "Warden", "Head of Security","Detective", "Forensic Technician", "Security Cadet")
+
+/datum/gear/accessory/badge/security_contractors/New()
+	..()
+	var/secbadge = list()
+	secbadge["Necropolis Industries security card"] = /obj/item/clothing/accessory/badge/contractor/necrosec
+	secbadge["Idris Incorporated security card"] = /obj/item/clothing/accessory/badge/contractor/idrissec
+	secbadge["Idris Incorporated IRU card"] = /obj/item/clothing/accessory/badge/contractor/iru
+	secbadge["Eridani PMC card"] = /obj/item/clothing/accessory/badge/contractor/eridani
+	gear_tweaks += new/datum/gear_tweak/path(secbadge)

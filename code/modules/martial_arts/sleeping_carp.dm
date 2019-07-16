@@ -122,24 +122,9 @@
 	to_chat(usr, "<span class='notice'>Head Kick</span>: Disarm Harm Harm. Decent damage, forces opponent to drop item in hand.")
 	to_chat(usr, "<span class='notice'>Elbow Drop</span>: Harm Disarm Harm Disarm Harm. Opponent must be on the ground. Deals huge damage, instantly kills anyone in critical condition.")
 
-/obj/item/sleeping_carp_scroll
+/obj/item/martial_manual/sleeping_carp
 	name = "mysterious scroll"
 	desc = "A scroll filled with strange markings. It seems to be drawings of some sort of martial art."
 	icon = 'icons/obj/wizard.dmi'
 	icon_state = "scroll2"
-
-/obj/item/sleeping_carp_scroll/attack_self(mob/living/carbon/human/user as mob)
-	if(!istype(user) || !user)
-		return
-	to_chat(user, "<span class='sciradio'>You have learned the ancient martial art of the Sleeping Carp! \
-					Your hand-to-hand combat has become much more effective, and you are now able to deflect any projectiles directed toward you. \
-					However, you are also unable to use any ranged weaponry. \
-					You can learn more about your newfound art by using the Recall Teachings verb in the Sleeping Carp tab.</span>")
-
-
-	var/datum/martial_art/the_sleeping_carp/theSleepingCarp = new(null)
-	theSleepingCarp.teach(user)
-	visible_message("<span class='warning'>[src] lights up in fire and quickly burns to ash.</span>")
-	new /obj/effect/decal/cleanable/ash(get_turf(src))
-	user.drop_from_inventory(src,get_turf(src))
-	qdel(src)
+	martial_art = /datum/martial_art/the_sleeping_carp

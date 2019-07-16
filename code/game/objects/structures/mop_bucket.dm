@@ -20,13 +20,28 @@
 
 /obj/structure/mopbucket/examine(mob/user)
 	if(..(user, 1))
-		user << "Contains [reagents.total_volume] unit\s of water."
+		to_chat(user, "Contains [reagents.total_volume] unit\s of water.")
 
 /obj/structure/mopbucket/attackby(obj/item/I, mob/user)
 	if(istype(I, /obj/item/weapon/mop))
 		if(reagents.total_volume < 1)
-			user << "<span class='warning'>\The [src] is out of water!</span>"
+			to_chat(user, "<span class='warning'>\The [src] is out of water!</span>")
 		else
 			reagents.trans_to_obj(I, 5)
-			user << "<span class='notice'>You wet \the [I] in \the [src].</span>"
+			to_chat(user, "<span class='notice'>You wet \the [I] in \the [src].</span>")
 			playsound(loc, 'sound/effects/slosh.ogg', 25, 1)
+		return ..()
+	update_icon()
+
+/obj/structure/mopbucket/update_icon()
+	cut_overlays()
+	if(reagents.total_volume > 0)
+		add_overlay("mopbucket_water")
+
+/obj/structure/mopbucket/on_reagent_change()
+	. = ..()
+	if(istype(loc,/obj/structure/janitorialcart))
+		var/obj/structure/janitorialcart/cart = loc
+		cart.update_icon()
+	else
+		update_icon()

@@ -79,7 +79,7 @@
 	else if(istype(W, /obj/item/weapon/melee/energy/blade))
 		if(emag_act(INFINITY, user, "The locker has been sliced open by [user] with \an [W]!", "You hear metal being sliced and sparks flying."))
 			W:spark_system.queue()
-			playsound(loc, 'sound/weapons/blade1.ogg', 50, 1)
+			playsound(loc, 'sound/weapons/blade.ogg', 50, 1)
 			playsound(loc, "sparks", 50, 1)
 	else
 		to_chat(user, "<span class='warning'>Access Denied</span>")
@@ -104,9 +104,9 @@
 	if(ishuman(usr))
 		add_fingerprint(usr)
 		if (locked || !registered_name)
-			usr << "<span class='warning'>You need to unlock it first.</span>"
+			to_chat(usr, "<span class='warning'>You need to unlock it first.</span>")
 		else if (broken)
-			usr << "<span class='warning'>It appears to be broken.</span>"
+			to_chat(usr, "<span class='warning'>It appears to be broken.</span>")
 		else
 			if (opened)
 				if(!close())

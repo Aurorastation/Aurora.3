@@ -37,14 +37,14 @@
 
 	switch(status)
 		if(BURST)
-			user << "<span class='warning'>You clear the hatched egg.</span>"
+			to_chat(user, "<span class='warning'>You clear the hatched egg.</span>")
 			qdel(src)
 			return
 		if(GROWING)
-			user << "<span class='warning'>The child is not developed yet.</span>"
+			to_chat(user, "<span class='warning'>The child is not developed yet.</span>")
 			return
 		if(GROWN)
-			user << "<span class='warning'>You retrieve the child.</span>"
+			to_chat(user, "<span class='warning'>You retrieve the child.</span>")
 			Burst(0)
 			return
 

@@ -1,6 +1,6 @@
 /obj/item/weapon/gun/energy/blaster
 	name = "blaster pistol"
-	desc = "A tiny energy pistol converted to fire off energy bolts rather than lasers beams. It's covered in the colors of the Tau Ceti Foreign Legion."
+	desc = "A tiny energy pistol converted to fire off energy bolts rather than lasers beams."
 	icon_state = "blaster_pistol"
 	item_state = "blaster_pistol"
 	fire_sound = 'sound/weapons/Laser.ogg'
@@ -22,16 +22,17 @@
 
 /obj/item/weapon/gun/energy/blaster/carbine
 	name = "blaster carbine"
-	desc = "A short-barreled blaster carbine meant for easy handling and comfort when in combat. It's covered in the colors of the Tau Ceti Foreign Legion."
+	desc = "A short-barreled blaster carbine meant for easy handling and comfort when in combat."
 	icon_state = "blaster_carbine"
 	item_state = "blaster_carbine"
 	max_shots = 12
 	origin_tech = list(TECH_COMBAT = 3, TECH_MAGNET = 2)
 	projectile_type = /obj/item/projectile/energy/blaster
+	slot_flags = SLOT_BELT
 
 /obj/item/weapon/gun/energy/blaster/rifle
 	name = "bolt slinger"
-	desc = "A blaster rifle which seems to work by accelerating particles and flinging them out in destructive bolts. It's covered in the colors of the Tau Ceti Foreign Legion."
+	desc = "A blaster rifle which seems to work by accelerating particles and flinging them out in destructive bolts."
 	icon_state = "blaster_rifle"
 	item_state = "blaster_rifle"
 	max_shots = 20
@@ -74,4 +75,4 @@
 	if(wielded)
 		toggle_scope(2.0, usr)
 	else
-		usr << "<span class='warning'>You can't look through the scope without stabilizing the rifle!</span>"
+		to_chat(usr, "<span class='warning'>You can't look through the scope without stabilizing the rifle!</span>")

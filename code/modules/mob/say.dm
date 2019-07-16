@@ -10,7 +10,7 @@
 	set name = "Say"
 	set category = "IC"
 	if(say_disabled)	//This is here to try to identify lag problems
-		usr << "<span class='warning'>Speech is currently admin-disabled.</span>"
+		to_chat(usr, "<span class='warning'>Speech is currently admin-disabled.</span>")
 		return
 	//Let's try to make users fix their errors - we try to detect single, out-of-place letters and 'unintended' words
 	/*
@@ -37,7 +37,7 @@
 	set category = "IC"
 
 	if(say_disabled)	//This is here to try to identify lag problems
-		usr << "<span class='warning'>Speech is currently admin-disabled.</span>"
+		to_chat(usr, "<span class='warning'>Speech is currently admin-disabled.</span>")
 		return
 
 	message = sanitize(message)
@@ -54,16 +54,16 @@
 
 /mob/proc/say_dead(var/message)
 	if(say_disabled)	//This is here to try to identify lag problems
-		usr << "<span class='danger'>Speech is currently admin-disabled.</span>"
+		to_chat(usr, "<span class='danger'>Speech is currently admin-disabled.</span>")
 		return
 
 	if(!src.client.holder)
 		if(!config.dsay_allowed)
-			src << "<span class='danger'>Deadchat is globally muted.</span>"
+			to_chat(src, "<span class='danger'>Deadchat is globally muted.</span>")
 			return
 
 	if(client && !(client.prefs.toggles & CHAT_DEAD))
-		usr << "<span class='danger'>You have deadchat muted.</span>"
+		to_chat(usr, "<span class='danger'>You have deadchat muted.</span>")
 		return
 
 	message = process_chat_markup(message, list("~", "_"))

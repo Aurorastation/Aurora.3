@@ -126,7 +126,7 @@
 		if(!computer.nano_printer)
 			error = "Missing Hardware: Your computer does not have required hardware to complete this operation."
 			return 1
-		if(!computer.nano_printer.print_text(pencode2html(F.stored_data)))
+		if(!computer.nano_printer.print_text(F.stored_data))
 			error = "Hardware error: Printer was unable to print the file. It may be out of paper."
 			return 1
 	if(href_list["PRG_copytousb"])

@@ -1,7 +1,7 @@
 /obj/structure/alien
 	name = "alien thing"
 	desc = "There's something alien about this."
-	icon = 'icons/mob/alien.dmi'
+	icon = 'icons/mob/npc/alien.dmi'
 	layer = 4
 	var/health = 50
 

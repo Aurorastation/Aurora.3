@@ -40,7 +40,7 @@
 
 /mob/living/carbon/human/say_understands(var/mob/other,var/datum/language/speaking = null)
 
-	if(has_brain_worms()) //Brain worms translate everything. Even mice and alien speak.
+	if(has_brain_worms()) //Brain worms translate everything. Even rat and alien speak.
 		return 1
 
 	if(species.can_understand(other))
@@ -74,7 +74,7 @@
 		// todo: fix this shit
 		if(rig.speech && rig.speech.voice_holder && rig.speech.voice_holder.active && rig.speech.voice_holder.voice)
 			voice_sub = rig.speech.voice_holder.voice
-	else
+	if(!voice_sub)
 		for(var/obj/item/gear in list(wear_mask,wear_suit,head))
 			if(!gear)
 				continue

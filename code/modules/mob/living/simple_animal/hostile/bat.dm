@@ -1,7 +1,7 @@
 /mob/living/simple_animal/hostile/scarybat
 	name = "space bats"
 	desc = "A swarm of cute little blood sucking bats that looks pretty upset."
-	icon = 'icons/mob/bats.dmi'
+	icon = 'icons/mob/npc/bats.dmi'
 	icon_state = "bat"
 	icon_living = "bat"
 	icon_dead = "bat_dead"
@@ -38,7 +38,9 @@
 
 	faction = "scarybat"
 	flying = TRUE
+	butchering_products = list(/obj/item/stack/material/animalhide = 1)
 	var/mob/living/owner
+	emote_sounds = list('sound/effects/creatures/bat.ogg')
 
 /mob/living/simple_animal/hostile/scarybat/Initialize(mapload, mob/living/L as mob)
 	. = ..()

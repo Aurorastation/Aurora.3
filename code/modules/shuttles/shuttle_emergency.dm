@@ -53,10 +53,17 @@
 	return ..()
 
 /datum/shuttle/ferry/emergency/can_cancel(var/user)
+	//If we try to cancel it via the shuttle computer
 	if (istype(user, /obj/machinery/computer/shuttle_control/emergency))
 		var/obj/machinery/computer/shuttle_control/emergency/C = user
+		// Check if the computer is sufficiently authorized
 		if (!C.has_authorization())
 			return 0
+
+		// If the emergency shuttle is waiting to leave the station and the world time exceeded the force time
+		if (emergency_shuttle.waiting_to_leave() && (world.time > emergency_shuttle.force_time))
+			return 0
+
 	return ..()
 
 /datum/shuttle/ferry/emergency/launch(var/user)
@@ -160,7 +167,7 @@
 
 /obj/machinery/computer/shuttle_control/emergency/emag_act(var/remaining_charges, var/mob/user)
 	if (!emagged)
-		user << "<span class='notice'>You short out \the [src]'s authorization protocols.</span>"
+		to_chat(user, "<span class='notice'>You short out \the [src]'s authorization protocols.</span>")
 		emagged = 1
 		return 1
 

@@ -16,12 +16,12 @@
 	if (.)	//no need to duplicate adjacency check
 		if (!stat)
 			if (temperature < min_temp)
-				user << span("warning", "The [src] is still heating up and is too cold to cook anything yet.")
+				to_chat(user, span("warning", "The [src] is still heating up and is too cold to cook anything yet."))
 			else
-				user << span("notice", "It is running at [round(get_efficiency(), 0.1)]% efficiency!")
-			user << "Temperature: [round(temperature - T0C, 0.1)]C / [round(optimal_temp - T0C, 0.1)]C"
+				to_chat(user, span("notice", "It is running at [round(get_efficiency(), 0.1)]% efficiency!"))
+			to_chat(user, "Temperature: [round(temperature - T0C, 0.1)]C / [round(optimal_temp - T0C, 0.1)]C")
 		else
-			user << span("warning", "It is switched off.")
+			to_chat(user, span("warning", "It is switched off."))
 
 /obj/machinery/appliance/cooker/list_contents(var/mob/user)
 	if (cooking_objs.len)
@@ -32,9 +32,9 @@
 			var/datum/cooking_item/CI = a
 			if (CI && CI.container)
 				string += "- [CI.container.label(num)], [report_progress(CI)]</br>"
-		usr << string
+		to_chat(usr, string)
 	else
-		usr << span("notice","It is empty.")
+		to_chat(usr, span("notice","It is empty."))
 
 /obj/machinery/appliance/cooker/proc/get_efficiency()
 	RefreshParts()
@@ -132,5 +132,5 @@
 /obj/machinery/appliance/cooker/add_content(var/obj/item/I, var/mob/user)
 	var/datum/cooking_item/CI = ..()
 	if (CI && CI.combine_target)
-		user << "The [I] will be used to make a [selected_option]. Output selection is returned to default for future items."
+		to_chat(user, "The [I] will be used to make a [selected_option]. Output selection is returned to default for future items.")
 		selected_option = null

@@ -27,7 +27,7 @@
 /obj/item/device/holowarrant/attack_self(mob/living/user as mob)
 	sync(user)
 	if(!storedwarrant.len)
-		user << "There seem to be no warrants stored in the device."
+		to_chat(user, "There seem to be no warrants stored in the device.")
 		return
 	var/temp
 	temp = input(usr, "Which warrant would you like to load?") as null|anything in storedwarrant

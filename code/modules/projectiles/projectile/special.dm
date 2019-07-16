@@ -274,3 +274,19 @@
 
 /obj/item/projectile/magic/teleport/proc/blink_mob(mob/living/L)
 	do_teleport(L, get_turf(L), blink_range, asoundin = 'sound/effects/phasein.ogg')
+
+/obj/item/projectile/plasma
+	name = "plasma slug"
+	icon_state = "plasma_bolt"
+	damage = 25
+	damage_type = BRUTE
+	check_armour = "energy"
+	incinerate = 10
+	armor_penetration = 20
+	penetrating = 1
+
+/obj/item/projectile/plasma/light
+	name = "plasma bolt"
+	damage = 10
+	armor_penetration = 10
+	incinerate = 5

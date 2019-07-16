@@ -4,22 +4,23 @@
 	icon = 'icons/obj/bureaucracy.dmi'
 	icon_state = "taperoll"
 	w_class = 1
+	drop_sound = 'sound/items/drop/box.ogg'
 
 /obj/item/weapon/tape_roll/attack(var/mob/living/carbon/human/H, var/mob/user, var/target_zone)
 	if(istype(H))
 		if(target_zone == "eyes")
 
 			if(!H.organs_by_name["head"])
-				user << "<span class='warning'>\The [H] doesn't have a head.</span>"
+				to_chat(user, "<span class='warning'>\The [H] doesn't have a head.</span>")
 				return
 			if(!H.has_eyes())
-				user << "<span class='warning'>\The [H] doesn't have any eyes.</span>"
+				to_chat(user, "<span class='warning'>\The [H] doesn't have any eyes.</span>")
 				return
 			if(H.glasses)
-				user << "<span class='warning'>\The [H] is already wearing somethign on their eyes.</span>"
+				to_chat(user, "<span class='warning'>\The [H] is already wearing somethign on their eyes.</span>")
 				return
 			if(H.head && (H.head.body_parts_covered & FACE))
-				user << "<span class='warning'>Remove their [H.head] first.</span>"
+				to_chat(user, "<span class='warning'>Remove their [H.head] first.</span>")
 				return
 			user.visible_message("<span class='danger'>\The [user] begins taping over \the [H]'s eyes!</span>")
 
@@ -37,16 +38,16 @@
 
 		else if(target_zone == "mouth" || target_zone == "head")
 			if(!H.organs_by_name["head"])
-				user << "<span class='warning'>\The [H] doesn't have a head.</span>"
+				to_chat(user, "<span class='warning'>\The [H] doesn't have a head.</span>")
 				return
 			if(!H.check_has_mouth())
-				user << "<span class='warning'>\The [H] doesn't have a mouth.</span>"
+				to_chat(user, "<span class='warning'>\The [H] doesn't have a mouth.</span>")
 				return
 			if(H.wear_mask)
-				user << "<span class='warning'>\The [H] is already wearing a mask.</span>"
+				to_chat(user, "<span class='warning'>\The [H] is already wearing a mask.</span>")
 				return
 			if(H.head && (H.head.body_parts_covered & FACE))
-				user << "<span class='warning'>Remove their [H.head] first.</span>"
+				to_chat(user, "<span class='warning'>Remove their [H.head] first.</span>")
 				return
 
 			playsound(src, 'sound/items/tape.ogg',25)
@@ -92,7 +93,7 @@
 	w_class = 1
 	layer = 4
 	anchored = 1 //it's sticky, no you cant move it
-
+	drop_sound = null
 	var/obj/item/weapon/stuck = null
 
 /obj/item/weapon/ducttape/New()
@@ -113,7 +114,7 @@
 	if(!stuck)
 		return
 
-	user << "You remove \the [initial(name)] from [stuck]."
+	to_chat(user, "You remove \the [initial(name)] from [stuck].")
 	//TODO: Find out what the fuck is going on here
 	user.drop_from_inventory(src)
 	stuck.forceMove(get_turf(src))
@@ -134,7 +135,7 @@
 	if(target_turf != source_turf)
 		dir_offset = get_dir(source_turf, target_turf)
 		if(!(dir_offset in cardinal))
-			user << "You cannot reach that from here."		// can only place stuck papers in cardinal directions, to
+			to_chat(user, "You cannot reach that from here.")		// can only place stuck papers in cardinal directions, to)
 			return											// reduce papers around corners issue.
 
 	user.drop_from_inventory(src,source_turf)

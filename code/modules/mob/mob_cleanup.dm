@@ -117,7 +117,7 @@ Put (mob/proc)s here that are in dire need of a code cleanup.
 					Cl = H.shoes
 					passed = prob((Cl.permeability_coefficient*100) - 1)
 			else
-				src << "Something strange's going on, something's wrong."
+				to_chat(src, "Something strange's going on, something's wrong.")
 
 	if(!passed && spread_type == AIRBORNE && !internals)
 		passed = (prob((50*virus.permeability_mod) - 1))

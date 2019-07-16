@@ -3,7 +3,7 @@
 	short_name = "dog"
 	desc = "A dog trained to listen and obey its owner commands, this one is a german shepherd."
 
-	icon = 'icons/mob/dog.dmi'
+	icon = 'icons/mob/npc/dog.dmi'
 	icon_state = "german"
 	icon_living = "german"
 	icon_dead = "german_dead"
@@ -22,14 +22,15 @@
 	speak_emote = list("barks", "woofs")
 	emote_hear = list("barks", "woofs")
 	sad_emote = list("whines")
+	emote_sounds = list('sound/effects/creatures/dog_bark.ogg', 'sound/effects/creatures/dog_bark2.ogg', 'sound/effects/creatures/dog_bark3.ogg')
 
 	attacktext = "bitten"
-	attack_sound = 'sound/misc/dog_bark.ogg'
+	attack_sound = 'sound/effects/creatures/dog_bark.ogg'
 	harm_intent_damage = 5
 	melee_damage_lower = 15
 	melee_damage_upper = 15
 
-	mob_size = 6
+	mob_size = 5
 
 	response_help = "pets"
 	response_harm = "hits"
@@ -38,6 +39,7 @@
 	hunger_enabled = 1 //so you can feed your dog or something
 	autoseek_food = 0
 	beg_for_food = 0
+	max_nutrition = 120
 
 	known_commands = list("stay", "stop", "attack", "follow")
 
@@ -45,6 +47,8 @@
 
 	destroy_surroundings = FALSE
 	attack_emote = "growls at"
+
+	butchering_products = list(/obj/item/stack/material/animalhide = 2)
 
 /mob/living/simple_animal/hostile/commanded/dog/verb/befriend()
 	set name = "Befriend Dog"
@@ -56,13 +60,13 @@
 		if(istype(H))
 			master = usr
 			audible_emote("[pick(emote_hear)].",0)
-			playsound(src,'sound/misc/dog_bark.ogg',100, 1)
+			playsound(src,'sound/effects/creatures/dog_bark.ogg',100, 1)
 			. = 1
 	else if(usr == master)
 		. = 1 //already friends, but show success anyways
 
 	else
-		usr << "<span class='notice'>[src] ignores you.</span>"
+		to_chat(usr, "<span class='notice'>[src] ignores you.</span>")
 
 	return
 
@@ -88,7 +92,7 @@
 			return 1
 
 	else
-		usr << "<span class='notice'>[src] already has a name!</span>"
+		to_chat(usr, "<span class='notice'>[src] already has a name!</span>")
 		return
 
 /mob/living/simple_animal/hostile/commanded/dog/amaskan
@@ -125,8 +129,11 @@
 
 	density = 0
 
-	mob_size = 5
+	mob_size = 3.2
+	max_nutrition = 80
 
 	harm_intent_damage = 5
 	melee_damage_lower = 5
 	melee_damage_upper = 5
+
+	butchering_products = list(/obj/item/stack/material/animalhide = 2)

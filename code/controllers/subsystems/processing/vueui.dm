@@ -7,6 +7,7 @@ Byond Vue UI framework's management subsystem
 	name = "VueUI"
 	flags = 0
 	priority = SS_PRIORITY_NANOUI
+	init_order = SS_INIT_MISC_FIRST
 	stat_tag = "O"
 
 	var/list/open_uis

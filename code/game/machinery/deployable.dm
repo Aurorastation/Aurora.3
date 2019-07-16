@@ -38,7 +38,7 @@ for reference:
 	access_rd = 30
 	access_cargo = 31
 	access_construction = 32
-	access_chemistry = 33
+	access_pharmacy = 33
 	access_cargo_bot = 34
 	access_hydroponics = 35
 	access_manufacturing = 36
@@ -89,7 +89,7 @@ for reference:
 			return //hitting things with the wrong type of stack usually doesn't produce messages, and probably doesn't need to.
 		if (health < maxhealth)
 			if (D.get_amount() < 1)
-				user << "<span class='warning'>You need one sheet of [material.display_name] to repair \the [src].</span>"
+				to_chat(user, "<span class='warning'>You need one sheet of [material.display_name] to repair \the [src].</span>")
 				return
 			visible_message("<span class='notice'>[user] begins to repair \the [src].</span>")
 			if(do_after(user,20) && health < maxhealth)
@@ -171,10 +171,10 @@ for reference:
 					src.anchored = !src.anchored
 					src.icon_state = "barrier[src.locked]"
 					if ((src.locked == 1.0) && (src.emagged < 2.0))
-						user << "Barrier lock toggled on."
+						to_chat(user, "Barrier lock toggled on.")
 						return
 					else if ((src.locked == 0.0) && (src.emagged < 2.0))
-						user << "Barrier lock toggled off."
+						to_chat(user, "Barrier lock toggled off.")
 						return
 				else
 					spark(src, 2, src)
@@ -250,13 +250,13 @@ for reference:
 		src.emagged = 1
 		src.req_access.Cut()
 		src.req_one_access.Cut()
-		user << "You break the ID authentication lock on \the [src]."
+		to_chat(user, "You break the ID authentication lock on \the [src].")
 		spark(src, 2, alldirs)
 		visible_message("<span class='warning'>BZZzZZzZZzZT</span>")
 		return 1
 	else if (src.emagged == 1)
 		src.emagged = 2
-		user << "You short out the anchoring mechanism on \the [src]."
+		to_chat(user, "You short out the anchoring mechanism on \the [src].")
 		spark(src, 2, alldirs)
 		visible_message("<span class='warning'>BZZzZZzZZzZT</span>")
 		return 1

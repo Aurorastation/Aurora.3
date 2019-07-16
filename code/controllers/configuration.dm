@@ -18,7 +18,7 @@ var/list/gamemode_cache = list()
 	var/log_pda = 0						// log pda messages
 	var/log_hrefs = 0					// logs all links clicked in-game. Could be used for debugging and tracking down exploits
 	var/log_runtime = 0					// logs world.log to a file
-	var/log_world_output = 0			// log world.log << messages
+	var/log_world_output = 0			// log world.log <<  messages
 	var/sql_enabled = 1					// for sql switching
 	var/allow_admin_ooccolor = 0		// Allows admins with relevant permissions to have their own ooc colour
 	var/allow_vote_restart = 0 			// allow votes to restart
@@ -58,6 +58,7 @@ var/list/gamemode_cache = list()
 	var/allow_ai = 1					// allow ai job
 	var/hostedby = null
 	var/respawn_delay = 30
+	var/hacked_drones_limit = 5
 	var/guest_jobban = 1
 	var/usewhitelist = 0
 	var/kick_inactive = 0				//force disconnect for inactive players after this many minutes, if non-0
@@ -83,8 +84,8 @@ var/list/gamemode_cache = list()
 	var/allow_drone_spawn = 1				//assuming the admin allow them to.
 	var/drone_build_time = 1200				//A drone will become available every X ticks since last drone spawn. Default is 2 minutes.
 
-	var/disable_player_mice = 0
-	var/uneducated_mice = 0 //Set to 1 to prevent newly-spawned mice from understanding human speech
+	var/disable_player_rats = 0
+	var/uneducated_rats = 0 //Set to 1 to prevent newly-spawned mice from understanding human speech
 
 	var/usealienwhitelist = 0
 	var/limitalienplayers = 0
@@ -282,6 +283,26 @@ var/list/gamemode_cache = list()
 
 	var/rounds_until_hard_restart = -1 // Changes how often a hard restart will be executed.
 
+	var/docs_load_docs_from
+	var/docs_image_host
+ 
+	var/ert_base_chance = 10
+	var/ert_green_inc = 1
+	var/ert_yellow_inc = 1
+	var/ert_blue_inc = 2
+	var/ert_red_inc = 3
+	var/ert_delta_inc = 10
+	var/ert_scaling_factor = 1
+	var/ert_scaling_factor_antag = 1
+	var/ert_scaling_factor_dead = 2
+
+	// Configurable hostname / port for the NTSL Daemon.
+	var/ntsl_hostname = "localhost"
+	var/ntsl_port = "1945"
+
+	// Is external Auth enabled
+	var/external_auth = FALSE
+
 /datum/configuration/New()
 	var/list/L = typesof(/datum/game_mode) - /datum/game_mode
 	for (var/T in L)
@@ -461,6 +482,9 @@ var/list/gamemode_cache = list()
 
 				if ("respawn_delay")
 					config.respawn_delay = text2num(value)
+
+				if("hacked_drones_limit")
+					config.hacked_drones_limit = text2num(value)
 
 				if ("servername")
 					config.server_name = value
@@ -665,11 +689,11 @@ var/list/gamemode_cache = list()
 				if("nl_finish_hour")
 					config.nl_finish = text2num(value)
 
-				if("disable_player_mice")
-					config.disable_player_mice = 1
+				if("disable_player_rats")
+					config.disable_player_rats = 1
 
-				if("uneducated_mice")
-					config.uneducated_mice = 1
+				if("uneducated_rats")
+					config.uneducated_rats = 1
 
 				if("use_discord_pins")
 					config.use_discord_pins = 1
@@ -840,7 +864,7 @@ var/list/gamemode_cache = list()
 
 				if("fastboot")
 					fastboot = TRUE
-					world.log << "Fastboot is ENABLED."
+					world.log <<  "Fastboot is ENABLED."
 
 				if("merchant_chance")
 					config.merchant_chance = text2num(value)
@@ -864,6 +888,38 @@ var/list/gamemode_cache = list()
 
 				if ("rounds_until_hard_restart")
 					rounds_until_hard_restart = text2num(value)
+
+				if ("docs_load_docs_from")
+					docs_load_docs_from = value
+				if ("docs_image_host")
+					docs_image_host = value
+
+				if ("ert_base_chance")
+					ert_base_chance = text2num(value)
+				if ("ert_green_inc")
+					ert_green_inc = text2num(value)
+				if ("ert_yellow_inc")
+					ert_yellow_inc = text2num(value)
+				if ("ert_blue_inc")
+					ert_blue_inc = text2num(value)
+				if ("ert_red_inc")
+					ert_red_inc = text2num(value)
+				if ("ert_delta_inc")
+					ert_delta_inc = text2num(value)
+				if ("ert_scaling_factor")
+					ert_scaling_factor = text2num(value)
+				if ("ert_scaling_factor_antag")
+					ert_scaling_factor_antag = text2num(value)
+				if ("ert_scaling_factor_dead")
+					ert_scaling_factor_dead = text2num(value)
+
+				if ("ntsl_hostname")
+					ntsl_hostname = value
+				if ("ntsl_port")
+					ntsl_port = value
+
+				if ("external_auth")
+					external_auth = TRUE
 
 				else
 					log_misc("Unknown setting in configuration: '[name]'")
@@ -1017,5 +1073,3 @@ var/list/gamemode_cache = list()
 			config.python_path = "/usr/bin/env python2"
 		else //probably windows, if not this should work anyway
 			config.python_path = "python"
-
-	revdata.generate_greeting_info()

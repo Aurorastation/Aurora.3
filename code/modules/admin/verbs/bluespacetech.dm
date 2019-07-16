@@ -21,7 +21,7 @@
 	set desc = "Spawns a Bluespace Tech to debug stuff"
 
 	if (bst_cooldown)
-		src << "You've used this verb too recently, please wait a moment before trying again."
+		to_chat(src, "You've used this verb too recently, please wait a moment before trying again.")
 		return
 
 	if(!check_rights(R_DEV|R_ADMIN))	return
@@ -30,7 +30,7 @@
 		return //how did they get here?
 
 	if(!ROUND_IS_STARTED)
-		src << span("alert", "The game hasn't started yet!")
+		to_chat(src, span("alert", "The game hasn't started yet!"))
 		return
 
 	bst_cooldown = TRUE
@@ -107,7 +107,6 @@
 	bst.add_language(LANGUAGE_SOL_COMMON)
 	bst.add_language(LANGUAGE_ROOTSONG)
 	bst.add_language(LANGUAGE_VAURCA)
-	bst.add_language(LANGUAGE_RESOMI)	// why not?
 	// Synthetics
 	bst.add_language(LANGUAGE_ROBOT)
 	bst.add_language(LANGUAGE_DRONE)
@@ -137,7 +136,7 @@
 	var/fall_override = TRUE
 
 /mob/living/carbon/human/bst/can_inject(var/mob/user, var/error_msg, var/target_zone)
-	user << span("alert", "The [src] disarms you before you can inject them.")
+	to_chat(user, span("alert", "The [src] disarms you before you can inject them."))
 	user.drop_item()
 	return 0
 
@@ -311,10 +310,10 @@
 
 	if(!src.incorporeal_move)
 		src.incorporeal_move = 2
-		src << span("notice", "You will now phase through solid matter.")
+		to_chat(src, span("notice", "You will now phase through solid matter."))
 	else
 		src.incorporeal_move = 0
-		src << span("notice", "You will no-longer phase through solid matter.")
+		to_chat(src, span("notice", "You will no-longer phase through solid matter."))
 	return
 
 /mob/living/carbon/human/bst/verb/bstrecover()
@@ -354,7 +353,7 @@
 	set category = "BST"
 
 	status_flags ^= GODMODE
-	src << span("notice", "God mode is now [status_flags & GODMODE ? "enabled" : "disabled"]")
+	to_chat(src, span("notice", "God mode is now [status_flags & GODMODE ? "enabled" : "disabled"]"))
 
 //Equipment. All should have canremove set to 0
 //All items with a /bst need the attack_hand() proc overrided to stop people getting overpowered items.
@@ -369,7 +368,7 @@
 	if(!usr)
 		return
 	if(!istype(usr, /mob/living/carbon/human/bst))
-		usr << span("alert", "Your hand seems to go right through the [src]. It's like it doesn't exist.")
+		to_chat(usr, span("alert", "Your hand seems to go right through the [src]. It's like it doesn't exist."))
 		return
 	else
 		..()
@@ -388,7 +387,7 @@
 	if(!usr)
 		return
 	if(!istype(usr, /mob/living/carbon/human/bst))
-		usr << span("alert", "Your hand seems to go right through the [src]. It's like it doesn't exist.")
+		to_chat(usr, span("alert", "Your hand seems to go right through the [src]. It's like it doesn't exist."))
 		return
 	else
 		..()
@@ -415,7 +414,7 @@
 	if(!usr)
 		return
 	if(!istype(usr, /mob/living/carbon/human/bst))
-		usr << span("alert", "Your hand seems to go right through the [src]. It's like it doesn't exist.")
+		to_chat(usr, span("alert", "Your hand seems to go right through the [src]. It's like it doesn't exist."))
 		return
 	else
 		..()
@@ -432,7 +431,7 @@
 	if(!usr)
 		return
 	if(!istype(usr, /mob/living/carbon/human/bst))
-		usr << span("alert", "Your hand seems to go right through the [src]. It's like it doesn't exist.")
+		to_chat(usr, span("alert", "Your hand seems to go right through the [src]. It's like it doesn't exist."))
 		return
 	else
 		..()
@@ -464,7 +463,7 @@
 			vision_flags = 0
 			see_invisible = -1
 
-	usr << "<span class='notice'>\The [src]'s vision mode is now <b>[mode]</b>.</span>"
+	to_chat(usr, "<span class='notice'>\The [src]'s vision mode is now <b>[mode]</b>.</span>")
 
 /*	New()
 		..()
@@ -476,7 +475,7 @@
 	if(!usr)
 		return
 	if(!istype(usr, /mob/living/carbon/human/bst))
-		usr << span("alert", "Your hand seems to go right through the [src]. It's like it doesn't exist.")
+		to_chat(usr, span("alert", "Your hand seems to go right through the [src]. It's like it doesn't exist."))
 		return
 	else
 		..()
@@ -493,7 +492,7 @@
 	if(!usr)
 		return
 	if(!istype(usr, /mob/living/carbon/human/bst))
-		usr << span("alert", "Your hand seems to go right through the [src]. It's like it doesn't exist.")
+		to_chat(usr, span("alert", "Your hand seems to go right through the [src]. It's like it doesn't exist."))
 		return
 	else
 		..()
@@ -512,7 +511,7 @@
 	if(!usr)
 		return
 	if(!istype(usr, /mob/living/carbon/human/bst))
-		usr << span("alert", "Your hand seems to go right through the [src]. It's like it doesn't exist.")
+		to_chat(usr, span("alert", "Your hand seems to go right through the [src]. It's like it doesn't exist."))
 		return
 	else
 		..()
@@ -526,7 +525,7 @@
 	if(!usr)
 		return
 	if(!istype(usr, /mob/living/carbon/human/bst))
-		usr << span("alert", "Your hand seems to go right through the [src]. It's like it doesn't exist.")
+		to_chat(usr, span("alert", "Your hand seems to go right through the [src]. It's like it doesn't exist."))
 		return
 	else
 		..()

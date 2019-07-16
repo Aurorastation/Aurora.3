@@ -6,7 +6,7 @@
 /datum/artifact_effect/teleport/DoEffectTouch(var/mob/user)
 	var/weakness = GetAnomalySusceptibility(user)
 	if(prob(100 * weakness))
-		user << span("alert", "You are suddenly zapped away elsewhere!")
+		to_chat(user, span("alert", "You are suddenly zapped away elsewhere!"))
 		if (user.buckled)
 			user.buckled.unbuckle_mob()
 
@@ -22,14 +22,14 @@
 		for (var/mob/living/M in range(src.effectrange,T))
 			var/weakness = GetAnomalySusceptibility(M)
 			if(prob(100 * weakness))
-				M << span("alert", "You are displaced by a strange force!")
+				to_chat(M, span("alert", "You are displaced by a strange force!"))
 				if(M.buckled)
 					M.buckled.unbuckle_mob()
 
 				spark(get_turf(M), 3)
 
 				M.Move(pick(RANGE_TURFS(50, T)))
-				
+
 				spark(get_turf(M), 3)
 
 /datum/artifact_effect/teleport/DoEffectPulse()
@@ -38,12 +38,12 @@
 		for (var/mob/living/M in range(src.effectrange, T))
 			var/weakness = GetAnomalySusceptibility(M)
 			if(prob(100 * weakness))
-				M << span("alert", "You are displaced by a strange force!")
+				to_chat(M, span("alert", "You are displaced by a strange force!"))
 				if(M.buckled)
 					M.buckled.unbuckle_mob()
 
 				spark(get_turf(M), 3)
 
 				M.Move(pick(RANGE_TURFS(50, T)))
-				
+
 				spark(get_turf(M), 3)

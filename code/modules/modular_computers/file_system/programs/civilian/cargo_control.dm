@@ -21,7 +21,7 @@
 /datum/nano_module/program/civilian/cargocontrol/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/topic_state/state = default_state)
 	var/list/data = host.initial_data()
 	var/obj/item/modular_computer/console = host
-	
+
 	post_signal("supply")
 
 	//Send the page to display
@@ -69,7 +69,7 @@
 
 	if(page == "overview_shipments")
 		data["shipment_list"] = SScargo.get_shipment_list()
-	
+
 	if(page == "shipment_details")
 		data["shipment_details"] = shipment_details
 
@@ -111,7 +111,7 @@
 	var/datum/shuttle/ferry/supply/shuttle = SScargo.shuttle
 	var/obj/item/modular_computer/console = host
 	if (!shuttle)
-		world.log << "## ERROR: Eek. The supply/shuttle datum is missing somehow."
+		world.log <<  "## ERROR: Eek. The supply/shuttle datum is missing somehow."
 		return
 	if(..())
 		return 1
@@ -124,7 +124,7 @@
 			if("overview_submitted")
 				page = "overview_submitted" //Overview page listing the orders that have been submitted with options to view them, approve them and reject them
 			if("overview_approved")
-				page = "overview_approved" //Overview page listing the current shuttle price and time as well as orders that have been approved, with options to view the details 
+				page = "overview_approved" //Overview page listing the current shuttle price and time as well as orders that have been approved, with options to view the details
 			if("overview_shipped")
 				page = "overview_shipped" //Overview page listing the orders that have been shipped to the station but not delivered
 			if("overview_delivered")
@@ -171,7 +171,7 @@
 			status_message = message
 		return 1
 
-	//Cancel shuttle 
+	//Cancel shuttle
 	if(href_list["shuttle_cancel"])
 		var/message = SScargo.shuttle_cancel()
 		if(message)
@@ -235,7 +235,7 @@
 				to_chat(usr,"<span class='notice'>Hardware error: Printer was unable to print the file. It may be out of paper.</span>")
 				return
 			else
-				console.visible_message("<span class='notice'>\The [console] prints out paper.</span>")	
+				console.visible_message("<span class='notice'>\The [console] prints out paper.</span>")
 
 
 /datum/nano_module/program/civilian/cargocontrol/proc/post_signal(var/command) //Old code right here - Used to send a refresh command to the status screens incargo

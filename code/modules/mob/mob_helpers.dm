@@ -426,6 +426,8 @@ It's fairly easy to fix if dealing with single letters but not so much with comp
 
 		var/x
 		for(x=0; x<duration, x++)
+			if(M.client)
+				return
 			if(aiEyeFlag)
 				M.client.eye = locate(dd_range(1,oldeye.loc.x+rand(-strength,strength),world.maxx),dd_range(1,oldeye.loc.y+rand(-strength,strength),world.maxy),oldeye.loc.z)
 			else
@@ -436,6 +438,8 @@ It's fairly easy to fix if dealing with single letters but not so much with comp
 		//Will make the strength falloff after the duration.
 		//This helps to reduce jarring effects of major screenshaking suddenly returning to stability
 		//Recommended taper values are 0.05-0.1
+		if(M.client)
+			return
 		if (taper > 0)
 			while (strength > 0)
 				strength -= taper
@@ -581,7 +585,7 @@ proc/is_blind(A)
 					else										// Everyone else (dead people who didn't ghost yet, etc.)
 						lname = name
 				lname = "<span class='name'>[lname]</span> "
-			M << "[follow] <span class='deadsay'>" + create_text_tag("dead", "DEAD:", M.client) + " [lname][message]</span>"
+			to_chat(M, "[follow] <span class='deadsay'>" + create_text_tag("dead", "DEAD:", M.client) + " [lname][message]</span>")
 
 //Announces that a ghost has joined/left, mainly for use with wizards
 /proc/announce_ghost_joinleave(O, var/joined_ghosts = 1, var/message = "")
@@ -713,7 +717,7 @@ proc/is_blind(A)
 		if (istype(user,/mob/living/silicon/robot))
 			return 2
 		else
-			user << "You must unbuckle the subject first"
+			to_chat(user, "You must unbuckle the subject first")
 			return 0
 	return 1
 
@@ -755,9 +759,9 @@ proc/is_blind(A)
 		return
 	if(!lastpuke)
 		lastpuke = 1
-		src << "<span class='warning'>You feel nauseous...</span>"
+		to_chat(src, "<span class='warning'>You feel nauseous...</span>")
 		spawn(150)	//15 seconds until second warning
-			src << "<span class='warning'>You feel like you are about to throw up!</span>"
+			to_chat(src, "<span class='warning'>You feel like you are about to throw up!</span>")
 			spawn(100)	//and you have 10 more for mad dash to the bucket
 				vomit()//Vomit function is in mob helpers
 				spawn(350)	//wait 35 seconds before next volley
@@ -960,7 +964,7 @@ proc/is_blind(A)
 	if (justmoved)
 		reportto.contained_visible_message(H,  "<span class='notice'>[H] [action3] [reportto] [preposition] their [newlocation]</span>", "<span class='notice'>You are [action] [preposition] [H]'s [newlocation]</span>", "", 1)
 	else
-		reportto << "<span class='notice'>You are [action] [preposition] [H]'s [newlocation]</span>"
+		to_chat(reportto, "<span class='notice'>You are [action] [preposition] [H]'s [newlocation]</span>")
 
 /atom/proc/get_holding_mob()
 	//This function will return the mob which is holding this holder, or null if it's not held

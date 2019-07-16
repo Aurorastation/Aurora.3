@@ -9,6 +9,7 @@
 	flags_inv = 0
 	siemens_coefficient = 0.9
 	light_wedge = LIGHT_WIDE
+	drop_sound = 'sound/items/drop/helm.ogg'
 
 /obj/item/clothing/head/hardhat/orange
 	icon_state = "hardhat0_orange"
@@ -16,13 +17,11 @@
 /obj/item/clothing/head/hardhat/red
 	icon_state = "hardhat0_red"
 	name = "firefighter helmet"
-	item_flags = STOPPRESSUREDAMAGE
 	heat_protection = HEAD
 	max_heat_protection_temperature = FIRE_HELMET_MAX_HEAT_PROTECTION_TEMPERATURE
 
 /obj/item/clothing/head/hardhat/white
 	icon_state = "hardhat0_white"
-	item_flags = STOPPRESSUREDAMAGE
 	heat_protection = HEAD
 	max_heat_protection_temperature = FIRE_HELMET_MAX_HEAT_PROTECTION_TEMPERATURE
 
@@ -33,5 +32,6 @@
 /obj/item/clothing/head/hardhat/red/atmos
 	name = "atmospheric firefighter helmet"
 	desc = "An atmospheric firefighter's helmet, able to keep the user protected from heat and fire."
+	max_heat_protection_temperature = FIRE_HELMET_MAX_HEAT_PROTECTION_TEMPERATURE + 15000
 	icon_state = "atmos_fire"
 	item_state = "atmos_fire"

@@ -24,7 +24,7 @@
 				else
 					return
 			if(!target)
-				usr << "Proc call cancelled."
+				to_chat(usr, "Proc call cancelled.")
 				return
 		if("Cancel")
 			return
@@ -55,10 +55,10 @@
 
 	if(hastarget)
 		if(!target)
-			usr << "Your callproc target no longer exists."
+			to_chat(usr, "Your callproc target no longer exists.")
 			return
 		if(!hascall(target, procname))
-			usr << "\The [target] has no call [procname]()"
+			to_chat(usr, "\The [target] has no call [procname]()")
 			return
 
 	var/list/arguments = list()
@@ -67,7 +67,7 @@
 
 	while(!done)
 		if(hastarget && !target)
-			usr << "Your callproc target no longer exists."
+			to_chat(usr, "Your callproc target no longer exists.")
 			return
 		switch(input("Type of [arguments.len+1]\th variable", "argument [arguments.len+1]") as null|anything in list(
 				"finished", "null", "text", "num", "type", "obj reference", "mob reference",
@@ -93,7 +93,7 @@
 				var/object = input("Enter a typepath for [arguments.len+1]\th argument") as null|text
 				if(!object)
 					return
-				
+
 				var/list/types = typesof(/atom)
 				var/list/matches = new()
 
@@ -108,7 +108,7 @@
 					current = matches[1]
 				else
 					current = input("Select an atom type", "Spawn Atom", matches[1]) as null|anything in matches
-				
+
 				if(isnull(current)) return
 
 			if("obj reference")
@@ -155,7 +155,7 @@
 
 	if(hastarget)
 		if(!target)
-			usr << "Your callproc target no longer exists."
+			to_chat(usr, "Your callproc target no longer exists.")
 			return
 		log_admin("[key_name(src)] called [target]'s [procname]() with [arguments.len ? "the arguments [list2params(arguments)]" : "no arguments"].",admin_key=key_name(src))
 		if(arguments.len)
@@ -166,5 +166,5 @@
 		log_admin("[key_name(src)] called [procname]() with [arguments.len ? "the arguments [list2params(arguments)]" : "no arguments"].",admin_key=key_name(src))
 		returnval = call(procname)(arglist(arguments))
 
-	usr << "<span class='info'>[procname]() returned: [isnull(returnval) ? "null" : returnval]</span>"
+	to_chat(usr, "<span class='info'>[procname]() returned: [isnull(returnval) ? "null" : returnval]</span>")
 	feedback_add_details("admin_verb","APC") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!

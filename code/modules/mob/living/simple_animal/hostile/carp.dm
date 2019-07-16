@@ -7,6 +7,7 @@
 	icon_living = "carp"
 	icon_dead = "carp_dead"
 	icon_gib = "carp_gib"
+	icon_rest = "carp_rest"
 	speak_chance = 0
 	turns_per_move = 5
 	meat_type = /obj/item/weapon/reagent_containers/food/snacks/carpmeat
@@ -66,29 +67,15 @@
 	return ..()
 
 /mob/living/simple_animal/hostile/carp/AttackingTarget()
-	setClickCooldown(attack_delay)
-	if(!Adjacent(target_mob))
+	. = ..()
+	if(.)
 		return
-	if(isliving(target_mob))
-		var/mob/living/L = target_mob
-		if(prob(15))
-			L.Weaken(3)
-			L.visible_message("<span class='danger'>\the [src] knocks down \the [L]!</span>")
-		L.attack_generic(src,rand(melee_damage_lower,melee_damage_upper),attacktext)
-		return L
-	if(istype(target_mob,/obj/mecha))
-		var/obj/mecha/M = target_mob
-		M.attack_generic(src,rand(melee_damage_lower,melee_damage_upper),attacktext)
-		return M
-	if(istype(target_mob,/obj/machinery/bot))
-		var/obj/machinery/bot/B = target_mob
-		B.attack_generic(src,rand(melee_damage_lower,melee_damage_upper),attacktext)
-		return B
 	if(istype(target_mob, /obj/effect/energy_field))
 		var/obj/effect/energy_field/e = target_mob
 		e.Stress(rand(1,2))
 		visible_message("<span class='danger'>\the [src] has attacked [e]!</span>")
 		src.do_attack_animation(e)
+		return e
 
 /mob/living/simple_animal/hostile/carp/DestroySurroundings(var/bypass_prob = FALSE)
 	if(prob(break_stuff_probability) || bypass_prob)
@@ -136,13 +123,11 @@
 /mob/living/simple_animal/hostile/carp/shark
 	name = "space shark"
 	desc = "The bigger, angrier cousin of the space carp."
-	icon = 'icons/mob/spaceshark.dmi'
 	icon_state = "shark"
 	icon_living = "shark"
 	icon_dead = "shark_dead"
+	icon_rest = "shark_rest"
 	meat_amount = 5
-
-	pixel_x = -16
 
 	maxHealth = 100
 	health = 100
@@ -152,3 +137,18 @@
 	harm_intent_damage = 5
 	melee_damage_lower = 20
 	melee_damage_upper = 25
+
+/mob/living/simple_animal/hostile/carp/old
+	icon_state = "carp_old"
+	icon_living = "carp_old"
+	icon_dead = "carp_old_dead"
+	icon_gib = "carp_old_gib"
+	icon_rest = "carp_old"
+
+/mob/living/simple_animal/hostile/carp/shark/old
+	icon = 'icons/mob/npc/spaceshark.dmi'
+	icon_state = "shark"
+	icon_living = "shark"
+	icon_dead = "shark_dead"
+	icon_rest = "shark"
+	pixel_x = -16

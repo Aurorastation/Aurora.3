@@ -46,6 +46,7 @@
 	var/role_alt_title
 
 	var/datum/job/assigned_job
+	var/datum/faction/selected_faction
 
 	var/list/datum/objective/objectives = list()
 	var/list/datum/objective/special_verbs = list()
@@ -85,7 +86,7 @@
 
 /datum/mind/proc/transfer_to(mob/living/new_character)
 	if(!istype(new_character))
-		world.log << "## DEBUG: transfer_to(): Some idiot has tried to transfer_to() a non mob/living mob. Please inform Carn"
+		world.log <<  "## DEBUG: transfer_to(): Some idiot has tried to transfer_to( a non mob/living mob. Please inform Carn"
 	if(current)					//remove ourself from our old body's mind variable
 		if(changeling)
 			current.remove_changeling_powers()
@@ -177,7 +178,7 @@
 			if(antag.add_antagonist(src, 1, 1, 0, 1, 1)) // Ignore equipment and role type for this.
 				log_admin("[key_name_admin(usr)] made [key_name(src, highlight_special = 1)] into a [antag.role_text].",admin_key=key_name(usr),ckey=key_name(src))
 			else
-				usr << "<span class='warning'>[src] could not be made into a [antag.role_text]!</span>"
+				to_chat(usr, "<span class='warning'>[src] could not be made into a [antag.role_text]!</span>")
 
 	else if(href_list["remove_antagonist"])
 		var/datum/antagonist/antag = all_antag_types[href_list["remove_antagonist"]]
@@ -210,7 +211,7 @@
 		if(isnull(new_ambition))
 			return
 		src.ambitions = sanitize(new_ambition)
-		src.current << "<span class='warning'>Your ambitions have been changed by higher powers, they are now: [src.ambitions]</span>"
+		to_chat(src.current, "<span class='warning'>Your ambitions have been changed by higher powers, they are now: [src.ambitions]</span>")
 
 	else if (href_list["obj_edit"] || href_list["obj_add"])
 		var/datum/objective/objective
@@ -355,10 +356,10 @@
 						if(I in organs.implants)
 							qdel(I)
 							break
-				H << "<span class='notice'><font size =3><B>Your loyalty implant has been deactivated.</B></font></span>"
+				to_chat(H, "<span class='notice'><font size =3><B>Your loyalty implant has been deactivated.</B></font></span>")
 				log_admin("[key_name_admin(usr)] has de-loyalty implanted [current].",admin_key=key_name(usr),ckey=key_name(usr))
 			if("add")
-				H << "<span class='danger'><font size =3>You somehow have become the recepient of a loyalty transplant, and it just activated!</font></span>"
+				to_chat(H, "<span class='danger'><font size =3>You somehow have become the recepient of a loyalty transplant, and it just activated!</font></span>")
 				H.implant_loyalty(H, override = TRUE)
 				log_admin("[key_name_admin(usr)] has loyalty implanted [current].",admin_key=key_name(usr),ckey=key_name(usr))
 			else
@@ -423,9 +424,9 @@
 
 	else if (href_list["obj_announce"])
 		var/obj_count = 1
-		current << "<span class='notice'>Your current objectives:</span>"
+		to_chat(current, "<span class='notice'>Your current objectives:</span>")
 		for(var/datum/objective/objective in objectives)
-			current << "<B>Objective #[obj_count]</B>: [objective.explanation_text]"
+			to_chat(current, "<B>Objective #[obj_count]</B>: [objective.explanation_text]")
 			obj_count++
 	edit_memory()
 
@@ -502,7 +503,9 @@
 		mind = new /datum/mind(key)
 		mind.original = src
 		SSticker.minds += mind
-	if(!mind.name)	mind.name = real_name
+	if(!mind.name)
+		mind.name = real_name
+
 	if (client)
 		if (client.prefs.signature)
 			mind.signature = client.prefs.signature
@@ -513,7 +516,8 @@
 //HUMAN
 /mob/living/carbon/human/mind_initialize()
 	..()
-	if(!mind.assigned_role)	mind.assigned_role = "Assistant"	//defualt
+	if(!mind.assigned_role)
+		mind.assigned_role = "Assistant"	//defualt
 
 //slime
 /mob/living/carbon/slime/mind_initialize()
@@ -578,6 +582,6 @@
 	..()
 	mind.assigned_role = "Familiar"
 
-/mob/living/simple_animal/mouse/familiar/familiar/mind_initialize()
+/mob/living/simple_animal/rat/familiar/familiar/mind_initialize()
 	..()
 	mind.assigned_role = "Familiar"

@@ -18,7 +18,7 @@
 	handle_casings = CYCLE_CASINGS
 	load_method = SINGLE_CASING
 	needspin = FALSE
-	fire_sound = 'sound/weapons/shotgun.ogg'
+	fire_sound = 'sound/weapons/gunshot/gunshot_shotgun2.ogg'
 	var/fail_chance = 35
 
 /obj/item/weapon/gun/projectile/shotgun/improvised/special_check(var/mob/living/carbon/human/M)
@@ -35,7 +35,7 @@
 
 /obj/item/weapon/gun/projectile/shotgun/improvised/attackby(var/obj/item/A as obj, mob/user as mob)
 	if(istype(A, /obj/item/weapon/circular_saw) || istype(A, /obj/item/weapon/melee/energy) || istype(A, /obj/item/weapon/gun/energy/plasmacutter) && w_class != 3)
-		user << "<span class='notice'>You begin to shorten the barrel of \the [src].</span>"
+		to_chat(user, "<span class='notice'>You begin to shorten the barrel of \the [src].</span>")
 		if(loaded.len)
 			for(var/i in 1 to max_shells)
 				Fire(user, user)	//will this work? //it will. we call it twice, for twice the FUN
@@ -49,18 +49,18 @@
 			slot_flags &= ~SLOT_BACK
 			slot_flags |= (SLOT_BELT|SLOT_HOLSTER)
 			name = "sawn-off improvised shotgun"
-			user << "<span class='warning'>You shorten the barrel of \the [src]!</span>"
+			to_chat(user, "<span class='warning'>You shorten the barrel of \the [src]!</span>")
 	else
 		..()
 
 /obj/item/weapon/gun/projectile/shotgun/improvised/examine(mob/user)
 	..(user)
 	switch(fail_chance)
-		if(1) user << "All craftsmanship is of the highest quality."
-		if(2 to 25) user << "All craftsmanship is of high quality."
-		if(26 to 50) user << "All craftsmanship is of average quality."
-		if(51 to 75) user << "All craftsmanship is of low quality."
-		if(100) user << "All craftsmanship is of the lowest quality."
+		if(1) to_chat(user, "All craftsmanship is of the highest quality.")
+		if(2 to 25) to_chat(user, "All craftsmanship is of high quality.")
+		if(26 to 50) to_chat(user, "All craftsmanship is of average quality.")
+		if(51 to 75) to_chat(user, "All craftsmanship is of low quality.")
+		if(100) to_chat(user, "All craftsmanship is of the lowest quality.")
 
 /obj/item/weapon/gun/projectile/shotgun/improvised/sawn
 	name = "sawn-off improvised shotgun"
@@ -94,29 +94,29 @@
 /obj/item/weapon/receivergun/examine(mob/user)
 	..(user)
 	switch(buildstate)
-		if(1) user << "It has a pipe segment installed."
-		if(2) user << "It has a stock installed."
-		if(3) user << "Its pieces are held together by tape roll."
+		if(1) to_chat(user, "It has a pipe segment installed.")
+		if(2) to_chat(user, "It has a stock installed.")
+		if(3) to_chat(user, "Its pieces are held together by tape roll.")
 
 /obj/item/weapon/receivergun/attackby(obj/item/W as obj, mob/user as mob)
 	if(istype(W,/obj/item/pipe))
 		if(buildstate == 0)
 			qdel(W)
-			user << "<span class='notice'>You place the pipe and the receiver together.</span>"
+			to_chat(user, "<span class='notice'>You place the pipe and the receiver together.</span>")
 			buildstate++
 			update_icon()
 			return
 	else if(istype(W,/obj/item/weapon/stock))
 		if(buildstate == 1)
 			qdel(W)
-			user << "<span class='notice'>You add the stock to the assembly.</span>"
+			to_chat(user, "<span class='notice'>You add the stock to the assembly.</span>")
 			buildstate++
 			update_icon()
 			return
 	else if(istype(W,/obj/item/weapon/tape_roll))
 		if(buildstate == 2)
 			qdel(W)
-			user << "<span class='notice'>You strap the pieces together with tape.</span>"
+			to_chat(user, "<span class='notice'>You strap the pieces together with tape.</span>")
 			buildstate++
 			update_icon()
 			return
@@ -124,12 +124,12 @@
 		var/obj/item/stack/cable_coil/C = W
 		if(buildstate == 3)
 			if(C.use(10))
-				user << "<span class='notice'>You tie the lengths of cable to the shotgun, making a sling.</span>"
+				to_chat(user, "<span class='notice'>You tie the lengths of cable to the shotgun, making a sling.</span>")
 				var/obj/item/weapon/gun/projectile/shotgun/improvised/G = new(get_turf(src))
 				G.fail_chance = rand(1,100)
 				qdel(src)
 			else
-				user << "<span class='notice'>You need at least ten lengths of cable if you want to make a sling!.</span>"
+				to_chat(user, "<span class='notice'>You need at least ten lengths of cable if you want to make a sling!.</span>")
 			return
 
 		..()
@@ -149,7 +149,7 @@
 	caliber = ".45"
 	allowed_magazines = list(/obj/item/ammo_magazine/c45m)
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
-	fire_sound = 'sound/weapons/Gunshot_light.ogg'
+	fire_sound = 'sound/weapons/gunshot/gunshot_light.ogg'
 	load_method = MAGAZINE
 	jam_chance = 20
 	needspin = FALSE
@@ -157,11 +157,11 @@
 /obj/item/weapon/gun/projectile/improvised_handgun/examine(mob/user)
 	..(user)
 	switch(jam_chance)
-		if(1) user << "All craftsmanship is of the highest quality."
-		if(2 to 25) user << "All craftsmanship is of high quality."
-		if(26 to 50) user << "All craftsmanship is of average quality."
-		if(51 to 75) user << "All craftsmanship is of low quality."
-		if(100) user << "All craftsmanship is of the lowest quality."
+		if(1) to_chat(user, "All craftsmanship is of the highest quality.")
+		if(2 to 25) to_chat(user, "All craftsmanship is of high quality.")
+		if(26 to 50) to_chat(user, "All craftsmanship is of average quality.")
+		if(51 to 75) to_chat(user, "All craftsmanship is of low quality.")
+		if(100) to_chat(user, "All craftsmanship is of the lowest quality.")
 
 /obj/item/weapon/stock/update_icon()
 	icon_state = "ipistol[buildstate]"
@@ -169,28 +169,28 @@
 /obj/item/weapon/stock/examine(mob/user)
 	..(user)
 	switch(buildstate)
-		if(1) user << "It is carved in the shape of a pistol handle."
-		if(2) user << "It has a receiver installed."
-		if(3) user << "It has a pipe installed."
+		if(1) to_chat(user, "It is carved in the shape of a pistol handle.")
+		if(2) to_chat(user, "It has a receiver installed.")
+		if(3) to_chat(user, "It has a pipe installed.")
 
 /obj/item/weapon/stock/attackby(obj/item/W as obj, mob/user as mob)
 	if(istype(W,/obj/item/weapon/material/hatchet))
 		if(buildstate == 0)
-			user << "<span class='notice'>You carve the rifle stock.</span>"
+			to_chat(user, "<span class='notice'>You carve the rifle stock.</span>")
 			buildstate++
 			update_icon()
 			return
 	else if(istype(W,/obj/item/weapon/receivergun))
 		if(buildstate == 1)
 			qdel(W)
-			user << "<span class='notice'>You add the receiver to the assembly.</span>"
+			to_chat(user, "<span class='notice'>You add the receiver to the assembly.</span>")
 			buildstate++
 			update_icon()
 			return
 	else if(istype(W,/obj/item/pipe))
 		if(buildstate == 2)
 			qdel(W)
-			user << "<span class='notice'>You strap the pipe to the assembly.</span>"
+			to_chat(user, "<span class='notice'>You strap the pipe to the assembly.</span>")
 			buildstate++
 			update_icon()
 			return
@@ -200,7 +200,7 @@
 			if(T.remove_fuel(0,user))
 				if(!src || !T.isOn()) return
 				playsound(src.loc, 'sound/items/Welder2.ogg', 100, 1)
-				user << "<span class='notice'>You shorten the barrel with the welding tool.</span>"
+				to_chat(user, "<span class='notice'>You shorten the barrel with the welding tool.</span>")
 				var/obj/item/weapon/gun/projectile/improvised_handgun/G = new(get_turf(src))
 				G.jam_chance = rand(1,100)
 				qdel(src)

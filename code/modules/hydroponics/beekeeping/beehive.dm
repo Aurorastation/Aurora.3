@@ -35,7 +35,7 @@
 /obj/machinery/beehive/examine(var/mob/user)
 	..()
 	if(!closed)
-		user << "The lid is open. The bees can't grow and produce honey until it's closed!"
+		to_chat(user, "The lid is open. The bees can't grow and produce honey until it's closed!")
 
 /obj/machinery/beehive/attackby(var/obj/item/I, var/mob/user)
 	if(I.iscrowbar())
@@ -52,14 +52,14 @@
 		return
 	else if(istype(I, /obj/item/honey_frame))
 		if(closed)
-			user << "<span class='notice'>You need to open \the [src] with a crowbar before inserting \the [I].</span>"
+			to_chat(user, "<span class='notice'>You need to open \the [src] with a crowbar before inserting \the [I].</span>")
 			return
 		if(frames >= maxFrames)
-			user << "<span class='notice'>There is no place for an another frame.</span>"
+			to_chat(user, "<span class='notice'>There is no place for an another frame.</span>")
 			return
 		var/obj/item/honey_frame/H = I
 		if(H.honey)
-			user << "<span class='notice'>\The [I] is full with beeswax and honey, empty it in the extractor first.</span>"
+			to_chat(user, "<span class='notice'>\The [I] is full with beeswax and honey, empty it in the extractor first.</span>")
 			return
 		++frames
 		user.visible_message("<span class='notice'>[user] loads \the [I] into \the [src].</span>", "<span class='notice'>You load \the [I] into \the [src].</span>")
@@ -69,16 +69,16 @@
 	else if(istype(I, /obj/item/bee_pack))
 		var/obj/item/bee_pack/B = I
 		if(B.full && bee_count)
-			user << "<span class='notice'>\The [src] already has bees inside.</span>"
+			to_chat(user, "<span class='notice'>\The [src] already has bees inside.</span>")
 			return
 		if(!B.full && bee_count < 90)
-			user << "<span class='notice'>\The [src] is not ready to split.</span>"
+			to_chat(user, "<span class='notice'>\The [src] is not ready to split.</span>")
 			return
 		if(!B.full && !smoked)
-			user << "<span class='notice'>Smoke \the [src] first!</span>"
+			to_chat(user, "<span class='notice'>Smoke \the [src] first!</span>")
 			return
 		if(closed)
-			user << "<span class='notice'>You need to open \the [src] with a crowbar before moving the bees.</span>"
+			to_chat(user, "<span class='notice'>You need to open \the [src] with a crowbar before moving the bees.</span>")
 			return
 		if(B.full)
 			user.visible_message("<span class='notice'>[user] puts the queen and the bees from \the [I] into \the [src].</span>", "<span class='notice'>You put the queen and the bees from \the [I] into \the [src].</span>")
@@ -91,22 +91,22 @@
 		update_icon()
 		return
 	else if(istype(I, /obj/item/device/analyzer/plant_analyzer))
-		user << "<span class='notice'>Scan result of \the [src]...</span>"
-		user << "Beehive is [bee_count ? "[round(bee_count)]% full" : "empty"].[bee_count > 90 ? " Colony is ready to split." : ""]"
+		to_chat(user, "<span class='notice'>Scan result of \the [src]...</span>")
+		to_chat(user, "Beehive is [bee_count ? "[round(bee_count)]% full" : "empty"].[bee_count > 90 ? " Colony is ready to split." : ""]")
 		if(frames)
-			user << "[frames] frames installed, [round(honeycombs / 100)] filled."
+			to_chat(user, "[frames] frames installed, [round(honeycombs / 100)] filled.")
 			if(honeycombs < frames * 100)
-				user << "Next frame is [round(honeycombs % 100)]% full."
+				to_chat(user, "Next frame is [round(honeycombs % 100)]% full.")
 		else
-			user << "No frames installed."
+			to_chat(user, "No frames installed.")
 		if(smoked)
-			user << "The hive is smoked."
+			to_chat(user, "The hive is smoked.")
 		return 1
 	else if(I.isscrewdriver())
 		if(bee_count)
 			visible_message("<span class='danger'>The bees are furious you're trying to destroy their home!</span>")
 			release_bees(1, 30)
-		user << "<span class='notice'>You start dismantling \the [src]. This will take a while...</span>"
+		to_chat(user, "<span class='notice'>You start dismantling \the [src]. This will take a while...</span>")
 		playsound(loc, 'sound/items/Screwdriver.ogg', 50, 1)
 		if(do_after(user, 150))
 			user.visible_message("<span class='notice'>[user] dismantles \the [src].</span>", "<span class='notice'>You dismantle \the [src].</span>")
@@ -117,7 +117,7 @@
 /obj/machinery/beehive/attack_hand(var/mob/user)
 	if(!closed)
 		if(honeycombs < 100)
-			user << "<span class='notice'>There are no filled honeycombs.</span>"
+			to_chat(user, "<span class='notice'>There are no filled honeycombs.</span>")
 			return
 		if(!smoked && (bee_count > 5))
 			visible_message("<span class='danger'>The bees don't like you taking their honey!</span>")
@@ -129,7 +129,7 @@
 			--frames
 			update_icon()
 		if(honeycombs < 100)
-			user << "<span class='notice'>You take all filled honeycombs out.</span>"
+			to_chat(user, "<span class='notice'>You take all filled honeycombs out.</span>")
 		return
 
 /obj/machinery/beehive/machinery_process()
@@ -206,16 +206,16 @@
 
 /obj/machinery/honey_extractor/examine(var/mob/user)
 	..()
-	user << "It contains [honey] units of honey for collection."
+	to_chat(user, "It contains [honey] units of honey for collection.")
 
 /obj/machinery/honey_extractor/attackby(var/obj/item/I, var/mob/user)
 	if(processing)
-		user << "<span class='notice'>\The [src] is currently spinning, wait until it's finished.</span>"
+		to_chat(user, "<span class='notice'>\The [src] is currently spinning, wait until it's finished.</span>")
 		return
 	else if(istype(I, /obj/item/honey_frame))
 		var/obj/item/honey_frame/H = I
 		if(!H.honey)
-			user << "<span class='notice'>\The [H] is empty, put it into a beehive.</span>"
+			to_chat(user, "<span class='notice'>\The [H] is empty, put it into a beehive.</span>")
 			return
 		user.visible_message("<span class='notice'>[user] loads \the [H] into \the [src] and turns it on.</span>", "<span class='notice'>You load \the [H] into \the [src] and turn it on.</span>")
 		processing = H.honey
@@ -229,7 +229,7 @@
 			icon_state = "centrifuge"
 	else if(istype(I, /obj/item/weapon/reagent_containers/glass))
 		if(!honey)
-			user << "<span class='notice'>There is no honey in \the [src].</span>"
+			to_chat(user, "<span class='notice'>There is no honey in \the [src].</span>")
 			return
 		var/obj/item/weapon/reagent_containers/glass/G = I
 		var/transferred = min(G.reagents.maximum_volume - G.reagents.total_volume, honey)
@@ -265,7 +265,7 @@
 	icon_state = "apiary"
 
 /obj/item/beehive_assembly/attack_self(var/mob/user)
-	user << "<span class='notice'>You start assembling \the [src]...</span>"
+	to_chat(user, "<span class='notice'>You start assembling \the [src]...</span>")
 	if(do_after(user, 30))
 		user.visible_message("<span class='notice'>[user] constructs a beehive.</span>", "<span class='notice'>You construct a beehive.</span>")
 		new /obj/machinery/beehive(get_turf(user))

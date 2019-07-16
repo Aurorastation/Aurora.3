@@ -51,13 +51,13 @@
 		return
 
 	if(!usr.client.holder || !(usr.client.holder.rights & R_PERMISSIONS))
-		usr << "<span class='danger'>You do not have permission to do this!</span>"
+		to_chat(usr, "<span class='danger'>You do not have permission to do this!</span>")
 		return
 
 	establish_db_connection(dbcon)
 
 	if(!dbcon.IsConnected())
-		usr << "<span class='warning'>Failed to establish database connection</span>"
+		to_chat(usr, "<span class='warning'>Failed to establish database connection</span>")
 		return
 
 	if(!adm_ckey || !new_rank)
@@ -85,19 +85,19 @@
 		update_query.Execute()
 		var/DBQuery/log_query = dbcon.NewQuery("INSERT INTO `ss13_admin_log` (`id` ,`datetime` ,`adminckey` ,`adminip` ,`log` ) VALUES (NULL , NOW( ) , '[usr.ckey]', '[usr.client.address]', 'Added new admin [adm_ckey] to rank [new_rank]');")
 		log_query.Execute()
-		usr << "<span class='notice'>New admin added.</span>"
+		to_chat(usr, "<span class='notice'>New admin added.</span>")
 	else if(!isnull(admin_id) && isnum(admin_id) && new_rank != "Removed")
 		var/DBQuery/insert_query = dbcon.NewQuery("UPDATE `ss13_player` SET rank = '[new_rank]' WHERE id = [admin_id]")
 		insert_query.Execute()
 		var/DBQuery/log_query = dbcon.NewQuery("INSERT INTO `ss13_admin_log` (`id` ,`datetime` ,`adminckey` ,`adminip` ,`log` ) VALUES (NULL , NOW( ) , '[usr.ckey]', '[usr.client.address]', 'Edited the rank of [adm_ckey] to [new_rank]');")
 		log_query.Execute()
-		usr << "<span class='notice'>Admin rank changed.</span>"
+		to_chat(usr, "<span class='notice'>Admin rank changed.</span>")
 	else if(!isnull(admin_id) && isnum(admin_id) && new_rank == "Removed")
 		var/DBQuery/insert_query = dbcon.NewQuery("UPDATE `ss13_player` SET rank = NULL, flags = 0 WHERE id = [admin_id]")
 		insert_query.Execute()
 		var/DBQuery/log_query = dbcon.NewQuery("INSERT INTO `ss13_admin_log` (`id` ,`datetime` ,`adminckey` ,`adminip` ,`log` ) VALUES (NULL , NOW( ) , '[usr.ckey]', '[usr.client.address]', 'Removed the rank of [adm_ckey]');")
 		log_query.Execute()
-		usr << "<span class='notice'>Admin rank removed.</span>"
+		to_chat(usr, "<span class='notice'>Admin rank removed.</span>")
 
 /datum/admins/proc/log_admin_permission_modification(var/adm_ckey, var/new_permission)
 	if(config.admin_legacy_system)	return
@@ -106,12 +106,12 @@
 		return
 
 	if(!usr.client.holder || !(usr.client.holder.rights & R_PERMISSIONS))
-		usr << "<span class='warning'>You do not have permission to do this!</span>"
+		to_chat(usr, "<span class='warning'>You do not have permission to do this!</span>")
 		return
 
 	establish_db_connection(dbcon)
 	if(!dbcon.IsConnected())
-		usr << "<span class='warning'>Failed to establish database connection</span>"
+		to_chat(usr, "<span class='warning'>Failed to establish database connection</span>")
 		return
 
 	if(!adm_ckey || !new_permission)
@@ -145,10 +145,10 @@
 		insert_query.Execute()
 		var/DBQuery/log_query = dbcon.NewQuery("INSERT INTO `ss13_admin_log` (`id` ,`datetime` ,`adminckey` ,`adminip` ,`log` ) VALUES (NULL , NOW( ) , '[usr.ckey]', '[usr.client.address]', 'Removed permission [rights2text(new_permission)] (flag = [new_permission]) to admin [adm_ckey]');")
 		log_query.Execute()
-		usr << "<span class='notice'>Permission removed.</span>"
+		to_chat(usr, "<span class='notice'>Permission removed.</span>")
 	else //This admin doesn't have this permission, so we are adding it.
 		var/DBQuery/insert_query = dbcon.NewQuery("UPDATE `ss13_player` SET flags = '[admin_rights | new_permission]' WHERE id = [admin_id]")
 		insert_query.Execute()
 		var/DBQuery/log_query = dbcon.NewQuery("INSERT INTO `ss13_admin_log` (`id` ,`datetime` ,`adminckey` ,`adminip` ,`log` ) VALUES (NULL , NOW( ) , '[usr.ckey]', '[usr.client.address]', 'Added permission [rights2text(new_permission)] (flag = [new_permission]) to admin [adm_ckey]')")
 		log_query.Execute()
-		usr << "<span class='notice'>Permission added.</span>"
+		to_chat(usr, "<span class='notice'>Permission added.</span>")

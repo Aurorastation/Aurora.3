@@ -59,8 +59,8 @@
 /obj/item/weapon/computer_hardware/hard_drive/diagnostics(var/mob/user)
 	..()
 	// 999 is a byond limit that is in place. It's unlikely someone will reach that many files anyway, since you would sooner run out of space.
-	user << "NT-NFS File Table Status: [stored_files.len]/999"
-	user << "Storage capacity: [used_capacity]/[max_capacity]GQ"
+	to_chat(user, "NT-NFS File Table Status: [stored_files.len]/999")
+	to_chat(user, "Storage capacity: [used_capacity]/[max_capacity]GQ")
 
 // Use this proc to add file to the drive. Returns 1 on success and 0 on failure. Contains necessary sanity checks.
 /obj/item/weapon/computer_hardware/hard_drive/proc/store_file(var/datum/computer_file/F)
@@ -164,6 +164,13 @@
 	stored_files = null
 	return ..()
 
-/obj/item/weapon/computer_hardware/hard_drive/New()
+/obj/item/weapon/computer_hardware/hard_drive/Initialize(mapload)
 	install_default_programs()
-	..()
+	if(mapload && prob(5))
+		var/datum/docs_document/file = SSdocs.pick_document_by_tag(SSDOCS_MEDIUM_FILE)
+		if(!istype(file))
+			log_ss("docs", "pick_document_by_tag returned null file!")
+		else
+			var/datum/computer_file/data/F = SSdocs.create_file(file)
+			store_file(F)
+	. = ..()

@@ -28,7 +28,7 @@
 /mob/living/simple_animal/familiar/carcinus
 	name = "crab"
 	desc = "A small crab said to be made of stone and starlight."
-	icon = 'icons/mob/animal.dmi'
+	icon = 'icons/mob/npc/animal.dmi'
 	icon_state = "evilcrab"
 	icon_living = "evilcrab"
 	icon_dead = "evilcrab_dead"
@@ -48,11 +48,11 @@
 /mob/living/simple_animal/familiar/pike
 	name = "space pike"
 	desc = "A bigger, more magical cousin of the space carp."
-
-	icon = 'icons/mob/spaceshark.dmi'
+	icon = 'icons/mob/npc/spaceshark.dmi'
 	icon_state = "shark"
 	icon_living = "shark"
 	icon_dead = "shark_dead"
+	icon_rest = "shark_rest"
 	pixel_x = -16
 
 	speak_emote = list("gnashes")
@@ -134,9 +134,13 @@
 	density = 0
 	wizardy_spells = list(/spell/aoe_turf/smoke)
 
+	meat_type = /obj/item/weapon/reagent_containers/food/snacks/meat
+	meat_amount = 6
+	butchering_products = list(/obj/item/stack/material/animalhide = 3)
+
 
 /mob/living/simple_animal/familiar/pet //basically variants of normal animals with spells.
-	icon = 'icons/mob/animal.dmi'
+	icon = 'icons/mob/npc/animal.dmi'
 
 /mob/living/simple_animal/familiar/pet/MouseDrop(atom/over_object)
 	var/mob/living/carbon/H = over_object
@@ -173,9 +177,12 @@
 
 	wizardy_spells = list(/spell/targeted/subjugation)
 
+	meat_type = /obj/item/weapon/reagent_containers/food/snacks/meat
+	butchering_products = list(/obj/item/stack/material/animalhide/cat = 2)
 
-/mob/living/simple_animal/mouse/familiar
-	name = "ancient mouse"
+
+/mob/living/simple_animal/rat/familiar
+	name = "ancient rat"
 	desc = "A small rodent. It looks very old."
 	body_color = "gray"
 
@@ -198,7 +205,7 @@
 
 	supernatural = 1
 
-/mob/living/simple_animal/mouse/familiar/Initialize()
+/mob/living/simple_animal/rat/familiar/Initialize()
 	. = ..()
 	add_spell(new /spell/targeted/heal_target, "const_spell_ready")
 	add_spell(new /spell/targeted/heal_target/area, "const_spell_ready")

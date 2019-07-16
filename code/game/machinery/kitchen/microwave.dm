@@ -17,6 +17,7 @@
 	var/global/list/acceptable_reagents // List of the reagents you can put in
 	var/global/max_n_of_items = 20
 	var/appliancetype = MICROWAVE
+	var/datum/looping_sound/microwave/soundloop
 
 // see code/modules/food/recipes_microwave.dm for recipes
 
@@ -28,6 +29,7 @@
 	. = ..()
 	reagents = new/datum/reagents(100)
 	reagents.my_atom = src
+	soundloop = new(list(src), FALSE)
 	if (mapload)
 		addtimer(CALLBACK(src, .proc/setup_recipes), 0)
 	else
@@ -80,9 +82,9 @@
 				src.icon_state = "mw"
 				src.broken = 0 // Fix it!
 				src.dirty = 0 // just to be sure
-				src.flags = OPENCONTAINER
+				src.flags = OPENCONTAINER | NOREACT
 		else
-			user << "<span class='warning'>It's broken!</span>"
+			to_chat(user, "<span class='warning'>It's broken!</span>")
 			return 1
 	else if(src.dirty==100) // The microwave is all dirty so can't be used!
 		if(istype(O, /obj/item/weapon/reagent_containers/spray/cleaner) || istype(O, /obj/item/weapon/soap)) // If they're trying to clean it then let them
@@ -98,13 +100,13 @@
 				src.dirty = 0 // It's clean!
 				src.broken = 0 // just to be sure
 				src.icon_state = "mw"
-				src.flags = OPENCONTAINER
+				src.flags = OPENCONTAINER | NOREACT
 		else //Otherwise bad luck!!
-			user << "<span class='warning'>It's dirty!</span>"
+			to_chat(user, "<span class='warning'>It's dirty!</span>")
 			return 1
 	else if(is_type_in_list(O,acceptable_items))
 		if (contents.len>=max_n_of_items)
-			user << "<span class='warning'>This [src] is full of ingredients, you cannot put more.</span>"
+			to_chat(user, "<span class='warning'>This [src] is full of ingredients, you cannot put more.</span>")
 			return 1
 		if(istype(O, /obj/item/stack) && O:get_amount() > 1) // This is bad, but I can't think of how to change it
 			var/obj/item/stack/S = O
@@ -129,12 +131,12 @@
 			return 1
 		for (var/datum/reagent/R in O.reagents.reagent_list)
 			if (!(R.id in acceptable_reagents))
-				user << "<span class='warning'>Your [O] contains components unsuitable for cookery.</span>"
+				to_chat(user, "<span class='warning'>Your [O] contains components unsuitable for cookery.</span>")
 				return 1
 		return
 	else if(istype(O,/obj/item/weapon/grab))
 		var/obj/item/weapon/grab/G = O
-		user << "<span class='warning'>This is ridiculous. You can not fit \the [G.affecting] in this [src].</span>"
+		to_chat(user, "<span class='warning'>This is ridiculous. You can not fit \the [G.affecting] in this [src].</span>")
 		return 1
 	else if(O.iscrowbar())
 		user.visible_message( \
@@ -148,10 +150,10 @@
 			)
 			src.anchored = !src.anchored
 		else
-			user << "<span class='notice'>You decide not to do that.</span>"
+			to_chat(user, "<span class='notice'>You decide not to do that.</span>")
 	else
 
-		user << "<span class='warning'>You have no idea what you can cook with this [O].</span>"
+		to_chat(user, "<span class='warning'>You have no idea what you can cook with this [O].</span>")
 	..()
 	src.updateUsrDialog()
 
@@ -349,14 +351,17 @@
 	src.operating = 1
 	src.icon_state = "mw1"
 	src.updateUsrDialog()
+	set_light(1.5)
+	soundloop.start()
 
 /obj/machinery/microwave/proc/abort()
+	after_finish_loop()
 	src.operating = 0 // Turn it off again aferwards
 	src.icon_state = "mw"
 	src.updateUsrDialog()
 
 /obj/machinery/microwave/proc/stop()
-	playsound(src.loc, 'sound/machines/ding.ogg', 50, 1)
+	after_finish_loop()
 	src.operating = 0 // Turn it off again aferwards
 	src.icon_state = "mw"
 	src.updateUsrDialog()
@@ -368,7 +373,7 @@
 		src.dirty++
 	src.reagents.clear_reagents()
 	if (message)
-		usr << "<span class='notice'>You dispose of the microwave contents.</span>"
+		to_chat(usr, "<span class='notice'>You dispose of the microwave contents.</span>")
 	src.updateUsrDialog()
 
 /obj/machinery/microwave/proc/muck_start()
@@ -376,7 +381,7 @@
 	src.icon_state = "mwbloody1" // Make it look dirty!!
 
 /obj/machinery/microwave/proc/muck_finish()
-	playsound(src.loc, 'sound/machines/ding.ogg', 50, 1)
+	after_finish_loop()
 	src.visible_message("<span class='warning'>The microwave gets covered in muck!</span>")
 	src.dirty = 100 // Make it dirty so it can't be used util cleaned
 	src.flags = null //So you can't add condiments
@@ -385,6 +390,7 @@
 	src.updateUsrDialog()
 
 /obj/machinery/microwave/proc/broke()
+	after_finish_loop()
 	spark(src, 2, alldirs)
 	src.icon_state = "mwb" // Make it look all busted up and shit
 	src.visible_message("<span class='warning'>The microwave breaks!</span>") //Let them know they're stupid
@@ -394,6 +400,7 @@
 	src.updateUsrDialog()
 
 /obj/machinery/microwave/proc/fail()
+	after_finish_loop()
 	var/obj/item/weapon/reagent_containers/food/snacks/badrecipe/ffuu = new(src)
 	var/amount = 0
 	for (var/obj/O in contents-ffuu)
@@ -450,3 +457,8 @@
 	//Animals can run under them, lots of empty space
 		return 1
 	return ..()
+
+/obj/machinery/microwave/proc/after_finish_loop()
+	set_light(0)
+	soundloop.stop()
+	update_icon()

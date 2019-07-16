@@ -8,7 +8,7 @@
 	color = "#888888"
 	overdose = 5
 	taste_description = "the back of class"
-	specific_heat = 0.4
+	fallback_specific_heat = 0.4
 
 /datum/reagent/crayon_dust/red
 	name = "Red crayon dust"
@@ -59,7 +59,7 @@
 	overdose = REAGENTS_OVERDOSE * 0.5
 	color_weight = 20
 	taste_description = "chalk"
-	specific_heat = 0.2
+	fallback_specific_heat = 0.2
 
 /datum/reagent/paint/touch_turf(var/turf/T)
 	if(istype(T) && !istype(T, /turf/space))
@@ -136,7 +136,7 @@
 	glass_name = "golden cup"
 	glass_desc = "It's magic, I ain't gotta explain shit."
 
-	specific_heat = 10 //Magical.
+	fallback_specific_heat = 10 //Magical.
 
 
 /datum/reagent/adminordrazine/affect_touch(var/mob/living/carbon/M, var/alien, var/removed)
@@ -178,7 +178,7 @@
 	reagent_state = SOLID
 	color = "#F7C430"
 	taste_description = "expensive metal"
-	specific_heat = 2.511
+	fallback_specific_heat = 2.511
 
 /datum/reagent/silver
 	name = "Silver"
@@ -187,7 +187,7 @@
 	reagent_state = SOLID
 	color = "#D0D0D0"
 	taste_description = "expensive yet reasonable metal"
-	specific_heat = 0.241
+	fallback_specific_heat = 0.241
 
 /datum/reagent/uranium
 	name ="Uranium"
@@ -196,7 +196,7 @@
 	reagent_state = SOLID
 	color = "#B8B8C0"
 	taste_description = "the inside of a reactor"
-	specific_heat = 2.286
+	fallback_specific_heat = 2.286
 
 /datum/reagent/uranium/affect_touch(var/mob/living/carbon/M, var/alien, var/removed)
 	affect_ingest(M, alien, removed)
@@ -219,7 +219,7 @@
 	reagent_state = SOLID
 	color = "#E0E0E0"
 	taste_description = "salty metalic miner tears"
-	specific_heat = 0.2971
+	fallback_specific_heat = 0.2971
 
 /datum/reagent/adrenaline
 	name = "Adrenaline"
@@ -228,7 +228,7 @@
 	reagent_state = LIQUID
 	color = "#C8A5DC"
 	taste_description = "bitterness"
-	specific_heat = 0.75
+	fallback_specific_heat = 0.75
 
 /datum/reagent/adrenaline/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.SetParalysis(0)
@@ -373,6 +373,9 @@
 				++S.Discipline
 		if(dose == removed)
 			S.visible_message("<span class='warning'>[S]'s flesh sizzles where the water touches it!</span>", "<span class='danger'>Your flesh burns in the water!</span>")
+
+/datum/reagent/space_cleaner/affect_ingest(var/mob/living/carbon/human/M, var/alien, var/removed)
+	M.adjustToxLoss(2 * removed)
 
 /datum/reagent/lube
 	name = "Space Lube"
@@ -571,6 +574,41 @@
 
 	to_chat(M,span("warning","You seem back to your normal self."))
 
+/datum/reagent/fuel/zoragel
+	name = "Inert Gel"
+	id = "zoragel"
+	description = "A particularly adhesive but otherwise inert and harmless gel."
+	reagent_state = LIQUID
+	color = "#D35908"
+	touch_met = 50
+	taste_description = "plhegm"
+
+/datum/reagent/fuel/napalm
+	name = "Zo'rane Fire"
+	id = "greekfire"
+	description = "A highly flammable and cohesive gel once used commonly in the tunnels of Sedantis. Napalm sticks to kids."
+	reagent_state = LIQUID
+	color = "#D35908"
+	touch_met = 50
+	taste_description = "fiery death"
+
+/datum/reagent/fuel/napalm/touch_turf(var/turf/T)
+	new /obj/effect/decal/cleanable/liquid_fuel/napalm(T, volume/3)
+	for(var/mob/living/L in T)
+		L.adjust_fire_stacks(volume / 10)
+		L.add_modifier(/datum/modifier/napalm, MODIFIER_CUSTOM, _strength = 2)
+	remove_self(volume)
+	return
+
+/datum/reagent/fuel/napalm/touch_mob(var/mob/living/L, var/amount)
+	. = ..()
+	if(istype(L))
+		L.adjust_fire_stacks(amount / 10) // Splashing people with welding fuel to make them easy to ignite!
+		new /obj/effect/decal/cleanable/liquid_fuel/napalm(get_turf(L), amount/3)
+		L.adjustFireLoss(amount / 10)
+		remove_self(volume)
+		L.add_modifier(/datum/modifier/napalm, MODIFIER_CUSTOM, _strength = 2)
+
 //Secret chems.
 //Shhh don't tell no one.
 /datum/reagent/estus
@@ -663,7 +701,7 @@
 /datum/reagent/bluespace_dust/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(prob(25))
 		M.make_jittery(5)
-		M << "<span class='warning'>You feel unstable...</span>"
+		to_chat(M, "<span class='warning'>You feel unstable...</span>")
 
 	if(prob(10))
 		do_teleport(M, get_turf(M), 5, asoundin = 'sound/effects/phasein.ogg')
@@ -746,7 +784,7 @@
 	return 1
 
 /obj/item/shapesand/afterattack(atom/A, mob/living/user)
-	user << "<span class='warning'>As you attempt to use the [src], it crumbles into inert sand!</span>"
+	to_chat(user, "<span class='warning'>As you attempt to use the [src], it crumbles into inert sand!</span>")
 	new /obj/item/weapon/ore/glass(get_turf(src))
 	qdel(src)
 	return

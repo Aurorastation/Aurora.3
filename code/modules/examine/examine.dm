@@ -65,6 +65,9 @@
 /mob/examinate(atom/A as mob|obj|turf in view())
 	if(..())
 		return 1
+	
+	if(!A)
+		return 0
 
 	var/is_antag = ((mind && mind.special_role) || isobserver(src)) //ghosts don't have minds
 	if(client)

@@ -65,11 +65,11 @@
 		return
 
 	if (M.state < 3)
-		user << span("warning", "You need to open the maintenance panel in order to install \the [src]")
+		to_chat(user, span("warning", "You need to open the maintenance panel in order to install \the [src]"))
 		return
 
 	for (var/obj/item/mecha_parts/mecha_tracking/B in M.contents)
-		user << span("warning", "[M] already has a tracker installed. Please remove the existing one.")
+		to_chat(user, span("warning", "[M] already has a tracker installed. Please remove the existing one."))
 		return
 
 	user.drop_from_inventory(src,M)

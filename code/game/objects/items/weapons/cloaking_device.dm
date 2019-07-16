@@ -68,7 +68,7 @@
 
 	if (!cell || !cell.checked_use(power_usage*5*CELLRATE))//Costs a small burst to enter cloak
 		if (owner)
-			owner << "The [src] clicks uselessly, it has no power left."
+			to_chat(owner, "The [src] clicks uselessly, it has no power left.")
 		playsound(get_turf(src), 'sound/weapons/empty.ogg', 25, 1)
 		return
 
@@ -78,7 +78,7 @@
 	stop_modifier()
 	playsound(src, 'sound/effects/phasein.ogg', 10, 1, -2)//Cloaking is quieter than uncloaking
 	if (owner)
-		owner << "<span class='notice'>\The [src] is now active.</span>"
+		to_chat(owner, "<span class='notice'>\The [src] is now active.</span>")
 		start_modifier()
 
 /obj/item/weapon/cloaking_device/proc/deactivate()
@@ -87,7 +87,7 @@
 	active = 0
 	src.icon_state = "shield0"
 	if (owner)
-		owner << "<span class='notice'>\The [src] is now inactive.</span>"
+		to_chat(owner, "<span class='notice'>\The [src] is now inactive.</span>")
 
 	playsound(src, 'sound/effects/phasein.ogg', 50, 1)
 	stop_modifier()
@@ -127,17 +127,17 @@
 		if(!cell)
 			user.drop_from_inventory(W,src)
 			cell = W
-			user << "<span class='notice'>You install a cell in [src].</span>"
+			to_chat(user, "<span class='notice'>You install a cell in [src].</span>")
 			update_icon()
 		else
-			user << "<span class='notice'>[src] already has a cell.</span>"
+			to_chat(user, "<span class='notice'>[src] already has a cell.</span>")
 
 	else if(W.isscrewdriver())
 		if(cell)
 			cell.update_icon()
 			cell.forceMove(get_turf(src.loc))
 			cell = null
-			user << "<span class='notice'>You remove the cell from the [src].</span>"
+			to_chat(user, "<span class='notice'>You remove the cell from the [src].</span>")
 			deactivate()
 			return
 	..()
@@ -146,9 +146,9 @@
 /obj/item/weapon/cloaking_device/examine(mob/user)
 	..()
 	if (!cell)
-		user << "It needs a power cell to function."
+		to_chat(user, "It needs a power cell to function.")
 	else
-		user << "It has [cell.percent()]% power remaining"
+		to_chat(user, "It has [cell.percent()]% power remaining")
 
 /obj/item/weapon/cloaking_device/process()
 	if (!cell || !cell.checked_use(power_usage*CELLRATE))

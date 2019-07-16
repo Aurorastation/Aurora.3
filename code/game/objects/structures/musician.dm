@@ -209,8 +209,7 @@
 	//hearers(15, src) << sound(soundfile)
 	var/turf/source = get_turf(src)
 	for(var/mob/M in hearers(15, source))
-		M.playsound_local(source, file(soundfile), 100, falloff = 5)
-
+		M.playsound_simple(source, file(soundfile), 100, falloff = 5)
 
 /obj/structure/device/piano/proc/playsong()
 	do
@@ -395,12 +394,12 @@
 					tempo = 600 / text2num(copytext(lines[1],6))
 					lines.Cut(1,2)
 				if(lines.len > 50)
-					usr << "Too many lines!"
+					to_chat(usr, "Too many lines!")
 					lines.Cut(51)
 				var/linenum = 1
 				for(var/l in lines)
 					if(lentext(l) > 50)
-						usr << "Line [linenum] too long!"
+						to_chat(usr, "Line [linenum] too long!")
 						lines.Remove(l)
 					else
 						linenum++
@@ -417,7 +416,7 @@
 	if (O.iswrench())
 		if (anchored)
 			playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
-			user << "<span class='notice'>You begin to loosen \the [src]'s casters...</span>"
+			to_chat(user, "<span class='notice'>You begin to loosen \the [src]'s casters...</span>")
 			if (do_after(user, 40))
 				user.visible_message( \
 					"[user] loosens \the [src]'s casters.", \
@@ -426,7 +425,7 @@
 				src.anchored = 0
 		else
 			playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
-			user << "<span class='notice'>You begin to tighten \the [src] to the floor...</span>"
+			to_chat(user, "<span class='notice'>You begin to tighten \the [src] to the floor...</span>")
 			if (do_after(user, 20))
 				user.visible_message( \
 					"[user] tightens \the [src]'s casters.", \

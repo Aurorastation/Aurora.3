@@ -12,7 +12,7 @@
 /obj/machinery/computer/cryopod
 	name = "cryogenic oversight console"
 	desc = "An interface between crew and the cryogenic storage oversight systems."
-	icon = 'icons/obj/Cryogenic2.dmi'
+	icon = 'icons/obj/sleeper.dmi'
 	icon_state = "cellconsole"
 	light_color = LIGHT_COLOR_GREEN
 	circuit = /obj/item/weapon/circuitboard/cryopodcontrol
@@ -98,7 +98,7 @@
 		if(!allow_items) return
 
 		if(frozen_items.len == 0)
-			user << "<span class='notice'>There is nothing to recover from storage.</span>"
+			to_chat(user, "<span class='notice'>There is nothing to recover from storage.</span>")
 			return
 
 		var/obj/item/I = input(usr, "Please choose which object to retrieve.","Object recovery",null) as null|anything in frozen_items
@@ -106,7 +106,7 @@
 			return
 
 		if(!(I in frozen_items))
-			user << "<span class='notice'>\The [I] is no longer in storage.</span>"
+			to_chat(user, "<span class='notice'>\The [I] is no longer in storage.</span>")
 			return
 
 		visible_message("<span class='notice'>The console beeps happily as it disgorges \the [I].</span>", range = 3)
@@ -118,7 +118,7 @@
 		if(!allow_items) return
 
 		if(frozen_items.len == 0)
-			user << "<span class='notice'>There is nothing to recover from storage.</span>"
+			to_chat(user, "<span class='notice'>There is nothing to recover from storage.</span>")
 			return
 
 		visible_message("<span class='notice'>The console beeps happily as it disgorges the desired objects.</span>", range = 3)
@@ -145,7 +145,7 @@
 
 	name = "cryogenic feed"
 	desc = "A bewildering tangle of machinery and pipes."
-	icon = 'icons/obj/Cryogenic2.dmi'
+	icon = 'icons/obj/sleeper.dmi'
 	icon_state = "cryo_rear"
 	anchored = 1
 	dir = WEST
@@ -154,14 +154,14 @@
 /obj/machinery/cryopod
 	name = "cryogenic freezer"
 	desc = "A man-sized pod for entering suspended animation."
-	icon = 'icons/obj/Cryogenic2.dmi'
-	icon_state = "body_scanner_0"
+	icon = 'icons/obj/sleeper.dmi'
+	icon_state = "body_scanner"
 	density = 1
 	anchored = 1
 	dir = WEST
 
-	var/base_icon_state = "body_scanner_0"
-	var/occupied_icon_state = "body_scanner_1"
+	var/base_icon_state = "body_scanner"
+	var/occupied_icon_state = "body_scanner-closed"
 	var/on_store_message = "has entered long-term storage."
 	var/on_store_name = "Cryogenic Oversight"
 	var/on_enter_occupant_message = "You feel cool air surround you. You go numb as your senses turn inward."
@@ -196,9 +196,9 @@
 	name = "robotic storage unit"
 	desc = "A storage unit for robots."
 	icon = 'icons/obj/robot_storage.dmi'
-	icon_state = "pod_0"
-	base_icon_state = "pod_0"
-	occupied_icon_state = "pod_1"
+	icon_state = "pod"
+	base_icon_state = "pod"
+	occupied_icon_state = "pod-closed"
 	on_store_message = "has entered robotic storage."
 	on_store_name = "Robotic Storage Oversight"
 	on_enter_occupant_message = "The storage unit broadcasts a sleep signal to you. Your systems start to shut down, and you enter low-power mode."
@@ -214,6 +214,7 @@
 /obj/machinery/cryopod/Initialize()
 	. = ..()
 
+	icon_state = base_icon_state
 	find_control_computer()
 
 /obj/machinery/cryopod/proc/find_control_computer(urgent=0)
@@ -316,6 +317,7 @@
 			else
 				W.forceMove(src.loc)
 
+	flick("[initial(icon_state)]-anim", src)
 	icon_state = base_icon_state
 
 	global_announcer.autosay("[occupant.real_name], [occupant.mind.role_alt_title], [on_store_message]", "[on_store_name]")
@@ -331,7 +333,7 @@
 	if(istype(G))
 
 		if(occupant)
-			user << "<span class='notice'>\The [src] is in use.</span>"
+			to_chat(user, "<span class='notice'>\The [src] is in use.</span>")
 			return
 
 		if(!ismob(G.affecting))
@@ -364,10 +366,11 @@
 					M.client.perspective = EYE_PERSPECTIVE
 					M.client.eye = src
 
+			flick("[initial(icon_state)]-anim", src)
 			icon_state = occupied_icon_state
 
-			M << "<span class='notice'>[on_enter_occupant_message]</span>"
-			M << "<span class='notice'><b>If you ghost, log out or close your client now, your character will shortly be permanently removed from the round.</b></span>"
+			to_chat(M, "<span class='notice'>[on_enter_occupant_message]</span>")
+			to_chat(M, "<span class='notice'><b>If you ghost, log out or close your client now, your character will shortly be permanently removed from the round.</b></span>")
 			set_occupant(M)
 			time_entered = world.time
 
@@ -385,16 +388,16 @@
 	if(!check_occupant_allowed(O))
 		return
 	if(occupant)
-		user << "<span class='notice'>\The [src] is in use.</span>"
+		to_chat(user, "<span class='notice'>\The [src] is in use.</span>")
 		return
 	var/mob/living/L = O
 
 	if(L.stat == DEAD)
-		user << "<span class='notice'>Dead people can not be put into stasis.</span>"
+		to_chat(user, "<span class='notice'>Dead people can not be put into stasis.</span>")
 		return
 	for(var/mob/living/carbon/slime/M in range(1,L))
 		if(M.Victim == L)
-			usr << "[L.name] will not fit into the cryo pod because they have a slime latched onto their head."
+			to_chat(usr, "[L.name] will not fit into the cryo pod because they have a slime latched onto their head.")
 			return
 
 	var/willing = null //We don't want to allow people to be forced into despawning.
@@ -422,13 +425,14 @@
 				L.client.perspective = EYE_PERSPECTIVE
 				L.client.eye = src
 		else
-			user << "<span class='notice'>You stop [L == user ? "climbing into" : "putting [L] into"] \the [name].</span>"
+			to_chat(user, "<span class='notice'>You stop [L == user ? "climbing into" : "putting [L] into"] \the [name].</span>")
 			return
 
+		flick("[initial(icon_state)]-anim", src)
 		icon_state = occupied_icon_state
 
-		L << "<span class='notice'>You feel cool air surround you. You go numb as your senses turn inward.</span>"
-		L << "<span class='notice'><b>If you ghost, log out or close your client now, your character will shortly be permanently removed from the round.</b></span>"
+		to_chat(L, "<span class='notice'>You feel cool air surround you. You go numb as your senses turn inward.</span>")
+		to_chat(L, "<span class='notice'><b>If you ghost, log out or close your client now, your character will shortly be permanently removed from the round.</b></span>")
 		occupant = L
 		time_entered = world.time
 
@@ -449,6 +453,7 @@
 	if(usr.stat != 0)
 		return
 
+	flick("[initial(icon_state)]-anim", src)
 	icon_state = base_icon_state
 
 	//Eject any items that aren't meant to be in the pod.
@@ -474,12 +479,12 @@
 		return
 
 	if(src.occupant)
-		usr << "<span class='notice'><B>\The [src] is in use.</B></span>"
+		to_chat(usr, "<span class='notice'><B>\The [src] is in use.</B></span>")
 		return
 
 	for(var/mob/living/carbon/slime/M in range(1,usr))
 		if(M.Victim == usr)
-			usr << "You're too busy getting your life sucked out of you."
+			to_chat(usr, "You're too busy getting your life sucked out of you.")
 			return
 
 	usr.visible_message("<span class='notice'>[usr] starts climbing into [src].</span>", "<span class='notice'>You start climbing into [src].</span>", range = 3)
@@ -490,7 +495,7 @@
 			return
 
 		if(src.occupant)
-			usr << "<span class='notice'><B>\The [src] is in use.</B></span>"
+			to_chat(usr, "<span class='notice'><B>\The [src] is in use.</B></span>")
 			return
 
 		usr.stop_pulling()
@@ -499,10 +504,11 @@
 		usr.forceMove(src)
 		set_occupant(usr)
 
+		flick("[initial(icon_state)]-anim", src)
 		icon_state = occupied_icon_state
 
-		usr << "<span class='notice'>[on_enter_occupant_message]</span>"
-		usr << "<span class='notice'><b>If you ghost, log out or close your client now, your character will shortly be permanently removed from the round.</b></span>"
+		to_chat(usr, "<span class='notice'>[on_enter_occupant_message]</span>")
+		to_chat(usr, "<span class='notice'><b>If you ghost, log out or close your client now, your character will shortly be permanently removed from the round.</b></span>")
 
 		time_entered = world.time
 
@@ -522,6 +528,7 @@
 	occupant.forceMove(get_turf(src))
 	set_occupant(null)
 
+	flick("[initial(icon_state)]-anim", src)
 	icon_state = base_icon_state
 
 	return

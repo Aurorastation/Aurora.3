@@ -32,7 +32,7 @@
 	var/obj/item/weapon/reagent_containers/syringe/S = O
 
 	if(sample)
-		user << "\The [src] is already loaded."
+		to_chat(user, "\The [src] is already loaded.")
 		return
 
 	sample = S
@@ -70,7 +70,7 @@
 						var/datum/data/record/R = null
 						if (ID in virusDB)
 							R = virusDB[ID]
-		
+
 						var/datum/weakref/A = B.data["donor"]
 						var/mob/living/carbon/human/D = A.resolve()
 						pathogen_pool.Add(list(list(\

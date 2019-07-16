@@ -147,13 +147,13 @@
     {{else}}
 
       <div class='item'>
-        <h2>NanoTrasen Accounts</h2>
+        <h2>Idris Banking Accounts</h2>
       </div>
       {{if data.accounts}}
         <table style="width: 100%">
           {{for data.accounts}}
             <tr class='{{:value.suspended ? "bad" : ""}}'>
-              <td><b>{{:helper.link('#' + value.account_number, '', {'choice' : 'view_account_detail', 'account_index' : value.account_index})}}</b></td>
+              <td><b>{{:helper.link('#' + value.account_number, '', {'choice' : 'view_account_detail', 'account_number' : value.account_number})}}</b></td>
               <td>{{:value.owner_name}}</td>
               <td>{{:value.suspended}}</td>
             </tr>

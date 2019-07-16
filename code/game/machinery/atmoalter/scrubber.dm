@@ -167,7 +167,7 @@
 	name = "[name] (ID [id])"
 
 /obj/machinery/portable_atmospherics/powered/scrubber/huge/attack_hand(var/mob/user as mob)
-		usr << "<span class='notice'>You can't directly interact with this machine. Use the scrubber control console.</span>"
+		to_chat(usr, "<span class='notice'>You can't directly interact with this machine. Use the scrubber control console.</span>")
 
 /obj/machinery/portable_atmospherics/powered/scrubber/huge/update_icon()
 	src.overlays = 0
@@ -208,12 +208,12 @@
 /obj/machinery/portable_atmospherics/powered/scrubber/huge/attackby(var/obj/item/I as obj, var/mob/user as mob)
 	if(I.iswrench())
 		if(on)
-			user << "<span class='warning'>Turn \the [src] off first!</span>"
+			to_chat(user, "<span class='warning'>Turn \the [src] off first!</span>")
 			return
 
 		anchored = !anchored
 		playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
-		user << "<span class='notice'>You [anchored ? "wrench" : "unwrench"] \the [src].</span>"
+		to_chat(user, "<span class='notice'>You [anchored ? "wrench" : "unwrench"] \the [src].</span>")
 
 		return
 
@@ -235,7 +235,7 @@
 
 /obj/machinery/portable_atmospherics/powered/scrubber/huge/stationary/attackby(var/obj/item/I as obj, var/mob/user as mob)
 	if(I.iswrench())
-		user << "<span class='warning'>The bolts are too tight for you to unscrew!</span>"
+		to_chat(user, "<span class='warning'>The bolts are too tight for you to unscrew!</span>")
 		return
 
 	..()

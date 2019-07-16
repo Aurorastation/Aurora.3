@@ -84,6 +84,17 @@
 	name = T_BOARD_MECHA("Odysseus central control")
 	icon_state = "mainboard"
 
+/obj/item/weapon/circuitboard/mecha/hermes
+	origin_tech = list(TECH_DATA = 2)
+
+/obj/item/weapon/circuitboard/mecha/hermes/peripherals
+	name = T_BOARD_MECHA("Hermes peripherals control")
+	icon_state = "mcontroller"
+
+/obj/item/weapon/circuitboard/mecha/hermes/main
+	name = T_BOARD_MECHA("Hermes central control")
+	icon_state = "mainboard"
+
 /obj/item/weapon/circuitboard/mecha/phazon
 	origin_tech = list(TECH_DATA = 5, TECH_BLUESPACE = 5)
 

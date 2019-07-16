@@ -53,12 +53,12 @@
 		count++
 
 	if (count == 0)
-		usr << "<span class='warning'>Database update failed due to a note id not being present in the database.</span>"
+		to_chat(usr, "<span class='warning'>Database update failed due to a note id not being present in the database.</span>")
 		error("Database update failed due to a note id not being present in the database.")
 		return
 
 	if (count > 1)
-		usr << "<span class='warning'>Database update failed due to multiple notes having the same ID. Contact the database admin.</span>"
+		to_chat(usr, "<span class='warning'>Database update failed due to multiple notes having the same ID. Contact the database admin.</span>")
 		error("Database update failed due to multiple notes having the same ID. Contact the database admin.")
 		return
 
@@ -71,12 +71,12 @@
 				message_admins("<span class='notice'>[key_name_admin(usr)] deleted one of [ckey]'s notes.</span>")
 				log_admin("[key_name(usr)] deleted one of [ckey]'s notes.",admin_key=key_name(usr),ckey=ckey)
 			else
-				usr << "Cancelled"
+				to_chat(usr, "Cancelled")
 				return
 		if ("content")
 			var/new_content = input("Edit this note's contents.", "New Contents", note, null) as null|text
 			if (!new_content)
-				usr << "Cancelled"
+				to_chat(usr, "Cancelled")
 				return
 			var/DBQuery/editquery = dbcon.NewQuery("UPDATE ss13_notes SET content = :new_content:, lasteditor = :a_ckey:, lasteditdate = Now(), edited = 1 WHERE id = :note_id:")
 			editquery.Execute(list("new_content" = new_content, "a_ckey" = usr.client.ckey, "note_id" = note_id))
@@ -86,7 +86,7 @@
 		return
 
 	if (admin_ckey == "Adminbot")
-		usr << "Adminbot is not an actual admin. You were lied to."
+		to_chat(usr, "Adminbot is not an actual admin. You were lied to.")
 		//The fucking size of this request would be astronomical. Please do not!
 		return
 

@@ -88,7 +88,7 @@ var/datum/controller/subsystem/explosives/SSexplosives
 		if(HasAbove(epicenter.z) && z_transfer & UP)
 			global.explosion(GetAbove(epicenter), max(0, devastation_range - 2), max(0, heavy_impact_range - 2), max(0, light_impact_range - 2), max(0, flash_range - 2), 0, UP, spreading = FALSE)
 		if(HasBelow(epicenter.z) && z_transfer & DOWN)
-			global.explosion(GetAbove(epicenter), max(0, devastation_range - 2), max(0, heavy_impact_range - 2), max(0, light_impact_range - 2), max(0, flash_range - 2), 0, DOWN, spreading = FALSE)
+			global.explosion(GetBelow(epicenter), max(0, devastation_range - 2), max(0, heavy_impact_range - 2), max(0, light_impact_range - 2), max(0, flash_range - 2), 0, DOWN, spreading = FALSE)
 
 	var/max_range = max(devastation_range, heavy_impact_range, light_impact_range, flash_range)
 
@@ -108,7 +108,6 @@ var/datum/controller/subsystem/explosives/SSexplosives
 	// 3/7/14 will calculate to 80 + 35
 	var/volume = 10 + (power * 20)
 
-	var/frequency = get_rand_frequency()
 	var/closedist = round(max_range + world.view - 2, 1)
 
 	//Whether or not this explosion causes enough vibration to send sound or shockwaves through the station
@@ -150,11 +149,11 @@ var/datum/controller/subsystem/explosives/SSexplosives
 					if (reception == 2 && (M.ear_deaf <= 0 || !M.ear_deaf))//Dont play sounds to deaf people
 						// If inside the blast radius + world.view - 2
 						if(dist <= closedist)
-							M.playsound_local(epicenter, get_sfx("explosion"), min(100, volume), 1, frequency, falloff = 5) // get_sfx() is so that everyone gets the same sound
+							M.playsound_simple(epicenter, get_sfx("explosion"), min(100, volume), use_random_freq = TRUE, falloff = 5)
 							//You hear a far explosion if you're outside the blast radius. Small bombs shouldn't be heard all over the station.
 
 						else
-							volume = M.playsound_local(epicenter, 'sound/effects/explosionfar.ogg', volume, 1, frequency, usepressure = 0, falloff = 1000)
+							volume = M.playsound_simple(epicenter, 'sound/effects/explosionfar.ogg', volume, use_random_freq = TRUE, falloff = 1000, use_pressure = FALSE)
 							//Playsound local will return the final volume the sound is actually played at
 							//It will return 0 if the sound volume falls to 0 due to falloff or pressure
 							//Also return zero if sound playing failed for some other reason
@@ -208,7 +207,7 @@ var/datum/controller/subsystem/explosives/SSexplosives
 
 	var/took = (world.timeofday-start)/10
 	//You need to press the DebugGame verb to see these now....they were getting annoying and we've collected a fair bit of data. Just -test- changes  to explosion code using this please so we can compare
-	if(Debug2)	world.log << "## DEBUG: Explosion([x0],[y0],[z0])(d[devastation_range],h[heavy_impact_range],l[light_impact_range]): Took [took] seconds."
+	if(Debug2)	world.log <<  "## DEBUG: Explosion([x0],[y0],[z0])(d[devastation_range],h[heavy_impact_range],l[light_impact_range]: Took [took] seconds."
 
 // All the vars used on the turf should be on unsimulated turfs too, we just don't care about those generally.
 #define SEARCH_DIR(dir) \
@@ -312,7 +311,6 @@ var/datum/controller/subsystem/explosives/SSexplosives
 
 	var/volume = 10 + (power * 20)
 
-	var/frequency = get_rand_frequency()
 	var/close_dist = round(power + world.view - 2, 1)
 
 	var/sound/explosion_sound = sound(get_sfx("explosion"))
@@ -345,10 +343,10 @@ var/datum/controller/subsystem/explosives/SSexplosives
 		var/dist = get_dist(M, epicenter) || 1
 		if ((reception & EXPLFX_SOUND) && M.ear_deaf <= 0)
 			if (dist <= close_dist)
-				M.playsound_local(epicenter, explosion_sound, min(100, volume), 1, frequency, falloff = 5)
+				M.playsound_simple(epicenter, explosion_sound, min(100, volume), use_random_freq = TRUE, falloff = 5)
 				//You hear a far explosion if you're outside the blast radius. Small bombs shouldn't be heard all over the station.
 			else
-				volume = M.playsound_local(epicenter, 'sound/effects/explosionfar.ogg', volume, 1, frequency, usepressure = 0, falloff = 1000)
+				volume = M.playsound_simple(epicenter, 'sound/effects/explosionfar.ogg', volume, use_random_freq = TRUE, falloff = 1000, use_pressure = FALSE)
 
 		if ((reception & EXPLFX_SHAKE) && volume > 0)
 			shake_camera(M, min(30, max(2,(power*2) / dist)), min(3.5, ((power/3) / dist)),0.05)

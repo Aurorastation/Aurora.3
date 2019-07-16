@@ -25,8 +25,6 @@
 	name = "tendril"
 	cannot_break = 1
 
-
-
 /obj/item/organ/external/chest/diona
 	name = "core trunk"
 	limb_name = "chest"
@@ -215,7 +213,10 @@
 	..()
 	if(!istype(H) || !H.organs || !H.organs.len)
 		H.death()
-	if(prob(50) && spawn_diona_nymph(get_turf(src)))
+
+/obj/item/organ/external/diona/removed(var/mob/living/user)
+	..()
+	if(spawn_diona_nymph(get_turf(src)))
 		qdel(src)
 
 // These are different to the standard diona organs as they have a purpose in other
@@ -224,7 +225,7 @@
 	name = "nutrient channel"
 	parent_organ = "chest"
 	organ_tag = "nutrient channel"
-	icon = 'icons/mob/alien.dmi'
+	icon = 'icons/mob/npc/alien.dmi'
 	icon_state = "claw"
 
 /obj/item/organ/diona/nutrients/removed()
@@ -234,7 +235,7 @@
 	name = "response node"
 	parent_organ = "head"
 	organ_tag = "response node"
-	icon = 'icons/mob/alien.dmi'
+	icon = 'icons/mob/npc/alien.dmi'
 	icon_state = "claw"
 
 /obj/item/organ/diona/node/removed()

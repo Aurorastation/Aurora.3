@@ -86,7 +86,7 @@ var/datum/antagonist/ninja/ninjas
 		return 0
 	var/directive = generate_ninja_directive("heel")
 	player.store_memory("<B>Directive:</B> <span class='danger'>[directive]</span><br>")
-	player << "<b>Remember your directive:</b> [directive]."
+	to_chat(player, "<b>Remember your directive:</b> [directive].")
 
 /datum/antagonist/ninja/update_antag_mob(var/datum/mind/player)
 	..()
@@ -127,7 +127,7 @@ var/datum/antagonist/ninja/ninjas
 		if(player.internal)
 			player.internals.icon_state = "internal1"
 		else
-			player << "<span class='danger'>You forgot to turn on your internals! Quickly, toggle the valve!</span>"
+			to_chat(player, "<span class='danger'>You forgot to turn on your internals! Quickly, toggle the valve!</span>")
 
 /datum/antagonist/ninja/proc/generate_ninja_directive(side)
 	var/directive = "[side=="face"?"[current_map.company_name]":"A criminal syndicate"] is your employer. "//Let them know which side they're on.

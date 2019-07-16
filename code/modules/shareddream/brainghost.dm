@@ -25,19 +25,26 @@
 	set name = "Awaken"
 	set category = "IC"
 
+	awaken_impl()
+
+/mob/living/brain_ghost/proc/awaken_impl(var/force_awaken = FALSE)
+
 	if(body.willfully_sleeping)
 		body.sleeping = max(body.sleeping - 5, 0)
 		body.willfully_sleeping = 0
-		src << "<span class='notice'>You release your concentration on sleep, allowing yourself to awake.</span>"
+		if(force_awaken)
+			to_chat(src, "<span class='notice'>You suddenly feel like your connection to the dream is breaking up by the outside force.</span>")
+		else
+			to_chat(src, "<span class='notice'>You release your concentration on sleep, allowing yourself to wake up.</span>")
 	else
-		src << "<span class='warning'>You've already released concentration. Wait to wake up naturally.</span>"
+		to_chat(src, "<span class='warning'>You've already released concentration. Wait to wake up naturally.</span>")
 
 /mob/living/brain_ghost/Life()
 	..()
 	// Out body was probs gibbed or somefin
 	if(!istype(body))
 		show_message("<span class='danger'>[src] suddenly pops from the Srom.</span>")
-		src << "<span class='danger'>Your body was destroyed!</span>"
+		to_chat(src, "<span class='danger'>Your body was destroyed!</span>")
 		qdel(src)
 		return
 

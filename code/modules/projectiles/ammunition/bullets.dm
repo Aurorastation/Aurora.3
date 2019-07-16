@@ -1,7 +1,7 @@
 /obj/item/ammo_casing/a357
 	desc = "A .357 bullet casing."
 	caliber = "357"
-	projectile_type = /obj/item/projectile/bullet/pistol/strong
+	projectile_type = /obj/item/projectile/bullet/pistol/revolver
 
 /obj/item/ammo_casing/a454
 	desc = "A .454 bullet casing."
@@ -265,7 +265,7 @@
 /obj/item/ammo_casing/gauss
 	name = "tungsten slug"
 	desc = "A heavy tungsten gauss slug."
-	caliber = "gaus"
+	caliber = "gauss"
 	icon_state = "tungstenslug"
 	projectile_type = /obj/item/projectile/bullet/gauss
 
@@ -274,3 +274,17 @@
 	desc = "A heavy ion gauss slug."
 	icon_state = "empslug"
 	projectile_type = /obj/item/projectile/ion/gauss
+
+/obj/item/ammo_casing/plasma_slug
+	name = "plasma slug"
+	desc = "A plasma slug."
+	icon_state = "plasmaslug"
+	caliber = "plasma slug"
+	projectile_type = /obj/item/projectile/plasma
+
+/obj/item/ammo_casing/plasma_bolt
+	name = "plasma bolt"
+	desc = "A plasma bolt."
+	icon_state = "plasmabolt"
+	caliber = "plasma bolt"
+	projectile_type = /obj/item/projectile/plasma/light

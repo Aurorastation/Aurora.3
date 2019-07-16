@@ -175,7 +175,7 @@
 		if(emag_act(10, user))
 			spark(src.loc, 5)
 			playsound(src.loc, "sparks", 50, 1)
-			playsound(src.loc, 'sound/weapons/blade1.ogg', 50, 1)
+			playsound(src.loc, 'sound/weapons/blade.ogg', 50, 1)
 			visible_message("<span class='warning'>The glass door was sliced open by [user]!</span>")
 		return 1
 
@@ -184,7 +184,7 @@
 		playsound(src.loc, 'sound/items/Crowbar.ogg', 100, 1)
 		user.visible_message("[user] removes the electronics from the windoor.", "You start to remove electronics from the windoor.")
 		if (do_after(user,40))
-			user << "<span class='notice'>You removed the windoor electronics!</span>"
+			to_chat(user, "<span class='notice'>You removed the windoor electronics!</span>")
 
 			var/obj/structure/windoor_assembly/wa = new/obj/structure/windoor_assembly(src.loc)
 			if (istype(src, /obj/machinery/door/window/brigdoor))

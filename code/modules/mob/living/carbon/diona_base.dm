@@ -20,7 +20,7 @@ var/list/diona_banned_languages = list(
 	/datum/language/binary,
 	/datum/language/binary/drone)
 
-
+#define DIONA_LIGHT_COEFICIENT 0.25
 /mob/living/carbon/proc/diona_handle_light(var/datum/dionastats/DS) //Carbon is the highest common denominator between gestalts and nymphs. They will share light code
 	//if light_organ is non null, then we're working with a gestalt. otherwise nymph
 
@@ -48,6 +48,15 @@ var/list/diona_banned_languages = list(
 	diona_handle_lightmessages(DS)
 
 	DS.last_location = loc
+	if(light_amount)
+		adjustNutritionLoss(-light_amount) // regenerate our nutrition from light.
+	move_delay_mod = min(initial(move_delay_mod) - light_amount * 1.5, 0)
+	sprint_speed_factor = initial(sprint_speed_factor)
+	sprint_cost_factor = Clamp(initial(sprint_cost_factor) - light_amount * DIONA_LIGHT_COEFICIENT, 0, initial(sprint_cost_factor))
+	if (total_radiation)
+		move_delay_mod = max(move_delay_mod * total_radiation * 3, -7)
+		sprint_speed_factor = 0.75
+		sprint_cost_factor = 0
 
 /mob/living/carbon/proc/diona_handle_radiation(var/datum/dionastats/DS)
 	//Converts radiation to stored energy if its needed, and gives messages related to radiation
@@ -61,19 +70,6 @@ var/list/diona_banned_languages = list(
 
 	radiation -= 0.5 //Radiation is gradually wasted if its not used for something
 
-
-//This proc handles when diona take damage from being in darkness
-/mob/living/carbon/proc/diona_darkness_damage(var/severity, var/datum/dionastats/DS)
-	adjustBruteLoss(severity*DS.trauma_factor)
-	adjustHalLoss(severity*DS.pain_factor, 1)
-	DS.stored_energy = 0 //We reset the energy back to zero after calculating the damage. dont want it to go negative
-
-	//If the diona in question is a gestalt, then all the nymphs inside it will suffer damage too
-	if (DS.dionatype == DIONA_WORKER)
-		for(var/mob/living/carbon/alien/diona/D in src)
-			D.adjustBruteLoss(severity*DS.trauma_factor*0.5)
-
-
 #define diona_max_pressure 100 //kpa, Highest pressure that has an effect
 #define diona_nutrition_factor 0.5 //nutrients we gain per proc at max pressure
 /mob/living/carbon/proc/diona_handle_air(var/datum/dionastats/DS, var/pressure)
@@ -86,6 +82,11 @@ var/list/diona_banned_languages = list(
 	if (DS.nutrient_organ)
 		if (DS.nutrient_organ.is_broken())
 			return 0
+	
+	if (consume_nutrition_from_air && (nutrition / max_nutrition > 0.25))
+		to_chat(src, span("notice", "You feel like you have replanished enough of nutrition to stay alive. Consuming more makes you feel gross."))
+		consume_nutrition_from_air = !consume_nutrition_from_air
+		return
 
 	var/plus= (min(pressure,diona_max_pressure)  / diona_max_pressure)* diona_nutrition_factor
 	if (DS.nutrient_organ)
@@ -96,6 +97,17 @@ var/list/diona_banned_languages = list(
 	adjustNutritionLoss(-plus)
 
 	return plus*7 //The return value is the number of moles to remove from the local environment
+
+//This proc handles when diona take damage from being in darkness
+/mob/living/carbon/proc/diona_darkness_damage(var/severity, var/datum/dionastats/DS)
+	adjustBruteLoss(severity*DS.trauma_factor)
+	adjustHalLoss(severity*DS.pain_factor, 1)
+	DS.stored_energy = 0 //We reset the energy back to zero after calculating the damage. dont want it to go negative
+
+	//If the diona in question is a gestalt, then all the nymphs inside it will suffer damage too
+	if (DS.dionatype == DIONA_WORKER)
+		for(var/mob/living/carbon/alien/diona/D in src)
+			D.adjustBruteLoss(severity*DS.trauma_factor*0.5)
 
 /mob/living/carbon/proc/diona_handle_temperature(var/datum/dionastats/DS)
 	if (bodytemperature < TEMP_REGEN_STOP)
@@ -227,12 +239,12 @@ var/list/diona_banned_languages = list(
 		return FALSE
 
 // Continuation of the Diona regen proc, but for human specific actions.
-/mob/living/carbon/human/diona_handle_regeneration(var/datum/dionastats/DS)
+/mob/living/carbon/human/diona_handle_regeneration(var/datum/dionastats/DS, var/bypass = FALSE)
 	..()
 
 	// We cancel with regening organ, as it's meant to stop all other regenerative
 	// processes. Just pray to shit the timers don't implode.
-	if ((!total_radiation && !DS.healing_factor && !DS.stored_energy) || DS.regening_organ)
+	if (((!total_radiation && !DS.healing_factor && !DS.stored_energy) || DS.regening_organ) && !bypass)
 		return FALSE
 
 	//Next up, healing any damage to internal organs.
@@ -268,7 +280,7 @@ var/list/diona_banned_languages = list(
 
 
 	//Last up, growing brand new limbs and organs to replace those lost or removed.
-	if (life_tick % (LIFETICK_INTERVAL_LESS*8) == 0 && (DS.stored_energy > (0.5 * DS.max_energy)))
+	if ((life_tick % (LIFETICK_INTERVAL_LESS*8) == 0 && (DS.stored_energy > (0.5 * DS.max_energy))) || bypass )
 		//We will only replace ONE organ or limb each time this procs
 		var/path
 		for (var/i in species.has_limbs)
@@ -288,21 +300,30 @@ var/list/diona_banned_languages = list(
 
 
 		if (path)
-			if (DS.stored_energy < REGROW_ENERGY_REQ)
+			if ((DS.stored_energy < REGROW_ENERGY_REQ) && !bypass)
 				to_chat(src, "<span class='danger'>You try to regrow a lost limb, but you lack the energy. Find more light!</span>")
 				return
-			if (nutrition < REGROW_FOOD_REQ)
+			if ((nutrition < REGROW_FOOD_REQ) && !bypass)
 				to_chat(src, "<span class='danger'>You try to regrow a lost limb, but you lack the biomass. Find some food!</span>")
 				return
-			DS.stored_energy -= REGROW_ENERGY_REQ
+			DS.stored_energy -= !bypass ? REGROW_ENERGY_REQ : 0
 			adjustNutritionLoss(REGROW_FOOD_REQ)
-			playsound(src, 'sound/species/diona/gestalt_grow.ogg', 30, 1)
 			visible_message("<span class='warning'>[src] begins to shift and quiver.</span>",
 				"<span class='warning'>You begin to shift and quiver, feeling a stirring within your trunk</span>")
 
 			DS.regening_organ = TRUE
 			to_chat(src, "<span class='notice'>You are trying to regrow a lost limb, this is a long and complicated process that will take 10 minutes!</span>")
-			addtimer(CALLBACK(src, .proc/diona_regen_callback, path), 10 MINUTES)
+			var/list/special_case = list(
+										/obj/item/organ/external/arm/diona = /obj/item/organ/external/hand/diona,
+										/obj/item/organ/external/arm/right/diona = /obj/item/organ/external/hand/right/diona,
+										/obj/item/organ/external/leg/diona = /obj/item/organ/external/foot/diona,
+										/obj/item/organ/external/leg/right/diona = /obj/item/organ/external/foot/right/diona
+										)
+			DS.regen_limb = addtimer(CALLBACK(src, .proc/diona_regen_callback, path, DS), 10 MINUTES, TIMER_STOPPABLE)
+			sleep(5)
+			if(path in special_case)
+				DS.regen_extra = addtimer(CALLBACK(src, .proc/diona_regen_callback, special_case[path], DS), 10 MINUTES, TIMER_STOPPABLE)
+
 			return
 
 
@@ -355,6 +376,9 @@ var/list/diona_banned_languages = list(
 
 		//If we have less than six nymphs, we add one each proc
 		if (topup_nymphs(1))
+			if (DS.stored_energy < REGROW_ENERGY_REQ)
+				return
+
 			DS.stored_energy -= REGROW_ENERGY_REQ
 			adjustNutritionLoss(REGROW_FOOD_REQ)
 			to_chat(src, "<span class='danger'>You feel a stirring inside you as a new nymph is born within your trunk!</span>")
@@ -378,6 +402,7 @@ var/list/diona_banned_languages = list(
 
 	update_dionastats() //Re-find the organs in case they were lost or regained
 	updatehealth()
+	playsound(src, 'sound/species/diona/gestalt_grow.ogg', 30, 1)
 
 //MESSAGE FUNCTIONS
 /mob/living/carbon/proc/diona_handle_lightmessages(var/datum/dionastats/DS)
@@ -503,6 +528,47 @@ var/list/diona_banned_languages = list(
 		else
 			to_chat(src, "<span class='danger'>You have forgotten the [L.name] language!</span>")
 
+/mob/living/carbon/alien/diona/proc/switch_to_gestalt()
+	set name = "Switch to Gestalt"
+	set desc = "Allows you to switch control back to your parent Gestalt."
+	set category = "Abilities"
+
+	if(!gestalt)
+		to_chat(src, span("warning", "You have no Gestalt!"))
+	else if(gestalt.stat == DEAD)
+		to_chat(src, span("danger", "Your Gestlat is not responding! Something could have happened to it!"))
+	else
+		gestalt.key = key
+
+/mob/living/carbon/alien/diona/proc/merge_back_to_gestalt()
+	set name = "Merge to Gestalt"
+	set desc = "Allows you to merge back to your parent Gestalt."
+	set category = "Abilities"
+
+	for(var/mob/living/carbon/human/H in view(src, 7))
+		if(!H.is_diona())
+			continue
+		var/mob/living/carbon/human/diona/C = H
+		if(C == gestalt)
+			C.nutrition += REGROW_FOOD_REQ * 0.75
+			C.DS.stored_energy += REGROW_ENERGY_REQ * 0.75
+			C.key = src.key
+			if(C.DS.regen_limb)
+				execute_and_deltimer(C.DS.regen_limb)
+				C.DS.regen_limb = null
+				if(C.DS.regen_extra)
+					execute_and_deltimer(C.DS.regen_extra)
+					C.DS.regen_extra = null
+			else
+				C.diona_handle_regeneration(C.DS, TRUE)
+			to_chat(C, span("notice", "Your lost nymph merged back."))
+			C.add_nymph()
+			verbs -= /mob/living/carbon/alien/diona/proc/switch_to_gestalt
+			C.verbs -= /mob/living/carbon/human/proc/switch_to_nymph
+			C.DS.nym = null
+			qdel(src)
+			break
+
 //DIONASTATS DEFINES
 
 //Dionastats is an instanced object that diona will each create and hold a reference to.
@@ -529,7 +595,9 @@ var/list/diona_banned_languages = list(
 	var/obj/item/organ/diona/nutrients/nutrient_organ = null //Organ
 	var/LMS = 1 //Lightmessage state. Switching between states gives the user a message
 	var/dionatype //1 = nymph, 2 = worker gestalt
-
+	var/datum/weakref/nym
+	var/regen_limb
+	var/regen_extra
 
 /datum/dionastats/Destroy()
 	light_organ = null //Nulling out these references to prevent GC errors
@@ -544,7 +612,6 @@ var/list/diona_banned_languages = list(
 #undef TEMP_REGEN_NORMAL
 #undef TEMP_INCREASE_REGEN_DOUBLE
 #undef LIFETICK_INTERVAL_LESS
-#undef REGROW_FOOD_REQ
-#undef REGROW_ENERGY_REQ
 #undef diona_max_pressure
 #undef diona_nutrition_factor
+#undef DIONA_LIGHT_COEFICIENT

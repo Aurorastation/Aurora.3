@@ -4,7 +4,7 @@
 /obj/machinery/atmospherics/unary/heater
 	name = "gas heating system"
 	desc = "Heats gas when connected to a pipe network"
-	icon = 'icons/obj/Cryogenic2.dmi'
+	icon = 'icons/obj/sleeper.dmi'
 	icon_state = "heater_0"
 	density = 1
 	anchored = 1
@@ -169,4 +169,4 @@
 /obj/machinery/atmospherics/unary/heater/examine(mob/user)
 	..(user)
 	if(panel_open)
-		user << "The maintenance hatch is open."
+		to_chat(user, "The maintenance hatch is open.")

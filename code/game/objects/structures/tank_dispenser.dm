@@ -1,7 +1,7 @@
 /obj/structure/dispenser
 	name = "tank storage unit"
 	desc = "A simple yet bulky storage device for gas tanks. Has room for up to ten oxygen tanks, and ten phoron tanks."
-	icon = 'icons/obj/objects.dmi'
+	icon = 'icons/obj/tank_dispenser.dmi'
 	icon_state = "dispenser"
 	density = 1
 	anchored = 1.0
@@ -24,10 +24,10 @@
 /obj/structure/dispenser/update_icon()
 	cut_overlays()
 	switch(oxygentanks)
-		if(1 to 3)
+		if(1 to 4)
 			add_overlay("oxygen-[oxygentanks]")
-		if(4 to INFINITY)
-			add_overlay("oxygen-4")
+		if(5 to INFINITY)
+			add_overlay("oxygen-5")
 	switch(phorontanks)
 		if(1 to 4)
 			add_overlay("phoron-[phorontanks]")
@@ -55,11 +55,11 @@
 			user.drop_from_inventory(I,src)
 			oxytanks.Add(I)
 			oxygentanks++
-			user << "<span class='notice'>You put [I] in [src].</span>"
+			to_chat(user, "<span class='notice'>You put [I] in [src].</span>")
 			if(oxygentanks < 5)
 				update_icon()
 		else
-			user << "<span class='notice'>[src] is full.</span>"
+			to_chat(user, "<span class='notice'>[src] is full.</span>")
 		updateUsrDialog()
 		return
 	if(istype(I, /obj/item/weapon/tank/phoron))
@@ -67,19 +67,19 @@
 			user.drop_from_inventory(I,src)
 			platanks.Add(I)
 			phorontanks++
-			user << "<span class='notice'>You put [I] in [src].</span>"
+			to_chat(user, "<span class='notice'>You put [I] in [src].</span>")
 			if(oxygentanks < 6)
 				update_icon()
 		else
-			user << "<span class='notice'>[src] is full.</span>"
+			to_chat(user, "<span class='notice'>[src] is full.</span>")
 		updateUsrDialog()
 		return
 	if(I.iswrench())
 		if(anchored)
-			user << "<span class='notice'>You lean down and unwrench [src].</span>"
+			to_chat(user, "<span class='notice'>You lean down and unwrench [src].</span>")
 			anchored = 0
 		else
-			user << "<span class='notice'>You wrench [src] into place.</span>"
+			to_chat(user, "<span class='notice'>You wrench [src] into place.</span>")
 			anchored = 1
 		return
 
@@ -97,7 +97,7 @@
 				else
 					O = new /obj/item/weapon/tank/oxygen(loc)
 				O.forceMove(loc)
-				usr << "<span class='notice'>You take [O] out of [src].</span>"
+				to_chat(usr, "<span class='notice'>You take [O] out of [src].</span>")
 				oxygentanks--
 				update_icon()
 		if(href_list["phoron"])
@@ -109,7 +109,7 @@
 				else
 					P = new /obj/item/weapon/tank/phoron(loc)
 				P.forceMove(loc)
-				usr << "<span class='notice'>You take [P] out of [src].</span>"
+				to_chat(usr, "<span class='notice'>You take [P] out of [src].</span>")
 				phorontanks--
 				update_icon()
 		add_fingerprint(usr)

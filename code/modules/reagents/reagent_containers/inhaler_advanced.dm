@@ -46,6 +46,7 @@
 
 /obj/item/weapon/reagent_containers/personal_inhaler_cartridge/large
 	name = "large inhaler cartridge"
+	desc = "A large inhaler cartridge. It contains enough aerosol for 30 units of reagents. The container must be activated for aerosol to mix with reagents."
 	icon_state = "pi_cart_medium"
 	volume = 30
 	w_class = 2
@@ -55,6 +56,7 @@
 
 /obj/item/weapon/reagent_containers/personal_inhaler_cartridge/bluespace
 	name = "bluespace inhaler cartridge"
+	desc = "An experimental bluespace inhaler cartridge. It has enough aerosol for 60 units of reagents. The container must be activated to mix aerosol with reagents inside."
 	icon_state = "pi_cart_large"
 	volume = 60
 	w_class = 2
@@ -110,7 +112,7 @@
 		to_chat(user,"<span class='warning'>\The [src]'s cartridge is empty!</span>")
 		return
 
-	if (((CLUMSY in user.mutations) || (DUMB in user.mutations)) && prob(10))
+	if (((user.is_clumsy()) || (DUMB in user.mutations)) && prob(10))
 		to_chat(user,"<span class='danger'>Your hand slips from clumsiness!</span>")
 		eyestab(M,user)
 		user.visible_message("<span class='notice'>[user] accidentally sticks \the [src] in [M]'s eye!</span>","<span class='notice'>You accidentally stick the [src] in [M]'s eye!</span>")

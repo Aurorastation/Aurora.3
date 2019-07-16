@@ -8,7 +8,7 @@
 /datum/event/money_hacker/setup()
 	end_time = world.time + 6000
 	if(SSeconomy.all_money_accounts.len)
-		affected_account = pick(SSeconomy.all_money_accounts)
+		affected_account = SSeconomy.get_account(pick(SSeconomy.all_money_accounts))
 
 		account_hack_attempted = 1
 	else

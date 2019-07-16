@@ -248,7 +248,7 @@
 					R.hud_used.toggle_show_robot_modules()
 					return 1
 				else
-					R << "You haven't selected a module yet."
+					to_chat(R, "You haven't selected a module yet.")
 
 		if("radio")
 			if(issilicon(usr))
@@ -264,7 +264,7 @@
 					R.uneq_active()
 					R.hud_used.update_robot_modules_display()
 				else
-					R << "You haven't selected a module yet."
+					to_chat(R, "You haven't selected a module yet.")
 
 		else
 			return 0
@@ -334,7 +334,7 @@
 			return
 
 		if(C.legcuffed)
-			C << "<span class='notice'>You are legcuffed! You cannot run until you get [C.legcuffed] removed!</span>"
+			to_chat(C, "<span class='notice'>You are legcuffed! You cannot run until you get [C.legcuffed] removed!</span>")
 			C.m_intent = "walk"	//Just incase
 			C.hud_used.move_intent.icon_state = "walking"
 			return 1

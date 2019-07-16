@@ -283,24 +283,6 @@
 	icon_open = "brown_jacket_nt_open"
 	icon_closed = "brown_jacket_nt"
 
-/obj/item/clothing/suit/storage/toggle/hoodie
-	name = "grey hoodie"
-	desc = "A warm, grey sweatshirt."
-	icon_state = "grey_hoodie"
-	item_state = "grey_hoodie"
-	icon_open = "grey_hoodie_open"
-	icon_closed = "grey_hoodie"
-	min_cold_protection_temperature = T0C - 20
-	cold_protection = UPPER_TORSO|LOWER_TORSO|ARMS
-
-/obj/item/clothing/suit/storage/toggle/hoodie/black
-	name = "black hoodie"
-	desc = "A warm, black sweatshirt."
-	icon_state = "black_hoodie"
-	item_state = "black_hoodie"
-	icon_open = "black_hoodie_open"
-	icon_closed = "black_hoodie"
-
 /obj/item/clothing/suit/storage/toggle/flannel
 	name = "green flannel shirt"
 	desc = "A flannel shirt, for all your space hipster needs."
@@ -362,6 +344,22 @@
 	icon_open = "trench2_open"
 	icon_closed = "trench2"
 	blood_overlay_type = "coat"
+
+/obj/item/clothing/suit/storage/toggle/trench/alt
+	name = "brown trenchcoat"
+	desc = "A sleek canvas trenchcoat"
+	icon_state = "trenchcoat_brown"
+	item_state = "trenchcoat_brown"
+	icon_open = "trenchcoat_brown_open"
+	icon_closed = "trenchcoat_brown"
+
+/obj/item/clothing/suit/storage/toggle/trench/grey_alt
+	name = "grey trenchcoat"
+	desc = "A sleek canvas trenchcoat"
+	icon_state = "trenchcoat_grey"
+	item_state = "trenchcoat_grey"
+	icon_open = "trenchcoat_grey_open"
+	icon_closed = "trenchcoat_grey"
 
 /obj/item/clothing/suit/storage/dominia
 	name = "dominia cape"
@@ -501,6 +499,12 @@
 	desc = "A dark green canvas jacket. Feels sturdy, yet comfortable."
 	icon_state = "militaryjacket_green"
 	item_state = "militaryjacket_green"
+
+/obj/item/clothing/suit/storage/legion
+	name = "tcfl jacket"
+	desc = "A pale blue canvas jacket embossed with the insignia of the Tau Ceti Foreign Legion."
+	icon_state = "tcfljacket"
+	item_state = "tcfljacket"
 
 /obj/item/clothing/suit/jacket/puffer
 	name = "puffer jacket"

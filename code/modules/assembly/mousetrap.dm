@@ -10,7 +10,7 @@
 	examine(mob/user)
 		..(user)
 		if(armed)
-			user << "It looks like it's armed."
+			to_chat(user, "It looks like it's armed.")
 
 	update_icon()
 		if(armed)
@@ -25,8 +25,8 @@
 		return
 
 	var/types = target.find_type()
-	if(ismouse(target))
-		var/mob/living/simple_animal/mouse/M = target
+	if(israt(target))
+		var/mob/living/simple_animal/rat/M = target
 		visible_message("<span class='danger'>SPLAT!</span>")
 		M.splat()
 	else
@@ -56,9 +56,9 @@
 
 /obj/item/device/assembly/mousetrap/attack_self(mob/living/user as mob)
 	if(!armed)
-		user << "<span class='notice'>You arm [src].</span>"
+		to_chat(user, "<span class='notice'>You arm [src].</span>")
 	else
-		if(((CLUMSY in user.mutations) || (DUMB in user.mutations)) && prob(50))
+		if(((user.is_clumsy()) || (DUMB in user.mutations)) && prob(50))
 			var/which_hand = "l_hand"
 			if(!user.hand)
 				which_hand = "r_hand"
@@ -66,7 +66,7 @@
 			user.visible_message("<span class='warning'>[user] accidentally sets off [src], breaking their fingers.</span>", \
 								 "<span class='warning'>You accidentally trigger [src]!</span>")
 			return
-		user << "<span class='notice'>You disarm [src].</span>"
+		to_chat(user, "<span class='notice'>You disarm [src].</span>")
 	armed = !armed
 	update_icon()
 	playsound(user.loc, 'sound/weapons/handcuffs.ogg', 30, 1, -3)
@@ -74,7 +74,7 @@
 
 /obj/item/device/assembly/mousetrap/attack_hand(mob/living/user as mob)
 	if(armed)
-		if(((CLUMSY in user.mutations) || (DUMB in user.mutations)) && prob(50))
+		if(((user.is_clumsy()) || (DUMB in user.mutations)) && prob(50))
 			var/which_hand = "l_hand"
 			if(!user.hand)
 				which_hand = "r_hand"
@@ -87,7 +87,7 @@
 
 /obj/item/device/assembly/mousetrap/Crossed(AM as mob|obj)
 	if(armed)
-		if(ismouse(AM))
+		if(israt(AM))
 			triggered(AM)
 		else if(istype(AM, /mob/living))
 			var/mob/living/L = AM
@@ -128,4 +128,4 @@
 		return
 
 	layer = TURF_LAYER+0.2
-	usr << "<span class='notice'>You hide [src].</span>"
+	to_chat(usr, "<span class='notice'>You hide [src].</span>")

@@ -29,7 +29,7 @@
 	if(istype(O, /obj/item/weapon/card/id) && !scan && user.unEquip(O))
 		O.forceMove(src)
 		scan = O
-		user << "You insert [O]."
+		to_chat(user, "You insert [O].")
 	else
 		..()
 
@@ -45,13 +45,13 @@
 	if(!usr || usr.stat || usr.lying || usr.restrained() || !Adjacent(usr))	return
 
 	if(scan)
-		usr << "You remove \the [scan] from \the [src]."
+		to_chat(usr, "You remove \the [scan] from \the [src].")
 		scan.forceMove(get_turf(src))
 		if(!usr.get_active_hand() && istype(usr,/mob/living/carbon/human))
 			usr.put_in_hands(scan)
 		scan = null
 	else
-		usr << "There is no ID card to remove from the console."
+		to_chat(usr, "There is no ID card to remove from the console.")
 	return
 
 /obj/machinery/computer/skills/attack_ai(mob/user as mob)
@@ -65,7 +65,7 @@
 
 /obj/machinery/computer/skills/ui_interact(mob/user as mob)
 	if (src.z > 6)
-		user << "<span class='danger'>Unable to establish a connection:</span> You're too far away from the station!"
+		to_chat(user, "<span class='danger'>Unable to establish a connection:</span> You're too far away from the station!")
 		return
 	var/dat
 
@@ -113,14 +113,15 @@
 					if ((istype(active1, /datum/data/record) && data_core.general.Find(active1)))
 						var/icon/front = active1.fields["photo_front"]
 						var/icon/side = active1.fields["photo_side"]
-						user << browse_rsc(front, "front.png")
-						user << browse_rsc(side, "side.png")
+						to_chat(user, browse_rsc(front, "front.png"))
+						to_chat(user, browse_rsc(side, "side.png"))
 						dat += text({"<table><tr><td>	\
 						<b>Name:</b> <A href='?src=\ref[src];choice=Edit Field;field=name'>[active1.fields["name"]]</A><BR>
 						<b>ID:</b> <A href='?src=\ref[src];choice=Edit Field;field=id'>[active1.fields["id"]]</A><BR>
 						<b>Sex:</b> <A href='?src=\ref[src];choice=Edit Field;field=sex'>[active1.fields["sex"]]</A><BR>
 						<b>Age:</b> <A href='?src=\ref[src];choice=Edit Field;field=age'>[active1.fields["age"]]</A><BR>
 						<b>Rank:</b> <A href='?src=\ref[src];choice=Edit Field;field=rank'>[active1.fields["rank"]]</A><BR>
+						<b>Employer:</b> [active1.fields["employer"]]<br>
 						<b>Citizenship:</b> <A href='?src=\ref[src];choice=Edit Field;field=citizenship'>[active1.fields["citizenship"]]</A><BR>
 						<b>Home System:</b> <A href='?src=\ref[src];choice=Edit Field;field=home_system'>[active1.fields["home_system"]]</A><BR>
 						<b>Religion:</b> <A href='?src=\ref[src];choice=Edit Field;field=religion'>[active1.fields["religion"]]</A><BR>
@@ -199,7 +200,7 @@ What a mess.*/
 		switch(href_list["choice"])
 // Open Action URL
 			if("openActionUrl")
-				usr << link(href_list["url"])
+				to_chat(usr, link(href_list["url"]))
 // SORTING!
 			if("Sorting")
 				// Reverse the order if clicked twice
@@ -289,22 +290,6 @@ What a mess.*/
 					for(var/datum/data/record/E in data_core.security)
 					active1 = R
 					screen = 3
-
-/*			if ("Search Fingerprints")
-				var/t1 = input("Search String: (Fingerprint)", "Secure. records", null, null)  as text
-				if ((!( t1 ) || usr.stat || !( authenticated ) || usr.restrained() || (!in_range(src, usr)) && (!istype(usr, /mob/living/silicon))))
-					return
-				active1 = null
-				t1 = lowertext(t1)
-				for(var/datum/data/record/R in data_core.general)
-					if (lowertext(R.fields["fingerprint"]) == t1)
-						active1 = R
-				if (!( active1 ))
-					temp = text("Could not locate record [].", t1)
-				else
-					for(var/datum/data/record/E in data_core.security)
-						if ((E.fields["name"] == active1.fields["name"] || E.fields["id"] == active1.fields["id"]))
-					screen = 3	*/
 
 			if ("Print Record")
 				var/obj/item/weapon/paper/P = new /obj/item/weapon/paper()

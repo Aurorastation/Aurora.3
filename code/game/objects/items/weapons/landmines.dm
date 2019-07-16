@@ -20,11 +20,11 @@
 	set name = "Hide"
 	set category = "Object"
 
-	if(use_check(usr, USE_DISALLOW_SILICONS))
+	if(use_check_and_message(usr, USE_DISALLOW_SILICONS))
 		return
 
 	layer = TURF_LAYER+0.2
-	usr << "<span class='notice'>You hide \the [src].</span>"
+	to_chat(usr, "<span class='notice'>You hide \the [src].</span>")
 
 
 /obj/item/weapon/landmine/attack_self(mob/user as mob)

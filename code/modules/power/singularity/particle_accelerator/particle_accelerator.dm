@@ -90,7 +90,7 @@ So, hopefully this is helpful if any more icons are to be added/changed/wonderin
 	set src in oview(1)
 
 	if (src.anchored || usr:stat)
-		usr << "It is fastened to the floor!"
+		to_chat(usr, "It is fastened to the floor!")
 		return 0
 	src.set_dir(turn(src.dir, 270))
 	return 1
@@ -101,7 +101,7 @@ So, hopefully this is helpful if any more icons are to be added/changed/wonderin
 	set src in oview(1)
 
 	if (src.anchored || usr:stat)
-		usr << "It is fastened to the floor!"
+		to_chat(usr, "It is fastened to the floor!")
 		return 0
 	src.set_dir(turn(src.dir, 90))
 	return 1
@@ -269,7 +269,7 @@ So, hopefully this is helpful if any more icons are to be added/changed/wonderin
 	set src in oview(1)
 
 	if (src.anchored || usr:stat)
-		usr << "It is fastened to the floor!"
+		to_chat(usr, "It is fastened to the floor!")
 		return 0
 	src.set_dir(turn(src.dir, 270))
 	return 1
@@ -280,7 +280,7 @@ So, hopefully this is helpful if any more icons are to be added/changed/wonderin
 	set src in oview(1)
 
 	if (src.anchored || usr:stat)
-		usr << "It is fastened to the floor!"
+		to_chat(usr, "It is fastened to the floor!")
 		return 0
 	src.set_dir(turn(src.dir, 90))
 	return 1

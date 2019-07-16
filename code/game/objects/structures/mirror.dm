@@ -14,7 +14,7 @@
 	if(shattered)	return
 
 	if(user.mind && user.mind.vampire && (!(user.mind.vampire.status & VAMP_ISTHRALL)))
-		user << "<span class='notice'>Your reflection appears distorted on the surface of \the [src].</span>"
+		to_chat(user, "<span class='notice'>Your reflection appears distorted on the surface of \the [src].</span>")
 
 	if(ishuman(user))
 		var/datum/nano_module/appearance_changer/AC = ui_users[user]
@@ -105,14 +105,14 @@
 /obj/item/weapon/mirror
 	name = "mirror"
 	desc = "A SalonPro Nano-Mirror(TM) brand mirror! Now a portable version."
-	icon = 'icons/obj/items.dmi'
+	icon = 'icons/obj/cosmetics.dmi'
 	icon_state = "mirror"
 	var/list/ui_users = list()
 
 /obj/item/weapon/mirror/attack_self(mob/user as mob)
 
 	if(user.mind && user.mind.vampire && (!(user.mind.vampire.status & VAMP_ISTHRALL)))
-		user << "<span class='notice'>Your reflection appears distorted on the surface of \the [src].</span>"
+		to_chat(user, "<span class='notice'>Your reflection appears distorted on the surface of \the [src].</span>")
 
 	if(ishuman(user))
 		var/datum/nano_module/appearance_changer/AC = ui_users[user]
@@ -144,7 +144,7 @@
 			var/choice = input("Do you wish to become a Vox? This is not reversible.") as null|anything in list("No","Yes")
 			if(choice == "Yes")
 				user.set_species("Vox")
-				user.species.equip_survival_gear(user)
+				user.species.before_equip(user)
 
 				var/newname = sanitizeSafe(input(user,"Enter a name, or leave blank for the default name.", "Name change","") as text, MAX_NAME_LEN)
 				if(!newname || newname == "")

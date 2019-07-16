@@ -1,6 +1,6 @@
 /obj/machinery/computer/telescience
 	name = "\improper Telepad Control Console"
-	desc = "Used to teleport objects to and from the telescience telepad."
+	desc = "Used to create bluespace portals using the telescience telepad."
 	icon_screen = "teleport"
 	light_color = LIGHT_COLOR_BLUE
 	circuit = /obj/item/weapon/circuitboard/telesci_console
@@ -20,7 +20,6 @@
 	var/rotation = 0
 	var/angle = 45
 	var/power = 5
-	var/potency = 0
 
 	// Based on the power used
 	var/teleport_cooldown = 0 // every index requires a bluespace crystal
@@ -40,7 +39,7 @@
 
 /obj/machinery/computer/telescience/examine(mob/user)
 	..()
-	user << "There are [crystals.len ? crystals.len : "no"] bluespace crystal\s in the crystal slots."
+	to_chat(user, "There are [crystals.len ? crystals.len : "no"] bluespace crystal\s in the crystal slots.")
 
 /obj/machinery/computer/telescience/Initialize()
 	. = ..()
@@ -51,7 +50,7 @@
 /obj/machinery/computer/telescience/attackby(obj/item/W, mob/user, params)
 	if(istype(W, /obj/item/bluespace_crystal))
 		if(crystals.len >= max_crystals)
-			user << "<span class='warning'>There are not enough crystal slots.</span>"
+			to_chat(user, "<span class='warning'>There are not enough crystal slots.</span>")
 			return
 		user.drop_item(src)
 		crystals += W
@@ -69,7 +68,7 @@
 		if(M.buffer && istype(M.buffer, /obj/machinery/telepad))
 			telepad = M.buffer
 			M.buffer = null
-			user << "<span class='caution'>You upload the data from the [W.name]'s buffer.</span>"
+			to_chat(user, "<span class='caution'>You upload the data from the [W.name]'s buffer.</span>")
 	else
 		..()
 
@@ -102,7 +101,7 @@
 		t += "<div class='statusDisplay'>"
 
 		for(var/i = 1; i <= power_options.len; i++)
-			if(crystals.len + telepad.efficiency - potency  < i)
+			if(crystals.len + telepad.efficiency < i)
 				t += "<span class='linkOff'>[power_options[i]]</span>"
 				continue
 			if(power == power_options[i])
@@ -114,11 +113,7 @@
 		t += "<A href='?src=\ref[src];setz=1'>Set Sector</A>"
 		t += "<div class='statusDisplay'>[z_co ? z_co : "NULL"]</div>"
 
-		t += " <A href='?src=\ref[src];scalar=1'>Recalibrate Warp-Funnel</A>"
-		t += "<div class='statusDisplay'>[potency]</div>"
-
-		t += "<BR><A href='?src=\ref[src];send=1'>Send</A>"
-		t += " <A href='?src=\ref[src];receive=1'>Receive</A>"
+		t += "<BR><A href='?src=\ref[src];send=1'>Open Portal</A>"
 		t += "<BR><A href='?src=\ref[src];recal=1'>Recalibrate Crystals</A> <A href='?src=\ref[src];eject=1'>Eject Crystals</A>"
 
 		// Information about the last teleport
@@ -175,7 +170,7 @@
 		var/area/A = get_area(target)
 		flick("pad-beam", telepad)
 
-		if(spawn_time > (15 * (potency + 1))) // 1.5 seconds
+		if(spawn_time > 15 ) // 1.5 seconds
 			playsound(telepad.loc, 'sound/weapons/flash.ogg', 25, 1)
 			// Wait depending on the time the projectile took to get there
 			teleporting = 1
@@ -188,15 +183,15 @@
 			if(telepad.stat & NOPOWER)
 				return
 			teleporting = 0
-			teleport_cooldown = world.time + (power * 2 * (potency + 1))
+			teleport_cooldown = world.time + (power * 2)
 			teles_left -= 1
 
 			// use a lot of power
-			use_power(power * 10 * (potency + 1))
+			use_power(power * 10)
 
 			spark(telepad, 5, alldirs)
 
-			temp_msg = "Teleport successful.<BR>"
+			temp_msg = "Bluespace portal creation successful.<BR>"
 			if(teles_left < 10)
 				temp_msg += "<BR>Calibration required soon."
 			else
@@ -215,44 +210,18 @@
 
 			flick("pad-beam", telepad)
 			playsound(telepad.loc, 'sound/weapons/emitter2.ogg', 25, 1, extrarange = 3, falloff = 5)
-			for(var/atom/movable/ROI in range(potency,source))
-				// if is anchored, don't let through
-				if(ROI.anchored)
-					if(isliving(ROI))
-						var/mob/living/L = ROI
-						if(L.buckled)
-							// TP people on office chairs
-							if(L.buckled.anchored)
-								continue
 
-							log_msg += "[key_name(L)] (on a chair), "
-						else
-							continue
-					else if(!isobserver(ROI))
-						continue
-				if(ismob(ROI))
-					var/mob/T = ROI
-					log_msg += "[key_name(T)], "
-				else
-					log_msg += "[ROI.name]"
-					if (istype(ROI, /obj/structure/closet))
-						var/obj/structure/closet/C = ROI
-						log_msg += " ("
-						for(var/atom/movable/Q as mob|obj in C)
-							if(ismob(Q))
-								log_msg += "[key_name(Q)], "
-							else
-								log_msg += "[Q.name], "
-						if (dd_hassuffix(log_msg, "("))
-							log_msg += "empty)"
-						else
-							log_msg = dd_limittext(log_msg, length(log_msg) - 2)
-							log_msg += ")"
-					log_msg += ", "
-				var/x_offset = ROI.x - source.x
-				var/y_offset = ROI.y - source.y
+			var/total_lifespawn = 25 * crystals.len
+			var/total_failchance = crystals.len
 
-				do_teleport(ROI, locate(dest.x + x_offset, dest.y + y_offset, dest.z))
+			var/obj/effect/portal/origin = new /obj/effect/portal(dest, null, null, total_lifespawn)
+			var/obj/effect/portal/destination = new /obj/effect/portal(source,  null, null, total_lifespawn)
+
+			origin.target = destination
+			destination.target = origin
+
+			origin.failchance = total_failchance
+			destination.failchance = total_failchance
 
 			if (dd_hassuffix(log_msg, ", "))
 				log_msg = dd_limittext(log_msg, length(log_msg) - 2)
@@ -270,11 +239,15 @@
 		telefail()
 		temp_msg = "ERROR!<BR>No power selected!"
 		return
+	if(telepad)
+		if(locate(/obj/effect/portal, telepad.loc))
+			temp_msg = "ERROR!<BR>Bluespace portal located at \the [telepad] location!"
+			return
 	if(angle < 1 || angle > 90)
 		telefail()
 		temp_msg = "ERROR!<BR>Elevation is less than 1 or greater than 90."
 		return
-	if(z_co in current_map.admin_levels)
+	if(!(z_co in current_map.player_levels))
 		telefail()
 		temp_msg = "ERROR! Sector is invalid! Valid sectors are [english_list(current_map.player_levels)]."
 		return
@@ -318,7 +291,7 @@
 		var/index = href_list["setpower"]
 		index = text2num(index)
 		if(index != null && power_options[index])
-			if(crystals.len + telepad.efficiency - potency >= index)
+			if(crystals.len + telepad.efficiency >= index)
 				power = power_options[index]
 
 	if(href_list["setz"])
@@ -342,20 +315,6 @@
 	if(href_list["send"])
 		sending = 1
 		teleport(usr)
-
-	if(href_list["receive"])
-		sending = 0
-		teleport(usr)
-
-	if(href_list["scalar"])
-		if(potency < max(0, crystals.len - 2))
-			potency++
-		else
-			potency = 0
-		if(crystals.len + telepad.efficiency - potency <= 0)
-			power = power_options[1]
-		else if(power_options[crystals.len + telepad.efficiency - potency] < power)
-			power = power_options[crystals.len + telepad.efficiency - potency]
 
 	if(href_list["recal"])
 		recalibrate()

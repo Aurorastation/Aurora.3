@@ -178,7 +178,7 @@
 
 	//hit messages
 	if(silenced)
-		target_mob << "<span class='danger'>You've been hit in the [parse_zone(def_zone)] by \the [src]!</span>"
+		to_chat(target_mob, "<span class='danger'>You've been hit in the [parse_zone(def_zone)] by \the [src]!</span>")
 	else
 		target_mob.visible_message("<span class='danger'>\The [target_mob] is hit by \the [src] in the [parse_zone(def_zone)]!</span>")//X has fired Y is now given by the guns so you cant tell who shot you if you could not see the shooter
 
@@ -284,6 +284,8 @@
 		setAngle(angle)
 	// trajectory dispersion
 	var/turf/starting = get_turf(src)
+	if(!starting)
+		return
 	if(isnull(Angle))	//Try to resolve through offsets if there's no angle set.
 		if(isnull(xo) || isnull(yo))
 			crash_with("WARNING: Projectile [type] deleted due to being unable to resolve a target after angle was null!")
@@ -315,10 +317,6 @@
 	forceMove(get_turf(source))
 	starting = get_turf(source)
 	original = target
-	if(targloc || !params)
-		yo = targloc.y - curloc.y
-		xo = targloc.x - curloc.x
-		setAngle(Get_Angle(src, targloc))
 
 	var/list/calculated = list(null,null,null)
 	if(isliving(source) && params)
@@ -327,7 +325,7 @@
 		p_y = calculated[3]
 		setAngle(calculated[1])
 
-	else if(targloc)
+	else if(targloc && curloc)
 		yo = targloc.y - curloc.y
 		xo = targloc.x - curloc.x
 		setAngle(Get_Angle(src, targloc))

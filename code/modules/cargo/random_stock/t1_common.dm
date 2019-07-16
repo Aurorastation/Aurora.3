@@ -65,12 +65,6 @@ STOCK_ITEM_COMMON(lamp, 2.4)
 STOCK_ITEM_COMMON(mousetrap, 2)
 	new /obj/item/weapon/storage/box/mousetraps(L)
 
-STOCK_ITEM_COMMON(donk, 2)
-	if (prob(10))
-		new /obj/item/weapon/storage/box/sinpockets(L)
-	else
-		new /obj/item/weapon/storage/box/donkpockets(L)
-
 STOCK_ITEM_COMMON(sterile, 2)
 	new /obj/item/weapon/storage/box/gloves(L)
 	new /obj/item/weapon/storage/box/masks(L)
@@ -124,8 +118,8 @@ STOCK_ITEM_COMMON(smokes, 2)
 		new /obj/item/weapon/storage/fancy/cigar(L)
 		new /obj/item/weapon/storage/fancy/cigar(L)
 	else
-		new /obj/item/weapon/storage/fancy/cigarettes/custom(L)
-		new /obj/item/weapon/storage/fancy/cigarettes/custom(L)
+		new /obj/item/weapon/storage/fancy/cigarettes/blank(L)
+		new /obj/item/weapon/storage/fancy/cigarettes/blank(L)
 		if (prob(50))
 			new /obj/item/weapon/storage/fancy/cigarettes/dromedaryco(L)
 			new /obj/item/weapon/storage/fancy/cigarettes/dromedaryco(L)
@@ -155,16 +149,6 @@ STOCK_ITEM_COMMON(smallcell, 4)
 			/obj/item/weapon/cell/high \
 		)
 		new type(L)
-
-STOCK_ITEM_COMMON(robolimb, 2.5)
-	var/manufacturer = pick(all_robolimbs)
-	var/limbtype = pick( \
-		/obj/item/robot_parts/l_arm, \
-		/obj/item/robot_parts/r_arm, \
-		/obj/item/robot_parts/l_leg, \
-		/obj/item/robot_parts/r_leg \
-	)
-	new limbtype(L, manufacturer)
 
 //Spawns a random circuitboard
 //Allboards being a global list might be faster, but it didnt seem worth the extra memory
@@ -258,6 +242,8 @@ STOCK_ITEM_COMMON(gloves, 3.3)
 	exclusion += typesof(/obj/item/clothing/gloves/rig)
 	exclusion += typesof(/obj/item/clothing/gloves/lightrig)
 	exclusion += typesof(/obj/item/clothing/gloves/watch)
+	exclusion += typesof(/obj/item/clothing/gloves/fluff)
+	exclusion += typesof(/obj/item/clothing/gloves/yellow/fluff)
 	allgloves -= exclusion
 
 	for (var/i in 1 to rand(1, 5))
@@ -461,16 +447,23 @@ STOCK_ITEM_COMMON(target, 2)
 STOCK_ITEM_COMMON(snacks, 4)
 	//Snackboxes are much more likely to spawn on tables than in crates.
 	//This ensures the cargo bay will have a supply of food in an obtainable place for animals
-	//allows nymphs and mice to raid it for nutrients, and thus gives playermice more
+	//allows nymphs and rats to raid it for nutrients, and thus gives player rats more
 	//reason to infest the warehouse
 	if (CS && prob(65))
 		if (!isturf(L))
 			L = get_turf(pick(CS.tables))
 
-	if(prob(50))
-		new /obj/item/weapon/storage/box/snack(L)
-	else
-		new /obj/item/weapon/storage/box/produce(L)
+	var/list/snacks = list(
+		/obj/item/weapon/storage/box/donkpockets = 10,
+		/obj/item/weapon/storage/box/sinpockets = 5,
+		/obj/item/weapon/storage/box/snack = 10,
+		/obj/item/weapon/storage/box/produce = 8,
+		/obj/item/weapon/storage/field_ration = 3,
+		/obj/item/weapon/storage/field_ration/nka = 1
+	)
+
+	var/type = pickweight(snacks)
+	new type(L)
 
 STOCK_ITEM_COMMON(oxytank, 2.5)
 	new /obj/item/weapon/tank/oxygen(L)

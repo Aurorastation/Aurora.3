@@ -12,14 +12,14 @@
 /datum/uplink_item/abstract/announcements/fake_centcom/New()
 	..()
 	name = "[current_map.boss_name] Update Announcement"
-	item_cost = round(DEFAULT_TELECRYSTAL_AMOUNT / 2)
+	item_cost = round(DEFAULT_TELECRYSTAL_AMOUNT / 3)
 	desc = "Causes a falsified [current_map.boss_name] Update. Triggers immediately after supplying additional data."
 
 /datum/uplink_item/abstract/announcements/fake_centcom/extra_args(var/mob/user)
 	var/title = sanitize(input("Enter your announcement title.", "Announcement Title") as null|text)
 	if(!title)
 		return
-	var/message = sanitize(input("Enter your announcement message.", "Announcement Title") as null|text)
+	var/message = sanitize(input("Enter your announcement message.", "Announcement Title") as null|message)
 	if(!message)
 		return
 	return list("title" = title, "message" = message)
@@ -74,7 +74,7 @@
 
 	if(!random_general_record)
 		general.fields["citizenship"]	= random_general_record.fields["citizenship"]
-		general.fields["faction"] 		= random_general_record.fields["faction"]
+		general.fields["employer"] 		= random_general_record.fields["employer"]
 		general.fields["fingerprint"] 	= random_general_record.fields["fingerprint"]
 		general.fields["home_system"] 	= random_general_record.fields["home_system"]
 		general.fields["religion"] 		= random_general_record.fields["religion"]
@@ -104,13 +104,13 @@
 			cooldown = 0
 		return 1
 	else
-		loc << "<span class='danger'>This service is on cooldown! Try again in a bit!</span>"
+		to_chat(loc, "<span class='danger'>This service is on cooldown! Try again in a bit!</span>")
 		return 0
 
 /datum/uplink_item/abstract/announcements/fake_radiation
 	name = "Radiation Storm Announcement"
 	desc = "Interferes with the station's radiation sensors. Triggers immediately upon investment."
-	item_cost = 6
+	item_cost = 4
 
 /datum/uplink_item/abstract/announcements/fake_radiation/get_goods(var/obj/item/device/uplink/U, var/loc)
 	var/static/cooldown = 0
@@ -122,5 +122,5 @@
 			cooldown = 0
 		return 1
 	else
-		loc << "<span class='danger'>This service is on cooldown! Try again in a bit!</span>"
+		to_chat(loc, "<span class='danger'>This service is on cooldown! Try again in a bit!</span>")
 		return 0

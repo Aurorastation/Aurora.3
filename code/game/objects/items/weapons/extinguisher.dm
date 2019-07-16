@@ -1,7 +1,7 @@
 /obj/item/weapon/reagent_containers/extinguisher_refill
 	name = "extinguisher refiller"
 	desc = "A one time use extinguisher refiller that allows fire extinguishers to be refilled with an aerosol mix. Just pour in the reagents and twist."
-	icon = 'icons/obj/items.dmi'
+	icon = 'icons/obj/chemical.dmi'
 	icon_state = "metal_canister"
 	item_state = "metal_canister"
 	hitsound = 'sound/weapons/smash.ogg'
@@ -16,6 +16,7 @@
 	amount_per_transfer_from_this = 300
 	possible_transfer_amounts = null
 	volume = 300
+	drop_sound = 'sound/items/drop/gascan.ogg'
 
 /obj/item/weapon/reagent_containers/extinguisher_refill/attackby(var/obj/O as obj, var/mob/user as mob)
 
@@ -74,7 +75,7 @@
 /obj/item/weapon/extinguisher
 	name = "fire extinguisher"
 	desc = "A traditional red fire extinguisher."
-	icon = 'icons/obj/items.dmi'
+	icon = 'icons/obj/chemical.dmi'
 	icon_state = "fire_extinguisher0"
 	item_state = "fire_extinguisher"
 	hitsound = 'sound/weapons/smash.ogg'
@@ -86,6 +87,7 @@
 	force = 10.0
 	matter = list(DEFAULT_WALL_MATERIAL = 90)
 	attack_verb = list("slammed", "whacked", "bashed", "thunked", "battered", "bludgeoned", "thrashed")
+	drop_sound = 'sound/items/drop/gascan.ogg'
 
 	var/spray_particles = 3
 	var/spray_amount = 10	//units of liquid per particle
@@ -126,7 +128,7 @@
 	safety = !safety
 	src.icon_state = "[sprite_name][!safety]"
 	src.desc = "The safety is [safety ? "on" : "off"]."
-	user << "The safety is [safety ? "on" : "off"]."
+	to_chat(user, "The safety is [safety ? "on" : "off"].")
 	return
 
 /obj/item/weapon/extinguisher/attackby(var/obj/O as obj, var/mob/user as mob)
@@ -169,7 +171,7 @@
 
 	if (!safety)
 		if (src.reagents.total_volume < 1)
-			usr << "<span class='notice'>\The [src] is empty.</span>"
+			to_chat(usr, "<span class='notice'>\The [src] is empty.</span>")
 			return
 
 		if (world.time < src.last_use + 20)

@@ -84,16 +84,16 @@
 		return
 
 	if(maxcharge <= 2500)
-		user << "[desc]\nThe manufacturer's label states this cell has a power rating of [maxcharge], and that you should not swallow it.\nThe charge meter reads [round(src.percent() )]%."
+		to_chat(user, "[desc]\nThe manufacturer's label states this cell has a power rating of [maxcharge], and that you should not swallow it.\nThe charge meter reads [round(src.percent() )]%.")
 	else
-		user << "This power cell has an exciting chrome finish, as it is an uber-capacity cell type! It has a power rating of [maxcharge]!\nThe charge meter reads [round(src.percent() )]%."
+		to_chat(user, "This power cell has an exciting chrome finish, as it is an uber-capacity cell type! It has a power rating of [maxcharge]!\nThe charge meter reads [round(src.percent() )]%.")
 
 /obj/item/weapon/cell/attackby(obj/item/W, mob/user)
 	..()
 	if(istype(W, /obj/item/weapon/reagent_containers/syringe))
 		var/obj/item/weapon/reagent_containers/syringe/S = W
 
-		user << "You inject the solution into the power cell."
+		to_chat(user, "You inject the solution into the power cell.")
 
 		if(S.reagents.has_reagent("phoron", 5))
 
@@ -112,7 +112,7 @@
 
 			new /obj/item/device/radiojammer/improvised(assembly, src, user)
 		else
-			user << "<span class='notice'>You'd need both devices to be signallers for this to work.</span>"
+			to_chat(user, "<span class='notice'>You'd need both devices to be signallers for this to work.</span>")
 
 /obj/item/weapon/cell/proc/explode()
 	var/turf/T = get_turf(src.loc)

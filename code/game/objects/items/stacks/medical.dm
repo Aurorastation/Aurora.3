@@ -1,7 +1,17 @@
+/*
+Contains:
+- Bruise Pack
+- Ointment
+- Advanced Trauma Kit
+- Advanced Burn Kit
+- Space Klot
+
+*/
 /obj/item/stack/medical
 	name = "medical pack"
 	singular_name = "medical pack"
-	icon = 'icons/obj/items.dmi'
+	icon = 'icons/obj/stacks/medical.dmi'
+	drop_sound = 'sound/items/drop/box.ogg'
 	amount = 5
 	max_amount = 5
 	w_class = 2
@@ -13,12 +23,12 @@
 
 /obj/item/stack/medical/attack(mob/living/M as mob, mob/user as mob)
 	if (!istype(M) || istype(M, /mob/living/silicon) || istype(M, /mob/living/simple_animal/spiderbot))
-		user << "<span class='warning'>\The [src] cannot be applied to [M]!</span>"
+		to_chat(user, "<span class='warning'>\The [src] cannot be applied to [M]!</span>")
 		return 1
 
 	if ( ! (istype(user, /mob/living/carbon/human) || \
 			istype(user, /mob/living/silicon)) )
-		user << "<span class='warning'>You don't have the dexterity to do this!</span>"
+		to_chat(user, "<span class='warning'>You don't have the dexterity to do this!</span>")
 		return 1
 
 	if (istype(M, /mob/living/carbon/human))
@@ -27,22 +37,22 @@
 
 		if(affecting.name == "head")
 			if(H.head && istype(H.head,/obj/item/clothing/head/helmet/space))
-				user << "<span class='warning'>You can't apply [src] through [H.head]!</span>"
+				to_chat(user, "<span class='warning'>You can't apply [src] through [H.head]!</span>")
 				return 1
 		else
 			if(H.wear_suit && istype(H.wear_suit,/obj/item/clothing/suit/space))
-				user << "<span class='warning'>You can't apply [src] through [H.wear_suit]!</span>"
+				to_chat(user, "<span class='warning'>You can't apply [src] through [H.wear_suit]!</span>")
 				return 1
 
 		if(affecting.status & ORGAN_ASSISTED)
-			user << "<span class='warning'>This isn't useful at all on a robotic limb..</span>"
+			to_chat(user, "<span class='warning'>This isn't useful at all on a robotic limb..</span>")
 			return 1
 
 		H.UpdateDamageIcon()
 
 	else
 		if (!M.bruteloss && !M.fireloss)
-			user << "<span class='notice'> [M] seems healthy, there are no wounds to treat! </span>"
+			to_chat(user, "<span class='notice'> [M] seems healthy, there are no wounds to treat! </span>")
 			return 1
 
 		user.visible_message( \
@@ -58,6 +68,8 @@
 			use(1)
 
 	M.updatehealth()
+
+// Bruise Pack.
 /obj/item/stack/medical/bruise_pack
 	name = "roll of gauze"
 	singular_name = "gauze length"
@@ -67,6 +79,7 @@
 	heal_brute = 4
 	icon_has_variants = TRUE
 	apply_sounds = list('sound/items/rip1.ogg','sound/items/rip2.ogg')
+	drop_sound = 'sound/items/drop/gloves.ogg'
 
 /obj/item/stack/medical/bruise_pack/attack(mob/living/carbon/M as mob, mob/user as mob)
 	if(..())
@@ -78,7 +91,7 @@
 
 		if(affecting.open == 0)
 			if(affecting.is_bandaged())
-				user << "<span class='warning'>The wounds on [M]'s [affecting.name] have already been bandaged.</span>"
+				to_chat(user, "<span class='warning'>The wounds on [M]'s [affecting.name] have already been bandaged.</span>")
 				return 1
 			else
 				user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
@@ -93,7 +106,7 @@
 					if(used == amount)
 						break
 					if(!do_mob(user, M, W.damage/5))
-						user << "<span class='notice'>You must stand still to bandage wounds.</span>"
+						to_chat(user, "<span class='notice'>You must stand still to bandage wounds.</span>")
 						break
 					if (W.current_stage <= W.max_bleeding_stage)
 						user.visible_message("<span class='notice'>\The [user] bandages \a [W.desc] on [M]'s [affecting.name].</span>", \
@@ -111,17 +124,18 @@
 				affecting.update_damages()
 				if(used == amount)
 					if(affecting.is_bandaged())
-						user << "<span class='warning'>\The [src] is used up.</span>"
+						to_chat(user, "<span class='warning'>\The [src] is used up.</span>")
 					else
-						user << "<span class='warning'>\The [src] is used up, but there are more wounds to treat on \the [affecting.name].</span>"
+						to_chat(user, "<span class='warning'>\The [src] is used up, but there are more wounds to treat on \the [affecting.name].</span>")
 				use(used)
 		else
 			if (can_operate(H))        //Checks if mob is lying down on table for surgery
 				if (do_surgery(H,user,src))
 					return
 			else
-				user << "<span class='notice'>The [affecting.name] is cut open, you'll need more than a bandage!</span>"
+				to_chat(user, "<span class='notice'>The [affecting.name] is cut open, you'll need more than a bandage!</span>")
 
+// Ointment.
 /obj/item/stack/medical/ointment
 	name = "ointment"
 	desc = "Used to treat those nasty burns."
@@ -132,6 +146,7 @@
 	origin_tech = list(TECH_BIO = 1)
 	icon_has_variants = TRUE
 	apply_sounds = list('sound/items/ointment.ogg')
+	drop_sound = 'sound/items/drop/herb.ogg'
 
 /obj/item/stack/medical/ointment/attack(mob/living/carbon/M as mob, mob/user as mob)
 	if(..())
@@ -143,7 +158,7 @@
 
 		if(affecting.open == 0)
 			if(affecting.is_salved())
-				user << "<span class='warning'>The wounds on [M]'s [affecting.name] have already been salved.</span>"
+				to_chat(user, "<span class='warning'>The wounds on [M]'s [affecting.name] have already been salved.</span>")
 				return 1
 			else
 				user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
@@ -151,7 +166,7 @@
 						             "<span class='notice'>You start salving the wounds on [M]'s [affecting.name].</span>" )
 				playsound(src, pick(apply_sounds), 25)
 				if(!do_mob(user, M, 10))
-					user << "<span class='notice'>You must stand still to salve wounds.</span>"
+					to_chat(user, "<span class='notice'>You must stand still to salve wounds.</span>")
 					return 1
 				user.visible_message("<span class='notice'>[user] salved wounds on [M]'s [affecting.name].</span>", \
 				                         "<span class='notice'>You salved wounds on [M]'s [affecting.name].</span>" )
@@ -162,8 +177,9 @@
 				if (do_surgery(H,user,src))
 					return
 			else
-				user << "<span class='notice'>The [affecting.name] is cut open, you'll need more than a bandage!</span>"
+				to_chat(user, "<span class='notice'>The [affecting.name] is cut open, you'll need more than a bandage!</span>")
 
+// Advanced Trauma Kit.
 /obj/item/stack/medical/advanced/bruise_pack
 	name = "advanced trauma kit"
 	singular_name = "advanced trauma kit"
@@ -183,7 +199,7 @@
 
 		if(affecting.open == 0)
 			if(affecting.is_bandaged() && affecting.is_disinfected())
-				user << "<span class='warning'>The wounds on [M]'s [affecting.name] have already been treated.</span>"
+				to_chat(user, "<span class='warning'>The wounds on [M]'s [affecting.name] have already been treated.</span>")
 				return 1
 			else
 				user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
@@ -198,7 +214,7 @@
 					if(used == amount)
 						break
 					if(!do_mob(user, M, W.damage/5))
-						user << "<span class='notice'>You must stand still to bandage wounds.</span>"
+						to_chat(user, "<span class='notice'>You must stand still to bandage wounds.</span>")
 						break
 					if (W.current_stage <= W.max_bleeding_stage)
 						user.visible_message("<span class='notice'>\The [user] cleans \a [W.desc] on [M]'s [affecting.name] and seals the edges with bioglue.</span>", \
@@ -218,17 +234,18 @@
 				affecting.update_damages()
 				if(used == amount)
 					if(affecting.is_bandaged())
-						user << "<span class='warning'>\The [src] is used up.</span>"
+						to_chat(user, "<span class='warning'>\The [src] is used up.</span>")
 					else
-						user << "<span class='warning'>\The [src] is used up, but there are more wounds to treat on \the [affecting.name].</span>"
+						to_chat(user, "<span class='warning'>\The [src] is used up, but there are more wounds to treat on \the [affecting.name].</span>")
 				use(used)
 		else
 			if (can_operate(H))        //Checks if mob is lying down on table for surgery
 				if (do_surgery(H,user,src))
 					return
 			else
-				user << "<span class='notice'>The [affecting.name] is cut open, you'll need more than a bandage!</span>"
+				to_chat(user, "<span class='notice'>The [affecting.name] is cut open, you'll need more than a bandage!</span>")
 
+// Advanced Burn Kit.
 /obj/item/stack/medical/advanced/ointment
 	name = "advanced burn kit"
 	singular_name = "advanced burn kit"
@@ -248,7 +265,7 @@
 
 		if(affecting.open == 0)
 			if(affecting.is_salved())
-				user << "<span class='warning'>The wounds on [M]'s [affecting.name] have already been salved.</span>"
+				to_chat(user, "<span class='warning'>The wounds on [M]'s [affecting.name] have already been salved.</span>")
 				return 1
 			else
 				user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
@@ -256,7 +273,7 @@
 						             "<span class='notice'>You start salving the wounds on [M]'s [affecting.name].</span>" )
 				playsound(src, pick(apply_sounds), 25)
 				if(!do_mob(user, M, 10))
-					user << "<span class='notice'>You must stand still to salve wounds.</span>"
+					to_chat(user, "<span class='notice'>You must stand still to salve wounds.</span>")
 					return 1
 				user.visible_message( 	"<span class='notice'>[user] covers wounds on [M]'s [affecting.name] with regenerative membrane.</span>", \
 										"<span class='notice'>You cover wounds on [M]'s [affecting.name] with regenerative membrane.</span>" )
@@ -268,14 +285,68 @@
 				if (do_surgery(H,user,src))
 					return
 			else
-				user << "<span class='notice'>The [affecting.name] is cut open, you'll need more than a bandage!</span>"
+				to_chat(user, "<span class='notice'>The [affecting.name] is cut open, you'll need more than a bandage!</span>")
+
+// Space Klot. This stops bleeding and has a small chance to stop some internal bleeding, but it will be locked behind a tech tree + does not disinfect like a normal bruise pack.
+/obj/item/stack/medical/advanced/bruise_pack/spaceklot
+	name = "space klot"
+	singular_name = "space klot"
+	desc = "A powder that, when poured on an open wound, quickly stops the bleeding. Combine with bandages for the best effect."
+	icon_state = "powderbag"
+	heal_brute = 15
+	origin_tech = list(TECH_BIO = 4)
+	var/open = 0
+	var/used = 0
+
+/obj/item/stack/medical/advanced/bruise_pack/spaceklot/attack(mob/living/carbon/M as mob, mob/user as mob)
+	if(..())
+		return 1
+	if(used)
+		return
+	if(ishuman(M))
+		var/mob/living/carbon/human/H = M
+		var/obj/item/organ/external/affecting = H.get_organ(user.zone_sel.selecting)
+
+		if(affecting.open == 0)
+			if(affecting.is_bandaged())
+				to_chat(user, "<span class='warning'>The wounds on [M]'s [affecting.name] have already been treated.</span>")
+				return 1
+			else
+				user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
+				user.visible_message("<span class='notice'>\The [user] starts treating [M]'s [affecting.name].</span>", \
+						             "<span class='notice'>You start treating [M]'s [affecting.name].</span>" )
+				if(!do_after(user, 100, act_target = M))
+					return
+				for (var/datum/wound/W in affecting.wounds)
+					if (W.internal)
+						if(prob(25)) // Space Klot technology.
+							W.heal_damage(heal_brute, 1)
+					if (W.bandaged)
+						continue
+					if(used == amount)
+						break
+					if(!do_mob(user, M, W.damage/5))
+						to_chat(user, "<span class='notice'>You must stand still to bandage wounds.</span>")
+						break
+					if (W.current_stage <= W.max_bleeding_stage)
+						user.visible_message("<span class='notice'>\The [user] pours the powder \a [W.desc] on [M]'s [affecting.name].</span>", \
+						                     "<span class='notice'>You pour the powder \a [W.desc] on [M]'s [affecting.name].</span>" )
+
+					W.bandage()
+					W.heal_damage(heal_brute, 0)
+					used = 1
+				affecting.update_damages()
+
 
 /obj/item/stack/medical/splint
 	name = "medical splints"
+	desc = "Modular splints capable of supporting and immobilizing bones in both limbs and appendages."
 	singular_name = "medical splint"
 	icon_state = "splint"
 	amount = 5
 	max_amount = 5
+	drop_sound = 'sound/items/drop/hat.ogg'
+	var/list/splintable_organs = list("l_arm","r_arm","l_leg","r_leg", "l_hand", "r_hand", "r_foot", "l_foot")
 
 /obj/item/stack/medical/splint/attack(mob/living/carbon/M as mob, mob/user as mob)
 	if(..())
@@ -285,17 +356,17 @@
 		var/mob/living/carbon/human/H = M
 		var/obj/item/organ/external/affecting = H.get_organ(user.zone_sel.selecting)
 		var/limb = affecting.name
-		if(!(affecting.limb_name in list("l_arm","r_arm","l_leg","r_leg", "l_hand", "r_hand", "r_foot", "l_foot")))
-			user << "<span class='danger'>You can't apply a splint there!</span>"
+		if(!(affecting.limb_name in splintable_organs))
+			to_chat(user, "<span class='danger'>You can't apply a splint there!</span>")
 			return
 		if(affecting.status & ORGAN_SPLINTED)
-			user << "<span class='danger'>[M]'s [limb] is already splinted!</span>"
+			to_chat(user, "<span class='danger'>[M]'s [limb] is already splinted!</span>")
 			return
 		if (M != user)
 			user.visible_message("<span class='danger'>[user] starts to apply \the [src] to [M]'s [limb].</span>", "<span class='danger'>You start to apply \the [src] to [M]'s [limb].</span>", "<span class='danger'>You hear something being wrapped.</span>")
 		else
 			if((!user.hand && affecting.limb_name == "r_arm") || (user.hand && affecting.limb_name == "l_arm"))
-				user << "<span class='danger'>You can't apply a splint to the arm you're using!</span>"
+				to_chat(user, "<span class='danger'>You can't apply a splint to the arm you're using!</span>")
 				return
 			user.visible_message("<span class='danger'>[user] starts to apply \the [src] to their [limb].</span>", "<span class='danger'>You start to apply \the [src] to your [limb].</span>", "<span class='danger'>You hear something being wrapped.</span>")
 		if(do_after(user, 50))
@@ -310,3 +381,12 @@
 			affecting.status |= ORGAN_SPLINTED
 			use(1)
 		return
+
+
+/obj/item/stack/medical/splint/makeshift
+	name = "makeshift splints"
+	singular_name = "makeshift splint"
+	desc = "For holding your limbs in place with duct tape and scrap metal."
+	icon_state = "tape-splint"
+	amount = 1
+	splintable_organs = list("l_arm","r_arm","l_leg","r_leg")

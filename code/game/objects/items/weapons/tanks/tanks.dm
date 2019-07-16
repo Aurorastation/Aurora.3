@@ -5,6 +5,7 @@
 /obj/item/weapon/tank
 	name = "tank"
 	icon = 'icons/obj/tank.dmi'
+	drop_sound = 'sound/items/drop/gascan.ogg'
 
 	var/gauge_icon = "indicator_tank"
 	var/last_gauge_pressure
@@ -18,10 +19,6 @@
 	throwforce = 10.0
 	throw_speed = 1
 	throw_range = 4
-
-	sprite_sheets = list(
-		"Resomi" = 'icons/mob/species/resomi/back.dmi'
-		)
 
 	var/datum/gas_mixture/air_contents = null
 	var/distribute_pressure = ONE_ATMOSPHERE
@@ -68,7 +65,7 @@
 				descriptive = "room temperature"
 			else
 				descriptive = "cold"
-		user << "<span class='notice'>\The [src] feels [descriptive].</span>"
+		to_chat(user, "<span class='notice'>\The [src] feels [descriptive].</span>")
 
 /obj/item/weapon/tank/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	..()
@@ -171,7 +168,7 @@
 			if(location.internal == src)
 				location.internal = null
 				location.internals.icon_state = "internal0"
-				usr << "<span class='notice'>You close the tank release valve.</span>"
+				to_chat(usr, "<span class='notice'>You close the tank release valve.</span>")
 				if (location.internals)
 					location.internals.icon_state = "internal0"
 			else
@@ -186,11 +183,11 @@
 
 				if(can_open_valve)
 					location.internal = src
-					usr << "<span class='notice'>You open \the [src] valve.</span>"
+					to_chat(usr, "<span class='notice'>You open \the [src] valve.</span>")
 					if (location.internals)
 						location.internals.icon_state = "internal1"
 				else
-					usr << "<span class='warning'>You need something to connect to \the [src].</span>"
+					to_chat(usr, "<span class='warning'>You need something to connect to \the [src].</span>")
 
 	src.add_fingerprint(usr)
 	return 1

@@ -29,11 +29,11 @@
 		return
 
 	if(contents.len <= 0)
-		user << "There are no [src.icon_type]s left in the box."
+		to_chat(user, "There are no [src.icon_type]s left in the box.")
 	else if(contents.len == 1)
-		user << "There is one [src.icon_type] left in the box."
+		to_chat(user, "There is one [src.icon_type] left in the box.")
 	else
-		user << "There are [src.contents.len] [src.icon_type]s in the box."
+		to_chat(user, "There are [src.contents.len] [src.icon_type]s in the box.")
 
 	return
 
@@ -110,10 +110,10 @@
 	if(istype(W,/obj/item/weapon/pen/crayon))
 		switch(W:colourName)
 			if("mime")
-				usr << "This crayon is too sad to be contained in this box."
+				to_chat(usr, "This crayon is too sad to be contained in this box.")
 				return
 			if("rainbow")
-				usr << "This crayon is too powerful to be contained in this box."
+				to_chat(usr, "This crayon is too powerful to be contained in this box.")
 				return
 	..()
 
@@ -123,7 +123,7 @@
 /obj/item/weapon/storage/fancy/cigarettes
 	name = "cigarette packet"
 	desc = "The most popular brand of Space Cigarettes, sponsors of the Space Olympics."
-	icon = 'icons/obj/cigarettes.dmi'
+	icon = 'icons/obj/cigs_lighters.dmi'
 	icon_state = "cigpacket"
 	item_state = "cigpacket"
 	w_class = 1
@@ -159,7 +159,7 @@
 	if(M == user && target_zone == "mouth" && contents.len > 0 && !user.wear_mask)
 		var/obj/item/clothing/mask/smokable/cigarette/W = new cigarette_to_spawn(user)
 		if(!istype(W))
-			user <<"<span class ='notice'>The [W] is blocking the cigarettes.</span>"
+			to_chat(user, "<span class ='notice'>The [W] is blocking the cigarettes.</span>")
 			return
 		//Checking contents of packet so lighters won't be cigarettes.
 		for (var/i = contents.len; i > 0; i--)
@@ -173,10 +173,26 @@
 		reagents.trans_to_obj(W, (reagents.total_volume/contents.len))
 		user.equip_to_slot_if_possible(W, slot_wear_mask)
 		reagents.maximum_volume = 15 * contents.len
-		user << "<span class='notice'>You take a cigarette out of the pack.</span>"
+		to_chat(user, "<span class='notice'>You take a cigarette out of the pack.</span>")
 		update_icon()
 	else
 		..()
+
+// get it? A - AcmeCo, B - Blank, C - Cigar, D - DromedaryCo. How convenient is that? - Wezzy
+
+/obj/item/weapon/storage/fancy/cigarettes/acmeco
+	name = "\improper AcmeCo packet"
+	desc = "A packet of six AcmeCo cigarettes. For those who somehow want to obtain the record for the most amount of cancerous tumors."
+	icon_state = "Apacket"
+	item_state = "Apacket" //Doesn't have an inhand state, but neither does dromedary, so, ya know..
+	cigarette_to_spawn = /obj/item/clothing/mask/smokable/cigarette/acmeco
+
+/obj/item/weapon/storage/fancy/cigarettes/blank
+	name = "\improper blank packet"
+	desc = "A packet of six blank cigarettes. The healthiest cigarettes on the market!"
+	icon_state = "Bpacket"
+	item_state = "Bpacket" //Doesn't have an inhand state, but neither does dromedary, so, ya know..
+	cigarette_to_spawn = /obj/item/clothing/mask/smokable/cigarette/blank
 
 /obj/item/weapon/storage/fancy/cigarettes/dromedaryco
 	name = "\improper DromedaryCo packet"
@@ -185,26 +201,12 @@
 	item_state = "Dpacket"
 	cigarette_to_spawn = /obj/item/clothing/mask/smokable/cigarette/dromedaryco
 
-/obj/item/weapon/storage/fancy/cigarettes/killthroat
-	name = "\improper AcmeCo packet"
-	desc = "A packet of six AcmeCo cigarettes. For those who somehow want to obtain the record for the most amount of cancerous tumors."
-	icon_state = "Bpacket"
-	item_state = "Bpacket" //Doesn't have an inhand state, but neither does dromedary, so, ya know..
-	cigarette_to_spawn = /obj/item/clothing/mask/smokable/cigarette/killthroat
-
-/obj/item/weapon/storage/fancy/cigarettes/custom
-	name = "\improper blank packet"
-	desc = "A packet of six blank cigarettes. The healthiest cigarettes on the market!"
-	icon_state = "Epacket"
-	item_state = "Epacket" //Doesn't have an inhand state, but neither does dromedary, so, ya know..
-	cigarette_to_spawn = /obj/item/clothing/mask/smokable/cigarette/custom
-
 /obj/item/weapon/storage/fancy/cigar
 	name = "cigar case"
 	desc = "A case for holding your cigars when you are not smoking them."
 	icon_state = "cigarcase"
 	item_state = "cigarcase"
-	icon = 'icons/obj/cigarettes.dmi'
+	icon = 'icons/obj/cigs_lighters.dmi'
 	w_class = 1
 	throwforce = 2
 	slot_flags = SLOT_BELT
@@ -242,7 +244,7 @@
 		user.equip_to_slot_if_possible(W, slot_wear_mask)
 		reagents.maximum_volume = 15 * contents.len
 		contents.len--
-		user << "<span class='notice'>You take a cigar out of the case.</span>"
+		to_chat(user, "<span class='notice'>You take a cigar out of the case.</span>")
 		update_icon()
 	else
 		..()

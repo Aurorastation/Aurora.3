@@ -14,12 +14,15 @@
 	new /obj/item/clothing/under/rank/security(src)
 	new /obj/item/clothing/under/rank/security(src)
 	new /obj/item/clothing/under/rank/security(src)
-	new /obj/item/clothing/under/rank/security2(src)
-	new /obj/item/clothing/under/rank/security2(src)
-	new /obj/item/clothing/under/rank/security2(src)
-	new /obj/item/clothing/shoes/jackboots(src)
-	new /obj/item/clothing/shoes/jackboots(src)
-	new /obj/item/clothing/shoes/jackboots(src)
+	new /obj/item/clothing/under/rank/cadet(src)
+	new /obj/item/clothing/under/rank/cadet(src)
+	new /obj/item/clothing/under/rank/cadet(src)
+	new /obj/item/clothing/shoes/black_boots(src)
+	new /obj/item/clothing/shoes/black_boots(src)
+	new /obj/item/clothing/shoes/black_boots(src)
+	new /obj/item/clothing/gloves/black_leather(src)
+	new /obj/item/clothing/gloves/black_leather(src)
+	new /obj/item/clothing/gloves/black_leather(src)
 	new /obj/item/clothing/head/soft/sec(src)
 	new /obj/item/clothing/head/soft/sec(src)
 	new /obj/item/clothing/head/soft/sec(src)
@@ -92,6 +95,9 @@
 	new /obj/item/weapon/deck/tarot(src)
 	new /obj/item/device/radio/headset/headset_service(src)
 	new /obj/item/weapon/spirit_board(src)
+	new /obj/item/weapon/mesmetron(src)
+	new /obj/item/toy/plushie/therapy(src)
+	new /obj/item/weapon/book/manual/psych(src)
 	return
 
 
@@ -250,9 +256,9 @@
 	new /obj/item/clothing/suit/storage/toggle/labcoat(src)
 	new /obj/item/clothing/suit/storage/toggle/labcoat(src)
 	new /obj/item/clothing/suit/storage/toggle/labcoat(src)
-	new /obj/item/clothing/shoes/white(src)
-	new /obj/item/clothing/shoes/white(src)
-	new /obj/item/clothing/shoes/white(src)
+	new /obj/item/clothing/shoes/science(src)
+	new /obj/item/clothing/shoes/science(src)
+	new /obj/item/clothing/shoes/science(src)
 	new /obj/item/clothing/shoes/slippers(src)
 	new /obj/item/clothing/shoes/slippers(src)
 	new /obj/item/clothing/shoes/slippers(src)
@@ -277,19 +283,19 @@
 	return
 
 
-/obj/structure/closet/wardrobe/chemistry_white
-	name = "chemistry wardrobe"
+/obj/structure/closet/wardrobe/pharmacy_white
+	name = "pharmacy wardrobe"
 	icon_state = "white"
 	icon_closed = "white"
 
-/obj/structure/closet/wardrobe/chemistry_white/fill()
+/obj/structure/closet/wardrobe/pharmacy_white/fill()
 	..()
-	new /obj/item/clothing/under/rank/chemist(src)
-	new /obj/item/clothing/under/rank/chemist(src)
-	new /obj/item/clothing/shoes/white(src)
-	new /obj/item/clothing/shoes/white(src)
-	new /obj/item/clothing/suit/storage/toggle/labcoat/chemist(src)
-	new /obj/item/clothing/suit/storage/toggle/labcoat/chemist(src)
+	new /obj/item/clothing/under/rank/pharmacist(src)
+	new /obj/item/clothing/under/rank/pharmacist(src)
+	new /obj/item/clothing/shoes/chemist(src)
+	new /obj/item/clothing/shoes/chemist(src)
+	new /obj/item/clothing/suit/storage/toggle/labcoat/pharmacist(src)
+	new /obj/item/clothing/suit/storage/toggle/labcoat/pharmacist(src)
 	return
 
 
@@ -318,10 +324,10 @@
 	..()
 	new /obj/item/clothing/under/rank/virologist(src)
 	new /obj/item/clothing/under/rank/virologist(src)
-	new /obj/item/clothing/shoes/white(src)
-	new /obj/item/clothing/shoes/white(src)
-	new /obj/item/clothing/suit/storage/toggle/labcoat/virologist(src)
-	new /obj/item/clothing/suit/storage/toggle/labcoat/virologist(src)
+	new /obj/item/clothing/shoes/chemist(src)
+	new /obj/item/clothing/shoes/chemist(src)
+	new /obj/item/clothing/suit/storage/toggle/labcoat/biochemist(src)
+	new /obj/item/clothing/suit/storage/toggle/labcoat/biochemist(src)
 	new /obj/item/clothing/mask/surgical(src)
 	new /obj/item/clothing/mask/surgical(src)
 	return
@@ -339,8 +345,8 @@
 	new /obj/item/clothing/under/rank/medical/blue(src)
 	new /obj/item/clothing/under/rank/medical/green(src)
 	new /obj/item/clothing/under/rank/medical/purple(src)
-	new /obj/item/clothing/shoes/white(src)
-	new /obj/item/clothing/shoes/white(src)
+	new /obj/item/clothing/shoes/medical(src)
+	new /obj/item/clothing/shoes/medical(src)
 	new /obj/item/clothing/suit/storage/toggle/labcoat(src)
 	new /obj/item/clothing/suit/storage/toggle/labcoat(src)
 	new /obj/item/clothing/mask/surgical(src)

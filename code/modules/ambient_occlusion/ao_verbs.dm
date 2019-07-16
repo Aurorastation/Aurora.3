@@ -6,7 +6,7 @@
 	if (!check_rights(R_DEBUG)) return
 
 	log_and_message_admins("has triggered a global ambient occlusion rebuild.")
-	usr << "Beginning global AO rebuild."
+	to_chat(usr, "Beginning global AO rebuild.")
 
 	SSocclusion.disable()
 
@@ -20,4 +20,4 @@
 
 	SSocclusion.enable()
 
-	usr << "AO rebuild complete."
+	to_chat(usr, "AO rebuild complete.")

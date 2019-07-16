@@ -65,6 +65,8 @@
 		/obj/item/seeds/onionseed = 3,
 		/obj/item/seeds/orangeseed = 3,
 		/obj/item/seeds/peanutseed = 3,
+		/obj/item/seeds/peppercornseed = 3,
+		/obj/item/seeds/plastiseed = 3,
 		/obj/item/seeds/plumpmycelium = 3,
 		/obj/item/seeds/poppyseed = 3,
 		/obj/item/seeds/potatoseed = 3,
@@ -81,6 +83,7 @@
 		/obj/item/seeds/watermelonseed = 3,
 		/obj/item/seeds/wheatseed = 3,
 		/obj/item/seeds/whitebeetseed = 3,
+		/obj/item/seeds/dynseed = 2
 	)
 
 /obj/machinery/seed_storage/xenobotany
@@ -134,7 +137,8 @@
 		/obj/item/seeds/towermycelium = 3,
 		/obj/item/seeds/watermelonseed = 3,
 		/obj/item/seeds/wheatseed = 3,
-		/obj/item/seeds/whitebeetseed = 3
+		/obj/item/seeds/whitebeetseed = 3,
+		/obj/item/seeds/dynseed = 2
 	)
 
 /obj/machinery/seed_storage/attack_hand(mob/user as mob)
@@ -305,12 +309,12 @@
 		if (loaded)
 			user.visible_message("[user] puts the seeds from \the [O.name] into \the [src].", "You put the seeds from \the [O.name] into \the [src].")
 		else
-			user << "<span class='notice'>There are no seeds in \the [O.name].</span>"
+			to_chat(user, "<span class='notice'>There are no seeds in \the [O.name].</span>")
 		return
 	else if(O.iswrench())
 		playsound(loc, 'sound/items/Ratchet.ogg', 50, 1)
 		anchored = !anchored
-		user << "You [anchored ? "wrench" : "unwrench"] \the [src]."
+		to_chat(user, "You [anchored ? "wrench" : "unwrench"] \the [src].")
 
 /obj/machinery/seed_storage/proc/add(var/obj/item/seeds/O as obj)
 	if (istype(O.loc, /mob))

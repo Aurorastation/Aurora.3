@@ -17,8 +17,6 @@
 	var/brute_mod = 1
 	var/burn_mod = 1
 
-	var/robotize_type		// If set, this organ type will automatically be roboticized with this manufacturer.
-
 	var/icon_name = null
 	var/body_part = null
 	var/icon_position = 0
@@ -110,7 +108,7 @@
 		for(var/obj/item/I in contents)
 			if(istype(I, /obj/item/organ))
 				continue
-			usr << "<span class='danger'>There is \a [I] sticking out of it.</span>"
+			to_chat(usr, "<span class='danger'>There is \a [I] sticking out of it.</span>")
 	return
 
 /obj/item/organ/external/attackby(obj/item/weapon/W as obj, mob/user as mob)
@@ -214,6 +212,9 @@
 				break
 			parent.update_damages()
 
+	action_button_name = initial(action_button_name)
+	owner.update_action_buttons()
+
 /****************************************************
 			   DAMAGE PROCS
 ****************************************************/
@@ -237,7 +238,7 @@
 			brute -= brute / 2
 
 	if(status & ORGAN_BROKEN && prob(40) && brute)
-		if (owner && !(owner.species && (owner.species.flags & NO_PAIN)))
+		if (owner && (owner.can_feel_pain()))
 			owner.emote("scream")	//getting hit on broken hand hurts
 	if(used_weapon)
 		add_autopsy_data("[used_weapon]", brute + burn)
@@ -589,7 +590,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 	if(germ_level >= INFECTION_LEVEL_THREE && antibiotics < 30)	//overdosing is necessary to stop severe infections
 		if (!(status & ORGAN_DEAD))
 			status |= ORGAN_DEAD
-			owner << "<span class='notice'>You can't feel your [name] anymore...</span>"
+			to_chat(owner, "<span class='notice'>You can't feel your [name] anymore...</span>")
 			owner.update_body(1)
 
 		germ_level++
@@ -916,7 +917,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 			"<span class='warning'>You hear a loud cracking sound coming from \the [owner].</span>",\
 			"<span class='danger'>Something feels like it shattered in your [name]!</span>",\
 			"You hear a sickening crack.")
-		if(owner.species && !(owner.species.flags & NO_PAIN))
+		if(owner.species && (owner.can_feel_pain()))
 			owner.emote("scream")
 
 	playsound(src.loc, "fracture", 100, 1, -2)
@@ -942,7 +943,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 			if(isnull(suit.supporting_limbs))
 				return
 
-			owner << "You feel \the [suit] constrict about your [name], supporting it."
+			to_chat(owner, "You feel \the [suit] constrict about your [name], supporting it.")
 			status |= ORGAN_SPLINTED
 			suit.supporting_limbs |= src
 	return

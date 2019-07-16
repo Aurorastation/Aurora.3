@@ -4,10 +4,6 @@
 	var/wet_amount = 0
 	var/image/wet_overlay = null
 
-	//Mining resources (for the large drills).
-	var/has_resources
-	var/list/resources
-
 	var/thermite = 0
 	oxygen = MOLES_O2STANDARD
 	nitrogen = MOLES_N2STANDARD
@@ -83,11 +79,38 @@
 
 /turf/simulated/Entered(atom/A, atom/OL)
 	if(movement_disabled && usr.ckey != movement_disabled_exception)
-		usr << "<span class='danger'>Movement is admin-disabled.</span>" //This is to identify lag problems
+		to_chat(usr, "<span class='danger'>Movement is admin-disabled.</span>") //This is to identify lag problems)
 		return
+
+
 
 	if (istype(A,/mob/living))
 		var/mob/living/M = A
+
+		if(src.wet_type && src.wet_amount)
+
+			if(M.buckled || (src.wet_type == 1 && M.m_intent == "walk"))
+				return
+
+			//Water
+			var/slip_dist = 1
+			var/slip_stun = 6
+			var/floor_type = "wet"
+
+			switch(src.wet_type)
+				if(WET_TYPE_LUBE) // Lube
+					floor_type = "slippery"
+					slip_dist = 4
+					slip_stun = 10
+				if(WET_TYPE_ICE) // Ice
+					floor_type = "icy"
+					slip_stun = 4
+
+			if(M.slip("the [floor_type] floor",slip_stun) && slip_dist)
+				for (var/i in 1 to slip_dist)
+					sleep(1)
+					step(M, M.dir)
+
 		if(M.lying)
 			return ..()
 
@@ -125,33 +148,7 @@
 
 				bloodDNA = null
 
-		if(src.wet_type && src.wet_amount)
-
-			if(M.buckled || (src.wet_type == 1 && M.m_intent == "walk"))
-				return
-
-			//Water
-			var/slip_dist = 1
-			var/slip_stun = 6
-			var/floor_type = "wet"
-
-			switch(src.wet_type)
-				if(2) // Lube
-					floor_type = "slippery"
-					slip_dist = 4
-					slip_stun = 10
-				if(3) // Ice
-					floor_type = "icy"
-					slip_stun = 4
-
-			if(M.slip("the [floor_type] floor",slip_stun))
-				for(var/i = 0;i<slip_dist;i++)
-					step(M, M.dir)
-					sleep(1)
-			else
-				M.inertia_dir = 0
-		else
-			M.inertia_dir = 0
+		M.inertia_dir = 0
 
 	..()
 

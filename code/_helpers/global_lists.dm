@@ -1,5 +1,5 @@
 var/list/clients = list()							//list of all clients
-var/list/admins = list()							//list of all clients whom are admins
+var/list/staff = list()							//list of all clients who have any permissions
 var/list/directory = list()							//list of all ckeys with associated client
 
 //Since it didn't really belong in any other category, I'm putting this here
@@ -209,7 +209,6 @@ var/global/list/cloaking_devices = list()
 	for(var/T in paths)
 		var/datum/poster/P = new T
 		poster_designs += P
-
 
 	return 1
 

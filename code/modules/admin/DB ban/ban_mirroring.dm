@@ -153,11 +153,11 @@
 	var/list/mirrors = get_ban_mirrors(ban_id)
 
 	if (!mirrors)
-		user << "<span class='warning'>Something went horribly wrong.</span>"
+		to_chat(user, "<span class='warning'>Something went horribly wrong.</span>")
 		return
 
 	if (!mirrors.len)
-		user << "<span class='warning'>No mirrors for this ban found.</span>"
+		to_chat(user, "<span class='warning'>No mirrors for this ban found.</span>")
 		return
 
 	var/output = "<b><center>Ban mirrors for ban #[ban_id]</center></b><br>"
@@ -342,7 +342,7 @@
 	data += list(list(C.ckey, C.address, C.computer_id))
 
 	var/data_str = json_encode(data)
-	C << output(list2params(list("E-DAT", data_str, 900)), "greeting.browser:setCookie")
+	to_chat(C, output(list2params(list("E-DAT", data_str, 900)), "greeting.browser:setCookie"))
 
 #undef BAD_CID
 #undef BAD_IP

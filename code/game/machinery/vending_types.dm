@@ -69,6 +69,8 @@
 		/obj/item/weapon/reagent_containers/food/drinks/bottle/tomatojuice = 4,
 		/obj/item/weapon/reagent_containers/food/drinks/bottle/limejuice = 4,
 		/obj/item/weapon/reagent_containers/food/drinks/bottle/lemonjuice = 4,
+		/obj/item/weapon/reagent_containers/food/drinks/bottle/dynjuice = 4,
+		/obj/item/weapon/reagent_containers/food/drinks/cans/grape_juice = 6,
 		/obj/item/weapon/reagent_containers/food/drinks/bottle/cream = 4,
 		/obj/item/weapon/reagent_containers/food/drinks/cans/tonic = 8,
 		/obj/item/weapon/reagent_containers/food/drinks/bottle/cola = 5,
@@ -104,6 +106,7 @@
 	product_ads = "Drink up!;Booze is good for you!;Alcohol is humanity's best friend.;Quite delighted to serve you!;Care for a nice, cold beer?;Nothing cures you like booze!;Have a sip!;Have a drink!;Have a beer!;Beer is good for you!;Only the finest alcohol!;Best quality booze since 2053!;Award-winning wine!;Maximum alcohol!;Man loves beer.;A toast for progress!"
 	req_access = list(access_bar)
 	random_itemcount = 0
+	vending_sound = "machines/vending/vending_cans.ogg"
 
 /obj/machinery/vending/assist
 	vend_id = "tools"
@@ -145,6 +148,7 @@
 		/obj/item/weapon/reagent_containers/food/drinks/h_chocolate = 22,
 		/obj/item/weapon/reagent_containers/food/snacks/donut/normal = 6
 	)
+	vending_sound = "machines/vending/vending_coffee.ogg"
 	cooling_temperature = T0C + 57 //Optimal coffee temperature
 	heating_temperature = T0C + 100 //ULTRA HOT COFFEE
 	temperature_setting = -1
@@ -205,10 +209,12 @@
 		/obj/item/weapon/reagent_containers/food/drinks/cans/root_beer = 10,
 		/obj/item/weapon/reagent_containers/food/drinks/cans/starkist = 10,
 		/obj/item/weapon/reagent_containers/food/drinks/cans/waterbottle = 10,
+		/obj/item/weapon/reagent_containers/food/drinks/cans/dyn = 10,
 		/obj/item/weapon/reagent_containers/food/drinks/cans/space_up = 10,
 		/obj/item/weapon/reagent_containers/food/drinks/cans/iced_tea = 10,
 		/obj/item/weapon/reagent_containers/food/drinks/cans/grape_juice = 10,
-		/obj/item/weapon/reagent_containers/food/drinks/cans/koispunch = 5
+		/obj/item/weapon/reagent_containers/food/drinks/cans/koispunch = 5,
+		/obj/item/weapon/reagent_containers/food/drinks/cans/beetle_milk = 10
 	)
 	contraband = list(
 		/obj/item/weapon/reagent_containers/food/drinks/cans/thirteenloko = 5,
@@ -221,12 +227,15 @@
 		/obj/item/weapon/reagent_containers/food/drinks/cans/root_beer = 13,
 		/obj/item/weapon/reagent_containers/food/drinks/cans/starkist = 15,
 		/obj/item/weapon/reagent_containers/food/drinks/cans/waterbottle = 12,
+		/obj/item/weapon/reagent_containers/food/drinks/cans/dyn = 18,
 		/obj/item/weapon/reagent_containers/food/drinks/cans/space_up = 15,
 		/obj/item/weapon/reagent_containers/food/drinks/cans/iced_tea = 13,
 		/obj/item/weapon/reagent_containers/food/drinks/cans/grape_juice = 16,
-		/obj/item/weapon/reagent_containers/food/drinks/cans/koispunch = 50
+		/obj/item/weapon/reagent_containers/food/drinks/cans/koispunch = 50,
+		/obj/item/weapon/reagent_containers/food/drinks/cans/beetle_milk = 5
 	)
 	idle_power_usage = 211 //refrigerator - believe it or not, this is actually the average power consumption of a refrigerated vending machine according to NRCan.
+	vending_sound = "machines/vending/vending_cans.ogg"
 	temperature_setting = -1
 
 //This one's from bay12
@@ -270,7 +279,7 @@
 	)
 	premium = list(
 		/obj/item/weapon/storage/fancy/cigar = 5,
-		/obj/item/weapon/storage/fancy/cigarettes/killthroat = 5
+		/obj/item/weapon/storage/fancy/cigarettes/acmeco = 5
 	)
 	prices = list(
 		/obj/item/weapon/storage/fancy/cigarettes = 200,
@@ -468,6 +477,7 @@
 		/obj/item/seeds/orangeseed = 3,
 		/obj/item/seeds/peanutseed = 3,
 		/obj/item/seeds/peppercornseed = 3,
+		/obj/item/seeds/plastiseed = 3,
 		/obj/item/seeds/plumpmycelium = 3,
 		/obj/item/seeds/poppyseed = 3,
 		/obj/item/seeds/potatoseed = 3,
@@ -482,7 +492,8 @@
 		/obj/item/seeds/towermycelium = 3,
 		/obj/item/seeds/watermelonseed = 3,
 		/obj/item/seeds/wheatseed = 3,
-		/obj/item/seeds/whitebeetseed = 3
+		/obj/item/seeds/whitebeetseed = 3,
+		/obj/item/seeds/dynseed = 2
 	)
 	contraband = list(
 		/obj/item/seeds/ambrosiavulgarisseed = 3,
@@ -491,7 +502,6 @@
 		/obj/item/seeds/glowshroom = 3,
 		/obj/item/seeds/libertymycelium = 3,
 		/obj/item/seeds/nettleseed = 3,
-		/obj/item/seeds/plastiseed = 3,
 		/obj/item/seeds/reishimycelium = 3
 	)
 	prices = list(
@@ -522,6 +532,7 @@
 		/obj/item/seeds/orangeseed = 40,
 		/obj/item/seeds/peanutseed = 30,
 		/obj/item/seeds/peppercornseed = 30,
+		/obj/item/seeds/plastiseed = 40,
 		/obj/item/seeds/plumpmycelium = 20,
 		/obj/item/seeds/poppyseed = 10,
 		/obj/item/seeds/potatoseed = 30,
@@ -537,7 +548,8 @@
 		/obj/item/seeds/towermycelium = 20,
 		/obj/item/seeds/watermelonseed = 30,
 		/obj/item/seeds/wheatseed = 20,
-		/obj/item/seeds/whitebeetseed = 20
+		/obj/item/seeds/whitebeetseed = 20,
+		/obj/item/seeds/dynseed = 80
 	)
 	restock_items = 1
 	random_itemcount = 0
@@ -595,13 +607,13 @@
 	icon_state = "dinnerware"
 	vend_id = "cutlery"
 	products = list(
-		/obj/item/weapon/tray = 8,
-		/obj/item/weapon/material/kitchen/utensil/fork = 6,
-		/obj/item/weapon/material/kitchen/utensil/knife = 6,
-		/obj/item/weapon/material/kitchen/utensil/spoon = 6,
+		/obj/item/weapon/tray = 12,
+		/obj/item/weapon/material/kitchen/utensil/fork = 12,
+		/obj/item/weapon/material/kitchen/utensil/knife = 12,
+		/obj/item/weapon/material/kitchen/utensil/spoon = 12,
 		/obj/item/weapon/material/knife = 2,
 		/obj/item/weapon/material/hatchet/butch = 2,
-		/obj/item/weapon/reagent_containers/food/drinks/drinkingglass = 8,
+		/obj/item/weapon/reagent_containers/food/drinks/drinkingglass = 12,
 		/obj/item/clothing/suit/chef/classic = 2,
 		/obj/item/weapon/material/kitchen/rollingpin = 2,
 		/obj/item/weapon/reagent_containers/cooking_container/oven = 5,
@@ -618,7 +630,7 @@
 
 /obj/machinery/vending/sovietsoda
 	name = "BODA"
-	desc = "An old sweet water vending machine,how did this end up here?"
+	desc = "An old sweet water vending machine, how did this end up here?"
 	icon_state = "sovietsoda"
 	vend_id = "cola"
 	product_ads = "For Tsar and Country.;Have you fulfilled your nutrition quota today?;Very nice!;We are simple people, for this is all we eat.;If there is a person, there is a problem. If there is no person, then there is no problem."
@@ -635,6 +647,7 @@
 	idle_power_usage = 211 //refrigerator - believe it or not, this is actually the average power consumption of a refrigerated vending machine according to NRCan.
 	random_itemcount = 0
 	temperature_setting = -1
+	vending_sound = "machines/vending/vending_cans.ogg"
 
 /obj/machinery/vending/tool
 	name = "YouTool"

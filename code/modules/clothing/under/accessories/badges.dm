@@ -39,7 +39,7 @@
 /obj/item/clothing/accessory/badge/attack_self(mob/user as mob)
 
 	if(!stored_name)
-		user << "You polish your badge fondly, shining up the surface."
+		to_chat(user, "You inspect your [src.name]. Everything seems to be in order and you give it a quick cleaning with your hand.")
 		set_name(user.real_name)
 		return
 
@@ -67,17 +67,17 @@
 
 /obj/item/clothing/accessory/badge/holo/attack_self(mob/user as mob)
 	if(!stored_name)
-		user << "Waving around a holobadge before swiping an ID would be pretty pointless."
+		to_chat(user, "Waving around a holobadge before swiping an ID would be pretty pointless.")
 		return
 	return ..()
 
 /obj/item/clothing/accessory/badge/holo/emag_act(var/remaining_charges, var/mob/user)
 	if (emagged)
-		user << "<span class='danger'>\The [src] is already cracked.</span>"
+		to_chat(user, "<span class='danger'>\The [src] is already cracked.</span>")
 		return
 	else
 		emagged = 1
-		user << "<span class='danger'>You crack the holobadge security checks.</span>"
+		to_chat(user, "<span class='danger'>You crack the holobadge security checks.</span>")
 		return 1
 
 /obj/item/clothing/accessory/badge/holo/attackby(var/obj/item/O as obj, var/mob/user as mob)
@@ -92,10 +92,10 @@
 			id_card = pda.id
 
 		if(access_security in id_card.access || emagged)
-			user << "You imprint your ID details onto the badge."
+			to_chat(user, "You imprint your ID details onto the badge.")
 			set_name(user.real_name)
 		else
-			user << "[src] rejects your insufficient access rights."
+			to_chat(user, "[src] rejects your insufficient access rights.")
 		return
 	..()
 
@@ -125,3 +125,81 @@
 	desc = "An immaculately polished gold security badge. Labeled 'Commander.'"
 	icon_state = "goldbadge"
 	slot_flags = SLOT_TIE
+
+
+//Contractor IDs
+
+/obj/item/clothing/accessory/badge/contractor
+	name = "Necropolis Industries ID"
+	desc = "An old-fashioned, practical plastic card. Smells faintly of gunpowder."
+	icon_state = "necro_card"
+	item_state = "necro_card"
+	icon_override = 'icons/mob/ties.dmi'
+	badge_string = "Necropolis Industries"	//Will be the contractor's 'position.'
+	slot_flags = SLOT_TIE
+	slot = "over"
+
+/obj/item/clothing/accessory/badge/contractor/attack_self(mob/user as mob)
+	if(!isliving(user))
+		return
+	if(!stored_name)
+		set_name(user.real_name)
+		to_chat(user, "You inspect your [src]. Everything seems to be in order and you give it a quick cleaning with your hand.")
+		return
+	user.visible_message("<span class='notice'>[user] displays their [src].\nIt reads: [stored_name], [badge_string].</span>","<span class='notice'>You display your [src].\nIt reads: [stored_name], [badge_string].</span>")
+
+/obj/item/clothing/accessory/badge/contractor/necrosec
+	name = "Necropolis Industries Security ID"
+	desc = "An old-fashioned, practical plastic card. This one is of a higher rank, for Security personnel."
+	icon_state = "necrosec_card"
+	item_state = "necrosec_card"
+	badge_string = "Necropolis Industries Security"
+
+/obj/item/clothing/accessory/badge/contractor/einstein
+	name = "Einstein Engines ID"
+	desc = "A stylized plastic card, belonging to one of the many specialists at EE.."
+	icon_state = "einstein_card"
+	item_state = "einstein_card"
+	badge_string = "Einstein Engines"
+
+/obj/item/clothing/accessory/badge/contractor/hephaestus
+	name = "Hephaestus Industries ID"
+	desc = "A metal-backed card, belonging to the powerful Hephaestus Industries."
+	icon_state = "heph_card"
+	item_state = "heph_card"
+	badge_string = "Hephaestus Industries"
+
+/obj/item/clothing/accessory/badge/contractor/zenghu
+	name = "Zeng-Hu Pharmaceuticals ID"
+	desc = "A synthleather card, belonging to one of the highly skilled members of Zeng-Hu."
+	icon_state = "zhu_card"
+	item_state = "zhu_card"
+	badge_string = "Zeng-Hu Pharmaceuticals"
+
+/obj/item/clothing/accessory/badge/contractor/eridani
+	name = "Eridani Corporate Federation ID"
+	desc = "A high-tech holobadge, designed to project information about an Eridanian Private Military Contractor."
+	icon_state = "erisec_card"
+	item_state = "erisec_card"
+	badge_string = "Eridani Corporate Federation"
+
+/obj/item/clothing/accessory/badge/contractor/idris
+	name = "Idris Incorporated ID"
+	desc = "A high-tech holocard, designed to project information about a civilian worker at Idris."
+	icon_state = "idris_card"
+	item_state = "idris_card"
+	badge_string = "Idris Incorporated"
+
+/obj/item/clothing/accessory/badge/contractor/idrissec
+	name = "Idris Security ID"
+	desc = "A high-tech holobadge, designed to project information about Security personnel at Idris."
+	icon_state = "idrissec_card"
+	item_state = "idrissec_card"
+	badge_string = "Idris Security"
+
+/obj/item/clothing/accessory/badge/contractor/iru
+	name = "Idris Reclamation Unit ID"
+	desc = "A high-tech holobadge, designed to project information about an asset reclamation synthetic at Idris."
+	icon_state = "iru_card"
+	item_state = "iru_card"
+	badge_string = "Idris Reclamation Unit"

@@ -83,65 +83,25 @@
 
 			//Check if a payment is required
 			if(order_details["needs_payment"])
-				var/transaction_amount = order_details["price_customer"];
-				var/transaction_purpose = "Cargo Order #[order_details["order_id"]]";
+				var/transaction_amount = order_details["price_customer"]
+				var/transaction_purpose = "Cargo Order #[order_details["order_id"]]"
+				var/transaction_terminal = "Modular Computer #[program.computer.network_card.identification_id]"
+
+				var/status = SSeconomy.transfer_money(id_card.associated_account_number, SScargo.supply_account.account_number,transaction_purpose,transaction_terminal,transaction_amount,null,usr)
 				
-				var/datum/money_account/D = SSeconomy.get_account(id_card.associated_account_number)
-				if(!D)
-					status_message = "Unable to access account. Check security settings and try again."
+				if(status)
+					status_message = status
 					return 1
-				var/attempt_pin
-				if(D.security_level)
-					attempt_pin = input("Enter pin code", "EFTPOS transaction") as num
-					D = null
-				D = SSeconomy.attempt_account_access(id_card.associated_account_number, attempt_pin, 2)
-				if(D)
-					if(!D.suspended)
-						if(transaction_amount <= D.money)
-							playsound(program.computer, 'sound/machines/chime.ogg', 50, 1)
 
-							//transfer the money
-							D.money -= transaction_amount
-							SScargo.supply_account.money += transaction_amount
+				playsound(program.computer, 'sound/machines/chime.ogg', 50, 1)
 
-							//create entries in the two account transaction logs
-							var/datum/transaction/T = new()
-							T.target_name = "[SScargo.supply_account.owner_name]"
-							T.purpose = transaction_purpose
-							if(transaction_amount > 0)
-								T.amount = "([transaction_amount])"
-							else
-								T.amount = "[transaction_amount]"
-							T.source_terminal = "Modular Computer #[program.computer.network_card.identification_id]"
-							T.date = worlddate2text()
-							T.time = worldtime2text()
-							SSeconomy.add_transaction_log(D,T)
-							//
-							T = new()
-							T.target_name = D.owner_name
-							T.purpose = transaction_purpose
-							T.amount = "[transaction_amount]"
-							T.source_terminal = "Modular Computer #[program.computer.network_card.identification_id]"
-							T.date = worlddate2text()
-							T.time = worldtime2text()
-							SSeconomy.add_transaction_log(SScargo.supply_account,T)
-
-							//Check if we have delivered it aswell or only paid
-							if(order_details["status"] == "shipped")
-								status_message = co.set_delivered(id_card.registered_name,1)
-							else
-								status_message = co.set_paid(id_card.registered_name)
-							order_details = co.get_list()
-							return 1
-						else
-							status_message = "You don't have that much money!"
-							return 1
-					else
-						status_message = "Your account has been suspended."
-						return 1
+				//Check if we have delivered it aswell or only paid
+				if(order_details["status"] == "shipped")
+					status_message = co.set_delivered(id_card.registered_name,1)
 				else
-					status_message = "Unable to access account. Check security settings and try again."
-					return 1
+					status_message = co.set_paid(id_card.registered_name)
+				order_details = co.get_list()
+				
 			else
 				//TODO: Add a sound effect here
 				//If a payment is not needed and we are at the status shipped, then confirm the delivery

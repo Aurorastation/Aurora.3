@@ -11,7 +11,7 @@
 *******/
 /obj/item/device/camera_film
 	name = "film cartridge"
-	icon = 'icons/obj/items.dmi'
+	icon = 'icons/obj/bureaucracy.dmi'
 	desc = "A camera film cartridge. Insert it into a camera to reload it."
 	icon_state = "film"
 	item_state = "electropack"
@@ -25,7 +25,7 @@ var/global/photo_count = 0
 
 /obj/item/weapon/photo
 	name = "photo"
-	icon = 'icons/obj/items.dmi'
+	icon = 'icons/obj/bureaucracy.dmi'
 	icon_state = "photo"
 	item_state = "paper"
 	w_class = 2.0
@@ -51,17 +51,13 @@ var/global/photo_count = 0
 /obj/item/weapon/photo/examine(mob/user)
 	if(in_range(user, src))
 		show(user)
-		user << desc
+		to_chat(user, desc)
 	else
-		user << "<span class='notice'>It is too far away.</span>"
+		to_chat(user, "<span class='notice'>It is too far away.</span>")
 
 /obj/item/weapon/photo/proc/show(mob/user as mob)
-	user << browse_rsc(img, "tmp_photo_[id].png")
-	user << browse("<html><head><title>[name]</title></head>" \
-		+ "<body style='overflow:hidden;margin:0;text-align:center'>" \
-		+ "<img src='tmp_photo_[id].png' width='[64*photo_size]' style='-ms-interpolation-mode:nearest-neighbor' />" \
-		+ "[scribble ? "<br>Written on the back:<br><i>[scribble]</i>" : ""]"\
-		+ "</body></html>", "window=book;size=[64*photo_size]x[scribble ? 400 : 64*photo_size]")
+	to_chat(user, browse_rsc(img, "tmp_photo_[id].png"))
+	user << browse("<html><head><title>[name]</title></head>" + "<body style='overflow:hidden;margin:0;text-align:center'>" + "<img src='tmp_photo_[id].png' width='[64*photo_size]' style='-ms-interpolation-mode:nearest-neighbor' />" + "[scribble ? "<br>Written on the back:<br><i>[scribble]</i>" : ""]" + "</body></html>", "window=book;size=[64*photo_size]x[scribble ? 400 : 64*photo_size]")
 	onclose(user, "[name]")
 	return
 
@@ -83,7 +79,7 @@ var/global/photo_count = 0
 **************/
 /obj/item/weapon/storage/photo_album
 	name = "Photo album"
-	icon = 'icons/obj/items.dmi'
+	icon = 'icons/obj/bureaucracy.dmi'
 	icon_state = "album"
 	item_state = "briefcase"
 	can_hold = list(/obj/item/weapon/photo)
@@ -117,7 +113,7 @@ var/global/photo_count = 0
 *********/
 /obj/item/device/camera
 	name = "camera"
-	icon = 'icons/obj/items.dmi'
+	icon = 'icons/obj/bureaucracy.dmi'
 	desc = "A polaroid camera. 10 photos left."
 	icon_state = "camera"
 	item_state = "electropack"
@@ -138,7 +134,7 @@ var/global/photo_count = 0
 	var/nsize = input("Photo Size","Pick a size of resulting photo.") as null|anything in list(1,3,5,7)
 	if(nsize)
 		size = nsize
-		usr << "<span class='notice'>Camera will now take [size]x[size] photos.</span>"
+		to_chat(usr, "<span class='notice'>Camera will now take [size]x[size] photos.</span>")
 
 /obj/item/device/camera/attack(mob/living/carbon/human/M as mob, mob/user as mob)
 	return
@@ -149,15 +145,15 @@ var/global/photo_count = 0
 		src.icon_state = icon_on
 	else
 		src.icon_state = icon_off
-	user << "You switch the camera [on ? "on" : "off"]."
+	to_chat(user, "You switch the camera [on ? "on" : "off"].")
 	return
 
 /obj/item/device/camera/attackby(obj/item/I as obj, mob/user as mob)
 	if(istype(I, /obj/item/device/camera_film))
 		if(pictures_left)
-			user << "<span class='notice'>[src] still has some film in it!</span>"
+			to_chat(user, "<span class='notice'>[src] still has some film in it!</span>")
 			return
-		user << "<span class='notice'>You insert [I] into [src].</span>"
+		to_chat(user, "<span class='notice'>You insert [I] into [src].</span>")
 		user.drop_from_inventory(I,get_turf(src))
 		qdel(I)
 		pictures_left = pictures_max
@@ -192,7 +188,7 @@ var/global/photo_count = 0
 
 	pictures_left--
 	desc = "A polaroid camera. It has [pictures_left] photos left."
-	user << "<span class='notice'>[pictures_left] photos left.</span>"
+	to_chat(user, "<span class='notice'>[pictures_left] photos left.</span>")
 	icon_state = icon_off
 	on = 0
 	spawn(64)
@@ -230,7 +226,7 @@ var/global/photo_count = 0
 
 	var/icon/small_img = icon(photoimage)
 	var/icon/tiny_img = icon(photoimage)
-	var/icon/ic = icon('icons/obj/items.dmi',"photo")
+	var/icon/ic = icon('icons/obj/bureaucracy.dmi',"photo")
 	var/icon/pc = icon('icons/obj/bureaucracy.dmi', "photo")
 	small_img.Scale(8, 8)
 	tiny_img.Scale(4, 4)

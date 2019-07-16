@@ -124,31 +124,31 @@ var/list/name_to_material
 	//What golem species is created with this material
 	var/golem = null
 
-// Placeholders for light tiles and rglass.
 /material/proc/build_rod_product(var/mob/user, var/obj/item/stack/used_stack, var/obj/item/stack/target_stack)
 	if(!rod_product)
-		user << "<span class='warning'>You cannot make anything out of \the [target_stack]</span>"
+		to_chat(user, "<span class='warning'>You cannot make anything out of \the [target_stack]</span>")
 		return
 	if(used_stack.get_amount() < 1 || target_stack.get_amount() < 1)
-		user << "<span class='warning'>You need one rod and one sheet of [display_name] to make anything useful.</span>"
+		to_chat(user, "<span class='warning'>You need one rod and one sheet of [display_name] to make anything useful.</span>")
 		return
 	used_stack.use(1)
 	target_stack.use(1)
+	to_chat(user, "<span class='notice'>You attach a rod to the [display_name].</span>")
 	var/obj/item/stack/S = new rod_product(get_turf(user))
 	S.add_fingerprint(user)
 	S.add_to_stacks(user)
 
 /material/proc/build_wired_product(var/mob/user, var/obj/item/stack/used_stack, var/obj/item/stack/target_stack)
 	if(!wire_product)
-		user << "<span class='warning'>You cannot make anything out of \the [target_stack]</span>"
+		to_chat(user, "<span class='warning'>You cannot make anything out of \the [target_stack]</span>")
 		return
 	if(used_stack.get_amount() < 5 || target_stack.get_amount() < 1)
-		user << "<span class='warning'>You need five wires and one sheet of [display_name] to make anything useful.</span>"
+		to_chat(user, "<span class='warning'>You need five wires and one sheet of [display_name] to make anything useful.</span>")
 		return
 
 	used_stack.use(5)
 	target_stack.use(1)
-	user << "<span class='notice'>You attach wire to the [name].</span>"
+	to_chat(user, "<span class='notice'>You attach wires to the [display_name].</span>")
 	var/obj/item/product = new wire_product(get_turf(user))
 	if(!(user.l_hand && user.r_hand))
 		user.put_in_hands(product)
@@ -185,7 +185,7 @@ var/list/name_to_material
 			wall_icon = 'icons/turf/smooth/vaurca_wall.dmi'
 			skip_blend = TRUE
 		else
-			world.log << "materials: [src] has unknown icon_base [icon_base]."
+			world.log <<  "materials: [src] has unknown icon_base [icon_base]."
 
 	if (wall_icon && icon_colour && !skip_blend)
 		wall_icon = new(wall_icon)
@@ -266,7 +266,8 @@ var/list/name_to_material
 	icon_base = "stone"
 	icon_reinf = "reinf_stone"
 	icon_colour = "#007A00"
-	weight = 22
+	weight = 25
+	hardness = 20
 	stack_origin_tech = list(TECH_MATERIAL = 5)
 	door_icon_base = "stone"
 	golem = "Uranium Golem"
@@ -291,8 +292,8 @@ var/list/name_to_material
 	name = "gold"
 	stack_type = /obj/item/stack/material/gold
 	icon_colour = "#EDD12F"
-	weight = 24
-	hardness = 40
+	weight = 30
+	hardness = 15 
 	conductivity = 41
 	stack_origin_tech = list(TECH_MATERIAL = 4)
 	sheet_singular_name = "ingot"
@@ -457,6 +458,7 @@ var/list/name_to_material
 	destruction_desc = "shatters"
 	window_options = list("One Direction" = 1, "Full Window" = 4)
 	created_window = /obj/structure/window/basic
+	wire_product = /obj/item/stack/material/glass/wired
 	rod_product = /obj/item/stack/material/glass/reinforced
 	golem = "Glass Golem"
 
@@ -466,12 +468,12 @@ var/list/name_to_material
 		return 0
 
 	if(!user.IsAdvancedToolUser())
-		user << "<span class='warning'>This task is too complex for your clumsy hands.</span>"
+		to_chat(user, "<span class='warning'>This task is too complex for your clumsy hands.</span>")
 		return 1
 
 	var/turf/T = user.loc
 	if(!istype(T))
-		user << "<span class='warning'>You must be standing on open flooring to build a window.</span>"
+		to_chat(user, "<span class='warning'>You must be standing on open flooring to build a window.</span>")
 		return 1
 
 	var/title = "Sheet-[used_stack.name] ([used_stack.get_amount()] sheet\s left)"
@@ -504,13 +506,13 @@ var/list/name_to_material
 				failed_to_build = 1
 			if(!failed_to_build && choice == "Windoor")
 				if(!is_reinforced())
-					user << "<span class='warning'>This material is not reinforced enough to use for a door.</span>"
+					to_chat(user, "<span class='warning'>This material is not reinforced enough to use for a door.</span>")
 					return
 				for(var/obj/obstacle in T)
 					if((obstacle.flags & ON_BORDER) && obstacle.dir == user.dir)
 						failed_to_build = 1
 	if(failed_to_build)
-		user << "<span class='warning'>There is no room in this location.</span>"
+		to_chat(user, "<span class='warning'>There is no room in this location.</span>")
 		return 1
 
 	var/build_path = /obj/structure/windoor_assembly
@@ -521,7 +523,7 @@ var/list/name_to_material
 		build_path = created_window
 
 	if(used_stack.get_amount() < sheets_needed)
-		user << "<span class='warning'>You need at least [sheets_needed] sheets to build this.</span>"
+		to_chat(user, "<span class='warning'>You need at least [sheets_needed] sheets to build this.</span>")
 		return 1
 
 	// Build the structure and update sheet count etc.
@@ -531,6 +533,25 @@ var/list/name_to_material
 
 /material/glass/proc/is_reinforced()
 	return (hardness > 35) //todo
+
+/material/glass/wired
+	name = "wired glass"
+	display_name = "wired glass"
+	stack_type = /obj/item/stack/material/glass/wired
+	flags = MATERIAL_BRITTLE
+	icon_colour = "#00E1FF"
+	opacity = 0.3
+	integrity = 100
+	shard_type = SHARD_SHARD
+	tableslam_noise = 'sound/effects/Glasshit.ogg'
+	hardness = 40
+	weight = 30
+	stack_origin_tech = list(TECH_MATERIAL = 2)
+	composite_material = list(DEFAULT_WALL_MATERIAL = 1875,"glass" = 3750)
+	window_options = list()
+	created_window = null
+	wire_product = null
+	rod_product = null
 
 /material/glass/reinforced
 	name = "rglass"

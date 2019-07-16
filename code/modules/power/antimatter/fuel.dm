@@ -1,7 +1,7 @@
 /obj/item/weapon/fuel
 	name = "nagnetic storage ring"
 	desc = "A magnetic storage ring."
-	icon = 'icons/obj/items.dmi'
+	icon = 'icons/obj/tools.dmi'
 	icon_state = "rcdammo"
 	opacity = 0
 	density = 0
@@ -76,7 +76,7 @@
 /obj/item/weapon/fuel/proc/injest(mob/M as mob)
 	switch(content)
 		if("Anti-Hydrogen")
-			mob << span("notice", "That was not a very bright idea.")
+			to_chat(mob, span("notice", "That was not a very bright idea."))
 			M.gib()
 		if("Hydrogen")
 			to_chat(M, "<span class='notice'>You feel very light, as if you might just float away...</span>")

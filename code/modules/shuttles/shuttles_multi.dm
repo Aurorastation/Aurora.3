@@ -22,6 +22,7 @@
 	var/list/destination_dock_targets = list()
 	var/area/origin
 	var/return_warning = 0
+	var/start_warning = 0
 
 /datum/shuttle/multi_shuttle/New()
 	..()
@@ -46,6 +47,12 @@
 
 /datum/shuttle/multi_shuttle/current_dock_target()
 	return destination_dock_targets[last_location]
+
+//If they returned home, they wont be able to depart again
+/datum/shuttle/multi_shuttle/long_jump(var/area/departing, var/area/destination, var/area/interim, var/travel_time, var/direction)
+	if(returned_home)
+		return
+	return ..()
 
 /datum/shuttle/multi_shuttle/move(var/area/origin, var/area/destination)
 	..()
@@ -94,12 +101,13 @@
 
 	if((MS.last_move + MS.cooldown*10) > world.time)
 		dat += "<font color='red'>Engines charging.</font><br>"
+	else if (MS.returned_home)
+		dat += "<font color='red'>Engines offline.</font><br>"
 	else
 		dat += "<font color='green'>Engines ready.</font><br>"
-
-	dat += "<br><b><A href='?src=\ref[src];toggle_cloak=[1]'>Toggle cloaking field</A></b><br>"
-	dat += "<b><A href='?src=\ref[src];move_multi=[1]'>Move ship</A></b><br>"
-	dat += "<b><A href='?src=\ref[src];start=[1]'>Return to base</A></b></center>"
+		dat += "<br><b><A href='?src=\ref[src];toggle_cloak=[1]'>Toggle cloaking field</A></b><br>"
+		dat += "<b><A href='?src=\ref[src];move_multi=[1]'>Move ship</A></b><br>"
+		dat += "<b><A href='?src=\ref[src];start=[1]'>Return to base</A></b></center>"
 
 	//Docking
 	dat += "<center><br><br>"
@@ -164,7 +172,7 @@
 		return
 
 	if (MS.moving_status != SHUTTLE_IDLE)
-		usr << "<span class='notice'>[shuttle_tag] vessel is moving.</span>"
+		to_chat(usr, "<span class='notice'>[shuttle_tag] vessel is moving.</span>")
 		return
 
 	if(href_list["dock_command"])
@@ -177,11 +185,11 @@
 
 	if(href_list["start"])
 		if(MS.at_origin)
-			usr << "<span class='warning'>You are already at your home base.</span>"
+			to_chat(usr, "<span class='warning'>You are already at your home base.</span>")
 			return
 
 		if((MS.last_move + MS.cooldown*10) > world.time)
-			usr << "<span class='warning'>The ship's drive is inoperable while the engines are charging.</span>"
+			to_chat(usr, "<span class='warning'>The ship's drive is inoperable while the engines are charging.</span>")
 			return
 
 		if(!check_docking(MS))
@@ -189,8 +197,7 @@
 			return
 
 		if(!MS.return_warning)
-			usr << "<span class='warning'>Returning to your home base will end your mission. If you are sure, press the button again.</span>"
-			//TODO: Actually end the mission.
+			to_chat(usr, "<span class='warning'>Returning to your home base will end your mission. If you are sure, press the button again.</span>")
 			MS.return_warning = 1
 			return
 
@@ -202,11 +209,20 @@
 	if(href_list["toggle_cloak"])
 
 		MS.cloaked = !MS.cloaked
-		usr << "<span class='warning'>Ship stealth systems have been [(MS.cloaked ? "activated. The station will not" : "deactivated. The station will")] be warned of our arrival.</span>"
+		to_chat(usr, "<span class='warning'>Ship stealth systems have been [(MS.cloaked ? "activated. The station will not" : "deactivated. The station will")] be warned of our arrival.</span>")
 
 	if(href_list["move_multi"])
+		if(MS.returned_home)
+			to_chat(usr, "<span class='warning'>The ship's drive is offline.</span>")
+			return
+
+		if(MS.at_origin && !MS.start_warning)
+			MS.start_warning = 1
+			to_chat(usr, "<span class='warning'>You can only make one roundtrip between the target and the base. If you are sure you want to depart, press the button again.</span>")
+			return
+
 		if((MS.last_move + MS.cooldown*10) > world.time)
-			usr << "<span class='warning'>The ship's drive is inoperable while the engines are charging.</span>"
+			to_chat(usr, "<span class='warning'>The ship's drive is inoperable while the engines are charging.</span>")
 			return
 
 		if(!check_docking(MS))
@@ -216,7 +232,7 @@
 		var/choice = input("Select a destination.") as null|anything in MS.destinations
 		if(!choice) return
 
-		usr << "<span class='notice'>[shuttle_tag] main computer received message.</span>"
+		to_chat(usr, "<span class='notice'>[shuttle_tag] main computer received message.</span>")
 
 		if(MS.at_origin)
 			MS.announce_arrival()

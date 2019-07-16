@@ -14,6 +14,7 @@ var/global/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","E
 	var/geneticpoints = 5
 	var/purchasedpowers = list()
 	var/mimicing = ""
+	var/justate
 
 /datum/changeling/New(var/gender=FEMALE)
 	..()
@@ -81,7 +82,7 @@ var/global/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","E
 
 	var/mob/living/carbon/human/H = src
 	if(istype(H))
-		var/datum/absorbed_dna/newDNA = new(H.real_name, H.dna, H.species.name, H.languages)
+		var/datum/absorbed_dna/newDNA = new(H.real_name, H.dna, H.species.get_cloning_variant(), H.languages)
 		absorbDNA(newDNA)
 
 	return 1
@@ -143,13 +144,22 @@ var/global/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","E
 	var/datum/changeling/changeling = changeling_power(0,0,100)
 	if(!changeling)	return
 
+	if (changeling.justate + 60 SECONDS > world.time)
+		to_chat(src, "<span class='warning'>We still processing our last DNA sample!</span>")
+		return
+
 	if(changeling.isabsorbing)
-		to_chat(src, "<span class='warning'>We are already absorbing!</span>")
+		to_chat(src, "<span class='warning'>We are already engaged in an absorption!</span>")
 		return
 
 	var/mob/living/carbon/human/T = input(usr, "Who are we extracting from?", "Target selection") in typecache_filter_list(oview(1), typecacheof(/mob/living/carbon/human))|null
 	if (!T)
 		return
+
+	if(changeling.isabsorbing)
+		to_chat(src, "<span class='warning'>We are already engaged in an absorption!</span>")
+		return
+
 	if(!istype(T))
 		to_chat(src, "<span class='warning'>[T] is not compatible with our biology.</span>")
 		return
@@ -170,6 +180,11 @@ var/global/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","E
 		to_chat(src, "<span class='warning'>This creature's DNA is ruined beyond useability!</span>")
 		return
 
+	for(var/datum/absorbed_dna/D in changeling.absorbed_dna)
+		if(D.dna == T.dna)
+			to_chat(src, "<span class='warning'>We have already collected this creature's DNA!</span>")
+			return
+
 	changeling.isabsorbing = 1
 	for(var/stage = 1, stage<=2, stage++)
 		switch(stage)
@@ -185,7 +200,7 @@ var/global/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","E
 			return
 
 	to_chat(src, "<span class='notice'>We have finished infesting [T], and withdraw from their flesh, taking some of their genetic data.</span>")
-	
+
 	if (T.cloneloss > 100)
 		T.adjustCloneLoss (20)
 		T.Drain()
@@ -196,6 +211,7 @@ var/global/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","E
 	else
 		addtimer(CALLBACK(T, /mob/living/.proc/adjustCloneLoss, rand(10, 15)), rand(10, 15) SECONDS)
 
+	changeling.justate = world.time
 
 	changeling.chem_charges += 5
 	changeling.geneticpoints += 1
@@ -205,7 +221,7 @@ var/global/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","E
 
 	changeling_update_languages(changeling.absorbed_languages)
 
-	var/datum/absorbed_dna/newDNA = new(T.real_name, T.dna, T.species.name, T.languages)
+	var/datum/absorbed_dna/newDNA = new(T.real_name, T.dna, T.species.get_cloning_variant(), T.languages)
 	absorbDNA(newDNA)
 
 	changeling.absorbedcount++
@@ -247,6 +263,11 @@ var/global/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","E
 	if(G.state != GRAB_KILL)
 		to_chat(src, "<span class='warning'>We must have a tighter grip to absorb this creature.</span>")
 		return
+
+	for(var/datum/absorbed_dna/D in changeling.absorbed_dna)
+		if(D.dna == T.dna)
+			to_chat(src, "<span class='warning'>We have already collected this creature's DNA!</span>")
+			return
 
 	if(changeling.isabsorbing)
 		to_chat(src, "<span class='warning'>We are already absorbing!</span>")
@@ -292,7 +313,7 @@ var/global/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","E
 
 	changeling_update_languages(changeling.absorbed_languages)
 
-	var/datum/absorbed_dna/newDNA = new(T.real_name, T.dna, T.species.name, T.languages)
+	var/datum/absorbed_dna/newDNA = new(T.real_name, T.dna, T.species.get_cloning_variant(), T.languages)
 	absorbDNA(newDNA)
 
 	if(T.mind && T.mind.changeling)
@@ -936,7 +957,7 @@ var/list/datum/absorbed_dna/hivemind_bank = list()
 	var/mob/living/carbon/human/T = changeling_sting(40, /mob/proc/changeling_extract_dna_sting,stealthy = 1)
 	if(!T)	return 0
 
-	var/datum/absorbed_dna/newDNA = new(T.real_name, T.dna, T.species.name, T.languages)
+	var/datum/absorbed_dna/newDNA = new(T.real_name, T.dna, T.species.get_cloning_variant(), T.languages)
 	absorbDNA(newDNA)
 
 	feedback_add_details("changeling_powers","ED")

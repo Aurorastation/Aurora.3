@@ -11,7 +11,7 @@
 		if ("me")
 			if (src.client)
 				if(client.prefs.muted & MUTE_IC)
-					src << "You cannot send IC messages (muted)."
+					to_chat(src, "You cannot send IC messages (muted).")
 					return
 			if (stat)
 				return
@@ -74,7 +74,32 @@
 				playsound(src.loc, 'sound/voice/biamthelaw.ogg', 50, 0)
 				m_type = 2
 			else
-				src << "You are not THE LAW, pal."
+				to_chat(src, "You are not THE LAW, pal.")
+
+		if("meow")
+			message = "<B>[src]</B> meows."
+			playsound(src.loc, 'sound/effects/creatures/cat_meow.ogg', 50, 0)
+			m_type = 1
+
+		if("meow2")
+			message = "<B>[src]</B> meows."
+			playsound(src.loc, 'sound/effects/creatures/cat_meow2.ogg', 50, 0)
+			m_type = 1
+
+		if("squeal")
+			message = "<B>[src]</B> squeals."
+			playsound(src.loc, 'sound/effects/creatures/rat_squeak_loud.ogg', 50, 0)
+			m_type = 1
+
+		if("squeak")
+			message = "<B>[src]</B> squeaks."
+			playsound(src.loc, 'sound/effects/ratsqueek.ogg', 50, 0)
+			m_type = 1
+
+		if("softsqueak")
+			message = "<B>[src]</B> squeaks softly."
+			playsound(src.loc, 'sound/effects/creatures/rat_squeaks_1.ogg', 50, 0)
+			m_type = 1
 
 		if("halt")
 			if (src:secHUD)
@@ -83,12 +108,12 @@
 				playsound(src.loc, 'sound/voice/halt.ogg', 50, 0)
 				m_type = 2
 			else
-				src << "You are not security."
+				to_chat(src, "You are not security.")
 
 		if ("help")
-			src << "salute, bow, clap, flap, aflap, twitch, twitch_s, nod, beep, ping, \nbuzz, law, halt"
+			to_chat(src, "salute, bow, clap, flap, aflap, twitch, twitch_s, nod, beep, ping, \nbuzz, law, halt, meow, meow2, squeal, squeak, softsqueak")
 		else
-			src << "<span class='notice'>Unusable emote '[act]'. Say *help for a list.</span>"
+			to_chat(src, "<span class='notice'>Unusable emote '[act]'. Say *help for a list.</span>")
 
 	if ((message && src.stat == 0))
 		send_emote(message, m_type)

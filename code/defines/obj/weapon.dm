@@ -1,7 +1,7 @@
 /obj/item/weapon/phone
 	name = "red phone"
 	desc = "Should anything ever go wrong..."
-	icon = 'icons/obj/items.dmi'
+	icon = 'icons/obj/radio.dmi'
 	icon_state = "red_phone"
 	flags = CONDUCT
 	force = 3.0
@@ -15,7 +15,7 @@
 /obj/item/weapon/rsp
 	name = "\improper Rapid-Seed-Producer (RSP)"
 	desc = "A device used to rapidly deploy seeds."
-	icon = 'icons/obj/items.dmi'
+	icon = 'icons/obj/tools.dmi'
 	icon_state = "rcd"
 	opacity = 0
 	density = 0
@@ -23,37 +23,6 @@
 	var/stored_matter = 0
 	var/mode = 1
 	w_class = 3.0
-
-/obj/item/weapon/soap
-	name = "soap"
-	desc = "A cheap bar of soap. Doesn't smell."
-	gender = PLURAL
-	icon = 'icons/obj/items.dmi'
-	icon_state = "soap"
-	w_class = 2.0
-	throwforce = 0
-	throw_speed = 4
-	throw_range = 20
-	flags = OPENCONTAINER
-	var/key_data
-
-/obj/item/weapon/soap/nanotrasen
-	desc = "A NanoTrasen-brand bar of soap. Smells of phoron."
-	icon_state = "soapnt"
-
-/obj/item/weapon/soap/plant
-	desc = "A green bar of soap. Smells like dirt and plants."
-
-/obj/item/weapon/soap/deluxe
-	icon_state = "soapdeluxe"
-
-/obj/item/weapon/soap/deluxe/New()
-	..()
-	desc = "A deluxe Waffle Co. brand bar of soap. Smells of [pick("lavender", "vanilla", "strawberry", "chocolate" ,"space")]."
-
-/obj/item/weapon/soap/syndie
-	desc = "An untrustworthy bar of soap. Smells of fear."
-	icon_state = "soapsyndie"
 
 /obj/item/weapon/bikehorn
 	name = "bike horn"
@@ -67,17 +36,6 @@
 	throw_range = 15
 	attack_verb = list("HONKED")
 	var/spam_flag = 0
-
-
-/obj/item/weapon/c_tube
-	name = "cardboard tube"
-	desc = "A tube... of cardboard."
-	icon = 'icons/obj/items.dmi'
-	icon_state = "c_tube"
-	throwforce = 1
-	w_class = 2.0
-	throw_speed = 4
-	throw_range = 5
 
 /obj/item/weapon/cane
 	name = "cane"
@@ -270,8 +228,8 @@
 	if(concealed_blade)
 		user.visible_message("<span class='warning'>[user] has unsheathed \a [concealed_blade] from \his [src]!</span>", "You unsheathe \the [concealed_blade] from \the [src].")
 		// Calling drop/put in hands to properly call item drop/pickup procs
-		playsound(user.loc, 'sound/weapons/blade_unsheath.ogg', 50, 1)
-		user.drop_from_inventory(src,enable_animations = FALSE)
+		playsound(user.loc, 'sound/weapons/holster/sheathout.ogg', 50, 1)
+		user.drop_from_inventory(src)
 		user.put_in_hands(concealed_blade)
 		user.put_in_hands(src)
 		user.update_inv_l_hand(0)
@@ -284,7 +242,7 @@
 /obj/item/weapon/cane/concealed/attackby(var/obj/item/weapon/canesword/W, var/mob/user)
 	if(!src.concealed_blade && istype(W))
 		user.visible_message("<span class='warning'>[user] has sheathed \a [W] into \his [src]!</span>", "You sheathe \the [W] into \the [src].")
-		playsound(user.loc, 'sound/weapons/blade_sheath.ogg', 50, 1)
+		playsound(user.loc, 'sound/weapons/holster/sheathin.ogg', 50, 1)
 		user.drop_from_inventory(W)
 		W.forceMove(src)
 		src.concealed_blade = W
@@ -344,7 +302,6 @@
 	w_class = 3.0
 	origin_tech = list(TECH_MATERIAL = 1)
 	var/breakouttime = 300	//Deciseconds = 30s = 0.5 minute
-	sprite_sheets = list("Resomi" = 'icons/mob/species/resomi/handcuffs.dmi')
 
 /obj/item/weapon/caution
 	desc = "Caution! Wet Floor!"
@@ -357,23 +314,24 @@
 	throw_range = 5
 	w_class = 2.0
 	attack_verb = list("warned", "cautioned", "smashed")
+	drop_sound = 'sound/items/drop/shoes.ogg'
 
 /obj/item/weapon/caution/attack_self(mob/user as mob)
     if(src.icon_state == "caution")
         src.icon_state = "caution_blinking"
-        user << "You turn the sign on."
+        to_chat(user, "You turn the sign on.")
     else
         src.icon_state = "caution"
-        user << "You turn the sign off."
+        to_chat(user, "You turn the sign off.")
 
 /obj/item/weapon/caution/AltClick()
 	if(!usr || usr.stat || usr.lying || usr.restrained() || !Adjacent(usr))	return
 	if(src.icon_state == "caution")
 		src.icon_state = "caution_blinking"
-		usr << "You turn the sign on."
+		to_chat(usr, "You turn the sign on.")
 	else
 		src.icon_state = "caution"
-		usr << "You turn the sign off."
+		to_chat(usr, "You turn the sign off.")
 
 /obj/item/weapon/caution/cone
 	desc = "This cone is trying to warn you of something!"
@@ -532,7 +490,7 @@
 		if (C.bugged && C.status)
 			cameras.Add(C)
 	if (length(cameras) == 0)
-		usr << "<span class='warning'>No bugged functioning cameras found.</span>"
+		to_chat(usr, "<span class='warning'>No bugged functioning cameras found.</span>")
 		return
 
 	var/list/friendly_cameras = new/list()
@@ -582,8 +540,8 @@
 	if(W.isscrewdriver())
 		new /obj/item/device/encryptionkey/hivenet(user.loc)
 		playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, 1)
-		user << "You bypass the fried security chip and extract the encryption key."
-		user << "The fried neural socket crumbles away like dust."
+		to_chat(user, "You bypass the fried security chip and extract the encryption key.")
+		to_chat(user, "The fried neural socket crumbles away like dust.")
 		qdel(src)
 
 /obj/item/weapon/storage/part_replacer
@@ -612,7 +570,7 @@
 /obj/item/weapon/anomaly_core
 	name = "anomaly core"
 	desc = "An advanced bluespace device, little is known about its applications, meriting research into its purpose."
-	icon = 'icons/obj/objects.dmi'
+	icon = 'icons/obj/stock_parts.dmi'
 	icon_state = "anomaly_core"
 	origin_tech = list(TECH_MAGNET = 6, TECH_MATERIAL = 7, TECH_BLUESPACE = 8)
 

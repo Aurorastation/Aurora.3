@@ -5,6 +5,14 @@
 	..()
 	name = "Mining equipment design ([item_name])"
 
+/datum/design/item/analyzer
+	desc = "A hand-held environmental scanner which reports current gas levels."
+	id = "analyzer"
+	req_tech = list(TECH_MAGNET = 2, TECH_ENGINEERING = 3)
+	materials = list(DEFAULT_WALL_MATERIAL = 30,"glass" = 20)
+	build_path = /obj/item/device/analyzer
+	sort_string = "KCAAC"
+
 /datum/design/item/weapon/mining/jackhammer
 	id = "jackhammer"
 	req_tech = list(TECH_MATERIAL = 3, TECH_POWER = 2, TECH_ENGINEERING = 2)

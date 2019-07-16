@@ -29,7 +29,7 @@
 			if(large)
 				MouseDrop_T(G.affecting, user)	//act like they were dragged onto the closet
 			else
-				user << "<span class='notice'>The locker is too small to stuff [G.affecting] into!</span>"
+				to_chat(user, "<span class='notice'>The locker is too small to stuff [G.affecting] into!</span>")
 		else if(isrobot(user))
 			return
 		else if(W.loc != user) // This should stop mounted modules ending up outside the module.
@@ -42,7 +42,7 @@
 		if(istype(W, /obj/item/weapon/melee/energy/blade))//Attempt to cut open locker if locked
 			if(emag_act(INFINITY, user, "<span class='danger'>The locker has been sliced open by [user] with \an [W]</span>!", "<span class='danger'>You hear metal being sliced and sparks flying.</span>"))
 				spark(src, 5)
-				playsound(loc, 'sound/weapons/blade1.ogg', 50, 1)
+				playsound(loc, 'sound/weapons/blade.ogg', 50, 1)
 				playsound(loc, "sparks", 50, 1)
 		else
 			togglelock(user)//Attempt to lock locker if closed

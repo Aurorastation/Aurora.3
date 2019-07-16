@@ -56,7 +56,7 @@ var/global/list/datum/stack_recipe/rod_recipes = list(
 		var/obj/item/weapon/weldingtool/WT = W
 
 		if(get_amount() < 2)
-			user << "<span class='warning'>You need at least two rods to do this.</span>"
+			to_chat(user, "<span class='warning'>You need at least two rods to do this.</span>")
 			return
 
 		if(WT.remove_fuel(0,user))
@@ -71,4 +71,14 @@ var/global/list/datum/stack_recipe/rod_recipes = list(
 			if (!R && replace)
 				user.put_in_hands(new_item)
 		return
+
+	if (istype(W, /obj/item/weapon/tape_roll))
+		var/obj/item/stack/medical/splint/makeshift/new_splint = new(user.loc)
+		new_splint.add_fingerprint(user)
+
+		user.visible_message("<span class='notice'>\The [user] constructs \a [new_splint] out of a [singular_name].</span>", \
+				"<span class='notice'>You use make \a [new_splint] out of a [singular_name].</span>")
+		use(1)
+		return
+
 	..()

@@ -26,7 +26,7 @@
 	name = "starch capacitor"
 	desc = "A powercell composed of a primarily starch-based conductor."
 	icon_state = "starch_capacitor"
-	reliability = 5
+	reliability = 30
 	shots = 1
 	damage = 5
 
@@ -34,7 +34,7 @@
 	name = "reinforced capacitor"
 	desc = "A reinforced laser weapon capacitor."
 	icon_state = "reinforced_capacitor"
-	reliability = 75
+	reliability = 80
 
 /obj/item/laser_components/capacitor/nuclear
 	name = "uranium-enriched capacitor"
@@ -42,25 +42,25 @@
 	icon_state = "uranium_capacitor"
 	damage = 20
 	shots = 10
-	reliability = 40
+	reliability = 50
 
 /obj/item/laser_components/capacitor/nuclear/small_fail(var/mob/user, var/obj/item/weapon/gun/energy/laser/prototype/prototype)
 	for (var/mob/living/M in range(0,src)) //Only a minor failure, enjoy your radiation if you're in the same tile or carrying it
 		if (M != user)
-			M << "<span class='warning'>You feel a warm sensation.</span>"
+			to_chat(M, "<span class='warning'>You feel a warm sensation.</span>")
 		M.apply_effect(rand(1,10)*(prototype.criticality+1), IRRADIATE)
 	return
 
 /obj/item/laser_components/capacitor/nuclear/medium_fail(var/mob/user, var/obj/item/weapon/gun/energy/laser/prototype/prototype)
 	for (var/mob/living/M in range(round((prototype.criticality+1)),src)) //Only a minor failure, enjoy your radiation if you're in the same tile or carrying it
 		if (M != user)
-			M << "<span class='warning'>You feel a warm sensation.</span>"
+			to_chat(M, "<span class='warning'>You feel a warm sensation.</span>")
 		M.apply_effect(rand(1,40)*(prototype.criticality+1), IRRADIATE)
 	return
 
 /obj/item/laser_components/capacitor/nuclear/critical_fail(var/mob/user, var/obj/item/weapon/gun/energy/laser/prototype/prototype)
 	for (var/mob/living/M in range(rand(2,6)*(prototype.criticality+1),src))
-		M << "<span class='warning'>You feel a wave of heat wash over you.</span>"
+		to_chat(M, "<span class='warning'>You feel a wave of heat wash over you.</span>")
 		M.apply_effect(300*(prototype.criticality+1), IRRADIATE)
 	..()
 
@@ -70,7 +70,7 @@
 	icon_state = "teranium_capacitor"
 	damage = 25
 	shots = 15
-	reliability = 40
+	reliability = 45
 
 /obj/item/laser_components/capacitor/teranium/small_fail(var/mob/user, var/obj/item/weapon/gun/energy/laser/prototype/prototype)
 	tesla_zap(prototype, 3, 1000*(prototype.criticality+1))
@@ -91,12 +91,12 @@
 	icon_state = "phoron_capacitor"
 	damage = 30
 	shots = 25
-	reliability = 30
+	reliability = 40
 
 /obj/item/laser_components/capacitor/phoron/small_fail(var/mob/user, var/obj/item/weapon/gun/energy/laser/prototype/prototype)
 	for (var/mob/living/M in range(0,src)) //Only a minor failure, enjoy your radiation if you're in the same tile or carrying it
 		if (M != user)
-			M << "<span class='warning'>You feel a warm sensation.</span>"
+			to_chat(M, "<span class='warning'>You feel a warm sensation.</span>")
 		M.apply_effect(rand(1,10)*(prototype.criticality+1), IRRADIATE)
 	return
 
@@ -143,21 +143,21 @@
 	dispersion = list(1,-1,2,-2,3,-3,4,-4,5,-5,6,-6,7,-7,8,-8,9,-9,10,-10,11,-11,12,-12,13,-13,14,-14,15,-15)
 	burst = 4
 	accuracy = -1
-	reliability = 30
+	reliability = 35
 
 /obj/item/laser_components/focusing_lens/sniper
 	name = "precise lens"
 	desc = "A focusing lens that is made of refined crystal, providing enhanced clarity and precision."
 	icon_state = "precise_lens"
 	accuracy = 2
-	reliability = 20
+	reliability = 30
 	dispersion = list(0)
 
 /obj/item/laser_components/focusing_lens/strong
 	name = "reinforced lens"
 	desc = "A focusing lens that is reinforced with stronger material."
 	icon_state = "reinforced_lens"
-	reliability = 50
+	reliability = 60
 
 //Modifiers
 
@@ -309,7 +309,7 @@
 /obj/item/laser_components/modulator/xray
 	name = "xray modulator"
 	desc = "Modulates the beam into a concentrated x-ray blast."
-	projectile = /obj/item/projectile/beam/sniper
+	projectile = /obj/item/projectile/beam/xray
 	icon_state = "xray"
 	firing_sound = 'sound/weapons/laser3.ogg'
 
@@ -318,6 +318,7 @@
 	desc = "Modulates the prototype to fire disparate ion projectiles."
 	projectile = /obj/item/projectile/ion
 	icon_state = "ion"
+	origin_tech = list(TECH_COMBAT = 2, TECH_MAGNET = 3)
 
 /obj/item/laser_components/modulator/floramut
 	name = "floral somatomodulator"
@@ -383,6 +384,7 @@
 	damage = 0.5
 	icon_state = "decloner"
 	firing_sound = 'sound/weapons/pulse3.ogg'
+	origin_tech = list(TECH_COMBAT = 4, TECH_MATERIAL = 4, TECH_POWER = 3)
 
 /obj/item/laser_components/modulator/ebow
 	name = "dart modulator"
@@ -391,12 +393,14 @@
 	damage = 0.25
 	icon_state = "dart"
 	firing_sound = 'sound/weapons/Genhit.ogg'
+	origin_tech = list(TECH_COMBAT = 3, TECH_MAGNET = 2, TECH_ILLEGAL = 3)
 
 /obj/item/laser_components/modulator/blaster
 	name = "blaster-bolt modulator"
 	desc = "Modulates the beam into firing disparate energy bolts."
 	projectile = /obj/item/projectile/energy/blaster/incendiary
 	icon_state = "lensatic"
+	origin_tech = list(TECH_COMBAT = 2, TECH_PHORON = 4)
 
 /obj/item/laser_components/modulator/bfg
 	name = "bioforce modulator"
@@ -405,3 +409,19 @@
 	damage = 2
 	icon_state = "bfg"
 	firing_sound = 'sound/magic/LightningShock.ogg'
+
+/obj/item/laser_components/modulator/tox
+	name = "phoron bolt modulator"
+	desc = "Modulates the beam into firing toxic phoron bolts."
+	projectile = /obj/item/projectile/energy/phoron
+	icon_state = "tox"
+	firing_sound = 'sound/effects/stealthoff.ogg'
+	origin_tech = list(TECH_COMBAT = 4, TECH_PHORON = 4)
+
+/obj/item/laser_components/modulator/net
+	name = "energy net modulator"
+	desc = "Modulates the beam into firing an energy net."
+	projectile = /obj/item/projectile/beam/energy_net
+	icon_state = "xray"
+	firing_sound = 'sound/weapons/plasma_cutter.ogg'
+	origin_tech = list(TECH_COMBAT = 3, TECH_PHORON = 4, TECH_ILLEGAL = 4)

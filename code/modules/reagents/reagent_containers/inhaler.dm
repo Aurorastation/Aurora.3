@@ -34,7 +34,7 @@
 		to_chat(user,"<span class='warning'>\The [src] is empty.</span>")
 		return
 
-	if ( ((CLUMSY in user.mutations) || (DUMB in user.mutations)) && prob(10))
+	if ( ((user.is_clumsy()) || (DUMB in user.mutations)) && prob(10))
 		to_chat(user,"<span class='danger'>Your hand slips from clumsiness!</span>")
 		eyestab(H,user)
 		if(H.reagents)
@@ -112,9 +112,9 @@
 /obj/item/weapon/reagent_containers/inhaler/examine(mob/user)
 	..(user)
 	if(reagents && reagents.reagent_list.len)
-		user << "<span class='notice'>It is currently loaded.</span>"
+		to_chat(user, "<span class='notice'>It is currently loaded.</span>")
 	else
-		user << "<span class='notice'>It is spent.</span>"
+		to_chat(user, "<span class='notice'>It is spent.</span>")
 
 /obj/item/weapon/reagent_containers/inhaler/dexalin
 	name = "autoinhaler (dexalin)"

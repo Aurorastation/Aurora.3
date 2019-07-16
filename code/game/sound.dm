@@ -52,11 +52,11 @@ var/list/spark_sound = list(
 	'sound/effects/sparks4.ogg'
 )
 var/list/rustle_sound = list(
-	'sound/effects/rustle1.ogg',
-	'sound/effects/rustle2.ogg',
-	'sound/effects/rustle3.ogg',
-	'sound/effects/rustle4.ogg',
-	'sound/effects/rustle5.ogg'
+	'sound/items/storage/rustle1.ogg',
+	'sound/items/storage/rustle2.ogg',
+	'sound/items/storage/rustle3.ogg',
+	'sound/items/storage/rustle4.ogg',
+	'sound/items/storage/rustle5.ogg'
 )
 var/list/punch_sound = list(
 	'sound/weapons/punch1.ogg',
@@ -157,82 +157,156 @@ var/list/keyboardsounds = list(
 	'sound/machines/keyboard/keystroke3.ogg',
 	'sound/machines/keyboard/keystroke4.ogg'
 	)
+var/list/pickaxesounds = list(
+	'sound/weapons/mine/pickaxe1.ogg',
+	'sound/weapons/mine/pickaxe2.ogg',
+	'sound/weapons/mine/pickaxe3.ogg',
+	'sound/weapons/mine/pickaxe4.ogg'
+	)
 
 var/list/footstepfx = list("defaultstep","concretestep","grassstep","dirtstep","waterstep","sandstep", "gravelstep")
 
-//var/list/gun_sound = list('sound/weapons/Gunshot.ogg', 'sound/weapons/Gunshot2.ogg','sound/weapons/Gunshot3.ogg','sound/weapons/Gunshot4.ogg')
+//var/list/gun_sound = list('sound/weapons/gunshot/gunshot1.ogg', 'sound/weapons/gunshot/gunshot2.ogg','sound/weapons/gunshot/gunshot3.ogg','sound/weapons/gunshot/gunshot4.ogg')
 
-/proc/playsound(atom/source, soundin, vol as num, vary, extrarange as num, falloff, is_global, usepressure = 1, environment = -1, is_ambience = FALSE, is_footstep = FALSE)
-	if (istext(soundin))
-		soundin = get_sfx(soundin) // same sound for everyone
-	else if (isarea(source))
-		error("[source] is an area and is trying to make the sound: [soundin]")
+/proc/playsound(atom/source, soundin, vol, vary, extrarange, falloff, is_global, usepressure = 1, environment = -1, required_preferences = 0, required_asfx_toggles = 0)
+	if (isarea(source))
+		crash_with("[source] is an area and is trying to make the sound: [soundin]")
 		return
 
-	var/frequency = get_rand_frequency() // Same frequency for everybody
-	var/turf/turf_source = get_turf(source)
-	// cache this so we don't create a new one for everybody
+	var/sound/original_sound = playsound_get_sound(soundin, vol, falloff, get_rand_frequency(), environment)
+
+	if (!original_sound)
+		crash_with("Could not construct original sound.")
+		return
+
+	if (is_global)
+		playsound_allinrange(source, original_sound,
+			extra_range = extrarange,
+			is_global = is_global,
+			use_random_freq = !!vary,
+			use_pressure = usepressure,
+			modify_environment = (environment != 0),
+			required_preferences = required_preferences,
+			required_asfx_toggles = required_asfx_toggles
+		)
+	else
+		playsound_lineofsight(source, original_sound,
+			use_pressure = usepressure,
+			use_random_freq = !!vary,
+			modify_environment = (environment != 0),
+			required_preferences = required_preferences,
+			required_asfx_toggles = required_asfx_toggles
+		)
+
+/proc/playsound_get_sound(soundin, volume, fall_off, frequency = 0, environment = -1)
+	if (istext(soundin))
+		soundin = get_sfx(soundin)
+
 	var/sound/S = sound(soundin)
- 	// Looping through the player list has the added bonus of working for mobs inside containers
-	for (var/P in player_list)
-		var/mob/M = P
-		if(!M || !M.client)
-			continue
 
-		var/distance = get_dist(M, turf_source)
-		if(distance <= (world.view + extrarange) * 3)
-			var/turf/T = get_turf(M)
-
-			// These checks are split into multiple ifs for readability reasons.
-
-			if (!T || T.z != turf_source.z)
-				continue
-
-			if (is_ambience && !(M.client.prefs.toggles & SOUND_AMBIENCE))
-				continue
-
-			if (is_footstep && !(M.client.prefs.asfx_togs & ASFX_FOOTSTEPS))
-				continue
-
-			M.playsound_local(turf_source, soundin, vol, vary, frequency, falloff, is_global, usepressure, environment, S)
-
-/mob/proc/playsound_local(turf/turf_source, soundin, vol as num, vary, frequency, falloff, is_global, usepressure = 1, environment = -1, sound/S)
-	if(!client || ear_deaf > 0)
-		return 0
-
-	if (!S)
-		S = sound(get_sfx(soundin))
-
-	S.wait = 0 //No queue
-	S.channel = 0 //Any channel
+	S.wait = 0
+	S.channel = 0
+	S.frequency = frequency
+	S.falloff = fall_off || FALLOFF_SOUNDS
 	S.environment = environment
 
-	if (vary)
-		if(frequency)
-			S.frequency = frequency
-		else
-			S.frequency = get_rand_frequency()
+	return S
 
-	//sound volume falloff with pressure
+/proc/copy_sound(sound/original)
+	var/sound/S = sound(original.file, original.repeat, 0, 0, original.volume)
+
+	S.wait = original.wait
+	S.channel = original.channel
+	S.frequency = original.frequency
+	S.falloff = original.falloff
+	S.environment = original.environment
+
+	return S
+
+/proc/playsound_allinrange(atom/source, sound/S, extra_range = 0, is_global = FALSE, use_random_freq = FALSE, use_pressure = TRUE,  modify_environment = TRUE, required_preferences = 0, required_asfx_toggles = 0)
+	var/turf/source_turf = get_turf(source)
+
+	for (var/MM in player_list)
+		var/mob/M = MM
+
+		if (!M?.client)
+			continue
+
+		var/dist = get_dist(M, source_turf)
+
+		if (dist <= (world.view + extra_range) * 3)
+			var/turf/T = get_turf(M)
+
+			if (!T || T.z != source_turf.z)
+				continue
+			else if (!M.sound_can_play(required_preferences, required_asfx_toggles))
+				continue
+
+			M.playsound_to(source_turf, S, use_random_freq = use_random_freq, use_pressure = use_pressure, modify_environment = modify_environment)
+
+/proc/playsound_lineofsight(atom/source, sound/S, use_random_freq = FALSE, use_pressure = TRUE, modify_environment = TRUE, required_preferences = 0, required_asfx_toggles = 0)
+	var/list/mobs = get_mobs_or_objects_in_view(world.view, source, include_objects = FALSE)
+
+	var/turf/source_turf = get_turf(source)
+
+	for (var/MM in mobs)
+		var/mob/M = MM
+		if (!M.sound_can_play(required_preferences, required_asfx_toggles))
+			continue
+
+		M.playsound_to(source_turf, S, use_random_freq = use_random_freq, use_pressure = use_pressure, modify_environment = modify_environment)
+
+/mob/proc/sound_can_play(required_preferences = 0, required_asfx_toggles = 0)
+	if (!client)
+		return FALSE
+
+	if (required_preferences && (client.prefs.toggles & required_preferences) != required_preferences)
+		return FALSE
+
+	if (required_asfx_toggles && (client.prefs.asfx_togs & required_asfx_toggles) != required_asfx_toggles)
+		return FALSE
+
+	return TRUE
+
+/mob/proc/playsound_get_environment(pressure_factor = 1.0)
+	if (pressure_factor < 0.5)
+		return SPACE
+	else
+		var/area/A = get_area(src)
+		return A.sound_env
+
+/mob/living/playsound_get_environment(pressure_factor = 1.0)
+	if (hallucination)
+		return PSYCHOTIC
+	else if (druggy)
+		return DRUGGED
+	else if (drowsyness)
+		return DIZZY
+	else if (confused)
+		return DIZZY
+	else if (sleeping)
+		return UNDERWATER
+	else
+		return ..()
+
+/mob/proc/playsound_to(turf/source_turf, sound/original_sound, use_random_freq, modify_environment = TRUE, use_pressure = TRUE)
+	var/sound/S = copy_sound(original_sound)
+
 	var/pressure_factor = 1.0
 
-	if(isturf(turf_source))
-		// 3D sounds, the technology is here!
+	if (use_random_freq)
+		S.frequency = get_rand_frequency()
+
+	if (isturf(source_turf))
 		var/turf/T = get_turf(src)
 
-		//sound volume falloff with distance
-		var/distance = get_dist(T, turf_source)
+		var/distance = get_dist(T, source_turf)
 
-		vol -= max(distance - world.view, 0) * 2 //multiplicative falloff to add on top of natural audio falloff.
-		//Not sure if author understood what they were doing, but this is not multiplicative, its linear, and its implementation breaks longdistance sounds.
-			//This extra falloff should probably be rewritten or removed, but for now ive implemented a quick fix by only setting S.volume to vol after calculations are done
-			//This fix allows feeding in high volume values (>100) to make longrange sounds audible
-			// -Nanako
-		if (usepressure)
-			//sound volume falloff with pressure. Pass usepressure = 0 to disable these calculations
+		S.volume -= max(distance - world.view, 0) * 2
 
+		if (use_pressure)
 			var/datum/gas_mixture/hearer_env = T.return_air()
-			var/datum/gas_mixture/source_env = turf_source.return_air()
+			var/datum/gas_mixture/source_env = source_turf.return_air()
 
 			if (hearer_env && source_env)
 				var/pressure = min(hearer_env.return_pressure(), source_env.return_pressure())
@@ -245,52 +319,31 @@ var/list/footstepfx = list("defaultstep","concretestep","grassstep","dirtstep","
 			if (distance <= 1)
 				pressure_factor = max(pressure_factor, 0.15)	//hearing through contact
 
-			vol *= pressure_factor
+			S.volume *= pressure_factor
 
-		if (vol <= 0)
-			return	0//no volume means no sound
+		if (S.volume <= 0)
+			return 0
 
-		S.volume = vol
-		var/dx = turf_source.x - T.x // Hearing from the right/left
-		S.x = dx
-		var/dz = turf_source.y - T.y // Hearing from infront/behind
-		S.z = dz
-		// 3D sound, truly this is the future.
-		S.y = (turf_source.z - T.z) * SOUND_Z_FACTOR
-		S.falloff = (falloff ? falloff : FALLOFF_SOUNDS)
+		S.x = source_turf.x - T.x // left/right
+		S.z = source_turf.y - T.y // front/back
+		S.y = (source_turf.z - T.z) * SOUND_Z_FACTOR // above/below-ish
 
-	if(!is_global && environment != 0)
-		if(istype(src,/mob/living/))
-			var/mob/living/M = src
-			if (M.hallucination)
-				S.environment = PSYCHOTIC
-			else if (M.druggy)
-				S.environment = DRUGGED
-			else if (M.drowsyness)
-				S.environment = DIZZY
-			else if (M.confused)
-				S.environment = DIZZY
-			else if (M.sleeping)
-				S.environment = UNDERWATER
-			else if (pressure_factor < 0.5)
-				S.environment = SPACE
-			else
-				var/area/A = get_area(src)
-				S.environment = A.sound_env
+	if (modify_environment)
+		S.environment = playsound_get_environment(pressure_factor)
 
-		else if (pressure_factor < 0.5)
-			S.environment = SPACE
-		else
-			var/area/A = get_area(src)
-			S.environment = A.sound_env
+	sound_to(src, S)
 
-	src << S
 	return S.volume
+
+/mob/proc/playsound_simple(source, soundin, volume, use_random_freq = FALSE, frequency = 0, falloff = 0, use_pressure = TRUE)
+	var/sound/S = playsound_get_sound(soundin, volume, falloff, frequency)
+
+	playsound_to(source ? get_turf(source) : null, S, use_random_freq, use_pressure = use_pressure)
 
 /client/proc/playtitlemusic()
 	if(!SSticker.login_music)	return
 	if(prefs.toggles & SOUND_LOBBY)
-		src << sound(SSticker.login_music, repeat = 0, wait = 0, volume = 85, channel = 1) // MAD JAMS
+		src << sound(SSticker.login_music, repeat = 0, wait = 0, volume = 85, channel = 1) // MAD JAMS)
 
 /proc/get_rand_frequency()
 	return rand(32000, 55000) //Frequency stuff only works with 45kbps oggs.
@@ -319,4 +372,5 @@ var/list/footstepfx = list("defaultstep","concretestep","grassstep","dirtstep","
 			if ("computerbeep") soundin = pick(computerbeeps)
 			if ("switch") soundin = pick(switchsounds)
 			if ("keyboard") soundin = pick(keyboardsounds)
+			if ("pickaxe") soundin = pick(pickaxesounds)
 	return soundin

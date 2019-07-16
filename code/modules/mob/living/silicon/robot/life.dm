@@ -19,6 +19,7 @@
 		process_killswitch()
 		process_locks()
 		process_queued_alarms()
+		process_level_restrictions()
 	update_canmove()
 
 /mob/living/silicon/robot/proc/clamp_values()
@@ -55,7 +56,7 @@
 		src.has_power = 1
 	else
 		if (src.has_power)
-			src << "<span class='warning'>You are now running on emergency backup power.</span>"
+			to_chat(src, "<span class='warning'>You are now running on emergency backup power.</span>")
 		src.has_power = 0
 		if(lights_on) // Light is on but there is no power!
 			lights_on = 0
@@ -312,7 +313,7 @@
 		killswitch_time --
 		if(killswitch_time <= 0)
 			if(src.client)
-				src << "<span class='danger'>Killswitch Activated</span>"
+				to_chat(src, "<span class='danger'>Killswitch Activated</span>")
 			killswitch = 0
 			spawn(5)
 				gib()
@@ -323,7 +324,7 @@
 		weaponlock_time --
 		if(weaponlock_time <= 0)
 			if(src.client)
-				src << "<span class='danger'>Weapon Lock Timed Out!</span>"
+				to_chat(src, "<span class='danger'>Weapon Lock Timed Out!</span>")
 			weapon_lock = 0
 			weaponlock_time = 120
 
@@ -331,6 +332,19 @@
 	if(paralysis || stunned || weakened || buckled || lockcharge || !is_component_functioning("actuator")) canmove = 0
 	else canmove = 1
 	return canmove
+
+/mob/living/silicon/robot/proc/process_level_restrictions()
+	//Abort if they should not get blown
+	if (lockcharge || scrambledcodes || emagged)
+		return
+	//Check if they are on a player level -> abort
+	var/turf/T = get_turf(src)
+	if (!T || (T.z in current_map.player_levels))
+		return
+	//If they are on centcom -> abort
+	if (istype(get_area(src), /area/centcom) || istype(get_area(src), /area/shuttle/escape) || istype(get_area(src), /area/shuttle/arrival))
+		return
+	self_destruct(TRUE)
 
 /mob/living/silicon/robot/update_fire()
 	cut_overlay(image("icon"='icons/mob/OnFire.dmi', "icon_state"="Standing"))

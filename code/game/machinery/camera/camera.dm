@@ -45,7 +45,7 @@
 	for(var/obj/machinery/camera/C in cameranet.cameras)
 		var/list/tempnetwork = C.network&src.network
 		if(C != src && C.c_tag == src.c_tag && tempnetwork.len)
-			world.log << "[src.c_tag] [src.x] [src.y] [src.z] conflicts with [C.c_tag] [C.x] [C.y] [C.z]"
+			world.log <<  "[src.c_tag] [src.x] [src.y] [src.z] conflicts with [C.c_tag] [C.x] [C.y] [C.z]"
 	*/
 	if(!src.network || src.network.len < 1)
 		if(loc)
@@ -131,7 +131,7 @@
 	update_coverage()
 	// DECONSTRUCTION
 	if(W.isscrewdriver())
-		//user << "<span class='notice'>You start to [panel_open ? "close" : "open"] the camera's panel.</span>"
+		//to_chat(user, "<span class='notice'>You start to [panel_open ? "close" : "open"] the camera's panel.</span>")
 		//if(toggle_panel(user)) // No delay because no one likes screwdrivers trying to be hip and have a duration cooldown
 		panel_open = !panel_open
 		user.visible_message("<span class='warning'>[user] screws the camera's panel [panel_open ? "open" : "closed"]!</span>",
@@ -152,10 +152,10 @@
 				assembly.dir = src.dir
 				if(stat & BROKEN)
 					assembly.state = 2
-					user << "<span class='notice'>You repaired \the [src] frame.</span>"
+					to_chat(user, "<span class='notice'>You repaired \the [src] frame.</span>")
 				else
 					assembly.state = 1
-					user << "<span class='notice'>You cut \the [src] free from the wall.</span>"
+					to_chat(user, "<span class='notice'>You cut \the [src] free from the wall.</span>")
 					new /obj/item/stack/cable_coil(loc, 2)
 				assembly = null //so qdel doesn't eat it.
 			qdel(src)
@@ -176,31 +176,31 @@
 			P = W
 			itemname = P.name
 			info = P.notehtml
-		U << "You hold \a [itemname] up to the camera ..."
+		to_chat(U, "You hold \a [itemname] up to the camera ...")
 		for(var/mob/living/silicon/ai/O in living_mob_list)
 			var/entry = O.addCameraRecord(itemname,info)
 			if(!O.client) continue
 			if(U.name == "Unknown")
-				O << "<b>[U]</b> holds \a [itemname] up to one of your cameras ...<a href='?src=\ref[O];readcapturedpaper=\ref[entry]'>view message</a>"
+				to_chat(O, "<b>[U]</b> holds \a [itemname] up to one of your cameras ...<a href='?src=\ref[O];readcapturedpaper=\ref[entry]'>view message</a>")
 			else
-				O << "<b><a href='byond://?src=\ref[O];track2=\ref[O];track=\ref[U];trackname=[html_encode(U.name)]'>[U]</a></b> holds \a [itemname] up to one of your cameras ...<a href='?src=\ref[O];readcapturedpaper=[entry]'>view message</a>"
+				to_chat(O, "<b><a href='byond://?src=\ref[O];track2=\ref[O];track=\ref[U];trackname=[html_encode(U.name)]'>[U]</a></b> holds \a [itemname] up to one of your cameras ...<a href='?src=\ref[O];readcapturedpaper=[entry]'>view message</a>")
 
 		for(var/mob/O in player_list)
 			if (istype(O.machine, /obj/machinery/computer/security))
 				var/obj/machinery/computer/security/S = O.machine
 				if (S.current_camera == src)
-					O << "[U] holds \a [itemname] up to one of the cameras ..."
-					O << browse(text("<HTML><HEAD><TITLE>[]</TITLE></HEAD><BODY><TT>[]</TT></BODY></HTML>", itemname, info), text("window=[]", itemname)) //Force people watching to open the page so they can't see it again
+					to_chat(O, "[U] holds \a [itemname] up to one of the cameras ...")
+					O << browse(text("<HTML><HEAD><TITLE>[]</TITLE></HEAD><BODY><TT>[]</TT></BODY></HTML>", itemname, info), text("window=[]", itemname)) //Force people watching to open the page so they can't see it again)
 
 	else if (istype(W, /obj/item/weapon/camera_bug))
 		if (!src.can_use())
-			user << "<span class='warning'>Camera non-functional.</span>"
+			to_chat(user, "<span class='warning'>Camera non-functional.</span>")
 			return
 		if (src.bugged)
-			user << "<span class='notice'>Camera bug removed.</span>"
+			to_chat(user, "<span class='notice'>Camera bug removed.</span>")
 			src.bugged = 0
 		else
-			user << "<span class='notice'>Camera bugged.</span>"
+			to_chat(user, "<span class='notice'>Camera bugged.</span>")
 			src.bugged = 1
 
 	else if(W.damtype == BRUTE || W.damtype == BURN) //bashing cameras
@@ -285,7 +285,7 @@
 			if (S.current_camera == src)
 				O.unset_machine()
 				O.reset_view(null)
-				O << "The screen bursts into static."
+				to_chat(O, "The screen bursts into static.")
 
 /obj/machinery/camera/update_icon()
 	if (!status || (stat & BROKEN))
@@ -370,7 +370,7 @@
 		return 0
 
 	// Do after stuff here
-	user << "<span class='notice'>You start to weld the [src]..</span>"
+	to_chat(user, "<span class='notice'>You start to weld the [src]..</span>")
 	playsound(src.loc, 'sound/items/Welder.ogg', 50, 1)
 	WT.eyecheck(user)
 	busy = 1
@@ -387,7 +387,7 @@
 		return
 
 	if(stat & BROKEN)
-		user << "<span class='warning'>\The [src] is broken.</span>"
+		to_chat(user, "<span class='warning'>\The [src] is broken.</span>")
 		return
 
 	user.set_machine(src)

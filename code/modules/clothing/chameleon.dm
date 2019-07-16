@@ -160,6 +160,7 @@
 	icon_state = "black"
 	item_state = "black"
 	desc = "They're comfy black shoes, with clever cloaking technology built in. It seems to have a small dial on the back of each shoe."
+	silent = 1
 	origin_tech = list(TECH_ILLEGAL = 3)
 	var/global/list/clothing_choices
 
@@ -348,7 +349,7 @@
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2, TECH_ILLEGAL = 8)
 	matter = list()
 
-	fire_sound = 'sound/weapons/Gunshot.ogg'
+	fire_sound = 'sound/weapons/gunshot/gunshot1.ogg'
 	projectile_type = /obj/item/projectile/chameleon
 	charge_meter = 0
 	charge_cost = 20 //uses next to no power, since it's just holograms

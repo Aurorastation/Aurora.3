@@ -39,12 +39,12 @@
 
 	if(!active)
 		src.visible_message("<span class='warning'>[user] switches \the [src] on.</span>")
-		user << "<span class='warning'>The world beyond opens to your eyes.</span>"
+		to_chat(user, "<span class='warning'>The world beyond opens to your eyes.</span>")
 		active = TRUE
 
 	else
 		src.visible_message("<span class='warning'>[user] switches \the [src] off.</span>")
-		user << "<span class='warning'>The world beyond vanishes before your eyes.</span>"
+		to_chat(user, "<span class='warning'>The world beyond vanishes before your eyes.</span>")
 		active = FALSE
 
 	update_icon()
@@ -71,7 +71,7 @@
 			L.see_invisible = SEE_INVISIBLE_CULT
 			if(prob(15))
 				var/message = pick(whispers)
-				L << "<span class='cult'><b>[message]</b></span>"
+				to_chat(L, "<span class='cult'><b>[message]</b></span>")
 				L.hallucination += 50
 				L.adjustBrainLoss(5, 55)
 
@@ -83,7 +83,7 @@
 				playsound(src, 'sound/magic/lightningbolt.ogg', 40, 1)
 
 			if(prob(1))
-				L << "<span class='cult'><b>Reality feels less stable...</b></span>"
+				to_chat(L, "<span class='cult'><b>Reality feels less stable...</b></span>")
 				src.visible_message("<span class='warning'>\The [src] screeches loudly!</span>")
 				playsound(src, 'sound/magic/dimensional_rend.ogg', 100, 1)
 				new /obj/effect/gateway/active/rift(src.loc)

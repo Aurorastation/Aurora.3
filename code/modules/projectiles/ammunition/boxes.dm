@@ -7,12 +7,12 @@
 	caliber = "357"
 	ammo_type = /obj/item/ammo_casing/a357
 	matter = list(DEFAULT_WALL_MATERIAL = 1260)
-	max_ammo = 7
+	max_ammo = 8
 	multiple_sprites = 1
 
 /obj/item/ammo_magazine/a454
 	name = "speed loader (.454)"
-	icon_state = "T38"
+	icon_state = "a454"
 	caliber = "454"
 	ammo_type = /obj/item/ammo_casing/a454
 	matter = list(DEFAULT_WALL_MATERIAL = 1260)
@@ -245,19 +245,6 @@
 /obj/item/ammo_magazine/trodpack/empty
 	initial_ammo = 0
 
-/obj/item/ammo_magazine/tranq
-	name = "tranquilizer darts (.50 cal PPS)"
-	icon_state = "incendiaryshot_box"
-	origin_tech = list(TECH_COMBAT = 2)
-	mag_type = SINGLE_CASING
-	caliber = "PPS"
-	matter = list(DEFAULT_WALL_MATERIAL = 4500)
-	ammo_type = /obj/item/ammo_casing/tranq
-	max_ammo = 4
-
-/obj/item/ammo_magazine/tranq/empty
-	initial_ammo = 0
-
 /obj/item/ammo_magazine/a762
 	name = "magazine box (7.62mm)"
 	icon_state = "a762"
@@ -281,6 +268,10 @@
 	ammo_type = /obj/item/ammo_casing/a762
 	max_ammo = 20
 	multiple_sprites = 1
+
+/obj/item/ammo_magazine/c762/sol
+	icon_state = "battlerifle_mag"
+	multiple_sprites = 0
 
 /obj/item/ammo_magazine/boltaction
 	name = "ammo clip (7.62mm)"
@@ -435,3 +426,19 @@
 	name = "ion slug box"
 	icon_state = "empslugbox"
 	ammo_type = /obj/item/ammo_casing/gauss/emp
+
+
+/obj/item/ammo_magazine/plasma
+	name = "heavy duty plasma cell"
+	icon_state = "heavy_plasma_cell"
+	mag_type = MAGAZINE
+	caliber = "plasma slug"
+	ammo_type = /obj/item/ammo_casing/plasma_slug
+	max_ammo = 10
+
+/obj/item/ammo_magazine/plasma/light
+	name = "small plasma cell"
+	icon_state = "light_plasma_cell"
+	caliber = "plasma bolt"
+	ammo_type = /obj/item/ammo_casing/plasma_bolt
+	max_ammo = 30

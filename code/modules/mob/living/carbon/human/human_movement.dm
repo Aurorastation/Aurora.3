@@ -16,11 +16,14 @@
 	var/health_deficiency = (100 - health)
 	if(health_deficiency >= 40) tally += (health_deficiency / 25)
 
-	if (!(species && (species.flags & NO_PAIN)))
+	if (can_feel_pain())
 		if(halloss >= 10) tally += (halloss / 10) //halloss shouldn't slow you down if you can't even feel it
 
 	if(wear_suit)
 		tally += wear_suit.slowdown
+
+	if(species)
+		tally += species.get_species_tally(src)
 
 	if(istype(buckled, /obj/structure/bed/chair/wheelchair))
 		for(var/organ_name in list("l_hand","r_hand","l_arm","r_arm"))
@@ -44,7 +47,7 @@
 			else if(E.status & ORGAN_BROKEN)
 				tally += 1.5
 
-	if (!(species && (species.flags & NO_PAIN)))
+	if (can_feel_pain())
 		if(shock_stage >= 10) tally += 3
 
 	if(aiming && aiming.aiming_at) tally += 5 // Iron sights make you slower, it's a well-known fact.
@@ -136,11 +139,11 @@
 		last_x = x
 		last_y = y
 		if (m_intent == "run")
-			playsound(src, T.footstep_sound, 70, 1, is_footstep = TRUE)
+			playsound(src, T.footstep_sound, 70, 1, required_asfx_toggles = ASFX_FOOTSTEPS)
 		else
 			footstep++
 			if (footstep % 2)
-				playsound(src, T.footstep_sound, 40, 1, is_footstep = TRUE)
+				playsound(src, T.footstep_sound, 40, 1, required_asfx_toggles = ASFX_FOOTSTEPS)
 
 /mob/living/carbon/human/mob_has_gravity()
 	. = ..()

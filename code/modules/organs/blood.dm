@@ -32,7 +32,7 @@ var/const/BLOOD_VOLUME_SURVIVE = 122
 			B.data = list(
 				"donor" = WEAKREF(src),
 				"viruses" = null,
-				"species" = species.name,
+				"species" = species.bodytype,
 				"blood_DNA" = dna.unique_enzymes,
 				"blood_colour" = species.blood_color,
 				"blood_type" = dna.b_type,
@@ -91,10 +91,10 @@ var/const/BLOOD_VOLUME_SURVIVE = 122
 					pale = 1
 					update_body()
 					var/word = pick("dizzy","woosey","faint")
-					src << "<span class='warning'>You feel [word]</span>"
+					to_chat(src, "<span class='warning'>You feel [word]</span>")
 				if(prob(1))
 					var/word = pick("dizzy","woosey","faint")
-					src << "<span class='warning'>You feel [word]</span>"
+					to_chat(src, "<span class='warning'>You feel [word]</span>")
 			if(BLOOD_VOLUME_BAD to BLOOD_VOLUME_OKAY)
 				if(!pale)
 					pale = 1
@@ -104,13 +104,13 @@ var/const/BLOOD_VOLUME_SURVIVE = 122
 				if(prob(15))
 					Paralyse(rand(1,3))
 					var/word = pick("dizzy","woosey","faint")
-					src << "<span class='warning'>You feel extremely [word]</span>"
+					to_chat(src, "<span class='warning'>You feel extremely [word]</span>")
 			if(BLOOD_VOLUME_SURVIVE to BLOOD_VOLUME_BAD)
 				oxyloss += 3
 				toxloss += 3
 				if(prob(15))
 					var/word = pick("dizzy","woosey","faint")
-					src << "<span class='warning'>You feel extremely [word]</span>"
+					to_chat(src, "<span class='warning'>You feel extremely [word]</span>")
 			if(0 to BLOOD_VOLUME_SURVIVE)
 				// There currently is a strange bug here. If the mob is not below -100 health
 				// when death() is called, apparently they will be just fine, and this way it'll
@@ -128,16 +128,11 @@ var/const/BLOOD_VOLUME_SURVIVE = 122
 		for(var/obj/item/organ/external/temp in organs)
 			if(!(temp.status & ORGAN_BLEEDING) || temp.status & ORGAN_ROBOT)
 				continue
-			if(isvaurca(src))
-				for(var/datum/wound/W in temp.wounds) if(W.bleeding())
-					blood_max += W.damage / 30
-				if (temp.open)
-					blood_max += 3  //Yer stomach is cut open
-			else
-				for(var/datum/wound/W in temp.wounds) if(W.bleeding())
-					blood_max += W.damage / 40
-				if (temp.open)
-					blood_max += 2  //Yer stomach is cut open
+			for(var/datum/wound/W in temp.wounds)
+				if(W.bleeding())
+					blood_max += ((W.damage / 40) * species.bleed_mod)
+			if (temp.open)
+				blood_max += 2 * species.bleed_mod  //Yer stomach is cut open
 		drip(blood_max)
 
 //Makes a blood drop, leaking amt units of blood from the mob
@@ -183,6 +178,7 @@ var/const/BLOOD_VOLUME_SURVIVE = 122
 		var/mob/living/carbon/human/H = src
 		B.data["blood_colour"] = H.species.blood_color
 		B.color = B.data["blood_colour"]
+		B.data["species"] = H.species.bodytype
 
 	var/list/temp_chem = list()
 	for(var/datum/reagent/R in src.reagents.reagent_list)

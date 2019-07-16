@@ -85,3 +85,10 @@
  * Parameters: var/obj/structure/closet/crate/sold, var/area/shuttle
  */
 /hook/sell_crate
+
+/**
+ * Captain spawned.
+ * Called whenever a captain is spawned.
+ * Parameters: var/mob/living/carbon/human
+ */
+/hook/captain_spawned

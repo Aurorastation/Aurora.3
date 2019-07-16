@@ -6,7 +6,7 @@
 	density = 1
 
 /obj/structure/largecrate/attack_hand(mob/user as mob)
-	user << "<span class='notice'>You need a crowbar to pry this open!</span>"
+	to_chat(user, "<span class='notice'>You need a crowbar to pry this open!</span>")
 	return
 
 /obj/structure/largecrate/attackby(obj/item/weapon/W as obj, mob/user as mob)
@@ -87,3 +87,13 @@
 
 /obj/structure/largecrate/animal/dog/pug
 	held_type = /mob/living/simple_animal/hostile/commanded/dog/pug
+
+/obj/structure/largecrate/animal/adhomai
+	name = "adhomian animal crate"
+	held_type = /mob/living/simple_animal/ice_tunneler
+
+/obj/structure/largecrate/animal/adhomai/fatshouter
+	held_type = /mob/living/simple_animal/fatshouter
+
+/obj/structure/largecrate/animal/adhomai/rafama
+	held_type = /mob/living/simple_animal/hostile/retaliate/rafama

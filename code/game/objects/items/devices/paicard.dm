@@ -41,17 +41,17 @@
 //Possible TODO in future, allow emagging a paicard to let it work like an agent ID, accumulating access from any ID
 /obj/item/device/paicard/proc/scan_ID(var/obj/item/weapon/card/id/card, var/mob/user)
 	if (!pai)
-		user << "<span class='warning'>Error: ID Registration failed. No pAI personality installed.</span>"
+		to_chat(user, "<span class='warning'>Error: ID Registration failed. No pAI personality installed.</span>")
 		playsound(src.loc, 'sound/machines/buzz-two.ogg', 20, 0)
 		return 0
 
 	if (!pai.master_dna)
-		user << "<span class='warning'>Error: ID Registration failed. User not registered as owner. Please complete imprinting process first.</span>"
+		to_chat(user, "<span class='warning'>Error: ID Registration failed. User not registered as owner. Please complete imprinting process first.</span>")
 		playsound(src.loc, 'sound/machines/buzz-two.ogg', 20, 0)
 		return 0
 
 	if (pai.master_dna != card.dna_hash)
-		user << "<span class='warning'>Error: ID Registration failed. Biometric data on ID card does not match DNA sample of registered owner.</span>"
+		to_chat(user, "<span class='warning'>Error: ID Registration failed. Biometric data on ID card does not match DNA sample of registered owner.</span>")
 		playsound(src.loc, 'sound/machines/buzz-two.ogg', 20, 0)
 		return 0
 
@@ -59,7 +59,7 @@
 	pai.idcard.access = card.access.Copy()
 	pai.idcard.registered_name = card.registered_name
 	playsound(src.loc, 'sound/machines/ping.ogg', 50, 0)
-	user << "<span class='notice'>ID Registration for [pai.idcard.registered_name] is a success. PAI access updated!</span>"
+	to_chat(user, "<span class='notice'>ID Registration for [pai.idcard.registered_name] is a success. PAI access updated!</span>")
 	return 1
 
 /obj/item/device/paicard/proc/ID_readout()
@@ -278,12 +278,12 @@
 			return
 		var/mob/M = usr
 		if(!istype(M, /mob/living/carbon))
-			usr << "<font color=blue>You don't have any DNA, or your DNA is incompatible with this device.</font>"
+			to_chat(usr, "<font color=blue>You don't have any DNA, or your DNA is incompatible with this device.</font>")
 		else
 			var/datum/dna/dna = usr.dna
 			pai.master = M.real_name
 			pai.master_dna = dna.unique_enzymes
-			pai << "<font color = red><h3>You have been bound to a new master.</h3></font>"
+			to_chat(pai, "<font color = red><h3>You have been bound to a new master.</h3></font>")
 	if(href_list["request"])
 		src.looking_for_personality = 1
 		SSpai.findPAI(src, usr)
@@ -291,13 +291,13 @@
 		var/confirm = input("Are you CERTAIN you wish to delete the current personality? This action cannot be undone.", "Personality Wipe") in list("Yes", "No")
 		if(confirm == "Yes")
 			for(var/mob/M in src)
-				M << "<font color = #ff0000><h2>You feel yourself slipping away from reality.</h2></font>"
+				to_chat(M, "<font color = #ff0000><h2>You feel yourself slipping away from reality.</h2></font>")
 				sleep(30)
-				M << "<font color = #ff4d4d><h3>Byte by byte you lose your sense of self.</h3></font>"
+				to_chat(M, "<font color = #ff4d4d><h3>Byte by byte you lose your sense of self.</h3></font>")
 				sleep(20)
-				M << "<font color = #ff8787><h4>Your mental faculties leave you.</h4></font>"
+				to_chat(M, "<font color = #ff8787><h4>Your mental faculties leave you.</h4></font>")
 				sleep(30)
-				M << "<font color = #ffc4c4><h5>oblivion... </h5></font>"
+				to_chat(M, "<font color = #ffc4c4><h5>oblivion... </h5></font>")
 				M.death(0)
 			removePersonality()
 	if(href_list["wires"])
@@ -311,9 +311,9 @@
 		var/newlaws = sanitize(input("Enter any additional directives you would like your pAI personality to follow. Note that these directives will not override the personality's allegiance to its imprinted master. Conflicting directives will be ignored.", "pAI Directive Configuration", pai.pai_laws) as message)
 		if(newlaws)
 			pai.pai_laws = newlaws
-			pai << "Your supplemental directives have been updated. Your new directives are:"
-			pai << "Prime Directive: <br>[pai.pai_law0]"
-			pai << "Supplemental Directives: <br>[pai.pai_laws]"
+			to_chat(pai, "Your supplemental directives have been updated. Your new directives are:")
+			to_chat(pai, "Prime Directive: <br>[pai.pai_law0]")
+			to_chat(pai, "Supplemental Directives: <br>[pai.pai_laws]")
 	attack_self(usr)
 
 // 		WIRE_SIGNAL = 1

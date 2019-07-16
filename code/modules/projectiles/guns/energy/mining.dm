@@ -19,6 +19,7 @@
 	matter = list(DEFAULT_WALL_MATERIAL = 4000)
 	projectile_type = /obj/item/projectile/beam/plasmacutter
 	max_shots = 15
+	needspin = FALSE
 
 /obj/item/weapon/gun/energy/plasmacutter/mounted
 	name = "mounted plasma cutter"

@@ -1,5 +1,3 @@
-
-
 /obj/item/clothing/head/centhat
 	name = "\improper CentComm. hat"
 	icon_state = "centcom"
@@ -17,6 +15,7 @@
 	desc = "A nice hair pin."
 	slot_flags = SLOT_HEAD | SLOT_EARS
 	body_parts_covered = 0
+	drop_sound = 'sound/items/drop/ring.ogg'
 
 /obj/item/clothing/head/pin/pink
 	icon_state = "pinkpin"
@@ -173,10 +172,11 @@
 	item_state = "cardborg_h"
 	flags_inv = HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE
 	body_parts_covered = HEAD|FACE|EYES
+	drop_sound = 'sound/items/drop/box.ogg'
 
 /obj/item/clothing/head/justice
 	name = "justice hat"
-	desc = "fight for what's righteous!"
+	desc = "Fight for what's righteous!"
 	icon_state = "justicered"
 	flags_inv = BLOCKHAIR
 	body_parts_covered = HEAD|EYES
@@ -269,6 +269,11 @@
 	icon_state = "witch"
 	flags_inv = BLOCKHAIR
 	siemens_coefficient = 2.0
+
+/obj/item/clothing/head/legion_beret
+	name = "TCFL dress beret"
+	desc = "A pale blue dress beret with a rubber insignia of a torch, surrounded by red stars and the letters \"TCFL\". A common good luck charm among former legionaires."
+	icon_state = "legion_beret"
 
 /obj/item/clothing/head/chicken
 	name = "chicken suit head"
@@ -427,15 +432,18 @@
 /obj/item/clothing/head/fedora/brown
 	name = "fedora"
 	desc = "A brown fedora - either the cornerstone of a detective's style or a poor attempt at looking cool, depending on the person wearing it."
-	icon_state = "detective"
+	icon_state = "brown_fedora"
 	item_state_slots = list(
 		slot_l_hand_str = "det_hat",
 		slot_r_hand_str = "det_hat"
 		)
 	siemens_coefficient = 0.7
 
+/obj/item/clothing/head/fedora/brown/dark
+	icon_state = "darkbrown_fedora"
+
 /obj/item/clothing/head/fedora/grey
-	icon_state = "detective2"
+	icon_state = "grey_fedora"
 	desc = "A grey fedora - either the cornerstone of a detective's style or a poor attempt at looking cool, depending on the person wearing it."
 
 /obj/item/clothing/head/beanie
@@ -458,6 +466,7 @@
 	icon_state = "sunflower_crown"
 	item_state = "sunflower_crown"
 	body_parts_covered = 0
+	drop_sound = 'sound/items/drop/herb.ogg'
 
 /obj/item/clothing/head/lavender_crown
 	name = "harebell crown"
@@ -465,6 +474,7 @@
 	icon_state = "lavender_crown"
 	item_state = "lavender_crown"
 	body_parts_covered = 0
+	drop_sound = 'sound/items/drop/herb.ogg'
 
 /obj/item/clothing/head/poppy_crown
 	name = "poppy crown"
@@ -472,6 +482,7 @@
 	icon_state = "poppy_crown"
 	item_state = "poppy_crown"
 	body_parts_covered = 0
+	drop_sound = 'sound/items/drop/herb.ogg'
 
 //golden beep stuff
 
@@ -481,6 +492,7 @@
 	icon_state = "cobalt_headchains"
 	item_state = "cobalt_headchains"
 	body_parts_covered = 0
+	drop_sound = 'sound/items/drop/accessory.ogg'
 
 /obj/item/clothing/head/headchain/emerald
 	name = "emerald head chains"
@@ -500,6 +512,7 @@
 	icon_state = "cobalt_crest"
 	item_state = "cobalt_crest"
 	body_parts_covered = 0
+	drop_sound = 'sound/items/drop/accessory.ogg'
 
 /obj/item/clothing/head/crest/emerald
 	name = "emerald head crest"
@@ -524,6 +537,7 @@
 	slot_flags = SLOT_HEAD | SLOT_EARS
 	body_parts_covered = 0
 	matter = list(DEFAULT_WALL_MATERIAL = 10)
+	drop_sound = 'sound/items/drop/scrap.ogg'
 
 /obj/item/clothing/head/antenna/straight
 	name = "straight antennae"
@@ -549,3 +563,18 @@
 	icon_state = "dish"
 	item_state = "dish"
 
+/obj/item/clothing/head/antenna/double
+	name = "antenna ears"
+	desc = "Despite being commonly seen on Shells, nobody knows what these actually do."
+	icon_state = "dual_robot_antennae"
+	item_state = "dual_robot_antennae"
+
+/obj/item/clothing/head/antenna/double/left
+	name = "left antenna ear"
+	icon_state = "left_robot_antennae"
+	item_state = "left_robot_antennae"
+
+/obj/item/clothing/head/antenna/double/right
+	name = "right antenna ear"
+	icon_state = "right_robot_antennae"
+	item_state = "right_robot_antennae"

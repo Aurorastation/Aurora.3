@@ -2,7 +2,7 @@
 	name = "0 credit chip"
 	desc = "It's worth 0 credits."
 	gender = PLURAL
-	icon = 'icons/obj/items.dmi'
+	icon = 'icons/obj/cash.dmi'
 	icon_state = "spacecash1"
 	opacity = 0
 	density = 0
@@ -15,6 +15,7 @@
 	var/access = list()
 	access = access_crate_cash
 	var/worth = 0
+	drop_sound = 'sound/items/drop/paper.ogg'
 
 /obj/item/weapon/spacecash/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	if(istype(W, /obj/item/weapon/spacecash))
@@ -36,7 +37,7 @@
 			h_user.drop_from_inventory(src)
 			h_user.drop_from_inventory(bundle)
 			h_user.put_in_hands(bundle)
-		user << "<span class='notice'>You add [src.worth] credits worth of money to the bundles.<br>It holds [bundle.worth] credits now.</span>"
+		to_chat(user, "<span class='notice'>You add [src.worth] credits worth of money to the bundles.<br>It holds [bundle.worth] credits now.</span>")
 		qdel(src)
 
 /obj/item/weapon/spacecash/bundle
@@ -55,14 +56,14 @@
 		while(sum >= i && num < 50)
 			sum -= i
 			num++
-			var/image/banknote = image('icons/obj/items.dmi', "spacecash[i]")
+			var/image/banknote = image('icons/obj/cash.dmi', "spacecash[i]")
 			var/matrix/M = matrix()
 			M.Translate(rand(-6, 6), rand(-4, 8))
 			M.Turn(pick(-45, -27.5, 0, 0, 0, 0, 0, 0, 0, 27.5, 45))
 			banknote.transform = M
 			ovr += banknote
 	if(num == 0) // Less than one credit, let's just make it look like 1 for ease
-		var/image/banknote = image('icons/obj/items.dmi', "spacecash1")
+		var/image/banknote = image('icons/obj/cash.dmi', "spacecash1")
 		var/matrix/M = matrix()
 		M.Translate(rand(-6, 6), rand(-4, 8))
 		M.Turn(pick(-45, -27.5, 0, 0, 0, 0, 0, 0, 0, 27.5, 45))
@@ -79,7 +80,7 @@
 	if(QDELETED(src))
 		return 0
 
-	if(use_check(user,USE_FORCE_SRC_IN_USER))
+	if(use_check_and_message(user,USE_FORCE_SRC_IN_USER))
 		return 0
 
 	amount = round(Clamp(amount, 0, src.worth))
@@ -170,11 +171,12 @@ proc/spawn_money(var/sum, spawnloc, mob/living/carbon/human/human_user as mob)
 	icon_state = "efundcard"
 	desc = "A card that holds an amount of money."
 	var/owner_name = "" //So the ATM can set it so the EFTPOS can put a valid name on transactions.
+	drop_sound = 'sound/items/drop/card.ogg'
 
 /obj/item/weapon/spacecash/ewallet/examine(mob/user)
 	..(user)
 	if (!(user in view(2)) && user!=src.loc) return
-	user << "<span class='notice'>Charge card's owner: [src.owner_name]. Credit chips remaining: [src.worth].</span>"
+	to_chat(user, "<span class='notice'>Charge card's owner: [src.owner_name]. Credit chips remaining: [src.worth].</span>")
 
 /obj/item/weapon/spacecash/ewallet/lotto
 	name = "space lottery card"
@@ -186,16 +188,16 @@ proc/spawn_money(var/sum, spawnloc, mob/living/carbon/human/human_user as mob)
 /obj/item/weapon/spacecash/ewallet/lotto/attack_self(mob/user)
 
 	if(scratches_remaining <= 0)
-		user << "<span class='warning'>The card flashes: \"No scratches remaining!\"</span>"
+		to_chat(user, "<span class='warning'>The card flashes: \"No scratches remaining!\"</span>")
 		return
 
 	if(next_scratch > world.time)
-		user << "<span class='warning'>The card flashes: \"Please wait!\"</span>"
+		to_chat(user, "<span class='warning'>The card flashes: \"Please wait!\"</span>")
 		return
 
 	next_scratch = world.time + 6 SECONDS
 
-	user << "<span class='notice'>You initiate the simulated scratch action process on the [src]...</span>"
+	to_chat(user, "<span class='notice'>You initiate the simulated scratch action process on the [src]...</span>")
 	playsound(src.loc, 'sound/items/drumroll.ogg', 50, 0, -4)
 	if(do_after(user,4.5 SECONDS))
 		var/won = 0
@@ -235,9 +237,9 @@ proc/spawn_money(var/sum, spawnloc, mob/living/carbon/human/human_user as mob)
 		worth += won
 		sleep(1 SECONDS)
 		if(scratches_remaining > 0)
-			user << "<span class='notice'>The card flashes: You have: [scratches_remaining] SCRATCHES remaining! Scratch again!</span>"
+			to_chat(user, "<span class='notice'>The card flashes: You have: [scratches_remaining] SCRATCHES remaining! Scratch again!</span>")
 		else
-			user << "<span class='notice'>The card flashes: You have: [scratches_remaining] SCRATCHES remaining! You won a total of: [worth] CREDITS. Thanks for playing the space lottery!</span>"
+			to_chat(user, "<span class='notice'>The card flashes: You have: [scratches_remaining] SCRATCHES remaining! You won a total of: [worth] CREDITS. Thanks for playing the space lottery!</span>")
 
 		owner_name = user.name
 

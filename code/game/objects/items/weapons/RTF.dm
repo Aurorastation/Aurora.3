@@ -3,7 +3,7 @@ var/malftransformermade = 0
 /obj/item/weapon/rtf
 	name = "\improper Rapid-Transformer-Fabricator"
 	desc = "A device used to deploy a transformer. It can only be used once and there can not be more than one made."
-	icon = 'icons/obj/items.dmi'
+	icon = 'icons/obj/tools.dmi'
 	icon_state = "rcd"
 	opacity = 0
 	density = 0
@@ -23,12 +23,12 @@ var/malftransformermade = 0
 		return
 
 	if(malftransformermade)
-		user << "There is already a transformer machine made!"
+		to_chat(user, "There is already a transformer machine made!")
 		return
 
 	playsound(src.loc, 'sound/machines/click.ogg', 10, 1)
 	var/used_energy = 100
-	user << "Fabricating machine..."
+	to_chat(user, "Fabricating machine...")
 	if(do_after(user, 30 SECONDS, act_target = src))
 		var/obj/product = new /obj/machinery/transformer
 		malftransformermade = 1
