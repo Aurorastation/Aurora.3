@@ -5275,9 +5275,10 @@
 	},
 /obj/machinery/camera{
 	c_tag = "Airlock";
-	dir = 2;
+	dir = 4;
 	name = "shuttle camera";
-	network = list("Shuttle Network")
+	network = list("Shuttle Network");
+	pixel_y = 21
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/shuttle/floor/plating/destructible/black,
@@ -11988,6 +11989,12 @@
 /area/shuttle/specops/centcom)
 "aCw" = (
 /obj/structure/bed/chair,
+/obj/machinery/turretid{
+	check_arrest = 0;
+	check_records = 0;
+	pixel_y = 30;
+	req_access = list(103)
+	},
 /turf/simulated/shuttle/floor/destructible/merc,
 /area/shuttle/specops/centcom)
 "aCx" = (
@@ -23446,6 +23453,7 @@
 "oUl" = (
 /obj/effect/decal/warning_stripes,
 /obj/machinery/porta_turret{
+	no_salvage = 1;
 	req_access = list(150);
 	req_one_access = null
 	},
@@ -23515,6 +23523,7 @@
 	pixel_y = 0
 	},
 /obj/structure/table/reinforced/steel,
+/obj/item/device/binoculars,
 /turf/simulated/shuttle/floor/destructible/merc{
 	icon_state = "floor7"
 	},
@@ -24123,6 +24132,15 @@
 	icon_state = "floor7"
 	},
 /area/shuttle/transport1/centcom)
+"ujy" = (
+/obj/machinery/porta_turret/xray{
+	check_arrest = 0;
+	check_records = 0;
+	no_salvage = 1;
+	req_one_access = list(103)
+	},
+/turf/simulated/shuttle/floor/destructible/merc,
+/area/shuttle/specops/centcom)
 "ukL" = (
 /obj/effect/decal/warning_stripes,
 /obj/machinery/porta_turret/crescent,
@@ -62423,7 +62441,7 @@ aBK
 aBX
 aCf
 aCv
-aCv
+ujy
 aCU
 aCe
 tuq
