@@ -264,6 +264,7 @@
 	M.verbs += /mob/living/carbon/alien/diona/proc/switch_to_gestalt
 	verbs += /mob/living/carbon/human/proc/switch_to_nymph
 	M.update_verbs(TRUE)
+	M.detached = TRUE
 
 	update_dionastats() //Re-find the organs in case they were lost or regained
 	nutrition -= REGROW_FOOD_REQ

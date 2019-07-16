@@ -375,7 +375,7 @@ var/list/diona_banned_languages = list(
 				//Only one per proc
 
 		//If we have less than six nymphs, we add one each proc
-		if (topup_nymphs(1))
+		if (topup_nymphs())
 			if (DS.stored_energy < REGROW_ENERGY_REQ)
 				return
 
@@ -576,6 +576,7 @@ var/list/diona_banned_languages = list(
 			verbs -= /mob/living/carbon/alien/diona/proc/switch_to_gestalt
 			C.verbs -= /mob/living/carbon/human/proc/switch_to_nymph
 			C.DS.nym = null
+			detached = FALSE
 			src.forceMove(C)
 			break
 
