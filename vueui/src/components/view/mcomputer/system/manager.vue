@@ -27,7 +27,7 @@
         <vui-button 
           :disabled="device_type == 0 || (device_type == 1 && device_preset == '') || ntnet_status == 0"
           :params="{enroll: {type: device_type, preset: device_preset}}"
-          >Confirm</vui-button>
+        >Confirm</vui-button>
         <div v-if="ntnet_status == 0" style="color: red;">NTNET unavailable. Unable to enroll device.</div>
       </vui-item>
       
