@@ -95,7 +95,6 @@ var/list/admin_verbs_admin = list(
 	/client/proc/check_fax_history,
 	/client/proc/cmd_cciaa_say,
 	/client/proc/cmd_dev_say,
-	/client/proc/view_duty_log,
 	/client/proc/cmd_dev_bst,
 	/client/proc/clear_toxins,
 	/client/proc/wipe_ai,	// allow admins to force-wipe AIs
@@ -387,7 +386,6 @@ var/list/admin_verbs_cciaa = list(
 	/client/proc/cmd_admin_create_centcom_report,
 	/client/proc/cmd_cciaa_say,
 	/client/proc/returntobody,
-	/client/proc/view_duty_log,
 	/datum/admins/proc/create_admin_fax,
 	/client/proc/check_fax_history,
 	/client/proc/aooc,
