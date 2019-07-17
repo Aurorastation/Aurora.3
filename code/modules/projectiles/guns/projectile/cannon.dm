@@ -16,11 +16,10 @@
 	action_button_name = "Wield hand cannon"
 
 /obj/item/weapon/gun/projectile/cannon/update_icon()
-	..()
 	if(wielded)
-		item_state = "[item_state]-wielded"
+		item_state = "cannon-wielded"
 	else
-		item_state = initial(item_state)
+		item_state = "cannon"
 	update_held_icon()
 
 /obj/item/weapon/gun/projectile/cannon/can_wield()
