@@ -11,7 +11,7 @@
 	max_shells = 1
 	ammo_type = /obj/item/ammo_casing/cannon
 	fire_delay = 25
-	fire_sound = 'sound/weapons/gunshot/cannon.ogg'
+	fire_sound = 'sound/effects/Explosion1.ogg'
 
 	action_button_name = "Wield hand cannon"
 
