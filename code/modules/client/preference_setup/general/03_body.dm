@@ -197,7 +197,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 	out += "Species: <a href='?src=\ref[src];show_species=1'>[pref.species]</a><br>"
 	out += "Blood Type: <a href='?src=\ref[src];blood_type=1'>[pref.b_type]</a><br>"
 	message_admins(mob_species.bodytype)
-	if(mob_species.bodytype == "Human")
+	if(has_flag(mob_species, HAS_SKIN_TONE))
 		if(pref.s_base == "")
 			pref.s_base = "cold"
 		out += "Skin Base: <a href='?src=\ref[src];skin_base=1'>[pref.s_base]</a><br>"
@@ -453,6 +453,8 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 			return TOPIC_REFRESH
 	
 	else if(href_list["skin_base"])
+		if(!has_flag(mob_species, HAS_SKIN_BASE))
+			return TOPIC_NOACTION
 		var/new_skin_base = input(user, "Choose your character's skin base:", "Character Skin Base")  as null|anything in list("cold", "warm")
 		if(new_skin_base)
 			pref.s_base = new_skin_base
@@ -702,6 +704,8 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 		dat += "</br><b>Has excellent traction.</b>"
 	if(current_species.flags & NO_POISON)
 		dat += "</br><b>Immune to most poisons.</b>"
+	if(current_species.appearance_flags & HAS_SKIN_BASE)
+		dat += "</br><b>Has a variety of skin base.</b>"
 	if(current_species.appearance_flags & HAS_SKIN_TONE)
 		dat += "</br><b>Has a variety of skin tones.</b>"
 	if(current_species.appearance_flags & HAS_SKIN_COLOR)

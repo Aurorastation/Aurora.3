@@ -32,6 +32,12 @@
 			if(owner.change_gender(href_list["gender"]))
 				cut_and_generate_data()
 				return 1
+	if(href_list["skin_base"])
+		if(can_change_skin_base())
+			var/new_skin_base = input(user, "Choose your character's skin base:", "Character Skin Base")  as null|anything in list("cold", "warm")
+			if(new_skin_base)
+				return owner.change_skin_base(new_skin_base)
+			
 	if(href_list["skin_tone"])
 		if(can_change_skin_tone())
 			var/new_s_tone = input(usr, "Choose your character's skin-tone:\n(Light 1 - 220 Dark)", "Skin Tone", -owner.s_tone + 35) as num|null
@@ -142,6 +148,9 @@
 
 /datum/nano_module/appearance_changer/proc/can_change(var/flag)
 	return owner && (flags & flag)
+
+/datum/nano_module/appearance_changer/proc/can_change_skin_base()
+	return owner && (flags & APPEARANCE_SKIN) && owner.species.appearance_flags & HAS_SKIN_BASE
 
 /datum/nano_module/appearance_changer/proc/can_change_skin_tone()
 	return owner && (flags & APPEARANCE_SKIN) && owner.species.appearance_flags & HAS_SKIN_TONE

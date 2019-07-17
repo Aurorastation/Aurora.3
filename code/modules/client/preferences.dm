@@ -52,7 +52,7 @@ datum/preferences
 	var/r_facial = 0						// Face hair color
 	var/g_facial = 0						// Face hair color
 	var/b_facial = 0						// Face hair color
-	var/s_base = "cold"							// Skin base
+	var/s_base								// Skin base
 	var/s_tone = 0							// Skin tone
 	var/skin_colour = "#000000"				// Skin colour hex value, for SQL loading
 	var/r_skin = 0							// Skin color

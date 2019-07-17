@@ -126,6 +126,16 @@
 	update_body()
 	return 1
 
+/mob/living/carbon/human/proc/change_skin_base(var/base)
+	if(s_base == base || !(species.appearance_flags & HAS_SKIN_TONE))
+		return
+
+	s_tone = base
+
+	force_update_limbs()
+	update_body()
+	return 1
+
 /mob/living/carbon/human/proc/change_skin_tone(var/tone)
 	if(s_tone == tone || !(species.appearance_flags & HAS_SKIN_TONE))
 		return

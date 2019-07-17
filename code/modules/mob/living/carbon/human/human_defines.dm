@@ -16,7 +16,8 @@
 	var/g_eyes = 0
 	var/b_eyes = 0
 
-	var/s_tone = 0	//Skin tone
+	var/s_tone = 0	// Skin tone
+	var/s_base = "cold" // Skin tone
 
 	//Skin colour
 	var/r_skin = 0

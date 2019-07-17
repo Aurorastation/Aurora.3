@@ -22,13 +22,14 @@
 
 // Species appearance flags
 #define HAS_SKIN_TONE     0x1    // Skin tone selectable in chargen. (0-255)
-#define HAS_SKIN_COLOR    0x2    // Skin colour selectable in chargen. (RGB)
-#define HAS_LIPS          0x4    // Lips are drawn onto the mob icon. (lipstick)
-#define HAS_UNDERWEAR     0x8    // Underwear is drawn onto the mob icon.
-#define HAS_EYE_COLOR     0x10   // Eye colour selectable in chargen. (RGB)
-#define HAS_HAIR_COLOR    0x20   // Hair colour selectable in chargen. (RGB)
-#define HAS_SOCKS         0x40   // If this species can wear socks
-#define HAS_FBP           0x80   // If for whatever ungodly reason we decide to ever have non-Shell FBPs.
+#define HAS_SKIN_BASE     0x2    // Skine base
+#define HAS_SKIN_COLOR    0x4    // Skin colour selectable in chargen. (RGB)
+#define HAS_LIPS          0x8    // Lips are drawn onto the mob icon. (lipstick)
+#define HAS_UNDERWEAR     0x10    // Underwear is drawn onto the mob icon.
+#define HAS_EYE_COLOR     0x20   // Eye colour selectable in chargen. (RGB)
+#define HAS_HAIR_COLOR    0x40   // Hair colour selectable in chargen. (RGB)
+#define HAS_SOCKS         0x80   // If this species can wear socks
+#define HAS_FBP           0x100   // If for whatever ungodly reason we decide to ever have non-Shell FBPs.
 
 // Tau-Ceti basic, language common to all crew.
 #define LANGUAGE_TCB "Ceti Basic"
