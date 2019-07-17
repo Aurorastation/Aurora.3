@@ -377,10 +377,10 @@
 	to_chat(src, "<span class='alert'>If the title screen is black, resources are still downloading. Please be patient until the title screen appears.</span>")
 
 	//Admin Authorisation
-	holder = admin_datums[ckey]
-	if(holder)
-		staff += src
-		holder.owner = src
+	// holder = admin_datums[ckey]
+	// if(holder)
+	// 	staff += src
+	// 	holder.owner = src
 
 	log_client_to_db()
 
