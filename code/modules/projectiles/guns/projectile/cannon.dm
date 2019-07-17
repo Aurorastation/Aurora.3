@@ -12,6 +12,7 @@
 	ammo_type = /obj/item/ammo_casing/cannon
 	fire_delay = 25
 	fire_sound = 'sound/effects/Explosion1.ogg'
+	recoil = 7
 
 	action_button_name = "Wield hand cannon"
 
