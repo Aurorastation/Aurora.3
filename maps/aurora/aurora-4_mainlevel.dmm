@@ -39223,6 +39223,7 @@
 	icon_state = "0-2"
 	},
 /obj/item/weapon/storage/box/syringes,
+/obj/item/weapon/storage/firstaid/o2,
 /turf/simulated/floor/tiled/white,
 /area/medical/main_storage)
 "boJ" = (
@@ -43415,6 +43416,7 @@
 /obj/item/roller{
 	pixel_y = 4
 	},
+/obj/item/weapon/storage/box/syringes,
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay)
 "bvr" = (
