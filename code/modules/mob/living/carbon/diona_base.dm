@@ -329,14 +329,14 @@ var/list/diona_banned_languages = list(
 										/obj/item/organ/external/leg/diona = /obj/item/organ/external/foot/diona,
 										/obj/item/organ/external/leg/right/diona = /obj/item/organ/external/foot/right/diona
 										)
+			if(path in special_case)
+				DS.regen_extra = CALLBACK(src, .proc/diona_regen_callback, special_case[path], DS)
 			if(!bypass)
 				DS.regen_limb = CALLBACK(src, .proc/diona_regen_callback, path, DS)
 			else
 				diona_regen_callback(path, DS)
-			sleep(5)
-			if(path in special_case)
-				DS.regen_extra = CALLBACK(src, .proc/diona_regen_callback, special_case[path], DS)
-
+				diona_regen_callback(special_case[path], DS)
+				DS.regen_extra = null
 			return
 
 
@@ -591,11 +591,10 @@ var/list/diona_banned_languages = list(
 			C.DS.stored_energy += REGROW_ENERGY_REQ * 0.75
 			C.key = src.key
 			if(C.DS.regen_limb)
-				execute_and_deltimer(C.DS.regen_limb)
-				C.DS.regen_limb = null
+				C.DS.regen_limb.Invoke()
 				if(C.DS.regen_extra)
-					execute_and_deltimer(C.DS.regen_extra)
-					C.DS.regen_extra = null
+					C.DS.regen_extra.Invoke()
+				C.DS.regen_limb_progress = 0
 			else
 				C.diona_handle_regeneration(C.DS, TRUE)
 			to_chat(C, span("notice", "Your lost nymph merged back."))
