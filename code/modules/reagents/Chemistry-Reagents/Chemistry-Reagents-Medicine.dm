@@ -632,7 +632,7 @@
 /datum/reagent/thetamycin
 	name = "Thetamycin"
 	id = "thetamycin"
-	description = "A common antibiotic."
+	description = "A theta-lactam antibiotic, effective against wound and organ bacterial infections."
 	reagent_state = LIQUID
 	color = "#41C141"
 	metabolism = REM * 0.05 // only performs its effects while in blood
