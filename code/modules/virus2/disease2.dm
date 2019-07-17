@@ -80,7 +80,7 @@
 			majormutate()
 
 	//Space antivirals stop disease completely
-	if(mob.reagents.has_reagent("thetamivir"))
+	if(mob.reagents.has_reagent("deltamivir"))
 		if(stage == 1 && prob(20))
 			src.cure(mob)
 		return

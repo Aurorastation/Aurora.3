@@ -2,8 +2,8 @@
 	name = "The Cold"
 	max_stages = 3
 	spread = "Airborne"
-	cure = "Rest & Thetamivir"
-	cure_id = "thetamivir"
+	cure = "Rest & Deltamivir"
+	cure_id = "deltamivir"
 	agent = "XY-rhinovirus"
 	affected_species = list("Human", "Monkey")
 	permeability_mod = 0.5

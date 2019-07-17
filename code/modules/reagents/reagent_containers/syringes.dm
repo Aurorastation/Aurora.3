@@ -416,22 +416,22 @@
 		update_icon()
 
 /obj/item/weapon/reagent_containers/syringe/antiviral
-	name = "Syringe (thetamivir)"
+	name = "Syringe (deltamivir)"
 	desc = "Contains antiviral agents."
 
 /obj/item/weapon/reagent_containers/syringe/antiviral/Initialize()
 	. = ..()
-	reagents.add_reagent("thetamivir", 15)
+	reagents.add_reagent("deltamivir", 15)
 	mode = SYRINGE_INJECT
 	update_icon()
 
 /obj/item/weapon/reagent_containers/syringe/antibiotic
-	name = "Syringe (methicillin)"
+	name = "Syringe (thetamycin)"
 	desc = "Contains antibiotics."
 
 /obj/item/weapon/reagent_containers/syringe/antibiotic/Initialize()
 	. = ..()
-	reagents.add_reagent("methicillin", 15)
+	reagents.add_reagent("thetamycin", 15)
 	mode = SYRINGE_INJECT
 	update_icon()
 

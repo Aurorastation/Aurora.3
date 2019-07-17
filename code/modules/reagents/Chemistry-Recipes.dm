@@ -363,17 +363,17 @@
 	catalysts = list("phoron" = 5)
 	result_amount = 2
 
-/datum/chemical_reaction/thetamivir
-	name = "Thetamivir"
-	id = "thetamivir"
-	result = "thetamivir"
+/datum/chemical_reaction/deltamivir
+	name = "Deltamivir"
+	id = "deltamivir"
+	result = "deltamivir"
 	required_reagents = list("cryptobiolin" = 1, "tricordrazine" = 1)
 	result_amount = 2
 
-/datum/chemical_reaction/methicillin
-	name = "Methicillin"
-	id = "methicillin"
-	result = "methicillin"
+/datum/chemical_reaction/thetamycin
+	name = "Thetamycin"
+	id = "thetamycin"
+	result = "thetamycin"
 	required_reagents = list("cryptobiolin" = 1, "anti_toxin" = 1)
 	result_amount = 2
 

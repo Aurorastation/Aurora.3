@@ -603,10 +603,10 @@
 		if(prob(60))
 			M.take_organ_damage(4 * removed, 0)
 
-/datum/reagent/thetamivir
-	name = "Thetamivir"
-	id = "thetamivir"
-	description = "An interferon-theta type III antiviral agent."
+/datum/reagent/deltamivir
+	name = "Deltamivir"
+	id = "deltamivir"
+	description = "An interferon-delta type III antiviral agent."
 	reagent_state = LIQUID
 	color = "#C1C1C1"
 	metabolism = REM * 0.05 // only performs its effects while in blood
@@ -618,7 +618,7 @@
 	taste_description = "bitterness"
 	fallback_specific_heat = 0.605 // assuming it's ethanol-based
 
-/datum/reagent/thetamivir/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+/datum/reagent/deltamivir/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(prob(dose/4))
 		to_chat(M, span("warning", "Your muscles feel sore..."))
 		M.adjustHalLoss(15) // side effects of antivirals include fever, muscle aches and fatigue
@@ -629,9 +629,9 @@
 		to_chat(M, span("warning", "You feel cold and lethargic..."))
 		M.bodytemperature = max(M.bodytemperature, min(310+5, M.bodytemperature+5))
 
-/datum/reagent/methicillin
-	name = "Methicillin"
-	id = "methicillin"
+/datum/reagent/thetamycin
+	name = "Thetamycin"
+	id = "thetamycin"
 	description = "A common antibiotic."
 	reagent_state = LIQUID
 	color = "#41C141"
@@ -644,7 +644,7 @@
 	taste_description = "bitter gauze"
 	fallback_specific_heat = 0.605 // assuming it's ethanol-based
 
-/datum/reagent/methicillin/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+/datum/reagent/thetamycin/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(prob(dose/4))
 		to_chat(M, span("warning", "You feel sick to your stomach...")) // side effects of antibiotics
 		if(prob(25))

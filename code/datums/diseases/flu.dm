@@ -2,8 +2,8 @@
 	name = "The Flu"
 	max_stages = 3
 	spread = "Airborne"
-	cure = "Thetamivir"
-	cure_id = "thetamivir"
+	cure = "Deltamivir"
+	cure_id = "deltamivir"
 	cure_chance = 10
 	agent = "H13N1 flu virion"
 	affected_species = list("Human", "Monkey")

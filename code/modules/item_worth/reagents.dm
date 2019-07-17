@@ -558,10 +558,10 @@
 /datum/reagent/arithrazine
 	value = 2.7
 
-/datum/reagent/thetamivir
+/datum/reagent/deltamivir
 	value = 2.5
 
-/datum/reagent/methicillin
+/datum/reagent/thetamycin
 	value = 2.5
 
 /datum/reagent/coughsyrup
@@ -578,28 +578,28 @@
 
 /datum/reagent/mental/sertraline
 	value = 6
-	
+
 /datum/reagent/mental/fluvoxamine
 	value = 6
-	
+
 /datum/reagent/mental/escitalopram
 	value = 6
 
 /datum/reagent/mental/paroxetine
 	value = 3.5
-	
+
 /datum/reagent/mental/duloxetine
 	value = 6
-	
+
 /datum/reagent/mental/venlafaxine
 	value = 6
-	
+
 /datum/reagent/mental/risperidone
 	value = 6
-	
+
 /datum/reagent/mental/olanzapine
 	value = 6
-	
+
 /datum/reagent/mental/truthserum
 	value = 8
 
@@ -626,7 +626,7 @@
 
 /datum/reagent/uranium
 	value = 9
-	
+
 /datum/reagent/platinum
 	value = 3
 
