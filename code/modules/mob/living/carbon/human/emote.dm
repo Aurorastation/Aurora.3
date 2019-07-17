@@ -556,7 +556,7 @@
 				else
 					message = "hugs [get_visible_gender() == MALE ? "himself" : get_visible_gender() == FEMALE ? "herself" : "themselves"]."
 
-		if("dab", "dabs")
+		if("qep", "qeps")
 			m_type = 1
 			if(!restrained())
 				var/M = null
@@ -571,9 +571,9 @@
 					var/mob/living/carbon/human/H
 					if(ishuman(src))
 						H = src
-					message = "<span class='danger'>dabs on [M].</span>"
+					message = "<span class='danger'>qeps on [M].</span>"
 				else
-					message = "dabs on themself"
+					message = "qeps on themself"
 
 		if ("handshake")
 			m_type = 1
