@@ -556,6 +556,25 @@
 				else
 					message = "hugs [get_visible_gender() == MALE ? "himself" : get_visible_gender() == FEMALE ? "herself" : "themselves"]."
 
+		if("dab", "dabs")
+			m_type = 1
+			if(!restrained())
+				var/M = null
+				if(param)
+					for(var/mob/A in view(1, null))
+						if(param == A.name)
+							M = A
+							break
+				if(M)
+
+					playsound(loc, 'sound/misc/airhorn.ogg', 50, 1)
+					var/mob/living/carbon/human/H
+					if(ishuman(src))
+						H = src
+					message = "<span class='danger'>dabs on [M].</span>"
+				else
+					message = "dabs on themself"
+
 		if ("handshake")
 			m_type = 1
 			if (!src.restrained() && !src.r_hand)
