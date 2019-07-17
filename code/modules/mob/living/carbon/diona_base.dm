@@ -321,7 +321,7 @@ var/list/diona_banned_languages = list(
 				"<span class='warning'>You begin to shift and quiver, feeling a stirring within your trunk</span>")
 
 			DS.regening_organ = TRUE
-			to_chat(src, "<span class='notice'>You are trying to regrow a lost limb, this is a long and complicated process that will take 10 minutes!</span>")
+			to_chat(src, "<span class='notice'>You are trying to regrow a lost limb, this is a long and complicated process!</span>")
 			
 			var/list/special_case = list(
 										/obj/item/organ/external/arm/diona = /obj/item/organ/external/hand/diona,
@@ -403,15 +403,19 @@ var/list/diona_banned_languages = list(
 		return
 	if(DS.regen_limb_progress > LIMB_REGROW_REQUIREMENT)
 		DS.regen_limb.Invoke()
-	var/progress = nutrition * 0.1
+		DS.regen_limb = null
+		if(DS.regen_extra)
+			DS.regen_extra.Invoke()
+			DS.regen_extra = null
+	var/progress = nutrition * 0.45
 	message_admins("Biomass: [progress]")
-	adjustNutritionLoss(nutrition * 0.1)
-	progress += DS.stored_energy * 0.5
-	DS.stored_energy -= DS.stored_energy * 0.25
+	adjustNutritionLoss(nutrition * 0.15)
+	progress += DS.stored_energy * 0.3
+	DS.stored_energy -= DS.stored_energy * 0.5
 	message_admins("Biomass: [progress]")
 
 	if(total_radiation)
-		progress += total_radiation * 25
+		progress += total_radiation * 50
 		apply_radiation(-total_radiation)
 		message_admins("Biomass: [progress]")
 
@@ -648,4 +652,3 @@ var/list/diona_banned_languages = list(
 #undef diona_max_pressure
 #undef diona_nutrition_factor
 #undef DIONA_LIGHT_COEFICIENT
-#undef LIMB_REGROW_REQUIREMENT
