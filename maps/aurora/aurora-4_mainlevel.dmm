@@ -36223,8 +36223,8 @@
 /obj/item/weapon/storage/pill_bottle/tramadol,
 /obj/item/weapon/storage/pill_bottle/dylovene,
 /obj/item/weapon/storage/pill_bottle/dylovene,
-/obj/item/weapon/reagent_containers/syringe/antiviral,
-/obj/item/weapon/reagent_containers/syringe/antiviral,
+/obj/item/weapon/reagent_containers/syringe/antibiotic,
+/obj/item/weapon/reagent_containers/syringe/antibiotic,
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay)
@@ -44907,8 +44907,8 @@
 /obj/item/weapon/storage/pill_bottle/tramadol,
 /obj/item/weapon/storage/pill_bottle/dylovene,
 /obj/item/weapon/storage/pill_bottle/dylovene,
-/obj/item/weapon/reagent_containers/syringe/antiviral,
-/obj/item/weapon/reagent_containers/syringe/antiviral,
+/obj/item/weapon/reagent_containers/syringe/antibiotic,
+/obj/item/weapon/reagent_containers/syringe/antibiotic,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
