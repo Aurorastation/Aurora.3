@@ -2118,7 +2118,7 @@
 #include "code\modules\projectiles\guns\launcher\rocket.dm"
 #include "code\modules\projectiles\guns\launcher\syringe_gun.dm"
 #include "code\modules\projectiles\guns\projectile\automatic.dm"
-#include "code\modules\projectiles\guns\projectile\canon.dm"
+#include "code\modules\projectiles\guns\projectile\cannon.dm"
 #include "code\modules\projectiles\guns\projectile\dartgun.dm"
 #include "code\modules\projectiles\guns\projectile\improvised.dm"
 #include "code\modules\projectiles\guns\projectile\minigun.dm"
