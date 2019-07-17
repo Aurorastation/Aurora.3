@@ -620,7 +620,6 @@ var/datum/controller/subsystem/ticker/SSticker
 				captainless = FALSE
 			if(!player_is_antag(player.mind, only_offstation_roles = 1))
 				SSjobs.EquipRank(player, player.mind.assigned_role, 0)
-				UpdateFactionList(player)
 				equip_custom_items(player)
 
 		CHECK_TICK

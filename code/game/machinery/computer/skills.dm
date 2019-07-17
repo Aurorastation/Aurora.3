@@ -121,6 +121,7 @@
 						<b>Sex:</b> <A href='?src=\ref[src];choice=Edit Field;field=sex'>[active1.fields["sex"]]</A><BR>
 						<b>Age:</b> <A href='?src=\ref[src];choice=Edit Field;field=age'>[active1.fields["age"]]</A><BR>
 						<b>Rank:</b> <A href='?src=\ref[src];choice=Edit Field;field=rank'>[active1.fields["rank"]]</A><BR>
+						<b>Employer:</b> [active1.fields["employer"]]<br>
 						<b>Citizenship:</b> <A href='?src=\ref[src];choice=Edit Field;field=citizenship'>[active1.fields["citizenship"]]</A><BR>
 						<b>Home System:</b> <A href='?src=\ref[src];choice=Edit Field;field=home_system'>[active1.fields["home_system"]]</A><BR>
 						<b>Religion:</b> <A href='?src=\ref[src];choice=Edit Field;field=religion'>[active1.fields["religion"]]</A><BR>
@@ -289,22 +290,6 @@ What a mess.*/
 					for(var/datum/data/record/E in data_core.security)
 					active1 = R
 					screen = 3
-
-/*			if ("Search Fingerprints")
-				var/t1 = input("Search String: (Fingerprint)", "Secure. records", null, null)  as text
-				if ((!( t1 ) || usr.stat || !( authenticated ) || usr.restrained() || (!in_range(src, usr)) && (!istype(usr, /mob/living/silicon))))
-					return
-				active1 = null
-				t1 = lowertext(t1)
-				for(var/datum/data/record/R in data_core.general)
-					if (lowertext(R.fields["fingerprint"]) == t1)
-						active1 = R
-				if (!( active1 ))
-					temp = text("Could not locate record [].", t1)
-				else
-					for(var/datum/data/record/E in data_core.security)
-						if ((E.fields["name"] == active1.fields["name"] || E.fields["id"] == active1.fields["id"]))
-					screen = 3	*/
 
 			if ("Print Record")
 				var/obj/item/weapon/paper/P = new /obj/item/weapon/paper()

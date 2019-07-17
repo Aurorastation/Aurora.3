@@ -251,7 +251,7 @@ var/list/diona_banned_languages = list(
 		diona_regen_progress(DS)
 		return
 
-	if (!total_radiation && !DS.healing_factor && !DS.stored_energy)
+	if (((!total_radiation && !DS.healing_factor && !DS.stored_energy) || DS.regening_organ) && !bypass)
 		return FALSE
 
 	//Next up, healing any damage to internal organs.
@@ -322,10 +322,21 @@ var/list/diona_banned_languages = list(
 
 			DS.regening_organ = TRUE
 			to_chat(src, "<span class='notice'>You are trying to regrow a lost limb, this is a long and complicated process that will take 10 minutes!</span>")
+			
+			var/list/special_case = list(
+										/obj/item/organ/external/arm/diona = /obj/item/organ/external/hand/diona,
+										/obj/item/organ/external/arm/right/diona = /obj/item/organ/external/hand/right/diona,
+										/obj/item/organ/external/leg/diona = /obj/item/organ/external/foot/diona,
+										/obj/item/organ/external/leg/right/diona = /obj/item/organ/external/foot/right/diona
+										)
 			if(!bypass)
 				DS.regen_limb = CALLBACK(src, .proc/diona_regen_callback, path, DS)
 			else
 				diona_regen_callback(path, DS)
+			sleep(5)
+			if(path in special_case)
+				DS.regen_extra = CALLBACK(src, .proc/diona_regen_callback, special_case[path], DS)
+
 			return
 
 
@@ -572,12 +583,15 @@ var/list/diona_banned_languages = list(
 			continue
 		var/mob/living/carbon/human/diona/C = H
 		if(C == gestalt)
-			C.nutrition += REGROW_FOOD_REQ
-			C.DS.stored_energy += REGROW_ENERGY_REQ
-			apply_radiation(5)
+			C.nutrition += REGROW_FOOD_REQ * 0.75
+			C.DS.stored_energy += REGROW_ENERGY_REQ * 0.75
 			C.key = src.key
-			if(DS.regen_limb)
-				execute_and_deltimer(DS.regen_limb)
+			if(C.DS.regen_limb)
+				execute_and_deltimer(C.DS.regen_limb)
+				C.DS.regen_limb = null
+				if(C.DS.regen_extra)
+					execute_and_deltimer(C.DS.regen_extra)
+					C.DS.regen_extra = null
 			else
 				C.diona_handle_regeneration(C.DS, TRUE)
 			to_chat(C, span("notice", "Your lost nymph merged back."))
@@ -616,6 +630,7 @@ var/list/diona_banned_languages = list(
 	var/dionatype //1 = nymph, 2 = worker gestalt
 	var/datum/weakref/nym
 	var/datum/callback/regen_limb
+	var/datum/callback/regen_extra
 	var/regen_limb_progress
 
 /datum/dionastats/Destroy()
@@ -630,8 +645,6 @@ var/list/diona_banned_languages = list(
 #undef TEMP_REGEN_NORMAL
 #undef TEMP_INCREASE_REGEN_DOUBLE
 #undef LIFETICK_INTERVAL_LESS
-#undef REGROW_FOOD_REQ
-#undef REGROW_ENERGY_REQ
 #undef diona_max_pressure
 #undef diona_nutrition_factor
 #undef DIONA_LIGHT_COEFICIENT
