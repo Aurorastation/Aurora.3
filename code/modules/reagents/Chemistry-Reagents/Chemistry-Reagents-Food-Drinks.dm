@@ -936,6 +936,8 @@
 	glass_name = "glass of garlic juice"
 	glass_desc = "Who would even drink juice from garlic?"
 
+	germ_adjust = 7.5 // has allicin, an antibiotic
+
 /datum/reagent/drink/juice/onion
 	name = "Onion Juice"
 	id = "onionjuice"
