@@ -13944,6 +13944,10 @@
 	dir = 5
 	},
 /obj/machinery/chemical_dispenser/bar_soft/full,
+/obj/machinery/light{
+	dir = 2;
+	icon_state = "tube1"
+	},
 /turf/unsimulated/floor{
 	icon_state = "grimy"
 	},
@@ -22105,6 +22109,7 @@
 /obj/machinery/light{
 	dir = 1;
 	icon_state = "tube1";
+	name = "adjusted light fixture";
 	pixel_x = 2
 	},
 /obj/machinery/computer/skills{
@@ -22133,6 +22138,7 @@
 /obj/machinery/light{
 	dir = 2;
 	icon_state = "tube1";
+	name = "adjusted light fixture";
 	pixel_x = 2
 	},
 /obj/item/weapon/paper_bin{
@@ -23889,6 +23895,15 @@
 /obj/effect/decal/cleanable/blood/xeno,
 /turf/simulated/shuttle/floor,
 /area/template_noop)
+"rSH" = (
+/obj/machinery/porta_turret/xray{
+	check_arrest = 0;
+	check_records = 0;
+	no_salvage = 1;
+	req_one_access = list(103)
+	},
+/turf/simulated/shuttle/floor/destructible/merc,
+/area/shuttle/specops/centcom)
 "rTn" = (
 /obj/machinery/porta_turret{
 	check_arrest = 0;
@@ -24132,15 +24147,6 @@
 	icon_state = "floor7"
 	},
 /area/shuttle/transport1/centcom)
-"ujy" = (
-/obj/machinery/porta_turret/xray{
-	check_arrest = 0;
-	check_records = 0;
-	no_salvage = 1;
-	req_one_access = list(103)
-	},
-/turf/simulated/shuttle/floor/destructible/merc,
-/area/shuttle/specops/centcom)
 "ukL" = (
 /obj/effect/decal/warning_stripes,
 /obj/machinery/porta_turret/crescent,
@@ -62441,7 +62447,7 @@ aBK
 aBX
 aCf
 aCv
-ujy
+rSH
 aCU
 aCe
 tuq
