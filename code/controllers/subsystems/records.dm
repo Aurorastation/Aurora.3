@@ -36,7 +36,6 @@
 		var/datum/record/general/l = r.Copy(new /datum/record/general/locked(H))
 		add_record(l)
 		add_record(r)
-		reset_manifest()
 
 /datum/controller/subsystem/records/proc/add_record(var/datum/record/record)
 	switch(record.type)
@@ -44,6 +43,7 @@
 			records_locked += record
 		if(/datum/record/general)
 			records += record
+			reset_manifest()
 		if(/datum/record/warrant)
 			warrants += record
 		if(/datum/record/virus)
@@ -55,25 +55,26 @@
 			records_locked |= record
 		if(/datum/record/general)
 			records |= record
+			reset_manifest()
 		if(/datum/record/warrant)
 			warrants |= record
 		if(/datum/record/virus)
 			viruses |= record
+	onModify(record)
 
 /datum/controller/subsystem/records/proc/remove_record(var/datum/record/record)
 	switch(record.type)
 		if(/datum/record/general/locked)
 			records_locked -= record
-			qdel(record)
 		if(/datum/record/general)
 			records -= record
-			qdel(record)
+			reset_manifest()
 		if(/datum/record/warrant)
 			warrants -= record
-			qdel(record)
 		if(/datum/record/virus)
 			viruses *= record
-			qdel(record)
+	onDelete(record)
+	qdel(record)
 
 /datum/controller/subsystem/records/proc/remove_record_by_field(var/field, var/value, var/record_type = RECORD_GENERAL)
 	remove_record(find_record(field, value, record_type))
@@ -207,6 +208,20 @@
 
 	manifest_json = json_encode(manifest)
 	return manifest_json
+
+/datum/controller/subsystem/records/proc/onDelete(var/datum/record/r)
+	for (var/listener in GET_LISTENERS("SSrecords"))
+		var/listener/record/rl = listener
+		if(istype(rl))
+			rl.on_delete(r)
+
+/datum/controller/subsystem/records/proc/onModify(var/datum/record/r)
+	if(r in records)
+		reset_manifest()
+	for (var/listener in GET_LISTENERS("SSrecords"))
+		var/listener/record/rl = listener
+		if(istype(rl))
+			rl.on_modify(r)
 
 /*
  * Helping functions for everyone

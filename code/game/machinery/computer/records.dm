@@ -5,6 +5,8 @@
 	var/edit_type = RECORD_GENERAL | RECORD_MEDICAL | RECORD_SECURITY | RECORD_VIRUS | RECORD_WARRANT | RECORD_LOCKED
 	var/datum/record/general/active
 	var/datum/record/virus/active_virus
+	var/listener/record/rconsole/listener
+	var/isEditing = FALSE
 	var/authenticated = 0
 	var/default_screen = "general"
 	var/typechoices = list(
@@ -65,6 +67,10 @@
 	records_type = RECORD_GENERAL | RECORD_SECURITY
 	edit_type = RECORD_GENERAL
 
+/obj/machinery/computer/records/New()
+	. = ..()
+	listener = new(src)
+
 /obj/machinery/computer/records/ui_interact(mob/user as mob)
 	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
 	if (!ui)
@@ -100,6 +106,8 @@
 	LAZYINITLIST(data["allrecords_locked"])
 	LAZYINITLIST(data["record_viruses"])
 	if(authenticated)
+		if(data["allrecords"].len != SSrecords.records.len)
+			data["allrecords"].Cut()
 		for(var/tR in sortRecord(SSrecords.records))
 			var/datum/record/general/R = tR
 			LAZYINITLIST(data["allrecords"][R.id])
@@ -113,7 +121,10 @@
 				VUEUI_SET_CHECK(data["allrecords"][R.id]["blood"], R.medical.blood_type, ., data)
 				VUEUI_SET_CHECK(data["allrecords"][R.id]["dna"], R.medical.blood_dna, ., data)
 
+		
 		if(records_type & RECORD_LOCKED)
+			if(data["allrecords_locked"].len != SSrecords.records_locked.len)
+				data["allrecords_locked"].Cut()
 			for(var/tR in sortRecord(SSrecords.records_locked))
 				var/datum/record/general/R = tR
 				LAZYINITLIST(data["allrecords_locked"][R.id])
@@ -122,31 +133,41 @@
 				VUEUI_SET_CHECK(data["allrecords_locked"][R.id]["rank"], R.rank, ., data)
 
 		if(records_type & RECORD_VIRUS)
+			if(data["record_viruses"].len != SSrecords.viruses.len)
+				data["record_viruses"].Cut()
 			for(var/tR in sortRecord(SSrecords.viruses))
 				var/datum/record/virus/R = tR
 				LAZYINITLIST(data["record_viruses"]["[R.id]"])
 				VUEUI_SET_CHECK(data["record_viruses"]["[R.id]"]["id"], R.id, ., data)
 				VUEUI_SET_CHECK(data["record_viruses"]["[R.id]"]["name"], R.name, ., data)
-	if(active_virus & authenticated)
-		var/returned = active_virus.Listify(1, list(), data["active_virus"])
-		if(returned)
-			data["active_virus"] = returned
-			. = data
+		if(active_virus)
+			var/returned = active_virus.Listify(1, list(), data["active_virus"])
+			if(returned)
+				data["active_virus"] = returned
+				. = data
+		else
+			if(data["activeview"] == "virus")
+				VUEUI_SET_CHECK(data["activeview"], "list", ., data)
+			VUEUI_SET_CHECK(data["active_virus"], 0, ., data)
+
+		if(active)
+			if(!ui.assets["front"] || !ui.assets["side"])
+				ui.add_asset("front", active.photo_front)
+				ui.add_asset("side", active.photo_side)
+			var/excluded = list()
+			if(!(records_type & RECORD_GENERAL)) excluded += active.advanced_fields
+			if(!(records_type & RECORD_SECURITY)) excluded += "security"
+			if(!(records_type & RECORD_MEDICAL)) excluded += "medical"
+			var/returned = active.Listify(1, excluded, data["active"])
+			if(returned)
+				data["active"] = returned
+				. = data
+		else
+			if(data["activeview"] in list("general", "medical", "security"))
+				VUEUI_SET_CHECK(data["activeview"], "list", ., data)
+			VUEUI_SET_CHECK(data["active"], 0, ., data)
 	else
 		VUEUI_SET_CHECK(data["active_virus"], 0, ., data)
-	if(active && authenticated)
-		if(!ui.assets["front"] || !ui.assets["side"])
-			ui.add_asset("front", active.photo_front)
-			ui.add_asset("side", active.photo_side)
-		var/excluded = list()
-		if(!(records_type & RECORD_GENERAL)) excluded += active.advanced_fields
-		if(!(records_type & RECORD_SECURITY)) excluded += "security"
-		if(!(records_type & RECORD_MEDICAL)) excluded += "medical"
-		var/returned = active.Listify(1, excluded, data["active"])
-		if(returned)
-			data["active"] = returned
-			. = data
-	else
 		VUEUI_SET_CHECK(data["active"], 0, ., data)
 
 /obj/machinery/computer/records/Topic(href, href_list)
@@ -193,47 +214,57 @@
 		if(key.len >= 2 && canEdit(key))
 			if(isnum(obj_query_get(null, src, null, key)))
 				value = text2num(value)
+			isEditing = TRUE
 			obj_query_set(null, src, value, null, key)
 			obj_query_set(null, ui.data, value, null, key)
-			SSrecords.reset_manifest()
+			SSrecords.onModify(vars[key[1]])
+			isEditing = FALSE
 			. = TRUE
 	if(href_list["deleterecord"])
 		if(canEdit(list("active", "name")))
 			var/confirm = alert("Are you sure you want to delete this record?", "Confirm Deletion", "No", "Yes")
 			if(confirm == "Yes")
+				isEditing = TRUE
 				SSrecords.remove_record(active)
 				ui.data["allrecords"] -= active.id
 				active = null
 				ui.data["activeview"] = default_screen
-				SSrecords.reset_manifest()
+				isEditing = FALSE
 			SSvueui.check_uis_for_change(src)
 	if(href_list["newrecord"])
-		if(canEdit(list("active", "name")))
-			active = new()
+		if(edit_type & RECORD_GENERAL)
+			active = new /datum/record/general()
 			SSrecords.add_record(active)
 			ui.add_asset("front", active.photo_front)
 			ui.add_asset("side", active.photo_side)
 			ui.send_asset("front")
 			ui.send_asset("side")
 			SSvueui.check_uis_for_change(src)
-			SSrecords.reset_manifest()
 	if(href_list["addtorecord"])
 		var/list/key = href_list["addtorecord"]["key"]
 		var/value = sanitize(href_list["addtorecord"]["value"], encode = 0, extra = 0)
 		if(key.len >= 2 && canEdit(key))
+			isEditing = TRUE
 			obj_query_set(null, src, obj_query_get(null, src, null, key) + value, null, key)
 			obj_query_set(null, ui.data, obj_query_get(null, ui.data, null, key) + value, null, key)
+			SSrecords.onModify(vars[key[1]])
+			isEditing = FALSE
 			. = TRUE
 	if(href_list["removefromrecord"])
 		var/list/key = href_list["removefromrecord"]["key"]
 		var/value = sanitize(href_list["removefromrecord"]["value"], encode = 0, extra = 0)
 		if(key.len >= 2 && canEdit(key))
+			isEditing = TRUE
 			obj_query_set(null, src, obj_query_get(null, src, null, key) - value, null, key)
 			obj_query_set(null, ui.data, obj_query_get(null, ui.data, null, key) - value, null, key)
+			SSrecords.onModify(vars[key[1]])
+			isEditing = FALSE
 			. = TRUE
 
 /obj/machinery/computer/records/proc/canEdit(list/key)
 	if(!(key[1] in list("active", "active_virus")))
+		return FALSE
+	if(vars[key[1]] == null)
 		return FALSE
 	if(key[1] == "active_virus" && !(edit_type & RECORD_VIRUS))
 		return FALSE
@@ -249,3 +280,26 @@
 				if(key.len == 2 && !(edit_type & RECORD_GENERAL))
 					return FALSE
 	return TRUE
+
+/*
+ * Listener for record changes
+ */
+
+/listener/record/rconsole/on_delete(var/datum/record/r)
+	. = FALSE
+	var/obj/machinery/computer/records/t = target
+	if(istype(t) && !t.isEditing)
+		if(t.active == r)
+			t.active = null
+			. = TRUE
+		if(t.active_virus == r)
+			t.active_virus = null
+			. = TRUE
+		if(.)
+			SSvueui.check_uis_for_change(t)
+		
+/listener/record/rconsole/on_modify(var/datum/record/r)
+	var/obj/machinery/computer/records/t = target
+	if(istype(t) && !t.isEditing)
+		if(t.active == r || t.active_virus == r)
+			SSvueui.check_uis_for_change(t)

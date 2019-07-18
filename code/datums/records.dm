@@ -56,7 +56,7 @@
 	var/name = "New Record"
 	var/real_rank = "Unassigned"
 	var/rank = "Unassigned"
-	var/age = "Unknown"
+	var/age = 0
 	var/sex = "Unknown"
 	var/fingerprint = "Unknown"
 	var/phisical_status = "Active"

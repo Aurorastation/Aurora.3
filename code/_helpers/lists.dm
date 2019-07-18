@@ -454,32 +454,32 @@
 		var/key = keys[i]
 		if (isdatum(subject))
 			subject_d = subject
-			if (!subject_d.vars[key])
+			if (isnull(subject_d.vars[key]))
 				return
 
 			subject = subject_d.vars[key]
 		else if (islist(subject))
 			subject_l = subject
-			if (!subject_l[key])
+			if (isnull(subject_l[key]))
 				return
 
 			subject = subject_l[key]
 		else
 			return
 
-	if (!subject)
+	if (isnull(subject))
 		return
 		
 	var/final = keys[keys.len]
 	if (isdatum(subject))
 		subject_d = subject
-		if (!subject_d.vars[final])
+		if (isnull(subject_d.vars[final]))
 			return
 
 		subject_d.vars[final] = value
 	else if (islist(subject))
 		subject_l = subject
-		if (!subject_l[final])
+		if (isnull(subject_l[final]))
 			return
 
 		subject_l[final] = value
@@ -499,20 +499,20 @@
 		var/key = keys[i]
 		if (isdatum(subject))
 			subject_d = subject
-			if (!subject_d.vars[key])
+			if (isnull(subject_d.vars[key]))
 				return
 
 			subject = subject_d.vars[key]
 		else if (islist(subject))
 			subject_l = subject
-			if (!subject_l[key])
+			if (isnull(subject_l[key]))
 				return
 
 			subject = subject_l[key]
 		else
 			return
 
-	if (!subject)
+	if (isnull(subject))
 		return
 		
 	var/final = keys[keys.len]
