@@ -196,8 +196,6 @@
 	boot_type =  /obj/item/clothing/shoes
 
 /obj/item/weapon/rig/bunker/equipped
-	req_access = list(access_syndicate)
-
 	initial_modules = list(
 		/obj/item/rig_module/actuators/combat,
 		/obj/item/rig_module/device/drill,
