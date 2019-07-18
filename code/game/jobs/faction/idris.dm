@@ -8,7 +8,8 @@
 		/datum/job/bartender = TRUE,
 		/datum/job/chef = TRUE,
 		/datum/job/hydro = TRUE,
-		/datum/job/cargo_tech = TRUE
+		/datum/job/cargo_tech = TRUE,
+		/datum/job/representative = TRUE
 	)
 
 	allowed_species_types = list(
@@ -23,7 +24,8 @@
 		"Bartender" = /datum/outfit/job/bartender/idris,
 		"Chef" = /datum/outfit/job/chef/idris,
 		"Gardener" = /datum/outfit/job/hydro/idris,
-		"Cargo Technician" = /datum/outfit/job/cargo_tech/idris
+		"Cargo Technician" = /datum/outfit/job/cargo_tech/idris,
+		"Corporate Liaison" = /datum/outfit/job/representative/idris
 	)
 
 /datum/outfit/job/officer/idris
@@ -45,3 +47,9 @@
 /datum/outfit/job/cargo_tech/idris
 	name = "Cargo Technician - Idris"
 	uniform = /obj/item/clothing/under/rank/idris
+
+/datum/outfit/job/representative/idris
+	name = "Corporate Liaison - Idris"
+	uniform = /obj/item/clothing/under/rank/idris
+	head = null
+	suit = null

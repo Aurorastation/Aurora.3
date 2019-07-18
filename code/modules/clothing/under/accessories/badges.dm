@@ -126,6 +126,12 @@
 	icon_state = "goldbadge"
 	slot_flags = SLOT_TIE
 
+/obj/item/clothing/accessory/badge/sol_visa
+	name = "alliance visa"
+	desc = " A compact piece of legal paperwork, permitting temporary entrance in the Sol Alliance."
+	icon_state = "sol-visa"
+	slot_flags = SLOT_TIE
+
 
 //Contractor IDs
 

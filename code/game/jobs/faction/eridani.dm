@@ -7,7 +7,8 @@
 		/datum/job/officer = TRUE,
 		/datum/job/warden = TRUE,
 		/datum/job/forensics = TRUE,
-		/datum/job/paramedic = TRUE
+		/datum/job/paramedic = TRUE,
+		/datum/job/representative = TRUE
 	)
 
 	allowed_species_types = list(
@@ -22,17 +23,28 @@
 		"Security Officer" = /datum/outfit/job/officer/eridani,
 		"Warden" = /datum/outfit/job/warden/eridani,
 		"Forensic Technician" = /datum/outfit/job/forensics/eridani,
-		"Paramedic" = /datum/outfit/job/paramedic/eridani
+		"Paramedic" = /datum/outfit/job/paramedic/eridani,
+		"Corporate Liaison" = /datum/outfit/job/representative/eridani
 	)
 
 /datum/outfit/job/officer/eridani
+	name = "Security Officer - Eridani"
 	uniform = /obj/item/clothing/under/rank/security/eridani
 
 /datum/outfit/job/warden/eridani
+	name = "Warden - Eridani"
 	uniform = /obj/item/clothing/under/rank/security/eridani
 
 /datum/outfit/job/forensics/eridani
+	name = "Forensic Technician - Eridani"
 	uniform = /obj/item/clothing/under/rank/security/eridani
 
 /datum/outfit/job/paramedic/eridani
+	name = "Paramedic - Eridani"
 	uniform = /obj/item/clothing/under/rank/security/eridani/alt
+
+/datum/outfit/job/representative/eridani
+	name = "Corporate Liaison - Eridani"
+	uniform = /obj/item/clothing/under/rank/security/eridani/alt
+	head = null
+	suit = null
