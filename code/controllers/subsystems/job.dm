@@ -83,8 +83,10 @@
 	return pick(occupations)
 
 /datum/controller/subsystem/jobs/proc/ShouldCreateRecords(var/datum/mind/mind)
-	if(player_is_antag(mind, only_offstation_roles = 1)) return 0
-	if(!mind.assigned_role) return 0
+	if(player_is_antag(mind, only_offstation_roles = 1))
+		return 0
+	if(!mind.assigned_role)
+		return 0
 	var/datum/job/job = GetJob(mind.assigned_role)
 	if(!job) return 0
 	return job.create_record
