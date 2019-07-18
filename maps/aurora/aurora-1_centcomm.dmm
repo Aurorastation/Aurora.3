@@ -22741,6 +22741,41 @@
 	icon_state = "dark"
 	},
 /area/syndicate_mothership/raider_base)
+"jvL" = (
+/obj/structure/closet/crate/internals{
+	name = "offworlder equipment"
+	},
+/obj/item/clothing/under/dress/offworlder,
+/obj/item/clothing/under/skirt/offworlder,
+/obj/item/clothing/under/offworlder,
+/obj/item/clothing/under/offworlder,
+/obj/item/clothing/mask/offworlder,
+/obj/item/clothing/mask/offworlder,
+/obj/item/clothing/gloves/offworlder,
+/obj/item/clothing/gloves/offworlder,
+/obj/item/clothing/mask/breath/offworlder,
+/obj/item/clothing/mask/breath/offworlder,
+/obj/item/clothing/mask/offworlder/veil,
+/obj/item/clothing/mask/offworlder/veil,
+/obj/item/clothing/glasses/spiffygogs/offworlder,
+/obj/item/clothing/glasses/spiffygogs/offworlder,
+/obj/item/clothing/accessory/offworlder,
+/obj/item/clothing/accessory/offworlder,
+/obj/item/clothing/accessory/offworlder/bracer/neckbrace,
+/obj/item/clothing/accessory/offworlder/bracer/neckbrace,
+/obj/item/clothing/accessory/offworlder/bracer,
+/obj/item/clothing/accessory/offworlder/bracer,
+/obj/item/weapon/rig/light/offworlder,
+/obj/item/weapon/rig/light/offworlder,
+/obj/item/weapon/storage/pill_bottle/rmt,
+/obj/item/weapon/storage/pill_bottle/rmt,
+/obj/item/weapon/storage/pill_bottle/rmt,
+/obj/item/weapon/storage/pill_bottle/rmt,
+/turf/unsimulated/floor{
+	icon_state = "freezerfloor";
+	dir = 2
+	},
+/area/syndicate_mothership)
 "jAp" = (
 /obj/machinery/porta_turret{
 	check_arrest = 0;
@@ -23895,15 +23930,6 @@
 /obj/effect/decal/cleanable/blood/xeno,
 /turf/simulated/shuttle/floor,
 /area/template_noop)
-"rSH" = (
-/obj/machinery/porta_turret/xray{
-	check_arrest = 0;
-	check_records = 0;
-	no_salvage = 1;
-	req_one_access = list(103)
-	},
-/turf/simulated/shuttle/floor/destructible/merc,
-/area/shuttle/specops/centcom)
 "rTn" = (
 /obj/machinery/porta_turret{
 	check_arrest = 0;
@@ -24120,6 +24146,42 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/shuttle/floor/plating/destructible/black,
 /area/skipjack_station/start)
+"tZu" = (
+/obj/structure/closet/crate/internals{
+	name = "offworlder equipment"
+	},
+/obj/item/clothing/under/dress/offworlder,
+/obj/item/clothing/under/skirt/offworlder,
+/obj/item/clothing/under/offworlder,
+/obj/item/clothing/under/offworlder,
+/obj/item/clothing/mask/offworlder,
+/obj/item/clothing/mask/offworlder,
+/obj/item/clothing/gloves/offworlder,
+/obj/item/clothing/gloves/offworlder,
+/obj/item/clothing/mask/breath/offworlder,
+/obj/item/clothing/mask/breath/offworlder,
+/obj/item/clothing/mask/offworlder/veil,
+/obj/item/clothing/mask/offworlder/veil,
+/obj/item/clothing/glasses/spiffygogs/offworlder,
+/obj/item/clothing/glasses/spiffygogs/offworlder,
+/obj/item/clothing/accessory/offworlder,
+/obj/item/clothing/accessory/offworlder,
+/obj/item/clothing/accessory/offworlder/bracer/neckbrace,
+/obj/item/clothing/accessory/offworlder/bracer/neckbrace,
+/obj/item/clothing/accessory/offworlder/bracer,
+/obj/item/clothing/accessory/offworlder/bracer,
+/obj/item/weapon/rig/light/offworlder,
+/obj/item/weapon/rig/light/offworlder,
+/obj/item/weapon/storage/pill_bottle/rmt,
+/obj/item/weapon/storage/pill_bottle/rmt,
+/obj/item/weapon/storage/pill_bottle/rmt,
+/obj/item/weapon/storage/pill_bottle/rmt,
+/obj/effect/decal/cleanable/dirt,
+/turf/unsimulated/floor{
+	dir = 8;
+	icon_state = "wood"
+	},
+/area/syndicate_mothership/raider_base)
 "tZY" = (
 /obj/item/weapon/reagent_containers/glass/bucket{
 	pixel_x = 10;
@@ -24210,6 +24272,15 @@
 	icon_state = "carpetside"
 	},
 /area/centcom/holding)
+"uTT" = (
+/obj/machinery/porta_turret/xray{
+	check_arrest = 0;
+	check_records = 0;
+	no_salvage = 1;
+	req_one_access = list(103)
+	},
+/turf/simulated/shuttle/floor/destructible/merc,
+/area/shuttle/specops/centcom)
 "uZy" = (
 /obj/machinery/door/blast/shutters{
 	density = 0;
@@ -24422,6 +24493,25 @@
 "wPO" = (
 /turf/simulated/shuttle/wall,
 /area/template_noop)
+"wUv" = (
+/obj/structure/closet/crate/internals{
+	name = "offworlder equipment"
+	},
+/obj/item/clothing/accessory/offworlder/bracer,
+/obj/item/clothing/accessory/offworlder/bracer,
+/obj/item/weapon/rig/light/offworlder,
+/obj/item/weapon/rig/light/offworlder,
+/obj/item/weapon/storage/pill_bottle/rmt,
+/obj/item/weapon/storage/pill_bottle/rmt,
+/obj/item/weapon/storage/pill_bottle/rmt,
+/obj/item/weapon/storage/pill_bottle/rmt,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/turf/unsimulated/floor{
+	icon_state = "dark"
+	},
+/area/centcom/legion_base/hangar5)
 "xbJ" = (
 /obj/structure/table/reinforced/steel,
 /obj/item/weapon/paper_bin{
@@ -34199,7 +34289,7 @@ aGu
 aGR
 aHj
 aGR
-aGg
+tZu
 aFT
 aIW
 aIW
@@ -62447,7 +62537,7 @@ aBK
 aBX
 aCf
 aCv
-rSH
+uTT
 aCU
 aCe
 tuq
@@ -92189,7 +92279,7 @@ ami
 ajI
 amx
 amJ
-amJ
+jvL
 ajI
 anc
 ama
@@ -93168,7 +93258,7 @@ xMv
 xMv
 xMv
 xMv
-xNT
+wUv
 xOI
 xZf
 xRQ
