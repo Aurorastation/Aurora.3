@@ -568,9 +568,6 @@
 				if(M)
 
 					playsound(loc, 'sound/misc/airhorn.ogg', 50, 1)
-					var/mob/living/carbon/human/H
-					if(ishuman(src))
-						H = src
 					message = "<span class='danger'>qeps on [M].</span>"
 				else
 					message = "qeps on themself"
