@@ -296,6 +296,7 @@
 	caliber = "cannon"
 	projectile_type = /obj/item/projectile/bullet/cannonball
 	matter = list(DEFAULT_WALL_MATERIAL = 800)
+	w_class = 3
 
 /obj/item/ammo_casing/cannon/explosive
 	name = "explosive cannonball"

@@ -301,7 +301,7 @@
 	initial_ammo = 0
 
 /obj/item/ammo_magazine/tommymag
-	name = "tommygun magazine (.45)"
+	name = "magazine (.45)"
 	icon_state = "tommy-mag"
 	mag_type = MAGAZINE
 	ammo_type = /obj/item/ammo_casing/c45
@@ -313,7 +313,7 @@
 	initial_ammo = 0
 
 /obj/item/ammo_magazine/tommydrum
-	name = "tommygun drum magazine (.45)"
+	name = "drum magazine (.45)"
 	icon_state = "tommy-drum"
 	w_class = 3 // Bulky ammo doesn't fit in your pockets!
 	mag_type = MAGAZINE
