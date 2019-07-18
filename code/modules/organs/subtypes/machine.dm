@@ -521,7 +521,6 @@
 						calibrated = 1
 						to_chat(H, "<span class='notice'>\The [src]'s powernet is rebuilt!</span>")
 						H.confused = 0
-						H.drowsyness = 0
 						return
 
 
@@ -548,7 +547,6 @@
 		return
 	if(calibrated <= 0 || !src)
 		H.confused += 9
-		H.drowsyness += 2
 	powernetglitch_timer = FALSE
 
 /obj/item/organ/powercontrolunit/proc/calibration_dmgcheck()
@@ -563,13 +561,11 @@
 		name = "broken power calibration system"
 		icon_state = "camera_broken"
 		H.confused += 12
-		H.drowsyness += 19
 
 
 /obj/item/organ/powercontrolunitr/removed(var/mob/living/carbon/human/H)
 
 	H.confused += 250
-	H.drowsyness += 250
 
 
 /obj/item/organ/powercontrolunit/process()
