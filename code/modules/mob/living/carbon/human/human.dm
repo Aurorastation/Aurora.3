@@ -720,12 +720,12 @@
 			var/datum/record/general/R = SSrecords.find_record("name", perpname)
 			if(istype(R) && istype(R.medical))
 				var/t1 = sanitize(input("Add Comment:", "Med. records", null, null)  as message)
-				if ( !(t1) || usr.stat || usr.restrained() || !(hasHUD(usr,"medical")) )
+				if ( !(t1) || use_check(usr) || !(hasHUD(usr,"medical")) )
 					return
-				if(istype(usr,/mob/living/carbon/human))
+				if(ishuman(usr))
 					var/mob/living/carbon/human/U = usr
 					R.medical.comments += text("Made by [U.get_authentification_name()] ([U.get_assignment()]) on [time2text(world.realtime, "DDD MMM DD hh:mm:ss")], [game_year]<BR>[t1]")
-				if(istype(usr,/mob/living/silicon/robot))
+				if(isrobot(usr))
 					var/mob/living/silicon/robot/U = usr
 					R.medical.comments += text("Made by [U.name] ([U.modtype] [U.braintype]) on [time2text(world.realtime, "DDD MMM DD hh:mm:ss")], [game_year]<BR>[t1]")
 

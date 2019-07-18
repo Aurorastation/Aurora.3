@@ -83,7 +83,8 @@
 	else
 		photo_front = getFlatIcon(H, SOUTH, always_use_defdir = TRUE)
 		photo_side = getFlatIcon(H, WEST, always_use_defdir = TRUE)
-	if(!nid) nid = generate_record_id()
+	if(!nid)
+		nid = generate_record_id()
 	id = nid
 	if(H)
 		name = H.real_name
@@ -133,7 +134,8 @@
 
 /datum/record/medical/New(var/mob/living/carbon/human/H, var/nid)
 	..()
-	if(!nid) nid = generate_record_id()
+	if(!nid)
+		nid = generate_record_id()
 	id = nid
 	if(H)
 		blood_type = H.b_type
@@ -149,7 +151,8 @@
 	var/list/comments = list()
 
 /datum/record/security/New(var/mob/living/carbon/human/H, var/nid)
-	if(!nid) nid = generate_record_id()
+	if(!nid)
+		nid = generate_record_id()
 	id = nid
 	if(H)
 		incidents = H.incidents

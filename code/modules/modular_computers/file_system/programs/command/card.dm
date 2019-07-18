@@ -165,7 +165,8 @@
 					if(istype(R))
 						var/real_title = id_card.assignment
 						for(var/datum/job/J in get_job_datums())
-							if(!J)	continue
+							if(!J)
+								continue
 							var/list/alttitles = get_alternate_titles(J.title)
 							if(id_card.assignment in alttitles)
 								real_title = J.title
