@@ -291,20 +291,3 @@
 		data += "<center>No faxes have been sent out.</center>"
 
 	usr << browse("<HTML><HEAD><TITLE>Centcomm Fax History</TITLE></HEAD><BODY>[data]</BODY></HTML>", "window=Centcomm Fax History")
-
-/client/proc/view_duty_log()
-	set category = "Special Verbs"
-	set name = "Get Duty Log"
-	set desc = "Download a log or file from an investigation"
-
-	var/path = browse_files("data/dutylogs/")
-	if(!path)
-		return
-
-	if(file_spam_check())
-		return
-
-	message_admins("[key_name_admin(src)] accessed file: [path]")
-	to_chat(usr, run( file(path) ))
-	feedback_add_details("admin_verb","DOGL") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
-	return

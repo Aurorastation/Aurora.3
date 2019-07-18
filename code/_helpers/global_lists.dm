@@ -210,7 +210,6 @@ var/global/list/cloaking_devices = list()
 		var/datum/poster/P = new T
 		poster_designs += P
 
-
 	return 1
 
 /* // Uncomment to debug chemical reaction list.
