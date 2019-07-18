@@ -375,7 +375,7 @@ var/list/diona_banned_languages = list(
 				//Only one per proc
 
 		//If we have less than six nymphs, we add one each proc
-		if (topup_nymphs(1))
+		if (topup_nymphs())
 			if (DS.stored_energy < REGROW_ENERGY_REQ)
 				return
 
@@ -389,9 +389,19 @@ var/list/diona_banned_languages = list(
 	if (!organ_path || !DS)
 		return
 
-	var/obj/item/organ/O = new organ_path(src)
-	visible_message("<span class='danger'>With a shower of sticky sap, a new mass of tendrils bursts forth from [src]'s trunk, forming a new [O]</span>",
-		"<span class='danger'>With a shower of sticky sap, a new mass of tendrils bursts forth from your trunk, forming a new [O]</span>")
+	var/obj/item/organ/external/E = new organ_path(src)
+	var/obj/item/organ/external/E_old
+	for(var/obj/item/organ/external/stump/S in organs)
+		if(S.limb_name == E.limb_name)
+			E_old = S
+			break
+
+	// Remove the stump, if it exists
+	if(E_old)
+		qdel(E_old)
+
+	visible_message("<span class='danger'>With a shower of sticky sap, a new mass of tendrils bursts forth from [src]'s trunk, forming a new [E]</span>",
+		"<span class='danger'>With a shower of sticky sap, a new mass of tendrils bursts forth from your trunk, forming a new [E]</span>")
 	var/datum/reagents/vessel = get_vessel(0)
 	var/datum/reagent/B = vessel.get_master_reagent()
 	B.touch_turf(get_turf(src))
@@ -566,7 +576,8 @@ var/list/diona_banned_languages = list(
 			verbs -= /mob/living/carbon/alien/diona/proc/switch_to_gestalt
 			C.verbs -= /mob/living/carbon/human/proc/switch_to_nymph
 			C.DS.nym = null
-			qdel(src)
+			detached = FALSE
+			src.forceMove(C)
 			break
 
 //DIONASTATS DEFINES
