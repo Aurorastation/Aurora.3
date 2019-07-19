@@ -5274,11 +5274,13 @@
 	pixel_y = 25
 	},
 /obj/machinery/camera{
+	ai_visible = 0;
 	c_tag = "Airlock";
 	dir = 4;
 	name = "shuttle camera";
 	network = list("Shuttle Network");
-	pixel_y = 21
+	pixel_y = 21;
+	report_alarm = 0
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/shuttle/floor/plating/destructible/black,
@@ -5998,12 +6000,14 @@
 	req_access = list(150)
 	},
 /obj/machinery/camera{
+	ai_visible = 0;
 	c_tag = "Infirmary";
 	dir = 4;
 	name = "shuttle camera";
 	network = list("Shuttle Network");
 	pixel_x = 0;
-	pixel_y = 0
+	pixel_y = 0;
+	report_alarm = 0
 	},
 /turf/simulated/shuttle/floor/destructible/merc{
 	icon_state = "floor3"
@@ -20518,10 +20522,12 @@
 	pixel_y = -3
 	},
 /obj/machinery/camera{
+	ai_visible = 0;
 	c_tag = "Workshop";
 	dir = 4;
 	name = "shuttle camera";
-	network = list("Shuttle Network")
+	network = list("Shuttle Network");
+	report_alarm = 0
 	},
 /turf/simulated/shuttle/floor/plating/destructible/black,
 /area/syndicate_station/start)
@@ -21123,11 +21129,13 @@
 	icon_state = "tube1"
 	},
 /obj/machinery/camera{
+	ai_visible = 0;
 	c_tag = "Cabin";
 	dir = 8;
 	name = "shuttle camera";
 	network = list("Shuttle Network");
-	pixel_y = 5
+	pixel_y = 5;
+	report_alarm = 0
 	},
 /turf/simulated/shuttle/floor/destructible/merc{
 	icon_state = "floor7"
@@ -22242,12 +22250,14 @@
 /obj/item/weapon/mop,
 /obj/item/weapon/reagent_containers/spray/cleaner,
 /obj/machinery/camera{
+	ai_visible = 0;
 	c_tag = "Brig";
 	dir = 8;
 	name = "shuttle camera";
 	network = list("Shuttle Network");
 	pixel_x = 0;
-	pixel_y = -20
+	pixel_y = -20;
+	report_alarm = 0
 	},
 /turf/simulated/shuttle/floor/destructible/merc{
 	icon_state = "floor4"
@@ -22404,12 +22414,14 @@
 /obj/structure/bed,
 /obj/item/weapon/bedsheet/red,
 /obj/machinery/camera{
+	ai_visible = 0;
 	c_tag = "Holding Cell";
 	dir = 2;
 	name = "shuttle camera";
 	network = list("Shuttle Network");
 	pixel_x = 20;
-	pixel_y = 0
+	pixel_y = 0;
+	report_alarm = 0
 	},
 /turf/simulated/shuttle/floor/plating/destructible/black,
 /area/syndicate_station/start)
@@ -22520,42 +22532,6 @@
 	icon_state = "floor9"
 	},
 /area/shuttle/transport1/centcom)
-"hOz" = (
-/obj/structure/closet/crate/internals{
-	name = "offworlder equipment"
-	},
-/obj/item/clothing/under/dress/offworlder,
-/obj/item/clothing/under/skirt/offworlder,
-/obj/item/clothing/under/offworlder,
-/obj/item/clothing/under/offworlder,
-/obj/item/clothing/mask/offworlder,
-/obj/item/clothing/mask/offworlder,
-/obj/item/clothing/gloves/offworlder,
-/obj/item/clothing/gloves/offworlder,
-/obj/item/clothing/mask/breath/offworlder,
-/obj/item/clothing/mask/breath/offworlder,
-/obj/item/clothing/mask/offworlder/veil,
-/obj/item/clothing/mask/offworlder/veil,
-/obj/item/clothing/glasses/spiffygogs/offworlder,
-/obj/item/clothing/glasses/spiffygogs/offworlder,
-/obj/item/clothing/accessory/offworlder,
-/obj/item/clothing/accessory/offworlder,
-/obj/item/clothing/accessory/offworlder/bracer/neckbrace,
-/obj/item/clothing/accessory/offworlder/bracer/neckbrace,
-/obj/item/clothing/accessory/offworlder/bracer,
-/obj/item/clothing/accessory/offworlder/bracer,
-/obj/item/weapon/rig/light/offworlder,
-/obj/item/weapon/rig/light/offworlder,
-/obj/item/weapon/storage/pill_bottle/rmt,
-/obj/item/weapon/storage/pill_bottle/rmt,
-/obj/item/weapon/storage/pill_bottle/rmt,
-/obj/item/weapon/storage/pill_bottle/rmt,
-/obj/effect/decal/cleanable/dirt,
-/turf/unsimulated/floor{
-	dir = 8;
-	icon_state = "wood"
-	},
-/area/syndicate_mothership/raider_base)
 "hOS" = (
 /turf/simulated/shuttle/plating,
 /area/template_noop)
@@ -22608,6 +22584,25 @@
 	},
 /turf/simulated/shuttle/floor/plating/destructible/black,
 /area/skipjack_station/start)
+"iaM" = (
+/obj/structure/closet/crate/internals{
+	name = "offworlder equipment"
+	},
+/obj/item/clothing/accessory/offworlder/bracer,
+/obj/item/clothing/accessory/offworlder/bracer,
+/obj/item/weapon/rig/light/offworlder,
+/obj/item/weapon/rig/light/offworlder,
+/obj/item/weapon/storage/pill_bottle/rmt,
+/obj/item/weapon/storage/pill_bottle/rmt,
+/obj/item/weapon/storage/pill_bottle/rmt,
+/obj/item/weapon/storage/pill_bottle/rmt,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/turf/unsimulated/floor{
+	icon_state = "dark"
+	},
+/area/centcom/legion_base/hangar5)
 "ioz" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced{
@@ -22675,50 +22670,6 @@
 	},
 /turf/simulated/shuttle/floor/plating/destructible,
 /area/merchant_ship/start)
-"iJG" = (
-/obj/machinery/porta_turret/xray{
-	check_arrest = 0;
-	check_records = 0;
-	no_salvage = 1;
-	req_one_access = list(103)
-	},
-/turf/simulated/shuttle/floor/destructible/merc,
-/area/shuttle/specops/centcom)
-"iOV" = (
-/obj/structure/closet/crate/internals{
-	name = "offworlder equipment"
-	},
-/obj/item/clothing/under/dress/offworlder,
-/obj/item/clothing/under/skirt/offworlder,
-/obj/item/clothing/under/offworlder,
-/obj/item/clothing/under/offworlder,
-/obj/item/clothing/mask/offworlder,
-/obj/item/clothing/mask/offworlder,
-/obj/item/clothing/gloves/offworlder,
-/obj/item/clothing/gloves/offworlder,
-/obj/item/clothing/mask/breath/offworlder,
-/obj/item/clothing/mask/breath/offworlder,
-/obj/item/clothing/mask/offworlder/veil,
-/obj/item/clothing/mask/offworlder/veil,
-/obj/item/clothing/glasses/spiffygogs/offworlder,
-/obj/item/clothing/glasses/spiffygogs/offworlder,
-/obj/item/clothing/accessory/offworlder,
-/obj/item/clothing/accessory/offworlder,
-/obj/item/clothing/accessory/offworlder/bracer/neckbrace,
-/obj/item/clothing/accessory/offworlder/bracer/neckbrace,
-/obj/item/clothing/accessory/offworlder/bracer,
-/obj/item/clothing/accessory/offworlder/bracer,
-/obj/item/weapon/rig/light/offworlder,
-/obj/item/weapon/rig/light/offworlder,
-/obj/item/weapon/storage/pill_bottle/rmt,
-/obj/item/weapon/storage/pill_bottle/rmt,
-/obj/item/weapon/storage/pill_bottle/rmt,
-/obj/item/weapon/storage/pill_bottle/rmt,
-/turf/unsimulated/floor{
-	icon_state = "freezerfloor";
-	dir = 2
-	},
-/area/syndicate_mothership)
 "iSE" = (
 /obj/machinery/door/airlock/hatch{
 	name = "Central Compartment";
@@ -22813,6 +22764,42 @@
 	},
 /turf/simulated/shuttle/floor/plating/destructible/black,
 /area/syndicate_station/start)
+"jiE" = (
+/obj/structure/closet/crate/internals{
+	name = "offworlder equipment"
+	},
+/obj/item/clothing/under/dress/offworlder,
+/obj/item/clothing/under/skirt/offworlder,
+/obj/item/clothing/under/offworlder,
+/obj/item/clothing/under/offworlder,
+/obj/item/clothing/mask/offworlder,
+/obj/item/clothing/mask/offworlder,
+/obj/item/clothing/gloves/offworlder,
+/obj/item/clothing/gloves/offworlder,
+/obj/item/clothing/mask/breath/offworlder,
+/obj/item/clothing/mask/breath/offworlder,
+/obj/item/clothing/mask/offworlder/veil,
+/obj/item/clothing/mask/offworlder/veil,
+/obj/item/clothing/glasses/spiffygogs/offworlder,
+/obj/item/clothing/glasses/spiffygogs/offworlder,
+/obj/item/clothing/accessory/offworlder,
+/obj/item/clothing/accessory/offworlder,
+/obj/item/clothing/accessory/offworlder/bracer/neckbrace,
+/obj/item/clothing/accessory/offworlder/bracer/neckbrace,
+/obj/item/clothing/accessory/offworlder/bracer,
+/obj/item/clothing/accessory/offworlder/bracer,
+/obj/item/weapon/rig/light/offworlder,
+/obj/item/weapon/rig/light/offworlder,
+/obj/item/weapon/storage/pill_bottle/rmt,
+/obj/item/weapon/storage/pill_bottle/rmt,
+/obj/item/weapon/storage/pill_bottle/rmt,
+/obj/item/weapon/storage/pill_bottle/rmt,
+/obj/effect/decal/cleanable/dirt,
+/turf/unsimulated/floor{
+	dir = 8;
+	icon_state = "wood"
+	},
+/area/syndicate_mothership/raider_base)
 "jkC" = (
 /obj/structure/bed/chair/comfy/brown{
 	dir = 4
@@ -23275,6 +23262,41 @@
 	icon_state = "panelscorched"
 	},
 /area/centcom/legion_base/hangar5)
+"mQx" = (
+/obj/structure/closet/crate/internals{
+	name = "offworlder equipment"
+	},
+/obj/item/clothing/under/dress/offworlder,
+/obj/item/clothing/under/skirt/offworlder,
+/obj/item/clothing/under/offworlder,
+/obj/item/clothing/under/offworlder,
+/obj/item/clothing/mask/offworlder,
+/obj/item/clothing/mask/offworlder,
+/obj/item/clothing/gloves/offworlder,
+/obj/item/clothing/gloves/offworlder,
+/obj/item/clothing/mask/breath/offworlder,
+/obj/item/clothing/mask/breath/offworlder,
+/obj/item/clothing/mask/offworlder/veil,
+/obj/item/clothing/mask/offworlder/veil,
+/obj/item/clothing/glasses/spiffygogs/offworlder,
+/obj/item/clothing/glasses/spiffygogs/offworlder,
+/obj/item/clothing/accessory/offworlder,
+/obj/item/clothing/accessory/offworlder,
+/obj/item/clothing/accessory/offworlder/bracer/neckbrace,
+/obj/item/clothing/accessory/offworlder/bracer/neckbrace,
+/obj/item/clothing/accessory/offworlder/bracer,
+/obj/item/clothing/accessory/offworlder/bracer,
+/obj/item/weapon/rig/light/offworlder,
+/obj/item/weapon/rig/light/offworlder,
+/obj/item/weapon/storage/pill_bottle/rmt,
+/obj/item/weapon/storage/pill_bottle/rmt,
+/obj/item/weapon/storage/pill_bottle/rmt,
+/obj/item/weapon/storage/pill_bottle/rmt,
+/turf/unsimulated/floor{
+	icon_state = "freezerfloor";
+	dir = 2
+	},
+/area/syndicate_mothership)
 "mUH" = (
 /turf/simulated/shuttle/floor/administration{
 	icon_state = "floor4"
@@ -23333,12 +23355,14 @@
 /area/centcom/living)
 "nnp" = (
 /obj/machinery/camera{
+	ai_visible = 0;
 	c_tag = "Hallway";
 	dir = 4;
 	name = "shuttle camera";
 	network = list("Shuttle Network");
 	pixel_x = 0;
-	pixel_y = 0
+	pixel_y = 0;
+	report_alarm = 0
 	},
 /turf/simulated/shuttle/floor/destructible/merc{
 	icon_state = "dark_tiles"
@@ -23409,6 +23433,15 @@
 	},
 /turf/simulated/shuttle/floor/plating/destructible/black,
 /area/syndicate_station/start)
+"nLO" = (
+/obj/machinery/porta_turret/xray{
+	check_arrest = 0;
+	check_records = 0;
+	no_salvage = 1;
+	req_one_access = list(103)
+	},
+/turf/simulated/shuttle/floor/destructible/merc,
+/area/shuttle/specops/centcom)
 "nPC" = (
 /obj/structure/banner,
 /turf/unsimulated/floor{
@@ -23483,25 +23516,6 @@
 	icon_state = "floor3"
 	},
 /area/syndicate_station/start)
-"olU" = (
-/obj/structure/closet/crate/internals{
-	name = "offworlder equipment"
-	},
-/obj/item/clothing/accessory/offworlder/bracer,
-/obj/item/clothing/accessory/offworlder/bracer,
-/obj/item/weapon/rig/light/offworlder,
-/obj/item/weapon/rig/light/offworlder,
-/obj/item/weapon/storage/pill_bottle/rmt,
-/obj/item/weapon/storage/pill_bottle/rmt,
-/obj/item/weapon/storage/pill_bottle/rmt,
-/obj/item/weapon/storage/pill_bottle/rmt,
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1
-	},
-/turf/unsimulated/floor{
-	icon_state = "dark"
-	},
-/area/centcom/legion_base/hangar5)
 "ouD" = (
 /obj/effect/decal/spraystill{
 	desc = "A sign.";
@@ -34299,7 +34313,7 @@ aGu
 aGR
 aHj
 aGR
-hOz
+jiE
 aFT
 aIW
 aIW
@@ -62547,7 +62561,7 @@ aBK
 aBX
 aCf
 aCv
-iJG
+nLO
 aCU
 aCe
 tuq
@@ -92289,7 +92303,7 @@ ami
 ajI
 amx
 amJ
-iOV
+mQx
 ajI
 anc
 ama
@@ -93268,7 +93282,7 @@ xMv
 xMv
 xMv
 xMv
-olU
+iaM
 xOI
 xZf
 xRQ

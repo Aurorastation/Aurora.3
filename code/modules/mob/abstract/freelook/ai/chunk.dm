@@ -15,6 +15,10 @@
 			cameras -= c
 			continue
 
+		if(!c.ai_visible)
+			cameras -= c
+			continue
+
 		if(!c.can_use())
 			continue
 
