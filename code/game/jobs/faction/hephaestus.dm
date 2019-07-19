@@ -61,3 +61,4 @@
 	uniform = /obj/item/clothing/under/rank/hephaestus
 	head = null
 	suit = null
+	implants = null

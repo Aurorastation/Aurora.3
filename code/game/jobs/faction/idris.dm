@@ -53,3 +53,4 @@
 	uniform = /obj/item/clothing/under/rank/idris
 	head = null
 	suit = null
+	implants = null

@@ -51,3 +51,4 @@
 	uniform = /obj/item/clothing/under/rank/zeng
 	head = null
 	suit = null
+	implants = null

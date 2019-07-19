@@ -64,3 +64,4 @@
 	uniform = /obj/item/clothing/under/rank/necropolis
 	head = null
 	suit = null
+	implants = null

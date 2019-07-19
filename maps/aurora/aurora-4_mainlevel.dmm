@@ -11459,13 +11459,11 @@
 	pixel_x = 3;
 	pixel_y = 2
 	},
-/obj/item/weapon/storage/briefcase,
 /obj/machinery/button/windowtint{
 	id = "iaa";
 	pixel_x = 24;
 	pixel_y = 0
 	},
-/obj/item/device/flash,
 /obj/item/device/flash,
 /turf/simulated/floor/wood,
 /area/lawoffice)
@@ -12353,17 +12351,13 @@
 /turf/simulated/floor/tiled,
 /area/security/brig)
 "awB" = (
-/obj/structure/bed/chair/office/dark{
-	dir = 4
+/obj/structure/filingcabinet/chestdrawer,
+/obj/machinery/requests_console{
+	department = "Representative's Office";
+	departmentType = 5;
+	pixel_x = -32
 	},
-/obj/machinery/button/windowtint{
-	id = "iaa";
-	pixel_x = -24;
-	pixel_y = 0
-	},
-/obj/effect/landmark/start{
-	name = "Internal Affairs Agent"
-	},
+/obj/structure/window/reinforced,
 /turf/simulated/floor/carpet,
 /area/lawoffice)
 "awC" = (
@@ -13508,33 +13502,17 @@
 /turf/simulated/floor/plating,
 /area/security/brig)
 "ayo" = (
-/obj/structure/filingcabinet/chestdrawer,
-/obj/machinery/light/small{
-	dir = 8
+/obj/machinery/light{
+	dir = 8;
+	icon_state = "tube1";
+	pixel_x = 0
 	},
-/obj/machinery/requests_console{
-	department = "Internal Affairs";
-	departmentType = 5;
-	pixel_x = -32
-	},
-/obj/structure/window/reinforced,
 /turf/simulated/floor/carpet,
 /area/lawoffice)
 "ayp" = (
 /obj/structure/table/wood,
 /obj/machinery/computer/skills,
 /obj/structure/window/reinforced,
-/turf/simulated/floor/carpet,
-/area/lawoffice)
-"ayq" = (
-/obj/structure/bed/chair/comfy/brown{
-	dir = 1
-	},
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 4
-	},
 /turf/simulated/floor/carpet,
 /area/lawoffice)
 "ayr" = (
@@ -14350,36 +14328,23 @@
 /turf/simulated/floor/plating,
 /area/security/brig)
 "azQ" = (
-/obj/structure/filingcabinet/chestdrawer,
-/obj/machinery/light/small{
-	dir = 8
+/obj/structure/bed/chair/office/dark{
+	dir = 4
 	},
-/obj/machinery/requests_console{
-	department = "Internal Affairs";
-	departmentType = 5;
-	pixel_x = -32
-	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/turf/simulated/floor/carpet,
-/area/lawoffice)
-"azR" = (
-/obj/structure/table/wood,
-/obj/machinery/computer/skills,
-/obj/structure/window/reinforced{
-	dir = 1
+/obj/machinery/button/windowtint{
+	id = "iaa";
+	pixel_x = -24;
+	pixel_y = 0
 	},
 /turf/simulated/floor/carpet,
 /area/lawoffice)
 "azS" = (
-/obj/structure/bed/chair/comfy/brown,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
 /obj/structure/window/reinforced{
 	icon_state = "rwindow";
 	dir = 4
+	},
+/obj/structure/bed/chair/comfy/brown{
+	dir = 8
 	},
 /turf/simulated/floor/carpet,
 /area/lawoffice)
@@ -14394,7 +14359,6 @@
 	pixel_x = 3;
 	pixel_y = 3
 	},
-/obj/item/device/taperecorder,
 /obj/machinery/camera/network/security{
 	c_tag = "Security - Internal Affairs";
 	dir = 8
@@ -15271,14 +15235,14 @@
 /area/security/brig)
 "aBp" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
 /turf/simulated/floor/wood,
 /area/lawoffice)
 "aBq" = (
 /obj/structure/table/wood,
-/obj/machinery/photocopier/faxmachine{
-	anchored = 0;
-	department = "Internal Affairs' Office"
-	},
+/obj/machinery/recharger,
 /turf/simulated/floor/wood,
 /area/lawoffice)
 "aBr" = (
@@ -16241,35 +16205,14 @@
 	},
 /turf/simulated/floor/tiled,
 /area/security/brig)
-"aCQ" = (
-/obj/structure/sign/nosmoking_2{
-	pixel_x = -32
-	},
-/obj/structure/window/reinforced,
-/turf/simulated/floor/carpet,
-/area/lawoffice)
-"aCR" = (
-/obj/structure/window/reinforced,
-/turf/simulated/floor/carpet,
-/area/lawoffice)
-"aCS" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 4
-	},
-/obj/structure/window/reinforced,
-/turf/simulated/floor/carpet,
-/area/lawoffice)
 "aCT" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 10
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/turf/simulated/floor/wood,
-/area/lawoffice)
-"aCU" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	icon_state = "intact-scrubbers";
+	dir = 1
+	},
 /obj/structure/disposalpipe/segment{
-	dir = 4;
-	icon_state = "pipe-c"
+	dir = 4
 	},
 /turf/simulated/floor/wood,
 /area/lawoffice)
@@ -16282,8 +16225,8 @@
 "aCW" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock{
-	desc = "It opens and closes. Bring your relationship affairs here.";
-	name = "Internal Affairs";
+	desc = "It opens and closes.";
+	name = "Representative Office";
 	req_access = list(38)
 	},
 /obj/structure/disposalpipe/segment{
@@ -17349,26 +17292,9 @@
 /obj/structure/banner,
 /turf/simulated/floor/wood,
 /area/lawoffice)
-"aEL" = (
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/obj/machinery/papershredder,
-/turf/simulated/floor/wood,
-/area/lawoffice)
 "aEM" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/turf/simulated/floor/wood,
-/area/lawoffice)
-"aEN" = (
-/obj/structure/disposalpipe/segment{
-	dir = 8;
-	icon_state = "pipe-c"
-	},
 /turf/simulated/floor/wood,
 /area/lawoffice)
 "aEO" = (
@@ -17392,11 +17318,13 @@
 	pixel_x = -3;
 	pixel_y = 4
 	},
-/obj/item/weapon/stamp/internalaffairs,
 /obj/machinery/light{
 	dir = 4;
 	icon_state = "tube1";
 	pixel_x = 0
+	},
+/obj/item/weapon/stamp{
+	name = "representative stamp"
 	},
 /turf/simulated/floor/wood,
 /area/lawoffice)
@@ -18774,7 +18702,7 @@
 /obj/item/weapon/paper_bin,
 /obj/item/weapon/pen,
 /obj/machinery/door/window/westleft{
-	name = "Internal Affairs Desk";
+	name = "Representative Desk";
 	req_access = list(38)
 	},
 /obj/machinery/door/firedoor,
@@ -18783,7 +18711,7 @@
 	dir = 2;
 	icon_state = "shutter0";
 	id = "iaa_desk";
-	name = "IAA Privacy Shutters";
+	name = "Privacy Shutters";
 	opacity = 0
 	},
 /turf/simulated/floor/wood,
@@ -64872,6 +64800,11 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/civ)
+"evJ" = (
+/obj/structure/table/wood,
+/obj/item/device/flashlight/lamp,
+/turf/simulated/floor/carpet,
+/area/lawoffice)
 "eye" = (
 /obj/structure/window/reinforced{
 	dir = 8
@@ -65571,6 +65504,7 @@
 /obj/machinery/alarm{
 	pixel_y = 23
 	},
+/obj/machinery/papershredder,
 /turf/simulated/floor/carpet,
 /area/lawoffice)
 "hLN" = (
@@ -66225,6 +66159,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/medbreak)
+"kKm" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
+/turf/simulated/floor/wood,
+/area/lawoffice)
 "kMO" = (
 /obj/structure/grille,
 /obj/machinery/door/firedoor,
@@ -66334,6 +66274,14 @@
 	},
 /turf/simulated/floor/plating,
 /area/engineering/engine_waste)
+"lmc" = (
+/obj/structure/table/wood,
+/obj/machinery/photocopier/faxmachine{
+	anchored = 0;
+	department = "Representative's Office"
+	},
+/turf/simulated/floor/carpet,
+/area/lawoffice)
 "lmd" = (
 /obj/machinery/atmospherics/portables_connector,
 /obj/machinery/portable_atmospherics/canister/air/airlock,
@@ -66719,6 +66667,14 @@
 	roof_type = null
 	},
 /area/maintenance/maintcentral)
+"mGX" = (
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 4
+	},
+/turf/simulated/floor/carpet,
+/area/lawoffice)
 "mIZ" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden,
 /turf/simulated/floor/plating,
@@ -105670,13 +105626,13 @@ agy
 agy
 arY
 atr
+lmc
 auY
-awB
 ayo
 azQ
 awB
-aCQ
 aEJ
+awE
 aGH
 atr
 aKb
@@ -105928,12 +105884,12 @@ acU
 arZ
 atr
 hGy
+auY
+evJ
 awC
 ayp
-azR
-awC
-aCR
 aEK
+awE
 aGH
 atr
 aKc
@@ -106186,11 +106142,11 @@ arZ
 atr
 auZ
 awD
-ayq
-azS
 awD
-aCS
-aEL
+azS
+mGX
+aCV
+awE
 aGI
 atr
 awK
@@ -106702,9 +106658,9 @@ avb
 awF
 ays
 awE
+kKm
+aCV
 awE
-aCU
-aEN
 aGK
 atr
 aKd

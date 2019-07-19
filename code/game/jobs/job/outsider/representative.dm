@@ -38,11 +38,15 @@
 		/obj/item/weapon/gun/energy/pistol = 1
 	)
 
+	implants = list(
+		/obj/item/weapon/implant/loyalty
+	)
+
+
 /datum/outfit/job/representative/post_equip(mob/living/carbon/human/H, visualsOnly)
 	. = ..()
 	if(H && !visualsOnly)
-		send_representative_mission(H)
-
+		addtimer(CALLBACK(src, .proc/send_representative_mission, H), 5 MINUTES)
 	return TRUE
 
 /datum/outfit/job/representative/proc/send_representative_mission(var/mob/living/carbon/human/H)
@@ -58,7 +62,7 @@
 		faxtext += "<li>[get_objectives(H, "high")].</li>"
 
 	for (var/obj/machinery/photocopier/faxmachine/F in allfaxes)
-		if (F.department == "Internal Affairs' Office")
+		if (F.department == "Representative's Office")
 			var/obj/item/weapon/paper/P = new /obj/item/weapon/paper(get_turf(F))
 			P.name = "[name] - Directives"
 			P.info = faxtext
@@ -87,6 +91,9 @@
 		/obj/item/weapon/storage/box/ceti_visa = 1,
 		/obj/item/weapon/gun/energy/pistol = 1
 	)
+
+	implants = null
+
 
 /datum/outfit/job/representative/ceti/get_objectives(mob/living/carbon/human/H, mission_level)
 	var/rep_objectives
@@ -119,6 +126,8 @@
 		/obj/item/weapon/gun/projectile/pistol/sol = 1
 	)
 
+	implants = null
+
 /datum/outfit/job/representative/sol/get_objectives(mob/living/carbon/human/H, mission_level)
 	var/rep_objectives
 
@@ -148,6 +157,8 @@
 		/obj/item/weapon/storage/box/hadii_manifesto = 1,
 		/obj/item/weapon/gun/projectile/pistol = 1
 	)
+
+	implants = null
 
 /datum/outfit/job/representative/pra/get_objectives(mob/living/carbon/human/H, mission_level)
 	var/rep_objectives

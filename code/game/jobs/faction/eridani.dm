@@ -48,3 +48,4 @@
 	uniform = /obj/item/clothing/under/rank/security/eridani/alt
 	head = null
 	suit = null
+	implants = null
