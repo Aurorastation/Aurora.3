@@ -10,7 +10,7 @@
 	selection_color = "#dddddd"
 	economic_modifier = 7
 	latejoin_at_spawnpoints = TRUE
-	access = list(access_lawyer, access_sec_doors, access_maint_tunnels, access_heads)
+	access = list(access_lawyer, access_maint_tunnels, access_heads)
 	minimal_access = list(access_lawyer, access_heads)
 	outfit = /datum/outfit/job/representative
 	alt_titles = list("Tau Ceti Representative","Sol Consular Officer", "PRA Consular Officer")
@@ -22,7 +22,7 @@
 		)
 
 /datum/outfit/job/representative
-	name = "NanoTrasen Liaison"
+	name = "Corporate Liaison"
 	jobtype = /datum/job/representative
 
 	head = /obj/item/clothing/head/beret/liaison
@@ -36,6 +36,15 @@
 	backpack_contents = list(
 		/obj/item/weapon/gun/energy/pistol = 1
 	)
+
+/datum/outfit/job/representative/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+	. = ..()
+	if(H)
+		send_representative_mission(H)
+
+	return TRUE
+
+/datum/outfit/job/representative/proc/get_objectives(mob/living/carbon/human/H)
 
 /datum/outfit/job/representative/ceti
 	name = "Tau Ceti Representative"
