@@ -24,6 +24,8 @@
 	var/sLogFile = null
 	var/last_file_loc = null
 
+	var/antag_involvement = FALSE
+
 	var/report_id = null
 	var/report_name = null
 	var/interviewee_id = null
@@ -69,7 +71,7 @@
 				to_chat(usr, "<span class='notice'>The device beeps and flashes \"No data entered, Aborting\".</span>")
 				return
 			report_id = reports[report_name]
-			to_chat(usr,"<span class='notice'>The device flashes \"Report [report_name] selected, Finterprint of interviwee required\"</span>")
+			to_chat(usr,"<span class='notice'>The device flashes \"Report [report_name] selected, Fingerprint of interviwee required\"</span>")
 		else
 			report_name = input(usr, "Select Report Name","Report Name") as null|text
 			if(!report_name || report_name == "")
@@ -108,6 +110,7 @@
 		sLogFile << "--------------------------------"
 		sLogFile << "Interviewer: [usr.name]"
 		sLogFile << "Interviewee: [interviewee_name]"
+		sLogFile << "Antag Involvement: [antag_involvement]"
 		sLogFile << "Recorder started: [get_time()]"
 		sLogFile << "--------------------------------"
 
@@ -141,8 +144,8 @@
 
 	//If we have sql ccia logs enabled, then persist it here
 	if(config.sql_ccia_logs && establish_db_connection(dbcon))
-		var/DBQuery/save_log = dbcon.NewQuery("INSERT INTO ss13_ccia_reports_transcripts (id, report_id, character_id, interviewer, text) VALUES (NULL, :report_id:, :character_id:, :interviewer:, :text:)")
-		save_log.Execute(list("report_id" = report_id, "character_id" = interviewee_id, "interviewer" = usr.name, "text" = P.info))
+		var/DBQuery/save_log = dbcon.NewQuery("INSERT INTO ss13_ccia_reports_transcripts (id, report_id, character_id, interviewer, text, antag_involvement) VALUES (NULL, :report_id:, :character_id:, :interviewer:, :text:, :antag_involvement:)")
+		save_log.Execute(list("report_id" = report_id, "character_id" = interviewee_id, "interviewer" = usr.name, "text" = P.info, "antag_involvement" = antag_involvement))
 
 	sLogFile = null
 	report_id = null
@@ -150,6 +153,7 @@
 	interviewee_id = null
 	interviewee_name = null
 	date_string = null
+	antag_involvement = null
 	to_chat(usr, "<span class='notice'>The device beeps and flashes \"Recording stopped log saved.\".</span>")
 	icon_state = "taperecorderidle"
 	return
@@ -231,12 +235,23 @@
 		if(!H.character_id)
 			to_chat(user,"<span class='notice'>The device beeps and flashes \"Fingerprint is not recognized\".</span>")
 			return
+
+		//Sync the intervieweee_id and interviewee_name
+		interviewee_id = H.character_id
+		interviewee_name = H.name
+
+		//Ask them if there was antag involvement
+		var/a = input(user, "Were your actions influenced by antagonists?", "Antagonist involvement") in list("yes","no")
+		if(a == "yes")
+			antag_involvement = TRUE
+			message_admins("CCIA Interview: [user] claimed their actions were influenced by antagonists.", R_CCIAA)
 		else
-			interviewee_id = H.character_id
-			interviewee_name = H.name
-			to_chat(user,"<span class='notice'>The device beeps and flashes \"Fingerprint recognized, Employee: [interviewee_name], ID: [interviewee_id]\".</span>")
-			playsound(src.loc, 'sound/machines/ping.ogg', 50, 0)
-			return
+			antag_involvement = FALSE
+
+		to_chat(user,"<span class='notice'>The device beeps and flashes \"Fingerprint recognized, Employee: [interviewee_name], ID: [interviewee_id]\".</span>")
+		playsound(src.loc, 'sound/machines/ping.ogg', 50, 0)
+		
+
 	else
 		to_chat(user,"<span class='notice'>The device beeps and flashes \"Unrecognized entity - Aborting\".</span>")
 		return
