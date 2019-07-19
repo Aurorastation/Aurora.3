@@ -1191,10 +1191,22 @@
 	name = "party member card box"
 	desc = "A box full of Hadiist party member cards."
 
-/obj/item/weapon/storage/box/ceti_visa/fill()
+/obj/item/weapon/storage/box/hadii_card/fill()
 	new /obj/item/clothing/accessory/badge/hadii_card(src)
 	new /obj/item/clothing/accessory/badge/hadii_card(src)
 	new /obj/item/clothing/accessory/badge/hadii_card(src)
 	new /obj/item/clothing/accessory/badge/hadii_card(src)
 	new /obj/item/clothing/accessory/badge/hadii_card(src)
 	new /obj/item/clothing/accessory/badge/hadii_card(src)
+
+/obj/item/weapon/storage/box/hadii_manifesto
+	name = "hadiist manifesto card box"
+	desc = "A box full of hadiist manifesto books."
+
+/obj/item/weapon/storage/box/hadii_manifesto/fill()
+	new /obj/item/pra_manifesto(src)
+	new /obj/item/pra_manifesto(src)
+	new /obj/item/pra_manifesto(src)
+	new /obj/item/pra_manifesto(src)
+	new /obj/item/pra_manifesto(src)
+	new /obj/item/pra_manifesto(src)
