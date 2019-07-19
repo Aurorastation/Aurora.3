@@ -546,11 +546,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/tcommsat/lounge)
-"bm" = (
-/obj/effect/floor_decal/industrial/warning,
-/obj/random/junk,
-/turf/simulated/floor/reinforced/airless,
-/area/mine/explored)
 "bn" = (
 /obj/effect/floor_decal/industrial/warning{
 	icon_state = "warning";
@@ -2849,16 +2844,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/crew_quarters/fitness/running)
-"jp" = (
-/obj/effect/floor_decal/industrial/warning/corner{
-	dir = 1
-	},
-/obj/effect/floor_decal/industrial/warning{
-	icon_state = "warning";
-	dir = 1
-	},
-/turf/simulated/floor/reinforced/airless,
-/area/mine/explored)
 "jq" = (
 /obj/effect/floor_decal/corner/red,
 /obj/structure/disposalpipe/segment{
@@ -2916,6 +2901,16 @@
 "mb" = (
 /turf/simulated/open,
 /area/crew_quarters/fitness/running)
+"nr" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/warning{
+	icon_state = "warning";
+	dir = 1
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
 "nY" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -3041,16 +3036,6 @@
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/mine/explored)
-"tu" = (
-/obj/effect/floor_decal/industrial/warning/corner{
-	dir = 1
-	},
-/obj/effect/floor_decal/industrial/warning/corner{
-	icon_state = "warningcorner";
-	dir = 4
-	},
-/turf/simulated/floor/reinforced/airless,
-/area/mine/explored)
 "ty" = (
 /obj/machinery/door/firedoor,
 /obj/structure/grille,
@@ -3066,15 +3051,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/crew_quarters/fitness/running)
-"tM" = (
-/obj/effect/floor_decal/industrial/warning/corner{
-	dir = 1
-	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8
-	},
-/turf/simulated/floor/reinforced/airless,
-/area/mine/explored)
 "uI" = (
 /turf/simulated/wall,
 /area/crew_quarters/fitness/running)
@@ -3740,6 +3716,15 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled,
 /area/crew_quarters/fitness/running)
+"ST" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
 "SX" = (
 /obj/effect/floor_decal/corner/red{
 	icon_state = "corner_white";
@@ -3964,6 +3949,16 @@
 	},
 /turf/simulated/floor/tiled,
 /area/crew_quarters/fitness/running)
+"ZV" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/warning/corner{
+	icon_state = "warningcorner";
+	dir = 4
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
 "ZY" = (
 /obj/structure/window/reinforced,
 /obj/structure/flora/pottedplant{
@@ -25915,13 +25910,13 @@ aa
 aa
 aa
 aa
+aa
+aa
+aa
+aa
+aa
 ad
 ag
-aw
-aa
-aa
-aa
-ad
 ag
 aw
 aa
@@ -26172,13 +26167,13 @@ aa
 aa
 aa
 aa
+aa
+aa
+aa
+aa
+aa
 ae
 ah
-al
-aa
-aa
-aa
-ae
 ah
 al
 aa
@@ -26429,15 +26424,15 @@ aa
 aa
 aa
 aa
+aa
+aa
+aa
+aa
+aa
 ae
+an
 ah
-fh
-ag
-ag
-ag
-fe
-ah
-bm
+al
 aa
 aa
 aa
@@ -26682,16 +26677,16 @@ aa
 aa
 aa
 aa
-aa
-aa
 ad
-ao
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
 fe
-ah
-ah
-ah
-ah
-ah
 ah
 ah
 fh
@@ -26939,9 +26934,9 @@ aa
 aa
 aa
 aa
-aa
-aa
 ae
+ah
+ah
 ah
 ah
 ah
@@ -27196,9 +27191,9 @@ aa
 aa
 aa
 aa
-aa
-aa
-ae
+ao
+ah
+ah
 ah
 ah
 ah
@@ -27451,11 +27446,11 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-ae
+ad
+ag
+Gm
+ah
+ah
 ah
 ah
 ah
@@ -27708,11 +27703,11 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
 ae
+ah
+ah
+ah
+ah
 ah
 ah
 ah
@@ -27965,11 +27960,11 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-ae
+af
+aq
+ff
+ah
+ah
 ah
 ah
 ah
@@ -28224,9 +28219,9 @@ aa
 aa
 aa
 aa
-aa
-aa
 ae
+ah
+ah
 ah
 ah
 ah
@@ -28481,9 +28476,9 @@ aa
 aC
 aa
 aa
-aa
-aa
 fK
+ah
+ah
 ah
 ah
 ah
@@ -28738,9 +28733,9 @@ aa
 aa
 aa
 aa
-aa
-aa
 bn
+ah
+ah
 ah
 ah
 ah
@@ -28995,9 +28990,9 @@ ag
 ag
 ag
 fI
-fH
-fJ
 fe
+ah
+ah
 ah
 ah
 ah
@@ -48316,7 +48311,7 @@ aa
 ad
 fH
 fH
-tM
+ST
 ag
 fe
 ah
@@ -48570,7 +48565,7 @@ aa
 aa
 aa
 ab
-jp
+nr
 ah
 ah
 ah
@@ -51654,7 +51649,7 @@ aa
 PA
 pU
 pU
-tu
+ZV
 ah
 ah
 ah
@@ -52682,7 +52677,7 @@ aa
 PA
 pU
 pU
-tu
+ZV
 ah
 ah
 ah
