@@ -83,6 +83,7 @@
 	var/accuracy_wielded = 0
 	var/wielded = 0
 	var/needspin = TRUE
+	var/is_wieldable = FALSE
 
 
 	//aiming system stuff
@@ -106,6 +107,11 @@
 
 	if(pin && needspin)
 		pin = new pin(src)
+	
+	if(!is_wieldable)
+		verbs -= /obj/item/weapon/gun/verb/wield_gun
+	else
+		action_button_name = "Wield Firearm"
 
 	queue_icon_update()
 
@@ -172,6 +178,21 @@
 			return 1
 
 	return 1
+
+/obj/item/weapon/gun/verb/wield_gun()
+	set name = "Wield Firearm"
+	set category = "Object"
+	set src in usr
+
+	if(is_wieldable)
+		toggle_wield(usr)
+		update_held_icon()
+	else
+		to_chat(usr, "<span class='warning'>You can't wield \the [src]!</span>")
+
+/obj/item/weapon/gun/ui_action_click()
+	if(src in usr)
+		wield_gun()
 
 /obj/item/weapon/gun/emp_act(severity)
 	for(var/obj/O in contents)
@@ -498,7 +519,7 @@
 /obj/item/weapon/gun/zoom()
 	..()
 	if(!zoom)
-		if(can_wield() && wielded)
+		if(is_wieldable && wielded)
 			if(accuracy_wielded)
 				accuracy = accuracy_wielded
 			else
@@ -544,7 +565,7 @@
 	return 0
 
 /obj/item/weapon/gun/proc/toggle_wield(mob/user as mob)
-	if(!can_wield())
+	if(!is_wieldable)
 		return
 	if(!istype(user.get_active_hand(), /obj/item/weapon/gun))
 		to_chat(user, "<span class='warning'>You need to be holding the [name] in your active hand</span>")
@@ -562,7 +583,7 @@
 		unwield()
 		to_chat(user, "<span class='notice'>You are no-longer stabilizing the [name] with both hands.</span>")
 
-		var/obj/item/weapon/gun/offhand/O = user.get_inactive_hand()
+		var/obj/item/weapon/offhand/O = user.get_inactive_hand()
 		if(O && istype(O))
 			O.unwield()
 		else
@@ -579,7 +600,7 @@
 		wield()
 		to_chat(user, "<span class='notice'>You stabilize the [initial(name)] with both hands.</span>")
 
-		var/obj/item/weapon/gun/offhand/O = new(user)
+		var/obj/item/weapon/offhand/O = new(user)
 		O.name = "[initial(name)] - offhand"
 		O.desc = "Your second grip on the [initial(name)]."
 		user.put_in_inactive_hand(O)
@@ -612,7 +633,7 @@
 
 /obj/item/weapon/gun/mob_can_equip(M as mob, slot)
 	//Cannot equip wielded items.
-	if(can_wield())
+	if(is_wieldable)
 		if(wielded)
 			to_chat(M, "<span class='warning'>Lower the [initial(name)] first!</span>")
 			return 0
@@ -623,55 +644,54 @@
 	..()
 
 	//Unwields the item when dropped, deletes the offhand
-	if(can_wield())
+	if(is_wieldable)
 		if(user)
-			var/obj/item/weapon/gun/O = user.get_inactive_hand()
+			var/obj/item/weapon/offhand/O = user.get_inactive_hand()
 			if(istype(O))
 				O.unwield()
 		return unwield()
 
 /obj/item/weapon/gun/pickup(mob/user)
-	if(can_wield())
+	if(is_wieldable)
 		unwield()
 
 ///////////OFFHAND///////////////
-/obj/item/weapon/gun/offhand
+/obj/item/weapon/offhand
 	w_class = 5.0
 	icon = 'icons/obj/weapons.dmi'
 	icon_state = "offhand"
 	item_state = "nothing"
 	name = "offhand"
-	needspin = FALSE
 
-	unwield()
-		if (ismob(loc))
-			var/mob/the_mob = loc
-			the_mob.drop_from_inventory(src)
-		else
-			qdel(src)
+/obj/item/weapon/offhand/proc/unwield()
+	if (ismob(loc))
+		var/mob/the_mob = loc
+		the_mob.drop_from_inventory(src)
+	else
+		qdel(src)
 
-	wield()
-		if (ismob(loc))
-			var/mob/the_mob = loc
-			the_mob.drop_from_inventory(src)
-		else
-			qdel(src)
+/obj/item/weapon/offhand/proc/wield()
+	if (ismob(loc))
+		var/mob/the_mob = loc
+		the_mob.drop_from_inventory(src)
+	else
+		qdel(src)
 
-	dropped(mob/living/user as mob)
-		if(user)
-			var/obj/item/weapon/gun/O = user.get_inactive_hand()
-			if(istype(O))
-				to_chat(user, "<span class='notice'>You are no-longer stabilizing the [name] with both hands.</span>")
-				O.unwield()
-				unwield()
+/obj/item/weapon/offhand/dropped(mob/living/user as mob)
+	if(user)
+		var/obj/item/weapon/gun/O = user.get_inactive_hand()
+		if(istype(O))
+			to_chat(user, "<span class='notice'>You are no-longer stabilizing the [name] with both hands.</span>")
+			O.unwield()
+			unwield()
 
-		if (!QDELETED(src))
-			qdel(src)
+	if (!QDELETED(src))
+		qdel(src)
 
-	mob_can_equip(M as mob, slot)
+/obj/item/weapon/offhand/mob_can_equip(M as mob, slot)
 		return 0
 
-obj/item/weapon/gun/Destroy()
+/obj/item/weapon/gun/Destroy()
 	if (istype(pin))
 		QDEL_NULL(pin)
 	if(bayonet)

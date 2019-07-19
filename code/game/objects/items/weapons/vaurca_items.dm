@@ -361,6 +361,7 @@
 	needspin = TRUE
 	recoil = 6
 
+	is_wieldable = TRUE
 
 	release_speed = 5
 	var/list/belt = new/list()
@@ -368,27 +369,6 @@
 	recoil_wielded = 2
 	accuracy_wielded = -1
 	fire_delay_wielded = 1
-
-	//action button for wielding
-	action_button_name = "Wield rifle"
-
-/obj/item/weapon/gun/launcher/crossbow/vaurca/can_wield()
-	return 1
-
-/obj/item/weapon/gun/launcher/crossbow/vaurca/ui_action_click()
-	if(src in usr)
-		toggle_wield(usr)
-
-/obj/item/weapon/gun/launcher/crossbow/vaurca/verb/wield_rifle()
-	set name = "Wield rifle"
-	set category = "Object"
-	set src in usr
-
-	toggle_wield(usr)
-	if(istype(usr,/mob/living/carbon/human))
-		var/mob/living/carbon/human/H = usr
-		H.update_inv_l_hand()
-		H.update_inv_r_hand()
 
 /obj/item/weapon/gun/launcher/crossbow/vaurca/update_icon()
 	if(wielded)
