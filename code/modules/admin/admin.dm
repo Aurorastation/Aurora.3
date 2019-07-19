@@ -4,11 +4,18 @@ var/global/floorIsLava = 0
 var/global/enabled_spooking = 0
 
 ////////////////////////////////
-/proc/message_admins(var/msg, var/perms = (R_ADMIN|R_MOD))
+/proc/message_admins(var/msg)
 	msg = "<span class=\"log_message\"><span class=\"prefix\">ADMIN LOG:</span> <span class=\"message\">[msg]</span></span>"
 	for(var/s in staff)
 		var/client/C = s
-		if(perms & C.holder.rights)
+		if((R_ADMIN|R_MOD) & C.holder.rights)
+			to_chat(C, msg)
+
+/proc/message_cciaa(var/msg)
+	msg = "<span class=\"log_message\"><span class=\"prefix\">CCIA LOG:</span> <span class=\"message\">[msg]</span></span>"
+	for(var/s in staff)
+		var/client/C = s
+		if(R_CCIAA & C.holder.rights)
 			to_chat(C, msg)
 
 /proc/msg_admin_attack(var/text,var/ckey="",var/ckey_target="") //Toggleable Attack Messages

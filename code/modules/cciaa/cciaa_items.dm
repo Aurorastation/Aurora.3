@@ -71,7 +71,7 @@
 				to_chat(usr, "<span class='notice'>The device beeps and flashes \"No data entered, Aborting\".</span>")
 				return
 			report_id = reports[report_name]
-			to_chat(usr,"<span class='notice'>The device flashes \"Report [report_name] selected, Fingerprint of interviwee required\"</span>")
+			to_chat(usr,"<span class='notice'>The device flashes \"Report [report_name] selected, fingerprint of interviewee required\"</span>")
 		else
 			report_name = input(usr, "Select Report Name","Report Name") as null|text
 			if(!report_name || report_name == "")
@@ -110,7 +110,7 @@
 		sLogFile << "--------------------------------"
 		sLogFile << "Interviewer: [usr.name]"
 		sLogFile << "Interviewee: [interviewee_name]"
-		sLogFile << "Antag Involvement: [antag_involvement]"
+		sLogFile << "Antag involvement: [antag_involvement]"
 		sLogFile << "Recorder started: [get_time()]"
 		sLogFile << "--------------------------------"
 
@@ -244,7 +244,7 @@
 		var/a = input(user, "Were your actions influenced by antagonists?", "Antagonist involvement") in list("yes","no")
 		if(a == "yes")
 			antag_involvement = TRUE
-			message_admins("CCIA Interview: [user] claimed their actions were influenced by antagonists.", R_CCIAA)
+			message_cciaa("CCIA Interview: [user] claimed their actions were influenced by antagonists.", R_CCIAA)
 		else
 			antag_involvement = FALSE
 
