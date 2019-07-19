@@ -743,6 +743,7 @@
 #include "code\game\objects\effects\projectile\projectile_tracer.dm"
 #include "code\game\objects\effects\spawners\bombspawner.dm"
 #include "code\game\objects\effects\spawners\gibspawner.dm"
+#include "code\game\objects\effects\temporary_visuals\blaster_effect.dm"
 #include "code\game\objects\effects\temporary_visuals\blood_splatter.dm"
 #include "code\game\objects\effects\temporary_visuals\temporary_visual.dm"
 #include "code\game\objects\items\airbubble.dm"
