@@ -38,4 +38,5 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
-  - balance: "Almost all stun baton variants in the game have been rebalanced. Most of them have substantially less uses, solidifying their role as tools designed to take down soft targets and then detain singular individuals."
+  - balance: "Almost all stun baton variants in the game have been rebalanced. It is no longer possible to one-shot stun someone with a baton in the face."
+  - balance: "Almost all clothing items have had their electroshock resistance modified in some way or another. Unapologetic malf AI nerf, sorry."
