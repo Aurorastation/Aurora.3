@@ -146,7 +146,7 @@
 	icon_state = "syndicate"
 	desc = "A plastic replica of a bloodthirsty mercenary's space helmet, you'll look just like a real murderous criminal operative in this! This is a toy, it is not made for use in space!"
 	flags_inv = HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE|BLOCKHAIR
-	siemens_coefficient = 2.0
+	siemens_coefficient = 0.9 //it's just a gag item, for crying out loud, don't put this to 2.0 ever again
 	body_parts_covered = HEAD|FACE|EYES
 
 /obj/item/clothing/head/cueball
@@ -268,7 +268,7 @@
 	desc = "Eeeee~heheheheheheh!"
 	icon_state = "witch"
 	flags_inv = BLOCKHAIR
-	siemens_coefficient = 2.0
+	siemens_coefficient = 1.5 // argument to be made that this is conductive though
 
 /obj/item/clothing/head/legion_beret
 	name = "TCFL dress beret"
@@ -284,7 +284,7 @@
 		slot_r_hand_str = "chickensuit"
 		)
 	flags_inv = BLOCKHAIR
-	siemens_coefficient = 0.7
+	siemens_coefficient = 0.75
 	body_parts_covered = HEAD|FACE|EYES
 
 /obj/item/clothing/head/bearpelt
@@ -292,7 +292,7 @@
 	desc = "Fuzzy."
 	icon_state = "bearpelt"
 	flags_inv = BLOCKHEADHAIR
-	siemens_coefficient = 0.7
+	siemens_coefficient = 0.75
 
 /obj/item/clothing/head/xenos
 	name = "xenos helmet"
@@ -303,7 +303,7 @@
 		)
 	desc = "A helmet made out of chitinous alien hide."
 	flags_inv = HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE|BLOCKHAIR
-	siemens_coefficient = 2.0
+	siemens_coefficient = 1.0 // >chitin >2.0
 	body_parts_covered = HEAD|FACE|EYES
 
 /obj/item/clothing/head/philosopher_wig
@@ -315,7 +315,7 @@
 		slot_r_hand_str = "pwig"
 		)
 	flags_inv = BLOCKHAIR
-	siemens_coefficient = 2.0 //why is it so conductive?!
+	siemens_coefficient = 1.5 //why is it so conductive?! -- no idea, mysterious commenter, no idea.
 
 /obj/item/clothing/head/orangebandana //themij: Taryn Kifer
 	name = "orange bandana"
@@ -437,7 +437,7 @@
 		slot_l_hand_str = "det_hat",
 		slot_r_hand_str = "det_hat"
 		)
-	siemens_coefficient = 0.7
+	siemens_coefficient = 0.75
 
 /obj/item/clothing/head/fedora/brown/dark
 	icon_state = "darkbrown_fedora"
