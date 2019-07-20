@@ -11,7 +11,7 @@
 	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 100, rad = 20)
 	flags_inv = HIDEMASK|HIDEEARS|HIDEEYES|BLOCKHAIR
 	body_parts_covered = HEAD|FACE|EYES
-	siemens_coefficient = 0.9
+	siemens_coefficient = 0.75
 
 /obj/item/clothing/suit/bio_suit
 	name = "bio suit"
@@ -26,7 +26,7 @@
 	allowed = list(/obj/item/weapon/tank/emergency_oxygen,/obj/item/weapon/pen,/obj/item/device/flashlight/pen)
 	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 100, rad = 20)
 	flags_inv = HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT|HIDETAIL
-	siemens_coefficient = 0.9
+	siemens_coefficient = 0.75
 
 
 //Standard biosuit, orange stripe
