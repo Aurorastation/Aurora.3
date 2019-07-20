@@ -140,9 +140,8 @@
 				if(!owner.reagents.has_reagent("anti_toxin")) //no damage to liver if anti-toxin is present
 					src.damage += 0.1 * PROCESS_ACCURACY
 			else if(is_broken())
-				//non-functioning liver doesn't fix toxins
-				if(!owner.reagents.has_reagent("anti_toxin")) //no damage to liver if anti-toxin is present
-					src.damage += 0.1 * PROCESS_ACCURACY
+				//non-functioning liver ADDS toxins
+				owner.adjustToxLoss(-0.1) //roughly 33 minutes to kill someone straight out, stacks with 60+ tox proc tho
 			else 
 				//functioning liver removes toxins at a cost
 				owner.adjustToxLoss(-1)
