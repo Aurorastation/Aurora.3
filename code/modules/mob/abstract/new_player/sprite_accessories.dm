@@ -12,7 +12,7 @@
 	hair. Just add in new hair types and the game will naturally adapt.
 
 	Notice for novices: Don't use identical variables *twice*, the most recent one written
-	in an indented string will overwrite all the other ones.
+	in an indented string will overwrite all the other ones preceding it.
 
 */
 
