@@ -5,7 +5,7 @@
 	allowed = list(/obj/item/weapon/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/weapon/melee/baton,/obj/item/weapon/melee/energy/sword,/obj/item/weapon/handcuffs,/obj/item/weapon/tank)
 	slowdown = 2
 	armor = list(melee = 60, bullet = 50, laser = 30,energy = 15, bomb = 30, bio = 30, rad = 30)
-	siemens_coefficient = 0.3
+	siemens_coefficient = 0.25
 	heat_protection = UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS|HANDS
 	max_heat_protection_temperature = SPACE_SUIT_MAX_HEAT_PROTECTION_TEMPERATURE
 	species_restricted = list("Vox", "Vox Armalis")
@@ -16,7 +16,7 @@
 
 /obj/item/clothing/head/helmet/space/vox
 	armor = list(melee = 60, bullet = 50, laser = 30, energy = 15, bomb = 30, bio = 30, rad = 30)
-	siemens_coefficient = 0.6
+	siemens_coefficient = 0.25
 	item_flags = STOPPRESSUREDAMAGE
 	flags_inv = null
 	species_restricted = list("Vox","Vox Armalis")
@@ -269,7 +269,7 @@
 	w_class = 5.0
 	gas_transfer_coefficient = 0.01
 	permeability_coefficient = 0.01
-	siemens_coefficient = 0.3
+	siemens_coefficient = 0.25
 	gas_filter_strength = 5			//For gas mask filters
 	filtered_gases = list("nitrogen", "sleeping_agent")
 	armor = list(melee = 25, bullet = 25, laser = 15, energy = 15, bomb = 15, bio = 75, rad = 50)
