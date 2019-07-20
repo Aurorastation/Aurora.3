@@ -141,6 +141,8 @@
 					src.damage += 0.1 * PROCESS_ACCURACY
 			else if(is_broken())
 				//non-functioning liver doesn't fix toxins
+				if(!owner.reagents.has_reagent("anti_toxin")) //no damage to liver if anti-toxin is present
+					src.damage += 0.1 * PROCESS_ACCURACY
 			else 
 				//functioning liver removes toxins at a cost
 				owner.adjustToxLoss(-1)
