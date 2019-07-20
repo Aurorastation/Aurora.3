@@ -190,7 +190,8 @@ var/list/asset_datums = list()
 		"idrislogo.png" = 'html/images/idrislogo.png',
 		"eridanilogo.png" = 'html/images/eridanilogo.png',
 		"necrologo.png" = 'html/images/necrologo.png',
-		"hplogo.png" = 'html/images/hplogo.png'
+		"hplogo.png" = 'html/images/hplogo.png',
+		"belogo.png" = 'html/images/belogo.png'
 	)
 
 /datum/asset/simple/changelog

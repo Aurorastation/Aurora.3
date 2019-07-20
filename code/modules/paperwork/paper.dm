@@ -285,6 +285,7 @@
 		t = replacetext(t, "\[logo_eridani\]", "")
 		t = replacetext(t, "\[logo_necro\]", "")
 		t = replacetext(t, "\[logo_hp\]", "")
+		t = replacetext(t, "\[logo_be\]", "")
 
 	if(iscrayon)
 		t = "<font face=\"[crayonfont]\" color=[P ? P.colour : "black"]><b>[t]</b></font>"
