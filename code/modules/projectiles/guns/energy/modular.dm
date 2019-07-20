@@ -125,12 +125,14 @@
 			item_state = "energystun"
 			is_wieldable = TRUE
 			action_button_name = "Wield Firearm"
+			verbs += /obj/item/weapon/gun/verb/wield_gun
 		if(CHASSIS_LARGE)
 			gun_type = CHASSIS_LARGE
 			slot_flags = SLOT_BACK
 			item_state = "heavyprotogun"
 			is_wieldable = TRUE
 			action_button_name = "Wield Firearm"
+			verbs += /obj/item/weapon/gun/verb/wield_gun
 
 /obj/item/weapon/gun/energy/laser/prototype/proc/handle_mod()
 	for(var/obj/item/laser_components/modifier/modifier in gun_mods)
@@ -248,13 +250,6 @@
 /obj/item/weapon/gun/energy/laser/prototype/ui_action_click()
 	if(src in usr)
 		toggle_wield(usr)
-
-/obj/item/weapon/gun/energy/laser/prototype/verb/wield_shotgun()
-	set name = "Wield prototype"
-	set category = "Object"
-	set src in usr
-
-	toggle_wield(usr)
 
 /obj/item/weapon/gun/energy/laser/prototype/verb/scope()
 	set category = "Object"
