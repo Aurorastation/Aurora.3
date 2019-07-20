@@ -107,11 +107,8 @@
 
 	if(pin && needspin)
 		pin = new pin(src)
-	
-	if(!is_wieldable)
-		verbs -= /obj/item/weapon/gun/verb/wield_gun
-	else
-		action_button_name = "Wield Firearm"
+
+	update_wield_verb()
 
 	queue_icon_update()
 
@@ -195,9 +192,12 @@
 		wield_gun()
 
 /obj/item/weapon/gun/proc/update_wield_verb()
-	if(is_wieldable && !action_button_name) //If the gun is marked as wieldable, make the action button appear and add the verb.
+	if(is_wieldable) //If the gun is marked as wieldable, make the action button appear and add the verb.
 		action_button_name = "Wield Firearm"
 		verbs += /obj/item/weapon/gun/verb/wield_gun
+	else
+		verbs -= /obj/item/weapon/gun/verb/wield_gun
+
 
 /obj/item/weapon/gun/emp_act(severity)
 	for(var/obj/O in contents)
