@@ -16,7 +16,7 @@
 	blood_overlay_type = "armor"
 	body_parts_covered = UPPER_TORSO
 	allowed = list (/obj/item/weapon/gun/energy/lasertag/blue)
-	siemens_coefficient = 3.0
+	siemens_coefficient = 1.0
 
 /obj/item/clothing/suit/redtag
 	name = "red laser tag armour"
@@ -26,7 +26,7 @@
 	blood_overlay_type = "armor"
 	body_parts_covered = UPPER_TORSO
 	allowed = list (/obj/item/weapon/gun/energy/lasertag/red)
-	siemens_coefficient = 3.0
+	siemens_coefficient = 1.0
 
 /*
  * Costume
@@ -132,7 +132,7 @@
 	item_state = "chickensuit"
 	body_parts_covered = UPPER_TORSO|ARMS|LOWER_TORSO|LEGS|FEET
 	flags_inv = HIDESHOES|HIDEJUMPSUIT
-	siemens_coefficient = 2.0
+	siemens_coefficient = 1.5
 
 
 /obj/item/clothing/suit/monkeysuit
@@ -142,7 +142,7 @@
 	item_state = "monkeysuit"
 	body_parts_covered = UPPER_TORSO|ARMS|LOWER_TORSO|LEGS|FEET|HANDS
 	flags_inv = HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT
-	siemens_coefficient = 2.0
+	siemens_coefficient = 1.5
 
 
 /obj/item/clothing/suit/holidaypriest
@@ -199,7 +199,7 @@
 	item_state = "leathercoat_alt"
 	body_parts_covered = UPPER_TORSO|ARMS
 	min_cold_protection_temperature = T0C - 20
-	siemens_coefficient = 0.7
+	siemens_coefficient = 0.75
 
 /obj/item/clothing/suit/browncoat
 	name = "brown leather coat"
@@ -220,7 +220,7 @@
 	item_state = "xenos_helm"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS|HANDS
 	flags_inv = HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT
-	siemens_coefficient = 2.0
+	siemens_coefficient = 1.5
 
 /obj/item/clothing/suit/storage/toggle/bomber
 	name = "bomber jacket"
@@ -232,7 +232,7 @@
 	body_parts_covered = UPPER_TORSO|ARMS
 	cold_protection = UPPER_TORSO|ARMS
 	min_cold_protection_temperature = T0C - 20
-	siemens_coefficient = 0.7
+	siemens_coefficient = 0.75
 
 /obj/item/clothing/suit/storage/toggle/leather_jacket
 	name = "leather jacket"
