@@ -154,7 +154,7 @@
 
 		else
 			for(var/atom/movable/A in destturf)
-				if(A != teleatom && A.density && A.anchored)
+				if(A != teleatom && A.density && A.anchored  && !istype(A, /obj/effect/portal))
 					if(A.flags & ON_BORDER)
 						if(prob(10))
 							impediment = A

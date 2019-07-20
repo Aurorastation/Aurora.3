@@ -14,6 +14,7 @@ var/global/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","E
 	var/geneticpoints = 5
 	var/purchasedpowers = list()
 	var/mimicing = ""
+	var/justate
 
 /datum/changeling/New(var/gender=FEMALE)
 	..()
@@ -143,6 +144,10 @@ var/global/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","E
 	var/datum/changeling/changeling = changeling_power(0,0,100)
 	if(!changeling)	return
 
+	if (changeling.justate + 60 SECONDS > world.time)
+		to_chat(src, "<span class='warning'>We still processing our last DNA sample!</span>")
+		return
+
 	if(changeling.isabsorbing)
 		to_chat(src, "<span class='warning'>We are already engaged in an absorption!</span>")
 		return
@@ -206,6 +211,7 @@ var/global/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","E
 	else
 		addtimer(CALLBACK(T, /mob/living/.proc/adjustCloneLoss, rand(10, 15)), rand(10, 15) SECONDS)
 
+	changeling.justate = world.time
 
 	changeling.chem_charges += 5
 	changeling.geneticpoints += 1

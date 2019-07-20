@@ -138,6 +138,11 @@ var/list/asset_datums = list()
 		return new type()
 	return asset_datums[type]
 
+/proc/simple_asset_ensure_is_sent(client, type)
+	var/datum/asset/simple/asset = get_asset_datum(type)
+
+	asset.send(client)
+
 /datum/asset/New()
 	asset_datums[type] = src
 
@@ -233,3 +238,13 @@ var/list/asset_datums = list()
 
 /datum/asset/chem_master/send(client)
 	send_asset_list(client, assets)
+
+/datum/asset/simple/faction_icons
+	assets = list(
+		"faction_EPMC.png" = 'icons/misc/factions/ECFlogo.png',
+		"faction_Zeng.png" = 'icons/misc/factions/ZhenHulogo.png',
+		"faction_Necro.png" = 'icons/misc/factions/NecroInclogo.png',
+		"faction_NT.png" = 'icons/misc/factions/NanoTrasenlogo.png',
+		"faction_Idris.png" = 'icons/misc/factions/Idrislogo.png',
+		"faction_Hepht.png" = 'icons/misc/factions/Hephaestuslogo.png'
+	)
