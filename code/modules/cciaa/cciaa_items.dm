@@ -158,6 +158,27 @@
 	icon_state = "taperecorderidle"
 	return
 
+/obj/item/device/taperecorder/cciaa/verb/reset_recorder()
+	set name = "Reset Recorder"
+	set category = "Recorder"
+
+	if(!check_rights(R_CCIAA,FALSE))
+		to_chat(usr, "<span class='notice'>The device beeps and flashes \"Unauthorised user.\".</span>")
+		return
+
+	var/confirmation = alert("Do you want to reset the recorder without saving?", "Reset Recorder", "Yes", "No")
+	if(confirmation != "Yes")
+		return
+
+	sLogFile = null
+	report_id = null
+	report_name = null
+	interviewee_id = null
+	interviewee_name = null
+	date_string = null
+	antag_involvement = null
+	to_chat(usr, "<span class='notice'>The device beeps and flashes \"Recorder Reset.\".</span>")
+	icon_state = "taperecorderidle"
 
 /obj/item/device/taperecorder/cciaa/proc/get_last_transcript()
 	var/list/lFile = file2list(last_file_loc)
@@ -197,7 +218,7 @@
 	return
 
 /obj/item/device/taperecorder/cciaa/verb/pause_recording()
-	set name = "Pause"
+	set name = "Pause Recording"
 	set category = "Recorder"
 
 	if(use_check_and_message(usr))
@@ -222,10 +243,12 @@
 	return
 
 /obj/item/device/taperecorder/cciaa/attack_self(mob/user)
-	if(!report_id)
+	//If we are a ccia agent, then always go to the record function (to prompt for the report or start the recording)
+	if(check_rights(R_CCIAA,FALSE))
 		record()
 		return
 
+	//Otherwise check if we already registered a interviewee
 	if(interviewee_id)
 		to_chat(user,"<span class='notice'>The device beeps and flashes \"A interviewee has already been associated with this interview\".</span>")
 		return
