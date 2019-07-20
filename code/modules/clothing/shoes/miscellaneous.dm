@@ -7,7 +7,7 @@
 	item_flags = NOSLIP
 	origin_tech = list(TECH_ILLEGAL = 3)
 	var/list/clothing_choices = list()
-	siemens_coefficient = 0.8
+	siemens_coefficient = 0.75
 	species_restricted = null
 	drop_sound = 'sound/items/drop/rubber.ogg'
 
