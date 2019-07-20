@@ -22,7 +22,7 @@
 						"Make sure that the station raises [rand(5000,12000)] credits by the end of the shift")
 		if("medium")
 			objective = pick("Have [rand(2,5)] crewmembers sign contract extensions",
-						"Have [rand(2,5)] crewmembers buy Odin real state",
+						"Have [rand(2,5)] crewmembers buy Odin real estate",
 						"[rand(3,10)] crewmember must buy Getmore products from the vendedors")
 		else
 			objective = pick("Conduct and present a survey on crew morale and content",
