@@ -124,15 +124,12 @@
 			slot_flags = SLOT_BELT | SLOT_BACK
 			item_state = "energystun"
 			is_wieldable = TRUE
-			action_button_name = "Wield Firearm"
-			verbs += /obj/item/weapon/gun/verb/wield_gun
 		if(CHASSIS_LARGE)
 			gun_type = CHASSIS_LARGE
 			slot_flags = SLOT_BACK
 			item_state = "heavyprotogun"
 			is_wieldable = TRUE
-			action_button_name = "Wield Firearm"
-			verbs += /obj/item/weapon/gun/verb/wield_gun
+	update_wield_verb()
 
 /obj/item/weapon/gun/energy/laser/prototype/proc/handle_mod()
 	for(var/obj/item/laser_components/modifier/modifier in gun_mods)
