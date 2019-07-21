@@ -104,6 +104,8 @@
 	magazine_type = /obj/item/ammo_magazine/c762
 	allowed_magazines = list(/obj/item/ammo_magazine/c762)
 
+	is_wieldable = TRUE
+
 	firemodes = list(
 		list(mode_name="semiauto",       burst=1, fire_delay=10,    move_delay=null, burst_accuracy=null, dispersion=null),
 		list(mode_name="3-round bursts", burst=3, fire_delay=null, move_delay=2,    burst_accuracy=list(1,0,0),       dispersion=list(0, 5, 10)),
@@ -118,23 +120,6 @@
 	fire_delay_wielded = 6
 	accuracy_wielded = 2
 
-	//action button for wielding
-	action_button_name = "Wield rifle"
-
-/obj/item/weapon/gun/projectile/automatic/rifle/can_wield()
-	return 1
-
-/obj/item/weapon/gun/projectile/automatic/rifle/ui_action_click()
-	if(src in usr)
-		toggle_wield(usr)
-
-/obj/item/weapon/gun/projectile/automatic/rifle/verb/wield_rifle()
-	set name = "Wield rifle"
-	set category = "Object"
-	set src in usr
-
-	toggle_wield(usr)
-	usr.update_icon()
 
 /obj/item/weapon/gun/projectile/automatic/rifle/sts35
 	name = "assault rifle"
@@ -386,6 +371,8 @@
 	auto_eject = 1
 	auto_eject_sound = 'sound/weapons/smg_empty_alarm.ogg'
 
+	is_wieldable = TRUE
+
 	firemodes = list(
 		list(mode_name="semiauto",       burst=1, move_delay=null, burst_accuracy=null, dispersion=null),
 		list(mode_name="3-round bursts", burst=3, move_delay=2,    burst_accuracy=list(2,1,1),       dispersion=list(0, 10, 15)),
@@ -401,8 +388,6 @@
 	accuracy_wielded = 2
 	scoped_accuracy = 2
 
-	action_button_name = "Wield rifle"
-
 /obj/item/weapon/gun/projectile/automatic/terminator/verb/scope()
 	set category = "Object"
 	set name = "Use Scope"
@@ -412,21 +397,6 @@
 		toggle_scope(2.0, usr)
 	else
 		to_chat(usr, "<span class='warning'>You can't look through the scope without stabilizing the rifle!</span>")
-
-/obj/item/weapon/gun/projectile/automatic/terminator/can_wield()
-	return 1
-
-/obj/item/weapon/gun/projectile/automatic/terminator/ui_action_click()
-	if(src in usr)
-		toggle_wield(usr)
-
-/obj/item/weapon/gun/projectile/automatic/terminator/verb/wield_rifle()
-	set name = "Wield rifle"
-	set category = "Object"
-	set src in usr
-
-	toggle_wield(usr)
-	usr.update_icon()
 
 /obj/item/weapon/gun/projectile/automatic/rifle/shotgun
 	name = "assault shotgun"

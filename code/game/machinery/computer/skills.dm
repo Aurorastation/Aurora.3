@@ -200,7 +200,7 @@ What a mess.*/
 		switch(href_list["choice"])
 // Open Action URL
 			if("openActionUrl")
-				to_chat(usr, link(href_list["url"]))
+				send_link(usr, href_list["url"])
 // SORTING!
 			if("Sorting")
 				// Reverse the order if clicked twice

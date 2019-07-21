@@ -234,8 +234,6 @@ var/global/list/additional_antag_types = list()
 
 	spawn (rand(waittime_l, waittime_h))
 		send_intercept()
-		spawn(rand(100,150))
-			announce_ert_disabled()
 
 	//Assign all antag types for this game mode. Any players spawned as antags earlier should have been removed from the pending list, so no need to worry about those.
 	for(var/datum/antagonist/antag in antag_templates)
@@ -689,7 +687,7 @@ proc/display_logout_report()
 
 	if(!check_rights(R_ADMIN|R_MOD))
 		return
-	to_chat(src,get_logout_report())	
+	to_chat(src,get_logout_report())
 
 proc/get_nt_opposed()
 	var/list/dudes = list()
