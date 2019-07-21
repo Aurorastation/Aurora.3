@@ -80,6 +80,6 @@
 	id = /obj/item/weapon/card/id/hephaestus
 
 /datum/outfit/job/cargo_tech/hephaestus
-	name = "Cargo TEchnician - Hephaestus"
+	name = "Cargo Technician - Hephaestus"
 	uniform = /obj/item/clothing/under/rank/hephaestus
 	id = /obj/item/weapon/card/id/hephaestus
