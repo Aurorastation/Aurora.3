@@ -8,7 +8,6 @@
 	S["gen_record"]          >> pref.gen_record
 	S["home_system"]         >> pref.home_system
 	S["citizenship"]         >> pref.citizenship
-	S["faction"]             >> pref.faction
 	S["religion"]            >> pref.religion
 	S["nanotrasen_relation"] >> pref.nanotrasen_relation
 
@@ -18,7 +17,6 @@
 	S["gen_record"]          << pref.gen_record
 	S["home_system"]         << pref.home_system
 	S["citizenship"]         << pref.citizenship
-	S["faction"]             << pref.faction
 	S["religion"]            << pref.religion
 	S["nanotrasen_relation"] << pref.nanotrasen_relation
 
@@ -38,7 +36,6 @@
 				"nt_relation" = "nanotrasen_relation",
 				"home_system",
 				"citizenship",
-				"faction",
 				"religion"
 			),
 			"args" = list("id")
@@ -63,7 +60,6 @@
 			"nt_relation",
 			"home_system",
 			"citizenship",
-			"faction",
 			"religion","id" = 1,
 			"ckey" = 1
 		)
@@ -78,7 +74,6 @@
 		"nt_relation" = pref.nanotrasen_relation,
 		"home_system" = pref.home_system,
 		"citizenship" = pref.citizenship,
-		"faction" = pref.faction,
 		"religion" = pref.religion,
 		"id" = pref.current_character,
 		"ckey" = PREF_CLIENT_CKEY
@@ -89,8 +84,6 @@
 		pref.home_system	= "Unset"
 	if(!pref.citizenship)
 		pref.citizenship	= "None"
-	if(!pref.faction)
-		pref.faction		= "None"
 	if(!pref.religion)
 		pref.religion		= "None"
 
@@ -102,7 +95,6 @@
 		"[current_map.company_name] Relation: <a href='?src=\ref[src];nt_relation=1'>[pref.nanotrasen_relation]</a><br/>",
 		"Home System: <a href='?src=\ref[src];home_system=1'>[pref.home_system]</a><br/>",
 		"Citizenship: <a href='?src=\ref[src];citizenship=1'>[pref.citizenship]</a><br/>",
-		"Faction: <a href='?src=\ref[src];faction=1'>[pref.faction]</a><br/>",
 		"Religion: <a href='?src=\ref[src];religion=1'>[pref.religion]</a><br/>",
 		"<br/><b>Records</b>:<br/>"
 	)
@@ -148,18 +140,6 @@
 				pref.citizenship = raw_choice
 		else
 			pref.citizenship = choice
-		return TOPIC_REFRESH
-
-	else if(href_list["faction"])
-		var/choice = input(user, "Please choose a faction to work for.", "Character Preference", pref.faction) as null|anything in faction_choices + list("None","Other")
-		if(!choice || !CanUseTopic(user))
-			return TOPIC_NOACTION
-		if(choice == "Other")
-			var/raw_choice = sanitize(input(user, "Please enter a faction.", "Character Preference")  as text|null, MAX_NAME_LEN)
-			if(raw_choice)
-				pref.faction = raw_choice
-		else
-			pref.faction = choice
 		return TOPIC_REFRESH
 
 	else if(href_list["religion"])

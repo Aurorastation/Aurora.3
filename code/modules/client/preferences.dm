@@ -361,7 +361,7 @@ datum/preferences
 
 	character.home_system = home_system
 	character.citizenship = citizenship
-	character.personal_faction = faction
+	character.employer_faction = faction
 	character.religion = religion
 
 	character.skills = skills
@@ -568,3 +568,9 @@ datum/preferences
 	new_setup(1)
 
 	to_chat(C, "<span class='warning'>Character successfully deleted! Please make a new one or load an existing setup.</span>")
+
+/datum/preferences/proc/get_species_datum()
+	if (species)
+		return all_species[species]
+
+	return null

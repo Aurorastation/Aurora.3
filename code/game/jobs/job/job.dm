@@ -37,13 +37,20 @@
 
 /datum/job/proc/get_outfit(mob/living/carbon/human/H, alt_title=null)
 	//Check if we have a speical outfit for that alt title
-	if (alt_outfits && alt_title)
+	alt_title = H?.mind?.role_alt_title || alt_title
+
+	if (H?.mind?.selected_faction?.titles_to_loadout)
+		if (alt_title && H.mind.selected_faction.titles_to_loadout[alt_title])
+			return H.mind.selected_faction.titles_to_loadout[alt_title]
+		else if (H.mind.selected_faction.titles_to_loadout[H.job])
+			return H.mind.selected_faction.titles_to_loadout[H.job]
+
+	if (alt_title && LAZYACCESS(alt_outfits, alt_title))
 		return alt_outfits[alt_title]
-	else if(alt_outfits && H.mind && H.mind.role_alt_title in alt_outfits)
-		return alt_outfits[H.mind.role_alt_title]
-	else if (!H.mind && H.job in alt_outfits)
+
+	if (alt_outfits && alt_outfits[H.job])
 		return alt_outfits[H.job]
-	else if(outfit)
+	else if (outfit)
 		return outfit
 
 /datum/job/proc/pre_equip(mob/living/carbon/human/H, visualsOnly = FALSE, alt_title = null)
@@ -200,6 +207,8 @@
 	if(allow_backbag_choice)
 		var/use_job_specific = H.backbag_style == 1
 		switch(H.backbag)
+			if (1)
+				back = null
 			if (2)
 				back = use_job_specific ? backpack : /obj/item/weapon/storage/backpack
 			if (3)
@@ -212,13 +221,15 @@
 				back = use_job_specific ? messengerbag : /obj/item/weapon/storage/backpack/messenger
 			else
 				back = backpack //Department backpack
-	equip_item(H, back, slot_back)
+	if(back)
+		equip_item(H, back, slot_back)
 
 	if(istype(H.back,/obj/item/weapon/storage/backpack))
 		var/obj/item/weapon/storage/backpack/B = H.back
 		B.autodrobe_no_remove = TRUE
 
 /datum/outfit/job/equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+	back = null //Nulling the backpack here, since we already equipped the backpack in pre_equip
 	if(box)
 		var/spawnbox = box
 		backpack_contents.Insert(1, spawnbox) // Box always takes a first slot in backpack

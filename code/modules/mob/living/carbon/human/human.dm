@@ -1096,6 +1096,7 @@
 	mutations.Remove(HUSK)
 	status_flags &= ~DISFIGURED	//Fixes the unknown status
 	update_body(1)
+	update_eyes()
 
 	..()
 
