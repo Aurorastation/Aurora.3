@@ -26,8 +26,7 @@
 
 	var/antag_involvement = FALSE
 
-	var/report_id = null
-	var/report_name = null
+	var/datum/ccia_report/selected_report = null
 	var/interviewee_id = null
 	var/interviewee_name = null
 	var/date_string = null
@@ -56,55 +55,59 @@
 		return
 
 	//If nothing has been done with the device yet
-	if(!report_id && !interviewee_id)
+	if(!selected_report && !interviewee_id)
 		if(config.sql_ccia_logs)
 			//Get the active cases from the database and display them
 			var/list/reports = list()
-			var/DBQuery/report_query = dbcon.NewQuery("SELECT id, report_date, title FROM ss13_ccia_reports WHERE status = 'approved' AND deleted_at IS NULL")
+			var/DBQuery/report_query = dbcon.NewQuery("SELECT id, report_date, title, public_topic, internal_topic, game_id, status FROM ss13_ccia_reports WHERE status = 'approved' AND deleted_at IS NULL")
 			report_query.Execute()
 			while(report_query.NextRow())
 				CHECK_TICK
-				reports["[report_query.item[2]] - [report_query.item[3]]"] = "[report_query.item[1]]"
+				var/datum/ccia_report/R = new(report_query.item[1], report_query.item[2], report_query.item[3], report_query.item[41], report_query.item[5], report_query.item[6], report_query.item[7])
+				reports["[report_query.item[2]] - [report_query.item[3]]"] = R
 
-			report_name = input(usr, "Select Report","Report Name") as null|anything in reports
-			if(!report_name || report_name == "")
+			selected_report = input(usr, "Select Report","Report Name") as null|anything in reports
+			if(!selected_report)
 				to_chat(usr, "<span class='notice'>The device beeps and flashes \"No data entered, Aborting\".</span>")
 				return
-			report_id = reports[report_name]
-			to_chat(usr,"<span class='notice'>The device flashes \"Report [report_name] selected, fingerprint of interviewee required\"</span>")
+			to_chat(usr,"<span class='notice'>The device flashes \"Report [selected_report.title] selected, fingerprint of interviewee required\"</span>")
+			if(selected_report.internal_topic)
+				send_link(usr, selected_report.internal_topic)
 		else
-			report_name = input(usr, "Select Report Name","Report Name") as null|text
+			var/report_name = input(usr, "Select Report Name","Report Name") as null|text
 			if(!report_name || report_name == "")
 				to_chat(usr, "<span class='notice'>The device beeps and flashes \"No data entered, Aborting\".</span>")
 				return
-			report_id = input(usr, "Select Report ID","Report ID") as null|text
-			if(!report_name || report_name == "")
+			var/report_id = input(usr, "Select Report ID","Report ID") as null|text
+			if(!report_id || report_id == "")
 				to_chat(usr, "<span class='notice'>The device beeps and flashes \"No data entered, Aborting\".</span>")
 				return
+			//TODO: create the report datum and set it
+			selected_report = new(report_id,time2text(world.realtime, "YYYY_MM_DD"),report_name)
 		return
 	//If we are ready to record, but no interviewee is selected
-	else if(report_id && !interviewee_id)
+	else if(!selected_report && !interviewee_id)
 		to_chat(usr,"<span class='notice'>The device beeps and flashes \"Fingerprint of interviewee required\"</span>")
 		return
 	//If the report has been selected and the person scanned their frinterprint
-	else if(report_id && interviewee_id)
+	else if(selected_report && interviewee_id)
 		date_string = time2text(world.realtime, "YYYY_MM_DD")
-		var/fileLoc = "data/dutylogs/[usr.ckey]/[date_string]-[report_id]-[interviewee_id].log"
-		var/fileName = "[date_string]-[report_id]-[interviewee_id].log"
+		var/fileLoc = "data/dutylogs/[usr.ckey]/[date_string]-[selected_report.id]-[interviewee_id].log"
+		var/fileName = "[date_string]-[selected_report.id]-[interviewee_id].log"
 		if(fexists(fileLoc))
 			var/safe = 0
 			var/i = 1
 			while(!safe)
-				fileLoc = "data/dutylogs/[usr.ckey]/[date_string]-[report_id]-[interviewee_id]-[i].log"
+				fileLoc = "data/dutylogs/[usr.ckey]/[date_string]-[selected_report.id]-[interviewee_id]-[i].log"
 				if(!fexists(fileLoc))
-					fileName = "[date_string]-[report_id]-[interviewee_id]-[i].log"
+					fileName = "[date_string]-[selected_report.id]-[interviewee_id]-[i].log"
 					safe = 1
 					break
 				i++
 		last_file_loc = fileLoc
 		sLogFile = file(fileLoc)
-		sLogFile << "[report_id]-[interviewee_id]"
-		sLogFile << "Case file: [report_name]"
+		sLogFile << "[selected_report.id]-[interviewee_id]"
+		sLogFile << "Case file: [selected_report.title]"
 		sLogFile << "--------------------------------"
 		sLogFile << "Date: [date_string]"
 		sLogFile << "--------------------------------"
@@ -145,11 +148,10 @@
 	//If we have sql ccia logs enabled, then persist it here
 	if(config.sql_ccia_logs && establish_db_connection(dbcon))
 		var/DBQuery/save_log = dbcon.NewQuery("INSERT INTO ss13_ccia_reports_transcripts (id, report_id, character_id, interviewer, text, antag_involvement) VALUES (NULL, :report_id:, :character_id:, :interviewer:, :text:, :antag_involvement:)")
-		save_log.Execute(list("report_id" = report_id, "character_id" = interviewee_id, "interviewer" = usr.name, "text" = P.info, "antag_involvement" = antag_involvement))
+		save_log.Execute(list("report_id" = selected_report.id, "character_id" = interviewee_id, "interviewer" = usr.name, "text" = P.info, "antag_involvement" = antag_involvement))
 
 	sLogFile = null
-	report_id = null
-	report_name = null
+	selected_report = null
 	interviewee_id = null
 	interviewee_name = null
 	date_string = null
@@ -171,8 +173,7 @@
 		return
 
 	sLogFile = null
-	report_id = null
-	report_name = null
+	selected_report = null
 	interviewee_id = null
 	interviewee_name = null
 	date_string = null
@@ -262,6 +263,10 @@
 		//Sync the intervieweee_id and interviewee_name
 		interviewee_id = H.character_id
 		interviewee_name = H.name
+
+		//Show them the report they are interviewed about
+		if(selected_report.public_topic)
+			send_link(usr, selected_report.public_topic)
 
 		//Ask them if there was antag involvement
 		var/a = input(user, "Were your actions influenced by antagonists?", "Antagonist involvement") in list("yes","no")
