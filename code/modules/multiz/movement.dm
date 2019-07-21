@@ -460,7 +460,7 @@
 		damage *= 0.75
 	var/limb_damage = rand(0,damage/2)
 
-	if(prob(30) && combat_roll >= 1) //landed on their head
+	if(prob(30) && combat_roll >= 1) //landed on their legs
 		var/left_damage = rand(0,damage/2)
 		var/right_damage = rand(0,damage/2)
 		var/leftf_damage = rand(0,damage/4)
@@ -502,7 +502,7 @@
 		visible_message("<span class='warning'>\The [src] falls and lands arms first!</span>",
 			"<span class='danger'>You brace your fall with your arms, hitting \the [loc] with a loud thud.</span>", "You hear a thud!")
 
-	else if(prob(30) && combat_roll >= 1)//landed on their legs
+	else if(prob(30) && combat_roll >= 1)//landed on their head
 		apply_damage(limb_damage, BRUTE, "head")
 		visible_message("<span class='warning'>\The [src] falls and lands on their face!</span>",
 			"<span class='danger'>With a loud thud, you land on your head. Hard.</span>", "You hear a thud!")
