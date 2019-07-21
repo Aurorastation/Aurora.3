@@ -27,19 +27,24 @@
 /datum/outfit/job/doctor/zeng_hu
 	name = "Medical Doctor - Zeng-Hu"
 	uniform = /obj/item/clothing/under/rank/zeng
+	id = /obj/item/weapon/card/id/zeng_hu
 
 /datum/outfit/job/pharmacist/zeng_hu
 	name = "Pharmacist - Zeng-Hu"
 	uniform = /obj/item/clothing/under/rank/zeng
+	id = /obj/item/weapon/card/id/zeng_hu
 
 /datum/outfit/job/psychiatrist/zeng_hu
 	name = "Psychiatrist - Zeng-Hu"
 	uniform = /obj/item/clothing/under/rank/zeng
+	id = /obj/item/weapon/card/id/zeng_hu
 
 /datum/outfit/job/psychiatrist/zeng_hu
 	name = "Psychiatrist - Zeng-Hu"
 	uniform = /obj/item/clothing/under/rank/zeng
+	id = /obj/item/weapon/card/id/zeng_hu
 
 /datum/outfit/job/paramedic/zeng_hu
 	name = "Paramedic - Zeng-Hu"
 	uniform = /obj/item/clothing/under/rank/zeng
+	id = /obj/item/weapon/card/id/zeng_hu

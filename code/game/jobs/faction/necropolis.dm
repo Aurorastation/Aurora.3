@@ -32,27 +32,29 @@
 /datum/outfit/job/officer/necropolis
 	name = "Security Officer - Necropolis"
 	uniform = /obj/item/clothing/under/rank/security/necropolis
+	id = /obj/item/weapon/card/id/necropolis/sec
 
 /datum/outfit/job/warden/necropolis
 	name = "Warden - Necropolis"
 	uniform = /obj/item/clothing/under/rank/security/necropolis
+	id = /obj/item/weapon/card/id/necropolis/sec
 
 /datum/outfit/job/doctor/necropolis
 	name = "Medical Doctor - Necropolis"
 	uniform = /obj/item/clothing/under/rank/necropolis
+	id = /obj/item/weapon/card/id/necropolis
 
 /datum/outfit/job/pharmacist/necropolis
 	name = "Pharmacist - Necropolis"
 	uniform = /obj/item/clothing/under/rank/necropolis
-
-/datum/outfit/job/pharmacist/necropolis
-	name = "Pharmacist - Necropolis"
-	uniform = /obj/item/clothing/under/rank/necropolis
+	id = /obj/item/weapon/card/id/necropolis
 
 /datum/outfit/job/scientist/necropolis
 	name = "Scientist - Necropolis"
 	uniform = /obj/item/clothing/under/rank/necropolis
+	id = /obj/item/weapon/card/id/necropolis
 
 /datum/outfit/job/roboticist/necropolis
 	name = "Roboticist - Necropolis"
 	uniform = /obj/item/clothing/under/rank/necropolis
+	id = /obj/item/weapon/card/id/necropolis

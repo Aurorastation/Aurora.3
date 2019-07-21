@@ -27,12 +27,16 @@
 
 /datum/outfit/job/officer/eridani
 	uniform = /obj/item/clothing/under/rank/security/eridani
+	id = /obj/item/weapon/card/id/eridani
 
 /datum/outfit/job/warden/eridani
 	uniform = /obj/item/clothing/under/rank/security/eridani
+	id = /obj/item/weapon/card/id/eridani
 
 /datum/outfit/job/forensics/eridani
 	uniform = /obj/item/clothing/under/rank/security/eridani
+	id = /obj/item/weapon/card/id/eridani
 
 /datum/outfit/job/paramedic/eridani
 	uniform = /obj/item/clothing/under/rank/security/eridani/alt
+	id = /obj/item/weapon/card/id/eridani

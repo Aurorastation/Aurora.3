@@ -356,7 +356,7 @@ var/const/NO_EMAG_ACT = -50
 	icon_state = "centcom"
 	assignment = "Emergency Response Team"
 
-obj/item/weapon/card/id/ert/New()
+/obj/item/weapon/card/id/ert/New()
 	access = get_all_station_access() + get_centcom_access("Emergency Response Team")
 	..()
 
@@ -377,3 +377,39 @@ obj/item/weapon/card/id/ert/New()
 /obj/item/weapon/card/id/all_access/New()
 	access = get_access_ids()
 	..()
+
+// Contractor cards
+
+/obj/item/weapon/card/id/idris
+	name = "\improper Idris Incorporated identification card"
+	desc = "A high-tech holocard, designed to project information about a sub-contractor from Idris Incorporated."
+	icon_state = "idris_card"
+
+/obj/item/weapon/card/id/iru
+	name = "\improper IRU identification card"
+	desc = "A high-tech holobadge, designed to project information about an asset reclamation synthetic at Idris Incorporated."
+	icon_state = "iru_card"
+
+/obj/item/weapon/card/id/eridani
+	name = "\improper Eridani identification card"
+	desc = "A high-tech holobadge, identifying the owner as a contractor from one of the many PMCs from the Eridani Corporate Federation."
+	icon_state = "erisec_card"
+
+/obj/item/weapon/card/id/zeng_hu
+	name = "\improper Zeng-Hu Pharmaceuticals identification card"
+	desc = "A synthleather card, belonging to one of the highly skilled members of Zeng-Hu."
+	icon_state = "zhu_card"
+
+/obj/item/weapon/card/id/hephaestus
+	name = "\improper Hephaestus Industries identification card"
+	desc = "A metal-backed card, belonging to the powerful Hephaestus Industries."
+	icon_state = "heph_card"
+
+/obj/item/weapon/card/id/necropolis
+	name = "\improper Necropolis Incorporated identification card"
+	desc = "An old-fashioned, practical plastic card. Smells faintly of gunpowder."
+	icon_state = "necro_card"
+
+/obj/item/weapon/card/id/necropolis/sec
+	icon_state = "necrosec_card"
+	desc = "An old-fashioned, practical plastic card. This one is of a higher rank, for Security personnel."

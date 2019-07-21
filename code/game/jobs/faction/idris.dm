@@ -29,19 +29,24 @@
 /datum/outfit/job/officer/idris
 	name = "Security Officer - Idris"
 	uniform = /obj/item/clothing/under/rank/security/idris
+	id = /obj/item/weapon/card/id/idris
 
 /datum/outfit/job/bartender/idris
 	name = "Bartender - Idris"
 	uniform = /obj/item/clothing/under/rank/idris
+	id = /obj/item/weapon/card/id/idris
 
 /datum/outfit/job/chef/idris
 	name = "Chef - Idris"
 	uniform = /obj/item/clothing/under/rank/idris
+	id = /obj/item/weapon/card/id/idris
 
 /datum/outfit/job/hydro/idris
 	name = "Gardener - Idris"
 	uniform = /obj/item/clothing/under/rank/idris
+	id = /obj/item/weapon/card/id/idris
 
 /datum/outfit/job/cargo_tech/idris
 	name = "Cargo Technician - Idris"
 	uniform = /obj/item/clothing/under/rank/idris
+	id = /obj/item/weapon/card/id/idris
