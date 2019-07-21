@@ -408,16 +408,13 @@ var/list/diona_banned_languages = list(
 			DS.regen_extra.Invoke()
 			DS.regen_extra = null
 	var/progress = nutrition * 0.45
-	message_admins("Biomass: [progress]")
 	adjustNutritionLoss(nutrition * 0.15)
 	progress += DS.stored_energy * 0.3
 	DS.stored_energy -= DS.stored_energy * 0.5
-	message_admins("Biomass: [progress]")
 
 	if(total_radiation)
 		progress += total_radiation * 50
 		apply_radiation(-total_radiation)
-		message_admins("Biomass: [progress]")
 
 	DS.regen_limb_progress += progress
 
