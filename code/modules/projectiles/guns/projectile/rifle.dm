@@ -19,6 +19,8 @@
 	can_sawoff = TRUE
 	sawnoff_workmsg = "shorten the barrel and stock"
 
+	action_button_name = "Wield rifle"
+
 /obj/item/weapon/gun/projectile/shotgun/pump/rifle/saw_off(mob/user, obj/item/tool)
 	icon_state = "obrez"
 	w_class = 3
@@ -227,7 +229,7 @@
 	fire_delay_wielded = 10
 	accuracy_wielded = 2
 
-	is_wieldable = TRUE
+	action_button_name = "Wield rifle"
 
 /obj/item/weapon/gun/projectile/gauss/update_icon()
 	..()
@@ -240,3 +242,18 @@
 
 	update_held_icon()
 	return
+
+/obj/item/weapon/gun/projectile/gauss/can_wield()
+	return 1
+
+/obj/item/weapon/gun/projectile/gauss/ui_action_click()
+	if(src in usr)
+		toggle_wield(usr)
+
+/obj/item/weapon/gun/projectile/gauss/verb/wield_rifle()
+	set name = "Wield rifle"
+	set category = "Object"
+	set src in usr
+
+	toggle_wield(usr)
+	usr.update_icon()
