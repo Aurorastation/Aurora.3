@@ -1,15 +1,20 @@
 //Please use mob or src (not usr) in these procs. This way they can be called in the same fashion as procs.
-/client/verb/wiki()
+/client/verb/wiki(var/sub_page = null as null|text)
 	set name = "wiki"
 	set desc = "Visit the wiki."
 	set hidden = 1
-	if( config.wikiurl )
+
+	if(config.wikiurl)
 		if(alert("This will open the wiki in your browser. Are you sure?",,"Yes","No")=="No")
 			return
-		to_chat(src, link(config.wikiurl))
+
+		var/to_open = config.wikiurl
+		if (sub_page)
+			to_open += sub_page
+
+		to_chat(src, link(to_open))
 	else
 		to_chat(src, "<span class='warning'>The wiki URL is not set in the server configuration.</span>")
-	return
 
 /client/verb/forum()
 	set name = "forum"

@@ -1,6 +1,34 @@
 /datum/faction/idris_incorporated
 	name = "Idris Incorporated"
-	description = "The Orion Spur’s largest interstellar banking conglomerate, Idris Incorporated is operated by the mysterious Idris family. Idris Incorporated’s influence can be found in nearly every corner of human space with their financing of nearly every type of business and enterprise. Their higher risk ventures have payment enforced by the infamous Idris Reclamation Units, shell IPCs sent to claim payment from negligent loan takers. In recent years, they have begun diversifying into more service-based industries."
+	description = {"<p>
+	The Orion Spur’s largest interstellar banking conglomerate, Idris Incorporated
+	is operated by the mysterious Idris family. Idris Incorporated’s influence
+	can be found in nearly every corner of human space with their financing of
+	nearly every type of business and enterprise. Their higher risk ventures have
+	payment enforced by the infamous Idris Reclamation Units, shell IPCs sent to
+	claim payment from negligent loan takers. In recent years, they have begun
+	diversifying into more service-based industries.
+	</p>
+	<p>Some character examples are:
+	<ul>
+	<li><b>Artisan Mixologist</b>: Impeccable customer service is at the heart of Idris;
+	some of the best Chefs and Mixologists in the galaxy are employed by the
+	corporation and the gleaming marble interiors of their branch offices are
+	always spotless. This naturally comes at a price and tips are expected,
+	always. No tips? A grave insult indeed to someone of your calibre! Whilst
+	you're working with NanoTrasen it is expected that you seek to boost our clients credit
+	portfolio- we'll give credit to anyone after all. The more loans you can
+	generate with NanoTrasen the better. Just think of that bonus.</li>
+	<li><b>Idris Reclamation Unit X3265FH</b>: As a shell belonging to Idris you
+	are not free. You are programmed to defer to NT security and the Head of
+	Security. Your customer service skills are excellent however your notorious
+	"strong arm" skills can be utilised the security team if authorised. Your
+	default state is good customer service. That being said your programming prioritises
+	the protection and safety of other Idris employees so long as this will not
+	breach NT regulations. You are programmed to never strong arm an Idris employee.
+	You may be on lease to NT but remember you still belong to a much more sophisticated
+	and superior company - Idris.</li>
+	</ul></p>"}
 	title_suffix = "Idris"
 
 	allowed_role_types = list(

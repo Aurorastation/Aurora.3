@@ -1,6 +1,35 @@
 /datum/faction/necropolis_industries
 	name = "Necropolis Industries"
-	description = "The largest weapons producer in human space, Necropolis Industries initially found their place with the invention of a militarized RIG suit for use in the Interstellar War. With many extraordinarily weapons contracts thanks to SolGov, as well as acquisitions of other major armaments companies, Necropolis Industries weapons can be found in the hands of nearly every military force across the Orion Spur. They are prominently associated with the Empire of Dominia, and are at the forefront of genetic modification technology."
+	description = {"<p>
+	The largest weapons producer in human space, Necropolis Industries initially
+	found their place with the invention of a militarized RIG suit for use in the
+	Interstellar War. With many extraordinarily weapons contracts thanks to SolGov,
+	as well as acquisitions of other major armaments companies, Necropolis Industries
+	weapons can be found in the hands of nearly every military force across the Orion
+	Spur. They are prominently associated with the Empire of Dominia, and are at
+	the forefront of genetic modification technology.
+	</p>
+	<p>Some character examples are:
+	<ul>
+	<li><b>Bio-technician</b>: Unit to unit Necropolis ships the most firearms
+	and weapons compared to any other corporation in the known galaxy and you're
+	proud of it just as you take a vulgar pride in your known unscrupulous and
+	slimy mannerisms, if only they knew the fools. Your genetics research has
+	seen the advent of geneboosted sentients championed by the Dominian Empire,
+	a civilization your company is very close to. The ethical concerns of both
+	of those achievements are largely irrelevant compared to the general benefits
+	and of course profits to be had. Your one rival in both these fields is NT
+	whose cloning technologies and weapons technology outpaces all others. You
+	need to get your hands on that tech without compromising Necropolises contract,
+	and you think you might know how.</li>
+	<li><b>Personal Security Professional</b>: Excellent customer service and client
+	care is why Necropolis wins security contracts and you know this. A cut above
+	the rest you are clear, calm, concise and polite when working. As a security
+	force you were voted the top firm to employ and as such, NT ISD should really
+	be referring to your better judgement with security issues as far as you're
+	concerned. All crew are your customers and as such deserve a top notch customer
+	experience.</li>
+	</ul></p>"}
 	title_suffix = "Necro"
 
 	allowed_role_types = list(
