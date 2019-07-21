@@ -25,6 +25,7 @@
 	var/last_file_loc = null
 
 	var/antag_involvement = FALSE
+	var/antag_involvement_text = null
 
 	var/datum/ccia_report/selected_report = null
 	var/interviewee_id = null
@@ -147,9 +148,26 @@
 
 	//If we have sql ccia logs enabled, then persist it here
 	if(config.sql_ccia_logs && establish_db_connection(dbcon))
-		var/DBQuery/save_log = dbcon.NewQuery("INSERT INTO ss13_ccia_reports_transcripts (id, report_id, character_id, interviewer, text, antag_involvement) VALUES (NULL, :report_id:, :character_id:, :interviewer:, :text:, :antag_involvement:)")
-		save_log.Execute(list("report_id" = selected_report.id, "character_id" = interviewee_id, "interviewer" = usr.name, "text" = P.info, "antag_involvement" = antag_involvement))
+		//This query is split up into multiple parts due to the length limitations of byond.
+		//To avoid this the text and the antag_involvement_text are saved separately
+		var/DBQuery/save_log = dbcon.NewQuery("INSERT INTO ss13_ccia_reports_transcripts (id, report_id, character_id, interviewer, antag_involvement) VALUES (NULL, :report_id:, :character_id:, :interviewer:, :text:, :antag_involvement:)")
+		save_log.Execute(list("report_id" = selected_report.id, "character_id" = interviewee_id, "interviewer" = usr.name, "antag_involvement" = antag_involvement))
 		
+		//Run the query to get the inserted id
+		var/transcript_id = null
+		var/DBQuery/tid = dbcon.NewQuery("SELECT LAST_INSERT_ID() AS log_id")
+		tid.Execute()
+		if (tid.NextRow())
+			transcript_id = text2num(tid.item[1])
+
+		if(tid)
+			var/DBQuery/add_text = dbcon.NewQuery("UPDATE ss13_ccia_reports_transcripts SET text = :text: WHERE id = :id:")
+			add_text.Execute(list("id" = transcript_id, "text" = P.info))
+			var/DBQuery/add_antag_involvement_text = dbcon.NewQuery("UPDATE ss13_ccia_reports_transcripts SET antag_involvement_text = :antag_involvement_text: WHERE id = :id:")
+			add_antag_involvement_text.Execute(list("id" = transcript_id, "antag_involvement_text" = antag_involvement_text))
+		else
+			message_cciaa("Transcript could not be saved correctly. TiD Missing")
+
 		//Check if we need to update the status to review required
 		if(antag_involvement && selected_report.status == "in progress")
 			var/DBQuery/update_db = dbcon.NewQuery("UPDATE ss13_ccia_reports SET status = 'review required' WHERE id = :id:")
@@ -278,6 +296,7 @@
 		var/a = input(user, "Were your actions influenced by antagonists?", "Antagonist involvement") in list("yes","no")
 		if(a == "yes")
 			antag_involvement = TRUE
+			antag_involvement_text = sanitize(input("Describe how your actions were influenced by the antagonists.", "Antag involvement") as message|null)
 			message_cciaa("CCIA Interview: [user] claimed their actions were influenced by antagonists.", R_CCIAA)
 		else
 			antag_involvement = FALSE
