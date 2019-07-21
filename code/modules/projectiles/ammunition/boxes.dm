@@ -269,6 +269,10 @@
 	max_ammo = 20
 	multiple_sprites = 1
 
+/obj/item/ammo_magazine/c762/sniper
+	icon_state = "s762"
+	max_ammo = 5
+
 /obj/item/ammo_magazine/c762/sol
 	icon_state = "battlerifle_mag"
 	multiple_sprites = 0

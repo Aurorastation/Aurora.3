@@ -10,6 +10,7 @@
 #define DEBUG
 // END_PREFERENCES
 // BEGIN_INCLUDE
+#include "_maps\aurora.dm"
 #include "code\global.dm"
 #include "code\hub.dm"
 #include "code\names.dm"
@@ -2112,6 +2113,7 @@
 #include "code\modules\projectiles\guns\energy\laser.dm"
 #include "code\modules\projectiles\guns\energy\lawgiver.dm"
 #include "code\modules\projectiles\guns\energy\magic.dm"
+#include "code\modules\projectiles\guns\energy\military.dm"
 #include "code\modules\projectiles\guns\energy\mining.dm"
 #include "code\modules\projectiles\guns\energy\modular.dm"
 #include "code\modules\projectiles\guns\energy\nuclear.dm"
@@ -2128,6 +2130,7 @@
 #include "code\modules\projectiles\guns\projectile\automatic.dm"
 #include "code\modules\projectiles\guns\projectile\dartgun.dm"
 #include "code\modules\projectiles\guns\projectile\improvised.dm"
+#include "code\modules\projectiles\guns\projectile\military.dm"
 #include "code\modules\projectiles\guns\projectile\minigun.dm"
 #include "code\modules\projectiles\guns\projectile\pistol.dm"
 #include "code\modules\projectiles\guns\projectile\plasma.dm"
