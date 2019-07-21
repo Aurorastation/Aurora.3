@@ -385,6 +385,9 @@ var/const/NO_EMAG_ACT = -50
 	desc = "A high-tech holocard, designed to project information about a sub-contractor from Idris Incorporated."
 	icon_state = "idris_card"
 
+/obj/item/weapon/card/id/idris/sec
+	icon_state = "idrissec_card"
+
 /obj/item/weapon/card/id/iru
 	name = "\improper IRU identification card"
 	desc = "A high-tech holobadge, designed to project information about an asset reclamation synthetic at Idris Incorporated."

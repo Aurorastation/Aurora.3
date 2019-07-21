@@ -29,7 +29,7 @@
 /datum/outfit/job/officer/idris
 	name = "Security Officer - Idris"
 	uniform = /obj/item/clothing/under/rank/security/idris
-	id = /obj/item/weapon/card/id/idris
+	id = /obj/item/weapon/card/id/idris/sec
 
 /datum/outfit/job/bartender/idris
 	name = "Bartender - Idris"
