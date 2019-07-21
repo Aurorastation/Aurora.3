@@ -10,3 +10,9 @@ ALTER TABLE `ss13_ccia_reports`
 
 ALTER TABLE `ss13_ccia_reports_transcripts`
 	ADD COLUMN `antag_involvement` TINYINT NOT NULL AFTER `interviewer`;
+
+-- Update the status
+ALTER TABLE `ss13_ccia_reports`
+	ALTER `status` DROP DEFAULT;
+ALTER TABLE `ss13_ccia_reports`
+	CHANGE COLUMN `status` `status` ENUM('new','in progress','review required','approved','rejected','completed') NOT NULL COLLATE 'utf8mb4_unicode_ci' AFTER `game_id`;
