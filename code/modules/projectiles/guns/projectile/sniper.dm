@@ -135,8 +135,10 @@
 /obj/item/weapon/gun/projectile/dragunov
 	name = "antique sniper rifle"
 	desc = "An old Dragunov semi-automatic marksman rifle. Smells of vodka and Communism. Uses 7.62mm rounds."
+	icon = 'icons/obj/dragunov.dmi'
 	icon_state = "dragunov"
 	item_state = "dragunov"
+	contained_sprite = 1
 	w_class = 4
 	force = 10
 	slot_flags = SLOT_BACK
@@ -163,13 +165,6 @@
 		icon_state = "dragunov"
 	else
 		icon_state = "dragunov-empty"
-
-	if(wielded)
-		item_state = "dragunov-wielded"
-	else
-		item_state = "dragunov"
-
-	update_held_icon()
 
 /obj/item/weapon/gun/projectile/dragunov/can_wield()
 	return 1
