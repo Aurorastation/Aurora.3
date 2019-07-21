@@ -1,0 +1,4 @@
+author: MattAtlas
+delete-after: True
+changes: 
+  - tweak: "All wieldable weapons are now wielded via the Wield Firearm verb, or wield-firearm if you have a macro instead of wield-rifle and wield-shotgun. Update your macros!"
