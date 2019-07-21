@@ -196,6 +196,7 @@
 		action_button_name = "Wield Firearm"
 		verbs += /obj/item/weapon/gun/verb/wield_gun
 	else
+		action_button_name = ""
 		verbs -= /obj/item/weapon/gun/verb/wield_gun
 
 
