@@ -34,10 +34,10 @@
 	title_suffix = "Zeng"
 
 	allowed_role_types = list(
-		/datum/job/doctor = TRUE,
-		/datum/job/pharmacist = TRUE,
-		/datum/job/psychiatrist = TRUE,
-		/datum/job/paramedic = TRUE
+		/datum/job/doctor,
+		/datum/job/pharmacist,
+		/datum/job/psychiatrist,
+		/datum/job/paramedic
 	)
 
 	allowed_species_types = list(

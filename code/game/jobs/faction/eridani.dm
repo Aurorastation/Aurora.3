@@ -23,10 +23,10 @@
 	title_suffix = "EPMC"
 
 	allowed_role_types = list(
-		/datum/job/officer = TRUE,
-		/datum/job/warden = TRUE,
-		/datum/job/forensics = TRUE,
-		/datum/job/paramedic = TRUE
+		/datum/job/officer,
+		/datum/job/warden,
+		/datum/job/forensics,
+		/datum/job/paramedic
 	)
 
 	allowed_species_types = list(

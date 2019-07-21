@@ -246,5 +246,6 @@ var/list/asset_datums = list()
 		"faction_Necro.png" = 'icons/misc/factions/NecroInclogo.png',
 		"faction_NT.png" = 'icons/misc/factions/NanoTrasenlogo.png',
 		"faction_Idris.png" = 'icons/misc/factions/Idrislogo.png',
-		"faction_Hepht.png" = 'icons/misc/factions/Hephaestuslogo.png'
+		"faction_Hepht.png" = 'icons/misc/factions/Hephaestuslogo.png',
+		"faction_unaffiliated.png" = 'icons/misc/factions/Unaffiliatedlogo.png'
 	)

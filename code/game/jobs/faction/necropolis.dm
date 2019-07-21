@@ -33,12 +33,12 @@
 	title_suffix = "Necro"
 
 	allowed_role_types = list(
-		/datum/job/officer = TRUE,
-		/datum/job/warden = TRUE,
-		/datum/job/doctor = TRUE,
-		/datum/job/pharmacist  = TRUE,
-		/datum/job/scientist = TRUE,
-		/datum/job/roboticist = TRUE
+		/datum/job/officer,
+		/datum/job/warden,
+		/datum/job/doctor,
+		/datum/job/pharmacist,
+		/datum/job/scientist,
+		/datum/job/roboticist
 	)
 
 	allowed_species_types = list(

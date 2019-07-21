@@ -29,12 +29,12 @@
 	title_suffix = "Hepht"
 
 	allowed_role_types = list(
-		/datum/job/engineer = TRUE,
-		/datum/job/atmos = TRUE,
-		/datum/job/scientist = TRUE,
-		/datum/job/roboticist = TRUE,
-		/datum/job/mining = TRUE,
-		/datum/job/cargo_tech = TRUE
+		/datum/job/engineer,
+		/datum/job/atmos,
+		/datum/job/scientist,
+		/datum/job/roboticist,
+		/datum/job/mining,
+		/datum/job/cargo_tech
 	)
 
 	allowed_species_types = list(

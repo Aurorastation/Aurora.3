@@ -32,11 +32,11 @@
 	title_suffix = "Idris"
 
 	allowed_role_types = list(
-		/datum/job/officer = TRUE,
-		/datum/job/bartender = TRUE,
-		/datum/job/chef = TRUE,
-		/datum/job/hydro = TRUE,
-		/datum/job/cargo_tech = TRUE
+		/datum/job/officer,
+		/datum/job/bartender,
+		/datum/job/chef,
+		/datum/job/hydro,
+		/datum/job/cargo_tech
 	)
 
 	allowed_species_types = list(
