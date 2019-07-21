@@ -14,28 +14,7 @@
 	fire_sound = 'sound/effects/Explosion1.ogg'
 	recoil = 4
 
-	action_button_name = "Wield hand cannon"
-
-/obj/item/weapon/gun/projectile/cannon/update_icon()
-	if(wielded)
-		item_state = "cannon-wielded"
-	else
-		item_state = "cannon"
-	update_held_icon()
-
-/obj/item/weapon/gun/projectile/cannon/can_wield()
-	return 1
-
-/obj/item/weapon/gun/projectile/cannon/ui_action_click()
-	if(src in usr)
-		toggle_wield(usr)
-
-/obj/item/weapon/gun/projectile/cannon/verb/wield_rifle()
-	set name = "Wield hand cannon"
-	set category = "Object"
-	set src in usr
-
-	toggle_wield(usr)
+	is_wieldable = TRUE
 
 /obj/item/weapon/gun/projectile/cannon/special_check(mob/user)
 	if(!wielded)

@@ -11,7 +11,7 @@
 
 	pump_fail_msg = "<span class='warning'>You cannot work the rifle's bolt without gripping it with both hands!</span>"
 	pump_snd = 'sound/weapons/riflebolt.ogg'
-	has_wield_state = FALSE
+	has_wield_state = TRUE
 
 	can_bayonet = TRUE
 	knife_x_offset = 23
@@ -51,7 +51,7 @@
 	name = "pocket rifle"
 	desc = "A perfect, pristine replica of an ancient one-shot hand-cannon. This one has been modified to work almost like a bolt-action. Uses 5.56mm rounds."
 	icon_state = "pockrifle"
-	item_state = "obrez"
+	item_state = "pockrifle"
 	caliber = "a556"
 	handle_casings = HOLD_CASINGS
 	max_shells = 1
@@ -79,7 +79,10 @@
 		to_chat(user, "<span class='notice'>You cycle back the bolt on \the [src], ejecting the casing and allowing you to reload.</span>")
 		playsound(user, 'sound/weapons/riflebolt.ogg', 60, 1)
 		icon_state = icon_retracted
+		item_state = icon_retracted
 		retracted_bolt = 1
+		user.update_inv_l_hand()
+		user.update_inv_r_hand()
 		return 1
 
 	else if(retracted_bolt && loaded.len)
@@ -89,6 +92,11 @@
 		to_chat(user, "<span class='notice'>You cycle the bolt back into position, leaving the gun empty.</span>")
 
 	icon_state = initial(icon_state)
+	item_state = initial(item_state)
+
+	user.update_inv_l_hand()
+	user.update_inv_r_hand()
+
 	retracted_bolt = 0
 
 /obj/item/weapon/gun/projectile/contender/load_ammo(var/obj/item/A, mob/user)
