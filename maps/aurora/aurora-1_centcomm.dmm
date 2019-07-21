@@ -3887,6 +3887,9 @@
 "aki" = (
 /obj/structure/table/rack,
 /obj/item/device/suit_cooling_unit/improved,
+/obj/item/weapon/storage/toolbox/syndicate,
+/obj/item/weapon/reagent_containers/food/drinks/cans/waterbottle,
+/obj/item/weapon/reagent_containers/food/drinks/cans/waterbottle,
 /turf/simulated/shuttle/floor{
 	icon_state = "floor4"
 	},
@@ -4046,19 +4049,6 @@
 	icon_state = "floor4"
 	},
 /area/syndicate_mothership)
-"akF" = (
-/obj/structure/bed/chair{
-	dir = 1
-	},
-/obj/effect/landmark{
-	name = "ninjastart"
-	},
-/turf/simulated/shuttle/floor{
-	icon_state = "floor4"
-	},
-/area/syndicate_mothership{
-	name = "\improper Ninja Base"
-	})
 "akH" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced{
@@ -6307,7 +6297,7 @@
 /area/merchant_station)
 "apl" = (
 /obj/machinery/sleeper{
-	icon_state = "sleeper_0";
+	icon_state = "sleeper";
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
@@ -14144,13 +14134,13 @@
 	},
 /area/centcom/holding)
 "aIb" = (
-/obj/machinery/sleeper{
-	icon_state = "sleeper_0";
-	dir = 8
-	},
 /obj/machinery/light{
 	dir = 4;
 	status = 0
+	},
+/obj/machinery/sleeper{
+	icon_state = "sleeper";
+	dir = 8
 	},
 /turf/unsimulated/floor{
 	icon_state = "floor"
@@ -14354,7 +14344,7 @@
 /area/centcom/holding)
 "aIz" = (
 /obj/machinery/sleeper{
-	icon_state = "sleeper_0";
+	icon_state = "sleeper";
 	dir = 8
 	},
 /turf/unsimulated/floor{
@@ -15130,8 +15120,8 @@
 /area/centcom/holding)
 "aKc" = (
 /obj/machinery/bodyscanner{
-	dir = 8;
-	icon_state = "body_scanner_0"
+	icon_state = "body_scanner";
+	dir = 4
 	},
 /turf/unsimulated/floor{
 	icon_state = "floor"
@@ -20204,6 +20194,10 @@
 /area/shuttle/syndicate_elite/mothership)
 "aVl" = (
 /turf/space,
+/turf/simulated/shuttle/wall/dark_diagonal/destructible{
+	icon_state = "wall3";
+	dir = 9
+	},
 /area/syndicate_mothership{
 	name = "\improper Ninja Base"
 	})
@@ -21099,10 +21093,7 @@
 	},
 /area/centcom/shared_dream)
 "aXO" = (
-/obj/structure/table/rack,
-/obj/item/weapon/storage/toolbox/syndicate,
-/obj/item/weapon/reagent_containers/food/drinks/cans/waterbottle,
-/obj/item/weapon/reagent_containers/food/drinks/cans/waterbottle,
+/obj/machinery/acting/changer,
 /turf/simulated/shuttle/floor{
 	icon_state = "floor4"
 	},
@@ -21868,7 +21859,7 @@
 "cnT" = (
 /obj/structure/window/shuttle,
 /obj/structure/grille,
-/turf/simulated/shuttle/plating,
+/turf/simulated/floor/airless,
 /area/template_noop)
 "cHp" = (
 /obj/structure/closet/hydrant{
@@ -21890,6 +21881,15 @@
 	name = "plating"
 	},
 /area/centcom/legion_base)
+"cNV" = (
+/obj/machinery/porta_turret/xray{
+	check_arrest = 0;
+	check_records = 0;
+	no_salvage = 1;
+	req_one_access = list(103)
+	},
+/turf/simulated/shuttle/floor/destructible/merc,
+/area/shuttle/specops/centcom)
 "cRe" = (
 /turf/template_noop,
 /area/shuttle/escape_pod1/centcom/space)
@@ -21919,7 +21919,7 @@
 	icon_state = "heater";
 	dir = 4
 	},
-/turf/unsimulated/floor,
+/turf/simulated/floor/airless,
 /area/template_noop)
 "ddM" = (
 /obj/structure/window/reinforced{
@@ -21995,8 +21995,7 @@
 /area/skipjack_station/start)
 "dtA" = (
 /obj/item/clothing/suit/space,
-/obj/item/clothing/head/helmet/space,
-/turf/simulated/shuttle/floor,
+/turf/simulated/shuttle/floor/airless,
 /area/template_noop)
 "dyY" = (
 /obj/effect/decal/spraystill{
@@ -22072,14 +22071,14 @@
 /area/centcom/ferry)
 "ehq" = (
 /obj/machinery/door/unpowered/shuttle,
-/turf/simulated/shuttle/floor,
+/turf/simulated/shuttle/floor/airless,
 /area/template_noop)
 "ehW" = (
 /obj/structure/shuttle/engine/propulsion{
 	dir = 4;
 	icon_state = "propulsion_r"
 	},
-/turf/simulated/shuttle/plating,
+/turf/simulated/floor/airless,
 /area/template_noop)
 "ejI" = (
 /obj/item/device/radio/intercom{
@@ -22115,7 +22114,7 @@
 	dir = 8
 	},
 /obj/effect/decal/cleanable/vomit,
-/turf/simulated/shuttle/floor,
+/turf/simulated/shuttle/floor/airless,
 /area/template_noop)
 "elv" = (
 /obj/structure/table/reinforced,
@@ -22286,7 +22285,8 @@
 	},
 /area/syndicate_station/start)
 "fDW" = (
-/turf/simulated/shuttle/floor,
+/obj/item/clothing/head/helmet/space,
+/turf/simulated/shuttle/floor/airless,
 /area/template_noop)
 "fIJ" = (
 /turf/template_noop,
@@ -22532,8 +22532,43 @@
 	icon_state = "floor9"
 	},
 /area/shuttle/transport1/centcom)
+"hOL" = (
+/obj/structure/closet/crate/internals{
+	name = "offworlder equipment"
+	},
+/obj/item/clothing/under/dress/offworlder,
+/obj/item/clothing/under/skirt/offworlder,
+/obj/item/clothing/under/offworlder,
+/obj/item/clothing/under/offworlder,
+/obj/item/clothing/mask/offworlder,
+/obj/item/clothing/mask/offworlder,
+/obj/item/clothing/gloves/offworlder,
+/obj/item/clothing/gloves/offworlder,
+/obj/item/clothing/mask/breath/offworlder,
+/obj/item/clothing/mask/breath/offworlder,
+/obj/item/clothing/mask/offworlder/veil,
+/obj/item/clothing/mask/offworlder/veil,
+/obj/item/clothing/glasses/spiffygogs/offworlder,
+/obj/item/clothing/glasses/spiffygogs/offworlder,
+/obj/item/clothing/accessory/offworlder,
+/obj/item/clothing/accessory/offworlder,
+/obj/item/clothing/accessory/offworlder/bracer/neckbrace,
+/obj/item/clothing/accessory/offworlder/bracer/neckbrace,
+/obj/item/clothing/accessory/offworlder/bracer,
+/obj/item/clothing/accessory/offworlder/bracer,
+/obj/item/weapon/rig/light/offworlder,
+/obj/item/weapon/rig/light/offworlder,
+/obj/item/weapon/storage/pill_bottle/rmt,
+/obj/item/weapon/storage/pill_bottle/rmt,
+/obj/item/weapon/storage/pill_bottle/rmt,
+/obj/item/weapon/storage/pill_bottle/rmt,
+/turf/unsimulated/floor{
+	icon_state = "freezerfloor";
+	dir = 2
+	},
+/area/syndicate_mothership)
 "hOS" = (
-/turf/simulated/shuttle/plating,
+/turf/simulated/floor/airless,
 /area/template_noop)
 "hRs" = (
 /obj/structure/table/reinforced/steel,
@@ -22584,25 +22619,6 @@
 	},
 /turf/simulated/shuttle/floor/plating/destructible/black,
 /area/skipjack_station/start)
-"iaM" = (
-/obj/structure/closet/crate/internals{
-	name = "offworlder equipment"
-	},
-/obj/item/clothing/accessory/offworlder/bracer,
-/obj/item/clothing/accessory/offworlder/bracer,
-/obj/item/weapon/rig/light/offworlder,
-/obj/item/weapon/rig/light/offworlder,
-/obj/item/weapon/storage/pill_bottle/rmt,
-/obj/item/weapon/storage/pill_bottle/rmt,
-/obj/item/weapon/storage/pill_bottle/rmt,
-/obj/item/weapon/storage/pill_bottle/rmt,
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1
-	},
-/turf/unsimulated/floor{
-	icon_state = "dark"
-	},
-/area/centcom/legion_base/hangar5)
 "ioz" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced{
@@ -22623,11 +22639,12 @@
 /turf/simulated/shuttle/floor/plating/destructible/black,
 /area/syndicate_station/start)
 "iuE" = (
-/obj/machinery/light{
+/obj/machinery/portable_atmospherics/canister/oxygen,
+/obj/machinery/light/colored/emergency{
+	icon_state = "tube_empty";
 	dir = 1
 	},
-/obj/machinery/portable_atmospherics/canister/oxygen,
-/turf/simulated/shuttle/floor,
+/turf/simulated/shuttle/floor/airless,
 /area/template_noop)
 "iAm" = (
 /obj/effect/decal/warning_stripes,
@@ -22764,42 +22781,6 @@
 	},
 /turf/simulated/shuttle/floor/plating/destructible/black,
 /area/syndicate_station/start)
-"jiE" = (
-/obj/structure/closet/crate/internals{
-	name = "offworlder equipment"
-	},
-/obj/item/clothing/under/dress/offworlder,
-/obj/item/clothing/under/skirt/offworlder,
-/obj/item/clothing/under/offworlder,
-/obj/item/clothing/under/offworlder,
-/obj/item/clothing/mask/offworlder,
-/obj/item/clothing/mask/offworlder,
-/obj/item/clothing/gloves/offworlder,
-/obj/item/clothing/gloves/offworlder,
-/obj/item/clothing/mask/breath/offworlder,
-/obj/item/clothing/mask/breath/offworlder,
-/obj/item/clothing/mask/offworlder/veil,
-/obj/item/clothing/mask/offworlder/veil,
-/obj/item/clothing/glasses/spiffygogs/offworlder,
-/obj/item/clothing/glasses/spiffygogs/offworlder,
-/obj/item/clothing/accessory/offworlder,
-/obj/item/clothing/accessory/offworlder,
-/obj/item/clothing/accessory/offworlder/bracer/neckbrace,
-/obj/item/clothing/accessory/offworlder/bracer/neckbrace,
-/obj/item/clothing/accessory/offworlder/bracer,
-/obj/item/clothing/accessory/offworlder/bracer,
-/obj/item/weapon/rig/light/offworlder,
-/obj/item/weapon/rig/light/offworlder,
-/obj/item/weapon/storage/pill_bottle/rmt,
-/obj/item/weapon/storage/pill_bottle/rmt,
-/obj/item/weapon/storage/pill_bottle/rmt,
-/obj/item/weapon/storage/pill_bottle/rmt,
-/obj/effect/decal/cleanable/dirt,
-/turf/unsimulated/floor{
-	dir = 8;
-	icon_state = "wood"
-	},
-/area/syndicate_mothership/raider_base)
 "jkC" = (
 /obj/structure/bed/chair/comfy/brown{
 	dir = 4
@@ -22949,10 +22930,11 @@
 /area/syndicate_station/start)
 "knY" = (
 /obj/structure/bed/chair,
-/obj/machinery/light{
+/obj/machinery/light/colored/emergency{
+	icon_state = "tube_empty";
 	dir = 1
 	},
-/turf/simulated/shuttle/floor,
+/turf/simulated/shuttle/floor/airless,
 /area/template_noop)
 "ktB" = (
 /obj/structure/window/reinforced{
@@ -22989,6 +22971,25 @@
 	dir = 4
 	},
 /area/centcom/living)
+"kDY" = (
+/obj/structure/closet/crate/internals{
+	name = "offworlder equipment"
+	},
+/obj/item/clothing/accessory/offworlder/bracer,
+/obj/item/clothing/accessory/offworlder/bracer,
+/obj/item/weapon/rig/light/offworlder,
+/obj/item/weapon/rig/light/offworlder,
+/obj/item/weapon/storage/pill_bottle/rmt,
+/obj/item/weapon/storage/pill_bottle/rmt,
+/obj/item/weapon/storage/pill_bottle/rmt,
+/obj/item/weapon/storage/pill_bottle/rmt,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/turf/unsimulated/floor{
+	icon_state = "dark"
+	},
+/area/centcom/legion_base/hangar5)
 "kFW" = (
 /obj/structure/cryofeed{
 	icon_state = "cryo_rear";
@@ -23058,6 +23059,15 @@
 	dir = 8
 	},
 /area/centcom/specops)
+"lij" = (
+/turf/space,
+/turf/simulated/shuttle/wall/dark_diagonal/destructible{
+	icon_state = "wall3";
+	dir = 5
+	},
+/area/syndicate_mothership{
+	name = "\improper Ninja Base"
+	})
 "lpW" = (
 /obj/machinery/computer/borgupload,
 /turf/unsimulated/floor{
@@ -23215,6 +23225,42 @@
 	},
 /turf/simulated/shuttle/floor/plating/destructible/black,
 /area/syndicate_station/start)
+"mHI" = (
+/obj/structure/closet/crate/internals{
+	name = "offworlder equipment"
+	},
+/obj/item/clothing/under/dress/offworlder,
+/obj/item/clothing/under/skirt/offworlder,
+/obj/item/clothing/under/offworlder,
+/obj/item/clothing/under/offworlder,
+/obj/item/clothing/mask/offworlder,
+/obj/item/clothing/mask/offworlder,
+/obj/item/clothing/gloves/offworlder,
+/obj/item/clothing/gloves/offworlder,
+/obj/item/clothing/mask/breath/offworlder,
+/obj/item/clothing/mask/breath/offworlder,
+/obj/item/clothing/mask/offworlder/veil,
+/obj/item/clothing/mask/offworlder/veil,
+/obj/item/clothing/glasses/spiffygogs/offworlder,
+/obj/item/clothing/glasses/spiffygogs/offworlder,
+/obj/item/clothing/accessory/offworlder,
+/obj/item/clothing/accessory/offworlder,
+/obj/item/clothing/accessory/offworlder/bracer/neckbrace,
+/obj/item/clothing/accessory/offworlder/bracer/neckbrace,
+/obj/item/clothing/accessory/offworlder/bracer,
+/obj/item/clothing/accessory/offworlder/bracer,
+/obj/item/weapon/rig/light/offworlder,
+/obj/item/weapon/rig/light/offworlder,
+/obj/item/weapon/storage/pill_bottle/rmt,
+/obj/item/weapon/storage/pill_bottle/rmt,
+/obj/item/weapon/storage/pill_bottle/rmt,
+/obj/item/weapon/storage/pill_bottle/rmt,
+/obj/effect/decal/cleanable/dirt,
+/turf/unsimulated/floor{
+	dir = 8;
+	icon_state = "wood"
+	},
+/area/syndicate_mothership/raider_base)
 "mKd" = (
 /turf/unsimulated/floor{
 	icon_state = "rampbottom";
@@ -23262,41 +23308,6 @@
 	icon_state = "panelscorched"
 	},
 /area/centcom/legion_base/hangar5)
-"mQx" = (
-/obj/structure/closet/crate/internals{
-	name = "offworlder equipment"
-	},
-/obj/item/clothing/under/dress/offworlder,
-/obj/item/clothing/under/skirt/offworlder,
-/obj/item/clothing/under/offworlder,
-/obj/item/clothing/under/offworlder,
-/obj/item/clothing/mask/offworlder,
-/obj/item/clothing/mask/offworlder,
-/obj/item/clothing/gloves/offworlder,
-/obj/item/clothing/gloves/offworlder,
-/obj/item/clothing/mask/breath/offworlder,
-/obj/item/clothing/mask/breath/offworlder,
-/obj/item/clothing/mask/offworlder/veil,
-/obj/item/clothing/mask/offworlder/veil,
-/obj/item/clothing/glasses/spiffygogs/offworlder,
-/obj/item/clothing/glasses/spiffygogs/offworlder,
-/obj/item/clothing/accessory/offworlder,
-/obj/item/clothing/accessory/offworlder,
-/obj/item/clothing/accessory/offworlder/bracer/neckbrace,
-/obj/item/clothing/accessory/offworlder/bracer/neckbrace,
-/obj/item/clothing/accessory/offworlder/bracer,
-/obj/item/clothing/accessory/offworlder/bracer,
-/obj/item/weapon/rig/light/offworlder,
-/obj/item/weapon/rig/light/offworlder,
-/obj/item/weapon/storage/pill_bottle/rmt,
-/obj/item/weapon/storage/pill_bottle/rmt,
-/obj/item/weapon/storage/pill_bottle/rmt,
-/obj/item/weapon/storage/pill_bottle/rmt,
-/turf/unsimulated/floor{
-	icon_state = "freezerfloor";
-	dir = 2
-	},
-/area/syndicate_mothership)
 "mUH" = (
 /turf/simulated/shuttle/floor/administration{
 	icon_state = "floor4"
@@ -23342,7 +23353,7 @@
 	dir = 1
 	},
 /obj/effect/decal/remains,
-/turf/simulated/shuttle/floor,
+/turf/simulated/shuttle/floor/airless,
 /area/template_noop)
 "nkd" = (
 /obj/machinery/account_database{
@@ -23399,10 +23410,7 @@
 	pixel_x = 3;
 	pixel_y = 3
 	},
-/obj/effect/decal/cleanable/cobweb2{
-	icon_state = "cobweb1"
-	},
-/turf/simulated/shuttle/floor,
+/turf/simulated/shuttle/floor/airless,
 /area/template_noop)
 "nGA" = (
 /obj/effect/floor_decal/corner/blue/full{
@@ -23433,15 +23441,6 @@
 	},
 /turf/simulated/shuttle/floor/plating/destructible/black,
 /area/syndicate_station/start)
-"nLO" = (
-/obj/machinery/porta_turret/xray{
-	check_arrest = 0;
-	check_records = 0;
-	no_salvage = 1;
-	req_one_access = list(103)
-	},
-/turf/simulated/shuttle/floor/destructible/merc,
-/area/shuttle/specops/centcom)
 "nPC" = (
 /obj/structure/banner,
 /turf/unsimulated/floor{
@@ -23685,7 +23684,7 @@
 /area/centcom/living)
 "pob" = (
 /obj/item/weapon/material/shard,
-/turf/unsimulated/floor,
+/turf/simulated/floor/airless,
 /area/template_noop)
 "pqx" = (
 /obj/machinery/floodlight,
@@ -23733,7 +23732,7 @@
 /area/centcom/holding)
 "pFA" = (
 /obj/structure/closet/crate/loot,
-/turf/simulated/shuttle/floor,
+/turf/simulated/shuttle/floor/airless,
 /area/template_noop)
 "pPH" = (
 /obj/structure/table/wood,
@@ -23768,6 +23767,9 @@
 	icon_state = "wood"
 	},
 /area/centcom/legion_base/hangar5)
+"qbD" = (
+/turf/simulated/shuttle/floor/airless,
+/area/template_noop)
 "qdP" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced{
@@ -23804,7 +23806,7 @@
 /area/centcom/legion_base)
 "qrP" = (
 /obj/effect/decal/remains,
-/turf/simulated/shuttle/floor,
+/turf/simulated/shuttle/floor/airless,
 /area/template_noop)
 "qDj" = (
 /obj/structure/grille,
@@ -23849,7 +23851,7 @@
 /area/centcom/living)
 "qNo" = (
 /obj/item/organ/xenos/eggsac,
-/turf/simulated/shuttle/floor,
+/turf/simulated/shuttle/floor/airless,
 /area/template_noop)
 "qQb" = (
 /obj/effect/decal/cleanable/dirt,
@@ -23869,10 +23871,10 @@
 	dir = 1
 	},
 /obj/effect/decal/cleanable/vomit,
-/turf/simulated/shuttle/floor,
+/turf/simulated/shuttle/floor/airless,
 /area/template_noop)
 "qXc" = (
-/turf/simulated/shuttle/plating,
+/turf/simulated/floor/airless,
 /area/space)
 "qYE" = (
 /obj/machinery/door/airlock/hatch{
@@ -24014,7 +24016,7 @@
 /area/syndicate_station/start)
 "rRO" = (
 /obj/effect/decal/cleanable/blood/xeno,
-/turf/simulated/shuttle/floor,
+/turf/simulated/shuttle/floor/airless,
 /area/template_noop)
 "rTn" = (
 /obj/machinery/porta_turret{
@@ -24091,9 +24093,9 @@
 	},
 /area/centcom/legion_base/hangar5)
 "sSc" = (
-/obj/machinery/light,
 /obj/effect/decal/cleanable/blood/xeno,
-/turf/simulated/shuttle/floor,
+/obj/machinery/light/colored/emergency,
+/turf/simulated/shuttle/floor/airless,
 /area/template_noop)
 "sUR" = (
 /obj/machinery/light{
@@ -24132,10 +24134,6 @@
 "tdU" = (
 /turf/simulated/shuttle/floor/destructible,
 /area/shuttle/escape/centcom)
-"tna" = (
-/obj/item/weapon/material/shard,
-/turf/simulated/shuttle/plating,
-/area/template_noop)
 "tpr" = (
 /obj/item/weapon/broken_bottle,
 /turf/template_noop,
@@ -24182,7 +24180,7 @@
 	dir = 4;
 	icon_state = "propulsion"
 	},
-/turf/simulated/shuttle/plating,
+/turf/simulated/floor/airless,
 /area/template_noop)
 "tAH" = (
 /obj/structure/grille,
@@ -24217,14 +24215,11 @@
 /area/syndicate_station/start)
 "tTz" = (
 /obj/machinery/door/airlock/external{
-	frequency = 1380;
 	icon_state = "door_locked";
-	id_tag = "centcom_shuttle_hatch";
 	locked = 1;
-	name = "Shuttle Hatch";
-	req_access = list(13)
+	name = "Shuttle Hatch"
 	},
-/turf/simulated/shuttle/floor,
+/turf/simulated/shuttle/floor/airless,
 /area/template_noop)
 "tTF" = (
 /obj/machinery/atmospherics/pipe/simple/visible,
@@ -24303,6 +24298,17 @@
 /obj/structure/lattice/catwalk/indoor,
 /turf/template_noop,
 /area/syndicate_mothership/elite_squad)
+"uCH" = (
+/obj/structure/bed/chair,
+/obj/effect/landmark{
+	name = "ninjastart"
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor4"
+	},
+/area/syndicate_mothership{
+	name = "\improper Ninja Base"
+	})
 "uTa" = (
 /obj/machinery/light{
 	dir = 2;
@@ -24349,8 +24355,8 @@
 /obj/structure/bed/chair{
 	dir = 1
 	},
-/obj/machinery/light,
-/turf/simulated/shuttle/floor,
+/obj/machinery/light/colored/emergency,
+/turf/simulated/shuttle/floor/airless,
 /area/template_noop)
 "vdZ" = (
 /obj/structure/table/reinforced,
@@ -24370,11 +24376,8 @@
 	},
 /area/centcom/ferry)
 "vfv" = (
-/obj/machinery/computer/shuttle_control{
-	req_access = list();
-	shuttle_tag = ""
-	},
-/turf/simulated/shuttle/floor,
+/obj/structure/computerframe,
+/turf/simulated/shuttle/floor/airless,
 /area/template_noop)
 "vfO" = (
 /turf/simulated/shuttle/floor/destructible/merc{
@@ -24439,6 +24442,15 @@
 	icon_state = "floor7"
 	},
 /area/syndicate_station/start)
+"vrp" = (
+/turf/space,
+/turf/simulated/shuttle/wall/dark_diagonal/destructible{
+	icon_state = "wall3";
+	dir = 10
+	},
+/area/syndicate_mothership{
+	name = "\improper Ninja Base"
+	})
 "vyG" = (
 /obj/structure/bed/chair/comfy/beige{
 	dir = 8
@@ -24483,8 +24495,17 @@
 "wdy" = (
 /obj/structure/bed/chair,
 /obj/effect/decal/cleanable/vomit,
-/turf/simulated/shuttle/floor,
+/turf/simulated/shuttle/floor/airless,
 /area/template_noop)
+"wmb" = (
+/turf/space,
+/turf/simulated/shuttle/wall/dark_diagonal/destructible{
+	icon_state = "wall3";
+	dir = 6
+	},
+/area/syndicate_mothership{
+	name = "\improper Ninja Base"
+	})
 "wms" = (
 /obj/effect/decal/spraystill{
 	desc = "A sign.";
@@ -27971,7 +27992,7 @@
 /area/centcom/legion_base)
 "xOm" = (
 /obj/machinery/bodyscanner{
-	icon_state = "body_scanner_0";
+	icon_state = "body_scanner";
 	dir = 4
 	},
 /turf/unsimulated/floor{
@@ -34313,7 +34334,7 @@ aGu
 aGR
 aHj
 aGR
-jiE
+mHI
 aFT
 aIW
 aIW
@@ -37031,7 +37052,7 @@ ahV
 ahV
 wPO
 wPO
-fDW
+qbD
 wPO
 aaM
 aaM
@@ -37802,7 +37823,7 @@ ahV
 ahV
 cnT
 knY
-fDW
+qbD
 vcM
 cnT
 aaM
@@ -38059,7 +38080,7 @@ aaM
 aaM
 cnT
 rRO
-fDW
+qbD
 ncc
 cnT
 aaM
@@ -38316,9 +38337,9 @@ aaM
 aaM
 tTz
 fDW
-fDW
-fDW
-tna
+qbD
+qbD
+pob
 aaM
 aaM
 aaM
@@ -62561,7 +62582,7 @@ aBK
 aBX
 aCf
 aCv
-nLO
+cNV
 aCU
 aCe
 tuq
@@ -70929,7 +70950,7 @@ akt
 akI
 ajT
 ajT
-aVl
+vrp
 ahn
 aaM
 aaM
@@ -71438,8 +71459,8 @@ ahn
 ajU
 aXO
 akh
+uCH
 akh
-akF
 akh
 akN
 akS
@@ -71949,7 +71970,7 @@ aaM
 aaM
 aaM
 ahn
-aVl
+lij
 ajT
 ako
 akt
@@ -71957,7 +71978,7 @@ akt
 akI
 ajT
 ajT
-aVl
+wmb
 ahn
 aaM
 aaM
@@ -92303,7 +92324,7 @@ ami
 ajI
 amx
 amJ
-mQx
+hOL
 ajI
 anc
 ama
@@ -93282,7 +93303,7 @@ xMv
 xMv
 xMv
 xMv
-iaM
+kDY
 xOI
 xZf
 xRQ

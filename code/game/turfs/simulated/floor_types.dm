@@ -94,6 +94,11 @@
 	footstep_sound = "concretestep"
 	permit_ao = FALSE
 
+/turf/simulated/shuttle/floor/airless
+	oxygen = 0
+	nitrogen = 0
+	temperature = TCMB
+
 /turf/simulated/shuttle/floor/destructible
 	destructible = TRUE
 
