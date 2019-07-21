@@ -14,7 +14,17 @@
 	fire_sound = 'sound/effects/Explosion1.ogg'
 	recoil = 4
 
+	action_button_name = "Wield hand cannon"
+
 	is_wieldable = TRUE
+
+/obj/item/weapon/gun/projectile/cannon/update_icon()
+	if(wielded)
+		item_state = "cannon-wielded"
+	else
+		item_state = "cannon"
+	update_held_icon()
+
 
 /obj/item/weapon/gun/projectile/cannon/special_check(mob/user)
 	if(!wielded)

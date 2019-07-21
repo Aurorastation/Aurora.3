@@ -28,6 +28,7 @@
 	slot_flags &= ~SLOT_BACK
 	slot_flags |= (SLOT_BELT|SLOT_HOLSTER)
 	can_bayonet = FALSE
+	has_wield_state = FALSE
 	if(bayonet)
 		qdel(bayonet)
 		bayonet = null
@@ -46,6 +47,7 @@
 	accuracy = -2
 	slot_flags = SLOT_BELT|SLOT_HOLSTER
 	can_bayonet = FALSE
+	has_wield_state = FALSE
 
 /obj/item/weapon/gun/projectile/contender
 	name = "pocket rifle"
