@@ -1,10 +1,7 @@
 /datum/job/chief_engineer
 	title = "Chief Engineer"
-	flag = CHIEF
 	head_position = 1
 	department = "Engineering"
-	department_flag = ENGSEC
-	faction = "Station"
 	total_positions = 1
 	spawn_positions = 1
 	supervisors = "the captain"
@@ -53,10 +50,7 @@
 
 /datum/job/engineer
 	title = "Station Engineer"
-	flag = ENGINEER
 	department = "Engineering"
-	department_flag = ENGSEC
-	faction = "Station"
 	total_positions = 5
 	spawn_positions = 5
 	supervisors = "the chief engineer"
@@ -64,8 +58,19 @@
 	economic_modifier = 5
 	access = list(access_eva, access_engine, access_engine_equip, access_tech_storage, access_maint_tunnels, access_external_airlocks, access_construction, access_atmospherics)
 	minimal_access = list(access_eva, access_engine, access_engine_equip, access_tech_storage, access_maint_tunnels, access_external_airlocks, access_construction)
-	alt_titles = list("Maintenance Technician","Engine Technician","Electrician")
 	outfit = /datum/outfit/job/engineer
+
+/datum/job/engineer/maintenance_technician
+	title = "Maintenance Technician"
+	master_job = /datum/job/engineer
+
+/datum/job/engineer/engine_technician
+	title = "Engine Technician"
+	master_job = /datum/job/engineer
+
+/datum/job/engineer/electrician
+	title = "Electrician"
+	master_job = /datum/job/engineer
 
 /datum/outfit/job/engineer
 	name = "Engineer"
@@ -86,10 +91,7 @@
 
 /datum/job/atmos
 	title = "Atmospheric Technician"
-	flag = ATMOSTECH
 	department = "Engineering"
-	department_flag = ENGSEC
-	faction = "Station"
 	total_positions = 3
 	spawn_positions = 2
 	supervisors = "the chief engineer"
@@ -116,9 +118,6 @@
 
 /datum/job/intern_eng
 	title = "Engineering Apprentice"
-	flag = INTERN_ENG
-	department_flag = ENGSEC
-	faction = "Station"
 	total_positions = 2
 	spawn_positions = 2
 	supervisors = "the Chief Engineer"

@@ -25,6 +25,9 @@
 		//Also including them lets us override already created jobs, letting us keep the datums to a minimum mostly.
 		//This is probably a lot longer explanation than it needs to be.
 
+	/// Default faction to use for jobs that don't have one assigned.
+	var/default_faction_type = /datum/faction/nanotrasen
+
 	var/station_name  = "BAD Station"
 	var/station_short = "Baddy"
 	var/dock_name     = "THE PirateBay"

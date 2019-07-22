@@ -1,10 +1,7 @@
 /datum/job/hos
 	title = "Head of Security"
-	flag = HOS
 	head_position = 1
 	department = "Security"
-	department_flag = ENGSEC
-	faction = "Station"
 	total_positions = 1
 	spawn_positions = 1
 	supervisors = "the captain"
@@ -59,10 +56,7 @@
 
 /datum/job/warden
 	title = "Warden"
-	flag = WARDEN
 	department = "Security"
-	department_flag = ENGSEC
-	faction = "Station"
 	total_positions = 1
 	spawn_positions = 1
 	supervisors = "the head of security"
@@ -105,10 +99,7 @@
 
 /datum/job/detective
 	title = "Detective"
-	flag = DETECTIVE
 	department = "Security"
-	department_flag = ENGSEC
-	faction = "Station"
 	total_positions = 1
 	spawn_positions = 1
 	supervisors = "the head of security"
@@ -144,9 +135,6 @@
 
 /datum/job/forensics
 	title = "Forensic Technician"
-	flag = FORENSICS
-	department_flag = ENGSEC
-	faction = "Station"
 	total_positions = 1
 	spawn_positions = 1
 	supervisors = "the head of security"
@@ -154,10 +142,13 @@
 	economic_modifier = 5
 	access = list(access_security, access_sec_doors, access_forensics_lockers, access_morgue, access_maint_tunnels, access_weapons)
 	minimal_access = list(access_security, access_sec_doors, access_forensics_lockers, access_morgue, access_maint_tunnels, access_weapons)
-	alt_titles = list("Crime Scene Investigator")
 	minimal_player_age = 3
 	outfit = /datum/outfit/job/forensics
-	alt_outfits = list("Crime Scene Investigator"=/datum/outfit/job/forensics/csi)
+
+/datum/job/forensics/csi
+	title = "Crime Scene Investigator"
+	outfit = /datum/outfit/job/forensics/csi
+	master_job = /datum/job/forensics
 
 /datum/outfit/job/forensics
 	name = "Forensic Technician"
@@ -190,15 +181,11 @@
 
 /datum/job/officer
 	title = "Security Officer"
-	flag = OFFICER
 	department = "Security"
-	department_flag = ENGSEC
-	faction = "Station"
 	total_positions = 4
 	spawn_positions = 4
 	supervisors = "the head of security"
 	selection_color = "#ffeeee"
-//	alt_titles = list("Junior Officer") //aurora already has security cadets
 	economic_modifier = 4
 	access = list(access_security, access_eva, access_sec_doors, access_brig, access_maint_tunnels, access_morgue, access_external_airlocks, access_weapons)
 	minimal_access = list(access_security, access_eva, access_sec_doors, access_brig, access_maint_tunnels, access_external_airlocks, access_weapons)
@@ -235,9 +222,6 @@
 
 /datum/job/intern_sec
 	title = "Security Cadet"
-	flag = INTERN_SEC
-	department_flag = ENGSEC
-	faction = "Station"
 	total_positions = 2
 	spawn_positions = 2
 	supervisors = "the Head of Security"

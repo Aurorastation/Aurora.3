@@ -63,6 +63,7 @@ datum/preferences
 	var/b_eyes = 0						//Eye color
 	var/species = "Human"               //Species datum to use.
 	var/species_preview                 //Used for the species selection window.
+
 	var/list/alternate_languages = list() //Secondary language(s)
 	var/list/language_prefixes = list() // Language prefix keys
 	var/list/gear						// Custom/fluff item loadout.
@@ -73,22 +74,12 @@ datum/preferences
 	var/faction = "None"                //Antag faction/general associated faction.
 	var/religion = "None"               //Religious association.
 
-		//Mob preview
+	//Mob preview
 	var/icon/preview_icon = null
 	var/is_updating_icon = 0
 
-		//Jobs, uses bitflags
-	var/job_civilian_high = 0
-	var/job_civilian_med = 0
-	var/job_civilian_low = 0
-
-	var/job_medsci_high = 0
-	var/job_medsci_med = 0
-	var/job_medsci_low = 0
-
-	var/job_engsec_high = 0
-	var/job_engsec_med = 0
-	var/job_engsec_low = 0
+	/// keyed list of job-type -> preference enum.
+	var/list/job_preferences = list()
 
 	// A text blob which temporarily houses data from the SQL.
 	var/unsanitized_jobs = ""
@@ -105,7 +96,6 @@ datum/preferences
 	var/list/organ_data = list()
 	var/list/rlimb_data = list()
 	var/list/body_markings = list() // "name" = "#rgbcolor"
-	var/list/player_alt_titles = new()		// the default name of a job like "Medical Doctor"
 
 	var/list/flavor_texts = list()
 	var/list/flavour_texts_robot = list()
@@ -518,17 +508,7 @@ datum/preferences
 
 		species = "Human"
 
-		job_civilian_high = 0
-		job_civilian_med = 0
-		job_civilian_low = 0
-
-		job_medsci_high = 0
-		job_medsci_med = 0
-		job_medsci_low = 0
-
-		job_engsec_high = 0
-		job_engsec_med = 0
-		job_engsec_low = 0
+		job_preferences = list()
 
 		alternate_option = 0
 		metadata = ""
@@ -536,7 +516,6 @@ datum/preferences
 		organ_data = list()
 		rlimb_data = list()
 		body_markings = list()
-		player_alt_titles = new()
 
 		flavor_texts = list()
 		flavour_texts_robot = list()

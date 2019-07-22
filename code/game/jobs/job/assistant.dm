@@ -1,9 +1,6 @@
 /datum/job/assistant
 	title = "Assistant"
-	flag = ASSISTANT
 	department = "Civilian"
-	department_flag = CIVILIAN
-	faction = "Station"
 	total_positions = -1
 	spawn_positions = -1
 	supervisors = "absolutely everyone"
@@ -11,9 +8,11 @@
 	economic_modifier = 1
 	access = list()			//See /datum/job/assistant/get_access()
 	minimal_access = list()	//See /datum/job/assistant/get_access()
-	//alt_titles = list("Technical Assistant","Medical Intern","Research Assistant","Security Cadet", "Visitor")
-	alt_titles = list("Visitor")
 	outfit = /datum/outfit/job/assistant
+
+/datum/job/assistant/visitor
+	title = "Visitor"
+	master_job = /datum/job/assistant
 
 /datum/job/assistant/get_access()
 	if(config.assistant_maint)

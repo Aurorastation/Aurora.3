@@ -1,18 +1,18 @@
 //Food
 /datum/job/bartender
 	title = "Bartender"
-	flag = BARTENDER
 	department = "Civilian"
-	department_flag = CIVILIAN
-	faction = "Station"
 	total_positions = 1
 	spawn_positions = 1
 	supervisors = "the head of personnel"
 	selection_color = "#dddddd"
 	access = list(access_hydroponics, access_bar, access_kitchen)
 	minimal_access = list(access_bar)
-	alt_titles = list("Barista")
 	outfit = /datum/outfit/job/bartender
+
+/datum/job/bartender/barista
+	title = "Barista"
+	master_job = /datum/job/bartender
 
 /datum/outfit/job/bartender
 	name = "Bartender"
@@ -26,18 +26,18 @@
 
 /datum/job/chef
 	title = "Chef"
-	flag = CHEF
 	department = "Civilian"
-	department_flag = CIVILIAN
-	faction = "Station"
 	total_positions = 2
 	spawn_positions = 2
 	supervisors = "the head of personnel"
 	selection_color = "#dddddd"
 	access = list(access_hydroponics, access_bar, access_kitchen)
 	minimal_access = list(access_kitchen)
-	alt_titles = list("Cook")
 	outfit = /datum/outfit/job/chef
+
+/datum/job/chef/cook
+	title = "Cook"
+	master_job = /datum/job/chef
 
 /datum/outfit/job/chef
 	name = "Chef"
@@ -56,18 +56,18 @@
 
 /datum/job/hydro
 	title = "Gardener"
-	flag = BOTANIST
 	department = "Civilian"
-	department_flag = CIVILIAN
-	faction = "Station"
 	total_positions = 2
 	spawn_positions = 1
 	supervisors = "the head of personnel"
 	selection_color = "#dddddd"
 	access = list(access_hydroponics, access_bar, access_kitchen)
 	minimal_access = list(access_hydroponics)
-	alt_titles = list("Hydroponicist")
 	outfit = /datum/outfit/job/hydro
+
+/datum/job/hydro/hydroponicist
+	title = "Hydroponicist"
+	master_job = /datum/job/hydro
 
 /datum/outfit/job/hydro
 	name = "Gardener"
@@ -97,11 +97,8 @@
 //Cargo
 /datum/job/qm
 	title = "Quartermaster"
-	flag = QUARTERMASTER
 	head_position = 1
 	department = "Cargo"
-	department_flag = CIVILIAN
-	faction = "Station"
 	total_positions = 1
 	spawn_positions = 1
 	supervisors = "the head of personnel"
@@ -128,10 +125,7 @@
 
 /datum/job/cargo_tech
 	title = "Cargo Technician"
-	flag = CARGOTECH
 	department = "Cargo"
-	department_flag = CIVILIAN
-	faction = "Station"
 	total_positions = 3
 	spawn_positions = 3
 	supervisors = "the quartermaster and the head of personnel"
@@ -152,10 +146,7 @@
 
 /datum/job/mining
 	title = "Shaft Miner"
-	flag = MINER
 	department = "Cargo"
-	department_flag = CIVILIAN
-	faction = "Station"
 	total_positions = 4
 	spawn_positions = 4
 	supervisors = "the quartermaster and the head of personnel"
@@ -188,10 +179,7 @@
 //Not engineers, just the mop boys
 /datum/job/janitor
 	title = "Janitor"
-	flag = JANITOR
 	department = "Civilian"
-	department_flag = CIVILIAN
-	faction = "Station"
 	total_positions = 2
 	spawn_positions = 2
 	supervisors = "the head of personnel"
@@ -211,20 +199,20 @@
 
 /datum/job/journalist
 	title = "Corporate Reporter"
-	flag = JOURNALIST
 	department = "Civilian"
-	department_flag = CIVILIAN
-	faction = "Station"
 	total_positions = 1
 	spawn_positions = 1
 	supervisors = "the head of personnel"
 	selection_color = "#dddddd"
+	access = list(access_medical, access_sec_doors, access_research, access_engine)
+	minimal_access = list(access_journalist, access_maint_tunnels)
+	outfit = /datum/outfit/job/journalist
+
+/datum/job/journalist/freelancer
+	title = "Freelance Journalist"
+	outfit = /datum/outfit/job/journalistf
 	access = list(access_journalist, access_maint_tunnels)
 	minimal_access = list(access_journalist, access_maint_tunnels)
-	alt_titles = list("Freelance Journalist")
-	alt_outfits = list("Freelance Journalist" = /datum/outfit/job/journalistf)
-	title_accesses = list("Corporate Reporter" = list(access_medical, access_sec_doors, access_research, access_engine))
-	outfit = /datum/outfit/job/journalist
 
 /datum/outfit/job/journalist
 	name = "Corporate Reporter"
@@ -254,10 +242,7 @@
 
 /datum/job/librarian
 	title = "Librarian"
-	flag = LIBRARIAN
 	department = "Civilian"
-	department_flag = CIVILIAN
-	faction = "Station"
 	total_positions = 1
 	spawn_positions = 1
 	supervisors = "the head of personnel"
@@ -280,10 +265,7 @@
 
 /datum/job/lawyer
 	title = "Internal Affairs Agent"
-	flag = LAWYER
 	department = "Civilian"
-	department_flag = CIVILIAN
-	faction = "Station"
 	total_positions = 2
 	spawn_positions = 2
 	supervisors = "company officials and Corporate Regulations"

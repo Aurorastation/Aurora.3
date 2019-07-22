@@ -1,18 +1,38 @@
 //Due to how large this one is it gets its own file
 /datum/job/chaplain
 	title = "Chaplain"
-	flag = CHAPLAIN
 	department = "Civilian"
-	department_flag = CIVILIAN
-	faction = "Station"
 	total_positions = 1
 	spawn_positions = 1
 	supervisors = "the head of personnel"
 	selection_color = "#dddddd"
 	access = list(access_morgue, access_chapel_office, access_crematorium, access_maint_tunnels)
 	minimal_access = list(access_morgue, access_chapel_office, access_crematorium)
-	alt_titles = list("Presbyter","Rabbi","Imam","Priest","Shaman","Counselor")
 	outfit = /datum/outfit/job/chaplain
+
+/datum/job/chaplain/presbyter
+	title = "Presbyter"
+	master_job = /datum/job/chaplain
+
+/datum/job/chaplain/rabbi
+	title = "Rabbi"
+	master_job = /datum/job/chaplain
+
+/datum/job/chaplain/imam
+	title = "Imam"
+	master_job = /datum/job/chaplain
+
+/datum/job/chaplain/priest
+	title = "Priest"
+	master_job = /datum/job/chaplain
+
+/datum/job/chaplain/shaman
+	title = "Shaman"
+	master_job = /datum/job/chaplain
+
+/datum/job/chaplain/counselor
+	title = "Counselor"
+	master_job = /datum/job/chaplain
 
 /datum/outfit/job/chaplain
 	name = "Chaplain"

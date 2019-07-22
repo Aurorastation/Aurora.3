@@ -43,8 +43,6 @@
 	var/assigned_role
 	var/special_role
 
-	var/role_alt_title
-
 	var/datum/job/assigned_job
 	var/datum/faction/selected_faction
 
@@ -53,7 +51,6 @@
 
 	var/has_been_rev = 0//Tracks if this mind has been a rev or not
 
-	var/datum/faction/faction 			//associated faction
 	var/datum/changeling/changeling		//changeling holder
 
 	var/datum/vampire/vampire //vampire holder

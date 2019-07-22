@@ -1,10 +1,7 @@
 /datum/job/rd
 	title = "Research Director"
-	flag = RD
 	head_position = 1
 	department = "Science"
-	department_flag = MEDSCI
-	faction = "Station"
 	total_positions = 1
 	spawn_positions = 1
 	supervisors = "the captain"
@@ -42,10 +39,7 @@
 
 /datum/job/scientist
 	title = "Scientist"
-	flag = SCIENTIST
 	department = "Science"
-	department_flag = MEDSCI
-	faction = "Station"
 	total_positions = 5
 	spawn_positions = 3
 	supervisors = "the research director"
@@ -53,10 +47,21 @@
 	economic_modifier = 7
 	access = list(access_robotics, access_tox, access_tox_storage, access_research, access_xenobiology, access_xenoarch)
 	minimal_access = list(access_tox, access_tox_storage, access_research, access_xenoarch)
-	alt_titles = list("Xenoarcheologist", "Anomalist", "Phoron Researcher")
 
 	minimal_player_age = 14
 	outfit = /datum/outfit/job/scientist
+
+/datum/job/scientist/xenoarcheologist
+	title = "Xenoarcheologist"
+	master_job = /datum/job/scientist
+
+/datum/job/scientist/anomalist
+	title = "Anomalist"
+	master_job = /datum/job/scientist
+
+/datum/job/scientist/phoron_researcher
+	title = "Phoron Researcher"
+	master_job = /datum/job/scientist
 
 /datum/outfit/job/scientist
 	name = "Scientist"
@@ -75,10 +80,7 @@
 
 /datum/job/xenobiologist
 	title = "Xenobiologist"
-	flag = XENOBIOLOGIST
 	department = "Science"
-	department_flag = MEDSCI
-	faction = "Station"
 	total_positions = 3
 	spawn_positions = 2
 	supervisors = "the research director"
@@ -86,11 +88,14 @@
 	economic_modifier = 7
 	access = list(access_robotics, access_tox, access_tox_storage, access_research, access_xenobiology, access_hydroponics)
 	minimal_access = list(access_research, access_xenobiology, access_hydroponics, access_tox_storage)
-	alt_titles = list("Xenobotanist")
 
 	minimal_player_age = 14
 
 	outfit = /datum/outfit/job/scientist/xenobiologist
+
+/datum/job/xenobiologist/xenobotanist
+	title = "Xenobotanist"
+	master_job = /datum/job/xenobiologist
 
 /datum/outfit/job/scientist/xenobiologist
 	name = "Xenobiologist"
@@ -98,10 +103,7 @@
 
 /datum/job/roboticist
 	title = "Roboticist"
-	flag = ROBOTICIST
 	department = "Science"
-	department_flag = MEDSCI
-	faction = "Station"
 	total_positions = 2
 	spawn_positions = 2
 	supervisors = "research director"
@@ -109,11 +111,18 @@
 	economic_modifier = 5
 	access = list(access_robotics, access_tox, access_tox_storage, access_tech_storage, access_morgue, access_research) //As a job that handles so many corpses, it makes sense for them to have morgue access.
 	minimal_access = list(access_robotics, access_tech_storage, access_morgue, access_research) //As a job that handles so many corpses, it makes sense for them to have morgue access.
-	alt_titles = list("Biomechanical Engineer","Mechatronic Engineer")
 
 	minimal_player_age = 7
 
 	outfit = /datum/outfit/job/roboticist
+
+/datum/job/roboticist/biomechanical_engineer
+	title = "Biomechanical Engineer"
+	master_job = /datum/job/roboticist
+
+/datum/job/roboticist/mechatronic_engineer
+	title = "Mechatronic Engineer"
+	master_job = /datum/job/roboticist
 
 /datum/outfit/job/roboticist
 	name = "Roboticist"
@@ -133,9 +142,6 @@
 
 /datum/job/intern_sci
 	title = "Lab Assistant"
-	flag = INTERN_SCI
-	department_flag = MEDSCI
-	faction = "Station"
 	total_positions = 2
 	spawn_positions = 2
 	supervisors = "the Research Director"

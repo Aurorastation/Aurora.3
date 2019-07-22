@@ -1,10 +1,7 @@
 /datum/job/cmo
 	title = "Chief Medical Officer"
-	flag = CMO
 	head_position = 1
 	department = "Medical"
-	department_flag = MEDSCI
-	faction = "Station"
 	total_positions = 1
 	spawn_positions = 1
 	supervisors = "the captain"
@@ -43,10 +40,7 @@
 
 /datum/job/doctor
 	title = "Medical Doctor"
-	flag = DOCTOR
 	department = "Medical"
-	department_flag = MEDSCI
-	faction = "Station"
 	total_positions = 5
 	spawn_positions = 3
 	supervisors = "the chief medical officer"
@@ -54,13 +48,22 @@
 	economic_modifier = 7
 	access = list(access_medical, access_medical_equip, access_morgue, access_surgery, access_pharmacy, access_virology, access_genetics, access_eva)
 	minimal_access = list(access_medical, access_medical_equip, access_morgue, access_surgery, access_eva)
-	alt_titles = list("Surgeon","Emergency Physician","Nurse")
 	outfit = /datum/outfit/job/doctor
-	alt_outfits = list(
-		"Emergency Physician"=/datum/outfit/job/doctor/emergency_physician,
-		"Surgeon"=/datum/outfit/job/doctor/surgeon,
-		"Nurse"=/datum/outfit/job/doctor/nurse
-		)
+
+/datum/job/doctor/emergency_physician
+	title = "Emergency Physician"
+	outfit = /datum/outfit/job/doctor/emergency_physician
+	master_job = /datum/job/doctor
+
+/datum/job/doctor/surgeon
+	title = "Surgeon"
+	outfit = /datum/outfit/job/doctor/surgeon
+	master_job = /datum/job/doctor
+
+/datum/job/doctor/nurse
+	title = "Nurse"
+	outfit = /datum/outfit/job/doctor/nurse
+	master_job = /datum/job/doctor
 
 /datum/outfit/job/doctor
 	name = "Medical Doctor"
@@ -106,10 +109,7 @@
 
 /datum/job/pharmacist
 	title = "Pharmacist"
-	flag = CHEMIST
 	department = "Medical"
-	department_flag = MEDSCI
-	faction = "Station"
 	total_positions = 2
 	spawn_positions = 2
 	supervisors = "the chief medical officer"
@@ -117,11 +117,12 @@
 	economic_modifier = 5
 	access = list(access_medical, access_medical_equip, access_morgue, access_surgery, access_pharmacy, access_virology, access_genetics)
 	minimal_access = list(access_medical, access_medical_equip, access_pharmacy, access_virology)
-	alt_titles = list("Biochemist")
 	outfit = /datum/outfit/job/pharmacist
-	alt_outfits = list(
-		"Biochemist"=/datum/outfit/job/pharmacist/biochemist
-		)
+
+/datum/job/pharmacist/biochemist
+	title = "Biochemist"
+	outfit = /datum/outfit/job/pharmacist/biochemist
+	master_job = /datum/job/pharmacist
 
 /datum/outfit/job/pharmacist
 	name = "Pharmacist"
@@ -152,10 +153,7 @@
 
 /datum/job/psychiatrist
 	title = "Psychiatrist"
-	flag = PSYCHIATRIST
 	department = "Medical"
-	department_flag = MEDSCI
-	faction = "Station"
 	total_positions = 1
 	spawn_positions = 1
 	economic_modifier = 5
@@ -163,9 +161,12 @@
 	selection_color = "#ffeef0"
 	access = list(access_medical, access_medical_equip, access_morgue, access_surgery, access_pharmacy, access_virology, access_genetics, access_psychiatrist)
 	minimal_access = list(access_medical, access_medical_equip, access_psychiatrist)
-	alt_titles = list("Psychologist")
 	outfit = /datum/outfit/job/psychiatrist
-	alt_outfits = list("Psychologist" = /datum/outfit/job/psychiatrist/psycho)
+
+/datum/job/psychiatrist/psychologist
+	title = "Psychologist"
+	outfit = /datum/outfit/job/psychiatrist/psycho
+	master_job = /datum/job/psychiatrist
 
 /datum/outfit/job/psychiatrist
 	name = "Psychiatrist"
@@ -187,10 +188,7 @@
 
 /datum/job/paramedic
 	title = "Paramedic"
-	flag = PARAMEDIC
 	department = "Medical"
-	department_flag = MEDSCI
-	faction = "Station"
 	total_positions = 2
 	spawn_positions = 2
 	supervisors = "the chief medical officer"
@@ -198,9 +196,12 @@
 	economic_modifier = 4
 	access = list(access_medical, access_medical_equip, access_morgue, access_surgery, access_pharmacy, access_virology, access_eva, access_maint_tunnels, access_external_airlocks, access_psychiatrist, access_paramedic)
 	minimal_access = list(access_medical, access_medical_equip, access_morgue, access_eva, access_maint_tunnels, access_external_airlocks, access_paramedic)
-	alt_titles = list("Emergency Medical Technician")
 	outfit = /datum/outfit/job/paramedic
-	alt_outfits = list("Emergency Medical Technician"=/datum/outfit/job/paramedic/emt)
+
+/datum/job/paramedic/emt
+	title = "Emergency Medical Technician"
+	outfit = /datum/outfit/job/paramedic/emt
+	master_job = /datum/job/paramedic
 
 /datum/outfit/job/paramedic
 	name = "Paramedic"
@@ -228,17 +229,17 @@
 
 /datum/job/intern_med
 	title = "Medical Resident"
-	flag = INTERN_MED
-	department_flag = MEDSCI
-	faction = "Station"
 	total_positions = 2
 	spawn_positions = 2
 	supervisors = "the Chief Medical Officer"
 	selection_color = "#ffeef0"
 	access = list(access_medical, access_surgery, access_medical_equip)
 	minimal_access = list(access_medical, access_surgery, access_medical_equip)
-	alt_titles = list("Medical Intern")
 	outfit = /datum/outfit/job/intern_med
+
+/datum/job/intern_med/intern
+	title = "Medical Intern"
+	master_job = /datum/job/intern_med
 
 /datum/outfit/job/intern_med
 	name = "Medical Resident"
