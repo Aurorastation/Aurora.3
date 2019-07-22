@@ -49,6 +49,9 @@
 		var/mob/living/L = user
 
 		if (istype(L, /mob/living/carbon/alien/diona) || istype(L, /mob/living/simple_animal) || istype(L, /mob/living/carbon/human))//Monkey-like things do attack_generic, not crew
+			if(contents.len && !locate(/obj/item/reagent_containers/food) in src) // you can tear open empty boxes for nesting material, or for food
+				to_chat(user, span("warning", "There's no food in that box!"))
+				return
 			var/damage
 			if (!L.mob_size)
 				damage = 3//A safety incase i forgot to set a mob_size on something
