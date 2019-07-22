@@ -306,7 +306,7 @@
 	icon_state = "beertankTEMP"
 	amount_per_transfer_from_this = 10
 	var/reagentid = "beer"
-	var/filled = TRUE
+	var/filled = FALSE
 
 /obj/structure/reagent_dispensers/keg/Initialize()
 	. = ..()
@@ -336,12 +336,14 @@
 /obj/structure/reagent_dispensers/keg/beerkeg
 	name = "beer keg"
 	desc = "A beer keg"
+	filled = TRUE
 
 /obj/structure/reagent_dispensers/keg/xuizikeg
 	name = "xuizi juice keg"
 	desc = "A keg full of Xuizi juice, blended flower buds from the Moghean Xuizi cactus. The export stamp of the Arizi Guild is imprinted on the side."
 	icon_state = "keg_xuizi"
 	reagentid = "xuizijuice"
+	filled = TRUE
 
 //Cooking oil tank
 /obj/structure/reagent_dispensers/cookingoil
