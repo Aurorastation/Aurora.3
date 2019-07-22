@@ -59293,7 +59293,7 @@
 /obj/machinery/door/airlock/glass_mining{
 	name = "Cargo Bay";
 	req_access = null;
-	req_one_access = list(31,48,26,67)
+	req_one_access = list(31,48,67)
 	},
 /obj/structure/cable/green{
 	d1 = 4;
@@ -59796,7 +59796,7 @@
 /obj/machinery/door/airlock/glass_mining{
 	name = "Break Room";
 	req_access = null;
-	req_one_access = list(31,48,26,67)
+	req_one_access = list(31,48,67)
 	},
 /obj/structure/cable/green{
 	d1 = 1;
