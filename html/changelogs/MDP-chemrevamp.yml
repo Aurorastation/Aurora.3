@@ -66,3 +66,4 @@ changes:
   - rscadd: "Adds medicine cups to take medicine by mouth in a dignified manner."
   - tweak: "Changes the glycerol recipe. One unit of triglycerides (can be obtained from meat) and two units of any pure alcohol will produce three units of glycerol and two units of acetone. Sulfuric acid is required as a catalyst."
   - rscadd: "Adds a recipe for glucose. Nutriment can be catalysed into glucose by adding sulfuric acid."
+  - tweak: "Rats and other simplemobs can now only chew empty boxes or boxes with food in them."
