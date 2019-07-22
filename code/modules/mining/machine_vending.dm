@@ -45,7 +45,7 @@ var/global/list/minevendor_list = list( //keep in order of price
 	new /datum/data/mining_equipment("Minecart",					/obj/vehicle/train/cargo/trolley/mining,					-1,					600,	1),
 	new /datum/data/mining_equipment("Resonator",					/obj/item/weapon/resonator,									10,					700),
 	new /datum/data/mining_equipment("Jaunter",						/obj/item/device/wormhole_jaunter,							20,					750),
-	new /datum/data/mining_equipment("Mining RIG",					/obj/item/weapon/rig/industrial,							2,					1000),
+	new /datum/data/mining_equipment("Mining RIG",					/obj/item/weapon/rig/industrial,							5,					1000),
 	new /datum/data/mining_equipment("100 credits",					/obj/item/weapon/spacecash/c100,							-1,					1000),
 	new /datum/data/mining_equipment("Mass Driver",					/obj/item/weapon/mass_driver_diy,							5,					800),
 	new /datum/data/mining_equipment("Mining Drone",				/mob/living/silicon/robot/drone/mining,						15,					800),
