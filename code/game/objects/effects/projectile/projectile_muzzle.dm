@@ -6,6 +6,10 @@
 	icon_state = "muzzle_laser"
 	light_color = LIGHT_COLOR_RED
 
+/obj/effect/projectile/muzzle/laser/pink
+	icon_state = "muzzle_pink"
+	light_color = LIGHT_COLOR_VIOLET
+
 /obj/effect/projectile/muzzle/laser/blue
 	icon_state = "muzzle_blue"
 	light_color = LIGHT_COLOR_BLUE

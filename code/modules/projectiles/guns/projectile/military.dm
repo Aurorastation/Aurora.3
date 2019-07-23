@@ -1,10 +1,17 @@
 
 //Service Pistols
 /obj/item/weapon/gun/projectile/sec/military
-	name = ".45 pistol"
+	name = "service pistol"
 	desc = "A Colby service sidearm. Uses .45 rounds."
 	icon_state = "service"
 	item_state = "service"
+	magazine_type = /obj/item/ammo_magazine/c45m/rubber
+	allowed_magazines = list(/obj/item/ammo_magazine/c45m)
+	caliber = ".45"
+	accuracy = 1
+	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
+	fire_sound = 'sound/weapons/gunshot/gunshot_pistol.ogg'
+	load_method = MAGAZINE
 
 
 /obj/item/weapon/gun/projectile/sec/military/update_icon()
@@ -40,6 +47,9 @@
 	else
 		icon_state = "snco-e"
 
+
+/obj/item/weapon/gun/projectile/sec/military/officer/hop
+	magazine_type = /obj/item/ammo_magazine/c45m/flash
 
 
 //Service Rifle

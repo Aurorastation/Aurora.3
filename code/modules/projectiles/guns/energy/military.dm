@@ -3,7 +3,7 @@
 //Laser Carbine
 /obj/item/weapon/gun/energy/rifle/laser/military
 	name = "laser carbine"
-	desc = "A 'Mantis F2', a laser carbine designed with both lethal and riot modes."
+	desc = "A Mantis F2 laser carbine, designed with both lethal and riot modes."
 	icon_state = "lasercarb"
 	item_state = "lasercarb"
 	modifystate = "lasercarb"
@@ -15,6 +15,15 @@
 	can_turret = 1
 	turret_is_lethal = 1
 	turret_sprite_set = "laser"
+	can_switch_modes = 1
+	projectile_type = /obj/item/projectile/beam/midlaser/pink
+	secondary_projectile_type = /obj/item/projectile/beam/midlaser/pink/stun
+	secondary_fire_sound = 'sound/weapons/Laser.ogg'
+
+	firemodes = list(
+		list(mode_name="lethal", /obj/item/projectile/beam/midlaser/pink, modifystate="lasercarb"),
+		list(mode_name="riot", /obj/item/projectile/beam/midlaser/pink/stun, modifystate="lasercarb")
+		)
 
 /obj/item/weapon/gun/energy/rifle/laser/military/update_icon()
 	..()
@@ -36,4 +45,4 @@
 			item_state = "[initial(item_state)][ratio]-wielded"
 		else
 			item_state = "[initial(item_state)][ratio]"
-	update_held_icon() //Try set it up so that it checks if it's wielded or not, before continueing to modifystate checks.
+	update_held_icon()
