@@ -253,6 +253,8 @@ main ui datum.
 			if(json_href)
 				for(var/hvar in json_href)
 					href_list[hvar] = json_href[hvar]
+		if(href_list["_openurl"])
+			send_link(usr, href_list["_openurl"])
 		href_list["vueui"] = src // Let's pass our UI object to object for it to do things.
 		topicReturn = object.Topic(href, href_list)
 	if(. || topicReturn)

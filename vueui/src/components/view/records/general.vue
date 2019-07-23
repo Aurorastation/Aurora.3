@@ -36,7 +36,7 @@
           <div v-for="item in active.ccia_actions" :key="item[0]">
             <h5>{{ item[0] }} <i>({{ item[1] }})</i></h5>
             <div v-html="item[3].replace('\r\n', '<br/>')"/>
-            <a :href="item[4]" target="_blank" rel="noopener noreferrer">Open</a>
+            <vui-button :params="{ _openurl: item[4] }">Open</vui-button>
           </div>
         </vui-group-item>
       </template>
