@@ -7,6 +7,10 @@
 	icon_state = "impact_laser"
 	light_color = LIGHT_COLOR_RED
 
+/obj/effect/projectile/impact/laser/pink
+	icon_state = "impact_pink"
+	light_color = LIGHT_COLOR_VIOLET
+
 /obj/effect/projectile/impact/laser/blue
 	name = "laser impact"
 	icon_state = "impact_blue"

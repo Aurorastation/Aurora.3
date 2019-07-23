@@ -31,6 +31,16 @@
 	damage = 35
 	armor_penetration = 10
 
+/obj/item/projectile/beam/midlaser/pink
+	muzzle_type = /obj/effect/projectile/muzzle/laser/pink
+	tracer_type = /obj/effect/projectile/tracer/laser/pink
+	impact_type = /obj/effect/projectile/impact/laser/pink
+
+/obj/item/projectile/beam/midlaser/pink/stun
+	damage = 15
+	armor_penetration = 0
+	agony = 20
+
 /obj/item/projectile/beam/heavylaser
 	name = "heavy laser"
 	icon_state = "heavylaser"
