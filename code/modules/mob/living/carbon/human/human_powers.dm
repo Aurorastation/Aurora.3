@@ -1040,7 +1040,7 @@
 	var/heard_something = FALSE
 	to_chat(src, "<span class='notice'>You take a moment to tune into the local Nlom...</span>")
 	var/dirs = list()
-	for(var/mob/living/L in range(25))
+	for(var/mob/living/L in range(20))
 		var/turf/T = get_turf(L)
 		if(!T || L == src || L.stat == DEAD || L.isSynthetic() || L.is_diona() || isvaurca(L) || L.invisibility == INVISIBILITY_LEVEL_TWO)
 			continue
@@ -1070,17 +1070,16 @@
 			dist = "on top of you"
 		LAZYINITLIST(dirs[direction])
 		dirs[direction][dist] += 1
-	var/feedback = list()
 	for(var/d in dirs)
+		var/feedback = list()
 		if(isnull(d)) // can be 0
 			continue
 		for(var/dst in dirs[d])
 			if(isnull(dst))
 				continue // don't need to print if there's nothing there
 			feedback += "[dirs[d][dst]] psionic signature\s [dst],"
-		feedback[length(feedback)] += " and"
-		feedback += "towards the [dir2text(text2num(d))],"
-	if(heard_something)
-		to_chat(src, span("notice", "You sense " + jointext(feedback, " ") + "."))
-	else
+		if(LAZYLEN(feedback) > 1)
+			feedback[LAZYLEN(feedback)-1] += " and"
+		to_chat(src, span("notice", "You sense " + jointext(feedback, " ") + " towards the [dir2text(text2num(d))]."))
+	if(!heard_something)
 		to_chat(src, span("notice", "You detect no psionic signatures but your own."))
