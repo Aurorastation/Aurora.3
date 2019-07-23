@@ -26,7 +26,7 @@
 		//This is probably a lot longer explanation than it needs to be.
 
 	/// Default faction to use for jobs that don't have one assigned.
-	var/default_faction_type = /datum/faction/nanotrasen
+	var/default_faction_type = /datum/faction/nano_trasen
 
 	var/station_name  = "BAD Station"
 	var/station_short = "Baddy"

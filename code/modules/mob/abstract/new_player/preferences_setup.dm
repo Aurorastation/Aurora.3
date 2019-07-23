@@ -202,15 +202,7 @@ datum/preferences
 		previewJob = SSjobs.GetJob("Assistant")
 	else
 		for(var/datum/job/job in SSjobs.occupations)
-			var/job_flag
-			switch(job.department_flag)
-				if(CIVILIAN)
-					job_flag = job_civilian_high
-				if(MEDSCI)
-					job_flag = job_medsci_high
-				if(ENGSEC)
-					job_flag = job_engsec_high
-			if(job.flag == job_flag)
+			if(HasJobSelected(job, JOB_PREFERENCE_HIGH))
 				previewJob = job
 				break
 
@@ -222,7 +214,7 @@ datum/preferences
 
 		SSjobs.EquipCustom(mannequin, previewJob, src, leftovers, null, used_slots)
 
-		previewJob.equip_preview(mannequin, player_alt_titles[previewJob.title])
+		previewJob.equip_preview(mannequin)
 
 		SSjobs.EquipCustomDeferred(mannequin, src, leftovers, used_slots)
 

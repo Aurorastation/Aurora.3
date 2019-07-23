@@ -143,6 +143,7 @@
 				foundrecord = t
 				break
 
+	// TODO: Records PR.
 	var/list/all_jobs = get_job_datums()
 
 	for(var/datum/job/J in all_jobs)

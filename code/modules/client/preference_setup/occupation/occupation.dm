@@ -146,7 +146,7 @@
 		else if (ban_reason)
 			dat += "<del>[rank]</del></td><td><b> \[<a href='?src=\ref[user.client];view_jobban=\ref[rank];'>BANNED</a>]</b></td></tr>"
 			continue
-		if((pref.job_civilian_low & ASSISTANT) && (rank != "Assistant"))
+		if(pref.HasJobSelected(SSjobs.GetJob("Assistant"), JOB_PREFERENCE_LOW) && (rank != "Assistant"))
 			dat += "<font color=orange>[rank]</font></td><td></td></tr>"
 			continue
 		if((rank in command_positions) || (rank == "AI"))//Bold head jobs
@@ -159,12 +159,12 @@
 		dat += "<a href='?src=\ref[src];set_job=[rank]'>"
 
 		if(rank == "Assistant")//Assistant is special
-			if(pref.job_civilian_low & ASSISTANT)
+			if(pref.HasJobSelected(job, JOB_PREFERENCE_LOW))
 				dat += " <font color=green>\[Yes]</font>"
 			else
 				dat += " <font color=red>\[No]</font>"
-			if(job.alt_titles) //Blatantly cloned from a few lines down.
-				dat += "</a></td></tr><tr bgcolor='[lastJob.selection_color]'><td width='60%' align='center'>&nbsp</td><td><a href='?src=\ref[src];select_alt_title=\ref[job]'>\[[pref.GetPlayerAltTitle(job)]\]</a></td></tr>"
+//			if(job.has_alt_titles()) //Blatantly cloned from a few lines down.
+//				dat += "</a></td></tr><tr bgcolor='[lastJob.selection_color]'><td width='60%' align='center'>&nbsp</td><td><a href='?src=\ref[src];select_alt_title=\ref[job]'>\[[pref.GetPlayerAltTitle(job)]\]</a></td></tr>"
 			dat += "</a></td></tr>"
 			continue
 
@@ -245,11 +245,8 @@
 		ResetJobs()
 
 /datum/category_item/player_setup_item/occupation/proc/SetPlayerAltTitle(datum/job/job, new_title)
-	// remove existing entry
-	pref.player_alt_titles -= job.title
-	// add one if it's not default
-	if(job.title != new_title)
-		pref.player_alt_titles[job.title] = new_title
+	//TO MEME
+	return
 
 /datum/category_item/player_setup_item/occupation/proc/SetJob(mob/user, role)
 	var/datum/job/job = SSjobs.GetJob(role)

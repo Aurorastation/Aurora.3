@@ -470,9 +470,7 @@
 /datum/mind/proc/reset()
 	assigned_role =   null
 	special_role =    null
-	role_alt_title =  null
 	assigned_job =    null
-	//faction =       null //Uncommenting this causes a compile error due to 'undefined type', fucked if I know.
 	changeling =      null
 	vampire =         null
 	initial_account = null
