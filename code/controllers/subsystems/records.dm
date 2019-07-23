@@ -25,9 +25,9 @@
 	NEW_SS_GLOBAL(SSrecords)
 	var/datum/D = new()
 	for(var/v in D.vars)
-		excluded_fields += v
-	excluded_fields += "cmp_field"
-	excluded_fields += "excluded_fields"
+		excluded_fields[v] = v
+	excluded_fields["cmp_field"] = "cmp_field"
+	excluded_fields["excluded_fields"] = "excluded_fields"
 
 /datum/controller/subsystem/records/proc/generate_record(var/mob/living/carbon/human/H)
 	if(H.mind && SSjobs.ShouldCreateRecords(H.mind))
@@ -80,27 +80,27 @@
 	remove_record(find_record(field, value, record_type))
 
 /datum/controller/subsystem/records/proc/find_record(var/field, var/value, var/record_type = RECORD_GENERAL)
-	if(field in excluded_fields)
+	if(excluded_fields[field])
 		return
 	var/searchedList = records
 	if(record_type & RECORD_LOCKED)
 		searchedList = records_locked
 	if(record_type & RECORD_WARRANT)
 		for(var/datum/record/warrant/r in warrants)
-			if(field in r.excluded_fields)
+			if(r.excluded_fields[field])
 				continue
 			if(r.vars[field] == value)
 				return r
 		return
 	if(record_type & RECORD_VIRUS)
 		for(var/datum/record/virus/r in viruses)
-			if(field in r.excluded_fields)
+			if(r.excluded_fields[field])
 				continue
 			if(r.vars[field] == value)
 				return r
 		return
 	for(var/datum/record/general/r in searchedList)
-		if(field in r.excluded_fields)
+		if(r.excluded_fields[field])
 			continue
 		if(record_type & RECORD_GENERAL)
 			if(r.vars[field] == value)
@@ -113,13 +113,11 @@
 				return r
 
 /datum/controller/subsystem/records/proc/build_records()
-	set waitfor = FALSE
 	for(var/mob/living/carbon/human/H in player_list)
 		generate_record(H)
 
 /datum/controller/subsystem/records/proc/reset_manifest()
-	if(manifest.len)
-		manifest.Cut()
+	manifest.Cut()
 
 /datum/controller/subsystem/records/proc/get_manifest(var/monochrome = 0, var/OOC = 0)
 	if(!manifest.len)

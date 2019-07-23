@@ -6,12 +6,19 @@
 	var/cmp_field = "id"
 	var/list/excluded_fields
 
+/datum/record/New()
+	..()
+	var/tmp_ex = excluded_fields
+	excluded_fields = list()
+	for(var/f in tmp_ex)
+		excluded_fields[f] = f
+
 /datum/record/proc/Copy(var/datum/copied)
 	if(!copied)
 		copied = new src.type()
 	var/exclusions = (SSrecords.excluded_fields | src.excluded_fields)
 	for(var/variable in src.vars)
-		if(variable in exclusions) continue
+		if(exclusions[variable]) continue
 		if(istype(src.vars[variable], /datum/record) || istype(src.vars[variable], /list))
 			copied.vars[variable] = src.vars[variable].Copy()
 		else
@@ -24,9 +31,13 @@
 		. = record = list()
 	else
 		record = to_update || list()
+	var/tmp_ex = excluded
+	excluded = list()
+	for(var/e in tmp_ex)
+		excluded[e] = e
 	var/exclusions = (SSrecords.excluded_fields | src.excluded_fields | excluded)
 	for(var/variable in src.vars)
-		if(!(variable in exclusions))
+		if(!exclusions[variable])
 			if(deep && (istype(src.vars[variable], /datum/record)))
 				if(to_update)
 					var/listified = src.vars[variable].Listify(to_update = to_update[variable])
@@ -151,6 +162,7 @@
 	var/list/comments = list()
 
 /datum/record/security/New(var/mob/living/carbon/human/H, var/nid)
+	..()
 	if(!nid)
 		nid = generate_record_id()
 	id = nid
