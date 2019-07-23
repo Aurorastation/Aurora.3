@@ -320,7 +320,7 @@
 	flick("[initial(icon_state)]-anim", src)
 	icon_state = base_icon_state
 
-	global_announcer.autosay("[occupant.real_name], [occupant.mind.role_alt_title], [on_store_message]", "[on_store_name]")
+	global_announcer.autosay("[occupant.real_name], [occupant.mind.assigned_role], [on_store_message]", "[on_store_name]")
 	visible_message("<span class='notice'>\The [initial(name)] hums and hisses as it moves [occupant.real_name] into storage.</span>")
 
 	// Let SSjobs handle the rest.

@@ -451,8 +451,10 @@ datum/preferences
 	if(!H.mind.assigned_role)
 		log_debug("Char-Log: Char [current_character] - [H.name] has joined with mind.assigned_role set to NULL")
 
+	// TODO: FIX ME FIX ME FIX ME
 	var/DBQuery/query = dbcon.NewQuery("INSERT INTO ss13_characters_log (char_id, game_id, datetime, job_name, alt_title) VALUES (:char_id:, :game_id:, NOW(), :job:, :alt_title:)")
-	query.Execute(list("char_id" = current_character, "game_id" = game_id, "job" = H.mind.assigned_role, "alt_title" = H.mind.role_alt_title))
+	query.Execute(list("char_id" = current_character, "game_id" = game_id, "job" = H.mind.assigned_role))
+	// TODO: Figure out how to handle alt title in feedback.
 
 // Turned into a proc so we could reuse it for SQL shenanigans.
 /datum/preferences/proc/new_setup(var/re_initialize = 0)

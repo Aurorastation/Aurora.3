@@ -198,7 +198,7 @@ datum/preferences
 
 	// Determine what job is marked as 'High' priority, and dress them up as such.
 	var/datum/job/previewJob
-	if(job_civilian_low & ASSISTANT)
+	if(HasJobSelected(SSjobs.GetJob("Assistant"), JOB_PREFERENCE_LOW))
 		previewJob = SSjobs.GetJob("Assistant")
 	else
 		for(var/datum/job/job in SSjobs.occupations)

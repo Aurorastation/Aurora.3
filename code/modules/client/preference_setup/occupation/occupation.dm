@@ -254,20 +254,20 @@
 		return 0
 
 	if(role == "Assistant")
-		if(pref.job_civilian_low & job.flag)
-			pref.job_civilian_low &= ~job.flag
+		if(pref.HasJobSelected(job, JOB_PREFERENCE_LOW))
+			SetJobDepartment(job, JOB_PREFERENCE_NEVER)
 		else
-			pref.job_civilian_low |= job.flag
+			SetJobDepartment(job, JOB_PREFERENCE_LOW)
 		return 1
 
 	if(pref.HasJobSelected(job, JOB_PREFERENCE_HIGH))
-		SetJobDepartment(job, JOB_PREFERENCE_HIGH)
-	else if(pref.HasJobSelected(job, JOB_PREFERENCE_MEDIUM))
-		SetJobDepartment(job, JOB_PREFERENCE_MEDIUM)
-	else if(pref.HasJobSelected(job, JOB_PREFERENCE_LOW))
-		SetJobDepartment(job, JOB_PREFERENCE_LOW)
-	else//job = Never
 		SetJobDepartment(job, JOB_PREFERENCE_NEVER)
+	else if(pref.HasJobSelected(job, JOB_PREFERENCE_MEDIUM))
+		SetJobDepartment(job, JOB_PREFERENCE_HIGH)
+	else if(pref.HasJobSelected(job, JOB_PREFERENCE_LOW))
+		SetJobDepartment(job, JOB_PREFERENCE_MEDIUM)
+	else//job = Never
+		SetJobDepartment(job, JOB_PREFERENCE_LOW)
 
 	return 1
 

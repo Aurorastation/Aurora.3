@@ -356,8 +356,6 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 
 /mob/abstract/new_player/proc/AnnounceCyborg(var/mob/living/character, var/rank, var/join_message)
 	if (SSticker.current_state == GAME_STATE_PLAYING)
-		if(character.mind.role_alt_title)
-			rank = character.mind.role_alt_title
 		// can't use their name here, since cyborg namepicking is done post-spawn, so we'll just say "A new Cyborg has arrived"/"A new Android has arrived"/etc.
 		global_announcer.autosay("A new[rank ? " [rank]" : " visitor" ] [join_message ? join_message : "has arrived on the station"].", "Arrivals Announcement Computer")
 

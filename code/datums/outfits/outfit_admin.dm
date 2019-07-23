@@ -393,15 +393,15 @@
 		//Select a random job, set the assigned_role / job var and equip it
 		var/datum/job/job = SSjobs.GetRandomJob()
 		var/alt_title = null
-		if(job.alt_titles && prob(50))
-			alt_title = pick(job.alt_titles)
+		// TODO REFACTOR ME
+//		if(job.alt_titles && prob(50))
+//			alt_title = pick(job.alt_titles)
 
 		if(H.mind)
 			H.mind.assigned_role = alt_title ? alt_title : job.title
 		H.job = alt_title ? alt_title : job.title
 
 		job.equip(H, FALSE, FALSE, alt_title)
-
 
 /datum/outfit/admin/random
 	name = "Random Civilian"
