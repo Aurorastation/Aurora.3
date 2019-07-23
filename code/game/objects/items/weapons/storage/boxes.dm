@@ -30,6 +30,7 @@
 	var/maxHealth = 20	//health is already defined
 	use_sound = 'sound/items/storage/box.ogg'
 	drop_sound = 'sound/items/drop/box.ogg'
+	var/chewable = TRUE
 
 /obj/item/weapon/storage/box/Initialize()
 	. = ..()
@@ -44,12 +45,13 @@
 		qdel(src)
 
 /obj/item/weapon/storage/box/attack_generic(var/mob/user)
-
+	if(!chewable)
+		return
 	if (istype(user, /mob/living))
 		var/mob/living/L = user
 
 		if (istype(L, /mob/living/carbon/alien/diona) || istype(L, /mob/living/simple_animal) || istype(L, /mob/living/carbon/human))//Monkey-like things do attack_generic, not crew
-			if(contents.len && !locate(/obj/item/reagent_containers/food) in src) // you can tear open empty boxes for nesting material, or for food
+			if(contents.len && !locate(/obj/item/weapon/reagent_containers/food) in src) // you can tear open empty boxes for nesting material, or for food
 				to_chat(user, span("warning", "There's no food in that box!"))
 				return
 			var/damage
@@ -574,6 +576,7 @@
 	can_hold = list(/obj/item/organ, /obj/item/weapon/reagent_containers/food, /obj/item/weapon/reagent_containers/glass)
 	max_storage_space = 21
 	use_to_pickup = 1 // for picking up broken bulbs, not that most people will try
+	chewable = FALSE
 
 /obj/item/weapon/storage/box/kitchen
 	name = "kitchen supplies"
@@ -729,3 +732,4 @@
 	name = "sharps disposal box"
 	desc = "A plastic box for disposal of used needles and other sharp, potentially-contaminated tools. There is a large biohazard sign on the front."
 	icon_state = "sharpsbox"
+	chewable = FALSE
