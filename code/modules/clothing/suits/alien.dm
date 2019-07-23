@@ -210,3 +210,9 @@
 	item_state = "shaper_robes"
 	species_restricted = list("Vaurca")
 
+/obj/item/clothing/suit/vaurca/mantle
+	name = "vaurcan mantle"
+	desc = "This mantle is commonly worn in dusty underground areas, its wide upper covering acting as a kind of dust umbrella."
+	icon_state = "vacmantle"
+	item_state = "vacmantle"
+	body_parts_covered = UPPER_TORSO

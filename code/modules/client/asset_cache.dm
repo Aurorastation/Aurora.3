@@ -184,7 +184,14 @@ var/list/asset_datums = list()
 		"barcode1.png" = 'html/images/barcode1.png',
 		"barcode2.png" = 'html/images/barcode2.png',
 		"barcode3.png" = 'html/images/barcode3.png',
-		"ntlogo.png"   = 'html/images/ntlogo.png'
+		"ntlogo.png" = 'html/images/ntlogo.png',
+		"ntlogo_small.png" = 'html/images/ntlogo_small.png',
+		"zhlogo.png" = 'html/images/zhlogo.png',
+		"idrislogo.png" = 'html/images/idrislogo.png',
+		"eridanilogo.png" = 'html/images/eridanilogo.png',
+		"necrologo.png" = 'html/images/necrologo.png',
+		"hplogo.png" = 'html/images/hplogo.png',
+		"belogo.png" = 'html/images/belogo.png'
 	)
 
 /datum/asset/simple/changelog
