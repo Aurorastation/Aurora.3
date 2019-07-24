@@ -1,9 +1,0 @@
-author: Alberyk, Kyres1, AmoryBlaine
-
-delete-after: True
-
-
-changes: 
-  - imageadd: "Replaces a couple of gun sprites that were references to real life guns, with more futuristic versions."
-  - rscadd: "Being hit by a bolter projectile will now produce an animation."
-
