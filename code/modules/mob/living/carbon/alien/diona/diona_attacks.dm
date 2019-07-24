@@ -36,4 +36,13 @@
 		wear_hat(W)
 		user.visible_message("<span class='notice'>\The [user] puts \the [W] on \the [src].</span>")
 		return
+	else if(istype(W, /obj/item/weapon/reagent_containers) || istype(W, /obj/item/stack/medical) || istype(W,/obj/item/weapon/gripper/))
+		..(W, user)
+		return
+
+	else if(meat_type && (stat == DEAD))	//if the animal has a meat, and if it is dead.
+		if(istype(W, /obj/item/weapon/material/knife) || istype(W, /obj/item/weapon/material/kitchen/utensil/knife ))
+			harvest(user)
+			return
+
 	..(W, user)

@@ -199,7 +199,7 @@
 
 	textbox	= "What shall we name our new collective? Type in a name, or leave blank to cancel. We recall that we were once part of a collective named [mind.name] but it is not necessary to return to that"
 
-	newname = input(src,textbox,"Choosing a name.",suggestion)
+	newname = input(src, textbox, "Choosing a name.", suggestion)
 	if (newname)
 		real_name = newname
 		name = newname
@@ -263,6 +263,8 @@
 	M.verbs += /mob/living/carbon/alien/diona/proc/merge_back_to_gestalt
 	M.verbs += /mob/living/carbon/alien/diona/proc/switch_to_gestalt
 	verbs += /mob/living/carbon/human/proc/switch_to_nymph
+	M.update_verbs(TRUE)
+	M.detached = TRUE
 
 	update_dionastats() //Re-find the organs in case they were lost or regained
 	nutrition -= REGROW_FOOD_REQ
