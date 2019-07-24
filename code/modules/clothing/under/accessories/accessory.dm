@@ -564,3 +564,27 @@
 	desc = "A lightweight polymer frame meant to brace and hold someone's neck upright comfortably."
 	icon_state = "neckbrace"
 	item_state = "neckbrace"
+
+/obj/item/clothing/accessory/offworlder/bracer/neckbrace
+	name = "neckbrace"
+	desc = "A lightweight polymer frame meant to brace and hold someone's neck upright comfortably."
+	icon_state = "neckbrace"
+	item_state = "neckbrace"
+
+/obj/item/clothing/accessory/tc_pin
+	name = "Tau Ceti pin"
+	desc = "A small, Tau Ceti flag pin of the Republic of Tau Ceti."
+	icon_state = "tc-pin"
+	item_state = "tc-pin"
+
+/obj/item/clothing/accessory/sol_pin
+	name = "Sol Alliance pin"
+	desc = "A small pin of the Sol Alliance, shaped like a golden sun."
+	icon_state = "sol-pin"
+	item_state = "sol-pin"
+
+/obj/item/clothing/accessory/hadii_pin
+	name = "hadiist party pin"
+	desc = "A small, red flag pin of the People's Republic."
+	icon_state = "hadii-pin"
+	item_state = "hadii-pin"
