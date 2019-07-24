@@ -11,7 +11,8 @@
 
 	allowed_role_types = list(
 		/datum/job/journalist,
-		/datum/job/merchant
+		/datum/job/merchant,
+		/datum/job/representative
 	)
 
 /datum/faction/unaffiliated/get_logo_name()

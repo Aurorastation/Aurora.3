@@ -509,6 +509,7 @@
 #include "code\game\jobs\job\security.dm"
 #include "code\game\jobs\job\silicon.dm"
 #include "code\game\jobs\job\outsider\merchant.dm"
+#include "code\game\jobs\job\outsider\representative.dm"
 #include "code\game\machinery\adv_med.dm"
 #include "code\game\machinery\ai_slipper.dm"
 #include "code\game\machinery\alarm.dm"

@@ -37,7 +37,8 @@
 		/datum/job/doctor,
 		/datum/job/pharmacist,
 		/datum/job/psychiatrist,
-		/datum/job/paramedic
+		/datum/job/paramedic,
+		/datum/job/representative
 	)
 
 	allowed_species_types = list(
@@ -51,7 +52,8 @@
 		"Medical Doctor" = /datum/outfit/job/doctor/zeng_hu,
 		"Pharmacist" = /datum/outfit/job/pharmacist/zeng_hu,
 		"Psychiatrist" = /datum/outfit/job/psychiatrist/zeng_hu,
-		"Paramedic" = /datum/outfit/job/paramedic/zeng_hu
+		"Paramedic" = /datum/outfit/job/paramedic/zeng_hu,
+		"Corporate Liaison" = /datum/outfit/job/representative/zeng_hu
 	)
 
 /datum/outfit/job/doctor/zeng_hu
@@ -77,4 +79,12 @@
 /datum/outfit/job/paramedic/zeng_hu
 	name = "Paramedic - Zeng-Hu"
 	uniform = /obj/item/clothing/under/rank/zeng
+	id = /obj/item/weapon/card/id/zeng_hu
+
+/datum/outfit/job/representative/zeng_hu
+	name = "Corporate Liaison - Zeng-Hu"
+	uniform = /obj/item/clothing/under/rank/zeng
+	head = null
+	suit = null
+	implants = null
 	id = /obj/item/weapon/card/id/zeng_hu

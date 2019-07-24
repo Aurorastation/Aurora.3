@@ -99,20 +99,6 @@
 		return
 	..()
 
-/obj/item/weapon/storage/box/holobadge
-	name = "holobadge box"
-	desc = "A box claiming to contain holobadges."
-	New()
-		new /obj/item/clothing/accessory/badge/holo(src)
-		new /obj/item/clothing/accessory/badge/holo(src)
-		new /obj/item/clothing/accessory/badge/holo(src)
-		new /obj/item/clothing/accessory/badge/holo(src)
-		new /obj/item/clothing/accessory/badge/holo/cord(src)
-		new /obj/item/clothing/accessory/badge/holo/cord(src)
-		..()
-		return
-
-
 /obj/item/clothing/accessory/badge/warden
 	name = "warden's badge"
 	desc = "A silver corporate security badge. Stamped with the words 'Brig Officer.'"
@@ -125,3 +111,25 @@
 	desc = "An immaculately polished gold security badge. Labeled 'Commander.'"
 	icon_state = "goldbadge"
 	slot_flags = SLOT_TIE
+
+/obj/item/clothing/accessory/badge/sol_visa
+	name = "alliance visa"
+	desc = "A compact piece of legal paperwork, permitting temporary entrance in the Sol Alliance."
+	icon_state = "sol-visa"
+	slot_flags = SLOT_TIE
+	badge_string = "Temporary Sol Alliance Visa"
+
+/obj/item/clothing/accessory/badge/ceti_visa
+	name = "\improper Tau Ceti residence visa"
+	desc = "A compact piece of legal paperwork, permitting temporary residence in the Republic of Biesel."
+	icon_state = "tc-visa"
+	slot_flags = SLOT_TIE
+	badge_string = "Tau Ceti Temporary Residence"
+
+/obj/item/clothing/accessory/badge/hadii_card
+	name = "party member card"
+	desc = "A card denoting a member of the Hadiist party."
+	icon_state = "hadii-id"
+	slot_flags = SLOT_TIE
+	badge_string = "Member of Party of the Free Tajara under the Leadership of Hadii"
+

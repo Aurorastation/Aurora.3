@@ -240,8 +240,8 @@
 /var/const/access_lawyer = 38
 /datum/access/lawyer
 	id = access_lawyer
-	desc = "Internal Affairs"
-	region = ACCESS_REGION_COMMAND
+	desc = "Representative"
+	region = ACCESS_TYPE_CENTCOM
 
 /var/const/access_virology = 39
 /datum/access/virology

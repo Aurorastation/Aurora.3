@@ -38,7 +38,8 @@
 		/datum/job/doctor,
 		/datum/job/pharmacist,
 		/datum/job/scientist,
-		/datum/job/roboticist
+		/datum/job/roboticist,
+		/datum/job/representative
 	)
 
 	allowed_species_types = list(
@@ -55,7 +56,8 @@
 		"Pharmacist" = /datum/outfit/job/pharmacist/necropolis,
 		"Medical Doctor" = /datum/outfit/job/doctor/necropolis,
 		"Scientist" = /datum/outfit/job/scientist/necropolis,
-		"Roboticist" = /datum/outfit/job/roboticist/necropolis
+		"Roboticist" = /datum/outfit/job/roboticist/necropolis,
+		"Corporate Liaison" = /datum/outfit/job/representative/necropolis
 	)
 
 /datum/outfit/job/officer/necropolis
@@ -86,4 +88,12 @@
 /datum/outfit/job/roboticist/necropolis
 	name = "Roboticist - Necropolis"
 	uniform = /obj/item/clothing/under/rank/necropolis
+	id = /obj/item/weapon/card/id/necropolis
+
+/datum/outfit/job/representative/necropolis
+	name = "Corporate Liaison - Necropolis"
+	uniform = /obj/item/clothing/under/rank/necropolis
+	head = null
+	suit = null
+	implants = null
 	id = /obj/item/weapon/card/id/necropolis
