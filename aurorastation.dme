@@ -496,6 +496,7 @@
 #include "code\game\jobs\faction\idris.dm"
 #include "code\game\jobs\faction\nanotrasen.dm"
 #include "code\game\jobs\faction\necropolis.dm"
+#include "code\game\jobs\faction\unaffiliated.dm"
 #include "code\game\jobs\faction\zeng_hu.dm"
 #include "code\game\jobs\job\assistant.dm"
 #include "code\game\jobs\job\captain.dm"
