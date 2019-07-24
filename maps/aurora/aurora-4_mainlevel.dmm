@@ -46706,7 +46706,6 @@
 	dir = 6
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/structure/lamarr,
 /turf/simulated/floor/tiled,
 /area/rnd/rdoffice)
 "bAF" = (
