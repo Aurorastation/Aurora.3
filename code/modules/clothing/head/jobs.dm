@@ -89,7 +89,7 @@
 
 /obj/item/clothing/head/beret/liaison
 	name = "corporate liaison beret"
-	desc = "A stylish worn by corporate liaisons."
+	desc = "A stylish beret worn by corporate liaisons."
 	icon_state = "centcomofficerberet"
 
 /obj/item/clothing/head/beret/centcom/officer
