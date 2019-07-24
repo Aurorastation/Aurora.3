@@ -99,3 +99,32 @@
 /datum/gear/shoes/vaurca/New()
 	..()
 	gear_tweaks = list(gear_tweak_free_color_choice)
+
+/datum/gear/suit/vaurca_shroud
+	display_name = "vaurcan shroud"
+	description = "A selection of vaurca colored shrouds."
+	path = /obj/item/clothing/head/shroud
+	cost = 1
+	whitelisted = list("Vaurca Worker", "Vaurca Warrior")
+	sort_category = "Xenowear - Vaurca"
+
+/datum/gear/suit/vaurca_shroud/New()
+	..()
+	var/shrouds = list()
+	shrouds["vaurcan shroud, blue"] = /obj/item/clothing/head/shroud
+	shrouds["vaurcan shroud, red"] = /obj/item/clothing/head/shroud/red
+	shrouds["vaurcan shroud, green"] = /obj/item/clothing/head/shroud/green
+	shrouds["vaurcan shroud, purple"] = /obj/item/clothing/head/shroud/purple
+	shrouds["vaurcan shroud, brown"] = /obj/item/clothing/head/shroud/brown
+	gear_tweaks += new/datum/gear_tweak/path(shrouds)
+
+/datum/gear/suit/vaurca_mantle
+	display_name = "vaurcan mantle"
+	path = /obj/item/clothing/suit/vaurca/mantle
+	cost = 1
+	whitelisted = list("Vaurca Worker", "Vaurca Warrior")
+	sort_category = "Xenowear - Vaurca"
+
+/datum/gear/suit/vaurca_mantle/New()
+	..()
+	gear_tweaks = list(gear_tweak_free_color_choice)

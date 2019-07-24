@@ -13,6 +13,11 @@
 	for (var/datum/job/job in SSjobs.occupations)
 		allowed_role_types[job.type] = TRUE
 
+		allowed_role_types += job.type
+
+	// Really shitty hack until I get around to rewriting jobs a bit.
+	allowed_role_types -= /datum/job/merchant
+  
 /datum/faction/nano_trasen/get_corporate_objectives(var/mission_level)
 	var/objective
 	switch(mission_level)

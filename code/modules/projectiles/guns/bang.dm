@@ -19,7 +19,7 @@
 
 /obj/item/weapon/gun/bang/handle_click_empty(mob/user)
 	if (user)
-		user.visible_message("<span class='danger'>The flag is already out!</span>")
+		to_chat(user, "<span class='danger'>The flag is already out!</span>")
 
 /obj/item/weapon/gun/bang/Fire(atom/target, mob/living/user, clickparams, pointblank=0, reflex=0)
 	if(!user || !target) return

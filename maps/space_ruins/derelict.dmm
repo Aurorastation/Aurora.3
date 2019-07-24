@@ -4359,14 +4359,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/white,
 /area/derelict/hallway/southeast)
-"nw" = (
-/obj/structure/lamarr{
-	destroyed = 1;
-	icon_state = "labcageb0";
-	occupied = 0
-	},
-/turf/simulated/floor/tiled/white,
-/area/derelict/hallway/southeast)
 "nx" = (
 /obj/machinery/conveyor{
 	dir = 4;
@@ -54599,7 +54591,7 @@ mr
 jS
 jl
 in
-nw
+jW
 jW
 aa
 og
