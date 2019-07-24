@@ -1022,9 +1022,6 @@
 
 		to_chat(src, output)
 
-/mob/living/carbon/human
-	var/next_sonar_ping = 0
-
 /mob/living/carbon/human/proc/sonar_ping()
 	set name = "Psychic Ping"
 	set desc = "Allows you to listen in to psychic traces of organisms around you."
@@ -1033,18 +1030,18 @@
 	if(incapacitated())
 		to_chat(src, "<span class='warning'>You need to recover before you can use this ability.</span>")
 		return
-	if(world.time < next_sonar_ping)
-		to_chat(src, "<span class='warning'>You need another moment to focus.</span>")
+	if(last_special > world.time)
+		to_chat(src,"<span class='notice'>Your mind requires rest!</span>")
 		return
-	next_sonar_ping += 10 SECONDS
-	var/heard_something = FALSE
+
+		last_special = world.time + 10
+
 	to_chat(src, "<span class='notice'>You take a moment to tune into the local Nlom...</span>")
-	var/dirs = list()
+	var/list/dirs = list()
 	for(var/mob/living/L in range(20))
 		var/turf/T = get_turf(L)
 		if(!T || L == src || L.stat == DEAD || L.isSynthetic() || L.is_diona() || isvaurca(L) || L.invisibility == INVISIBILITY_LEVEL_TWO)
 			continue
-		heard_something = TRUE
 		var/image/ping_image = image(icon = 'icons/effects/effects.dmi', icon_state = "sonar_ping", loc = src)
 		ping_image.plane = LIGHTING_LAYER+1
 		ping_image.layer = LIGHTING_LAYER+1
@@ -1071,15 +1068,11 @@
 		LAZYINITLIST(dirs[direction])
 		dirs[direction][dist] += 1
 	for(var/d in dirs)
-		var/feedback = list()
-		if(isnull(d)) // can be 0
-			continue
+		var/list/feedback = list()
 		for(var/dst in dirs[d])
-			if(isnull(dst))
-				continue // don't need to print if there's nothing there
 			feedback += "[dirs[d][dst]] psionic signature\s [dst],"
-		if(LAZYLEN(feedback) > 1)
-			feedback[LAZYLEN(feedback)-1] += " and"
+		if(feedback.len > 1)
+			feedback[feedback.len - 1] += " and"
 		to_chat(src, span("notice", "You sense " + jointext(feedback, " ") + " towards the [dir2text(text2num(d))]."))
-	if(!heard_something)
+	if(!length(dirs))
 		to_chat(src, span("notice", "You detect no psionic signatures but your own."))
