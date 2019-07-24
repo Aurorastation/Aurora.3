@@ -64,6 +64,7 @@
 	if(N)
 		var/count = 0
 		for(var/V in N.normal_members)
+			CHECK_TICK
 			if(count > reagent_amount)
 				return TRUE
 			var/obj/machinery/atmospherics/unary/vent_pump/vent = V
