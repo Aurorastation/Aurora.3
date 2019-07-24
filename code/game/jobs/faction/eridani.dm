@@ -27,7 +27,7 @@
 		/datum/job/warden,
 		/datum/job/forensics,
 		/datum/job/paramedic,
-    /datum/job/representative
+		/datum/job/representative
 	)
 
 	allowed_species_types = list(
@@ -64,7 +64,7 @@
 /datum/outfit/job/paramedic/eridani
 	name = "Paramedic - Eridani"
 	uniform = /obj/item/clothing/under/rank/security/eridani/alt
-  id = /obj/item/weapon/card/id/eridani
+	id = /obj/item/weapon/card/id/eridani
 
 /datum/outfit/job/representative/eridani
 	name = "Corporate Liaison - Eridani"
@@ -72,4 +72,4 @@
 	head = null
 	suit = null
 	implants = null
-  id = /obj/item/weapon/card/id/eridani
+	id = /obj/item/weapon/card/id/eridani

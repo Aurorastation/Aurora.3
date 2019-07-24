@@ -37,7 +37,7 @@
 		/datum/job/chef,
 		/datum/job/hydro,
 		/datum/job/cargo_tech,
-    /datum/job/representative
+		/datum/job/representative
 	)
 
 	allowed_species_types = list(
@@ -79,12 +79,12 @@
 /datum/outfit/job/cargo_tech/idris
 	name = "Cargo Technician - Idris"
 	uniform = /obj/item/clothing/under/rank/idris
-  id = /obj/item/weapon/card/id/idris
-  
+	id = /obj/item/weapon/card/id/idris
+
 /datum/outfit/job/representative/idris
 	name = "Corporate Liaison - Idris"
 	uniform = /obj/item/clothing/under/rank/idris
 	head = null
 	suit = null
 	implants = null
-  id = /obj/item/weapon/card/id/idris
+	id = /obj/item/weapon/card/id/idris

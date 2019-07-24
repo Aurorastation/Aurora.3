@@ -35,7 +35,7 @@
 		/datum/job/roboticist,
 		/datum/job/mining,
 		/datum/job/cargo_tech,
-    /datum/job/representative
+		/datum/job/representative
 	)
 
 	allowed_species_types = list(
@@ -84,7 +84,7 @@
 /datum/outfit/job/cargo_tech/hephaestus
 	name = "Cargo Technician - Hephaestus"
 	uniform = /obj/item/clothing/under/rank/hephaestus
-  id = /obj/item/weapon/card/id/hephaestus
+	id = /obj/item/weapon/card/id/hephaestus
 
 /datum/outfit/job/representative/hephaestus
 	name = "Corporate Liaison - Hephaestus"
@@ -92,4 +92,4 @@
 	head = null
 	suit = null
 	implants = null
-  id = /obj/item/weapon/card/id/hephaestus
+	id = /obj/item/weapon/card/id/hephaestus
