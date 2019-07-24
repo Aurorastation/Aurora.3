@@ -74,7 +74,7 @@
 
 	head = /obj/item/clothing/head/beret
 	mask = /obj/item/clothing/mask/smokable/cigarette/cigar/havana
-	belt = /obj/item/weapon/gun/projectile/deagle/camo
+	belt = /obj/item/weapon/gun/projectile/deagle
 	l_ear = /obj/item/device/radio/headset/syndicate
 	l_pocket = /obj/item/weapon/pinpointer/advpinpointer
 	r_pocket = null // stop them getting a radio uplink, they get an implant instead
