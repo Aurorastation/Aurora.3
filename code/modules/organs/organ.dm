@@ -109,7 +109,12 @@
 
 /obj/item/organ/proc/die()
 	if(status & ORGAN_ROBOT)
-		return
+		if(istype(src,/obj/item/organ/augment))
+			var/obj/item/organ/augment/A = src
+			A.online = 0
+			STOP_PROCESSING(SSprocessing, src)
+		else
+			return
 	damage = max_damage
 	status |= ORGAN_DEAD
 	STOP_PROCESSING(SSprocessing, src)

@@ -1014,6 +1014,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 
 	dislocated = -1 //TODO, make robotic limbs a separate type, remove snowflake
 	cannot_break = 1
+	install_servo()
 	get_icon()
 	unmutate()
 	for (var/obj/item/organ/external/T in children)
@@ -1029,6 +1030,19 @@ Note that amputating the affected organ does in fact remove the infection from t
 	for (var/obj/item/organ/external/T in children)
 		if (T)
 			T.robotize_advanced()
+
+
+/obj/item/organ/external/proc/install_servo()
+	var/obj/item/organ/external/E = src
+	if(E)
+		var/obj/item/organ/limbservo/S = locate() in E.internal_organs
+		if(!S)
+			S = new /obj/item/organ/limbservo()
+			S.parent_organ = E
+			S.replaced(src,E)
+			S.isprocessing = 1
+
+
 
 /obj/item/organ/external/proc/mutate()
 	if(src.status & ORGAN_ROBOT)
@@ -1053,9 +1067,9 @@ Note that amputating the affected organ does in fact remove the infection from t
 	return !is_dislocated() && !(status & (ORGAN_MUTATED|ORGAN_DEAD))
 
 /obj/item/organ/external/proc/is_malfunctioning()
-	var/obj/item/organ/augment/limbservo/servo = locate() in owner.internal_organs 
+	var/obj/item/organ/limbservo/servo = locate() in src.internal_organs 
 	if(!servo)
-		return((status & ORGAN_ROBOT) && (!servo || servo.online == 0))
+		return((status & ORGAN_ROBOT) && (!servo))
 
 /obj/item/organ/external/proc/embed(var/obj/item/weapon/W, var/silent = 0, var/supplied_message)
 	if(!owner || loc != owner)

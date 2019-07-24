@@ -70,11 +70,8 @@ var/list/augmentations = typesof(/datum/augment) - /datum/augment
 	..()
 	if(!online)
 		return
-	if(augmenthp <= 0)
-		name = "Broken [src.name]"
-		spark(owner.loc, 5)
-		playsound(owner.loc, "sparks", 50, 1)
-		online = 0
+	if(damage >= max_damage)
+		die()
 
 /////////////////
 /////////////////

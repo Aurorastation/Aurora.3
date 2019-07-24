@@ -50,16 +50,6 @@ emp_act
 			SP.forceMove(organ)
 			organ.embed(SP)
 
-	for(var/obj/item/organ/augment/AUG in organ.internal_organs)
-		if(istype(AUG,/obj/item/organ/augment/limbservo))
-			for(var/obj/item/organ/augment/limbservo/SR in organ.internal_organs)
-				if(!SR.servothreshhold)
-					return
-				else
-					SR.augmenthp -= P.damage / 2
-		else
-			AUG.augmenthp -= P.damage / 3
-
 	return (..(P , def_zone))
 
 /mob/living/carbon/human/stun_effect_act(var/stun_amount, var/agony_amount, var/def_zone)
