@@ -38,5 +38,5 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
-  - rscdel: "Due to various human rights abuses and poor quality programming, NanoTrasen has removed Security programming from their stationbound units."
+  - rscdel: "The Security cyborg module has been removed."
   - rscadd: "Combat and Syndicate modules now have handcuffs, for non-lethal capturing."
