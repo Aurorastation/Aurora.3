@@ -117,7 +117,11 @@
 			var/eta_status = emergency_shuttle.get_status_panel_eta()
 			if(eta_status)
 				stat(null, eta_status)
-
+		if(is_diona() && DS)
+			stat("Biomass:", "[round(nutrition)] / [max_nutrition]")
+			stat("Energy:", "[round(DS.stored_energy)] / [round(DS.max_energy)]")
+			if(DS.regen_limb)
+				stat("Regeneration Progress:", " [round(DS.regen_limb_progress)] / [LIMB_REGROW_REQUIREMENT]")
 		if (internal)
 			if (!internal.air_contents)
 				qdel(internal)
