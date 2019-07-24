@@ -316,6 +316,7 @@
 	name = "vintage submachine gun"
 	desc = "A classic submachine gun. Uses .45 rounds."
 	icon_state = "tommygun"
+	item_state = "tommygun"
 	w_class = 3
 	max_shells = 50
 	caliber = ".45"
