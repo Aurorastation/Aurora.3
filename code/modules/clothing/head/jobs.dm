@@ -97,11 +97,6 @@
 	desc = "A black beret adorned with the shield - a silver kite shield with an engraved sword - of the NanoTrasen security forces."
 	icon_state = "centcomofficerberet"
 
-/obj/item/clothing/head/beret/centcom/officer
-	name = "officers beret"
-	desc = "A black beret adorned with the shield - a silver kite shield with an engraved sword - of the NanoTrasen security forces."
-	icon_state = "centcomofficerberet"
-
 /obj/item/clothing/head/beret/centcom/officer/civilprotection
 	name = "civil protection beret"
 	desc = "A black beret adorned with the shield - a gold kite shield with an engraved sword - of the NanoTrasen security forces."

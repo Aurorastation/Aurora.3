@@ -27,6 +27,6 @@
 		else
 			objective = pick("Conduct and present a survey on crew morale and content",
 						"Make sure that [rand(2,4)] complaints are solved on the station",
-						"Have [rand(3,10)] crewmembers buy Getmore products from the vendedors")
+						"Have [rand(3,10)] crewmembers buy Getmore products from the vendors")
 
 	return objective
