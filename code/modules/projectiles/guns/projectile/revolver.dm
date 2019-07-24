@@ -138,7 +138,7 @@
 	name = "grapeshot revolver"
 	desc = "A six shot revolver with a secondary firing barrel loading shotgun shells. Uses .38-Special and 12g rounds depending on the barrel."
 	icon_state = "lemat"
-	item_state = "revolver"
+	item_state = "lemat"
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
 	handle_casings = CYCLE_CASINGS
 	max_shells = 6
