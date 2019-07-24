@@ -110,7 +110,8 @@ var/datum/controller/subsystem/chemistry/SSchemistry
 			return
 
 /datum/controller/subsystem/chemistry/proc/mark_for_update(var/datum/reagents/holder)
-	active_holders |= holder
+	if (holder.process_reactions())
+		active_holders |= holder
 
 /datum/controller/subsystem/chemistry/Recover()
 	src.active_holders = SSchemistry.active_holders

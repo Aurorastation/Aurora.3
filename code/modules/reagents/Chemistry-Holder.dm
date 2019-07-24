@@ -125,9 +125,9 @@
 
 	var/temps_updated = equalize_temperature()
 
-	update_holder(reactions = FALSE)
+	update_holder(reactions = reaction_occured)
 
-	return reaction_occured || temps_updated
+	return temps_updated
 
 /* Holder-to-chemical */
 
