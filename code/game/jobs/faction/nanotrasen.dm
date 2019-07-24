@@ -11,4 +11,7 @@
 	allowed_role_types = list()
 
 	for (var/datum/job/job in SSjobs.occupations)
-		allowed_role_types[job.type] = TRUE
+		allowed_role_types += job.type
+
+	// Really shitty hack until I get around to rewriting jobs a bit.
+	allowed_role_types -= /datum/job/merchant

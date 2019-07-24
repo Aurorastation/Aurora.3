@@ -1,0 +1,8 @@
+author: Skull132
+delete-after: True
+
+changes:
+  - rscadd: "All factions now have a unique ID card."
+  - rscadd: "Added the independent faction. At the moment, NT still retains access to the Freelance Journalist job, because the job's system is literal ass and I need to wait for another PR before redoing it."
+  - tweak: "Tweaked the faction selection menu. It now links to the wiki and all."
+  - rscdel: "Removed faction specific gear, since it's already present in the job system."

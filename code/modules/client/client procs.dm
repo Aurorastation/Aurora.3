@@ -204,7 +204,7 @@
 
 			// Wiki link from various panels.
 			if ("wiki")
-				src.wiki()
+				src.wiki(sub_page = (href_list["wiki_page"] || null))
 
 			// Web interface href link from various panels.
 			if ("webint")
