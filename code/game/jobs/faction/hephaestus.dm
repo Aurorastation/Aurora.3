@@ -51,7 +51,7 @@
 		"Atmospherics Technician" = /datum/outfit/job/atmos/hephaestus,
 		"Scientist" = /datum/outfit/job/scientist/hephaestus,
 		"Roboticist" = /datum/outfit/job/roboticist/hephaestus,
-		"Miner" = /datum/outfit/job/mining/hephaestus,
+		"Shaft Miner" = /datum/outfit/job/mining/hephaestus,
 		"Cargo Technician" = /datum/outfit/job/cargo_tech/hephaestus,
 		"Corporate Liaison" = /datum/outfit/job/representative/hephaestus
 	)
