@@ -1,17 +1,3 @@
-var/global/list/citizenship_choices = list(
-	"Republic of Biesel",
-	"Sol Alliance",
-	"Frontier Alliance",
-	"Republic of Elyra",
-	"Eridani Federation",
-	"Empire of Dominia",
-	"Jargon Federation",
-	"People's Republic of Adhomai",
-	"Izweski Hegemony",
-	"Zo'ra Hive",
-	"K'lax Hive"
-	)
-
 var/global/list/home_system_choices = list(
 	"Tau Ceti",
 	"Sol",

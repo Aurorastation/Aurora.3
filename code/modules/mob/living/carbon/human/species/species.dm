@@ -205,6 +205,10 @@
 	var/default_h_style = "Bald"
 	var/default_f_style = "Shaved"
 
+	var/list/allowed_citizenships = list(CITIZENSHIP_BIESEL)
+	var/list/allowed_homeworlds = list("Tau Ceti")
+	var/list/allowed_religions = list("None")
+
 /datum/species/proc/get_eyes(var/mob/living/carbon/human/H)
 	return
 
