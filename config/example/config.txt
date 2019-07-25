@@ -429,6 +429,9 @@ MERCHANT_CHANCE 20
 ## Uncomment this to house player preferences and characters on the SQL database.
 # SQL_SAVES
 
+## Uncomment this to enable SQL CCIA Logs
+# SQL_CCIA_LOGS
+
 ## Uncomment this and fill in the web interface's URL to use the web interface.
 # WEBINT_URL http://www.address.com/
 

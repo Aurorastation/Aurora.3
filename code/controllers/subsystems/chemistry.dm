@@ -113,7 +113,6 @@ var/datum/controller/subsystem/chemistry/SSchemistry
 	if (holder in active_holders)
 		return
 
-	//Process once, right away. If we still need to continue then add to the active_holders list and continue later
 	if (holder.process_reactions())
 		active_holders += holder
 

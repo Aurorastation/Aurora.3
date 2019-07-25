@@ -1,5 +1,4 @@
 var/global/list/robot_modules = list(
-	"Standard"		= /obj/item/weapon/robot_module/standard,
 	"Service" 		= /obj/item/weapon/robot_module/clerical/butler,
 	"Clerical" 		= /obj/item/weapon/robot_module/clerical/general,
 	"Research" 		= /obj/item/weapon/robot_module/research,
@@ -183,27 +182,6 @@ var/global/list/robot_modules = list(
 /obj/item/weapon/robot_module/proc/remove_status_flags(var/mob/living/silicon/robot/R)
 	if(!can_be_pushed)
 		R.status_flags |= CANPUSH
-
-/obj/item/weapon/robot_module/standard
-	name = "standard robot module"
-	sprites = list(	"Basic" = "robot",
-					"Android" = "droid",
-					"Default" = "robot_old",
-					"Sleek" = "sleekstandard",
-					"Drone" = "drone-standard",
-					"Spider" = "spider"
-				  )
-
-/obj/item/weapon/robot_module/standard/New()
-	..()
-	src.modules += new /obj/item/device/flash(src)
-	src.modules += new /obj/item/weapon/melee/baton/loaded(src)
-	src.modules += new /obj/item/weapon/extinguisher(src)
-	src.modules += new /obj/item/weapon/wrench(src)
-	src.modules += new /obj/item/weapon/crowbar(src)
-	src.modules += new /obj/item/device/healthanalyzer(src)
-	src.emag = new /obj/item/weapon/melee/energy/sword(src)
-
 
 /obj/item/weapon/robot_module/medical
 	name = "medical robot module"
@@ -1060,7 +1038,6 @@ var/global/list/robot_modules = list(
 					LANGUAGE_DRONE = 1,
 					LANGUAGE_EAL = 1,
 					LANGUAGE_VOX = 1,
-					LANGUAGE_XENOMORPH = 1,
 					LANGUAGE_HIVEMIND = 1,
 					LANGUAGE_CHANGELING = 1,
 					LANGUAGE_BORER = 1

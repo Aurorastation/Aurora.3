@@ -288,3 +288,23 @@
 	icon_state = "plasmabolt"
 	caliber = "plasma bolt"
 	projectile_type = /obj/item/projectile/plasma/light
+
+/obj/item/ammo_casing/cannon
+	name = "cannonball"
+	desc = "A solid metal projectile."
+	icon_state = "cannonball"
+	caliber = "cannon"
+	projectile_type = /obj/item/projectile/bullet/cannonball
+	matter = list(DEFAULT_WALL_MATERIAL = 800)
+	w_class = 3
+
+/obj/item/ammo_casing/cannon/explosive
+	name = "explosive cannonball"
+	desc = "A solid metal projectile loaded with an explosive charge."
+	icon_state = "cannonball_explosive"
+	projectile_type = /obj/item/projectile/bullet/cannonball/explosive
+
+/obj/item/ammo_casing/cannon/canister
+	name = "canister shot"
+	desc = "A solid projectile filled with deadly shrapnel."
+	projectile_type = /obj/item/projectile/bullet/pellet/shotgun/canister
