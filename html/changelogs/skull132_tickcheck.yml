@@ -1,0 +1,7 @@
+author: Skull132
+delete-after: True
+
+changes:
+  - tweak: "Modified the way the cell charge anomaly works. It no longer uses absurd ranges to charge stuff."
+  - tweak: "ZAS might be a tick slower at kicking objects around for large zones. On the flip side, it shouldn't lag the server as consistently anymore."
+  - tweak: "VV might take a bit to generate the VV screen for large entries."
