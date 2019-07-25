@@ -244,7 +244,7 @@ var/list/diona_banned_languages = list(
 
 	// We cancel with regening organ, as it's meant to stop all other regenerative
 	// processes. Just pray to shit the timers don't implode.
-	if ((!total_radiation && !DS.healing_factor && !DS.stored_energy) || DS.regening_organ)
+	if (((!total_radiation && !DS.healing_factor && !DS.stored_energy) || DS.regening_organ) && !bypass)
 		return FALSE
 
 	//Next up, healing any damage to internal organs.
@@ -300,23 +300,30 @@ var/list/diona_banned_languages = list(
 
 
 		if (path)
-			if (DS.stored_energy < REGROW_ENERGY_REQ)
+			if ((DS.stored_energy < REGROW_ENERGY_REQ) && !bypass)
 				to_chat(src, "<span class='danger'>You try to regrow a lost limb, but you lack the energy. Find more light!</span>")
 				return
-			if (nutrition < REGROW_FOOD_REQ)
+			if ((nutrition < REGROW_FOOD_REQ) && !bypass)
 				to_chat(src, "<span class='danger'>You try to regrow a lost limb, but you lack the biomass. Find some food!</span>")
 				return
-			DS.stored_energy -= REGROW_ENERGY_REQ
+			DS.stored_energy -= !bypass ? REGROW_ENERGY_REQ : 0
 			adjustNutritionLoss(REGROW_FOOD_REQ)
 			visible_message("<span class='warning'>[src] begins to shift and quiver.</span>",
 				"<span class='warning'>You begin to shift and quiver, feeling a stirring within your trunk</span>")
 
 			DS.regening_organ = TRUE
 			to_chat(src, "<span class='notice'>You are trying to regrow a lost limb, this is a long and complicated process that will take 10 minutes!</span>")
-			if(!bypass)
-				DS.regen_limb = addtimer(CALLBACK(src, .proc/diona_regen_callback, path), 10 MINUTES, TIMER_STOPPABLE)
-			else
-				diona_regen_callback(path, DS)
+			var/list/special_case = list(
+										/obj/item/organ/external/arm/diona = /obj/item/organ/external/hand/diona,
+										/obj/item/organ/external/arm/right/diona = /obj/item/organ/external/hand/right/diona,
+										/obj/item/organ/external/leg/diona = /obj/item/organ/external/foot/diona,
+										/obj/item/organ/external/leg/right/diona = /obj/item/organ/external/foot/right/diona
+										)
+			DS.regen_limb = addtimer(CALLBACK(src, .proc/diona_regen_callback, path, DS), 10 MINUTES, TIMER_STOPPABLE)
+			sleep(5)
+			if(path in special_case)
+				DS.regen_extra = addtimer(CALLBACK(src, .proc/diona_regen_callback, special_case[path], DS), 10 MINUTES, TIMER_STOPPABLE)
+
 			return
 
 
@@ -368,7 +375,7 @@ var/list/diona_banned_languages = list(
 				//Only one per proc
 
 		//If we have less than six nymphs, we add one each proc
-		if (topup_nymphs(1))
+		if (topup_nymphs())
 			if (DS.stored_energy < REGROW_ENERGY_REQ)
 				return
 
@@ -382,9 +389,19 @@ var/list/diona_banned_languages = list(
 	if (!organ_path || !DS)
 		return
 
-	var/obj/item/organ/O = new organ_path(src)
-	visible_message("<span class='danger'>With a shower of sticky sap, a new mass of tendrils bursts forth from [src]'s trunk, forming a new [O]</span>",
-		"<span class='danger'>With a shower of sticky sap, a new mass of tendrils bursts forth from your trunk, forming a new [O]</span>")
+	var/obj/item/organ/external/E = new organ_path(src)
+	var/obj/item/organ/external/E_old
+	for(var/obj/item/organ/external/stump/S in organs)
+		if(S.limb_name == E.limb_name)
+			E_old = S
+			break
+
+	// Remove the stump, if it exists
+	if(E_old)
+		qdel(E_old)
+
+	visible_message("<span class='danger'>With a shower of sticky sap, a new mass of tendrils bursts forth from [src]'s trunk, forming a new [E]</span>",
+		"<span class='danger'>With a shower of sticky sap, a new mass of tendrils bursts forth from your trunk, forming a new [E]</span>")
 	var/datum/reagents/vessel = get_vessel(0)
 	var/datum/reagent/B = vessel.get_master_reagent()
 	B.touch_turf(get_turf(src))
@@ -543,12 +560,15 @@ var/list/diona_banned_languages = list(
 			continue
 		var/mob/living/carbon/human/diona/C = H
 		if(C == gestalt)
-			C.nutrition += REGROW_FOOD_REQ
-			C.DS.stored_energy += REGROW_ENERGY_REQ
-			total_radiation += 5
+			C.nutrition += REGROW_FOOD_REQ * 0.75
+			C.DS.stored_energy += REGROW_ENERGY_REQ * 0.75
 			C.key = src.key
-			if(DS.regen_limb)
-				execute_and_deltimer(DS.regen_limb)
+			if(C.DS.regen_limb)
+				execute_and_deltimer(C.DS.regen_limb)
+				C.DS.regen_limb = null
+				if(C.DS.regen_extra)
+					execute_and_deltimer(C.DS.regen_extra)
+					C.DS.regen_extra = null
 			else
 				C.diona_handle_regeneration(C.DS, TRUE)
 			to_chat(C, span("notice", "Your lost nymph merged back."))
@@ -556,7 +576,8 @@ var/list/diona_banned_languages = list(
 			verbs -= /mob/living/carbon/alien/diona/proc/switch_to_gestalt
 			C.verbs -= /mob/living/carbon/human/proc/switch_to_nymph
 			C.DS.nym = null
-			qdel(src)
+			detached = FALSE
+			src.forceMove(C)
 			break
 
 //DIONASTATS DEFINES
@@ -587,6 +608,7 @@ var/list/diona_banned_languages = list(
 	var/dionatype //1 = nymph, 2 = worker gestalt
 	var/datum/weakref/nym
 	var/regen_limb
+	var/regen_extra
 
 /datum/dionastats/Destroy()
 	light_organ = null //Nulling out these references to prevent GC errors
@@ -601,8 +623,6 @@ var/list/diona_banned_languages = list(
 #undef TEMP_REGEN_NORMAL
 #undef TEMP_INCREASE_REGEN_DOUBLE
 #undef LIFETICK_INTERVAL_LESS
-#undef REGROW_FOOD_REQ
-#undef REGROW_ENERGY_REQ
 #undef diona_max_pressure
 #undef diona_nutrition_factor
 #undef DIONA_LIGHT_COEFICIENT

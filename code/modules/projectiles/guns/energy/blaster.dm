@@ -50,7 +50,7 @@
 	fire_delay_wielded = 10
 	accuracy_wielded = 0
 
-	action_button_name = "Wield rifle"
+	is_wieldable = TRUE
 
 /obj/item/weapon/gun/energy/blaster/rifle/update_icon()
 	..()
@@ -59,13 +59,6 @@
 	else
 		item_state = initial(item_state)
 	update_held_icon()
-
-/obj/item/weapon/gun/energy/blaster/rifle/can_wield()
-	return 1
-
-/obj/item/weapon/gun/energy/blaster/rifle/ui_action_click()
-	if(src in usr)
-		toggle_wield(usr)
 
 /obj/item/weapon/gun/energy/blaster/rifle/verb/scope()
 	set category = "Object"

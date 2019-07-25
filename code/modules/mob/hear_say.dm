@@ -72,7 +72,7 @@
 			on_hear_say("[track]<span class='game say'><span class='name'>[speaker_name]</span>[alt_name] [verb], <span class='message'><span class='body'>\"[message]\"</span></span></span>")
 		if (speech_sound && (get_dist(speaker, src) <= world.view && src.z == speaker.z))
 			var/turf/source = speaker? get_turf(speaker) : get_turf(src)
-			src.playsound_local(source, speech_sound, sound_vol, 1)
+			playsound_simple(source, speech_sound, sound_vol, use_random_freq = TRUE)
 
 /mob/proc/on_hear_say(var/message)
 	to_chat(src, message)

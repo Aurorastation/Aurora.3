@@ -149,8 +149,8 @@
 /mob/living/simple_animal/rat/proc/splat()
 	src.health = 0
 	src.death()
-	src.icon_dead = "mouse_[body_color]_splat"
-	src.icon_state = "mouse_[body_color]_splat"
+	src.icon_dead = "rat_[body_color]_splat"
+	src.icon_state = "rat_[body_color]_splat"
 	if(client)
 		client.time_died_as_rat = world.time
 

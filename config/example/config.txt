@@ -429,6 +429,9 @@ MERCHANT_CHANCE 20
 ## Uncomment this to house player preferences and characters on the SQL database.
 # SQL_SAVES
 
+## Uncomment this to enable SQL CCIA Logs
+# SQL_CCIA_LOGS
+
 ## Uncomment this and fill in the web interface's URL to use the web interface.
 # WEBINT_URL http://www.address.com/
 
@@ -532,10 +535,14 @@ ERT_SCALING_FACTOR 1
 ERT_SCALING_FACTOR_ANTAG 1
 ERT_SCALING_FACTOR_DEAD 2
 
-
 # NTSL2+ Connection Info
 NTSL_HOSTNAME localhost
 NTSL_PORT 1945
 
 # Limit to how many hacked drones can AI have at the same time.
 # HACKED_DRONES_LIMIT 5
+
+# Specifies where to load random documents from. Valid values: sql, json
+DOCS_LOAD_DOCS_FROM sql
+# Specifies where random document images are hosted at. Valid format is "https://cdn.aurorastation.org/images/", trailing slash included.
+DOCS_IMAGE_HOST https://cdn.aurorastation.org/images/

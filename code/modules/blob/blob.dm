@@ -156,12 +156,21 @@
 	update_icon()
 
 /obj/effect/blob/proc/expand(var/turf/T)
-	if(istype(T, /turf/unsimulated/) || (istype(T, /turf/simulated/mineral) && T.density))
+	//Dont epxand over unsimulated unless its astroid trufs
+	if(istype(T, /turf/unsimulated/) && !istype(T, /turf/unsimulated/floor/asteroid/))
 		return
 
+	//Dont expand over space or holes, unless there´s a lattice
 	if((istype(T, /turf/simulated/open) || istype(T, /turf/space)) && !(locate(/obj/structure/lattice) in T))
 		return
 
+	//If its rock, mine it
+	if(istype(T,/turf/simulated/mineral))
+		var/turf/simulated/mineral/M = T
+		M.kinetic_hit(8,get_dir(src,M)) //8 so its destroyed in 2 or 3 hits (mineral health is randomized between 10 and 20)
+		return
+
+	//If its a wall, destroy it
 	if(istype(T, /turf/simulated/wall))
 		var/turf/simulated/wall/SW = T
 		SW.ex_act(2)
@@ -189,6 +198,10 @@
 				health += rand(1,10)
 				if(health > maxHealth)
 					health = maxHealth
+		return
+
+	//If its a astroid turf, ignore it with a 50% chance (so the expansion mostly focuses on the station)
+	if(istype(T,/turf/unsimulated/floor/asteroid/) && prob(50))
 		return
 
 	if(parent_core)

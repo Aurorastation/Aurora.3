@@ -48,7 +48,8 @@
 		if(thing in exclude)
 			continue
 
-		add_nymph()
+		if(!add_nymph())
+			return added
 		added += 1
 
 	return added
@@ -58,13 +59,13 @@
 	for(var/mob/living/carbon/alien/nymph in contents)
 		count += 1
 	if(count >= 6)
-		return
+		return FALSE
 	var/mob/living/carbon/alien/diona/M = new /mob/living/carbon/alien/diona(src)
 	M.gestalt = src
 	M.stat = CONSCIOUS
 	M.update_verbs()
 	M.sync_languages(src)
-	return
+	return TRUE
 
 //Environmental Functions
 //================================
@@ -198,7 +199,7 @@
 
 	textbox	= "What shall we name our new collective? Type in a name, or leave blank to cancel. We recall that we were once part of a collective named [mind.name] but it is not necessary to return to that"
 
-	newname = input(src,textbox,"Choosing a name.",suggestion)
+	newname = input(src, textbox, "Choosing a name.", suggestion)
 	if (newname)
 		real_name = newname
 		name = newname
@@ -262,11 +263,13 @@
 	M.verbs += /mob/living/carbon/alien/diona/proc/merge_back_to_gestalt
 	M.verbs += /mob/living/carbon/alien/diona/proc/switch_to_gestalt
 	verbs += /mob/living/carbon/human/proc/switch_to_nymph
+	M.update_verbs(TRUE)
+	M.detached = TRUE
 
 	update_dionastats() //Re-find the organs in case they were lost or regained
-	nutrition -= 150
-	DS.stored_energy -= 60
-	diona_handle_regeneration(DS)
+	nutrition -= REGROW_FOOD_REQ
+	DS.stored_energy -= REGROW_ENERGY_REQ
+	diona_handle_regeneration(DS, TRUE)
 	playsound(src, 'sound/species/diona/gestalt_grow.ogg', 30, 1)
 
 /mob/living/carbon/human/proc/switch_to_nymph()

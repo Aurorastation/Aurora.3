@@ -194,9 +194,9 @@
 				else if (alert("This will open the Github page in your browser. Are you sure?",, "Yes", "No") == "Yes")
 					if (href_list["pr"])
 						var/pr_link = "[config.githuburl]pull/[href_list["pr"]]"
-						to_chat(src, link(pr_link))
+						send_link(src, pr_link)
 					else
-						to_chat(src, link(config.githuburl))
+						send_link(src, config.githuburl)
 
 			// Forum link from various panels.
 			if ("forums")
@@ -337,7 +337,6 @@
 	clients += src
 	directory[ckey] = src
 
-
 	if (LAZYLEN(config.client_blacklist_version))
 		var/client_version = "[byond_version].[byond_build]"
 		if (client_version in config.client_blacklist_version)
@@ -357,11 +356,10 @@
 		//Do auth shit
 	else
 		. = ..()
-		src.InitPerfs()
 		src.InitClient()
+		src.InitPrefs()
 
-/client/proc/InitPerfs()
-
+/client/proc/InitPrefs()
 	//preferences datum - also holds some persistant data for the client (because we may as well keep these datums to a minimum)
 	prefs = preferences_datums[ckey]
 	if(!prefs)
@@ -374,6 +372,8 @@
 	prefs.last_id = computer_id			//these are gonna be used for banning
 
 /client/proc/InitClient()
+	if(initialized)
+		return
 	to_chat(src, "<span class='alert'>If the title screen is black, resources are still downloading. Please be patient until the title screen appears.</span>")
 
 	//Admin Authorisation
@@ -436,9 +436,11 @@
 
 	check_ip_intel()
 
-	//////////////
-	//DISCONNECT//
-	//////////////
+	initialized = TRUE
+
+//////////////
+//DISCONNECT//
+//////////////
 /client/Del()
 	ticket_panels -= src
 	if(holder)
@@ -669,7 +671,7 @@
 			log_debug("Unrecognized process_webint_link() call used. Route sent: '[route]'.")
 			return
 
-	to_chat(src, link(linkURL))
+	send_link(src, linkURL)
 	return
 
 /client/verb/show_greeting()
