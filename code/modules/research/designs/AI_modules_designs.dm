@@ -106,7 +106,7 @@
 /datum/design/aimodule/core/tyrant
 	name = "T.Y.R.A.N.T."
 	id = "tyrant"
-	req_tech = list(TECH_DATA = 4, TECH_ILLEGAL = 2, TECH_MATERIAL = 6)
+	req_tech = list(TECH_DATA = 4, TECH_MATERIAL = 6)
 	build_path = /obj/item/weapon/aiModule/tyrant
 	sort_string = "XACAD"
 

@@ -736,7 +736,7 @@
 	name = "energy relay"
 	desc = "Wirelessly drains energy from any available power channel in area. The performance index is quite low."
 	icon_state = "tesla"
-	origin_tech = list(TECH_MAGNET = 4, TECH_ILLEGAL = 2)
+	origin_tech = list(TECH_MAGNET = 4)
 	equip_cooldown = 10
 	energy_drain = 0
 	range = 0
