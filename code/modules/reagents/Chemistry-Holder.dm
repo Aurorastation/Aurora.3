@@ -123,8 +123,11 @@
 	for(var/datum/chemical_reaction/C in effect_reactions)
 		C.post_reaction(src)
 
-	update_holder(equalize_temperature()) //If the thermal energy of the reagents is different after a reaction, then run process_reactions again.
-	return reaction_occured
+	var/temps_updated = equalize_temperature()
+
+	update_holder(reactions = reaction_occured)
+
+	return temps_updated
 
 /* Holder-to-chemical */
 

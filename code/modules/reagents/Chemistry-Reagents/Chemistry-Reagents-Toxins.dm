@@ -704,22 +704,6 @@
 /datum/reagent/nanites/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.contract_disease(new /datum/disease/robotic_transformation(0), 1)
 
-/datum/reagent/xenomicrobes
-	name = "Xenomicrobes"
-	id = "xenomicrobes"
-	description = "Microbes with an entirely alien cellular structure."
-	reagent_state = LIQUID
-	color = "#535E66"
-	taste_description = "sludge"
-	fallback_specific_heat = 2
-
-/datum/reagent/xenomicrobes/affect_touch(var/mob/living/carbon/M, var/alien, var/removed)
-	if(prob(10))
-		M.contract_disease(new /datum/disease/xeno_transformation(0), 1)
-
-/datum/reagent/xenomicrobes/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	M.contract_disease(new /datum/disease/xeno_transformation(0), 1)
-
 /datum/reagent/toxin/undead
 	name = "Undead Ichor"
 	id = "undead_ichor"

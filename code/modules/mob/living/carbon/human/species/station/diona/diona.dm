@@ -100,7 +100,7 @@
 
 	var/remainder = cost * H.sprint_cost_factor
 
-	if (H.total_radiation)
+	if (H.total_radiation && !DS.regening_organ)
 		if (H.total_radiation > (cost*0.5))//Radiation counts as double energy
 			H.apply_radiation(cost*(-0.5))
 			return 1

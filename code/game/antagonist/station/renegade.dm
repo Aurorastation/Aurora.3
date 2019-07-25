@@ -23,7 +23,7 @@ var/datum/antagonist/renegade/renegades
 		/obj/item/weapon/gun/projectile/revolver/detective,
 		/obj/item/weapon/gun/projectile/revolver/derringer,
 		/obj/item/weapon/gun/projectile/automatic/c20r,
-		/obj/item/weapon/gun/projectile/deagle/camo,
+		/obj/item/weapon/gun/projectile/deagle,
 		/obj/item/weapon/gun/projectile/pistol,
 		/obj/item/weapon/gun/projectile/shotgun/doublebarrel/sawn,
 		/obj/item/weapon/gun/projectile/shotgun/pump/rifle/obrez,
