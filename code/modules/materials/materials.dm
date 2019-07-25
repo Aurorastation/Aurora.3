@@ -785,12 +785,6 @@ var/list/name_to_material
 	sheet_singular_name = "blob"
 	sheet_plural_name = "blobs"
 
-/material/resin/can_open_material_door(var/mob/living/user)
-	var/mob/living/carbon/M = user
-	if(istype(M) && locate(/obj/item/organ/xenos/hivenode) in M.internal_organs)
-		return 1
-	return 0
-
 //TODO PLACEHOLDERS:
 /material/leather
 	name = "leather"

@@ -9,7 +9,7 @@ var/list/admin_departments
 	icon = 'icons/obj/library.dmi'
 	icon_state = "fax"
 	insert_anim = "faxsend"
-	req_one_access = list(access_lawyer, access_heads, access_armory) //Warden needs to be able to Fax tau ceti gov too.
+	req_one_access = list(access_lawyer, access_heads)
 	density = 0//It's a small machine that sits on a table, this allows small things to walk under that table
 	use_power = 1
 	idle_power_usage = 30
@@ -270,8 +270,8 @@ var/list/admin_departments
 	//message badmins that a fax has arrived
 	if (destination == current_map.boss_name)
 		message_admins(sender, "[uppertext(current_map.boss_short)] FAX", rcvdcopy, "CentcommFaxReply", "#006100")
-	else if (destination == "[current_map.system_name] Government")
-		message_admins(sender, "[uppertext(current_map.system_name)] GOVERNMENT FAX", rcvdcopy, "CentcommFaxReply", "#1F66A0")
+	else if (destination == "External Routing")
+		message_admins(sender, "EXTERNAL ROUTING FAX", rcvdcopy, "CentcommFaxReply", "#1F66A0")
 
 	set_cooldown(adminfax_cooldown)
 	spawn(50)

@@ -84,7 +84,7 @@
 	M.equip_to_slot_or_del(new /obj/item/weapon/reagent_containers/spray/pepper(M), slot_l_store)
 	M.equip_to_slot_or_del(new /obj/item/device/taperecorder/cciaa(M), slot_r_store)
 
-	var/obj/item/clothing/suit/storage/toggle/internalaffairs/suit = new(M)
+	var/obj/item/clothing/suit/storage/toggle/liaison/suit = new(M)
 	suit.name = "central command internal affairs jacket"
 	M.equip_to_slot_or_del(suit, slot_wear_suit)
 

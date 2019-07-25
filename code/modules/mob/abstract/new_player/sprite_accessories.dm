@@ -11,6 +11,9 @@
 	have to define any UI values for sprite accessories manually for hair and facial
 	hair. Just add in new hair types and the game will naturally adapt.
 
+	Notice for novices: Don't use identical variables *twice*, the most recent one written
+	in an indented string will overwrite all the other ones preceding it.
+
 */
 
 /datum/sprite_accessory
@@ -750,36 +753,36 @@ Follow by example and make good judgement based on length which list to include 
 		name = "Low Fade"
 		icon_state = "hair_lowfade"
 		gender = MALE
-		name = "Fade"
+		chatname = "Fade"
 
 	medfade
 		name = "Medium Fade"
 		icon_state = "hair_medfade"
-		name = "Fade"
+		chatname = "Fade"
 
 	highfade
 		name = "High Fade"
 		icon_state = "hair_highfade"
 		gender = MALE
-		name = "Fade"
+		chatname = "Fade"
 
 	baldfade
 		name = "Balding Fade"
 		icon_state = "hair_baldfade"
 		gender = MALE
-		name = "Fade"
+		chatname = "Fade"
 
 	nofade
 		name = "No Fade"
 		icon_state = "hair_nofade"
 		gender = MALE
-		name = "Fade"
+		chatname = "Fade"
 
 	trimflat
 		name = "Trimmed Flat Top"
 		icon_state = "hair_trimflat"
 		gender = MALE
-		name = "Flat-Top"
+		chatname = "Flat-Top"
 
 	shaved
 		name = "Shaved"
