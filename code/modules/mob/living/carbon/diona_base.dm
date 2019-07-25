@@ -247,6 +247,9 @@ var/list/diona_banned_languages = list(
 
 	// We cancel with regening organ, as it's meant to stop all other regenerative
 	// processes. Just pray to shit the timers don't implode.
+	if(DS.pause_regen)
+		return
+
 	if(DS.regening_organ)
 		diona_regen_progress(DS)
 		return
@@ -643,6 +646,7 @@ var/list/diona_banned_languages = list(
 	var/datum/callback/regen_limb
 	var/datum/callback/regen_extra
 	var/regen_limb_progress
+	var/pause_regen = FALSE
 
 /datum/dionastats/Destroy()
 	light_organ = null //Nulling out these references to prevent GC errors
