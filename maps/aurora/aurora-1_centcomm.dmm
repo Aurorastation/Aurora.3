@@ -6274,6 +6274,7 @@
 /obj/item/weapon/storage/toolbox/electrical,
 /obj/item/weapon/storage/toolbox/mechanical,
 /obj/item/weapon/storage/belt/utility,
+/obj/item/clothing/gloves/yellow,
 /turf/simulated/floor/tiled,
 /area/merchant_station)
 "api" = (
@@ -6431,6 +6432,12 @@
 /obj/item/stack/material/glass{
 	amount = 50
 	},
+/obj/item/stack/material/steel{
+	amount = 50
+	},
+/obj/item/stack/material/glass{
+	amount = 50
+	},
 /turf/simulated/floor/tiled,
 /area/merchant_station)
 "apE" = (
@@ -6488,6 +6495,8 @@
 /obj/machinery/light{
 	dir = 1
 	},
+/obj/structure/table/reinforced,
+/obj/item/weapon/storage/box/cups,
 /turf/simulated/floor/tiled,
 /area/merchant_station)
 "apP" = (
@@ -6513,10 +6522,6 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/turf/simulated/floor/tiled,
-/area/merchant_station)
-"apS" = (
-/obj/machinery/vending/coffee,
 /turf/simulated/floor/tiled,
 /area/merchant_station)
 "apT" = (
@@ -6725,6 +6730,8 @@
 /area/centcom/living)
 "aqv" = (
 /obj/structure/table/reinforced,
+/obj/item/weapon/spacecash/c1000,
+/obj/item/weapon/spacecash/c1000,
 /obj/item/weapon/spacecash/c1000,
 /obj/item/weapon/spacecash/c1000,
 /obj/item/weapon/spacecash/c1000,
@@ -6977,16 +6984,10 @@
 /turf/simulated/shuttle/plating,
 /area/merchant_station)
 "arh" = (
-/obj/structure/table/standard,
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 4
+/obj/machinery/door/window/eastright,
+/turf/simulated/shuttle/floor/tiled/destructible{
+	icon_state = "dark"
 	},
-/obj/machinery/door/window/southleft{
-	name = "display case";
-	req_access = list(110)
-	},
-/turf/simulated/shuttle/floor/tiled/destructible,
 /area/merchant_ship/start)
 "arl" = (
 /obj/machinery/light{
@@ -7143,40 +7144,30 @@
 "arO" = (
 /turf/simulated/shuttle/floor/plating/destructible,
 /area/merchant_ship/start)
-"arP" = (
-/obj/machinery/door/airlock/external{
-	frequency = 1380;
-	icon_state = "door_locked";
-	id_tag = "merchant_shuttle_hatch";
-	name = "Ship External Access";
-	req_access = list(110)
-	},
-/turf/simulated/shuttle/floor/tiled/destructible,
-/area/merchant_ship/start)
 "arR" = (
-/obj/structure/table/reinforced,
-/obj/structure/window/reinforced{
-	dir = 8
+/obj/structure/grille,
+/obj/structure/window/shuttle{
+	layer = 3.5
 	},
-/obj/item/weapon/paper_bin,
-/obj/item/weapon/pen/multi,
-/turf/simulated/shuttle/floor/tiled/destructible,
-/area/merchant_ship/start)
-"arT" = (
-/obj/machinery/door/airlock/silver{
-	hashatch = 0;
-	name = "Bridge";
-	req_access = list(110)
+/obj/machinery/door/blast/shutters{
+	density = 0;
+	dir = 8;
+	icon_state = "shutter0";
+	id = "merch_privacy";
+	name = "Privacy Shutters";
+	opacity = 0
 	},
-/turf/simulated/shuttle/floor/tiled/destructible,
+/turf/simulated/shuttle/floor/plating/destructible,
 /area/merchant_ship/start)
 "arU" = (
-/turf/simulated/shuttle/floor/wood/destructible,
+/turf/simulated/shuttle/floor/carpet/destructible{
+	icon_state = "bcarpet04"
+	},
 /area/merchant_ship/start)
 "arW" = (
 /obj/machinery/computer/shuttle_control/merchant,
 /turf/simulated/shuttle/floor/carpet/destructible{
-	icon_state = "carpet11-12"
+	icon_state = "bcarpet06"
 	},
 /area/merchant_ship/start)
 "arX" = (
@@ -7261,10 +7252,16 @@
 /turf/template_noop,
 /area/template_noop)
 "asi" = (
-/obj/structure/bed/chair/office/dark{
-	dir = 8
+/obj/machinery/embedded_controller/radio/simple_docking_controller{
+	frequency = 1380;
+	id_tag = "merchant_shuttle";
+	pixel_x = 0;
+	pixel_y = -24;
+	tag_door = "merchant_shuttle_hatch"
 	},
-/turf/simulated/shuttle/floor/tiled/destructible,
+/turf/simulated/shuttle/floor/tiled/destructible{
+	icon_state = "dark"
+	},
 /area/merchant_ship/start)
 "asl" = (
 /obj/structure/table/rack,
@@ -7329,17 +7326,17 @@
 /turf/simulated/shuttle/plating,
 /area/merchant_station)
 "asv" = (
-/obj/machinery/door/window{
-	dir = 1;
-	name = "display case";
-	req_access = list(110)
-	},
-/obj/structure/table/standard,
 /obj/structure/window/reinforced{
 	icon_state = "rwindow";
 	dir = 4
 	},
-/turf/simulated/shuttle/floor/tiled/destructible,
+/obj/structure/bed/chair{
+	dir = 8
+	},
+/turf/simulated/shuttle/floor/tiled/destructible{
+	icon_state = "blue";
+	dir = 6
+	},
 /area/merchant_ship/start)
 "asA" = (
 /obj/structure/table/rack,
@@ -21151,7 +21148,7 @@
 /obj/structure/table/reinforced,
 /obj/item/weapon/folder/blue,
 /obj/effect/floor_decal/carpet,
-/obj/item/weapon/storage/box/cups,
+/obj/item/device/price_scanner,
 /turf/simulated/floor/carpet,
 /area/merchant_station)
 "aXY" = (
@@ -21713,6 +21710,13 @@
 	icon_state = "warningcorner"
 	},
 /area/centcom/ferry)
+"bkK" = (
+/obj/structure/table/reinforced,
+/obj/machinery/door/window/southleft,
+/turf/simulated/shuttle/floor/tiled/destructible{
+	icon_state = "dark"
+	},
+/area/merchant_ship/start)
 "boO" = (
 /turf/template_noop,
 /area/shuttle/escape_pod2/centcom/space)
@@ -21911,6 +21915,14 @@
 	},
 /turf/simulated/shuttle/floor/plating/destructible/black,
 /area/skipjack_station/start)
+"cUY" = (
+/obj/machinery/porta_turret/net{
+	check_anomalies = 0;
+	check_arrest = 0;
+	check_records = 0
+	},
+/turf/simulated/shuttle/floor/tiled/destructible,
+/area/merchant_ship/start)
 "dcz" = (
 /obj/structure/window/reinforced{
 	dir = 8
@@ -21975,6 +21987,17 @@
 	icon_state = "floor"
 	},
 /area/centcom/ferry)
+"dmX" = (
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/table/standard{
+	pixel_x = 3;
+	pixel_y = 4
+	},
+/obj/machinery/door/window/southleft,
+/turf/simulated/shuttle/floor/tiled/destructible,
+/area/merchant_ship/start)
 "dra" = (
 /obj/machinery/computer/secure_data,
 /turf/unsimulated/floor{
@@ -22188,6 +22211,11 @@
 	dir = 4
 	},
 /area/centcom/living)
+"eFm" = (
+/turf/simulated/shuttle/floor/tiled/destructible{
+	icon_state = "dark"
+	},
+/area/merchant_ship/start)
 "eHU" = (
 /obj/machinery/light/spot,
 /obj/structure/closet/crate/secure/legion,
@@ -22386,6 +22414,12 @@
 	dir = 8
 	},
 /area/centcom/living)
+"gGz" = (
+/turf/simulated/shuttle/floor/tiled/destructible{
+	icon_state = "yellow";
+	dir = 9
+	},
+/area/merchant_ship/start)
 "gJu" = (
 /obj/effect/floor_decal/industrial/warning{
 	icon_state = "warning";
@@ -22402,6 +22436,24 @@
 	icon_state = "dark"
 	},
 /area/centcom/legion_base/hangar5)
+"gJR" = (
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced,
+/obj/structure/table/reinforced,
+/obj/item/weapon/paper_bin,
+/obj/item/weapon/pen/multi,
+/obj/machinery/light{
+	dir = 8;
+	icon_state = "tube1";
+	name = "adjusted light fixture";
+	pixel_y = 16
+	},
+/turf/simulated/shuttle/floor/tiled/destructible{
+	icon_state = "dark"
+	},
+/area/merchant_ship/start)
 "gLm" = (
 /obj/structure/sign/flag/biesel{
 	pixel_y = 32
@@ -22896,6 +22948,15 @@
 	icon_state = "warning"
 	},
 /area/centcom/ferry)
+"keF" = (
+/obj/structure/closet/secure_closet/merchant,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/turf/simulated/shuttle/floor/tiled/destructible{
+	icon_state = "dark"
+	},
+/area/merchant_ship/start)
 "khH" = (
 /obj/machinery/light/spot{
 	icon_state = "tube1";
@@ -23021,6 +23082,12 @@
 	},
 /turf/simulated/shuttle/floor/plating/destructible/black,
 /area/skipjack_station/start)
+"kVl" = (
+/turf/simulated/shuttle/floor/tiled/destructible{
+	icon_state = "yellow";
+	dir = 10
+	},
+/area/merchant_ship/start)
 "kWC" = (
 /obj/structure/sign/greencross{
 	name = "Infirmary";
@@ -23122,6 +23189,22 @@
 	},
 /turf/simulated/shuttle/floor/plating/destructible/black,
 /area/skipjack_station/start)
+"lDM" = (
+/turf/simulated/shuttle/floor/tiled/destructible{
+	icon_state = "yellow";
+	dir = 8
+	},
+/area/merchant_ship/start)
+"lGs" = (
+/obj/machinery/autolathe{
+	desc = "Your typical Autolathe. It appears to have much more options than your regular one, however...";
+	hacked = 1;
+	name = "Modified Autolathe";
+	pixel_y = -1
+	},
+/obj/machinery/door/window/northright,
+/turf/simulated/shuttle/floor/tiled/destructible,
+/area/merchant_ship/start)
 "lUA" = (
 /obj/structure/closet/crate/trashcart{
 	icon_state = "trashcartopen";
@@ -23150,6 +23233,12 @@
 	icon_state = "floor3"
 	},
 /area/syndicate_station/start)
+"msm" = (
+/turf/simulated/shuttle/floor/tiled/destructible{
+	icon_state = "yellow";
+	dir = 6
+	},
+/area/merchant_ship/start)
 "msK" = (
 /obj/structure/closet/walllocker/emerglocker/east{
 	pixel_x = 31;
@@ -23441,6 +23530,13 @@
 	},
 /turf/simulated/shuttle/floor/plating/destructible/black,
 /area/syndicate_station/start)
+"nMW" = (
+/obj/machinery/door/window/eastright,
+/turf/simulated/shuttle/floor/tiled/destructible{
+	icon_state = "blue";
+	dir = 5
+	},
+/area/merchant_ship/start)
 "nPC" = (
 /obj/structure/banner,
 /turf/unsimulated/floor{
@@ -23515,6 +23611,12 @@
 	icon_state = "floor3"
 	},
 /area/syndicate_station/start)
+"otk" = (
+/turf/simulated/shuttle/floor/tiled/destructible{
+	dir = 1;
+	icon_state = "yellow"
+	},
+/area/merchant_ship/start)
 "ouD" = (
 /obj/effect/decal/spraystill{
 	desc = "A sign.";
@@ -23613,6 +23715,19 @@
 	dir = 6
 	},
 /area/syndicate_station/start)
+"oZO" = (
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 4
+	},
+/obj/structure/bed/chair{
+	dir = 8
+	},
+/turf/simulated/shuttle/floor/tiled/destructible{
+	icon_state = "blue";
+	dir = 4
+	},
+/area/merchant_ship/start)
 "pdL" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced{
@@ -23734,6 +23849,25 @@
 /obj/structure/closet/crate/loot,
 /turf/simulated/shuttle/floor/airless,
 /area/template_noop)
+"pMH" = (
+/turf/simulated/shuttle/floor/tiled/destructible{
+	icon_state = "blue";
+	dir = 1
+	},
+/area/merchant_ship/start)
+"pNN" = (
+/obj/structure/bed/chair/comfy/brown{
+	dir = 4
+	},
+/obj/machinery/vending/wallmed1{
+	pixel_x = -9;
+	pixel_y = 30;
+	req_access = list(110)
+	},
+/turf/simulated/shuttle/floor/tiled/destructible{
+	icon_state = "dark"
+	},
+/area/merchant_ship/start)
 "pPH" = (
 /obj/structure/table/wood,
 /turf/unsimulated/floor{
@@ -24034,6 +24168,12 @@
 	},
 /turf/simulated/shuttle/floor/plating/destructible/black,
 /area/skipjack_station/start)
+"say" = (
+/obj/machinery/light/small{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/merchant_station)
 "sde" = (
 /obj/structure/bed/chair,
 /turf/simulated/shuttle/floor/destructible,
@@ -24047,12 +24187,25 @@
 	icon_state = "floor7"
 	},
 /area/shuttle/transport1/centcom)
+"skz" = (
+/turf/simulated/shuttle/floor/tiled/destructible{
+	icon_state = "yellow";
+	dir = 4
+	},
+/area/merchant_ship/start)
 "ssK" = (
 /obj/structure/bed/chair,
 /turf/simulated/shuttle/floor/destructible/merc{
 	icon_state = "floor7"
 	},
 /area/skipjack_station/start)
+"swP" = (
+/obj/structure/flora/pottedplant/random,
+/obj/structure/sign/vacuum{
+	pixel_y = -32
+	},
+/turf/simulated/shuttle/floor/plating/destructible,
+/area/merchant_ship/start)
 "sxc" = (
 /obj/machinery/light{
 	dir = 1;
@@ -24078,6 +24231,19 @@
 	icon_state = "floor"
 	},
 /area/centcom/holding)
+"sME" = (
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 4
+	},
+/obj/structure/window/reinforced,
+/obj/structure/table/reinforced,
+/obj/item/device/price_scanner,
+/obj/item/weapon/hand_labeler,
+/turf/simulated/shuttle/floor/tiled/destructible{
+	icon_state = "dark"
+	},
+/area/merchant_ship/start)
 "sPP" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced,
@@ -24097,6 +24263,11 @@
 /obj/machinery/light/colored/emergency,
 /turf/simulated/shuttle/floor/airless,
 /area/template_noop)
+"sUt" = (
+/turf/simulated/shuttle/floor/tiled/destructible{
+	icon_state = "yellow"
+	},
+/area/merchant_ship/start)
 "sUR" = (
 /obj/machinery/light{
 	dir = 8;
@@ -24134,6 +24305,19 @@
 "tdU" = (
 /turf/simulated/shuttle/floor/destructible,
 /area/shuttle/escape/centcom)
+"thf" = (
+/obj/machinery/door/airlock/external{
+	frequency = 1380;
+	icon_state = "door_locked";
+	id_tag = "merchant_shuttle_hatch";
+	name = "Ship External Access";
+	req_access = list(110)
+	},
+/turf/simulated/shuttle/floor/tiled/destructible{
+	icon_state = "warnplate";
+	dir = 4
+	},
+/area/merchant_ship/start)
 "tpr" = (
 /obj/item/weapon/broken_bottle,
 /turf/template_noop,
@@ -24261,6 +24445,12 @@
 	icon_state = "floor"
 	},
 /area/centcom/control)
+"uoc" = (
+/turf/simulated/shuttle/floor/tiled/destructible{
+	icon_state = "blue";
+	dir = 9
+	},
+/area/merchant_ship/start)
 "uoz" = (
 /obj/machinery/body_scanconsole{
 	icon_state = "body_scannerconsole";
@@ -24460,6 +24650,12 @@
 	icon_state = "wood"
 	},
 /area/centcom/living)
+"vyL" = (
+/turf/simulated/shuttle/floor/tiled/destructible{
+	icon_state = "yellow";
+	dir = 5
+	},
+/area/merchant_ship/start)
 "vBS" = (
 /obj/structure/table/rack,
 /obj/item/weapon/storage/backpack/legion,
@@ -24554,6 +24750,17 @@
 	icon_state = "dark"
 	},
 /area/centcom/specops)
+"wMx" = (
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/table/standard{
+	pixel_x = 3;
+	pixel_y = -1
+	},
+/obj/machinery/door/window/northright,
+/turf/simulated/shuttle/floor/tiled/destructible,
+/area/merchant_ship/start)
 "wPO" = (
 /turf/simulated/shuttle/wall,
 /area/template_noop)
@@ -24582,6 +24789,28 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/shuttle/floor/plating/destructible/black,
 /area/syndicate_station/start)
+"xiD" = (
+/obj/structure/bed/chair/comfy/brown{
+	dir = 8
+	},
+/obj/item/weapon/storage/secure/safe{
+	pixel_x = 12;
+	pixel_y = 30
+	},
+/obj/machinery/button/remote/blast_door{
+	id = "merch_privacy";
+	name = "Privacy Shutters";
+	pixel_x = -9;
+	pixel_y = 28;
+	req_access = list(110)
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/turf/simulated/shuttle/floor/tiled/destructible{
+	icon_state = "dark"
+	},
+/area/merchant_ship/start)
 "xjq" = (
 /obj/machinery/light,
 /obj/structure/curtain,
@@ -29231,17 +29460,6 @@
 	icon_state = "dark"
 	},
 /area/centcom/legion_base)
-"xWs" = (
-/obj/structure/table/rack,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/machinery/door/window/southright{
-	name = "display case";
-	req_access = list(110)
-	},
-/turf/simulated/shuttle/floor/tiled/destructible,
-/area/merchant_ship/start)
 "xWt" = (
 /turf/unsimulated/floor{
 	name = "plating"
@@ -29984,6 +30202,17 @@
 	dir = 6
 	},
 /area/centcom/legion_base/hangar5)
+"yab" = (
+/obj/structure/flora/pottedplant/random{
+	pixel_y = 4
+	},
+/obj/machinery/light{
+	dir = 4;
+	icon_state = "tube1";
+	pixel_x = 0
+	},
+/turf/simulated/shuttle/floor/plating/destructible,
+/area/merchant_ship/start)
 "yad" = (
 /obj/structure/flora/pottedplant/random,
 /turf/simulated/floor/tiled,
@@ -30026,6 +30255,18 @@
 	icon_state = "dark"
 	},
 /area/centcom/legion_base)
+"yao" = (
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/bed/chair{
+	dir = 4
+	},
+/turf/simulated/shuttle/floor/tiled/destructible{
+	icon_state = "blue";
+	dir = 8
+	},
+/area/merchant_ship/start)
 "yaq" = (
 /obj/machinery/embedded_controller/radio/simple_docking_controller{
 	frequency = 1380;
@@ -30038,78 +30279,63 @@
 /turf/simulated/floor/tiled,
 /area/merchant_station)
 "yas" = (
-/obj/structure/table/rack,
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/machinery/door/window/southleft{
-	name = "display case";
-	req_access = list(110)
+/obj/structure/table/reinforced,
+/obj/item/device/flashlight/lamp{
+	pixel_x = 3
 	},
-/turf/simulated/shuttle/floor/tiled/destructible,
+/obj/machinery/turretid{
+	check_anomalies = 0;
+	check_arrest = 0;
+	check_records = 0;
+	name = "merchant turret control panel";
+	pixel_x = -28
+	},
+/turf/simulated/shuttle/floor/tiled/destructible{
+	icon_state = "dark"
+	},
 /area/merchant_ship/start)
 "yat" = (
-/obj/structure/table/rack,
-/obj/structure/window/reinforced{
-	dir = 4
+/obj/structure/bed/chair/office/dark,
+/turf/simulated/shuttle/floor/tiled/destructible{
+	icon_state = "dark"
 	},
-/obj/machinery/door/window/southright{
-	name = "display case";
-	req_access = list(110)
-	},
-/obj/machinery/light{
-	icon_state = "tube1";
-	dir = 1
-	},
-/turf/simulated/shuttle/floor/tiled/destructible,
 /area/merchant_ship/start)
 "yau" = (
-/obj/structure/table/standard,
-/obj/machinery/door/window/southleft{
-	name = "display case";
-	req_access = list(110)
-	},
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 4
+/obj/structure/extinguisher_cabinet{
+	pixel_x = 0;
+	pixel_y = 30
 	},
 /turf/simulated/shuttle/floor/tiled/destructible,
 /area/merchant_ship/start)
 "yav" = (
-/obj/structure/table/standard,
-/obj/machinery/door/window/southleft{
-	name = "display case";
-	req_access = list(110)
-	},
-/obj/machinery/light{
-	icon_state = "tube1";
-	dir = 1
-	},
-/turf/simulated/shuttle/floor/tiled/destructible,
-/area/merchant_ship/start)
-"yax" = (
-/obj/structure/table/rack,
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/machinery/door/window/southleft{
-	name = "display case";
-	req_access = list(110)
-	},
-/obj/machinery/light{
-	icon_state = "tube1";
-	dir = 1
+/obj/machinery/door/window/southleft,
+/obj/structure/table/rack{
+	pixel_x = 3;
+	pixel_y = 3
 	},
 /turf/simulated/shuttle/floor/tiled/destructible,
 /area/merchant_ship/start)
 "yay" = (
-/obj/structure/table/standard,
-/obj/machinery/door/window/southright{
-	name = "display case";
-	req_access = list(110)
-	},
 /obj/structure/window/reinforced{
-	dir = 8
+	icon_state = "rwindow";
+	dir = 4
+	},
+/obj/machinery/door/window/southright,
+/obj/structure/table/rack{
+	pixel_x = -3;
+	pixel_y = 3
+	},
+/obj/machinery/light{
+	dir = 1;
+	icon_state = "tube1";
+	name = "adjusted light fixture";
+	pixel_x = -16
 	},
 /turf/simulated/shuttle/floor/tiled/destructible,
 /area/merchant_ship/start)
@@ -30128,70 +30354,57 @@
 /turf/simulated/shuttle/floor/plating/destructible,
 /area/merchant_ship/start)
 "yaE" = (
-/obj/machinery/light/small{
-	dir = 1
-	},
-/obj/structure/sign/vacuum{
-	pixel_y = 32
+/obj/machinery/atm{
+	pixel_y = 28
 	},
 /turf/simulated/shuttle/floor/plating/destructible,
 /area/merchant_ship/start)
 "yaF" = (
-/obj/machinery/door/window/westleft{
-	req_access = list(110)
+/obj/structure/grille,
+/obj/machinery/door/blast/shutters{
+	density = 0;
+	dir = 8;
+	icon_state = "shutter0";
+	id = "merch_privacy";
+	name = "Privacy Shutters";
+	opacity = 0
 	},
-/obj/machinery/turretid{
-	check_arrest = 0;
-	check_records = 0;
-	pixel_y = 32;
-	req_access = list(110)
+/obj/structure/window/shuttle{
+	layer = 3.5
 	},
-/turf/simulated/shuttle/floor/tiled/destructible,
+/turf/simulated/shuttle/floor/plating/destructible,
 /area/merchant_ship/start)
 "yaG" = (
-/obj/structure/closet/secure_closet/merchant,
+/obj/structure/table/wood,
+/obj/item/weapon/material/ashtray/bronze,
 /obj/machinery/light{
-	dir = 4;
+	dir = 1;
 	icon_state = "tube1";
-	pixel_x = 0
+	pixel_y = 0
 	},
-/turf/simulated/shuttle/floor/tiled/destructible,
+/turf/simulated/shuttle/floor/tiled/destructible{
+	icon_state = "dark"
+	},
 /area/merchant_ship/start)
 "yaH" = (
-/obj/machinery/vending/wallmed1{
-	pixel_x = -9;
-	pixel_y = 30;
-	req_access = list(110)
+/obj/structure/table/reinforced,
+/obj/item/weapon/storage/secure/briefcase,
+/turf/simulated/shuttle/floor/carpet/destructible{
+	icon_state = "bcarpet01"
 	},
-/obj/machinery/embedded_controller/radio/simple_docking_controller{
-	frequency = 1380;
-	id_tag = "merchant_shuttle";
-	pixel_x = -32;
-	pixel_y = 0;
-	tag_door = "merchant_shuttle_hatch"
-	},
-/obj/item/weapon/storage/secure/safe{
-	pixel_x = 14;
-	pixel_y = 32
-	},
-/obj/machinery/light{
-	icon_state = "tube1";
-	dir = 8
-	},
-/turf/simulated/shuttle/floor/wood/destructible,
 /area/merchant_ship/start)
 "yaI" = (
 /obj/structure/table/reinforced,
-/obj/item/weapon/hand_labeler,
 /turf/simulated/shuttle/floor/carpet/destructible{
-	icon_state = "carpet6-2"
+	icon_state = "bcarpet02"
 	},
 /area/merchant_ship/start)
 "yaJ" = (
 /obj/structure/table/reinforced,
-/obj/item/weapon/storage/wallet,
+/obj/item/weapon/paper_bin,
+/obj/item/weapon/pen/multi,
 /turf/simulated/shuttle/floor/carpet/destructible{
-	icon_state = "carpet10-8"
+	icon_state = "bcarpet03"
 	},
 /area/merchant_ship/start)
 "yaL" = (
@@ -30218,21 +30431,18 @@
 	pixel_y = -22;
 	req_access = list(110)
 	},
-/turf/simulated/shuttle/floor/plating/destructible,
-/area/merchant_ship/start)
-"yaM" = (
-/obj/machinery/porta_turret/net{
-	lethal = 1;
-	lethal_icon = 0
+/turf/simulated/shuttle/floor/tiled/destructible{
+	icon_state = "warnplate";
+	dir = 8
 	},
-/turf/simulated/shuttle/floor/tiled/destructible,
 /area/merchant_ship/start)
 "yaN" = (
-/obj/structure/bed/chair/office/bridge{
+/obj/structure/bed/chair/office/bridge/generic{
+	icon_state = "bridge_generic";
 	dir = 4
 	},
 /turf/simulated/shuttle/floor/carpet/destructible{
-	icon_state = "carpet7-3"
+	icon_state = "bcarpet05"
 	},
 /area/merchant_ship/start)
 "yaP" = (
@@ -30240,42 +30450,42 @@
 /turf/simulated/shuttle/floor/plating/destructible,
 /area/merchant_ship/start)
 "yaQ" = (
-/obj/structure/table/reinforced,
-/obj/machinery/door/window/westleft{
+/obj/machinery/door/airlock/silver{
+	hashatch = 0;
+	name = "Bridge";
 	req_access = list(110)
 	},
-/obj/random/coin,
-/turf/simulated/shuttle/floor/tiled/destructible,
+/turf/simulated/shuttle/floor/tiled/destructible{
+	icon_state = "dark"
+	},
 /area/merchant_ship/start)
 "yaR" = (
 /obj/structure/closet/secure_closet/merchant,
-/obj/structure/extinguisher_cabinet{
-	pixel_x = 26;
-	pixel_y = -2
+/turf/simulated/shuttle/floor/tiled/destructible{
+	icon_state = "dark"
 	},
-/turf/simulated/shuttle/floor/tiled/destructible,
 /area/merchant_ship/start)
 "yaS" = (
-/obj/structure/closet/secure_closet/merchant,
-/obj/machinery/recharger/wallcharger{
-	pixel_x = 4;
-	pixel_y = -28
+/obj/structure/table/reinforced,
+/obj/machinery/recharger{
+	pixel_y = 2
 	},
-/obj/machinery/light{
-	icon_state = "tube1";
-	dir = 8
+/turf/simulated/shuttle/floor/carpet/destructible{
+	icon_state = "bcarpet07"
 	},
-/turf/simulated/shuttle/floor/wood/destructible,
 /area/merchant_ship/start)
 "yaT" = (
 /obj/structure/table/reinforced,
-/obj/machinery/button/remote/blast_door{
-	id = "MERCHANT FULL";
-	name = "Merchant Shuttle Lockdown";
-	pixel_x = -5;
-	pixel_y = 4;
-	req_access = list(110)
+/obj/machinery/light{
+	icon_state = "tube1";
+	dir = 2
 	},
+/turf/simulated/shuttle/floor/carpet/destructible{
+	icon_state = "bcarpet08"
+	},
+/area/merchant_ship/start)
+"yaU" = (
+/obj/structure/table/reinforced,
 /obj/machinery/button/remote/blast_door{
 	id = "MERCHANT";
 	name = "Merchant Airlock Lockdown";
@@ -30283,16 +30493,15 @@
 	pixel_y = 4;
 	req_access = list(110)
 	},
-/turf/simulated/shuttle/floor/carpet/destructible{
-	icon_state = "carpet5-1"
+/obj/machinery/button/remote/blast_door{
+	id = "MERCHANT FULL";
+	name = "Merchant Shuttle Lockdown";
+	pixel_x = -5;
+	pixel_y = 4;
+	req_access = list(110)
 	},
-/area/merchant_ship/start)
-"yaU" = (
-/obj/structure/table/reinforced,
-/obj/item/weapon/storage/secure/briefcase,
-/obj/item/device/price_scanner,
 /turf/simulated/shuttle/floor/carpet/destructible{
-	icon_state = "carpet9-4"
+	icon_state = "bcarpet09"
 	},
 /area/merchant_ship/start)
 "yaV" = (
@@ -30335,17 +30544,34 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
 /area/merchant_station)
-"yaZ" = (
-/obj/structure/flora/pottedplant/random,
+"yba" = (
+/obj/structure/window/reinforced{
+	dir = 8
+	},
 /obj/machinery/light{
 	dir = 8;
 	icon_state = "tube1";
-	pixel_y = 0
+	name = "adjusted light fixture";
+	pixel_y = 16
 	},
-/turf/simulated/shuttle/floor/tiled/destructible,
+/obj/machinery/vending/coffee{
+	name = "Free Hot Drinks machine";
+	prices = list();
+	products = list(/obj/item/weapon/reagent_containers/food/drinks/coffee = 12, /obj/item/weapon/reagent_containers/food/drinks/tea = 8, /obj/item/weapon/reagent_containers/food/drinks/h_chocolate = 8, /obj/item/weapon/reagent_containers/food/snacks/donut/normal = 6);
+	random_itemcount = 0
+	},
+/turf/simulated/shuttle/floor/tiled/destructible{
+	icon_state = "blue";
+	dir = 10
+	},
 /area/merchant_ship/start)
-"yba" = (
-/obj/structure/table/rack,
+"ybb" = (
+/turf/simulated/shuttle/floor/tiled/destructible{
+	icon_state = "blue";
+	dir = 2
+	},
+/area/merchant_ship/start)
+"ybd" = (
 /obj/structure/window/reinforced{
 	dir = 8
 	},
@@ -30354,75 +30580,28 @@
 	name = "display case";
 	req_access = list(110)
 	},
-/turf/simulated/shuttle/floor/tiled/destructible,
-/area/merchant_ship/start)
-"ybb" = (
-/obj/structure/table/rack,
-/obj/structure/window/reinforced{
-	dir = 4
+/obj/structure/table/rack{
+	pixel_x = 3;
+	pixel_y = -2
 	},
-/obj/machinery/door/window/northright{
-	name = "display case";
-	req_access = list(110)
-	},
-/obj/machinery/light{
-	icon_state = "tube1";
-	dir = 2
-	},
-/turf/simulated/shuttle/floor/tiled/destructible,
-/area/merchant_ship/start)
-"ybd" = (
-/obj/machinery/door/window/northright{
-	name = "display case";
-	req_access = list(110)
-	},
-/obj/machinery/light{
-	icon_state = "tube1";
-	dir = 2
-	},
-/obj/structure/table/standard,
 /turf/simulated/shuttle/floor/tiled/destructible,
 /area/merchant_ship/start)
 "ybe" = (
-/obj/structure/table/standard,
-/obj/machinery/door/window/northright{
-	name = "display case";
-	req_access = list(110)
-	},
 /obj/structure/window/reinforced{
-	dir = 8
+	icon_state = "rwindow";
+	dir = 4
 	},
-/turf/simulated/shuttle/floor/tiled/destructible,
-/area/merchant_ship/start)
-"ybf" = (
-/obj/structure/table/rack,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/machinery/door/window{
-	dir = 1;
-	name = "display case";
-	req_access = list(110)
+/obj/machinery/door/window/northright,
+/obj/structure/table/rack{
+	pixel_x = -3;
+	pixel_y = -2
 	},
 /obj/machinery/light{
 	dir = 2;
-	icon_state = "tube1"
+	icon_state = "tube1";
+	name = "adjusted light fixture";
+	pixel_x = -16
 	},
-/turf/simulated/shuttle/floor/tiled/destructible,
-/area/merchant_ship/start)
-"ybg" = (
-/obj/structure/table/rack,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/machinery/door/window/northright{
-	name = "display case";
-	req_access = list(110)
-	},
-/turf/simulated/shuttle/floor/tiled/destructible,
-/area/merchant_ship/start)
-"ybh" = (
-/obj/structure/flora/pottedplant/random,
 /turf/simulated/shuttle/floor/tiled/destructible,
 /area/merchant_ship/start)
 "ybm" = (
@@ -34260,12 +34439,12 @@ ahV
 ahV
 aoY
 apf
-apt
+say
 apF
 aoY
 apt
 apt
-aqi
+apt
 aoY
 aoY
 aoY
@@ -34522,7 +34701,7 @@ aoY
 aoY
 apt
 apt
-aqj
+apt
 aqw
 ait
 ait
@@ -34779,7 +34958,7 @@ apG
 aoY
 apt
 apt
-aqk
+aqj
 aqx
 ait
 aaM
@@ -35036,7 +35215,7 @@ apu
 aoY
 apt
 apt
-aql
+aqk
 aqx
 aaM
 aaM
@@ -35293,7 +35472,7 @@ apI
 apM
 apt
 apt
-apt
+aql
 aqy
 aaM
 aaM
@@ -35548,7 +35727,7 @@ aoY
 apx
 apJ
 aoY
-apS
+aqi
 apt
 aqm
 aoY
@@ -36061,8 +36240,8 @@ aoY
 api
 api
 aoY
-yad
 aXW
+yad
 apt
 aqn
 aoY
@@ -36070,9 +36249,9 @@ aaM
 aqR
 aqR
 aqR
-aqY
-arP
-aqY
+yab
+arO
+swP
 aqR
 aqR
 aqR
@@ -36326,11 +36505,11 @@ aqz
 aaM
 aqR
 aqR
-yaZ
-arz
-arz
-arz
-yaZ
+aqR
+aqY
+thf
+aqY
+aqR
 aqR
 aqR
 aaM
@@ -36584,9 +36763,9 @@ aaM
 aaM
 ybt
 yas
-arz
-arz
-arz
+gJR
+uoc
+yao
 yba
 iGj
 aaM
@@ -36841,8 +37020,8 @@ aaM
 aaM
 ybt
 yat
-arz
-arz
+bkK
+pMH
 arz
 ybb
 iGj
@@ -37098,9 +37277,9 @@ aaM
 aaM
 ybt
 arh
-arz
-arz
-arz
+sME
+nMW
+oZO
 asv
 iGj
 aaM
@@ -37355,10 +37534,10 @@ aaM
 ybm
 aqR
 yau
-arz
-arz
-arz
-asv
+gGz
+lDM
+kVl
+lGs
 aqR
 yah
 aaM
@@ -37612,9 +37791,9 @@ aaM
 aqR
 aqR
 yav
+otk
 arz
-yaM
-arz
+sUt
 ybd
 aqR
 aqR
@@ -37869,9 +38048,9 @@ aaM
 aqR
 aqR
 yay
+otk
 arz
-arz
-arz
+sUt
 ybe
 aqR
 aqR
@@ -38125,11 +38304,11 @@ aaM
 aaM
 aaM
 iGj
-yay
-arz
-arz
-arz
-ybe
+dmX
+otk
+cUY
+sUt
+wMx
 iGj
 aaM
 aaM
@@ -38382,11 +38561,11 @@ aaM
 aaM
 aaM
 iGj
-yax
+dmX
+otk
 arz
-arz
-arz
-ybf
+sUt
+wMx
 iGj
 aaM
 aaM
@@ -38639,11 +38818,11 @@ aaM
 aaM
 aWP
 iGj
-xWs
+dmX
+otk
 arz
-arz
-arz
-ybg
+sUt
+wMx
 iGj
 aWP
 aaM
@@ -38896,11 +39075,11 @@ aaM
 aaM
 ybm
 aqR
-ybh
+yav
+otk
 arz
-arz
-arz
-ybh
+sUt
+ybd
 aqR
 yah
 aaM
@@ -39153,11 +39332,11 @@ aaM
 aaM
 aqR
 aqR
-aqR
-arz
-arz
-arz
-aqR
+yay
+vyL
+skz
+msm
+ybe
 aqR
 aqR
 aaM
@@ -39665,15 +39844,15 @@ aaM
 aaM
 aaM
 aaM
-aaM
 aqR
 aqR
-arz
-arz
+aqR
+pNN
+eFm
 asi
 aqR
 aqR
-aaM
+aqR
 aaM
 aaM
 aaM
@@ -39926,7 +40105,7 @@ aaM
 aqR
 aqR
 yaG
-arz
+eFm
 yaR
 aqR
 aqR
@@ -40182,9 +40361,9 @@ aaM
 aaM
 aqR
 aqR
-aqR
-arT
-aqR
+xiD
+arh
+keF
 aqR
 aqR
 aaM
@@ -40438,11 +40617,11 @@ aaM
 aaM
 aaM
 aaM
-aqR
+yaD
 yaH
 arU
 yaS
-aqR
+iGj
 aaM
 aaM
 aaM
@@ -42234,13 +42413,13 @@ aaM
 ahV
 aaM
 aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
+aWP
+aWP
+aWP
+aWP
+aWP
+aWP
+aWP
 aaM
 aaM
 aaM
@@ -42491,13 +42670,13 @@ aaM
 aaM
 aaM
 aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
+aWP
+aWP
+aWP
+aWP
+aWP
+aWP
+aWP
 aaM
 aaM
 aaM
@@ -42748,16 +42927,16 @@ ahM
 ahM
 ahM
 ahM
-ahM
-ahM
-ahM
-ahM
-ahM
-ahM
-ahM
-ahM
-ahM
-ahM
+aWP
+aWP
+aWP
+aWP
+aWP
+aWP
+aWP
+aaM
+aaM
+aaM
 ahM
 ahM
 ahM
@@ -43005,13 +43184,13 @@ aaM
 aaM
 aaM
 aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
+aWP
+aWP
+aWP
+aWP
+aWP
+aWP
+aWP
 aaM
 aaM
 aaM
@@ -43262,13 +43441,13 @@ aaM
 aaM
 aaM
 aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
+aWP
+aWP
+aWP
+aWP
+aWP
+aWP
+aWP
 aaM
 aaM
 aaM
@@ -43519,13 +43698,13 @@ aaM
 aaM
 aaM
 aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
+aWP
+aWP
+aWP
+aWP
+aWP
+aWP
+aWP
 aaM
 aaM
 aaM
@@ -43776,13 +43955,13 @@ aaM
 aaM
 aaM
 aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
+aWP
+aWP
+aWP
+aWP
+aWP
+aWP
+aWP
 aaM
 aaM
 aaM
