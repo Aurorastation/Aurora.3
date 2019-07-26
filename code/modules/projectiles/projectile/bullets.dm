@@ -176,6 +176,11 @@
 	range_step = 1
 	spread_step = 10
 
+/obj/item/projectile/bullet/pellet/shotgun/canister
+	pellets = 15
+	range_step = 3
+	spread_step = 15
+
 /* "Rifle" rounds */
 
 /obj/item/projectile/bullet/rifle
@@ -326,3 +331,20 @@
 	damage = 30
 	muzzle_type = /obj/effect/projectile/muzzle/gauss
 	embed = 0
+
+/obj/item/projectile/bullet/cannonball
+	name = "cannonball"
+	icon_state = "cannonball"
+	damage = 60
+	embed = 0
+	penetrating = 1
+	armor_penetration = 25
+
+/obj/item/projectile/bullet/cannonball/explosive
+	damage = 30
+	penetrating = 0
+	armor_penetration = 5
+
+/obj/item/projectile/bullet/cannonball/explosive/on_impact(var/atom/A)
+	explosion(A, -1, 1, 2)
+	..()

@@ -87,6 +87,11 @@
 	desc = "A stylish, if purple, beret."
 	icon_state = "purpleberet"
 
+/obj/item/clothing/head/beret/liaison
+	name = "corporate liaison beret"
+	desc = "A stylish beret worn by corporate liaisons."
+	icon_state = "centcomofficerberet"
+
 /obj/item/clothing/head/beret/centcom/officer
 	name = "officers beret"
 	desc = "A black beret adorned with the shield - a silver kite shield with an engraved sword - of the NanoTrasen security forces."
