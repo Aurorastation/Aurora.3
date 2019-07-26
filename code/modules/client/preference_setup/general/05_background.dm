@@ -76,9 +76,17 @@
 
 /datum/category_item/player_setup_item/general/background/sanitize_character()
 	if(!pref.citizenship)
-		pref.citizenship	= "Republic of Biesel"
+		pref.citizenship	= CITIZENSHIP_BIESEL
 	if(!pref.religion)
-		pref.religion		= "None"
+		pref.religion		= RELIGION_NONE
+
+	var/datum/species/S = all_species[pref.species]
+
+	if(!pref.citizenship in S.allowed_citizenships)
+		pref.citizenship	= CITIZENSHIP_BIESEL
+
+	if(!pref.religion in S.allowed_religions)
+		pref.religion	= RELIGION_NONE
 
 	pref.nanotrasen_relation = sanitize_inlist(pref.nanotrasen_relation, COMPANY_ALIGNMENTS, initial(pref.nanotrasen_relation))
 
@@ -115,23 +123,24 @@
 		var/choice = input(user, "Please choose your current citizenship.", "Character Preference", pref.citizenship) as null|anything in S.allowed_citizenships
 		if(!choice || !CanUseTopic(user))
 			return TOPIC_NOACTION
-		choice = html_decode(choice)
 		show_citizenship_menu(user, choice)
 		return TOPIC_REFRESH
 
 	else if(href_list["set_citizenship"])
 		pref.citizenship = (html_decode(href_list["set_citizenship"]))
+		sanitize_character()
+		return TOPIC_REFRESH
 
 	else if(href_list["religion"])
-		var/choice = input(user, "Please choose a religion.", "Character Preference", pref.religion) as null|anything in religion_choices + list("None","Other")
+		var/choice = input(user, "Please choose a religion.", "Character Preference", pref.religion) as null|anything in S.allowed_religions
 		if(!choice || !CanUseTopic(user))
 			return TOPIC_NOACTION
-		if(choice == "Other")
-			var/raw_choice = sanitize(input(user, "Please enter a religon.", "Character Preference")  as text|null, MAX_NAME_LEN)
-			if(raw_choice)
-				pref.religion = sanitize(raw_choice)
-		else
-			pref.religion = choice
+		show_religion_menu(user, choice)
+		return TOPIC_REFRESH
+
+	else if(href_list["set_religion"])
+		pref.religion = (html_decode(href_list["set_religion"]))
+		sanitize_character()
 		return TOPIC_REFRESH
 
 	else if(href_list["set_medical_records"])
@@ -156,13 +165,24 @@
 
 /datum/category_item/player_setup_item/general/background/proc/show_citizenship_menu(mob/user, selected_citizenship)
 	for(var/citizenship in subtypesof(/datum/citizenship))
-		var/datum/reagent/picked_citizenship = new citizenship
+		var/datum/citizenship/picked_citizenship = new citizenship
 		if (picked_citizenship.name == selected_citizenship)
 			var/datum/citizenship/C = picked_citizenship
 
 			var/list/dat = list("<center><b>[C.name]</center></b>")
 
-			dat += "<br><br><center><a href='?src=\ref[user.client];JSlink=wiki;wiki_page=[replacetext(picked_citizenship.name, " ", "_")]'>Read the Wiki</a></center>"
+			dat += "<br><br><center><a href='?src=\ref[user.client];JSlink=wiki;wiki_page=[replacetext(C.name, " ", "_")]'>Read the Wiki</a></center>"
 			dat += "<br>[C.description]"
-			dat += "<br><center>\[<a href='?src=\ref[src];set_citizenship=[html_encode(C)]'>select</a>]\</center>"
-			show_browser(user, dat.Join(), "window=citizenshippreview;size=400x600")
+			dat += "<br><center>\[<a href='?src=\ref[src];set_citizenship=[html_encode(C.name)]'>Select</a>\]</center>"
+			show_browser(user, dat.Join(), "window=citizenshippreview;size=400x500")
+
+/datum/category_item/player_setup_item/general/background/proc/show_religion_menu(mob/user, selected_religion)
+	for(var/religion in subtypesof(/datum/religion))
+		var/datum/religion/picked_religion = new religion
+		if (picked_religion.name == selected_religion)
+			var/datum/religion/C = picked_religion
+
+			var/list/dat = list("<center><b>[C.name]</center></b>")
+			dat += "<br>[C.description]"
+			dat += "<br><center>\[<a href='?src=\ref[src];set_religion=[html_encode(C.name)]'>Select</a>\]</center>"
+			show_browser(user, dat.Join(), "window=religionpreview;size=400x500")

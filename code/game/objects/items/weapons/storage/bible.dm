@@ -36,3 +36,81 @@
 	if (src.use_sound)
 		playsound(src.loc, src.use_sound, 50, 1, -5)
 	..()
+
+/obj/item/weapon/storage/bible/proc/set_religion(mob/living/carbon/human/H)
+	if(use_check(H))
+		return
+
+	if(!ishuman(H))
+		return
+
+	var/religion_name = "Christianity"
+	var/new_religion = sanitize(input(H, "You are the crew services officer. Would you like to change your religion? Default is Christianity, in SPACE.", "Name change", religion_name), MAX_NAME_LEN)
+
+	if (!new_religion)
+		new_religion = religion_name
+
+	var/deity_name = "Space Jesus"
+	var/new_deity = sanitize(input(H, "Would you like to change your deity? Default is Space Jesus.", "Name change", deity_name), MAX_NAME_LEN)
+
+	if ((length(new_deity) == 0) || (new_deity == "Space Jesus") )
+		new_deity = deity_name
+
+	deity_name = new_deity
+	SSticker.Bible_deity_name = new_deity
+
+	var/book_name = "holy bible"
+	book_name = sanitize(input(H, "Would you like the change your bible name? Default is holy bible.", "Book name change", book_name), MAX_NAME_LEN)
+
+	if (!book_name)
+		book_name = book_name
+
+	name = book_name
+	SSticker.Bible_name = book_name
+
+
+	var/new_book_style = input(H,"Which bible style would you like?") in list("Bible", "Koran", "Scrapbook", "Creeper", "White Bible", "Holy Light", "Atheist", "Tome", "The King in Yellow", "Ithaqua", "Scientology", "the bible melts", "Necronomicon")
+	switch(new_book_style)
+		if("Koran")
+			icon_state = "koran"
+			item_state = "koran"
+		if("Scrapbook")
+			icon_state = "scrapbook"
+			item_state = "scrapbook"
+		if("Creeper")
+			icon_state = "creeper"
+			item_state = "syringe_kit"
+		if("White Bible")
+			icon_state = "white"
+			item_state = "syringe_kit"
+		if("Holy Light")
+			icon_state = "holylight"
+			item_state = "syringe_kit"
+		if("Atheist")
+			icon_state = "athiest"
+			item_state = "syringe_kit"
+		if("Tome")
+			icon_state = "tome"
+			item_state = "syringe_kit"
+		if("The King in Yellow")
+			icon_state = "kingyellow"
+			item_state = "kingyellow"
+		if("Ithaqua")
+			icon_state = "ithaqua"
+			item_state = "ithaqua"
+		if("Scientology")
+			icon_state = "scientology"
+			item_state = "scientology"
+		if("the bible melts")
+			icon_state = "melted"
+			item_state = "melted"
+		if("Necronomicon")
+			icon_state = "necronomicon"
+			item_state = "necronomicon"
+		else
+			icon_state = "bible"
+			item_state = "bible"
+
+	SSticker.Bible_icon_state = icon_state
+	SSticker.Bible_item_state = item_state
+

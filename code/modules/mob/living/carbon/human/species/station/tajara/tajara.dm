@@ -67,6 +67,9 @@
 
 	default_h_style = "Tajaran Ears"
 
+	allowed_citizenships = list(CITIZENSHIP_BIESEL, CITIZENSHIP_SOL, CITIZENSHIP_FRONTIER, CITIZENSHIP_ELYRA, CITIZENSHIP_ERIDANI, CITIZENSHIP_DOMINIA, CITIZENSHIP_PRA)
+	allowed_religions = list(RELIGION_NONE, RELIGION_OTHER, RELIGION_CHRISTIANITY, RELIGION_ISLAM, RELIGION_MOROZ, RELIGION_TWINSUNS, RELIGION_MATAKE, RELIGION_RASKARA)
+
 /datum/species/tajaran/before_equip(var/mob/living/carbon/human/H)
 	. = ..()
 	var/obj/item/clothing/shoes/sandal/S = new /obj/item/clothing/shoes/sandal(H)
