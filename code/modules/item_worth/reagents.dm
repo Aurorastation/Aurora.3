@@ -558,8 +558,14 @@
 /datum/reagent/arithrazine
 	value = 2.7
 
-/datum/reagent/spaceacillin
+/datum/reagent/deltamivir
 	value = 2.5
+
+/datum/reagent/thetamycin
+	value = 2.5
+
+/datum/reagent/coughsyrup
+	value = 1.5
 
 /datum/reagent/sterilizine
 	value = 2.2

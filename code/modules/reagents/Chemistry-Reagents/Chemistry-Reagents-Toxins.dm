@@ -507,137 +507,6 @@
 
 	fallback_specific_heat = 1.2
 
-/* Drugs */
-
-/datum/reagent/space_drugs
-	name = "Space drugs"
-	id = "space_drugs"
-	description = "An illegal chemical compound used as drug. Lasts twice as long when inhaled."
-	reagent_state = LIQUID
-	color = "#60A584"
-	metabolism = REM * 0.5
-	overdose = REAGENTS_OVERDOSE
-	taste_description = "bitterness"
-	taste_mult = 0.4
-	breathe_mul = 2
-	breathe_met = REM * 0.5 * 0.5
-
-/datum/reagent/space_drugs/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	var/mob/living/carbon/human/H = M
-	if(istype(H) && (H.species.flags & NO_BLOOD))
-		return
-	M.druggy = max(M.druggy, 15)
-	if(prob(10) && isturf(M.loc) && !istype(M.loc, /turf/space) && M.canmove && !M.restrained())
-		step(M, pick(cardinal))
-	if(prob(7))
-		M.emote(pick("twitch", "drool", "moan", "giggle"))
-
-/datum/reagent/serotrotium
-	name = "Serotrotium"
-	id = "serotrotium"
-	description = "A chemical compound that promotes concentrated production of the serotonin neurotransmitter in humans."
-	reagent_state = LIQUID
-	color = "#202040"
-	metabolism = REM * 0.25
-	overdose = REAGENTS_OVERDOSE
-	taste_description = "bitterness"
-	fallback_specific_heat = 1.2
-
-/datum/reagent/serotrotium/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	var/mob/living/carbon/human/H = M
-	if(istype(H) && (H.species.flags & NO_BLOOD))
-		return
-	if(prob(7))
-		M.emote(pick("twitch", "drool", "moan", "gasp"))
-	return
-
-/datum/reagent/cryptobiolin
-	name = "Cryptobiolin"
-	id = "cryptobiolin"
-	description = "Cryptobiolin causes confusion and dizzyness."
-	reagent_state = LIQUID
-	color = "#000055"
-	metabolism = REM * 0.5
-	overdose = REAGENTS_OVERDOSE
-	taste_description = "sourness"
-
-/datum/reagent/cryptobiolin/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	var/mob/living/carbon/human/H = M
-	if(istype(H) && (H.species.flags & NO_BLOOD))
-		return
-	M.dizziness = max(150, M.dizziness)//Setting dizziness directly works as long as the make_dizzy proc is called after to spawn the process
-	M.make_dizzy(4)
-
-	M.confused = max(M.confused, 20)
-
-/datum/reagent/impedrezene
-	name = "Impedrezene"
-	id = "impedrezene"
-	description = "Impedrezene is a narcotic that impedes one's ability by slowing down the higher brain cell functions."
-	reagent_state = LIQUID
-	color = "#C8A5DC"
-	overdose = REAGENTS_OVERDOSE
-	taste_description = "numbness"
-
-/datum/reagent/impedrezene/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	M.jitteriness = max(M.jitteriness - 5, 0)
-	if(prob(80))
-		M.adjustBrainLoss(3 * removed)
-	if(prob(50))
-		M.drowsyness = max(M.drowsyness, 3)
-	if(prob(10))
-		M.emote("drool")
-
-/datum/reagent/mindbreaker
-	name = "Mindbreaker Toxin"
-	id = "mindbreaker"
-	description = "A powerful hallucinogen, it can cause fatal effects in users."
-	reagent_state = LIQUID
-	color = "#B31008"
-	metabolism = REM * 0.25
-	overdose = REAGENTS_OVERDOSE
-	taste_description = "sourness"
-
-/datum/reagent/mindbreaker/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	M.hallucination = max(M.hallucination, 100)
-
-/datum/reagent/psilocybin
-	name = "Psilocybin"
-	id = "psilocybin"
-	description = "A strong psycotropic derived from certain species of mushroom."
-	color = "#E700E7"
-	overdose = REAGENTS_OVERDOSE
-	metabolism = REM * 0.5
-	taste_description = "mushroom"
-	fallback_specific_heat = 1.2
-
-/datum/reagent/psilocybin/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	var/mob/living/carbon/human/H = M
-	if(istype(H) && (H.species.flags & NO_BLOOD))
-		return
-	M.druggy = max(M.druggy, 30)
-	if(dose < 1)
-		M.apply_effect(3, STUTTER)
-		M.make_dizzy(5)
-		if(prob(5))
-			M.emote(pick("twitch", "giggle"))
-	else if(dose < 2)
-		M.apply_effect(3, STUTTER)
-		M.make_jittery(5)
-		M.dizziness = max(150, M.dizziness)
-		M.make_dizzy(5)
-		M.druggy = max(M.druggy, 35)
-		if(prob(10))
-			M.emote(pick("twitch", "giggle"))
-	else
-		M.apply_effect(3, STUTTER)
-		M.make_jittery(10)
-		M.dizziness = max(150, M.dizziness)
-		M.make_dizzy(10)
-		M.druggy = max(M.druggy, 40)
-		if(prob(15))
-			M.emote(pick("twitch", "giggle"))
-
 /* Transformations */
 
 /datum/reagent/slimetoxin
@@ -811,7 +680,7 @@
 	if(istype(M,/mob/living/carbon/human))
 		var/mob/living/carbon/human/H = M
 
-		if(H.reagents.has_reagent("spaceacillin", 15))
+		if(H.reagents.has_reagent("deltamivir", 15))
 			return
 
 		if(!H.internal_organs_by_name["zombie"] && prob(15))

@@ -56,6 +56,53 @@
 		-->
 		<div class="commit sansserif">
 
+			<h2 class="date">26 July 2019</h2>
+			<h3 class="author">MoondancerPony updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Makes it so that you can create a makeshift chemistry workstation allowing for crushing, chopping, and heating reagents. You can add an analyser to it to view the temperature of the reagents.</li>
+				<li class="rscadd">Adds a distillery to turn booze into pure(r) ethanol/butanol and a little bit of water.</li>
+				<li class="rscadd">Adds lean, made from cough syrup, sugar, and space-up. Adds krok juice, made from iron and orange juice. Adds several other drugs coded by BurgerBB in a previous closed PR.</li>
+				<li class="rscadd">Adds cough syrup which prevents coughing from viruses (and spreading viruses via coughing) when in your system.</li>
+				<li class="rscadd">Adds recipes for aforementioned drugs, some using cough syrup.</li>
+				<li class="rscadd">Adds the ability to stop wounds from bleeding using rags.</li>
+				<li class="rscadd">Rags can now be cut from cloth sheets using any sharp object.</li>
+				<li class="rscadd">Rags soaked in reagents will transfer 75% of their reagents as touching and 25% in blood.</li>
+				<li class="rscadd">Alcohol gives pain messages if it's in your blood. This only happens if injected or if it goes through wounds.</li>
+				<li class="rscadd">Certain reagents, like any kind of alcohol, space cleaner, sterilizine, honey, and to a very, VERY small extent water, will disinfect wounds when used on rags.</li>
+				<li class="rscadd">Deflated lungs can be treated, in an emergency, by clicking someone with a syringe with the chest targeted and grab intent enabled. Doing so again will damage the lungs and reverse the treatment.</li>
+				<li class="maptweak">An empty keg has been added to maintenance.</li>
+				<li class="rscadd">Mixing bowls can be printed from the autolathe.</li>
+				<li class="refactor">Spaceacillin has been refactored into several new chemicals. Cough syrup, allergy medicine, antivirals, antibiotics, and paracetamol can do the exact same spaceacillin once could.</li>
+				<li class="rscadd">Antibiotics (thetamycin) are now available for bacterial infections. They have a small chance of causing side effects such as nausea and vomiting.</li>
+				<li class="rscadd">Antivirals (deltamivir) have replaced spaceacillin and do mostly the same thing, save for bacterial wound infections. They have a small chance of causing side effects such as fever, muscle pain, and fatigue.</li>
+				<li class="rscadd">Cough syrup, allergy medication, paracetamol, and medicine cups are now available in NanoMed vendors.</li>
+				<li class="tweak">Some drinks now heal damage as they did before, though at reduced levels.</li>
+				<li class="tweak">Paracetamol now reduces fevers.</li>
+				<li class="maptweak">Medical's supplies have been reduced to a less-excessive level, making chemists less redundant.</li>
+				<li class="tweak">Syringes now begin capped. After use, syringes get dirty and can also transfer viruses between successive uses (on humans); it's recommended to throw them away in the new sharps bins. If they are only used to transfer reagents, they can be used indefinitely. Ported from Virgo.</li>
+				<li class="maptweak">Medical, Virology, and Xenobiology all have sharps bins for disposal of biohazardous glassware.</li>
+				<li class="tweak">There are now three hyposprays in the Medical sublevel, which are equivalent to syringes prior to this update. They take the same amount of time to inject, and have a capacity of 15 units, but are reusable.</li>
+				<li class="backend">Accidentally refactored (almost) all storage items to use the starts_with var instead of overriding fill(). This should make it a lot less complicated to add new storage boxes.</li>
+				<li class="imageadd">Modifies sprites for syringes, done by Geeves.</li>
+				<li class="rscadd">Adds medicine cups to take medicine by mouth in a dignified manner.</li>
+				<li class="tweak">Changes the glycerol recipe. One unit of triglycerides (can be obtained from meat) and two units of any pure alcohol will produce three units of glycerol and two units of acetone. Sulfuric acid is required as a catalyst.</li>
+				<li class="rscadd">Adds a recipe for glucose. Nutriment can be catalysed into glucose by adding sulfuric acid.</li>
+				<li class="tweak">Rats and other simplemobs can now only chew empty boxes or boxes with food in them.</li>
+			</ul>
+
+			<h2 class="date">25 July 2019</h2>
+			<h3 class="author">Arrow768 updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixes miners being unable to spawn with aviator-mesons.</li>
+				<li class="bugfix">Fixes Heph-miners spawning with the wrong id card and jumpsuit.</li>
+			</ul>
+			<h3 class="author">Skull132 updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Modified the way the cell charge anomaly works. It no longer uses absurd ranges to charge stuff.</li>
+				<li class="tweak">ZAS might be a tick slower at kicking objects around for large zones. On the flip side, it shouldn't lag the server as consistently anymore.</li>
+				<li class="tweak">VV might take a bit to generate the VV screen for large entries.</li>
+			</ul>
+
 			<h2 class="date">24 July 2019</h2>
 			<h3 class="author">Alberyk updated:</h3>
 			<ul class="changes bgimages16">

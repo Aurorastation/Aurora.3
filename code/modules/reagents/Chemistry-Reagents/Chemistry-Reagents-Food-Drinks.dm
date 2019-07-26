@@ -374,6 +374,7 @@
 	nutriment_factor = 10
 	color = "#FFFF00"
 	taste_description = "honey"
+	germ_adjust = 5
 
 /datum/reagent/nutriment/flour
 	name = "flour"
@@ -794,7 +795,8 @@
 
 /datum/reagent/drink/carrotjuice/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
 	..()
-	M.reagents.add_reagent("imidazoline", removed * 0.2)
+	if(alien != IS_DIONA)
+		M.reagents.add_reagent("imidazoline", removed * 0.2)
 
 /datum/reagent/drink/grapejuice
 	name = "Grape Juice"
@@ -829,6 +831,11 @@
 	glass_icon_state = "glass_green"
 	glass_name = "glass of lime juice"
 	glass_desc = "A glass of sweet-sour lime juice"
+
+/datum/reagent/drink/limejuice/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
+	..()
+	if(alien != IS_DIONA)
+		M.adjustToxLoss(-0.5 * removed)
 
 /datum/reagent/drink/orangejuice
 	name = "Orange juice"
@@ -881,6 +888,10 @@
 	glass_name = "glass of tomato juice"
 	glass_desc = "Are you sure this is tomato juice?"
 
+/datum/reagent/drink/tomatojuice/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
+	..()
+	M.heal_organ_damage(0, 0.1 * removed)
+
 /datum/reagent/drink/watermelonjuice
 	name = "Watermelon Juice"
 	id = "watermelonjuice"
@@ -924,6 +935,8 @@
 
 	glass_name = "glass of garlic juice"
 	glass_desc = "Who would even drink juice from garlic?"
+
+	germ_adjust = 7.5 // has allicin, an antibiotic
 
 /datum/reagent/drink/juice/onion
 	name = "Onion Juice"
@@ -993,6 +1006,7 @@
 /datum/reagent/drink/milk/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
 	..()
 	if(alien != IS_DIONA)
+		M.heal_organ_damage(0.1 * removed, 0)
 		holder.remove_reagent("capsaicin", 10 * removed)
 
 /datum/reagent/drink/milk/cream
@@ -1066,6 +1080,21 @@
 
 	var/last_taste_time = -100
 
+/datum/reagent/drink/tea/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
+	..()
+	M.adjustToxLoss(-0.1 * removed)
+
+
+/datum/reagent/drink/tea/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+	if(alien == IS_DIONA)
+		if(last_taste_time + 800 < world.time) // Not to spam message
+			to_chat(M, "<span class='danger'>Your body withers as you feel slight pain throughout.</span>")
+			last_taste_time = world.time
+		metabolism = REM * 0.33
+		M.adjustToxLoss(1.5 * removed)
+	else
+		M.adjustToxLoss(-0.1 * removed)
+
 /datum/reagent/drink/tea/icetea
 	name = "Iced Tea"
 	id = "icetea"
@@ -1136,6 +1165,10 @@
 	glass_desc = "A nice and refrshing beverage while you are reading."
 	glass_center_of_mass = list("x"=15, "y"=9)
 
+/datum/reagent/drink/coffee/soy_latte/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
+	..()
+	M.heal_organ_damage(0.1 * removed, 0)
+
 /datum/reagent/drink/coffee/cafe_latte
 	name = "Cafe Latte"
 	id = "cafe_latte"
@@ -1147,6 +1180,10 @@
 	glass_name = "glass of cafe latte"
 	glass_desc = "A nice, strong and refreshing beverage while you are reading."
 	glass_center_of_mass = list("x"=15, "y"=9)
+
+/datum/reagent/drink/coffee/cafe_latte/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
+	..()
+	M.heal_organ_damage(0.1 * removed, 0)
 
 /datum/reagent/drink/coffee/espresso
 	name = "Espresso"
@@ -1207,6 +1244,10 @@
 	glass_name = "glass of cafe latte"
 	glass_desc = "A nice, strong and refreshing beverage while you are reading."
 	glass_center_of_mass = list("x"=15, "y"=9)
+
+/datum/reagent/drink/coffee/latte/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
+	..()
+	M.heal_organ_damage(0.1 * removed, 0)
 
 /datum/reagent/drink/coffee/cappuccino
 	name = "Cappuccino"
@@ -1566,6 +1607,7 @@
 	if(alien != IS_DIONA)
 		M.adjustOxyLoss(-4 * removed)
 		M.heal_organ_damage(2 * removed, 2 * removed)
+		M.adjustToxLoss(-2 * removed)
 		if(M.dizziness)
 			M.dizziness = max(0, M.dizziness - 15)
 		if(M.confused)

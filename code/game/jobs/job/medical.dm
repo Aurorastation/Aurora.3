@@ -212,6 +212,7 @@
 	shoes = /obj/item/clothing/shoes/jackboots
 	l_ear = /obj/item/device/radio/headset/headset_med
 	l_hand = /obj/item/weapon/storage/firstaid/adv
+	r_hand = /obj/item/weapon/reagent_containers/hypospray
 	belt = /obj/item/weapon/storage/belt/medical/emt
 	pda =  /obj/item/device/pda/medical
 

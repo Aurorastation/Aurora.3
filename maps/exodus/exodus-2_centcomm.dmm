@@ -8872,7 +8872,7 @@
 	name = "\improper Raider Base"
 	})
 "azH" = (
-/obj/structure/reagent_dispensers/beerkeg,
+/obj/structure/reagent_dispensers/keg/beerkeg,
 /turf/unsimulated/floor{
 	dir = 8;
 	icon_state = "wood"
@@ -21024,7 +21024,7 @@
 	},
 /area/centcom/holding)
 "rQV" = (
-/obj/structure/reagent_dispensers/beerkeg,
+/obj/structure/reagent_dispensers/keg/beerkeg,
 /turf/unsimulated/floor{
 	icon_state = "redbluefull";
 	dir = 8
